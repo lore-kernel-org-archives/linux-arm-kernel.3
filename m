@@ -4,91 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63CDC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E710C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p7jZQ+YS+lWYeVwEC8VFaNnmqDYcJYXkLsLKJpyV1y0=; b=5EBYuXkchgnqZ4L3HFVfYXO5YL
-	neQonZmxYJDF41J0E21aXBcNkJ9oLEV8ELwfr+znumTsAw0LOCd8b0YBPuEjyIOevXXnGRkgFYuFr
-	uFCGmA6YxBo8uPCePzc6towA7kkTg+AXKJ6gswMgshm0S+Ic08dR9SLrLeEJtz1WKuIIt/A8yiwWX
-	RRCEYe3KEfs2WNFPziEyCc7fx6aSAC9Igp/Ug58wKD5F+OBvp1PBO57JzAWQw3GU+W+fETZFGM2TC
-	b4nbqEgdKrb0ZdJXfxdt7oMxnJjsLVJMgoOGZ3IxcrTg5tEWCstji74pU/8dB1RosEzz9nlLl0zlw
-	j+ZpmMBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wo041F93t/9xQdqS4Ovt8IZJ/Q+AOi1PvUChKnkds3Q=; b=p0C79urTDWH6vEZ5DZlC0TBPOL
+	AVI9qUTjl+8EvYCZ4TpN4WkRI5TpZdEWcLolYz2H3g8MVtpC+Qup/P1NjYdKleYj8kCuL7QmXu69O
+	js7ac6AxnQMJjx43bCgX18a8mE05//NRVvo1yyUumUy2sBsCiMV7yhUtcudpkcPce6pl8sV9N3ly7
+	LaEjIIwraRDb6bLnMHobvGKjHOSSPZp39u8TSYTKhcsUWVLfqLU3kwFidhV7j0vodeQNslwhS3iy/
+	EHUmR+3Fd4JpLjL57bgYVhMH+AIGrxcRqiJs0em3OMjWUrPpp6mmH87R20V1HK/ekEfuiZaQVJjJz
+	v9yOp7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsqW-0000000AITI-091f;
-	Wed, 18 Jun 2025 13:28:56 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrhY-0000000A5QJ-2Sw8
+	id 1uRstE-0000000AJt7-2l4x;
+	Wed, 18 Jun 2025 13:31:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRq2J-00000009mvA-11gA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:15:39 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-553d771435fso43130e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 05:15:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750248935; x=1750853735; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p7jZQ+YS+lWYeVwEC8VFaNnmqDYcJYXkLsLKJpyV1y0=;
-        b=DOadpy4PZ0urT3TeE29lqxwaeNeI03JCFIXHNA4e82BYXjHwFKYNREKlBd9eKlVnwF
-         zveAh4EQrd9jWHMEntobQg8SHV63FloutVG3Zp2uHOg0eUrrArV59yCQQo9TCFRf47px
-         60Bj2n2fcb2OC0hFTHa/5SbBJQWrqnC3IBnB35vWNmobfUtreqPwPp7eWKXSWCloT2P6
-         h/nat+SMJMbEYh0oGJTtydmwVVddOLqiYsjOBDBYau7KBIlRAM/LHazn0Xm17BB+rOxl
-         Uj1dTUy1Y/nUvaLoJgpwtEJ7pmqGPIsqnmlL/zOJC2+f5WcnkD+BJaL/F1hPPglLjXX1
-         NLig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750248935; x=1750853735;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p7jZQ+YS+lWYeVwEC8VFaNnmqDYcJYXkLsLKJpyV1y0=;
-        b=T9VyWuXhlxV8h1gh+d9GZWd5KKp0DHQ2v+i/jX6ZG8BlQwC/J9oGE+Yd8xSuGrdXKc
-         UGB8CMG09Nql/LqeC9G8JnVDjCg63fKJ8ikqRuqz8Tw7OiGON5JOcM+yvFd7c+oEIjUE
-         jh1cE2ga8gQq+zhohI43GKrWTQ++ejgPdje6woIViYPom+3KI0foSQFL27S1aX/Vdwjn
-         ZsG/lfzpFQqo3KyF6DSzZJZKkJcMSR2BFOnkGP+DhJ801ZB+pbG1cPD6ZHQkWGkMqhG6
-         crzU94Uu2wtTUTzqX5cz44ry9/Nw5q/YV8ll/0Gz+J5ekNvUoyzzCCo/PW5PsstXYT2F
-         wLaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXIlsgDtJCamqHpNvOby/ANM1RJC/Aw72ZvNxook5sRpwu1ndifeaX1xdwUoCPaSFiW2YDOEjuGdYbS1HYZ9Lar@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY5fMdoUgdscJ/7rzQdzSQTNKvzRsQlpkU4jdgjN1T34f7EW0l
-	GZ2yfRPQ6nMMH1hNja3ZO14Im7U9gm1i2DcWWE+0r5WTI2zsm+U83FGXNulDK7zvbCmt38asz1X
-	MRreKJP1UDXEevE8mO5ffyPpyx67aZyfdcsTI91RTng==
-X-Gm-Gg: ASbGncvwcSBj0fuhQB7J9EHH7PkC1izNl+rnjjteTgk726IHg58cuyT0gdiFXkQ6ETl
-	hPUsfo/Y3cTUIVbzKAHjETz8eO222+ArtpEPVlY1adu4Ef3PtLx0Gs6nPFPOqQL2hU+v/6St+Vs
-	DloCp5OzAvB6+3yK/Guohp6dL5521aXNpR8kllSs4XAAU=
-X-Google-Smtp-Source: AGHT+IGBMbnQS8CZK59QUADw6V+D/mLT8w6YMYDnxWivA5Amu6Cgv0XDSbL6jWX7zdVZfzp8QG5Ih8L/ToZVwFJNik0=
-X-Received: by 2002:a05:6512:1285:b0:545:6fa:bf5f with SMTP id
- 2adb3069b0e04-553b6e732b1mr4223465e87.2.1750248934811; Wed, 18 Jun 2025
- 05:15:34 -0700 (PDT)
+	Wed, 18 Jun 2025 10:28:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E142D14BF;
+	Wed, 18 Jun 2025 03:28:33 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AD3E3F66E;
+	Wed, 18 Jun 2025 03:28:53 -0700 (PDT)
+Date: Wed, 18 Jun 2025 11:28:45 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+Subject: Re: [PATCH v3 03/13] arm64: debug: call software break handlers
+ statically
+Message-ID: <aFKU3RQZL76S96Yb@J2N7QTR9R3>
+References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
+ <20250609173413.132168-4-ada.coupriediaz@arm.com>
+ <15c103f5-fd7a-4960-b984-4055a745aa5a@arm.com>
+ <5e7afdfa-1f03-4914-a58e-1dcb05c26199@arm.com>
 MIME-Version: 1.0
-References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com> <20250613033001.3153637-7-jacky_chou@aspeedtech.com>
-In-Reply-To: <20250613033001.3153637-7-jacky_chou@aspeedtech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 18 Jun 2025 14:15:23 +0200
-X-Gm-Features: AX0GCFscY4ky5ebft20JokFvuO1y3hVcQ04FGalsWAeschf7cTa_SUmnKoC4ETU
-Message-ID: <CACRpkdaX24z5YsfcrB2oqbZpdexZJNREGkWiYgq1ar0c8O0QBA@mail.gmail.com>
-Subject: Re: [PATCH 6/7] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org, 
-	kishon@kernel.org, p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, elbadrym@google.com, romlem@google.com, 
-	anhphan@google.com, wak@google.com, yuxiaozhang@google.com, 
-	BMC-SW@aspeedtech.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5e7afdfa-1f03-4914-a58e-1dcb05c26199@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_051536_639647_C53CF19D 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_032855_324126_5CAAC882 
+X-CRM114-Status: GOOD (  26.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,19 +70,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 5:30=E2=80=AFAM Jacky Chou <jacky_chou@aspeedtech.c=
-om> wrote:
+On Mon, Jun 16, 2025 at 02:29:37PM +0100, Ada Couprie Diaz wrote:
+> On 13/06/2025 07:11, Anshuman Khandual wrote:
+> 
+> > A small nit - s/break handlers/break point handlers/
+> You are right, checking again I was using too small a character limit for
+> the summary line (55), which is not relevant. I will write `breakpoint` in
+> full, I wasn't happy about leaving it out !
 
-> The PCIe RC PERST uses SSPRST# as PERST#  and enable this pin
-> to output.
->
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+FWIW, saying "software breakpoint" sounds good to me.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+[...]
 
-Can I just apply this patch 6/7 in isolation from the others, to
-the pin control tree?
+> > On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
+> > > Unify the naming of the software breakpoint handlers to XXX_brk_handler(),
+> > > making it clear they are related and to differentiate from the
+> > > hardware breakpoints.
+> > Unless absolutely necessary - could we please move these renames into a
+> > separate patch in itself instead ? That will reduce the churn and help
+> > the reviewers see the functional changes more clearly.
+> Fair enough, I can move the renames to a later patch to avoid renaming in
+> all the places
+> that get removed in this patch.
+> Would it make sense to combine it with the single step handler renames in
+> this case, or would it be better to have two independent commits ?
 
-Yours,
-Linus Walleij
+TBH I think this is fine as-is and doesn't need to be split out. The
+renames aid clarity, and the churn to early_brk64() is small.
+
+[...]
+
+> > >   void __init trap_init(void)
+> > >   {
+> > > -	register_kernel_break_hook(&bug_break_hook);
+> > > -#ifdef CONFIG_CFI_CLANG
+> > > -	register_kernel_break_hook(&cfi_break_hook);
+> > > -#endif
+> > > -	register_kernel_break_hook(&fault_break_hook);
+> > > -#ifdef CONFIG_KASAN_SW_TAGS
+> > > -	register_kernel_break_hook(&kasan_break_hook);
+> > > -#endif
+> > > -#ifdef CONFIG_UBSAN_TRAP
+> > > -	register_kernel_break_hook(&ubsan_break_hook);
+> > > -#endif
+> > >   	debug_traps_init();
+> > >   }
+> > debug_traps_init() can be renamed as trap_init() and just drop this
+> > redundant indirection. All applicable comments can also be changed
+> > as required there after.
+> I understand what you mean, but I would be tempted to not change it,
+> with the following reasons :
+>  - `debug_traps_init()` gets removed entirely in the last commit,
+>  - having `trap_init()` in `traps.c` makes more sense than
+> `debug-monitors.c` to me
+>  - `trap_init()` ends up empty at the end of the series, it could make sense
+> to simply
+>    remove it entirely, given there is an empty weak definition in
+> `init/main.c` already.
+> 
+> What do you think ?
+
+I agree with your reasoning, please leave it as-is!
+
+Mark.
 
