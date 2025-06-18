@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF9CC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 09:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912DDC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 09:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOnPSH93FhJKMpmMyWCOvtwqshfbto1LRkpLDwt3+Ko=; b=FD/G/he40TXQzSTPPmKVLd3DaG
-	h4D07lPOIqupWEZ74iN06tWmLOrHT4pzYjnW/ex4VeswJElJulSbmG45XXOie+qpP9I9fiKQthVCE
-	7w1bBFI8JrR0LSTAuTQe7ND7hF+HpdBKauzhSdP3Uod5egPXhxt4iXzciRV/ByhIgAHN8bLaP7HTz
-	kk5pOUBpnQY6KtjSY/WcIXcr642M0cSqh/2m8+TKxAetrGrSqqxkxxkqx9oUED7EO272ojqaFnaab
-	Jj1OMN3k72ROPRuN0IP8ZRSgL+eSvIndijiIKrzvs2JgcbPrSn9VJfUw3L3Z4xDJpn+TisW9RpyPf
-	zAQfbAFQ==;
+	bh=hyt+ylQ3TVildsnev1JmzmMFN4Sxz47Y4YCkmeQXSm0=; b=tGxZNqtSXtH3ZlbGY1Sv8aQYv1
+	jNpHxhdYKr2O3Y7iuVS564+wFOUT28egWnjY19r4JYGLPSYMDEc7ULa096MlasfdeseXhpu6MxFHZ
+	laIU1Sh7BxcJysQ/cVkEZNuMhAooPepdInstsmO3FAHOjW1dmIxWsxV5HlbYesFCEqbMUuG+CbMXX
+	4ZdOuO8rfw/IG0NYCBVajFkUhWwAYl7I3qBYGrsUwyrp7GpEN9Bb7XK3zlkvNxCnOV4oNePB6+Mwn
+	XzfYWk+Rp0OJiK5MdrKNcrRZSsk+dF7F3M8lXWe1jqYsD88HEiD1/jmldjrshKWit8uKOeeQB5Wv9
+	f9VglITw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpGC-00000009ctK-3KAJ;
-	Wed, 18 Jun 2025 09:39:12 +0000
+	id 1uRpIO-00000009dVA-3ZnT;
+	Wed, 18 Jun 2025 09:41:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRp7V-00000009at9-262v
+	id 1uRp7Z-00000009auX-07nq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 09:30:14 +0000
+	Wed, 18 Jun 2025 09:30:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79D161D15;
-	Wed, 18 Jun 2025 02:29:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1054B1D31;
+	Wed, 18 Jun 2025 02:29:56 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CCF123F58B;
-	Wed, 18 Jun 2025 02:30:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 61AD63F58B;
+	Wed, 18 Jun 2025 02:30:13 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -58,17 +58,17 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v7 3/8] arm64/kernel: support store-only mte tag check
-Date: Wed, 18 Jun 2025 10:29:52 +0100
-Message-Id: <20250618092957.2069907-4-yeoreum.yun@arm.com>
+Subject: [PATCH v7 4/8] arm64/hwcaps: add MTE_STORE_ONLY hwcaps
+Date: Wed, 18 Jun 2025 10:29:53 +0100
+Message-Id: <20250618092957.2069907-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250618092957.2069907-1-yeoreum.yun@arm.com>
 References: <20250618092957.2069907-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_023013_627597_7E0CD363 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20250618_023017_226141_1CB9D266 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,94 +83,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce new flag -- MTE_CTRL_STORE_ONLY used to set store-only tag check.
-This flag isn't overridden by prefered tcf flag setting but set together
-with prefered setting of way to report tag check fault.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
+
+add MTE_STORE_ONLY hwcaps so that user can use this feature.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/processor.h |  2 ++
- arch/arm64/kernel/mte.c            | 11 ++++++++++-
- arch/arm64/kernel/process.c        |  6 +++++-
- 3 files changed, 17 insertions(+), 2 deletions(-)
+ Documentation/arch/arm64/elf_hwcaps.rst | 3 +++
+ arch/arm64/include/asm/hwcap.h          | 1 +
+ arch/arm64/include/uapi/asm/hwcap.h     | 1 +
+ arch/arm64/kernel/cpufeature.c          | 1 +
+ arch/arm64/kernel/cpuinfo.c             | 1 +
+ 5 files changed, 7 insertions(+)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 1bf1a3b16e88..61d62bfd5a7b 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -23,6 +23,8 @@
- #define MTE_CTRL_TCF_ASYNC		(1UL << 17)
- #define MTE_CTRL_TCF_ASYMM		(1UL << 18)
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 358f5af035ff..f58ada4d6cb2 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -438,6 +438,9 @@ HWCAP2_POE
+ HWCAP3_MTE_FAR
+     Functionality implied by ID_AA64PFR2_EL1.MTEFAR == 0b0001.
  
-+#define MTE_CTRL_STORE_ONLY		(1UL << 19)
++HWCAP3_MTE_STORE_ONLY
++    Functionality implied by ID_AA64PFR2_EL1.MTESTOREONLY == 0b0001.
 +
- #ifndef __ASSEMBLY__
+ 4. Unused AT_HWCAP bits
+ -----------------------
  
- #include <linux/build_bug.h>
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 2fbfd27ff5f2..e5e773844889 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -200,7 +200,7 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 	 * program requested values go with what was requested.
- 	 */
- 	resolved_mte_tcf = (mte_ctrl & pref) ? pref : mte_ctrl;
--	sctlr &= ~SCTLR_EL1_TCF0_MASK;
-+	sctlr &= ~(SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK);
- 	/*
- 	 * Pick an actual setting. The order in which we check for
- 	 * set bits and map into register values determines our
-@@ -212,6 +212,10 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, ASYNC);
- 	else if (resolved_mte_tcf & MTE_CTRL_TCF_SYNC)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, SYNC);
-+
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		sctlr |= SYS_FIELD_PREP(SCTLR_EL1, TCSO0, 1);
-+
- 	task->thread.sctlr_user = sctlr;
- }
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 28dd1ac29ecc..13f94c8ddfc0 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -177,6 +177,7 @@
  
-@@ -371,6 +375,9 @@ long set_mte_ctrl(struct task_struct *task, unsigned long arg)
- 	    (arg & PR_MTE_TCF_SYNC))
- 		mte_ctrl |= MTE_CTRL_TCF_ASYMM;
+ #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
+ #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
++#define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
  
-+	if (arg & PR_MTE_STORE_ONLY)
-+		mte_ctrl |= MTE_CTRL_STORE_ONLY;
-+
- 	task->thread.mte_ctrl = mte_ctrl;
- 	if (task == current) {
- 		preempt_disable();
-@@ -398,6 +405,8 @@ long get_mte_ctrl(struct task_struct *task)
- 		ret |= PR_MTE_TCF_ASYNC;
- 	if (mte_ctrl & MTE_CTRL_TCF_SYNC)
- 		ret |= PR_MTE_TCF_SYNC;
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		ret |= PR_MTE_STORE_ONLY;
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 7d22527a7975..72c78468b806 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -144,5 +144,6 @@
+  * HWCAP3 flags - for AT_HWCAP3
+  */
+ #define HWCAP3_MTE_FAR		(1UL << 0)
++#define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
  
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index a5ca15daeb8a..fc49f2b3ded1 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -849,10 +849,14 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
- 	if (is_compat_thread(ti))
- 		return -EINVAL;
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index fdc48aa1f0e2..b4204fa743f0 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3228,6 +3228,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE2, CAP_HWCAP, KERNEL_HWCAP_MTE),
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE3, CAP_HWCAP, KERNEL_HWCAP_MTE3),
+ 	HWCAP_CAP(ID_AA64PFR2_EL1, MTEFAR, IMP, CAP_HWCAP, KERNEL_HWCAP_MTE_FAR),
++	HWCAP_CAP(ID_AA64PFR2_EL1, MTESTOREONLY, IMP, CAP_HWCAP , KERNEL_HWCAP_MTE_STORE_ONLY),
+ #endif /* CONFIG_ARM64_MTE */
+ 	HWCAP_CAP(ID_AA64MMFR0_EL1, ECV, IMP, CAP_HWCAP, KERNEL_HWCAP_ECV),
+ 	HWCAP_CAP(ID_AA64MMFR1_EL1, AFP, IMP, CAP_HWCAP, KERNEL_HWCAP_AFP),
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index e552cb305641..ba834909a28b 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -161,6 +161,7 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_STMOP]	= "smestmop",
+ 	[KERNEL_HWCAP_SME_SMOP4]	= "smesmop4",
+ 	[KERNEL_HWCAP_MTE_FAR]		= "mtefar",
++	[KERNEL_HWCAP_MTE_STORE_ONLY]	= "mtestoreonly",
+ };
  
--	if (system_supports_mte())
-+	if (system_supports_mte()) {
- 		valid_mask |= PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC \
- 			| PR_MTE_TAG_MASK;
- 
-+		if (cpus_have_cap(ARM64_MTE_STORE_ONLY))
-+			valid_mask |= PR_MTE_STORE_ONLY;
-+	}
-+
- 	if (arg & ~valid_mask)
- 		return -EINVAL;
- 
+ #ifdef CONFIG_COMPAT
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
