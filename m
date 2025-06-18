@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B9DC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A58C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wNS5dTEF+2i7jwZ235uXxOrvBy69u8K8AlvOKsVbO1k=; b=mHVLF3BtulhbkusYIyP2oXMWlT
-	CTmuZxurlirngGt7CiuKDELgbvF8JreCdGp8q6DGFCT4lBeZyl9EEk74YX9HoMvpJMjCaw36asL+q
-	A97oiVoGnRx5nqn4sQgECRvkv2aOLtZx9UtIwDdAOLiw2JG4hr2hh191oQdM8topqIdWbgAlzJT9E
-	CM1B9R0MIA9nUfuSzmX0CfZNeyZFXMaBBqwAmtsBuroKYjyNu98/MSka1WSqP+s+9dgrswi3sDvUM
-	iAKq98HIMi0aBJBtSjyeix5l3nPft0UnJF4sp0gnOvN2yZ3s5y0iYDcJNqkZ11kdFXInc8zrmFdhf
-	24MgUlLw==;
+	bh=zQTB75G8uUgBMyAAX12JhH5txrAj1DcFBhtKKz24PTU=; b=prcCLstRwttsDgBrVkn6mlX/Ow
+	dzog8r+XrQNJqaYVNNdrSpUO+b7eOZU/xWGN6YkhBTfEwK/CYPn6oqTFY+n7mqH1eia/nkrOeI9bu
+	4Ylpl8yRD9aXsL+eGHX87BxuJwrw4vtWJpaCPUH4h3q3FkJJ3MEB1hk6HJVER5FisAnwes9QAut4t
+	bOFpc0wcOIvDDOuwmoTxJVxlMa4jDSZIZ1hBuiubJ3RVLDlB8jhhWMyNYrGvgrjZQ57p5msWG8zRa
+	yDEE6YecWzn9+KCPuB0+s52K/i4Fu0q+xd89stBWFTyNGU947ozRYwIYlmG1aEMZCyvwiEPCEux6j
+	7Yt2VV9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtpK-0000000ARF3-2P4A;
-	Wed, 18 Jun 2025 14:31:46 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uRtsU-0000000ASVE-199D;
+	Wed, 18 Jun 2025 14:35:02 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrXR-0000000A3rg-0rpQ;
-	Wed, 18 Jun 2025 12:05:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750248266; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=RzZx55D2awi+fO2vkEHMWH9OOXJ32TdxQctGvr9yX9nPyH83ftFQemoHFHmrCJAzZKFlIzPlqXI9Y/pIPS39qdjOXGE2rfhvjqHK0FtrCzTsdmDBmTuOUtN2MRaHsV7n6s3LieS75ki/Vdw5PQs57e3ZboFFGrp6/ZfixJw2wx4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750248266; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wNS5dTEF+2i7jwZ235uXxOrvBy69u8K8AlvOKsVbO1k=; 
-	b=j4lnktPmaR1nID6BIAnPS32tQUOqkHaZJZ8EKIKiNsi9aKI+7kEokVtw0vheCUK3Z89CCAodyzI0bJHmVYbIXxZBizdwx3THXcmsUw4doBg5U0TOswNjRJQRjRudDAPMmJLd2rYN5zzUwGd4m0TNLVK6GHmPaJNLj+3ZOAj9yqI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750248266;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=wNS5dTEF+2i7jwZ235uXxOrvBy69u8K8AlvOKsVbO1k=;
-	b=dZHM3y3mc88EBNV5fkDMwN4t4E2+Gk/gxR8lfkPPQxYyzHZiGwyPUC3nPKDsm+sC
-	Nb2ywFBo7uAY2RuWS2A3hs5A8fts4yT4KaQUgu2/ZfwwH6iLR+vaZFFo8Wc1zDsqkjY
-	CpqE98SKzBrOoaoLqhzTk37FIKVkcqqb37+4CrOE=
-Received: by mx.zohomail.com with SMTPS id 1750248264710842.3799880621831;
-	Wed, 18 Jun 2025 05:04:24 -0700 (PDT)
-Message-ID: <ff32d7c1-d811-46b8-8d3d-458dfebd14f8@collabora.com>
-Date: Wed, 18 Jun 2025 14:04:19 +0200
+	id 1uRrvp-0000000A8Kv-3pKL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 12:30:23 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-553d52cb80dso458712e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 05:30:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750249820; x=1750854620; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zQTB75G8uUgBMyAAX12JhH5txrAj1DcFBhtKKz24PTU=;
+        b=VFNF2fUBjcDCD+IPbNcL5Kb9/nxmgohGiYM9fj2HHv9uNHNHo3cmcALILGJ8bjLpdk
+         FuEjWOsmK/kRApnhtGjTB6djk8X4am6p/1DF+9pGgCdULwLDAl5yBFrgIJaU3zEfR6Rp
+         yg7COCansbtyyqoK9Ixe15n2hmreWoAkNmJnivTUZ1q8SShSvZ1dDtmIU9fOzU11r5bz
+         7eIP3pKiNviMo0UG0A4cMC8s8w5TXdL3wGFs+WiFZUi0J7S61l00ScgzEpJV21t6UUiT
+         mwyxVW+nURvr6F3bZP876Eze1VGqCXaHdtP+okdbOG4pfkSlMu/qggmiL//9j/1DWBQJ
+         O0xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750249820; x=1750854620;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zQTB75G8uUgBMyAAX12JhH5txrAj1DcFBhtKKz24PTU=;
+        b=aAyQyMZLOrB0bZovl1orzs8mvzzpNjTQBmrU6vLPHTGGxQ0xYobViOR8iJk8H8qtCd
+         nYJbL3XuYtkqHBNJtKuzmDILo+CxVKCbBpCRRrlvbmXbY+MywD0GFHnVFPC1WT0tGeA6
+         jefYetaq/p7jQ7A7DJ5abyX67XKjbP6OJAqLTeiMMYGjmMBJk1bzXQSNZLMSH6LUjPON
+         7CzJ+x/pUp53oW6s4S7dlgiUGO+SHR77iCC7ReeQK6Ia7aVv6d42SrHtXa6SwPkDC5VP
+         eOJx0M8r/ojh9rI94q/55AW5aDf8K/gialB9a/gZYsX2Vmzfmgs8sDvZYYJ8thHslHLy
+         YYPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWpyHlDFVOXLO8ff7FWWVPPdM9vz0AC+mhhdF2+EaGwhti5FPIVTWLLoL38eDtk7HAixHXwzQo78VwM44iIxp/+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeUGp3L12fkMNTVduYdgeKgxN9+oIu0YWTzdx67rOefClcloE2
+	u0hFeMlqJ+HsnleK7AgSTeUfjButkE1s1qDWc/fW9GyC2WSK9kgx4eWpsinr364CxJq99PgtG3z
+	vHWIcMjK8oywTXNu/6bEkq3bxQsVRBLNJfI7VzKch6A==
+X-Gm-Gg: ASbGncvWtMzAb8ooTtOrYZ6lVfROEuF+0vU5nxepr9wNJLcmd7KOABI2MoNJemiAPEq
+	2/4dBV1I1cGThZHr6DmQsA6ouji79ueTryn6wiNjYbATmVoVoelg7fUSrjDiwwKcCaucFXNTvav
+	xvBSiFJqDALRZL+Ocw/ZLlqCilTazUp50AwTWxC+cJwss=
+X-Google-Smtp-Source: AGHT+IGIhRJFv1Ba6R4yp8rFo6dY6wGpRl5V6O/QGXm52fbnJBdughdFvLkQvf2FB3CR5WNkXCk+SFCfrmRt90k53JM=
+X-Received: by 2002:a05:6512:b14:b0:553:2912:cfdc with SMTP id
+ 2adb3069b0e04-553d38ca1c3mr855269e87.9.1750249820186; Wed, 18 Jun 2025
+ 05:30:20 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] iommu: Add verisilicon IOMMU driver
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
- <20250616145607.116639-4-benjamin.gaignard@collabora.com>
- <20250617163219.GF1376515@ziepe.ca>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250617163219.GF1376515@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
+In-Reply-To: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 18 Jun 2025 14:30:09 +0200
+X-Gm-Features: AX0GCFvrCunV14RNvzKSZ2HTRXKME5qG74EO21bVrPNwSxtcFCcj-72MPW9Sr4Y
+Message-ID: <CACRpkdagchPQke6mu4Ma=OC169Fkm6swnPxA-oO=XxOoGQ+KiA@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: nuvoton: Fix boot on ma35dx platforms
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, Steam Lin <stlin2@winbond.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_050509_436495_7ACD4478 
-X-CRM114-Status: GOOD (  42.38  )
+X-CRM114-CacheID: sfid-20250618_053021_957108_198824EE 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,396 +96,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 13, 2025 at 8:13=E2=80=AFPM Miquel Raynal <miquel.raynal@bootli=
+n.com> wrote:
 
-Le 17/06/2025 à 18:32, Jason Gunthorpe a écrit :
-> On Mon, Jun 16, 2025 at 04:55:51PM +0200, Benjamin Gaignard wrote:
+> As part of a wider cleanup trying to get rid of OF specific APIs, an
+> incorrect (and partially unrelated) cleanup was introduced.
 >
->> +static struct vsi_iommu *vsi_iommu_from_dev(struct device *dev)
->> +{
->> +	struct vsi_iommudata *data = dev_iommu_priv_get(dev);
->> +
->> +	return data ? data->iommu : NULL;
-> It would be a serious bug if dev_iommu_priv_get() is null, don't check
-> for it, let it crash.
-
-Ok, I will simplify/merge the driver internal structure and remove this function.
-
->> +static struct iommu_domain *vsi_iommu_domain_alloc_paging(struct device *dev)
->> +{
->> +	struct vsi_iommu_domain *vsi_domain;
->> +
->> +	if (!dma_dev)
->> +		return NULL;
->> +
->> +	vsi_domain = kzalloc(sizeof(*vsi_domain), GFP_KERNEL);
->> +	if (!vsi_domain)
->> +		return NULL;
->> +
->> +	/*
->> +	 * iommu use a 2 level pagetable.
->> +	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
->> +	 * Allocate one 4 KiB page for each table.
->> +	 */
->> +	vsi_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
->> +					      SPAGE_SIZE);
->> +	if (!vsi_domain->dt)
->> +		goto err_free_domain;
->> +
->> +	vsi_domain->dt_dma = dma_map_single(dma_dev, vsi_domain->dt,
->> +					    SPAGE_SIZE, DMA_TO_DEVICE);
->> +	if (dma_mapping_error(dma_dev, vsi_domain->dt_dma)) {
->> +		dev_err(dma_dev, "DMA map error for DT\n");
->> +		goto err_free_dt;
->> +	}
->> +
->> +	vsi_domain->pta = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
->> +					       SPAGE_SIZE);
->> +	if (!vsi_domain->pta)
->> +		goto err_unmap_dt;
->> +
->> +	vsi_domain->pta_dma = dma_map_single(dma_dev, vsi_domain->pta,
->> +					     SPAGE_SIZE, DMA_TO_DEVICE);
->> +	if (dma_mapping_error(dma_dev, vsi_domain->pta_dma)) {
->> +		dev_err(dma_dev, "DMA map error for PTA\n");
->> +		goto err_free_pta;
->> +	}
->> +	vsi_domain->pta[0] = vsi_mk_pta(vsi_domain->dt_dma);
->> +
->> +	vsi_table_flush(vsi_domain, vsi_domain->pta_dma, 1024);
->> +	vsi_table_flush(vsi_domain, vsi_domain->dt_dma, NUM_DT_ENTRIES);
-> dma_map_single already flushes, put things in the write order and no
-> need to double flush.
-
-I don't get your point here, for me it flush two different pieces of memory.
-
+> The goal was to replace a device_for_each_chil_node() loop including an
+> additional condition inside by a macro doing both the loop and the
+> check on a single line.
 >
->> +	spin_lock_init(&vsi_domain->iommus_lock);
->> +	spin_lock_init(&vsi_domain->dt_lock);
->> +	INIT_LIST_HEAD(&vsi_domain->iommus);
->> +
->> +	vsi_domain->domain.geometry.aperture_start = 0;
->> +	vsi_domain->domain.geometry.aperture_end   = DMA_BIT_MASK(32);
->> +	vsi_domain->domain.geometry.force_aperture = true;
-> Initialize domain.pgsize_bitmap here and remove this:
+> The snippet:
 >
-> +       .pgsize_bitmap = VSI_IOMMU_PGSIZE_BITMAP,
+>         device_for_each_child_node(dev, child)
+>                 if (fwnode_property_present(child, "gpio-controller"))
+>                         continue;
 >
-> It is going away.
-
-Will be in v2.
-
+> was replaced by:
 >
->> +	return &vsi_domain->domain;
->> +
->> +err_free_pta:
->> +	iommu_free_pages(vsi_domain->pta);
->> +err_unmap_dt:
->> +	dma_unmap_single(dma_dev, vsi_domain->dt_dma,
->> +			 SPAGE_SIZE, DMA_TO_DEVICE);
->> +err_free_dt:
->> +	iommu_free_pages(vsi_domain->dt);
->> +err_free_domain:
->> +	kfree(vsi_domain);
->> +
->> +	return NULL;
->> +}
->> +
->> +static phys_addr_t vsi_iommu_iova_to_phys(struct iommu_domain *domain,
->> +					  dma_addr_t iova)
->> +{
->> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->> +	unsigned long flags;
->> +	phys_addr_t pt_phys, phys = 0;
->> +	u32 dte, pte;
->> +	u32 *page_table;
->> +
->> +	spin_lock_irqsave(&vsi_domain->dt_lock, flags);
-> No locking should be here. Drivers are supposed to use cmpxchg to set
-> the new tables to avoid races, however there is complexity around the
-> cache flushing that this locking solves.
+>         for_each_gpiochip_node(dev, child)
 >
-> IDK, you might be better to use the new iommupt stuff since all these
-> algorithms including the complicated lockless cache flushing
-> optmization are sorted out there.
+> which expands into:
 >
-> https://lore.kernel.org/linux-iommu/0-v3-a93aab628dbc+521-iommu_pt_jgg@nvidia.com/
-
-This series is not merged on mainline (at least I don't see it) so I will keep
-it like it is for the moment.
-
+>         device_for_each_child_node(dev, child)
+>                 for_each_if(fwnode_property_present(child, "gpio-controll=
+er"))
 >
->> +	dte_index = vsi_iova_dte_index(iova);
->> +	dte_addr = &vsi_domain->dt[dte_index];
->> +	dte = *dte_addr;
->> +	if (vsi_dte_is_pt_valid(dte))
->> +		goto done;
->> +
->> +	page_table = (u32 *)get_zeroed_page(GFP_ATOMIC | GFP_DMA32);
->> +	if (!page_table)
->> +		return ERR_PTR(-ENOMEM);
-> Don't use get_zeroed_page for page table memory.
-
-I will use kmem_cache in v2
-
+> This change is actually doing the opposite of what was initially
+> expected, breaking the probe of this driver, breaking at the same time
+> the whole boot of Nuvoton platforms (no more console, the kernel WARN()).
 >
->> +
->> +	pt_dma = dma_map_single(dma_dev, page_table, SPAGE_SIZE, DMA_TO_DEVICE);
->> +	if (dma_mapping_error(dma_dev, pt_dma)) {
->> +		dev_err(dma_dev, "DMA mapping error while allocating page table\n");
->> +		free_page((unsigned long)page_table);
->> +		return ERR_PTR(-ENOMEM);
->> +	}
->> +
->> +	dte = vsi_mk_dte(pt_dma);
->> +	*dte_addr = dte;
->> +
->> +	vsi_table_flush(vsi_domain, pt_dma, NUM_PT_ENTRIES);
->> +	vsi_table_flush(vsi_domain,
->> +			vsi_domain->dt_dma + dte_index * sizeof(u32), 1);
-> Double flushing again.
-
-Same here, for me I flushing two different memory area.
-
+> Revert these two changes to roll back to the correct behavior.
 >
->> +static int vsi_iommu_map_iova(struct vsi_iommu_domain *vsi_domain, u32 *pte_addr,
->> +			      dma_addr_t pte_dma, dma_addr_t iova,
->> +			      phys_addr_t paddr, size_t size, int prot)
->> +{
->> +	unsigned int pte_count;
->> +	unsigned int pte_total = size / SPAGE_SIZE;
->> +	phys_addr_t page_phys;
->> +
->> +	assert_spin_locked(&vsi_domain->dt_lock);
->> +
->> +	for (pte_count = 0; pte_count < pte_total; pte_count++) {
->> +		u32 pte = pte_addr[pte_count];
->> +
->> +		if (vsi_pte_is_page_valid(pte))
->> +			goto unwind;
->> +
->> +		pte_addr[pte_count] = vsi_mk_pte(paddr, prot);
-> So why is this:
->
-> #define VSI_IOMMU_PGSIZE_BITMAP 0x007ff000
->
-> If the sizes don't become encoded in the PTE? The bits beyond 4k
-> should reflect actual ability to store those sizes in PTEs, eg using
-> contiguous bits or something.
+> Fixes: 693c9ecd8326 ("pinctrl: nuvoton: Reduce use of OF-specific APIs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-The iommu use arrays to store up to 1024 4k pages indexes so the size
-isn't coded in the PTE bits but the numbers of used indexes for each arrays.
+Patch applied for fixes.
 
->
->> +		paddr += SPAGE_SIZE;
->> +	}
->> +
->> +	vsi_table_flush(vsi_domain, pte_dma, pte_total);
->> +
->> +	return 0;
->> +unwind:
->> +	/* Unmap the range of iovas that we just mapped */
->> +	vsi_iommu_unmap_iova(vsi_domain, pte_addr, pte_dma,
->> +			     pte_count * SPAGE_SIZE);
->> +
->> +	iova += pte_count * SPAGE_SIZE;
->> +	page_phys = vsi_pte_page_address(pte_addr[pte_count]);
->> +	pr_err("iova: %pad already mapped to %pa cannot remap to phys: %pa prot: %#x\n",
->> +	       &iova, &page_phys, &paddr, prot);
-> No pr_errs prints on normal errors.
-
-I will remove it in v2
-
->
->> +static void vsi_iommu_detach_device(struct iommu_domain *domain,
->> +				    struct device *dev)
->> +{
->> +	struct vsi_iommu *iommu;
->> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->> +	unsigned long flags;
->> +	int ret;
->> +
->> +	/* Allow 'virtual devices' (eg drm) to detach from domain */
->> +	iommu = vsi_iommu_from_dev(dev);
->> +	if (WARN_ON(!iommu))
->> +		return;
->> +
->> +	dev_dbg(dev, "Detaching from iommu domain\n");
->> +
->> +	if (!iommu->domain)
->> +		return;
->> +
->> +	spin_lock_irqsave(&vsi_domain->iommus_lock, flags);
->> +	list_del_init(&iommu->node);
->> +	spin_unlock_irqrestore(&vsi_domain->iommus_lock, flags);
-> The list del should probably be after the vsi_iommu_disable()? We
-> expect invalidations to continue to keep the IOTLB consistent until
-> the HW is no longer walking the page table.
-
-I will do that in v2.
-
->
->> +static struct iommu_device *vsi_iommu_probe_device(struct device *dev)
->> +{
->> +	struct vsi_iommudata *data;
->> +	struct vsi_iommu *iommu;
->> +
->> +	data = dev_iommu_priv_get(dev);
->> +	if (!data)
->> +		return ERR_PTR(-ENODEV);
->> +
->> +	iommu = vsi_iommu_from_dev(dev);
->> +
->> +	pr_info("%s,%d, consumer : %s, supplier : %s\n",
->> +		__func__, __LINE__, dev_name(dev), dev_name(iommu->dev));
-> No prints
->
->> +	/*
->> +	 * link will free by platform_device_del(master) via
->> +	 * BUS_NOTIFY_REMOVED_DEVICE
->> +	 */
->> +	data->link = device_link_add(dev, iommu->dev,
->> +				     DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
->> +
->> +	/* set max segment size for dev, needed for single chunk map */
->> +	if (!dev->dma_parms)
->> +		dev->dma_parms = kzalloc(sizeof(*dev->dma_parms), GFP_KERNEL);
->> +	if (!dev->dma_parms)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	dma_set_max_seg_size(dev, DMA_BIT_MASK(32));
-> I'm not sure this should be in an iommu driver??? Doesn't dma-iommu.c
-> deal with this stuff
-
-You are right, I will remove it.
-
->
->> +static void vsi_iommu_release_device(struct device *dev)
->> +{
->> +	struct vsi_iommudata *data = dev_iommu_priv_get(dev);
->> +
->> +	device_link_del(data->link);
-> Leaking data..
-
-I will change the driver internal structures and remove data->link.
-
->
->> +static int vsi_iommu_of_xlate(struct device *dev,
->> +			      const struct of_phandle_args *args)
->> +{
->> +	struct platform_device *iommu_dev;
->> +	struct vsi_iommudata *data;
->> +
->> +	data = devm_kzalloc(dma_dev, sizeof(*data), GFP_KERNEL);
->> +	if (!data)
->> +		return -ENOMEM;
->> +
->> +	dev_info(dev, "%s,%d\n", __func__, __LINE__);
->> +	iommu_dev = of_find_device_by_node(args->np);
->> +
->> +	data->iommu = platform_get_drvdata(iommu_dev);
->> +
->> +	dev_iommu_priv_set(dev, data);
-> Can you use iommu_fwspec_add_ids() instead of this?
->
-> The only thing 'data' is doing here is to pass the iommu_dev, it is
-> much better if you can get that from the fwspec in probe, like say ARM
-> does it:
->
-> 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
->
-> 	smmu = arm_smmu_get_by_fwnode(fwspec->iommu_fwnode);
->
-> And then don't allocate memory in the of_xlate.
-
-I will rework driver probe and the internal structure to avoid allocate here.
-
->
->> +static struct iommu_ops vsi_iommu_ops = {
->> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
->> +	.probe_device = vsi_iommu_probe_device,
->> +	.release_device = vsi_iommu_release_device,
->> +	.device_group = generic_single_device_group,
->> +	.pgsize_bitmap = VSI_IOMMU_PGSIZE_BITMAP,
-> move pgsize_bitmap to alloc paging
-
-ok
-
->
->
->> +static int vsi_iommu_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct vsi_iommu *iommu;
->> +	struct resource *res;
->> +	int num_res = pdev->num_resources;
->> +	int err, i;
->> +
->> +	iommu = devm_kzalloc(dev, sizeof(*iommu), GFP_KERNEL);
->> +	if (!iommu)
->> +		return -ENOMEM;
->> +
->> +	platform_set_drvdata(pdev, iommu);
-> This should be done last after the function can't fail
-
-sure I will fix it.
-
->
->> +
->> +	iommu->group = iommu_group_alloc();
->> +	if (IS_ERR(iommu->group)) {
->> +		err = PTR_ERR(iommu->group);
->> +		goto err_unprepare_clocks;
->> +	}
-> This should not be in iommu drivers. I'm guessing you want
-> generic_single_device_group() ?
-
-I will remove it.
-
->
->> +	/*
->> +	 * use the first registered sysmmu device for performing
->> +	 * dma mapping operations on iommu page tables (cpu cache flush)
->> +	 */
->> +	if (!dma_dev)
->> +		dma_dev = &pdev->dev;
-> Huh? This is racey, and why? What is the reason not to use the current
-> device always? Put the dev in the iommu_domain during
-> domain_alloc_paging and get it from  dev->iommu->iommu_dev->dev.
-
-I will change that too.
-
->
->> +
->> +	pm_runtime_enable(dev);
->> +
->> +	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
->> +	if (err)
->> +		goto err_put_group;
->> +
->> +	err = iommu_device_register(&iommu->iommu, &vsi_iommu_ops, dev);
->> +	if (err)
->> +		goto err_remove_sysfs;
-> Register should usually be last.
->
->> +	for (i = 0; i < iommu->num_irq; i++) {
->> +		int irq = platform_get_irq(pdev, i);
->> +
->> +		if (irq < 0)
->> +			return irq;
->> +
->> +		err = devm_request_irq(iommu->dev, irq, vsi_iommu_irq,
->> +				       IRQF_SHARED, dev_name(dev), iommu);
->> +		if (err)
->> +			goto err_unregister;
->> +	}
-> Why allocate interrupts after registration?
-
-I will rework probe function to fix all that.
-
-Thanks for your remarks.
-Benjamin
-
->
-> Jason
->
+Yours,
+Linus Walleij
 
