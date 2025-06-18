@@ -4,152 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2914DC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22943C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MesUWoiAZo2LyHB6wUWcW9RdXMbvgLXxTKGSdwx+U48=; b=snypJSoCnTUFPcbTsAfDN6t870
-	ChErxXOQvuqooGfB61QSFrciHZmLqaZtid6R4dQu0D0A08BO1Xb1bFtdREaiW2Tl7TEd6xrRYseDP
-	ey8DYLqbh+PR+oCApgFwT9C45dQx4IJ5RWEsxwVdBQPTqwsQxx6MduQiAbIcgFgo0G80cMSmx2tqd
-	o6wK8cCyccK19SOe1iZHsPZwB25Y5lllJx0HgiMhjV9LNoiOcTbWojJp44N5ZD5a3mIwN54cFxREQ
-	fOMmptsPHSOSSdD672U239xSZS+Vr6YFYrsUiUxr5ZXP0IrsaYe19h9zkWZKRWx5DBTWcdlrjygMa
-	jrUb8DLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=; b=nNMnIM0/9aWnec7QljA6UutGWd
+	2f0bbBMmvwGLWM8ZrDKxswQnOBAUSKylwHIYYudjUyY2+w/hG0aKl26PFpmYJ9WkuA86IzkNR6gvL
+	rmkPbLShbAsQG9cbhv/IE81/7ayfo25gUckAyo7yJ0b+M0uYC6EA+02t2unS9lxlnZCUBLkoKQR2L
+	Nm4rfS8z9pEAkAF7vljN8/uWIkS5XPYaBaKZSZUzcaQMe9LFCxV9+7IEjRroWYL3UWdmxK5s5prL2
+	lpkcotslJnWC+tstmD4HJuWSyVEoZwimgFp4sxqtYKW210RO+dzMaSBgCT7rX4j5fCrusZiY3VKe5
+	NaPb6KnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmwf-00000009Gdg-3Ldf;
-	Wed, 18 Jun 2025 07:10:53 +0000
-Received: from mail-mw2nam10on20630.outbound.protection.outlook.com ([2a01:111:f403:2412::630] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uRmyr-00000009Gkr-05Kp;
+	Wed, 18 Jun 2025 07:13:09 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmiW-00000009EVr-3Jn4
+	id 1uRmpE-00000009FYN-3UNO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 06:56:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pNKD24fLFUVBM4d6U7FSFa3ST4KCEkDGugtdfDAwGRY6XcehSQ9E5pXFi8lwf4BacVlfVHGckrDFr2Q+9pvQWOwGfjMKpIXrZFEoDa3lf3/x0W9LbJYY4mnKbbuNUysl6yla6xm6OZHnGzmxNEHA+4fD4on5vPz8YvVORwPCas5ef0uGP8XsE1BJJErbFKcaw8KZ4aMCh2KiWfOcOC8I6ree0PVmgdubFInu047THLNvDWxjDRAAr40FH2slNGOltnfTyWDuyA0UyyCaEUYi1kpa31T4x2DAIDtgWhkzMgifKvfDZY/Dpzr/KOwcPm4nG5NfCmOYoICyrzOWM3PAPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MesUWoiAZo2LyHB6wUWcW9RdXMbvgLXxTKGSdwx+U48=;
- b=m+6j83CEd6VNSjNzoDnfhgGR2X29fOBNKD/egB0F9eC/1sxAocVrLfInGFV7UTUEIHcp7n++dt5OHTXkGBb2nIYdkYum+4JB/l8rcdPpFHZI7HmigOnq3ghFB3D7QCd9tm8XHvLahhnVdSFiY8OuwQZmHO8RoncMAtU4sIsRC613ixFirNYGY5KT+LHG1f3YP+NkZ02AQjIME6arEZV2JzpHVmydK1GYvOjBz754J/V52/cLmBJz7BGvyNl5I13ewUCuaRZy7rDPtV56lTGfGAc7Lkuw/JrvB6AIzFnhLzmrbRZvdLd2uwHpipC8AqAUqdT8lRsHxJupOrOvYfKHyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MesUWoiAZo2LyHB6wUWcW9RdXMbvgLXxTKGSdwx+U48=;
- b=MMZxd5PrZv34yRi6f0oiXYiFsd06y0rcRuh5XNLJu9BnFH5tBNIFykt1BpeCqaPvdbFy276yPJbcsfmF7MymAUUFgdMwSS+n/X98S7aHRtklLJDTNZ3VB2w5OXdkxfm16JS4iWCOnbXXOIbkuL6R5Km2aM/103EYRIA86AAbjZqTWAVusgX7Ex23ba2X4KMvfTzSi37g6GtjXRKGmct3HNdjRXQkawBopxKY1m9eIthna5nspe2+abutv9fflgm8j80ESctFx4iunN+fyWRr41OseAKynWpdZe6EKlKJndUEr+sGZHffVenQIBKWwASmGTvuuoIOJjzWG9qP6ScEQg==
-Received: from PH8PR02CA0009.namprd02.prod.outlook.com (2603:10b6:510:2d0::22)
- by DM6PR12MB4481.namprd12.prod.outlook.com (2603:10b6:5:2af::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.20; Wed, 18 Jun
- 2025 06:56:07 +0000
-Received: from CO1PEPF000044F6.namprd21.prod.outlook.com
- (2603:10b6:510:2d0:cafe::5a) by PH8PR02CA0009.outlook.office365.com
- (2603:10b6:510:2d0::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.33 via Frontend Transport; Wed,
- 18 Jun 2025 06:56:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CO1PEPF000044F6.mail.protection.outlook.com (10.167.241.196) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8880.0 via Frontend Transport; Wed, 18 Jun 2025 06:56:07 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 17 Jun
- 2025 23:55:49 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 17 Jun
- 2025 23:55:49 -0700
-Received: from localhost.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 17 Jun 2025 23:55:47 -0700
-From: <ankita@nvidia.com>
-To: <ankita@nvidia.com>, <jgg@nvidia.com>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<ryan.roberts@arm.com>, <shahuang@redhat.com>, <lpieralisi@kernel.org>,
-	<david@redhat.com>, <ddutile@redhat.com>, <seanjc@google.com>
-CC: <aniketa@nvidia.com>, <cjia@nvidia.com>, <kwankhede@nvidia.com>,
-	<kjaju@nvidia.com>, <targupta@nvidia.com>, <vsethi@nvidia.com>,
-	<acurrid@nvidia.com>, <apopple@nvidia.com>, <jhubbard@nvidia.com>,
-	<danw@nvidia.com>, <zhiw@nvidia.com>, <mochs@nvidia.com>,
-	<udhoke@nvidia.com>, <dnigam@nvidia.com>, <alex.williamson@redhat.com>,
-	<sebastianene@google.com>, <coltonlewis@google.com>, <kevin.tian@intel.com>,
-	<yi.l.liu@intel.com>, <ardb@kernel.org>, <akpm@linux-foundation.org>,
-	<gshan@redhat.com>, <linux-mm@kvack.org>, <tabba@google.com>,
-	<qperret@google.com>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<maobibo@loongson.cn>
-Subject: [PATCH v7 4/5] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
-Date: Wed, 18 Jun 2025 06:55:40 +0000
-Message-ID: <20250618065541.50049-5-ankita@nvidia.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250618065541.50049-1-ankita@nvidia.com>
-References: <20250618065541.50049-1-ankita@nvidia.com>
+	Wed, 18 Jun 2025 07:03:14 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-73a4c557d47so1769603a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 00:03:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750230192; x=1750834992; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=;
+        b=gjXEANG7/R58lr/kDxjsjcg60cXLZR3ot7VGfmMsEv9gmKJrrYsoSekjuBAytq2ud4
+         +76z2JujzQ4nT7i8mDyn3i92NvrFetOUVZj7HOi5lib7KaXvnrzexMSZDWiH5EQMD6fX
+         OV7nsPrTqW37Txbs0M1TiWAFrCx6s568584RExWj5eXuWFIwnWnR3o84IhXDhR3L1xJk
+         bmsidhTgAUERbrhrRaExNnhYiWK1eJDI96Y1dENLVbBkF0nnKw7BeD8qmu0eOjBdespT
+         ZgDmx35euSz3Psr7oPDNgpSBgkLBgnEBXMd0fp1MpKm8Idxbj35PUSb3uLVrL40kKXWF
+         KWtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750230192; x=1750834992;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=;
+        b=NMw7yVozwfyR+IetATNTD8QsJyvcchlmYnFTWaGF/rIz2bdqZ2s77TypikTPvWgJOn
+         b+z5k5RsPnzL4dhMotFnw0e7DHZx2JCzCzXxnoHcfQCBIvsesmcX8RHvyYWmvlaF5qhs
+         nvkuVJVKucd7JVlcTortwX+g1ugK2mxoR7HKTwM/dcPRnZIbfL/ekgimDw67AIf+45Qe
+         YrWTN64GzkKCRDmpi0tKNFtePwWkoxlhA4GKj9lbfQSDnCR0bcef3fICKHCVXsP6slNl
+         BNd/W2amSHmI7+xptEhWkNYh3n27c7MSKWXZWC+QfODE0M0iXNPD4hvsN2gBVjLYLn40
+         i+YA==
+X-Forwarded-Encrypted: i=1; AJvYcCXvGeL89Y8F59iZMqKykkYye6TbYGwLBnWqztgBsuwxu0fNvgS75H/NK9QPu5tye1CMcBuL7PSmsFEbgaQ1p3CR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlIknDQTdiH9G8SJctNcAE5O5rBWpqAlwLPcW4qAR94/QToStz
+	cYUAf7UAhFaWZaPD0dUUWSEbcKrU1JCGFMyEREqsszvL0ZIDodWdO5WhXLvMVm0pK2kb8hrZyO/
+	R3wfb7OdFM4/cKRslme+yQusmbBIJJ4hdOnU748CPbw==
+X-Gm-Gg: ASbGncvP3o8viyuwj73ZVWPme3YDexVlfact2pQ39YFPHCJxF8gt9WtAltNWH56BrD/
+	FgU15fdGlWqPz0ji+kq4rgbQxjuAvjYFRgIo+OVc34V1ZWoLEFuZ7E4ngJQnNsDDmIXRh/4Z8Pm
+	WEw1VUAKD8P4gC899CPvImTloHyTkadSB7KUFZT86swtQ=
+X-Google-Smtp-Source: AGHT+IEYIeVC/jTVYCSxf/dGhqeDr1KHxYiJwAAX/5hmURj3RcHrh9D5I5KutnxKn6tUumkHdJ/1wa42+SytUsf+26I=
+X-Received: by 2002:a05:6830:40c4:b0:72b:946e:ccc7 with SMTP id
+ 46e09a7af769-73a36091cbemr11291390a34.0.1750230191671; Wed, 18 Jun 2025
+ 00:03:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044F6:EE_|DM6PR12MB4481:EE_
-X-MS-Office365-Filtering-Correlation-Id: 775cec07-d50f-4102-b06e-08ddae35334f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kyFiEKxCLFMtscrUCiJpMozUd6VglBaFN5hpBInbwMr0OxtHx3bTW4gOCbGR?=
- =?us-ascii?Q?WnF2ahfq0RNQ8TZSRDOWWUHo2LCCyRb2C5sUOYg9UNYQdQljzRsH4NGP4IXI?=
- =?us-ascii?Q?pO4NWqPNMQsjgH4cHMu8sTe43Bpsam1qexSlhaNYcrMTvfvL6yxzWPoz+/HV?=
- =?us-ascii?Q?lyO0TWxhpRzTOl3QtDIRnefQQffoNdFAJ18MkbNC37sL0KmC+yXKk6lAugOu?=
- =?us-ascii?Q?SJ0+cz7fhwiqbI74cLfmF9DjD8/n57pxCw/wNdZ0//66674q9WQ7y57NJ8T9?=
- =?us-ascii?Q?vsXldz59RzwEbWq6CstuMbWnbP5inpRhXl5HxmnXBgcldO6T1vsQfkfQLVDN?=
- =?us-ascii?Q?HqS3QehFnu8QZEDUPpp6jXUvFoNr0f6EtKQk0StaAXUjBEZSjwY+gs9ffUs/?=
- =?us-ascii?Q?/XBjbyrNzQU9O98oCPGxz2AF89kdth3GGahXc83Th4WX4astP1PfbDYcV+Np?=
- =?us-ascii?Q?9rfnsI7aRTqu11SbNJVx94dH/m9mYkl1Tdz1qJabGFehgU+xJThhnXFE2AsD?=
- =?us-ascii?Q?B6kOiQlWBvqGgYYybWcKqw1KFTLxtYxRalgJqch2FJ5RjpedFyv1BSz3gGa5?=
- =?us-ascii?Q?Lz9xr+KhYunziBScdvdodCZsiMSDnoneQ8UwbaGEHuRIhu4lDMcU9n00hHwm?=
- =?us-ascii?Q?TpouiSJi5Ipa/L1LDmI8/Z9a0k76uBhmKVcde7gsIE0CZ7+sxaXLTlhAloSS?=
- =?us-ascii?Q?6k9/nXITax5cQX15MtVDlEKtD8U473YFuRsb+9cnmN45tm5eMWP4FsFksnYI?=
- =?us-ascii?Q?I7yCa9CCAI7QMCr64xKc77LRVR3N6sR3XLIOyML4zMTd1GkUwGeJeH/67sox?=
- =?us-ascii?Q?aIDl3iBh+THdFldfgjb1mUZBkAWaimGw+peUTMavn5mc34ftTDySbvGjpZal?=
- =?us-ascii?Q?KtaRfqZK7coCpi8XuqV2yXVw2GR/ZJFofFi8dPH/PEGSshfS6h86coYzJe6v?=
- =?us-ascii?Q?/f4RBaqHXdOwGGlGABDY30xrdEwsMqMgSz3yCTGNvp7myR+PV1ovHYRLqWT/?=
- =?us-ascii?Q?Csei+Mvzp1ophTOoQRpMSRVqJM+g+d+GFWVIqYCnmjBeVpFZnTxsDPjIQtX/?=
- =?us-ascii?Q?zkFdZniFtl4eG9Z5J7AuQWLp6EaO5+3mHf8oZWd2tJU5/XMbSCZ5D0aBlZ50?=
- =?us-ascii?Q?jSir1LFvikTyGsjAoZ3E0cw7O4oPgSU/QD1OWXI4fq39eNqCBfDzsjJLvC6o?=
- =?us-ascii?Q?lxYevvRz59TmhnLRk/e1JrDsQoSOtPprj9cnnYM1HHwVyZvXIcccQvjWiK0t?=
- =?us-ascii?Q?Ptc0flMmUj3DTu6UAPK5FvprKeUNlgv+PR68ZqXY5yR5grNyHWVek+JjQ22z?=
- =?us-ascii?Q?85EH7eQytDoMvPFq9F4Zg8Sf0egaw63WlUAdzHobhVCAwAxS4IxHhoUlH8H1?=
- =?us-ascii?Q?BoB/3gq5i1yO6XxBc53VSTQBk+20MpVUa8m19jtZ6fd+FuITvu1AwlX/gWbJ?=
- =?us-ascii?Q?WNC+yNBJUd3E+KNR4f+FDzE4rmQs7ku3NqYny+f1NOsIODTUXIWKnGhDm9Mu?=
- =?us-ascii?Q?R1Vzwj0/sckhX8KnYBJ8cUAvvJCGRKHRxlwyCJcVyo6KC/hrt2lwZj93LQ?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 06:56:07.3237
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 775cec07-d50f-4102-b06e-08ddae35334f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044F6.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4481
+References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
+ <20250610131600.2972232-7-jens.wiklander@linaro.org> <aFFSWDiVsxA1CbCX@sumit-X1>
+In-Reply-To: <aFFSWDiVsxA1CbCX@sumit-X1>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Wed, 18 Jun 2025 09:03:00 +0200
+X-Gm-Features: AX0GCFvrA5yXpBPMnqH5JcYKZyhNKjMM65-tKAnroIXskFJp4M6WI4XH2u_9JeE
+Message-ID: <CAHUa44HP5EbURyLCmawMLc0d5jz1oTQZ53V1w2h0-ngUC2hbEw@mail.gmail.com>
+Subject: Re: [PATCH v10 6/9] tee: add tee_shm_alloc_dma_mem()
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_235616_834720_505D0F4A 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20250618_000312_887935_404C6120 
+X-CRM114-Status: GOOD (  32.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,132 +105,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ankit Agrawal <ankita@nvidia.com>
+On Tue, Jun 17, 2025 at 1:32=E2=80=AFPM Sumit Garg <sumit.garg@kernel.org> =
+wrote:
+>
+> On Tue, Jun 10, 2025 at 03:13:50PM +0200, Jens Wiklander wrote:
+> > Add tee_shm_alloc_dma_mem() to allocate DMA memory. The memory is
+> > represented by a tee_shm object using the new flag TEE_SHM_DMA_MEM to
+> > identify it as DMA memory. The allocated memory will later be lent to
+> > the TEE to be used as protected memory.
+> >
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/tee/tee_shm.c    | 85 +++++++++++++++++++++++++++++++++++++++-
+> >  include/linux/tee_core.h |  5 +++
+> >  2 files changed, 88 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
+> > index e63095e84644..60b0f3932cee 100644
+> > --- a/drivers/tee/tee_shm.c
+> > +++ b/drivers/tee/tee_shm.c
+> > @@ -5,6 +5,8 @@
+> >  #include <linux/anon_inodes.h>
+> >  #include <linux/device.h>
+> >  #include <linux/dma-buf.h>
+> > +#include <linux/dma-mapping.h>
+> > +#include <linux/highmem.h>
+> >  #include <linux/idr.h>
+> >  #include <linux/io.h>
+> >  #include <linux/mm.h>
+> > @@ -13,9 +15,14 @@
+> >  #include <linux/tee_core.h>
+> >  #include <linux/uaccess.h>
+> >  #include <linux/uio.h>
+> > -#include <linux/highmem.h>
+> >  #include "tee_private.h"
+> >
+> > +struct tee_shm_dma_mem {
+> > +     struct tee_shm shm;
+> > +     dma_addr_t dma_addr;
+> > +     struct page *page;
+> > +};
+> > +
+> >  static void shm_put_kernel_pages(struct page **pages, size_t page_coun=
+t)
+> >  {
+> >       size_t n;
+> > @@ -48,7 +55,16 @@ static void tee_shm_release(struct tee_device *teede=
+v, struct tee_shm *shm)
+> >  {
+> >       void *p =3D shm;
+> >
+> > -     if (shm->flags & TEE_SHM_DMA_BUF) {
+> > +     if (shm->flags & TEE_SHM_DMA_MEM) {
+> > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
+>
+> nit: this config check can be merged into the above if check.
 
-Today KVM forces the memory to either NORMAL or DEVICE_nGnRE
-based on pfn_is_map_memory (which tracks whether the device memory
-is in the kernel map) and ignores the per-VMA flags that indicates the
-memory attributes. The KVM code is thus restrictive and allows only for
-the memory that is added to the kernel to be marked as cacheable.
+No, because dma_free_pages() is only defined if
+CONFIG_TEE_DMABUF_HEAPS is enabled.
 
-The device memory such as on the Grace Hopper/Blackwell systems
-is interchangeable with DDR memory and retains properties such as
-cacheability, unaligned accesses, atomics and handling of executable
-faults. This requires the device memory to be mapped as NORMAL in
-stage-2.
+>
+> > +             struct tee_shm_dma_mem *dma_mem;
+> > +
+> > +             dma_mem =3D container_of(shm, struct tee_shm_dma_mem, shm=
+);
+> > +             p =3D dma_mem;
+> > +             dma_free_pages(&teedev->dev, shm->size, dma_mem->page,
+> > +                            dma_mem->dma_addr, DMA_BIDIRECTIONAL);
+> > +#endif
+> > +     } else if (shm->flags & TEE_SHM_DMA_BUF) {
+>
+> Do we need a similar config check for this flag too?
 
-Given that the GPU device memory is not added to the kernel (but is rather
-VMA mapped through remap_pfn_range() in nvgrace-gpu module which sets
-VM_PFNMAP), pfn_is_map_memory() is false and thus KVM prevents such memory
-to be mapped Normal cacheable. The patch aims to solve this use case.
+No, because DMA_SHARED_BUFFER is selected, so the dma_buf functions are def=
+ined.
 
-Note when FWB is not enabled, the kernel expects to trivially do
-cache management by flushing the memory by linearly converting a
-kvm_pte to phys_addr to a KVA, see kvm_flush_dcache_to_poc(). The
-cache management thus relies on memory being mapped. Moreover
-ARM64_HAS_CACHE_DIC CPU cap allows KVM to avoid flushing the icache
-and turns icache_inval_pou() into a NOP. These two capabilities
-are thus a requirement of the cacheable PFNMAP feature. Make use of
-kvm_arch_supports_cacheable_pfnmap() to check them.
+Cheers,
+Jens
 
-A cachebility check is made by consulting the VMA pgprot value.
-If the pgprot mapping type is cacheable, it is safe to be mapped S2
-cacheable as the KVM S2 will have the same Normal memory type as the
-VMA has in the S1 and KVM has no additional responsibility for safety.
-Checking pgprot as NORMAL is thus a KVM sanity check.
 
-Add check for COW VM_PFNMAP and refuse such mapping.
-
-No additional checks for MTE are needed as kvm_arch_prepare_memory_region()
-already tests it at an early stage during memslot creation. There would
-not even be a fault if the memslot is not created.
-
-CC: Oliver Upton <oliver.upton@linux.dev>
-CC: Sean Christopherson <seanjc@google.com>
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Suggested-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
----
- arch/arm64/kvm/mmu.c | 35 +++++++++++++++++++++++++++++------
- 1 file changed, 29 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a71b77df7c96..6a3955e07b5e 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1660,6 +1660,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 
- 	is_vma_cacheable = kvm_vma_is_cacheable(vma);
- 
-+	/* Reject COW VM_PFNMAP */
-+	if ((vma->vm_flags & VM_PFNMAP) && is_cow_mapping(vma->vm_flags))
-+		return -EINVAL;
-+
- 	/* Don't use the VMA after the unlock -- it may have vanished */
- 	vma = NULL;
- 
-@@ -1684,9 +1688,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		return -EFAULT;
- 
- 	if (!kvm_can_use_cmo_pfn(pfn)) {
--		if (is_vma_cacheable)
--			return -EINVAL;
--
- 		/*
- 		 * If the page was identified as device early by looking at
- 		 * the VMA flags, vma_pagesize is already representing the
-@@ -1696,8 +1697,13 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		 *
- 		 * In both cases, we don't let transparent_hugepage_adjust()
- 		 * change things at the last minute.
-+		 *
-+		 * Do not set device as the device memory is cacheable. Note
-+		 * that such mapping is safe as the KVM S2 will have the same
-+		 * Normal memory type as the VMA has in the S1.
- 		 */
--		disable_cmo = true;
-+		if (!is_vma_cacheable)
-+			disable_cmo = true;
- 	} else if (logging_active && !write_fault) {
- 		/*
- 		 * Only actually map the page as writable if this was a write
-@@ -1784,6 +1790,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		prot |= KVM_PGTABLE_PROT_X;
- 	}
- 
-+	/*
-+	 *  When FWB is unsupported KVM needs to do cache flushes
-+	 *  (via dcache_clean_inval_poc()) of the underlying memory. This is
-+	 *  only possible if the memory is already mapped into the kernel map.
-+	 *
-+	 *  Outright reject as the cacheable device memory is not present in
-+	 *  the kernel map and not suitable for cache management.
-+	 */
-+	if (is_vma_cacheable && !kvm_arch_supports_cacheable_pfnmap()) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
-+
- 	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
- 	 * permissions only if vma_pagesize equals fault_granule. Otherwise,
-@@ -2271,8 +2290,12 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 				break;
- 			}
- 
--			/* Cacheable PFNMAP is not allowed */
--			if (kvm_vma_is_cacheable(vma)) {
-+			/*
-+			 * Cacheable PFNMAP is allowed only if the hardware
-+			 * supports it.
-+			 */
-+			if (kvm_vma_is_cacheable(vma) &&
-+			    !kvm_arch_supports_cacheable_pfnmap()) {
- 				ret = -EINVAL;
- 				break;
- 			}
--- 
-2.34.1
-
+>
+> With these addressed, feel free to add:
+>
+> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+>
+> -Sumit
+>
+> >               struct tee_shm_dmabuf_ref *ref;
+> >
+> >               ref =3D container_of(shm, struct tee_shm_dmabuf_ref, shm)=
+;
+> > @@ -303,6 +319,71 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct tee_=
+context *ctx, size_t size)
+> >  }
+> >  EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
+> >
+> > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
+> > +/**
+> > + * tee_shm_alloc_dma_mem() - Allocate DMA memory as shared memory obje=
+ct
+> > + * @ctx:     Context that allocates the shared memory
+> > + * @page_count:      Number of pages
+> > + *
+> > + * The allocated memory is expected to be lent (made inaccessible to t=
+he
+> > + * kernel) to the TEE while it's used and returned (accessible to the
+> > + * kernel again) before it's freed.
+> > + *
+> > + * This function should normally only be used internally in the TEE
+> > + * drivers.
+> > + *
+> > + * @returns a pointer to 'struct tee_shm'
+> > + */
+> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > +                                   size_t page_count)
+> > +{
+> > +     struct tee_device *teedev =3D ctx->teedev;
+> > +     struct tee_shm_dma_mem *dma_mem;
+> > +     dma_addr_t dma_addr;
+> > +     struct page *page;
+> > +
+> > +     if (!tee_device_get(teedev))
+> > +             return ERR_PTR(-EINVAL);
+> > +
+> > +     page =3D dma_alloc_pages(&teedev->dev, page_count * PAGE_SIZE,
+> > +                            &dma_addr, DMA_BIDIRECTIONAL, GFP_KERNEL);
+> > +     if (!page)
+> > +             goto err_put_teedev;
+> > +
+> > +     dma_mem =3D kzalloc(sizeof(*dma_mem), GFP_KERNEL);
+> > +     if (!dma_mem)
+> > +             goto err_free_pages;
+> > +
+> > +     refcount_set(&dma_mem->shm.refcount, 1);
+> > +     dma_mem->shm.ctx =3D ctx;
+> > +     dma_mem->shm.paddr =3D page_to_phys(page);
+> > +     dma_mem->dma_addr =3D dma_addr;
+> > +     dma_mem->page =3D page;
+> > +     dma_mem->shm.size =3D page_count * PAGE_SIZE;
+> > +     dma_mem->shm.flags =3D TEE_SHM_DMA_MEM;
+> > +
+> > +     teedev_ctx_get(ctx);
+> > +
+> > +     return &dma_mem->shm;
+> > +
+> > +err_free_pages:
+> > +     dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dma_ad=
+dr,
+> > +                    DMA_BIDIRECTIONAL);
+> > +err_put_teedev:
+> > +     tee_device_put(teedev);
+> > +
+> > +     return ERR_PTR(-ENOMEM);
+> > +}
+> > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
+> > +#else
+> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > +                                   size_t page_count)
+> > +{
+> > +     return ERR_PTR(-EINVAL);
+> > +}
+> > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
+> > +#endif
+> > +
+> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
+align,
+> >                            int (*shm_register)(struct tee_context *ctx,
+> >                                                struct tee_shm *shm,
+> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
+> > index f17710196c4c..e46a53e753af 100644
+> > --- a/include/linux/tee_core.h
+> > +++ b/include/linux/tee_core.h
+> > @@ -29,6 +29,8 @@
+> >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool */
+> >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driver *=
+/
+> >  #define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-buf ha=
+ndle */
+> > +#define TEE_SHM_DMA_MEM              BIT(5)  /* Memory allocated with =
+*/
+> > +                                     /* dma_alloc_pages() */
+> >
+> >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
+> >  #define TEE_MAX_DEV_NAME_LEN         32
+> > @@ -310,6 +312,9 @@ void *tee_get_drvdata(struct tee_device *teedev);
+> >   */
+> >  struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t=
+ size);
+> >
+> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > +                                   size_t page_count);
+> > +
+> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
+align,
+> >                            int (*shm_register)(struct tee_context *ctx,
+> >                                                struct tee_shm *shm,
+> > --
+> > 2.43.0
+> >
 
