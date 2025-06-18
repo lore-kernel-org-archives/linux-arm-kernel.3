@@ -4,93 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22943C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF9CC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=; b=nNMnIM0/9aWnec7QljA6UutGWd
-	2f0bbBMmvwGLWM8ZrDKxswQnOBAUSKylwHIYYudjUyY2+w/hG0aKl26PFpmYJ9WkuA86IzkNR6gvL
-	rmkPbLShbAsQG9cbhv/IE81/7ayfo25gUckAyo7yJ0b+M0uYC6EA+02t2unS9lxlnZCUBLkoKQR2L
-	Nm4rfS8z9pEAkAF7vljN8/uWIkS5XPYaBaKZSZUzcaQMe9LFCxV9+7IEjRroWYL3UWdmxK5s5prL2
-	lpkcotslJnWC+tstmD4HJuWSyVEoZwimgFp4sxqtYKW210RO+dzMaSBgCT7rX4j5fCrusZiY3VKe5
-	NaPb6KnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=; b=ZGFiZXZQSehosbmPeNJk6DyQ4R
+	JxKhvd7YXCWDtZhF862i0AlTTdgSeLEk8LZlR3vKyN/coMtgsrCTsoDZG7qRs3xLQLR1Yyp8mM27m
+	MRj30GWIx6vqN4tCi6gzhiB2G6m5rQ1HDOn//faFseucoHpcgVxR4gNRWVsAWGGjZEnb7PFRxb2ll
+	24dl/DhnzJhXa1G224erU1ryE1UWuVLmgkgT0I8nZMnpOL9tUtDFWOYRqeE8kJxZD9twS55RcgTWF
+	XmTNTfQYewxZst/ICZOl0HAHXYkwQa0BkOunNOPoEIEgFwWx8xGEHwHXlw11/5dQ1lxTPAfV5g9YW
+	czXIqcgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmyr-00000009Gkr-05Kp;
-	Wed, 18 Jun 2025 07:13:09 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1uRn12-00000009Gw9-340C;
+	Wed, 18 Jun 2025 07:15:24 +0000
+Received: from mx0b-009a6c02.pphosted.com ([148.163.141.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmpE-00000009FYN-3UNO
+	id 1uRmui-00000009GCs-035I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 07:03:14 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-73a4c557d47so1769603a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 00:03:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750230192; x=1750834992; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=;
-        b=gjXEANG7/R58lr/kDxjsjcg60cXLZR3ot7VGfmMsEv9gmKJrrYsoSekjuBAytq2ud4
-         +76z2JujzQ4nT7i8mDyn3i92NvrFetOUVZj7HOi5lib7KaXvnrzexMSZDWiH5EQMD6fX
-         OV7nsPrTqW37Txbs0M1TiWAFrCx6s568584RExWj5eXuWFIwnWnR3o84IhXDhR3L1xJk
-         bmsidhTgAUERbrhrRaExNnhYiWK1eJDI96Y1dENLVbBkF0nnKw7BeD8qmu0eOjBdespT
-         ZgDmx35euSz3Psr7oPDNgpSBgkLBgnEBXMd0fp1MpKm8Idxbj35PUSb3uLVrL40kKXWF
-         KWtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750230192; x=1750834992;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r8SFTx5dPQSfu8ZL7Jn6th2YUqqrMFvLWLfJm2Kbj0c=;
-        b=NMw7yVozwfyR+IetATNTD8QsJyvcchlmYnFTWaGF/rIz2bdqZ2s77TypikTPvWgJOn
-         b+z5k5RsPnzL4dhMotFnw0e7DHZx2JCzCzXxnoHcfQCBIvsesmcX8RHvyYWmvlaF5qhs
-         nvkuVJVKucd7JVlcTortwX+g1ugK2mxoR7HKTwM/dcPRnZIbfL/ekgimDw67AIf+45Qe
-         YrWTN64GzkKCRDmpi0tKNFtePwWkoxlhA4GKj9lbfQSDnCR0bcef3fICKHCVXsP6slNl
-         BNd/W2amSHmI7+xptEhWkNYh3n27c7MSKWXZWC+QfODE0M0iXNPD4hvsN2gBVjLYLn40
-         i+YA==
-X-Forwarded-Encrypted: i=1; AJvYcCXvGeL89Y8F59iZMqKykkYye6TbYGwLBnWqztgBsuwxu0fNvgS75H/NK9QPu5tye1CMcBuL7PSmsFEbgaQ1p3CR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlIknDQTdiH9G8SJctNcAE5O5rBWpqAlwLPcW4qAR94/QToStz
-	cYUAf7UAhFaWZaPD0dUUWSEbcKrU1JCGFMyEREqsszvL0ZIDodWdO5WhXLvMVm0pK2kb8hrZyO/
-	R3wfb7OdFM4/cKRslme+yQusmbBIJJ4hdOnU748CPbw==
-X-Gm-Gg: ASbGncvP3o8viyuwj73ZVWPme3YDexVlfact2pQ39YFPHCJxF8gt9WtAltNWH56BrD/
-	FgU15fdGlWqPz0ji+kq4rgbQxjuAvjYFRgIo+OVc34V1ZWoLEFuZ7E4ngJQnNsDDmIXRh/4Z8Pm
-	WEw1VUAKD8P4gC899CPvImTloHyTkadSB7KUFZT86swtQ=
-X-Google-Smtp-Source: AGHT+IEYIeVC/jTVYCSxf/dGhqeDr1KHxYiJwAAX/5hmURj3RcHrh9D5I5KutnxKn6tUumkHdJ/1wa42+SytUsf+26I=
-X-Received: by 2002:a05:6830:40c4:b0:72b:946e:ccc7 with SMTP id
- 46e09a7af769-73a36091cbemr11291390a34.0.1750230191671; Wed, 18 Jun 2025
- 00:03:11 -0700 (PDT)
+	Wed, 18 Jun 2025 07:08:53 +0000
+Received: from pps.filterd (m0462408.ppops.net [127.0.0.1])
+	by mx0b-009a6c02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55HNA6nk010207;
+	Wed, 18 Jun 2025 15:08:29 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=20250420; bh=IqTetl6upexAsH4ZMTdRxrm
+	6z3s/zmsA9UK2sAWt5FA=; b=Tsqj7N1tLHLUyKj4gOCIHGV/bBY3vMqYqe/5a5u
+	U117UGgZo3l1ov/7ghhV3ARDVse77mrArxw+rRInh2nu2UHFOx2QA+2/+/0yE12Q
+	KbgshEBruFGM0izBGu1H5SgtHFz2muoD9fTlPGU9EjJ+A8nXJI42n4wlAO9yhwHE
+	BWm77Qit45XBcL1KLpuQoP6ifm9UxBcMZwbq4H8H8ab5otYJYmLxiPF0mErcQ1ms
+	NSttENyjpOsw05Lo5FOrnS+f34XvjKsc9bCcfqEgFI03pEIxtYyukjhXThnkBe6+
+	0ryF29c4g3AK8vnaO1IEsrujJdhnZx/oif9JkPRQlFVdSaQ==
+Received: from seypr02cu001.outbound.protection.outlook.com (mail-koreacentralazon11013027.outbound.protection.outlook.com [40.107.44.27])
+	by mx0b-009a6c02.pphosted.com (PPS) with ESMTPS id 47bhssgfpa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Jun 2025 15:08:29 +0800 (WST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pP+KDz7rvIuyLRIgcMrAdvKdul8OQdawszxZM7JuGLzMJka2mwVaw5ykJAMEKcVXY1qOnbuROZ//Y68Qe6c2gX5zgCOniQUIyA4HzRXy23LQa8V4z3Sk6/tP135LpqQMJ8e7kM7oZulkV/RMhr9hXSTM8gXIheLsIluB1CpBkktUX3DB7jkXEIQqtAWW9e5gixD4fgBBSl8pJg87fnStkKIb0b6W55VRiUHApMBAtvTeN++bMGnNqezCS5CiKE8yMdun8AdIcwKKksK6gV74upt+0Xcxf6qS8yHwWCPR7ScoJYWNVW+WI+w6RXUWZPadE12hihLJoVLOKXoqLGJSmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
+ b=FuAa30OvcC9YbADzP6gD9fWPUOffykTY+MgnogyV0Nfiz9GPyT2Q2oufzxd2VXkM1p2sF0PUhCvBYXCbP9555Icy59Q9RzM9lF7iWJYbOYCgkn8m4Nz3V0vWDkRE98YFSTzrcOlKEyBd9qW4dwWfGHkRcgktUzpb0FWcAqqW+3GtCz4Dk2fiG9o+Md2tvTOINI+rOuPSmcK15Z4UzN5WdrCdDzTnjhQCYrp358LRpfw9pI5C69wJa5pBJI0rQwu7UKmIB2RxRPtGJ1dGcWKbzogUDZFE339pYM0uFrdH9S1jqlfSG1KJECaAHzq2nzSm8Hm07Lq2ebaVq1lab87J0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
+ b=TORpedkarZybDgaIA8npOZR8//ZvmBm83nJfU4aUJkAT+sQyMnljfGGLJI4XLGgLEvtc30ecsddFeyw6HD63+Kwyjoz2zPZz2uXgFM5oCRbr+TFNMEgCeEKst83zsvLgH1crocJci3K4zvv+G/SAsiuGn2i+FtPRvRRBctfitn3lg5dYSUiG8aatj+s0sGGv/3iCumQop07Bew+DDQp3f8HRB65s6eX81NSOY/rpn74tiiPdCFxkF7ytxC2WLW/3fPyRNfFsGZeQVedqnQ1jsKP+x401rkBmdUjuTjs/y0lziiqzdjZz1YGj1mrdLpWRV27IBx+lDKTk99Tt73+ZfA==
+Received: from SI2P153CA0015.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::21) by
+ KL1PR04MB7209.apcprd04.prod.outlook.com (2603:1096:820:fb::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.30; Wed, 18 Jun 2025 07:08:24 +0000
+Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
+ (2603:1096:4:140:cafe::87) by SI2P153CA0015.outlook.office365.com
+ (2603:1096:4:140::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.5 via Frontend Transport; Wed,
+ 18 Jun 2025 07:08:24 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
+ smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
+Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
+ designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
+ client-ip=211.20.1.79; helo=localhost.localdomain;
+Received: from localhost.localdomain (211.20.1.79) by
+ SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
+ SMTP Server id 15.20.8857.21 via Frontend Transport; Wed, 18 Jun 2025
+ 07:08:23 +0000
+From: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
+To: patrick@stwcx.xyz
+Cc: Marshall Zhan <marshall_zhan@wiwynn.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v4] ARM: dts: aspeed: yosemite4: add gpio name for uart mux sel
+Date: Wed, 18 Jun 2025 15:08:22 +0800
+Message-Id: <20250618070823.4136687-1-marshall_zhan@wiwynn.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
- <20250610131600.2972232-7-jens.wiklander@linaro.org> <aFFSWDiVsxA1CbCX@sumit-X1>
-In-Reply-To: <aFFSWDiVsxA1CbCX@sumit-X1>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Wed, 18 Jun 2025 09:03:00 +0200
-X-Gm-Features: AX0GCFvrA5yXpBPMnqH5JcYKZyhNKjMM65-tKAnroIXskFJp4M6WI4XH2u_9JeE
-Message-ID: <CAHUa44HP5EbURyLCmawMLc0d5jz1oTQZ53V1w2h0-ngUC2hbEw@mail.gmail.com>
-Subject: Re: [PATCH v10 6/9] tee: add tee_shm_alloc_dma_mem()
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|KL1PR04MB7209:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 21b7d367-1c78-4832-109b-08ddae36ea53
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y/xnR1LntkW9zVjmQ8ZufqXY9xVIZDdWkrT2P2Cwu2FynlQU3gGVSc82JlWO?=
+ =?us-ascii?Q?RWLbr2fRptKVJZUqk6TSWiTbjhyBTnPQ9G2islc0gu/OIzsll4JBcmaAYtwi?=
+ =?us-ascii?Q?xC7FX5mqWZSYfoF4zOOfpKPpaOyk+jLFD4Ezr3RgFpv9zL0qn7baPCZnCheq?=
+ =?us-ascii?Q?Lh0VYfqARkkSHQ3D1ardOb5U7eU74p4sRzIum9q3THvXi6wJXdrXmEJybLZ9?=
+ =?us-ascii?Q?EEUIKMudT0oFPMaPB++00JQvS5OAawuDH1gqEciHN6efD9U4kFt1f31DgNzX?=
+ =?us-ascii?Q?W2teybxa2KejEn1YuSPTYnXKFiKBeoIQNkiJtGwA2nawk5T+DSyOuUbygrf8?=
+ =?us-ascii?Q?cV1tCiP3Ni4AX67E4PT5DgBMlXPtG1hC3U2ZgbPgypvTPczyCFEhYcX/PKQE?=
+ =?us-ascii?Q?pFKtnsQZu/AJyopf54gtxqTluqw4ZSy7xynN7f6VIeEBdRQEPMerqqE6ZDFu?=
+ =?us-ascii?Q?2Hd+u1zkSCI1Ca6nSqy5nN2lxu1Zpy++30SaWtVwr/eFqXyf+xMLadZxXVsB?=
+ =?us-ascii?Q?PWSmhDAtgjS/xmuC5L93/c/f56uHkfrBqEJofeGsovotPijCHQ902zub0e7k?=
+ =?us-ascii?Q?fzBDafCTucsn2XNljUq4rbpE7ACcHFhtSwRBxWx4I+pXd8JHtMrVnhUtAHmw?=
+ =?us-ascii?Q?tBChCABT0SxKuorhealPJ1cYKHMTsfitqEWAVEbjFuFoLL77IOREsWzlRT8V?=
+ =?us-ascii?Q?GpgBkeUmvnscwDdM9H8LDws7KOEEborLUlEAIHAaLJ/cbazxlbIaO8Pa3AtR?=
+ =?us-ascii?Q?WDvkGSZP+ckh+l5Qbuj5BZpyCQpF1fKbnMDfr6prJMrwQmiO+SGNXVir4X9G?=
+ =?us-ascii?Q?7PzEdc9zwVAuGT4CywIX8WpeVE2+GXf3SSbMMnbpaIkVcW+uz2U6AqN2sktW?=
+ =?us-ascii?Q?qT9kXyL13uL+Wbb9Jtw3+tADeaeBQoX2xNkIiWzjKNFPVV+PYePvq6VJcpp9?=
+ =?us-ascii?Q?OurVaBuu8eL+wn8DjymG6rPfzaBSzFgH/NPKYhhljhBYo8fPguMLULoVOjYO?=
+ =?us-ascii?Q?YSzTPkyg47yQ5jmDeh5RyxYE4wVM8LzoBvMmVMVErlClI0sqSa1ZCQ6zc+ZO?=
+ =?us-ascii?Q?zxU+Q67VE7GJb+cqC6we6YlCVnzW/21WqB4zC1O+IWatvrU8BR5DmAFxGxmb?=
+ =?us-ascii?Q?wYdi2IVuJG4MjhXE2yVYiR8oLHsUZ0PvYPrphhuN79sj370YGa0t73Ekl2SI?=
+ =?us-ascii?Q?yN4Y838HsGre23GPkD1mgY6XX78v2HKlJhcZZxAd0HkRVV5bLOjObhAKJTbv?=
+ =?us-ascii?Q?DiAfgWmzucfm0ZfMB31dcYZ8beTpIjL8WWZUN1nlxytm9fj0P2HgTTay9KRQ?=
+ =?us-ascii?Q?xgQ5fjjLDoVx15wVs29Te1qTJDd1u0gxzBm92MluvVqFNdXMPwuMNsuSyja5?=
+ =?us-ascii?Q?8Z4EywcI0uYRH+HJOZvizowQkV8KRBgliE1Xtjbj37DF8psbhAZFKxwyB9zH?=
+ =?us-ascii?Q?cN7DUP3FzGP9qPCutRIjkLDHp76rwgPFewIYQgGx9xATCO+9iRVwUA+3j/gy?=
+ =?us-ascii?Q?z3F1pCm9N2lGIrflM3Eq5pWRFH2E+99uYPFD?=
+X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: TrIw56rwnMWtEnDjlXYOqX67GeFoK3fWCirIG0+gA5vnX7hK0xuuABDu6EokBUUuuR9fHzyjsZb0wi4DTcqzesxxdvRTZ9lxWvwKA0JbJsoynSn9t5C5PDgs+XBJnEafF4YJgok887uYmDhB6jBvYu1y450n4BnzRvyKovIq+ODaiOClUeqnZNf1kpQUpThIHd1jf66Tq+4UyjlSzvCEdXaCQHXXRTM5kBP8oudBAEoetJthFaKZY323Hgz9QQwJtBXEqpmc1f3APnIDx3j+6tHDN+/zhGFwllvUPRiRlRjCA+mqA2jWvSONDKs8wMwkjKEEGb9DqDWEqxm4SBw6B49+M3B7GFIymP0egUHjbaepKITCgJ/g8voBDuYHWXWq/OxaypCLxi4oyYH3necCTHYwiwezY77LEeyLedio7mW7P15blvPOy6SITqUqhNtacwWGpKeEUNagw6YfGCiqjwqyrlqGAmzYLtm0cmuNpZg4j/d7uEiLjZ/hFiNTGmHFQuQzSHAVnByH5w/use53pUgVh+NlyptoPw+yG8FbZc26br19YVdpfUsrCIUcslvkkn7JqMvzoVvP2aEbrVw7d2kZ7KwdeenE0M3zoCn7oU8DENGHnRPO7+v7nvNdDlPW
+X-OriginatorOrg: wiwynn.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 07:08:23.2743
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21b7d367-1c78-4832-109b-08ddae36ea53
+X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E5.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR04MB7209
+X-Authority-Analysis: v=2.4 cv=B9e50PtM c=1 sm=1 tr=0 ts=685265ed cx=c_pps a=dsIthHTsXEBkGW0VS6idzA==:117 a=6rDDh2uRNVCE5HFPCIqeAA==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=6IFa9wvqVegA:10
+ a=4AL28aEVfeMA:10 a=cPYzWk29AAAA:8 a=u2kzlEoHWhBIlCB3pKYA:9 a=oSR2DF9YFqZEN4IGatwP:22
+X-Proofpoint-ORIG-GUID: JnxlT6wqDCj_w1DQZrvvdKl0PVcg-3z6
+X-Proofpoint-GUID: JnxlT6wqDCj_w1DQZrvvdKl0PVcg-3z6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE4MDA2MCBTYWx0ZWRfX7YlxDkhfcZSK pbfEGURS7SPlg4dmgzQT60DiMchr4ssRDOWux7eSSgmrrweEVQVMS733UIcVOemrofUY1ggS3gc Z+cJHluemv1DQmeA3QFx6yZ0BopLHSAFiO+FeZWlmO4vlLBiyRRlZWkuGO3HS59NXXT/NTGgkUa
+ cqsitliwk1gjf8qTRP93rxKIDcq7h4Cmvb15ziuDqC0CrBKE27JXM+GZZV4qOtpz9eug1ENV7Em x8i7YfcuE15w9QcWZ5XcRjLpVYXR8CkxsValC2ZG0h47cu56vVAyQJDZVzpEQVPueEYdGspQ9BR 4EQW5EqBiBpGw8rLckCFmcRv7nl6WETu1sTo6dQ/3UfDtVfBIbgZWYw8H6/vD/EfGFFfuSlu22p
+ YHolnorY3amw8n/0oIwDvWjh7BlMwVoXyfi7Qdil40899z4koWQkimppwRrsqzjbT3ZYsarq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-18_02,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ lowpriorityscore=0 mlxlogscore=799 adultscore=0 bulkscore=0 malwarescore=0
+ clxscore=1015 suspectscore=0 phishscore=0 spamscore=0 priorityscore=1501
+ mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506180060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_000312_887935_404C6120 
-X-CRM114-Status: GOOD (  32.11  )
+X-CRM114-CacheID: sfid-20250618_000852_187216_FC317117 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,202 +173,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 1:32=E2=80=AFPM Sumit Garg <sumit.garg@kernel.org> =
-wrote:
->
-> On Tue, Jun 10, 2025 at 03:13:50PM +0200, Jens Wiklander wrote:
-> > Add tee_shm_alloc_dma_mem() to allocate DMA memory. The memory is
-> > represented by a tee_shm object using the new flag TEE_SHM_DMA_MEM to
-> > identify it as DMA memory. The allocated memory will later be lent to
-> > the TEE to be used as protected memory.
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/tee/tee_shm.c    | 85 +++++++++++++++++++++++++++++++++++++++-
-> >  include/linux/tee_core.h |  5 +++
-> >  2 files changed, 88 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-> > index e63095e84644..60b0f3932cee 100644
-> > --- a/drivers/tee/tee_shm.c
-> > +++ b/drivers/tee/tee_shm.c
-> > @@ -5,6 +5,8 @@
-> >  #include <linux/anon_inodes.h>
-> >  #include <linux/device.h>
-> >  #include <linux/dma-buf.h>
-> > +#include <linux/dma-mapping.h>
-> > +#include <linux/highmem.h>
-> >  #include <linux/idr.h>
-> >  #include <linux/io.h>
-> >  #include <linux/mm.h>
-> > @@ -13,9 +15,14 @@
-> >  #include <linux/tee_core.h>
-> >  #include <linux/uaccess.h>
-> >  #include <linux/uio.h>
-> > -#include <linux/highmem.h>
-> >  #include "tee_private.h"
-> >
-> > +struct tee_shm_dma_mem {
-> > +     struct tee_shm shm;
-> > +     dma_addr_t dma_addr;
-> > +     struct page *page;
-> > +};
-> > +
-> >  static void shm_put_kernel_pages(struct page **pages, size_t page_coun=
-t)
-> >  {
-> >       size_t n;
-> > @@ -48,7 +55,16 @@ static void tee_shm_release(struct tee_device *teede=
-v, struct tee_shm *shm)
-> >  {
-> >       void *p =3D shm;
-> >
-> > -     if (shm->flags & TEE_SHM_DMA_BUF) {
-> > +     if (shm->flags & TEE_SHM_DMA_MEM) {
-> > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
->
-> nit: this config check can be merged into the above if check.
+Add gpio line name to support multiplexed console
 
-No, because dma_free_pages() is only defined if
-CONFIG_TEE_DMABUF_HEAPS is enabled.
+Signed-off-by: Marshall Zhan <marshall_zhan@wiwynn.com>
+---
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
->
-> > +             struct tee_shm_dma_mem *dma_mem;
-> > +
-> > +             dma_mem =3D container_of(shm, struct tee_shm_dma_mem, shm=
-);
-> > +             p =3D dma_mem;
-> > +             dma_free_pages(&teedev->dev, shm->size, dma_mem->page,
-> > +                            dma_mem->dma_addr, DMA_BIDIRECTIONAL);
-> > +#endif
-> > +     } else if (shm->flags & TEE_SHM_DMA_BUF) {
->
-> Do we need a similar config check for this flag too?
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+index 29f224bccd63..aae789854c52 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+@@ -189,6 +189,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
++				"SLOT1_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -235,6 +240,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
++				"SLOT2_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -281,6 +291,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
++				"SLOT3_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -327,6 +342,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
++				"SLOT4_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -373,6 +393,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
++				"SLOT5_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -419,6 +444,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
++				"SLOT6_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -465,6 +495,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
++				"SLOT7_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -511,6 +546,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
++				"SLOT8_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+-- 
+2.25.1
 
-No, because DMA_SHARED_BUFFER is selected, so the dma_buf functions are def=
-ined.
-
-Cheers,
-Jens
-
-
->
-> With these addressed, feel free to add:
->
-> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
->
-> -Sumit
->
-> >               struct tee_shm_dmabuf_ref *ref;
-> >
-> >               ref =3D container_of(shm, struct tee_shm_dmabuf_ref, shm)=
-;
-> > @@ -303,6 +319,71 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct tee_=
-context *ctx, size_t size)
-> >  }
-> >  EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
-> >
-> > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
-> > +/**
-> > + * tee_shm_alloc_dma_mem() - Allocate DMA memory as shared memory obje=
-ct
-> > + * @ctx:     Context that allocates the shared memory
-> > + * @page_count:      Number of pages
-> > + *
-> > + * The allocated memory is expected to be lent (made inaccessible to t=
-he
-> > + * kernel) to the TEE while it's used and returned (accessible to the
-> > + * kernel again) before it's freed.
-> > + *
-> > + * This function should normally only be used internally in the TEE
-> > + * drivers.
-> > + *
-> > + * @returns a pointer to 'struct tee_shm'
-> > + */
-> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > +                                   size_t page_count)
-> > +{
-> > +     struct tee_device *teedev =3D ctx->teedev;
-> > +     struct tee_shm_dma_mem *dma_mem;
-> > +     dma_addr_t dma_addr;
-> > +     struct page *page;
-> > +
-> > +     if (!tee_device_get(teedev))
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     page =3D dma_alloc_pages(&teedev->dev, page_count * PAGE_SIZE,
-> > +                            &dma_addr, DMA_BIDIRECTIONAL, GFP_KERNEL);
-> > +     if (!page)
-> > +             goto err_put_teedev;
-> > +
-> > +     dma_mem =3D kzalloc(sizeof(*dma_mem), GFP_KERNEL);
-> > +     if (!dma_mem)
-> > +             goto err_free_pages;
-> > +
-> > +     refcount_set(&dma_mem->shm.refcount, 1);
-> > +     dma_mem->shm.ctx =3D ctx;
-> > +     dma_mem->shm.paddr =3D page_to_phys(page);
-> > +     dma_mem->dma_addr =3D dma_addr;
-> > +     dma_mem->page =3D page;
-> > +     dma_mem->shm.size =3D page_count * PAGE_SIZE;
-> > +     dma_mem->shm.flags =3D TEE_SHM_DMA_MEM;
-> > +
-> > +     teedev_ctx_get(ctx);
-> > +
-> > +     return &dma_mem->shm;
-> > +
-> > +err_free_pages:
-> > +     dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dma_ad=
-dr,
-> > +                    DMA_BIDIRECTIONAL);
-> > +err_put_teedev:
-> > +     tee_device_put(teedev);
-> > +
-> > +     return ERR_PTR(-ENOMEM);
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
-> > +#else
-> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > +                                   size_t page_count)
-> > +{
-> > +     return ERR_PTR(-EINVAL);
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
-> > +#endif
-> > +
-> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
-align,
-> >                            int (*shm_register)(struct tee_context *ctx,
-> >                                                struct tee_shm *shm,
-> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-> > index f17710196c4c..e46a53e753af 100644
-> > --- a/include/linux/tee_core.h
-> > +++ b/include/linux/tee_core.h
-> > @@ -29,6 +29,8 @@
-> >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool */
-> >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driver *=
-/
-> >  #define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-buf ha=
-ndle */
-> > +#define TEE_SHM_DMA_MEM              BIT(5)  /* Memory allocated with =
-*/
-> > +                                     /* dma_alloc_pages() */
-> >
-> >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
-> >  #define TEE_MAX_DEV_NAME_LEN         32
-> > @@ -310,6 +312,9 @@ void *tee_get_drvdata(struct tee_device *teedev);
-> >   */
-> >  struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t=
- size);
-> >
-> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > +                                   size_t page_count);
-> > +
-> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
-align,
-> >                            int (*shm_register)(struct tee_context *ctx,
-> >                                                struct tee_shm *shm,
-> > --
-> > 2.43.0
-> >
 
