@@ -4,71 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AE7C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 15:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178AAC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 15:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=; b=3D89itfSz+ePxmIy3dcC31Qk3m
-	gvGNhGskJ8GUUHK8AC+VDJVyqgxA2D96Hphem7QGwu3F8irxEVXh7Z0iLG/pHAI1LqYCPnsD7VMsW
-	wScUtLzIby5bio89WE8K+he1QOMC7rHprDvqjWtv89NfxKMcTP80rqP30+LjkqnHd1hpCUxUw1zDI
-	mUbfTQlqHCZZo4/dlio2wCQibpIQe8kZuZRiaSL2PExJgKE5HU28w4F1BDRrCHSsn/8XNGu+Pt5hB
-	s6pmQyoI+wOInktRyOtUQWJhE9zuwtf3jQqucEvyopHEXy3bf3LUzaj5hFPYVqx9f22j3Lz4lHc5l
-	2VR29hvQ==;
+	bh=dAOqSpqCOL5vjgDSfWa7ZrwFL1vtEzIytDfSsqz8LEg=; b=fDbbEDJ6rJUZ+I9qIbP4uJROhX
+	Hy0kYhWO5cDyeqRc1NWf/AUa3MDsuriu09b+vFmIWjPRxYW2ga7zE+obf61HW80YhYs7C49T2mgrx
+	kjPUUVNtRN81orNh5yZu4Kp9i+/n1E6Oyt8jAR9M92PZ/7654NwsDuAu6T+PTx5q0cwxNgRa/GkFK
+	RmLOnWyC68tF8Tdir+J5I6Q0CoqX+lDIxj82qwa5CikgN44MB4S6hh1dS5G7GC1EBSWYBSBdEit+0
+	D+XUuTM1sVGHv0SH2z0pFBjkx2Y7TAVE8bosjCv+ZHMw+Wrj3dvjb+plL87ocCK7RSJ0ekCyVN0iw
+	75yXP7Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuWt-0000000AZ9A-3juh;
-	Wed, 18 Jun 2025 15:16:47 +0000
-Received: from sender4-of-o54.zoho.com ([136.143.188.54])
+	id 1uRuYB-0000000AZUD-1mg1;
+	Wed, 18 Jun 2025 15:18:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrn4-0000000A6Nh-3U68
+	id 1uRspj-0000000AIO9-41G5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 13:28:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dAOqSpqCOL5vjgDSfWa7ZrwFL1vtEzIytDfSsqz8LEg=; b=QnsjPcDUpZ+OSX9rQh+yX77wVN
+	FQRcHkGMHEbh1+cS1tSSBtJQLGUMsNGXMUyLbnhghfYZduoh2jUq66HCEfaG+zGYCs1rqvqvpzwSZ
+	ZiYipSfaPlg38uy4/U+acITnCy2mnU0xGvUxDgO5vfFbSyaE+CvhZ/atmkK1KFBPzg1RKDGat1ceO
+	PV88gDD62MfzMzxnRgf5CvCxNW5hq2314s7XOCL78KlGPGWfcTR5zrSdWfRutjyZS097HRcw9cf2/
+	mjJONfxqI7Y3BNcLnrjupGf4bXDFzOB+RkjYVNPzc+N4MW12Dn9MzKhU6yc6uwPJn2RhtmAbijLOd
+	2e0Os8Cw==;
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRspg-000000043Lm-14Jy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:21:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750249277; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LwTyltZLvFLcU/04Th+T9Kkk5eGUpsjs+w95iD+lahK1CtbqtZNTO2E4WzxMbCgMutsym+AfRQtmcdmJtYeoPvAe6k6jL6Y+dV12WrwzOPS2ZDZdaEuY2U3wgCygw28+Dgy1nMsyIiaYhLTOy/7mz6YWYO/+Yz2f4UDyNfptreA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750249277; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=; 
-	b=C9I9o0o+fPla+K9uBwJf2Je8gsVj/EwBskSumylYp0XVYHv8BZsJDQ1T8rEmdU5eJU+FxPdonSoVDhbnJp1/99GPOYTj1MnyvVplXbEVMg14i4N41GERKGBZnKulqi4dEvBI2qZiuL1eLH4Preb+3WUJDH/Pue2+haSxbMiMBgg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=anirudhrb.com;
-	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
-	dmarc=pass header.from=<anirudh@anirudhrb.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750249277;
-	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
-	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=;
-	b=FFRv1QtnnHHmCRJY8qHb1/CxJZdBlKgxKrfTStV52YoEHgB5tgFYJ4F31zI3sV1Y
-	73Whw2o5OYKd8BYf4QttZrN4M65Ko3ONFlZapq/rwlISZ1ThWD3mV62J6O4+ihPnvRZ
-	0E2UaR6tRyZKkvsho5QWKzamh0dlCdX9kwgHNc5I=
-Received: by mx.zohomail.com with SMTPS id 1750249250132973.3344122035301;
-	Wed, 18 Jun 2025 05:20:50 -0700 (PDT)
-Date: Wed, 18 Jun 2025 12:20:43 +0000
-From: Anirudh Rayabharam <anirudh@anirudhrb.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Roman Kisel <romank@linux.microsoft.com>,
-	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
-	mark.rutland@arm.com
-Subject: Re: [PATCH] firmware: smccc: support both conduits for getting hyp
- UUID
-Message-ID: <aFKvG69DVhHcI5Mn@anirudh-surface.localdomain>
-References: <20250605-kickass-cerulean-honeybee-aa0cba@sudeepholla>
- <20250610160656.11984-1-romank@linux.microsoft.com>
- <20250611-wandering-juicy-magpie-ed7f46@sudeepholla>
+	Wed, 18 Jun 2025 13:28:07 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4a44b0ed780so99120331cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 06:28:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1750253280; x=1750858080; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dAOqSpqCOL5vjgDSfWa7ZrwFL1vtEzIytDfSsqz8LEg=;
+        b=h0sChdWAoU8nNoY4zuuJ3wpOU5IjTRt5P6a7bcUOSZUiPVsHLobfszIZFzkNUC+1nZ
+         FimEzw5517kCMu9Ugyprln4qesNPm1qmP/SVNcQZOJ+A0H1pFes8lpZdSaa1fzWuerRk
+         ZiJ3jF2gcaNX+GjhODI5K6dzidPtgdtqDDAzDurgXiVG0B6ZNIXodg+Hx6y/gTB8nK8N
+         /jPURdEyEzN+27uP7qhl1oUcZo+n3onzQkvfTb7hkawyd3xSu5P6zdFaJNCPYgiLHqS0
+         Cpx3evtygLr73lfFJGcmT53sovCHZ+Ub7ZGkOMj+grdaUch8bzrMAqvaNjPt+6O/vkhw
+         7NzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750253280; x=1750858080;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dAOqSpqCOL5vjgDSfWa7ZrwFL1vtEzIytDfSsqz8LEg=;
+        b=cOw7OepKKru/JZjHQP2UjQ82iZH2qu+ZCNCmzmIRcVkg4bVZvhVYvwJlQe//sPP9AO
+         AiqSz7VPOtQYhpkyMmbMmvSYk2AMnr0TW3SbNI+kTU7LJUC6daVJfwRBJyYz6n8nWhIq
+         JEr14H0uUewECnAnwZNa0btbOl3bRa4bNAWJ2ohij7mqrO4FgfMIoOUACoqXfKo6ND/D
+         yhl6hyPSyxuZdhFCo5p5xg2cbXA1fGPOG/exuIibY+BkebH3uH5Y2bpA97m1UQOZoaCz
+         X+GPvG4wSknPgurGlT76nSxiSMC/7XGqjTDsr+htTEIsvtvmS2D7HsF1K5AtH5nntGaT
+         XAwA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvAcbXiZYONm7IL1Ifh6cIT6d9q/MhLh6r+WNFececMLVDjeJ+lZcbszX9yM8MvI6U9S80u0FQ26obXwZ0PLvY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoZ4X9dCWYgSHBFBcZPqGooysOYZm2REDqwjupH9BTKkrkq+7t
+	6gKuhQYY1YSeG1ZZl56E6GE0eBMy3UZg3EFFACR4PxQpK2waBcST0150OXFyW7acXwc=
+X-Gm-Gg: ASbGncusQW58ElMghu12JV1C4Mx5tZ9AoD+7fRx9yRYEBncn+He8bJXGrnmnWBIyRLm
+	I69gn5W1BRkU3RvZjRxzY/e6Ewly5P5qHxgt7ty5pRzVdCw/DmAyGqG4+dqUg/Q75nxH/asJMsO
+	Ys02UNool02urCntSiokfR8/QlsOQxNnq1+ygg7ucTV+HxPdnaRV0soaBHNv83nC+J9XRw5wIPl
+	wbdprsALX8pCHqLk1jvmknmVpcXzpN4SPAMDKi+mDrynDzRNOgoykVgKVb1V18WyehXI2Fluznv
+	O54Q0n2y0gZuFIxkZFhHgJva6JU4ttJYsn3HucSg85UAtlD4mwMTWJdCmQjRIel+3Dh4zeRZuEl
+	/u6b5o1nQiaHBjwUyeKS0oCWiqAhAP7ENn82Mvw==
+X-Google-Smtp-Source: AGHT+IG2fHMkumSLh5a7kRlQvfCzWqyNaNQCt2F7JGbyl37Cd1Kzlhrtl/JlBPjRFd8BrqzAM7ABWw==
+X-Received: by 2002:a05:622a:1886:b0:4a7:2328:27dc with SMTP id d75a77b69052e-4a73c4fd24emr201270391cf.9.1750253280248;
+        Wed, 18 Jun 2025 06:28:00 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a72a50f29dsm71636961cf.75.2025.06.18.06.27.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 06:27:59 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uRspb-00000006mz5-0lhB;
+	Wed, 18 Jun 2025 10:27:59 -0300
+Date: Wed, 18 Jun 2025 10:27:59 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH 3/5] iommu: Add verisilicon IOMMU driver
+Message-ID: <20250618132759.GO1376515@ziepe.ca>
+References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
+ <20250616145607.116639-4-benjamin.gaignard@collabora.com>
+ <20250617163219.GF1376515@ziepe.ca>
+ <ff32d7c1-d811-46b8-8d3d-458dfebd14f8@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250611-wandering-juicy-magpie-ed7f46@sudeepholla>
-X-ZohoMailClient: External
+In-Reply-To: <ff32d7c1-d811-46b8-8d3d-458dfebd14f8@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052118_935455_C2AFAA47 
-X-CRM114-Status: GOOD (  33.00  )
+X-CRM114-CacheID: sfid-20250618_142804_399950_E523BDEB 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +127,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 01:52:32PM +0100, Sudeep Holla wrote:
-> On Tue, Jun 10, 2025 at 09:06:48AM -0700, Roman Kisel wrote:
-> > > (sorry for the delay, found the patch in the spam 🙁)
-> > 
-> > "b4" shows the the mail server used for the patch submission
-> > doesn't pass the DKIM check, so finding the patch in the spam seems
-> > expected :) Thanks for your help!
-> > 
+On Wed, Jun 18, 2025 at 02:04:19PM +0200, Benjamin Gaignard wrote:
 > 
-> Thought so looking at the header but I just have very basic knowledge
-> there, so couldn't comment.
+> Le 17/06/2025 à 18:32, Jason Gunthorpe a écrit :
+> > > +	vsi_domain->dt_dma = dma_map_single(dma_dev, vsi_domain->dt,
+> > > +					    SPAGE_SIZE, DMA_TO_DEVICE);
+> > > +	if (dma_mapping_error(dma_dev, vsi_domain->dt_dma)) {
+> > > +		dev_err(dma_dev, "DMA map error for DT\n");
+> > > +		goto err_free_dt;
+> > > +	}
+> > > +
+> > > +	vsi_domain->pta = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
+> > > +					       SPAGE_SIZE);
+> > > +	if (!vsi_domain->pta)
+> > > +		goto err_unmap_dt;
+> > > +
+> > > +	vsi_domain->pta_dma = dma_map_single(dma_dev, vsi_domain->pta,
+> > > +					     SPAGE_SIZE, DMA_TO_DEVICE);
+> > > +	if (dma_mapping_error(dma_dev, vsi_domain->pta_dma)) {
+> > > +		dev_err(dma_dev, "DMA map error for PTA\n");
+> > > +		goto err_free_pta;
+> > > +	}
+> > > +	vsi_domain->pta[0] = vsi_mk_pta(vsi_domain->dt_dma);
+> > > +
+> > > +	vsi_table_flush(vsi_domain, vsi_domain->pta_dma, 1024);
+> > > +	vsi_table_flush(vsi_domain, vsi_domain->dt_dma, NUM_DT_ENTRIES);
+> > dma_map_single already flushes, put things in the write order and no
+> > need to double flush.
 > 
-> > >
-> > > On Wed, May 21, 2025 at 09:40:48AM +0000, Anirudh Rayabharam wrote:
-> > >> From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
-> > >>
-> > >> When Linux is running as the root partition under Microsoft Hypervisor
-> > >> (MSHV) a.k.a Hyper-V, smc is used as the conduit for smc calls.
-> > >>
-> > >> Extend arm_smccc_hypervisor_has_uuid() to support this usecase. Use
-> > >> arm_smccc_1_1_invoke to retrieve and use the appropriate conduit instead
-> > >> of supporting only hvc.
-> > >>
-> > >> Boot tested on MSHV guest, MSHV root & KVM guest.
-> > >>
-> > >
-> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > >
-> > > Are they any dependent patches or series using this ? Do you plan to
-> > > route it via KVM tree if there are any dependency. Or else I can push
-> > > it through (arm-)soc tree. Let me know.
-> > 
-> > Anirudh had been OOF for some time and would be for another
-> > week iiuc so I thought I'd reply.
-> > 
-> > The patch this depends on is 13423063c7cb
-> > ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID"),
-> > and this patch has already been pulled into the Linus'es tree.
-> > 
-> 
-> Had a quick look at the commit to refresh my memory and as you mentioned
-> it is new feature. I was checking to see if this is a fix.
-> 
-> > As for routing, (arm-)soc should be good it appears as the change
-> > is contained within the firmware drivers path. Although I'd trust more to your,
-> > Arnd's or Wei's opinion than mine!
-> > 
-> 
-> I will queue this once I start collecting patches for v6.17 in 1/2 weeks'
-> time, so expect silence until then 😄.
+> I don't get your point here, for me it flush two different pieces of memory.
 
-Sounds good, thanks!
+dma_map_single() already flushes the cache, you don't need to do it
+again.
 
-Regards,
-Anirudh.
+Do your memory writes then call dma_map_signle().
 
+> > > +	dte_index = vsi_iova_dte_index(iova);
+> > > +	dte_addr = &vsi_domain->dt[dte_index];
+> > > +	dte = *dte_addr;
+> > > +	if (vsi_dte_is_pt_valid(dte))
+> > > +		goto done;
+> > > +
+> > > +	page_table = (u32 *)get_zeroed_page(GFP_ATOMIC | GFP_DMA32);
+> > > +	if (!page_table)
+> > > +		return ERR_PTR(-ENOMEM);
+> > Don't use get_zeroed_page for page table memory.
 > 
-> -- 
-> Regards,
-> Sudeep
+> I will use kmem_cache in v2
+
+I mean you are supposed to iommu-pages.h for page table memory.
+
+> > > +	pt_dma = dma_map_single(dma_dev, page_table, SPAGE_SIZE, DMA_TO_DEVICE);
+> > > +	if (dma_mapping_error(dma_dev, pt_dma)) {
+> > > +		dev_err(dma_dev, "DMA mapping error while allocating page table\n");
+> > > +		free_page((unsigned long)page_table);
+> > > +		return ERR_PTR(-ENOMEM);
+> > > +	}
+> > > +
+> > > +	dte = vsi_mk_dte(pt_dma);
+> > > +	*dte_addr = dte;
+> > > +
+> > > +	vsi_table_flush(vsi_domain, pt_dma, NUM_PT_ENTRIES);
+> > > +	vsi_table_flush(vsi_domain,
+> > > +			vsi_domain->dt_dma + dte_index * sizeof(u32), 1);
+> > Double flushing again.
+>
+> Same here, for me I flushing two different memory area.
+
+write to the page-table, then call dma_map_single(), don't flush it again.
+
+> > > +static int vsi_iommu_map_iova(struct vsi_iommu_domain *vsi_domain, u32 *pte_addr,
+> > > +			      dma_addr_t pte_dma, dma_addr_t iova,
+> > > +			      phys_addr_t paddr, size_t size, int prot)
+> > > +{
+> > > +	unsigned int pte_count;
+> > > +	unsigned int pte_total = size / SPAGE_SIZE;
+> > > +	phys_addr_t page_phys;
+> > > +
+> > > +	assert_spin_locked(&vsi_domain->dt_lock);
+> > > +
+> > > +	for (pte_count = 0; pte_count < pte_total; pte_count++) {
+> > > +		u32 pte = pte_addr[pte_count];
+> > > +
+> > > +		if (vsi_pte_is_page_valid(pte))
+> > > +			goto unwind;
+> > > +
+> > > +		pte_addr[pte_count] = vsi_mk_pte(paddr, prot);
+> > So why is this:
+> > 
+> > #define VSI_IOMMU_PGSIZE_BITMAP 0x007ff000
+> > 
+> > If the sizes don't become encoded in the PTE? The bits beyond 4k
+> > should reflect actual ability to store those sizes in PTEs, eg using
+> > contiguous bits or something.
+> 
+> The iommu use arrays to store up to 1024 4k pages indexes so the size
+> isn't coded in the PTE bits but the numbers of used indexes for each arrays.
+
+That isn't how it works, if the PTE bits don't code the size then you
+don't set the VSI_IOMMU_PGSIZE_BITMAP. You just want SZ_4K for the way
+this driver is written.
+
+Jason
 
