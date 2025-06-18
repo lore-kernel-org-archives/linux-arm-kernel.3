@@ -4,134 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9589C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F6DC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4JxJhlTKaWLHxrr2sQ6HBb0cbTYMQOvF9DeXN1OYDf4=; b=QvIloTvKnShSKG4HtCgPFcBqVb
-	NYhjnv6C9MF0QUaFyajnjR6otL5t9t/KJktMax2CQKUN/KWjD3bz85hpc0+btXxvtnnyXi4uCTAmQ
-	7XbFTzUPGh7F7JsfwkkvQtZ36Du2fbf5e0qSnszwf7AVkiJRzP25qg08RrZ71hvbJmk2sJgKzvbHz
-	7nX3fU3CcnUTmc9A8IhsnulVu33+8ifBf+d7DeJrA4z+gMqwvABosGUh7c2HjAo/R9CpTBYzm2B4O
-	nq8v4bR0ypMYSecXMenzFHFITaWMGrkek+zBZmazYUQkRG/vLWuMKO4iGgS69SHf++ruv07N2U5wi
-	eC/AmVmw==;
+	bh=zSdGgQ164VaLH+mm2XZdxVC+s9AToDzIeoD3uE9jAfo=; b=oH2k7EHca+e2usAFinIHL2lZso
+	oIO7ikqULdKRfGcfEZ/8bDrRqIkX0xHJN1n6htOh5u88RDhyj8oyTR0JiTn8SA03B3MRb1lzoHxrs
+	z/I/IvzsndnDCbEGMpswAAwEc4URhuAfMnaw7xdgvArIaeCiegg5yJtkrIf8wKwhjHKgtBnzwraiW
+	GsQwju5TGOfGt6xN4uzUQoLQZJi1VhpfGjCqokbrZS7B3tJLJiJgWW8hvtOZ1tjpZrVqd6iGD8BT2
+	oz7dVSGcTkH7zV3eaJMA+BxtAFInn1YT6AUrjMYi7HAnWifkhYx9E4IZKNGNW3Bo8/hsUDJcgZwY4
+	Pf2wn22Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwId-0000000AoZu-1eeL;
-	Wed, 18 Jun 2025 17:10:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uRwKp-0000000Aor2-3W2Z;
+	Wed, 18 Jun 2025 17:12:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuak-0000000AZmS-0MsQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Jun 2025 15:20:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4JxJhlTKaWLHxrr2sQ6HBb0cbTYMQOvF9DeXN1OYDf4=; b=Jkk0c4sp0VNMIYAtljhCV97sUH
-	6GKtDt2fDQ+zZjsNCRmazLiw/4Dr4lJSJKYnkyjzZzwTisgwFDBmahWEoHFuQEH1mpEDiAlblAGry
-	2YY4p5ljpvPv0LPyp3SBx8WNgh8/2ievjvSw4IEBidfEwJzI3IBrgeH0KWQfNVxHjpb/MYik9cxeH
-	HnNxm/SsOaY3V55VNCiOHbBjD6FSJOOJb/Qcw9ZHVaak+yizVccdvKpQwZdsahxUuF6QAAzN+rgIZ
-	7Sybc6517CICO4emS7GACddKsjmNbsZEex3KMbHNWWOhJvny3Hnv+GltGhE8c+RFVGmft/ZXvS2CL
-	a5pE2sDQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuah-000000048xe-38gY
+	id 1uRuth-0000000Acdh-3DSY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 15:20:45 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55I9JLJ5031604;
-	Wed, 18 Jun 2025 15:20:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4JxJhlTKaWLHxrr2sQ6HBb0cbTYMQOvF9DeXN1OYDf4=; b=jvfsGTs3Pe+noeRu
-	CNcRfaYnT0EIyyjDpznzPO6MZB4P2ow3qOhR8sP96QIyVsY12zwBS8mCsrbW/qqF
-	p8v/Ljq+pUIfI2u7pKJuWxQ18gIFDzTcM+woEltfhlU59xsMRXz1T+ijjJYtVX9d
-	CH3m4YExE7+qtSPafp8uYWU9GKzRDV0nV9wVncJbNaHI1aqwL6fAULx1/arSues8
-	IQ8gDT0owQQ21HBIZy4PnkiSD2xL2Jvm5XtAkuB2AujOoOcSxzhLOKNYIKwHx6KG
-	dXSs9b2XZp60Wb7fRZTifKCBDZ+r+ZmPV9kWZuOgDfxAwU456/4xWldmiRatwTkK
-	nuc/OA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791h9cjgk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Jun 2025 15:20:34 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55IFKXq3032498
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Jun 2025 15:20:33 GMT
-Received: from [10.253.36.28] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 18 Jun
- 2025 08:20:28 -0700
-Message-ID: <817d069a-5e0e-41a7-95bb-e3c3ac964346@quicinc.com>
-Date: Wed, 18 Jun 2025 23:20:25 +0800
+	Wed, 18 Jun 2025 15:40:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E51F1A52449;
+	Wed, 18 Jun 2025 15:40:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179F5C4CEEF;
+	Wed, 18 Jun 2025 15:40:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750261220;
+	bh=HsoAbQnBnE/foxpNITtdHMz0c3PnR0dNcIrv20ad6LI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TdRdKtCCpUvEcRzN6UVw/ncdpT6sNXiKqW3TCav3FB7V2y5/lG0FkJEORT0X3UgnS
+	 BZxkfqfvM8cwqvty7aUK0wAV25tZzs5obxqCX+yUcS8awsjDUe6+FwETA6v94/rYCe
+	 tYsnosi+8ofmyjkNOxwNi5Lm48+pPJKpx1MAruTlTAxCOXnryqVr4rUQGMtUUgrUgx
+	 OXxCsXrs8ASo43uVOnWuPmdViVRgeBOmH6liEmmUr0uUk5ci92gVhoFQG3YKGkDLTq
+	 wBq6z7we2eWMuYRdxW/xUrlct1dklu7m+knE/PUWmfcqcUFmxs2KD2XGjULDd9szH5
+	 uqXQ96kzdVPbw==
+Message-ID: <00e28a4a-78d6-4452-b28f-29d2e201f6d9@kernel.org>
+Date: Wed, 18 Jun 2025 17:40:15 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: defconfig: Build NSS clock controller driver
- for IPQ5424
-To: Krzysztof Kozlowski <krzk@kernel.org>, Georgi Djakov <djakov@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        "Will
- Deacon" <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>
-References: <20250617-qcom_ipq5424_nsscc-v1-0-4dc2d6b3cdfc@quicinc.com>
- <20250617-qcom_ipq5424_nsscc-v1-8-4dc2d6b3cdfc@quicinc.com>
- <cf07ac73-9908-4d96-bf44-1f40186df189@kernel.org>
+Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
+ sysregs
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+ <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+ <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
+ <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
+ <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
+ <cd0f942a3752053e7569040f9e508b2d@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <cf07ac73-9908-4d96-bf44-1f40186df189@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <cd0f942a3752053e7569040f9e508b2d@disroot.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: Omg8Eqdm4Mb3wLpwZXdkBmZmrsUHJ3YG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE4MDEyOSBTYWx0ZWRfX+/IZ9J8TT/Td
- G8mYy/+/6x+v7Ha825s4bs5VEljbG3WJNFdYKLMUTFymiBpGY+o4aF9BS5EzMWJADvf4FqPb22O
- wRGHvrFzhJWd2z8zDES+qaoYrWNMrdvDolh0N7VU2CJyimEzb+ZXXXb1ASEF4YMzdrKeUTkJMbk
- PuiUQWOlTRGd9ZMJWUbqp+W4K6hGvDolyJpLkh96d3YVT4fveab8KjM4KHhvyTdt+bWqBINnsZY
- KiSssFXGyLExhX2E8H72re4CyR1IAdQBPgCJ/H63s7fTd2HUzEcy7OpSNRVxdmGGPa50znNaerX
- e580Emrf85HFxRnHxG+0o5wPfL8Zmqzvl2RAt+nuVC7EwkI1ZQq6Pmey64zEjsGqla6iIjaS6Jt
- LFNOmm7/Xzm+8WZkAwNHU7WK61RwiXZUk4BbqE//hdFBWded90wkh8L98yW5Yf6H4m+w+EYa
-X-Authority-Analysis: v=2.4 cv=UL/dHDfy c=1 sm=1 tr=0 ts=6852d942 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10
- a=U-iYb9-RqBH3_7pkrJoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: Omg8Eqdm4Mb3wLpwZXdkBmZmrsUHJ3YG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-18_05,2025-06-18_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0 mlxlogscore=857
- malwarescore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506180129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_162044_067789_241D9D42 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250618_084021_945052_E2893232 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,27 +125,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/17/2025 10:49 PM, Krzysztof Kozlowski wrote:
-> On 17/06/2025 14:06, Luo Jie wrote:
->> NSS clock controller is needed for supplying clocks and resets
->> to the networking blocks for the Ethernet functions on the
->> IPQ5424 platforms.
+On 18/06/2025 16:49, Kaustabh Chakraborty wrote:
+> On 2025-06-18 14:37, Krzysztof Kozlowski wrote:
+>> On 18/06/2025 16:32, Kaustabh Chakraborty wrote:
+>>> On 2025-06-18 09:46, Krzysztof Kozlowski wrote:
+>>>> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
+>>>>> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs 
+>>>>> are
+>>>>> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
+>>>>>
+>>>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>>>> ---
+>>>>>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      
+>>>>> | 6 ++++++
+>>>>>  1 file changed, 6 insertions(+)
+>>>>>
+>>>>> diff --git 
+>>>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml 
+>>>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>>>> index 
+>>>>> d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 
+>>>>> 100644
+>>>>> --- 
+>>>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>>>> +++ 
+>>>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>>>> @@ -52,6 +52,12 @@ properties:
+>>>>>                - samsung,exynosautov9-sysreg
+>>>>>            - const: syscon
+>>>>>          deprecated: true
+>>>>> +      - items:
+>>>>> +          - enum:
+>>>>> +              - samsung,exynos7870-cam-sysreg
+>>>>> +              - samsung,exynos7870-disp-sysreg
+>>>>> +          - const: samsung,exynos7870-sysreg
+>>>>
+>>>>
+>>>> Drop. These are not really compatible or your commit msg is 
+>>>> incomplete.
+>>>> Don't use deprecated syntax and backwards compatible solutions for 
+>>>> new
+>>>> hardware.
+>>>
+>>> Are you sure? The deprecated one is actually the item above. From what 
+>>> I
+>>
+>> Yes. Think why were they added.
+>>
+>>> understand, those are generic sysregs and don't mention their 
+>>> functions.
+>>
+>> And what is a generic sysreg?
 > 
-> Which boards need it?
+> What I meant is, usually compatibles go like this (in order):
 
-All boards based on the IPQ5424 SoC require this driver to be
-included in the build. I will update the commit message to
-clarify this requirement.
+No, they don't. So you checked why they were added?
 
-> 
-> Also here not really proper wrapping.
-
-I will correct the line wrapping in the next revision.
-
-> 
-> Best regards,
-> Krzysztof
-
+Best regards,
+Krzysztof
 
