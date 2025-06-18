@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8B7C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 22:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CF2C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 22:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iabUtXH2S5hgnNxipXhGWLLQltCqncktdrGikSQJGv8=; b=eATOYkpCewZsvrhJeDwbI4PrjQ
-	KJfrdRtXFrTa9arokcIRxXWLujSW8lw5C2M1kBhzoXsPQsjHWqBBUquxuzhpjYyA8B5DHH4rlKY3R
-	f2DN7NzgSd4HnKzN3jLS2BkhKzeGx4CTK237cycexHqRfft9LcjMiyWos9oNKBe4I6JyeClJMCo6k
-	mayYb9+1f4SkAYbPC9MHxVgrec3tWGFbPOTkVgtmLkpTV1byoUaH6jeZpPNYOBprfZ5WazNI27D8d
-	UKtx0PX2HUE3pmbReYRU/xZIJnzuPBrs5zt3Mj0XBysn33uyuoytGanSA1bSUU+VcKh+2Pinj9ek5
-	V8sVrG0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rJs6TsFM1aXGlAgdipcm0UQBa8DTSKlhPilE+LUrsic=; b=GvNZv42G9e/Awgpq+WOQIt5wby
+	Sg0oYQPKn6duRgzoN2SlJOfQmzbSJRPCMFrKlOZF6BkK2AMdssXC5XRBVNHevpj39kVNpQuemUIfK
+	h8v31WBlDIKiKyAiY/RBQ35ytokqh0qpI447noZ0Ww3FTDWfeVOFs5lX6mfJGGWN+DMuRd5Nt2kqu
+	Ig4/UCDYe/vxyi8u5mnbVRMGJGwOS4RDJyyw/OPFRZQqyYFALVjrT+agLrj3zHNii18Z64OLVyBO1
+	71+X1C00NO2lrh4tYLR+NXpOfV1KhfneiI6wOrZp8BYfACCtKmrWYxyUGXsYvlVbpI+56W4mwEyse
+	UyQTuQsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS1XU-0000000BX0h-1Y1j;
-	Wed, 18 Jun 2025 22:45:52 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS1VG-0000000BWU2-0NLS
+	id 1uS1Zf-0000000BXAB-1Ahd;
+	Wed, 18 Jun 2025 22:48:07 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uS1X2-0000000BWsr-0kia
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 22:43:35 +0000
-Date: Wed, 18 Jun 2025 15:43:21 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750286611;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iabUtXH2S5hgnNxipXhGWLLQltCqncktdrGikSQJGv8=;
-	b=EpbLDF+7NjqZog0McGJwo+5HvohOHNAQ8BaL7lZ03J7iJoDBrg8lFG2S6I9VFIMY3Gd8yJ
-	kTLle8vGIij2bB5f/LXeRE9tYV0K5nhLvNCmRGtvD2HcKQJ6cqzHDwB2+zkiC1Sgge9yZn
-	6Pp85WKy351lqpG6lvz+IzpntWkiNOc=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: James Houghton <jthoughton@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Yan Zhao <yan.y.zhao@intel.com>,
-	Nikita Kalyazin <kalyazin@amazon.com>,
-	Anish Moorthy <amoorthy@google.com>,
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 04/15] KVM: Add common infrastructure for KVM
- Userfaults
-Message-ID: <aFNBCaLEdABfybmd@linux.dev>
-References: <20250618042424.330664-1-jthoughton@google.com>
- <20250618042424.330664-5-jthoughton@google.com>
- <aFMWQ5_zMXGTCE98@linux.dev>
- <aFMh51vXbTNCf9mv@google.com>
+	Wed, 18 Jun 2025 22:45:25 +0000
+Received: from [100.64.233.194] (unknown [52.148.171.5])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 8006E211936F;
+	Wed, 18 Jun 2025 15:45:22 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8006E211936F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1750286723;
+	bh=rJs6TsFM1aXGlAgdipcm0UQBa8DTSKlhPilE+LUrsic=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=L68sOx3uTtlWroiS/eOpJnEcntdicNrsTjKS/S0supUx+TTZJxftHulUkZihpSpzY
+	 MkuWVko7E7VWaC0YpxYB8KuRpsNlORdz5C+RO3DinJj9vIuhoNVLmN8kelX4omLH79
+	 Kk19I9RHzd0dBxBEHyRI2tweyqVI5z1Cw4Kf2fio=
+Message-ID: <f6c8da5d-9dc0-488e-88e5-39f53127b6a3@linux.microsoft.com>
+Date: Wed, 18 Jun 2025 15:45:21 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFMh51vXbTNCf9mv@google.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
+ interrupts on nested
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, lpieralisi@kernel.org,
+ kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+ bhelgaas@google.com, jinankjain@linux.microsoft.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com, x86@kernel.org
+References: <20250613193616.GA971782@bhelgaas>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <20250613193616.GA971782@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_154334_286530_1386E0FD 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20250618_154524_248936_AF0E8928 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 01:33:17PM -0700, Sean Christopherson wrote:
-> On Wed, Jun 18, 2025, Oliver Upton wrote:
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+On 6/13/2025 12:36 PM, Bjorn Helgaas wrote:
+> On Tue, Jun 10, 2025 at 04:52:06PM -0700, Nuno Das Neves wrote:
+>> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>>
+>> Running as nested root on MSHV imposes a different requirement
+>> for the pci-hyperv controller.
+>>
+>> In this setup, the interrupt will first come to the L1 (nested) hypervisor,
+>> which will deliver it to the appropriate root CPU. Instead of issuing the
+>> RETARGET hypercall, we should issue the MAP_DEVICE_INTERRUPT
+>> hypercall to L1 to complete the setup.
 > 
-> No need for my SoB.
+> Maybe strengthen this to say that this issues MAP_DEVICE_INTERRUPT
+> instead of RETARGET in this case?  (Not just that we "should".) 
 > 
-> > > +#ifdef CONFIG_KVM_GENERIC_PAGE_FAULT
-> > > +bool kvm_do_userfault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-> > 
-> > The polarity of the return here feels weird. If we want a value of 0 to
-> > indicate success then int is a better return type.
-> 
-> The boolean is my fault/suggestion.  My thinking is that it would make the callers
-> more intuitive, e.g. so that this reads "if do userfault, then exit to userspace
-> with -EFAULT".
-> 
-> 	if (kvm_do_userfault(vcpu, fault))
-> 		return -EFAULT;
 
-Agreed, this reads correctly. My only issue is that when I read the
-function signature, "bool" is usually wired the other way around.
+Good suggestion, thanks.
 
-> > > +{
-> > > +	struct kvm_memory_slot *slot = fault->slot;
-> > > +	unsigned long __user *user_chunk;
-> > > +	unsigned long chunk;
-> > > +	gfn_t offset;
-> > > +
-> > > +	if (!kvm_is_userfault_memslot(slot))
-> > > +		return false;
-> > > +
-> > > +	offset = fault->gfn - slot->base_gfn;
-> > > +	user_chunk = slot->userfault_bitmap + (offset / BITS_PER_LONG);
-> > > +
-> > > +	if (__get_user(chunk, user_chunk))
-> > > +		return true;
-> 
-> And this path is other motiviation for returning a boolean.  To me, return "success"
-> when a uaccess fails looks all kinds of wrong:
-> 
-> 	if (__get_user(chunk, user_chunk))
-> 		return 0;
+>> Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
 
-Yeah, that's gross. Although I would imagine we want to express
-"failure" here, game over, out to userspace for resolution. So maybe:
-
-	if (__get_user(chunk, user_chunk))
-		return -EFAULT;
-
-> That said, I don't have a super strong preference; normally I'm fanatical about
-> not returning booleans.  :-D
-
-+1, it isn't _that_ big of a deal, just noticed it as part of review.
-
-Thanks,
-Oliver
 
