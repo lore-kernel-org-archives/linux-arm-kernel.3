@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9703C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE254C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/s7oEmyKauEAHgwht1yQk0tIZg1WwzoDzyegW5BYz4=; b=thJ7vreKiHisPaxtvAHB+nVgUs
-	2RzJqQwIeLeHIsj+rA+Td/kFD1psOJe9DPMa74OS+ii8Ohlb/Rq0tKRi43bK8WKMW/aK0EizmjE9J
-	WzDVTfAPAantdlgLN3VpXEMDPQLWilSFyZSv2MXgMkQvQ40Z7eya8U56AL4zmf1EHhvmD9NDQlvda
-	jcvfO7IrT9+zfrUToeWKdECq+Bpu84HJ8E/3/yxRsYR/OGw5e4BLM9+yLrcKlYoffxHKq4/mlqych
-	Fm80OCQDGYMAgUK7MB/bp7J4obAEAuwz5Dt+MDvBUKEcB0tdIbvuo5jKPFN4w08NaNnlIPnl/vkcZ
-	MqeC02TQ==;
+	bh=KucomvysAjkq7Mc20S0WzT2rldg2A7wys58v4bjZBcg=; b=Lh/k9qyAyCSeeZjTb1pal9/V/K
+	Hu8IAXUNB/P1NgKnHHFZMpaZXmmy9baB/PbfuY7nts65HPQrBUTEsCXSu6ZoJSuJob5pb4qjl5V4k
+	nVjmUHZM/xnEqHaryc0Q3Ru/Rszs9EQfPpXf2Tg+C+kmZ9O5FIhl2wjqcnSou1J9WxFdWlnS7YSnr
+	9GsVP4e4/aXmMGMBcsLzxDix6mBKeWF5O29LpxYYuQ88D/9rIywds+wBv5jgx/e/O/GEp3xClUbT9
+	7wnRzdrGc2XGPQzKJ8GOOnxVGilX1px946jk/8Lz+JSYpACO+enhXKuee79v/D8MWdnjkesB//cYt
+	TyibZvlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0CE-0000000BQNU-3Q6U;
-	Wed, 18 Jun 2025 21:19:50 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uS0EQ-0000000BQmA-2BNX;
+	Wed, 18 Jun 2025 21:22:06 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS01r-0000000BP6g-2vif
+	id 1uS01w-0000000BP8K-49aA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 21:09:09 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-748475d2a79so48453b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:09:07 -0700 (PDT)
+	Wed, 18 Jun 2025 21:09:14 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7377139d8b1so66360b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:09:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750280946; x=1750885746; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750280952; x=1750885752; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j/s7oEmyKauEAHgwht1yQk0tIZg1WwzoDzyegW5BYz4=;
-        b=QbHs7hoTr1MtyRVfUzF+c38+qt9iNXUpfexlwBQLSecDUz6jRRaxTTVbrjV2hnAPxZ
-         KwqESBg5g2fHyezoUC90MMlYD0J5R8Iiiw3T2j1mXmPKds4oFvLA2BYSTbTGdIJA3nN4
-         pTVEB+/1TFh+no0czgVaWwY6u/DUrTx9dc/WCWIQoyPRdImbLE1L9TkL2MTjlyDT792L
-         y9d0pFbcpXoKeDB9hNiYzcAM9qbVHSiGmoshYhGYRH2JyJ32y+Ocz1R8zaaB5mGl2gu+
-         3OOtHvyOHruu+1zK8xVsE+2/tsQUbZj0s7HKMGGb8MgtRCcbWOtTSI50azN7TWfNfZOR
-         SxpQ==
+        bh=KucomvysAjkq7Mc20S0WzT2rldg2A7wys58v4bjZBcg=;
+        b=n7TUWCK40aOrgqUOqIsgQ/+Lwwu+lzN7L0eZLv+nKcWe7Er8ZJkQV/uzySAUPMLjw2
+         /ICCb8vxBSEKcq5gahUQNfMYGOthFlOW4Rb6VswHMJmsqaJfJSzMTjozgo7BfqqHVq15
+         2pWy0MQE6FoubpsJ8fbH3kuX5tpKMFDr9aWobyrLnEt4GdZL8nyWPd5MsTBSk/OO7TLs
+         6zdK13zh3kach9LspKl3fxBlEz15RQHAf88lRaP5INPpRY6XBJ6gySlYdYWjsz6XePyP
+         6C5V1nH52HM9ZK/iHQdKh8blDOdeTZrQok46kABYA2O2kv775E9OFuKH7/xCzSU3seIX
+         fMCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750280946; x=1750885746;
+        d=1e100.net; s=20230601; t=1750280952; x=1750885752;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j/s7oEmyKauEAHgwht1yQk0tIZg1WwzoDzyegW5BYz4=;
-        b=tGAAskatMddIyrm52NAtRUg40/xrh092KxLtN3eMVQKsd3wsMLQdyVTjB3M8un3z8c
-         7Pwbhg1a26An4S+CIbFlisv6hGeExl07TuJOhsOM13asFUtIAfxO+WgN1zY9kfFTHl4P
-         VlEaOee7d6J4i+s9vBIoAx7xXujg2j/qX1O6AHJ4GFNnu/yDg0jxN1UY9cW3HPsGzHY3
-         CXydnZ7aWxW2xOZkKLFmf7U+TbDqifySCngx84XxTUDPeJXt6l+op9SnLcVwPC5LdYma
-         mepfuNmVVsU7Dw6as47J5bha+7czyAjiT5NVYV+7iMBrINu+vFwu9wD2NLf5vwHVzFst
-         nxWA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6poE+F7DVLfISCsH+CTfjtxe8PXhTiKQ9bI53Wv6S4AlWMa6UU6guHzeJuw3HSJMPiE10/oOBzk9Kiwx10Zit@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdZVheLA9pkRtPt5Tc1YZjuFmjl+LY1UnUr8mhxjwF89oaPjNe
-	nRVAf7TVnis57Cgk/DUW4ZJpNNH53LhpwtCR8PhqPsRzAWYAu+3NmJWs8was5FhPQkgasl9DI2v
-	PI/iFCq3s5yHbYXDeMWYPHwCWVVOlgw==
-X-Google-Smtp-Source: AGHT+IE4wAa1uushSqyIX9OxwMbbvMZIhYwycwsJVo+y3iWpXe65Hsxtzoc09JZEPg3XDw2ypEIRNrbYPoxWDj9ezfs=
-X-Received: from pfbih12.prod.google.com ([2002:a05:6a00:8c0c:b0:740:b0f1:1ede])
+        bh=KucomvysAjkq7Mc20S0WzT2rldg2A7wys58v4bjZBcg=;
+        b=a2GLQEA+9GGhuGlCE+KUqv80SvEQ+dmmP7AHcatPgajlnU1g42vzK8zXzo7vfOW4Wr
+         wmh+/QGVKWF2ZwMZpano5se5yitcC3ZzIkqmoT1qs0U3TvuLlkGQ3lUDeXxfQAqVn9QJ
+         /g7w9jKIj295H5DOATUSIVBeZhEwuiF0+NPm2TQw3st5RkzQsK8wIm8ZabQeHfk9tT6G
+         dYZGncJzi7HsT0bnDnvOve0DjTdXav0rLGgV5sP3DUljJUrulzCVS9l1afAMNi4oUqXF
+         fCtk72z+fek80tkaOOcMH/nCQEhcVyGfeR73Z8bkKyevEHJJHZQ0swvwFHe9GZmIZQLy
+         OXIw==
+X-Forwarded-Encrypted: i=1; AJvYcCW8TA2HPCNwJFMoRhoQBTNsVl5B4SSZlFtFXeYJMrsuNd5B5oH+ViuOPmsZrbHD8GPPU9j7HGzHf69IjluXyoDC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw7Q8YO6XPiyvvUIK06R+H+QgZZMd7x7Plx48sdklA8aXS4Z1I
+	F/ot7yf+Usp36nXkt7L2a8D5yOPeFA05Qtw5319RIAwBL3Yn+ffj5cxoIdsMGrplInDBqMh/0cz
+	7RoJ6sE9O1O5MlHliBQlAl7/tzTMgRA==
+X-Google-Smtp-Source: AGHT+IEUH0HhZVuisj90FwEGDiok/NrAHfvkSm0jzyn2dsHw93KZbhBFM72hsFqGAT45LPQd/K59WQMzu1/wKRC8RnU=
+X-Received: from pfcj16.prod.google.com ([2002:a05:6a00:1750:b0:748:f627:51c4])
  (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:4f88:b0:747:ee09:1fd2 with SMTP id d2e1a72fcca58-7489cfcb1d3mr26921054b3a.12.1750280946665;
- Wed, 18 Jun 2025 14:09:06 -0700 (PDT)
-Date: Wed, 18 Jun 2025 14:08:40 -0700
+ 2002:aa7:8884:0:b0:742:a0cf:7753 with SMTP id d2e1a72fcca58-7489ce0d394mr26377988b3a.3.1750280951666;
+ Wed, 18 Jun 2025 14:09:11 -0700 (PDT)
+Date: Wed, 18 Jun 2025 14:08:41 -0700
 In-Reply-To: <20250618210851.661527-1-willmcvicker@google.com>
 Mime-Version: 1.0
 References: <20250618210851.661527-1-willmcvicker@google.com>
 X-Mailer: git-send-email 2.50.0.rc2.761.g2dc52ea45b-goog
-Message-ID: <20250618210851.661527-4-willmcvicker@google.com>
-Subject: [PATCH 3/6] clocksource/drivers/exynos_mct: Set local timer
- interrupts as percpu
+Message-ID: <20250618210851.661527-5-willmcvicker@google.com>
+Subject: [PATCH 4/6] clocksource/drivers/exynos_mct: Fix uninitialized irq
+ name warning
 From: Will McVicker <willmcvicker@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,8 +82,8 @@ Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>,
 	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_140907_748723_5DCD7B03 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250618_140913_027726_6068A252 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +98,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hosung Kim <hosung0.kim@samsung.com>
+The Exynos MCT driver doesn't set the clocksource name until the CPU
+hotplug state is setup which happens after the IRQs are requested. This
+results in an empty IRQ name which leads to the below warning at
+proc_create() time. When this happens, the userdata partition fails to
+mount and the device gets stuck in an endless loop printing the error:
 
-To allow the CPU to handle it's own clock events, we need to set the
-IRQF_PERCPU flag. This prevents the local timer interrupts from
-migrating to other CPUs.
+  root '/dev/disk/by-partlabel/userdata' doesn't exist or does not contain a /dev.
 
-Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
-[Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
+To fix this, we just need to initialize the name before requesting the
+IRQs.
+
+Warning from Pixel 6 kernel log:
+
+[  T430] name len 0
+[  T430] WARNING: CPU: 6 PID: 430 at fs/proc/generic.c:407 __proc_create+0x258/0x2b4
+[  T430] Modules linked in: dwc3_exynos(E+)
+[  T430]  ufs_exynos(E+) phy_exynos_ufs(E)
+[  T430]  phy_exynos5_usbdrd(E) exynos_usi(E+) exynos_mct(E+) s3c2410_wdt(E)
+[  T430]  arm_dsu_pmu(E) simplefb(E)
+[  T430] CPU: 6 UID: 0 PID: 430 Comm: (udev-worker) Tainted:
+         ... 6.14.0-next-20250331-4k-00008-g59adf909e40e #1 ...
+[  T430] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE
+[  T430] Hardware name: Raven (DT)
+[...]
+[  T430] Call trace:
+[  T430]  __proc_create+0x258/0x2b4 (P)
+[  T430]  proc_mkdir+0x40/0xa0
+[  T430]  register_handler_proc+0x118/0x140
+[  T430]  __setup_irq+0x460/0x6d0
+[  T430]  request_threaded_irq+0xcc/0x1b0
+[  T430]  mct_init_dt+0x244/0x604 [exynos_mct ...]
+[  T430]  mct_init_spi+0x18/0x34 [exynos_mct ...]
+[  T430]  exynos4_mct_probe+0x30/0x4c [exynos_mct ...]
+[  T430]  platform_probe+0x6c/0xe4
+[  T430]  really_probe+0xf4/0x38c
+[...]
+[  T430]  driver_register+0x6c/0x140
+[  T430]  __platform_driver_register+0x28/0x38
+[  T430]  exynos4_mct_driver_init+0x24/0xfe8 [exynos_mct ...]
+[  T430]  do_one_initcall+0x84/0x3c0
+[  T430]  do_init_module+0x58/0x208
+[  T430]  load_module+0x1de0/0x2500
+[  T430]  init_module_from_file+0x8c/0xdc
+
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
 Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
 Signed-off-by: Will McVicker <willmcvicker@google.com>
 ---
- drivers/clocksource/exynos_mct.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/clocksource/exynos_mct.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index 96361d5dc57d..a5ef7d64b1c2 100644
+index a5ef7d64b1c2..62febeb4e1de 100644
 --- a/drivers/clocksource/exynos_mct.c
 +++ b/drivers/clocksource/exynos_mct.c
-@@ -596,7 +596,8 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
- 			irq_set_status_flags(mct_irq, IRQ_NOAUTOEN);
- 			if (request_irq(mct_irq,
- 					exynos4_mct_tick_isr,
--					IRQF_TIMER | IRQF_NOBALANCING,
-+					IRQF_TIMER | IRQF_NOBALANCING |
-+					IRQF_PERCPU,
- 					pcpu_mevt->name, pcpu_mevt)) {
- 				pr_err("exynos-mct: cannot register IRQ (cpu%d)\n",
- 									cpu);
+@@ -465,8 +465,6 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
+ 		per_cpu_ptr(&percpu_mct_tick, cpu);
+ 	struct clock_event_device *evt = &mevt->evt;
+ 
+-	snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d", cpu);
+-
+ 	evt->name = mevt->name;
+ 	evt->cpumask = cpumask_of(cpu);
+ 	evt->set_next_event = exynos4_tick_set_next_event;
+@@ -567,6 +565,14 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
+ 	for (i = MCT_L0_IRQ; i < nr_irqs; i++)
+ 		mct_irqs[i] = irq_of_parse_and_map(np, i);
+ 
++	for_each_possible_cpu(cpu) {
++		struct mct_clock_event_device *mevt =
++		    per_cpu_ptr(&percpu_mct_tick, cpu);
++
++		snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d",
++			 cpu);
++	}
++
+ 	if (mct_int_type == MCT_INT_PPI) {
+ 
+ 		err = request_percpu_irq(mct_irqs[MCT_L0_IRQ],
 -- 
 2.50.0.rc2.761.g2dc52ea45b-goog
 
