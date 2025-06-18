@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B63EC71157
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AE7C7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 15:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n761KcazBD8NAVChuciBYR6i+PEWOHat/DvKkhEEUwg=; b=dL/yviV5R3nXtd8HMiy1k8vlNI
-	laQ4TzvZ4SChnFpU2K2k76vF9LKpA1kKlHQ/J1gp70BKvZhDXo3YrFZY9kZYl4y9NFgsgGNTgBkV2
-	/jtanHtyZAYD2ol5UlByaCWJVxnG3p99riH1gsQ0CmL/2FpjNsmOASPydffUj38X1poXoUc/Zakvc
-	NRTz2bkHhpIZeO+X3v6Psp6FtVhXzzA/HAoE640v46Kgk4HxS6wulnmyBUfIHhWgCy26EoNcQd9SQ
-	7C3vzr3XmjBdAKL9kGpX2rR9W8Rje7MGmn4jVZf5nKXQMVuLG4sVfjBG8T6oTnh7MOPKFFWKjsWh1
-	IwxfJuNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=; b=3D89itfSz+ePxmIy3dcC31Qk3m
+	gvGNhGskJ8GUUHK8AC+VDJVyqgxA2D96Hphem7QGwu3F8irxEVXh7Z0iLG/pHAI1LqYCPnsD7VMsW
+	wScUtLzIby5bio89WE8K+he1QOMC7rHprDvqjWtv89NfxKMcTP80rqP30+LjkqnHd1hpCUxUw1zDI
+	mUbfTQlqHCZZo4/dlio2wCQibpIQe8kZuZRiaSL2PExJgKE5HU28w4F1BDRrCHSsn/8XNGu+Pt5hB
+	s6pmQyoI+wOInktRyOtUQWJhE9zuwtf3jQqucEvyopHEXy3bf3LUzaj5hFPYVqx9f22j3Lz4lHc5l
+	2VR29hvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuWt-0000000AZ8f-1Dlf;
+	id 1uRuWt-0000000AZ9A-3juh;
 	Wed, 18 Jun 2025 15:16:47 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+Received: from sender4-of-o54.zoho.com ([136.143.188.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrmx-0000000A6MA-3z64
+	id 1uRrn4-0000000A6Nh-3U68
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:21:13 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54d98aa5981so8826980e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 05:21:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750249270; x=1750854070; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n761KcazBD8NAVChuciBYR6i+PEWOHat/DvKkhEEUwg=;
-        b=ubKnTASolG5rTpl8urJ/cDnRoHUxBYo6v6VoYKd2YyVq+77atLtDmcpJ8uD48dvEYZ
-         6HGoZt00THzv5FNuHSdMv6OK2HfFsWUwEmhEy3EIqLNebRaGRqdXdNeBoi3seiARv5CJ
-         CF6d2o+nwxOjKOgFZsS+CkjQlmlMmQwO83H0TtDGPq4gjdDP/QJDoLnuf8zjU7H71IaA
-         drwN00MiHtbEu4N/4D8fsG4pxlv+R8sjgoYIrfr4lPoNC8ucH+UdtiywhFsmroDOFa+H
-         UL4CT0hCM3NNvFKhUh0W6Vr8CMR1/0c1zctbCnWcXmc5biQve1q0M4a7ZY6NIMCf/NGt
-         0+ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750249270; x=1750854070;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n761KcazBD8NAVChuciBYR6i+PEWOHat/DvKkhEEUwg=;
-        b=OBEjw/yJ+48rlYhbSL2gb9CtZ5U6bspald3cTqVj9I1EVOR9cTvwU6mz+K4icfQW2B
-         0dU2YTYlWJh8Ux/2JnDs4ST6trsSMNr+2EjKQu+UJs8mrPeYIE2PsqdxVs+tGuYcPY/q
-         JAaBN1HnTnFRbtj4mtSmoT45Ue9OzzGQRcj+3bjWPk4WdicIv6ApcKSIfiD/HjldjwY0
-         Qzfu05eCOiwMuej800KuXcTAAfmimCWRHoz28awpXvI4kyPzgD1gf29Yj3y118pihAL/
-         3MY/JU2QKIFbQv9d15RP5gagxjpGkrCZkHSdvLTWngiu0P9zUFH3xYn0FpeLHxDu/a6b
-         eVuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWDUlHGypO5HzjbdTSgQqDbRq18zpMB8AD5Bm7t3Jvnmp+eNU+MeHEcihwLeFpzmITnUpSdefOiSoy0/gAy9Qiy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCkIQP7ZDqoIF1ZSTfnlyakPnQpPPWIz+VZBcHnUX6uArv/chH
-	ZC3/Tgs2CX1e5d16ZrxgEgKpH4xGF768ZJ8YxeOV8EOpac+K7YD3l+wTpQ9Mh6tLUXF+pQYwYcW
-	8uUEu3T6yvEai7QwFOymJvxlmWiJ+cMq1PR4cWgu6Hw==
-X-Gm-Gg: ASbGncvAqAwquSIoZ0uc2G0Wo377OwDhsIDBVbNsi9E+mGwwYrcXBpzVupLhDKueVy1
-	xj0bs7KqdBc1IG7SQ0109ZBOXEHjZ8S2f9zlhxh0vVtzeuMEoNdrJQbe1kgN/yeYcuiwj5eeJj3
-	XSLNfGGiN1MoTKOVmaTmc7eqQArU8VIwRwuCUWlzj6SCo=
-X-Google-Smtp-Source: AGHT+IFxHCRWz//u1od0Lrwty9Yf9DHcSgaAHfAvrbBiimpXB2OEA85EDmSgQGSVRLhnSLdlgZURbr7ybwWz1kTTt2A=
-X-Received: by 2002:a2e:a546:0:b0:32a:6312:bfc1 with SMTP id
- 38308e7fff4ca-32b4a5a5c86mr42763701fa.24.1750249270277; Wed, 18 Jun 2025
- 05:21:10 -0700 (PDT)
+	Wed, 18 Jun 2025 12:21:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750249277; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LwTyltZLvFLcU/04Th+T9Kkk5eGUpsjs+w95iD+lahK1CtbqtZNTO2E4WzxMbCgMutsym+AfRQtmcdmJtYeoPvAe6k6jL6Y+dV12WrwzOPS2ZDZdaEuY2U3wgCygw28+Dgy1nMsyIiaYhLTOy/7mz6YWYO/+Yz2f4UDyNfptreA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750249277; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=; 
+	b=C9I9o0o+fPla+K9uBwJf2Je8gsVj/EwBskSumylYp0XVYHv8BZsJDQ1T8rEmdU5eJU+FxPdonSoVDhbnJp1/99GPOYTj1MnyvVplXbEVMg14i4N41GERKGBZnKulqi4dEvBI2qZiuL1eLH4Preb+3WUJDH/Pue2+haSxbMiMBgg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750249277;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
+	bh=+gU1SNTj2Uw5CPwEJB/aCInEX5ywExrTmgIA0Ro+WzY=;
+	b=FFRv1QtnnHHmCRJY8qHb1/CxJZdBlKgxKrfTStV52YoEHgB5tgFYJ4F31zI3sV1Y
+	73Whw2o5OYKd8BYf4QttZrN4M65Ko3ONFlZapq/rwlISZ1ThWD3mV62J6O4+ihPnvRZ
+	0E2UaR6tRyZKkvsho5QWKzamh0dlCdX9kwgHNc5I=
+Received: by mx.zohomail.com with SMTPS id 1750249250132973.3344122035301;
+	Wed, 18 Jun 2025 05:20:50 -0700 (PDT)
+Date: Wed, 18 Jun 2025 12:20:43 +0000
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Roman Kisel <romank@linux.microsoft.com>,
+	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
+	mark.rutland@arm.com
+Subject: Re: [PATCH] firmware: smccc: support both conduits for getting hyp
+ UUID
+Message-ID: <aFKvG69DVhHcI5Mn@anirudh-surface.localdomain>
+References: <20250605-kickass-cerulean-honeybee-aa0cba@sudeepholla>
+ <20250610160656.11984-1-romank@linux.microsoft.com>
+ <20250611-wandering-juicy-magpie-ed7f46@sudeepholla>
 MIME-Version: 1.0
-References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com> <CAMRc=MeTmwgbHv9R_=GFmjkAV4Nvc-SeSCOz1k6pnGUrF+R9Mg@mail.gmail.com>
-In-Reply-To: <CAMRc=MeTmwgbHv9R_=GFmjkAV4Nvc-SeSCOz1k6pnGUrF+R9Mg@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 18 Jun 2025 14:20:56 +0200
-X-Gm-Features: AX0GCFvzIWiUTEnf7w2o5CriFQLwK7aVK0h_a_ivR8DSarlEz7uy-y-3wDCyAbg
-Message-ID: <CACRpkdax9ojguF1SAfiN9iZi=x3VFpCea6KnhzL3JBD9EXZepw@mail.gmail.com>
-Subject: Re: [PATCH v5 0/9] Introduce HDP support for STM32MP platforms
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250611-wandering-juicy-magpie-ed7f46@sudeepholla>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052111_989495_B8D9E3C6 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20250618_052118_935455_C2AFAA47 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,53 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 10:05=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl=
-> wrote:
-> On Fri, Jun 13, 2025 at 12:16=E2=80=AFPM Cl=C3=A9ment Le Goffic
-> <clement.legoffic@foss.st.com> wrote:
-> >
-> > This patch series introduces the Hardware Debug Port (HDP) support for
-> > STM32MP platforms.
-> >
-> > It includes updates to the mmio gpio driver, the addition of device tre=
-e
-> > bindings, the HDP driver, and updates to the device tree files for
-> > STM32MP13, STM32MP15,
-> > and STM32MP25 SoCs.
-> > The series also updates the MAINTAINERS file to include myself as the
-> > maintainer for the STM32 HDP driver and adds the necessary
-> > pinmux configurations for HDP pins on STM32MP157C-DK2 as example.
-> >
-> > Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
-> > ---
->
-> [snip]
->
-> > ---
-> > Cl=C3=A9ment Le Goffic (9):
-> >       gpio: mmio: add BGPIOF_NO_INPUT flag for GPO gpiochip
-> >       dt-bindings: pinctrl: stm32: Introduce HDP
-> >       pinctrl: stm32: Introduce HDP driver
-> >       MAINTAINERS: add Cl=C3=A9ment Le Goffic as STM32 HDP maintainer
-> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
-> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
-> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
-> >       ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pin=
-ctrl node
-> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2=
- board
-> >
->
-> Patches 1-4 and 5-9 can go upstream independently. I suggest taking
-> patch 1/9 through the GPIO tree and providing an immutable tag to
-> Linus to take patches 2-4 through the pinctrl tree. Linus: are you OK
-> with that?
+On Wed, Jun 11, 2025 at 01:52:32PM +0100, Sudeep Holla wrote:
+> On Tue, Jun 10, 2025 at 09:06:48AM -0700, Roman Kisel wrote:
+> > > (sorry for the delay, found the patch in the spam 🙁)
+> > 
+> > "b4" shows the the mail server used for the patch submission
+> > doesn't pass the DKIM check, so finding the patch in the spam seems
+> > expected :) Thanks for your help!
+> > 
+> 
+> Thought so looking at the header but I just have very basic knowledge
+> there, so couldn't comment.
+> 
+> > >
+> > > On Wed, May 21, 2025 at 09:40:48AM +0000, Anirudh Rayabharam wrote:
+> > >> From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+> > >>
+> > >> When Linux is running as the root partition under Microsoft Hypervisor
+> > >> (MSHV) a.k.a Hyper-V, smc is used as the conduit for smc calls.
+> > >>
+> > >> Extend arm_smccc_hypervisor_has_uuid() to support this usecase. Use
+> > >> arm_smccc_1_1_invoke to retrieve and use the appropriate conduit instead
+> > >> of supporting only hvc.
+> > >>
+> > >> Boot tested on MSHV guest, MSHV root & KVM guest.
+> > >>
+> > >
+> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > >
+> > > Are they any dependent patches or series using this ? Do you plan to
+> > > route it via KVM tree if there are any dependency. Or else I can push
+> > > it through (arm-)soc tree. Let me know.
+> > 
+> > Anirudh had been OOF for some time and would be for another
+> > week iiuc so I thought I'd reply.
+> > 
+> > The patch this depends on is 13423063c7cb
+> > ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID"),
+> > and this patch has already been pulled into the Linus'es tree.
+> > 
+> 
+> Had a quick look at the commit to refresh my memory and as you mentioned
+> it is new feature. I was checking to see if this is a fix.
+> 
+> > As for routing, (arm-)soc should be good it appears as the change
+> > is contained within the firmware drivers path. Although I'd trust more to your,
+> > Arnd's or Wei's opinion than mine!
+> > 
+> 
+> I will queue this once I start collecting patches for v6.17 in 1/2 weeks'
+> time, so expect silence until then 😄.
 
-Yes go ahead if you want, an immutable branch based on v6.16-rc1
-is the best for me, then I pull that in.
+Sounds good, thanks!
 
-I could also just apply it and hope for the best... it usually works.
+Regards,
+Anirudh.
 
-Yours,
-Linus Walleij
+> 
+> -- 
+> Regards,
+> Sudeep
 
