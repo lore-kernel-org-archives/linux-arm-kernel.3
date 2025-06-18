@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5B4C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC16C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M6m1J9OzwQS0R6GNnPxx2krF1ARq1b3Dj/LSOSlLjZ8=; b=ONEMEHRwcK9eLEw12PwRWnPPMv
-	QvhSxNBuYriCrd6grMIyTJMp+eN1LgfSj5RXiBDakMVOcPowTw31relK8SDwffgsRsPJpfvhv4fHY
-	R44VWoY3niyJfDbhgmF3TWODxfzkN8mg5wniLELn0ZVWLPzIJC8oJKo1Y08Lz0HoNSafACfkXf385
-	b1EhT9WEFiOvGNKZ/rLHy0wh/VHCb8F190J9bfCEKPFUgPf/0opT4F44ynVFIT1trrNGCHkAIL4pG
-	PrRMO29q5Fp0/kHA9nRV/JZpS3kjvhn6eoDV/MPSly59RJTtGSM1YC6CzPofN3ddxySlt/FlnQ839
-	MZLU9rmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BXfpVsjWF0Y78+XsAp5AT1RaqbCb/hX1z9JCJ/YUswA=; b=IoMQTzgYuMG+ibMT1jwZU7tNpL
+	4GwHoD2nJ3tNgNeKZsCO9KVVV/97ETUpq2YBy4AiFslUC86vEQWAT+wLmmPDMj17POWdWVpesQd+Y
+	PznJlmS3DdsOJU1VjPQM7seFgotqnmeeCWhaIMzhsKlh07l0xXOKvX798jCajtkrdwJ+vhkyKrdjt
+	IGRgPt6xuRAOSOy32TcBAyjcENlV5KQkOAuDfG8EKqphSHv8MZrWshyOFd/NvUMCmtEGg+iFWkjMR
+	10avytEkZbvrzIZobc1ZgUk/CZGid0Y5Cwa0hRp0v6yejyWkVepFOmXFxZzRr/IF/BzILTeSpjOra
+	7l35jmzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRnP2-00000009J9E-1Gx4;
-	Wed, 18 Jun 2025 07:40:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uRnRD-00000009JKB-1UG3;
+	Wed, 18 Jun 2025 07:42:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRnMo-00000009J1Y-36fS;
-	Wed, 18 Jun 2025 07:37:55 +0000
+	id 1uRnO5-00000009J5j-0eS7;
+	Wed, 18 Jun 2025 07:39:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 654CBA50467;
-	Wed, 18 Jun 2025 07:37:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B0CC4CEEF;
-	Wed, 18 Jun 2025 07:37:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 32024629C5;
+	Wed, 18 Jun 2025 07:39:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C502C4CEE7;
+	Wed, 18 Jun 2025 07:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750232273;
-	bh=C8cDydoGOBcR8NvM/4b7j8MB33R0OSAtbo+7+9KQiJQ=;
-	h=From:Date:Subject:To:Cc:From;
-	b=eaDVWtaYiFzXj5XEQY9BiNKvXNH+YTToyJxw4JhPH63t/GXjhQawT4nv2zRYIaZVF
-	 ORNk6KIi6cr4b0i72kd/mUYp/k5jUsO4FkmqyaYUmeZD/VO5s/1XdJAYjkO7O1BWSb
-	 WiqxJS3BDxasTTcic8X76KtSjw6/FIejlKIR93QkfyYFaSKO8wy9S4UZ16tIV7Recc
-	 +uOjiaW06h+6RcEo1CBx558ebpDarJfh/kVxc9jK5vaYxLhsuRCAmq4rPIcDFZ75XJ
-	 7T7Dx92upt+1LiawAY8VUXNPM6HuNTseCAbdtxqPSjxuTfpWcMtc/AzLvFKvQ1fUDb
-	 XGM/y9VTyYM2Q==
+	s=k20201202; t=1750232351;
+	bh=BXfpVsjWF0Y78+XsAp5AT1RaqbCb/hX1z9JCJ/YUswA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QmGbiLy3WreaKTciX0axCUsGg49kV6/sc/gGCErHdNBCr99cH1GrPnVnlkJOm3+9q
+	 BundZ2J83ddUDvMbMMGvzpQNdCmzuFG+XHKPDvjdS6t3KKfkA70OxFqhYgjxdZG+bu
+	 fu6yO9HZFnBHZEoi4R813zfAebXLbBe47i/az/jhEOp4BB6kFk6y+NL+i8TFRqvMJa
+	 I4TpX416cZrCLTYFJhY4jIU69QiI74Cejg3LIujQV8p1xJooyiQvw6hM30KbuWen2D
+	 7uvL2iXHoW0ux/Q/kauhuhxLIG85Fgi2/zjsrpubX3GwrP5a0S6jz8ueLfMsmYWVJL
+	 /uySsCko3bqgw==
+Date: Wed, 18 Jun 2025 09:39:09 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 18 Jun 2025 09:37:40 +0200
-Subject: [PATCH net v2] net: airoha: Always check return value from
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Always check return value from
  airoha_ppe_foe_get_entry()
+Message-ID: <aFJtHUmhoqjJUN9T@lore-desk>
+References: <20250616-check-ret-from-airoha_ppe_foe_get_entry-v1-1-1acae5d677f7@kernel.org>
+ <20250617153131.56a783c4@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250618-check-ret-from-airoha_ppe_foe_get_entry-v2-1-068dcea3cc66@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMNsUmgC/x3NQQrCMBBA0auUWTuQVC3Bq4iEkM40g5iESRCl9
- O4Gl2/z/w6NVKjBbdpB6S1NSh6YTxPEFPJGKOswzGa+msU6jIniE5U6spYXBtGSgq+VPBfyG3V
- PuesX2bB1Z7dc7MowalWJ5fM/3R/H8QPUH/tUeQAAAA==
-X-Change-ID: 20250618-check-ret-from-airoha_ppe_foe_get_entry-f0f1838641df
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_003754_856690_04F5A1AF 
-X-CRM114-Status: GOOD (  10.05  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uo43+w1z7RWJd+56"
+Content-Disposition: inline
+In-Reply-To: <20250617153131.56a783c4@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-airoha_ppe_foe_get_entry routine can return NULL, so check the returned
-pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
 
-Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support")
-Reviewed-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Target net tree instead of net-next one.
----
- drivers/net/ethernet/airoha/airoha_ppe.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+--uo43+w1z7RWJd+56
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 9067d2fc7706ecf489bee9fc9b6425de18acb634..0e217acfc5ef748453b020e5713ace1910abc4a8 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -809,8 +809,10 @@ airoha_ppe_foe_flow_l2_entry_update(struct airoha_ppe *ppe,
- 		int idle;
- 
- 		hwe = airoha_ppe_foe_get_entry(ppe, iter->hash);
--		ib1 = READ_ONCE(hwe->ib1);
-+		if (!hwe)
-+			continue;
- 
-+		ib1 = READ_ONCE(hwe->ib1);
- 		state = FIELD_GET(AIROHA_FOE_IB1_BIND_STATE, ib1);
- 		if (state != AIROHA_FOE_STATE_BIND) {
- 			iter->hash = 0xffff;
+> On Mon, 16 Jun 2025 12:27:06 +0200 Lorenzo Bianconi wrote:
+> > Subject: [PATCH net-next] net: airoha: Always check return value from a=
+iroha_ppe_foe_get_entry()
+> >=20
+> > airoha_ppe_foe_get_entry routine can return NULL, so check the returned
+> > pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
+> >=20
+> > Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support=
+")
+>=20
+> Looks like the commit under fixes is in net, is the tree in the subject
+> wrong?
 
----
-base-commit: 0aff00432cc755ad7713f8a2f305395d443cdd4c
-change-id: 20250618-check-ret-from-airoha_ppe_foe_get_entry-f0f1838641df
+ack, fine. I will post v2 targeting net tree.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Regards,
+Lorenzo
 
+--uo43+w1z7RWJd+56
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaFJtHQAKCRA6cBh0uS2t
+rCKsAQCEFmeCcYEX24UTb6vH2FZr1eqY6402wluHC5kMW0VdqQD+OI0UDARUoXKC
+xgnAAwGTKjYg1NfFKAcFPp9nkKkWYAA=
+=Awjz
+-----END PGP SIGNATURE-----
+
+--uo43+w1z7RWJd+56--
 
