@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D69DC71157
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDCBC7115E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c3HhE13Fd1F6pIWlTQEESkHtV5ZAAVZOasp1FZX/nXI=; b=RIaXNbGEodTJYJfXSrBgIA7AFJ
-	XHmgq4IsAbDeneF0AZY61Ov6mjfQxCQURD80OuAq/TpW0Aed0GQT94lCk9AXZ+0qK33H7Vs9w+VwO
-	4Uc1P4zNUafMxljLrPCuuwgde3hxNvmP8LcauvQHjR+k0L+HWdsw0Sd9X37DFo6L5iLvzchFErjgO
-	0IDFJ8MhWrwarmYCo5XIw2I31fTLKODxd4YIfVWT7/Zf5+JPd/Iy35p4FDj1jxAnDRzlwUT6xWd4Y
-	JI3cpzVuv2Q0FcZVzoHsJH9BQTA2T5YAw9Xd6ywzlglW3reggYFNEeegwfbL/hdWVcZJdtF8PT1iS
-	+L145QbQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R8TYFDiksgklK5x53zlk7GXLxBUpXGWS8/QWLup/HFY=; b=bL8+rbZc6HHTr8Giaq4GVynT/o
+	dT9eBKZKn9Hcrkg5DzkuQ8CKlgDpl46iIQHIRZQkZmIjO3L8Xoq8K16NaPL0woj8y3mzdZDgVh2/B
+	ex23FuuGkiUKdAgFCeW+apyhloDIwruS4vOuh4oxg3Fv7JVUOXJv7zkJY9TBPkH4tqcLrQssvQIo+
+	uzO389plnp9X+/jkDS23MI+UZQ+yWbC4ODYg4Gtv/LUhavY/51mwfBaaG+1gfj8wL5LCwL67VcToA
+	4OXv3fieP8Zv/CgPmxOgl3jiJVy2H94WvFwSF1+fguFk9xdnrAT0tU7FQmGVhtKcYLY1QFGZ8rkpQ
+	i/eKjOSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvSy-0000000AhkJ-13qw;
-	Wed, 18 Jun 2025 16:16:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRvSz-0000000Ahkv-1rdE;
+	Wed, 18 Jun 2025 16:16:49 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRs8U-0000000AAr4-3hQI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:43:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 364FF5C4AE2;
-	Wed, 18 Jun 2025 12:41:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C75A8C4CEF2;
-	Wed, 18 Jun 2025 12:43:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750250605;
-	bh=sEwTFjUCiBVe4R3iljd5w8GSzTd/qtNXrriFMn9qrO0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=QgFQjueKKcZsRqeXF7t+tyGl+x6nLtDn14B49OhBEA55yl8XHJDZaL2HnyuxqQ+/X
-	 VvW7RehI4AsLyDQ0HQV6ZaxSICG7HVCR5mSoXxY5p1vrcSzVcJd6CNNsWfOXJZVtlM
-	 6kaviF1wY2vRe3kXwu3UjqXz4jFa/9+nZ2S+kZPpv+wxC2xwK42PvOm7oWpXXaXUtZ
-	 s7HdFaEzhAmPuLWIZEwVbO1OnJme5EDlnRGY2+pO4pqcKIQcs2ISoMdKnnv2l/U1dI
-	 5ISwor4hZfuWh+lotKpcPWwXbLXpejpdnFdPVE5Di9OZYOAeS0YpGgWD0HJkNgNqSi
-	 RL2nwSFyXIehQ==
-From: =?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>
-To: linux-gpio@vger.kernel.org
-Cc: =?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
+	id 1uRsVp-0000000AENM-120R;
+	Wed, 18 Jun 2025 13:07:35 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout2.routing.net (Postfix) with ESMTP id 185E260300;
+	Wed, 18 Jun 2025 13:07:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1750252051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=R8TYFDiksgklK5x53zlk7GXLxBUpXGWS8/QWLup/HFY=;
+	b=GRVyP+7XYwHbXbkkIjsdwALJCy1LgQQ4gMFDDlrU8flaPcT0imKCGtA714W+91mShFL2xh
+	+M7y+joguRtaK1mrIkaqVgxwRzG7/VHtrgYLkUnrBCFgARcWU8HrLWFQdLYBsr1pvp31qZ
+	EraoDOvtRLRFGuY7igtcnnwxmgz81m4=
+Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id D31F2122703;
+	Wed, 18 Jun 2025 13:07:30 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Andy Shevchenko <andy@kernel.org>
-Subject: [PATCH] platform: cznic: turris-omnia-mcu: Use new GPIO line value setter callbacks
-Date: Wed, 18 Jun 2025 14:43:19 +0200
-Message-ID: <20250618124319.19220-1-kabel@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	linux-mediatek@lists.infradead.org,
+	Simon Horman <horms@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	arinc.unal@arinc9.com
+Subject: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IRQ if not used
+Date: Wed, 18 Jun 2025 15:07:14 +0200
+Message-ID: <20250618130717.75839-4-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250618130717.75839-1-linux@fw-web.de>
+References: <20250618130717.75839-1-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_054326_998599_A4EC649D 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250618_060733_430963_AE90E05D 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +86,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Signed-off-by: Marek Behún <kabel@kernel.org>
+On SoCs without MTK_SHARED_INT capability (all except mt7621 and
+mt7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+but it is never used.
+Skip the first IRQ and reduce the IRQ-count to 2.
+
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- .../platform/cznic/turris-omnia-mcu-gpio.c    | 35 ++++++++++++-------
- 1 file changed, 22 insertions(+), 13 deletions(-)
+v5:
+- change commit title and description
+v4:
+- drop >2 condition as max is already 2 and drop the else continue
+- update comment to explain which IRQs are taken in legacy way
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 12 ++++++++----
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h |  4 ++--
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/platform/cznic/turris-omnia-mcu-gpio.c b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-index c2df24ea8686..57c229d70ead 100644
---- a/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-+++ b/drivers/platform/cznic/turris-omnia-mcu-gpio.c
-@@ -439,27 +439,28 @@ static int omnia_gpio_get_multiple(struct gpio_chip *gc, unsigned long *mask,
- 	return 0;
- }
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 875e477a987b..7990c84b2b56 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3354,10 +3354,14 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+ 	 * the second is for TX, and the third is for RX.
+ 	 */
+ 	for (i = 0; i < MTK_FE_IRQ_NUM; i++) {
+-		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+-			eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
+-		else
+-			eth->irq[i] = platform_get_irq(pdev, i);
++		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
++			if (i == 0)
++				eth->irq[MTK_FE_IRQ_SHARED] = platform_get_irq(pdev, i);
++			else
++				eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
++		} else {
++			eth->irq[i] = platform_get_irq(pdev, i + 1);
++		}
  
--static void omnia_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-+static int omnia_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
- {
- 	const struct omnia_gpio *gpio = &omnia_gpios[offset];
- 	struct omnia_mcu *mcu = gpiochip_get_data(gc);
- 	u16 val, mask;
+ 		if (eth->irq[i] < 0) {
+ 			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+index 8cdf1317dff5..9261c0e13b59 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+@@ -643,8 +643,8 @@
+ #define MTK_MAC_FSM(x)		(0x1010C + ((x) * 0x100))
  
- 	if (!gpio->ctl_cmd)
--		return;
-+		return -ENOTSUPP;
+ #define MTK_FE_IRQ_SHARED	0
+-#define MTK_FE_IRQ_TX		1
+-#define MTK_FE_IRQ_RX		2
++#define MTK_FE_IRQ_TX		0
++#define MTK_FE_IRQ_RX		1
+ #define MTK_FE_IRQ_NUM		(MTK_FE_IRQ_RX + 1)
  
- 	mask = BIT(gpio->ctl_bit);
- 	val = value ? mask : 0;
- 
--	omnia_ctl_cmd(mcu, gpio->ctl_cmd, val, mask);
-+	return omnia_ctl_cmd(mcu, gpio->ctl_cmd, val, mask);
- }
- 
--static void omnia_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
--				    unsigned long *bits)
-+static int omnia_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
-+				   unsigned long *bits)
- {
- 	unsigned long ctl = 0, ctl_mask = 0, ext_ctl = 0, ext_ctl_mask = 0;
- 	struct omnia_mcu *mcu = gpiochip_get_data(gc);
- 	unsigned int i;
-+	int err;
- 
- 	for_each_set_bit(i, mask, ARRAY_SIZE(omnia_gpios)) {
- 		unsigned long *field, *field_mask;
-@@ -488,13 +489,21 @@ static void omnia_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
- 
- 	guard(mutex)(&mcu->lock);
- 
--	if (ctl_mask)
--		omnia_ctl_cmd_locked(mcu, OMNIA_CMD_GENERAL_CONTROL,
--				     ctl, ctl_mask);
-+	if (ctl_mask) {
-+		err = omnia_ctl_cmd_locked(mcu, OMNIA_CMD_GENERAL_CONTROL,
-+					   ctl, ctl_mask);
-+		if (err)
-+			return err;
-+	}
-+
-+	if (ext_ctl_mask) {
-+		err = omnia_ctl_cmd_locked(mcu, OMNIA_CMD_EXT_CONTROL,
-+					   ext_ctl, ext_ctl_mask);
-+		if (err)
-+			return err;
-+	}
- 
--	if (ext_ctl_mask)
--		omnia_ctl_cmd_locked(mcu, OMNIA_CMD_EXT_CONTROL,
--				     ext_ctl, ext_ctl_mask);
-+	return 0;
- }
- 
- static bool omnia_gpio_available(struct omnia_mcu *mcu,
-@@ -1015,8 +1024,8 @@ int omnia_mcu_register_gpiochip(struct omnia_mcu *mcu)
- 	mcu->gc.direction_output = omnia_gpio_direction_output;
- 	mcu->gc.get = omnia_gpio_get;
- 	mcu->gc.get_multiple = omnia_gpio_get_multiple;
--	mcu->gc.set = omnia_gpio_set;
--	mcu->gc.set_multiple = omnia_gpio_set_multiple;
-+	mcu->gc.set_rv = omnia_gpio_set;
-+	mcu->gc.set_multiple_rv = omnia_gpio_set_multiple;
- 	mcu->gc.init_valid_mask = omnia_gpio_init_valid_mask;
- 	mcu->gc.can_sleep = true;
- 	mcu->gc.names = omnia_mcu_gpio_names;
+ struct mtk_rx_dma {
 -- 
-2.49.0
+2.43.0
 
 
