@@ -4,147 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107B7C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8B4C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GiIOMO1gGExrrVj20+JkYw2jySYCBDEP7IlYuqWJInY=; b=kJVkKsoxBpDLSCIO3KAU7evvxR
-	oejB3sXAGim6+Egr3juPC8uZFrHUxaTK0c0LXHTUz/dN61eldT72c6aari+z6uAgp6spM2NIrufy8
-	Z2eESecQ21V7K7U0tYdMu2g4Q1gjonIZp292Hh3WJAoch6VqOUmFKkZNqCC2EEzJq+cCAYuhJOrYt
-	KSPe8zF3BaBo06kb7351lX7fHp05+JvBVHsEH1lLvI5xTtY1fCQ7N0BhCkCrOxM59kNgL1qYRhHDf
-	uQGlC4NjQm3Fj6Y9+bEnbdtlddCq9f9m11dyIfgzlAwMZYVSpO/r3LOOJD5jSmJ7rKk3/RFRUVkfQ
-	Bb+6yN2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yejNzaeT4AqdRcBrvlusXMKj3PtwKLMmx9ArpWPMOyU=; b=hSOc5CYGyv3T2hjmAXtxuCNmiD
+	RaIKmn6ng+9H/bnPNYIPJsLZRZzCxd19xdISqy0iNiX3aSqKo6UVot2ItN9tdS2cPgGcxkOMFx/Tn
+	tS1XBraMJh4rT1f69+/NNW3aBZN6q5dM8erX3MkMG9LQN08aP0pJe8BEcWrZ6sz1kl3G8ocJYm3EK
+	DFiqH8FezYwz34fybIrkF/s1mkERJH8FEIgdrEnqlNE73m/7HcFLp0CbQF1saPGFRkY8EUtHVvy/J
+	lL9MpV8VqHW79c9AfA1j2JrrQRqPy3fQp4AT/WVcC0xfqxGNOunDoGc0ZT5o26wI5F/6daYdFKulV
+	SCVc/PoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRu3r-0000000AU8f-0K5J;
-	Wed, 18 Jun 2025 14:46:47 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrte-0000000A7ku-2as3
+	id 1uRuA2-0000000AVMu-0fSL;
+	Wed, 18 Jun 2025 14:53:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRsRN-0000000ADgD-1bTy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:28:07 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 589AC21248;
-	Wed, 18 Jun 2025 12:27:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750249662; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GiIOMO1gGExrrVj20+JkYw2jySYCBDEP7IlYuqWJInY=;
-	b=vs7G0AdC4LPmwUKixwGgofQg/aOEomQTHHEdn1AexiB1eoWR2gxKQtV5ZauJEJ+mYsKKkx
-	L688anvAiWalbnWJ3rY+E6rfmCOVe/le9Im8OZPJlcZs1zrjQEAlcQF3P5Twb3gH1TozNi
-	puX2A1ReYCGsjtKeYRPOEXxWa7FVxUk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750249662;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GiIOMO1gGExrrVj20+JkYw2jySYCBDEP7IlYuqWJInY=;
-	b=C6gx6DbrylyWvenw5nwZIXKMOIy6uKIRWmQaKG5mz/o8Rj4MN+9XBIlpDigApJuxuk8/ab
-	RhSC0/tEoInHw+Cw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750249662; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GiIOMO1gGExrrVj20+JkYw2jySYCBDEP7IlYuqWJInY=;
-	b=vs7G0AdC4LPmwUKixwGgofQg/aOEomQTHHEdn1AexiB1eoWR2gxKQtV5ZauJEJ+mYsKKkx
-	L688anvAiWalbnWJ3rY+E6rfmCOVe/le9Im8OZPJlcZs1zrjQEAlcQF3P5Twb3gH1TozNi
-	puX2A1ReYCGsjtKeYRPOEXxWa7FVxUk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750249662;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GiIOMO1gGExrrVj20+JkYw2jySYCBDEP7IlYuqWJInY=;
-	b=C6gx6DbrylyWvenw5nwZIXKMOIy6uKIRWmQaKG5mz/o8Rj4MN+9XBIlpDigApJuxuk8/ab
-	RhSC0/tEoInHw+Cw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC9F013A99;
-	Wed, 18 Jun 2025 12:27:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id cAHeKL2wUmg4UgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:41 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: lee@kernel.org,
-	danielt@kernel.org,
-	jingoohan1@gmail.com,
-	neil.armstrong@linaro.org,
-	jessica.zhang@oss.qualcomm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	fnkl.kernel@gmail.com,
-	j@jannau.net,
-	hdegoede@redhat.com,
-	ilpo.jarvinen@linux.intel.com,
-	sven@kernel.org,
-	alyssa@rosenzweig.io,
-	neal@gompa.dev,
-	deller@gmx.de,
-	support.opensource@diasemi.com,
-	duje.mihanovic@skole.hr
-Cc: dri-devel@lists.freedesktop.org,
-	asahi@lists.linux.dev,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 11/12] backlight: led_bl: Include <linux/of.h>
-Date: Wed, 18 Jun 2025 14:16:43 +0200
-Message-ID: <20250618122436.379013-12-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250618122436.379013-1-tzimmermann@suse.de>
-References: <20250618122436.379013-1-tzimmermann@suse.de>
+	Wed, 18 Jun 2025 13:02:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEF4614BF;
+	Wed, 18 Jun 2025 06:02:35 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D72BF3F58B;
+	Wed, 18 Jun 2025 06:02:55 -0700 (PDT)
+Date: Wed, 18 Jun 2025 14:02:54 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, yangyicong@hisilicon.com,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	yangjinqian <yangjinqian1@huawei.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
+Message-ID: <20250618130254.GD794930@e132581.arm.com>
+References: <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
+ <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
+ <20250616130736.GA788469@e132581.arm.com>
+ <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
+ <20250616160811.GA794930@e132581.arm.com>
+ <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
+ <20250617141810.GB794930@e132581.arm.com>
+ <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
+ <20250618112440.GC794930@e132581.arm.com>
+ <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-5.30 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[25];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo];
-	RCVD_COUNT_TWO(0.00)[2];
-	FREEMAIL_TO(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,gmx.de,diasemi.com,skole.hr];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	R_RATELIMIT(0.00)[to_ip_from(RLc48bcaq7qz9wekwjsx9fywoc)];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052806_801302_B7F47F7D 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_060257_463606_AC21DA16 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,27 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Include <linux/of.h> to declare struct of_count_phandle_with_args().
-Avoids dependency on backlight header to include it.
+On Wed, Jun 18, 2025 at 07:51:03PM +0800, Yicong Yang wrote:
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/video/backlight/led_bl.c | 1 +
- 1 file changed, 1 insertion(+)
+[...]
 
-diff --git a/drivers/video/backlight/led_bl.c b/drivers/video/backlight/led_bl.c
-index d2db157b2c29..44aac5fb2663 100644
---- a/drivers/video/backlight/led_bl.c
-+++ b/drivers/video/backlight/led_bl.c
-@@ -9,6 +9,7 @@
- #include <linux/backlight.h>
- #include <linux/leds.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- 
- struct led_bl_data {
--- 
-2.49.0
+> >> Directly including the kernel header introduces the very fragility that
+> >> having a copy was intended to avoid. NAK to that.
+> > 
+> > My suggestion is not to include the kernel header, nor to modify the
+> > copy header. :)
+> > 
+> > Instead, I suggested creating a new header within the perf tool (under
+> > perf's arm64 folder) and then include the copy header in tools:
+> > 
+> >   tools/arch/arm64/include/asm/cputype.h
+> > 
+> 
+> sorry for the misunderstood.:(
+> in this way we still have the divergency in the long term and as a workaround
+> this works same if we partly update the tools/arch/arm64/include/asm/cputype.h
+> with only necessary MIDR updates and keep is_midr_in_range_list() unchanged.
 
+Yes. So Mark's suggestion is reasonable that we can do refactoring first
+to avoid syncing header.
+
+[...]
+
+> > @Yicong, could you confirm if you proceed to refactor the MIDR? thanks!
+> 
+> please feel free to take this over.
+
+Thanks a lot for confirmation!  And thanks for working on the reported
+issue.
+
+> > Just note, I searched tools folder and found kselftest also uses the
+> > cputype.h header. The refactoring should not break the files below.
+> > 
+> 
+> they shouldn't affected. I did a kselftest build test with my latest patch
+> and they were not affected.
+
+I expect tools/arch/arm64/include/asm/cputype.h will be removed, and
+a generated header (something like sys-midr.h) for MIDR refactoring.
+If this is true, then we need to take care kselftest.
+
+Thanks,
+Leo
 
