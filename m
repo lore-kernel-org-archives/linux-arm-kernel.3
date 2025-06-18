@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96F0C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA5DC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N6HHsAcHH91WesaqxftqeEGzD1inildG7/10cPoKGig=; b=P11LDppiGTakG2PoaE9NUdmMmY
-	PTqJqvXIWXj9apav75PaHwpIra69Ojy5MbPW531KTtjsIMfmjRXCXa3V/SkyvgWcEz8l9AaIoFIQw
-	ZDZvRmRRkNcKMHkaV3+vvmBk4z5aUjlsTSx90E1R+fNZhMaVFoKVpFf4nzOV//EToRApGXmykVJVB
-	hcvUwCTUVd1YibZ8puu0E6FirUxmlZ2/0Zd2eyxtk+gD2uiHoUNI+qT4xNhOfHeHblEKye6vJ+mF+
-	SgpByMfGGZwrAN9jUZqWiNqxhSOfO9uz825BbyhgAu2bAMxSYF2yTPt0AauXjw3auzZjQNWEUutDD
-	lwoNuRiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8a5VtfQQ8+z5xu+GWLy5IVFKhuXkUB8JwYixZezlBaM=; b=Lffy21rSJRD8BIUKKJxzQefnSe
+	mVLImDJC3QE8ThVPMR/hIy2bKJmbo5UK001qP/WvyjHCPBxzKxgCr8SdDEg+OHeHgGXxrXuOo7UsS
+	b2T7Bq8n7kvqFIjsDMrCvI0QUmbJDQBnDqDU2BChpjXCZcNV9ktVT6I9YSKNrbqVhY+QX0ariRoUm
+	TJJYF5wA9ParZESuJHvZ6kGRWnlsI+Xs/HStFjUqBIRsOV0jOEG+mZq5veLtVkwnywdGRJg9LYH9D
+	B29784Dl5Q07K+965IRv/jJSd0B0gi1cNOQT+HUvGF1pD3y64IUgCXQcj/KhYAFRs/RsfNWjHUvUG
+	VO7SuWlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRnUk-00000009Jxx-1v8U;
-	Wed, 18 Jun 2025 07:46:06 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uRnWz-00000009KLA-1afb;
+	Wed, 18 Jun 2025 07:48:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRnSV-00000009JSc-3Iwr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 07:43:49 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750232625;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=N6HHsAcHH91WesaqxftqeEGzD1inildG7/10cPoKGig=;
-	b=ByvjSmHrKk4dfqsi3VrV69fsQVRYKp3ff39Pj8B1VIEgaNGjDIomPutvBZn5V0gVRfGzqZ
-	36jtwKb0c5dMcLMIAKxjgHACt/TzJDnOT7F8s+RZMzdgKAqMKcdqeklGPQM/ccF9GTzxac
-	C9MLIeN4rqKfyJXNJ5/l8fAeU9zxUzJmtI568xFQKtRAKKEJZqxn7qKPXcGURYKN124C4s
-	4UW0a2vlMZtvn/I/NU8sfilfN7lMoPsESQgQUlrXbV16jMk4vAHbb9Ynaev2YoXLonNDGD
-	xnxBQ2Mnv5EJWUqleB5vLxUM1A/xIuly9SayUoltJT36Z6q5ntAuzMZf80E9LA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750232625;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=N6HHsAcHH91WesaqxftqeEGzD1inildG7/10cPoKGig=;
-	b=hBn4E7OKpJFa3DMnsx2hN8c1xNBYCRz1A9VA0/7Ng6oj00HFbbloEGN6hd6JpWaXbgMcEc
-	8L1SnLbyhHfEi+BA==
-Date: Wed, 18 Jun 2025 09:43:34 +0200
-Subject: [PATCH v2] dmaengine: stm32: Don't use %pK through printk
+	id 1uRnUF-00000009JpU-3ZuS;
+	Wed, 18 Jun 2025 07:45:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750232733;
+	bh=1JdQ904uDrVw5CrNkcjW/fEGquyhcUzIxxmQVdihypM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TU7G28jrXco5LKBo88MJI++Q+39OFW5Pvy4t6nHJ5tPRAk0w6CKZmVmBE3WTXlXlI
+	 PLEo4d3UQc/w9X3mft+gsnDzSFFAIPnsQqnrJ+oikqcfzyKzkXZwoICJ9McYwo1QXk
+	 hL0rKRkyOjZlHT0TkrdI6pjN4TvztXLDSM5fNujhhxRkbFglMvIwjINvFtIWmYPwEO
+	 +ISZiLO3Rcw88JONnttSfqNs1vZhf9JdUDzBAG0hltjLPquofmSwhsgdX8Laq/kXEs
+	 tJihM2MU5HArPpBR4E+H2T+Rg3F6rNasL8DX8i96/IT9QUX8qvv90sJL2fSDz8eVC4
+	 3cvpFD+KoynVg==
+Received: from [10.40.0.100] (185-251-200-162.lampert.tv [185.251.200.162])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A548117E0F99;
+	Wed, 18 Jun 2025 09:45:32 +0200 (CEST)
+Message-ID: <e9db11c2-b02d-4fd5-8927-7b5857089533@collabora.com>
+Date: Wed, 18 Jun 2025 09:45:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250618-restricted-pointers-dma-v2-1-bc39dafc201d@linutronix.de>
-X-B4-Tracking: v=1; b=H4sIACVuUmgC/3WNQQ6CMBBFr2Jm7Zi2oIgr72FYFDrIJNqSaSUYw
- t2tJC5dvpf89xeIJEwRLrsFhCaOHHwGs99BN1h/J2SXGYwyR1WqEoViEu4SORwD+0QS0T0tmrr
- rz0VttVUt5PUo1PO8lW9N5oFjCvLejib9tb9m9bc5adTYnnTlnCJTF/b6YP9KEjzPB0fQrOv6A
- WwgUFXCAAAA
-X-Change-ID: 20250404-restricted-pointers-dma-29cf839a1a0b
-To: =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
- Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750232624; l=6716;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=+tSB1MfVCA6a4XIVYMAt8jv2Wa57wse7PxlEPUqmfsA=;
- b=NPDQ8uznn3EHmpX3pZM6dfETaJzaZ9d7n8ZEZ9bpmZkiXdMKi+1oomrRNLsXOfBv6QMAdcA8W
- Yvk8zhChFSjD5FAVSWc5hfgQ0L+fQXZOSrBqibhvpzqSBpkoqgGJG3F
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588
+ variant
+To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Jagan Teki <jagan@amarulasolutions.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20250616-rk3588-csi-dphy-v1-0-84eb3b2a736c@collabora.com>
+ <20250616-rk3588-csi-dphy-v1-2-84eb3b2a736c@collabora.com>
+ <DAOVBOKLXLS2.S9MXDD29X68J@cknow.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <DAOVBOKLXLS2.S9MXDD29X68J@cknow.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_004347_967690_A3928F32 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250618_004536_097836_828FE9D0 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,177 +86,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the past %pK was preferable to %p as it would not leak raw pointer
-values into the kernel log.
-Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
-the regular %p has been improved to avoid this issue.
-Furthermore, restricted pointers ("%pK") were never meant to be used
-through printk(). They can still unintentionally leak raw pointers or
-acquire sleeping locks in atomic contexts.
+Hi Diederik,
 
-Switch to the regular pointer formatting which is safer and
-easier to reason about.
+Thanks for your comments!
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
----
-Changes in v2:
-- Rebase onto 6.16-rc
-- Pick up review from Amelie
-- Fix typo in commit message
-- Drop inapplicable mention of seq_file from commit message
-- Link to v1: https://lore.kernel.org/r/20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de
----
- drivers/dma/stm32/stm32-dma.c  | 10 +++++-----
- drivers/dma/stm32/stm32-dma3.c | 10 +++++-----
- drivers/dma/stm32/stm32-mdma.c |  8 ++++----
- 3 files changed, 14 insertions(+), 14 deletions(-)
+On 6/17/25 16:12, Diederik de Haas wrote:
+> Hi,
+> 
+> I'm (unfortunately) not seeing any @rock-chips.com recipients ...
 
-diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
-index 917f8e9223739af853e492d97cecac0e95e0aea3..ee9246c6888ffde2d416270f25890c04c72daff7 100644
---- a/drivers/dma/stm32/stm32-dma.c
-+++ b/drivers/dma/stm32/stm32-dma.c
-@@ -613,7 +613,7 @@ static void stm32_dma_start_transfer(struct stm32_dma_chan *chan)
- 	reg->dma_scr |= STM32_DMA_SCR_EN;
- 	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), reg->dma_scr);
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
- }
- 
- static void stm32_dma_configure_next_sg(struct stm32_dma_chan *chan)
-@@ -676,7 +676,7 @@ static void stm32_dma_handle_chan_paused(struct stm32_dma_chan *chan)
- 
- 	chan->status = DMA_PAUSED;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
- }
- 
- static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
-@@ -728,7 +728,7 @@ static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
- 	dma_scr |= STM32_DMA_SCR_EN;
- 	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), dma_scr);
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: reconfigured after pause/resume\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: reconfigured after pause/resume\n", &chan->vchan);
- }
- 
- static void stm32_dma_handle_chan_done(struct stm32_dma_chan *chan, u32 scr)
-@@ -820,7 +820,7 @@ static void stm32_dma_issue_pending(struct dma_chan *c)
- 
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
- 	if (vchan_issue_pending(&chan->vchan) && !chan->desc && !chan->busy) {
--		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-+		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
- 		stm32_dma_start_transfer(chan);
- 
- 	}
-@@ -922,7 +922,7 @@ static int stm32_dma_resume(struct dma_chan *c)
- 
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
- 
- 	return 0;
- }
-diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-index 0c6c4258b19561c94f1c68f26ade16b82660ebe6..50e7106c5cb73394c1de52ad5f571f6db63750e6 100644
---- a/drivers/dma/stm32/stm32-dma3.c
-+++ b/drivers/dma/stm32/stm32-dma3.c
-@@ -801,7 +801,7 @@ static void stm32_dma3_chan_start(struct stm32_dma3_chan *chan)
- 
- 	chan->dma_status = DMA_IN_PROGRESS;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
- }
- 
- static int stm32_dma3_chan_suspend(struct stm32_dma3_chan *chan, bool susp)
-@@ -1452,7 +1452,7 @@ static int stm32_dma3_pause(struct dma_chan *c)
- 
- 	chan->dma_status = DMA_PAUSED;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
- 
- 	return 0;
- }
-@@ -1465,7 +1465,7 @@ static int stm32_dma3_resume(struct dma_chan *c)
- 
- 	chan->dma_status = DMA_IN_PROGRESS;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
- 
- 	return 0;
- }
-@@ -1490,7 +1490,7 @@ static int stm32_dma3_terminate_all(struct dma_chan *c)
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
- 	vchan_dma_desc_free_list(&chan->vchan, &head);
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: terminated\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: terminated\n", &chan->vchan);
- 
- 	return 0;
- }
-@@ -1543,7 +1543,7 @@ static void stm32_dma3_issue_pending(struct dma_chan *c)
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
- 
- 	if (vchan_issue_pending(&chan->vchan) && !chan->swdesc) {
--		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-+		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
- 		stm32_dma3_chan_start(chan);
- 	}
- 
-diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
-index e6d525901de7ecf822d218b87b95aba6bbf0a3ef..080c1c725216cb627675c372591b4c0c227c3cea 100644
---- a/drivers/dma/stm32/stm32-mdma.c
-+++ b/drivers/dma/stm32/stm32-mdma.c
-@@ -1187,7 +1187,7 @@ static void stm32_mdma_start_transfer(struct stm32_mdma_chan *chan)
- 
- 	chan->busy = true;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
- }
- 
- static void stm32_mdma_issue_pending(struct dma_chan *c)
-@@ -1200,7 +1200,7 @@ static void stm32_mdma_issue_pending(struct dma_chan *c)
- 	if (!vchan_issue_pending(&chan->vchan))
- 		goto end;
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
- 
- 	if (!chan->desc && !chan->busy)
- 		stm32_mdma_start_transfer(chan);
-@@ -1220,7 +1220,7 @@ static int stm32_mdma_pause(struct dma_chan *c)
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
- 
- 	if (!ret)
--		dev_dbg(chan2dev(chan), "vchan %pK: pause\n", &chan->vchan);
-+		dev_dbg(chan2dev(chan), "vchan %p: pause\n", &chan->vchan);
- 
- 	return ret;
- }
-@@ -1261,7 +1261,7 @@ static int stm32_mdma_resume(struct dma_chan *c)
- 
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
- 
--	dev_dbg(chan2dev(chan), "vchan %pK: resume\n", &chan->vchan);
-+	dev_dbg(chan2dev(chan), "vchan %p: resume\n", &chan->vchan);
- 
- 	return 0;
- }
+Oops, I meant to include at least Kever, but forgot to do it. Will do in v2.
 
----
-base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
-change-id: 20250404-restricted-pointers-dma-29cf839a1a0b
+Cc: Kever
+
+> 
+> On Tue Jun 17, 2025 at 10:54 AM CEST, Michael Riesch via B4 Relay wrote:
+>> From: Michael Riesch <michael.riesch@collabora.com>
+>>
+>> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
+>> Add the variant and allow for the additional reset.
+>>
+>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+>> ---
+>>  .../bindings/phy/rockchip-inno-csi-dphy.yaml       | 60 ++++++++++++++++++++--
+>>  1 file changed, 55 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+>> index 5ac994b3c0aa..6755738b13ee 100644
+>> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+>> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+>> @@ -21,6 +21,7 @@ properties:
+>>        - rockchip,rk3326-csi-dphy
+>>        - rockchip,rk3368-csi-dphy
+>>        - rockchip,rk3568-csi-dphy
+>> +      - rockchip,rk3588-csi-dphy
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -39,18 +40,49 @@ properties:
+>>      maxItems: 1
+>>  
+>>    resets:
+>> -    items:
+>> -      - description: exclusive PHY reset line
+>> +    minItems: 1
+>> +    maxItems: 2
+>>  
+>>    reset-names:
+>> -    items:
+>> -      - const: apb
+>> +    minItems: 1
+>> +    maxItems: 2
+>>  
+>>    rockchip,grf:
+>>      $ref: /schemas/types.yaml#/definitions/phandle
+>>      description:
+>>        Some additional phy settings are access through GRF regs.
+>>  
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - rockchip,px30-csi-dphy
+>> +              - rockchip,rk1808-csi-dphy
+>> +              - rockchip,rk3326-csi-dphy
+>> +              - rockchip,rk3368-csi-dphy
+>> +              - rockchip,rk3568-csi-dphy
+>> +    then:
+>> +      properties:
+>> +        resets:
+>> +          items:
+>> +            - description: exclusive PHY reset line
+>> +
+>> +        reset-names:
+>> +          items:
+>> +            - const: apb
+>> +
+>> +      required:
+>> +        - reset-names
+>> +    else:
+>> +      properties:
+>> +        resets:
+>> +          minItems: 2
+>> +
+>> +        reset-names:
+>> +          minItems: 2
+>> +
+>>  required:
+>>    - compatible
+>>    - reg
+>> @@ -59,7 +91,6 @@ required:
+>>    - '#phy-cells'
+>>    - power-domains
+>>    - resets
+>> -  - reset-names
+>>    - rockchip,grf
+>>  
+>>  additionalProperties: false
+>> @@ -78,3 +109,22 @@ examples:
+>>          reset-names = "apb";
+>>          rockchip,grf = <&grf>;
+>>      };
+>> +  - |
+>> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+>> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+>> +
+>> +    soc {
+>> +        #address-cells = <2>;
+>> +        #size-cells = <2>;
+>> +
+>> +        csi_dphy0: phy@fedc0000 {
+>> +            compatible = "rockchip,rk3588-csi-dphy";
+>> +            reg = <0x0 0xfedc0000 0x0 0x8000>;
+>> +            clocks = <&cru PCLK_CSIPHY0>;
+>> +            clock-names = "pclk";
+>> +            #phy-cells = <0>;
+>> +            resets = <&cru SRST_CSIPHY0>, <&cru SRST_P_CSIPHY0>;
+>> +            rockchip,grf = <&csidphy0_grf>;
+>> +            status = "disabled";
+>> +        };
+>> +    };
+> 
+> ... which could hopefully tell us what the value is/should be for the
+> *required* 'power-domains' property, which is missing in this example.
+> IOW: the binding example is invalid according to its own binding.
+
+Huh, indeed. Hm. Why didn't make dt_binding_check warn me about that?!
+
+TRM Part 1, p. 1097 states that HDMI_CSI_DPHY is in the ALIVE(PD_BUS)
+power domain. With some creativity one can interpret that the CSI DPHY
+is always on anyways. @Kever: Could you please elaborate on that?
+
+> (btw: you can drop the 'csi_dphy0' label)
+
+Will do.
+
+> 
+> And hopefully also for rk3568 so we can add it to rk356x-base.dtsi and
+> you can add it in patch 5 where it's also missing.
+
+I recall a similar discussion [0]. In the RK3568 the CSIPHY is in the
+ALIVE power domain.
+
+Note that the PHY must not be confused with the HOST blocks, which are
+the MIPI CSI-2 receivers.
+
+I guess the correct solution is to make power-domains optional. Further
+input welcome, though.
 
 Best regards,
--- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+Michael
+
+> 
+> Grepping for "csi-dphy" in arch/arm*/boot/dts/rockchip returns:
+> - px30.dtsi
+> - rk356x-base.dtsi
+> 
+> With this patch set applied, we'd have a 3rd result: rk3588-base.dtsi
+> 
+> For all the listed compatibles, it's only actually defined in px30.dtsi.
+> 
+> Cheers (and sorry),
+>   Diederik
+
+[0] https://lore.kernel.org/all/D4QNJ85V43NU.YD01E8AB4116@cknow.org/
 
 
