@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8404BC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA32C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lJEJerT30uVZeLbMloQis7w9Ly4m8IEIdpJZd3Pc9DU=; b=sjPSslQIJHBFPY
-	JNKD0xwLHz7sIfbS4CQe3fLf/BrH2Sd+QsnmHJp8er+C8l5RqKBD62jHdzALXKJTYkk+OmarvYlFK
-	unxtQqyCZH/v/UDryXA+QWfz9HzMoNyqfE3b9f6Ybb+DX5mxMCwva8+XxBe/tDczJOU8eV507Vl0M
-	kanNiTT4FPl2L954L77UMjMnRpM7u8t4C2vmaB4brwsKTFDbEVlXP8B0vjoueRsFiMRXnDISE3Fb0
-	PBX8cOLwRZip+daSJKPXj16SSZ2ilzxv+eUsPuhO3nMwrWzs7XwXxQfc9I7N2Vk5xHA9lIlf8OZ6Z
-	PaIDSAaHVKIIw8orwaog==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ea8FKYQ5V9ExQA/zTt267Zd86SEpISgQvnKJKRVI550=; b=Bd2SdiKyhMR/3MXnRjRU31Osj2
+	noXF8Fmg67wPfWKPH4MaBUUqRvnTgwFn7h7Iv2KrQ1mN9/5dwpNTxBP0CYysghz6DpLClIEL/IdmA
+	8pBOp8rLI2upzOLWfdqKGNH6WoZS3ktHvcg2GgxesiPlVUg/LSVcgiLhBEa0x2G19aWWvsjQXlrPM
+	ZGkX+/K73yNAr6pIuAt55NBG+R1ovexrzy6sab1i0vyDGVmcm3yZ8QVGut6Uk7YKBxCRv/y3vvXcK
+	h9h0SPAv5emu7TP02XTY7zY/ZQ4X6NxrmScHZ5k+VzAuLkGwYiw9W/sXvw2deYKLhGlVnn5gPyqx3
+	lFr6qAlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRnme-00000009MOD-2f7B;
-	Wed, 18 Jun 2025 08:04:36 +0000
+	id 1uRnos-00000009Mgl-1YPs;
+	Wed, 18 Jun 2025 08:06:54 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRncH-00000009LDb-3Gom
+	id 1uRncI-00000009LDp-0sTs
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 18 Jun 2025 07:53:55 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
@@ -32,31 +32,31 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1750233232;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=lJEJerT30uVZeLbMloQis7w9Ly4m8IEIdpJZd3Pc9DU=;
-	b=0Z7HXL4dErSQLVLsyMoZIe63Mo11EmBOh3csLLgOHzz+LhnIDZt81PmP8jlfkt3gSvdi4j
-	4J6Xdo4a2TR1FMqh26GAK/ZC4XVKhKlbzMnshoYYdbjF0r8TjYDq9CCk2nRhaAUKffNMq+
-	1qa3Ai5RGeazgqoo1wfbxTx5+WhKju5sCRobkM1c59MxkwJr1mfAuUpXw8Llt1/ECPOolF
-	vPN9OeNq4/rORlb/skFfH2A89jZkYDg3+1cJ9QUnDZb7pEWSKNakM7NG+nmTCw5FCIbolE
-	wNb8F+ul6JoQqOQA7mWaPmqqocYNwq7L7woH+tAEH0Zskpepkg4iDvqcZJHAwA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ea8FKYQ5V9ExQA/zTt267Zd86SEpISgQvnKJKRVI550=;
+	b=ihC9xD2YnV/u3tQk3G9UxLCeNQZZI9UEWueLGrqzdz4a+Fo+ibeY0I6tXh8ISteNqGuTnp
+	d5f6rk9g3WLLeB0ZLU6/jm0CFVPFYmkIvkNZ8vm9aV9fp3iCCCRDIftIeI4t+03iLAJmrp
+	JzWUziFhICj6JWcxKgnpccxPeFhJNjLgQm34E1Abh+LN45pMjaRcZ3txY9az2S90ideB72
+	dYf3OgidbX4I06BPmCnZtE1Ra3Q2YzIs8wX6rL3aHP4+bc4yofrpt2KjXihDeWqbAFsjn2
+	R33eRfu+NgjKjJbeCENctYbhbSHh+vuRwwXTj7xxv8p6T9iAMir3+IKWDAWbuA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1750233232;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=lJEJerT30uVZeLbMloQis7w9Ly4m8IEIdpJZd3Pc9DU=;
-	b=tcc7XPlFrtUWw6TWH00NCkmrkFyHBCCHbY9mZWCx9RgB5mKOgKepQea6SWDYFecg6kHkF6
-	CGKzfR0iDuD5qNBA==
-Subject: [PATCH 0/3] drm: Don't use %pK through printk
-Date: Wed, 18 Jun 2025 09:52:19 +0200
-Message-Id: <20250618-restricted-pointers-drm-v1-0-781e0d88cd92@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ea8FKYQ5V9ExQA/zTt267Zd86SEpISgQvnKJKRVI550=;
+	b=xnUmmzXVhHriwZoRSoBFDkHECYYOaT9HlTRjdtzDIh7/w7nYBZZqGX6gxdbZc6NkrndBzU
+	Bx48dXmlRpD2s1CA==
+Date: Wed, 18 Jun 2025 09:52:20 +0200
+Subject: [PATCH 1/3] drm/bridge: samsung-dsim: Don't use %pK through printk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIADNwUmgC/x3MTQ5AMBBA4avIrE1Sv8VVxAIdzELJTCMScXeN5
- bd47wElYVLokgeELlY+fESWJjBvo18J2UVDbvLKlKZEIQ3CcyCH58E+kCg62bGxkzVFbdtldBD
- rU2jh+z/3w/t+klJVYGkAAAA=
-X-Change-ID: 20250404-restricted-pointers-drm-87b703679fad
+Message-Id: <20250618-restricted-pointers-drm-v1-1-781e0d88cd92@linutronix.de>
+References: <20250618-restricted-pointers-drm-v1-0-781e0d88cd92@linutronix.de>
+In-Reply-To: <20250618-restricted-pointers-drm-v1-0-781e0d88cd92@linutronix.de>
 To: Inki Dae <inki.dae@samsung.com>, 
  Jagan Teki <jagan@amarulasolutions.com>, 
  Marek Szyprowski <m.szyprowski@samsung.com>, 
@@ -80,17 +80,16 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750233231; l=1512;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750233231; l=1738;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=ZGg7BEj9Zk6TuFkTwYnSmEoyEZPeB0NY8xBLjHfQJZY=;
- b=kxcx3RkP3c4uH68PbMFCnE5QAQ0f3j92Ut+jSaXyoSJxxZQVBSkR7GYRX5/mWdahdihpofEYG
- 8RZi6sQoKLrDiKOK1mYQ4Nb450F8EfdRvHDs3bbJvRDWjQeLIbkJk1m
+ bh=sxPniixtv78HeENSdQLWPrFdDqTbAf0XLGgHM3Oyj5Y=;
+ b=RmDVzVHrOK1/SRUIDkyh36blgd1I1AzXaNihza4YNvCLRnV1ypxUVsnr+7ZnFeqfJyKQjBlaR
+ swO4I8KwM5eAqqFfdOZbGNwyvmlyZBFYBpQxTDAHDI02JzdhKDJuzIY
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_005353_959362_D7B6CA55 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_005354_384032_1554C1D3 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,30 +114,36 @@ acquire sleeping locks in atomic contexts.
 
 Switch to the regular pointer formatting which is safer and
 easier to reason about.
-There is still a user of %pK left, but this uses it through seq_file,
-for which its usage is safe.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Thomas Weißschuh (3):
-      drm/bridge: samsung-dsim: Don't use %pK through printk
-      drm/exynos: Don't use %pK through printk
-      drm/msm: Don't use %pK through printk
+ drivers/gpu/drm/bridge/samsung-dsim.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- drivers/gpu/drm/bridge/samsung-dsim.c       |  4 ++--
- drivers/gpu/drm/exynos/exynos_drm_gem.c     |  2 +-
- drivers/gpu/drm/exynos/exynos_drm_ipp.c     | 32 ++++++++++++++---------------
- drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c    |  2 +-
- drivers/gpu/drm/msm/disp/dpu1/dpu_hw_dspp.c |  4 ++--
- drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c     |  4 ++--
- drivers/gpu/drm/msm/msm_mdss.c              |  2 +-
- 7 files changed, 25 insertions(+), 25 deletions(-)
----
-base-commit: f09079bd04a924c72d555cd97942d5f8d7eca98c
-change-id: 20250404-restricted-pointers-drm-87b703679fad
+diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
+index 0014c497e3fe7d8349a119dbdda30d65d816cccf..bccc88d2594840647d7107c13d69104912087384 100644
+--- a/drivers/gpu/drm/bridge/samsung-dsim.c
++++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+@@ -1095,7 +1095,7 @@ static void samsung_dsim_send_to_fifo(struct samsung_dsim *dsi,
+ 	bool first = !xfer->tx_done;
+ 	u32 reg;
+ 
+-	dev_dbg(dev, "< xfer %pK: tx len %u, done %u, rx len %u, done %u\n",
++	dev_dbg(dev, "< xfer %p: tx len %u, done %u, rx len %u, done %u\n",
+ 		xfer, length, xfer->tx_done, xfer->rx_len, xfer->rx_done);
+ 
+ 	if (length > DSI_TX_FIFO_SIZE)
+@@ -1293,7 +1293,7 @@ static bool samsung_dsim_transfer_finish(struct samsung_dsim *dsi)
+ 	spin_unlock_irqrestore(&dsi->transfer_lock, flags);
+ 
+ 	dev_dbg(dsi->dev,
+-		"> xfer %pK, tx_len %zu, tx_done %u, rx_len %u, rx_done %u\n",
++		"> xfer %p, tx_len %zu, tx_done %u, rx_len %u, rx_done %u\n",
+ 		xfer, xfer->packet.payload_length, xfer->tx_done, xfer->rx_len,
+ 		xfer->rx_done);
+ 
 
-Best regards,
 -- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+2.49.0
 
 
