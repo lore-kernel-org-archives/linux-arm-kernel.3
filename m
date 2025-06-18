@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D943CC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 01:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937E3C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 01:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pDTKiVf0buqczhEZ05rUoTG7seQHrvr+Tt4AEphfAU=; b=QmpPeHVSfTF2YaPB/NavpUmVqA
-	ugKnXS+N0JcjPcbpEZJpe97CHjT6+EU8D5HhJndmB3Z7cyZ6JpAS2ANtyiLA3o2e1B+cLkBPlsqPN
-	OWejpW1t/xtT7u3ew1N2sPXu5isnm/cgt/6hfS+KfwQpnYXV8T0AgvG7HHd04bNfJrAxH3DxBG3lU
-	l5Z8Evywq4ks31gArR6ZhdOLEPrWvRdrfCkf36DNf5a09zqagjdkXj5BqlP+f1sbhtp0hjqahAoUf
-	Qs3bxCatkWTKo5tJ7g6n/Gl+T4Yt9SjaYFQXF2TTr3Py/wtwi0CJgPjJOZ1XgtHJrJL8yvTeDsEer
-	3Oe8kZ5g==;
+	bh=J75SlLYXLlBO7wssiAHVyOJ7VlFCCM338jXDoIyXWaw=; b=nrTcZB7KOp7jDNw6TGY3C8khrW
+	S7q9Vd/4srzuMZ2VKp/G79xOA8+9DbrQNinGqliKWcffc80A+T/b3FUiC1xWIi/F+Lr0HTDHTlYxH
+	ulbxM6SMXmNz28rNoRaW+GzmfxWsm3M4u/mEMN8w1k9GkP7OlnNjNVIp0C0Y5hYYLE0hFB2M6ECLL
+	+haGApK3Jx4e4H3nRgo+TfnhYuAwSIjdqFZ+LLLeTWDIEOPO0MMdXpXwo9dakXzcS8LjbTKmwOXcC
+	HVhpncn7lKRM6VdnSEaDBZ3DFeeLpa9eLQ5XDQY/amGFdToRhapgPkJyjoFepsaW7o59YuW4MCR+m
+	ORqV5tsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRhhO-00000008l6G-38Hp;
-	Wed, 18 Jun 2025 01:34:46 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uRhja-00000008lMw-2zOW;
+	Wed, 18 Jun 2025 01:37:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRhSL-00000008jyF-0PJM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 01:19:14 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250618011910epoutp0433c9340bb957038c9919ee25011428e4~J-lA7Y3jw2225922259epoutp04n
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 01:19:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250618011910epoutp0433c9340bb957038c9919ee25011428e4~J-lA7Y3jw2225922259epoutp04n
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750209550;
-	bh=8pDTKiVf0buqczhEZ05rUoTG7seQHrvr+Tt4AEphfAU=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=W6CnCsQjh+k3SSDqsW3U6bVQNnppzWnO7QTSZRX0dKvmF2jNU1uRwZsK7kCJBZ1fD
-	 AOUTRGUNIYBNLriIbPDhrpwoa4eJnHeNMgO3/OZLHOs9xjH2HqEwj2Ri/HpF9+IABv
-	 V8xnk0UvgZ0i+ZP1CP8cbZbMruyulQ7Nnodu3OQ0=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250618011910epcas5p340dc4aefb689e96c521b981c9d4a88cb~J-lAZDyK62482624826epcas5p3n;
-	Wed, 18 Jun 2025 01:19:10 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.177]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4bMQqw24vrz3hhT8; Wed, 18 Jun
-	2025 01:19:08 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250617182036epcas5p2f066a3a92613a5b405a941f4d30ca628~J53jVqP-N2257822578epcas5p2x;
-	Tue, 17 Jun 2025 18:20:36 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250617182033epsmtip1fed76ec4f1dea149e9e1d5049707a388~J53gpoMyO2363023630epsmtip1T;
-	Tue, 17 Jun 2025 18:20:33 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Rob Herring \(Arm\)'" <robh@kernel.org>
-Cc: <rosa.pila@samsung.com>, <s.nawrocki@samsung.com>,
-	<linux-samsung-soc@vger.kernel.org>, <conor+dt@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <andre.draszik@linaro.org>,
-	<linux-phy@lists.infradead.org>, <vkoul@kernel.org>, <krzk+dt@kernel.org>,
-	<faraz.ata@samsung.com>, <selvarasu.g@samsung.com>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<dev.tailor@samsung.com>, <devicetree@vger.kernel.org>, <kishon@kernel.org>,
-	<peter.griffin@linaro.org>, <muhammed.ali@samsung.com>,
-	<linux-arm-kernel@lists.infradead.org>, <alim.akhtar@samsung.com>,
-	<m.szyprowski@samsung.com>
-In-Reply-To: <175011004935.2433563.8726528182523156685.robh@kernel.org>
-Subject: RE: [PATCH v3 0/9] initial usbdrd phy support for Exynosautov920
- soc
-Date: Tue, 17 Jun 2025 23:50:32 +0530
-Message-ID: <000701dbdfb4$854ffa00$8fefee00$@samsung.com>
+	id 1uRhfT-00000008kxc-0Ou5;
+	Wed, 18 Jun 2025 01:32:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C8B7C5C5F61;
+	Wed, 18 Jun 2025 01:30:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98AE9C4CEE3;
+	Wed, 18 Jun 2025 01:32:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750210366;
+	bh=J75SlLYXLlBO7wssiAHVyOJ7VlFCCM338jXDoIyXWaw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nPnWAZjJQtcvGlZzCEcQjxYV2v10yVc7Zn2RCEHfikH8DNB3Eyjh9Hm5QoXwLEAY/
+	 ocyCCrqfe0gqLkezku9M1RQ+j9NDTL0YyIuDN/RrJ8bGM8fr1nr89Gdg3x2ICcpmua
+	 wFRtpwrvqex4w9Mdu/bKK0Xka5I8f1o+ecz/u8zAM76dSdN2+LQpgg1o4N6iz7CVzw
+	 D6hDHsuZ8sHxT2zmiLpemMQM1Tz/sf+VJoS48p9LNpGU5i251C3AFXHsUEYbus21uw
+	 30Aj+mEV3VK5iOALierPJ/1mYh3xe9Q5YLjd5xbhWZOB651M2ORglP3j1Ev0STPJeM
+	 ztGHcgsEtoEUw==
+Date: Tue, 17 Jun 2025 18:32:44 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2 0/2] net: airoha: Improve hwfd
+ buffer/descriptor queues setup
+Message-ID: <20250617183244.641d9cd3@kernel.org>
+In-Reply-To: <20250616-airoha-hw-num-desc-v2-0-bb328c0b8603@kernel.org>
+References: <20250616-airoha-hw-num-desc-v2-0-bb328c0b8603@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQK+oFDZ6MKL1K4Z//TlQcphB9UedANTkACKAizhql6yFiSisA==
-Content-Language: en-in
-X-CMS-MailID: 20250617182036epcas5p2f066a3a92613a5b405a941f4d30ca628
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250613055037epcas5p1ce00fda1b535dbeb9a98458d1f0a28ee
-References: <CGME20250613055037epcas5p1ce00fda1b535dbeb9a98458d1f0a28ee@epcas5p1.samsung.com>
-	<20250613055613.866909-1-pritam.sutar@samsung.com>
-	<175011004935.2433563.8726528182523156685.robh@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_181913_457531_3BFF9624 
-X-CRM114-Status: GOOD (  30.50  )
+X-CRM114-CacheID: sfid-20250617_183247_185657_C9EB4625 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,197 +75,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,=20
+On Mon, 16 Jun 2025 15:45:39 +0200 Lorenzo Bianconi wrote:
+> Compute the number of hwfd buffers/descriptors according to the reserved
+> memory size if provided via DTS.
+> Reduce the required hwfd buffers queue size for QDMA1.
 
-> -----Original Message-----
-> From: Rob Herring (Arm) <robh=40kernel.org>
-> Sent: 17 June 2025 03:17 AM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> Cc: rosa.pila=40samsung.com; s.nawrocki=40samsung.com; linux-samsung-
-> soc=40vger.kernel.org; conor+dt=40kernel.org; linux-kernel=40vger.kernel.=
-org;
-> andre.draszik=40linaro.org; linux-phy=40lists.infradead.org; vkoul=40kern=
-el.org;
-> krzk+dt=40kernel.org; faraz.ata=40samsung.com; selvarasu.g=40samsung.com;
-> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> dev.tailor=40samsung.com; devicetree=40vger.kernel.org; kishon=40kernel.o=
-rg;
-> peter.griffin=40linaro.org; muhammed.ali=40samsung.com; linux-arm-
-> kernel=40lists.infradead.org; alim.akhtar=40samsung.com;
-> m.szyprowski=40samsung.com
-> Subject: Re: =5BPATCH v3 0/9=5D initial usbdrd phy support for Exynosauto=
-v920
-> soc
->=20
->=20
-> On Fri, 13 Jun 2025 11:26:04 +0530, Pritam Manohar Sutar wrote:
-> > This SoC has a single USB 3.1 DRD combo phy and three USB2.0 only DRD
-> > phy controllers
-> >
-> >   - Combo phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
-> >     compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
-> >     to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data
-> >     rates. These two phys are combined to form a combo phy as mentioned
-> >     below.
-> >
-> >    USB30DRD_0 port
-> >
-> >      +-----------------------------------------------------+
-> >      =7C                                                     =7C
-> >      =7C           (combo) USB PHY controller                =7C
-> >      =7C     +-----------------------------------------+     =7C
-> >      =7C     =7C               USB HSPHY                 =7C     =7C
-> >      =7C     =7C  (samsung,exynosautov920-usbdrd-hsphy)  =7C     =7C
-> >      =7C     +-----------------------------------------+     =7C
-> >      =7C                                                     =7C
-> >      =7C   +---------------------------------------------+   =7C
-> >      =7C   =7C               USB SSPHY                     =7C   =7C
-> >      =7C   =7C   (samsung,exynosautov920-usb31drd-ssphy)   =7C   =7C
-> >      =7C   +---------------------------------------------+   =7C
-> >      =7C                                                     =7C
-> >      +-----------------------------------------------------+
-> >      =7C                                                     =7C
-> >      =7C                USBDRD30 Link                        =7C
-> >      =7C                  Controller                         =7C
-> >      =7C                                                     =7C
-> >      +-----------------------------------------------------+
-> >
-> >   - USB2.0 phy supports only UTMI+ interface. USB2.0DRD phy
-> >     is very similar to the existing Exynos850 support in this driver.
-> >
-> >     USB20DRD_0/1/2 ports
-> >
-> >
-> >       +---------------------------------------------------+
-> >       =7C                                                   =7C
-> >       =7C                USB PHY controller                 =7C
-> >       =7C    +-----------------------------------------+    =7C
-> >       =7C    =7C              USB HSPHY                  =7C    =7C
-> >       =7C    =7C  (samsung,exynosautov920-usbdrd-phy)    =7C    =7C
-> >       =7C    +-----------------------------------------+    =7C
-> >       =7C                                                   =7C
-> >       +---------------------------------------------------+
-> >       =7C                                                   =7C
-> >       =7C             USBDRD20_* Link                       =7C
-> >       =7C                Controller                         =7C
-> >       =7C                                                   =7C
-> >       +---------------------------------------------------+
-> >
-> > This patchset only supports device mode and same is verified with as
-> > NCM device with below configfs commands
-> >
-> > changelog
-> > ----------
-> > Changes in v2:
-> > - Used standard GENMASK() and FIELD_GET() to get the major version
-> >   from controller version register.
-> >   link for v1:
-> > https://lore.kernel.org/linux-phy/20250514134813.380807-1-pritam.sutar
-> > =40samsung.com/
-> >
-> > Changes in v3:
-> > - Updated dt-bindings for USB2.0 only.
-> > - Added dt-bindings for combo phy.
-> > - Added implementation for combo phy (SS and HS phy).
-> > - Added added DTS nodes for all the phys.
-> >   link for v2:
-> > https://lore.kernel.org/linux-phy/20250516102650.2144487-1-pritam.suta
-> > r=40samsung.com/
-> >
-> > Pritam Manohar Sutar (9):
-> >   dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy
-> >     compatible
-> >   phy: exyons5-usbdrd: support HS phy for ExynosAutov920
-> >   arm64: dts: exynos: ExynosAutov920: add USB and USB-phy nodes
-> >   dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo HS
-> >     phy
-> >   phy: exyons5-usbdrd: support HS combo phy for ExynosAutov920
-> >   arm64: dts: exynos: ExynosAutov920: add USB and USB HS combo phy
-> nodes
-> >   dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo SS
-> >     phy
-> >   phy: exyons5-usbdrd: support SS combo phy for ExynosAutov920
-> >   arm64: dts: exynos: ExynosAutov920: add USB and USB SS combo phy
-> > nodes
-> >
-> >  .../bindings/phy/samsung,usb3-drd-phy.yaml    =7C   6 +
-> >  .../boot/dts/exynos/exynosautov920-sadk.dts   =7C  53 ++
-> >  .../arm64/boot/dts/exynos/exynosautov920.dtsi =7C 155 +++++
-> >  drivers/phy/samsung/phy-exynos5-usbdrd.c      =7C 529
-> ++++++++++++++++++
-> >  4 files changed, 743 insertions(+)
-> >
-> > --
-> > 2.34.1
-> >
-> >
-> >
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform maintai=
-ner
-> whether these warnings are acceptable or not. No need to reply unless the
-> platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then make sur=
-e dt-
-> schema is up to date:
->=20
->   pip3 install dtschema --upgrade
->=20
->=20
-> This patch series was applied (using b4) to base:
->  Base: attempting to guess base-commit...
->  Base: tags/v6.16-rc1-6-g8a22d9e79cf0 (exact match)
->=20
-> If this is not the correct base, please add 'base-commit' tag (or use b4 =
-which
-> does this automatically)
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for
-> arch/arm64/boot/dts/exynos/' for 20250613055613.866909-1-
-> pritam.sutar=40samsung.com:
->=20
-> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb=4016600000
-> (samsung,exynosautov920-dwusb3): 'vdd33-supply' is a required property
-> 	from schema =24id: https://protect2.fireeye.com/v1/url?k=3Da398ebb0-
-> c213fe83-a39960ff-000babff9bb7-8d9cc7c90d9462da&q=3D1&e=3D59f25a9c-244f-
-> 45e8-a7cb-
-> 211aa2722987&u=3Dhttp%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fsa
-> msung%2Cexynos-dwc3.yaml%23
-> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb=4016700000
-> (samsung,exynosautov920-dwusb3): 'vdd33-supply' is a required property
-> 	from schema =24id: https://protect2.fireeye.com/v1/url?k=3Dc803d102-
-> a988c431-c8025a4d-000babff9bb7-2f005fe0951204df&q=3D1&e=3D59f25a9c-244f-
-> 45e8-a7cb-
-> 211aa2722987&u=3Dhttp%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fsa
-> msung%2Cexynos-dwc3.yaml%23
-> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb=4016800000
-> (samsung,exynosautov920-dwusb3): 'vdd33-supply' is a required property
-> 	from schema =24id: https://protect2.fireeye.com/v1/url?k=3D1f0616ff-
-> 7e8d03cc-1f079db0-000babff9bb7-3473467f8f5ba11c&q=3D1&e=3D59f25a9c-244f-
-> 45e8-a7cb-
-> 211aa2722987&u=3Dhttp%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fsa
-> msung%2Cexynos-dwc3.yaml%23
-> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb=4016900000
-> (samsung,exynosautov920-dwusb3): 'vdd33-supply' is a required property
-> 	from schema =24id: https://protect2.fireeye.com/v1/url?k=3D989abcf3-
-> f911a9c0-989b37bc-000babff9bb7-7f2e26e2d23d90b1&q=3D1&e=3D59f25a9c-
-> 244f-45e8-a7cb-
-> 211aa2722987&u=3Dhttp%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fsa
-> msung%2Cexynos-dwc3.yaml%23
->=20
->=20
->=20
->=20
-LDO regulators are always on. USB don=E2=80=99t=20control=20them=20for=20Ex=
-ynosAutov920.=20Hence=20vdd33-supply=20is=20omitted=20from=20dts.=20=0D=0A=
-=0D=0AWill=20try=20to=20add=20dummy=20regulator=20to=20add=20required=20fie=
-ld=20and=20patch=20will=20be=20updated=20in=20next=20version=20of=20the=20p=
-atch-set=20(v4)=0D=0A=0D=0AThank=20you,=20=0D=0A=0D=0ARegards,=0D=0APritam=
-=0D=0A=0D=0A
+Same question regarding target tree, FWIW
 
