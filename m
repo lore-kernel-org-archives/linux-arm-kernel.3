@@ -4,143 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF92C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4191C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ctc3CuZVxujYQqNxXyDKo81mHpmi/2LH6sI9W/Z+e68=; b=3WCMP8vYYU98k4+DgFcrlr2qzT
-	ymXhJEoY/4rGVPvRv+IcRTHprNxOviCdfYCIb17bWoTFjYBFMHXNOCyt5X5yFnyeslvWuZxxFNK7d
-	3O2SBEMrVorna0vcjMLClimSOtERSYzkjlyED+2lcViUzGB6KWyLoTme6etbtGcYCNHPY7ZOBWfC1
-	MGyTlrnhfIKq5digLrFo046lJkT9/+UwVC3ioAd7wBOfG+a5L3tpgFlcWC4IGS0uV3NdApoz6kkdD
-	3hXr2CyZk8TAX0jyhFBwXHFO2WNYZMxWY1p+VEjSrW7BAHD3fhEKWJuPzHn68i+Q+tPrtsdJK0un5
-	8SMPI2oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZjarBw8YUxmhrSGbVYOGUDgfaWcKywGCpsph81RhDYw=; b=lU8w+rWNarZKbRG8Zlicv6jCTG
+	BM7dba2hMAN8rRg+UOfizM2vPi1F8q9lgVtiICL9sHqMa15R7dkB8NLGLebjwdq2dqmY5Y5calbej
+	lAYItmKQjszY0AZJBYTPw8Zb/hnwn5CWAMud6yepqQjMioCkp26ZAPz7MCn1j9aGErYYrRKvzx11M
+	EmYvpyoVs7GMN+aoVRlbtrsQQ0xt0oHwiCPW8pPjIm/ngyMmnydHkszlOSTG88rr+zkqVuvPJzw5T
+	ImU7dyHIzkeRS460m59Gq+wL0ykWY2QtcZPMiUMMnxvDDfO795U02JodeYv7PIbaJsj9ObXUz4iUX
+	myciqg4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvfB-0000000AjXc-3IoQ;
-	Wed, 18 Jun 2025 16:29:25 +0000
-Received: from mail-bn8nam04on2060a.outbound.protection.outlook.com ([2a01:111:f403:2408::60a] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1uRvjZ-0000000Ajon-2ObF;
+	Wed, 18 Jun 2025 16:33:57 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtuB-0000000ASpO-2Q6I
+	id 1uRtwe-0000000ATCL-2RL7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 14:36:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s3X9V3J9b8PvsXis+dkRfcRkHbdbG3kEVf9deFcxZnHJZrYbgHCRPefagt01lYlqq/wNbUKV9KA3aS9oZgbmqvEE/eted+W5GTETA9bQh33HEk+vUAACOyRLIBEssMAaPbwMPVuAIraYEtyR9Dc22XRNNDtgUtekoe5IrrAMNRXagDNrJCw9PjITSjSQ1A/EaCJvbm9HXljc+OBnDh0lavsZRkJcjy+LT1Hr99GwR4GSfmYjEr1vzH6kJO0hmPmcj9+KRI6qsUssYLtGownxoHfwmgWbG83qGbUppMyeC7U19AavVscbEtYoBcq7rnsyoF9zOyOgO0JTeUGQNXVMVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ctc3CuZVxujYQqNxXyDKo81mHpmi/2LH6sI9W/Z+e68=;
- b=gGy8fTslpbLT/6lvW8P9D7OdLDg/Dn5A+EOk0NK2lJnyrYsWbNkiBYUwEwbqYhoohA+tsJHKHhwPKtJlgz8tYRJLbsDvd0pPHMeXpjsBQcIYlO0dYRoellBYpQGXElF4Ca/j7yHHgbcy1CSB71ZJQ5vliCLsCfgqvxYqSJKeo8BGz9o4TBYSrs8OPSqvxrOh3U0KN89YeHTRjOMBHkJ/A1M9cBRodA8bnhb5/32cSY3xpFsWc8YeCqj+5BrlIBELgDXMW7bD10zqhNDlpuND9V/VHldhlMWsEM2g6a8e4o6GtogIfIJtqiuyqL1jEttMjXuFgGIuC6x4f6Qmk/QftQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ctc3CuZVxujYQqNxXyDKo81mHpmi/2LH6sI9W/Z+e68=;
- b=lNQgWHoMIloA1vBZLiBK/SuA/BIqcjLrym1bxLlPlOuGp82l4mxXrT2FtQ9IlpCj9k1eXhcLCYRBA/AWwUvvNePA3P4eoyomgDjSSX1jw0qTBvRO4+IjAxcs2Tv8YZnZ6UYMDY31ESwRVMvXrftbUVwe2BPTR9rucSYs8m/NPSU=
-Received: from CH0P221CA0046.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::19)
- by IA1PR12MB8192.namprd12.prod.outlook.com (2603:10b6:208:3f9::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 18 Jun
- 2025 14:36:42 +0000
-Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
- (2603:10b6:610:11d:cafe::ce) by CH0P221CA0046.outlook.office365.com
- (2603:10b6:610:11d::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.33 via Frontend Transport; Wed,
- 18 Jun 2025 14:36:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8857.21 via Frontend Transport; Wed, 18 Jun 2025 14:36:42 +0000
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 18 Jun
- 2025 09:36:42 -0500
-Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 18 Jun 2025 09:35:11 -0500
-Date: Wed, 18 Jun 2025 20:03:06 +0530
-From: Naveen N Rao <naveen.rao@amd.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, "David
- Woodhouse" <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Sairaj Kodilkar <sarunkod@amd.com>, "Vasant
- Hegde" <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, "Joao
- Martins" <joao.m.martins@oracle.com>, Francesco Lavra
-	<francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 12/62] KVM: SVM: Inhibit AVIC if ID is too big instead
- of rejecting vCPU creation
-Message-ID: <7timm7vdq4vjwn6jo5bwgtbn3f7pdtdch7l5dws76pjg7syqwb@al5mifdmboog>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-14-seanjc@google.com>
- <bmx43lru6mwdyun3ktcmoeezqw6baih7vgtykolsrmu5q2x7vu@xp5jrbbqwzej>
- <aFGTYoxlLhZsiMUC@google.com>
+	Wed, 18 Jun 2025 14:39:21 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 4B145204A8;
+	Wed, 18 Jun 2025 16:39:19 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id UtMEojEv1TMF; Wed, 18 Jun 2025 16:39:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1750257558; bh=8oYMcM5NtNjasov9o5oVzWKXy6yG0PqRwFxgVhFio3c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=V0+cTyMsI0vM0XXOuWLswDaMtDr7XnYIkeYAxZTMtQEsIn0dxQ5xSV1Clfoeq+acj
+	 5zQaf2V0DhFVmljetSNPkh5R4xu0XWIUtHusq7b/PbPwgxr9zTGFh8pYjS5XjDna7d
+	 2CQQZBWvq0+aMJ1/xJUOtQxuG2IeCIHuW4RG8ndeqrEDqHRUI/sk38ASGPFoAGLxCr
+	 RvACOeXHperP7Un5uGExsAbmd9EVxMFk0YghLlBJtiSbRPniXhHnub9m4vQpQfjVRU
+	 hfr2YtVwa0G3YlwhpUMNs+HDj9O/wBCzsogs7cBkxc0H6SybiI5COQwYm6wub4OsFb
+	 WRkW2+9pMkIug==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aFGTYoxlLhZsiMUC@google.com>
-Received-SPF: None (SATLEXMB03.amd.com: naveen.rao@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD76:EE_|IA1PR12MB8192:EE_
-X-MS-Office365-Filtering-Correlation-Id: a508df61-5dc8-4570-bfd9-08ddae758b2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3SEQh2xhl04eJfVMCJOaGZaYiPrvDn7Z2obWfsy2Xpdf/0PHwpF1As7ZoU+6?=
- =?us-ascii?Q?14VTdYa/1gL++ticU/7UcHcUZDFXez9898CYVyd6g5fBkxsUxuIx8RF1dR2p?=
- =?us-ascii?Q?sv8F5zu/QF16bRMdfdtvCmfDSY/vCf+/2v66PMe+kudOPcD+diW0ofhtp0pg?=
- =?us-ascii?Q?iuS9XJgYdXNTh1VAg/P5fswVEGUNwRcHmVerxmsUKfwUWb3VYMQE1qJqJ+Ph?=
- =?us-ascii?Q?w0PpZ4TR9BPmOmfH4+R2lZxFwaQsIQAuxNsjzjqK78EoCSvwbeKe5Ar1b82Q?=
- =?us-ascii?Q?/8PeCNicT3Du30fXB0UD59KQmS/uGUeKwtUZ0E7rn/otK4JQ9x+Bm7siMKkB?=
- =?us-ascii?Q?Qt5YwSN/ofpzngHFYPLtrczJtkURap7zaFaYG6JSdq5Oy+3eHkHT2GhFL+gH?=
- =?us-ascii?Q?oLmbfXjFWK5dprUYDx2zp6CKw/ygPKMUvuSqQUrTLNx5qvXcv0Bx2dHotwVD?=
- =?us-ascii?Q?XtGCwqKcyn37RIfrsPG9wRjYkimeULpcWX538SqTbxxBPA+dYqtsdYE2naFS?=
- =?us-ascii?Q?FxsWuUuVa5RmHZQpbdKEUp3vPwqwUs8j7fFnkJ+Ju456SnulygICSgWst7Il?=
- =?us-ascii?Q?VE7GvYHEQgp3BvRxc+j5F9EoCqF46DyFGr9yfyT/xl50h5m7J3QNRzbjQMl+?=
- =?us-ascii?Q?iGeN2xSb5+0UH30FhLiBn45lNzMAaWYAHiSTVADF4s9E0mKqsJhfV76uZzIk?=
- =?us-ascii?Q?lzNWoKCx0VAxl9Ekvx0SOlbdmApBuroYXjK4vb4/JGqSmPRcn9O9+r9v9Rx8?=
- =?us-ascii?Q?dLhxXoqcuIF6EHtkE1ObpbOg7vRm3gbUJ6sJ6dqswSFc7ZW4vX0yt2WzNbCf?=
- =?us-ascii?Q?L+NbhAVw3sUiw4SAR4hjtw5Q4EJb53g2Tu21R01Dfxc4O6PoswCBv00l4GZf?=
- =?us-ascii?Q?IfGuvFMLuhx7kEvjXZahscsLZUkCWtJaIg/eHpC4fckGx4O3wVamQIf+upqS?=
- =?us-ascii?Q?+pbAbnoM4Zcr9y+8ip7iP0iHbstc5gvXT1xcE7e1AhVjK6w0Cg7rGPh+UNRb?=
- =?us-ascii?Q?736ie/Ia+Ol5Xk9+FtiTLNC51oSkyGGjhzIIYVbiwY/8Cns18pporZ5OGxZ/?=
- =?us-ascii?Q?zAHCvcNdxoHPfTueahM1u9kaqonDzNjVDprhEdEeyoQxL7/Qj7xIgfG3RycN?=
- =?us-ascii?Q?ad8vFMsps5RMhcPVnqZsEQTBMJCU4Zuv+x9o8BtDGgTiAGMtkpixG/2UQFEO?=
- =?us-ascii?Q?Z5l7QZNsNEtO37AWDKM+9/beqT8KW6Ft5vJbZYyvNE4YzxYp2qeYpqmkxeS2?=
- =?us-ascii?Q?//BBDiXo1UgCUV/qsInWHvlroDE3i4O+oBIsKOQVUjjh5tDyCTpwbfFB39ZA?=
- =?us-ascii?Q?t9Wqaw8lb0aLhkgdHDTH6L3y2FqO6xd7RlF1IGr19hfirLGhsnXc4/6CHINE?=
- =?us-ascii?Q?E+A61UYMzUIDw6sxpu+Wo1H4XmHoC9Gb62Yyv5VfCecpnAw84ZBclvLkWnr3?=
- =?us-ascii?Q?NfZOCSGDQjNn4BoxqkSgMi/mZPNEpdCioNaSfwMwA4fIqRuCv3OeICfwZ4eR?=
- =?us-ascii?Q?8YA2raVF8LzyKd6PuKIfdGL6urGaFjbNwUgw?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 14:36:42.5298
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a508df61-5dc8-4570-bfd9-08ddae758b2c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD76.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8192
+Date: Wed, 18 Jun 2025 14:39:18 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] arch: arm64: dts: exynos7870-on7xelte: enable display
+ panel support
+In-Reply-To: <99e31fd7-e0b6-406f-bf4c-ceee8a0db93b@kernel.org>
+References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+ <20250612-exynos7870-drm-dts-v1-3-88c0779af6cb@disroot.org>
+ <99e31fd7-e0b6-406f-bf4c-ceee8a0db93b@kernel.org>
+Message-ID: <03152ec8103544ad4155dfa5c3ba9a42@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_073647_899367_EBF7CB34 
-X-CRM114-Status: GOOD (  47.95  )
+X-CRM114-CacheID: sfid-20250618_073920_758977_54CA7B81 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,131 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 09:10:10AM -0700, Sean Christopherson wrote:
-> On Tue, Jun 17, 2025, Naveen N Rao wrote:
-> > On Wed, Jun 11, 2025 at 03:45:15PM -0700, Sean Christopherson wrote:
-> > > diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> > > index ab228872a19b..f0a74b102c57 100644
-> > > --- a/arch/x86/kvm/svm/avic.c
-> > > +++ b/arch/x86/kvm/svm/avic.c
-> > > @@ -277,9 +277,19 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
-> > >  	int id = vcpu->vcpu_id;
-> > >  	struct vcpu_svm *svm = to_svm(vcpu);
-> > >  
-> > > +	/*
-> > > +	 * Inhibit AVIC if the vCPU ID is bigger than what is supported by AVIC
-> > > +	 * hardware.  Immediately clear apicv_active, i.e. don't wait until the
-> > > +	 * KVM_REQ_APICV_UPDATE request is processed on the first KVM_RUN, as
-> > > +	 * avic_vcpu_load() expects to be called if and only if the vCPU has
-> > > +	 * fully initialized AVIC.
-> > > +	 */
-> > >  	if ((!x2avic_enabled && id > AVIC_MAX_PHYSICAL_ID) ||
-> > > -	    (id > X2AVIC_MAX_PHYSICAL_ID))
-> > > -		return -EINVAL;
-> > > +	    (id > X2AVIC_MAX_PHYSICAL_ID)) {
-> > > +		kvm_set_apicv_inhibit(vcpu->kvm, APICV_INHIBIT_REASON_PHYSICAL_ID_TOO_BIG);
-> > > +		vcpu->arch.apic->apicv_active = false;
-> > 
-> > This bothers me a bit. kvm_create_lapic() does this:
-> >           if (enable_apicv) {
-> >                   apic->apicv_active = true;
-> >                   kvm_make_request(KVM_REQ_APICV_UPDATE, vcpu);
-> > 	  }
-> > 
-> > But, setting apic->apicv_active to false here means KVM_REQ_APICV_UPDATE 
-> > is going to be a no-op.
+On 2025-06-18 09:57, Krzysztof Kozlowski wrote:
+> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
+>> Enable DECON and DSI nodes, and add the compatible display panel and
+>> appropriate panel timings for this device. Also, disable the
+>> simple-framebuffer node in favor of the panel.
+>> 
+>> This device has a 1080x1920 Synaptics TD4300 display panel.
+>> 
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 40 
+>> ++++++++++++++++++++++
+>>  1 file changed, 40 insertions(+)
+>> 
+>> diff --git a/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts 
+>> b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+>> index 
+>> eb97dcc415423f405d7df9b9869b2db3432fb483..86a7fc2554a137752862c37d27cf9813b3ac5514 
+>> 100644
+>> --- a/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+>> +++ b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+>> @@ -40,6 +40,8 @@ framebuffer@67000000 {
+>>  			height = <1920>;
+>>  			stride = <(1080 * 4)>;
+>>  			format = "a8r8g8b8";
+>> +
+>> +			status = "disabled";
 > 
-> That's fine, KVM_REQ_APICV_UPDATE is a nop in other scenarios, too.  I agree it's
-> not ideal, but this is a rather extreme edge case and a one-time slow path, so I
-> don't think it's worth doing anything special just to avoid KVM_REQ_APICV_UPDATE.
-> 
-> > This does not look to be a big deal given that kvm_create_lapic() 
-> > is called just a bit before svm_vcpu_create() (which calls the above 
-> > function through avic_init_vcpu()) in kvm_arch_vcpu_create(), so there 
-> > isn't that much done before apicv_active is toggled.
-> > 
-> > But, this made me wonder if introducing a kvm_x86_op to check and 
-> > enable/disable apic->apicv_active in kvm_create_lapic() might be cleaner 
-> > overall
-> 
-> Hmm, yes and no.  I completely agree that clearing apicv_active in avic.c is all
-> kinds of gross, but clearing apic->apicv_active in lapic.c to handle this particular
-> scenario is just as problematic, because then avic_init_backing_page() would need
-> to check kvm_vcpu_apicv_active() to determine whether or not to allocate the backing
-> page.  In a way, that's even worse, because setting apic->apicv_active by default
-> is purely an optimization, i.e. leaving it %false _should_ work as well, it would
-> just be suboptimal.  But if AVIC were to key off apic->apicv_active, 
-> that could
-> lead to KVM incorrectly skipping allocation of the AVIC backing page.
+> This should be rather removed. What is the idea behind keeping disabled
+> node?
 
-I understand your concern about key'ing off apic->apicv_active - that 
-would definitely require a thorough audit and does add complexity to 
-this.
+Ideally should be removed, yes. A disabled property was added so that if
+required, it can be enabled downstream simply by a patch which removes 
+it.
 
-However, as far as I can see, after your current series, we no longer 
-maintain a pointer to the AVIC backing page, but instead rely on the 
-lapic-allocated page.
-
-Were you referring to the APIC access page though? That is behind 
-kvm_apicv_activated() today, which looks to be problematic if there are 
-inhibits set during vcpu_create() and if those can be unset later?  
-Shouldn't we be allocating the apic access page unconditionally here?
+And I also understand that upstream doesn't care what's happening 
+downstream.
+To upstream, it is effectively a dead node. So I'll remove it.
 
 > 
-> > Maybe even have it be the initialization point for APICv: 
-> > apicv_init(), so we can invoke avic_init_vcpu() right away?
 > 
-> I mostly like this idea (actually, I take that back; see below), but VMX throws
-> a big wrench in things.  Unlike SVM, VMX doesn't have a singular "enable APICv"
-> flag.  Rather, KVM considers "APICv" to be the combination of APIC-register
-> virtualization, virtual interrupt delivery, and posted interrupts.
-> 
-> Which is totally fine.  The big wrench is that the are other features that interact
-> with "APICv" and require allocations.  E.g.  the APIC access page isn't actually
-> tied to enable_apicv, it's tied to yet another VMX feature, "virtualize APIC
-> accesses" (not to be confused with APIC-register virtualization; don't blame me,
-> I didn't create the control knobs/names).
-> 
-> As a result, KVM may need to allocate the APIC access page (not to be confused
-> with the APIC *backing* page; again, don't blame me :-D) when enable_apicv=false,
-> and even more confusingly, NOT allocate the APIC access page when enable_apicv=true.
-> 
-> 	if (cpu_need_virtualize_apic_accesses(vcpu)) {  <=== not an enable_apic check, *sigh*
-> 		err = kvm_alloc_apic_access_page(vcpu->kvm);
-> 		if (err)
-> 			goto free_vmcs;
-> 	}
-
-Thanks for the background and the details there -- I am going to need 
-some time to go unpack all of that :)
-
-> 
-> And for both SVM and VMX, IPI virtualization adds another wrinkle, in that the
-> per-vCPU setup needs to fill an entry in a per-VM table.  And filling that entry
-> needs to happen at the very end of vCPU creation, e.g. so that the vCPU can't be
-> targeted until KVM is ready to run the vCPU.
-> 
-> Ouch.  And I'm pretty sure there's a use-after-free in the AVIC code.  If
-> svm_vcpu_alloc_msrpm() fails, the avic_physical_id_table[] will still have a pointer
-> to freed vAPIC page.
-
-Oops.
-
-> 
-> Thus, invoking avic_init_vcpu() "right away" is unfortunately flat out unsafe
-> (took me a while to realize that).
-> 
-> So while I 100% agree with your dislike of this patch, I think it's the least
-> awful band-aid, at least in the short term.
-> 
-> Longer term, I'd definitely be in favor of cleaning up the related flows, but I
-> think that's best done on top of this series, because I suspect it'll be somewhat
-> invasive.
-
-Sure, that makes sense. For this patch:
-Acked-by: Naveen N Rao (AMD) <naveen@kernel.org>
-
-
-Thanks,
-Naveen
+> Best regards,
+> Krzysztof
 
