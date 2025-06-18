@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92B1C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3214BC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TLFD+2psb7xXjgfHWtkDfvPX+FPgGIjapr64yFarvW4=; b=WdOkaX6WAFKsfHnx3lOWI9qjvy
-	JyYXjRK/nRKLU6fZtkwF4HIVTxtPGu49b64n6Ubyrm8DvNPfqdGIjnYoimsaVAD0m5Hhm9cK0ej/H
-	xXrHWqo62ftY0F51kV9utaCNHR+H6nMdEHpioouzh+HweiLYvTLZWnEx6QPGxgAMQVHrGuOI8uSCK
-	PEsLbLVnPQdAPeEqEB0B4Rb01mvnzLbXsYanV+iHv39A4p9HEbD112kP/PsrPvcA9io4Wubvhr3w3
-	L38wFw4CbffzRPmotnYTyTikqVtw23YR9Fjl34wwbcIUxTNOuB4sjGPs09SkPMo1Cqgj3yW9e4DS9
-	DYRLC5pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MnlKsyG4fMWCQaM8lEHdPX48UNrwNSibT67INrhosJg=; b=pfnqJWvT96hHWHghY+/rxyZb8b
+	1CpJWJbYamNZVBx2rVJ0fj2JF3qflHDkR6BIeYPrwUDix52x9nUL6/4fNzfBFoBfxLn1JLdSaBQIG
+	YJVntFgis+eB1eORk5vMJTSRBxYu1o7gXLzIj1NKdUy5/GKrk3RjY936w1i21v13Yof3B6xLuyFwz
+	Wrf1Q5cl6SCH2t0m4Nt790K91j0BR6R0N03VjCOAvxg0LWYWbzdbTobJqWbMOfOC2zVwxxqnMTis0
+	VFORHkrIiM7Iz6Hu0Fu9jbfiVfQIzXtpfsQmH0AjcQBh3piJcbRKE6o0wheQRHhripGJlkYjOjXRa
+	EbisquqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwYm-0000000AqsU-2zex;
-	Wed, 18 Jun 2025 17:26:52 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1uRwdA-0000000ArXt-0lnb;
+	Wed, 18 Jun 2025 17:31:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvav-0000000Aiz9-45Un
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 16:25:03 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54e7967cf67so7348606e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 09:25:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750263900; x=1750868700; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TLFD+2psb7xXjgfHWtkDfvPX+FPgGIjapr64yFarvW4=;
-        b=JXmzviVNST25/LQmRPdEFIGLbHrvaK/LwqiOsP5GEHH3xkocFmzOR53WaCMnQLl5b7
-         RdbcDyfU2Ap1YWDzg34SMlaczXMihBUGXWpNaiXiPKwErsAaFbHe4xdlOgna9GhxwpGI
-         9MerJoePyteFP1K1mwXVVkQ+zBaeu6Ca/D2VNJDT5ZPfwxH6yDkIDH7YNulhlZbIVAM6
-         iSB+GDCT5Nz3DlmObfEzvQmvEZSZ/m+boBurDuuqlRdGSUpTTFvfSeZ9hupowOHkBUq0
-         Fy1yGdnWixH+7nPLwJkcpkoMTecxgrNplM40w946a2Na8YaytGMWAxAHVgRpWayC551Q
-         xWlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750263900; x=1750868700;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TLFD+2psb7xXjgfHWtkDfvPX+FPgGIjapr64yFarvW4=;
-        b=fDjmI8BQTA4SQfnfMqesXyLudKb0hPqCOuHTucX21AXMTAOH2hwqliQPVAZ+3QObQd
-         5q9/OSkzjA4Sl1w88YhLW957Y4IFvvTVR/fOcaEWxlQJ99XcQD0AhYl6QtTQX6qcMM1+
-         lXaX2zzbwQZTaO/WXzFAKyq6J+hTqxuSO3qC9fFi1CB6ZQTVXrTsi3OJHw/Or3QTp8Pf
-         edEvnOGZbyUCW1r047JGO3tnedxyqF1MMcD+GKpWLh4uc/5fmIimwkcW6Jk6Y/StKKez
-         R6RA1BRDIFyeMdiEfUcbdkLvJTIXl/eThkVhMYTOYdx2oGMvC4kVu9hUe4k5iyv5f+Gc
-         VFCg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHRenbKIJM0+ESmf8bPs6ReYSWg1aFZhBcKSfmV9dtG55CDfcxNeD0lINowasLAO5Vx5rHCcOoLZsbA8CzQ4gL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSOA9U4pJ83c7gUWwx8UqthRWbmKaRG4MukVwLH4/3b2z5BXTF
-	qMqcVG9Og3N+jr0eNgXVFCJnhgtoR88Q7g5Ekm40PSRUUYQJcdtgsmnFpyTAeYryIv3xJHJIlP4
-	3ptfGEmWTEAUiahu/O+80pE9A5HWZY6aIWldfX7qCIg==
-X-Gm-Gg: ASbGncunT7+n9z2fzNtx+bxZuVywiv0jZJzHGk8t6l/tlWQ23A3VKso/yrU525rzj8V
-	b9VKheHhzppZL+VpvpXEPXRjb4hLXXUSzJ2rpfaDa9qBC4K/BIrEua4MYVAYB0GjakebVjgIumq
-	/STkbW0uM6g6p0rsHyykPv/4qdRamyc6s1Q39jQBVLwRrzrUyqjJoTbwHAV4Y3WAdX77GDeM2aq
-	Q==
-X-Google-Smtp-Source: AGHT+IFasWzMx4vvKMGThkbIPZ5HFR/Wr5hiH9hJMS02hBIeQh8p7hArmnTCvxt1VaP57eg2rHdU67rWBwbdr9GK3qY=
-X-Received: by 2002:a05:6512:1193:b0:553:2ed2:15b5 with SMTP id
- 2adb3069b0e04-553b6f50256mr5473373e87.57.1750263900278; Wed, 18 Jun 2025
- 09:25:00 -0700 (PDT)
+	id 1uRvkM-0000000Ajue-0zSV;
+	Wed, 18 Jun 2025 16:34:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=MnlKsyG4fMWCQaM8lEHdPX48UNrwNSibT67INrhosJg=; b=bTry5vSGReg0fSd/S00Wejr22W
+	XsBdHJdQXB8cIr1GyS/T/YKfh9yOUVmHmEnwALoYaRA3ZLWByEVtH3M5XJTeEqtzxzh8xmHfVbz4c
+	Ccx9L2iT0DvUjhuA2Q6SS70uuvN5SMRM6DXkWiRpG7SFsBV/DwXEIjWxTGn1CG5TumgEbjHPlXM4D
+	LF73o8Ky1cgVPa6sByCJhEG+QacZ/9phcpqowXknhK5OeF1pBhErUozlGgOEjiG+LXGJsH6tXm7ww
+	LMLnZ47f+AQR7zv1coYRMec1YD2wGUmGJic9uKNAUUGA+Gjirap1aFAmPgwBUkcaNkUGErSGMsVcO
+	Hm3l91RQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRvkJ-00000004C25-2ZG1;
+	Wed, 18 Jun 2025 16:34:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3DC7CA51B33;
+	Wed, 18 Jun 2025 16:34:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26D14C4CEE7;
+	Wed, 18 Jun 2025 16:34:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750264477;
+	bh=ZpjxbXJilygZEa1TmasV23ZFXaekM2vT4FxyFQzIqSA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FhljU//iM84aUdVU8yuWaVilgx676eJhlxkMjsp8ZvVPjIj7WnUaN6i85prBo4YTx
+	 0KYOgkUCisvck2qI3pOpodE1buIr/eI9jDqIZBcLCHp1dI1vuFNMa7uNYBCZsWiuK6
+	 hoRHmxH3bLyqdOcDjoDSld86OS3NtmVHFZHeUEFu60mOzVCYbwGMhOmnkUxJfkDQRH
+	 B8MAd8VxIVuzhDMyJ+q0PO9wgeC3Sq4lsI2Y/0CRETbYYYb+re4CZpZmfc65yx//71
+	 +k8EYCkImnaDRGNiuP6sq5vEpLXOV6QO518mY0nBGV972wP8xCU+37uYpGcaj5XrpJ
+	 4Y2Z/Qqnoxoiw==
+Date: Wed, 18 Jun 2025 17:34:33 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] net: airoha: Compute number of descriptors
+ according to reserved memory size
+Message-ID: <20250618163433.GR1699@horms.kernel.org>
+References: <20250618-airoha-hw-num-desc-v3-0-18a6487cd75e@kernel.org>
+ <20250618-airoha-hw-num-desc-v3-1-18a6487cd75e@kernel.org>
 MIME-Version: 1.0
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
- <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org> <95f63f24-2c8f-4f0b-89a9-ddf39a8f2e12@sirena.org.uk>
-In-Reply-To: <95f63f24-2c8f-4f0b-89a9-ddf39a8f2e12@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 18 Jun 2025 18:24:48 +0200
-X-Gm-Features: AX0GCFtQiRTdcvRzM4v3bXKNF4ikUT4N9NzJhHCtHKKqoMjJz7WLf-25661k3ho
-Message-ID: <CAMRc=Mc9_V8bkD_FyNkxkNoD3Fe7q-CC7ifq3TrD=r8+D_UgKA@mail.gmail.com>
-Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter callbacks
-To: Mark Brown <broonie@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-omap@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250618-airoha-hw-num-desc-v3-1-18a6487cd75e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_092502_205684_D2632D67 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250618_173443_819566_E1DA9D5A 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +91,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 6:21=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Tue, Jun 10, 2025 at 02:33:11PM +0200, Bartosz Golaszewski wrote:
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > struct gpio_chip now has callbacks for setting line values that return
-> > an integer, allowing to indicate failures. Convert the driver to using
-> > them.
->
-> I'm seeing boot failures on a UDOOq (an i.MX6 based board) in -next
-> today which bisect to this patch (in -next as b908d35d0003cc7).  We get
-> a NULL pointer dereference during boot while probing the poweroff driver
-> for the system:
->
-> [    0.443319] Unable to handle kernel NULL pointer dereference at virtua=
-l address 00000000 when execute
-> [    0.443330] [00000000] *pgd=3D00000000
-> [    0.443347] Internal error: Oops: 80000005 [#2] SMP ARM
->
-> ...
->
-> [    2.522761]  bgpio_dir_out_val_first from gpiod_direction_output_raw_c=
-ommit+0x194/0x390
-> [    2.533330]  gpiod_direction_output_raw_commit from gpiod_find_and_req=
-uest+0x134/0x434
-> [    2.541276]  gpiod_find_and_request from gpiod_get_index+0x58/0x70
-> [    2.547482]  gpiod_get_index from devm_gpiod_get_index+0x10/0x78
-> [    2.553516]  devm_gpiod_get_index from gpio_poweroff_probe+0xe8/0x174
-> [    2.559990]  gpio_poweroff_probe from platform_probe+0x5c/0xb4
->
+On Wed, Jun 18, 2025 at 09:48:04AM +0200, Lorenzo Bianconi wrote:
+> In order to not exceed the reserved memory size for hwfd buffers,
+> compute the number of hwfd buffers/descriptors according to the
+> reserved memory size and the size of each hwfd buffer (2KB).
+> 
+> Fixes: 3a1ce9e3d01b ("net: airoha: Add the capability to allocate hwfd buffers via reserved-memory")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Thanks, a patch[1] is already up for review. Please give it a try and
-leave your Tested-by: if you can.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-Bartosz
-
-[1] https://lore.kernel.org/all/20250618-gpio-mmio-fix-setter-v1-2-2578ffb7=
-7019@linaro.org/
 
