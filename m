@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C427BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34216C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PTqXkeWdOJ01dOchQdWmJ3HLZ+mY40AHiSRqSHI6bU0=; b=yw34YGZHFVmbXJJVPjNn6HjfUJ
-	UaZoRM/3j9AXkgp6/4m6hSy/7HI0vh/nH4IMf0B7ZqLUBN2wKb2wYLRe6+6AH/33YMxkl+PvLLDtD
-	NS5UC0M5jBK8ScQwmcoO/Ir7jREm/gPi4YNpmWJDIbnSbTtNUSx7/9+medjYmVE02yX6998ivvr0D
-	DwjnbmtHwAERjwIaxshHb0zmTEZkh4lqZhTntXwxmq9myv0hYI2zz8oStukLpeU6L4vBcPrGpCOEG
-	M7pH9UHFXr98VsktFxPdEXoJ6k6/jx2FlC1sgkGbWm8L8+XRu6BqMC79cOO5jEIuSnGT+u6gUZLTR
-	5k+KE0LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r0yXO5WKMtf/RbA0D78yHpcsjqHvAhoAVEOtzAC/jPY=; b=y/nQamGuDffVrfZTtkpUZzBY1y
+	woJ58R3MieW7fnkiWn8iuha2gO6tohcn992Q1Y2qVt5GaOf39bY/kG90BQEWeIdq4AAZdc6xrD6cJ
+	HXzndVvix9gQtJxz61/8GVP/pduAGY6ygFaLIqxC5ce7HgSqbYLorPZGFnhTJBxJ2WbkPewrqbSvh
+	kQFrkLjqdah/DiDJAtl6B8ndDyBJJgjKVprxMiNrXp+mPuQYgmHIu3Owtts5HXFm+IbCc6FWFJs3A
+	Wnzzu8FKyQw2FehxFDTauJXb8k/wJXKGgJyGDxILXqQtult8vZBTmas9F8FfU6Xt0xyFIL/yWFH5F
+	ppTLFU2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyCa-0000000BAMn-0wSR;
-	Wed, 18 Jun 2025 19:12:04 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRx0m-0000000AxlN-2cBt
+	id 1uRyCc-0000000BAQE-0YcH;
+	Wed, 18 Jun 2025 19:12:06 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRx2j-0000000AyGR-0pHR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 17:55:50 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55IHtdbj377578;
-	Wed, 18 Jun 2025 12:55:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750269339;
-	bh=PTqXkeWdOJ01dOchQdWmJ3HLZ+mY40AHiSRqSHI6bU0=;
-	h=From:To:CC:Subject:Date;
-	b=PPkJYQSWjbFPhgazjQrIQRkzaC1OjJ98bocYItjZV3UX6eLWosLsjPbOPuy0LQRnk
-	 pZAYqvSjy2kvvTRiwXw5m7h/bOxoi6GX9Cq9WZZYCiIyuN8iFNYNNSnuznrZPx0llX
-	 KyLSaCDF2FXhFto91xin+Mw5d1v6HI75evfAi7QI=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55IHtdY6591755
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 18 Jun 2025 12:55:39 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 18
- Jun 2025 12:55:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 18 Jun 2025 12:55:38 -0500
-Received: from localhost (akira.dhcp.ti.com [10.24.69.4])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55IHtbFZ4143062;
-	Wed, 18 Jun 2025 12:55:38 -0500
-From: Himanshu Mittal <h-mittal1@ti.com>
-To: <h-mittal1@ti.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
-        <m-malladi@ti.com>, <pratheesh@ti.com>, <prajith@ti.com>
-Subject: [PATCH net-next v3] net: ti: icssg-prueth: Add prp offload support to ICSSG driver
-Date: Wed, 18 Jun 2025 23:25:36 +0530
-Message-ID: <20250618175536.430568-1-h-mittal1@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 18 Jun 2025 17:57:50 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 0919D201C77F;
+	Wed, 18 Jun 2025 10:57:48 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0919D201C77F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1750269468;
+	bh=r0yXO5WKMtf/RbA0D78yHpcsjqHvAhoAVEOtzAC/jPY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YNMZ1E/Nk9DTKlQqpD5ZXxizjzYI42bYzR8A11MDi46jt5unNsGa46e2K6dxCZMXz
+	 vn5GTQr067Iv+0A6vVey0uWLO0JXRxoUJUVBvTSE6dD2kDSZS9yy6ojZiw4U5Gwobu
+	 3n/8ggSZ85M/0bzIBFTOxHFHUWWm187SV28xKxHo=
+Message-ID: <bf0575c7-f78a-458c-b905-7baa7347c03f@linux.microsoft.com>
+Date: Wed, 18 Jun 2025 10:57:47 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: support both conduits for getting hyp
+ UUID
+To: Anirudh Rayabharam <anirudh@anirudhrb.com>
+Cc: sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, mark.rutland@arm.com
+References: <20250605-kickass-cerulean-honeybee-aa0cba@sudeepholla>
+ <20250610160656.11984-1-romank@linux.microsoft.com>
+ <aFKu9TFA6oj1N2cR@anirudh-surface.localdomain>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <aFKu9TFA6oj1N2cR@anirudh-surface.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_105548_843618_58641655 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250618_105749_262155_9F718079 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,111 +73,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for ICSSG PRP mode which supports offloading of:
- - Packet duplication and PRP trailer insertion
- - Packet duplicate discard and PRP trailer removal
 
-Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
----
-v3-v2:
-- Addresses comment to fix structure documentation
 
-v2: https://lore.kernel.org/all/20250618102907.GA1699@horms.kernel.org/
+On 6/18/2025 5:20 AM, Anirudh Rayabharam wrote:
+> On Tue, Jun 10, 2025 at 09:06:48AM -0700, Roman Kisel wrote:
+>>> (sorry for the delay, found the patch in the spam 🙁)
+>>
+>> "b4" shows the the mail server used for the patch submission
+>> doesn't pass the DKIM check, so finding the patch in the spam seems
+> 
+> How do you check this? I mean, what b4 command do you run?
+> 
+> I think it should be fix now. Let's see...
 
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 +++++++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  5 +++++
- 2 files changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index a1e013b0a0eb..2aa812cbab92 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -148,8 +148,10 @@ static int prueth_emac_start(struct prueth *prueth)
- 
- 	if (prueth->is_switch_mode)
- 		firmwares = prueth->icssg_switch_firmwares;
--	else if (prueth->is_hsr_offload_mode)
-+	else if (prueth->is_hsr_offload_mode && HSR_V1 == prueth->hsr_prp_version)
- 		firmwares = prueth->icssg_hsr_firmwares;
-+	else if (prueth->is_hsr_offload_mode && PRP_V1 == prueth->hsr_prp_version)
-+		firmwares = prueth->icssg_prp_firmwares;
- 	else
- 		firmwares = prueth->icssg_emac_firmwares;
- 
-@@ -1527,6 +1529,7 @@ static int prueth_netdevice_event(struct notifier_block *unused,
- 	struct netdev_notifier_changeupper_info *info;
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth *prueth = emac->prueth;
-+	enum hsr_version hsr_ndev_version;
- 	int ret = NOTIFY_DONE;
- 
- 	if (ndev->netdev_ops != &emac_netdev_ops)
-@@ -1538,6 +1541,11 @@ static int prueth_netdevice_event(struct notifier_block *unused,
- 
- 		if ((ndev->features & NETIF_PRUETH_HSR_OFFLOAD_FEATURES) &&
- 		    is_hsr_master(info->upper_dev)) {
-+			hsr_get_version(info->upper_dev, &hsr_ndev_version);
-+			if (hsr_ndev_version != HSR_V1 && hsr_ndev_version != PRP_V1)
-+				return -EOPNOTSUPP;
-+			prueth->hsr_prp_version = hsr_ndev_version;
-+
- 			if (info->linking) {
- 				if (!prueth->hsr_dev) {
- 					prueth->hsr_dev = info->upper_dev;
-@@ -1858,6 +1866,8 @@ static int prueth_probe(struct platform_device *pdev)
- 				  prueth->icssg_switch_firmwares, "eth", "sw");
- 	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
- 				  prueth->icssg_hsr_firmwares, "eth", "hsr");
-+	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
-+				  prueth->icssg_prp_firmwares, "eth", "prp");
- 
- 	spin_lock_init(&prueth->vtbl_lock);
- 	spin_lock_init(&prueth->stats_lock);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index c03e3b3626c1..9ca2e7fdefbd 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -13,6 +13,7 @@
- #include <linux/etherdevice.h>
- #include <linux/genalloc.h>
- #include <linux/if_vlan.h>
-+#include <linux/if_hsr.h>
- #include <linux/interrupt.h>
- #include <linux/kernel.h>
- #include <linux/mfd/syscon.h>
-@@ -290,6 +291,7 @@ struct icssg_firmwares {
-  * @vlan_tbl: VLAN-FID table pointer
-  * @hw_bridge_dev: pointer to HW bridge net device
-  * @hsr_dev: pointer to the HSR net device
-+ * @hsr_prp_version: enum to store the protocol version of hsr master
-  * @br_members: bitmask of bridge member ports
-  * @hsr_members: bitmask of hsr member ports
-  * @prueth_netdevice_nb: netdevice notifier block
-@@ -303,6 +305,7 @@ struct icssg_firmwares {
-  * @icssg_emac_firmwares: Firmware names for EMAC mode, indexed per MAC
-  * @icssg_switch_firmwares: Firmware names for SWITCH mode, indexed per MAC
-  * @icssg_hsr_firmwares: Firmware names for HSR mode, indexed per MAC
-+ * @icssg_prp_firmwares: Firmware names for PRP mode, indexed per MAC
-  */
- struct prueth {
- 	struct device *dev;
-@@ -332,6 +335,7 @@ struct prueth {
- 
- 	struct net_device *hw_bridge_dev;
- 	struct net_device *hsr_dev;
-+	enum hsr_version hsr_prp_version;
- 	u8 br_members;
- 	u8 hsr_members;
- 	struct notifier_block prueth_netdevice_nb;
-@@ -349,6 +353,7 @@ struct prueth {
- 	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
- 	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
- 	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
-+	struct icssg_firmwares icssg_prp_firmwares[PRUETH_NUM_MACS];
- };
- 
- struct emac_tx_ts_response {
+"b4 am" was showing the failed DKIM check, and all good now!
+
+| $ b4 am 20250521094049.960056-1-anirudh@anirudhrb.com
+|
+| Grabbing thread from 
+lore.kernel.org/all/20250521094049.960056-1-anirudh@anirudhrb.com/t.mbox.gz
+| Analyzing 7 messages in the thread
+| Looking for additional code-review trailers on lore.kernel.org
+| Checking attestation on all messages, may take a moment...
+| ---
+|   ✓ [PATCH] firmware: smccc: support both conduits for getting hyp UUID
+|     + Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+|     + Tested-by: Roman Kisel <romank@linux.microsoft.com> (✓ 
+DKIM/linux.microsoft.com)
+|     + Reviewed-by: Roman Kisel <romank@linux.microsoft.com> (✓ 
+DKIM/linux.microsoft.com)
+|   ---
+|   ✓ Signed: DKIM/anirudhrb.com
+| ---
+| Total patches: 1
+| ---
+|  Link: 
+https://lore.kernel.org/r/20250521094049.960056-1-anirudh@anirudhrb.com
+|  Base: applies clean to current tree
+|        git checkout -b 20250521_anirudh_anirudhrb_com HEAD
+|        git am 
+./20250521_anirudh_firmware_smccc_support_both_conduits_for_getting_hyp_uuid.mbx
+|
+
+
+[...]
+>> Anirudh had been OOF for some time and would be for another
+>> week iiuc so I thought I'd reply.
+> 
+> Thanks Roman!
+
+My pleasure :)
+
+> 
+> Regards,
+> Anirudh
+> 
+>>
+>> The patch this depends on is 13423063c7cb
+>> ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID"),
+>> and this patch has already been pulled into the Linus'es tree.
+>>
+>> As for routing, (arm-)soc should be good it appears as the change
+>> is contained within the firmware drivers path. Although I'd trust more to your,
+>> Arnd's or Wei's opinion than mine!
+>>
+>>>
+>>> --
+>>> Regards,
+>>> Sudeep
+
 -- 
-2.34.1
+Thank you,
+Roman
 
 
