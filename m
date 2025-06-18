@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17FEC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 18:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A1EC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 18:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyJlG7Z4td11oSqRetm0jl2eLd6T8cmzVzCUc9u2JvM=; b=dOjgOS9ggj1QbsV3iGi8b4cUF6
-	d2/shidkqJmCk1nIFidhB6+deowbTPnHCJo2OhSMtl8Y4CpvQdPEjB1RQ0AL2ENocEIjaDzw/lh97
-	cgaqvVdCv4AfAdkV2t6gSdy2sS07OLpKjQlgHYzqeuHRygDE1K9VSTQ+0jlrNp0rspk6/5sCEA30P
-	GiVjcon/24B+e/NGnzXqdG1RY7mbOODdsS2A8gKfzQDOk/G8Gvh9Pl2vznGn8s3MISdXka3l4X4Yu
-	fNdIaebloYQKIhILU7IxCHDKqlfND9/+1UUoubsQdT3ycZf4nW0MJH1Pf3Mh608IC2BJ/j9CAJ3KS
-	+nSe/DHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3wTddqyQREB9JRNgHluam73CuuYCuztZ1xmk26tEDUQ=; b=uB032L1E8NRr/lHEAsu7ypIP0S
+	xivCteNebTNrBUMF/PRbX9+ljHUUT/gg5xMwEjdIJrJNjLJMNV3tke60bzazQPNzucwBFNn37YFdM
+	DTnZcS0oFLCr5LZHHPxraTGTxYliPHnF4Khzl9MMHrtcS2KEXpg4tu3OY6XBv2nX+g1WOAjJPH3hK
+	Z48G6WsiGn+/qDZmQxxIOVTp9C2D3atTQM1MTYd8Y5aMr8DFSytYN+eDlpIjz82vighvKDX9chXO+
+	UG3wXsgJ1qNcZ9BDA6dW8H+Q3Uex5XPpu4nVgeTFDtJnbNcsuIXzD4NxmH394dgan0ntuq7qI83hT
+	FWTPEzow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRxEo-0000000B2Ls-2AeK;
-	Wed, 18 Jun 2025 18:10:18 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uRxH0-0000000B2SQ-18mG;
+	Wed, 18 Jun 2025 18:12:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvJo-0000000Agv1-2htE
+	id 1uRwFK-0000000AoI9-48se
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 17:06:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3wTddqyQREB9JRNgHluam73CuuYCuztZ1xmk26tEDUQ=; b=MQVjdYZACJ/68/vIhsKs0hLgyW
+	uMLS2sPc3afyNjwzl2YZian7Yv8HJ/9lggR7u7UARiHFU7V3aSbkRhuiDAbqkg1GxvO8kqhO53SSN
+	EQJXmdDHRS7UC7SmM+mgn2R8VO+I3D1LzREceQfGsK2PMvjD/oy9FGKgzh8N5K/b111hgYMjd7e1E
+	pDTI7Pmi6cvypGCTLlvgZ0lPnOzcriCepiu2MGqY0KNhtc7FicWjtM6XTNtJob2/jCQWWY3gR9X6G
+	z1ty8rqYBqGQFXsQrPIm2OEl+NwlTZ9dbWlWoxJ9056ydlPxdoyhsvalscbSIFjg9uulQfQjsoprU
+	02e9fJ4Q==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRwFE-00000004DYX-0FwC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 16:07:22 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id B6B6425DF5;
-	Wed, 18 Jun 2025 18:07:17 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id HLu9mRvZczgM; Wed, 18 Jun 2025 18:07:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750262836; bh=mOfi1Z9zb0xi4+yWHJom5fdfrVrQ0ZgGdPDqz11C0bE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MzPjn4GPf8UxiaROLuhGP3cvuGFlQT10Pm/ub+0dQDuqam1PSRskQuZg0f1vkG4gU
-	 0OwmZ/iSlylV2kJpSaJxuA3Wq361aFMdvVo18AWXSTfNqIzn4VMcJQzD1M8VtRLfft
-	 +f7+kiFEEgxWoCmjrz41cOveafc9JOCbg57a3Nx+5sB2jmiEeh89/Akx3+q/edjHKx
-	 oKpMTEMavM+x2F/NnJv6pHWNAi+/YkLasUEJDjCc7z3FWCdvwtDfJG7nr7ZBA9WnIR
-	 8M3dbML5gDmlJJWbLu+7PmwNNpU9BfDI+GLxbkxNMqMogTJ/i9Pgeo4aiSNbF1Uh0R
-	 LCuSvZqwUQWrw==
+	Wed, 18 Jun 2025 17:06:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C31661424;
+	Wed, 18 Jun 2025 10:06:10 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DA693F58B;
+	Wed, 18 Jun 2025 10:06:30 -0700 (PDT)
+Date: Wed, 18 Jun 2025 18:06:28 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+Subject: Re: [PATCH v3 12/13] arm64: debug: split bkpt32 exception entry
+Message-ID: <aFLyFOALjQyFUt15@J2N7QTR9R3.cambridge.arm.com>
+References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
+ <20250609173413.132168-13-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-Date: Wed, 18 Jun 2025 16:07:16 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
- sysregs
-In-Reply-To: <00e28a4a-78d6-4452-b28f-29d2e201f6d9@kernel.org>
-References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
- <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
- <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
- <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
- <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
- <cd0f942a3752053e7569040f9e508b2d@disroot.org>
- <00e28a4a-78d6-4452-b28f-29d2e201f6d9@kernel.org>
-Message-ID: <119675e462ce53a05acf55bb3d9fe91f@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250609173413.132168-13-ada.coupriediaz@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_090721_117916_640B88A7 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_180640_378349_1E9E9B41 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-18 15:40, Krzysztof Kozlowski wrote:
-> On 18/06/2025 16:49, Kaustabh Chakraborty wrote:
->> On 2025-06-18 14:37, Krzysztof Kozlowski wrote:
->>> On 18/06/2025 16:32, Kaustabh Chakraborty wrote:
->>>> On 2025-06-18 09:46, Krzysztof Kozlowski wrote:
->>>>> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
->>>>>> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs
->>>>>> are
->>>>>> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
->>>>>> 
->>>>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>>>>> ---
->>>>>>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>>>> | 6 ++++++
->>>>>>  1 file changed, 6 insertions(+)
->>>>>> 
->>>>>> diff --git
->>>>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>>>> index
->>>>>> d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3
->>>>>> 100644
->>>>>> ---
->>>>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>>>> +++
->>>>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>>>> @@ -52,6 +52,12 @@ properties:
->>>>>>                - samsung,exynosautov9-sysreg
->>>>>>            - const: syscon
->>>>>>          deprecated: true
->>>>>> +      - items:
->>>>>> +          - enum:
->>>>>> +              - samsung,exynos7870-cam-sysreg
->>>>>> +              - samsung,exynos7870-disp-sysreg
->>>>>> +          - const: samsung,exynos7870-sysreg
->>>>> 
->>>>> 
->>>>> Drop. These are not really compatible or your commit msg is
->>>>> incomplete.
->>>>> Don't use deprecated syntax and backwards compatible solutions for
->>>>> new
->>>>> hardware.
->>>> 
->>>> Are you sure? The deprecated one is actually the item above. From 
->>>> what
->>>> I
->>> 
->>> Yes. Think why were they added.
->>> 
->>>> understand, those are generic sysregs and don't mention their
->>>> functions.
->>> 
->>> And what is a generic sysreg?
->> 
->> What I meant is, usually compatibles go like this (in order):
+On Mon, Jun 09, 2025 at 06:34:12PM +0100, Ada Couprie Diaz wrote:
+> Currently all debug exceptions share common entry code and are routed
+> to `do_debug_exception()`, which calls dynamically-registered
+> handlers for each specific debug exception. This is unfortunate as
+> different debug exceptions have different entry handling requirements,
+> and it would be better to handle these distinct requirements earlier.
 > 
-> No, they don't. So you checked why they were added?
-
-Checked it, understood. It's meant to be:
-"samsung,exynos<soc>-<function>-sysreg", "syscon"
-
+> The BKPT32 exception can only be triggered by a BKPT instruction. Thus,
+> we know that the PC is a legitimate address and isn't being used to train
+> a branch predictor with a bogus address : we don't need to call
+> `arm64_apply_bp_hardening()`.
 > 
-> Best regards,
-> Krzysztof
+> The handler for this exception only pends a signal and doesn't depend
+> on any per-CPU state : we don't need to inhibit preemption, nor do we
+> need to keep the DAIF exceptions masked, so we can unmask them earlier.
+> 
+> Split the BKPT32 exception entry and adjust function signatures and its
+> behaviour to match its relaxed constraints compared to other
+> debug exceptions.
+> 
+> This replaces the last usage of `el0_dbg()`, so remove it.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+
+> +#ifdef CONFIG_COMPAT
+> +void do_bkpt32(unsigned long esr, struct pt_regs *regs)
+> +{
+> +	arm64_notify_die("aarch32 BKPT", regs, SIGTRAP, TRAP_BRKPT, regs->pc, esr);
+> +}
+> +NOKPROBE_SYMBOL(do_bkpt32);
+> +#endif /* CONFIG_COMPAT */
+
+Trivial nit: we can drop NOKPROBE_SYMBOL() here, since do_bkpt32() can't
+be recurse within kprobes.
+
+Otherwise this all looks good to me!
+
+Mark.
 
