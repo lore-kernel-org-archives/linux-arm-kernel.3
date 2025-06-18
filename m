@@ -4,104 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FABC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C64DC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2JAQgjPVAR87fvb/Kf6AKFs6bOe6nC2/QVWwAuSNFw=; b=diWQRhMqBiYvz7lmYNyguriNlI
-	QFKcCXEYT1r8/xsuh/aVaaCwxvWxxJF25rKwUX/q42T3ksiacNaHQjarPV0rjQZ1VVxHK/xAVVEUV
-	Lni7qnWlLUxGz39jEGeblLl+hTOoGlERUx0Dk4asXTDeR9Lu//1445dVi0BQ070qEjxpGxNJhs2/Q
-	gA43NswIOniwC4e3Iq6NVrz6tT4LyS6wOe2B5xrcUblE27DlELO6ozSPp+v95odLT1vOchQr81TgM
-	STKUfjalP5sjTOCuB3D+RXFfjybwiHR/jeWaPFb/ntdqK/+1YSzVUvpwILkTBiLXLmawtCplrDKn5
-	/JpDYTHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rtm/KpCmUTfZ0pnZbv3Q+GEf/Z/QhBoddh9QB9ffuHE=; b=2M3eYiiJjexj4C
+	mFDS69X2j7y7nODO8mjN6v2ANQljWbxHB6kpiqlaPiU9v0i0K6d46GVWpG4jwHIkt7vvN/uyxY6gj
+	hQo/+FzLIfyvchLUXE0PLjnVJgF9Nmi7QZ5KonsRneANZsI3MaEIwdRoqs+IJ4RhsiAd3PU9fQlxZ
+	u293lre15C+ywNl1ir8so6PiaJG8pQqV6lCuAfpsR4zKfrNlcsokmemGhBWIlNURIv7onpaYP4J5I
+	Hl1auEd1bUBSgg4MLVxljF2ETIOAlL/U40ejY5LJdIvCyMZYrt/B9QTR6ngUaeMHHfc19UdQuJpKB
+	Bz3MlTI+h5oZ8a/0p2qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRqQS-00000009qgO-17DW;
-	Wed, 18 Jun 2025 10:53:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpel-00000009hpK-2Pdc
+	id 1uRqSe-00000009rFP-2GXv;
+	Wed, 18 Jun 2025 10:56:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRpoW-00000009jnk-3u7g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:04:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0386F6112C;
-	Wed, 18 Jun 2025 10:04:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A9E3C4CEE7;
-	Wed, 18 Jun 2025 10:04:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750241074;
-	bh=4jm0oCDOO4J5YGR53n5qNlqIq1pAtKvteKDI0zUt3aI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nc2bAaukKmDM0fmTG5jrMmrNO/t+sT1+RdOz8gv+N9frg3ZBqXE0NcdkiZoZySddU
-	 HIhRoDwR8uY+CapOvmJ1xG4vtfSpWg8Dx5F8mtiN2Zt+t+xeIdMcgP492Up4YeSyKU
-	 L19yP/9UVhnfLY08QVkJJQptbvDodpYuem41yusSlavrQzs5FhIau14LYUoFsiBZYp
-	 xFgqV541XFJSar5a+yCN1DiCk64m/ZTVN+cWMBw7F2H7h+lP1dPd4BL1MRANK5YYeP
-	 ecuHBhdmIsJ5ryAnD6anBH9aJkxmcYtFSf3AA36H74+FowrwI0WgG6cXBk6uzMn40H
-	 wMjJgfyEzxlaQ==
-Message-ID: <eb45924b-8d42-4b6e-8424-6400923681d2@kernel.org>
-Date: Wed, 18 Jun 2025 12:04:30 +0200
+	Wed, 18 Jun 2025 10:14:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8671614BF;
+	Wed, 18 Jun 2025 03:14:17 -0700 (PDT)
+Received: from [10.1.31.181] (e137867.arm.com [10.1.31.181])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E2AE3F66E;
+	Wed, 18 Jun 2025 03:14:36 -0700 (PDT)
+Message-ID: <d220ee7d-d774-45e8-b18d-713255fec97b@arm.com>
+Date: Wed, 18 Jun 2025 11:14:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] arch: arm64: dts: exynos7870: add DSI support
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
- <20250612-exynos7870-drm-dts-v1-2-88c0779af6cb@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 09/13] arm64: debug: split single stepping exception
+ entry
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
+ <20250609173413.132168-10-ada.coupriediaz@arm.com>
+ <413d61bf-807e-406f-97a7-180ed7eef2e0@arm.com>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250612-exynos7870-drm-dts-v1-2-88c0779af6cb@disroot.org>
-Content-Type: text/plain; charset=UTF-8
+Organization: Arm Ltd.
+In-Reply-To: <413d61bf-807e-406f-97a7-180ed7eef2e0@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250618_031441_014050_0B523622 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,29 +64,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
-> Add devicetree nodes for MIPI PHYs, Samsung's DECON and DSIM blocks, and
-> DECON IOMMU devicetree nodes. Enables SoC support for hardware to be
-> able to drive a MIPI DSI display.
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos7870.dtsi | 94 ++++++++++++++++++++++++++++++
->  1 file changed, 94 insertions(+)
+On 18/06/2025 07:25, Anshuman Khandual wrote:
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+> On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
+>> [...]
+>>
+>> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+>> index 74ffdfeff76f..3f5503d61aee 100644
+>> --- a/arch/arm64/kernel/debug-monitors.c
+>> +++ b/arch/arm64/kernel/debug-monitors.c
+>> @@ -21,6 +21,7 @@
+>>   #include <asm/cputype.h>
+>>   #include <asm/daifflags.h>
+>>   #include <asm/debug-monitors.h>
+>> +#include <asm/exception.h>
+>>   #include <asm/kgdb.h>
+>>   #include <asm/kprobes.h>
+>>   #include <asm/system_misc.h>
+>> @@ -188,18 +189,10 @@ static void send_user_sigtrap(int si_code)
+>>   			      "User debug trap");
+>>   }
+>>   
+>> -static int single_step_handler(unsigned long unused, unsigned long esr,
+>> -			       struct pt_regs *regs)
+>> +void do_softstep(unsigned long esr, struct pt_regs *regs)
+> do_softstep() has been chosen here just to match the corresponding ESR
+> macros ESR_ELx_EC_SOFTSTP_[LOW|CUR] - although it does make sense and
+> also consistent.
+Exactly, that was the thinking !
+>>   {
+>> -	/*
+>> -	 * If we are stepping a pending breakpoint, call the hw_breakpoint
+>> -	 * handler first.
+>> -	 */
+>> -	if (try_step_suspended_breakpoints(regs))
+>> -		return 0;
+> This check has been moved individual exception handling functions.
+Correct, as per explanation in the commit message
+>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>> index be2add6b4ae3..5fb636efd554 100644
+>> --- a/arch/arm64/kernel/entry-common.c
+>> +++ b/arch/arm64/kernel/entry-common.c
+>> @@ -535,6 +535,24 @@ static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
+>>   	arm64_exit_el1_dbg(regs);
+>>   }
+>>   
+>> +static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
+>> +{
+>> +	arm64_enter_el1_dbg(regs);
+>> +	if (!cortex_a76_erratum_1463225_debug_handler(regs)) {
+> Although mentioned in the commit message, this constraint is not
+> there in the present code though.
+I believe it is : in mainline it is done for all EL1 debug exceptions in 
+`el1_dbg()`[0], unless I misunderstood your comment ?
 
-It is never arch.
+Thanks for the review Anshuman !
+Ada
 
+[0]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/kernel/entry-common.c#n507
 
-
-Best regards,
-Krzysztof
 
