@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5A1C73C66
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 09:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEFFC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 09:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytkBtR0I1sRxkvf9tqssEHPMEbYTPdH+wUH9cqy73Ho=; b=L7rtVlo3A59VYBFeI55crrFCL0
-	LENJqtsoUk4Vz80k6ukkLm1ZMB9toRQQXN3LJ774Nc9jhCrhLc5GIXOAE3u8jwuVXLU/li9PU5y9V
-	EHSv8Zo+lDB1lD+ztqWjeGRI7TWAh+wBjvAFlh2NM0Zo/QxFSiLn6xqYUVmkzmbaDF5aFhaBmQs/3
-	P6b9fmCi+iwequNyljr7PYYOIxEX+mvOf89tyfKkT/PFOOwNVfDWFT9psvO+zJp9m/ab3uVfIfx1I
-	dvZB6rd+V5O1Yx6l/u3TB2A6LqMRTlxooxz1vFcYLA+JL+WW20zyL6prablGxjLIf7K8IjrhSl4SA
-	1/asG9TQ==;
+	bh=r4h4ZAx1DpNwxwMy3GjNAhsC+hPrSs86D0sqp423gsA=; b=Rx2jpRkeCK+GVz36q3iKtpSf7G
+	+92VaplnNXt0o7HvFaV7NSl4444wUUTh327KvpxrgraMtUpSMGdf2i6CUjloDmDhCG/AH8sWHnueI
+	Yp4zAanLJ8fWnD/9Fpz8Au5Ialfwut5UY/syKk/42N4j+cyjDMgR5IalOJXleE5s7NezemOs+HCJM
+	rys875EBswEn4VeD3HJExxKmJXg5qg+GRnIQNx/3DDcgu6rgFedw48BjL8OZRKr0VFGbI+abHPo00
+	OoMhKllO1o7HIB2cycOGNlDTyIcfls6IrTLejt9dnojl9mzNmazlJPJBwd2zR7skKQ05u30fi/eTq
+	M9iX0mUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpMm-00000009eJ4-1QRM;
-	Wed, 18 Jun 2025 09:46:00 +0000
+	id 1uRpOy-00000009eZK-0IR6;
+	Wed, 18 Jun 2025 09:48:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRp7g-00000009awx-12Uo
+	id 1uRp7j-00000009ayx-3F37
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 09:30:25 +0000
+	Wed, 18 Jun 2025 09:30:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D20114BF;
-	Wed, 18 Jun 2025 02:30:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5A641BC0;
+	Wed, 18 Jun 2025 02:30:06 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8774F3F58B;
-	Wed, 18 Jun 2025 02:30:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 252493F58B;
+	Wed, 18 Jun 2025 02:30:24 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -58,18 +58,17 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v7 6/8] kselftest/arm64/abi: add MTE_STORE_ONLY feature hwcap test
-Date: Wed, 18 Jun 2025 10:29:55 +0100
-Message-Id: <20250618092957.2069907-7-yeoreum.yun@arm.com>
+Subject: [PATCH v7 7/8] kselftest/arm64/mte: preparation for mte store only test
+Date: Wed, 18 Jun 2025 10:29:56 +0100
+Message-Id: <20250618092957.2069907-8-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250618092957.2069907-1-yeoreum.yun@arm.com>
 References: <20250618092957.2069907-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_023024_337108_25AC352C 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_023027_897366_15CA1431 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +83,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add MTE_STORE_ONLY feature hwcap test.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
+
+This patch is preparation for testing FEAT_MTE_STORE_ONLY
+It shouldn't change test result.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/abi/hwcap.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../selftests/arm64/mte/check_buffer_fill.c        | 10 +++++-----
+ .../selftests/arm64/mte/check_child_memory.c       |  4 ++--
+ .../selftests/arm64/mte/check_hugetlb_options.c    |  6 +++---
+ .../selftests/arm64/mte/check_ksm_options.c        |  2 +-
+ .../selftests/arm64/mte/check_mmap_options.c       |  6 +++---
+ .../selftests/arm64/mte/check_tags_inclusion.c     |  8 ++++----
+ tools/testing/selftests/arm64/mte/check_user_mem.c |  2 +-
+ .../testing/selftests/arm64/mte/mte_common_util.c  | 14 ++++++++++++--
+ .../testing/selftests/arm64/mte/mte_common_util.h  |  3 ++-
+ 9 files changed, 33 insertions(+), 22 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-index e60bfb798ba2..42b59a994bd0 100644
---- a/tools/testing/selftests/arm64/abi/hwcap.c
-+++ b/tools/testing/selftests/arm64/abi/hwcap.c
-@@ -1104,6 +1104,12 @@ static const struct hwcap_data {
- 		.hwcap_bit = HWCAP3_MTE_FAR,
- 		.cpuinfo = "mtefar",
- 	},
-+	{
-+		.name = "MTE_STOREONLY",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_MTE_STORE_ONLY,
-+		.cpuinfo = "mtestoreonly",
-+	},
- };
+diff --git a/tools/testing/selftests/arm64/mte/check_buffer_fill.c b/tools/testing/selftests/arm64/mte/check_buffer_fill.c
+index 5248b5265aa4..ff4e07503349 100644
+--- a/tools/testing/selftests/arm64/mte/check_buffer_fill.c
++++ b/tools/testing/selftests/arm64/mte/check_buffer_fill.c
+@@ -31,7 +31,7 @@ static int check_buffer_by_byte(int mem_type, int mode)
+ 	int i, j, item;
+ 	bool err;
  
- typedef void (*sighandler_fn)(int, siginfo_t *, void *);
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	item = ARRAY_SIZE(sizes);
+ 
+ 	for (i = 0; i < item; i++) {
+@@ -68,7 +68,7 @@ static int check_buffer_underflow_by_byte(int mem_type, int mode,
+ 	bool err;
+ 	char *und_ptr = NULL;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	item = ARRAY_SIZE(sizes);
+ 	for (i = 0; i < item; i++) {
+ 		ptr = (char *)mte_allocate_memory_tag_range(sizes[i], mem_type, 0,
+@@ -164,7 +164,7 @@ static int check_buffer_overflow_by_byte(int mem_type, int mode,
+ 	size_t tagged_size, overflow_size;
+ 	char *over_ptr = NULL;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	item = ARRAY_SIZE(sizes);
+ 	for (i = 0; i < item; i++) {
+ 		ptr = (char *)mte_allocate_memory_tag_range(sizes[i], mem_type, 0,
+@@ -337,7 +337,7 @@ static int check_buffer_by_block(int mem_type, int mode)
+ {
+ 	int i, item, result = KSFT_PASS;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	item = ARRAY_SIZE(sizes);
+ 	cur_mte_cxt.fault_valid = false;
+ 	for (i = 0; i < item; i++) {
+@@ -368,7 +368,7 @@ static int check_memory_initial_tags(int mem_type, int mode, int mapping)
+ 	int run, fd;
+ 	int total = ARRAY_SIZE(sizes);
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < total; run++) {
+ 		/* check initial tags for anonymous mmap */
+ 		ptr = (char *)mte_allocate_memory(sizes[run], mem_type, mapping, false);
+diff --git a/tools/testing/selftests/arm64/mte/check_child_memory.c b/tools/testing/selftests/arm64/mte/check_child_memory.c
+index b97ea3981c21..5e97ee792e4d 100644
+--- a/tools/testing/selftests/arm64/mte/check_child_memory.c
++++ b/tools/testing/selftests/arm64/mte/check_child_memory.c
+@@ -88,7 +88,7 @@ static int check_child_memory_mapping(int mem_type, int mode, int mapping)
+ 	int item = ARRAY_SIZE(sizes);
+ 
+ 	item = ARRAY_SIZE(sizes);
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < item; run++) {
+ 		ptr = (char *)mte_allocate_memory_tag_range(sizes[run], mem_type, mapping,
+ 							    UNDERFLOW, OVERFLOW);
+@@ -109,7 +109,7 @@ static int check_child_file_mapping(int mem_type, int mode, int mapping)
+ 	int run, fd, map_size, result = KSFT_PASS;
+ 	int total = ARRAY_SIZE(sizes);
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < total; run++) {
+ 		fd = create_temp_file();
+ 		if (fd == -1)
+diff --git a/tools/testing/selftests/arm64/mte/check_hugetlb_options.c b/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
+index 4e644a606394..aad1234c7e0f 100644
+--- a/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
++++ b/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
+@@ -151,7 +151,7 @@ static int check_hugetlb_memory_mapping(int mem_type, int mode, int mapping, int
+ 
+ 	map_size = default_huge_page_size();
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	map_ptr = (char *)mte_allocate_memory(map_size, mem_type, mapping, false);
+ 	if (check_allocated_memory(map_ptr, map_size, mem_type, false) != KSFT_PASS)
+ 		return KSFT_FAIL;
+@@ -180,7 +180,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 	unsigned long map_size;
+ 
+ 	prot_flag = PROT_READ | PROT_WRITE;
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	map_size = default_huge_page_size();
+ 	map_ptr = (char *)mte_allocate_memory_tag_range(map_size, mem_type, mapping,
+ 							0, 0);
+@@ -210,7 +210,7 @@ static int check_child_hugetlb_memory_mapping(int mem_type, int mode, int mappin
+ 
+ 	map_size = default_huge_page_size();
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	ptr = (char *)mte_allocate_memory_tag_range(map_size, mem_type, mapping,
+ 						    0, 0);
+ 	if (check_allocated_memory_range(ptr, map_size, mem_type,
+diff --git a/tools/testing/selftests/arm64/mte/check_ksm_options.c b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+index afea4e381862..0cf5faef1724 100644
+--- a/tools/testing/selftests/arm64/mte/check_ksm_options.c
++++ b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+@@ -106,7 +106,7 @@ static int check_madvise_options(int mem_type, int mode, int mapping)
+ 		return err;
+ 	}
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	ptr = mte_allocate_memory(TEST_UNIT * page_sz, mem_type, mapping, true);
+ 	if (check_allocated_memory(ptr, TEST_UNIT * page_sz, mem_type, false) != KSFT_PASS)
+ 		return KSFT_FAIL;
+diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+index 91a81b4a9bfa..447c0ef25f71 100644
+--- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
++++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+@@ -90,7 +90,7 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 	int run, result, map_size;
+ 	int item = ARRAY_SIZE(sizes);
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < item; run++) {
+ 		map_size = sizes[run] + OVERFLOW + UNDERFLOW;
+ 		map_ptr = (char *)mte_allocate_memory(map_size, mem_type, mapping, false);
+@@ -122,7 +122,7 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 	int total = ARRAY_SIZE(sizes);
+ 	int result = KSFT_PASS;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < total; run++) {
+ 		fd = create_temp_file();
+ 		if (fd == -1)
+@@ -161,7 +161,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ 	int total = ARRAY_SIZE(sizes);
+ 
+ 	prot_flag = PROT_READ | PROT_WRITE;
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	for (run = 0; run < total; run++) {
+ 		map_size = sizes[run] + OVERFLOW + UNDERFLOW;
+ 		ptr = (char *)mte_allocate_memory_tag_range(sizes[run], mem_type, mapping,
+diff --git a/tools/testing/selftests/arm64/mte/check_tags_inclusion.c b/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
+index b96296ab9870..4b764f2a8185 100644
+--- a/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
++++ b/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
+@@ -57,7 +57,7 @@ static int check_single_included_tags(int mem_type, int mode)
+ 		return KSFT_FAIL;
+ 
+ 	for (tag = 0; (tag < MT_TAG_COUNT) && (result == KSFT_PASS); tag++) {
+-		ret = mte_switch_mode(mode, MT_INCLUDE_VALID_TAG(tag));
++		ret = mte_switch_mode(mode, MT_INCLUDE_VALID_TAG(tag), false);
+ 		if (ret != 0)
+ 			result = KSFT_FAIL;
+ 		/* Try to catch a excluded tag by a number of tries. */
+@@ -91,7 +91,7 @@ static int check_multiple_included_tags(int mem_type, int mode)
+ 
+ 	for (tag = 0; (tag < MT_TAG_COUNT - 1) && (result == KSFT_PASS); tag++) {
+ 		excl_mask |= 1 << tag;
+-		mte_switch_mode(mode, MT_INCLUDE_VALID_TAGS(excl_mask));
++		mte_switch_mode(mode, MT_INCLUDE_VALID_TAGS(excl_mask), false);
+ 		/* Try to catch a excluded tag by a number of tries. */
+ 		for (run = 0; (run < RUNS) && (result == KSFT_PASS); run++) {
+ 			ptr = mte_insert_tags(ptr, BUFFER_SIZE);
+@@ -120,7 +120,7 @@ static int check_all_included_tags(int mem_type, int mode)
+ 				   mem_type, false) != KSFT_PASS)
+ 		return KSFT_FAIL;
+ 
+-	ret = mte_switch_mode(mode, MT_INCLUDE_TAG_MASK);
++	ret = mte_switch_mode(mode, MT_INCLUDE_TAG_MASK, false);
+ 	if (ret != 0)
+ 		return KSFT_FAIL;
+ 	/* Try to catch a excluded tag by a number of tries. */
+@@ -145,7 +145,7 @@ static int check_none_included_tags(int mem_type, int mode)
+ 	if (check_allocated_memory(ptr, BUFFER_SIZE, mem_type, false) != KSFT_PASS)
+ 		return KSFT_FAIL;
+ 
+-	ret = mte_switch_mode(mode, MT_EXCLUDE_TAG_MASK);
++	ret = mte_switch_mode(mode, MT_EXCLUDE_TAG_MASK, false);
+ 	if (ret != 0)
+ 		return KSFT_FAIL;
+ 	/* Try to catch a excluded tag by a number of tries. */
+diff --git a/tools/testing/selftests/arm64/mte/check_user_mem.c b/tools/testing/selftests/arm64/mte/check_user_mem.c
+index d1d14aaaba16..fb7936c4e097 100644
+--- a/tools/testing/selftests/arm64/mte/check_user_mem.c
++++ b/tools/testing/selftests/arm64/mte/check_user_mem.c
+@@ -44,7 +44,7 @@ static int check_usermem_access_fault(int mem_type, int mode, int mapping,
+ 
+ 	err = KSFT_PASS;
+ 	len = 2 * page_sz;
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
+ 	fd = create_temp_file();
+ 	if (fd == -1)
+ 		return KSFT_FAIL;
+diff --git a/tools/testing/selftests/arm64/mte/mte_common_util.c b/tools/testing/selftests/arm64/mte/mte_common_util.c
+index 10dcbc37e379..397e57dd946a 100644
+--- a/tools/testing/selftests/arm64/mte/mte_common_util.c
++++ b/tools/testing/selftests/arm64/mte/mte_common_util.c
+@@ -28,8 +28,10 @@
+ 
+ struct mte_fault_cxt cur_mte_cxt;
+ bool mtefar_support;
++bool mtestonly_support;
+ static unsigned int mte_cur_mode;
+ static unsigned int mte_cur_pstate_tco;
++static bool mte_cur_stonly;
+ 
+ void mte_default_handler(int signum, siginfo_t *si, void *uc)
+ {
+@@ -314,7 +316,7 @@ void mte_initialize_current_context(int mode, uintptr_t ptr, ssize_t range)
+ 		cur_mte_cxt.trig_si_code = 0;
+ }
+ 
+-int mte_switch_mode(int mte_option, unsigned long incl_mask)
++int mte_switch_mode(int mte_option, unsigned long incl_mask, bool stonly)
+ {
+ 	unsigned long en = 0;
+ 
+@@ -346,6 +348,9 @@ int mte_switch_mode(int mte_option, unsigned long incl_mask)
+ 		break;
+ 	}
+ 
++	if (mtestonly_support && stonly)
++		en |= PR_MTE_STORE_ONLY;
++
+ 	en |= (incl_mask << PR_MTE_TAG_SHIFT);
+ 	/* Enable address tagging ABI, mte error reporting mode and tag inclusion mask. */
+ 	if (prctl(PR_SET_TAGGED_ADDR_CTRL, en, 0, 0, 0) != 0) {
+@@ -370,6 +375,9 @@ int mte_default_setup(void)
+ 
+ 	mtefar_support = !!(hwcaps3 & HWCAP3_MTE_FAR);
+ 
++	if (hwcaps3 & HWCAP3_MTE_STORE_ONLY)
++		mtestonly_support = true;
++
+ 	/* Get current mte mode */
+ 	ret = prctl(PR_GET_TAGGED_ADDR_CTRL, en, 0, 0, 0);
+ 	if (ret < 0) {
+@@ -383,6 +391,8 @@ int mte_default_setup(void)
+ 	else if (ret & PR_MTE_TCF_NONE)
+ 		mte_cur_mode = MTE_NONE_ERR;
+ 
++	mte_cur_stonly = (ret & PR_MTE_STORE_ONLY) ? true : false;
++
+ 	mte_cur_pstate_tco = mte_get_pstate_tco();
+ 	/* Disable PSTATE.TCO */
+ 	mte_disable_pstate_tco();
+@@ -391,7 +401,7 @@ int mte_default_setup(void)
+ 
+ void mte_restore_setup(void)
+ {
+-	mte_switch_mode(mte_cur_mode, MTE_ALLOW_NON_ZERO_TAG);
++	mte_switch_mode(mte_cur_mode, MTE_ALLOW_NON_ZERO_TAG, mte_cur_stonly);
+ 	if (mte_cur_pstate_tco == MT_PSTATE_TCO_EN)
+ 		mte_enable_pstate_tco();
+ 	else if (mte_cur_pstate_tco == MT_PSTATE_TCO_DIS)
+diff --git a/tools/testing/selftests/arm64/mte/mte_common_util.h b/tools/testing/selftests/arm64/mte/mte_common_util.h
+index 045e4ad2f018..250d671329a5 100644
+--- a/tools/testing/selftests/arm64/mte/mte_common_util.h
++++ b/tools/testing/selftests/arm64/mte/mte_common_util.h
+@@ -38,6 +38,7 @@ struct mte_fault_cxt {
+ 
+ extern struct mte_fault_cxt cur_mte_cxt;
+ extern bool mtefar_support;
++extern bool mtestonly_support;
+ 
+ /* MTE utility functions */
+ void mte_default_handler(int signum, siginfo_t *si, void *uc);
+@@ -60,7 +61,7 @@ void *mte_insert_atag(void *ptr);
+ void *mte_clear_atag(void *ptr);
+ int mte_default_setup(void);
+ void mte_restore_setup(void);
+-int mte_switch_mode(int mte_option, unsigned long incl_mask);
++int mte_switch_mode(int mte_option, unsigned long incl_mask, bool stonly);
+ void mte_initialize_current_context(int mode, uintptr_t ptr, ssize_t range);
+ 
+ /* Common utility functions */
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
