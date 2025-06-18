@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961E4C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 20:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE23AC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 20:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ocgAC9TbfdSQHxFe/9Wrs8l8/UPeshbSR2dH6VLKoU4=; b=B+slC+rOq9ydzLMzXoxCge2HN7
-	s6/P7z+zI2JdcueU3JmrOUro9+npi+RRG1WWHrNTCyAVLvIX5VBi8N3zfrWCzUJC4YEkUOtqUbm8K
-	Nozf/oOAlTbbU1r/huY6Ycp47M/hno/n4f2dXnfBn9Uq5YMFPu+aYbUsdr7WGRTAi3BzXBO8WuUqs
-	djUl5bxTcRn7kM+xj8wrrvvkiWjcnV4KM0y9KIIENhN34/W/O+jooBlYd50NAzeZ5bufzJkJqo1YR
-	KnQ/6v0oyjJuOhg2CvdLI1972wdzQdjdbQBTYDRmuV6Hog5knFnCQhCUqMcCdMvHGeTrQcARTCiDV
-	88tYcHIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I5t8P7O8Q2d0gJsfuLHKOR+WvGfRlegvudtjyvE+c7E=; b=mynXUABXpEbJIYe59PrcDfi3tG
+	D4yx4oOiNlIWlNT7mMfERgK/i7xrnFYgku4HfJINuzDBWwlfOjXQu4nPVpZ58LvECWLQQUbFmVfZ1
+	Beim63t8I9hLr4O+wE39j4G3xyVDjwmwCHivXDV9LpE5jyHZLB2z/PnsdDBFizTaca48Wl2cazjZx
+	xLFb7Y/+5809MhyPXCdlW9OlraVeSwWreyq8bATIhea73kQXSVIsbp84DsK9rinBf6zpi5XSBgkG/
+	VT0DlR31Ann28pvvfdbTEP9Tquy3eAU5QcsYnRutU6R3pgBCz2Oap5MOxz7Ynd5JaRzkmJCxjUgbd
+	fqZ5NbEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRzfW-0000000BMQy-163H;
-	Wed, 18 Jun 2025 20:46:02 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1uRzjK-0000000BMuY-0ire;
+	Wed, 18 Jun 2025 20:49:58 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRzc6-0000000BLjr-0JO7
+	id 1uRzh5-0000000BMmM-2JZe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 20:42:31 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e81a7d90835so162100276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 13:42:29 -0700 (PDT)
+	Wed, 18 Jun 2025 20:47:40 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-748d96b974cso43668b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 13:47:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750279349; x=1750884149; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ocgAC9TbfdSQHxFe/9Wrs8l8/UPeshbSR2dH6VLKoU4=;
-        b=VFI3DkqOeYb+jukQJfS51AASF7AJ1wUutpx+WNM94wzy/zAEeJQ9CRwbuWDp+LgL9Y
-         sUWA3muUudtp1KFXvWqR7YUdSxB2w5ypCFNfsPK08wJwQ332GPQtZKqb3H4wa9dzwi/K
-         iD4SUtmp4tjjubzqK4RvSZo+q2VAxGJqoZr0AuAZ+Z9nZpbapXOCf5WyFaaLcXfbQ3Bp
-         3dG3g7PUp8VvNLuzqYgfU9J+rvwQenJA8XVJlzyaGmD8FfqQuecq09+ssl2krRCyoh6x
-         gB0CXJcfmTpeKbIMKWm28kAbyrWd7kebhft1DURsKKwLFA1kaQzyEE+r+0oIgrr9xhc9
-         f/jQ==
+        d=google.com; s=20230601; t=1750279658; x=1750884458; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=I5t8P7O8Q2d0gJsfuLHKOR+WvGfRlegvudtjyvE+c7E=;
+        b=0BYlqAZKxDEFIMWYo54XjVkxK9AyGMM0ptMYGwbHIE6TyFRlT7bmdWbL+F5KhTPbtG
+         ngvgqha1DxT0XXNCrvYnQkOS76Kd394H48m/IbzxWHzaDA6dKPHW02wlCFofK7BGmuwc
+         X//ANR9CZVh2SppmRjoP3GH6rGiBkYi5kDB3ih2IW6yvAv0aj05mBrpBje5Glh4uIsM7
+         LJ7iA1pENIPE1EVGTZUR7CChMGz2IbRtKOT2nDxo6Ft+GvyN9cWuw1dcsDVk8I9XA1eV
+         tyqgGsdIY0cDixe1FeMpZmihnvPWC8cBwJ9JCY23XJnMX87XPxPc+4jBaULdpC4NZUNm
+         Ou2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750279349; x=1750884149;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ocgAC9TbfdSQHxFe/9Wrs8l8/UPeshbSR2dH6VLKoU4=;
-        b=div/Z/MfsfSo36OLD0wyGYNyGXLpzYeAq0cxLOSSsxPE6tus6/wvUHLFhHxJQmDKWe
-         qeJOd2W90acG4STs2lo7C6+9ZILLT8ulPnMl7wjHSw7QLm5BeOKb/O3gZgdROmf8CL8y
-         y+K/CJ49vqQIxJuY7BxymCDN1mpVsrJJaSgd2R7bPGjqmG2JKkqgyv1EOibqdAxQG2ef
-         4ma6UAj2MvN54Z9A525SUAvK0TgeDav0pfBsAuK/LeciIF+nbC69Jz6aaR3q8yfI+UUR
-         E7zChfeIAkLeXRHrb0uIpi0XPXUWomvGxtZ3eliFIcro4A9kK697F1K0dN+II1EzK6gH
-         /7IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxXdKbunWl/sNUP/kr/MooC14xoZAtIBMZdAa8uQVxy8XYo12XoinyJdTf8Q5LHIHi8kpb6CCEij1T+T6TvuPf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdOOZDKwHEsR+OoDbdyksL4q4obFLthyCdZYsnYxPhnlyqoRMy
-	lrS1c7N7FA73qroeYs5R55MLsvK6aVDEJ6+UVyca66maW60QhX+8S+Vd14jLDK01vLkkidgS66f
-	WiaeHHSjrlJqwsW9ZM20DtR+q32+bGR5yxNZ8s+Rv
-X-Gm-Gg: ASbGncuVW67FTSlgqhvZEiVeyywwN6mq7Z9+7m1e6Yaboh2SiKvqUf3jydiXA5SJGDN
-	b34XRdwWlndz+8UzzSkYjjhzZcIvIszuR6Cog2rVI1via85Z05Rph+09mCAK0CcHW8FQlokJYl9
-	7DM7EoqkJXzmlfJk2KYva3a/kgTYXGVhmdj2n5eel4ylUDXR+mkMaMj2qnUkWX3FYNvZhOmF2/
-X-Google-Smtp-Source: AGHT+IGcEUDnd4GOH82HX0lZBlNqLdPHex042iyWzP+top4zuE3jGLedRPqyTacYh4EfWqEYfTdFMF3OiZxJDn9T9t0=
-X-Received: by 2002:a05:6902:1384:b0:e81:f864:133a with SMTP id
- 3f1490d57ef6-e822acab4dcmr25869982276.7.1750279349015; Wed, 18 Jun 2025
- 13:42:29 -0700 (PDT)
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1750279658; x=1750884458;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=I5t8P7O8Q2d0gJsfuLHKOR+WvGfRlegvudtjyvE+c7E=;
+        b=vVkQDzvHHm9KGVRoqGfH1lUobbEMKxtjeA3ZKwiANBvPTDrTztqBNz9wA9sYdcjqLD
+         mwKM3ig7w73aE1ofWocEVbzzkTs9puKVqhv4eATTJwyzGqY/7BrH81denMb0sahuUyAI
+         M4iKoYvHG7PkV/UcngxmkXVZulVO/LRpF2T3iII8UynH+cHXlABQkrho68vvcgYJMxff
+         /j74YUSZq+7ycr5auOwCUMKfzAWuXMFe7eR0dxKZuGzLwtFgQUmO4jlS2d5txC6QE8kK
+         yBB0jv0spfycpLEwR6A+cjmKgY1RpxOj6LDzQ5T7J3D8FPmU+QamwPXfg/LhTzNQQFTv
+         eWog==
+X-Forwarded-Encrypted: i=1; AJvYcCX0QHcJ9ISZAdF32+nTlZ9iThML2s6sDMSOfOI8s3a+9C7y/gWW4kI/bIWOll+RsUvAWzx4Nk2hel1SRwsKb9RL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIsg3HjD0NjVqEbY8du1Mh1Wfur1LmSkRgza1ybDjsUHcC96CW
+	gl7V5CmLz9SOZX7euQ3VnPPy2hxuk6UtkV0zpPx8V6jOQLXH9+RCv6Mh3C9iiOogGMsm/IJxekA
+	qgaifyw==
+X-Google-Smtp-Source: AGHT+IFsMlePwDY6qmxFMx2/AM9b76jDzDiB1mAOtEb6xvvscl9w6SK2u5TQJ/MjXtylS7QVbS8ovVI8RZ8=
+X-Received: from pfbgh9.prod.google.com ([2002:a05:6a00:6389:b0:747:b682:5cc0])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:b8b:b0:736:5e28:cfba
+ with SMTP id d2e1a72fcca58-7489cfc3944mr25334965b3a.18.1750279658241; Wed, 18
+ Jun 2025 13:47:38 -0700 (PDT)
+Date: Wed, 18 Jun 2025 13:47:36 -0700
+In-Reply-To: <aFMaxi5LDr4HHbMR@linux.dev>
+Mime-Version: 1.0
 References: <20250618042424.330664-1-jthoughton@google.com>
- <20250618042424.330664-5-jthoughton@google.com> <aFMWQ5_zMXGTCE98@linux.dev> <aFMh51vXbTNCf9mv@google.com>
-In-Reply-To: <aFMh51vXbTNCf9mv@google.com>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 18 Jun 2025 13:41:52 -0700
-X-Gm-Features: AX0GCFvXF0fglyYJXBw3pBR88VTwnhV-AWZMFY-OnV-bZ0m2KXl_JUKDh5V8wUI
-Message-ID: <CADrL8HUeS2HNu7ufQzq6FkgBAsruTok_rkr=ydsGBPgUNjgUUg@mail.gmail.com>
-Subject: Re: [PATCH v3 04/15] KVM: Add common infrastructure for KVM Userfaults
-To: Sean Christopherson <seanjc@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+ <20250618042424.330664-4-jthoughton@google.com> <aFMaxi5LDr4HHbMR@linux.dev>
+Message-ID: <aFMl6DOcKfH6ampb@google.com>
+Subject: Re: [PATCH v3 03/15] KVM: arm64: x86: Require "struct kvm_page_fault"
+ for memory fault exits
+From: Sean Christopherson <seanjc@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
 	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
 	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
 	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
 	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_134230_109222_36D6FCA9 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_134739_609720_3A706C3C 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,14 +95,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 1:33=E2=80=AFPM Sean Christopherson <seanjc@google.=
-com> wrote:
->
-> On Wed, Jun 18, 2025, Oliver Upton wrote:
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
->
-> No need for my SoB.
+On Wed, Jun 18, 2025, Oliver Upton wrote:
+> On Wed, Jun 18, 2025 at 04:24:12AM +0000, James Houghton wrote:
+> > +#ifdef CONFIG_KVM_GENERIC_PAGE_FAULT
+> > +
+> > +#define KVM_ASSERT_TYPE_IS(type_t, x)					\
+> > +do {									\
+> > +	type_t __maybe_unused tmp;					\
+> > +									\
+> > +	BUILD_BUG_ON(!__types_ok(tmp, x) || !__typecheck(tmp, x));	\
+> > +} while (0)
+> > +
+> >  static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
+> > -						 gpa_t gpa, gpa_t size,
+> > -						 bool is_write, bool is_exec,
+> > -						 bool is_private)
+> > +						 struct kvm_page_fault *fault)
+> >  {
+> > +	KVM_ASSERT_TYPE_IS(gfn_t, fault->gfn);
+> > +	KVM_ASSERT_TYPE_IS(bool, fault->exec);
+> > +	KVM_ASSERT_TYPE_IS(bool, fault->write);
+> > +	KVM_ASSERT_TYPE_IS(bool, fault->is_private);
+> > +	KVM_ASSERT_TYPE_IS(struct kvm_memory_slot *, fault->slot);
+> > +
+> >  	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
+> > -	vcpu->run->memory_fault.gpa = gpa;
+> > -	vcpu->run->memory_fault.size = size;
+> > +	vcpu->run->memory_fault.gpa = fault->gfn << PAGE_SHIFT;
+> > +	vcpu->run->memory_fault.size = PAGE_SIZE;
+> >  
+> >  	/* RWX flags are not (yet) defined or communicated to userspace. */
+> >  	vcpu->run->memory_fault.flags = 0;
+> > -	if (is_private)
+> > +	if (fault->is_private)
+> >  		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_PRIVATE;
+> >  }
+> > +#endif
+> 
+> This *is not* the right direction of travel for arm64. Stage-2 aborts /
+> EPT violations / etc. are extremely architecture-specific events.
 
-Would you like me to drop your SoB from all of the patches that are
-not From: you (patches 4-7)?
+Yes and no.  100% agreed there are arch/vendor specific aspects of stage-2 faults,
+but there are most definitely commonalites as well.
+
+> What I would like to see on arm64 is that for every "KVM_EXIT_MEMORY_FAULT"
+> we provide as much syndrome information as possible. That could imply
+> some combination of a sanitised view of ESR_EL2 and, where it is
+> unambiguous, common fault flags that have shared definitions with x86.
+
+Me confused, this is what the above does?  "struct kvm_page_fault" is arch
+specific, e.g. x86 has a whole pile of stuff in there beyond gfn, exec, write,
+is_private, and slot.
+
+The approach is non-standard, but I think my justification/reasoning for having
+the structure be arch-defined still holds:
+
+ : Rather than define a common kvm_page_fault and kvm_arch_page_fault child,
+ : simply assert that the handful of required fields are provided by the
+ : arch-defined structure.  Unlike vCPU and VMs, the number of common fields
+ : is expected to be small, and letting arch code fully define the structure
+ : allows for maximum flexibility with respect to const, layout, etc.
+
+If we could use anonymous struct field, i.e. could embed a kvm_arch_page_fault
+without having to bounce through an "arch" field, I would vote for the approach.
+Sadly, AFAIK, we can't yet use those in the kernel.
+
+> This could incur some minor code duplication, but even then we can share
+> helpers for the software bits (like userfault).
+
+Again, that is what is proposed here.
+
+> FEAT_MTE_PERM is a very good example for this. There exists a "Tag"
+> permission at stage-2 which is unrelated to any of the 'normal'
+> read/write permissions. There's also the MostlyReadOnly permission from
+> FEAT_THE which grants write permission to a specific set of instructions.
+> 
+> I don't want to paper over these nuances and will happily maintain an
+> arm64-specific flavor of "kvm_prepare_memory_fault_exit()"
+
+Nothing prevents arm64 (or any arch) from wrapping kvm_prepare_memory_fault_exit()
+and/or taking action after it's invoked.  That's not an accident; the "prepare
+exit" helpers (x86 has a few more) were specifically designed to not be used as
+the "return" to userspace.  E.g. this one returns "void" instead of -EFAULT
+specifically so that the callers isn't "required" to ignore the return if the
+caller wants to populate (or change, but hopefully that's never the case) fields
+after calling kvm_prepare_memory_fault_exit), and so that arch can return an
+entirely different error code, e.g. -EHWPOISON when appropriate.
+
+And it's not just kvm_prepare_memory_fault_exit() that I want to use kvm_page_fault;
+kvm_faultin_pfn() is another case where having a common "struct kvm_page_fault"
+would clean up some ugly/annoying boilerplate.
 
