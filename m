@@ -4,72 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA03BC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43FCC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFy6gPNzt66sAV/IrEhwxQ1AkpgKBwOxDGzjcpC2B5I=; b=aWJ7u/vbHB1JI0u8WdUjo2akdQ
-	Vs+SOSYrPDUk2TxitgsvIm4UHbD9TaFOcHYt6MvORW+ECEIkcME7Z6RWg87725+9Jt6nmVgat2uh1
-	Qzy4T4ibDGYWLY8NZuRPLuPagIytfLUjFx4YDXVO0vfGLGpQ4XDjCuHsmldUMfJb6aVAQhybcGV1/
-	Luqd19Jy/AAIHxyZf4VdkPBJXyoZbSuiBTkpiGct7b0MQCQp+oZRWwl8B0FYATenRxDhVluS9fWwR
-	cnjYX4LuJNzH/Y4BQOJv6lKER96It23vlcY5H4UxRoz445Q5SIOyA4IDVE2o+n4odCKZAjCIry77S
-	bNj1EuMw==;
+	bh=ALT8eoMO/8J8lftRcDnkTpnhJWHyWslQs52NhD1JfQE=; b=QxdLwbPof3xdo9zOPVWEWn/kuI
+	QJinbC5Lq7qEBxHpf1iWDQLBP08kt3FsuOMtO63IkyzWE+85jMdH0W9TgJ/tciU35wmSJaVAFJ30s
+	b7/T1lMfrekyHLjtERYJLKYNcCYuLSEx/CxvqMDTHfPsvvnnkvewqCON8Fm54ncPy/zLRJ6ZYJzba
+	TB3KccWnH3Urygq7/RoFzNydkFlKMjPNaPJTDok9ZZ6bnXsZTG17OMxeVhe9ucCeaY6VEYeUiFVfd
+	YY0ug8FWIyOJ+VT+ns2r2jcBjsWdvq1ET1tMi6wVjEBzyFYxfxqym/i+PTF0KK1IqnVjMbBIGNxDP
+	pw0g6sww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyCi-0000000BAZp-0xXz;
-	Wed, 18 Jun 2025 19:12:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRyCm-0000000BAhl-17B3;
+	Wed, 18 Jun 2025 19:12:16 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRxNa-0000000B3Do-0Gkz;
-	Wed, 18 Jun 2025 18:19:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 711195C40C2;
-	Wed, 18 Jun 2025 18:17:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28080C4CEE7;
-	Wed, 18 Jun 2025 18:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750270760;
-	bh=a50wlknDlpagNq9jT3Q/IWSLUrXmeXKtizwXZ65RjX0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lzKZWqwHZj3IpGzO5PE2PMzFEc9y+To0ksq9WMfVFHMABL5TvgULiuHVEv1Q3sICd
-	 IvcBuy+9JdRDH9jmtmYKfEGU4DmKUfgoiKms+0R8YUpDXkRf3B0WH60WlDjuJTD6S4
-	 2RCswt7B+ik4mQwGkHA7obrN/2VGwQqRxPAXnAplqAx0PVQsRdI+UECPKAIBaAkBKL
-	 b0o1Um6RqawIVq36Xc0ZG/mgZFaifAE55ARqxI11lANsh5gjgdy4lJGu6smC7kBtZn
-	 CooEN3OuhxDOkP1Efqj2P6vx3bjkzTm2RZJcPdIZShHV0Ng8rm7gXcz/ml3vlKwCN5
-	 ZV200A33o5DPQ==
-Date: Wed, 18 Jun 2025 20:19:18 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>, 
-	linux-kernel@vger.kernel.org, Brandon Cheo Fusi <fusibrandon13@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <daopyy24kta2myimufkf2v6c6igdplco6b2kxohm47j6cez5mb@34ccs3wbtkop>
-References: <20250427142500.151925-1-privatesub2@gmail.com>
- <20250427142500.151925-3-privatesub2@gmail.com>
- <20250512233944.06bc1cb7@minigeek.lan>
- <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
- <hetih6ul7hdj3kflhy2s2zkkh3r7pcupgwde3xnwmjzs6cujp3@vcw4pde76bdb>
- <20250528132902.70f634cd@donnerap.manchester.arm.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zqgmvr7sp22wp6bu"
+	id 1uRxSL-0000000B44z-1z63
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 18:24:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ouFWhzfUw6GxCuJNqE0/mzXERB7mHaSY4HJtzvbNGTNN31DXsxIg8SGgiqbzhsERVsSIpxqUd1OfE/IJf4DEHbqeBE32A8BsjmwHi3m/EPF+i6M1QqZqGnkGvCSpijzfnZWOEovpVInDymIz1fSrlqsQ9+ETnfKyjV/yGXzKgEP+MgcYRBBqW+TOZ2ghOZHRC4P9o8CNfdjdZfKV1yggzgxvUCtE4dCYoZ3qTIBSp7r1RuRNQYMOs9qH4SAk+by/u5zNKJoIett1T0tey8Fs6ZJ5oxbV6FdUCQpbiihn5+cZoRtJ8NI+VtqdH6Je2QcJ+9GBjfTAV3FSwgQmUZCCZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ALT8eoMO/8J8lftRcDnkTpnhJWHyWslQs52NhD1JfQE=;
+ b=BGpHNYnePmPqAnBborLy3yTEL1OiDish6OrFjiuWCwB+HFj8I+k/n9xEv/1Br8tWlT/0YhLYDDhTngzvEh8QxuUb3ZH53y+AWu4R0+vMXwr6yGtKYAqWRQNgWjjrEIXMmkD3LhTtd+kjmaqMdbGY62LT/RKh+BqLcraSfC1o1gbrTS65qA+h1421DXP5b2KB28HyKeIpUaCcJtomxsw3OehVnCU9s5QXlfaQ3S6a4i16aAGXHhrSyNlmi0bWszNCINdg6cFBVH7CjHDHCBGJhF7XglYt833sITh/kPjAbBhU7c+SqrfHb6DHNlPj+MM+9PnAt14wU1EeiWrzL2yy4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ALT8eoMO/8J8lftRcDnkTpnhJWHyWslQs52NhD1JfQE=;
+ b=CeM8lhckJkoyk85bln9BVsbF/rIWoBr83+GcN5ndCScnNfIzBxB4w0/QuA7Jkp2H67WOgk5RbyKBeP3Z/j0iz+KDjdsvSabQaRECTTCMS4MDlyXB6ayMtTFqqmd9Umdl+ITQtj0R4Fs+6o7u3zG0zM3N2bZVArp1Nwh3wqhtPHGnVHE385jWqCx4tT8jRvZMi5WmDUrdwmJ6tFb+BqoL4+hK+dMiQ4h5D2iA7g0/dJAgUSPZSBVAUJEhtszUoBciSEY9dFUP453DDDS8rKxPEpyRRNGPO/6OHPklufUCddPZydB8qIQJE12OcnuJcDRUJwmb6FLJQ1skGIfahKhVqg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB11406.eurprd04.prod.outlook.com (2603:10a6:102:4f1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Wed, 18 Jun
+ 2025 18:24:14 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Wed, 18 Jun 2025
+ 18:24:14 +0000
+Date: Wed, 18 Jun 2025 14:24:04 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/5] PCI: dwc: Don't return error when wait for link up
+Message-ID: <aFMERHMxYRdMyi9Z@lizhi-Precision-Tower-5810>
+References: <20250618024116.3704579-1-hongxing.zhu@nxp.com>
+ <20250618024116.3704579-6-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528132902.70f634cd@donnerap.manchester.arm.com>
+In-Reply-To: <20250618024116.3704579-6-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0343.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB11406:EE_
+X-MS-Office365-Filtering-Correlation-Id: 790d2d6b-8c30-4561-f9cc-08ddae95543b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qBgb75sN4R+OMbIJVTbBWQilrVXEOtQYUHQl3iDuwYXwHxDMeYMccmtPE4uT?=
+ =?us-ascii?Q?gDkNdwhPseqI3jA9sTeMPq1G3LCMWfoMAmsFHgJ0qTJSfy0gUjh5ThrdtTp1?=
+ =?us-ascii?Q?cY148WdLlrDjGIPWd267YLnq/bHXd+8o2/AJbHULADjWo0cl0FyfJtTprmzd?=
+ =?us-ascii?Q?/qdeI+uTtyAWoNS+2JXDAg11jU/J3XP7OpWJyGe5oDAtC0SqarHFA+sRk/Bw?=
+ =?us-ascii?Q?fPLul5FENkfSksBELxmWK8hzN2g3UCM7vskByAPLxEUW7J+PNDf+hAZgABfn?=
+ =?us-ascii?Q?dqr1q/G6s5crxuYCRsvW8MtEaGepMziCXWo26WXiYz7P7839/kcUAtEICs96?=
+ =?us-ascii?Q?WE3IFAwVGGvfltIyWkxd25DehjzXyjlEtosUGessxQ4fvEbuSA2jiyfYXMIh?=
+ =?us-ascii?Q?VJH4J82s5eTT+bBSzIvkkgKvvBfNp3K/9KwdvgsQTogLsY/TcSGVu4WYxBeY?=
+ =?us-ascii?Q?M83Q1aP0JX8tThgzJ8xo8WyhfvfikTpUqYiyDcsIRQYZLjFfsW+acBY0YkvY?=
+ =?us-ascii?Q?zjUtZIdky21EQUt8Cb4hSsMSinIcEWIs4S7itSs4MU4x7/S6r2uQVydjHone?=
+ =?us-ascii?Q?kYhEOvz9gJmUcfFVn0YPzlwTM5wH/uWXHCoBlxrzTQ2XSIVPL87QfNu/mIJK?=
+ =?us-ascii?Q?EGeA6Csw+tv54OQDZ8tmoFRwgxZKiHzOjjMHhYV01ridN9Bsi5kaBdWTq6aZ?=
+ =?us-ascii?Q?4XeU0XO+I2SIBCZ7DI2RIqzwxEBhqikAOerNYDPd1HFEk3Yqa9n+BrjjZdP1?=
+ =?us-ascii?Q?s8dRfSQp20SwXKS8Cjr0wmHhfja2CUVzGBFIMF/H8boQaivIfEv5ctWKEUXp?=
+ =?us-ascii?Q?tgpcQi7zqK+/SFa4JHWDJjt9vRmPwAbIoQzAaeZtdT08/5qg+aC57gCL8f0a?=
+ =?us-ascii?Q?3fHLF+mm3fliWlVrazE5sNYRbmJd2do/syVyapLHzY2LxgqWY9MYfhdhOpzn?=
+ =?us-ascii?Q?pnNDNeiBKdvsOhCZUmXKMLAMEafUxqNWyDcOcpEoHg0zjnQld8z/OVVuKOuT?=
+ =?us-ascii?Q?i8yHyKmHr55ol6qHmIUhEQPEuw6lZBNKNhWyDYqLyzBsdqMSld6o+L2BdAUJ?=
+ =?us-ascii?Q?363jUaO4g1Hmbk0wx0xpmDzLbBNv/cj2CVuhHHOkAdGKeztX83f6kyAfmPUF?=
+ =?us-ascii?Q?lBkTumfiVVgHQaKH+oyAZKsxbMfRl34Do0sEdSQjA8AJi/T82174uYxxYJh1?=
+ =?us-ascii?Q?2aYyDYUpR4vjSaLOZTfPRaggVAkmTjzL/dK19GHWvSfiJJSmfzMDeBF7BaYD?=
+ =?us-ascii?Q?oDzGK0vnjn6MxNDeI2VjzRuQbhsNDf1YDlKTyNVJQ56Jrtlwe6ZXcU5stQSL?=
+ =?us-ascii?Q?U6KsxJ+dmE2Te73glfLcHKXtvwNlD7AIAdIaTTuD0qRryWlBbz8qdAppKDrq?=
+ =?us-ascii?Q?MCyynqGOi6S0DeaMo47BWcpNB5+pGGpLGFc4cZABvkp9e96o/JMmPY8cX84d?=
+ =?us-ascii?Q?zzdVwgkM0mO/hFZ71BHyg13b/WgpIOz7mSXQz+CQjJULwCfyJzIlFw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5bcSwwPNrSy2bE+kclZ9+4UXg5l/VG5FKHWZlrTNdNO1Op2LjDtdsgK9Zb+m?=
+ =?us-ascii?Q?gW5u7k+x87hG5L01DuHszvzR5UGOGnG3R94q2DdefmjEXSW9wwyHF28IHMLM?=
+ =?us-ascii?Q?FRZeBnlbLKLdV/39NYhIG8kudMNfLwCevqcGd/sifLsS8zL+mOwH1NFTpcjV?=
+ =?us-ascii?Q?VhW6RzZdaUuhDMVoAAEX8XIqXxe/fizwwrLDxB3vm/xYE/VrsULKeTxGJ+UF?=
+ =?us-ascii?Q?zLhCxje3acUwcGYznoaxjGAThkHZ/k33JUhcohsTGOCXJGqtCbS5I/3LWKwg?=
+ =?us-ascii?Q?cHw2xnAWbucSbU1kV8/985YR89/l3ZQBYfAmNkLViB8Uah4ulHvPX8Au3weO?=
+ =?us-ascii?Q?O7beH3aECVh/5qJmQgLhSykWHYAPyBnfo77s7qwwg7C0kvtCWwG8Dn6wv0VZ?=
+ =?us-ascii?Q?uwcqJox0HeBwkzy2rflTh+onhZH9mZ0v2krxxBXiN8TO85yZZgm/S/nl/rpj?=
+ =?us-ascii?Q?z4m7Pmw14Y7HUKIlmj5SyaYAzr9toby1worm+bCoZYHllelPjCM6C8RRV7kC?=
+ =?us-ascii?Q?kotRbAS6FRgrq8IdN+IT7/gi9jfrLfpPVuMjYXlFBzM6iy0TfNd9jQBwlrYr?=
+ =?us-ascii?Q?EBLy1dXeB6KJ4YUE2ofidM5RBbQ7CDlAguPOKuMUGGUsa+QEDn7wCEVdHUhN?=
+ =?us-ascii?Q?+Fte+xHSPlXIx+SotiU3mOlMzZMT6+BZRF+5KrEpCoZaOpzmqYr2ah116mi/?=
+ =?us-ascii?Q?D80xJkVhgWRC6Z9StTTlvPPzYe8onDAcDbyEdHQfffCFgwUktDi1B6f+SPZ9?=
+ =?us-ascii?Q?ZFMJo3XLw3ch3eMoH77paR9ggCPFU5vt5uAI2qBe9agCSvEZ+djwcguayzzs?=
+ =?us-ascii?Q?MjgK34Pt0TgtWWWl/8e/zBwJgZ4dwf3NUWoKCRV5R9rqgu7tisVZZLNT50oK?=
+ =?us-ascii?Q?OV81bgB4ClqKkr5EprkxYe/8LOag9mQuDxoIu4dOywn7GMoJ8hC5rtPUQW0I?=
+ =?us-ascii?Q?KACqJ1hDl5KjckwV/0JR9RluPNq5z8TUgHKvOgw6nMiHAi9H7fdnYclIhrd8?=
+ =?us-ascii?Q?/2BlAIPZCg73ug/Ci0XnQzWgeLgngozyBUY/WemeYCsTHnwn4Kk6JcfzMHYQ?=
+ =?us-ascii?Q?ZPxkiccpZOLHE26oXi7HRMYGSMhGeiggFbJcWwKG0AZCEJ7U+vP0h0xSuKkF?=
+ =?us-ascii?Q?hvLS6IpjnVUb7ta9AtoveJ6yJa10oK7hBmtODE5DoXnWwnNKPyzhDUcm95lk?=
+ =?us-ascii?Q?RUcSi5CWd5nCxeY2E3J1S7l5Zip/qRZHTx0ed81NxmSdBNTSxG73XREh39TX?=
+ =?us-ascii?Q?KYCZAj092KfNCrk9NaLSe2IOxaWvy6g4B5/A2Z0Qkfdm0xjAvLl7spp+70Y3?=
+ =?us-ascii?Q?+Tqq6FIU5nwMzHTcxuBGTlc9f5JG99eYxFxWVKq3KUOlQh7WLwkNduS9AjyQ?=
+ =?us-ascii?Q?d+1MIVohSjCmYs/7aFYL9FiZdTcOuQ2YV0GF+MXkKPE+VzFTsDo7yKFdqMG/?=
+ =?us-ascii?Q?91gXDcDNaUgSRYe+/ybUZjcG9WIip2eBXGZM6/FOi6LVCkk2OFqH6WcjS6iN?=
+ =?us-ascii?Q?wMBD66d2K17VWZSDD9SzUChtoL47jq20+nZNakcxfAidNmMx+i/OcQfLjJCz?=
+ =?us-ascii?Q?rzqsaaJ3eqkyQ5LSGCdIxZ7rHkLX1UYMnz1nPI/g?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 790d2d6b-8c30-4561-f9cc-08ddae95543b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 18:24:14.4488
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2n/ywZGB12B0dNHihzoOn3NIsvLd5+TfPy03mqfC9E4yDASxuaGxCRHcEHKtWI5nEp01fQbVv0eIdAUIcjgLuQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_111922_187984_4E8A3E2B 
-X-CRM114-Status: GOOD (  49.54  )
+X-CRM114-CacheID: sfid-20250618_112417_512298_B01B3CDE 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,150 +160,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 18, 2025 at 10:41:16AM +0800, Richard Zhu wrote:
+> When wait for link up, both the link up and link down are normal
+> results, not mistakes.
+> Don't return error, since the results had been notified.
 
---zqgmvr7sp22wp6bu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-MIME-Version: 1.0
+When waiting for the PCIe link to come up, both link up and link down are
+valid results depending on the device state. Do not return an error, as
+the outcome has already been reported in dw_pcie_wait_for_link().
 
-Hello Andre,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-On Wed, May 28, 2025 at 01:29:02PM +0100, Andre Przywara wrote:
-> On Wed, 28 May 2025 13:08:40 +0200
-> Uwe Kleine-K=C3=B6nig <ukleinek@kernel.org> wrote:
-> > On Sat, May 24, 2025 at 12:07:28PM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=
-=81=D0=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
-> > > =D0=B2=D1=82, 13 =D0=BC=D0=B0=D1=8F 2025=E2=80=AF=D0=B3. =D0=B2 01:39=
-, Andre Przywara <andre.przywara@arm.com>: =20
-> > > >
-> > > > On Sun, 27 Apr 2025 17:24:54 +0300
-> > > > Aleksandr Shubin <privatesub2@gmail.com> wrote: =20
-> > > > > +              */
-> > > > > +             use_bus_clk =3D false;
-> > > > > +             val =3D mul_u64_u64_div_u64(state->period, hosc_rat=
-e, NSEC_PER_SEC);
-> > > > > +             /*
-> > > > > +              * If the calculated value is =E2=89=A4 1, the peri=
-od is too short
-> > > > > +              * for proper PWM operation
-> > > > > +              */
-> > > > > +             if (val <=3D 1) { =20
-> > > >
-> > > > So if I get the code correctly, it prefers HOSC over APB? Is that
-> > > > really the best way? Shouldn't it be the other way around: we use t=
-he
-> > > > faster clock, since this will not limit the sibling channel?
-> > > >
-> > > > And another thing to consider are rounding errors due to integer
-> > > > division: certain period rates might be better achievable with one =
-or
-> > > > the other source clock: 3 MHz works best as 24MHz/8, 3.125MHz as
-> > > > 100MHz/32.
-> > > > So shall we calculate the values and compare the errors instead?
-> > > > Oh, and also we need to consider bypassing, I feel like this should=
- be
-> > > > checked first.
-> > > >
-> > > > In any case I think there should be a comment describing the strate=
-gy
-> > > > and give some rationale, I think. =20
-> > >=20
-> > > I like the idea of comparing the quantization error for each clock so=
-urce
-> > > (i.e. computing the actual period for both APB and HOSC and choosing
-> > > whichever is closer to the requested period).
-> > > I can try to implement that error-minimization approach in the next
-> > > series of patches and add a comment explaining the strategy. =20
-> >=20
-> > Consumers have different needs. Some might prefer a better match for
-> > period, but in my experience most would go for a fine-grained selection
-> > of duty_cycle, so prefering the faster clock sounds sane.
-> >=20
-> > I don't say minimizing the error is wrong, but if it's unclear that
-> > this matches what a consumer wants I object to make the procedure to
-> > select the hardware settings considerably more complicated and run-time
-> > intensive.
->=20
-> Yes, I agree. There seems to be another use case here, which is to provide
-> clocks on output pins. The PWM IP has a bypass switch (per channel, after
-> the divider), and this feature is already required to supply the
-> "internal" (co-packaged) Ethernet PHY on the Allwinner H616 with its cloc=
-k.
-> With the two possible input clocks and those pre-dividers there is actual=
-ly
-> quite a number of possible frequencies to deliver on output pins.
->=20
-> Since we need some algorithm to decide when we need to use the bypass
-> mode, should we check for that if the duty cycle is 50%, to see if we can
-> reach the frequency with just the pre-dividers?
-> Chances are we need this anyway, since for instance the 24MHz required for
-> the PHY cannot be achieved otherwise.
-
-And the clk output is the output after the predividers I assume? I would
-prefer to make the driver create a clk_provider instead of guessing
-which requests are supposed to have a meaning for the clk output.
-
-> > > > > +static int sun20i_pwm_probe(struct platform_device *pdev)
-> > > > > +{
-> > > > > +     struct pwm_chip *chip;
-> > > > > +     struct sun20i_pwm_chip *sun20i_chip;
-> > > > > +     struct clk *clk_bus;
-> > > > > +     struct reset_control *rst;
-> > > > > +     u32 npwm;
-> > > > > +     int ret;
-> > > > > +
-> > > > > +     ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,=
-npwms", &npwm);
-> > > > > +     if (ret < 0)
-> > > > > +             npwm =3D 8; /* Default value */
-> > > > > +
-> > > > > +     if (npwm > 16) {
-> > > > > +             dev_info(&pdev->dev, "Limiting number of PWM lines =
-=66rom %u to 16", npwm); =20
-> > > >
-> > > > I don't think we should proceed if the firmware information is clea=
-rly
-> > > > wrong. Just bail out with -EINVAL or so here, so that gets fixed in=
- the
-> > > > DT. =20
-> >=20
-> > To me it's not obvious that the "firmware information is clearly wrong".
-> > Maybe the next Allwinner SoC will have 24 outputs and the problem is
-> > only that this driver isn't prepared to cope for that number of outputs?
->=20
-> But then it would be an error, regardless?
-> The MMIO register frame of this IP here has a hard limit on 16 channels,
-> both by the bit assignments in each register (2 bits per channel in a
-> 32-bit register), but also by the layout of the registers (max 8
-> registers, each for a pair of 2 PWM channels). So anything with more than
-> 16 channels cannot be compatible with what this driver supports.
-> So as this driver here stands right now, more than 16 channels is an
-> error, simple as that. If we extend the driver later on, to cover more
-> advanced IP, we would naturally amend this check, of course.
-
-Agreed. In that case I don't care much if .probe() fails or just limits
-the number of PWMs to 16.
-
-Best regards
-Uwe
-
---zqgmvr7sp22wp6bu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhTAyMACgkQj4D7WH0S
-/k5TXQf/WQifjbmW7D5efouTLo5vO4iUok97pK1+s3+HHamdmm23IWg0PAFmFQBB
-UNd0buVhud3TtGtJeSPa57FUEzriGdGzJ2CFN+qDdUY7L7VGACE6S7mGsnLLYQuN
-UsGMB0G7qVL5h3zhySTgXtgMF+D9QZHZq/LwR00/PpXVDAG6vES7AwdQlsG0PS+4
-so3ravkEOTsVKRYzFLC6dNZoGeGWaz3X0Iedjl4Y8NXs+HKpp2qyh1x8FPJYIy9V
-GBtDzx8E4s8SwuJeTJSdcfs/PlIyCWCa51El8AExmHaB0oE8JEB3dqdrKRHxLc0Z
-Ie0GiCpIKi3W7ApbehC3rBcHxbwj9g==
-=USjg
------END PGP SIGNATURE-----
-
---zqgmvr7sp22wp6bu--
+>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 228484e3ea4a..fe6997c9c1d5 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1108,9 +1108,7 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (ret)
+>  		return ret;
+>
+> -	ret = dw_pcie_wait_for_link(pci);
+> -	if (ret)
+> -		return ret;
+> +	dw_pcie_wait_for_link(pci);
+>
+>  	return ret;
+>  }
+> --
+> 2.37.1
+>
 
