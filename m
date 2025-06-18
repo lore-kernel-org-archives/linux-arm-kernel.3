@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61723C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38727C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ccUPpMYLFJa8bfl4e7s/VKR2SJncpCgtletHtW4R8n8=; b=lJ1LxuZGxL5AYuImXgTqxM/M+q
-	W5/v08ePi8W6UXxsYUlphGEJwz6pvuDuZe5U6mc8xFBObW3C7LfNIj8pRuh3sZ1d+Tq9roo6z+EcZ
-	rsBIjF3q3dWX7jrnJZ2ysyFYJDZFWsPcF+1i+DYilMgvz0AMw1nYFhpJrDQ1FED/GzNltGvsdx2R4
-	p65bZVGxqyvy7Z6Wn4A3obQK0TmD5dNkqFRtt9jFe6HGA2z/Cn5nQO397RUXUOFnBII4b4gQp36u5
-	twn218JFCaxDt0p9BvAmIewp5itielnR5lzaDIVPf1QRKvSv1sRb3dXAUC97UUjPLi+fOJJ79G7MJ
-	XF/QsICA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K14Zjx45VptjnJlFADtPYk5GNiP2VL8hYJdKZoLiH/M=; b=jEC+fQoyQH1jtPO2z8AtbOwJhC
+	E/Cv0rJttiYncV2I4z8GfanEYa7xQtUH1tfqq4FT6qhSHdUezBKPt/7ELpAPvn7RFpxSmjAztjTAU
+	JsJn3oF3HXEor+A7jhhsF2iQierYI9jQ4pDmtt7az5cHoPs54C+/Fbn9sYOJFLjItZlN3arvCbB68
+	1DbBPz8lHoinjvj3jUz2MEKLd9AXoq8eLEqYLe0joydVnfI0WCWTRUMKptfVCTuwJg+BMEmnK5VtU
+	b1SFdtq4+I/sbw498WLxrXS651sBItae5YI6a5J0DD6hJu4b8j+mUT6Aux2J88KtcDCnP04En9Ecy
+	Onemtuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRs6N-0000000AAUK-2OmN;
-	Wed, 18 Jun 2025 12:41:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uRs8Z-0000000AAsJ-1Lth;
+	Wed, 18 Jun 2025 12:43:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRq9U-00000009oHp-3PUn
+	id 1uRqD0-00000009ofF-0GNn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:36:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0FD4CA523A4;
-	Wed, 18 Jun 2025 10:36:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C00E1C4CEE7;
-	Wed, 18 Jun 2025 10:36:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750242979;
-	bh=B6uo7xeHOpk/UKaFSXaNj5iI3yuU7iwtArZSU8kFH1Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qUyhWSW7hJmut7cEo8X4rWRBAvs9aorCV2BVuTkcGwy3nlPmtFY93eBQJ3yXwj01k
-	 pHaJC/fq6WfriQV3/e2G3xohuC7a1rpjlOZ+ERM3ZC4mEFtnwz260b/VUkHGKJEnWX
-	 wv2X3bjLFeAk3NEj8oRZWsuSPxQYatT5QCUBsYf6VMgKVlSD8NSmph9ZDT9wt20mgz
-	 3KeoSXdcRu0mvmwCJI9k2EtFyNrdpF3iAMx8+dPViWiUrOWcKryJ6PGAyd4cFRYSwp
-	 p1H57lsxHW0cL4++UzzB+KkeoYZOVOAbHEWDIpaA2hjdZt7nShD35BlntAysCj51hX
-	 hQd/Ltyw2oFkA==
-Date: Wed, 18 Jun 2025 18:36:12 +0800
-From: "Peter Chen (CIX)" <peter.chen@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: gregkh@linuxfoundation.org, shawnguo@kernel.org, s.hauer@pengutronix.d,
-	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
-	linux-usb@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] usb: chipidea: imx: add imx_usbmisc_pullup() hook
-Message-ID: <20250618103612.GC34284@nchen-desktop>
-References: <20250614125645.207732-1-xu.yang_2@nxp.com>
- <20250614125645.207732-3-xu.yang_2@nxp.com>
+	Wed, 18 Jun 2025 10:39:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750243198; x=1781779198;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=K+aq5iihv58ciWnJ3WgNPa2GI/6i665JhmCQdSA1G28=;
+  b=VYEKaq6K21OpSc/ZGbbA+30f9c7oKCsaU6hSHxXwHlrQVTnLMNg0r1ef
+   8NBWFYV3Mi7opLWfwCNkPqF8gCq/x1LHFcE/OEP8fCOM990ClFBVI9wRF
+   wvfLDLdCm/Y02h/D+41VY8y5USAcLFtUuKAZY3mpjza4q8/fj8Nd0pQOX
+   lfkyMYLfTXLSGHGfRqnY+erdkDc8qCI0+xktfS0lZeaQKJ4fixbkyKnAt
+   dn4WpdtQWJZPgZbvfgTELxi7GPbSnjqV0fP9txj+YvBtHUrEu/v4U8Jl6
+   zvITjDhymRovU9MWkCK1eMDYr8k57mfcjNZKGEAPqF5loveeC6EeFr0xq
+   g==;
+X-CSE-ConnectionGUID: 4uH6+ir5SsWi7jPBO6gg/A==
+X-CSE-MsgGUID: Uoh+Bs9UR1qSERud6Gy6Pg==
+X-IronPort-AV: E=Sophos;i="6.16,245,1744095600"; 
+   d="scan'208";a="274330070"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Jun 2025 03:39:55 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 18 Jun 2025 03:39:24 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Wed, 18 Jun 2025 03:39:22 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH v2 0/2] Add cache configuration for Microchip SAMA7D and SAMA7G MPUs
+Date: Wed, 18 Jun 2025 13:39:12 +0300
+Message-ID: <20250618103914.2712-1-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250614125645.207732-3-xu.yang_2@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_033620_922717_41707F42 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250618_033958_276461_AC605B35 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +85,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-06-14 20:56:44, Xu Yang wrote:
-> It's used to do other pullup related operations if needs.
-> 
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+This patch series adds cache configuration for Microchip SAMA7D and SAMA7G MPUs.
+The cache configuration is described in datasheet chapter 15.2.
 
-Acked-by: Peter Chen <peter.chen@kernel.org>
+Changelog:
 
-Peter
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.h |  1 +
->  drivers/usb/chipidea/usbmisc_imx.c | 18 ++++++++++++++++++
->  2 files changed, 19 insertions(+)
-> 
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.h b/drivers/usb/chipidea/ci_hdrc_imx.h
-> index 88b8da79d518..cb95c84d0322 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.h
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.h
-> @@ -37,5 +37,6 @@ int imx_usbmisc_hsic_set_connect(struct imx_usbmisc_data *data);
->  int imx_usbmisc_charger_detection(struct imx_usbmisc_data *data, bool connect);
->  int imx_usbmisc_suspend(struct imx_usbmisc_data *data, bool wakeup);
->  int imx_usbmisc_resume(struct imx_usbmisc_data *data, bool wakeup);
-> +int imx_usbmisc_pullup(struct imx_usbmisc_data *data, bool on);
->  
->  #endif /* __DRIVER_USB_CHIPIDEA_CI_HDRC_IMX_H */
-> diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-> index 118b9a68496b..9db67d6d0ec4 100644
-> --- a/drivers/usb/chipidea/usbmisc_imx.c
-> +++ b/drivers/usb/chipidea/usbmisc_imx.c
-> @@ -170,6 +170,9 @@ struct usbmisc_ops {
->  	int (*charger_detection)(struct imx_usbmisc_data *data);
->  	/* It's called when system resume from usb power lost */
->  	int (*power_lost_check)(struct imx_usbmisc_data *data);
-> +	/* It's called when device controller changed pullup status */
-> +	void (*pullup)(struct imx_usbmisc_data *data, bool on);
-> +	/* It's called during suspend/resume to save power */
->  	void (*vbus_comparator_on)(struct imx_usbmisc_data *data, bool on);
->  };
->  
-> @@ -1225,6 +1228,21 @@ int imx_usbmisc_charger_detection(struct imx_usbmisc_data *data, bool connect)
->  }
->  EXPORT_SYMBOL_GPL(imx_usbmisc_charger_detection);
->  
-> +int imx_usbmisc_pullup(struct imx_usbmisc_data *data, bool on)
-> +{
-> +	struct imx_usbmisc *usbmisc;
-> +
-> +	if (!data)
-> +		return 0;
-> +
-> +	usbmisc = dev_get_drvdata(data->dev);
-> +	if (usbmisc->ops->pullup)
-> +		usbmisc->ops->pullup(data, on);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(imx_usbmisc_pullup);
-> +
->  int imx_usbmisc_suspend(struct imx_usbmisc_data *data, bool wakeup)
->  {
->  	struct imx_usbmisc *usbmisc;
-> -- 
-> 2.34.1
-> 
+v1 -> v2:
+- Remove the cache-unified property from l1-cache node
 
+Mihai Sain (2):
+  ARM: dts: microchip: sama7d65: Add cache configuration for cpu node
+  ARM: dts: microchip: sama7g5: Add cache configuration for cpu node
+
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 16 ++++++++++++++++
+ arch/arm/boot/dts/microchip/sama7g5.dtsi  | 16 ++++++++++++++++
+ 2 files changed, 32 insertions(+)
+
+
+base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
 -- 
+2.50.0
 
-Best regards,
-Peter
 
