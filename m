@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC756C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCFBC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7RRMFR5bvStrbJAlB1dlE3PbQroltgCFLw5x1wwfKug=; b=w2+u7O4Trzoma4mAL0NTpeU6El
-	fwNTllKKuOZN+eArEMFVHZa9yRFR81Mmvs3af3mxTwTlj8un/hDNKaPHbZrkwZfLcov2ShMD8BBqE
-	U+WjG7Iy73zfUpoewx6VIXFf3/y3RSYd4NZFUhNIxU32OjN/yhYfZ8gav8yDI5NO+QKCqBGspF3xO
-	YREMaXGnDDErEcgg7r/yF+mzycPt2tO4oOKbnxMqiAxNeYhZHZ2hmQ4WutjPi6XmoqWHEYfbz0l+a
-	pqUR6kP/isUFiO3JMy6TtBrGUCcDOVlOcmipWM9vDas4cDS2fELtnY/iDp/T96JEKxqqEQUc6AGeX
-	uoc7deSg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EIZZF3VdONOHx+mNvJVopq4jcsPkXQDojBDvTCHofnw=; b=m1fsx/dKngVSYxk3DaB5F4Z1QC
+	EFUqruV0uCv6UBwZ3CYtCQyR0wYlS8kspV3ZYtfIXEun3j+H+sM4LbxKq2C0lcjMJwwSDP0FPmEBg
+	WqmQDfniKWGis3FpKV8kTBz/sWwhP+7zq6uJTqdm0PllEe2/spr7lEvxVh7InmUbMA2UK+wYulGSt
+	o0N2xsCg3lAAlnQ9CRKzqD3Fpnc9WMSj72CYRqjoA0Yj+SjVxWFrGQj8jJE6wJpPUCQgivmYAJqdZ
+	kTlEJ/g6aDerEfajMeciBsCYr8f58qQ1xy2Bgn7k61Z2YHC3ZqKy/6UVnNZgZcRdguIY3zi4c14S7
+	gbVLDLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvEY-0000000AfeE-25Y8;
-	Wed, 18 Jun 2025 16:01:54 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1uRvG7-0000000AgXI-2Tu5;
+	Wed, 18 Jun 2025 16:03:31 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsVo-0000000AENE-3AyK;
-	Wed, 18 Jun 2025 13:07:34 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout3.routing.net (Postfix) with ESMTP id 54971614C4;
-	Wed, 18 Jun 2025 13:07:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750252050;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=7RRMFR5bvStrbJAlB1dlE3PbQroltgCFLw5x1wwfKug=;
-	b=RhzH9ZfbD9Bw1e4a0IYqZtEtXY+8lYnCPrL5sYbd5jSow/OhpdlnoNudzDABQvaS5Z5AVV
-	rht0jTKYIgZo4iOBiaqAmm+rcfbbBroW98hPMAiWpcsXEWEZHf/R2PuFo9RAKhn9ODb+9H
-	T+97Dy3hwqm5zVU5gl2hm15RrEiCZso=
-Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 166401226D6;
-	Wed, 18 Jun 2025 13:07:30 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	netdev@vger.kernel.org,
+	id 1uRtTt-0000000AOT6-3OaV;
+	Wed, 18 Jun 2025 14:09:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750255776;
+	bh=keF4qtNzrgMOTjYFNPm6e0DVoWKRm4eaIoCysbWwg0I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GOjyIbuKXih008ST9b1XsYdBxBz0K1uPl3kiY+oxxU6PHfh8w4xrLOCHpzxBkILTf
+	 Nx+5e8gYQZDa6YkHn1z2dWmULH2JHeVtllgoM0/S+27EDnyIj6o8qILOhU0VnuSGx9
+	 hyshYy4saA5/ak9Zcx5B7nCMIW7+hRf951YFEGCOAENenX4liiPl7hgTZPVmu5J4cK
+	 ll6jDan2SwjZ0+3Qhs1X7Vur04fjIt0S9NY5yIu4vR+yh6XKbj2R5BtSeVw0do0xEV
+	 FyDXIX8BeCFx9qymjJn4eW9j8QPxfuo9h8OZ7O08rUDlh6QXgDWHgwVYBQCjIO8CTm
+	 ygQPL3A+Lyd7A==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:45c6:994a:f902:5c74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE43417E1580;
+	Wed, 18 Jun 2025 16:09:35 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	jgg@ziepe.ca
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Simon Horman <horms@kernel.org>,
-	Daniel Golle <daniel@makrotopia.org>,
-	arinc.unal@arinc9.com
-Subject: [net-next v5 0/3] rework IRQ handling in mtk_eth_soc
-Date: Wed, 18 Jun 2025 15:07:11 +0200
-Message-ID: <20250618130717.75839-1-linux@fw-web.de>
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v2 5/5] arm64: defconfig: enable Verisilicon IOMMU
+Date: Wed, 18 Jun 2025 16:09:14 +0200
+Message-ID: <20250618140923.97693-6-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250618140923.97693-1-benjamin.gaignard@collabora.com>
+References: <20250618140923.97693-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_060732_966900_2EEA45FA 
-X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-CacheID: sfid-20250618_070937_991851_0E04DD84 
+X-CRM114-Status: UNSURE (   7.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,51 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Enable Verisilicon IOMMU used by RK3588 AV1 hardware codec.
 
-This series introduces named IRQs while keeping the index based way
-for older dts.
-Further it makes some cleanup like adding consts for index access and
-avoids loading first IRQ which was not used on non SHARED_INT SoCs.
-    
-changes:
-    
-    v5:
-    - fixed typo and add linebreak in description of patch 1
-    - moved comments from previous patch #3 to patch #1 with changes suggested by simon
-    - rename consts to be compatible with upcoming RSS/LRO changes
-      MTK_ETH_IRQ_SHARED => MTK_FE_IRQ_SHARED
-      MTK_ETH_IRQ_TX => MTK_FE_IRQ_TX
-      MTK_ETH_IRQ_RX => MTK_FE_IRQ_RX
-      MTK_ETH_IRQ_MAX => MTK_FE_IRQ_NUM
-    - change commit title and description in patch 3
-    
-    v4:
-    - calculate max from last (rx) irq index and use it for array size too
-    - drop >2 condition as max is already 2 and drop the else continue
-    - update comment to explain which IRQs are taken in legacy way
-    
-    v3:
-    added patches
-    - #2 (add constants for irq index)
-    - #3 (skip first IRQ on ! MTK_SHARED_INT)
-    to the v2 non-series patch
-    
-    https://patchwork.kernel.org/project/netdevbpf/patch/20250615084521.32329-1-linux@fw-web.de/
-    
-Tested on BPI-R4/mt7988 with IRQ names and BPI-R2/mt7623 and BPI-R3/mt7986 with upstreamed
-dts via index-mode.
-I do not have any MTK_SHARED_INT (mt7621/mt7628) boards to testing.
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Frank Wunderlich (3):
-  net: ethernet: mtk_eth_soc: support named IRQs
-  net: ethernet: mtk_eth_soc: add consts for irq index
-  net: ethernet: mtk_eth_soc: skip first IRQ if not used
-
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 62 +++++++++++++++------
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |  7 ++-
- 2 files changed, 51 insertions(+), 18 deletions(-)
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 897fc686e6a9..ad1515f69b4f 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1451,6 +1451,7 @@ CONFIG_ARM_SMMU=y
+ CONFIG_ARM_SMMU_V3=y
+ CONFIG_MTK_IOMMU=y
+ CONFIG_QCOM_IOMMU=y
++CONFIG_VSI_IOMMU=y
+ CONFIG_REMOTEPROC=y
+ CONFIG_IMX_REMOTEPROC=y
+ CONFIG_MTK_SCP=m
 -- 
 2.43.0
 
