@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E71C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 03:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D694AC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 03:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1AwwVl5J34oJoBmS9eZWUT+dg5sJUr6+s7pSO+AbC4=; b=EJ35NRADAXm1VL7v8TnCNI2Kh5
-	3x2vQU8vXJrXC8v1/jap6pvjdpN8/UW/8qbL38nTL/l6dpN47lK54t0lYxec8AZ39fj1MWvIh7uMZ
-	35aAGAQIjqQdjr02jWHzrFzWy7LqzoGGpDH5biSf3OkCEqFYnVlOra4nNE4zQumOM1y1Usa5Mn7NO
-	wsJotmRPc3TH9OxoVchG4QVdpHQdVpdn+4jn2y8wx2pjtEbjnyJUn6HogM2tmklc51moCvp71d1f2
-	B4jc7xAl43kNiZfxkLAYk6MKwxwsIQQ6nwg07EQIBBotCNvOg6pc2RMcRt/nt9DIRfhAVgBgeWzjs
-	4O27hBmA==;
+	bh=CQ/BzZOPzT5KSxyMEMI2pQKokDXIaDGUe/G/fZ6UhJQ=; b=bq6otnSoaz1MaWSBeIjehbuX+O
+	qF0AI8rtGwayqxkwBV7LMcevQq1QoX+CDMTlqhnnbiN5zjbp58n4S5C7AGcUM1Yx1L83DJHxYmRTp
+	HeLLctGyuK2+NeZx2ggCksWzvFrsHdkDoqEhZxi+qQWF0vogvn3q8Gb/nFl1ok2qCyQhmXsFXQ1mQ
+	O6kdcbDhSNz74XpBb0tCSbWcArXYZ9VimKuu6hhMHcie+a/WXS3YlF9YPislD6lXsDkFQtGEb1TBK
+	v+nrs+45kngh+4bDNZs5mYOChmpo3PXv3qXPvIwMZa47wzUAexyldwC9Ro6MwO8AMcTq5bVkFWdu2
+	BY3LDU1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRj3F-00000008rmI-0PGT;
-	Wed, 18 Jun 2025 03:01:25 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uRj5T-00000008ruP-3QEQ;
+	Wed, 18 Jun 2025 03:03:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRiu1-00000008r45-3aGu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 02:51:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1750215112;
-	bh=D1AwwVl5J34oJoBmS9eZWUT+dg5sJUr6+s7pSO+AbC4=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=VHF/CZyzUlu1fWRJQyr6aBvgr+jSpBFyJ6XNTq/nNjBJSHXOnL9vcWJBoeuYLAsed
-	 e8VqQeS8Y3yPl2+PHmPu5a58y3mtZ//ultIggqnNgLlp8x3HDLwbwPYKNpJbRnrdVL
-	 oAo8rTJlt16aqFsXrqau31rwx9KDX9Lc/ji+0BkZB6Ak7ggCx6Q4CVVNOID99L38B3
-	 Ud92uuywCuBgjB+zf5CVuCRaBZb0h0DK9+9KaTVQONynupPDFDJYDMay3oS21v9Cd5
-	 3KFEMFLu+ktnLxwrtJpDaU9B1Zy91QEDqb6kNXrM/MImnxeeVdxQbjiQxl54I3ca64
-	 fpRkdJlMCs0nQ==
-Received: from [192.168.68.112] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 91D13640A0;
-	Wed, 18 Jun 2025 10:51:51 +0800 (AWST)
-Message-ID: <eaba29c18db8883f88e5e105f905a735a0087a3d.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 6/8] mmc: sdhci-of-aspeed: Add output timing phase tuning
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Cool Lee <cool_lee@aspeedtech.com>, adrian.hunter@intel.com, 
-	ulf.hansson@linaro.org, joel@jms.id.au, p.zabel@pengutronix.de, 
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 18 Jun 2025 12:21:51 +0930
-In-Reply-To: <20250615035803.3752235-7-cool_lee@aspeedtech.com>
-References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
-	 <20250615035803.3752235-7-cool_lee@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1uRiur-00000008rAw-2MD7;
+	Wed, 18 Jun 2025 02:52:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 95A3BA51528;
+	Wed, 18 Jun 2025 02:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC05EC4CEE3;
+	Wed, 18 Jun 2025 02:52:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750215164;
+	bh=xibkBkl+LKRXep54JINrCcQx7QYwck9H1g7WJvKYXXE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mPFoctY2b4YRp0ICParubEBIZbOSf9Vk5KK8uS5PrU68/mm+Tz8vijYy669L9yxjm
+	 Jsv6rP0LyKuxoI+O6bOEIwMiUBAvM0LFyxdmzqXTetuviDjXgL79zCa0MkNRe26UZJ
+	 nmTPEi+nsnNBnQNcZVTMorAMhKugQ20v2b7tS7R4Wg/qgU1aCe1/KxTNGbXHZNp3s2
+	 x1c6uvob6lNCYNLO/miSBxmUGAC6yCJweLgoMx1DbKIQB9lR06t0ghAy3rr9+u8lXf
+	 Xpv9Fu6WPFd657Fqb98bOrRaq1+T2zwE7IyENAPdIk0Jvy78IS8GMNY23Rlo0baNFn
+	 vSmEyoM6yt63A==
+Date: Tue, 17 Jun 2025 19:52:13 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Sohil Mehta <sohil.mehta@intel.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH 8/9] lib/crypto/x86: move arch/x86/lib/crypto/ to
+ lib/crypto/x86/
+Message-ID: <20250618025213.GA426513@sol>
+References: <20250617222726.365148-1-ebiggers@kernel.org>
+ <20250617222726.365148-9-ebiggers@kernel.org>
+ <983d7906-6510-4867-978f-4f937b29224b@intel.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <983d7906-6510-4867-978f-4f937b29224b@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_195154_084582_53C0F071 
-X-CRM114-Status: UNSURE (   4.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250617_195245_673861_18735C6B 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,13 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2025-06-15 at 11:58 +0800, Cool Lee wrote:
-> Enhance auto tuning with input and output calibration.
->=20
+On Tue, Jun 17, 2025 at 05:41:09PM -0700, Sohil Mehta wrote:
+> On 6/17/2025 3:27 PM, Eric Biggers wrote:
+> > From: Eric Biggers <ebiggers@google.com>
+> > 
+> > Move the contents of arch/x86/lib/crypto/ into lib/crypto/x86/.
+> > 
+> > The new code organization makes a lot more sense for how this code
+> > actually works and is developed.  In particular, it makes it possible to
+> > build each algorithm as a single module, with better inlining and dead
+> > code elimination.  For a more detailed explanation, see the patchset
+> > which did this for the CRC library code:
+> > https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
+> > Also see the patchset which did this for SHA-512:
+> > https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
+> > 
+> > This is just a preparatory commit, which does the move to get the files
+> > into their new location but keeps them building the same way as before.
+> > Later commits will make the actual improvements to the way the
+> > arch-optimized code is integrated for each algorithm.
+> > 
+> > arch/x86/lib/crypto/.gitignore is intentionally kept for now.  See
+> > https://lore.kernel.org/r/CAHk-=whu2fb22rEy6+oKx1-+NCHuWucZepvD0H2MD38DrJVKtg@mail.gmail.com/
+> > I'll remove it later after some time has passed.
+> > 
+> 
+> After this change, arch/x86/lib/ has a lone empty directory crypto with
+> the .gitignore file.
+> 
+> Instead, would it be cleaner to get rid of the crypto directory
+> altogether and update the .gitignore of the parent?
+> 
+> As per the link above, commit 2df0c02dab82 ("x86 boot build: make git
+> ignore stale 'tools' directory") says this:
+> 
+> "So when removing directories that had special .gitignore patterns, make
+> sure to add a new gitignore entry in the parent directory for the no
+> longer existing subdirectory."
+> 
+> With that change,
+> 
+> Reviewed-by: Sohil Mehta <sohil.mehta@intel.com>
 
-Might be best to squash this into the patch with input phase tuning?
-Why split it?
+Yes, that makes sense.  I'll do it that way.  Thanks!
 
-Andrew
-
+- Eric
 
