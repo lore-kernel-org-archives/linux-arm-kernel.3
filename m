@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56852C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 01:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F2C2C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 02:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bYv0Lur8E97sb2QuHlsSSGh9x671eSUeTz28YUFJkJA=; b=Xf0Nim13oialHP4VZwsCjRQuyS
-	xFzCIuDDJEDBZOLkM+Cer/9LLIDBECbgW0xRIYGg+aetqBN5XLhQ9PDJ3ZPe8SGqs9+nR+VtC82lw
-	+tdarhIlnTKgM4ojap+InnImPD2U6AsYA+8I0VpzXpIgJiWFqT6EvFl7/ZM8masl97ir8hCPasWEP
-	YkA+TGqI7nzIKBQWgy4qJ5navkhfE29bNPyR9AJAuHUuDDrY0hqCCCdBuSuNFfCkACQFeSwSQCOOW
-	X65YPwP1CWRftHdYnRf/kfe86XQB1YV2apntkJrXV4R45yt7/27XMQ5Q4dtHQqQIiSpIr+vM/TEFP
-	OPHqmepw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A7Q/S+Nx1wYLfgyCrhVZ0O/ymo4GU3rPfbiJPyENwJc=; b=fbB0rBrfSRDFlbKIblX4CmLb31
+	+QwL3sWy+PL1yE330gVYOHGFS8UPP6aBuX7wRIt6bL5PuACX8m4Tp9rBtMqWvOa6Sz5WCWqvcD++D
+	RhcJ/7o4ucwUNSB7Qb/oN9N3J3Uv0fqGg4sxdtczhb/WQJx3UDNg7Jve+dQnNO3A5gC6+RjMZ5pIo
+	EXgl/vKWEQe7VQVl/04w4cnTu1sIS3MS2jYpmKBKu4XB2XsL7Pw2fG3mi3Urqb9fNCYt22bL+zGtB
+	K7/0JOwfeIXkBMyM0CndzOW7Nl653Fh3VHKL74KfPY0bXzQnYlCDOu5cbO8Al3wO4sZBFdxLWt59m
+	JVngZbSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRhq7-00000008mBp-1gnm;
-	Wed, 18 Jun 2025 01:43:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRiLl-00000008oEt-2HRt;
+	Wed, 18 Jun 2025 02:16:29 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRhn8-00000008li1-3alz;
-	Wed, 18 Jun 2025 01:40:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8496A629C5;
-	Wed, 18 Jun 2025 01:40:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 348C4C4CEF0;
-	Wed, 18 Jun 2025 01:40:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750210841;
-	bh=dWWHgiEt3tYWTZRgQm02U8aGJUCEgTY0w6sEmnkU+4s=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dw/g8ufyu11VCbuMaNH4zZzsZdGQI+Frv2Bdhof0fbxSnVzrdeBylNSHvRJhDwibv
-	 QD3nGymvb8a2VPn8/d/F+xH5C2fcdkUVNUfs9gBSYOYcnoBtQf/YiioPQ8qWhU/1Fi
-	 /TwI0Cz59/BlnTyiC5q7u6K6bE2XF85SWcYyM4R8LcW5T8dAQ6pLOup1yl6nQK2rwo
-	 tNb+jVEzw8TSsodBpO8MgA6c/kh20BoqSecflSaYFp9EDsbuguuuZnpJU8gCvFN5nQ
-	 WmlL/8Ss+ex1zz0eLaE1Kz/w/ns6U8ZH+eTjGkqyptLL6PEMAm3kXr+3w1NQjjOHsu
-	 npR4ZTWw/z2xg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADD338111DD;
-	Wed, 18 Jun 2025 01:41:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1uRiJX-00000008o53-1j1b
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 02:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1750212843;
+	bh=A7Q/S+Nx1wYLfgyCrhVZ0O/ymo4GU3rPfbiJPyENwJc=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=aEfMq3/d5xXncv7VxHYw9N0VLETx4q+lDyOtHB1lysvwZ73V7Ewb3boNFxW5F4iY6
+	 XdAafWnssaYKsjvwByysgAvBkU6YegbIC04PNbQ8dWMCNOK+IM7h90YBQwPatnmKVH
+	 ReDEBOFFfE9lZgmOg3DvgdUYQb+023RF/bkYIDAAhuhuFkP0o0+rXowae5iNVia/DK
+	 wnWEMlxJ2Cx9EyFAUnLAN66PrISzNBp3bPfUhbbR7/Qz24wHrzS1fGpw4OB0IQEX5L
+	 g9DOrniK2/Sn1QJ8lG1OPDciD1NCMO5cF2eAGOb15UH1S32Y/2vdPvOymaUemmEups
+	 vuDk8gWcHJ+lw==
+Received: from [192.168.68.112] (unknown [180.150.112.166])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2962B640A0;
+	Wed, 18 Jun 2025 10:14:01 +0800 (AWST)
+Message-ID: <80f56269175d8658ba1ab4a1fe9a43d18294ca60.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 1/8] mmc: sdhci-of-aspeed: Fix sdhci software reset
+ can't be cleared issue.
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Cool Lee <cool_lee@aspeedtech.com>, adrian.hunter@intel.com, 
+	ulf.hansson@linaro.org, joel@jms.id.au, p.zabel@pengutronix.de, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 18 Jun 2025 11:44:00 +0930
+In-Reply-To: <20250615035803.3752235-2-cool_lee@aspeedtech.com>
+References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
+	 <20250615035803.3752235-2-cool_lee@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 0/5] net: use new GPIO line value setter callbacks
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175021086974.3761578.16857215533657509710.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Jun 2025 01:41:09 +0000
-References: <20250616-gpiochip-set-rv-net-v2-0-cae0b182a552@linaro.org>
-In-Reply-To: <20250616-gpiochip-set-rv-net-v2-0-cae0b182a552@linaro.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- linus.walleij@linaro.org, chester.a.unal@arinc9.com, daniel@makrotopia.org,
- dqfext@gmail.com, sean.wang@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, mkl@pengutronix.de,
- mailhol.vincent@wanadoo.fr, hkallweit1@gmail.com, linux@armlinux.org.uk,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, bartosz.golaszewski@linaro.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250617_191411_656329_70D452B6 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +74,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 16 Jun 2025 09:24:03 +0200 you wrote:
-> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
-> values") added new line setter callbacks to struct gpio_chip. They allow
-> to indicate failures to callers. We're in the process of converting all
-> GPIO controllers to using them before removing the old ones. This series
-> converts all GPIO chips implemented under drivers/net/.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2,1/5] net: dsa: vsc73xx: use new GPIO line value setter callbacks
-    https://git.kernel.org/netdev/net-next/c/c73832445bf2
-  - [v2,2/5] net: dsa: mt7530: use new GPIO line value setter callbacks
-    https://git.kernel.org/netdev/net-next/c/4a03562794a3
-  - [v2,3/5] net: can: mcp251x: propagate the return value of mcp251x_spi_write()
-    https://git.kernel.org/netdev/net-next/c/b9e3c7af9e4d
-  - [v2,4/5] net: can: mcp251x: use new GPIO line value setter callbacks
-    https://git.kernel.org/netdev/net-next/c/5d31311715b5
-  - [v2,5/5] net: phy: qca807x: use new GPIO line value setter callbacks
-    https://git.kernel.org/netdev/net-next/c/dea3be40464a
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+SGksCgpPbiBTdW4sIDIwMjUtMDYtMTUgYXQgMTE6NTcgKzA4MDAsIENvb2wgTGVlIHdyb3RlOgo+
+IFJlcGxhY2Ugc2RoY2kgc29mdHdhcmUgcmVzZXQgYnkgc2N1IHJlc2V0IGZyb20gdG9wLgo+IAo+
+IFNpZ25lZC1vZmYtYnk6IENvb2wgTGVlIDxjb29sX2xlZUBhc3BlZWR0ZWNoLmNvbT4KCkNhbiB5
+b3UgcGxlYXNlIGFkZCBhIEZpeGVzOiB0YWc/Cgo+IC0tLQo+IMKgZHJpdmVycy9tbWMvaG9zdC9z
+ZGhjaS1vZi1hc3BlZWQuYyB8IDU1ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrLQo+IMKg
+MSBmaWxlIGNoYW5nZWQsIDU0IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1hc3BlZWQuYyBiL2RyaXZlcnMvbW1j
+L2hvc3Qvc2RoY2ktb2YtYXNwZWVkLmMKPiBpbmRleCBkNmRlMDEwNTUxYjkuLjAxYmM1NzQyNzJl
+YiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL21tYy9ob3N0L3NkaGNpLW9mLWFzcGVlZC5jCj4gKysr
+IGIvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1hc3BlZWQuYwo+IEBAIC0xMyw2ICsxMyw3IEBA
+Cj4gwqAjaW5jbHVkZSA8bGludXgvb2YuaD4KPiDCoCNpbmNsdWRlIDxsaW51eC9vZl9wbGF0Zm9y
+bS5oPgo+IMKgI2luY2x1ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8
+bGludXgvcmVzZXQuaD4KPiDCoCNpbmNsdWRlIDxsaW51eC9zcGlubG9jay5oPgo+IMKgCj4gwqAj
+aW5jbHVkZSAic2RoY2ktcGx0Zm0uaCIKPiBAQCAtMzksNiArNDAsNyBAQAo+IMKgc3RydWN0IGFz
+cGVlZF9zZGMgewo+IMKgwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgY2xrICpjbGs7Cj4gwqDCoMKgwqDC
+oMKgwqDCoHN0cnVjdCByZXNvdXJjZSAqcmVzOwo+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCByZXNl
+dF9jb250cm9sICpyc3Q7Cj4gwqAKPiDCoMKgwqDCoMKgwqDCoMKgc3BpbmxvY2tfdCBsb2NrOwo+
+IMKgwqDCoMKgwqDCoMKgwqB2b2lkIF9faW9tZW0gKnJlZ3M7Cj4gQEAgLTMyOCwxMyArMzMwLDU4
+IEBAIHN0YXRpYyB1MzIgYXNwZWVkX3NkaGNpX3JlYWRsKHN0cnVjdCBzZGhjaV9ob3N0ICpob3N0
+LCBpbnQgcmVnKQo+IMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gdmFsOwo+IMKgfQo+IMKgCj4gK3N0
+YXRpYyB2b2lkIGFzcGVlZF9zZGhjaV9yZXNldChzdHJ1Y3Qgc2RoY2lfaG9zdCAqaG9zdCwgdTgg
+bWFzaykKPiArewo+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBzZGhjaV9wbHRmbV9ob3N0ICpwbHRm
+bV9wcml2Owo+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBhc3BlZWRfc2RoY2kgKmFzcGVlZF9zZGhj
+aTsKPiArwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgYXNwZWVkX3NkYyAqYXNwZWVkX3NkYzsKPiArwqDC
+oMKgwqDCoMKgwqB1MzIgc2F2ZV9hcnJheVs3XTsKPiArwqDCoMKgwqDCoMKgwqB1MzIgcmVnX2Fy
+cmF5W10gPSB7U0RIQ0lfRE1BX0FERFJFU1MsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBTREhDSV9CTE9DS19TSVpFLAo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgU0RIQ0lfQVJHVU1FTlQsCj4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBTREhDSV9IT1NUX0NPTlRST0ws
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBTREhDSV9D
+TE9DS19DT05UUk9MLAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgU0RIQ0lfSU5UX0VOQUJMRSwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoFNESENJX1NJR05BTF9FTkFCTEV9Owo+ICvCoMKgwqDCoMKgwqDCoGlu
+dCBpOwo+ICvCoMKgwqDCoMKgwqDCoHUxNiB0cmFuX21vZGU7Cj4gK8KgwqDCoMKgwqDCoMKgdTMy
+IG1tYzhfbW9kZTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgcGx0Zm1fcHJpdiA9IHNkaGNpX3ByaXYo
+aG9zdCk7Cj4gK8KgwqDCoMKgwqDCoMKgYXNwZWVkX3NkaGNpID0gc2RoY2lfcGx0Zm1fcHJpdihw
+bHRmbV9wcml2KTsKPiArwqDCoMKgwqDCoMKgwqBhc3BlZWRfc2RjID0gYXNwZWVkX3NkaGNpLT5w
+YXJlbnQ7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoGlmICghSVNfRVJSKGFzcGVlZF9zZGMtPnJzdCkp
+IHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZm9yIChpID0gMDsgaSA8IEFSUkFZ
+X1NJWkUocmVnX2FycmF5KTsgaSsrKQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgc2F2ZV9hcnJheVtpXSA9IHNkaGNpX3JlYWRsKGhvc3QsIHJlZ19hcnJh
+eVtpXSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB0cmFuX21vZGUgPSBz
+ZGhjaV9yZWFkdyhob3N0LCBTREhDSV9UUkFOU0ZFUl9NT0RFKTsKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgbW1jOF9tb2RlID0gcmVhZGwoYXNwZWVkX3NkYy0+cmVncyk7Cj4gKwo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXNldF9jb250cm9sX2Fzc2VydChhc3Bl
+ZWRfc2RjLT5yc3QpOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBtZGVsYXkoMSk7
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlc2V0X2NvbnRyb2xfZGVhc3NlcnQo
+YXNwZWVkX3NkYy0+cnN0KTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbWRlbGF5
+KDEpOwoKU2VlIGNvbW1lbnQgYmVsb3cgcmVnYXJkaW5nIGNsb2NrL3Jlc2V0IGJlaGF2aW91ciBh
+bmQgaW1wbGVtZW50YXRpb24uCgo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+Zm9yIChpID0gMDsgaSA8IEFSUkFZX1NJWkUocmVnX2FycmF5KTsgaSsrKQo+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgc2RoY2lfd3JpdGVsKGhvc3QsIHNh
+dmVfYXJyYXlbaV0sIHJlZ19hcnJheVtpXSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqBzZGhjaV93cml0ZXcoaG9zdCwgdHJhbl9tb2RlLCBTREhDSV9UUkFOU0ZFUl9NT0RF
+KTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgd3JpdGVsKG1tYzhfbW9kZSwgYXNw
+ZWVkX3NkYy0+cmVncyk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBhc3Bl
+ZWRfc2RoY2lfc2V0X2Nsb2NrKGhvc3QsIGhvc3QtPmNsb2NrKTsKPiArwqDCoMKgwqDCoMKgwqB9
+Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHNkaGNpX3Jlc2V0KGhvc3QsIG1hc2spOwoKR2l2ZW4gdGhh
+dCB3ZSBkbyB0aGlzIGFmdGVyIHRoZSBTQ1UgcmVzZXQgYWJvdmUsIHdoYXQgZXhhY3RseSBpcyB0
+aGUKU0NVIHJlc2V0IGZpeGluZz8gQ2FuIHlvdSBwcm92aWRlIG1vcmUgZGV0YWlscz8KCj4gK30K
+PiArCj4gwqBzdGF0aWMgY29uc3Qgc3RydWN0IHNkaGNpX29wcyBhc3BlZWRfc2RoY2lfb3BzID0g
+ewo+IMKgwqDCoMKgwqDCoMKgwqAucmVhZF9sID0gYXNwZWVkX3NkaGNpX3JlYWRsLAo+IMKgwqDC
+oMKgwqDCoMKgwqAuc2V0X2Nsb2NrID0gYXNwZWVkX3NkaGNpX3NldF9jbG9jaywKPiDCoMKgwqDC
+oMKgwqDCoMKgLmdldF9tYXhfY2xvY2sgPSBhc3BlZWRfc2RoY2lfZ2V0X21heF9jbG9jaywKPiDC
+oMKgwqDCoMKgwqDCoMKgLnNldF9idXNfd2lkdGggPSBhc3BlZWRfc2RoY2lfc2V0X2J1c193aWR0
+aCwKPiDCoMKgwqDCoMKgwqDCoMKgLmdldF90aW1lb3V0X2Nsb2NrID0gc2RoY2lfcGx0Zm1fY2xr
+X2dldF9tYXhfY2xvY2ssCj4gLcKgwqDCoMKgwqDCoMKgLnJlc2V0ID0gc2RoY2lfcmVzZXQsCj4g
+K8KgwqDCoMKgwqDCoMKgLnJlc2V0ID0gYXNwZWVkX3NkaGNpX3Jlc2V0LAo+IMKgwqDCoMKgwqDC
+oMKgwqAuc2V0X3Voc19zaWduYWxpbmcgPSBzZGhjaV9zZXRfdWhzX3NpZ25hbGluZywKPiDCoH07
+Cj4gwqAKPiBAQCAtNTM1LDYgKzU4MiwxMiBAQCBzdGF0aWMgaW50IGFzcGVlZF9zZGNfcHJvYmUo
+c3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiDCoAo+IMKgwqDCoMKgwqDCoMKgwqBzcGlu
+X2xvY2tfaW5pdCgmc2RjLT5sb2NrKTsKPiDCoAo+ICvCoMKgwqDCoMKgwqDCoHNkYy0+cnN0ID0g
+ZGV2bV9yZXNldF9jb250cm9sX2dldCgmcGRldi0+ZGV2LCBOVUxMKTsKPiArwqDCoMKgwqDCoMKg
+wqBpZiAoIUlTX0VSUihzZGMtPnJzdCkpIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgcmVzZXRfY29udHJvbF9hc3NlcnQoc2RjLT5yc3QpOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqByZXNldF9jb250cm9sX2RlYXNzZXJ0KHNkYy0+cnN0KTsKPiArwqDCoMKgwqDC
+oMKgwqB9Cj4gKwoKVGhlIGNsb2NrIGRyaXZlciBmb3IgdGhlIEFTVDI0MDAsIEFTVDI1MDAgYW5k
+IEFTVDI2MDAgbWFuYWdlcyB0aGUgcmVzZXQKYXMgcGFydCBvZiBtYW5hZ2luZyB0aGUgY2xvY2tb
+MV1bMl0uCgpbMV06IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwv
+Z2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL2RyaXZlcnMvY2xrL2Nsay1hc3BlZWQuYz9oPXY2
+LjE2LXJjMiNuNzEKWzJdOiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2Vy
+bmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9kcml2ZXJzL2Nsay9jbGstYXNwZWVkLmM/
+aD12Ni4xNi1yYzIjbjIwOQoKV2hhdCB5b3UgaGF2ZSBoZXJlIGFza3MgZm9yIGEgcmVzZXRzIHBy
+b3BlcnR5LCBidXQgdGhhdCdzIG5vdCBjdXJyZW50bHkKc3BlY2lmaWVkIGluIHRoZSBkZXZpY2V0
+cmVlIGJpbmRpbmcuCgpTbzogaXMgdGhlIGNsb2NrIGRyaXZlciBub3QgZG9pbmcgdGhlIHJpZ2h0
+IHRoaW5nIGdpdmVuIHdlIGVuYWJsZSB0aGUKY2xvY2sgZGlyZWN0bHkgYmVsb3cgdGhpcyBodW5r
+PyBJZiBub3QsIHNob3VsZCB3ZSBmaXggdGhhdCBpbnN0ZWFkPwoKV2UgY2FuIGFkZCB0aGUgcmVz
+ZXRzIHByb3BlcnR5IHRvIHRoZSBiaW5kaW5nLCBidXQgSSdkIGFsc28gbGlrZSBhCmJldHRlciBl
+eHBsYW5hdGlvbiBvZiB0aGUgcHJvYmxlbS4KCkFuZHJldwo=
 
 
