@@ -4,162 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DC5C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E551C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=; b=rkaMt1CjiORZUVaJ7dsBLWOHSh
-	BhtDKz4S41oQLjM8be7GjtaU3JhxjwYK7iteBi+9VRwimAoLNAncFUYWIBlcE5/EZBd4fj0N/3Bky
-	etRZhO/E/14WKcfjj2rvA+Fr+l4vTSLzzP4P+ZoN2J9C1NkCb3iTflScyTClN89e5kHkXPgJ33F4V
-	P36nZ2yNwoQIWXRsyaBfAiE+VHOL/N0n+3zpUSCcHq+yWV0PTmr/k3afhLf3mznJXp89OcEcnV+Hx
-	Hd43rdmApHCRGHdWM8MERQW0A/oS3NJ4blmg5E/qnu2bllIQjBVq5bgu5MWagmbanEEHgl3OM1toM
-	sq8Gz08w==;
+	bh=9tObTLoBeN2CnE4Xxv7FNpSNs5jg5Z1CGWaVpXt6sHw=; b=Cb448MKp7Y4bmShMrEkhfalfdk
+	/n/AbVWtOl7uVAV7Vb/KuY6mPjqBfYTxkdEBOVUr50Ca+TLvmoXW6LlgVnM+I1eH1dZuwz5TUTkov
+	bDy1PyicyJClwYTl6GGWEA7NRhXYYQoQJlgFMy1PhCNdopQKCqmB7T95v3E0n4RbrlJd1eEew42TI
+	ZFQdn4YMkoU/eh1JDUhnCc0oTuhDox/pe5k3vw3p1nJ6FIMKpQR1hKCNNC2uSAPMjygaVfUVXPWi4
+	1eLcEdSRTlRLY9WZQvqBB23OPHX1acSNhZQNBx5MMzNykEcT/k5N1xhiqgdomthu8Pzf1nh6wKILl
+	AxupQhYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRto4-0000000AR4L-31hg;
-	Wed, 18 Jun 2025 14:30:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrtm-0000000A7oc-2Kwm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Jun 2025 12:28:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=; b=POG7CT2ualC/5ocAjabQqcmGQG
-	KXfd+pSEBH+fD2CcFk+l6IYk40Ozu8AjfTgZhnqRKOP0u6zSKVLzEyF6d5eFec3yIz+Ont2Grv4wP
-	xULrndgCg9X90jBazrgpXp5OlRaMTn0cZJBRKUCjG/c5zIORr+g0xZVmpVpX7vefqMVy872TOIaW9
-	q4EztsRMJaR7zHiIKBWlfChmUWsXJ2j7OrsfWIpV+ePpo8dn1u/G9qOAauIo3Gg2urCYal9y+WQhx
-	AKgW0R9APnCyRrrgUT7o1faOtuE623CiNE1U+/KmsJEuVBAPVCD/bMfmTUpY9DyxBZpkiHZUkeauZ
-	pgvuhR/w==;
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrtj-0000000424E-2oVS
+	id 1uRtpJ-0000000AREF-1pkm;
+	Wed, 18 Jun 2025 14:31:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRpwj-00000009lgM-3IQi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:28:14 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 0A6102124B;
-	Wed, 18 Jun 2025 12:27:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750249663; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=;
-	b=sD/pSipURoAjfZDtD17C/cE7Y/2Dop4p7+Db79McXuVWx/LA5MfAUwdjhrFeRzEGgvdtXp
-	0HXfebGNiVaElP/B++qsty22iiuNuNXZWxYNdQaPevXlgoSgIUpGAXGxRoNgwfYXIc2csX
-	udDIhGvrVvTN6ajjBIJmjuVnHHbGMmE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750249663;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=;
-	b=0ETZmOLA1urJICvFcAmLaeAr3Lh14MSgG6vJ83mcoP9sZWA0E5poFxgAQJC3DflKnpUryp
-	VQaED3Lv+LR2k/DQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750249663; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=;
-	b=sD/pSipURoAjfZDtD17C/cE7Y/2Dop4p7+Db79McXuVWx/LA5MfAUwdjhrFeRzEGgvdtXp
-	0HXfebGNiVaElP/B++qsty22iiuNuNXZWxYNdQaPevXlgoSgIUpGAXGxRoNgwfYXIc2csX
-	udDIhGvrVvTN6ajjBIJmjuVnHHbGMmE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750249663;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+drl0inLjXtz9AJLQZmGyLJY3uS7ZnEAuIvwL9A32V0=;
-	b=0ETZmOLA1urJICvFcAmLaeAr3Lh14MSgG6vJ83mcoP9sZWA0E5poFxgAQJC3DflKnpUryp
-	VQaED3Lv+LR2k/DQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5EA6513721;
-	Wed, 18 Jun 2025 12:27:42 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SOPmFb6wUmg4UgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:42 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: lee@kernel.org,
-	danielt@kernel.org,
-	jingoohan1@gmail.com,
-	neil.armstrong@linaro.org,
-	jessica.zhang@oss.qualcomm.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	fnkl.kernel@gmail.com,
-	j@jannau.net,
-	hdegoede@redhat.com,
-	ilpo.jarvinen@linux.intel.com,
-	sven@kernel.org,
-	alyssa@rosenzweig.io,
-	neal@gompa.dev,
-	deller@gmx.de,
-	support.opensource@diasemi.com,
-	duje.mihanovic@skole.hr
-Cc: dri-devel@lists.freedesktop.org,
-	asahi@lists.linux.dev,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 12/12] backlight: Do not include <linux/fb.h> in header file
-Date: Wed, 18 Jun 2025 14:16:44 +0200
-Message-ID: <20250618122436.379013-13-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250618122436.379013-1-tzimmermann@suse.de>
-References: <20250618122436.379013-1-tzimmermann@suse.de>
+	Wed, 18 Jun 2025 10:23:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E16731D13;
+	Wed, 18 Jun 2025 03:22:48 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 24DD93F66E;
+	Wed, 18 Jun 2025 03:23:08 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: jarkko@kernel.org,
+	sudeep.holla@arm.com,
+	peterhuewe@gmx.de,
+	jgg@ziepe.ca,
+	stuart.yoder@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 2/2] tpm: tpm_crb_ffa: try to probe tpm_crb_ffa when it's built-in
+Date: Wed, 18 Jun 2025 11:23:02 +0100
+Message-Id: <20250618102302.2379029-3-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250618102302.2379029-1-yeoreum.yun@arm.com>
+References: <20250618102302.2379029-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-5.30 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[25];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo];
-	RCVD_COUNT_TWO(0.00)[2];
-	FREEMAIL_TO(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,gmx.de,diasemi.com,skole.hr];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	R_RATELIMIT(0.00)[to_ip_from(RLc48bcaq7qz9wekwjsx9fywoc)];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_132811_821112_22BDB7C6 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_032309_866852_D520F0B7 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,27 +69,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The backlight interfaces don't require anything from <linux/fb.h>, so
-don't include it.
+To generate the boot_aggregate log in the IMA subsystem using TPM PCR values,
+the TPM driver must be built as built-in and must be probed before
+the IMA subsystem is initialized.
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+However, when the TPM device operates over the FF-A protocol using the CRB interface,
+probing fails and returns -EPROBE_DEFER
+if the tpm_crb_ffa device — an FF-A device that provides
+the communication interface to the tpm_crb driver — has not yet been probed.
+
+This issue occurs because both crb_acpi_driver_init() and
+tpm_crb_ffa_driver_init() are registered with device_initcall.
+As a result, crb_acpi_driver_init() may be invoked before
+tpm_crb_ffa_driver_init(), which is responsible for probing the tpm_crb_ffa device.
+
+When this happens, IMA fails to detect the TPM device and
+logs the following message:
+
+  | ima: No TPM chip found, activating TPM-bypass!
+
+Consequently, it cannot generate the boot_aggregate log with
+the PCR values provided by the TPM.
+
+To resolve this issue, the tpm_crb_ffa_init() function explicitly attempts to
+probe the tpm_crb_ffa by register tpm_crb_ffa driver so that
+when tpm_crb_ffa device is created before tpm_crb_ffa_init(),
+probe the tpm_crb_ffa device in tpm_crb_ffa_init() to finish probe the
+TPM device completely.
+
+This ensures that the TPM device using CRB over FF-A
+can be successfully probed, even if crb_acpi_driver_init() is called first.
+
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- include/linux/backlight.h | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/char/tpm/tpm_crb_ffa.c | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/backlight.h b/include/linux/backlight.h
-index 10e626db7eee..f29a9ef1052e 100644
---- a/include/linux/backlight.h
-+++ b/include/linux/backlight.h
-@@ -10,7 +10,6 @@
- #define _LINUX_BACKLIGHT_H
+diff --git a/drivers/char/tpm/tpm_crb_ffa.c b/drivers/char/tpm/tpm_crb_ffa.c
+index 4ead61f01299..462fcf610020 100644
+--- a/drivers/char/tpm/tpm_crb_ffa.c
++++ b/drivers/char/tpm/tpm_crb_ffa.c
+@@ -115,6 +115,7 @@ struct tpm_crb_ffa {
+ };
  
- #include <linux/device.h>
--#include <linux/fb.h>
- #include <linux/mutex.h>
- #include <linux/types.h>
+ static struct tpm_crb_ffa *tpm_crb_ffa;
++static struct ffa_driver tpm_crb_ffa_driver;
  
+ static int tpm_crb_ffa_to_linux_errno(int errno)
+ {
+@@ -168,13 +169,23 @@ static int tpm_crb_ffa_to_linux_errno(int errno)
+  */
+ int tpm_crb_ffa_init(void)
+ {
++	int ret = 0;
++
++	if (!IS_MODULE(CONFIG_TCG_ARM_CRB_FFA)) {
++		ret = ffa_register(&tpm_crb_ffa_driver);
++		if (ret) {
++			tpm_crb_ffa = ERR_PTR(-ENODEV);
++			return ret;
++		}
++	}
++
+ 	if (!tpm_crb_ffa)
+-		return -ENOENT;
++		ret = -ENOENT;
+ 
+ 	if (IS_ERR_VALUE(tpm_crb_ffa))
+-		return -ENODEV;
++		ret = -ENODEV;
+ 
+-	return 0;
++	return ret;
+ }
+ EXPORT_SYMBOL_GPL(tpm_crb_ffa_init);
+ 
+@@ -369,7 +380,9 @@ static struct ffa_driver tpm_crb_ffa_driver = {
+ 	.id_table = tpm_crb_ffa_device_id,
+ };
+ 
++#ifdef MODULE
+ module_ffa_driver(tpm_crb_ffa_driver);
++#endif
+ 
+ MODULE_AUTHOR("Arm");
+ MODULE_DESCRIPTION("TPM CRB FFA driver");
 -- 
-2.49.0
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
