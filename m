@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2107C73C66
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 18:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCECC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 18:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0yvrozKxsQt0xHdXQ19wdpfj3yqatMRUu5y81Nb1iA=; b=e0s+5N3/+KqXsyMkqb5abB9CA8
-	w3eTcc34YlnFO+Ax63j8KLxNMzn+cvX6bU7XBwIeBnFelX7Fo0FQxR6WO2PTP58UE2/dkF7DeogZb
-	Bb6+DtwhHYC0CHF/6CbPboXhkTqsg5wTzNSsOZdEGJ9ixGXJKGb/6xvnHFaeQrMhaADCawX8ID9gz
-	KUqMCf+argWMDMOqX9z0fHF+eafPiGa1sz6WQ/HqM541CNfNeq0cg/fIhTwszZ/RKO61aHmM2GXoA
-	o6x1E0nmZPNIa9Mdgzw59OZs4e3us4uKJudUCFFgKfYgnn4mv+BqvNIjvKR8Z+KjpoV0IakrZUPxE
-	I4xGs7AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GB2paiAGLYNnrfDVK4I79lILy6NFVoAMUpS1p9Hcjbk=; b=M3vkEhrZQV2vMdmiFU9dCLHS2H
+	Yw7SUo60GZ5n4M/x3dNHUDYa9I2zw24ezkgEzmLkJNG5JhMh1gkdjEOKW339fbrkte24X9sNCaYww
+	C/7Ed4u6NX3lJ00BDKMjAMkNzhkU4KqvDm4bo8s/GzehxCdcXDDWKaAiIFWm2wbpsEih1UYqh0MnN
+	eHiiuFslaxXWMhKlc9DDPZh3sxQkWJ8yF6djZDlbuaefA0l/1tvff1U/mCpmLt6IqJARpbmZpRwyi
+	0gBcw2TzWdimFb8LmEzYfKXEqUXyBpmOTfPmZFA1nL/4uTIZK2B4+WDXQPksz8pElCczuGKkLoEkU
+	R9iUyIFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRx6h-0000000B0jw-2dQ2;
-	Wed, 18 Jun 2025 18:01:55 +0000
+	id 1uRx8G-0000000B1Rm-3MFz;
+	Wed, 18 Jun 2025 18:03:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuJQ-0000000AXBz-2apM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Jun 2025 15:02:52 +0000
+	id 1uRv91-0000000AetP-2YeF;
+	Wed, 18 Jun 2025 15:56:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+0yvrozKxsQt0xHdXQ19wdpfj3yqatMRUu5y81Nb1iA=; b=e1vosGJdg6jI+lRrnhqg5oGE9f
-	4GbHOIJef7ab5yBPcFn4ecOA+bZraCDIDI9zuwHiQ66TedEB80fKA/Qi1PByIcy6SpwHyYuv7+nY5
-	I77DVeaSsWehPOSq4ozkGaf3SZNREJjkN3tLaLALVt4ae5+RKpfNEuDuAEASLW7Rp93QcgYYaqX4R
-	ReNSmXvv23ULecamyZJ4S5X9gb6L8k7fVzLXarxKGq8j+Y/gC5qsOOeps38MjnDuxdBvCwKqg40/x
-	7gEpf3L60motA+wGCKFcWIWH2kLzTivxpKKDNzaeNzHI++3gxRlD7/MoM5oF0/EmtipZfqQp5DxIM
-	3SHxbt4Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuJM-0000000481j-3l9D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 15:02:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D60014BF;
-	Wed, 18 Jun 2025 08:02:25 -0700 (PDT)
-Received: from [10.57.28.112] (unknown [10.57.28.112])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBC2F3F58B;
-	Wed, 18 Jun 2025 08:02:43 -0700 (PDT)
-Message-ID: <bc8a73d2-ba85-4431-a8e9-3692cc1e402a@arm.com>
-Date: Wed, 18 Jun 2025 16:02:41 +0100
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GB2paiAGLYNnrfDVK4I79lILy6NFVoAMUpS1p9Hcjbk=; b=D3YRhZNN+eYk5xxqMA1qkt2OLJ
+	ns7Snjc8P4yt47Xkc9iu1HSUbRTYKv5FDy8ALKgCqB5zxK0loTlv07OXeXf+xJO97MIMrDg4qtDsd
+	Ezv+B/QBM21CxQF/6ka2alZ/LdrO+gscFHpYuYs/UOTnH6PZVBeijU0Xnxy8adK1ZRHhx3IvRzWKB
+	kgnV2K8GtpCA717vhKVJw4Mq2PuvWu26VexIMw3jQDrcaaT7OLBst4xI+q2ncw47pPvMil3ocT875
+	C3BYXkowD9CVADIgFvGTSC4UzzNyWl+dEM9oyG12QHVUxebq3Cnr1osbIdJYE9gu9Ne7bsqKhQMwt
+	U9ECBCMA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRv8y-00000004AV1-1qNI;
+	Wed, 18 Jun 2025 15:56:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF049A5252C;
+	Wed, 18 Jun 2025 15:56:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C31C4CEE7;
+	Wed, 18 Jun 2025 15:56:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750262164;
+	bh=y14ImL1XP5d71TlD/C03rbujmTDgub3jAIW5DPpjTro=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tiTLVs24ov/F6fXLP+VBWrYe/DlTd7uUrvgNJvE1noOe4Py7jE3N21L2npCpagKxj
+	 nExCzeEMlhXTJXAd5PrlDJiRiwVgaB7gxJeeuegcH2lmcWK234alCReruO1u/Juw/B
+	 aE+jfxwuV0hbkMv/tHdcIhQcYbHH4czrzK53Iurlblvc3kv7DV/budWE4/wsOlpPf4
+	 EqGwxR91q5pY3KLD0CwZ7Yw/pYvxKpWqhMYdgz0CZ0eP4cE2/Ad5LIvaLfvnMspi9M
+	 V7Do2AdO4783IldIsHnc7v/GesZ44/PelzNtLQjYP6S/qFnOIb4FDlgZ+qwR3y+09y
+	 AWEDKk7kL6z+A==
+Date: Wed, 18 Jun 2025 16:55:59 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, jgg@ziepe.ca, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 2/5] dt-bindings: iommu: verisilicon: Add binding for
+ VSI IOMMU
+Message-ID: <20250618-tighten-morphing-47953075b131@spud>
+References: <20250618140923.97693-1-benjamin.gaignard@collabora.com>
+ <20250618140923.97693-3-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: realm: ioremap: Allow mapping memory as
- encrypted
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, catalin.marinas@arm.com, sami.mujawar@arm.com,
- aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, sudeep.holla@arm.com
-References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
- <20250613111153.1548928-2-suzuki.poulose@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250613111153.1548928-2-suzuki.poulose@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Z++lINJ27TajwB1V"
+Content-Disposition: inline
+In-Reply-To: <20250618140923.97693-3-benjamin.gaignard@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_160249_339353_31ECDEB8 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20250618_165608_710271_55C8E203 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,115 +91,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 12:11, Suzuki K Poulose wrote:
-> For ioremap(), so far we only checked if it was a device (RIPAS_DEV) to choose
-> an encrypted vs decrypted mapping. However, we may have firmware reserved memory
-> regions exposed to the OS (e.g., EFI Coco Secret Securityfs, ACPI CCEL).
-> We need to make sure that anything that is RIPAS_RAM (i.e., Guest
-> protected memory with RMM guarantees) are also mapped as encrypted.
-> 
-> Rephrasing the above, anything that is not RIPAS_EMPTY is guaranteed to be
-> protected by the RMM. Thus we choose encrypted mapping for anything that is not
-> RIPAS_EMPTY. While at it, rename the helper function
-> 
->   __arm64_is_protected_mmio => arm64_rsi_is_protected
-> 
-> to clearly indicate that this not an arm64 generic helper, but something to do
-> with Realms.
-> 
-> Cc: Sami Mujawar <sami.mujawar@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-> Cc: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Reviewed-by: Steven Price <steven.price@arm.com>
+--Z++lINJ27TajwB1V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Wed, Jun 18, 2025 at 04:09:11PM +0200, Benjamin Gaignard wrote:
+> Add a device tree binding for the Verisilicon (VSI) IOMMU.
+> This IOMMU sits in front of hardware encoder and decoder
+> blocks on SoCs using Verisilicon IP, such as the Rockchip RK3588.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 > ---
->  arch/arm64/include/asm/io.h  |  2 +-
->  arch/arm64/include/asm/rsi.h |  2 +-
->  arch/arm64/kernel/rsi.c      | 26 ++++++++++++++++++++++----
->  3 files changed, 24 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> index 9b96840fb979..82276282a3c7 100644
-> --- a/arch/arm64/include/asm/io.h
-> +++ b/arch/arm64/include/asm/io.h
-> @@ -311,7 +311,7 @@ extern bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
->  static inline bool arm64_is_protected_mmio(phys_addr_t phys_addr, size_t size)
->  {
->  	if (unlikely(is_realm_world()))
-> -		return __arm64_is_protected_mmio(phys_addr, size);
-> +		return arm64_rsi_is_protected(phys_addr, size);
->  	return false;
->  }
->  
-> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-> index b42aeac05340..88b50d660e85 100644
-> --- a/arch/arm64/include/asm/rsi.h
-> +++ b/arch/arm64/include/asm/rsi.h
-> @@ -16,7 +16,7 @@ DECLARE_STATIC_KEY_FALSE(rsi_present);
->  
->  void __init arm64_rsi_init(void);
->  
-> -bool __arm64_is_protected_mmio(phys_addr_t base, size_t size);
-> +bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
->  
->  static inline bool is_realm_world(void)
->  {
-> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-> index ce4778141ec7..c64a06f58c0b 100644
-> --- a/arch/arm64/kernel/rsi.c
-> +++ b/arch/arm64/kernel/rsi.c
-> @@ -84,7 +84,25 @@ static void __init arm64_rsi_setup_memory(void)
->  	}
->  }
->  
-> -bool __arm64_is_protected_mmio(phys_addr_t base, size_t size)
-> +/*
-> + * Check if a given PA range is Trusted (e.g., Protected memory, a Trusted Device
-> + * mapping, or an MMIO emulated in the Realm world).
-> + *
-> + * We can rely on the RIPAS value of the region to detect if a given region is
-> + * protected.
-> + *
-> + *  RIPAS_DEV - A trusted device memory or a trusted emulated MMIO (in the Realm
-> + *		world
-> + *  RIPAS_RAM - Memory (RAM), protected by the RMM guarantees. (e.g., Firmware
-> + *		reserved regions for data sharing).
-> + *
-> + *  RIPAS_DESTROYED is a special case of one of the above, where the host did
-> + *  something without our permission and as such we can't do anything about it.
-> + *
-> + * The only case where something is emulated by the untrusted hypervisor or is
-> + * backed by shared memory is indicated by RSI_RIPAS_EMPTY.
-> + */
-> +bool arm64_rsi_is_protected(phys_addr_t base, size_t size)
->  {
->  	enum ripas ripas;
->  	phys_addr_t end, top;
-> @@ -101,18 +119,18 @@ bool __arm64_is_protected_mmio(phys_addr_t base, size_t size)
->  			break;
->  		if (WARN_ON(top <= base))
->  			break;
-> -		if (ripas != RSI_RIPAS_DEV)
-> +		if (ripas == RSI_RIPAS_EMPTY)
->  			break;
->  		base = top;
->  	}
->  
->  	return base >= end;
->  }
-> -EXPORT_SYMBOL(__arm64_is_protected_mmio);
-> +EXPORT_SYMBOL(arm64_rsi_is_protected);
->  
->  static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
->  {
-> -	if (__arm64_is_protected_mmio(phys, size))
-> +	if (arm64_rsi_is_protected(phys, size))
->  		*prot = pgprot_encrypted(*prot);
->  	else
->  		*prot = pgprot_decrypted(*prot);
+> changes in version 2:
+> - Add a compatible "rockchip,rk3588-av1-iommu"
+> - Fix clock-names in binding=20
+> - Remove "vsi_mmu" label in binding example.
+>=20
+>  .../bindings/iommu/verisilicon,iommu.yaml     | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,i=
+ommu.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.ya=
+ml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+> new file mode 100644
+> index 000000000000..9ae4a45d76f4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+> @@ -0,0 +1,72 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Verisilicon IOMMU
+> +
+> +maintainers:
+> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> +
+> +description: |+
+> +  A Versilicon iommu translates io virtual addresses to physical address=
+es for
+> +  its associated video decoder.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - verisilicon,iommu
+> +          - rockchip,rk3588-av1-iommu
 
+This isn't right. Firstly, the "oneOf: - enum" construct doesn't do
+anything. oneOf one item is just the item. Secondly this still allows
+verisilicon,iommu in isolation which is not okay. What you actually want
+here is
+items:
+  - const: a
+  - const: b
+
+Thirdly, Nicolas mentioned that the version of this iommu is 1.2.0,
+which I would like to see reflected in the compatible.
+
+--Z++lINJ27TajwB1V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFLhjgAKCRB4tDGHoIJi
+0vB/AQCNK4tUJrrBtB91ikBSoiUUESBAhs91t/tLoNI6BezTNwD/TT+xxCi+29w8
+EL8ApkHM1NexQn9tJmglNf0tfkz4rwA=
+=ASP4
+-----END PGP SIGNATURE-----
+
+--Z++lINJ27TajwB1V--
 
