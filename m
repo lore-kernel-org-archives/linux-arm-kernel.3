@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50502C7115B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2107C73C66
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 18:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3gE7s5PuceDScaiswjtYN14W7DMGBcPU86QCXC6a4E=; b=DEpNV6YVVQedKlv4Igr2JSNzD/
-	3vIDnSU8TR8fvDoJ0ODEOU3iaKLDXDrdyjL9JWrAR8dN25Lfbst71wNOg4Wxcb3XirROZzdMBuTA0
-	iVrK6z/eEN1kgciiB0edeiasNfT095uRjHIXILfNLR5Suiy1vIB4UwEoPa2Ja9hY6RfASnj5CksEn
-	VEM7x7bHre4PHM3HQnNCv4HpKjzW7OeZBuI6gh0qLBjJ3kMzJ992SezFEc5jW2naFL9++OYaSJ3+E
-	39eJhPG5tzOvIj6VR3Cb4G35OC9t4z2Kk0qbDdHtohVCN7CKa0XgWpmgvo1Kn4qRe/q81epq/Iyzn
-	htHwMUYQ==;
+	bh=+0yvrozKxsQt0xHdXQ19wdpfj3yqatMRUu5y81Nb1iA=; b=e0s+5N3/+KqXsyMkqb5abB9CA8
+	w3eTcc34YlnFO+Ax63j8KLxNMzn+cvX6bU7XBwIeBnFelX7Fo0FQxR6WO2PTP58UE2/dkF7DeogZb
+	Bb6+DtwhHYC0CHF/6CbPboXhkTqsg5wTzNSsOZdEGJ9ixGXJKGb/6xvnHFaeQrMhaADCawX8ID9gz
+	KUqMCf+argWMDMOqX9z0fHF+eafPiGa1sz6WQ/HqM541CNfNeq0cg/fIhTwszZ/RKO61aHmM2GXoA
+	o6x1E0nmZPNIa9Mdgzw59OZs4e3us4uKJudUCFFgKfYgnn4mv+BqvNIjvKR8Z+KjpoV0IakrZUPxE
+	I4xGs7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRx6f-0000000B0iW-1bCn;
-	Wed, 18 Jun 2025 18:01:53 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uRx6h-0000000B0jw-2dQ2;
+	Wed, 18 Jun 2025 18:01:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRu6c-0000000AUqO-2pND
+	id 1uRuJQ-0000000AXBz-2apM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 15:02:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+0yvrozKxsQt0xHdXQ19wdpfj3yqatMRUu5y81Nb1iA=; b=e1vosGJdg6jI+lRrnhqg5oGE9f
+	4GbHOIJef7ab5yBPcFn4ecOA+bZraCDIDI9zuwHiQ66TedEB80fKA/Qi1PByIcy6SpwHyYuv7+nY5
+	I77DVeaSsWehPOSq4ozkGaf3SZNREJjkN3tLaLALVt4ae5+RKpfNEuDuAEASLW7Rp93QcgYYaqX4R
+	ReNSmXvv23ULecamyZJ4S5X9gb6L8k7fVzLXarxKGq8j+Y/gC5qsOOeps38MjnDuxdBvCwKqg40/x
+	7gEpf3L60motA+wGCKFcWIWH2kLzTivxpKKDNzaeNzHI++3gxRlD7/MoM5oF0/EmtipZfqQp5DxIM
+	3SHxbt4Q==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRuJM-0000000481j-3l9D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 14:49:40 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 4F65825F28;
-	Wed, 18 Jun 2025 16:49:37 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id mrkJ_d0x0XTh; Wed, 18 Jun 2025 16:49:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750258176; bh=xCwjGQRZNk8k1ts776Y9Hh6Gp2YJ+EK67MoT9GdAkfU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XUp3Gvb1PUc1QieRkDW5TcBwRN/wmT41FC2rHOVMvtJTJoUJTAzzUlrIJ+MEPjKIq
-	 +L9UZ5T3rqMAZBAShOGWAQxtLAeGhe+dNcOldXBfomoyTSdaqmap2vwuYfzyf9WAGb
-	 6zcc5T8JI9ZbR5QoHXLuqQolGnccDjsXt8xEga3zwBrJG1XFy0+dAD1cSNSAdHhIYb
-	 138DtbvYL/9F/QhUKON/3vOoyLsOHf4lQIrrko92mFeaVCBKl6cSYzV+HpYVphmkVJ
-	 M6CAhEsB5LZD7IBqDlw/9PjJQQyrkn4aECO/Izcw3Jfs8X4jh4LjE+/5iTSYYopOKN
-	 Cy9iyx/5NEjbw==
+	Wed, 18 Jun 2025 15:02:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D60014BF;
+	Wed, 18 Jun 2025 08:02:25 -0700 (PDT)
+Received: from [10.57.28.112] (unknown [10.57.28.112])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBC2F3F58B;
+	Wed, 18 Jun 2025 08:02:43 -0700 (PDT)
+Message-ID: <bc8a73d2-ba85-4431-a8e9-3692cc1e402a@arm.com>
+Date: Wed, 18 Jun 2025 16:02:41 +0100
 MIME-Version: 1.0
-Date: Wed, 18 Jun 2025 14:49:36 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
- sysregs
-In-Reply-To: <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
-References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
- <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
- <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
- <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
- <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
-Message-ID: <cd0f942a3752053e7569040f9e508b2d@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] arm64: realm: ioremap: Allow mapping memory as
+ encrypted
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org, catalin.marinas@arm.com, sami.mujawar@arm.com,
+ aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, sudeep.holla@arm.com
+References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
+ <20250613111153.1548928-2-suzuki.poulose@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250613111153.1548928-2-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_074938_849708_29BB4843 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250618_160249_339353_31ECDEB8 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +82,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-18 14:37, Krzysztof Kozlowski wrote:
-> On 18/06/2025 16:32, Kaustabh Chakraborty wrote:
->> On 2025-06-18 09:46, Krzysztof Kozlowski wrote:
->>> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
->>>> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs 
->>>> are
->>>> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
->>>> 
->>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>>> ---
->>>>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      
->>>> | 6 ++++++
->>>>  1 file changed, 6 insertions(+)
->>>> 
->>>> diff --git 
->>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml 
->>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>> index 
->>>> d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 
->>>> 100644
->>>> --- 
->>>> a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>> +++ 
->>>> b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>>> @@ -52,6 +52,12 @@ properties:
->>>>                - samsung,exynosautov9-sysreg
->>>>            - const: syscon
->>>>          deprecated: true
->>>> +      - items:
->>>> +          - enum:
->>>> +              - samsung,exynos7870-cam-sysreg
->>>> +              - samsung,exynos7870-disp-sysreg
->>>> +          - const: samsung,exynos7870-sysreg
->>> 
->>> 
->>> Drop. These are not really compatible or your commit msg is 
->>> incomplete.
->>> Don't use deprecated syntax and backwards compatible solutions for 
->>> new
->>> hardware.
->> 
->> Are you sure? The deprecated one is actually the item above. From what 
->> I
+On 13/06/2025 12:11, Suzuki K Poulose wrote:
+> For ioremap(), so far we only checked if it was a device (RIPAS_DEV) to choose
+> an encrypted vs decrypted mapping. However, we may have firmware reserved memory
+> regions exposed to the OS (e.g., EFI Coco Secret Securityfs, ACPI CCEL).
+> We need to make sure that anything that is RIPAS_RAM (i.e., Guest
+> protected memory with RMM guarantees) are also mapped as encrypted.
 > 
-> Yes. Think why were they added.
+> Rephrasing the above, anything that is not RIPAS_EMPTY is guaranteed to be
+> protected by the RMM. Thus we choose encrypted mapping for anything that is not
+> RIPAS_EMPTY. While at it, rename the helper function
 > 
->> understand, those are generic sysregs and don't mention their 
->> functions.
+>   __arm64_is_protected_mmio => arm64_rsi_is_protected
 > 
-> And what is a generic sysreg?
-
-What I meant is, usually compatibles go like this (in order):
-
-"samsung,exynos<soc>-<function>-sysreg", "samsung,exynos<soc>-sysreg", 
-"syscon"
-
-But the deprecated item had its compatibles like this:
-
-"samsung,exynos<soc>-sysreg", "syscon"
-
-That is what I meant by "generic". It doesn't mention <function>.
-
-And my additions adhere to the former. So does [1], [2], and [3]. None 
-are
-deprecated.
-
-[1] 
-https://elixir.bootlin.com/linux/v6.15.2/source/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml#L40
-[2] 
-https://elixir.bootlin.com/linux/v6.15.2/source/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml#L55
-[3] 
-https://elixir.bootlin.com/linux/v6.15.2/source/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml#L61
-
+> to clearly indicate that this not an arm64 generic helper, but something to do
+> with Realms.
 > 
-> Best regards,
-> Krzysztof
+> Cc: Sami Mujawar <sami.mujawar@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+> Cc: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+Reviewed-by: Steven Price <steven.price@arm.com>
+
+> ---
+>  arch/arm64/include/asm/io.h  |  2 +-
+>  arch/arm64/include/asm/rsi.h |  2 +-
+>  arch/arm64/kernel/rsi.c      | 26 ++++++++++++++++++++++----
+>  3 files changed, 24 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 9b96840fb979..82276282a3c7 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -311,7 +311,7 @@ extern bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
+>  static inline bool arm64_is_protected_mmio(phys_addr_t phys_addr, size_t size)
+>  {
+>  	if (unlikely(is_realm_world()))
+> -		return __arm64_is_protected_mmio(phys_addr, size);
+> +		return arm64_rsi_is_protected(phys_addr, size);
+>  	return false;
+>  }
+>  
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index b42aeac05340..88b50d660e85 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -16,7 +16,7 @@ DECLARE_STATIC_KEY_FALSE(rsi_present);
+>  
+>  void __init arm64_rsi_init(void);
+>  
+> -bool __arm64_is_protected_mmio(phys_addr_t base, size_t size);
+> +bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
+>  
+>  static inline bool is_realm_world(void)
+>  {
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index ce4778141ec7..c64a06f58c0b 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -84,7 +84,25 @@ static void __init arm64_rsi_setup_memory(void)
+>  	}
+>  }
+>  
+> -bool __arm64_is_protected_mmio(phys_addr_t base, size_t size)
+> +/*
+> + * Check if a given PA range is Trusted (e.g., Protected memory, a Trusted Device
+> + * mapping, or an MMIO emulated in the Realm world).
+> + *
+> + * We can rely on the RIPAS value of the region to detect if a given region is
+> + * protected.
+> + *
+> + *  RIPAS_DEV - A trusted device memory or a trusted emulated MMIO (in the Realm
+> + *		world
+> + *  RIPAS_RAM - Memory (RAM), protected by the RMM guarantees. (e.g., Firmware
+> + *		reserved regions for data sharing).
+> + *
+> + *  RIPAS_DESTROYED is a special case of one of the above, where the host did
+> + *  something without our permission and as such we can't do anything about it.
+> + *
+> + * The only case where something is emulated by the untrusted hypervisor or is
+> + * backed by shared memory is indicated by RSI_RIPAS_EMPTY.
+> + */
+> +bool arm64_rsi_is_protected(phys_addr_t base, size_t size)
+>  {
+>  	enum ripas ripas;
+>  	phys_addr_t end, top;
+> @@ -101,18 +119,18 @@ bool __arm64_is_protected_mmio(phys_addr_t base, size_t size)
+>  			break;
+>  		if (WARN_ON(top <= base))
+>  			break;
+> -		if (ripas != RSI_RIPAS_DEV)
+> +		if (ripas == RSI_RIPAS_EMPTY)
+>  			break;
+>  		base = top;
+>  	}
+>  
+>  	return base >= end;
+>  }
+> -EXPORT_SYMBOL(__arm64_is_protected_mmio);
+> +EXPORT_SYMBOL(arm64_rsi_is_protected);
+>  
+>  static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
+>  {
+> -	if (__arm64_is_protected_mmio(phys, size))
+> +	if (arm64_rsi_is_protected(phys, size))
+>  		*prot = pgprot_encrypted(*prot);
+>  	else
+>  		*prot = pgprot_decrypted(*prot);
+
 
