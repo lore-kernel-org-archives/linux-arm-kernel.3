@@ -4,137 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063CBC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 03:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6282EC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 04:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NfL8198nX6cXejijimgTCUG9/Y2ODbkXwleJQUyYSw=; b=dt1GMmYBHhDMk651rVxTBcJ2Qz
-	DYa/VupFC4f1+3tijigBk134adh7kGZRnnfoPc8SSGDID8umCiKOJyP6r+nt7TS4zqwrBj3pM0B9p
-	WtvG/RMMX84hMIDeBgugvja7Jd53+5KJUMk93ZGZyMARQPvpeCnk8ub9kUiSTdyBSrVZCj1LTGCId
-	hlo1CPwXnhj3JFFmmDB2VUZLCd3ZR2ffgcbgsELma+/75PBR3VQgSepkFWaLka2EXOA+T65GVCR4Q
-	pSZQdFPzeipiM0U/gmKcj9/xwwMbeZ+6pQ3p7D3gPo5UJX6qfSIaVyYNoWMmdplU2l6+o5Oeo3ZvJ
-	n2S4+giA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c4XvPKZ0jyzP+/T4B0ak7ickyXY0rfQoxfsZnSW5Rwk=; b=VTleTjFAjEnIam/x4Yl568A8yv
+	PdoQNl6MalLPZuOuBasR/BjWmQfu0SlLDYswgx3R6ostwMSgpcIYCD4N7yy5+ynRGfyRc4D9LPniF
+	9LeDF8ZEkqfwK5Jax5g1YvnGcqDMbkdE0n/fzg2pxygnPeimID9zB/l7V4faaI5UGTZkJ4dRD37r0
+	2g6Jz1wU+OwMuaFjYoAEp/Rb7/60sodmNDQ40IFaapJPFghqNjdYI14Toq4Mg2aLqMulKyQtRL49u
+	U7RNWo3w5X+vG4XmWhF2quj/i9tGUzToUivxL6ySTxWuHbZFdrAQugQ8YBx9A/hhynJDqKL02+JiD
+	jJQPCiQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjol-00000008x6O-2QtG;
-	Wed, 18 Jun 2025 03:50:31 +0000
-Received: from mail-japanwestazolkn190110000.outbound.protection.outlook.com ([2a01:111:f403:d407::] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1uRkCy-00000008z8e-1Znc;
+	Wed, 18 Jun 2025 04:15:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRjhN-00000008vSl-2T6T;
-	Wed, 18 Jun 2025 03:42:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lbGBOcNhT+33I455QApJcTPFxhNcJtMxkOTUQDWXouUq9RLhbaaC1/xQNtHBXvyMBsvL1OZDYvs3rm/NNwP/Oc3NClCa+yzhZOqiALYEKyZOA1iu/cgpASCs5RtTDaxoNZbMVMgHf8SQ3VUAzPJHm0AikhZpVBNIb+mn0g2A1VpWL9ND753QrXx3I1jHY2pAw3pV72CqazxT/vAfGJOu9eFfOcVgrY3fvPzTStniWdRc2sWpXOL5RjFghl4vJjs9WQQQxDciIbDlWhm0HV0+bhpnUYcnsd5HFrPrm2w4HgWmP0U4rCRvdBx9O4B25LmTNECau7pyGPwJAofN54oF7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2NfL8198nX6cXejijimgTCUG9/Y2ODbkXwleJQUyYSw=;
- b=X8+ctqFxCLoZNhkaO8ElFRbyvdK89HAiP5W2PCGy9jNC47C2PjjBqi3E2Z59t8smDYruuC4Zs03QwEY0Dt+rCxiXgQnkjuwk+VF69Fe0sNBHZ5Hfvb+b6Y3qkLL5UTwIMIf4KpK1gu+3K51AFvvglnUcF1E3NStZogiz5co2CluAQPocYtb2cs96txpwCJn++hDnUFuSYYnd9GgEHTxCNkc8lzUJbDPVtqPJj2xhZRkaX32rbB0CUcnpV7Wp7FPtGMOEckGEqX6FWoifOHskMGIxWqRGKPE0T6ALOZz5EBkMkC3zoiWLGIDUcCbJgRXmoS7XpTsajJn68bjkRxfrBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2NfL8198nX6cXejijimgTCUG9/Y2ODbkXwleJQUyYSw=;
- b=jO2FWc+o4DeGPwQNdV9nyI9ydOaFqlNxf3gWXAHE7ZXyAVl1pbO/stZI+PUuFQkhrQuUWJ0KUDW6Hf2Vuf1HM2cmKSXWbV+E3m4lQ5NS7xzYtVqU3935s+wj4RvJFDfzmTOf1DSfxhkrIQRtJE8g8MQx2aQUMOwEtKb3dg0g/HCu6rscKRXSZYwf7lOSXPQJfFNaWStEQ3oRAEBpSifP2deyhloBVV8MGfdI5M0NWocCi2n0rhVVT40T87sdc3seKlkMSBLqhGppx9sauZFMTrxNhn6z5N9fzMDcOppQ/5Fm9O6AH9flLwGZ+3BUOOiV1UPQeb5hJMFjWX1PpBm3NA==
-Received: from OSBPR01MB1670.jpnprd01.prod.outlook.com (2603:1096:603:2::18)
- by TYCPR01MB6477.jpnprd01.prod.outlook.com (2603:1096:400:93::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.19; Wed, 18 Jun
- 2025 03:42:41 +0000
-Received: from OSBPR01MB1670.jpnprd01.prod.outlook.com
- ([fe80::c00:ec4e:ee7e:9b7f]) by OSBPR01MB1670.jpnprd01.prod.outlook.com
- ([fe80::c00:ec4e:ee7e:9b7f%7]) with mapi id 15.20.8857.016; Wed, 18 Jun 2025
- 03:42:41 +0000
-From: Shiji Yang <yangshiji66@outlook.com>
-To: linux-mips@vger.kernel.org
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
+	id 1uRkAm-00000008yzp-298L
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 04:13:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=c4XvPKZ0jyzP+/T4B0ak7ickyXY0rfQoxfsZnSW5Rwk=; b=IuZSxR/0XD81vt3FoSx0zq1Wmm
+	QZHS6FqSBK7EzT11ZfPXh3RbrpusEO8xiPlKhprhqdkCotxg27+hg0dT/xJoLTH4Bf6qKbuikOATG
+	e6JS77AzVuaSfdynvRL9DH6PqF2twbA6S3vxg+boCa71W4uZHF7n4xADlP0y+8LF2GuSivWQvdt26
+	eF0dNo8SSBDdVHE51qL/8mFlIj99CGYpMz+mJi8Vp4Mr575dPIiAQ+dG9vVhhj/IkLuvGquggiBzF
+	NSl5ovS4cORWHscv5wtfZYZa5Eo3T5woCHX0NOKQTQw/tJv2bF4pXnniw2KDCznS+Flc4nsOzKP66
+	JBp8tYaQ==;
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRkAi-00000003xM6-3Dhx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 04:13:16 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowACH2FDLPFJooa5HBw--.34075S2;
+	Wed, 18 Jun 2025 12:12:59 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: gregkh@linuxfoundation.org,
+	michal.simek@amd.com,
+	u.kleine-koenig@baylibre.com,
+	liqiong@nfschina.com,
+	colin.i.king@gmail.com
+Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Shiji Yang <yangshiji66@outlook.com>
-Subject: [PATCH 3/3] mips: pci-mt7620: rework initialization procedure
-Date: Wed, 18 Jun 2025 11:42:07 +0800
-Message-ID: <OSBPR01MB167090804D80D1166900D7BCBC72A@OSBPR01MB1670.jpnprd01.prod.outlook.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <OSBPR01MB1670555F549B69B9A5E7F133BC72A@OSBPR01MB1670.jpnprd01.prod.outlook.com>
-References: <OSBPR01MB1670555F549B69B9A5E7F133BC72A@OSBPR01MB1670.jpnprd01.prod.outlook.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
- (2603:1096:4:188::13) To OSBPR01MB1670.jpnprd01.prod.outlook.com
- (2603:1096:603:2::18)
-X-Microsoft-Original-Message-ID: <20250618034207.22118-3-yangshiji66@outlook.com>
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] usb: gadget: udc-xilinx: Use USB API functions rather than constants
+Date: Wed, 18 Jun 2025 12:12:22 +0800
+Message-Id: <20250618041222.408372-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSBPR01MB1670:EE_|TYCPR01MB6477:EE_
-X-MS-Office365-Filtering-Correlation-Id: 116036d4-96a2-40f1-368a-08ddae1a2d7f
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|19110799006|461199028|15080799009|41001999006|8060799009|7092599006|3412199025|440099028|40105399003|52005399003|12091999003|1710799026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X/DYGqJkHK+FbE/NkoLS5ZLUoaVuAb3U+En6ZpUOVdHnTq/o5BRexzQDIvfy?=
- =?us-ascii?Q?clNH+p7InXUgWqq8YRnatWGhpN4ERRIm9ciUidn5Iq7W5cRedzyWwXBWgvlM?=
- =?us-ascii?Q?bUmrysC13/gPG+mr3nuEV5l/RMJvYLmjvZL13eFz3VCzl2J03iyZRrPLBLUz?=
- =?us-ascii?Q?1dIbx7q/cltilk0HCeTHxw4MFLUG9do1lrDiqkASuTL28vNZ7e/13FRxnoCL?=
- =?us-ascii?Q?NHH5WNXKRaP0QL3Rhfwqlku1Q6fpPd4CRwNxOHirYdIB4cYL5WgauwfZAA96?=
- =?us-ascii?Q?s6gUD8KIcJSG/o4UP2lPJT1ogXpU+WUat/Fe8bCn8GQadRFURvrkV2+IDvo2?=
- =?us-ascii?Q?Yw3vM/u9TQPMnNCXsA3TbhuKoPSsHAVZOwgsys5arMbq7rTYBosJY81A05S9?=
- =?us-ascii?Q?LdKUIFzu1B6gLAIpPvS/TzBFnkYG6ZoGJJ+Sry44qYNKdzVZSq9DdIHiGQnc?=
- =?us-ascii?Q?5+Rz2Tv8QzuvJO35wluc8lJ9n0o2OLUeWLX7q+whguSFTgZ9BUziZCgQDYPG?=
- =?us-ascii?Q?eQ2vKturMnMlME/uzXS4QUSx49VkKKPNoFxLPV9/qb4h3asUF7zHm3JjlmIQ?=
- =?us-ascii?Q?xZ60JyscmdwzqtBPfFwpd9RyfE54yzOvNmpuJwkJPGj5Ske+XUv7d7cntQ8T?=
- =?us-ascii?Q?QpGnTmFwiO2yudSPY14alHlgAqvT5qph9laFspQ8B3Gn0jwyRM3wExJS2084?=
- =?us-ascii?Q?YzJMTl4fcdH7QAs5KIl518Pr7OeaGnUODDOmmC4lcsgzEs+wyp1S4QP1/X2A?=
- =?us-ascii?Q?AoZpkV8Otlj6TVQpYNeSSXW4K706Zvxd6kuseO6fAqFY6p+9cbnR8on/IOgy?=
- =?us-ascii?Q?bi/xv2flt9K34DlZp31eG481nxWktmrxW2B//c4bqyU4HIF03tcjCwdeDAR9?=
- =?us-ascii?Q?RP4dGFtGDBH5uOkprsSINcp0RmkzixNhq2TQYgWh0HCPVUJr5ti/rAb8CXoO?=
- =?us-ascii?Q?1ZP84Yjze/IXl5J8geemubM6TswJefFzp2iJ6T21T2MwNePVizXa+ctZiWj0?=
- =?us-ascii?Q?i7qiMWUJcUcMWY6GAqEeqSk4wP+571rCbDx9oYqRcyhosC8qxIeN1FfAKjLu?=
- =?us-ascii?Q?YGlBW9gT4fuB2LH5FbcNKX/88rvYrsYYap7EYE6L8TRM2RY7/jdK5cHJ0uMK?=
- =?us-ascii?Q?rf1/gsYuE9612Kr0IInucUHpiP9qSeCnZ9cU9z0zzbpkRAft6mcuq/HS2ONk?=
- =?us-ascii?Q?Ywt21XdMPEB9SzJzcWTM8L/eNjbpiDhQlvFoCwRRv4Z5YkotiAfGHExVj75I?=
- =?us-ascii?Q?PT2Vs4x6lv0bsMc78N8WTeiigX6agNwIkgQyYB0KgA=3D=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MwNFglDB21HKxztxD6yXQIR52Xeq3e5Bq5GR7grGHi7UzwTo13wWZivjUMJ/?=
- =?us-ascii?Q?UpRKinghRuUDmiTtW+3PNYwAxq2wWbmGExxD7uwgagOFZAkDqxwvtjrStKxS?=
- =?us-ascii?Q?3EqXZWFIZK0wcd0PS/btGSfkaA7I2HAfgGtD+OpueEzxUsUJR5iTv3kvCXff?=
- =?us-ascii?Q?kEAEmpklXEVZdpGRe07b3feLPek7yI66SmXdEfumgUuNNlhGa4oIOZW2QADQ?=
- =?us-ascii?Q?Buz1rZZmgODd1+aTrBqKJcgf9ifm6CIXA2BfwM0GiF/sOqDM38i1GxB5Mhqq?=
- =?us-ascii?Q?i6FRvLsi9X/DU/T9SUZHno+LHJM2RAhRta8lk9f0+f+BvJVWO3TVUoKrVtfA?=
- =?us-ascii?Q?chkkCfcnwR2f4k0Pf55mJryBCUW4sVH2oNvxPXQcKsAbW/Y+sRx0UyyKPx/W?=
- =?us-ascii?Q?/L2QaHruvzSeTR7A4WGEGWD59lrqQ+DrWBh+HiqYBWuRoM7TfI4tRySfB4Tr?=
- =?us-ascii?Q?mt+HqOADwPKxC0LTnM02cLNMOhskJXt5JDEbci0YDzMExUOO2CUkFv1VHhte?=
- =?us-ascii?Q?FcTh6VUfWdud+pMtB/JtGBCMsrvr9pst/e8PDCCRtUVgQ4beGf/iG4EiZIPg?=
- =?us-ascii?Q?+cxwXZRhrDEcKN8Zc6uylb/nfWw5beyZhIcbYx6Jx0Ze6d2/3Nfr+SXLU9j5?=
- =?us-ascii?Q?1GmfmsMFAgAc/dv9AgVW1SHovE/Z8rlIZuC1aE65AvsJ+zBwYx3SZZ2MOqo3?=
- =?us-ascii?Q?6hPbFXOkaDFnWDmvMlMthLxyHRdEex/JiwhU5bJ6y/9k/fBqdFbU34e9CrKF?=
- =?us-ascii?Q?63MxoEvP+ie3Jyv8o+Dvq7cUvXas/eYDRPo8IifokLlUwGv/8cUDsirK8+zc?=
- =?us-ascii?Q?w446OSEVDqIRckzqlpGc+X+CAtj5ttEBu62gzh7cU+nSfR6XZuTmBdOGc1lw?=
- =?us-ascii?Q?9DwMnZeUHupGEufAWZ7a7NHur1d4+lojWr6Ll55f0olaGMmBNyKiYLd9PT+/?=
- =?us-ascii?Q?J6qHRlmAb4ny4QkRUtbtsOt935dySfJ2rHRpRc1Ow3XDZO7WyUfaVPsVqzNQ?=
- =?us-ascii?Q?IVk/zic/7cft5+CHvQ/chsq2+jswb0triwiuUX9snpo0uyMIETLVoupiGs9C?=
- =?us-ascii?Q?AigTN9aY6dDlI7r4z6lhkw88pPLcgrWBSwCmT03tI5OH85pOPPd30wcqrzbr?=
- =?us-ascii?Q?yccSbrg5W7X1D13e+/Mil5+EFnD1fqDCgp6v5FKrDoXnSlP3y1bYu4LiVou/?=
- =?us-ascii?Q?eK/uxadRjHU+2B0upAi51Nv0IkYvFLJmutIuevynfu7M0yDSIlVHARrLH/qJ?=
- =?us-ascii?Q?oYI8J8BRYP2KmxqUUJGb?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 116036d4-96a2-40f1-368a-08ddae1a2d7f
-X-MS-Exchange-CrossTenant-AuthSource: OSBPR01MB1670.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 03:42:41.5970
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB6477
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowACH2FDLPFJooa5HBw--.34075S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tF43KFyxJw47Cw13Kr4Uurg_yoW8Jw48pF
+	n7Gay8GrWvy3yUX3W5AF1DZFyrGa9F934qyFy2g3yavF1Sqws3tFWrJr1fKrnrCFW3Aa13
+	trs8t3ZFqFW7CrJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWrXVW3AwAv7VC2z280aVAFwI0_GcC_XcWlOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCY02Avz4vE14v_Gryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjTRiOz3UUUUU
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_204253_627694_F0CF8992 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250618_051313_497997_2E261635 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,100 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the reset operation to the common part to reduce the code
-redundancy. They are actually the same and needed for all SoCs.
-Disabling power and clock are unnecessary for MT7620 and will be
-removed. In vendor SDK, it's used to save the power when the PCI
-driver is not selected. The MT7628 GPIO pinctrl has been removed
-because this should be done in device-tree. Some delay intervals
-have also been increased to follow the recommendations of the SoC
-SDK and datasheet. Tested on both MT7620 and MT7628.
+Use the function usb_endpoint_num() and usb_endpoint_type()
+rather than constants.
 
-Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+The Coccinelle semantic patch is as follows:
+
+@@ struct usb_endpoint_descriptor *epd; @@
+
+- (epd->bEndpointAddress & \(USB_ENDPOINT_NUMBER_MASK\|0x0f\))
++ usb_endpoint_num(epd)
+
+@@ struct usb_endpoint_descriptor *epd; @@
+
+- (epd->bmAttributes & \(USB_ENDPOINT_XFERTYPE_MASK\|3\))
++ usb_endpoint_type(epd)
+
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 ---
- arch/mips/pci/pci-mt7620.c | 38 +++++++++++++-------------------------
- 1 file changed, 13 insertions(+), 25 deletions(-)
+ drivers/usb/gadget/udc/udc-xilinx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/mips/pci/pci-mt7620.c b/arch/mips/pci/pci-mt7620.c
-index 81a49b05f..aae844f27 100644
---- a/arch/mips/pci/pci-mt7620.c
-+++ b/arch/mips/pci/pci-mt7620.c
-@@ -29,7 +29,6 @@
- #define RALINK_SYSCFG0			0x10
- #define RALINK_SYSCFG0_XTAL40		BIT(6)
- #define RALINK_CLKCFG1			0x30
--#define RALINK_GPIOMODE			0x60
+diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
+index fa94cc065274..8d803a612bb1 100644
+--- a/drivers/usb/gadget/udc/udc-xilinx.c
++++ b/drivers/usb/gadget/udc/udc-xilinx.c
+@@ -813,10 +813,10 @@ static int __xudc_ep_enable(struct xusb_ep *ep,
  
- #define PPLL_CFG1			0x9c
- #define PPLL_LD				BIT(23)
-@@ -246,19 +245,6 @@ static int mt7620_pci_hw_init(struct platform_device *pdev)
- 	/* Elastic buffer control */
- 	pcie_phy(0x68, 0xB4);
+ 	ep->is_in = ((desc->bEndpointAddress & USB_DIR_IN) != 0);
+ 	/* Bit 3...0:endpoint number */
+-	ep->epnumber = (desc->bEndpointAddress & 0x0f);
++	ep->epnumber = usb_endpoint_num(desc);
+ 	ep->desc = desc;
+ 	ep->ep_usb.desc = desc;
+-	tmp = desc->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK;
++	tmp = usb_endpoint_type(desc);
+ 	ep->ep_usb.maxpacket = maxpacket = le16_to_cpu(desc->wMaxPacketSize);
  
--	/* put core into reset */
--	bridge_m32(PCIRST, PCIRST, RALINK_PCI_PCICFG_ADDR);
--	reset_control_assert(rstpcie0);
--
--	/* disable power and all clocks */
--	rt_sysc_m32(RALINK_PCIE0_CLK_EN, 0, RALINK_CLKCFG1);
--	rt_sysc_m32(LC_CKDRVPD, PDRV_SW_SET, PPLL_DRV);
--
--	/* bring core out of reset */
--	reset_control_deassert(rstpcie0);
--	rt_sysc_m32(0, RALINK_PCIE0_CLK_EN, RALINK_CLKCFG1);
--	mdelay(100);
--
- 	if (!(rt_sysc_r32(PPLL_CFG1) & PPLL_LD)) {
- 		dev_err(&pdev->dev, "pcie PLL not locked, aborting init\n");
- 		reset_control_assert(rstpcie0);
-@@ -275,14 +261,6 @@ static int mt7620_pci_hw_init(struct platform_device *pdev)
- 
- static void mt7628_pci_hw_init(struct platform_device *pdev)
- {
--	/* bring the core out of reset */
--	rt_sysc_m32(BIT(16), 0, RALINK_GPIOMODE);
--	reset_control_deassert(rstpcie0);
--
--	/* enable the pci clk */
--	rt_sysc_m32(0, RALINK_PCIE0_CLK_EN, RALINK_CLKCFG1);
--	mdelay(100);
--
- 	/* voodoo from the SDK driver */
- 	pcie_phyctrl_set(0x400, 8, 1, 0x1);
- 	pcie_phyctrl_set(0x400, 9, 2, 0x0);
-@@ -334,6 +312,16 @@ static int mt7620_pci_probe(struct platform_device *pdev)
- 	ioport_resource.start = 0;
- 	ioport_resource.end = ~0;
- 
-+	/* reset PCIe controller */
-+	reset_control_assert(rstpcie0);
-+	msleep(100);
-+	reset_control_deassert(rstpcie0);
-+	rt_sysc_m32(0, RALINK_PCIE0_CLK_EN, RALINK_CLKCFG1);
-+	msleep(100);
-+
-+	/* assert PERST_N pin */
-+	bridge_m32(PCIRST, PCIRST, RALINK_PCI_PCICFG_ADDR);
-+
- 	/* bring up the pci core */
- 	switch (ralink_soc) {
- 	case MT762X_SOC_MT7620A:
-@@ -350,11 +338,11 @@ static int mt7620_pci_probe(struct platform_device *pdev)
- 		dev_err(&pdev->dev, "pcie is not supported on this hardware\n");
- 		return -1;
- 	}
--	mdelay(50);
-+	msleep(500);
- 
--	/* enable write access */
-+	/* deassert PERST_N pin and wait PCIe peripheral init */
- 	bridge_m32(PCIRST, 0, RALINK_PCI_PCICFG_ADDR);
--	mdelay(100);
-+	msleep(1000);
- 
- 	/* check if there is a card present */
- 	if ((pcie_r32(RALINK_PCI0_STATUS) & PCIE_LINK_UP_ST) == 0) {
+ 	switch (tmp) {
 -- 
-2.39.5
+2.25.1
 
 
