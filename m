@@ -4,87 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7555BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C0EC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0xp10ab3DqH1HqveEGe3XZUAgNyFlJVdwlycMhfs3r0=; b=j3aw7cL1rAGNYz3jVOCZrebakQ
-	A5P8jVN0T+e2s0DLPebcKavO0BLF5gRoyoLbVVFOU6jqrtU/DSAUhUJgP6rHQIT4qhQl6RiB2VBrk
-	fL+XmT9q+Y2bDZV2rnqHkNVCOoEWoBg5+tR/jGqLUkS5t2r2Ongst6ImAG4cW44kFAv24W4C4Hu/6
-	edZ3tS3gEvhxQHbL9uGXKjHSifC2P4VbSIWZm/FMm5PR5kbjK0l2uXbdNVQq72tW4Ny3jUVq/sqoZ
-	y/l8vqrgPiZ1mxR80KNg59FwEInGId280Cubj6n4iThmFfH+pN81pVvY9rcchUjuVo04UwF9hC5DP
-	BcYYHZ7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9KgmgHxNMOikxs0GimsDmHm95L9FSFkx8FC+1mSAm5I=; b=vXDpXeoGCU3MxGsBaNNeQ1m74c
+	QBakC2CKGRmqZcufFO493O7RVUNxt/nD9p8lfc+/gMtvMeNKVHNEav+1DBIZkYfsJ32Dh8OVY9Jkb
+	LEeofKTXX95bnxkbEKdQaR63ieCXzq1tucobvwzWB4gpPeowuYK9orD0vT5BlYf8j/GIsY2+woi2+
+	flXOpUyM6crIR6FZ+lTBquhOH9sgcWttlzH4r6OkikjgPYVIE+jSw/FndJOObNS9ByfJq7Yj1R6zb
+	zlXIgXeMGhuGJhKmLdYq8TAMXALDuTQA9c9GeQtmdFOdJ1sQezppdGgX+ECGg4TBiOr5IcVXsemga
+	WqJyB6dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmV5-00000009Cha-3bN9;
-	Wed, 18 Jun 2025 06:42:23 +0000
-Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
+	id 1uRmXH-00000009D7v-2Vv8;
+	Wed, 18 Jun 2025 06:44:39 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmPx-00000009Bmx-0DSS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 06:37:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1750228625; x=1781764625;
-  h=from:to:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=CeM3TrrTAoJ+FVlEhnI1qRxdC5khkvegE/M+otO9CYQ=;
-  b=NOSLtgRASJnLAcJRZTdEWu7PwSg09fPxHhd1HyOtyQ7XqkCApdgpO5yE
-   oj9wJNKWyiG30q6tKkoiN5Lz/nUN3LfK93nPIBsMUv4BPR3LbHRsYdWVJ
-   J/FPysYgm9FAKBYX6rz/RjQLL6ixHGfu1F+aTq3CmrNmxQMzxeE3eVRy2
-   Zi3F+HJ+qrYKV6243uAJq/pvulLutYzJlW7j83u5MmAKs29qPVWOgcSFP
-   qDPV6Ljmft09VmKGzucOb13yPgvNb87a+f6Bnqzb9JPWQkPuCOLYs/APL
-   5PTKArjAYo2OubGveM/pJiA9LMs+Xu13kghtN/AFGkB7ZNP0sOj5k6g/v
-   Q==;
-X-CSE-ConnectionGUID: GeSGHR+jRF6/mGIHGEqcAw==
-X-CSE-MsgGUID: JQFD2YEwTJSsK2umX2DXbg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11467"; a="202344115"
-X-IronPort-AV: E=Sophos;i="6.16,245,1744038000"; 
-   d="scan'208";a="202344115"
-Received: from unknown (HELO oym-r4.gw.nic.fujitsu.com) ([210.162.30.92])
-  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 15:37:00 +0900
-Received: from oym-m4.gw.nic.fujitsu.com (oym-nat-oym-m4.gw.nic.fujitsu.com [192.168.87.61])
-	by oym-r4.gw.nic.fujitsu.com (Postfix) with ESMTP id 170C0D8E64
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 15:36:58 +0900 (JST)
-Received: from yto-om2.fujitsu.com (yto-om2.o.css.fujitsu.com [10.128.89.163])
-	by oym-m4.gw.nic.fujitsu.com (Postfix) with ESMTP id B1F16D6172
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 15:36:57 +0900 (JST)
-Received: from sm-x86-amd03.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by yto-om2.fujitsu.com (Postfix) with ESMTP id B7D194005775F;
-	Wed, 18 Jun 2025 15:36:56 +0900 (JST)
-From: "Kotaro, Tokai" <fj0635gf@aa.jp.fujitsu.com>
-To: John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Kotaro, Tokai" <fj0635gf@aa.jp.fujitsu.com>
-Subject: [PATCH] perf vendor events arm64: Update FUJITSU-MONAKA pmu event
-Date: Wed, 18 Jun 2025 15:35:42 +0900
-Message-ID: <20250618063618.1244363-1-fj0635gf@aa.jp.fujitsu.com>
-X-Mailer: git-send-email 2.43.5
+	id 1uRmTo-00000009CWK-3tZq;
+	Wed, 18 Jun 2025 06:41:06 +0000
+X-UUID: 32a623204c0f11f09eb0dd999d3936bf-20250617
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=9KgmgHxNMOikxs0GimsDmHm95L9FSFkx8FC+1mSAm5I=;
+	b=gMeuYEK69JUTaVeOwKQonk9QtnpFhZ/GOBVMGMpauDSJu3AV9forMN3sTizdiHg+hrWyKDkL5cEnfgmvBl7CidA9LA2xRGeQWdO42G5y8cKKopDcUGtV6hHwCOvaBANwRC0qMy7CfZFmuNPjOrMCijiPBR5lhs+GVXiAealWGro=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:284c4a2d-26d9-44e9-b169-1ad96e16a806,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:09905cf,CLOUDID:2bd51a77-7521-4364-b0ef-cd7d9c0ecbde,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
+	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 32a623204c0f11f09eb0dd999d3936bf-20250617
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1772616292; Tue, 17 Jun 2025 23:41:00 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 18 Jun 2025 14:40:57 +0800
+Received: from TYPPR03CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 18 Jun 2025 14:40:57 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iUsRHw+uXqCDNf12FkAUkv9NTgxLbC//OfvN0Qcmn2APD0ONqJbiUUGjlMkaNvvEdquk0vDhP8j+7sIY7jk0god10F6hRdvgmITAUjZthHh+hXMBtOHhAnBj3tnQ1bCs5MVjFXxZQyyParLRwGxPD9hHZ0rg3gHgGAwoecrcYIhNvQSJrGJWmiMKSX4aTLEKEub7OvEjqIimRsKYolLkfvI3U6JdEljVnOBy3xNapn6+mxF8KIe6asiExbsLbWzXKLlN8zn1xnX/2XLxiL+gdi3H2hDzt6rkxEUH92JLjNE37jYN8+4vbdVCEJ2pbES+kj2mDENZnLQBgl8LiDn6BA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9KgmgHxNMOikxs0GimsDmHm95L9FSFkx8FC+1mSAm5I=;
+ b=bQOh6Q8rub2bOyqEHI9ZBcZULwFl+qjRiOua6txJEW1am8cehI3hIcQXtKYm1auFvrmo4i6dtbRr+AeIu4XteFHMWCYzMtojlslTvO2h1Mq0/GijCop3G1clmuy2LAvajGdy4Ez9gpQXqmqAI6loYWBTQFLvD7BWhANHDYRAzslk5+sc0BgrynU6Q1DALQ7fZcs8mNNjJ4qa6fi0Yo91ym+v+dwsOwWNfAyHBB8P552lisSv0J+tuJ3sHKzVYmTmUXzxZtNRU+xhb/pITCqG2nUIuv0bnfR19nSrtkd6QXi6DNv7maPj8RqgifRqu6EXccldvck2My9mTNZ9bdjxpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9KgmgHxNMOikxs0GimsDmHm95L9FSFkx8FC+1mSAm5I=;
+ b=VQUbBuSF73bDkTe2xY72uUFn2+0Wur0xMsNPZBwrXtxufOOkoje8EClJiAmXClDe2IM0uOkabbkNlXcbOBIxe1fmQN6/6usF7hjP3u93UVz13Nm9xsmYs4NkGJShQAni+IqkRMlYtfEMqVIEjmBb8I1bRzDMciWFonOu5fFpmPs=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by SG2PR03MB6827.apcprd03.prod.outlook.com (2603:1096:4:1d7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.20; Wed, 18 Jun
+ 2025 06:40:52 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54%5]) with mapi id 15.20.8835.027; Wed, 18 Jun 2025
+ 06:40:52 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, =?utf-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?=
+	<Paul-pl.Chen@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: =?utf-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>,
+	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+	=?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+	=?utf-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+	<Xiandong.Wang@mediatek.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"fshao@chromium.org" <fshao@chromium.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, =?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?=
+	<Singo.Chang@mediatek.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "treapking@chromium.org" <treapking@chromium.org>
+Subject: Re: [PATCH v3 13/17] drm/mediatek: add BLENDER support for MT8196
+Thread-Topic: [PATCH v3 13/17] drm/mediatek: add BLENDER support for MT8196
+Thread-Index: AQHbxXzSW3PWtsK69EWC+y/eOuAOLbQIrOOA
+Date: Wed, 18 Jun 2025 06:40:51 +0000
+Message-ID: <6b561f320d4e614f37d065f5769759bef5f08632.camel@mediatek.com>
+References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+	 <20250515093454.1729720-14-paul-pl.chen@mediatek.com>
+In-Reply-To: <20250515093454.1729720-14-paul-pl.chen@mediatek.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SG2PR03MB6827:EE_
+x-ms-office365-filtering-correlation-id: 76e157c7-ec8e-4fb9-c1d9-08ddae3311b8
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?THhmQVl0THR2THQrYzRmUHBQV3RFa2xuYXJqakJGYjZxcEFuR0d4VzdPaU41?=
+ =?utf-8?B?cGx6UWZWdUpKT1FMSlByM2swUDN4N0xUVTlkTUZTb1lFTmJlVXBseFhCVWIv?=
+ =?utf-8?B?d1dpbGV6QW1GUlgzQ25xTVpLQjM4Z09Dd3ZTUmNTeDJjaU90N0NvVTlSYWVS?=
+ =?utf-8?B?ZURrcWIzQjJoM09jTThOSGVjK0xVYjVJSzYyU2MzSWJyM2Fpbkd0bEJhcUlq?=
+ =?utf-8?B?M3B6U3ppb3IwRVRUSExYRVZZSy9QSnhsb29pV2FhT0hlNmVncElTbDlBYUFv?=
+ =?utf-8?B?dEx1NHNvMi91T3JFOHlDOWJUSE02bUZtMFdYLzFoQnF0NlorVFNZbWRPR094?=
+ =?utf-8?B?NlZNT0g1bDVlMXl5WWdvMndiSWtkYWVrU0JiWFlZdnRxRWFwZ0tPMWhITU5r?=
+ =?utf-8?B?dzZmSHV5bkJvOGE2Z25TS2ZESmVma1E2VEtkaWN3K0FSUVN4dlhHUkRYUUN6?=
+ =?utf-8?B?dzY0VWlyanBRdGZRQlF5YzRMY0ZqVWhpcU5QbWhTaW9PNkY0bjZIT3dQblo5?=
+ =?utf-8?B?dE0zdEJpUmRxTk1kR2ljK1RiVlprN0JFaVkvcGU5VlM3ZzdzSStJYWZmYnpu?=
+ =?utf-8?B?dEI5UjM5aExBbFRjNXFnTitiM1NMMFJ6ck5iblArVHNkZm9WTVYvdEdrMW9Z?=
+ =?utf-8?B?QjFTSmNVTWNWZkd1NmRzaE81WlBZNHprNlVVSFpZem1QQnh4Y1gwZmY3d0E5?=
+ =?utf-8?B?LzczbEl3SjdEaExxWEppNDJrTGpjSkkxbmNYUS9wTkR2bUhTZkordDFGOVY4?=
+ =?utf-8?B?Y0lKQ1BYaVF1ZzRxTVpwQ1JuVWpBTVU0Ukk5N1JuYkFvYTdydHRpdnBLY2tj?=
+ =?utf-8?B?a0hOQ2FxU28xcGRGZmZBaWhjYmNQRWdWMUxwdmVlQ3pFOEFtU205U2xHNXRW?=
+ =?utf-8?B?U1c5OUxlMnR0aFppYnlidzZpcXc2cnNrZnRDL0NVUVZwOWlVNTcwdmN0aC92?=
+ =?utf-8?B?dThiWjVyVm9HNzRScnBnOFMxK3RxTi9Za21BeHpjd1FjZENDL0RheC9FOElX?=
+ =?utf-8?B?MHlFWUdOMzVpamVSN1NmTjFibUFXbHdnUWdTUFE0RzBnVUVGUkNEV2pTSnQv?=
+ =?utf-8?B?aXJ3Y2dMaGtJV1hCRlFLQlBYNjlQM3g2Um1UWVdoYVhJRkkyTW9HbHQ3aHVv?=
+ =?utf-8?B?TzYvaS9iM2RJaXlNTHl3Y0JPSjRHVzMwQzBPaVltbDlwQ2FmcjFTN1kxRnJ5?=
+ =?utf-8?B?cVdqOExscTMrdmVvL0E0VHBOVXBKazZrSVhqZ2NIYVdNSjhFTjNoMTlqeEhZ?=
+ =?utf-8?B?cXhIalIrTU5iTFhRSEx5aGNqa2dKbEtTL3BJZmhxdzZZQTE3L3NDZlg3SlJn?=
+ =?utf-8?B?Z0dQb3daQXVSVi9lbXJPR0FBOVJIZUpNV3dDV3RZTE13QTNpemVpenE2YVh1?=
+ =?utf-8?B?akMrc3BEdGxuWkFSQXc2b2NUaGZNYVZ0cEI2Q2g1b0xmbjVxVDZlVWtldUpX?=
+ =?utf-8?B?LzVrQkZJUVdSVGF6K3I2WDJSdDdlcFdrNUhOcU9FcGY5OSt4eFltSm1MdzR1?=
+ =?utf-8?B?QkF0N0ZqbWZ6eUFSUEpid215ck4rRjg5NlJpMWQ0TGI5SDE4K29VWUpHcCtR?=
+ =?utf-8?B?UUFSWHpsOFBoOVVIWDZrR1pXMTk2YWtWZHdMd0s5THA5ZXNYS1IvVG80L2lH?=
+ =?utf-8?B?bENiQmtybnNONkpDVmtab0VRVlNwaUUvRjZjdjZ1SFQ4THpOM1lOZVNkWk5Z?=
+ =?utf-8?B?cXY3amcxbVlOL0hSUTZWRDMwRjJmbURJb2FVaHRXZWJEMVVtSm0wK0crcnRJ?=
+ =?utf-8?B?bjhnYTQ4T29JV0VtcWRhc2wxcjJYTHhMT3pqekdSSlB0QlV0dkh4RFE3YWNk?=
+ =?utf-8?B?KzZZSkIyWVNyRWdmc0kydEE3QnhoOFhPWjhFRTdxSksvVDF3SEVuVzBVbzkx?=
+ =?utf-8?B?ckJTb1hsYlVqMDVBekdQWS8wL0pIZ0hJS2RZQ056MU1mSC92Ny9tN1NjcDVW?=
+ =?utf-8?B?djNQeFZGRW9DWW95bEJDK2lnUlpnSG1pUXpGSnVnbW1haXp1eUFOV0IxKzZX?=
+ =?utf-8?B?UkFyY0cxZTFRPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NFlTVXJwUURib3hUMWh3cWhjcDVlV3YrMUhERVpuRWlNSWJBbWIzNVFLcmNT?=
+ =?utf-8?B?UDd3amRmc1Y0UVJoZlI2Y1dHK0ZGVk15eS9NZ3RucmcxQkF0TlhlZHlzNjdh?=
+ =?utf-8?B?N3JMVFptTzZhd2hNQlk1S1VKNm82bWk1UnBZVkVjOVZ0TUNLME9UVFNVQlRp?=
+ =?utf-8?B?eFBHUFA4a0EzN0JBd3ZBNmlmUHJ6TDN6Zkd1S20xMTZUL0FNUzJJWXpLS0dU?=
+ =?utf-8?B?dHc5SWpuSE95OEJlSnR3eG5SMjBUSFZUcUhSS09ibHZlOGxzbVkxNDFLeHJP?=
+ =?utf-8?B?Rjl1UGxjcGlEQVArWGhKb3FWVmVWc2YzaVNCNkZRWUV0VmhMSVBYUmVJam1u?=
+ =?utf-8?B?bXcxVkdIRmgySGYwc1owK1Y3eHZhUHhENkt0eXdrOTl5M2h5Z3R3VGZiN21B?=
+ =?utf-8?B?bXQ0NWZybnFON2hOU29uNHZMODl5OXNJR1dDcURmazNTK2xHSVNvenVta2lO?=
+ =?utf-8?B?aDJHWEJORUZEckRZck8vV1I5ZzRTNnpBL0tJM2tLVVhKZG0wNWFGcFEwMFU4?=
+ =?utf-8?B?Vk5KajlhSXFBbmlqU04zZ0UvWDFrODhDdTJwT0tocmQwSzU4TTh1czNRVEwz?=
+ =?utf-8?B?VFFBREhpK2pyblA0WnpaOUxMK255d0QrSFZXSG5yNDVSZExwUEllcUVRcnRk?=
+ =?utf-8?B?ajk3QXpvU1dlcnRoc0ZvcEVJWXpUTG9YVmw5TDR4Z2NXL0gyTjRONUdWd21B?=
+ =?utf-8?B?RWlCNCtxRGJZeTB0U25qWVZWTVF6dlduSEw5Zi9vYk00SEVoY2RnbUFIeUEy?=
+ =?utf-8?B?TUQ5clVKVENJUGJUeW5pbjdieEZKMGpRU2gzblpidlpHMVZyb0d0OThKYnhl?=
+ =?utf-8?B?QndJWm9jd3h1TnhpdDgzNTB4VUlhU3BicVFQNmIzMC95Rys2VUFScVN2Undj?=
+ =?utf-8?B?cUtERTlLR2RxaUd5bTR2NThWZTYvM3J4TDNucU1WUEVXd09sRGppU0lLMXd5?=
+ =?utf-8?B?NFh3UDVxMWtnYzJxT0MvekhORU9OUktHR3RiTmRkVlJDTlRSQWlwZ3RqZGhD?=
+ =?utf-8?B?NDVNQmRaNGJzNFZLdm1SRjZuUnMxdmJQRzJaS0I1Yy9BQTJUaDZwWXZ1NVpC?=
+ =?utf-8?B?UUhFeW5TWjZ2cmFzNVNoajIrblY3M2tSTDRwWDZ1cForWGtKZlpydjFZc044?=
+ =?utf-8?B?TC82S3Z0a0RGV3FRWGpDSE9MYjVDY1ZyL29sY2JPYWE4MjloQlNDSFAwMnZL?=
+ =?utf-8?B?ZmdmSFB4WFp3a21yV21PTmp3cjVVTzlENkcrUUtIYlFMNDU1UkZjZnBKeUhY?=
+ =?utf-8?B?dlVvckJtS1Z1MHBxdUw1Z3dqdzFZY3FoNmxtZVJhMXhNaVNaUkJGamIwdXdK?=
+ =?utf-8?B?WDBmMm85cGt4THlGOWZxQTI2aDR5ZXo2RGZ6VDBnTWVIUmZtMVdmRkloMVp1?=
+ =?utf-8?B?c3gwajZTdTZJT2RCdmdyY3p5V2xmVVdoSUEzK0RndzA1QStmQkZISlpxMk96?=
+ =?utf-8?B?QUgzeHJuV0Q0YlFTc0hmczVQQmJwVUlDZG16cjFUOXdVeHpRSCt4WEYyNnVB?=
+ =?utf-8?B?YlRieDcwQWtRdEwvRDF0Mk53V1VTcURHcEk2NnloRG1vSUhZQzVEZU5sd2N2?=
+ =?utf-8?B?Sm1XZFAxMGI3Y0l6cnF3d3F0V1lYL0gyRGxDd29NWmEzVnc0aTdZdW9CQnl3?=
+ =?utf-8?B?QzhGK3kxUzlaZWExcmhmaE5FWWxWQlM0OWJhSElYY1VlY1pmWkI3cm9mbU5h?=
+ =?utf-8?B?WFk4RFNGb2ZpUjlyaUg0enBUZGpldWRtd1NuNXNsTy9CQTIyVGVZTExFLzFE?=
+ =?utf-8?B?MlhibGNodmszNXhrSFdjN2ErTU56TlJyRDJ5d1oybEdMUFhYaDg0dkVRQUps?=
+ =?utf-8?B?Ylc0SmtTaC83YmdTTzBIZDVYUndOU0FFV0JEZGZLSUhaQ1IvQVdhc3lzK0lS?=
+ =?utf-8?B?a0RBb0NRUHk3ZU5mSHRveWgzK2hFNWFGeEdpdWFKc2V3cVZac2ZLUkZrMmwx?=
+ =?utf-8?B?M1o0NFFqZFJOL0d5RUhLZU9jOUJSMDFybkhuaVpNWVRWd1BuTzFzSnEwckpG?=
+ =?utf-8?B?TkVMWkdOcnl4cUxhNTh1UTM2aDF0ZFZrai83czFVeTY4V200Q3lCOFA2eXov?=
+ =?utf-8?B?bm5MTVdpZnB1QnpkTmhSODVnZEVVRUhZK05IQ2c2RzduQ01Qc3ErQkFoWjRL?=
+ =?utf-8?Q?rvdNMc3fCbFW6iaIFs0F8eNzB?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <D0FD8CEC148F6F4ABB3E46C1B3E40C75@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76e157c7-ec8e-4fb9-c1d9-08ddae3311b8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jun 2025 06:40:51.9729
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fihDsflwvAKdZwRisQ0Wci2UcYeWzVYWhacsDLVhA4ynBhPFq5oRalGOOflZy87Ds8sdqY8ei1/gz8PuLEeoGA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6827
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_233705_664736_0F6DA7B0 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250617_234104_972832_2B8BD8D0 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,1117 +225,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update pmu events for FUJITSU-MONAKA.
-And, also updated common-and-microarch.json.
-
-FUJITSU-MONAKA PMU Events Specification v1.1 and Errata v1.0 URL:
-https://github.com/fujitsu/FUJITSU-MONAKA
-
-Arm Architecture Reference Version L.b URL:
-https://developer.arm.com/documentation/ddi0487/lb/?lang=en
-
-Signed-off-by: Kotaro, Tokai <fj0635gf@aa.jp.fujitsu.com>
----
- .../arch/arm64/common-and-microarch.json      | 70 +++++++++++++
- .../arm64/fujitsu/monaka/core-imp-def.json    |  2 +-
- .../fujitsu/monaka/cycle_accounting.json      |  4 +-
- .../arch/arm64/fujitsu/monaka/exception.json  |  2 +-
- .../arm64/fujitsu/monaka/fp_operation.json    | 98 +++++++++++++++----
- .../arch/arm64/fujitsu/monaka/l1d_cache.json  | 10 +-
- .../arch/arm64/fujitsu/monaka/l1i_cache.json  |  8 +-
- .../arch/arm64/fujitsu/monaka/l2_cache.json   | 28 +++---
- .../arch/arm64/fujitsu/monaka/l3_cache.json   | 63 ++++++------
- .../arch/arm64/fujitsu/monaka/ll_cache.json   |  2 +-
- .../arch/arm64/fujitsu/monaka/pipeline.json   |  6 +-
- .../arm64/fujitsu/monaka/spec_operation.json  | 12 +--
- .../arch/arm64/fujitsu/monaka/stall.json      |  4 +-
- .../arch/arm64/fujitsu/monaka/sve.json        | 44 ++++-----
- .../arch/arm64/fujitsu/monaka/tlb.json        | 56 +++++------
- 15 files changed, 265 insertions(+), 144 deletions(-)
-
-diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-index e40be37addf8..2416d9f8a83d 100644
---- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-+++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-@@ -1833,5 +1833,75 @@
-         "EventCode": "0x8324",
-         "EventName": "L1I_CACHE_REFILL_PERCYC",
-         "BriefDescription": "Level 1 instruction or unified cache refills in progress."
-+    },
-+    {
-+        "EventCode": "0x8431",
-+        "EventName": "ASE_FP_VREDUCE_SPEC",
-+        "BriefDescription": "Floating-point operation_speculatively_executed, Advanced SIMD pairwise or reduction."
-+    },
-+    {
-+        "EventCode": "0x8432",
-+        "EventName": "SVE_FP_PREDUCE_SPEC",
-+        "BriefDescription": "Floating-point operation_speculatively_executed, Advanced SIMD pairwise add step or pairwise reduce step."
-+    },
-+    {
-+        "EventCode": "0x8443",
-+        "EventName": "ASE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "Advanced SIMD data processing operation speculatively_executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x8444",
-+        "EventName": "ASE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "Advanced SIMD data processing operation speculatively_executed, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "EventCode": "0x844B",
-+        "EventName": "ASE_SVE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "Advanced SIMD data processing or SVE data processing operation speculatively_executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x844C",
-+        "EventName": "ASE_SVE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "Advanced SIMD data processing or SVE data processing operation speculatively_executed, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "EventCode": "0x8463",
-+        "EventName": "SVE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "SVE data processing operation speculatively_executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x8464",
-+        "EventName": "SVE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "SVE data processing operation speculatively_executed, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "EventCode": "0x8473",
-+        "EventName": "FP_BF16_MIN_SPEC",
-+        "BriefDescription": "Floating-point operation speculatively_executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x8474",
-+        "EventName": "FP_FP8_MIN_SPEC",
-+        "BriefDescription": "Floating-point operation speculatively_executed, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "EventCode": "0x8483",
-+        "EventName": "FP_BF16_FIXED_MIN_OPS_SPEC",
-+        "BriefDescription": "Non-scalable element arithmetic operations speculatively executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x8484",
-+        "EventName": "FP_FP8_FIXED_MIN_OPS_SPEC",
-+        "BriefDescription": "Non-scalable element arithmetic operations speculatively executed, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "EventCode": "0x848B",
-+        "EventName": "FP_BF16_SCALE_MIN_OPS_SPEC",
-+        "BriefDescription": "Scalable element arithmetic operations speculatively executed, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "EventCode": "0x848C",
-+        "EventName": "FP_FP8_SCALE_MIN_OPS_SPEC",
-+        "BriefDescription": "Scalable element arithmetic operations speculatively executed, smallest type is 8-bit floating-point."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/core-imp-def.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/core-imp-def.json
-index 52f5ca1482fe..57a854ff5033 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/core-imp-def.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/core-imp-def.json
-@@ -1,6 +1,6 @@
- [
-     {
-         "ArchStdEvent": "L1I_CACHE_PRF",
--        "BriefDescription": "This event counts fetch counted by either Level 1 instruction hardware prefetch or Level 1 instruction software prefetch."
-+        "BriefDescription": "This event counts L1I_CACHE caused by hardware prefetch or software prefetch."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/cycle_accounting.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/cycle_accounting.json
-index 24ff5d8dbb98..84374adbb0f8 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/cycle_accounting.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/cycle_accounting.json
-@@ -12,12 +12,12 @@
-     {
-         "EventCode": "0x0184",
-         "EventName": "LD_COMP_WAIT",
--        "BriefDescription": "This event counts every cycle that no instruction was committed because the oldest and uncommitted load/store/prefetch operation waits for L1D cache, L2 cache and memory access."
-+        "BriefDescription": "This event counts every cycle that no instruction was committed because the oldest and uncommitted load/store/prefetch operation waits for L1D cache, L2 cache, L3 cache and memory access."
-     },
-     {
-         "EventCode": "0x0185",
-         "EventName": "LD_COMP_WAIT_EX",
--        "BriefDescription": "This event counts every cycle that no instruction was committed because the oldest and uncommitted integer load operation waits for L1D cache, L2 cache and memory access."
-+        "BriefDescription": "This event counts every cycle that no instruction was committed because the oldest and uncommitted integer load operation waits for L1D cache, L2 cache, L3 cache and memory access."
-     },
-     {
-         "EventCode": "0x0186",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/exception.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/exception.json
-index f231712fe261..fba66bbcfeb5 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/exception.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/exception.json
-@@ -33,7 +33,7 @@
-     },
-     {
-         "ArchStdEvent": "EXC_SMC",
--        "BriefDescription": "This event counts only Secure Monitor Call exceptions. The counter does not increment on SMC instructions trapped as a Hyp Trap exception."
-+        "BriefDescription": "This event counts only Secure Monitor Call exceptions. This event does not increment on SMC instructions trapped as a Hyp Trap exception."
-     },
-     {
-         "ArchStdEvent": "EXC_HVC",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/fp_operation.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/fp_operation.json
-index a3c368959199..2ffdc16530dd 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/fp_operation.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/fp_operation.json
-@@ -2,7 +2,7 @@
-     {
-         "EventCode": "0x0105",
-         "EventName": "FP_MV_SPEC",
--        "BriefDescription": "This event counts architecturally executed floating-point move operations."
-+        "BriefDescription": "This event counts architecturally executed floating-point move operation."
-     },
-     {
-         "EventCode": "0x0112",
-@@ -24,7 +24,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point operation."
-     },
-     {
-         "ArchStdEvent": "FP_HP_SPEC",
-@@ -40,7 +40,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_HP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE half-precision floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE half-precision floating-point operation."
-     },
-     {
-         "ArchStdEvent": "FP_SP_SPEC",
-@@ -56,7 +56,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_SP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE single-precision floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE single-precision floating-point operation."
-     },
-     {
-         "ArchStdEvent": "FP_DP_SPEC",
-@@ -72,7 +72,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_DP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE double-precision floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE double-precision floating-point operation."
-     },
-     {
-         "ArchStdEvent": "FP_DIV_SPEC",
-@@ -88,7 +88,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_DIV_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point divide operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point divide operation."
-     },
-     {
-         "ArchStdEvent": "FP_SQRT_SPEC",
-@@ -104,7 +104,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_SQRT_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point square root operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point square root operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_FMA_SPEC",
-@@ -116,11 +116,11 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_FMA_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point FMA operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point FMA operation."
-     },
-     {
-         "ArchStdEvent": "FP_MUL_SPEC",
--        "BriefDescription": "This event counts architecturally executed floating-point multiply operations."
-+        "BriefDescription": "This event counts architecturally executed floating-point multiply operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_MUL_SPEC",
-@@ -132,11 +132,11 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_MUL_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point multiply operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point multiply operation."
-     },
-     {
-         "ArchStdEvent": "FP_ADDSUB_SPEC",
--        "BriefDescription": "This event counts architecturally executed floating-point add or subtract operations."
-+        "BriefDescription": "This event counts architecturally executed floating-point add or subtract operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_ADDSUB_SPEC",
-@@ -148,19 +148,19 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_ADDSUB_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point add or subtract operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point add or subtract operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_RECPE_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD floating-point reciprocal estimate operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD floating-point reciprocal estimate operation."
-     },
-     {
-         "ArchStdEvent": "SVE_FP_RECPE_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE floating-point reciprocal estimate operations."
-+        "BriefDescription": "This event counts architecturally executed SVE floating-point reciprocal estimate operation."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_RECPE_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point reciprocal estimate operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point reciprocal estimate operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_CVT_SPEC",
-@@ -172,15 +172,15 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_CVT_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point convert operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point convert operation."
-     },
-     {
-         "ArchStdEvent": "SVE_FP_AREDUCE_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE floating-point accumulating reduction operations."
-+        "BriefDescription": "This event counts architecturally executed SVE floating-point accumulating reduction operation."
-     },
-     {
-         "ArchStdEvent": "ASE_FP_PREDUCE_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD floating-point pairwise add step operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD floating-point pairwise add step operation."
-     },
-     {
-         "ArchStdEvent": "SVE_FP_VREDUCE_SPEC",
-@@ -188,15 +188,15 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_VREDUCE_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE floating-point vector reduction operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE floating-point vector reduction operation."
-     },
-     {
-         "ArchStdEvent": "FP_SCALE_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE arithmetic operations. See FP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by (128 / CSIZE) and by twice that amount for operations that would also be counted by SVE_FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed SVE arithmetic operation. See FP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by (128 / CSIZE) and by twice that amount for operations that would also be counted by SVE_FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_FIXED_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed v8SIMD&FP arithmetic operations. See FP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. The event counter is incremented by the specified number of elements for Advanced SIMD operations or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed v8SIMD&FP arithmetic operation. See FP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by the specified number of elements for Advanced SIMD operations or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_FP_DOT_SPEC",
-@@ -205,5 +205,61 @@
-     {
-         "ArchStdEvent": "ASE_SVE_FP_MMLA_SPEC",
-         "BriefDescription": "This event counts architecturally executed microarchitectural Advanced SIMD or SVE floating-point matrix multiply operation."
-+    },
-+    {
-+        "ArchStdEvent": "ASE_FP_VREDUCE_SPEC",
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD floating-point vector reduction operation."
-+    },
-+    {
-+        "ArchStdEvent": "SVE_FP_PREDUCE_SPEC",
-+        "BriefDescription": "This event counts architecturally executed SVE floating-point pairwise add step operation."
-+    },
-+    {
-+        "ArchStdEvent": "ASE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD data processing operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "ASE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD data processing operations, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "ASE_SVE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD data processing or SVE data processing operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "ASE_SVE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD data processing or SVE data processing operations, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "SVE_FP_BF16_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed SVE data processing operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "SVE_FP_FP8_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed SVE data processing operations, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_BF16_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed data processing operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_FP8_MIN_SPEC",
-+        "BriefDescription": "This event counts architecturally executed data processing operations, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_BF16_FIXED_MIN_OPS_SPEC",
-+        "BriefDescription": "This event counts architecturally executed non-scalable element arithmetic operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_FP8_FIXED_MIN_OPS_SPEC",
-+        "BriefDescription": "This event counts architecturally executed non-scalable element arithmetic operations, smallest type is 8-bit floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_BF16_SCALE_MIN_OPS_SPEC",
-+        "BriefDescription": "This event counts architecturally executed scalable element arithmetic operations, smallest type is BFloat16 floating-point."
-+    },
-+    {
-+        "ArchStdEvent": "FP_FP8_SCALE_MIN_OPS_SPEC",
-+        "BriefDescription": "This event counts architecturally executed scalable element arithmetic operations, smallest type is 8-bit floating-point."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1d_cache.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1d_cache.json
-index b0818a2fedb0..a2ff3b49ac0d 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1d_cache.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1d_cache.json
-@@ -72,11 +72,11 @@
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_HWPRF",
--        "BriefDescription": "This event counts access counted by L1D_CACHE that is due to a hardware prefetch."
-+        "BriefDescription": "This event counts L1D_CACHE caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_REFILL_HWPRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L1D_CACHE_HWPRF that causes a refill of the Level 1 data cache from outside of the Level 1 data cache."
-+        "BriefDescription": "This event counts L1D_CACHE_REFILL caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_HIT_RD",
-@@ -100,14 +100,14 @@
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_PRF",
--        "BriefDescription": "This event counts fetch counted by either Level 1 data hardware prefetch or Level 1 data software prefetch."
-+        "BriefDescription": "This event counts L1D_CACHE caused by hardware prefetch or software prefetch."
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_REFILL_PRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L1D_CACHE_PRF that causes a refill of the Level 1 data cache from outside of the Level 1 data cache."
-+        "BriefDescription": "This event counts L1D_CACHE_REFILL caused by hardware prefetch or software prefetch."
-     },
-     {
-         "ArchStdEvent": "L1D_CACHE_REFILL_PERCYC",
--        "BriefDescription": "The counter counts by the number of cache refills counted by L1D_CACHE_REFILL in progress on each Processor cycle."
-+        "BriefDescription": "This counter counts by the number of cache refills counted by L1D_CACHE_REFILL in progress on each Processor cycle."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1i_cache.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1i_cache.json
-index 8680d8ec461d..5250af8631c0 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1i_cache.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1i_cache.json
-@@ -23,11 +23,11 @@
-     },
-     {
-         "ArchStdEvent": "L1I_CACHE_HWPRF",
--        "BriefDescription": "This event counts access counted by L1I_CACHE that is due to a hardware prefetch."
-+        "BriefDescription": "This event counts L1I_CACHE caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L1I_CACHE_REFILL_HWPRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L1I_CACHE_HWPRF that causes a refill of the Level 1 instruction cache from outside of the Level 1 instruction cache."
-+        "BriefDescription": "This event counts L1I_CACHE_REFILL caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L1I_CACHE_HIT_RD",
-@@ -43,10 +43,10 @@
-     },
-     {
-         "ArchStdEvent": "L1I_CACHE_REFILL_PRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L1I_CACHE_PRF that causes a refill of the Level 1 instruction cache from outside of the Level 1 instruction cache."
-+        "BriefDescription": "This event counts L1I_CACHE_REFILL caused by hardware prefetch or software prefetch."
-     },
-     {
-         "ArchStdEvent": "L1I_CACHE_REFILL_PERCYC",
--        "BriefDescription": "The counter counts by the number of cache refills counted by L1I_CACHE_REFILL in progress on each Processor cycle."
-+        "BriefDescription": "This counter counts by the number of cache refills counted by L1I_CACHE_REFILL in progress on each Processor cycle."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l2_cache.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l2_cache.json
-index 9e092752e6db..67f9151d7685 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l2_cache.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l2_cache.json
-@@ -21,19 +21,19 @@
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_RD",
--        "BriefDescription": "This event counts L2D CACHE caused by read access."
-+        "BriefDescription": "This event counts L2D_CACHE caused by read access."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_WR",
--        "BriefDescription": "This event counts L2D CACHE caused by write access."
-+        "BriefDescription": "This event counts L2D_CACHE caused by write access."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_REFILL_RD",
--        "BriefDescription": "This event counts L2D CACHE_REFILL caused by read access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL caused by read access."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_REFILL_WR",
--        "BriefDescription": "This event counts L2D CACHE_REFILL caused by write access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL caused by write access."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_WB_VICTIM",
-@@ -57,7 +57,7 @@
-     {
-         "EventCode": "0x0305",
-         "EventName": "L2D_CACHE_HWPRF_ADJACENT",
--        "BriefDescription": "This event counts L2D_CACHE caused by hardware adjacent prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE caused by hardware adjacent prefetch."
-     },
-     {
-         "EventCode": "0x0308",
-@@ -111,7 +111,7 @@
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_LMISS_RD",
--        "BriefDescription": "This event counts operations that cause a refill of the L2D cache that incurs additional latency."
-+        "BriefDescription": "This event counts operations that cause a refill of the L2 cache that incurs additional latency."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_MISS",
-@@ -119,23 +119,23 @@
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_HWPRF",
--        "BriefDescription": "This event counts access counted by L2D_CACHE that is due to a hardware prefetch."
-+        "BriefDescription": "This event counts L2D_CACHE caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_REFILL_HWPRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L2D_CACHE_HWPRF that causes a refill of the Level 2 cache, or any Level 1 data and instruction cache of this PE, from outside of those caches."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL caused by hardware prefetch."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_HIT_RD",
--        "BriefDescription": "This event counts demand read counted by L2D_CACHE_RD that hits in the Level 2 data cache."
-+        "BriefDescription": "This event counts demand read counted by L2D_CACHE_RD that hits in the Level 2 cache."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_HIT_WR",
--        "BriefDescription": "This event counts demand write counted by L2D_CACHE_WR that hits in the Level 2 data cache."
-+        "BriefDescription": "This event counts demand write counted by L2D_CACHE_WR that hits in the Level 2 cache."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_HIT",
--        "BriefDescription": "This event counts access counted by L2D_CACHE that hits in the Level 2 data cache."
-+        "BriefDescription": "This event counts access counted by L2D_CACHE that hits in the Level 2 cache."
-     },
-     {
-         "ArchStdEvent": "L2D_LFB_HIT_RD",
-@@ -147,14 +147,14 @@
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_PRF",
--        "BriefDescription": "This event counts fetch counted by either Level 2 data hardware prefetch or Level 2 data software prefetch."
-+        "BriefDescription": "This event counts L2D_CACHE caused by hardware prefetch or software prefetch."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_REFILL_PRF",
--        "BriefDescription": "This event counts hardware prefetch counted by L2D_CACHE_PRF that causes a refill of the Level 2 data cache from outside of the Level 1 data cache."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL caused by hardware prefetch or software prefetch."
-     },
-     {
-         "ArchStdEvent": "L2D_CACHE_REFILL_PERCYC",
--        "BriefDescription": "The counter counts by the number of cache refills counted by L2D_CACHE_REFILL in progress on each Processor cycle."
-+        "BriefDescription": "This counter counts by the number of cache refills counted by L2D_CACHE_REFILL in progress on each Processor cycle."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l3_cache.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l3_cache.json
-index 3f3e0d22ac68..cf49c4d452b7 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l3_cache.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l3_cache.json
-@@ -30,17 +30,17 @@
-     {
-         "EventCode": "0x0394",
-         "EventName": "L2D_CACHE_REFILL_L3D_CACHE_PRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_CACHE caused by prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_CACHE caused by hardware prefetch or software prefetch."
-     },
-     {
-         "EventCode": "0x0395",
-         "EventName": "L2D_CACHE_REFILL_L3D_CACHE_HWPRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_CACHE caused by hardware prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_CACHE caused by hardware prefetch."
-     },
-     {
-         "EventCode": "0x0396",
-         "EventName": "L2D_CACHE_REFILL_L3D_MISS",
--        "BriefDescription": "This event counts operations that cause a miss of the L3 cache."
-+        "BriefDescription": "This event counts operations that cause a miss of the L3 cache. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x0397",
-@@ -60,17 +60,17 @@
-     {
-         "EventCode": "0x039A",
-         "EventName": "L2D_CACHE_REFILL_L3D_MISS_PRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS caused by prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS caused by hardware prefetch or software prefetch. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x039B",
-         "EventName": "L2D_CACHE_REFILL_L3D_MISS_HWPRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS caused by hardware prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS caused by hardware prefetch. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x039C",
-         "EventName": "L2D_CACHE_REFILL_L3D_HIT",
--        "BriefDescription": "This event counts operations that cause a hit of the L3 cache."
-+        "BriefDescription": "This event counts operations that cause a hit of the L3 cache. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x039D",
-@@ -90,70 +90,65 @@
-     {
-         "EventCode": "0x03A0",
-         "EventName": "L2D_CACHE_REFILL_L3D_HIT_PRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_HIT caused by prefetch access."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_HIT caused by hardware prefetch or software prefetch. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x03A1",
-         "EventName": "L2D_CACHE_REFILL_L3D_HIT_HWPRF",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_HIT caused by hardware prefetch access."
--    },
--    {
--        "EventCode": "0x03A2",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests hit the PFTGT buffer."
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_HIT caused by hardware prefetch. Note: This event may count inaccurately."
-     },
-     {
-         "EventCode": "0x03A3",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT_DM",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT caused by demand access."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_PFTGT_HIT",
-+        "BriefDescription": "This event counts the number of L3 cache misses caused by demand access where the requests hit the PFTGT buffer."
-     },
-     {
-         "EventCode": "0x03A4",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT_DM_RD",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT caused by demand read access."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_RD_PFTGT_HIT",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM_PFTGT_HIT caused by read access."
-     },
-     {
-         "EventCode": "0x03A5",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT_DM_WR",
--        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_PFTGT_HIT caused by demand write access."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_WR_PFTGT_HIT",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM_PFTGT_HIT caused by write access."
-     },
-     {
-         "EventCode": "0x03A6",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_L_MEM",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access the memory in the same socket as the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_L_MEM",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access the memory in the same socket as the requests."
-     },
-     {
-         "EventCode": "0x03A7",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_FR_MEM",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access the memory in the different socket from the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_FR_MEM",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access the memory in the different socket from the requests."
-     },
-     {
-         "EventCode": "0x03A8",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_L_L2",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access the different L2 cache from the requests in the same Numa nodes as the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_L_L2",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access the different L2 cache from the requests in the same Numa nodes as the requests."
-     },
-     {
-         "EventCode": "0x03A9",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_NR_L2",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access L2 cache in the different Numa nodes from the requests in the same socket as the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_NR_L2",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access L2 cache in the different Numa nodes from the requests in the same socket as the requests."
-     },
-     {
-         "EventCode": "0x03AA",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_NR_L3",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access L3 cache in the different Numa nodes from the requests in the same socket as the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_NR_L3",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access L3 cache in the different Numa nodes from the requests in the same socket as the requests."
-     },
-     {
-         "EventCode": "0x03AB",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_FR_L2",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access L2 cache in the different socket from the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_FR_L2",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access L2 cache in the different socket from the requests."
-     },
-     {
-         "EventCode": "0x03AC",
--        "EventName": "L2D_CACHE_REFILL_L3D_MISS_FR_L3",
--        "BriefDescription": "This event counts the number of L3 cache misses where the requests access L3 cache in the different socket from the requests."
-+        "EventName": "L2D_CACHE_REFILL_L3D_MISS_DM_FR_L3",
-+        "BriefDescription": "This event counts L2D_CACHE_REFILL_L3D_MISS_DM where the requests access L3 cache in the different socket from the requests."
-     },
-     {
-         "ArchStdEvent": "L3D_CACHE_LMISS_RD",
--        "BriefDescription": "This event counts access counted by L3D_CACHE that is not completed by the L3D cache, and  a Memory-read operation, as defined by the L2D_CACHE_REFILL_L3D_MISS events."
-+        "BriefDescription": "This event counts access counted by L3D_CACHE that is not completed by the L3 cache, and a Memory-read operation, as defined by the L2D_CACHE_REFILL_L3D_MISS events. Note: This event may count inaccurately."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/ll_cache.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/ll_cache.json
-index a441b84729ab..d49d9f6df72c 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/ll_cache.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/ll_cache.json
-@@ -5,6 +5,6 @@
-     },
-     {
-         "ArchStdEvent": "LL_CACHE_MISS_RD",
--        "BriefDescription": "This event counts access counted by L3D_CACHE that is not completed by the L3D cache, and a Memory-read operation, as defined by the L2D_CACHE_REFILL_L3D_MISS events."
-+        "BriefDescription": "This event counts access counted by L3D_CACHE that is not completed by the L3 cache, and a Memory-read operation, as defined by the L2D_CACHE_REFILL_L3D_MISS events. Note: This event may count inaccurately."
-     }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pipeline.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pipeline.json
-index 3cc3105f4a5e..15cf54730b85 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pipeline.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pipeline.json
-@@ -147,17 +147,17 @@
-     {
-         "EventCode": "0x02B0",
-         "EventName": "L1_PIPE_COMP_GATHER_2FLOW",
--        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 2 flows because 2 elements could not be combined."
-+        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 2-flows because 2 elements could not be combined."
-     },
-     {
-         "EventCode": "0x02B1",
-         "EventName": "L1_PIPE_COMP_GATHER_1FLOW",
--        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 1 flow because 2 elements could be combined."
-+        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 1-flow because 2 elements could be combined."
-     },
-     {
-         "EventCode": "0x02B2",
-         "EventName": "L1_PIPE_COMP_GATHER_0FLOW",
--        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 0 flow because both predicate values are 0."
-+        "BriefDescription": "This event counts the number of times where 2 elements of the gather instructions became 0-flow because both predicate values are 0."
-     },
-     {
-         "EventCode": "0x02B3",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/spec_operation.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/spec_operation.json
-index 4841b43e2871..1caf3baeae4e 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/spec_operation.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/spec_operation.json
-@@ -81,7 +81,7 @@
-     },
-     {
-         "ArchStdEvent": "CSDB_SPEC",
--        "BriefDescription": "This event counts speculatively executed control speculation barrier instructions."
-+        "BriefDescription": "This event counts architecturally executed control speculation barrier instructions."
-     },
-     {
-         "EventCode": "0x0108",
-@@ -91,17 +91,17 @@
-     {
-         "EventCode": "0x0109",
-         "EventName": "IEL_SPEC",
--        "BriefDescription": "This event counts architecturally executed inter-element manipulation operations."
-+        "BriefDescription": "This event counts architecturally executed inter-element manipulation operation."
-     },
-     {
-         "EventCode": "0x010A",
-         "EventName": "IREG_SPEC",
--        "BriefDescription": "This event counts architecturally executed inter-register manipulation operations."
-+        "BriefDescription": "This event counts architecturally executed inter-register manipulation operation."
-     },
-     {
-         "EventCode": "0x011A",
-         "EventName": "BC_LD_SPEC",
--        "BriefDescription": "This event counts architecturally executed SIMD broadcast floating-point load operations."
-+        "BriefDescription": "This event counts architecturally executed SIMD broadcast floating-point load operation."
-     },
-     {
-         "EventCode": "0x011B",
-@@ -130,7 +130,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_INST_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD operation."
-     },
-     {
-         "ArchStdEvent": "INT_SPEC",
-@@ -158,7 +158,7 @@
-     },
-     {
-         "ArchStdEvent": "NONFP_SPEC",
--        "BriefDescription": "This event counts architecturally executed non-floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed non-floating-point operation."
-     },
-     {
-         "ArchStdEvent": "INT_SCALE_OPS_SPEC",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/stall.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/stall.json
-index 5fb81e2a0a07..e1e16d513828 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/stall.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/stall.json
-@@ -5,7 +5,7 @@
-     },
-     {
-         "ArchStdEvent": "STALL_BACKEND",
--        "BriefDescription": "This event counts every cycle counted by the CPU_CYCLES event on that no operation was issued because the backend is unable to accept any operations."
-+        "BriefDescription": "This event counts every cycle counted by the CPU_CYCLES event on that no operation was issued because the backend is unable to accept any operation."
-     },
-     {
-         "ArchStdEvent": "STALL",
-@@ -69,7 +69,7 @@
-     },
-     {
-         "ArchStdEvent": "STALL_BACKEND_L2D",
--        "BriefDescription": "This event counts every cycle counted by STALL_BACKEND_MEMBOUND when there is a demand data miss in L2D cache."
-+        "BriefDescription": "This event counts every cycle counted by STALL_BACKEND_MEMBOUND when there is a demand data miss in L2 cache."
-     },
-     {
-         "ArchStdEvent": "STALL_BACKEND_CPUBOUND",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json
-index e66b5af00f90..88cab0caf49e 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json
-@@ -13,11 +13,11 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_INST_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE operation."
-     },
-     {
-         "ArchStdEvent": "UOP_SPEC",
--        "BriefDescription": "This event counts all architecturally executed micro-operations."
-+        "BriefDescription": "This event counts all architecturally executed micro-operation."
-     },
-     {
-         "ArchStdEvent": "SVE_MATH_SPEC",
-@@ -29,7 +29,7 @@
-     },
-     {
-         "ArchStdEvent": "FP_FMA_SPEC",
--        "BriefDescription": "This event counts architecturally executed floating-point fused multiply-add and multiply-subtract operations."
-+        "BriefDescription": "This event counts architecturally executed floating-point fused multiply-add and multiply-subtract operation."
-     },
-     {
-         "ArchStdEvent": "FP_RECPE_SPEC",
-@@ -41,15 +41,15 @@
-     },
-     {
-         "ArchStdEvent": "ASE_INT_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD integer operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD integer operation."
-     },
-     {
-         "ArchStdEvent": "SVE_INT_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE integer operations."
-+        "BriefDescription": "This event counts architecturally executed SVE integer operation."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_INT_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE integer operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE integer operation."
-     },
-     {
-         "ArchStdEvent": "SVE_INT_DIV_SPEC",
-@@ -69,7 +69,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_INT_MUL_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE integer multiply operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE integer multiply operation."
-     },
-     {
-         "ArchStdEvent": "SVE_INT_MUL64_SPEC",
-@@ -77,19 +77,19 @@
-     },
-     {
-         "ArchStdEvent": "SVE_INT_MULH64_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE integer 64-bit x 64-bit multiply returning high part operations."
-+        "BriefDescription": "This event counts architecturally executed SVE integer 64-bit x 64-bit multiply returning high part operation."
-     },
-     {
-         "ArchStdEvent": "ASE_NONFP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD non-floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD non-floating-point operation."
-     },
-     {
-         "ArchStdEvent": "SVE_NONFP_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE non-floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed SVE non-floating-point operation."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_NONFP_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE non-floating-point operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE non-floating-point operation."
-     },
-     {
-         "ArchStdEvent": "ASE_INT_VREDUCE_SPEC",
-@@ -101,7 +101,7 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_INT_VREDUCE_SPEC",
--        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE integer reduction operations."
-+        "BriefDescription": "This event counts architecturally executed Advanced SIMD or SVE integer reduction operation."
-     },
-     {
-         "ArchStdEvent": "SVE_PERM_SPEC",
-@@ -149,11 +149,11 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_LD_SPEC",
--        "BriefDescription": "This event counts architecturally executed operations that read from memory due to SVE and Advanced SIMD load instructions."
-+        "BriefDescription": "This event counts architecturally executed operations that read from memory due to Advanced SIMD or SVE load instructions."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_ST_SPEC",
--        "BriefDescription": "This event counts architecturally executed operations that write to memory due to SVE and Advanced SIMD store instructions."
-+        "BriefDescription": "This event counts architecturally executed operations that write to memory due to Advanced SIMD or SVE store instructions."
-     },
-     {
-         "ArchStdEvent": "PRF_SPEC",
-@@ -197,11 +197,11 @@
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_LD_MULTI_SPEC",
--        "BriefDescription": "This event counts architecturally executed operations that read from memory due to SVE and Advanced SIMD multiple vector contiguous structure load instructions."
-+        "BriefDescription": "This event counts architecturally executed operations that read from memory due to Advanced SIMD or SVE multiple vector contiguous structure load instructions."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_ST_MULTI_SPEC",
--        "BriefDescription": "This event counts architecturally executed operations that write to memory due to SVE and Advanced SIMD multiple vector contiguous structure store instructions."
-+        "BriefDescription": "This event counts architecturally executed operations that write to memory due to Advanced SIMD or SVE multiple vector contiguous structure store instructions."
-     },
-     {
-         "ArchStdEvent": "SVE_LD_GATHER_SPEC",
-@@ -221,27 +221,27 @@
-     },
-     {
-         "ArchStdEvent": "FP_HP_SCALE_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE half-precision arithmetic operations. See FP_HP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 8, or by 16 for operations that would also be counted by SVE_FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed SVE half-precision arithmetic operation. See FP_HP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 8, or by 16 for operations that would also be counted by SVE_FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_HP_FIXED_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed v8SIMD&FP half-precision arithmetic operations. See FP_HP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by the number of 16-bit elements for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed v8SIMD&FP half-precision arithmetic operation. See FP_HP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by the number of 16-bit elements for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_SP_SCALE_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE single-precision arithmetic operations. See FP_SP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 4, or by 8 for operations that would also be counted by SVE_FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed SVE single-precision arithmetic operation. See FP_SP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 4, or by 8 for operations that would also be counted by SVE_FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_SP_FIXED_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed v8SIMD&FP single-precision arithmetic operations. See FP_SP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by the number of 32-bit elements for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed v8SIMD&FP single-precision arithmetic operation. See FP_SP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by the number of 32-bit elements for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_DP_SCALE_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed SVE double-precision arithmetic operations. See FP_DP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 2, or by 4 for operations that would also be counted by SVE_FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed SVE double-precision arithmetic operation. See FP_DP_SCALE_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 2, or by 4 for operations that would also be counted by SVE_FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "FP_DP_FIXED_OPS_SPEC",
--        "BriefDescription": "This event counts architecturally executed v8SIMD&FP double-precision arithmetic operations. See FP_DP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 2 for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-+        "BriefDescription": "This event counts architecturally executed v8SIMD&FP double-precision arithmetic operation. See FP_DP_FIXED_OPS_SPEC of ARMv9 Reference Manual for more information. This event counter is incremented by 2 for Advanced SIMD operations, or by 1 for scalar operations, and by twice those amounts for operations that would also be counted by FP_FMA_SPEC."
-     },
-     {
-         "ArchStdEvent": "ASE_SVE_INT_DOT_SPEC",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/tlb.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/tlb.json
-index edc7cb8696c8..f54029ba369a 100644
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/tlb.json
-+++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/tlb.json
-@@ -104,72 +104,72 @@
-     {
-         "EventCode": "0x0C10",
-         "EventName": "L1I_TLB_REFILL_4K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 4KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 4KB page."
-     },
-     {
-         "EventCode": "0x0C11",
-         "EventName": "L1I_TLB_REFILL_64K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 64KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 64KB page."
-     },
-     {
-         "EventCode": "0x0C12",
-         "EventName": "L1I_TLB_REFILL_2M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 2MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 2MB page."
-     },
-     {
-         "EventCode": "0x0C13",
-         "EventName": "L1I_TLB_REFILL_32M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 32MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 32MB page."
-     },
-     {
-         "EventCode": "0x0C14",
-         "EventName": "L1I_TLB_REFILL_512M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 512MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 512MB page."
-     },
-     {
-         "EventCode": "0x0C15",
-         "EventName": "L1I_TLB_REFILL_1G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 1GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 1GB page."
-     },
-     {
-         "EventCode": "0x0C16",
-         "EventName": "L1I_TLB_REFILL_16G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1I in 16GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1I in 16GB page."
-     },
-     {
-         "EventCode": "0x0C18",
-         "EventName": "L1D_TLB_REFILL_4K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 4KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 4KB page."
-     },
-     {
-         "EventCode": "0x0C19",
-         "EventName": "L1D_TLB_REFILL_64K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 64KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 64KB page."
-     },
-     {
-         "EventCode": "0x0C1A",
-         "EventName": "L1D_TLB_REFILL_2M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 2MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 2MB page."
-     },
-     {
-         "EventCode": "0x0C1B",
-         "EventName": "L1D_TLB_REFILL_32M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 32MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 32MB page."
-     },
-     {
-         "EventCode": "0x0C1C",
-         "EventName": "L1D_TLB_REFILL_512M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 512MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 512MB page."
-     },
-     {
-         "EventCode": "0x0C1D",
-         "EventName": "L1D_TLB_REFILL_1G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 1GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 1GB page."
-     },
-     {
-         "EventCode": "0x0C1E",
-         "EventName": "L1D_TLB_REFILL_16G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L1D in 16GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L1D in 16GB page."
-     },
-     {
-         "EventCode": "0x0C20",
-@@ -244,72 +244,72 @@
-     {
-         "EventCode": "0x0C30",
-         "EventName": "L2I_TLB_REFILL_4K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2Iin 4KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 4KB page."
-     },
-     {
-         "EventCode": "0x0C31",
-         "EventName": "L2I_TLB_REFILL_64K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 64KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 64KB page."
-     },
-     {
-         "EventCode": "0x0C32",
-         "EventName": "L2I_TLB_REFILL_2M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 2MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 2MB page."
-     },
-     {
-         "EventCode": "0x0C33",
-         "EventName": "L2I_TLB_REFILL_32M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 32MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 32MB page."
-     },
-     {
-         "EventCode": "0x0C34",
-         "EventName": "L2I_TLB_REFILL_512M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 512MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 512MB page."
-     },
-     {
-         "EventCode": "0x0C35",
-         "EventName": "L2I_TLB_REFILL_1G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 1GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 1GB page."
-     },
-     {
-         "EventCode": "0x0C36",
-         "EventName": "L2I_TLB_REFILL_16G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2I in 16GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2I in 16GB page."
-     },
-     {
-         "EventCode": "0x0C38",
-         "EventName": "L2D_TLB_REFILL_4K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 4KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 4KB page."
-     },
-     {
-         "EventCode": "0x0C39",
-         "EventName": "L2D_TLB_REFILL_64K",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 64KB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 64KB page."
-     },
-     {
-         "EventCode": "0x0C3A",
-         "EventName": "L2D_TLB_REFILL_2M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 2MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 2MB page."
-     },
-     {
-         "EventCode": "0x0C3B",
-         "EventName": "L2D_TLB_REFILL_32M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 32MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 32MB page."
-     },
-     {
-         "EventCode": "0x0C3C",
-         "EventName": "L2D_TLB_REFILL_512M",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 512MB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 512MB page."
-     },
-     {
-         "EventCode": "0x0C3D",
-         "EventName": "L2D_TLB_REFILL_1G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 1GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 1GB page."
-     },
-     {
-         "EventCode": "0x0C3E",
-         "EventName": "L2D_TLB_REFILL_16G",
--        "BriefDescription": "This event counts operations that cause a TLB refill to the L2D in 16GB page."
-+        "BriefDescription": "This event counts operations that cause a TLB refill of the L2D in 16GB page."
-     },
-     {
-         "ArchStdEvent": "DTLB_WALK_PERCYC",
--- 
-2.43.5
-
+T24gVGh1LCAyMDI1LTA1LTE1IGF0IDE3OjM0ICswODAwLCBwYXVsLXBsLmNoZW4gd3JvdGU6DQo+
+IEZyb206IFBhdWwtcGwgQ2hlbiA8cGF1bC1wbC5jaGVuQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEJM
+RU5ERVIgZXhlY3V0ZXMgdGhlIGFscGhhIGJsZW5kaW5nIGZ1bmN0aW9uIGZvciBvdmVybGFwcGlu
+Zw0KPiBsYXllcnMgZnJvbSBkaWZmZXJlbnQgc291cmNlcywgd2hpY2ggaXMgdGhlIHByaW1hcnkg
+ZnVuY3Rpb24NCj4gb2YgdGhlIG92ZXJsYXBwaW5nIHN5c3RlbS4NCj4gDQo+IFNpZ25lZC1vZmYt
+Ynk6IE5hbmN5IExpbiA8bmFuY3kubGluQG1lZGlhdGVrLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTog
+UGF1bC1wbCBDaGVuIDxwYXVsLXBsLmNoZW5AbWVkaWF0ZWsuY29tPg0KPiAtLS0NCg0KW3NuaXBd
+DQoNCj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19kaXNwX2JsZW5kZXIuYw0K
+PiBAQCAtMCwwICsxLDI2NCBAQA0KPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0y
+LjAtb25seQ0KPiArLyoNCj4gKyAqIENvcHlyaWdodCAoYykgMjAyNSBNZWRpYVRlayBJbmMuDQo+
+ICsgKi8NCj4gKw0KPiArI2luY2x1ZGUgPGRybS9kcm1fZm91cmNjLmg+DQo+ICsjaW5jbHVkZSA8
+ZHJtL2RybV9ibGVuZC5oPg0KPiArI2luY2x1ZGUgPGRybS9kcm1fZnJhbWVidWZmZXIuaD4NCj4g
+KyNpbmNsdWRlIDxsaW51eC9jbGsuaD4NCj4gKyNpbmNsdWRlIDxsaW51eC9jb21wb25lbnQuaD4N
+Cj4gKyNpbmNsdWRlIDxsaW51eC9vZi5oPg0KPiArI2luY2x1ZGUgPGxpbnV4L29mX2RldmljZS5o
+Pg0KPiArI2luY2x1ZGUgPGxpbnV4L29mX2FkZHJlc3MuaD4NCj4gKyNpbmNsdWRlIDxsaW51eC9w
+bGF0Zm9ybV9kZXZpY2UuaD4NCj4gKyNpbmNsdWRlIDxsaW51eC9yZXNldC5oPg0KPiArI2luY2x1
+ZGUgPGxpbnV4L3NvYy9tZWRpYXRlay9tdGstY21kcS5oPg0KPiArI2luY2x1ZGUgPGxpbnV4L3Nv
+Yy9tZWRpYXRlay9tdGstbW1zeXMuaD4NCj4gKw0KPiArI2luY2x1ZGUgIm10a19jcnRjLmgiDQo+
+ICsjaW5jbHVkZSAibXRrX2RkcF9jb21wLmgiDQo+ICsjaW5jbHVkZSAibXRrX2Rpc3BfZHJ2Lmgi
+DQo+ICsjaW5jbHVkZSAibXRrX2RybV9kcnYuaCINCg0KYWxwaGFiZXRpYyBvcmRlci4NCg0KPiAr
+I2luY2x1ZGUgIm10a19kaXNwX2JsZW5kZXIuaCINCj4gKyNpbmNsdWRlICJtdGtfZGlzcF9vdmwu
+aCINCj4gKw0KPiANCg0KW3NuaXBdDQoNCj4gKw0KPiArdm9pZCBtdGtfZGlzcF9ibGVuZGVyX2Nv
+bmZpZyhzdHJ1Y3QgZGV2aWNlICpkZXYsIHVuc2lnbmVkIGludCB3LA0KPiArCQkJICAgICB1bnNp
+Z25lZCBpbnQgaCwgdW5zaWduZWQgaW50IHZyZWZyZXNoLA0KPiArCQkJICAgICB1bnNpZ25lZCBp
+bnQgYnBjLCBib29sIG1vc3RfdG9wLA0KDQp2cmVmcmVzaCBhbmQgYnBjIGlzIHVzZWxlc3MsIHNv
+IGRyb3AgdGhlbS4NCg0KPiArCQkJICAgICBib29sIG1vc3RfYm90dG9tLCBzdHJ1Y3QgY21kcV9w
+a3QgKmNtZHFfcGt0KQ0KPiArew0KPiArCXN0cnVjdCBtdGtfZGlzcF9ibGVuZGVyICpwcml2ID0g
+ZGV2X2dldF9kcnZkYXRhKGRldik7DQo+ICsJdTMyIGRhdGFwYXRoOw0KPiArDQo+ICsJZGV2X2Ri
+ZyhkZXYsICIlcy13OiVkLCBoOiVkXG4iLCBfX2Z1bmNfXywgdywgaCk7DQo+ICsJbXRrX2RkcF93
+cml0ZShjbWRxX3BrdCwgaCA8PCAxNiB8IHcsICZwcml2LT5jbWRxX3JlZywgcHJpdi0+cmVncywN
+Cj4gKwkJICAgICAgRElTUF9SRUdfT1ZMX0JMRF9ST0lfU0laRSk7DQo+ICsJbXRrX2RkcF93cml0
+ZShjbWRxX3BrdCwgRElTUF9SRUdfT1ZMX0JMRF9CR0NMUl9CQUxDSywgJnByaXYtPmNtZHFfcmVn
+LCBwcml2LT5yZWdzLA0KPiArCQkgICAgICBESVNQX1JFR19PVkxfQkxEX0JHQ0xSX0NMUik7DQo+
+ICsNCj4gKwkvKg0KPiArCSAqIFRoZSBpbnB1dCBzb3VyY2Ugb2YgYmxlbmRlciBsYXllciBjYW4g
+YmUgRVhETUEgbGF5ZXIgb3V0cHV0IG9yDQo+ICsJICogdGhlIGJsZW5kZXIgY29uc3RhbnQgbGF5
+ZXIgaXRzZWxmLg0KPiArCSAqIFRoaXMgY29sb3Igc2V0dGluZyBpcyBjb25maWd1cmVkIGZvciB0
+aGUgYmxlbmRlciBjb25zdGFudCBsYXllci4NCj4gKwkgKi8NCj4gKwltdGtfZGRwX3dyaXRlKGNt
+ZHFfcGt0LCBESVNQX1JFR19PVkxfQkxEX0JHQ0xSX0JBTENLLCAmcHJpdi0+Y21kcV9yZWcsIHBy
+aXYtPnJlZ3MsDQo+ICsJCSAgICAgIERJU1BfUkVHX09WTF9CTERfTDBfQ0xSKTsNCj4gKw0KPiAr
+CWlmIChtb3N0X3RvcCkNCj4gKwkJZGF0YXBhdGggPSBPVkxfQkxEX0JHQ0xSX09VVF9UT19QUk9D
+Ow0KPiArCWVsc2UNCj4gKwkJZGF0YXBhdGggPSBPVkxfQkxEX0JHQ0xSX09VVF9UT19ORVhUX0xB
+WUVSOw0KPiArCS8qDQo+ICsJICogVGhlIHByaW1hcnkgaW5wdXQgaXMgZnJvbSBFWERNQSBhbmQg
+dGhlIHNlY29uZCBpbnB1dA0KPiArCSAqIGlzIG9wdGlvbmFsbHkgZnJvbSBhbm90aGVyIGJsZW5k
+ZXINCj4gKwkgKi8NCj4gKwlpZiAoIW1vc3RfYm90dG9tKQ0KPiArCQlkYXRhcGF0aCB8PSBPVkxf
+QkxEX0JHQ0xSX0lOX1NFTDsNCj4gKw0KPiArCW10a19kZHBfd3JpdGVfbWFzayhjbWRxX3BrdCwg
+ZGF0YXBhdGgsDQo+ICsJCQkgICAmcHJpdi0+Y21kcV9yZWcsIHByaXYtPnJlZ3MsIERJU1BfUkVH
+X09WTF9CTERfREFUQVBBVEhfQ09OLA0KPiArCQkJICAgT1ZMX0JMRF9CR0NMUl9PVVRfVE9fUFJP
+QyB8IE9WTF9CTERfQkdDTFJfT1VUX1RPX05FWFRfTEFZRVIgfA0KPiArCQkJICAgT1ZMX0JMRF9C
+R0NMUl9JTl9TRUwpOw0KPiArfQ0KPiArDQo+ICt2b2lkIG10a19kaXNwX2JsZW5kZXJfc3RhcnQo
+c3RydWN0IGRldmljZSAqZGV2LCBzdHJ1Y3QgY21kcV9wa3QgKmNtZHFfcGt0KQ0KDQpEcm9wIGNt
+ZHFfcGt0Lg0KDQo+ICt7DQo+ICsJc3RydWN0IG10a19kaXNwX2JsZW5kZXIgKnByaXYgPSBkZXZf
+Z2V0X2RydmRhdGEoZGV2KTsNCj4gKw0KPiArCW10a19kZHBfd3JpdGVfbWFzayhjbWRxX3BrdCwg
+T1ZMX0JMRF9CWVBBU1NfU0hBRE9XLCAmcHJpdi0+Y21kcV9yZWcsIHByaXYtPnJlZ3MsDQo+ICsJ
+CQkgICBESVNQX1JFR19PVkxfQkxEX1NIQURPV19DVFJMLCBPVkxfQkxEX0JZUEFTU19TSEFET1cp
+Ow0KPiArCW10a19kZHBfd3JpdGVfbWFzayhjbWRxX3BrdCwgT1ZMX0JMRF9FTiwgJnByaXYtPmNt
+ZHFfcmVnLCBwcml2LT5yZWdzLA0KPiArCQkJICAgRElTUF9SRUdfT1ZMX0JMRF9FTiwgT1ZMX0JM
+RF9FTik7DQo+ICt9DQo+ICsNCj4gK3ZvaWQgbXRrX2Rpc3BfYmxlbmRlcl9zdG9wKHN0cnVjdCBk
+ZXZpY2UgKmRldiwgc3RydWN0IGNtZHFfcGt0ICpjbWRxX3BrdCkNCg0KRHJvcCBjbWRxX3BrdC4N
+Cg0KUmVnYXJkcywNCkNLDQoNCj4gK3sNCj4gKwlzdHJ1Y3QgbXRrX2Rpc3BfYmxlbmRlciAqcHJp
+diA9IGRldl9nZXRfZHJ2ZGF0YShkZXYpOw0KPiArDQo+ICsJbXRrX2RkcF93cml0ZV9tYXNrKGNt
+ZHFfcGt0LCAwLCAmcHJpdi0+Y21kcV9yZWcsIHByaXYtPnJlZ3MsDQo+ICsJCQkgICBESVNQX1JF
+R19PVkxfQkxEX0VOLCBPVkxfQkxEX0VOKTsNCj4gKw0KPiArCW10a19kZHBfd3JpdGVfbWFzayhj
+bWRxX3BrdCwgT1ZMX0JMRF9SU1QsICZwcml2LT5jbWRxX3JlZywgcHJpdi0+cmVncywNCj4gKwkJ
+CSAgIERJU1BfUkVHX09WTF9CTERfUlNULCBPVkxfQkxEX1JTVCk7DQo+ICsJbXRrX2RkcF93cml0
+ZV9tYXNrKGNtZHFfcGt0LCAwLCAmcHJpdi0+Y21kcV9yZWcsIHByaXYtPnJlZ3MsDQo+ICsJCQkg
+ICBESVNQX1JFR19PVkxfQkxEX1JTVCwgT1ZMX0JMRF9SU1QpOw0KPiArfQ0KPiArDQoNCg==
 
