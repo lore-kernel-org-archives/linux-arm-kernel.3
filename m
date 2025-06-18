@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2ABC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 15:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7701C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 15:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pTJodfwDi8QPGf5WUlAYBwDMYVFJGpwnkqkpDJ/bZ6s=; b=ftje4sDTGjPTUueEDFMbwGC+zX
-	oUwK4NuisH6sesxhJsFzTeHBz+KY9+CO9U2ENNzCoKM4pv5p1yhHOgJYuUitkXTS824S5/FOAddQ4
-	p6q6VwdfraafVPFzSeTHTEM8wNMaYkjWafNsL/Yj4pa22vSNUBLPaoAzKLX/LtLKBiDvRABRZgrvv
-	EcOGdi9QQGX+XAlrz7HG87eDxTWbh8lwmu3FVjbLgdbC86uB/R0ZyWKcPHkUqYQGb+cJD6k8RSSnz
-	vJoKK658Tpuc8mp/93xsuEwQX+GSXowUjAirFJn2026IaST1rHNzzUpZFCp5Ibe2l3wbC+EWnCPxL
-	RtNJhlxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u8sJ6HYzkRIIDcV1u64F3+oicJvBZLiGsmcxqwkREC8=; b=fOi1HYsOUj1LhRzoJLIbMgh6d9
+	R+V+NGHcs5NChoSKdbzsSgN1LFbx5BxBecpQpVhNv9Lv6bTv26KXjyRDnjr6CtuCjfmCv9L3ICX+e
+	8azAU1/aVoV+nRDXsasYFitqmQhh85jYFJA4S44AVTRHMf35fXTRxOFGEv5WS1Qe0rwIp/yMadNTw
+	vrE2WfRlp6D02/yKhTSNDD92g29c2X7MtQx+I0l2kgucbJa5880eOuEDwgHiAPow4jA6BqCHlklkf
+	jt3iWyqpsvkBsCLotUmGCNG5Kjj+XGpmmAme/0gFh7eHXfbvSWfinXb7982YhVWMXt511kw8I4ePp
+	UupHgE1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuVx-0000000AYvI-49Zw;
-	Wed, 18 Jun 2025 15:15:49 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1uRuWs-0000000AZ8K-2uM1;
+	Wed, 18 Jun 2025 15:16:46 +0000
+Received: from sender4-of-o54.zoho.com ([136.143.188.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsiL-0000000AH2z-19lD
+	id 1uRrmp-0000000A6Kn-2CQ4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:20:30 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-553b60de463so5347800e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 06:20:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750252827; x=1750857627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pTJodfwDi8QPGf5WUlAYBwDMYVFJGpwnkqkpDJ/bZ6s=;
-        b=zkO+wtLdW69l93aJ7y6PzqsZAut+BAyNpuoEYKW3ICnnTJS8Op7KE2TpJ81/1MPns0
-         j1+TlLQjJDhZxsD57aihWuOjWZkkVHwO1D5li1AkPzRkE4MhTq2ePZvb583V/OBZmgDS
-         NeBR4OViB97eRwDCiKY8JLMQngfEUwp5jw15ko2KPtQHtdNfc6CyWJ79a8hz/VSPco+H
-         Y5miWa8Rpafwwk3Ps+f6Fzu7ee5Mdnd+fOvBEvARy6L9wZa5bmS/zzPBPQ+PMdG2fiqm
-         lP2b2EbiZVsecNHIgoDlkw08fWD9LwV+PuvuIYYrVnJKYv/Hmyq1q/CD1FY6/+U4vl4t
-         tDYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750252827; x=1750857627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pTJodfwDi8QPGf5WUlAYBwDMYVFJGpwnkqkpDJ/bZ6s=;
-        b=GM75v73QBhRRPKT8375Iy8+NbVL2s2cOHwQVf3vRq8ifpy/d5ZyeVxtsiz6A1FNAAT
-         JPPfgw3Ehr6Hj8QbS7MFQCDZ/1UFoU3g5Vr6PD5SBryF3G3G2WY9FM5WuDcDDy+CyEVg
-         PBgqTvZP2dYvlWQ4d/XNPFfRbOPnu3vJvOsGP++0F8RU9CnrTc2DoyCSLDcI4ykWuRY8
-         xoNENwtr0tSZrmbW9f2+K1UrMvOTUT7dT0IA70XqBKTqmWpNoLFOt1KSIsClkapeopmi
-         kGKcm2QA36fT5d8XFloR2ZZNIAo0EA/gkMEiCgL7gty2IG2HxycFDK1fc1UxjNbIOlRR
-         0i4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXQKvfffHKQRTEDxwGEmtfLDo5vBF9wsag18rDO/Gv7J/NkEbqHLwPDhrhapsURCtZCMeCyREXzoqTha64M6bjY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3ldr6NwldX7FUOcOBk9QaCj1/9AzGfGg6g1gzEnwA8Sp9Swu0
-	XT4GrRdk2WbJiS9jOpBLA9KSz4F9hlCmDhtAontwyNyNSAt5amce9esneEOK3IfB8f5ONjmvb/r
-	JMF+XBSHuI5g6d7sgl0zhKsiQa7nWiRao4OVyGwhhHg==
-X-Gm-Gg: ASbGncuysZVXGVyJJZi9E/tj8GIE/WYKGD9qAV4FMh/2ub6kTvDjsQ08zucc+7W5L3p
-	dZedWmS6t/YUG+HVqI+iZ8L+rUd3yXCugJdB9BINZxG8577R1sGlJSo565Xsv9QMWAxTco15GoD
-	qJFzQkdTB8YoVF64nd4aSj6gyDePjTS1JX3UDcZqV14d90jlLnbxX4dX305j1NzAdmnrH3p6rc8
-	g==
-X-Google-Smtp-Source: AGHT+IEnYD8c9DRu+sgeZ4/zra50A8zvr1u0tIjWrrYY7aXbyZM2E14drwd7rS61sdCTAqyts6sNZw5w8k+gQFEYycQ=
-X-Received: by 2002:a05:6512:b2a:b0:553:5e35:b250 with SMTP id
- 2adb3069b0e04-553b6f2106cmr5254173e87.32.1750252827241; Wed, 18 Jun 2025
- 06:20:27 -0700 (PDT)
+	Wed, 18 Jun 2025 12:21:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750249258; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YSCSonrtrvMPJCPNYdTP7AcpMF8tT6Ns+Mv0ldpqQIo6+VVsWvybiYTHRm/bIudq32v2ha6n346/3FTTt+P8UbHfS6rugLW+Hg+0RXyT4HQrnkCnTTUas5LplGasyde1d8xWsilHCV9lDTk9wUxa/5Zld7ToYUxGQ13t64ww604=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750249258; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=u8sJ6HYzkRIIDcV1u64F3+oicJvBZLiGsmcxqwkREC8=; 
+	b=JFWPoiTxYzoV/wI4zmhzdU3LumXwpVOmn6Xjug2vC/+vAooCkOufMzx+rhanMRI3io5JbRU9w1xCKvup4SQ49dBrmU3K2WqWAjvqAn+Ea3m2Mz9Ng7fYE/lZWNyu0qwlyN6lDrBGShLzD2po6+qF2UHxyuZ5UeMKF8JthEkOkBA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750249258;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:Message-Id:Reply-To;
+	bh=u8sJ6HYzkRIIDcV1u64F3+oicJvBZLiGsmcxqwkREC8=;
+	b=datD/rfwSFfsy4TyCfsc6mkuDCWoa9zxex6dKoTdTJWSQuYfB/9o4mPHJA3e0aZT
+	okQ6zz1y4stvizRXXqCvfWHFBOvd5V2/h+HF2Vnw6295W+lLgRfVYywxnK9GyV+aLOG
+	Ea+R2YiQxv4PNY5eVOavAkWiujrDNfPLqnlC+DEU=
+Received: by mx.zohomail.com with SMTPS id 1750249209729383.6811066576498;
+	Wed, 18 Jun 2025 05:20:09 -0700 (PDT)
+Date: Wed, 18 Jun 2025 12:20:05 +0000
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH] firmware: smccc: support both conduits for getting hyp
+ UUID
+Message-ID: <aFKu9TFA6oj1N2cR@anirudh-surface.localdomain>
+References: <20250605-kickass-cerulean-honeybee-aa0cba@sudeepholla>
+ <20250610160656.11984-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
-References: <20250618124319.19220-1-kabel@kernel.org>
-In-Reply-To: <20250618124319.19220-1-kabel@kernel.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 18 Jun 2025 15:20:15 +0200
-X-Gm-Features: AX0GCFvPKxznhkvAPEwnvWIVZ6FbwqZ_QWUKHDjPShs0JKLfijHXyi7OUR-B7c8
-Message-ID: <CAMRc=MfdPc0T_6G7uRUW7BAjFaBQYFFs=u2NGKj29eJGSjRVCw@mail.gmail.com>
-Subject: Re: [PATCH] platform: cznic: turris-omnia-mcu: Use new GPIO line
- value setter callbacks
-To: =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>
-Cc: linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Andy Shevchenko <andy@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250610160656.11984-1-romank@linux.microsoft.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_062029_312535_57E5B8E4 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250618_052103_722424_D82D4291 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,18 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 2:43=E2=80=AFPM Marek Beh=C3=BAn <kabel@kernel.org>=
- wrote:
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Marek Beh=C3=BAn <kabel@kernel.org>
-> ---
+On Tue, Jun 10, 2025 at 09:06:48AM -0700, Roman Kisel wrote:
+> > (sorry for the delay, found the patch in the spam 🙁)
+> 
+> "b4" shows the the mail server used for the patch submission
+> doesn't pass the DKIM check, so finding the patch in the spam seems
 
-What's going on with this patch? I sent it a few days ago, now you
-just resent it without changes. Who should pick it up?
+How do you check this? I mean, what b4 command do you run?
 
-Bart
+I think it should be fix now. Let's see...
+
+> expected :) Thanks for your help!
+> 
+> >
+> > On Wed, May 21, 2025 at 09:40:48AM +0000, Anirudh Rayabharam wrote:
+> >> From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+> >>
+> >> When Linux is running as the root partition under Microsoft Hypervisor
+> >> (MSHV) a.k.a Hyper-V, smc is used as the conduit for smc calls.
+> >>
+> >> Extend arm_smccc_hypervisor_has_uuid() to support this usecase. Use
+> >> arm_smccc_1_1_invoke to retrieve and use the appropriate conduit instead
+> >> of supporting only hvc.
+> >>
+> >> Boot tested on MSHV guest, MSHV root & KVM guest.
+> >>
+> >
+> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> >
+> > Are they any dependent patches or series using this ? Do you plan to
+> > route it via KVM tree if there are any dependency. Or else I can push
+> > it through (arm-)soc tree. Let me know.
+> 
+> Anirudh had been OOF for some time and would be for another
+> week iiuc so I thought I'd reply.
+
+Thanks Roman!
+
+Regards,
+Anirudh
+
+> 
+> The patch this depends on is 13423063c7cb
+> ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID"),
+> and this patch has already been pulled into the Linus'es tree.
+> 
+> As for routing, (arm-)soc should be good it appears as the change
+> is contained within the firmware drivers path. Although I'd trust more to your,
+> Arnd's or Wei's opinion than mine!
+> 
+> >
+> > --
+> > Regards,
+> > Sudeep
 
