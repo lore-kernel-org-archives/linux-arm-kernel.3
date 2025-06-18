@@ -4,168 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C2A5C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C65C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwSvsnNKLrW5de5000QFGLz22toQoXNueYjK8uKTfzU=; b=QOvysXowt77Ui7XCuK3sYRC0mf
-	IqkJ+WNEH+BU4xyBsh1Cu0CFNjsFl+3RA8nxO9dxc1WtwaA4qVbz5aqenYjE3pR1QffXYsyGlvMLH
-	1OBYj/utIbwVzTRp+Hixc3FWfn97qHw+zEVcQxXrSzWH3LpZhYsWkq75qiUMu91OFRJm8sgx7IW+L
-	BPcFbJebOGJ25KHqjhpnQwszhi8k5Uu4YxsDIRzLRJDygyOvNHizt2jDovEVUI7MN2Dd9TCoA9zL4
-	Oq9jb9SBFK5vkgVuw4Uxe29aXLEElLiu4jmn3dVxgfEjoC95gOXfffZlhllXG2XkDeevcoVkDLHzk
-	3n5lcANA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N+qv1GHOU/ShU2OJAJa6dB0bDSAG6lFZVxU0lASK27k=; b=c22c/rDWYe6Dc4LG6cjUEeIni4
+	lkoBBYhyONwVFiReSyMHOGRY+512JmhhIaeYe80bMM2qhyn6YIXz23Ig2woNdIREtQde+0i49mibs
+	Ailo55wdJO37lKN/jLrBFWpL4BlIpsEHdIORh5G5AB1rNd5D/ZOXi/okGJzUJDUmVg5Dk5oO2RTIW
+	jmW8E10RgedLS4eoJInSzRGxENjxLiGIcNFMPwRlfIrksx22fOR3PSCXA+fGXQdE0fijOhg3ozYJl
+	AqtPxsmUDQnlqYvVaJ/AuLHAt+HDiZx8dxabw//YKrUnZT0n9iULfdIIWv599IswnPc+iStAlU//K
+	Z4I6WkIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRws9-0000000AvLD-1zBA;
-	Wed, 18 Jun 2025 17:46:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uRwsV-0000000AvSg-0Kp5;
+	Wed, 18 Jun 2025 17:47:15 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRu3z-0000000AUFD-1gWE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Jun 2025 14:46:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NwSvsnNKLrW5de5000QFGLz22toQoXNueYjK8uKTfzU=; b=KQ7i736/94RkJxabrgGjTI+iaR
-	ZaC16e+gK7c/Sq124ARVXnxe1AwXOuNeRslFhiz4QYuKB9pUWCFKRsYQLxAdPkYkJARWsno2de7iI
-	Ss5/EAoR5nP52wOs94CN/YibA3rJoJhlQWICNVnzWZvmOFjo+chqMa3tTO+sFzMEth/LnRvk1kBRL
-	Ch9DIIyFCpHXyp8Dlvu91xWolHrZMLhs9POLR7iG/LDk+r9NpibSCOGjNgvzbtTXaTK4ypIHWiwKl
-	S/LD4WgsiNGvRUUuImh8RD9xvuiMquqhwm9gSwVciDsh5JlW4dSX0e8Cdauh3Qrkz6hlw6ymWQInb
-	C9EFnWyg==;
-Received: from mail-dm6nam10on20628.outbound.protection.outlook.com ([2a01:111:f403:2413::628] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRu3w-0000000474p-0OSF
+	id 1uRvx5-0000000AlUk-3Gde
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 14:46:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZbudpYY9D8ikai6w8ge5v3I+yiiLBeEMOzmM8R3lpqlZp0fG5zBNNfK6EII4M8sMCgXfqZivsheJxRl7hQzlPpCO1NnnTCiu9ZwJu+zbjP6VOwhmftxbQ/ZzwDZ0nfk2LdpIFqUjuZKAaRWZY9Bg+IWX9l0FvV9KTVLDLMwLoN4pozRpcIOxkbtszGb+o1v4qYQNFeiJkgzhFWUBY4400QVJhkrEzn7MVwdyWkZDXCbXj6HP3/lZ7K7U407lBD7oI2nUVGS46qB5sbycAUbhp4hwEeLB4R6yQVI0voEiX4PRmxkMmUg8x+gH0WRmijvYNCy7jMZyhgyyMYOfe3Z5GA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NwSvsnNKLrW5de5000QFGLz22toQoXNueYjK8uKTfzU=;
- b=kMR9DpP7H33incic9rBpJ3+/c3KL+ZVewXEYBECd6RLbOsX2NSYzW1wjUu9yrWy6g0tXNSUH7FKnw67GUzi770zR74Zt36TqcWY2Gyi4KVtZ5CdyLzdH4kHy7d2CeiFTueypntFdsdVgTBu2cJNpFMxz+IPJ4+ZwKE1ETgSKINYehTT7Q2E5X8LB48ofyBNg78tIFYR2MpAlL9imx6Zb2w+ok+6HxU6r4tnz+z7fpYlazzpO712wYVZ6D+nMTy2qYw+SitlnyrVWY8JlwrHCLga1gQ1aBD4mgvxQzkeZXm2RcikUMTYHOFnkKeYq+A1xRplt6rW0SFACfs8pj+RwgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NwSvsnNKLrW5de5000QFGLz22toQoXNueYjK8uKTfzU=;
- b=X7ZHrxrP0n3HkEurD4OlZkYwc7AxShl0SPnRGXYIZUCrt9ccgIwgp1icBYOxN5vqcrqi0luVwXKfZ7lDcDzTOukJFCRfKH6GmpmKf2HdR/HWdKqn0ZPJCYo3qe10R+aUX9shdLFvc3Nj60cZlogQUoa9zfv1BkYhUqdiQfJpYes=
-Received: from MW4PR03CA0008.namprd03.prod.outlook.com (2603:10b6:303:8f::13)
- by MN2PR12MB4392.namprd12.prod.outlook.com (2603:10b6:208:264::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 18 Jun
- 2025 14:46:43 +0000
-Received: from CO1PEPF000075ED.namprd03.prod.outlook.com
- (2603:10b6:303:8f:cafe::e0) by MW4PR03CA0008.outlook.office365.com
- (2603:10b6:303:8f::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Wed,
- 18 Jun 2025 14:46:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CO1PEPF000075ED.mail.protection.outlook.com (10.167.249.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8857.21 via Frontend Transport; Wed, 18 Jun 2025 14:46:42 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 18 Jun
- 2025 09:46:41 -0500
-Received: from localhost (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 18 Jun 2025 09:45:11 -0500
-Date: Wed, 18 Jun 2025 20:09:57 +0530
-From: Naveen N Rao <naveen.rao@amd.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, "David
- Woodhouse" <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Sairaj Kodilkar <sarunkod@amd.com>, "Vasant
- Hegde" <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, "Joao
- Martins" <joao.m.martins@oracle.com>, Francesco Lavra
-	<francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 13/62] KVM: SVM: Drop redundant check in AVIC code on
- ID during vCPU creation
-Message-ID: <4f7d3pbe4s52twxaddjwlpca3mlb6htxi3ozze7n2sv4d3cafn@o3cyq3tmjhbx>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-15-seanjc@google.com>
- <qusmkqqsvc7hyuemddv66mooach7mdq66mxbk7qbr6if6spguj@k57k5lqmvt5u>
- <aFGY0KVUksf1a6xB@google.com>
+	Wed, 18 Jun 2025 16:47:56 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ade33027bcfso1181567866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 09:47:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750265274; x=1750870074; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=N+qv1GHOU/ShU2OJAJa6dB0bDSAG6lFZVxU0lASK27k=;
+        b=MJZ+kzJPDqMVXv+90cvc/RsXl+Qf029rgDKO9WN6/ASLynRv0hKA9fMdeN8mUYdnOf
+         NkD6HyiDH3fCxHz24L3Bq6XmhMVbosnS+DGFQx2lAqwyA7i6i0aRdbWrqI5knc73cogi
+         M02DJsUoNXiAn/bZ6t/ZNeS6Emg2g+ydrwVQDceDI+ZQdqF0u7Lvhowf2RAMUT5Zu6Nz
+         mADGGjsxxRoP67z1GoNE/1a/OK7iXTQHf06bTE4461K04k7iaTsXgYvODW7K8ULeoH0R
+         DgIdn8502g99u/TiYIUfUFgJjc0K84JvRqw+D27fbLstlNP6TuNp1uL6BXWLVm0Kxa1S
+         dWDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750265274; x=1750870074;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=N+qv1GHOU/ShU2OJAJa6dB0bDSAG6lFZVxU0lASK27k=;
+        b=ZyCD6GuRsrOW5CJuBDfcW1u6eZFwAs1i8eorybtNFfdDgnDfxgqE22DCCeFij3+sCL
+         4x7RhAlXhTh0H81mRqV3cY6FACAIdllYlCKo5xW8vkgspcZsQ2f6pPb0BZ74kdGUo4eb
+         xD7H69XvCQf2lO8FaNJ6VegsNah77zeWIyg7HBhp35FIRuozzvfSYSpS4MaEdENHCNjI
+         6UOr34eOcqaLOmp2zAdqRsPoD1on9d6/yT7H0QdUQaN2uSDhHBVKNMYroaeVMFo2r7yx
+         nNpst1zUUyU9tewa+dfK3sAMXSrsK7aLC+8zN2qg1kZcyblkoXZoSKVIBpGBLHBiyTno
+         bZNQ==
+X-Gm-Message-State: AOJu0Yzzgkvcnvv2sqCyTLg2XT/jr+QKQAXKqIdEUgCOTj+NVpOe7h12
+	dh9URypdDlZ89sKMVzMbJ60y4IAveu8e+Tn/XaCAqMCH3qNKDZa1Mef7
+X-Gm-Gg: ASbGncs7FYjrINIfXT28LaXiIQV7t4iV0szLLb2cY5XVPAcfML3l0P3k870dhQ0b3IR
+	aK2AHhNVkzGVYibUUzNxOEvbsCJ29pyLHfNzUnqiDwpeTzeJ6V9IE51lS5+1UuKe1A8DwVfL/xX
+	/yLWSPpkdA3FqsO3G9dl+XIubwogXOOPgSG7VOlPXfedNV3BiS5ca03Sc+N4jvF3GWDHc/OaAWr
+	zpDTBZST8qSI4C5AsBabDl5KfZoQdcepCSqNNOqTGQE/hlAYutZWjZJHcTgTySR5Y0lA9kkE9xa
+	Iu11VRp0k3ACOiRhBrj15RU0rceRfvJBzDuLmrjwrkcmZKFPA2fgc4CHxQsJzD+ClMEiWRcWnn8
+	G4olEXW4=
+X-Google-Smtp-Source: AGHT+IF7CCKVAgk6WUozUwLRY/+4SzLJ63FajrazwZc0+Ifd6OQCqqeNXYovSAUeenIgd24XLetrcA==
+X-Received: by 2002:a17:907:1c08:b0:add:f62e:a300 with SMTP id a640c23a62f3a-adfad29f4e2mr1862867166b.2.1750265273477;
+        Wed, 18 Jun 2025 09:47:53 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:3030:ae0:5873:67f3:9dc3:7778:59f4])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adf9ad8a155sm935481566b.84.2025.06.18.09.47.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 09:47:53 -0700 (PDT)
+From: RubenKelevra <rubenkelevra@gmail.com>
+To: linux-usb@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	shawnguo@kernel.org,
+	gregkh@linuxfoundation.org,
+	linux-imx@nxp.com,
+	linux-kernel@vger.kernel.org,
+	galak@kernel.crashing.org,
+	RubenKelevra <rubenkelevra@gmail.com>
+Subject: [PATCH] include: fsl_devices.h: drop unused, misspelled FLS_USB2_WORKAROUND_ENGCM09152
+Date: Wed, 18 Jun 2025 18:47:43 +0200
+Message-ID: <20250618164743.1916838-1-rubenkelevra@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aFGY0KVUksf1a6xB@google.com>
-Received-SPF: None (SATLEXMB04.amd.com: naveen.rao@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075ED:EE_|MN2PR12MB4392:EE_
-X-MS-Office365-Filtering-Correlation-Id: bad62481-28a5-4a21-3ed6-08ddae76f106
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NGI0KzgxeE1GTnVxWDd3ajRrcUo5aytFZm8raStMZy9PM1NWNENOOG53aDdi?=
- =?utf-8?B?SDNMcmdScWlSTkliS0tNb0k5aFIwRXRQb0tsdVg2NWFFRHA2M0VHTkt1emhq?=
- =?utf-8?B?VGVCTy9vT09GdXNBRmJON09ibU1EYTI4bExBK0ZBYlp5NFJsbS8wN1FRb3FJ?=
- =?utf-8?B?ancyelkxcUlGRVlwM0FEd1pBZkQ2NUpPUkdpZlYwVVpocy9Rd3dObjNkY1pa?=
- =?utf-8?B?end0ZXREaWc1YS95U29WOEhxOWFiZ0taMGFyVkpBRlNXSTlCU1pxTlp0Mkd1?=
- =?utf-8?B?a2RrWEVoSG5Wa2dhVnNyQ0trcXQrUGQ1VEpJb0lSeHViRG9DaWNEVXM3dnRl?=
- =?utf-8?B?Zlp4MHh5RkxFbyt3U3FWcEZwUkRzbHNmMHpZcmJwL2ZGZ0lSNktGVGhEOEhN?=
- =?utf-8?B?WHNLWnltV0ZnaGFBK3pzejIvN2VUNHllaWVyMFJIc1IzdzMyU0ViMHBPcDk4?=
- =?utf-8?B?ZWhKK2ZqM1drVUxsTitidGFxeWMxZWVWdzRVRk9rUXcwQVpRcytBanpkaGtW?=
- =?utf-8?B?UUwyalZDc1duNDNYbTBUVXZab251M2VxdGFLaFZvSHJpLzFDVFRSVStCdG8v?=
- =?utf-8?B?aEU1VzJpWVRDYVNxeFRObTJlanFWSE5KNXlZS1hGOFN5VmV0eHJIS2dILzZx?=
- =?utf-8?B?SE5JVXRrZlRLYTZZRFZQeGhndlFXVVF2VmRCRFU2Si8vOTY1SGhDU0FZMWNq?=
- =?utf-8?B?RTRaMXZPTWRGQThBK2MrMjgxWWJyZGV5clNSNHVpcGM1WlFZWHJRZk1LK0ZO?=
- =?utf-8?B?amZOeHhJSmQyb0xKSmlFVmo0cVF3YStRWHR1V2NIblNLOHJaanhMdjVJbkJ2?=
- =?utf-8?B?WlYvTUFQMkR2SFNVWkhxYXVLNW1LQTUwSFcxZHRnUjJOdTBUVGNzU3hGYWVJ?=
- =?utf-8?B?Mnh6TVBFQUEzS2kvUUNGR1dSSmFYd3pVdkpRZDBZMzFURitNeXdGNXdxd05N?=
- =?utf-8?B?SG5MeHVSU0ZBUHhIYjlnWGxOdkRWc0VaamdmRmdxRnZyelZBbHVBWVdEU00v?=
- =?utf-8?B?cEpNZndaZXU2VWdKSFlJTjRCcDg4MGJET3pWUVVPU1c1Y2ROcm9oTzBoWFYz?=
- =?utf-8?B?bzkxWlBtRDc3WnM0SW16VytLQXVtWnRyTHFjWURNeXFsZ1pmbUZVaml6RnF0?=
- =?utf-8?B?dXZ5Q1N6ZllJc3U1cHhESlAyck42N3lJWExuSlpZbkxNeUtrTE9oRUlWN0ht?=
- =?utf-8?B?eDRWNDRGWjhEOWNhY3VTMFRoZTNESUNUajhDY0ZFd1NKMm04MkhvekhIaHpn?=
- =?utf-8?B?MUZoSDV3QVB1cXoyRDVaR2RCSnVHUFlMK01pNjNLVDhWdnBJM1BzVWFWeFNi?=
- =?utf-8?B?OEQ3ZFpHUjJFWnVscUk3eFVaamdoSFpNMDFqS0VITUh2V0xOVE43M1ZsbXl0?=
- =?utf-8?B?VzBydlRwMFBGR0hYek00bVpxcWlFVWpQY1R6djJLSUlZNkhRK0RsMzlhdUlI?=
- =?utf-8?B?YXFHWFJGT0FseHFWNVFzdHh1d0pFSXg2MmhpRXBGU3RMY1hOajFJd3B3Q3ZZ?=
- =?utf-8?B?T3IwV3BqRGg1TVdzZ3o1M1NpdWV5Zis4UGR6SDQyeFlOeE5JZ2RJUnNnelM3?=
- =?utf-8?B?U1ZlSncvbi8wVVlRTERKZTlnR1UxOHZ5KytuTnU2dGNhaUpSRm9rTkg3VXdu?=
- =?utf-8?B?dEFGRFVseHVoYkhIVmk3MG5zb2FlSkhBWTcyemRhUVYyV0xtbjRlRkxKbjRL?=
- =?utf-8?B?NUNzZy9rZWR1TEZBWHpYWlE1MFBQRkxRakJKcktCMHBFckFXZ1d1b0hPN2FM?=
- =?utf-8?B?Z3NzOVJLV3VkbFFVdnN0V0tlU2VWanIyOFlDbTBsQzgwa3F5VWdHUmNRbEU4?=
- =?utf-8?B?OXhpbFJET3VxeEpxRUpZcFJveGxHZGh0ZUpHOXBTektteDVyQWQyc0dlMk94?=
- =?utf-8?B?dkhyYjdUdEhybEdDL0lDUnFGNjhrRUFneVJLZE9jbThrZnBuZFNEOW8rdnEv?=
- =?utf-8?B?TlRUQmt2b1duL0xKcndaTWgraGcyUi9Tbk9FMW05RFRQSm1Vb2Yvb2JaUEVJ?=
- =?utf-8?B?T1U4czVjZEtTZUVSbmMrMjRDK0tFWnMraW5icG4rdXNGN0ZLQ3JZRmZGVlUv?=
- =?utf-8?Q?VdIZxa?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 14:46:42.8229
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bad62481-28a5-4a21-3ed6-08ddae76f106
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075ED.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4392
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_154652_204525_E7D00464 
-X-CRM114-Status: GOOD (  30.24  )
+X-CRM114-CacheID: sfid-20250618_094755_819208_711BD9EB 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,80 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 09:33:20AM -0700, Sean Christopherson wrote:
-> On Tue, Jun 17, 2025, Naveen N Rao wrote:
-> > On Wed, Jun 11, 2025 at 03:45:16PM -0700, Sean Christopherson wrote:
-> > >  static int avic_init_backing_page(struct kvm_vcpu *vcpu)
-> > >  {
-> > > -	u64 *entry, new_entry;
-> > > -	int id = vcpu->vcpu_id;
-> > > +	struct kvm_svm *kvm_svm = to_kvm_svm(vcpu->kvm);
-> > >  	struct vcpu_svm *svm = to_svm(vcpu);
-> > > +	u32 id = vcpu->vcpu_id;
-> > > +	u64 *table, new_entry;
-> > >  
-> > >  	/*
-> > >  	 * Inhibit AVIC if the vCPU ID is bigger than what is supported by AVIC
-> > > @@ -291,6 +277,9 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
-> > >  		return 0;
-> > >  	}
-> > >  
-> > > +	BUILD_BUG_ON((AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE ||
-> > > +		     (X2AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE);
-> > 						    ^^^^^^^^^^^^^^
-> > Renaming new_entry to just 'entry' and using sizeof(entry) makes this 
-> > more readable for me.
-> 
-> Good call, though I think it makes sense to do that on top so as to minimize the
-> churn in this patch.  I'll post a patch, unless you want the honors?
+The macro was introduced in commit 69cb1ec4ce4d ("mxc_udc: add
+workaround for ENGcm09152 for i.MX35") on 2010-10-15, but its prefix was
+misspelled as **FLS_** instead of the usual **FSL_**.
 
-Not at all, please feel free to add a patch (or not, given that this 
-will be a trivial change).
+Its last in-tree user disappeared with commit a390bef7db1f ("usb:
+gadget: fsl_mxc_udc: Remove the driver") on 2020-12-10, so the macro has
+been completely unused since then.
 
-> 
-> > Otherwise, for this patch:
-> > Reviewed-by: Naveen N Rao (AMD) <naveen@kernel.org>
-> > 
-> > As an aside, there are a few static asserts to validate some of the 
-> > related macros. Can this also be a static_assert(), or is there is 
-> > reason to prefer BUILD_BUG_ON()?
-> 
-> For this particular assertion, static_assert() would be fine.  That said,
-> BUILD_BUG_ON() is slightly preferred in this context.
-> 
-> The advantage of BUILD_BUG_ON() is that it works so long as the condition is
-> compile-time constant, whereas static_assert() requires the condition to an
-> integer constant expression.  E.g. BUILD_BUG_ON() can be used so long as the
-> condition is eventually resolved to a constant, whereas static_assert() has
-> stricter requirements.
-> 
-> E.g. the fls64() assert below is fully resolved at compile time, but isn't a
-> purely constant expression, i.e. that one *needs* to be BUILD_BUG_ON().
-> 
-> --
-> arch/x86/kvm/svm/avic.c: In function ‘avic_init_backing_page’:
-> arch/x86/kvm/svm/avic.c:293:45: error: expression in static assertion is not constant
->   293 |         static_assert(__PHYSICAL_MASK_SHIFT <=
-> include/linux/build_bug.h:78:56: note: in definition of macro ‘__static_assert’
->    78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
->       |                                                        ^~~~
-> arch/x86/kvm/svm/avic.c:293:9: note: in expansion of macro ‘static_assert’
->   293 |         static_assert(__PHYSICAL_MASK_SHIFT <=
->       |         ^~~~~~~~~~~~~
-> make[5]: *** [scripts/Makefile.build:203: arch/x86/kvm/svm/avic.o] Error 1
-> --
-> 
-> The downside of BUILD_BUG_ON() is that it can't be used at global scope, i.e.
-> needs to be called from a function.
-> 
-> As a result, when adding an assertion in a function, using BUILD_BUG_ON() is
-> slightly preferred, because it's less likely to break in the future.  E.g. if
-> X2AVIC_MAX_PHYSICAL_ID were changed to something that is a compile-time constant,
-> but for whatever reason isn't a pure integer constant.
+Remove the dead and wrongly named definition.
 
-Understood, thanks for the explanation.
+Signed-off-by: RubenKelevra <rubenkelevra@gmail.com>
+---
+ include/linux/fsl_devices.h | 1 -
+ 1 file changed, 1 deletion(-)
 
-
-- Naveen
+diff --git a/include/linux/fsl_devices.h b/include/linux/fsl_devices.h
+index 5d231ce8709be..49f20c2f99bf0 100644
+--- a/include/linux/fsl_devices.h
++++ b/include/linux/fsl_devices.h
+@@ -118,7 +118,6 @@ struct fsl_usb2_platform_data {
+ #define FSL_USB2_PORT0_ENABLED	0x00000001
+ #define FSL_USB2_PORT1_ENABLED	0x00000002
+ 
+-#define FLS_USB2_WORKAROUND_ENGCM09152	(1 << 0)
+ 
+ struct spi_device;
+ 
+-- 
+2.49.0
 
 
