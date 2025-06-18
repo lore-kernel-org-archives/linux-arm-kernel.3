@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6029C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:49:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512A2C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=er9GV70+n6drdF5uljPxPj0kVCu/2tf7ro4DCkzk2hA=; b=HINg+j2FJd3bmVzlygUhSu2clS
-	DI1fWKCf+v5VddTgVMRgEAk6bypFuzhpWo2qnZl8V8lcvo0ssZBhZXCERo7CVTUu8bA7nmnPxwQD0
-	cVaQ7Wt03GMrlHdJbdIuhsJd1SSJ1Cp4bpxEyClCEtv+zIREsfetZHLLsj0cZT2nLHA2yhqcLdP4J
-	GMsl0ZUqt/HTZY0BbJ1lDUq0lL3ARPXHQ8hJ7gU8ZIZRaxonwklVjlMoQb9B7D3x3TODPrFSPgW8Q
-	OQB0KOn8xrMy+o+jix5hSASDDqP2md6g/hhGiazcBQqNk9RFlxtni7v7p30z32cRMS6+G5tSP/NM6
-	V56E6Gpg==;
+	bh=CkGzmh4xvo64rKNYiCpy47Y56UjryrOwwTLSmJFwem8=; b=2Ok1gWchxczveXt0dRKIYg/y2q
+	l/QsiFuVwaN4q3XR5JEs3DG/Wc2jQoJwjTo69LsJdMK0LdIXLezmTmGNwBeTfGpSJuLWFgXvwKW6/
+	HGwMzCwbkbU5itTQlOk/4hdIP4MW8C6JCfAuRKwcGFGaFaP+Lnv5oT4WJu787CxCQmFySVvYT/p40
+	5X76lIqec33WlRVL2M1m1r8tcJv7rNy/Gp+BkxF2kEg6cgV+Kaxg+7zgXvnWRKsm3AKjlRKryfu3R
+	Wln1G88EK1f5blKsC3ereMM5ekVDn7iQK1lt8jcS8Rc3lXMoXauIalX4y/0Uuy3qNYwMCrPgtv7oz
+	xRmE2HAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtAd-0000000AM2M-0k5X;
-	Wed, 18 Jun 2025 13:49:43 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRryQ-0000000A8nO-1dLh
+	id 1uRtCq-0000000AMTX-1G8T;
+	Wed, 18 Jun 2025 13:52:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRrza-0000000A8zB-0JV0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:33:03 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-553b165c80cso5878529e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 05:33:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750249981; x=1750854781; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=er9GV70+n6drdF5uljPxPj0kVCu/2tf7ro4DCkzk2hA=;
-        b=MHCcTRoNGz+Sidhum8kKN+EBpGHNfSpV0OVmpyUI5Uk9pyzv+YGajgn5alKNAZ6DR2
-         uncvh2d3Y2TW+Aq+36XfcVRsOyw/gYlGG7vQEuDkFKlgHgkl/WHvDx5R3cT9+fjEM8QU
-         RfSCDJN8/0b23OSRLwldz2puQ1a5BsROchbzHWgasSRHTUET/cvGL0xLBtwi0X8bMZ3s
-         5lXxoORYb4Zwa++UJKpxlusvlBDPfofiFHgTDCOHpskeq+U6AT36Up7oq0WeyJMCeNrt
-         UrBvR3N0AUd/LlyDiIzkdfzaqlGiRtWUkZkx2diD3eGBbHeIRcEKh0zifYHPQ2lOiTQ2
-         T7MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750249981; x=1750854781;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=er9GV70+n6drdF5uljPxPj0kVCu/2tf7ro4DCkzk2hA=;
-        b=lRO52YS6oyFX9onccl0Ds1J44kS63dk8f+Lc8zHgdTVr20njvIpCEjXF6kxehI7SH0
-         iC/52JsC77Qa/U8En6fsu4uFBWn87rry0VZKZQege6FbrXdpxgy2k5obhhTN+HdGPmzs
-         3TBZiFrZrNtWNqB8MD1ZJjN7wiMjECMmUDQihMsOFSoQNh6z7RLMYyGlaPVZ8YXbRel/
-         4AG3AnOtokHkEMeTBtYalR+ZIj2diZLh2E8oyHDWgbbl3jKtGVw1S1Vw5WBWBw1oc7Fz
-         vcPc5kgA0Ci82m7WSyCBlnjzSNAOOQjLYLXIC44ukpbtscCimvoESNkgw88zgL7DuLY0
-         KbWw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDXLFWf1sUElKnc7fHOhuhQ+HT4UYL5lXlzAkZA3gL6S5qukWPlh+lY/uCLNWoU+l63H0GzdUTzlLzw3p3wW7r@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4fAamtbzdj8SR6+F9lEuEreKZwiQ/gzw5ceGubVzV3bODHM3I
-	UwkTZGc9vPjLu/181+WArPy6RxohR4SdseMBVUA0T3o9BxJ4Mi/OBZ5vpcVMnDRNX+fAKuw6Q1w
-	9TsNMzEuFTboeo1SKVQOSV8nZPOgBg4+7YAPJbG/bPg==
-X-Gm-Gg: ASbGncs8/dW4SXTpc3b1zR4La8VY40iaHrNzf9CopRS6R9tgnVGfcF+d6vJCH81DQEJ
-	8tnCxo3E6ahy5LQ1iGEEbbJexdRIGAS11rOBI86nVvz1hUAQ9TR1IRT/lm3tmllLDnSygTFLRgn
-	rBWxHzo96wcUMPn1n9YPVRHesLy7GIsT+PdhcDl45FbV0=
-X-Google-Smtp-Source: AGHT+IHq8x+MK2Q+KzO0wn+EOPqwTKlQ89Mryv/yfukFFFcWkFHUwXTR4wa+yfRd5KaBrFwNGubCyPjw0k/OwXSOfLY=
-X-Received: by 2002:a05:6512:3055:b0:549:8b24:989d with SMTP id
- 2adb3069b0e04-553b6da8081mr4547256e87.0.1750249980579; Wed, 18 Jun 2025
- 05:33:00 -0700 (PDT)
+	Wed, 18 Jun 2025 12:34:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0365C14BF;
+	Wed, 18 Jun 2025 05:33:49 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08B5B3F66E;
+	Wed, 18 Jun 2025 05:34:05 -0700 (PDT)
+Date: Wed, 18 Jun 2025 13:33:55 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, Catalin Marinas
+ <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon
+ <will@kernel.org>, James Morse <james.morse@arm.com>, Oliver Upton
+ <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, Alexandru
+ Elisei <alexandru.elisei@arm.com>, Christoffer Dall
+ <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev, Ganapatrao Kulkarni
+ <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi
+ Kisanuki <fj0570is@fujitsu.com>
+Subject: Re: [PATCH v9 15/43] arm64: RME: Allow VMM to set RIPAS
+Message-ID: <20250618133355.2af1dcc4@donnerap.manchester.arm.com>
+In-Reply-To: <20250611104844.245235-16-steven.price@arm.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+	<20250611104844.245235-16-steven.price@arm.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org> <20250617-gpiochip-set-rv-gpio-v1-4-903703881fa2@linaro.org>
-In-Reply-To: <20250617-gpiochip-set-rv-gpio-v1-4-903703881fa2@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 18 Jun 2025 14:32:49 +0200
-X-Gm-Features: AX0GCFsjhUtynB_l1wpCuP4ZMWcDzuGMXSliazPojtQjqWcgC-p_VmDP2UNLCdM
-Message-ID: <CACRpkdZPPh4zjL2+2e1_2nsU13TyyDCcAhOok2cF4PGwnqA5pw@mail.gmail.com>
-Subject: Re: [PATCH 04/12] gpio: pl061: use new GPIO line value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_053302_426329_68AD4756 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_053414_204533_46D41B5C 
+X-CRM114-Status: GOOD (  38.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,19 +76,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 2:24=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+On Wed, 11 Jun 2025 11:48:12 +0100
+Steven Price <steven.price@arm.com> wrote:
 
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Hi Steven,
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+one build error below, on my machine (with GCC10):
 
-Yours,
-Linus Walleij
+> Each page within the protected region of the realm guest can be marked
+> as either RAM or EMPTY. Allow the VMM to control this before the guest
+> has started and provide the equivalent functions to change this (with
+> the guest's approval) at runtime.
+>=20
+> When transitioning from RIPAS RAM (1) to RIPAS EMPTY (0) the memory is
+> unmapped from the guest and undelegated allowing the memory to be reused
+> by the host. When transitioning to RIPAS RAM the actual population of
+> the leaf RTTs is done later on stage 2 fault, however it may be
+> necessary to allocate additional RTTs to allow the RMM track the RIPAS
+> for the requested range.
+>=20
+> When freeing a block mapping it is necessary to temporarily unfold the
+> RTT which requires delegating an extra page to the RMM, this page can
+> then be recovered once the contents of the block mapping have been
+> freed.
+>=20
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes from v8:
+>  * Propagate the 'may_block' flag to allow conditional calls to
+>    cond_resched_rwlock_write().
+>  * Introduce alloc_rtt() to wrap alloc_delegated_granule() and
+>    kvm_account_pgtable_pages() and use when allocating RTTs.
+>  * Code reorganisation to allow init_ipa_state and set_ipa_state to
+>    share a common ripas_change() function,
+>  * Other minor changes following review.
+> Changes from v7:
+>  * Replace use of "only_shared" with the upstream "attr_filter" field
+>    of struct kvm_gfn_range.
+>  * Clean up the logic in alloc_delegated_granule() for when to call
+>    kvm_account_pgtable_pages().
+>  * Rename realm_destroy_protected_granule() to
+>    realm_destroy_private_granule() to match the naming elsewhere. Also
+>    fix the return codes in the function to be descriptive.
+>  * Several other minor changes to names/return codes.
+> Changes from v6:
+>  * Split the code dealing with the guest triggering a RIPAS change into
+>    a separate patch, so this patch is purely for the VMM setting up the
+>    RIPAS before the guest first runs.
+>  * Drop the useless flags argument from alloc_delegated_granule().
+>  * Account RTTs allocated for a guest using kvm_account_pgtable_pages().
+>  * Deal with the RMM granule size potentially being smaller than the
+>    host's PAGE_SIZE. Although note alloc_delegated_granule() currently
+>    still allocates an entire host page for every RMM granule (so wasting
+>    memory when PAGE_SIZE>4k).
+> Changes from v5:
+>  * Adapt to rebasing.
+>  * Introduce find_map_level()
+>  * Rename some functions to be clearer.
+>  * Drop the "spare page" functionality.
+> Changes from v2:
+>  * {alloc,free}_delegated_page() moved from previous patch to this one.
+>  * alloc_delegated_page() now takes a gfp_t flags parameter.
+>  * Fix the reference counting of guestmem pages to avoid leaking memory.
+>  * Several misc code improvements and extra comments.
+> ---
+>  arch/arm64/include/asm/kvm_rme.h |   6 +
+>  arch/arm64/kvm/mmu.c             |   8 +-
+>  arch/arm64/kvm/rme.c             | 447 +++++++++++++++++++++++++++++++
+>  3 files changed, 458 insertions(+), 3 deletions(-)
+>=20
+
+[ ... ]
+
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index 25705da6f153..fe75c41d6ac3 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+
+[ ... ]
+
+> @@ -318,6 +619,140 @@ static int realm_create_rd(struct kvm *kvm)
+>  	return r;
+>  }
+> =20
+> +static void realm_unmap_private_range(struct kvm *kvm,
+> +				      unsigned long start,
+> +				      unsigned long end,
+> +				      bool may_block)
+> +{
+> +	struct realm *realm =3D &kvm->arch.realm;
+> +	unsigned long next_addr, addr;
+> +	int ret;
+> +
+> +	for (addr =3D start; addr < end; addr =3D next_addr) {
+> +		ret =3D realm_unmap_private_page(realm, addr, &next_addr);
+> +
+> +		if (ret)
+> +			break;
+> +
+> +		if (may_block)
+> +			cond_resched_rwlock_write(&kvm->mmu_lock);
+> +	}
+> +
+> +	realm_fold_rtt_level(realm, get_start_level(realm) + 1,
+> +			     start, end);
+> +}
+> +
+> +void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+> +			   unsigned long size, bool unmap_private,
+> +			   bool may_block)
+> +{
+> +	unsigned long end =3D start + size;
+> +	struct realm *realm =3D &kvm->arch.realm;
+> +
+> +	end =3D min(BIT(realm->ia_bits - 1), end);
+> +
+> +	if (!kvm_realm_is_created(kvm))
+> +		return;
+> +
+> +	realm_unmap_shared_range(kvm, find_map_level(realm, start, end),
+> +				 start, end, may_block);
+> +	if (unmap_private)
+> +		realm_unmap_private_range(kvm, start, end, may_block);
+> +}
+> +
+> +enum ripas_action {
+> +	RIPAS_INIT,
+> +	RIPAS_SET,
+> +};
+> +
+> +static int ripas_change(struct kvm *kvm,
+> +			struct kvm_vcpu *vcpu,
+> +			unsigned long ipa,
+> +			unsigned long end,
+> +			enum ripas_action action,
+> +			unsigned long *top_ipa)
+> +{
+> +	struct realm *realm =3D &kvm->arch.realm;
+> +	phys_addr_t rd_phys =3D virt_to_phys(realm->rd);
+> +	phys_addr_t rec_phys;
+> +	struct kvm_mmu_memory_cache *memcache =3D NULL;
+> +	int ret =3D 0;
+> +
+> +	if (vcpu) {
+> +		rec_phys =3D virt_to_phys(vcpu->arch.rec.rec_page);
+> +		memcache =3D &vcpu->arch.mmu_page_cache;
+> +
+> +		WARN_ON(action !=3D RIPAS_SET);
+> +	} else {
+> +		WARN_ON(action !=3D RIPAS_INIT);
+> +	}
+> +
+> +	while (ipa < end) {
+> +		unsigned long next;
+> +
+> +		switch (action) {
+> +		case RIPAS_INIT:
+> +			ret =3D rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
+> +			break;
+> +		case RIPAS_SET:
+> +			ret =3D rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
+> +						&next);
+> +			break;
+> +		}
+> +
+> +		switch (RMI_RETURN_STATUS(ret)) {
+> +		case RMI_SUCCESS:
+> +			ipa =3D next;
+> +			break;
+> +		case RMI_ERROR_RTT:
+> +			int err_level =3D RMI_RETURN_INDEX(ret);
+
+This breaks the build on GCC <=3D v10:
+
+/src/linux/arch/arm64/kvm/rme.c: In function =E2=80=98ripas_change=E2=80=99:
+/src/linux/arch/arm64/kvm/rme.c:1190:4: error: a label can only be part of =
+a statement and a declaration is not a statement
+ 1190 |    int err_level =3D RMI_RETURN_INDEX(ret);
+      |    ^~~
+/src/linux/arch/arm64/kvm/rme.c:1191:4: error: expected expression before i=
+nt=E2=80=99
+ 1191 |    int level =3D find_map_level(realm, ipa, end);
+      |    ^~~
+/src/linux/arch/arm64/kvm/rme.c:1193:21: error: =E2=80=98level=E2=80=99 und=
+eclared (first use in this function)
+ 1193 |    if (err_level >=3D level)
+      |                     ^~~~~
+
+With GCC 11 and later I see this still as a warning when using -Wpedantic,
+but it vanishes when also paired with -std=3Dgnu2x.
+
+So either hoist the variable declaration up, or use brackets, this worked
+for me as well, and I see it in other places:
+
+		case RMI_ERROR_RTT: {
+			....
+		}
+		default:
+
+Cheers,
+Andre
+
+
+> +			int level =3D find_map_level(realm, ipa, end);
+> +
+> +			if (err_level >=3D level)
+> +				return -EINVAL;
+> +
+> +			ret =3D realm_create_rtt_levels(realm, ipa,
+> err_level,
+> +						      level, memcache);
+> +			if (ret)
+> +				return ret;
+> +			/* Retry with the RTT levels in place */
+> +			break;
+> +		default:
+> +			WARN_ON(1);
+> +			return -ENXIO;
+> +		}
+> +	}
+> +
+> +	if (top_ipa)
+> +		*top_ipa =3D ipa;
+> +
+> +	return 0;
+> +}
+> +
+> +static int realm_init_ipa_state(struct kvm *kvm,
+> +				unsigned long ipa,
+> +				unsigned long end)
+> +{
+> +	return ripas_change(kvm, NULL, ipa, end, RIPAS_INIT, NULL);
+> +}
+> +
+> +static int kvm_init_ipa_range_realm(struct kvm *kvm,
+> +				    struct arm_rme_init_ripas *args)
+> +{
+> +	gpa_t addr, end;
+> +
+> +	addr =3D args->base;
+> +	end =3D addr + args->size;
+> +
+> +	if (end < addr)
+> +		return -EINVAL;
+> +
+> +	if (kvm_realm_state(kvm) !=3D REALM_STATE_NEW)
+> +		return -EPERM;
+> +
+> +	return realm_init_ipa_state(kvm, addr, end);
+> +}
+> +
+>  /* Protects access to rme_vmid_bitmap */
+>  static DEFINE_SPINLOCK(rme_vmid_lock);
+>  static unsigned long *rme_vmid_bitmap;
+> @@ -441,6 +876,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
+> kvm_enable_cap *cap) case KVM_CAP_ARM_RME_CREATE_REALM:
+>  		r =3D kvm_create_realm(kvm);
+>  		break;
+> +	case KVM_CAP_ARM_RME_INIT_RIPAS_REALM: {
+> +		struct arm_rme_init_ripas args;
+> +		void __user *argp =3D u64_to_user_ptr(cap->args[1]);
+> +
+> +		if (copy_from_user(&args, argp, sizeof(args))) {
+> +			r =3D -EFAULT;
+> +			break;
+> +		}
+> +
+> +		r =3D kvm_init_ipa_range_realm(kvm, &args);
+> +		break;
+> +	}
+>  	default:
+>  		r =3D -EINVAL;
+>  		break;
+
 
