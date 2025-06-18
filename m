@@ -4,47 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168B4C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C16DC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAlPcln7MckTNnFfeCHwVRsRASoJBOdczXh2hAv/jmw=; b=FbfRL6Mx0HTV92Lrafz1Lxvz4v
-	Xzel5137GfKwtvjdITrMZR4y0oOGuh3RS3st7f8PJJgHuevzmdUT9HGZ9xfiDyFF8oYrA/VmZPAxr
-	/UwCJCgEmT83SUguv0FOMJdxbD0OWuh83fhHuCe6ErSG24270lf094SZyrxm2L0QODVsuABdWR2dP
-	eFhN0ZQU22iD9LYhpm4HS7Cv602V67SAw9wRhb8Yh/8l1IdK25/f4HS5rbaS0ZDRREJr74NpMZ5ad
-	KpQcMsqMaYKkKU6gilNDyYzQTWfJ6hy+xcJlX3ZBjSHYue0cmL6TreT/u83+Xi/9HEVQj9kabb0vH
-	TS2vfX3w==;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=; b=MDpRralTa8gzzfaMXfIUGlK8Bd
+	dp0NftysrbXdAxzAYZnNd7n+M61tyDpT/C8e+wmGYF7da+uYW84X6bxWOzS3Ml5EUpphKkqIOzNxT
+	aoYhSHsepNvuj+v4pxTC290F4bjqRNet5AuF0Ae/25kks0rkcFUu0wKrQgsDn99tweU4ifS22srsh
+	3Nhu1grxgIfFmmIbuftDMz0gUjr0LvDOKKpWabnVZ9VenVTBzOeWUpKNKmVvAOg8KTYfaUbBt2ivp
+	Cqsb6gZRnSWAueEK7I+4JO9e0lg3H5KtKjlmpB4Y7MsnCfoCmb0ZcDunuljyws6vbVIBGzJpvlTto
+	XHSJAvuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsuj-0000000AK3Z-1967;
-	Wed, 18 Jun 2025 13:33:17 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uRswv-0000000AKEL-0Imn;
+	Wed, 18 Jun 2025 13:35:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrtQ-0000000A7fW-2Mv3
+	id 1uRrtU-0000000A7hN-49BV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 12:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=; b=Do0LGkHS/wmaZ4XPhdhyn30wdZ
+	EVBdaJhQT4R6ZEPDbB2jI/8IKySZxIgxLEbpwsDaXO8i9XPLILO8aAQ4tKmFY8s3FwL+ZyC6vr74v
+	fxzui6meH7rrW68TOZDFVArBtsMUNRD+wm4xctbZVf6rAHjgIZJCCS2E5YIbqS2bWGEeVv3/18FvS
+	ftjGPq+4YM//6MuKs2RfE10ocKokrgZJID8j5gcM7zuN1ZCLORoq0Wt/apjOY7LoMQeVJUNV5AIWP
+	6nXkU0ZVka2P7jdvHu9TNwJfOc7RM0o/ddBVtx6SGyobXeWVjWPpVklFQ5mFkgXePfTk2oflkaxMV
+	T022q2XA==;
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRrtS-0000000420X-2rox
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:27:53 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Wed, 18 Jun 2025 12:27:56 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 200D71F7D8;
-	Wed, 18 Jun 2025 12:27:38 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4335421247;
+	Wed, 18 Jun 2025 12:27:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1750249660; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=;
+	b=bPTGJpt9UHPwVnLrwPNauuYg1BTT9lau/wPoahl8jyYs+PBL+3tVJgvj7PRQfVVzLSrn9O
+	hjpCmyebsuAxRQ3P2ZjIlRQ58+ju/+tZnh791AeQ7r1ar4KrKRG+JtYiIdBtEq2k9/Od2u
+	XI6O3ggaanABqOgAlZqrF/eCuvD1U6M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1750249660;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=;
+	b=7+ijGGznd8H3I1VIEeydbUqinndGyUJriA+AeANDWC/rOwZAqetpEWJUdyPjZcZSEooYAs
+	a7meKP5Q2eTXS1Aw==
+Authentication-Results: smtp-out1.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1750249660; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=;
+	b=bPTGJpt9UHPwVnLrwPNauuYg1BTT9lau/wPoahl8jyYs+PBL+3tVJgvj7PRQfVVzLSrn9O
+	hjpCmyebsuAxRQ3P2ZjIlRQ58+ju/+tZnh791AeQ7r1ar4KrKRG+JtYiIdBtEq2k9/Od2u
+	XI6O3ggaanABqOgAlZqrF/eCuvD1U6M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1750249660;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8RgXOq2Vm8JL4DrDgHl/mbGF/SqH+2UKsZvpUgVtjO8=;
+	b=7+ijGGznd8H3I1VIEeydbUqinndGyUJriA+AeANDWC/rOwZAqetpEWJUdyPjZcZSEooYAs
+	a7meKP5Q2eTXS1Aw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 69BE013A99;
-	Wed, 18 Jun 2025 12:27:37 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8EF4A13721;
+	Wed, 18 Jun 2025 12:27:39 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SPpoGLmwUmg4UgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:37 +0000
+	id IDy0IbuwUmg4UgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:39 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: lee@kernel.org,
 	danielt@kernel.org,
@@ -71,29 +122,43 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 05/12] fbcon: Add necessary include statements and forward declarations
-Date: Wed, 18 Jun 2025 14:16:37 +0200
-Message-ID: <20250618122436.379013-6-tzimmermann@suse.de>
+Subject: [PATCH 08/12] backlight: as3711_bl: Include <linux/of.h>
+Date: Wed, 18 Jun 2025 14:16:40 +0200
+Message-ID: <20250618122436.379013-9-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250618122436.379013-1-tzimmermann@suse.de>
 References: <20250618122436.379013-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
+X-Spamd-Result: default: False [-5.30 / 50.00];
 	REPLY(-4.00)[];
-	TAGGED_RCPT(0.00)[]
-X-Rspamd-Queue-Id: 200D71F7D8
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[25];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_TO(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,gmx.de,diasemi.com,skole.hr];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	R_RATELIMIT(0.00)[to_ip_from(RLc48bcaq7qz9wekwjsx9fywoc)];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052752_748077_49BB6ED4 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20250618_132754_890874_997BB710 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,31 +174,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the header self contained for including.
+Include <linux/of.h> to declare various OF helpers. Avoids dependency
+on backlight header to include it.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- include/linux/fbcon.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/video/backlight/as3711_bl.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/fbcon.h b/include/linux/fbcon.h
-index 2382dec6d6ab..81f0e698acbf 100644
---- a/include/linux/fbcon.h
-+++ b/include/linux/fbcon.h
-@@ -1,6 +1,13 @@
- #ifndef _LINUX_FBCON_H
- #define _LINUX_FBCON_H
- 
-+#include <linux/compiler_types.h>
-+
-+struct fb_blit_caps;
-+struct fb_info;
-+struct fb_var_screeninfo;
-+struct fb_videomode;
-+
- #ifdef CONFIG_FRAMEBUFFER_CONSOLE
- void __init fb_console_init(void);
- void __exit fb_console_exit(void);
+diff --git a/drivers/video/backlight/as3711_bl.c b/drivers/video/backlight/as3711_bl.c
+index 9f89eb19894e..753160bbc3e7 100644
+--- a/drivers/video/backlight/as3711_bl.c
++++ b/drivers/video/backlight/as3711_bl.c
+@@ -13,6 +13,7 @@
+ #include <linux/kernel.h>
+ #include <linux/mfd/as3711.h>
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/slab.h>
 -- 
 2.49.0
 
