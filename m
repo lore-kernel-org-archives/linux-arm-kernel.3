@@ -4,64 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512A2C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EE4C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CkGzmh4xvo64rKNYiCpy47Y56UjryrOwwTLSmJFwem8=; b=2Ok1gWchxczveXt0dRKIYg/y2q
-	l/QsiFuVwaN4q3XR5JEs3DG/Wc2jQoJwjTo69LsJdMK0LdIXLezmTmGNwBeTfGpSJuLWFgXvwKW6/
-	HGwMzCwbkbU5itTQlOk/4hdIP4MW8C6JCfAuRKwcGFGaFaP+Lnv5oT4WJu787CxCQmFySVvYT/p40
-	5X76lIqec33WlRVL2M1m1r8tcJv7rNy/Gp+BkxF2kEg6cgV+Kaxg+7zgXvnWRKsm3AKjlRKryfu3R
-	Wln1G88EK1f5blKsC3ereMM5ekVDn7iQK1lt8jcS8Rc3lXMoXauIalX4y/0Uuy3qNYwMCrPgtv7oz
-	xRmE2HAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CFvfUZyX2dtL2TCTDVXIvuKtzzqsCPskFENXh+hmWc=; b=3Vx4l7JFfqkDL+jW0eM2Ya30Sc
+	vcJbOcFAXbl/j47alIzVfNesh+IkH8gFRARMBJOSdU9ffEe0Ph+IRVlfL4NPkkRY/nK7t2RxfH2Ve
+	MEb9mdOOiNH3oLesFg/JBmMNwhWo4tug8CH2iKrbU268bmB5y72d7SpbgbJed4UuipuCd5io6ZQcB
+	eN7I5y4nnG1C1lOnen8h2zC58QkCU8ASs+5b9Mq60ezDbnYk8go6soOpav5Mo8X7aR5eBb6XMu5Mm
+	LyIUyHWwyQnh8aY70EAqQLqUELlm/Zvv5qObmSq56H1XworUIBwLvmteih5FpW6ETa5xQsbu7JZdy
+	Vg/Fg7/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtCq-0000000AMTX-1G8T;
-	Wed, 18 Jun 2025 13:52:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrza-0000000A8zB-0JV0
+	id 1uRtNm-0000000ANs9-2ReG;
+	Wed, 18 Jun 2025 14:03:18 +0000
+Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRs8k-0000000AAu8-2M7b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 12:34:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0365C14BF;
-	Wed, 18 Jun 2025 05:33:49 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08B5B3F66E;
-	Wed, 18 Jun 2025 05:34:05 -0700 (PDT)
-Date: Wed, 18 Jun 2025 13:33:55 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, Catalin Marinas
- <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon
- <will@kernel.org>, James Morse <james.morse@arm.com>, Oliver Upton
- <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, Alexandru
- Elisei <alexandru.elisei@arm.com>, Christoffer Dall
- <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev, Ganapatrao Kulkarni
- <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi
- Kisanuki <fj0570is@fujitsu.com>
-Subject: Re: [PATCH v9 15/43] arm64: RME: Allow VMM to set RIPAS
-Message-ID: <20250618133355.2af1dcc4@donnerap.manchester.arm.com>
-In-Reply-To: <20250611104844.245235-16-steven.price@arm.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
-	<20250611104844.245235-16-steven.price@arm.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Wed, 18 Jun 2025 12:43:45 +0000
+Received: from pps.filterd (m0250811.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55I6YkvN001788;
+	Wed, 18 Jun 2025 12:43:28 GMT
+Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12on2040.outbound.protection.outlook.com [40.107.237.40])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 478xa1mk1c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Jun 2025 12:43:28 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B/r6I2GglwBZ/0jmJRBMQp0oLr0AC4MISNOWlg00RpKtEJtqAXkGrYBs+0DvXpH6W+oo4MBWVxdhoEKAbWDVLGbvXjn94fxePVb4gjq93+a3QR/yxJqIQFg5M/YjBpJUuIg9w+ciTo6ob2XSvyaXGodkuGQFuFII7JFgibLWUgrCT+mEwTfCLADUNOtpIYAzimaTWSemI+9Kfngx/Izj37VxbUz9O2V9H7jaR/xDqbt686vHTugUzqQMctMNGbmj50rDqkAYp6N46NhyLBTUlR9eCyfIEJ7IgT5bzhJz91YWBSF67sAfjS4GU0WAdcHxDhCVbyUmikPdxHoKNpxY9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2CFvfUZyX2dtL2TCTDVXIvuKtzzqsCPskFENXh+hmWc=;
+ b=AK8fTnk4RvhrukpnSpSVKFeTMLteUYj88zJzFeZMtFnS0JO5mTQuTQqJdIFT5854uTh7TZSleZvwGk0BHhO3FyJsi+IVkZJYob+Wbd4SpPeJFo+vqVRhCRM96ISuwHxtlZLjQhMjMi78OCl4eou5+woPT93GikZgqFtmbNdkNV8kY3KdwLOh11/wARjKxQ/6HJxBmpOowxszmGa5g0ttI9GXGFs1+shmSauFbZ9ZwQZ1bhDHwnVsnGQUCWLyQqSYvWRWAF7EgUTpdZcTsmtf7wsgDjLAjO8uvY0j4aUOGD/pysv3HM3v5qCjP2tqZpnjIFmujIoXnD6wnGGKStptvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from CH3PR11MB8773.namprd11.prod.outlook.com (2603:10b6:610:1cb::13)
+ by PH3PPFBA2AA2BA3.namprd11.prod.outlook.com (2603:10b6:518:1::d46) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.36; Wed, 18 Jun
+ 2025 12:43:25 +0000
+Received: from CH3PR11MB8773.namprd11.prod.outlook.com
+ ([fe80::c241:6bd2:b212:f4b2]) by CH3PR11MB8773.namprd11.prod.outlook.com
+ ([fe80::c241:6bd2:b212:f4b2%4]) with mapi id 15.20.8835.027; Wed, 18 Jun 2025
+ 12:43:25 +0000
+From: "Li, Meng" <Meng.Li@windriver.com>
+To: "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "linux@roeck-us.net"
+	<linux@roeck-us.net>,
+        "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+        "kernel@pengutronix.de" <kernel@pengutronix.de>,
+        "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
+        "imx@lists.linux.dev" <imx@lists.linux.dev>,
+        "shawnguo@kernel.org"
+	<shawnguo@kernel.org>,
+        "robh@kernel.org" <robh@kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "Frank.Li@nxp.com"
+	<Frank.Li@nxp.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [v4 PATCH 0/2] create patches for nxp-ls1046a platform watchdog
+ feature
+Thread-Topic: [v4 PATCH 0/2] create patches for nxp-ls1046a platform watchdog
+ feature
+Thread-Index: AQHb2CJdA+pbH/hxfUaUS7jVTkuv7bQI69VQ
+Date: Wed, 18 Jun 2025 12:43:24 +0000
+Message-ID: <CH3PR11MB877377065C04B1BC2C963AA1F172A@CH3PR11MB8773.namprd11.prod.outlook.com>
+References: <20250608030616.3874517-1-Meng.Li@windriver.com>
+In-Reply-To: <20250608030616.3874517-1-Meng.Li@windriver.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH3PR11MB8773:EE_|PH3PPFBA2AA2BA3:EE_
+x-ms-office365-filtering-correlation-id: d8972e1b-ca35-45c5-3181-08ddae65b793
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007|38070700018|921020;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Odr6S9vsMlpv9fr0hz9qnsN4i39wfvvD7skwSiSF5CF8RpEM+GEpe8bv6hYv?=
+ =?us-ascii?Q?D5y7uYPQSJBLsJ7NO/wJ+rYQU9LjZJA+c53mdxQRXE9/ib1g8QB0io6mrVhW?=
+ =?us-ascii?Q?ly0t/6IEbAkqDsfscXw6athYpiiI1ImLoEQTepGJEtoSRaqOUjbafh9xce21?=
+ =?us-ascii?Q?kMsy1Bi/wj/hCtrO2VmtK72w6UVveu61OGX1gn5MXeQ1L/DfNvzqW4oV7C+K?=
+ =?us-ascii?Q?LMsG6cyR2g2XV16hWGIT8CtyFjfX7NDytbmp+zaQVZ+EhkwoBQosJcTsnzDu?=
+ =?us-ascii?Q?DLT9+qj2NKRB4sy1z6M3SIZ5FGf4qOEi8ZFDd8Cgyh2cTl166RMs6VOHGys/?=
+ =?us-ascii?Q?ltdrikM8zYgx1mNHjdKZTEJsXtp1PRzB/7uvGZ+i4Ym6yjqioLftCs476yh2?=
+ =?us-ascii?Q?iUF0WbeE+aSHhOW2aUFEjA6KLal4UKQ9hRhXlsQMmD73BT95XOpW0uqdatz6?=
+ =?us-ascii?Q?ABOtALX/0m8Ie50UspZshCgRfexOT78TNcVTMydmR8ZaaVH1WfJZbJwE1MTs?=
+ =?us-ascii?Q?SMyIKhE23b+oT90/bAIIMBBGyc1mpBEvTYGuQYNCyi0sJRxn8+O09sYJY7NL?=
+ =?us-ascii?Q?WVU/6CdynStv/N2tCEOf4HYJs4eEw7EjiJJunf4x5E6Fr+cvy9ilIpjDCN8X?=
+ =?us-ascii?Q?iPAKsy6VAmRvadNdsr28ps8sNsqmAu/6NoBZYOc4TgHQ4NM7FLa0WPCAqK2L?=
+ =?us-ascii?Q?dWW0StHhhoDugM/c/6aEKUnKTzVdC3kdAlPJ5+horIimaX0hAdi+g6AiJxEh?=
+ =?us-ascii?Q?GgauwuU9tHZzzL9Nupxzd+S4mt18GQ/w60WgfS9frohWLt/s5XuMhV9Cc4o6?=
+ =?us-ascii?Q?WYEWkuPjJes6UILCkenp0DHOWp3koga0XV82sOHPg2ujYL3cFkfJMzhpduaY?=
+ =?us-ascii?Q?Hga0Q4qdmUO9J7NeOSudeRXn41dDR5S4BqG5I8tzEu227PzccaDBWM0/oH3+?=
+ =?us-ascii?Q?jnC5GeCRP1Ldz42IpUIKKa6R/l0NBIczdmxlvz3ZI6gksEOJ71aaz9pCsY6X?=
+ =?us-ascii?Q?lOQaucaek4rtdun74gQjL3raSVaIKVc1jcUKqHGqIvmSliE/6usgEmJ9extW?=
+ =?us-ascii?Q?wCwSBhN3LIxhNVhCXVEFO7ThTJUnkkeupTRQUmpMzEwXRQozPK/Rue05kfZS?=
+ =?us-ascii?Q?t7fUN0jrMZUYvZvPwzXl2kdO5wkq6aygZTl9zohRu2zI9+QPPe4ElJZ5+tET?=
+ =?us-ascii?Q?I2OpZJkceHpOOsUoPfdlFC1BPqX1MIU+w8ClJOpG4pIQh0viWPPBWGI6Psha?=
+ =?us-ascii?Q?LcTuLDrKgFKhjrrzo//HHCVphvu+9s3e59rmhcIJO+BTATDvGBXDvq7hXo9J?=
+ =?us-ascii?Q?BNQFYAj/HLU3P14t5UMHXEVQX0lRRGyK9cSvKnoFD2hlnVNeKmIqccZ5GH3m?=
+ =?us-ascii?Q?6PSOpM32HGYDBdQK7b2e8I6WBq57BhXEEfeg6HzoLzctKkf1jWeIJ5ozRzrd?=
+ =?us-ascii?Q?g/lfP8aPm4Ji7CfY30CvWi4LFH+v/CqSLpZ3zf0c9BtFfvWFjlitwLt3UKYx?=
+ =?us-ascii?Q?SchgwJrjKVM2kWM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8773.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?i012+pEWsjWPx+R3dmb8JZfi3TBJYvA0NeThIfFJ+LwI9La+hxa1q3pFdDHA?=
+ =?us-ascii?Q?5zsYDaT8DMr688qcGLiwkQgr6m1pbeQafQOlA9115VTu9dZ9g10igXrXpFtP?=
+ =?us-ascii?Q?I+kCdVbl4T3EovEHa0lWeEdaYM81WCiiX8YDznX/THNnhoF4+acYs8eLnvkS?=
+ =?us-ascii?Q?FoF0G2BglTkllf1WgtMGZe0mo19e+0usqd17Rg5NGDyrnD5oYKVhvp6Use0n?=
+ =?us-ascii?Q?V7J9uSAnk7pujlQ6qCRy/F3U/YdcHxghkH4qyd4FdYja4sMYi0W1VRJkiFS3?=
+ =?us-ascii?Q?cXe9euJrdb9GueWyl6P9WMwGEXQXa1mC9XLkKCrCizrQ/6ZLEw0bcM8JYJWT?=
+ =?us-ascii?Q?25w0Ta/Tpe8fIyt0NAsgcbQG2MdH8V5+jvGGg6fkaSTKSJ81KVtEXD/APG4K?=
+ =?us-ascii?Q?YsM80Yh8xx5GJRpNhHXWdrFGzWLPDaXxLxLrML6HByoY3re4wUBNbQ92L2Sd?=
+ =?us-ascii?Q?H/R0JA66dkBYxOYsIOGwu22k8yDIPOlNHG09PUxRQrGq0IewFfYWSeD2TkSi?=
+ =?us-ascii?Q?SqXUg0ckZG9Op0SRoU3WQfFGAzjdFlRndyu/90WgczJVQ4FrlZjyXPLzsvdW?=
+ =?us-ascii?Q?yhZ77wvP4DAspSoRfLISVPyVD9ojuEtDr2Wp0WdAS+gc6h5MXLn55n5wJgFz?=
+ =?us-ascii?Q?IjdztEOA+jHrH/XsIyNdELG63Lf21wgQ0CZ8nHW4hNzsIwyxA3rbGatWz09b?=
+ =?us-ascii?Q?3EzP6CGUIP4yB7uTFj04JH9ypYYVcr6FnknrAlP8k8aDcs0yr7Axh/ZVaVSh?=
+ =?us-ascii?Q?MfyJJ+QOEtE4j6Sc53zT71tNAB6FigX6bhHl7Tzg3rTzIPDDtGv1URnOdzKC?=
+ =?us-ascii?Q?DJrpoefV9jVp6yJMlsBvHO5dJtkt+Wuf47p2/kcWJPwUf26vY5jV9avHHRyR?=
+ =?us-ascii?Q?uXc5pV7uQuktHLNkVuQJ+Xih5DtXrVS4qDiUc305WMNlQho4pMQ7Ue3eNAvv?=
+ =?us-ascii?Q?KBFRKIh/x9v9brzecfCO2iOzoYf+N/BYQqWaiBzka0DEHtN4d2/1VgVWNABY?=
+ =?us-ascii?Q?mlyrJY7xnnERGhUgb6y0ekO8xPgWPIeOVvWjbjCHWga4ZiK23b/RQZ4Ot7lI?=
+ =?us-ascii?Q?rpQQzwlOhz/n6URKqU1Gh2/b9eVX5UBl8ACniUBU4/nP55T73ReS4oqnnIvY?=
+ =?us-ascii?Q?8x2tV2pSzdUglooAhen6Du3K4COp03YHHwF8drne5VHFCEXbiIeLlzWtakKh?=
+ =?us-ascii?Q?Z4zUUF6feF+vcm3MhVO0iW3qRY4gAlwIC/5XdG3cxmLMJOhmoqzkampSZDpy?=
+ =?us-ascii?Q?eQ/IzhUqwDCa3cFBuGzXL5hCRS2UNe3wlnxkpCgMdaLRd6e2qpUGx+5NT6yb?=
+ =?us-ascii?Q?0ZZRxhPEZTdEpjd8BWFwBWe7/yTjAwxu2gmE2FvEEfOghnlPYgLCeIuglnqi?=
+ =?us-ascii?Q?Zb1qNkRLztyD6zTOJ3exJlmskIOFkH94gqcrliNWGQiwP5ThB03I9Ye8I6wz?=
+ =?us-ascii?Q?aHWtEDgorzupFBpSjmED1aEk4kxaTMFhihfRZL8WU5ATz4KWRldnPa9k7wJu?=
+ =?us-ascii?Q?OnhpQ7SC2IASe/BQ47Ohy8gvO+8P/YxiKUrDdYT3oWdvudg99y4s/nSiK3No?=
+ =?us-ascii?Q?/nlfuyvfRXAb8PddCUzQ8khNydrznYaZa5AR7MsL?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR11MB8773.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8972e1b-ca35-45c5-3181-08ddae65b793
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jun 2025 12:43:25.0730
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wiG4XOvOMpWLRp4tPUf/r7wFQorM5dMRf/dfafoT5HZeTfuBoJZrO5Bge3BKxjbqj+NWlJHHQq8FjF7HnnUAAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPFBA2AA2BA3
+X-Authority-Analysis: v=2.4 cv=PuiTbxM3 c=1 sm=1 tr=0 ts=6852b470 cx=c_pps a=Ubn8NgXdbfquypQWsLw3nQ==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=6IFa9wvqVegA:10 a=t7CeM3EgAAAA:8 a=VwQbUJbxAAAA:8 a=_jlGtV7tAAAA:8 a=8AirrxEcAAAA:8 a=JfrnYn6hAAAA:8 a=who4opk85_ACAUyb05EA:9 a=CjuIK1q_8ugA:10 a=FdTzh2GWekK77mhwV6Dw:22 a=nlm17XC03S6CtCLSeiRr:22 a=ST-jHhOKWsTCqRlWije3:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: greIcYrW38EBFtI7sDKifLTtFB-Sv5v3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE4MDEwNyBTYWx0ZWRfXxzV6eAX5S1+v e6ER7v7BTw/9QBgiKDH5N93mqTu3F93aC2kzPXB7IqmjDS4OquBV0cFwa2HJ67u39un5gsQoSHJ jyXaZH9RCIWNN2+SYr4bCOsepz49nxAXu5hnP1Bp6iD4d1lPz1QfTwvdHDGTZk84PwCytwtVRKF
+ qkau95yZEz6wqJQOUzcePC6z1s2nXmBLRDGliLAVHiuOhPqRt9GjM3izzqSDXau07GOcvl988Ka dHyEaoKhP7VBtOqdKGrM+9Nx4REGhxxhXIo/THkgLFxgFMRSsWS7+6WiQTtwyUTMmJCfxCvreT2 wTfkLiE0VCc5T786xNEjwWFDBQSsb/NRgHQ/KOxy0XNeoNMfEF852Ktw2Y/sU6Nhf/JxcUm6umu
+ 4KYA6IXGB++YuSCyvyEIbicDlEw6Y3ePUN8pe3NaouqAJ8z1d5WaAVHLztTG5urif8Kea44F
+X-Proofpoint-GUID: greIcYrW38EBFtI7sDKifLTtFB-Sv5v3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-18_05,2025-06-18_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 adultscore=0
+ bulkscore=0 phishscore=0 suspectscore=0 mlxlogscore=951 lowpriorityscore=0
+ priorityscore=1501 impostorscore=0 mlxscore=0 malwarescore=0 clxscore=1015
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506180107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_053414_204533_46D41B5C 
-X-CRM114-Status: GOOD (  38.30  )
+X-CRM114-CacheID: sfid-20250618_054342_715942_F1C3B8F0 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,277 +194,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Jun 2025 11:48:12 +0100
-Steven Price <steven.price@arm.com> wrote:
+I had resent the whole patch and include all the maintainers
+More than ten days have passed, but there is no any progress and reply in u=
+pstream.
+Is there any comment on these patches, do I need to improve these patches?
 
-Hi Steven,
+Thanks,
+LImeng
 
-one build error below, on my machine (with GCC10):
-
-> Each page within the protected region of the realm guest can be marked
-> as either RAM or EMPTY. Allow the VMM to control this before the guest
-> has started and provide the equivalent functions to change this (with
-> the guest's approval) at runtime.
+> -----Original Message-----
+> From: Li, Meng <Meng.Li@windriver.com>
+> Sent: Sunday, June 8, 2025 11:06 AM
+> To: krzk+dt@kernel.org; linux@roeck-us.net; s.hauer@pengutronix.de;
+> kernel@pengutronix.de; linux-watchdog@vger.kernel.org; imx@lists.linux.de=
+v;
+> shawnguo@kernel.org; robh@kernel.org; conor+dt@kernel.org;
+> Frank.Li@nxp.com
+> Cc: linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org; lin=
+ux-
+> kernel@vger.kernel.org; Li, Meng <Meng.Li@windriver.com>
+> Subject: [v4 PATCH 0/2] create patches for nxp-ls1046a platform watchdog
+> feature
 >=20
-> When transitioning from RIPAS RAM (1) to RIPAS EMPTY (0) the memory is
-> unmapped from the guest and undelegated allowing the memory to be reused
-> by the host. When transitioning to RIPAS RAM the actual population of
-> the leaf RTTs is done later on stage 2 fault, however it may be
-> necessary to allocate additional RTTs to allow the RMM track the RIPAS
-> for the requested range.
+> v4:
+>  - Improve commit log of patch0002
 >=20
-> When freeing a block mapping it is necessary to temporarily unfold the
-> RTT which requires delegating an extra page to the RMM, this page can
-> then be recovered once the contents of the block mapping have been
-> freed.
+> v3:
+>  - merge patch 0002 into patch 0001
+>  - improve the commit log of patches
 >=20
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes from v8:
->  * Propagate the 'may_block' flag to allow conditional calls to
->    cond_resched_rwlock_write().
->  * Introduce alloc_rtt() to wrap alloc_delegated_granule() and
->    kvm_account_pgtable_pages() and use when allocating RTTs.
->  * Code reorganisation to allow init_ipa_state and set_ipa_state to
->    share a common ripas_change() function,
->  * Other minor changes following review.
-> Changes from v7:
->  * Replace use of "only_shared" with the upstream "attr_filter" field
->    of struct kvm_gfn_range.
->  * Clean up the logic in alloc_delegated_granule() for when to call
->    kvm_account_pgtable_pages().
->  * Rename realm_destroy_protected_granule() to
->    realm_destroy_private_granule() to match the naming elsewhere. Also
->    fix the return codes in the function to be descriptive.
->  * Several other minor changes to names/return codes.
-> Changes from v6:
->  * Split the code dealing with the guest triggering a RIPAS change into
->    a separate patch, so this patch is purely for the VMM setting up the
->    RIPAS before the guest first runs.
->  * Drop the useless flags argument from alloc_delegated_granule().
->  * Account RTTs allocated for a guest using kvm_account_pgtable_pages().
->  * Deal with the RMM granule size potentially being smaller than the
->    host's PAGE_SIZE. Although note alloc_delegated_granule() currently
->    still allocates an entire host page for every RMM granule (so wasting
->    memory when PAGE_SIZE>4k).
-> Changes from v5:
->  * Adapt to rebasing.
->  * Introduce find_map_level()
->  * Rename some functions to be clearer.
->  * Drop the "spare page" functionality.
-> Changes from v2:
->  * {alloc,free}_delegated_page() moved from previous patch to this one.
->  * alloc_delegated_page() now takes a gfp_t flags parameter.
->  * Fix the reference counting of guestmem pages to avoid leaking memory.
->  * Several misc code improvements and extra comments.
-> ---
->  arch/arm64/include/asm/kvm_rme.h |   6 +
->  arch/arm64/kvm/mmu.c             |   8 +-
->  arch/arm64/kvm/rme.c             | 447 +++++++++++++++++++++++++++++++
->  3 files changed, 458 insertions(+), 3 deletions(-)
+> v2:
+>  - improve the commit log of patch 0001
+>  - add another 2 patches to fix below warning
+>  arch/arm64/boot/dts/freescale/fsl-ls1046a-rdb.dtb:
+> watchdog@2ad0000(fsl,imx21-wdt): big-endian: False schema does not allow
+> True
 >=20
-
-[ ... ]
-
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index 25705da6f153..fe75c41d6ac3 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-
-[ ... ]
-
-> @@ -318,6 +619,140 @@ static int realm_create_rd(struct kvm *kvm)
->  	return r;
->  }
-> =20
-> +static void realm_unmap_private_range(struct kvm *kvm,
-> +				      unsigned long start,
-> +				      unsigned long end,
-> +				      bool may_block)
-> +{
-> +	struct realm *realm =3D &kvm->arch.realm;
-> +	unsigned long next_addr, addr;
-> +	int ret;
-> +
-> +	for (addr =3D start; addr < end; addr =3D next_addr) {
-> +		ret =3D realm_unmap_private_page(realm, addr, &next_addr);
-> +
-> +		if (ret)
-> +			break;
-> +
-> +		if (may_block)
-> +			cond_resched_rwlock_write(&kvm->mmu_lock);
-> +	}
-> +
-> +	realm_fold_rtt_level(realm, get_start_level(realm) + 1,
-> +			     start, end);
-> +}
-> +
-> +void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
-> +			   unsigned long size, bool unmap_private,
-> +			   bool may_block)
-> +{
-> +	unsigned long end =3D start + size;
-> +	struct realm *realm =3D &kvm->arch.realm;
-> +
-> +	end =3D min(BIT(realm->ia_bits - 1), end);
-> +
-> +	if (!kvm_realm_is_created(kvm))
-> +		return;
-> +
-> +	realm_unmap_shared_range(kvm, find_map_level(realm, start, end),
-> +				 start, end, may_block);
-> +	if (unmap_private)
-> +		realm_unmap_private_range(kvm, start, end, may_block);
-> +}
-> +
-> +enum ripas_action {
-> +	RIPAS_INIT,
-> +	RIPAS_SET,
-> +};
-> +
-> +static int ripas_change(struct kvm *kvm,
-> +			struct kvm_vcpu *vcpu,
-> +			unsigned long ipa,
-> +			unsigned long end,
-> +			enum ripas_action action,
-> +			unsigned long *top_ipa)
-> +{
-> +	struct realm *realm =3D &kvm->arch.realm;
-> +	phys_addr_t rd_phys =3D virt_to_phys(realm->rd);
-> +	phys_addr_t rec_phys;
-> +	struct kvm_mmu_memory_cache *memcache =3D NULL;
-> +	int ret =3D 0;
-> +
-> +	if (vcpu) {
-> +		rec_phys =3D virt_to_phys(vcpu->arch.rec.rec_page);
-> +		memcache =3D &vcpu->arch.mmu_page_cache;
-> +
-> +		WARN_ON(action !=3D RIPAS_SET);
-> +	} else {
-> +		WARN_ON(action !=3D RIPAS_INIT);
-> +	}
-> +
-> +	while (ipa < end) {
-> +		unsigned long next;
-> +
-> +		switch (action) {
-> +		case RIPAS_INIT:
-> +			ret =3D rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
-> +			break;
-> +		case RIPAS_SET:
-> +			ret =3D rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
-> +						&next);
-> +			break;
-> +		}
-> +
-> +		switch (RMI_RETURN_STATUS(ret)) {
-> +		case RMI_SUCCESS:
-> +			ipa =3D next;
-> +			break;
-> +		case RMI_ERROR_RTT:
-> +			int err_level =3D RMI_RETURN_INDEX(ret);
-
-This breaks the build on GCC <=3D v10:
-
-/src/linux/arch/arm64/kvm/rme.c: In function =E2=80=98ripas_change=E2=80=99:
-/src/linux/arch/arm64/kvm/rme.c:1190:4: error: a label can only be part of =
-a statement and a declaration is not a statement
- 1190 |    int err_level =3D RMI_RETURN_INDEX(ret);
-      |    ^~~
-/src/linux/arch/arm64/kvm/rme.c:1191:4: error: expected expression before i=
-nt=E2=80=99
- 1191 |    int level =3D find_map_level(realm, ipa, end);
-      |    ^~~
-/src/linux/arch/arm64/kvm/rme.c:1193:21: error: =E2=80=98level=E2=80=99 und=
-eclared (first use in this function)
- 1193 |    if (err_level >=3D level)
-      |                     ^~~~~
-
-With GCC 11 and later I see this still as a warning when using -Wpedantic,
-but it vanishes when also paired with -std=3Dgnu2x.
-
-So either hoist the variable declaration up, or use brackets, this worked
-for me as well, and I see it in other places:
-
-		case RMI_ERROR_RTT: {
-			....
-		}
-		default:
-
-Cheers,
-Andre
-
-
-> +			int level =3D find_map_level(realm, ipa, end);
-> +
-> +			if (err_level >=3D level)
-> +				return -EINVAL;
-> +
-> +			ret =3D realm_create_rtt_levels(realm, ipa,
-> err_level,
-> +						      level, memcache);
-> +			if (ret)
-> +				return ret;
-> +			/* Retry with the RTT levels in place */
-> +			break;
-> +		default:
-> +			WARN_ON(1);
-> +			return -ENXIO;
-> +		}
-> +	}
-> +
-> +	if (top_ipa)
-> +		*top_ipa =3D ipa;
-> +
-> +	return 0;
-> +}
-> +
-> +static int realm_init_ipa_state(struct kvm *kvm,
-> +				unsigned long ipa,
-> +				unsigned long end)
-> +{
-> +	return ripas_change(kvm, NULL, ipa, end, RIPAS_INIT, NULL);
-> +}
-> +
-> +static int kvm_init_ipa_range_realm(struct kvm *kvm,
-> +				    struct arm_rme_init_ripas *args)
-> +{
-> +	gpa_t addr, end;
-> +
-> +	addr =3D args->base;
-> +	end =3D addr + args->size;
-> +
-> +	if (end < addr)
-> +		return -EINVAL;
-> +
-> +	if (kvm_realm_state(kvm) !=3D REALM_STATE_NEW)
-> +		return -EPERM;
-> +
-> +	return realm_init_ipa_state(kvm, addr, end);
-> +}
-> +
->  /* Protects access to rme_vmid_bitmap */
->  static DEFINE_SPINLOCK(rme_vmid_lock);
->  static unsigned long *rme_vmid_bitmap;
-> @@ -441,6 +876,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
-> kvm_enable_cap *cap) case KVM_CAP_ARM_RME_CREATE_REALM:
->  		r =3D kvm_create_realm(kvm);
->  		break;
-> +	case KVM_CAP_ARM_RME_INIT_RIPAS_REALM: {
-> +		struct arm_rme_init_ripas args;
-> +		void __user *argp =3D u64_to_user_ptr(cap->args[1]);
-> +
-> +		if (copy_from_user(&args, argp, sizeof(args))) {
-> +			r =3D -EFAULT;
-> +			break;
-> +		}
-> +
-> +		r =3D kvm_init_ipa_range_realm(kvm, &args);
-> +		break;
-> +	}
->  	default:
->  		r =3D -EINVAL;
->  		break;
+> v1:
+>  - create patch 0001-arch-arm64-dts-add-big-endian-property-back-into-
+> wat.patch
+>=20
+> Meng Li (2):
+>   dt-bindings: watchdog: fsl-imx-wdt: add compatible string
+>     fsl,ls1046a-wdt
+>   arch: arm64: dts: add big-endian property back into watchdog node
+>=20
+>  Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 2 ++
+>  arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi              | 3 ++-
+>  2 files changed, 4 insertions(+), 1 deletion(-)
+>=20
+> --
+> 2.34.1
 
 
