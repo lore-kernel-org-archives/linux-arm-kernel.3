@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE553C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3198BC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PzRuIp6n6n8mhTu9OLFg7/vC1IlZzMFe7wz8bVqOkg=; b=HWQfV+EMbORMUcDI8THyYuQsX+
-	2g15SogFYAJBSn0g9QQNkNJU+y5fwTo5xHFMcC0eAQFOOk/HOV/TUR6NXOcE8HUXHWq4EDjE9ph+H
-	mCaiHqpp3M75eULPGXxCXORMw0qJbWeTbHjuByfOild7B4t6Rk13GCouE76Y/NC3Iza8+T6AVhr+w
-	tr4LlZNzPrvzdltZjT8qOnzdHo2qVzQqwXg5GD1gaxlPqY+ddOWvcR2qlFxzyeBlZZsqMwfIZU/GV
-	elyismHZTUH7Jhnh4QXSG/Ysnm9U6MVOdPHNmYIkJBvGWOdbBm9pXgA8Wsi2D3nO+ag6h7HkArFOw
-	0Hyj2cpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VDeTpQ4QaePlaHR+35lToDv+5wtBgSaX0308LTxujqs=; b=l2e3gU4E5qnE4znA79ihviWufa
+	vkhwQDs/dt7zc9NMc/p6dnb7CoY+J0/XBoUw5YkhfIEzRRe3570ocF/O0gXFMTBm3N7S3scj0yBBz
+	FGv0nH0SHJQTVJ+Jt7qXFI2dtAjIV/Gvo8LpeuP5HnghMI7Cmk6SNNzDkcMtMl/JeKZ31jZC5qMjO
+	VmrSxIO5GE2VUT6rCWsIgHILVn6KlANbkljOscHEp+atjjHN5JzBkjKP82wGE4mTmZFm9LVlp2yJI
+	nmLuX30wOKNSXf5W81xLTZM9z88LJ5z9QLq7PHp1Uz+NmrCe/t33YvjW3mzDEoh7lZW2+uHXx51Tv
+	29hBW6Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwde-0000000ArfC-2f3u;
-	Wed, 18 Jun 2025 17:31:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRwfM-0000000As0h-1TPh;
+	Wed, 18 Jun 2025 17:33:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtv1-0000000ASym-3yhx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 14:37:41 +0000
+	id 1uRvl8-0000000AjzL-2THF;
+	Wed, 18 Jun 2025 16:35:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C746E5C5EB2;
-	Wed, 18 Jun 2025 14:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9F01C4CEE7;
-	Wed, 18 Jun 2025 14:37:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B6EF3A52440;
+	Wed, 18 Jun 2025 16:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EAB9C4CEE7;
+	Wed, 18 Jun 2025 16:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750257459;
-	bh=JqhhORaqn3nRuCtG/1xwmhpuhLTw0lA0i1onMxYHNj4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=P85MGdPXv6jL3qX1l/jaQ6UaBRrhzGOAVKhVluWfavVTp3sr4WfxTqlfVJw6Ogb10
-	 o45YlKOC2xQI0ql0+SwrSUboeOtmT+gm1WYevpI40BAeBOekGRI9vcJA7ErB1D4B1d
-	 8yBdY2hIy7+mi2bjhXOWXthDaR0dRG8b40/csiXA3qbGMv+eAn+m8j9yaatRsq1FG7
-	 2P8e39d00t1wkAQC/nGOhflSlr4Hdw8SSBXgcPxoEPwV2VKh6GXYTkj/LfG350g9mS
-	 q6snFnNB/KpaUiVC7W5T2u46RsK9mqRRULniVeNCwCjlALHW+b6RyAWZQXoevEidPY
-	 GIEGqHrRG/x0g==
-Message-ID: <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
-Date: Wed, 18 Jun 2025 16:37:33 +0200
+	s=k20201202; t=1750264533;
+	bh=TxFe6c1htu78AlW8pSUBk042YOu73xddSRufqG/XuNc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WS+err14mKEvX/jOQ7z+Q/9qJWhYAW+QCzvtnLbtokjl7vebb6NXqf6S0Qy309PZt
+	 /7XQ8RnBI5uBdAOy0iloelLIeCQSgiilX75/R0/IMwb1jt62+bJErtxLp3cfaZe/h9
+	 WCVvqs3WhaEyR7LYHfbhnh7Xm2m+VHZp2lK4DPry5O+s/pwPpTZz1htzJvuzTH1quh
+	 IlIn6AIcuntaqt3eULW4nzdW4L/Z7Y4l8pwSd2Cusg/wvMSZoOBg0vieFjgLaVJfxl
+	 nsGWGokJDh4OF+HESnd335gCIaql6LQQB6Ac1OB16nhKHj8L6Ee/Tnvi/cbrv0YU+9
+	 nukvYHw9U8Ahw==
+Date: Wed, 18 Jun 2025 17:35:29 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v3 2/2] net: airoha: Differentiate hwfd buffer size
+ for QDMA0 and QDMA1
+Message-ID: <20250618163529.GS1699@horms.kernel.org>
+References: <20250618-airoha-hw-num-desc-v3-0-18a6487cd75e@kernel.org>
+ <20250618-airoha-hw-num-desc-v3-2-18a6487cd75e@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
- sysregs
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
- <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
- <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
- <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250618-airoha-hw-num-desc-v3-2-18a6487cd75e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_073740_070505_CBF144E9 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20250618_093534_691833_1AAD5A6F 
+X-CRM114-Status: UNSURE (   9.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,44 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/06/2025 16:32, Kaustabh Chakraborty wrote:
-> On 2025-06-18 09:46, Krzysztof Kozlowski wrote:
->> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
->>> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs are
->>> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
->>>
->>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>> ---
->>>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      | 6 ++++++
->>>  1 file changed, 6 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>> index d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 100644
->>> --- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
->>> @@ -52,6 +52,12 @@ properties:
->>>                - samsung,exynosautov9-sysreg
->>>            - const: syscon
->>>          deprecated: true
->>> +      - items:
->>> +          - enum:
->>> +              - samsung,exynos7870-cam-sysreg
->>> +              - samsung,exynos7870-disp-sysreg
->>> +          - const: samsung,exynos7870-sysreg
->>
->>
->> Drop. These are not really compatible or your commit msg is incomplete.
->> Don't use deprecated syntax and backwards compatible solutions for new
->> hardware.
+On Wed, Jun 18, 2025 at 09:48:05AM +0200, Lorenzo Bianconi wrote:
+> In oreder to reduce the required hwfd buffers queue size for QDMA1,
+
+nit: order
+
+> differentiate hwfd buffer size for QDMA0 and QDMA1 and use 2KB for QDMA0
+> and 1KB for QDMA1.
+
+I think this patch description could benefit from explaining the why.
+
 > 
-> Are you sure? The deprecated one is actually the item above. From what I
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Yes. Think why were they added.
+Code changes look good to me.
 
-> understand, those are generic sysregs and don't mention their functions.
-
-And what is a generic sysreg?
-
-Best regards,
-Krzysztof
+...
 
