@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86813C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0873BC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=; b=SsM+1jPkfdJhLuIRdaeBeIFO3l
-	U7nBqMyfe5K2eBmz9vT5vczAHXEASXxV7AIfRtetRqpcpLpcXnBEy7gOYGDLpx0vxDHi7FT6cM1hI
-	6OFLXR9JEUy5F2UzZDhkoTWqr8z1NVXlLt0xdSli5fiu+0MOqpEuTILhtuzBAYRMYTovUwifUa7Fz
-	qCmtLzkIEsXJYCHhhc1Xyxf/skCfnJnl4G+fECBJzphA/2iG5nLkHHMwN5WhM9hlLz4Sxx26o+Ffv
-	wtM6sGs1sL+uO9USP79lt0dYseIL8C9TAMJTQObBzIaeqtWz+r1umaEDnIpTdp1zOLdQeB12cNCZE
-	becEJb8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mk9BXGMGll5XoIlIUyv59SEqVo5RfxqKr2JVpkabGA0=; b=Qq0WxJLVPzOQB+eiSXTKKIKX/j
+	pcMYlTM6i5r4UMXq3Bs5Jt3x57J+saclzNoJDysKjNqkyV21p+I5inotIUgS9SgiqT9owMs7swZON
+	CfeHkoXFrBKA3LS+NYiiNv6nDqfSbK/ZrV+7MPoFrzMGsy8T80DGnSYMSigkD1XjueE6lj+MPLv4Z
+	l3Rl3Wbpd2xQ6ftZyaMfPw+x0DwB9D0n5lm1JL4QROyhAZC91Z8y3iAHwrHb9LG5DkFLVO9HtBiJO
+	EdxCxuoRd5vC04it+nEcIEaFSC7vLqzOc2sxJFheCkwUC5o69yNZOZ2H6Qfc1/7CMbWfzAVXwvIYn
+	m92RVFoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsWf-0000000AEWC-1VgH;
-	Wed, 18 Jun 2025 13:08:25 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1uRsYv-0000000AFr5-029q;
+	Wed, 18 Jun 2025 13:10:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRr1c-00000009wrj-0aQv
+	id 1uRr5t-00000009xqd-2Jzs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 11:32:17 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-553b165c80cso5813373e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 04:32:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750246334; x=1750851134; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=;
-        b=EKqWDH20QK05Yf9eqv9mZ/mNS0BQBJ1P/h0bxPKiQxuOKG5i4BoAF6+bltZm98KN2/
-         cVBI3Ng2yJqcmOiOEK2bKvQI9jeRYlgdF8a63E96WrjYzV/barOSz0576jPaFvMBkIiC
-         EJ+7W3yluJpq8u1VqCvOljHEw3eCcdokmuDYn/ODlzJl5l7LlqW/UBo9rvV5gR+s/bUc
-         pd+LMxhnwaKlBgh2LCsu9IxIsygyCVZJe4/PII1ZUablH+08t1RUht109xuNW6CTTr2i
-         dWBPcErxzoU4vHs8LMFcx8SIuPkmYtKRAIEWfmeSEjdSqqp9b6HOEodDUD0u0gCvOWEz
-         GJ8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750246334; x=1750851134;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=;
-        b=g0vsDUMVrvev7ZmCm5onf0ynIuYywtydG5unjPe+U9VIZek7cAbqfNDVeVWWCKjWyb
-         uETQGZn8wbxE3nDqMlLoslxw3O0t0jNLK2JjlfX8bH3fUmRb6EtUAOxueTTywr+a6rUH
-         6YCXnhREnHtLIl9OeiAEo4xqjdPUWRGsgmBG/3bJWXdmdhOZh16GIo3+c0trDa9F7kKZ
-         jBfSLWaM8x+yXz2uh8ytq3YVNeSM/5377RjM3ocojRGJ48eYyaFihuRcc1rqvt6KzUvv
-         COz7W+x27XtmrOP8SertFIr8bIPtrW18w74KhHs2lBmSPBbizErVOStlNt2yCJIisXsP
-         Yj7w==
-X-Forwarded-Encrypted: i=1; AJvYcCXaia+Wpc9dsNNyco+yhq9E3OmorAPU1kmO326DtSWz7dbrAcFl/G5ZudLvPntMapPWE0lUXYLCKsyR7/6jtZjX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCsJCKEsHLFWlOtpubBp84tSomtxktsduaVTKKnHGkndXGIfWw
-	y+yJxmees/JlS2ERS/8+gfm5SEAtW4byKiSSa0tvibkweGlaupPE1jPkWCBUvq4Bhv3XAcqkeJS
-	uEHafco/HvLUBHW1LmVc5b6uShqkAsHHMYxZbHqMoRA==
-X-Gm-Gg: ASbGncuWOYPXm1rSv2kc1oyEPoFGudN5ceFJ8N6FdZEf7lQfHO3FB4qpP0/MbGDwrX+
-	6/LHThs82BsPnhk6pKhO6KkjND4PmLsbTKx4Cgzu+0KPW1fq99rvh9FQsqlZ+2V4TcBjLe3S5qc
-	F3aG4XTId/d1oZEe5wBSJpXj0rGn7wCtA/LHqgH1lhA0s=
-X-Google-Smtp-Source: AGHT+IG/cXE1HQ3EEXy0cPSnaDLNTuKJgzCF0qLdhOb/5CcGOOw+a/DTjj5TWhlAS5cXMjlqM/mbx0AMV43GUJjmW2k=
-X-Received: by 2002:a05:6512:31d6:b0:553:2e4a:bb58 with SMTP id
- 2adb3069b0e04-553b6e7337amr4658199e87.9.1750246334530; Wed, 18 Jun 2025
- 04:32:14 -0700 (PDT)
+	Wed, 18 Jun 2025 11:36:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 61A6A5C5BC8;
+	Wed, 18 Jun 2025 11:34:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C19FC4CEE7;
+	Wed, 18 Jun 2025 11:36:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750246600;
+	bh=GVLbSPQbFmJsEWhBuQd4bgNbK7h2cLmm5XbplIfuN3M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NyqeBfE5keSm2NQskHcY9R6uGqvLEzDOJ3+hjLlMh84TIBIekDCJsZzMH3PTRFu5s
+	 PuMbvAdmCmbjdQaSRnl7F8zBAZPHk2ATcxpAhGd0VAgHClRKxIySDw3DZXzkgEDuP5
+	 shDp5G7odvpIwid+hL3WzrJOJD+1rhbtE5rvPRX3KsJfEJLOcg2/8ukA+vjK21O8Gs
+	 kAhHDZRU3aQgPS24WmPyN3f9so4JHOEFG8C2qVfBTurRGJxVzvuYW3AEI5F9AT1+aw
+	 FuM43AEMTiUBIvD1V+kVORu+6sYsIzjRISoRwShC4ZktfYYS5bCWCMMTOV2TQIPULe
+	 hjbm4xloU2njA==
+Date: Wed, 18 Jun 2025 12:36:36 +0100
+From: Will Deacon <will@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org,
+	Dev Jain <dev.jain@arm.com>
+Subject: Re: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during
+ ptdump_check_wx()
+Message-ID: <20250618113635.GA20157@willie-the-truck>
+References: <20250609041214.285664-1-anshuman.khandual@arm.com>
+ <20250612145808.GA12912@willie-the-truck>
+ <5c22c792-0648-4ced-b0ed-86882610b4be@arm.com>
 MIME-Version: 1.0
-References: <20250611104348.192092-1-jirislaby@kernel.org> <20250611104348.192092-17-jirislaby@kernel.org>
-In-Reply-To: <20250611104348.192092-17-jirislaby@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 18 Jun 2025 13:32:03 +0200
-X-Gm-Features: AX0GCFvVR50_3aX2UCUBcxsZuxXj9BpNTfKCs9hxZHJvTphADGhBSjR3yjyWU08
-Message-ID: <CACRpkdYkgHzEnqN3VA2MqBChjtwjC+Fhem7Bo3PdnfGZQgQ99Q@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: Use dev_fwnode()
-To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-Cc: linux-kernel@vger.kernel.org, tglx@linutronix.de, 
-	Sean Wang <sean.wang@kernel.org>, linux-gpio@vger.kernel.org, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5c22c792-0648-4ced-b0ed-86882610b4be@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_043216_184891_A20307E3 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20250618_043641_631270_B24B953B 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 12:44=E2=80=AFPM Jiri Slaby (SUSE) <jirislaby@kerne=
-l.org> wrote:
+On Fri, Jun 13, 2025 at 10:39:02AM +0530, Anshuman Khandual wrote:
+> 
+> 
+> On 12/06/25 8:28 PM, Will Deacon wrote:
+> > On Mon, Jun 09, 2025 at 05:12:14AM +0100, Anshuman Khandual wrote:
+> >> The arm64 page table dump code can race with concurrent modification of the
+> >> kernel page tables. When a leaf entries are modified concurrently, the dump
+> >> code may log stale or inconsistent information for a VA range, but this is
+> >> otherwise not harmful.
+> >>
+> >> When intermediate levels of table are freed, the dump code will continue to
+> >> use memory which has been freed and potentially reallocated for another
+> >> purpose. In such cases, the dump code may dereference bogus addresses,
+> >> leading to a number of potential problems.
+> >>
+> >> This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
+> >> ("arm64/mm: Hold memory hotplug lock while walking for kernel page table
+> >> dump")' but a same was missed for ptdump_check_wx() which faced the race
+> >> condition as well. Let's just take the memory hotplug lock while executing
+> >> ptdump_check_wx().
+> > 
+> > How do other architectures (e.g. x86) handle this? I don't see any usage
+> > of {get,put}_online_mems() over there. Should this be moved into the core
+> > code?
+> 
+> Memory hot remove on arm64 unmaps kernel linear and vmemmap mapping while
+> also freeing page table pages if those become empty. Although this might
+> not be true for all other architectures, which might just unmap affected
+> kernel regions but does not tear down the kernel page table.
 
-> irq_domain_create_simple() takes fwnode as the first argument. It can be
-> extracted from the struct device using dev_fwnode() helper instead of
-> using of_node with of_fwnode_handle().
->
-> So use the dev_fwnode() helper.
->
-> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-> Cc: Sean Wang <sean.wang@kernel.org>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Cc: linux-gpio@vger.kernel.org
+... that sounds like something we should be able to give a definitive
+answer to?
 
-Patch applied!
-
-Yours,
-Linus Walleij
+Will
 
