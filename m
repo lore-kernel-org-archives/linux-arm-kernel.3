@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36D2C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B64AC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NOSXrykRZi8GU1E4lk+9SFPwXh54Rb4OsmS1WUS76E=; b=RwP197Yj4W6r/4sPG0Lxiuu4De
-	Y+QGkpy2W678pxy1VAWZBiH0E/qFXJC/cppvhzlKhnfzoSwR5baqZemxUzegHzhceUB271rLPuSvl
-	matxgMpJPIwTEiHCWRGNVjc1xwvvcuDq2qWBUARXlv+zwBR8ECwqbuA/6a6/0PcZlG7JdqDZc/VNo
-	fyn4zDcnXpiiUwB9mHiwjs6EiDfs8tSrMxs/Ob15gOc31dY6pkSL4Q+/BmfYcUUOq9SxVJt+OldpB
-	y/6xMB1MurBCkPw6e3uYocus80qEpaepvev1RVZ6Xv6z2P+7FdUBrdlIgZo9Z6UPKMptoyvT0UhVG
-	OwMFHJiw==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zRoaCj6hoTPJxaDDV3mKgmJ3Npn8sA7fvAWlw4tbnTU=; b=LmKRAiDVFmYDMT6ubEW1UKjIKG
+	FdRR8aiNc7YIIz989VgO7UaRea8OPuTqWmyHmtUW6wFHWGKjtwgCJgt99oVa/nYLOP75BDzMl/bPr
+	JcQjxKiIaHMK5m1FkgK2MgfyTqcKLxxMDxGQc/RJl5lYFlJ0btUSySDUdQmPsED0eV70Znh8I5Eny
+	FflYzpsZant/LsoIivYPn04YHDx0S2TxJyu9GIs73mxol+OeYS7VX6WwOVLcw7uL7j2cZRbulAVCU
+	prKtnYpuVsupAvaWOTQ7aT+WHbro6SWwAt5TUtaLnHLV5wYQ+qQWcEvAr8w9jnVHr19+P6nujN1cA
+	W7mcUnvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS03U-0000000BPRi-3Hh8;
-	Wed, 18 Jun 2025 21:10:48 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS01G-0000000BOzP-1TQI
+	id 1uS05g-0000000BPdt-2GBo;
+	Wed, 18 Jun 2025 21:13:04 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uS01g-0000000BP3z-41dD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 21:08:31 +0000
-Received: from [100.64.233.194] (unknown [52.148.171.5])
-	by linux.microsoft.com (Postfix) with ESMTPSA id C59C0211519D;
-	Wed, 18 Jun 2025 14:08:27 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C59C0211519D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1750280908;
-	bh=/NOSXrykRZi8GU1E4lk+9SFPwXh54Rb4OsmS1WUS76E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RBT05SRw52kVqID8GredOHRIj4YJJKIeWSWafqth3qlPtgyiClzj7/Pwp4T3qOgzI
-	 m4BOrM47IUGUHIdTyqN5uHNjnM9xh0aPEDVzeKNgrMtaTkQxpLW/ENydHVIkH32z6f
-	 Z+Nm7mRqA4xIcidW6o+iLhdeqHaXWzT+3LRnFgdc=
-Message-ID: <8f96db3f-fc3b-44b6-ab28-26bca6e2615b@linux.microsoft.com>
-Date: Wed, 18 Jun 2025 14:08:26 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] x86: hyperv: Expose hv_map_msi_interrupt function
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
- <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
- "x86@kernel.org" <x86@kernel.org>
-References: <1749599526-19963-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1749599526-19963-4-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB4157639630F8AD2D8FD8F52FD475A@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157639630F8AD2D8FD8F52FD475A@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 18 Jun 2025 21:08:58 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747cebffd4eso48084b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:08:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750280935; x=1750885735; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zRoaCj6hoTPJxaDDV3mKgmJ3Npn8sA7fvAWlw4tbnTU=;
+        b=TSXpWflR/7aK+oe493YveGJ/+0hXYOv5pUxmDF0D4YWEYw/pGdRp771ORNRYuVKnXt
+         mTTLgzby839HboSW3mocvNlOAG3hva/C2IHt6urqJb6avvqVHLpwHwrcr5qy21TUudiA
+         fUsvAtjyxtGfCpQqLWGNrXC6VPak7VpzCb8de6svQRBClqtE2P9/Fxgm6P8mX+pNUMYL
+         vwEC9c2qAj5nfydXwS6M8DKhsZxp4iZTYirVsQzVE97BbJ9wFDafAgrNozcEJ7HVu09R
+         XEKS4A1QVWjoT3Uqzdw74wlkx5ytaje22YhIrx1uDZLH7oflKhIGSg3CBIFieDfTVIGm
+         SArg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750280935; x=1750885735;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zRoaCj6hoTPJxaDDV3mKgmJ3Npn8sA7fvAWlw4tbnTU=;
+        b=PsYYP0MOm9RDY2w/kDUY8Elft0O0FG7oruyxbSurbIU5oIIJEvMx8DcHOBbcFMbSlZ
+         jmVL1+1RU1DhjEDk7O05bMG9sFgKDUffsdgLDCjdXC/AignE5zz+XKOy6ucBUweFAUob
+         XkZ1YqBiE1Ur3ID6sjVAOV5Snwc8w36H1wg6cXkTLdWbW6Jig1AmGboL/gp9teWN0ahg
+         +mSF9AjNlKqc+nrAINn9zu+RPY4+DfsO6z25XwBG5OaXxhoF/SjDPvnSGVXvcVqvfoV6
+         Me5lIpxoSK/c261ZaB3kGAKeQq04ZLflt4ACLssyLcgbGsEIbRMfi+UnIy/XFkCbv1w9
+         q5qw==
+X-Forwarded-Encrypted: i=1; AJvYcCUOaKCUOG92LiLNxSXfJCLA/hQqP48qwaB7yIeaqf5eMGYVRGn2UkNkR7EnL4VvEf2wY5lP3o9b6mdxk2g4Yv0D@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUmbxUyYaCQVjzzJAXjCFkclSDyXoZEOvOAzYWogd2dZT3XyJG
+	FXdddAI+nJfquPtlCUL5MULBoHNOxnxoi2YjFstiHX1LXSZK3d+JbAl8KxOxNr9z2ecfjY3ymZc
+	xndpP1c4zbQ5HT4EsK2DofygvAJ1qNg==
+X-Google-Smtp-Source: AGHT+IHM4S67QrX8m1RQpKcEdli21K1Bw8q46eAiayWAixmfo6GxjxzG/TdPG1taUNLCEpzBbx7ZQPCg2BlL67kHZ7s=
+X-Received: from pfkq15.prod.google.com ([2002:a05:6a00:84f:b0:748:55b9:ffbe])
+ (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:3d10:b0:740:aa31:fe66 with SMTP id d2e1a72fcca58-7489ce0d39fmr24849663b3a.4.1750280935227;
+ Wed, 18 Jun 2025 14:08:55 -0700 (PDT)
+Date: Wed, 18 Jun 2025 14:08:37 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.0.rc2.761.g2dc52ea45b-goog
+Message-ID: <20250618210851.661527-1-willmcvicker@google.com>
+Subject: [PATCH v3 0/6] Add module support for Arm64 Exynos MCT driver
+From: Will McVicker <willmcvicker@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>
+Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>, 
+	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	John Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_140830_448967_901ADD8A 
-X-CRM114-Status: GOOD (  42.45  )
+X-CRM114-CacheID: sfid-20250618_140856_999340_EFFDA900 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,202 +97,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/2025 4:07 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, June 10, 2025 4:52 PM
->>
->> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-> 
-> The preferred patch Subject prefix is "x86/hyperv:"
-> 
+This series adds support to build the Arm64 Exynos MCT driver as a module.
+This is only possible on Arm64 SoCs since they can use the Arm architected
+timer as the clocksource. Once the Exynos MCT module is loaded and the
+device probes, the MCT is used as the wakeup source for the arch_timer to
+ensure the device can wakeup from the "c2" idle state.
 
-Thank you for clarifying - I thought I saw some precedent for x86: hyperv:
-but must have been mistaken.
+These patches are originally from the downstream Pixel 6 (gs101) kernel
+found at [1] and have been adapted for upstream. Not only has the Exynos MC=
+T
+driver been shipping as a module in the field with Android, but I've also
+tested this series with the upstream kernel on my Pixel 6 Pro.
 
->>
->> This patch moves a part of currently internal logic into the
->> hv_map_msi_interrupt function and makes it globally available helper
->> function, which will be used to map PCI interrupts in case of root
->> partition.
-> 
-> Avoid "this patch" in commit messages.  Suggest:
-> 
-> Create a helper function hv_map_msi_interrupt() that contains some
-> logic that is currently internal to irqdomain.c. Make the helper function
-> globally available so it can be used to map PCI interrupts when running
-> in the root partition.
-> 
+In addition, I verified that the Exynos MCT module cannot be unloaded on my
+Pixel 6. This is due to /sys/module/exynos_mct/refcnt > 0. So if you try,
+you'll get this:
 
-Thanks, I'll rephrase.
+  root@google-gs:~# rmmod exynos_mct
+  rmmod: ERROR: Module exynos_mct is in use
+  root@google-gs:~# cat /sys/module/exynos_mct/refcnt
+  9
 
->>
->> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> ---
->>  arch/x86/hyperv/irqdomain.c     | 47 ++++++++++++++++++++++++---------
->>  arch/x86/include/asm/mshyperv.h |  2 ++
->>  2 files changed, 36 insertions(+), 13 deletions(-)
->>
->> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
->> index 31f0d29cbc5e..82f3bafb93d6 100644
->> --- a/arch/x86/hyperv/irqdomain.c
->> +++ b/arch/x86/hyperv/irqdomain.c
->> @@ -169,13 +169,40 @@ static union hv_device_id hv_build_pci_dev_id(struct pci_dev *dev)
->>  	return dev_id;
->>  }
->>
->> -static int hv_map_msi_interrupt(struct pci_dev *dev, int cpu, int vector,
->> -				struct hv_interrupt_entry *entry)
->> +/**
->> + * hv_map_msi_interrupt() - "Map" the MSI IRQ in the hypervisor.
->> + * @data:      Describes the IRQ
->> + * @out_entry: Hypervisor (MSI) interrupt entry (can be NULL)
->> + *
->> + * Map the IRQ in the hypervisor by issuing a MAP_DEVICE_INTERRUPT hypercall.
->> + */
->> +int hv_map_msi_interrupt(struct irq_data *data,
->> +			 struct hv_interrupt_entry *out_entry)
->>  {
->> -	union hv_device_id device_id = hv_build_pci_dev_id(dev);
->> +	struct msi_desc *msidesc;
->> +	struct pci_dev *dev;
->> +	union hv_device_id device_id;
->> +	struct hv_interrupt_entry dummy;
->> +	struct irq_cfg *cfg = irqd_cfg(data);
->> +	const cpumask_t *affinity;
->> +	int cpu;
->> +	u64 res;
->>
->> -	return hv_map_interrupt(device_id, false, cpu, vector, entry);
->> +	msidesc = irq_data_get_msi_desc(data);
->> +	dev = msi_desc_to_pci_dev(msidesc);
->> +	device_id = hv_build_pci_dev_id(dev);
->> +	affinity = irq_data_get_effective_affinity_mask(data);
->> +	cpu = cpumask_first_and(affinity, cpu_online_mask);
-> 
-> Is the cpus_read_lock held at this point? I'm not sure what the
-> overall calling sequence looks like. If it is not held, the CPU that
-> is selected could go offline before hv_map_interrupt() is called.
-> This computation of the target CPU is the same as in the code
-> before this patch, but that existing code looks like it has the
-> same problem.
-> 
+Thanks,
+Will
 
-Thanks for pointing it out - It *looks* like the read lock is not held
-everywhere this could be called, so it could indeed be a problem.
+Note1, instructions to build and flash a Pixel 6 device with the upstream
+kernel can be found at [2].
 
-I've been thinking about different ways around this but I lack the
-knowledge to have an informed opinion about it:
+Note2, this series is based off of krzk/for-next commit a15edf91668b ("Merg=
+e
+branch 'next/dt64' into for-next") with [3] on top.
 
-- We could take the cpu read lock in this function, would that work?
+[1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-r=
+aviole-5.10-android12-d1
+[2] https://git.codelinaro.org/linaro/googlelt/pixelscripts/-/blob/clo/main=
+/README.md?ref_type=3Dheads
+[3] https://lore.kernel.org/linux-arm-kernel/20250602151853.1942521-1-danie=
+l.lezcano@linaro.org/
 
-- I'm not actually sure why the code is getting the first cpu off the effective
-  affinity mask in the first place. It is possible to get the apic id (and hence
-  the cpu) already associated with the irq, as per e.g. x86_vector_msi_compose_msg()
-  Maybe we could get the cpu that way, assuming that doesn't have a similar issue.
+Cc: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Donghoon Yu <hoony.yu@samsung.com>
+Cc: Hosung Kim <hosung0.kim@samsung.com>
+Cc: kernel-team@android.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>
+Cc: Saravana Kannan <saravanak@google.com>
+Cc: John Stultz <jstultz@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org
 
-- We could just let this race happen, maybe the outcome isn't too catastrophic?
+---
+Changes in v3:
+- Rebased on top of Daniel's timer modularization prep series [3] and
+  krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
+  for-next")
+- Added owner references to Exynos MCT clocksource and clockevent objects.
+- Dropped #ifdef MODULE conditional section in favor of just using
+  module_platform_driver() which will properly handle setting up the
+  of_device_id table based on if the driver is built-in or a module.
+- Update commit message for patch 2 based on John's feedback.
+- Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
 
-What do you think?
+Changes in v2:
+- Re-worked patch v1 5 based on Rob Herring's review to use the compatible
+  data for retrieving the mct_init function pointer.
+- Updated the Kconfig logic to disallow building the Exynos MCT driver as
+  a module for ARM32 configurations based on Krzysztof Kozlowski's findings=
+.
+- Added comments and clarified commit messages in patches 1 and 2 based on
+  reviews from John Stultz and Youngmin Nam.
+- Fixed an issue found during testing that resulted in the device getting
+  stuck on boot. This is included in v2 as patch 5.
+- Collected *-by tags
+- Rebased to the latest linux-next/master.
+---
 
->> +
->> +	res = hv_map_interrupt(device_id, false, cpu, cfg->vector,
->> +			       out_entry ? out_entry : &dummy);
->> +	if (!hv_result_success(res))
->> +		pr_err("%s: failed to map interrupt: %s",
->> +		       __func__, hv_result_to_string(res));
-> 
-> hv_map_interrupt() already outputs a message if the hypercall
-> fails. Is another message needed here?
-> 
+Donghoon Yu (1):
+  clocksource/drivers/exynos_mct: Add module support
 
-It does print the function name, which gives additional context.
-Probably it can just be removed however.
+Hosung Kim (1):
+  clocksource/drivers/exynos_mct: Set local timer interrupts as percpu
 
->> +
->> +	return hv_result_to_errno(res);
-> 
-> The error handling is rather messed up. First hv_map_interrupt()
-> sometimes returns a Linux errno (not negated), and sometimes a
-> hypercall result. The errno is EINVAL, which has value "22", which is
-> the same as hypercall result HV_STATUS_ACKNOWLEDGED. And
-> the hypercall result returned from hv_map_interrupt() is just
-> the result code, not the full 64-bit status, as hv_map_interrupt()
-> has already done hv_result(status). Hence the "res" input arg to
-> hv_result_to_errno() isn't really the correct input. For example,
-> if the hypercall returns U64_MAX, that won't be caught by
-> hv_result_to_errno() since the value has been truncated to
-> 32 bits. Fixing all this will require some unscrambling.
-> 
+Will McVicker (4):
+  of/irq: Export of_irq_count for modules
+  clocksource/drivers/exynos_mct: Don't register as a sched_clock on
+    arm64
+  clocksource/drivers/exynos_mct: Fix uninitialized irq name warning
+  arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
 
-Good point, it's pretty messed up! I think in v2 I'll add a patch to
-clean this up first.
+ arch/arm64/Kconfig.platforms     |  1 -
+ drivers/clocksource/Kconfig      |  3 +-
+ drivers/clocksource/exynos_mct.c | 75 ++++++++++++++++++++++++++------
+ drivers/of/irq.c                 |  1 +
+ 4 files changed, 64 insertions(+), 16 deletions(-)
 
->>  }
->> +EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
->>
->>  static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi_msg *msg)
->>  {
->> @@ -190,10 +217,8 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
->>  {
->>  	struct msi_desc *msidesc;
->>  	struct pci_dev *dev;
->> -	struct hv_interrupt_entry out_entry, *stored_entry;
->> +	struct hv_interrupt_entry *stored_entry;
->>  	struct irq_cfg *cfg = irqd_cfg(data);
->> -	const cpumask_t *affinity;
->> -	int cpu;
->>  	u64 status;
->>
->>  	msidesc = irq_data_get_msi_desc(data);
->> @@ -204,9 +229,6 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
->>  		return;
->>  	}
->>
->> -	affinity = irq_data_get_effective_affinity_mask(data);
->> -	cpu = cpumask_first_and(affinity, cpu_online_mask);
->> -
->>  	if (data->chip_data) {
->>  		/*
->>  		 * This interrupt is already mapped. Let's unmap first.
->> @@ -235,15 +257,14 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
->>  		return;
->>  	}
->>
->> -	status = hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
->> +	status = hv_map_msi_interrupt(data, stored_entry);
->>  	if (status != HV_STATUS_SUCCESS) {
-> 
-> hv_map_msi_interrupt() returns an errno, so testing for HV_STATUS_SUCCESS
-> is bogus.
-> 
-
-Thanks, noted.
-
->>  		kfree(stored_entry);
->>  		return;
->>  	}
->>
->> -	*stored_entry = out_entry;
->>  	data->chip_data = stored_entry;
->> -	entry_to_msi_msg(&out_entry, msg);
->> +	entry_to_msi_msg(data->chip_data, msg);
->>
->>  	return;
->>  }
->> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
->> index 5ec92e3e2e37..843121465ddd 100644
->> --- a/arch/x86/include/asm/mshyperv.h
->> +++ b/arch/x86/include/asm/mshyperv.h
->> @@ -261,6 +261,8 @@ static inline void hv_apic_init(void) {}
->>
->>  struct irq_domain *hv_create_pci_msi_domain(void);
->>
->> +int hv_map_msi_interrupt(struct irq_data *data,
->> +			 struct hv_interrupt_entry *out_entry);
->>  int hv_map_ioapic_interrupt(int ioapic_id, bool level, int vcpu, int vector,
->>  		struct hv_interrupt_entry *entry);
->>  int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry);
->> --
->> 2.34.1
+--=20
+2.50.0.rc2.761.g2dc52ea45b-goog
 
 
