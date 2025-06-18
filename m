@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAEDC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F85C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bp4smBXWngtLnCVkcwadCwnjBYS4OcMYrjrkfvXHXrg=; b=JblA+ANFvrG6A8wk1AyGLa4XDH
-	qLCwYyIEF2gV0iFuiDMITYNmVVvMtRJhSQdS7ipGZq634cUMZos4Xtkz7TPh3AfJgsGvt+MvazIuE
-	cDM5J0f5VoXMuIil7aE/I68yOnx4c6+CqjUohCvOIfHaosMQe8DgG5+5RdR2RDJ7GwPrHccywaxLM
-	sBqwD1PWEbnqVrYa4XWLiVtV7NV54UhzGv1gfpKfHg31MQG4uTztvHEYSpFN27MzGR9Vg91sr4H4o
-	QCSeOCP+1udRmZi3k8ZXVtvdzliOBxm9Xi5XSyZAaRsaXXltkZMd32z8/GYcBh0JbEsRCVwq/N/ry
-	87p2fLWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=; b=KL4FQR8HO7PaSjhGKUZDLUEWun
+	HNCbJi2dMl9X3bD1ep8sfnJjN2ieys3V+G9WOvs6cGOHk4mkg9CN5HlNkU4nxO/Cu5ARpY7/avHLN
+	H+c7morOyg9iy2pMb0DbMzb6dELrLics8WhlKtmYb+IT9Ck7LdzA89i8DIxyaa4qu75fzBPDA6nLM
+	UDkqEk4VIRPbjQjbxUMfIinemk6QwUq8k+Twh2ukvqZEoCEEXVBXz8seNkc6Z2jJt/G7WSD3IN0cR
+	Gcd9vxM4EfRDJmtXTN/WOoJLlYyeHIrWn4mNBexy8WUuxvnqVFzBrpN4IMZ1jW8hnv8q3aEkGxWoK
+	WqklI3mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRseh-0000000AGdb-3yxQ;
-	Wed, 18 Jun 2025 13:16:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpwh-00000009lex-0yrp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:23:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 965ED14BF;
-	Wed, 18 Jun 2025 03:22:45 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CBD383F66E;
-	Wed, 18 Jun 2025 03:23:04 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: jarkko@kernel.org,
-	sudeep.holla@arm.com,
-	peterhuewe@gmx.de,
-	jgg@ziepe.ca,
-	stuart.yoder@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using CRB over FF-A
-Date: Wed, 18 Jun 2025 11:23:00 +0100
-Message-Id: <20250618102302.2379029-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uRsfY-0000000AGkY-2jQr;
+	Wed, 18 Jun 2025 13:17:36 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRrSI-0000000A2fC-250R;
+	Wed, 18 Jun 2025 11:59:51 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-553b5165cf5so5771375e87.0;
+        Wed, 18 Jun 2025 04:59:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750247988; x=1750852788; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
+        b=Sm5HsPJLup4haN+JTiS5dCBzV5qwGUWxJaJnd1kqik9iodi2WZ73WJSGoiQdGyui4x
+         pIyC26+GKjBvWLyliIgCmvhIgpDv2OaolUSEOE5B5nXSwQl6S38TM58usn1YXP6uwNYF
+         PjcpVd8AYjoUgVIp9mUt7/HpBrRS6JY28KrnDer8OB0tJfyCVZQpZKc1HOJ8H0cBUUNK
+         AgP6r2twMnmHOwyANBIq86FxF+him+ya4OYg1psOm8blQ5vlLmlTqYf6BQL4DaGunMVL
+         BdbG9W9GkO+IJs9e7J4UVSYBiFPEOWAXxlPwQJMXtPBELma4IY41Ciq3BCznLUql0r+r
+         I6Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750247988; x=1750852788;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
+        b=vwOpX+f/NfZrmj+5ofHEJEz1brKdzSvMz4eYtIG1qMu690LLlMIPdyccURVI1zDPRv
+         +MdiY/jI5g5QiR1vAK/oNiPYGvIpSigRQV2tVGGeva5fWdpo0+uDkgWuA2v4RkoH9ORg
+         YmS+QuLXL3diOmyio/JlacyrpgKu/+BSf+TL8i1+qshQGJSwOpyF6OtyFrXatdQk+IOR
+         ivXNO4PCrE92T3a4oSKO82Sf7o4Q2tw072eEI1dKyHbovKPH+sKF29JXnEUPqXoybNAP
+         0uwvzTzLx7MR1lM8dfoCg6fb5+dpDdaQI/XH2w5EWFyAL42gO039hFQMx01r2FV1lhAn
+         vkvw==
+X-Forwarded-Encrypted: i=1; AJvYcCVefe15V1Y530m+HIwdhFOGqFjrLepLwjdYD47yM7GYXCYRz0jnjtzRqdMF3rm8oZ6aqPvAkDZ/xvVBijc=@lists.infradead.org, AJvYcCXLEZs9m7/WRGofItyM5Q26zKyzdLRYY/0BF+Wzk9hGSe/Sn0dgLkYqt4A3h9iFhs6T0rrcrrADkZdLPQ1l1wct@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmyV4/xOIEE0XA67Zn2/KNYB22d+37MbmLPrlxq3xENXzSAgdB
+	3P1NPPTV2D9K+a/Umrje6v5okQjJIpGknZMH/NExeKbRPSSPcLfoFkt0
+X-Gm-Gg: ASbGncv0ockWqQOddN3mDRQM40ACJ3J6Jb1sMx85FMj5KuCPE3qCVWXN7uTPZrz+N0Y
+	TdQdWn92A7SElDw/0ytyDSLBPl1KtolIPxpIp+doUMXOdoZEX2kuvxPANzXDhh7iMlY27+uqJo7
+	rjlUbGNVPvH8fjJGzu7w8S9Q75p6OKqZq8sh6Wowsv2dz+YoP45Vn46dMoCkZdHbRs4pmqVFO1h
+	lMTpsbygA+kTZGQYfDo8t2FXHFEHmEBPxpSFj6kUEUgZn8fzF0YHaG1HewhT7gFgzR4D8rDDjfM
+	ViposAzLiyQRTPvZHVmKh1XzovxzyvxU/+adBQB9NjWk6F6KLLUS2yZwN2GaqjYa2urNU5GxCiX
+	9vg==
+X-Google-Smtp-Source: AGHT+IEEuLAvgr2OL57VbH9FchKBqYmVVAHa3AT4JbHjg5k/1SYfHWucA3kEC25R23C9uvFFL7j1Sg==
+X-Received: by 2002:a2e:b8c4:0:b0:32b:2f36:4d92 with SMTP id 38308e7fff4ca-32b4a413262mr52990161fa.12.1750247987973;
+        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
+        by smtp.gmail.com with UTF8SMTPSA id 38308e7fff4ca-32b7dafc837sm1702891fa.47.2025.06.18.04.59.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
+Date: Wed, 18 Jun 2025 13:59:46 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Daniel Palmer <daniel@thingy.jp>, 
+	Romain Perier <romain.perier@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter
+ callbacks
+Message-ID: <2rw2sncevdiyirpdovotztlg77apcq2btzytuv5jnm55aqhlne@swtts3hl53tw>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+ <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_032307_311344_702944B7 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250618_045950_538725_0685E1D2 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,74 +107,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
-the TPM driver must be built as built-in and
-must be probed before the IMA subsystem is initialized.
+Hi,
 
-However, when the TPM device operates over the FF-A protocol using the CRB interface,
-probing fails and returns -EPROBE_DEFER if
-the tpm_crb_ffa device — an FF-A device that provides the communication
-interface to the tpm_crb driver — has not yet been probed.
+On 2025-06-10 14:33:11 +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/gpio/gpio-mmio.c | 53 ++++++++++++++++++++++++++++++------------------
+>  1 file changed, 33 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+> index 4841e4ebe7a67d0f954e9a6f995ec5758f124edd..9169eccadb238efe944d494054b1e009f16eee7f 100644
+> --- a/drivers/gpio/gpio-mmio.c
+> +++ b/drivers/gpio/gpio-mmio.c
+> @@ -211,11 +211,12 @@ static int bgpio_get_multiple_be(struct gpio_chip *gc, unsigned long *mask,
+>  	return 0;
+>  }
+>  
+> -static void bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  	unsigned long flags;
+> @@ -230,10 +231,12 @@ static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  	gc->write_reg(gc->reg_dat, gc->bgpio_data);
+>  
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+> -				 int val)
+> +static int bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+> +				int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  
+> @@ -241,9 +244,11 @@ static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
+>  		gc->write_reg(gc->reg_set, mask);
+>  	else
+>  		gc->write_reg(gc->reg_clr, mask);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+> +static int bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+>  	unsigned long mask = bgpio_line2mask(gc, gpio);
+>  	unsigned long flags;
+> @@ -258,6 +263,8 @@ static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  	gc->write_reg(gc->reg_set, gc->bgpio_data);
+>  
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +
+> +	return 0;
+>  }
+>  
+>  static void bgpio_multiple_get_masks(struct gpio_chip *gc,
+> @@ -298,21 +305,25 @@ static void bgpio_set_multiple_single_reg(struct gpio_chip *gc,
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+>  }
+>  
+> -static void bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+> +static int bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+>  			       unsigned long *bits)
+>  {
+>  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_dat);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
+> -				   unsigned long *bits)
+> +static int bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
+> +				  unsigned long *bits)
+>  {
+>  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_set);
+> +
+> +	return 0;
+>  }
+>  
+> -static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+> -					  unsigned long *mask,
+> -					  unsigned long *bits)
+> +static int bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+> +					 unsigned long *mask,
+> +					 unsigned long *bits)
+>  {
+>  	unsigned long set_mask, clear_mask;
+>  
+> @@ -322,6 +333,8 @@ static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
+>  		gc->write_reg(gc->reg_set, set_mask);
+>  	if (clear_mask)
+>  		gc->write_reg(gc->reg_clr, clear_mask);
+> +
+> +	return 0;
+>  }
+>  
+>  static int bgpio_dir_return(struct gpio_chip *gc, unsigned int gpio, bool dir_out)
+> @@ -510,18 +523,18 @@ static int bgpio_setup_io(struct gpio_chip *gc,
+>  	if (set && clr) {
+>  		gc->reg_set = set;
+>  		gc->reg_clr = clr;
+> -		gc->set = bgpio_set_with_clear;
+> -		gc->set_multiple = bgpio_set_multiple_with_clear;
+> +		gc->set_rv = bgpio_set_with_clear;
+> +		gc->set_multiple_rv = bgpio_set_multiple_with_clear;
+>  	} else if (set && !clr) {
+>  		gc->reg_set = set;
+> -		gc->set = bgpio_set_set;
+> -		gc->set_multiple = bgpio_set_multiple_set;
+> +		gc->set_rv = bgpio_set_set;
+> +		gc->set_multiple_rv = bgpio_set_multiple_set;
+>  	} else if (flags & BGPIOF_NO_OUTPUT) {
+> -		gc->set = bgpio_set_none;
+> -		gc->set_multiple = NULL;
+> +		gc->set_rv = bgpio_set_none;
+> +		gc->set_multiple_rv = NULL;
+>  	} else {
+> -		gc->set = bgpio_set;
+> -		gc->set_multiple = bgpio_set_multiple;
+> +		gc->set_rv = bgpio_set;
+> +		gc->set_multiple_rv = bgpio_set_multiple;
+>  	}
+>  
+>  	if (!(flags & BGPIOF_UNREADABLE_REG_SET) &&
+> @@ -654,7 +667,7 @@ int bgpio_init(struct gpio_chip *gc, struct device *dev,
+>  	}
+>  
+>  	gc->bgpio_data = gc->read_reg(gc->reg_dat);
+> -	if (gc->set == bgpio_set_set &&
+> +	if (gc->set_rv == bgpio_set_set &&
+>  			!(flags & BGPIOF_UNREADABLE_REG_SET))
+>  		gc->bgpio_data = gc->read_reg(gc->reg_set);
+>  
+> 
+> -- 
+> 2.48.1
+> 
 
-To ensure the TPM device operating over the FF-A protocol with
-the CRB interface is probed before IMA initialization,
-the following conditions must be met:
+Isn't this missing to convert gc->set() to gc-set_rv() in several
+places?
 
-   1. The corresponding ffa_device must be registered,
-      which is done via ffa_init().
+Without the attached diff I get a null pointer reference on e.g. the
+spacemit k1 driver.
 
-   2. The tpm_crb_driver must successfully probe this device via
-      tpm_crb_ffa_init().
-
-   3. The tpm_crb driver using CRB over FF-A can then
-      be probed successfully. (See crb_acpi_add() and
-      tpm_crb_ffa_init() for reference.)
-
-Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-all registered with device_initcall, which means crb_acpi_driver_init() may
-be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-
-When this occurs, probing the TPM device is deferred.
-However, the deferred probe may happen after
-the IMA subsystem has already been initialized,
-since IMA initialization is performed during late_initcall,
-and deferred probing is handled asynchronously via a workqueue.
-
-This patch addresses the issue by ensuring timely probing of
-the tpm_crb_ffa device during TPM initialization:
-
-  Patch #1: Change the initcall level of ffa_init() to rootfs_initcall,
-            so that the FF-A device is created before any FF-A drivers are loaded.
-
-  Patch #2: When built as built-in, call ffa_register() within tpm_crb_ffa_init()
-            to ensure the Secure Partition used by tpm_crb_ffa is already registered
-            before the TPM device is probed.
-
-==============
-Patch History
-==============
-  Since v3:
-     - remove BUG_ON.
-     - https://lore.kernel.org/all/20250611112448.17751-1-yeoreum.yun@arm.com/
-
-  Since v2:
-     - rewrite cover letter and commit message:
-     - https://lore.kernel.org/all/aEgwpXXftXW6JNRy@e129823.arm.com/
-
-  Since v1:
-     - rewrite commit message.
-     - https://lore.kernel.org/all/20250606105754.1202649-1-yeoreum.yun@arm.com/
-
-Yeoreum Yun (2):
-  firmware: arm_ffa: Change initcall level of ffa_init() to
-    rootfs_initcall
-  tpm: tpm_crb_ffa: try to probe tpm_crb_ffa when it's built-in
-
- drivers/char/tpm/tpm_crb_ffa.c    | 19 ++++++++++++++++---
- drivers/firmware/arm_ffa/driver.c |  2 +-
- 2 files changed, 17 insertions(+), 4 deletions(-)
+Regards,
+Klara Modin
 
 --
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
+diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+index 9169eccadb23..57622f45d33e 100644
+--- a/drivers/gpio/gpio-mmio.c
++++ b/drivers/gpio/gpio-mmio.c
+@@ -362,7 +362,7 @@ static int bgpio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
+ static int bgpio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
+ 				int val)
+ {
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
+@@ -427,14 +427,14 @@ static int bgpio_dir_out_dir_first(struct gpio_chip *gc, unsigned int gpio,
+ 				   int val)
+ {
+ 	bgpio_dir_out(gc, gpio, val);
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
+ 
+ static int bgpio_dir_out_val_first(struct gpio_chip *gc, unsigned int gpio,
+ 				   int val)
+ {
+-	gc->set(gc, gpio, val);
++	gc->set_rv(gc, gpio, val);
+ 	bgpio_dir_out(gc, gpio, val);
+ 	return bgpio_dir_return(gc, gpio, true);
+ }
 
