@@ -4,63 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B00BC71157
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE553C7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwxXgLFZlpC2rywr/Gj1ZKYvUF60UcvPjxc9da18IK8=; b=CE5Cklx5VH+sVm0pLaK5WZanYw
-	tjwO0Cd+SijTi5W4iFuql9Lh307tRHeDGugd8g7Szdu6YGReB9MOLBR2CWRk8HTRw6RuM+MZ+sL8k
-	xSAHBFNGCtlx5xUmxXRj1l91u8QZ8XmaRMU7Pz/IOiZvwsNGYI1aa86hM/OGtF/+bdKbw1j4UDUHU
-	/Wgn7EE7bCyg7NpRz0uHOj/a5roWTme6zeWiKjXo5VZbChZFK0PmcjV7h4YW1X4/ocvk3m2ItmBoi
-	3m5+HMleRVzbMtOBGNyoUE+k6OVXtZXsRax+nsrENhoqj4iEIxLQiMjxkNc/q1ytzx8ilAtibI9O9
-	7XO7KuDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PzRuIp6n6n8mhTu9OLFg7/vC1IlZzMFe7wz8bVqOkg=; b=HWQfV+EMbORMUcDI8THyYuQsX+
+	2g15SogFYAJBSn0g9QQNkNJU+y5fwTo5xHFMcC0eAQFOOk/HOV/TUR6NXOcE8HUXHWq4EDjE9ph+H
+	mCaiHqpp3M75eULPGXxCXORMw0qJbWeTbHjuByfOild7B4t6Rk13GCouE76Y/NC3Iza8+T6AVhr+w
+	tr4LlZNzPrvzdltZjT8qOnzdHo2qVzQqwXg5GD1gaxlPqY+ddOWvcR2qlFxzyeBlZZsqMwfIZU/GV
+	elyismHZTUH7Jhnh4QXSG/Ysnm9U6MVOdPHNmYIkJBvGWOdbBm9pXgA8Wsi2D3nO+ag6h7HkArFOw
+	0Hyj2cpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwdd-0000000Are6-1k5J;
-	Wed, 18 Jun 2025 17:31:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uRwde-0000000ArfC-2f3u;
+	Wed, 18 Jun 2025 17:31:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRt0z-0000000AKeS-1MWr
+	id 1uRtv1-0000000ASym-3yhx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:39:46 +0000
+	Wed, 18 Jun 2025 14:37:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 49C7B5C5EA3;
-	Wed, 18 Jun 2025 13:37:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AEC5C4CEE7;
-	Wed, 18 Jun 2025 13:39:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C746E5C5EB2;
+	Wed, 18 Jun 2025 14:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9F01C4CEE7;
+	Wed, 18 Jun 2025 14:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750253984;
-	bh=vGA6YD3WHkjhX9wh1WJgtfN49JDWFNbiMmPPsBJHMkw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J0V/Bfh+MmwncspD7LiPiZTApp7b0D8oI9XvxIfia7mKuj5cDz0ONRwb8pCPivdN2
-	 eGjhJ7EcWG6QUZfVaqQe1l90HlAwl8qSeTrCPykpr+cgxGixTOMDDwmjenSAVartou
-	 2UHPsZKafNgJzgb4y78N/YQ/QDYgAKvm3CX/+SMRIUwQmBPF2w9FoVKVyneNB2Wcpb
-	 fBK9mDzI97rf3Qou/jLF01+f7qzh89w8Tlg5f/FD+368J/b54tZ6l8Bo+8V2VkXw3d
-	 XH9EWzyajwWXDlHJSCastvIKMwuj3PbyNmBAXkNMPvrwu14eBBBMYKWedp1v/U8yft
-	 TJfKWiC8y4NAw==
-Date: Wed, 18 Jun 2025 08:39:43 -0500
-From: Rob Herring <robh@kernel.org>
-To: Mihai Sain <mihai.sain@microchip.com>
-Cc: krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org,
-	linux-kernel@vger.kernel.org, claudiu.beznea@tuxon.dev,
-	alexandre.belloni@bootlin.com, nicolas.ferre@microchip.com
-Subject: Re: [PATCH v2 0/2] Add cache configuration for Microchip SAMA7D and
- SAMA7G MPUs
-Message-ID: <20250618133943.GA1769667-robh@kernel.org>
-References: <20250618103914.2712-1-mihai.sain@microchip.com>
- <175025355214.1756305.9442014210793499196.robh@kernel.org>
+	s=k20201202; t=1750257459;
+	bh=JqhhORaqn3nRuCtG/1xwmhpuhLTw0lA0i1onMxYHNj4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P85MGdPXv6jL3qX1l/jaQ6UaBRrhzGOAVKhVluWfavVTp3sr4WfxTqlfVJw6Ogb10
+	 o45YlKOC2xQI0ql0+SwrSUboeOtmT+gm1WYevpI40BAeBOekGRI9vcJA7ErB1D4B1d
+	 8yBdY2hIy7+mi2bjhXOWXthDaR0dRG8b40/csiXA3qbGMv+eAn+m8j9yaatRsq1FG7
+	 2P8e39d00t1wkAQC/nGOhflSlr4Hdw8SSBXgcPxoEPwV2VKh6GXYTkj/LfG350g9mS
+	 q6snFnNB/KpaUiVC7W5T2u46RsK9mqRRULniVeNCwCjlALHW+b6RyAWZQXoevEidPY
+	 GIEGqHrRG/x0g==
+Message-ID: <97a54a9f-8719-4bbd-a1d5-dd398f42ab0c@kernel.org>
+Date: Wed, 18 Jun 2025 16:37:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <175025355214.1756305.9442014210793499196.robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
+ sysregs
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+ <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+ <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
+ <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <76df5b2d6b2c8de73519e1862e105c67@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_063945_445119_5F8ADA71 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20250618_073740_070505_CBF144E9 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +123,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 08:36:25AM -0500, Rob Herring (Arm) wrote:
+On 18/06/2025 16:32, Kaustabh Chakraborty wrote:
+> On 2025-06-18 09:46, Krzysztof Kozlowski wrote:
+>> On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
+>>> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs are
+>>> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
+>>>
+>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> ---
+>>>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      | 6 ++++++
+>>>  1 file changed, 6 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>> index d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 100644
+>>> --- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+>>> @@ -52,6 +52,12 @@ properties:
+>>>                - samsung,exynosautov9-sysreg
+>>>            - const: syscon
+>>>          deprecated: true
+>>> +      - items:
+>>> +          - enum:
+>>> +              - samsung,exynos7870-cam-sysreg
+>>> +              - samsung,exynos7870-disp-sysreg
+>>> +          - const: samsung,exynos7870-sysreg
+>>
+>>
+>> Drop. These are not really compatible or your commit msg is incomplete.
+>> Don't use deprecated syntax and backwards compatible solutions for new
+>> hardware.
 > 
-> On Wed, 18 Jun 2025 13:39:12 +0300, Mihai Sain wrote:
-> > This patch series adds cache configuration for Microchip SAMA7D and SAMA7G MPUs.
-> > The cache configuration is described in datasheet chapter 15.2.
-> > 
-> > Changelog:
-> > 
-> > v1 -> v2:
-> > - Remove the cache-unified property from l1-cache node
-> > 
-> > Mihai Sain (2):
-> >   ARM: dts: microchip: sama7d65: Add cache configuration for cpu node
-> >   ARM: dts: microchip: sama7g5: Add cache configuration for cpu node
-> > 
-> >  arch/arm/boot/dts/microchip/sama7d65.dtsi | 16 ++++++++++++++++
-> >  arch/arm/boot/dts/microchip/sama7g5.dtsi  | 16 ++++++++++++++++
-> >  2 files changed, 32 insertions(+)
-> > 
-> > 
-> > base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
-> > --
-> > 2.50.0
-> > 
-> > 
-> > 
-> 
-> 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-> 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
-> 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
-> 
->   pip3 install dtschema --upgrade
-> 
-> 
-> This patch series was applied (using b4) to base:
->  Base: using specified base-commit 52da431bf03b5506203bca27fe14a97895c80faf
-> 
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
-> 
-> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for 20250618103914.2712-1-mihai.sain@microchip.com:
-> 
-> arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: cpu@0 (arm,cortex-a7): Unevaluated properties are not allowed ('l1-cache' was unexpected)
-> 	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: l1-cache (cache): cache-level: 1 is less than the minimum of 2
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: l1-cache (cache): 'cache-unified' is a required property
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: l1-cache (cache): Unevaluated properties are not allowed ('cache-level', 'd-cache-size', 'i-cache-size', 'next-level-cache' were unexpected)
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g5ek.dtb: cpu@0 (arm,cortex-a7): Unevaluated properties are not allowed ('l1-cache' was unexpected)
-> 	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g5ek.dtb: l1-cache (cache): cache-level: 1 is less than the minimum of 2
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g5ek.dtb: l1-cache (cache): 'cache-unified' is a required property
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g5ek.dtb: l1-cache (cache): Unevaluated properties are not allowed ('cache-level', 'd-cache-size', 'i-cache-size', 'next-level-cache' were unexpected)
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dtb: cpu@0 (arm,cortex-a7): Unevaluated properties are not allowed ('l1-cache' was unexpected)
-> 	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dtb: l1-cache (cache): cache-level: 1 is less than the minimum of 2
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dtb: l1-cache (cache): 'cache-unified' is a required property
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
-> arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dtb: l1-cache (cache): Unevaluated properties are not allowed ('cache-level', 'd-cache-size', 'i-cache-size', 'next-level-cache' were unexpected)
-> 	from schema $id: http://devicetree.org/schemas/cache.yaml#
+> Are you sure? The deprecated one is actually the item above. From what I
 
-You are doing caches wrong as the schema is telling you.
+Yes. Think why were they added.
 
-The L1 caches are described in the CPU nodes, not a separate node. This 
-is detailed in the DT Spec as well.
+> understand, those are generic sysregs and don't mention their functions.
 
-Rob
+And what is a generic sysreg?
+
+Best regards,
+Krzysztof
 
