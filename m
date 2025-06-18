@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E713C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A17BC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Um0R/UeKKhzjfUIA/AIuhIiMa+gKykm1XulYnDyioE=; b=sXmL/m5kcfAeMxulpDLes4/IbA
-	cHyA9fXLzZ+w1cQNMVUC4tq6nO2MgJi0meCoL9fcawwAc0gPZP5WOUp2qcA3jQ5zEhyUVK5IjieZv
-	JiHohhQwo7GkGWF5CmQVvtK65a91UdPWPIyc0N9rmdGY48a01WCjtE/7cXcNZ4Xswmd1LH1BxQxzt
-	ZoizBzrz5G0+wsj3Zm1SYPhUVuQ8CrZUEz5BWFpECEOhJiPyjfMsFNJbet9IBAdWdHX8ddlnbrFd6
-	5FuwDZou+Rnu85KQkek6wNQ6IfdZXafAdmtMQMGO6dZszMf4lhRaXs9A7h3ZCjxLIqhsNsKFkARhg
-	CXe2tVIQ==;
+	bh=mbpyUcV8WJEkmNQrYOMEQSj4rAFYVKz/rtUgfOJMyew=; b=NTB+1/t/Yy3ap64cshNmDu2YXc
+	3mi+5HN0tknlslrUk+elETEH4zy9Ql+El3pUoL8O227KFGJoyg9Zdp41K93wCO2qN3gpIF6vY2oeZ
+	DylCOX25XEB5Cl4tx+AGr87pQ4OsnbRwN7dfxy7MihPoiWAFPUwYb39r53uYdMZ1h1ZTTq0s506RD
+	SwfsQlWtPxUbf8dGs5oHSf3tafj1h480tbXwYn1pSCtfktWS0OA5sjxjSOAPAgZsUX+eg9lseQdyi
+	VlziJRkm56fR0we3xAdHRhpr7nOS/nLP0iYqQS8EJvy18et62LOeVIFze9iiKgej/Jf1v3Gr9Gvkq
+	1JPMUPMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyfK-0000000BEdV-1yMS;
-	Wed, 18 Jun 2025 19:41:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uRyfP-0000000BEhf-2Ndk;
+	Wed, 18 Jun 2025 19:41:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRxts-0000000B7EP-2LvZ
+	id 1uRyRb-0000000BDYr-46PU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 18:52:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0222629CE;
-	Wed, 18 Jun 2025 18:52:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EA7DC4CEE7;
-	Wed, 18 Jun 2025 18:52:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750272763;
-	bh=eT+6E7j8MKpA8+JuN8R6/MizW9cXPn/MID8D+godm0c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e14iU62kh532Ydae2EKi/eDJxL/gMzuUZYstiZIrzXP54BHZd0y5VwL1wkYK+QDGX
-	 F3AFZ9wL4NL1dpyvtxuFRG8tirtdcv315QCN8nNaayXQXDWYUyzqnhQx9w2sPsgYz0
-	 +EZHmF0n9J0RrasBf89OH6yxWdjGdhsac+QmfqB4RqEMJsAsfx3SoNIrA4oiCUWhNh
-	 lEciGngaQJLAKAyhA+I2rTf6P4Pm9vd46BRUIOhNa5MEXCrLkd2ut4VD/znDZIuRiC
-	 2fALmk4jeJCzNOFm680tjXnOsfC6J/rxsQsXwb6KJRFXYPSBYteOVWqNrGQbgDGqWX
-	 AE6VYyVduXLwQ==
-Date: Wed, 18 Jun 2025 13:52:41 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 01/27] dt-bindings: interrupt-controller: Add Arm GICv5
-Message-ID: <175027275990.2508078.7812820935724706534.robh@kernel.org>
-References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
- <20250618-gicv5-host-v5-1-d9e622ac5539@kernel.org>
+	Wed, 18 Jun 2025 19:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=mbpyUcV8WJEkmNQrYOMEQSj4rAFYVKz/rtUgfOJMyew=; b=EaIfnTLGw+4JwC3Kzt5QUG2/YL
+	t24i+RjeQafPTa8HWidbHGlIousYnbhxaqPsVwx9Wekyhryw/B+I0T/xRZRIbbklISomjvy5dLIMn
+	4OJSC8Y4EJMhQnRFFcpqYfYs/9bXSBXQi0+dlfOtH4Uc85y91CI6/yYxq6Xr2loroqBk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uRyRM-00GKRb-Q0; Wed, 18 Jun 2025 21:27:20 +0200
+Date: Wed, 18 Jun 2025 21:27:20 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: loongson1: provide match data
+ struct
+Message-ID: <ac285b47-ccb0-4f85-8f28-cf0067b1334c@lunn.ch>
+References: <aFKXzlno7HkG-cNh@shell.armlinux.org.uk>
+ <E1uRqE9-004c7G-CB@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250618-gicv5-host-v5-1-d9e622ac5539@kernel.org>
+In-Reply-To: <E1uRqE9-004c7G-CB@rmk-PC.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250618_122736_094173_B7C1BE5C 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 18, 2025 at 11:41:09AM +0100, Russell King (Oracle) wrote:
+> Provide a structure for match data rather than using the function
+> pointer as match data. This allows stronger type-checking for the
+> function itself, and allows extensions to the match data.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-On Wed, 18 Jun 2025 12:17:16 +0200, Lorenzo Pieralisi wrote:
-> The GICv5 interrupt controller architecture is composed of:
-> 
-> - one or more Interrupt Routing Service (IRS)
-> - zero or more Interrupt Translation Service (ITS)
-> - zero or more Interrupt Wire Bridge (IWB)
-> 
-> Describe a GICv5 implementation by specifying a top level node
-> corresponding to the GICv5 system component.
-> 
-> IRS nodes are added as GICv5 system component children.
-> 
-> An ITS is associated with an IRS so ITS nodes are described
-> as IRS children - use the hierarchy explicitly in the device
-> tree to define the association.
-> 
-> IWB nodes are described as a separate schema.
-> 
-> An IWB is connected to a single ITS, the connection is made explicit
-> through the msi-parent property and therefore is not required to be
-> explicit through a parent-child relationship in the device tree.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  .../interrupt-controller/arm,gic-v5-iwb.yaml       |  78 ++++++
->  .../bindings/interrupt-controller/arm,gic-v5.yaml  | 267 +++++++++++++++++++++
->  MAINTAINERS                                        |   7 +
->  3 files changed, 352 insertions(+)
-> 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+    Andrew
 
