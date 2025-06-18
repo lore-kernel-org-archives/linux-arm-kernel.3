@@ -4,115 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A478DC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B15C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYnRFTZ45S0BZCYHJEL9/estxYeR2eD0JqS9fCRB9Zg=; b=xYcDesAlmx+d9DNZI4SKSMH3vY
-	tFMhoBCfxvobpovkJll6pqcTYGGAca11UQG2iuw5JDgoLTXYY+lKfbYfo/9DpMa5HBMaYoDWJopIz
-	iLEtyo61QTPBusOotWvVY0/FB8PcqlgJh6RVP6yd930cW69VCIwi+aUWesssfS4p4hCJGXE9I1zmM
-	mboOVlos+PdDQi8XBlFgD0L5HxkUGZMHni/3Gz3Di4HC7UV3KQhU/PR2F1HyP6PB6M2puVcQUUozq
-	ZBXAyu13BVxDjg2AQMgf0xWCg7zrW+Vvq87fqNKb8+Ju65W5DFOEH733mTS3pbJgy2I/C0J+ZBeRG
-	MQTROUig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TnxfuvL0jWEwZITmIsWGgtSuawlOa6jWM38aJMINGyY=; b=bvXdz+S2v1x6y2jCqULr39a/TY
+	gRFnhFM3CyHcRJ4wH+Rv8i+M5a+98JSpdEOONuyyecanopS7KiwjOHswSIxdtop0/ECzo8pcXuIuH
+	bGMdzwq4G7OlGQ1tk6Mn7FbgLOV/m8mDIn/U0uONKoQYhtKt0o2hW0blS5h16g3ciFLpagmLTRsMc
+	dvZRARkLH0DxSbuzkIytacbnnKHriXTQW29fMZQ7cQvLIe/50j/iV+eIoFSCN1QphstgPf/4xkk1X
+	yQsgxDAU133eQpFW+m4XGIFtmHi8uGhaJs5mCtEuJxDFthtBzwsDBcSkzgtcDkYprQ30T+3f2dxuM
+	rXUp3tpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpc7-00000009hBv-44de;
-	Wed, 18 Jun 2025 10:01:51 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uRpeJ-00000009hf8-2sMZ;
+	Wed, 18 Jun 2025 10:04:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpMR-00000009eEs-2W1n
+	id 1uRpNN-00000009ePS-2l5E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 09:45:40 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ad89ee255easo1222250366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 02:45:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1750239938; x=1750844738; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UYnRFTZ45S0BZCYHJEL9/estxYeR2eD0JqS9fCRB9Zg=;
-        b=KAHVdk+DBg6mFdPQsIBhzS8xD2H0cfAeeIanEWG4SZb0zx3FK0cKoZPHbFI+EhvvgJ
-         iyeAWPRV+NErkzwd2E2qX5Kn1RfYM8jwgRrrod8xoXM+2FX4wBb6JteL+YSFK9/tR7hn
-         Dx9iQzwyzvow/xiK2Hd3BoOdF06DI7E1F3GmsGL4rYfl4IlH3ZDTQ7q/AWnUIyz8mD4K
-         SG8zx7m774ylAjPszUHY+72FMTwcXsijQ0xhwWeOJzPjJnyGL0My0G8CsnSEGyYPJ2Y3
-         sfL+UOxZEJc7xOaLo6XtXHMXSzeJgEqF0Ej8q+qpIcOa7ioPbvowQr6TO+OHA/mgNhYd
-         iUHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750239938; x=1750844738;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UYnRFTZ45S0BZCYHJEL9/estxYeR2eD0JqS9fCRB9Zg=;
-        b=pJfxuLr9neGm97Kof4QBLWxJPn1QlP8VhlKvEZd49leiCk3awlHlRxD1vXNnYuji7f
-         46pk3VZDYUxtWIhjcTDyYC59NiufYtG7UqV/vA9dKaHEXY61mHFlMzRtTJojt/mjok3b
-         Z8mjKoMQdcoh08S1mwgy/cUPfi2tSHDdHaShcFSc4yj+lRk2o31b4dVI0VNqMA/XHq2/
-         ICFC9quoy547CctGjcE6PlC0lb0ZZQXJwZTHSTsCaK7vygzWPWhSp+sz1pBLN8rjzDBI
-         Kwlgix43FweFDCEMI6LTe4FQqC6GJvTPxaNEMQAFkoaKZcrMToU7AmEWfk1uU+aGYept
-         M9RA==
-X-Forwarded-Encrypted: i=1; AJvYcCUbx4txndm2L6/aSbkgqiOYluTL3qVvTLFizOiugfeRSDuqnatd+6bqaTi4ArK1Xf8dAfg4or2YH0WnZ2JHaYu/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAwOxdd9pGxoTH/+i60O9UvljAB0Iv+gs8Drja+1QSkmegFAvS
-	g69zYr2dcVSJR17+2dBAOsL60+JaZdk+4EoneOh1BVBgG/1FefiKJW+QAQPX1pB5Nxs=
-X-Gm-Gg: ASbGnct9r0ui4OdPuF/beQyoKqEg0P8XlIwPUmRPAJM+edFhdS5vthxO/YiFzbmEmC8
-	RHpkCbRCL5dJEPhlzdvs2icsdctUDAqxZsnod2h+QFmXSXyVNaNXThm4YE8tJuKNy9vpsyjg2hD
-	htx69L17amYALJbJ9BOBm9bIadzxtwpiV/F2iJzeIzKdJKt4LBw/RQQzvebC6/XFRcBksZq5MVA
-	XkmE8q2ibvh7pAKCfNiJe1p6snaYbS3flao9SvjMNCCxANLjFLHrqa9fId/U0JXQCdNmOZy4KOb
-	61i/Hk3bBxZtC5mIb3yzs5+mgQaBCNkUfUerrNZqyRB1XwOq2hCZBmW97auRNG+YidJMKj30h3P
-	Y3uOh6gtT7d0jxnWIG8LRoKqPQAOKIX9UtWoYr6iHnoU=
-X-Google-Smtp-Source: AGHT+IHVR01GWZaWv7baTcjU5O0kFwotFGhrlpvKdhdubFxB0wxEVad57csE1YDZMPi3+Mm5z4P0Fw==
-X-Received: by 2002:a17:907:3c90:b0:adb:2577:c0c5 with SMTP id a640c23a62f3a-adfad5c74fdmr1544262766b.38.1750239938008;
-        Wed, 18 Jun 2025 02:45:38 -0700 (PDT)
-Received: from localhost (host-79-23-237-223.retail.telecomitalia.it. [79.23.237.223])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec8158d4dsm1015674366b.28.2025.06.18.02.45.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 02:45:37 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Wed, 18 Jun 2025 11:47:16 +0200
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-Subject: Re: [PATCH stblinux/next 2/2] clk: rp1: Implement ramaining clock
- tree
-Message-ID: <aFKLJELw3JuFI9GR@apocalypse>
-References: <b70b9f2d50e3155509c2672e6779c0840f38ad5e.1750165398.git.andrea.porta@suse.com>
- <20250617145144.GA1135520@bhelgaas>
+	Wed, 18 Jun 2025 09:46:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BA940A52424;
+	Wed, 18 Jun 2025 09:46:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FB62C4CEE7;
+	Wed, 18 Jun 2025 09:46:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750239996;
+	bh=icA8i4l8ZKZjcy0dBRrGW3a8Bg7+G+XFL+rrIP25wXg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vPgDL5YQlKJc2F0HIFaOcOHCRbiujXcmboYZ26D4x2Perm89UtXVjJrA6tR6oKAm2
+	 PIij+iqsUw3rRPcTKXjDfEBTz3i86UHY4wGREMatcEnUMU6X4YNdIy7SHhojbyZ1D/
+	 73mJ1x84RaMSYipHSQVARX2+wuoIfZLJX9r4DVaCGtCku0w9PO13+Am2CjsI7Y7Q4Z
+	 K+jusiOuEsJjeZB/wlaYHMGfpXV/3ktV9QHaB/VgIdyprRFO/MV4aty0aODJxrrtJE
+	 EbGE6XR52Vq3xNB7X+xQUYaYUpcvUS2q6yVHQ9QB5pWKj8aPqbaX8bb+WdLsfEhmwk
+	 zfjPHrMR649UQ==
+Message-ID: <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
+Date: Wed, 18 Jun 2025 11:46:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250617145144.GA1135520@bhelgaas>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
+ sysregs
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+ <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_024539_636743_02AACB12 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250618_024637_839051_C07EC369 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,32 +120,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
-
-On 09:51 Tue 17 Jun     , Bjorn Helgaas wrote:
-> On Tue, Jun 17, 2025 at 03:10:27PM +0200, Andrea della Porta wrote:
-> > The RP1 clock generator driver currently defines only the fundamental
-> > clocks such as the front PLLs for system, audio and video subsystems
-> > and the ethernet clock.
-> > 
-> > Add the remaining clocks to the tree so as to be completed.
+On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
+> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs are
+> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
 > 
-> In subject, s/ramaining/remaining/
-
-Ack.
-
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> I guess we actually get some functional benefit here (something that
-> previously did not work, will start working after this patch)?  It
-> would be good to mention that here.  "Completing the tree" sounds
-> nice, but if I were being asked to merge this, I'd like to know what
-> benefit it brings.
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+> index d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+> @@ -52,6 +52,12 @@ properties:
+>                - samsung,exynosautov9-sysreg
+>            - const: syscon
+>          deprecated: true
+> +      - items:
+> +          - enum:
+> +              - samsung,exynos7870-cam-sysreg
+> +              - samsung,exynos7870-disp-sysreg
+> +          - const: samsung,exynos7870-sysreg
 
-Sure, I will add details in the next revision.
 
-Many thanks,
-Andrea
+Drop. These are not really compatible or your commit msg is incomplete.
+Don't use deprecated syntax and backwards compatible solutions for new
+hardware.
 
-> 
-> Bjorn
+Best regards,
+Krzysztof
 
