@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9E1C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117A0C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ufWrUTClve7Nla0w1wYuSup+O9LSgCuSAMViPexR5w=; b=CJVlYAHgGpA7f/s68e0ZZf34yE
-	gwJUikHE/v4JfrJy8k+GwHPDXpDuwPz2acv0HjTFRwBqIQLu0AIo8gY/3Scn9/5jN/EtNzel42j3j
-	eVXiiBkhLyCbCQISMkI7zycm4dm+/CMXDSnMrQz3lbD01kSZ1COShJVn+yqOMpHoz9xym9I71WNt+
-	mnoz0lihQg527+o+tpEQ5oWZSHWfHHbxfXk0lTT921KfwicjPVzJ7CosCEbWi+kVBVD8/fLZDcQ8S
-	+Yxk/0CE2/PgR3E6s+XKuGq8krgShD/Izj8JmCnj50JqrgjiZUby2hJewjEEFGLMd4oUDek3g9Xsz
-	vW3GeB0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rsJj5T+MDejKqzMwax9mn3jJcqivsRMM/7vUYa9OLh4=; b=kfLJmCKkRh3e8y2Db85ijvEkGf
+	jDhwPvLyCgFDsUGzCmMuDkrt7pKKQWMZqhTAZVDeW9U7XSZx5AgLeXEBiuaIaOqvDYmPSJIhK3M4f
+	WPcV49idJ/9/D1eJHu1bvDRG+PSU86kF9Au5IZ57JMzWsMvlV5/m1u1ymA0lbm3tsRkc9szlLBFFT
+	5i6dhoMjV+/5riU8OAaE7X30O7KYj2ERxvrzq6hlaryQ5xqxHTs8NK3UB2hWD3G+754G5NW+lNLv4
+	DOiVjspfDEhAXgPFPVmPQlk0p04g6auqAgcviCLyaiZNOTVQjeeOMjqGLkyonKBWPBYBOcRljiI07
+	tNemAsOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwSE-0000000Apio-3g3w;
-	Wed, 18 Jun 2025 17:20:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRwUP-0000000AqTn-2XcB;
+	Wed, 18 Jun 2025 17:22:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRv3r-0000000Ae2h-0QxI;
-	Wed, 18 Jun 2025 15:50:51 +0000
+	id 1uRvOW-0000000AhJ7-2Pih
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 16:12:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4424D629CE;
-	Wed, 18 Jun 2025 15:50:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B5D56C4CEF4;
-	Wed, 18 Jun 2025 15:50:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750261849;
-	bh=nxLCM24P7cubSUi7T31Eqd5AAY6vpTE9c1xWbT9LPwM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=d40sM2YqBiaekqcthuGC5aONn6vNOzdIb5uh/hPAJarjavnO6FtOQKxATJJhYN5yq
-	 SdWul7oAydwAGQkbbEIC0HFAYKTWjJk7YDtkmsOEjSX/gz2hrbMG9VZFs9N/E1BjIj
-	 X9rWx8piYJMn4gYF625TF653XB9N00oKk1cbiwPH2+pyTShhci1ywuayiatOEvuzLX
-	 6PryfKylYQJNPOiMoU2CWHE57oSB+To/L7S3BXYLPGexrfGoOd9l1dTYr+uHrq32FY
-	 vrn2gfiAYGQ8u42S1WkpvGwtNcy/OLbXUZ4zYMt/3bo1DoPn0b3rhrprwHShBFmEfH
-	 ZLBRt90lashhg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A883CC7115B;
-	Wed, 18 Jun 2025 15:50:49 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Wed, 18 Jun 2025 17:38:04 +0200
-Subject: [PATCH v9 09/13] arm64: defconfig: enable rockchip camera
- interface and mipi csi-2 receiver
+	by tor.source.kernel.org (Postfix) with ESMTP id F0D5261F1E;
+	Wed, 18 Jun 2025 16:12:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8885C4CEE7;
+	Wed, 18 Jun 2025 16:12:04 +0000 (UTC)
+Date: Wed, 18 Jun 2025 17:12:02 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: ankita@nvidia.com
+Cc: jgg@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com,
+	lpieralisi@kernel.org, david@redhat.com, ddutile@redhat.com,
+	seanjc@google.com, aniketa@nvidia.com, cjia@nvidia.com,
+	kwankhede@nvidia.com, kjaju@nvidia.com, targupta@nvidia.com,
+	vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com,
+	jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com,
+	mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com,
+	alex.williamson@redhat.com, sebastianene@google.com,
+	coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com,
+	ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com,
+	linux-mm@kvack.org, tabba@google.com, qperret@google.com,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
+Subject: Re: [PATCH v7 3/5] KVM: arm64: New function to determine hardware
+ cache management support
+Message-ID: <aFLlUtKdy7yZLV4c@arm.com>
+References: <20250618065541.50049-1-ankita@nvidia.com>
+ <20250618065541.50049-4-ankita@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v9-9-ace1e5cc4a82@collabora.com>
-References: <20240220-rk3568-vicap-v9-0-ace1e5cc4a82@collabora.com>
-In-Reply-To: <20240220-rk3568-vicap-v9-0-ace1e5cc4a82@collabora.com>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Gerald Loacker <gerald.loacker@wolfvision.net>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Markus Elfring <Markus.Elfring@web.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, 
- Alexander Shiyan <eagle.alexander923@gmail.com>, 
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750261092; l=837;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=s455V9CkyvpGzSN6VrzWbnGJFsrnYK1zOquWGv1ME3g=;
- b=L/RMU/CEGvp2/p/uPFxjh+Qo4l4nsCCY2q7xVMT+N9ccKNBbv9k4kwb9AKkZRuy5qCe8VgDxD
- 8sbGQfLTmhWAJ1NDi38QAwio+38mA7rZ+Z8sltxRkGFR8+wZzxwRG1c
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250618065541.50049-4-ankita@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +70,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+On Wed, Jun 18, 2025 at 06:55:39AM +0000, ankita@nvidia.com wrote:
+> From: Ankit Agrawal <ankita@nvidia.com>
+> 
+> VM_PFNMAP VMA's are allowed to contain PTE's which point to physical
+> addresses that does not have a struct page and may not be in the kernel
+> direct map.
+> 
+> However ARM64 KVM relies on a simple conversion from physaddr to a
+> kernel virtual address when it does cache maintenance as the CMO
+> instructions work on virtual addresses. This simple approach does not
+> work for physical addresses from VM_PFNMAP since those addresses may
+> not have a kernel virtual address, or it may be difficult to find it.
+> 
+> Fortunately if the ARM64 CPU has two features, S2FWB and CACHE DIC,
+> then KVM no longer needs to do cache flushing and NOP's all the
+> CMOs. This has the effect of no longer requiring a KVA for addresses
+> mapped into the S2.
+> 
+> Add a new function, kvm_arch_supports_cacheable_pfnmap(), to report
+> this capability. From a core prespective it means the arch can accept
+> a cachable VM_PFNMAP as a memslot. From an ARM64 perspective it means
+> that no KVA is required.
+> 
+> CC: Jason Gunthorpe <jgg@nvidia.com>
+> CC: David Hildenbrand <david@redhat.com>
+> CC: Donald Dutile <ddutile@redhat.com>
+> Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
 
-The Rockchip Camera Interface (CIF) and the Rockchip MIPI CSI-2 Receiver
-are featured in many Rockchip SoCs in different variations.
-Enable the drivers for them in the default configuration.
-
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 897fc686e6a9..fe07209102dc 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -865,6 +865,8 @@ CONFIG_VIDEO_RENESAS_FCP=m
- CONFIG_VIDEO_RENESAS_FDP1=m
- CONFIG_VIDEO_RENESAS_VSP1=m
- CONFIG_VIDEO_RCAR_DRIF=m
-+CONFIG_VIDEO_ROCKCHIP_CIF=m
-+CONFIG_VIDEO_ROCKCHIP_CSI=m
- CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
- CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
- CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
-
--- 
-2.39.5
-
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
