@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1449AC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EB7C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bh37kQDDjXu1k1pG3eSAsUPvg/k2ZgHb7BdzEwf2t2c=; b=GJEV3Ju2+54baDQT5hVacUuYUO
-	ELAP+Z1FWC581IBagdYe6CpTG6mP7wm34xrEn3DB2HHzefx0U5ip/IECWvevNh1BWNtI5yyZYRikD
-	tzEOBwBcyfMC+0FXoSUvMkEUUzjs+qkbfpIK75TMoOkm1mqLRfPgoBQxjt7vYEpmoGX2WZ4UTO5Nj
-	eIND0XdEQT6treihpz+bknRnLTjSLD8LP8eZK+cw/9ZngK4bbaMlw+LfbqXQh+Q+7ZCutJtyRcSqV
-	jLsMQraS4DiurAXWERS8ZQFbLK9veqCi+89d+auUtOEbUqNm+akuElXWrkzCDHnxdwGFTmjn5On99
-	cQDGMnlw==;
+	bh=z4CBBTWNIGQ/UgP+q+dzkOkraezX+4i7TYS1xOcXMyE=; b=i41BILG9EaxVTMT1njyto4/PFw
+	d2+PtTKdbR98dXwYCpx8JJXbXaubU0NJQQAowdXRDuIcHO/VWsFJM1Zz7lUCjEyG5SqI/VYpHnSEl
+	NxytoUZxCK7uxll4g9TAH/gXS75benFlgsFlnUzmy1t1mhZnnjCV4MEC4kGs21vOgS8Etoz4k5M5s
+	EBFa64QHM6+Of2VvPjYnFQEAJxdsBoW2OGQowK2m1CwV9z37cW9Qv8E/Om1k3DtGp3Pu6eWAZOmAe
+	kHPRu+QpOOlySUgiy+TuGMW+naqvn48o1vSdoUtpssXHnPli0ZrcSZ/K9Zm5d7UkSmaob4ugkJ62P
+	Y+jyhN5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrvO-0000000A8By-3eTb;
-	Wed, 18 Jun 2025 12:29:54 +0000
-Received: from smtp-190f.mail.infomaniak.ch ([185.125.25.15])
+	id 1uRrxb-0000000A8dn-0lmp;
+	Wed, 18 Jun 2025 12:32:11 +0000
+Received: from smtp-42ab.mail.infomaniak.ch ([2001:1600:7:10::42ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRq6F-00000009nhQ-3XqR
+	id 1uRq6G-00000009ni0-1f7O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:33:03 +0000
-Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bMg6w1KkYzS5R;
+	Wed, 18 Jun 2025 10:33:04 +0000
+Received: from smtp-4-0001.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6c])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bMg6x3r9szVfM;
+	Wed, 18 Jun 2025 12:32:57 +0200 (CEST)
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4bMg6w64MDzCyK;
 	Wed, 18 Jun 2025 12:32:56 +0200 (CEST)
-Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4bMg6v37RyzDJZ;
-	Wed, 18 Jun 2025 12:32:55 +0200 (CEST)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Wed, 18 Jun 2025 12:32:42 +0200
-Subject: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
- constants
+Date: Wed, 18 Jun 2025 12:32:44 +0200
+Subject: [PATCH v3 5/5] arm64: dts: rockchip: force PMIC reset behavior to
+ restart PMU on RK3588 Tiger
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250618-rk8xx-rst-fun-v3-3-081f02d3d348@cherry.de>
+Message-Id: <20250618-rk8xx-rst-fun-v3-5-081f02d3d348@cherry.de>
 References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
 In-Reply-To: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -55,8 +55,8 @@ Cc: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_033300_019343_570C2251 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250618_033300_564441_58A37AD6 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +73,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Quentin Schulz <quentin.schulz@cherry.de>
 
-To make it easier to read the device tree, let's add constants for the
-rockchip,reset-mode property values that are currently only applicable
-to RK806 PMIC.
+The bootloader for RK3588 Tiger currently forces the PMIC reset behavior
+(stored in RST_FUN bitfield in register SYS_CFG3 of the PMIC) to 0b1X
+which is incorrect for our devices.
+
+It is required to restart the PMU as otherwise the companion
+microcontroller cannot detect the PMIC (and by extension the full
+product and main SoC) being rebooted which is an issue as that is used
+to reset a few things like the PWM beeper and watchdogs.
+
+Let's add the new rockchip,reset-mode property to make sure the PMIC
+reset behavior is the expected one.
 
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/rk8xx.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk8xx.h b/arch/arm64/boot/dts/rockchip/rk8xx.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..a6fbef71c06493c35b0f3697476167aaafa24f30
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk8xx.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: (GPL-2.0-or-later OR MIT) */
-+/*
-+ * Device Tree defines for Rockchip RK8xx PMICs
-+ *
-+ * Copyright 2025 Cherry Embedded Solutions GmbH
-+ *
-+ * Author: Quentin Schulz <quentin.schulz@cherry.de>
-+ */
-+
-+#ifndef _DT_MFD_ROCKCHIP_RK8XX_H
-+#define _DT_MFD_ROCKCHIP_RK8XX_H
-+
-+/* For use with rockchip,reset-mode property */
-+#define RK806_RESTART		0
-+#define RK806_RESET		1
-+#define RK806_RESET_NOTIFY	2
-+
-+#endif
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+index c4933a08dd1e3c92f3e0747135faf97c5eeca906..b44e89e1bb1599ee70b921598c2eb6fd54614f55 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
++#include "rk8xx.h"
+ #include "rk3588.dtsi"
+ 
+ / {
+@@ -440,6 +441,7 @@ pmic@0 {
+ 		vcc13-supply = <&vcc_1v1_nldo_s3>;
+ 		vcc14-supply = <&vcc_1v1_nldo_s3>;
+ 		vcca-supply = <&vcc5v0_sys>;
++		rockchip,reset-mode = <RK806_RESTART>;
+ 
+ 		rk806_dvs1_null: dvs1-null-pins {
+ 			pins = "gpio_pwrctrl1";
 
 -- 
 2.49.0
