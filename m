@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93979C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439A9C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YL86OvJyPmwEjpN8LH4AbWSZd3ri6FglbDePDSbQD3I=; b=4tgChdbbWN8sRx1RQ+Vg8uD7yi
-	n1dXem5Rngq17ABP+/29n5kAKuG/03lYpqNU0zHzwtemApW9bGYe3hepH3mxtezDACsVpVzCyRGlW
-	xEfoRYUaXRtMC3HsnsCH02rC4lQ8t6sU9ZfdszXZshKwHFiRfGFQeyuPlsU4XCnXB4n+8QIRTPe+n
-	lq4YSpCanMAMHYxAcQp+O+H+39V76PD3LnDOwu5R9w8G84m9oBgk4awXDvOKgq/wtKT0J+n2Okmzm
-	OZCP5dR2rigsok5kX4p+vUszQ5kKwrS2Iurhd+tVC0Eqb1vsK79ZZj0OBXreZRaqt0r1gLhUUy24k
-	xqjzc4Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=slXVbmqApyOHbsfGp414/BpQy7xFw2pc7utHOpiQIVM=; b=3RfQODJ/rFiXWo7bcHAelp8OPl
+	HL2b20zg3JpAR5Fv2pwFKY3IAzAk4JPE7cYlDTmxRjzWyQdMiYMSPvSxmiY+U3MlrWB3Z9vQq4XGU
+	F0hvEiMnCiQwDaAYrHXcAI59RQYhuFIADU+eDmKxdW8bwtvlEHBYaeOnp0eNlj/1a4DCiv7uQlUoy
+	O2RqP0TmV0NXzIuNudNqwmE52aloPpjr+k7VGzpAANHed37o+yk0ALrfn59MvTmnAWv12zp3uHBos
+	kQqyk4ZlZGd4F7i7XbLkvdXQSGcshm/AfOOuqmpth2iQyC+JrgkVq9zh9OM7A72vhLYJpSO3NuTT8
+	6Eql/awA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyBv-0000000B9LC-14AR;
-	Wed, 18 Jun 2025 19:11:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uRyBt-0000000B9Jq-2G4X;
+	Wed, 18 Jun 2025 19:11:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsdB-0000000AGLg-0Zus
+	id 1uRsaL-0000000AG6t-48X3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Jun 2025 13:12:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=slXVbmqApyOHbsfGp414/BpQy7xFw2pc7utHOpiQIVM=; b=pvTjXYGoHvchyEDR7cz1A2CiTB
+	i/NuIPehSROtMG7o7sa9Q53quyTgtRFDWRD1lrB4ORVTTci6tXOQJ3maynl9/Dj78p+WRmoMWCMkx
+	394Jwnpty667zAVRPCDUf3/3aPRDsYrYEA8E+xNJl6WkeZ+KRmgqG7IRh29LVnlwIzRSjLpoogNAE
+	NU19magGoVZwKVpGTd6O4AJrgBnmSL9fG6grRjGPEBGmfLggVj7ksLtK7YINnU8QJem1+RgGRnTnz
+	E2RUbkwZdYLAUarA8mqEVkOgh8zFcS8dCh99yYmc8gHuAFMt/e+WvyPrCyqqYy/Da3u0DNrfnf1dR
+	iwxvRmpg==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRsaJ-000000042hb-27xg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:15:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 47C6CA4FFC0;
-	Wed, 18 Jun 2025 13:15:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73704C4CEE7;
-	Wed, 18 Jun 2025 13:15:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750252507;
-	bh=l7dK2s+tHt2VVkd90I7sqvan3K9gBnQs8sPn/1yFon0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DQs9qgWqR/zw9deq52GhNt+dLEwGGbzmZrvcBImHv4OAbz2u2HyI8ZjT3nX9tmpf9
-	 QYE0F7kxd49UtFDCqGjxT/jZlksPToMqt0vlrK0wge4smQRetYqOc3rwKuOmQVWuga
-	 Tu2uykgX3z4Zdzdbx2LLoma1x4c/Hqr6yBy49Cfc5FyWmzIH69NNSrb9pstOzs1RCa
-	 tRko4MVlOx4C0vuDeyw+mGCPjx9nVeflcBQYDg0eJsife2rAZTQyDDKo8ZTyNsvyKV
-	 s1yuGTNqDIuDJYbowkQftLS/U9WBHIwUZew166iFuus3X6xutZ3YU+nJSgBd/5IZmm
-	 NZYfkukY1azUA==
-Date: Wed, 18 Jun 2025 10:15:04 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Yicong Yang <yangyicong@huawei.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	yangyicong@hisilicon.com, James Clark <james.clark@linaro.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	yangjinqian <yangjinqian1@huawei.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-Message-ID: <aFK72GUlT-EStfU2@x1>
-References: <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
- <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
- <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
- <20250616130736.GA788469@e132581.arm.com>
- <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
- <20250616160811.GA794930@e132581.arm.com>
- <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
- <20250617141810.GB794930@e132581.arm.com>
- <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
- <20250618112440.GC794930@e132581.arm.com>
+	Wed, 18 Jun 2025 13:12:13 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uRsZs-0003ce-3M; Wed, 18 Jun 2025 15:11:44 +0200
+Message-ID: <7b863418-1554-4948-a863-e71991ef6442@pengutronix.de>
+Date: Wed, 18 Jun 2025 15:11:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250618112440.GC794930@e132581.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v4 PATCH 2/2] arch: arm64: dts: add big-endian property back
+ into watchdog node
+To: Meng Li <Meng.Li@windriver.com>, krzk+dt@kernel.org, linux@roeck-us.net,
+ s.hauer@pengutronix.de, kernel@pengutronix.de,
+ linux-watchdog@vger.kernel.org, imx@lists.linux.dev, shawnguo@kernel.org,
+ robh@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250608030616.3874517-1-Meng.Li@windriver.com>
+ <20250608030616.3874517-3-Meng.Li@windriver.com>
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Language: en-US, de-DE, de-BE
+In-Reply-To: <20250608030616.3874517-3-Meng.Li@windriver.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_061509_236928_DAE25DA5 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250618_141211_698382_7606F516 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 12:24:40PM +0100, Leo Yan wrote:
-> On Wed, Jun 18, 2025 at 09:52:53AM +0100, Mark Rutland wrote:
-> > If we want to share headers between userspace and kernel, we should
-> > refactor those headers such that this is safe by construction.
-
-> > There is no need to update the userspace headers just because the kernel
-> > headers have changed, so the simple solution in the short term is to
-> > suppress the warning from check-headers.sh.
- 
-> Sure, makes sense for me.
+On 6/8/25 05:06, Meng Li wrote:
+> Watchdog doesn't work on NXP ls1046ardb board because in commit
+> 7c8ffc5555cb("arm64: dts: layerscape: remove big-endian for mmc nodes"),
+> it intended to remove the big-endian from mmc node, but the big-endian of
+> watchdog node is also removed by accident. So, add watchdog big-endian
+> property back.
 > 
-> @Arnaldo, as Mark suggested, do you want me to send a patch to remove
-> cputype.h checking in check-headers.sh or it is fine to keep the warning
-> until finish the header refactoring?
+> In addition, add compatible string fsl,ls1046a-wdt, which allow big-endian
+> property.
+> 
+> Fixes: 7c8ffc5555cb ("arm64: dts: layerscape: remove big-endian for mmc nodes")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Meng Li <Meng.Li@windriver.com>
 
-It is ok to have the warning, its just this one at this point and it is
-serving its purpose.
+Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 
-When the refactoring gets done, it will go away. Think of it as a
-reminder :-)
+> ---
+>  arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> index 0baf256b4400..983b2f0e8797 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> @@ -687,11 +687,12 @@ lpuart5: serial@29a0000 {
+>  		};
+>  
+>  		wdog0: watchdog@2ad0000 {
+> -			compatible = "fsl,imx21-wdt";
+> +			compatible = "fsl,ls1046a-wdt", "fsl,imx21-wdt";
+>  			reg = <0x0 0x2ad0000 0x0 0x10000>;
+>  			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+>  			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+>  					    QORIQ_CLK_PLL_DIV(2)>;
+> +			big-endian;
+>  		};
+>  
+>  		edma0: dma-controller@2c00000 {
 
-- Arnaldo
+-- 
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+
 
