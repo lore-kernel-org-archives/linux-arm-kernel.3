@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4583C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4BCC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+QBBaEyW61lI4LwcMqy8kUwVRTHWEkbTz/VyytVKQM=; b=30iNUnF0JGQ54tS2WMKxU8GtU6
-	fyRh/+OFXNs2aiusIZvbjl5SsCs9wcnYpOe4OGYfaB5e8n9A81/JL1jk4l/2GWyndpTlCCJseqBHg
-	+UcDcIw9FmQsjkwlNo8GLAAu68emo9ggt/g0T33OdP3v/PoSXiPQoP+yXgF+YUE39+Izu05cJ5Udf
-	iioHpmh/S+WErVpcPRMlvlIcWe9n0TlfSxSbqOlj9xeCSC/Gb/lpofpYSryygQIQLonWcEFH/vb29
-	cbH2ns0NCQ3OEs6tJrXy5NVkxcGdgdUfpJfc9I9VZS3qVkX7gbZMiG8oIKAQvzMJ1Po8OZPcRzgcj
-	OLwNPqfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=80yLFXFDUXPbBaqdbANVfa5RTjxQihY2WjPaHFhXW6A=; b=HWqnYlfzFNRVpuu8n9w6jXlnAi
+	WLGFeaWz5DrXPJ6HYJgJvafjxMutVhc6RgbpGujX/Ky4VeWbxMI0P7mu/5KQgOf+SdiX3PCTD7FYx
+	JtWOlcIlz2Rqv9gARtbK5sjnAbNQe6px9t2bIEJ63Y7PDWAKQ0tVDI5ouM5XIdJuVBzYIPhlVGo4L
+	iGkFt57P0W8ggo4oMvnot/Mns2QWTaPBepW7CLsWslO8hSDXwHkTS1YrUkartxyl1fym5o8JFazBK
+	SWVB2BTZL+fI124bvdl/IJ700qSBn42kLkIokkANp/iAkxMy5DS+0e41TOmu099A7Y3+9dRVGSXRp
+	J/4NYRDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRoNh-00000009RlJ-3yc4;
-	Wed, 18 Jun 2025 08:42:53 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRoI6-00000009Qry-1wZi
+	id 1uRoRf-00000009SjJ-2AQX;
+	Wed, 18 Jun 2025 08:46:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRoPQ-00000009S6A-37XL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 08:37:08 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bMcZD2Ml7z2QVMR;
-	Wed, 18 Jun 2025 16:37:56 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 77C1D18001B;
-	Wed, 18 Jun 2025 16:37:02 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 16:37:02 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 16:37:01 +0800
-CC: <acme@kernel.org>, <james.clark@linaro.org>, <namhyung@kernel.org>,
-	<mark.rutland@arm.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<will@kernel.org>, <catalin.marinas@arm.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
-	<linuxarm@huawei.com>, <prime.zeng@hisilicon.com>
+	Wed, 18 Jun 2025 08:44:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A10A113E;
+	Wed, 18 Jun 2025 01:44:17 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9B873F66E;
+	Wed, 18 Jun 2025 01:44:34 -0700 (PDT)
+Date: Wed, 18 Jun 2025 09:44:29 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: acme@kernel.org, leo.yan@linaro.org, james.clark@linaro.org,
+	namhyung@kernel.org, shameerali.kolothum.thodi@huawei.com,
+	will@kernel.org, catalin.marinas@arm.com, jolsa@kernel.org,
+	irogers@google.com, peterz@infradead.org, mingo@redhat.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
+	linuxarm@huawei.com, prime.zeng@hisilicon.com,
+	yangyicong@hisilicon.com
 Subject: Re: [PATCH] tools/headers: Workaround the copy coherency issue of
  arm64's cputype.h
-To: Leo Yan <leo.yan@arm.com>, Leo Yan <leo.yan@linux.dev>
+Message-ID: <aFJ8bQh_30JMzF_-@J2N7QTR9R3>
 References: <20250618083017.62879-1-yangyicong@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com>
-Date: Wed, 18 Jun 2025 16:37:00 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 In-Reply-To: <20250618083017.62879-1-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_013706_845831_E8FC802D 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20250618_014440_877103_494398B2 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,11 +69,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Leo
-
-sorry for sending to your old mail.
-
-On 2025/6/18 16:30, Yicong Yang wrote:
+On Wed, Jun 18, 2025 at 04:30:17PM +0800, Yicong Yang wrote:
 > From: Yicong Yang <yangyicong@hisilicon.com>
 > 
 > arch/arm64/include/asm/cputype.h is copied from arch/arm64 and used
@@ -94,13 +78,28 @@ On 2025/6/18 16:30, Yicong Yang wrote:
 > migration merged [1] so a direct copy will lead to the build failure
 > of perf [2]: is_midr_in_range_list() is used but the implementation
 > has been changed and moved out of the kernel header.
-> 
+
+The build failure described above manifests *IF AND WHEN* we update the
+userspace header with a copy of the kernel header, and there's no need
+to do so.
+
 > Workaround this issue by maintaining is_perf_midr_in_range_list()
 > in the userspace. Temporarily include the kernel headers for the
 > MIDR definitions, a later refactor will generate the MIDR header
 > dynamically similar to how we handle the sysreg-defs.h in userspace.
 > Remove cputype.h from check-headers.sh.
-> 
+
+Sorry, but NAK to this. As-is, this means that any change to the
+kernel-internal asm/cputype.h is liable to break the userspace tool, and
+placing a burden on whoever modifies the kernel-internal headers.
+
+The simple solution for now is to *NOT* update the userspace header, and
+to stop warning that this has diverged from the kernel header. If we
+want to improve matters, we should split things appropriately for
+sharing.
+
+Mark.
+
 > [1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
 > [2] https://lore.kernel.org/lkml/aEyGg98z-MkcClXY@x1/#t
 > Suggested-by: Leo Yan <leo.yan@arm.com>
@@ -484,5 +483,7 @@ On 2025/6/18 16:30, Yicong Yang wrote:
 >  			data_source_handles[i].ds_synth(record, data_src);
 >  			return true;
 >  		}
+> -- 
+> 2.24.0
 > 
 
