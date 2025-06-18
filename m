@@ -4,161 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF9CC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5B4C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 07:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=; b=ZGFiZXZQSehosbmPeNJk6DyQ4R
-	JxKhvd7YXCWDtZhF862i0AlTTdgSeLEk8LZlR3vKyN/coMtgsrCTsoDZG7qRs3xLQLR1Yyp8mM27m
-	MRj30GWIx6vqN4tCi6gzhiB2G6m5rQ1HDOn//faFseucoHpcgVxR4gNRWVsAWGGjZEnb7PFRxb2ll
-	24dl/DhnzJhXa1G224erU1ryE1UWuVLmgkgT0I8nZMnpOL9tUtDFWOYRqeE8kJxZD9twS55RcgTWF
-	XmTNTfQYewxZst/ICZOl0HAHXYkwQa0BkOunNOPoEIEgFwWx8xGEHwHXlw11/5dQ1lxTPAfV5g9YW
-	czXIqcgw==;
+	bh=M6m1J9OzwQS0R6GNnPxx2krF1ARq1b3Dj/LSOSlLjZ8=; b=ONEMEHRwcK9eLEw12PwRWnPPMv
+	QvhSxNBuYriCrd6grMIyTJMp+eN1LgfSj5RXiBDakMVOcPowTw31relK8SDwffgsRsPJpfvhv4fHY
+	R44VWoY3niyJfDbhgmF3TWODxfzkN8mg5wniLELn0ZVWLPzIJC8oJKo1Y08Lz0HoNSafACfkXf385
+	b1EhT9WEFiOvGNKZ/rLHy0wh/VHCb8F190J9bfCEKPFUgPf/0opT4F44ynVFIT1trrNGCHkAIL4pG
+	PrRMO29q5Fp0/kHA9nRV/JZpS3kjvhn6eoDV/MPSly59RJTtGSM1YC6CzPofN3ddxySlt/FlnQ839
+	MZLU9rmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRn12-00000009Gw9-340C;
-	Wed, 18 Jun 2025 07:15:24 +0000
-Received: from mx0b-009a6c02.pphosted.com ([148.163.141.152])
+	id 1uRnP2-00000009J9E-1Gx4;
+	Wed, 18 Jun 2025 07:40:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmui-00000009GCs-035I
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 07:08:53 +0000
-Received: from pps.filterd (m0462408.ppops.net [127.0.0.1])
-	by mx0b-009a6c02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55HNA6nk010207;
-	Wed, 18 Jun 2025 15:08:29 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=20250420; bh=IqTetl6upexAsH4ZMTdRxrm
-	6z3s/zmsA9UK2sAWt5FA=; b=Tsqj7N1tLHLUyKj4gOCIHGV/bBY3vMqYqe/5a5u
-	U117UGgZo3l1ov/7ghhV3ARDVse77mrArxw+rRInh2nu2UHFOx2QA+2/+/0yE12Q
-	KbgshEBruFGM0izBGu1H5SgtHFz2muoD9fTlPGU9EjJ+A8nXJI42n4wlAO9yhwHE
-	BWm77Qit45XBcL1KLpuQoP6ifm9UxBcMZwbq4H8H8ab5otYJYmLxiPF0mErcQ1ms
-	NSttENyjpOsw05Lo5FOrnS+f34XvjKsc9bCcfqEgFI03pEIxtYyukjhXThnkBe6+
-	0ryF29c4g3AK8vnaO1IEsrujJdhnZx/oif9JkPRQlFVdSaQ==
-Received: from seypr02cu001.outbound.protection.outlook.com (mail-koreacentralazon11013027.outbound.protection.outlook.com [40.107.44.27])
-	by mx0b-009a6c02.pphosted.com (PPS) with ESMTPS id 47bhssgfpa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Jun 2025 15:08:29 +0800 (WST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pP+KDz7rvIuyLRIgcMrAdvKdul8OQdawszxZM7JuGLzMJka2mwVaw5ykJAMEKcVXY1qOnbuROZ//Y68Qe6c2gX5zgCOniQUIyA4HzRXy23LQa8V4z3Sk6/tP135LpqQMJ8e7kM7oZulkV/RMhr9hXSTM8gXIheLsIluB1CpBkktUX3DB7jkXEIQqtAWW9e5gixD4fgBBSl8pJg87fnStkKIb0b6W55VRiUHApMBAtvTeN++bMGnNqezCS5CiKE8yMdun8AdIcwKKksK6gV74upt+0Xcxf6qS8yHwWCPR7ScoJYWNVW+WI+w6RXUWZPadE12hihLJoVLOKXoqLGJSmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
- b=FuAa30OvcC9YbADzP6gD9fWPUOffykTY+MgnogyV0Nfiz9GPyT2Q2oufzxd2VXkM1p2sF0PUhCvBYXCbP9555Icy59Q9RzM9lF7iWJYbOYCgkn8m4Nz3V0vWDkRE98YFSTzrcOlKEyBd9qW4dwWfGHkRcgktUzpb0FWcAqqW+3GtCz4Dk2fiG9o+Md2tvTOINI+rOuPSmcK15Z4UzN5WdrCdDzTnjhQCYrp358LRpfw9pI5C69wJa5pBJI0rQwu7UKmIB2RxRPtGJ1dGcWKbzogUDZFE339pYM0uFrdH9S1jqlfSG1KJECaAHzq2nzSm8Hm07Lq2ebaVq1lab87J0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
- b=TORpedkarZybDgaIA8npOZR8//ZvmBm83nJfU4aUJkAT+sQyMnljfGGLJI4XLGgLEvtc30ecsddFeyw6HD63+Kwyjoz2zPZz2uXgFM5oCRbr+TFNMEgCeEKst83zsvLgH1crocJci3K4zvv+G/SAsiuGn2i+FtPRvRRBctfitn3lg5dYSUiG8aatj+s0sGGv/3iCumQop07Bew+DDQp3f8HRB65s6eX81NSOY/rpn74tiiPdCFxkF7ytxC2WLW/3fPyRNfFsGZeQVedqnQ1jsKP+x401rkBmdUjuTjs/y0lziiqzdjZz1YGj1mrdLpWRV27IBx+lDKTk99Tt73+ZfA==
-Received: from SI2P153CA0015.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::21) by
- KL1PR04MB7209.apcprd04.prod.outlook.com (2603:1096:820:fb::14) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.30; Wed, 18 Jun 2025 07:08:24 +0000
-Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
- (2603:1096:4:140:cafe::87) by SI2P153CA0015.outlook.office365.com
- (2603:1096:4:140::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.5 via Frontend Transport; Wed,
- 18 Jun 2025 07:08:24 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
- smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
-Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
- designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
- client-ip=211.20.1.79; helo=localhost.localdomain;
-Received: from localhost.localdomain (211.20.1.79) by
- SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
- SMTP Server id 15.20.8857.21 via Frontend Transport; Wed, 18 Jun 2025
- 07:08:23 +0000
-From: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
-To: patrick@stwcx.xyz
-Cc: Marshall Zhan <marshall_zhan@wiwynn.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v4] ARM: dts: aspeed: yosemite4: add gpio name for uart mux sel
-Date: Wed, 18 Jun 2025 15:08:22 +0800
-Message-Id: <20250618070823.4136687-1-marshall_zhan@wiwynn.com>
-X-Mailer: git-send-email 2.25.1
+	id 1uRnMo-00000009J1Y-36fS;
+	Wed, 18 Jun 2025 07:37:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 654CBA50467;
+	Wed, 18 Jun 2025 07:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B0CC4CEEF;
+	Wed, 18 Jun 2025 07:37:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750232273;
+	bh=C8cDydoGOBcR8NvM/4b7j8MB33R0OSAtbo+7+9KQiJQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=eaDVWtaYiFzXj5XEQY9BiNKvXNH+YTToyJxw4JhPH63t/GXjhQawT4nv2zRYIaZVF
+	 ORNk6KIi6cr4b0i72kd/mUYp/k5jUsO4FkmqyaYUmeZD/VO5s/1XdJAYjkO7O1BWSb
+	 WiqxJS3BDxasTTcic8X76KtSjw6/FIejlKIR93QkfyYFaSKO8wy9S4UZ16tIV7Recc
+	 +uOjiaW06h+6RcEo1CBx558ebpDarJfh/kVxc9jK5vaYxLhsuRCAmq4rPIcDFZ75XJ
+	 7T7Dx92upt+1LiawAY8VUXNPM6HuNTseCAbdtxqPSjxuTfpWcMtc/AzLvFKvQ1fUDb
+	 XGM/y9VTyYM2Q==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 18 Jun 2025 09:37:40 +0200
+Subject: [PATCH net v2] net: airoha: Always check return value from
+ airoha_ppe_foe_get_entry()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|KL1PR04MB7209:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 21b7d367-1c78-4832-109b-08ddae36ea53
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y/xnR1LntkW9zVjmQ8ZufqXY9xVIZDdWkrT2P2Cwu2FynlQU3gGVSc82JlWO?=
- =?us-ascii?Q?RWLbr2fRptKVJZUqk6TSWiTbjhyBTnPQ9G2islc0gu/OIzsll4JBcmaAYtwi?=
- =?us-ascii?Q?xC7FX5mqWZSYfoF4zOOfpKPpaOyk+jLFD4Ezr3RgFpv9zL0qn7baPCZnCheq?=
- =?us-ascii?Q?Lh0VYfqARkkSHQ3D1ardOb5U7eU74p4sRzIum9q3THvXi6wJXdrXmEJybLZ9?=
- =?us-ascii?Q?EEUIKMudT0oFPMaPB++00JQvS5OAawuDH1gqEciHN6efD9U4kFt1f31DgNzX?=
- =?us-ascii?Q?W2teybxa2KejEn1YuSPTYnXKFiKBeoIQNkiJtGwA2nawk5T+DSyOuUbygrf8?=
- =?us-ascii?Q?cV1tCiP3Ni4AX67E4PT5DgBMlXPtG1hC3U2ZgbPgypvTPczyCFEhYcX/PKQE?=
- =?us-ascii?Q?pFKtnsQZu/AJyopf54gtxqTluqw4ZSy7xynN7f6VIeEBdRQEPMerqqE6ZDFu?=
- =?us-ascii?Q?2Hd+u1zkSCI1Ca6nSqy5nN2lxu1Zpy++30SaWtVwr/eFqXyf+xMLadZxXVsB?=
- =?us-ascii?Q?PWSmhDAtgjS/xmuC5L93/c/f56uHkfrBqEJofeGsovotPijCHQ902zub0e7k?=
- =?us-ascii?Q?fzBDafCTucsn2XNljUq4rbpE7ACcHFhtSwRBxWx4I+pXd8JHtMrVnhUtAHmw?=
- =?us-ascii?Q?tBChCABT0SxKuorhealPJ1cYKHMTsfitqEWAVEbjFuFoLL77IOREsWzlRT8V?=
- =?us-ascii?Q?GpgBkeUmvnscwDdM9H8LDws7KOEEborLUlEAIHAaLJ/cbazxlbIaO8Pa3AtR?=
- =?us-ascii?Q?WDvkGSZP+ckh+l5Qbuj5BZpyCQpF1fKbnMDfr6prJMrwQmiO+SGNXVir4X9G?=
- =?us-ascii?Q?7PzEdc9zwVAuGT4CywIX8WpeVE2+GXf3SSbMMnbpaIkVcW+uz2U6AqN2sktW?=
- =?us-ascii?Q?qT9kXyL13uL+Wbb9Jtw3+tADeaeBQoX2xNkIiWzjKNFPVV+PYePvq6VJcpp9?=
- =?us-ascii?Q?OurVaBuu8eL+wn8DjymG6rPfzaBSzFgH/NPKYhhljhBYo8fPguMLULoVOjYO?=
- =?us-ascii?Q?YSzTPkyg47yQ5jmDeh5RyxYE4wVM8LzoBvMmVMVErlClI0sqSa1ZCQ6zc+ZO?=
- =?us-ascii?Q?zxU+Q67VE7GJb+cqC6we6YlCVnzW/21WqB4zC1O+IWatvrU8BR5DmAFxGxmb?=
- =?us-ascii?Q?wYdi2IVuJG4MjhXE2yVYiR8oLHsUZ0PvYPrphhuN79sj370YGa0t73Ekl2SI?=
- =?us-ascii?Q?yN4Y838HsGre23GPkD1mgY6XX78v2HKlJhcZZxAd0HkRVV5bLOjObhAKJTbv?=
- =?us-ascii?Q?DiAfgWmzucfm0ZfMB31dcYZ8beTpIjL8WWZUN1nlxytm9fj0P2HgTTay9KRQ?=
- =?us-ascii?Q?xgQ5fjjLDoVx15wVs29Te1qTJDd1u0gxzBm92MluvVqFNdXMPwuMNsuSyja5?=
- =?us-ascii?Q?8Z4EywcI0uYRH+HJOZvizowQkV8KRBgliE1Xtjbj37DF8psbhAZFKxwyB9zH?=
- =?us-ascii?Q?cN7DUP3FzGP9qPCutRIjkLDHp76rwgPFewIYQgGx9xATCO+9iRVwUA+3j/gy?=
- =?us-ascii?Q?z3F1pCm9N2lGIrflM3Eq5pWRFH2E+99uYPFD?=
-X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: TrIw56rwnMWtEnDjlXYOqX67GeFoK3fWCirIG0+gA5vnX7hK0xuuABDu6EokBUUuuR9fHzyjsZb0wi4DTcqzesxxdvRTZ9lxWvwKA0JbJsoynSn9t5C5PDgs+XBJnEafF4YJgok887uYmDhB6jBvYu1y450n4BnzRvyKovIq+ODaiOClUeqnZNf1kpQUpThIHd1jf66Tq+4UyjlSzvCEdXaCQHXXRTM5kBP8oudBAEoetJthFaKZY323Hgz9QQwJtBXEqpmc1f3APnIDx3j+6tHDN+/zhGFwllvUPRiRlRjCA+mqA2jWvSONDKs8wMwkjKEEGb9DqDWEqxm4SBw6B49+M3B7GFIymP0egUHjbaepKITCgJ/g8voBDuYHWXWq/OxaypCLxi4oyYH3necCTHYwiwezY77LEeyLedio7mW7P15blvPOy6SITqUqhNtacwWGpKeEUNagw6YfGCiqjwqyrlqGAmzYLtm0cmuNpZg4j/d7uEiLjZ/hFiNTGmHFQuQzSHAVnByH5w/use53pUgVh+NlyptoPw+yG8FbZc26br19YVdpfUsrCIUcslvkkn7JqMvzoVvP2aEbrVw7d2kZ7KwdeenE0M3zoCn7oU8DENGHnRPO7+v7nvNdDlPW
-X-OriginatorOrg: wiwynn.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 07:08:23.2743
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21b7d367-1c78-4832-109b-08ddae36ea53
-X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E5.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR04MB7209
-X-Authority-Analysis: v=2.4 cv=B9e50PtM c=1 sm=1 tr=0 ts=685265ed cx=c_pps a=dsIthHTsXEBkGW0VS6idzA==:117 a=6rDDh2uRNVCE5HFPCIqeAA==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=6IFa9wvqVegA:10
- a=4AL28aEVfeMA:10 a=cPYzWk29AAAA:8 a=u2kzlEoHWhBIlCB3pKYA:9 a=oSR2DF9YFqZEN4IGatwP:22
-X-Proofpoint-ORIG-GUID: JnxlT6wqDCj_w1DQZrvvdKl0PVcg-3z6
-X-Proofpoint-GUID: JnxlT6wqDCj_w1DQZrvvdKl0PVcg-3z6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE4MDA2MCBTYWx0ZWRfX7YlxDkhfcZSK pbfEGURS7SPlg4dmgzQT60DiMchr4ssRDOWux7eSSgmrrweEVQVMS733UIcVOemrofUY1ggS3gc Z+cJHluemv1DQmeA3QFx6yZ0BopLHSAFiO+FeZWlmO4vlLBiyRRlZWkuGO3HS59NXXT/NTGgkUa
- cqsitliwk1gjf8qTRP93rxKIDcq7h4Cmvb15ziuDqC0CrBKE27JXM+GZZV4qOtpz9eug1ENV7Em x8i7YfcuE15w9QcWZ5XcRjLpVYXR8CkxsValC2ZG0h47cu56vVAyQJDZVzpEQVPueEYdGspQ9BR 4EQW5EqBiBpGw8rLckCFmcRv7nl6WETu1sTo6dQ/3UfDtVfBIbgZWYw8H6/vD/EfGFFfuSlu22p
- YHolnorY3amw8n/0oIwDvWjh7BlMwVoXyfi7Qdil40899z4koWQkimppwRrsqzjbT3ZYsarq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-18_02,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- lowpriorityscore=0 mlxlogscore=799 adultscore=0 bulkscore=0 malwarescore=0
- clxscore=1015 suspectscore=0 phishscore=0 spamscore=0 priorityscore=1501
- mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
- definitions=main-2506180060
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250618-check-ret-from-airoha_ppe_foe_get_entry-v2-1-068dcea3cc66@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMNsUmgC/x3NQQrCMBBA0auUWTuQVC3Bq4iEkM40g5iESRCl9
+ O4Gl2/z/w6NVKjBbdpB6S1NSh6YTxPEFPJGKOswzGa+msU6jIniE5U6spYXBtGSgq+VPBfyG3V
+ PuesX2bB1Z7dc7MowalWJ5fM/3R/H8QPUH/tUeQAAAA==
+X-Change-ID: 20250618-check-ret-from-airoha_ppe_foe_get_entry-f0f1838641df
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_000852_187216_FC317117 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_003754_856690_04F5A1AF 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,114 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add gpio line name to support multiplexed console
+airoha_ppe_foe_get_entry routine can return NULL, so check the returned
+pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
 
-Signed-off-by: Marshall Zhan <marshall_zhan@wiwynn.com>
+Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support")
+Reviewed-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
+Changes in v2:
+- Target net tree instead of net-next one.
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index 29f224bccd63..aae789854c52 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -189,6 +189,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
-+				"SLOT1_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 9067d2fc7706ecf489bee9fc9b6425de18acb634..0e217acfc5ef748453b020e5713ace1910abc4a8 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -809,8 +809,10 @@ airoha_ppe_foe_flow_l2_entry_update(struct airoha_ppe *ppe,
+ 		int idle;
  
- 	gpio@23 {
-@@ -235,6 +240,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
-+				"SLOT2_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ 		hwe = airoha_ppe_foe_get_entry(ppe, iter->hash);
+-		ib1 = READ_ONCE(hwe->ib1);
++		if (!hwe)
++			continue;
  
- 	gpio@23 {
-@@ -281,6 +291,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
-+				"SLOT3_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -327,6 +342,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
-+				"SLOT4_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -373,6 +393,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
-+				"SLOT5_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -419,6 +444,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
-+				"SLOT6_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -465,6 +495,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
-+				"SLOT7_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
-@@ -511,6 +546,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
-+				"SLOT8_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
- 
- 	gpio@23 {
++		ib1 = READ_ONCE(hwe->ib1);
+ 		state = FIELD_GET(AIROHA_FOE_IB1_BIND_STATE, ib1);
+ 		if (state != AIROHA_FOE_STATE_BIND) {
+ 			iter->hash = 0xffff;
+
+---
+base-commit: 0aff00432cc755ad7713f8a2f305395d443cdd4c
+change-id: 20250618-check-ret-from-airoha_ppe_foe_get_entry-f0f1838641df
+
+Best regards,
 -- 
-2.25.1
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
