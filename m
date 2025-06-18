@@ -4,56 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15928C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078C6C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d75iMO225RqnSPxtMwe2JWDfR9+5wuRF/NfwWBxLUuM=; b=OApXo6jjG3XDy6nd9wlHxWbB5d
-	a5/qOUIwXn+7WMce/ahctYItTruWlzDrPDgVjBvU6gtJrmZgmRXKZO+FrMkVLWTrk8oaX/I8Kv/3I
-	fKRewvgtINVTxiJPStNrR8/6UAKqREcYCl3Ram6XJoSTX13xqpWv+aM7NSmI05N603d6kMU+KsG3K
-	mOAno6bpi+4eFDLtkPC8DJBAIGtG8+1CCdvUaePx82Zduqeov3fpq+20iD7yFaSN5fM7dbnGfB85n
-	4ok6fNtnmNTMI2cptcO1dDm33Om8p1qADJwQttU+Vaanz7seRO4y8eC+G041EvYqaxu3WZMbHEiGM
-	dvJoX69A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JuGZpoghCC6C/KwR+MxKwzoN5Ct//Mj3gTfuaYgkOhw=; b=nctp2sabIzziM7D+u9cdSAUN2w
+	QfiHoWsLb92iIxiOjihjHDn7EOZX8gijxJUaVNEpDixy3NVB9qotg8dRCXAM0IdZyzpJxPED2V21l
+	KvAQYumGSXu0TLk+7+6EAYIzgCFIFA9ZT9qm3e4e3Wa8Vqd6CLyKaUF/fxD/gSNHLS/qJYS5Y8QZa
+	ydHN2pNWU6whkpWrrKTMPNymk2cjTQ9cvv4xGo2JLvzXh0mTQjgeMr4cv1DUo+gEcPnTmGTxRZRmU
+	Dw66iDKRQ9d43cQEQ8fFMhDJ0i94ub3YD0CPj7jFIOkTr9SIfgdbhv/fe82ts+FDxB+G5ijhVb0C7
+	XlkOEBsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmHG-00000009AgZ-1F2O;
-	Wed, 18 Jun 2025 06:28:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmF1-00000009AOF-2yc1
+	id 1uRmK3-00000009B6y-3BMt;
+	Wed, 18 Jun 2025 06:30:59 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRmHp-00000009Ao6-03Hx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 06:25:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDA1014BF;
-	Tue, 17 Jun 2025 23:25:22 -0700 (PDT)
-Received: from [10.163.35.185] (unknown [10.163.35.185])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 825A73F66E;
-	Tue, 17 Jun 2025 23:25:40 -0700 (PDT)
-Message-ID: <413d61bf-807e-406f-97a7-180ed7eef2e0@arm.com>
-Date: Wed, 18 Jun 2025 11:55:37 +0530
+	Wed, 18 Jun 2025 06:28:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Os+owvWdEsqVMZFjvlSTmrnJlqkavr3mqg7pYjDsZOlLbBDrn/Cp2/l+CHzGkjPxTa1IKJmd8RB6xQ4ooFQ2glubLLW6DYdoZm+MqSCe5lizhkTRYWc9xGWVN33TFs6xS8Aq+GB5XzaWdLZVW5SAmZUv5fgETOkW6lL3PGB+u2MgLScZC1RXstCROufEZYBWB6srYGw6hu+iiK0ogDJ2hiED33TjBsWjVvBiVDT9fWVmrRrbF9BGnCsA8qbEHy1YmDEXlUoEbkwvPeJTm1ny87YtvpR4V4fsdEtXotHwWNdYNoz1l9FS/iNRFsORr7NvMPCBq54skiu5Soq2EiohgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JuGZpoghCC6C/KwR+MxKwzoN5Ct//Mj3gTfuaYgkOhw=;
+ b=vUi10kV5egQmndIEJQpwbMEkPkcUXsx0mijd1GzJww2z6b3KvNOCGD/MTUuQYnhUhePAO6DibzizQfjQ0daJzVeHT6A/68x8EV/Z4vNfqL6xdR8748pH/1Yk1jKXwh+V2AOVAOvUGEpKnLIAn1bsqKudEDyEmkb5+y6cUhqOy73jF3Sj68iNWaI2nsj2qcA2tV81+iSTaANIfuYFyVohQI5uDKB6pGSnk4yp87ycHz3dW2bouSdl7+t0x9kfR67NwD49wKyKmy1JPfrEZ2SXsg2q0h+TdBigXRPWSiEESKrLgRWFgPKlUXyznuOUXAqcq2YpsEzEoxCUbOZADBAxlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JuGZpoghCC6C/KwR+MxKwzoN5Ct//Mj3gTfuaYgkOhw=;
+ b=SO0sSm62HTP9ZwkYgAgohAO/y6gS38vNepZPfZRqezQBsCdIkexd9MObg+vhugwxuhKIk80ALMyjM0oEQ6IxsFziX85X8ApjncvMWXK6EvGzWbc/TZJeWy57HiJ9dHmUapzHTQThWe0tCBaRIpu79xe4fn/lnMUvqz0zel3m46gUIZ7myEBSJC+z2DSCLf8PfWw3agwPKlyBDHx793YnhZ0H3DvWKId1d4Ltwj4faw8W1jLVnazxBDYBNW+KlnN0T4MoOiiTmJOHaWPoxIBYxlGsqZIEeqT9O57p+J0lHHwJTCKoBQ04gAK92voyEG7C00Hy0+p9WVxyIxH9bcUqhQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
+ by GVXPR04MB10184.eurprd04.prod.outlook.com (2603:10a6:150:1bf::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 18 Jun
+ 2025 06:28:37 +0000
+Received: from VI1PR04MB7055.eurprd04.prod.outlook.com
+ ([fe80::d6ab:1538:d868:bf8]) by VI1PR04MB7055.eurprd04.prod.outlook.com
+ ([fe80::d6ab:1538:d868:bf8%4]) with mapi id 15.20.8835.030; Wed, 18 Jun 2025
+ 06:28:37 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] remoteproc: imx_dsp_rproc: Add coredump and recovery
+Date: Wed, 18 Jun 2025 14:26:42 +0800
+Message-Id: <20250618062644.3895785-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR04CA0017.apcprd04.prod.outlook.com
+ (2603:1096:4:197::15) To VI1PR04MB7055.eurprd04.prod.outlook.com
+ (2603:10a6:800:123::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/13] arm64: debug: split single stepping exception
- entry
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
- <20250609173413.132168-10-ada.coupriediaz@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250609173413.132168-10-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR04MB7055:EE_|GVXPR04MB10184:EE_
+X-MS-Office365-Filtering-Correlation-Id: 950fca52-106a-4762-835e-08ddae315a59
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KV/9XCXE+XG3r2y2JXZAhyOc0iifH8n74imCem4uQcTx1H2tM5wB0h22jdGP?=
+ =?us-ascii?Q?u+7mHguLD4TlGUOBqPgI5qjZJ6PhssEqw3BtQ6OOhUXKbhHOXJXFI/3U2FmX?=
+ =?us-ascii?Q?W2ssT+I6TtMCp5HUyBRJ7rQ9ddBwBDT1qsN/zWViw7wCftFszPCOFsr+xasJ?=
+ =?us-ascii?Q?pk+rokCcY7t8WpRGaBkLkbjjaaMn956jTiTvIWZBkR7H7jxxLpj0R+mmiCPd?=
+ =?us-ascii?Q?yGcMvjq7qu2ZDUI17r+aRetXfo0qgBm88nXWL3KQjcfmX898e+xiIiHLGtEZ?=
+ =?us-ascii?Q?gmpmtMOFktEy4lqPk1Lvv7eayV9ZNLpwv80RESvFt2uVAl74/pSjvVt7jMyO?=
+ =?us-ascii?Q?CQNJ3s5ehtEnovWeJ9djaLFb3Y9GGoezWOxAEJyad/u1AkZPFz2X7DxiUZdA?=
+ =?us-ascii?Q?+J4QrkGJChjVWJdnRCyzhn8IaUA1MnCwPXfNYzaaeN0F6Na6aug+w5Se4WnU?=
+ =?us-ascii?Q?3xPfQYaq7qRAm3Cz9lAOvYcEUfgSaQknKuC8LfQt/3TopTbcC75VnBQmlIpL?=
+ =?us-ascii?Q?BzEkxxcrzmJrRktteYcawUy0S3Zqu2NssO8i+wiNfMW80/qBREvDOYb40IOj?=
+ =?us-ascii?Q?z/doez3axbRArMXrTzKZQk8ESsWraMNmV5VTVFKYkCwAsTfLdiL42BhUKN4O?=
+ =?us-ascii?Q?c4sKU0T2l0JaAX+nOqyQ7uM/Aa30TRX4Wwt4aN1TyXP9gopTaIhpkHiAtUQM?=
+ =?us-ascii?Q?jhTz1Mo1H48Bcs+ukv0vXKmWPu1OXKz3MmE3zW7rCcPS33mcGraI4KOizidS?=
+ =?us-ascii?Q?hUOUPA54yGnnZ/soRIWkN+9w+yw/AAo37lID3/MHO9qLB3Dyxk8RFL4s29rk?=
+ =?us-ascii?Q?rniUMloQWb9fbYGxIjmXf2iynNvQlG+38lnXWFxSyxLJOp3s829XOMvgTRFI?=
+ =?us-ascii?Q?G60HfSicRH42yJg8jhczigj8zH3mL8bLW9UI6URXyRAWzEtnRd/GQrKJYVWe?=
+ =?us-ascii?Q?cCehtkQ097AxtuPYdpVbLNr0oX/usSNVDVxnInLeSHIhdkJ/bE+24G0FSAOn?=
+ =?us-ascii?Q?emmeQ/VuEjFm6nAZJ4y9290J+pSqzC9u13afTxxiWphMVScif0jhCS+a7SMI?=
+ =?us-ascii?Q?EA2A4rjCI3+CLHPDiJSzK/b0anYG/+ZPaed0c6jXS1ULUeVXm1MxISntI0CF?=
+ =?us-ascii?Q?ee6k4JOaL2zVx37ntw4Kl42AaxWtxKHUzQXhX7anJ/XOYjUhCiSMdvO55thC?=
+ =?us-ascii?Q?uOrzjS0qY3GqW3I5py0AC+37RRmB0o+w6QaUSzvO5PQV43QjOX1jwQ0uqUf7?=
+ =?us-ascii?Q?uX8563OUNapBblZzUv525jJstzU6Y/BglZoM4dnNw7W5pyRQtfmCegW1v6sb?=
+ =?us-ascii?Q?q70a6rFYnP4uo+wR4OMxO0ttc9zK4NdVd/MubCZPWH577bKwqT/JJY8XA4zo?=
+ =?us-ascii?Q?2O8/WhgVog5wYp8muCFcFPpLVN9em1bP2NKou3QnK9exTWW3PfbBGaPv9JBO?=
+ =?us-ascii?Q?vGJpyHvKSqh6zmMpROu+fFaDgZfTWnDJJR37fE4lPK5tRSbBvjSss9ebwyFi?=
+ =?us-ascii?Q?yk/kC68LCK8SPfg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB7055.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3KxCwxQ8+lHyaiyyza6qAzaTGob/FP/GnYEi9t68JwIf3Ac1gMeSLfiizFrK?=
+ =?us-ascii?Q?rKS37eQkmnfwRldw/HtfKSAhfeYr7jpDaVTW7K7cVhLrzgn/j/rC10TwyBel?=
+ =?us-ascii?Q?RFcEgwYHXMgt4SwE8Ze+y+Q2Gs8WsDkV78FRbG6B4VZl8qOEVNcjqShVouX/?=
+ =?us-ascii?Q?FiyUn49RdLJ35cFUCxZ9nsWxBXUIPmSxkogNArLUUZzy7GOYXG2z8nKIzVrm?=
+ =?us-ascii?Q?nepfaXexXKhIwZr24LmThYwW+z5b7NteyPMWpd3Ug1OuNMIyLJ7koldVfg73?=
+ =?us-ascii?Q?s/aUyoImwXNnDF+geQCyfWfbSlPr8xq4HcVTwJ0O1K8pRn6LsL5xMDizAKmL?=
+ =?us-ascii?Q?ROh46r0b0505syD0odwgEL6Afpl6RRfqsA+5RK+oWBMUDWTYUHy2NN2LKN3U?=
+ =?us-ascii?Q?+9B0mHlRFEp11lFmqlUilNqKJIhxsulqN9LA7/7DWVjKx+11YChM2hiRv++j?=
+ =?us-ascii?Q?bYsc+ORROrVno9DPSS745ezTzUyWHa8pafAyV6qSTl7vrkHrIBq2aAuuWZYg?=
+ =?us-ascii?Q?wAIWAa3QIPZrMAZ0g/wT+B12gyHX/SwF5IW6czztFWQ8CbPTlR0Suz+ENm3E?=
+ =?us-ascii?Q?SXzNce9huM9eqM+CltUDPnjlX4kOf8dSPjhe4XzZX5T++JEI9bSDnAMFBst8?=
+ =?us-ascii?Q?eW0iCkD/vQt6gwVvBOAs5dzj0tRFWR1xvvrvcY6QYXcb3dvTMP9w7i+rsGvw?=
+ =?us-ascii?Q?DoXBE/QKDahE1/egt7KPqWo5eMRmX6eyhE0BIJBqJ6mWDlRkqzH2X3JDWHFM?=
+ =?us-ascii?Q?sxZg2vZBXEFnTOWCHCj6z9lJPC+ZqHtgotRgTs5qTaGyLRgLETjE4Q1RfkxV?=
+ =?us-ascii?Q?KL0j5678USAeakHwmXdancva6MAkDP/ONGlepHpSEIQEA3cRxLl5iAQsR20s?=
+ =?us-ascii?Q?JmYQhQlpi1Z+7kcwoQ4+lJY1pLFVv00vhXm0nyhrIBoUf96D7JkXcofPhMrB?=
+ =?us-ascii?Q?qcq6OioU4tHIylgqCV28UUQIDxT5Mstd2krjSv4cxfpo2p1bYv4Dso0qE/9y?=
+ =?us-ascii?Q?DVWS2/RAtku8YsXNiuIsC7jcl+2DhaMTsKXiJaqEAzuvp4JoPC+Gtq483wgm?=
+ =?us-ascii?Q?jvTkR+62oHtBwZiN5etoYNaDNP3tOcC0WdepkSiIAgllrJXoqoS40Z/erJFI?=
+ =?us-ascii?Q?ev5Ml96UbMCb0QJ1XZUyqYbx2kgyIhud9s3UL04Vobnhqk2QFurh8tPvhMg4?=
+ =?us-ascii?Q?eCqYJL3uL/v9wypO/gBmrLm8FidMiEGUr1H57/j8NSEG54eC4bgY8APtPwQn?=
+ =?us-ascii?Q?oyGkUCqERkpAXRSc3HatEGq+sMoWXb3m22Z1I11Kyp3Zxl8esr+tMdlcFkPI?=
+ =?us-ascii?Q?K+ArIiinY+Nho6tfuzinDD7R9AGyuZARnnJFxeoLaiTdrpdQ+rKROK7ESLeA?=
+ =?us-ascii?Q?fdApwueA+1IdZixkcGG/Ai9pwH9Jq9RuUqHjMkD8xRuMyfTwsDd5ODmRERim?=
+ =?us-ascii?Q?AvytCT0I/s8/QOZg7jGfd6TH2F1LW4QF28NWbR8nTWQwC9iAwpj3OgfBtSbZ?=
+ =?us-ascii?Q?PUdsoc4otwSoNSYbUpG4l/jP5SDQRv46POwF8gC2bk2C9pBUnA9nbIwANp3R?=
+ =?us-ascii?Q?XVpEzaiCPbGqXlO9ak7LIP+bLOBmPbUhkKKQHpds?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 950fca52-106a-4762-835e-08ddae315a59
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB7055.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 06:28:37.2149
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nWEa9hIc7OxLS9aiL8H7Od6WNt891CrtckaNVvKa5lrrMb4TJDTp6ZAic81DxK8a/v4DZ7UujVeJYqHRUJp2jw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_232547_842800_4CD019BD 
-X-CRM114-Status: GOOD (  40.29  )
+X-CRM114-CacheID: sfid-20250617_232841_050846_5738CB5F 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,243 +163,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
-> Currently all debug exceptions share common entry code and are routed
-> to `do_debug_exception()`, which calls dynamically-registered
-> handlers for each specific debug exception. This is unfortunate as
-> different debug exceptions have different entry handling requirements,
-> and it would be better to handle these distinct requirements earlier.
+Add coredump and recovery support.
 
-I guess makes sense to mention this in the commit message as this is the
-common motivation for these dynamic to static exception handler changes.
+Shengjiu Wang (2):
+  remoteproc: imx_dsp_rproc: Add support of recovery process
+  remoteproc: imx_dsp_rproc: Add support of coredump
 
-> 
-> The single stepping exception has the most constraints : it can be
-> exploited to train branch predictors and it needs special handling at EL1
-> for the Cortex-A76 erratum #1463225. We need to conserve all those
-> mitigations.
-> However, it does not write an address at FAR_EL1, as only hardware
-> watchpoints do so.
-> 
-> The single-step handler does its own signaling if it needs to and only
-> returns 0, so we can call it directly from `entry-common.c`.
-> 
-> Split the single stepping exception entry, adjust the function signature,
-> keep the security mitigation and erratum handling.
-> 
-> Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` so that
-> we can do it as early as possible, and only for the exceptions coming
-> from EL0, where it is needed.
-> This is safe to do as it is `noinstr`, as are all the functions it
-> may call. `el0_ia()` and `el0_pc()` already call it this way.
+ drivers/remoteproc/imx_dsp_rproc.c | 64 ++++++++++++++++++------------
+ 1 file changed, 39 insertions(+), 25 deletions(-)
 
-> 
-> When taking a soft-step exception from EL0, most of the single stepping
-> handling is safely preemptible : the only possible handler is
-> `uprobe_singlestep_handler()`. It only operates on task-local data and
-> properly checks its validity, then raises a Thread Information Flag,
-> processed before returning to userspace in `do_notify_resume()`, which
-> is already preemptible.
-> However, the soft-step handler first calls `reinstall_suspended_bps()`
-> to check if there is any hardware breakpoint or watchpoint pending
-> or already stepped through.
-> This cannot be preempted as it manipulates the hardware breakpoint and
-> watchpoint registers.
-> 
-> Move the call to `try_step_suspended_breakpoints()` to `entry-common.c`
-> and adjust the relevant comments.
-> We can now safely unmask interrupts before handling the step itself,
-> fixing a PREEMPT_RT issue where the handler could call a sleeping function
-> with preemption disabled.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Closes: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
-> ---
->  arch/arm64/include/asm/exception.h |  1 +
->  arch/arm64/kernel/debug-monitors.c | 19 +++----------
->  arch/arm64/kernel/entry-common.c   | 43 ++++++++++++++++++++++++++++++
->  arch/arm64/kernel/hw_breakpoint.c  |  2 +-
->  4 files changed, 49 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-> index 926bad7b6704..d6648b68a4c3 100644
-> --- a/arch/arm64/include/asm/exception.h
-> +++ b/arch/arm64/include/asm/exception.h
-> @@ -62,6 +62,7 @@ void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
->  void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
->  			struct pt_regs *regs);
->  void do_breakpoint(unsigned long esr, struct pt_regs *regs);
-> +void do_softstep(unsigned long esr, struct pt_regs *regs);
->  void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sve_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sme_acc(unsigned long esr, struct pt_regs *regs);
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 74ffdfeff76f..3f5503d61aee 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -21,6 +21,7 @@
->  #include <asm/cputype.h>
->  #include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
-> +#include <asm/exception.h>
->  #include <asm/kgdb.h>
->  #include <asm/kprobes.h>
->  #include <asm/system_misc.h>
-> @@ -188,18 +189,10 @@ static void send_user_sigtrap(int si_code)
->  			      "User debug trap");
->  }
->  
-> -static int single_step_handler(unsigned long unused, unsigned long esr,
-> -			       struct pt_regs *regs)
-> +void do_softstep(unsigned long esr, struct pt_regs *regs)
-do_softstep() has been chosen here just to match the corresponding ESR
-macros ESR_ELx_EC_SOFTSTP_[LOW|CUR] - although it does make sense and
-also consistent.
-
->  {
-> -	/*
-> -	 * If we are stepping a pending breakpoint, call the hw_breakpoint
-> -	 * handler first.
-> -	 */
-> -	if (try_step_suspended_breakpoints(regs))
-> -		return 0;
-
-This check has been moved individual exception handling functions.
-
-> -
->  	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
-> -		return 0;
-> +		return;
->  
->  	if (user_mode(regs)) {
->  		send_user_sigtrap(TRAP_TRACE);
-> @@ -219,10 +212,8 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
->  		 */
->  		set_regs_spsr_ss(regs);
->  	}
-> -
-> -	return 0;
->  }
-> -NOKPROBE_SYMBOL(single_step_handler);
-> +NOKPROBE_SYMBOL(do_softstep);
->  
->  static int call_break_hook(struct pt_regs *regs, unsigned long esr)
->  {
-> @@ -329,8 +320,6 @@ NOKPROBE_SYMBOL(try_handle_aarch32_break);
->  
->  void __init debug_traps_init(void)
->  {
-> -	hook_debug_fault_code(DBG_ESR_EVT_HWSS, single_step_handler, SIGTRAP,
-> -			      TRAP_TRACE, "single-step handler");
-Right, this dynamic hook registration is no longer required.
-
->  	hook_debug_fault_code(DBG_ESR_EVT_BRK, brk_handler, SIGTRAP,
->  			      TRAP_BRKPT, "BRK handler");
->  }
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index be2add6b4ae3..5fb636efd554 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -535,6 +535,24 @@ static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
->  	arm64_exit_el1_dbg(regs);
->  }
->  
-> +static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
-> +{
-> +	arm64_enter_el1_dbg(regs);
-> +	if (!cortex_a76_erratum_1463225_debug_handler(regs)) {
-
-Although mentioned in the commit message, this constraint is not
-there in the present code though.
-
-> +		debug_exception_enter(regs);
-> +		/*
-> +		 * After handling a breakpoint, we suspend the breakpoint
-> +		 * and use single-step to move to the next instruction.
-> +		 * If we are stepping a suspended breakpoint there's nothing more to do:
-> +		 * the single-step is complete.
-> +		 */
-> +		if (!try_step_suspended_breakpoints(regs))
-> +			do_softstep(esr, regs);
-> +		debug_exception_exit(regs);
-> +	}
-> +	arm64_exit_el1_dbg(regs);
-> +}
-> +
->  static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> @@ -587,6 +605,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->  		el1_breakpt(regs, esr);
->  		break;
->  	case ESR_ELx_EC_SOFTSTP_CUR:
-> +		el1_softstp(regs, esr);
-> +		break;Changes to EL1 exception handling as required.
-
->  	case ESR_ELx_EC_WATCHPT_CUR:
->  	case ESR_ELx_EC_BRK64:
->  		el1_dbg(regs, esr);
-> @@ -793,6 +813,25 @@ static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->  	exit_to_user_mode(regs);
->  }
->  
-> +static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
-> +{
-> +	if (!is_ttbr0_addr(regs->pc))
-> +		arm64_apply_bp_hardening();
-> +
-> +	enter_from_user_mode(regs);
-> +	/*
-> +	 * After handling a breakpoint, we suspend the breakpoint
-> +	 * and use single-step to move to the next instruction.
-> +	 * If we are stepping a suspended breakpoint there's nothing more to do:
-> +	 * the single-step is complete.
-> +	 */
-> +	if (!try_step_suspended_breakpoints(regs)) {
-> +		local_daif_restore(DAIF_PROCCTX);
-> +		do_softstep(esr, regs);
-> +	}
-> +	exit_to_user_mode(regs);
-> +}
-> +
->  static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
->  {
->  	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
-> @@ -875,6 +914,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->  		el0_breakpt(regs, esr);
->  		break;
->  	case ESR_ELx_EC_SOFTSTP_LOW:
-> +		el0_softstp(regs, esr);
-> +		break;
->  	case ESR_ELx_EC_WATCHPT_LOW:
->  	case ESR_ELx_EC_BRK64:
->  		el0_dbg(regs, esr);
-> @@ -997,6 +1038,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
->  		el0_breakpt(regs, esr);
->  		break;
->  	case ESR_ELx_EC_SOFTSTP_LOW:
-> +		el0_softstp(regs, esr);
-> +		break;
-
-Changes to EL0 exception handling as required.
-
->  	case ESR_ELx_EC_WATCHPT_LOW:
->  	case ESR_ELx_EC_BKPT32:
->  		el0_dbg(regs, esr);
-> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-> index 309ae24d4548..8a80e13347c8 100644
-> --- a/arch/arm64/kernel/hw_breakpoint.c
-> +++ b/arch/arm64/kernel/hw_breakpoint.c
-> @@ -854,7 +854,7 @@ bool try_step_suspended_breakpoints(struct pt_regs *regs)
->  	bool handled_exception = false;
->  
->  	/*
-> -	 * Called from single-step exception handler.
-> +	 * Called from single-step exception entry.Hmm, alright but does not make much difference through.
-
->  	 * Return true if we stepped a breakpoint and can resume execution,
->  	 * false if we need to handle a single-step.
->  	 */
-
+-- 
+2.34.1
 
 
