@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AEEC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81490C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BR2Js8AYTA3uqJ+dhjRGvYCUNC9Z3XvtFngEWfHaNL4=; b=PmEzwzUYtzAuijGUqIcYansOzv
-	WOqLL6zHHrRmbM+aF7H3fTUXN0a+EnmRsFtdUj2yKMiBxGQjrlKvG1wfT12cld2Bg5d+i/ivr+ykA
-	yE0XxRe3ssY4hTKQJ3KAovBZzZtHc8tEAH4GkcYVpDpJKCu+hzB4hPvswjno8TwdRBR5ZIMr14Vpl
-	Et7Vy2TtLRFrWsC5vcS4q7WnfGqtKUP2wtudYKC63JMRyqBvIlynxNm73TPRj2E0g51pQioXJwfpe
-	2Tuxi6E6WpULCO0ll91GkJflJPZgDc82933dP6NkcIDuDV4HPe0NwOZtlDLHljcoB1Qxhy5mCWk0k
-	DcgdMZ8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=361/w2s39uIsBSkc/Vfv0lndyaZuHMALTiabihSnPGs=; b=P4dX+yABYkJ8BwQNA7pUH5n2mO
+	rgLPXIBiH56G5JMOEmWXdgbOKjwlk0wFLR5d9XPWa/61Eu89nPUWsyuWAQCzU5rPZ2FfgkUvv8//a
+	Ev+VnOccPAwD9oIy+5ao15d/QvHW4ZB2vNVlOSLQb70Nmjp7IdPeMi3jKfd6WNp/HIHM+8/nmnwPm
+	5Ma6avNkFuHSqAnAI6YtJC/4asgk5wVp3ocygMWxHL+87RJQES9bvkxoJtjT7NfKIPLLw30OGlGiK
+	q0+m2ZzeFwD1Gyv1hJHybYYGF2IC9gdeqmnpk3U0B+SJx8N+zLcw2unwW4enruI0Wps6dyM97HTCw
+	dP6oqtHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvKa-0000000Agz3-3CkW;
-	Wed, 18 Jun 2025 16:08:09 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1uRvMu-0000000AhCr-2G5C;
+	Wed, 18 Jun 2025 16:10:32 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtYv-0000000AP8y-2eem;
-	Wed, 18 Jun 2025 14:14:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 44DE743A29;
-	Wed, 18 Jun 2025 14:14:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750256086;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BR2Js8AYTA3uqJ+dhjRGvYCUNC9Z3XvtFngEWfHaNL4=;
-	b=M3GMdsgxD6lk12yug3GZIA8tEeyFYbrlJgFxgmCaHKFUrC5JJagMIGi3UonPF93IgRsa0e
-	91VmMYNOWFqFjkgDwrtJCBNw0kqYZ78J7y/0GcpTTb5w9PScz8COG1ISoU+ymvY6deqwHU
-	eFa8aDov6g1X5Z0U7XvCaG3a2TC3vJx8Q58k96AcZsZcGLy0o+/s8AiHhvL/XRjHZQ57V+
-	t+oMgkfbyWN6LIZZE350GAwt4swQwwMRB8EIuQKKPAygPkzZQX4XpN0jddH+BhU7S55K1X
-	9XFLQ7bAdz5CemKbwN+ahVr+YigNdMg5BZoI32c8u593JeheOJHk+9jqWIv2BA==
-Message-ID: <3acaaf1c-b4ed-47ff-8de5-195a9cfc5338@bootlin.com>
-Date: Wed, 18 Jun 2025 16:14:44 +0200
+	id 1uRteR-0000000APn1-0tE2;
+	Wed, 18 Jun 2025 14:20:32 +0000
+X-UUID: 6138b8e84c4f11f09f706fa2197c6ceb-20250618
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=361/w2s39uIsBSkc/Vfv0lndyaZuHMALTiabihSnPGs=;
+	b=sDaHsAuqFAi5Cd4vH8mhpoAbQgBCSRaFcOwdbayC5+Ae9jw7nZYJ9WaXzX3YDggpfvY5P803+e6QX5tmXA51Zj4gTvOFJdj2+t+jvgG7cAo1glmq16ceJvgvMv+VvfhfZ/GSa3UF56r6jxs8tz+pK0vU7T+LQ+8qsk/uXGuxp/k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:48b62bc8-eddd-40ae-98b4-fdae4bfae4c8,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:09905cf,CLOUDID:bc859928-fdd2-4021-9c0c-83548fdcf243,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6138b8e84c4f11f09f706fa2197c6ceb-20250618
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2074375719; Wed, 18 Jun 2025 07:20:26 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 18 Jun 2025 22:20:22 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
+ Transport; Wed, 18 Jun 2025 22:20:22 +0800
+Message-ID: <089882f95b1b910f7feecddd0ad9b17f38394c64.camel@mediatek.com>
+Subject: Re: [RFC PATCH 1/1] sched/deadline: Fix RT task potential
+ starvation when expiry time passed
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Juri Lelli <juri.lelli@redhat.com>
+CC: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
+ Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
+ Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, jstultz
+	<jstultz@google.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Date: Wed, 18 Jun 2025 22:20:23 +0800
+In-Reply-To: <aFAyN4rfssKmbUE5@jlelli-thinkpadt14gen4.remote.csb>
+References: <20250615131129.954975-1-kuyo.chang@mediatek.com>
+	 <aFAyN4rfssKmbUE5@jlelli-thinkpadt14gen4.remote.csb>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Fix the mipi port definition
- for RK3399
-To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250618-dtb_fixes-v1-0-e54797ad2eba@bootlin.com>
- <20250618-dtb_fixes-v1-2-e54797ad2eba@bootlin.com>
- <DAPPHL6RPWWM.94C7P26AUCCN@cknow.org>
-Content-Language: en-US
-From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-In-Reply-To: <DAPPHL6RPWWM.94C7P26AUCCN@cknow.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddvkeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedvheejtdeifeejvedvffdtuddtheehtdelvdehvefgjeetveejfeeiveduvdejteenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeipdhhvghloheplgfkrfggieemvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeingdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepughiughirdguvggsihgrnhestghknhhofidrohhrghdprhgtphhtthhop
- ehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_071449_817417_BA98A4D3 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20250618_072031_272277_BCCB6D22 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +92,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 2025-06-16 at 17:03 +0200, Juri Lelli wrote:
+>=20
+> External email : Please do not click links or open attachments until
+> you have verified the sender or the content.
+>=20
+>=20
+> Hello,
+>=20
+> >=20
+> > [Proposed Solution]:
+> > ------------------
+> > Instead of immediately re-enqueuing the DL entity on timer
+> > registration
+> > failure, this change ensures the DL entity is properly replenished
+> > and
+> > the timer is restarted, preventing RT potential starvation.
+> >=20
+> > Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+> > ---
+> > =C2=A0kernel/sched/deadline.c | 8 +++++---
+> > =C2=A01 file changed, 5 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> > index ad45a8fea245..e50cb76c961b 100644
+> > --- a/kernel/sched/deadline.c
+> > +++ b/kernel/sched/deadline.c
+> > @@ -1556,10 +1556,12 @@ static void update_curr_dl_se(struct rq
+> > *rq, struct sched_dl_entity *dl_se, s64
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 }
+> >=20
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 if (unlikely(is_dl_boosted(dl_se) ||
+> > !start_dl_timer(dl_se))) {
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (dl_server(dl_se))
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 enqueue_dl_entity(dl_se,
+> > ENQUEUE_REPLENISH);
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (dl_server(dl_se)) {
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 replenish_dl_new_period(dl_se, rq);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 start_dl_timer(dl_se);
+>=20
+> But, even today, enqueue_dl_entity() is called with ENQUEUE_REPLENISH
+> flag, so I don't get why you say 're-enqueues the DL entity without
+> properly replenishing'.
+>=20
+> Also, why restarting the replenishing timer right after having
+> replenished the entity?
+>=20
 
+When dl_defer_running =3D 1 and the running time has been exhausted,=20
+it means that the dl_server should stop at this point.
+However, if start_dl_timer() returns a failure, it indicates that the
+actual time spent consuming the running time was unexpectedly long.=20
+=20
+At this point, there are two options:
+[as-is] 1. re-enqueuing the dl entity with ENQUEUE_REPLENISH will clear
+the throttled flag=20
+and re-enqueue the dl entity to keep the fair_server running.=20
+enqueue_dl_entity(dl_se, ENQUEUE_REPLENISH);
+=3D> replenish_dl_entity
+  =3D> replenish_dl_new_period(dl_se, rq);
+  =3D> dl_se->dl_yielded =3D 0;
+  =3D> dl_se->dl_throttled =3D 0;
+=3D> __enqueue_dl_entity(dl_se);
 
-On 6/18/25 15:50, Diederik de Haas wrote:
-> Hi (again),
-> 
-Hello again, I appreciate you taking the time!
-> On Wed Jun 18, 2025 at 12:32 AM CEST, Olivier Benjamin wrote:
->> The RK3399's MIPI DSI has 2 ports: in an out. The definition of
->> the port property necessitates the value of #address-cells to be 1.
->>
->> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
->> ---
->>   arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> index 5ebc380a24df86ba7172b0950b89cac56b61c507..5a7341fb6bcb0613af6f3ac31d99355a0f890e89 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->> @@ -468,7 +468,7 @@ &mipi_dsi {
->>   
->>   	ports {
->>   		mipi_out: port@1 {
->> -			#address-cells = <0>;
->> +			#address-cells = <1>;
->>   			#size-cells = <0>;
->>   			reg = <1>;
->>   
-> 
-> In rk3399-base.dtsi there is already a definition for mipi-in and
-> mipi-out. AFAICT what this change does is require a reg property on the
-> endpoint and I don't think that's correct.
-> 
-Those definitions do indeed exist in the base DTSI.
-> It seems to me that all you need is a mipi_out_panel definition.
-> So what I came up with is this:
-> 
-> ```sh
-> $ git diff
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index 04ba4c4565d0..b175aeed99e2 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -466,18 +466,6 @@ &mipi_dsi {
->   	status = "okay";
->   	clock-master;
-> 
-> -	ports {
-> -		mipi_out: port@1 {
-> -			#address-cells = <0>;
-> -			#size-cells = <0>;
-> -			reg = <1>;
-> -
-> -			mipi_out_panel: endpoint {
-> -				remote-endpoint = <&mipi_in_panel>;
-> -			};
-> -		};
-> -	};
-> -
->   	panel@0 {
->   		compatible = "hannstar,hsd060bhw4";
->   		reg = <0>;
-> @@ -495,6 +483,12 @@ mipi_in_panel: endpoint {
->   	};
->   };
-> 
-> +&mipi_out {
-> +	mipi_out_panel: endpoint {
-> +		remote-endpoint = <&mipi_in_panel>;
-> +	};
-> +};
-> +
->   &pmu_io_domains {
->   	pmu1830-supply = <&vcc_1v8>;
->   	status = "okay";
-> ```
-> 
-Thanks for the suggestion, that looks like it might actually solve the 
-issue.
-> I don't have a PPP so I can't verify it, but ``make CHECK_DTBS=y W=1
-> rockchip/rk3399-pinephone-pro.dtb`` no longer reports issues wrt
-> dsi@ff960000 (after I also fixed the panel compatible like in patch 1
-> and added a LCD1_RST pinctrl definition as indicated in my reply to
-> patch 3).
-> 
-I'll test on my PPP and report back in v2.
-> Cheers,
->    Diederik
+[to-be] 2. To avoid RT latency, the fair_server should remain throttled
+while replenishing the dl_se.=20
+Once replenishing is complete, we can ensure that a timer is
+successfully started.=20
+When the timer is triggered, the throttled state will be cleared,
+ensuring that RT tasks can execute during this interval.
+=20
+It is a policy decision for dealing with the case of failure in
+start_dl_timer().
+The second approach is better for real-time (RT) latency in my opinion,
+as RT tasks must be prioritized.
 
--- 
-Olivier Benjamin, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> Thanks,
+> Juri
+>=20
 
 
