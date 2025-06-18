@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BABC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FB1C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 08:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cTH7O2BzJXZ9zr+QHLYLiaYpWfKku4SiBI03rQBDWTk=; b=aOPQ02MDQ1evNGu7lRugpz+hm0
-	h42aq6XlvHFWzTPt7skTPPHaw/bYKJytmoPtlBZTjg+Aa5hgqWjrtygYOvr/M2bTD4S9eOdQom50D
-	uaTmnJf4RRyi69qF0XtIgwcRZLpDMyGTbdpyF+Q1fwLEiNsuTzUAdfNSNreh+bcmp5VNtsZbKevzF
-	LLt/zeiKJy0piXGuiwYZ21ILTN4VhJfborV6RArUo9hnhNlhflEK12iHh8wRbh03gW+VvyklV6RXF
-	gvp9rCwhhLNIQnEx2o6y7hCPMHcQz6mopw5RYs4Y4Yf+RktDKrYns2IaeYFKbFOgIsJk8FyliROZl
-	DK1YOKbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zl5z/56z75RrAT7yDljKb5lJeoAsDKUD0n3oKRpJTBM=; b=AiGLQXQ4yHZplju63U+D60y7PZ
+	tu0kebarawBu4uJQa2oFwSGibA8QSH7arXTDPK6ePyxhi13Qetc7PzC/ZD4jI5o+fUr/TsiN2oWaf
+	H8L1TruKeuN6+vYKcBMKQR0+vq0sWN62YwSipY1JUTug9ZYX5yp0o3LMwuvZxIUvzFjJEyVI/jkvq
+	qCQ7oK3L0yw3FLNfJktdy13hZfamZ9MkM8yl3o/+ZE5V0k3qozxBMmo9QQeocb+ldIM0fLHXjY7Q7
+	U7RVkej3t2BV8HK3V6KhvuBBfIYl+pvAgJ4cF/+E2bOJiqcFtsZb60MSw6tktPCApSFwaPb3vzWl8
+	Hn1zXowg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRoEf-00000009Q3H-13NE;
-	Wed, 18 Jun 2025 08:33:33 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uRoJK-00000009QyX-3uJv;
+	Wed, 18 Jun 2025 08:38:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRoBl-00000009Pl0-22pJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 08:30:35 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bMcJb5VcszRkhp;
-	Wed, 18 Jun 2025 16:26:07 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 20F611402DA;
-	Wed, 18 Jun 2025 16:30:24 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 16:30:23 +0800
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 16:30:23 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <acme@kernel.org>, <leo.yan@linaro.org>, <james.clark@linaro.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <jolsa@kernel.org>, <irogers@google.com>,
-	<peterz@infradead.org>, <mingo@redhat.com>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <jonathan.cameron@huawei.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>
-Subject: [PATCH] tools/headers: Workaround the copy coherency issue of arm64's cputype.h
-Date: Wed, 18 Jun 2025 16:30:17 +0800
-Message-ID: <20250618083017.62879-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	id 1uRoH7-00000009Qgb-26Wk;
+	Wed, 18 Jun 2025 08:36:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EA186112C;
+	Wed, 18 Jun 2025 08:36:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB5BC4CEE7;
+	Wed, 18 Jun 2025 08:36:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750235764;
+	bh=d+shUg6FUAacuvyB+a/E5gAXYy54EFgD47YG339obCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DAACJ5VGbewT2iH4WiWM4CRpfDLwZ//JkoBE2fWzj9QNwPi4H0FoxlbaXLXMxhJLb
+	 0SGsCz05+82z4FmUhdHw2lhX8HPOaQqTkm0IHKQbz7IVf0/quFlfCdtHex0S+iG7XR
+	 yVDrxC3RsKmU1+AwqWgGRZGxfV1ja1vKRzChyHtCWYgdVIVxon4yPxf0+eSEuhMXqs
+	 KV4aK3gWWVSW9MZEazq4MzOUTwLxdCebp4qxw982dLi9aA8zYjbw/JH5ppN/qnC0H1
+	 VaGZBjHgEaHYaWR6jTrUDbb8uVocrWfukYLOOxZwMW1YR2aXDfGklRp0M+j0HcrPe4
+	 b+qO3zIIMy3hA==
+Date: Wed, 18 Jun 2025 09:35:56 +0100
+From: Simon Horman <horms@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Golle <daniel@makrotopia.org>, arinc.unal@arinc9.com
+Subject: Re: [net-next v4 3/3] net: ethernet: mtk_eth_soc: change code to
+ skip first IRQ completely
+Message-ID: <20250618083556.GE2545@horms.kernel.org>
+References: <20250616080738.117993-1-linux@fw-web.de>
+ <20250616080738.117993-4-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemq200018.china.huawei.com (7.202.195.108)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_013033_850577_3CD242FB 
-X-CRM114-Status: GOOD (  12.29  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250616080738.117993-4-linux@fw-web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,405 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+On Mon, Jun 16, 2025 at 10:07:36AM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> On SoCs without MTK_SHARED_INT capability (mt7621 + mt7628) the first
+> IRQ (eth->irq[0]) was read but never used. Do not read it and reduce
+> the IRQ-count to 2 because of skipped index 0.
 
-arch/arm64/include/asm/cputype.h is copied from arch/arm64 and used
-by perf to parsing vendor specific SPE packets according to the MIDR.
-The header diverge after errata management handling for VM live
-migration merged [1] so a direct copy will lead to the build failure
-of perf [2]: is_midr_in_range_list() is used but the implementation
-has been changed and moved out of the kernel header.
+Describing the first IRQ as read seems a bit confusing to me - do we read
+it? And saying get or got seems hard to parse. So perhaps something like
+this would be clearer?
 
-Workaround this issue by maintaining is_perf_midr_in_range_list()
-in the userspace. Temporarily include the kernel headers for the
-MIDR definitions, a later refactor will generate the MIDR header
-dynamically similar to how we handle the sysreg-defs.h in userspace.
-Remove cputype.h from check-headers.sh.
+... platform_get_irq() is called for the first IRQ (eth->irq[0]) but
+it is never used.
 
-[1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
-[2] https://lore.kernel.org/lkml/aEyGg98z-MkcClXY@x1/#t
-Suggested-by: Leo Yan <leo.yan@arm.com>
-[https://lore.kernel.org/linux-arm-kernel/20250617141810.GB794930@e132581.arm.com/]
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- tools/arch/arm64/include/asm/cputype.h | 316 +------------------------
- tools/perf/check-headers.sh            |   1 -
- tools/perf/util/arm-spe.c              |   4 +-
- 3 files changed, 14 insertions(+), 307 deletions(-)
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+> v4:
+> - drop >2 condition as max is already 2 and drop the else continue
+> - update comment to explain which IRQs are taken in legacy way
+> ---
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 20 ++++++++++++++++----
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.h |  4 ++--
+>  2 files changed, 18 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> index 3ecb399dcf81..f3fcbb00822c 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> @@ -3341,16 +3341,28 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+>  {
+>  	int i;
+>  
+> +	/* future SoCs beginning with MT7988 should use named IRQs in dts */
 
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 9a5d85cfd1fb..7be07ba0ce7a 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -2,314 +2,22 @@
- /*
-  * Copyright (C) 2012 ARM Ltd.
-  */
--#ifndef __ASM_CPUTYPE_H
--#define __ASM_CPUTYPE_H
-+#ifndef __PERF_ASM_CPUTYPE_H
-+#define __PERF_ASM_CPUTYPE_H
- 
--#define INVALID_HWID		ULONG_MAX
-+#include "../../../../../arch/arm64/include/asm/cputype.h"
- 
--#define MPIDR_UP_BITMASK	(0x1 << 30)
--#define MPIDR_MT_BITMASK	(0x1 << 24)
--#define MPIDR_HWID_BITMASK	UL(0xff00ffffff)
--
--#define MPIDR_LEVEL_BITS_SHIFT	3
--#define MPIDR_LEVEL_BITS	(1 << MPIDR_LEVEL_BITS_SHIFT)
--#define MPIDR_LEVEL_MASK	((1 << MPIDR_LEVEL_BITS) - 1)
--
--#define MPIDR_LEVEL_SHIFT(level) \
--	(((1 << level) >> 1) << MPIDR_LEVEL_BITS_SHIFT)
--
--#define MPIDR_AFFINITY_LEVEL(mpidr, level) \
--	((mpidr >> MPIDR_LEVEL_SHIFT(level)) & MPIDR_LEVEL_MASK)
--
--#define MIDR_REVISION_MASK	0xf
--#define MIDR_REVISION(midr)	((midr) & MIDR_REVISION_MASK)
--#define MIDR_PARTNUM_SHIFT	4
--#define MIDR_PARTNUM_MASK	(0xfff << MIDR_PARTNUM_SHIFT)
--#define MIDR_PARTNUM(midr)	\
--	(((midr) & MIDR_PARTNUM_MASK) >> MIDR_PARTNUM_SHIFT)
--#define MIDR_ARCHITECTURE_SHIFT	16
--#define MIDR_ARCHITECTURE_MASK	(0xf << MIDR_ARCHITECTURE_SHIFT)
--#define MIDR_ARCHITECTURE(midr)	\
--	(((midr) & MIDR_ARCHITECTURE_MASK) >> MIDR_ARCHITECTURE_SHIFT)
--#define MIDR_VARIANT_SHIFT	20
--#define MIDR_VARIANT_MASK	(0xf << MIDR_VARIANT_SHIFT)
--#define MIDR_VARIANT(midr)	\
--	(((midr) & MIDR_VARIANT_MASK) >> MIDR_VARIANT_SHIFT)
--#define MIDR_IMPLEMENTOR_SHIFT	24
--#define MIDR_IMPLEMENTOR_MASK	(0xffU << MIDR_IMPLEMENTOR_SHIFT)
--#define MIDR_IMPLEMENTOR(midr)	\
--	(((midr) & MIDR_IMPLEMENTOR_MASK) >> MIDR_IMPLEMENTOR_SHIFT)
--
--#define MIDR_CPU_MODEL(imp, partnum) \
--	((_AT(u32, imp)		<< MIDR_IMPLEMENTOR_SHIFT) | \
--	(0xf			<< MIDR_ARCHITECTURE_SHIFT) | \
--	((partnum)		<< MIDR_PARTNUM_SHIFT))
--
--#define MIDR_CPU_VAR_REV(var, rev) \
--	(((var)	<< MIDR_VARIANT_SHIFT) | (rev))
--
--#define MIDR_CPU_MODEL_MASK (MIDR_IMPLEMENTOR_MASK | MIDR_PARTNUM_MASK | \
--			     MIDR_ARCHITECTURE_MASK)
--
--#define ARM_CPU_IMP_ARM			0x41
--#define ARM_CPU_IMP_APM			0x50
--#define ARM_CPU_IMP_CAVIUM		0x43
--#define ARM_CPU_IMP_BRCM		0x42
--#define ARM_CPU_IMP_QCOM		0x51
--#define ARM_CPU_IMP_NVIDIA		0x4E
--#define ARM_CPU_IMP_FUJITSU		0x46
--#define ARM_CPU_IMP_HISI		0x48
--#define ARM_CPU_IMP_APPLE		0x61
--#define ARM_CPU_IMP_AMPERE		0xC0
--#define ARM_CPU_IMP_MICROSOFT		0x6D
--
--#define ARM_CPU_PART_AEM_V8		0xD0F
--#define ARM_CPU_PART_FOUNDATION		0xD00
--#define ARM_CPU_PART_CORTEX_A57		0xD07
--#define ARM_CPU_PART_CORTEX_A72		0xD08
--#define ARM_CPU_PART_CORTEX_A53		0xD03
--#define ARM_CPU_PART_CORTEX_A73		0xD09
--#define ARM_CPU_PART_CORTEX_A75		0xD0A
--#define ARM_CPU_PART_CORTEX_A35		0xD04
--#define ARM_CPU_PART_CORTEX_A55		0xD05
--#define ARM_CPU_PART_CORTEX_A76		0xD0B
--#define ARM_CPU_PART_NEOVERSE_N1	0xD0C
--#define ARM_CPU_PART_CORTEX_A77		0xD0D
--#define ARM_CPU_PART_NEOVERSE_V1	0xD40
--#define ARM_CPU_PART_CORTEX_A78		0xD41
--#define ARM_CPU_PART_CORTEX_A78AE	0xD42
--#define ARM_CPU_PART_CORTEX_X1		0xD44
--#define ARM_CPU_PART_CORTEX_A510	0xD46
--#define ARM_CPU_PART_CORTEX_A520	0xD80
--#define ARM_CPU_PART_CORTEX_A710	0xD47
--#define ARM_CPU_PART_CORTEX_A715	0xD4D
--#define ARM_CPU_PART_CORTEX_X2		0xD48
--#define ARM_CPU_PART_NEOVERSE_N2	0xD49
--#define ARM_CPU_PART_CORTEX_A78C	0xD4B
--#define ARM_CPU_PART_CORTEX_X1C		0xD4C
--#define ARM_CPU_PART_CORTEX_X3		0xD4E
--#define ARM_CPU_PART_NEOVERSE_V2	0xD4F
--#define ARM_CPU_PART_CORTEX_A720	0xD81
--#define ARM_CPU_PART_CORTEX_X4		0xD82
--#define ARM_CPU_PART_NEOVERSE_V3	0xD84
--#define ARM_CPU_PART_CORTEX_X925	0xD85
--#define ARM_CPU_PART_CORTEX_A725	0xD87
--#define ARM_CPU_PART_NEOVERSE_N3	0xD8E
--
--#define APM_CPU_PART_XGENE		0x000
--#define APM_CPU_VAR_POTENZA		0x00
--
--#define CAVIUM_CPU_PART_THUNDERX	0x0A1
--#define CAVIUM_CPU_PART_THUNDERX_81XX	0x0A2
--#define CAVIUM_CPU_PART_THUNDERX_83XX	0x0A3
--#define CAVIUM_CPU_PART_THUNDERX2	0x0AF
--/* OcteonTx2 series */
--#define CAVIUM_CPU_PART_OCTX2_98XX	0x0B1
--#define CAVIUM_CPU_PART_OCTX2_96XX	0x0B2
--#define CAVIUM_CPU_PART_OCTX2_95XX	0x0B3
--#define CAVIUM_CPU_PART_OCTX2_95XXN	0x0B4
--#define CAVIUM_CPU_PART_OCTX2_95XXMM	0x0B5
--#define CAVIUM_CPU_PART_OCTX2_95XXO	0x0B6
--
--#define BRCM_CPU_PART_BRAHMA_B53	0x100
--#define BRCM_CPU_PART_VULCAN		0x516
--
--#define QCOM_CPU_PART_FALKOR_V1		0x800
--#define QCOM_CPU_PART_FALKOR		0xC00
--#define QCOM_CPU_PART_KRYO		0x200
--#define QCOM_CPU_PART_KRYO_2XX_GOLD	0x800
--#define QCOM_CPU_PART_KRYO_2XX_SILVER	0x801
--#define QCOM_CPU_PART_KRYO_3XX_SILVER	0x803
--#define QCOM_CPU_PART_KRYO_4XX_GOLD	0x804
--#define QCOM_CPU_PART_KRYO_4XX_SILVER	0x805
--
--#define NVIDIA_CPU_PART_DENVER		0x003
--#define NVIDIA_CPU_PART_CARMEL		0x004
--
--#define FUJITSU_CPU_PART_A64FX		0x001
--
--#define HISI_CPU_PART_TSV110		0xD01
--#define HISI_CPU_PART_HIP12		0xD06
--
--#define APPLE_CPU_PART_M1_ICESTORM	0x022
--#define APPLE_CPU_PART_M1_FIRESTORM	0x023
--#define APPLE_CPU_PART_M1_ICESTORM_PRO	0x024
--#define APPLE_CPU_PART_M1_FIRESTORM_PRO	0x025
--#define APPLE_CPU_PART_M1_ICESTORM_MAX	0x028
--#define APPLE_CPU_PART_M1_FIRESTORM_MAX	0x029
--#define APPLE_CPU_PART_M2_BLIZZARD	0x032
--#define APPLE_CPU_PART_M2_AVALANCHE	0x033
--#define APPLE_CPU_PART_M2_BLIZZARD_PRO	0x034
--#define APPLE_CPU_PART_M2_AVALANCHE_PRO	0x035
--#define APPLE_CPU_PART_M2_BLIZZARD_MAX	0x038
--#define APPLE_CPU_PART_M2_AVALANCHE_MAX	0x039
--
--#define AMPERE_CPU_PART_AMPERE1		0xAC3
--#define AMPERE_CPU_PART_AMPERE1A	0xAC4
--
--#define MICROSOFT_CPU_PART_AZURE_COBALT_100	0xD49 /* Based on r0p0 of ARM Neoverse N2 */
--
--#define MIDR_CORTEX_A53 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A53)
--#define MIDR_CORTEX_A57 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A57)
--#define MIDR_CORTEX_A72 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A72)
--#define MIDR_CORTEX_A73 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A73)
--#define MIDR_CORTEX_A75 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A75)
--#define MIDR_CORTEX_A35 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A35)
--#define MIDR_CORTEX_A55 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A55)
--#define MIDR_CORTEX_A76	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A76)
--#define MIDR_NEOVERSE_N1 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N1)
--#define MIDR_CORTEX_A77	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A77)
--#define MIDR_NEOVERSE_V1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V1)
--#define MIDR_CORTEX_A78	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78)
--#define MIDR_CORTEX_A78AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78AE)
--#define MIDR_CORTEX_X1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X1)
--#define MIDR_CORTEX_A510 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A510)
--#define MIDR_CORTEX_A520 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A520)
--#define MIDR_CORTEX_A710 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A710)
--#define MIDR_CORTEX_A715 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A715)
--#define MIDR_CORTEX_X2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X2)
--#define MIDR_NEOVERSE_N2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N2)
--#define MIDR_CORTEX_A78C	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78C)
--#define MIDR_CORTEX_X1C	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X1C)
--#define MIDR_CORTEX_X3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X3)
--#define MIDR_NEOVERSE_V2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V2)
--#define MIDR_CORTEX_A720 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720)
--#define MIDR_CORTEX_X4 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X4)
--#define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
--#define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
--#define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
--#define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
--#define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
--#define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
--#define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
--#define MIDR_OCTX2_98XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_98XX)
--#define MIDR_OCTX2_96XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_96XX)
--#define MIDR_OCTX2_95XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XX)
--#define MIDR_OCTX2_95XXN MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXN)
--#define MIDR_OCTX2_95XXMM MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXMM)
--#define MIDR_OCTX2_95XXO MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_OCTX2_95XXO)
--#define MIDR_CAVIUM_THUNDERX2 MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX2)
--#define MIDR_BRAHMA_B53 MIDR_CPU_MODEL(ARM_CPU_IMP_BRCM, BRCM_CPU_PART_BRAHMA_B53)
--#define MIDR_BRCM_VULCAN MIDR_CPU_MODEL(ARM_CPU_IMP_BRCM, BRCM_CPU_PART_VULCAN)
--#define MIDR_QCOM_FALKOR_V1 MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_FALKOR_V1)
--#define MIDR_QCOM_FALKOR MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_FALKOR)
--#define MIDR_QCOM_KRYO MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO)
--#define MIDR_QCOM_KRYO_2XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_GOLD)
--#define MIDR_QCOM_KRYO_2XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_SILVER)
--#define MIDR_QCOM_KRYO_3XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_SILVER)
--#define MIDR_QCOM_KRYO_4XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_GOLD)
--#define MIDR_QCOM_KRYO_4XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_SILVER)
--#define MIDR_NVIDIA_DENVER MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_DENVER)
--#define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
--#define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
--#define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
--#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
--#define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
--#define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
--#define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
--#define MIDR_APPLE_M1_FIRESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM_PRO)
--#define MIDR_APPLE_M1_ICESTORM_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_MAX)
--#define MIDR_APPLE_M1_FIRESTORM_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM_MAX)
--#define MIDR_APPLE_M2_BLIZZARD MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD)
--#define MIDR_APPLE_M2_AVALANCHE MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE)
--#define MIDR_APPLE_M2_BLIZZARD_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD_PRO)
--#define MIDR_APPLE_M2_AVALANCHE_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE_PRO)
--#define MIDR_APPLE_M2_BLIZZARD_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_BLIZZARD_MAX)
--#define MIDR_APPLE_M2_AVALANCHE_MAX MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M2_AVALANCHE_MAX)
--#define MIDR_AMPERE1 MIDR_CPU_MODEL(ARM_CPU_IMP_AMPERE, AMPERE_CPU_PART_AMPERE1)
--#define MIDR_AMPERE1A MIDR_CPU_MODEL(ARM_CPU_IMP_AMPERE, AMPERE_CPU_PART_AMPERE1A)
--#define MIDR_MICROSOFT_AZURE_COBALT_100 MIDR_CPU_MODEL(ARM_CPU_IMP_MICROSOFT, MICROSOFT_CPU_PART_AZURE_COBALT_100)
--
--/* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
--#define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
--#define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
--#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
--
--#ifndef __ASSEMBLY__
--
--#include <asm/sysreg.h>
--
--#define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
--
--/*
-- * Represent a range of MIDR values for a given CPU model and a
-- * range of variant/revision values.
-- *
-- * @model	- CPU model as defined by MIDR_CPU_MODEL
-- * @rv_min	- Minimum value for the revision/variant as defined by
-- *		  MIDR_CPU_VAR_REV
-- * @rv_max	- Maximum value for the variant/revision for the range.
-- */
--struct midr_range {
--	u32 model;
--	u32 rv_min;
--	u32 rv_max;
--};
--
--#define MIDR_RANGE(m, v_min, r_min, v_max, r_max)		\
--	{							\
--		.model = m,					\
--		.rv_min = MIDR_CPU_VAR_REV(v_min, r_min),	\
--		.rv_max = MIDR_CPU_VAR_REV(v_max, r_max),	\
--	}
--
--#define MIDR_REV_RANGE(m, v, r_min, r_max) MIDR_RANGE(m, v, r_min, v, r_max)
--#define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
--#define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
--
--static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
--					   u32 rv_max)
--{
--	u32 _model = midr & MIDR_CPU_MODEL_MASK;
--	u32 rv = midr & (MIDR_REVISION_MASK | MIDR_VARIANT_MASK);
--
--	return _model == model && rv >= rv_min && rv <= rv_max;
--}
--
--static inline bool is_midr_in_range(u32 midr, struct midr_range const *range)
--{
--	return midr_is_cpu_model_range(midr, range->model,
--				       range->rv_min, range->rv_max);
--}
--
--static inline bool
--is_midr_in_range_list(u32 midr, struct midr_range const *ranges)
-+static inline bool is_perf_midr_in_range_list(u32 midr,
-+					      struct midr_range const *ranges)
- {
--	while (ranges->model)
--		if (is_midr_in_range(midr, ranges++))
-+	while (ranges->model) {
-+		if (midr_is_cpu_model_range(midr, ranges->model,
-+					    ranges->rv_min, ranges->rv_max))
- 			return true;
--	return false;
--}
--
--/*
-- * The CPU ID never changes at run time, so we might as well tell the
-- * compiler that it's constant.  Use this function to read the CPU ID
-- * rather than directly reading processor_id or read_cpuid() directly.
-- */
--static inline u32 __attribute_const__ read_cpuid_id(void)
--{
--	return read_cpuid(MIDR_EL1);
--}
--
--static inline u64 __attribute_const__ read_cpuid_mpidr(void)
--{
--	return read_cpuid(MPIDR_EL1);
--}
--
--static inline unsigned int __attribute_const__ read_cpuid_implementor(void)
--{
--	return MIDR_IMPLEMENTOR(read_cpuid_id());
--}
--
--static inline unsigned int __attribute_const__ read_cpuid_part_number(void)
--{
--	return MIDR_PARTNUM(read_cpuid_id());
--}
-+		ranges++;
-+	}
- 
--static inline u32 __attribute_const__ read_cpuid_cachetype(void)
--{
--	return read_cpuid(CTR_EL0);
-+	return false;
- }
--#endif /* __ASSEMBLY__ */
- 
--#endif
-+#endif /* __PERF_ASM_CPUTYPE_H */
-diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
-index e9fab20e9330..e47bd9940106 100755
---- a/tools/perf/check-headers.sh
-+++ b/tools/perf/check-headers.sh
-@@ -187,7 +187,6 @@ done
- check arch/x86/lib/memcpy_64.S        '-I "^EXPORT_SYMBOL" -I "^#include <asm/export.h>" -I"^SYM_FUNC_START\(_LOCAL\)*(memcpy_\(erms\|orig\))" -I"^#include <linux/cfi_types.h>"'
- check arch/x86/lib/memset_64.S        '-I "^EXPORT_SYMBOL" -I "^#include <asm/export.h>" -I"^SYM_FUNC_START\(_LOCAL\)*(memset_\(erms\|orig\))"'
- check arch/x86/include/asm/amd/ibs.h  '-I "^#include [<\"]\(asm/\)*msr-index.h"'
--check arch/arm64/include/asm/cputype.h '-I "^#include [<\"]\(asm/\)*sysreg.h"'
- check include/linux/unaligned.h '-I "^#include <linux/unaligned/packed_struct.h>" -I "^#include <asm/byteorder.h>" -I "^#pragma GCC diagnostic"'
- check include/uapi/asm-generic/mman.h '-I "^#include <\(uapi/\)*asm-generic/mman-common\(-tools\)*.h>"'
- check include/uapi/linux/mman.h       '-I "^#include <\(uapi/\)*asm/mman.h>"'
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index d46e0cccac99..6b33d9ff055c 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -13,6 +13,7 @@
- #include <linux/log2.h>
- #include <linux/types.h>
- #include <linux/zalloc.h>
-+#include <asm/cputype.h>
- #include <stdlib.h>
- #include <unistd.h>
- 
-@@ -34,7 +35,6 @@
- #include "arm-spe-decoder/arm-spe-decoder.h"
- #include "arm-spe-decoder/arm-spe-pkt-decoder.h"
- 
--#include "../../arch/arm64/include/asm/cputype.h"
- #define MAX_TIMESTAMP (~0ULL)
- 
- #define is_ldst_op(op)		(!!((op) & ARM_SPE_OP_LDST))
-@@ -882,7 +882,7 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(data_source_handles); i++) {
--		if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
-+		if (is_perf_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
- 			data_source_handles[i].ds_synth(record, data_src);
- 			return true;
- 		}
--- 
-2.24.0
+Perhaps this comment belongs in the patch that adds support for named IRQs.
 
+>  	eth->irq[MTK_ETH_IRQ_TX] = platform_get_irq_byname(pdev, "tx");
+>  	eth->irq[MTK_ETH_IRQ_RX] = platform_get_irq_byname(pdev, "rx");
+>  	if (eth->irq[MTK_ETH_IRQ_TX] >= 0 && eth->irq[MTK_ETH_IRQ_RX] >= 0)
+>  		return 0;
+>  
+> +	/* legacy way:
+> +	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken from
+> +	 * devicetree and used for rx+tx.
+> +	 * On SoCs with non-shared IRQ the first was not used, second entry is
+> +	 * TX and third is RX.
+
+Maybe I am slow. But I had a bit of trouble parsing this.
+Perhaps this is clearer?
+
+        * devicetree and used for both RX and TX - it is shared.
+	* On SoCs with non-shared IRQs the first entry is not used,
+        * the second is for TX, and the third is for RX.
+
+> +	 */
+> +
+>  	for (i = 0; i < MTK_ETH_IRQ_MAX; i++) {
+> -		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+> -			eth->irq[i] = eth->irq[MTK_ETH_IRQ_SHARED];
+> -		else
+> -			eth->irq[i] = platform_get_irq(pdev, i);
+> +		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
+> +			if (i == 0)
+> +				eth->irq[MTK_ETH_IRQ_SHARED] = platform_get_irq(pdev, i);
+> +			else
+> +				eth->irq[i] = eth->irq[MTK_ETH_IRQ_SHARED];
+> +		} else {
+> +			eth->irq[i] = platform_get_irq(pdev, i + 1);
+> +		}
+>  
+>  		if (eth->irq[i] < 0) {
+>  			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
+
+...
 
