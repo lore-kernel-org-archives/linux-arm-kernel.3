@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28C3C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABECC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 06:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DfCJdV9wxuKdL/QXqXJ2OI+GYSNaMtPWLXF5xou/Nrc=; b=Ap3XlBNi46FpuuPWdTiRBWEv5/
-	KzJlsTYoL2gk8eUnRN7VLBOmUixkaW9HfjRdVCHF8aEbK0xU24QJ7/EQHzVcdfqQFloHuFcXuFkFF
-	k4rGDZY8UvQNeo3np1Av1GPyj3kcRTV44jR9LxCdFcLWFie9Wg7wp2I7nC6IUl93/4VyHk3w7EROJ
-	z9IfhdnJKXFI/Pia5qbFAtYAKx8IZOJqWriB/a0lYfUaLeuU03FGU/n8Uy8jUVWyQdoriNDTgj9Ia
-	kN+y9D7Y2a7qQ8SmHnAFUje71bahM6TfMw27pEJxNjrbDnNoxKPDRgnbCvESLPF+yglruPsT34hIX
-	IgFxg3nA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FSTEhJv+CfjAKBzpaF6LPhOdHHfcTt2IPKPs7dwEK0I=; b=QNpcpaAIJDFe/O2Z7uJ+8Z/Yw+
+	+ol64ku3wpgd+cOqtS/va95+VxOhtwTkLBGP0k1MGCWuUmFe6jNCOPq08ynxvLrVquoxNxvsc7K7v
+	bnlr8pTx3lYCDyW1pomnjtld9XUsocQ39m+TKBSOQ7geOsFedR+os020M+tgXF8nFeIa3oEAr7ufq
+	fq0XnHHZQGMIAYKWAahkqs8ZeF31lnCysIZrkWaukcfr74/HECGCL1sJyT8ppibxsVqU8iEZl8BYQ
+	7TGul28MpGyyF5zpXW5gYBc8/g5FNa7jUykxP2+nJsjaaCWeY/PqzE/M8l4b0PmMc/X69e3edJOOd
+	IA6554VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmez-00000009E2M-2DGu;
-	Wed, 18 Jun 2025 06:52:37 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uRmhM-00000009EM9-26Pp;
+	Wed, 18 Jun 2025 06:55:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRmaj-00000009Dd4-35UW
+	id 1uRmf8-00000009E4B-3TsD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 06:48:15 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bMZ4n4C3Wz13MbW;
-	Wed, 18 Jun 2025 14:45:45 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0AF371401F1;
-	Wed, 18 Jun 2025 14:47:57 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 14:47:56 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 14:47:55 +0800
-CC: <yangyicong@hisilicon.com>, Shameerali Kolothum Thodi
-	<shameerali.kolothum.thodi@huawei.com>, James Clark <james.clark@linaro.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Ali Saidi <alisaidi@amazon.com>, "Leo
- Yan" <leo.yan@linaro.org>, Will Deacon <will@kernel.org>, James Morse
-	<james.morse@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, yangjinqian
-	<yangjinqian1@huawei.com>, Douglas Anderson <dianders@chromium.org>, "Dmitry
- Baryshkov" <dmitry.baryshkov@linaro.org>, Adrian Hunter
-	<adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>, Jiri Olsa
-	<jolsa@kernel.org>, Kan Liang <kan.liang@linux.intel.com>, Namhyung Kim
-	<namhyung@kernel.org>, Linux Kernel Mailing List
-	<linux-kernel@vger.kernel.org>
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-To: Leo Yan <leo.yan@arm.com>, Mark Rutland <mark.rutland@arm.com>
-References: <aEyGg98z-MkcClXY@x1>
- <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
- <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
- <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
- <20250616130736.GA788469@e132581.arm.com>
- <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
- <20250616160811.GA794930@e132581.arm.com> <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
- <20250617141810.GB794930@e132581.arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <8c5180e3-9040-a694-3160-023c05976157@huawei.com>
-Date: Wed, 18 Jun 2025 14:47:55 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 18 Jun 2025 06:52:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B4B143911;
+	Wed, 18 Jun 2025 06:52:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D2EC4CEED;
+	Wed, 18 Jun 2025 06:52:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750229566;
+	bh=prDfa/5Zbm9GA9G4tD7ZSeyJ1W+Dn9Epp1t6A1MMNwo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RsJipWcl/kmAXaotjhAwkqCBWa3T3L278I5zdgKs353dwP6Pw1KBECYhtGKFoGoyo
+	 kjYOjf4CO3+uh9PD6LnwOkrCHFpIa934p57BAYaoRHZmhaecX6gY4yo+QTLlUGX60S
+	 78+5Y0prt7mFWQuheeCvMFq5pzbhFGiTozTnlF0FSCNnIi4JEtVhJx2mx/ouhXc+aY
+	 ADgg1pM42jEaoixslcLQSk/627KR9slA79+QE61RUHPasGNDOqgT3BQzo/5i4wNnSh
+	 87Gvz5FMhVvl5/LKo02uiNfy9TIstoZzFlIucs59Bz5YzZFqao5Sa8JTcoN2vdii+0
+	 HDAnNtmPGyhtg==
+From: Michael Walle <mwalle@kernel.org>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bryan Brattlof <bb@ti.com>,
+	Dhruva Gole <d-gole@ti.com>,
+	Andrew Davis <afd@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Michael Walle <mwalle@kernel.org>
+Subject: [PATCH] arm64: dts: ti: k3-am62p-j722s: fix pinctrl-single size
+Date: Wed, 18 Jun 2025 08:52:39 +0200
+Message-Id: <20250618065239.1904953-1-mwalle@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-In-Reply-To: <20250617141810.GB794930@e132581.arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_234814_106338_A9E85564 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20250617_235246_890790_373CE6D1 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,83 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/6/17 22:18, Leo Yan wrote:
-> On Mon, Jun 16, 2025 at 06:47:25PM +0100, Mark Rutland wrote:
-> 
-> [...]
-> 
->>>> ok this sounds just like as before except rename the midr check function and modify the
->>>> users in perf. will do in below steps:
->>>> - move cpu_errata_set_target_impl()/is_midr_in_range_list() out of cputype.h
->>>>   since they're only used in the kernel with errata information
->>>> - introduce is_target_midr_in_range_list() in cputype.h to test certain MIDR
->>>>   is within the ranges. (is_perf_midr_in_range_list() only make sense in
->>>>   userspace and is a bit strange to me in a kernel header). maybe reimplement
->>>>   is_midr_in_range_list() with is_target_midr_in_range_list() otherwise there's
->>>>   no users in kernel
->>>> - copy cputype.h to userspace and make users use new is_target_midr_in_range_list()
->>>>
->>>> this will avoid touching the kernel too much and userspace don't need to implement
->>>> a separate function.
->>>
->>> My understanding is we don't need to touch anything in kernel side, we
->>> simply add a wrapper in perf tool to call midr_is_cpu_model_range().
->>>
->>> When introduce is_target_midr_in_range_list() in kernel's cputype.h,
->>> if no consumers in kernel use it and only useful for perf tool, then
->>> it is unlikely to be accepted.
->>
->> I think all of this is just working around the problem that
->> asm/cputype.h was never intended to be used in userspace. Likewise with
->> the other headers that we copy into tools/.
->>
->> If there are bits that we *want* to share with tools/, let's factor that
->> out. The actual MIDR values are a good candidate for that -- we can
->> follow the same approach as with sysreg-defs.h.
-> 
-> Thanks for suggestion, Mark.
-> 
-> It makes sense to me for extracting MIDR and sharing between kernel and
-> tools/. I have created a task for following up the refactoring.
-> 
->> Other than that, I think that userspace should just maintain its own
->> infrastructure, and only pull in things from kernel sources when there's
->> a specific reason to. Otherwise we're just creating busywork.
-> 
-> I agree with the methodology.
-> 
-> Since Arnaldo is facing build failure when sync headers between kernel
-> and perf tool, to avoid long latency, let us split the refactoriing
-> into separate steps.
-> 
-> As a first step, I think my previous suggestion is valid, we can create a
-> header tools/perf/arch/arm64/include/cputype.h with below code:
-> 
->   #include "../../../../arch/arm64/include/asm/cputype.h"
-> 
->   static bool is_perf_midr_in_range_list(u32 midr,
->                                          struct midr_range const *ranges)
->   {
->           while (ranges->model) {
->                   if (midr_is_cpu_model_range(midr, ranges->model,
->                                   ranges->rv_min, ranges->rv_max))
->                           return true;
->                   ranges++;
->           }
-> 
->           return false;
->   }
-> 
-> Then, once we can generate a dynamic MIDR header file, we can use that
-> header and define the midr_range structure specifically in the perf.
-> In the end, perf can avoid to include kernel's cputype.h.
-> 
-> If no objection, Yicong, do you mind preparing the patch mentioned
-> above? Thanks!
-> 
+Pinmux registers ends at 0x000f42ac (including). Thus, the size argument
+of the pinctrl-single node has to be 0x2b0. Fix it.
 
-sure. will post today.
+This will fix the following error:
+pinctrl-single f4000.pinctrl: mux offset out of range: 0x2ac (0x2ac)
 
-Thanks.
+Fixes: 29075cc09f43 ("arm64: dts: ti: Introduce AM62P5 family of SoCs")
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+---
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 17471501df24..17c0949ac1d7 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -264,7 +264,7 @@ secure_proxy_sa3: mailbox@43600000 {
+ 
+ 	main_pmx0: pinctrl@f4000 {
+ 		compatible = "pinctrl-single";
+-		reg = <0x00 0xf4000 0x00 0x2ac>;
++		reg = <0x00 0xf4000 0x00 0x2b0>;
+ 		#pinctrl-cells = <1>;
+ 		pinctrl-single,register-width = <32>;
+ 		pinctrl-single,function-mask = <0xffffffff>;
+-- 
+2.39.5
 
 
