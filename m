@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9646BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 02:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E0DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 02:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
 	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5w2Af1Jd9y0kTfL6+QwFGQsdZng73ylLHR9SKZwxbcA=; b=YJZBYP70zFdpBiTRKhcsgoB710
-	KodXoVr1ZW9iZWjTwOFXrdMsb4sjUPz4Mcn+T2iCc54D3xhxUUM2dp5/Afo9arxrWQEkkYos33w11
-	j9yWw6SdwzI8O4CFTiMycYumAOS8/MTeRC37M0hGLP+sPgvA35EubvRN8uyZNpbyrLXP+aaECiE8c
-	Uo8ZWucXPJD9foa1uMB7n75qlDPPMFMeffECHTGM7tUdJMjk6IOStoWJ+OyUnbw6zvEJzVkbjXBIl
-	Q09q191bKmsGZRh60OL89nZEJwx77HbqJxBKahmvSLhKk4ObOnNI6vky3bQZtq2d9zlsFkZSBixrx
-	iFF6RbHw==;
+	bh=AR29u6dqmK6ehegRcbbijgUNzEMQNsv2oGLo6lBr3lU=; b=jQaLJdALAxViwUDyNXXncVm2bT
+	as6k/UtVyb34AXlWMe1/J5B2y2cnJTyUYt+wXLHITJo49HZe0KSSqG4tl7xWeYkH/zOQhGNYYaT2s
+	v50zYLqwMG/ZfKpYx9tE5ersTrLK3ZFwAAfYCZbUwaKfF2jRR2Z7oe+KJ1un1H2fKrTL4ZFS/B0zC
+	wecr11tQ50QIyyf9HUJw/4QmSIc6EPwDcN/yQUDRIWJFVbrOjjZ5MkffS1QWlkKBN0gdkKarAEJBG
+	ncbj/l0hywBh7gHFPgrE4Q7sSKDHw9qoS8yKpWdovNKGWQflnlUguWwrRHmzYBLE5KVbNE84XtISG
+	EXItSQmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRicz-00000008p54-1VNn;
-	Wed, 18 Jun 2025 02:34:17 +0000
+	id 1uRifA-00000008pD8-08xl;
+	Wed, 18 Jun 2025 02:36:32 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRiam-00000008ovm-3Zq8
+	id 1uRibX-00000008ozc-2TDW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 02:32:02 +0000
+	Wed, 18 Jun 2025 02:32:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1750213919;
-	bh=5w2Af1Jd9y0kTfL6+QwFGQsdZng73ylLHR9SKZwxbcA=;
+	d=codeconstruct.com.au; s=2022a; t=1750213966;
+	bh=AR29u6dqmK6ehegRcbbijgUNzEMQNsv2oGLo6lBr3lU=;
 	h=Subject:From:To:Date:In-Reply-To:References;
-	b=D1ApaUu65B6n7BORQfZgfZI75rDOOGgQ2KZxM3MsyAiG+y20/oS3ylMcHaHGgLWlC
-	 k36KJr1hjBpsmpw7tuEKuB0Uca+twWgeUQd6Ent5763Hsm2zOvyGo0F+7271ZVPeZq
-	 xlMNXaof04BvnBCE/7I5S0qVj8p0KEiq8IMhRQQ4aYobDg5DemOnj2azyt3JNu7V+C
-	 wsm9n1HzRs2a571dN9lHM5KPX5PQqJPZh3s4zYs/9ADbuKPlzoXh6NRJiQts28zBV7
-	 Bp85gKcDILHOMdYYeQrGghEK84q3SCJW0+N79TtXWabDgGfARWaCFVi1zLCO11vnG/
-	 iHk1Ebbaw6Zfw==
+	b=c8yy43LxWxntWCAOlzFtJQAOwl4vSyG4RXS1nvNxQc2BzJW8ypHz9yJ/Q90//MlXV
+	 Oma6DS17CsIYdYRhl7qtRMRRNMGkjbmYg9nghh3dwVcaQRzZfuxE02c1a5bZjdhAo3
+	 Ly4x5rwRK9gQVoI+Z4+3xall0uLUpOT/BSZd5gP0dZJizBU8SYGXQ/1fxPTjpxg8ps
+	 aP63LasTIY3Wz2orNMECmD7DHxpPJhxCYsqKSZyoTA/wP9rpX3VgIZyn+mkCuw9Cj2
+	 AXoxBORWQHcrQ0M29SNwhxuMI3DwYyC1A5RRqoEODdIkV0n5ewfG0ESnqm4NN0a37C
+	 i2LWYha0Dx0Fw==
 Received: from [192.168.68.112] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 24E91640A0;
-	Wed, 18 Jun 2025 10:31:58 +0800 (AWST)
-Message-ID: <750e6e51e0943e50162851ca8df2befcea3e9bbe.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 2/8] mmc: sdhci-of-aspeed: Add runtime tuning
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 60A1D640A0;
+	Wed, 18 Jun 2025 10:32:45 +0800 (AWST)
+Message-ID: <100bed083e9a98432888c0b1db8cbc445f96cd64.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 3/8] mmc: sdhci-of-aspeed: Patch HOST_CONTROL2 register
+ missing after top reset
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
 To: Cool Lee <cool_lee@aspeedtech.com>, adrian.hunter@intel.com, 
 	ulf.hansson@linaro.org, joel@jms.id.au, p.zabel@pengutronix.de, 
 	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
 	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Date: Wed, 18 Jun 2025 12:01:57 +0930
-In-Reply-To: <20250615035803.3752235-3-cool_lee@aspeedtech.com>
+Date: Wed, 18 Jun 2025 12:02:44 +0930
+In-Reply-To: <20250615035803.3752235-4-cool_lee@aspeedtech.com>
 References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
-	 <20250615035803.3752235-3-cool_lee@aspeedtech.com>
+	 <20250615035803.3752235-4-cool_lee@aspeedtech.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_193201_095658_A86B74C4 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250617_193247_814469_AE2F3534 
+X-CRM114-Status: UNSURE (   5.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyMDI1LTA2LTE1IGF0IDExOjU3ICswODAwLCBDb29sIExlZSB3cm90ZToKPiBBZGQg
-c3VwcG9ydCBmb3IgcnVudGltZSB0dW5pbmcgaW4gdGhlIEFzcGVlZCBTREhDSSBkcml2ZXIuCj4g
-VXNpbmcgdGhlIHRpbWluZyBwaGFzZSByZWdpc3RlciB0byBhZGp1c3QgdGhlIGNsb2NrIHBoYXNl
-IHdpdGggbW1jCj4gdHVuaW5nIGNvbW1hbmQgdG8gZmluZCB0aGUgbGVmdCBhbmQgcmlnaHQgYm91
-bmRhcnkuCj4gCj4gU2lnbmVkLW9mZi1ieTogQ29vbCBMZWUgPGNvb2xfbGVlQGFzcGVlZHRlY2gu
-Y29tPgo+IC0tLQo+IMKgZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1hc3BlZWQuYyB8IDY4ICsr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+IMKgMSBmaWxlIGNoYW5nZWQsIDY4IGluc2Vy
-dGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1hc3Bl
-ZWQuYyBiL2RyaXZlcnMvbW1jL2hvc3Qvc2RoY2ktb2YtYXNwZWVkLmMKPiBpbmRleCAwMWJjNTc0
-MjcyZWIuLjVlNWFlMTg5NDQ1NiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL21tYy9ob3N0L3NkaGNp
-LW9mLWFzcGVlZC5jCj4gKysrIGIvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS1vZi1hc3BlZWQuYwo+
-IEBAIC0yNCw2ICsyNCw3IEBACj4gwqAjZGVmaW5lIEFTUEVFRF9TRENfUEhBU0XCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAweGY0Cj4gwqAjZGVmaW5lwqDCoCBBU1BFRURfU0RDX1MxX1BI
-QVNFX0lOwqDCoMKgwqDCoMKgwqBHRU5NQVNLKDI1LCAyMSkKPiDCoCNkZWZpbmXCoMKgIEFTUEVF
-RF9TRENfUzBfUEhBU0VfSU7CoMKgwqDCoMKgwqDCoEdFTk1BU0soMjAsIDE2KQo+ICsjZGVmaW5l
-wqDCoCBBU1BFRURfU0RDX1MwX1BIQVNFX0lOX1NISUZUwqAgMTYKPiDCoCNkZWZpbmXCoMKgIEFT
-UEVFRF9TRENfUzFfUEhBU0VfT1VUwqDCoMKgwqDCoMKgR0VOTUFTSygxNSwgMTEpCj4gwqAjZGVm
-aW5lwqDCoCBBU1BFRURfU0RDX1MxX1BIQVNFX0lOX0VOwqDCoMKgwqBCSVQoMTApCj4gwqAjZGVm
-aW5lwqDCoCBBU1BFRURfU0RDX1MxX1BIQVNFX09VVF9FTsKgwqDCoEdFTk1BU0soOSwgOCkKPiBA
-QCAtMzc1LDYgKzM3Niw3MiBAQCBzdGF0aWMgdm9pZCBhc3BlZWRfc2RoY2lfcmVzZXQoc3RydWN0
-IHNkaGNpX2hvc3QgKmhvc3QsIHU4IG1hc2spCj4gwqDCoMKgwqDCoMKgwqDCoHNkaGNpX3Jlc2V0
-KGhvc3QsIG1hc2spOwo+IMKgfQo+IMKgCj4gK3N0YXRpYyBpbnQgYXNwZWVkX3NkaGNpX2V4ZWN1
-dGVfdHVuaW5nKHN0cnVjdCBzZGhjaV9ob3N0ICpob3N0LCB1MzIgb3Bjb2RlKQo+ICt7Cj4gK8Kg
-wqDCoMKgwqDCoMKgc3RydWN0IHNkaGNpX3BsdGZtX2hvc3QgKnBsdGZtX3ByaXY7Cj4gK8KgwqDC
-oMKgwqDCoMKgc3RydWN0IGFzcGVlZF9zZGhjaSAqc2RoY2k7Cj4gK8KgwqDCoMKgwqDCoMKgc3Ry
-dWN0IGFzcGVlZF9zZGMgKnNkYzsKPiArwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgZGV2aWNlICpkZXY7
-Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHUzMiB2YWwsIGxlZnQsIHJpZ2h0LCBlZGdlOwo+ICvCoMKg
-wqDCoMKgwqDCoHUzMiB3aW5kb3csIG9sZHdpbmRvdyA9IDAsIGNlbnRlcjsKPiArwqDCoMKgwqDC
-oMKgwqB1MzIgaW5fcGhhc2UsIG91dF9waGFzZSwgZW5hYmxlX21hc2ssIGludmVydGVkID0gMDsK
-PiArCj4gK8KgwqDCoMKgwqDCoMKgZGV2ID0gbW1jX2Rldihob3N0LT5tbWMpOwo+ICvCoMKgwqDC
-oMKgwqDCoHBsdGZtX3ByaXYgPSBzZGhjaV9wcml2KGhvc3QpOwo+ICvCoMKgwqDCoMKgwqDCoHNk
-aGNpID0gc2RoY2lfcGx0Zm1fcHJpdihwbHRmbV9wcml2KTsKPiArwqDCoMKgwqDCoMKgwqBzZGMg
-PSBzZGhjaS0+cGFyZW50Owo+ICsKPiArwqDCoMKgwqDCoMKgwqBvdXRfcGhhc2UgPSByZWFkbChz
-ZGMtPnJlZ3MgKyBBU1BFRURfU0RDX1BIQVNFKSAmIEFTUEVFRF9TRENfUzBfUEhBU0VfT1VUOwo+
-ICsKPiArwqDCoMKgwqDCoMKgwqBlbmFibGVfbWFzayA9IEFTUEVFRF9TRENfUzBfUEhBU0VfT1VU
-X0VOIHwgQVNQRUVEX1NEQ19TMF9QSEFTRV9JTl9FTjsKPiArCj4gK8KgwqDCoMKgwqDCoMKgLyoK
-PiArwqDCoMKgwqDCoMKgwqAgKiBUaGVyZSBhcmUgdHdvIHdpbmRvdyB1cG9uIGNsb2NrIHJpc2lu
-ZyBhbmQgZmFsbGluZyBlZGdlLgo+ICvCoMKgwqDCoMKgwqDCoCAqIEl0ZXJhdGUgZWFjaCB0YXAg
-ZGVsYXkgdG8gZmluZCB0aGUgdmFsaWQgd2luZG93IGFuZCBjaG9vc2UgdGhlCj4gK8KgwqDCoMKg
-wqDCoMKgICogYmlnZ2VyIG9uZSwgc2V0IHRoZSB0YXAgZGVsYXkgYXQgdGhlIG1pZGRsZSBvZiB3
-aW5kb3cuCj4gK8KgwqDCoMKgwqDCoMKgICovCj4gK8KgwqDCoMKgwqDCoMKgZm9yIChlZGdlID0g
-MDsgZWRnZSA8IDI7IGVkZ2UrKykgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBp
-ZiAoZWRnZSA9PSAxKQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgaW52ZXJ0ZWQgPSBBU1BFRURfU0RIQ0lfVEFQX1BBUkFNX0lOVkVSVF9DTEs7Cj4gKwo+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB2YWwgPSAob3V0X3BoYXNlIHwgZW5hYmxl
-X21hc2sgfCAoaW52ZXJ0ZWQgPDwgQVNQRUVEX1NEQ19TMF9QSEFTRV9JTl9TSElGVCkpOwo+ICsK
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLyogZmluZCB0aGUgbGVmdCBib3VuZGFy
-eSAqLwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmb3IgKGxlZnQgPSAwOyBsZWZ0
-IDwgQVNQRUVEX1NESENJX05SX1RBUFMgKyAxOyBsZWZ0KyspIHsKCkJpdCBvZiBhIG5pdCwgYnV0
-IG1heWJlIGBsZWZ0IDw9IEFTUEVFRF9TREhDSV9OUl9UQVBTYCByYXRoZXIgdGhhbiArIDE/Cgo+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaW5fcGhhc2Ug
-PSB2YWwgfCAobGVmdCA8PCBBU1BFRURfU0RDX1MwX1BIQVNFX0lOX1NISUZUKTsKPiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHdyaXRlbChpbl9waGFzZSwg
-c2RjLT5yZWdzICsgQVNQRUVEX1NEQ19QSEFTRSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaWYgKCFtbWNfc2VuZF90dW5pbmcoaG9zdC0+bW1j
-LCBvcGNvZGUsIE5VTEwpKQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGJyZWFrOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqB9Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvKiBmaW5kIHRo
-ZSByaWdodCBib3VuZGFyeSAqLwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmb3Ig
-KHJpZ2h0ID0gbGVmdCArIDE7IHJpZ2h0IDwgQVNQRUVEX1NESENJX05SX1RBUFMgKyAxOyByaWdo
-dCsrKSB7Cgo8PSBhZ2FpbiBoZXJlIGlmIHlvdSBhZ3JlZS4KCj4gK8KgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpbl9waGFzZSA9IHZhbCB8IChyaWdodCA8PCBB
-U1BFRURfU0RDX1MwX1BIQVNFX0lOX1NISUZUKTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHdyaXRlbChpbl9waGFzZSwgc2RjLT5yZWdzICsgQVNQRUVE
-X1NEQ19QSEFTRSk7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgaWYgKG1tY19zZW5kX3R1bmluZyhob3N0LT5tbWMsIG9wY29kZSwgTlVMTCkpCj4g
-K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgYnJlYWs7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH0KPiArCj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHdpbmRvdyA9IHJpZ2h0IC0gbGVmdDsKPiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGV2X2luZm8oZGV2LCAidHVuaW5nIHdpbmRvdyA9
-ICVkXG4iLCB3aW5kb3cpOwoKSSB0aGluayB0aGlzIHNob3VsZCBiZSBkZXZfZGJnKCkgcmF0aGVy
-IHRoYW4gZGV2X2luZm8oKS4gVHVuaW5nIGRhdGEgaXMKbm90IHNvbWV0aGluZyB0aGF0IHNob3Vs
-ZCBub3JtYWxseSBiZSBwcmludGVkLiBJJ2QgYWxzbyBwcmludCB0aGUKdmFsdWVzIG9mIGxlZnQg
-YW5kIHJpZ2h0LCBmb3IgcmVmZXJlbmNlLgoKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoGlmICh3aW5kb3cgPiBvbGR3aW5kb3cpIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoG9sZHdpbmRvdyA9IHdpbmRvdzsKPiArwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNlbnRlciA9ICgoKHJpZ2h0IC0g
-MSkgKyBsZWZ0KSAvIDIpIHwgaW52ZXJ0ZWQ7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoH0KPiArwqDCoMKgwqDCoMKgwqB9Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHZhbCA9IChvdXRf
-cGhhc2UgfCBlbmFibGVfbWFzayB8IChjZW50ZXIgPDwgQVNQRUVEX1NEQ19TMF9QSEFTRV9JTl9T
-SElGVCkpOwo+ICvCoMKgwqDCoMKgwqDCoHdyaXRlbCh2YWwsIHNkYy0+cmVncyArIEFTUEVFRF9T
-RENfUEhBU0UpOwo+ICsKPiArwqDCoMKgwqDCoMKgwqBkZXZfaW5mbyhkZXYsICJ0dW5pbmcgcmVz
-dWx0PSV4XG4iLCB2YWwpOwoKZGV2X2RiZygpIGFnYWluLgoKQ2hlZXJzLAoKQW5kcmV3Cg==
+On Sun, 2025-06-15 at 11:57 +0800, Cool Lee wrote:
+> HOST_CONTROL2 register will be cleared after top reset,
+> it needs to be saved/resotred while reset.
+>=20
+> Signed-off-by: Cool Lee <cool_lee@aspeedtech.com>
+
+Please squash this into the first patch.
+
+Andrew
 
 
