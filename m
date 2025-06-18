@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20D3C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C92C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTAhywwGGjUwDaZqOZaIHehuH/OqBt/ctGeYnLPELMg=; b=WcDp6HcPuJQP54SB4b5Cn7t9ZE
-	KnZgCXwmqAZ4q2JJo9Lr1SBaz7p8Zi2JJk7t+QyAZ4eVoHw2+QjTiV4fgcIEHMNFRUSM1SLuulKAg
-	66LvkKpZIKRDVms1f62GMWerz0h/XJe0n+qLJakO41r0F+WwIaXOYkX0u3Y4i7+8hA1AYkQU4UWyW
-	X5moAdOdddMYdaeUiaaVnyfpQpx9MOZsi/q5Td+fOTj5+r5E+qP4RTk35HBzTd/TVHTLULJs95N4Q
-	AkZs5QvcYJn7cLQiz2FnhxQhyr+LaJ6k7RCe2izw/O4/I9CNtV8Ugg9tZeeUhylNvghCekRuIQigi
-	SDA4e5Sw==;
+	bh=m79J0HkRILX18o9YHg3zwFo1BQ7buYBrq3hUc2UmA0Y=; b=tIk3Do0fV49ZMQUhMKU1R9FWdN
+	nwjjmfq+itoEcJ5TCqOH0FAoy8cdyuwTsvBTrwX66I9wEuZ90oyAFmXJ9kUUk1OArZEeM2h75dF6A
+	r/B7DO7QW9gBJcQgIpdiVwBFKT83RfaN7BircvDNh2Oi8x6NjjstTObBw6sGlnN6st6jpaNTrUWYM
+	oeUenB4cfXwN3PdorFLmXU72f0MlvBh238ip8bByGYMDTHJJLkG28VSn7KO1ppR6dP/XMeu6gQI7D
+	BBnandY0I1bv8pI7gh1sFuRfWa2eW7TvPbJX92C9SqP2YSAzxZm0ejcF4gw3JFes81hLWl1xiURWE
+	cR5ZZeug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsbA-0000000AG9w-2Vn9;
-	Wed, 18 Jun 2025 13:13:04 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uRsdM-0000000AGNh-1VSI;
+	Wed, 18 Jun 2025 13:15:20 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrJv-0000000A1RO-0mxJ
+	id 1uRrLB-0000000A1e9-2G6P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 11:51:13 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bMhpY29VLzvZBf;
-	Wed, 18 Jun 2025 19:48:53 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 075DE140275;
-	Wed, 18 Jun 2025 19:51:05 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 19:51:04 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 18 Jun 2025 19:51:03 +0800
-CC: <yangyicong@hisilicon.com>, Shameerali Kolothum Thodi
-	<shameerali.kolothum.thodi@huawei.com>, James Clark <james.clark@linaro.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Ali Saidi <alisaidi@amazon.com>, "Leo
- Yan" <leo.yan@linaro.org>, Will Deacon <will@kernel.org>, James Morse
-	<james.morse@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, yangjinqian
-	<yangjinqian1@huawei.com>, Douglas Anderson <dianders@chromium.org>, "Dmitry
- Baryshkov" <dmitry.baryshkov@linaro.org>, Adrian Hunter
-	<adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>, Jiri Olsa
-	<jolsa@kernel.org>, Kan Liang <kan.liang@linux.intel.com>, Namhyung Kim
-	<namhyung@kernel.org>, Linux Kernel Mailing List
-	<linux-kernel@vger.kernel.org>
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-To: Leo Yan <leo.yan@arm.com>, Mark Rutland <mark.rutland@arm.com>
-References: <aEyGg98z-MkcClXY@x1>
- <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
- <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
- <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
- <20250616130736.GA788469@e132581.arm.com>
- <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
- <20250616160811.GA794930@e132581.arm.com> <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
- <20250617141810.GB794930@e132581.arm.com> <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
- <20250618112440.GC794930@e132581.arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
-Date: Wed, 18 Jun 2025 19:51:03 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 18 Jun 2025 11:52:31 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250618115220euoutp01558f2b6d78cb2b4d5a3c95d433a16633~KIN117Uz82466024660euoutp01l
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 11:52:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250618115220euoutp01558f2b6d78cb2b4d5a3c95d433a16633~KIN117Uz82466024660euoutp01l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750247540;
+	bh=m79J0HkRILX18o9YHg3zwFo1BQ7buYBrq3hUc2UmA0Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Llo+EfXzP1oOgMXB4bWM18AUmwsFEtwyMYVLGKRTfVpf1E13mpK5MD3seMzN4ImiC
+	 3UER7TFNfBcA1ghElrDeQIj5A+udaRkJnHoh1Iys8bco0T0CQ4OBeCmlFB/zjoPcJB
+	 dSLPq592DzDWzpMEF5NjhjnIi7MxtFSQJes5gzF4=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f~KIN1bTnxw1996919969eucas1p2k;
+	Wed, 18 Jun 2025 11:52:20 +0000 (GMT)
+Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250618115219eusmtip18897b4f23ab32963bdf77ba1539d4e47~KIN01wgHH0059000590eusmtip1T;
+	Wed, 18 Jun 2025 11:52:19 +0000 (GMT)
+From: Mateusz Majewski <m.majewski2@samsung.com>
+To: linux.amoon@gmail.com
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org,
+	rui.zhang@intel.com, Mateusz Majewski <m.majewski2@samsung.com>
+Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature
+ threshold interrupts and clear corresponding IRQs
+Date: Wed, 18 Jun 2025 13:52:11 +0200
+Message-ID: <20250618115211.2239335-1-m.majewski2@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250616163831.8138-3-linux.amoon@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20250618112440.GC794930@e132581.arm.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+X-RootMTR: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
+X-EPHeader: CA
+X-CMS-RootMailID: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
+References: <20250616163831.8138-3-linux.amoon@gmail.com>
+	<CGME20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_045111_530414_80FC0CFD 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20250618_045230_133424_47E898C2 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,109 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/6/18 19:24, Leo Yan wrote:
-> On Wed, Jun 18, 2025 at 09:52:53AM +0100, Mark Rutland wrote:
-> 
-> [...]
-> 
->>>> Other than that, I think that userspace should just maintain its own
->>>> infrastructure, and only pull in things from kernel sources when there's
->>>> a specific reason to. Otherwise we're just creating busywork.
->>>
->>> I agree with the methodology.
->>>
->>> Since Arnaldo is facing build failure when sync headers between kernel
->>> and perf tool, to avoid long latency, let us split the refactoriing
->>> into separate steps.
->>>
->>> As a first step, I think my previous suggestion is valid, we can create a
->>> header tools/perf/arch/arm64/include/cputype.h with below code:
->>>
->>>   #include "../../../../arch/arm64/include/asm/cputype.h"
->>
->> Directly including the kernel header introduces the very fragility that
->> having a copy was intended to avoid. NAK to that.
-> 
-> My suggestion is not to include the kernel header, nor to modify the
-> copy header. :)
-> 
-> Instead, I suggested creating a new header within the perf tool (under
-> perf's arm64 folder) and then include the copy header in tools:
-> 
->   tools/arch/arm64/include/asm/cputype.h
-> 
+Hello :)
 
-sorry for the misunderstood.:(
-in this way we still have the divergency in the long term and as a workaround
-this works same if we partly update the tools/arch/arm64/include/asm/cputype.h
-with only necessary MIDR updates and keep is_midr_in_range_list() unchanged.
+> +#define INTSTAT_FALL2	BIT(24)
+> +#define INTSTAT_FALL1	BIT(20)
+> +#define INTSTAT_FALL0	BIT(16)
+> +#define INTSTAT_RISE2	BIT(8)
+> +#define INTSTAT_RISE1	BIT(4)
+> +#define INTSTAT_RISE0	BIT(0)
+> +
+> +#define INTCLEAR_FALL2	BIT(24)
+> +#define INTCLEAR_FALL1	BIT(20)
+> +#define INTCLEAR_FALL0	BIT(16)
+> +#define INTCLEAR_RISE2	BIT(8)
+> +#define INTCLEAR_RISE1	BIT(4)
+> +#define INTCLEAR_RISE0	BIT(0)
 
->> I've replied to the same effect Yicong's patch [1,2].
->>
->> If we want to share headers between userspace and kernel, we should
->> refactor those headers such that this is safe by construction.
->>
->> There is no need to update the userspace headers just because the kernel
->> headers have changed, so the simple solution in the short term is to
->> suppress the warning from check-headers.sh.
-> 
-> Sure, makes sense for me.
-> 
-> @Arnaldo, as Mark suggested, do you want me to send a patch to remove
-> cputype.h checking in check-headers.sh or it is fine to keep the warning
-> until finish the header refactoring?
-> 
-> @Yicong, could you confirm if you proceed to refactor the MIDR? thanks!
-> 
+> +	/* Map INTSTAT bits to INTCLEAR bits */
+> +	if (val_irq & INTSTAT_FALL2)
+> +		clearirq |= INTCLEAR_FALL2;
+> +	else if (val_irq & INTSTAT_FALL1)
+> +		clearirq |= INTCLEAR_FALL1;
+> +	else if (val_irq & INTSTAT_FALL0)
+> +		clearirq |= INTCLEAR_FALL0;
+> +	else if (val_irq & INTSTAT_RISE2)
+> +		clearirq |= INTCLEAR_RISE2;
+> +	else if (val_irq & INTSTAT_RISE1)
+> +		clearirq |= INTCLEAR_RISE1;
+> +	else if (val_irq & INTSTAT_RISE0)
+> +		clearirq |= INTCLEAR_RISE0;
 
-please feel free to take this over.
+This implies that only these 6 bits are used. Is this true for all SoCs
+supported by this driver? My understanding is that Exynos 5433 in particular
+uses bits 7:0 for rise interrupts and 23:16 for fall interrupts. When I tested
+this patch (both alone and the whole series) on 5433 by running some CPU load,
+the interrupt seemed to not fire consistently:
+/sys/class/thermal/cooling_device1/cur_state would never go above 1 (which is
+consistent with the interrupt firing once, not getting cleared and never firing
+again; without this patch, it consistently went up to 6) and I got a quick
+reboot every time.
 
-> Just note, I searched tools folder and found kselftest also uses the
-> cputype.h header. The refactoring should not break the files below.
-> 
-
-they shouldn't affected. I did a kselftest build test with my latest patch
-and they were not affected.
-
-thanks.
-
-> $ git grep cputype.h
-> perf/check-headers.sh:check arch/arm64/include/asm/cputype.h '-I "^#include [<\"]\(asm/\)*sysreg.h"'
-> perf/util/arm-spe.c:#include "../../arch/arm64/include/asm/cputype.h"
-> testing/selftests/kvm/arm64/psci_test.c:#include <asm/cputype.h>
-> testing/selftests/kvm/lib/arm64/vgic.c:#include <asm/cputype.h>
-> 
-> Thanks,
-> Leo
-> 
->> [1] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m23dfbea6af559f3765d89b9d8427213588871ffd
->> [2] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m6acbfa00002af8ee791266ea86a58f8f994ed710
->>
->> Mark.
->>
->>>
->>>   static bool is_perf_midr_in_range_list(u32 midr,
->>>                                          struct midr_range const *ranges)
->>>   {
->>>           while (ranges->model) {
->>>                   if (midr_is_cpu_model_range(midr, ranges->model,
->>>                                   ranges->rv_min, ranges->rv_max))
->>>                           return true;
->>>                   ranges++;
->>>           }
->>>
->>>           return false;
->>>   }
->>>
->>> Then, once we can generate a dynamic MIDR header file, we can use that
->>> header and define the midr_range structure specifically in the perf.
->>> In the end, perf can avoid to include kernel's cputype.h.
->>>
->>> If no objection, Yicong, do you mind preparing the patch mentioned
->>> above? Thanks!
->>>
->>> Leo
-> 
-> .
-> 
+Thank you,
+Mateusz Majewski
 
