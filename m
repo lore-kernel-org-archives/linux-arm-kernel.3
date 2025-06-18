@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81490C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCF1C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=361/w2s39uIsBSkc/Vfv0lndyaZuHMALTiabihSnPGs=; b=P4dX+yABYkJ8BwQNA7pUH5n2mO
-	rgLPXIBiH56G5JMOEmWXdgbOKjwlk0wFLR5d9XPWa/61Eu89nPUWsyuWAQCzU5rPZ2FfgkUvv8//a
-	Ev+VnOccPAwD9oIy+5ao15d/QvHW4ZB2vNVlOSLQb70Nmjp7IdPeMi3jKfd6WNp/HIHM+8/nmnwPm
-	5Ma6avNkFuHSqAnAI6YtJC/4asgk5wVp3ocygMWxHL+87RJQES9bvkxoJtjT7NfKIPLLw30OGlGiK
-	q0+m2ZzeFwD1Gyv1hJHybYYGF2IC9gdeqmnpk3U0B+SJx8N+zLcw2unwW4enruI0Wps6dyM97HTCw
-	dP6oqtHg==;
+	bh=IZ7GT9tpTg48vlfg0U/YtaR7zQg4ihM+JAeyaKK+GSk=; b=FsY2jNy6/BfnfieacBFZXCB3VT
+	YCgh7qeTMs3M76d0GqyFs5eS0zJZCAvwkqKaRTiMcTdaucb07uEqEU4VEaQoe4bClLgBaCRlaO6rB
+	+Mw4DBnuxDvFvdozzQPDHA03MeetAptcvpnxd97XSQ/vIW9F+Cpq9Nt4MBqN2DXnNyb2dul2Ahtn2
+	aywzZ5F67c6L6YD2nnyYaRy8LqmgpUBu0zSTs7PgIlxF072i7/pjxhWc9+cLTDGzdvQCO27Gnk6qD
+	kn5Qkov36VfrEcwj1l6Furbz0lHqcoq5TrUYNOnMziiLzrajbNroHExzzalfRIolhLt292frLu5E0
+	jWolLdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvMu-0000000AhCr-2G5C;
-	Wed, 18 Jun 2025 16:10:32 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uRvPD-0000000AhLQ-1Il3;
+	Wed, 18 Jun 2025 16:12:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRteR-0000000APn1-0tE2;
-	Wed, 18 Jun 2025 14:20:32 +0000
-X-UUID: 6138b8e84c4f11f09f706fa2197c6ceb-20250618
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=361/w2s39uIsBSkc/Vfv0lndyaZuHMALTiabihSnPGs=;
-	b=sDaHsAuqFAi5Cd4vH8mhpoAbQgBCSRaFcOwdbayC5+Ae9jw7nZYJ9WaXzX3YDggpfvY5P803+e6QX5tmXA51Zj4gTvOFJdj2+t+jvgG7cAo1glmq16ceJvgvMv+VvfhfZ/GSa3UF56r6jxs8tz+pK0vU7T+LQ+8qsk/uXGuxp/k=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:48b62bc8-eddd-40ae-98b4-fdae4bfae4c8,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:09905cf,CLOUDID:bc859928-fdd2-4021-9c0c-83548fdcf243,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6138b8e84c4f11f09f706fa2197c6ceb-20250618
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2074375719; Wed, 18 Jun 2025 07:20:26 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 18 Jun 2025 22:20:22 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Wed, 18 Jun 2025 22:20:22 +0800
-Message-ID: <089882f95b1b910f7feecddd0ad9b17f38394c64.camel@mediatek.com>
-Subject: Re: [RFC PATCH 1/1] sched/deadline: Fix RT task potential
- starvation when expiry time passed
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Juri Lelli <juri.lelli@redhat.com>
-CC: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
- Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
- Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, jstultz
-	<jstultz@google.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Date: Wed, 18 Jun 2025 22:20:23 +0800
-In-Reply-To: <aFAyN4rfssKmbUE5@jlelli-thinkpadt14gen4.remote.csb>
-References: <20250615131129.954975-1-kuyo.chang@mediatek.com>
-	 <aFAyN4rfssKmbUE5@jlelli-thinkpadt14gen4.remote.csb>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uRthG-0000000AQ14-12f9;
+	Wed, 18 Jun 2025 14:23:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=IZ7GT9tpTg48vlfg0U/YtaR7zQg4ihM+JAeyaKK+GSk=; b=n7ggpt2HCDEc5Ja5gOza091alY
+	TidK9h7stjS8E616jr/QSUWs19tqX3rKZQwwCBmPLvJAF4i4F/I3aLlenM50X35J7ecT7bPKEO9Qc
+	2qLGuIkK/DYl2EPERfYgX4zBqH5rjUxCm95j4wip9XqLqF78Ze0aX1sk1llatL0+qJ/VeF4rHNdBD
+	5BkLmlRlbjE0TrJrc1dpXSn2OVayoIecNYZl7VhgATlU04Oiogsv9PfplX9uus89GwrzeRN4vLQce
+	0YJl4R14H1Z9tCC1i7He7mS+/Dwa6cdyqplt3xgVpf2gD4X69N4luJjJUlzN5BQtrXlZ3gxCdunj8
+	kRlAx4iA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRthE-000000045nM-005T;
+	Wed, 18 Jun 2025 14:23:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EAFB25C621E;
+	Wed, 18 Jun 2025 14:21:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF084C4CEEE;
+	Wed, 18 Jun 2025 14:23:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750256599;
+	bh=Tw82APBfnc8betE49fdk4f7dJxLN1BXDSLLXI9UwX7M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QdAUprYKJiSnsrJGpXN4Wmdq8DXkBhrJMF/FEGPXR2QnvW9p3H5kK1elO6+oQ5zP1
+	 XWfCiGXzCXewJYibrQhrnn9YbF4K8CXWAjkxTaK94+H+HqVsWFvD32lh1WptSPnOXp
+	 yLUkrvU/uomcQPTVq2Y1HpLub6VBB64WZILuuqiHz2dOxVw+MpxQEKcdKorBw1VXLz
+	 gx7FoLEG/ELzuaYl5dzpzz8k/8C0WuLqq56KxebvN8Nov7JpBZL2qnZqq9waTzqBCs
+	 61XHUF4Y/CmTLy+LXFmqFy2rPVd0ExD28khi6AoUdXa4nPx9R2gvLrqPYk2J4fkUws
+	 hJDkGdgT+BDxQ==
+Date: Wed, 18 Jun 2025 16:23:14 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Delay link training after hot reset
+ in EP mode
+Message-ID: <aFLL0vPFzxdVOR9a@ryzen>
+References: <20250617220114.GA1156610@bhelgaas>
+ <20250617220523.GA1157905@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617220523.GA1157905@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_072031_272277_BCCB6D22 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20250618_152324_203303_5587EF74 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,95 +92,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-06-16 at 17:03 +0200, Juri Lelli wrote:
->=20
-> External email : Please do not click links or open attachments until
-> you have verified the sender or the content.
->=20
->=20
-> Hello,
->=20
-> >=20
-> > [Proposed Solution]:
-> > ------------------
-> > Instead of immediately re-enqueuing the DL entity on timer
-> > registration
-> > failure, this change ensures the DL entity is properly replenished
-> > and
-> > the timer is restarted, preventing RT potential starvation.
-> >=20
-> > Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
-> > ---
-> > =C2=A0kernel/sched/deadline.c | 8 +++++---
-> > =C2=A01 file changed, 5 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> > index ad45a8fea245..e50cb76c961b 100644
-> > --- a/kernel/sched/deadline.c
-> > +++ b/kernel/sched/deadline.c
-> > @@ -1556,10 +1556,12 @@ static void update_curr_dl_se(struct rq
-> > *rq, struct sched_dl_entity *dl_se, s64
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 }
-> >=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 if (unlikely(is_dl_boosted(dl_se) ||
-> > !start_dl_timer(dl_se))) {
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (dl_server(dl_se))
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 enqueue_dl_entity(dl_se,
-> > ENQUEUE_REPLENISH);
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (dl_server(dl_se)) {
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 replenish_dl_new_period(dl_se, rq);
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 start_dl_timer(dl_se);
->=20
-> But, even today, enqueue_dl_entity() is called with ENQUEUE_REPLENISH
-> flag, so I don't get why you say 're-enqueues the DL entity without
-> properly replenishing'.
->=20
-> Also, why restarting the replenishing timer right after having
-> replenished the entity?
->=20
+On Tue, Jun 17, 2025 at 05:05:23PM -0500, Bjorn Helgaas wrote:
+> On Tue, Jun 17, 2025 at 05:01:16PM -0500, Bjorn Helgaas wrote:
+> > On Fri, Jun 13, 2025 at 12:19:09PM +0200, Niklas Cassel wrote:
+> 
+> Oh, and this sets PCIE_LTSSM_ENABLE_ENHANCE | PCIE_LTSSM_APP_DLY2_EN
+> once at probe-time, but what about after a link-down/link-up cycle?
+> 
+> Don't we need to set PCIE_LTSSM_ENABLE_ENHANCE |
+> PCIE_LTSSM_APP_DLY2_EN again when the link comes up so we don't have
+> the same race when the link goes down again?
 
-When dl_defer_running =3D 1 and the running time has been exhausted,=20
-it means that the dl_server should stop at this point.
-However, if start_dl_timer() returns a failure, it indicates that the
-actual time spent consuming the running time was unexpectedly long.=20
-=20
-At this point, there are two options:
-[as-is] 1. re-enqueuing the dl entity with ENQUEUE_REPLENISH will clear
-the throttled flag=20
-and re-enqueue the dl entity to keep the fair_server running.=20
-enqueue_dl_entity(dl_se, ENQUEUE_REPLENISH);
-=3D> replenish_dl_entity
-  =3D> replenish_dl_new_period(dl_se, rq);
-  =3D> dl_se->dl_yielded =3D 0;
-  =3D> dl_se->dl_throttled =3D 0;
-=3D> __enqueue_dl_entity(dl_se);
+Nope, we don't.
 
-[to-be] 2. To avoid RT latency, the fair_server should remain throttled
-while replenishing the dl_se.=20
-Once replenishing is complete, we can ensure that a timer is
-successfully started.=20
-When the timer is triggered, the throttled state will be cleared,
-ensuring that RT tasks can execute during this interval.
-=20
-It is a policy decision for dealing with the case of failure in
-start_dl_timer().
-The second approach is better for real-time (RT) latency in my opinion,
-as RT tasks must be prioritized.
+To verify I used this patch:
 
-> Thanks,
-> Juri
->=20
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index be239254aacd..e79add5412b8 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -506,6 +506,8 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+        if (reg & PCIE_LINK_REQ_RST_NOT_INT) {
+                dev_dbg(dev, "hot reset or link-down reset\n");
+                dw_pcie_ep_linkdown(&pci->ep);
++               pr_info("PCIE_CLIENT_HOT_RESET_CTRL after reset: %#x\n",
++                       rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_HOT_RESET_CTRL));
+                /* Stop delaying link training. */
+                val = HIWORD_UPDATE_BIT(PCIE_LTSSM_APP_DLY2_DONE);
+                rockchip_pcie_writel_apb(rockchip, val,
 
+
+
+
+[   85.979567] rockchip-dw-pcie a40000000.pcie-ep: hot reset or link-down reset
+[   85.980210] PCIE_CLIENT_HOT_RESET_CTRL after reset: 0x12
+[   93.720413] rockchip-dw-pcie a40000000.pcie-ep: hot reset or link-down reset
+[   93.721074] PCIE_CLIENT_HOT_RESET_CTRL after reset: 0x12
+
+0x12 == bit 1 and bit 4 are set.
+
+bit 1: app_dly2_en
+bit 4: app_ltssm_enable_enhance
+
+
+
+I also looked at the downstream driver and they also only set it once
+during probe().
+
+
+When running the controller EP mode, we (the Linux driver) currently never
+reset the whole core after probe(), and as we can see above, the hardware
+itself also does not reset the app_dly2_en bit during a hot reset signal.
+
+
+Kind regards,
+Niklas
 
