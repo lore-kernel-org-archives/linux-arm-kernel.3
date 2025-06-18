@@ -4,74 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C92C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAEDC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m79J0HkRILX18o9YHg3zwFo1BQ7buYBrq3hUc2UmA0Y=; b=tIk3Do0fV49ZMQUhMKU1R9FWdN
-	nwjjmfq+itoEcJ5TCqOH0FAoy8cdyuwTsvBTrwX66I9wEuZ90oyAFmXJ9kUUk1OArZEeM2h75dF6A
-	r/B7DO7QW9gBJcQgIpdiVwBFKT83RfaN7BircvDNh2Oi8x6NjjstTObBw6sGlnN6st6jpaNTrUWYM
-	oeUenB4cfXwN3PdorFLmXU72f0MlvBh238ip8bByGYMDTHJJLkG28VSn7KO1ppR6dP/XMeu6gQI7D
-	BBnandY0I1bv8pI7gh1sFuRfWa2eW7TvPbJX92C9SqP2YSAzxZm0ejcF4gw3JFes81hLWl1xiURWE
-	cR5ZZeug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bp4smBXWngtLnCVkcwadCwnjBYS4OcMYrjrkfvXHXrg=; b=JblA+ANFvrG6A8wk1AyGLa4XDH
+	qLCwYyIEF2gV0iFuiDMITYNmVVvMtRJhSQdS7ipGZq634cUMZos4Xtkz7TPh3AfJgsGvt+MvazIuE
+	cDM5J0f5VoXMuIil7aE/I68yOnx4c6+CqjUohCvOIfHaosMQe8DgG5+5RdR2RDJ7GwPrHccywaxLM
+	sBqwD1PWEbnqVrYa4XWLiVtV7NV54UhzGv1gfpKfHg31MQG4uTztvHEYSpFN27MzGR9Vg91sr4H4o
+	QCSeOCP+1udRmZi3k8ZXVtvdzliOBxm9Xi5XSyZAaRsaXXltkZMd32z8/GYcBh0JbEsRCVwq/N/ry
+	87p2fLWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsdM-0000000AGNh-1VSI;
-	Wed, 18 Jun 2025 13:15:20 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrLB-0000000A1e9-2G6P
+	id 1uRseh-0000000AGdb-3yxQ;
+	Wed, 18 Jun 2025 13:16:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRpwh-00000009lex-0yrp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 11:52:31 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250618115220euoutp01558f2b6d78cb2b4d5a3c95d433a16633~KIN117Uz82466024660euoutp01l
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 11:52:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250618115220euoutp01558f2b6d78cb2b4d5a3c95d433a16633~KIN117Uz82466024660euoutp01l
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1750247540;
-	bh=m79J0HkRILX18o9YHg3zwFo1BQ7buYBrq3hUc2UmA0Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Llo+EfXzP1oOgMXB4bWM18AUmwsFEtwyMYVLGKRTfVpf1E13mpK5MD3seMzN4ImiC
-	 3UER7TFNfBcA1ghElrDeQIj5A+udaRkJnHoh1Iys8bco0T0CQ4OBeCmlFB/zjoPcJB
-	 dSLPq592DzDWzpMEF5NjhjnIi7MxtFSQJes5gzF4=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f~KIN1bTnxw1996919969eucas1p2k;
-	Wed, 18 Jun 2025 11:52:20 +0000 (GMT)
-Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250618115219eusmtip18897b4f23ab32963bdf77ba1539d4e47~KIN01wgHH0059000590eusmtip1T;
-	Wed, 18 Jun 2025 11:52:19 +0000 (GMT)
-From: Mateusz Majewski <m.majewski2@samsung.com>
-To: linux.amoon@gmail.com
-Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org,
-	rui.zhang@intel.com, Mateusz Majewski <m.majewski2@samsung.com>
-Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature
- threshold interrupts and clear corresponding IRQs
-Date: Wed, 18 Jun 2025 13:52:11 +0200
-Message-ID: <20250618115211.2239335-1-m.majewski2@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250616163831.8138-3-linux.amoon@gmail.com>
+	Wed, 18 Jun 2025 10:23:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 965ED14BF;
+	Wed, 18 Jun 2025 03:22:45 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CBD383F66E;
+	Wed, 18 Jun 2025 03:23:04 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: jarkko@kernel.org,
+	sudeep.holla@arm.com,
+	peterhuewe@gmx.de,
+	jgg@ziepe.ca,
+	stuart.yoder@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using CRB over FF-A
+Date: Wed, 18 Jun 2025 11:23:00 +0100
+Message-Id: <20250618102302.2379029-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
-X-EPHeader: CA
-X-CMS-RootMailID: 20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f
-References: <20250616163831.8138-3-linux.amoon@gmail.com>
-	<CGME20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_045230_133424_47E898C2 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250618_032307_311344_702944B7 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +67,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello :)
+To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+the TPM driver must be built as built-in and
+must be probed before the IMA subsystem is initialized.
 
-> +#define INTSTAT_FALL2	BIT(24)
-> +#define INTSTAT_FALL1	BIT(20)
-> +#define INTSTAT_FALL0	BIT(16)
-> +#define INTSTAT_RISE2	BIT(8)
-> +#define INTSTAT_RISE1	BIT(4)
-> +#define INTSTAT_RISE0	BIT(0)
-> +
-> +#define INTCLEAR_FALL2	BIT(24)
-> +#define INTCLEAR_FALL1	BIT(20)
-> +#define INTCLEAR_FALL0	BIT(16)
-> +#define INTCLEAR_RISE2	BIT(8)
-> +#define INTCLEAR_RISE1	BIT(4)
-> +#define INTCLEAR_RISE0	BIT(0)
+However, when the TPM device operates over the FF-A protocol using the CRB interface,
+probing fails and returns -EPROBE_DEFER if
+the tpm_crb_ffa device — an FF-A device that provides the communication
+interface to the tpm_crb driver — has not yet been probed.
 
-> +	/* Map INTSTAT bits to INTCLEAR bits */
-> +	if (val_irq & INTSTAT_FALL2)
-> +		clearirq |= INTCLEAR_FALL2;
-> +	else if (val_irq & INTSTAT_FALL1)
-> +		clearirq |= INTCLEAR_FALL1;
-> +	else if (val_irq & INTSTAT_FALL0)
-> +		clearirq |= INTCLEAR_FALL0;
-> +	else if (val_irq & INTSTAT_RISE2)
-> +		clearirq |= INTCLEAR_RISE2;
-> +	else if (val_irq & INTSTAT_RISE1)
-> +		clearirq |= INTCLEAR_RISE1;
-> +	else if (val_irq & INTSTAT_RISE0)
-> +		clearirq |= INTCLEAR_RISE0;
+To ensure the TPM device operating over the FF-A protocol with
+the CRB interface is probed before IMA initialization,
+the following conditions must be met:
 
-This implies that only these 6 bits are used. Is this true for all SoCs
-supported by this driver? My understanding is that Exynos 5433 in particular
-uses bits 7:0 for rise interrupts and 23:16 for fall interrupts. When I tested
-this patch (both alone and the whole series) on 5433 by running some CPU load,
-the interrupt seemed to not fire consistently:
-/sys/class/thermal/cooling_device1/cur_state would never go above 1 (which is
-consistent with the interrupt firing once, not getting cleared and never firing
-again; without this patch, it consistently went up to 6) and I got a quick
-reboot every time.
+   1. The corresponding ffa_device must be registered,
+      which is done via ffa_init().
 
-Thank you,
-Mateusz Majewski
+   2. The tpm_crb_driver must successfully probe this device via
+      tpm_crb_ffa_init().
+
+   3. The tpm_crb driver using CRB over FF-A can then
+      be probed successfully. (See crb_acpi_add() and
+      tpm_crb_ffa_init() for reference.)
+
+Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+all registered with device_initcall, which means crb_acpi_driver_init() may
+be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+
+When this occurs, probing the TPM device is deferred.
+However, the deferred probe may happen after
+the IMA subsystem has already been initialized,
+since IMA initialization is performed during late_initcall,
+and deferred probing is handled asynchronously via a workqueue.
+
+This patch addresses the issue by ensuring timely probing of
+the tpm_crb_ffa device during TPM initialization:
+
+  Patch #1: Change the initcall level of ffa_init() to rootfs_initcall,
+            so that the FF-A device is created before any FF-A drivers are loaded.
+
+  Patch #2: When built as built-in, call ffa_register() within tpm_crb_ffa_init()
+            to ensure the Secure Partition used by tpm_crb_ffa is already registered
+            before the TPM device is probed.
+
+==============
+Patch History
+==============
+  Since v3:
+     - remove BUG_ON.
+     - https://lore.kernel.org/all/20250611112448.17751-1-yeoreum.yun@arm.com/
+
+  Since v2:
+     - rewrite cover letter and commit message:
+     - https://lore.kernel.org/all/aEgwpXXftXW6JNRy@e129823.arm.com/
+
+  Since v1:
+     - rewrite commit message.
+     - https://lore.kernel.org/all/20250606105754.1202649-1-yeoreum.yun@arm.com/
+
+Yeoreum Yun (2):
+  firmware: arm_ffa: Change initcall level of ffa_init() to
+    rootfs_initcall
+  tpm: tpm_crb_ffa: try to probe tpm_crb_ffa when it's built-in
+
+ drivers/char/tpm/tpm_crb_ffa.c    | 19 ++++++++++++++++---
+ drivers/firmware/arm_ffa/driver.c |  2 +-
+ 2 files changed, 17 insertions(+), 4 deletions(-)
+
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
