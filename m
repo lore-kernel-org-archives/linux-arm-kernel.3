@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B15C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B75C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 10:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnxfuvL0jWEwZITmIsWGgtSuawlOa6jWM38aJMINGyY=; b=bvXdz+S2v1x6y2jCqULr39a/TY
-	gRFnhFM3CyHcRJ4wH+Rv8i+M5a+98JSpdEOONuyyecanopS7KiwjOHswSIxdtop0/ECzo8pcXuIuH
-	bGMdzwq4G7OlGQ1tk6Mn7FbgLOV/m8mDIn/U0uONKoQYhtKt0o2hW0blS5h16g3ciFLpagmLTRsMc
-	dvZRARkLH0DxSbuzkIytacbnnKHriXTQW29fMZQ7cQvLIe/50j/iV+eIoFSCN1QphstgPf/4xkk1X
-	yQsgxDAU133eQpFW+m4XGIFtmHi8uGhaJs5mCtEuJxDFthtBzwsDBcSkzgtcDkYprQ30T+3f2dxuM
-	rXUp3tpg==;
+	bh=MZIoo5+7lV+n9paUik2u+W3SmlZDt3V3nfcfBSbjJ9Q=; b=WbCrdHr5vx3NJ9apJUmPCg01vF
+	DLv933GagEF0xxD5gJgUkm+sehaLx0IrQW1iHU2bY+AcmWvR0kny4D+ql1+GwYWyO0XpfMMvVvoQK
+	f8xZa0umcp/61Xg9rrTu3WdoVRC6OaRQ++v/Gm1mjx+suILSnuwp6eL0TR7xw3PnzhwhC36JQ2W81
+	verGa9Z6TdgVmmJVj6fQ7no/kuDNi8DQkob2ory2BmfI6G7KV4APzdj7mv6IuXQs6UWHs/usqp4dx
+	h+KkU4+tST9rxD1SL8HmVVLUEcCCybm9H2/nYEu6Xl/6+Z9peJrxL0wYVMFOkjAj0rQ7UN8K3EdU1
+	8NlDvevg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpeJ-00000009hf8-2sMZ;
-	Wed, 18 Jun 2025 10:04:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uRpgV-00000009iEt-1mVT;
+	Wed, 18 Jun 2025 10:06:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpNN-00000009ePS-2l5E
+	id 1uRpYN-00000009g9y-3db4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 09:46:38 +0000
+	Wed, 18 Jun 2025 09:57:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA940A52424;
-	Wed, 18 Jun 2025 09:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FB62C4CEE7;
-	Wed, 18 Jun 2025 09:46:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4BF2F6112A;
+	Wed, 18 Jun 2025 09:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7274C4CEED;
+	Wed, 18 Jun 2025 09:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750239996;
-	bh=icA8i4l8ZKZjcy0dBRrGW3a8Bg7+G+XFL+rrIP25wXg=;
+	s=k20201202; t=1750240679;
+	bh=sJZp6Cty2kULs3H72Uqi/r8D1dZGtmrOYsu2JE7gUsw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vPgDL5YQlKJc2F0HIFaOcOHCRbiujXcmboYZ26D4x2Perm89UtXVjJrA6tR6oKAm2
-	 PIij+iqsUw3rRPcTKXjDfEBTz3i86UHY4wGREMatcEnUMU6X4YNdIy7SHhojbyZ1D/
-	 73mJ1x84RaMSYipHSQVARX2+wuoIfZLJX9r4DVaCGtCku0w9PO13+Am2CjsI7Y7Q4Z
-	 K+jusiOuEsJjeZB/wlaYHMGfpXV/3ktV9QHaB/VgIdyprRFO/MV4aty0aODJxrrtJE
-	 EbGE6XR52Vq3xNB7X+xQUYaYUpcvUS2q6yVHQ9QB5pWKj8aPqbaX8bb+WdLsfEhmwk
-	 zfjPHrMR649UQ==
-Message-ID: <7bb375c8-1a43-40e2-891c-8815c9cc94ff@kernel.org>
-Date: Wed, 18 Jun 2025 11:46:32 +0200
+	b=c/gp2DTBC521GSxX7SVZvNrT3kgliij0pmAbrvFV0I9l47OXf6OCD9cP12jCkVX2V
+	 amc4h0macNXFTFm1nS7La04OBKCZDvjfbj1qprBY3Z06nRcSjaPFfRglk3TDIIATeY
+	 xjPuiLNptl72owwbeySXRa1NmzpSenle0nueKa5km6uIjai32GivwIYiJ07z3nwi5W
+	 Pd/+Kt9eaS+ldM30tAAFnTJSnXhQYZt2Xy4liv5CZv6FeAbILAo3goIN5NqxY+w2LI
+	 PLal01E4wKJGe4GaCuWiN0/P2gqmqrYUoP6J7iO7WXk2UI6ST7U78MmgVlFBrWpW9B
+	 EKRBR2vLaWWcQ==
+Message-ID: <99e31fd7-e0b6-406f-bf4c-ceee8a0db93b@kernel.org>
+Date: Wed, 18 Jun 2025 11:57:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: samsung: exynos-sysreg: add exynos7870
- sysregs
+Subject: Re: [PATCH 3/5] arch: arm64: dts: exynos7870-on7xelte: enable display
+ panel support
 To: Kaustabh Chakraborty <kauschluss@disroot.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
- <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+ <20250612-exynos7870-drm-dts-v1-3-88c0779af6cb@disroot.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250612-exynos7870-drm-dts-v1-1-88c0779af6cb@disroot.org>
+In-Reply-To: <20250612-exynos7870-drm-dts-v1-3-88c0779af6cb@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_024637_839051_C07EC369 
-X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,32 +118,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/06/2025 17:23, Kaustabh Chakraborty wrote:
-> Add sysreg compatible strings for the Exynos7870 SoC. Two sysregs are
-> added, used for the SoC MIPI PHY's CSIS and DSIM blocks.
+> Enable DECON and DSI nodes, and add the compatible display panel and
+> appropriate panel timings for this device. Also, disable the
+> simple-framebuffer node in favor of the panel.
+> 
+> This device has a 1080x1920 Synaptics TD4300 display panel.
 > 
 > Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 > ---
->  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml      | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 40 ++++++++++++++++++++++
+>  1 file changed, 40 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-> index d27ed6c9d61ea9db77229eca60b6b9a0abc5d305..174bdb8ee932ff965de6fc17aef004a3cedffeb3 100644
-> --- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-> @@ -52,6 +52,12 @@ properties:
->                - samsung,exynosautov9-sysreg
->            - const: syscon
->          deprecated: true
-> +      - items:
-> +          - enum:
-> +              - samsung,exynos7870-cam-sysreg
-> +              - samsung,exynos7870-disp-sysreg
-> +          - const: samsung,exynos7870-sysreg
+> diff --git a/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+> index eb97dcc415423f405d7df9b9869b2db3432fb483..86a7fc2554a137752862c37d27cf9813b3ac5514 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+> +++ b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+> @@ -40,6 +40,8 @@ framebuffer@67000000 {
+>  			height = <1920>;
+>  			stride = <(1080 * 4)>;
+>  			format = "a8r8g8b8";
+> +
+> +			status = "disabled";
 
+This should be rather removed. What is the idea behind keeping disabled
+node?
 
-Drop. These are not really compatible or your commit msg is incomplete.
-Don't use deprecated syntax and backwards compatible solutions for new
-hardware.
 
 Best regards,
 Krzysztof
