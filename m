@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F65C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86813C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KjZofD8UCzXhhI1yPDaoEBGyezpEQ9lP3/wUlAw80Q=; b=1dO8HtuFBBS13UfegfsHHwQw2F
-	oH8Z11wDxYpklo89jUNOJmpiF3IJ650HKFFAz6ed4pWZDNjp+zBf3B3rqMPqpknytkxgnyAW2suYN
-	PJEMgFK2eh1OEIJ3uceykmACYpUYO8bGRjPBXdEUHXDJrAw5NsENQioAkk72fKK9LHaSeEiIR3MHk
-	3CSfuapMHbwr5NMLjiirVI+BeA4JitK/NICVMFOuX3Ou9QoVB9C3RapuhQVdR7wjno2wrWDq2bGlh
-	r4r3R6mYvkkwIHc6MXyv3bPWs32Wj/Du2hgeuoreN+GvBeOV1Dg4iU7IWKEywT8MMuCYPLZtaEffG
-	on0x916g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=; b=SsM+1jPkfdJhLuIRdaeBeIFO3l
+	U7nBqMyfe5K2eBmz9vT5vczAHXEASXxV7AIfRtetRqpcpLpcXnBEy7gOYGDLpx0vxDHi7FT6cM1hI
+	6OFLXR9JEUy5F2UzZDhkoTWqr8z1NVXlLt0xdSli5fiu+0MOqpEuTILhtuzBAYRMYTovUwifUa7Fz
+	qCmtLzkIEsXJYCHhhc1Xyxf/skCfnJnl4G+fECBJzphA/2iG5nLkHHMwN5WhM9hlLz4Sxx26o+Ffv
+	wtM6sGs1sL+uO9USP79lt0dYseIL8C9TAMJTQObBzIaeqtWz+r1umaEDnIpTdp1zOLdQeB12cNCZE
+	becEJb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsUS-0000000AE99-10id;
-	Wed, 18 Jun 2025 13:06:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRquJ-00000009vdE-0PTO
+	id 1uRsWf-0000000AEWC-1VgH;
+	Wed, 18 Jun 2025 13:08:25 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRr1c-00000009wrj-0aQv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 11:24:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC4951BC0;
-	Wed, 18 Jun 2025 04:24:21 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 132823F58B;
-	Wed, 18 Jun 2025 04:24:42 -0700 (PDT)
-Date: Wed, 18 Jun 2025 12:24:40 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Yicong Yang <yangyicong@huawei.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	yangyicong@hisilicon.com, James Clark <james.clark@linaro.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	yangjinqian <yangjinqian1@huawei.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-Message-ID: <20250618112440.GC794930@e132581.arm.com>
-References: <aEyGg98z-MkcClXY@x1>
- <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
- <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
- <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
- <20250616130736.GA788469@e132581.arm.com>
- <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
- <20250616160811.GA794930@e132581.arm.com>
- <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
- <20250617141810.GB794930@e132581.arm.com>
- <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
+	Wed, 18 Jun 2025 11:32:17 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-553b165c80cso5813373e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 04:32:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750246334; x=1750851134; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=;
+        b=EKqWDH20QK05Yf9eqv9mZ/mNS0BQBJ1P/h0bxPKiQxuOKG5i4BoAF6+bltZm98KN2/
+         cVBI3Ng2yJqcmOiOEK2bKvQI9jeRYlgdF8a63E96WrjYzV/barOSz0576jPaFvMBkIiC
+         EJ+7W3yluJpq8u1VqCvOljHEw3eCcdokmuDYn/ODlzJl5l7LlqW/UBo9rvV5gR+s/bUc
+         pd+LMxhnwaKlBgh2LCsu9IxIsygyCVZJe4/PII1ZUablH+08t1RUht109xuNW6CTTr2i
+         dWBPcErxzoU4vHs8LMFcx8SIuPkmYtKRAIEWfmeSEjdSqqp9b6HOEodDUD0u0gCvOWEz
+         GJ8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750246334; x=1750851134;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Dn2ph2mkRUbTFNZLkAEFvorPY5MaAM3g9LKeDgumlGU=;
+        b=g0vsDUMVrvev7ZmCm5onf0ynIuYywtydG5unjPe+U9VIZek7cAbqfNDVeVWWCKjWyb
+         uETQGZn8wbxE3nDqMlLoslxw3O0t0jNLK2JjlfX8bH3fUmRb6EtUAOxueTTywr+a6rUH
+         6YCXnhREnHtLIl9OeiAEo4xqjdPUWRGsgmBG/3bJWXdmdhOZh16GIo3+c0trDa9F7kKZ
+         jBfSLWaM8x+yXz2uh8ytq3YVNeSM/5377RjM3ocojRGJ48eYyaFihuRcc1rqvt6KzUvv
+         COz7W+x27XtmrOP8SertFIr8bIPtrW18w74KhHs2lBmSPBbizErVOStlNt2yCJIisXsP
+         Yj7w==
+X-Forwarded-Encrypted: i=1; AJvYcCXaia+Wpc9dsNNyco+yhq9E3OmorAPU1kmO326DtSWz7dbrAcFl/G5ZudLvPntMapPWE0lUXYLCKsyR7/6jtZjX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCsJCKEsHLFWlOtpubBp84tSomtxktsduaVTKKnHGkndXGIfWw
+	y+yJxmees/JlS2ERS/8+gfm5SEAtW4byKiSSa0tvibkweGlaupPE1jPkWCBUvq4Bhv3XAcqkeJS
+	uEHafco/HvLUBHW1LmVc5b6uShqkAsHHMYxZbHqMoRA==
+X-Gm-Gg: ASbGncuWOYPXm1rSv2kc1oyEPoFGudN5ceFJ8N6FdZEf7lQfHO3FB4qpP0/MbGDwrX+
+	6/LHThs82BsPnhk6pKhO6KkjND4PmLsbTKx4Cgzu+0KPW1fq99rvh9FQsqlZ+2V4TcBjLe3S5qc
+	F3aG4XTId/d1oZEe5wBSJpXj0rGn7wCtA/LHqgH1lhA0s=
+X-Google-Smtp-Source: AGHT+IG/cXE1HQ3EEXy0cPSnaDLNTuKJgzCF0qLdhOb/5CcGOOw+a/DTjj5TWhlAS5cXMjlqM/mbx0AMV43GUJjmW2k=
+X-Received: by 2002:a05:6512:31d6:b0:553:2e4a:bb58 with SMTP id
+ 2adb3069b0e04-553b6e7337amr4658199e87.9.1750246334530; Wed, 18 Jun 2025
+ 04:32:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
+References: <20250611104348.192092-1-jirislaby@kernel.org> <20250611104348.192092-17-jirislaby@kernel.org>
+In-Reply-To: <20250611104348.192092-17-jirislaby@kernel.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 18 Jun 2025 13:32:03 +0200
+X-Gm-Features: AX0GCFvVR50_3aX2UCUBcxsZuxXj9BpNTfKCs9hxZHJvTphADGhBSjR3yjyWU08
+Message-ID: <CACRpkdYkgHzEnqN3VA2MqBChjtwjC+Fhem7Bo3PdnfGZQgQ99Q@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: Use dev_fwnode()
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org, tglx@linutronix.de, 
+	Sean Wang <sean.wang@kernel.org>, linux-gpio@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_042443_230428_2BF2A71E 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20250618_043216_184891_A20307E3 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 09:52:53AM +0100, Mark Rutland wrote:
+On Wed, Jun 11, 2025 at 12:44=E2=80=AFPM Jiri Slaby (SUSE) <jirislaby@kerne=
+l.org> wrote:
 
-[...]
+> irq_domain_create_simple() takes fwnode as the first argument. It can be
+> extracted from the struct device using dev_fwnode() helper instead of
+> using of_node with of_fwnode_handle().
+>
+> So use the dev_fwnode() helper.
+>
+> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+> Cc: Sean Wang <sean.wang@kernel.org>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: linux-gpio@vger.kernel.org
 
-> > > Other than that, I think that userspace should just maintain its own
-> > > infrastructure, and only pull in things from kernel sources when there's
-> > > a specific reason to. Otherwise we're just creating busywork.
-> > 
-> > I agree with the methodology.
-> > 
-> > Since Arnaldo is facing build failure when sync headers between kernel
-> > and perf tool, to avoid long latency, let us split the refactoriing
-> > into separate steps.
-> > 
-> > As a first step, I think my previous suggestion is valid, we can create a
-> > header tools/perf/arch/arm64/include/cputype.h with below code:
-> > 
-> >   #include "../../../../arch/arm64/include/asm/cputype.h"
-> 
-> Directly including the kernel header introduces the very fragility that
-> having a copy was intended to avoid. NAK to that.
+Patch applied!
 
-My suggestion is not to include the kernel header, nor to modify the
-copy header. :)
-
-Instead, I suggested creating a new header within the perf tool (under
-perf's arm64 folder) and then include the copy header in tools:
-
-  tools/arch/arm64/include/asm/cputype.h
-
-> I've replied to the same effect Yicong's patch [1,2].
-> 
-> If we want to share headers between userspace and kernel, we should
-> refactor those headers such that this is safe by construction.
-> 
-> There is no need to update the userspace headers just because the kernel
-> headers have changed, so the simple solution in the short term is to
-> suppress the warning from check-headers.sh.
-
-Sure, makes sense for me.
-
-@Arnaldo, as Mark suggested, do you want me to send a patch to remove
-cputype.h checking in check-headers.sh or it is fine to keep the warning
-until finish the header refactoring?
-
-@Yicong, could you confirm if you proceed to refactor the MIDR? thanks!
-
-Just note, I searched tools folder and found kselftest also uses the
-cputype.h header. The refactoring should not break the files below.
-
-$ git grep cputype.h
-perf/check-headers.sh:check arch/arm64/include/asm/cputype.h '-I "^#include [<\"]\(asm/\)*sysreg.h"'
-perf/util/arm-spe.c:#include "../../arch/arm64/include/asm/cputype.h"
-testing/selftests/kvm/arm64/psci_test.c:#include <asm/cputype.h>
-testing/selftests/kvm/lib/arm64/vgic.c:#include <asm/cputype.h>
-
-Thanks,
-Leo
-
-> [1] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m23dfbea6af559f3765d89b9d8427213588871ffd
-> [2] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m6acbfa00002af8ee791266ea86a58f8f994ed710
-> 
-> Mark.
-> 
-> > 
-> >   static bool is_perf_midr_in_range_list(u32 midr,
-> >                                          struct midr_range const *ranges)
-> >   {
-> >           while (ranges->model) {
-> >                   if (midr_is_cpu_model_range(midr, ranges->model,
-> >                                   ranges->rv_min, ranges->rv_max))
-> >                           return true;
-> >                   ranges++;
-> >           }
-> > 
-> >           return false;
-> >   }
-> > 
-> > Then, once we can generate a dynamic MIDR header file, we can use that
-> > header and define the midr_range structure specifically in the perf.
-> > In the end, perf can avoid to include kernel's cputype.h.
-> > 
-> > If no objection, Yicong, do you mind preparing the patch mentioned
-> > above? Thanks!
-> > 
-> > Leo
+Yours,
+Linus Walleij
 
