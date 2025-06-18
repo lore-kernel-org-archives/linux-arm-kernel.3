@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4094CC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677EDC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aooWiy38peBjxv+9KQHPPSmI2vOz+cAS4Yak4J02roU=; b=md+DWpd0TgvjoIfD7NJ315bLp7
-	Lfmbc9GLuJgeUiMKF5IWQZK+xeJnRFPLsS+WtOA1YAhd8lbyjXksAZLZ4rxqjTdDf5hyVzqTM9uuY
-	BSaBjuxCq1G+qMdr2OAEjM7rZniXRrUnVZmosl05DT+lCz578O7v/9gpUYr5N1LbiKjiIU1wOBoM1
-	liIKsZ4hlskC/KpzdjzZ7X44u8wCRdjD76xdwPi4iuCZXsv7ef4KDnjXrhtKy+l4F+dpcEzU6zOIx
-	fKhpI/OI2hOs9L0M1aqWxZhUBuWTfxZMLd5nkdPuqgR6IwcwCKwoV2NJ1O5pcFz1DevGuLRGF26yk
-	n7FHD4+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Syf1DUgVsklfoUbcinEl+UlxP/kOThIldFslux1DC8c=; b=cj0kmfej2Mj+iNN/Jvq6o1HwIo
+	b4BcXAW7SsRtGKGwf/iBi5X079kX6I7zSO7f0JjiRSZAsQN834KCDbf3f+D5li3l+irj4gYPHzwNT
+	pKHmxIh720Kmg5Sfjd8cDazQMnTq0s6nr9dRLaG5pSTLxtRPfDInQL+wvtuWOp0chTiX4mAyzpGKZ
+	vybfavHzi65hp9GBvbQ/kZhOmYqvHmDYnETZ0YEXZjO9Ps7B9FMP6IXjbL2FiAv3egQWAKH4w72Ty
+	ZjXbMWQfo//3Aunhv8DaUYhOzahDeFBjQkofIlWw6eOen6JiwiuOkcHqWdwQQKOvz1Dffgv7xzIfv
+	t0HKKeYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrfS-0000000A5CQ-3eZL;
-	Wed, 18 Jun 2025 12:13:26 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uRrmO-0000000A6FZ-0rCg;
+	Wed, 18 Jun 2025 12:20:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRpz3-00000009mDP-0xSA
+	id 1uRq2b-00000009n1U-1nNH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:25:34 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a4e62619afso585372f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 03:25:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750242331; x=1750847131; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aooWiy38peBjxv+9KQHPPSmI2vOz+cAS4Yak4J02roU=;
-        b=yiKXRf75xH0BKjhVEKBiRHc2HAMx4XkZWTsMM3xwByTEy5BTGWXbTiT/lrkjNGTIhU
-         VZrr0SzbvxrspxXDfqlJ1Uk4KemfBFZN5Me8pcB73fcyktyjNMJiEWqCwU17a1L+Sq5u
-         UcfCW1gywBMEp9Q+Q9/8PbYukD310AutFDsa/d/y4vnb1yIwWpw6VQYOch2aZ5nceYnL
-         EMbv28wL6IIET1R958ePp7Kv1Uk7rGGsZEkhCTKA+oOPFehHvJaJKRGp7Fet38kTU9E+
-         XjolF/wx5xnjy/0sNYsAKS0DbU3DFS1NmUzxahlEMQOrQErCNN14ZMXCSBba/KRcR1Qy
-         dFTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750242331; x=1750847131;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aooWiy38peBjxv+9KQHPPSmI2vOz+cAS4Yak4J02roU=;
-        b=vVFF74/AY3gGW4Yu1z0KXEPbgbzie5cM3jSJHXj17DIaNI3/k6JptQaJRaSeErc/am
-         klHcRxhGPjuHQDZ6+WOCofu1mJfucgvXl0cgQpkzKus7JIx6wv8bjZLdFaUEeYBVmjza
-         +xz1vUt6o05PbYZRSJdtmtDGxunyS/VSv6TjhqhNhxEj9iQIEqX3xQDjOCNeMfGbuUud
-         mr+RtV5QNI9ktE+ZRIGOBBsYncQRJqYtJ9lQRVRGkbxdg+cCaDc99w2TAAW/UYnCvITb
-         VEWEaiMpEGh2MobD1gtPfz3qnep9S5Mh4CemZTPJ/JhtjdgFfcd+KdRJu4Znr+ITTh/n
-         ESgg==
-X-Forwarded-Encrypted: i=1; AJvYcCVoT08lTWGB4Q2DbNG9SFRwPk5e1KRWUYsVMR8Q//h1S1Ge/AXotyCeNiI25fCbqjXWzIes+er++t7txLEJF87I@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+9tUb7BMWh2r8czwvyLTp2YVTSfJckxP4JkI9V8LDLGr8gm27
-	YDWoTnnH2f7BuMAxgI8JF5oUTfn4lxZDAicHAeE7KO+Yh6x4YWQXM+j4uBwC0cOKutz+bxLsEQU
-	BL1k5
-X-Gm-Gg: ASbGncu1m8p2ZL8RBdPKAvmsnfQiBm26aVRE7eFJsN5BR27hHkfiHlJG3KiWU94u1Md
-	n2BcDzVnPKmGnG0THzWjIPR3a4m5ZmwvN12dWMjDQIVkSDTEG+pQnod4JQxf+2zg2nlJi8gmECB
-	7ySTNY/HcKXwHCPpZNwP8EAZbLJSW++28b7xp8q9xxVT7Glv6YpEjHWrR4jcH0nzkCEoSYQn90w
-	QMaO7IXaxcLjtZLQ7xBIRzcWFDVoAs3bfHxEjZ2igBC3wXuvFF/vK0EsJ+vQcL7M5Rlh2NCXFZp
-	EySFySpkoiI7iF8l6ewoZ592MIn/b5wpgH5G7OVz6Tolcbr9ynUqP0Bmis5O5K7eW/IxHrFkFai
-	7BrzOgnY=
-X-Google-Smtp-Source: AGHT+IHJc2gsfkafUzYDEVgL2gH8eVceTDIyYVW64SCKXWQQR0AR9QQt8oTeByDjnRB/rhjrFb0byg==
-X-Received: by 2002:a5d:584c:0:b0:3a4:def8:1465 with SMTP id ffacd0b85a97d-3a585f73c82mr2051598f8f.9.1750242330796;
-        Wed, 18 Jun 2025 03:25:30 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e256630sm208260265e9.29.2025.06.18.03.25.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 03:25:30 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- alim.akhtar@samsung.com, Faraz Ata <faraz.ata@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- rosa.pila@samsung.com
-In-Reply-To: <20250613062208.978641-1-faraz.ata@samsung.com>
-References: <CGME20250613061230epcas5p12c0a029edba39133fc0be22cb0aa1e09@epcas5p1.samsung.com>
- <20250613062208.978641-1-faraz.ata@samsung.com>
-Subject: Re: [PATCH v1] arm64: dts: exynos: Add DT node for all SPI ports
-Message-Id: <175024232949.57697.16977719390655455377.b4-ty@linaro.org>
-Date: Wed, 18 Jun 2025 12:25:29 +0200
+	Wed, 18 Jun 2025 10:29:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9FC85A5250D;
+	Wed, 18 Jun 2025 10:29:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54EC6C4CEE7;
+	Wed, 18 Jun 2025 10:29:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750242552;
+	bh=hA1/C70zCQRsqeKpAGRD4HPcwrD8fzW+BRyIETNDT7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=darTD0yqfMgrbx+HnGO21HdmDFDVdmoRh3QrxdE04Ryew6XHIHaiUh6mViTqBnnku
+	 XivU09Oo12aZEaTi9ayWPuJbB4AOi8cXTGTSy7WJLVHidGlJfyQhhq73d3pBSojp4z
+	 vpBrVB5DtvMd30MRu9GtTmGK9BmmtYHtJt9fJO8+1jq3/wZz+lVCQgbpQIJJEp//yN
+	 mN3qAzvtII/PI+89uTaW4yT/8fmvFpJQeTtK9fNHhYoqlvhEjLrDsUF0dmFAlyuaD+
+	 S/q92aOCERH9RCQZoWygGS4GVZp/vANpJlSfuhycHlUVzpBNXBrlMhr4xxthY5MWwW
+	 Zef7oJXQuICUQ==
+Date: Wed, 18 Jun 2025 11:29:07 +0100
+From: Simon Horman <horms@kernel.org>
+To: Himanshu Mittal <h-mittal1@ti.com>
+Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com,
+	m-malladi@ti.com, pratheesh@ti.com, prajith@ti.com
+Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add prp offload
+ support to ICSSG driver
+Message-ID: <20250618102907.GA1699@horms.kernel.org>
+References: <20250617101837.381217-1-h-mittal1@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617101837.381217-1-h-mittal1@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_032533_269949_487337F9 
-X-CRM114-Status: UNSURE (   6.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_032913_531029_C49B9A23 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 13 Jun 2025 11:52:08 +0530, Faraz Ata wrote:
-> Universal Serial Interface (USI) supports three serial protocol
-> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> Add spi nodes for all the instances.
+On Tue, Jun 17, 2025 at 03:48:37PM +0530, Himanshu Mittal wrote:
+> Add support for ICSSG PRP mode which supports offloading of:
+>  - Packet duplication and PRP trailer insertion
+>  - Packet duplicate discard and PRP trailer removal
 > 
+> Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
+> ---
+> v2-v1:
+> - Align with recent firmware name handling updates made in:
+>  https://lore.kernel.org/all/20250613064547.44394-1-danishanwar@ti.com/
 > 
+> v1: https://lore.kernel.org/all/42ac0736-cb5a-4d99-a11c-6f861adbdb5f@ti.com/
 
-Applied, thanks!
+...
 
-[1/1] arm64: dts: exynos: Add DT node for all SPI ports
-      https://git.kernel.org/krzk/linux/c/134442a04bb9a6981923cbb24f041b5f5690bda6
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
 
-Best regards,
+...
+
+> @@ -349,6 +352,7 @@ struct prueth {
+>  	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
+>  	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
+>  	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
+> +	struct icssg_firmwares icssg_prp_firmwares[PRUETH_NUM_MACS];
+>  };
+
+Hi Himanshu,
+
+Please also add icssg_prp_firmwares to the Kernel doc for struct preth,
+which appears a little above this hunk.
+
+Flagged by ./scripts/kernel-doc -none
+
+Otherwise, this patch looks good to me.
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+pw-bot: changes-requested
 
 
