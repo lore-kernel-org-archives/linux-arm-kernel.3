@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC72C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59FDC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDeX7q/l2+xg1imuGAxKGeggwWOnK+wgg5Zm+bSeJk0=; b=DYUs+DSGqLe2enObV/Dt0UvgHx
-	JIlclTjqeuue6iXsWbLHmF8+xW7YH7220/6ADhLgBPGFJJ+C6Xwp7Hs9/wtrhPm+ydyIBeg/fkyZV
-	v42hjh0TIVK8cuy5LYG1hNNenIMg9A+GDDMVws0llFFzvkR6b0BJVa/urRBQSTqZTez4GI4TB4ZLg
-	HmZWU4OSvepdba6DqQUp4bHd4jQ61takkYN7uYO8oetEoW0ZuwyQAT6/WzYsp0pAWphKQVHYlSYj/
-	bVbbKchxLd9ttF4cNjb2CVHOEl9lOJcGaVNmL9zYApdQ18apodXmVAtvaHBqjkL0fbf/84GDgCre9
-	tMtjg7KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ls5BhwV/rXow5UxJyhbSVTcsRSnSZDxBt+jSrPUpWXk=; b=jujAnwjVwG6l+K0Tldg4wrW2DA
+	ZwLQnWXNLLQkHr4IBQVprHAOVEXgfsdazY5NtxFVaq8u2s45lLI0rtqXSSdY8cJbTYE0qOp9jZ0bT
+	a39zYU+Zb8GdoFlrVYri17M4X/fRFbT5jktM8eAWWWZbXSpgEq9yPewlkXf9UxbhRkIrh2idB16pL
+	uRo3/YUPDtHux142RLNv09Lrly3huFDhD7otUisVOy9yX5Pmq9twhShmpea7Hiz/LEglDUk/O7tUW
+	pjaPzkkOs3Rsc5aNFWUF2V6YyHmQoFO0UtEIK91mzFYlwXyz065JFJP5Is0mFPYI6naJfFTGU5mjz
+	g1wq7QOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0NB-0000000BRsd-1tdh;
-	Wed, 18 Jun 2025 21:31:09 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0AE-0000000BQ8H-0gcM
+	id 1uS0PN-0000000BSDe-36QA;
+	Wed, 18 Jun 2025 21:33:25 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uS0GK-0000000BR49-1uVG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 21:17:47 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-74890390d17so56071b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:17:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750281465; x=1750886265; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SDeX7q/l2+xg1imuGAxKGeggwWOnK+wgg5Zm+bSeJk0=;
-        b=t/Tyd90FzmklWTUzgQ896kkpiVSZnBbKljY/1Oq9jnTeVOlKyIWnPKxAafkTel+o6I
-         Jd+X+CaDPwqK6UQ06HmZ9TtOBCbuO6CfYxpRGZCSLV96It22Cm6TqSC0w86yC4zwjbQY
-         /8sKz/C5Bo/nz2T6r4GCoYfRx+bJUNr/rwpnZGGI6+GnFI4217P0ZrNLIG++lrZ4NIE/
-         lPJOrV0W5O2+c04pXszyXt79KAf3Pd8+BsmbISF7a2G4mfjSmqmuXSMz+PlgZDP+5Lws
-         SVy+XMlV03f1ppHbN/ZWi7Ztki3Fcz3qGvcyw/bBgzDg4jHGpIISnnvkl4y52kvWR6Ox
-         NfEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750281465; x=1750886265;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SDeX7q/l2+xg1imuGAxKGeggwWOnK+wgg5Zm+bSeJk0=;
-        b=inkf4i4CdP/ZLLSexHSght4bbSVQp/l6/pwVzmJzXvKVTq2uVd/fmkaMxDA+mGAXdS
-         3DdF89cPs3IIXOiOIhJAq5OzVAPSm9gz5QR4qpFZAp/nua82x3rdKAQF8cpXPs0jqSBJ
-         ePoNbVJLZR3Hr6zVmVecgm76yhGzlMk7SNYjYYM2jm8AxLJyUWL6zKkgwO0b8nc/9UDr
-         cgHhktSkvZCMoI8mmjaVJxPa35TLGl6VGFrXMJiYF9v0/gUxd9DJ9yk6hzVkmzmnWIUE
-         SgUHr5bDck6S6yLS+k8UeMmFkei896hKCTs7brVM5F4Q2V+FKHcni/TIVgQJVGTOIveV
-         RPaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVYL1HWGYwCy27hwPNlde5R7I2ZC09JDMNN8kLv4P5x3EAhkYjHvqP38IEoOPhs68yaCQgYXTSsAGUH71z5XcwW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzD7+iEVwM1R4xj0/nKo2tR4kq9tjGPfFwSxZVFZwtJfQ+U1+DI
-	pRWSBTs1DpOv63NEiUd9oOA75S2hpQvwb9m4CkJp6gS41AdBf6HHfFZispo6CchAK+QTqhHzDl9
-	2qsoVmQ==
-X-Google-Smtp-Source: AGHT+IFrMBaSJPDppRsJZ5jvlklOZU4VQzs3tJ3F6qMENhjmoLLRaWLyHwVi7GAyrqStyqYxXS8ZDE6slDQ=
-X-Received: from pfbef26.prod.google.com ([2002:a05:6a00:2c9a:b0:747:aac7:7c2])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:3399:b0:21a:e091:ac25
- with SMTP id adf61e73a8af0-21fbd505f24mr32186546637.6.1750281465010; Wed, 18
- Jun 2025 14:17:45 -0700 (PDT)
-Date: Wed, 18 Jun 2025 14:17:43 -0700
-In-Reply-To: <aFMS4O2TkWN8nexY@linux.dev>
-Mime-Version: 1.0
-References: <20250618042424.330664-1-jthoughton@google.com>
- <20250618042424.330664-3-jthoughton@google.com> <aFMS4O2TkWN8nexY@linux.dev>
-Message-ID: <aFMs9_GBVsiRmgz7@google.com>
-Subject: Re: [PATCH v3 02/15] KVM: arm64: Add "struct kvm_page_fault" to
- gather common fault variables
-From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 18 Jun 2025 21:24:05 +0000
+Received: from [100.64.233.194] (unknown [52.148.171.5])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7A11E21176C3;
+	Wed, 18 Jun 2025 14:24:02 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A11E21176C3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1750281842;
+	bh=ls5BhwV/rXow5UxJyhbSVTcsRSnSZDxBt+jSrPUpWXk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BsQ6rpq5kP82jTrCwdbhbGuuE2B9f7rgUAO9bg5QMw5TFudEPZjoyRZyye2Mr4m1L
+	 isVGO11zm+0YSekIiKGN8p7n4I+JDViI0j3P97NKDR6nH2StHlReyabY6WWK+uBDZW
+	 j7vTkhOfSnBGfEJWqqFsXJUMAj8fse6LnoXq+mio=
+Message-ID: <5dbd2057-6b0d-45f0-8cf7-935509d4fb03@linux.microsoft.com>
+Date: Wed, 18 Jun 2025 14:24:01 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
+ interrupts on nested
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
+ <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <1749599526-19963-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1749599526-19963-5-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157BAE54D3BBD4CD8065722D475A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157BAE54D3BBD4CD8065722D475A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_141746_204201_2210A035 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250618_142404_548412_418E70AB 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025, Oliver Upton wrote:
-> On Wed, Jun 18, 2025 at 04:24:11AM +0000, James Houghton wrote:
-> > From: Sean Christopherson <seanjc@google.com>
-> > 
-> > Introduce "struct kvm_page_fault" and use it in user_mem_abort() in lieu
-> > of a collection of local variables.  Providing "struct kvm_page_fault"
-> > will allow common KVM to provide APIs to take in said structure, e.g. when
-> > preparing memory fault exits.
-> > 
-> > No functional change intended.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > Signed-off-by: James Houghton <jthoughton@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h |  9 +++++++++
-> >  arch/arm64/kvm/mmu.c              | 32 +++++++++++++++++--------------
-> >  2 files changed, 27 insertions(+), 14 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 6ce2c51734820..ae83d95d11b74 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -413,6 +413,15 @@ struct kvm_vcpu_fault_info {
-> >  	u64 disr_el1;		/* Deferred [SError] Status Register */
-> >  };
-> >  
-> > +struct kvm_page_fault {
-> > +	const bool exec;
-> > +	const bool write;
-> > +	const bool is_private;
-> > +
-> > +	gfn_t gfn;
-> > +	struct kvm_memory_slot *slot;
-> > +};
-> > +
+On 6/11/2025 4:07 PM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, June 10, 2025 4:52 PM
+>>
+>> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>>
+>> Running as nested root on MSHV imposes a different requirement
+>> for the pci-hyperv controller.
+>>
+>> In this setup, the interrupt will first come to the L1 (nested) hypervisor,
+>> which will deliver it to the appropriate root CPU. Instead of issuing the
+>> RETARGET hypercall, we should issue the MAP_DEVICE_INTERRUPT
+>> hypercall to L1 to complete the setup.
+>>
+>> Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
+>>
+>> Co-developed-by: Jinank Jain <jinankjain@linux.microsoft.com>
+>> Signed-off-by: Jinank Jain <jinankjain@linux.microsoft.com>
+>> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> ---
+>>  drivers/pci/controller/pci-hyperv.c | 18 ++++++++++++++++--
+>>  1 file changed, 16 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+>> index 4d25754dfe2f..0f491c802fb9 100644
+>> --- a/drivers/pci/controller/pci-hyperv.c
+>> +++ b/drivers/pci/controller/pci-hyperv.c
+>> @@ -600,7 +600,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
+>>  #define hv_msi_prepare		pci_msi_prepare
+>>
+>>  /**
+>> - * hv_arch_irq_unmask() - "Unmask" the IRQ by setting its current
+>> + * hv_irq_retarget_interrupt() - "Unmask" the IRQ by setting its current
+>>   * affinity.
+>>   * @data:	Describes the IRQ
+>>   *
+>> @@ -609,7 +609,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
+>>   * is built out of this PCI bus's instance GUID and the function
+>>   * number of the device.
+>>   */
+>> -static void hv_arch_irq_unmask(struct irq_data *data)
+>> +static void hv_irq_retarget_interrupt(struct irq_data *data)
+>>  {
+>>  	struct msi_desc *msi_desc = irq_data_get_msi_desc(data);
+>>  	struct hv_retarget_device_interrupt *params;
+>> @@ -714,6 +714,20 @@ static void hv_arch_irq_unmask(struct irq_data *data)
+>>  		dev_err(&hbus->hdev->device,
+>>  			"%s() failed: %#llx", __func__, res);
+>>  }
+>> +
+>> +static void hv_arch_irq_unmask(struct irq_data *data)
+>> +{
+>> +	if (hv_nested && hv_root_partition())
 > 
-> So this seems to cherry-pick "interesting" values into the structure but
+> Based on Patch 1 of this series, this driver is not loaded for the root
+> partition in the non-nested case. So testing hv_nested is redundant.
+> 
 
-s/interesting/necessary.  I literally grabbed only the fields that were needed
-to handle the userfault :-)
+Good point, I'll change it to just check for hv_root_partition() here.
 
-> leaves the rest of the abort context scattered about in locals. If we're
-> going to do something like this I'd rather have a wholesale refactoring
-> than just the bits to intersect with x86 (more on that later...)
+>> +		/*
+>> +		 * In case of the nested root partition, the nested hypervisor
+>> +		 * is taking care of interrupt remapping and thus the
+>> +		 * MAP_DEVICE_INTERRUPT hypercall is required instead of
+>> +		 * RETARGET_INTERRUPT.
+>> +		 */
+>> +		(void)hv_map_msi_interrupt(data, NULL);
+>> +	else
+>> +		hv_irq_retarget_interrupt(data);
+>> +}
+>>  #elif defined(CONFIG_ARM64)
+>>  /*
+>>   * SPI vectors to use for vPCI; arch SPIs range is [32, 1019], but leaving a bit
+>> --
+>> 2.34.1
 
-Definitely no objection from me.  How about I send a standalone patch so that we
-can iterate on just that without James having to respin the entire series (for
-changes that have no meaningful impact)?  I'm anticipating we'll need a few rounds
-to strike the right balance between what was done here and "throw everything into
-kvm_page_fault".  E.g. we probably don't want "vma" in kvm_page_fault.
-
-Hmm, yeah, and I suspect/hope that moving more things into kvm_page_fault will
-allow for encapsulating the mmap_read_lock() section in a helper without having
-a bajillion boolean flags being passed around.  That would obviate the need to
-nullify vma, because it would simply go out of scope.
 
