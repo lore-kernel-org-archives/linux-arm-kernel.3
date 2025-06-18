@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8B4C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EECC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yejNzaeT4AqdRcBrvlusXMKj3PtwKLMmx9ArpWPMOyU=; b=hSOc5CYGyv3T2hjmAXtxuCNmiD
-	RaIKmn6ng+9H/bnPNYIPJsLZRZzCxd19xdISqy0iNiX3aSqKo6UVot2ItN9tdS2cPgGcxkOMFx/Tn
-	tS1XBraMJh4rT1f69+/NNW3aBZN6q5dM8erX3MkMG9LQN08aP0pJe8BEcWrZ6sz1kl3G8ocJYm3EK
-	DFiqH8FezYwz34fybIrkF/s1mkERJH8FEIgdrEnqlNE73m/7HcFLp0CbQF1saPGFRkY8EUtHVvy/J
-	lL9MpV8VqHW79c9AfA1j2JrrQRqPy3fQp4AT/WVcC0xfqxGNOunDoGc0ZT5o26wI5F/6daYdFKulV
-	SCVc/PoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=trroXU93EYK0HpRYK6NyRWOhBYcZDpDonMFpc3M9xZg=; b=KCENDsZwqe2pGgIw8Uhs+vl5BA
+	+heyw0Jyb9daWdMmQ6BlQ5Q2j2pKz3aDY7kNhdeY5gxBiEnfrVQXKez14JeoW3onRsZpAez0TWmHz
+	u0Vuxm3i7NDh0VIWQ1Yj5cmM79OyqRD9X7TH25LvNY2WylFKmqu9H9z7xxC+CenTUwbwhtJjOco0O
+	XXNHItBDaimWia0jRLW5NWhDpQqidK/xjXRoxqqS0qSX52BqLkMHLYJLBqkO/mzjPsu9c9pIAW2CB
+	7nOPkmcISZPh9kZUVVGLjbgEHcEB6KRP6Sze/EWqoWfy/flx2hiHs8YTZcZReLKGj/OsIXtGk7EOi
+	/b4blvlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRuA2-0000000AVMu-0fSL;
-	Wed, 18 Jun 2025 14:53:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsRN-0000000ADgD-1bTy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:02:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEF4614BF;
-	Wed, 18 Jun 2025 06:02:35 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D72BF3F58B;
-	Wed, 18 Jun 2025 06:02:55 -0700 (PDT)
-Date: Wed, 18 Jun 2025 14:02:54 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, yangyicong@hisilicon.com,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	yangjinqian <yangjinqian1@huawei.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-Message-ID: <20250618130254.GD794930@e132581.arm.com>
-References: <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
- <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
- <20250616130736.GA788469@e132581.arm.com>
- <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
- <20250616160811.GA794930@e132581.arm.com>
- <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
- <20250617141810.GB794930@e132581.arm.com>
- <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
- <20250618112440.GC794930@e132581.arm.com>
- <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
+	id 1uRuEP-0000000AVog-0Wiu;
+	Wed, 18 Jun 2025 14:57:41 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRsVo-0000000AENH-3BMx;
+	Wed, 18 Jun 2025 13:07:34 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout2.routing.net (Postfix) with ESMTP id 8FE9C60254;
+	Wed, 18 Jun 2025 13:07:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1750252050;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=trroXU93EYK0HpRYK6NyRWOhBYcZDpDonMFpc3M9xZg=;
+	b=Y+zLjhmVUMhcz8Tz01Lw9TxB7+n2a23EDXs3CCikCe/CiRy9FHCs8otDeu1qNJX3QN53/z
+	hs2uFTs4Tr2C/nWP7VT/Lw1askSqXJYycdqzFdAgxhs5ObEAcyWIpwSEcCjxV8kkkeqTQn
+	lNHf5Ko61dZfd2YiJRrgZkMJzbtt2AM=
+Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 54D7B122703;
+	Wed, 18 Jun 2025 13:07:30 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Simon Horman <horms@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	arinc.unal@arinc9.com
+Subject: [net-next v5 1/3] net: ethernet: mtk_eth_soc: support named IRQs
+Date: Wed, 18 Jun 2025 15:07:12 +0200
+Message-ID: <20250618130717.75839-2-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250618130717.75839-1-linux@fw-web.de>
+References: <20250618130717.75839-1-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_060257_463606_AC21DA16 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250618_060732_963851_03AE32D4 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +86,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 07:51:03PM +0800, Yicong Yang wrote:
+From: Frank Wunderlich <frank-w@public-files.de>
 
-[...]
+Add named interrupts and keep index based fallback for existing
+devicetrees.
 
-> >> Directly including the kernel header introduces the very fragility that
-> >> having a copy was intended to avoid. NAK to that.
-> > 
-> > My suggestion is not to include the kernel header, nor to modify the
-> > copy header. :)
-> > 
-> > Instead, I suggested creating a new header within the perf tool (under
-> > perf's arm64 folder) and then include the copy header in tools:
-> > 
-> >   tools/arch/arm64/include/asm/cputype.h
-> > 
-> 
-> sorry for the misunderstood.:(
-> in this way we still have the divergency in the long term and as a workaround
-> this works same if we partly update the tools/arch/arm64/include/asm/cputype.h
-> with only necessary MIDR updates and keep is_midr_in_range_list() unchanged.
+Currently only rx and tx IRQs are defined to be used with mt7988, but
+later extended with RSS/LRO support.
 
-Yes. So Mark's suggestion is reasonable that we can do refactoring first
-to avoid syncing header.
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: Simon Horman <horms@kernel.org>
+---
+v5:
+- fix typo in description
+- add comments from previous patch #3 with changes suggested by simon
 
-[...]
+v2:
+- move irqs loading part into own helper function
+- reduce indentation
+- place mtk_get_irqs helper before the irq_handler (note for simon)
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 46 ++++++++++++++++-----
+ 1 file changed, 35 insertions(+), 11 deletions(-)
 
-> > @Yicong, could you confirm if you proceed to refactor the MIDR? thanks!
-> 
-> please feel free to take this over.
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index b76d35069887..39b673ed7495 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3337,6 +3337,37 @@ static void mtk_tx_timeout(struct net_device *dev, unsigned int txqueue)
+ 	schedule_work(&eth->pending_work);
+ }
+ 
++static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
++{
++	int i;
++
++	/* future SoCs beginning with MT7988 should use named IRQs in dts */
++	eth->irq[1] = platform_get_irq_byname(pdev, "tx");
++	eth->irq[2] = platform_get_irq_byname(pdev, "rx");
++	if (eth->irq[1] >= 0 && eth->irq[2] >= 0)
++		return 0;
++
++	/* legacy way:
++	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken
++	 * from devicetree and used for both RX and TX - it is shared.
++	 * On SoCs with non-shared IRQs the first entry is not used,
++	 * the second is for TX, and the third is for RX.
++	 */
++	for (i = 0; i < 3; i++) {
++		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
++			eth->irq[i] = eth->irq[0];
++		else
++			eth->irq[i] = platform_get_irq(pdev, i);
++
++		if (eth->irq[i] < 0) {
++			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
++			return -ENXIO;
++		}
++	}
++
++	return 0;
++}
++
+ static irqreturn_t mtk_handle_irq_rx(int irq, void *_eth)
+ {
+ 	struct mtk_eth *eth = _eth;
+@@ -5106,17 +5137,10 @@ static int mtk_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	for (i = 0; i < 3; i++) {
+-		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+-			eth->irq[i] = eth->irq[0];
+-		else
+-			eth->irq[i] = platform_get_irq(pdev, i);
+-		if (eth->irq[i] < 0) {
+-			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
+-			err = -ENXIO;
+-			goto err_wed_exit;
+-		}
+-	}
++	err = mtk_get_irqs(pdev, eth);
++	if (err)
++		goto err_wed_exit;
++
+ 	for (i = 0; i < ARRAY_SIZE(eth->clks); i++) {
+ 		eth->clks[i] = devm_clk_get(eth->dev,
+ 					    mtk_clks_source_name[i]);
+-- 
+2.43.0
 
-Thanks a lot for confirmation!  And thanks for working on the reported
-issue.
-
-> > Just note, I searched tools folder and found kselftest also uses the
-> > cputype.h header. The refactoring should not break the files below.
-> > 
-> 
-> they shouldn't affected. I did a kselftest build test with my latest patch
-> and they were not affected.
-
-I expect tools/arch/arm64/include/asm/cputype.h will be removed, and
-a generated header (something like sys-midr.h) for MIDR refactoring.
-If this is true, then we need to take care kselftest.
-
-Thanks,
-Leo
 
