@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3926DC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38763C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=; b=Oit8V2ANFvY6AULuiX95OY6nEO
-	aqoGHexCTUnU5+YNeT7R9UntOf+skjHpbtf5CllN8pGUkvHeJQUUebIXF3sUykRP+U8SeUySaQAHt
-	k/LArOIM5enDe0x/vtagmiQsuz3L+UiBerIgb+b+KfyjKruYCTxsWIW+0eyrR+fWFDWnGtN5DFlaB
-	5kPnhQhmnYQGg1obOVyiBYHXAT3SlptP/9VVKP91hb1jzDSo/KWF1TITh4XaWCTzYoXmPNzromRR0
-	u4DM/mazW9GvD0sMK+CRr48TeeykO4mHVbcnDz7NUy777uECipZcvVT/UZtu0Vkkxxyi5c5/1eD3B
-	yRbmtsQw==;
+	bh=vmNihe7PTzgHY5aMiXa0EoOwpOW0xdgqzA0ywQIsBWs=; b=Q3s0ZRKGovsnEVFcLz8g5gZp3o
+	WET+oxcDkznuyI2sMzuDyBs4yKlOchwRZAHqqurPPrDU2s1zPOETlI9Eo8+nMu7juAfjh8D5QoVQR
+	HiKvqEOBOF5HV5QrpdIQrZz9VJKA6lh/hG0MnT3IQhj3RTGC/ZRUSayjhnwq+1WzVJWPXNmj2XddW
+	2DBsFY+RXKwtKSSggw3FHiLeCwZz0lKK7I0XuqSoI4BaKKokmDHcEVhVs1m839ZAZj/qC0wJzlMor
+	8OGNXlLB9ksgO1ksc80GlY/cevTri3FyurxO2AByHTrNwGJ3k/Ogm8n+XzfaDippbsi/Z33RsjqVm
+	HGGdYr+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0UF-0000000BSeW-03BI;
-	Wed, 18 Jun 2025 21:38:27 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1uS0d5-0000000BTSl-2a1P;
+	Wed, 18 Jun 2025 21:47:35 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0S0-0000000BSTU-3XeA
+	id 1uS0ar-0000000BT3p-311r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 21:36:10 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3de18fde9cfso540975ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:36:08 -0700 (PDT)
+	Wed, 18 Jun 2025 21:45:19 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553be4d2fbfso83169e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:45:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1750282568; x=1750887368; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=;
-        b=UgsxAIGNewwrrmLzYdE5D7+TILTE1XU0cfel1OWxNB8uDoiBaAPTQbWda4dqnXZtLP
-         MOmjaqRWLa2vVXIILzJaG1H5v6gung40zmhBhxxjYRgRoDwzOvS/yApbQ3oifr23oQoI
-         cPu5KEuSzq6cB6X7styxLVzCRCRgyY1vN0wLY=
+        d=google.com; s=20230601; t=1750283115; x=1750887915; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vmNihe7PTzgHY5aMiXa0EoOwpOW0xdgqzA0ywQIsBWs=;
+        b=bV6001+NmEvmZvinNj1xpt4gJmE6qTFKw4JJwyEi37ipt2HFTdcKN64+byz6bnnNXW
+         CZr6ipJJcFTGUZrMc88Td06Jq7osmCrON4bOovJ8kzoL0xwJ0oO3V2jFQ5mR7Mg1KNNg
+         iGRisiu7Q9tDJECaqKSon6NhkiqpLekx9vlSlvWHgZOgM5xlaR8CudL80EahnAe09eLD
+         Mp7H1abybjtrwtIElKwHTkEWQKw5Mu0IvWRY/dMWCJB4G7ZONAcx5JJ+HNcvVN0UwyZl
+         Mi25tyK7U/6ZeMbvWdA1HB2UJ/Ry3I5/5KA9z6LHaRsz7/H93YM22D0IKWmLlaoDtzXk
+         ZCvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750282568; x=1750887368;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=;
-        b=u9etd6alGTFnXMN8zIygwpgqh5ZS7vXHspSLOgAB1FjtjhBuJUI6zr4TimUI+6wUzb
-         JW3MOCT8IkEPPTowK6TCnTDv5xh0PiYdeqcfa8VPdlhVihrykmoKyI1wF3yuSKQMVaOK
-         Sy7IZTMDitFxKKHK5TnJ9KLr0fNSakuMpvG/AKPGOMsE4GOPKmE+DT8Fmlx03TxPYsDX
-         yhqyc1Q/sw9XcNod371/hN8B/DR9PamBAncji5AmD1b3GCvDDst51aMLgSxFCjt6zIkP
-         TZrbah+sa9hkIEAykL3nWPvd4AvZMIIHDXBvpEsLMVlHCXVCZVqB3iEfdReFbJBx6ITy
-         RKrA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMflcrRcyR+jSOEkk5OSi02YuUutwRhSjXShWM4VMznVQsPfb4UKkURFazA5w52wO3PRUky2MzVUWeIEjKcrYO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF3y5nhQU1H2sW3cA7KCdTVO3kaIsJCsdnvY00eIPmEaRZqUF/
-	z9ht3YtoKKY/enOaQx20deJLFmb6a0O/O01zfmYwwxWm2RVcKO5rL474lI68s3pQsa0=
-X-Gm-Gg: ASbGncs3JEZCkDLi33TQFeOCwLTmcGuOhS44Mfou8cCaUkTyWRA5xXBBBMyNXhFkOgb
-	RWqlSUvOTsMw7YBJ3V3H5cuFck4r/10QPXsa9dPcTqEsLKzV2dxnNh/1J686YjgxCSZH3tbeYbo
-	+pRfymY8KW0mzU2xZlwJOjWR19oCdZEG/cXhX9nwsoHMB84hbYrQM6cn8eOLADYfO9HVrtf0AV3
-	GIk+LgbAx8iYc89I+ozqraJYtPwjejcpmcWb+L1IeX1dfixglXPo1dTSNaSRZFXkYjYvSL13W68
-	eZKZPM7elc/Ec6tqegksJyfyqkVOMRivAmtzt8zyAGO9iAwFPerfGHCez4BqJ/a5NHIRDwdo6Q=
-	=
-X-Google-Smtp-Source: AGHT+IHzVdYixqyHR8b6G5EFMSrmZhJVZpp2peDtXSyWByTozchYUrxZPpYV9SLXnX3gjdalIl1zLA==
-X-Received: by 2002:a05:6e02:4414:10b0:3de:119f:5261 with SMTP id e9e14a558f8ab-3de119f54demr131814575ab.3.1750282567942;
-        Wed, 18 Jun 2025 14:36:07 -0700 (PDT)
-Received: from [192.168.1.14] ([38.175.170.29])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de019d1ba0sm32296805ab.31.2025.06.18.14.36.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Jun 2025 14:36:07 -0700 (PDT)
-Message-ID: <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
-Date: Wed, 18 Jun 2025 15:36:06 -0600
+        d=1e100.net; s=20230601; t=1750283115; x=1750887915;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vmNihe7PTzgHY5aMiXa0EoOwpOW0xdgqzA0ywQIsBWs=;
+        b=V2og/JLAHmriXrFCpTSd5arNO1WWsumytZO7rSPhFKAcVtnCyBppJDc3ifw21HudB3
+         6RQg+KwrfDWUuDYdczbOsoiz8NgzUCHV4QTrv4azeTee2cSZvLbkKh5Zp4YRbBXef2ub
+         4pPmXAh5XT24n8T3apk4NNe4khnj54BllJDXw4lz8H1uog7B2B7oYA8idGXYJMsg+7aG
+         d6bUOeJQOpfrOwYirS8T24hwXE/xKEdCYXoZmdz5wMN7HLijwrUHpauS7S60Re2YXEyo
+         tytUgTySdUkgTcdjKYxhy8nmpxeUkfl3ER26XTatRrcMJnBmWVta4rYLrx281vMR5ID6
+         2pCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXWWEK5NEZKEXT2YxMYkv41qX2NDshijV29hTHh/sf+f5zTMxq/ucutlsAMwYie95+8OlFPAPbZew+XRP57pj/C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz11ufcMDOK+kKCT7ERt1jMGAZjY1rigZJqhxXeb300DVtOe1e+
+	YrVr9xTF2ImgED1QeBYV1tHkMVbEg+MUu/4cwih7RFjm6M9051FWkT4jzjxVwBCXhrrghdEAo7R
+	37OW93YhtbCAcSBCTFLcauQ+brvEK+ddOybi567E=
+X-Gm-Gg: ASbGncuy3QVYl8XwIqVWulT0susbmG6dZZs7R2PKSR7ayPIyWY/Yvj7SrVjGSpCg09d
+	VjSc92xjN/DIoTRo+RV1qUqnKyu8nR8mQzDiyjeMlfj+eTk9SmQHIzhTB5ZY7VJu5Nzk0ZqJMfM
+	UXRin8I6zsDfBWOMw6Przm7yhQAano5tQn1vvi8KM3To663PJQOzK39D8K4WaL3bqTRtp5XXQyl
+	K5n8fuo+KE=
+X-Google-Smtp-Source: AGHT+IGRdPWvQ3bVP/uq5rZZPKY3AdMDW1I/LzLahEs6dluATjog/cp3WTI9a5x6a4bbS7Knu1afIVea+V+1AgDHScw=
+X-Received: by 2002:a05:6512:b97:b0:553:241d:4e7d with SMTP id
+ 2adb3069b0e04-553b6f25d30mr5275016e87.42.1750283114922; Wed, 18 Jun 2025
+ 14:45:14 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
- exception
-To: Shuai Xue <xueshuai@linux.alibaba.com>, brauner@kernel.org,
- shuah@kernel.org, will@kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
-Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250617155355.1479777-1-kuyo.chang@mediatek.com>
+In-Reply-To: <20250617155355.1479777-1-kuyo.chang@mediatek.com>
+From: John Stultz <jstultz@google.com>
+Date: Wed, 18 Jun 2025 14:45:03 -0700
+X-Gm-Features: AX0GCFsOSiqOdRp1Co0Xlnr48njlbsSSxatT1GBZqp64HQBE2esynPFEN6b-XQ0
+Message-ID: <CANDhNCoMUrZppodAa0bAdds=M3S7u3VqAmiR_Qd-ow=kxDD9=g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] sched/deadline: Fix dl_server runtime calculation formula
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	"Team, Android" <kernel-team@android.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_143608_907670_BF0DDD33 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250618_144517_764420_6D81A074 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +101,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/15/25 23:06, Shuai Xue wrote:
-> The pidfd_test fails on the ARM64 platform with the following error:
-> 
->      Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
-> 
-> When exception-trace is enabled, the kernel logs the details:
-> 
->      #echo 1 > /proc/sys/debug/exception-trace
->      #dmesg | tail -n 20
->      [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
->      [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
->      [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
->      [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
->      [48628.713055] pc : 0000000000402100
->      [48628.713056] lr : 0000ffff98288f9c
->      [48628.713056] sp : 0000ffffde49daa8
->      [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
->      [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
->      [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
->      [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
->      [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
->      [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->      [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
->      [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
->      [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
->      [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
-> 
-> According to ARM ARM D1.3.10.2 SP alignment checking:
-> 
->> When the SP is used as the base address of a calculation, regardless of
->> any offset applied by the instruction, if bits [3:0] of the SP are not
->> 0b0000, there is a misaligned SP.
-> 
-> To fix it, align the stack with 16 bytes.
-> 
-> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> ---
+On Tue, Jun 17, 2025 at 8:54=E2=80=AFAM Kuyo Chang <kuyo.chang@mediatek.com=
+> wrote:
+>
+> From: kuyo chang <kuyo.chang@mediatek.com>
+>
+> [Symptom]
+> The calculation formula for dl_server runtime is based on
+> Frequency/capacity scale-invariance.
+> This will cause excessive RT latency (expect absolute time).
+>
+> [Analysis]
+> Consider the following case under a Big.LITTLE architecture:
+>
+> Assume the runtime is: 50,000,000 ns, and Frequency/capacity
+> scale-invariance defined as below:
+>
+> Frequency scale-invariance: 100
+> Capacity scale-invariance: 50
+> First by Frequency scale-invariance,
+> the runtime is scaled to 50,000,000 * 100 >> 10 =3D 4,882,812
+> Then by capacity scale-invariance,
+> it is further scaled to 4,882,812 * 50 >> 10 =3D 238,418.
+>
+> So it will scaled to 238,418 ns.
+>
+> [Solution]
+> The runtime for dl_server should be fixed time
+> asis RT bandwidth control.
+> Fix the runtime calculation formula for the dl_server.
+>
+> Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+> Acked-by: Juri Lelli <juri.lelli@redhat.com>
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+>
+> v1: https://lore.kernel.org/all/20250614020524.631521-1-kuyo.chang@mediat=
+ek.com/
+>
 
-Assuming this is going through Christian's tree.
+Coding nits aside, I put together a quick test that affines to a
+single cpu a SCHED_NORMAL and SCHED_FIFO spinner task to illustrate
+the issue.
 
-Acked-by: Shuah Khan <skhan@linuxfoundation.org>
+You can quickly see the requested 50ms/sec dl_sever runtime on the big
+cpu, ends up being scaled out to 323ms/sec, blocking RT tasks on that
+little cpu for quite awhile.
+  https://github.com/johnstultz-work/misc/blob/main/images/2025-06-18_illus=
+tration-of-problem-dl-server-scaling.png
 
-Let me know if you would like me to pick it up.
+The wild thing with the example illustration of the issue above is
+that since my test uses cpu spinners, the cpufreq quickly maxes out.
+So it's only really considering the capacity scaling between the big
+(cpu 7) and little (cpu 0) cpus at their top frequency.
 
-thanks,
--- Shuah
+When I capped the cpu 0 max frequency to the lowest available, without
+the patch the behavior is crazy:
+  https://github.com/johnstultz-work/misc/blob/main/images/2025-06-18_dl-se=
+rver-scaling-with-cpufreq-lowered.png
+
+Though the image alone maybe isn't as clear, in that case we see the
+RT task once it runs ~650ms, the dl_server kicks in and blocks it and
+any other RT task from running for over *10 minutes*!
+
+And with the fix to avoid scaling the fair_server, the results looks
+much more sane:
+https://github.com/johnstultz-work/misc/blob/main/images/2025-06-18_with-pa=
+tch-to-not-scale-dl-server-fixed.png
+
+So I'm very happy to add:
+  Tested-by: John Stultz <jstultz@google.com>
+
+And hope this gets upstream (and -stable) in some form quickly.
+
+Thanks so much to Kuyo and others on his team for reporting and
+root-causing this issue!
+
+thanks
+-john
 
