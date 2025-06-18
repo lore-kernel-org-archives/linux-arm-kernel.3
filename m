@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677EDC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B250C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 12:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Syf1DUgVsklfoUbcinEl+UlxP/kOThIldFslux1DC8c=; b=cj0kmfej2Mj+iNN/Jvq6o1HwIo
-	b4BcXAW7SsRtGKGwf/iBi5X079kX6I7zSO7f0JjiRSZAsQN834KCDbf3f+D5li3l+irj4gYPHzwNT
-	pKHmxIh720Kmg5Sfjd8cDazQMnTq0s6nr9dRLaG5pSTLxtRPfDInQL+wvtuWOp0chTiX4mAyzpGKZ
-	vybfavHzi65hp9GBvbQ/kZhOmYqvHmDYnETZ0YEXZjO9Ps7B9FMP6IXjbL2FiAv3egQWAKH4w72Ty
-	ZjXbMWQfo//3Aunhv8DaUYhOzahDeFBjQkofIlWw6eOen6JiwiuOkcHqWdwQQKOvz1Dffgv7xzIfv
-	t0HKKeYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aC+BQfzXBUys/UN4ntYM7IrknAQDC+pLM86Eh8oJMFE=; b=356zjb7Omv7kRfUBfkt2TJnf03
+	D33tpaRK1SM4Gj5Jji5eK0WxNc0vTphBuGBSOzfWrdDAfpbFXSCugwxBoH9XyAlkj8N85VFCdPYJL
+	LvRj0zF4gkpXOAq7S4S9WPlqv/7EMXaWKGDm9ZkV9xQuo3mfQf5b30dmG6Vy5Sq5zKg025zUI9nij
+	nyqBrscyX6LUsbcRm+YvyGr0SAajfo/9SJNJZAZYpe0QkVC1pi6OVUpzFZwQkJ4MtDRfJFKRQT4k7
+	T/NNPKdKu0aCkfu+iiTZD9ZEp4DO6xmexWnkhmGnzoVglZIlFUQAhuK1lIbdV3kPyhu8fBM30CGBQ
+	GBN+cosQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrmO-0000000A6FZ-0rCg;
-	Wed, 18 Jun 2025 12:20:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uRrof-0000000A6eV-1Aes;
+	Wed, 18 Jun 2025 12:22:57 +0000
+Received: from smtp-1909.mail.infomaniak.ch ([2001:1600:7:10::1909])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRq2b-00000009n1U-1nNH
+	id 1uRq6F-00000009nhN-2HTV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 10:29:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9FC85A5250D;
-	Wed, 18 Jun 2025 10:29:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54EC6C4CEE7;
-	Wed, 18 Jun 2025 10:29:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750242552;
-	bh=hA1/C70zCQRsqeKpAGRD4HPcwrD8fzW+BRyIETNDT7k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=darTD0yqfMgrbx+HnGO21HdmDFDVdmoRh3QrxdE04Ryew6XHIHaiUh6mViTqBnnku
-	 XivU09Oo12aZEaTi9ayWPuJbB4AOi8cXTGTSy7WJLVHidGlJfyQhhq73d3pBSojp4z
-	 vpBrVB5DtvMd30MRu9GtTmGK9BmmtYHtJt9fJO8+1jq3/wZz+lVCQgbpQIJJEp//yN
-	 mN3qAzvtII/PI+89uTaW4yT/8fmvFpJQeTtK9fNHhYoqlvhEjLrDsUF0dmFAlyuaD+
-	 S/q92aOCERH9RCQZoWygGS4GVZp/vANpJlSfuhycHlUVzpBNXBrlMhr4xxthY5MWwW
-	 Zef7oJXQuICUQ==
-Date: Wed, 18 Jun 2025 11:29:07 +0100
-From: Simon Horman <horms@kernel.org>
-To: Himanshu Mittal <h-mittal1@ti.com>
-Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
-	davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com,
-	m-malladi@ti.com, pratheesh@ti.com, prajith@ti.com
-Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add prp offload
- support to ICSSG driver
-Message-ID: <20250618102907.GA1699@horms.kernel.org>
-References: <20250617101837.381217-1-h-mittal1@ti.com>
+	Wed, 18 Jun 2025 10:33:02 +0000
+Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bMg6v3B7xzS5N;
+	Wed, 18 Jun 2025 12:32:55 +0200 (CEST)
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4bMg6t5YZpzCTr;
+	Wed, 18 Jun 2025 12:32:54 +0200 (CEST)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Wed, 18 Jun 2025 12:32:41 +0200
+Subject: [PATCH v3 2/5] mfd: rk8xx-core: allow to customize RK806 reset
+ mode
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250617101837.381217-1-h-mittal1@ti.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250618-rk8xx-rst-fun-v3-2-081f02d3d348@cherry.de>
+References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+In-Reply-To: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
+ Daniel Semkowicz <dse@thaumatec.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.14.2
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_032913_531029_C49B9A23 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250618_033259_728324_1DFD0AA5 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +71,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 03:48:37PM +0530, Himanshu Mittal wrote:
-> Add support for ICSSG PRP mode which supports offloading of:
->  - Packet duplication and PRP trailer insertion
->  - Packet duplicate discard and PRP trailer removal
-> 
-> Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
-> ---
-> v2-v1:
-> - Align with recent firmware name handling updates made in:
->  https://lore.kernel.org/all/20250613064547.44394-1-danishanwar@ti.com/
-> 
-> v1: https://lore.kernel.org/all/42ac0736-cb5a-4d99-a11c-6f861adbdb5f@ti.com/
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-...
+The RK806 PMIC has a bitfield for configuring the restart/reset behavior
+(which I assume Rockchip calls "function") whenever the PMIC is reset
+either programmatically (c.f. DEV_RST in the datasheet) or via PWRCTRL
+or RESETB pins.
 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+For RK806, the following values are possible for RST_FUN:
 
-...
+0b00 means "restart PMU"
+0b01 means "Reset all the power off reset registers, forcing
+	the state to switch to ACTIVE mode"
+0b10 means "Reset all the power off reset registers, forcing
+	the state to switch to ACTIVE mode, and simultaneously
+	pull down the RESETB PIN for 5mS before releasing"
+0b11 means the same as for 0b10 just above.
 
-> @@ -349,6 +352,7 @@ struct prueth {
->  	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
->  	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
->  	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
-> +	struct icssg_firmwares icssg_prp_firmwares[PRUETH_NUM_MACS];
->  };
+This adds the appropriate logic in the driver to parse the new
+rockchip,reset-mode DT property to pass this information. It just
+happens that the values in the binding match the values to write in the
+bitfield so no mapping is necessary.
 
-Hi Himanshu,
+If it is missing, the register is left untouched and relies either on
+the silicon default or on whatever was set earlier in the boot stages
+(e.g. the bootloader).
 
-Please also add icssg_prp_firmwares to the Kernel doc for struct preth,
-which appears a little above this hunk.
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+ drivers/mfd/rk8xx-core.c  | 15 +++++++++++++++
+ include/linux/mfd/rk808.h |  2 ++
+ 2 files changed, 17 insertions(+)
 
-Flagged by ./scripts/kernel-doc -none
-
-Otherwise, this patch looks good to me.
+diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
+index 71c2b80a4678d627e86cfbec8135f08e262559d3..23ff92f89f3357e3f47c5dd0e9f80cca453f22c0 100644
+--- a/drivers/mfd/rk8xx-core.c
++++ b/drivers/mfd/rk8xx-core.c
+@@ -10,6 +10,7 @@
+  * Author: Wadim Egorov <w.egorov@phytec.de>
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/interrupt.h>
+ #include <linux/mfd/rk808.h>
+ #include <linux/mfd/core.h>
+@@ -699,6 +700,7 @@ int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap
+ 	const struct mfd_cell *cells;
+ 	int dual_support = 0;
+ 	int nr_pre_init_regs;
++	u32 rst_fun = 0;
+ 	int nr_cells;
+ 	int ret;
+ 	int i;
+@@ -726,6 +728,19 @@ int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap
+ 		cells = rk806s;
+ 		nr_cells = ARRAY_SIZE(rk806s);
+ 		dual_support = IRQF_SHARED;
++
++		ret = device_property_read_u32(dev, "rockchip,reset-mode", &rst_fun);
++		if (ret) {
++			dev_dbg(dev,
++				"rockchip,reset-mode property missing, not setting RST_FUN\n");
++			break;
++		}
++
++		ret = regmap_update_bits(rk808->regmap, RK806_SYS_CFG3,
++					 RK806_RST_FUN_MSK,
++					 FIELD_PREP(RK806_RST_FUN_MSK, rst_fun));
++		if (ret)
++			return dev_err_probe(dev, ret, "RST_FUN write err\n");
+ 		break;
+ 	case RK808_ID:
+ 		rk808->regmap_irq_chip = &rk808_irq_chip;
+diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
+index 69cbea78b430b562a23d995263369d475daa6287..28170ee08898ca59c76a741a1d42763a42b72380 100644
+--- a/include/linux/mfd/rk808.h
++++ b/include/linux/mfd/rk808.h
+@@ -812,6 +812,8 @@ enum rk806_pin_dr_sel {
+ #define RK806_INT_POL_H			BIT(1)
+ #define RK806_INT_POL_L			0
+ 
++/* SYS_CFG3 */
++#define RK806_RST_FUN_MSK		GENMASK(7, 6)
+ #define RK806_SLAVE_RESTART_FUN_MSK	BIT(1)
+ #define RK806_SLAVE_RESTART_FUN_EN	BIT(1)
+ #define RK806_SLAVE_RESTART_FUN_OFF	0
 
 -- 
-pw-bot: changes-requested
+2.49.0
 
 
