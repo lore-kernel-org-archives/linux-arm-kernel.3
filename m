@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F85C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07CFC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=; b=KL4FQR8HO7PaSjhGKUZDLUEWun
-	HNCbJi2dMl9X3bD1ep8sfnJjN2ieys3V+G9WOvs6cGOHk4mkg9CN5HlNkU4nxO/Cu5ARpY7/avHLN
-	H+c7morOyg9iy2pMb0DbMzb6dELrLics8WhlKtmYb+IT9Ck7LdzA89i8DIxyaa4qu75fzBPDA6nLM
-	UDkqEk4VIRPbjQjbxUMfIinemk6QwUq8k+Twh2ukvqZEoCEEXVBXz8seNkc6Z2jJt/G7WSD3IN0cR
-	Gcd9vxM4EfRDJmtXTN/WOoJLlYyeHIrWn4mNBexy8WUuxvnqVFzBrpN4IMZ1jW8hnv8q3aEkGxWoK
-	WqklI3mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eus1GwfPuFQtn6OQ9v3rF0J21GjEHtkdFtWAPZQVNsA=; b=w4ZW2GJYTb/xwBBkmxhIuK5eXX
+	h4eohIAWoQkIx7OlgHcJU3pdZP4CSLl4EiR0cA+wr1c0exPikoTsNmEhbVlmRDE+FhIpCRgy6HPuq
+	SuEBHDpAOV9LzwuG7c5sNNHABaWRs0M4b/XXCuPgFqvEiobSe/vBOy6A4eNC94kmHjGVuFLqAisID
+	MyLErey0XsxUGyXFK5B/l6s934Q5oF1JICrVfOBSFKTFwD1m2JvWuCTjG+86a9Lhta8XN7vPXLiBd
+	qVSZzh01cyDY1DTrR/GGpsIvjvdK/+tAR7BrfANeVZcGZ0SywJtXhBhgVZgMfPCwRolLim8H330DX
+	yb3PzMcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsfY-0000000AGkY-2jQr;
-	Wed, 18 Jun 2025 13:17:36 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1uRsjv-0000000AHCj-30RZ;
+	Wed, 18 Jun 2025 13:22:07 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrSI-0000000A2fC-250R;
-	Wed, 18 Jun 2025 11:59:51 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-553b5165cf5so5771375e87.0;
-        Wed, 18 Jun 2025 04:59:49 -0700 (PDT)
+	id 1uRrbP-0000000A4Xl-3lUC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 12:09:17 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5534edc646dso7282758e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 05:09:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750247988; x=1750852788; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
-        b=Sm5HsPJLup4haN+JTiS5dCBzV5qwGUWxJaJnd1kqik9iodi2WZ73WJSGoiQdGyui4x
-         pIyC26+GKjBvWLyliIgCmvhIgpDv2OaolUSEOE5B5nXSwQl6S38TM58usn1YXP6uwNYF
-         PjcpVd8AYjoUgVIp9mUt7/HpBrRS6JY28KrnDer8OB0tJfyCVZQpZKc1HOJ8H0cBUUNK
-         AgP6r2twMnmHOwyANBIq86FxF+him+ya4OYg1psOm8blQ5vlLmlTqYf6BQL4DaGunMVL
-         BdbG9W9GkO+IJs9e7J4UVSYBiFPEOWAXxlPwQJMXtPBELma4IY41Ciq3BCznLUql0r+r
-         I6Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750247988; x=1750852788;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1750248554; x=1750853354; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/TQmvTgeWB4YgSToPjAwaMsmcK/mn8xvOCLcOf55+Dk=;
-        b=vwOpX+f/NfZrmj+5ofHEJEz1brKdzSvMz4eYtIG1qMu690LLlMIPdyccURVI1zDPRv
-         +MdiY/jI5g5QiR1vAK/oNiPYGvIpSigRQV2tVGGeva5fWdpo0+uDkgWuA2v4RkoH9ORg
-         YmS+QuLXL3diOmyio/JlacyrpgKu/+BSf+TL8i1+qshQGJSwOpyF6OtyFrXatdQk+IOR
-         ivXNO4PCrE92T3a4oSKO82Sf7o4Q2tw072eEI1dKyHbovKPH+sKF29JXnEUPqXoybNAP
-         0uwvzTzLx7MR1lM8dfoCg6fb5+dpDdaQI/XH2w5EWFyAL42gO039hFQMx01r2FV1lhAn
-         vkvw==
-X-Forwarded-Encrypted: i=1; AJvYcCVefe15V1Y530m+HIwdhFOGqFjrLepLwjdYD47yM7GYXCYRz0jnjtzRqdMF3rm8oZ6aqPvAkDZ/xvVBijc=@lists.infradead.org, AJvYcCXLEZs9m7/WRGofItyM5Q26zKyzdLRYY/0BF+Wzk9hGSe/Sn0dgLkYqt4A3h9iFhs6T0rrcrrADkZdLPQ1l1wct@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmyV4/xOIEE0XA67Zn2/KNYB22d+37MbmLPrlxq3xENXzSAgdB
-	3P1NPPTV2D9K+a/Umrje6v5okQjJIpGknZMH/NExeKbRPSSPcLfoFkt0
-X-Gm-Gg: ASbGncv0ockWqQOddN3mDRQM40ACJ3J6Jb1sMx85FMj5KuCPE3qCVWXN7uTPZrz+N0Y
-	TdQdWn92A7SElDw/0ytyDSLBPl1KtolIPxpIp+doUMXOdoZEX2kuvxPANzXDhh7iMlY27+uqJo7
-	rjlUbGNVPvH8fjJGzu7w8S9Q75p6OKqZq8sh6Wowsv2dz+YoP45Vn46dMoCkZdHbRs4pmqVFO1h
-	lMTpsbygA+kTZGQYfDo8t2FXHFEHmEBPxpSFj6kUEUgZn8fzF0YHaG1HewhT7gFgzR4D8rDDjfM
-	ViposAzLiyQRTPvZHVmKh1XzovxzyvxU/+adBQB9NjWk6F6KLLUS2yZwN2GaqjYa2urNU5GxCiX
-	9vg==
-X-Google-Smtp-Source: AGHT+IEEuLAvgr2OL57VbH9FchKBqYmVVAHa3AT4JbHjg5k/1SYfHWucA3kEC25R23C9uvFFL7j1Sg==
-X-Received: by 2002:a2e:b8c4:0:b0:32b:2f36:4d92 with SMTP id 38308e7fff4ca-32b4a413262mr52990161fa.12.1750247987973;
-        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
-Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
-        by smtp.gmail.com with UTF8SMTPSA id 38308e7fff4ca-32b7dafc837sm1702891fa.47.2025.06.18.04.59.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 04:59:47 -0700 (PDT)
-Date: Wed, 18 Jun 2025 13:59:46 +0200
-From: Klara Modin <klarasmodin@gmail.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Daniel Palmer <daniel@thingy.jp>, 
-	Romain Perier <romain.perier@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter
- callbacks
-Message-ID: <2rw2sncevdiyirpdovotztlg77apcq2btzytuv5jnm55aqhlne@swtts3hl53tw>
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
- <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
+        bh=eus1GwfPuFQtn6OQ9v3rF0J21GjEHtkdFtWAPZQVNsA=;
+        b=cuohZ2PX43z4AJzcJyTdWojadd6RRiscCqSzobxXPlkY4KzEsM4WICQIAPiIhdqM5U
+         CIc4jF7BOYpWLLkonMM6dVePNwO4t8mTjIPygfvkVwYJ5xzd4Hg7hLx89zHviBkMkxea
+         PH0JoS0MZ8iXxm3CHpAmmk54dceWzMIjq70KSBlbswoSktAzCxEEPYR8qv+o0h8sK+YD
+         i/WFol0fGEEGnAPE0uCN1Cvvjuf3V0uknk2zhyW71FCpeB6hY3+SmNvZc8rt8JakBgbf
+         rqFwQuoziI9dqd9CUgvpLFsfFfgMABWSKTthz1E7I4DCciPa0pipc51YABijb2/mjhui
+         4oLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750248554; x=1750853354;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eus1GwfPuFQtn6OQ9v3rF0J21GjEHtkdFtWAPZQVNsA=;
+        b=wI7DbfnKJ82j2ynpiyILmgPrylMbT/r0NtiqgqrIFxJU2pMPax3gEwey952cYuEYQE
+         O48XfMsvgbRgBSHJWCtj+vloEflQ7U0lbWkORzw4ZxfTFKl4pokajODdYmv7M30jfEUI
+         6ElpQwqajx0yg+aPll50VLJYrzwX1CxkgJkIShfVSEJm1I8wCMf7YCRkrT7xuAH9ndjg
+         SxC8h7/cFRKZT3NorrHMA5tLvPoOgaShOGbxraGlfoGXUCmtKtd9PskCDE34BARVF4px
+         /N7BSHLBrPDKI84Y8+ZFfhckCQx1DB09AJZXzVP3Qy4jQ+7hZcregYtdGVjTVLJzGvVs
+         /biQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0j4WAw9HVXqdT9F6/Rj2pK5eIngisRMJ/fW2mNUpyASxddmggZfNKE8Utdw7ofd/ETW1hRfz8EWriVyZ9Vab4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcwOWBE9M3ll+JZQhlJnW/aHLroUSoSR2ntYVoSYzqddDFrZyw
+	Cvi4riBWbtwDT0y2V7QuKXrF1gBorg00ael0UV6yZvkLokdPVrk8JeYI5p5apqv6D3xt82rCUXE
+	dxdvj3+TuXxZRRTh7h3VkdCdEGaFZ3UMrUT5bO72GGw==
+X-Gm-Gg: ASbGncsWFHXFa9sxtGE5yrK98xib0IUzL7LWwlI4u+RdvTT0PNU5AX5J3x76Yi4cY+m
+	ViRP38tFq+KNgEMdx5g4ojup+wQVuEf9E9jgtv65InQU9vdX7EyhdwfgVUWjLJx5XdYGHzA6PR1
+	VYOJwu8Hds/S38fpHAnBZXsNwROdDq2CB/SrAQva6zp4w=
+X-Google-Smtp-Source: AGHT+IGC0m4FXYYQm+k0AXFCSy3bx6F7/2cTaiKhBBnuAbB+6N8ybTZnHZCukOOueaHxtyfLbUpPRBURy2oO4IVfhl0=
+X-Received: by 2002:a19:5f17:0:b0:553:ca33:46f with SMTP id
+ 2adb3069b0e04-553ca330808mr1234493e87.29.1750248554215; Wed, 18 Jun 2025
+ 05:09:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
+References: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
+In-Reply-To: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 18 Jun 2025 14:09:03 +0200
+X-Gm-Features: AX0GCFtzAwHH-ht5UUznh81aEY-DCCdnUYFURG79_8pBHXv4vb2M7QItIyT5tQE
+Message-ID: <CACRpkdb3+uQ=PG+ne48hyvdTFeEQBxXtq3CwxpqEmd1m9o9fNA@mail.gmail.com>
+Subject: Re: [PATCH 00/16] pinctrl: use new GPIO line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Baruch Siach <baruch@tkos.co.il>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Neal Gompa <neal@gompa.dev>, Viresh Kumar <vireshk@kernel.org>, 
+	Lakshmi Sowjanya D <lakshmi.sowjanya.d@intel.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, soc@lists.linux.dev, 
+	linux-sunxi@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_045950_538725_0685E1D2 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250618_050915_942283_A1581017 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,197 +104,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Jun 12, 2025 at 3:15=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
 
-On 2025-06-10 14:33:11 +0200, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
-> 
+> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
+> values") added new line setter callbacks to struct gpio_chip. They allow
+> to indicate failures to callers. We're in the process of converting all
+> GPIO controllers to using them before removing the old ones. This series
+> converts remaining pinctrl drivers that still use old APIs.
+>
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
->  drivers/gpio/gpio-mmio.c | 53 ++++++++++++++++++++++++++++++------------------
->  1 file changed, 33 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-> index 4841e4ebe7a67d0f954e9a6f995ec5758f124edd..9169eccadb238efe944d494054b1e009f16eee7f 100644
-> --- a/drivers/gpio/gpio-mmio.c
-> +++ b/drivers/gpio/gpio-mmio.c
-> @@ -211,11 +211,12 @@ static int bgpio_get_multiple_be(struct gpio_chip *gc, unsigned long *mask,
->  	return 0;
->  }
->  
-> -static void bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
-> +static int bgpio_set_none(struct gpio_chip *gc, unsigned int gpio, int val)
->  {
-> +	return 0;
->  }
->  
-> -static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
-> +static int bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
->  {
->  	unsigned long mask = bgpio_line2mask(gc, gpio);
->  	unsigned long flags;
-> @@ -230,10 +231,12 @@ static void bgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
->  	gc->write_reg(gc->reg_dat, gc->bgpio_data);
->  
->  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
-> +
-> +	return 0;
->  }
->  
-> -static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
-> -				 int val)
-> +static int bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
-> +				int val)
->  {
->  	unsigned long mask = bgpio_line2mask(gc, gpio);
->  
-> @@ -241,9 +244,11 @@ static void bgpio_set_with_clear(struct gpio_chip *gc, unsigned int gpio,
->  		gc->write_reg(gc->reg_set, mask);
->  	else
->  		gc->write_reg(gc->reg_clr, mask);
-> +
-> +	return 0;
->  }
->  
-> -static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
-> +static int bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
->  {
->  	unsigned long mask = bgpio_line2mask(gc, gpio);
->  	unsigned long flags;
-> @@ -258,6 +263,8 @@ static void bgpio_set_set(struct gpio_chip *gc, unsigned int gpio, int val)
->  	gc->write_reg(gc->reg_set, gc->bgpio_data);
->  
->  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
-> +
-> +	return 0;
->  }
->  
->  static void bgpio_multiple_get_masks(struct gpio_chip *gc,
-> @@ -298,21 +305,25 @@ static void bgpio_set_multiple_single_reg(struct gpio_chip *gc,
->  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
->  }
->  
-> -static void bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
-> +static int bgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
->  			       unsigned long *bits)
->  {
->  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_dat);
-> +
-> +	return 0;
->  }
->  
-> -static void bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
-> -				   unsigned long *bits)
-> +static int bgpio_set_multiple_set(struct gpio_chip *gc, unsigned long *mask,
-> +				  unsigned long *bits)
->  {
->  	bgpio_set_multiple_single_reg(gc, mask, bits, gc->reg_set);
-> +
-> +	return 0;
->  }
->  
-> -static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
-> -					  unsigned long *mask,
-> -					  unsigned long *bits)
-> +static int bgpio_set_multiple_with_clear(struct gpio_chip *gc,
-> +					 unsigned long *mask,
-> +					 unsigned long *bits)
->  {
->  	unsigned long set_mask, clear_mask;
->  
-> @@ -322,6 +333,8 @@ static void bgpio_set_multiple_with_clear(struct gpio_chip *gc,
->  		gc->write_reg(gc->reg_set, set_mask);
->  	if (clear_mask)
->  		gc->write_reg(gc->reg_clr, clear_mask);
-> +
-> +	return 0;
->  }
->  
->  static int bgpio_dir_return(struct gpio_chip *gc, unsigned int gpio, bool dir_out)
-> @@ -510,18 +523,18 @@ static int bgpio_setup_io(struct gpio_chip *gc,
->  	if (set && clr) {
->  		gc->reg_set = set;
->  		gc->reg_clr = clr;
-> -		gc->set = bgpio_set_with_clear;
-> -		gc->set_multiple = bgpio_set_multiple_with_clear;
-> +		gc->set_rv = bgpio_set_with_clear;
-> +		gc->set_multiple_rv = bgpio_set_multiple_with_clear;
->  	} else if (set && !clr) {
->  		gc->reg_set = set;
-> -		gc->set = bgpio_set_set;
-> -		gc->set_multiple = bgpio_set_multiple_set;
-> +		gc->set_rv = bgpio_set_set;
-> +		gc->set_multiple_rv = bgpio_set_multiple_set;
->  	} else if (flags & BGPIOF_NO_OUTPUT) {
-> -		gc->set = bgpio_set_none;
-> -		gc->set_multiple = NULL;
-> +		gc->set_rv = bgpio_set_none;
-> +		gc->set_multiple_rv = NULL;
->  	} else {
-> -		gc->set = bgpio_set;
-> -		gc->set_multiple = bgpio_set_multiple;
-> +		gc->set_rv = bgpio_set;
-> +		gc->set_multiple_rv = bgpio_set_multiple;
->  	}
->  
->  	if (!(flags & BGPIOF_UNREADABLE_REG_SET) &&
-> @@ -654,7 +667,7 @@ int bgpio_init(struct gpio_chip *gc, struct device *dev,
->  	}
->  
->  	gc->bgpio_data = gc->read_reg(gc->reg_dat);
-> -	if (gc->set == bgpio_set_set &&
-> +	if (gc->set_rv == bgpio_set_set &&
->  			!(flags & BGPIOF_UNREADABLE_REG_SET))
->  		gc->bgpio_data = gc->read_reg(gc->reg_set);
->  
-> 
-> -- 
-> 2.48.1
-> 
 
-Isn't this missing to convert gc->set() to gc-set_rv() in several
-places?
+Patches applied!
 
-Without the attached diff I get a null pointer reference on e.g. the
-spacemit k1 driver.
-
-Regards,
-Klara Modin
-
---
-
-diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-index 9169eccadb23..57622f45d33e 100644
---- a/drivers/gpio/gpio-mmio.c
-+++ b/drivers/gpio/gpio-mmio.c
-@@ -362,7 +362,7 @@ static int bgpio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
- static int bgpio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
- 				int val)
- {
--	gc->set(gc, gpio, val);
-+	gc->set_rv(gc, gpio, val);
- 
- 	return bgpio_dir_return(gc, gpio, true);
- }
-@@ -427,14 +427,14 @@ static int bgpio_dir_out_dir_first(struct gpio_chip *gc, unsigned int gpio,
- 				   int val)
- {
- 	bgpio_dir_out(gc, gpio, val);
--	gc->set(gc, gpio, val);
-+	gc->set_rv(gc, gpio, val);
- 	return bgpio_dir_return(gc, gpio, true);
- }
- 
- static int bgpio_dir_out_val_first(struct gpio_chip *gc, unsigned int gpio,
- 				   int val)
- {
--	gc->set(gc, gpio, val);
-+	gc->set_rv(gc, gpio, val);
- 	bgpio_dir_out(gc, gpio, val);
- 	return bgpio_dir_return(gc, gpio, true);
- }
+Yours,
+Linus Walleij
 
