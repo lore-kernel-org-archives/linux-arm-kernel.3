@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A17BC7115A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE74C71157
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbpyUcV8WJEkmNQrYOMEQSj4rAFYVKz/rtUgfOJMyew=; b=NTB+1/t/Yy3ap64cshNmDu2YXc
-	3mi+5HN0tknlslrUk+elETEH4zy9Ql+El3pUoL8O227KFGJoyg9Zdp41K93wCO2qN3gpIF6vY2oeZ
-	DylCOX25XEB5Cl4tx+AGr87pQ4OsnbRwN7dfxy7MihPoiWAFPUwYb39r53uYdMZ1h1ZTTq0s506RD
-	SwfsQlWtPxUbf8dGs5oHSf3tafj1h480tbXwYn1pSCtfktWS0OA5sjxjSOAPAgZsUX+eg9lseQdyi
-	VlziJRkm56fR0we3xAdHRhpr7nOS/nLP0iYqQS8EJvy18et62LOeVIFze9iiKgej/Jf1v3Gr9Gvkq
-	1JPMUPMA==;
+	bh=gOwQ+Auu3tsNtr8PtwyJWf1qBPBbP0g86Uhe8F7OmW4=; b=LM3Xtkcq1mFjiiQAGoX4XCflM1
+	9/CxxzXyyYEBBvYml05xr2kHN2Nb341TD5e9oI9t4RP3B6CaBgECdCWA417+wJ1aQ0aZsCC2WYyiC
+	jfV5YHxW3E1UeoIb71NUNJtZgd22hvpT441O4zFZnowyXhjWBn4gV+7gH31pSEKzKoeAYaa6YkHZJ
+	vJmNEV7hHaq6+CXdGuSOKZBFZ60lP/JwqkoPn+OFcfMWXJIx+Gvp58pzeRvW/PASYuWwXTLMrAfGQ
+	n69o3w65c5CJeCdn0khuePg2VqRHy5uKzcojbSucYJyWNbnuZigJxtrtFfP4rx8TJDwmwSLZxqCVg
+	ZEqGj17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyfP-0000000BEhf-2Ndk;
-	Wed, 18 Jun 2025 19:41:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uRyfO-0000000BEh9-48z5;
+	Wed, 18 Jun 2025 19:41:50 +0000
+Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyRb-0000000BDYr-46PU
+	id 1uRyQt-0000000BDRY-20DE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 19:27:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=mbpyUcV8WJEkmNQrYOMEQSj4rAFYVKz/rtUgfOJMyew=; b=EaIfnTLGw+4JwC3Kzt5QUG2/YL
-	t24i+RjeQafPTa8HWidbHGlIousYnbhxaqPsVwx9Wekyhryw/B+I0T/xRZRIbbklISomjvy5dLIMn
-	4OJSC8Y4EJMhQnRFFcpqYfYs/9bXSBXQi0+dlfOtH4Uc85y91CI6/yYxq6Xr2loroqBk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uRyRM-00GKRb-Q0; Wed, 18 Jun 2025 21:27:20 +0200
-Date: Wed, 18 Jun 2025 21:27:20 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 1/2] net: stmmac: loongson1: provide match data
- struct
-Message-ID: <ac285b47-ccb0-4f85-8f28-cf0067b1334c@lunn.ch>
-References: <aFKXzlno7HkG-cNh@shell.armlinux.org.uk>
- <E1uRqE9-004c7G-CB@rmk-PC.armlinux.org.uk>
+	Wed, 18 Jun 2025 19:26:53 +0000
+Date: Wed, 18 Jun 2025 12:26:24 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750274806;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gOwQ+Auu3tsNtr8PtwyJWf1qBPBbP0g86Uhe8F7OmW4=;
+	b=vwAk49NjoH5esinO7DkuB3fKptPSt0JKN4BgTnq97A9HXw7rW6Z24EpSOdFjjojn0CaJup
+	xH1HWIJdPjgd0DlKBGszFyJkTlLCN3pEhcUgJcztyVAXW1pdpnub4z+j8D73WRlw3BCZHE
+	ZuhB2mVxiTyH1dlKeU0g8gXQes0WsrM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: James Houghton <jthoughton@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Yan Zhao <yan.y.zhao@intel.com>,
+	Nikita Kalyazin <kalyazin@amazon.com>,
+	Anish Moorthy <amoorthy@google.com>,
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com,
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 02/15] KVM: arm64: Add "struct kvm_page_fault" to
+ gather common fault variables
+Message-ID: <aFMS4O2TkWN8nexY@linux.dev>
+References: <20250618042424.330664-1-jthoughton@google.com>
+ <20250618042424.330664-3-jthoughton@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1uRqE9-004c7G-CB@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20250618042424.330664-3-jthoughton@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_122736_094173_B7C1BE5C 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_122651_939924_DF0628EB 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,14 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 11:41:09AM +0100, Russell King (Oracle) wrote:
-> Provide a structure for match data rather than using the function
-> pointer as match data. This allows stronger type-checking for the
-> function itself, and allows extensions to the match data.
+On Wed, Jun 18, 2025 at 04:24:11AM +0000, James Houghton wrote:
+> From: Sean Christopherson <seanjc@google.com>
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Introduce "struct kvm_page_fault" and use it in user_mem_abort() in lieu
+> of a collection of local variables.  Providing "struct kvm_page_fault"
+> will allow common KVM to provide APIs to take in said structure, e.g. when
+> preparing memory fault exits.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: James Houghton <jthoughton@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  9 +++++++++
+>  arch/arm64/kvm/mmu.c              | 32 +++++++++++++++++--------------
+>  2 files changed, 27 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 6ce2c51734820..ae83d95d11b74 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -413,6 +413,15 @@ struct kvm_vcpu_fault_info {
+>  	u64 disr_el1;		/* Deferred [SError] Status Register */
+>  };
+>  
+> +struct kvm_page_fault {
+> +	const bool exec;
+> +	const bool write;
+> +	const bool is_private;
+> +
+> +	gfn_t gfn;
+> +	struct kvm_memory_slot *slot;
+> +};
+> +
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+So this seems to cherry-pick "interesting" values into the structure but
+leaves the rest of the abort context scattered about in locals. If we're
+going to do something like this I'd rather have a wholesale refactoring
+than just the bits to intersect with x86 (more on that later...)
 
-    Andrew
+Thanks,
+Oliver
 
