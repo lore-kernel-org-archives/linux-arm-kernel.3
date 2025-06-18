@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59FDC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3926DC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 21:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ls5BhwV/rXow5UxJyhbSVTcsRSnSZDxBt+jSrPUpWXk=; b=jujAnwjVwG6l+K0Tldg4wrW2DA
-	ZwLQnWXNLLQkHr4IBQVprHAOVEXgfsdazY5NtxFVaq8u2s45lLI0rtqXSSdY8cJbTYE0qOp9jZ0bT
-	a39zYU+Zb8GdoFlrVYri17M4X/fRFbT5jktM8eAWWWZbXSpgEq9yPewlkXf9UxbhRkIrh2idB16pL
-	uRo3/YUPDtHux142RLNv09Lrly3huFDhD7otUisVOy9yX5Pmq9twhShmpea7Hiz/LEglDUk/O7tUW
-	pjaPzkkOs3Rsc5aNFWUF2V6YyHmQoFO0UtEIK91mzFYlwXyz065JFJP5Is0mFPYI6naJfFTGU5mjz
-	g1wq7QOQ==;
+	bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=; b=Oit8V2ANFvY6AULuiX95OY6nEO
+	aqoGHexCTUnU5+YNeT7R9UntOf+skjHpbtf5CllN8pGUkvHeJQUUebIXF3sUykRP+U8SeUySaQAHt
+	k/LArOIM5enDe0x/vtagmiQsuz3L+UiBerIgb+b+KfyjKruYCTxsWIW+0eyrR+fWFDWnGtN5DFlaB
+	5kPnhQhmnYQGg1obOVyiBYHXAT3SlptP/9VVKP91hb1jzDSo/KWF1TITh4XaWCTzYoXmPNzromRR0
+	u4DM/mazW9GvD0sMK+CRr48TeeykO4mHVbcnDz7NUy777uECipZcvVT/UZtu0Vkkxxyi5c5/1eD3B
+	yRbmtsQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0PN-0000000BSDe-36QA;
-	Wed, 18 Jun 2025 21:33:25 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS0GK-0000000BR49-1uVG
+	id 1uS0UF-0000000BSeW-03BI;
+	Wed, 18 Jun 2025 21:38:27 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uS0S0-0000000BSTU-3XeA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 21:24:05 +0000
-Received: from [100.64.233.194] (unknown [52.148.171.5])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7A11E21176C3;
-	Wed, 18 Jun 2025 14:24:02 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A11E21176C3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1750281842;
-	bh=ls5BhwV/rXow5UxJyhbSVTcsRSnSZDxBt+jSrPUpWXk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BsQ6rpq5kP82jTrCwdbhbGuuE2B9f7rgUAO9bg5QMw5TFudEPZjoyRZyye2Mr4m1L
-	 isVGO11zm+0YSekIiKGN8p7n4I+JDViI0j3P97NKDR6nH2StHlReyabY6WWK+uBDZW
-	 j7vTkhOfSnBGfEJWqqFsXJUMAj8fse6LnoXq+mio=
-Message-ID: <5dbd2057-6b0d-45f0-8cf7-935509d4fb03@linux.microsoft.com>
-Date: Wed, 18 Jun 2025 14:24:01 -0700
+	Wed, 18 Jun 2025 21:36:10 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3de18fde9cfso540975ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 14:36:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1750282568; x=1750887368; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=;
+        b=UgsxAIGNewwrrmLzYdE5D7+TILTE1XU0cfel1OWxNB8uDoiBaAPTQbWda4dqnXZtLP
+         MOmjaqRWLa2vVXIILzJaG1H5v6gung40zmhBhxxjYRgRoDwzOvS/yApbQ3oifr23oQoI
+         cPu5KEuSzq6cB6X7styxLVzCRCRgyY1vN0wLY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750282568; x=1750887368;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jjh8awUqCCw4utSfZXOcxNoe/sGWEOM53BOqQHOzNR0=;
+        b=u9etd6alGTFnXMN8zIygwpgqh5ZS7vXHspSLOgAB1FjtjhBuJUI6zr4TimUI+6wUzb
+         JW3MOCT8IkEPPTowK6TCnTDv5xh0PiYdeqcfa8VPdlhVihrykmoKyI1wF3yuSKQMVaOK
+         Sy7IZTMDitFxKKHK5TnJ9KLr0fNSakuMpvG/AKPGOMsE4GOPKmE+DT8Fmlx03TxPYsDX
+         yhqyc1Q/sw9XcNod371/hN8B/DR9PamBAncji5AmD1b3GCvDDst51aMLgSxFCjt6zIkP
+         TZrbah+sa9hkIEAykL3nWPvd4AvZMIIHDXBvpEsLMVlHCXVCZVqB3iEfdReFbJBx6ITy
+         RKrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMflcrRcyR+jSOEkk5OSi02YuUutwRhSjXShWM4VMznVQsPfb4UKkURFazA5w52wO3PRUky2MzVUWeIEjKcrYO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF3y5nhQU1H2sW3cA7KCdTVO3kaIsJCsdnvY00eIPmEaRZqUF/
+	z9ht3YtoKKY/enOaQx20deJLFmb6a0O/O01zfmYwwxWm2RVcKO5rL474lI68s3pQsa0=
+X-Gm-Gg: ASbGncs3JEZCkDLi33TQFeOCwLTmcGuOhS44Mfou8cCaUkTyWRA5xXBBBMyNXhFkOgb
+	RWqlSUvOTsMw7YBJ3V3H5cuFck4r/10QPXsa9dPcTqEsLKzV2dxnNh/1J686YjgxCSZH3tbeYbo
+	+pRfymY8KW0mzU2xZlwJOjWR19oCdZEG/cXhX9nwsoHMB84hbYrQM6cn8eOLADYfO9HVrtf0AV3
+	GIk+LgbAx8iYc89I+ozqraJYtPwjejcpmcWb+L1IeX1dfixglXPo1dTSNaSRZFXkYjYvSL13W68
+	eZKZPM7elc/Ec6tqegksJyfyqkVOMRivAmtzt8zyAGO9iAwFPerfGHCez4BqJ/a5NHIRDwdo6Q=
+	=
+X-Google-Smtp-Source: AGHT+IHzVdYixqyHR8b6G5EFMSrmZhJVZpp2peDtXSyWByTozchYUrxZPpYV9SLXnX3gjdalIl1zLA==
+X-Received: by 2002:a05:6e02:4414:10b0:3de:119f:5261 with SMTP id e9e14a558f8ab-3de119f54demr131814575ab.3.1750282567942;
+        Wed, 18 Jun 2025 14:36:07 -0700 (PDT)
+Received: from [192.168.1.14] ([38.175.170.29])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de019d1ba0sm32296805ab.31.2025.06.18.14.36.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Jun 2025 14:36:07 -0700 (PDT)
+Message-ID: <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
+Date: Wed, 18 Jun 2025 15:36:06 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
- interrupts on nested
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com"
- <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
- "x86@kernel.org" <x86@kernel.org>
-References: <1749599526-19963-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1749599526-19963-5-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB4157BAE54D3BBD4CD8065722D475A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+To: Shuai Xue <xueshuai@linux.alibaba.com>, brauner@kernel.org,
+ shuah@kernel.org, will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157BAE54D3BBD4CD8065722D475A@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_142404_548412_418E70AB 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20250618_143608_907670_BF0DDD33 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/2025 4:07 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, June 10, 2025 4:52 PM
->>
->> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->>
->> Running as nested root on MSHV imposes a different requirement
->> for the pci-hyperv controller.
->>
->> In this setup, the interrupt will first come to the L1 (nested) hypervisor,
->> which will deliver it to the appropriate root CPU. Instead of issuing the
->> RETARGET hypercall, we should issue the MAP_DEVICE_INTERRUPT
->> hypercall to L1 to complete the setup.
->>
->> Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
->>
->> Co-developed-by: Jinank Jain <jinankjain@linux.microsoft.com>
->> Signed-off-by: Jinank Jain <jinankjain@linux.microsoft.com>
->> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> ---
->>  drivers/pci/controller/pci-hyperv.c | 18 ++++++++++++++++--
->>  1 file changed, 16 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
->> index 4d25754dfe2f..0f491c802fb9 100644
->> --- a/drivers/pci/controller/pci-hyperv.c
->> +++ b/drivers/pci/controller/pci-hyperv.c
->> @@ -600,7 +600,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
->>  #define hv_msi_prepare		pci_msi_prepare
->>
->>  /**
->> - * hv_arch_irq_unmask() - "Unmask" the IRQ by setting its current
->> + * hv_irq_retarget_interrupt() - "Unmask" the IRQ by setting its current
->>   * affinity.
->>   * @data:	Describes the IRQ
->>   *
->> @@ -609,7 +609,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
->>   * is built out of this PCI bus's instance GUID and the function
->>   * number of the device.
->>   */
->> -static void hv_arch_irq_unmask(struct irq_data *data)
->> +static void hv_irq_retarget_interrupt(struct irq_data *data)
->>  {
->>  	struct msi_desc *msi_desc = irq_data_get_msi_desc(data);
->>  	struct hv_retarget_device_interrupt *params;
->> @@ -714,6 +714,20 @@ static void hv_arch_irq_unmask(struct irq_data *data)
->>  		dev_err(&hbus->hdev->device,
->>  			"%s() failed: %#llx", __func__, res);
->>  }
->> +
->> +static void hv_arch_irq_unmask(struct irq_data *data)
->> +{
->> +	if (hv_nested && hv_root_partition())
+On 6/15/25 23:06, Shuai Xue wrote:
+> The pidfd_test fails on the ARM64 platform with the following error:
 > 
-> Based on Patch 1 of this series, this driver is not loaded for the root
-> partition in the non-nested case. So testing hv_nested is redundant.
+>      Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
 > 
+> When exception-trace is enabled, the kernel logs the details:
+> 
+>      #echo 1 > /proc/sys/debug/exception-trace
+>      #dmesg | tail -n 20
+>      [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
+>      [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
+>      [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
+>      [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
+>      [48628.713055] pc : 0000000000402100
+>      [48628.713056] lr : 0000ffff98288f9c
+>      [48628.713056] sp : 0000ffffde49daa8
+>      [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
+>      [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+>      [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
+>      [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
+>      [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
+>      [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>      [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
+>      [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
+>      [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
+>      [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
+> 
+> According to ARM ARM D1.3.10.2 SP alignment checking:
+> 
+>> When the SP is used as the base address of a calculation, regardless of
+>> any offset applied by the instruction, if bits [3:0] of the SP are not
+>> 0b0000, there is a misaligned SP.
+> 
+> To fix it, align the stack with 16 bytes.
+> 
+> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> ---
 
-Good point, I'll change it to just check for hv_root_partition() here.
+Assuming this is going through Christian's tree.
 
->> +		/*
->> +		 * In case of the nested root partition, the nested hypervisor
->> +		 * is taking care of interrupt remapping and thus the
->> +		 * MAP_DEVICE_INTERRUPT hypercall is required instead of
->> +		 * RETARGET_INTERRUPT.
->> +		 */
->> +		(void)hv_map_msi_interrupt(data, NULL);
->> +	else
->> +		hv_irq_retarget_interrupt(data);
->> +}
->>  #elif defined(CONFIG_ARM64)
->>  /*
->>   * SPI vectors to use for vPCI; arch SPIs range is [32, 1019], but leaving a bit
->> --
->> 2.34.1
+Acked-by: Shuah Khan <skhan@linuxfoundation.org>
 
+Let me know if you would like me to pick it up.
+
+thanks,
+-- Shuah
 
