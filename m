@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E70C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764BAC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4VTK3eCG8hx+8cOCHC03CRPEXFZEAFnEVMrfkQFbo4=; b=S2iXNf83YTCu7e91zTmmgAhWZc
-	m9QgiJWEHNNYC9e8khvZ7u3ZKJ58q0ScXzT9aE857tC3Itqt5fb2Tr6h0fp7UFwSpVhhP2Sdg7zt2
-	rgis33E/unyVLIpKzXY62jATFfi3pfYiuFvLgG+o3C15mnyHmYwhqKd8bcEV7zWUrHgelk3/1/AYH
-	XXtoe4s3/He0PnP5xC/+iBlE3TfM7VHikkVoLRlQNCcgmx1N17h/eaBQ8e+6XEYHq/DWPqGcW1VjG
-	1fxaKDvx86EYQVmfsyg1phJRZu53VLe0u/wab1f+WC81rkB53nogjjO6H8pQ9LvLtNModLfD+Ey6F
-	y2/iySqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tFx+nAgZ8AJsRRvfdecebhXbuJcNn8oWUIIvk2cM8dg=; b=x3bEfVRAItZE2ew5cVCuy19izA
+	T9etW7lV0Bw+EcPmTmN20pWtTBz6bzqoUSI0i1p7WJL9Ao08gdXjfsk4YA4kTmByaekwiB8mBiEyS
+	bhsLcNfOOybkNFNd0Leh8i98UFWFdLnoL1UhtoOrqKCoZCv5E3r1iRScTeXBeJNkmsm1uogUGI3bg
+	QqyxHVxdA+afNCYWhPmq1C0QZ+OdvJsHGljiA3fwghq10YfcFlQStzfELjVquTMBiiq5anRJ6t0n4
+	AL44vZ1+Gaw8RT2n9puCV6n9U+PmT0/sgCsDes4Q4ar7O6HTBuk9J19cILYLSliHQyHH/ZYk+nULO
+	EMgn2c9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwP6-0000000ApAa-00SS;
-	Wed, 18 Jun 2025 17:16:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRwP7-0000000ApB6-0UB8;
+	Wed, 18 Jun 2025 17:16:53 +0000
+Received: from mail-lf1-f42.google.com ([209.85.167.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsOa-0000000AD8n-43gt
+	id 1uRsRv-0000000ADm9-1OuM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:00:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B405C6112A;
-	Wed, 18 Jun 2025 13:00:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F52EC4CEEE;
-	Wed, 18 Jun 2025 13:00:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750251603;
-	bh=MRqEecx1OOYe0w2vHR29KSY1Ek3v/BZj9saNCAG+GcU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=hYpXFz/fg2f586yRIe9vDvlYwHywwIg0QM6bbGgAQbSHP2zJ3LRwkbMPvxZZhnD4j
-	 5HML5apfyR7mLMacWrp0GHtla95F5QQ0Z8qAAImLDDNO8bcIOOXvT6EQo5ZWLsLvUo
-	 CNtU84SZCzK5IopukR/e2cuBlEbpeMOEjWySxTHbEDW69nBk8Ph9xfIaRYsClnmsAE
-	 0tvqhIhiYhigWID4OzVbfOoCLFZhp2rzX+Zwe2Y9Z8lKu9u4A7HgTDaWuhjy7IgFRH
-	 NVrAV08GT0/wxvz7swU4LLhBPpEnSrFxN4eewqX8N17G5xWyZCcjWi2RV2g/3zW16a
-	 MmUAKAPG6EkGQ==
-Date: Wed, 18 Jun 2025 08:00:02 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 18 Jun 2025 13:03:32 +0000
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-551fc6d4a76so6838901e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 06:03:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750251809; x=1750856609; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tFx+nAgZ8AJsRRvfdecebhXbuJcNn8oWUIIvk2cM8dg=;
+        b=NZBWqAzr1eVsa9W89pQer6kyKoOI1t0R0nXB/mH33ygoTlNSzefZZFEOtmZXRe32gm
+         ebrJbzxM4DIjfauGDLX9hO7bj+/W1UWFxDSKTGE9XZUC6kD6+nKERIqvTKzaVNKrUhSl
+         xWI3vM7kcH9/rBIW83itKGNXxPM+B7OFtxSMSLwdaEZI9H6BTAXuQmJGaUCTsW2IIoRs
+         aLDhsliCJaqFYcKzdHd7Q/0qpOQBwo0jNqLEs64U+zzUJib5RwU4iKJ/9tMVCv7rj4NY
+         AWb9vdy/qdY6j4BFM5M/SH8hEJ3xcQAKKTT03VOSDTgXKoi6vewolOaqnIOpncNg43jL
+         u9sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750251809; x=1750856609;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tFx+nAgZ8AJsRRvfdecebhXbuJcNn8oWUIIvk2cM8dg=;
+        b=P5H7wg7P/oz30b4EV7R+hLRNAcwUCqop56sA/RanTracU6GQUwXCZbgH+8NK8/Nj2S
+         /0oM0NGMSzBnuujT7CbMPX4cM7qnFy+4rFnaOJYrcNk6b3Z1qkb6Mmz0FtKmQrZmbSyg
+         x2/iHRcj6IsDfXaxFHY1o3n/aBWaRekGK/7CAikg690XiTeanQS5GgpM880/WwiSRR7j
+         H/z/LgNgIw8N+otJ/lTWN5G8/9EyP58jG7Q6TGnigU9Y0W78ZSYO7I+HZHF8uHCyy6/D
+         bFe9lucFw2iseiHKWMqQG6zyvUAzZzACbHGd6j4DoMDxCROth5nAVB/dvP7aFEKnfOAo
+         MnpA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrgsKj1nLqpHHTS3lh5OGVVNbPkr2buisUbAECjzPSyrWpns66sIq/yxVU3bvBesMTNFMFiSmV5TPUZZ3YhkxO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP3hczvKE7+Tchr5DjurqQtHfTgwiSeUIiC4PNQXbTBDC14jN5
+	pDUIK+XUgE5Q3Shlxu0CclejN0RpKFYoYYYnbUhhaPKhfhga9jsEk8KJqigreJ2qEjG4PS6BPRK
+	lMgOEPqZcYspt010VUDIhcpoJJ5xpntj/uFMdPWk75g==
+X-Gm-Gg: ASbGncvCwqGvRM8cJOpv7u4Ap58YIITN1Mrdds5Qacfr0zah/5MBRtPITjUEEA8ahqC
+	/UwH96oq4PlwzD0XbjPEjvNEB7CWXHaQ/Ure3bRBPwwyC1PJoLPkv220kLc7FLf6AHwx5T1cjkw
+	KgkvrGYhW9aVVmF08j7cukTMiAOrxBAtx6IoRuBT0mP+6tv/Md5GrjvJ5N9Sftd4g5flY6L0Im8
+	9qIbdRL5P6Q
+X-Google-Smtp-Source: AGHT+IEq73Sz7VEMckQ6LcsKf9Ah9LwsuMzT2V+DGZ7xnubvjoAkc8Z7a8qWgDSaz5X2ovUTBOfo+akf/lut/OxE/YQ=
+X-Received: by 2002:a05:6512:3e14:b0:553:d444:d4c4 with SMTP id
+ 2adb3069b0e04-553d444d84cmr738304e87.50.1750251808808; Wed, 18 Jun 2025
+ 06:03:28 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Julien Massot <julien.massot@collabora.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, linux-staging@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Linus Walleij <linus.walleij@linaro.org>, devicetree@vger.kernel.org, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- linux-kernel@vger.kernel.org, Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Cosmin Tanislav <cosmin.tanislav@analog.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- linux-media@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-In-Reply-To: <20250618095858.2145209-15-demonsingur@gmail.com>
-References: <20250618095858.2145209-1-demonsingur@gmail.com>
- <20250618095858.2145209-15-demonsingur@gmail.com>
-Message-Id: <175025160249.1545873.9100402029038186913.robh@kernel.org>
-Subject: Re: [PATCH v4 14/19] dt-bindings: media: i2c: add MAX9296A,
- MAX96716A, MAX96792A
+References: <20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org> <20250617-gpiochip-set-rv-gpio-v1-9-903703881fa2@linaro.org>
+In-Reply-To: <20250617-gpiochip-set-rv-gpio-v1-9-903703881fa2@linaro.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 18 Jun 2025 15:03:17 +0200
+X-Gm-Features: AX0GCFt5YjdlIT0r2MYTgVPiMMrWQk90C3yKPcU3IZdAiNWl5mP9-Yr7Xyq2AcM
+Message-ID: <CAMRc=Mf-SnaY8-Azv5p3nT9z5YK0-Rtr4Gs90c6B+3+eoJnTJA@mail.gmail.com>
+Subject: Re: [PATCH 09/12] gpio: reg: use new GPIO line value setter callbacks
+To: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250618_060331_369472_4A9A8D68 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +99,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 18 Jun 2025 12:58:50 +0300, Cosmin Tanislav wrote:
-> The MAX9296A deserializer converts single or dual serial inputs to MIPI
-> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-> in the forward direction and 187.5Mbps in the reverse direction.
-> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-> GMSL1 links. The serial inputs operate independently, allowing videos
-> with different timings and resolutions to be received on each input.
-> 
-> MAX96716A supports both tunnel and pixel mode.
-> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+On Tue, Jun 17, 2025 at 2:24=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+>
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
+I missed one instance where the set() callback is called directly via
+the function pointer. Will fix in v2.
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250618095858.2145209-15-demonsingur@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Bart
 
