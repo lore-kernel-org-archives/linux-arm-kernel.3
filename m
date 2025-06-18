@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0873BC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20D3C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 13:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mk9BXGMGll5XoIlIUyv59SEqVo5RfxqKr2JVpkabGA0=; b=Qq0WxJLVPzOQB+eiSXTKKIKX/j
-	pcMYlTM6i5r4UMXq3Bs5Jt3x57J+saclzNoJDysKjNqkyV21p+I5inotIUgS9SgiqT9owMs7swZON
-	CfeHkoXFrBKA3LS+NYiiNv6nDqfSbK/ZrV+7MPoFrzMGsy8T80DGnSYMSigkD1XjueE6lj+MPLv4Z
-	l3Rl3Wbpd2xQ6ftZyaMfPw+x0DwB9D0n5lm1JL4QROyhAZC91Z8y3iAHwrHb9LG5DkFLVO9HtBiJO
-	EdxCxuoRd5vC04it+nEcIEaFSC7vLqzOc2sxJFheCkwUC5o69yNZOZ2H6Qfc1/7CMbWfzAVXwvIYn
-	m92RVFoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cTAhywwGGjUwDaZqOZaIHehuH/OqBt/ctGeYnLPELMg=; b=WcDp6HcPuJQP54SB4b5Cn7t9ZE
+	KnZgCXwmqAZ4q2JJo9Lr1SBaz7p8Zi2JJk7t+QyAZ4eVoHw2+QjTiV4fgcIEHMNFRUSM1SLuulKAg
+	66LvkKpZIKRDVms1f62GMWerz0h/XJe0n+qLJakO41r0F+WwIaXOYkX0u3Y4i7+8hA1AYkQU4UWyW
+	X5moAdOdddMYdaeUiaaVnyfpQpx9MOZsi/q5Td+fOTj5+r5E+qP4RTk35HBzTd/TVHTLULJs95N4Q
+	AkZs5QvcYJn7cLQiz2FnhxQhyr+LaJ6k7RCe2izw/O4/I9CNtV8Ugg9tZeeUhylNvghCekRuIQigi
+	SDA4e5Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsYv-0000000AFr5-029q;
-	Wed, 18 Jun 2025 13:10:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRsbA-0000000AG9w-2Vn9;
+	Wed, 18 Jun 2025 13:13:04 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRr5t-00000009xqd-2Jzs
+	id 1uRrJv-0000000A1RO-0mxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 11:36:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 61A6A5C5BC8;
-	Wed, 18 Jun 2025 11:34:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C19FC4CEE7;
-	Wed, 18 Jun 2025 11:36:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750246600;
-	bh=GVLbSPQbFmJsEWhBuQd4bgNbK7h2cLmm5XbplIfuN3M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NyqeBfE5keSm2NQskHcY9R6uGqvLEzDOJ3+hjLlMh84TIBIekDCJsZzMH3PTRFu5s
-	 PuMbvAdmCmbjdQaSRnl7F8zBAZPHk2ATcxpAhGd0VAgHClRKxIySDw3DZXzkgEDuP5
-	 shDp5G7odvpIwid+hL3WzrJOJD+1rhbtE5rvPRX3KsJfEJLOcg2/8ukA+vjK21O8Gs
-	 kAhHDZRU3aQgPS24WmPyN3f9so4JHOEFG8C2qVfBTurRGJxVzvuYW3AEI5F9AT1+aw
-	 FuM43AEMTiUBIvD1V+kVORu+6sYsIzjRISoRwShC4ZktfYYS5bCWCMMTOV2TQIPULe
-	 hjbm4xloU2njA==
-Date: Wed, 18 Jun 2025 12:36:36 +0100
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org,
-	Dev Jain <dev.jain@arm.com>
-Subject: Re: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during
- ptdump_check_wx()
-Message-ID: <20250618113635.GA20157@willie-the-truck>
-References: <20250609041214.285664-1-anshuman.khandual@arm.com>
- <20250612145808.GA12912@willie-the-truck>
- <5c22c792-0648-4ced-b0ed-86882610b4be@arm.com>
+	Wed, 18 Jun 2025 11:51:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bMhpY29VLzvZBf;
+	Wed, 18 Jun 2025 19:48:53 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 075DE140275;
+	Wed, 18 Jun 2025 19:51:05 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 18 Jun 2025 19:51:04 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 18 Jun 2025 19:51:03 +0800
+CC: <yangyicong@hisilicon.com>, Shameerali Kolothum Thodi
+	<shameerali.kolothum.thodi@huawei.com>, James Clark <james.clark@linaro.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Ali Saidi <alisaidi@amazon.com>, "Leo
+ Yan" <leo.yan@linaro.org>, Will Deacon <will@kernel.org>, James Morse
+	<james.morse@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, yangjinqian
+	<yangjinqian1@huawei.com>, Douglas Anderson <dianders@chromium.org>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@linaro.org>, Adrian Hunter
+	<adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>, Jiri Olsa
+	<jolsa@kernel.org>, Kan Liang <kan.liang@linux.intel.com>, Namhyung Kim
+	<namhyung@kernel.org>, Linux Kernel Mailing List
+	<linux-kernel@vger.kernel.org>
+Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
+To: Leo Yan <leo.yan@arm.com>, Mark Rutland <mark.rutland@arm.com>
+References: <aEyGg98z-MkcClXY@x1>
+ <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
+ <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
+ <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
+ <20250616130736.GA788469@e132581.arm.com>
+ <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
+ <20250616160811.GA794930@e132581.arm.com> <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
+ <20250617141810.GB794930@e132581.arm.com> <aFJ-Za6oRGKKASN1@J2N7QTR9R3>
+ <20250618112440.GC794930@e132581.arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <3dbc1f1b-a325-1525-f9f0-8172033438ec@huawei.com>
+Date: Wed, 18 Jun 2025 19:51:03 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5c22c792-0648-4ced-b0ed-86882610b4be@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250618112440.GC794930@e132581.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_043641_631270_B24B953B 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20250618_045111_530414_80FC0CFD 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +94,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 10:39:02AM +0530, Anshuman Khandual wrote:
+On 2025/6/18 19:24, Leo Yan wrote:
+> On Wed, Jun 18, 2025 at 09:52:53AM +0100, Mark Rutland wrote:
 > 
+> [...]
 > 
-> On 12/06/25 8:28 PM, Will Deacon wrote:
-> > On Mon, Jun 09, 2025 at 05:12:14AM +0100, Anshuman Khandual wrote:
-> >> The arm64 page table dump code can race with concurrent modification of the
-> >> kernel page tables. When a leaf entries are modified concurrently, the dump
-> >> code may log stale or inconsistent information for a VA range, but this is
-> >> otherwise not harmful.
-> >>
-> >> When intermediate levels of table are freed, the dump code will continue to
-> >> use memory which has been freed and potentially reallocated for another
-> >> purpose. In such cases, the dump code may dereference bogus addresses,
-> >> leading to a number of potential problems.
-> >>
-> >> This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
-> >> ("arm64/mm: Hold memory hotplug lock while walking for kernel page table
-> >> dump")' but a same was missed for ptdump_check_wx() which faced the race
-> >> condition as well. Let's just take the memory hotplug lock while executing
-> >> ptdump_check_wx().
-> > 
-> > How do other architectures (e.g. x86) handle this? I don't see any usage
-> > of {get,put}_online_mems() over there. Should this be moved into the core
-> > code?
+>>>> Other than that, I think that userspace should just maintain its own
+>>>> infrastructure, and only pull in things from kernel sources when there's
+>>>> a specific reason to. Otherwise we're just creating busywork.
+>>>
+>>> I agree with the methodology.
+>>>
+>>> Since Arnaldo is facing build failure when sync headers between kernel
+>>> and perf tool, to avoid long latency, let us split the refactoriing
+>>> into separate steps.
+>>>
+>>> As a first step, I think my previous suggestion is valid, we can create a
+>>> header tools/perf/arch/arm64/include/cputype.h with below code:
+>>>
+>>>   #include "../../../../arch/arm64/include/asm/cputype.h"
+>>
+>> Directly including the kernel header introduces the very fragility that
+>> having a copy was intended to avoid. NAK to that.
 > 
-> Memory hot remove on arm64 unmaps kernel linear and vmemmap mapping while
-> also freeing page table pages if those become empty. Although this might
-> not be true for all other architectures, which might just unmap affected
-> kernel regions but does not tear down the kernel page table.
+> My suggestion is not to include the kernel header, nor to modify the
+> copy header. :)
+> 
+> Instead, I suggested creating a new header within the perf tool (under
+> perf's arm64 folder) and then include the copy header in tools:
+> 
+>   tools/arch/arm64/include/asm/cputype.h
+> 
 
-... that sounds like something we should be able to give a definitive
-answer to?
+sorry for the misunderstood.:(
+in this way we still have the divergency in the long term and as a workaround
+this works same if we partly update the tools/arch/arm64/include/asm/cputype.h
+with only necessary MIDR updates and keep is_midr_in_range_list() unchanged.
 
-Will
+>> I've replied to the same effect Yicong's patch [1,2].
+>>
+>> If we want to share headers between userspace and kernel, we should
+>> refactor those headers such that this is safe by construction.
+>>
+>> There is no need to update the userspace headers just because the kernel
+>> headers have changed, so the simple solution in the short term is to
+>> suppress the warning from check-headers.sh.
+> 
+> Sure, makes sense for me.
+> 
+> @Arnaldo, as Mark suggested, do you want me to send a patch to remove
+> cputype.h checking in check-headers.sh or it is fine to keep the warning
+> until finish the header refactoring?
+> 
+> @Yicong, could you confirm if you proceed to refactor the MIDR? thanks!
+> 
+
+please feel free to take this over.
+
+> Just note, I searched tools folder and found kselftest also uses the
+> cputype.h header. The refactoring should not break the files below.
+> 
+
+they shouldn't affected. I did a kselftest build test with my latest patch
+and they were not affected.
+
+thanks.
+
+> $ git grep cputype.h
+> perf/check-headers.sh:check arch/arm64/include/asm/cputype.h '-I "^#include [<\"]\(asm/\)*sysreg.h"'
+> perf/util/arm-spe.c:#include "../../arch/arm64/include/asm/cputype.h"
+> testing/selftests/kvm/arm64/psci_test.c:#include <asm/cputype.h>
+> testing/selftests/kvm/lib/arm64/vgic.c:#include <asm/cputype.h>
+> 
+> Thanks,
+> Leo
+> 
+>> [1] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m23dfbea6af559f3765d89b9d8427213588871ffd
+>> [2] https://lore.kernel.org/linux-arm-kernel/dc5afc5c-060c-8bcb-c3a7-0de49a7455fb@huawei.com/T/#m6acbfa00002af8ee791266ea86a58f8f994ed710
+>>
+>> Mark.
+>>
+>>>
+>>>   static bool is_perf_midr_in_range_list(u32 midr,
+>>>                                          struct midr_range const *ranges)
+>>>   {
+>>>           while (ranges->model) {
+>>>                   if (midr_is_cpu_model_range(midr, ranges->model,
+>>>                                   ranges->rv_min, ranges->rv_max))
+>>>                           return true;
+>>>                   ranges++;
+>>>           }
+>>>
+>>>           return false;
+>>>   }
+>>>
+>>> Then, once we can generate a dynamic MIDR header file, we can use that
+>>> header and define the midr_range structure specifically in the perf.
+>>> In the end, perf can avoid to include kernel's cputype.h.
+>>>
+>>> If no objection, Yicong, do you mind preparing the patch mentioned
+>>> above? Thanks!
+>>>
+>>> Leo
+> 
+> .
+> 
 
