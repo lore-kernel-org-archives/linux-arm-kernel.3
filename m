@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263BEC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9F4C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 14:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQSXU+TrgnS8AKt60aNkfo/YuksZZg0YJvNTCUwwf+A=; b=15yMhz0AOAjwDLX67TXl3vpiGa
-	SLkXOxuoppWPkreD+F+CIDe63aMuEod69m7pXWDljHHavqV0U6rPaRALiQoYG1wLLcsx2bpg7eSXJ
-	c86f6gJ9pHetWrRN0fEcqW6Nx8kPRH5cqiXvE0QWSL82Iv+7/0ixByWxcApEU+20cXaGLtCppAi9H
-	8rd0AfWSo+nYTOVsDuxGZQV093MPUAR1m/DnA+zZNrYv9BemDoe24yaCHaTK1p4d+FncIJb+ak//b
-	SPBT6i6cLpyL0wp14vWCc1S576citRZBzPVfCzIzsxuJPDjqMiKN1la+x18cQ0Pu7Pyz0pnsHvNLp
-	8gk5KpLw==;
+	bh=Ohe99j/6jt1pDajOYmFL8khbAeA38Sa6jSypxNvlvN4=; b=bwRKiwkV4+w8oHUX/ouJZHNZbl
+	BHliSjcL6xmLJ+prz4LYL+5AS39wtHQyTnxroAfri41J5koApG+MK1hALn3Z5g9SfrkvUqpXCXdL3
+	vlAH4dV/vMUSMd/g5Ge6d9/Ct5m3Hfl5cxnt2ZZO6M4ZgzRINX75HwEh7WMItw3oeQPyTU0q0HpAk
+	0A1A2x9zPRYlAMkZZJxUrFJnKGAniWvTr9ZBiNNj1nHeRM1irL7ybZKYDlvgndxXlpklXu/BJEImj
+	fneZuJnBmwZKANQZ6WjL9Ek2hQ3uyqv4SBMtNIY4JmIwbWjm1tv8LhlUH5Tv/UZPTlo9FIpgEel7N
+	s3VLQg4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtd8-0000000APc3-0FkQ;
-	Wed, 18 Jun 2025 14:19:10 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uRtfJ-0000000APrT-3NJZ;
+	Wed, 18 Jun 2025 14:21:25 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRrtF-0000000A7aZ-3L51
+	id 1uRrtG-0000000A7aa-0zbL
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 18 Jun 2025 12:27:43 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 349911F7C2;
-	Wed, 18 Jun 2025 12:27:35 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 6369921240;
+	Wed, 18 Jun 2025 12:27:37 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
 	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 848D113A99;
-	Wed, 18 Jun 2025 12:27:34 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AD0E513721;
+	Wed, 18 Jun 2025 12:27:36 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id yGv4HrawUmg4UgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:34 +0000
+	id 8G/WKLiwUmg4UgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 18 Jun 2025 12:27:36 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: lee@kernel.org,
 	danielt@kernel.org,
@@ -71,9 +71,9 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 01/12] platform/x86: dell-uart-backlight: Use blacklight power constant
-Date: Wed, 18 Jun 2025 14:16:33 +0200
-Message-ID: <20250618122436.379013-2-tzimmermann@suse.de>
+Subject: [PATCH 04/12] drm/panel: panel-summit: Include <linux/of.h>
+Date: Wed, 18 Jun 2025 14:16:36 +0200
+Message-ID: <20250618122436.379013-5-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250618122436.379013-1-tzimmermann@suse.de>
 References: <20250618122436.379013-1-tzimmermann@suse.de>
@@ -86,14 +86,15 @@ X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-Spamd-Result: default: False [-4.00 / 50.00];
 	REPLY(-4.00)[];
 	TAGGED_RCPT(0.00)[]
-X-Rspamd-Queue-Id: 349911F7C2
+X-Rspamd-Queue-Id: 6369921240
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
 X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_052741_980700_64FE7821 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250618_052742_418396_7908A2B0 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +109,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The backlight subsystem has gotten its own power constants. Replace
-FB_BLANK_UNBLANK with BACKLIGHT_POWER_ON.
+Include <linux/of.h> to declare device_property_read_u32() and
+struct of_device_id. Avoids dependency on backlight header to include
+it.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- drivers/platform/x86/dell/dell-uart-backlight.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/panel/panel-summit.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/platform/x86/dell/dell-uart-backlight.c b/drivers/platform/x86/dell/dell-uart-backlight.c
-index 8f868f845350..f323a667dc2d 100644
---- a/drivers/platform/x86/dell/dell-uart-backlight.c
-+++ b/drivers/platform/x86/dell/dell-uart-backlight.c
-@@ -305,7 +305,7 @@ static int dell_uart_bl_serdev_probe(struct serdev_device *serdev)
- 	dev_dbg(dev, "Firmware version: %.*s\n", resp[RESP_LEN] - 3, resp + RESP_DATA);
+diff --git a/drivers/gpu/drm/panel/panel-summit.c b/drivers/gpu/drm/panel/panel-summit.c
+index 4854437e2899..02aa1ec287d6 100644
+--- a/drivers/gpu/drm/panel/panel-summit.c
++++ b/drivers/gpu/drm/panel/panel-summit.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0-only
  
- 	/* Initialize bl_power to a known value */
--	ret = dell_uart_set_bl_power(dell_bl, FB_BLANK_UNBLANK);
-+	ret = dell_uart_set_bl_power(dell_bl, BACKLIGHT_POWER_ON);
- 	if (ret)
- 		return ret;
- 
+ #include <linux/backlight.h>
++#include <linux/of.h>
+ #include <drm/drm_device.h>
+ #include <drm/drm_mipi_dsi.h>
+ #include <drm/drm_mode.h>
 -- 
 2.49.0
 
