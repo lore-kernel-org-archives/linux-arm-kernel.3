@@ -4,61 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C3EC7115D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DFCC7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b2+StECbPUsw8O5lvPVzsmlJ3+N7vFRXE7zgZ7GuRSk=; b=MI61ieL5tIWgO+hIj1bhLeUqZP
-	HWe+8DheqAzblR1gEzNF/abt07IBfL3O5AxKMRsCyZvt9UpkrbA9xY3Jm3pcVMsNEpFbeRU5Hhl1L
-	fI44jPNJ69Dn0AEbukwiWn6DPB298yHC0HsW3/OVu00lnIV7AZfymCdSU7uwFmOs2WKchZ5DIAnd5
-	7XbRPesWpbFYQSDVCJx9iQHj1ddhoi02AFz7r0kjv/P2fs7slHqsKGJeWVRcwIzmTjB9hF7Yz4E0d
-	EFvq74y02IBgTM4YStOFSBc9VaG9lfs2zAokwQZFeUtUplGi0w6j7+yvwbkSGv850IIvumK3PCyQH
-	m1j2JcWg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dZrh2kRr9epmznKJs9uCr/vEuO8TtjESbiM34GJpCA4=; b=ulOXvJkWffL/yqMqbOouJtWHFf
+	LxyiI+D6x0ilc8UK3XPcjP7MwCFKp+FGOFVHhTC9ZsDfw+Z1jYXJu0p48Lw0DrSZKm6Bcl31SJntW
+	yxZJknopmexFUN+6N3E/9IWPH28wgxs9/wAOIta9bZ/ySBuYdgdgnF37F8TO27qxTZ0w9PQLQ2Dxg
+	CtdEhb7bImSN8qHm6azDsM0AXq+LnjrwUsbJQCPNSewDIn4x/fyiF6ddhaiCUgNi+xDjEaC5v5rpN
+	FTeKbzJCO33GGaykQz2rwUVZZ0jRGycuFzBdY/6PxXgVp8CFFQ9hYeid10Uj/rhO2gg87OYY3nRYq
+	ZAglF5iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKDX-0000000E0Vx-1OiU;
-	Thu, 19 Jun 2025 18:42:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uSKDY-0000000E0YU-41tp;
+	Thu, 19 Jun 2025 18:42:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSJ7a-0000000DnHi-0z4c
+	id 1uSJHt-0000000Dnqc-1lVw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 17:32:18 +0000
+	Thu, 19 Jun 2025 17:42:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9570617F2;
-	Thu, 19 Jun 2025 17:32:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37A1AC4CEEA;
-	Thu, 19 Jun 2025 17:32:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF07849E29;
+	Thu, 19 Jun 2025 17:42:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F5CC4CEEA;
+	Thu, 19 Jun 2025 17:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750354337;
-	bh=dnW/KeOlCCPZwEfbvo8J45kgENPUMKU2wmQYqK2LIGw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VN0QGBbt4tRi4gq3NSM17Znien/P1ilBoWwY9IbHVkQ7Bw8Ok2MxdGEEpyKFX1p5R
-	 qNn4Si4thBFEmD/nf2xLyEgupYDj38sOA08a/TGxFzbppC5c1HcGB5qd5/lElsN6Fb
-	 2UZgY0kQ+rtxt2Lgw/KJvFuXaHlOPgahGuGo7H3jEO7h8nU24KDtZzsCKnf0FnsFwM
-	 dUEKqfYWhc67JA+hIKRTa8M4BV5j/hz8+LVtmkGkaiiG6xCSOLe1dsFZZlWuqb91M0
-	 R997NMJqIkXa7KLBcptaXLrVds5lYNuSIrcRdWJYJxnzxH6JxmNudKcrd54mxcDsHv
-	 thMCbil/KaipQ==
-Received: by wens.tw (Postfix, from userid 1000)
-	id CD6D65FEF5; Fri, 20 Jun 2025 01:32:14 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Vasily Khoruzhick <anarsoul@gmail.com>
-Subject: [PATCH] mfd: axp20x: Set explicit ID for AXP313 regulator
-Date: Fri, 20 Jun 2025 01:32:07 +0800
-Message-Id: <20250619173207.3367126-1-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	s=k20201202; t=1750354976;
+	bh=8v7ej/x3ntd+S5vfv/hiCc3yZ/JFX5CBCMkqA8lW41E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZfRnIEMFThGKsAZEPiAswgjx49WcWxLbUzXecfU1tqY4xR2Q/xPHRjCHjCB2I+Mdp
+	 /g50+a1KrzwV6WnJUHku2mkSVPtyKyNH6sOx5xxv/nDsfjd13xS7R/AremKhLM+NLz
+	 pboobou2FP+sETifyhTtwLbK/t/1ZNdGqqVQbnY5gRLAV0hmTc93ozfdZd3jkM1T0V
+	 50tXS1w+poBmQI3Swhi4N9VOJ0kYB+sT1QvImRdUuLFgeWRcDj/Decr4Wkf6NEBjPe
+	 WssAztw9uNkVjbEAnbbp7dQV0i9gRyFxCp/QWyzB9BjCbcpGQYpEn6LcIATlv33Mbx
+	 LJhNgoT5sC/mQ==
+Message-ID: <4f5c6b47-4803-4cfc-808d-72a2a894711a@kernel.org>
+Date: Thu, 19 Jun 2025 19:42:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH][next] clk: moxart: Make read-only array div_idx static
+ const
+To: Colin Ian King <colin.i.king@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250619083035.1835133-1-colin.i.king@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250619083035.1835133-1-colin.i.king@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250619_104257_504825_5956B19C 
+X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +120,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+On 19/06/2025 10:30, Colin Ian King wrote:
+> Don't populate the read-only array div_idx on the stack at run time,
+> instead make it static const.
+> 
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> ---
 
-On newer boards featuring the A523 SoC, the AXP323 (related to the
-AXP313) is paired with the AXP717 and serves as a secondary PMIC
-providing additional regulator outputs. However the mfd cells are all
-registered with PLATFORM_DEVID_NONE, which causes the regulator cells
-to conflict with each other.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Commit e37ec3218870 ("mfd: axp20x: Allow multiple regulators") attempted
-to fix this by switching to PLATFORM_DEVID_AUTO so that the device names
-would all be different, however that broke IIO channel mapping, which is
-also tied to the device names. As a result the change was later reverted.
-
-Instead, here we attempt to make sure the AXP313/AXP323 regulator cell
-does not conflict by explicitly giving it an ID number. This was
-previously done for the AXP809+AXP806 pair used with the A80 SoC.
-
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- drivers/mfd/axp20x.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
-index e9914e8a29a3..25c639b348cd 100644
---- a/drivers/mfd/axp20x.c
-+++ b/drivers/mfd/axp20x.c
-@@ -1053,7 +1053,8 @@ static const struct mfd_cell axp152_cells[] = {
- };
- 
- static struct mfd_cell axp313a_cells[] = {
--	MFD_CELL_NAME("axp20x-regulator"),
-+	/* AXP323 is sometimes paired with AXP717 as sub-PMIC */
-+	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
- 	MFD_CELL_RES("axp313a-pek", axp313a_pek_resources),
- };
- 
--- 
-2.39.5
-
+Best regards,
+Krzysztof
 
