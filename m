@@ -4,80 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7D3C7EE2C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BC4C77B7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fahWvOVNItLm35PMomvGhLHgfle3sZa5yLZw8PoJsQI=; b=2JwWCeXiyGr3XYrRxtF2b/AB5R
-	od4F8xcEnirSNtDtgspLMFDXsadfX7ZzHNJ51vY/JXv2/4e/Ks0NvMjW2W20MRSfa/zEUrrkqRe17
-	W34ZcEZriazeWoSwQ9ND0VKba9jvZ9xRQcab4jaZnGbULfkJszTbec7XVYB4BIrE35UDI23S5kYbT
-	JF8pm00iSf0omoHyx4VKW4r7LlQJ1qiCtQcEiD3R05xMR2dwwm+hIP2HfuhhbrYQ7ox3cype/iEOp
-	U0r3VZ9za5CjQVQ+pZiGR/LI0UKMTRn0iQCapAVECDflmnOfOltcXywOgQE3sHrEE0gY1639i2Enj
-	iWHWiZhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RyZjmzTSk3Ts7RThnG0FelPPt0qvetxwBx5Be/gySDI=; b=znhOxeTO4I+ONMb7dq9lqkRwI+
+	b7VpHdVdkUU3F28b5p8FUsmpx/zi7Sl/8nOJs8vc2Jiyv06wS/wZjz4zhVaE/OXQht40b9nKm9/tU
+	vwjQM8swGPGvxZNr9KlFn5bkuk6WZ8CZ733V7GOsc9PmSGkLqkT2dequVa2Cou8GKfVCugVlQRgT9
+	GynGrjTQ4jbCJUPjK6KDbk9T1vWzi7BBH0FLEtIHOS4zo9uBcL1C3oFFzCBACQwd2n8cRS3TPST8d
+	qIJ1ooMm8IamPjEYBUYzmcKk/DHKqnoCuO+jg1bx+Lp3KYGcWKyMKM74F59AEAqiwfkMdealBl2c8
+	qE++Bu+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLpS-0000000ECj1-0FCx;
-	Thu, 19 Jun 2025 20:25:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uSLpV-0000000ECmp-1RH2;
+	Thu, 19 Jun 2025 20:25:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKq7-0000000E5Aq-1O2w;
-	Thu, 19 Jun 2025 19:22:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fahWvOVNItLm35PMomvGhLHgfle3sZa5yLZw8PoJsQI=; b=KJ69axq6iEpo+hnNz73B3aHXOG
-	/8CQX9XeZYsQp15IBymUCq4zucbuPVqckDvoYwYu3KifHfmYG8wkRKs5837DHu5fssyv9AVHWEMQC
-	gu6LAUZ4KHNAQA9UW7WioqwTxmHQDzp9W/GFO9PkE8tr/nGJ+mtVsqks7Pt80lyoWiKEmeQo3Dq/8
-	/y+LqinQd1HDlzZR8LBsDIsDN4gPc3pbsjJ5SZ0TdeaIQWUG9UFphQRG+gzYi/MZM3rj0SvT2qvHl
-	QujlHKO3Kp8NJxn7px9VtGnDKym1p7WsRQi5fhenVtd+1Oyw5a+IeATiQJp4lifUyY9jyn3mmsMBp
-	4bDCCXSg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKpw-00000004YiJ-11y0;
-	Thu, 19 Jun 2025 19:22:16 +0000
+	id 1uSKwv-0000000E6Na-1Fh0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 19:29:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 615344AD79;
-	Thu, 19 Jun 2025 19:22:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8D2C4CEEA;
-	Thu, 19 Jun 2025 19:22:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750360928;
-	bh=7v+MyTeQcOpDaV4LB38tDUhI6A7m5o/4ae4xLDxCiqY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J/8283iYv8EIsY7VeLxKAGdNzaGSoYqyndLVstHfyjRBZP1o1pPBwQxMUA6H+7wUH
-	 snIjJBMJHLdbQxXfpvn7VI/E/IcpSWaGGnrptQoBPst3LIFeIcBtS9izH49da54K03
-	 9ikt2btjP1vQfUct8pw1PUQK78WHLvyJy86yfAE+lryrdXbQcHP/y0KZKOf0Gx/OdZ
-	 Lq6N7SP62AxHxJzfIXs5EuQrwpSEBdr115um089ahtmQ1ZNb5X4GkCDSHNpxvYLhQ5
-	 9XfhB+rfs/w7wOSHBo8dgwV6xlUbpgFWEtfLviY+vjABxyTTECiL3LYoPMEcuOuabi
-	 TUnpE8ZkUUNTQ==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 4/9] lib/crypto: powerpc: move arch/powerpc/lib/crypto/ into lib/crypto/
-Date: Thu, 19 Jun 2025 12:19:03 -0700
-Message-ID: <20250619191908.134235-5-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250619191908.134235-1-ebiggers@kernel.org>
-References: <20250619191908.134235-1-ebiggers@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id DE80A5C077C;
+	Thu, 19 Jun 2025 19:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E41C4CEED;
+	Thu, 19 Jun 2025 19:29:19 +0000 (UTC)
+Date: Thu, 19 Jun 2025 20:29:17 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+Cc: ryan.roberts@arm.com, yang@os.amperecomputing.com, will@kernel.org,
+	jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	james.morse@arm.com, broonie@kernel.org, ardb@kernel.org,
+	baohua@kernel.org, suzuki.poulose@arm.com, david@redhat.com,
+	jgg@ziepe.ca, nicolinc@nvidia.com, jsnitsel@redhat.com,
+	mshavit@google.com, kevin.tian@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
+ BBML2
+Message-ID: <aFRlDSZ2PPnHixjc@arm.com>
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+ <20250617095104.6772-5-miko.lenczewski@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250617095104.6772-5-miko.lenczewski@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_202212_867930_DC15FEE9 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250619_122925_426685_A5E031E5 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,125 +71,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index bcac4f55f9c1..203357061d0a 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+>  			pte = pte_mkyoung(pte);
+>  	}
+>  
+> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> +	/*
+> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
+> +	 *
+> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
+> +	 *       N=4 for clarity.
+> +	 *
+> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
+> +	 *       unset and set, respectively.
+> +	 *
+> +	 * We worry about two cases where contiguous bit is used:
+> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
+> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
+> +	 *
+> +	 * Currently, the BBML0 folding case looks as follows:
+> +	 *
+> +	 *  0) Initial page-table layout:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |  0 |  0 |  0 |  0 |
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  2) __flush_tlb_range():
+> +	 *
+> +	 *   |____ tlbi + dsb ____|
+> +	 *
+> +	 *  3) __set_ptes() to repaint contiguous block:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RO,c|RO,c|RO,c|RO,c|
+> +	 *   +----+----+----+----+
 
-Move the contents of arch/powerpc/lib/crypto/ into lib/crypto/powerpc/.
+From the initial layout to point (3), we are also changing the
+permission. Given the rules you mentioned in the Arm ARM, I think that's
+safe (hardware seeing either the old or the new attributes). The
+FEAT_BBM description, however, only talks about change between larger
+and smaller blocks but no mention of also changing the attributes at the
+same time. Hopefully the microarchitects claiming certain CPUs don't
+generate conflict aborts understood what Linux does.
 
-The new code organization makes a lot more sense for how this code
-actually works and is developed.  In particular, it makes it possible to
-build each algorithm as a single module, with better inlining and dead
-code elimination.  For a more detailed explanation, see the patchset
-which did this for the CRC library code:
-https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
-Also see the patchset which did this for SHA-512:
-https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
+> +	 *
+> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
+> +	 *
+> +	 *                  |____| <--- tlbi + dsb
+[...]
+> +	 * It is also important to note that at the end of the BBML2 folding
+> +	 * case, we are still left with potentially all N TLB entries still
+> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
+> +	 * block). However, over time, natural TLB pressure will cause the
+> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
+> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
+> +	 * not only correct, but also keeps our eventual performance benefits.
 
-This is just a preparatory commit, which does the move to get the files
-into their new location but keeps them building the same way as before.
-Later commits will make the actual improvements to the way the
-arch-optimized code is integrated for each algorithm.
+Step 4 above implies some TLB flushing from the core code eventually.
+What is the situation mentioned in the paragraph above? Is it only until
+we get the TLB flushing from the core code?
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/powerpc/lib/Makefile                                       | 2 --
- lib/crypto/Kconfig                                              | 2 +-
- lib/crypto/Makefile                                             | 1 +
- {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Kconfig         | 0
- {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Makefile        | 0
- .../powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10-glue.c | 0
- .../powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10le-8x.S | 0
- .../lib/crypto => lib/crypto/powerpc}/poly1305-p10-glue.c       | 0
- .../lib/crypto => lib/crypto/powerpc}/poly1305-p10le_64.S       | 0
- .../powerpc/lib/crypto => lib/crypto/powerpc}/sha256-spe-asm.S  | 0
- {arch/powerpc/lib/crypto => lib/crypto/powerpc}/sha256.c        | 0
- 11 files changed, 2 insertions(+), 3 deletions(-)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Kconfig (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/Makefile (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10-glue.c (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/chacha-p10le-8x.S (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/poly1305-p10-glue.c (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/poly1305-p10le_64.S (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/sha256-spe-asm.S (100%)
- rename {arch/powerpc/lib/crypto => lib/crypto/powerpc}/sha256.c (100%)
+[...]
+> +	if (!system_supports_bbml2_noabort())
+> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+>  
+>  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
 
-diff --git a/arch/powerpc/lib/Makefile b/arch/powerpc/lib/Makefile
-index 481f968e42c7b..27f8a01438603 100644
---- a/arch/powerpc/lib/Makefile
-+++ b/arch/powerpc/lib/Makefile
-@@ -1,12 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Makefile for ppc-specific library files..
- #
- 
--obj-y += crypto/
--
- CFLAGS_code-patching.o += -fno-stack-protector
- CFLAGS_feature-fixups.o += -fno-stack-protector
- 
- CFLAGS_REMOVE_code-patching.o = $(CC_FLAGS_FTRACE)
- CFLAGS_REMOVE_feature-fixups.o = $(CC_FLAGS_FTRACE)
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 43c44316fbbdc..f4f9a70dd0891 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -197,11 +197,11 @@ source "lib/crypto/arm64/Kconfig"
- endif
- if MIPS
- source "lib/crypto/mips/Kconfig"
- endif
- if PPC
--source "arch/powerpc/lib/crypto/Kconfig"
-+source "lib/crypto/powerpc/Kconfig"
- endif
- if RISCV
- source "arch/riscv/lib/crypto/Kconfig"
- endif
- if S390
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 74331243b8c44..47c889b881b2a 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -104,5 +104,6 @@ obj-$(CONFIG_CRYPTO_LIB_SM3)			+= libsm3.o
- libsm3-y					:= sm3.o
- 
- obj-$(CONFIG_ARM) += arm/
- obj-$(CONFIG_ARM64) += arm64/
- obj-$(CONFIG_MIPS) += mips/
-+obj-$(CONFIG_PPC) += powerpc/
-diff --git a/arch/powerpc/lib/crypto/Kconfig b/lib/crypto/powerpc/Kconfig
-similarity index 100%
-rename from arch/powerpc/lib/crypto/Kconfig
-rename to lib/crypto/powerpc/Kconfig
-diff --git a/arch/powerpc/lib/crypto/Makefile b/lib/crypto/powerpc/Makefile
-similarity index 100%
-rename from arch/powerpc/lib/crypto/Makefile
-rename to lib/crypto/powerpc/Makefile
-diff --git a/arch/powerpc/lib/crypto/chacha-p10-glue.c b/lib/crypto/powerpc/chacha-p10-glue.c
-similarity index 100%
-rename from arch/powerpc/lib/crypto/chacha-p10-glue.c
-rename to lib/crypto/powerpc/chacha-p10-glue.c
-diff --git a/arch/powerpc/lib/crypto/chacha-p10le-8x.S b/lib/crypto/powerpc/chacha-p10le-8x.S
-similarity index 100%
-rename from arch/powerpc/lib/crypto/chacha-p10le-8x.S
-rename to lib/crypto/powerpc/chacha-p10le-8x.S
-diff --git a/arch/powerpc/lib/crypto/poly1305-p10-glue.c b/lib/crypto/powerpc/poly1305-p10-glue.c
-similarity index 100%
-rename from arch/powerpc/lib/crypto/poly1305-p10-glue.c
-rename to lib/crypto/powerpc/poly1305-p10-glue.c
-diff --git a/arch/powerpc/lib/crypto/poly1305-p10le_64.S b/lib/crypto/powerpc/poly1305-p10le_64.S
-similarity index 100%
-rename from arch/powerpc/lib/crypto/poly1305-p10le_64.S
-rename to lib/crypto/powerpc/poly1305-p10le_64.S
-diff --git a/arch/powerpc/lib/crypto/sha256-spe-asm.S b/lib/crypto/powerpc/sha256-spe-asm.S
-similarity index 100%
-rename from arch/powerpc/lib/crypto/sha256-spe-asm.S
-rename to lib/crypto/powerpc/sha256-spe-asm.S
-diff --git a/arch/powerpc/lib/crypto/sha256.c b/lib/crypto/powerpc/sha256.c
-similarity index 100%
-rename from arch/powerpc/lib/crypto/sha256.c
-rename to lib/crypto/powerpc/sha256.c
+Eliding the TLBI here is all good but looking at the overall set_ptes(),
+why do we bother with unfold+fold for BBML2? Can we not just change
+them in place without going through __ptep_get_and_clear()?
+
 -- 
-2.50.0
-
+Catalin
 
