@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326D0C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 04:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE369C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 04:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KnuhDIQHNaECsEm59Nxn5Me/W5soIU7h5crqTMNWTVA=; b=mJzw6+5Gu/VutrAnSq9fVHw2gr
-	5cnCP7iglxFM9Q6mtR6+5JMlKviqI1DHIL8fp7tJhYLIV1wip9ZsSX/Mb5RVZgrbmTmTlBualG8GT
-	bGv3cgRFeRG4NnUlWyll1NcAf6EBGgSM9n3d37IeAnWL8lPivf3u/BW2V/vfyQvCxG/Hf/httv5Wj
-	yDFgNzYCh70v5KRrbGfU8HT7RDdoyCkLibjEmCUVBYf9lJ041xzaciCSmSP5YexljAWe+cREivqlF
-	4L2bnjyde8s8Y02vyDKMnrI6xa97qfD/bXfi2iy9eIs5EGNMgQCigAyz6HAG2335n+OtIBKafla3O
-	mdcovf/Q==;
+	bh=5fk4eKprQME0ysShGROXKcBb5kPJKh5RJXwot7YF45c=; b=ShW4TlyLWfNKSkbDsUoGxK7YPB
+	ReWPMy6gKdjn68mvxvQrOpCFuzcUgAFxegOJAshv2ODntnD52xAphHg9mJeE+p00FAjwg+WbsATge
+	A7j6LstPMcqYR1x3mxGGEns17iUzM8NvdKpUYZdcpruMtbjlYf0ubNQQVzdmoJuxlX5tPcE1ccfNu
+	YirrYq5I1e9YgboFJFdwQOwYK6tt4DYa+M9TzINFfbr7OvxBUoIQCMwkeYYusQDdxJG5v9LBStvvJ
+	nZX5LWzvV7ELo+capQs8Dja3CDNwoCsU7el8E0fz1wYKwqRLfeJoTvKdFBp9Unfs+fNteQYP7KT+c
+	NOJSFaPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS6Uq-0000000BxMV-18LC;
-	Thu, 19 Jun 2025 04:03:28 +0000
+	id 1uS6X3-0000000BxkM-46rN;
+	Thu, 19 Jun 2025 04:05:45 +0000
 Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS6SZ-0000000Bx74-1648
+	id 1uS6U9-0000000BxF9-2uCm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 04:01:10 +0000
+	Thu, 19 Jun 2025 04:02:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=KnuhDIQHNaECsEm59Nxn5Me/W5soIU7h5crqTMNWTVA=;
-	b=HUnFwmnPibjlj4W6KrKKeWx/Z1Rs3/bLJvV4OMFgztVcpnzquQPf1+80SLqL7i
-	prrBCud7S/zL8E0hEPnbrU8UxMfTy5J9glJCn8UIHfe/+dqdhW6LbfSa3VKTLe/Y
-	ctj8asyB23tQyOr7kKFib9UgTOJwQZd6ENsoNxV2JMUr8=
+	Content-Type; bh=5fk4eKprQME0ysShGROXKcBb5kPJKh5RJXwot7YF45c=;
+	b=GIoFFEYCbxt+94DCzf/RcjER+1ekHvOr01qXrgNZfnLtO+ZCxm0o0Y2JGyI85Z
+	7MQOuUPtFIHf85X3Z/pIRRGp0WpjJ6Oa5rs2uBLoc0GhjKz7zX3vVlr0oveGjMCx
+	wfkGvqp/cL9AKtmj9O27asFYT38OfdBQwIjAqiMlLKCJU=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDX_zpui1Nou2r2AA--.60288S3;
-	Thu, 19 Jun 2025 12:00:48 +0800 (CST)
-Date: Thu, 19 Jun 2025 12:00:46 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD33_TIi1NotZ38AA--.63985S3;
+	Thu, 19 Jun 2025 12:02:18 +0800 (CST)
+Date: Thu, 19 Jun 2025 12:02:16 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
 To: maudspierings@gocontroll.com
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -46,23 +46,23 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 1/8] dt-bindings: arm: fsl: Add GOcontroll Moduline
- Display
-Message-ID: <aFOLbiHgnpyDtUHM@dragon>
+Subject: Re: [PATCH v7 5/8] arm64: dts: freescale: add Ka-Ro Electronics
+ tx8p-ml81 COM
+Message-ID: <aFOLyCB5plPmrRyp@dragon>
 References: <20250520-initial_display-v7-0-a8f0195420aa@gocontroll.com>
- <20250520-initial_display-v7-1-a8f0195420aa@gocontroll.com>
+ <20250520-initial_display-v7-5-a8f0195420aa@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250520-initial_display-v7-1-a8f0195420aa@gocontroll.com>
-X-CM-TRANSID: M88vCgDX_zpui1Nou2r2AA--.60288S3
+In-Reply-To: <20250520-initial_display-v7-5-a8f0195420aa@gocontroll.com>
+X-CM-TRANSID: Ms8vCgD33_TIi1NotZ38AA--.63985S3
 X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUnHq2DUUUU
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUOpnQUUUUU
 X-Originating-IP: [117.82.86.8]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBNxZWhTcvRhSgAAsV
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNQoEaWhTi8prIQAA3i
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_210107_606445_A79D5531 
-X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-CacheID: sfid-20250618_210246_040847_7DCB4D7B 
+X-CRM114-Status: UNSURE (   7.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,12 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 08:34:50AM +0200, Maud Spierings via B4 Relay wrote:
+On Tue, May 20, 2025 at 08:34:54AM +0200, Maud Spierings via B4 Relay wrote:
 > From: Maud Spierings <maudspierings@gocontroll.com>
 > 
-> Document the compatible strings for the Moduline Display controller.
+> The Ka-Ro Electronics tx8p-ml81 is a COM based on the imx8mp SOC. It has
+> 2 GB of ram and 8 GB of eMMC storage on board.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Add it to enable boards based on this Module
+> 
 > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 
 Applied, thanks!
