@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F33C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 05:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3ECC71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 05:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHQJh91PGchVv9izvCUQ6fZEw76Gtl1/pclZ1it05SA=; b=KZmg520XssHxXfKOCol6x5Bvxs
-	BCGlsQiyIJB6Rr9CBbMrxysPC0jwG2Glc5484bJZGQMAosGpFK8BYIE+giKnJ2rr34bjklVsgMR/K
-	BuIlI9mu5rCUVZIxRzl710R9wp0v+3SSMsCaaHKEx5R1P13Y+c7MOT0G/5/cbfBFVkXYG51uwALtP
-	QTGPIBya9x9tI/wxd1EmJbScx2/7DVLQgg6TxfgBBX2X2O+Vjh5tI3knmxO2gdXa5VuX7BzbTHJ94
-	Wf2YG+FlDo121nUakkojqJHMsfDrQssRQH9xhxzofIFcmbUzHou7bGRees7C7+Cltw8v7ATvyGMY5
-	j6QPKD7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JLmMakORo/bjvYHh1BYejrDyt6i6mfqrJjTJJ0Tsbvw=; b=xOL7AE/TcO4I46LROewtT5pnt7
+	OwWE1hzBy9/+Y+QrVIzWPo9zu3uTJcpQfyzr1L2sagIF9FCnpE2vciCB7xhRYJtYTmt2tFA+DWrry
+	zVSyzO5AhcnXE8HbO7nNUtTY7wkm38jfpaVVZ7uHcBAiMBIFjBqbnCP/IYNchXFOcMFSo5645TmAG
+	OeBeoKdgqAoOwj+7TrAaokBLxIAXND0css4XI7WAjFOldHt8zlYjD8mu+WBAd5IfKP/SZAmoowxYG
+	lnv81fS3gK5Q+lKEpyJPWLG3GxP6qW8fYdA3AuF+OLsIsfWHEfOl4e4dRSlvA+KbeHyreJl3Y8XG8
+	oT+gn9EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS7cg-0000000C2aq-1CqV;
-	Thu, 19 Jun 2025 05:15:38 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1uS7kP-0000000C39S-1rbW;
+	Thu, 19 Jun 2025 05:23:37 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS7aS-0000000C2Tv-0Jro
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 05:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750310000; x=1781846000;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DaAeSgOKa5+ihHQK/CsgUn/s98z+5cTpCLLRShbyFBw=;
-  b=Zfy31nN9MHw3L0mIATnEFVR4voSy9wYFRBGONp0XWrZPXcmbufLvM9t8
-   tWZ19ACVMcOgma+pbhJ9G5a7ELuE6sNGm21MIS2qUf0M09vejP4uYOwQR
-   B7sWBpPTuyXt1ZcDF1wO1G1HwPCS6FB9WCC+5WHxCr/wMIbQBMRCN/AUJ
-   nlt0vRsjMEdtMmkQnLNgWPMkz/TBlVtZguYpPA2KNQbpOmKTavbIJAyHL
-   d3yg3lYzvMvtv3w3+XlahCLKtcyi0U/FeMR3rV45ICDWbqXhdoQbhC63t
-   bMgugQxL7GKb8go1e/OJAskcCqwvyShA3KqhMqbhTi/QvDE2zlHuK8+4f
-   g==;
-X-CSE-ConnectionGUID: SP8CR55PQNGyo01Ged4s2A==
-X-CSE-MsgGUID: roPg/rmTSq6LPpUVL/KSpg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11468"; a="51784194"
-X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
-   d="scan'208";a="51784194"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:13:19 -0700
-X-CSE-ConnectionGUID: Iy8XfeYmQ6aW1bvPafNrJw==
-X-CSE-MsgGUID: cOabNmcPQp+yFRjQVpbmpg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
-   d="scan'208";a="151106260"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 18 Jun 2025 22:13:13 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uS7aJ-000KQE-1E;
-	Thu, 19 Jun 2025 05:13:11 +0000
-Date: Thu, 19 Jun 2025 13:12:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, lee@kernel.org,
-	danielt@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
-	jessica.zhang@oss.qualcomm.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch,
-	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com,
-	ilpo.jarvinen@linux.intel.com, sven@kernel.org,
-	alyssa@rosenzweig.io, neal@gompa.dev, deller@gmx.de,
-	support.opensource@diasemi.com, duje.mihanovic@skole.hr
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	asahi@lists.linux.dev, platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: Re: [PATCH 12/12] backlight: Do not include <linux/fb.h> in header
- file
-Message-ID: <202506191230.WMfb29QM-lkp@intel.com>
-References: <20250618122436.379013-13-tzimmermann@suse.de>
+	id 1uS7i9-0000000C2wh-35Zg;
+	Thu, 19 Jun 2025 05:21:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6814043994;
+	Thu, 19 Jun 2025 05:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1750310473;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JLmMakORo/bjvYHh1BYejrDyt6i6mfqrJjTJJ0Tsbvw=;
+	b=HKuq5902ViCbbhOdChQM+LrEMpXkWrKsQymSO8dQbIzxyRYE3nw/7iYX8nU2WAzol1eLPZ
+	Jg17EctvIU+nKZ8UkMdNSMPNnF6OYSNWJIMLa0eBr/TwttEZQSFIw+QOvLkHdjjkZpRTSu
+	wHivS2Q82cxx2wPwsN4/EMqhUOMWe+uVShWQusutjUlnbBBJULy6D8SFUHjzujVq/4bP9Z
+	uUCEDZZBW0E/zNT7K6YjVEKlvTdmnDtTBUgQ2l/QaAW1gXNEmxwhZm7V1aCZ0r7ONQILYN
+	h/h9ycMQUWBRBcdbDzkbrYev9i6l7z9BMbE9SBhi1leNG9tbPR0TQHKsRwji5A==
+From: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Date: Thu, 19 Jun 2025 07:21:05 +0200
+Subject: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel
+ description
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250618122436.379013-13-tzimmermann@suse.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAECeU2gC/22MwQ7CIBAFf6XZsxggUKwn/8M0ppTVbqLQACGah
+ n8Xe/Y48yZvg4SRMMG52yBioUTBN5CHDuZl8g9k5BqD5FLzXpyYy/Z2pzcmNpheadW8kAitXyP
+ uQ8uvY+OFUg7xs18X8bP/XopgnKFWZjCTk2iniw0hP8kf5/CCsdb6BfW29wSkAAAA
+X-Change-ID: 20250618-dtb_fixes-97645402512e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Olivier Benjamin <olivier.benjamin@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdegieeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetkefhvdelleeuhefgvdekveffieelhfeujefgtdejueelgfeltdefffehtddvfeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopegludelvddrudeikedruddrvddtngdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigq
+ dhrohgtkhgthhhipheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomh
+X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_221320_127031_50090B34 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250618_222118_543188_091DB013 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +80,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Fix a few issues in the panel section of the PinePhone Pro DTS:
+  - add the second part of the Himax HX8394 LCD panel controller
+    compatible
+  - as proposed by Diederik de Haas, reuse the mipi_out and ports
+    definitions from rk3399-base.dtsi instead of redefining them
+  - add a pinctrl for the LCD_RST signal for LCD1, derived from
+    LCD1_RST, which is on GPIO4_D1, as documented on pages 11
+    and 16 of the PinePhone Pro schematic
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+---
+Small fixes to the PinePhone Pro DTS to fit bindings and
+suppress warnings at build.
+---
+Changes in v2:
+- Added the pinctrl definition for GPIO4_D1/LCD1_RST
+- Incorporated Diederik de Haas' suggestion for defining mipi_out
+- Squashed multiple patches into one
+- Link to v1: https://lore.kernel.org/r/20250618-dtb_fixes-v1-0-e54797ad2eba@bootlin.com
+---
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 33 +++++++++++-----------
+ 1 file changed, 17 insertions(+), 16 deletions(-)
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on v6.16-rc2 next-20250618]
-[cannot apply to lee-backlight/for-backlight-next lee-leds/for-leds-next drm-exynos/exynos-drm-next linus/master lee-backlight/for-backlight-fixes drm-intel/for-linux-next drm-intel/for-linux-next-fixes]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Zimmermann/platform-x86-dell-uart-backlight-Use-blacklight-power-constant/20250618-203011
-base:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
-patch link:    https://lore.kernel.org/r/20250618122436.379013-13-tzimmermann%40suse.de
-patch subject: [PATCH 12/12] backlight: Do not include <linux/fb.h> in header file
-config: riscv-randconfig-001-20250619 (https://download.01.org/0day-ci/archive/20250619/202506191230.WMfb29QM-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250619/202506191230.WMfb29QM-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506191230.WMfb29QM-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/video/backlight/rt4831-backlight.c:215:49: error: array type has incomplete element type 'struct of_device_id'
-     215 | static const struct of_device_id __maybe_unused rt4831_bl_of_match[] = {
-         |                                                 ^~~~~~~~~~~~~~~~~~
-
-
-vim +215 drivers/video/backlight/rt4831-backlight.c
-
-190ccab3185eee ChiYuan Huang 2021-05-17  214  
-190ccab3185eee ChiYuan Huang 2021-05-17 @215  static const struct of_device_id __maybe_unused rt4831_bl_of_match[] = {
-190ccab3185eee ChiYuan Huang 2021-05-17  216  	{ .compatible = "richtek,rt4831-backlight", },
-190ccab3185eee ChiYuan Huang 2021-05-17  217  	{}
-190ccab3185eee ChiYuan Huang 2021-05-17  218  };
-190ccab3185eee ChiYuan Huang 2021-05-17  219  MODULE_DEVICE_TABLE(of, rt4831_bl_of_match);
-190ccab3185eee ChiYuan Huang 2021-05-17  220  
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index 04ba4c4565d0a205e2e46d7535c6a3190993621d..98aba146749998dd5a798aabed0fe844c474d1cf 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -463,29 +463,18 @@ &io_domains {
+ };
+ 
+ &mipi_dsi {
+-	status = "okay";
+ 	clock-master;
+-
+-	ports {
+-		mipi_out: port@1 {
+-			#address-cells = <0>;
+-			#size-cells = <0>;
+-			reg = <1>;
+-
+-			mipi_out_panel: endpoint {
+-				remote-endpoint = <&mipi_in_panel>;
+-			};
+-		};
+-	};
++	status = "okay";
+ 
+ 	panel@0 {
+-		compatible = "hannstar,hsd060bhw4";
++		compatible = "hannstar,hsd060bhw4", "himax,hx8394";
+ 		reg = <0>;
+ 		backlight = <&backlight>;
+-		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
+-		vcc-supply = <&vcc2v8_lcd>;
+ 		iovcc-supply = <&vcc1v8_lcd>;
+ 		pinctrl-names = "default";
++		pinctrl-0 = <&lcd_reset_pin>;
++		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
++		vcc-supply = <&vcc2v8_lcd>;
+ 
+ 		port {
+ 			mipi_in_panel: endpoint {
+@@ -495,6 +484,12 @@ mipi_in_panel: endpoint {
+ 	};
+ };
+ 
++&mipi_out {
++	mipi_out_panel: endpoint {
++		remote-endpoint = <&mipi_in_panel>;
++	};
++};
++
+ &pmu_io_domains {
+ 	pmu1830-supply = <&vcc_1v8>;
+ 	status = "okay";
+@@ -507,6 +502,12 @@ pwrbtn_pin: pwrbtn-pin {
+ 		};
+ 	};
+ 
++	lcd {
++		lcd_reset_pin: reset-pin {
++			rockchip,pins = <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	leds {
+ 		red_led_pin: red-led-pin {
+ 			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Olivier Benjamin <olivier.benjamin@bootlin.com>
+
 
