@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF63C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEDAC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=; b=AIP5YLamuaT5lq3oV299rPR2yo
-	P4uG9v4/y+azqFwsQ5k1IG1arUTVYB9uiaXXFLNBUEMDTdVroM1mlMqAJT/XLZ9eT7GhersW3lTwg
-	r02sbo+wC1SWjiin0/avkeoNIHBtYeqHYAkJ+lgP4ntqDlQg5Xe2j8pMPnlPz9nxMvqunreP84djg
-	Cc7Vbm0Xqffd0F8yPcf8KqrW03+oX2N2a74gz3093gizK//c1imiNbddJTgztNsrzpRDDjuXh6+p5
-	+MhuMx/K5lERiky9PXIiNd9/snQjV7ssZ9IyfulkBE1ZPornqySWeUKIKSDS5EN3TyPMkZKmI35YU
-	ZK8Lhelg==;
+	bh=DqHNEbbR8Ze7dyYo7f0QgeK+Y4R9ODp7Tnqv7tsUimI=; b=0LsPiLTck5tgiW84BBBWeFt+0I
+	MMBdodxC5XK/pWLCa9Lnpx7UFtszM/CJ0+PuPB2FOpgaxBxTBWNfiSRyv+S2VY5BKIBqf+cW54Bq5
+	6jUY8CoC4jCkgZOwA6TOwGvbC9lHbMyiROd9u1bJ5Kt+KMqxU1Mne/SMldBINiwrOrGy0I9NyahaC
+	ixzwDfQveGsivJ7SDv4TOyb3IoW5KQjoDzNQgD4xeIX1v5djGy05at4dZ0XV3vS+tZAcpNcczVUa5
+	CmmZHMogf5vPm/O50KRyLdZBWZmw+majR6tEaYbkf/5pWkKTzsA0bpvXE4CLNj7uK3sIY3Sfsbg7c
+	yPSYnpiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8Zq-0000000C8ha-0tFR;
-	Thu, 19 Jun 2025 06:16:46 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1uS8c2-0000000C8sZ-0FcR;
+	Thu, 19 Jun 2025 06:19:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8AB-0000000C66g-1RUH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 05:50:16 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-32b7113ed6bso3369961fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 22:50:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750312213; x=1750917013; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=;
-        b=AJnDAIEP9FA5iY6NE+pultNcDQ633dzRXuY6uBHeCOlQ9+XKominp0iRbXiwhiSGvy
-         IpGivhUWuhLXqqzL+/NSO2QPCG2TO4aYpnO5VQ1rc4e0guES4Wc7j3qZyroVFHXvBHjh
-         zP2cL5bnLfk0pOIuXiR9CFm/CAyAvVbm+yT8GxNOpWDwtEcwLcT5of5k0sxJPxkpHN2y
-         Q4pA5aExlqtHrCcD6vW+EmuvcWbSqWHAjMOIrQov/5IUqf5qSr/GHx2n3vMalOJ+0H6K
-         defFh4PSclUqpgo9fkXkDwxrXumI6kPAO753MP3bYohx7R9AtXLTfDssQiZxtQw+gm4A
-         vlig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750312213; x=1750917013;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=;
-        b=VbDLQJZhMrtFksoNHjSMhTBgUG4oYKW+yBTTDoaIEwe9AYrbLrfxuIyTYer6Dm8ywC
-         6GJu3B0ep80eHpoVD4/Dpati1WVvOq398qH/HWoWtbjArxXH0a0wrAszzbDBgPixwtdG
-         gRSSF0mVzEgEl62cn2pXlyW9wWP+SmEViWp/B1xGn8zJ9otlVCvrEn1DZD9MJL1zCzmU
-         dgcl2Cbx5srGTqdTYC/UBXxuz0bPqJRXKXoB+a8gfnre4X7sZvA41ZEZT4wIUZKUHIWi
-         kSQmGuvO7hCzUqGjvOVtYN/uApNZnhrZ+afqfWUXc+H6Nj3KojqzGXyO+gvM3lv3ZcAo
-         23cg==
-X-Forwarded-Encrypted: i=1; AJvYcCVblRdJ/2v1swcbZ5rCQ8MDtyanjsmcDrDTz//GUPV2QH9sRRtybe86WJNevAESuWIz7Bg2ckj3Y4ND/w8guGlB@lists.infradead.org
-X-Gm-Message-State: AOJu0YywwW1H//X1acomN7SzlcmmihRd2moY531f/buqdTPF6qMx4MRQ
-	2syV5FOM/VOes7cwr5m/RpL6tEW2PA/KZVtIAWOOWXfMywYAnauAE9l/OmemIzUtRJNMlcpbTSi
-	c7j5TS5LfD5/2rS/8OcRJo5MalSU2USg=
-X-Gm-Gg: ASbGncvOZgVYUqTv7Aicov+t3CudRr5QCqls4ZZVqnbB4ybJX6HSATy2arw3WTaBl5e
-	UksYNYCw3Jls0gXJ029yh59V1LWl/jrCzD15ikVoyS4VHMpBRH1r+yCN1bN/BvXqRd6caRfmlcy
-	mpaec931XYA67QWFAy55TPJWeHRW+vg7u0K+8KcestpXozcWaOhDHE4Os=
-X-Google-Smtp-Source: AGHT+IEk0wCV2litekKJtCgKUf/bVLVWIXtsnBIXZlbey14EA0xVCtKFOE994VdvXguOsTJDJDzKHTC0HOYQikdby68=
-X-Received: by 2002:a2e:a9a6:0:b0:32a:7332:bf7a with SMTP id
- 38308e7fff4ca-32b4a2dab37mr55175051fa.13.1750312213374; Wed, 18 Jun 2025
- 22:50:13 -0700 (PDT)
+	id 1uS8Cl-0000000C6Md-3zBy;
+	Thu, 19 Jun 2025 05:52:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750312373;
+	bh=S+P2It97TueKH/kAbwyhYnXNnN0tqQNO09MpJUtK+fQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kuzMUVdAfcV/tHeVYxKywMBdeZTdXvqN6JkF+2Z+7W0I52mstLMSE7Hz5+xwDmqtO
+	 v2PFVxqDnc8wJVCegk6de7OGF8y2WwNVXIQH6sZiBVmwuAG/xYSZ4m86ZXYTshMhPE
+	 uSOgkuJuDxXv90Ay6AnmiSK6ASsE/SrMwPVKZ+f/m1PX4JqXuPpGqYyqA/n3TBRBKY
+	 U8NBmXgQ6fum4McfnLKB/Er6Km7G+u5Jtt53+F2clY2n8HjuUO3zjnI9PIZy5yVJiU
+	 AS8MLCwH0dNT0xj3wQ+cggx/LdAIwefMq0C0zkFzJXSuKCms7HflAeBODKztyHSv+s
+	 MpbNWr27zyWPA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 716E717E06BF;
+	Thu, 19 Jun 2025 07:52:53 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-input@vger.kernel.org
+In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
+References: <20250617082004.1653492-1-wenst@chromium.org>
+Subject: Re: (subset) [PATCH v3 0/6] arm64: mediatek: mt8186-corsola:
+ Consolidate and add new devices
+Message-Id: <175031237337.17587.18276191221301074786.b4-ty@collabora.com>
+Date: Thu, 19 Jun 2025 07:52:53 +0200
 MIME-Version: 1.0
-References: <aFKXzlno7HkG-cNh@shell.armlinux.org.uk> <E1uRqEE-004c7M-Go@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1uRqEE-004c7M-Go@rmk-PC.armlinux.org.uk>
-From: Keguang Zhang <keguang.zhang@gmail.com>
-Date: Thu, 19 Jun 2025 13:49:36 +0800
-X-Gm-Features: Ac12FXwPd1YGJO7PxhRou6waOopKJzetREi64C09608AmKe9oHFc2z42ZdWqLG4
-Message-ID: <CAJhJPsVoz67Yv2pty=WPMHeOq28yqq5u2VBoZwGMhUAtpNbgcg@mail.gmail.com>
-Subject: Re: [PATCH net-next 2/2] net: stmmac: loongson1: get ls1b resource
- only once
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, 
-	Paolo Abeni <pabeni@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_225015_387542_01A7F947 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250618_225256_171608_9F1C69F3 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,138 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Keguang Zhang <keguang.zhang@gmail.com>
-Tested-by: Keguang Zhang <keguang.zhang@gmail.com> # on LS1B & LS1C
+On Tue, 17 Jun 2025 16:19:57 +0800, Chen-Yu Tsai wrote:
+> This is v3 of my "component probe for Corsola devices" series.
+> 
+> Changes since v2:
+> - Rebased onto next-20250616
+> - Collected reviewed-by tags
+> - Dropped driver changes that are already in v6.16-rc1
+> 
+> [...]
 
-On Wed, Jun 18, 2025 at 6:42=E2=80=AFPM Russell King (Oracle)
-<rmk+kernel@armlinux.org.uk> wrote:
->
-> ls1b_dwmac_syscon_init() was getting the stmmac iomem resource to detect
-> which GMAC block is being used. Move this to a separate setup() function
-> that only runs at probe time, so it can sensibly behave with an
-> unrecognised resource adress. Use this to set a MAC index (id) which is
-> then used in place of testing the base address.
->
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-loongson1.c | 49 ++++++++++++++-----
->  1 file changed, 37 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/driv=
-ers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> index 78d9540be10c..32b5d1492e2e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> @@ -44,28 +44,50 @@
->  struct ls1x_dwmac {
->         struct plat_stmmacenet_data *plat_dat;
->         struct regmap *regmap;
-> +       unsigned int id;
->  };
->
->  struct ls1x_data {
-> +       int (*setup)(struct platform_device *pdev,
-> +                    struct plat_stmmacenet_data *plat_dat);
->         int (*init)(struct platform_device *pdev, void *bsp_priv);
->  };
->
-> -static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *pr=
-iv)
-> +static int ls1b_dwmac_setup(struct platform_device *pdev,
-> +                           struct plat_stmmacenet_data *plat_dat)
->  {
-> -       struct ls1x_dwmac *dwmac =3D priv;
-> -       struct plat_stmmacenet_data *plat =3D dwmac->plat_dat;
-> -       struct regmap *regmap =3D dwmac->regmap;
-> +       struct ls1x_dwmac *dwmac =3D plat_dat->bsp_priv;
->         struct resource *res;
-> -       unsigned long reg_base;
->
->         res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
->         if (!res) {
-> +               /* This shouldn't fail - stmmac_get_platform_resources()
-> +                * already mapped this resource.
-> +                */
->                 dev_err(&pdev->dev, "Could not get IO_MEM resources\n");
->                 return -EINVAL;
->         }
-> -       reg_base =3D (unsigned long)res->start;
->
-> -       if (reg_base =3D=3D LS1B_GMAC0_BASE) {
-> +       if (res->start =3D=3D LS1B_GMAC0_BASE) {
-> +               dwmac->id =3D 0;
-> +       } else if (res->start =3D=3D LS1B_GMAC1_BASE) {
-> +               dwmac->id =3D 1;
-> +       } else {
-> +               dev_err(&pdev->dev, "Invalid Ethernet MAC base address %p=
-R",
-> +                       res);
-> +               return -EINVAL;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *pr=
-iv)
-> +{
-> +       struct ls1x_dwmac *dwmac =3D priv;
-> +       struct plat_stmmacenet_data *plat =3D dwmac->plat_dat;
-> +       struct regmap *regmap =3D dwmac->regmap;
-> +
-> +       if (dwmac->id =3D=3D 0) {
->                 switch (plat->phy_interface) {
->                 case PHY_INTERFACE_MODE_RGMII_ID:
->                         regmap_update_bits(regmap, LS1X_SYSCON0,
-> @@ -84,7 +106,7 @@ static int ls1b_dwmac_syscon_init(struct platform_devi=
-ce *pdev, void *priv)
->                 }
->
->                 regmap_update_bits(regmap, LS1X_SYSCON0, GMAC0_SHUT, 0);
-> -       } else if (reg_base =3D=3D LS1B_GMAC1_BASE) {
-> +       } else if (dwmac->id =3D=3D 1) {
->                 regmap_update_bits(regmap, LS1X_SYSCON0,
->                                    GMAC1_USE_UART1 | GMAC1_USE_UART0,
->                                    GMAC1_USE_UART1 | GMAC1_USE_UART0);
-> @@ -108,10 +130,6 @@ static int ls1b_dwmac_syscon_init(struct platform_de=
-vice *pdev, void *priv)
->                 }
->
->                 regmap_update_bits(regmap, LS1X_SYSCON1, GMAC1_SHUT, 0);
-> -       } else {
-> -               dev_err(&pdev->dev, "Invalid Ethernet MAC base address %l=
-x",
-> -                       reg_base);
-> -               return -EINVAL;
->         }
->
->         return 0;
-> @@ -183,10 +201,17 @@ static int ls1x_dwmac_probe(struct platform_device =
-*pdev)
->         dwmac->plat_dat =3D plat_dat;
->         dwmac->regmap =3D regmap;
->
-> +       if (data->setup) {
-> +               ret =3D data->setup(pdev, plat_dat);
-> +               if (ret)
-> +                       return ret;
-> +       }
-> +
->         return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
->  }
->
->  static const struct ls1x_data ls1b_dwmac_data =3D {
-> +       .setup =3D ls1b_dwmac_setup,
->         .init =3D ls1b_dwmac_syscon_init,
->  };
->
-> --
-> 2.30.2
->
+Applied to v6.16-next/dts64, thanks!
+
+[2/6] dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
+      commit: b292005d5cafb0993f7ff2c0477d5b71cbd3e387
+[3/6] dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
+      commit: a883bc5dc12d52a6a8d5afbd0131be55f0684364
+[4/6] arm64: dts: mediatek: mt8186-steelix: Mark second source components for probing
+      commit: 5349994cfd89ca17b8a820ddb41e4572d9e52b49
+[5/6] arm64: dts: mediatek: mt8186: Merge Voltorb device trees
+      commit: 14e8332e5c5d3b9f8ccfa1f3e0dfe05ca136ba2a
+[6/6] arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
+      commit: f7ef352d45b71e6f3cb7bb572f68eaa0981e9e5c
+
+Cheers,
+Angelo
 
 
---=20
-Best regards,
-
-Keguang Zhang
 
