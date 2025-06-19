@@ -4,99 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0A2C77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA6FC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Id+f7kVLppAX20HAP2AURqNW1tLLgPJWhJTti78Nq48=; b=DpjgbmNoJ/GrWIckf4YbxEiyhD
-	mvz8i04q0JNGcok7e7VjxqzgaYLfiwk4UK/fPiQSRaAg4j8o66K/ribNjj/f5vRjPrkh7cFrlut/N
-	+i47wlSz0ayxWMCjJ49kb+z4g43rfsOsEqEdE85D2wj5VsrBRdG29fguD6163zDpwnbaJtdqCP6UT
-	icGGqP7l96bl3QFp+kMOYp12rC2a7CaEGEOYc1CM87XTmN/+Y2jWcaWupZQKabAI4cBANWKdhthje
-	EqDmnDogwc5HP9gmCzdzIUMkBQZdVOsSOGou8b9mf+EFvRN836N7eRitBMnwhYg2u2PwjpQxHKgMR
-	A3W/m64A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WCVqB6Dbuu4LaL2OwIPzHhKllIPW+cxWDFhh8F1ly+g=; b=y2vt3RtK8GL0VS9K6663UXruI2
+	itMJJfb4TFet+uHX868p4E3hZnKBR9XCDG2rz+3J5+lHBlnDJFfEOnJvWyKB7olBiAsmE3Q4Z+VxO
+	PbYBcrc3C3TvjtYOkB9IleFFRRgTjQbIEpFMhUN8+qu+9255nqBHv3GU4cHfK3FRintvh1suLSpnD
+	gwi2GB6A/GnVnpxHP2t6H6W5VzeYS26/s6yDgBvZTNBZ18MuHPKAfsE0pvu0vRFeGTv5oxLYNS3qJ
+	bdt2oaJvNPa0qFRRRqOs3N02DrKsEW7ObNlPu2HQbN3wdJAstPkClkwmxKUW9IZn0ALk4Fg+8quWb
+	3xjBY8VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKBT-0000000Dy5v-4B77;
-	Thu, 19 Jun 2025 18:40:24 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1uSKBc-0000000DyF9-0jPk;
+	Thu, 19 Jun 2025 18:40:32 +0000
+Received: from mail-bn8nam04on20614.outbound.protection.outlook.com ([2a01:111:f403:2408::614] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSI8e-0000000DcfR-2Jum
+	id 1uSIOx-0000000DdII-2XEG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 16:29:22 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-407a5b577f8so221274b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 09:29:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1750350559; x=1750955359; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Id+f7kVLppAX20HAP2AURqNW1tLLgPJWhJTti78Nq48=;
-        b=oJcXH4iGOtr/JF9BoC4VOOPidghuq1085JA/VxYuoa44BEMR7LHrqIATcRSm4BjL5I
-         nA2HTor6onDPORRQZvetQC37kAg2Up/t0iwUUAl3xMiPOp33NwWOhcQ5oeFzKasuXKWs
-         YnUWWkMv8aUDkz6OqCcZcstvRn2BcZ1w7zJoKk2wVcW+tAGnmve+YGEH4purZnyEcuDr
-         crfr0fS9/9Z05TgLrXxCB20OSkFwcgUbW2LG+8vp1c5cn1J6/8Gbay/fAJMFknr4Jy8C
-         SdX56URc0wwpjWsy4sPuJ+/vaWDyfas7hlzp0ykEhTi4MLkDhhsq/dIMAEfIWylTus5m
-         CcxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750350559; x=1750955359;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Id+f7kVLppAX20HAP2AURqNW1tLLgPJWhJTti78Nq48=;
-        b=cD7ppQBj+/N/qRxCb5VtfkY3HwJ/YsP5WAwOkufSUBsbrTKnnb+rEN7rDSxd0p1nQQ
-         KcDYXUdVeyZQWCcwm9u7GVjMTMSLp2ncUiKThgl9gx0yfVmHiOktCZXf49+9TOA8mSzi
-         vgnu6gVkmCIjXxRrLZTBdJy+V5ripN0AAELG9T1bJeafcK7ej5JhDdi7yQHSRR8/LTEP
-         CfmgrVt76qrQectQdY+bSkx+ib79SiWCK9d4VibLz+kztWzzc1mLZGTVxbR47qUhpQhz
-         Eo7juwCUkonxtlSco5yxfh703qd2aFoMouA0wPzcOJehnEOb0uZYlUxnDOzX6Hk/mrQc
-         GT8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUglzQLn9b5pvZXB9aKn7+t3mel/xmOlcG4iXZHXRGYoM3V/3RTswzTAKK3123Kc39A0xJk4MgMpsl1fXAjKA1z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyH/z2lc5OoszVKRmbwtYV98CLdqQxKGUZdmz+um37o0Kq2pCYJ
-	rYJzuuLKRdpd/9uSAmi8mL5vX1OYC4+cLkKUdQ4KTryJr0Yigp5KACvOpB5G6NhvGxY3H/6uLYI
-	05ScD
-X-Gm-Gg: ASbGncslKE3AEU7Du8yojyLvlxkLhBCsTgksx6znB53hiVmRc9sdzl1x1R+gUvM7+lc
-	IhYgrngMduoRv4Vye/Fsjr7T481Az5bZKQjhPyIgULhsfC5MCfN/72V06ME2QlAVHrgzUWTDZPd
-	ojdraRO7X8WnOu8SULsvHDdQJvUvH2mc+vVGYqCnPY/bRGxl347qz/QhUdlPjyEzthi8sm9Pzhk
-	si8kOPmfwjpBY2QygnUjMbkt0dvXJZQgQQK8cTtEgM0tkJoS8BiiicXcZyePgXG3+wi3bQlQoHj
-	laoIwJt6nHT75dE90x4DaRYMkLo+ZBm4upiSGTvl7ENhhFjsZlOaSo1N6qq7D2NexLD3Fcs2xFa
-	LyNif589eoworGOrSDjAYWI+CUEL4emFTWEHAEWg=
-X-Google-Smtp-Source: AGHT+IE3wykgtpudCLPxyYXHgot19QH7CguFGEPEsZeTABHQ1Nd9aytQtOo9OtA4EGXFPZmqiX54mQ==
-X-Received: by 2002:a05:6808:189c:b0:40a:56e7:1e59 with SMTP id 5614622812f47-40a7c17ecdemr15537482b6e.5.1750350559492;
-        Thu, 19 Jun 2025 09:29:19 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:5504:5211:6fc4:c093? ([2600:8803:e7e4:1d00:5504:5211:6fc4:c093])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-40a74172cb3sm2790979b6e.25.2025.06.19.09.29.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 09:29:19 -0700 (PDT)
-Message-ID: <b27c6aab-e363-45df-8521-e85c2b3f4421@baylibre.com>
-Date: Thu, 19 Jun 2025 11:29:17 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/9] dt-bindings: spi: zynqmp-qspi: Add example dual
- upper/lower bus
-To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org
-References: <20250616220054.3968946-1-sean.anderson@linux.dev>
- <20250616220054.3968946-3-sean.anderson@linux.dev>
- <2588bb7f-2a3a-4001-ab1b-6d9bd57b545b@baylibre.com>
- <cdeb54e8-0624-42de-bac2-25b151c37872@linux.dev>
+	Thu, 19 Jun 2025 16:46:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c1QDW21de76zZmO0SxbpGw8VnrBtzYUyIOmIlcdAQjWoe8CTY1SnNx+QlUb4wjRHJSJ0D6H9H0K3n8elnHk8PAWeY8kt6K2RMpqUUtuj859+NNRJJ/TtSFY50pn9l8KjoR6uC8g/4d4codyCTrTdY9be+H2EvZYgbbXMme4p0Qxe/6zABEEyZHPQL6VvZMmhUs+mYaHjIJPbN8EsXsfr6pfUvTmyaKH0pxuRCj5zWKA2SXySgjPwcy7GCnzLAXIf+Af6v6XHcG5IBEbzu8yFdWiNm2jbqqz/sbUYhC+izlPktgPNCmlZ6kRpOr/LJixw1KEqyUOlKmBS5sNTnhyGPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WCVqB6Dbuu4LaL2OwIPzHhKllIPW+cxWDFhh8F1ly+g=;
+ b=P1QRhyD5bX3A8hdGYBeOgLlyvhSIJ6nZBWPd9jVMQtt+uP1/XMe5Jr7RihiIm0ZVUPrv6utfBABlmnSZ2MSt0bjzkbNgIfz2v7hxI20qSFcgZkJeARsIZDrYt1jD1su6RM2UYcL8vcFzGkNaJvtXpRuNcFYyPnYt02m1LgotZP76iG5yyoUUhtiuvlQkqE7wXId7RGVf/BqafUCKa9X/aZwerC2xGf8rgD8xurE6ZdvHOVMICOixnNzA81Udc1Qi7/N0hnygWN2Zt6zX++EHiZha6cICUQazHY2ZH88654HsWIbqabdbbkrk4dINamAUuqT47WX2n5WX9gRHhEEIeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WCVqB6Dbuu4LaL2OwIPzHhKllIPW+cxWDFhh8F1ly+g=;
+ b=AbZsCcUwYnTTsahXx40tUOb8IT3NV37AHD8Aqp8slXVffGemdE/ELZ7rk+Acq6b28dvhHB+XcBP86atIeUYZT9cq0toI64M7kAZdWI2RCjVIXO2bvO7r7DlvYauYhmksg2gbF8CZDvOG/SDImo2bRoICuURQ96a6jkMXH9SL/KJKhM3Hg2kcCYvPZ8c5J3EccpDkuR5N81G7gQf3jbRZVkoX1JFBICBUPzIZValie9Rt9ETCFcv950li9zQADgHl/Kop/Q/3wO3/enbWvzamFXmnaFRtsqhJxNqSqgTAgSKUCd1rCuoiLoynGZQoIYDZo5rAzJ/9+cAl4wSMP3rxuQ==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8857.22; Thu, 19 Jun 2025 16:46:04 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8813.024; Thu, 19 Jun 2025
+ 16:46:04 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Donald Dutile <ddutile@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com"
+	<shahuang@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>, "seanjc@google.com"
+	<seanjc@google.com>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
+	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju
+	<kjaju@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
+ Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
+	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
+	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
+	<maobibo@loongson.cn>
+Subject: Re: [PATCH v7 4/5] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v7 4/5] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHb4B4TbCVSGMT9r0WVitf7qIEAIrQJHW0AgAABNgCAAUSpXIAAQ9yAgAALxX0=
+Date: Thu, 19 Jun 2025 16:46:04 +0000
+Message-ID: <SA1PR12MB719922A99E16FA6BEB78ADB5B07DA@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250618065541.50049-1-ankita@nvidia.com>
+ <20250618065541.50049-5-ankita@nvidia.com> <aFLqiAyXZLoOTepi@arm.com>
+ <20250618163836.GA1629589@nvidia.com>
+ <SA1PR12MB7199835E63E1EF48C7C7638DB07DA@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <18151eb8-60ec-438b-b9fb-026efc8b848d@redhat.com>
+In-Reply-To: <18151eb8-60ec-438b-b9fb-026efc8b848d@redhat.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <cdeb54e8-0624-42de-bac2-25b151c37872@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|DM4PR12MB6448:EE_
+x-ms-office365-filtering-correlation-id: 97bd0594-5d3e-4706-08d0-08ddaf50c812
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?HyZz3O4CDHXlD5yFS4FrgDhbcKmOieP0U+7aGeTx9Kw7pl1dUFtlEh+aLf?=
+ =?iso-8859-1?Q?hDozRaPufnkue/iLY9vATRYq0Ws1P1Hv7GWTOMJRFigajGNd9gJbMjj7Ba?=
+ =?iso-8859-1?Q?fiWN9tONlxX0CzIhtj5+dvDYBPmh8a0sxXaliiqFM3Kpe57rvg8EdZHj0W?=
+ =?iso-8859-1?Q?SWyRxCwvlET95rn2PSYrVT8t4CFKh54c804iRxU4xVCjZiIC3O/LgKYp+t?=
+ =?iso-8859-1?Q?wl365W08vKUt+MTp1XYXFomobboWBdP0B9FCjr816sKzjoyF2ajDYMr13b?=
+ =?iso-8859-1?Q?kzTAxMMA3Z5GcFbr9svz7Jsc7SzSP+2IPh7suPBHtbak0E3L/0DDTUfyVH?=
+ =?iso-8859-1?Q?HOHI4w9A2DiVwHUHYDmGfKSEYdnTRPiRGiXxXDeZF/qCRXBpbGZccbPgyU?=
+ =?iso-8859-1?Q?pZS7+nRfx3IUN8k4NS6rQzXniYAeTb+JVuTJOfwRntfACcEu4H2MScIJf3?=
+ =?iso-8859-1?Q?xGo0Kru8TcoG6Pxf+rJQs/QeS6+hZlMKOlljgpFb6w9OKBwZPXVs7lZfU7?=
+ =?iso-8859-1?Q?1SV4x3vDOOxssSnz/+NfFp1r7hjxKlhbPlEGU1maJsyGLWIPYRT6uD08zt?=
+ =?iso-8859-1?Q?+tUIWftmaHuQiWjNTnpLNp/a4zdHMEoBvbBEudiAYUZv7N6yIK4WZeVvJX?=
+ =?iso-8859-1?Q?pgsloj3ywCPo+EWgOI6iyiwStLQrZYIsmmVTxRqlj212JTFZJrXr6j2sfK?=
+ =?iso-8859-1?Q?wtEEqQH+lOfU9k6ha5eqcD1qN6QRJ8vg5vpdeSwWtFK2nc6wPWwuw6kOEw?=
+ =?iso-8859-1?Q?mqDmy2ibHJhlfhNKxhujhyXeXL1CsJOyGGGZWOIZB5A+GUQSHH62HNqwfG?=
+ =?iso-8859-1?Q?3L6nBAC+2AhzFUOYEK2vCOdMylIh+1ll7zTzTktfPfM0+sUQFtHdgCm3hp?=
+ =?iso-8859-1?Q?Mq7dxLHKjeiTQLYUqmKitZttSZHQqPM7X2x4LlZd5cQPwYJKjVow17itua?=
+ =?iso-8859-1?Q?SaXhGDUKbBJvSvxwepGtwmUBCW6NnTOgrG2Y8zQztVzq5F0purlgMYHA6r?=
+ =?iso-8859-1?Q?kGEZx4YnKh94QGSNkGQlqoxSQjmm3PPPHoMloNVL81AYgCM401rNVhVa/j?=
+ =?iso-8859-1?Q?D9g/QAwsCN2cd6XEr0wi55zlVr4NhapWyKTwORj2bBiTDQuDB8Gj9bcBaX?=
+ =?iso-8859-1?Q?n3auQZtUXIGETAzVKFXxAsBTIf5HtKkp29OjX3q11XOLfD/btHRNK4motv?=
+ =?iso-8859-1?Q?8rjxvR+r/aH4rYHA23vQAY0qBokpLtesQNxyM4fBYG8dBDl4k5U2kMNUtm?=
+ =?iso-8859-1?Q?YclNFRma/LNJSA2R3nAjcmPZbldG/edHFvuMl3te5F/QQkrT8zcmYqwGBi?=
+ =?iso-8859-1?Q?efyQb8I7xdkczxmZx7s8BM01Ab5viaGaO3Zhns+n4Z125sTVKNVeIInHz3?=
+ =?iso-8859-1?Q?cQFc2cA18aEKPZxP6utISAuTwBxR9DKb14LUAv3FtU/RV1vyJ5gEX8B0FE?=
+ =?iso-8859-1?Q?QiBEi06m69iXNhmE4FxkAMLJczmjcSOv2YqIVCcy+csNI6YjqCYsHXwV6b?=
+ =?iso-8859-1?Q?jZpNloNZM2IJde7lPy5wrLhr12u+4ZHef2T0bUvGBkWcb7q3RlttU5OEJi?=
+ =?iso-8859-1?Q?kKn0Vf0=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?Pp//15ChRkE6XN0FtmgKqjrxh3rAg00Ryu7307Gx1edvMloR3pAcNmCX4t?=
+ =?iso-8859-1?Q?XGIrofqNFwOviks6u7wP7eQTFnPfqqJohL+2ulS/mQkEMtoQvZulOl2rob?=
+ =?iso-8859-1?Q?euuJQGVKAxrKTXSxluFgbBRShYqkPioicTwXOgfeRqFHld4MBZ9ZVIv1F0?=
+ =?iso-8859-1?Q?618kUKk3uWXKjf/4hE00+bEulC80a8jiDkE7Bb1eCwdTehZlcinxlP5XCV?=
+ =?iso-8859-1?Q?D9YJuMTWql+MShruL9XLRoHmsJ+7u8DW9J78sfoc1EA5ZSdig7X23fWg+M?=
+ =?iso-8859-1?Q?HjaFEVC8Ph8x709pHMV7VCXZkYk3SCHWpDU3zhyEd5tlmGmetv7VdKfsqA?=
+ =?iso-8859-1?Q?L1svBvxj0NnDtOFfSYqCgknGxB++iuON7bTpv6J+T/L9wZ2J7aNvss6ikE?=
+ =?iso-8859-1?Q?dkBCbrQuGEEycmSgVVCNZPOZcqu9khIVc/PhaTAMe8O1Jb0N1pxIQaPUNi?=
+ =?iso-8859-1?Q?UcywpUqvoNpu5tn8qC7KKp2/3w1jPu12ldTi0nzBwlFhsMB1U0QrmqxETf?=
+ =?iso-8859-1?Q?OFJ49gaxTxgJLREw93pa3KpFH1Gkuikc5wo4cOqviwXNaUtgIIu0US955V?=
+ =?iso-8859-1?Q?tM0iYoCuAzQShyJORioZkJQzZMt8XNt74OooNfph4L8JX/KMtTuauH9T/U?=
+ =?iso-8859-1?Q?mX3HitIPurPb9XKSjRZsyD6/thguvd84gqaanYewdLdeO78AzlWfKo6UQq?=
+ =?iso-8859-1?Q?uoA9miVhd24PM412S3AcMYA66uoFbbv/wWTfnKJUTHg5HJ09+eu/hrGx5h?=
+ =?iso-8859-1?Q?SYmAYJFeUtbdsaJQpYR1x4vvjd/VCS1S9L4ShoLXWNvOxqhKvXsv+lVxR5?=
+ =?iso-8859-1?Q?NczfZubYXP1bNmlyPisiWyzd1drgmtPqnEiK6bL2jNhuu36Gl6cqYtlvCB?=
+ =?iso-8859-1?Q?uRNkwZSlllc51aDVWUGSoYrZrX/3V3jWIKaTPiDGkbqof8IAFCVYbukFGw?=
+ =?iso-8859-1?Q?M+pJNSLO/U6a5QTIjDkvgrIibLujAeZTE+S4P6sOPWcrVZqAkpNA9bdQJb?=
+ =?iso-8859-1?Q?AN3oMvxh2RzZ6i6Xw62Fes4lLnClkX5+9LqH0WBWZwKEID9y6ASzQxh5W2?=
+ =?iso-8859-1?Q?bv/D2dT0+R2qA/9tpGVWRbEFFRt+a6wlYv14MK7N+arKNbP6AdoLu+3gvU?=
+ =?iso-8859-1?Q?vrm37OeOUq9LHsc3+LcisaDr9uffGreQmSXfMQuyJUabzWydqUYq7c2pir?=
+ =?iso-8859-1?Q?KENibHwyKHCjXe9TfZgLWDzO/WfEQw4anjjwliti37QG1ghSTlw/Dx49Bi?=
+ =?iso-8859-1?Q?HN5G/MtX+BHpsg7wcNyt0drkTlrzqaoOQGnXjkqDSOPoSvfQz0u/dQkRaE?=
+ =?iso-8859-1?Q?2WYYDJTGiNUW12Y+jgKhMlJGdr0RV1YrAY4znR17DuK0j9joIPR6nHuMkG?=
+ =?iso-8859-1?Q?ODOH5bntlO3/5WlEhbDoNtq7ybNaSAW4qqZWiIH9edYyt/nNO23cMEsR9U?=
+ =?iso-8859-1?Q?AQt1RHyX3J6Re/c6GSfOn2tEzKwT54NXK4yGfhxvHDxSs6jpW6k2u1tPEA?=
+ =?iso-8859-1?Q?by86vMSmV2H/At1QYD9lrOxNpsQHX49XU2EBaoex/GwhlplShDEls7Iy/7?=
+ =?iso-8859-1?Q?IGh1Bqgr5fgyiqnT62+d+5Cc5FiVDs7saySmAPXEBOu2WiVdXcvGF6R0ju?=
+ =?iso-8859-1?Q?Nwy4/1IWV2txQ=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97bd0594-5d3e-4706-08d0-08ddaf50c812
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2025 16:46:04.4841
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2jhBD8AG+lo2wac5sGaWhlFqhx6pFkBwHv/kueaUl3K+bDs9HKMDBhO9Eg/PUEKlOvEqS4r4NCXFePWSDQAT9g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6448
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_092920_830057_6A7596DA 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250619_094611_656937_2A8D1382 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,51 +194,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/19/25 11:20 AM, Sean Anderson wrote:
-> On 6/18/25 14:27, David Lechner wrote:
->> On 6/16/25 5:00 PM, Sean Anderson wrote:
->>> Add an example of the spi-buses property showcasing how to have devices
->>> on both the upper and lower buses.
->>>
->>> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->>> ---
->>>
->>> Changes in v2:
->>> - New
->>>
->>>  .../bindings/spi/spi-zynqmp-qspi.yaml         | 22 ++++++++++++++++++-
->>>  1 file changed, 21 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->>> index 02cf1314367b..c6a57fbb9dcf 100644
->>> --- a/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->>> +++ b/Documentation/devicetree/bindings/spi/spi-zynqmp-qspi.yaml
->>
->>
->> In addition to changing the example, we could also extend the
->> spi-buses property for this controller since we know this controller
->> has 2 buses.
->>
->>   properties:
->>     ...
->>
-> 
-> OK, but this property is for the slaves not the master. I'm not sure what the right incantation is.
-
-
-I think using patternProperties, like in Documentation/devicetree/
-bindings/spi/spi-controller.yaml
-
-patternProperties:
-  "^.*@[01]$":
-    spi-buses:
-      ...
-
-> 
->>     spi-buses:
->>       description: 0 is the "lower" bus, 1 is the "upper" bus
->>       maxItems: 2
->>       items:
->>         enum: [0, 1]
->>
+>> Considering the feedback, I think we may do the following here:=0A=
+>> 1. Rename the device variable to S2_noncacheable to represent if the S2 =
+is=0A=
+>> going to be marked non cacheable. Otherwise S2 will be >mapped NORMAL.=
+=0A=
+>> 2. Detect what PFN has to be marked S2_noncacheable. If a PFN is not in =
+the=0A=
+>> kernel map, mark as S2 except for PFNMAP + VMA cacheable.=0A=
+>=A0=A0 Q: 'mark as S2 except'... should be 'mark as S2_noncacheable' ?=0A=
+=0A=
+Yeah, that's correct. Thanks for catching that.=0A=
+=0A=
+"Detect what PFN has to be marked S2_noncacheable. If a PFN is not in the=
+=0A=
+kernel map, mark as S2_noncacheable except for PFNMAP + VMA cacheable."=0A=
+=0A=
+> 3. Prohibit cacheable PFNMAP if hardware doesn't support FWB and CACHE DI=
+C.=0A=
+> 4. Prohibit S2 non cached mapping for cacheable VMA for all cases, whethe=
+r=0A=
+> pre-FWB hardware or not.=0A=
 
