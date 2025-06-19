@@ -4,66 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEDAC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145D1C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqHNEbbR8Ze7dyYo7f0QgeK+Y4R9ODp7Tnqv7tsUimI=; b=0LsPiLTck5tgiW84BBBWeFt+0I
-	MMBdodxC5XK/pWLCa9Lnpx7UFtszM/CJ0+PuPB2FOpgaxBxTBWNfiSRyv+S2VY5BKIBqf+cW54Bq5
-	6jUY8CoC4jCkgZOwA6TOwGvbC9lHbMyiROd9u1bJ5Kt+KMqxU1Mne/SMldBINiwrOrGy0I9NyahaC
-	ixzwDfQveGsivJ7SDv4TOyb3IoW5KQjoDzNQgD4xeIX1v5djGy05at4dZ0XV3vS+tZAcpNcczVUa5
-	CmmZHMogf5vPm/O50KRyLdZBWZmw+majR6tEaYbkf/5pWkKTzsA0bpvXE4CLNj7uK3sIY3Sfsbg7c
-	yPSYnpiw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JfVksG/cVL03siRI4lKJHEKk/QwYfOwJsqXcub+kDKE=; b=BKRW8WCROGZnTNTlq5fKWZ+yvP
+	DRrVtO2Q+UuyW39NvpR1+p+a7NfQO72XkWp9niqfc2kFcvY1Iosf48JQWBWZkviifoG/tLPEHvpM/
+	xMW6BUnx7HGJ9uzxYB3p0kvgeWEywnBC2yqT556gglDN/xbN3VIuxtgUf5i5OWHqbxow1fyI7Gv2a
+	yM8ARmj+HseXv07lqg31iY08Pf8e/0cLf5X1BRHs7b/9QjgI5AV2bGdL0cK99XdHV6RVoWnmYV1Ey
+	9HRxXPJLm4vKDsNdMLrXeCjU7tn6CQkT7i51EyY2PI1gl443y28/3fGh+YLo7MGZo26W++giqmv7g
+	rxL18E5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8c2-0000000C8sZ-0FcR;
-	Thu, 19 Jun 2025 06:19:02 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uS8eD-0000000C92O-09It;
+	Thu, 19 Jun 2025 06:21:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8Cl-0000000C6Md-3zBy;
-	Thu, 19 Jun 2025 05:52:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750312373;
-	bh=S+P2It97TueKH/kAbwyhYnXNnN0tqQNO09MpJUtK+fQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kuzMUVdAfcV/tHeVYxKywMBdeZTdXvqN6JkF+2Z+7W0I52mstLMSE7Hz5+xwDmqtO
-	 v2PFVxqDnc8wJVCegk6de7OGF8y2WwNVXIQH6sZiBVmwuAG/xYSZ4m86ZXYTshMhPE
-	 uSOgkuJuDxXv90Ay6AnmiSK6ASsE/SrMwPVKZ+f/m1PX4JqXuPpGqYyqA/n3TBRBKY
-	 U8NBmXgQ6fum4McfnLKB/Er6Km7G+u5Jtt53+F2clY2n8HjuUO3zjnI9PIZy5yVJiU
-	 AS8MLCwH0dNT0xj3wQ+cggx/LdAIwefMq0C0zkFzJXSuKCms7HflAeBODKztyHSv+s
-	 MpbNWr27zyWPA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 716E717E06BF;
-	Thu, 19 Jun 2025 07:52:53 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-input@vger.kernel.org
-In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
-References: <20250617082004.1653492-1-wenst@chromium.org>
-Subject: Re: (subset) [PATCH v3 0/6] arm64: mediatek: mt8186-corsola:
- Consolidate and add new devices
-Message-Id: <175031237337.17587.18276191221301074786.b4-ty@collabora.com>
-Date: Thu, 19 Jun 2025 07:52:53 +0200
+	id 1uS8Gw-0000000C6sk-1Chs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 05:57:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B6B7461F1A;
+	Thu, 19 Jun 2025 05:57:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B44DC4CEEF;
+	Thu, 19 Jun 2025 05:57:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750312633;
+	bh=JfVksG/cVL03siRI4lKJHEKk/QwYfOwJsqXcub+kDKE=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=fBo+vldackocjG0Ijggrdp+Z7rIpuwTpTJbO6a/yPZYNxP3omxFSTsPV0uBjEbuS1
+	 Yqzlluwm1BAiqBxwJs7yj67yc2m7f7PCjnJIXdiPPt1HQ/Ibe1ZVjubZXL7EO7Ji81
+	 zrblndnNcL1QNo2AkMbFP/THOGX4YG/cCn6Sbyak4Ahw8PEXO9Vllu6kYSR8Dy3fWE
+	 71/B3AYD+vjsOANyQnnfSDll5aMXPg2CdIYFCAHHjKSTfL6IhgQ9CNVBnDSj0dqGXn
+	 plcm1/a5yy311GKQXP5xmy8pq3bAc3CIBvm/6taE1x8NLCyqVG/ipaa7l+qKWipIUX
+	 +2szcObCkAJ5w==
+Message-ID: <8763a2c9-1bc7-425c-8abf-c3ab6e245772@kernel.org>
+Date: Thu, 19 Jun 2025 07:57:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm: s3c: use string choices helper
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org
+References: <87ikksmz6i.wl-kuninori.morimoto.gx@renesas.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <87ikksmz6i.wl-kuninori.morimoto.gx@renesas.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_225256_171608_9F1C69F3 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +113,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Jun 2025 16:19:57 +0800, Chen-Yu Tsai wrote:
-> This is v3 of my "component probe for Corsola devices" series.
-> 
-> Changes since v2:
-> - Rebased onto next-20250616
-> - Collected reviewed-by tags
-> - Dropped driver changes that are already in v6.16-rc1
-> 
-> [...]
+On 19/06/2025 01:01, Kuninori Morimoto wrote:
+> We can use string choices helper, let's use it.
+> It also tidyup printk(KERN_INFO, ...) to pr_info(...).
 
-Applied to v6.16-next/dts64, thanks!
+Why? Considering what I wrote, I don't see point in this. You keep
+sending the same completely missing my point.
 
-[2/6] dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
-      commit: b292005d5cafb0993f7ff2c0477d5b71cbd3e387
-[3/6] dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
-      commit: a883bc5dc12d52a6a8d5afbd0131be55f0684364
-[4/6] arm64: dts: mediatek: mt8186-steelix: Mark second source components for probing
-      commit: 5349994cfd89ca17b8a820ddb41e4572d9e52b49
-[5/6] arm64: dts: mediatek: mt8186: Merge Voltorb device trees
-      commit: 14e8332e5c5d3b9f8ccfa1f3e0dfe05ca136ba2a
-[6/6] arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
-      commit: f7ef352d45b71e6f3cb7bb572f68eaa0981e9e5c
-
-Cheers,
-Angelo
-
-
+Best regards,
+Krzysztof
 
