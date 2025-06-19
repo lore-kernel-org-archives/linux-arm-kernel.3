@@ -4,94 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709D8C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EE0C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twM7ghcw6YchvkMFUkyO21QRS89zzLFjkjMUnOcDIKE=; b=dKh3pjiJ77Fe97Dfi4X2JY5ULA
-	fJ/HwVSYPE0HRgj7ywbe8Qzdyun5AjUBFjjqsil8sbG7g5r00EqWHsgzkISlt2O38K26tvfI4wXSa
-	ccNb+HGC4o+wtYGfHhQlMLDkU/08ymk/ZfPtmdgUt9xXpqAr7aRz9TZ+/BkgmKEkAxg/kCmTeViMt
-	OPG0SMom5ylQWxndpXzDDZUmRjIaoO0wwRGlZXaWkIk6vLFbcNkPqNyK6MNj3i+iXmsVr/J6IxDFM
-	95glRFcHSjPkvL8uc7FG/nJ2dNOAZkMCyeqmGJ2FAmDBpxCfknHba8Z1A8r3AAOuhI7OqQljhVWCB
-	Kh4nHxXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZCoeH3n1KmlC4QaPJtFmhLx7PqSf1liYHdZw1gO42lw=; b=mVDajk7UdKm4UtL9s7KITQSbFA
+	gdJaKaHmty8UCeqoVhV9rnL8/NQ1zhrx8oEODDhhFbnDF/+otjAKhF4IG1RJ76yoBfryMYfJGijSx
+	ZUNlALyDYjpdE4zlcet4TwSVIC/yGxVXDXTPv8BS9lhzUOfBzFBxG+e5rH6kgjMXUeEFVsbf+6RnY
+	T1SPObzOB7KBefZkA1MJ+qlAQMS2SliLp4+dZ9atTvkV+dOu/tWaodUR9eDL3hWYVJkwVPFnUgmdd
+	LuhwM44fHIuTcKxA0R+JUIimusQcqS3uT9c4Phj5Sp+I9nw4AWci7hGEEWnE7JbfVEVs3zGGqIQaF
+	Y9/Y+ggw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKAT-0000000Dwwx-0xPd;
-	Thu, 19 Jun 2025 18:39:21 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uSKAq-0000000DxOl-1wgi;
+	Thu, 19 Jun 2025 18:39:44 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHT1-0000000DTub-2jxc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 15:46:21 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a53359dea5so585181f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:46:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750347978; x=1750952778; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=twM7ghcw6YchvkMFUkyO21QRS89zzLFjkjMUnOcDIKE=;
-        b=d1XbS9MmcKLg9m6wphb5p56C6M9GNBGfj4JHX3ovFSrCSBmw+5HVbtqE41hk+8CRlp
-         MU4PLtX/suIj2wgPu87MDWdhqfR0hhXsTcOfib0z0scPPJOQpjzO6Qc/B2KR3GMjhuCF
-         GTLk8aguI5l4+A1MH5Bhx0q2+Tb/0i1+S1zoJKEER5xc74g0ha5nHAxBaBxf2wKWU2TI
-         wJGvyg0dYA+oNSPRxoF/I6Pva5U8oQB8hj9zL/u3OppyUUCr/QHp56ruxCGyLpntj9t3
-         FQFLiaTjXYUJnM4UBidkUtzSJ0+0WDeeBWZvK3TbJ+ePkzM/1xo7zI/naRurjy70GvBN
-         Tu1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750347978; x=1750952778;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=twM7ghcw6YchvkMFUkyO21QRS89zzLFjkjMUnOcDIKE=;
-        b=ZusEve4TE7lpW+oU5AXW5nEwuLk3PuWPGtedLfs/sqfkbJhsc84rQfDVhSXmP5pmUs
-         P5SmpGTDs5pjwUEXNX7R3VZ3fK8uHvBR9Ck2dbLAXOlNSxc29OC6yCqUPaILb72Zsh0O
-         elxB5D3tbw9z7BypJSGM41xcyGXcNoYZNRfUXehFbmjClAcem18pCvIaLrkh4maB6gSD
-         jic7NhrSBIvM7PahD1qG7BLECqlFWbsBP4Xm1bAhJ1lspYxWzTmuCIpfSybjoNEflnD+
-         ruMl4kvnESqcuDnwOUBsXlXc3NvAtImbfcSeLX1CE7dWDJO72lk1su5kTEZ02GQDLf9h
-         pm/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWwO0B+yDrWQiBghBMHTljYDlxnCjm1s25kaAHW6no7qNdGhlSRGwYH8to67UseptAu61wtF1XuojDoMN3KyfN0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsU+q7t++MEisCN30ZONe2hdkK1+M81ybQOVsuIqBUbgt2Irll
-	DW2tm3sJoDTtRnN/sNPs5NFYD7YPAE1iDvdZI1ICShZKYNWXRHXe1v7753d4KAbd6Vk=
-X-Gm-Gg: ASbGnctqvxgVuRCYdEakLAyDgVu1a0hcnfCNHivPDVFI2L3zSryVGECsNbmdqPweoFw
-	y4XPIB/ZFqQxh1ZhnN7X3VLWWK+eNrBNM4xUI+aDeLuks20u7qcHGF5BTDeBGpFcafJyGK6VVKk
-	CpyGInmUaDwiaSjw0U3wCPcXHjsRBTb235f5sCT2tPqZL043SLet+HBc0CyiVSHmg8qMf6pANNr
-	ppu73PoSUpOR+O/AvPU9IH3s7vqhDVv2AXwzJnJdhE0q9FsOjlS5+OJBYMk+xMjchtiOofaO2Z8
-	7pKkOTBHVrYTHK7kmQRj+r4ieN6TpeNiop4R08VC0Mjns4yUU9PJTO/lIVPfBg5uMsY=
-X-Google-Smtp-Source: AGHT+IGk+fSWw92c++bpc7i/Gr3gKNqNYiyBN3xJ51nLOgbmRzfZpzuDswRZUzq8qOvuayUU7X849g==
-X-Received: by 2002:a05:6000:2c13:b0:3a4:dd16:a26d with SMTP id ffacd0b85a97d-3a5723a56e7mr19198135f8f.38.1750347978077;
-        Thu, 19 Jun 2025 08:46:18 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54d1fsm19577766f8f.2.2025.06.19.08.46.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 08:46:17 -0700 (PDT)
-Message-ID: <86dbeae7-7219-4c6d-9ef9-38838bd088ce@linaro.org>
-Date: Thu, 19 Jun 2025 16:46:16 +0100
+	id 1uSHYM-0000000DaGf-1nkT;
+	Thu, 19 Jun 2025 15:51:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750348305; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IcM1T3srtgYwUeY4mYmXJciHOaGmt3kjIYtN+Ups+ny/VYTLhM5k5QvFqWV9Mit6BJsiGMY87T7RReKdf7KCUElLe4apTB8a/YZDDAKrrxsXz/ytIrGRBl+O9SixREXUpdYKq24YKgTgmfooxlvOcodvcBR4K0xmDsOqe67v5cE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750348305; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZCoeH3n1KmlC4QaPJtFmhLx7PqSf1liYHdZw1gO42lw=; 
+	b=Phh5MA2v/ChxBwfja9NInH0Ma+zC8oYOhT06T/K+S99cUFWmrlndBom/CyzneWfCnJIA5P8zVPxxmqE1yRDOYoCv7sPGwSUVBugtp/onnLqp1TBLkGCakmSzmTKpXy52FutnQi9wcfU1qYUiUF2jdc7OuiKteJCSrOig6do5L0g=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750348305;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=ZCoeH3n1KmlC4QaPJtFmhLx7PqSf1liYHdZw1gO42lw=;
+	b=g8SBqgUor4pKiCJVPY8a80SyRdlpSyONnw5+acbP7KyUP6D0N2czMSQnvUmMKa66
+	cARh0eqYABAESAjZOW/DM0O2m2KlqiCYp8wOnGvu1GLsxqSBzOC3E7IBzfto4+gvHMs
+	wnPkrBJj4iuc1y9BYQgtOkV14HpnssKejnzbwm7A=
+Received: by mx.zohomail.com with SMTPS id 1750348302329727.2550679522411;
+	Thu, 19 Jun 2025 08:51:42 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id C6C6C1805A8; Thu, 19 Jun 2025 17:51:37 +0200 (CEST)
+Date: Thu, 19 Jun 2025 17:51:37 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Quentin Schulz <foss+kernel@0leil.net>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
+	Daniel Semkowicz <dse@thaumatec.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
+ constants
+Message-ID: <t3wbjpbw7phqvip4yvxm5kux6hor5pehzamrw6hjv3hq2b3j3n@zuf2vuhgpdpp>
+References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+ <20250618-rk8xx-rst-fun-v3-3-081f02d3d348@cherry.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] perf arm_spe: Add "events" entry in meta data
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>
-References: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
- <20250613-arm_spe_support_hitm_overhead_v1_public-v1-6-6faecf0a8775@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-6-6faecf0a8775@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pu5pnebwd6cicvnp"
+Content-Disposition: inline
+In-Reply-To: <20250618-rk8xx-rst-fun-v3-3-081f02d3d348@cherry.de>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/250.326.2
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_084619_851149_E0403DCC 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250619_085150_536125_C7356C39 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,90 +90,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--pu5pnebwd6cicvnp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
+ constants
+MIME-Version: 1.0
 
-On 13/06/2025 4:53 pm, Leo Yan wrote:
-> Add a new "events" entry in the meta data and dump it in raw data mode.
-> 
-> After:
-> 
->    # perf script -D
->    ...
-> 
->    0 0 0x470 [0x1f0]: PERF_RECORD_AUXTRACE_INFO type: 4
->      Header version     :2
->      Header size        :4
->      PMU type v2        :11
->      CPU number         :8
->        Magic            :0x1010101010101010
->        CPU #            :0
->        Num of params    :4
->        MIDR             :0x410fd0f0
->        PMU Type         :11
->        Min Interval     :256
->        Events           :0xffff000003fefffe
-> 
+Hi,
 
-Pending possibly renaming this field on patch 2
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-
->    ...
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+On Wed, Jun 18, 2025 at 12:32:42PM +0200, Quentin Schulz wrote:
+> From: Quentin Schulz <quentin.schulz@cherry.de>
+>=20
+> To make it easier to read the device tree, let's add constants for the
+> rockchip,reset-mode property values that are currently only applicable
+> to RK806 PMIC.
+>=20
+> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 > ---
->   tools/perf/arch/arm64/util/arm-spe.c | 5 +++++
->   tools/perf/util/arm-spe.c            | 1 +
->   tools/perf/util/arm-spe.h            | 2 ++
->   3 files changed, 8 insertions(+)
-> 
-> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-> index 4f2833b62ff55f3fd1dff3f032d6e06528460939..5cce5f29d8c7936cc4f424a09d50536644c17be9 100644
-> --- a/tools/perf/arch/arm64/util/arm-spe.c
-> +++ b/tools/perf/arch/arm64/util/arm-spe.c
-> @@ -121,12 +121,17 @@ static int arm_spe_save_cpu_header(struct auxtrace_record *itr,
->   		/* No Arm SPE PMU is found */
->   		data[ARM_SPE_CPU_PMU_TYPE] = ULLONG_MAX;
->   		data[ARM_SPE_CAP_MIN_IVAL] = 0;
-> +		data[ARM_SPE_CAP_EVENTS] = 0;
->   	} else {
->   		data[ARM_SPE_CPU_PMU_TYPE] = pmu->type;
->   
->   		if (perf_pmu__scan_file(pmu, "caps/min_interval", "%lu", &val) != 1)
->   			val = 0;
->   		data[ARM_SPE_CAP_MIN_IVAL] = val;
-> +
-> +		if (perf_pmu__scan_file(pmu, "caps/events", "%lu", &val) != 1)
-> +			val = 0;
-> +		data[ARM_SPE_CAP_EVENTS] = val;
->   	}
->   
->   	free(cpuid);
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index fdef6f743cf3c76b1dcdd57f5a2c297642fdd21a..55b8391990467c8b7818bb63de3545d94d021bb7 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -1532,6 +1532,7 @@ static const char * const metadata_per_cpu_fmts[] = {
->   	[ARM_SPE_CPU_MIDR]		= "    MIDR             :0x%"PRIx64"\n",
->   	[ARM_SPE_CPU_PMU_TYPE]		= "    PMU Type         :%"PRId64"\n",
->   	[ARM_SPE_CAP_MIN_IVAL]		= "    Min Interval     :%"PRId64"\n",
-> +	[ARM_SPE_CAP_EVENTS]		= "    Events           :0x%"PRIx64"\n",
->   };
->   
->   static void arm_spe_print_info(struct arm_spe *spe, __u64 *arr)
-> diff --git a/tools/perf/util/arm-spe.h b/tools/perf/util/arm-spe.h
-> index 390679a4af2fb61419bc881b5dc43c01f1dd77d7..a47d3d8fc97e07d1bb41a6776133d0676c335613 100644
-> --- a/tools/perf/util/arm-spe.h
-> +++ b/tools/perf/util/arm-spe.h
-> @@ -47,6 +47,8 @@ enum {
->   	ARM_SPE_CPU_PMU_TYPE,
->   	/* Minimal interval */
->   	ARM_SPE_CAP_MIN_IVAL,
-> +	/* Supported events */
-> +	ARM_SPE_CAP_EVENTS,
->   	ARM_SPE_CPU_PRIV_MAX,
->   };
->   
-> 
+>  arch/arm64/boot/dts/rockchip/rk8xx.h | 18 ++++++++++++++++++
 
+I think this header should be in include/dt-bindings/, otherwise the
+series LGTM.
+
+Greetings,
+
+-- Sebastian
+
+>  1 file changed, 18 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk8xx.h b/arch/arm64/boot/dts/r=
+ockchip/rk8xx.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a6fbef71c06493c35b0f36974=
+76167aaafa24f30
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk8xx.h
+> @@ -0,0 +1,18 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-or-later OR MIT) */
+> +/*
+> + * Device Tree defines for Rockchip RK8xx PMICs
+> + *
+> + * Copyright 2025 Cherry Embedded Solutions GmbH
+> + *
+> + * Author: Quentin Schulz <quentin.schulz@cherry.de>
+> + */
+> +
+> +#ifndef _DT_MFD_ROCKCHIP_RK8XX_H
+> +#define _DT_MFD_ROCKCHIP_RK8XX_H
+> +
+> +/* For use with rockchip,reset-mode property */
+> +#define RK806_RESTART		0
+> +#define RK806_RESET		1
+> +#define RK806_RESET_NOTIFY	2
+> +
+> +#endif
+>=20
+> --=20
+> 2.49.0
+>=20
+
+--pu5pnebwd6cicvnp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhUMgUACgkQ2O7X88g7
++praYQ/+OsDoV143cUMLkmfVtsK7nqdpHgi5QYeMWvwzlvie418qaE4536HiU5h6
+HLJmwHAIOErsHPJFhQInCR4mCqhY9kg7BkW99taAjYfUO8kcIsyFeT9YfM2TZBPU
+nI4+15OFD0C4qNeafh6jalgjbhVq1rPB2B8tO3HnU+vYRaJCf5nZm9lwP6zWJKIT
+Dwc0en5+nxQySijc3A+TpSjCcAF+iEsaSwQvsase3UqHQOyfNgu3BvmPRPA7iqh+
+5Z+FkZvutgSwatiDcIECaTP6xe8AC8noY+KLIr5Eoa/dy8ppeGQaCMaDoLMgJ5AF
+u4G79LWzrCmF43LKo2rP+xIVrjxk2/kg+Udqctpy+mQHtNJQ614034lXd2fIMcxZ
+WZEyrKDeGL53qUqZpzSKV7a8RdIGyOFrX7a7QUyENOu5/yy01U1XruBNA5BDE7cx
+eoKDXMtzwpil/3JjkAgLcNV/dqusLpyf5aP3TzjORncngzI0Nwjxvbt5bimf7UVu
+5TDwpt9ZAVlu4KI7W/1DHfgjphAy0+oM44Eb//yIpZI2tcHUw13mVX7nJE1++4pM
+59rh+fs95SbmOAQa9ct3SG1fnzuxgNhhAL1g2SLbXW5OJDDanGFSVt+z54LjnQO4
+82YihEmMJd4Y1oY8aLuTayArlQkftbTi9qZEa3jzipAb0bLU+M0=
+=rZbZ
+-----END PGP SIGNATURE-----
+
+--pu5pnebwd6cicvnp--
 
