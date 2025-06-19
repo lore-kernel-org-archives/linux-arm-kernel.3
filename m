@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9829CC77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825BFC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXr4DkxQyQe6cO2hVmMV/1vKr4WFSQJXwlWoVF3SQUw=; b=S6shE52aoKVRfjuMjRmRczhMGr
-	GgLtepjBPeHOnMKLHvKDtgiFupjjf8SSEsR0Nj+0550Ks4woDHzE5Mk1dg8WDA1XgKjUR1+N/IOWq
-	0wISOVJ7lDsBMHKBzNpN5DyGz71eBPErDn2hpTzeADmnNpFoSx+gLik6eHM1xthdt0ODlOtxSc4TX
-	ZItc2KcR3B667HcqQrFhENB/5+d35pLcvCkLIG+HuNGW8zH0OKZY3srbIiVD9Pt8K9/HhGkwDVzoP
-	/Ff3qjk+LZs1WCcmrrcfagEUnbehbvgSfX1w7nMG/5un1NGucMVB97InknQW8J9lIPnx2l1XscqqM
-	S9n/Odew==;
+	bh=lNxJSadVSJIRvaEmHMmUT8LLkdzhpjlPoa29IPSlJho=; b=0eQNjZ4arf+npmW3vqDYeFt/9i
+	hDTtIgueeOc6vMU+Y0DGoFjg5w0kkcR2FrrQPGYFKzzviunwJVbfBfG0DoEB+ILEw5KIkMxbLuVek
+	qW3k981aJmm7hxUR6bHdX4LFmy5tasOMPvjtopc4bCyic6v3mWKxnMhxYynWewh7ynj1E8iVCKoZS
+	yzvG+34qeT18530QUM/paDqlmaDlO+YJrYRnF1m9yoMS/CTfO+X9gldfKM9QZDxcEzLOUjwVbjyxk
+	arw7DSoV2Jpq/sx/eI4DagCVdvq/2eYyKLdgXuKb6FQE3Az0ZYzAhxZV4aUo3mZEyL2wxZQ3tR3iT
+	jz9VqJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK7R-0000000DtQH-0tJp;
-	Thu, 19 Jun 2025 18:36:13 +0000
-Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	id 1uSK7L-0000000DtKz-2lvJ;
+	Thu, 19 Jun 2025 18:36:07 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSGrr-0000000DMf9-2jOv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 15:07:56 +0000
-Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-7cadd46ea9aso141254685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:07:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750345671; x=1750950471;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cXr4DkxQyQe6cO2hVmMV/1vKr4WFSQJXwlWoVF3SQUw=;
-        b=WglcrdJ2tvgiiAOVpqnG6hR+21IvBzqMLhjysojN4f9l5WYvGLFyM9RcwH97TdorEc
-         fXWgIhFnxS8GOTJdE3WhsiU0VVnx2qok9pZ8hW3W60NbmGCSFf3OERsoqBtqjKa9yrcY
-         x5bh219FXxBnzaRdDr8W4Xne77rq19hOL0D60tcyDHuvzNe+e2FFznwvN3fNIC9C648y
-         zLTNnHsvTE2c/3TfVweZeFS8npK612jOmQ69lsuQI5DzZThUYbODZufK22g+mFJAOTOT
-         OwHjlf/pseqR1W43gFHzg/nmvxaU0h4HGW3Sw385++KvZgDECVzI2vgrttr1mv9NqZl7
-         LPgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXrFjpev6jB6xIgr8osjcMGlXCQOm+YaSaorKS4DYFrdvIjNHKhpLm9t2gypYzJsN+ad8dhHrXJwYvtyrBNbvKD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbllJuq5SyZD/R1j+DI7OnzpIUQFD2A8HRTzmJoY0w7SkwLpNT
-	rHD3HUpl3IYRG8ni7pqfG0s/Bhv8vZlDNe9Nv7EC0rjlJsf9IJUefkjcJMyWdm4S
-X-Gm-Gg: ASbGncsgtOD/tAT19Cl3vw9iC4K38VnXG5QG0AqD8UU41eZ47tKOutEknhha8tHa4nQ
-	xV/FSY2AmYHEW/5hgW88DvBoLL/WL37L8F3zUm8yhnpVM25dfMp9jaYTDhVZU2y/BbilqVk3pdH
-	DV0XTXE1QY3kkFj8crBOXgIrlQvXttmqR9cftWJMqYJmT6Zwqdq0RC5aplPjhtE8owAHyzPHTeN
-	V6z9yDecH74I/o/UzthNwFJ9aJ38RxmIA5axRoIJ0NpIUIgGmGG9pJnqRHtgli6tis8aPqHvCkG
-	XfJ/WWqrLQH7Lv83l081vEXtt7V8lqn2UeoU8GQzd2ZTQEPXymlAjEHxXACa5wvY3neenIazsGE
-	o8FZYdSMVhgjPjNSqo986DRVNl/sC
-X-Google-Smtp-Source: AGHT+IFx6Z9NFdlQWI8zBAkotYgKux1LX7UfwhuSbDPGUohf3dsywtj6BowgpPHbijPnN13sMoUWdQ==
-X-Received: by 2002:a05:620a:2909:b0:7c5:9a09:cb73 with SMTP id af79cd13be357-7d3c6c1b541mr3192118885a.23.1750345670807;
-        Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
-Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com. [209.85.222.179])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d3f8de70b8sm7690785a.25.2025.06.19.08.07.50
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
-Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-7d3dd14a7edso151551585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVRY0K1H75BoUklgNn5WCqckzu3YO5vpZ+Q9y8ejqKs9ovxQRBpwCmKbU9eD+Sw9OoarQlcBoGuX4l+3tT2LhVT@lists.infradead.org
-X-Received: by 2002:a05:620a:319b:b0:7d3:8566:e9ad with SMTP id
- af79cd13be357-7d3c6cda22amr2925901685a.34.1750345669885; Thu, 19 Jun 2025
- 08:07:49 -0700 (PDT)
+	id 1uSGQo-0000000DIUz-1jEc;
+	Thu, 19 Jun 2025 14:39:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750343956; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Jym2lPGxuOQzgAgSAE/A8rLETWESPaEFQYYyJGHONlYevNnFsA2UCWYhu0ZeL8itUV0dlh8hFb1v5rjRnaU3RQcByUMtiYZDNHuNYI1ForkWRFD4FLfls4QVP8LQmzKVCSUDaZBd3kQPQPGIg61txn/lwGvkdLvgF83rn8DvDR4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750343956; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lNxJSadVSJIRvaEmHMmUT8LLkdzhpjlPoa29IPSlJho=; 
+	b=jErUqMNfobSAURiuvn13ZoGuHAb4QH8CiYdQERN3EDIDIEtBzoflfMW8B39oEAj7TFmbOE144dMFF9NpV6vKNQGg8SUsvVfc0lw6hy1kNZwuSyLRQqU8bJ4+jTVqD/64MphOE/GfCupsO0HAzb0bSF49tfU+zKuFBEDkLaLanoo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750343956;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=lNxJSadVSJIRvaEmHMmUT8LLkdzhpjlPoa29IPSlJho=;
+	b=Rw2gd+L5lImASQ1HKgHlzcgdsRLZ18+fXxNa6EGGKYSlvhX9ynLQE5rW4eASp7v8
+	QSbt2xeWyFdiZqGauT9ggxvclqc3XQMXBdqBBY89CArgt0gRcogHqNAXvikkSAitbSg
+	dggkYGnqm53ErY31QUUd0D2pOjqYGY9Xq+wJk8Yg=
+Received: by mx.zohomail.com with SMTPS id 175034395251629.953100317805934;
+	Thu, 19 Jun 2025 07:39:12 -0700 (PDT)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: 20250325213303.826925-5-detlev.casanova@collabora.com
+Cc: alchark@gmail.com, andrzej.p@collabora.com, cassel@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org, dmitry.perchanov@intel.com,
+ dsimic@manjaro.org, ezequiel@vanguardiasur.com.ar,
+ gregkh@linuxfoundation.org, heiko@sntech.de, hverkuil@xs4all.nl,
+ jacopo.mondi@ideasonboard.com, jeanmichel.hautbois@ideasonboard.com,
+ jonas@kwiboo.se, kernel@collabora.com, kieran.bingham@ideasonboard.com,
+ krzk+dt@kernel.org, laurent.pinchart@ideasonboard.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-staging@lists.linux.dev, Jianfeng Liu <liujianfeng1994@gmail.com>,
+ mchehab@kernel.org, naush@raspberrypi.com, nicolas.dufresne@collabora.com,
+ robh@kernel.org, sakari.ailus@linux.intel.com,
+ sebastian.reichel@collabora.com, tomi.valkeinen@ideasonboard.com,
+ umang.jain@ideasonboard.com
+Subject: Re: [PATCH v4 4/6] media: rockchip: Introduce the rkvdec2 driver
+Date: Thu, 19 Jun 2025 10:39:08 -0400
+Message-ID: <5900973.DvuYhMxLoT@trenzalore>
+In-Reply-To: <9f098eab-7b98-4827-8538-3cab0e8d7c63@gmail.com>
+References: <9f098eab-7b98-4827-8538-3cab0e8d7c63@gmail.com>
 MIME-Version: 1.0
-References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
- <bdd989b4-a572-44c2-ae7b-2c445c09fd7a@linaro.org> <d05f2c03-fa86-4fc6-9b81-1a7b5592c2e8@nvidia.com>
- <CAMuHMdX9NzFvsOv9eT0t4KVNufHSqVEht7yRbrt0qE49WgHpGg@mail.gmail.com> <kjotbgwqlvl4uv4bcynqsiynf4dsoplw3szaqlcfd7rm7k633p@64c552v3llz2>
-In-Reply-To: <kjotbgwqlvl4uv4bcynqsiynf4dsoplw3szaqlcfd7rm7k633p@64c552v3llz2>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 19 Jun 2025 17:07:38 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXt0AoHnCitc6GNUuT_THRvy17c5uq5geD0ubQ12FONZw@mail.gmail.com>
-X-Gm-Features: Ac12FXyqjFu03K5SyvIX5tcmxTFfiSwi7mDocCZBFa2GT0By0yuMp0VwoZlcHKg
-Message-ID: <CAMuHMdXt0AoHnCitc6GNUuT_THRvy17c5uq5geD0ubQ12FONZw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
- kernel for NFS boot
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Jon Hunter <jonathanh@nvidia.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Prabhakar <prabhakar.csengg@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_080755_688016_101CFFCF 
-X-CRM114-Status: GOOD (  46.90  )
+X-CRM114-CacheID: sfid-20250619_073958_522599_DD4CFDC1 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,77 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Jun 2025 at 16:30, Thierry Reding <thierry.reding@gmail.com> wrote:
-> On Thu, Jun 12, 2025 at 02:34:32PM +0200, Geert Uytterhoeven wrote:
-> > On Thu, 12 Jun 2025 at 14:20, Jon Hunter <jonathanh@nvidia.com> wrote:
-> > > On 23/05/2025 12:54, Krzysztof Kozlowski wrote:
-> > > > On 23/05/2025 13:39, Geert Uytterhoeven wrote:
-> > > >> On Tue, 6 May 2025 at 12:47, Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > >>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >>>
-> > > >>> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
-> > > >>> ensure the Ethernet driver is available early in the boot process. This
-> > > >>> is necessary for platforms mounting the root filesystem via NFS, as the
-> > > >>> driver must be available before the root filesystem is accessed.
-> > > >>>
-> > > >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >>> ---
-> > > >>> With this change, the Renesas RZ/V2H EVK board can boot from NFS
-> > > >>> which has the DWMAC IP.
-> > > >>
-> > > >> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > > >> i.e. will queue in renesas-devel for v6.17.
-> > > >
-> > > > With my Nacked, please.
-> > >
-> > > I was surprised to see this change in -next. We also use NFS for testing
-> > > and we use the dwmac drivers. To date we are explictly building these
-> > > drivers into the initramfs but I noticed that that is now failing
-> > > because this driver is no longer a module by default. This is easy for
-> >
-> > Oops, sorry for that...
-> >
-> > > us to fix.
-> >
-> > Good ;-)
-> >
-> > > I do agree that if we start to build every networking driver into the
-> > > kernel it is going to bloat. Yes I do see the kernel image growing
-> > > regardless of this, but nonetheless it seems better to just build as a
-> > > module IMO.
-> >
-> > Not _every_ networking driver, of course.  AFAIK, making network
-> > drivers built-in for systems where development is done using nfsroot
-> > has always been acceptable for the arm64 defconfig before.  For things
-> > not critical for booting, modular is indeed the preferred way.
->
-> Last time I tried to merge something like this I was told that we
-> shouldn't bloat the kernel for everyone just for our own convenience. I
-> tend to agree with this now. It's trivial to make local adjustments for
-> things like this. In fact, that's what I do all the time. I will use
-> defconfig as a base line and if I want the convenience of having network
-> drivers included because I don't want to update the initramfs every time
-> I update the kernel, I'll just change the driver to built-in in my local
-> .config.
->
-> I think of the defconfig as more of a reference for what a typical
-> development system would need. So it gives you reasonable build coverage
-> and such for a wide variety of boards.
->
-> If we start building too many things into the kernel, then at some point
-> it's going to become uselessly large for everyone. That's essentially
-> trading everyone's convenience for your own.
+Hi Jianfeng,
 
-As discussed with Arnd on #armlinux, I will drop this patch.
+This patch set is now a  bit outdated. I will soon send a new version that you 
+can find at [1].
+That being said, you may be right. without an iommu, it would panic here 
+(although the iommu should really be used).
 
-Gr{oetje,eeting}s,
+[1]: https://gitlab.collabora.com/detlev/linux/-/tree/add-vdpu381-and-383-to-rkvdec
 
-                        Geert
+Regards,
+Detlev
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+On Thursday, 19 June 2025 05:19:32 EDT Jianfeng Liu wrote:
+> Hi Detlev,
+> 
+> On Tue, 25 Mar 2025 17:22:20 -0400, Detlev Casanova wrote:
+>  >+        case RKVDEC2_ALLOC_SRAM:
+>  >+            virt_addr = (unsigned long)ctx->rcb_bufs[i].cpu;
+>  >+
+>  >+            iommu_unmap(rkvdec->iommu_domain, virt_addr, rcb_size);
+> 
+> I'm testing your patch with ffmpeg patched with v4l2-request patches[1],
+> and I usually
+> 
+> get kernel panic here. After checking rkvdec->iommu_domain before
+> running iommu_unmap,
+> 
+> I can pass fluster ffmpeg v4l2-request test. Here is my patch based on
+> your commit:
+> 
+> 
+> diff --git a/drivers/media/platform/rockchip/rkvdec2/rkvdec2.c
+> b/drivers/media/platform/rockchip/rkvdec2/rkvdec2.c
+> index 75768561399..122bcdcebd4 100644
+> --- a/drivers/media/platform/rockchip/rkvdec2/rkvdec2.c
+> +++ b/drivers/media/platform/rockchip/rkvdec2/rkvdec2.c
+> @@ -681,8 +681,8 @@ static void rkvdec2_free_rcb(struct rkvdec2_ctx *ctx)
+>                  switch (ctx->rcb_bufs[i].type) {
+>                  case RKVDEC2_ALLOC_SRAM:
+>                          virt_addr = (unsigned long)ctx->rcb_bufs[i].cpu;
+> -
+> -                       iommu_unmap(rkvdec->iommu_domain, virt_addr,
+> rcb_size);
+> +                       if (rkvdec->iommu_domain)
+> + iommu_unmap(rkvdec->iommu_domain, virt_addr, rcb_size);
+>                          gen_pool_free(ctx->dev->sram_pool, virt_addr,
+> rcb_size);
+>                          break;
+>                  case RKVDEC2_ALLOC_DMA:
+> 
+> 
+> [1] https://github.com/amazingfate/FFmpeg/commits/n6.1.1-new-patches/
+> 
+> 
+> Best regards,
+> 
+> Jianfeng
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+
+
 
