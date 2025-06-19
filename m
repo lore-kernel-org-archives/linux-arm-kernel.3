@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B189EC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD150C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HoqckQxZ37mdbag/HEWUORzIQ/6MLzKp6yKer2BShCE=; b=omgD1ch9pQ3JvF9an4ehQAAVmJ
-	xTzpN/QIZ4iYjqSBv8Pot0Sv9ouRu/Rq3woTdkucuCq/Xz+QWZYaCwogWOPbBEAGOcG1anMyIAhlm
-	xZZbL5xOoFhEdAzBTMpuQFOK+3BZusoNHmCslbCxiv+P/eJLzaM99Fzj2c+iDDt0eAz5uV3TKQgo6
-	4Sn77KN67ieaXKrR3fWSMvkviyMPVEob36LqT50RTK70hc/ZEmYSfY+g/xFVZ9cm0hP1ZnYeUOcce
-	4Dgqxd1HBJUYNeutaxdkEW9kGSzSahGh6/U7FOUtrAPNkhDqbZoB5XRfA/Eo0ZnveC0L2jbyOANCX
-	3HVkNgWQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HCRl/sp6j76nRzOl2TGqZ/k2hE04Vcfe+znXwEAwJDw=; b=ZHvKe5i+Iv6CktRH/ETFCaM7PK
+	GKvgKjLWc6rVngKzdkZ5C+4tUG4NLhbcENMrNMiqbMauVKioPFFOAVexV97qeiaHzEjx1hgKiEsw7
+	RTwC0hvp12KLzLqd2tHLunlNb5/0CAFDDQwgiFVh2ammKz+2DqCHkTDILY9UIHxcg/5LBsNLBHH/o
+	8YalXFnJBumXD4GuFTdgmBIZMB4MVgb66NEi5iD4ftNmkD8FvElIhqdRvamOspdiWT/4SdEHV8Xe2
+	NDE2xNHkQAgG0V6tEuKOaLMVdrUWewML5mjLeEZmNz/4uZy2SliEZ89vSemL1vFyJUK/ZtSh4IWdx
+	5JZGsVQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKDG-0000000E0CV-3G29;
-	Thu, 19 Jun 2025 18:42:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uSKDK-0000000E0Ge-04qL;
+	Thu, 19 Jun 2025 18:42:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSJ5b-0000000Dn3M-3Zom
+	id 1uSJ5b-0000000Dn3K-3shS
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 19 Jun 2025 17:30:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 351E361AE5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0704661AE1;
 	Thu, 19 Jun 2025 17:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63971C4CEF1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59C5EC4CEED;
 	Thu, 19 Jun 2025 17:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750354214;
-	bh=HfFEv6qUpuQv8j0SGXGzwPKNs8oEcWMJkK/zqT9Mh64=;
-	h=From:To:Cc:Subject:Date:From;
-	b=cesb14huYwxK82KQ4sPB058imYTtnn85Vzl+lLjNEKK6mc/amkcQMvJ3KLZS1No6y
-	 86/0OGkM9a7EHA8WIVUzO6Pgqzr69KUIYGuaR/37HRKv7YXNmeuL3NfWlq5f5YlhwD
-	 tPn1akioZjboW3ir9b5vei6iMXfESdKMOxMQhDIPcAMhQKQwSO6N/tBxrHKuLhbj2n
-	 QOv3YfXjJco7Ni7RqpP+/z6hOmYAs98Ut2pKsnuAFZp/oHoYPHpDLOx6yx+7wcenN6
-	 hLhm3J1vtvBOcmya2KXAFE8k454AlmGxhG3q1nCf+MfOhB3QTuEYuB7wsyCGt46QzX
-	 BC5K8A1k2Vejw==
+	bh=aIr3qu6ile1nHg+g5aa59zKENPrBn3sv1ZGDJSdnhpA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pnErTiIJQWLhrFkDH2xNIzoO7E9+xdWsnIw4zWbewhlj0MRFDiCcgP9c6B4F4Mt+R
+	 N8+9L2m0yAb5mulJl37xOEI7jDJCz4pdhfq7LNCORJGeGzn8uFiO7it0RgA8G6ipLp
+	 nt+v339QxXTJyhO8iO2ntQv9teuonONx0EIxmOrYfP69tzeIls5ZocT8bK5oKg7G3w
+	 PjrH5IXxo+1lftGEYYWNL3UeoSzsLeRKOVjR8i1xSWBPnUN3PW8cRf5m/kghMAG4Vq
+	 7gi2etfoBbx0e52alSkD51C4pfr2FpzyoSXHiJHR6G80+XuTHqXtL2h27In0KU/iIu
+	 gbwAf/13nFgyA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 0B0015FEF5; Fri, 20 Jun 2025 01:30:12 +0800 (CST)
+	id 2C81E5FF77; Fri, 20 Jun 2025 01:30:12 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,10 +56,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH 0/5] arm64: allwinner: t527: Add OrangePi 4A board
-Date: Fri, 20 Jun 2025 01:30:02 +0800
-Message-Id: <20250619173007.3367034-1-wens@kernel.org>
+Subject: [PATCH 3/5] arm64: dts: allwinner: a523: Move rgmii0 pins to correct location
+Date: Fri, 20 Jun 2025 01:30:05 +0800
+Message-Id: <20250619173007.3367034-4-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250619173007.3367034-1-wens@kernel.org>
+References: <20250619173007.3367034-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -78,60 +80,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Hi everyone,
+Nodes are supposed to be sorted by address, or if no addresses
+apply, by node name. The rgmii0 pins are out of order, possibly
+due to multiple patches adding pin mux settings conflicting.
 
-This series adds support for the OrangePi 4A board. This is a Raspberry
-Pi model B form factor development board based on the Allwinner T527
-SoC.
+Move the rgmii0 pins to the correct location.
 
-The board has the following features:
-- Allwinner T527 SoC
-- AXP717B + AXP323 PMICs
-- Up to 4GB LPDDR4 DRAM
-- micro SD slot
-- optional eMMC module
-- M.2 slot for PCIe 2.0 x1
-- 16 MB SPI-NOR flash
-- 4x USB 2.0 type-A ports (one can be used in gadget mode)
-- 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMAC200)
-- 3.5mm audio jack via internal audio codec
-- HDMI 2.0 output
-- eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
-- USB type-C port purely for power
-- AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
-- unsoldered headers for ADC and an additional USB 2.0 host port
-- 40-pin GPIO header
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-Patch 1 adds a new entry to the list of board compatibles.
-
-Patch 2 and 3 are minor cleanups.
-
-Patch 4 adds pins for UART1, which is used for BT on the board.
-
-Patch 5 adds a dts file for the new board.
-
-
-Please take a look. I will take all the patches through the sunxi tree.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (5):
-  dt-bindings: arm: sunxi: Add Xunlong OrangePi 4A board
-  arm64: dts: allwinner: a523: Move mmc nodes to correct position
-  arm64: dts: allwinner: a523: Move rgmii0 pins to correct location
-  arm64: dts: allwinner: a523: Add UART1 pins
-  arm64: dts: allwinner: t527: Add OrangePi 4A board
-
- .../devicetree/bindings/arm/sunxi.yaml        |   5 +
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 160 ++++----
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 378 ++++++++++++++++++
- 4 files changed, 471 insertions(+), 73 deletions(-)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 458d7ecedacd..30613a0b1124 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -126,16 +126,6 @@ pio: pinctrl@2000000 {
+ 			interrupt-controller;
+ 			#interrupt-cells = <3>;
+ 
+-			rgmii0_pins: rgmii0-pins {
+-				pins = "PH0", "PH1", "PH2", "PH3", "PH4",
+-				       "PH5", "PH6", "PH7", "PH9", "PH10",
+-				       "PH14", "PH15", "PH16", "PH17", "PH18";
+-				allwinner,pinmux = <5>;
+-				function = "emac0";
+-				drive-strength = <40>;
+-				bias-disable;
+-			};
+-
+ 			mmc0_pins: mmc0-pins {
+ 				pins = "PF0" ,"PF1", "PF2", "PF3", "PF4", "PF5";
+ 				allwinner,pinmux = <2>;
+@@ -163,6 +153,16 @@ mmc2_pins: mmc2-pins {
+ 				bias-pull-up;
+ 			};
+ 
++			rgmii0_pins: rgmii0-pins {
++				pins = "PH0", "PH1", "PH2", "PH3", "PH4",
++				       "PH5", "PH6", "PH7", "PH9", "PH10",
++				       "PH14", "PH15", "PH16", "PH17", "PH18";
++				allwinner,pinmux = <5>;
++				function = "emac0";
++				drive-strength = <40>;
++				bias-disable;
++			};
++
+ 			uart0_pb_pins: uart0-pb-pins {
+ 				pins = "PB9", "PB10";
+ 				allwinner,pinmux = <2>;
 -- 
 2.39.5
 
