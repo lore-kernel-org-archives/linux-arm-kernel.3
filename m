@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F97C7115A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC4DC7115D
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4+I7dQKUeqgbjsd8AZYxUQ0+P1SiGloGLynhGyTXdc=; b=4a4+pJYW437ObUu6yIjMCte2xw
-	QqrqBG85gfsCQqm4Ve7U8ZvSBVrSeZebzjx99ZiWn2lypNTqwuzhVtf6tL3i5odgF20By6WyEdLqf
-	InwN9YSxFOrmAKngzE2XDneceSPJd1TOQRjgxHtMPtHHuZMsFLhHCCblZvSpQO5Qg6E3sQQM0OySD
-	dLUDAWZAU0JtKor65HwaP7JKmWWT6Jj6b904uQ7IGsF7k7dCsphrRbRTeHmsmwLWw5Xl3frZ1JMhw
-	WWNo6aAAOQx5GJJtn/iYOzgqAB55RzJ8hf2Ns9Do70MzwiAYPyj4osWtgYlSXkpyAPr++CHbu2sy8
-	yYt4Y1YQ==;
+	bh=95jwxwqOy3CE/suGZD6MlYCwgFQV2q5DD7APLcXDGSw=; b=Nz+J/MxMlrrEmFQLiSW2lTAG45
+	Y1IDLwIySLt7Dj5AXOJUXPrYV6dUA43gN8eoIznBbC/cj5EGr9+74t0mMWL0VDG84nxCUivTe4oS7
+	xW6Y4+0dlrsrK/+gY5HIUUm6mO3tzVhlqnN4rfhqN9AGEzDaI1dX5heWKak2D2xNjVNnT8VttSsun
+	8t5UvnZSCoUYFd1s4ucuv8PNtmM63aEhM1/I0uQaFsfnspgdq/vJezX/0qORQ8mePUyvKR26RihRg
+	LeKdCh8ohPBhuPMoWde9elHSYMVMWnmSxfMd7iGO39KgcYksYLHqYrpWXrK8yM3U1o280h91Bo0Xq
+	iC25f3IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHRW-0000000DRSw-2qlR;
-	Thu, 19 Jun 2025 15:44:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uSHRT-0000000DRR2-2m1e;
+	Thu, 19 Jun 2025 15:44:44 +0000
+Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSByM-0000000CgDG-3Hrr;
-	Thu, 19 Jun 2025 09:54:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C9F64A6D6;
-	Thu, 19 Jun 2025 09:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426C3C4CEEA;
-	Thu, 19 Jun 2025 09:54:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750326857;
-	bh=liBrC581olewIxjbEjqmezkc4FAvhL6bE6utTt8dFjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z5pcnnELNdgWWTpUPqvWO/Rjn59mzJal3u0PTtDti6dHWFKIeZ9bYaddL+4kJYJsY
-	 +imfxJt+pi3/S79q8A25sV833O7pajN7iYJR4F8wzkP04ZeRLpzC2N26SF0XiYQyzz
-	 0SXoZguPVAbHYQ1idOBHeuHxYh8hXzLDqWYiF4dSpWcFtp8R4QdGnLfQUu3CSUjR6D
-	 xTXQIFzHKKXhYyB5/rzqzgdG9vKqbHPdS6ccjWvYPtlTeKNieMbs80rtW0ls0Hyvm0
-	 XwsTe6eYbyGy2gWPm3phDYEtrviPH+8L+0qMtYrwUfu6XqQHSJsXFjKL9z46UICmKN
-	 z+oIUFNTFph8g==
-Date: Thu, 19 Jun 2025 11:54:15 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, Daniel Semkowicz <dse@thaumatec.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH v3 1/5] dt-bindings: mfd: rk806: allow to customize PMIC
- reset mode
-Message-ID: <20250619-unselfish-gorilla-of-joy-13fb93@kuoka>
-References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
- <20250618-rk8xx-rst-fun-v3-1-081f02d3d348@cherry.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250618-rk8xx-rst-fun-v3-1-081f02d3d348@cherry.de>
+	id 1uSBqp-0000000CeuJ-07JB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 09:46:33 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1750326388;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=95jwxwqOy3CE/suGZD6MlYCwgFQV2q5DD7APLcXDGSw=;
+	b=qBF6F/JFB8Ga+29xGShrQ+nv00Iv5P6Zpb4T/dk3e6MAJbO+H6+doGGxnsJfJI/kx0fgba
+	LpxYBlt/zc0ZxyJif1oMwDiMJa2RcXRGHRpLaLxrafWhFf3V0Vh+7RqAJQCUQwfRo8X7si
+	X0xwcrsDc9qzk1RPCPGkhrof7KLlyWVLEkl51JD73B8iW4qmHKoFatW4WrpoRqGSvpAClR
+	B9zyua4faYw4VV6P6C+tYUeI76n0bezZbhO9o7X0M0ecQ0TD9VFRS8HWMRmp7J4KWv1l/c
+	b34pOS6eG0FPqmk+YATMaGS1RL7N9JrziEtqd09cNbkXTkZ/gEMg38ZC+GAEKA==
+Content-Type: multipart/signed;
+ boundary=a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 19 Jun 2025 11:46:15 +0200
+Message-Id: <DAQEX04P5320.CQDU7SL7AV4A@cknow.org>
+Cc: "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS'
+ panel description
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Olivier Benjamin" <olivier.benjamin@bootlin.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+References: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
+In-Reply-To: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_025418_843028_04979717 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250619_024631_624208_F389300C 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +74,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 12:32:40PM GMT, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> The RK806 PMIC allows to configure its reset/restart behavior whenever
-> the PMIC is reset either programmatically or via some external pins
-> (e.g. PWRCTRL or RESETB).
-> 
-> The following modes exist:
->  - 0; restart PMU,
->  - 1; reset all power off reset registers and force state to switch to
->    ACTIVE mode,
->  - 2; same as mode 1 and also pull RESETB pin down for 5ms,
-> 
-> For example, some hardware may require a full restart (mode 0) in order
-> to function properly as regulators are shortly interrupted in this mode.
-> 
-> This is the case for RK3588 Jaguar and RK3588 Tiger which have a
-> companion microcontroller running on an independent power supply and
-> monitoring the PMIC power rail to know the state of the main system.
-> When it detects a restart, it resets its own IPs exposed to the main
-> system as if to simulate its own reset. Failing to perform this fake
-> reset of the microcontroller may break things (e.g. watchdog not
-> automatically disabled, buzzer still running until manually disabled,
-> leftover configuration from previous main system state, etc...).
+--a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hi,
 
-Best regards,
-Krzysztof
+Thanks for working on upstreaming PPP things :-)
 
+On Thu Jun 19, 2025 at 7:21 AM CEST, Olivier Benjamin wrote:
+> Fix a few issues in the panel section of the PinePhone Pro DTS:
+>   - add the second part of the Himax HX8394 LCD panel controller
+>     compatible
+>   - as proposed by Diederik de Haas, reuse the mipi_out and ports
+>     definitions from rk3399-base.dtsi instead of redefining them
+>   - add a pinctrl for the LCD_RST signal for LCD1, derived from
+>     LCD1_RST, which is on GPIO4_D1, as documented on pages 11
+>     and 16 of the PinePhone Pro schematic
+>
+> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+> ---
+> Small fixes to the PinePhone Pro DTS to fit bindings and
+> suppress warnings at build.
+> ---
+> Changes in v2:
+> - Added the pinctrl definition for GPIO4_D1/LCD1_RST
+> - Incorporated Diederik de Haas' suggestion for defining mipi_out
+> - Squashed multiple patches into one
+> - Link to v1: https://lore.kernel.org/r/20250618-dtb_fixes-v1-0-e54797ad2=
+eba@bootlin.com
+> ---
+>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 33 +++++++++++-----=
+------
+>  1 file changed, 17 insertions(+), 16 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 04ba4c4565d0a205e2e46d7535c6a3190993621d..98aba146749998dd5a798aabe=
+d0fe844c474d1cf 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -463,29 +463,18 @@ &io_domains {
+>  };
+> =20
+>  &mipi_dsi {
+> -	status =3D "okay";
+>  	clock-master;
+> -
+> -	ports {
+> -		mipi_out: port@1 {
+> -			#address-cells =3D <0>;
+> -			#size-cells =3D <0>;
+> -			reg =3D <1>;
+> -
+> -			mipi_out_panel: endpoint {
+> -				remote-endpoint =3D <&mipi_in_panel>;
+> -			};
+> -		};
+> -	};
+> +	status =3D "okay";
+> =20
+>  	panel@0 {
+> -		compatible =3D "hannstar,hsd060bhw4";
+> +		compatible =3D "hannstar,hsd060bhw4", "himax,hx8394";
+>  		reg =3D <0>;
+>  		backlight =3D <&backlight>;
+> -		reset-gpios =3D <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
+> -		vcc-supply =3D <&vcc2v8_lcd>;
+>  		iovcc-supply =3D <&vcc1v8_lcd>;
+>  		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&lcd_reset_pin>;
+> +		reset-gpios =3D <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
+> +		vcc-supply =3D <&vcc2v8_lcd>;
+> =20
+>  		port {
+>  			mipi_in_panel: endpoint {
+> @@ -495,6 +484,12 @@ mipi_in_panel: endpoint {
+>  	};
+>  };
+> =20
+> +&mipi_out {
+> +	mipi_out_panel: endpoint {
+> +		remote-endpoint =3D <&mipi_in_panel>;
+> +	};
+> +};
+> +
+>  &pmu_io_domains {
+>  	pmu1830-supply =3D <&vcc_1v8>;
+>  	status =3D "okay";
+> @@ -507,6 +502,12 @@ pwrbtn_pin: pwrbtn-pin {
+>  		};
+>  	};
+> =20
+> +	lcd {
+> +		lcd_reset_pin: reset-pin {
+
+I don't know if there's a 'hard rule' for it, but I'd recommend to use
+``lcd1_rst_pin: lcd1-rst-pin {`` as that would match the naming from
+the schematics. I realize that some but not all (other) pinctrl nodes
+follow that 'rule', but it helps with traceability.
+
+> +			rockchip,pins =3D <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>  	leds {
+>  		red_led_pin: red-led-pin {
+>  			rockchip,pins =3D <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+
+Otherwise,
+
+Reviewed-by: Diederik de Haas <didi.debian@cknow.org>
+
+Cheers,
+  Diederik
+
+--a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaFPcbQAKCRDXblvOeH7b
+boy+AQDbwzeOk3i0OYHIv6wu+lPogKc5TzKOKmCgkGkNRFumNwEAjC++J6IJV1V3
+YclMmumArJ0L1UN/PjW9uBrL/NoamwQ=
+=RIuv
+-----END PGP SIGNATURE-----
+
+--a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e--
 
