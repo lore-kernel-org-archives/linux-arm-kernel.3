@@ -4,106 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA06C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A135C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DaPEqK1ftZ2q8jPM1X2TY9mvqbsIChLSEqaubg3Qn14=; b=GMCgfmCfYCCy1Hwp4nHcUbXtnT
-	Q2RhEXFsSEnp+yqo/striDUNiPnziuy/PbaYOncWW1ozseh5L8FLi8z27H69xQVptNi+Ulv4kEKdu
-	LJtjDpvtziAVXgQunijT2LxGQMNhOf1XneVt0V8L5EBTn7F9+t25pvPwWfPspOGdDt81TTc/JgwD7
-	UqBJExGb7GcA2WUTLJttQsxQIQFwRko6lVUw5Rt7jqZKpfVOjBPqVw3C1dnwihvPFSOhUdY0AJgo4
-	CjGiCZZNgU+Losan9ttsPQYvdyHjYb2IzW/3BGULyeMXY3ZUMOHdM8XT9LEZe1GfsSxPbZ6xZzDIS
-	JZfDKk9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=; b=JwGv8B4gOcOUoSjB3eRCOGAK0d
+	bLTpAKHPeOFq9tvgzKV9bpkMWYgrjMq9Yvjhe9NisjmiJaXCWEjSWZgCvpRUopnGlTPb+3L0fjPm0
+	tCRyB2eU1XowIh9k2h4wLhVMHc9/0L/MlpQEAVjOT6Jb0m6TNzJ/jTlTMpe/ZjUM1PnVeHFf5fnn/
+	9Ybxcg/8tpEboKJ4J0fRz/NtvQ9TfXSi/1HV7P+C4fBGXhxuNXrL/Ou4ovJ1tfpmjJnNTM/NR/goq
+	LryboDmmfBPOPsa3hgMjltLBB+1hcdauZt72UCd2x/AUWd5pBUmDWBlOISpokXYl3WD6O26SW1Cmf
+	NsL/e9Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMKp-0000000EGIr-4B1I;
-	Thu, 19 Jun 2025 20:58:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uSMSW-0000000EGfv-11OU;
+	Thu, 19 Jun 2025 21:06:08 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKn4-0000000E4Sg-0aJ7
+	id 1uSIbr-0000000DeMH-2yaF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 19:19:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750360753;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DaPEqK1ftZ2q8jPM1X2TY9mvqbsIChLSEqaubg3Qn14=;
-	b=OdeEdZrV4AJnYAarQUOOH6FeB6H8Q6BYUy0QFxE2gVVNl65UzqMTf+Zn+I6eny5AcxlDH6
-	KLcMlwBKqStDUfTKAbBHy42YPhG/6saVLtAFRLLbfWvTQDP9zdPPgl40YbLsF8rweFbRuV
-	E3mIV/rshWtNmtTl4jvxzubR6Ht6khU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-663-P-xQEcNjPZ2X5DMB_NCRUg-1; Thu,
- 19 Jun 2025 15:19:10 -0400
-X-MC-Unique: P-xQEcNjPZ2X5DMB_NCRUg-1
-X-Mimecast-MFC-AGG-ID: P-xQEcNjPZ2X5DMB_NCRUg_1750360745
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7B7DA19560B2;
-	Thu, 19 Jun 2025 19:19:05 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.132])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A054819560A3;
-	Thu, 19 Jun 2025 19:18:56 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 19 Jun 2025 14:16:02 -0500
-Subject: [PATCH v2 10/16] drm/panel/omapdrm: Keep up with refcounting
+	Thu, 19 Jun 2025 16:59:33 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-73a64e126d9so943078a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 09:59:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1750352371; x=1750957171; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=;
+        b=LQXGmBwKHv2xUU0S21y5IZLO+oWLA52Y0Y5UgrbZev9h9oZl4+5Bo0qUh38Ymfh1mP
+         R/TYUgunGzkDxTKL0//pncWW3OhV5AT+37gw5y5rUC3VJ+aHYcCSwa4E1KSpffTgZ49W
+         3QAjY3CSC8BYue3OrN+7l4PMDXy/leIEoAyJ3WXKyjLS7cSgPMo8dhKgGWGuS2nuCHW2
+         zu81Js73/kKNopn1XcQtICU8288HLEcQLQgtT3hefgTpP5Fp9dhVorOOvUb73w2FvoOj
+         +wfi5dH6x266HZOCvRPLZGrMIlGaXoyGw/t17DX7SDex1/CDskv635+UeGpseHSVGpja
+         PlqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750352371; x=1750957171;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=;
+        b=vwDe6Gz5apAPMtWz1vGd4X/JluSnD+CjKh7vPjUiaDK4EuCfdRylCHhWAsZ6CEvqNt
+         lgbM+JhEUSuyhEERjTflf6A8+L9NmaaiFUyuQgD9CVZZdUdovI/TPd2T/kCfSHcfWW6z
+         2JrP7qrOxfyca/Yxa81R+VN372Fl6gmVlzQxqwWDq4JyL19qvNRoRxLDe45xfTBdlMgM
+         BU47xcq6/m8gILh1EUiqaurvIMLxe15dlvjVXfwkNl3tCA7/ABk258cOWONJfKD0+BjV
+         uwJaXtJsyFOArQS3G5A9FBEKXuLXL6hos55uUedWkUHd/7dVYaW7U7RmnM3upaclzh4Q
+         qtrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQ2hL/wVykp5m031WTWtcn4gGICxEIXkCJTsyoQXy2K1bbexm7G0Tf9AtSx8W8kGzjQ4wOum1nfxwEvdNDSRwq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqQ7/eYDjf2cRnHMXiSQGKCM8N1CCN1fcZ9rVQsRO3YI5rTPqL
+	jUcb/Jmx2JKZC0PFFHcDS6R/C2TpIa90PXzMNDo+jChrL2OfIJtMOOrqysPEQLnqWvY=
+X-Gm-Gg: ASbGncth0nQrgjbjhgkEkjMBfZ5ef9RGguZ27vMIHUVy7HqFmPO1K+HPcs3Rym8OtQH
+	jGQnRjI9CX2l3maWocWcoFZiNaOxqSBbDJuDvYj7bE8O1kcDnmz1bqA9EQRhtIgccI2f5HXbu+I
+	6nZ/7nCq5i/hCtZgZR/uUkzUcCDxb8XKwXN7ZGJi/1wzXTDOAfVfOi4qMS+NgsyIRLmAajeE/E6
+	jAfJ53GxNMqjCIyt/hkBvGWtfjAMd3ntiDIrvP10WklB91OTE6qIskrj/p2GZDgPAT8SKZDVdq3
+	Wm5ZuefneQFDPsGpArmwWcqA9fnt4DxRKO3O
+X-Google-Smtp-Source: AGHT+IFIVSAeEPqWaR7ouc36Dp5BIP5quliMTNtM08oDDkQu9GEu/sRTek8upP25DBEtFCz1lvvpVw==
+X-Received: by 2002:a05:6830:6c8a:b0:73a:8a8a:5151 with SMTP id 46e09a7af769-73a8a8a5334mr1331051a34.17.1750352370711;
+        Thu, 19 Jun 2025 09:59:30 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73a284ff5f4sm2339324a34.43.2025.06.19.09.59.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 09:59:30 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uSIbo-000000003GJ-3nRB;
+	Thu, 19 Jun 2025 13:59:28 -0300
+Date: Thu, 19 Jun 2025 13:59:28 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
+Message-ID: <20250619165928.GA10257@ziepe.ca>
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+ <20250619131232.69208-4-benjamin.gaignard@collabora.com>
+ <20250619134752.GB1643390@ziepe.ca>
+ <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-10-0df94aecc43d@redhat.com>
-References: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
-In-Reply-To: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Stefan Agner <stefan@agner.ch>, 
- Alison Wang <alison.wang@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=1123;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=yNvjv7hb6ySNQZ968pU8oFIf8+51CHNBGcedVDbIpZQ=;
- b=Pf17x5qSnl1YboGZisOg1cYhskCTcpvu2mq/FNYcxXkDWPbt08xnacLBCfVPhW+Co+JmewGCl
- BQ1ZjYD5uzNBVuKCKB3K5jIsd+v82S9388H3cI9wFxUXoYITXzt+97K
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_121914_278340_3A6110AA 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250619_095931_860620_A3AB40F1 
+X-CRM114-Status: GOOD (  37.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,44 +109,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put the reference of the panel returned by
-of_drm_find_panel().
+On Thu, Jun 19, 2025 at 06:27:52PM +0200, Benjamin Gaignard wrote:
+> 
+> Le 19/06/2025 à 15:47, Jason Gunthorpe a écrit :
 
-Patch added in v2.
+> > Ugh. This ignores the gfp flags that are passed into map because you
+> > have to force atomic due to the spinlock that shouldn't be there :(
+> > This means it does not set GFP_KERNEL_ACCOUNT when required. It would
+> > be better to continue to use the passed in GFP flags but override them
+> > to atomic mode.
+> 
+> I will add a gfp_t parameter and use it like that:
+> page_table = iommu_alloc_pages_sz(gfp | GFP_ATOMIC | GFP_DMA32, SPAGE_SIZE);
 
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
----
- drivers/gpu/drm/omapdrm/dss/output.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+This will or together GFP_ATOMIC and GFP_KERNEL, I don't think that
+works..
 
-diff --git a/drivers/gpu/drm/omapdrm/dss/output.c b/drivers/gpu/drm/omapdrm/dss/output.c
-index 7378e855c278c3809bc431ff48a1c5a41b7dedfc..259ef19d4be2cb559ba9ffe53db9e6e4b4409b21 100644
---- a/drivers/gpu/drm/omapdrm/dss/output.c
-+++ b/drivers/gpu/drm/omapdrm/dss/output.c
-@@ -48,7 +48,6 @@ int omapdss_device_init_output(struct omap_dss_device *out,
- 			ret = PTR_ERR(bridge);
- 			goto error;
- 		}
--
- 		out->bridge = bridge;
- 	}
- 
-@@ -76,9 +75,12 @@ int omapdss_device_init_output(struct omap_dss_device *out,
- 
- void omapdss_device_cleanup_output(struct omap_dss_device *out)
- {
--	if (out->bridge && out->panel)
-+	if (out->bridge && out->panel) {
- 		drm_panel_bridge_remove(out->next_bridge ?
- 					out->next_bridge : out->bridge);
-+		drm_panel_put(out->panel);
-+
-+	}
- }
- 
- void dss_mgr_set_timings(struct omap_dss_device *dssdev,
+> > > +static int vsi_iommu_attach_device(struct iommu_domain *domain,
+> > > +				   struct device *dev)
+> > > +{
+> > > +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
+> > > +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
+> > > +	unsigned long flags;
+> > > +	int ret;
+> > > +
+> > > +	if (WARN_ON(!iommu))
+> > > +		return -ENODEV;
+> > > +
+> > > +	/* iommu already attached */
+> > > +	if (iommu->domain == domain)
+> > > +		return 0;
+> > > +
+> > > +	ret = vsi_iommu_identity_attach(&vsi_identity_domain, dev);
+> > > +	if (ret)
+> > > +		return ret;
+> > Hurm, this is actually quite bad, now that it is clear the HW is in an
+> > identity mode it is actually a security problem for VFIO to switch the
+> > translation to identity during attach_device. I'd really prefer new
+> > drivers don't make this mistake.
+> > 
+> > It seems the main thing motivating this is the fact a linked list has
+> > only a single iommu->node so you can't attach the iommu to both the
+> > new/old domain and atomically update the page table base.
+> > 
+> > Is it possible for the HW to do a blocking behavior? That would be an
+> > easy fix.. You should always be able to force this by allocating a
+> > shared top page table level during probe time and making it entirely
+> > empty while staying always in the paging mode. Maybe there is a less
+> > expensive way.
+> > 
+> > Otherwise you probably have work more like the other drivers and
+> > allocate a struct for each attachment so you can have the iommu
+> > attached two domains during the switch over and never drop to an
+> > identity mode.
+> 
+> I will remove the switch to identity domain and it will works fine.
 
--- 
-2.48.1
+You'll loose invalidations..
 
+Maybe the easiest thing is to squish vsi_iommu_enable() and reorganize
+it so that the spinlock is held across the register programming and
+then you can atomically under the lock change the registers and change
+the linked list. The register write cannot fail so this is fine.
+
+This should probably also flush the iotlb inside the lock.
+
+> > Which will cause the core code to automatically run through to
+> > vsi_iommu_disable() prior to calling vsi_iommu_release_device(), which
+> > will avoid UAF problems.
+> > 
+> > Also, should the probe functions be doing some kind of validation that
+> > there is only one struct device attached?
+> 
+> which kind of validation ?
+
+That only one device probed to the iommu?
+
+Jason
 
