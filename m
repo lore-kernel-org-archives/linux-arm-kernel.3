@@ -4,129 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21B3C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 08:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C934C7115E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 08:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=waa0tpkCKiHZk7WUJJIS/rThJf704mbh76mxtiYq81o=; b=ZeuEleGTbgHxbn
-	RttGoJq7bZWlsN5qM4VzdmD54CD6IlEHLBrOAWrOkxOYWgz8GpyzsWTzD0A/K3dFV28MeaOswP5Xc
-	Hu0gg25Yht3kn1RAZhwtYhH052Y9AIno6zzn6g74IBohTSsseK1KAVzuN2BBl9l2aTnm/QPMG9Qh7
-	nxxnNYn/DkMlufezQuTKwT/7BCY4rUVxsADKS89ZPTRJVXLTGYKvhm2WDUffY2eQaKV158qjFIZ65
-	UkdB5oj+yCMyxYe0PT6f2+p+BIKIAKCeBWG6gK7dpVOFa+fyxFwhrG/TAYWwNQkViGOx+/N1BCvtg
-	YRyAq+fjYCteZ09YvqTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qQc8KBNXic1DZnFfIwGfGX0puZguj5Ag4lvx2OkjmOM=; b=FuJgNFZhtpb7Ogx+BhJplLCGej
+	O5jzK8rEe42zlyVYbVbLdxXLEp3CM4ZInIvHeEsaoBjXdOLGxeU/nD/KehHH2ApXjw71EmLt7johP
+	NZ3n2LLnKbuMefeqfQpjauyRJf2jNcSMvHI2twjifTfsEHRLc5xfRYyYJNLUuwgZwUEK8Dm9RxU6l
+	kjDoPSmFlabGdHCnd4cBgLjr1hCV+ZG8mJyRoqtjZ5k2sYbH+yVEBZKS7+RIJF5GHkmmTBtQBXVXI
+	7ox5AvOzbpx6ejG+loYel6tvx0aBKzHoHFqo/tELlGIM0SCIKHCwkL75kpPCfIgrV/w5Q8rmBCVOo
+	cc6wxg1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAF0-0000000CNwd-2t52;
-	Thu, 19 Jun 2025 08:03:22 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1uSAHF-0000000COKc-1uV5;
+	Thu, 19 Jun 2025 08:05:41 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS9gp-0000000CIEx-3OAD;
-	Thu, 19 Jun 2025 07:28:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1750318060; x=1750922860; i=frank-w@public-files.de;
-	bh=waa0tpkCKiHZk7WUJJIS/rThJf704mbh76mxtiYq81o=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=UUj5/2ZlVTmsOTcBj0uoIeI/f3n/Bi8B0/9zxTrVPwqyI8TdWBgWYjnr21mbHUWY
-	 R8tboJA+SNf0F4PFKFUtyg+7fmzsY+k+0A17unR8ws1iYkiFVx2Z4d5H9N4YVl9//
-	 chct74iQVq5/hgVGFI2jlyi+C3aRtF7SDwbjC3M0EIbzDSMnCuuhdruIMsF/Qlh1G
-	 mSruxeE/RDxDlQN0IkAL1kkaYnwPcoEznMHD2+2XhJo+g5/mawXQPB4+Ra4YrTF2e
-	 jBk7kpw9DnlgxohrPm+XFoJUKW+mIzyabCgGSgDHNJ/fbrgEKz1h+aoAYeQaFDXXl
-	 bdN1H8xbNAMY8QO4lg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([80.245.76.73]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MQe5k-1u6lBd2yxi-00PdST; Thu, 19
- Jun 2025 09:27:39 +0200
-Date: Thu, 19 Jun 2025 09:27:23 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Frank Wunderlich <linux@fw-web.de>
-CC: DENG Qingfang <dqfext@gmail.com>, Jia-Wei Chang <jia-wei.chang@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Landen Chao <Landen.Chao@mediatek.com>,
- Jakub Kicinski <kuba@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- devicetree@vger.kernel.org, Georgi Djakov <djakov@kernel.org>,
- linux-kernel@vger.kernel.org, Chanwoo Choi <cw00.choi@samsung.com>,
- linux-arm-kernel@lists.infradead.org,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
- Kyungmin Park <kyungmin.park@samsung.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Felix Fietkau <nbd@nbd.name>, "David S. Miller" <davem@davemloft.net>,
- Andrew Lunn <andrew@lunn.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
- Eric Dumazet <edumazet@google.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>,
- Conor Dooley <conor+dt@kernel.org>, Vladimir Oltean <olteanv@gmail.com>,
- Paolo Abeni <pabeni@redhat.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Johnson Wang <johnson.wang@mediatek.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v4_01/13=5D_dt-bindings=3A_n?=
- =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_update_for_mt7988?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <175026826312.2322513.8876769837630455596.robh@kernel.org>
-References: <20250616095828.160900-1-linux@fw-web.de> <20250616095828.160900-2-linux@fw-web.de> <175026826312.2322513.8876769837630455596.robh@kernel.org>
-Message-ID: <9BC433E2-B764-4DE6-A760-D054D981F652@public-files.de>
+	id 1uS9m0-0000000CJ9N-3KHp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 07:33:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=qQc8KBNXic1DZnFfIwGfGX0puZguj5Ag4lvx2OkjmOM=;
+	b=lxTLwirY93ccLYht3790YvQzbm2YudORaWDoDB3WQ4mKTfszjLri6EFbpbUF9l
+	x65H8Uhi1E33Ds5odQC0owBP2s0cw3RvxDrcwRx0ajC/wXUMGUxzgbV33MURRIQZ
+	zxh32iF+9i9aIC0XwrDAGyK7TUgkBlwu5RR4AUESYidvo=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgBXVlEzvVNo33X_AA--.29592S3;
+	Thu, 19 Jun 2025 15:33:08 +0800 (CST)
+Date: Thu, 19 Jun 2025 15:33:06 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH 1/2] arm64: dts: freescale: imx93-phycore-som: Move
+ ethernet0 alias to SoM
+Message-ID: <aFO9MpNOSzTGfyJU@dragon>
+References: <20250522083909.533567-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:q+Q3bL2VPEIF7bQ0QHxlDWXPnd/Ii5Fo66vg5xZ5klhHgyhraJ3
- mc3YMx436z3Wp28bYyctybXZJq48fZ5LrWJlCl6ZxqDAWnw/o7HwIB0rtdAcCgLrjVRW5EH
- B6IpU8mBap9ufFBpTSCbsw8gvVCDRZXOHVMbG9oGlS561WFrQCMzmdgOTeR+tIY2cdVA0V7
- iX3hGZCHjR9KdFN/yPHNA==
-UI-OutboundReport: notjunk:1;M01:P0:WQzJv+DCJ1c=;LweDzB+7EvdV75Z5+FSp/bctZkP
- 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250522083909.533567-1-primoz.fiser@norik.com>
+X-CM-TRANSID: Mc8vCgBXVlEzvVNo33X_AA--.29592S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrGw43Kr4fXF4fJr4xJry7ZFb_yoWxArc_CF
+	W8u3WDAw4UAFya9343CFyFy3s3tw1kJr1IvrWagr93t34Fg3s3Gryvvas5CF4xW39xtr13
+	u3WSkFWSqrnagjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjMmh5UUUUU==
+X-Originating-IP: [117.82.86.8]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIRVr0GhTvTVkkAAA3I
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_002804_141071_E36FB784 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250619_003325_171009_2FB74BBA 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,53 +75,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 18=2E Juni 2025 19:38:07 MESZ schrieb "Rob Herring (Arm)" <robh@kernel=
-=2Eorg>:
->
->On Mon, 16 Jun 2025 11:58:11 +0200, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> Update binding for mt7988 which has 3 gmac and 2 reg items=2E
->>=20
->> With RSS-IRQs the interrupt max-items is now 6=2E Add interrupt-names
->> to make them accessible by name=2E
->>=20
->> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
->> ---
->> v4:
->> - increase max interrupts to 8 because of RSS/LRO interrupts
->> - dropped Robs RB due to this change
->> - allow interrupt names
->> - add interrupt-names without reserved IRQs on mt7988
->>   this requires mtk driver patch:
->>   https://patchwork=2Ekernel=2Eorg/project/netdevbpf/patch/202506160807=
-38=2E117993-2-linux@fw-web=2Ede/
->>=20
->> v2:
->> - change reg to list of items
->> ---
->>  =2E=2E=2E/devicetree/bindings/net/mediatek,net=2Eyaml | 28 +++++++++++=
-+++++---
->>  1 file changed, 24 insertions(+), 4 deletions(-)
->>=20
->
->Reviewed-by: Rob Herring (Arm) <robh@kernel=2Eorg>
+On Thu, May 22, 2025 at 10:39:08AM +0200, Primoz Fiser wrote:
+> Move alias for ethernet0 interface to the phyCORE-i.MX93 SoM include
+> file. The reason behind it is that the physical location of the PHY chip
+> connected to FEC interface is on the SoM itself and alias thus belongs
+> into the SoM device-tree. Consequently, it can be used by all boards
+> based on the phyCORE-i.MX93 SoM (phyBOARD-Segin and phyBOARD-Nash).
+> 
+> This also enables us to mark FEC interface as the primary / first for
+> networking in the bootloader and systemd (predictable interface names).
+> 
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 
-Thank you rob=2E
+Applied both, thanks!
 
-Have you seen my reponse to coverletter? Got info from mtk that reserved i=
-rqs are not unusable (only currently unused) and imho they should be upstre=
-amed too but without a special meaning=2E
-
-What do you think?
-
-I would increase the interupts count to 8 and name the reserved irqs fe0=
-=2E=2Efe3=2E can i keep your RB or should i drop it again?
-
-
-regards Frank
 
