@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BFD7C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 07:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EE8C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 07:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5Mn/v7RZ7UFx8WGpT30YpU6PJiEWQ1DE0lZ8cE+J4c=; b=pF8/cKddlIX0ydfg1nGFzNQIEK
-	pNOv+pS8k4ViCr43Vz2YKc+UZr+DNdimH80lgjhYQqjwRLm/+iLZFTxOHbHwjgvEw1canyYCtRQwJ
-	PViAmgzuSwZ9bNDtW5FaC9mlM2EK7swkCjOtim2fSUcPf7/XG14wsvQaWrPUm6BRioNj7xDlo6+Kp
-	X74eNpuuQe293zIcr+tn21kdHQJrvvVgdwoCx4HpIG3VlnMPY/aiRA5RkYjTeMOe4gk6vuW4vdkqV
-	P8clhuJqWyB0VDF77zyKcyWdYdcPHq0j7rX97EHE+B0YL9ceYZJ/5iorwBz4X0brkMvAn0s4f+W7p
-	xINnQGEw==;
+	bh=MdtJuUSyYFoQpkY3gZQ3DL/JZPXVrwJylxxi2w+UrIY=; b=KDjx2uOYVqysL2XKGJ2Qg/Vuf1
+	CJSNFzgluPWGUD7K0tyW2erohaWdBHRXIaJD03MdpgJAVvgKuWuYUuYxRk+W6CuoX0au2tzC0G3bF
+	JTwb/hDbSsvee6C48fuUk+WI8a279m4Olu8QMQqSRFECN6tS+5daXwmtB0wX0DWXThEhXafOWXOFt
+	CicODnt3yD69becEMAVDw/8kEdCEhxCC//mc6XVGUk71vvXKpGscyARMnqROWuJHN5Qq9ejZ6dzI4
+	txamYT6nBiWACnfL5TPvAXLFDh91AeGVGtNm8AZCigyoi3J2/RKVHNkJUjANk1d9nzy8nZitzQzJU
+	Up+IBBNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS9M2-0000000CFkn-1w9r;
-	Thu, 19 Jun 2025 07:06:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uS9OE-0000000CGAC-21WI;
+	Thu, 19 Jun 2025 07:08:50 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8wG-0000000CB2J-0s7U;
-	Thu, 19 Jun 2025 06:39:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=F5Mn/v7RZ7UFx8WGpT30YpU6PJiEWQ1DE0lZ8cE+J4c=; b=U71b1AZ44I+AaNgbz4Xd5fKome
-	V6TxaUp6w0vLF5BFNIMajkZq6RMGyxQIV/Q43VicSQ3BzCc73RtOFp/hCLh40TIy6oMOUCRH3jHwL
-	5MND053Aav4Yq/QzAEaGZkOUFy92vJ1zs/6V+2EhWqrz+VLNM9IVFHb94KscOy37yTvXwZHGVJo7+
-	aThBSZx/im4IhhiqRmN+OrzeteeTPSskykWEr3XITRFu6VAhGpVTYZLT3YaCI6PjbhQ11Lb0SZL8r
-	9KXE8WcF+dKduRDGx66+rQUVP22OKmWPqylALKOOpzkneKuQHpu7aP6n4ywQ2a6w8cgCsYOsg9mYa
-	EgW17rCQ==;
-Received: from m16.mail.163.com ([220.197.31.3])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8wA-00000004Mev-0CL2;
-	Thu, 19 Jun 2025 06:39:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=F5
-	Mn/v7RZ7UFx8WGpT30YpU6PJiEWQ1DE0lZ8cE+J4c=; b=UcmY+dGzb5iSBaPC5h
-	061MXFPks/x1BibP70watoVK2Jjs/YdbeW/HfJwOGXRm2z6NI1SBdwbZXbOpTHgG
-	eMHe3lCuidSXqKNJsUEGUq3WQIERWNW0MHR4rSlokd2znpLv8XvO+NkaJcFc6zWu
-	v+YkNcLme2WQmsEEN3viy8BiY=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD312OGsFNoUtqyAQ--.3973S9;
-	Thu, 19 Jun 2025 14:39:16 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: dmitry.baryshkov@oss.qualcomm.com,
-	heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	mripard@kernel.org,
-	naoki@radxa.com,
-	stephen@radxa.com,
-	cristian.ciocaltea@collabora.com,
-	neil.armstrong@linaro.org,
-	Laurent.pinchart@ideasonboard.com,
-	yubing.zhang@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
+	id 1uS8wK-0000000CB2c-1hD3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 06:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MdtJuUSyYFoQpkY3gZQ3DL/JZPXVrwJylxxi2w+UrIY=; b=Tbmbjp+CgXtQD60jIitKkWYPOx
+	xOeQBXqwWt9fNVLORCqcBKoPbbOHijuuchsYTm2jMLZOpbvYBpafKWzSRexQzg+21GJgwybaOPOlM
+	i7OnAqpj6oBuohW8qfDLGp7fHkyFcwok/DaXt02mkC+WmiYz/8VA9YGqaVbLv363YaTnQMtUeYKSR
+	5VMZe1HiBEfBdJA9uE3BmC1o+A+PeTrhR9B6NzVMbzCp4akxz3UeoKj6E9BbxB//GzNs0CkKH604p
+	+0IthHyDxX5gaAbdAghwxzhxEbSTwz7WKk79xMv6SzDpVgykKYRFFoPatISYzb6ZSdR8UzSExn9AW
+	p+0E/YTQ==;
+Received: from [89.212.21.243] (port=44058 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uS8wG-00EVcY-2U;
+	Thu, 19 Jun 2025 08:39:56 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v4 7/9] arm64: dts: rockchip: Add DP1 for rk3588
-Date: Thu, 19 Jun 2025 14:38:53 +0800
-Message-ID: <20250619063900.700491-8-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250619063900.700491-1-andyshrk@163.com>
-References: <20250619063900.700491-1-andyshrk@163.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/4] arm64: dts: imx93-phyboard-nash: Add PEB-WLBT-07 overlay
+Date: Thu, 19 Jun 2025 08:39:54 +0200
+Message-Id: <20250619063954.1730231-5-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250619063954.1730231-1-primoz.fiser@norik.com>
+References: <20250619063954.1730231-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD312OGsFNoUtqyAQ--.3973S9
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZrWDCry7tFWfJw17JFWDJwb_yoW8Xw4fpw
-	nrurZ3GrW8uF1aqwnxt34kXrZ8A3Z5CFZrKr1xK3W8Kr1Sqr92k34akrZ3C34UXr17XwsF
-	kFs3tryUKF4qy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jwvtZUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkAdxXmhTsFgHqwAAsH
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_073953_611061_51F86765 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_234000_936401_815F4B92 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,62 +92,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Add overlay to support PHYTEC PEB-WLBT-07 WiFi/Bluetooth evaluation
+adapter on phyBOARD-Nash-i.MX93 board. Adapter uses the u-blox MAYA-W2
+module (IW612 chipset) which is capable of Wi-Fi 6 and Bluetooth 5.4 LE.
 
-The DP1 is compliant with the DisplayPort Specification
-Version 1.4, and share the USBDP combo PHY1 with USB 3.1
-HOST1 controller.
-
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
+ arch/arm64/boot/dts/freescale/Makefile        |  2 +
+ .../imx93-phyboard-nash-peb-wlbt-07.dtso      | 88 +++++++++++++++++++
+ 2 files changed, 90 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
 
-(no changes since v1)
-
- .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-index 90414486e466f..691fe941d53a1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-@@ -210,6 +210,36 @@ i2s10_8ch: i2s@fde00000 {
- 		status = "disabled";
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 3166684ab558..699c3b1d80b2 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -325,9 +325,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
  
-+	dp1: dp@fde60000 {
-+		compatible = "rockchip,rk3588-dp";
-+		reg = <0x0 0xfde60000 0x0 0x4000>;
-+		interrupts = <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru PCLK_DP1>, <&cru CLK_AUX16M_1>,
-+			 <&cru CLK_DP1>, <&cru MCLK_I2S8_8CH_TX>,
-+			 <&cru MCLK_SPDIF5_DP1>;
-+		clock-names = "apb", "aux", "hdcp", "i2s", "spdif";
-+		assigned-clocks = <&cru CLK_AUX16M_1>;
-+		assigned-clock-rates = <16000000>;
-+		resets = <&cru SRST_DP1>;
-+		phys = <&usbdp_phy1 PHY_TYPE_DP>;
-+		power-domains = <&power RK3588_PD_VO0>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
++imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+ imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+ imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+ imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
+new file mode 100644
+index 000000000000..c7553e39e763
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
+@@ -0,0 +1,88 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
++ * Author: Primoz Fiser <primoz.fiser@norik.com>
++ */
 +
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
++/dts-v1/;
++/plugin/;
 +
-+			dp1_in: port@0 {
-+				reg = <0>;
-+			};
++#include <dt-bindings/gpio/gpio.h>
++#include "imx93-pinfunc.h"
 +
-+			dp1_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
++&{/} {
++	usdhc3_pwrseq: usdhc3-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&lpuart5 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart5>;
++	status = "okay";
++
++	bluetooth {
++		compatible = "nxp,88w8987-bt";
++	};
++};
++
++/*
++ * NOTE: When uSDHC3 port is multiplexed on GPIO_IO[27:22] pads, it only
++ * supports 50 MHz mode, due to introduction of potential variations in
++ * trace impedance, drive strength, and timing skew. Refer to i.MX 93
++ * Application Processors Data Sheet, Rev. 3, page 60 for more details.
++ */
++&usdhc3 {
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_wlbt>;
++	pinctrl-1 = <&pinctrl_usdhc3_sleep>, <&pinctrl_wlbt>;
++	mmc-pwrseq = <&usdhc3_pwrseq>;
++	bus-width = <4>;
++	keep-power-in-suspend;
++	non-removable;
++	wakeup-source;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_uart5: uart5grp {
++		fsl,pins = <
++			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX	0x31e
++			MX93_PAD_DAP_TDI__LPUART5_RX		0x31e
++			MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B	0x31e
++			MX93_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B	0x31e
++		>;
 +	};
 +
- 	hdmi1: hdmi@fdea0000 {
- 		compatible = "rockchip,rk3588-dw-hdmi-qp";
- 		reg = <0x0 0xfdea0000 0x0 0x20000>;
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
++	pinctrl_usdhc3: usdhc3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x179e
++			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x4000178e
++			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x4000138e
++			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x4000138e
++			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x4000138e
++			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x4000138e
++		>;
++	};
++
++	pinctrl_usdhc3_sleep: usdhc3sleepgrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x31e
++			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x31e
++			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x31e
++			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x31e
++			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x31e
++			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x31e
++		>;
++	};
++
++	pinctrl_wlbt: wlbtgrp {
++		fsl,pins = <
++			MX93_PAD_CCM_CLKO2__GPIO3_IO27		0x31e	/* WAKE_DEV */
++			MX93_PAD_CCM_CLKO3__GPIO4_IO28		0x31e	/* WAKE_HOST */
++			MX93_PAD_CCM_CLKO4__GPIO4_IO29		0x31e	/* PDn */
++		>;
++	};
++};
 -- 
-2.43.0
+2.34.1
 
 
