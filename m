@@ -4,194 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E432CC71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF63C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lSmnNjTiQ0e34lMvLVVkvT2cXZRq8h0mw9v0w5LFZOQ=; b=o0ZfSEGOZYkgU+v0QwKBVCqUxA
-	HMqUqB2TtMLOHS5t8NEQ4F4TdmoU7RCWZnMFCkAbjHQENCGAb+5rs7O6l2X3wzhaO829EYJ8W+Dlr
-	pO6HL6eImofBjhz7hsvPh9lSZDrmiMUf6ahmPCJHFzesu/TlqnGQj0ewojiUoajp3fDeTmqUVx4bL
-	NPosNZjyw0cJqD0Xj3/Jeop/VfIx3+NvMsQC6eQTsmJMuJcn0Tsxv/0TSQTyFcaOH7EM0DKCUjvTu
-	XEfNpB4i5yf91fXme73KSNFoUN8xoSEWSd9rVZ9OeoZTzfqnX/IBVOLHC5cvpu49NMcFGs/4hx915
-	fDZB6JjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=; b=AIP5YLamuaT5lq3oV299rPR2yo
+	P4uG9v4/y+azqFwsQ5k1IG1arUTVYB9uiaXXFLNBUEMDTdVroM1mlMqAJT/XLZ9eT7GhersW3lTwg
+	r02sbo+wC1SWjiin0/avkeoNIHBtYeqHYAkJ+lgP4ntqDlQg5Xe2j8pMPnlPz9nxMvqunreP84djg
+	Cc7Vbm0Xqffd0F8yPcf8KqrW03+oX2N2a74gz3093gizK//c1imiNbddJTgztNsrzpRDDjuXh6+p5
+	+MhuMx/K5lERiky9PXIiNd9/snQjV7ssZ9IyfulkBE1ZPornqySWeUKIKSDS5EN3TyPMkZKmI35YU
+	ZK8Lhelg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8Xe-0000000C8QH-28FN;
-	Thu, 19 Jun 2025 06:14:30 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uS8Zq-0000000C8ha-0tFR;
+	Thu, 19 Jun 2025 06:16:46 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS89h-0000000C61N-1JAO
+	id 1uS8AB-0000000C66g-1RUH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 05:49:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750312185; x=1781848185;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=lSmnNjTiQ0e34lMvLVVkvT2cXZRq8h0mw9v0w5LFZOQ=;
-  b=E5u0sgxv4LGEwlr7ldeKf0U9WL8Yjv5nCdz6VaFnutwI0nV1+/Ya47PX
-   b6SRhKnD3g1y4uWGTGvHQjym2q7cJHSLwkLNF6FJnYzkpAjVrjs7izmaY
-   i1fDSKCWxy9FSniTtusCWNoZUwGM3Jg0RvOCFHk54VL4bvwrg92/5vaUZ
-   r51ROmvj8qRGD6HCgsJDkw6J7BZgWq0E1y+xEn+49pLSKeH6t+kY23Tnj
-   QJ+ANH+r2EbnsRGsCMyWGg5OpMOsm9HU/8GLlpckN9lKqYmuZbbMWKHPu
-   dQTbSRJ26drMZb9qZ2Wz0/eNkbWIf79IRFZp5NTShE5FWYNpUsQ7R7e/r
-   g==;
-X-CSE-ConnectionGUID: PBgzlOjOQ/u6TtcDx6YCvQ==
-X-CSE-MsgGUID: XVGo8fUQREauo1ROFRFd1A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11468"; a="56239330"
-X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
-   d="scan'208";a="56239330"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:49:44 -0700
-X-CSE-ConnectionGUID: ShnkDNMzTSWKI3P8MEqixA==
-X-CSE-MsgGUID: IfMLNPsIRuSdPTItSeEdwA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
-   d="scan'208";a="156004863"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:49:41 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 18 Jun 2025 22:49:40 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Wed, 18 Jun 2025 22:49:40 -0700
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (40.107.92.83) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 18 Jun 2025 22:49:40 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UUMxyOznPd2Vt3xUS2ctzM9Z8Oo7rykadTqykAbR3sn6wl3kyNOYoBP7Ts9UsNjFi/vRQxmwBEOqf/Xpp8RjShH4QEeQa9hAvqPchf7WRnMHNIXHOVcLjV51xxLYZ06G/vjvKm4uHhwxpFyF9Xp6w6ulAV7Ow8wPeWNWT4+eKlhEqnLnYmKPTGFYLL0xHgwkqd3i/ENcf1qLNW4hE9orDUpKjWpdmB77rj4DN5azOQPJkvBblgoN1zh1cEWr3I2XazIh2Yl/HwAXO6Ufq1kDXhDLdtNdNpTS5C6yJtLuTEBigC22r4KwUynZEK78/ICehoJfb5xKIUnlLFtMs7JslA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lSmnNjTiQ0e34lMvLVVkvT2cXZRq8h0mw9v0w5LFZOQ=;
- b=KaXM0+tOT//u4ZGyADV0X6Wv1WtHPHZAw8QG/1o26uuEzfYECfcxEiLntD0EyC2RrS13u92CY774ZVazTMzaHnipFsdloaEyYba1yqN/wyyOa55uwqFdckYza+cXO3OKPwEfJVbx5NywT+R4YM2A8ItCo28c4jgCUq6OlLyqhcSm1ol21lEKVYi7Q5lPYZFlN2+68KKgrG4yI0BCaj/h7PZ4UnaHDD9mwq97Wc3IqPP2ikn1v59VrioDdhvLnW9IaKoBZcTDCDsEoR5FuBT8CZMQyo5jt1fZCaj6iIxZuvWOvSmLesxZbVJifY53w9qk8eTVitisP+uOMohQnphTgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by PH0PR11MB4854.namprd11.prod.outlook.com (2603:10b6:510:35::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Thu, 19 Jun
- 2025 05:49:24 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8857.016; Thu, 19 Jun 2025
- 05:49:24 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>
-CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"praan@google.com" <praan@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"peterz@infradead.org" <peterz@infradead.org>, "jsnitsel@redhat.com"
-	<jsnitsel@redhat.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>
-Subject: RE: [PATCH v2 14/14] iommufd: Apply the new iommufd_object_alloc_ucmd
- helper
-Thread-Topic: [PATCH v2 14/14] iommufd: Apply the new
- iommufd_object_alloc_ucmd helper
-Thread-Index: AQHb3Pasg39ou8os50Sac2dAvdlD9rQKAcwg
-Date: Thu, 19 Jun 2025 05:49:24 +0000
-Message-ID: <BN9PR11MB527653F4EE17B65F1571904F8C7DA@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1749882255.git.nicolinc@nvidia.com>
- <107b24a3b791091bb09c92ffb0081c56c413b26d.1749882255.git.nicolinc@nvidia.com>
-In-Reply-To: <107b24a3b791091bb09c92ffb0081c56c413b26d.1749882255.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH0PR11MB4854:EE_
-x-ms-office365-filtering-correlation-id: 78b6d42f-01e1-4534-078d-08ddaef50bbe
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?BQIL+Fmix09FhfILNc1HSyDCc76yAwTc3VnWrzOdglmhjJlRV9P/RFp5WScX?=
- =?us-ascii?Q?eRrOF0itQnQl+zG+V8KDdpt+IQ47WujBt1AcCEAmmptNPn2n9CwexzcYyoPP?=
- =?us-ascii?Q?aRkXA5aZ/B92qUD01Yl8Y9nEaMOAb1wv7xMLKPedgySrPtFBwAq0uSZOIOu3?=
- =?us-ascii?Q?0obH52TEkpooJykTRgDwchI3vHzysmFQ3vQe5IZzXcI0wVjaUhRj0L3/MjK9?=
- =?us-ascii?Q?UKjK1OTU+JtUy4J1RuRRA6M6n9kRw+KsXk8Gk6LTGRTI1ISBfQela4QVfOMN?=
- =?us-ascii?Q?gTEACEtPurZdfRTHwDgGqFNFQjrDZSbt7gWT1xLeFHpk7HnBeQYDEE80Z16C?=
- =?us-ascii?Q?IoaErwtY2lDXTSPnPyXHadFJuvjdCsOOuosuPYwRSyia0eb4eEQy4n532A32?=
- =?us-ascii?Q?jMQM7X2xBU8ZtRzYVbyMM3isq0DZGUUPV2Qz9WnW/G1C3qTqTteSdIwCESPT?=
- =?us-ascii?Q?tjix37XJ33OGB6v/tfDGKZwhlw6LyII2/x46hyGK32B6+qR/pVcQdM3idNAb?=
- =?us-ascii?Q?Rc+cEac+YnmqxDU6TXzokRZmivBwS4AKJPQlYdgzkcVd5CTDKcIILd6J9hZP?=
- =?us-ascii?Q?B6oWt9oY7vE18HZtjQc3n19jCt0oLHFC+E56vUSchtKMzm2s73zp9RWIIfQ7?=
- =?us-ascii?Q?nyxSXd3SYrnyuvvQ5O7rAmHIC5YxKJRucLeAiZJBLkJAfa309yuqcIBmg0xy?=
- =?us-ascii?Q?LE2D5zC7WSkqtocVmOIohLcd272dUQtF/XDaQgmIKOzweVon3wSupNez50xO?=
- =?us-ascii?Q?8HTKRswxO3qBLTsS5XVYqkE3Mrhu4BnymVrVi3Z63/uZt0jRK79I1t/FLIqi?=
- =?us-ascii?Q?lrGQ4xKe2CPEV3AYlOvn2I8s/Er+8UaoW4oXPyzQXy3zRoUH0KcyHLfTcq/h?=
- =?us-ascii?Q?Ua0aSBDUkMUBIpcyVXCheCHOOUWwxNrg3lThK8dPDTdt2O3POO+dJ+8nVzXx?=
- =?us-ascii?Q?pFO/VwwZk6eoJe+Cw0e4fxYA3bTjnUcx208tjhLVYXM4yhuKdQUocXmZEMfF?=
- =?us-ascii?Q?Vzi7Kz2faWz1QA2sbgS0cWI0N455qdDi3YMY8F4G40+9fJmdfTQ1+fkfJ6is?=
- =?us-ascii?Q?dRaNGftYCAo5VA2RrBGu6IM4rcNeIjfWk16XXOZPqlT7RhkI9heGTG1p95Pe?=
- =?us-ascii?Q?cmFkgomtuLF+lvbQjz1BKk57nsXV0ntK/5cyqjD91XZdC8R46q59Tpq2IisY?=
- =?us-ascii?Q?zIk3h0FXns/Zaga3cdfogI4GX6BCFahOB7o9H5vIcX0REjEcWtcfy4AskxJr?=
- =?us-ascii?Q?BlGH3pVQSpGoonyIpp300xn86z34Aa56Js6JT4ev7eIvlgS5JX2sF6i0e2IP?=
- =?us-ascii?Q?gT11WnnH6iPKEsr6ybsKq29qterF42bC23XG0SVRmIWD+WAhSakDGwdsmTbj?=
- =?us-ascii?Q?ctx3llY6sfwgbSQZ1F0qOkOIk6qA43J+3GaqcaI/2loZcV6pw9Eikd/rzdzp?=
- =?us-ascii?Q?5nUDvmE6Foj69GV39AjIH2aaR0gMKBCL2wYt8SMsDb9lM5fK/ePM3oPF6t3P?=
- =?us-ascii?Q?3ZJXRa1kvZi3WXc=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?6JtpbH73pgN+YGv3HvIweKEq0Y1tDgMFgqkLmKJSmU+2dLZ3RX5vgvumiN9d?=
- =?us-ascii?Q?e+K5v4jtiDqnAaGF3XvVy0Bh79TrbOj0GejFIxCxgpli2RuqMtpxavOHAIBP?=
- =?us-ascii?Q?qmvBhBe/u/HoxYc+Q8qnaM/ilxK3ldF17fGQTnTmBKuQkPoiSVJQy2dEbDhv?=
- =?us-ascii?Q?tcA7fUzlSpRTK9T1IRw0lTeg2SKSKm1TAPCM7knDjU4aP84mAa7nJ5hTLS7Y?=
- =?us-ascii?Q?/a2xCKpySTF85JielpeoS3t1xXTcFDfLQ70LBPwWzaSsdsSuQx+EASOaSOSV?=
- =?us-ascii?Q?BjIgGfb+SqmWAFKU6mvAtf7Bhf/NklV+dk96Ipe9mKNPcqHnGsALmXXtZdzg?=
- =?us-ascii?Q?UA1pHOaUJecdNZxPi62c0395Lx436cYlANlB/uIzjNGKRvJC4mSEOOZ4PdbP?=
- =?us-ascii?Q?nUUkX4gggz4kUabG8MgWWzb+uiNHiDQ8hZ8UZc96nQ7tumRRdbHCEk1roXjL?=
- =?us-ascii?Q?kcFTSUB3uHSYeADPQC2zt9UbOW05p6hY6/ka2WHqYf3xdTkuMB/5rSAOuOJc?=
- =?us-ascii?Q?nn8RhAHR2RNMD3MlTEDFMrn/yaCguZW2NV+yiHTA6fMjfX5qN8DYyjyFjj76?=
- =?us-ascii?Q?MEBoVeFqG9AwqajsodoOaAY7ArmCvYxrmyeEQEHdOl0ss4SHbcyHWO5ydWVS?=
- =?us-ascii?Q?APv9Ia9qs2qryJbYvA0khfW2PY2rkmOzeq+/aIjdAGKB1+p/77lwyzVFi+b1?=
- =?us-ascii?Q?Kv0xDpkEaUQ7fNocHJ7lFn8GhrpTWOUCwlI6VJ9BiD3pUbfINCN7LaOvtAOp?=
- =?us-ascii?Q?cDiY2z9AgMvtroogERVaXkAhF2NM17tbqEzX+64VG0hPIprAgYrqc7sy1wzq?=
- =?us-ascii?Q?bf865JA1B0m+fBVBunxbpu/EmN8HvoLDqKx3TvNRcsMTrpQEereKnS80O4LJ?=
- =?us-ascii?Q?ccpo48EVb0+kP7VxxsHCH8ZfaAKwIUxusZvasIVTu3YvynRctgrfjVUNOEJK?=
- =?us-ascii?Q?B0QQyPkHx+vZ3BGMpTRJhIrTQFBiqfmzUofFUP4H3dJ5jrSvcB6jAtGXOwS0?=
- =?us-ascii?Q?pLCbacWjfw5b9K5m/8qQHiuYEG4t9LTGc/BkqdwpskjaXxP+V87ZY4mmg72z?=
- =?us-ascii?Q?iEzN9uuQ6DmzZI2Nqgi5W2tgb3YSh4d3ot9bpddFGY3epcT92taAJG9l42+w?=
- =?us-ascii?Q?HoR5fE/d9fjrJS+/L7mABQri96SHbqw0/qi3gwV0rKtSXpw4igEwXbh18Ls3?=
- =?us-ascii?Q?7CnwpdxaRuoPzpfvvUyAvpPa+TrYnVm9KrVSFfcm3pbPj/fh0V6U3QnKvpdG?=
- =?us-ascii?Q?8LvWul+/aMhX0r+TcjTvNEajJjue4UnJGfVEwVUb9XbuhkL87AhTKD8gn7Q4?=
- =?us-ascii?Q?tpknOfnSdj5xLCfWiiUM5GAhvzHwQIOIQupcEn0fuZpSoSUpOCn3PZzcnIrq?=
- =?us-ascii?Q?QJlUfJ7XFKJSG5zGst33fc5BisLapio3lvZHOmdMgo45oberfxkXrPLEPSX9?=
- =?us-ascii?Q?9XSmwC5YvKl9aBh3LMcZdCiAQOU361upTzrNh1HTRnFavHsWH2nzOB+H2Iui?=
- =?us-ascii?Q?v+TsD6R5ihBQl7X+nwkD+aZFMhFvDFHLRDvkfiZcOfgv1/3L9tzVL2deG4sm?=
- =?us-ascii?Q?pMgmEsyeJ6e6gdnA+XSsNzr6GQbG2BP+Z8eBKavk?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 19 Jun 2025 05:50:16 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-32b7113ed6bso3369961fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 22:50:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750312213; x=1750917013; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=;
+        b=AJnDAIEP9FA5iY6NE+pultNcDQ633dzRXuY6uBHeCOlQ9+XKominp0iRbXiwhiSGvy
+         IpGivhUWuhLXqqzL+/NSO2QPCG2TO4aYpnO5VQ1rc4e0guES4Wc7j3qZyroVFHXvBHjh
+         zP2cL5bnLfk0pOIuXiR9CFm/CAyAvVbm+yT8GxNOpWDwtEcwLcT5of5k0sxJPxkpHN2y
+         Q4pA5aExlqtHrCcD6vW+EmuvcWbSqWHAjMOIrQov/5IUqf5qSr/GHx2n3vMalOJ+0H6K
+         defFh4PSclUqpgo9fkXkDwxrXumI6kPAO753MP3bYohx7R9AtXLTfDssQiZxtQw+gm4A
+         vlig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750312213; x=1750917013;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BeKhFuW8a8z8HnsNlzPjiV9UXGhduJL1UPZRBcRr5iA=;
+        b=VbDLQJZhMrtFksoNHjSMhTBgUG4oYKW+yBTTDoaIEwe9AYrbLrfxuIyTYer6Dm8ywC
+         6GJu3B0ep80eHpoVD4/Dpati1WVvOq398qH/HWoWtbjArxXH0a0wrAszzbDBgPixwtdG
+         gRSSF0mVzEgEl62cn2pXlyW9wWP+SmEViWp/B1xGn8zJ9otlVCvrEn1DZD9MJL1zCzmU
+         dgcl2Cbx5srGTqdTYC/UBXxuz0bPqJRXKXoB+a8gfnre4X7sZvA41ZEZT4wIUZKUHIWi
+         kSQmGuvO7hCzUqGjvOVtYN/uApNZnhrZ+afqfWUXc+H6Nj3KojqzGXyO+gvM3lv3ZcAo
+         23cg==
+X-Forwarded-Encrypted: i=1; AJvYcCVblRdJ/2v1swcbZ5rCQ8MDtyanjsmcDrDTz//GUPV2QH9sRRtybe86WJNevAESuWIz7Bg2ckj3Y4ND/w8guGlB@lists.infradead.org
+X-Gm-Message-State: AOJu0YywwW1H//X1acomN7SzlcmmihRd2moY531f/buqdTPF6qMx4MRQ
+	2syV5FOM/VOes7cwr5m/RpL6tEW2PA/KZVtIAWOOWXfMywYAnauAE9l/OmemIzUtRJNMlcpbTSi
+	c7j5TS5LfD5/2rS/8OcRJo5MalSU2USg=
+X-Gm-Gg: ASbGncvOZgVYUqTv7Aicov+t3CudRr5QCqls4ZZVqnbB4ybJX6HSATy2arw3WTaBl5e
+	UksYNYCw3Jls0gXJ029yh59V1LWl/jrCzD15ikVoyS4VHMpBRH1r+yCN1bN/BvXqRd6caRfmlcy
+	mpaec931XYA67QWFAy55TPJWeHRW+vg7u0K+8KcestpXozcWaOhDHE4Os=
+X-Google-Smtp-Source: AGHT+IEk0wCV2litekKJtCgKUf/bVLVWIXtsnBIXZlbey14EA0xVCtKFOE994VdvXguOsTJDJDzKHTC0HOYQikdby68=
+X-Received: by 2002:a2e:a9a6:0:b0:32a:7332:bf7a with SMTP id
+ 38308e7fff4ca-32b4a2dab37mr55175051fa.13.1750312213374; Wed, 18 Jun 2025
+ 22:50:13 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78b6d42f-01e1-4534-078d-08ddaef50bbe
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2025 05:49:24.3575
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 1bAfXMZfie368kUhVIDZfWESeoZARU1bsgNNgUt7KZK90EGmGoceiVfaswDAItzJOUa/GRlhJ15fGlMMP5GBMA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4854
-X-OriginatorOrg: intel.com
+References: <aFKXzlno7HkG-cNh@shell.armlinux.org.uk> <E1uRqEE-004c7M-Go@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1uRqEE-004c7M-Go@rmk-PC.armlinux.org.uk>
+From: Keguang Zhang <keguang.zhang@gmail.com>
+Date: Thu, 19 Jun 2025 13:49:36 +0800
+X-Gm-Features: Ac12FXwPd1YGJO7PxhRou6waOopKJzetREi64C09608AmKe9oHFc2z42ZdWqLG4
+Message-ID: <CAJhJPsVoz67Yv2pty=WPMHeOq28yqq5u2VBoZwGMhUAtpNbgcg@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: loongson1: get ls1b resource
+ only once
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, 
+	Paolo Abeni <pabeni@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_224945_389668_096EF350 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_225015_387542_01A7F947 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,21 +100,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Saturday, June 14, 2025 2:35 PM
->=20
-> Now the new ucmd-based object allocator eases the finalize/abort routine,
-> apply this to all existing allocators that aren't protected by any lock.
->=20
-> Upgrade the for-driver vIOMMU alloctor too, and pass down to all existing
-> viommu_alloc op accordingly.
->=20
-> Note that __iommufd_object_alloc_ucmd() builds in some static tests that
-> cover both static_asserts in the iommufd_viommu_alloc(). Thus drop them.
->=20
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Keguang Zhang <keguang.zhang@gmail.com>
+Tested-by: Keguang Zhang <keguang.zhang@gmail.com> # on LS1B & LS1C
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+On Wed, Jun 18, 2025 at 6:42=E2=80=AFPM Russell King (Oracle)
+<rmk+kernel@armlinux.org.uk> wrote:
+>
+> ls1b_dwmac_syscon_init() was getting the stmmac iomem resource to detect
+> which GMAC block is being used. Move this to a separate setup() function
+> that only runs at probe time, so it can sensibly behave with an
+> unrecognised resource adress. Use this to set a MAC index (id) which is
+> then used in place of testing the base address.
+>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-loongson1.c | 49 ++++++++++++++-----
+>  1 file changed, 37 insertions(+), 12 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/driv=
+ers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> index 78d9540be10c..32b5d1492e2e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> @@ -44,28 +44,50 @@
+>  struct ls1x_dwmac {
+>         struct plat_stmmacenet_data *plat_dat;
+>         struct regmap *regmap;
+> +       unsigned int id;
+>  };
+>
+>  struct ls1x_data {
+> +       int (*setup)(struct platform_device *pdev,
+> +                    struct plat_stmmacenet_data *plat_dat);
+>         int (*init)(struct platform_device *pdev, void *bsp_priv);
+>  };
+>
+> -static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *pr=
+iv)
+> +static int ls1b_dwmac_setup(struct platform_device *pdev,
+> +                           struct plat_stmmacenet_data *plat_dat)
+>  {
+> -       struct ls1x_dwmac *dwmac =3D priv;
+> -       struct plat_stmmacenet_data *plat =3D dwmac->plat_dat;
+> -       struct regmap *regmap =3D dwmac->regmap;
+> +       struct ls1x_dwmac *dwmac =3D plat_dat->bsp_priv;
+>         struct resource *res;
+> -       unsigned long reg_base;
+>
+>         res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>         if (!res) {
+> +               /* This shouldn't fail - stmmac_get_platform_resources()
+> +                * already mapped this resource.
+> +                */
+>                 dev_err(&pdev->dev, "Could not get IO_MEM resources\n");
+>                 return -EINVAL;
+>         }
+> -       reg_base =3D (unsigned long)res->start;
+>
+> -       if (reg_base =3D=3D LS1B_GMAC0_BASE) {
+> +       if (res->start =3D=3D LS1B_GMAC0_BASE) {
+> +               dwmac->id =3D 0;
+> +       } else if (res->start =3D=3D LS1B_GMAC1_BASE) {
+> +               dwmac->id =3D 1;
+> +       } else {
+> +               dev_err(&pdev->dev, "Invalid Ethernet MAC base address %p=
+R",
+> +                       res);
+> +               return -EINVAL;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *pr=
+iv)
+> +{
+> +       struct ls1x_dwmac *dwmac =3D priv;
+> +       struct plat_stmmacenet_data *plat =3D dwmac->plat_dat;
+> +       struct regmap *regmap =3D dwmac->regmap;
+> +
+> +       if (dwmac->id =3D=3D 0) {
+>                 switch (plat->phy_interface) {
+>                 case PHY_INTERFACE_MODE_RGMII_ID:
+>                         regmap_update_bits(regmap, LS1X_SYSCON0,
+> @@ -84,7 +106,7 @@ static int ls1b_dwmac_syscon_init(struct platform_devi=
+ce *pdev, void *priv)
+>                 }
+>
+>                 regmap_update_bits(regmap, LS1X_SYSCON0, GMAC0_SHUT, 0);
+> -       } else if (reg_base =3D=3D LS1B_GMAC1_BASE) {
+> +       } else if (dwmac->id =3D=3D 1) {
+>                 regmap_update_bits(regmap, LS1X_SYSCON0,
+>                                    GMAC1_USE_UART1 | GMAC1_USE_UART0,
+>                                    GMAC1_USE_UART1 | GMAC1_USE_UART0);
+> @@ -108,10 +130,6 @@ static int ls1b_dwmac_syscon_init(struct platform_de=
+vice *pdev, void *priv)
+>                 }
+>
+>                 regmap_update_bits(regmap, LS1X_SYSCON1, GMAC1_SHUT, 0);
+> -       } else {
+> -               dev_err(&pdev->dev, "Invalid Ethernet MAC base address %l=
+x",
+> -                       reg_base);
+> -               return -EINVAL;
+>         }
+>
+>         return 0;
+> @@ -183,10 +201,17 @@ static int ls1x_dwmac_probe(struct platform_device =
+*pdev)
+>         dwmac->plat_dat =3D plat_dat;
+>         dwmac->regmap =3D regmap;
+>
+> +       if (data->setup) {
+> +               ret =3D data->setup(pdev, plat_dat);
+> +               if (ret)
+> +                       return ret;
+> +       }
+> +
+>         return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+>  }
+>
+>  static const struct ls1x_data ls1b_dwmac_data =3D {
+> +       .setup =3D ls1b_dwmac_setup,
+>         .init =3D ls1b_dwmac_syscon_init,
+>  };
+>
+> --
+> 2.30.2
+>
+
+
+--=20
+Best regards,
+
+Keguang Zhang
 
