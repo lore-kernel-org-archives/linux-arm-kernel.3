@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2107CC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD39C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gPs4sj4/K13gI/HYpqYV+uIWwgLBY8Dn0ugveCFR1k=; b=m7d3sfv1m2pnigzfnI319St8tO
-	f5U9r4XtlA/6JaJno7R/O69jOgHoVPph2pSfmY5JSAn/cOAnZC+ChMWa2depGPo4wTx9MHo01y9XP
-	S7drKlz3W4vbSv7fdj9clMb153DoM4+1Yt9lu057jtf5uv450zHG+TzHvK9Gy3/tQBZJx5VZXqBBn
-	3SxbmMdf9AN9LNC5Frg+23hiaVNxTaTY6pDC2QRNUl7cHc7t+8dHP5JsvmNv4ihFothnLHSqUB4vJ
-	7tdwU4U63ryjly0QTYXVndUOrCWeB1pUvgzF+37APlk/yJc+eLXe3uJfOugvfHHNt0xW1dxylByGr
-	Yr9DhITQ==;
+	bh=su+KvBhgSlwSz8Qo8A5gRsBfuCg0rvVY9PlXRCR9Fas=; b=xJmJVDSb3E8rzdo2Z2dku/zjJs
+	kh5WX32O9bxGIUo2wVzfOqajm043Lk8wtZk/jDyms8prSPxFr8fSfZZTxSYzqW+ZQg8AzskA/ALpJ
+	hf8yGuzWZ+ZS0I+baY+k5eqrTdm/0eaSMelQcTWa7CUiaNy9oxxaxWYf8PMepsX4L6PzR2RpCGQrp
+	rQNAOlzFT/8UbyzFOoy6qZ50sTSd1jJtT4dhNAeTaZDuI1jCY6KarEYtrbUihNVg32q4K6NZpfK8o
+	jKR0fpxAhMolsxinP9ttijsowDI13Del2smF899N3rtlSb9hgO8lqqXSk/j4tpjlIK61CCtc2huCm
+	/qGGfu3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLJT-0000000E9Y0-493Z;
-	Thu, 19 Jun 2025 19:52:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uSLLf-0000000E9t0-2sYQ;
+	Thu, 19 Jun 2025 19:54:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKnF-0000000E4V9-47ZD
+	id 1uSKo2-0000000E4iq-17m6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Jun 2025 19:20:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=su+KvBhgSlwSz8Qo8A5gRsBfuCg0rvVY9PlXRCR9Fas=; b=BJCJXPlqX/CvuG9JVLtzzhnsHP
+	xwcSLpGG5pZSHDoDgKGzUEenaERSWBkFJG403Tl2yxvjifQwTkLPhOv14y/Si4BHlxPuqmTcO4Yue
+	mcGnSEtA0do5wahQ1uZXQH3vTD5aTgr5JZxvZyfg19SOKa0UnLUarBDve63ZUk1tUnXXdcndNBtDw
+	eJlXeMsCziVW/fmHsFpt6Ty0LXDlFndo+glV5Qkul2zzDbwVwBqxE2e64sGNFFoIrHwA/CTWInyJ3
+	qiEbfwgaIk2KY8Y9nALf5TwD7jm2kdkUrUOc7MLKpSuZNXLDTl/r+SqmejflSD7q3bwHAzFlPHpPo
+	J5POHXCw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSKny-00000004YhM-1F7b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 19:19:27 +0000
+	Thu, 19 Jun 2025 19:20:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750360765;
+	s=mimecast20190719; t=1750360808;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8gPs4sj4/K13gI/HYpqYV+uIWwgLBY8Dn0ugveCFR1k=;
-	b=Za9lVRGNNu0dY0wEcMNMJPpcJ6kaaw0QwPUeqPVCKRw+O+dA0sRnNpeHJU/W15mNMSs9OW
-	Xd18bt7vUqgpRL3Q06lfJDsd6LkvY7yayTsrIv4MkIH2XYDX2fCN59qEHR75wRGyZYITyr
-	RMp2SwcF9G2V/PoUh9rSuOQAeTiJBJk=
+	bh=su+KvBhgSlwSz8Qo8A5gRsBfuCg0rvVY9PlXRCR9Fas=;
+	b=KHUeytb3+aDr7e971HNaKbNc/GjlXRFj7eP+kV5riORB6xPtWyiolS1ZBSiqkSTmNqxrLI
+	5V/MkP+i3R14oe8Zk1JlrxHISo4MGwT+6lXc8K9scWFqZywphf8jMiVNlYsNH+aQeF1i13
+	iofRBgKCWJqqFpEecBOh15Af9iigwek=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750360808;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=su+KvBhgSlwSz8Qo8A5gRsBfuCg0rvVY9PlXRCR9Fas=;
+	b=KHUeytb3+aDr7e971HNaKbNc/GjlXRFj7eP+kV5riORB6xPtWyiolS1ZBSiqkSTmNqxrLI
+	5V/MkP+i3R14oe8Zk1JlrxHISo4MGwT+6lXc8K9scWFqZywphf8jMiVNlYsNH+aQeF1i13
+	iofRBgKCWJqqFpEecBOh15Af9iigwek=
 Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-348-M_JtvyASMu-WKdAYu-ywLA-1; Thu,
- 19 Jun 2025 15:19:20 -0400
-X-MC-Unique: M_JtvyASMu-WKdAYu-ywLA-1
-X-Mimecast-MFC-AGG-ID: M_JtvyASMu-WKdAYu-ywLA_1750360754
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-425-BrdIiTfMN9aBDxa_eKupnA-1; Thu,
+ 19 Jun 2025 15:20:06 -0400
+X-MC-Unique: BrdIiTfMN9aBDxa_eKupnA-1
+X-Mimecast-MFC-AGG-ID: BrdIiTfMN9aBDxa_eKupnA_1750360802
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B94411809CAF;
-	Thu, 19 Jun 2025 19:19:14 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4C9CA18002E4;
+	Thu, 19 Jun 2025 19:20:02 +0000 (UTC)
 Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.132])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D741B19560A3;
-	Thu, 19 Jun 2025 19:19:05 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E64CC19560A3;
+	Thu, 19 Jun 2025 19:19:52 +0000 (UTC)
 From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 19 Jun 2025 14:16:03 -0500
-Subject: [PATCH v2 11/16] drm/panel/sti: Keep up with refcounting
+Date: Thu, 19 Jun 2025 14:16:08 -0500
+Subject: [PATCH v2 16/16] drm/tegra: Keep up with refcounting
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-11-0df94aecc43d@redhat.com>
+Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-16-0df94aecc43d@redhat.com>
 References: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
 In-Reply-To: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -93,17 +118,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
  linux-tegra@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=807;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=771;
  i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=wdL1e0FxJPNm7JAn83OhitF3yXWvKr44k4EiR1gWX58=;
- b=EwhsT3JAYQcZTNfClR+7o4NypNPor8tvQQ/8B4FzoPHVR7sZ69og4CleXCpE8AMMwaqFipcqo
- c2oa6NAe60iCIXtylSBSTU2sIKO+U0ANF2f9eYJb40K+dB3S6wfagyz
+ bh=OUGP+9Bc5zn706e0s5SjFMKump4OS0LBSwQrlzy2aP8=;
+ b=avJnxiZEciA9G70sV2NKBkfKbz54xRs+P5jyouBdV0SNcLqS3cJKy0hqVYnVWDGJW/jjQRzUq
+ NDWEDyAhk60CpeImtnfvwtzvcfADtJkVdF/qIT7anuYZnwLT3jZTlf5
 X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
  pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_121926_086900_21D32DCE 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250619_202010_869354_F538BB06 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +143,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put the reference of the panel returned by
-of_drm_find_panel() in the disable() function
-after which panel won't be used.
+Put the panel reference back when driver is no
+longer using it.
 
 Patch added in v2.
 
 Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 ---
- drivers/gpu/drm/sti/sti_dvo.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/tegra/dsi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/sti/sti_dvo.c b/drivers/gpu/drm/sti/sti_dvo.c
-index 7484d3c3f4ed5fac7eab408e30cbe2f6b87f27e5..11684279320a0e4b15fe761bdf6782cc24e8be96 100644
---- a/drivers/gpu/drm/sti/sti_dvo.c
-+++ b/drivers/gpu/drm/sti/sti_dvo.c
-@@ -225,6 +225,8 @@ static void sti_dvo_disable(struct drm_bridge *bridge)
+diff --git a/drivers/gpu/drm/tegra/dsi.c b/drivers/gpu/drm/tegra/dsi.c
+index b5089b7722676cfaee5d28216af4ae706a47f895..830e90178302a76e7c091c92b66ce385ad26207e 100644
+--- a/drivers/gpu/drm/tegra/dsi.c
++++ b/drivers/gpu/drm/tegra/dsi.c
+@@ -1523,6 +1523,7 @@ static int tegra_dsi_host_detach(struct mipi_dsi_host *host,
  
- 	drm_panel_disable(dvo->panel);
+ 	if (output->panel && &device->dev == output->panel->dev) {
+ 		output->panel = NULL;
++		drm_panel_put(output->panel);
  
-+	drm_panel_put(dvo->panel);
-+
- 	/* Disable/unprepare dvo clock */
- 	clk_disable_unprepare(dvo->clk_pix);
- 	clk_disable_unprepare(dvo->clk);
+ 		if (output->connector.dev)
+ 			drm_helper_hpd_irq_event(output->connector.dev);
 
 -- 
 2.48.1
