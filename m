@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC2AC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F0CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GrrRmclmQ4Icg5sh/PZCX5WddHH9Wk4fS6xF3R4S49U=; b=dxrw8v+8ptAjP1WBpv3sAJcddk
-	hM8e+YAOg53Wwywsx4Cgu25gGLz+lHBXPoM5i4EurcNl5rgfWu1f9FHVerbsqoSyKOWydxdufFwXl
-	mnW9b/mV3XNwNDSDOCXGc8rEJeR2T+XGmLrECvvK3gBrcYKvjj5h+dpqBkJGaiqZYDfxV2o5uwzw2
-	0EPV1RofANjXURjWXXKD6vVF2r/ZfX+hEJ8vjLHd3OBJ3vlhVEB3tseVVh8fKUw7ksMaaztMtgkTu
-	ipJ81lCg9KVqOF+ck4kyC+Ra9KXLRJEZWKPOvnLXq6BXrQEznT6XQPeWAzV2kDXqk8N6HIAAyrena
-	jtGk9wdQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bR9S71BkI4mOciBgHlNpM/cWT41sutzJRpI7qSQTlQ0=; b=pOS7vNmM+V9tHYHPbLHhilHHdc
+	1b26DoDdIABcqbsKv03DRYpqdueeyfPHTM5wgSqiT6DoaLOw9bVt8fgEu9UM+adfuIS+fT7nD7cb6
+	uCVtUYDfo0726q8o79bpuJZClktqtbDtBPOIvqAbeNSn75NokWFWhhifo7QXcDtm58JcJ44gf3ym4
+	mFQHIaS304KA49I4hQxgGIaB8nsbUKk7tq1NaiSG0YZsrKZXCQNbPNfg+R6AZq0aTH2xpR2lJsBIA
+	ymrYiumNZRATF34qAqU9ar886fYei3f0sgqAAHF33LPVROwkbnKDf5gFZpJtTUnaQqz1I6KAzsFIn
+	NS4G45uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHVc-0000000DXhF-07rD;
-	Thu, 19 Jun 2025 15:49:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uSHVi-0000000DXtE-095B;
+	Thu, 19 Jun 2025 15:49:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEtF-0000000D7JV-3Gwj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 13:01:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E85A460010;
-	Thu, 19 Jun 2025 13:01:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAF3C4CEEA;
-	Thu, 19 Jun 2025 13:01:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750338072;
-	bh=/kE+YFpl0J9ThQUvmELPjh8cJ/+9gC716KmHUlheWRU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kMa7OvsJYPpiI18LMM7gfqrPAVBmJ9s4dXxtORIasVECRmDh6RULdsK+Bwc2oVQWG
-	 t6i1DTJFn+6CD7ktY4HGc9rOHW05ih3ofAYbuCZEe1GdPOmqASK4AX1FDVNjDMI4k+
-	 0BV+Rc7hIYgmCH3F7Cq2LcSxphJz5J2uJ443Pa6qxIxVlL6nDO8/73/Cp+fk6Dvfm3
-	 VcLVWoT5g9ZRQ3rBeeKkkB8zAb3iK9V6Qx5Qp3/uJ2yF4cUxsJ88JxZYOhMJ9q7sOj
-	 leVn0OeIhztcC77Itmtl8qnOELWcEoaM07yV8ZMRsh2vJPoFmIvOf1BTsAwJq7oVJa
-	 c0DkbXPTXdBdw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uSEtC-008G3W-Dh;
-	Thu, 19 Jun 2025 14:01:10 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Miguel Luis <miguel.luis@oracle.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Sean Christopherson <seanjc@google.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] KVM/arm64 fixes, take #3
-Date: Thu, 19 Jun 2025 14:00:49 +0100
-Message-Id: <20250619130049.3133524-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	id 1uSF4K-0000000D8AX-3TU0;
+	Thu, 19 Jun 2025 13:12:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750338758;
+	bh=eEsDuaaVYbG6SdgmGjOtXyXscZ1m99P7sw8KZSpccLs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fscmKQXPbbwSGSEEneS/+OySwZhCxpJJiDAc/WJYEOPz0XjesxeVbJ+QKVHDFlNRY
+	 LYIKqDo0Tfykyz1Y2WcLTDrcKUGh3lk/b6z0Tf1BIN7johVlAGDwLDLcGGA23PajCv
+	 Zz9ig3tiNsrqA8e0wEmw4QuE6/Rfni1LPbAj/tjRw508npv9vsKGJ8Ptbfp3+i6FgI
+	 +C30I87DIGFNyJAoYjSZC+WevzS/gttIdWUzqPdYNqUiJBIOZBnL2CI/27MTXt7G/y
+	 NcpJrSUIW4QWxKHEzhuW2Qt3J2UDlhpecNJJjIiXf7M/QXF0Vr8ZGMV3XtyejCuPrR
+	 NLlMF0zJ9wMNg==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:ba4e:a6e2:6d63:7f02])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BEF317E0863;
+	Thu, 19 Jun 2025 15:12:38 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	jgg@ziepe.ca
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v3 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
+Date: Thu, 19 Jun 2025 15:12:23 +0200
+Message-ID: <20250619131232.69208-3-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, catalin.marinas@arm.com, tabba@google.com, broonie@kernel.org, mark.rutland@arm.com, miguel.luis@oracle.com, oliver.upton@linux.dev, seanjc@google.com, sebott@redhat.com, r09922117@csie.ntu.edu.tw, will@kernel.org, yuzenghui@huawei.com, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250619_061241_021185_7A0BB9DB 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,73 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+Add a device tree binding for the Verisilicon (VSI) IOMMU.
+This IOMMU sits in front of hardware encoder and decoder
+blocks on SoCs using Verisilicon IP, such as the Rockchip RK3588.
 
-Here's the third set of KVM/arm64 fixes for 6.16. The most notable
-thing is yet another batch of FP/SVE fixes from Mark, this time
-addressing NV, and additionally plugging some missing synchronisation.
-The rest is a mix of interrupt stuff (routing change, mishandling of
-shadow LRs) and selftest fixes.
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+---
+changes in version 3:
+- Change compatible to "rockchip,rk3588-iommu-1.2"
+- Fix compatible in .yaml
 
-Please pull,
+ .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
 
-	M.
+diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+new file mode 100644
+index 000000000000..8d0b0658ed8b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Verisilicon IOMMU
++
++maintainers:
++  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
++
++description: |+
++  A Versilicon iommu translates io virtual addresses to physical addresses for
++  its associated video decoder.
++
++properties:
++  compatible:
++    items:
++      - const: verisilicon,iommu
++      - const: rockchip,rk3588-iommu-1.2
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Core clock
++      - description: Interface clock
++
++  clock-names:
++    items:
++      - const: core
++      - const: iface
++
++  "#iommu-cells":
++    const: 0
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - "#iommu-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      iommu@fdca0000 {
++        compatible = "verisilicon,iommu","rockchip,rk3588-iommu-1.2";
++        reg = <0x0 0xfdca0000 0x0 0x600>;
++        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
++        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
++        clock-names = "core", "iface";
++        #iommu-cells = <0>;
++      };
++    };
+-- 
+2.43.0
 
-The following changes since commit e04c78d86a9699d136910cfc0bdcf01087e3267e:
-
-  Linux 6.16-rc2 (2025-06-15 13:49:41 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.16-3
-
-for you to fetch changes up to 04c5355b2a94ff3191ce63ab035fb7f04d036869:
-
-  KVM: arm64: VHE: Centralize ISBs when returning to host (2025-06-19 13:34:59 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 fixes for 6.16, take #3
-
-- Fix another set of FP/SIMD/SVE bugs affecting NV, and plugging some
-  missing synchronisation
-
-- A small fix for the irqbypass hook fixes, tightening the check and
-  ensuring that we only deal with MSI for both the old and the new
-  route entry
-
-- Rework the way the shadow LRs are addressed in a nesting
-  configuration, plugging an embarrassing bug as well as simplifying
-  the whole process
-
-- Add yet another fix for the dreaded arch_timer_edge_cases selftest
-
-----------------------------------------------------------------
-Marc Zyngier (1):
-      KVM: arm64: nv: Fix tracking of shadow list registers
-
-Mark Rutland (7):
-      KVM: arm64: VHE: Synchronize restore of host debug registers
-      KVM: arm64: VHE: Synchronize CPTR trap deactivation
-      KVM: arm64: Reorganise CPTR trap manipulation
-      KVM: arm64: Remove ad-hoc CPTR manipulation from fpsimd_sve_sync()
-      KVM: arm64: Remove ad-hoc CPTR manipulation from kvm_hyp_handle_fpsimd()
-      KVM: arm64: Remove cpacr_clear_set()
-      KVM: arm64: VHE: Centralize ISBs when returning to host
-
-Sean Christopherson (1):
-      KVM: arm64: Explicitly treat routing entry type changes as changes
-
-Zenghui Yu (1):
-      KVM: arm64: selftests: Close the GIC FD in arch_timer_edge_cases
-
- arch/arm64/include/asm/kvm_emulate.h               |  62 ---------
- arch/arm64/include/asm/kvm_host.h                  |   6 +-
- arch/arm64/kvm/arm.c                               |   3 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h            | 147 +++++++++++++++++++--
- arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |   5 +-
- arch/arm64/kvm/hyp/nvhe/switch.c                   |  59 ---------
- arch/arm64/kvm/hyp/vhe/switch.c                    | 107 ++-------------
- arch/arm64/kvm/vgic/vgic-v3-nested.c               |  81 ++++++------
- .../selftests/kvm/arm64/arch_timer_edge_cases.c    |  16 ++-
- 9 files changed, 215 insertions(+), 271 deletions(-)
 
