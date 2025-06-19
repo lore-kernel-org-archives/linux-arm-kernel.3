@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952E6C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 01:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C406C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 01:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFJAbnmipeJwNloKOstVWAEzz4JfWsiupTDJwINriZo=; b=VCGFvhnwIz7quikHo+KkxDOqas
-	bH4AQCXqNjaXPNOXnlXO7E/OAn2zRLMHGQUAA4qH0Q+HFu8csPS8P4kFQogFSX0oCfjHzIunxO+Vt
-	bmgGqth7CcFuMqI7fB+0TUTh+SLr5Oh4QueZf9LwiYeRkzAf2YOOXGumpLRC0TJ4fz8AWOiMDd+Af
-	hK0LxnS6hBC2fl1nh3+5tHRIsL1rxwGBBxIA3jJ1grOOujWakK0AGdu1iaVOIZXWXMUHtnAGy+WEM
-	x9UdnEUZRuTiKTISad1hHvJwWCKBWJSVOpAuW8Yu0TaZV/fO4ojwj42x51QlOxGQ7x+q3joC7zYhm
-	kllM3kGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ecJCHyXQWtvYtWnqPa5n/BlodDAEwF7Ss3bcPwxT4oc=; b=2tRRq2eA2yDsOHXoL9fIZS8/cN
+	GDUJbw63YPaFy5cnGh4YT69Lt61yD42PWRro1ialGFOQc9NdztTbl8KZ+Ei26jwp472OFkmTC5Lui
+	6DBJwPiy3WgT3jmbWJuqVrcI4ReVKZiEcTLXxTHxjUtOa39k8x36c7ihDontx+4wR1tQBCRJCejod
+	69giSd6vr+IqoE5hGVs6O9jDEoNwfqFCT98+geM5mmCy32vUTgwiGU5b9e3a4Sdycvdci6cgM1io/
+	PygT2cGSawGLisjOHkbcL+4Zg5LUQz/v64UXWW0JSsFvzQ1iNwPBFFqYo8XRtPrpvHxJcyFZobqRS
+	bFWD8dNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS45v-0000000BkTu-2C7N;
-	Thu, 19 Jun 2025 01:29:35 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1uS4GA-0000000BlLl-3bcF;
+	Thu, 19 Jun 2025 01:40:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS43h-0000000BkFp-3LR7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 01:27:18 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-234906c5e29so4299145ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 18:27:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750296437; x=1750901237; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VFJAbnmipeJwNloKOstVWAEzz4JfWsiupTDJwINriZo=;
-        b=WfcRvrVi1rxMdiiwbBSjl6RFllr0Taw7tNmmoUYEodeV8hA+P+iFLUpbSpAN8T3TD4
-         yHVj8GeyJGtV1nG9NN/TjOFdHAWvlsATfQpVkDyv7JpFzG14Ru4JU8lwNSQjJTW7jRNv
-         Euuo8DG4fQ4Kc+xVn9JS3ApYisFWc8cBTbbMJQapknjbtxg684MqB4gYHilRMVdksXmK
-         rKqoeanH/sxQ+6D28o91HPvZ1BjDCCYoZ+CL+Axwr8G0n/5AuC14HKKDFfSEooNpK83b
-         Ny186nPLD9CdRMBKOM8MW8C5RAqPW9H7+NLjRBA6Fh48aP9m++zE24+Mh95jLZPa0PTw
-         baIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750296437; x=1750901237;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VFJAbnmipeJwNloKOstVWAEzz4JfWsiupTDJwINriZo=;
-        b=SmTgKHppCEjVSbzbLzqo99qihzVSxW3tCdwZivVx/YzBgaBeKk/8pHPCOpHHWyJWyb
-         JpMQHkKLiC8B5/Kxch/6jZegeiLvIYlaDvjtknHfZm4SPGTWkDfAUC0xyXHPa6jxujy9
-         jc3jn8DCl6e6oIvWPgyroo45rFPXr/dBY/rE3VuWM3SfTzI16HebfHotdg+V9OaD8IXd
-         98FR/NhO8fHBOrCG4+9wJjurEf72SPDv8kfOCpU+j2as/+oJ0VhBypDQUGFQiNqtetKI
-         UYosI3TohFxotWMntV633lh5IYlwbVp/cWh8ovEiSbGq9rXcNFbrPGyJDNFZv+Ltlwr6
-         1Obw==
-X-Forwarded-Encrypted: i=1; AJvYcCU8edj042vAFN7+RE21ub722Ne70zOia7lKylGlmhlRyJueS28K3c+bP2Am8rUlT0d2K34SWqB/v1srrdY1uzBW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIOkeW8VxMui/mH8TG2Wh6eWnahnhWcQignvgHJ0FHfO+k0GlY
-	pjfYPhdIDrQmgINx9dwXYsHcQWEthfzZ74R2d4kuAcSyInZE2Z0+LBKvfWNJIMF+pzTGQdYXNK5
-	Ea/AZLQ==
-X-Google-Smtp-Source: AGHT+IHfYw3saIGenxdx6hofcNW6m39z+U7j5TjuceZidjPioll6tGDxZ6q1q2NRMsSKefNry3vZpYE+zns=
-X-Received: from pgnr29.prod.google.com ([2002:a63:8f5d:0:b0:b1f:dd75:de2a])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:1ac4:b0:234:9fea:ec5f
- with SMTP id d9443c01a7336-2366afd3a91mr304909275ad.1.1750296436711; Wed, 18
- Jun 2025 18:27:16 -0700 (PDT)
-Date: Wed, 18 Jun 2025 18:27:15 -0700
-In-Reply-To: <aFNBCaLEdABfybmd@linux.dev>
-Mime-Version: 1.0
-References: <20250618042424.330664-1-jthoughton@google.com>
- <20250618042424.330664-5-jthoughton@google.com> <aFMWQ5_zMXGTCE98@linux.dev>
- <aFMh51vXbTNCf9mv@google.com> <aFNBCaLEdABfybmd@linux.dev>
-Message-ID: <aFNnc1hZEWcU0Nh_@google.com>
-Subject: Re: [PATCH v3 04/15] KVM: Add common infrastructure for KVM Userfaults
-From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_182717_840291_AB18C707 
-X-CRM114-Status: GOOD (  14.69  )
+	id 1uS4Dy-0000000BlA5-47W7;
+	Thu, 19 Jun 2025 01:37:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62B576116E;
+	Thu, 19 Jun 2025 01:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7B5C4CEE7;
+	Thu, 19 Jun 2025 01:37:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750297074;
+	bh=ecJCHyXQWtvYtWnqPa5n/BlodDAEwF7Ss3bcPwxT4oc=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=THYebIHUEplET6ir/Wr6WdVuvILyv57hFEKH5hqn7/8jjeEDrnKD6eFKT+YUKlDC2
+	 ySKksmohmjqmAE3ce4ijj9204IHshJH/JpadZ5KLa31Utj4GIX298Y08s2WmojlWfV
+	 GgI0k8+mA264ka6nppGywQBMMH0oKnJmYk9imhirlvgJj0NdLRLICT2xx0SRpinQ/g
+	 LblsauHMp9mnq69uyJjb/eYxJguSmx7bvQ1OPBmPycAu+kQPWM/OaaeJoGqiopqmvY
+	 84QaANBEJ4avD3So1fVyQHUU8h6J9MQutWyaf0ocMx6oNaU+Nt8D7wfihXsl4lqrMs
+	 Alsc4oSHue4/g==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250521004625.1791913-1-robh@kernel.org>
+References: <20250521004625.1791913-1-robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: clock: Convert brcm,bcm2835-cprman to DT schema
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Ray Jui <rjui@broadcom.com>, Rob Herring (Arm) <robh@kernel.org>, Scott Branden <sbranden@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
+Date: Wed, 18 Jun 2025 18:37:52 -0700
+Message-ID: <175029707294.4372.5366260558187845088@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +67,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025, Oliver Upton wrote:
-> On Wed, Jun 18, 2025 at 01:33:17PM -0700, Sean Christopherson wrote:
-> > On Wed, Jun 18, 2025, Oliver Upton wrote:
-> > And this path is other motiviation for returning a boolean.  To me, return "success"
-> > when a uaccess fails looks all kinds of wrong:
-> > 
-> > 	if (__get_user(chunk, user_chunk))
-> > 		return 0;
-> 
-> Yeah, that's gross. Although I would imagine we want to express
-> "failure" here, game over, out to userspace for resolution. So maybe:
-> 
-> 	if (__get_user(chunk, user_chunk))
-> 		return -EFAULT;
+Quoting Rob Herring (Arm) (2025-05-20 17:46:24)
+> Convert the Broadcom BCM2835 CPRMAN clock binding to DT schema format.
+> It's a straight forward conversion.
+>=20
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
 
-I toyed with that idea too, but if kvm_do_userfault() returns a value, that it
-bugs me to no end that the callers blindly convert all failures to -EFAULT.  To
-avoid that, callers would have to be:
-
-	r = kvm_do_userfault(vcpu, &fault);
-	if (r)
-		return r;
-
-And that just annoyed me. :-)  But I'm a-ok with that direction if that's
-preferrable to the boolean return.
+Applied to clk-next
 
