@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314C6C7115E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 08:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27BCC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 08:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7mQQX0g/RXBoYey7jHVoGxTSFtEhgzlZ2xKLsOSPaOg=; b=VHtPSU2duw9B0Ksn/9v3BxwMXd
-	Hanajyo2ueQy9UzdtLC3WG2n6Gp6uLFyiQ+RGG7AhoX5AT3eSsO3wKHtp3YMHfXXAgSU/RVUXzRbq
-	itLyXRmjLe+cCn4lNCWoG0c/Il94tlzm+LGS1cStYQF58TBzad2PlqU+OprscvfdAbEcD0XkdchYA
-	DRlPBytx4O+fIevp1T9wPlLdrRiQqWDnjXkzjB4gG2RLnqDVEnw36W15T783y5uFN0qej/rMvYoCC
-	y2YISeBZM7L90NtakfBq9obOuXDORGUqGTsFvWWHZgd7Rm1htlwTmcI5tikjHbul3yjN7F/1DxgY9
-	tS3j230A==;
+	bh=f+pZP+19Ajtdn1g1OGRU6xbvIde5rK18gy0tP10hAfw=; b=mkvAiHGBvmUbaru7s8zxxi/TBS
+	CVJmuO/xypqrH5N2hk6x9sugWrEThGdFllqYE4OvR0mZtJBNfl/Py0zqvDmxABd1qRnnBvu/Sdjrr
+	u29/FUw+5Kijh98UK2UiOxuja6HoNW3l2G0gvgY1peq+FzlwOk2BckBIqqSbSJLwt15Q2M1ugadar
+	mZKi8Mmy1jEvl20sCcsKU3svxY1im/LSRHdJoSzP6YU5MXjnheGeGXAGaMVOKBfVIvGsVkUQUQDip
+	x0rvdt4UjvRN86SAidNIZxMLLDJ369xXPKhOcsERABjdGKjGAG6mRQ5MJJDYT3y2fpwBqgsnlBGlI
+	uqeZ/skA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAd0-0000000CQml-0Pp1;
-	Thu, 19 Jun 2025 08:28:10 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSA41-0000000CM64-3ODb
+	id 1uSAfB-0000000CQxU-3DKk;
+	Thu, 19 Jun 2025 08:30:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSA7T-0000000CMZ1-1iWY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 07:52:03 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-553b6a349ccso457119e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 00:52:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750319519; x=1750924319; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7mQQX0g/RXBoYey7jHVoGxTSFtEhgzlZ2xKLsOSPaOg=;
-        b=Qilxf40r4QUbgh4083gn0GQkp1ZX3rQl8OBomiHsBEUo8feSk1mUMTBuqN20aHJ1FT
-         wCciToBdIWriNjU7P7Y6LTgDyzorWAlFM6PMDu+3EADDZ0+MHMd1g7oSOFO7Wy3xGZB2
-         sJE/IiX5jRykyBw0WSbLGs8Et4XrkI0yOJ9N0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750319519; x=1750924319;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7mQQX0g/RXBoYey7jHVoGxTSFtEhgzlZ2xKLsOSPaOg=;
-        b=qr+klnY3bkDjqrN75upNY7npf9E9pVAlqqkgUUI21NibqK0eXVDzPjxQPUJh9AK6tr
-         V8aV3UJpqxbtPiMw5neqnzjcMbxdCUc0QEdHduVdGAP1btJInTbsA/j9dFITZu6xmoRl
-         /GlWsB9s6g5MxejbutqjGPCGcmhvzbmiUnIwf83efoGHrKYOEvoW1PbzbCldPn4AOxKx
-         /eSMcU59tIG/cEhyDgJ7N1RtbOBT5KYUt71OR/TNg2lEailmU98JVTp/fjhc1KUGol02
-         IPY7qd87s/cxjGcFKsaEt2arGXCKDOtwcVW5ldhMJBoRxcdWbVRLhFGvCEfEJADMtiB4
-         hH6g==
-X-Forwarded-Encrypted: i=1; AJvYcCURgQGWfpCOd2n+MUdmB0hhlWv92l0Q7Xu1KPJImDlPJtG9di4D2BMvSRBpTiPfuAWx69E7RPnXsbT9OEgakyXj@lists.infradead.org
-X-Gm-Message-State: AOJu0YweHy72s3H0HlsH2iRpBxzuS7m3I0q3sx9UOZKdHYUtaALQlDpO
-	YTbvz51XuKjsEWXWRnBZ/oWXRn6qOBaHw1dvQk3fL+tL1ygktHHnfb/tK2KKZXKdXZl2mDnQl9B
-	qeDgjAdAgIV9d/SjGFS4FdtymzboLgl99BiIaGnbfDLxKVfFjd5E=
-X-Gm-Gg: ASbGncvELsFQrp3gFxCPlgOjwvQ5flfw28Kp0uT926I5PD1kP8+Hvtjr1ZJC+nK49N1
-	EA5zvE5/7bGy3NkThpKo5ggRfGk+ww9So5hGuvMLzbXou3IMduuCXNXEB+KILHrHxqF8Rx/iI8N
-	ugcBA83H6nTPtm+pCSQzAc0X1SX2r9Xok5zVFM8R8cJEwcIOV1s+TaPgWPkeWZ+N8UfCF5EYg=
-X-Google-Smtp-Source: AGHT+IGKSw6WMdR9IoIRey67gW5v3Kd28RATCpIk0gj4cgp0HNOfe/nKQSJBKksAip/SsLckx6UbC9sCyZs1uSNHQ90=
-X-Received: by 2002:a05:6512:6ca:b0:553:6488:fa56 with SMTP id
- 2adb3069b0e04-553b6f42225mr6061529e87.43.1750319519609; Thu, 19 Jun 2025
- 00:51:59 -0700 (PDT)
+	Thu, 19 Jun 2025 07:55:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68ECB106F;
+	Thu, 19 Jun 2025 00:55:12 -0700 (PDT)
+Received: from [10.163.35.214] (unknown [10.163.35.214])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C8DD3F66E;
+	Thu, 19 Jun 2025 00:55:30 -0700 (PDT)
+Message-ID: <fb86e753-95c0-41bd-b8f6-ebc810cd8a94@arm.com>
+Date: Thu, 19 Jun 2025 13:25:27 +0530
 MIME-Version: 1.0
-References: <20250318102259.189289-1-laura.nao@collabora.com>
- <20250318102259.189289-3-laura.nao@collabora.com> <CAGXv+5E-G0BY5q_EsxOkEEJvqXaX5=Y9PWqNbwysLEFfU-UmAg@mail.gmail.com>
-In-Reply-To: <CAGXv+5E-G0BY5q_EsxOkEEJvqXaX5=Y9PWqNbwysLEFfU-UmAg@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 19 Jun 2025 15:51:48 +0800
-X-Gm-Features: AX0GCFshC_lgMp9vezDeihTD0kDhQFAT31Y9bBRKASrIpMKtnPIy3f3lDgJ-TQs
-Message-ID: <CAGXv+5Ff8jFqURizywr7NedprytSoCz9HvaW__v_Q1LcuzMxrw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt8192-asurada-spherion: Mark
- trackpads as fail-needs-probe
-To: angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	nfraprado@collabora.com, kernel@collabora.com, 
-	Laura Nao <laura.nao@collabora.com>, matthias.bgg@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during
+ ptdump_check_wx()
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org,
+ Dev Jain <dev.jain@arm.com>
+References: <20250609041214.285664-1-anshuman.khandual@arm.com>
+ <20250612145808.GA12912@willie-the-truck>
+ <5c22c792-0648-4ced-b0ed-86882610b4be@arm.com>
+ <20250618113635.GA20157@willie-the-truck>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250618113635.GA20157@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_005201_850755_8E9E1DFE 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250619_005535_543546_2C6C4FE6 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +70,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
-
-On Wed, Mar 19, 2025 at 12:23=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> =
-wrote:
->
-> On Tue, Mar 18, 2025 at 6:26=E2=80=AFPM Laura Nao <laura.nao@collabora.co=
-m> wrote:
-> >
-> > Different Spherion variants use different trackpads on the same I2C2
-> > bus. Instead of enabling all of them by default, mark them as
-> > "fail-needs-probe" and let the implementation determine which one is
-> > actually present.
-> >
-> > Additionally, move the trackpad pinctrl entry back to the individual
-> > trackpad nodes.
-> >
-> > Signed-off-by: Laura Nao <laura.nao@collabora.com>
->
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
-It looks like this patch has fallen through the cracks.
-Could you pick it up?
 
 
-Thanks
-ChenYu
+On 18/06/25 5:06 PM, Will Deacon wrote:
+> On Fri, Jun 13, 2025 at 10:39:02AM +0530, Anshuman Khandual wrote:
+>>
+>>
+>> On 12/06/25 8:28 PM, Will Deacon wrote:
+>>> On Mon, Jun 09, 2025 at 05:12:14AM +0100, Anshuman Khandual wrote:
+>>>> The arm64 page table dump code can race with concurrent modification of the
+>>>> kernel page tables. When a leaf entries are modified concurrently, the dump
+>>>> code may log stale or inconsistent information for a VA range, but this is
+>>>> otherwise not harmful.
+>>>>
+>>>> When intermediate levels of table are freed, the dump code will continue to
+>>>> use memory which has been freed and potentially reallocated for another
+>>>> purpose. In such cases, the dump code may dereference bogus addresses,
+>>>> leading to a number of potential problems.
+>>>>
+>>>> This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
+>>>> ("arm64/mm: Hold memory hotplug lock while walking for kernel page table
+>>>> dump")' but a same was missed for ptdump_check_wx() which faced the race
+>>>> condition as well. Let's just take the memory hotplug lock while executing
+>>>> ptdump_check_wx().
+>>>
+>>> How do other architectures (e.g. x86) handle this? I don't see any usage
+>>> of {get,put}_online_mems() over there. Should this be moved into the core
+>>> code?
+>>
+>> Memory hot remove on arm64 unmaps kernel linear and vmemmap mapping while
+>> also freeing page table pages if those become empty. Although this might
+>> not be true for all other architectures, which might just unmap affected
+>> kernel regions but does not tear down the kernel page table.
+> 
+> ... that sounds like something we should be able to give a definitive
+> answer to?
+
+Agreed.
+
+arch_remove_memory() is the primary arch callback which does the unmapping
+and also tearing down of the required kernel page table regions i.e linear
+and vmemmap mapping . These are the call paths that reach platform specific
+memory removal via arch_remove_memory().
+
+A) ZONE_DEVICE
+
+devm_memremap_pages()
+    devm_memremap_pages_release()
+        devm_memunmap_pages()
+            memunmap_pages()
+                arch_remove_memory()
+
+B) Normal DRAM
+
+echo 1 > /sys/devices/system/memory/memoryX/offline
+
+memory_subsys_offline()
+    device_offline()
+        memory_offline()
+            offline_memory_block()
+                remove_memory()
+                    __remove_memory()
+                        arch_remove_memory()
+
+Currently there are six platforms which enable ARCH_ENABLE_MEMORY_HOTREMOVE
+thus implementing arch_remove_memory(). Core memory hot removal process does
+not have any set expectations from these callbacks. So platforms are free to
+implement unmap and page table tearing down operation as deemed necessary.
+
+ARCH_ENABLE_MEMORY_HOTREMOVE - arm64, loongarch, powerpc, riscv, s390, x86
+ARCH_HAS_PTDUMP              - arm64, powerpc, riscv, s390, x86
+
+In summary all the platforms that support memory hot remove and ptdump do
+try and free the unmapped regions of the page table when possible. Hence
+they are indeed exposed to possible race with ptdump walk.
+
+But as mentioned earlier the callback arch_remove_memory() does not have to
+tear down the page tables. Unless there are objections from other platforms,
+standard memory hotplug lock could indeed be taken during all generic ptdump
+walk paths. 
+
+arm64
+=====
+    arch_remove_memory()
+        __remove_pages()
+            sparse_remove_section()
+                section_deactivate()
+                    depopulate_section_memmap()
+                    free_map_bootmem()
+                        vmemmap_free()              /* vmemap mapping */
+                            unmap_hotplug_range()   /* Unmap */
+                            free_empty_tables()     /* Tear down */
+
+        __remove_pgd_mapping()
+            __remove_pgd_mapping()                  /* linear Mapping */
+                unmap_hotplug_range()               /* Unmap */
+                free_empty_tables()                 /* Tear down */
+
+powerpc
+=======
+    arch_remove_memory()
+        __remove_pages()
+            sparse_remove_section()
+                    section_deactivate()
+                        depopulate_section_memmap()
+                            vmemmap_free()
+                                __vmemmap_free()            /* Hash */
+                                radix__vmemmap_free()       /* Radix */
+
+        arch_remove_linear_mapping()
+            remove_section_mapping()
+                hash__remove_section_mapping()              /* Hash */
+                radix__remove_section_mapping()             /* Radix */
+    
+riscv
+=====
+    arch_remove_memory()
+        __remove_pages()
+            sparse_remove_section()
+                    section_deactivate()
+                        depopulate_section_memmap()
+                            vmemmap_free()
+                                remove_pgd_mapping()
+
+        remove_linear_mapping()
+            remove_pgd_mapping()
+    
+remove_pgd_mapping() recursively calls remove_pxd_mapping() and
+free_pxd_table() when applicable.
+
+s390
+=====
+    arch_remove_memory()
+        __remove_pages()
+            sparse_remove_section()
+                section_deactivate()
+                    depopulate_section_memmap()
+                        vmemmap_free()
+                            remove_pagetable()
+                                modify_pagetable()
+        
+        vmem_remove_mapping()
+            vmem_remove_range()
+                remove_pagetable() 
+                        modify_pagetable()
+
+modify_pagetable() on s390 does try to tear down the page table
+when possible.
+ 
+x86
+===
+    arch_remove_memory()
+        __remove_pages()
+            sparse_remove_section()
+                section_deactivate()
+                    depopulate_section_memmap()
+                    free_map_bootmem()
+                        vmemmap_free()              /* vmemap mapping */
+                            remove_pagetable()
+
+        kernel_physical_mapping_remove()            /* linear Mapping */
+            remove_pagetable()
+
+remove_pagetable() on x86 calls remove_pxd_table() followed up call
+with free_pxd_table() which does tear down the page table as well
+and hence exposed to race with PTDUMP which scans over the entire
+kernel page table.
 
