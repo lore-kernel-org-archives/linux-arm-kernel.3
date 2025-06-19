@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE589C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732D4C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rAziKvea19DBfEmEBsH3sTM/47CM5Lr0ya4Wowlbr0o=; b=frlAxPzhUJ7R0Jim9ha5p9fbx3
-	z90nNVkZ9z5KSrqs7y+a1B6+jhwIBkyZ/QvVtg5YaMPp6hiG6tbDB/k5QQE9mrMUHZSh5FRJ8yCGU
-	qdldTyrdLiGnB5nPhvj3ymYBrneKrqEi/IZfJvwKqutysMUCNdJQtQ//tQ0i5Fhv5EcNxSbh8lmf1
-	ae+hfLuxx3bfSK7nD1Cfy5U05ZgfhSwkPOg6V2anKaTOAsG4zqIYZVK7mATrsKaDadv++SGL9+ylg
-	no4SWmfMsPCuf2++1MTIaKgxBVwGkoseXgM70CjFbS7wYOwvdm3ybx7qNxOqK/kJ4TMW1Z+6JQ1q/
-	Opr+khMw==;
+	bh=xWOKgUn3tbwkPft0E09nxCRikqNNuagRgJ8LQ45SOIg=; b=TFuqPc3GXAtjo/ylWKxik8CAOy
+	IIgJ3+lFVJMPFTVemnVjSemfCQkZaFlRuKo43MzwxuBsQFAXMIMofUomtB2ukOlDU4zStsohJxB+B
+	mO8/gYMabcKoQ0tRImULbYKeDF1R8BXmnWjNzbmHQC0kWczGuCKsOJHcQ28drU7wM+vlFj77sH1VY
+	p2cEDONBliNb2Z647MkSKulSysnnAxPuYVeHNaQqX8Lw++FKbrRL7aQWGaaFkkK09DPc6TqmR+K4y
+	8SJOhzNZiyARchT/+lBp4aOwk7MQieC2xol/EI9K5s7Kw8kXjc01Xb/mg9i12seHUSw6IvhdfCZA4
+	ybKYN8zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLAR-0000000E7Sd-2vMW;
-	Thu, 19 Jun 2025 19:43:23 +0000
+	id 1uSLCe-0000000E7e8-1zlR;
+	Thu, 19 Jun 2025 19:45:40 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKnO-0000000E4X6-13HH
+	id 1uSKnX-0000000E4ZG-19vp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 19:19:35 +0000
+	Thu, 19 Jun 2025 19:19:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750360773;
+	s=mimecast20190719; t=1750360782;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=rAziKvea19DBfEmEBsH3sTM/47CM5Lr0ya4Wowlbr0o=;
-	b=WG7k57oJ/x5FjShhSPp5ECBW7NwCq/YbNFoCbm1jA4lpO2ApTGD63XsMIsBX22wFSIJBBO
-	aaBAz6xA7KcTmwNwaGUBR9JsUNAu212ucGKs9kVbIpM55tFD2YzLhxJKNpwxV46ToriIyu
-	K9ISazcsj21x8zuaXvdHOIB2xKYz3to=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=xWOKgUn3tbwkPft0E09nxCRikqNNuagRgJ8LQ45SOIg=;
+	b=OZBRLRQBUMF9zRiFAd5VPyKiY7V/hUpeZrF5mTDdDy36ZkKv5YdChA/nJdO8E0mmhgnEda
+	MU0skjdsd2TyWUxv4GkkmhMKiVf39z+Phf72Bqr/+kg8N4D2Xz9N3bp3/g09Fu1Y/0V2HI
+	TrgYFoiHXjWIoROLS7e9Ky9XjfDTsv0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-350-I3gvM841OjyGrIC_ed36Fw-1; Thu,
- 19 Jun 2025 15:19:28 -0400
-X-MC-Unique: I3gvM841OjyGrIC_ed36Fw-1
-X-Mimecast-MFC-AGG-ID: I3gvM841OjyGrIC_ed36Fw_1750360764
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-670-gpVPmr5uOrSKoU-SldmlnA-1; Thu,
+ 19 Jun 2025 15:19:38 -0400
+X-MC-Unique: gpVPmr5uOrSKoU-SldmlnA-1
+X-Mimecast-MFC-AGG-ID: gpVPmr5uOrSKoU-SldmlnA_1750360774
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6C8FD195608E;
-	Thu, 19 Jun 2025 19:19:24 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 366DE1800286;
+	Thu, 19 Jun 2025 19:19:34 +0000 (UTC)
 Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.132])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1D52119560A3;
-	Thu, 19 Jun 2025 19:19:14 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3668A19560A3;
+	Thu, 19 Jun 2025 19:19:25 +0000 (UTC)
 From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 19 Jun 2025 14:16:04 -0500
-Subject: [PATCH v2 12/16] drm/drm_of: Keep up with refcounting
+Date: Thu, 19 Jun 2025 14:16:05 -0500
+Subject: [PATCH v2 13/16] drm/fsl-dcu: Keep up with refcounting
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-12-0df94aecc43d@redhat.com>
+Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-13-0df94aecc43d@redhat.com>
 References: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
 In-Reply-To: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -93,17 +93,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
  linux-tegra@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=621;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=725;
  i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=iRS4JDl6EQUBjcxx44/6qi/QvUT2ZF2oTiWzHWezAt4=;
- b=0pLRJzIUGs9YHlyPI+NVCgUAzTznQMZKVUuavJLDK9x4ZHA0X3RXCGzqqZs8qMlVj8zctOtSS
- wz/QuDyThJLAqRaAt1JuOUJzV+/XRr4Xm0nLjhtcWDbVbRBTh3KVlwy
+ bh=15UU8yn9DQhf/aJbB6hdeRxRvlpLKFZR7XcJB1tuOTo=;
+ b=iWoM2BSqthHnnHmi4gZ+RG7iVh55rVSyF0lWlaruty9abKD4asQf1j9iYd9swpGmjURdKOkGN
+ 531fNW+NuCYA0dXTbrDmd7sJU3PeQa+md+1b98ivj94ynCejnS5HwKL
 X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
  pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_121934_361087_76EB47D1 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250619_121943_386428_8AD8D98C 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,29 +118,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put the panel reference back to keep up
-with refcounting.
+Put the panel reference back when driver is no
+longer using it.
 
-Patch added in v2.
+Patch added in v2
 
 Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 ---
- drivers/gpu/drm/drm_of.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/drm_of.c b/drivers/gpu/drm/drm_of.c
-index d0183dea770308e77f05da364ffe087d53f3be36..2bd07de69526781d25236f480d029a7ee2ea483e 100644
---- a/drivers/gpu/drm/drm_of.c
-+++ b/drivers/gpu/drm/drm_of.c
-@@ -280,6 +280,8 @@ int drm_of_find_panel_or_bridge(const struct device_node *np,
+diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
+index 84eff7519e322257ed7ee7dfdcb08db40a341d6e..db79b35384be9729db9abb96a8fea6bc3da9d7f3 100644
+--- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
++++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
+@@ -100,6 +100,7 @@ static int fsl_dcu_attach_panel(struct fsl_dcu_drm_device *fsl_dev,
+ 	if (ret < 0)
+ 		goto err_sysfs;
  
- 	}
++	drm_panel_put(panel);
+ 	return 0;
  
-+	drm_panel_put(*panel);
-+
- 	of_node_put(remote);
- 	return ret;
- }
+ err_sysfs:
 
 -- 
 2.48.1
