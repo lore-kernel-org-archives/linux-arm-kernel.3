@@ -4,170 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57190C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 10:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B44C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 10:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W080evjAN7uLN5xy2VvtmyhJt0DOyjwg2Bhd4+pbFu0=; b=kzspbRW2v4r4BZgEIXDfhlGpDE
-	1gzrcZFQhBlu9eDWCxdqUCw1tTZGS+q6BEldAnFhftER47RTaJ0wdZpHDUN5uL5AfoX6kzLeJ+fNd
-	UJ3u2Iq4YhYo6o7PJIO/HiRHRIPEq4eOGe4SCytiX0gTANqdt8PLlroIbpm0dXJT7HwVazNhDvpaR
-	EISStHeuaVxQYa3LhpCVauM+Ho6Xr57XqsOll//fE9uJmutEdRCV+uyE/DXK5hFnzLco3DRDDYI4Q
-	TrDnbjSptj1GkwDFwsHmiUjdGd0i/HvK3hh+KVF5c22ALOQp+UkK4f83Kbdil5Qhh6/4yd9pa3HzU
-	bTR/tJJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L6Kp9os+xz5VTdOcLDt+j5wxoDnuHFI6sku8Lw3uoFk=; b=hCz02DXjhY4F2c
+	8sxeHevRHlYtx38a72jjTToW8T6L6hT+QSwYXZoffCUVvjyRlAjM+EjLyz/8y4KecW8XbrGHH2YbC
+	OfMayN3va/Taix5RgBQNpB2gHwixd5jAj1XPFd+HY/h3/kM6OAkb12wceA8Ab8DCyw9dkSSVBqqPD
+	GkUo28HCwVPUkZENWJbt6qnM1r8HR57FZ5m9VbTUfstd6yw9ZSsjf9DnSxSnGJGLYTfLXGdFiLuR5
+	3vE8/tSbun8tUqUaPAJA/ZloTolSVnfOp080x+58A7+m83cVR9WFnie+OtXPWUGRooTdzaIX89FQ7
+	jl1oKvNn5Ud8TSaCoh0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSC5X-0000000ChBT-04PS;
-	Thu, 19 Jun 2025 10:01:43 +0000
-Received: from mail-bn8nam04on20616.outbound.protection.outlook.com ([2a01:111:f403:2408::616] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1uSC5m-0000000ChFw-3uZm;
+	Thu, 19 Jun 2025 10:01:59 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSB6J-0000000CW9T-23jU;
-	Thu, 19 Jun 2025 08:58:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=suPKgvcSRlCd16jtnlVUBFqNMcmVBX1Z/EZNsGEBphzV7xas/kemKgQfz8LUd/U7lEpWxUbg3zrG72VZAkQYlsUCMB5R8x4XJ2AWuma2K7Sz5gsWC8IPncc5GnjiXa9UMHVADklWtMlSMM07COAtPZRA9HNvrRgN8GmsjyoUWu4EAMt+pWXzFNdnjutBlZ6DvhWa1lD5UEtjgnxr+eo0m6R5NZdauZHYtX6wA0cC8WmlEAeZpHRRBokREN309zpQSvMVOZPw2alqtyT2MuvOV/QI4xX6r8RlAaa+bspoiIeB6wjV1BFN2bx2C4q3lu1JhHMxSImDuhHq4Vo0P4FOKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W080evjAN7uLN5xy2VvtmyhJt0DOyjwg2Bhd4+pbFu0=;
- b=H6w75NFdlQwWsWwyDu0l57b8Ml2EY9WvrXC76AUhbj9M18/EZ1Li5v4lASdGurDdodJWDYfZEx+0IbSFXFVIJUFggFScM2aYCED7D8hPhvKA2KMqRejbMQrq/8cK17LWi4iqqr4qzS6JLMOTasP1Pe4r4ygwzCHlOf2KReG66jvfeB8b4rCiqq9kbk2ddYFI6eJHjMMeKqkNsbmpdOvj3FTdfWE8IiJH0vC/Rfbgww5Lr98i3cfyfPTslkEvgsDy7slYxTD5QzUVjsTsmdstI3OaRe6STUWPoJ6mKKIcPse4EV3bpR32aiZJ8qF2bkcWWtLVKMzQX8oeMrhMHCPjxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W080evjAN7uLN5xy2VvtmyhJt0DOyjwg2Bhd4+pbFu0=;
- b=ilMM2BDHMWoCZCy8oKwPb9TOXHNQ8hzyhAUvH5LgSPgLTC822NKBIdkauSwNELVTjiHZQfdHsEKSGLIo6V1CgswFRvIGKyUkc02T5CDUMBILIecA5dSkcNk6PZpBbsJt7cmNpbeKeapDg7PQVsYGQEpayCgGaUxgZl9/I0Hnel1Qi5VGgSaeEx9ETAFFsYZ2bojs1lQSZjXr4swY5zdIAWkzQkNj49R9sWy3iusCUmASg6hqo1C0R+pYcBwXHwzWZoU5f2ohpH5iuHWVCKF3XIwwppoI5WQ+3WG7EiaN9bQZ2bE9U8Ecg2Xi2WfwLkHE1COedumVjmBbXYWJRdEn6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB7705.namprd12.prod.outlook.com (2603:10b6:930:84::9)
- by SN7PR12MB7956.namprd12.prod.outlook.com (2603:10b6:806:328::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.25; Thu, 19 Jun
- 2025 08:58:25 +0000
-Received: from CY8PR12MB7705.namprd12.prod.outlook.com
- ([fe80::4b06:5351:3db4:95f6]) by CY8PR12MB7705.namprd12.prod.outlook.com
- ([fe80::4b06:5351:3db4:95f6%5]) with mapi id 15.20.8835.026; Thu, 19 Jun 2025
- 08:58:24 +0000
-From: Alistair Popple <apopple@nvidia.com>
-To: akpm@linux-foundation.org
-Cc: linux-mm@kvack.org,
-	Alistair Popple <apopple@nvidia.com>,
-	gerald.schaefer@linux.ibm.com,
-	dan.j.williams@intel.com,
-	jgg@ziepe.ca,
-	willy@infradead.org,
-	david@redhat.com,
-	linux-kernel@vger.kernel.org,
-	nvdimm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	jhubbard@nvidia.com,
-	hch@lst.de,
-	zhang.lyra@gmail.com,
-	debug@rivosinc.com,
-	bjorn@kernel.org,
-	balbirs@nvidia.com,
-	lorenzo.stoakes@oracle.com,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	John@Groves.net,
-	m.szyprowski@samsung.com,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: [PATCH v3 01/14] mm: Convert pXd_devmap checks to vma_is_dax
-Date: Thu, 19 Jun 2025 18:57:53 +1000
-Message-ID: <f0611f6f475f48fcdf34c65084a359aefef4cccc.1750323463.git-series.apopple@nvidia.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <cover.176965585864cb8d2cf41464b44dcc0471e643a0.1750323463.git-series.apopple@nvidia.com>
-References: <cover.176965585864cb8d2cf41464b44dcc0471e643a0.1750323463.git-series.apopple@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SY5PR01CA0032.ausprd01.prod.outlook.com
- (2603:10c6:10:1f8::9) To CY8PR12MB7705.namprd12.prod.outlook.com
- (2603:10b6:930:84::9)
+	id 1uSAi6-0000000CRFq-2YVc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 08:33:28 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a50fc819f2so449132f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 01:33:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750322005; x=1750926805; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L6Kp9os+xz5VTdOcLDt+j5wxoDnuHFI6sku8Lw3uoFk=;
+        b=e4KMqlLEq6QTFkvFhRehWJLHrFljEthg8dI+OmQa4IGNeJxc8OTumaTo2J/TQUbKWc
+         CJ1GD/9bMqsD0zL0Ju94rOy+v7exEzWzWFrGI9GkekP8KrZ2DciAt0eEaXY+IHY1WR9J
+         SvEvq8aixAvngKwRRWv2J55QLNwpOwp3MBb69fPNmD5tOR+4bAlUDwoYV/iER0+XG2fC
+         z74fkyuY5rzvz4ot4wMOPFclxjXuVC2XjBg8+AWXfBDlI0IHhs8UfhMcp98KB38yvdhP
+         WuvrpnFuRn08YOpYS18Nh6cj/Da3Tq2ST1UjzoCwEqP0YxysFOjccdKs/ipQufvwj5dp
+         +5Jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750322005; x=1750926805;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L6Kp9os+xz5VTdOcLDt+j5wxoDnuHFI6sku8Lw3uoFk=;
+        b=iP30gsHohdQU4DSnS+ICrSXDYvj7FbQ0Eqm9v/ge7khb+VkMzS2pP5P3uf7EdXRuUu
+         EqyNBUEIGINjLLYgsNRoXuoL/MVbQ17t3Lc51ABLtOdSwWOhmtRB0F6kyPb8/1ceoy0A
+         hG7hUBo+VuZWKw9U+cNgYKxO4p6RAc8ZWFMhMcWWz+x8FgmoXizfrqUJtRyOTfnU93WE
+         CZ1XfIkPKzMBoccJP4g3cTn1p1zK0MXM9P95qX/SkW2B36HZaV8A/t1+iEa7mvmJhmAW
+         pyfi9rZXomk5+DyvN10QORV9qfp93OR/gKbnuRMb87C5+qYbwhCy6+UccCNruYUDeMk+
+         o9Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCUMnDj4pNGBhkhyApTq5MjCuUvLCR5VovgSZj4sw18LHJww5MGOda9F4+HDEgNLDUpLTe5xiGt0okqTJZRKWB9A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwRlUl8unmFLrVKNcwAfuhFXL1tRrkYT59h0bN0KytlOL3Q759
+	0ljcXHSRMzjyWlJD3sQVqxRDcosNLSiTz5RbHY95PH6eUq4bY0evJf2dOSk6k7MQeqk=
+X-Gm-Gg: ASbGncum60DO4zbabCpl73iY+GhX72gYXqSC2kvIFCKxTT3g05Gn81F5ih9c8HOVnii
+	+z5/nA0nM2PFrnfvhq8HPu1oi/nVXgRo1qOM8ZxLXeyenfVVm8YyHoylc3bmXqHflB/edPKN+al
+	cwdK6i8v6l/T4QxqHIQV/8kfFFGm/qQkHb6yY2+O0kvmXvjgosN/j1l+kfU2JwN23EEuEAg5Z/5
+	eCW0jvxDODDw5UFE7fIvebcNxxHqmF0IBtYcLtNFQna5ziSnZVmQH5NPtc1TjRKlQ6r64NZ74Of
+	Mu8BRe4OHLPQ/G7JZfiIhSWsJ2ieTWrQOc/2aFtz/0qAL+jTQKleJcKX
+X-Google-Smtp-Source: AGHT+IFYckMm6TqdR+SMt29zt/hysoGmTKQvGlottOkHITi2OJ20YHyb6IYgKfQEgRh6pcZHDimpKw==
+X-Received: by 2002:a05:6000:430c:b0:3a4:f787:9b58 with SMTP id ffacd0b85a97d-3a572e9c412mr17795119f8f.58.1750322004914;
+        Thu, 19 Jun 2025 01:33:24 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:c485:fe15:c9ab:c72f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a63a42sm18828151f8f.28.2025.06.19.01.33.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 01:33:24 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH v2 00/12] gpio: use new GPIO line value setter callbacks
+Date: Thu, 19 Jun 2025 10:33:13 +0200
+Message-Id: <20250619-gpiochip-set-rv-gpio-v2-0-74abf689fbd8@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB7705:EE_|SN7PR12MB7956:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e694900-6081-4ebd-401a-08ddaf0f7302
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AEX7uUNjRZ6YxQP6EqDBSgrFRp32bKRpeyOlwmW5zAWtgCxxPtW25z01ajs5?=
- =?us-ascii?Q?ZUh+dMYo4nIpbEryRfOpNZZ/NNNnqcSvB5TSQ2PwVF1ErbbMsi8t8PGxcqDf?=
- =?us-ascii?Q?D5++utwyeNUTJX/TyapoOA5nICrQkEz65rGlZ7jngnRdy7DxhUy18y0139Mc?=
- =?us-ascii?Q?8y2Ronkruj+PqELgq6XtAc7bdV426WFYc17yRyuUctKdrzcyqVxCGNdSqvQU?=
- =?us-ascii?Q?pKcSUn84YCdvAAbiKEr9bvnZs8bGIAmyLF4mtHULSL522pkBJyo954VssQrR?=
- =?us-ascii?Q?aW5t+wCUyeMuOSUPI6jFQ0pcfe7JJy5K6dTm2LJXKHPhxUOJ5QdGE8vNhkOR?=
- =?us-ascii?Q?7CKTH2WqfrGRZTCj2jMMb+vtEsmg9XI8WuQEniG7TCvc+idCRIkoDPOOhmjp?=
- =?us-ascii?Q?1ADKl3L4cNrmmXRZptYD5DU8SLN9hVgdSYnJwPzigIhjA++/pPcYCht+znQW?=
- =?us-ascii?Q?hK49qcF8JfwbXVViodmxK6bV4kO+OqNZdRghIvCsy2/NffLVobm4y5RSJG5k?=
- =?us-ascii?Q?7mHQHIguO8yWBZ4z+q5OHc6KZrGggrSqjQQeetHBg6pHv/0NatjdzZBIqLGv?=
- =?us-ascii?Q?hdDTEZNoERAbq7dUm2axQfeA7r2AZ8J0LtE13jGl/f9fBNDDEQ16JzrKH6BR?=
- =?us-ascii?Q?fz79SU5dtbU0y7BRjMW+YjSgg7I90oSWU/KbWKWnUfzjGK73rlHnimXn7e98?=
- =?us-ascii?Q?jDoAe5F5rhnzAiP5utR6BiCKbij39EJmMeQoi1UeXF06DjAqhCmJnTM4fY5v?=
- =?us-ascii?Q?xbtIs3vogSnoWQ940PHP88ExwrGALVuwBmm/cfUSWekMSWj7ocOo5qRtbkV6?=
- =?us-ascii?Q?6Ayn20Xx+gygkrdVwoNNv1UIkuloBevoVBvvH3AF8BM0v6kBJLtiJ3SQFxu4?=
- =?us-ascii?Q?nfnImiI4J5S63fAK/mD5OASNB9i4jvVMJaTy/cYHk1r1YK94I6eXQwIYKB39?=
- =?us-ascii?Q?vm6gwJr3AeXmSIveJhj3Vj5JgJiYjmzkIbpbDnmFp2IfGAzw44dsGTQMk9jj?=
- =?us-ascii?Q?xo83S1IHsVbyEC/hSaVk6MrMF3B7miYdEG6/fpa6ZqwWJc4iwvxBT2JY+gMT?=
- =?us-ascii?Q?Mf689zeAWtmvAdl33oAPrbqSyd6KA1qUSA3c6jCwGaZSBePhgpI4CR5zyMHN?=
- =?us-ascii?Q?CiUeCQJzPzMzV11MWgIECt0dgIcnm6QXQAkidN3SN5PnshMeVnSEb8BWdNjL?=
- =?us-ascii?Q?KPwcZSu7V8AQdoENijFbCBdYBhDeN3QlB4kMZ7ub38Y70cQ0x4nqUXgTdQYN?=
- =?us-ascii?Q?msgX7Ty8/iEnMNRAw53P2kQiTEooQqHah1CDU8N/N8m6zATxI/pG/zUtpe7M?=
- =?us-ascii?Q?4evvXqSMYSLnXyDvtoLbi4au5mdnTxYBFV+9ZG6vYSlXsJJH4XgA7A/eTe1o?=
- =?us-ascii?Q?rsatnrEMHsGRQuLokU81jScJruonOnWS2CcvXbh0pkAewQI+Yb27IUsGhi5b?=
- =?us-ascii?Q?biEwHreE8co=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7705.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FxcmdE41g/sRbm7Bw3enOpaLjVH3SqKa6VAQdEufswIFOxiXASjqt1nFo3WT?=
- =?us-ascii?Q?ZWrPVpGbKtFsWqkyMr+PoJ0/BLGryapMpUNMUs54XEgM1r1LnoseW+9/gWKD?=
- =?us-ascii?Q?3SmcH4junsqAMvEKzAQKk7ShwvraUUDYYkU8FE0QZYpbCWju5/A6sTB9M1Bt?=
- =?us-ascii?Q?BGWPXTCk1AqYQSau8e3iJT/F4VB3D7ItMbbT/8vH0pS14k6OWQZaX9E9P6J7?=
- =?us-ascii?Q?yd1Xws8L1S/M3dn62zKpsbZo/FiabucboPnyefxSH2lMIypOisX1GjLdIWbv?=
- =?us-ascii?Q?wjQWiZ1eqi9UN6zWWVVoRNmhEGZM37sGo0jgmuTxk86NPHJk8moX5xcWbSNr?=
- =?us-ascii?Q?OksK6ar8LxCG0RzdT+jKGBJMGV2osUC94z7VR8K4Fgu0fKK3Jvltuim0WW39?=
- =?us-ascii?Q?/oBGaiwHOcGHypIqe3aYl6G7i169f2hLU2a6yqyvhtcY/HZQajEJCp8trtS/?=
- =?us-ascii?Q?XEo1IC3eak3sXFrfYXeOQolW7V+a1EKYIsLTAhMD9gdsj5wqlj+8FsbEi0dp?=
- =?us-ascii?Q?NwY3MokBfVoRuPvkwKpeoW6fBoZJ3Ug03IEqEZ/3o5alCqYwiEvWI5CdBVgq?=
- =?us-ascii?Q?jV1B8bRMKuZqQjnCfBbmlMz9xcN5pSGe0EO44cqi2rXC5sZTd4dS/rqZatI7?=
- =?us-ascii?Q?eJlV4gI+r3Inc2CrvDVUW2yQR3a4LhvTxvFW5iW5VtCoKWA/GCjqtxNeqbtP?=
- =?us-ascii?Q?FnMeXJ1/c+R3VoMPwgKsANXK0nSOPhTzAvGPr0X5chvS770UlAcW3PdRAh3E?=
- =?us-ascii?Q?lrfiIQu1FAnMYpftmcBb0vVKltqzJiZ7h7+fT68HlShvA9FxJdPo7B87ndQI?=
- =?us-ascii?Q?CnzcZqdiT5JXBZAWinGQF3DjSZTYn0Jx+Ji+QoU0WGcZLwzwaQIVl6CDciT3?=
- =?us-ascii?Q?D9vN4is5N/xDRsshuACp/GzkO7flpJM7+IWsLzUNjIbf+YHuWjT3jN8bikQi?=
- =?us-ascii?Q?rO4RS+wx43ZUaOBAbgdybBvXD7qq60Nub4S4AxDuObpNURzvp3/9gZQo3Cra?=
- =?us-ascii?Q?mYYSaTFbLSNz0GlKLjG6OssHHrZgTeskWCzsh+CoAO800pfWyZVIGKtkA7ZM?=
- =?us-ascii?Q?s1OiG3kHQ+39v9AZjCBVItwFTX8abVI2TaaLej/70gV/aKt1dDDVKRi5EzIU?=
- =?us-ascii?Q?C8hoV54k2npMSTtHmkoJILKcStxcZUuWJJpFZMBdaP4dZ/rCvrH6P7WkT04M?=
- =?us-ascii?Q?Voa5snzwD9NgeMM88l8kNKJd0jGdG9019Y9HhUPW6RfK8ISwAxRWhk6an+9y?=
- =?us-ascii?Q?2+LbXfu3T2WU3UbAwV9EJCS9pTHitPVFwJUJ6Sjh7ttjNoHdWbJG/qte+bXS?=
- =?us-ascii?Q?EX0W6JYwyarmbHNBtH9XtcrZ18G9+UDhFpj4mQ92nABIGgHsjzQotOcvHqf7?=
- =?us-ascii?Q?hye0SzzfakjDaGIUJG2T16pqAC9L6Q1gH7wAnBa5NaKeCL4a5839ifb/kYN2?=
- =?us-ascii?Q?d4xC2zt9RNdbPI3n8sw0bbGY2Rr1OOEHC3+mZmddTD23NeUOJUD8LwjvGDIE?=
- =?us-ascii?Q?Bxtu/nXwg0X5aZM86xolZko3VGj3NbiKKz1yVUqlHOQc4XDGLPkmGMMOMwM1?=
- =?us-ascii?Q?IlI3OzBrJFBIwMz390YBjpe3rvS1pzDUSUoLik3T?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e694900-6081-4ebd-401a-08ddaf0f7302
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7705.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 08:58:24.8933
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Hh1Np0XMnMVYmYraEY3+TeIBT6FRL4MCziavALf29LcSQo1a/07kIhXhg/AXzUNarvp0ONKglc/HbOQfFxvHnQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7956
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEnLU2gC/4XNQQqDMBAF0KvIrDsliTZGV71HcRHsqAPFyERCi
+ 3j3prlAl+/D//+ASMIUoa8OEEocOawZ5lLBuPh1JuRnNhhlbsrqFueNw7jwhpF2lFSMpMnZprW
+ uawzk6iY08bvMPobsheMe5FNekv6lfwaTRoWdqltVO6cnb+4vXr2Ea5AZhvM8v1gCtuG5AAAA
+X-Change-ID: 20250617-gpiochip-set-rv-gpio-e1e864768942
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, 
+ Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2273;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=JA2MdK9R8F/cOt9CUzPZz/x8ehY+74kE0g6wA3wRlHU=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoU8tNX/mWswsFP4HvzFmsSabfA47FF7DtFw8Jl
+ 09zIyLDComJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFPLTQAKCRARpy6gFHHX
+ cunRD/9vOYV44Hogp+oRtgtxtMzTmPR/jtz8WK4sNlre2T2WIXXIQVGwBDZYkLX/9JO0IggsrRg
+ 5KbC5YjZhcef6xGufV58QXSUwtr57RBdAz0mKoSnP9zZYAxoud22AmqWm0GuKUdfGyQwLAk/N27
+ d0f6rQAXmiMWYB7QNcdYjKAXY9l9EUaRvZsg7h1EaBimz+TWvZgwZ0INAxZfonXhOSKOW/+fI8F
+ arO6dq6dIqMPBHz9CIX33WGKstSq64w9ROgBHTT6+s4lMOFbQ2EuCmyH65UwYJrv5ZgKSvkemnB
+ KMixt+xY3bUqavu/BU/1qeuDHQfltZKqyDFT6RUgilXBhsNdHasaMyhTWOt56OANNSgRZWLVrj6
+ VLcpaoIuvdqpXnXwO5ufD6Vke6/p+ejZtlcK0L56OFESwJrtdGk+gxGOnomrjm/5LRyfkO+1QoO
+ B1LhRJ5UUQoFO3mPkLGTTYuFwd05KDeTi67lRDefrekAuXDtQw+5+8WIzMcJCdPYYHzztt82F2p
+ sxoGc3Qt42sTzluSykzvqyoV2ZMWnerxNKjKzBDoRwuycmN1G80nrXKvps9jDb+Fob8U9s02dRy
+ d2hqXFuSm8UPq6hoQqa6BMjC4dnlW+FmcwPA4yS6T3lU1oIh01M2TxTv3Fq8EBjFcZFsem6jjK2
+ LGqnxwEzBeILlaw==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_015827_533392_B35D26F0 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250619_013326_891400_2A95E63F 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,87 +123,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
-pages. Therefore page walkers that want to exclude DAX pages can check
-pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
-meaning dax pages are mapped as normal pages.
+Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
+values") added new line setter callbacks to struct gpio_chip. They allow
+to indicate failures to callers. We're in the process of converting all
+GPIO controllers to using them before removing the old ones. This series
+converts another round of GPIO drivers.
 
-Ensure page walkers that currently use pXd_devmap to skip DAX pages
-continue to do so by adding explicit checks of the VMA instead.
-
-Remove vma_is_dax() check from mm/userfaultfd.c as validate_move_areas()
-will already skip DAX VMA's on account of them not being anonymous.
-
-The check in userfaultfd_must_wait() is also redundant as
-vma_can_userfault() should have already filtered out dax vma's.
-
-For HMM the pud_devmap check seems unnecessary as there is no reason we
-shouldn't be able to handle any leaf PUD here so remove it also.
-
-Signed-off-by: Alistair Popple <apopple@nvidia.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Changes in v2:
+- fix a NULL-pointer dereference in gpio-reg: use the correct function
+  pointer when calling the setter callback directly
+- Link to v1: https://lore.kernel.org/r/20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org
 
 ---
+Bartosz Golaszewski (12):
+      gpio: pca9570: use new GPIO line value setter callbacks
+      gpio: pcf857x: use new GPIO line value setter callbacks
+      gpio: pch: use new GPIO line value setter callbacks
+      gpio: pl061: use new GPIO line value setter callbacks
+      gpio: pmic-eic-sprd: drop unneeded .set() callback
+      gpio: pxa: use new GPIO line value setter callbacks
+      gpio: rc5t583: use new GPIO line value setter callbacks
+      gpio: rdc321x: use new GPIO line value setter callbacks
+      gpio: reg: use new GPIO line value setter callbacks
+      gpio: rockchip: use new GPIO line value setter callbacks
+      gpio: rtd: use new GPIO line value setter callbacks
+      gpio: sa1100: use new GPIO line value setter callbacks
 
-Changes from v2:
-
- - Drop checks vma_is_dax checks in userfaultd and hmm
-
-Changes from v1:
-
- - Remove vma_is_dax() check from mm/userfaultfd.c as
-   validate_move_areas() will already skip DAX VMA's on account of them
-   not being anonymous.
+ drivers/gpio/gpio-pca9570.c       |  5 +++--
+ drivers/gpio/gpio-pcf857x.c       | 17 ++++++++++-------
+ drivers/gpio/gpio-pch.c           |  6 ++++--
+ drivers/gpio/gpio-pl061.c         |  6 ++++--
+ drivers/gpio/gpio-pmic-eic-sprd.c |  7 -------
+ drivers/gpio/gpio-pxa.c           |  6 ++++--
+ drivers/gpio/gpio-rc5t583.c       | 19 ++++++++++++++-----
+ drivers/gpio/gpio-rdc321x.c       |  8 +++++---
+ drivers/gpio/gpio-reg.c           |  8 +++++---
+ drivers/gpio/gpio-rockchip.c      |  8 +++++---
+ drivers/gpio/gpio-rtd.c           |  6 ++++--
+ drivers/gpio/gpio-sa1100.c        |  7 +++++--
+ 12 files changed, 63 insertions(+), 40 deletions(-)
 ---
- fs/userfaultfd.c | 2 +-
- mm/hmm.c         | 2 +-
- mm/userfaultfd.c | 6 ------
- 3 files changed, 2 insertions(+), 8 deletions(-)
+base-commit: 9da895e97057ad946b2e727694af3fa5ee51d527
+change-id: 20250617-gpiochip-set-rv-gpio-e1e864768942
 
-diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
-index ef054b3..aef4e86 100644
---- a/fs/userfaultfd.c
-+++ b/fs/userfaultfd.c
-@@ -304,7 +304,7 @@ static inline bool userfaultfd_must_wait(struct userfaultfd_ctx *ctx,
- 		goto out;
- 
- 	ret = false;
--	if (!pmd_present(_pmd) || pmd_devmap(_pmd))
-+	if (!pmd_present(_pmd))
- 		goto out;
- 
- 	if (pmd_trans_huge(_pmd)) {
-diff --git a/mm/hmm.c b/mm/hmm.c
-index feac861..d0c5c35 100644
---- a/mm/hmm.c
-+++ b/mm/hmm.c
-@@ -441,7 +441,7 @@ static int hmm_vma_walk_pud(pud_t *pudp, unsigned long start, unsigned long end,
- 		return hmm_vma_walk_hole(start, end, -1, walk);
- 	}
- 
--	if (pud_leaf(pud) && pud_devmap(pud)) {
-+	if (pud_leaf(pud)) {
- 		unsigned long i, npages, pfn;
- 		unsigned int required_fault;
- 		unsigned long *hmm_pfns;
-diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
-index 58b3ad6..8395db2 100644
---- a/mm/userfaultfd.c
-+++ b/mm/userfaultfd.c
-@@ -1818,12 +1818,6 @@ ssize_t move_pages(struct userfaultfd_ctx *ctx, unsigned long dst_start,
- 
- 		ptl = pmd_trans_huge_lock(src_pmd, src_vma);
- 		if (ptl) {
--			if (pmd_devmap(*src_pmd)) {
--				spin_unlock(ptl);
--				err = -ENOENT;
--				break;
--			}
--
- 			/* Check if we can move the pmd without splitting it. */
- 			if (move_splits_huge_pmd(dst_addr, src_addr, src_start + len) ||
- 			    !pmd_none(dst_pmdval)) {
+Best regards,
 -- 
-git-series 0.9.1
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
