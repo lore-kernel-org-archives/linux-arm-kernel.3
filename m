@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62549C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583CFC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HirNLTF6E7mhNhLaSQKScEQLOYAqQZVgjyZpc3XGDrg=; b=DCyGd+BCji3+0cDJi9lYVF/kdI
-	VmYbB40sDhfyziLQ9WmAMSCsjCpAbF101ZsYmgIgqb6xkphT2m2hLI+LIwhMjdsh9ePlHtoIWuIDC
-	WXvCn84RbdhMX21TmuX9huIbQ71icH2250AaPRzncy1IAgo4HhAj1Jme/DR8Ia9naXUkmxW6cTrou
-	7DIceRTUH1OhW6so21GF44qqaheLeR6oAuIPvyyDhAFrg0n+38pRZWSZ8xzxrB/Zz2OJ+jFRqNsPO
-	XtSdWmsOeLcH5/Wi2A/LgbQSn73peJgzJtfW/NTirlMAKutyIIRiTlZj2P8tTM9L9JB25ACMm049w
-	MxLpkl/A==;
+	bh=82PBFjzJxadblYHMtO/5DNUVab4uZMm9S980qpWl8yE=; b=zcpFvfId82xoULDWOTmWqHA5Rm
+	G885ajnEwyH8CSPQLoGwF36pvciv3Hdt8vhdWK0kLh15vhs/0KjjET1WtywQz83fUnZncqKZYld9c
+	chOYw5eOAMuOY2jNNo4AN6gqxsH9XfWTDuGtZqMxeP78gnQIXrC1nmFeEdTjnP2SttVXBJO7JnfaT
+	GGeD3LsJskXPXb0y6183JYPLPjbXOn6p/4E7Q0myEdyrk6e+6M1fM10/MZvaOjQ618FP8jDFVNnzQ
+	cwql9DdfybM50BGH4ijgqe2zgzFZ8DLgpH+oOgwCP38TxijWa4IA64ZtjGNfkP2gXZUmIRkmn4gOc
+	/VqptJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHUl-0000000DWZa-41h8;
-	Thu, 19 Jun 2025 15:48:07 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uSHUw-0000000DWmF-11Pw;
+	Thu, 19 Jun 2025 15:48:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEXi-0000000D4vc-2J66;
-	Thu, 19 Jun 2025 12:38:59 +0000
+	id 1uSEeB-0000000D5gF-0XRq;
+	Thu, 19 Jun 2025 12:45:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C9667A54493;
-	Thu, 19 Jun 2025 12:38:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CD5EC4CEEA;
-	Thu, 19 Jun 2025 12:38:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E8736115D;
+	Thu, 19 Jun 2025 12:45:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7822AC4CEEA;
+	Thu, 19 Jun 2025 12:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750336737;
-	bh=0O8KUs11HYzYDV9dS+Fjh+t+vw87oB0LvVgWoJBSoKI=;
+	s=k20201202; t=1750337138;
+	bh=KNqb7eHKDRfrbzB+nYR6iggc29bY0RRO9LiF69GOYI8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=emSXN9QNT3nkgNQTuAleo3mJHp4mZ0ARLDH9YcB5KZfxJhext93gFSgvVOAJScqdJ
-	 G5fB2V2QcQ9rDIO5Sb3u0vVsPysUlfbhTkEWgCSMcF+/b/98dNvK7u7OIps8FVWID0
-	 07I+/dBO6Ij7UUHpr4m9jVILeLIJimvgAmvPtmVq3TfzUfx4e5DvsYLgg0WnAnnObJ
-	 AtwLwuwSY3qRoW/yFQeB4sXurSWkn2TlJGzItFPQPUgGPyje5ERerhuu21IujH8SPd
-	 t2WzcvqtBzmirpKBx95bxkuNxtB8kpIWHEEI8JROzkPoQ9iMKsnIWYEX6oYkFV/Jai
-	 wyVBqjyFb3gfA==
-Date: Thu, 19 Jun 2025 13:38:52 +0100
-From: Simon Horman <horms@kernel.org>
-To: Frank Wunderlich <frank-w@public-files.de>
-Cc: Frank Wunderlich <linux@fw-web.de>, Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>, arinc.unal@arinc9.com
-Subject: Re: [net-next v4 1/3] net: ethernet: mtk_eth_soc: support named IRQs
-Message-ID: <20250619123852.GM1699@horms.kernel.org>
-References: <20250616080738.117993-1-linux@fw-web.de>
- <20250616080738.117993-2-linux@fw-web.de>
- <9FD09C8D-A9DC-4270-AB4A-6EBE25959F12@public-files.de>
+	b=iwYq1A2fmSqsQaRBsaydPOG21gcTZCtQd7cYOYCEGO+WYBLtTuJT/9uNfzsZ+9Vps
+	 uRYjx7+K7cWyyYCYOX7eUU4RfG2XNfDlCo6xWjQ7PYuRl/PzOJXe6nvvBDtX/uim+B
+	 S++kc8EQVH9INpuVvcdjMfHmT4svUZZczCZtatRH2PfF9UihMu6fU14qbAlXLb1Mpv
+	 +dGKfzMHYSWmGMR49wGjHkrOzbB14t3DjHD8EsCMEcJlsBD4d23TFosFIDV/Tlv4pf
+	 VUf6hio6bIfjEW3X23Gwmg3ePGgwhy3m5ko6QI5XDep/RFn6Qpjf0pzXz0kY1PaAl4
+	 8Snes676Vd6wg==
+Date: Thu, 19 Jun 2025 18:15:20 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: Niklas Cassel <cassel@kernel.org>, lpieralisi@kernel.org, kw@linux.com, 
+	bhelgaas@google.com, heiko@sntech.de, manivannan.sadhasivam@linaro.org, 
+	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, 
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
+Message-ID: <rjgmkdk33h64plssiw2euna3wo4ejw4t3gisqkt3ibco62vjin@w2yu6wnzwled>
+References: <20250510155607.390687-1-18255117159@163.com>
+ <20250510155607.390687-2-18255117159@163.com>
+ <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
+ <aEwRAZgLJUECbGz6@ryzen>
+ <1e3ba7e1-dad3-4728-85d2-276945119ab0@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <9FD09C8D-A9DC-4270-AB4A-6EBE25959F12@public-files.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_053858_655527_0D64B68F 
-X-CRM114-Status: GOOD (  16.88  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1e3ba7e1-dad3-4728-85d2-276945119ab0@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +77,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 09:44:34AM +0200, Frank Wunderlich wrote:
-> Am 16. Juni 2025 10:07:34 MESZ schrieb Frank Wunderlich <linux@fw-web.de>:
-> >From: Frank Wunderlich <frank-w@public-files.de>
-> >
-> >Add named interrupts and keep index based fallback for exiting devicetrees.
-> >
-> >Currently only rx and tx IRQs are defined to be used with mt7988, but
-> >later extended with RSS/LRO support.
-> >
-> >Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> >Reviewed-by: Simon Horman <horms@kernel.org>
-> >---
-> >v2:
-> >- move irqs loading part into own helper function
-> >- reduce indentation
-> >- place mtk_get_irqs helper before the irq_handler (note for simon)
-> >---
-> > drivers/net/ethernet/mediatek/mtk_eth_soc.c | 39 +++++++++++++++------
-> > 1 file changed, 28 insertions(+), 11 deletions(-)
-> >
-> >diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> >index b76d35069887..81ae8a6fe838 100644
-> >--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> >+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> >@@ -3337,6 +3337,30 @@ static void mtk_tx_timeout(struct net_device *dev, unsigned int txqueue)
-> > 	schedule_work(&eth->pending_work);
-> > }
+On Fri, Jun 13, 2025 at 11:31:01PM +0800, Hans Zhang wrote:
+> 
+> 
+> On 2025/6/13 19:52, Niklas Cassel wrote:
+> > On Fri, Jun 13, 2025 at 12:08:31PM +0530, Manivannan Sadhasivam wrote:
+> > > On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
+> > > > Current PCIe initialization logic may leave root ports operating with
+> > > > non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> > > > configuration is handled during bus enumeration, root port MPS values
+> > > > inherited from firmware or hardware defaults might not utilize the full
+> > > > capabilities supported by the controller hardware. This can result is
+> > > > uboptimal data transfer efficiency across the PCIe hierarchy.
+> > > > 
+> > > > During host controller probing phase, when PCIe bus tuning is enabled,
+> > > > the implementation now configures root port MPS settings to their
+> > > > hardware-supported maximum values. By iterating through bridge devices
+> > > > under the root bus and identifying PCIe root ports, each port's MPS is
+> > > > set to 128 << pcie_mpss to match the device's maximum supported payload
+> > > > size.
+> > > 
+> > > I don't think the above statement is accurate. This patch is not iterating
+> > > through the bridges and you cannot identify root ports using that. What this
+> > > patch does is, it checks whether the device is root port or not and if it is,
+> > > then it sets the MPS to MPSS (hw maximum) if PCIE_BUS_TUNE_OFF is not set.
 > > 
-> >+static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
-> >+{
-> >+	int i;
-> >+
-> >+	eth->irq[1] = platform_get_irq_byname(pdev, "tx");
-> >+	eth->irq[2] = platform_get_irq_byname(pdev, "rx");
+> > Correct.
+> > Later, when the bus is walked, if any downstream device does not support
+> > the MPS value currently configured in the root port, pci_configure_mps()
+> > will reduce the MPS in the root port to the max supported by the downstream
+> > device.
+> > 
+> > So even we start off by setting MPS in the root port to the max supported
+> > by the root port, it might get reduced later on.
+> > 
+> > 
 > 
-> Hi Simon,
+> Dear Mani and Niklas,
 > 
-> I got information that reserved frame-engine 
->  irqs are not unusable and have no fixed
->  meaning. So i would add fe0..fe3 in
->  dts+binding and change these names from
-> tx/rx to fe1 and fe2.
+> Is it okay to modify the commit message as follows? The last paragraph
+> remains unchanged.
 > 
-> Can i keep your RB here?
+> 
+> 
+> Current PCIe initialization logic may leave root ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, root port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result in
+> suboptimal data transfer efficiency across the PCIe hierarchy.
+> 
+> During host controller probing phase, when PCIe bus tuning is enabled,
+> the implementation now configures root port MPS settings to their
+> hardware-supported maximum values. Specifically, when configuring the MPS
+> for a PCIe device, if the device is a root port and the bus tuning is not
+> disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
+> match the device's maximum supported payload size. The Max Read Request
 
-Since the meaning is changing somewhat maybe best to drop the RB.
-I'll look out for the new version to review.
+s/device/Root Port
+
+> Size (MRRS) is subsequently adjusted through existing companion logic to
+> maintain compatibility with PCIe specifications.
+> 
+> Note that this initial setting of the root port MPS to the maximum might
+> be reduced later during the enumeration of downstream devices if any of
+> those devices do not support the maximum MPS of the root port.
+> 
+
+Rest LGTM!
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
