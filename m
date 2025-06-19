@@ -4,55 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C406C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 01:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E70C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 02:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecJCHyXQWtvYtWnqPa5n/BlodDAEwF7Ss3bcPwxT4oc=; b=2tRRq2eA2yDsOHXoL9fIZS8/cN
-	GDUJbw63YPaFy5cnGh4YT69Lt61yD42PWRro1ialGFOQc9NdztTbl8KZ+Ei26jwp472OFkmTC5Lui
-	6DBJwPiy3WgT3jmbWJuqVrcI4ReVKZiEcTLXxTHxjUtOa39k8x36c7ihDontx+4wR1tQBCRJCejod
-	69giSd6vr+IqoE5hGVs6O9jDEoNwfqFCT98+geM5mmCy32vUTgwiGU5b9e3a4Sdycvdci6cgM1io/
-	PygT2cGSawGLisjOHkbcL+4Zg5LUQz/v64UXWW0JSsFvzQ1iNwPBFFqYo8XRtPrpvHxJcyFZobqRS
-	bFWD8dNA==;
+	bh=fZ9qB8YM06QciFmsf/ziooM1lQz+F4n9Qr+gXYxKf9M=; b=WXzoiR6UJFfYKHl0shcvEFWeuY
+	6XG7YxAzr9876xN3N5O3BTiAwfiWQsBJz2paAlPW//jkZMRdfOdifakMW0pxQyBHBFBmafR/QpE79
+	I3sW7StfeAfQjQ5S1Hnz2CeMqlVYAEMSGgApFUin/phLt9y1ZEQaLSdv+c0ljmzVgWp/G4c8lLQtb
+	ES52rit+KCU8k12Sh6Qvs0gS8UYwKtqKGY3nIGXEmf3srfP4sxJzk1UCAO19yc762iwado4zlHUE2
+	Ibml0bx1xqNLyfqTmMmiAbYIQqgu8ORHJ8jcE/KUHRttqWtoj+TaqDKbiTD6QfNlGC3EO15Q1E+ww
+	g2pz0/Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS4GA-0000000BlLl-3bcF;
-	Thu, 19 Jun 2025 01:40:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uS4gV-0000000BnHM-1MXj;
+	Thu, 19 Jun 2025 02:07:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS4Dy-0000000BlA5-47W7;
-	Thu, 19 Jun 2025 01:37:55 +0000
+	id 1uS4eI-0000000BnCh-2v42;
+	Thu, 19 Jun 2025 02:05:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62B576116E;
-	Thu, 19 Jun 2025 01:37:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7B5C4CEE7;
-	Thu, 19 Jun 2025 01:37:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C129B6116E;
+	Thu, 19 Jun 2025 02:05:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60D3C4CEE7;
+	Thu, 19 Jun 2025 02:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750297074;
-	bh=ecJCHyXQWtvYtWnqPa5n/BlodDAEwF7Ss3bcPwxT4oc=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=THYebIHUEplET6ir/Wr6WdVuvILyv57hFEKH5hqn7/8jjeEDrnKD6eFKT+YUKlDC2
-	 ySKksmohmjqmAE3ce4ijj9204IHshJH/JpadZ5KLa31Utj4GIX298Y08s2WmojlWfV
-	 GgI0k8+mA264ka6nppGywQBMMH0oKnJmYk9imhirlvgJj0NdLRLICT2xx0SRpinQ/g
-	 LblsauHMp9mnq69uyJjb/eYxJguSmx7bvQ1OPBmPycAu+kQPWM/OaaeJoGqiopqmvY
-	 84QaANBEJ4avD3So1fVyQHUU8h6J9MQutWyaf0ocMx6oNaU+Nt8D7wfihXsl4lqrMs
-	 Alsc4oSHue4/g==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250521004625.1791913-1-robh@kernel.org>
-References: <20250521004625.1791913-1-robh@kernel.org>
-Subject: Re: [PATCH] dt-bindings: clock: Convert brcm,bcm2835-cprman to DT schema
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Ray Jui <rjui@broadcom.com>, Rob Herring (Arm) <robh@kernel.org>, Scott Branden <sbranden@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
-Date: Wed, 18 Jun 2025 18:37:52 -0700
-Message-ID: <175029707294.4372.5366260558187845088@lazor>
-User-Agent: alot/0.11
+	s=k20201202; t=1750298705;
+	bh=IaaiI3fACwLbpIQhogak7uQ2F0Ezj93eSfpcTZk4TrI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Grog+5XEBJHGCI51zuStDEkFp8RM1HCmINdY01219b1EEKBT2nw5uj+0FmSeCETc8
+	 KzGh/RsgHSPtkplC8O67EOFTyF3E00D/bUCdMnh6+teLnh173B9aqWELetBmzx7kPD
+	 5cPMrZyBjngoXOF2wjZsD2r7wyMTn4CsXIlhOyjV8JXqNBR68Z4oTqjk7Zaig3hpB3
+	 QJvKbfpXbTJH2jMVXO/YGHjnj+MfNzOfEd4OEhrJBPe/alfAunJXMctrid3sz5zlWD
+	 We1rAxhU6ecokfmAdeQZjYhdTmaq2GDQFa4FyevqnhytrGbT7aLC/ea74ettl9pHq9
+	 BPb/ZEfBMwI8A==
+Date: Thu, 19 Jun 2025 11:05:02 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
+ <ulf.hansson@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Tomasz Figa <tfiga@chromium.org>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] mtk-sd: Prevent memory corruption from DMA map failure
+Message-Id: <20250619110502.be536151c664cd4ada7d1ca7@kernel.org>
+In-Reply-To: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
+References: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,12 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Rob Herring (Arm) (2025-05-20 17:46:24)
-> Convert the Broadcom BCM2835 CPRMAN clock binding to DT schema format.
-> It's a straight forward conversion.
->=20
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
+Ping?
 
-Applied to clk-next
+I think there will be another bug which leaks the resources
+to cause this failure case. But anyway, without this fix,
+if DMA preparation fails but runs a DMA, it will overwrite
+the previous read buffer memory.
+
+Thank you,
+
+On Thu, 12 Jun 2025 20:26:10 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
+
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+> If msdc_prepare_data() fails to map the DMA region, the request is
+> not prepared for data receiving, but msdc_start_data() proceeds
+> the DMA with previous setting.
+> Since this will lead a memory corruption, we have to stop the
+> request operation soon after the msdc_prepare_data() fails to
+> prepare it.
+> 
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> ---
+>  drivers/mmc/host/mtk-sd.c |   17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+> index 3594010bc229..56b4999fe58f 100644
+> --- a/drivers/mmc/host/mtk-sd.c
+> +++ b/drivers/mmc/host/mtk-sd.c
+> @@ -834,6 +834,11 @@ static void msdc_prepare_data(struct msdc_host *host, struct mmc_data *data)
+>  	}
+>  }
+>  
+> +static bool msdc_data_prepared(struct mmc_data *data)
+> +{
+> +	return data->host_cookie & MSDC_PREPARE_FLAG;
+> +}
+> +
+>  static void msdc_unprepare_data(struct msdc_host *host, struct mmc_data *data)
+>  {
+>  	if (data->host_cookie & MSDC_ASYNC_FLAG)
+> @@ -1466,8 +1471,18 @@ static void msdc_ops_request(struct mmc_host *mmc, struct mmc_request *mrq)
+>  	WARN_ON(!host->hsq_en && host->mrq);
+>  	host->mrq = mrq;
+>  
+> -	if (mrq->data)
+> +	if (mrq->data) {
+>  		msdc_prepare_data(host, mrq->data);
+> +		if (!msdc_data_prepared(mrq->data)) {
+> +			/*
+> +			 * Failed to prepare DMA area, fail fast before
+> +			 * starting any commands.
+> +			 */
+> +			mrq->cmd->error = -ENOSPC;
+> +			mmc_request_done(mmc_from_priv(host), mrq);
+> +			return;
+> +		}
+> +	}
+>  
+>  	/* if SBC is required, we have HW option and SW option.
+>  	 * if HW option is enabled, and SBC does not have "special" flags,
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
