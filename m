@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A135C7115D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39933C77B7A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=; b=JwGv8B4gOcOUoSjB3eRCOGAK0d
-	bLTpAKHPeOFq9tvgzKV9bpkMWYgrjMq9Yvjhe9NisjmiJaXCWEjSWZgCvpRUopnGlTPb+3L0fjPm0
-	tCRyB2eU1XowIh9k2h4wLhVMHc9/0L/MlpQEAVjOT6Jb0m6TNzJ/jTlTMpe/ZjUM1PnVeHFf5fnn/
-	9Ybxcg/8tpEboKJ4J0fRz/NtvQ9TfXSi/1HV7P+C4fBGXhxuNXrL/Ou4ovJ1tfpmjJnNTM/NR/goq
-	LryboDmmfBPOPsa3hgMjltLBB+1hcdauZt72UCd2x/AUWd5pBUmDWBlOISpokXYl3WD6O26SW1Cmf
-	NsL/e9Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87/6cHwCrWlOKd+RCLhOsgnsh7OHY+CuI1v3O1G72fs=; b=UZRUts9poJsLD+5Ty0MLpkCvcA
+	aOS5qxdKp6lBm9D+JlXHU1An0k4LVTp+i55ypQv2lSarG/wLacizdHmtB1lsOrTR9Q56BLdVVA1CD
+	8Yj0IWhUUj6IxTYdcRMUSqYSw0f1mlHxKD3+MSylIn0FcqLN+BB6eeuiijYxNZUUNDSTDyp0hIWX5
+	Xjv2XiKuO5nYX8lq1ZXEvDd1y6MI63tx5L5fj/b0HtG7KYyLoCG1jkV+rqrT+m9+GHD5ic2EWmLeG
+	5gqsDDIzFKT+cv49hNvRTW3yEHVLhngJNy9zBmpSzWabRw4MrlM4IrIDqXZnU8qGrHUAZHgOcTnTI
+	GRKplipA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMSW-0000000EGfv-11OU;
+	id 1uSMSW-0000000EGgC-41PY;
 	Thu, 19 Jun 2025 21:06:08 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIbr-0000000DeMH-2yaF
+	id 1uSImX-0000000DiOi-04XM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 16:59:33 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-73a64e126d9so943078a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 09:59:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1750352371; x=1750957171; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=;
-        b=LQXGmBwKHv2xUU0S21y5IZLO+oWLA52Y0Y5UgrbZev9h9oZl4+5Bo0qUh38Ymfh1mP
-         R/TYUgunGzkDxTKL0//pncWW3OhV5AT+37gw5y5rUC3VJ+aHYcCSwa4E1KSpffTgZ49W
-         3QAjY3CSC8BYue3OrN+7l4PMDXy/leIEoAyJ3WXKyjLS7cSgPMo8dhKgGWGuS2nuCHW2
-         zu81Js73/kKNopn1XcQtICU8288HLEcQLQgtT3hefgTpP5Fp9dhVorOOvUb73w2FvoOj
-         +wfi5dH6x266HZOCvRPLZGrMIlGaXoyGw/t17DX7SDex1/CDskv635+UeGpseHSVGpja
-         PlqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750352371; x=1750957171;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WU789LESDPx6spX9Gu45wOPXnZU17iFeIzBAgdevUwE=;
-        b=vwDe6Gz5apAPMtWz1vGd4X/JluSnD+CjKh7vPjUiaDK4EuCfdRylCHhWAsZ6CEvqNt
-         lgbM+JhEUSuyhEERjTflf6A8+L9NmaaiFUyuQgD9CVZZdUdovI/TPd2T/kCfSHcfWW6z
-         2JrP7qrOxfyca/Yxa81R+VN372Fl6gmVlzQxqwWDq4JyL19qvNRoRxLDe45xfTBdlMgM
-         BU47xcq6/m8gILh1EUiqaurvIMLxe15dlvjVXfwkNl3tCA7/ABk258cOWONJfKD0+BjV
-         uwJaXtJsyFOArQS3G5A9FBEKXuLXL6hos55uUedWkUHd/7dVYaW7U7RmnM3upaclzh4Q
-         qtrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQ2hL/wVykp5m031WTWtcn4gGICxEIXkCJTsyoQXy2K1bbexm7G0Tf9AtSx8W8kGzjQ4wOum1nfxwEvdNDSRwq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqQ7/eYDjf2cRnHMXiSQGKCM8N1CCN1fcZ9rVQsRO3YI5rTPqL
-	jUcb/Jmx2JKZC0PFFHcDS6R/C2TpIa90PXzMNDo+jChrL2OfIJtMOOrqysPEQLnqWvY=
-X-Gm-Gg: ASbGncth0nQrgjbjhgkEkjMBfZ5ef9RGguZ27vMIHUVy7HqFmPO1K+HPcs3Rym8OtQH
-	jGQnRjI9CX2l3maWocWcoFZiNaOxqSBbDJuDvYj7bE8O1kcDnmz1bqA9EQRhtIgccI2f5HXbu+I
-	6nZ/7nCq5i/hCtZgZR/uUkzUcCDxb8XKwXN7ZGJi/1wzXTDOAfVfOi4qMS+NgsyIRLmAajeE/E6
-	jAfJ53GxNMqjCIyt/hkBvGWtfjAMd3ntiDIrvP10WklB91OTE6qIskrj/p2GZDgPAT8SKZDVdq3
-	Wm5ZuefneQFDPsGpArmwWcqA9fnt4DxRKO3O
-X-Google-Smtp-Source: AGHT+IFIVSAeEPqWaR7ouc36Dp5BIP5quliMTNtM08oDDkQu9GEu/sRTek8upP25DBEtFCz1lvvpVw==
-X-Received: by 2002:a05:6830:6c8a:b0:73a:8a8a:5151 with SMTP id 46e09a7af769-73a8a8a5334mr1331051a34.17.1750352370711;
-        Thu, 19 Jun 2025 09:59:30 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73a284ff5f4sm2339324a34.43.2025.06.19.09.59.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Jun 2025 09:59:30 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uSIbo-000000003GJ-3nRB;
-	Thu, 19 Jun 2025 13:59:28 -0300
-Date: Thu, 19 Jun 2025 13:59:28 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Thu, 19 Jun 2025 17:10:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FA5349BF0;
+	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11CBEC4CEEA;
+	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750353031;
+	bh=1tM7lfGa2OX6upFSfSRNAvjF/6bzMIakzUVOukjfgp0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KjyYMQ1Be302kdviESang5cJb1yKX07PYqBpvNGpMtyiRA+F0DJVli2y2lUvUL1AJ
+	 mg1uRLdqOSv9XpfshipGT4rCfCIKKYzL5EeAy5sB2WqeCHajR7KY+xtU6tmoZ+vW96
+	 l6SqVsGDPti766CEhXkzPt9+f53H8EO2xWk0gElBGHTa/K8wY3JUSwWtrdDFhcqpLv
+	 3vuwVXSG3MdhQR6VEWPLVTdi0+e2UMRP0rEoGoohU9MNWoZYoOI1U0bcGdP5u2G5Vs
+	 YKvPjFQ50jcrAx1nwNOx5O1K5nTZ6HbDrfWpOtJimUAxZz592GYBq/rgRC8hnhCNUJ
+	 ZerjfQ2poc2xg==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 8E4075FF4F; Fri, 20 Jun 2025 01:10:28 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
-Message-ID: <20250619165928.GA10257@ziepe.ca>
-References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
- <20250619131232.69208-4-benjamin.gaignard@collabora.com>
- <20250619134752.GB1643390@ziepe.ca>
- <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] clk: sunxi-ng: sun55i-a523-r-ccu: Add missing PPU0 reset
+Date: Fri, 20 Jun 2025 01:10:25 +0800
+Message-Id: <20250619171025.3359384-3-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250619171025.3359384-1-wens@kernel.org>
+References: <20250619171025.3359384-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_095931_860620_A3AB40F1 
-X-CRM114-Status: GOOD (  37.82  )
+X-CRM114-CacheID: sfid-20250619_101033_077289_CB135030 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,81 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 06:27:52PM +0200, Benjamin Gaignard wrote:
-> 
-> Le 19/06/2025 à 15:47, Jason Gunthorpe a écrit :
+From: Chen-Yu Tsai <wens@csie.org>
 
-> > Ugh. This ignores the gfp flags that are passed into map because you
-> > have to force atomic due to the spinlock that shouldn't be there :(
-> > This means it does not set GFP_KERNEL_ACCOUNT when required. It would
-> > be better to continue to use the passed in GFP flags but override them
-> > to atomic mode.
-> 
-> I will add a gfp_t parameter and use it like that:
-> page_table = iommu_alloc_pages_sz(gfp | GFP_ATOMIC | GFP_DMA32, SPAGE_SIZE);
+There is a PPU0 reset control bit in the same register as the PPU1
+reset control. This missing reset control is for the PCK-600 unit
+in the SoC. Manual tests show that the reset control indeed exists,
+and if not configured, the system will hang when the PCK-600 registers
+are accessed.
 
-This will or together GFP_ATOMIC and GFP_KERNEL, I don't think that
-works..
+Add a reset entry for it at the end of the existing ones.
 
-> > > +static int vsi_iommu_attach_device(struct iommu_domain *domain,
-> > > +				   struct device *dev)
-> > > +{
-> > > +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> > > +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> > > +	unsigned long flags;
-> > > +	int ret;
-> > > +
-> > > +	if (WARN_ON(!iommu))
-> > > +		return -ENODEV;
-> > > +
-> > > +	/* iommu already attached */
-> > > +	if (iommu->domain == domain)
-> > > +		return 0;
-> > > +
-> > > +	ret = vsi_iommu_identity_attach(&vsi_identity_domain, dev);
-> > > +	if (ret)
-> > > +		return ret;
-> > Hurm, this is actually quite bad, now that it is clear the HW is in an
-> > identity mode it is actually a security problem for VFIO to switch the
-> > translation to identity during attach_device. I'd really prefer new
-> > drivers don't make this mistake.
-> > 
-> > It seems the main thing motivating this is the fact a linked list has
-> > only a single iommu->node so you can't attach the iommu to both the
-> > new/old domain and atomically update the page table base.
-> > 
-> > Is it possible for the HW to do a blocking behavior? That would be an
-> > easy fix.. You should always be able to force this by allocating a
-> > shared top page table level during probe time and making it entirely
-> > empty while staying always in the paging mode. Maybe there is a less
-> > expensive way.
-> > 
-> > Otherwise you probably have work more like the other drivers and
-> > allocate a struct for each attachment so you can have the iommu
-> > attached two domains during the switch over and never drop to an
-> > identity mode.
-> 
-> I will remove the switch to identity domain and it will works fine.
+Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-You'll loose invalidations..
+diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+index b5464d8083c8..70ce0ca0cb7d 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
++++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+@@ -204,6 +204,7 @@ static struct ccu_reset_map sun55i_a523_r_ccu_resets[] = {
+ 	[RST_BUS_R_IR_RX]	= { 0x1cc, BIT(16) },
+ 	[RST_BUS_R_RTC]		= { 0x20c, BIT(16) },
+ 	[RST_BUS_R_CPUCFG]	= { 0x22c, BIT(16) },
++	[RST_BUS_R_PPU0]	= { 0x1ac, BIT(16) },
+ };
+ 
+ static const struct sunxi_ccu_desc sun55i_a523_r_ccu_desc = {
+-- 
+2.39.5
 
-Maybe the easiest thing is to squish vsi_iommu_enable() and reorganize
-it so that the spinlock is held across the register programming and
-then you can atomically under the lock change the registers and change
-the linked list. The register write cannot fail so this is fine.
-
-This should probably also flush the iotlb inside the lock.
-
-> > Which will cause the core code to automatically run through to
-> > vsi_iommu_disable() prior to calling vsi_iommu_release_device(), which
-> > will avoid UAF problems.
-> > 
-> > Also, should the probe functions be doing some kind of validation that
-> > there is only one struct device attached?
-> 
-> which kind of validation ?
-
-That only one device probed to the iommu?
-
-Jason
 
