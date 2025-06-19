@@ -4,85 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F129C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F96C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rKAUYboHkuuwUmlAEHIaacn6NB6oYrxQ9WGKRISWuqk=; b=efdPR0WPUmqeCa9ZdWqoR0TYDZ
-	O7FkizuLrncRtntbdmwGgNG0MTVNINn5wStpWdqpyThn/5QivHIMCGBDhS/dquQeON49mfdoRIQKs
-	pCvtNw7Rny6AUtGmrdZPIIohKlyPrxBzZIBOEuaaXG5zlUrRYmsAN53xJeaQDeWzEOPNEoSrdH2HU
-	+CgJ2/sPMAPny5AWyjO3QQ4Tv/+gDp/Tlc695Yg0tnUzYMboqhIaEsKLv2g6FA+12Ic13lPyjxVQg
-	mTwCwxrEJcJp+0EkbKiRVwPDPrUUSkAeXNUsa/4lViWq38YgCg5oRWFDDwUtn9g53/7CBJjuOp/EZ
-	eLEqyusQ==;
+	bh=oPHkrJkpuaxQzALAFC8+kljRLyy8XfIqxOoCaIqbq64=; b=OnjRqTx4xpc0zZtKyayFuXWDLI
+	RnOz3CEbHz4GUQt0V5eExhobaYdRuZ2PG3V+Az3EepIUd4+/QSBMDqkyv9FsyZ5E0J0GCcLcd/RTz
+	NSDpEsf+1GMSZghCGTRjqYAxhpRn7pgYNVNwefIbcLqfaMnPguQ+L9ZXPPZw0tWfGHaD1CKs69iWh
+	szl61pDKzg2TuGy8dWvfnbFh+fQ2+QE+Ej8oHIZkkRMqK1NRB4PGDZT3K1/PVaLb078JmO0HwNvIi
+	Y1CvlNcvVTHkzVjbSjmcM55sXe0yIyvCK7RDb71PsdQ7oZuUGQUAC3v79gAX694opeuX8DKEycQBK
+	BlbPJqTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8Ot-0000000C7fw-03Vt;
-	Thu, 19 Jun 2025 06:05:27 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uS8R4-0000000C7qy-35fY;
+	Thu, 19 Jun 2025 06:07:42 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS868-0000000C5Oq-1VlM
+	id 1uS86e-0000000C5Uc-2gvO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 05:46:05 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ad8a8da2376so53728566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 22:46:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750311963; x=1750916763; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rKAUYboHkuuwUmlAEHIaacn6NB6oYrxQ9WGKRISWuqk=;
-        b=FJs8CNKS/QGJrpBiZ5E6e6Jxrk2J4dp4g2euyGAqLFsLnPCmMsXz8iM0mlpUPObWhx
-         3DL3uo1zK5dscI+kkbzN3j6PA13fpf9NSNUs6F70wGdZyBdPAwEvxnCZVduSCGyRtxLD
-         bjI9jAHDnvTjMAErN8Q85569dlOtskGE0I8Bs+OuZjHpU95Kt/zmZFKqPZ/XjidPzh7G
-         KkJHujfvL/rSMlJpA59JdgrC5UYI1KLl6oowiydBCN9ToFlqT5wykz0mALbgmbcxwOC+
-         deYvJe212kVfuVADPhIVrWfLITLkXF2wooapTI+gOA+LWI9ggmKBuVVmwdEBmfuIunc8
-         laTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750311963; x=1750916763;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rKAUYboHkuuwUmlAEHIaacn6NB6oYrxQ9WGKRISWuqk=;
-        b=YupVAD7st1VzbgZclDovIsrA/HPj16UXYfkuArd+RyZu7YPNROpTet2/xeBlMjx1IK
-         k98h2EJYgV6ZSRwISPsV3HdFl/22ZTt7vd3qtQ0xYDRrqM12YdgDaw3/uSV+djibarZn
-         Bt/Pbi4qo5QaUnxF/ClltbS9K/vSzZ7a2U+pTTIUV9WlekGZSN2+ZdpTF1K6uH0pqqTR
-         5BopoImQ4FVGYdx/umTUHyRK24wrZ08aMF5ubvtcZihIaZnSzUDJA3+wwL0NzPASLspX
-         0+PSSGtjeU6OiXczU7T1B2YiMLs4fraz0ZbvTYqrjXXx9zk69n2gY+r3oULzZ3IYVTJm
-         fPhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLfczJAjSNKeGIkJSFMjnwRvp5tnNMxolh3F+PFkSowZrM0KAuO3ueFCoZ8K69dMDVS3oG8cH/aFEnYkRbZpTA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwDG5uGwYx76RhZmCWF+79jJSv9KUIIoxQHxdpsTLBjclAZ8/1
-	DKdMSou2/VCtDOH7CagQeK5gRNFueUFJSohWpQjXKBTTbvDEoo1SXt7JEiBYUQPwRNMCzX1Le+R
-	Gn2/XekpE6HoA5ZFTEghddDAaoJrRFb4=
-X-Gm-Gg: ASbGncv/AEm7Epnw/SrnVwbP8ikhyu0zqcWnXtwJmdTkGjsZ7xsUpuYu6XgpzrkoEml
-	uxuB/boFA9Bz7IcNE8JoiGEIEOtb10QGipAArr3tkQtOKgFpRxRSgC/1XqEd2Dl50nc/54T4btQ
-	/MjkXPSdQHhyfX6/Jk/Id8P1pYWE8d7u/EpuyTllPE7A==
-X-Google-Smtp-Source: AGHT+IHqjpV+nZYSmGvYxmGFNRO50Tri+Llb+PMo2Om+LTMx4zqLyhSevKBPdts3VbuB6zf8mJvTk3wNS+h3GEbuDQI=
-X-Received: by 2002:a17:907:3d8b:b0:ad2:43b6:dd75 with SMTP id
- a640c23a62f3a-adfad2a1ff8mr1916244766b.10.1750311962730; Wed, 18 Jun 2025
- 22:46:02 -0700 (PDT)
+	Thu, 19 Jun 2025 05:46:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750311997; x=1781847997;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=oPHkrJkpuaxQzALAFC8+kljRLyy8XfIqxOoCaIqbq64=;
+  b=hcD9tdhjAYGwvsCdMPxfZJZ5URGx1YJ2ZmuHIQ+QP9Xcvd3KilvcTv4U
+   V1I4kVFcoUXw0Fi1xYOw6P1hVLgkYRuiCsNyuK75+jvT/oauvLOOzTYgV
+   Sl/7qX8N1V7Er+o3uqziCOO6Khwaax0G2DfY6uMVK3UDHXCk35ghgTqAI
+   GHt7+XuqoL8g0oCw5hp1IAsNnGGIn27dW2KjrQXKFNyOPZsnmP7a3tLJk
+   VjCMmXpaHBdjxE2t3NnXIsIWQ4ONpo8IamImoNNireNkX6cZMKfttF4QP
+   w3NwDPU3qbUeI0d/kQxqWJRV6B+jDVbWA03ar+4Om0NlhL2PQ3YA+Wn3M
+   A==;
+X-CSE-ConnectionGUID: l8SrSRYsTGCmbhgfWHD+PQ==
+X-CSE-MsgGUID: nv4T2dyNQy6p/Hw6ukbekw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11468"; a="75084613"
+X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
+   d="scan'208";a="75084613"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:46:37 -0700
+X-CSE-ConnectionGUID: kLCcUxbpTdKEPRu5HzPxPw==
+X-CSE-MsgGUID: 6cHauD36R5+HHFn0chrTqw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
+   d="scan'208";a="150813641"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:46:35 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 18 Jun 2025 22:46:34 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 18 Jun 2025 22:46:34 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.107.94.72) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 18 Jun 2025 22:46:34 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RGP7ABJoP7GqAaDQMqGVOLDbTfpUbFV4+hDna8n73omygDPJFSK/CV8bzEOAkH9Vqvbfoip2ZN2mwsALH7YHHslusDn9aQ0qZDDASe4hMWW9QL62j90Nt2AzWvA00wtXox5GD/LeH95AhzjVH9Yp3bxJkUYt3O25MpYX4zNtnccqxjdslU1MXxAn4w5QBpgxk6L2f8DyBRbJWWxF+3oiLSjTy979xsADKOGA/oS20OUK2zIRPGVta3nGhj3NWrUGFoiLQUKBlOfiIreZIXxZWXgo0bnV0CTv9z1iDnovqArcddVHOoUaUdQY5AlzUjwHiuERsY15xDPK8N87IeHvyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oPHkrJkpuaxQzALAFC8+kljRLyy8XfIqxOoCaIqbq64=;
+ b=WmgO2MpWq8tRFbt5AyvTAv8rGb7JkWvA2G0np2Dvda0LVrSBE7Kr9eojzy/VtLpsbpulIjHpYRpdbj+46CZRaSsVtQixAlz1UQrrlaTdGaxwQ7wnNAOjgw/S59cSSfkXQk05V7JOAT1FY9FkhBFgsgXPTF5ThhTDM8KXpWYvn1GxS87sCDBnmpS99IYXnw/geSoe3mJIUeYqxqJ72sYAYssrhYU71KIYuUjngarooLpVacy+0Ewqbbk05ckfOqUK+rc1nyNe9im7WccPdwgz4fOJCv9q0b6t0xuOJZuA7oGldBRMfTBPBG1mWJ1sNAPq86TUku0qGsxxNZC0Xray5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by PH0PR11MB4854.namprd11.prod.outlook.com (2603:10b6:510:35::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Thu, 19 Jun
+ 2025 05:46:32 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8857.016; Thu, 19 Jun 2025
+ 05:46:31 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>
+CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>, "jsnitsel@redhat.com"
+	<jsnitsel@redhat.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>
+Subject: RE: [PATCH v2 08/14] iommufd/selftest: Drop parent domain from
+ mock_iommu_domain_nested
+Thread-Topic: [PATCH v2 08/14] iommufd/selftest: Drop parent domain from
+ mock_iommu_domain_nested
+Thread-Index: AQHb3PahKbdirSUoY0CdSPWpD/gskLQKAQJg
+Date: Thu, 19 Jun 2025 05:46:31 +0000
+Message-ID: <BN9PR11MB52768B9E5C2F1FF97F63A2C68C7DA@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1749882255.git.nicolinc@nvidia.com>
+ <0f155a7cd71034a498448fe4828fb4aaacdabf95.1749882255.git.nicolinc@nvidia.com>
+In-Reply-To: <0f155a7cd71034a498448fe4828fb4aaacdabf95.1749882255.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH0PR11MB4854:EE_
+x-ms-office365-filtering-correlation-id: 7df28631-cd78-4791-2d4c-08ddaef4a4c7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?3791SbX9v/gQ/jBpffylQXMwmfVITuV/hQWev7y1/nmkcaQ2ujIqEHNNRVDq?=
+ =?us-ascii?Q?dWmjgZXEj4WZ3ksMaz3JNAyO/0QhvElIN9WxIDEPJ2TWWl3b0GtFu2oZdody?=
+ =?us-ascii?Q?v56A+EihLNZMf2eHwlsRcjKseSyUTOhCaOGZSFUCwDJiXqbOYxiB+HD9WldV?=
+ =?us-ascii?Q?vFrjpOgTZ5ahWjZamipvzA/HZqQyVeMqP2UJ9tGHHiN4pbJFjyANTavV64Oi?=
+ =?us-ascii?Q?yCsn6XJcgGuU47YjIjnTpyPyGJm1uJ06CksvRnjJTWI2xoKWlH6trPW6iNyp?=
+ =?us-ascii?Q?+e0GKYemOAKjLFHasm8fBu2AsZgwT3UBdB/Bx5XW6h9StILC2TI5/YuIY70U?=
+ =?us-ascii?Q?av5sSEMQJRCOuQ9PwnDjBSbZ1STPhyAPkX3bQtp2Heris9hM0g82ZEiJJ53C?=
+ =?us-ascii?Q?S/wM8DOoaSjyZl6bsrhOwE/yD476pip/zfj2IrrP84bkg06iws3qbBPpeVQQ?=
+ =?us-ascii?Q?e/9tsX5GbB2v01Ckj3tNZGwEoxNUXWPOEvnuF3sl2ORRVu5tmS5W7r8iOe98?=
+ =?us-ascii?Q?Zzx9sCTfiTTIEDGmcZc63Xr1MWv1kn0bT8xHmlAps2X0hZWcMNXZcQI+J67k?=
+ =?us-ascii?Q?PTRhEXoCLaiFEHQX7yDWqHNe4WZ/20Rw8FZ7kWUycpn9SNjdYqFKhrG1DFzD?=
+ =?us-ascii?Q?eLJ4IrqG8hMrQZL5uCuO1tijQpbvZXsGyV2ZE+m4heaWKJYUBYfhWN4QGbMb?=
+ =?us-ascii?Q?uRcmRKshUhF8MBtA9DC/6uk9kRybHC4HSMs+KZGfc1BS1zGWjgUipuqJV+mz?=
+ =?us-ascii?Q?iTlQ1Q9lXB4c2H/dEmPQOWUhkaCz2b0ckeSYHQfYFMZScVYaBTYExRUkfjYG?=
+ =?us-ascii?Q?spK9i6+oRRpv/OAME4D8HKEwbT+nYXz5k39A6ROxSBVxlKKpcSoCT8/XoDX3?=
+ =?us-ascii?Q?3dAchbQBnPAEaLTFZ8gXD6TJdSjBC57N3e6uM5F6YhMMlpekJCFNCLYALSbv?=
+ =?us-ascii?Q?ClHA+gQvodnFpFXJq/CHHDaLQuhodLq0Rf5gGF1f0shcHO/TYJH7ZqA19ZgC?=
+ =?us-ascii?Q?wR+yRIDthdHe0HjPNbeG7wF+200nzIk7Pxo9MxTjpxuDAuOvcusWT6mEWVQU?=
+ =?us-ascii?Q?V0TP29vVdFAmAR8Ly2itMx/UaY8JtHNjJvmZAnrueQc4qHqpyn0jNyRdGG0m?=
+ =?us-ascii?Q?J/vIcp0d2YflMrYo/NSntNpvyFVWu5eTmNQ51BKNOrZRQ1h9HADPDqCdvNfj?=
+ =?us-ascii?Q?D2/TsGisYovIKvWKsn0fkdcbP41gZaAj6fDkc655nICQjD6bVHeDATh507ND?=
+ =?us-ascii?Q?n2fUgD1wlwIwy/yGyV+vN4ljHYeG811j1rh0l88baDnmiPFmFKKQRNt0SlWm?=
+ =?us-ascii?Q?exwlakJHAJbD6MhdL9W4j+ovW37mCrNdgeOY8h2tzUrp6SVG9tW/5zLGHeAs?=
+ =?us-ascii?Q?euase5ffaHU8uhzhp05QB8cHs2cvmfQx+x9kadCpvaYzg2RhSpW6xYt/CrCJ?=
+ =?us-ascii?Q?MIn2R9hw0s4fJPASVpcv15yQTCjGJrFD5wX4/QHHzuqIZZFSl6xazf7QaYeN?=
+ =?us-ascii?Q?QOymzZ+mxkgRyfM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KHTg5SucCLiLRIbKTYsux19o5E1JuLVHyNeYywQ4mIAHOKT6krGIq9biTA28?=
+ =?us-ascii?Q?Nd3nA3d6qbqjiQO1ZI95aznVXePN30uvoj98r4ajOLUn7Fvp4c5kR6rlyLO3?=
+ =?us-ascii?Q?dNgTbF7mE1dWOKHnz4YmcR0oSdLC7NBccKoMlhA3iuPY9JjGRXPCf9SAHoUI?=
+ =?us-ascii?Q?dnQm5WZ4CY48yq4nj2uoy66HNQFbY0sZreC+XbA2ogSB6bj+xQoPG8eA0wcN?=
+ =?us-ascii?Q?z356GdPURs+yZ5filp1zOQGMFPrQetOAHI5Pv+uPmtLMSnhrbo9SrBapVh0B?=
+ =?us-ascii?Q?a7TNF/9+e6legqZu8DSSkmBWUYNdHSnLNDdOX+0rdnSm1qBwM3QJjWBjKs7r?=
+ =?us-ascii?Q?y4LWixZZanIF2qbSty4D8PQiJ8PFD8shtiE4kr4N2GV1VUel8Ri826zN+y1+?=
+ =?us-ascii?Q?JIuAcY+QwPBEsnq1NTeyY1dGnfmz3XcO+3QqRUewljP6flmex9GBupVT+0FB?=
+ =?us-ascii?Q?GqKtCnT46RrYTuAV6n1hBrwWJOf53An/88rXSBjM9N4xsJj2bLNV4QaZZ+Od?=
+ =?us-ascii?Q?+sePxJGJ33riPkzU6P93t8/0o9kutPOPI+jTm2Py0bejbfXQXqTZP6mzT4bC?=
+ =?us-ascii?Q?fkC/S4DpWJr63urDvpvCdMzNUSO7MMzEgoJkgo17KFbjWs2q3UL0+94R6Y7H?=
+ =?us-ascii?Q?dyT98FsVZrkFmcvj7Sb/P54+/yosXMZOBKzSVKZgW1Emh90Tw/TdxKE7DKCx?=
+ =?us-ascii?Q?dUXeqaVrijOzXUvINklgLi6E/iWZL0Wyibv3ndYrDMVoSas6t+8hIwiYtAm7?=
+ =?us-ascii?Q?XDtPB2OjqX1bp+DjJEqef2nu86yzoJz1WRdvmK8EAc8LquBMlLZzOvMdOJcY?=
+ =?us-ascii?Q?dAqitPzwPIcw6r0m3D02z+1Ebc+ZqAZMfFWFRqsan/wrjN6FgxBm+f1U6yjI?=
+ =?us-ascii?Q?Ufq4oNVFaoNaO6pRRtU7sk5IDU2cIlcxWmEQRep9fI1qHLqBbHDVihNn3j0m?=
+ =?us-ascii?Q?ModOuxAOLm+IFBe9v5x3XrfUzk10vqb9K2841f2RuWO8bT23IiJSHaXw8/Nf?=
+ =?us-ascii?Q?cv5cGpJSSsPJQF9Gt2wfeyXvu8bPoLMTU2Ge/rzhtsXZVvB27gG5QBGsRURp?=
+ =?us-ascii?Q?3IYrCakZ72HC0Pb0zAyUqmii/fYuHpiUthBbVGqLDa8gs9qMubx4kyeDCgB1?=
+ =?us-ascii?Q?dktwupyLU6PHcEEZ/qqBYhJ/ds1V1AtCiCPk8REO5Ealjd0fphStq54gjSTh?=
+ =?us-ascii?Q?NqDIDUUmJqOf0BJUQbuw7sIAzTz1ANx7djpz2Gur/xEPuFYt6fRBKEAghOaz?=
+ =?us-ascii?Q?4l7VNq5nW/xyi67MIvp5S1A6qYncyJgCP3IrYQs1dY0wQwgyjuCggqI+5lBc?=
+ =?us-ascii?Q?ynbvr6wmqEi1lzk/bqBT5XmVyB3PM6lua3J4mSAh7jkYBb9MDC0vE2lem/dr?=
+ =?us-ascii?Q?WThjElDa/Rxq64AqdKtU/hO50TKUxLl8SjMFMjTEXzNprShVeYwod7dZNxGT?=
+ =?us-ascii?Q?x7vWQLLgU7E2+z/FO4j/2ZqvkN8AF+q4g/V/tZVi3U3/DxJ1OSGjYAkqNcM1?=
+ =?us-ascii?Q?sSCRZC2pyfi8mW3v6/Duzg/gZieq5Wjt9DwaQn2jqxe5Zvs5DDxGb703ys6Y?=
+ =?us-ascii?Q?mRAoCm7pb+/06Inw1XSt1XCIJqKxOgNVv+gf0dfR?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-References: <CGME20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f@eucas1p2.samsung.com>
- <20250616163831.8138-3-linux.amoon@gmail.com> <20250618115211.2239335-1-m.majewski2@samsung.com>
-In-Reply-To: <20250618115211.2239335-1-m.majewski2@samsung.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 19 Jun 2025 11:15:44 +0530
-X-Gm-Features: AX0GCFvmk_wGVlRXfnhPM_Q_4DB5diREj6R5zYA0aszITzoiDTH5uE97mHC1m7Y
-Message-ID: <CANAwSgRV=JT+qdAN=M46CZdWaSZnjazdw66fQETw7HeEcLSx8A@mail.gmail.com>
-Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature threshold
- interrupts and clear corresponding IRQs
-To: Mateusz Majewski <m.majewski2@samsung.com>
-Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org, 
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
-	rui.zhang@intel.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7df28631-cd78-4791-2d4c-08ddaef4a4c7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2025 05:46:31.6042
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UMRsN41CVhuCRu4+MEKy1Dp0TzR92sZCi6TbICFfBry972isRZz9Jo7Q4E+gwgr82CKCTPPPynSYZK62aC2j4g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4854
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_224604_400967_4122C0FE 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20250618_224636_716038_60DD4BD0 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,94 +205,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mateusz,
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, June 14, 2025 2:35 PM
+>=20
+> There is no use of this parent domain. Delete the dead code.
+>=20
+> Note that the s2_parent in struct mock_viommu will be a deadcode too. Yet=
+,
+> keep it because it will be soon used by HW queue objects, i.e. no point i=
+n
+> adding it back and forth in such a short window. Besides, keeping it coul=
+d
+> cover the majority of vIOMMU use cases where a driver-level structure wil=
+l
+> be larger in size than the core structure.
+>=20
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-On Wed, 18 Jun 2025 at 17:22, Mateusz Majewski <m.majewski2@samsung.com> wrote:
->
-> Hello :)
->
-> > +#define INTSTAT_FALL2        BIT(24)
-> > +#define INTSTAT_FALL1        BIT(20)
-> > +#define INTSTAT_FALL0        BIT(16)
-> > +#define INTSTAT_RISE2        BIT(8)
-> > +#define INTSTAT_RISE1        BIT(4)
-> > +#define INTSTAT_RISE0        BIT(0)
-> > +
-> > +#define INTCLEAR_FALL2       BIT(24)
-> > +#define INTCLEAR_FALL1       BIT(20)
-> > +#define INTCLEAR_FALL0       BIT(16)
-> > +#define INTCLEAR_RISE2       BIT(8)
-> > +#define INTCLEAR_RISE1       BIT(4)
-> > +#define INTCLEAR_RISE0       BIT(0)
->
-> > +     /* Map INTSTAT bits to INTCLEAR bits */
-> > +     if (val_irq & INTSTAT_FALL2)
-> > +             clearirq |= INTCLEAR_FALL2;
-> > +     else if (val_irq & INTSTAT_FALL1)
-> > +             clearirq |= INTCLEAR_FALL1;
-> > +     else if (val_irq & INTSTAT_FALL0)
-> > +             clearirq |= INTCLEAR_FALL0;
-> > +     else if (val_irq & INTSTAT_RISE2)
-> > +             clearirq |= INTCLEAR_RISE2;
-> > +     else if (val_irq & INTSTAT_RISE1)
-> > +             clearirq |= INTCLEAR_RISE1;
-> > +     else if (val_irq & INTSTAT_RISE0)
-> > +             clearirq |= INTCLEAR_RISE0;
->
-> This implies that only these 6 bits are used. Is this true for all SoCs
-> supported by this driver? My understanding is that Exynos 5433 in particular
-> uses bits 7:0 for rise interrupts and 23:16 for fall interrupts. When I tested
-> this patch (both alone and the whole series) on 5433 by running some CPU load,
-> the interrupt seemed to not fire consistently:
-> /sys/class/thermal/cooling_device1/cur_state would never go above 1 (which is
-> consistent with the interrupt firing once, not getting cleared and never firing
-> again; without this patch, it consistently went up to 6) and I got a quick
-> reboot every time.
->
-Thanks for the feedback,
-
-As per the user manual Exynos4412
-INTSTAT and INTCLEAR have a clear mapping with bits
-falling 20, 16, 12 and rising 8 4 0
-
-whereas Exyno5422 has
-INTSTAT and INTCLEAR have a clear mapping with bits
-falling 24, 20, 16, and rising 8 4 0
-
-Yes, it could differ for all the SoCs,
-I don't have the user manual or TRM for these SoCs
-to configure correctly.
-
-I tried to configure this, referring to the comment in the driver
-        /*
-         * Clear the interrupts.  Please note that the documentation for
-         * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
-         * states that INTCLEAR register has a different placing of bits
-         * responsible for FALL IRQs than INTSTAT register.  Exynos5420
-         * and Exynos5440 documentation is correct (Exynos4210 doesn't
-         * support FALL IRQs at all).
-         */
-
-By the way, I don't see Exynos5433 and Exynos7 support
-INTSTAT and INTCLEAR registers. We are using TMU_REG_INTPEND
- to read and update the same register.
-
-        if (data->soc == SOC_ARCH_EXYNOS5260) {
-                tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
-                tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
-        } else if (data->soc == SOC_ARCH_EXYNOS7) {
-                tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
-                tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
-        } else if (data->soc == SOC_ARCH_EXYNOS5433) {
-                tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
-                tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
-        } else {
-                tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
-                tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
-        }
-
-> Thank you,
-> Mateusz Majewski
-Thanks
-Anand
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
