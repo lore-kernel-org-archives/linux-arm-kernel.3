@@ -4,68 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3ECC71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 05:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70382C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 05:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JLmMakORo/bjvYHh1BYejrDyt6i6mfqrJjTJJ0Tsbvw=; b=xOL7AE/TcO4I46LROewtT5pnt7
-	OwWE1hzBy9/+Y+QrVIzWPo9zu3uTJcpQfyzr1L2sagIF9FCnpE2vciCB7xhRYJtYTmt2tFA+DWrry
-	zVSyzO5AhcnXE8HbO7nNUtTY7wkm38jfpaVVZ7uHcBAiMBIFjBqbnCP/IYNchXFOcMFSo5645TmAG
-	OeBeoKdgqAoOwj+7TrAaokBLxIAXND0css4XI7WAjFOldHt8zlYjD8mu+WBAd5IfKP/SZAmoowxYG
-	lnv81fS3gK5Q+lKEpyJPWLG3GxP6qW8fYdA3AuF+OLsIsfWHEfOl4e4dRSlvA+KbeHyreJl3Y8XG8
-	oT+gn9EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MbKgKaSzJXcq3MoycGVCSzlp40V4lZ1OfWmFaWrV5lE=; b=I7p+oD8hiZy2xTTkieyBKBj/7t
+	BdMwUtFGFL1PEh3BvPzb6JMlNcJnHJIodEnUnqCOypYaLwroHy8wnouI/9G4nH5HlQNKvUzGP6rOL
+	iWZqnaLz17INU2F8jURVyqX1Q1OtOdm3bmPts5GL2HHmW/AuP3FCAZOsxYkvKOm4yU465DTXY4+OU
+	AF1gZfbpVJe0zyTU0vi+tqQE992jkEaUmOIFQSJ0DCjnMm3m/O0EKoEvYC8jMMMBQurUnarIil2N9
+	yj6t4+4Cbe8hpcnIXEM+DSC1/dKEg4AfuPlyFNDWUf1F7kGIFxNIdBNHpt6AVOPMFij33XrqmcXo1
+	9A2gqKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS7kP-0000000C39S-1rbW;
-	Thu, 19 Jun 2025 05:23:37 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uS7yY-0000000C4HS-3C86;
+	Thu, 19 Jun 2025 05:38:14 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS7i9-0000000C2wh-35Zg;
-	Thu, 19 Jun 2025 05:21:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6814043994;
-	Thu, 19 Jun 2025 05:21:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750310473;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JLmMakORo/bjvYHh1BYejrDyt6i6mfqrJjTJJ0Tsbvw=;
-	b=HKuq5902ViCbbhOdChQM+LrEMpXkWrKsQymSO8dQbIzxyRYE3nw/7iYX8nU2WAzol1eLPZ
-	Jg17EctvIU+nKZ8UkMdNSMPNnF6OYSNWJIMLa0eBr/TwttEZQSFIw+QOvLkHdjjkZpRTSu
-	wHivS2Q82cxx2wPwsN4/EMqhUOMWe+uVShWQusutjUlnbBBJULy6D8SFUHjzujVq/4bP9Z
-	uUCEDZZBW0E/zNT7K6YjVEKlvTdmnDtTBUgQ2l/QaAW1gXNEmxwhZm7V1aCZ0r7ONQILYN
-	h/h9ycMQUWBRBcdbDzkbrYev9i6l7z9BMbE9SBhi1leNG9tbPR0TQHKsRwji5A==
-From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-Date: Thu, 19 Jun 2025 07:21:05 +0200
-Subject: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel
- description
+	id 1uS7wJ-0000000C3sZ-3rtj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 05:35:57 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-23526264386so4792885ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 22:35:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750311353; x=1750916153; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MbKgKaSzJXcq3MoycGVCSzlp40V4lZ1OfWmFaWrV5lE=;
+        b=vHEmrgYPEMXGnxpQ4zlIFtyk22EtcoHyPozzWxW5pBzhksChjYNd1J50u9wmAvvQOm
+         Ge9eUmJT5QCCmU3pkBflLUrNzDbN5nIqqOfKLFy2lhzVJDZiyCzNv0uQnhm5ABnkaWMv
+         S5y60Cdr4fnkdhEiSmXSCIicCyMiy2yAKzRHXb2v4eiWPWSo1dma1IDWS1HyVzDUObVh
+         NSgMozeArBdIO2FF+ElKjTNkehojL5TXCesr7XIT4Ylm4s4mluhGY0qYCEIF0NC9OORj
+         PruVmSox0wSUXoe2cR8/ZaMt1gT4PHTV+s0OBK8ArAoUZ+Pwi6a7eCRjibTX2dZuK4qV
+         n5bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750311353; x=1750916153;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MbKgKaSzJXcq3MoycGVCSzlp40V4lZ1OfWmFaWrV5lE=;
+        b=trZ/D50I23jDBKzti7dDFkT4oEqo0Z9h7QeXKnS1RZr6HMiqUbSPhD5uZkDAQ1bAXw
+         QkHDgUa49E2ojzLnRyyA20kZSY5KtMrnBpnI5AsFIdX2PvZdbW7oe0SPtcDV/1+LCg9y
+         X8VNISvsXga0lH7JDPqGLS8BBSrRGCMmADG7jMRjzeL7yfRBT+jPinXGG5hoZddQ1Pds
+         +Hb/wDfCWX1jfc/DinGoZ0a0TsRujLCGmNFmCsF+94EEy7PjSi2kslrsF4rJWnTfu49I
+         NIgB0hpWzOXCIHKdX1pDNv5/QPCgbBII9znIzGyxUuw2XfuYD65L+0G5qn4R/XJLb7MT
+         fwcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWay5ur+AKpeJp9FICXc3xyiVdOP6G64kFP57dSLkoRJRfgTyqJYEUBf4kIt1jph4ikh9ztsW5Mr3iH3JX2DkM2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS+WqIRlr6RPfnikp/6YFBTdxskDYOifi1qkX00jOykhSoeiU8
+	8ZUA6fBDYrkJgy4XiGt1hBE6kuXWyxdOSyO/Ugdv9ci4pdk7IW53b1lKXat7Ch3tH3g=
+X-Gm-Gg: ASbGncvJ/UDZmeGE7fZHefxtSH94Fjh5wytGdLh8Wi+4VpdTzVs1MKxPFWaROiiseRn
+	To3+THAomjbFfjwFzpL3KV+28CkxKVoQVF7Q98Wuo7tz7VHOqjIrCy/CNGYOPiLgmulAsyc/+Ip
+	kUEpKpBrpRWCE/R8TIpS6k1t7JG99uTHwtmpPpD67oZrMkVYbOnRaB0x9QumbP+4LCp76+01poQ
+	T4hfkNUrVoWeC73AYAAJeJ7BH1ep6mX/V/tXbGvDeFG6JG20GFpS1lWIgwI9MKy+/MiQtYwIe2J
+	i8Qfqpef7Ke1t1B+NRDEWGC+tU/jzAIEYiVeTXV6a2shrZ52soi2EaTpWWkNCmtVBKw7ZP29+w=
+	=
+X-Google-Smtp-Source: AGHT+IF1Brl2Ml/RhPp1ZISh/ybbgy1I/Aosv1oeoYbA3EE1IVQw9sjB8PhoTnTOzWYQtjW2ZHuZqQ==
+X-Received: by 2002:a17:903:32c9:b0:235:a9b:21e7 with SMTP id d9443c01a7336-2366b3df793mr286985355ad.48.1750311353385;
+        Wed, 18 Jun 2025 22:35:53 -0700 (PDT)
+Received: from localhost ([122.172.81.72])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365d88c0c9sm112008655ad.20.2025.06.18.22.35.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Jun 2025 22:35:52 -0700 (PDT)
+Date: Thu, 19 Jun 2025 11:05:50 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Sven Peter <sven@kernel.org>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	iommu@lists.linux.dev, linux-input@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH 06/11] cpufreq: apple: drop default ARCH_APPLE in Kconfig
+Message-ID: <20250619053550.hogoo7ic5igvex3c@vireshk-i7>
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+ <20250612-apple-kconfig-defconfig-v1-6-0e6f9cb512c1@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAECeU2gC/22MwQ7CIBAFf6XZsxggUKwn/8M0ppTVbqLQACGah
- n8Xe/Y48yZvg4SRMMG52yBioUTBN5CHDuZl8g9k5BqD5FLzXpyYy/Z2pzcmNpheadW8kAitXyP
- uQ8uvY+OFUg7xs18X8bP/XopgnKFWZjCTk2iniw0hP8kf5/CCsdb6BfW29wSkAAAA
-X-Change-ID: 20250618-dtb_fixes-97645402512e
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Olivier Benjamin <olivier.benjamin@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdegieeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetkefhvdelleeuhefgvdekveffieelhfeujefgtdejueelgfeltdefffehtddvfeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopegludelvddrudeikedruddrvddtngdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigq
- dhrohgtkhgthhhipheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomh
-X-GND-Sasl: olivier.benjamin@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250612-apple-kconfig-defconfig-v1-6-0e6f9cb512c1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_222118_543188_091DB013 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250618_223555_966867_6004FBB6 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,95 +116,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a few issues in the panel section of the PinePhone Pro DTS:
-  - add the second part of the Himax HX8394 LCD panel controller
-    compatible
-  - as proposed by Diederik de Haas, reuse the mipi_out and ports
-    definitions from rk3399-base.dtsi instead of redefining them
-  - add a pinctrl for the LCD_RST signal for LCD1, derived from
-    LCD1_RST, which is on GPIO4_D1, as documented on pages 11
-    and 16 of the PinePhone Pro schematic
+On 12-06-25, 21:11, Sven Peter wrote:
+> When the first driver for Apple Silicon was upstreamed we accidentally
+> included `default ARCH_APPLE` in its Kconfig which then spread to almost
+> every subsequent driver. As soon as ARCH_APPLE is set to y this will
+> pull in many drivers as built-ins which is not what we want.
+> Thus, drop `default ARCH_APPLE` from Kconfig.
+> 
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  drivers/cpufreq/Kconfig.arm | 1 -
+>  1 file changed, 1 deletion(-)
 
-Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
----
-Small fixes to the PinePhone Pro DTS to fit bindings and
-suppress warnings at build.
----
-Changes in v2:
-- Added the pinctrl definition for GPIO4_D1/LCD1_RST
-- Incorporated Diederik de Haas' suggestion for defining mipi_out
-- Squashed multiple patches into one
-- Link to v1: https://lore.kernel.org/r/20250618-dtb_fixes-v1-0-e54797ad2eba@bootlin.com
----
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 33 +++++++++++-----------
- 1 file changed, 17 insertions(+), 16 deletions(-)
+Applied. Thanks.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 04ba4c4565d0a205e2e46d7535c6a3190993621d..98aba146749998dd5a798aabed0fe844c474d1cf 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -463,29 +463,18 @@ &io_domains {
- };
- 
- &mipi_dsi {
--	status = "okay";
- 	clock-master;
--
--	ports {
--		mipi_out: port@1 {
--			#address-cells = <0>;
--			#size-cells = <0>;
--			reg = <1>;
--
--			mipi_out_panel: endpoint {
--				remote-endpoint = <&mipi_in_panel>;
--			};
--		};
--	};
-+	status = "okay";
- 
- 	panel@0 {
--		compatible = "hannstar,hsd060bhw4";
-+		compatible = "hannstar,hsd060bhw4", "himax,hx8394";
- 		reg = <0>;
- 		backlight = <&backlight>;
--		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
--		vcc-supply = <&vcc2v8_lcd>;
- 		iovcc-supply = <&vcc1v8_lcd>;
- 		pinctrl-names = "default";
-+		pinctrl-0 = <&lcd_reset_pin>;
-+		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
-+		vcc-supply = <&vcc2v8_lcd>;
- 
- 		port {
- 			mipi_in_panel: endpoint {
-@@ -495,6 +484,12 @@ mipi_in_panel: endpoint {
- 	};
- };
- 
-+&mipi_out {
-+	mipi_out_panel: endpoint {
-+		remote-endpoint = <&mipi_in_panel>;
-+	};
-+};
-+
- &pmu_io_domains {
- 	pmu1830-supply = <&vcc_1v8>;
- 	status = "okay";
-@@ -507,6 +502,12 @@ pwrbtn_pin: pwrbtn-pin {
- 		};
- 	};
- 
-+	lcd {
-+		lcd_reset_pin: reset-pin {
-+			rockchip,pins = <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	leds {
- 		red_led_pin: red-led-pin {
- 			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
 -- 
-Olivier Benjamin <olivier.benjamin@bootlin.com>
-
+viresh
 
