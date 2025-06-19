@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0FEC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5B6C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dBQjMBqJhv05xBZ/uzzxA84N7qyht7dUENlLGM1TnPU=; b=nFQ2fqtyx+3hAYZmchlFYCLSr7
-	zDHr+VDXEfhZwJmVVs4QYoghiyN2Bl92lhKsKt1xqE4h9SYnWVaCRjQd6sVlEWV2RzRd/t4r5VrfL
-	fghhsRr6KwEapBamVEZrobs+xNq8c+NV1D2LVvPF0jU+UH9v2BoZXvNc5hMd6SctuwGCqSr1li8eK
-	tb/UmY4OKs4tun7Kg8rheRRONHF0cFxNn3AjADKwxTRTfU8gzfSO2I7JGfAK2NMudfGAJo0EZsym/
-	dCRsHeHNfMgipDlYUROYk6iDea8i5FX4QDaf6pr0ViMNhUnE7eI6zczcq2hNkBI+WinGQqv+EPfq/
-	zAfMvuNA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RW9ntFbfGj4jPPmbk2HD9BL+2SiOP7eRTkuwl1KD/rE=; b=sgEt3pdD8HJvi6kGHkqP3pzyc+
+	p6xm1KCuZhTdQuzguiY9ZEMZqGBs8dDItWWjcbM2gqeY8YCopsRX/d4hhH0JD7mCtTUGM1f1UyNUv
+	HWfiSNx/So9hany2Z03585Yy6ayoyC7bQVn3ekbI0USWIcDW/roZaZaF95Zc2nBEl1+h6U4sz7ZNE
+	5ft7HMBmK9oXElmVAcAfATFUeWlsZNrkMMwQ5EHIbXTDtr3ExE2Fm3cRqTtbbI495OO91jZu37h9Q
+	MnJeAKiH1l6xFgIVbuSk07s0rY1gbawA9yc5S43/OAE+4nlZRIp/U8WCDnRg3tbvIpPMWIV5Iqn2M
+	Y/cqsM4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKC7-0000000DynI-0GQU;
-	Thu, 19 Jun 2025 18:41:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uSKCG-0000000DyxR-07GV;
+	Thu, 19 Jun 2025 18:41:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSImW-0000000DiOj-23lU
+	id 1uSImX-0000000DiOk-0QCY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 17:10:32 +0000
+	Thu, 19 Jun 2025 17:10:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF2C0617F0;
+	by nyc.source.kernel.org (Postfix) with ESMTP id C069AA546DE;
 	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AFD5C4CEF0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E047C4CEF1;
 	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750353031;
-	bh=8hxDZ0YSUK5GNrtuai7MmCbxc9EplTXFmwAHYdeKd2E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KToOsjICUEUoTbUKv8eO/Zl1IVmaG/KZnNYKRiwpw2a4YFz2QenEUH2zE38mmY42E
-	 DTetmPdRhFGWLKWEyl+Z/YuhhNN4YDmwfoGfOvvtwjBNMCyFTjCGyxuULi6P9iqry9
-	 YJ34CU9/nNHhF3KAYtLFB2N8NafC7bsa+6hmVMf78eyIa2wSF1VKHr029LlSxH6GMJ
-	 h8hBlRwdg8IdbT31lsU1xuiz1L95zSmySdV1ipqG1JJxMVtJmXEM6xHDgNKXH0hb5N
-	 8Qgk3sYIfzJiP5ZH7o+rDf2W4Xhq6t++WP7P9CRU/Wpc0OtOwala9jmdmblqxZeRgK
-	 xz5uWUol/cg4g==
+	bh=IQ/Y9U0nzxzGUrCLzecuHFfq901/was5ToS48J7PkBs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=n7ZdUe9CBdTNyTfQlROqRZ5vpt8NKwi2nppZSwqQarz5IhWBTb7Fuf8Y6A0/k7RKV
+	 oZKsSCbwBRFUPRD6rP/TpNuQ9RtRxabjo6oqERe77Q5R9Eo5l8++R5LrXc86UqaYFi
+	 OR068erT3x6FE1H1NfS/K3PcLb5E/Qnhle/zFrbIzQhAhjgATpLBCKFf9QnB7PUkuY
+	 VgukLCpXYCyGdnVISPcXPT0tVLE9F7O2NlVM1kiLQqrFfRq9Zgnb64GUCbAGWDf64l
+	 uSeHjzyKXQm4hPmBeVSBrBj5JQwTQbufs1pY3nTNwAyPX1uUE1SmTmyX1dyriZbgZy
+	 5P18Yvb8c9R7w==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 72BED5FEF5; Fri, 20 Jun 2025 01:10:28 +0800 (CST)
+	id 85B495FEDE; Fri, 20 Jun 2025 01:10:28 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -59,12 +59,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] clk: sunxi-ng: sun55i-a523-r-ccu: Add missing PPU0 reset
-Date: Fri, 20 Jun 2025 01:10:23 +0800
-Message-Id: <20250619171025.3359384-1-wens@kernel.org>
+Subject: [PATCH 1/2] dt-bindings: reset: sun55i-a523-r-ccu: Add missing PPU0 reset
+Date: Fri, 20 Jun 2025 01:10:24 +0800
+Message-Id: <20250619171025.3359384-2-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250619171025.3359384-1-wens@kernel.org>
+References: <20250619171025.3359384-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250619_101033_214118_70E10475 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +89,28 @@ From: Chen-Yu Tsai <wens@csie.org>
 There is a PPU0 reset control bit in the same register as the PPU1
 reset control. This missing reset control is for the PCK-600 unit
 in the SoC. Manual tests show that the reset control indeed exists,
-and if not configured, the system will hang when the PCK-600
-registers are accessed.
+and if not configured, the system will hang when the PCK-600 registers
+are accessed.
 
-This series adds a reset entry for it at the end of the existing ones,
-in both the DT binding header file and the driver.
+Add a reset entry for it at the end of the existing ones.
 
-I will take both patches through the sunxi trees since I need the
-header file change for a subsequent patch series.
-
-Please have a look.
-
-
-ChenYu
-
-
-Chen-Yu Tsai (2):
-  dt-bindings: reset: sun55i-a523-r-ccu: Add missing PPU0 reset
-  clk: sunxi-ng: sun55i-a523-r-ccu: Add missing PPU0 reset
-
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c      | 1 +
+Fixes: 52dbf84857f0 ("dt-bindings: clk: sunxi-ng: document two Allwinner A523 CCUs")
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
  include/dt-bindings/reset/sun55i-a523-r-ccu.h | 1 +
- 2 files changed, 2 insertions(+)
+ 1 file changed, 1 insertion(+)
 
+diff --git a/include/dt-bindings/reset/sun55i-a523-r-ccu.h b/include/dt-bindings/reset/sun55i-a523-r-ccu.h
+index dd6fbb372e19..eb31ae9958d6 100644
+--- a/include/dt-bindings/reset/sun55i-a523-r-ccu.h
++++ b/include/dt-bindings/reset/sun55i-a523-r-ccu.h
+@@ -21,5 +21,6 @@
+ #define RST_BUS_R_IR_RX		12
+ #define RST_BUS_R_RTC		13
+ #define RST_BUS_R_CPUCFG	14
++#define RST_BUS_R_PPU0		15
+ 
+ #endif /* _DT_BINDINGS_RST_SUN55I_A523_R_CCU_H_ */
 -- 
 2.39.5
 
