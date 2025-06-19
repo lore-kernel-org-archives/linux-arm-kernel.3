@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D4CC7115C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC2AC7115D
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dqC5twtT1wxGh8vLF/SJ9Ur58EQAfkNj5XsVZSSroaU=; b=QzzEfISEmyvWjDG5dTPK9rwvWh
-	zw9ePQlJifkHqvZ/K5F11mzYJzZ6ejgbOQ7cNmG5wgOxiyIwC04QoWuil2TCSUNG/WQlD1lpK8awb
-	JxSLKdPbpQ0A7v8/sH2TnLVwISPSGp8XSRG24/futIHHvzDilwCqdTZ5TKtpGv+BF9mI/k8hSlHUe
-	9UqdZH7x9UM1klVqECRGa6fLKbdHlTp36Wy/y3KRgGJOeOP8tPeD+DCuPW1sUNdNco4FfhzO2f0Zj
-	CnXjO1fgGVj2IrTVSix0424Dcet+WtpcIttOnxyZDbZ+wku+kVzbeGhSkXrIXsu7E75KufrjWsV2S
-	ALhA7Axg==;
+	bh=GrrRmclmQ4Icg5sh/PZCX5WddHH9Wk4fS6xF3R4S49U=; b=dxrw8v+8ptAjP1WBpv3sAJcddk
+	hM8e+YAOg53Wwywsx4Cgu25gGLz+lHBXPoM5i4EurcNl5rgfWu1f9FHVerbsqoSyKOWydxdufFwXl
+	mnW9b/mV3XNwNDSDOCXGc8rEJeR2T+XGmLrECvvK3gBrcYKvjj5h+dpqBkJGaiqZYDfxV2o5uwzw2
+	0EPV1RofANjXURjWXXKD6vVF2r/ZfX+hEJ8vjLHd3OBJ3vlhVEB3tseVVh8fKUw7ksMaaztMtgkTu
+	ipJ81lCg9KVqOF+ck4kyC+Ra9KXLRJEZWKPOvnLXq6BXrQEznT6XQPeWAzV2kDXqk8N6HIAAyrena
+	jtGk9wdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHVd-0000000DXkd-46m6;
-	Thu, 19 Jun 2025 15:49:02 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uSHVc-0000000DXhF-07rD;
+	Thu, 19 Jun 2025 15:49:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSF4K-0000000D8AL-2i4P;
-	Thu, 19 Jun 2025 13:12:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750338757;
-	bh=Ork85X//Hh9e5Enb36KwQRqXelZ7oSr9ZRWSSzEpQ7k=;
+	id 1uSEtF-0000000D7JV-3Gwj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 13:01:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E85A460010;
+	Thu, 19 Jun 2025 13:01:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAF3C4CEEA;
+	Thu, 19 Jun 2025 13:01:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750338072;
+	bh=/kE+YFpl0J9ThQUvmELPjh8cJ/+9gC716KmHUlheWRU=;
 	h=From:To:Cc:Subject:Date:From;
-	b=iTr9XAn4jvk5BZir348XWWxi2oAsbZH9f8i1/44hpdnevwibIx6O4tBTxRUgIKLoM
-	 Slm1yEbcZ/hQxdJ5C6+27qnwa9PLfIpphg1pLqFPlNof60zCpTn9SBHhI4tuVJsLAE
-	 5S3Fi2SZU5uY6ab1W+L1pYX+Ml+aDksUPJlfr6hVBzIn2fTZi20nuJMRAu88oitk2n
-	 VajsAfEgnomxFXn0dGdWKYBdxshHPz3ksTXz6ddkuhu99JwHLIvG2FWs3cEmZqlHdc
-	 6Irkih+YYpOwBr6BsGkFrXch1qK7Nau4oSHr2vGrAxBEf9hDmg1LtaGEUL9z7jCenx
-	 xAvAqKWWUY4gQ==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:ba4e:a6e2:6d63:7f02])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0FC0C17E05C1;
-	Thu, 19 Jun 2025 15:12:37 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v3 0/5]  Add support for Verisilicon IOMMU used by media codec blocks
-Date: Thu, 19 Jun 2025 15:12:21 +0200
-Message-ID: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
+	b=kMa7OvsJYPpiI18LMM7gfqrPAVBmJ9s4dXxtORIasVECRmDh6RULdsK+Bwc2oVQWG
+	 t6i1DTJFn+6CD7ktY4HGc9rOHW05ih3ofAYbuCZEe1GdPOmqASK4AX1FDVNjDMI4k+
+	 0BV+Rc7hIYgmCH3F7Cq2LcSxphJz5J2uJ443Pa6qxIxVlL6nDO8/73/Cp+fk6Dvfm3
+	 VcLVWoT5g9ZRQ3rBeeKkkB8zAb3iK9V6Qx5Qp3/uJ2yF4cUxsJ88JxZYOhMJ9q7sOj
+	 leVn0OeIhztcC77Itmtl8qnOELWcEoaM07yV8ZMRsh2vJPoFmIvOf1BTsAwJq7oVJa
+	 c0DkbXPTXdBdw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uSEtC-008G3W-Dh;
+	Thu, 19 Jun 2025 14:01:10 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Miguel Luis <miguel.luis@oracle.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Sean Christopherson <seanjc@google.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 fixes, take #3
+Date: Thu, 19 Jun 2025 14:00:49 +0100
+Message-Id: <20250619130049.3133524-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=y
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_061240_845989_2C5B9372 
-X-CRM114-Status: GOOD (  19.60  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, catalin.marinas@arm.com, tabba@google.com, broonie@kernel.org, mark.rutland@arm.com, miguel.luis@oracle.com, oliver.upton@linux.dev, seanjc@google.com, sebott@redhat.com, r09922117@csie.ntu.edu.tw, will@kernel.org, yuzenghui@huawei.com, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +90,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Paolo,
 
-This patch series adds support for the Verisilicon IOMMU, which is found in front
-of hardware encoder and decoder blocks in several SoCs using Verisilicon IP. 
-A first implementation of this IOMMU is available on the Rockchip RK3588 SoC.
+Here's the third set of KVM/arm64 fixes for 6.16. The most notable
+thing is yet another batch of FP/SVE fixes from Mark, this time
+addressing NV, and additionally plugging some missing synchronisation.
+The rest is a mix of interrupt stuff (routing change, mishandling of
+shadow LRs) and selftest fixes.
 
-Rockchip provides a driver for this hardware in their 6.1 kernel branch:
-https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
+Please pull,
 
-This series includes:
-- a new binding for the Verisilicon IOMMU
-- a basic driver implementation
-- DT updates for RK3588
+	M.
 
-The driver was forward-ported from Rockchip’s 6.1 implementation, 
-the prefix was renamed to vsi for generality, and several fixes were applied.
+The following changes since commit e04c78d86a9699d136910cfc0bdcf01087e3267e:
 
-AV1 decoding was tested using the stateless VPU driver and Fluster.
-The test results show a score of 205/239, which confirms that no regressions
-were introduced by this series.
+  Linux 6.16-rc2 (2025-06-15 13:49:41 -0700)
 
-Feedback and testing welcome.
+are available in the Git repository at:
 
-changes in version 3:
-- Change compatible to "rockchip,rk3588-iommu-1.2"
-- Fix compatible in .yaml
-- Update DT and driver to use "rockchip,rk3588-iommu-1.2" compatible
-- Set CONFIG_VSI_IOMMU as module in defconfig
-- Create an identity domain for the driver
-- Fix double flush issue
-- Rework attach/detach logic
-- Simplify xlate function
-- Discover iommu device like done in ARM driver
-- Remove ARM_DMA_USE_IOMMU from Kconfig
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.16-3
 
-changes in version 2:
-- Add a compatible "rockchip,rk3588-av1-iommu"
-- Fix clock-names in binding 
-- Remove "vsi_mmu" label in binding example.
-- Rework driver probe function
-- Remove double flush
-- Rework driver internal structures and avoid allocate
-  in xlate function.
-- Do not touch to VPU driver anymore (path removed)
-- Add a patch to enable the driver in arm64 defconfig
+for you to fetch changes up to 04c5355b2a94ff3191ce63ab035fb7f04d036869:
 
-Benjamin Gaignard (5):
-  dt-bindings: vendor-prefixes: Add Verisilicon
-  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-  iommu: Add verisilicon IOMMU driver
-  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
-  arm64: defconfig: enable Verisilicon IOMMU
+  KVM: arm64: VHE: Centralize ISBs when returning to host (2025-06-19 13:34:59 +0100)
 
- .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
- arch/arm64/configs/defconfig                  |   1 +
- drivers/iommu/Kconfig                         |  11 +
- drivers/iommu/Makefile                        |   1 +
- drivers/iommu/vsi-iommu.c                     | 874 ++++++++++++++++++
- 7 files changed, 971 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
- create mode 100644 drivers/iommu/vsi-iommu.c
+----------------------------------------------------------------
+KVM/arm64 fixes for 6.16, take #3
 
--- 
-2.43.0
+- Fix another set of FP/SIMD/SVE bugs affecting NV, and plugging some
+  missing synchronisation
 
+- A small fix for the irqbypass hook fixes, tightening the check and
+  ensuring that we only deal with MSI for both the old and the new
+  route entry
+
+- Rework the way the shadow LRs are addressed in a nesting
+  configuration, plugging an embarrassing bug as well as simplifying
+  the whole process
+
+- Add yet another fix for the dreaded arch_timer_edge_cases selftest
+
+----------------------------------------------------------------
+Marc Zyngier (1):
+      KVM: arm64: nv: Fix tracking of shadow list registers
+
+Mark Rutland (7):
+      KVM: arm64: VHE: Synchronize restore of host debug registers
+      KVM: arm64: VHE: Synchronize CPTR trap deactivation
+      KVM: arm64: Reorganise CPTR trap manipulation
+      KVM: arm64: Remove ad-hoc CPTR manipulation from fpsimd_sve_sync()
+      KVM: arm64: Remove ad-hoc CPTR manipulation from kvm_hyp_handle_fpsimd()
+      KVM: arm64: Remove cpacr_clear_set()
+      KVM: arm64: VHE: Centralize ISBs when returning to host
+
+Sean Christopherson (1):
+      KVM: arm64: Explicitly treat routing entry type changes as changes
+
+Zenghui Yu (1):
+      KVM: arm64: selftests: Close the GIC FD in arch_timer_edge_cases
+
+ arch/arm64/include/asm/kvm_emulate.h               |  62 ---------
+ arch/arm64/include/asm/kvm_host.h                  |   6 +-
+ arch/arm64/kvm/arm.c                               |   3 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h            | 147 +++++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |   5 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c                   |  59 ---------
+ arch/arm64/kvm/hyp/vhe/switch.c                    | 107 ++-------------
+ arch/arm64/kvm/vgic/vgic-v3-nested.c               |  81 ++++++------
+ .../selftests/kvm/arm64/arch_timer_edge_cases.c    |  16 ++-
+ 9 files changed, 215 insertions(+), 271 deletions(-)
 
