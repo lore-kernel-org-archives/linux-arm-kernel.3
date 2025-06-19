@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28685C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4975BC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bObyf0PMRftD1AZgix1PZKHNndftzWmGNOANt5WDf+c=; b=zWEZYN6g25EgTnA8tzuRS9zYeY
-	ZcJmHNSk4JgN4RGRG6IB2ziu0ZmabCQOjh4IVNJ9ZJbSjXGENu3kpMfAoCjCXzN9VTANcChKOKMOP
-	uOW/4zNbFsiIOVYQDAKBniYsGluZgoeBX/F65Pc2AX24gzLX3yyFedxwfepLbeyywT9ZEG+3m0pEq
-	BQeVuItHxzerJX8wtR1eZl2JErZBjuX4MCPTDYqGDuywELtYJHMhbgqnNLi8jo7rMirzhv9fnJXVo
-	njT0ghIF7PmNQX1Lo2kHzS77sBZEGIxbazXR3aT/d3YzASQC7H0eVMryUE3/KEsTzywSgNzYQu2DA
-	PoLyIKIA==;
+	bh=YoifR3L0F6KCwbKGtz/D0/P7CUUwCCQ0xZh+WHZ6kgI=; b=teNAv8PxnHyuJ/El9jy42OUiQL
+	stPwsqQ33l06ROYLT1xhaQqcJ1Jm9s6Rcy0tTdaXujRITvoD/9QNFLR6PT5egwk5JkCkIz36NMota
+	nUN6ixL7AW0SJyvZtjsGBVFCJklaHDLvQFFRZZodZHKCYiiV/fLvMd4dlLh9ck2gAbtR7BAXmG+Gm
+	pEzH6O3MhYUq4bhnN99IxdFg7U1KbYPP9A9RQRlxaKI7ShhdkhFCxOIAX3g77LUCMToDwIxpRB862
+	5nIbP7SrYELMi0DzsA/COj21fvpkVHGKoAEw0IaWZD/zOnj5ShF4a6Qu2MhZ8HaMVBzhwT4zyLHuL
+	2kLIuweg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLSO-0000000EAir-3hRW;
-	Thu, 19 Jun 2025 20:01:56 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSLpM-0000000ECdO-0IW4;
+	Thu, 19 Jun 2025 20:25:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKps-0000000E558-2N5j;
-	Thu, 19 Jun 2025 19:22:11 +0000
+	id 1uSKpu-0000000E56k-2kwp;
+	Thu, 19 Jun 2025 19:22:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 80EBDA5474F;
-	Thu, 19 Jun 2025 19:22:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00851C4CEEA;
-	Thu, 19 Jun 2025 19:22:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E89B0A54758;
+	Thu, 19 Jun 2025 19:22:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69858C4CEED;
+	Thu, 19 Jun 2025 19:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750360927;
-	bh=RMLJ2Mc60dhI22NguMJn4nG7jrjmEH17chdDqFFaLzo=;
+	s=k20201202; t=1750360929;
+	bh=kUVhngdCHpSMNtk0i1v0SVNnjxwdD/3jWEooeOamq10=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tGGN1SzUeo0PuplVPxRVxBWPvKtOHQGiUm/80p/SW+CPV1xWBJdQfrSAMxgeEPyWC
-	 0K99EWQdzu7SPhal6ukdB6UbrOO1TNOaoUIZayhzCcHKW08Yz0l1dsGg9sIJZeDJ/n
-	 jJjGnFhXhgXQe95KfsKkux/9i5OlxMTsThazJc3Kl4+Sckl6AJl1exj+7mJJlOnrlL
-	 7VzPmwr1VvPKqsCQq0vaG9JEsFdKARjqyibpxTkuZjZr7X1v44mkO8jMFu6VkIFuFD
-	 jOyoDqQ0tysL2Jg4xtbltA2P/Dq8gVdum9QCZTfkf8ILS0PdXQhJzbspvDWytj0KS/
-	 AkStSCm+BjtFA==
+	b=t+9eGIBC2JDa5DBQqAnw528r9ACWVj+Qr17A54ciB4TVHa1eLZ+Cw/tv4tJe3qmmu
+	 CWLfxIkUEzwdqVlNIiGwx5Bzb+kZ1SMWxgAgqqYfslDii+7pCSH2VfWxr2ABGHVZjL
+	 9NEvxT+rF0Mq1lA/MD4+yRkBdaYERMN5l5JlW4/bbiyiLfYF0lg/9VIM1f6jZ23kZb
+	 BSUZGerbrfDxB8isVNt5CoRE7prpNbtHPX2VquHxJSou2QE3ZgjbzVzIOHMsIyQsY3
+	 cTZiTne87ZdJEDTIPCgGIdHOXjYtICNzsMQSHbLOzkBUNHtR6AczWJzS8dJRbfIQ9c
+	 TBRr1sB+g/jow==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,17 +53,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 2/9] lib/crypto: arm64: move arch/arm64/lib/crypto/ into lib/crypto/
-Date: Thu, 19 Jun 2025 12:19:01 -0700
-Message-ID: <20250619191908.134235-3-ebiggers@kernel.org>
+Subject: [PATCH v2 7/9] lib/crypto: sparc: move arch/sparc/lib/crypto/ into lib/crypto/
+Date: Thu, 19 Jun 2025 12:19:06 -0700
+Message-ID: <20250619191908.134235-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250619191908.134235-1-ebiggers@kernel.org>
 References: <20250619191908.134235-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_122208_736663_3F0238A1 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250619_122210_841458_E9D2DBCA 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,7 +80,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the contents of arch/arm64/lib/crypto/ into lib/crypto/arm64/.
+Move the contents of arch/sparc/lib/crypto/ into lib/crypto/sparc/.
 
 The new code organization makes a lot more sense for how this code
 actually works and is developed.  In particular, it makes it possible to
@@ -96,158 +96,81 @@ into their new location but keeps them building the same way as before.
 Later commits will make the actual improvements to the way the
 arch-optimized code is integrated for each algorithm.
 
-Add a gitignore entry for the removed directory arch/arm64/lib/crypto/
-so that people don't accidentally commit leftover generated files.
-
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm64/lib/.gitignore                                     | 4 ++++
- arch/arm64/lib/Makefile                                       | 3 ---
- arch/arm64/lib/crypto/.gitignore                              | 3 ---
- lib/crypto/Kconfig                                            | 2 +-
- lib/crypto/Makefile                                           | 3 ++-
- lib/crypto/arm64/.gitignore                                   | 2 ++
- {arch/arm64/lib/crypto => lib/crypto/arm64}/Kconfig           | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/Makefile          | 0
- .../arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-core.S  | 0
- .../arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-glue.c  | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-armv8.pl | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-glue.c   | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/sha2-armv8.pl     | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256-ce.S       | 0
- {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256.c          | 0
- 15 files changed, 9 insertions(+), 8 deletions(-)
- create mode 100644 arch/arm64/lib/.gitignore
- delete mode 100644 arch/arm64/lib/crypto/.gitignore
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/Kconfig (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/Makefile (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-core.S (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/chacha-neon-glue.c (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-armv8.pl (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/poly1305-glue.c (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha2-armv8.pl (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256-ce.S (100%)
- rename {arch/arm64/lib/crypto => lib/crypto/arm64}/sha256.c (100%)
+ arch/sparc/lib/Makefile                                  | 1 -
+ lib/crypto/Kconfig                                       | 2 +-
+ lib/crypto/Makefile                                      | 1 +
+ {arch/sparc/lib/crypto => lib/crypto/sparc}/Kconfig      | 0
+ {arch/sparc/lib/crypto => lib/crypto/sparc}/Makefile     | 0
+ {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256.c     | 0
+ {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256_asm.S | 0
+ 7 files changed, 2 insertions(+), 2 deletions(-)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/Kconfig (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/Makefile (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256.c (100%)
+ rename {arch/sparc/lib/crypto => lib/crypto/sparc}/sha256_asm.S (100%)
 
-diff --git a/arch/arm64/lib/.gitignore b/arch/arm64/lib/.gitignore
-new file mode 100644
-index 0000000000000..647d7a922e680
---- /dev/null
-+++ b/arch/arm64/lib/.gitignore
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+# This now-removed directory used to contain generated files.
-+/crypto/
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 027bfa9689c6a..d97e290619bc5 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -1,9 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
--
--obj-y += crypto/
--
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
- 		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
- 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
- 		   strnlen.o strchr.o strrchr.o tishift.o
-diff --git a/arch/arm64/lib/crypto/.gitignore b/arch/arm64/lib/crypto/.gitignore
-deleted file mode 100644
-index 12d74d8b03d0a..0000000000000
---- a/arch/arm64/lib/crypto/.gitignore
-+++ /dev/null
-@@ -1,3 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--poly1305-core.S
--sha256-core.S
+diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
+index 5cf9781d68b40..ef8860eb3f3d1 100644
+--- a/arch/sparc/lib/Makefile
++++ b/arch/sparc/lib/Makefile
+@@ -2,11 +2,10 @@
+ # Makefile for Sparc library files..
+ #
+ 
+ asflags-y := -ansi -DST_DIV0=0x02
+ 
+-obj-y                 += crypto/
+ lib-$(CONFIG_SPARC32) += ashrdi3.o
+ lib-$(CONFIG_SPARC32) += memcpy.o memset.o
+ lib-y                 += strlen.o
+ lib-y                 += checksum_$(BITS).o
+ lib-$(CONFIG_SPARC32) += blockops.o
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index e14bef8e87af2..fdeb91bf00328 100644
+index 278b7ef5ec4f9..b98543c7ef231 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -191,11 +191,11 @@ config CRYPTO_LIB_SM3
- if !KMSAN # avoid false positives from assembly
- if ARM
- source "lib/crypto/arm/Kconfig"
+@@ -206,11 +206,11 @@ source "lib/crypto/riscv/Kconfig"
  endif
- if ARM64
--source "arch/arm64/lib/crypto/Kconfig"
-+source "lib/crypto/arm64/Kconfig"
+ if S390
+ source "lib/crypto/s390/Kconfig"
  endif
- if MIPS
- source "arch/mips/lib/crypto/Kconfig"
+ if SPARC
+-source "arch/sparc/lib/crypto/Kconfig"
++source "lib/crypto/sparc/Kconfig"
  endif
- if PPC
+ if X86
+ source "arch/x86/lib/crypto/Kconfig"
+ endif
+ endif
 diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index ddf04e2270f1e..63ab907e8f53b 100644
+index 4cda1f5cd21d4..748d1fc6b6be2 100644
 --- a/lib/crypto/Makefile
 +++ b/lib/crypto/Makefile
-@@ -81,11 +81,11 @@ clean-files += arm/sha512-core.S
- AFLAGS_arm/sha512-core.o += $(aflags-thumb2-y)
- endif
- 
- ifeq ($(CONFIG_ARM64),y)
- libsha512-y += arm64/sha512-core.o
--$(obj)/arm64/sha512-core.S: $(src)/../../arch/arm64/lib/crypto/sha2-armv8.pl
-+$(obj)/arm64/sha512-core.S: $(src)/arm64/sha2-armv8.pl
- 	$(call cmd,perlasm_with_args)
- clean-files += arm64/sha512-core.S
- libsha512-$(CONFIG_KERNEL_MODE_NEON) += arm64/sha512-ce-core.o
- endif
- 
-@@ -102,5 +102,6 @@ obj-$(CONFIG_CRYPTO_SELFTESTS)			+= simd.o
- 
- obj-$(CONFIG_CRYPTO_LIB_SM3)			+= libsm3.o
- libsm3-y					:= sm3.o
- 
- obj-$(CONFIG_ARM) += arm/
-+obj-$(CONFIG_ARM64) += arm64/
-diff --git a/lib/crypto/arm64/.gitignore b/lib/crypto/arm64/.gitignore
-index 670a4d97b5684..f6c4e8ef80dae 100644
---- a/lib/crypto/arm64/.gitignore
-+++ b/lib/crypto/arm64/.gitignore
-@@ -1,2 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+poly1305-core.S
-+sha256-core.S
- sha512-core.S
-diff --git a/arch/arm64/lib/crypto/Kconfig b/lib/crypto/arm64/Kconfig
+@@ -107,5 +107,6 @@ obj-$(CONFIG_ARM) += arm/
+ obj-$(CONFIG_ARM64) += arm64/
+ obj-$(CONFIG_MIPS) += mips/
+ obj-$(CONFIG_PPC) += powerpc/
+ obj-$(CONFIG_RISCV) += riscv/
+ obj-$(CONFIG_S390) += s390/
++obj-$(CONFIG_SPARC) += sparc/
+diff --git a/arch/sparc/lib/crypto/Kconfig b/lib/crypto/sparc/Kconfig
 similarity index 100%
-rename from arch/arm64/lib/crypto/Kconfig
-rename to lib/crypto/arm64/Kconfig
-diff --git a/arch/arm64/lib/crypto/Makefile b/lib/crypto/arm64/Makefile
+rename from arch/sparc/lib/crypto/Kconfig
+rename to lib/crypto/sparc/Kconfig
+diff --git a/arch/sparc/lib/crypto/Makefile b/lib/crypto/sparc/Makefile
 similarity index 100%
-rename from arch/arm64/lib/crypto/Makefile
-rename to lib/crypto/arm64/Makefile
-diff --git a/arch/arm64/lib/crypto/chacha-neon-core.S b/lib/crypto/arm64/chacha-neon-core.S
+rename from arch/sparc/lib/crypto/Makefile
+rename to lib/crypto/sparc/Makefile
+diff --git a/arch/sparc/lib/crypto/sha256.c b/lib/crypto/sparc/sha256.c
 similarity index 100%
-rename from arch/arm64/lib/crypto/chacha-neon-core.S
-rename to lib/crypto/arm64/chacha-neon-core.S
-diff --git a/arch/arm64/lib/crypto/chacha-neon-glue.c b/lib/crypto/arm64/chacha-neon-glue.c
+rename from arch/sparc/lib/crypto/sha256.c
+rename to lib/crypto/sparc/sha256.c
+diff --git a/arch/sparc/lib/crypto/sha256_asm.S b/lib/crypto/sparc/sha256_asm.S
 similarity index 100%
-rename from arch/arm64/lib/crypto/chacha-neon-glue.c
-rename to lib/crypto/arm64/chacha-neon-glue.c
-diff --git a/arch/arm64/lib/crypto/poly1305-armv8.pl b/lib/crypto/arm64/poly1305-armv8.pl
-similarity index 100%
-rename from arch/arm64/lib/crypto/poly1305-armv8.pl
-rename to lib/crypto/arm64/poly1305-armv8.pl
-diff --git a/arch/arm64/lib/crypto/poly1305-glue.c b/lib/crypto/arm64/poly1305-glue.c
-similarity index 100%
-rename from arch/arm64/lib/crypto/poly1305-glue.c
-rename to lib/crypto/arm64/poly1305-glue.c
-diff --git a/arch/arm64/lib/crypto/sha2-armv8.pl b/lib/crypto/arm64/sha2-armv8.pl
-similarity index 100%
-rename from arch/arm64/lib/crypto/sha2-armv8.pl
-rename to lib/crypto/arm64/sha2-armv8.pl
-diff --git a/arch/arm64/lib/crypto/sha256-ce.S b/lib/crypto/arm64/sha256-ce.S
-similarity index 100%
-rename from arch/arm64/lib/crypto/sha256-ce.S
-rename to lib/crypto/arm64/sha256-ce.S
-diff --git a/arch/arm64/lib/crypto/sha256.c b/lib/crypto/arm64/sha256.c
-similarity index 100%
-rename from arch/arm64/lib/crypto/sha256.c
-rename to lib/crypto/arm64/sha256.c
+rename from arch/sparc/lib/crypto/sha256_asm.S
+rename to lib/crypto/sparc/sha256_asm.S
 -- 
 2.50.0
 
