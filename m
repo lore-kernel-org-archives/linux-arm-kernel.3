@@ -4,53 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEA3C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84072C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZceMbioqBbewD3owIhn7K1TqwrkJEhTrkMiW9ziRQ9Q=; b=l0Lk2RkSAd6E1t9HyJUq7rQxGY
-	QvwQQL78yTsPdfATbIcgOS4Lecy8iOakPBP9+gdS7hXhCPlIfM7HFSzp0VeWDT2UbqZlIPG0Q1DSH
-	meAbGz6N5/HteYXkqJb+LcIIeOIYY2KHSbq6ykS5ziYiD7oBCVndDMeZlnMcPvPta+Q0SyvVcZu1T
-	iFl5XVextnvp99kL4OkBmqrXdFNFWKWIFfH3v3d1FWHmpfeg+W2q/Tng5s+8yNcO1n7hcv/cekPMF
-	fa7qPq/Vcx9c9mitaW2DDBY6JP0Z91J6/O9+maZMUHjrJzxE+kBJF3HtQtyRBZZryM6kopEEfRMhR
-	A+MIVMYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6KgTUgptpiWMwjvOBVqoGa8FI++A6MkAZJ+pAv8RD5c=; b=CZYX1bJrQZimBSbIFl1NBZuc03
+	ocaGt26xcY6DpHuKTUqVeDfJzh7DciCVzBe6r7VIgcAWHBGhXazeJk6DMSa+et2hyPVw5z58tz7bX
+	GlahhMpQWSyc4oCROPjmEFId0rjkltQqkxyYeETjLQqiiMbIrKwdaGy6wRBdxYNoSx3cB+yyRi/bb
+	cKQ1LCK+0rrXe3VTYvmCvZZz1Z4j7o5FL2Tv2dxlKZpczuMk62fnG/yoxCVhmzwRws44U4HQqql2l
+	3nqaQjbHGmfrbA0gLDKMc0PYq2RPlyp1j846HxjvTsCy7M8/uXxNlBpIJZVfMqehnzF5d39KKam6f
+	q+CZeMtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKAx-0000000DxXJ-3aeD;
-	Thu, 19 Jun 2025 18:39:52 +0000
+	id 1uSKBB-0000000DxmL-3Utb;
+	Thu, 19 Jun 2025 18:40:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHhp-0000000Dap2-1jxS
+	id 1uSI2M-0000000DcBd-1h7s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 16:01:39 +0000
+	Thu, 19 Jun 2025 16:22:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F883113E;
-	Thu, 19 Jun 2025 09:01:12 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0185B3F66E;
-	Thu, 19 Jun 2025 09:01:30 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 0/2] Improve POE handling for uaccess
-Date: Thu, 19 Jun 2025 17:00:40 +0100
-Message-ID: <20250619160042.2499290-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56773113E;
+	Thu, 19 Jun 2025 09:22:27 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E56733F66E;
+	Thu, 19 Jun 2025 09:22:46 -0700 (PDT)
+Date: Thu, 19 Jun 2025 17:22:44 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Subject: Re: [PATCH 01/12] drivers/perf: arm_spe: Store event reserved bits
+ in driver data
+Message-ID: <20250619162244.GH794930@e132581.arm.com>
+References: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
+ <20250613-arm_spe_support_hitm_overhead_v1_public-v1-1-6faecf0a8775@arm.com>
+ <3a833298-10a1-4c6a-8a90-6836c47a1dcb@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3a833298-10a1-4c6a-8a90-6836c47a1dcb@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_090137_498326_89646AB7 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250619_092250_486748_2645904F 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,41 +72,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This short series attempts to approach POE (Overlay) faults consistently
-w.r.t. uaccess. We currently assume that spurious Overlay faults are
-handled by retrying the access [1], but this isn't the case.
+On Thu, Jun 19, 2025 at 12:28:27PM +0100, James Clark wrote:
 
-Patch 1 ensures that spurious Overlay faults are indeed ignored. This
-being done, it typically isn't worth using an ISB when writing to
-POR_EL0. Patch 2 removes the remaining ISB in the signal handling code.
+[...]
 
-Patch 1 changes the fault handling logic to rely solely on POR_EL0 and
-VMA metadata to determine if a pkey fault occurred, instead of the
-Overlay bit in ESR_EL1. The rationale is detailed in that patch; it
-is worth noting that powerpc made a similar change but for a different
-reason [2].
+> > @@ -77,6 +77,7 @@ struct arm_spe_pmu {
+> >   	u16					pmsver;
+> >   	u16					min_period;
+> >   	u16					counter_sz;
+> > +	u64					pmsevfr_res0;
+> 
+> IMO this is a premature optimization and we shouldn't store things that are
+> only transformations of some other already stored value. It becomes another
+> thing to worry about when it's valid to read and to potentially keep it up
+> to date etc.
+> 
+> It's just one new one now, but eventually you end up with tons of them and
+> then someone forgets to update a dependent one when the parent value changes
+> and it makes a mess.
+> 
+> And arm_spe_pmu_event_init() isn't even a particularly hot path.
 
-[1] https://lore.kernel.org/linux-arm-kernel/ZtYNGBrcE-j35fpw@arm.com/
-[2] https://lore.kernel.org/all/20200505071729.54912-3-aneesh.kumar@linux.ibm.com/
----
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Will Deacon <will@kernel.org>
----
+Makes sense. I will drop this one.
 
-Kevin Brodsky (2):
-  arm64: poe: Handle spurious Overlay faults
-  arm64: signal: Remove ISB when resetting POR_EL0
+Thanks for suggestions!
 
- arch/arm64/kernel/process.c |  5 +++++
- arch/arm64/kernel/signal.c  |  7 +++++--
- arch/arm64/mm/fault.c       | 30 +++++++++++++++++++++---------
- 3 files changed, 31 insertions(+), 11 deletions(-)
-
-
-base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
--- 
-2.47.0
-
+Leo
 
