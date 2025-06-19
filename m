@@ -4,141 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6DEC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B3FC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pnXdzdZmzduhnN/cEyOWcD1LrNHplSLYVumGYSbaVo=; b=GMrQ5ZcnCW16Eco06WLTLNpW6B
-	oPlO6+hZ5y8n+r7CIVImARYU1nrrAvtIqyy5ZltJfshs1kFMaGT3/8zlvsXk9djyFMSqv4MEJjze0
-	Y+A5MpBWcC39n9FihBW+RLyozDQBqyyX6adW3TwQ9pkz5UHqhmeXvgDvIqlLJg8gFnfg/nfFYAfIL
-	LBl6gmonyglcyZ5X3fnLXTLgkDXC96GrkuUfTYjV3JaiVJx4rhZu/chmtSDEZ4JT1CiAAfoZXec0S
-	DrUubGkRXTyoq0SGDCPA8qooY7KNCpJ/DXI5DqSZhb6LGt+U1UMM8Nz7UN3RmuLzqq6icoGBwu5wQ
-	bL9P2PNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XJx+4TsqaA2QCzMC2S0swX7BjUUd6UbLBhcV9JcAIMo=; b=xn6p2OHI6XIIfPMTQ+IyZ8uqe8
+	C6hgivoZTHf4QfWQ65g1rqLaNF+ai3nhe6z2R1rsxlzFVQOSKXmsT5Iye6svcRT/paJ5nrCFj1jdA
+	N9Zy4XP8U9Lsvz7AsYNTQK+HBz0KEihoPs+d1/zqwIZ77FS/ALDnzKxvjTb0t5xZWr21euD8s5DlW
+	NA9rBGM/RCAAO26CyUvihVF1x+dD8im04r3J3CkXw3L7WkdXClIkN9Q6zGdFIfCEPCOSAxKQhYesS
+	xU4q1zM6n2JhzEERxEtIpu+jYsH1hD7Tq07/hZeb2uERAi3Apdvk/YDhoHMNRjKhELbb/YH470V9f
+	XrMCBs5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDJl-0000000Cqbj-0Y1D;
-	Thu, 19 Jun 2025 11:20:29 +0000
-Received: from mail-co1nam11on2060b.outbound.protection.outlook.com ([2a01:111:f403:2416::60b] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1uSDLw-0000000Cqzw-3Yo3;
+	Thu, 19 Jun 2025 11:22:44 +0000
+Received: from mail-dm6nam04on20615.outbound.protection.outlook.com ([2a01:111:f403:2409::615] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAtN-0000000CTgp-2QcR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 08:45:07 +0000
+	id 1uSB71-0000000CWa8-2OyV;
+	Thu, 19 Jun 2025 08:59:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y5aw1a4qIuJblhw7Mlo27DIaZ9y6YTFibTPvn+dV/Oqgr5brAfSvA/LwygOKweI6ro2kNZg06YKU8L7/uMpvy3VoJ8kC/bWNtN7IV1IG/glP4id1SB1pAvD8mGFrRFYKlowKwELjR37d5XiogI3q/M8nyNJGSGyRlMnDbEkWlAUB+38NbQZlKfEbEiG2CIQLhRfbifR5mVY5z9inWPnkKvyuLzXavHzU80ZM6DfwYOI3AJnqbhkJZ9XN6wN4NECv8UpR/MbrhL3v64JLk2pzzbBAW5f3ljgOW4k7dJkaKwEMCG79/9TcDkoscpR/6GfePxZbf8GRPwLcgKe8woGkhw==
+ b=xnjafBvsdZm+x92IfRcFLvBOWvihaXNPUp4rjWXLAst27LTW54taT3TmqMbB7UfG7HAn90OVOMDOECaW0DOYpAHPofKDdW3e1ApkqfrfBsynvD2EHBdx2nEIXnHUju7eCTv2JUnlr9d2jbP6Oo+Un5ujs0lcWLW8XFSRXcBhC5atLIhO0+EeiS1oaNpeZP7vReC2ncB9RajIouGvWCxlnlrk+3o1Nry0IAe9HmqJ9eoVhR9UVrPkTgr49oI76OxUhuP9tpd3RxKvjOF3de/c5KdEWkZqNvkzbXkI32Y583Bv+d+AsCBwfs9TbEqFttITq74OSfs1BucK9f963yMnew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3pnXdzdZmzduhnN/cEyOWcD1LrNHplSLYVumGYSbaVo=;
- b=u09tqP47YMpj07Usu08axKL0yIN3bE6p8NudYpntquAPTxherdjUi2MWQJ+B+cw6raulGFVir5Io5bIxcNUrl5sYhH1hL1Gdqx4eXG66nz3d1S6qssZkKCmU2Hdn+7V0V/5hgF6mflnUElCuymN3M1ahFB3Rhpoq5Dtyv8V5sc6yEirfeqjaQ6X0NMukdp3PhcMSLr2CzqDGVGjfyGcsg4gVwLJdgVxIsMcsbVRpn87dsrOU/bhjYx/8bhpjcpXJEzi7u1fRKZII0qxZjtXtNITBFW212AaH8CLSQ7RTjrLI0wTxqVa42E/+1atv8T4uLoArb0C6kOLZ8jqk+Ooo0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
+ bh=XJx+4TsqaA2QCzMC2S0swX7BjUUd6UbLBhcV9JcAIMo=;
+ b=eaRDIKlYMHbxHuVS22LKhKFqq1o3LcJPs4bgGqqPcG2zWFTN6zPW5GZVF1HY2qB3mF88raYYy1OoS5woAAW94y9/JB1rALsUSFVvNdTBY9QjkH0h5tueQ2Nu7M8TID7tAbh8eZKr7aaEN2sYfilbYhr+rQ1wMp0oGD+yd/tkLWKvmnEXr8FEZXklhH3LUZ9J4ar0Cnik8V4lrnNciaoOX9PC9is0mJbemH3HtpDLG6t2zwQjUwo6rQq2Ldx0Xe5nOGxCEcWb82cmoVHtlUT/zfJvL0vyD1O+o1FEPi5b1UfQebFyfuXRV8cZ3Qa1gmL9Ty3xupN0GV1Xi02IRkZg9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3pnXdzdZmzduhnN/cEyOWcD1LrNHplSLYVumGYSbaVo=;
- b=bZD6Z25sk/0KX9A4wQ+Ro23lF0IQxvAqNqFVkJRuQmnWdRqh9aJ/PxLjkDfNuimVwNE6eeOeM2wut27cB8yJCEHOxRqRKZtQn1vhliv9mYk3+Wb0mMgfCrl2DFkcq+02DuzyuBCa+jX7LdShE0J38ReiNiHVruOES1bLtwuh1SeGjWcTOeX6RnoLxGQj2kHKUVNyXCU0RXzFxRUDUGziM5izlp1rXuMxtLdh8xO1GGwJ/x3qmfcLCP2aU7SGsuHFHe0gl62qWaVKHreLjA+enp+ZGSWiHfcDSrSdx1CCz2cs5wLKQaSBQkTlVzys5k6VYIxy8tS8m6Uam1RAel5mZA==
-Received: from DM6PR07CA0038.namprd07.prod.outlook.com (2603:10b6:5:74::15) by
- DS0PR12MB9448.namprd12.prod.outlook.com (2603:10b6:8:1bb::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.29; Thu, 19 Jun 2025 08:44:58 +0000
-Received: from DS3PEPF000099D3.namprd04.prod.outlook.com
- (2603:10b6:5:74:cafe::76) by DM6PR07CA0038.outlook.office365.com
- (2603:10b6:5:74::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.21 via Frontend Transport; Thu,
- 19 Jun 2025 08:44:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DS3PEPF000099D3.mail.protection.outlook.com (10.167.17.4) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8857.21 via Frontend Transport; Thu, 19 Jun 2025 08:44:57 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 19 Jun
- 2025 01:44:42 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 19 Jun
- 2025 01:44:41 -0700
-Received: from build-shgarg-noble-20250422.internal (10.127.8.11) by
- mail.nvidia.com (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.14 via
- Frontend Transport; Thu, 19 Jun 2025 01:44:41 -0700
-From: Shubhi Garg <shgarg@nvidia.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Alexandre
- Belloni" <alexandre.belloni@bootlin.com>, Jonathan Hunter
-	<jonathanh@nvidia.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
-	<shgarg@nvidia.com>
-Subject: [PATCH v4 2/6] arm64: tegra: Add device-tree node for NVVRS PSEQ
-Date: Thu, 19 Jun 2025 08:44:23 +0000
-Message-ID: <20250619084427.3559207-3-shgarg@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250619084427.3559207-1-shgarg@nvidia.com>
-References: <20250619084427.3559207-1-shgarg@nvidia.com>
-MIME-Version: 1.0
+ bh=XJx+4TsqaA2QCzMC2S0swX7BjUUd6UbLBhcV9JcAIMo=;
+ b=LBApE0LSpIiPn43zNp2kHf4LThscIp1Zarw5sojkdm4BTJ41biL8cpKgpK3APmP8BaZo50Cv/aUfXolZBWDw8d4CaZwu60AHNACIYWxN0w1rZ8qeMWPyuBHuNE6QQBLnee1TVYvb6XhB4ySnYqYpkRkUUFuw6tDgdt32i1phh7RJ6KKH0LNA4mfv9gLW71i0rcU0fhEVm+3ZebPnAIRDehBEYheaYA5JEISJAjBydZc4x0G/eehqYdf5tX8DzafXZ/6g/muCdL66ZC62zZzhFICxPN1fYKcdrEzpQR7YxFXt57XHALNmNbMS9Zt6FQNrcyEaksYiLpMIi8nC7hjTWg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com (2603:10b6:930:84::9)
+ by SN7PR12MB7956.namprd12.prod.outlook.com (2603:10b6:806:328::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.25; Thu, 19 Jun
+ 2025 08:59:08 +0000
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6]) by CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6%5]) with mapi id 15.20.8835.026; Thu, 19 Jun 2025
+ 08:59:07 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: akpm@linux-foundation.org
+Cc: linux-mm@kvack.org,
+	Alistair Popple <apopple@nvidia.com>,
+	gerald.schaefer@linux.ibm.com,
+	dan.j.williams@intel.com,
+	jgg@ziepe.ca,
+	willy@infradead.org,
+	david@redhat.com,
+	linux-kernel@vger.kernel.org,
+	nvdimm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com,
+	hch@lst.de,
+	zhang.lyra@gmail.com,
+	debug@rivosinc.com,
+	bjorn@kernel.org,
+	balbirs@nvidia.com,
+	lorenzo.stoakes@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-cxl@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	John@Groves.net,
+	m.szyprowski@samsung.com
+Subject: [PATCH v3 10/14] fs/dax: Remove FS_DAX_LIMITED config option
+Date: Thu, 19 Jun 2025 18:58:02 +1000
+Message-ID: <b47bf164b4a1013d736fa1a3d501bc8b8e71311f.1750323463.git-series.apopple@nvidia.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <cover.176965585864cb8d2cf41464b44dcc0471e643a0.1750323463.git-series.apopple@nvidia.com>
+References: <cover.176965585864cb8d2cf41464b44dcc0471e643a0.1750323463.git-series.apopple@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: SY4P282CA0012.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:a0::22) To CY8PR12MB7705.namprd12.prod.outlook.com
+ (2603:10b6:930:84::9)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099D3:EE_|DS0PR12MB9448:EE_
-X-MS-Office365-Filtering-Correlation-Id: 057f1be1-dcd9-4585-3ee6-08ddaf0d925a
+X-MS-TrafficTypeDiagnostic: CY8PR12MB7705:EE_|SN7PR12MB7956:EE_
+X-MS-Office365-Filtering-Correlation-Id: d5a5bb11-2b95-46cd-e040-08ddaf0f8ca4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J4j7PTrzJbcsKHIC8vd30O+f1H1bCjqpfzerC4h7GI/jDFc97I2eUf6NIrbW?=
- =?us-ascii?Q?A4B59aSC+0COTD3aqfCzubkjLJD6uHxMOrT9x0jUxjL64DlZeHFUCJ1aAl49?=
- =?us-ascii?Q?5p35bFsmI5RRV4RcLhAffyHfHQCBffeyI5WIIN4S111+vFs7D7EIwCsOu+DI?=
- =?us-ascii?Q?BhTNC147UFhOZyL9/V4SsOS1VUEwfj1EyG+lJgs5RAO01iWzDoR+gLFeTYmQ?=
- =?us-ascii?Q?voachJyF/funDVYvV6nCWB1VwDHJW5J7r0KP/+596/bKuPUON5+f1tbJ4M1c?=
- =?us-ascii?Q?OdqheeXY9YY4B11qGRQY80b72BAkTYTqmKw+Eq6CRJEQvPCgQf0avWltTyG+?=
- =?us-ascii?Q?KkjN7BsmN00jdf7Br3RpQufoyh/2qVOH4+jOS1KiVWi5MPpmWS/RUaZ2MnkF?=
- =?us-ascii?Q?cmln2wSzEdMZfry1jG5AmM8q2aqHfUA7j0b5p+euj2iVNkFGsLXSNnOIy66r?=
- =?us-ascii?Q?WKQisNPQqVeW29E3mveHv4lESl9/K6afFQpeOV6Djm7hLRhZOyK2MQdyPqvz?=
- =?us-ascii?Q?VQYI7qPJKXCe1VMtdXQk0czAv7t+4D6OkCkpkk96aoLw54gd2mK1BCajmOR7?=
- =?us-ascii?Q?Qsy9yfWVUgsSYy05oKE7bwZjIDQjxZRr0ga7P9a+5rndoDGBA9ZK/zwpBDho?=
- =?us-ascii?Q?cOnSEdg2CNsPpOkOSRbYtPqO3F1oRpZwmCSOfGIIpfgO6nNQUzUqWV9WTa4b?=
- =?us-ascii?Q?LXuZdDe/aeUdFke8g1EVWOmIOO9tBKrSkx1QMcRYil6Bx8iiKjMntvBhbMXy?=
- =?us-ascii?Q?vW8XUizp/X+oSdqLf/bFqsnNttUzXKfLCi1QOLaAYiyOf9ibYnpa7uJHRsdq?=
- =?us-ascii?Q?xR94I6ML+zADJ1/alnbcW/e7PZ0LGad8nnNZ2WO6qCUVfqeBSq2JFdThO8Me?=
- =?us-ascii?Q?CIX3bk4L+zREwQOUe+Tr1pG289g5vsX+/8sx1pCmIRA1vB86fxjS3CLY9M2Q?=
- =?us-ascii?Q?8etTPUFb67Ftxpfs7LUlAB1R6+eVzNYrHSnSEB2RXEW0H0eSHcpaZ842Etmw?=
- =?us-ascii?Q?44d5V9p/aGXc2/mVlgH9is3Jlzj507dktRbuHccaV3aMmgmeC+On18JR3QqF?=
- =?us-ascii?Q?RyRNjp81xPhc2jatsr40pKE6Nv08gn1yGLQUHjBf+4z4ak140apmbRFJyRV+?=
- =?us-ascii?Q?ef3ZV10G/F/GqAN0/ApPOmijYiKIbJQJx1CmsyZ8z10gVzgKMaKtQPyotDYi?=
- =?us-ascii?Q?3zSOfFDU7YU79g4l9Xd71qJ589cyhqdaEE1zrpt7okeO0URS1VNEWMBZjQTg?=
- =?us-ascii?Q?aJ9+rmVAxgCuFeuoT1nCyXiBkVjTg1LhSiS0PWYIcF2hzpj/SjKz9Si+JiGJ?=
- =?us-ascii?Q?TQbeKA66Ld2GFnAxI5bOK4zlz2/DRRtg6wzSStZ5to/qomSwxkJNzUfGbrgW?=
- =?us-ascii?Q?RnuWkl0zEUP1aaCRnpDKiBFjr2ES5OEWtrkKmU0fYNETiscmUmwUZMs9hGAW?=
- =?us-ascii?Q?pxnC01RXofl8ctVAnrS987HhgHkS9UWkBXyQfW++02OW16vuOoLtpPWqLi7/?=
- =?us-ascii?Q?E+Vwn/RgNpmm1OInleS8LllJwIxURu1IJVXu?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VRHpzGVTTpe3m5MICqyLjijgtD84gU9C85PkCsYTbPKfVrhW7llQlJERp9wP?=
+ =?us-ascii?Q?dj2YtxncuBvEp7gMybEPoyHdMiX7HiIeNkyb0FXd9ZCBzBAqBWxS/cbL0Wlu?=
+ =?us-ascii?Q?37PeMoAM9OIskgVlheBsYZgbFHElj6e5XiZoY7Iike6KoGiROBYcNO1+Clem?=
+ =?us-ascii?Q?8xHu57W1Tjr+zNMQj0rP0O/s3Ekasg0er5sdL0lR+EP7qwmai/F7oqCjmfYP?=
+ =?us-ascii?Q?9a8ru88TIKpEC9XsonzLc/bGTTrmuXV9ImEC/nnb/z5ggTozg8U50GlZwYEf?=
+ =?us-ascii?Q?5MybkUbVfc3hR6qfq2Fzpx9xICggjD++8WbrRGM87Zfx/HAvAZNr6WjIMh5u?=
+ =?us-ascii?Q?b/9xFms4BSjC2FWkxjB73SvqjBs6p0zCEg7JChD0CNszAHasmOAx95dhqktR?=
+ =?us-ascii?Q?p4nj5qBL3BNxT0d44FgI9CY4bl2q2DrSX71lf+mtN4BY4j/rFvQBgG3onHFL?=
+ =?us-ascii?Q?CQE1JyCBcbPEPnw9+RRrBHL6g2au7bPAXvoq5pqeKZSW8Dn9aY7IjRab120E?=
+ =?us-ascii?Q?k7POO8rPDtKRk4eE/gmm4TvmzgoMERKSERBxWKMfodxRuHQDPiwUApUpDh44?=
+ =?us-ascii?Q?Gq9ykfKWFmWEAjuGR9aytaPBNa//ozyH0I7NJqJYZSf0uApPuh3cGJheuF9D?=
+ =?us-ascii?Q?/LU2SyEj6ISB17Rs/BtENPbLYDWbz5T+xP/1fm+4wwKF85DsxVsLG/j41ZoO?=
+ =?us-ascii?Q?U3HRrIt7GWQQctdl5HhkYNWSjezS2KkP0Tqn7zFHO0spTRXJXQ/aR2cwhgR4?=
+ =?us-ascii?Q?8CgBiMZB0BR24YUEKgneBc1Fa1QNFYGcxbyUNItC0vOHuBXBmuFK9Q9vjrJD?=
+ =?us-ascii?Q?2ir2Ok2GPNOH2/LSMjWkuYzzQdpoJsdAJpSClIg/MDAnDIN3Em3nPHGmkKWC?=
+ =?us-ascii?Q?FnZgcBlN828ey+QXtZR1ljdaSOJOgWIxKLPgZapcfVY4TE6Vjt+Mrz53WT4K?=
+ =?us-ascii?Q?fouFq2Pn8lHoCb6URDjwgChuT37eueZdGQjiBa6D0CvnJ44KlWwA3iY7/HdT?=
+ =?us-ascii?Q?9l1GUJaFkSJPH6itT1lxCdi2Bdd+gyXhGhD4HrYS4vfRw8KkRsTrltNyIZh6?=
+ =?us-ascii?Q?wgpZCI047+dq2nY19/rpsx/SMYV0aoi4lVl4MK34kOLrgKhIXKGemhtcNJLu?=
+ =?us-ascii?Q?M8XJr1j4fHxZq66yp2K9BCiLR3hnBEPH25Ofm7Rn1n6qSsYd6NKid9kroMdZ?=
+ =?us-ascii?Q?ACpwZoPdAINwxy6cIYv+tqvsIIkJbgW8TKEjJE1ETOuKT1unsmRyyBj8pPRr?=
+ =?us-ascii?Q?mKr8SMIo3gPJkzBQoO9CU+SqPsUcJQ+hYstCL80Hct8GSg68IgVqub5E0aD2?=
+ =?us-ascii?Q?Rtaku4UfxInVIFVHJwsZ1vTz+VLU2HIPAb6YviXIpMp+KhxU5gawJ6JVM5ht?=
+ =?us-ascii?Q?FfSapiCX33bx9RRXuDXuBWfj+oX2z/WMjB0UD7pZmrP/xTYX0jOs2S7O9vHo?=
+ =?us-ascii?Q?NZY7y7j5iA4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7705.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ym8svtuBwr08QD/R4oTot19tDTWPLhgPWpceft8zkNPtV4HSErs7sv/WrbaP?=
+ =?us-ascii?Q?mSXINyneYzGhllL7IkaeAavp5O6A0P81NfVbXiDAK6rHtrFqCTH85X1Yk2t3?=
+ =?us-ascii?Q?rXHJdCJHCYiLgotTU3yvKOKg8Elh2hCXpYTCz1C1abOxAhkN8o+qu4rNLhGb?=
+ =?us-ascii?Q?nCczhV5HF3OsLNIP4wnX4i3e7Fnqj8IJnNRcd6UeLPUnFQw8HK77RNpPwj7M?=
+ =?us-ascii?Q?0i3icfFPxCRS+eqi2FiQb51klunkS0JyYecGmqn73VcwcTykdFWQ9HtiOMGN?=
+ =?us-ascii?Q?ZpYyTM58k9kkM1qlh3ALBgXKEwNO1VzUFvaAReDPAdr+Q45/dYirohmS5fP2?=
+ =?us-ascii?Q?JoIskBvEC+YsbWJUQeYyRpr32pocBUHeLza7rA7dMK35tfcxUCIn4g3A5JBi?=
+ =?us-ascii?Q?oE5J4eDFRuUMUHg33C2UMwLOzUgSBhpyzOh4VD4+JJeulB++M95qKNpGkXSx?=
+ =?us-ascii?Q?+sCW1/fG2qyER7LtXDFxeJbGDc7DpElNXmi+6f5HeTaNtYmeRCTWJg/9tKCZ?=
+ =?us-ascii?Q?XSYHZ6vOjsDCa3E/0mmUA5xYomEKXxxFCzgwQnX9CnjKO3yci1vRcOuVsdz2?=
+ =?us-ascii?Q?QnoCWeIuKzvTx8F9shfLVj1lpGJBVK02twpFDptdo2RLynrqSIqDxGpwW4YX?=
+ =?us-ascii?Q?1mcFGNytyzCpQzVYBecC0YM5R3bJGsz3EE8159I3Hcz1Tp+T8at7pVNMGfPp?=
+ =?us-ascii?Q?mIobEh/QiNRZWIHZ3o7XsY61L2heglkcTPdaFfBS5dE9vXr9Y1hDviaca88T?=
+ =?us-ascii?Q?TQQQTS7I1mN3CXJHELbUD8tPH2wzYvFBLFnYHfzwlMWN5kUJlaTdG0l3BoLI?=
+ =?us-ascii?Q?SjjVhh0m0M33WJvWtgilgzfOEjhUbNmyUtJB6JYMjMlzvFwwOaKH3tCqnXBj?=
+ =?us-ascii?Q?frnWl7vRHIopMRFvMkc6DcW73w4bMnG4FmPlkpzcNlR/R4UTvbUQsOIu1922?=
+ =?us-ascii?Q?CwHH5Otx1MRMDbq7M8MT1/z+unEZjpqqcjteMHpNiruYPV1V9Qd5vhJStotr?=
+ =?us-ascii?Q?wtYhgBztDg5how8+jM1nx4jAi+Vse1e/fQ2rbQLIZ7nTlBqCJFA+6bqYLt8X?=
+ =?us-ascii?Q?0OuFTzn4tdieFHbkv7ZvUSTbCR45TFuMrADPLxIEZbpQf00vPme6CERs9l/7?=
+ =?us-ascii?Q?03ZikkKaZp2kChe3uG8/neX2kJ4fRigbBG0LtVFCwHSbi35qv88ZySR6DJxw?=
+ =?us-ascii?Q?e9uAIqL3qhoEn0fokB0EoiCNV/oZbjcmhJxRJsK/eiMbXeFD2bN00PIgNfR1?=
+ =?us-ascii?Q?DUrJMYuyu4pBawQzl53zndgrkTIhSHGc2hGUzwB21U1skjuFn6E5QgOJMGok?=
+ =?us-ascii?Q?9uR7iVru5ZFyMNTFjKVNZ4e6aJd2hc/FObgH6/e4t4cxhGJyOqWqcW2vn07w?=
+ =?us-ascii?Q?qnMZH8mUeWS/mLFizxCR8L5loHxbinPgCuLOW5RWGMdeRVcMjPBMeiWdw/FX?=
+ =?us-ascii?Q?wVACF0XARZ5t2Au2BolAdxANHWqMS8eaPl3SB49jaqwBfzyMZVMn5Xo8pL4b?=
+ =?us-ascii?Q?0ZlDH+9D1ySS4zTIPrJOwx3XImadtOjLPurPetTn/0BGqkmtyNcCNXXNS2GI?=
+ =?us-ascii?Q?2FBXpLnjV2aPl2MH+LBonW6fxXF1B6jN0fAE8H8M?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 08:44:57.9787
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5a5bb11-2b95-46cd-e040-08ddaf0f8ca4
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7705.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 08:59:07.8403
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 057f1be1-dcd9-4585-3ee6-08ddaf0d925a
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D3.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9448
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 22gUJMxPxcRr+EKzIjEj5In3cWHceMvTNAZgx2Wh82mSImwqHm4fOov6UQQQeQW2gnyOrjFuI4e9LHhvH7GAJw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_014505_616298_32F66352 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250619_015911_635950_81A2A767 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,89 +181,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add NVIDIA VRS Power Sequencer device tree node for Tegra234 P3701 and
-P3767 platforms. Assign VRS RTC as primary RTC (rtc0).
+The dcssblk driver was the last user of FS_DAX_LIMITED. That was marked
+broken by 653d7825c149 ("dcssblk: mark DAX broken, remove FS_DAX_LIMITED
+support") to allow removal of PFN_SPECIAL. However the FS_DAX_LIMITED
+config option itself was not removed, so do that now.
 
-Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+
 ---
 
-v4:
-- fixed device tree node name to "pmic@3c" in aliases
+Changes since v1:
 
-v3:
-- fixed device tree node name to generic "pmic@3c"
+ - New for v2.
+---
+ fs/Kconfig    |  9 +--------
+ fs/dax.c      | 12 ------------
+ mm/memremap.c |  4 ----
+ 3 files changed, 1 insertion(+), 24 deletions(-)
 
-v2:
-- added alias to assign VRS RTC to rtc0
-- removed status node from VRS DTB node
-
- arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi | 11 +++++++++++
- arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi | 15 +++++++++++++++
- 2 files changed, 26 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi b/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
-index 9086a0d010e5..f327ccf48c8f 100644
---- a/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
-@@ -8,6 +8,7 @@ / {
- 	aliases {
- 		mmc0 = "/bus@0/mmc@3460000";
- 		mmc1 = "/bus@0/mmc@3400000";
-+		rtc0 = "/bpmp/i2c/pmic@3c";
- 	};
+diff --git a/fs/Kconfig b/fs/Kconfig
+index 44b6cdd..ccdf371 100644
+--- a/fs/Kconfig
++++ b/fs/Kconfig
+@@ -59,7 +59,7 @@ endif # BLOCK
+ config FS_DAX
+ 	bool "File system based Direct Access (DAX) support"
+ 	depends on MMU
+-	depends on ZONE_DEVICE || FS_DAX_LIMITED
++	depends on ZONE_DEVICE
+ 	select FS_IOMAP
+ 	select DAX
+ 	help
+@@ -95,13 +95,6 @@ config FS_DAX_PMD
+ 	depends on ZONE_DEVICE
+ 	depends on TRANSPARENT_HUGEPAGE
  
- 	bus@0 {
-@@ -170,6 +171,16 @@ bpmp {
- 		i2c {
- 			status = "okay";
+-# Selected by DAX drivers that do not expect filesystem DAX to support
+-# get_user_pages() of DAX mappings. I.e. "limited" indicates no support
+-# for fork() of processes with MAP_SHARED mappings or support for
+-# direct-I/O to a DAX mapping.
+-config FS_DAX_LIMITED
+-	bool
+-
+ # Posix ACL utility routines
+ #
+ # Note: Posix ACLs can be implemented without these helpers.  Never use
+diff --git a/fs/dax.c b/fs/dax.c
+index 7d4ecb9..f4ffb69 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -449,9 +449,6 @@ static void dax_associate_entry(void *entry, struct address_space *mapping,
+ 	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
+ 		return;
  
-+			pmic@3c {
-+				compatible = "nvidia,vrs-pseq";
-+				reg = <0x3c>;
-+				interrupt-parent = <&pmc>;
-+				/* VRS Wake ID is 24 */
-+				interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+			};
-+
- 			thermal-sensor@4c {
- 				compatible = "ti,tmp451";
- 				status = "okay";
-diff --git a/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi b/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
-index 84db7132e8fc..437fda14831a 100644
---- a/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
-@@ -7,6 +7,7 @@ / {
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return;
+-
+ 	index = linear_page_index(vma, address & ~(size - 1));
+ 	if (shared && (folio->mapping || dax_folio_is_shared(folio))) {
+ 		if (folio->mapping)
+@@ -474,9 +471,6 @@ static void dax_disassociate_entry(void *entry, struct address_space *mapping,
+ {
+ 	struct folio *folio = dax_to_folio(entry);
  
- 	aliases {
- 		mmc0 = "/bus@0/mmc@3400000";
-+		rtc0 = "/bpmp/i2c/pmic@3c";
- 	};
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return;
+-
+ 	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
+ 		return;
  
- 	bus@0 {
-@@ -121,6 +122,20 @@ pmc@c360000 {
- 		};
- 	};
+@@ -768,12 +762,6 @@ struct page *dax_layout_busy_page_range(struct address_space *mapping,
+ 	pgoff_t end_idx;
+ 	XA_STATE(xas, &mapping->i_pages, start_idx);
  
-+	bpmp {
-+		i2c {
-+			pmic@3c {
-+				compatible = "nvidia,vrs-pseq";
-+				reg = <0x3c>;
-+				interrupt-parent = <&pmc>;
-+				/* VRS Wake ID is 24 */
-+				interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+			};
-+		};
-+	};
-+
- 	vdd_5v0_sys: regulator-vdd-5v0-sys {
- 		compatible = "regulator-fixed";
- 		regulator-name = "VDD_5V0_SYS";
+-	/*
+-	 * In the 'limited' case get_user_pages() for dax is disabled.
+-	 */
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return NULL;
+-
+ 	if (!dax_mapping(mapping))
+ 		return NULL;
+ 
+diff --git a/mm/memremap.c b/mm/memremap.c
+index c417c84..c17e0a6 100644
+--- a/mm/memremap.c
++++ b/mm/memremap.c
+@@ -332,10 +332,6 @@ void *memremap_pages(struct dev_pagemap *pgmap, int nid)
+ 		}
+ 		break;
+ 	case MEMORY_DEVICE_FS_DAX:
+-		if (IS_ENABLED(CONFIG_FS_DAX_LIMITED)) {
+-			WARN(1, "File system DAX not supported\n");
+-			return ERR_PTR(-EINVAL);
+-		}
+ 		params.pgprot = pgprot_decrypted(params.pgprot);
+ 		break;
+ 	case MEMORY_DEVICE_GENERIC:
 -- 
-2.43.0
-
+git-series 0.9.1
 
