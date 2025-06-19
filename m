@@ -4,151 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E129C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBF9C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T5iBHjZSs296zhN+BuT7NXvKeJYL1VlJvd/PUitwoco=; b=Aoiml759gWhCEQqcZPIAinPzny
-	iWEBJU/j9PV906HRxzPoHoPqRkWZGmIfLSPhWJuR6ZQwOb1X3UcjJSmKNOfyh8rBnMbGyx+KR86YO
-	d0fOU6a9Dlidz08AMYMcP4L1bKCWT8cEezaolfnlFJSC0uVyRO6jEqSbRSbOh9OjvfMHrF0ZsLpQg
-	jLR41fs9D7oH7rfqgqGCSmx1T/1okR7TWFLJ3548nYCDVNstqzJEbJ0A47PPtIHWxV4dtmuTiXd/e
-	6PoJwk2IS8/4AcTFlKZfiFZHaLEw4ckPZl9UuONTeFIE3l3fbpK6h+bwzXQEZheZTDlCIjQowpHa/
-	/nZqBNvg==;
+	bh=hItRQ/EsWDhhIfBWpBCEk7E1LEl+Hcojb2DJh97cbHY=; b=iwN4/kzfv11ke59RcbYKVFPzNQ
+	aUJaNUF1q9x7cm/m6TbP7ip+s7QbTwMun9G+LedO1e4qaOgX5dX6AuWm5Sxh/0DYyCdVwvhKwPOzB
+	z/hEdc8HPB7qlLyM5X3RG2RtyWW5Xa2oCcpl0k2OfPAmrQ33ndCzPooutqGeHkv6cLNZEbzK4yG0H
+	kZnxV/6phZYYPfLKvBdggEZ/3Q5IHbKkgjCMi6xpYeXOnawcBdmevJCT9HzeBeD401AOu+ZCVGeXt
+	1zYZ8NiQgBrGuFjk5Q6w+DIYlvbN/vOuqrKyrFWHa9wFCfGnXcDv4U0N1teWmA50ARtq5bIm9+smi
+	CbprnW/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK7Q-0000000DtPt-3W6c;
-	Thu, 19 Jun 2025 18:36:12 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uSK7K-0000000DtKo-47HG;
+	Thu, 19 Jun 2025 18:36:07 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSGZz-0000000DJfu-09UU
+	id 1uSGOs-0000000DIOy-3vMq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 14:49:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tAhv49qu6r0aGh72gqxsevO85mbI7f/S3A33rk1uwsZ1AJCPMZJrglncaKUFqr3eomxYockhtoAvVKvRvb4q0m+lMgo963ZGqaxsLtNcUM52OHzJZ/qaRFOjY8V9rxtEasjIKYVScrpVMWEj4mdQeJktzwT87Fk24KV+aMntyO9xlqnGKA4nHMAT0poG/P6cJdaJz9r1yquQFG92/JlNUQ7oYtryI42ziBTe78AgTp+/2f61eeckaMwXN9hO7KPs++JVMe5LeaNIB+rdyKoAQD5SucXEyaihLSf52ECxw1wHCgZk3wa0cqwRgGi7544dOWvQ87xW3uAK+UzsiqswgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T5iBHjZSs296zhN+BuT7NXvKeJYL1VlJvd/PUitwoco=;
- b=JIkYVhfPj6bWwBfx8XrrGYyZESR5CyYGqsJsxY/orKeRk2EpLVAMt/BiyU8uv3wzILyQbpOYAnalKPTw132QqnVYkYXSmK0ogMsMXGt7UxEMJO/swzLdq77p2Qeqv/2eI9oY3d2rNMR6wPvInyYL8hmWqzYK3WvxCx87Md5m9gzsE9heNXf17LrtDSZ4Vdk8ULQJ+X7ykONgaYDp/oUv4RoqWws8IVtUBNkhNSd7L9y5llwNfNKhOKDlFLYt8AJglnIqDfLnBBxJ2t7xsM6lldvmS+XuOjgFWuCxXYaVGi3NY2tCT77oA5+uUiPhf/ZVCIY1ddx+lp0adco4SW7Iiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T5iBHjZSs296zhN+BuT7NXvKeJYL1VlJvd/PUitwoco=;
- b=C3s5ZB4iboZTWcdMZN3a6U4F3/MvNsXJkyAj37MwJJco0rIMnr3AVFt1aKHuudOwKJ+ncjgKc+YS6jtTfT//M7DGXOB2LWdgYOdgtz9nPB+ny3UMIHHujCqW3a52Kdl6mYvBzA/lMPeuA6E3MoEvXcd5qTB+zj17ZtOh2OPc107bNWmilEj8xSUEDfi9zyPVyH0VA4dtww9m9RaL4wgS5Tk5vCWo18UYF7jdXNxd4IP0J0kSJRT8HjD+G/ecnl+fIoRbUP/atEvxTZmCYMSIts8Z1WN0nyCSPn8gkLpWDzTwYUYk892qogvWMShNBF28zldrb2kuAV1sMX+26aFKkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS1PR04MB9264.eurprd04.prod.outlook.com (2603:10a6:20b:4c4::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Thu, 19 Jun
- 2025 14:49:23 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Thu, 19 Jun 2025
- 14:49:23 +0000
-Date: Thu, 19 Jun 2025 10:49:15 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-binding: pci-imx6: Add external reference
- clock mode support
-Message-ID: <aFQjaxITjVGmdW0U@lizhi-Precision-Tower-5810>
-References: <20250619091004.338419-1-hongxing.zhu@nxp.com>
- <20250619091004.338419-2-hongxing.zhu@nxp.com>
+	Thu, 19 Jun 2025 14:38:00 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-40a55314d06so212263b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 07:37:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750343878; x=1750948678; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hItRQ/EsWDhhIfBWpBCEk7E1LEl+Hcojb2DJh97cbHY=;
+        b=ZSEAbgrIFOr5U+Qc15eqcS5GmDC2WjddP5kfWuev2TxgO1UmcEhcrJw6TNEE8G8ZCl
+         7kFhMD7CMmPsRhDvv7q9m4/DuJG3/5+kN0kjC9EjomGV33ccyLkD0ba2MZtW5LWnAe3q
+         5YaFG2plbOF2sY81S+sas+N4pJN6PYpj5l2/NiPGV/UaBUsLHMDNt2UnQqlLKEB/5Zld
+         JUxcP9KNnRwXKFhL6HQXjg9QG/btU73xgm9h6WIyB4RPoeSjj3wcjNxgYSkx+B5EhJwY
+         yoYlhD3ngO1Euzejd2+ul0HArQjTAJKb8OPgUIxEY3D/sbR6hx4uQDt/1MNQXAKArTJi
+         3+NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750343878; x=1750948678;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hItRQ/EsWDhhIfBWpBCEk7E1LEl+Hcojb2DJh97cbHY=;
+        b=G+ndcIHECCoVNWsv0RH4mQkAm8+r74llwBePnUz7nHBF2ddKKPk2OtudQh0zz0A8zE
+         +XUn423UZe5Fo6hPjRGJ89j70bJtiJCX9+xrjxuyobNyNXs9fiLSSqnTQipQmUwN5Y4h
+         UhZEDVQMhpBiCVe8Usn9YVYSP5lWGx3nrqaDVSlGE/Aq2TdzOUhBC+AG/JaFb+BeSoNu
+         OERR5S5Qzh3PHNL6zzIxqUP/eqgQ9eBbbcABUuvmeYASmRq/rDA8rsqEjBp0iZJ8Nedz
+         04C16xoRLtEaQxiZj3HfsCmH41ojdSw8Qdk+ofvbBOsvM0VT9+vTz5Jg1cM0FluNV3pR
+         DB6g==
+X-Forwarded-Encrypted: i=1; AJvYcCV8F4GQl5Fie+IftPp83jEaiG7hulsTcTi18k8UySpSehEZmtRuqbcC6GZeTFm3kZnjfFYEnr6uPGrzg3UO090r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9Bsw2cr8grIkL1YGN16yTB0QDui1zgtyVWBZoysykpk2k9Meo
+	iXRzE3QiF/7qhKbJT3PEwMBmE1l4XSOPsF5/ZNmwOUBszknkUwHgRHLtuJgm4h0gqpk=
+X-Gm-Gg: ASbGnculN3rh0YUs89jzHvqYNhmAlJk8LmS6PxDgViDLbhcUkNho8AfkJHfnhZvtTal
+	lQDXl2PcNOORwCeX7simMtxR9qm1mcvKnlUykLaLOZ5wxNtpkro4g3jVFH9ytZP5AKWVC774TFT
+	//sRu/yldOYsxu4xvh5X7X9MEgdQ8n5uwOfxB+gmzfBP/+mVojalWmpbLp0ymK4e0SGi4wP+zky
+	yt3gDXQXNILPEMONhdMVrZg4vg3E9Ecp7H6EA3eK/0VElsP431tdeu3aLn7VAJWYLyyHP7jiTh1
+	R8ON87Z3r2clgsXEtXXDCdsHFG/3ljj5JKaaX/c6mg+PUacm97X2HJUzGjiaUmhCZwknPw==
+X-Google-Smtp-Source: AGHT+IF5wWj1FQ6BbyupArvuY9tJtohfhdhFBgl6f0a/VE3YSxqXuNxxcAbMe+rm13ajKH0dqzjQsg==
+X-Received: by 2002:a05:6870:d0d5:b0:2d5:2955:aa6a with SMTP id 586e51a60fabf-2eaf0830607mr11507270fac.7.1750343877826;
+        Thu, 19 Jun 2025 07:37:57 -0700 (PDT)
+Received: from localhost ([2603:8080:b800:f700:67e2:ece8:b2f5:738f])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2eba625607dsm358428fac.45.2025.06.19.07.37.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 07:37:57 -0700 (PDT)
+Date: Thu, 19 Jun 2025 17:37:54 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Philip Radford <philip.radford@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	cristian.marussi@arm.com, luke.parkin@arm.com
+Subject: Re: [PATCH 4/4] firmware: arm_scmi: Add new inflight tracing
+ functionality
+Message-ID: <514e4b89-d48a-41b9-bd63-0d52249bba7a@suswa.mountain>
+References: <20250619122004.3705976-1-philip.radford@arm.com>
+ <20250619122004.3705976-5-philip.radford@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250619091004.338419-2-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: PH8P223CA0018.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::28) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9264:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3cf32059-f0d6-44f1-dd87-08ddaf407ac5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qQlW7n16mEoAynxAi+0cz84mWG0lCFaBYK+DSk6w3fyhq4V3bjHi4dhWp4bv?=
- =?us-ascii?Q?hDCk2Bo/79Efw9dfWWTjX/Ta6G98fS2wsIWDmaA9JmzCYFUrnqwCmd3yZtQ5?=
- =?us-ascii?Q?EGdb9nMi/BRL7GMx928H6Heby5boxY0IAzDwRUuA1TfiOS33iztg8AEXx+rt?=
- =?us-ascii?Q?BvN+eWcZNJX+vMlDZCJQkq5l6bd3yfdN5Ms8BhZbGe5xTm32HHXeA5mFYxwV?=
- =?us-ascii?Q?Rhy/QWEhDshLFmPKGrfBhKI5ejvwX4GlVQjshWkNXxKEbTxBJwjV9Fklcf5p?=
- =?us-ascii?Q?DMWY3pv0XGXV4PRe0Wv6CiZ0J/0x1JvALQU5/9zyWf9tfRwNZMe3pm3BDfwi?=
- =?us-ascii?Q?WtPhpuzsNKLqHKVhpV3pKVQjrJL8LFNlj4+8Vmwuosv7Ar0QIksMGxNI9xjt?=
- =?us-ascii?Q?JUprW0V6yAkDooLTcI0z7anLXcetpN1LjPiHHA05hfAJQ0wxwqYi36My5x7d?=
- =?us-ascii?Q?ddF7EFlQiMIbAGwPT55TO+dDFU5UGV73Fg5acJO9ouYjX5we+IFBVffcxIIK?=
- =?us-ascii?Q?41bwoeCGfF3yrBWujC4CSyMGmYgheExyHfoGurjjjx3M2x5DrseqeRXr8ctG?=
- =?us-ascii?Q?OhuxnRSJ+Aljm/Arep6fjerFLhxmkluwmEgcrsASZQlxkVjASDGGKDCcaq3D?=
- =?us-ascii?Q?LmnBG4OYWkpA+wayIcMefNhi6mDELEkMXfBCuYBhiha+TEgZZALN6vyk7Do4?=
- =?us-ascii?Q?CiHJhE/Zi0dFyQVAsURezySqyGBBBaWzZcDgBxU0Aur9K7wXLanEYs+zaQsH?=
- =?us-ascii?Q?f+WjTbHpD1JaUcWsM1MKTbKUih+OHanuHl6ZSXoduZkw9uYYgTjB+qBkPsB7?=
- =?us-ascii?Q?4FLpym4Yg0ee60/VQXuHTjJpSTF7m3atab93scMmtnsgpBApEESdiTf0jept?=
- =?us-ascii?Q?rQO9cXSvBNblYHznHX+ocI4kl09d6sCPRwyMAlnKGsoxNWndlPiwYKMaY6h5?=
- =?us-ascii?Q?MYAiqFv2lOl7wgXXktE5aG1QKrwomAQVP6y5NqB41pieta5ZlmujO+PlTAFT?=
- =?us-ascii?Q?YJdJhjNfeLd8HpRtKIOyYiYa7Gm5hOJJjiNDawH7aaBVE+umNVkjrJWuWfZS?=
- =?us-ascii?Q?FM01QorAezVzCOIHhhEpBsEprwfgRg5Ui/b4033J6CHIeKZjnOoMIIOULITX?=
- =?us-ascii?Q?LqY5CWBGxAbaB2E26v3Cl2o2h9uWh4oUswErzwvtqiyCukMV3uJjwFbqedmY?=
- =?us-ascii?Q?E9Yf7ZLcx9KaCCoBVWSs2G2RimORLA4TB2BrwH1TqjLZLfMWcCKeG5Xp1UMW?=
- =?us-ascii?Q?lNOZ+qrPVOU1tmEu9DArfKv4Mdv+xFm4w7Mh5ks8z6idW+eAV/EywSVmo3zF?=
- =?us-ascii?Q?57KYO+AIOQAw/Vd+iTzB1llNa8pePoVOBv8nR+n+l/eKXByOGQyLvDeb1LjE?=
- =?us-ascii?Q?cDcTaZjt3f8b7fvfIwNUKit4yonZgpEkZRYaYOU0tvRTTMm9WtLQXVlfna20?=
- =?us-ascii?Q?l4v6qFrF6eLHjHPAuP6P8cvDX0IIYsFFZr7hSa6G5faRhndZRaOux2y6dFo7?=
- =?us-ascii?Q?idMEJ0/uahd5ASA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uaZxUKz7gAi1GvW6XZdsU2JWorqyWZJEvVLEg5qPIXXD+CDH+75al1E5sB9B?=
- =?us-ascii?Q?rWBw92H4SHkKNgDVcaTioPtAicjdq48oJnShJfFbidlim9RjRbLTNwacDmtg?=
- =?us-ascii?Q?PY4JCDYIZf2OrA4T+MCCY6eGRxNqWBmSeTfNeuO/xxIDwXwVk1Kh06pwhytu?=
- =?us-ascii?Q?64N4689xxKfNUWBRJsDT6Gd8iPwL5qFsM/W1LuCbdWPh+I4IDU31XvK60bMy?=
- =?us-ascii?Q?AjZaRL05cARl/0ShWRXBM4qTjXmNLzRYSu5wZOG2Cpd+Ysx0oRFJq7Q3m21q?=
- =?us-ascii?Q?j+cHBYAihxiuIqV3VG0TmPI6B2+8bRW24JbOVgOs4SH5MwxVdAFfZnnFU22N?=
- =?us-ascii?Q?+jNpTVcwsI0AgBk8vT3xEtn3w6ahAIixCa/GRXz9lRZh6h97IP9WvxXYzkKr?=
- =?us-ascii?Q?VjUu9BwQz3eNrgcLRZ1qOlYDA9dAMjl5161heyGjwSZqYLd/4H4SvDNCC3rR?=
- =?us-ascii?Q?KRt6sDAIPZbrPs6a55jJntruHe2OwYXt2TgdcarY6MxjBq+frouAWti+UPgI?=
- =?us-ascii?Q?etOpf9QsA1pnKMdY+X0cKUAmPlaagemP/godv4zk7ejfJo+xZK61qZHPXrBd?=
- =?us-ascii?Q?BJObPprq5QCo50AQvuOR88al7CO8FXxfikpBZAlpkIbJ3bUvv4gUic93Mg7/?=
- =?us-ascii?Q?SREsy6GYMGKXeWM5QKCQ9MULZ5dpqoq3zQ6cFvAXlTVxbRRk6Kp3/PYQ1kD4?=
- =?us-ascii?Q?of+bglczJqdFUI7NTUfBvP46Cd0IedSbuzr/CCQTMlyGTEVF/PRoSjZ0ooYT?=
- =?us-ascii?Q?e2VH1+tgFSCrzlQ0lc3h4JznmNV4H0Jeu9CRuJjxR/jVm7WmBtAuXEdUUIAh?=
- =?us-ascii?Q?N1h5xC4Y1+I+PLHiAUe35lm811X1U6PqM6nD4Dmmwg1dfzA6qksU8b6SHU7Q?=
- =?us-ascii?Q?htheBi++zbwF41szuL1bo5E04EJ/h7XFINsZX/DQuZUasY+FlL3KVDLhpcAY?=
- =?us-ascii?Q?GUIWxmTqTx817oqCiFE0CKglPowHVa2yjSZb3a7Wq2/sjkn3w+v1RTts4rx6?=
- =?us-ascii?Q?MHvC3eeKWHZtyedpEdnkXEX8eExZbg5u7Vf/1iToaV6IPhe72UsX1dsp2QQZ?=
- =?us-ascii?Q?/15oL5LgJjNPd7Zi9AdgMmGt7ZQ+nMyjAxjR6rvti16ks24dvY7n474Vx7Fp?=
- =?us-ascii?Q?fnet2rTzP9UY58RjoPFN8D7xW1x8J9S+it/mzvfWYtku9ltehmfEpiRZHQUE?=
- =?us-ascii?Q?OOARgRpSgban0vtv0eZ53OjqvJDof/KAWd8zerS3XB51IBj45DGsYcoYbUBN?=
- =?us-ascii?Q?ssWmVq8E1X7pvElzXzjVFVPuqq6Y03Y0pvKAgeJTDvbFtFgnzDeURQjYeAkN?=
- =?us-ascii?Q?rzVYCuTTQPR47HEQlZjQkqx6c5FHVLJP9P0mnZdBVcV2CAa53P9iFRoJntXi?=
- =?us-ascii?Q?Y3Y4F5bjvlWlBuC12DXi0uIEcG30NtuOW6JhRCVid09BI9kbHNJXoAEeF2pP?=
- =?us-ascii?Q?IW8YzR7HrDg7zI7102L3jrIrQsWkPb8OJXd2Lk0van8NhWedL2K7E2D80F2B?=
- =?us-ascii?Q?7g1+buSaIkvyD+am4/8NEL0p6O3EfGlKCiQDCZpQTwo54JMdSsFZEMuwwrkH?=
- =?us-ascii?Q?BiqwZ8SnNOviCVllTZszyygoCYJGgaEzo2oNNDrv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3cf32059-f0d6-44f1-dd87-08ddaf407ac5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 14:49:23.0661
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uPll8OqxP2roXSSnSNxamxq749WQGbdDd1Shx4FGCDosmK1x+7K3BPCaI2lCKJakGyGjUfNHYuLRhDpGKJ5HGQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9264
+In-Reply-To: <20250619122004.3705976-5-philip.radford@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_074927_076235_4562F71F 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250619_073758_975879_6632F3B6 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,38 +99,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 05:10:03PM +0800, Richard Zhu wrote:
-> On i.MX, the PCIe reference clock might come from either internal
-> system PLL or external clock source.
-> Add the external reference clock source for reference clock.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
+On Thu, Jun 19, 2025 at 12:20:04PM +0000, Philip Radford wrote:
+> Adds scmi_inflight_count function to fetch the current xfer
+> inflight count to use in trace
+> 
+> Signed-off-by: Philip Radford <philip.radford@arm.com>
 > ---
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index ca5f2970f217..c472a5daae6e 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -219,7 +219,12 @@ allOf:
->              - const: pcie_bus
->              - const: pcie_phy
->              - const: pcie_aux
-> -            - const: ref
-> +            - description: PCIe reference clock.
-> +              oneOf:
-> +                - description: The controller might be configured clocking
-> +                    coming in from either an internal system PLL or an
-> +                    external clock source.
-> +                  enum: [ref, gio]
->
->  unevaluatedProperties: false
->
-> --
-> 2.37.1
->
+>  drivers/firmware/arm_scmi/common.h   |  1 +
+>  drivers/firmware/arm_scmi/driver.c   | 17 +++++++++++++++--
+>  drivers/firmware/arm_scmi/raw_mode.c |  5 +++--
+>  3 files changed, 19 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> index ad9232c982ce..07b9e629276d 100644
+> --- a/drivers/firmware/arm_scmi/common.h
+> +++ b/drivers/firmware/arm_scmi/common.h
+> @@ -505,4 +505,5 @@ static struct platform_driver __drv = {					       \
+>  void scmi_notification_instance_data_set(const struct scmi_handle *handle,
+>  					 void *priv);
+>  void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
+> +int scmi_inflight_count(const struct scmi_handle *handle);
+>  #endif /* _SCMI_COMMON_H */
+> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> index c6657582c9ab..d128d497f96e 100644
+> --- a/drivers/firmware/arm_scmi/driver.c
+> +++ b/drivers/firmware/arm_scmi/driver.c
+> @@ -1443,7 +1443,8 @@ static int do_xfer(const struct scmi_protocol_handle *ph,
+>  
+>  	trace_scmi_xfer_begin(xfer->transfer_id, xfer->hdr.id,
+>  			      xfer->hdr.protocol_id, xfer->hdr.seq,
+> -			      xfer->hdr.poll_completion, 0);
+> +			      xfer->hdr.poll_completion,
+> +				  scmi_inflight_count(&info->handle));
+
+White space is messed up.  It might be better to fold this into patch 3?
+
+regards,
+dan carpenter
+
 
