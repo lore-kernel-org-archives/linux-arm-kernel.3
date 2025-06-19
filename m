@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0774DC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A060C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ks/v4Ujqfzvs18wnvXzme1WPE3egbOvN05dsniZSqtg=; b=e/AP2ih/8GOLLKfQ2riGa3NN+N
-	2cg3BaIA4EI3bwP9KuwxlLo1xsZyLjLB5Edpiaz4f4/LTi5+OCWj+cwSMv/PhxBB1c7pb6mr7BgDy
-	k7qDP8bONJVDrGf/rhVhI7+sbxueZwxtptKDJjwRCBVRntGSXqkgQdz7tRMC0Sv+b2sw36q5CzQJe
-	KWbAg0eUVhIrUX88EMVi8QN4ZoAM8umBw37T03vwJnzrf0AE7hIokptEEW9owGtDTp9PkCstvnDpO
-	WePFK91Mn1uCl0Jgs8F3+dl/N7cXJD30bQXwzGFs/QoL3qg7XMAmjQ6GoXahcKVGbsdsZusAJoYHa
-	h79uMr0A==;
+	bh=OinlicTUqCKuG9MTHGgEFzHpHXn4e/TbFQka2FRD/MQ=; b=zboakOzqzcn585Ignhm4s2laBv
+	QADlkpXkfn7L9t956mFSC8JDNnlmtdTNlvAg8NaMyWtXmntgrkWKEQq1ktHTNNuT/5oNHS0Hmchi1
+	RXNhDIwgxGseof2Cku7YsWkXSNGBd59HSmTbf83G8Z+IjtJ5e+REkazxrx6pGYVpN+cGZgXuKzi74
+	eUQJTkXvCLuHz2v5L3r/hKzVZwvijQgOJaPSQazp4spuoi1WF0W4/dkKbXFgDBfaFaAyZX75qUhtA
+	kLVGxeo0lwpgrpBz+Nk/vZ0ABmlgZjbN4YtsC1sS8RAKQn2UL8F7SWSJMDfNWzURbkZNbr89plEu9
+	No9qy/tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSBwi-0000000Cfrt-2gAi;
-	Thu, 19 Jun 2025 09:52:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSByv-0000000CgJe-3zT0;
+	Thu, 19 Jun 2025 09:54:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSB3Q-0000000CVhL-3elo;
-	Thu, 19 Jun 2025 08:55:30 +0000
+	id 1uSB3y-0000000CVpt-1753;
+	Thu, 19 Jun 2025 08:56:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C9D15A54350;
-	Thu, 19 Jun 2025 08:55:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B497C4CEF4;
-	Thu, 19 Jun 2025 08:55:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B3E3629E6;
+	Thu, 19 Jun 2025 08:56:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DB25C4CEF3;
+	Thu, 19 Jun 2025 08:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750323327;
-	bh=eQADuGSiL41NAxGl9NK+UhkSlVn0yTQBhyaUTND5Uzc=;
+	s=k20201202; t=1750323361;
+	bh=GY39qewCO8ZjeGeZxUohtkWS54SrNUfyybjbm7an5Kw=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=p2FgroRg8XpbJ/VSjtfLXHjJJRjKYpLj2XcaUHKG2xLQ7wfM+Z5n3rCjl6c8Zto5M
-	 RSqSwjDobL8Uw3UNbEgelKH8UpaKTaToYX2CC3EHc2vsE2pdmJDyKlBWw+TMDnneAR
-	 zMJQDoEg8twbtA3I11UyCenEImVZ9sO7oElSKq/lIdyVHdbSV7Rl1uy4I9OtVCIJ1L
-	 xY4b7NmVNhx3/G6psbDY7j5hAeSUhrVg2Gh8rwAs7zI7pjkVGSiXnOiYqIeGf09brb
-	 UZTFESwD6c+51mkUr6sZ7eCO2jWacLftMDJ3IO+VCTUTYL9SrpXOCd2q9ivlu3Pq39
-	 P3TSZ4nA1tZBA==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-60497d07279so1001925a12.3;
-        Thu, 19 Jun 2025 01:55:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUAeZlVsX1D8RtvpmvwcIPIaTGcVFrtjbodDi2eHo+QRjKHukyVnRipyys7YzY0gqW1u+kzytYeERbzkXU=@lists.infradead.org, AJvYcCVQKZB2bkoeNJcB7VOPj/3hEpNQQ3/Tmlv3lb7Z8NuUTXChtfzDCA7bcC3OyINY/oL7PzALUHL9JLV/H4MtnZu7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHrmqZ6C+Q8xDTXxI0GNETauYCafrWx2eDwFQOsOlkDQce+nGF
-	tDiufiGNcmtd4sdsovIUZ0Q7hFWxW5emX/odCUGJM+xiKipGPnNbZfuWe2aTWB4bbnLc8MuU4ft
-	jidycYPUup0omMezoxZ1BDTrVUJT7DO0=
-X-Google-Smtp-Source: AGHT+IFe63NPmdC9P72cDlyX2WP9si/cWhn+2uqDCCs1dQMO/+ouBJs4HCM0Kl1RCgdHuztVjrD3QGSEtvvPoh/cEAU=
-X-Received: by 2002:a05:6402:50d2:b0:607:6057:9006 with SMTP id
- 4fb4d7f45d1cf-608d08f7a70mr18716524a12.8.1750323325929; Thu, 19 Jun 2025
- 01:55:25 -0700 (PDT)
+	b=BiG8+DpI8qK/7ehh9mHlWcIBDcd2aW6L5zsdQwFfDHxAQzkw3wpYWGPQ6B8QAPH9D
+	 y3g3vBeuapW2jbg7F3C0+1XUsLnDTo/NVZBstotfSykAdmedcEkBtU7uK0/NAe+wSt
+	 Kc+Lun055qORQz7b1mmMomPpcYDq76KH/YewkrSM0s4AR/fntnE2c+ZQiv3ylk6uFy
+	 YMe89/7ZUy5WBvyLmptPtHixT5axCELqsF3d08SoPQsMs39mRobfTX8/5lFJkTd5Ag
+	 2mulMGlFaIN9bMOa0eo2qBME6/JU5n//r22rEhdAHA56YcfKfLRjdPIb6YPhoPnwm1
+	 xxs6mMfeLDs3A==
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-605b9488c28so840190a12.2;
+        Thu, 19 Jun 2025 01:56:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUFsma2gYcQRXjavN9m6qbIBQ6e9n9QCi7oqUtTM74ZOGIB2s3uM7dZTSGWnURb/nhPUCciW3fRVScO8E4NB2OF@lists.infradead.org, AJvYcCWM+lLWT9wmBMlSWZ7dKOqPoZ9g5KRkH92gRPLJsmenPb3AOQomSsKJElOweOLQzfX52v8iCljSVxiCJSE=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1UVPr9+0axtk9jDOZSW/sWRWTIjUbEdSa/HQSfcbKPfzJTiI+
+	2RId+5B2jnhy3YZU6FTjuytDE+1edLfYo1Oh8bq7M5BK+bFvfROcPHyXq+mI8LA3Ons+95vwWMG
+	VkJSlIJlgaac4pffklbKE4Y6FZBDZdRY=
+X-Google-Smtp-Source: AGHT+IHshgFBjrE/bznWO4e6lyy0nq5bnj0JFcjbPNAIZZpdv6svyHpe5+Z0ZAFZ4cpQ+FvgAbwAckAC6VQE1xAS01s=
+X-Received: by 2002:a05:6402:26cc:b0:607:16b1:7489 with SMTP id
+ 4fb4d7f45d1cf-608d094801bmr19223662a12.20.1750323359751; Thu, 19 Jun 2025
+ 01:55:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-9-kees@kernel.org>
-In-Reply-To: <20250523043935.2009972-9-kees@kernel.org>
+References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-10-kees@kernel.org>
+In-Reply-To: <20250523043935.2009972-10-kees@kernel.org>
 From: Huacai Chen <chenhuacai@kernel.org>
-Date: Thu, 19 Jun 2025 16:55:15 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4rFt3J6hD-eiNN5nihNR0cwMxPJQpq8LQWkx4km428og@mail.gmail.com>
-X-Gm-Features: AX0GCFtBM3K8OeK1JL3sld-cpEWi3kLQAET9w-cyksCMv2tJ5SCZdduevj4T0cU
-Message-ID: <CAAhV-H4rFt3J6hD-eiNN5nihNR0cwMxPJQpq8LQWkx4km428og@mail.gmail.com>
-Subject: Re: [PATCH v2 09/14] mips: Handle KCOV __init vs inline mismatches
+Date: Thu, 19 Jun 2025 16:55:48 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4WxAwXTYVFOnphgHN80-_6jt77YZ_rw-sOBoBjjiN-yQ@mail.gmail.com>
+X-Gm-Features: AX0GCFvInY5DbmRkbwxLo6Cb2clGLakUsQ51xQCaa7Coc4b_DkkyTMX5tkJkYVA
+Message-ID: <CAAhV-H4WxAwXTYVFOnphgHN80-_6jt77YZ_rw-sOBoBjjiN-yQ@mail.gmail.com>
+Subject: Re: [PATCH v2 10/14] loongarch: Handle KCOV __init vs inline mismatches
 To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
+Cc: Arnd Bergmann <arnd@arndb.de>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tianyang Zhang <zhangtianyang@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Jiaxun Yang <jiaxun.yang@flygoat.com>, loongarch@lists.linux.dev, 
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>, 
 	Andrey Konovalov <andreyknvl@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
 	Ard Biesheuvel <ardb@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
@@ -77,9 +79,6 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Bogendoerfer <tsbogend@alpha.franken.d
 	llvm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_015529_040402_0781BF19 
-X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +95,87 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi, Kees,
 
-On Fri, May 23, 2025 at 12:41=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+On Fri, May 23, 2025 at 12:39=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
 >
 > When KCOV is enabled all functions get instrumented, unless
 > the __no_sanitize_coverage attribute is used. To prepare for
 > __no_sanitize_coverage being applied to __init functions, we have to
 > handle differences in how GCC's inline optimizations get resolved. For
-> mips this requires forcing a function to be inline with __always_inline.
+> loongarch this exposed several places where __init annotations were
+> missing but ended up being "accidentally correct". Fix these cases and
+> force one function to be inline with __always_inline.
 >
 > Signed-off-by: Kees Cook <kees@kernel.org>
 > ---
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: <linux-mips@vger.kernel.org>
+> Cc: Huacai Chen <chenhuacai@kernel.org>
+> Cc: WANG Xuerui <kernel@xen0n.name>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Tianyang Zhang <zhangtianyang@loongson.cn>
+> Cc: Bibo Mao <maobibo@loongson.cn>
+> Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>
+> Cc: <loongarch@lists.linux.dev>
 > ---
->  arch/mips/include/asm/time.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/loongarch/include/asm/smp.h | 2 +-
+>  arch/loongarch/kernel/time.c     | 2 +-
+>  arch/loongarch/mm/ioremap.c      | 4 ++--
+>  3 files changed, 4 insertions(+), 4 deletions(-)
 >
-> diff --git a/arch/mips/include/asm/time.h b/arch/mips/include/asm/time.h
-> index e855a3611d92..044cff0e0764 100644
-> --- a/arch/mips/include/asm/time.h
-> +++ b/arch/mips/include/asm/time.h
-> @@ -55,7 +55,7 @@ static inline int mips_clockevent_init(void)
->   */
->  extern int init_r4k_clocksource(void);
+> diff --git a/arch/loongarch/include/asm/smp.h b/arch/loongarch/include/as=
+m/smp.h
+> index ad0bd234a0f1..88e19d8a11f4 100644
+> --- a/arch/loongarch/include/asm/smp.h
+> +++ b/arch/loongarch/include/asm/smp.h
+> @@ -39,7 +39,7 @@ int loongson_cpu_disable(void);
+>  void loongson_cpu_die(unsigned int cpu);
+>  #endif
 >
-> -static inline int init_mips_clocksource(void)
-> +static __always_inline int init_mips_clocksource(void)
+> -static inline void plat_smp_setup(void)
+> +static __always_inline void plat_smp_setup(void)
 Similar to x86 and arm, I prefer to mark it as __init rather than
 __always_inline.
 
 Huacai
 
 >  {
->  #ifdef CONFIG_CSRC_R4K
->         return init_r4k_clocksource();
+>         loongson_smp_setup();
+>  }
+> diff --git a/arch/loongarch/kernel/time.c b/arch/loongarch/kernel/time.c
+> index bc75a3a69fc8..367906b10f81 100644
+> --- a/arch/loongarch/kernel/time.c
+> +++ b/arch/loongarch/kernel/time.c
+> @@ -102,7 +102,7 @@ static int constant_timer_next_event(unsigned long de=
+lta, struct clock_event_dev
+>         return 0;
+>  }
+>
+> -static unsigned long __init get_loops_per_jiffy(void)
+> +static unsigned long get_loops_per_jiffy(void)
+>  {
+>         unsigned long lpj =3D (unsigned long)const_clock_freq;
+>
+> diff --git a/arch/loongarch/mm/ioremap.c b/arch/loongarch/mm/ioremap.c
+> index 70ca73019811..df949a3d0f34 100644
+> --- a/arch/loongarch/mm/ioremap.c
+> +++ b/arch/loongarch/mm/ioremap.c
+> @@ -16,12 +16,12 @@ void __init early_iounmap(void __iomem *addr, unsigne=
+d long size)
+>
+>  }
+>
+> -void *early_memremap_ro(resource_size_t phys_addr, unsigned long size)
+> +void * __init early_memremap_ro(resource_size_t phys_addr, unsigned long=
+ size)
+>  {
+>         return early_memremap(phys_addr, size);
+>  }
+>
+> -void *early_memremap_prot(resource_size_t phys_addr, unsigned long size,
+> +void * __init early_memremap_prot(resource_size_t phys_addr, unsigned lo=
+ng size,
+>                     unsigned long prot_val)
+>  {
+>         return early_memremap(phys_addr, size);
 > --
 > 2.34.1
->
 >
 
