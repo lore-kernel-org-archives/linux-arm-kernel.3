@@ -4,174 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCA5C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56181C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YtHwUPX0mkTp1rMnxFsCGlFPu+A0iTGvk4r7WxfYHeY=; b=4zuevHCJHRtupj0tx9DGKvL10D
-	wAXZW5HdRV0KVu7Gn1V8GQSpsnJYMmTisHDLTUvFWh6rvuSJuU+68I5H69u02lHAfYPxiG3crNO+N
-	CvUnf9z7KHNDR1XCSdmWqsLnEYx3yHtpQ52fhnl4lJyP3YM4bqUJBzOvW1Y1VEOICtcuAziba18H3
-	HQN/OWkK/54B2Z1S6/+Du5iOHjjY2r7u1p/5dLqspkxkW6dg+TQxkyrkNMpyc1YQJNo32zrjYG+Kf
-	JZPknCuCSRKKA2dNWvCTo5NBl2V/+AS7Pb5yXDZXYmy0pRgpRJ1rzogUrqdIIW7NCW1AgaHW7A8Za
-	bq8maSaQ==;
+	bh=/apNZjDWauwU195MzLF4TTzD+S03Pc0iG2gnQunxIRw=; b=INov6R1gtHzPnCYUBHXdNEvmeE
+	lVUkoJb9aTr8VIDnxsCgVMG8BCmUt0bf2flCnmdgvjrG+acX2mJTIEYMKahnfKbWJRBAkNj488dTc
+	/5rZfmCit+VAMA3mkfbVzsK+BKCeyx8mTHo2NIzCqYOFJHzZtJ1fG2/fmDwVhMocM5b2hlnMA40Pl
+	cXD6h92K51efvkTPZYRBK5UMcsw0rrgDFiOqG4YQ6eC/vh4niVH6t7CTFIuhLFNGxlqr1DAc9KfoH
+	kdvPQH82yhjD/P7iBKFiIhefdSc/V7SZcFJISOV8dWmPN2mpVjJUPfUqmLcHQgBN+W58LEQ+bbTo/
+	YCfu8pcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHTD-0000000DUI6-3n7s;
-	Thu, 19 Jun 2025 15:46:33 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uSHTO-0000000DUZz-3u4f;
+	Thu, 19 Jun 2025 15:46:42 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDuY-0000000CyMd-2QHh
+	id 1uSE58-0000000D0DS-01YY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 11:58:32 +0000
+	Thu, 19 Jun 2025 12:09:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BKBwyWhzi9tzo3pXOku2tyXcsYQMwQzS6Cez9xR1FUrXEoTbX1Mf+6u4n43vaasyD/BmC/PQVLaIO8mfZ81CI7zHMDMyZM6b7hjBVdwruDx4BI2TcNxuXRePqrAN05XoMiDzqs/GvcsEgVtBTTAOxIYVq25YaNFXFEdbqISvok/XtzwJt+6cLRaO5rjQlaT82djU9xYoiR9bupI5lLtmar3Ryv5Q9eIsU8mg/dJ2oXdssIPhcJ5T48/gepRlf/AzeAh4HkNcQ8pcNaCt+xdhYDXvQDyKw5twJnN0gjl/j1kpSoJFubqsr1VJRukjxBVTMyRFSmCWf9dG23ST7LEJHw==
+ b=MXj0QOoDYew0enLBrzq30Hx06NYYoqFOkhOSj4FIch2qr2v7Q2Y/LUJKMHxse38wurNK1SujkRnPbgawZADDoiINMBTNjIuTr/ibCY97enT70slludqV8Y3F7j1aAuW2dEk++oIQpbc4HIusLooJCB1/ZqheO539ku8c+RHidz5xzQjmgI2yezVWfQ1Qdp05xTDyQ8SRFg5JabJsmtqgXUejG5eQdnrZf/t4cS+O4yRvD5Xey8nwFXi9lgIiteWo+diB0tISj9q9rVmGTUZc+0MrNWSVyz7kX3Jmf+i4u2kNe4Km9hyhebXAKsDzTa4BkjfHcesUzcrUreqgqRoCgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YtHwUPX0mkTp1rMnxFsCGlFPu+A0iTGvk4r7WxfYHeY=;
- b=DJm20auFKykvxRHhphokghKX7vFsoXl44jm8LwXc/ogcRHVz2oSE/55UsvpIBt7HpRfnMYw2pX2zqLO5+QRrfwBbw1Dq4L0sOEQlWsq1k9YbweqiyShvUmgmTsBNNEa93Bz5AbeIGso1Fo5Ea3GOEVUlCaOiHcaxSO2KC9s/ErC4EB3isfdOYGwhcF9QAq5basgE3pPlKjWbGKKvHj+DjXBISuyRlttxEjAFZU3AQVuAw8loDBIEmk8PDzUbV5Gy7/MOHImm0NFVs2S+ADwuL9yiSP9xFtC4/B7QznJpc0ZWGrrad085btKPIYSIMs5gy6jfPaaFbSF3CTLaD/AKTg==
+ bh=/apNZjDWauwU195MzLF4TTzD+S03Pc0iG2gnQunxIRw=;
+ b=aA6RihST+cOD4Hl9H+T5+jKtmv/8YY2BuE4C+eXrX5N2epLvEAaPgar9xzNt1AOyJIRM5q1mqzsVo0XLCILxttzKbMIaFYjeFZ77w8JtwkM1iSd3QrSyDr8cTCu3jAlkFVnAjnm70pquXfnCRwFReRN92Ur/wB64lFYA+RVasYGdOWeum5RP8GxrPBwZQmXByicgfrSZctKRInYBL5HoWZRzNhP8EP/l56H0qQr7Kz1vPZVfEOQpB785WzQW/+xLYaorTPFUuAbgHTJwSH+AE7/o3XGPKYyeGyeq+QW8m1layzyhQvS65dXVpG+18+2KMRJU7inNblNx8C2jfCIj5g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YtHwUPX0mkTp1rMnxFsCGlFPu+A0iTGvk4r7WxfYHeY=;
- b=MM7nxFhP3RnB3QDbww+4DI7qkzwBs5aVX09ZuZJok/nD8kYlxD7BjRbFm9CW5xa8k3+6Q35xe+DI5ev3sjoeeCfqIt389hZQLZDGjttIae42/WfoFKlTAIB2GZ4iFKhnOJ6bFMa6BM/RuJcBYDAf7sy9ACn7pU3dCp2RqaJ2BwTa3/LPM2r22tvuF8xALrnhYrEaYd//1lUunNY1L/u/C5WUEu9M9A2AUjGjdDd89/tRdzP3EROsepOT8trRQuGL22t1c6b/L6nO24aOOY7Se41U/S0VhOZ1P9zcoCw2jFJcdGrwW6cj5T3MwzQvuz+tEQ6dK09zEo3OZ0vfOdK7Ew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
+ bh=/apNZjDWauwU195MzLF4TTzD+S03Pc0iG2gnQunxIRw=;
+ b=MyjWAOVO+A30/+d2gJWz6jp7kLm79ovhgbfQslgWWoJwFSOwcWFTCnu8f4mShWqfLYpE1tlzvNwHZ5plrOVKRAjJYN6MUnQQFBzte2SHRNTbl/99R41p/SLIhTG6nNLT1ajNXpxog3bjfwD4aB7IPjCQn/FzbcDXo6lJ4Yw56uMV0B83bISItt+IS98jY3lPecxsDIHtASfjWSVAZ3/nx3OiCWwM1QLICkrYW7/Tc0Dx44lpdximmu97FHDcMQUjRWDOZOBFd+CztcptJ1DzBO6a+OuCN3VdePgK8Bp4sHbZJALrVfImEny9SiOSZHJHGXjceCLJOfBqQuhrdphYcg==
 Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by PA4PR04MB7855.eurprd04.prod.outlook.com (2603:10a6:102:ca::17) with
+ by AS8PR04MB8849.eurprd04.prod.outlook.com (2603:10a6:20b:42c::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.23; Thu, 19 Jun
- 2025 11:58:28 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.21; Thu, 19 Jun
+ 2025 12:09:19 +0000
 Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
  ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
  ([fe80::e751:223e:aa3d:5827%7]) with mapi id 15.20.8835.032; Thu, 19 Jun 2025
- 11:58:27 +0000
+ 12:09:19 +0000
 From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Thu, 19 Jun 2025 22:50:14 +0530
-Subject: [PATCH v18 5/7] firmware: drivers: imx: adds miscdev
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-imx-se-if-v18-5-c98391ba446d@nxp.com>
-References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
-In-Reply-To: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750353651; l=33997;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=FLnIRi5cTPNBZAh+UhkCshhTBVW4NnN6H3RB3mQ3MNA=;
- b=EfSE2KdIAS+fUs+in1SImi6+wkK9Dp51ecofYUzOGg9tVONCSGSAL81ggQuVl1MrTXyXPVzcw
- zftfEvqTCQWDARlBoldoAATfjZ2KXZuQpbXqF4HblZsLXG2gVvgEjif
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SG2P153CA0027.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::14)
- To AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+To: Shawn Guo <shawnguo2@yeah.net>
+CC: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Frank Li <frank.li@nxp.com>
+Subject: RE: [EXT] Re: [PATCH v17 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Topic: [EXT] Re: [PATCH v17 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Index: AQHbtedVK8O607CHbE6OOXVUvXFh57P/eBgAgAAAcYCAASRIAIAKHEiw
+Date: Thu, 19 Jun 2025 12:09:19 +0000
+Message-ID: <AM9PR04MB8604F77BCD3427B38CB9E664957DA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
+ <aEqMSG8k+NpQ7ROH@dragon>
+ <AM9PR04MB86048A698B03E974CFD3DB489574A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <aEuB1qgd6aVl0i7i@dragon>
+In-Reply-To: <aEuB1qgd6aVl0i7i@dragon>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8604:EE_|AS8PR04MB8849:EE_
+x-ms-office365-filtering-correlation-id: 12c3f116-b39e-4f56-e779-08ddaf2a1e75
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|4053099003|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?jrH4wmg6yHn51GS//qjw+nBCrZGTQAFEWFLK1WLE5B1zH7RuDqXybqod7LqJ?=
+ =?us-ascii?Q?az/Eh4Muj65+TeQcv0LdVz5n6W29YsHn1Mbl6/RXDOFICa8aaaa3nldqIwF7?=
+ =?us-ascii?Q?6LDmy2VYfZJuG50JKZO+2QwWa+2ayM1FPnF8Viw83+j250CpBBLkVG14BXno?=
+ =?us-ascii?Q?dTAIxHXG4CGqzR+wKVsEqmO7mtCLOD2OfV1Zq74lqIwTRMA8qvU6ak/SulS5?=
+ =?us-ascii?Q?RI23fb38KX4n3wYYtkiIJyePju7ug4DKAf6GiiJsBCZAGIoOWoKm8mfDy6zK?=
+ =?us-ascii?Q?mvrk0fARRHZOC5SwN9BPIMk0hUz9N8zvtM8pJTSnuSK+1ab0GufkVMg3x+Ss?=
+ =?us-ascii?Q?yEBPcaDsiIfpZ7YoGX/wxB5rUkVoCyxxxXAMRYUyz14btF8TlBNKfZqXPbdw?=
+ =?us-ascii?Q?nkdjbK61eLuCCHgCBUZhuAluOAp8Qo2bZFc5YmqKsAYhOaf4yB6nIKqe9oHy?=
+ =?us-ascii?Q?lQNIaSxXJ56Dhd0TDW/PawSZlGpRphTvyp7uiUXdlmgsdCdOOolI8K9EckLV?=
+ =?us-ascii?Q?GcpqkOf95N6OVY3QfnAXPJaWJUXoPPC7cy/qqRmcTL96+gsOgrAfosmcf4hv?=
+ =?us-ascii?Q?C/5E+8l9TkoU/MldTe3ELMyXivfmcg6Kbk0/2nCYGlgZs3GNDX+j6gnMf+iw?=
+ =?us-ascii?Q?HSN1cWo/lOQgx2NufQLxha6f/HBQgAIwBonLsd34BdjA+Hm56U68dMpmdWht?=
+ =?us-ascii?Q?dJL5Ex3/JxagqvLAojplBEjfOBDG0RTGVK5Ddb1DL2oRrRzakjBUyP5uHBml?=
+ =?us-ascii?Q?kd7QpiCw3qHo9JJVCvqPZ/ea2zVpRZLFfTkwL0wFB/Ix7zAX9mI+aijamQJ0?=
+ =?us-ascii?Q?eDYOENKuEx/oll/0OUDpOHPn10k8xuU/TWJMKTh8Wdj7XJbK/HdpEIm6s1n+?=
+ =?us-ascii?Q?ui9i44DotySsMO22a25X1L7M3QuxfIgG44K45n28ZPSF/zIQBFz3D5shUMnN?=
+ =?us-ascii?Q?65gSRtO/bUPMbUCnEb/U8qXlDlVVwT0lNuhQhVZnFxIpvmOI/WhlFxiSYKi5?=
+ =?us-ascii?Q?BmWWoKQ/y/JODLIEQLvMr2gWcSReG6xgCMY1QbtrzWKbUN4ulozMJKjIfiEF?=
+ =?us-ascii?Q?Gkm0sHV9yuqd8q3EO4Ue7qG76qaLYEIL0yWJ0YJr3t/ex9OMSQeGpkfo6ZCT?=
+ =?us-ascii?Q?HD91lomi5BimqzlY0SXrqJCeRh1U+h7ERFxNM8shO5cFh3zX0h5F84NHQYar?=
+ =?us-ascii?Q?7z0a9IE53Y0P9mOEbnE37r3nJ8rIobGldCmaqhyAKr6aroMuLorXqkxp3JHm?=
+ =?us-ascii?Q?2m6XW1XPl2+qSUxdj3+TAX46PBuiUaItgvzrQB0I1nRlQal+HfpFpwbbqOyj?=
+ =?us-ascii?Q?TxUOQUj7//FrlqemakAF3XfPLVX+aEtBmMu83rMTCpy2kcj931ENA1q8CXTS?=
+ =?us-ascii?Q?XBZrCbJQuBCpgHBJVrPfZk4q1MnD0Au40DRM4BjRHd+CDKHKFq1SO0OmJoTu?=
+ =?us-ascii?Q?PTCXWvvtNJ/DG7r9bujZagoQ7oNJFFUOe4zzvGjJuJMYZ52t0WMk0s4GT3k+?=
+ =?us-ascii?Q?d0IxVzkeWKxibVE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(4053099003)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?dmmdkXD7Aw0TqSpstRv909CQECK5gxfovUUsmnFMmbS7WD5jMSGeahSmZnNf?=
+ =?us-ascii?Q?OCQkweybLwj2buXjDui79uWwFvGZ1twla4sxPPXHoaCxphyeQv+JHwSstS2+?=
+ =?us-ascii?Q?LPdbRmdtz4u2RObSsoDszuro/vARkQmHrU8+WqjXFqSp+5DUe38u34IVy3qJ?=
+ =?us-ascii?Q?ZctsyGizp3kjA+FOjZQSA/fbveXR57wH+akpFglIe+J+p+ltOy80u5EBh18J?=
+ =?us-ascii?Q?7+/Ejl1IXOLvsEnAjf/qYvBf5HG88nfV3f2FrFYT282QEB6mQfcbf369wXHW?=
+ =?us-ascii?Q?oLFSpNYaSu1DIioChPP7bBTV3s3+Gx4lkzfKudoS4yGOjyMJpw2T2JneoFQg?=
+ =?us-ascii?Q?w5HGElRxm+cFtLqp/uKSsBN71tVDF9MLFk/Yk4QwWGbq/Due3dOkn2818z09?=
+ =?us-ascii?Q?D/xQMkYirFktMqgoOS/up1T/LAZ4qbC9/+P1vtHa99gLeMO/U3gsXT6mPy/8?=
+ =?us-ascii?Q?8RKcWSGietNFQbkBgyyXYaxfQQSbRW5sska0KZaIOEQjGHsBiTWOCJMFI8fC?=
+ =?us-ascii?Q?6fzJTN1N6dhwk7sfZ81RF3/U3dhLuQx9tq/aCNrU7KUxAnSPNKUktPzsxRES?=
+ =?us-ascii?Q?zePKmjs0gguLrKh3myQ6BNMmF/JdOHsDyotdv1W0XfII6d1kFKbd9bdXzAVu?=
+ =?us-ascii?Q?QUdtJU8vhjsDpTcVaFGakYtcN/Dk/C3l68STkyBoL+ot3lRN3C0fR82dgsUC?=
+ =?us-ascii?Q?zGY6Mwzt4BbopxaMUJGiTIuR0Z3u7c9V/5eOnN28CN7O9xi+oh5t4pJqW7nk?=
+ =?us-ascii?Q?5BXC9XZNFOJV5sjrHeYr1LkIScJPWKR3+u03fbtnUXSK3ZJ0Dz9/S7g9Eymb?=
+ =?us-ascii?Q?PRKMhQ1cIJdEYkOMkqm9GV9xaSiS+5ah/7+gz3cO4VoA5mF022F4UiiLB7Im?=
+ =?us-ascii?Q?PduYx0BtXz9XExU3k8/SDoDUNjoC0dobjzqj/Odhmty09sDi9/5XFw90Q017?=
+ =?us-ascii?Q?5h9SUcFsmTz96Je54RUmYA1Em/jnTxC2sUvZHf+byo96/5+N97nPHwaeqyOx?=
+ =?us-ascii?Q?Ml1tQkUUDLik7Tft47BPSslX2xbzl29RWOXAvVhR5DWvu7OzRKKPWAkwDT48?=
+ =?us-ascii?Q?me/+0kqDcBI15cq1VvqOhxTyQeR2o+rl1u97WXfwQvQRESmnzXDpEVDlPLhR?=
+ =?us-ascii?Q?4RJHX286BWI0fofwgI1bFPGNBRBMlMdCqv1dR3UB7tufYwh9dBt/BGj68Ifp?=
+ =?us-ascii?Q?ICNJRc5I28QXc2SMptJ5GGOOm1XrHxSGxuQDB4PjAaq/zUldFNEssvxGDzgB?=
+ =?us-ascii?Q?KzW9CAc85LiNUXiAXX7rHdkEsYGO45ZwVUpXkcPvJ5nnASC82Q/UZ+klXJK1?=
+ =?us-ascii?Q?uVpAIZJLqOGUBnlsNpNEhv0fx5vBdqfoUVb+P2XGC1W3wxOSvScteUpro1i6?=
+ =?us-ascii?Q?0Fbr5YDhU4SE1LXebXi105SdW4dvQbNWzgERo8mr7nkTdrrOC1IThjj5hZ3t?=
+ =?us-ascii?Q?uWFM7dOSnJGlejp8z7CN4smzTpSokDLSzqLhL6PAuw8QpJNyIb+1tTIBdBTN?=
+ =?us-ascii?Q?ldrVxJm5UvhoQVHTqDjNl81JQAcL8gfel50mh4Y4dwuPB5PbuMozh9j1Vhtq?=
+ =?us-ascii?Q?1ViKWypninElG2kOuTppBMpB0Km2e3L12L8pGV3D?=
+Content-Type: multipart/signed;
+	protocol="application/x-pkcs7-signature";
+	micalg=SHA1;
+	boundary="----=_NextPart_000_0327_01DBE141.13F02270"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|PA4PR04MB7855:EE_
-X-MS-Office365-Filtering-Correlation-Id: b6627cb9-45c8-454b-fe1c-08ddaf289a1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|13003099007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UTEybElnaFRkNWEycmYyclIxQTV4RkZrMWVCU2Nod3JTQStNWC9FMGJnQnZj?=
- =?utf-8?B?NHcwZFBkQjVtaWgzZlk3YU1lbUQvVG9PS0JGV004TU93T3FrbVNTVmlMR2k2?=
- =?utf-8?B?b2s1ODZWamxxMHNJVWdKM1NGVnNSVlhINnFac09HZEM5VkxyVFdSQ0VCZWt6?=
- =?utf-8?B?UTJYeVNmVGdUWTlVN3g5b0Q5ekdWOEZrdlJDZG9HK215Z2FwSGpNKy9uNjl4?=
- =?utf-8?B?VFFiazlydXkwcGt1dDBTS1RKelJIUitGZGdZWGxIaWhySExrakN0ci9YbXps?=
- =?utf-8?B?eCszTWdoQkE0SllTWmxaSVJVWkZJaEpEd01yenVkdXJRWE1SZkpCR3I0WHFx?=
- =?utf-8?B?QzJHcUtoSFRTM0FSTzBSUmpYdS9hMEZJam12b2J4UlVpZzM1Unc4RmxGOERv?=
- =?utf-8?B?ZlUrellqWmw5SGlEUkNlWmQ2RU9NWmZDaXJBSkVrdThQMUNrK0FsdnI0VWNl?=
- =?utf-8?B?d3h3MlUxNkRLWGpPbnZ4MnFENGpleFgrV1FYdk5CZGY4dUgvQmxxMzFreXMz?=
- =?utf-8?B?bDZ3ankwRTY0bnNDTERXUy83N1dsbjI4aWRjVXlNT2dITjNmbkNXbzlpOHU5?=
- =?utf-8?B?WENoMHhhSXlFVFpaMTBvZFJBN3MwVGFSQ3d2TUdRSVoyQitLZCs3eVpuSUky?=
- =?utf-8?B?RVpZZmtIV05idHYzWGhtWkdiWnIvamxGTG12TGhmNXM4WE4rMzFPby92RzE0?=
- =?utf-8?B?WWFuMFA2Q3A5aTRGa3JMbVYwTGF0eTBMZDVrQ24ydUhXelZhS1ZIUkk4Uzly?=
- =?utf-8?B?Mkx5bmZLZ2toTzlCQXZlN0tYVVE1cVd0dWt4Mi9QMm9tTmtXSDd2dCtKWkJp?=
- =?utf-8?B?M0EyYThzTjk1bUJxTXFWSUxoZXlHNVpyajBjNFpZM01QYjV5b0hET1FCV1B4?=
- =?utf-8?B?V2srWFRsWW5VQnY1d05oeWtUQmhjMVIwZzRUUHhMVDNnK08xN3c1aHlmSk1B?=
- =?utf-8?B?SkdQdEpNUEhlTldWeGVxelpxcFQrQ29WYVdudlpRMWZTTC91ajBXcm9LT1Ja?=
- =?utf-8?B?TUpHdTB2anAwQVJUd3IxWElmT2VBTDYwUTRrbkpka2NTWmd6ZTJvNjcyRU4r?=
- =?utf-8?B?R0trSFVNOGFPWGI2ZGFVMnp5T3BucFdzNUU5aElqRS9GVFI1d0VkTld2RC8y?=
- =?utf-8?B?VHhCQVVVTzQvUFliQUsydlc4QnYzRURZSmZyZGRYY3pmY202QzU5K1dDanFq?=
- =?utf-8?B?NmRCQ05qL3lzOGRTdkpIeXlkWDFaVVRIUEVzL0hrbXFQb0FMTjJTQk9odkc2?=
- =?utf-8?B?bS9MMG1aY1NQYlpwQW9WWG1TajlteDZNYVVCZEpTdDF4Z0ovMDIwYUh6aEVn?=
- =?utf-8?B?K0dSNWwrRWRQdGpPcmRXSG1wbnNXRnBwTll2QjZSa3VEd3VBdU1ZNWRCQ1RC?=
- =?utf-8?B?bnMvVDN4TG9pMTZKQTNzRDZ2d1JEQytzUVBnSVVaWGYyN2dEUk9wRjJoOUZD?=
- =?utf-8?B?ZjJBT0ZoNTZ0RVVEMWZ4SG4rVUV2OEFmMytnVFJJY2JpcWY3M29vaDYyN0pP?=
- =?utf-8?B?MWR2TVBCV0dDLzZHbFRGb21jTjVBWk9CVmlKdWI4VHlzVHRHcEF0M3hjTXgx?=
- =?utf-8?B?ZVlRa0Uyb0YwMXBxRnNaRCtqNkJML3B4cnBqNWpwbTNaeHV0T2xVQTJmN3lq?=
- =?utf-8?B?bStVb25rYWVUODByaFNqQ2FTZjR6VEhxQzdUckJyZDZJamQyUDJxMjlyZFdN?=
- =?utf-8?B?Q1FHQ2dLYzBycHRQcW42WVlHeWZUdDRmbkoyejUzdHhCQkgzTnNqZjcwVkto?=
- =?utf-8?B?MlBlUGNFdnI2V2NhcDJVZ1VkQkFyTS8wcUIrRjdmU3ZsV1pWYWlSZUpLVmtI?=
- =?utf-8?B?Nm4vUjFOSDgzNjJvZlcxcVZSbXFWblZ4N1ZwY2RFd1R3SzViRGtOTktvSU53?=
- =?utf-8?B?UmFiaU5LSk8wdm5wbWJEVFdVS05INHh3S0VTSUk3R08vTkpMVitCenhVemdD?=
- =?utf-8?B?WUtGeUZXL2tNRzdyS0NQR2xJMkcvdnJjSmxJT2ZQWXNMekpJT0sxdUxBUkJ3?=
- =?utf-8?Q?kC7QPdBiKuqcGQ37KFFDqpw4VEfOSY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(13003099007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YW5RMnEwajV1eEtKYmRWZ3ZYdCtWdk8rbUFuV0dqUHJFTEhXTFo3d291ally?=
- =?utf-8?B?UDdPVUQvQzlwanZaUndkUmdaYkVVZ0ZOV21OTW5XVlIrejRjb1FQN3lsSlFi?=
- =?utf-8?B?SDB5bG9kU3huZEVTRTJ6TURpN3B4czNvQ3hZZ0ZNM010Q1BoZVUwQktkVVdI?=
- =?utf-8?B?OFVXaHIraG10ZWdjTWRjQi81RlEway9aRzVEcUpaWnlsTjRpeklZYjl2SnEr?=
- =?utf-8?B?QUY0bjhNWDdUTjNZU2pWZ2d0cEFSb1FPUEdSb2ZvUEVWQ1h5eHJZNjJVUVRN?=
- =?utf-8?B?aFhpRXpscTFOcGwrSzVpaUdiYzNRK29vYmtCMXZYVTU0UURiOTU5WTk3QUlT?=
- =?utf-8?B?MjNTM3FKWmhNOVhlaUhuT0N2c2w2Vmc4WE9jU2YxUktCSUZmRllUOXFrcTNk?=
- =?utf-8?B?bUhWdUNmZmM0b2E5MmFJdGRMVXRVNW91WS9maEVDYUdEQUViRTVoNStVaWZG?=
- =?utf-8?B?MmFadHZGbWd0c3VXZHJIOHE0bTVsN3pnVXlSQ29GM3ZNVnJxOCsyeHVoY1di?=
- =?utf-8?B?TUhMZGZ6K25CeHVacm1hQi9YeCthdzJ3bGgxVVM4Wjhic0NnYUNQdWZhbGdX?=
- =?utf-8?B?SHJMRkhsQmVSb0l0cTJTYW1EdGUxSkxVWmZDVFphNWE0VHE0MUtoYTNnYUpD?=
- =?utf-8?B?RzI2UzdscExJYysyRkVmb2FaNUhjU054S1IrMytvS3NOUkhpM1MxRE1MUVFt?=
- =?utf-8?B?UGcyamdSc3JWUUNPeXBhaytUN0I3c3JFekZrdGE4K3E4TFNFTVEyaU9rOEc5?=
- =?utf-8?B?UVNkdHorTjRLK1A0UXEzMmhYWlkzcG52bWJUVFVqSDF4TUVDQXRiOWpyelNG?=
- =?utf-8?B?Nys5OWFPRk1keVUzRlA4cHloTHdvRFYvanRQaDU2MjE5MUpOS2czMDNvOVpn?=
- =?utf-8?B?MDFsVThFVzNKbmNUbmYvTnB5RkhxbEw2cHBKY2orMWhjQUh0WmVBbDJHMFRJ?=
- =?utf-8?B?T2pCOHowWklsOHovSFRNTTVkYmErZnBEYnhNeEVjL3QydU5MYnptWEE3Y1RP?=
- =?utf-8?B?V05GQTM5VTJZc2tqRGlJalBRVUFqbFN5R1RNK0t4ZVdRUHcrT1cxb2lGOUh3?=
- =?utf-8?B?MHdzc20yZDBrZXFIS3Bjb1dsYk5sNDBmNkIxQ1dtU21zZi95a09wK1RzbG81?=
- =?utf-8?B?YktNQzYzdXloSkxuMlZLV3RLaWpRV0pTZjQ2NEs2bE5hbEk5OTdpRkpYQlpE?=
- =?utf-8?B?VU5sTXo4cVA2Z3Q2Ny9GUG9TTFFsR2N0UEdwVWVWWVVZbUVyOGJMd2ZDZVlZ?=
- =?utf-8?B?d1I4M3UvM1hzZkRhNzlPU29rdFNsd1BsMnpQSldVYitxQVVWeFBZeEFWdTVt?=
- =?utf-8?B?MGJTM3BSRWxOMjdNbHNTQzMyL0xRdzdJdEpsVmxKUnVVNk93TVFMNWJvMFBr?=
- =?utf-8?B?ZGhGc1RaamM1aGJYSm5pOGQxaHFrRit1cDRsb0c2OUZ4czVtUWR0ZWErUXI2?=
- =?utf-8?B?NmJOVno5eTgxcW5vZkh6WXBiWHd0R2VOd1Y0QmRKOXJjVnF5S0dlWWY5R1RH?=
- =?utf-8?B?U1kwbGp4dDEzWXJvSnFaTXErSzhNalBnSThtWTU2WVYxNVg5SFlJU3VnWHda?=
- =?utf-8?B?N3BUclNDK1VlMldrWVp3SGRlVzR1aitTU1I0alhucUJaV1NCNCs5eGtCcVBM?=
- =?utf-8?B?bzhwbHJ1dUswYTA3aVFpUDhCTkhBczlueEF1R1VxWnVpRVFaNTVIdnRTc3Jt?=
- =?utf-8?B?aTBMM1F3eWZSRlVZUFRlUGs4ZEZySVphUmdzcGp0ZWY0Y1BPUmhEdFJiY24y?=
- =?utf-8?B?VVNiU0FtZjlqK2ozNUVxbWIzRmFUb0JINDl6NW5vT1NQejFzdVY1Vy83R25t?=
- =?utf-8?B?VTUxZ3BaalVKTmlucGN2cU1ZdUMyOTNGMlU3cm4zamhqQlM4NTlWNG9iR3NO?=
- =?utf-8?B?YXMxK1k0WlhIOGU1WWVMbGxBSmVmbE5hY3k4SnEwU2JKUGN2cTRUTzBQbFVK?=
- =?utf-8?B?WkhPUDNKcEJ3dEFSL0c5U29YeEV3WWszeE9jMHpGa2VEYnNVT1Z2Ymt0Nkhk?=
- =?utf-8?B?cy9qYklwOGhOT3JKbldMck5INGs4cmFMdERvQno1NkIwSFk3dkQ2RVZxYkI4?=
- =?utf-8?B?ZHBpL0FmY0xyQkVsd1VEQUxHYW90YzJpKythalMrSldVZTZNZjdvTmZEU0xr?=
- =?utf-8?Q?czhZWwXVxKoT5Tz9pUfcFNurO?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6627cb9-45c8-454b-fe1c-08ddaf289a1d
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 11:58:27.6914
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12c3f116-b39e-4f56-e779-08ddaf2a1e75
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2025 12:09:19.0694
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6t4MrnpQMe29z3tTnl64B1hVeknfzDVUM2WAljcWbjlIq95L11BcARX1/dJc/bKDiIBQxyqR1dMnkDgADIzfSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7855
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7hWD2nyRHkTeg3ewZxLmJ40UQRb3RZMRsTd8Du/940JhymhJpfa3QZ/aP5BzqA5l7RHmgXPUhQ4gf48+q203Bw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8849
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_045830_922965_949F80E2 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20250619_050926_303174_849C8D16 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,1137 +174,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds the driver for communication interface to secure-enclave, for
-exchanging messages with NXP secure enclave HW IP(s) like EdgeLock Enclave
-from:
-- User-Space Applications via character driver.
+------=_NextPart_000_0327_01DBE141.13F02270
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_001_0328_01DBE141.13F02270"
 
-ABI documentation for the NXP secure-enclave driver.
 
-User-space library using this driver:
-- i.MX Secure Enclave library:
-  -- URL: https://github.com/nxp-imx/imx-secure-enclave.git,
-- i.MX Secure Middle-Ware:
-  -- URL: https://github.com/nxp-imx/imx-smw.git
+------=_NextPart_001_0328_01DBE141.13F02270
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Thu, Jun 12, 2025 at 09:42:46AM +0000, Pankaj Gupta wrote:
+>> Hi Shawn,
+>>
+>> To test it on MX93, you need additional patches on top of these.
+>>
+>> The plan was to send the next patch-set to enable the support for 
+>> MX93, once these got merged.
+>>
+>> If you suggest, I can share the patche-set to enable MX93, as an 
+>> attachment to you only.
 
----
-changes from v17 to v18
-- Collected Frank's R-b tag.
----
- Documentation/ABI/testing/se-cdev |  43 +++
- drivers/firmware/imx/ele_common.c |  20 +-
- drivers/firmware/imx/ele_common.h |   4 +
- drivers/firmware/imx/se_ctrl.c    | 733 +++++++++++++++++++++++++++++++++++++-
- drivers/firmware/imx/se_ctrl.h    |  33 ++
- include/uapi/linux/se_ioctl.h     |  97 +++++
- 6 files changed, 918 insertions(+), 12 deletions(-)
+> Yes, please.  I would like to test the driver before it gets merged,
+thanks!
 
-diff --git a/Documentation/ABI/testing/se-cdev b/Documentation/ABI/testing/se-cdev
-new file mode 100644
-index 000000000000..dad39ffd245a
---- /dev/null
-+++ b/Documentation/ABI/testing/se-cdev
-@@ -0,0 +1,43 @@
-+What:		/dev/<se>_mu[0-9]+_ch[0-9]+
-+Date:		Mar 2025
-+KernelVersion:	6.8
-+Contact:	linux-imx@nxp.com, pankaj.gupta@nxp.com
-+Description:
-+		NXP offers multiple hardware IP(s) for secure enclaves like EdgeLock-
-+		Enclave(ELE), SECO. The character device file descriptors
-+		/dev/<se>_mu*_ch* are the interface between userspace NXP's secure-
-+		enclave shared library and the kernel driver.
-+
-+		The ioctl(2)-based ABI is defined and documented in
-+		[include]<linux/firmware/imx/ele_mu_ioctl.h>.
-+		ioctl(s) are used primarily for:
-+			- shared memory management
-+			- allocation of I/O buffers
-+			- getting mu info
-+			- setting a dev-ctx as receiver to receive all the commands from FW
-+			- getting SoC info
-+			- send command and receive command response
-+
-+		The following file operations are supported:
-+
-+		open(2)
-+		  Currently the only useful flags are O_RDWR.
-+
-+		read(2)
-+		  Every read() from the opened character device context is waiting on
-+		  wait_event_interruptible, that gets set by the registered mailbox callback
-+		  function, indicating a message received from the firmware on message-
-+		  unit.
-+
-+		write(2)
-+		  Every write() to the opened character device context needs to acquire
-+		  mailbox_lock before sending message on to the message unit.
-+
-+		close(2)
-+		  Stops and frees up the I/O contexts that were associated
-+		  with the file descriptor.
-+
-+Users:		https://github.com/nxp-imx/imx-secure-enclave.git,
-+		https://github.com/nxp-imx/imx-smw.git
-+		crypto/skcipher,
-+		drivers/nvmem/imx-ocotp-ele.c
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index f26fb4d55a9a..dc4607984f00 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -42,15 +42,22 @@ u32 se_get_msg_chksum(u32 *msg, u32 msg_len)
- 	return chksum;
- }
- 
-+void set_se_rcv_msg_timeout(struct se_if_priv *priv, u32 timeout_ms)
-+{
-+	priv->se_rcv_msg_timeout_ms = timeout_ms;
-+}
-+
- int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl)
- {
--	unsigned long timeout;
-+	unsigned long timeout_ms;
- 	int ret;
- 
- 	do {
--		timeout = MAX_SCHEDULE_TIMEOUT;
-+		timeout_ms = MAX_SCHEDULE_TIMEOUT;
-+		if (dev_ctx->priv->cmd_receiver_clbk_hdl.dev_ctx != dev_ctx)
-+			timeout_ms = msecs_to_jiffies(dev_ctx->priv->se_rcv_msg_timeout_ms);
- 
--		ret = wait_for_completion_interruptible_timeout(&se_clbk_hdl->done, timeout);
-+		ret = wait_for_completion_interruptible_timeout(&se_clbk_hdl->done, timeout_ms);
- 		if (ret == -ERESTARTSYS) {
- 			if (dev_ctx->priv->waiting_rsp_clbk_hdl.dev_ctx) {
- 				dev_ctx->priv->waiting_rsp_clbk_hdl.signal_rcvd = true;
-@@ -59,6 +66,13 @@ int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk
- 			ret = -EINTR;
- 			break;
- 		}
-+		if (ret == 0) {
-+			ret = -ETIMEDOUT;
-+			dev_err(dev_ctx->priv->dev,
-+				"Fatal Error: SE interface: %s0, hangs indefinitely.\n",
-+				get_se_if_name(dev_ctx->priv->if_defs->se_if_type));
-+			break;
-+		}
- 		ret = se_clbk_hdl->rx_msg_sz;
- 		break;
- 	} while (ret < 0);
-diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
-index 5bac14439d7d..3e88ea45ca5d 100644
---- a/drivers/firmware/imx/ele_common.h
-+++ b/drivers/firmware/imx/ele_common.h
-@@ -12,6 +12,10 @@
- 
- #define IMX_ELE_FW_DIR                 "imx/ele/"
- 
-+#define SE_RCV_MSG_DEFAULT_TIMEOUT	5000
-+#define SE_RCV_MSG_LONG_TIMEOUT		5000000
-+
-+void set_se_rcv_msg_timeout(struct se_if_priv *priv, u32 val);
- u32 se_get_msg_chksum(u32 *msg, u32 msg_len);
- 
- int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl);
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 40544cbc70ca..5766d0759955 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -23,6 +23,7 @@
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/sys_soc.h>
-+#include <uapi/linux/se_ioctl.h>
- 
- #include "ele_base_msg.h"
- #include "ele_common.h"
-@@ -32,12 +33,6 @@
- #define MBOX_TX_NAME			"tx"
- #define MBOX_RX_NAME			"rx"
- 
--#define SE_TYPE_STR_DBG			"dbg"
--#define SE_TYPE_STR_HSM			"hsm"
--
--#define SE_TYPE_ID_DBG			0x1
--#define SE_TYPE_ID_HSM			0x2
--
- struct se_fw_img_name {
- 	const u8 *prim_fw_nm_in_rfs;
- 	const u8 *seco_fw_nm_in_rfs;
-@@ -130,6 +125,13 @@ char *get_se_if_name(u8 se_if_id)
- 	return NULL;
- }
- 
-+static u32 get_se_soc_id(struct se_if_priv *priv)
-+{
-+	const struct se_soc_info *se_info = device_get_match_data(priv->dev);
-+
-+	return se_info->soc_id;
-+}
-+
- static struct se_fw_load_info *get_load_fw_instance(struct se_if_priv *priv)
- {
- 	return &var_se_info.load_fw;
-@@ -203,8 +205,213 @@ static int get_se_soc_info(struct se_if_priv *priv, const struct se_soc_info *se
- 	return 0;
- }
- 
-+static int load_firmware(struct se_if_priv *priv, const u8 *se_img_file_to_load)
-+{
-+	const struct firmware *fw = NULL;
-+	phys_addr_t se_fw_phyaddr;
-+	u8 *se_fw_buf;
-+	int ret;
-+
-+	if (!se_img_file_to_load) {
-+		dev_err(priv->dev, "FW image is not provided.");
-+		return -EINVAL;
-+	}
-+	ret = request_firmware(&fw, se_img_file_to_load, priv->dev);
-+	if (ret)
-+		return ret;
-+
-+	dev_info(priv->dev, "loading firmware %s.", se_img_file_to_load);
-+
-+	/* allocate buffer to store the SE FW */
-+	se_fw_buf = dma_alloc_coherent(priv->dev, fw->size, &se_fw_phyaddr, GFP_KERNEL);
-+	if (!se_fw_buf) {
-+		ret = -ENOMEM;
-+		goto exit;
-+	}
-+
-+	memcpy(se_fw_buf, fw->data, fw->size);
-+	ret = ele_fw_authenticate(priv, se_fw_phyaddr, se_fw_phyaddr);
-+	if (ret < 0) {
-+		dev_err(priv->dev,
-+			"Error %pe: Authenticate & load SE firmware %s.",
-+			ERR_PTR(ret), se_img_file_to_load);
-+		ret = -EPERM;
-+	}
-+	dma_free_coherent(priv->dev, fw->size, se_fw_buf, se_fw_phyaddr);
-+exit:
-+	release_firmware(fw);
-+
-+	return ret;
-+}
-+
-+static int se_load_firmware(struct se_if_priv *priv)
-+{
-+	struct se_fw_load_info *load_fw = get_load_fw_instance(priv);
-+	int ret = 0;
-+
-+	if (!load_fw->is_fw_tobe_loaded)
-+		return 0;
-+
-+	if (load_fw->imem.state == ELE_IMEM_STATE_BAD) {
-+		ret = load_firmware(priv, load_fw->se_fw_img_nm->prim_fw_nm_in_rfs);
-+		if (ret) {
-+			dev_err(priv->dev, "Failed to load boot firmware.");
-+			return -EPERM;
-+		}
-+	}
-+
-+	ret = load_firmware(priv, load_fw->se_fw_img_nm->seco_fw_nm_in_rfs);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to load runtime firmware.");
-+		return -EPERM;
-+	}
-+
-+	load_fw->is_fw_tobe_loaded = false;
-+
-+	return ret;
-+}
-+
-+static int init_se_shared_mem(struct se_if_device_ctx *dev_ctx)
-+{
-+	struct se_shared_mem_mgmt_info *se_shared_mem_mgmt = &dev_ctx->se_shared_mem_mgmt;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+
-+	INIT_LIST_HEAD(&se_shared_mem_mgmt->pending_out);
-+	INIT_LIST_HEAD(&se_shared_mem_mgmt->pending_in);
-+
-+	/*
-+	 * Allocate some memory for data exchanges with S40x.
-+	 * This will be used for data not requiring secure memory.
-+	 */
-+	se_shared_mem_mgmt->non_secure_mem.ptr =
-+			dma_alloc_coherent(priv->dev, MAX_DATA_SIZE_PER_USER,
-+					   &se_shared_mem_mgmt->non_secure_mem.dma_addr,
-+					   GFP_KERNEL);
-+	if (!se_shared_mem_mgmt->non_secure_mem.ptr)
-+		return -ENOMEM;
-+
-+	se_shared_mem_mgmt->non_secure_mem.size = MAX_DATA_SIZE_PER_USER;
-+	se_shared_mem_mgmt->non_secure_mem.pos = 0;
-+
-+	return 0;
-+}
-+
-+static void cleanup_se_shared_mem(struct se_if_device_ctx *dev_ctx)
-+{
-+	struct se_shared_mem_mgmt_info *se_shared_mem_mgmt = &dev_ctx->se_shared_mem_mgmt;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+
-+	/* Free non-secure shared buffer. */
-+	dma_free_coherent(priv->dev, MAX_DATA_SIZE_PER_USER,
-+			  se_shared_mem_mgmt->non_secure_mem.ptr,
-+			  se_shared_mem_mgmt->non_secure_mem.dma_addr);
-+
-+	se_shared_mem_mgmt->non_secure_mem.ptr = NULL;
-+	se_shared_mem_mgmt->non_secure_mem.dma_addr = 0;
-+	se_shared_mem_mgmt->non_secure_mem.size = 0;
-+	se_shared_mem_mgmt->non_secure_mem.pos = 0;
-+}
-+
-+/* Need to copy the output data to user-device context.
-+ */
-+static int se_dev_ctx_cpy_out_data(struct se_if_device_ctx *dev_ctx)
-+{
-+	struct se_shared_mem_mgmt_info *se_shared_mem_mgmt = &dev_ctx->se_shared_mem_mgmt;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	struct se_buf_desc *b_desc, *temp;
-+	bool do_cpy = true;
-+
-+	list_for_each_entry_safe(b_desc, temp, &se_shared_mem_mgmt->pending_out, link) {
-+		if (b_desc->usr_buf_ptr && b_desc->shared_buf_ptr && do_cpy) {
-+			dev_dbg(priv->dev, "Copying output data to user.");
-+			if (do_cpy && copy_to_user(b_desc->usr_buf_ptr,
-+						   b_desc->shared_buf_ptr,
-+						   b_desc->size)) {
-+				dev_err(priv->dev, "Failure copying output data to user.");
-+				do_cpy = false;
-+			}
-+		}
-+
-+		if (b_desc->shared_buf_ptr)
-+			memset(b_desc->shared_buf_ptr, 0, b_desc->size);
-+
-+		list_del(&b_desc->link);
-+		kfree(b_desc);
-+	}
-+
-+	return do_cpy ? 0 : -EFAULT;
-+}
-+
-+/*
-+ * Clean the used Shared Memory space,
-+ * whether its Input Data copied from user buffers, or
-+ * Data received from FW.
-+ */
-+static void se_dev_ctx_shared_mem_cleanup(struct se_if_device_ctx *dev_ctx)
-+{
-+	struct se_shared_mem_mgmt_info *se_shared_mem_mgmt = &dev_ctx->se_shared_mem_mgmt;
-+	struct list_head *pending_lists[] = {&se_shared_mem_mgmt->pending_in,
-+						&se_shared_mem_mgmt->pending_out};
-+	struct se_buf_desc *b_desc, *temp;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(pending_lists); i++) {
-+		list_for_each_entry_safe(b_desc, temp, pending_lists[i], link) {
-+			if (b_desc->shared_buf_ptr)
-+				memset(b_desc->shared_buf_ptr, 0, b_desc->size);
-+
-+			list_del(&b_desc->link);
-+			kfree(b_desc);
-+		}
-+	}
-+	se_shared_mem_mgmt->non_secure_mem.pos = 0;
-+}
-+
-+static int add_b_desc_to_pending_list(void *shared_ptr_with_pos,
-+				      struct se_ioctl_setup_iobuf *io,
-+				      struct se_if_device_ctx *dev_ctx)
-+{
-+	struct se_shared_mem_mgmt_info *se_shared_mem_mgmt = &dev_ctx->se_shared_mem_mgmt;
-+	struct se_buf_desc *b_desc;
-+
-+	b_desc = kzalloc(sizeof(*b_desc), GFP_KERNEL);
-+	if (!b_desc)
-+		return -ENOMEM;
-+
-+	b_desc->shared_buf_ptr = shared_ptr_with_pos;
-+	b_desc->usr_buf_ptr = io->user_buf;
-+	b_desc->size = io->length;
-+
-+	if (io->flags & SE_IO_BUF_FLAGS_IS_INPUT) {
-+		/*
-+		 * buffer is input:
-+		 * add an entry in the "pending input buffers" list so
-+		 * that copied data can be cleaned from shared memory
-+		 * later.
-+		 */
-+		list_add_tail(&b_desc->link, &se_shared_mem_mgmt->pending_in);
-+	} else {
-+		/*
-+		 * buffer is output:
-+		 * add an entry in the "pending out buffers" list so data
-+		 * can be copied to user space when receiving Secure-Enclave
-+		 * response.
-+		 */
-+		list_add_tail(&b_desc->link, &se_shared_mem_mgmt->pending_out);
-+	}
-+
-+	return 0;
-+}
-+
-+/* interface for managed res to unregister a character device */
-+static void if_misc_deregister(void *miscdevice)
-+{
-+	misc_deregister(miscdevice);
-+}
-+
- static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
--				    struct se_if_device_ctx **new_dev_ctx)
-+				    struct se_if_device_ctx **new_dev_ctx,
-+				    const struct file_operations *se_if_fops)
- {
- 	struct se_if_device_ctx *dev_ctx;
- 	int ret = 0;
-@@ -220,12 +427,509 @@ static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
- 	if (!dev_ctx->devname)
- 		return -ENOMEM;
- 
-+	mutex_init(&dev_ctx->fops_lock);
-+
-+	dev_ctx->priv = priv;
-+	*new_dev_ctx = dev_ctx;
-+
-+	dev_ctx->miscdev = devm_kzalloc(priv->dev, sizeof(*dev_ctx->miscdev), GFP_KERNEL);
-+	if (!dev_ctx->miscdev) {
-+		*new_dev_ctx = NULL;
-+		return -ENOMEM;
-+	}
-+
-+	dev_ctx->miscdev->name = dev_ctx->devname;
-+	dev_ctx->miscdev->minor = MISC_DYNAMIC_MINOR;
-+	dev_ctx->miscdev->fops = se_if_fops;
-+	dev_ctx->miscdev->parent = priv->dev;
-+	ret = misc_register(dev_ctx->miscdev);
-+	if (ret)
-+		return dev_err_probe(priv->dev, ret, "Failed to register misc device.");
-+
-+	ret = devm_add_action_or_reset(priv->dev, if_misc_deregister, dev_ctx->miscdev);
-+	if (ret)
-+		return dev_err_probe(priv->dev, ret,
-+				     "Failed to add action to the misc-dev.");
-+	return ret;
-+}
-+
-+static int init_device_context(struct se_if_priv *priv, int ch_id,
-+			       struct se_if_device_ctx **new_dev_ctx)
-+{
-+	struct se_if_device_ctx *dev_ctx;
-+	int ret = 0;
-+
-+	dev_ctx = kzalloc(sizeof(*dev_ctx), GFP_KERNEL);
-+
-+	if (!dev_ctx)
-+		return -ENOMEM;
-+
-+	dev_ctx->devname = kasprintf(GFP_KERNEL, "%s0_ch%d",
-+				     get_se_if_name(priv->if_defs->se_if_type),
-+				     ch_id);
-+	if (!dev_ctx->devname) {
-+		kfree(dev_ctx);
-+		return -ENOMEM;
-+	}
-+
-+	mutex_init(&dev_ctx->fops_lock);
- 	dev_ctx->priv = priv;
- 	*new_dev_ctx = dev_ctx;
- 
-+	list_add_tail(&dev_ctx->link, &priv->dev_ctx_list);
-+	priv->active_devctx_count++;
-+
-+	ret = init_se_shared_mem(dev_ctx);
-+	if (ret < 0) {
-+		kfree(dev_ctx->devname);
-+		kfree(dev_ctx);
-+		*new_dev_ctx = NULL;
-+	}
-+
- 	return ret;
- }
- 
-+static int se_ioctl_cmd_snd_rcv_rsp_handler(struct se_if_device_ctx *dev_ctx,
-+					    u64 arg)
-+{
-+	struct se_ioctl_cmd_snd_rcv_rsp_info cmd_snd_rcv_rsp_info = {0};
-+	struct se_api_msg *tx_msg __free(kfree) = NULL;
-+	struct se_api_msg *rx_msg __free(kfree) = NULL;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	int err = 0;
-+
-+	if (copy_from_user(&cmd_snd_rcv_rsp_info, (u8 __user *)arg,
-+			   sizeof(cmd_snd_rcv_rsp_info))) {
-+		dev_err(priv->dev,
-+			"%s: Failed to copy cmd_snd_rcv_rsp_info from user.",
-+			dev_ctx->devname);
-+		err = -EFAULT;
-+		goto exit;
-+	}
-+
-+	if (cmd_snd_rcv_rsp_info.tx_buf_sz < SE_MU_HDR_SZ) {
-+		dev_err(priv->dev, "%s: User buffer too small(%d < %d)",
-+			dev_ctx->devname, cmd_snd_rcv_rsp_info.tx_buf_sz, SE_MU_HDR_SZ);
-+		err = -ENOSPC;
-+		goto exit;
-+	}
-+
-+	rx_msg = kzalloc(cmd_snd_rcv_rsp_info.rx_buf_sz, GFP_KERNEL);
-+	if (!rx_msg) {
-+		err = -ENOMEM;
-+		goto exit;
-+	}
-+
-+	tx_msg = memdup_user(cmd_snd_rcv_rsp_info.tx_buf,
-+			     cmd_snd_rcv_rsp_info.tx_buf_sz);
-+	if (IS_ERR(tx_msg)) {
-+		err = PTR_ERR(tx_msg);
-+		goto exit;
-+	}
-+
-+	if (tx_msg->header.tag != priv->if_defs->cmd_tag) {
-+		err = -EINVAL;
-+		goto exit;
-+	}
-+
-+	if (tx_msg->header.ver == priv->if_defs->fw_api_ver &&
-+	    get_load_fw_instance(priv)->is_fw_tobe_loaded) {
-+		err = se_load_firmware(priv);
-+		if (err) {
-+			dev_err(priv->dev, "Could not send msg as FW is not loaded.");
-+			err = -EPERM;
-+			goto exit;
-+		}
-+	}
-+	set_se_rcv_msg_timeout(priv, SE_RCV_MSG_LONG_TIMEOUT);
-+
-+	err = ele_msg_send_rcv(dev_ctx, tx_msg, cmd_snd_rcv_rsp_info.tx_buf_sz,
-+			       rx_msg, cmd_snd_rcv_rsp_info.rx_buf_sz);
-+	if (err < 0)
-+		goto exit;
-+
-+	dev_dbg(priv->dev, "%s: %s %s.", dev_ctx->devname, __func__,
-+		"message received, start transmit to user");
-+
-+	/* We may need to copy the output data to user before
-+	 * delivering the completion message.
-+	 */
-+	err = se_dev_ctx_cpy_out_data(dev_ctx);
-+	if (err < 0)
-+		goto exit;
-+
-+	/* Copy data from the buffer */
-+	print_hex_dump_debug("to user ", DUMP_PREFIX_OFFSET, 4, 4, rx_msg,
-+			     cmd_snd_rcv_rsp_info.rx_buf_sz, false);
-+
-+	if (copy_to_user(cmd_snd_rcv_rsp_info.rx_buf, rx_msg,
-+			 cmd_snd_rcv_rsp_info.rx_buf_sz)) {
-+		dev_err(priv->dev, "%s: Failed to copy to user.", dev_ctx->devname);
-+		err = -EFAULT;
-+	}
-+
-+exit:
-+
-+	/* shared memory is allocated before this IOCTL */
-+	se_dev_ctx_shared_mem_cleanup(dev_ctx);
-+
-+	if (copy_to_user((void __user *)arg, &cmd_snd_rcv_rsp_info,
-+			 sizeof(cmd_snd_rcv_rsp_info))) {
-+		dev_err(priv->dev, "%s: Failed to copy cmd_snd_rcv_rsp_info from user.",
-+			dev_ctx->devname);
-+		err = -EFAULT;
-+	}
-+
-+	return err;
-+}
-+
-+static int se_ioctl_get_mu_info(struct se_if_device_ctx *dev_ctx,
-+				u64 arg)
-+{
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	struct se_ioctl_get_if_info if_info;
-+	struct se_if_node *if_node;
-+	int err = 0;
-+
-+	if_node = container_of(priv->if_defs, typeof(*if_node), if_defs);
-+
-+	if_info.se_if_id = 0;
-+	if_info.interrupt_idx = 0;
-+	if_info.tz = 0;
-+	if_info.did = 0;
-+	if_info.cmd_tag = priv->if_defs->cmd_tag;
-+	if_info.rsp_tag = priv->if_defs->rsp_tag;
-+	if_info.success_tag = priv->if_defs->success_tag;
-+	if_info.base_api_ver = priv->if_defs->base_api_ver;
-+	if_info.fw_api_ver = priv->if_defs->fw_api_ver;
-+
-+	dev_dbg(priv->dev, "%s: info [se_if_id: %d, irq_idx: %d, tz: 0x%x, did: 0x%x].",
-+		dev_ctx->devname, if_info.se_if_id, if_info.interrupt_idx, if_info.tz,
-+		if_info.did);
-+
-+	if (copy_to_user((u8 __user *)arg, &if_info, sizeof(if_info))) {
-+		dev_err(priv->dev, "%s: Failed to copy mu info to user.",
-+			dev_ctx->devname);
-+		err = -EFAULT;
-+	}
-+
-+	return err;
-+}
-+
-+/*
-+ * Copy a buffer of data to/from the user and return the address to use in
-+ * messages
-+ */
-+static int se_ioctl_setup_iobuf_handler(struct se_if_device_ctx *dev_ctx,
-+					u64 arg)
-+{
-+	struct se_shared_mem *shared_mem = NULL;
-+	struct se_ioctl_setup_iobuf io = {0};
-+	int err = 0;
-+	u32 pos;
-+
-+	if (copy_from_user(&io, (u8 __user *)arg, sizeof(io))) {
-+		dev_err(dev_ctx->priv->dev, "%s: Failed copy iobuf config from user.",
-+			dev_ctx->devname);
-+		return -EFAULT;
-+	}
-+
-+	dev_dbg(dev_ctx->priv->dev, "%s: io [buf: %p(%d) flag: %x].", dev_ctx->devname,
-+		io.user_buf, io.length, io.flags);
-+
-+	if (io.length == 0 || !io.user_buf) {
-+		/*
-+		 * Accept NULL pointers since some buffers are optional
-+		 * in FW commands. In this case we should return 0 as
-+		 * pointer to be embedded into the message.
-+		 * Skip all data copy part of code below.
-+		 */
-+		io.ele_addr = 0;
-+		goto copy;
-+	}
-+
-+	/* No specific requirement for this buffer. */
-+	shared_mem = &dev_ctx->se_shared_mem_mgmt.non_secure_mem;
-+
-+	/* Check there is enough space in the shared memory. */
-+	dev_dbg(dev_ctx->priv->dev, "%s: req_size = %d, max_size= %d, curr_pos = %d",
-+		dev_ctx->devname, round_up(io.length, 8u), shared_mem->size,
-+		shared_mem->pos);
-+
-+	if (shared_mem->size < shared_mem->pos ||
-+	    round_up(io.length, 8u) > (shared_mem->size - shared_mem->pos)) {
-+		dev_err(dev_ctx->priv->dev, "%s: Not enough space in shared memory.",
-+			dev_ctx->devname);
-+		return -ENOMEM;
-+	}
-+
-+	/* Allocate space in shared memory. 8 bytes aligned. */
-+	pos = shared_mem->pos;
-+	shared_mem->pos += round_up(io.length, 8u);
-+	io.ele_addr = (u64)shared_mem->dma_addr + pos;
-+
-+	memset(shared_mem->ptr + pos, 0, io.length);
-+	if ((io.flags & SE_IO_BUF_FLAGS_IS_INPUT) ||
-+	    (io.flags & SE_IO_BUF_FLAGS_IS_IN_OUT)) {
-+		/*
-+		 * buffer is input:
-+		 * copy data from user space to this allocated buffer.
-+		 */
-+		if (copy_from_user(shared_mem->ptr + pos, io.user_buf, io.length)) {
-+			dev_err(dev_ctx->priv->dev,
-+				"%s: Failed copy data to shared memory.",
-+				dev_ctx->devname);
-+			return -EFAULT;
-+		}
-+	}
-+
-+	err = add_b_desc_to_pending_list(shared_mem->ptr + pos, &io, dev_ctx);
-+	if (err < 0)
-+		dev_err(dev_ctx->priv->dev, "%s: Failed to allocate/link b_desc.",
-+			dev_ctx->devname);
-+
-+copy:
-+	/* Provide the EdgeLock Enclave address to user space only if success.*/
-+	if (copy_to_user((u8 __user *)arg, &io, sizeof(io))) {
-+		dev_err(dev_ctx->priv->dev, "%s: Failed to copy iobuff setup to user.",
-+			dev_ctx->devname);
-+		err = -EFAULT;
-+	}
-+
-+	return err;
-+}
-+
-+/* IOCTL to provide SoC information */
-+static int se_ioctl_get_se_soc_info_handler(struct se_if_device_ctx *dev_ctx, u64 arg)
-+{
-+	struct se_ioctl_get_soc_info soc_info;
-+	int err = -EINVAL;
-+
-+	soc_info.soc_id = get_se_soc_id(dev_ctx->priv);
-+	soc_info.soc_rev = var_se_info.soc_rev;
-+
-+	err = copy_to_user((u8 __user *)arg, (u8 *)(&soc_info), sizeof(soc_info));
-+	if (err) {
-+		dev_err(dev_ctx->priv->dev, "%s: Failed to copy soc info to user.",
-+			dev_ctx->devname);
-+		err = -EFAULT;
-+	}
-+
-+	return err;
-+}
-+
-+/*
-+ * File operations for user-space
-+ */
-+
-+/* Write a message to the MU. */
-+static ssize_t se_if_fops_write(struct file *fp, const char __user *buf,
-+				size_t size, loff_t *ppos)
-+{
-+	struct se_if_device_ctx *dev_ctx = fp->private_data;
-+	struct se_api_msg *tx_msg __free(kfree) = NULL;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	int err;
-+
-+	dev_dbg(priv->dev, "%s: write from buf (%p)%zu, ppos=%lld.", dev_ctx->devname,
-+		buf, size, ((ppos) ? *ppos : 0));
-+
-+	scoped_cond_guard(mutex_intr, return -EBUSY, &dev_ctx->fops_lock) {
-+		if (dev_ctx != priv->cmd_receiver_clbk_hdl.dev_ctx)
-+			return -EINVAL;
-+
-+		if (size < SE_MU_HDR_SZ) {
-+			dev_err(priv->dev, "%s: User buffer too small(%zu < %d).",
-+				dev_ctx->devname, size, SE_MU_HDR_SZ);
-+			return -ENOSPC;
-+		}
-+
-+		tx_msg = memdup_user(buf, size);
-+		if (IS_ERR(tx_msg))
-+			return PTR_ERR(tx_msg);
-+
-+		print_hex_dump_debug("from user ", DUMP_PREFIX_OFFSET, 4, 4,
-+				     tx_msg, size, false);
-+
-+		err = ele_msg_send(dev_ctx, tx_msg, size);
-+
-+		return err;
-+	}
-+}
-+
-+/*
-+ * Read a message from the MU.
-+ * Blocking until a message is available.
-+ */
-+static ssize_t se_if_fops_read(struct file *fp, char __user *buf, size_t size,
-+			       loff_t *ppos)
-+{
-+	struct se_if_device_ctx *dev_ctx = fp->private_data;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	int err;
-+
-+	dev_dbg(priv->dev, "%s: read to buf %p(%zu), ppos=%lld.", dev_ctx->devname,
-+		buf, size, ((ppos) ? *ppos : 0));
-+
-+	scoped_cond_guard(mutex_intr, return -EBUSY, &dev_ctx->fops_lock) {
-+		if (dev_ctx != priv->cmd_receiver_clbk_hdl.dev_ctx) {
-+			err = -EINVAL;
-+			goto exit;
-+		}
-+
-+		err = ele_msg_rcv(dev_ctx, &priv->cmd_receiver_clbk_hdl);
-+		if (err < 0) {
-+			dev_err(priv->dev, "%s: Err[0x%x]:Interrupted by signal."
-+				"Current active dev-ctx count = %d.",
-+				dev_ctx->devname, err, dev_ctx->priv->active_devctx_count);
-+			goto exit;
-+		}
-+
-+		/* We may need to copy the output data to user before
-+		 * delivering the completion message.
-+		 */
-+		err = se_dev_ctx_cpy_out_data(dev_ctx);
-+		if (err < 0)
-+			goto exit;
-+
-+		/* Copy data from the buffer */
-+		print_hex_dump_debug("to user ", DUMP_PREFIX_OFFSET, 4, 4,
-+				     priv->cmd_receiver_clbk_hdl.rx_msg,
-+				     priv->cmd_receiver_clbk_hdl.rx_msg_sz,
-+				     false);
-+
-+		if (copy_to_user(buf, priv->cmd_receiver_clbk_hdl.rx_msg,
-+				 priv->cmd_receiver_clbk_hdl.rx_msg_sz)) {
-+			dev_err(priv->dev, "%s: Failed to copy to user.",
-+				dev_ctx->devname);
-+			err = -EFAULT;
-+		} else {
-+			err = priv->cmd_receiver_clbk_hdl.rx_msg_sz;
-+		}
-+exit:
-+		priv->cmd_receiver_clbk_hdl.rx_msg_sz = 0;
-+
-+		se_dev_ctx_shared_mem_cleanup(dev_ctx);
-+
-+		return err;
-+	}
-+}
-+
-+/* Open a character device. */
-+static int se_if_fops_open(struct inode *nd, struct file *fp)
-+{
-+	struct miscdevice *miscdev = fp->private_data;
-+	struct se_if_device_ctx *misc_dev_ctx;
-+	struct se_if_device_ctx *dev_ctx;
-+	struct se_if_priv *priv;
-+	int err = 0;
-+
-+	priv = dev_get_drvdata(miscdev->parent);
-+	misc_dev_ctx = priv->priv_dev_ctx;
-+
-+	scoped_cond_guard(mutex_intr, return -EBUSY, &misc_dev_ctx->fops_lock) {
-+		priv->dev_ctx_mono_count++;
-+		err = init_device_context(priv,
-+					  priv->dev_ctx_mono_count ?
-+					  priv->dev_ctx_mono_count
-+					  : priv->dev_ctx_mono_count++,
-+					  &dev_ctx);
-+		if (err)
-+			dev_err(priv->dev, "Failed[0x%x] to create dev-ctx.", err);
-+		else
-+			fp->private_data = dev_ctx;
-+
-+		return err;
-+	}
-+}
-+
-+/* Close a character device. */
-+static int se_if_fops_close(struct inode *nd, struct file *fp)
-+{
-+	struct se_if_device_ctx *dev_ctx = fp->private_data;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+
-+	scoped_cond_guard(mutex_intr, return -EBUSY, &dev_ctx->fops_lock) {
-+		/* check if this device was registered as command receiver. */
-+		if (priv->cmd_receiver_clbk_hdl.dev_ctx == dev_ctx) {
-+			priv->cmd_receiver_clbk_hdl.dev_ctx = NULL;
-+			kfree(priv->cmd_receiver_clbk_hdl.rx_msg);
-+			priv->cmd_receiver_clbk_hdl.rx_msg = NULL;
-+		}
-+
-+		se_dev_ctx_shared_mem_cleanup(dev_ctx);
-+		cleanup_se_shared_mem(dev_ctx);
-+
-+		priv->active_devctx_count--;
-+		list_del(&dev_ctx->link);
-+
-+		kfree(dev_ctx->devname);
-+		kfree(dev_ctx);
-+	}
-+
-+	return 0;
-+}
-+
-+/* IOCTL entry point of a character device */
-+static long se_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
-+{
-+	struct se_if_device_ctx *dev_ctx = fp->private_data;
-+	struct se_if_priv *priv = dev_ctx->priv;
-+	long err;
-+
-+	/* Prevent race during change of device context */
-+	scoped_cond_guard(mutex_intr, return -EBUSY, &dev_ctx->fops_lock) {
-+		switch (cmd) {
-+		case SE_IOCTL_ENABLE_CMD_RCV:
-+			if (!priv->cmd_receiver_clbk_hdl.dev_ctx) {
-+				if (!priv->cmd_receiver_clbk_hdl.rx_msg) {
-+					priv->cmd_receiver_clbk_hdl.rx_msg =
-+						kzalloc(MAX_NVM_MSG_LEN,
-+							GFP_KERNEL);
-+					if (!priv->cmd_receiver_clbk_hdl.rx_msg) {
-+						err = -ENOMEM;
-+						break;
-+					}
-+				}
-+				priv->cmd_receiver_clbk_hdl.rx_msg_sz = MAX_NVM_MSG_LEN;
-+				priv->cmd_receiver_clbk_hdl.dev_ctx = dev_ctx;
-+				err = 0;
-+			} else {
-+				err = -EBUSY;
-+			}
-+			break;
-+		case SE_IOCTL_GET_MU_INFO:
-+			err = se_ioctl_get_mu_info(dev_ctx, arg);
-+			break;
-+		case SE_IOCTL_SETUP_IOBUF:
-+			err = se_ioctl_setup_iobuf_handler(dev_ctx, arg);
-+			break;
-+		case SE_IOCTL_GET_SOC_INFO:
-+			err = se_ioctl_get_se_soc_info_handler(dev_ctx, arg);
-+			break;
-+		case SE_IOCTL_CMD_SEND_RCV_RSP:
-+			err = se_ioctl_cmd_snd_rcv_rsp_handler(dev_ctx, arg);
-+			break;
-+		default:
-+			err = -EINVAL;
-+			dev_dbg(priv->dev, "%s: IOCTL %.8x not supported.",
-+				dev_ctx->devname, cmd);
-+		}
-+	}
-+
-+	return err;
-+}
-+
-+/* Char driver setup */
-+static const struct file_operations se_if_fops = {
-+	.open		= se_if_fops_open,
-+	.owner		= THIS_MODULE,
-+	.release	= se_if_fops_close,
-+	.unlocked_ioctl = se_ioctl,
-+	.read		= se_if_fops_read,
-+	.write		= se_if_fops_write,
-+};
-+
- /* interface for managed res to free a mailbox channel */
- static void if_mbox_free_channel(void *mbox_chan)
- {
-@@ -246,7 +950,7 @@ static int se_if_request_channel(struct device *dev, struct mbox_chan **chan,
- 	ret = devm_add_action_or_reset(dev, if_mbox_free_channel, t_chan);
- 	if (ret)
- 		return dev_err_probe(dev, -EPERM,
--				     "Failed to add-action for removal of mbox: %s\n",
-+				     "Failed to add-action for removal of mbox: %s.",
- 				     name);
- 	*chan = t_chan;
- 
-@@ -255,6 +959,7 @@ static int se_if_request_channel(struct device *dev, struct mbox_chan **chan,
- 
- static void se_if_probe_cleanup(void *plat_dev)
- {
-+	struct se_if_device_ctx *dev_ctx, *t_dev_ctx;
- 	struct platform_device *pdev = plat_dev;
- 	struct se_fw_load_info *load_fw;
- 	struct device *dev = &pdev->dev;
-@@ -279,6 +984,13 @@ static void se_if_probe_cleanup(void *plat_dev)
- 		load_fw->imem.buf = NULL;
- 	}
- 
-+	if (priv->dev_ctx_mono_count) {
-+		list_for_each_entry_safe(dev_ctx, t_dev_ctx, &priv->dev_ctx_list, link) {
-+			list_del(&dev_ctx->link);
-+			priv->active_devctx_count--;
-+		}
-+	}
-+
- 	/*
- 	 * No need to check, if reserved memory is allocated
- 	 * before calling for its release. Or clearing the
-@@ -319,6 +1031,7 @@ static int se_if_probe(struct platform_device *pdev)
- 	priv->se_mb_cl.tx_block		= false;
- 	priv->se_mb_cl.knows_txdone	= true;
- 	priv->se_mb_cl.rx_callback	= se_if_rx_callback;
-+	set_se_rcv_msg_timeout(priv, SE_RCV_MSG_DEFAULT_TIMEOUT);
- 
- 	ret = se_if_request_channel(dev, &priv->tx_chan, &priv->se_mb_cl, MBOX_TX_NAME);
- 	if (ret)
-@@ -340,6 +1053,7 @@ static int se_if_probe(struct platform_device *pdev)
- 					     "Unable to get sram pool = %s.",
- 					     if_node->pool_name);
- 	}
-+	INIT_LIST_HEAD(&priv->dev_ctx_list);
- 
- 	if (if_node->reserved_dma_ranges) {
- 		ret = of_reserved_mem_device_init(dev);
-@@ -348,7 +1062,7 @@ static int se_if_probe(struct platform_device *pdev)
- 					    "Failed to init reserved memory region.");
- 	}
- 
--	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx);
-+	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx, &se_if_fops);
- 	if (ret)
- 		return dev_err_probe(dev, ret,
- 				     "Failed[0x%x] to create device contexts.",
-@@ -389,6 +1103,7 @@ static int se_suspend(struct device *dev)
- 	struct se_fw_load_info *load_fw;
- 	int ret = 0;
- 
-+	set_se_rcv_msg_timeout(priv, SE_RCV_MSG_DEFAULT_TIMEOUT);
- 	load_fw = get_load_fw_instance(priv);
- 
- 	if (load_fw->imem_mgmt)
-diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
-index b5e7705e2f26..5fcdcfe3e8e5 100644
---- a/drivers/firmware/imx/se_ctrl.h
-+++ b/drivers/firmware/imx/se_ctrl.h
-@@ -14,6 +14,7 @@
- #define SE_MSG_WORD_SZ			0x4
- 
- #define RES_STATUS(x)			FIELD_GET(0x000000ff, x)
-+#define MAX_DATA_SIZE_PER_USER		(65 * 1024)
- #define MAX_NVM_MSG_LEN			(256)
- #define MESSAGING_VERSION_6		0x6
- #define MESSAGING_VERSION_7		0x7
-@@ -37,10 +38,38 @@ struct se_imem_buf {
- 	u32 state;
- };
- 
-+struct se_buf_desc {
-+	u8 *shared_buf_ptr;
-+	void __user *usr_buf_ptr;
-+	u32 size;
-+	struct list_head link;
-+};
-+
-+struct se_shared_mem {
-+	dma_addr_t dma_addr;
-+	u32 size;
-+	u32 pos;
-+	u8 *ptr;
-+};
-+
-+struct se_shared_mem_mgmt_info {
-+	struct list_head pending_in;
-+	struct list_head pending_out;
-+
-+	struct se_shared_mem non_secure_mem;
-+};
-+
- /* Private struct for each char device instance. */
- struct se_if_device_ctx {
- 	struct se_if_priv *priv;
-+	struct miscdevice *miscdev;
- 	const char *devname;
-+
-+	/* process one file operation at a time. */
-+	struct mutex fops_lock;
-+
-+	struct se_shared_mem_mgmt_info se_shared_mem_mgmt;
-+	struct list_head link;
- };
- 
- /* Header of the messages exchange with the EdgeLock Enclave */
-@@ -89,6 +118,10 @@ struct se_if_priv {
- 	const struct se_if_defines *if_defs;
- 
- 	struct se_if_device_ctx *priv_dev_ctx;
-+	struct list_head dev_ctx_list;
-+	u32 active_devctx_count;
-+	u32 dev_ctx_mono_count;
-+	u32 se_rcv_msg_timeout_ms;
- };
- 
- char *get_se_if_name(u8 se_if_id);
-diff --git a/include/uapi/linux/se_ioctl.h b/include/uapi/linux/se_ioctl.h
-new file mode 100644
-index 000000000000..0c948bdc8c26
---- /dev/null
-+++ b/include/uapi/linux/se_ioctl.h
-@@ -0,0 +1,97 @@
-+/* SPDX-License-Identifier: (GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause*/
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+#ifndef SE_IOCTL_H
-+#define SE_IOCTL_H
-+
-+#include <linux/types.h>
-+
-+#define SE_TYPE_STR_DBG			"dbg"
-+#define SE_TYPE_STR_HSM			"hsm"
-+#define SE_TYPE_ID_UNKWN		0x0
-+#define SE_TYPE_ID_DBG			0x1
-+#define SE_TYPE_ID_HSM			0x2
-+/* IOCTL definitions. */
-+
-+struct se_ioctl_setup_iobuf {
-+	void __user *user_buf;
-+	__u32 length;
-+	__u32 flags;
-+	__u64 ele_addr;
-+};
-+
-+struct se_ioctl_shared_mem_cfg {
-+	__u32 base_offset;
-+	__u32 size;
-+};
-+
-+struct se_ioctl_get_if_info {
-+	__u8 se_if_id;
-+	__u8 interrupt_idx;
-+	__u8 tz;
-+	__u8 did;
-+	__u8 cmd_tag;
-+	__u8 rsp_tag;
-+	__u8 success_tag;
-+	__u8 base_api_ver;
-+	__u8 fw_api_ver;
-+};
-+
-+struct se_ioctl_cmd_snd_rcv_rsp_info {
-+	__u32 __user *tx_buf;
-+	int tx_buf_sz;
-+	__u32 __user *rx_buf;
-+	int rx_buf_sz;
-+};
-+
-+struct se_ioctl_get_soc_info {
-+	__u16 soc_id;
-+	__u16 soc_rev;
-+};
-+
-+/* IO Buffer Flags */
-+#define SE_IO_BUF_FLAGS_IS_OUTPUT	(0x00u)
-+#define SE_IO_BUF_FLAGS_IS_INPUT	(0x01u)
-+#define SE_IO_BUF_FLAGS_USE_SEC_MEM	(0x02u)
-+#define SE_IO_BUF_FLAGS_USE_SHORT_ADDR	(0x04u)
-+#define SE_IO_BUF_FLAGS_IS_IN_OUT	(0x10u)
-+
-+/* IOCTLS */
-+#define SE_IOCTL			0x0A /* like MISC_MAJOR. */
-+
-+/*
-+ * ioctl to designated the current fd as logical-reciever.
-+ * This is ioctl is send when the nvm-daemon, a slave to the
-+ * firmware is started by the user.
-+ */
-+#define SE_IOCTL_ENABLE_CMD_RCV	_IO(SE_IOCTL, 0x01)
-+
-+/*
-+ * ioctl to get the buffer allocated from the memory, which is shared
-+ * between kernel and FW.
-+ * Post allocation, the kernel tagged the allocated memory with:
-+ *  Output
-+ *  Input
-+ *  Input-Output
-+ *  Short address
-+ *  Secure-memory
-+ */
-+#define SE_IOCTL_SETUP_IOBUF	_IOWR(SE_IOCTL, 0x03, struct se_ioctl_setup_iobuf)
-+
-+/*
-+ * ioctl to get the mu information, that is used to exchange message
-+ * with FW, from user-spaced.
-+ */
-+#define SE_IOCTL_GET_MU_INFO	_IOR(SE_IOCTL, 0x04, struct se_ioctl_get_if_info)
-+/*
-+ * ioctl to get SoC Info from user-space.
-+ */
-+#define SE_IOCTL_GET_SOC_INFO      _IOR(SE_IOCTL, 0x06, struct se_ioctl_get_soc_info)
-+
-+/*
-+ * ioctl to send command and receive response from user-space.
-+ */
-+#define SE_IOCTL_CMD_SEND_RCV_RSP _IOWR(SE_IOCTL, 0x07, struct se_ioctl_cmd_snd_rcv_rsp_info)
-+#endif
+Please find attached the patches for enabling iMX93.
 
--- 
-2.43.0
+I have also sent v18 to dispose off the comments:
+1. documentation,
+2. updating the commit message with collected reviewed by tags.
 
+Shawn
+
+
+------=_NextPart_001_0328_01DBE141.13F02270
+Content-Type: application/x-gzip;
+	name="mx93_patches.tar.gz"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="mx93_patches.tar.gz"
+
+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
+
+------=_NextPart_001_0328_01DBE141.13F02270--
+
+------=_NextPart_000_0327_01DBE141.13F02270
+Content-Type: application/pkcs7-signature;
+	name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="smime.p7s"
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExCzAJBgUrDgMCGgUAMIAGCSqGSIb3DQEHAQAAoIImZTCCBaIw
+ggOKoAMCAQICCE4Rpu+H69FRMA0GCSqGSIb3DQEBCwUAMGUxIjAgBgNVBAMMGU5YUCBJbnRlcm5h
+bCBQb2xpY3kgQ0EgRzIxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJ
+RWluZGhvdmVuMQswCQYDVQQGEwJOTDAeFw0yMzA0MjEwNjQzNDVaFw0yODA0MTkwNjQzNDVaMIG2
+MRwwGgYDVQQDDBNOWFAgRW50ZXJwcmlzZSBDQSA1MQswCQYDVQQLDAJJVDERMA8GA1UECgwITlhQ
+IEIuVi4xEjAQBgNVBAcMCUVpbmRob3ZlbjEWMBQGA1UECAwNTm9vcmQtQnJhYmFudDETMBEGCgmS
+JomT8ixkARkWA3diaTETMBEGCgmSJomT8ixkARkWA254cDETMBEGCgmSJomT8ixkARkWA2NvbTEL
+MAkGA1UEBhMCTkwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAWrnSkYP60A8wj4AO
+kATDjnbdgLv6waFfyXE/hvatdWz2YYtb1YSRi5/wXW+Pz8rsTmSj7iusI+FcLP8WEaMVLn4sEIQY
+NI8KJUCz21tsIArYs0hMKEUFeCq3mxTJfPqzdj9CExJBlZ5vWS4er8eJI8U8kZrt4CoY7De0FdJh
+35Pi5QGzUFmFuaLgXfV1N5yukTzEhqz36kODoSRw+eDHH9YqbzefzEHK9d93TNiLaVlln42O0qaI
+MmxK1aNcZx+nQkFsF/VrV9M9iLGA+Qb/MFmR20MJAU5kRGkJ2/QzgVQM3Nlmp/bF/3HWOJ2j2mpg
+axvzxHNN+5rSNvkG2vSpAgMBAAGjggECMIH/MFIGCCsGAQUFBwEBBEYwRDBCBggrBgEFBQcwAoY2
+aHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFBJbnRlcm5hbFBvbGljeUNBRzIuY2VyMB0G
+A1UdDgQWBBRYlWDuTnTvZSKqve0ZqSt6jhedBzASBgNVHRMBAf8ECDAGAQH/AgEAMEUGA1UdHwQ+
+MDwwOqA4oDaGNGh0dHA6Ly9ud3cucGtpLm54cC5jb20vY3JsL05YUEludGVybmFsUG9saWN5Q0FH
+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
+ggEKAoIBAQCsljsxzffby7IAt42e7cJH7K+49RL+7i56h3ORt8dS8WNVSdDlejp6uS6mLk/UX0wn
+sSxDK1S5KquGJQzaT/3gxE8tdgvfFNBVdrgr48DeCVwWDr1o/UF3RmGcMdxqRz1M/oLDJ03C8n6h
+L/0JXiwsNx0KZJoqDrN/48yX5TkoeKJmHFftZ5Op57xV0WkZJ/yLxSC1Om75jOG/UPdqsDzl+wi7
+YVj5egV24hoaXgHBxtCeJzUgsHcJlo9nFtGe11j6H1vqFzkPzN9ydjRmhQATV/WLqpG8uot79u0m
+6n7Mjwsd/HmJf+8xpovMcHPO2a0axppssKso/3APP6mR1FuVAgMBAAGjggORMIIDjTAOBgNVHQ8B
+Af8EBAMCB4AwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMAwGA1UdEwEB/wQCMAAwHQYD
+VR0OBBYEFLNr0DCWM1fCXv4ubOt/elkvcoiaMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRw
+YW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFua2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAU5TJ6
+9GbBR5Ykf/wngDlY3ysX4rswggFKBgNVHR8EggFBMIIBPTCCATmgggE1oIIBMYaByGxkYXA6Ly8v
+Q049TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1ubGFtc3BraTAwMDQsQ049Q0RQLENOPVB1
+YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2Jp
+LERDPW54cCxEQz1jb20/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNz
+PWNSTERpc3RyaWJ1dGlvblBvaW50hjFodHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFAtRW50
+ZXJwcmlzZS1DQTQuY3JshjFodHRwOi8vd3d3LnBraS5ueHAuY29tL2NybC9OWFAtRW50ZXJwcmlz
+ZS1DQTQuY3JsMIIBEAYIKwYBBQUHAQEEggECMIH/MIG7BggrBgEFBQcwAoaBrmxkYXA6Ly8vQ049
+TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1BSUEsQ049UHVibGljJTIwS2V5JTIwU2Vydmlj
+ZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz13YmksREM9bnhwLERDPWNvbT9jQUNl
+cnRpZmljYXRlP2Jhc2U/b2JqZWN0Q2xhc3M9Y2VydGlmaWNhdGlvbkF1dGhvcml0eTA/BggrBgEF
+BQcwAoYzaHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFAtRW50ZXJwcmlzZS1DQTQuY2Vy
+MDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRVhu2FOILrmUuaklY/hMbNXILljX4C
+AWQCAT8wJwYJKwYBBAGCNxUKBBowGDAKBggrBgEFBQcDAjAKBggrBgEFBQcDBDANBgkqhkiG9w0B
+AQsFAAOCAQEAWS4IrHXWhCGNWk5vn20xV7mlLkM7JPwltVJzB6MRzwUB438upbyUMwNHcEgAmHcs
+xL9hafErN+n9rLL00wEqZsCV732s7YOxSRRjZTE3CmZQ2+TYjXR7A6AzQKo0fv/x43bpSes8ttQ6
+Qtt8nzIbGBkDAcI7wfXsUPF5o0NwLOxre+Z+JCPNH0eaOj2J7EKD2ERLCClmvohrYdlmu85iXfyi
+nJo42eq9g08FtnxTXVQSIZCtiETiGtXA7+t2Aa8429XXunsijRznaYw2SwI/s4sVmvaK3XHaif0D
+QaUYxQp4s2ctzgz3eU6hK68OnNzbhBtF/lx6PHbifqHDzrtUbzCCB+8wggbXoAMCAQICEy0ACwRu
+JYOozH+yQuYAAQALBG4wDQYJKoZIhvcNAQELBQAwgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNl
+IENBIDUxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVu
+MRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPy
+LGQBGRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDY29tMQswCQYDVQQGEwJOTDAeFw0yMzEyMjAwOTIw
+NDdaFw0yNTEyMTkwOTIwNDdaMIGaMRMwEQYKCZImiZPyLGQBGRYDY29tMRMwEQYKCZImiZPyLGQB
+GRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDd2JpMQwwCgYDVQQLEwNOWFAxCzAJBgNVBAsTAklOMRYw
+FAYDVQQLEw1NYW5hZ2VkIFVzZXJzMRMwEQYDVQQLEwpEZXZlbG9wZXJzMREwDwYDVQQDEwhueGEx
+ODcxNzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2JT+kRihW1mBdeZFOoCLGIl4DZ
+VL7FWt3V1iFFJJe/bZDw/SUf5z1HeA8xv9+S8rqMyybjlSRHFLgiMm7qrGpVEDniKe8eiqP8Un4Y
+3fHgK5FKZIVVn0KlaMuD5G30AMk9HyUdc2MkVRL8YSQCewkQDEVjB8gnx/e6xfbWEVHf5+dOWJoR
+aket5+0JKV0l/dPV7cT4hL3BFtiBhq8976Li6rn8gxIi63u0G3qvm9Scqk+EHzemDhw/W+eMmGR4
+nwKVLKzumxko8l6EOnnvqqF4vj2hKTpB+2lsEXH1giireMEsvB2RY40lnRUXVQ0FDklOIQV4Qdgi
+EJfUdq/ZhCUCAwEAAaOCBA4wggQKMDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRV
+hu2FOILrmUuaklY/gbeCPIPthzICAWQCAT4wEwYDVR0lBAwwCgYIKwYBBQUHAwQwDgYDVR0PAQH/
+BAQDAgUgMAwGA1UdEwEB/wQCMAAwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDBDCBlAYJKoZI
+hvcNAQkPBIGGMIGDMAsGCWCGSAFlAwQBKjALBglghkgBZQMEAS0wCwYJYIZIAWUDBAEWMAsGCWCG
+SAFlAwQBGTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAoGCCqGSIb3DQMHMAcGBSsOAwIHMA4G
+CCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAgAwHQYDVR0OBBYEFMJ81PK4p3H8Q7gn7u/5OwWx
+uAwGMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRwYW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFu
+a2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAUWJVg7k5072Uiqr3tGakreo4XnQcwggFGBgNV
+HR8EggE9MIIBOTCCATWgggExoIIBLYaByGxkYXA6Ly8vQ049TlhQJTIwRW50ZXJwcmlzZSUyMENB
+JTIwNSxDTj1ubGFtc3BraTAwMDUsQ049Q0RQLENOPVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENO
+PVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2JpLERDPW54cCxEQz1jb20/Y2VydGlmaWNh
+dGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50hi9o
+dHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFBFbnRlcnByaXNlQ0E1LmNybIYvaHR0cDovL3d3
+dy5wa2kubnhwLmNvbS9jcmwvTlhQRW50ZXJwcmlzZUNBNS5jcmwwggEQBggrBgEFBQcBAQSCAQIw
+gf8wgbsGCCsGAQUFBzAChoGubGRhcDovLy9DTj1OWFAlMjBFbnRlcnByaXNlJTIwQ0ElMjA1LENO
+PUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0
+aW9uLERDPXdiaSxEQz1ueHAsREM9Y29tP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1j
+ZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MD8GCCsGAQUFBzAChjNodHRwOi8vbnd3LnBraS5ueHAuY29t
+L2NlcnRzL05YUC1FbnRlcnByaXNlLUNBNS5jZXIwDQYJKoZIhvcNAQELBQADggEBALwIIuww1PaF
+EbpQoy5vgJ/4N3xS+niIpFTKyYNAD0Ar38FcUlSnj0FIHKRj8rUmZP9WTky3U8m5B3LOyhJ14FPh
+iy1EwkhZmds9fJiZyEEFiwQWYDG/uknu6zIKOTlLmtlYPfbzfi58keGcjD3T5H8D8DpCGWI1lAwe
+clR9fJCbcYnQSQnuicSCfrHjjXiDZ2O8h7WbE1CC6Cj/qwo5nmS0lMv7yoG94rTNBvYe8iqOkcav
+7KiZA6SdhXms3ppvFmBukI6pTheMvT39SM0S6E0dgeqZSGSxHrM7dcxUdAL4fnYMv3Sa+GAgyXB6
+rihWC11+goz2eawt5TRU2w45TmcxggSzMIIErwIBATCBzjCBtjEcMBoGA1UEAwwTTlhQIEVudGVy
+cHJpc2UgQ0EgNDELMAkGA1UECwwCSVQxETAPBgNVBAoMCE5YUCBCLlYuMRIwEAYDVQQHDAlFaW5k
+aG92ZW4xFjAUBgNVBAgMDU5vb3JkLUJyYWJhbnQxEzARBgoJkiaJk/IsZAEZFgN3YmkxEzARBgoJ
+kiaJk/IsZAEZFgNueHAxEzARBgoJkiaJk/IsZAEZFgNjb20xCzAJBgNVBAYTAk5MAhM/AAV1goSs
+wyqoLYNbAAUABXWCMAkGBSsOAwIaBQCgggK5MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJ
+KoZIhvcNAQkFMQ8XDTI1MDYxOTEyMDkxNlowIwYJKoZIhvcNAQkEMRYEFFRx2sG9D3GVqANaQ+DG
+ayoj3X2MMIGTBgkqhkiG9w0BCQ8xgYUwgYIwCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjAKBggq
+hkiG9w0DBzALBglghkgBZQMEAQIwDgYIKoZIhvcNAwICAgCAMA0GCCqGSIb3DQMCAgFAMAcGBSsO
+AwIaMAsGCWCGSAFlAwQCAzALBglghkgBZQMEAgIwCwYJYIZIAWUDBAIBMIHfBgkrBgEEAYI3EAQx
+gdEwgc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
+VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
+MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
+GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjCB4QYLKoZIhvcNAQkQAgsx
+gdGggc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
+VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
+MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
+GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjANBgkqhkiG9w0BAQEFAASC
+AQASbazcOGAqikfVGEi27iuoIQ7eBMMbqn6VAGhIwFBSANPDt6FdNvq9F7r0+QQpL9g6xhnmaKht
+nWk5DTyHu55HLI6hCXxIAIO+/Oo8Ga9aOs7WXa4BfUEA6GijB/qVcHU/ZDRH3QehD/xalCaaGzs6
+qYNRvyqvrsjS+Jad60p9GU+Cu7v6XBQYs3mjosgGJ92pQcDKLImq1subEXxplp6Krz2I3vsSv63r
+kr7wvoUJtyLJhjj8ACPvcJhkqhmMmCSK9FQSnSHWQQ2p2jMNimxXU2QWVDEAP3p4D2xjqdCTKVJz
+OX29xdRIvlEYZM7Jl2jZkEGuaIl88uxLEJ2JLiCIAAAAAAAA
+
+------=_NextPart_000_0327_01DBE141.13F02270--
 
