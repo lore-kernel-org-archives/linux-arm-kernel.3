@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514F5C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45A8C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZGME6w3Z23XZ8YTmhP9z5Kw3EFkOQ4GdqCxlrUAMySk=; b=w5sZBQbJl1Un1cM+DPpknCbM0V
-	BHYud0gUPZvHkypBW82IUjvEoghhozl/BqXwnctqnjhgWlgM+RhZRXzq0ucpxTTn4C+8VDM7hh1XM
-	eLKBEGBNZ3VbKkBh3nAFnN/5AWD2/9vMM7FEAoFONa1d9hDr3kNyG6Xv0SGCGL9cg2+NnAotLUsUC
-	eOyaFBYQ/+4Bsgol/hle8fnRWUF17KhBktkr+JwyFNwVs+Ev36DhJbj4o96hgLWvQ/k4uMo/+yADr
-	ENd/s2t1F0TBHTl1X1J7Qx8/u3+6awgoYvHE+MxvLkmO+eQZHyZC8+7LWaVsBrU+33C28l1T4XeeU
-	9cUKQWnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:To:From:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFwa0VaeKDYvJD+4TaNeC8PvG0ohNrCLdil12mUnuYE=; b=r2F79dVNCxTx3NhchebaufjwJ6
+	XJd0PI12TCbAm6frPW/u+ibvV2xcigCj0IiGGDLICdB4yWzOs3dk8ZzeG1NeTcORho/e+XfKpvdjy
+	9j+AAfOpl3m7A38NkA8VK5KdVg36LGDI/c6f4N8R71Dgc11Tp7V40p/NiXvvtwUe/FjxQVKIe/eop
+	Uf6dd2FFuUexyjS3Y3/9ALzEA4nAcL+synzRTjImmfGXI8CDllWIJY+ADbvJDIs8PI4js4kTr2dWy
+	GPugjF1CW3DU/vViLCN+7r5628zLDajI6rg20MpMp6mRFsrBUQjsCzuYZ6b6ZM/zv7fBZgO0A7F0+
+	VQFEejrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHSp-0000000DTcP-1EYv;
-	Thu, 19 Jun 2025 15:46:07 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uSHSu-0000000DTjG-1hbA;
+	Thu, 19 Jun 2025 15:46:12 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDkm-0000000CwUJ-2MOh
+	id 1uSDm8-0000000Cwtd-1sPT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 11:48:26 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bNJhV65Xyz28fR7;
-	Thu, 19 Jun 2025 19:45:46 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1AF081400D3;
-	Thu, 19 Jun 2025 19:48:12 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 19 Jun 2025 19:48:11 +0800
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 19 Jun 2025 19:48:11 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
-	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
-	<prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>, <linuxarm@huawei.com>
-Subject: [RESEND PATCH v2 0/2] Update the watchdog period according to real CPU frequency
-Date: Thu, 19 Jun 2025 19:48:03 +0800
-Message-ID: <20250619114805.16968-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	Thu, 19 Jun 2025 11:49:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750333773; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=k2ECfxzVPE3LQGdP+afxdo2PgIFbQNaYLKpjrIynKpY3yybZYHJLxFiB/dmI8efnc8rUsIKNoNwmqPz2EPQsVULAfgO091mxnTABvvvCrSKmqben6qk4NSJSs+sScEpScGuZ6eLpwubPC3oaOrZbonPHtnN6Jh9cEJNxrk88RxU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750333773; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=MFwa0VaeKDYvJD+4TaNeC8PvG0ohNrCLdil12mUnuYE=; 
+	b=iEW5xAAgezzbdxSNsZDDk3VsivFivtHmB6Po0joThn2weblF6yQzIy1L5IIU/InlzMjKoERnoZysKA3nOopWpeP9uCrELVxC2mLS9mr5QiqoSlnlQKehI25R/SUBNYmc1a5tAhM+UCR2sybwqLItzf5Qbu6stjltqs8Rfd2lbLw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=linux.beauty;
+	spf=pass  smtp.mailfrom=me@linux.beauty;
+	dmarc=pass header.from=<me@linux.beauty>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750333773;
+	s=zmail; d=linux.beauty; i=me@linux.beauty;
+	h=Date:Date:From:From:To:To:Message-ID:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
+	bh=MFwa0VaeKDYvJD+4TaNeC8PvG0ohNrCLdil12mUnuYE=;
+	b=aTb7GInjoKUCOXMf7yztMIKG511RPdIWJjMtGuN08TR/Y1jgM1569zm5xdN3g09d
+	zLZW5wOVfmSUv/fb9z0GjJg9C2ymeJy2HAqhBfCrCGJzn66/7wD5IyxD+rzdnMIpqTH
+	wXQjkb/XSpDfK3ExgNAft8FJbMrF8CO1G5ovTuOY=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1750333771123763.0534931058979; Thu, 19 Jun 2025 04:49:31 -0700 (PDT)
+Date: Thu, 19 Jun 2025 19:49:31 +0800
+From: Li Chen <me@linux.beauty>
+To: "Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	"Len Brown" <lenb@kernel.org>, "Hanjun Guo" <guohanjun@huawei.com>,
+	"Liu Wei" <liuwei09@cestc.cn>, "Ryan Roberts" <ryan.roberts@arm.com>,
+	"Andrew Morton" <akpm@linux-foundation.org>,
+	"Jonathan Cameron" <Jonathan.Cameron@huawei.com>,
+	"Sudeep Holla" <sudeep.holla@arm.com>,
+	"linux-arm-kernel" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel" <linux-kernel@vger.kernel.org>,
+	"linux-acpi" <linux-acpi@vger.kernel.org>
+Message-ID: <1978805cd53.d7656d5d435218.1873813773955537604@linux.beauty>
+In-Reply-To: <20250606072802.191580-1-me@linux.beauty>
+References: <20250606072802.191580-1-me@linux.beauty>
+Subject: Re: [PATCH 0/2] ACPI: Improve SPCR handling and messaging on
+ SPCR-less systems
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_044824_923593_A5723966 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250619_044948_551829_D37B2D79 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +88,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+Gentle ping incase of forgotten.
 
-watchdog perf needs architecture to provide method for converting the watchdog
-thresh to counter period. For arm64 we're using the max CPU frequency for
-doing the conversion which is from cpufreq driver. But some cpufreq driver
-are registered lately, for example cppc_cpufreq will be registered at late
-initcall which is after the initialization of watchdog perf (initialized in
-armv8_pmuv3 of device initcall). In such case the period of watchdog will not
-be accurate enough. Fix this by registering a cpufreq notifier and update the
-watchdog period once the cpufreq driver is initialized.
+ ---- On Fri, 06 Jun 2025 15:27:43 +0800  Li Chen <me@linux.beauty> wrote --- 
+ > From: Li Chen <chenl311@chinatelecom.cn>
+ > 
+ > This small series improves the kernel behavior and output when the ACPI SPCR
+ > table is not present or not supported.
+ > 
+ > Currently, even on systems that completely lack an SPCR table, the kernel prints:
+ > "Use ACPI SPCR as default console: Yes"
+ > 
+ > Or if with acpi=nospcr:
+ > "Use ACPI SPCR as default console: No"
+ > 
+ > This may mislead users into thinking an SPCR table exists
+ > when in fact there is no such table at all. This series addresses this in two steps:
+ > 
+ > Patch 1 ensures that acpi_parse_spcr() returns -ENODEV if CONFIG_ACPI_SPCR_TABLE is disabled.
+ > 
+ > Patch 2 updates arm64 acpi_boot_table_init() to only print the SPCR console message
+ > if acpi_parse_spcr() succeeds.
+ > 
+ > This results in cleaner and more accurate boot logs on ARM64.
+ > 
+ > Tested on both SPCR-enabled and SPCR-less qemu-system arm64 virt platform. [1]
+ > 
+ > [1]: https://patchew.org/QEMU/20250528105404.457729-1-me@linux.beauty/
+ > 
+ > Li Chen (2):
+ >   ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is
+ >     disabled
+ >   ACPI: Suppress misleading SPCR console message when SPCR table is
+ >     absent
+ > 
+ >  arch/arm64/kernel/acpi.c | 9 ++++++---
+ >  include/linux/acpi.h     | 2 +-
+ >  2 files changed, 7 insertions(+), 4 deletions(-)
+ > 
+ > -- 
+ > 2.49.0
+ > 
+ > 
 
-Attach some Q&A raised by Andrew last time:
-[1] https://lore.kernel.org/linux-arm-kernel/20250512160612.c10464075df3c7842b13da11@linux-foundation.org/
-
-Q: What is the impact of this change?  Is the current code causing problems?  If so,
-   what are they?  How is the end-user experience improved by this change? Important info!
-A: This will make NMI watchdog (hardlockup detector) work more accurately. HARDLOCKUP_DETECTOR_PERF
-   is driven by the PMU sample interrupts of cpu cycle event with period related to the watchdog
-   threshold.  User will set the watchdog threshold in seconds (e.g. 10s by default) and for
-   HARDLOCKUP_DETECTOR_PERF we need to convert the seconds to cycles to setup the PMU counter.
-   The coversion method is provided by the arhitecture by implementing hw_nmi_get_sample_period().
-   For arm64 it's using max_cpufreq to do the conversion:
-
-       cycle_event_period = threshold(s) * max_cpufreq(hz)
-
-   Since arm64 doesn't have an arthictectural way to get the max_cpufreq, we use cpufreq_driver
-   to get it. If cpufreq_driver is not available, currently we use a safe max_cpufreq as 5GHz.
-   Without this patchset, if the cpufreq_driver is initialized after the hardlockup detector we'll
-   use 5GHz for calculating the event period. It's my case here as described in the coverletter.
-   That means in the default case (10s threshold) if the real max_cpufreq is 2.5GHz, the NMI watchdog
-   is actually working in a 20s period. With this patchset the period can be calibrated after
-   the cpufreq driver is initialized, much more accurate.
-
-Q: As far as I can tell, this patchset impacts arm64 only.  Do you think that other architectures
-   should implement this?
-A: It's highly depends on the architecure's implementation of their HARDLOCKUP_DETECTOR_PERF (the
-   implementation of hw_nmi_get_sample_period()). If other architectures can gain the max_cpufreq
-   without cpufreq driver they don't have this problems (seems x86 implement in another way
-   and can gain the cpufreq by some arhitectural way).
-
-Q: As far as I can tell, this patchset affects all cpufreq drivers which use late_initcall()
-   (on arm64, of course).  Is this correct?
-A: cpufreq drivers are not touched. we registered a notifier block to the cpufreq framework
-   so the changes to the cpufreq will notify us to see whether it's needed to modify the
-   event period.
-
-Q: It is asserted that we should use the *maximum* possible CPU frequency for this calculation.
-   Why?  I assume this is because we care about the minimum watchdog period?
-A: Because it's impossbile to use the current frequency for calculating the counter period as
-   it may change at any time. Using maximum frequency will make the real period as close as
-   possible to the expected watchdog thresh in a simplest way.
-
-Change since v1:
-- Handle the theoretical race condition and other comments from Doug, thanks
-Link: https://lore.kernel.org/all/20250307021811.46981-1-yangyicong@huawei.com/
-
-Yicong Yang (2):
-  watchdog/perf: Provide function for adjusting the event period
-  arm64/watchdog_hld: Add a cpufreq notifier for update watchdog thresh
-
- arch/arm64/kernel/watchdog_hld.c | 58 ++++++++++++++++++++++++++++++++
- include/linux/nmi.h              |  2 ++
- kernel/watchdog_perf.c           | 23 +++++++++++++
- 3 files changed, 83 insertions(+)
-
--- 
-2.24.0
-
+Regards,
+Li
 
