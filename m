@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43140C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DB8C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4X0rJxof+2GJrC9KukcEIGboMkLQCIpBwzQ5S+QwNnU=; b=28CBOBIHngG17xH8XzdnehIokh
-	/58fIGj+yxEdT3pXsKaRot0iHNvHd7+OynIcwEh9YtiZjdYn6odwE8KGOOQmOTibF3BKsRHtBKjeQ
-	+KbWmqSHQIVEsk3Or6F/VF3DYDl7FPG9E1YHGlMsurRnOWyHbrsVs43lAaM/23uaCH0nV9nYbXjWV
-	5lIPTindA792HvpPXvGdBw7zTvmbVQVmXd/OBhryWe71Fk/+tlD85LhCEyRRZOgv7dJ0ztqksiX20
-	vYG/xvWAqsfob3+44i7OoJ0frQHp01mOqGKpimGcow8RSx8QvCS0L8ofE75fKRpjbVVMFw7rPGoXz
-	+0rmAG1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UlxTUj5Ir+oO3iGWYKmoJ9ycuaXkjQkkYTvLvsQbhwI=; b=kydfu+v1tRiau8JZxvpK920u3f
+	WBpKnzT87GDDRTYBctn76Vi5mhSNyH0MK0HekxVMPB8yeueXd0WjARdHW28MP4XMWf+dYTjwUonNW
+	ZJVHw4pZz3FczvHMrjjTNSlzgYjSQan6hJi6ITItzaeaUPi4FPNX7dvcmV4pBJRYUVcZjdPglxhzH
+	Nx3hnaJnujDx5t2ZSjW/q2c0y+V39fwlWHt7ZzLAl1vwjrnj/HgG8sJ8k5Ft2uKkP4sjwz5UIE8IM
+	EZJDjB8/XNCcgTuS01JmjyL5PO8Gsug5gnslwRDEaJG4Er5kcpUYwDM664P5x4jv69fXYDQ5LGE6+
+	8uB0eyZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHSM-0000000DStm-2ifs;
-	Thu, 19 Jun 2025 15:45:38 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uSHSU-0000000DT4u-2nsP;
+	Thu, 19 Jun 2025 15:45:46 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDVC-0000000CtBZ-3dnp
+	id 1uSDe1-0000000CvOU-2ac4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 11:32:19 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a6cd1a6fecso390691f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 04:32:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750332737; x=1750937537; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4X0rJxof+2GJrC9KukcEIGboMkLQCIpBwzQ5S+QwNnU=;
-        b=m7Ebb9lIjwpaDoRltLCgBWecoL+kdRY9Admf9Dnq4+x3OVrVXLAPLozYpXIH7F51aL
-         7MLsbiM9JDYZsd5p8MUBngsg8sRGeKGSnIdaQFH/1xUMG5mLurPVjWME2sr77hQDIkVt
-         vi3IJSv8QwdEteMNpDoQx/ymfyHRs1/onOgdi4w8p3ZwMoCdY1lFALtNilKVIa/mbD/x
-         UkDV405Vsx/7f515UmmL1xGp0sdewUwvCaGbqdcXNQkH9BeuRlxH03Ku7+XC58KM6z0N
-         9fkabsy9yVD3Fiqg2Acwh0EMe/Xgo5H/chDtxhvOOwGzUWYExWNJzwiT7q7SVgV7WyMj
-         D+Xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750332737; x=1750937537;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4X0rJxof+2GJrC9KukcEIGboMkLQCIpBwzQ5S+QwNnU=;
-        b=hVN4b1Z0T18k4kARzVfLUHaVnd3ZmiW/a1aGA8Om7xRjxEcF5b14FHpC02jRNAmL3C
-         kD5m9oaemslpK5+sChPeG9mfZNy9ukzERaZyNuM/ROmYhzSf0bC6dmpby7VzYdgXuXir
-         yTU0vOaSX/yNUxswr3bl4mvXlXbcRhO0a9TrQ8ch0JkTbLjPDkcTRI4ASepjteVPiGyZ
-         rv4lfZSRygZkvlZV7AIxf1p0T+OGDjq66FlTNz/Pn7x2GqivTnNYHtmLkJcuyWSHV9Xt
-         rHuY0q37vou0naRcrx0WzD/osZ4uJXSIjGtswKzvsm8baurCikSZ0H2WW4rpnhYKMWFi
-         2yEg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVi04WR3DWceUxPgcrO9qx12FK8dTqHIVgM01f6BpCz+1K/rnOBuZqhDF9WZe49uxHtkgpjbLfxAKH0OFSCBQx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeDOICdLJot0oEOcr5uckfdnsaRKRiMxj/knvuS0fNWUfU631K
-	Ydv3xo9st0uR4zoFfJyBjsJlAjoFwW5NJVPVb20pG5ml+7/KZfGrscuRP9kTAI2SNlVFmTSPuKq
-	PHNaz
-X-Gm-Gg: ASbGncvMEO9Dr2R7Mf/6kTdpLEzy7AZNJjRD2NCUCvNIAKW1a7xyXjip1IJ/kxINTsL
-	1+jCGtqS664DsNiHe1m2eJYCcwZl9Z5jGE88voBVe0GtDHktLm1IKKjbyn6wH/ZTWMXmX0+RHmX
-	jSWZFlP3rvsh32KoFYPmPC2sGxZRqATnS1ZGndahUJQS7I/DnHfMhXB8WmOoe/7MOcqPuKqS4zb
-	egH28TNIHB9JaTMLUaOtkdFCfjXn6WYQtrQuBzVa120ILy0tcWSleMV9Wr1V3Jzw9oNpWZuFBeb
-	imxRXx4YFm0NOO09DvQE984Q4QFHEh6zd/PzQdsI7P8FSOqJJmj4fyUpxVfTawCJD4s=
-X-Google-Smtp-Source: AGHT+IGJVrLHFBFugL14B4WFHZ1t59fWsvRGspwqUSmcgvP8GTGmEKak9VjxtxP8UxFP+FgS9dzCOg==
-X-Received: by 2002:a05:6000:18a4:b0:3a4:ea9a:1656 with SMTP id ffacd0b85a97d-3a572398df5mr17250936f8f.10.1750332737273;
-        Thu, 19 Jun 2025 04:32:17 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b089b5sm19043643f8f.48.2025.06.19.04.32.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 04:32:16 -0700 (PDT)
-Message-ID: <3431e6e3-a80b-4ce0-94c4-56739a5ed2d9@linaro.org>
-Date: Thu, 19 Jun 2025 12:32:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/12] drivers/perf: arm_spe: Expose events capability
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>
-References: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
- <20250613-arm_spe_support_hitm_overhead_v1_public-v1-2-6faecf0a8775@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-2-6faecf0a8775@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Thu, 19 Jun 2025 11:41:27 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1750333273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UlxTUj5Ir+oO3iGWYKmoJ9ycuaXkjQkkYTvLvsQbhwI=;
+	b=P92wfx2kjqVESzvsjtMDG06Ohguto8BeIB3FFHgIMXvCnwAQj49+r7N2yWFEA4MI6m4Q59
+	shyyFpYG9kEpxklcX2EbTabMIHxV0RJH4z6DOP5bnrtIWy7KlMqWw0cUYlovxX2Y3O0vaJ
+	IDWXdqxT98Ge7B7XTe7HuYVWBLXeC+TscRPYns1xaFP4vdI7g2Itwx2jK7hjZCwm2e4BFd
+	VAsBsm1t5U6vOFMINsb/VMqcX71NMDHyU/QfKac88/qitTP5aYH8q9p7cWoKujwJUj79Nv
+	+TvErZLKsDYOSXadvbF9iz7EaVd7Xrun7+xwJqCDCW3lR6wLDt88+H0abmFNvA==
+Content-Type: multipart/signed;
+ boundary=b5fff2ebebde679f93dfaf923c9136a97ab4b047f673687733da1b95f36b;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 19 Jun 2025 13:41:03 +0200
+Message-Id: <DAQHCWR6W4LD.2Q1H9B9JO2LJZ@cknow.org>
+Cc: "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS'
+ panel description
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Olivier Benjamin" <olivier.benjamin@bootlin.com>, "Heiko Stuebner"
+ <heiko@sntech.de>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
+References: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
+ <DAQEX04P5320.CQDU7SL7AV4A@cknow.org> <5461462.0VBMTVartN@phil>
+ <c26ce505-343a-4759-90b5-a026c66979c7@bootlin.com>
+In-Reply-To: <c26ce505-343a-4759-90b5-a026c66979c7@bootlin.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_043218_917561_8CBBAE9D 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20250619_044125_790965_CFEFB1BD 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +76,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--b5fff2ebebde679f93dfaf923c9136a97ab4b047f673687733da1b95f36b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
+On Thu Jun 19, 2025 at 12:47 PM CEST, Olivier Benjamin wrote:
+> On 6/19/25 12:31, Heiko Stuebner wrote:
+>> Am Donnerstag, 19. Juni 2025, 11:46:15 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Diederik de Haas:
+>>> On Thu Jun 19, 2025 at 7:21 AM CEST, Olivier Benjamin wrote:
+>>> Thanks for working on upstreaming PPP things :-)
+>>>
+> My pleasure. I also have
+> https://lore.kernel.org/linux-rockchip/20250509-camera-v3-0-dab2772d229a@=
+bootlin.com/
+> pending =3D )
 
-On 13/06/2025 4:53 pm, Leo Yan wrote:
-> Expose an events entry in the caps folder to inform user space which
-> events are valid.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/perf/arm_spe_pmu.c | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index be2ed326bb794d7e5dd1d6cfa89330753ced3ca5..b59c394b715bc49af0ae30c521f97813a046755d 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -116,6 +116,7 @@ enum arm_spe_pmu_capabilities {
->   	SPE_PMU_CAP_FEAT_MAX,
->   	SPE_PMU_CAP_CNT_SZ = SPE_PMU_CAP_FEAT_MAX,
->   	SPE_PMU_CAP_MIN_IVAL,
-> +	SPE_PMU_CAP_EVENTS,
->   };
->   
->   static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
-> @@ -123,7 +124,7 @@ static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
->   	[SPE_PMU_CAP_ERND]	= SPE_PMU_FEAT_ERND,
->   };
->   
-> -static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
-> +static u64 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
->   {
->   	if (cap < SPE_PMU_CAP_FEAT_MAX)
->   		return !!(spe_pmu->features & arm_spe_pmu_feat_caps[cap]);
-> @@ -133,6 +134,8 @@ static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
->   		return spe_pmu->counter_sz;
->   	case SPE_PMU_CAP_MIN_IVAL:
->   		return spe_pmu->min_period;
-> +	case SPE_PMU_CAP_EVENTS:
-> +		return ~spe_pmu->pmsevfr_res0;
->   	default:
->   		WARN(1, "unknown cap %d\n", cap);
->   	}
-> @@ -149,7 +152,7 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
->   		container_of(attr, struct dev_ext_attribute, attr);
->   	int cap = (long)ea->var;
->   
-> -	return sysfs_emit(buf, "%u\n", arm_spe_pmu_cap_get(spe_pmu, cap));
-> +	return sysfs_emit(buf, "%llu\n", arm_spe_pmu_cap_get(spe_pmu, cap));
->   }
->   
->   #define SPE_EXT_ATTR_ENTRY(_name, _func, _var)				\
-> @@ -165,6 +168,7 @@ static struct attribute *arm_spe_pmu_cap_attr[] = {
->   	SPE_CAP_EXT_ATTR_ENTRY(ernd, SPE_PMU_CAP_ERND),
->   	SPE_CAP_EXT_ATTR_ENTRY(count_size, SPE_PMU_CAP_CNT_SZ),
->   	SPE_CAP_EXT_ATTR_ENTRY(min_interval, SPE_PMU_CAP_MIN_IVAL),
-> +	SPE_CAP_EXT_ATTR_ENTRY(events, SPE_PMU_CAP_EVENTS),
+Happy about that too, but I 'happen' to research DSI connected displays
+(for other devices), so I felt comfortable to chime in with that.
+I haven't looked at camera stuff yet (and it's not high on my prio
+list), so hopefully others will chime in for that :-)
 
-Would "event_filters" be a better name? Technically an SPE version can 
-support a filter but the event itself might not be implemented.
+>>>> Fix a few issues in the panel section of the PinePhone Pro DTS:
+>>>>    - add the second part of the Himax HX8394 LCD panel controller
+>>>>      compatible
+>>>>    - as proposed by Diederik de Haas, reuse the mipi_out and ports
+>>>>      definitions from rk3399-base.dtsi instead of redefining them
+>>>>    - add a pinctrl for the LCD_RST signal for LCD1, derived from
+>>>>      LCD1_RST, which is on GPIO4_D1, as documented on pages 11
+>>>>      and 16 of the PinePhone Pro schematic
+>>>>
+>>>> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+>>=20
+>>>> +	lcd {
+>>>> +		lcd_reset_pin: reset-pin {
+>>>
+>>> I don't know if there's a 'hard rule' for it, but I'd recommend to use
+>>> ``lcd1_rst_pin: lcd1-rst-pin {`` as that would match the naming from
+>>> the schematics. I realize that some but not all (other) pinctrl nodes
+>>> follow that 'rule', but it helps with traceability.
+>>=20
+>> not a "hard" rule, but a strong preference.
+>> I.e. we want people to ideally be able to just hit search in the
+>> schematics PDFs for the name they saw in the devicetree.
+>>=20
+>> But following the schematic names, is the general goal.
+>>=20
+> Very fair. I used "lcd_reset" because even the schematic is not super=20
+> clear: it uses "LCD_RST" on page 16 and LCD1_RST on pages 11 and 16.
 
->   	NULL,
->   };
->   
-> 
+AIUI, the GPIO pin (GPIO4_D1) is labeled LCD1_RST and on page 16 you can
+see that is connected to LCD_RST from BL102-G39-1FR.
+The definition here is about the GPIO pin, hence LCD1_RST.
+The other part of my suggestion was related to another 'convention':
+the name and label/phandle are the same with ``s/-/_/`` (and 'reset-pin'
+is not specific enough; there are a number of reset pins).
 
+Afaic you don't need to mention that I suggested the mipi_out related
+changes; the reason to do that (unneeded redefinition of already defined
+things), is.
+
+Cheers,
+  Diederik=20
+=20
+>> If this stays the only suggestion though, I can fix that when
+>> applying. Or you can send a v3 - up to you :-)
+>>=20
+> I'll correct to lcd1_rst_pin and send a v3 (most likely later today)
+>
+>>>> +			rockchip,pins =3D <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
+>>>> +		};
+>>>> +	};
+>>>> +
+>>>>   	leds {
+>>>>   		red_led_pin: red-led-pin {
+>>>>   			rockchip,pins =3D <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+>>>
+>>> Otherwise,
+>>>
+>>> Reviewed-by: Diederik de Haas <didi.debian@cknow.org>
+>>>
+
+--b5fff2ebebde679f93dfaf923c9136a97ab4b047f673687733da1b95f36b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaFP3UgAKCRDXblvOeH7b
+bi9DAP9ZolhYlKXrTz+ChkMa/hViAuhi8CvNP7H+iQUeMfPungEAvGMwNigMNSff
+1ZcRaGagcoiWom9lXI7yxhvd5TpmGws=
+=K75Z
+-----END PGP SIGNATURE-----
+
+--b5fff2ebebde679f93dfaf923c9136a97ab4b047f673687733da1b95f36b--
 
