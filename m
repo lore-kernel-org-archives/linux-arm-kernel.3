@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D85C77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0658C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=136gTLj/Y0HhKLYdP9vuRieftyoXRpz7sdT5yNch5VM=; b=UBZtQkBUUI9sjMCUA6md5qfBeu
-	mLE4AhDBaxYHsWvYPyo6MEO/zqFcayICwdGrOSMOa7QR/zsC0J1Ew2zMjF2vIIZ7HkERMlIj9/QcD
-	eK28zNEyRe215jaWRrdXGRRB8mkQpSO032CRSNG2JGoUotdETDR1YXcyIAPVlD+CZMExmUprK003P
-	TQWtunUHJNk4N6NFHoI+LzdE33tqEFjrgBrcjet79vhI1SaqUr+81TGXOL82/vmpzDyEhVe0ldl50
-	sVTCkqcQhKop9ICWqL0KPGQRz5xFYSG92qiCQtSQ9JgCqrg31PTp43sNfBaylrSc2yiXg6pctl4xu
-	B9QHOA8w==;
+	bh=IAC4eGdfZQMdssd9pLtd60tfv9XvxFunRjooWuyybl8=; b=1/U1YcN6sJcuO/sLSqHAz3G+ud
+	AtyLNcpIdlDIhPHra8htvJwjHTQ61L74K0mjy20L/Kus9JM6jC0q6K16l5N4Bbp9tQ5iXD8AfWBo+
+	LLZ7ItX2Rcw1J2WRugkGKN05TT88KX9wQnOrWZXR2TlwlSmFqbglswJujxhkKXUi9ms4CWqg+o5re
+	iwaAkwW4vZb5JgNmWlBc/gT0K2+5BP+efJzxSlmoEO2UuSyHOUbrBLjWbsbLRAmitax6+AwQ/9vj3
+	uprJAeifmygYE+T4rl80Ef1ZBqWD26Ro62Ya4fLCsPPROGwmBPx8po4ka9jxf3ozcICF+dh/AyFpo
+	k3ocP8MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMhe-0000000EI2B-1iSu;
-	Thu, 19 Jun 2025 21:21:46 +0000
+	id 1uSMjq-0000000EIEs-1vus;
+	Thu, 19 Jun 2025 21:24:02 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMdf-0000000EHYM-2Ung;
-	Thu, 19 Jun 2025 21:17:40 +0000
+	id 1uSMdg-0000000EHYc-1Sza;
+	Thu, 19 Jun 2025 21:17:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=136gTLj/Y0HhKLYdP9vuRieftyoXRpz7sdT5yNch5VM=; b=QH8mXZfzmnidfYF+tyRI3+PsbV
-	fxoIuns/M44n0uG2Rc67+usaCePYkFX2F2F8H/5wHsZiF2KC9SlXbAz9fLsmH3CxwBH1plmPQwl0Z
-	unBdqRs/Id2fE+ud78jwRICesEYhjpCZF4u7D8Yaa5/gE8M9gd6pwc3Dya2l3k9KdjcWR4BRIzwpv
-	vACAr1YnOCPHLPmksbrWoms9ZBGLA2TXeaxbRWBbak5VHH95WwioBatFoSZRFXD/Z73wlsAnIVZJN
-	mARKVOwdRzT+AHt+NJkkVYjjNIbXrHprV3uqIUQlWBC1UYSCqDrxgxWJlu7nEakbPjkvKfAh4g5Y8
-	+1OIpuZg==;
+	bh=IAC4eGdfZQMdssd9pLtd60tfv9XvxFunRjooWuyybl8=; b=13QisMHs8LZtjbdJeVBFbYQoLn
+	tu4vzBrPojME55bTW72u2laJfwgh1ILq+naRtsDwuA886+5NslQobdrin5nAcVC6ghnJSacVHMfqo
+	067VtNCFIqEAHvafEn1qhqOrUMM5+UQBeIOOb0CTfakIeahHwVh/A63NQYeQatsqC91YTHX6KobhY
+	9x2LDr7kGzM22JD3HnWpnIydZiwntesZahXPBmaU7Z8Idefcw/0XKDxsGp7HG9MTaxJFc7P1zkgT9
+	40RLtjOGfV7/5kcqUd7K7BMU4soAqlLapF7F8saal031+CiteFL/+RSerh7QQGn52zGAZaIKh85/y
+	s6yohIkg==;
 Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uSMdd-0007fA-Cl; Thu, 19 Jun 2025 23:17:37 +0200
+	id 1uSMde-0007fA-95; Thu, 19 Jun 2025 23:17:38 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>
+	Olivier Benjamin <olivier.benjamin@bootlin.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v2 0/4] arm64: dts: rockchip: enable further peripherals on ArmSoM Sige5
-Date: Thu, 19 Jun 2025 23:17:24 +0200
-Message-ID: <175036770856.1520003.17823147228060153634.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel description
+Date: Thu, 19 Jun 2025 23:17:26 +0200
+Message-ID: <175036770853.1520003.14215884223488798716.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250614-sige5-updates-v2-0-3bb31b02623c@gmail.com>
-References: <20250614-sige5-updates-v2-0-3bb31b02623c@gmail.com>
+In-Reply-To: <20250619-dtb_fixes-v3-1-9cb02ddd8ce4@bootlin.com>
+References: <20250619-dtb_fixes-v3-1-9cb02ddd8ce4@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_141739_630278_FCCC47CE 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250619_141740_385574_A9C65F04 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +78,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 14 Jun 2025 22:14:32 +0400, Alexey Charkov wrote:
-> Link up the CPU regulators for DVFS, enable WiFi and Bluetooth.
-> 
-> Different board versions use different incompatible WiFi/Bluetooth modules
-> so split the version-specific bits out into an overlay. Basic WiFi
-> functionality works even without an overlay, but OOB interrupts and
-> all Bluetooth stuff requires one.
+On Thu, 19 Jun 2025 15:41:24 +0200, Olivier Benjamin wrote:
+> Fix a few issues in the panel section of the PinePhone Pro DTS:
+>   - add the second part of the Himax HX8394 LCD panel controller
+>     compatible
+>   - as proposed by Diederik de Haas, reuse the mipi_out and ports
+>     definitions from rk3399-base.dtsi instead of redefining them
+>   - add a pinctrl for the LCD_RST signal for LCD1, derived from
+>     LCD1_RST, which is on GPIO4_D1, as documented on pages 11
+>     and 16 of the PinePhone Pro schematic
 > 
 > [...]
 
 Applied, thanks!
 
-[1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-      commit: c76bcc7d1f24e90a2d7b98d1e523d7524269fc56
-[2/4] arm64: dts: rockchip: add SDIO controller on RK3576
-      commit: e490f854b46369b096f3d09c0c6a00f340425136
-[3/4] arm64: dts: rockchip: add version-independent WiFi/BT nodes on Sige5
-      commit: 358ccc1d8b242b8c659e5e177caef174624e8cb6
-[4/4] arm64: dts: rockchip: add overlay for the WiFi/BT module on Sige5 v1.2
-      commit: a8cdcbe6a9f64f56ee24c9e8325fb89cf41a5d63
+[1/1] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel description
+      commit: 987087864c88ec8617c311c39390ce578ae15195
 
-Patch 1 as fix for v6.16
+Transplanted Diederik's Reviewed-tag and dropped the "DTS'" part from
+the subject.
 
-I've also fixed the wifi@1 node in the overlay - which was using
-spaces instead of tabs.
 
 Best regards,
 -- 
