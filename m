@@ -4,75 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE99BC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966C9C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHxb3G7EW8RzN+dJgsKeTL9lqcEi84ddNrYeIybSCPk=; b=km+DIDdUYDXhw5Ksv0bxPOWh7t
-	XQVpNl+BJCKwwL4ElRtPV6YAnH9luOjQua+h4uMqTlnzbKr03mTFfcg/7ifwThRG67eruAc2Zjb4z
-	N1POgsZsbg+NWvGQMvM6Y2uKb0c0fiifSdkWQHYiIq2HbIkQJ9nOWkFuzxDFiGjmHTr7gqebSwt8j
-	1s+gmXO9I0PeBZP2dzbKmKBDP4tKB6RIZEaAuCOOZkEvq4Bmj5pwC7Gcs7IRgHwY7QeLXbvNfqFLf
-	0hk9yONCh5AI07sd+kqWhS+ehYTV8xA9dGrDcJtz5cmwvBKRq3xpU/nKyfIcL1I8bMBzOvws0ZzyU
-	ifcPw8PQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OcYH8hblyOqphSxkfLeFjpUcClvEpIu8NxtFsTsW5Nw=; b=dM/h5VHl3OmpHq+XpwP/qoE+H9
+	2KsIWbVOv725mjGPHDBCLIU+yC/qTK5FcrpDvrF98Ir2Cf1np7Ov04FGe7MUbLaqjJKPzztNf6qU3
+	VYnc0vshLBz6fnt3/fv0ElfqJfPDbpqO3WEbPHD7V+bsjv6GhnfGoEc1/QDXieENU2FMvIKo7Ue4n
+	x5kKdwTFs559vfoCBPKWG+SppHVNnHy/4Ve5PCa8Hm1lcj1bWJjmnqNXPr2iG4GWu/+WRX7hasXN/
+	GY+69cPSeraRyQ7Ge2bcX9+TOYj1MqgvaJErYSYe1ZqwKgQgFPrqSpY42GRIPx+ULBCgm9P0HUI2v
+	OzziCTAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDUt-0000000Ct0I-1rSS;
-	Thu, 19 Jun 2025 11:31:59 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSDW7-0000000CtU7-0WOK;
+	Thu, 19 Jun 2025 11:33:15 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSB9j-0000000CXbO-0X3x;
-	Thu, 19 Jun 2025 09:02:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=YHxb3G7EW8RzN+dJgsKeTL9lqcEi84ddNrYeIybSCPk=; b=Lz+dxvYl7ugAV5gMsPRzO/Zn6T
-	Mxdaho/YZVeiUWxOl3h4OrtvnZ6048BbBDlX5dPKQ1XqhZujSpQjlCFGyTGDJm7if6VNINPaxvQ7o
-	/8kFNcpB0Rj4uYwQn53p69/iF6U2l0VZMcGB4ZK08SUUkSee1C2Bd+uoY3lEBnaDa99ka8xdolaYd
-	SkyMcwGzxVNOJqlu0QcVtDNjVOvnvaWwLcfmxjA1+76juFgGKqfFU9c6d/YlIZdO9oBjq1meeEYDr
-	PAGkuq1Dd0gbw/v6G9F9GSdHqYL3yb71Yy3TIRlUw3GNSjlg/GLMdhqeQKNJ7KWRkbwdsBY/RvAPs
-	pKCLP7BA==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSB9C-0007Ey-OE; Thu, 19 Jun 2025 11:01:26 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>,
- Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v7 00/10] New DRM accel driver for Rockchip's RKNN NPU
-Date: Thu, 19 Jun 2025 11:01:25 +0200
-Message-ID: <2217684.TLkxdtWsSY@phil>
-In-Reply-To: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
-References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
+	id 1uSCYz-0000000Cl6O-1i8z;
+	Thu, 19 Jun 2025 10:32:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1750329125; x=1750933925; i=frank-w@public-files.de;
+	bh=OcYH8hblyOqphSxkfLeFjpUcClvEpIu8NxtFsTsW5Nw=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Nw2ZDB1MJgjSypAStXwuh1Gbt5FKe1o2iDNYFgB1Mb38X1cBM9/DUysb1uHHLEpL
+	 tUjH9krcooMov1LXLi6BTJfbuC4HVG2c2/gqkh95BFC5OQCJaU8SKZbzpxI0ngiqq
+	 Mu+mOgQYjGcQFggN3UnUq78OEOjA2g9sWXrCpjmfXO+Qq/ArF2qjUo39VS5vIZgFG
+	 wrynAUod06o9TDLTYIo9xGId/GX3KQoh8XTrRq7bPlqjZWwq7egt5ti6xhuLI6jUH
+	 QauFfSnJ9zjX8zG8+mxrpOmWVwifPWr2AlQkHaXu8uZ30kqeFgi/vdxO2u7qD2IG2
+	 UcenJ0Tpj7apFQo2Ug==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [100.64.250.227] ([100.64.250.227]) by
+ trinity-msg-rest-gmx-gmx-live-b647dc579-9795v (via HTTP); Thu, 19 Jun 2025
+ 10:32:05 +0000
 MIME-Version: 1.0
+Message-ID: <trinity-98eee496-129f-43c7-8d3f-4a77f4a183b9-1750329125336@trinity-msg-rest-gmx-gmx-live-b647dc579-9795v>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: horms@kernel.org, linux@fw-web.de
+Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, daniel@makrotopia.org,
+ arinc.unal@arinc9.com
+Subject: Aw: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first
+ IRQ if not used
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Jun 2025 10:32:05 +0000
+In-Reply-To: <20250619100309.GC1699@horms.kernel.org>
+References: <20250618130717.75839-1-linux@fw-web.de>
+ <20250618130717.75839-4-linux@fw-web.de>
+ <20250619100309.GC1699@horms.kernel.org>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:ifZaB0TqILOfFP6+5o3LfKPHICLlxtenulQfOOEgY2f7tACewlBl3QLnsAj1aMLZYtvH6
+ npjRu0EOI51tAGdS9VkCwnbATYO+ViMaRfHy0GeW3oHCqjXq2X0EYFFF/2jxfEuwKq46BGz05UKu
+ GKZDt+Qva4mWA9Dk14indJ8u5jWlEWhPkSjyrsIgWl7eQk7ngpQ8ACY327QoBnIHw7RSyZ6q1kCR
+ ht9Hn9Zk2u0Bz3Sw2jVbc1iW2A8/3K/1W7+B8j8hhW14tZRd+hMWNokDLsjCeve8ThOTO5SWJkWF
+ 8fTQ48zmuNnOSPwKxv+9VXdWh6QWqBU5SaRA6u746ln8ZDQ2fvBpb7C1yJiCU9XX8Q=
+UI-OutboundReport: notjunk:1;M01:P0:hCRhkC8HBc4=;DGXBDvuDhiJCdGE8BCakk/+Hi/v
+ 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
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_020159_162474_1F8E54DD 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250619_033209_819075_8A43A2F1 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +128,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 6. Juni 2025, 08:28:20 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b Tomeu Vizoso:
-> This series adds a new driver for the NPU that Rockchip includes in its
-> newer SoCs, developed by them on the NVDLA base.
+Hi Simon
+
+> Gesendet: Donnerstag, 19. Juni 2025 um 12:03
+> Von: "Simon Horman" <horms@kernel.org>
+> Betreff: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IR=
+Q if not used
+>
+> On Wed, Jun 18, 2025 at 03:07:14PM +0200, Frank Wunderlich wrote:
+> > From: Frank Wunderlich <frank-w@public-files.de>
+> >=20
+> > On SoCs without MTK_SHARED_INT capability (all except mt7621 and
+> > mt7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+> > but it is never used.
+> > Skip the first IRQ and reduce the IRQ-count to 2.
+> >=20
+> > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> > ---
+> > v5:
+> > - change commit title and description
+> > v4:
+> > - drop >2 condition as max is already 2 and drop the else continue
+> > - update comment to explain which IRQs are taken in legacy way
 >=20
-> In its current form, it supports the specific NPU in the RK3588 SoC.
->=20
-> The userspace driver is part of Mesa and an initial draft can be found at:
->=20
-> https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
->=20
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> ---
-> Changes in v7:
-> - Actually enable process isolation by allocating its own IOMMU domain
->   to each DRM client.
-> - Link to v6: https://lore.kernel.org/r/20250604-6-10-rocket-v6-0-237ac75=
-ddb5e@tomeuvizoso.net
+> Reviewed-by: Simon Horman <horms@kernel.org>
 
-I was able to successfully run the SSDLite MobileDet model, detecting
-elements correctly on that "Sounds of New York" youtube video all the
-demos seem to be using ;-) - on a rk3588-tiger board.
+thank you very much
 
-NPU needed like 30ms per frame or so and also detected the expected
-things, so
+i guess RB is still valid with changes requested by Daniel?
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
+    net: ethernet: mtk_eth_soc: skip first IRQ if not used
+   =20
+    On SoCs with dedicated RX and TX interrupts (all except MT7621 and
+    MT7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+    but it is never used.
+    Skip the first IRQ and reduce the IRQ-count to 2.
 
+code (changed condition "if (i =3D=3D MTK_FE_IRQ_SHARED)")
+        for (i =3D 0; i < MTK_FE_IRQ_NUM; i++) {
+-               if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+-                       eth->irq[i] =3D eth->irq[MTK_FE_IRQ_SHARED];
+-               else
+-                       eth->irq[i] =3D platform_get_irq(pdev, i);
++               if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
++                       if (i =3D=3D MTK_FE_IRQ_SHARED)
++                               eth->irq[MTK_FE_IRQ_SHARED] =3D platform_g=
+et_irq(pdev, i);
++                       else
++                               eth->irq[i] =3D eth->irq[MTK_FE_IRQ_SHARED=
+];
++               } else {
++                       eth->irq[i] =3D platform_get_irq(pdev, i + 1);
++               }
 
+regards Frank
 
