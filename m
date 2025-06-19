@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9743AC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040BCC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 11:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHc7BspCc4VebX3+yVBmPaBO4Z3SMOpLQiryABMTzXg=; b=nt4EOQHsZYuXRr+UikmQaBHgUR
-	e9wgf1CUiK4bmK4Yjh7UUZYwfKudihihRNkjudDoTD26Rx0bU0Anoy5lGiCTRpKi8bm9F57+iwi9d
-	daS09bQw/LafY53wcP6pAoLgTcw8zQw1uB4IaSItb1OxeHMS6V2s5ESaCIfcIR+vL++FBlW3q2uTF
-	TDzqcip2vkoB7thrwgbjKvl7ymxfUKk6uWojWd78po2F5kebABqVxQ6FEoyCQ18WRdEkiB9xlWNnb
-	LfI3853ubg66lo846lqZi1BaBOdwtVsmg4MkVNjJb6FedoYWsjJg70LBUG6VsNCd9/TZ1mXrkn8UB
-	0N84h8lw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5k08wdTUXcWT897MHr14311A5W99N4BkJ9hckfoGYQ8=; b=iVJS1juaJY/YFJKalFiqNi1RDJ
+	Z4zCHz29uHVZLARFE9yUddZ+ilKfZcEESoVfDmnyT3LQgEavC8RbWbqzOoeNb21zMzPlEnn903d73
+	NlGiU2rX9GzHU4pYqryIUzTHK80NdRu7vIXAInI2oKqyyn7G5YCfqCyuliohzYetbMrnyVvkwIbRJ
+	34Je15usDMx+Ffy8OZOIFiuAIQKQXGjfbRkYdguZ8Pvh63LC5b+XNS1uzew8XtkWjIuchbDNWKhMZ
+	1ZN1jWuXmAy5+AEMGqBduQchljyG4JZywyeArD1hFjge8tqMA7uXADQBOy6neHnGgrDwl8Xqastl0
+	9wss+ctw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDTu-0000000CsqC-0uyL;
-	Thu, 19 Jun 2025 11:30:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSDUu-0000000Ct1H-1TX1;
+	Thu, 19 Jun 2025 11:32:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSCYX-0000000Cl2P-43zT;
-	Thu, 19 Jun 2025 10:31:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=uHc7BspCc4VebX3+yVBmPaBO4Z3SMOpLQiryABMTzXg=; b=qhUUmauacre6f0NDbZEh0A209v
-	PUSFAm69IOwcfWsONe8VRlmUFter+1RNbipSRBRx8Pkz1eqM7uPExZ/Jv9yT3+3VspkNVZzlc9SDk
-	Abq3dkD7mVqK/P0ZUX4fivIyplQ/yR373A/gvQRZfAG28HjumuSX1eAd90imC2PqWw+ivvezsgZFq
-	92/1onaEVis29tvgAVcXw2KIhbQ/HZ/kEjC+jIRjRxfMC01VaSuPxNS2zc/M80yqs5HL2xbA7Y22O
-	GaeTm8Hek/Gm0+lj59FMeDzKmoSgOLyG/WU2Luea9XKiGkTRohtkk170iYUPznw/y6I/AVZwX13i2
-	XMMlbEQw==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSCYS-0008Oq-0k; Thu, 19 Jun 2025 12:31:36 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Olivier Benjamin <olivier.benjamin@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Diederik de Haas <didi.debian@cknow.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel
- description
-Date: Thu, 19 Jun 2025 12:31:35 +0200
-Message-ID: <5461462.0VBMTVartN@phil>
-In-Reply-To: <DAQEX04P5320.CQDU7SL7AV4A@cknow.org>
-References: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
- <DAQEX04P5320.CQDU7SL7AV4A@cknow.org>
+	id 1uSBBB-0000000CY0E-0Ksw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 09:03:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F73F62A2D;
+	Thu, 19 Jun 2025 09:03:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2F467C4CEEF;
+	Thu, 19 Jun 2025 09:03:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750323808;
+	bh=g7HbEMSGC7lValARRez43Mn+S/OKci/SL+Q0rQG8aK4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=nuFbpL6Rirc8bxX5o3c+T0kadHRpuu1p28lL3aYG6WxxTPOZAPEKim1Fxsmb4iCep
+	 H1MeLBDynHn+101dTIabq8K/cur45ragSvjKYn0Whg7kzXJDktjw+4xaIaN/k5vjxr
+	 syb9y8FkwHAlMHmiH9z+JpmdqZd9SF1T7DQ4/UtKuaqcRVK9ISYmOQz6OG7x9q/yMY
+	 tbbCJQ1VJdcJ2KTft004ofGAcCHaAUDht9JBuFh7nniYrn5CTMWVBP5HL4jEKD424J
+	 FCq5MToo99O5zviEqSwGzh8/AWst958dWxkN1T8M53k5zfSx3w9WEe1kkVcAKUOSCM
+	 6wdpO2hqYPezg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22F8AC7115B;
+	Thu, 19 Jun 2025 09:03:28 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Thu, 19 Jun 2025 09:02:55 +0000
+Subject: [PATCH v5 2/6] KVM: arm64: Use SMCCC 1.2 in
+ hyp_ffa_{init,post_init}
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_033142_025645_0B3F361E 
-X-CRM114-Status: GOOD (  20.28  )
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250619-virtio-msg-ffa-v5-2-412c98558807@google.com>
+References: <20250619-virtio-msg-ffa-v5-0-412c98558807@google.com>
+In-Reply-To: <20250619-virtio-msg-ffa-v5-0-412c98558807@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750323807; l=3417;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=ITbJy+U88TKFuEMoRcW/LDBaFV7Te3dLSP/C39fWi6U=;
+ b=a8Q66bWbjAHiQ8So3UnvJcSeMp19/fIenT+YRS/1O5zV5OnYaPiSu2af0Z4rlfF2M6oWkHJWh
+ vTfvBA8/qEqDtKNd7cF0z5mfSYGrlPmEZDS9nSQBUlMO+JpUrfd9bew
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +84,112 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 19. Juni 2025, 11:46:15 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Diederik de Haas:
-> Hi,
->=20
-> Thanks for working on upstreaming PPP things :-)
->=20
-> On Thu Jun 19, 2025 at 7:21 AM CEST, Olivier Benjamin wrote:
-> > Fix a few issues in the panel section of the PinePhone Pro DTS:
-> >   - add the second part of the Himax HX8394 LCD panel controller
-> >     compatible
-> >   - as proposed by Diederik de Haas, reuse the mipi_out and ports
-> >     definitions from rk3399-base.dtsi instead of redefining them
-> >   - add a pinctrl for the LCD_RST signal for LCD1, derived from
-> >     LCD1_RST, which is on GPIO4_D1, as documented on pages 11
-> >     and 16 of the PinePhone Pro schematic
-> >
-> > Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+From: Per Larsen <perlarsen@google.com>
 
-> > +	lcd {
-> > +		lcd_reset_pin: reset-pin {
->=20
-> I don't know if there's a 'hard rule' for it, but I'd recommend to use
-> ``lcd1_rst_pin: lcd1-rst-pin {`` as that would match the naming from
-> the schematics. I realize that some but not all (other) pinctrl nodes
-> follow that 'rule', but it helps with traceability.
+FF-A is based on SMCCC 1.2. Move the FF-A initialization code to SMCCC
+1.2 as it simplifies later changes in this patchset.
 
-not a "hard" rule, but a strong preference.
-I.e. we want people to ideally be able to just hit search in the
-schematics PDFs for the name they saw in the devicetree.
+Signed-off-by: Per Larsen <perlarsen@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/Makefile |  1 +
+ arch/arm64/kvm/hyp/nvhe/ffa.c    | 37 +++++++++++++++++++++++--------------
+ 2 files changed, 24 insertions(+), 14 deletions(-)
 
-Sometimes that is not possible, because of naming conventions or
-overly strange schematic-names ... and sometimes things slip through
-as well.
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977bef889423153399 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
+ 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
++hyp-obj-y += ../../../kernel/smccc-call.o
+ hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+ hyp-obj-y += $(lib-objs)
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 2c199d40811efb5bfae199c4a67d8ae3d9307357..51bbe8f9c94584e9001ee769cbfd608d930ff723 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -666,21 +666,26 @@ static bool do_ffa_features(struct arm_smccc_res *res,
+ static int hyp_ffa_post_init(void)
+ {
+ 	size_t min_rxtx_sz;
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs regs = {
++		.a0 = FFA_ID_GET,
++	};
+ 
+-	arm_smccc_1_1_smc(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0, &res);
+-	if (res.a0 != FFA_SUCCESS)
++	arm_smccc_1_2_smc(&regs, &regs);
++	if (regs.a0 != FFA_SUCCESS)
+ 		return -EOPNOTSUPP;
+ 
+-	if (res.a2 != HOST_FFA_ID)
++	if (regs.a2 != HOST_FFA_ID)
+ 		return -EINVAL;
+ 
+-	arm_smccc_1_1_smc(FFA_FEATURES, FFA_FN64_RXTX_MAP,
+-			  0, 0, 0, 0, 0, 0, &res);
+-	if (res.a0 != FFA_SUCCESS)
++	regs = (struct arm_smccc_1_2_regs){
++		.a0 = FFA_FEATURES,
++		.a1 = FFA_FN64_RXTX_MAP,
++	};
++	arm_smccc_1_2_smc(&regs, &regs);
++	if (regs.a0 != FFA_SUCCESS)
+ 		return -EOPNOTSUPP;
+ 
+-	switch (res.a2) {
++	switch (regs.a2) {
+ 	case FFA_FEAT_RXTX_MIN_SZ_4K:
+ 		min_rxtx_sz = SZ_4K;
+ 		break;
+@@ -863,14 +868,18 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 
+ int hyp_ffa_init(void *pages)
+ {
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs regs;
+ 	void *tx, *rx;
+ 
+ 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
+ 		return 0;
+ 
+-	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_1, 0, 0, 0, 0, 0, 0, &res);
+-	if (res.a0 == FFA_RET_NOT_SUPPORTED)
++	regs = (struct arm_smccc_1_2_regs) {
++		.a0 = FFA_VERSION,
++		.a1 = FFA_VERSION_1_1,
++	};
++	arm_smccc_1_2_smc(&regs, &regs);
++	if (regs.a0 == FFA_RET_NOT_SUPPORTED)
+ 		return 0;
+ 
+ 	/*
+@@ -886,11 +895,11 @@ int hyp_ffa_init(void *pages)
+ 	 * ABI return NOT_SUPPORTED rather than a version number, according to
+ 	 * DEN0077A v1.1 REL0 18.6.4.
+ 	 */
+-	if (FFA_MAJOR_VERSION(res.a0) != 1)
++	if (FFA_MAJOR_VERSION(regs.a0) != 1)
+ 		return -EOPNOTSUPP;
+ 
+-	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
+-		hyp_ffa_version = res.a0;
++	if (FFA_MINOR_VERSION(regs.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
++		hyp_ffa_version = regs.a0;
+ 	else
+ 		hyp_ffa_version = FFA_VERSION_1_1;
+ 
 
-But following the schematic names, is the general goal.
-
-
-If this stays the only suggestion though, I can fix that when
-applying. Or you can send a v3 - up to you :-)
-
-
-Heiko
-
-
->=20
-> > +			rockchip,pins =3D <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-> > +		};
-> > +	};
-> > +
-> >  	leds {
-> >  		red_led_pin: red-led-pin {
-> >  			rockchip,pins =3D <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
->=20
-> Otherwise,
->=20
-> Reviewed-by: Diederik de Haas <didi.debian@cknow.org>
->=20
-> Cheers,
->   Diederik
->=20
-
-
+-- 
+2.50.0.rc2.701.gf1e915cc24-goog
 
 
 
