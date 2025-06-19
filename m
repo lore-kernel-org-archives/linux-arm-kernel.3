@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54852C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05562C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+k3NNEekvlr6fkv1a/A9HNwq1j5zrWYmNv2ri3gncM=; b=IBnM8SoRw5SdGEAayGyGIKX8st
-	oMqwjUlFtRxtl1JluIFOAJWnE7DphblYCrGFMDj//njezXmHKUBTUXX0lE+kpNAwpsxQ6l7VA96nf
-	spuV9uXzWTf4IrpQahl8hNnqZxQ3+HEP/Yt0S8jTK8Zm04TwOCEhBEcHiUF6Z7NaDROhXIIhM8Xjk
-	M40hvJhhsHsopYCEuLqVvpdvsIg/XKNJU37s/WBtWn7gLLrXFGVysY1o7un3tFwNDFlk5CSMvZi5K
-	emBKk4ghaPY/fUugFIOdpIQzznUUsHW6Ck0E29wSUk4Kh3ZjYCijBV6ohFbSwMY2Pk7Lhe/eFxKru
-	jNYIXunA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OKsVibEkSv+hfR4J2CvdJJEcDJm0d1G4pRgyEnSM5co=; b=ALC7pcoAhHlILbiwxUC9t2014m
+	UQ8rFOTMGuuUf0dGGS65/MpkQemTyghV9sPmMe9K3fThDoBBjnCpAVMPifgxD02bvnvIs63GQPsYU
+	0i0lkFwp1/2KvsGPtgjYHwjMoIXxayhg4rjWEY+DojMveR5KXE/lZdnYJ+OTfvrIDzEaqrirPGb8+
+	D6xmHtWwJJLhl8dxh591Z0KNuzZQV8B21f2ab+wSObYsfBWW2DasZuAACHFst5VGQ+KwQuUW7VDpY
+	rschXmBDvWl/ru07iRw1afl8AFnsX56Rr2LJszjOiZUKZVCprc4qk+MglxidmIJgmXC5dnPsRlin/
+	E6aj4tzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLH7-0000000E8Zn-0JON;
-	Thu, 19 Jun 2025 19:50:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uSLH6-0000000E8Zb-2bHj;
+	Thu, 19 Jun 2025 19:50:16 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHaL-0000000DaPR-3sLU
+	id 1uSHX7-0000000Da29-1y00
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Jun 2025 15:53:53 +0000
+	Thu, 19 Jun 2025 15:50:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=q+k3NNEekvlr6fkv1a/A9HNwq1j5zrWYmNv2ri3gncM=; b=e+g2qxLR27BTw+kpzLtnvTmWDn
-	O5Nz9F0rlap7AYd4nvyrLrLiLcM1a3RrSx/4O4lhliW46m2aZPvm1lOOB38RKzPQyEzN/kUIiIczY
-	x3ISLY9109euXzqtQ+m/4mIuUdYIJCORDsp0ntxSinC37j4czu2waYDJ37QBhKgHBGpLa156GXfdh
-	gbQ51L0lxSen6R2aPs+eP1c9EubcH4FfGK+HbF+OAsjbkS8xHtECswc2au2HLmTcoiwyqMoIkeuXI
-	7TUlI4JYDfHTHeFAAgxP9LyIWcu9gq8INbhXm+nA2Pe38XYyPibiUeP2xPRBD9Y5ptf86xGe8iK8i
-	WeFWHuxQ==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHaJ-00000004T7h-0mD2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 15:53:53 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a4fb9c2436so520587f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:53:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750348429; x=1750953229; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q+k3NNEekvlr6fkv1a/A9HNwq1j5zrWYmNv2ri3gncM=;
-        b=txap5p8XxWDyuYksPOaA7KqCjumpyZBtW0epmWekY1tMyIIdIwCrYA8JK5vMiLvcw1
-         ffGIxTrF3bDF+ELmUo5xw8+Qz5dle3oAyS6MC4tFp/EvzAj6hbg1MuykhG45tpUE88Sa
-         7aCtNvdbH1M4iKjaYiNEK0ensovcJWQe1Rlbu/p8/ajveNDx3IaHIrXNe3HAIbXA4XKe
-         G8bX6OxgJpSdHy9CesvwUYm9P++zw5obYaWHAN/GI8yLPhk1C2h3QemfxuHse/CocLqA
-         rUuDKMoLTzPqcaqzFfOkdCmQ+kQEmqoMzcUeF2j9IbvmzB+Gl9lWVWXcrRJX1z2C5sYh
-         BRFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750348429; x=1750953229;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q+k3NNEekvlr6fkv1a/A9HNwq1j5zrWYmNv2ri3gncM=;
-        b=IsJBXcU7NBJAZL36LD4tBmeI6rXjWO0mD88w8wvlcELYWLEMTlEma4zUImnjBmm99b
-         EoPeIBEUW1YQROXUJcoB0jPE7D8Kg/leFxazq0TAhENFB0a+O+Nd8CgVjyQQFwVKlm++
-         EtQlqXS8Kp3Ol+1CIxjhbOIurW+VxjlGy8TfljnnZspOMxQY0+1Wy4At7FgsdsWDI4uB
-         Uk6EQjGQf+ZajGrENB4YDU4FG233LUFWxKeb2hz4RgghlQwihfVUdZogXYF0jxzdgHkY
-         nXWbd2e8CMiDQiIrBvC1XG1VAaXJ2XrAJbxJXwAYuDHYc8dKPeHFV3AeWk82ulwu8nMo
-         OIpw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4Vuq1VbkCQiL2VZyNXhrA2OT1Ho+RT2O6kYChrTaSd2ZwFayOdOg6qWl9s3XkV4t6yINet4ECAAzO27ue80rB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2gangwjFs4Weyx0T2LBpsdsrY6nkgU5210FY7ULMfHXg6c9mv
-	sVblrTDN0Cj72297oX/j8sjaOlVlbMHEsudk4KmiRBXbDz2jwPF0i5neL9buLJgh8fQ=
-X-Gm-Gg: ASbGncvI/d7kBDEqjEBmvyTydtqlFqsONmNvhrK6+Oo8fAkC/NKZzzU6flAweMgWjxf
-	E88EdSVXZbilNrl8TIwOnJAGvScAnpnvQNbSnCj6hmcVZ1vcgTqgWKOQTHWTUH35oQ+jF++bSY3
-	3a6XVLwqL7mmKKtC3GAwK0u9N4ugFy6A4GEKNytrN/U8slYgXuuBdv/O1/LNidCO2FTFwv/813k
-	pGYRqTwIiPSHpyM0mx4R9TwqAuIsObIaO4vnzmJOyeptFbTJljSndBNMtOl+yxxz0/wCe8rcAo5
-	rrvACIHZ+XwCT/4B98Uo+HyrVzYTVJ/gZ6Qve2yPMqdEPwLWBxobj7LNV3BX4xsOEGk=
-X-Google-Smtp-Source: AGHT+IFhgF5Hhrh/DcTEDSYXb3z6slUVm4fs2xKiMsWX1+2BhI88RWRGf74eQ6JDO4EbBchzGYmsrw==
-X-Received: by 2002:a05:6000:2313:b0:3a5:39be:c926 with SMTP id ffacd0b85a97d-3a572e82465mr17345796f8f.32.1750348428838;
-        Thu, 19 Jun 2025 08:53:48 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b28876sm19786654f8f.73.2025.06.19.08.53.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Jun 2025 08:53:48 -0700 (PDT)
-Message-ID: <7f9f123c-d7f9-478b-b207-f448a95d992a@linaro.org>
-Date: Thu, 19 Jun 2025 16:53:47 +0100
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OKsVibEkSv+hfR4J2CvdJJEcDJm0d1G4pRgyEnSM5co=; b=Bw9meWhos1tgAIc+K/544bWYY7
+	TSrs4qSCCLwK/G59yXQbgmv2lmkCuMkvZxk0hrTtkOpznc9r9pAlYHynY14uNOPuXmJB9OwLNvUcI
+	elmJR9YNWGf2mKdlNASMm/a1xOeU4qwTD53xc4HCErLoupHHCLNV6sLfS/JKHukPTXn8u0Ne2c922
+	zlvIs92esqPKGhjpXeteV0mf8YVWXMzWxaR7TBu4Qc6iFEwFrNIuSf9SW1Pvh6LVrFCB9HWPqvWkI
+	NBuMIBtV0y3/yxRkY0iNJMEu8uJCBtlNxR6m78RVbQ/tXU7Yly1mqDneI+6opUUl0VPDw/pix9OXz
+	zQZno7uA==;
+Received: from [2001:8b0:10b:5:748f:d833:d81c:4c8f] (helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSHX4-00000009LhR-2ep8;
+	Thu, 19 Jun 2025 15:50:30 +0000
+Message-ID: <b1db820e965996b4d236caf15736162f161223e6.camel@infradead.org>
+Subject: Re: [RFC PATCH 00/34] Running Qualcomm's Gunyah Guests via KVM in
+ EL1
+From: David Woodhouse <dwmw2@infradead.org>
+To: Marc Zyngier <maz@kernel.org>, Karim Manaouil
+ <karim.manaouil@linaro.org>,  Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, Alexander Graf <graf@amazon.com>, Alex Elder
+ <elder@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Fuad Tabba
+ <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, Jonathan Corbet
+ <corbet@lwn.net>, Mark Brown <broonie@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, Prakruthi
+ Deepak Heragu <quic_pheragu@quicinc.com>, Quentin Perret
+ <qperret@google.com>, Rob Herring <robh@kernel.org>,  Srinivas Kandagatla
+ <srini@kernel.org>, Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>, Will
+ Deacon <will@kernel.org>, Haripranesh S <haripran@qti.qualcomm.com>, Carl
+ van Schaik <cvanscha@qti.qualcomm.com>, Murali Nalajala
+ <mnalajal@quicinc.com>,  Sreenivasulu Chalamcharla
+ <sreeniva@qti.qualcomm.com>, Trilok Soni <tsoni@quicinc.com>, Stefan
+ Schmidt <stefan.schmidt@linaro.org>
+Date: Thu, 19 Jun 2025 16:50:29 +0100
+In-Reply-To: <86ikmtjy51.wl-maz@kernel.org>
+References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+	 <aApaGnFPhsWBZoQ2@linux.dev> <86ikmtjy51.wl-maz@kernel.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-8oYh6WC82njjqP/La6PW"
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: Replace scnprintf() with sysfs_emit() in sysfs
- show functions
-To: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>, suzuki.poulose@arm.com,
- alexander.shishkin@linux.intel.com, mike.leach@linaro.org
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250619150730.413287-1-chelsyratnawat2001@gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250619150730.413287-1-chelsyratnawat2001@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_165351_392148_DB163370 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,24 +86,174 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--=-8oYh6WC82njjqP/La6PW
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 19/06/2025 4:07 pm, Chelsy Ratnawat wrote:
-> Replace calls to scnprintf() with sysfs_emit() in sysfs show functions.
-> These helpers are preferred in sysfs callbacks because they automatically
-> handle buffer sizing (PAGE_SIZE) and improve safety and readability.
-> 
-> Signed-off-by: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
-> ---
->   .../hwtracing/coresight/coresight-etm-perf.c  |   4 +-
->   .../coresight/coresight-etm3x-sysfs.c         |   2 +-
->   .../coresight/coresight-etm4x-sysfs.c         | 108 +++++++++---------
->   drivers/hwtracing/coresight/coresight-stm.c   |   8 +-
+On Thu, 2025-04-24 at 17:57 +0100, Marc Zyngier wrote:
+> On Thu, 24 Apr 2025 16:34:50 +0100,
+> Oliver Upton <oliver.upton@linux.dev> wrote:
+> >=20
+> > On Thu, Apr 24, 2025 at 03:13:07PM +0100, Karim Manaouil wrote:
+> > > This series introduces the capability of running Gunyah guests via KV=
+M on
+> > > Qualcomm SoCs shipped with Gunyah hypervisor [1] (e.g. RB3 Gen2).
+> > >=20
+> > > The goal of this work is to port the existing Gunyah hypervisor suppo=
+rt from a
+> > > standalone driver interface [2] to KVM, with the aim of leveraging as=
+ much of the
+> > > existing KVM infrastructure as possible to reduce duplication of effo=
+rt around
+> > > memory management (e.g. guest_memfd), irqfd, and other core component=
+s.
+> > >=20
+> > > In short, Gunyah is a Type-1 hypervisor, meaning that it runs indepen=
+dently of any
+> > > high-level OS kernel such as Linux and runs in a higher CPU privilege=
+ level than VMs.
+> > > Gunyah is shipped as firmware and guests typically talk with Gunyah v=
+ia hypercalls.
+> > > KVM is designed to run as Type-2 hypervisor. This port allows KVM to =
+run in EL1 and
+> > > serve as the interface for VM lifecycle management,while offloading v=
+irtualization
+> > > to Gunyah.
+> >=20
+> > If you're keen on running your own hypervisor then I'm sorry, you get t=
+o
+> > deal with it soup to nuts. Other hypervisors (e.g. mshv) have their own
+> > kernel drivers for managing the host / UAPI parts of driving VMs.
+> >=20
+> > The KVM arch interface is *internal* to KVM, not something to be
+> > (ab)used for cramming in a non-KVM hypervisor. KVM and other hypervisor=
+s
+> > can still share other bits of truly common infrastructure, like
+> > guest_memfd.
+> >=20
+> > I understand the value in what you're trying to do, but if you want it
+> > to smell like KVM you may as well just let the user run it at EL2.
+>=20
+> +1. KVM is not a generic interface for random third party hypervisors.
 
-There's two missing from coresight-sysfs.c. Might as well change those 
-too while were here.
+I don't think that should be true in the general case. At least, it
+depends on whether you mean the literal implementation in
+arch/arm64/kvm/ vs. the userspace API and set of ioctls on /dev/kvm.
 
-With those changed:
+The kernel exists to provide a coherent userspace API for all kinds of
+hardware. That's what it's *for*. It provides users with a consistent
+interface to all kinds of network cards, serial ports, etc. =E2=80=94 and t=
+hat
+includes firmware/platform features too.=20
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+There's no reason that shouldn't be the same for virtualisation. If the
+kernel cannot provide an API which supports *all* kinds of
+virtualization, then it seems like we've done something wrong.
 
+On x86 we have /dev/kvm backed by different vendor-specific support for
+Intel vs. AMD. And in recent years we've retrofitted confidential
+compute to it too, with SEV-SNP, TDX, etc.
+
+We haven't resorted to saying "no, sorry, KVM doesn't support that".
+
+We shouldn't say that for Arm either.
+
+
+--=-8oYh6WC82njjqP/La6PW
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDYxOTE1NTAy
+OVowLwYJKoZIhvcNAQkEMSIEII/fZn4RSpkWjs+K1CouaBN+lFLTetGT/HGblcvfb9w1MGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAZF3UeKEp1fX1
+qb4qMwFxPp240pSrWPJnjtAd+C45wLNgy0rvxM4a/SoZW03xflK6K8Fl2sIaPepLERERF9k/SLN+
+sGKrsSCE0JHDTjq9lRalv1UHVEgnrQe9JaVa/2Jcu33rllcOv0y0v+h8xuhyEY4JoqwCwsfh2RS/
+USZn9vxQnGeHPMJrQf/+avyLlRhzalNkQKst0yavMILRv7dtNS3yZifd0zWKDbka2nLfGRASnDks
+dYRXre7Ya2jJ2HT330wE+IzCUaFxW9jVr9Cs0+ODC5NreKR7ZIfmx+/9nak7UDPY2mcArLtOEjE4
+xr0q0POAiRD76lBIZxaUir34RsV+JesrNyvTOA5Ev0X2uGiSSgcJdESLKwdePjEWbUJL+ypcCHGY
+hr7pzpHQ11iGqk8P3pX2y/kMGk1Q2RTScOpGUB0kZsR3KpH5Dlfwi8e9oikKP4dDYgq86D5lXQlr
+yNT/iOP4fEtLYBDYePqZkgXLuECgWM6R1/91np3XXQKMa0YBiRMsbm4YUcpBQFExMtSyWVLXF7dS
+pdWKfJqV3UFbFsXf7UKtLLcxmnxSaDA69q4aJG+2zoYgTz07rJT2+KKi1DWTIeezUQIVoeegb+Ln
+gxTTxHkByue0WwZXarUb40fMbnMLt3JKR42IXHV74n6fslQNv5kwC9rDvP/Kj/gAAAAAAAA=
+
+
+--=-8oYh6WC82njjqP/La6PW--
 
