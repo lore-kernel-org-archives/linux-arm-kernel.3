@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9F5C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F97C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4Yn1AmvZSHJwnVEX7Q8ZOWNcDOmD6fTQEVrdoy4wnE=; b=WGNTEg3l2odukOUipJY4okBrJj
-	cPh2zvNu+7bRS2bG4p8+nLyNG56HX61aHudAAEVBG5qkzZ4vhSuN9p9rDX6SZ8tsDZO+7fJJhl3CC
-	2UPG2ucjpWeeCLb/ncABIsHTXCm1ZADp2qKTZ3MA4fLiaOyw3ObgyWddHm9MmxZdzzlkWKZ7DKDDK
-	zBDiMMJb4YyYJ1nm1gCcUhr+6a/3Iq84Frr0PCsn9vAhLe6ZwMet5ChN+J3lW5LvTiChztrJJllJ8
-	1EK6cQ0pw1qAZvNRBwgHyWQ7tQmbht06r2q0vnSaqNpOfUSeUo725ON/ECYFu2zy/Ccu/8XmuTuZp
-	cI+2nd9w==;
+	bh=v4+I7dQKUeqgbjsd8AZYxUQ0+P1SiGloGLynhGyTXdc=; b=4a4+pJYW437ObUu6yIjMCte2xw
+	QqrqBG85gfsCQqm4Ve7U8ZvSBVrSeZebzjx99ZiWn2lypNTqwuzhVtf6tL3i5odgF20By6WyEdLqf
+	InwN9YSxFOrmAKngzE2XDneceSPJd1TOQRjgxHtMPtHHuZMsFLhHCCblZvSpQO5Qg6E3sQQM0OySD
+	dLUDAWZAU0JtKor65HwaP7JKmWWT6Jj6b904uQ7IGsF7k7dCsphrRbRTeHmsmwLWw5Xl3frZ1JMhw
+	WWNo6aAAOQx5GJJtn/iYOzgqAB55RzJ8hf2Ns9Do70MzwiAYPyj4osWtgYlSXkpyAPr++CHbu2sy8
+	yYt4Y1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHRS-0000000DRPa-2w5z;
-	Thu, 19 Jun 2025 15:44:43 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uSHRW-0000000DRSw-2qlR;
+	Thu, 19 Jun 2025 15:44:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSBoc-0000000CeQ4-1U0F;
-	Thu, 19 Jun 2025 09:44:16 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D243443B02;
-	Thu, 19 Jun 2025 09:44:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750326250;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o4Yn1AmvZSHJwnVEX7Q8ZOWNcDOmD6fTQEVrdoy4wnE=;
-	b=plQyC+M2KzD70YQbE/E8RIPi+QPaZRyIMMyZmqDdCoNbRKl0cX9fk0BwXTB/JKO1N96KHO
-	qLcWINZiAqq25ltHOUAEBoUGvBFuz93SwRDAZNkG92uzBvFBhpwN5hSkYU3QXmQkWGfwxy
-	hpb4yQlmi60F/YGqrWb+vZB5MZRFgbBHeAQKASLk6ycJlvydvT2JoOltRbX9gW7zY/ZZTQ
-	FTVHX/clQAqrkhFlJvxKpcKdIIKuzHU0KHBAJmHt0Au17KqOdDi/AUKxJzpZR8JWXBmlyH
-	Vva3+4TK5YWTKZMvTcAmqHvZXZjjmOQjRtAN8oTyAcfLmreN59KjPjRq0aswtg==
-Date: Thu, 19 Jun 2025 11:44:07 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20250619094407c4c849f3@mail.local>
-References: <20250427142500.151925-1-privatesub2@gmail.com>
- <20250427142500.151925-2-privatesub2@gmail.com>
- <20250512235619.30cff739@minigeek.lan>
+	id 1uSByM-0000000CgDG-3Hrr;
+	Thu, 19 Jun 2025 09:54:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C9F64A6D6;
+	Thu, 19 Jun 2025 09:54:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426C3C4CEEA;
+	Thu, 19 Jun 2025 09:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750326857;
+	bh=liBrC581olewIxjbEjqmezkc4FAvhL6bE6utTt8dFjU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z5pcnnELNdgWWTpUPqvWO/Rjn59mzJal3u0PTtDti6dHWFKIeZ9bYaddL+4kJYJsY
+	 +imfxJt+pi3/S79q8A25sV833O7pajN7iYJR4F8wzkP04ZeRLpzC2N26SF0XiYQyzz
+	 0SXoZguPVAbHYQ1idOBHeuHxYh8hXzLDqWYiF4dSpWcFtp8R4QdGnLfQUu3CSUjR6D
+	 xTXQIFzHKKXhYyB5/rzqzgdG9vKqbHPdS6ccjWvYPtlTeKNieMbs80rtW0ls0Hyvm0
+	 XwsTe6eYbyGy2gWPm3phDYEtrviPH+8L+0qMtYrwUfu6XqQHSJsXFjKL9z46UICmKN
+	 z+oIUFNTFph8g==
+Date: Thu, 19 Jun 2025 11:54:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Quentin Schulz <foss+kernel@0leil.net>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, Daniel Semkowicz <dse@thaumatec.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH v3 1/5] dt-bindings: mfd: rk806: allow to customize PMIC
+ reset mode
+Message-ID: <20250619-unselfish-gorilla-of-joy-13fb93@kuoka>
+References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+ <20250618-rk8xx-rst-fun-v3-1-081f02d3d348@cherry.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250512235619.30cff739@minigeek.lan>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdehudelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnheptdekudegleeiteefgfekteevieeuudekfeeiudeiheduleeuueeuudfhffeuudfhnecuffhomhgrihhnpeguvghvihgtvghtrhgvvgdrohhrghdpihhnfhhrrgguvggrugdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmedvrggtjeemfhgvgegvmeehiegrugemtgekvgegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmedvrggtjeemfhgvgegvmeehiegrugemtgekvgegpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopegrnhgurhgvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehprhhiv
- hgrthgvshhusgdvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdrughoohhlvgihsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepuhhklhgvihhnvghksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alexandre.belloni@bootlin.com
+In-Reply-To: <20250618-rk8xx-rst-fun-v3-1-081f02d3d348@cherry.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_024414_541241_FD6F3E04 
-X-CRM114-Status: GOOD (  32.65  )
+X-CRM114-CacheID: sfid-20250619_025418_843028_04979717 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,161 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2025 23:56:19+0100, Andre Przywara wrote:
-> On Sun, 27 Apr 2025 17:24:53 +0300
-> Aleksandr Shubin <privatesub2@gmail.com> wrote:
+On Wed, Jun 18, 2025 at 12:32:40PM GMT, Quentin Schulz wrote:
+> From: Quentin Schulz <quentin.schulz@cherry.de>
 > 
-> Hi,
+> The RK806 PMIC allows to configure its reset/restart behavior whenever
+> the PMIC is reset either programmatically or via some external pins
+> (e.g. PWRCTRL or RESETB).
 > 
-> > Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> > controller witch is different from the previous pwm-sun4i.
-> > 
-> > The D1 and T113 are identical in terms of peripherals,
-> > they differ only in the architecture of the CPU core, and
-> > even share the majority of their DT. Because of that,
-> > using the same compatible makes sense.
-> > The R329 is a different SoC though, and should have
-> > a different compatible string added, especially as there
-> > is a difference in the number of channels.
-> > 
-> > D1 and T113s SoCs have one PWM controller with 8 channels.
-> > R329 SoC has two PWM controllers in both power domains, one of
-> > them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> > 
-> > Add a device tree binding for them.
-> > 
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> > ---
-> >  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 84 +++++++++++++++++++
-> >  1 file changed, 84 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> > new file mode 100644
-> > index 000000000000..4b25e94a8e46
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> > @@ -0,0 +1,84 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Allwinner D1, T113-S3 and R329 PWM
-> > +
-> > +maintainers:
-> > +  - Aleksandr Shubin <privatesub2@gmail.com>
-> > +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - const: allwinner,sun20i-d1-pwm
-> > +      - items:
-> > +          - const: allwinner,sun50i-r329-pwm
-> > +          - const: allwinner,sun20i-d1-pwm
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  "#pwm-cells":
-> > +    const: 3
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Bus clock
-> > +      - description: 24 MHz oscillator
-> > +      - description: APB clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: bus
-> > +      - const: hosc
-> > +      - const: apb
-> > +
-> > +  resets:
-> > +    maxItems: 1
-> > +
-> > +  allwinner,npwms:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description: The number of PWM channels configured for this instance
-> > +    enum: [6, 8, 9]
+> The following modes exist:
+>  - 0; restart PMU,
+>  - 1; reset all power off reset registers and force state to switch to
+>    ACTIVE mode,
+>  - 2; same as mode 1 and also pull RESETB pin down for 5ms,
 > 
-> Do we really need to be so restrictive here? The IP has an
-> "architectural" limit of 16 channels (due to the MMIO register layout
-> and status/control bits usage in some registers), so can't we just leave
-> this value to be anything between 1 and 16 here? If people configure
-> this wrongly, it's their fault, I'd say? Without confining this further
-> based on the respective compatible strings this enum is less useful
-> anyway, I think. The Allwinner A523 uses the same IP, and supports all
-> 16 channels, the V853 implements 12, that's what I quickly found
-> already, and there might be more examples in the future, so I'd rather
-> open this up.
+> For example, some hardware may require a full restart (mode 0) in order
+> to function properly as regulators are shortly interrupted in this mode.
 > 
+> This is the case for RK3588 Jaguar and RK3588 Tiger which have a
+> companion microcontroller running on an independent power supply and
+> monitoring the PMIC power rail to know the state of the main system.
+> When it detects a restart, it resets its own IPs exposed to the main
+> system as if to simulate its own reset. Failing to perform this fake
+> reset of the microcontroller may break things (e.g. watchdog not
+> automatically disabled, buzzer still running until manually disabled,
+> leftover configuration from previous main system state, etc...).
 
-Do we really need this property? I feel like the number of PWM channels should be
-something the driver could infer from the compatible string as we are going to
-have one compatible string per SoC anyway.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> > +
-> > +allOf:
-> > +  - $ref: pwm.yaml#
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: allwinner,sun50i-r329-pwm
-> > +
-> > +    then:
-> > +      required:
-> > +        - allwinner,npwms
-> 
-> Can't we just simplify this by always requiring this property? As
-> mentioned, there will be more SoCs with different values, so just
-> omitting this for the D1 seems odd.
-> 
-> Cheers,
-> Andre
-> 
-> 
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - "#pwm-cells"
-> > +  - clocks
-> > +  - clock-names
-> > +  - resets
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-> > +    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-> > +
-> > +    pwm: pwm@2000c00 {
-> > +      compatible = "allwinner,sun20i-d1-pwm";
-> > +      reg = <0x02000c00 0x400>;
-> > +      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
-> > +      clock-names = "bus", "hosc", "apb";
-> > +      resets = <&ccu RST_BUS_PWM>;
-> > +      #pwm-cells = <0x3>;
-> > +    };
-> > +
-> > +...
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Best regards,
+Krzysztof
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
