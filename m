@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39933C77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C57C77B7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 21:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87/6cHwCrWlOKd+RCLhOsgnsh7OHY+CuI1v3O1G72fs=; b=UZRUts9poJsLD+5Ty0MLpkCvcA
-	aOS5qxdKp6lBm9D+JlXHU1An0k4LVTp+i55ypQv2lSarG/wLacizdHmtB1lsOrTR9Q56BLdVVA1CD
-	8Yj0IWhUUj6IxTYdcRMUSqYSw0f1mlHxKD3+MSylIn0FcqLN+BB6eeuiijYxNZUUNDSTDyp0hIWX5
-	Xjv2XiKuO5nYX8lq1ZXEvDd1y6MI63tx5L5fj/b0HtG7KYyLoCG1jkV+rqrT+m9+GHD5ic2EWmLeG
-	5gqsDDIzFKT+cv49hNvRTW3yEHVLhngJNy9zBmpSzWabRw4MrlM4IrIDqXZnU8qGrHUAZHgOcTnTI
-	GRKplipA==;
+	bh=anb81OEG4hgZhk30oTpxHvHdm1Zaf844E/3J8ziG24M=; b=IItjG3kFlLYNlKF/4il8rqe60s
+	Y0+pmwTd+5lkIJ3zoWX8WB1BqnaQCgcYE8nuoqD/VzAxlbsVUpOgPBeH0+H/10RJ9CU0fpIl7gJrc
+	raP4jXghH88Yz+ZEv3EyNVsSmhk7itYzd+rwUnaTKzJ1LhfF6pWSd4Ah8zj9+4q/zNNBoVBqsVZzp
+	2mQ85+CinWDOr3NjLWkr3LWJQUCJrETbmeK23Tr8juAudi8RZl9+pXsFBymMuAu32JAzEnpqDMbqE
+	3/b0uM0M2m/Ir6hzQV+WmCcBK60urIfVJXi7VG759O2qU4vS8Gdc19GUEIhuG2JVqcINQMOLDDnye
+	ISrlHJyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMSW-0000000EGgC-41PY;
-	Thu, 19 Jun 2025 21:06:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uSMSY-0000000EGhB-1RJI;
+	Thu, 19 Jun 2025 21:06:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSImX-0000000DiOi-04XM
+	id 1uSLI1-0000000E9Lt-2VuK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 17:10:34 +0000
+	Thu, 19 Jun 2025 19:51:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FA5349BF0;
-	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11CBEC4CEEA;
-	Thu, 19 Jun 2025 17:10:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EE2B61132;
+	Thu, 19 Jun 2025 19:51:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA69C4CEEA;
+	Thu, 19 Jun 2025 19:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750353031;
-	bh=1tM7lfGa2OX6upFSfSRNAvjF/6bzMIakzUVOukjfgp0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KjyYMQ1Be302kdviESang5cJb1yKX07PYqBpvNGpMtyiRA+F0DJVli2y2lUvUL1AJ
-	 mg1uRLdqOSv9XpfshipGT4rCfCIKKYzL5EeAy5sB2WqeCHajR7KY+xtU6tmoZ+vW96
-	 l6SqVsGDPti766CEhXkzPt9+f53H8EO2xWk0gElBGHTa/K8wY3JUSwWtrdDFhcqpLv
-	 3vuwVXSG3MdhQR6VEWPLVTdi0+e2UMRP0rEoGoohU9MNWoZYoOI1U0bcGdP5u2G5Vs
-	 YKvPjFQ50jcrAx1nwNOx5O1K5nTZ6HbDrfWpOtJimUAxZz592GYBq/rgRC8hnhCNUJ
-	 ZerjfQ2poc2xg==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 8E4075FF4F; Fri, 20 Jun 2025 01:10:28 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] clk: sunxi-ng: sun55i-a523-r-ccu: Add missing PPU0 reset
-Date: Fri, 20 Jun 2025 01:10:25 +0800
-Message-Id: <20250619171025.3359384-3-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250619171025.3359384-1-wens@kernel.org>
-References: <20250619171025.3359384-1-wens@kernel.org>
+	s=k20201202; t=1750362672;
+	bh=anb81OEG4hgZhk30oTpxHvHdm1Zaf844E/3J8ziG24M=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=K+LvtMM2sTUk0ihGb949GgfIiwtJROqxy/0GvXgajl3JH2BYSrI125gfojR4BeQty
+	 TSYaMsKuj7A9dAq8Px2oWBMpuPTs+iVCQgSILCBtHoUUhUTaIK3xukTT3mPJurGD9L
+	 63W2AWBlQMNZjQ1BVF/VbGHlDlj/kBg9X3/a9HyKRckncEqm+XIVff0w7fN1T+xUEN
+	 WZZjvSIMYUPb+Fdq4Z6BbNfSYQHx16TkVrNsIyKiKvv+UlUoLvcD1wAgpJhHCaenzf
+	 stjgnTopwpI8eEVKLVQJEsalaRJNfAoEfklsG9EqdfaAc7LCfg9hyHOrayO+bARk5U
+	 nIaA4oxs78Mzw==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_101033_077289_CB135030 
-X-CRM114-Status: GOOD (  13.26  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250612-apple-kconfig-defconfig-v1-3-0e6f9cb512c1@kernel.org>
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org> <20250612-apple-kconfig-defconfig-v1-3-0e6f9cb512c1@kernel.org>
+Subject: Re: [PATCH 03/11] clk: apple-nco: Drop default ARCH_APPLE in Kconfig
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, iommu@lists.linux.dev, linux-input@vger.kernel.org, dmaengine@vger.kernel.org, linux-sound@vger.kernel.org, Sven Peter <sven@kernel.org>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Andi Shyti <andi.shyti@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Janne Grunau <j@jannau.net>, Jaroslav Kysela <perex@perex.cz>, Joerg Roedel <joro@8bytes.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Martin =?utf-8?q?Povi=C5=A1er?= <povik+lin@cutebit.org>, Michael Turquette <mturquette@baylibre.com>, Neal Gompa <neal@gompa.dev>, Rafael J. Wysocki <rafael@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Srinivas Kandagatla <srini@kernel.org>, Sven Peter <sven@kernel.org>, Takashi Iwai <tiwai@suse.com>, Ulf Hansson <ulf.hansson@linaro.org>, Vinod Koul <vkoul@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, Will Deacon <will@kernel.org>
+Date: Thu, 19 Jun 2025 12:51:11 -0700
+Message-ID: <175036267134.4372.17303378707831060122@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +68,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+Quoting Sven Peter (2025-06-12 14:11:27)
+> When the first driver for Apple Silicon was upstreamed we accidentally
+> included `default ARCH_APPLE` in its Kconfig which then spread to almost
+> every subsequent driver. As soon as ARCH_APPLE is set to y this will
+> pull in many drivers as built-ins which is not what we want.
+> Thus, drop `default ARCH_APPLE` from Kconfig.
+>=20
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
 
-There is a PPU0 reset control bit in the same register as the PPU1
-reset control. This missing reset control is for the PCK-600 unit
-in the SoC. Manual tests show that the reset control indeed exists,
-and if not configured, the system will hang when the PCK-600 registers
-are accessed.
-
-Add a reset entry for it at the end of the existing ones.
-
-Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-index b5464d8083c8..70ce0ca0cb7d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -204,6 +204,7 @@ static struct ccu_reset_map sun55i_a523_r_ccu_resets[] = {
- 	[RST_BUS_R_IR_RX]	= { 0x1cc, BIT(16) },
- 	[RST_BUS_R_RTC]		= { 0x20c, BIT(16) },
- 	[RST_BUS_R_CPUCFG]	= { 0x22c, BIT(16) },
-+	[RST_BUS_R_PPU0]	= { 0x1ac, BIT(16) },
- };
- 
- static const struct sunxi_ccu_desc sun55i_a523_r_ccu_desc = {
--- 
-2.39.5
-
+Applied to clk-next
 
