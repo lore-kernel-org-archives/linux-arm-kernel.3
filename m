@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C0FC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35443C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TJe0GtibYNSR3TlB4zrDfpZgRHLE4jCl9Gxezu9Oew=; b=Pu6ZsUKWLdn1eBpK3/n+5S8edM
-	adB+89J2RtFYZOaxzEXCLjLUcfalYcliKTAyETjbsIxwjCXcpyY3jp+yQQ+nAQ34Mrw+Yf4565kWo
-	Vhrnfmzz/lz96kJPoOP2OxwGCcrGgiwcjcWhsJXucOnJZZNV6u/uv+op6Wy3x2t6aVcsmXIrT9woU
-	hfRq1zeHtUdsUJXG3vF9hCtdCw9RUEirv9y6VzH6J9G7+Z7XpCWkFVj21SXTdPLO5QYz+unbXtjc0
-	HS2vFJ4hE+h6Ijm1Ks0mHEUXWRgrYhfL8BiiLVnDGki5vyMiIE8ocIvj1LGGqyPSllep9NjfiPvAc
-	66LMJbHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8kDt3zlJ8Jp+wHdv475e9FkA0WuAIngnIKvyPPcuVz8=; b=OK3QDCWyhSXG5KyojDIYbrsuyX
+	3o53SJPHrIX7HvbjYEwrNU4t1k2efVNuY75TOQ++HKNADRiL03/QU/7jVDyxlZX+98IeYUogWFi5K
+	IL2HfOJW674lIikc3FBRLkYiCcTf3urg9DGdaE64Oeq2sj9z/02h5Dn+hmOaDRBMHEBD9f+O5+smF
+	zopnOU8qIlV8+3xZyCUevNf06K7o2kzI+jUNFN4AQvq1//xW71yviyeSnrTgNDVEDJdYxxSZD0vb6
+	mySmjhtmcx2SrsWR52a8LzBMtO1UE0CJ46qVfCpahzqeEsTw12CgSnPoebnppuZTNsb5innrU7SLd
+	jYrfNgsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHWE-0000000DYq8-2ijp;
-	Thu, 19 Jun 2025 15:49:38 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uSHWR-0000000DZIn-1zRL;
+	Thu, 19 Jun 2025 15:49:51 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFCz-0000000D9N3-0PNN;
-	Thu, 19 Jun 2025 13:21:40 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id 3150D603E2;
-	Thu, 19 Jun 2025 13:21:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750339295;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/TJe0GtibYNSR3TlB4zrDfpZgRHLE4jCl9Gxezu9Oew=;
-	b=xHaiROarPd6WYyhOgV1oAn9fe8HfGC0vZhhuiQ/bfA7DQDhjGGFRwlqnVTke8GSfNuMX9B
-	ZaQvX+xp5uV5Ppcm8mfNOetNsDVtMnxNioem29dwd44C/MAWGmE1WqHEV6klYiU9rbGmok
-	ipPGXglbjHy43h98B3ne2it90Q/IOjI=
-Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id E95351226B5;
-	Thu, 19 Jun 2025 13:21:34 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Simon Horman <horms@kernel.org>,
-	Daniel Golle <daniel@makrotopia.org>,
-	arinc.unal@arinc9.com
-Subject: [net-next v6 3/4] net: ethernet: mtk_eth_soc: skip first IRQ if not used
-Date: Thu, 19 Jun 2025 15:21:23 +0200
-Message-ID: <20250619132125.78368-4-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250619132125.78368-1-linux@fw-web.de>
-References: <20250619132125.78368-1-linux@fw-web.de>
+	id 1uSFOn-0000000DBod-0ibk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 13:33:50 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfout.phl.internal (Postfix) with ESMTP id 1423D1380546;
+	Thu, 19 Jun 2025 09:33:48 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Thu, 19 Jun 2025 09:33:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1750340028;
+	 x=1750426428; bh=8kDt3zlJ8Jp+wHdv475e9FkA0WuAIngnIKvyPPcuVz8=; b=
+	du9r+xtubVk3ZlGUMI/gYv2uEWuBgdGsGeQrc5LnXP9sqYF/JtcWebDMMfr5Ofik
+	o6yVaj7t7eUgUbjWI+QkjnfpuhPaXVDe2dLNud7kCvdYv3daxCIM76SdGtXbkNDu
+	a5IXmWxHtP3qQbiMzrocAh8wZGhUCAsQHmlNtIcWBCXxKWKplrIkFlokdDaHOmT6
+	Xd290YgA2hUEFtDKarhs1lClP1qV0LUHXun6vUx8pyUFnIGoLuby4bY0hb5zz25F
+	JrbrVrhdP6O0vTQfx5awDniTkfeXR1CFwZbYy053ZqrIr4mDI04jdn3fDpMbGEn3
+	YiU/YXZch4R54T+ps6EVuQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1750340028; x=
+	1750426428; bh=8kDt3zlJ8Jp+wHdv475e9FkA0WuAIngnIKvyPPcuVz8=; b=k
+	6H8SekOvaL4IK9ddsbjtvJmZtrpsLT+BtGGRxsaqt65WGXtjuxvLb4CLVmGi4qlu
+	eEa/rGtyobXd304A4IYLZlAvTvXIzxEA5wH+/XIVt4lUlOXdJ/mFggcozXHL6EaB
+	fgjn2houQeT7WbhJgoVlG0REdp1F5VDc/m5eVMTCNwVomvWKkP1MGi1mpnFBcotB
+	f3gizsZuh7/GMEvsWh3g0/psGJvGbCRjpsUKqmqCe5+TqrhRu7BLoNlqNJ6qxwUX
+	1p/i3HEHblQHMzDl3tBdMBf2Ca5mvM1KToBHatZOrp6Xn4xXLlQy2SpFS4q8FXWT
+	OLEsgrCP//ZJ9E3Rq8kAw==
+X-ME-Sender: <xms:uxFUaBAxE4xVXIX6QBqNkoJC3xC32NZj8PJ4RYvvqn7B68iXPV5cFw>
+    <xme:uxFUaPhf9kTH0rbwptH6RC0RWBos4RH9wwOT0bHospfsUL2s2R5rWu1Lil0Shz_bx
+    IINOmZLemjUU3wpSGM>
+X-ME-Received: <xmr:uxFUaMkEIDc4LgufQW-GS8wasAOqU0-YOfUG1NVDAP67-tlZrMUIBV8eEhI_XjofETV_K4PjXj1SQ8_izwz-l83i9OxECZM3TQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdehieehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpefpihhklhgrshcu
+    ufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrghtvg
+    gthhdrshgvqeenucggtffrrghtthgvrhhnpeevteegtddvvdfhtdekgefhfeefheetheek
+    keegfeejudeiudeuleegtdehkeekteenucevlhhushhtvghrufhiiigvpedunecurfgrrh
+    grmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrght
+    vggthhdrshgvpdhnsggprhgtphhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpdhrtg
+    hpthhtohepuggvmhhonhhsihhnghhurhesghhmrghilhdrtghomhdprhgtphhtthhopeht
+    ohhmihdrvhgrlhhkvghinhgvnhdorhgvnhgvshgrshesihguvggrshhonhgsohgrrhgurd
+    gtohhmpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    oheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjuhhlihgvnhdrmhgrsh
+    hsohhtsegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepshgrkhgrrhhirdgrihhl
+    uhhssehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheplhgruhhrvghnthdrph
+    hinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehgrhgv
+    ghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuh
+    hsrdifrghllhgvihhjsehlihhnrghrohdrohhrgh
+X-ME-Proxy: <xmx:uxFUaLwLHjkFRPWQh42kzdFHZxtjF0tCpPdAmYvj-DtJUsueU8bSpQ>
+    <xmx:uxFUaGSr6WWzjzDqo0Y8JBna7-msqLkqx0hQVDYnJGbSrTllI6iRrQ>
+    <xmx:uxFUaOZtkI2szj8vIZyv_pqIJ42bArmQapqaqMMo3y7l9L7rn1x6Qw>
+    <xmx:uxFUaHQA4T9roLWPsmCIYWtAlgitLh12mZWRsS7ux8zY2goVDn_2sg>
+    <xmx:vBFUaNnb_SYY2du1AvVe1vNktkzJobqctXQFcnAo_K8xWL9QK6OmqOYb>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Jun 2025 09:33:47 -0400 (EDT)
+Date: Thu, 19 Jun 2025 15:33:45 +0200
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS" <linux-media@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
+	"open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
+	"open list:GPIO SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)" <linux-gpio@vger.kernel.org>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>
+Subject: Re: [PATCH v4 11/19] dt-bindings: media: i2c: max96712: add support
+ for MAX96724F/R
+Message-ID: <20250619133345.GD2847778@ragnatech.se>
+References: <20250618095858.2145209-1-demonsingur@gmail.com>
+ <20250618095858.2145209-12-demonsingur@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250618095858.2145209-12-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_062137_309029_79C98E6E 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20250619_063349_276244_5F42DD38 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,69 +131,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Hello Cosmin,
 
-On SoCs with dedicated RX and TX interrupts (all except MT7621 and
-MT7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
-but it is never used.
-Skip the first IRQ and reduce the IRQ-count to 2.
+Thanks for your work.
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Reviewed-by: Daniel Golle <daniel@makrotopia.org>
-Reviewed-by: Simon Horman <horms@kernel.org>
----
-v6:
-- changed commit description a bit
-- use MTK_FE_IRQ_SHARED instead of 0
-v5:
-- change commit title and description
-v4:
-- drop >2 condition as max is already 2 and drop the else continue
-- update comment to explain which IRQs are taken in legacy way
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 12 ++++++++----
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |  4 ++--
- 2 files changed, 10 insertions(+), 6 deletions(-)
+On 2025-06-18 12:58:47 +0300, Cosmin Tanislav wrote:
+> MAX96724F/MAX96724R are a lower capability variant of the MAX96724 which
+> only support a fixed rate of 3Gbps in the forward direction.
+> 
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index efffdd7e131e..67ba8927be46 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3353,10 +3353,14 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
- 	 * the second is for TX, and the third is for RX.
- 	 */
- 	for (i = 0; i < MTK_FE_IRQ_NUM; i++) {
--		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
--			eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
--		else
--			eth->irq[i] = platform_get_irq(pdev, i);
-+		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
-+			if (i == MTK_FE_IRQ_SHARED)
-+				eth->irq[MTK_FE_IRQ_SHARED] = platform_get_irq(pdev, i);
-+			else
-+				eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
-+		} else {
-+			eth->irq[i] = platform_get_irq(pdev, i + 1);
-+		}
- 
- 		if (eth->irq[i] < 0) {
- 			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 8cdf1317dff5..9261c0e13b59 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -643,8 +643,8 @@
- #define MTK_MAC_FSM(x)		(0x1010C + ((x) * 0x100))
- 
- #define MTK_FE_IRQ_SHARED	0
--#define MTK_FE_IRQ_TX		1
--#define MTK_FE_IRQ_RX		2
-+#define MTK_FE_IRQ_TX		0
-+#define MTK_FE_IRQ_RX		1
- #define MTK_FE_IRQ_NUM		(MTK_FE_IRQ_RX + 1)
- 
- struct mtk_rx_dma {
+Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+
+> ---
+>  .../devicetree/bindings/media/i2c/maxim,max96712.yaml        | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
+> index b345305acc4c..5dcafd46344c 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
+> @@ -24,12 +24,17 @@ description: |
+>    MAX96712 can be paired with first-generation 3.12Gbps or 1.5Gbps GMSL1
+>    serializers or operate up to 3.12Gbps with GMSL2 serializers in GMSL1 mode.
+>  
+> +  MAX96724F and MAX96724R only support a fixed rate of 3Gbps in the forward
+> +  direction.
+> +
+>  properties:
+>    compatible:
+>      items:
+>        - enum:
+>            - maxim,max96712
+>            - maxim,max96724
+> +          - maxim,max96724f
+> +          - maxim,max96724r
+>  
+>    reg:
+>      description: I2C device address
+> -- 
+> 2.49.0
+> 
+
 -- 
-2.43.0
-
+Kind Regards,
+Niklas Söderlund
 
