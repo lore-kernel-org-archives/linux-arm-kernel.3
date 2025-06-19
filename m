@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA558C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C3EC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGC6dNYDSFk7GpjxNZ+/VTQajPaQV20gSzBlwiElU0E=; b=kap3MRz7i4PAE1KAU/5PXaMYhH
-	pyp9jsCZJyd23Wz3qcTApmXKm6lhnVHOKe3wKcdyWfKfUnnvrKGF/eLpSy+rJHOFjiNLM2cCUGYuk
-	33EIDkWXM0N2/TY6GuGgULXMV57sXShutLZNKuANtGJ+MC3cYJ58h8qb6P0+46Q4/U3GrKWz7Svd8
-	VjL/6tednpiVJ6hPIWPJS8o/aEoNBPFeSVRs4LfQ/ogbWL0UXJ35WI/w2WdQv7zGMi2X1L2cC63Yw
-	qVe24B4dEwD/EBAL4/DX3HKN/x6w9sfM7Ulc3YXlRdvOnVNHUUkKqlHjlAsKSM8VucsC8xOuEvVAV
-	2EmVP8tw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b2+StECbPUsw8O5lvPVzsmlJ3+N7vFRXE7zgZ7GuRSk=; b=MI61ieL5tIWgO+hIj1bhLeUqZP
+	HWe+8DheqAzblR1gEzNF/abt07IBfL3O5AxKMRsCyZvt9UpkrbA9xY3Jm3pcVMsNEpFbeRU5Hhl1L
+	fI44jPNJ69Dn0AEbukwiWn6DPB298yHC0HsW3/OVu00lnIV7AZfymCdSU7uwFmOs2WKchZ5DIAnd5
+	7XbRPesWpbFYQSDVCJx9iQHj1ddhoi02AFz7r0kjv/P2fs7slHqsKGJeWVRcwIzmTjB9hF7Yz4E0d
+	EFvq74y02IBgTM4YStOFSBc9VaG9lfs2zAokwQZFeUtUplGi0w6j7+yvwbkSGv850IIvumK3PCyQH
+	m1j2JcWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKDP-0000000E0N1-3CDs;
-	Thu, 19 Jun 2025 18:42:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSKDX-0000000E0Vx-1OiU;
+	Thu, 19 Jun 2025 18:42:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSJ5c-0000000Dn3L-09UO
+	id 1uSJ7a-0000000DnHi-0z4c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 17:30:17 +0000
+	Thu, 19 Jun 2025 17:32:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E2E81A546F5;
-	Thu, 19 Jun 2025 17:30:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD7EC4AF09;
-	Thu, 19 Jun 2025 17:30:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A9570617F2;
+	Thu, 19 Jun 2025 17:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37A1AC4CEEA;
+	Thu, 19 Jun 2025 17:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750354214;
-	bh=rz1gZsh7A4S3qN6IuAlTDtQuCkgP2vb88SwwNf0Nq2U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dlYkaJ3OTDpwCeKrBYMhpeu+Ctm4JFHWkf4GpF969PbSB+fdQ3tpM18wnHtoc8KjY
-	 xAYlT47yv+7DfOgDuEysznix7QLCwPW+4LnFwKlu0/2rKeYy8Btu1J8CmbhbaLXLcb
-	 3GQJRKhKaq7YU/2u0mvxiqcs7E75AIF22W2k7exrZp22dLt8chij53y1xkf+Y+Nrfh
-	 9uNVBG2mAqgVY6D5jOU7xJJ5U60M18PmHR0JRCYCpVMJC/oE7isV96yFpIXPNY7wKe
-	 5MbaAbfFAwoipZgGPgfT9WX5lqyCaFBa6/JcpOBj83DIyEYhx8syjhkfOpoTPw0OY9
-	 RAQpn3zhGs2bA==
+	s=k20201202; t=1750354337;
+	bh=dnW/KeOlCCPZwEfbvo8J45kgENPUMKU2wmQYqK2LIGw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VN0QGBbt4tRi4gq3NSM17Znien/P1ilBoWwY9IbHVkQ7Bw8Ok2MxdGEEpyKFX1p5R
+	 qNn4Si4thBFEmD/nf2xLyEgupYDj38sOA08a/TGxFzbppC5c1HcGB5qd5/lElsN6Fb
+	 2UZgY0kQ+rtxt2Lgw/KJvFuXaHlOPgahGuGo7H3jEO7h8nU24KDtZzsCKnf0FnsFwM
+	 dUEKqfYWhc67JA+hIKRTa8M4BV5j/hz8+LVtmkGkaiiG6xCSOLe1dsFZZlWuqb91M0
+	 R997NMJqIkXa7KLBcptaXLrVds5lYNuSIrcRdWJYJxnzxH6JxmNudKcrd54mxcDsHv
+	 thMCbil/KaipQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 3703F5FFF4; Fri, 20 Jun 2025 01:30:12 +0800 (CST)
+	id CD6D65FEF5; Fri, 20 Jun 2025 01:32:14 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
+To: Lee Jones <lee@kernel.org>
+Cc: Chen-Yu Tsai <wens@csie.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH 4/5] arm64: dts: allwinner: a523: Add UART1 pins
-Date: Fri, 20 Jun 2025 01:30:06 +0800
-Message-Id: <20250619173007.3367034-5-wens@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>,
+	Chris Morgan <macroalpha82@gmail.com>,
+	Vasily Khoruzhick <anarsoul@gmail.com>
+Subject: [PATCH] mfd: axp20x: Set explicit ID for AXP313 regulator
+Date: Fri, 20 Jun 2025 01:32:07 +0800
+Message-Id: <20250619173207.3367126-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250619173007.3367034-1-wens@kernel.org>
-References: <20250619173007.3367034-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_103016_155773_19F6C719 
-X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +75,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-UART1 is normally used to connect to the Bluetooth side of a Broadcom
-WiFi+BT combo chip. The connection uses 4 pins.
+On newer boards featuring the A523 SoC, the AXP323 (related to the
+AXP313) is paired with the AXP717 and serves as a secondary PMIC
+providing additional regulator outputs. However the mfd cells are all
+registered with PLATFORM_DEVID_NONE, which causes the regulator cells
+to conflict with each other.
 
-Add pinmux nodes for UART1, one for the RX/TX pins, and one for the
-RTS/CTS pins.
+Commit e37ec3218870 ("mfd: axp20x: Allow multiple regulators") attempted
+to fix this by switching to PLATFORM_DEVID_AUTO so that the device names
+would all be different, however that broke IIO channel mapping, which is
+also tied to the device names. As a result the change was later reverted.
+
+Instead, here we attempt to make sure the AXP313/AXP323 regulator cell
+does not conflict by explicitly giving it an ID number. This was
+previously done for the AXP809+AXP806 pair used with the A80 SoC.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/mfd/axp20x.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 30613a0b1124..6f62201fd739 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -168,6 +168,20 @@ uart0_pb_pins: uart0-pb-pins {
- 				allwinner,pinmux = <2>;
- 				function = "uart0";
- 			};
-+
-+			/omit-if-no-ref/
-+			uart1_pins: uart1-pins {
-+				pins = "PG6", "PG7";
-+				function = "uart1";
-+				allwinner,pinmux = <2>;
-+			};
-+
-+			/omit-if-no-ref/
-+			uart1_rts_cts_pins: uart1-rts-cts-pins {
-+				pins = "PG8", "PG9";
-+				function = "uart1";
-+				allwinner,pinmux = <2>;
-+			};
- 		};
+diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+index e9914e8a29a3..25c639b348cd 100644
+--- a/drivers/mfd/axp20x.c
++++ b/drivers/mfd/axp20x.c
+@@ -1053,7 +1053,8 @@ static const struct mfd_cell axp152_cells[] = {
+ };
  
- 		ccu: clock-controller@2001000 {
+ static struct mfd_cell axp313a_cells[] = {
+-	MFD_CELL_NAME("axp20x-regulator"),
++	/* AXP323 is sometimes paired with AXP717 as sub-PMIC */
++	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
+ 	MFD_CELL_RES("axp313a-pek", axp313a_pek_resources),
+ };
+ 
 -- 
 2.39.5
 
