@@ -4,166 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7ACC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 02:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B892DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 03:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=; b=1IsquoM38U0zP8JfOJQtl6EAg8
-	DwAQqcokh7CiCqY8SvLhTiS4kUJ3IPZM4BJcsRxcRLw6YHN840NHtQjTH2mbw8/nEaJgweyADPGtt
-	d1mOlw6C2nyw0HsiqT+ZX6ZGt8ME4WdDl0fSf9tUQ9+QteFZW7ZJcmgKYzGGZayn2oZ7PtJgZSssv
-	YMBX2iFu5j5wfAc3saQzUuHQGh/QF0uzFYSJcEn/2xrUnpyZpWOKV5RB3/7a1P/Fr590hKx9VRMY9
-	gL2wfIihCr3R4Vws7YCwREXhbFkOokKZFBrLbpsDwlAaCBaNyrFiBBKJwFC9OVxL1mQd+EdXsgc6j
-	1OOs/BQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aHlQ29GfE7GPw0vRvmvgfDlNtf7v7UnON80MlnW7oeY=; b=mASZtqEq1Rzp0EQ6c+4BYlr9Ab
+	eCBhwGtYEgMpshPJhk0PTDMmTGknNkXIb5tmQmJUvqMupPpFdHc6LxMLRQPGXWqoEy5t0cxIbpsSG
+	Ezlfx6L+DTBPg26w5K/VW4A8CP56NjXtaocCC8iBysddeubKFaGWpkEOmJSm1jnO/quVD0ZpCgY1B
+	iYwSIzPeWe12zBgZ13YnMmSTDTMnfW4e78HKnbHEqq95XeVt1rVA4d/gb46W1nG0fvV4pjt3edsxx
+	hMnUQ6NJJUkV8/nrX8dmxZQpo9ncOQNa1IkofKLOwLNtyJmSRa6IDfcBJvuZUZNZrDwHm7iY7z+lQ
+	BnVAeyqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS54s-0000000Bp5q-2ipX;
-	Thu, 19 Jun 2025 02:32:34 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uS5jF-0000000BsnJ-1e6E;
+	Thu, 19 Jun 2025 03:14:17 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS50Z-0000000Bodu-1dkE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 02:28:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WJlYV2JzPtvoTi9SxefzuWzVuiGfdIpTj9Q4Y/NB2yzgmR0l6kvVFgWto+zVHtpVbOeATBrgE5jSYsW/XeHTYiU5o7N6wR3SpFjJqBcrM2MwoRAB0ebVPUuxbDBCuz+G0GgY5liNsSYc6qsiYhKGNKHTqpcADrJe+6LSuZzSVchdw7Mvi9eRpI6ZArTIgMgwXVrxPkX+SyOI4IDosv43aFsQuJVKUinTVVs3pKCMTac1AebDMs8nE0644wkiqOP7AqiCWjdlVqWC9PaqJ85rxv+lEs5od1HBtK7e07OjUh9ttglzX+Uw6Xtsm959aAS3Qu9tqVdpcZZZOm+subiEkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=;
- b=cBBIJuee4uEWHyeALv3nAWyEH6mHCVzzD7Q/GSSbbl/36pUN4wgKuvtxH7MkjBEwHDDwYdC0+nGForxYdm7ZW+vvu2pR7svPBpKxO1PmZo2m1VizmSHLbkSNzX96vTWqb1SYczx+DITRF5ZrhLU+gsxjH+P0nBN4dpq8yQRrZmd5Ic5WAAIEoI/BiiZLbGvFW9qzaU8NoyOScEget7kmuzCNm2JpzA9l5Hdn15iG5c6rHa5Sj/fsRJdImnbOdnQH11l8euGa5iMCjd5Lm3NIHxQ0NVoPm5153Ti0a21LYE/zW9JJR2eVR40/LeqZBvcLNga6Gw79GQYa3htPeqgxYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=;
- b=I8GCwig4liqASGsD6CZiLGuiAXmm8fC5QgoLNFfS7f1yQ+PNodtLU89XP18BR9t0Gf/bb8LJizHHF/D86DvREdT8ZFSRE4mWr/TPL0vx8mi5tiYcUdAld44O0YQ+bRPwypTv+Mtwsgr6Llq/4FH3EXph6m8kMfbPnY4fU5U7F15S6CT5+zvVhHcevkVFiNYLeE2wwHBYN9SYg7+FEI9cU1DsvhrmPGBVtlbary26RQ7SbkEE1SZDD6438/TMKrsSmey/eyaY7qc8k8hr4qmGh5jdSCXKC1nvCd6yPE2M19LgR5Xy9VGnRUwI0RGTfNCTdquMGd4TJ8299Qfa2i+kdA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB10830.eurprd04.prod.outlook.com (2603:10a6:800:260::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Thu, 19 Jun
- 2025 02:28:01 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8857.016; Thu, 19 Jun 2025
- 02:28:01 +0000
-Message-ID: <77d62994-6f55-4421-a067-5dcb29ab7fa3@nxp.com>
-Date: Thu, 19 Jun 2025 10:29:37 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mfd: fsl,imx8qxp-csr: Remove binding
- documentation
-To: Frank Li <Frank.li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, lee@kernel.org, gregkh@linuxfoundation.org
-References: <20250618091314.2754169-1-victor.liu@nxp.com>
- <aFLukN0TW3AxkNn9@lizhi-Precision-Tower-5810>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <aFLukN0TW3AxkNn9@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR02CA0034.apcprd02.prod.outlook.com
- (2603:1096:3:18::22) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	id 1uS5h0-0000000BsHz-0yuB;
+	Thu, 19 Jun 2025 03:11:59 +0000
+X-UUID: 258188ae4cbb11f09eb0dd999d3936bf-20250618
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=aHlQ29GfE7GPw0vRvmvgfDlNtf7v7UnON80MlnW7oeY=;
+	b=eZ8lGZzcuy8e6m2wZHnWYrrZZwcx/xaIO/5d7bxCyTLUvWC3etdMmI+rP8Csh5wsZsZAr1+JyrvejzT8C0udgO31s9+F6OdPHCiVDW1UPVOkU96d63WQAECUsawOGq4f8xnOFmpUVOkvXsQ9AsPcKaCLmg/Nm4XgukoL3r4mUYs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:7fa14342-7db2-47f0-a5b7-68a8ca75761a,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-30
+X-CID-META: VersionHash:09905cf,CLOUDID:2a579e28-fdd2-4021-9c0c-83548fdcf243,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:2,IP:nil
+	,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 258188ae4cbb11f09eb0dd999d3936bf-20250618
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 222836340; Wed, 18 Jun 2025 20:11:52 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 19 Jun 2025 11:11:47 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 19 Jun 2025 11:11:47 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <srv_heupstream@mediatek.com>
+Subject: [PATCH v6 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+Date: Thu, 19 Jun 2025 11:11:28 +0800
+Message-ID: <20250619031142.27180-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10830:EE_
-X-MS-Office365-Filtering-Correlation-Id: 731a8a3e-2a6a-402c-0f34-08ddaed8e92d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0V4emZyNnQxWDA0b2pISEFYNkNoczJVQkgxa0tMVC9xQVNQNFNZUzduenRZ?=
- =?utf-8?B?RnFhRTJ4cE85QktWK0d2WDJ3YlM5ejJWaGt1VkdBQUFoK0VsTTFxd0R5bERM?=
- =?utf-8?B?M3dUc2ZzaFpIRUdqK0NObjNCK0pHb2VRemFQTlJTYTZyTGlOU05BeG1DM2da?=
- =?utf-8?B?OFhHbUYwV1VtQVFETmhaeTRkWUpKOW9GdzdYVmE0NXRnWTFmQUcvNHlVZWt0?=
- =?utf-8?B?VVVzdGNqZDVjOWpsaUY0WnY2bmpkTEVxcXpoRmVYczZHVWZyY3Eydy9kTzl3?=
- =?utf-8?B?ZnVsVlFKWi9wZnE2RWxSSW5RbmFOenE0SVRJMkdXaWQ5TEM2SVZ6a3pDZy9P?=
- =?utf-8?B?QXJsS1ZkbEZiU3pncVNLK1FHdEd5U2EzMzBmVGZmSXVyVHBkYVZMb0ErMEdQ?=
- =?utf-8?B?aVdrMC9BVTEydjVxNURkblVBYkttb0FUZm9rZktNQkpmaU41bC9tUnprOC9J?=
- =?utf-8?B?R1l1OVRMR21iSkM0QTRrNXVRTFdiVlZzT1FLL1dJUytmYzJxUXlYb05OU0o4?=
- =?utf-8?B?dDF2b3FuOThKZTFVQ3lZclVPVzc0elhJVUJQcnNHUCt5ZTk2M05iNTZCQW5H?=
- =?utf-8?B?bVJlK0tLVWdiRm9DTXZSNVBtQ2lDRTBKVDJpd2xzRkp4TnpnUjl0bXdEYWlo?=
- =?utf-8?B?Y2xzSm1Lblhram9vbXNpOEFIb3NVd1hQV2dOdGlLZ1hjc25qWW00dmtQSDRr?=
- =?utf-8?B?bHBnZkxxdkgrREFDSjVUaE5SMmF0a0VyTFNBZ3J2S0xGRWhYTm1yV1U2Rlc4?=
- =?utf-8?B?eUlNSnY3aTlvRG4yenVteTZpN2UvZVkvRUtlcS9ITklKMUZJbHNNQ0plZTRo?=
- =?utf-8?B?QVNYNHllMExqSnlwZnptL0grb0NUT1ZHVm5LaTBmRVVoUFZZTy9vd2wraG1x?=
- =?utf-8?B?Y0hhdEN2M3NPcFoxUWsyenNlcmMzYVhqdnZlN0dGS1lkR2h1bmFtSjZMdHBu?=
- =?utf-8?B?SDhsMzhsaUJJcnFLWndNN3hHQ2dCRm43N1JOOUVhS3laajV0ekkvYTdZTHRy?=
- =?utf-8?B?akI0ZlZUTkpRK2FkelFWK1I5SUZ4Qkw3d3RhRUhoak1wNEJRWERhOTNWTVo5?=
- =?utf-8?B?M0ppOWxwTWNlaUNxbTJWUURUemJiNFRRdFJuL3RCL3JLeThRazZsOUVSa1ho?=
- =?utf-8?B?MlpXZUhTWkVkdVZGVGhrZTJjdjE2SmNEV085TVJ4WUMzNmV4NWFYQ1g4cXd6?=
- =?utf-8?B?T1RGRUhSMEVyTmFaYVFYaU5HYzltZGZRWnk3M0JnK205cURiNGI3MDlZbjJY?=
- =?utf-8?B?aUcrUlgrcHRXNG9pdlk1elM3U1NkY0pNamtuQkh4M0FqU1pNdlhXeWZSbDZ3?=
- =?utf-8?B?WGRQSkxGUWpVQTZNY3R0VGdtRGtFb2I1bHBXRXl6Q1hUT09yT1ZlREEyOUVP?=
- =?utf-8?B?WlVwOXdkZnk4bmtQQjZSOThmcUFGSndGZTBaVkJSeWMrRlZETnptbUJhTUxV?=
- =?utf-8?B?YWRQb2o2Wml1MHNkMGE1WXJObGV4d1E1aTZpOWRlKzEzdGZMeGFuOGtZakRF?=
- =?utf-8?B?NWVaems2cjlwWDBJTnNGZE8wTVpDSDllVlBRbFFmNWpHRjh3cVZwUHdHN3Zw?=
- =?utf-8?B?bTAyc3VLVkEvSkp3NStqMWNmZG5neUFZM0xsaXFUYmZRYzkzNXpWblpuWlJr?=
- =?utf-8?B?TFRLNTROWm1CUm9JcEtMSXB6RXNwUVUxVnhBN2xVcG1od0RaU2hjOUxGbHls?=
- =?utf-8?B?ZXV0dGovVEtXZ0VDSVlaVFA0SHdFTFVLNWlzb2YzMmtyMnBNcWNpblJVbVlY?=
- =?utf-8?B?M0cwM2xFSG9DSmFOcjNjd0duV0Jha3lJUDNvSnN6bU9ua0JoYVJqTGlzZmZZ?=
- =?utf-8?B?UmozVThZMWpUeVFOUzlIU2w5Nkx4cVBXUjB3Q3c3QWlVcEkzU0cvSlZZYnJv?=
- =?utf-8?Q?zgOR7U92wYJeg?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c01iQ1c2TTU0ajkyMEhuSXR3T3FWbklsSFRBT20xeE5mQVNCVnRDaEtVbHda?=
- =?utf-8?B?TnpXVFRlRm95TzdnLzkrWkhUMzA3Ni9XN0pkR0luOGdiWk5UbnhjcDliNlkw?=
- =?utf-8?B?bGY2dFM3UFYwYitXWEVycFBJS1A1Q0lYTlFXRlZCeWhGZndZZGttL1JCSUI4?=
- =?utf-8?B?OHRaSkd4NVZBT1ZJcTE4UDRyRnh5WWk1Mk91NUFmM1kyaDBnclMwaStMU3Qy?=
- =?utf-8?B?OWdjQmcyTU1NSG5QK2JXZjVrckVnZUdPZDBaNDhFcXQyYXNudnJNeS84dzZy?=
- =?utf-8?B?YnlNQlV3NnF1dm9LY0JCbi9UVHYxbHlsVUZTQ3hXYlFRMlpNZG9SRWZoOFBY?=
- =?utf-8?B?dGIyQVA1S3dTbjdQMkFPKzVxYlFxZ3pxNmp3ZEhOSjdFbVJITTI3ZkcwYm5p?=
- =?utf-8?B?SFBQZlgxZW16WjVDZXcwdENVM3c3OXdyakxocmVEL2F6VUVZTmJtKzd4ZzBU?=
- =?utf-8?B?QURCdDYyNkFwVzRqUS9YczAvc3NkZ0Q3NjFGUUl5eWpFOWU2ZlREVHlhVmo3?=
- =?utf-8?B?SzhmaVFFbitpRDR4Rno4TTY5QTR4Kzc0SDQybW5IdGZzQXRXOU9ZbkZuQi8r?=
- =?utf-8?B?NTdKSERxaWlaa0t2dTdNSDV5U2lLR1FNWGxEVGxsTm5GODJFRmJjQm95b0F6?=
- =?utf-8?B?cXhteUhxTUxqR0gwMjEyWDY2T3RkZ0lEamZWdE4yS2pPZ1BNNjB6Q3cwNXNZ?=
- =?utf-8?B?YkdJZ1NFcTBvMFM3OFJUdUhnU3pxbWNLeGVXRGpLcFlNYVNaSS9CeUpibzJM?=
- =?utf-8?B?aEQ3QUJQK2tNQkg5eHhjSm5TWXhPSHFMcSthZWVJcktCa25DQllaU1BjSjFU?=
- =?utf-8?B?TmtYdFJvenRMSHNJaXlCeWNDdm5Ub090UW43dWJWME9HajhqTy95SFBrTXVo?=
- =?utf-8?B?NUtDcDI4Umk0bjVOY2xiWTY4czdHMWNRSjZtdEVQYzI1dDVmSTVwcndOS0t6?=
- =?utf-8?B?Nld1dkVldVV0emhpM05obURtWDZpU1pQdTVFUTlOdXZ2Mnk4OFp6Ny92ak5F?=
- =?utf-8?B?dmQzdGVnU0tPaHowQWsybm15R0N0Y202WitES2d4cSsvUmFkWityQ0JhODRm?=
- =?utf-8?B?OExDa2czSUJNTFR3MkdhNndEd2RmUEN4NHNiK0s0SzZWYWY2UFphMXl3T3pK?=
- =?utf-8?B?bTVkSS9GVFo5ZHU1ZSthdWtBT1lRcTd5a2E4U3RoWXUxZzMrYUJNcG5JS3dr?=
- =?utf-8?B?S2IvTWd0K2ltbTMwQ3VDT0JJeFl3b2hndjU3QzlJclVkL1I0c0MwLzNWcVNE?=
- =?utf-8?B?V3NRaURKR25DR3ZIWG5LRHhyc1JsZFV3NnV1eFQvMTF0Z3hBYmd2QXhBdlZI?=
- =?utf-8?B?V1ZwWk8rd24vVktmdGxjL2RtY2Qrcld5MGZDN2U3bC9qMW9SU2R3MzlLYzg5?=
- =?utf-8?B?OE5nMHJBWUJBV1crL0V5NUFwcU8zb01OanBjVmFMbHhDalc1QXJZa3RDRWN3?=
- =?utf-8?B?V0hHdTRFckRHRUpTUWlkdC9Edmh6cTdsdk1EN1c3dEswajMrNkFlUXUzL3RL?=
- =?utf-8?B?ZWQ2blpETW4rZG1ZUmxpbjJqSUluR2Iza1VLSnJ1dndBVlExTTUzYTlQcnFC?=
- =?utf-8?B?ejNxdU8xY2VBa1pudldTMUZBZk1GT3NCWnBxT2hHQ281eE05SnI2amU1SVJC?=
- =?utf-8?B?OWFnV29rQWJZRVRXdm1ZY3BaMysxTHZIY2o5NEVWMFFEd0hSQlZFakRzUnpM?=
- =?utf-8?B?YXpwME9Xcmk5aDR5WXIxbUVMbnVFU1FPa0s3c2ZpVEc5YXdWd2x5VkVteGNM?=
- =?utf-8?B?MkVjY2lqUXdzMGdXMmRzdnN5YjNEWE9waGFRdzErRHUrckk0S2VIc1U5MXh1?=
- =?utf-8?B?elRlaTFJSnljOWFYbTdRQ0tVblpyOFhJbDNmVlQ2SE9Xci8xeG1WRGNpS3Z2?=
- =?utf-8?B?MDNqdjRTN0hmaThWc2lrY0JoMjI5YlBPTEpLdHRTbDRlZmFOaUlvZnBMd3lP?=
- =?utf-8?B?QWVLN09rbE4vSkpoK3l1MjFhb0VPU0RGNUlmcHF5QzV6ZDRGU1VJeThETTlX?=
- =?utf-8?B?c1FRdy9HZ285bk4xODY4YjdYZzNxUGgwWXpmclJwWWdHRGRtSjVXdjM2R3VK?=
- =?utf-8?B?VE1jTUliSUlsaUdVQ3k4YzVzOGIzQ1p0REhya3dxM3JrQTlDK054TzNaM09U?=
- =?utf-8?Q?70dYNRzYTlcoeT3H5PWAUKahu?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 731a8a3e-2a6a-402c-0f34-08ddaed8e92d
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 02:28:00.9119
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i9G2alcZ9Xk2hbVsIwdsaXokXOU48y26pL2SKYdRy5qjSB8RWrAC74Dk2jX+h4mwlyc/O2qngDC7Xyh60B6tzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10830
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_192807_599758_2227DC64 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20250618_201158_286696_0A344746 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,258 +89,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/19/2025, Frank Li wrote:
-> On Wed, Jun 18, 2025 at 05:13:14PM +0800, Liu Ying wrote:
->> commit b0a5cde57cf1 ("dt-bindings: mfd: Explain lack of child dependency
->> in simple-mfd") pointed out that it's a mistake for a child device of
->> a simple MFD device to depend on the simple MFD device's clock resources.
->> fsl,imx8qxp-csr.yaml happens to make that mistake.  To fix that, remove
->> fsl,imx8qxp-csr.yaml and use "simple-pm-bus" and "syscon" as compatible
->> strings in the examples of fsl,imx8qxp-pixel-link-msi-bus.yaml.
-> 
-> Does anyone use fsl,imx8qxp-mipi-lvds-csr/fsl,imx8qm-lvds-csr? I suppose
-> yes. It'd better said no one use these in dts and safe to remove.
+This series have the follow changing:
+Firstly fix some bugs, including resolution change handleing, stop
+streaming sw flow, fix buffer layout and clock setting to support multi-hw
+jpeg working and others.
+Secondly add mt8196 jpegdec and jpegenc compatible to support MT8196
+kernel driver.
+Lastly, Add smmu setting to support smmu and iommu at the same time.
 
-After this patch removes "fsl,imx8qxp-mipi-lvds-csr" from
-fsl,imx8qxp-pixel-link-msi-bus.yaml, there is no user.  I may mention this
-in commit message of next version.
+This series has been tested with MT8196 tast test.
+Encoding and decoding worked for this chip.
 
-> 
-> Frank
->>
->> Fixes: 9b2c55b5403f ("dt-bindings: mfd: Add i.MX8qm/qxp Control and Status Registers module binding")
->> Fixes: c08645ea215c ("dt-bindings: bus: Add Freescale i.MX8qxp pixel link MSI bus binding")
->> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->> ---
->>  .../bus/fsl,imx8qxp-pixel-link-msi-bus.yaml   |   7 +-
->>  .../bindings/mfd/fsl,imx8qxp-csr.yaml         | 192 ------------------
->>  2 files changed, 5 insertions(+), 194 deletions(-)
->>  delete mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
->> index 7e1ffc551046..4adbb7afa889 100644
->> --- a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
->> +++ b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
->> @@ -103,11 +103,14 @@ examples:
->>          clock-names = "msi", "ahb";
->>          power-domains = <&pd IMX_SC_R_DC_0>;
->>
->> -        syscon@56221000 {
->> -            compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
->> +        bus@56221000 {
->> +            compatible = "simple-pm-bus", "syscon";
->>              reg = <0x56221000 0x1000>;
->>              clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
->>              clock-names = "ipg";
->> +            #address-cells = <1>;
->> +            #size-cells = <1>;
->> +            ranges;
->>
->>              pxl2dpi {
->>                  compatible = "fsl,imx8qxp-pxl2dpi";
->> diff --git a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml b/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
->> deleted file mode 100644
->> index 20067002cc4a..000000000000
->> --- a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
->> +++ /dev/null
->> @@ -1,192 +0,0 @@
->> -# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> -%YAML 1.2
->> ----
->> -$id: http://devicetree.org/schemas/mfd/fsl,imx8qxp-csr.yaml#
->> -$schema: http://devicetree.org/meta-schemas/core.yaml#
->> -
->> -title: Freescale i.MX8qm/qxp Control and Status Registers Module
->> -
->> -maintainers:
->> -  - Liu Ying <victor.liu@nxp.com>
->> -
->> -description: |
->> -  As a system controller, the Freescale i.MX8qm/qxp Control and Status
->> -  Registers(CSR) module represents a set of miscellaneous registers of a
->> -  specific subsystem.  It may provide control and/or status report interfaces
->> -  to a mix of standalone hardware devices within that subsystem.  One typical
->> -  use-case is for some other nodes to acquire a reference to the syscon node
->> -  by phandle, and the other typical use-case is that the operating system
->> -  should consider all subnodes of the CSR module as separate child devices.
->> -
->> -properties:
->> -  $nodename:
->> -    pattern: "^syscon@[0-9a-f]+$"
->> -
->> -  compatible:
->> -    items:
->> -      - enum:
->> -          - fsl,imx8qxp-mipi-lvds-csr
->> -          - fsl,imx8qm-lvds-csr
->> -      - const: syscon
->> -      - const: simple-mfd
->> -
->> -  reg:
->> -    maxItems: 1
->> -
->> -  clocks:
->> -    maxItems: 1
->> -
->> -  clock-names:
->> -    const: ipg
->> -
->> -patternProperties:
->> -  "^(ldb|phy|pxl2dpi)$":
->> -    type: object
->> -    description: The possible child devices of the CSR module.
->> -
->> -required:
->> -  - compatible
->> -  - reg
->> -  - clocks
->> -  - clock-names
->> -
->> -allOf:
->> -  - if:
->> -      properties:
->> -        compatible:
->> -          contains:
->> -            const: fsl,imx8qxp-mipi-lvds-csr
->> -    then:
->> -      required:
->> -        - pxl2dpi
->> -        - ldb
->> -
->> -  - if:
->> -      properties:
->> -        compatible:
->> -          contains:
->> -            const: fsl,imx8qm-lvds-csr
->> -    then:
->> -      required:
->> -        - phy
->> -        - ldb
->> -
->> -additionalProperties: false
->> -
->> -examples:
->> -  - |
->> -    #include <dt-bindings/clock/imx8-lpcg.h>
->> -    #include <dt-bindings/firmware/imx/rsrc.h>
->> -    mipi_lvds_0_csr: syscon@56221000 {
->> -        compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
->> -        reg = <0x56221000 0x1000>;
->> -        clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
->> -        clock-names = "ipg";
->> -
->> -        mipi_lvds_0_pxl2dpi: pxl2dpi {
->> -            compatible = "fsl,imx8qxp-pxl2dpi";
->> -            fsl,sc-resource = <IMX_SC_R_MIPI_0>;
->> -            power-domains = <&pd IMX_SC_R_MIPI_0>;
->> -
->> -            ports {
->> -                #address-cells = <1>;
->> -                #size-cells = <0>;
->> -
->> -                port@0 {
->> -                    #address-cells = <1>;
->> -                    #size-cells = <0>;
->> -                    reg = <0>;
->> -
->> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link0: endpoint@0 {
->> -                        reg = <0>;
->> -                        remote-endpoint = <&dc0_pixel_link0_mipi_lvds_0_pxl2dpi>;
->> -                    };
->> -
->> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link1: endpoint@1 {
->> -                        reg = <1>;
->> -                        remote-endpoint = <&dc0_pixel_link1_mipi_lvds_0_pxl2dpi>;
->> -                    };
->> -                };
->> -
->> -                port@1 {
->> -                    #address-cells = <1>;
->> -                    #size-cells = <0>;
->> -                    reg = <1>;
->> -
->> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0: endpoint@0 {
->> -                        reg = <0>;
->> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi>;
->> -                    };
->> -
->> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1: endpoint@1 {
->> -                        reg = <1>;
->> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi>;
->> -                    };
->> -                };
->> -            };
->> -        };
->> -
->> -        mipi_lvds_0_ldb: ldb {
->> -            #address-cells = <1>;
->> -            #size-cells = <0>;
->> -            compatible = "fsl,imx8qxp-ldb";
->> -            clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>,
->> -                     <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
->> -            clock-names = "pixel", "bypass";
->> -            power-domains = <&pd IMX_SC_R_LVDS_0>;
->> -
->> -            channel@0 {
->> -                #address-cells = <1>;
->> -                #size-cells = <0>;
->> -                reg = <0>;
->> -                phys = <&mipi_lvds_0_phy>;
->> -                phy-names = "lvds_phy";
->> -
->> -                port@0 {
->> -                    reg = <0>;
->> -
->> -                    mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi: endpoint {
->> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0>;
->> -                    };
->> -                };
->> -
->> -                port@1 {
->> -                    reg = <1>;
->> -
->> -                    /* ... */
->> -                };
->> -            };
->> -
->> -            channel@1 {
->> -                #address-cells = <1>;
->> -                #size-cells = <0>;
->> -                reg = <1>;
->> -                phys = <&mipi_lvds_0_phy>;
->> -                phy-names = "lvds_phy";
->> -
->> -                port@0 {
->> -                    reg = <0>;
->> -
->> -                    mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi: endpoint {
->> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1>;
->> -                    };
->> -                };
->> -
->> -                port@1 {
->> -                    reg = <1>;
->> -
->> -                    /* ... */
->> -                };
->> -            };
->> -        };
->> -    };
->> -
->> -    mipi_lvds_0_phy: phy@56228300 {
->> -        compatible = "fsl,imx8qxp-mipi-dphy";
->> -        reg = <0x56228300 0x100>;
->> -        clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
->> -        clock-names = "phy_ref";
->> -        #phy-cells = <0>;
->> -        fsl,syscon = <&mipi_lvds_0_csr>;
->> -        power-domains = <&pd IMX_SC_R_MIPI_0>;
->> -    };
->> --
->> 2.34.1
->>
+Patches 1 fix jpeg hw count setting to support different chips.
+Patches 2 fix jpeg buffer payload setting to handle buffer
+size bug while resolution changed.
+Patches 3 fix jpeg dst buffer layout.
+Patches 4 fix multi-core stop streaming flow
+Patches 5 fix multi-core clk suspend/resume setting
+Patches 6 fix decoding buffer number setting timing issue
+Patches 7 fix decoding resolution change operation
+Patches 8 fix remove buffer operation
+Patches 9-11 Adds jpeg encoder and decoder compatible.
+Patches 12 add jpeg smmu sid setting.
+
+---
+This series patches dependent on:
+[1]
+https://patchwork.linuxtv.org/project/linux-media/patch/20250424090824.5309-1-jianhua.lin@mediatek.com/
+
+Changes compared with v5:
+--reorder the patches set.
+--fix commit message of patch 1-8.
+
+Changes compared with v4:
+--fix kernel robot build errors for patch 4.
+--add reviewer for patch 1 and patch 2.
+
+Changes compared with v3:
+--change patch subject of jpeg encoder and decoder compatible.
+
+Changes compared with v2:
+--refactor smmu sid setting function interface
+--Some modifications for patch v2's review comments.
+
+Changes compared with v1:
+--refine jpeg dt-bindings for MT8196
+--optimize software code to manage jpeg HW count
+--refactor smmu sid setting function interface
+--Some modifications for patch v1's review comments.
+
+Kyrie Wu (12):
+  media: mediatek: jpeg: fix jpeg hw count setting
+  media: mediatek: jpeg: fix jpeg buffer payload setting
+  media: mediatek: jpeg: fix jpeg buffer layout
+  media: mediatek: jpeg: fix stop streaming flow for multi-core
+  media: mediatek: jpeg: fix multi-core clk suspend and resume setting
+  media: mediatek: jpeg: fix decoding buffer number setting timing issue
+  media: mediatek: jpeg: fix decoding resolution change operation
+  media: mediatek: jpeg: fix remove buffer operation for multi-core
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec
+    compatible
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc
+    compatible
+  media: mediatek: jpeg: add jpeg compatible
+  media: mediatek: jpeg: add jpeg smmu sid setting
+
+ .../media/mediatek,mt8195-jpegdec.yaml        |   8 +-
+ .../media/mediatek,mt8195-jpegenc.yaml        |   8 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 170 +++++++++++++-----
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  21 ++-
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 112 +++++++++++-
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 112 +++++++++++-
+ 6 files changed, 376 insertions(+), 55 deletions(-)
 
 -- 
-Regards,
-Liu Ying
+2.46.0
+
 
