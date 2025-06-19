@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F85FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 04:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F33C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 05:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Yv8PVd52JTRw4r6qh65xK+kFgGp7k/YH+t5aN2ivQM=; b=o5d1UGDsK5oZvP2bMBrVQp9+FT
-	vsQDrKfGeGrDw0+Z5QIOI+H/5DbGdlin83en6gkf0BSv7Y7klnCv7g3Js3QrJFgJjnhhDkuFN6xTu
-	SFSJMO4rL1XyXU5eWaIG7nHvW+saZ7DgrqDp36l//jDP3Q+JzjHBXKpLipflUMwmCa+ncseqNALrq
-	QioDQq22RKEyRzgp+bKmDciJXZJ2LHMkUgXtT6VFTQVxczHJGHWvoM4E32PTUm/RvhCad/r0q5wwX
-	ym1ZFyJiyAIjbV+tikei8tGf2yFT4/XTbZZtFdEl7EjkKCXXxVQsY1F0gbQsuAC9ywpleiDftEfDx
-	12BQ/2eg==;
+	bh=gHQJh91PGchVv9izvCUQ6fZEw76Gtl1/pclZ1it05SA=; b=KZmg520XssHxXfKOCol6x5Bvxs
+	BCGlsQiyIJB6Rr9CBbMrxysPC0jwG2Glc5484bJZGQMAosGpFK8BYIE+giKnJ2rr34bjklVsgMR/K
+	BuIlI9mu5rCUVZIxRzl710R9wp0v+3SSMsCaaHKEx5R1P13Y+c7MOT0G/5/cbfBFVkXYG51uwALtP
+	QTGPIBya9x9tI/wxd1EmJbScx2/7DVLQgg6TxfgBBX2X2O+Vjh5tI3knmxO2gdXa5VuX7BzbTHJ94
+	Wf2YG+FlDo121nUakkojqJHMsfDrQssRQH9xhxzofIFcmbUzHou7bGRees7C7+Cltw8v7ATvyGMY5
+	j6QPKD7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS6ub-0000000Bzoo-2dH5;
-	Thu, 19 Jun 2025 04:30:05 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1uS7cg-0000000C2aq-1CqV;
+	Thu, 19 Jun 2025 05:15:38 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS6sL-0000000Bze5-0d1g
+	id 1uS7aS-0000000C2Tv-0Jro
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 04:27:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=7Yv8PVd52JTRw4r6qh65xK+kFgGp7k/YH+t5aN2ivQM=;
-	b=oIL3Q0De6A3nMNlyVAjT96y81tN5M/D0G3WdBE0268+AIXgutdBEL4keyZiTUm
-	Yyo0jkkZjwwl9DbTsUGXq/vAXZzuGxY3gsH+DQZdkDluJnKylod0iDvZ18myVvWA
-	XXc6o43PuZS+Gg4g82XJ7Lw7WMYQTwv5IbLQhY+UoB16A=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgAHfw6ikVNoUc_2AA--.36272S3;
-	Thu, 19 Jun 2025 12:27:16 +0800 (CST)
-Date: Thu, 19 Jun 2025 12:27:14 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Frank Li <Frank.Li@nxp.com>, mirela.rabulea@nxp.com, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, krzysztof.kozlowski@linaro.org,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, ming.qian@nxp.com
-Subject: Re: [PATCH RESEND 1/2] media: dt-bindings: nxp,imx8-jpeg: Add
- compatible strings for IMX95 JPEG
-Message-ID: <aFORokzx/sImgDtA@dragon>
-References: <20250521-95_jpeg-v1-0-392de5d29672@nxp.com>
- <20250521173444.310641-1-Frank.Li@nxp.com>
- <eef5ccd99d82dd33e3a4ecdb5d4a5b75ccb0b972.camel@ndufresne.ca>
+	Thu, 19 Jun 2025 05:13:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750310000; x=1781846000;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DaAeSgOKa5+ihHQK/CsgUn/s98z+5cTpCLLRShbyFBw=;
+  b=Zfy31nN9MHw3L0mIATnEFVR4voSy9wYFRBGONp0XWrZPXcmbufLvM9t8
+   tWZ19ACVMcOgma+pbhJ9G5a7ELuE6sNGm21MIS2qUf0M09vejP4uYOwQR
+   B7sWBpPTuyXt1ZcDF1wO1G1HwPCS6FB9WCC+5WHxCr/wMIbQBMRCN/AUJ
+   nlt0vRsjMEdtMmkQnLNgWPMkz/TBlVtZguYpPA2KNQbpOmKTavbIJAyHL
+   d3yg3lYzvMvtv3w3+XlahCLKtcyi0U/FeMR3rV45ICDWbqXhdoQbhC63t
+   bMgugQxL7GKb8go1e/OJAskcCqwvyShA3KqhMqbhTi/QvDE2zlHuK8+4f
+   g==;
+X-CSE-ConnectionGUID: SP8CR55PQNGyo01Ged4s2A==
+X-CSE-MsgGUID: roPg/rmTSq6LPpUVL/KSpg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11468"; a="51784194"
+X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
+   d="scan'208";a="51784194"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jun 2025 22:13:19 -0700
+X-CSE-ConnectionGUID: Iy8XfeYmQ6aW1bvPafNrJw==
+X-CSE-MsgGUID: cOabNmcPQp+yFRjQVpbmpg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,247,1744095600"; 
+   d="scan'208";a="151106260"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 18 Jun 2025 22:13:13 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uS7aJ-000KQE-1E;
+	Thu, 19 Jun 2025 05:13:11 +0000
+Date: Thu, 19 Jun 2025 13:12:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, lee@kernel.org,
+	danielt@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
+	jessica.zhang@oss.qualcomm.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch,
+	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com,
+	ilpo.jarvinen@linux.intel.com, sven@kernel.org,
+	alyssa@rosenzweig.io, neal@gompa.dev, deller@gmx.de,
+	support.opensource@diasemi.com, duje.mihanovic@skole.hr
+Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
+	asahi@lists.linux.dev, platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: Re: [PATCH 12/12] backlight: Do not include <linux/fb.h> in header
+ file
+Message-ID: <202506191230.WMfb29QM-lkp@intel.com>
+References: <20250618122436.379013-13-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <eef5ccd99d82dd33e3a4ecdb5d4a5b75ccb0b972.camel@ndufresne.ca>
-X-CM-TRANSID: M88vCgAHfw6ikVNoUc_2AA--.36272S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7GFy5tr4rtF45AFy5uw13CFg_yoWfXrbE9w
-	18Zw1Iqay3ZrW3Wry5AFs5C34Fga47XryUXryFyw1kuws0yr98AFZrGrn3XFy5uFZ5WF9F
-	kwnrtw1DCa9FgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1Hq2tUUUUU==
-X-Originating-IP: [117.82.86.8]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwlxZWhTizsX7wAAsl
+In-Reply-To: <20250618122436.379013-13-tzimmermann@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_212745_566999_65212771 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250618_221320_127031_50090B34 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +97,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 07:22:04PM -0400, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le mercredi 21 mai 2025 à 13:34 -0400, Frank Li a écrit :
-> > Add compatible strings "nxp,imx95-jpgdec" and "nxp,imx95-jpgenc", which
-> > are backward compatible with "nxp,imx8qxp-jpgdec" and
-> > "nxp,imx8qxp-jpegenc". i.MX95 just need one power domain which combine
-> > wrap and all slots together. Reduce minItems of power-domains to 1 for
-> > i.MX95 and keep the same restriction for others.
-> > 
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> 
-> Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> 
-> Krzysztof, will you take this one once the DTS part is ready ?
+Hi Thomas,
 
-dt-bindings is the prerequisite of DTS.  DTS patch looks good to me
-and I'm waiting for dt-bindings part to be applied first.
+kernel test robot noticed the following build errors:
 
-Shawn
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on v6.16-rc2 next-20250618]
+[cannot apply to lee-backlight/for-backlight-next lee-leds/for-leds-next drm-exynos/exynos-drm-next linus/master lee-backlight/for-backlight-fixes drm-intel/for-linux-next drm-intel/for-linux-next-fixes]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Zimmermann/platform-x86-dell-uart-backlight-Use-blacklight-power-constant/20250618-203011
+base:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
+patch link:    https://lore.kernel.org/r/20250618122436.379013-13-tzimmermann%40suse.de
+patch subject: [PATCH 12/12] backlight: Do not include <linux/fb.h> in header file
+config: riscv-randconfig-001-20250619 (https://download.01.org/0day-ci/archive/20250619/202506191230.WMfb29QM-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250619/202506191230.WMfb29QM-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506191230.WMfb29QM-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/video/backlight/rt4831-backlight.c:215:49: error: array type has incomplete element type 'struct of_device_id'
+     215 | static const struct of_device_id __maybe_unused rt4831_bl_of_match[] = {
+         |                                                 ^~~~~~~~~~~~~~~~~~
+
+
+vim +215 drivers/video/backlight/rt4831-backlight.c
+
+190ccab3185eee ChiYuan Huang 2021-05-17  214  
+190ccab3185eee ChiYuan Huang 2021-05-17 @215  static const struct of_device_id __maybe_unused rt4831_bl_of_match[] = {
+190ccab3185eee ChiYuan Huang 2021-05-17  216  	{ .compatible = "richtek,rt4831-backlight", },
+190ccab3185eee ChiYuan Huang 2021-05-17  217  	{}
+190ccab3185eee ChiYuan Huang 2021-05-17  218  };
+190ccab3185eee ChiYuan Huang 2021-05-17  219  MODULE_DEVICE_TABLE(of, rt4831_bl_of_match);
+190ccab3185eee ChiYuan Huang 2021-05-17  220  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
