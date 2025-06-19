@@ -4,91 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D05CC71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A31DC71159
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 06:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=18Q33uiXFviW8mwo3GHO1W3hkitH238h+PF/RLg6pMk=; b=KoeOva3v30Hov2PZl38qHz+IFR
-	FT4cRJa39kbNVbbG7GcOIcewgx9cJLvTZa/XxR/TXBg/UEMt0k2leGsOuKp+2L3vR7anb32ZBhvwK
-	MOam1EKgkqVoTVVhxWBoXspTUyr2ZQLsn3v8Li8mYLU7kl/V1ta0f9GjBHBvZmzyWxneuBhnJFEqd
-	z0BD4VZ7oNEHltCcGzdl2DZBLsUGPwBbxzR+TrWBOtJqdV/Ws4mdhNMTmFXMnSIB9uRkcfexrOZSO
-	xAe9VVMRIUA1n8HCiY0LGzTV0yMuq3S2oFBck8Ht+VOIjbcGwtEyLMSRd/KxedRHGvpobxwKbi+Nx
-	JWRK7kuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D+BBHubCXSGyhsiOzAVvyxdgiU95FD+QD9l/EV557Z8=; b=W5BZUd3M36/wSbbP/AnE9V/w7Y
+	7sBYt1u+75ZP8CmcxPW0uhV//yjoCOVctz08psh7Ds8qwvtFE4ZTg4DHPBZsoKFFckTMgm6Ze2CFR
+	EkYx6Kp5RV1FsUqOeyFaEsD7Mf/tFP0ZBZObjTpyB6djGGgDoyI4GovmGTVgpksoTH4IyXcgo8Uke
+	/Ah2LPpkhGITLjQ3fVn35pGJrKFZyOdt1B40ik1+I5tfCprOuQ2aLJq4HK+n7gYi0cfeWR53jIoJ8
+	TGdyKf+qcWjfaC6rboRLvU0TqEfC+ZjSMHA5UJfZObFr8BDNDKzbaTNkONQkueVTD8AbEpYPZm1lw
+	A01OgvtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8vg-0000000CApP-2EkW;
-	Thu, 19 Jun 2025 06:39:20 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uS8xs-0000000CBQV-3xLn;
+	Thu, 19 Jun 2025 06:41:36 +0000
+Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8a3-0000000C8jc-3xu1;
-	Thu, 19 Jun 2025 06:17:01 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-74801bc6dc5so323160b3a.1;
-        Wed, 18 Jun 2025 23:16:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750313819; x=1750918619; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=18Q33uiXFviW8mwo3GHO1W3hkitH238h+PF/RLg6pMk=;
-        b=YgZZNsK83Yo/hacMkgyTn63NC//mZwVsSX/FOMQV+D1DovgyxS8GGozmUdW2ijKM2v
-         IN4Sqj0xwEKuQEumdiO++zig8y1iv1h4chlMWt2Uhnuxc56jsfpQ4D8gwoV3rFuGZDSW
-         h+zY5FThMTKRanoPkx3COzaqoJ2uZWlwfiNOT/EtFcKTODBXCmZSDSwDROHXsVmZku0u
-         wUYsv0cx0CzblEQeFs28T9QunkKQvhK2tGA++feR8JktXWHuI9OQEmGoP0z6V6ks/+LY
-         SrmhUr6IKzu1tSAzsWr1gTv89wMf1yWZifGEyiuFbSo+obEVfo4+hfBjgAjl2mH+++wK
-         NKgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750313819; x=1750918619;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=18Q33uiXFviW8mwo3GHO1W3hkitH238h+PF/RLg6pMk=;
-        b=BZEKYjsWzW6sS/QOjtHwo46rvEpSF3x06/NKepWqie6oQqJR5Bv9lKhqh0mcJh83ns
-         hACKysGvd8b0VegRiw4//nL5mtZ6N3aI6CU/0ZyNSsDtVf0IZIYbGnbkKjypiXJ0uBS7
-         V/KtOCpIgLbOMeqDdQeIy9MmAVGVZtMG8FbUo/UO45GmcS/P87CSqim0VTIk+ZZ2EvB+
-         cbfwJqIE+uGltr21MYxEQDR7RpxwfWvuHckvC3JYTXXDpdCgkgnuqRO4ScQAf5EYw7qS
-         5upOU5Jt/MPMjDwNiSY+UWT+W9RqY4LFviWFZcA2wYL1hkdnS129MfvoAK6nhn4Jlv5T
-         onbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVDxq46PecWuT1J4MDfgMiyzT/7n7l5IXVA4lwFWBbgciHwoub1Zem6k1hnqyOMBtm3im88hYLRHYafEw=@lists.infradead.org, AJvYcCXjpgcuVKpN6WTeK3A3dStFukShDGObM9ClgA/gd+gQpuoIYY85Fp4SBl0qC+1LxaaOHQJmoBj1G4z4TMyszHb/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH0m2Z0JvjQKkwPrzmzoNgdgSYmM+l5l2oncWt2Er1lIHfgWly
-	GDircaY0Du9vhkXm9LhLHa6bP+OCAQiwcqAuO/6BgMMs+wRbzRwCUmVQ
-X-Gm-Gg: ASbGncukC5QUUWCYUnIeSB2s2DmvSS+i3O8qcsOyY54kehPSnFpOmwiFTRh/Rx1gkOm
-	kaP+93QzqsQSi9SDJfLeJzdEqDVOBZT4z5Pv4+Q6c1K80/JzKjJz64+zr+81d4qLXvFKFtAu5AT
-	+Rbg90b55Uq9THC4qi2U2eDgSUVh1VGNS8oUJqphUYou88a1dX/TgGDfcO0eKHLR+8z7vGanrLO
-	DsbgkwK5JNNOFrzo03O290W2HHRZUxtebwFfq4L6EuoxE8SGYly8rmxh9VL+EQiM0S4VEZodlmv
-	9jfVt6nxwObwPn07pKhvVdC/dTu+qX+DmZl6Gj+dW7Qj5AvRb0Aa7P32oBnqEg==
-X-Google-Smtp-Source: AGHT+IEXzCCiubt81RW1wi6RFEHYltK/oaPaOx3dmFCiO+oaQEWxGttGT69QR500LAaVhusnkX27aQ==
-X-Received: by 2002:a05:6a20:9f9b:b0:21d:98c:12c9 with SMTP id adf61e73a8af0-22011301db3mr3894104637.21.1750313818767;
-        Wed, 18 Jun 2025 23:16:58 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-748e82ec1cfsm2985599b3a.91.2025.06.18.23.16.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Jun 2025 23:16:58 -0700 (PDT)
-Date: Thu, 19 Jun 2025 14:15:40 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	sophgo@lists.linux.dev, soc@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
-	Chao Wei <chao.wei@sophgo.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 0/6] arm64 support for Milk-V Duo Module 01 EVB
-Message-ID: <u3lfltybaxk5uwilajx3qx2xh4b6izrjzduzepbyn27sym2kqz@trabsvy4mdl6>
-References: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+	id 1uS8eY-0000000C955-2wMY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 06:21:40 +0000
+Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55J5K8al002977;
+	Wed, 18 Jun 2025 23:21:32 -0700
+Received: from nam04-bn8-obe.outbound.protection.outlook.com (mail-bn8nam04on2056.outbound.protection.outlook.com [40.107.100.56])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 47c87287q4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Jun 2025 23:21:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qAZfancVT48NAS1dSrkefrhRxCwDTd37g31S8AWyWkqGDQQtEh+uYd8XlcedcmeWSufcyKB4YBlDy/VZDwMtSmpt5rqUHGBxtd+oQPUcHPvtb93ud+k49C/6z5pEIsoDfEgO+lGNZBSV7Cl3tp62dMepyZ4wZxT0Lag0IzftNjrzc4pfbSQe4NrXw5xANJduXoaqkofEoYCRvxnJUo0y1yjp3em8+tbACviqlfki/iwaGWhne/AFXk3DzvsV+TuScA73CMHxBHyUzGarDHln5sPXLClCKXqmvWQQpw2L/qHbTkvdaQUR9bQH5IpktBu92wW0SK6S60AfZLl2OvHR+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D+BBHubCXSGyhsiOzAVvyxdgiU95FD+QD9l/EV557Z8=;
+ b=iikSqStribb03dP5d15T4Bd6hXr1be2ooEm+APFq183ptfO9SfpuMi6EFTQjANG4lBotSj1dGTbTvWizmdEaUPwfvK+Z4VyQB/EpwSG8QOK6QpSqKBbetJlFFkq/RUKsF5nQdsDEXJ6hgF+o6JFGRPGoqqxT+QDGFQEeNk+LqV5IS8Fq7ns0wqIdX6KQKI/dS4QBXJcAFVlp3Lz3BI/1WGHezJ1zLMHYwJKkmr7j/ja4KbnHRRfMXDA/Ift3QMbmA56vMoBlUhvDZBlLMCeUqRn6Dw5m+PIItGmglWNvQ9iuLkf2cKB84MhzULnBjb1SCShWT3cVd0ywhGLSF5rquQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53) by SN7PR11MB7044.namprd11.prod.outlook.com
+ (2603:10b6:806:29b::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Thu, 19 Jun
+ 2025 06:21:29 +0000
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::18de:be50:513:1a84]) by DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::18de:be50:513:1a84%2]) with mapi id 15.20.8835.018; Thu, 19 Jun 2025
+ 06:21:29 +0000
+From: Xiaolei Wang <xiaolei.wang@windriver.com>
+To: abelvesa@kernel.org, Frank.li@nxp.com, peng.fan@nxp.com,
+        mturquette@baylibre.com, sboyd@kernel.org, shawnguo@kernel.org,
+        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3] clk: imx: Fix an out-of-bounds access in dispmix_csr_clk_dev_data
+Date: Thu, 19 Jun 2025 14:21:08 +0800
+Message-ID: <20250619062108.2016511-1-xiaolei.wang@windriver.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0001.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::7)
+ To DS4PPFD667CEBB6.namprd11.prod.outlook.com (2603:10b6:f:fc02::53)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PPFD667CEBB6:EE_|SN7PR11MB7044:EE_
+X-MS-Office365-Filtering-Correlation-Id: 91362b8d-0a02-429f-3b8c-08ddaef986be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8mJ+MCMpuDHQOmfA8eGlHPhQ8axzZBZHsS8eeRO9GVxZvuDHPHu+4n0b4xE2?=
+ =?us-ascii?Q?b7Y11Rh0xQbKjz/3VmIsQXR45ppwwNAwRp/dr7ANvGbYQGfb0K7/NwlumBKk?=
+ =?us-ascii?Q?nnvC9/woqjNxDM3bO4HFkSxlGdBdZyuIoyEVr0Hr3Gtqo+AjuytRyQ9jlNXF?=
+ =?us-ascii?Q?cqnvS29aOxZlqtDxP5mVevoCDRipIU+NvDN93H/R332vMpzmQKtokjVA1SLK?=
+ =?us-ascii?Q?i/btMPRFv4Tzy7qVz//qA9U+eXJ5jsmW+IsZ7z2ZfJuZQyMgbd2+ndEPsio7?=
+ =?us-ascii?Q?MSbi3XpqkeKOmPUHVi5c6Fh5CrDHDtr9wB9pXo/53s2gfEl7KMvQxj0TMrBJ?=
+ =?us-ascii?Q?GD0kqaJ2kE1onfwsJOa2D3vVuPk/QroH19p6V28parNwItczRUnvvuHAGryb?=
+ =?us-ascii?Q?i9+junNyEVfwedvJFeGBw2Kt1s2sYLt604dRs8zdslCdkGLL6HGG82KsXFrz?=
+ =?us-ascii?Q?6LE0lqyo9ikptv4M8bE+zFulgLQg6boatqI8PDjf/l5Fh027/KG1sAqMJXTe?=
+ =?us-ascii?Q?wQ0vEl04C+JCC3ivz67L5aqeuPqEVg3zgwqDdk6rnhRwt9itgrS5fwc+irjh?=
+ =?us-ascii?Q?Ot3nW/ArSgc2db3k2deKPZAlDCt9SV5khCx1JnfZYnoHXSqALEoFzn/roPrA?=
+ =?us-ascii?Q?yL5tIyc+UfEPBPaQC21CW3IhaTrxC1KisnTFtUn0vRLhwO6pxykLfsDzyBTC?=
+ =?us-ascii?Q?1w/HoyZQZBYyYVpzaOjuTAKEo+giUBWPbb1D2HrgiyT4ltikGFV++KQ9svMD?=
+ =?us-ascii?Q?n8xHCxuNWKwZhR48MasVp5w/3XbHtqydRoHAyUrzxHj0qB7zMYWPWvQSnb5p?=
+ =?us-ascii?Q?hZMB+/G5iZqKJh7v1ol0PqD2KT900kxkmEhTeusPTm5l13GBi1Z18yww/C3H?=
+ =?us-ascii?Q?RUdDEjFuLvN6VFnzCuOcWO6Ff4AWsii8C0OZLseYrqQa0X0z1bS9I04v21ny?=
+ =?us-ascii?Q?NukPexm7iw2SEcIsvAbs3p0895/D9qJ1WW5sbTvWosYelxyK2Iy3MzG5MNpv?=
+ =?us-ascii?Q?SRWaFK4DWWSoz2lca116ilnkwZieP9f7HVqWOhqfF++rsmaP4DblT0DjtLWA?=
+ =?us-ascii?Q?qzHMNf09VlyGgOjr34jiARLk/1hHbfi3J/jsXc0VkmcybeqqOYxV4hILWTFI?=
+ =?us-ascii?Q?h0z6lgCTQfb/VMhJ4nZM44VFkYbuzEyCfnUIifB1SV76Io6Odi3Z3ftdqN/R?=
+ =?us-ascii?Q?dEj1DUwFs7iHri/1wXUrUBkPi9YuUAmkolDdrsaJAVoLU5VgVNo0Aplr5KrS?=
+ =?us-ascii?Q?FqCcH0nXhHlEku11JkYJ7Xig83ZDdx+FfQa3tihTxpcpWXsCiVEw/Enay6Od?=
+ =?us-ascii?Q?au19nLdkfuO+asR02ZSTunLT71UQUOtTAsGvW/3CaiJF9gKeBvbMRC+TeG+i?=
+ =?us-ascii?Q?pN5vibNjeRGkvaVnfLOYQm7DHAcrjZC+HajdDd+aP4HamK5kDPHkXTn85OEF?=
+ =?us-ascii?Q?A22NREPcKwTIy+X24AFVuQnrTgVfev/fuLykdSfxTQ5yvPkhMh5b8Rbiw15O?=
+ =?us-ascii?Q?UJtS7m8nSlG7vBk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFD667CEBB6.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fAKQtkMBfQ2/eA926WDZdJSIzPi5jvj3Cg+zeAbeaCugyiRWs2p02ytX6IRa?=
+ =?us-ascii?Q?WRkYtTzn+HzkA7jxh6FYVBPeKqznglEAfET/6FfPz2w/vn+KaddbHjw8zsWn?=
+ =?us-ascii?Q?ovxSrYLFVOulU/CQpmxX0ev6CL9r2yCUOud+virpodRoPioANoFyAYUqRkui?=
+ =?us-ascii?Q?4sRgBoDp/Py8IPXMPAk2eHpVCTM9yaCIKSCpPR2uqj31HoJWq2snFf667epr?=
+ =?us-ascii?Q?Ky52fj2ZsFor/ZIBldyT0ZWAwwi2PFiGLyXaZw+T0TttKIHeC9q9tnwP5AED?=
+ =?us-ascii?Q?kKsM5KVc4z2AAUTVAAaHqiEgK4AFfOcvumkS44Zbazgcqq2ztZmxElkULSwo?=
+ =?us-ascii?Q?HwgQ19snmlEe66rfK9rch/axuqayq48gHF/eKwncv9wBqALHJjkMEmUPX6oO?=
+ =?us-ascii?Q?LVGrvyMv7CUmWfDNy/tP3GfyDfIVeLI6N/sZNQSvERx9/Q/Dry3EyXswVWHY?=
+ =?us-ascii?Q?9C32gWIY/Ks8iHr+jj2cZKdy6p+QdilqPSToMt+3+9PmxgMfJU2vMclG4YmK?=
+ =?us-ascii?Q?jMaNK36dY0rL96Gg3qYWutMF/saigZHMQVgRFZn4wAMeHJmeCy4nP9GshDOO?=
+ =?us-ascii?Q?Qg0VQpIlpKfPjwyQ/x7P9JD727n92fMa/zVc6tlTvBH9ME1LjDlZblIROnzy?=
+ =?us-ascii?Q?a6C2maU0r23CJV516YVvw3lzd8FhxTS6kIHEoscXbgUsdc0wdhmodj6i1Mos?=
+ =?us-ascii?Q?AOPaUuD7n5cUXdB6GUcZpxPf6GVKluBiSoGEtc7+DGn5JzBVlLRzU6epUaQO?=
+ =?us-ascii?Q?ZZT3kmih3+LATCY+5wecHVZtlT9TGalFKQ/0IO9flfYOlZx+yXkg3KAgBBXh?=
+ =?us-ascii?Q?nda9A7XCzLfYSb47Q7iyY5DUpNTtoOq4jd+/sYAF+LN6arjnmtNnCA3ysLrr?=
+ =?us-ascii?Q?JeFXiOxmLzmBk277qeqaUFntufZMgwOZkc/9O1O1HQdwbcFIhfZaND43RjqX?=
+ =?us-ascii?Q?uT2gk88GixyVQ5a3x/jvEclA0O7U2Wg0TK/SELX/mM/IcSQ+j/FUfNFAXj3h?=
+ =?us-ascii?Q?YlnbFO2tfJ+rZsi+L279AOXX0hm2JgVaEqkKPiPdfEHBLKjCIN2ufBaEn4sY?=
+ =?us-ascii?Q?m6XdJuKo8x7krnY9vL9e7t/EtSN7nfUSxF4dynD/sxdyw8tdepHuadFkQjsG?=
+ =?us-ascii?Q?G1f6SjMWYrgy6+1azhw8pvK1Ea6bFLJKN5PGtYgXAD87K4ivI2H9VYOJWq/E?=
+ =?us-ascii?Q?n7LRX0jzsv2DfRo64J25sXQHH8Y0Vtm/hgsX8F2qlRQvSmEUusjCd8SNAbHi?=
+ =?us-ascii?Q?CT1htdhERpc18v9YMY+SNcFRTNpldwpyYUtvFyn7JvShnt82SuIAk9mTAtBL?=
+ =?us-ascii?Q?+PYTJukfRS1VFVXxzEj8ehtV7Twpmv/SvGstF4xZX3DouLxVddhaU/FVkmv7?=
+ =?us-ascii?Q?ye5EyK8GkJihdZBTsQE1oepQnc6Pop02KWpOXfv17jjTrfxmW597cm04jWsw?=
+ =?us-ascii?Q?IAoQpLFETpqmiiAAgGKWYkAstr8tf61V2c94pYPAB08bX5671L4DO7zUWo+z?=
+ =?us-ascii?Q?lCA+p9+c3xKlN6+Rh7Qotzjwb6ycY9ULxaxv/7iVm+p/VLdDfST1mx66JsJm?=
+ =?us-ascii?Q?mgtTOBM1O9wW2LEuBfz0l/UUcpSuzP+0z6d0rMek7MIDwA4n2UbPXFi07704?=
+ =?us-ascii?Q?8g=3D=3D?=
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91362b8d-0a02-429f-3b8c-08ddaef986be
+X-MS-Exchange-CrossTenant-AuthSource: DS4PPFD667CEBB6.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 06:21:28.9940
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ba58D5ELiPCXfTcxjIH4duA3Yaaf8YUkhyakI5QS+hE3y7qq/EZLY9kIkM2I+JbwkvW4V7nJwc/Xb6Y8ZPPAtuFJfq/iS9+J7tYTgXGogMI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7044
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE5MDA1MiBTYWx0ZWRfXwSaWGbOysXZ8 jD1oJpQ+rM16W4yy3h34tS5M1BCAdTu/FcQeGFNnyPHPTybZbFRinHu0vbARp5RfK8pyuMeuB4a 9V2bbqvNIDubWBKkv3EItTMFF1m+Fq3jqv4dWWxUU2Z38fmSSahpa/3GG75NwlRrkmu0EeccnSt
+ gLVvwOiwVylehMQEw5RfhcUD9SkUfOjd/2MGlMvN5MRzM8xTgOaNjalf4GFspy9iJgNGKTarF96 zQvHhe0LJuIPTpoxW8xJ+Xee2uIRoDejLFpnaMZLv3zjfK842xzXGIxvshf7Yrn2r0vpn1yQ/Nv GiGijHRKeRnMCpiWnayFy5h9w3yDi+RTWCVQzUF6O7rvyBbS8h7PqieLT96x07keOASJGF4KOK+
+ y9CQG2ECo9emTSQ8jSSFKltOSrTA+60UzIa8WLhA4oWNHNHYr0O744W1jlG1Dzt7iszAzePB
+X-Proofpoint-GUID: HqYvpaAHTBkvg-HswNez59aebpkN-Zxz
+X-Proofpoint-ORIG-GUID: HqYvpaAHTBkvg-HswNez59aebpkN-Zxz
+X-Authority-Analysis: v=2.4 cv=RpXFLDmK c=1 sm=1 tr=0 ts=6853ac6b cx=c_pps a=vLGgxbWFiLOFFkiTIxWaAQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8 a=t7CeM3EgAAAA:8 a=8AirrxEcAAAA:8 a=oHQybRLuQiGXMqFduX0A:9 a=FdTzh2GWekK77mhwV6Dw:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-19_02,2025-06-18_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=999
+ malwarescore=0 spamscore=0 priorityscore=1501 mlxscore=0 bulkscore=0
+ impostorscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0
+ adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506190052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_231659_999419_066F7591 
-X-CRM114-Status: GOOD (  27.83  )
+X-CRM114-CacheID: sfid-20250618_232138_744915_B674809F 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,104 +174,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 03:28:08PM +0200, Alexander Sverdlin wrote:
-> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> been chosen because the upstream toolchain can be utilized.
-> 
-> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-> peripherals with an addition of ARM64 core. Therefore it would be
-> beneficial not to copy-paste the peripherals' device-tree, but rather split
-> the most suitable riscv DT into ARCH-specific and peripherals parts and
-> just include the latter on the arm64 side.
-> 
-> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-> SG2000 SoC inside (separate .dtsi).
-> 
-> This series has been tested with Sophgo-provided U-Boot binary [2]: it
-> boots from SD card; pinctrl, serial, GPIO drivers are functional (same
-> as for RiscV-based CV18xx SoCs).
-> 
-> Partial SoC documentation is available [3].
-> 
-> This series lacks the support of:
-> - USB
-> - Audio
-> - Ethernet
-> - WiFi
-> - Bluetooth
-> - eMMC
-> - Video
-> 
-> Changelog:
-> v8:
-> - moved sdhci0_cfg and uart0_cfg pinctrl nodes from module into board .dtsi
-> - dropped Inochi's RB tags from the patches affected by above changes
-> v7:
-> - dropped all reset stuff again; it will come independently in [5] and is
->   fully compatible;
-> - rebase onto sophgo [6] for-next (3a8cef361be5) (almost v6.16-rc1)
-> v6:
-> - rebase onto sophgo/for-next (108a76779829)
-> - dropped first patch refactoring RiscV counterpart (equivalent present in
->   sophgo/for-next)
-> - added cpu_on/cpu_off properties into psci node
-> - added reset-controller node, compatible comes in [4]
-> v5:
-> - PSCI node in DT
-> v4:
-> - minimized patch 1/7 (cleanups dropped)
-> - cv18xx-cpu-intc.dtsi instead of cv18xx-cpu.dtsi+cv18xx-intc.dtsi in
-> patch 1/7
-> v3:
-> - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
-> were moved into cv18xx-intc.dtsi to reduce code duplication;
-> v2:
-> - dropped all patches related to the new reboot driver and corresponding DT
-> and bindings;
-> - grouped DT-related and config-related patches together;
-> - added patch moving sophgo.yaml from riscv into soc (to share it with
-> ARM); added SG2000 SoC and Milk-V Duo Module 01 EVB into it;
-> - other changes are documented in the corresponding patches;
-> 
-> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> [4] https://lore.kernel.org/sophgo/20250609230417.620089-1-alexander.sverdlin@gmail.com/
-> [5] https://lore.kernel.org/all/20250608232214.771855-1-inochiama@gmail.com/
-> [6] https://github.com/sophgo/linux.git
-> 
-> Alexander Sverdlin (6):
->   dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add
->     SG2000
->   arm64: dts: sophgo: Add initial SG2000 SoC device tree
->   arm64: dts: sophgo: Add Duo Module 01
->   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
->   arm64: Add SOPHGO SOC family Kconfig support
->   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-> 
->  .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
->  arch/arm64/Kconfig.platforms                  |  6 ++
->  arch/arm64/boot/dts/Makefile                  |  1 +
->  arch/arm64/boot/dts/sophgo/Makefile           |  2 +
->  .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 76 ++++++++++++++++
->  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 40 +++++++++
->  arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 86 +++++++++++++++++++
->  arch/arm64/configs/defconfig                  |  4 +
->  8 files changed, 221 insertions(+), 1 deletion(-)
->  rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (81%)
->  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> 
-> -- 
-> 2.49.0
-> 
+When num_parents is 4, __clk_register() occurs an out-of-bounds
+when accessing parent_names member. Use ARRAY_SIZE() instead of
+hardcode number here.
 
-LGTM, I will merge this patch next week if there is no other
-comments.
+ BUG: KASAN: global-out-of-bounds in __clk_register+0x1844/0x20d8
+ Read of size 8 at addr ffff800086988e78 by task kworker/u24:3/59
+  Hardware name: NXP i.MX95 19X19 board (DT)
+  Workqueue: events_unbound deferred_probe_work_func
+  Call trace:
+    dump_backtrace+0x94/0xec
+    show_stack+0x18/0x24
+    dump_stack_lvl+0x8c/0xcc
+    print_report+0x398/0x5fc
+    kasan_report+0xd4/0x114
+    __asan_report_load8_noabort+0x20/0x2c
+    __clk_register+0x1844/0x20d8
+    clk_hw_register+0x44/0x110
+    __clk_hw_register_mux+0x284/0x3a8
+    imx95_bc_probe+0x4f4/0xa70
 
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Fixes: 5224b189462f ("clk: imx: add i.MX95 BLK CTL clk driver")
+Cc: stable@vger.kernel.org
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+---
+v1:
+  https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250614112255.2838154-1-xiaolei.wang@windriver.com/
+v2:
+  https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250618065318.319339-1-xiaolei.wang@windriver.com/
+  Use ARRAY_SIZE() instead of hardcode number here.
+v3:
+  cc stable
+
+ drivers/clk/imx/clk-imx95-blk-ctl.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
+index 25974947ad0c..cc2ee2be1819 100644
+--- a/drivers/clk/imx/clk-imx95-blk-ctl.c
++++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
+@@ -219,11 +219,15 @@ static const struct imx95_blk_ctl_dev_data lvds_csr_dev_data = {
+ 	.clk_reg_offset = 0,
+ };
+ 
++static const char * const disp_engine_parents[] = {
++	"videopll1", "dsi_pll", "ldb_pll_div7"
++};
++
+ static const struct imx95_blk_ctl_clk_dev_data dispmix_csr_clk_dev_data[] = {
+ 	[IMX95_CLK_DISPMIX_ENG0_SEL] = {
+ 		.name = "disp_engine0_sel",
+-		.parent_names = (const char *[]){"videopll1", "dsi_pll", "ldb_pll_div7", },
+-		.num_parents = 4,
++		.parent_names = disp_engine_parents,
++		.num_parents = ARRAY_SIZE(disp_engine_parents),
+ 		.reg = 0,
+ 		.bit_idx = 0,
+ 		.bit_width = 2,
+@@ -232,8 +236,8 @@ static const struct imx95_blk_ctl_clk_dev_data dispmix_csr_clk_dev_data[] = {
+ 	},
+ 	[IMX95_CLK_DISPMIX_ENG1_SEL] = {
+ 		.name = "disp_engine1_sel",
+-		.parent_names = (const char *[]){"videopll1", "dsi_pll", "ldb_pll_div7", },
+-		.num_parents = 4,
++		.parent_names = disp_engine_parents,
++		.num_parents = ARRAY_SIZE(disp_engine_parents),
+ 		.reg = 0,
+ 		.bit_idx = 2,
+ 		.bit_width = 2,
+-- 
+2.43.0
+
 
