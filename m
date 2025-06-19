@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A442C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF46C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lKt8A6+QjYnjFL3np6K20XlH4x7ehiuuzMqxVDQaqE0=; b=EDHviw+cgWWedF6GEuAjaq2aDd
-	L8R+QUsJdr/jHIpcpa4wdmp0qwnPAWenxYyd5ki9fs0LtqKNqGZjg69tfDisogOctFNjUrOQRAzdn
-	piFnK6oNYqWDMAeyNHe/9B7GSAKoc7Vw/jNQ/LDwzf7bgi/Ff9T4OBMvBCF8wPIt2oA+foZIpeRxG
-	pbMHbwYBIucftQTJqQuIEl+I4Fihr8Sy/HeBzoGp061a9poplzzpE1RLe2orErEFrMPyTkjYdLjUs
-	63YsoOAQkIFjcNNrbGflQYV5TNbebuboc/0ROq0VpFGp1r/sowFWeNwRu2t6WjSzl1CKrjVPSkg/O
-	P+0F8gFw==;
+	bh=zRvJBG7XTSycUxxt5zdP43ky6wtHNMh8xw+LW4doH7w=; b=1mWLowMb/6o0yzZiKtyMRYF7aP
+	QUrKm4tLuCtts9q2d1DXMP5TNr7et3xuW+0Rbgat8d0A54x7QAaLgFw2dszq8GDEB9XzgeSLgsk2b
+	QZVPErLo40+qEsWjcIKBNlyekIYv5CQWamH9rP2RL0A5MwrbTpwW21l4IgyqdQeQGc5g6s5m1ROWj
+	taPzrX80T8MP/qiFurJMBYEvvTU6q6WJHPEI8vPCUSGDyc5nxRt4YHVDFT/8s/0oosUGm8ruRvO1y
+	x5WlKmY7yjAM+9MFPRl/b63BRhhShJx9JUwmHeqU89T/hl8kP904m3Hqnf0IaNfSHL9kr6Fxhol//
+	sXtp0HIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSMC3-0000000EFZB-04hg;
-	Thu, 19 Jun 2025 20:49:07 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSMGR-0000000EFqa-10ja;
+	Thu, 19 Jun 2025 20:53:39 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLc5-0000000EBVB-3SNW;
-	Thu, 19 Jun 2025 20:11:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=lKt8A6+QjYnjFL3np6K20XlH4x7ehiuuzMqxVDQaqE0=; b=0nF/Qs58MprQxQpPF81gdBhcaM
-	ZiPwdbLNIv9i7HdS7fcXKCxdpfc1ap8teHa7zc20uFIgBjGOkJ8YWr5BSc+n1ae3FATDOrzK7wPBM
-	fg/gJjxdhtGgMywi3Sbz9+IRBBR8mTOndTBfiE9Vd1ephKjaeN6ThPY8UK226SvDhHu37wBWAzcuh
-	3O9+SlEoKGaBsw5DuMCjcEeX1ny6eb8odrrp2e3cbUUbiJFVf+UH30FPG+9Lussjfa9DJ8kh0xvUu
-	FWVolb6GLAWqFAs4zg8hvWQAPfMX/RXldvaxaCzwP4gxN4Z4Z9Rg+ut3x+Cl6CfyhM56P5+uNVMDm
-	HytK+xPQ==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSLby-0006tx-Lj; Thu, 19 Jun 2025 22:11:50 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Jagan Teki <jagan@amarulasolutions.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Michael Riesch <michael.riesch@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-Subject: Re: [PATCH 2/5] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588 variant
-Date: Thu, 19 Jun 2025 22:11:49 +0200
-Message-ID: <17533727.geO5KgaWL5@phil>
-In-Reply-To: <8ba2f458-4a66-44f6-8528-4654cfe379ff@collabora.com>
-References: <20250616-rk3588-csi-dphy-v1-0-84eb3b2a736c@collabora.com>
- <0f2b8934-9b3d-4913-b734-b4fe7f0c7d0a@linaro.org>
- <8ba2f458-4a66-44f6-8528-4654cfe379ff@collabora.com>
+	id 1uSLmc-0000000EC6D-26eJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 20:22:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750364570; x=1781900570;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1306ugvPqvYx0GNhUobnRO2BRmD0tvRO5GZ6dyr69A0=;
+  b=cl3PoDbmMfVvG45W/kk7fJtmruhqyZ5haKf8WUHoZy/gWDGlaRuhitgQ
+   e1AjzkmEV7X0MYhXoyxhHh+maUmLlWIgHhaWnNdZiR2gipRqDgMfNUrWu
+   z/3i5yfN0yHdZ6na/9tVRtl8LLVHMZbUiAH9wYhdyd+67beykhk7wXTEd
+   JJre7q3bnLSse5g7+IJWaOGIvwWUf1v7fclWYjC/8oVRig9EWBKyQ/WG4
+   QO0h7H3RUrurD/lmhqt6mRIdiHvPUyPEDqqd7R8BZeAY2+xxPAlh/Kf/7
+   lUmqONatw7JNjfVUiY4kKUWRdMyzuyEiTfRFpk/GB49hhwpR6prhGvJFF
+   w==;
+X-CSE-ConnectionGUID: lIFABUeiQ6Cz7E8rTHMNHg==
+X-CSE-MsgGUID: YpSlK8aERgW64Ndjfha78A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11469"; a="51852708"
+X-IronPort-AV: E=Sophos;i="6.16,249,1744095600"; 
+   d="scan'208";a="51852708"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jun 2025 13:22:47 -0700
+X-CSE-ConnectionGUID: HbfmO9QBTz2wrgvuPHbqPA==
+X-CSE-MsgGUID: fjTzpWQ/Sxa+NwOTsif4Aw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,249,1744095600"; 
+   d="scan'208";a="155290205"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 19 Jun 2025 13:22:41 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uSLmQ-000L5G-2H;
+	Thu, 19 Jun 2025 20:22:38 +0000
+Date: Fri, 20 Jun 2025 04:22:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: Will McVicker <willmcvicker@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>
+Cc: oe-kbuild-all@lists.linux.dev, Will McVicker <willmcvicker@google.com>,
+	Donghoon Yu <hoony.yu@samsung.com>,
+	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	John Stultz <jstultz@google.com>,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 5/6] clocksource/drivers/exynos_mct: Add module support
+Message-ID: <202506200445.1vdWU11a-lkp@intel.com>
+References: <20250618210851.661527-6-willmcvicker@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250618210851.661527-6-willmcvicker@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_131157_864975_B71BAC86 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20250619_132250_559306_DE08209F 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +104,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 18. Juni 2025, 08:32:25 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Michael Riesch:
-> Hi Neil,
->=20
-> Thanks for your comments!
->=20
-> On 6/17/25 11:31, neil.armstrong@linaro.org wrote:
-> > On 17/06/2025 10:54, Michael Riesch via B4 Relay wrote:
-> >> From: Michael Riesch <michael.riesch@collabora.com>
-> >>
-> >> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
-> >> Add the variant and allow for the additional reset.
-> >=20
-> > No names for the new resets on the RK3588 ?
->=20
-> I left the names away because TBH I don't see the value in them (in that
-> case).
->=20
-> Downstream uses reset-names =3D "srst_csiphy0", "srst_p_csiphy0"; and
-> there is no better description. One could guess that the second reset
-> corresponds to "apb" but this is just guessing and we would still have
-> to guess/find a proper name for the first reset.
->=20
-> Amazingly the mainline driver does not seem to do anything with the
-> resets (unless I overlooked some implicit magic). Downstream does a
-> simple reset_control_{assert,deassert} before configuring the PHY. Now
-> if the different resets are handled in bulk mode, does it really make
-> sense to address each reset individually?
+Hi Will,
 
-it might not make sense now, but possibly in the future?
+kernel test robot noticed the following build warnings:
 
-A binding and the attached devicetrees are meant to be "forever", i.e. a
-new kernel _should_ support all those old devicetrees you throw at it -=20
-if they conform to (at some time) established bindings.
+[auto build test WARNING on tip/timers/core]
+[also build test WARNING on arm64/for-next/core robh/for-next linus/master v6.16-rc2 next-20250619]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-So while all drivers might not need the specific resets now, you don't
-know what quirks you'll have discovered in two years ;-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Will-McVicker/of-irq-Export-of_irq_count-for-modules/20250619-051424
+base:   tip/timers/core
+patch link:    https://lore.kernel.org/r/20250618210851.661527-6-willmcvicker%40google.com
+patch subject: [PATCH 5/6] clocksource/drivers/exynos_mct: Add module support
+config: arm-multi_v7_defconfig (https://download.01.org/0day-ci/archive/20250620/202506200445.1vdWU11a-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250620/202506200445.1vdWU11a-lkp@intel.com/reproduce)
 
-And instead of trying to update the binding and then carrying both the
-new and the fallback code for the old binding around, why not do it now.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506200445.1vdWU11a-lkp@intel.com/
 
-Then when you find a need for a specific reset, things magically just work.
+All warnings (new ones prefixed by >>, old ones prefixed by <<):
 
+>> WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x164 (section: .text) -> register_current_timer_delay (section: .init.text)
+>> WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x178 (section: .text) -> sched_clock_register (section: .init.text)
+WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x20c (section: .text) -> register_current_timer_delay (section: .init.text)
+WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x220 (section: .text) -> sched_clock_register (section: .init.text)
 
-Heiko
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
