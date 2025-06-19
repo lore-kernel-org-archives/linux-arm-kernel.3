@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82DDC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0774DC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eD7eXQjCVZXrASkEWcilBg8DLF0GyjTxOwYQy8veqf8=; b=u/8sCdsgF7l9EWw2Xbxazaz7z0
-	WzS1IJ5WwHJXLEOrvqymmZd0etgkaZt6V5srcPt9ca5oaXfhmaN4PkdoJakKAgoGY4TphP9bnSy2e
-	bUgZyz0JPIksS9NoQCqwrkv+OFmj3RXwcWFDqKV2JqUlsQ1IdD5kDbWRRsjUMDb/TgOx6NPY+H8fu
-	HBNrDi8DwZH63Y4fzFkIGNkFQ/WIalciIQHHCWkhF+m774gN6OIe5GwGffZ/FgTo1r2t+6paYNrM9
-	4qh8kNzZkWYMXG7s39yXflReRxwiCdWVYngMasednjkkPuW5SQP9fGSU/Eo0pSVd7Fh8Z6fC/u4wz
-	OJu1HTHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ks/v4Ujqfzvs18wnvXzme1WPE3egbOvN05dsniZSqtg=; b=e/AP2ih/8GOLLKfQ2riGa3NN+N
+	2cg3BaIA4EI3bwP9KuwxlLo1xsZyLjLB5Edpiaz4f4/LTi5+OCWj+cwSMv/PhxBB1c7pb6mr7BgDy
+	k7qDP8bONJVDrGf/rhVhI7+sbxueZwxtptKDJjwRCBVRntGSXqkgQdz7tRMC0Sv+b2sw36q5CzQJe
+	KWbAg0eUVhIrUX88EMVi8QN4ZoAM8umBw37T03vwJnzrf0AE7hIokptEEW9owGtDTp9PkCstvnDpO
+	WePFK91Mn1uCl0Jgs8F3+dl/N7cXJD30bQXwzGFs/QoL3qg7XMAmjQ6GoXahcKVGbsdsZusAJoYHa
+	h79uMr0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSBuW-0000000CfiC-1zbb;
-	Thu, 19 Jun 2025 09:50:20 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSBwi-0000000Cfrt-2gAi;
+	Thu, 19 Jun 2025 09:52:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSB2o-0000000CVav-3ktq;
-	Thu, 19 Jun 2025 08:54:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=eD7eXQjCVZXrASkEWcilBg8DLF0GyjTxOwYQy8veqf8=; b=o/6iUb+ZXais31yF8EysEgF4nP
-	6sr4Vg/Z4rY9ovh5IfCwzyhKZLARasyvwvWzjrhIYyyxi94HFmFUF14PJKRMupQZJHu1sLL8CP7/9
-	SECVU1JfQoHKkLSmOR3KKA0UQEUmmCIT67OvC71waWiCBcHaOdGuMGxtQZoPF1BAOKLeLdZw+Zsyu
-	k4jFb8axA9Owba/EOT3Sh7ZoDF4e1T8qJFLkArK4D9dl4XdvWvvvw/bYZuLkL7vKH8csHF98J6NmP
-	WGgyR6kjpFPZLcAFtdmlZLcItUXUz7oMJQHdT/v5gBQLkHy+wTzvafJZPhcpxyKw8tMESvkTq17my
-	Fnly6pzQ==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSB2j-00079q-Db; Thu, 19 Jun 2025 10:54:45 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>,
- Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 10/12] gpio: rockchip: use new GPIO line value setter callbacks
-Date: Thu, 19 Jun 2025 10:54:44 +0200
-Message-ID: <15862883.tv2OnDr8pf@phil>
-In-Reply-To: <20250619-gpiochip-set-rv-gpio-v2-10-74abf689fbd8@linaro.org>
-References: <20250619-gpiochip-set-rv-gpio-v2-0-74abf689fbd8@linaro.org>
- <20250619-gpiochip-set-rv-gpio-v2-10-74abf689fbd8@linaro.org>
+	id 1uSB3Q-0000000CVhL-3elo;
+	Thu, 19 Jun 2025 08:55:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C9D15A54350;
+	Thu, 19 Jun 2025 08:55:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B497C4CEF4;
+	Thu, 19 Jun 2025 08:55:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750323327;
+	bh=eQADuGSiL41NAxGl9NK+UhkSlVn0yTQBhyaUTND5Uzc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=p2FgroRg8XpbJ/VSjtfLXHjJJRjKYpLj2XcaUHKG2xLQ7wfM+Z5n3rCjl6c8Zto5M
+	 RSqSwjDobL8Uw3UNbEgelKH8UpaKTaToYX2CC3EHc2vsE2pdmJDyKlBWw+TMDnneAR
+	 zMJQDoEg8twbtA3I11UyCenEImVZ9sO7oElSKq/lIdyVHdbSV7Rl1uy4I9OtVCIJ1L
+	 xY4b7NmVNhx3/G6psbDY7j5hAeSUhrVg2Gh8rwAs7zI7pjkVGSiXnOiYqIeGf09brb
+	 UZTFESwD6c+51mkUr6sZ7eCO2jWacLftMDJ3IO+VCTUTYL9SrpXOCd2q9ivlu3Pq39
+	 P3TSZ4nA1tZBA==
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-60497d07279so1001925a12.3;
+        Thu, 19 Jun 2025 01:55:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUAeZlVsX1D8RtvpmvwcIPIaTGcVFrtjbodDi2eHo+QRjKHukyVnRipyys7YzY0gqW1u+kzytYeERbzkXU=@lists.infradead.org, AJvYcCVQKZB2bkoeNJcB7VOPj/3hEpNQQ3/Tmlv3lb7Z8NuUTXChtfzDCA7bcC3OyINY/oL7PzALUHL9JLV/H4MtnZu7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHrmqZ6C+Q8xDTXxI0GNETauYCafrWx2eDwFQOsOlkDQce+nGF
+	tDiufiGNcmtd4sdsovIUZ0Q7hFWxW5emX/odCUGJM+xiKipGPnNbZfuWe2aTWB4bbnLc8MuU4ft
+	jidycYPUup0omMezoxZ1BDTrVUJT7DO0=
+X-Google-Smtp-Source: AGHT+IFe63NPmdC9P72cDlyX2WP9si/cWhn+2uqDCCs1dQMO/+ouBJs4HCM0Kl1RCgdHuztVjrD3QGSEtvvPoh/cEAU=
+X-Received: by 2002:a05:6402:50d2:b0:607:6057:9006 with SMTP id
+ 4fb4d7f45d1cf-608d08f7a70mr18716524a12.8.1750323325929; Thu, 19 Jun 2025
+ 01:55:25 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-9-kees@kernel.org>
+In-Reply-To: <20250523043935.2009972-9-kees@kernel.org>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Thu, 19 Jun 2025 16:55:15 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4rFt3J6hD-eiNN5nihNR0cwMxPJQpq8LQWkx4km428og@mail.gmail.com>
+X-Gm-Features: AX0GCFtBM3K8OeK1JL3sld-cpEWi3kLQAET9w-cyksCMv2tJ5SCZdduevj4T0cU
+Message-ID: <CAAhV-H4rFt3J6hD-eiNN5nihNR0cwMxPJQpq8LQWkx4km428og@mail.gmail.com>
+Subject: Re: [PATCH v2 09/14] mips: Handle KCOV __init vs inline mismatches
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, x86@kernel.org, 
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_015450_934373_4663A52A 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250619_015529_040402_0781BF19 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 19. Juni 2025, 10:33:23 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Bartosz Golaszewski:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->=20
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->=20
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Hi, Kees,
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
-
+On Fri, May 23, 2025 at 12:41=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+>
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we have to
+> handle differences in how GCC's inline optimizations get resolved. For
+> mips this requires forcing a function to be inline with __always_inline.
+>
+> Signed-off-by: Kees Cook <kees@kernel.org>
 > ---
->  drivers/gpio/gpio-rockchip.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-> index 64700a003f9a17947dd38baea23a066e8c057caf..ecd60ff9e1dd1a090bfad204c=
-8b86c4d7fb68ce7 100644
-> --- a/drivers/gpio/gpio-rockchip.c
-> +++ b/drivers/gpio/gpio-rockchip.c
-> @@ -177,8 +177,8 @@ static int rockchip_gpio_set_direction(struct gpio_ch=
-ip *chip,
->  	return 0;
->  }
-> =20
-> -static void rockchip_gpio_set(struct gpio_chip *gc, unsigned int offset,
-> -			      int value)
-> +static int rockchip_gpio_set(struct gpio_chip *gc, unsigned int offset,
-> +			     int value)
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: <linux-mips@vger.kernel.org>
+> ---
+>  arch/mips/include/asm/time.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/mips/include/asm/time.h b/arch/mips/include/asm/time.h
+> index e855a3611d92..044cff0e0764 100644
+> --- a/arch/mips/include/asm/time.h
+> +++ b/arch/mips/include/asm/time.h
+> @@ -55,7 +55,7 @@ static inline int mips_clockevent_init(void)
+>   */
+>  extern int init_r4k_clocksource(void);
+>
+> -static inline int init_mips_clocksource(void)
+> +static __always_inline int init_mips_clocksource(void)
+Similar to x86 and arm, I prefer to mark it as __init rather than
+__always_inline.
+
+Huacai
+
 >  {
->  	struct rockchip_pin_bank *bank =3D gpiochip_get_data(gc);
->  	unsigned long flags;
-> @@ -186,6 +186,8 @@ static void rockchip_gpio_set(struct gpio_chip *gc, u=
-nsigned int offset,
->  	raw_spin_lock_irqsave(&bank->slock, flags);
->  	rockchip_gpio_writel_bit(bank, offset, value, bank->gpio_regs->port_dr);
->  	raw_spin_unlock_irqrestore(&bank->slock, flags);
-> +
-> +	return 0;
->  }
-> =20
->  static int rockchip_gpio_get(struct gpio_chip *gc, unsigned int offset)
-> @@ -325,7 +327,7 @@ static int rockchip_gpio_to_irq(struct gpio_chip *gc,=
- unsigned int offset)
->  static const struct gpio_chip rockchip_gpiolib_chip =3D {
->  	.request =3D gpiochip_generic_request,
->  	.free =3D gpiochip_generic_free,
-> -	.set =3D rockchip_gpio_set,
-> +	.set_rv =3D rockchip_gpio_set,
->  	.get =3D rockchip_gpio_get,
->  	.get_direction	=3D rockchip_gpio_get_direction,
->  	.direction_input =3D rockchip_gpio_direction_input,
->=20
->=20
-
-
-
-
+>  #ifdef CONFIG_CSRC_R4K
+>         return init_r4k_clocksource();
+> --
+> 2.34.1
+>
+>
 
