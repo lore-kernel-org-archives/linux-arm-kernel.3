@@ -4,54 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E716BC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C611C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e8WNT+z3+irPWp7wRSD++eyN/HRNyi8w5j1DKC9MAJg=; b=HVkOasIMgK59gVD2fXUnQlJ23C
-	H9KnwCdVoeGjlihalsYmCgUE7cMtJOS7sBqeVog0Ux14Zub0CSDFXDZL7NVQisI46Wh7PMzOYQUXq
-	WjPdkHKD3nPZNWN5VQT/VVNjP3Up+YtQaUfv4HKGDR2xUc6sd0I+htDtUG4PC2oGBaP0JJX2zGMHk
-	nCpVd0CX4XybCrN546gJTF8tpighHf4CqMipMDbjh7q4PhhcQsNXeQJWswdOHV3pox2/qlyHmMnZr
-	tK1OV+Jsgx/LQ19Z5VJY7t/HeOjYzY0jxI+cCuACd557DHHpTmcs4WY7QNyj2dgTuUomyN5mWOaj7
-	/mPklAVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JhVp53ZfDmUoQUzNSnHUYmYYvUAbVgCiG5ppJjU+9o8=; b=upDHbv0s0rN8tHG1xq+QZug086
+	8+tCGlRg155nWTYI17GnKnC911WkQB+Mo+dH8ruSc8BN268ay1uMrhxJbCNMFA4GxQM7ZOGg9KezE
+	JS4yt5eehXflwLpESSInfDpf7H2hMlxL+3BnVUyPluJ4SeE3SlZ+kvJs5mf1hMKcrQc8IyAYfcrsO
+	qURv8osYHI8bQ1Bt17459qpvF3dwDl3r4PArsyIaUQk4bcoguKUHLHawueQr1xVXK6l07vTL5qHnb
+	s/KmG+czxf1JS2neTpwqVb4k5UUwt0T6jXuF2vdTLhIEqar12OK6lvc6Z683SFjDgavWHq4SebrBe
+	J7d1S4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIeh-0000000Deq1-2GpH;
-	Thu, 19 Jun 2025 17:02:27 +0000
+	id 1uSIeo-0000000DezL-3seL;
+	Thu, 19 Jun 2025 17:02:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFcy-0000000DDep-2ZAz
+	id 1uSFmO-0000000DEsa-1aJU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 13:48:30 +0000
+	Thu, 19 Jun 2025 13:58:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44206113E;
-	Thu, 19 Jun 2025 06:48:05 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A156D3F58B;
-	Thu, 19 Jun 2025 06:48:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92CFB12FC;
+	Thu, 19 Jun 2025 06:57:51 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F5953F66E;
+	Thu, 19 Jun 2025 06:58:08 -0700 (PDT)
+Date: Thu, 19 Jun 2025 14:57:55 +0100
 From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	kvmarm@lists.linux.dev,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	tabba@google.com,
-	will@kernel.org
-Subject: [PATCH] KVM: arm64: Remove kvm_arch_vcpu_run_map_fp()
-Date: Thu, 19 Jun 2025 14:48:17 +0100
-Message-Id: <20250619134817.4075340-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Koichi Okuno <fj2767dz@fujitsu.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+Message-ID: <aFQXU5rK_HJE9zq0@J2N7QTR9R3>
+References: <20250617102819.3685543-1-fj2767dz@fujitsu.com>
+ <20250617102819.3685543-3-fj2767dz@fujitsu.com>
+ <20250617103618.GT1613376@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617103618.GT1613376@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_064828_741951_F0B551E6 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250619_065812_460063_B660961D 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,104 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Historically KVM hyp code saved the host's FPSIMD state into the hosts's
-fpsimd_state memory, and so it was necessary to map this into the hyp
-Stage-1 mappings before running a vCPU.
+On Tue, Jun 17, 2025 at 12:36:18PM +0200, Peter Zijlstra wrote:
+> On Tue, Jun 17, 2025 at 07:27:50PM +0900, Koichi Okuno wrote:
+> > +	pcipmu->pmu = (struct pmu) {
+> > +		.parent		= dev,
+> > +		.task_ctx_nr	= perf_invalid_context,
+> > +
+> > +		.pmu_enable	= fujitsu_pci__pmu_enable,
+> > +		.pmu_disable	= fujitsu_pci__pmu_disable,
+> > +		.event_init	= fujitsu_pci__event_init,
+> > +		.add		= fujitsu_pci__event_add,
+> > +		.del		= fujitsu_pci__event_del,
+> > +		.start		= fujitsu_pci__event_start,
+> > +		.stop		= fujitsu_pci__event_stop,
+> > +		.read		= fujitsu_pci__event_read,
+> > +
+> > +		.attr_groups	= fujitsu_pci_pmu_attr_grps,
+> > +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+> 
+> Should these drivers not also have PERF_PMU_CAP_NO_INTERRUPT ? Per them
+> being uncore they cannot generate samples.
 
-This is no longer necessary as of commits:
+These PMUs actually have an interrupt, so that might be a bit confusing.
+That said, the counters seem to be 64-bit, so the interrupt doesn't seem
+practically necessary today.
 
-* fbc7e61195e2 ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state")
-* 8eca7f6d5100 ("KVM: arm64: Remove host FPSIMD saving for non-protected KVM")
+Either way, the fujitsu_pci__event_init() function rejects sampling
+events, so it correctly rejects sampling events.
 
-Since those commits, we eagerly save the host's FPSIMD state before
-calling into hyp to run a vCPU, and hyp code never reads nor writes the
-host's fpsimd_state memory. There's no longer any need to map the host's
-fpsimd_state memory into the hyp Stage-1, and kvm_arch_vcpu_run_map_fp()
-is unnecessary but benign.
+IMO, it'd be a bit nicer to do the inverse, and have the perf core
+reject sampling events by default for non-CPU PMUs.
 
-Remove kvm_arch_vcpu_run_map_fp(). Currently there is no code to perform
-a corresponding unmap, and we never mapped the host's SVE or SME state
-into the hyp Stage-1, so no other code needs to be removed.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev
----
- arch/arm64/include/asm/kvm_host.h |  1 -
- arch/arm64/kvm/arm.c              |  4 ----
- arch/arm64/kvm/fpsimd.c           | 26 --------------------------
- 3 files changed, 31 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 5ccca509dff1a..f7ad74404202b 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1482,7 +1482,6 @@ int kvm_vm_ioctl_get_reg_writable_masks(struct kvm *kvm,
- 					struct reg_mask_range *range);
- 
- /* Guest/host FPSIMD coordination helpers */
--int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu);
- void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu);
- void kvm_arch_vcpu_ctxflush_fp(struct kvm_vcpu *vcpu);
- void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index de2b4e9c9f9fb..1502faa460863 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -825,10 +825,6 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 	if (!kvm_arm_vcpu_is_finalized(vcpu))
- 		return -EPERM;
- 
--	ret = kvm_arch_vcpu_run_map_fp(vcpu);
--	if (ret)
--		return ret;
--
- 	if (likely(vcpu_has_run_once(vcpu)))
- 		return 0;
- 
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 8f6c8f57c6b9c..15e17aca1dec0 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -14,32 +14,6 @@
- #include <asm/kvm_mmu.h>
- #include <asm/sysreg.h>
- 
--/*
-- * Called on entry to KVM_RUN unless this vcpu previously ran at least
-- * once and the most recent prior KVM_RUN for this vcpu was called from
-- * the same task as current (highly likely).
-- *
-- * This is guaranteed to execute before kvm_arch_vcpu_load_fp(vcpu),
-- * such that on entering hyp the relevant parts of current are already
-- * mapped.
-- */
--int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu)
--{
--	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
--	int ret;
--
--	/* pKVM has its own tracking of the host fpsimd state. */
--	if (is_protected_kvm_enabled())
--		return 0;
--
--	/* Make sure the host task fpsimd state is visible to hyp: */
--	ret = kvm_share_hyp(fpsimd, fpsimd + 1);
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
- /*
-  * Prepare vcpu for saving the host's FPSIMD state and loading the guest's.
-  * The actual loading is done by the FPSIMD access trap taken to hyp.
--- 
-2.30.2
-
+Mark.
 
