@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD17C7115A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66B1C7115C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HS2lUJltRvHPUIa4JQpyFGxD+jJplBBokp6RSnTT/O0=; b=wkpCa1zYbZOVWwMwLGrAYgUWyn
-	a4zR+S5TclDDRyTQYCDoot+ESjmm5gPzJ2cLAPKSFtejfmU1hfCymOWSwZnil9PiI1TFZAxgyaUaY
-	fkaV8FqwE3APunjk5a//CVDJfhX+ubi4Ih5rv6I6UM5AOOSePTPtTew0Q5pddkYTo+Efqt3wBLqkm
-	EolXSDPuEJG0hXV2jU9gJ6oqod9P8R9QP62n9C0tXln00bNlaevj93dy4MiP9DQ+ci42mJLiiNnSm
-	5hc6MrHE0fMCXMGZzwR1NQANb0Ax0NelfSAZ7TFjWQLDngGIhkY19OMzsFyWvKlQl1oLpMsIfs4b7
-	Fn4NdPvA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eQ7YWrPQH4eKb2hcGi9xzFrlY9L4wPx8/nkdEx2cSuc=; b=fm8Gg9RgWIuCP6BD0pqqK1kX1s
+	lLEj920zJb1uBQU3hjx2H5FFnxHUzZC55rYa0s0ORLeX1k3DuKSufAZ2+7AmI45GTADCoJO2OVIOz
+	RoxVOIEERwP/lb0TWONuOtlNdTYH984ZR4E5UZkSdQ/dNwHUM08vE2kFi5OaeKfrZ3QAIqLqKLE49
+	4yLvV/6uj+Cgkz95EUAEUKhjRcwrqYi53eDWD1XzGFDOWrSRCG08I+p1DZzkHOUNkHjeXk0mnXLkk
+	zAw0+5HQ1beA5SIa22Z8ZMwtM6bpJ/VA8CIID02AxJFg7X0kLKWcKISf6Tcla6gNySqimmFV8bzF2
+	x6hTuUcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHW6-0000000DYXX-1Y2i;
-	Thu, 19 Jun 2025 15:49:30 +0000
+	id 1uSHW9-0000000DYda-0Iav;
+	Thu, 19 Jun 2025 15:49:33 +0000
 Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFCy-0000000D9N4-3s5s;
+	id 1uSFCy-0000000D9N0-3mSD;
 	Thu, 19 Jun 2025 13:21:38 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout3.routing.net (Postfix) with ESMTP id 7241361634;
-	Thu, 19 Jun 2025 13:21:35 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id 69E1B61633;
+	Thu, 19 Jun 2025 13:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750339295;
+	s=20200217; t=1750339294;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HS2lUJltRvHPUIa4JQpyFGxD+jJplBBokp6RSnTT/O0=;
-	b=IiGc5phLz6zEsG8qlLtRtYkeD0bxYWoox9fQ+43vKyLGjgVxaEeH1iHA5zfIgBSd1ZCEk4
-	V1ubV+Y3pQfoZx2RbzOsF54ca/gKjmr8j71jJEn7E1xN1FSAhgAMzMdGx+CInY0Za374fU
-	jCekEa0SyjdgSt9Tu9DYJrfkR0itzcU=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=eQ7YWrPQH4eKb2hcGi9xzFrlY9L4wPx8/nkdEx2cSuc=;
+	b=w/NBMfkZg41xJNspRvdAMMJP0SmfIqfenp3BdYrDzVBF5j7z30iwx+sbem56jOMphsWs4j
+	k1HiEyoA9TOd3Hgh7WUDo4QypezNrQ/WL0xmCw4Lq7lgNjXj0RgG3OH93xhtFfe3kw3mRp
+	+wfmwaeZe9Q5+ohKOglSZcdMgvGrdbk=
 Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 395D21226AA;
-	Thu, 19 Jun 2025 13:21:35 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 246471226B5;
+	Thu, 19 Jun 2025 13:21:34 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Felix Fietkau <nbd@nbd.name>,
 	Sean Wang <sean.wang@mediatek.com>,
@@ -61,17 +60,15 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	Simon Horman <horms@kernel.org>,
 	Daniel Golle <daniel@makrotopia.org>,
 	arinc.unal@arinc9.com
-Subject: [net-next v6 4/4] net: ethernet: mtk_eth_soc: only use legacy mode on missing IRQ name
-Date: Thu, 19 Jun 2025 15:21:24 +0200
-Message-ID: <20250619132125.78368-5-linux@fw-web.de>
+Subject: [net-next v6 0/4] rework IRQ handling in mtk_eth_soc
+Date: Thu, 19 Jun 2025 15:21:20 +0200
+Message-ID: <20250619132125.78368-1-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250619132125.78368-1-linux@fw-web.de>
-References: <20250619132125.78368-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_062137_271414_072F1C46 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250619_062137_266689_D0039850 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +85,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-If platform_get_irq_byname returns -ENXIO fall back to legacy (index
-based) mode, but on other errors function should return this error.
+This series introduces named IRQs while keeping the index based way
+for older dts.
+Further it makes some cleanup like adding consts for index access and
+avoids loading first IRQ which was not used on non SHARED_INT SoCs.
+    
+changes:
+    v6:
+    - change irq names from tx/rx to fe1/fe2 because reserved irqs
+      are usable and not bound to specific function
+    - dropped Simons RB because of this
+    - updated description of patch "skip first IRQ if not used" and
+      use MTK_FE_IRQ_SHARED instead of 0 in condition too
+    - add "only use legacy mode on missing IRQ name" patch
+    
+    v5:
+    - fixed typo in patch 1
+    - moved comments from previous patch #3 to patch #1 with changes suggested by simon
+    - rename consts to be compatible with upcoming RSS/LRO changes
+      MTK_ETH_IRQ_SHARED => MTK_FE_IRQ_SHARED
+      MTK_ETH_IRQ_TX => MTK_FE_IRQ_TX
+      MTK_ETH_IRQ_RX => MTK_FE_IRQ_RX
+      MTK_ETH_IRQ_MAX => MTK_FE_IRQ_NUM
+    - change commit title and description in patch 3
+    
+    v4:
+    - calculate max from last (rx) irq index and use it for array size too
+    - drop >2 condition as max is already 2 and drop the else continue
+    - update comment to explain which IRQs are taken in legacy way
+    
+    v3:
+    added patches
+    - #2 (add constants for irq index)
+    - #3 (skip first IRQ on ! MTK_SHARED_INT)
+    to the v2 non-series patch
+    
+    https://patchwork.kernel.org/project/netdevbpf/patch/20250615084521.32329-1-linux@fw-web.de/
+    
+    Tested on BPI-R4/mt7988 with IRQ names and BPI-R2/mt7623 and BPI-R3/mt7986 with upstreamed
+    dts via index-mode.
+    I do not have any MTK_SHARED_INT (mt7621/mt7628) boards to testing.
 
-Suggested-by: Daniel Golle <daniel@makrotopia.org>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 7 +++++++
- 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 67ba8927be46..f8a907747db4 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3346,6 +3346,13 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
- 	if (eth->irq[MTK_FE_IRQ_TX] >= 0 && eth->irq[MTK_FE_IRQ_RX] >= 0)
- 		return 0;
- 
-+	/* only use legacy mode if platform_get_irq_byname returned -ENXIO */
-+	if (eth->irq[MTK_FE_IRQ_TX] != -ENXIO)
-+		return eth->irq[MTK_FE_IRQ_TX];
-+
-+	if (eth->irq[MTK_FE_IRQ_RX] != -ENXIO)
-+		return eth->irq[MTK_FE_IRQ_RX];
-+
- 	/* legacy way:
- 	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken
- 	 * from devicetree and used for both RX and TX - it is shared.
+Frank Wunderlich (4):
+  net: ethernet: mtk_eth_soc: support named IRQs
+  net: ethernet: mtk_eth_soc: add consts for irq index
+  net: ethernet: mtk_eth_soc: skip first IRQ if not used
+  net: ethernet: mtk_eth_soc: only use legacy mode on missing IRQ name
+
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 69 ++++++++++++++++-----
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h |  7 ++-
+ 2 files changed, 58 insertions(+), 18 deletions(-)
+
 -- 
 2.43.0
 
