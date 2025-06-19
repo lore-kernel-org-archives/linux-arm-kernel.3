@@ -4,119 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85ACEC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135B3C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIqWDwQJOYSkV3+he9XfhSJxreNYHuyVwziNAwlI17I=; b=IuEv31l1ag0Yayq5JvvPVgnTe9
-	VHOnm8MUOnuK0xGF1mxf/Y3tUemDqDSDkbQ2ReuVMlhW1yf6ftzLvQdZDSZv676xxPd+Xx0LsKiJh
-	0z7WRrlvPefQBIqGc3IHkC+zTXhOcWBE4/Gn+0mVYxZMetn+uttoBu4JVmUnF3nXlKmcwg0OikJa9
-	HgccE+Cl69vzDVpveamchKJiwbSSclB7UnQ1LFnlhfvj8Gg6Smq2WTMa1PluAQWiN+VJM+cNi6iEf
-	TxCtq65lHYQh6pMFL6tt2ZA98TRi0koZA/s7ZkYUoED4504X0ywLzxUKSmDQCEez5KcF2ydvpGlJ4
-	7fFfULCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Vu3ojqeO4nEZGrlEv+MrMGB/iAFdtlTHlUQ6a2DKkk=; b=XJobSPRWPsuyGXXEGnUzoZM0H4
+	YgZvUZ1GoU3sJWkFNORqlkK4Xfglo9GHPVzO/PUYM1XMYlaK6Dpq8x0kN18hEp8BvGV8/qftnV0IS
+	2iUt2m61KYbBF0wZQFZvNEU2bv7v6Op6qJzVcVFvuzJjB6+tIvzur/w+8IxjhRN5k8l0BDQduFGyR
+	xyqFsSPJbDJEzjIktU423B8vq/V/t7NrZhMkXaEPA1tdMNj9whFnbDJNPnkNQdWMROsHR2P3Z9ngZ
+	9EkXrRj1eL7/oqVNbt6EGfN8GzmG13eEXYZPQcKfdbESqJaZkaIoRigYg8ESPNgFUhR9ptlh7lKuM
+	1HrnVsSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHWO-0000000DZBa-1cxH;
-	Thu, 19 Jun 2025 15:49:48 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1uSHWe-0000000DZfn-3W3q;
+	Thu, 19 Jun 2025 15:50:04 +0000
+Received: from relay15.mail.gandi.net ([217.70.178.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFNn-0000000DBaI-0rR3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 13:32:48 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 788AC114012D;
-	Thu, 19 Jun 2025 09:32:45 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Thu, 19 Jun 2025 09:32:45 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1750339965;
-	 x=1750426365; bh=fIqWDwQJOYSkV3+he9XfhSJxreNYHuyVwziNAwlI17I=; b=
-	CdcwNBhJeAKWAAovkzBYNPKNGr4TEWVw6rj3W6mDKB/yoZRPciocJ1zjT2P46nMr
-	Bm3Z4otQZtwjiQexV2GzJ+gG0k0JlfjEA9hRYeRskOouecrWiWQQP7MmNfmgfAv8
-	u3bpAnP2dh2KGBMJ5aFQ6hfVpOftsHZI2TR+FtQDuAXRion657VpzmPCXMCB/f5K
-	U4TxHPSU/4u0wQxP8WErtWNti4ZI0ne8J4yhdTjoiLiGFuB05b6RzyDZ/JApCWDF
-	y5JbjXYirZwPnZ+rT9BDnFhx2EBCP8gstbdYYwIac9bA2kI87U06ZcxVEOxvE8g8
-	afMrYi4FUSn22KIvkVzMoQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1750339965; x=
-	1750426365; bh=fIqWDwQJOYSkV3+he9XfhSJxreNYHuyVwziNAwlI17I=; b=R
-	54bhBGP083Nplo9mRyI6LLQYfMrq7ClZiKrPKJQ1crjnVU/8DKQXq47woSIa7bz7
-	OPkxdA/kG22PvlMEwLVt532UpDlxq4Cfc1LQY/67J7BHV/G4CQnOEIYjNAQaeGt1
-	ZPWCtgrsEkiWRM5Tfbr8+RALlO16dBU5JKb85NPBVdt7KQnpUa5BsQsVrt33xpQj
-	Bm36FxIWPDC8UDUnvdaKxnm/KO+c6XPfOYg+zK15dT3/kVAkdkSwIGA7QfpuQFFU
-	MTWJbePn1pXIjN1C49Jq2krSuGC+8Y1N5cy40dhb3/zQVG/VLm/ti9su8j8yy4jB
-	vNL7AROwO0NNBk26fDaPg==
-X-ME-Sender: <xms:fBFUaNvSpnp-EhufqloOUHQLiQieLwkChRFG9yfKGzi_GPPsGg6OcA>
-    <xme:fBFUaGelUq4ZfefOqvPegeRT6QOlYtjWIs6VQssPu6OyjR89LdJFNAbcKLl7tEvY-
-    z6T4GOkNs5EtC17QJY>
-X-ME-Received: <xmr:fBFUaAxPHz408tTQ6hNN1DeQblAr0y2Lw0stQpN2C3YIIXjtheiLAX2cvpISN28zfXC74HEgSo8H5_3pwUWvs_J72MPsn2EIag>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdehieehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpefpihhklhgrshcu
-    ufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrghtvg
-    gthhdrshgvqeenucggtffrrghtthgvrhhnpeevteegtddvvdfhtdekgefhfeefheetheek
-    keegfeejudeiudeuleegtdehkeekteenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrght
-    vggthhdrshgvpdhnsggprhgtphhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtohepuggvmhhonhhsihhnghhurhesghhmrghilhdrtghomhdprhgtphhtthhopeht
-    ohhmihdrvhgrlhhkvghinhgvnhdorhgvnhgvshgrshesihguvggrshhonhgsohgrrhgurd
-    gtohhmpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    oheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjuhhlihgvnhdrmhgrsh
-    hsohhtsegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepshgrkhgrrhhirdgrihhl
-    uhhssehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheplhgruhhrvghnthdrph
-    hinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehgrhgv
-    ghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuh
-    hsrdifrghllhgvihhjsehlihhnrghrohdrohhrgh
-X-ME-Proxy: <xmx:fBFUaEPcTCAJjTMhuQPeAKRqr8-crCSxF6X7ohD8wIzgWrvrIDK9dA>
-    <xmx:fBFUaN--pTLgTd9mUviIY71-5Hpge0k6Q904UTNihMOSI7zfz7vmUQ>
-    <xmx:fBFUaEU7iVIZsRtcqPWDThTDAxz22M_R1Tb4UTOecrbJBX1qEL_voA>
-    <xmx:fBFUaOfL51uhInf9I7O-4xveJLthYQpPoya2H6p_YOro6L77Q9ircQ>
-    <xmx:fRFUaCvcQhP1SJDti5X9xE47TVcuwCm-5SqDAZHI1nuAMdwdD_9dPA01>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Jun 2025 09:32:43 -0400 (EDT)
-Date: Thu, 19 Jun 2025 15:32:42 +0200
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS" <linux-media@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-	"open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
-	"open list:GPIO SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)" <linux-gpio@vger.kernel.org>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>
-Subject: Re: [PATCH v4 10/19] dt-bindings: media: i2c: max96712: add support
- for POC supplies
-Message-ID: <20250619133242.GC2847778@ragnatech.se>
-References: <20250618095858.2145209-1-demonsingur@gmail.com>
- <20250618095858.2145209-11-demonsingur@gmail.com>
+	id 1uSFWN-0000000DCsg-3OPo;
+	Thu, 19 Jun 2025 13:41:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 06EB4442A7;
+	Thu, 19 Jun 2025 13:41:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1750340495;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3Vu3ojqeO4nEZGrlEv+MrMGB/iAFdtlTHlUQ6a2DKkk=;
+	b=U6UhRPCyisMszMQuQ9+irt0NQEBugn34Ray3XLy55XnpTRmLgtwWlthDhmUb+ZZxycsxRv
+	+IosUqV58UdhyU2kRmvmHsv2FEng3dOVxiibyO1OlRopR0rZvzbXyF9G15oiWIB8RtRRu2
+	CX2dZLcXKXT8HG0H0sBSRDIUf8wJURT6hF5Ze7E3rJPaxbb0HVkj4aM4AfZgERYvcgB5EE
+	thC/YJGxoKAkURrlVEZT8n6m+YArkRrEIQy8pYmbl9XJsLCsGlDhxU7/8k8HEaQwLhxW7h
+	qndtgDRT+14KqrGqGZBTFdtEEinmju109AP2KwQppoYMeCrWZJXYyGicSOVMmw==
+From: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Date: Thu, 19 Jun 2025 15:41:24 +0200
+Subject: [PATCH v3] arm64: dts: rockchip: Fix the PinePhone Pro DTS' panel
+ description
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250618095858.2145209-11-demonsingur@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250619-dtb_fixes-v3-1-9cb02ddd8ce4@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAIMTVGgC/22MTQ6CMBBGr0Jm7RimAhVX3sMY09JRJlFqWtJoC
+ He3uMLE5ffz3gSRg3CEQzFB4CRR/JDDblNA15vhxiguZ1ClqsuG9uhGe7nKiyO2uqnqKvekGPL
+ /Gfg75PvpnHMvcfTh/VUnWtp/lkRYIteVbrVxiq05Wu/Huwzbzj9g8SS1Zts1q5DQWKeJHJFt9
+ C87z/MHptoQeeAAAAA=
+X-Change-ID: 20250618-dtb_fixes-97645402512e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Olivier Benjamin <olivier.benjamin@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdehieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetkefhvdelleeuhefgvdekveffieelhfeujefgtdejueelgfeltdefffehtddvfeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopegludelvddrudeikedruddrvddtngdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheph
+ hgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopehlihhnuhigqdhrohgtkhgthhhipheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_063247_792951_6CFDDDBA 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250619_064140_139660_C4500FD2 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,45 +80,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
+Fix a few issues in the panel section of the PinePhone Pro DTS:
+  - add the second part of the Himax HX8394 LCD panel controller
+    compatible
+  - as proposed by Diederik de Haas, reuse the mipi_out and ports
+    definitions from rk3399-base.dtsi instead of redefining them
+  - add a pinctrl for the LCD_RST signal for LCD1, derived from
+    LCD1_RST, which is on GPIO4_D1, as documented on pages 11
+    and 16 of the PinePhone Pro schematic
 
-Thanks for your work.
+Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+---
+Small fixes to the PinePhone Pro DTS to fit bindings and
+suppress warnings at build.
+---
+Changes in v3:
+- Amended the LCD pinctrl name to match the pin's name in the Datasheet
+- Link to v2: https://lore.kernel.org/r/20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com
 
-On 2025-06-18 12:58:46 +0300, Cosmin Tanislav wrote:
-> The GMSL links can carry power to the serializer when using coaxial
-> cables.
-> 
-> Document this capability.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Changes in v2:
+- Added the pinctrl definition for GPIO4_D1/LCD1_RST
+- Removed redefinition of the lcd panel ports from rk3399-base.dtsi and
+  added only the mipi_out definition
+- Squashed multiple patches into one
+- Link to v1: https://lore.kernel.org/r/20250618-dtb_fixes-v1-0-e54797ad2eba@bootlin.com
+---
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 33 +++++++++++-----------
+ 1 file changed, 17 insertions(+), 16 deletions(-)
 
-Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-
-> ---
->  .../devicetree/bindings/media/i2c/maxim,max96712.yaml         | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> index 758c0223977d..b345305acc4c 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> @@ -96,6 +96,10 @@ properties:
->        - required: [port@6]
->        - required: [port@7]
->  
-> +patternProperties:
-> +  '^port[0-3]-poc-supply$':
-> +    description: Regulator providing Power over Coax for GMSL ports
-> +
->  required:
->    - compatible
->    - reg
-> -- 
-> 2.49.0
-> 
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index 04ba4c4565d0a205e2e46d7535c6a3190993621d..909ed14035f783fd14362f4e3a9a3fe3b50d5937 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -463,29 +463,18 @@ &io_domains {
+ };
+ 
+ &mipi_dsi {
+-	status = "okay";
+ 	clock-master;
+-
+-	ports {
+-		mipi_out: port@1 {
+-			#address-cells = <0>;
+-			#size-cells = <0>;
+-			reg = <1>;
+-
+-			mipi_out_panel: endpoint {
+-				remote-endpoint = <&mipi_in_panel>;
+-			};
+-		};
+-	};
++	status = "okay";
+ 
+ 	panel@0 {
+-		compatible = "hannstar,hsd060bhw4";
++		compatible = "hannstar,hsd060bhw4", "himax,hx8394";
+ 		reg = <0>;
+ 		backlight = <&backlight>;
+-		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
+-		vcc-supply = <&vcc2v8_lcd>;
+ 		iovcc-supply = <&vcc1v8_lcd>;
+ 		pinctrl-names = "default";
++		pinctrl-0 = <&lcd1_rst_pin>;
++		reset-gpios = <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
++		vcc-supply = <&vcc2v8_lcd>;
+ 
+ 		port {
+ 			mipi_in_panel: endpoint {
+@@ -495,6 +484,12 @@ mipi_in_panel: endpoint {
+ 	};
+ };
+ 
++&mipi_out {
++	mipi_out_panel: endpoint {
++		remote-endpoint = <&mipi_in_panel>;
++	};
++};
++
+ &pmu_io_domains {
+ 	pmu1830-supply = <&vcc_1v8>;
+ 	status = "okay";
+@@ -507,6 +502,12 @@ pwrbtn_pin: pwrbtn-pin {
+ 		};
+ 	};
+ 
++	lcd {
++		lcd1_rst_pin: lcd1-rst-pin {
++			rockchip,pins = <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	leds {
+ 		red_led_pin: red-led-pin {
+ 			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
 -- 
-Kind Regards,
-Niklas Söderlund
+Olivier Benjamin <olivier.benjamin@bootlin.com>
+
 
