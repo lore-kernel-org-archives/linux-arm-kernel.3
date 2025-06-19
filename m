@@ -4,57 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6DCC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 02:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7ACC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 02:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdIXidgTQoJZ+pqA8Hrjl4qfJ3FwmVN/K/H7yiiXnsg=; b=2MFChCoruIlKn7D34bFyFXENu2
-	/gU41WwJogHKayF7QPldTe0TRRdnXlDJ+vI+lQbbY5sgT02m2IUuGj2hHa+oOYfdsyWtKyniJCgea
-	uWqCyH3yTUwWJzuAPt3OoNtnItpr7K/ntrmdsMJJSUkKxA7F3qN/N6RZ2TmExt8PzvsWNX31J0dMx
-	lTp+rwgRQsaFF5alHYlneqnv5sH7amhzdn+nZE1ZXjt+9zXQw8+MlFX3dKP2W6IEPkoEaa1yFgvAk
-	1ovGKwCcS2horq2fcqITWMrpkT7Psi7NisseIDLGQy7AlycbrDN8/I2X1q87wkILWuKDj8m3WoAk0
-	a4Qt+zAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=; b=1IsquoM38U0zP8JfOJQtl6EAg8
+	DwAQqcokh7CiCqY8SvLhTiS4kUJ3IPZM4BJcsRxcRLw6YHN840NHtQjTH2mbw8/nEaJgweyADPGtt
+	d1mOlw6C2nyw0HsiqT+ZX6ZGt8ME4WdDl0fSf9tUQ9+QteFZW7ZJcmgKYzGGZayn2oZ7PtJgZSssv
+	YMBX2iFu5j5wfAc3saQzUuHQGh/QF0uzFYSJcEn/2xrUnpyZpWOKV5RB3/7a1P/Fr590hKx9VRMY9
+	gL2wfIihCr3R4Vws7YCwREXhbFkOokKZFBrLbpsDwlAaCBaNyrFiBBKJwFC9OVxL1mQd+EdXsgc6j
+	1OOs/BQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS52g-0000000BouD-3i62;
-	Thu, 19 Jun 2025 02:30:18 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1uS54s-0000000Bp5q-2ipX;
+	Thu, 19 Jun 2025 02:32:34 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS4z7-0000000BoSx-2xIa
+	id 1uS50Z-0000000Bodu-1dkE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 02:26:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1750299992; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=fdIXidgTQoJZ+pqA8Hrjl4qfJ3FwmVN/K/H7yiiXnsg=;
-	b=b1mGM3Q8eYboc55alnyIUgKkzfumn4H2Lf9xAfSP6WQyhb2OMv5sGQXM2pH9xZvhEnImQaVxOKl8QipSmc2wldjBbYjPy+BtMCVyl11D6SoQsTqA3qJHO2A4pMfPNeMdy3d4V4Jj1GixU9miDQW+I2Sh+yakFkZp+hvpl/lnbxE=
-Received: from 30.221.131.111(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WeFTxhP_1750299985 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Jun 2025 10:26:26 +0800
-Message-ID: <0a8d5fdb-28b9-41f5-a601-cf36641bddbf@linux.alibaba.com>
-Date: Thu, 19 Jun 2025 10:26:24 +0800
-MIME-Version: 1.0
+	Thu, 19 Jun 2025 02:28:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WJlYV2JzPtvoTi9SxefzuWzVuiGfdIpTj9Q4Y/NB2yzgmR0l6kvVFgWto+zVHtpVbOeATBrgE5jSYsW/XeHTYiU5o7N6wR3SpFjJqBcrM2MwoRAB0ebVPUuxbDBCuz+G0GgY5liNsSYc6qsiYhKGNKHTqpcADrJe+6LSuZzSVchdw7Mvi9eRpI6ZArTIgMgwXVrxPkX+SyOI4IDosv43aFsQuJVKUinTVVs3pKCMTac1AebDMs8nE0644wkiqOP7AqiCWjdlVqWC9PaqJ85rxv+lEs5od1HBtK7e07OjUh9ttglzX+Uw6Xtsm959aAS3Qu9tqVdpcZZZOm+subiEkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=;
+ b=cBBIJuee4uEWHyeALv3nAWyEH6mHCVzzD7Q/GSSbbl/36pUN4wgKuvtxH7MkjBEwHDDwYdC0+nGForxYdm7ZW+vvu2pR7svPBpKxO1PmZo2m1VizmSHLbkSNzX96vTWqb1SYczx+DITRF5ZrhLU+gsxjH+P0nBN4dpq8yQRrZmd5Ic5WAAIEoI/BiiZLbGvFW9qzaU8NoyOScEget7kmuzCNm2JpzA9l5Hdn15iG5c6rHa5Sj/fsRJdImnbOdnQH11l8euGa5iMCjd5Lm3NIHxQ0NVoPm5153Ti0a21LYE/zW9JJR2eVR40/LeqZBvcLNga6Gw79GQYa3htPeqgxYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6DX7r4SzqPb6t6yyFDRgsA43Auev66+SrIY9tsEJmuc=;
+ b=I8GCwig4liqASGsD6CZiLGuiAXmm8fC5QgoLNFfS7f1yQ+PNodtLU89XP18BR9t0Gf/bb8LJizHHF/D86DvREdT8ZFSRE4mWr/TPL0vx8mi5tiYcUdAld44O0YQ+bRPwypTv+Mtwsgr6Llq/4FH3EXph6m8kMfbPnY4fU5U7F15S6CT5+zvVhHcevkVFiNYLeE2wwHBYN9SYg7+FEI9cU1DsvhrmPGBVtlbary26RQ7SbkEE1SZDD6438/TMKrsSmey/eyaY7qc8k8hr4qmGh5jdSCXKC1nvCd6yPE2M19LgR5Xy9VGnRUwI0RGTfNCTdquMGd4TJ8299Qfa2i+kdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by VI0PR04MB10830.eurprd04.prod.outlook.com (2603:10a6:800:260::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Thu, 19 Jun
+ 2025 02:28:01 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8857.016; Thu, 19 Jun 2025
+ 02:28:01 +0000
+Message-ID: <77d62994-6f55-4421-a067-5dcb29ab7fa3@nxp.com>
+Date: Thu, 19 Jun 2025 10:29:37 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
- exception
-To: Shuah Khan <skhan@linuxfoundation.org>, brauner@kernel.org,
- shuah@kernel.org, will@kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
- catalin.marinas@arm.com, mark.rutland@arm.com
-References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
- <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] dt-bindings: mfd: fsl,imx8qxp-csr: Remove binding
+ documentation
+To: Frank Li <Frank.li@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, lee@kernel.org, gregkh@linuxfoundation.org
+References: <20250618091314.2754169-1-victor.liu@nxp.com>
+ <aFLukN0TW3AxkNn9@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <aFLukN0TW3AxkNn9@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR02CA0034.apcprd02.prod.outlook.com
+ (2603:1096:3:18::22) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10830:EE_
+X-MS-Office365-Filtering-Correlation-Id: 731a8a3e-2a6a-402c-0f34-08ddaed8e92d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0V4emZyNnQxWDA0b2pISEFYNkNoczJVQkgxa0tMVC9xQVNQNFNZUzduenRZ?=
+ =?utf-8?B?RnFhRTJ4cE85QktWK0d2WDJ3YlM5ejJWaGt1VkdBQUFoK0VsTTFxd0R5bERM?=
+ =?utf-8?B?M3dUc2ZzaFpIRUdqK0NObjNCK0pHb2VRemFQTlJTYTZyTGlOU05BeG1DM2da?=
+ =?utf-8?B?OFhHbUYwV1VtQVFETmhaeTRkWUpKOW9GdzdYVmE0NXRnWTFmQUcvNHlVZWt0?=
+ =?utf-8?B?VVVzdGNqZDVjOWpsaUY0WnY2bmpkTEVxcXpoRmVYczZHVWZyY3Eydy9kTzl3?=
+ =?utf-8?B?ZnVsVlFKWi9wZnE2RWxSSW5RbmFOenE0SVRJMkdXaWQ5TEM2SVZ6a3pDZy9P?=
+ =?utf-8?B?QXJsS1ZkbEZiU3pncVNLK1FHdEd5U2EzMzBmVGZmSXVyVHBkYVZMb0ErMEdQ?=
+ =?utf-8?B?aVdrMC9BVTEydjVxNURkblVBYkttb0FUZm9rZktNQkpmaU41bC9tUnprOC9J?=
+ =?utf-8?B?R1l1OVRMR21iSkM0QTRrNXVRTFdiVlZzT1FLL1dJUytmYzJxUXlYb05OU0o4?=
+ =?utf-8?B?dDF2b3FuOThKZTFVQ3lZclVPVzc0elhJVUJQcnNHUCt5ZTk2M05iNTZCQW5H?=
+ =?utf-8?B?bVJlK0tLVWdiRm9DTXZSNVBtQ2lDRTBKVDJpd2xzRkp4TnpnUjl0bXdEYWlo?=
+ =?utf-8?B?Y2xzSm1Lblhram9vbXNpOEFIb3NVd1hQV2dOdGlLZ1hjc25qWW00dmtQSDRr?=
+ =?utf-8?B?bHBnZkxxdkgrREFDSjVUaE5SMmF0a0VyTFNBZ3J2S0xGRWhYTm1yV1U2Rlc4?=
+ =?utf-8?B?eUlNSnY3aTlvRG4yenVteTZpN2UvZVkvRUtlcS9ITklKMUZJbHNNQ0plZTRo?=
+ =?utf-8?B?QVNYNHllMExqSnlwZnptL0grb0NUT1ZHVm5LaTBmRVVoUFZZTy9vd2wraG1x?=
+ =?utf-8?B?Y0hhdEN2M3NPcFoxUWsyenNlcmMzYVhqdnZlN0dGS1lkR2h1bmFtSjZMdHBu?=
+ =?utf-8?B?SDhsMzhsaUJJcnFLWndNN3hHQ2dCRm43N1JOOUVhS3laajV0ekkvYTdZTHRy?=
+ =?utf-8?B?akI0ZlZUTkpRK2FkelFWK1I5SUZ4Qkw3d3RhRUhoak1wNEJRWERhOTNWTVo5?=
+ =?utf-8?B?M0ppOWxwTWNlaUNxbTJWUURUemJiNFRRdFJuL3RCL3JLeThRazZsOUVSa1ho?=
+ =?utf-8?B?MlpXZUhTWkVkdVZGVGhrZTJjdjE2SmNEV085TVJ4WUMzNmV4NWFYQ1g4cXd6?=
+ =?utf-8?B?T1RGRUhSMEVyTmFaYVFYaU5HYzltZGZRWnk3M0JnK205cURiNGI3MDlZbjJY?=
+ =?utf-8?B?aUcrUlgrcHRXNG9pdlk1elM3U1NkY0pNamtuQkh4M0FqU1pNdlhXeWZSbDZ3?=
+ =?utf-8?B?WGRQSkxGUWpVQTZNY3R0VGdtRGtFb2I1bHBXRXl6Q1hUT09yT1ZlREEyOUVP?=
+ =?utf-8?B?WlVwOXdkZnk4bmtQQjZSOThmcUFGSndGZTBaVkJSeWMrRlZETnptbUJhTUxV?=
+ =?utf-8?B?YWRQb2o2Wml1MHNkMGE1WXJObGV4d1E1aTZpOWRlKzEzdGZMeGFuOGtZakRF?=
+ =?utf-8?B?NWVaems2cjlwWDBJTnNGZE8wTVpDSDllVlBRbFFmNWpHRjh3cVZwUHdHN3Zw?=
+ =?utf-8?B?bTAyc3VLVkEvSkp3NStqMWNmZG5neUFZM0xsaXFUYmZRYzkzNXpWblpuWlJr?=
+ =?utf-8?B?TFRLNTROWm1CUm9JcEtMSXB6RXNwUVUxVnhBN2xVcG1od0RaU2hjOUxGbHls?=
+ =?utf-8?B?ZXV0dGovVEtXZ0VDSVlaVFA0SHdFTFVLNWlzb2YzMmtyMnBNcWNpblJVbVlY?=
+ =?utf-8?B?M0cwM2xFSG9DSmFOcjNjd0duV0Jha3lJUDNvSnN6bU9ua0JoYVJqTGlzZmZZ?=
+ =?utf-8?B?UmozVThZMWpUeVFOUzlIU2w5Nkx4cVBXUjB3Q3c3QWlVcEkzU0cvSlZZYnJv?=
+ =?utf-8?Q?zgOR7U92wYJeg?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c01iQ1c2TTU0ajkyMEhuSXR3T3FWbklsSFRBT20xeE5mQVNCVnRDaEtVbHda?=
+ =?utf-8?B?TnpXVFRlRm95TzdnLzkrWkhUMzA3Ni9XN0pkR0luOGdiWk5UbnhjcDliNlkw?=
+ =?utf-8?B?bGY2dFM3UFYwYitXWEVycFBJS1A1Q0lYTlFXRlZCeWhGZndZZGttL1JCSUI4?=
+ =?utf-8?B?OHRaSkd4NVZBT1ZJcTE4UDRyRnh5WWk1Mk91NUFmM1kyaDBnclMwaStMU3Qy?=
+ =?utf-8?B?OWdjQmcyTU1NSG5QK2JXZjVrckVnZUdPZDBaNDhFcXQyYXNudnJNeS84dzZy?=
+ =?utf-8?B?YnlNQlV3NnF1dm9LY0JCbi9UVHYxbHlsVUZTQ3hXYlFRMlpNZG9SRWZoOFBY?=
+ =?utf-8?B?dGIyQVA1S3dTbjdQMkFPKzVxYlFxZ3pxNmp3ZEhOSjdFbVJITTI3ZkcwYm5p?=
+ =?utf-8?B?SFBQZlgxZW16WjVDZXcwdENVM3c3OXdyakxocmVEL2F6VUVZTmJtKzd4ZzBU?=
+ =?utf-8?B?QURCdDYyNkFwVzRqUS9YczAvc3NkZ0Q3NjFGUUl5eWpFOWU2ZlREVHlhVmo3?=
+ =?utf-8?B?SzhmaVFFbitpRDR4Rno4TTY5QTR4Kzc0SDQybW5IdGZzQXRXOU9ZbkZuQi8r?=
+ =?utf-8?B?NTdKSERxaWlaa0t2dTdNSDV5U2lLR1FNWGxEVGxsTm5GODJFRmJjQm95b0F6?=
+ =?utf-8?B?cXhteUhxTUxqR0gwMjEyWDY2T3RkZ0lEamZWdE4yS2pPZ1BNNjB6Q3cwNXNZ?=
+ =?utf-8?B?YkdJZ1NFcTBvMFM3OFJUdUhnU3pxbWNLeGVXRGpLcFlNYVNaSS9CeUpibzJM?=
+ =?utf-8?B?aEQ3QUJQK2tNQkg5eHhjSm5TWXhPSHFMcSthZWVJcktCa25DQllaU1BjSjFU?=
+ =?utf-8?B?TmtYdFJvenRMSHNJaXlCeWNDdm5Ub090UW43dWJWME9HajhqTy95SFBrTXVo?=
+ =?utf-8?B?NUtDcDI4Umk0bjVOY2xiWTY4czdHMWNRSjZtdEVQYzI1dDVmSTVwcndOS0t6?=
+ =?utf-8?B?Nld1dkVldVV0emhpM05obURtWDZpU1pQdTVFUTlOdXZ2Mnk4OFp6Ny92ak5F?=
+ =?utf-8?B?dmQzdGVnU0tPaHowQWsybm15R0N0Y202WitES2d4cSsvUmFkWityQ0JhODRm?=
+ =?utf-8?B?OExDa2czSUJNTFR3MkdhNndEd2RmUEN4NHNiK0s0SzZWYWY2UFphMXl3T3pK?=
+ =?utf-8?B?bTVkSS9GVFo5ZHU1ZSthdWtBT1lRcTd5a2E4U3RoWXUxZzMrYUJNcG5JS3dr?=
+ =?utf-8?B?S2IvTWd0K2ltbTMwQ3VDT0JJeFl3b2hndjU3QzlJclVkL1I0c0MwLzNWcVNE?=
+ =?utf-8?B?V3NRaURKR25DR3ZIWG5LRHhyc1JsZFV3NnV1eFQvMTF0Z3hBYmd2QXhBdlZI?=
+ =?utf-8?B?V1ZwWk8rd24vVktmdGxjL2RtY2Qrcld5MGZDN2U3bC9qMW9SU2R3MzlLYzg5?=
+ =?utf-8?B?OE5nMHJBWUJBV1crL0V5NUFwcU8zb01OanBjVmFMbHhDalc1QXJZa3RDRWN3?=
+ =?utf-8?B?V0hHdTRFckRHRUpTUWlkdC9Edmh6cTdsdk1EN1c3dEswajMrNkFlUXUzL3RL?=
+ =?utf-8?B?ZWQ2blpETW4rZG1ZUmxpbjJqSUluR2Iza1VLSnJ1dndBVlExTTUzYTlQcnFC?=
+ =?utf-8?B?ejNxdU8xY2VBa1pudldTMUZBZk1GT3NCWnBxT2hHQ281eE05SnI2amU1SVJC?=
+ =?utf-8?B?OWFnV29rQWJZRVRXdm1ZY3BaMysxTHZIY2o5NEVWMFFEd0hSQlZFakRzUnpM?=
+ =?utf-8?B?YXpwME9Xcmk5aDR5WXIxbUVMbnVFU1FPa0s3c2ZpVEc5YXdWd2x5VkVteGNM?=
+ =?utf-8?B?MkVjY2lqUXdzMGdXMmRzdnN5YjNEWE9waGFRdzErRHUrckk0S2VIc1U5MXh1?=
+ =?utf-8?B?elRlaTFJSnljOWFYbTdRQ0tVblpyOFhJbDNmVlQ2SE9Xci8xeG1WRGNpS3Z2?=
+ =?utf-8?B?MDNqdjRTN0hmaThWc2lrY0JoMjI5YlBPTEpLdHRTbDRlZmFOaUlvZnBMd3lP?=
+ =?utf-8?B?QWVLN09rbE4vSkpoK3l1MjFhb0VPU0RGNUlmcHF5QzV6ZDRGU1VJeThETTlX?=
+ =?utf-8?B?c1FRdy9HZ285bk4xODY4YjdYZzNxUGgwWXpmclJwWWdHRGRtSjVXdjM2R3VK?=
+ =?utf-8?B?VE1jTUliSUlsaUdVQ3k4YzVzOGIzQ1p0REhya3dxM3JrQTlDK054TzNaM09U?=
+ =?utf-8?Q?70dYNRzYTlcoeT3H5PWAUKahu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 731a8a3e-2a6a-402c-0f34-08ddaed8e92d
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 02:28:00.9119
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i9G2alcZ9Xk2hbVsIwdsaXokXOU48y26pL2SKYdRy5qjSB8RWrAC74Dk2jX+h4mwlyc/O2qngDC7Xyh60B6tzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_192638_226910_B88C1392 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250618_192807_599758_2227DC64 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +178,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 06/19/2025, Frank Li wrote:
+> On Wed, Jun 18, 2025 at 05:13:14PM +0800, Liu Ying wrote:
+>> commit b0a5cde57cf1 ("dt-bindings: mfd: Explain lack of child dependency
+>> in simple-mfd") pointed out that it's a mistake for a child device of
+>> a simple MFD device to depend on the simple MFD device's clock resources.
+>> fsl,imx8qxp-csr.yaml happens to make that mistake.  To fix that, remove
+>> fsl,imx8qxp-csr.yaml and use "simple-pm-bus" and "syscon" as compatible
+>> strings in the examples of fsl,imx8qxp-pixel-link-msi-bus.yaml.
+> 
+> Does anyone use fsl,imx8qxp-mipi-lvds-csr/fsl,imx8qm-lvds-csr? I suppose
+> yes. It'd better said no one use these in dts and safe to remove.
 
+After this patch removes "fsl,imx8qxp-mipi-lvds-csr" from
+fsl,imx8qxp-pixel-link-msi-bus.yaml, there is no user.  I may mention this
+in commit message of next version.
 
-在 2025/6/19 05:36, Shuah Khan 写道:
-> On 6/15/25 23:06, Shuai Xue wrote:
->> The pidfd_test fails on the ARM64 platform with the following error:
+> 
+> Frank
 >>
->>      Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
->>
->> When exception-trace is enabled, the kernel logs the details:
->>
->>      #echo 1 > /proc/sys/debug/exception-trace
->>      #dmesg | tail -n 20
->>      [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
->>      [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
->>      [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
->>      [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
->>      [48628.713055] pc : 0000000000402100
->>      [48628.713056] lr : 0000ffff98288f9c
->>      [48628.713056] sp : 0000ffffde49daa8
->>      [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
->>      [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
->>      [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
->>      [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
->>      [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
->>      [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->>      [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
->>      [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
->>      [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
->>      [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
->>
->> According to ARM ARM D1.3.10.2 SP alignment checking:
->>
->>> When the SP is used as the base address of a calculation, regardless of
->>> any offset applied by the instruction, if bits [3:0] of the SP are not
->>> 0b0000, there is a misaligned SP.
->>
->> To fix it, align the stack with 16 bytes.
->>
->> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>> Fixes: 9b2c55b5403f ("dt-bindings: mfd: Add i.MX8qm/qxp Control and Status Registers module binding")
+>> Fixes: c08645ea215c ("dt-bindings: bus: Add Freescale i.MX8qxp pixel link MSI bus binding")
+>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 >> ---
-> 
-> Assuming this is going through Christian's tree.
-> 
-> Acked-by: Shuah Khan <skhan@linuxfoundation.org>
-> 
-> Let me know if you would like me to pick it up.
-> 
-> thanks,
-> -- Shuah
+>>  .../bus/fsl,imx8qxp-pixel-link-msi-bus.yaml   |   7 +-
+>>  .../bindings/mfd/fsl,imx8qxp-csr.yaml         | 192 ------------------
+>>  2 files changed, 5 insertions(+), 194 deletions(-)
+>>  delete mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
+>> index 7e1ffc551046..4adbb7afa889 100644
+>> --- a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
+>> +++ b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
+>> @@ -103,11 +103,14 @@ examples:
+>>          clock-names = "msi", "ahb";
+>>          power-domains = <&pd IMX_SC_R_DC_0>;
+>>
+>> -        syscon@56221000 {
+>> -            compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
+>> +        bus@56221000 {
+>> +            compatible = "simple-pm-bus", "syscon";
+>>              reg = <0x56221000 0x1000>;
+>>              clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
+>>              clock-names = "ipg";
+>> +            #address-cells = <1>;
+>> +            #size-cells = <1>;
+>> +            ranges;
+>>
+>>              pxl2dpi {
+>>                  compatible = "fsl,imx8qxp-pxl2dpi";
+>> diff --git a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml b/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
+>> deleted file mode 100644
+>> index 20067002cc4a..000000000000
+>> --- a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
+>> +++ /dev/null
+>> @@ -1,192 +0,0 @@
+>> -# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> -%YAML 1.2
+>> ----
+>> -$id: http://devicetree.org/schemas/mfd/fsl,imx8qxp-csr.yaml#
+>> -$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> -
+>> -title: Freescale i.MX8qm/qxp Control and Status Registers Module
+>> -
+>> -maintainers:
+>> -  - Liu Ying <victor.liu@nxp.com>
+>> -
+>> -description: |
+>> -  As a system controller, the Freescale i.MX8qm/qxp Control and Status
+>> -  Registers(CSR) module represents a set of miscellaneous registers of a
+>> -  specific subsystem.  It may provide control and/or status report interfaces
+>> -  to a mix of standalone hardware devices within that subsystem.  One typical
+>> -  use-case is for some other nodes to acquire a reference to the syscon node
+>> -  by phandle, and the other typical use-case is that the operating system
+>> -  should consider all subnodes of the CSR module as separate child devices.
+>> -
+>> -properties:
+>> -  $nodename:
+>> -    pattern: "^syscon@[0-9a-f]+$"
+>> -
+>> -  compatible:
+>> -    items:
+>> -      - enum:
+>> -          - fsl,imx8qxp-mipi-lvds-csr
+>> -          - fsl,imx8qm-lvds-csr
+>> -      - const: syscon
+>> -      - const: simple-mfd
+>> -
+>> -  reg:
+>> -    maxItems: 1
+>> -
+>> -  clocks:
+>> -    maxItems: 1
+>> -
+>> -  clock-names:
+>> -    const: ipg
+>> -
+>> -patternProperties:
+>> -  "^(ldb|phy|pxl2dpi)$":
+>> -    type: object
+>> -    description: The possible child devices of the CSR module.
+>> -
+>> -required:
+>> -  - compatible
+>> -  - reg
+>> -  - clocks
+>> -  - clock-names
+>> -
+>> -allOf:
+>> -  - if:
+>> -      properties:
+>> -        compatible:
+>> -          contains:
+>> -            const: fsl,imx8qxp-mipi-lvds-csr
+>> -    then:
+>> -      required:
+>> -        - pxl2dpi
+>> -        - ldb
+>> -
+>> -  - if:
+>> -      properties:
+>> -        compatible:
+>> -          contains:
+>> -            const: fsl,imx8qm-lvds-csr
+>> -    then:
+>> -      required:
+>> -        - phy
+>> -        - ldb
+>> -
+>> -additionalProperties: false
+>> -
+>> -examples:
+>> -  - |
+>> -    #include <dt-bindings/clock/imx8-lpcg.h>
+>> -    #include <dt-bindings/firmware/imx/rsrc.h>
+>> -    mipi_lvds_0_csr: syscon@56221000 {
+>> -        compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
+>> -        reg = <0x56221000 0x1000>;
+>> -        clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
+>> -        clock-names = "ipg";
+>> -
+>> -        mipi_lvds_0_pxl2dpi: pxl2dpi {
+>> -            compatible = "fsl,imx8qxp-pxl2dpi";
+>> -            fsl,sc-resource = <IMX_SC_R_MIPI_0>;
+>> -            power-domains = <&pd IMX_SC_R_MIPI_0>;
+>> -
+>> -            ports {
+>> -                #address-cells = <1>;
+>> -                #size-cells = <0>;
+>> -
+>> -                port@0 {
+>> -                    #address-cells = <1>;
+>> -                    #size-cells = <0>;
+>> -                    reg = <0>;
+>> -
+>> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link0: endpoint@0 {
+>> -                        reg = <0>;
+>> -                        remote-endpoint = <&dc0_pixel_link0_mipi_lvds_0_pxl2dpi>;
+>> -                    };
+>> -
+>> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link1: endpoint@1 {
+>> -                        reg = <1>;
+>> -                        remote-endpoint = <&dc0_pixel_link1_mipi_lvds_0_pxl2dpi>;
+>> -                    };
+>> -                };
+>> -
+>> -                port@1 {
+>> -                    #address-cells = <1>;
+>> -                    #size-cells = <0>;
+>> -                    reg = <1>;
+>> -
+>> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0: endpoint@0 {
+>> -                        reg = <0>;
+>> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi>;
+>> -                    };
+>> -
+>> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1: endpoint@1 {
+>> -                        reg = <1>;
+>> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi>;
+>> -                    };
+>> -                };
+>> -            };
+>> -        };
+>> -
+>> -        mipi_lvds_0_ldb: ldb {
+>> -            #address-cells = <1>;
+>> -            #size-cells = <0>;
+>> -            compatible = "fsl,imx8qxp-ldb";
+>> -            clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>,
+>> -                     <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
+>> -            clock-names = "pixel", "bypass";
+>> -            power-domains = <&pd IMX_SC_R_LVDS_0>;
+>> -
+>> -            channel@0 {
+>> -                #address-cells = <1>;
+>> -                #size-cells = <0>;
+>> -                reg = <0>;
+>> -                phys = <&mipi_lvds_0_phy>;
+>> -                phy-names = "lvds_phy";
+>> -
+>> -                port@0 {
+>> -                    reg = <0>;
+>> -
+>> -                    mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi: endpoint {
+>> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0>;
+>> -                    };
+>> -                };
+>> -
+>> -                port@1 {
+>> -                    reg = <1>;
+>> -
+>> -                    /* ... */
+>> -                };
+>> -            };
+>> -
+>> -            channel@1 {
+>> -                #address-cells = <1>;
+>> -                #size-cells = <0>;
+>> -                reg = <1>;
+>> -                phys = <&mipi_lvds_0_phy>;
+>> -                phy-names = "lvds_phy";
+>> -
+>> -                port@0 {
+>> -                    reg = <0>;
+>> -
+>> -                    mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi: endpoint {
+>> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1>;
+>> -                    };
+>> -                };
+>> -
+>> -                port@1 {
+>> -                    reg = <1>;
+>> -
+>> -                    /* ... */
+>> -                };
+>> -            };
+>> -        };
+>> -    };
+>> -
+>> -    mipi_lvds_0_phy: phy@56228300 {
+>> -        compatible = "fsl,imx8qxp-mipi-dphy";
+>> -        reg = <0x56228300 0x100>;
+>> -        clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
+>> -        clock-names = "phy_ref";
+>> -        #phy-cells = <0>;
+>> -        fsl,syscon = <&mipi_lvds_0_csr>;
+>> -        power-domains = <&pd IMX_SC_R_MIPI_0>;
+>> -    };
+>> --
+>> 2.34.1
+>>
 
-Hi, Shuah
-
-Thanks for your review.
-
-I send this fix in Mar, but it missed last linux version.
-I think I need your help to pick it up.
-
-Thanks.
-Shuai
-
-
-
+-- 
+Regards,
+Liu Ying
 
