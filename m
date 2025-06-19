@@ -4,94 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D343C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDD8C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 09:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JTcC8uoCOSM0+5JiXWDBYfybPyfdDoEoObObpyrYRk=; b=oDUHCBFOvBmxADVzJh9TVdzzZ3
-	ARDPyn5sVQFmU7uBfW9GOO+x7Fhni5qjR9ivE9FTQYwh+SGDCPburl3p0XEfaiuseiKf8q7zmQ9tq
-	tKAc1JUdV0Az7LVTJhc3RKwdBRMgDbIV9eqdnNsTp9WowfpwCY/5Puc2yYpYdha+12d/VmGF1z0sH
-	L7KzHAlfh58ol1bah4Kmb1h98FadfMm125zbufMg7uF3uOUCZjZPbGKwsTuJO0FmXme9IHR2usPp9
-	DdJpRqUVAkXZisFhSJJVHpe8dS6HPcb/p/Xiq8n2ve4xH9zMAK4p34Sz/W9V3lBNQBd2elqovyNVS
-	1JJbWs9g==;
+	bh=kXdEOuSE84y7KQ8YXqskQa8fEM4BBQcsKhAUrS+jouY=; b=xEYkBfnwTscrA7EJG4047tS9/E
+	G+pZonR6AeKWqBGzTRYCTzXrt5jlEsUK5nc/Gf2q5v73ggXHyqxMqOEh9whbFJC/FfYwuPOEe3Cwg
+	5VkZ7qavpVezL6VWtF5cunuS4szDCi4p87ikkVG3KhaS/PQTscKYd1A4Y/OCW4hWy20CKDIrZ9xLH
+	kji9aCJuZ4wp4ycpwmLX4S0mz4RFfqZI1pyPLFiVjBq1tl3jqznvbj6PyuYQzZgo2MxSly+cnOmHW
+	pcUw6FtWVuKaKWxxPdH+8ut1g4RTX+1G8o630aNJbZlITxZ9G2wGOGA3LKGnZBHrz40FZeJkWIq9p
+	ETW1o8nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSBMy-0000000CaWn-1Nec;
-	Thu, 19 Jun 2025 09:15:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uSBPA-0000000CayJ-0SmC;
+	Thu, 19 Jun 2025 09:17:56 +0000
+Received: from mail-wr1-f43.google.com ([209.85.221.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAiK-0000000CRLi-1y0e
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Jun 2025 08:33:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2JTcC8uoCOSM0+5JiXWDBYfybPyfdDoEoObObpyrYRk=; b=oXUkL1/IrTv+vunWL6eazO2pUJ
-	ld6/XZcGy+U5neiNIIogNiM88V3qjn5GH9v3smG372RUnqsf1N3UEQES0gn6U9ut9Vw6IXtIwmJIA
-	SFMRV+sWnbkUhJWkw89rQhY+9CTf2UIRKwKCUzlfu1hsyMrYKkwi/kERE1tNpfX6xg/eJmMqMCO9G
-	Gl9V/U+GaQOLUIYmlrBRT0d08wH5LN875g0EWoFBK9JG7oK1rBKwARVa6tkJlRV0eAwiKFIRkLsVm
-	vhAoCQItUHU6HJjRZSk9HNB9cbCUrf3KkCZp23ZShlncFthFbUHg7xgBXoT48sLnXVPfNcmIhU5gZ
-	9twgnlAQ==;
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSAiH-00000004Nov-2mQB
+	id 1uSAiK-0000000CRLb-0S5P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 08:33:39 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55J8XMQR532765;
-	Thu, 19 Jun 2025 03:33:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750322002;
-	bh=2JTcC8uoCOSM0+5JiXWDBYfybPyfdDoEoObObpyrYRk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Pb8k3kX/r1jnFe/WEbbreOL/yDgBTgd73YVFDTq4jom9bvHeiqyV2xiyuY/kzAGKF
-	 vrlEsjMc8DjztNfoMraHrUAWcUlXHw/IbFBERcJ4SiJ8LebEwy7lw0IMGcr2rSmUsE
-	 ktuVEgZPBmP1Vvk34+fQFkwbLnI2gHF7upicEKUU=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55J8XMPc3732274
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 19 Jun 2025 03:33:22 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 19
- Jun 2025 03:33:21 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 19 Jun 2025 03:33:21 -0500
-Received: from [172.24.227.4] (hp-z2-tower.dhcp.ti.com [172.24.227.4])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55J8XHnY822301;
-	Thu, 19 Jun 2025 03:33:18 -0500
-Message-ID: <5c56f6d6-fc3e-40a1-b501-7f1054e6e408@ti.com>
-Date: Thu, 19 Jun 2025 14:03:17 +0530
+	Thu, 19 Jun 2025 08:33:41 +0000
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-3a4fb9c2436so265697f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 01:33:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750322018; x=1750926818; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kXdEOuSE84y7KQ8YXqskQa8fEM4BBQcsKhAUrS+jouY=;
+        b=eKwwpN7Uvf65YInETC9dLV9WUk40z2tXYzZm7y6Jrfrf21UURqzf2NVeCzvooc/Yaq
+         jwpjKXqV10iV0mfdZNMK1+etm8SYgzJnW7rUPbfOBHmWmH5ZfeizgWTd2tbNGizEHiKs
+         0/FLuUHN9HRcxwdSI9iBc5YN5m8s8HCRW2zqMHirhleZHQ6SMwThxU9nc6bjQpSPUAOL
+         ASWVZageaO5fYxyXBjVAhHVmFS+pInJnkUIeQygLO1e1/sx8yiK/eeF+czSSx2qDFD0R
+         Pa5jVE7K6aL7QJKq/yfYZiAITBrRC1UJIzf05Fm2RNpDTJncMv4/XHZCDkv+LSo7IYe9
+         8TAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750322018; x=1750926818;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kXdEOuSE84y7KQ8YXqskQa8fEM4BBQcsKhAUrS+jouY=;
+        b=vjt1VjzuqQlJfCkxAjrpryp4tYJc+HkzXuX1Z3ddtFL/5xy424SaLwA/URPwGxGIAP
+         daOI+2B1xC3dMUGKIN/56y83xmVG9BLMZRLstXt8J6mEIWW1gya+pJY2LGpiTVgeSbxS
+         hO/Vi2p2AuXYEPxPi5g1uE1eiTOG0ZiC8N91/j9YeKhyW/3uxvQdv0aejjBaG5SomEnU
+         IT3tMOKIwrD4m2ZRm4OilEZQbLvDl+hhfZLXTmIzdeu1aprZqqI+x+PCGylIj045DZCx
+         a+IinsHd2RLX0qHTfbg9hYQsrrahbVLAEIb93IYfRQ0VoTUfM8bTlbGyQoT3nLaRq0L4
+         5w4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUQt16ZGLFsIPrFiSqctPxIabd8NiVpoBsK7tw1EFuRzwNgRTdRA/WIL04u1XaodNxZdRAx29B/Q03lbm2+NrbL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1hx/rhiCTVV54ksg3SdIV3Enwox5SVma8+iRRznl3IYg1sChW
+	EuXdrs8CbU25HoCjMGmOwcM6h/+qbewUFqjoysvlJyzawXrAoud6kBisP5jEiM77uJQ=
+X-Gm-Gg: ASbGncs5sbpPHTKwjk+a8FDjJiATy2uC3a5tjV3iSuJsEZaPnGBGZouHzP6D1gwvDGM
+	dAROmhzOT+b9WN0DdmtbyVurAoFDTJCRRUSgYnA2QWrYGXJH/vE5FhCS4Q1KmPVmNJLEvVnN3Ey
+	2hhZXYBT0BJE9t/3ypvr/87UMx27sPRSUXknDDgCEdRt2Rz/+CXCK6P/Kh8o3SOF22Wu/QEyS5u
+	XArBVhpf46x2HQEt6G2KRERe7WuzUWrkYRnyODPg0eYCXIvunN9nheg1a87J6Zmm5VPBkHcVovu
+	APbJpvYkVuMPRy68vXX5gbFZhg+mpUE0bnfVX6CAsNICQgrVHzP8b51a
+X-Google-Smtp-Source: AGHT+IGYf6Ur9Ugv00BgKRd4oArCMUnqUFrWbDyyGQdN0NxdK6b+fGQpGmKSwn4EbOC14dV/Zz+MRA==
+X-Received: by 2002:a05:6000:1a8e:b0:3a5:2208:41d9 with SMTP id ffacd0b85a97d-3a572e92134mr16408329f8f.40.1750322018388;
+        Thu, 19 Jun 2025 01:33:38 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:c485:fe15:c9ab:c72f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a63a42sm18828151f8f.28.2025.06.19.01.33.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 01:33:37 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 19 Jun 2025 10:33:24 +0200
+Subject: [PATCH v2 11/12] gpio: rtd: use new GPIO line value setter
+ callbacks
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am642-evm-pcie0-ep: Add boot phase
- tag to "pcie0_ep"
-To: Vignesh Raghavendra <vigneshr@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <s-vadapalli@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <danishanwar@ti.com>, Hrushikesh Salunke <h-salunke@ti.com>
-References: <20250610054920.2395509-1-h-salunke@ti.com>
- <98e04654-a693-494d-9f60-930b6a4cd84a@ti.com>
- <b24a97fc-8dac-443b-aec7-317b9e393f2d@ti.com>
- <f6a57a82-c534-4439-a337-8592c2e121c5@ti.com>
- <28c88a78-fe34-4595-b260-c6cc40897bc1@ti.com>
-Content-Language: en-US
-From: Hrushikesh Salunke <h-salunke@ti.com>
-In-Reply-To: <28c88a78-fe34-4595-b260-c6cc40897bc1@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250619-gpiochip-set-rv-gpio-v2-11-74abf689fbd8@linaro.org>
+References: <20250619-gpiochip-set-rv-gpio-v2-0-74abf689fbd8@linaro.org>
+In-Reply-To: <20250619-gpiochip-set-rv-gpio-v2-0-74abf689fbd8@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, 
+ Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1662;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=v7M2Umlyn2cPSJSz3+M1vQ3MpPcGxR4ur24zUL3eZaA=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoU8tThgGdaruvFHruvGZ1lAgXO57/m24G9JZAH
+ AZ0dHw+AMOJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFPLUwAKCRARpy6gFHHX
+ cpX2D/4iJISKxtRrP48ODihJoiJODatcQMlQc7qJrlQLGfyqLACXHtKsWH3vo4ZYvHikNgYvQRJ
+ D1nzxPRafhpjXoUNaE0TMiVgAlNKv9WTqPh8/ca2vopFGeG+12V4TJ0RolHwfeWF6rZlSlfU+CA
+ FvT4uglIG4oz3YIndaFMKuiPqMomFTuZ0sz6nNr9S9WlWUhgXsNm9AKG8xL4IzkXqjtKBFiNu2+
+ U3K7koUtZzrvTm8aKdtBVpr+Kh5fAyEqbjIUM8KOkoac5CfacDs5anNnBu9PKyrknB5dvjkw/Tj
+ DfA5KyxsLMcEl5iT4UW5xS8NRuwrd2cXoVpY7NjLMeHOMKy8KE7LFp9uDxJUsiHuG2ANr+pNF+/
+ Sp+rl+r5szqRedXKpvRobS9q+e3EP0vNDU/VDu1pZo/JXnoMuNM2qpx/nQVRU8Tsq8QcjUYl9ce
+ lwj3Snv0N3vLx6DIj714XhH6wwZEaVKQhBofRj9acJG5pOKa6jB2WPRGvW125y1ztYvTMDeRfEv
+ j2H2jU4CXmygo6ctNjELJGSJVJumx4KCPWqkrZtPbkWlOwMeO2fo29J+FLWIGoFhTsm+O8rMI3D
+ Cl8TjTeMgJ2IZopO+r8CVVGpRCUAOrCeGhm4n04NxnSzuAKKqpB8gVhYIq4eL8fynV+EFkj49TV
+ WjjMy+HzldWpe2w==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_093338_039186_D873FFCC 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20250619_013340_138832_7679D6E8 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,86 +122,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
-On 19/06/25 13:25, Vignesh Raghavendra wrote:
-> 
-> 
-> On 12/06/25 15:46, Hrushikesh Salunke wrote:
->>
->>
->> On 11/06/25 14:17, Hrushikesh Salunke wrote:
->>>
->>>
->>> On 11/06/25 14:14, Vignesh Raghavendra wrote:
->>>>
->>>>
->>>> On 10/06/25 11:19, Hrushikesh Salunke wrote:
->>>>> AM64X SoC has one instance of PCIe which is PCIe0. To support PCIe boot
->>>>> on AM64X SoC, PCIe0 needs to be in endpoint mode and it needs to be
->>>>> functional at all stages of PCIe boot process. Thus add the
->>>>> "bootph-all" boot phase tag to "pcie0_ep" device tree node.
->>>>>
->>>>> Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
->>>>> ---
->>>>> This patch is based on commit
->>>>> 475c850a7fdd Add linux-next specific files for 20250606
->>>>>
->>>>> Changes since v1
->>>>> As per feedback from Nishanth, changed the position of "bootph-all"
->>>>> tag, according to ordering rules for device tree properties.
->>>>>
->>>>> v1 : https://lore.kernel.org/
->>>>> all/20250609115930.w2s6jzg7xii55dlu@speckled/
->>>>>
->>>>>    arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso | 1 +
->>>>>    1 file changed, 1 insertion(+)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso b/
->>>>> arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
->>>>> index 432751774853..a7e8d4ea98ac 100644
->>>>> --- a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
->>>>> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
->>>>> @@ -46,6 +46,7 @@ pcie0_ep: pcie-ep@f102000 {
->>>>>            max-functions = /bits/ 8 <1>;
->>>>>            phys = <&serdes0_pcie_link>;
->>>>>            phy-names = "pcie-phy";
->>>>> +        bootph-all;
->>>>>            ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
->>>>>        };
->>>>>    };
->>>>
->>>> Are the patches for PCIe boot support merged to U-Boot or such other
->>>> bootloader repo?
->>>> No, they are not in the U-Boot yet. I will be posting patches for PCIe
->>> boot support for U-Boot this week.
->>>
->>
->> I have posted Patch series for the PCIe boot support in Uboot.
-> 
-> 
-> Great, but dont you need bootph-all in dependent nodes as well such as
-> serdes0_pcie_link pcie0_ctrl? how does this work otherwise?
-> 
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/gpio/gpio-rtd.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-When booting through PCIe, ROM configures SERDES for PCIe. So we don't
-need to reconfigure it again in subsequent bootstages, we can keep
-using the same configuration. As for PCIe endpoint controller, BAR
-registers and Address Translation registers needs to be re-configured
-at each bootstage, as bootloaders at different stage are stored at
-different memory location.
+diff --git a/drivers/gpio/gpio-rtd.c b/drivers/gpio/gpio-rtd.c
+index bf7f008f58d703347cba14f35c19f5798ee3a949..25bbd749b019bf8a272c173a3e7373a442f72350 100644
+--- a/drivers/gpio/gpio-rtd.c
++++ b/drivers/gpio/gpio-rtd.c
+@@ -275,7 +275,7 @@ static int rtd_gpio_set_config(struct gpio_chip *chip, unsigned int offset,
+ 	}
+ }
+ 
+-static void rtd_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
++static int rtd_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+ {
+ 	struct rtd_gpio *data = gpiochip_get_data(chip);
+ 	u32 mask = BIT(offset % 32);
+@@ -292,6 +292,8 @@ static void rtd_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+ 	else
+ 		val &= ~mask;
+ 	writel_relaxed(val, data->base + dato_reg_offset);
++
++	return 0;
+ }
+ 
+ static int rtd_gpio_get(struct gpio_chip *chip, unsigned int offset)
+@@ -563,7 +565,7 @@ static int rtd_gpio_probe(struct platform_device *pdev)
+ 	data->gpio_chip.get_direction = rtd_gpio_get_direction;
+ 	data->gpio_chip.direction_input = rtd_gpio_direction_input;
+ 	data->gpio_chip.direction_output = rtd_gpio_direction_output;
+-	data->gpio_chip.set = rtd_gpio_set;
++	data->gpio_chip.set_rv = rtd_gpio_set;
+ 	data->gpio_chip.get = rtd_gpio_get;
+ 	data->gpio_chip.set_config = rtd_gpio_set_config;
+ 	data->gpio_chip.parent = dev;
 
+-- 
+2.48.1
 
->>
->> 1.https://patchwork.ozlabs.org/project/uboot/
->> patch/20250612084910.3457060-1-h-salunke@ti.com/
->> 2. https://patchwork.ozlabs.org/project/uboot/
->> cover/20250612085023.3457117-1-h-salunke@ti.com/
->> 3. https://patchwork.ozlabs.org/project/uboot/
->> cover/20250612085534.3457522-1-h-salunke@ti.com/
->>
->>
->> Regards,
->> Hrushikesh.
-> 
 
