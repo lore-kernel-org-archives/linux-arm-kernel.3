@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFC8C77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAE4C7EE24
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TxslC6pQXcHdpzCaIc0ShCAogIeJ5PhqKsdI+tEyZtY=; b=quYVObOp9ivrDfTUK9GRHWEkw5
-	WGKNf5tzf1BiHrmZdzxkX5mgIbr23YPGZ8ake8iuTdXIc2HTVr8aF+EyIp8Zl0Appofk4xvq5AUaj
-	KyRoJT84QuyjwtIi0Vxr5kGVI0Qt9nx9C2xEEPl82blPzxdlC8TsgydUh3buGNin9p1GEALVzVInq
-	SgaCWsyLakHjRnrfweUHzKS3xjlQNGC6MAIHRv1iUDJEw33iV6D9iLlG0OgXA5WiGfoQutCG/NeU0
-	MaJol3pPXy0S7Ei+u0lyxQUhpTFtqzXhK5nui/XRa2gcExaw3VVT0UT7tURUYbEQGuMXeKJVQMAuO
-	JxyXmHeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gruKTDJuV6Sj97RPdJFhZZrpf4LrmQdVNrpM5u2t0XU=; b=sQ8IfZ07PiFlNP11DlZtIlHcfR
+	5+OTvdz829WE8OHm1HG5prrGCchmp922fqV9pjgphefYakmXOmRIVUQV67B3ehJnzDbiHOF/0pdTo
+	Lzi8tAPUcVxM44JjrO1wnep/QgrkVSK4VsgHpVMF9dWo65R0fn6AmP6HIwn++GE6YpuDyY7bwRm0Q
+	g6hHfKOddTOiwS2x6OE1hYQ1y5tvqr6Zx1tPmuebp1YU68h6FSd+YNqCircv7KFpGaDNGXZ6wUlaY
+	amzRi1V8pBOiPu9j1F2Lb6g9XwQGU7ZYlaDhAan9iurT23HG+2uA7SAvxgwKJuke//Pq+644PwYEO
+	jTPL9gEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLH8-0000000E8ap-0fHo;
-	Thu, 19 Jun 2025 19:50:18 +0000
+	id 1uSLHA-0000000E8ce-08uN;
+	Thu, 19 Jun 2025 19:50:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHho-0000000Daoy-2xMu
+	id 1uSI3a-0000000DcGf-2H7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 16:01:38 +0000
+	Thu, 19 Jun 2025 16:24:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81C9A12FC;
-	Thu, 19 Jun 2025 09:01:13 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 642F03F66E;
-	Thu, 19 Jun 2025 09:01:32 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 1/2] arm64: poe: Handle spurious Overlay faults
-Date: Thu, 19 Jun 2025 17:00:41 +0100
-Message-ID: <20250619160042.2499290-2-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250619160042.2499290-1-kevin.brodsky@arm.com>
-References: <20250619160042.2499290-1-kevin.brodsky@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D349C113E;
+	Thu, 19 Jun 2025 09:23:44 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70F503F66E;
+	Thu, 19 Jun 2025 09:24:04 -0700 (PDT)
+Date: Thu, 19 Jun 2025 17:24:02 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Subject: Re: [PATCH 02/12] drivers/perf: arm_spe: Expose events capability
+Message-ID: <20250619162402.GI794930@e132581.arm.com>
+References: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
+ <20250613-arm_spe_support_hitm_overhead_v1_public-v1-2-6faecf0a8775@arm.com>
+ <3431e6e3-a80b-4ce0-94c4-56739a5ed2d9@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3431e6e3-a80b-4ce0-94c4-56739a5ed2d9@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_090136_833576_FF339154 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20250619_092406_627078_6FF4E2B3 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,116 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We do not currently issue an ISB after updating POR_EL0 when
-context-switching it, for instance. The rationale is that if the old
-value of POR_EL0 is more restrictive and causes a fault during
-uaccess, the access will be retried [1]. In other words, we are
-trading an ISB on every context-switching for the (unlikely)
-possibility of a spurious fault. We may also miss faults if the new
-value of POR_EL0 is more restrictive, but that's considered
-acceptable.
+On Thu, Jun 19, 2025 at 12:32:16PM +0100, James Clark wrote:
 
-However, as things stand, a spurious Overlay fault results in
-uaccess failing right away since it causes fault_from_pkey() to
-return true. If an Overlay fault is reported, we therefore need to
-double check POR_EL0 against vma_pkey(vma) - this is what
-arch_vma_access_permitted() already does.
+[...]
 
-As it turns out, we already perform that explicit check if no
-Overlay fault is reported, and we need to keep that check (see
-comment added in fault_from_pkey()). Net result: the Overlay ISS2
-bit isn't of much help to decide whether a pkey fault occurred.
+> > @@ -165,6 +168,7 @@ static struct attribute *arm_spe_pmu_cap_attr[] = {
+> >   	SPE_CAP_EXT_ATTR_ENTRY(ernd, SPE_PMU_CAP_ERND),
+> >   	SPE_CAP_EXT_ATTR_ENTRY(count_size, SPE_PMU_CAP_CNT_SZ),
+> >   	SPE_CAP_EXT_ATTR_ENTRY(min_interval, SPE_PMU_CAP_MIN_IVAL),
+> > +	SPE_CAP_EXT_ATTR_ENTRY(events, SPE_PMU_CAP_EVENTS),
+> 
+> Would "event_filters" be a better name? Technically an SPE version can
+> support a filter but the event itself might not be implemented.
 
-Remove the check for the Overlay bit from fault_from_pkey() and
-add a comment to try and explain the situation. While at it, also
-add a comment to permission_overlay_switch() in case anyone gets
-surprised by the lack of ISB.
+Good point!  Will update in next spin.
 
-[1] https://lore.kernel.org/linux-arm-kernel/ZtYNGBrcE-j35fpw@arm.com/
-
-Fixes: 160a8e13de6c ("arm64: context switch POR_EL0 register")
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/kernel/process.c |  5 +++++
- arch/arm64/mm/fault.c       | 30 +++++++++++++++++++++---------
- 2 files changed, 26 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index a5ca15daeb8a..be1717eaf23b 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -671,6 +671,11 @@ static void permission_overlay_switch(struct task_struct *next)
- 	current->thread.por_el0 = read_sysreg_s(SYS_POR_EL0);
- 	if (current->thread.por_el0 != next->thread.por_el0) {
- 		write_sysreg_s(next->thread.por_el0, SYS_POR_EL0);
-+		/*
-+		 * No ISB required as we can tolerate spurious Overlay faults -
-+		 * the fault handler will check again based on the new value
-+		 * of POR_EL0.
-+		 */
- 	}
- }
- 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index ec0a337891dd..11eb8d1adc84 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -487,17 +487,29 @@ static void do_bad_area(unsigned long far, unsigned long esr,
- 	}
- }
- 
--static bool fault_from_pkey(unsigned long esr, struct vm_area_struct *vma,
--			unsigned int mm_flags)
-+static bool fault_from_pkey(struct vm_area_struct *vma, unsigned int mm_flags)
- {
--	unsigned long iss2 = ESR_ELx_ISS2(esr);
--
- 	if (!system_supports_poe())
- 		return false;
- 
--	if (esr_fsc_is_permission_fault(esr) && (iss2 & ESR_ELx_Overlay))
--		return true;
--
-+	/*
-+	 * We do not check whether an Overlay fault has occurred because we
-+	 * cannot make a decision based solely on its value:
-+	 *
-+	 * - If Overlay is set, a fault did occur due to POE, but it may be
-+	 *   spurious in those cases where we update POR_EL0 without ISB (e.g.
-+	 *   on context-switch). We would then need to manually check POR_EL0
-+	 *   against vma_pkey(vma), which is exactly what
-+	 *   arch_vma_access_permitted() does.
-+	 *
-+	 * - If Overlay is not set, we may still need to report a pkey fault.
-+	 *   This is the case if an access was made within a mapping but with no
-+	 *   page mapped, and POR_EL0 forbids the access (according to
-+	 *   vma_pkey()). Such access will result in a SIGSEGV regardless
-+	 *   because core code checks arch_vma_access_permitted(), but in order
-+	 *   to report the correct error code - SEGV_PKUERR - we must handle
-+	 *   that case here.
-+	 */
- 	return !arch_vma_access_permitted(vma,
- 			mm_flags & FAULT_FLAG_WRITE,
- 			mm_flags & FAULT_FLAG_INSTRUCTION,
-@@ -635,7 +647,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 		goto bad_area;
- 	}
- 
--	if (fault_from_pkey(esr, vma, mm_flags)) {
-+	if (fault_from_pkey(vma, mm_flags)) {
- 		pkey = vma_pkey(vma);
- 		vma_end_read(vma);
- 		fault = 0;
-@@ -679,7 +691,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 		goto bad_area;
- 	}
- 
--	if (fault_from_pkey(esr, vma, mm_flags)) {
-+	if (fault_from_pkey(vma, mm_flags)) {
- 		pkey = vma_pkey(vma);
- 		mmap_read_unlock(mm);
- 		fault = 0;
--- 
-2.47.0
-
+Thanks,
+Leo
 
