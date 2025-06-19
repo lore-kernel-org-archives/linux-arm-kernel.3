@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E494C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC833C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0x49pZTwdiDXr2gd+qMECRg1QrcMDZNfZWb+FgYBKNA=; b=1FG2A0PjBRP6+lHIEywX1HN4z7
-	EypQSqkuckyveqQPZA3oHzaDqnZ0dk/sOnj2FqglujsyjJEjbtR0FHJgL4PLKeBuXxM0PY8fA8ig1
-	Lw1Z/ZrN38ISE4PMK57TsdIQJi9Ag7Zn16B+Bvic/Mz8Lzkekd5YgtHaiXjAEqb2fGZmQ9auEVQr3
-	HdFls0+6f/b2uFoGmVaFa/P2BARsHaMufwoWTzkuivJSCd/Px8dc1Dgt8JC2b3Udm2fiubhlHPD2R
-	4UaD2cIi4XWCREiL9clOvHftBV9vzBArJ8D2+Xqfyktgghvxblurkskp7UI6j4B5n4xm3F8ZJ6ff2
-	1pRwCyKA==;
+	bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=; b=X7FD4+kcHbrJe+Ln2MZrk3iVyG
+	LPI3C7gpAV66BD73EnXwHtzflcfaL/FoofSUJl5BotlZmg43K3xT2Hv5J9ea3M0aXXxsIZnMI/nQd
+	xbdx9lRQxlbik7BcSlsvtFn/Ho8uBtvOqis8Ef0b8atC7NZx04QFhTFYeJiFWPubhJaqDJzYKwstL
+	XAyTnAJ4tNvAIo8NB8re2sBL9XUd87PKltgRrCoxo3Sp94qtHopPC+0ZnBfEXyzQVgtCDD1LxOvhq
+	Tgx6DbHvCswPxM4EjD4m8xZcd93hOLa80pjI9WRz8cVuc59QeL9jqTaLnaqe0CHnSi3YCuCJrzG36
+	D8Em2RFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIec-0000000Del5-1BGO;
-	Thu, 19 Jun 2025 17:02:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uSIeb-0000000DekF-20xU;
+	Thu, 19 Jun 2025 17:02:21 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEVt-0000000D4kF-3kO0
+	id 1uSEJX-0000000D2ZJ-04wo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 12:37:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 35FB3A543E4;
-	Thu, 19 Jun 2025 12:37:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D063EC4CEEA;
-	Thu, 19 Jun 2025 12:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750336624;
-	bh=5RsgnPconllRbfnixRhtoqpNREXw2H2Ipf16oI9O5rk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uw8uZTPkzLcmoPvmUWRcnY7YFleRsMVDgyQsrOutK4c5a4rWBzvWibdqrc+zOLEGO
-	 qk5vyYlgnJaIbY5H5eZYhCov9MtaKtbOzIAySgMU6NnhNzf6hscTgLHN2cCQnWItal
-	 x+XPBVCpaXWPSOVzIC4VKRp4AJVOE4wBaI2gclPcZXCoHZk6pUCyrQ9xUZuKBq3tnw
-	 CambOoBAwEODCJ+VCOLDeuYfpmS/qNXDveKKjqK8AzJPcAHUkAsstlTILlVITSTc6L
-	 Mu6j6LMnRGe9Og6M35XpEQrnaM0N/N/EeEYTJ5khAaCgR686QjTjEZVfiCY4Ut2PMs
-	 zhrnNG+z7AsfQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uSEVq-008Ff6-Lj;
-	Thu, 19 Jun 2025 13:37:02 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev,
-	stable@vger.kernel.org,
-	tabba@google.com,
-	will@kernel.org
-Subject: Re: [PATCH 0/7] KVM: arm64: trap fixes and cleanup
-Date: Thu, 19 Jun 2025 13:36:58 +0100
-Message-Id: <175033660259.3069733.12635205080587210406.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250617133718.4014181-1-mark.rutland@arm.com>
-References: <20250617133718.4014181-1-mark.rutland@arm.com>
+	Thu, 19 Jun 2025 12:24:20 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ade76b8356cso123091766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 05:24:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750335858; x=1750940658; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=;
+        b=T00ACUGuvKVjD/Vhx98sYcu6Ag8IXFaG04KjTbxbNl+pCyuTSpWIajRLgVp7W8dSQj
+         v7EZ4vp7SIL14300wtmcbF1W758Ls91TvaAg8t7nIUzvP6RuPvFMh2H2jNpqnLvJh13H
+         wd0h1itV035vZf9126/hM0grRyU+m6o0FTnfvkFxYgZQUiU9teypBky6+A9SrIgDoRIY
+         gMyOoPDlN089cwSigQPUuVnRS+5wMM3MblLSZGKG+mWELnfAHQTFPVLPmK5kVejdL9DF
+         NVbhbfmAtBzwLsr2BIjC7HaMvJf+uQctc1JB83rzCLYAb2Od/2ixI8VKYrNR5moRYbYU
+         RCXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750335858; x=1750940658;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=;
+        b=unwdz/oxW/jVbL8ybddTZQrsapc3dEKFI8nvQ5CGdtOQ/+2XBl/MWT+v6dUXDrTSln
+         5SkUgAFTKq28ow4vS5ZPtXU0lo+r9fQLMDJzjs2cKkz7bggD6CN7cAYH8guF+a8butNs
+         JrJ40hkxkEK1YTjAQ80vJSj7oN5+OORlz50BikiZ4NfG/TXE9pGD9Ka5MPuotMlTDizK
+         8OK/++WfCY0/aYdsTvwbxfTlmpgSBBlgIWjj2UWVBXL634FHQYNLSdvRY7bKUhoCX31P
+         xnYCGa9lsv3Yu4JHgnTfGWQ98oDRMrd9XhOYkMN2/BPk9i97pbgwB3kS/RsAVZHgbd2l
+         /kgA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKUN14rL3DdJV5JXwuySPEMU9iB/qkK1mFlQR5y5iIn2+gqaSTGALjk95DSyVJuRjiuS0Hex4qgLYRQZzIkuzS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZPo5zttfyzyOLQWKS02u3j/onUg8azH8wGgvJ++WbeADx32LY
+	ruSyZnCUhhwqvkRzSfb7TPSEZwoZgfaBZUqKPHThFPSjRJWmlSCVfezR
+X-Gm-Gg: ASbGncspmmAM2CvhYr10a5GINxejRGg6pugNIwZj1TUcQVJhHdbf8zTvbn0z6I2RRoh
+	GAIzBDGKms2fsDQgEUT9bbymF/OvWt0WL0PHWRKH1s44tmdsHW24XFWRVk9ZqBbwBAWa4+V07Km
+	tCx1bmAC31lyUknkPe3XWykXkjr4YdGBOaVDEf212ohrA/7nJrGS8Htylbb04a1VIMxKujf2GJb
+	ctdiQuaKW2GDf+4Xb1a+Cdq856Sfi9Cj1D7J+ajTzpeV7u2/Mz39BFZKCbvo8eCF216iVT0gub2
+	2mv9djgAjJd8+8KLxYCKkmAprnb3+Eg2c88mNbvbdq4KCM2vbvBCEAnoPtcMHwtf4jD1sAU6HQw
+	TZRtPcB8ZwNZ81w==
+X-Google-Smtp-Source: AGHT+IE+a44JiT4pmaQaCPgiF4SiL6W/ZMs6YLvucyMriX+08QeWg5qDOEHlRbDj5alSx6vbOGHqPA==
+X-Received: by 2002:a17:906:9fcb:b0:ad8:9e5b:9217 with SMTP id a640c23a62f3a-adfad60cb3bmr2167795566b.45.1750335857453;
+        Thu, 19 Jun 2025 05:24:17 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:2f0e:c51b:8900:a03f:12cb:72f7:9069])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae000b02bd3sm504688066b.3.2025.06.19.05.24.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 05:24:17 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH 06/10] crypto: sun8i-ce - fold sun8i_ce_cipher_run() into sun8i_ce_cipher_do_one()
+Date: Thu, 19 Jun 2025 15:23:12 +0300
+Message-ID: <20250619122316.2587236-7-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250619122316.2587236-1-ovidiu.panait.oss@gmail.com>
+References: <20250619122316.2587236-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, stable@vger.kernel.org, tabba@google.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_053705_997555_6A5FD20F 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250619_052419_063536_F223F084 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Jun 2025 14:37:11 +0100, Mark Rutland wrote:
-> This series fixes some issues with the way KVM manages traps in VHE
-> mode, with some cleanups/simplifications atop.
-> 
-> Patch 1 fixes a theoretical issue with debug register manipulation,
-> which has been around forever. This was found by inspection while
-> working on other fixes.
-> 
-> [...]
+Fold sun8i_ce_cipher_run() into it's only caller, sun8i_ce_cipher_do_one(),
+to eliminate a bit of boilerplate.
 
-Applied to fixes, thanks!
+This will also make it a bit more clear that the skcipher do_one_request()
+callback follows the usual prepare -> run -> unprepare pattern.
 
-[1/7] KVM: arm64: VHE: Synchronize restore of host debug registers
-      commit: cade3d57e456e69f67aa9894bf89dc8678796bb7
-[2/7] KVM: arm64: VHE: Synchronize CPTR trap deactivation
-      commit: 257d0aa8e2502754bc758faceceb6ff59318af60
-[3/7] KVM: arm64: Reorganise CPTR trap manipulation
-      commit: e62dd507844fa47f0fdc29f3be5a90a83f297820
-[4/7] KVM: arm64: Remove ad-hoc CPTR manipulation from fpsimd_sve_sync()
-      commit: 59e6e101a6fa542a365dd5858affd18ba3e84cb8
-[5/7] KVM: arm64: Remove ad-hoc CPTR manipulation from kvm_hyp_handle_fpsimd()
-      commit: 186b58bacd74d9b7892869f7c7d20cf865a3c237
-[6/7] KVM: arm64: Remove cpacr_clear_set()
-      commit: 3a300a33e4063fb44c7887bec3aecd2fd6966df8
-[7/7] KVM: arm64: VHE: Centralize ISBs when returning to host
-      commit: 04c5355b2a94ff3191ce63ab035fb7f04d036869
+Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+---
+ .../allwinner/sun8i-ce/sun8i-ce-cipher.c      | 34 ++++++++-----------
+ 1 file changed, 15 insertions(+), 19 deletions(-)
 
-Cheers,
-
-	M.
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+index 9963e5962551..5fdb6a986b1f 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+@@ -360,31 +360,27 @@ static void sun8i_ce_cipher_unprepare(struct crypto_engine *engine,
+ 	dma_unmap_single(ce->dev, rctx->addr_key, op->keylen, DMA_TO_DEVICE);
+ }
+ 
+-static void sun8i_ce_cipher_run(struct crypto_engine *engine, void *areq)
+-{
+-	struct skcipher_request *breq = container_of(areq, struct skcipher_request, base);
+-	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(breq);
+-	struct sun8i_cipher_tfm_ctx *op = crypto_skcipher_ctx(tfm);
+-	struct sun8i_ce_dev *ce = op->ce;
+-	struct sun8i_cipher_req_ctx *rctx = skcipher_request_ctx(breq);
+-	int flow, err;
+-
+-	flow = rctx->flow;
+-	err = sun8i_ce_run_task(ce, flow, crypto_tfm_alg_name(breq->base.tfm));
+-	sun8i_ce_cipher_unprepare(engine, areq);
+-	local_bh_disable();
+-	crypto_finalize_skcipher_request(engine, breq, err);
+-	local_bh_enable();
+-}
+-
+ int sun8i_ce_cipher_do_one(struct crypto_engine *engine, void *areq)
+ {
+-	int err = sun8i_ce_cipher_prepare(engine, areq);
++	struct sun8i_cipher_req_ctx *rctx = skcipher_request_ctx(areq);
++	struct skcipher_request *req = skcipher_request_cast(areq);
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	struct sun8i_cipher_tfm_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct sun8i_ce_dev *ce = ctx->ce;
++	int err;
+ 
++	err = sun8i_ce_cipher_prepare(engine, areq);
+ 	if (err)
+ 		return err;
+ 
+-	sun8i_ce_cipher_run(engine, areq);
++	err = sun8i_ce_run_task(ce, rctx->flow,
++				crypto_tfm_alg_name(req->base.tfm));
++	sun8i_ce_cipher_unprepare(engine, areq);
++
++	local_bh_disable();
++	crypto_finalize_skcipher_request(engine, req, err);
++	local_bh_enable();
++
+ 	return 0;
+ }
+ 
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.49.0
 
 
