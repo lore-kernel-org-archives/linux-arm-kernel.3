@@ -4,106 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732D4C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4188C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 19:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xWOKgUn3tbwkPft0E09nxCRikqNNuagRgJ8LQ45SOIg=; b=TFuqPc3GXAtjo/ylWKxik8CAOy
-	IIgJ3+lFVJMPFTVemnVjSemfCQkZaFlRuKo43MzwxuBsQFAXMIMofUomtB2ukOlDU4zStsohJxB+B
-	mO8/gYMabcKoQ0tRImULbYKeDF1R8BXmnWjNzbmHQC0kWczGuCKsOJHcQ28drU7wM+vlFj77sH1VY
-	p2cEDONBliNb2Z647MkSKulSysnnAxPuYVeHNaQqX8Lw++FKbrRL7aQWGaaFkkK09DPc6TqmR+K4y
-	8SJOhzNZiyARchT/+lBp4aOwk7MQieC2xol/EI9K5s7Kw8kXjc01Xb/mg9i12seHUSw6IvhdfCZA4
-	ybKYN8zg==;
+	bh=E2yJIqbe/a2gRDDbhKhvWTaM933cv/HNrekpVoEZjAY=; b=3O9v/TpVAkH8ROW7iIQ/GWYzJ3
+	G5RJ+rrGfZOWXFf0FqhYX2kk0ysMfVqaM5W3mtzuQ/BQ6/IGDihdbpOsK3gs07JViaVCC43UopCtO
+	wQLKt0/YzG5t4V1/oAVL/JbDaEqZkwEYUpYEor3NchrxrThIBW8B+Z6jUKRDGlZXHN+m9jQsWoWr5
+	LjtMgWNvb0ErgB2F0YLCx1evwvCPx5n08U/zbLrkoazPg/dmzr0VGb0lYkanLgk8nOWb6IXJYyHhn
+	w4tX5VNUM3UHKrpOOE5zYpPisK6DeP1UOQl7DV0o2gd1qIMlV9yg7dqyHBI4YdJ4O+ySsdRTyu0+q
+	1fgGOywg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLCe-0000000E7e8-1zlR;
-	Thu, 19 Jun 2025 19:45:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uSLE5-0000000E7mh-030y;
+	Thu, 19 Jun 2025 19:47:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKnX-0000000E4ZG-19vp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 19:19:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750360782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xWOKgUn3tbwkPft0E09nxCRikqNNuagRgJ8LQ45SOIg=;
-	b=OZBRLRQBUMF9zRiFAd5VPyKiY7V/hUpeZrF5mTDdDy36ZkKv5YdChA/nJdO8E0mmhgnEda
-	MU0skjdsd2TyWUxv4GkkmhMKiVf39z+Phf72Bqr/+kg8N4D2Xz9N3bp3/g09Fu1Y/0V2HI
-	TrgYFoiHXjWIoROLS7e9Ky9XjfDTsv0=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-670-gpVPmr5uOrSKoU-SldmlnA-1; Thu,
- 19 Jun 2025 15:19:38 -0400
-X-MC-Unique: gpVPmr5uOrSKoU-SldmlnA-1
-X-Mimecast-MFC-AGG-ID: gpVPmr5uOrSKoU-SldmlnA_1750360774
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 366DE1800286;
-	Thu, 19 Jun 2025 19:19:34 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.132])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3668A19560A3;
-	Thu, 19 Jun 2025 19:19:25 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 19 Jun 2025 14:16:05 -0500
-Subject: [PATCH v2 13/16] drm/fsl-dcu: Keep up with refcounting
-MIME-Version: 1.0
+	id 1uSHMo-0000000DQrz-0h0F;
+	Thu, 19 Jun 2025 15:39:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BD191A54693;
+	Thu, 19 Jun 2025 15:39:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62299C4CEEA;
+	Thu, 19 Jun 2025 15:39:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750347592;
+	bh=jV+OZCno1T5pQq8f29xXiDkJq9EOGCSTlU81ln72ilk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=MI/CK0/YyCyldQ3UHxDwvcWh+gFyWAXDaWmski7hPotpFAvjr5eu/4gZ0f2rtJ46z
+	 US4hxKotdPLGyGK60JVv0WswFpWgHuSexIQqCPDDdlLtkJ+UP8SS4IL8caNprXHFzi
+	 pP9CNAS5+eeGfnHT5Xm94lIjWtWculPwTfhPiXimiuGF1mFV0BQzGWHzO0M1caH/Zz
+	 W9M3Dv7rdqMDgaqMRad3PmDdJo1Uk+BMjwxxuuRUF5YhRyejh3uMNYYK2D/T2skAQZ
+	 LTIBmMXZe/qKU/+86uuW3mZmae6WBesbFL/EcNiImkv9aYc8Ye5eQpdA7ZbEoXvLJq
+	 YXfIWnMRBVvzg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE7A38111DD;
+	Thu, 19 Jun 2025 15:40:21 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-b4-of_drm_find_panel_part1-v2-13-0df94aecc43d@redhat.com>
-References: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
-In-Reply-To: <20250619-b4-of_drm_find_panel_part1-v2-0-0df94aecc43d@redhat.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Stefan Agner <stefan@agner.ch>, 
- Alison Wang <alison.wang@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750360565; l=725;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=15UU8yn9DQhf/aJbB6hdeRxRvlpLKFZR7XcJB1tuOTo=;
- b=iWoM2BSqthHnnHmi4gZ+RG7iVh55rVSyF0lWlaruty9abKD4asQf1j9iYd9swpGmjURdKOkGN
- 531fNW+NuCYA0dXTbrDmd7sJU3PeQa+md+1b98ivj94ynCejnS5HwKL
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: airoha: Always check return value from
+ airoha_ppe_foe_get_entry()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175034762024.906129.12155603666888344760.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Jun 2025 15:40:20 +0000
+References: <20250618-check-ret-from-airoha_ppe_foe_get_entry-v2-1-068dcea3cc66@kernel.org>
+In-Reply-To: <20250618-check-ret-from-airoha_ppe_foe_get_entry-v2-1-068dcea3cc66@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_121943_386428_8AD8D98C 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250619_083954_268521_CB2BA62F 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put the panel reference back when driver is no
-longer using it.
+Hello:
 
-Patch added in v2
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
----
- drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c | 1 +
- 1 file changed, 1 insertion(+)
+On Wed, 18 Jun 2025 09:37:40 +0200 you wrote:
+> airoha_ppe_foe_get_entry routine can return NULL, so check the returned
+> pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
+> 
+> Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support")
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
-index 84eff7519e322257ed7ee7dfdcb08db40a341d6e..db79b35384be9729db9abb96a8fea6bc3da9d7f3 100644
---- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
-+++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_rgb.c
-@@ -100,6 +100,7 @@ static int fsl_dcu_attach_panel(struct fsl_dcu_drm_device *fsl_dev,
- 	if (ret < 0)
- 		goto err_sysfs;
- 
-+	drm_panel_put(panel);
- 	return 0;
- 
- err_sysfs:
+Here is the summary with links:
+  - [net,v2] net: airoha: Always check return value from airoha_ppe_foe_get_entry()
+    https://git.kernel.org/netdev/net/c/78bd03ee1f20
 
+You are awesome, thank you!
 -- 
-2.48.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
