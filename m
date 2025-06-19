@@ -4,104 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C041C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 22:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B23C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 22:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dM3LZzqEC8pvuQnpLB36kfnR26uwEUo8ADcO8bP7/0c=; b=UT4qKjDiTzMC+QuKA2NLqdSmyI
-	PjuMZCm9Mt23JMaz041ZLqb+ayWN9v1AdZg6UbIpxzLMrf46wEr4KlSl8JA+UYvoqVsyR/5GfXV9Y
-	hehTD8DtCITIng9lI8to69yPIQUMdGr3wIMXj2Xlh13n+PVCKlJZ3Ldp0PyLvHjrW09iik09wY1jv
-	t02rFbLdQPy7F31y8g5J5vnvxhK1u5vez1s7REYzvcTc9dFN7WrlYEdfXm9QImTGZ1tAwSgveaAUI
-	6Z6qUZJxFKG68XzOFzzI5JZRAxjAMX4+KEAEY5OAtXEZKZ1fObYl4K2BgDwzZ0tz20s0FtreM4FZb
-	ZN/bIleA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aamTXbWKddvjCZgM+4LP44qcUvX1ol0CRrtMaaLefoI=; b=0hKxV1/VmyLSz76454KVWJaRLd
+	e3x7cIoRMBMRPNCQVHI2uR84MIaMFcxfgOjBEfCb+/lKMARIAQ2RQNw0/lBg71VQLgitsb2/ps6Yn
+	mhx452mqv3r7YBqzMCyRzT5weY53XH0U0WVu6BXlkaDPlns20LxoVPrybI+PJnJdIzWWH15VtolmL
+	JH5wdPXdHZQ4dFumq4ixG81VT4l/UOJNZftXS8lvL2ZGi7unvPmC8wK4JDZLgtM/jVlH+APfagPPu
+	S5rJk3rIHO8zmYzXWYpEVe3d+otmtQA5q62090V22sfLzxHvuxy8w8AY/S8VwclQBaqVjHutr5lK5
+	VD0dPJdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSNKh-0000000ELA7-36ZI;
-	Thu, 19 Jun 2025 22:02:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uSNN4-0000000ELfb-1nJv;
+	Thu, 19 Jun 2025 22:04:34 +0000
+Received: from mail-dm6nam10olkn2080b.outbound.protection.outlook.com ([2a01:111:f403:2c13::80b] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLin-0000000EBxx-14Ox
+	id 1uSNKn-0000000ELBW-40DR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 20:18:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57F1961132;
-	Thu, 19 Jun 2025 20:18:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45083C4CEEA;
-	Thu, 19 Jun 2025 20:18:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750364332;
-	bh=w4wRzkSo/usAv+HhkdLgr8lf3ugNk6JlmcksQBrr6sU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L8dyEu3ru+KmueKEBCpzJUaQ1v4VlB0jxWKBMd38flJgled/kDek2YBdep1dLpiS7
-	 +KJwr5iPrfFFiStjjUJ0rGNoYoJRDnnv9fv5XuiLwad+LI1euMGa4SMLzX5LW7v9fm
-	 tM+uQrM7uK+ZtPfzCKw+VVL/E/2BpHB0MIdC5tIePk+W0288njoibPE3IpS+NERi2V
-	 dX5XuozAJHJuv2pno3v07xwmTnCYhS56En8rJ2kSgjpIZcWf8Lb6VhKgPzoIDKaKdo
-	 8Qh8fdswlQ7+j0tlobb0/CMYm3dYCioHYfcIV8BVbchI6eYbGhjq5OMnkSitBbpTkL
-	 knMuGmfVqFK1Q==
-Message-ID: <23f5da2f-0da1-449a-ab4e-c62fbfd74d4f@kernel.org>
-Date: Thu, 19 Jun 2025 22:18:48 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH][next] clk: moxart: Make read-only array div_idx static
- const
-To: Stephen Boyd <sboyd@kernel.org>, Colin Ian King <colin.i.king@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250619083035.1835133-1-colin.i.king@gmail.com>
- <175036278075.4372.3898345624525344837@lazor>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+	Thu, 19 Jun 2025 22:02:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a4EB3nNW5E4oakcQ805pbm+DlkWyjXOOq8YpD7gmaamSOKmOYVaLr2+2MUqKEpPeCXTZlpBGu8i93NsKB1y4szZ4nnegyiR5Dy4zcp1JyNCI8flaxXEa6bap9HtGRvQYeBFAgfxFG+2mmJYV2WPaFCeCF734UiVkvlMvdK8gL757+j6PU1TyBaRnbP5qZ9afm8vLQcPP03nsLkfFNeAjGsd+F3HMig8KAB+PQ/2NHRIcQQeBhaWK5SEfc+u/bUhQ8wHIT3gpmgf8ywkOeGEtI+B9jfOcOTDuD5zQVUuQKNWztIJxzNKEiXYb7opRZSDoJozgRZ4NSSfgr7tq6N4SsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aamTXbWKddvjCZgM+4LP44qcUvX1ol0CRrtMaaLefoI=;
+ b=ukRbZwm85d13E5YiYUryxs7OWeUyBpl69CYRmv4GC7AODdBSq3RhgcQgZs6ADuSCXkTxgSjB/Z65CSNL84rUaCvnPXVN31jVW2tsoyy3cT7JNwG/8Oh8XRayVLvWCbemHtaiKDhpP39gFQa+kIS/294qIRox7knURj7167zH9ivl4npXxJUFQQXsGI11QhZF/qEYQSuOlcLgWp/jlKrpuoBHgDyC8gGSTr2x3eqA3FB8IG50TpC7tVwOo2SrvpbpgMbhN6LLvRH7/UO2HSR0cp59mxbXUjApBJiVyBguZl/c+0fuTon0n2UIzNF71Ng/XytnN7Ec/TwlnqwkB/vRhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aamTXbWKddvjCZgM+4LP44qcUvX1ol0CRrtMaaLefoI=;
+ b=k5p4DGSA0EaRkoTnCogMq0vgxwJ6yQkNEYHldoV43U1sxPBpiIY+4b2rcCasf3zoOGRzUs8OXjtxxs6UkFJSbNMZLKUr6sfvkcaYA8SytHQJ+inw1r2VCus9fM8HOYKH+JdDK6nothRUyRai+ZXiiItbkiwJ2CRosWcSp/YFZVFup2T0/b7KiMyEP6aNki0Ck4F6rxEwWtWR+TLNROukPFTEpsYrkp/02xQQdj0CwLj9o4C8DqhzBXkID2KelQbZ3rVNvoodkkvONjTYdytz1sEiXi3Q8p2u421uyA7Vnvyrv4QGvOQ5qED3PmoZexOZsjXK+goxTDLQeQZALslxqQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by BY1PR02MB10554.namprd02.prod.outlook.com (2603:10b6:a03:5aa::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.21; Thu, 19 Jun
+ 2025 22:02:03 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8835.027; Thu, 19 Jun 2025
+ 22:02:03 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "jinankjain@linux.microsoft.com"
+	<jinankjain@linux.microsoft.com>, "skinsburskii@linux.microsoft.com"
+	<skinsburskii@linux.microsoft.com>, "mrathor@linux.microsoft.com"
+	<mrathor@linux.microsoft.com>, "x86@kernel.org" <x86@kernel.org>
+Subject: RE: [PATCH 3/4] x86: hyperv: Expose hv_map_msi_interrupt function
+Thread-Topic: [PATCH 3/4] x86: hyperv: Expose hv_map_msi_interrupt function
+Thread-Index: AQHb2mKvyYZ7kcH90E2KtA5yDTBR/7P9bWcQgAwIFwCAAZswsA==
+Date: Thu, 19 Jun 2025 22:02:03 +0000
+Message-ID: <SN6PR02MB41576BCEDD9D8239909CFA57D47DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <1749599526-19963-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1749599526-19963-4-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157639630F8AD2D8FD8F52FD475A@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <8f96db3f-fc3b-44b6-ab28-26bca6e2615b@linux.microsoft.com>
+In-Reply-To: <8f96db3f-fc3b-44b6-ab28-26bca6e2615b@linux.microsoft.com>
+Accept-Language: en-US
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <175036278075.4372.3898345624525344837@lazor>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BY1PR02MB10554:EE_
+x-ms-office365-filtering-correlation-id: 745cf925-5744-4269-8b88-08ddaf7cec8f
+x-microsoft-antispam: BCL:0;ARA:14566002|15080799009|461199028|19110799006|41001999006|8062599006|8060799009|3412199025|51005399003|40105399003|440099028|102099032;
+x-microsoft-antispam-message-info: =?us-ascii?Q?nEbysinktuJDpf0FzlGHW9ZYKzJmcuf9i44YdZbeRxwIS5PTgSck0cZ4ofOQ?=
+ =?us-ascii?Q?f5gf+dk5AAN5qzHp/NqoZbyM2+vgvYlMZ/YdmXC5nbKqv0h9xhKQlDNb/ueC?=
+ =?us-ascii?Q?1YP7G/mmd6bSYRI/1ICLHnj7Ue8vYj/alzyvNbwR4Lnu6Z4/HsiCxE/zXVhJ?=
+ =?us-ascii?Q?SMEbI28jEZpfD5joNiNnUSUrkQvQB70x+LwwaflhZDp2wcEUc9neUMm+Yw8n?=
+ =?us-ascii?Q?2K8DgGOonIL40X06njfNj36I4c4Pj/aNy1OXPpJp/l+lNzjQlL91DOBcc5tM?=
+ =?us-ascii?Q?5KwRODpYBtZ/+uYfxsHY6BolvQgJNC1AZWdJLE8en+SYRdopc9PF8AZLGRfY?=
+ =?us-ascii?Q?/mrMHBFwIY8IonMgtPD5MRiqiAV+Wn07INGkckBnt15fdcJQAnE+KtT8vHTh?=
+ =?us-ascii?Q?DAhRw2Dh9IfjyWfNfnkmOG4asRZkh9KKPgq8i0uSXQGs9WL7Adaqqsip9foF?=
+ =?us-ascii?Q?zZ4bz5tsoglCUziZPx3Iuy22diw2SjR9/Vmf7iPA0obDHayOaSNuq2FcoOwF?=
+ =?us-ascii?Q?N6fqpCLI3lwLraQoAEFU/zQtINZzCJnuDPV3u6PZ47fXt6qdWe5jd1CBQfAW?=
+ =?us-ascii?Q?FE3E8G6B9bfqQKR1QJJ5VfB7Bbjub1/Xi2FUHzwX8vsT5AKv6IhyQmhNb2GX?=
+ =?us-ascii?Q?ddFzJRGR499tQj/Ftk8EKGkLra1lMj2YzEhxqhetbOcOANBqAhZuUTMKR5Ps?=
+ =?us-ascii?Q?oezmkuB904KG01vbiMaiCIZ4yBkHB91SUAVJoFB5i+YAzs+/w9DlDmZEljn8?=
+ =?us-ascii?Q?AfG09gC2UpEuUjdmdNgXeuLfyq4noQi5TGztuUjr4tmcHAzenmtZGSSC+fXc?=
+ =?us-ascii?Q?jDHzxn4eK0y12T+QbEM2OButrAX5nhv01dqMlI2e4j82TGYNE4r8FpvEO823?=
+ =?us-ascii?Q?T1zcQyIJ7w7m1oALLtZ6GBQlx5Dda+4suCo+ZPwBn7FU8HOZMja2qvajQJ0p?=
+ =?us-ascii?Q?zZAC8Egzc6zquP+ZBwsjTuPmOM9VlJ6qpKoDFCpaoyG4splnafAjYdHU5VqC?=
+ =?us-ascii?Q?C0aD2bNMkR83axoRhSzI9SNdcWkfrDWZ1XNhNFVgbzqKoX5+rctbhQfgQ2EI?=
+ =?us-ascii?Q?xQycsHHGgtRNRndX0HxyuFB8oVnqzI+ztvRKnRb/baLWszz1lqAic+RtZL3i?=
+ =?us-ascii?Q?LBjttPSTn76wryIdT6bXyUTeB6nqSVEUr+NeM9fqdR5PhV8Kfwj6CtPp9Jpv?=
+ =?us-ascii?Q?u0zvoyvwgcDuiwQq?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9Gx0HtZ3fw6YDzJABSlGNjaZecjckABZVSYIyf1+3KIaeiewkW7+ALV386TG?=
+ =?us-ascii?Q?fLWcYT3JLe645h1B5lQKchozEl/qSOeR6mIUTptuhuIeHoz7k+SlI7h7Z90S?=
+ =?us-ascii?Q?PpsubzdHtE5GQaFwUM3stIblnCYFU7JmojRjtb8/zGVMomN0qfW8uN0IekKF?=
+ =?us-ascii?Q?HPjZv1cZafc1ZjB3Urr/S6RNTjpC9EGkYdacsmX6NCQd7CAHZEFhNZrugCdF?=
+ =?us-ascii?Q?Lp3yTLd8NNbbfs+UirKyeHUpufe8CvUu01yP1PTFjlF9v6F6VszZt5MD5oDp?=
+ =?us-ascii?Q?RNCIdCgK2nkFPBtJASksqctEg2hbjdFUZwLfWFHOt6zFexeXuisfdwN6ZdLo?=
+ =?us-ascii?Q?TgBywGimivSItTGEVCiRYBP+7zaxM8Zm6b1jkMlfe5HoWXlqHLblFh2KumUt?=
+ =?us-ascii?Q?nUVsHsEKsNU51rULGsYZcL3hdxGJHsZOfoQoMrCpZsPYzvIySJRvXPGn3ZcW?=
+ =?us-ascii?Q?pjabnqvpCam2XHWe4/HdMdGlHiciJWF62yk1wA3NjYy3YDuNq9yaM2u5ZDx0?=
+ =?us-ascii?Q?0nk97k3MCwvMjz8anGwBxs8nvQSZobr1/0Ktg9U+R0TjdCxQ06GGjMZpBK8H?=
+ =?us-ascii?Q?mmdlMnpT8X95kYF2eLlKz1hInbqWWuZLT9/osgTMYV/D/Oh0u1iYcDUep5KM?=
+ =?us-ascii?Q?Oeqx1j+GW7oqhl/Hhb1KaBVi1Wv9BLO56Gv0JE3jPCI2KtAlIA1gJTpnMEh4?=
+ =?us-ascii?Q?mhXBKSXkGVJi5tbgB9BlVLg9XoO0TFZF9IRXKVtwqY5/ohLbRffLET1mY6f4?=
+ =?us-ascii?Q?C5vs12uvhZWOaybiw+Z67hrFayV3S28KohNoU5TGzx2hr6GvHf5iPOkLixmM?=
+ =?us-ascii?Q?Vjy3A6msuqTnpGD752yDx7WV0EiEAq58RAUSdML694rbkHzTUuaaJ0Sb4O8o?=
+ =?us-ascii?Q?Hm7KuwCUIUx6dL5Wlg6B8uSxRjQBlZAnhmmcqDzNCmV01w7iTo5yde2qPPDv?=
+ =?us-ascii?Q?8w6cfNyEGYaILdGhpY/wir/TXufKM2HVvBxBDMmt2IAbv6FlrPRzv+LRLJPM?=
+ =?us-ascii?Q?uBrNckugI7uhyJgEnOyzh9zAAjSw6/3iO21JfyxFv8EW8TCkjnQBs/HfwliQ?=
+ =?us-ascii?Q?yhRXb851JRewszL0LEuDrGp/Docp5Ajh4SAuC1We/K5DIingEH2B1Wd/gQ6H?=
+ =?us-ascii?Q?jkqZTmB/hu/m7cqdyvOX1hTub3FavjJEt1MUyq4wNTwNlEraoWnkQZHa8sia?=
+ =?us-ascii?Q?lWkr9EEMCj4mAj3VSfGK3n+fPqF0wS946vOvJ7Yrw9IvHQHDAmbVhITnJNE?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 745cf925-5744-4269-8b88-08ddaf7cec8f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2025 22:02:03.5905
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR02MB10554
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250619_150214_034231_6E148CD5 
+X-CRM114-Status: GOOD (  53.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,18 +163,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2025 21:53, Stephen Boyd wrote:
-> Quoting Colin Ian King (2025-06-19 01:30:35)
->> Don't populate the read-only array div_idx on the stack at run time,
->> instead make it static const.
-> 
-> Why? This is in __init code so it can be thrown away if it stays on the
-> stack.
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, Ju=
+ne 18, 2025 2:08 PM
+>=20
+> On 6/11/2025 4:07 PM, Michael Kelley wrote:
+> > From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, =
+June
+> 10, 2025 4:52 PM
+> >>
+> >> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+> >
+> > The preferred patch Subject prefix is "x86/hyperv:"
+> >
+>=20
+> Thank you for clarifying - I thought I saw some precedent for x86: hyperv=
+:
+> but must have been mistaken.
+>=20
+> >>
+> >> This patch moves a part of currently internal logic into the
+> >> hv_map_msi_interrupt function and makes it globally available helper
+> >> function, which will be used to map PCI interrupts in case of root
+> >> partition.
+> >
+> > Avoid "this patch" in commit messages.  Suggest:
+> >
+> > Create a helper function hv_map_msi_interrupt() that contains some
+> > logic that is currently internal to irqdomain.c. Make the helper functi=
+on
+> > globally available so it can be used to map PCI interrupts when running
+> > in the root partition.
+> >
+>=20
+> Thanks, I'll rephrase.
+>=20
+> >>
+> >> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com=
+>
+> >> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> >> ---
+> >>  arch/x86/hyperv/irqdomain.c     | 47 ++++++++++++++++++++++++--------=
+-
+> >>  arch/x86/include/asm/mshyperv.h |  2 ++
+> >>  2 files changed, 36 insertions(+), 13 deletions(-)
+> >>
+> >> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+> >> index 31f0d29cbc5e..82f3bafb93d6 100644
+> >> --- a/arch/x86/hyperv/irqdomain.c
+> >> +++ b/arch/x86/hyperv/irqdomain.c
+> >> @@ -169,13 +169,40 @@ static union hv_device_id hv_build_pci_dev_id(st=
+ruct pci_dev *dev)
+> >>  	return dev_id;
+> >>  }
+> >>
+> >> -static int hv_map_msi_interrupt(struct pci_dev *dev, int cpu, int vec=
+tor,
+> >> -				struct hv_interrupt_entry *entry)
+> >> +/**
+> >> + * hv_map_msi_interrupt() - "Map" the MSI IRQ in the hypervisor.
+> >> + * @data:      Describes the IRQ
+> >> + * @out_entry: Hypervisor (MSI) interrupt entry (can be NULL)
+> >> + *
+> >> + * Map the IRQ in the hypervisor by issuing a MAP_DEVICE_INTERRUPT hy=
+percall.
+> >> + */
+> >> +int hv_map_msi_interrupt(struct irq_data *data,
+> >> +			 struct hv_interrupt_entry *out_entry)
+> >>  {
+> >> -	union hv_device_id device_id =3D hv_build_pci_dev_id(dev);
+> >> +	struct msi_desc *msidesc;
+> >> +	struct pci_dev *dev;
+> >> +	union hv_device_id device_id;
+> >> +	struct hv_interrupt_entry dummy;
+> >> +	struct irq_cfg *cfg =3D irqd_cfg(data);
+> >> +	const cpumask_t *affinity;
+> >> +	int cpu;
+> >> +	u64 res;
+> >>
+> >> -	return hv_map_interrupt(device_id, false, cpu, vector, entry);
+> >> +	msidesc =3D irq_data_get_msi_desc(data);
+> >> +	dev =3D msi_desc_to_pci_dev(msidesc);
+> >> +	device_id =3D hv_build_pci_dev_id(dev);
+> >> +	affinity =3D irq_data_get_effective_affinity_mask(data);
+> >> +	cpu =3D cpumask_first_and(affinity, cpu_online_mask);
+> >
+> > Is the cpus_read_lock held at this point? I'm not sure what the
+> > overall calling sequence looks like. If it is not held, the CPU that
+> > is selected could go offline before hv_map_interrupt() is called.
+> > This computation of the target CPU is the same as in the code
+> > before this patch, but that existing code looks like it has the
+> > same problem.
+> >
+>=20
+> Thanks for pointing it out - It *looks* like the read lock is not held
+> everywhere this could be called, so it could indeed be a problem.
+>=20
+> I've been thinking about different ways around this but I lack the
+> knowledge to have an informed opinion about it:
+>=20
+> - We could take the cpu read lock in this function, would that work?
+>=20
+> - I'm not actually sure why the code is getting the first cpu off the eff=
+ective
+>   affinity mask in the first place. It is possible to get the apic id (an=
+d hence
+>   the cpu) already associated with the irq, as per e.g. x86_vector_msi_co=
+mpose_msg()
+>   Maybe we could get the cpu that way, assuming that doesn't have a simil=
+ar issue.
+>=20
+> - We could just let this race happen, maybe the outcome isn't too catastr=
+ophic?
+>=20
+> What do you think?
 
-Indeed previous code could be discarded, now will be in rodata, but we
-save several instructions runtime on copying it. Plus the actual binary
-will be slower (really less code), so also loading it will be faster.
+I would have to study further to provide good answers to your questions as
+I don't have deep knowledge of this area off the top of my head. The code
+looked suspicious because AND'ing the affinity with the cpu_online_mask in
+the first place is presumably to prevent assigning the interrupt to a CPU
+that is offline. That's a valid intent, since such assigning would indeed b=
+e
+problematic.
 
-Best regards,
-Krzysztof
+But as written the code is inherently racy unless the cpus_read_lock() is
+held. I'm on vacation all next week, and probably won't be able to look at
+this again until early July. So the best I can do for now is flag the issue=
+.
+
+Michael
+
+>=20
+> >> +
+> >> +	res =3D hv_map_interrupt(device_id, false, cpu, cfg->vector,
+> >> +			       out_entry ? out_entry : &dummy);
+> >> +	if (!hv_result_success(res))
+> >> +		pr_err("%s: failed to map interrupt: %s",
+> >> +		       __func__, hv_result_to_string(res));
+> >
+> > hv_map_interrupt() already outputs a message if the hypercall
+> > fails. Is another message needed here?
+> >
+>=20
+> It does print the function name, which gives additional context.
+> Probably it can just be removed however.
+>=20
+> >> +
+> >> +	return hv_result_to_errno(res);
+> >
+> > The error handling is rather messed up. First hv_map_interrupt()
+> > sometimes returns a Linux errno (not negated), and sometimes a
+> > hypercall result. The errno is EINVAL, which has value "22", which is
+> > the same as hypercall result HV_STATUS_ACKNOWLEDGED. And
+> > the hypercall result returned from hv_map_interrupt() is just
+> > the result code, not the full 64-bit status, as hv_map_interrupt()
+> > has already done hv_result(status). Hence the "res" input arg to
+> > hv_result_to_errno() isn't really the correct input. For example,
+> > if the hypercall returns U64_MAX, that won't be caught by
+> > hv_result_to_errno() since the value has been truncated to
+> > 32 bits. Fixing all this will require some unscrambling.
+> >
+>=20
+> Good point, it's pretty messed up! I think in v2 I'll add a patch to
+> clean this up first.
+>=20
+> >>  }
+> >> +EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
+> >>
+> >>  static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry,=
+ struct
+> msi_msg *msg)
+> >>  {
+> >> @@ -190,10 +217,8 @@ static void hv_irq_compose_msi_msg(struct irq_dat=
+a
+> *data, struct msi_msg *msg)
+> >>  {
+> >>  	struct msi_desc *msidesc;
+> >>  	struct pci_dev *dev;
+> >> -	struct hv_interrupt_entry out_entry, *stored_entry;
+> >> +	struct hv_interrupt_entry *stored_entry;
+> >>  	struct irq_cfg *cfg =3D irqd_cfg(data);
+> >> -	const cpumask_t *affinity;
+> >> -	int cpu;
+> >>  	u64 status;
+> >>
+> >>  	msidesc =3D irq_data_get_msi_desc(data);
+> >> @@ -204,9 +229,6 @@ static void hv_irq_compose_msi_msg(struct irq_data=
+ *data,
+> struct msi_msg *msg)
+> >>  		return;
+> >>  	}
+> >>
+> >> -	affinity =3D irq_data_get_effective_affinity_mask(data);
+> >> -	cpu =3D cpumask_first_and(affinity, cpu_online_mask);
+> >> -
+> >>  	if (data->chip_data) {
+> >>  		/*
+> >>  		 * This interrupt is already mapped. Let's unmap first.
+> >> @@ -235,15 +257,14 @@ static void hv_irq_compose_msi_msg(struct irq_da=
+ta
+> *data, struct msi_msg *msg)
+> >>  		return;
+> >>  	}
+> >>
+> >> -	status =3D hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
+> >> +	status =3D hv_map_msi_interrupt(data, stored_entry);
+> >>  	if (status !=3D HV_STATUS_SUCCESS) {
+> >
+> > hv_map_msi_interrupt() returns an errno, so testing for HV_STATUS_SUCCE=
+SS
+> > is bogus.
+> >
+>=20
+> Thanks, noted.
+>=20
+> >>  		kfree(stored_entry);
+> >>  		return;
+> >>  	}
+> >>
+> >> -	*stored_entry =3D out_entry;
+> >>  	data->chip_data =3D stored_entry;
+> >> -	entry_to_msi_msg(&out_entry, msg);
+> >> +	entry_to_msi_msg(data->chip_data, msg);
+> >>
+> >>  	return;
+> >>  }
+> >> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/ms=
+hyperv.h
+> >> index 5ec92e3e2e37..843121465ddd 100644
+> >> --- a/arch/x86/include/asm/mshyperv.h
+> >> +++ b/arch/x86/include/asm/mshyperv.h
+> >> @@ -261,6 +261,8 @@ static inline void hv_apic_init(void) {}
+> >>
+> >>  struct irq_domain *hv_create_pci_msi_domain(void);
+> >>
+> >> +int hv_map_msi_interrupt(struct irq_data *data,
+> >> +			 struct hv_interrupt_entry *out_entry);
+> >>  int hv_map_ioapic_interrupt(int ioapic_id, bool level, int vcpu, int =
+vector,
+> >>  		struct hv_interrupt_entry *entry);
+> >>  int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entr=
+y *entry);
+> >> --
+> >> 2.34.1
+
 
