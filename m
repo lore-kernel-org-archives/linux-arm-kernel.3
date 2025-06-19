@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F904C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 01:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52A6C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 01:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AHKGW4H7LN/JdA90Hf//Jy9UM44rzmLKYv/T1BIQf3A=; b=3d00mAIUq6L7GhmHruVGHWFJHX
-	yJ1x7FbPIZg0nnEEDCz0/6bUfZbzQofAO3J9f6oJ2L9Y6GM2HID6gKn7opDLwnlwOLpGTztJgznh/
-	1CoEuCE+uPHzPKvMVGaqakFKfFquTzr6ueQPwobWcQvHyVUgGtgecrH5blnxRRHAjEhAvhZkCOkkf
-	xacWW0Vtnj8ytVZyyD2dj/DRdxBpCJMii2DuwjkDhoMcwU80TvJa6fFiyMjLJ25MMvP0AH4omwm7f
-	d60hVhU230gRIqJ1yJd8bVkMXKkGZBOqUHbSm8xa0Q6z/0HnsujvOYpkXOVylSlikfY4JJVt99txZ
-	kPZ7c7Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IB1pXwG+o7bC4LkvgA8w7LAYlqk0B9GUuwyv4RmtU4=; b=x86qg/tx8qxgD4QewBTzVHxH7D
+	gQlDlii6ztqLEOdAWjcLQoTvKK76W7XAwunzvHWY3vFC1rxxRP9nJkcbnBPPI60iDZ8S0pAFpGvsa
+	zlzFJWSiNmbU6ShxmC/wX0p+LLOhdfRK2Utx+M0LNMgqEmfp74Qa02FIPO265fY47DqK2+kR+7SSn
+	Am7qqt1OEIZH2gYRL9kAOcFiHUh0bmHe46seXeBDjkuyrIS506a08ICxXCLAfKkCKfsfkOQscT+0j
+	kirwIZ6Z5AKR+KP209xDPfcJxjGw41WljdqA+n7fKCH/MGhXEvNPXFAeSoKRLho0JKnS71SkZd5jV
+	4sEibZEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS3mo-0000000Bhg3-2a4Q;
-	Thu, 19 Jun 2025 01:09:50 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1uS41m-0000000Bk8w-2V9L;
+	Thu, 19 Jun 2025 01:25:18 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS3kZ-0000000BhMN-2vN1;
-	Thu, 19 Jun 2025 01:07:33 +0000
+	id 1uS3zZ-0000000Bk1q-0qGQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 01:23:02 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-311ae2b6647so141355a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Jun 2025 18:23:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1750295245; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=AHKGW4H7LN/JdA90Hf//Jy9UM44rzmLKYv/T1BIQf3A=;
-	b=iyFWQYdf42eDcQSAGmoiJ6NjUW0lY7j0oJoRjhaMvTe5GvCf9A8F8xiirmpI9+3vWBWjU8E0LUe0EPw6mE7zxb18tqKBMoPnA71FHEBaOt/QdnvZhmvYdFp0vAYys7nrdZ6RG+10zeM2yb3hDIsZqxzHasQWjI0MI/wvik+sXX0=
-Received: from 30.74.144.119(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WeFD6QU_1750295241 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Jun 2025 09:07:21 +0800
-Message-ID: <fd838615-d550-4e3a-9b4c-616a977fa410@linux.alibaba.com>
-Date: Thu, 19 Jun 2025 09:07:21 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/12] gpio: pmic-eic-sprd: drop unneeded .set() callback
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>,
- Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org>
- <20250617-gpiochip-set-rv-gpio-v1-5-903703881fa2@linaro.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20250617-gpiochip-set-rv-gpio-v1-5-903703881fa2@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+        d=google.com; s=20230601; t=1750296180; x=1750900980; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8IB1pXwG+o7bC4LkvgA8w7LAYlqk0B9GUuwyv4RmtU4=;
+        b=Gv6OBxW3jLkFt4yxMkl8hZ8LF/Qc53vtkmdHLX9lkKVY4upIETqio3jxgHIh7zVGSh
+         qxdkRNRBo4slelAacKik3+TLIi0/Pnt+RtGQYOwSKpqPYN96e0gL1Bu6WBLd2MDjeRWy
+         e9HJMYExselAkD0IleJjlgZEmMrcZzUDjis/0WaArLoiXcb2w06mELS5AJO/C57ZZzzp
+         zSqK0D5OA67nlDKqH3gr3qX5ixqUSTRAPnZXcPtVvdjpb3V0GKvqnYtt5I5nDrxlPDDC
+         lAuFhYtRPzkRa7j74GNmFAsS9kasEIk+WNTNFSjsSZOLUiEaiMkcL72eGadhAKjtTXV2
+         HLlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750296180; x=1750900980;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8IB1pXwG+o7bC4LkvgA8w7LAYlqk0B9GUuwyv4RmtU4=;
+        b=Prer66Q8BmMB1slUUW7cSwykYikUUF9rbvVPjSd5h02eNBzofD86o74K09UBA9S3vA
+         GlPOykFp/lZ/oyRu55F14UTV66+TUMSmHPf/dCPv54FhE/DJ/bv0Pqwy6+YTtlhGwRmG
+         aHk6iaIW8uWtEVym6HON+ZYJj52dwDYPz/Lwto0UpFHy2+MsuWFy9lOoupR+j7r6yye3
+         Gk+0GisWNy8mrwV6JmoyWlSkdzX/azAJof/HP+HN3uDdUuWkkP9nSp9LEWUoNaGugrr+
+         2U0mokop/RI+YtJ65J/kiKhgnTvJzeWZ6IU26QNpBDklWy0gBIPDcRiFdqrqw3s5twb0
+         d9Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCWzL0AW6zTkEFbnqE3UBIGes9sMvz9M8Bc8Xq732rHm3UOIQDq7kI5Oy4utvpw8X8gfG8WSv/U2lhFRZ/0yqlU1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlnFxwy4ptAEFZCGv4knc+XvNVSGqUXKrvqXXRVEsK31Ocaf+j
+	8JNrDbDTzAI2JOjOtiRa1yLCuz4O7W2FPxpd8LJCnKTYCOTkX1QyWynyXTTu0ZYiy96lp1S/Nvp
+	z27wG7Q==
+X-Google-Smtp-Source: AGHT+IGdcvQAVVSk4fM09uW8oDEjJdJY7dpl9V3Y4AvXuJ+N0Avyh7SwiUaAWue2o5CoAmxFjj275F4p3uY=
+X-Received: from pjbsz14.prod.google.com ([2002:a17:90b:2d4e:b0:313:1c10:3595])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:254e:b0:311:e8cc:4256
+ with SMTP id 98e67ed59e1d1-313f1d644b8mr24662451a91.22.1750296180025; Wed, 18
+ Jun 2025 18:23:00 -0700 (PDT)
+Date: Wed, 18 Jun 2025 18:22:58 -0700
+In-Reply-To: <aFNIPXoEb5iCjt_L@linux.dev>
+Mime-Version: 1.0
+References: <20250618042424.330664-1-jthoughton@google.com>
+ <20250618042424.330664-4-jthoughton@google.com> <aFMaxi5LDr4HHbMR@linux.dev>
+ <aFMl6DOcKfH6ampb@google.com> <aFNIPXoEb5iCjt_L@linux.dev>
+Message-ID: <aFNmci0s1_P845XZ@google.com>
+Subject: Re: [PATCH v3 03/15] KVM: arm64: x86: Require "struct kvm_page_fault"
+ for memory fault exits
+From: Sean Christopherson <seanjc@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_180732_364131_50846FB5 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250618_182301_261127_DBABBF07 
+X-CRM114-Status: GOOD (  37.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,47 +96,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/6/17 20:24, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Wed, Jun 18, 2025, Oliver Upton wrote:
+> On Wed, Jun 18, 2025 at 01:47:36PM -0700, Sean Christopherson wrote:
+> > On Wed, Jun 18, 2025, Oliver Upton wrote:
+> > > What I would like to see on arm64 is that for every "KVM_EXIT_MEMORY_FAULT"
+> > > we provide as much syndrome information as possible. That could imply
+> > > some combination of a sanitised view of ESR_EL2 and, where it is
+> > > unambiguous, common fault flags that have shared definitions with x86.
+> > 
+> > Me confused, this is what the above does?  "struct kvm_page_fault" is arch
+> > specific, e.g. x86 has a whole pile of stuff in there beyond gfn, exec, write,
+> > is_private, and slot.
 > 
-> The lines on this chip are input-only. GPIO core can handle the missing
-> .set() callback so there's no need to implement a dummy here. Drop it.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Right, but now I need to remember that some of the hardware syndrome
+> (exec, write) is handled in the arch-neutral code and the rest belongs
+> to the arch.
 
-Thanks.
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Yeah, can't argue there.
 
-> ---
->   drivers/gpio/gpio-pmic-eic-sprd.c | 7 -------
->   1 file changed, 7 deletions(-)
+> > The approach is non-standard, but I think my justification/reasoning for having
+> > the structure be arch-defined still holds:
+> > 
+> >  : Rather than define a common kvm_page_fault and kvm_arch_page_fault child,
+> >  : simply assert that the handful of required fields are provided by the
+> >  : arch-defined structure.  Unlike vCPU and VMs, the number of common fields
+> >  : is expected to be small, and letting arch code fully define the structure
+> >  : allows for maximum flexibility with respect to const, layout, etc.
+> > 
+> > If we could use anonymous struct field, i.e. could embed a kvm_arch_page_fault
+> > without having to bounce through an "arch" field, I would vote for the approach.
+> > Sadly, AFAIK, we can't yet use those in the kernel.
 > 
-> diff --git a/drivers/gpio/gpio-pmic-eic-sprd.c b/drivers/gpio/gpio-pmic-eic-sprd.c
-> index d9b228bea42eec53ba9d0d0945125f530a22946c..cb015fb5c9467484022723910354219e2c98d3c7 100644
-> --- a/drivers/gpio/gpio-pmic-eic-sprd.c
-> +++ b/drivers/gpio/gpio-pmic-eic-sprd.c
-> @@ -109,12 +109,6 @@ static int sprd_pmic_eic_direction_input(struct gpio_chip *chip,
->   	return 0;
->   }
->   
-> -static void sprd_pmic_eic_set(struct gpio_chip *chip, unsigned int offset,
-> -			      int value)
-> -{
-> -	/* EICs are always input, nothing need to do here. */
-> -}
-> -
->   static int sprd_pmic_eic_set_debounce(struct gpio_chip *chip,
->   				      unsigned int offset,
->   				      unsigned int debounce)
-> @@ -351,7 +345,6 @@ static int sprd_pmic_eic_probe(struct platform_device *pdev)
->   	pmic_eic->chip.request = sprd_pmic_eic_request;
->   	pmic_eic->chip.free = sprd_pmic_eic_free;
->   	pmic_eic->chip.set_config = sprd_pmic_eic_set_config;
-> -	pmic_eic->chip.set = sprd_pmic_eic_set;
->   	pmic_eic->chip.get = sprd_pmic_eic_get;
->   	pmic_eic->chip.can_sleep = true;
->   
+> The general impression is that this is an unnecessary amount of complexity
+> for doing something trivial (computing flags).
+
+It looks pretty though!
+
+> > Nothing prevents arm64 (or any arch) from wrapping kvm_prepare_memory_fault_exit()
+> > and/or taking action after it's invoked.  That's not an accident; the "prepare
+> > exit" helpers (x86 has a few more) were specifically designed to not be used as
+> > the "return" to userspace.  E.g. this one returns "void" instead of -EFAULT
+> > specifically so that the callers isn't "required" to ignore the return if the
+> > caller wants to populate (or change, but hopefully that's never the case) fields
+> > after calling kvm_prepare_memory_fault_exit), and so that arch can return an
+> > entirely different error code, e.g. -EHWPOISON when appropriate.
 > 
+> IMO, this does not achieve the desired layering / ownership of memory
+> fault triage. This would be better organized as the arch code computing
+> all of the flags relating to the hardware syndrome (even boring ones
+> like RWX) 
+
+Just to make sure I'm not misinterpreting things, by "computing all of the flags",
+you mean computing KVM_MEMORY_EXIT_FLAG_xxx flags that are derived from hardware
+state, correct?
+
+> and arch-neutral code potentially lending a hand with the software bits.
+>
+> With this I either need to genericize the horrors of the Arm
+> architecture in the common thing or keep track of what parts of the
+> hardware flags are owned by arch v. non-arch. SW v. HW fault context is
+> a cleaner split, IMO.
+
+The problem I'm struggling with is where to draw the line.  If we leave hardware
+state to arch code, then we're not left with much.  Hmm, but it really is just
+the gfn/gpa that's needed in common code to avoid true ugliness.  The size is
+technically arch specific, but the reported size is effectively a placeholder,
+i.e. it's always PAGE_SIZE, and probably always will be PAGE_SIZE, but we wanted
+to give ourselves an out if necessary.
+
+Would you be ok having common code fill gpa and size?  If so, then we can do this:
+
+--
+void kvm_arch_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
+					struct kvm_page_fault *fault);
+
+static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
+						 struct kvm_page_fault *fault)
+{
+	KVM_ASSERT_TYPE_IS(gfn_t, fault->gfn);
+
+	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
+	vcpu->run->memory_fault.gpa = fault->gfn << PAGE_SHIFT;
+	vcpu->run->memory_fault.size = PAGE_SIZE;
+
+	vcpu->run->memory_fault.flags = 0;
+	kvm_arch_prepare_memory_fault_exit(vcpu, fault);
+}
+--
+
+where arm64's arch hook is empty, and x86's is:
+
+--
+static inline void kvm_arch_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
+						      struct kvm_page_fault *fault)
+{
+	if (fault->is_private)
+		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_PRIVATE;
+}
+--
+
+It's not perfect, but it should be much easier to describe the contract, and
+common code can still pass around a kvm_page_fault structure instead of a horde
+of booleans.
 
