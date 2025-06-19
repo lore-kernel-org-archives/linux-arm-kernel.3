@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E296C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 07:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB20C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 07:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7TliLsbfaYS7bb2ke6NaPLrLNQJB72CmG4Z4X0ynZY=; b=GpRnIKp0vlHmdJZ+/R1WWktz6L
-	E0SU7G9neVvxDmAgqoqhthg07pTnYWNr7HjNuUlnTKbRrYNgQT4cR92hFsEh8jbUG0UthbCCyW0OL
-	q0FSRRkyAilq7uP2/tEYwQ7Zc52HOw1FkBEx+Jti31784ps541y/YggUgR8wfa6dvXBf4vFXf+JNj
-	lFod44BQJ/LGj1jCAJzpUeVOfJlmwv4Ty6P+PIbGtXi7+l1UC+LGlv4nyEZTbJ7N8qa7F6badVUpj
-	VWHsKyrQtHaVly3sLP8t0F70MLdxys0jzQQL6HMgoBn1iVFMfs3QZM2bVWPgsD2lZ2lbt7e58Z0PV
-	1RmdJVnQ==;
+	bh=7W8ismKFO9S/MJfCzgUb7stsYTeX3FdgTl1tq7cBadg=; b=WPnlw6FyBiIFR9+jFnOhGZC6iv
+	T8BWds0tHv4d1qAzNGFIANSf6MSWMUwT4aH3I2a1BLqr8pFVUZ7BDCZupWimq36jmxu0drSRWdaPF
+	YiDWRK0tvyB27iYrhKF2FGjU3tZyYL8johBvivHZz8gkbm2G6q95bLUkZMh/fnOUiAHE7RtrmW4Ho
+	3W+Ewy965JSvE2kxbeUW+mhb+IG5+JYqZ04jxygBIB0/EbtfMHUuJbEdy84cODTCOXnbVk3mwqXT8
+	EV1E7YlG6J3ypHWWb7fXXhGB5w2lQGK6hC5xMOy4g9vBIPNljQoNPKWNIqw2gGBUhbYAYdJ62d6mp
+	1Us5kJZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS9Sb-0000000CGcN-3ytd;
-	Thu, 19 Jun 2025 07:13:22 +0000
+	id 1uS9Un-0000000CGyQ-3Owl;
+	Thu, 19 Jun 2025 07:15:37 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uS8wK-0000000CB2O-1glD
+	id 1uS8wK-0000000CB2T-1hdE
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 19 Jun 2025 06:40:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
@@ -33,18 +33,18 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=W7TliLsbfaYS7bb2ke6NaPLrLNQJB72CmG4Z4X0ynZY=; b=jttLxcgD09J+VEGwbEJ0CXBPZN
-	Ld+UvUG0kHf0Gn1biOp4vcm+Vzee0iawOKXQa12OTBoMuMID5Wgz4tuzOin/pmssa1WIMCBKmnH9x
-	SKtgnNREeEf/xlyZj5tQM/c2NLQ7XZcef4TSM6dZVTVR4EHKhU/zuMkxu9KNuN9DONr6AiT4XLjgQ
-	PN8ZETmgx671FTYWWNoysp04FphfxRxd1rpWnZLyKXU4JnJ26Lk4eZ9y5Q8lgaT8+vWPI3uUBRVEx
-	A7ByflVRA8fHi1zs6/CtIF7nYi3XmcIXiY7iJZV+VQkhw5vz1/T8i1wTIbjys4eiOoxUCiAmYJYmq
-	AEsgdMmA==;
+	bh=7W8ismKFO9S/MJfCzgUb7stsYTeX3FdgTl1tq7cBadg=; b=h4gnuVG+OJ0gA7D82s2lN4OQPG
+	6CH4z0miRlYmiypgOZOPVOdPAx1YOWoS0vLNF4ukxJV9jhaf2XH0ubMjHGuj4MNqYAYeQHoWLYxjv
+	ThPpxu1+acqxeBaeC4nAZaXeRwJ5TugJQ12Xjt4Jjuba4uJdxWIIZzVjHu3BXFwUzN5cJE9uWHRZj
+	KhLoeJ7QDnXaNZhcN/P+Qc1W6tH3ZOnNP/PpAmMPsaYC9Tx4BXqa/s4l/j6N9OTohInr8mTkmF4L9
+	DjTTTTONOAtl0nEvIZRBDRhGXWiGl1RmfeI/DjT9mYi3mMPV3W8rSSyFQT858PAyZHR3doOYF0fcT
+	6++ayeew==;
 Received: from [89.212.21.243] (port=44058 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1uS8wG-00EVcY-1b;
-	Thu, 19 Jun 2025 08:39:55 +0200
+	id 1uS8wG-00EVcY-1t;
+	Thu, 19 Jun 2025 08:39:56 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
@@ -57,9 +57,9 @@ Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] arm64: dts: imx93-phycore-som: Add RPMsg overlay
-Date: Thu, 19 Jun 2025 08:39:51 +0200
-Message-Id: <20250619063954.1730231-2-primoz.fiser@norik.com>
+Subject: [PATCH 2/4] arm64: dts: imx93-phyboard-segin: Add PEB-EVAL-01 overlay
+Date: Thu, 19 Jun 2025 08:39:52 +0200
+Message-Id: <20250619063954.1730231-3-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250619063954.1730231-1-primoz.fiser@norik.com>
 References: <20250619063954.1730231-1-primoz.fiser@norik.com>
@@ -76,8 +76,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_234000_981043_A6119308 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20250618_234001_008336_80B97224 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,100 +93,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an overlay used for remote processor inter-core communication
-between A55 and M33 cores on the phyCORE-i.MX93 SoM based boards.
+Add overlay to support PEB-EVAL-01 adapter on phyBOARD-Segin-i.MX93.
+This is a PHYTEC evaluation module with three LEDs and two input buttons
+that users can attach to the board expansion connector X16.
 
-Overlay adds the required reserved memory regions and enables the
-mailbox unit and the M33 core for RPMsg (Remote Processor Messaging
-Framework).
+Note that, due to compatibility with existing PHYTEC platforms using the
+phyBOARD-Segin carrier board such as i.MX6UL and STM32MP1, we face some
+hardware limitations and can thus only support one user LED (D2) and one
+button (S2) on the i.MX93 variant of the phyBOARD-Segin.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile        |  4 ++
- .../dts/freescale/imx93-phycore-rpmsg.dtso    | 60 +++++++++++++++++++
- 2 files changed, 64 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
+ arch/arm64/boot/dts/freescale/Makefile        |  2 +
+ .../imx93-phyboard-segin-peb-eval-01.dtso     | 52 +++++++++++++++++++
+ 2 files changed, 54 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 0b473a23d120..08a1de299538 100644
+index 08a1de299538..011b2d58e4f7 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -324,6 +324,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+@@ -325,7 +325,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
-+
-+imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
-+
+ 
++imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+ imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+ 
  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso
 new file mode 100644
-index 000000000000..9200113c9ec3
+index 000000000000..8039aa1ddfba
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
-@@ -0,0 +1,60 @@
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-eval-01.dtso
+@@ -0,0 +1,52 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Author: Primoz Fiser <primoz.fiser@norik.com>
++ * Author: Andrej Picej <andrej.picej@norik.com>
 + */
 +
 +/dts-v1/;
 +/plugin/;
 +
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include "imx93-pinfunc.h"
++
 +&{/} {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_keys>;
 +
-+		vdev0vring0: vdev0vring0@a4000000 {
-+			reg = <0 0xa4000000 0 0x8000>;
-+			no-map;
++		button-s2 {
++			label = "sleep";
++			linux,code = <KEY_SLEEP>;
++			gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
++			wakeup-source;
 +		};
++	};
 +
-+		vdev0vring1: vdev0vring1@a4008000 {
-+			reg = <0 0xa4008000 0 0x8000>;
-+			no-map;
-+		};
++	user-leds {
++		compatible = "gpio-leds";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_user_leds>;
 +
-+		vdev1vring0: vdev1vring0@a4010000 {
-+			reg = <0 0xa4010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring1: vdev1vring1@a4018000 {
-+			reg = <0 0xa4018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table: rsc-table@2021e000 {
-+			reg = <0 0x2021e000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdevbuffer: vdevbuffer@a4020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0xa4020000 0 0x100000>;
-+			no-map;
++		user-led2 {
++			gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
 +		};
 +	};
 +};
 +
-+&cm33 {
-+	mbox-names = "tx", "rx", "rxdb";
-+	mboxes = <&mu1 0 1>,
-+		 <&mu1 1 1>,
-+		 <&mu1 3 1>;
-+	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-+		 <&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
-+	status = "okay";
-+};
++&iomuxc {
++	pinctrl_gpio_keys: gpiokeysgrp {
++		fsl,pins = <
++			MX93_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x31e
++		>;
++	};
 +
-+&mu1 {
-+	status = "okay";
++	pinctrl_user_leds: userledsgrp {
++		fsl,pins = <
++			MX93_PAD_ENET1_RD3__GPIO4_IO13		0x31e
++		>;
++	};
 +};
 -- 
 2.34.1
