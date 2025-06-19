@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9446FC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B59C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYV5OhX7IqnBNWpRHDSoVk4uEaTxigiqwKGaEqQ6CRo=; b=UJqWy/v9Z9p/h2z1pnprvk/Ki1
-	aIgr/V+/w0WNYWllu3rm7ewgPYpOV5lOEgStKQaoYOkoVpsIUiRIS6hdkloQ8//wRE9yIYafPmO4z
-	zBbdNRQNlwwTET1BWDzWXsp+VclBYBR/ggKFii8ekLEHYItXH00KwD7VM3VagGMHL0uk8zJjLeR2W
-	PDPhm5f/nKHYLG2ozFKv6AS5/pLMYEuk9Ql81HO+wI2uSYYf9cXNMjRJK6kg+6/UpzWSBZgHwWjGY
-	ef6gnqhD0C+hQzd85Mse2euvmwXa/gqVE7w3n/6Vlv7I8EXkvHPYbu+fCY6L79TZiUBSIm3e+eiAN
-	4BFyWRzQ==;
+	bh=y2r8lo6RJvLluKg4KIZxEwc9bRBev7HH1fZd4pPyLJ4=; b=s/8Z9BBoSaTFW0NxA/7hR4hSKc
+	esKNy3PmB4vcRDtClw2z+r6WDKx1yx08uHhOr04vZN6l+DuQP5DUgtFKQOj+sp31XPmbo2mEd/6W9
+	xRTJHaAwSKmttn9dt21eC9OhWqrXENaCqUmC0iXc+1rSwwHvJJH7GtM8atrXHQdGU3LcE3Lz151lB
+	uUdc/mjwAM+H2GyatqVZpO8mfifjFt1mb+aZgUBw5wsrgYZany1yA75/dgfVo4PVNiJLsuHOP5hp2
+	ANI6r7LZtwqD5PqMwlb4PAowgh/0fk2WRTodCSWu0YizocYVsCAFOduS6UckNT1md7xXlq8Eo2aMq
+	NQCaQ69g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHWC-0000000DYk8-2fKA;
-	Thu, 19 Jun 2025 15:49:36 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1uSHWB-0000000DYhi-15fI;
+	Thu, 19 Jun 2025 15:49:35 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSFCy-0000000D9N1-3mdo;
+	id 1uSFCy-0000000D9N2-3moG;
 	Thu, 19 Jun 2025 13:21:39 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout4.routing.net (Postfix) with ESMTP id A54E110094F;
+	by mxout1.routing.net (Postfix) with ESMTP id E246D3FD38;
 	Thu, 19 Jun 2025 13:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750339294;
+	s=20200217; t=1750339295;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yYV5OhX7IqnBNWpRHDSoVk4uEaTxigiqwKGaEqQ6CRo=;
-	b=U6InJxZ22XRbyJmdpYQxg+bC6FC/Ixlv5drcdcPUZdcu36lpi8OwNmD6W5QzxhHLAQEXMp
-	1HnwG1Hsbr3zXSmrZZFHmbxsZ2I9LvOtL8TZJW7U7MdfWAb27nuvp9Gy5jj3ReybRhp6jj
-	9zcaTcRaGHj23oDu1K0BklkUrTxHsdE=
+	bh=y2r8lo6RJvLluKg4KIZxEwc9bRBev7HH1fZd4pPyLJ4=;
+	b=Swo6EbCTkmGPSfjbgZm9hWHRt2vQ2x0oa968ia9OGzruIclnOlLddRZzzecYYyFxSyreLn
+	ukuh7uOuCjzW/heQExis61VIf8xJWzE+pEJdu1T28YNeKg9imuaq8mKkAFvXLWFFELvZ5V
+	53riNFQ8myJK6L1R6jHz+VACdezutoY=
 Received: from frank-u24.. (fttx-pool-80.245.76.73.bambit.de [80.245.76.73])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 65D05122703;
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id A5C7F1226AA;
 	Thu, 19 Jun 2025 13:21:34 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Felix Fietkau <nbd@nbd.name>,
@@ -61,17 +61,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	Simon Horman <horms@kernel.org>,
 	Daniel Golle <daniel@makrotopia.org>,
 	arinc.unal@arinc9.com
-Subject: [net-next v6 1/4] net: ethernet: mtk_eth_soc: support named IRQs
-Date: Thu, 19 Jun 2025 15:21:21 +0200
-Message-ID: <20250619132125.78368-2-linux@fw-web.de>
+Subject: [net-next v6 2/4] net: ethernet: mtk_eth_soc: add consts for irq index
+Date: Thu, 19 Jun 2025 15:21:22 +0200
+Message-ID: <20250619132125.78368-3-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250619132125.78368-1-linux@fw-web.de>
 References: <20250619132125.78368-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_062137_278860_05374944 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250619_062137_269247_E07151C2 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +88,127 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add named interrupts and keep index based fallback for existing
-devicetrees.
-
-Currently only rx and tx IRQs are defined to be used with mt7988, but
-later extended with RSS/LRO support.
+Use consts instead of fixed integers for accessing IRQ array.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v6:
-- change irq names from tx/rx to fe1/fe2 because reserved irqs
-  are usable and not bound to specific function
-- dropped Simons RB because of this
 v5:
-- fix typo in description
-- add comments from previous patch #3 with changes suggested by simon
-
-v2:
-- move irqs loading part into own helper function
-- reduce indentation
-- place mtk_get_irqs helper before the irq_handler (note for simon)
-
-net: mtk_eth_soc: change irq name back to fe1 + fe2
+- rename consts to be compatible with upcoming RSS/LRO changes
+  MTK_ETH_IRQ_SHARED => MTK_FE_IRQ_SHARED
+  MTK_ETH_IRQ_TX => MTK_FE_IRQ_TX
+  MTK_ETH_IRQ_RX => MTK_FE_IRQ_RX
+  MTK_ETH_IRQ_MAX => MTK_FE_IRQ_NUM
+v4:
+- calculate max from last (rx) irq index and use it for array size too
 ---
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 46 ++++++++++++++++-----
- 1 file changed, 35 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 22 ++++++++++-----------
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h |  7 ++++++-
+ 2 files changed, 17 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index b38e4f2de674..c5deb8183afe 100644
+index c5deb8183afe..efffdd7e131e 100644
 --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
 +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3336,6 +3336,37 @@ static void mtk_tx_timeout(struct net_device *dev, unsigned int txqueue)
- 	schedule_work(&eth->pending_work);
- }
+@@ -3341,9 +3341,9 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+ 	int i;
  
-+static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
-+{
-+	int i;
-+
-+	/* future SoCs beginning with MT7988 should use named IRQs in dts */
-+	eth->irq[1] = platform_get_irq_byname(pdev, "fe1");
-+	eth->irq[2] = platform_get_irq_byname(pdev, "fe2");
-+	if (eth->irq[1] >= 0 && eth->irq[2] >= 0)
-+		return 0;
-+
-+	/* legacy way:
-+	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken
-+	 * from devicetree and used for both RX and TX - it is shared.
-+	 * On SoCs with non-shared IRQs the first entry is not used,
-+	 * the second is for TX, and the third is for RX.
-+	 */
-+	for (i = 0; i < 3; i++) {
-+		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
-+			eth->irq[i] = eth->irq[0];
-+		else
-+			eth->irq[i] = platform_get_irq(pdev, i);
-+
-+		if (eth->irq[i] < 0) {
-+			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
-+			return -ENXIO;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static irqreturn_t mtk_handle_irq_rx(int irq, void *_eth)
- {
- 	struct mtk_eth *eth = _eth;
-@@ -5105,17 +5136,10 @@ static int mtk_probe(struct platform_device *pdev)
- 		}
+ 	/* future SoCs beginning with MT7988 should use named IRQs in dts */
+-	eth->irq[1] = platform_get_irq_byname(pdev, "fe1");
+-	eth->irq[2] = platform_get_irq_byname(pdev, "fe2");
+-	if (eth->irq[1] >= 0 && eth->irq[2] >= 0)
++	eth->irq[MTK_FE_IRQ_TX] = platform_get_irq_byname(pdev, "fe1");
++	eth->irq[MTK_FE_IRQ_RX] = platform_get_irq_byname(pdev, "fe2");
++	if (eth->irq[MTK_FE_IRQ_TX] >= 0 && eth->irq[MTK_FE_IRQ_RX] >= 0)
+ 		return 0;
+ 
+ 	/* legacy way:
+@@ -3352,9 +3352,9 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+ 	 * On SoCs with non-shared IRQs the first entry is not used,
+ 	 * the second is for TX, and the third is for RX.
+ 	 */
+-	for (i = 0; i < 3; i++) {
++	for (i = 0; i < MTK_FE_IRQ_NUM; i++) {
+ 		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+-			eth->irq[i] = eth->irq[0];
++			eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
+ 		else
+ 			eth->irq[i] = platform_get_irq(pdev, i);
+ 
+@@ -3420,7 +3420,7 @@ static void mtk_poll_controller(struct net_device *dev)
+ 
+ 	mtk_tx_irq_disable(eth, MTK_TX_DONE_INT);
+ 	mtk_rx_irq_disable(eth, eth->soc->rx.irq_done_mask);
+-	mtk_handle_irq_rx(eth->irq[2], dev);
++	mtk_handle_irq_rx(eth->irq[MTK_FE_IRQ_RX], dev);
+ 	mtk_tx_irq_enable(eth, MTK_TX_DONE_INT);
+ 	mtk_rx_irq_enable(eth, eth->soc->rx.irq_done_mask);
+ }
+@@ -4906,7 +4906,7 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
+ 	eth->netdev[id]->features |= eth->soc->hw_features;
+ 	eth->netdev[id]->ethtool_ops = &mtk_ethtool_ops;
+ 
+-	eth->netdev[id]->irq = eth->irq[0];
++	eth->netdev[id]->irq = eth->irq[MTK_FE_IRQ_SHARED];
+ 	eth->netdev[id]->dev.of_node = np;
+ 
+ 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
+@@ -5183,17 +5183,17 @@ static int mtk_probe(struct platform_device *pdev)
  	}
  
--	for (i = 0; i < 3; i++) {
--		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
--			eth->irq[i] = eth->irq[0];
--		else
--			eth->irq[i] = platform_get_irq(pdev, i);
--		if (eth->irq[i] < 0) {
--			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
--			err = -ENXIO;
--			goto err_wed_exit;
--		}
--	}
-+	err = mtk_get_irqs(pdev, eth);
-+	if (err)
-+		goto err_wed_exit;
+ 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
+-		err = devm_request_irq(eth->dev, eth->irq[0],
++		err = devm_request_irq(eth->dev, eth->irq[MTK_FE_IRQ_SHARED],
+ 				       mtk_handle_irq, 0,
+ 				       dev_name(eth->dev), eth);
+ 	} else {
+-		err = devm_request_irq(eth->dev, eth->irq[1],
++		err = devm_request_irq(eth->dev, eth->irq[MTK_FE_IRQ_TX],
+ 				       mtk_handle_irq_tx, 0,
+ 				       dev_name(eth->dev), eth);
+ 		if (err)
+ 			goto err_free_dev;
+ 
+-		err = devm_request_irq(eth->dev, eth->irq[2],
++		err = devm_request_irq(eth->dev, eth->irq[MTK_FE_IRQ_RX],
+ 				       mtk_handle_irq_rx, 0,
+ 				       dev_name(eth->dev), eth);
+ 	}
+@@ -5239,7 +5239,7 @@ static int mtk_probe(struct platform_device *pdev)
+ 		} else
+ 			netif_info(eth, probe, eth->netdev[i],
+ 				   "mediatek frame engine at 0x%08lx, irq %d\n",
+-				   eth->netdev[i]->base_addr, eth->irq[0]);
++				   eth->netdev[i]->base_addr, eth->irq[MTK_FE_IRQ_SHARED]);
+ 	}
+ 
+ 	/* we run 2 devices on the same DMA ring so we need a dummy device
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+index 6f72a8c8ae1e..8cdf1317dff5 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+@@ -642,6 +642,11 @@
+ 
+ #define MTK_MAC_FSM(x)		(0x1010C + ((x) * 0x100))
+ 
++#define MTK_FE_IRQ_SHARED	0
++#define MTK_FE_IRQ_TX		1
++#define MTK_FE_IRQ_RX		2
++#define MTK_FE_IRQ_NUM		(MTK_FE_IRQ_RX + 1)
 +
- 	for (i = 0; i < ARRAY_SIZE(eth->clks); i++) {
- 		eth->clks[i] = devm_clk_get(eth->dev,
- 					    mtk_clks_source_name[i]);
+ struct mtk_rx_dma {
+ 	unsigned int rxd1;
+ 	unsigned int rxd2;
+@@ -1292,7 +1297,7 @@ struct mtk_eth {
+ 	struct net_device		*dummy_dev;
+ 	struct net_device		*netdev[MTK_MAX_DEVS];
+ 	struct mtk_mac			*mac[MTK_MAX_DEVS];
+-	int				irq[3];
++	int				irq[MTK_FE_IRQ_NUM];
+ 	u32				msg_enable;
+ 	unsigned long			sysclk;
+ 	struct regmap			*ethsys;
 -- 
 2.43.0
 
