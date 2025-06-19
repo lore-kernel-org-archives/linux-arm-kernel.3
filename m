@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583CFC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F25C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82PBFjzJxadblYHMtO/5DNUVab4uZMm9S980qpWl8yE=; b=zcpFvfId82xoULDWOTmWqHA5Rm
-	G885ajnEwyH8CSPQLoGwF36pvciv3Hdt8vhdWK0kLh15vhs/0KjjET1WtywQz83fUnZncqKZYld9c
-	chOYw5eOAMuOY2jNNo4AN6gqxsH9XfWTDuGtZqMxeP78gnQIXrC1nmFeEdTjnP2SttVXBJO7JnfaT
-	GGeD3LsJskXPXb0y6183JYPLPjbXOn6p/4E7Q0myEdyrk6e+6M1fM10/MZvaOjQ618FP8jDFVNnzQ
-	cwql9DdfybM50BGH4ijgqe2zgzFZ8DLgpH+oOgwCP38TxijWa4IA64ZtjGNfkP2gXZUmIRkmn4gOc
-	/VqptJWg==;
+	bh=p5edE6++HzN3Nzjso20D35ZUNuuvgj0lx7kcEPbqrsE=; b=uF4qoBRkUA9d+rOsDaaGduYS6B
+	JN26wywomrfqRSBfv3ifgn1SA85NnByIXUpuT4NB7mpcczRdrgFWPpLC+HDjosbUes/UwUzPL/2ia
+	mTr+m2ZrWL4PjH4ELqXj7I1JhJH7dXu6X9Kcr6xWfY5we1njvvA3WqKV+ChXt+Di0aiFtnRWOJ+2/
+	42EaOvxFBa9zEF2LyjvjSEAjaH6a3MuyDc0jHOhTYToJOhV9Z0y8EfjX4QgtgxXy6vhJ2m/q/bS/I
+	9E5dzByHDM13vQjzLQiWuS+JoMMwslB06tjqajJIqh+XPbxzHLZq3eSkE7NWsBCUl38ktjYyCf5Pu
+	eXWiT5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHUw-0000000DWmF-11Pw;
-	Thu, 19 Jun 2025 15:48:18 +0000
+	id 1uSHVB-0000000DX6p-3DHa;
+	Thu, 19 Jun 2025 15:48:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEeB-0000000D5gF-0XRq;
-	Thu, 19 Jun 2025 12:45:39 +0000
+	id 1uSEk5-0000000D697-2YYf;
+	Thu, 19 Jun 2025 12:51:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E8736115D;
-	Thu, 19 Jun 2025 12:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7822AC4CEEA;
-	Thu, 19 Jun 2025 12:45:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E07A60010;
+	Thu, 19 Jun 2025 12:51:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FE2C4CEEA;
+	Thu, 19 Jun 2025 12:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750337138;
-	bh=KNqb7eHKDRfrbzB+nYR6iggc29bY0RRO9LiF69GOYI8=;
+	s=k20201202; t=1750337503;
+	bh=jf4r8tgAjTvpdpKxRLoaxzrCAVbjkq3ldG/x5W5pyvs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iwYq1A2fmSqsQaRBsaydPOG21gcTZCtQd7cYOYCEGO+WYBLtTuJT/9uNfzsZ+9Vps
-	 uRYjx7+K7cWyyYCYOX7eUU4RfG2XNfDlCo6xWjQ7PYuRl/PzOJXe6nvvBDtX/uim+B
-	 S++kc8EQVH9INpuVvcdjMfHmT4svUZZczCZtatRH2PfF9UihMu6fU14qbAlXLb1Mpv
-	 +dGKfzMHYSWmGMR49wGjHkrOzbB14t3DjHD8EsCMEcJlsBD4d23TFosFIDV/Tlv4pf
-	 VUf6hio6bIfjEW3X23Gwmg3ePGgwhy3m5ko6QI5XDep/RFn6Qpjf0pzXz0kY1PaAl4
-	 8Snes676Vd6wg==
-Date: Thu, 19 Jun 2025 18:15:20 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: Niklas Cassel <cassel@kernel.org>, lpieralisi@kernel.org, kw@linux.com, 
-	bhelgaas@google.com, heiko@sntech.de, manivannan.sadhasivam@linaro.org, 
-	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, 
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <rjgmkdk33h64plssiw2euna3wo4ejw4t3gisqkt3ibco62vjin@w2yu6wnzwled>
-References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-2-18255117159@163.com>
- <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
- <aEwRAZgLJUECbGz6@ryzen>
- <1e3ba7e1-dad3-4728-85d2-276945119ab0@163.com>
+	b=W4MybcCJF1lABKI9a7riHG+6PTE0QcucL0hZ4M34wv7OTCvCZfZGuOo+kVnWC3cEO
+	 U3FQisF755IPTJNMM7bMV4veMXVWtTvgRAH3xPcx5Rl9PAc7nFvKdUyS3L0//XKDK7
+	 gwMj65vrO35mz3TYPzEQGtoYEdepRF/sHTm6eWTSBYDfh9zG99REXBoAc276RlFNPY
+	 nyPZge73icoghlUhijZoJNNYxD3kQb1nyPjTImO8g3cmMD52koGLUiOI8EqZAeBg3k
+	 DmHTzxu7+Wy7p0zbcPY36hQyfxL7swAY3+CARw3aGsRq8suXvvYGirKJKIJjshyKFD
+	 D790cK1tdSZ5g==
+Date: Thu, 19 Jun 2025 13:51:37 +0100
+From: Simon Horman <horms@kernel.org>
+To: Frank Wunderlich <frank-w@public-files.de>
+Cc: linux@fw-web.de, nbd@nbd.name, sean.wang@mediatek.com,
+	lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, daniel@makrotopia.org,
+	arinc.unal@arinc9.com
+Subject: Re: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IRQ
+ if not used
+Message-ID: <20250619125137.GN1699@horms.kernel.org>
+References: <20250618130717.75839-1-linux@fw-web.de>
+ <20250618130717.75839-4-linux@fw-web.de>
+ <20250619100309.GC1699@horms.kernel.org>
+ <trinity-98eee496-129f-43c7-8d3f-4a77f4a183b9-1750329125336@trinity-msg-rest-gmx-gmx-live-b647dc579-9795v>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1e3ba7e1-dad3-4728-85d2-276945119ab0@163.com>
+In-Reply-To: <trinity-98eee496-129f-43c7-8d3f-4a77f4a183b9-1750329125336@trinity-msg-rest-gmx-gmx-live-b647dc579-9795v>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 11:31:01PM +0800, Hans Zhang wrote:
+On Thu, Jun 19, 2025 at 10:32:05AM +0000, Frank Wunderlich wrote:
+> Hi Simon
 > 
-> 
-> On 2025/6/13 19:52, Niklas Cassel wrote:
-> > On Fri, Jun 13, 2025 at 12:08:31PM +0530, Manivannan Sadhasivam wrote:
-> > > On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
-> > > > Current PCIe initialization logic may leave root ports operating with
-> > > > non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> > > > configuration is handled during bus enumeration, root port MPS values
-> > > > inherited from firmware or hardware defaults might not utilize the full
-> > > > capabilities supported by the controller hardware. This can result is
-> > > > uboptimal data transfer efficiency across the PCIe hierarchy.
-> > > > 
-> > > > During host controller probing phase, when PCIe bus tuning is enabled,
-> > > > the implementation now configures root port MPS settings to their
-> > > > hardware-supported maximum values. By iterating through bridge devices
-> > > > under the root bus and identifying PCIe root ports, each port's MPS is
-> > > > set to 128 << pcie_mpss to match the device's maximum supported payload
-> > > > size.
+> > Gesendet: Donnerstag, 19. Juni 2025 um 12:03
+> > Von: "Simon Horman" <horms@kernel.org>
+> > Betreff: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IRQ if not used
+> >
+> > On Wed, Jun 18, 2025 at 03:07:14PM +0200, Frank Wunderlich wrote:
+> > > From: Frank Wunderlich <frank-w@public-files.de>
 > > > 
-> > > I don't think the above statement is accurate. This patch is not iterating
-> > > through the bridges and you cannot identify root ports using that. What this
-> > > patch does is, it checks whether the device is root port or not and if it is,
-> > > then it sets the MPS to MPSS (hw maximum) if PCIE_BUS_TUNE_OFF is not set.
+> > > On SoCs without MTK_SHARED_INT capability (all except mt7621 and
+> > > mt7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+> > > but it is never used.
+> > > Skip the first IRQ and reduce the IRQ-count to 2.
+> > > 
+> > > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> > > ---
+> > > v5:
+> > > - change commit title and description
+> > > v4:
+> > > - drop >2 condition as max is already 2 and drop the else continue
+> > > - update comment to explain which IRQs are taken in legacy way
 > > 
-> > Correct.
-> > Later, when the bus is walked, if any downstream device does not support
-> > the MPS value currently configured in the root port, pci_configure_mps()
-> > will reduce the MPS in the root port to the max supported by the downstream
-> > device.
-> > 
-> > So even we start off by setting MPS in the root port to the max supported
-> > by the root port, it might get reduced later on.
-> > 
-> > 
+> > Reviewed-by: Simon Horman <horms@kernel.org>
 > 
-> Dear Mani and Niklas,
+> thank you very much
 > 
-> Is it okay to modify the commit message as follows? The last paragraph
-> remains unchanged.
-> 
-> 
-> 
-> Current PCIe initialization logic may leave root ports operating with
-> non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> configuration is handled during bus enumeration, root port MPS values
-> inherited from firmware or hardware defaults might not utilize the full
-> capabilities supported by the controller hardware. This can result in
-> suboptimal data transfer efficiency across the PCIe hierarchy.
-> 
-> During host controller probing phase, when PCIe bus tuning is enabled,
-> the implementation now configures root port MPS settings to their
-> hardware-supported maximum values. Specifically, when configuring the MPS
-> for a PCIe device, if the device is a root port and the bus tuning is not
-> disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
-> match the device's maximum supported payload size. The Max Read Request
+> i guess RB is still valid with changes requested by Daniel?
 
-s/device/Root Port
-
-> Size (MRRS) is subsequently adjusted through existing companion logic to
-> maintain compatibility with PCIe specifications.
-> 
-> Note that this initial setting of the root port MPS to the maximum might
-> be reduced later during the enumeration of downstream devices if any of
-> those devices do not support the maximum MPS of the root port.
-> 
-
-Rest LGTM!
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Yes, thanks for asking.
 
