@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A50C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691CBC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:Subject:From
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=189I2Ho0FkzdbuOm9U/sYXLrvE4/LaGo3qdE6bnILxQ=; b=yTQYRQfhMLPNma
-	Ytyl7WELmVH0fQos7bL9oJA4ZEZTuyrqcI88adoDr/NFoTSd2GHDj7O03h16ZugFSCpFzZqUjDdBi
-	/7NSu2p+SSBJf7Fli0181+wM5ek8/FYYedxw9QHe6qWOoUDwNbKrJrPWnMJsny+gxGtXokGHT3xHA
-	0GKyDE8ACwMDDllqLqPkaN+wBvZJD0t6MwgLF2oayiOuMAy+M2WO2LzcnBUstUt1OkEkPepOJsBmL
-	rGUoNzEiATSNMAZb3xKJk9nmk0c5OVReK7BZZmc0HUCOvfI89kfJp6/C2RpnqcmIxd08IJzy5/PuH
-	uvHWiOTlSpWieF0L8X5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CEQBftYU5GEsq+N2TpwS8b8J87N/ZfaxNbCv461Psqg=; b=EdO3nU5GAqVIX2Ga1kdc3gKSAk
+	Jj3Z0I3rmppSDxBmpihz3rwf0Wamm5yr2xr4UAW83Y3NCpnnei7FesMwvyXGM/5odKoU6JpIotYkB
+	AynpmbYjT3erwcb36cKwv8kO80D0dh3AEjEOV7enOP+YcbbGuWhP2lo+PjXGJpd4aQfT2+OTfJHsY
+	0cbctUzyS6Lg8Kyrcbp1x9urEOpDk/I5dPLBCuech0MY+/4nKT9GrV+MPwVoNkccTr/JCUNvqWUtu
+	dY57+l2VvfeCgZOypiVp+TnG9XJxA7MZedw2Xh70iOeek2WKnfDiJVoZy/dBBQBfGekYFP3wFxKVW
+	26E0solQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIf8-0000000DfTi-0VdL;
-	Thu, 19 Jun 2025 17:02:54 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1uSIf9-0000000DfWv-3dGf;
+	Thu, 19 Jun 2025 17:02:55 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSG5q-0000000DGjP-2fw8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 14:18:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bNN2Q6QcHz27g4P;
-	Thu, 19 Jun 2025 22:16:30 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id 69AF71400D3;
-	Thu, 19 Jun 2025 22:18:01 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
- (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 19 Jun
- 2025 22:18:00 +0800
-Message-ID: <246d0247-2cca-dae0-827e-c20174bd3f49@hisilicon.com>
-Date: Thu, 19 Jun 2025 22:18:00 +0800
+	id 1uSG7S-0000000DGqf-0ZxU;
+	Thu, 19 Jun 2025 14:19:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750342780; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Sr5BuXOgL2KVTzPmp8+v1j9JhBQTMY363XCLrtS9H9Z9IZteGXR1fez9QbHoCQsH+3EZN1CWFqXzcb2IV8DAKGFVsdr1zPITYSNLVKlTLm+Drr0vmI2Po5BkEJt3e5ijl1o5ipkDy0R5W2Jxf+J4TuVY2Q/P8f833i+2hBMagEk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750342780; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=CEQBftYU5GEsq+N2TpwS8b8J87N/ZfaxNbCv461Psqg=; 
+	b=PUu6EExDbfETJz0GDpKE5VnemHaQxMu9+yF+YQ3zEgT6BPfEtuyA2kBNILwR4wJEH9LPS93Pu/xyqvYwEZVpi8Kjjo7mhZtxAdr+fDcwaa4N5W4l19AxjvoVB1BDHGANOXzIWzS94khBqTMpZ1eBdP969/rychvWGOJOuIOpeNA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750342780;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=CEQBftYU5GEsq+N2TpwS8b8J87N/ZfaxNbCv461Psqg=;
+	b=IVbmkkhmZn3/slqjttwKvzYB3/PzTbZ+Q9nrn4mD1bqlo/qqdLY1Eecb57hS5DTQ
+	5zbAuHsb7ODTYngCTv4umq5/Vcgp29Ig9IdOMI8K9Qm89m+AKYtUB15IC2Cam4FaZLA
+	iEMEvCYN2kweNdcr70RfhOGxNLUZjYdEzNC6o+AY=
+Received: by mx.zohomail.com with SMTPS id 17503427768471007.5123585560125;
+	Thu, 19 Jun 2025 07:19:36 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 3965E1805A8; Thu, 19 Jun 2025 16:19:32 +0200 (CEST)
+Date: Thu, 19 Jun 2025 16:19:32 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	nicolas.dufresne@collabora.com, jgg@ziepe.ca, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v3 2/5] dt-bindings: iommu: verisilicon: Add binding for
+ VSI IOMMU
+Message-ID: <n5ddeogrpgctrljnxjfxqaz22qfnxsgm6ro7qihbjeyhd5br44@ojlzlz7gsuzb>
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+ <20250619131232.69208-3-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-From: Jie Zhan <zhanjie9@hisilicon.com>
-Subject: Re: [PATCH v4 2/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>, <linuxarm@huawei.com>
-References: <20250530081722.280776-1-zhanjie9@hisilicon.com>
- <20250530081722.280776-3-zhanjie9@hisilicon.com>
- <20250616103447.000024dd@huawei.com>
-In-Reply-To: <20250616103447.000024dd@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hnoyd7gcbfhdjsab"
+Content-Disposition: inline
+In-Reply-To: <20250619131232.69208-3-benjamin.gaignard@collabora.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/250.326.2
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_071819_117236_C6CB5E43 
-X-CRM114-Status: GOOD (  34.01  )
+X-CRM114-CacheID: sfid-20250619_071958_213273_EFFE1F2D 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,144 +84,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, cw00.choi@samsung.com, kyungmin.park@samsung.com, myungjoo.ham@samsung.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--hnoyd7gcbfhdjsab
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 2/5] dt-bindings: iommu: verisilicon: Add binding for
+ VSI IOMMU
+MIME-Version: 1.0
 
-On 16/06/2025 17:35, Jonathan Cameron wrote:
-> On Fri, 30 May 2025 16:17:22 +0800
-> Jie Zhan <zhanjie9@hisilicon.com> wrote:
-> 
->> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->> the devfreq framework.  The uncore domain contains shared computing
->> resources, including system interconnects and L3 cache.  The uncore
->> frequency significantly impacts the system-wide performance as well as
->> power consumption.  This driver adds support for runtime management of
->> uncore frequency from kernel and userspace.  The main function includes
->> setting and getting frequencies, changing frequency scaling policies, and
->> querying the list of CPUs whose performance is significantly related to
->> this uncore frequency domain, etc.  The driver communicates with a platform
->> controller through an ACPI PCC mailbox to take the actual actions of
->> frequency scaling.
->>
->> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-> Hi Zhanjie,
-> 
-> A few comments inline.  In general nice and clean.
-> 
-> I think only one that really needs a change it the one around the
-> CPU association firmware handling.
-> 
-> Jonathan
-> 
-Thanks again!
+Hi,
 
-All accepted, except for the cleanup of putting devm_add_action_or_reset()
-before opp_add().
+On Thu, Jun 19, 2025 at 03:12:23PM +0200, Benjamin Gaignard wrote:
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: verisilicon,iommu
+> +      - const: rockchip,rk3588-iommu-1.2
 
-See inline replies below.
+The entries should be ordered the other way around, so that the
+"generic" compatible is the fallback. Also the 1.2 version is from
+Verisilicon. It does not really make sense for Rockchip. So I
+think it should look like this:
 
-Jie
+properties:
+  compatible:
+    items:
+      - const: rockchip,rk3588-av1-iommu
+      - const: verisilicon,iommu-1.2
 
-> 
->> ---
->>  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
->>  drivers/devfreq/Kconfig                       |  11 +
->>  drivers/devfreq/Makefile                      |   1 +
->>  drivers/devfreq/hisi_uncore_freq.c            | 656 ++++++++++++++++++
->>  4 files changed, 677 insertions(+)
->>  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->>
+Otherwise LGTM.
 
->> +		rc = dev_pm_opp_add(dev, freq_mhz * HZ_PER_MHZ, 1000000);
->> +		if (rc) {
->> +			dev_pm_opp_remove_all_dynamic(dev);
->> +			return dev_err_probe(dev, rc,
->> +				"Add OPP %lu failed\n", freq_mhz);
->> +		}
->> +	}
->> +
->> +	return devm_add_action_or_reset(dev, devm_hisi_uncore_remove_opp, uncore);
-> Hmm. I'm normally a fan of registering these after the calls, but this is one
-> of the rare cases where pushing it before (with a comment) cleans up the code.
-> 
-> If you do that, then all the error cases in the loop just need to return and not
-> call the cleanup manually.
-I'd prefer to keep the current order so as to keep logic and style
-consistent across places where devm_add_action is used.  It would be easier
-for people to follow.
-> 
-...
->> +static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
->> +				 char *property, int (*get_topo_id)(int cpu),
->> +				 const struct cpumask *(*get_cpumask)(int cpu))
->> +{
->> +	unsigned int i, cpu;
->> +	size_t len;
->> +	int rc;
->> +
->> +	rc = device_property_count_u32(uncore->dev, property);
->> +	if (rc < 0)
->> +		return rc;
-> Most of the errors here don't reflect it not being found and are things
-> were we should probably fail the driver probe (so someone can fix whatever
-> is wrong with the firmware.)  I think only -EINVAL means not here
-> (technically arguments are not valid)
-> 
+-- Sebastian
 
-Thanks for spotting this.
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Core clock
+> +      - description: Interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core
+> +      - const: iface
+> +
+> +  "#iommu-cells":
+> +    const: 0
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - "#iommu-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    bus {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      iommu@fdca0000 {
+> +        compatible =3D "verisilicon,iommu","rockchip,rk3588-iommu-1.2";
+> +        reg =3D <0x0 0xfdca0000 0x0 0x600>;
+> +        interrupts =3D <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        clocks =3D <&cru ACLK_AV1>, <&cru PCLK_AV1>;
+> +        clock-names =3D "core", "iface";
+> +        #iommu-cells =3D <0>;
+> +      };
+> +    };
+> --=20
+> 2.43.0
+>=20
 
-Had a dig.
+--hnoyd7gcbfhdjsab
+Content-Type: application/pgp-signature; name="signature.asc"
 
-In the case here:
-rc > 0, success, rc is the number of elements in this property.
-rc == 0, property found but no elements in it, the firmware might have a
-property without values.
-rc == -EINVAL, property not found, or invalid arguments received in any of
-the subroutine, e.g. NULL pointer.
-rc < 0 && rc != -EINVAL, firmware probably broken.
+-----BEGIN PGP SIGNATURE-----
 
-I think we can take 0 and -EINVAL as not found, and try the other property
-name.  If rc == 0, the firmware might just have some redundant code, not a
-big issue.  If rc == -EINVAL, it's likely that the property is not found
-unless some data go wrong and make arguments invalid.
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhUHGUACgkQ2O7X88g7
++prRww//e+aSThtmJ810xji+RnvlWS2wXqSSig1uhBCoEFpCcWL8o04mLBsHlg+t
+QEXbDsWRcs2dstJ8R/0zTskv4dXptRsA99DDBw0oqFXDVT7DA5brVDSL36BMDKW9
+KI8KYrP1V2RpeV86Ry3q1ETRVGmiBUfN33KWDRuUDMMIW0/VIynan07sZap/0Cz4
+vxTOJ0KiLchDa92nzX2bqn0UldSlFJct4G8sVfDJui9zTpw4RmMA+5IL6c+qC/jq
+yIbHUniQVieY8q1vwAYkbw2VigzMeU/+rv/4EIuHB8lyhoMQwtGb/Zo6Dt2NgwmX
+Vad1qXEzE5HIc/4V9PjXAU+mCOcnmEhSGFRGCkbZFmirMRbpErNd/yxVvgcxP3Fy
+3IFoIkzZN9wc0aGOdWOH1Y/y5SwQHP31RRNwAlc2rQCdUQNkKUjXls7Im8Om40cD
+pJpTDGTUX0PJUg6Cq+0CmVPsIa+KMN6l2QzThllthrJICmoDvBsTROg7eQJ5sfYF
+fUTDG6G1I+MwrxgWyVtP+6C46xrXaKW+ny9XB5Cw3lITNPXTsIGugzwCZzMN85Cr
+d/KwLnOdfVykNTLDbWtkmViXDy3G7vT1lBymWPaiIxSygNjUPvcH6lELbi5hQkSS
+ys0Hb/aioLfK3y/Oz1mqsqRAcTtA96j2UxwUchBfUyRk0e9Do/A=
+=wgbS
+-----END PGP SIGNATURE-----
 
-Other negative error codes should fail the driver probe.
-
-The device_property_read_u32_array() below is similar.
-I'll put this in comments and update hisi_uncore_mark_related_cpus_wrap().
-This function doesn't need to change.
-
->> +	if (rc == 0)
->> +		return -EINVAL;
->> +
->> +	len = rc;
->> +	u32 *num __free(kfree) = kcalloc(len, sizeof(*num), GFP_KERNEL);
->> +	if (!num)
->> +		return -ENOMEM;
-> 
-
-...
-
->> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
->> +{
->> +	struct devfreq_dev_profile *profile;
->> +	struct device *dev = uncore->dev;
->> +	unsigned long freq;
->> +	u32 data;
->> +	int rc;
->> +
->> +	rc = hisi_uncore_get_cur_freq(dev, &freq);
-> One for another day:
-> Whilst we do indeed need to do this, it seems like a small optimization to
-> devfreq would be to check for initial_freq == 0 and if it is try get_cur_freq()
-> after registration. Mind you I checked and this only seems to apply to
-> the imx drivers and this one.
-> 
-Yeah, understood.
-Let's check and improve that later.
+--hnoyd7gcbfhdjsab--
 
