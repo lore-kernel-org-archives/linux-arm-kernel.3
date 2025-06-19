@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC833C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5C2C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 17:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=; b=X7FD4+kcHbrJe+Ln2MZrk3iVyG
-	LPI3C7gpAV66BD73EnXwHtzflcfaL/FoofSUJl5BotlZmg43K3xT2Hv5J9ea3M0aXXxsIZnMI/nQd
-	xbdx9lRQxlbik7BcSlsvtFn/Ho8uBtvOqis8Ef0b8atC7NZx04QFhTFYeJiFWPubhJaqDJzYKwstL
-	XAyTnAJ4tNvAIo8NB8re2sBL9XUd87PKltgRrCoxo3Sp94qtHopPC+0ZnBfEXyzQVgtCDD1LxOvhq
-	Tgx6DbHvCswPxM4EjD4m8xZcd93hOLa80pjI9WRz8cVuc59QeL9jqTaLnaqe0CHnSi3YCuCJrzG36
-	D8Em2RFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jMNiT3tWBypM+YhmOEFxXUuwyEu/2qVPCo7sKimiiTM=; b=GeYMV9RXiJywta5D+t8RhVtk5u
+	cJ7NEgEqS7lQBodMsK8NooLAJFJFiXVkOsgjgKt3LX84cWpbbDGh1oYt4X2gkoKQNkW4h1HsoROyp
+	e38FSE9lHU7FiKWZmildOJsxYHHkEe6c1M7WcwH5VtqygOt0rfykk+yaaxfJ8MS3IkVGjZ++joFLQ
+	pUYZn1MnFxECkfJtOQJ9M8kMMIFW8E43EByMAuk4UihBok8EMlwqCJSrPbSoJmSKowIvl9pTY3stV
+	9xs8mwM3ii25KK7+6qdFqdyrGPUSHmZ0VcFsgpje5IhpOcaWqoQ6M/T2fQJp+5uKiiPELDEs47omD
+	45kYZyKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSIeb-0000000DekF-20xU;
-	Thu, 19 Jun 2025 17:02:21 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1uSIed-0000000DemY-3xXx;
+	Thu, 19 Jun 2025 17:02:23 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEJX-0000000D2ZJ-04wo
+	id 1uSEoN-0000000D6dc-1L7t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 12:24:20 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ade76b8356cso123091766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 05:24:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750335858; x=1750940658; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=;
-        b=T00ACUGuvKVjD/Vhx98sYcu6Ag8IXFaG04KjTbxbNl+pCyuTSpWIajRLgVp7W8dSQj
-         v7EZ4vp7SIL14300wtmcbF1W758Ls91TvaAg8t7nIUzvP6RuPvFMh2H2jNpqnLvJh13H
-         wd0h1itV035vZf9126/hM0grRyU+m6o0FTnfvkFxYgZQUiU9teypBky6+A9SrIgDoRIY
-         gMyOoPDlN089cwSigQPUuVnRS+5wMM3MblLSZGKG+mWELnfAHQTFPVLPmK5kVejdL9DF
-         NVbhbfmAtBzwLsr2BIjC7HaMvJf+uQctc1JB83rzCLYAb2Od/2ixI8VKYrNR5moRYbYU
-         RCXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750335858; x=1750940658;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nOCWgCxa5TuHqEzs7P/Xd0Uu+UeKSk+lfEEEEay9BLo=;
-        b=unwdz/oxW/jVbL8ybddTZQrsapc3dEKFI8nvQ5CGdtOQ/+2XBl/MWT+v6dUXDrTSln
-         5SkUgAFTKq28ow4vS5ZPtXU0lo+r9fQLMDJzjs2cKkz7bggD6CN7cAYH8guF+a8butNs
-         JrJ40hkxkEK1YTjAQ80vJSj7oN5+OORlz50BikiZ4NfG/TXE9pGD9Ka5MPuotMlTDizK
-         8OK/++WfCY0/aYdsTvwbxfTlmpgSBBlgIWjj2UWVBXL634FHQYNLSdvRY7bKUhoCX31P
-         xnYCGa9lsv3Yu4JHgnTfGWQ98oDRMrd9XhOYkMN2/BPk9i97pbgwB3kS/RsAVZHgbd2l
-         /kgA==
-X-Forwarded-Encrypted: i=1; AJvYcCUKUN14rL3DdJV5JXwuySPEMU9iB/qkK1mFlQR5y5iIn2+gqaSTGALjk95DSyVJuRjiuS0Hex4qgLYRQZzIkuzS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZPo5zttfyzyOLQWKS02u3j/onUg8azH8wGgvJ++WbeADx32LY
-	ruSyZnCUhhwqvkRzSfb7TPSEZwoZgfaBZUqKPHThFPSjRJWmlSCVfezR
-X-Gm-Gg: ASbGncspmmAM2CvhYr10a5GINxejRGg6pugNIwZj1TUcQVJhHdbf8zTvbn0z6I2RRoh
-	GAIzBDGKms2fsDQgEUT9bbymF/OvWt0WL0PHWRKH1s44tmdsHW24XFWRVk9ZqBbwBAWa4+V07Km
-	tCx1bmAC31lyUknkPe3XWykXkjr4YdGBOaVDEf212ohrA/7nJrGS8Htylbb04a1VIMxKujf2GJb
-	ctdiQuaKW2GDf+4Xb1a+Cdq856Sfi9Cj1D7J+ajTzpeV7u2/Mz39BFZKCbvo8eCF216iVT0gub2
-	2mv9djgAjJd8+8KLxYCKkmAprnb3+Eg2c88mNbvbdq4KCM2vbvBCEAnoPtcMHwtf4jD1sAU6HQw
-	TZRtPcB8ZwNZ81w==
-X-Google-Smtp-Source: AGHT+IE+a44JiT4pmaQaCPgiF4SiL6W/ZMs6YLvucyMriX+08QeWg5qDOEHlRbDj5alSx6vbOGHqPA==
-X-Received: by 2002:a17:906:9fcb:b0:ad8:9e5b:9217 with SMTP id a640c23a62f3a-adfad60cb3bmr2167795566b.45.1750335857453;
-        Thu, 19 Jun 2025 05:24:17 -0700 (PDT)
-Received: from localhost.localdomain ([2a02:2f0e:c51b:8900:a03f:12cb:72f7:9069])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae000b02bd3sm504688066b.3.2025.06.19.05.24.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Jun 2025 05:24:17 -0700 (PDT)
-From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-To: clabbe.montjoie@gmail.com,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	linux-crypto@vger.kernel.org
-Cc: wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH 06/10] crypto: sun8i-ce - fold sun8i_ce_cipher_run() into sun8i_ce_cipher_do_one()
-Date: Thu, 19 Jun 2025 15:23:12 +0300
-Message-ID: <20250619122316.2587236-7-ovidiu.panait.oss@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250619122316.2587236-1-ovidiu.panait.oss@gmail.com>
-References: <20250619122316.2587236-1-ovidiu.panait.oss@gmail.com>
+	Thu, 19 Jun 2025 12:56:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bNL8k1jtvzRk68;
+	Thu, 19 Jun 2025 20:51:50 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2346414011A;
+	Thu, 19 Jun 2025 20:56:07 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 19 Jun 2025 20:56:06 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 19 Jun 2025 20:56:06 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [RESEND PATCH v3 6/8] drivers/perf: hisi: Support PMUs with no interrupt
+Date: Thu, 19 Jun 2025 20:55:55 +0800
+Message-ID: <20250619125557.57372-7-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250619125557.57372-1-yangyicong@huawei.com>
+References: <20250619125557.57372-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_052419_063536_F223F084 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20250619_055611_522904_32C56BEC 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fold sun8i_ce_cipher_run() into it's only caller, sun8i_ce_cipher_do_one(),
-to eliminate a bit of boilerplate.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-This will also make it a bit more clear that the skcipher do_one_request()
-callback follows the usual prepare -> run -> unprepare pattern.
+We'll have PMUs don't have an interrupt to indicate the counter
+overflow, but the Uncore PMU core assume all the PMUs have
+interrupt. So handle this case in the core. The existing PMUs
+won't be affected.
 
-Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- .../allwinner/sun8i-ce/sun8i-ce-cipher.c      | 34 ++++++++-----------
- 1 file changed, 15 insertions(+), 19 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_pmu.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-index 9963e5962551..5fdb6a986b1f 100644
---- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-+++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-@@ -360,31 +360,27 @@ static void sun8i_ce_cipher_unprepare(struct crypto_engine *engine,
- 	dma_unmap_single(ce->dev, rctx->addr_key, op->keylen, DMA_TO_DEVICE);
- }
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index ef058b1dd509..a449651f79c9 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -510,7 +510,9 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+ 			return 0;
  
--static void sun8i_ce_cipher_run(struct crypto_engine *engine, void *areq)
--{
--	struct skcipher_request *breq = container_of(areq, struct skcipher_request, base);
--	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(breq);
--	struct sun8i_cipher_tfm_ctx *op = crypto_skcipher_ctx(tfm);
--	struct sun8i_ce_dev *ce = op->ce;
--	struct sun8i_cipher_req_ctx *rctx = skcipher_request_ctx(breq);
--	int flow, err;
--
--	flow = rctx->flow;
--	err = sun8i_ce_run_task(ce, flow, crypto_tfm_alg_name(breq->base.tfm));
--	sun8i_ce_cipher_unprepare(engine, areq);
--	local_bh_disable();
--	crypto_finalize_skcipher_request(engine, breq, err);
--	local_bh_enable();
--}
--
- int sun8i_ce_cipher_do_one(struct crypto_engine *engine, void *areq)
- {
--	int err = sun8i_ce_cipher_prepare(engine, areq);
-+	struct sun8i_cipher_req_ctx *rctx = skcipher_request_ctx(areq);
-+	struct skcipher_request *req = skcipher_request_cast(areq);
-+	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-+	struct sun8i_cipher_tfm_ctx *ctx = crypto_skcipher_ctx(tfm);
-+	struct sun8i_ce_dev *ce = ctx->ce;
-+	int err;
+ 		hisi_pmu->on_cpu = cpumask_local_spread(0, dev_to_node(hisi_pmu->dev));
+-		WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(hisi_pmu->on_cpu)));
++		if (hisi_pmu->irq > 0)
++			WARN_ON(irq_set_affinity(hisi_pmu->irq,
++						 cpumask_of(hisi_pmu->on_cpu)));
+ 		return 0;
+ 	}
  
-+	err = sun8i_ce_cipher_prepare(engine, areq);
- 	if (err)
- 		return err;
+@@ -525,7 +527,8 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+ 	hisi_pmu->on_cpu = cpu;
  
--	sun8i_ce_cipher_run(engine, areq);
-+	err = sun8i_ce_run_task(ce, rctx->flow,
-+				crypto_tfm_alg_name(req->base.tfm));
-+	sun8i_ce_cipher_unprepare(engine, areq);
-+
-+	local_bh_disable();
-+	crypto_finalize_skcipher_request(engine, req, err);
-+	local_bh_enable();
-+
+ 	/* Overflow interrupt also should use the same CPU */
+-	WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(cpu)));
++	if (hisi_pmu->irq > 0)
++		WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(cpu)));
+ 
  	return 0;
  }
+@@ -560,7 +563,9 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+ 	perf_pmu_migrate_context(&hisi_pmu->pmu, cpu, target);
+ 	/* Use this CPU for event counting */
+ 	hisi_pmu->on_cpu = target;
+-	WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(target)));
++
++	if (hisi_pmu->irq > 0)
++		WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(target)));
  
+ 	return 0;
+ }
 -- 
-2.49.0
+2.24.0
 
 
