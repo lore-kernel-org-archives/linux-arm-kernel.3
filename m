@@ -4,150 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2E2C7EE2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9829CC77B7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gLD9Asam9PxZ6wrp2Z1f/6Dnp0WKHIT+hEs/H+Rq+Y=; b=O8G3j+FTd43ZlxDRRIYP5jngxN
-	WA5997RBwmUETw4ZGSgWgxY/UoDHk6KRJvSfi1HTADDN5FKM+299Qy7oGHyJdUvg+ipiA28VL1wkJ
-	nnoIbV1jt1/Q8FX5XzNmo2aGroKAze+MITuzp/b0hm/zbISVuAz4JWA2GHKAumxlN9B/MFOSPO0Pc
-	uSDovcsKEZko0iowE44tnSy5FzEvyAt/xevTg4ox1erptdGh/LsO0OswR/X3RwUrY/2XW3xaTii7z
-	Au6bxclHM3x6+N44ZMNJRlaCI+R6TTfSWTwcSINVBXLUn2yzV5mi7Ogvl4cvFaXtv5tsLO4sqretK
-	qCoUePgQ==;
+	bh=cXr4DkxQyQe6cO2hVmMV/1vKr4WFSQJXwlWoVF3SQUw=; b=S6shE52aoKVRfjuMjRmRczhMGr
+	GgLtepjBPeHOnMKLHvKDtgiFupjjf8SSEsR0Nj+0550Ks4woDHzE5Mk1dg8WDA1XgKjUR1+N/IOWq
+	0wISOVJ7lDsBMHKBzNpN5DyGz71eBPErDn2hpTzeADmnNpFoSx+gLik6eHM1xthdt0ODlOtxSc4TX
+	ZItc2KcR3B667HcqQrFhENB/5+d35pLcvCkLIG+HuNGW8zH0OKZY3srbIiVD9Pt8K9/HhGkwDVzoP
+	/Ff3qjk+LZs1WCcmrrcfagEUnbehbvgSfX1w7nMG/5un1NGucMVB97InknQW8J9lIPnx2l1XscqqM
+	S9n/Odew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK7P-0000000DtOd-3Tvz;
-	Thu, 19 Jun 2025 18:36:11 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uSK7R-0000000DtQH-0tJp;
+	Thu, 19 Jun 2025 18:36:13 +0000
+Received: from mail-qk1-f176.google.com ([209.85.222.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSGWM-0000000DJKe-2IAm
+	id 1uSGrr-0000000DMf9-2jOv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 14:45:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g/94swYtlBZGnIBWPdt1hGNBSxzTPhE+nNvtwTBBVxZgCChcQwGVGGyJZmT2G/lu4MHiCnM6ZeYBtfJap1FGKToQSi4INgEk8ND3y76ZEWvAauUTYlVQUc4E1kDiFSBziKCf5Zmc9FXuz6eUUVgaxWEhbXOXo1oYeD8rCs/4Pzgxq4gKWnZgja4Z3sa6NP+3PSwA8FOg26d8kBWSs8SJvU+z6+Y/3JASoOkYm26GPn/3cNKeSUSZFmMsTiO+AZGQDV10ezJrPLfpY0iU1kukkWkvDENy7hqqXg3ftD/ZRctek7mzEOhwRCYyw3WFY08FJ77FU95OGDgQfoUZ/3wEUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7gLD9Asam9PxZ6wrp2Z1f/6Dnp0WKHIT+hEs/H+Rq+Y=;
- b=onsVpYkTSWEeSXfOmoLOIdlXImLPBJjgJ/RO4Sj/awrEyJ90LfeWMJycHSETWaGyQjK9ysABNG5pOCeeKH5JVPmr2lNceiKuRnVcX4WdWGAwqEcp4QEOoQfuwtr71xyzepdC66HPDH644fvoc4DFi/q4hB+TOqbC+df0d644pYFaTNZeOpqWWUpfU/IgKhmQ94+LGT4yDdhXepNumQVELNjSWDqIKAQfF0vGPTbHwdumhD8uoUeoFP0+TjxOEgdloS0YnL3+aOcGP10/jp/2dzFwTGShnwl8gz0camUW6Fwkgm0xorGgaWZMT6vmKBe5+Lm3F4DC/uegdeKrV9mhCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7gLD9Asam9PxZ6wrp2Z1f/6Dnp0WKHIT+hEs/H+Rq+Y=;
- b=fyrX91n6gsHLvcK/aI/CDtYJ3MsQlWnOuwMOiNLxVFFVVo2eOcnlkmqIq5uOoPHIeAsCr2fFCOc+XyqDprZkKVWlJcsivIVmwpmAkph4IjSVFT7avcul9hqwTClx7OmCYaUesij8BjH5j8v46LxB8lKE2zTtWtphUTJYffByVwzc2lQ6CEgSDVQ0R5z85j2o6eV/Jl04dwf07JZBYh+gTuaPSZmfxSAj3BF0N/m/OMddhTApJ6luty/d8Dqb1jflXpYNwyFFneoV6jauUXyVMSryfEPl8qsoJYWKAjnEi6Wi2hki9ImodnH3nvl2asVw5BetukmQ60saabqclX0onw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI2PR04MB10091.eurprd04.prod.outlook.com (2603:10a6:800:22f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Thu, 19 Jun
- 2025 14:45:36 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Thu, 19 Jun 2025
- 14:45:36 +0000
-Date: Thu, 19 Jun 2025 10:45:27 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: jingoohan1@gmail.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] PCI: imx6: Don't poll LTSSM state of i.MX6QP PCIe
- in PM operations
-Message-ID: <aFQih1GVoWwC9WEb@lizhi-Precision-Tower-5810>
-References: <20250619091214.400222-1-hongxing.zhu@nxp.com>
- <20250619091214.400222-3-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250619091214.400222-3-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0103.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 19 Jun 2025 15:07:56 +0000
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-7cadd46ea9aso141254685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:07:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750345671; x=1750950471;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cXr4DkxQyQe6cO2hVmMV/1vKr4WFSQJXwlWoVF3SQUw=;
+        b=WglcrdJ2tvgiiAOVpqnG6hR+21IvBzqMLhjysojN4f9l5WYvGLFyM9RcwH97TdorEc
+         fXWgIhFnxS8GOTJdE3WhsiU0VVnx2qok9pZ8hW3W60NbmGCSFf3OERsoqBtqjKa9yrcY
+         x5bh219FXxBnzaRdDr8W4Xne77rq19hOL0D60tcyDHuvzNe+e2FFznwvN3fNIC9C648y
+         zLTNnHsvTE2c/3TfVweZeFS8npK612jOmQ69lsuQI5DzZThUYbODZufK22g+mFJAOTOT
+         OwHjlf/pseqR1W43gFHzg/nmvxaU0h4HGW3Sw385++KvZgDECVzI2vgrttr1mv9NqZl7
+         LPgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXrFjpev6jB6xIgr8osjcMGlXCQOm+YaSaorKS4DYFrdvIjNHKhpLm9t2gypYzJsN+ad8dhHrXJwYvtyrBNbvKD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbllJuq5SyZD/R1j+DI7OnzpIUQFD2A8HRTzmJoY0w7SkwLpNT
+	rHD3HUpl3IYRG8ni7pqfG0s/Bhv8vZlDNe9Nv7EC0rjlJsf9IJUefkjcJMyWdm4S
+X-Gm-Gg: ASbGncsgtOD/tAT19Cl3vw9iC4K38VnXG5QG0AqD8UU41eZ47tKOutEknhha8tHa4nQ
+	xV/FSY2AmYHEW/5hgW88DvBoLL/WL37L8F3zUm8yhnpVM25dfMp9jaYTDhVZU2y/BbilqVk3pdH
+	DV0XTXE1QY3kkFj8crBOXgIrlQvXttmqR9cftWJMqYJmT6Zwqdq0RC5aplPjhtE8owAHyzPHTeN
+	V6z9yDecH74I/o/UzthNwFJ9aJ38RxmIA5axRoIJ0NpIUIgGmGG9pJnqRHtgli6tis8aPqHvCkG
+	XfJ/WWqrLQH7Lv83l081vEXtt7V8lqn2UeoU8GQzd2ZTQEPXymlAjEHxXACa5wvY3neenIazsGE
+	o8FZYdSMVhgjPjNSqo986DRVNl/sC
+X-Google-Smtp-Source: AGHT+IFx6Z9NFdlQWI8zBAkotYgKux1LX7UfwhuSbDPGUohf3dsywtj6BowgpPHbijPnN13sMoUWdQ==
+X-Received: by 2002:a05:620a:2909:b0:7c5:9a09:cb73 with SMTP id af79cd13be357-7d3c6c1b541mr3192118885a.23.1750345670807;
+        Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com. [209.85.222.179])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d3f8de70b8sm7690785a.25.2025.06.19.08.07.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-7d3dd14a7edso151551585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 08:07:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVRY0K1H75BoUklgNn5WCqckzu3YO5vpZ+Q9y8ejqKs9ovxQRBpwCmKbU9eD+Sw9OoarQlcBoGuX4l+3tT2LhVT@lists.infradead.org
+X-Received: by 2002:a05:620a:319b:b0:7d3:8566:e9ad with SMTP id
+ af79cd13be357-7d3c6cda22amr2925901685a.34.1750345669885; Thu, 19 Jun 2025
+ 08:07:49 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10091:EE_
-X-MS-Office365-Filtering-Correlation-Id: 486501e6-3205-4d86-0464-08ddaf3ff3c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1lMOSkk2JLYTZJLhZCPLJPkmEM1hcLm8GjfPHiZEnkKHT2TgximNVit7mqf4?=
- =?us-ascii?Q?XHTs2I5ZQsQMPy9qoqa5ItLiGyxb1QLV4ShP5m3+wlrpw1Fymzeq8RmKylG8?=
- =?us-ascii?Q?LYzsJ1RcbweyoALG50pZNsxqK7aOmf8Z4dIC6L6WJEQCa25gSwA1AZ1USFZi?=
- =?us-ascii?Q?a0ImQ6UZx0Nk/fxuSE8RmCseEZ+T2rQMH7OaNHazvfeG8Oqs9Ekx05mCc3uR?=
- =?us-ascii?Q?gwqI3VksXHyp42eM3U8Te1hOG6NMiBwM8hDCSGO8vhiRSve8fDkFkKHm4Gzc?=
- =?us-ascii?Q?UUfDTpxDDYI91gmytkmKpmbXq+VVrIP7fQvLptGTI3vF8FpJlRDEhhPUD4ke?=
- =?us-ascii?Q?lxgkcsxvKQE2c5RdX8fdtVi/6Aj6gWeZrY7Ku6Y5qTWll0u201DWi5QO6kd2?=
- =?us-ascii?Q?9lE+Y+AtPj+Zmgw8ZbaC1zrvcX0lMy+vMoy6t7hGQywrErTF2BTqrZLOceIM?=
- =?us-ascii?Q?zD+6G4eyH/AMo1Bvu4VH6Y7DLfd+voaePJe4c+hljO6Gj8tyWqEY+ESwuPEt?=
- =?us-ascii?Q?JRHpbs/ju9lDwWXc3MNQXvAh2J19/63vSkg6IqUhKIquxnfATNUJGCxRvOLl?=
- =?us-ascii?Q?TqPNzU6bF7SIbC9TH+t2EIFAYeNP6EzPXq/ait+wmHeKuFDhTxTf3Ir4F99W?=
- =?us-ascii?Q?6tpLW9i1ahLIgL+995bJ1UFB1dfBQWShKkTMJ3/fyhM9kOBDEvZ5/Ln/pKqF?=
- =?us-ascii?Q?NZ88PHXHI15qh9H1fdOetsEiSObimDsJfu14jVTM2vye2ur6w7rgZNXMkfAb?=
- =?us-ascii?Q?P7lDWeiK7pS96Hf3Tb+K0z/oGr4Ikwe/UoInRd8lO2UD1yNvdDhJL0NsoRB5?=
- =?us-ascii?Q?hRZSZFDzPgkrouK5QzTwyV8pW+xiZjvuNnUgYXq323uzcwx73sPBzSj3P7b4?=
- =?us-ascii?Q?fcBbwSU/K8F6XFkrbbfkI4EloVIchR+ME1X5YLya+3szycWKsgPAw9zuryeh?=
- =?us-ascii?Q?Q2HPgAO3opjHry09Cu7rJLKr5hWkRutKziEj21JnXTR7phccmfxzMmoBnRJy?=
- =?us-ascii?Q?2lJFKo1ulFusv5nhwQqLbXmoGE+XaKgM1YOo4cpano2UsTpVJUA66nX/SvJi?=
- =?us-ascii?Q?xen+/LsnHLR4PADDFR0cryGu8ddFMiN1SmmG5rTLcxpaoRDB8FGNQO0BOOBQ?=
- =?us-ascii?Q?MjzcVXvEPCK8zFARzphrFgnsCznJwGhJu7xTxBDkurPabRpcbBtUWVxHmZE8?=
- =?us-ascii?Q?xZI4pMJjnw9b88sYPOZUGneszn1dFB0TzTJWrPDiILUG8M+CwxEAr3lBw7K9?=
- =?us-ascii?Q?Mo9oKClJfnBKNoLX344b7jEPoxKlxBskxQawK9TxS96wvAvYVjjlDqY41mGE?=
- =?us-ascii?Q?jun8z87YNJ/sKcAMvPohoNLEgHAtCnVBL9vuROPIZRCznuBXIrZVEKznwscg?=
- =?us-ascii?Q?TMJMa9SOmJba9mq1GbSNMpCtUPrdXRwQ11/5QMegn3o+DKRCSRnVxLzCdFov?=
- =?us-ascii?Q?bJS1adKHorKgQ66l+ISV1xzI8yfQKTms0gBjM+Myv/SrmeLSA75UKnoO9xkE?=
- =?us-ascii?Q?vlabrieafILnwQ0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ILS/FEd/P8UEXA0KxYRoet7OY2HJy1YnPUfNkRwi1b+rq5NzuzKCCYMLp/se?=
- =?us-ascii?Q?mkCp0QnRDsAe9wSlkVoNwQP8gjQW8wCmPlqmQXsLg0zwz0oXV1Xz4bBXnz7+?=
- =?us-ascii?Q?sO9o+SIXB2CKOrun8W7Lr+8h0o5DC1oNlY6RHoxgp4BEsfi7dkah3B/bly2v?=
- =?us-ascii?Q?bP0NhxhqxeT2CiANOu3en5CqYc4JUbFMJ9Qd6/P3xr3+ntQGjvMxNUlcWIIl?=
- =?us-ascii?Q?cnwf2Aszu8WefN/5XgLXlweSYXjz4xSG0OAzlqG8QmSz/qdS0hv9P0S0YBY0?=
- =?us-ascii?Q?s/XlAmuu5ZtyZGVJjALe0WkhMq9tElf9V+ekbMm1prRMGeAW4FcOTY1JCJzB?=
- =?us-ascii?Q?3ZmXTjNQX8/vMunuwQ5uueLu18tzPzuiiGohnmcvslyoqZO4643kZV7kHD53?=
- =?us-ascii?Q?E1R5RcAXgAVS90sg2J1rA8wAcWEPQ8Lo5JQL9aOsXkiaYEBjmGTObLEs/cA3?=
- =?us-ascii?Q?rYPx5sXXAfE8/uhmBUtHJEqYiHfyArTmBXUG/sgh32NG3/AsNjVUUoUMRHo1?=
- =?us-ascii?Q?wgV/vj3LeSchRc8+0TFW1WkwAXVUuA/vj5D3DLqFIaq+kDCUyn5GMD1CpCvW?=
- =?us-ascii?Q?jRZvFZ+Ly8KYbWzoAQG7PpC6XrRfk2IV6QVsFb5jBxQy8EGuJPjdyFAHsDnb?=
- =?us-ascii?Q?mbmMHhNGN/8lMcsm/pEENhbS5Uf17u4S6z0aL1JP1oyynzIpef65Ov+hZ2tB?=
- =?us-ascii?Q?QI2RhKLjfx9K9ki9OOc/I16iMY+I3ZWvs1Pl67Eg04/QUT43hxtkBP2XR6i1?=
- =?us-ascii?Q?FTmnlCS+aYrWGmmEFvjNYnTBWJ8CjcnjbaU6kK6KhHZP4Fj+eXb/A7REu6oh?=
- =?us-ascii?Q?dL02RwREDvDzIMN8xvXp0cpmLWt64YYR34BXWn5y6KlEnRcuXl8ARAOngy6I?=
- =?us-ascii?Q?ds1oDcicSyMGLCJrLc+ag079n6qdpWSTHhqe3DKamWl6TDv65pCUWgkKqtVJ?=
- =?us-ascii?Q?8TYmrmAMloNeP6Lz20Ki4IoD0oud76XtEZdhmX7UT4KAIgbk8hLk4ScDStDK?=
- =?us-ascii?Q?G6NrX4LQF1UGaYVk0jHdO+Y1LNLimLqfXCoL/OY7sL/j6+wJHw5BV/6OioOg?=
- =?us-ascii?Q?sKRcIfXSDsytrWhXflYL2dHCpxqGA/j+wYhHkka3Fs4rAayFfcU62zqLtPLw?=
- =?us-ascii?Q?x3shVO8VgSpVn4xxCoR1LqDIqS2m4i/ILbh1ozPBzmiy4uXOa3Om1GuD5EwB?=
- =?us-ascii?Q?TLyZodnbOdrjUr4LAwWCA22ZAhjWBjR6bBLncefFS3JdUdVtQiB4taFOHE9v?=
- =?us-ascii?Q?UEFzFamMEgvJ4nc/PLkduThv1vJHNcmoPsGofUftl1m6fldtv55zCerlNBU6?=
- =?us-ascii?Q?mhJFpxDuZ2gzVF3gesKW1hZq9dMn6MPsNGDW0GH6FRWe8Xi1X/5qfiYAmJcb?=
- =?us-ascii?Q?gJqNLglC8IFjCHQZDqPlm9usNGi5XM9sJ3aTFSqxZOIYT4svz7RvJEprvot+?=
- =?us-ascii?Q?Q+bllfVsCPKISZ16LijACo+ohlSMdysrQm3M9M5o8eRycw0VSQC7aOBsqHcz?=
- =?us-ascii?Q?WIWf6HYY5g2+9wMfq6LEKW6/oSc7SmGLZVHKhH1LA04q8wskoGNksmVLbXwY?=
- =?us-ascii?Q?GZNM5uPBsl4qlD5nozaYOBBZ9X8MtN/I9t/rGpO5?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 486501e6-3205-4d86-0464-08ddaf3ff3c8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 14:45:36.5893
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 54VvB2O7in/2peOTvXPGA7QPxYLWj1zPziij3b2sPvNrYDG31RhXOvTn5b/qzpTliMfxQ75LtnZaBScduQSakg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10091
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
+ <bdd989b4-a572-44c2-ae7b-2c445c09fd7a@linaro.org> <d05f2c03-fa86-4fc6-9b81-1a7b5592c2e8@nvidia.com>
+ <CAMuHMdX9NzFvsOv9eT0t4KVNufHSqVEht7yRbrt0qE49WgHpGg@mail.gmail.com> <kjotbgwqlvl4uv4bcynqsiynf4dsoplw3szaqlcfd7rm7k633p@64c552v3llz2>
+In-Reply-To: <kjotbgwqlvl4uv4bcynqsiynf4dsoplw3szaqlcfd7rm7k633p@64c552v3llz2>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 19 Jun 2025 17:07:38 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXt0AoHnCitc6GNUuT_THRvy17c5uq5geD0ubQ12FONZw@mail.gmail.com>
+X-Gm-Features: Ac12FXyqjFu03K5SyvIX5tcmxTFfiSwi7mDocCZBFa2GT0By0yuMp0VwoZlcHKg
+Message-ID: <CAMuHMdXt0AoHnCitc6GNUuT_THRvy17c5uq5geD0ubQ12FONZw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Jon Hunter <jonathanh@nvidia.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Prabhakar <prabhakar.csengg@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_074542_616119_CA2CE22D 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20250619_080755_688016_101CFFCF 
+X-CRM114-Status: GOOD (  46.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,56 +105,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 05:12:11PM +0800, Richard Zhu wrote:
-> Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
-> Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+On Thu, 12 Jun 2025 at 16:30, Thierry Reding <thierry.reding@gmail.com> wrote:
+> On Thu, Jun 12, 2025 at 02:34:32PM +0200, Geert Uytterhoeven wrote:
+> > On Thu, 12 Jun 2025 at 14:20, Jon Hunter <jonathanh@nvidia.com> wrote:
+> > > On 23/05/2025 12:54, Krzysztof Kozlowski wrote:
+> > > > On 23/05/2025 13:39, Geert Uytterhoeven wrote:
+> > > >> On Tue, 6 May 2025 at 12:47, Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > >>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >>>
+> > > >>> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
+> > > >>> ensure the Ethernet driver is available early in the boot process. This
+> > > >>> is necessary for platforms mounting the root filesystem via NFS, as the
+> > > >>> driver must be available before the root filesystem is accessed.
+> > > >>>
+> > > >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >>> ---
+> > > >>> With this change, the Renesas RZ/V2H EVK board can boot from NFS
+> > > >>> which has the DWMAC IP.
+> > > >>
+> > > >> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > >> i.e. will queue in renesas-devel for v6.17.
+> > > >
+> > > > With my Nacked, please.
+> > >
+> > > I was surprised to see this change in -next. We also use NFS for testing
+> > > and we use the dwmac drivers. To date we are explictly building these
+> > > drivers into the initramfs but I noticed that that is now failing
+> > > because this driver is no longer a module by default. This is easy for
+> >
+> > Oops, sorry for that...
+> >
+> > > us to fix.
+> >
+> > Good ;-)
+> >
+> > > I do agree that if we start to build every networking driver into the
+> > > kernel it is going to bloat. Yes I do see the kernel image growing
+> > > regardless of this, but nonetheless it seems better to just build as a
+> > > module IMO.
+> >
+> > Not _every_ networking driver, of course.  AFAIK, making network
+> > drivers built-in for systems where development is done using nfsroot
+> > has always been acceptable for the arm64 defconfig before.  For things
+> > not critical for booting, modular is indeed the preferred way.
 >
-> It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-> PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
-> a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
-> Synchronization.
+> Last time I tried to merge something like this I was told that we
+> shouldn't bloat the kernel for everyone just for our own convenience. I
+> tend to agree with this now. It's trivial to make local adjustments for
+> things like this. In fact, that's what I do all the time. I will use
+> defconfig as a base line and if I want the convenience of having network
+> drivers included because I don't want to update the initramfs every time
+> I update the kernel, I'll just change the driver to built-in in my local
+> .config.
 >
-> The LTSSM states of i.MX6QP PCIe is inaccessible after the PME_Turn_Off
-> is kicked off. To handle this case, don't poll L2 state and add one max
-> 10ms delay if QUIRK_NOL2POLL_IN_PM flag is existing in suspend.
+> I think of the defconfig as more of a reference for what a typical
+> development system would need. So it gives you reasonable build coverage
+> and such for a wide variety of boards.
 >
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> If we start building too many things into the kernel, then at some point
+> it's going to become uselessly large for everyone. That's essentially
+> trading everyone's convenience for your own.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+As discussed with Arnd on #armlinux, I will drop this patch.
 
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 5a38cfaf989b..8b7daaf36fef 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -125,6 +125,7 @@ struct imx_pcie_drvdata {
->  	enum imx_pcie_variants variant;
->  	enum dw_pcie_device_mode mode;
->  	u32 flags;
-> +	u32 quirk;
->  	int dbi_length;
->  	const char *gpr;
->  	const u32 ltssm_off;
-> @@ -1759,6 +1760,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> +	pci->quirk_flag = imx_pcie->drvdata->quirk;
->  	pci->use_parent_dt_ranges = true;
->  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
->  		ret = imx_add_pcie_ep(imx_pcie, pdev);
-> @@ -1837,6 +1839,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
->  		.core_reset = imx6qp_pcie_core_reset,
->  		.ops = &imx_pcie_host_ops,
-> +		.quirk = QUIRK_NOL2POLL_IN_PM,
->  	},
->  	[IMX7D] = {
->  		.variant = IMX7D,
-> --
-> 2.37.1
->
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
