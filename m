@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BC4C77B7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C141C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyZjmzTSk3Ts7RThnG0FelPPt0qvetxwBx5Be/gySDI=; b=znhOxeTO4I+ONMb7dq9lqkRwI+
-	b7VpHdVdkUU3F28b5p8FUsmpx/zi7Sl/8nOJs8vc2Jiyv06wS/wZjz4zhVaE/OXQht40b9nKm9/tU
-	vwjQM8swGPGvxZNr9KlFn5bkuk6WZ8CZ733V7GOsc9PmSGkLqkT2dequVa2Cou8GKfVCugVlQRgT9
-	GynGrjTQ4jbCJUPjK6KDbk9T1vWzi7BBH0FLEtIHOS4zo9uBcL1C3oFFzCBACQwd2n8cRS3TPST8d
-	qIJ1ooMm8IamPjEYBUYzmcKk/DHKqnoCuO+jg1bx+Lp3KYGcWKyMKM74F59AEAqiwfkMdealBl2c8
-	qE++Bu+Q==;
+	bh=E4uGJaO6CiQ+BOkMaEb3vXSEtDR7OaemRf+6gDznWtc=; b=CAYYnMhsn0axSD2JIN2ipgaims
+	uEyYSsaI3gQefuLcsOC9EF/3sIorDYLAqHwd0dRWBk2NGI/Ngmuv308QDF/s7ikPI0QpCELBfaKuA
+	0Ax+Luy/E2oZqnkvFhuSoYDAznNU5jWnAtPj+8JtB019AQahvZ/HC5AKapbeERM3KB2KlmjGskVgS
+	ylGIEvj1y/8vKZ8FgEKKTDA5VENyvIO1t76sI8/0nCt76yiD8tb4CdYcdx0Jk5nSbb5J+3Ua8yjT6
+	RMkg9jXEzRRO+Bwm4cnOKmLVL1KN2briPUsOdD8ghE1wyHilYfYsouw+lZEp9ee5jC2SimyRMeMQD
+	+gmkYaIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLpV-0000000ECmp-1RH2;
-	Thu, 19 Jun 2025 20:25:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uSLpX-0000000ECrP-4Amb;
+	Thu, 19 Jun 2025 20:25:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKwv-0000000E6Na-1Fh0
+	id 1uSLEM-0000000E7vZ-25YV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 19:29:26 +0000
+	Thu, 19 Jun 2025 19:47:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE80A5C077C;
-	Thu, 19 Jun 2025 19:27:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E41C4CEED;
-	Thu, 19 Jun 2025 19:29:19 +0000 (UTC)
-Date: Thu, 19 Jun 2025 20:29:17 +0100
+	by nyc.source.kernel.org (Postfix) with ESMTP id C93D5A546D1;
+	Thu, 19 Jun 2025 19:47:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 547E3C4CEED;
+	Thu, 19 Jun 2025 19:47:21 +0000 (UTC)
+Date: Thu, 19 Jun 2025 20:47:18 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
 Cc: ryan.roberts@arm.com, yang@os.amperecomputing.com, will@kernel.org,
@@ -46,17 +46,18 @@ Cc: ryan.roberts@arm.com, yang@os.amperecomputing.com, will@kernel.org,
 	iommu@lists.linux.dev
 Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
  BBML2
-Message-ID: <aFRlDSZ2PPnHixjc@arm.com>
+Message-ID: <aFRpRnXi3tP_iHEJ@arm.com>
 References: <20250617095104.6772-1-miko.lenczewski@arm.com>
  <20250617095104.6772-5-miko.lenczewski@arm.com>
+ <aFRlDSZ2PPnHixjc@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250617095104.6772-5-miko.lenczewski@arm.com>
+In-Reply-To: <aFRlDSZ2PPnHixjc@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_122925_426685_A5E031E5 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20250619_124726_601348_1A303B75 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,88 +72,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index bcac4f55f9c1..203357061d0a 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  			pte = pte_mkyoung(pte);
->  	}
->  
-> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
-> +	/*
-> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-> +	 *
-> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
-> +	 *       N=4 for clarity.
-> +	 *
-> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
-> +	 *       unset and set, respectively.
-> +	 *
-> +	 * We worry about two cases where contiguous bit is used:
-> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
-> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
-> +	 *
-> +	 * Currently, the BBML0 folding case looks as follows:
-> +	 *
-> +	 *  0) Initial page-table layout:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |  0 |  0 |  0 |  0 |
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  2) __flush_tlb_range():
-> +	 *
-> +	 *   |____ tlbi + dsb ____|
-> +	 *
-> +	 *  3) __set_ptes() to repaint contiguous block:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RO,c|RO,c|RO,c|RO,c|
-> +	 *   +----+----+----+----+
+On Thu, Jun 19, 2025 at 08:29:24PM +0100, Catalin Marinas wrote:
+> On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
+> > +	if (!system_supports_bbml2_noabort())
+> > +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> >  
+> >  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
+> 
+> Eliding the TLBI here is all good but looking at the overall set_ptes(),
+> why do we bother with unfold+fold for BBML2? Can we not just change
+> them in place without going through __ptep_get_and_clear()?
 
-From the initial layout to point (3), we are also changing the
-permission. Given the rules you mentioned in the Arm ARM, I think that's
-safe (hardware seeing either the old or the new attributes). The
-FEAT_BBM description, however, only talks about change between larger
-and smaller blocks but no mention of also changing the attributes at the
-same time. Hopefully the microarchitects claiming certain CPUs don't
-generate conflict aborts understood what Linux does.
+Ah, it's unlikely that we'd be able to fold them back if only one pte in
+the range was modified, so this optimisation would very rarely/never
+trigger. So, for this patch:
 
-> +	 *
-> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
-> +	 *
-> +	 *                  |____| <--- tlbi + dsb
-[...]
-> +	 * It is also important to note that at the end of the BBML2 folding
-> +	 * case, we are still left with potentially all N TLB entries still
-> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
-> +	 * block). However, over time, natural TLB pressure will cause the
-> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
-> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
-> +	 * not only correct, but also keeps our eventual performance benefits.
-
-Step 4 above implies some TLB flushing from the core code eventually.
-What is the situation mentioned in the paragraph above? Is it only until
-we get the TLB flushing from the core code?
-
-[...]
-> +	if (!system_supports_bbml2_noabort())
-> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->  
->  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
-
-Eliding the TLBI here is all good but looking at the overall set_ptes(),
-why do we bother with unfold+fold for BBML2? Can we not just change
-them in place without going through __ptep_get_and_clear()?
-
--- 
-Catalin
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
