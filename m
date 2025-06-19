@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDCCC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CA5C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 20:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2J0i+WG/PKJ/ZkG9vyA2DkvGy1gkKZsqlYj/4o9WVc=; b=363WibpZgkFOkvssKIHg7TS2fE
-	8KpYd+dGRRFvXq1NSGhCfIQl0Lj+xmqxTG3yYq77GqwkxQdQegZwT8GXK9zd6JKB7hG25HVQTx53g
-	vDodBmFU3liJfGaJGc8yn1A3jI+2spnV1PG77s0n1a0uZVlMmROCqPOvDZO1raWo9LLvtquyQXBFV
-	ky5O+67nCovGclGB2fQsY3v7Qh/UttSU9ycoTS+xSY5pPJ1POfyIs1Ke/WefLPLSsJQp/ZEehNiAW
-	KWHQutXgIccr/EC8FCBr35eat04Q60+T3xXJfeBXgz1pwFmicg21QeoQ7M4f0eL0ej0f1ikqsrDmK
-	3IIb42Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M/g9Vf6hGrZ0hKeM12773wdkTtg+QQVjZhEkToI9s24=; b=0z3LNviiokXbFPDMmyDH0h1O1Z
+	hxhU9QQXbeiwV0C+2E8FJmroyQL+/oDxZsptHTJtvySkipFNSizrdg6JiTUg4KH0WLh9aLCsOC+qb
+	2SoO0xHChUaiKbt6rfOWSSCzLcK2AIal4eJh71t19h3vyk00bCdmq4uNOwSE/GnqCgQNmLoEBLxzR
+	gzqm4meR590xbpKZpX8xMLpqObpLmX4OsCBwWYjs4c0my4tj8VILu+FK6tRZ+KrkvwCOryQYNMLKO
+	QINes3TshFtcIKbNYKfMrBDH9+4cUvnjNEkYxJwAxy1EpW5JXEs2zI4Qqm9mq7Bhb+uFOfRtJsWZ/
+	hZaTE40A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLyr-0000000EEOp-12Qm;
-	Thu, 19 Jun 2025 20:35:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSM15-0000000EEVx-1XpV;
+	Thu, 19 Jun 2025 20:37:47 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSLRO-0000000EAer-3VSF
+	id 1uSLWF-0000000EAyu-3Bjl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 20:00:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F39E7A54405;
-	Thu, 19 Jun 2025 20:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D3DBC4CEEA;
-	Thu, 19 Jun 2025 20:00:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750363253;
-	bh=W2J0i+WG/PKJ/ZkG9vyA2DkvGy1gkKZsqlYj/4o9WVc=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=UJ02kzcbZJZeiNEHd5b99bUhLyNEtRcBgfSKjSh+UOnyIc7kkQLDZFtwAZMz1ywhz
-	 7/SXXYjPRqVYlVdLVBpLLnv/0AdaP5zLVChg+Tw4+8CuqLhghPw+PajRVJop8jHJ9g
-	 7aoYF4o1rAUSU1tRakIJq4BHPyQC8FaUyLbmoWCiZBNWED3ibxKpPtxLs2xYsmhpcb
-	 Vr6I1QEx469iI9xEYTi15uvFqFwAkO0grFJvGWl5RJE9ZA69jqpzL1JDIOzpxWohyg
-	 2CMKHT1xuftnB62ZsAJGxOJ0TjfrmYKLdeRI+zzmBb9xPjdtnPFonlS4Dca3fHGxVo
-	 xLXoKV1K/Wewg==
-Content-Type: text/plain; charset="utf-8"
+	Thu, 19 Jun 2025 20:05:57 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750363552;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=M/g9Vf6hGrZ0hKeM12773wdkTtg+QQVjZhEkToI9s24=;
+	b=vmxbdvok0oeIu97UhN4ME1QvM59me5wXNZCvXxVOLMEyru5H2xj63UFPBnjg7S260w2yeM
+	L2bT/Q5tVHE8qNB+5LOuztv+X02i+Qyj72yK6m6qhK+5QW0jvnCiqNPJ0bH6oakg+TEBn5
+	z5wsdIUGSpiCEB95IaI/p4j5Q/DTsmQ=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michal Simek <michal.simek@amd.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	linux-kernel@vger.kernel.org,
+	Ira Weiny <ira.weiny@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: [PATCH net 0/4] net: axienet: Fix deferred probe loop
+Date: Thu, 19 Jun 2025 16:05:33 -0400
+Message-Id: <20250619200537.260017-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250610012406.3703769-3-jacky_chou@aspeedtech.com>
-References: <20250610012406.3703769-1-jacky_chou@aspeedtech.com> <20250610012406.3703769-3-jacky_chou@aspeedtech.com>
-Subject: Re: [net-next v2 2/4] dt-bindings: clock: ast2600: Add reset definitions for MAC1 and MAC2
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, mturquette@baylibre.com, p.zabel@pengutronix.de, BMC-SW@aspeedtech.com, Conor Dooley <conor.dooley@microchip.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Thu, 19 Jun 2025 13:00:52 -0700
-Message-ID: <175036325275.4372.17530886047439204374@lazor>
-User-Agent: alot/0.11
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_130054_941763_4DCD51B3 
-X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-CacheID: sfid-20250619_130556_004334_EB04BDC9 
+X-CRM114-Status: UNSURE (   5.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,15 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Jacky Chou (2025-06-09 18:24:04)
-> Add ASPEED_RESET_MAC1 and ASPEED_RESET_MAC2 reset definitions to
-> the ast2600-clock binding header. These are required for proper
-> reset control of the MAC1 and MAC2 ethernet controllers on the
-> AST2600 SoC.
->=20
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
+Upon further investigation, the EPROBE_DEFER loop outlined in [1] can
+occur even without the PCS subsystem, as described in patch 4/4. The
+second patch is a general fix, and could be applied even without the
+auxdev conversion.
 
-Acked-by: Stephen Boyd <sboyd@kernel.org>
+[1] https://lore.kernel.org/all/20250610183459.3395328-1-sean.anderson@linux.dev/
+
+
+Sean Anderson (4):
+  auxiliary: Allow empty id
+  net: axienet: Fix resource release ordering
+  net: axienet: Rearrange lifetime functions
+  net: axienet: Split into MAC and MDIO drivers
+
+ drivers/base/auxiliary.c                      |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 391 +++++++++---------
+ .../net/ethernet/xilinx/xilinx_axienet_mdio.c |  32 +-
+ include/linux/auxiliary_bus.h                 |   4 +-
+ 5 files changed, 234 insertions(+), 200 deletions(-)
+
+-- 
+2.35.1.1320.gc452695387.dirty
+
 
