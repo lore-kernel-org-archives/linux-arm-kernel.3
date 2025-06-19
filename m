@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC4DC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7942EC7EE2C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95jwxwqOy3CE/suGZD6MlYCwgFQV2q5DD7APLcXDGSw=; b=Nz+J/MxMlrrEmFQLiSW2lTAG45
-	Y1IDLwIySLt7Dj5AXOJUXPrYV6dUA43gN8eoIznBbC/cj5EGr9+74t0mMWL0VDG84nxCUivTe4oS7
-	xW6Y4+0dlrsrK/+gY5HIUUm6mO3tzVhlqnN4rfhqN9AGEzDaI1dX5heWKak2D2xNjVNnT8VttSsun
-	8t5UvnZSCoUYFd1s4ucuv8PNtmM63aEhM1/I0uQaFsfnspgdq/vJezX/0qORQ8mePUyvKR26RihRg
-	LeKdCh8ohPBhuPMoWde9elHSYMVMWnmSxfMd7iGO39KgcYksYLHqYrpWXrK8yM3U1o280h91Bo0Xq
-	iC25f3IQ==;
+	bh=AFesUtvoBfhbE6YxWAu0WERDgQE/CPZqj02M4P7AWqI=; b=WAN+qm+N2G9rCpONXAncvwrNGc
+	5ohejo+lo1TU60cf9bdEMFSd/P0eVbYur6HsLF/g8OsKIMpv8KPG/9v7rPFAKR2A+TKJFy2QnG6Od
+	Y6IqL02OKBElyZmMJKFbFrFKencMKRNbL4eOBgFJgZEj0OYtjlFcjQgteSEFfu6z5FdgIwINevfO/
+	bMdIrSwgA75H3h+BpZrwYBNegfpYoxIWhW/ae0PzTNYFaJosMnjKiwXMTXAuMtU8+FuAk5IiOLyzU
+	wBZiUal2D7M/EIBNT+2i3Lfgud7IdVowDCZVSqaKkxlsEHk8F3ECBA5a3TR0LSdQn4733p9slRhSP
+	8fun88Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHRT-0000000DRR2-2m1e;
-	Thu, 19 Jun 2025 15:44:44 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
+	id 1uSHRX-0000000DRTN-2PCv;
+	Thu, 19 Jun 2025 15:44:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSBqp-0000000CeuJ-07JB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 09:46:33 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1750326388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=95jwxwqOy3CE/suGZD6MlYCwgFQV2q5DD7APLcXDGSw=;
-	b=qBF6F/JFB8Ga+29xGShrQ+nv00Iv5P6Zpb4T/dk3e6MAJbO+H6+doGGxnsJfJI/kx0fgba
-	LpxYBlt/zc0ZxyJif1oMwDiMJa2RcXRGHRpLaLxrafWhFf3V0Vh+7RqAJQCUQwfRo8X7si
-	X0xwcrsDc9qzk1RPCPGkhrof7KLlyWVLEkl51JD73B8iW4qmHKoFatW4WrpoRqGSvpAClR
-	B9zyua4faYw4VV6P6C+tYUeI76n0bezZbhO9o7X0M0ecQ0TD9VFRS8HWMRmp7J4KWv1l/c
-	b34pOS6eG0FPqmk+YATMaGS1RL7N9JrziEtqd09cNbkXTkZ/gEMg38ZC+GAEKA==
-Content-Type: multipart/signed;
- boundary=a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 19 Jun 2025 11:46:15 +0200
-Message-Id: <DAQEX04P5320.CQDU7SL7AV4A@cknow.org>
-Cc: "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Fix the PinePhone Pro DTS'
- panel description
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Olivier Benjamin" <olivier.benjamin@bootlin.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
-In-Reply-To: <20250619-dtb_fixes-v2-1-abd711d11b67@bootlin.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1uSC72-0000000ChVY-2zQ2;
+	Thu, 19 Jun 2025 10:03:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B8D9C5C5BE4;
+	Thu, 19 Jun 2025 10:00:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CE9C4CEEA;
+	Thu, 19 Jun 2025 10:03:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750327395;
+	bh=+NmzNqs4ioHLre1LisHUVsrMGUyewytWYBtMJl8Nzdk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u6oZyWiWcI3x2ARJ2V8VEh9o7zxxRBSP4MYbwjVqFs9axHGNnC0qD+nUO2IMyuOb4
+	 diXOATtBrJVhrsWfLdRh5Q1+v18E0G+VgEavr8uOiadAWCp/Dxj/rlHOF2d92JKlG6
+	 tzLxVb4jyx0sEQGE5qWR4GJDhRdJocdfnhC6Lj7VMbkQmt7ni3Q7wtWEf+XKCt9ykD
+	 MpyQha8f/0Yl5FoDumPUOOLLELlNcA2QC4NrhYvkA9hPfqUSXNNqgLKDBUMGkPB5f6
+	 QV48kl2WieXcct/+o58B5UuGos4/FHvFSIpGI58yYm+2NDdIcgfcfVu/sCCKY/lWa/
+	 SbF2olp8sJifA==
+Date: Thu, 19 Jun 2025 11:03:09 +0100
+From: Simon Horman <horms@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Golle <daniel@makrotopia.org>, arinc.unal@arinc9.com
+Subject: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IRQ if
+ not used
+Message-ID: <20250619100309.GC1699@horms.kernel.org>
+References: <20250618130717.75839-1-linux@fw-web.de>
+ <20250618130717.75839-4-linux@fw-web.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250618130717.75839-4-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_024631_624208_F389300C 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250619_030316_788005_484B8D57 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,131 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi,
-
-Thanks for working on upstreaming PPP things :-)
-
-On Thu Jun 19, 2025 at 7:21 AM CEST, Olivier Benjamin wrote:
-> Fix a few issues in the panel section of the PinePhone Pro DTS:
->   - add the second part of the Himax HX8394 LCD panel controller
->     compatible
->   - as proposed by Diederik de Haas, reuse the mipi_out and ports
->     definitions from rk3399-base.dtsi instead of redefining them
->   - add a pinctrl for the LCD_RST signal for LCD1, derived from
->     LCD1_RST, which is on GPIO4_D1, as documented on pages 11
->     and 16 of the PinePhone Pro schematic
->
-> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+On Wed, Jun 18, 2025 at 03:07:14PM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> On SoCs without MTK_SHARED_INT capability (all except mt7621 and
+> mt7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+> but it is never used.
+> Skip the first IRQ and reduce the IRQ-count to 2.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
-> Small fixes to the PinePhone Pro DTS to fit bindings and
-> suppress warnings at build.
-> ---
-> Changes in v2:
-> - Added the pinctrl definition for GPIO4_D1/LCD1_RST
-> - Incorporated Diederik de Haas' suggestion for defining mipi_out
-> - Squashed multiple patches into one
-> - Link to v1: https://lore.kernel.org/r/20250618-dtb_fixes-v1-0-e54797ad2=
-eba@bootlin.com
-> ---
->  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 33 +++++++++++-----=
-------
->  1 file changed, 17 insertions(+), 16 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
-/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index 04ba4c4565d0a205e2e46d7535c6a3190993621d..98aba146749998dd5a798aabe=
-d0fe844c474d1cf 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -463,29 +463,18 @@ &io_domains {
->  };
-> =20
->  &mipi_dsi {
-> -	status =3D "okay";
->  	clock-master;
-> -
-> -	ports {
-> -		mipi_out: port@1 {
-> -			#address-cells =3D <0>;
-> -			#size-cells =3D <0>;
-> -			reg =3D <1>;
-> -
-> -			mipi_out_panel: endpoint {
-> -				remote-endpoint =3D <&mipi_in_panel>;
-> -			};
-> -		};
-> -	};
-> +	status =3D "okay";
-> =20
->  	panel@0 {
-> -		compatible =3D "hannstar,hsd060bhw4";
-> +		compatible =3D "hannstar,hsd060bhw4", "himax,hx8394";
->  		reg =3D <0>;
->  		backlight =3D <&backlight>;
-> -		reset-gpios =3D <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
-> -		vcc-supply =3D <&vcc2v8_lcd>;
->  		iovcc-supply =3D <&vcc1v8_lcd>;
->  		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&lcd_reset_pin>;
-> +		reset-gpios =3D <&gpio4 RK_PD1 GPIO_ACTIVE_LOW>;
-> +		vcc-supply =3D <&vcc2v8_lcd>;
-> =20
->  		port {
->  			mipi_in_panel: endpoint {
-> @@ -495,6 +484,12 @@ mipi_in_panel: endpoint {
->  	};
->  };
-> =20
-> +&mipi_out {
-> +	mipi_out_panel: endpoint {
-> +		remote-endpoint =3D <&mipi_in_panel>;
-> +	};
-> +};
-> +
->  &pmu_io_domains {
->  	pmu1830-supply =3D <&vcc_1v8>;
->  	status =3D "okay";
-> @@ -507,6 +502,12 @@ pwrbtn_pin: pwrbtn-pin {
->  		};
->  	};
-> =20
-> +	lcd {
-> +		lcd_reset_pin: reset-pin {
+> v5:
+> - change commit title and description
+> v4:
+> - drop >2 condition as max is already 2 and drop the else continue
+> - update comment to explain which IRQs are taken in legacy way
 
-I don't know if there's a 'hard rule' for it, but I'd recommend to use
-``lcd1_rst_pin: lcd1-rst-pin {`` as that would match the naming from
-the schematics. I realize that some but not all (other) pinctrl nodes
-follow that 'rule', but it helps with traceability.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-> +			rockchip,pins =3D <4 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
->  	leds {
->  		red_led_pin: red-led-pin {
->  			rockchip,pins =3D <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
-
-Otherwise,
-
-Reviewed-by: Diederik de Haas <didi.debian@cknow.org>
-
-Cheers,
-  Diederik
-
---a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaFPcbQAKCRDXblvOeH7b
-boy+AQDbwzeOk3i0OYHIv6wu+lPogKc5TzKOKmCgkGkNRFumNwEAjC++J6IJV1V3
-YclMmumArJ0L1UN/PjW9uBrL/NoamwQ=
-=RIuv
------END PGP SIGNATURE-----
-
---a3a566baaebf2efb32d488967dad63a47cda141ad75c7e052b59f3fe5c0e--
 
