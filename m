@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74CCC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A81EC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJkap0N2OMLX4SZzoJrJa5HCSWmYHsAVwalxNjL+MLQ=; b=HTuuO8kLpTWlMWJE5lvyc2scMq
-	SU2IFxqLAeqYdakCgLlTwSyWeaDA2WKhw9tw8vkoCBzkYY7fOaxOJyo1ymdBGi+az+uAjI73CdjuU
-	mBq9nwVqvtpeWLZ/EAXrbxr8tp4fZYrwx5NfwH4tlypUfNOaFpoxIZDAlwvmYCu+40pNo4KzBSlZR
-	AOfIH25qnf2xRl01VCbpisTCv8R3lqZLlF4ViF/BgfMKnMnIj2b8hsN+0KHa8E/RLBXJs2rRfevr4
-	SSKLk/PoYZ/6vMtNMsQexNt02nN3yehw83Kp8uFsZlyJteoYe1SUq5ieTQpWaNF0JWqgLmRE/fOnb
-	pkp3oBGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dbx3x28Q0e4KyF2br/2nUC4VDgGteIIY+UllyErJvlI=; b=2iLkZch2o6N6p5yNpkxiE9/91z
+	JWCFXSIIyM7b2qB6bbdlh9ZgCZvjdHr9jQwUw/yN466m6ShxJn2/lMPuDqT5hFoRbdZF7Q9aQPORN
+	5DWWKxCUNlyaRksh37nLaCBOVcQQkM5oYgEcarw98HR6R/zpdb2zSUn7Q02aD7oRrOPWnVe7pLsH6
+	YrVckdorMBcs+JvlwH2lLcCz0hl+xzR9W5XXMLcEVeRIr9d2JsdsRvXrGfddnouDZJB7mB0aykwb2
+	YAKdwZVWNOnT5KJmVpuk8zTUh6QXilt1o4MOgeit+i0Vf6knayTF7adUAHqMgVUWYqjs052fZoJ1I
+	HimhoLlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHUS-0000000DW7h-0X93;
-	Thu, 19 Jun 2025 15:47:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uSHUW-0000000DWDd-3VFp;
+	Thu, 19 Jun 2025 15:47:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSEVH-0000000D4cd-3TNI;
-	Thu, 19 Jun 2025 12:36:27 +0000
+	id 1uSEVQ-0000000D4f6-0vvg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 12:36:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41871629E3;
-	Thu, 19 Jun 2025 12:36:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 345D0C4CEEE;
-	Thu, 19 Jun 2025 12:36:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6F7444B53;
+	Thu, 19 Jun 2025 12:36:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3C2FC4CEEA;
+	Thu, 19 Jun 2025 12:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750336587;
-	bh=0aZ6hvd/IjVOBqGmz7MszhMOejk6IpZuPtDdl9PW9vs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CI7fEyodMGaW5jyKK8UY6kiGubgfymOHPJnBbUgexQqVw6f1vhwj+IWYYJCLvi1Mr
-	 Edsd3Ntro02FIelndIezoK8WBnFGAHgSiGmGtUUp7/xwv8EsRz9kI+hCic8n8tEclK
-	 M40tzSqGmjaBEDQKiJRC+bVFQwFrOvwKDMpHDGBlpqv9O/JU/0Fri55OQptM5Pm24c
-	 n2lC5jnDCRGON/s+HlPLM2X7ws9YYSjaut69jLh/emaeHrnFeN0EDxMtJRoriHcCVl
-	 m5Qprn+xiHtHiRVOYHZT9cVUhu5kYE8xJw0G5Tb//D4ud1ap7V2LCRo4pKoqH0Y1pX
-	 ga2+nPkAM9W3Q==
-Date: Thu, 19 Jun 2025 13:36:23 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	s=k20201202; t=1750336595;
+	bh=+P5g+5CJj1UdYWKc1Wje0xjLDaJqzX/jUZTSky6aLjQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rkQNS+WRrR5CjzTSUZC0ctjimPVyr9bwAvZAWedYzd1dNL9JCxRmzGVaMpA5tGfeS
+	 Lx7P1eVk0KDuf8hXiIw96t3zbmxcrQN0tWwbmX/mjYB9cKnzrGptTV9pDONMe7Vu5U
+	 dDAQ5PXqKQEGJddOtnR0h62aZOV+cI8D2eJqhUSZzDMRbrxBUf+wQpaiPwEFuqtPV8
+	 Nw/Wf4YynIJ+ul2spXKUZYNTEDSZTKfZKzoWdwvIDh4PSjaGqSbuvyXYyRBI+3BpMY
+	 e7XEXIt03L3zNAYlomvnq4x3IXENLpfPmFyvcuobtJkcWQObQKg2JyCAnsJA2d+bS7
+	 5x/ErqPxT3wFg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uSEVN-008FeH-Eb;
+	Thu, 19 Jun 2025 13:36:33 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v4 2/2] net: airoha: Differentiate hwfd buffer size
- for QDMA0 and QDMA1
-Message-ID: <20250619123623.GL1699@horms.kernel.org>
-References: <20250619-airoha-hw-num-desc-v4-0-49600a9b319a@kernel.org>
- <20250619-airoha-hw-num-desc-v4-2-49600a9b319a@kernel.org>
+	Zenghui Yu <yuzenghui@huawei.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	wanghaibin.wang@huawei.com
+Subject: Re: [PATCH] KVM: arm64: selftests: Close the GIC FD in arch_timer_edge_cases
+Date: Thu, 19 Jun 2025 13:36:30 +0100
+Message-Id: <175033657717.3069674.5241246284273591125.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250608095402.1131-1-yuzenghui@huawei.com>
+References: <20250608095402.1131-1-yuzenghui@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250619-airoha-hw-num-desc-v4-2-49600a9b319a@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, yuzenghui@huawei.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, wanghaibin.wang@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250619_053636_277727_BF17F9F4 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,20 +87,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 09:07:25AM +0200, Lorenzo Bianconi wrote:
-> EN7581 SoC allows configuring the size and the number of buffers in
-> hwfd payload queue for both QDMA0 and QDMA1.
-> In order to reduce the required DRAM used for hwfd buffers queues and
-> decrease the memory footprint, differentiate hwfd buffer size for QDMA0
-> and QDMA1 and reduce hwfd buffer size to 1KB for QDMA1 (WAN) while
-> maintaining 2KB for QDMA0 (LAN).
+On Sun, 08 Jun 2025 17:54:02 +0800, Zenghui Yu wrote:
+> Close the GIC FD to free the reference it holds to the VM so that we can
+> correctly clean up the VM. This also gets rid of the
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 	"KVM: debugfs: duplicate directory 395722-4"
+> 
+> warning when running arch_timer_edge_cases.
+> 
+> [...]
 
-Hi Lorenzo,
+Applied to fixes, thanks!
 
-Thanks for the updated commit message.
+[1/1] KVM: arm64: selftests: Close the GIC FD in arch_timer_edge_cases
+      commit: 56a14984505b11674df5e01407748236bc4bc8f8
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
