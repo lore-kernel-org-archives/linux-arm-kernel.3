@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE79EC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4CDC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1uxxxZkeo3NrWAJN19Hdj2JiSWPWIAI41fo5h8wydQ=; b=zIgP9cegNpyydFSur3D3do1raL
-	oDbtp8/L9wuWfoDnDPSVemppzESl3JKatkPv54o5zDPWOsMSMGYBdmd45xRs+q9VsvNGMLBcNVjLH
-	YcELS39DhIJdHoG78mGV40pGY5y4ThrvEMXaN/lZx5sRssGGw674sUlO1l5IgkZBXs99ZyGJFMRxO
-	Q/E2UyIWLar+2uJT54+RQD5E8WLPhnZ9m8X+eKacH1X3lth7rbwnstOOVbermPn+wB2DrVH36KkeA
-	a+CsiBH/XJMcS/XseOfMAoSj2AHdSSbZTStac06Tgv29yRzf0289DoxT6ttIArydK7ByMoz+63G7A
-	81MX53Vg==;
+	bh=INJ7YE+sMXUovBiDne1gZU/pJLwS+cilgzCkVNvnvmg=; b=MsKXWN1PQn4i+281bm1K852Rp4
+	ySKaAMqXhvA3yg+d1wd3lrTL9mRxLAgJgx2XElZvUnaBQZ3m1T/mGynbZe8bXdxgO+1EAwxbRBnxW
+	o6u3uNeuf7ibBc9BU6qPpd1lgqXxe071XfNI23s5A/Ve+Xws5Rf25mv0fUMEYqWhNQ1K/aPHxHRYK
+	FCXbpI59boPqr6f1QUu+u9TKHxgMWBy/jv6zXlc+Vh3/CRslnxWLgszG1G4oQF4sr3LqFYm7UM603
+	rYJByfu29eI1OZwrFbSjxCc6sGSHkoz8OdWRInFQLfOdae9mPVVHvcjRGwhWvZmw18t4pij19E4+H
+	VV0RShcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHSz-0000000DTrJ-0mdd;
-	Thu, 19 Jun 2025 15:46:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSDmQ-0000000Cwun-0NR8
+	id 1uSHT1-0000000DTv1-09Mr;
+	Thu, 19 Jun 2025 15:46:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSDoJ-0000000CxHD-1BPi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 11:50:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 46E44A54440;
-	Thu, 19 Jun 2025 11:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B52C4CEEA;
-	Thu, 19 Jun 2025 11:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750333805;
-	bh=xcXMxMStMR8/rb3GKA1jioXnMSxQsU2Ozqjqe/yF1w4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iJBUADiP0/X9+azGm/g0vceCBNhs6nGkYRctOjZ0QujbBcVw07QEuw90FiyNinK/F
-	 NfZ37rkV0sUP/G0oblx/GVCfEyXj/nhORcmp5qDKSX0KH3ot5K7K59vws1ab9u98Lq
-	 EJoWZgGz25N5q51nkLZxnbG4upiC8/EdjQ/1y/YDTUhEIrC8aEDgvYIxCJ8RpieFcI
-	 rVHrJS0yuA3ss51VZzsJ4cSoJHpoOVA5SxIfiC93NY9Py8Y8VzT/lpbSGO9BzGefL0
-	 Vz9D/grzsbiLENfOJmkZpKpjPCCVMTxRsZEVtE/ahvL6O4duPDOE61p95G5saaxSRZ
-	 FiFGUqm7XKKiQ==
-Date: Thu, 19 Jun 2025 12:49:58 +0100
-From: Lee Jones <lee@kernel.org>
-To: Sven Peter <sven@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v7 05/10] mfd: Add Apple Silicon System Management
- Controller
-Message-ID: <20250619114958.GJ587864@google.com>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-5-556cafd771d3@kernel.org>
+	Thu, 19 Jun 2025 11:52:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51AE312FC;
+	Thu, 19 Jun 2025 04:51:42 -0700 (PDT)
+Received: from e133081.arm.com (unknown [10.1.28.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22C1A3F66E;
+	Thu, 19 Jun 2025 04:51:57 -0700 (PDT)
+Date: Thu, 19 Jun 2025 12:51:55 +0100
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: yang@os.amperecomputing.com, catalin.marinas@arm.com, will@kernel.org,
+	jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	james.morse@arm.com, broonie@kernel.org, ardb@kernel.org,
+	baohua@kernel.org, suzuki.poulose@arm.com, david@redhat.com,
+	jgg@ziepe.ca, nicolinc@nvidia.com, jsnitsel@redhat.com,
+	mshavit@google.com, kevin.tian@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v7 2/4] arm64: Add BBM Level 2 cpu feature
+Message-ID: <20250619115155.GB20673@e133081.arm.com>
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+ <20250617095104.6772-3-miko.lenczewski@arm.com>
+ <e40989e9-9521-4915-9bae-eb7be1d4e056@arm.com>
+ <20250619085701.GA10805@e133081.arm.com>
+ <8c6f1c91-176c-4382-b631-79948e8de16f@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250610-smc-6-15-v7-5-556cafd771d3@kernel.org>
+In-Reply-To: <8c6f1c91-176c-4382-b631-79948e8de16f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_045006_194370_C522DCCE 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250619_045203_518934_365E689B 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Jun 2025, Sven Peter wrote:
+On Thu, Jun 19, 2025 at 10:20:14AM +0100, Ryan Roberts wrote:
+> On 19/06/2025 09:57, Mikołaj Lenczewski wrote:
+> > On Wed, Jun 18, 2025 at 03:07:41PM +0100, Ryan Roberts wrote:
+> >> On 17/06/2025 10:51, Mikołaj Lenczewski wrote:
+> >>>  #ifdef CONFIG_ARM64_PAN
+> >>>  static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
+> >>>  {
+> >>> @@ -2980,6 +3015,11 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> >>>  		.matches = has_cpuid_feature,
+> >>>  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
+> >>>  	},
+> >>> +	{
+> >>> +		.capability = ARM64_HAS_BBML2_NOABORT,
+> >>> +		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
+> >>> +		.matches = has_bbml2_noabort,
+> >>
+> >> Is there a reason you have removed the .desc from this? Without it, the kernel
+> >> won't print a "detected" line when it enables the feature. Previously you had:
+> >>
+> >> 		.desc = "BBM Level 2 without conflict abort",
+> >>
+> >>> +	},
+> >>>  	{
+> >>>  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
+> >>>  		.capability = ARM64_HAS_LPA2, 
+> >>
+> > 
+> > Damn it! I completely forgot to birng that back. Yet another remenant of
+> > the NO_BBML2_NOABORT version we had discussed in v6, because a
+> > description field would have been confusing due to the double negation:
+> > 
+> > https://lore.kernel.org/all/83d1f7af-3dc7-45f9-94f3-8a0917c051d2@arm.com/
+> > 
+> > Thank you very much for spotting this Ryan! Ill return the description,
+> > and respin on Monday (unless it is possible to do this as a RESEND or
+> > similar, but I doubt it since this is technically a functional change) :/
+> > 
+> 
+> I think probably just send out a new version.
+> 
 
-> The System Management Controller (SMC) on Apple Silicon machines is a
-> piece of hardware that exposes various functionalities such as
-> temperature sensors, voltage/power meters, shutdown/reboot handling,
-> GPIOs and more.
-> 
-> Communication happens via a shared mailbox using the RTKit protocol
-> which is also used for other co-processors. The SMC protocol then allows
-> reading and writing many different keys which implement the various
-> features. The MFD core device handles this protocol and exposes it
-> to the sub-devices.
-> 
-> Some of the sub-devices are potentially also useful on pre-M1 Apple
-> machines and support for SMCs on these machines can be added at a later
-> time.
-> 
-> Co-developed-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  MAINTAINERS                |   2 +
->  drivers/mfd/Kconfig        |  18 ++
->  drivers/mfd/Makefile       |   1 +
->  drivers/mfd/macsmc.c       | 498 +++++++++++++++++++++++++++++++++++++++++++++
->  include/linux/mfd/macsmc.h | 279 +++++++++++++++++++++++++
->  5 files changed, 798 insertions(+)
-
-This is ready.  Let me know when you have all of the other driver/* Acks.
+ACK
 
 -- 
-Lee Jones [李琼斯]
+Kind regards,
+Mikołaj Lenczewski
 
