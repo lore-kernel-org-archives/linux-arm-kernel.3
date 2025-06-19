@@ -4,134 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2E4C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12944C7EE24
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 15:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0YyQ5OiIFkEPqrZ6SWC3ezO49kjGRtXe1tfiAaXtyqA=; b=BCZxsLMvBmx5HpCGv/ovA895P8
-	m54PknWNDACotSwVIy6hP2/I3NpS3yrA4AqFywHDbeTRp3W3kntCFp2Rq5kVY4G90UUKzRmXg1bB3
-	To9YB377nayGHadFmHSlQdoawyJj9xbsXAmPUVGTiVc+blf2ZaXPy1H08JQqTBv4tn+vonaPm5FRH
-	q06HUr4RIhHqtGrZQnKFzVQsX1O/UyWM18OLhzqICOKjR3UGgksmZHJ1nV0mVFXXnzaz0nv+ya0Cg
-	7Qs23BLDZUBCwJSUXtG8Pv6/l0NzaI6t8UpwvzYPa7Faq8W5EA3ZJWljHssP1TIO+/ch5zqacp0Ri
-	RqB77Fow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Fvf7YFNk9hgZaIBMwH5Oxgd1wYDkkE9Dk+oH7pOxYY=; b=btMPckJmCjy75RwWU66tFRQCcp
+	Oje/LPlIqIzMOwII0KJjtZ6AsCGP+vUXKVwa5AfeM6Y8sIqX/Z0yW5XWe/PqsEtmhgwTXnKG4eJY3
+	QcuuxrrZzDdoJrxJlgNFnc3d5xNlUV+QkinF5JYPYvqhmUZQj85GpIP80Lh0GnMz2gbQIL4T7C4e4
+	pNtz4nh10oJtK5a3wyYEsciGjnRtYSI61oU80K5jt6eeT9oAm641WDsnbbM2m/ZCIOvdgPx9YvSmK
+	ZtNDn5DygRsqm/tzA+anNWtvzYWDu9jSSzGhdgGTXv/iDSaGl18guth8gkoLtkXMdtHtp8/LBnpi2
+	nC2FMUmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSHRZ-0000000DRWY-3KEh;
-	Thu, 19 Jun 2025 15:44:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uSHRf-0000000DRfh-2pz1;
+	Thu, 19 Jun 2025 15:44:55 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSCYU-0000000Cl2A-0DFK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Jun 2025 10:31:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0YyQ5OiIFkEPqrZ6SWC3ezO49kjGRtXe1tfiAaXtyqA=; b=D/pd9AO9QfXQ6CFkMGinkChWI1
-	bFPKBOgP6xx1v/vN1CKs09kDr3RgMP218YSzNZWYrddpDCufRDLaYZWBZchXjsoSSGT4DZebgo9Pb
-	CQoIec3BKRR9HMCYkDzXSFeLyOoyrqniWpG69E8jBPkz1EK/a65fljZB3E2BskooOILI/Km9Xkm/V
-	9QQi4zbzJvNjorbpy9D8KuRTizvOQVyC54XmBGziqyA+d2nklnfrjlMi13OXSS7MvGrb84pp/vSBi
-	wJeg/GWzOWPQ79JD/eaXCaot3pu+UE9gOqrUiZk+wrQtkE4EvwY6b+c5GS+Yvw/zBxWsF7rKCJ83h
-	DABngJVg==;
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSCYR-00000004Phg-1Qol
+	id 1uSDHl-0000000CqNu-0sUI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Jun 2025 10:31:37 +0000
-Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
-	by mailfout.phl.internal (Postfix) with ESMTP id CE3201380642;
-	Thu, 19 Jun 2025 06:31:29 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-09.internal (MEProxy); Thu, 19 Jun 2025 06:31:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1750329089;
-	 x=1750415489; bh=0YyQ5OiIFkEPqrZ6SWC3ezO49kjGRtXe1tfiAaXtyqA=; b=
-	TJGRQL3IigmqzKvAfzT0wXmFihWJZGSANSJH8RlXldFok9lQsRqVw2nO29suTFy9
-	6F+wdYVjeKlY50FnK/54E6112q6g1izi0Ghmac1pbnPiOXDVqtXiTR47r6MHw97d
-	0Ijlh8hRvEZJ47l9HpOHYNs3Liv9+0qQThxSi9yvA0qXt+qsUt21Y6QGcwJ7Ee7S
-	EVhhh6vyN79PBfS/JhQ7RncOuO6CkRRpei3nsNHAtiwY6C0lqKVacLQD5gekmZnS
-	qSu0kSAicre29/8JKBsGAEPcgeJ+l1w/S3Te8OQp3aT1T9p7c7++KXud3kdxTrot
-	ovJ9MITuY1+ucOmoS3qUHw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1750329089; x=
-	1750415489; bh=0YyQ5OiIFkEPqrZ6SWC3ezO49kjGRtXe1tfiAaXtyqA=; b=K
-	Dw9h6T/hlSF8ahctV6Mcpd9PgqiLn7fFQLPB/RWJ7YTVX+t+tM332Ps7PBHhAPvP
-	0PuXvoYU2HNKudQxs0iWzr+cjVgmk9eTnIOIrpDsRqaE7XWxV09hBtdSwnlvdnOx
-	U4jgIl/dk+oTW5mvx0Ab7Y7H4b191er6uH20TTB2WY1X6eyA7zneIlE9Oxx2i53s
-	21Evizc/s0ki7Ggb9c65QWWcoajD3bpz7FyedxNhwPPP/jU9I9RoReob+56IBfj2
-	25xzLgBJotZYaPxqpLRa3UMSfxN8CboazgmZJ/mWDdTYeKYI5hvNX59w2mXwoC+c
-	geM/DOBmdCw6FnjPlIGMw==
-X-ME-Sender: <xms:AedTaLeW0leb5D-cJa8GpIjBR-MPvXQquummYaXnnBSAiFhOkymE2g>
-    <xme:AedTaBOyvILu3SCbcMn5zHPWkslCmBygJwOsH06F5CHzesEEIoO5SCO_fDY57_WJS
-    vWizvCi5Z4LZPtQUZM>
-X-ME-Received: <xmr:AedTaEg8Oc06rLCnoSVR-HWbUDYbqqEJWS2dobqs2t4eeKmVHM56AE7QJk3eHdNeL-8KjoQEuIHlJSRn-xKFAbs2qBOTexWy1Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdehvdelucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpefpihhklhgrshcu
-    ufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrghtvg
-    gthhdrshgvqeenucggtffrrghtthgvrhhnpeevteegtddvvdfhtdekgefhfeefheetheek
-    keegfeejudeiudeuleegtdehkeekteenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrght
-    vggthhdrshgvpdhnsggprhgtphhtthhopeduiedpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtohepuggvmhhonhhsihhnghhurhesghhmrghilhdrtghomhdprhgtphhtthhopeht
-    ohhmihdrvhgrlhhkvghinhgvnhdorhgvnhgvshgrshesihguvggrshhonhgsohgrrhgurd
-    gtohhmpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    oheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjuhhlihgvnhdrmhgrsh
-    hsohhtsegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepshgrkhgrrhhirdgrihhl
-    uhhssehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheplhgruhhrvghnthdrph
-    hinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehgrhgv
-    ghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuh
-    hsrdifrghllhgvihhjsehlihhnrghrohdrohhrgh
-X-ME-Proxy: <xmx:AedTaM_GyhSJMaz8ECrJ04ALdo8cCGiQFwJAJ1FqFpVJIeyv1xl7Iw>
-    <xmx:AedTaHtkDA7kZWBG14zDkTLrDJnncbi1tKt9J0CkN2RrekKpswsqRw>
-    <xmx:AedTaLHm1-lAkmfYuzeHSzQrVC3VR0dHXd0K47mS1F-LXxMHUe3BdA>
-    <xmx:AedTaOPQ-SUCnLA7bKcOjUg5_9eH9IF5p9ekSpitHt94pqslzhUjQg>
-    <xmx:AedTaEdLHin6pIVyWVT-gbmxzf2BUMJ-lNNmZ3K-fqVeTJsLnPL78njD>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Jun 2025 06:31:28 -0400 (EDT)
-Date: Thu, 19 Jun 2025 12:31:26 +0200
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS" <linux-media@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-	"open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
-	"open list:GPIO SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)" <linux-gpio@vger.kernel.org>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>
-Subject: Re: [PATCH v4 07/19] dt-bindings: media: i2c: max96712: add myself
- as maintainer
-Message-ID: <20250619103126.GA2847778@ragnatech.se>
-References: <20250618095858.2145209-1-demonsingur@gmail.com>
- <20250618095858.2145209-8-demonsingur@gmail.com>
+	Thu, 19 Jun 2025 11:18:26 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a588da60dfso444079f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 04:18:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750331903; x=1750936703; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9Fvf7YFNk9hgZaIBMwH5Oxgd1wYDkkE9Dk+oH7pOxYY=;
+        b=RXPo6pD5cwzeMPOBDXvM3yB5FmeprEMc+nEk81iOCqq0r3VA5HL55PySxsX+HE+2Dc
+         KpgMG0NTF3lfGsy6uniPOXRVkAeKx+FNwtqFtHjoW4J9yKiP/zwAypspki1j72KpuF5L
+         rLL3kMtYK0qyrAlpjmmBZVX3V4pEa/nGRWHkC4frFWHZ8tn9dJE2meuNhBIWOqYJi6Lx
+         nA3Vm5voPqDKNQA9a4y0gVQdtLImM5Xpz3ZKAjygpGta+58rJvgTUZOWQnxMc5kw4bH8
+         irJYWwy1b5ap2L4fB+PjpFWZJXg29hdNDKGW/eK9FL3vq1u57EyOh1OVpTguBO+1pJwF
+         R+/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750331903; x=1750936703;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9Fvf7YFNk9hgZaIBMwH5Oxgd1wYDkkE9Dk+oH7pOxYY=;
+        b=l05KsT9mo285HsYMQfHudxkSmGVlmNK3/XLUIPh3maPpAkSSgboTLkRx+Ud8c3wEFz
+         CNLmFewfoe+t5LkAdqo6dFbPLjE4+tmGItA6AFqreoK5bakHHIokGvVdRJ9ZevRBtiKY
+         8HaieJs2KEpP7A00DMZ2beHeRwkQ3ujBPgNd6N/ooXPYw4FGsHapjgZPJdc2fLI2vwj5
+         1JUwyfsvc1xx0aZr23lHR1EgZ5uoNeCESJqidvRXCOFeKrvyp0eG3Ts8WReep7zSnglC
+         DJrNbKuUwiTGqeXc9XNYiUvWaImFBcnpV1hUwM/8K4vcTg2itYDHxBzBwtEV0c+KvtZX
+         5otw==
+X-Gm-Message-State: AOJu0YyEi2RgEdcuEBLITVxJv55uR7IthwCvQkxr6LV93CVxoz7xB6hO
+	tuEwLD5eHDJRCUTojikoy/YHypFIrnrLZWbcW7bi2AUqd8TB8MMjtJp7ayRY2LB7V/o=
+X-Gm-Gg: ASbGncvMIFET98nAjRFIeUf7PkQ1jg83HWgZUkvtN+HM/4ZwfVO+gaHQ2azk4WrqGAF
+	cW50cL6cmhF0C1rKn/0XEEXGPKa1gZSVBAV2vP04YyzcXYcdT5oYilYWb997kFs779HYRcCOe6F
+	3D1LbOmXWFiKWXTwawES0bnI06zV5uZQKwVISOVeVTb8hK6JhzE2wtVggiT1PajUGoEaZXxIfmc
+	RORU8COERbMTf9VGyQKVM7yk3ZtuacsTPl+i4Uc+3tCT2pBUcBu1QZrE5W0RkdPYtpcNumNhj7n
+	kKVjHDhRPIJrQXLVp7FeFh+4EGYlINf8dl1ALYiER8YRJ/7WHezBrV5TNmTAuKlFbDA5VE+hjOH
+	c2HMjZrbe0BphzqKd
+X-Google-Smtp-Source: AGHT+IEAqQjOcoAnpyzophi6mRFHajmHtj9QIjRFkm/NOIYibt3bAKSIyjkYnPLx3bhYlV5yilrOcA==
+X-Received: by 2002:a05:6000:4024:b0:3a4:f8fa:9c94 with SMTP id ffacd0b85a97d-3a5723a2907mr14065943f8f.13.1750331903200;
+        Thu, 19 Jun 2025 04:18:23 -0700 (PDT)
+Received: from gpeter-l.roam.corp.google.com ([145.224.65.219])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4535eac8c41sm25674375e9.26.2025.06.19.04.18.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Jun 2025 04:18:22 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 19 Jun 2025 12:18:15 +0100
+Subject: [PATCH 1/2] pinctrl: samsung: rename exynosautov920_retention_data
+ to no_retention_data
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250618095858.2145209-8-demonsingur@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250619-gs101-eint-mask-v1-1-89438cfd7499@linaro.org>
+References: <20250619-gs101-eint-mask-v1-0-89438cfd7499@linaro.org>
+In-Reply-To: <20250619-gs101-eint-mask-v1-0-89438cfd7499@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, William Mcvicker <willmcvicker@google.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2297;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=3xBT1L8I6TNRRff1Q5/u26yR0koFA81Rb/IbdPbqOko=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBoU/H7wfYr2rXyNKdlg6SW6TglHvBZIDQC5oY73
+ 6RHG1SOE+SJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaFPx+wAKCRDO6LjWAjRy
+ uieOD/9Oz+JuAQTo4NeJIF0oxjINRvPiNiF3dnirauG3D/pn3bu1nOmbTdr56fq3OuS0bhKywRD
+ wwo8uSmB4R/ojhYjn2uGlFMbqwiZACJFmjq1XyRbFpkERiZ1PUtSDkA+ARJFcOt907bF/p72x1+
+ XJYR4oqki+UuzHp+eEJ0b6go7rI9gmIXUo3Mcksxm4/FkbetMCdbcNF3+m/pzqdcHgkPlinMQL4
+ 36rRZ4ggeeHUndmrJi+CbRGgG4SbZjwIeEJ6rTzPlULRTnRACUkOmSZkq2oS2ESHboV6p0Jf2GT
+ yw4RK2dJlhc2QI6MNLH/rnNVRL4Ma45++M8EdAkOPXChF3b3PSlaNvPTCNeQSb25CI7WG7VwEVz
+ dIc4aFRvUzE8MGd9eHvpPf9B1vdB0Uh8PQLjtbMqz+rOTmui/N5SUoVydOGZ5gaHcKTBWsGtXKW
+ 3HAWhJPR7rR5b9LC3VdENoWL+JgYR7Ir4xZX26ze0lBo6V2X3GVWBghTFVB/kHPfsRc5HCAxEVK
+ jrdZTaB1y0iJ0midI3yuxCUagEqZAWwDyvKOEWhgEIVrXb541/Xb1SXrXxHSJoI9PqOeYduOlhn
+ R2ppA+niNAaR7eBDnwN1MHn3dF2SMB/iCmW1i9+zujxzh7XaMYfORrv24Bmz5jxyRsTZrPyOTR8
+ LZT5Dtlb7siS0Ow==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_113135_957922_FC1108AE 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20250619_041825_269224_D9E84FAC 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,54 +123,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
+To avoid having an exact copy of this struct for gs101 rename it and use it
+for both SoCs for eint banks.
 
-Thanks for your patch.
+The purpose of this for exynosautov920 and gs101 is to obtain the PMU
+syscon for writing the calculated WAKEUP_MASK register(s).
 
-On 2025-06-18 12:58:43 +0300, Cosmin Tanislav wrote:
-> Analog Devices is taking responsability for the maintenance of the Maxim
-> GMSL2/3 devices.
-> Add myself to the maintainers list and to the device tree bindings.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Acked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-
-> ---
->  Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml | 1 +
->  MAINTAINERS                                                     | 1 +
->  2 files changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> index 26f85151afbd..efdece2b33b9 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> @@ -9,6 +9,7 @@ title: Quad GMSL2 to CSI-2 Deserializer with GMSL1 Compatibility
->  
->  maintainers:
->    - Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> +  - Cosmin Tanislav <cosmin.tanislav@analog.com>
->  
->  description: |
->    The MAX96712 deserializer converts GMSL2 or GMSL1 serial inputs into MIPI
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 01363fbcb9b3..77adb1f7ac9c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14728,6 +14728,7 @@ F:	drivers/media/i2c/max9286.c
->  
->  MAX96712 QUAD GMSL2 DESERIALIZER DRIVER
->  M:	Niklas Söderlund <niklas.soderlund@ragnatech.se>
-> +M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
->  L:	linux-media@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-> -- 
-> 2.49.0
-> 
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+index 9fd894729a7b87c3e144ff90921a1cadbde93d3d..5fe7c4b9f7bd424f396082f1b1b16bfb65f26cdf 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
++++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+@@ -1405,7 +1405,7 @@ static const struct samsung_pin_bank_data exynosautov920_pin_banks7[] = {
+ 	EXYNOSV920_PIN_BANK_EINTG(8, 0x8000, "gpg1",  0x18, 0x24, 0x28),
+ };
+ 
+-static const struct samsung_retention_data exynosautov920_retention_data __initconst = {
++static const struct samsung_retention_data no_retention_data __initconst = {
+ 	.regs	 = NULL,
+ 	.nr_regs = 0,
+ 	.value	 = 0,
+@@ -1421,7 +1421,7 @@ static const struct samsung_pin_ctrl exynosautov920_pin_ctrl[] = {
+ 		.eint_wkup_init	= exynos_eint_wkup_init,
+ 		.suspend	= exynosautov920_pinctrl_suspend,
+ 		.resume		= exynosautov920_pinctrl_resume,
+-		.retention_data	= &exynosautov920_retention_data,
++		.retention_data	= &no_retention_data,
+ 	}, {
+ 		/* pin-controller instance 1 AUD data */
+ 		.pin_banks	= exynosautov920_pin_banks1,
+@@ -1764,6 +1764,7 @@ static const struct samsung_pin_ctrl gs101_pin_ctrl[] __initconst = {
+ 		.eint_wkup_init = exynos_eint_wkup_init,
+ 		.suspend	= gs101_pinctrl_suspend,
+ 		.resume		= gs101_pinctrl_resume,
++		.retention_data = &no_retention_data,
+ 	}, {
+ 		/* pin banks of gs101 pin-controller (FAR_ALIVE) */
+ 		.pin_banks	= gs101_pin_far_alive,
+@@ -1771,6 +1772,7 @@ static const struct samsung_pin_ctrl gs101_pin_ctrl[] __initconst = {
+ 		.eint_wkup_init = exynos_eint_wkup_init,
+ 		.suspend	= gs101_pinctrl_suspend,
+ 		.resume		= gs101_pinctrl_resume,
++		.retention_data = &no_retention_data,
+ 	}, {
+ 		/* pin banks of gs101 pin-controller (GSACORE) */
+ 		.pin_banks	= gs101_pin_gsacore,
 
 -- 
-Kind Regards,
-Niklas Söderlund
+2.50.0.rc2.701.gf1e915cc24-goog
+
 
