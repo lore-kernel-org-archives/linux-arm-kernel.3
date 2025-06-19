@@ -4,88 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4F9C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93C5C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Jun 2025 18:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LD61zwrmreCa4aB/M9FxrH821zs6AkG4g0unv/BUYoY=; b=w0zBpNJcmIWq99nbDe2pjMG/1b
-	y+XmOj4sxfbAoB4FD/pFNctStO3sQ2BiS72tPiEa+Vk9sSbJ60gBZU5hveLKVn00O7ZEphiBaMhBT
-	EpEpCqMKR6e4YbVvEruq57lrWC87OWWkDVxN5+UkpQLaWM/2Q5Y3FZphfNnypHAwBqb/N5NPRHENY
-	JmlupmznlxdrwRWl9DVFB2c+1oT2am4NzxVGBLRLTiU7Fj2ib5/YD/VK8qALLVyH91WZaMvX2004e
-	AB5yXRkTyiIfEnmgGjiT5eqz++0f6YX/Yp6vgRH2Vdj/ObND6le6CQxd5rPrURheSft81TN0wOj4V
-	Jcxkc6sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JD2WG5MwYz9oTgbHSx5BT5+Xc3TsEuttCA+3Le0F+4I=; b=FFD5k6FYQIvivgMUhqTKAIShhy
+	KyGcfmNyR0Lv8Q0FuJyV7KhnsadVdNMs401AXw9mweYbfDFsQO3kWIez/4IWQDIGvKlkX3KOUjxv+
+	HB6i5zVdRP77JAd77EYgMYkaf8PZJTs6qg5vT/7b2fyJVkpbmcXag5vUBak7yhGNnlGsxaUGAbIAt
+	eCKIHgZheLSV11FW5wZJQZ72fb+aRJ+KnzwczMT77p7Wgar39L4n7qXbNv9ycznDLEpOIZBa29e+I
+	jUZz2w/Dd36K8bAk/pxL/elAvXj6AUXXhzEkumNQ0jvSvq4B9Ndaq9DRJQ7pXW6o0k4E0tltSpx2D
+	n40FFBQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSKK2-0000000E2MH-3AXd;
-	Thu, 19 Jun 2025 18:49:14 +0000
+	id 1uSKMG-0000000E2Xq-24Wi;
+	Thu, 19 Jun 2025 18:51:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK8W-0000000Dupr-1flQ;
-	Thu, 19 Jun 2025 18:37:20 +0000
+	id 1uSKHi-0000000E2CU-1zsX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Jun 2025 18:46:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=LD61zwrmreCa4aB/M9FxrH821zs6AkG4g0unv/BUYoY=; b=QRFSYV7leScWwdTGWPpAlategw
-	aEmXEUr9XTlywgYoedYaJLMwifFu8V+g7py4qcExoKSmU+lyQSWlAedW6p5PaiWG3spNkQLf8lUXK
-	nZ/mj37AmIFGWlAe2aNVedkZHVXYAxHEel0wYrR6ewnvhYkPU7ywkpyiLsLhU0Hug+3lPAE9f1PoE
-	qW3T/pTlutrCGZi+YL4yFoSVFFCeAjZHOf4nLalqYj4lwmA07KjxWx0vsSqvozgaXzgUNbKa2qF+/
-	jXVLxdhUz42yecyVjLVwDJ6vMLMT9UgIGjl28jFO9BKGCso2aahT0jJ5ZqQcGW7jZo4avSX7k+kEB
-	+n4j9eEw==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JD2WG5MwYz9oTgbHSx5BT5+Xc3TsEuttCA+3Le0F+4I=; b=VVkSPZcq7aCISEN+cRs+K8eGCq
+	x6mRzeVL2v7OMPurOg6H/j//kfeiCxzeBNelmYrEEiB78LoeZHUiDxOc576OQ75E5TKmTlSEhnGrx
+	lhZoA0IZBzUO+/bn8j/W7ACFPAPN5ACfCVmU4k5pQ7wn9hLZGMzlRJILRTfKJhEbCNvyr6Ce0kHsn
+	pZOLVaMiHKF9ueOpnKZyEpeiu/pQF1BVUvF08vxlXY8DGqKr89L4DLJuhUMulf8Oa8/F6+Ndmk+lE
+	mQPsrU5/aIbow7RT+onYMTeFbexnSFKR6nQqdYU+y6n88IcA2WmPpiYZRkx+BIs6NL47kKWkMfFuM
+	0MIQpCuQ==;
+Received: from mail-mw2nam10on20621.outbound.protection.outlook.com ([2a01:111:f403:2412::621] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSK8P-00000004Wbk-3d8K;
-	Thu, 19 Jun 2025 18:37:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750358218; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=A8azS6m+S5iFUo0+brLwmHycViLdwvdq+AZEe7p66hKfi5uPE/dd7zF/AuHSOGoy+BUlbOMgZPwq54snpnKonL2jpwlBixl1XVk/cvwSXoX2/EcPIIjqUzZ0QW7j0/HnovTrDrUmB+z4V5SYyUEJOHCH5u/sfzVOy2h8ADDxN64=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750358218; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=LD61zwrmreCa4aB/M9FxrH821zs6AkG4g0unv/BUYoY=; 
-	b=PIDbaAQYPoSZJSPBgxu/m711LYDMfFr7OK6JF0UdABo6S7eu3Oovmbtwd5mezpezmi7z8oI6Fk6F7i3JaURJ47r6LHWoilNr66XB6oLYQvZQsFvferlI6selm85d8buOMHncJqvMZBGdGGv4FRAB9uki4xsGYF+h/Osvn8BG2rM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750358218;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=LD61zwrmreCa4aB/M9FxrH821zs6AkG4g0unv/BUYoY=;
-	b=XvZjDPEeomfmPUObvXs1e7kdzLzehZrXrgMECUnek+8dZNE31wLTam19y9uE8EoJ
-	EVwKPnY0zx712uVchfo7m89H/n5B249adXdTstTGQsA9hTakw1JpSNJ2bP4WUCr2u01
-	4Xd3JZo351upElVit+mexZCwliiv3yr2OxFt1VXk=
-Received: by mx.zohomail.com with SMTPS id 1750358216401837.8847047716139;
-	Thu, 19 Jun 2025 11:36:56 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 19 Jun 2025 20:36:37 +0200
-Subject: [PATCH v5 2/2] arm64: dts: rockchip: enable USB on Sige5
+	id 1uSKHf-00000004YDF-37fi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Jun 2025 18:46:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p2w4elrCh82cOeYB2e5GbQqk6fSPygJGrpdOWwvKcM82bA2MdiysQHoRi/Jbb2FcPRngnsZfAUV0EgGGFzXsDGK5X6jTs6sag8+xcc2cmVZJAibVJOpCRap2MT6I8lQDgjlGhy9iz090wWraaj0xzpYr2UqCuS+WF5asQF6I3SQqqO76bWAYthLmERpDHUcfmAkPbBk5DSlqv5xoG5ouqN4e4lP+zMO3fOL5bxqv2HBPzf9ZLWn0REYAfRNIlxmmHWUKDK3pCWq3B2wNV4oNGdiXbp80xE7AhDEwqs5QgXPThS10LsN+K5wXMxPShyeofhGov3f/J4Dv1EcIYFk7gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JD2WG5MwYz9oTgbHSx5BT5+Xc3TsEuttCA+3Le0F+4I=;
+ b=OuWfK19MyVl6KeLcKRxr2cUhV6hbnNh3M5bY1eC4d91LfBtyjWqL3NGRRpqS9f3gzyycB6tLjMb4lUfodPKlFHix/qUjS0rIlQRl2yLujgEOOu5RFhaGowMLFRxwrYHNlJ2i7U+pygVWEZRH7WwnTLE903jXDIFBjxmvHuxv89m6L+9cTBZFgE7vhJtJ848oatCbR6byaXoAfbEQ25KMrLKDZ4m56yStBYFOf2kAu5myj7w66lVbJBGwTm/T2KY9Ra4GqPF4uGxDmg4tWM7AzD1DMJqhQNR65Ahxg0uEclZBdUtaphgrZrBv03kJqfVqnbEVJWETU0Z4izYnUOqjxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JD2WG5MwYz9oTgbHSx5BT5+Xc3TsEuttCA+3Le0F+4I=;
+ b=LswyvPfhXAxmiAvphLPImZKgiw1ckVbDMpmisYlQyMKFQXSxv9j3wptu2RtIiK4dtJUrWhR4aeo907WUTX3wlP9idJa6IfDyaFddV19uhhsTzgvd8JVb7Qa0bh74k4XnBon4zZFicv1W9uoFaSjJtzeJeMJdloqEgzYZNO8TyrX3nhC/l6HTqZepelQzuChsIlrHAws+QHdmksUeoPhwjt/FdUbtEQLgdPawnnWSeQymKx7KxwEZk2rLvCEHtBlbITfYOU9HFClX/H4RwZDMfP879WGz5IxdXauKmUegeCltnhDBS6ROqntV8SnQvXmbcjMgaaHZIhhoi2WWy5WsMg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS2PR12MB9776.namprd12.prod.outlook.com (2603:10b6:8:2bd::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.25; Thu, 19 Jun
+ 2025 18:46:41 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8835.027; Thu, 19 Jun 2025
+ 18:46:41 +0000
+Date: Thu, 19 Jun 2025 15:46:37 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, will@kernel.org, robin.murphy@arm.com,
+	joro@8bytes.org, praan@google.com, yi.l.liu@intel.com,
+	peterz@infradead.org, jsnitsel@redhat.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev,
+	baolu.lu@linux.intel.com
+Subject: Re: [PATCH v2 00/14] iommufd: Prepare for IOMMUFD_OBJ_HW_QUEUE
+Message-ID: <20250619184637.GA17127@nvidia.com>
+References: <cover.1749882255.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1749882255.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: CP3P284CA0010.BRAP284.PROD.OUTLOOK.COM
+ (2603:10d6:103:6c::15) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250619-rk3576-sige5-usb-v5-2-9069a7e750e1@collabora.com>
-References: <20250619-rk3576-sige5-usb-v5-0-9069a7e750e1@collabora.com>
-In-Reply-To: <20250619-rk3576-sige5-usb-v5-0-9069a7e750e1@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Frank Wang <frank.wang@rock-chips.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Alexey Charkov <alchark@gmail.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS2PR12MB9776:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfcb6e53-696e-426e-4c46-08ddaf61a197
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uG2Rk9raxbxZvV7h2KNB+bw9wvkCsWQFfRGDYWTYQ5Hz+nBqupRUahqfYsk+?=
+ =?us-ascii?Q?kQrM0dpI0nf21YZaG8azUp5NQQZW06xdi0upZismPV/5l8DyD6r5R0CUNnQp?=
+ =?us-ascii?Q?KlXM+DAaMino29O4XkL53LMh54fkYAHEjWbysRnWpyDAaoChGKQI6MEXWFJC?=
+ =?us-ascii?Q?mW17SJ5Ut/7j28BLuk1n6LPCKvPdYfpcC/KC5gwTt0A6FDXbueeiTD5qaVQS?=
+ =?us-ascii?Q?qugyh/nk4W5EbshKJ8I4cMnT39i5OUQTaoT7nCY7rvQ59BETPPw4FBYrqbNp?=
+ =?us-ascii?Q?JTVppoetfyoB4WQQJd5f0wysDiOXC0iATZ+r6iA/Ulj1+v1AbSA9h78VZlUQ?=
+ =?us-ascii?Q?yS48N1efEji7g0K+nNOXG9DqenjLPiQ8G/KXOgqITiJL6nwPD+bTzcQbN4wo?=
+ =?us-ascii?Q?U0SLtxvYupQDWfKyvGvsrcKHw31C8SZ7Oqz7xdIGFlmPIpJgECBQfspsiKaT?=
+ =?us-ascii?Q?Si5UX4DAn9qRUzijbPVB+xUEVuUTQdNc4ysq+N2xi6gaC0fngK1NibtMeto3?=
+ =?us-ascii?Q?oDrRqnAQ4AUALUYfsbAKLONzVWoPNA4CLuZy3JLn2Y3mmx8GUQTMS0WnFZyD?=
+ =?us-ascii?Q?KT5Tiubb9jbWU78+AiWzchNQN8w8orxIKM9SjNtKg5Ki0z8kRyx4zxsuohR0?=
+ =?us-ascii?Q?T/BmyXJF8JVmvoAmuyasc7E774PyGAPKmeKPE6R9SZUZhJiOxOtZ3mZBmI3y?=
+ =?us-ascii?Q?PLxdXbebbCwEMoJyCxFQFEZU3Az6DFFrPZ25zCwfxPchO0uF/nudMVPiWUOx?=
+ =?us-ascii?Q?MVfXwGSegeCfprBaSEEj4P88KA1dXuMfAYmXBKBmX1abpongodYMtDUy0Ti1?=
+ =?us-ascii?Q?ToCkRF7P53SQaglaAHIS2Op1ziJftUJcUfFdyoh7BZQStxPzQ2eMJrB+OvJP?=
+ =?us-ascii?Q?u19eIuyN5gBzQUTlMgSVOt+xdCO8ZPIYkWIlEmlOgbyjAL5APdm36FdaxG8+?=
+ =?us-ascii?Q?WAa6r3M5PRnLK7nUZdnUslAau8KYtF/F/NnbUQpqIso1/QsTTA2HuAJRSGa9?=
+ =?us-ascii?Q?uFidEbUu6zmv/sFbyoVaIdbyQGKqxRg+FHhHb1I5y+m/utqG209aaLd7zDjB?=
+ =?us-ascii?Q?MnS18A7Y9KZBg4KQw9Kidcjf3rCa3+LXlpEn+5lSGYaDq6Ar68TiQr5ZZYaA?=
+ =?us-ascii?Q?HEQ9ZoWAUicrV1cWBELVRhZ9QAcuJknVt23fNxo54MSPiRNoFc2aathZs32C?=
+ =?us-ascii?Q?nhI6O95FdirSq3852CF6WwJA80Vyu0WTjXCdobGbCwhxEivwIv4UC2zf/Z3h?=
+ =?us-ascii?Q?K2bEcip8ZqqoojP0P32iqk4OyEWO8ilXIpnuO3nc4WhGPGOUhZX3/AwBnXqK?=
+ =?us-ascii?Q?2TNeWu83Bce0noPqzlbTM17FSuTvI+jV2EF7ZBhFNOkQZpKBFAYQUsrVVO/4?=
+ =?us-ascii?Q?1IiowjPegNshdbZORu5Rgu00EJV4el1Ft8bQwFDUX7r7kMHbF72+3s0I+aoV?=
+ =?us-ascii?Q?XU+Bf7USrcU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pzV6OFSzEmt8/7gctfSXexpJ1wbLJhsVTCnNRA8CnGs7lZrDOE8WkUx7nj+g?=
+ =?us-ascii?Q?CWMQjLSTQTa5X6041r9zvuJZcaUHF9gWrJfcKbN9Tie/l1Lwcv1k+8631Sij?=
+ =?us-ascii?Q?KAKArVQGliTX7gmCGJd3LWNM8Miu3vjPagP3Nurxli5pO/PuOteq+17KIh0y?=
+ =?us-ascii?Q?9dXZQJ++iqxENLWnsPjr57fvrSEyXDvbrOjFzS73o2i2cVqHWyepr1fG4q7e?=
+ =?us-ascii?Q?bQRkqsjEU3nsNf+MGTWpHQIUiQO4Ay1kwFCfKGwZZEPcgqNdz8r7MdsT66l0?=
+ =?us-ascii?Q?ftOFscS+aBMs0XPc1STVa7FTAycdP8CdPgCxd/hLSzUlq3egp+59w9OZswZu?=
+ =?us-ascii?Q?caT2tRCg8SMn8+HBqhhwScZtueSHUQwOtbgOZCxwHCOvkltZ8iyud9CLIBSw?=
+ =?us-ascii?Q?kSISOd5XrNLcct3fsnUsvlVtISwrpdFAVW+YSZNVB4d38xzNqtihvfnu9qac?=
+ =?us-ascii?Q?Y3vzgpPgx7GNhe6tUmS0O6GelRk6ON2PIWeNkfBCXt2SDcEsMJCy60mPt4FF?=
+ =?us-ascii?Q?HoNdFS9fF1YSpjVx9OgTbnoakKxpQfyOrToFWiiPomYL//JRFEWlhQE4zlWJ?=
+ =?us-ascii?Q?ftlIPd1zetj9H/aecATdVCU564rYYGUlrg+NBHK0kAIVwSaw1bcrgWbTLnNw?=
+ =?us-ascii?Q?GWBJyQPMcFsj/TQhXXznBRLfqbwKRQSwjGY46xKGtzIyS0ZxqmVAzDrcnYm5?=
+ =?us-ascii?Q?rtsaOy5btrZokdvw+nMy90jkBHJjxlT/6/gXEnSs7r6ZAcy5y1pfo+Uspq0H?=
+ =?us-ascii?Q?PKU8WcTh+k2cw6KsVK1ns610GyM4eERWnuIgaV0gy5tFTqHLs2pPMUIZhGNM?=
+ =?us-ascii?Q?PQueqoeptOHbttaERt7ghHojS7ov4l58NOPyVg79CQ5ryQBFjcUI8ajdumnW?=
+ =?us-ascii?Q?w0aa9LNcNRrZK6e1lJg6Lob8O+2Tqot5xEftVtsAbdOun3PbdTnl1lou79Vr?=
+ =?us-ascii?Q?8J8OLcJSD++4Gg+jsSwj7pRiK6oSa5o9b70B/g/NtSphQHs51jnEUBz+AuLN?=
+ =?us-ascii?Q?30bhBn/b70pv8JBJTI8/y7HyYQo6cxGWzdbN/IuGa56mfRcgi3gDK28h71di?=
+ =?us-ascii?Q?AR340Hi+q2VAj/80OOEqvHW15HNscPdWCxe+jKlNX74T9f9NFEOi1CYfhNdh?=
+ =?us-ascii?Q?Ha10tFM1VDgLhdmTiBNyLeJMWja5x8QGNu0zgLfgMxbsmBfPkagnmAn5bjiO?=
+ =?us-ascii?Q?+yl5nQJMpJJJmx/XwEOfb319JQ8tZpqYqYkf40Wn1A9VZ+bb8zdvAQ0VuGTx?=
+ =?us-ascii?Q?O+EvtPHd5IBmLZ0Jn7xOlO1GON+QzPNOBBkQm+sMgNbaOAfofvplrzHC8Uus?=
+ =?us-ascii?Q?ey+Wen8X1b/LIm3wcVfkIQd7SR39Kp+Vis8iXWjNOSRHWmpTfMaJ08M5C/16?=
+ =?us-ascii?Q?/CVhik2vLCNmtTJwAjcr9WOR2z8R6+5+Cs8b9ku/xMMT5yzuG9HSXdnfvOHp?=
+ =?us-ascii?Q?aCypV7LhIp7zluJDWeUr46khUn94LysRmFNpWnZApsw5naXHsRjAOiKh0rcO?=
+ =?us-ascii?Q?3PKp6NZEs1ZAKPQ8vWO0aghLqNBt1N5zgx7VWHbeikEDyjvu3oboEsQFnxwz?=
+ =?us-ascii?Q?BWTvgghfwUOW7IH4/hgnIcjYGoWU2fS0KcFhwO2A?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfcb6e53-696e-426e-4c46-08ddaf61a197
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2025 18:46:41.7795
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Wdq1q9fD/hHDBtFewIlRvrF+jV0Kl9swRxl/A+HRXGpOo8GyIixzv29hm8NK2CYt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9776
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_193714_288517_58FA8D9C 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250619_194647_920129_40975B1D 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,220 +176,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ArmSoM Sige5 has several USB ports: a Type-A USB 3 port (USB2 lines
-going through a hub), a Type-A USB 2.0 port (also going through a hub),
-a Type-C DC input port that has absolutely no USB data connection and a
-Type-C port with USB3.2 Gen1x1 that's also the maskrom programming port.
+On Fri, Jun 13, 2025 at 11:35:12PM -0700, Nicolin Chen wrote:
+> Nicolin Chen (14):
+>   iommufd: Apply obvious cosmetic fixes
+>   iommufd: Drop unused ictx in struct iommufd_vdevice
+>   iommufd: Use enum iommu_viommu_type for type in struct iommufd_viommu
+>   iommufd: Use enum iommu_veventq_type for type in struct
+>     iommufd_veventq
+>   iommufd: Return EOPNOTSUPP for failures due to driver bugs
+>   iommu: Introduce get_viommu_size and viommu_init ops
+>   iommufd/viommu: Support get_viommu_size and viommu_init ops
+>   iommufd/selftest: Drop parent domain from mock_iommu_domain_nested
+>   iommufd/selftest: Replace mock_viommu_alloc with mock_viommu_init
+>   iommu/arm-smmu-v3: Replace arm_vsmmu_alloc with arm_vsmmu_init
+>   iommu: Deprecate viommu_alloc op
+>   iommufd: Move _iommufd_object_alloc out of driver.c
+>   iommufd: Introduce iommufd_object_alloc_ucmd helper
+>   iommufd: Apply the new iommufd_object_alloc_ucmd helper
 
-Enable these ports, and set the device role to be host for the host
-ports.
+Applied to iommfd for-next, thanks
 
-The data capable Type-C USB port uses a fusb302 for data role switching.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
- 1 file changed, 160 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 34e51cd71eac0395c7f36c892fc0711f6c324aea..b52646d76454671d83e7d684f67c2186f8b8c3d7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-@@ -205,6 +205,33 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
- 		regulator-max-microvolt = <3300000>;
- 		vin-supply = <&vcc_5v0_sys>;
- 	};
-+
-+	vcc_5v0_typec0: regulator-vcc-5v0-typec0 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_otg0_pwren>;
-+		regulator-name = "vcc_5v0_typec0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc_5v0_device>;
-+	};
-+	vcc_5v0_usbhost: regulator-vcc-5v0-usbhost {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_host_pwren>;
-+		regulator-name = "vcc_5v0_usbhost";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc_5v0_device>;
-+	};
-+};
-+
-+&combphy1_psu {
-+	status = "okay";
- };
- 
- &combphy0_ps {
-@@ -631,6 +658,58 @@ regulator-state-mem {
- &i2c2 {
- 	status = "okay";
- 
-+	usbc0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA5 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_interrupt>;
-+		vbus-supply = <&vcc_5v0_typec0>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
-+			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
-+			power-role = "source";
-+			source-pdos = <PDO_FIXED(5000, 2000,
-+						 PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0xffffffff>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					usbc0_hs_ep: endpoint {
-+						remote-endpoint = <&usb_drd0_hs_ep>;
-+					};
-+				};
-+				port@1 {
-+					reg = <1>;
-+					usbc0_ss_ep: endpoint {
-+						remote-endpoint = <&usb_drd0_ss_ep>;
-+					};
-+				};
-+				port@2 {
-+					reg = <2>;
-+					usbc0_dp_ep: endpoint {
-+						remote-endpoint = <&usbdp_phy_ep>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
- 	hym8563: rtc@51 {
- 		compatible = "haoyu,hym8563";
- 		reg = <0x51>;
-@@ -736,6 +815,24 @@ pcie_reset: pcie-reset {
- 			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
- 	};
-+
-+	usb {
-+		usb_host_pwren: usb-host-pwren {
-+			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		usb_otg0_pwren: usb-otg0-pwren {
-+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		usbc0_interrupt: usbc0-interrupt {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+		usbc0_sbu1: usbc0-sbu1 {
-+			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+		usbc0_sbu2: usbc0-sbu2 {
-+			rockchip,pins = <2 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
- };
- 
- &sai1 {
-@@ -777,11 +874,74 @@ &sdmmc {
- 	status = "okay";
- };
- 
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	status = "okay";
-+};
-+
-+&u2phy1 {
-+	status = "okay";
-+};
-+
-+&u2phy1_otg {
-+	phy-supply = <&vcc_5v0_usbhost>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-0 = <&uart0m0_xfer>;
- 	status = "okay";
- };
- 
-+&usb_drd0_dwc3 {
-+	usb-role-switch;
-+	dr_mode = "otg";
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			usb_drd0_hs_ep: endpoint {
-+				remote-endpoint = <&usbc0_hs_ep>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			usb_drd0_ss_ep: endpoint {
-+				remote-endpoint = <&usbc0_ss_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&usb_drd1_dwc3 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbdp_phy {
-+	mode-switch;
-+	orientation-switch;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbc0_sbu1 &usbc0_sbu2>;
-+	sbu1-dc-gpios = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+
-+	port {
-+		usbdp_phy_ep: endpoint {
-+			remote-endpoint = <&usbc0_dp_ep>;
-+		};
-+	};
-+};
-+
- &vop {
- 	status = "okay";
- };
-
--- 
-2.49.0
-
+Jason
 
