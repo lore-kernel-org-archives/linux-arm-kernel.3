@@ -4,153 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3FDC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 02:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB05C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 02:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M1CSRAnsqiDVE42NqZ4NY/jYZLBYyekF4LpbRByctog=; b=wWErylADidfPBUSvxmwYRhV3ha
-	OU47R97Hrfw0n/VYWQPAHf8NGhWBg5IifHS+Darph0lIBAv8Fn+rUMaH45PoyKlpWgVF66+GzcYYn
-	Tmi1PNR/jyhu87QLRjUbIZkmRPKJoIUwPWJhb7bYMkFKf1XvdExhPW05K+7jyt8GHpoVfCivgbJ9x
-	DU9sETqtEGsmkk9GbftlSp4fW/xT7jiXhLp1z9hwXQnwH7TX+pTu8yr+bUJRKGYUcSqtyVb3S1T8y
-	NsjLGPPa1jR4ZbxdYx2N6hfrx+++iEabyoZEsr5BAB+Gr+JVLq1mI2xVU3rUDROvg0pK14NS+LLHY
-	81GSbatg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VjZyfr93RvqtkNq8JxVPIB+pxnsD1+6Omg7FJZT+ONk=; b=xNTGLvT+unxQSoP1I+l1c9y4ju
+	v2+zcNvdGz3jwj/WfIeEk42udaqEXZLzfZfi74BdZugOJ4qZlCwihJ0bVx6Fs7sohv4wggnzGMBDU
+	UZFgiq/CE7ZUxz6Qp+0Zm0+Xzklm+K1xksWMRbELbkO92XHQioUzWDCF2pL4tbmWunNb0HL8c3YOx
+	shHe+LtNdLUezP7QS/r0ip834lOIIQzBYKybApr2lJLKOlML8Q68w29mQd1AeXkb+oYKaqUxcHwIY
+	FQ4eMTviPW7fJ0UVKGIRxQQztyqB2K2a+Oo5VLBSIUG5eR0mPwIW3su3uP/np5WM6qgUJfWOYluHz
+	OwqHSFbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSRSr-0000000EaJa-3z7t;
-	Fri, 20 Jun 2025 02:26:49 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uSRai-0000000Eafx-0Z75;
+	Fri, 20 Jun 2025 02:34:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSRQe-0000000EaDd-2jd2
+	id 1uSRYT-0000000Eaa0-2PeO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 02:24:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ruAP/p2CBCa+oBnypb7vLNCdSL5LF0dGlQqbPQoFQ9VfOvJTq2KtCsMVBzyUXqfktqvSO2V44gXSkLFePHQ4QAu+ivjwQo2pu5ExSVuCw9XYevW4N3wog7917MR+OlJ6navi1thz7BnQJ+JjCtztAtVYyDOP80LKL+OYjwmuQoU9ixZVCMEvjHSJ8aOzdtdUuoqJ7O8GCHWL9KuFJGG2L3PYEeSdQU2jC6gHHx4MvFK/U/d9iNeM97O6EAtPTbmqNQ35ry9IBn+HFxj+6z8YBcs2x0QWInJKOJdRlvxbiNkt1itNqTwYw8pVKLmm9523NCfkDSZHe3/g3s4cd5blkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M1CSRAnsqiDVE42NqZ4NY/jYZLBYyekF4LpbRByctog=;
- b=k1KNg1PoaJimBUxo+eTU1SuFx6VauBDVjxpHCA73YSg4RfgyF3VWunHia/eJmXWlz+XpeWr/ALyKhmS2N42bzd5JyQ8P9u9orTM4mcIm+IBnoOYjZ+rqgZoclRHxkueK6tUm93/TLjNn26DnQAiLWNvPtwz5BwCGACssaCPIkUZN+Uiha0g8VBh3Ouq1OrNpnhO02XZHqK9uXDjsGI9fcu8U6yMgwpA8YyjoPLsALupGJcEOPqXEO351pe7W+Ggwp7/xYVziI3t18jtKHlD5XYfOuxpegyEMeLj3VIEoYDJHPu12fvyCWCFO5VN0JqdqPZe8IyVCgQi5QgcRK+YBOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M1CSRAnsqiDVE42NqZ4NY/jYZLBYyekF4LpbRByctog=;
- b=h++eqcnyLnJQx58ugNGwoh1aWg2k5Hb1h3R7QjuP9YxrTCOGUisAf9x8d17Q/1wwNCrvb8fQivs56wKwTpkDeDsx4uHBSnxaeV1YR6CH269UMrAXoaHGvq12T87iGEeDtUu7pzK5fc+KNTaYWit2uxKHpJIgD7JtvvEAgsPPZjV0xUHKptGi2zN+bFEzqQMKuLur7Er2wMt02TOnEeQQxt7kBd6lowgNgADwEiwuINkh+4p+1+/rggHliNxSA1MmnZjkG8v5CKfixDB6Gi1XrkTJdy+QS4BzvBzXRSTQj9Q73/Owg7wem9n50AxGVl9WcSBLwD2nblPgdOx3XjYovg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AM8PR04MB7347.eurprd04.prod.outlook.com (2603:10a6:20b:1d0::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Fri, 20 Jun
- 2025 02:24:24 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8857.022; Fri, 20 Jun 2025
- 02:24:24 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lee@kernel.org,
-	victor.liu@nxp.com,
-	gregkh@linuxfoundation.org,
-	frank.li@nxp.com
-Subject: [PATCH v2] dt-bindings: mfd: fsl,imx8qxp-csr: Remove binding documentation
-Date: Fri, 20 Jun 2025 10:25:37 +0800
-Message-Id: <20250620022537.3072877-1-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2P153CA0041.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::10)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Fri, 20 Jun 2025 02:32:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F398A4908C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 02:32:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BDE2C4CEF0
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 02:32:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750386756;
+	bh=nFwAjdcCBmuCFAWX9WMeLyT+AO0LFKWNtBekZcA+g8k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GlycR+VuvjLYWJ4I6djxLbVZVOzZ5BvQsJCFfnrDbSddUWNzItrgfXapLUgX4uSWk
+	 u0LbGElgQ5mUj+S+oybZpaaU6nCBGtooAQO5Euuew+Z2G7JPc99cS35PgpOdhqevei
+	 ujJ9DZLdZmYdn+oERg4qAcTCDGL4g1rboV49D3TZrmUK3A50DcPOlbQDLGfxWHIA4u
+	 mfDAcaU78A8qEda9EraXNakPpYIL8nGwxuwzLJO1z/tgWRSEU4JQ9E4VrgCzUozPpp
+	 9eTJ+/zNWXOSa/JwypVoFSHApRF+ByMIwTa24xDDx+Xm58XmZm8Yvsc05tg2v6FcnH
+	 MfeCEt2hsXXvg==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-551efd86048so1368779e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Jun 2025 19:32:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXVcrVnfi/j2l5kVg/S9vqoTI17sG3rjjyRlCYkCiy2Q29l6vI3F17no0a1AoMImmqaUgdtG8fqUh2W/zYzENvj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL3wJoF6+4/TsnSWSdrgxbRuE61qEcJKWXAnm/G826gUya6QF6
+	DAOOrLz2PT98/WFV4cr69/7w8z55A45mgVcd662tccxAb33Xv7chAcceLlh6mo0Qk20IjDzgBXJ
+	s/wZWS05lFooTfPoPJuz+9oieSYdeSjM=
+X-Google-Smtp-Source: AGHT+IF7KhN1uteG5Uxd3myLT7qqu+b6R67w8bIpo5CxMzP2p2xxNhvi+eJk2suEmLF/ecrta0Tla3VG3jH7pCkyRH4=
+X-Received: by 2002:a05:6512:31d5:b0:553:2d93:d31 with SMTP id
+ 2adb3069b0e04-553e3bd0367mr416872e87.22.1750386754813; Thu, 19 Jun 2025
+ 19:32:34 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AM8PR04MB7347:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42f8c61a-8be8-4a79-ad5f-08ddafa19275
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SocwiX+4b6s3y+SWlMqCtp5/nbDjz/zxRaVm5YdoKrnlQ1TAyhsaKVcefu1N?=
- =?us-ascii?Q?/RNQxXIZBWl+HFI0Oy1xzjIgoLw6DYhKgjt0ZdmqkILjpzmdFkZawsSdyEzC?=
- =?us-ascii?Q?Q402ctApo99THUauBWR3WvPWn4Cbx7T9FV0bqQkjLIPDoNPQJQbG/o1yB/QM?=
- =?us-ascii?Q?hD4JNYFQxzNh4WToA6r1VSgkjBn6wtM72xfTfPPbncIXpUH7cqedGKCO/Aga?=
- =?us-ascii?Q?4KUy5hhUY71q2UInQ7UmPTZpPRB2TTtymnf19eA/TLUNVLFOtaJ/8pXLq64t?=
- =?us-ascii?Q?hkLYuzsjyePrObHhvkazBeDC2K9v96h7okk15COB7AYS2mIRBlAke0yZvKMk?=
- =?us-ascii?Q?LyCFR0wm7SowdkHQTFiuWdF9JLT55ZiD7F7sjx/15p7bBn+XRb8/s+Nzc5pY?=
- =?us-ascii?Q?7ZIdtrQNaAu6qZwNAJgV9N07f9se/B1kkIg19iiQUEx79XOE+xdq738yLcWz?=
- =?us-ascii?Q?MjCx4w3da8T9SYax155BXu5helrfqN/IRxzBJpBxlLmp07ae2qfZuYKZ0cyr?=
- =?us-ascii?Q?snb0R5qj5MjLcsveUOlE8zubbvIfqYiXVDWhSU7wMsVduT/Mn77nmg//KOdf?=
- =?us-ascii?Q?emmhezpi8gcSykVVMpk2mphYLEMdkWSprpyfpuNqhEyGGTFyWvygYJfMeshx?=
- =?us-ascii?Q?ix6TbVxcgxlB7i5vuxWrljJ2/bc5M12V2j7HL/zx03wFHzqKFZolYDHvzTC0?=
- =?us-ascii?Q?rTKj3eKgNFHKWe/y6ZHVyT33QyYKcRh1AObAMDB47EOmooxd5ur/t8ONMxD7?=
- =?us-ascii?Q?zz1ynOQ5ddoK1Ec1weOLxDDtE3Fm1ebLXMlEEDKFiHUPLzoyPIresnGf1HEq?=
- =?us-ascii?Q?NMRO+F3ZJPBUVOdeF1KnHcU0yT/ypCVQgO9/qvrDgc4mGq/N4TwrVEnMa1IR?=
- =?us-ascii?Q?FpN72FNmrYkELFg18fx7nOsNxFMESAuvaQPaeNKAwupWhraJM4TeJx1QhVy1?=
- =?us-ascii?Q?vKH3w3eqRIlBSVqKhke64eGBCgr4P4K0kXKlPOrlqWvHSd7cpynM7BVrlTab?=
- =?us-ascii?Q?vIjiVX0G+DbefCmGaTReOVsGzNnQFtZLwtjuK7AB5DT+k4tZ7k3Q8I7FyutY?=
- =?us-ascii?Q?JNQCgDdxay36j5t3h5G/bTjA+8dRkWkQ7y68fUVzSpL0JoXxlM0m3yc8Qo09?=
- =?us-ascii?Q?3fYbafA8yIj7x0PPNot4adOxAgdfE2exDtTu8VcSVfiv532qE5YSdLorL8ax?=
- =?us-ascii?Q?vpJMDRCvUHudiEJj1gKwLio/PYYHDzqJ4n5kxo53BQMEBdDKUv0vZgWaVUEJ?=
- =?us-ascii?Q?ErV+xLq3Vf0f0sin0xYJkgsHIPrw/DsqKWj8bQsTHbofejqjclTwZQYPYvr4?=
- =?us-ascii?Q?s9GWt+/pwLcCQZ0o8hcsrqVnyVw6byhIfVQzR0OYJ7VwyjqZ2EVTJj8daNkX?=
- =?us-ascii?Q?pIolbhxpuALgUnC4f/iQuU5hpiCEeigcqqgAr7tyTiz+XQkJw9OCLRXwTn0g?=
- =?us-ascii?Q?ypt/W3BDozs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LBIatPRRun9ASfx7gxETXaKCsidpk3YtpnuLqUkgA4UYmjuRqOE5Br51SO5x?=
- =?us-ascii?Q?JAv/SHsmxRVISJhFek6XTF10ZbychlHqzbGT4wcccauklwaX3n94/MJ0BNLr?=
- =?us-ascii?Q?G2Fnex5KklL1rcAI7gpXkRAR5mYDA7WQ3YJgZL8fUwjZWdst8d61Ffk/d7O4?=
- =?us-ascii?Q?Jmy2P7c2NjBNWpGt8HjEN1NWtUq8xFVw7Sg6FIiwr7pfmsm9u8o5noM4eyqQ?=
- =?us-ascii?Q?hgttbQrG+kE15HQFu9uwi7yCWET9eAAK3E+go6nW7q9r+nr+k+V+L8jblHMw?=
- =?us-ascii?Q?EvMd5Bc+grbdGJ09SZUtUFn8bmZNPoGA0L80EIK97hyNDoSllxnLGPcX8HhV?=
- =?us-ascii?Q?NSmyOw8FMdQzGJI+ppDvVzsgg0nF0WmuG24JCJb9+Aq7RjZN3KvnMGm6kweF?=
- =?us-ascii?Q?2Z3f44t9+RLuA+LfqrdUOH7ukKChxl/q8OTCDaMDvVz573J9JGdf+UHaCJ6Q?=
- =?us-ascii?Q?i+wTL+H+AmpLopqFwJF+8jRAbRvG43husAkkebLqrswOdaxvESULt1b5emTe?=
- =?us-ascii?Q?nRqrqRQ7Yn3iI0AyHTfw7xLN+T+gXIGLv2fa3iKI25ecmKuip6/GXHYo3mxC?=
- =?us-ascii?Q?mFv6S4TCDJ28QS94FU2Q7uKwm9G6GvaTH6HtLU9kzY/6QYyX86lKgtwjMzcq?=
- =?us-ascii?Q?OQZ3wVKpb/3MDsmPuJ5vt196FMcANGuG71hQF30/9fyi2pj4Rlz9lgn4s0ZD?=
- =?us-ascii?Q?/a1dws9Vgsm7ecGfifgeowtO1FFkZWVuDgkh9XpPVb9MXHrlYEMmFhyXZypo?=
- =?us-ascii?Q?5CKTLj8D5gLHH6zehC95MiZqpC+YZ0n/oNjyv4DNozYWsLn/HnzWVbNmtAiZ?=
- =?us-ascii?Q?C5Ul0/qZYR92BApeINNRDukI2S+7WighKksJu5pZ4rWtrUbj811kXGCjmoAg?=
- =?us-ascii?Q?+0RZ7g4pyp/82/dZ+LVwC7wfBVrbNocTyaWQ2yYf4Blyb6CIC3m8x9QDg6SR?=
- =?us-ascii?Q?cTq3MW6sg1Hb+YQyIevowoR3UKyuw1Wq33xby7urOPbBfE105lwJi7V0Y87A?=
- =?us-ascii?Q?tuLLwquu2gMudsF2qR0y0dsbIMUFIY/L6j6YN0azDpBIK2UapIQhdWLwneou?=
- =?us-ascii?Q?RgU3TRBnKEH9snijsek3clUA9Qo8b5aGdjy/MUj0bQXg2keil59NvFV8tm2h?=
- =?us-ascii?Q?xFn0LmXMj1SJdvr5/r4siq5BJi85wCTqdkk+cWaIBMrOQkJ9kWlkhKnJUFnr?=
- =?us-ascii?Q?l0j17WyEx8T602OZP1qLiTeXZZZCYpfLdi1AJgSzipLYkjz2brZFjfLpo4u0?=
- =?us-ascii?Q?Hd6qdTCGcBPBPgG21RvCiy+8i2C7xJveSxClXvYE3tQoY9uu3jx5ep56HyBw?=
- =?us-ascii?Q?Zo+Ez9VatyOq+PnWbuohBeERtj22ZZ4gNElqyaH2krPt6IG7ej7dKbXLbMMh?=
- =?us-ascii?Q?B11ajYIysgPU7PwULT4VTir6oy9cIfpqSiGYYA67jVnbC9WO4n6zUeUYWD3P?=
- =?us-ascii?Q?xw7SuFfdVs0cOqil7qBAFFu6VaEmdjF87itWqWrlsCQOCXCWFPkBPhNiU7mm?=
- =?us-ascii?Q?1ig0XL50lMtJu0HdYUntL6TgcRglkGwC482o27C68Tv3iLpUu2hCwcISJ2S/?=
- =?us-ascii?Q?joSFhZDT6amVPk03p20KPIEriPewfO/PfIhBQOTz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42f8c61a-8be8-4a79-ad5f-08ddafa19275
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jun 2025 02:24:24.2607
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p6rN7aHmmj6MOU5r6C9wQqBfEtA8yEbV4KF/5nekSIHzmy9aTAxvGhR6IROL5xI5LhB5YDJW5IFLB3ntjPDMxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7347
+References: <20250618-arm-expand-include-unified-h-path-v1-1-aef6eb4c44ca@kernel.org>
+In-Reply-To: <20250618-arm-expand-include-unified-h-path-v1-1-aef6eb4c44ca@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Fri, 20 Jun 2025 11:31:58 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAREwF0Yn6R80+1WnrJpHe4vXcjMdqUqqEU=cL1++Yk9SA@mail.gmail.com>
+X-Gm-Features: AX0GCFto2VXAU61sRbn1UlLUs-rN5P4yoY-wp1BS5Fvn7pkoy54ZTWiHwmO_VTc
+Message-ID: <CAK7LNAREwF0Yn6R80+1WnrJpHe4vXcjMdqUqqEU=cL1++Yk9SA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: Use an absolute path to unified.h in KBUILD_AFLAGS
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	stable@vger.kernel.org, KernelCI bot <bot@kernelci.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_192432_850315_9872AD43 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20250619_193237_741982_80986E71 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,249 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-commit b0a5cde57cf1 ("dt-bindings: mfd: Explain lack of child dependency
-in simple-mfd") pointed out that it's a mistake for a child device of
-a simple MFD device to depend on the simple MFD device's clock resources.
-fsl,imx8qxp-csr.yaml happens to make that mistake.  To fix that, remove
-fsl,imx8qxp-csr.yaml and use "simple-pm-bus" and "syscon" as the CSR node's
-compatible strings in the examples of fsl,imx8qxp-pixel-link-msi-bus.yaml
-to replace the wrong compatible strings which include "simple-mfd" and
-"fsl,imx8qxp-mipi-lvds-csr".  Since fsl,imx8qxp-pixel-link-msi-bus.yaml
-as the last user of the CSR compatible strings no longer uses them, it's
-safe to remove the fsl,imx8qxp-csr.yaml binding documentation.
+On Thu, Jun 19, 2025 at 4:29=E2=80=AFAM Nathan Chancellor <nathan@kernel.or=
+g> wrote:
+>
+> After commit d5c8d6e0fa61 ("kbuild: Update assembler calls to use proper
+> flags and language target"), which updated as-instr to use the
+> 'assembler-with-cpp' language option, the Kbuild version of as-instr
+> always fails internally for arch/arm with
+>
+>   <command-line>: fatal error: asm/unified.h: No such file or directory
+>   compilation terminated.
+>
+> because '-include' flags are now taken into account by the compiler
+> driver and as-instr does not have '$(LINUXINCLUDE)', so unified.h is not
+> found.
+>
+> This went unnoticed at the time of the Kbuild change because the last
+> use of as-instr in Kbuild that arch/arm could reach was removed in 5.7
+> by commit 541ad0150ca4 ("arm: Remove 32bit KVM host support") but a
+> stable backport of the Kbuild change to before that point exposed this
+> potential issue if one were to be reintroduced.
+>
+> Follow the general pattern of '-include' paths throughout the tree and
+> make unified.h absolute using '$(srctree)' to ensure KBUILD_AFLAGS can
+> be used independently.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: d5c8d6e0fa61 ("kbuild: Update assembler calls to use proper flags =
+and language target")
+> Reported-by: KernelCI bot <bot@kernelci.org>
+> Closes: https://lore.kernel.org/CACo-S-1qbCX4WAVFA63dWfHtrRHZBTyyr2js8Lx=
+=3DAz03XHTTHg@mail.gmail.com/
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-Fixes: 9b2c55b5403f ("dt-bindings: mfd: Add i.MX8qm/qxp Control and Status Registers module binding")
-Fixes: c08645ea215c ("dt-bindings: bus: Add Freescale i.MX8qxp pixel link MSI bus binding")
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-v2:
-* Mention it's safe to remove fsl,imx8qxp-csr.yaml in commit message. (Frank)
 
- .../bus/fsl,imx8qxp-pixel-link-msi-bus.yaml   |   7 +-
- .../bindings/mfd/fsl,imx8qxp-csr.yaml         | 192 ------------------
- 2 files changed, 5 insertions(+), 194 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
+Reviewed-by: Masahiro Yamada <masahiroy@kernel.org>
 
-diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-index 7e1ffc551046..4adbb7afa889 100644
---- a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-+++ b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-@@ -103,11 +103,14 @@ examples:
-         clock-names = "msi", "ahb";
-         power-domains = <&pd IMX_SC_R_DC_0>;
- 
--        syscon@56221000 {
--            compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
-+        bus@56221000 {
-+            compatible = "simple-pm-bus", "syscon";
-             reg = <0x56221000 0x1000>;
-             clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
-             clock-names = "ipg";
-+            #address-cells = <1>;
-+            #size-cells = <1>;
-+            ranges;
- 
-             pxl2dpi {
-                 compatible = "fsl,imx8qxp-pxl2dpi";
-diff --git a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml b/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
-deleted file mode 100644
-index 20067002cc4a..000000000000
---- a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
-+++ /dev/null
-@@ -1,192 +0,0 @@
--# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/mfd/fsl,imx8qxp-csr.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: Freescale i.MX8qm/qxp Control and Status Registers Module
--
--maintainers:
--  - Liu Ying <victor.liu@nxp.com>
--
--description: |
--  As a system controller, the Freescale i.MX8qm/qxp Control and Status
--  Registers(CSR) module represents a set of miscellaneous registers of a
--  specific subsystem.  It may provide control and/or status report interfaces
--  to a mix of standalone hardware devices within that subsystem.  One typical
--  use-case is for some other nodes to acquire a reference to the syscon node
--  by phandle, and the other typical use-case is that the operating system
--  should consider all subnodes of the CSR module as separate child devices.
--
--properties:
--  $nodename:
--    pattern: "^syscon@[0-9a-f]+$"
--
--  compatible:
--    items:
--      - enum:
--          - fsl,imx8qxp-mipi-lvds-csr
--          - fsl,imx8qm-lvds-csr
--      - const: syscon
--      - const: simple-mfd
--
--  reg:
--    maxItems: 1
--
--  clocks:
--    maxItems: 1
--
--  clock-names:
--    const: ipg
--
--patternProperties:
--  "^(ldb|phy|pxl2dpi)$":
--    type: object
--    description: The possible child devices of the CSR module.
--
--required:
--  - compatible
--  - reg
--  - clocks
--  - clock-names
--
--allOf:
--  - if:
--      properties:
--        compatible:
--          contains:
--            const: fsl,imx8qxp-mipi-lvds-csr
--    then:
--      required:
--        - pxl2dpi
--        - ldb
--
--  - if:
--      properties:
--        compatible:
--          contains:
--            const: fsl,imx8qm-lvds-csr
--    then:
--      required:
--        - phy
--        - ldb
--
--additionalProperties: false
--
--examples:
--  - |
--    #include <dt-bindings/clock/imx8-lpcg.h>
--    #include <dt-bindings/firmware/imx/rsrc.h>
--    mipi_lvds_0_csr: syscon@56221000 {
--        compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
--        reg = <0x56221000 0x1000>;
--        clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
--        clock-names = "ipg";
--
--        mipi_lvds_0_pxl2dpi: pxl2dpi {
--            compatible = "fsl,imx8qxp-pxl2dpi";
--            fsl,sc-resource = <IMX_SC_R_MIPI_0>;
--            power-domains = <&pd IMX_SC_R_MIPI_0>;
--
--            ports {
--                #address-cells = <1>;
--                #size-cells = <0>;
--
--                port@0 {
--                    #address-cells = <1>;
--                    #size-cells = <0>;
--                    reg = <0>;
--
--                    mipi_lvds_0_pxl2dpi_dc0_pixel_link0: endpoint@0 {
--                        reg = <0>;
--                        remote-endpoint = <&dc0_pixel_link0_mipi_lvds_0_pxl2dpi>;
--                    };
--
--                    mipi_lvds_0_pxl2dpi_dc0_pixel_link1: endpoint@1 {
--                        reg = <1>;
--                        remote-endpoint = <&dc0_pixel_link1_mipi_lvds_0_pxl2dpi>;
--                    };
--                };
--
--                port@1 {
--                    #address-cells = <1>;
--                    #size-cells = <0>;
--                    reg = <1>;
--
--                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0: endpoint@0 {
--                        reg = <0>;
--                        remote-endpoint = <&mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi>;
--                    };
--
--                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1: endpoint@1 {
--                        reg = <1>;
--                        remote-endpoint = <&mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi>;
--                    };
--                };
--            };
--        };
--
--        mipi_lvds_0_ldb: ldb {
--            #address-cells = <1>;
--            #size-cells = <0>;
--            compatible = "fsl,imx8qxp-ldb";
--            clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>,
--                     <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
--            clock-names = "pixel", "bypass";
--            power-domains = <&pd IMX_SC_R_LVDS_0>;
--
--            channel@0 {
--                #address-cells = <1>;
--                #size-cells = <0>;
--                reg = <0>;
--                phys = <&mipi_lvds_0_phy>;
--                phy-names = "lvds_phy";
--
--                port@0 {
--                    reg = <0>;
--
--                    mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi: endpoint {
--                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0>;
--                    };
--                };
--
--                port@1 {
--                    reg = <1>;
--
--                    /* ... */
--                };
--            };
--
--            channel@1 {
--                #address-cells = <1>;
--                #size-cells = <0>;
--                reg = <1>;
--                phys = <&mipi_lvds_0_phy>;
--                phy-names = "lvds_phy";
--
--                port@0 {
--                    reg = <0>;
--
--                    mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi: endpoint {
--                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1>;
--                    };
--                };
--
--                port@1 {
--                    reg = <1>;
--
--                    /* ... */
--                };
--            };
--        };
--    };
--
--    mipi_lvds_0_phy: phy@56228300 {
--        compatible = "fsl,imx8qxp-mipi-dphy";
--        reg = <0x56228300 0x100>;
--        clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
--        clock-names = "phy_ref";
--        #phy-cells = <0>;
--        fsl,syscon = <&mipi_lvds_0_csr>;
--        power-domains = <&pd IMX_SC_R_MIPI_0>;
--    };
--- 
-2.34.1
 
+
+
+
+--=20
+Best Regards
+Masahiro Yamada
 
