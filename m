@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9497C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2FFC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0Z76gXzXASZvB45zMW7OBOfjiQs1Vtulp5U1K5X9+M=; b=Vm+E9eXabBAZ76x3e3f9TUitF9
-	LnfIeh3gTFrE48maj7hSrhFjT2ak91xYSDsPJv35ZJcJldv9Zu1UOvchQ86yui/v6sPnapUe/Vnk/
-	/vw95bZPbNVfwlPNVifaX9IqRQuZYiSGiY1XbQcfKUrvzvo8AxQROVm+Iu5WBT09J3c0hW8AJ8FzQ
-	k4UBUTOb2JwpAS1GSUhwFcYWyBl2Bor9xYCsRGd15IgZIWvCaHMMLj2OPwpDJUoKGSujkufU6mEpl
-	l/uVC2sYoOK4dT6WePuuLZEhrya9mK06vpRf7w1bI8n8IHVhOm+b7ypTHLuh5jAwRgR4luaIOcNQa
-	alWGePKw==;
+	bh=PkspfNmgU+jr8ZBGaOcd1PaGN9vKTzayaklqMqt8A68=; b=eKN3bAj7xJRpApmHjABOfuZajA
+	tHvByN05IOLsebYrFcwb8LFqCTdsdqzDG4QeIsuoKIDu4g8SL5jhzY2BFHOAXCNKAhyaLLbs7Qqc+
+	FK9MDte7pNkBjQ7FoB6H1qEskj6wQfaGSU0eJlU/Jj90EQRZe546euwIZoEHlnZl2C3LjoVxWqZ4B
+	VMCD+1Pcxejbk8EYrtVXQdFMW2TBMiI59usuwQMHjmtGkkkOt6YD3kLMSUByDr6mC0gPSacDyW9m/
+	Q30TmirN6bHOF+SyAzj4ACibuYASlBu7Qp9M/XEXBNVUmZ6i96kRJ1F+cCus5pWG4IdvilmTWHCY/
+	gZrJEH2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZ6y-0000000FLlN-371f;
-	Fri, 20 Jun 2025 10:36:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSZBQ-0000000FMj7-08vW;
+	Fri, 20 Jun 2025 10:41:20 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSY3N-0000000FBhm-3P30;
-	Fri, 20 Jun 2025 09:28:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=O0Z76gXzXASZvB45zMW7OBOfjiQs1Vtulp5U1K5X9+M=; b=E0xVwfePovI7zW07TkUrEmyv3u
-	R6+iMMc2szMneU5Th+XbYLGrJMTI6wOnXneDpAa+NUznRovozXXGjIsRNZ3jM5XtXpaSvZ+1O50KY
-	/YiANnD7+B6m3xmrAmSMjP/ADzGH+C6YP3KUnsrlFQtdCCWYW1TKw6kg35jrkVA8/N1yz/0KxnISa
-	VrP5B9U/Y2f2kkmCCaa5m0sT8obSTTtEQZQ29fJbf2qyDFec7LH9Tvi5mpfWM2Npr8PKr7SZ2DGtm
-	gE+NS9aCpNSgCLmcAC0mjhuBV8cJR6kxgEocCpeaFl2Hkr/s+H0fNHscRzNLwFSQ8wO+n2cjCxUnY
-	61fY+D8A==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSY2z-0008Po-Kz; Fri, 20 Jun 2025 11:28:33 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>,
- Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v7 00/10] New DRM accel driver for Rockchip's RKNN NPU
-Date: Fri, 20 Jun 2025 11:28:32 +0200
-Message-ID: <2241399.8hzESeGDPO@phil>
-In-Reply-To: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
-References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
+	id 1uSYFu-0000000FE9E-1qoz;
+	Fri, 20 Jun 2025 09:41:55 +0000
+X-UUID: ca3e3df64dba11f09eb0dd999d3936bf-20250620
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PkspfNmgU+jr8ZBGaOcd1PaGN9vKTzayaklqMqt8A68=;
+	b=EdXLSnWfscvV0n48ujKW8eHES7H6VL6QferMLqvftEaxRCBYAnjEtAbJiS4ORmeNJqFMjmzsB9t1QjnAhOYus6/v8jN+18PE9nD/KHlDE7i/aNr3MJgFEp5cYA6Iqs8AksrHFqqLtInNsUT3kwy7fFRkd7yyXRb+LvzbanT6yzE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:4ecfcea3-42fe-4565-8a15-606fb513b701,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:09905cf,CLOUDID:c9f2ac28-fdd2-4021-9c0c-83548fdcf243,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ca3e3df64dba11f09eb0dd999d3936bf-20250620
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
+	(envelope-from <darren.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 682595331; Fri, 20 Jun 2025 02:41:50 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 20 Jun 2025 17:41:46 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 20 Jun 2025 17:41:45 +0800
+From: Darren.Ye <darren.ye@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
+ Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
+	<darren.ye@mediatek.com>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>
+Subject: [PATCH v5 01/10] ASoC: mediatek: common: modify mtk afe platform driver for mt8196
+Date: Fri, 20 Jun 2025 17:40:34 +0800
+Message-ID: <20250620094140.11093-2-darren.ye@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250620094140.11093-1-darren.ye@mediatek.com>
+References: <20250620094140.11093-1-darren.ye@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_022857_847370_89B309F6 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250620_024154_490749_AA0EF2F6 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +93,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 6. Juni 2025, 08:28:20 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b Tomeu Vizoso:
-> This series adds a new driver for the NPU that Rockchip includes in its
-> newer SoCs, developed by them on the NVDLA base.
->=20
-> In its current form, it supports the specific NPU in the RK3588 SoC.
->=20
-> The userspace driver is part of Mesa and an initial draft can be found at:
->=20
-> https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
->=20
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+From: Darren Ye <darren.ye@mediatek.com>
 
-> ---
-> Nicolas Frattaroli (2):
->       arm64: dts: rockchip: add pd_npu label for RK3588 power domains
->       arm64: dts: rockchip: enable NPU on ROCK 5B
->=20
-> Tomeu Vizoso (8):
->       accel/rocket: Add registers header
->       accel/rocket: Add a new driver for Rockchip's NPU
->       accel/rocket: Add IOCTL for BO creation
->       accel/rocket: Add job submission IOCTL
->       accel/rocket: Add IOCTLs for synchronizing memory accesses
->       dt-bindings: npu: rockchip,rknn: Add bindings
->       arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588-base
->       arm64: dts: rockchip: Enable the NPU on quartzpro64
+Mofify the pcm pointer interface to support 64-bit address access.
 
-from a handling point of view, I would expect patch 1 - 6
-(driver code + dt-binding patch) to go through some driver tree
-but have not clue which one that is.
+Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../mediatek/common/mtk-afe-platform-driver.c | 47 ++++++++++++-------
+ .../mediatek/common/mtk-afe-platform-driver.h |  2 +
+ 2 files changed, 33 insertions(+), 16 deletions(-)
 
-And afterwards, I would pick up the arm64 devicetree additions
-patches 7 - 10 .
-
-
-Heiko
-
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+index 6b6330583941..680a0ab3b22e 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+@@ -86,29 +86,44 @@ snd_pcm_uframes_t mtk_afe_pcm_pointer(struct snd_soc_component *component,
+ 	const struct mtk_base_memif_data *memif_data = memif->data;
+ 	struct regmap *regmap = afe->regmap;
+ 	struct device *dev = afe->dev;
+-	int reg_ofs_base = memif_data->reg_ofs_base;
+-	int reg_ofs_cur = memif_data->reg_ofs_cur;
+-	unsigned int hw_ptr = 0, hw_base = 0;
+-	int ret, pcm_ptr_bytes;
+-
+-	ret = regmap_read(regmap, reg_ofs_cur, &hw_ptr);
+-	if (ret || hw_ptr == 0) {
+-		dev_err(dev, "%s hw_ptr err\n", __func__);
+-		pcm_ptr_bytes = 0;
++	unsigned int hw_ptr_lower32 = 0, hw_ptr_upper32 = 0;
++	unsigned int hw_base_lower32 = 0, hw_base_upper32 = 0;
++	unsigned long long hw_ptr = 0, hw_base = 0;
++	int ret;
++	unsigned long long pcm_ptr_bytes = 0;
++
++	ret = regmap_read(regmap, memif_data->reg_ofs_cur, &hw_ptr_lower32);
++	if (ret || hw_ptr_lower32 == 0) {
++		dev_err(dev, "%s hw_ptr_lower32 err\n", __func__);
+ 		goto POINTER_RETURN_FRAMES;
+ 	}
+ 
+-	ret = regmap_read(regmap, reg_ofs_base, &hw_base);
+-	if (ret || hw_base == 0) {
+-		dev_err(dev, "%s hw_ptr err\n", __func__);
+-		pcm_ptr_bytes = 0;
+-		goto POINTER_RETURN_FRAMES;
++	if (memif_data->reg_ofs_cur_msb) {
++		ret = regmap_read(regmap, memif_data->reg_ofs_cur_msb, &hw_ptr_upper32);
++		if (ret) {
++			dev_err(dev, "%s hw_ptr_upper32 err\n", __func__);
++			goto POINTER_RETURN_FRAMES;
++		}
+ 	}
+ 
+-	pcm_ptr_bytes = hw_ptr - hw_base;
++	ret = regmap_read(regmap, memif_data->reg_ofs_base, &hw_base_lower32);
++	if (ret || hw_base_lower32 == 0) {
++		dev_err(dev, "%s hw_base_lower32 err\n", __func__);
++		goto POINTER_RETURN_FRAMES;
++	}
++	if (memif_data->reg_ofs_base_msb) {
++		ret = regmap_read(regmap, memif_data->reg_ofs_base_msb, &hw_base_upper32);
++		if (ret) {
++			dev_err(dev, "%s hw_base_upper32 err\n", __func__);
++			goto POINTER_RETURN_FRAMES;
++		}
++	}
++	hw_ptr = ((unsigned long long)hw_ptr_upper32 << 32) + hw_ptr_lower32;
++	hw_base = ((unsigned long long)hw_base_upper32 << 32) + hw_base_lower32;
+ 
+ POINTER_RETURN_FRAMES:
+-	return bytes_to_frames(substream->runtime, pcm_ptr_bytes);
++	pcm_ptr_bytes = MTK_ALIGN_16BYTES(hw_ptr - hw_base);
++	return bytes_to_frames(substream->runtime, (ssize_t)pcm_ptr_bytes);
+ }
+ EXPORT_SYMBOL_GPL(mtk_afe_pcm_pointer);
+ 
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+index fcc923b88f12..59dc8d9120a1 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.h
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+@@ -12,6 +12,8 @@
+ #define AFE_PCM_NAME "mtk-afe-pcm"
+ extern const struct snd_soc_component_driver mtk_afe_pcm_platform;
+ 
++#define MTK_ALIGN_16BYTES(x) ((x) & GENMASK(39, 4))
++
+ struct mtk_base_afe;
+ struct snd_pcm;
+ struct snd_soc_component;
+-- 
+2.45.2
 
 
