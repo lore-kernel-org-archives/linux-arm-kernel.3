@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B021C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF90C77B7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nv26tnOr8pnIDMXACP8UAYDnqpOYpsrVyGvNEFZ2Dj4=; b=PXqru1MivbUwSXudxhAPNuR9Al
-	NqNti1aimW7KwQ5U579zU4ItRTZswqIojskHW6HyUWbYraRK+F/QBJf7hNB5oSnRI0utZejH2LUiw
-	bmZWQ/rY1Gem0WHALPAnAcUToZmglsaVSgKX49898P5zAQxutditDqUwA4M8q39Lc21SaqiKrCWSY
-	//M/MLlnjKhHG28eRqIyQmVg7Esp6m5N2HYAI+xm+P/gjTW1W1Pmh6SvhYHkdZsOaL6LRvamnMZq4
-	N6dc722pjW/VEssBK5vBiE+evrL3PB/ltdpcRZnx6tkxE0QBxOYpKQfo4Kvfa5r2URVoVwcfs/9wI
-	OGBqrYlw==;
+	bh=7mquTDEQ3sMMt90Z/g+j4ijKQVODLSil1cWY29EhbNE=; b=UE7pPW9Bon5Hhp0Ulm8VgRW85X
+	XF5ifsckbMAlS5n6H3eW/ZpkLMALTdTDfwwNm6R09wvDuGMcXgZA9A8/sXKrltVJClMp+r+uj63ti
+	xXJC1gDJDoKNCPh1gwaGhoXkWnjwn/k/7YD30xaGQkJJh6QAVgXTuIaJ+tHyuSs3EGDadgpQDZZCG
+	+hoAaUDhM3f8r6QtpnrIUNqRU/nsaY1flmShCQroX0j7v4jtuVlKHAJMPzkxdh/5fM8LpgWUX1Xnq
+	IDqH9mrfE8zcRrMpRRM6Ok+U9+snoFMGQt3z37YlWYH41Xuxsv2lPp/Qqqw1leB7drHe7Xm5GRQgH
+	dz8JFR9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbKE-0000000Fd98-0zDX;
-	Fri, 20 Jun 2025 12:58:34 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSb7x-0000000Fb9a-3wqt
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 12:45:56 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bNxyR4Y4Wz6M553;
-	Fri, 20 Jun 2025 20:45:03 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id BA943140446;
-	Fri, 20 Jun 2025 20:45:41 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 20 Jun
- 2025 14:45:41 +0200
-Date: Fri, 20 Jun 2025 13:45:38 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Junhao He <hejunhao3@huawei.com>, <linuxarm@huawei.com>
-CC: <suzuki.poulose@arm.com>, <james.clark@arm.com>, <leo.yan@arm.com>,
-	<anshuman.khandual@arm.com>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-Subject: Re: [PATCH v2 2/3] coresight: tmc: refactor the tmc-etr mode
- setting to avoid race conditions
-Message-ID: <20250620134515.00004d58@huawei.com>
-In-Reply-To: <20250620075412.952934-3-hejunhao3@huawei.com>
-References: <20250620075412.952934-1-hejunhao3@huawei.com>
-	<20250620075412.952934-3-hejunhao3@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1uSbKM-0000000FdMt-0PSv;
+	Fri, 20 Jun 2025 12:58:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSb9h-0000000FbIE-0pf9;
+	Fri, 20 Jun 2025 12:47:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3EC8216F2;
+	Fri, 20 Jun 2025 05:47:20 -0700 (PDT)
+Received: from [10.57.27.59] (unknown [10.57.27.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 895973F58B;
+	Fri, 20 Jun 2025 05:47:37 -0700 (PDT)
+Message-ID: <413e7ed5-fc4d-4e4e-9cb4-234c41db267b@arm.com>
+Date: Fri, 20 Jun 2025 13:47:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500008.china.huawei.com (7.182.85.71)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v5 3/4] phy: rockchip-pcie: Enable all four lanes
+To: Geraldo Nascimento <geraldogabriel@gmail.com>
+Cc: linux-rockchip@lists.infradead.org, Shawn Lin <shawn.lin@rock-chips.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rick wertenbroek <rick.wertenbroek@gmail.com>,
+ linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1749833986.git.geraldogabriel@gmail.com>
+ <ce661babb3e2f08c8b28554ccb5508da503db7ba.1749833987.git.geraldogabriel@gmail.com>
+ <4c2c9a15-50bc-4a89-b5fe-d9014657fca7@arm.com> <aFVTdYWxuq9YzVQR@geday>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aFVTdYWxuq9YzVQR@geday>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_054554_272684_E2DA83A8 
-X-CRM114-Status: GOOD (  31.46  )
+X-CRM114-CacheID: sfid-20250620_054741_325537_F5EB04D8 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,240 +72,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025 15:54:11 +0800
-Junhao He <hejunhao3@huawei.com> wrote:
+On 2025-06-20 1:26 pm, Geraldo Nascimento wrote:
+> On Fri, Jun 20, 2025 at 01:04:46PM +0100, Robin Murphy wrote:
+>> On 2025-06-13 6:03 pm, Geraldo Nascimento wrote:
+>>> Current code enables only Lane 0 because pwr_cnt will be incremented
+>>> on first call to the function. Use for-loop to enable all 4 lanes
+>>> through GRF.
+>>
+>> If this was really necessary, then surely it would also need the
+>> equivalent changes in rockchip_pcie_phy_power_off() too?
+>>
+>> However, I'm not sure it *is* necessary - the NVMe on my RK3399 board
+>> happily claims to be using an x4 link, so I stuck a print of inst->index
+>> in this function, and sure enough I do see it being called for each
+>> instance already:
+>>
+>> [    1.737479] phy phy-ff770000.syscon:pcie-phy.1: power_on 0
+>> [    1.738810] phy phy-ff770000.syscon:pcie-phy.2: power_on 1
+>> [    1.745193] phy phy-ff770000.syscon:pcie-phy.3: power_on 2
+>> [    1.745196] phy phy-ff770000.syscon:pcie-phy.4: power_on 3
+>>
+> 
+> Hi Robin, and thanks for caring, it's excellent to rely on your
+> extensive expertise on ARM in general and RK3399 specifically!
+> 
+> However, on my board I'm positive it does not work without proposed
+> patch and I get stuck with x1 link without it.
+> 
+> There are currently very similar patches applied downstream to Armbian
+> and OpenWRT so at least I'm confident that is not only my board which is
+> quirky and other people experienced the same problem.
 
-> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
-> in tmc_etr_enable_hw() is triggered sometimes:
->=20
->  WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-t=
-mc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->  [..snip..]
->  Call trace:
->   tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->   tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->   tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->   coresight_enable_path+0x1c8/0x218 [coresight]
->   coresight_enable_sysfs+0xa4/0x228 [coresight]
->   enable_source_store+0x58/0xa8 [coresight]
->   dev_attr_store+0x20/0x40
->   sysfs_kf_write+0x4c/0x68
->   kernfs_fop_write_iter+0x120/0x1b8
->   vfs_write+0x2c8/0x388
->   ksys_write+0x74/0x108
->   __arm64_sys_write+0x24/0x38
->   el0_svc_common.constprop.0+0x64/0x148
->   do_el0_svc+0x24/0x38
->   el0_svc+0x3c/0x130
->   el0t_64_sync_handler+0xc8/0xd0
->   el0t_64_sync+0x1ac/0x1b0
->  ---[ end trace 0000000000000000 ]---
->=20
-> Since the sysfs buffer allocation and the hardware enablement is not
-> in the same critical region, it's possible to race with the perf
->=20
-> mode:
->   [sysfs mode]                   [perf mode]
->   tmc_etr_get_sysfs_buffer()
->     spin_lock(&drvdata->spinlock)
->     [sysfs buffer allocation]
->     spin_unlock(&drvdata->spinlock)
->                                  spin_lock(&drvdata->spinlock)
->                                  tmc_etr_enable_hw()
->                                    drvdata->etr_buf =3D etr_perf->etr_buf
->                                  spin_unlock(&drvdata->spinlock)
->  spin_lock(&drvdata->spinlock)
->  tmc_etr_enable_hw()
->    WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->                                 the perf side
->   spin_unlock(&drvdata->spinlock)
->=20
-> A race condition is introduced here, perf always prioritizes execution, a=
-nd
-> warnings can lead to concerns about potential hidden bugs, such as getting
-> out of sync.
->=20
-> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
-> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
-> enabled in a different mode, and simplily the setup and checks for "mode".
-> To prevent race conditions between mode transitions.
->=20
-> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function =
-for ETR")
-> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
-> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-y=
-angyicong@huawei.com/
-> Signed-off-by: Junhao He <hejunhao3@huawei.com>
-> ---
->  .../hwtracing/coresight/coresight-tmc-etr.c   | 73 +++++++++++--------
->  1 file changed, 43 insertions(+), 30 deletions(-)
->=20
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hw=
-tracing/coresight/coresight-tmc-etr.c
-> index b07fcdb3fe1a..252a57a8e94e 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1263,11 +1263,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(st=
-ruct coresight_device *csdev)
->  		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->  	}
-> =20
-> -	if (drvdata->reading || coresight_get_mode(csdev) =3D=3D CS_MODE_PERF) {
-> -		ret =3D -EBUSY;
-> -		goto out;
-> -	}
-> -
->  	/*
->  	 * If we don't have a buffer or it doesn't match the requested size,
->  	 * use the buffer allocated above. Otherwise reuse the existing buffer.
-> @@ -1278,7 +1273,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(str=
-uct coresight_device *csdev)
->  		drvdata->sysfs_buf =3D new_buf;
->  	}
-> =20
-> -out:
->  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> =20
->  	/* Free memory outside the spinlock if need be */
-> @@ -1289,7 +1283,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(str=
-uct coresight_device *csdev)
-> =20
->  static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->  {
-> -	int ret =3D 0;
-> +	int ret;
->  	unsigned long flags;
->  	struct tmc_drvdata *drvdata =3D dev_get_drvdata(csdev->dev.parent);
->  	struct etr_buf *sysfs_buf =3D tmc_etr_get_sysfs_buffer(csdev);
-> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct cores=
-ight_device *csdev)
-> =20
->  	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> =20
-> -	/*
-> -	 * In sysFS mode we can have multiple writers per sink.  Since this
-> -	 * sink is already enabled no memory is needed and the HW need not be
-> -	 * touched, even if the buffer size has changed.
-> -	 */
-> -	if (coresight_get_mode(csdev) =3D=3D CS_MODE_SYSFS) {
-> -		csdev->refcnt++;
-> -		goto out;
-> -	}
-> -
->  	ret =3D tmc_etr_enable_hw(drvdata, sysfs_buf);
-> -	if (!ret) {
-> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
-> +	if (!ret)
->  		csdev->refcnt++;
-> -	}
-> =20
-> -out:
->  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> =20
->  	if (!ret)
-> @@ -1735,11 +1716,6 @@ static int tmc_enable_etr_sink_perf(struct coresig=
-ht_device *csdev, void *data)
->  	struct etr_perf_buffer *etr_perf =3D etm_perf_sink_config(handle);
-> =20
->  	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> -	 /* Don't use this sink if it is already claimed by sysFS */
-> -	if (coresight_get_mode(csdev) =3D=3D CS_MODE_SYSFS) {
-> -		rc =3D -EBUSY;
-> -		goto unlock_out;
-> -	}
-> =20
->  	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->  		rc =3D -EINVAL;
-> @@ -1768,7 +1744,6 @@ static int tmc_enable_etr_sink_perf(struct coresigh=
-t_device *csdev, void *data)
->  	if (!rc) {
->  		/* Associate with monitored process. */
->  		drvdata->pid =3D pid;
-> -		coresight_set_mode(csdev, CS_MODE_PERF);
->  		drvdata->perf_buf =3D etr_perf->etr_buf;
->  		csdev->refcnt++;
->  	}
-> @@ -1781,14 +1756,52 @@ static int tmc_enable_etr_sink_perf(struct coresi=
-ght_device *csdev, void *data)
->  static int tmc_enable_etr_sink(struct coresight_device *csdev,
->  			       enum cs_mode mode, void *data)
->  {
-> +	struct tmc_drvdata *drvdata =3D dev_get_drvdata(csdev->dev.parent);
-> +	enum cs_mode old_mode;
-> +	int rc =3D -EINVAL;
-> +
-> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-> +		old_mode =3D coresight_get_mode(csdev);
-> +		if (old_mode !=3D CS_MODE_DISABLED && old_mode !=3D mode)
-> +			return -EBUSY;
-> +
-> +		if (drvdata->reading)
-> +			return -EBUSY;
-> +
-> +		/* In sysFS mode we can have multiple writers per sink. */
-> +		if (old_mode =3D=3D CS_MODE_SYSFS) {
+Ah, I put that print at the top of the function - on second look now I
+see that there's an awkward mix of per-lane and global data, and pwr_cnt
+is actually the latter. Sure enough, moving the print past that check I
+only see it once.
 
-This seems odd.  You are incrementing the reference count when potentially =
-changing
-away from CS_MODE_SYSFS?
-Is this meant to only occur if old_mode =3D=3D mode && old_mode =3D=3D CS_M=
-ODE_SYSFS?
+However, I still don't think blindly enabling all the lanes is the right
+thing to do either; I'd imagine something like the (untested) diff below
+would be more appropriate. That would then seem to balance with what
+power_off is doing.
 
-In the code prior to this patch this bit only ran in tmc_enable_etr_sink_sy=
-sfs()
-which was only called based on the mode being configured (mode here I think=
-) being
-sysfs.  That no longer looks to be the case.
+Thanks,
+Robin.
 
-Maybe I'm missing something as the flows around this are complex.
-
-
-
-> +			csdev->refcnt++;
-> +			return 0;
-> +		}
-> +
-> +		/*
-> +		 * minor note: In sysFS mode, the task1 get locked first, it setup
-> +		 * etr mode to SYSFS. Then task2 get locked=EF=BC=8Cit will directly r=
-eturn
-> +		 * success even when the tmc-etr is not enabled at this moment.
-> +		 * Ultimately, task1 will still successfully enable tmc-etr.
-> +		 * This is a transient state and does not cause an anomaly.
-> +		 */
-> +		coresight_set_mode(csdev, mode);
-> +	}
-> +
->  	switch (mode) {
->  	case CS_MODE_SYSFS:
-> -		return tmc_enable_etr_sink_sysfs(csdev);
-> +		rc =3D tmc_enable_etr_sink_sysfs(csdev);
-> +		break;
->  	case CS_MODE_PERF:
-> -		return tmc_enable_etr_sink_perf(csdev, data);
-> +		rc =3D tmc_enable_etr_sink_perf(csdev, data);
-> +		break;
->  	default:
-> -		return -EINVAL;
-> +		rc =3D -EINVAL;
->  	}
-> +
-> +	if (rc && old_mode !=3D mode) {
-> +		scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-
-Might be a local style matching thing but if not the scope is tight anyway
-so could use the unscoped version.
-
-		guard(spinlock_irqsave)(&drvdata->spinlock);
-		coresight_set_mode(csdev, old_mode);
-
-> +			coresight_set_mode(csdev, old_mode);
-> +		}
-> +	}
-> +
-> +	return rc;
->  }
-> =20
->  static int tmc_disable_etr_sink(struct coresight_device *csdev)
+----->8-----
+diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
+index bd44af36c67a..a34a983db16c 100644
+--- a/drivers/phy/rockchip/phy-rockchip-pcie.c
++++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
+@@ -160,11 +160,8 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
+  
+  	guard(mutex)(&rk_phy->pcie_mutex);
+  
+-	if (rk_phy->pwr_cnt++) {
+-		return 0;
+-	}
+-
+-	err = reset_control_deassert(rk_phy->phy_rst);
++	if (rk_phy->pwr_cnt++)
++		err = reset_control_deassert(rk_phy->phy_rst);
+  	if (err) {
+  		dev_err(&phy->dev, "deassert phy_rst err %d\n", err);
+  		rk_phy->pwr_cnt--;
+@@ -181,6 +178,8 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
+  		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
+  				   PHY_LANE_IDLE_MASK,
+  				   PHY_LANE_IDLE_A_SHIFT + inst->index));
++	if (rk_phy->pwr_cnt)
++		return 0;
+  
+  	/*
+  	 * No documented timeout value for phy operation below,
 
 
