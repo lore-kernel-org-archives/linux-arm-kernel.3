@@ -4,183 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525DFC71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29153C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8ByH+GWwXVa/t0gseyzX8WuqX9QV7d5HM4MoMX1IRQ=; b=PY7j3FqHAn3iCM7G56XE/VD4vO
-	fN8xpHt0hJsmLLKhwtCYsOpRSyYDa6qjL/MQuTeJDPCXsKjs6+TVG46yJxNWr33vAEHi9DLcxRbvx
-	10YyKsJdwy64UAILIH5Xxr82eBD/dS/j2zePVcO8KHrFA4PK3hsY0Xsd34vwcddJKrVdt1UcqpURZ
-	O7BVoogRVlH8vO4OhZWsk1smoD+ARg1lkVYFXGZlDVae1aa3cQDf1QebpEgztXPE5lggeA2PEZE5b
-	xjAM9YyXNk1DSjeMJWuWE6Rk/W1FBptbiCa5L9NYMxoZBTkOS/z8iYTYKGA5+dezJtRJf6jZDQENf
-	s/JqT21A==;
+	bh=0RgeqPv/W813/uRIAYius/Svm9hUK+Z0QxNA+vZX/e0=; b=qrOfiYJLnJ7PygO+CYpp2ya4ps
+	4jYGOjzed5O+1LXCeFWnLqVhx0N3+wZZgXOJmy1bzVFPyi/NHPWKiT6JHx/ghFUtlVIJ6F2ze1OWB
+	70xeoQUmqCSn9vdtJ0VhOq024khb+njP/TJz+OrulU0AxyH70lpiOi0l4CtQdhW7UzUCwxdL3rMzS
+	l9msCI7q6ZLPNHvPzUnkI0zHGAnlfy1pphHPWE/UqbKw1mX7sgr9V2I8RydV0YDJ7M42033aGu1HD
+	uKZXmDk5rhsE2MnX22TR5REyOQ0RlMgzDz3aUJ2O86AcoCAynr95rtfc9yRb4jCo9yL3ivpR5rw9i
+	UViwfeyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScyB-0000000FsyU-1ckR;
-	Fri, 20 Jun 2025 14:43:55 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uSd0O-0000000FtWs-1nev;
+	Fri, 20 Jun 2025 14:46:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScvb-0000000FsUj-0KbH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 14:41:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AJGOKMWiuzsdCu+qjkeQ10hwlTjFlVAbaUBaw+aBIpJuOrvoqNpFLs+FNs8ZnFfX/7udsPTkohJ9sn7/m4b0x0ZZ7CPJ+sxrsr876gTasEO1Zdo/4tT9HBwp0PhcOJXMV+1/7E4JE2qYPbgR7Y9p5xbybE0XSCPL6yPgmoRm2KNUgZJZKzKkhbFYdiOAh9BxMBbT98JnHFnTVzw9LKzRKvxJ22/7/BVZZOYf5guWDmtsYtJDgY8ROMRuJH0mrkeVSWjQeabRU24PXMYgrniPCxuZmPTz4kvE1UBWTq9JyyJdgVPEaouVfuwAnBOqAFQshH0lt5fkSSWOZbNcLf/57g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S8ByH+GWwXVa/t0gseyzX8WuqX9QV7d5HM4MoMX1IRQ=;
- b=qk6KAaIqPrLENQftl35RBW2XPLNGn9mFUHTcSgi3I5pgqpAUNydDs2XoXaIRD/3bO7zfinrGHN0OHrFGdjcN78zz8+gRq17wC4qtAGVX0FzUQJ3GDddMW7CdPl69Y+nrnWKMA7ra/IRKx8XnL0dNUQujaUSnpc1rb04vfpXpshQRt0M/HKRvOACAwTd/zkbl3Hfq50MBxSrdz8oD03/T5Yy0waPD81+8BvaaEKTMY499sEBhR4d/2BdSnl1F9AW/VScnKombgcQN3FAe52IwqYZ7xPl7zI7oq7syQmMQJ9q2+KuFSckpH5UMdaq454ILuPG+Tb5XuZ1dF1CYwDiV+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S8ByH+GWwXVa/t0gseyzX8WuqX9QV7d5HM4MoMX1IRQ=;
- b=h4oHNOv1neUv9C0N6whDG6oC2GaLygG9InI3Xpuzj5x6vZpkYhqPe6H5wI4rDi1BcMKYLS2vFWulBf+tJQSqvrk9XguHj8oGIUUd17HYU/sO4JfByLH0402MBGu/siPchbN+2t6sGjcsFUXbOTyVUJu84TaMIYNbgOc+01p3i99hi118DtD+qKx8bke3FnIMHerR6eQCWbDqicGz8FeH3g0su4RqoF2qOAoOPnrURGjeDz0KieBSDjxALnG+D34vV875CLM3EBvCPCwXt0Q6FxMpMGYZdZ10qgWKGOT6p05peNz7ix3Zv1VCx9k61a05R8THav6EOMUXH/M3RzAoQw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7563.eurprd04.prod.outlook.com (2603:10a6:10:206::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.25; Fri, 20 Jun
- 2025 14:41:03 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Fri, 20 Jun 2025
- 14:41:03 +0000
-Date: Fri, 20 Jun 2025 10:40:52 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-binding: pci-imx6: Add external reference
- clock mode support
-Message-ID: <aFVy9OMxL4WXEOzz@lizhi-Precision-Tower-5810>
-References: <20250620031350.674442-1-hongxing.zhu@nxp.com>
- <20250620031350.674442-2-hongxing.zhu@nxp.com>
- <20250620-honored-versed-donkey-6d7ef4@kuoka>
- <AS8PR04MB8676FBE47C2ECE074E5B14768C7CA@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <130fe1fc-913b-48cf-b2a4-e9c4952354fd@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <130fe1fc-913b-48cf-b2a4-e9c4952354fd@kernel.org>
-X-ClientProxiedBy: PH7PR17CA0015.namprd17.prod.outlook.com
- (2603:10b6:510:324::26) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uScwk-0000000FskN-2CuE;
+	Fri, 20 Jun 2025 14:42:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750430529; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QQdc9mPxR21z/9fW611G9vSMqf7TsDD27B7xiWMPks+eyo2+3ZeYj5m/DLkJrmt1I1HtgTB0wbFUR09QywUhWsqzCCeNf3jTYFU0eAUphFWdx0mI1regBAGCvCwPYik6HADPRbwJG6JyG2RMh5P4G2H48xH/9ehi3+ErNJwhNpo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750430529; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=0RgeqPv/W813/uRIAYius/Svm9hUK+Z0QxNA+vZX/e0=; 
+	b=BPGm4OMEh4iJHEQuXmOmQsjy79cZnAnSA3FYnTDkVEQPaUzcN4p/YDaCJhdy7KRgXUts3FztdupVCsxFYnjcvIpeS1PSwgap4qhL551ZLpPy2wI+LeeNxpxMq7ogqYm+WI3ZJiaQRDvJ6pA/YNOOjvdjWhWcUdZ9DLgMbevZ8p8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750430528;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:From:From:To:To:Cc:Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=0RgeqPv/W813/uRIAYius/Svm9hUK+Z0QxNA+vZX/e0=;
+	b=eeBxYF7sktRJuUwtk9bJLpOwGIhCSnAjt9GkIFf2aMQlsB6mkNzNb9higiqQOBpw
+	DngTI9DNQlNFkBjewa5cJE1lSQ/GzsYKv0XVZlpyYhyum0km3MS9mwQNZDfkydDd3M8
+	FMxgGiQHKNpIfYWgVsSFYiEyW6dduLrearp1cDRI=
+Received: by mx.zohomail.com with SMTPS id 1750430526349829.0777010527344;
+	Fri, 20 Jun 2025 07:42:06 -0700 (PDT)
+Message-ID: <3337df6c-f800-4610-8689-fbd4b4a5d07a@collabora.com>
+Date: Fri, 20 Jun 2025 16:42:02 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7563:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f8e7890-02ee-4c05-77f5-08ddb0087b1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UWlIbVlYM0pJUXV2M3NPdVlES1FQWHI2enF1cjRJQnFCWVNucTZRQlUyVlpV?=
- =?utf-8?B?VWRpbHZRQlFmcGVBOTVzTnVQYURpTFJwUjd1cUFrdUdhbnFTa0dUNVJ2RFlC?=
- =?utf-8?B?SW03WXIrbGlnTmR3cDdVektTQkF1Qk9JYWdJTmQ5b0hMQnM3QjdDMnhSdU9Z?=
- =?utf-8?B?MS9wS1VqemRPVEVHakdkVUxuYjNyS1JZOXQxaERmR3lvZlhRRTdJeUxmUkxG?=
- =?utf-8?B?UHg5WmlGbmNYQS9iV1hBUGZEekZyKzltQXJCTDE0YlFEdUNWdjRmdkgyV2xo?=
- =?utf-8?B?bnB0YTdyYjl4aEFjSTZPK1d5NzI4eEJEWUFHV3ZkSk8rdDlOTkI2ZG9kWDNo?=
- =?utf-8?B?djBNT0xTMVl0M3VwVHlTWUs3YncxVDVqWkMzMDBOK3lIV2M2VE95cXZicko1?=
- =?utf-8?B?UTZSWkNRcTZPYm0wNVF6Q0VNZTVibENaMFJXMk9UdGh2OE5zWEE1ck45STBh?=
- =?utf-8?B?dm8yWXZleFV3WkIwNkx1YVJmSFVlY1RMTUl4eFhIeU1nVTE5RTlrRTVNN3NS?=
- =?utf-8?B?dnl1aDlaK0VRRlJYOFcyZGE0V1B1MTd6cStTaU1ZK0pWYmVtSjFJbmxOZS9z?=
- =?utf-8?B?RVFrOFE5djE0dU43MWx4aXoyS2V1MzdhSFBGNjdXWDdGa1JpTkhzbkorc2Vo?=
- =?utf-8?B?cmI3TkZwMnYvR1Q0Vm5rZ3B6NlhYbWExYmJDMEtjSENEc0Y3TGZnVXUzYnJB?=
- =?utf-8?B?RWxJUkxyZ3l3ckxCT21rYm1ENGtTWlhWWG4zSk5DWk82MkFjQTArUWs3Y0xv?=
- =?utf-8?B?UGhwdThiN0NvMmhDeEFNU3lKdmk5STY2QStMVXFYSU01blI1cFhseS9JUzRS?=
- =?utf-8?B?Mk1XeldFV1NibTVTa1hmM1AyRFMwcXZydDZKMHNYNHdYQnRROGJldnNLL0xK?=
- =?utf-8?B?WEwrTzlBZTRMeDRGYjRYUGQ0dFA5RlF1bC95S1Y0NUNMakVJcHhCWkhqYWQ2?=
- =?utf-8?B?cGNZa3Q4UlRLOWMxMVZWa1F6eWMza0NvMmVKMU1PcWVydHJTc01wUDR0ZDhi?=
- =?utf-8?B?RFJUODFXRVhLdzA1eFc3NmFacUtuYW1DMzUxOHdsRjA2aGQ2VXhydHc5Wm1B?=
- =?utf-8?B?VDAyczFrV1NFempxdm5URi8zaVN6aEhoNkhDa3drTFdGZUtLTDk1TUNkTDll?=
- =?utf-8?B?bldRd2JsUDJnUE1iQm9SOWJKMVVsTWpEaGxBczE5TzlHU1FmWHVjdFFHSExs?=
- =?utf-8?B?VEFBU1N4aHZZTk41ZnUxU0FEYWJFZFp0WnFTdmlpSVR5UkJiRXFMeXBZK3dV?=
- =?utf-8?B?MCtyaHlJQU0yOHkyYVB1ZDJHUHJZcjBSVFZzQ1VpeXVGQ2owREZMRVpMajdU?=
- =?utf-8?B?UlVIc2V3SHlZblZkMGgyUmVHUDlrRmVUNUlUMWhvQ2x0Z3BNL3VRZ1F4VjdO?=
- =?utf-8?B?KzYzQ1ViY1FVN1p2L3pveXNsNVlqUzk4eE1JellVZUUyNTQ3T3o0RHJWZStO?=
- =?utf-8?B?YnJSQXFjTExScWgzOWRWVW9FNDdmMDVkTWJzNlZ0QkZVbmhpUUJyeUNzd3Vt?=
- =?utf-8?B?TVdmUWNkUEdzUHJLRko1ZFRadlk3c25iQVhYdGNyWjU5YzVNM1ZPQXVUSDln?=
- =?utf-8?B?bC8rZStZVlRwQkRoZzM1Y2hnM1E4SzhicmlaK21idGJMendUVHBSODBpVnV2?=
- =?utf-8?B?QklBL0FvdnM0c3pHNGV4dUlTMStmUFJaenArRzdSM0lmWTVhZUpVSElEZGFH?=
- =?utf-8?B?MWJPZFB2cjNJTWkwK3h6QlA2TzZFZUJ6ZVV1TGhVYzUwREEzREpoSUgvZmtI?=
- =?utf-8?B?MThYajUrY1lTQ3dmaGR4SGVQRCtUWENJb0lQOTQ4d1lWV3dEd3puYU04aHQ1?=
- =?utf-8?B?Uy9GNEc4Y1VGVENMc0MxWWlCbG4xalpCUGxpeUR1SHlibnFjbmFxVlgyVGJI?=
- =?utf-8?B?YjRlVzBseDl1Q1ZZdUEyUXZzVkpuNXE2dHpSN2lpUytpc1JRbmVXRURiQ3JD?=
- =?utf-8?B?aFNFemM1RU9EMVdmSDllVk1GRDMxZC8vM011UGVsVzRZc1MwekI2a0x2YTVt?=
- =?utf-8?Q?aroQZU99HNU4XeVttfxRdoKR2b2zEQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S1dYN3ZFUGhDWUNmTlU3SWFkQmlpOWxVY0pYQ3RpbUQzNzZMVmRWOTlub0VH?=
- =?utf-8?B?b3l4aEpobW5FM2VRR1RDZGJDL1R2TURmZzdTSTJNUmNrRVVNYnBDMnZDb21R?=
- =?utf-8?B?eURvdVR2SHZJZWlhaVdPbkN2UUYzQktvOVg5dnBzc1RoK1ZaZGF2QW94UHBp?=
- =?utf-8?B?VFBOM0tLeGFHNUNCNEtCekU4OVZaaTNnLzNqcm12cnc0Q0pKdG1CU2hhbVRi?=
- =?utf-8?B?emhyODRhb0FKdlZmZjdpQ2hOWFdLK1FuNGNJazQvMXg2aG5vem5KajFwOUlx?=
- =?utf-8?B?MGRRTjdhZFNLdGpzb3B4WDZPeCtzV3ppdTRSc25HTk1hdE1RZ1lGNmJYR09r?=
- =?utf-8?B?UDFGRG0wYnVkUEJtUkc4SEZRZGN0ejVCYWJNL2tkcGRnR3NmMFRETWZrWlBW?=
- =?utf-8?B?WnduUU5veUgrYTEvWW95Qk1MUW1xZVhxamRESU5DM1F3MllIZmZJWVMzcEJl?=
- =?utf-8?B?N3VuMGoxcjZWRWR1d0xxQUp1d0VjZW03NzZYREl5bDNraWNLeTRTcWd4cjBT?=
- =?utf-8?B?dEJQV3pCUWhvcEIrbDd6N3lXQ2plK1FuR0FKNzlIM2JsQ0VmLzFxeDRpdDN3?=
- =?utf-8?B?MUtkNVJPTGQ3dUZsVkZWK09FTEVtL3J5OE1XRng1MFg3VHM5LzNUTDVlRHVz?=
- =?utf-8?B?a0JENTdjVHZqcmNzKzRBM0htQXVrcVZuZ0RjTlNkVkZ4Q1BhSmY2TjZlR0to?=
- =?utf-8?B?bHU4NjB0QkFlLzZScjJnMFFnZEo3UFh6N0s1V0FuVGhqQTViczhwczJWZU45?=
- =?utf-8?B?VXVBU1R2am41NVdSd3NnTHhqTlh2T1dQallybmR5TEJIaUlGUEdiaW43ZEp0?=
- =?utf-8?B?Ulh4cWd5cjdFVWprNGgrYUFHNXBqd3B2eWxtTDk5OUZVOXl6c3FtZG1jNTlV?=
- =?utf-8?B?Mk1uRzdmZWFra2dtS2s3THJld0gvTVhNZFhJSXo4Q3FuYVVJVEJNczNHZHp3?=
- =?utf-8?B?OEdUQkNVMlVMeDBzbDYzNEZuZFJ6blN4MDduUzRqdzh3dTJsUGlNMnZOOFNz?=
- =?utf-8?B?T3kvWFVueHFNZWZPOWFYeklzbXA3WWo0R1ZnVmlUemwzWkZjamRuWnMreldD?=
- =?utf-8?B?b0kybW5rNVIwMVZPV3B3VGpIZUZWSWVSczMyS2VQUUY4RC9VV1oxcnl1dG1G?=
- =?utf-8?B?OGRQRmxTMmxGYkVYYU14ZW5oRjJJK3RoSWZYazBQcCtPLzZqRUdFSmNKN3dT?=
- =?utf-8?B?UlhkYUN1UlFYMTZmV0lEcTQvcndtOExTZjNBTGxkQWdMdHpzYUwzUW9Remha?=
- =?utf-8?B?SWNPV2lsUnhEbWR1WE9VM0ZUdE1PWjg3c0VwakIzcDJZOU43RWgyZm9RUTE4?=
- =?utf-8?B?MmZHQWszRUZMNWVQWGpmQ3ZLTFh5ZjBUd1BiekMrMHhiSXBzSldkR3doRVdk?=
- =?utf-8?B?cDd1MittdllRUW5yMFlXMUV3MVBXY3UvWXNZZzhzMGxpdjB2c2dxOUR6bzhB?=
- =?utf-8?B?ajRqeUxNS2ExdytsZ1dGa0M5dkF6SSt3anAranJ0OGdLNmZTRDJMMng0Y3Nq?=
- =?utf-8?B?QkJCdUoyN1ZYVnFpNG41SGFkYWEwWS9rc1BMSkw4OXFIRjhBQWJLQkZsRmxr?=
- =?utf-8?B?TXp2VjdmbHY1NjhXMldmb2pib3c4ZTJXdFppamFlZDViUTFib1hLUHVFZlEy?=
- =?utf-8?B?eXA2NUVTLzNiUmhNWjRta25HMStXV3BuaWp6UHdSUDlTSm5FUmpGSnhSNFlk?=
- =?utf-8?B?SUNORHdkalR2ZDJkTko2QXZUMUpWeWF0WEgxY3d5TFkrNmRXSTRTa2FveGly?=
- =?utf-8?B?ekJ2Z1AwTHgyZkNLLzZGRWRZdWlSUDQrSGxyc0FzRXhZN09QSXBRb2NCYWlM?=
- =?utf-8?B?amMyTmhjVHM0d3RKbmpuZ2Jzb0Q2dGlwZVhDVGRsRm5DcWlUcHZuSWZEeWZi?=
- =?utf-8?B?bVFreEJESUVBNFV4S05zU3NEMkxEa1dNbDY5cEFuZkFZR0liRFdtbDF4ejVh?=
- =?utf-8?B?Z3Vla21DUllLTjdtSS9nRUIwUTZBUlhBUktNT0ppUVFXZ1FuK1VzUFVEVjZJ?=
- =?utf-8?B?Q0RUa1haTzh6dW9PcWxIc3Z6N3FzOWVWRHIwZnJ5bHpIcko5SFQyWk9HdFFE?=
- =?utf-8?B?NG14WHZvRVVxcWt0TWV6QWE3eXIyZkFIYkdZd214R09kdm1hajlIS2h0ZmtB?=
- =?utf-8?Q?quas=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f8e7890-02ee-4c05-77f5-08ddb0087b1d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jun 2025 14:41:03.0174
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d72xYvzQ0DD3tAqkdhBXoBUMid4XXvYg7NJprJQh+oXBlRjlYE0+qWfbIsIlWpEzK9nUWH789tYY4oAKg9UKxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7563
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+ <20250619131232.69208-4-benjamin.gaignard@collabora.com>
+ <20250619134752.GB1643390@ziepe.ca>
+ <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
+ <20250619165928.GA10257@ziepe.ca>
+ <e034a111-93eb-42e8-a533-46553b4f5588@collabora.com>
+ <20250620120509.GA39770@ziepe.ca>
+ <d9a1b9ab-b6ab-4364-a1b7-df4debc21bc1@collabora.com>
+Content-Language: en-US
+In-Reply-To: <d9a1b9ab-b6ab-4364-a1b7-df4debc21bc1@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_074115_131985_FC293B46 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20250620_074226_636454_95E39F42 
+X-CRM114-Status: GOOD (  35.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,89 +88,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 03:08:16PM +0200, Krzysztof Kozlowski wrote:
-> On 20/06/2025 10:26, Hongxing Zhu wrote:
-> >> -----Original Message-----
-> >> From: Krzysztof Kozlowski <krzk@kernel.org>
-> >> Sent: 2025年6月20日 15:53
-> >> To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> >> Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> >> lpieralisi@kernel.org; kwilczynski@kernel.org; mani@kernel.org;
-> >> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> >> bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> >> kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
-> >> linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
-> >> imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> >> Subject: Re: [PATCH v3 1/2] dt-binding: pci-imx6: Add external reference clock
-> >> mode support
-> >>
-> >> On Fri, Jun 20, 2025 at 11:13:49AM GMT, Richard Zhu wrote:
-> >>> On i.MX, the PCIe reference clock might come from either internal
-> >>> system PLL or external clock source.
-> >>> Add the external reference clock source for reference clock.
-> >>>
-> >>> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> >>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >>> ---
-> >>>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 ++++++-
-> >>>  1 file changed, 6 insertions(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> >>> b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> >>> index ca5f2970f217..c472a5daae6e 100644
-> >>> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> >>> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> >>> @@ -219,7 +219,12 @@ allOf:
-> >>>              - const: pcie_bus
-> >>>              - const: pcie_phy
-> >>>              - const: pcie_aux
-> >>> -            - const: ref
-> >>> +            - description: PCIe reference clock.
-> >>> +              oneOf:
-> >>> +                - description: The controller might be configured
-> >> clocking
-> >>> +                    coming in from either an internal system PLL or
-> >> an
-> >>> +                    external clock source.
-> >>> +                  enum: [ref, gio]
-> >>
-> >> Internal like within PCIe or coming from other SoC block? What does "gio"
-> >> mean?
-> > Internal means that the PCIe reference clock is coming from other
-> >  internal SoC block, such as system PLL. "gio" is on behalf that the
-> > reference clock comes form external crystal oscillator.
+
+Le 20/06/2025 à 15:52, Benjamin Gaignard a écrit :
 >
-> Then what does "ref" mean, if gio is the clock supplied externally?
+> Le 20/06/2025 à 14:05, Jason Gunthorpe a écrit :
+>> On Fri, Jun 20, 2025 at 10:57:49AM +0200, Benjamin Gaignard wrote:
+>>> Le 19/06/2025 à 18:59, Jason Gunthorpe a écrit :
+>>>> On Thu, Jun 19, 2025 at 06:27:52PM +0200, Benjamin Gaignard wrote:
+>>>>> Le 19/06/2025 à 15:47, Jason Gunthorpe a écrit :
+>>>>>> Ugh. This ignores the gfp flags that are passed into map because you
+>>>>>> have to force atomic due to the spinlock that shouldn't be there :(
+>>>>>> This means it does not set GFP_KERNEL_ACCOUNT when required. It 
+>>>>>> would
+>>>>>> be better to continue to use the passed in GFP flags but override 
+>>>>>> them
+>>>>>> to atomic mode.
+>>>>> I will add a gfp_t parameter and use it like that:
+>>>>> page_table = iommu_alloc_pages_sz(gfp | GFP_ATOMIC | GFP_DMA32, 
+>>>>> SPAGE_SIZE);
+>>>> This will or together GFP_ATOMIC and GFP_KERNEL, I don't think that
+>>>> works..
+>>> I have test it, I don't see conflicts or errors. What worries you ?
+>> Just looking at the bitmaps I'm not sure? Did you run with lockdep?
+>
+> Yes and it complains about that.
+> I see that sun50i driver have more less the same struct than my driver
+> but doesn't use lock. I will try see if I can remove the lock.
 
-In snps,dw-pcie-common.yaml
-
-	- description:
-            Generic reference clock. In case if there are several
-            interfaces fed up with a common clock source it's advisable to
-            define it with this name (for instance pipe, core and aux can
-            be connected to a single source of the periodic signal).
-          const: ref
-
-        - description: See native 'ref' clock for details.
-          enum: [ gio ]
-> We
-> talk here about signals coming to this chip, regardless how they are
-> generated.
-
-PCIe controller takes one of two reference clocks, internal PLL (controlled
-by clock provider) and extern crystal (controller by a GPIO).
-
-There are clk_in and clk_out at SOC. External crystal output connect into
-clk_in.
-
-clk_out come from internal pll.
-
-The boards design choose one method (internal pll or use external crystal)
-
-Frank
+I have replace the two spinlock by a mutex in vsi_iommu structure.
+It seems it works well and lockdep doesn't complain anymore.
 
 >
+>>>>>>> +static int vsi_iommu_attach_device(struct iommu_domain *domain,
+>>>>>>> +                   struct device *dev)
+>>>>>>> +{
+>>>>>>> +    struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
+>>>>>>> +    struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
+>>>>>>> +    unsigned long flags;
+>>>>>>> +    int ret;
+>>>>>>> +
+>>>>>>> +    if (WARN_ON(!iommu))
+>>>>>>> +        return -ENODEV;
+>>>>>>> +
+>>>>>>> +    /* iommu already attached */
+>>>>>>> +    if (iommu->domain == domain)
+>>>>>>> +        return 0;
+>>>>>>> +
+>>>>>>> +    ret = vsi_iommu_identity_attach(&vsi_identity_domain, dev);
+>>>>>>> +    if (ret)
+>>>>>>> +        return ret;
+>>>>>> Hurm, this is actually quite bad, now that it is clear the HW is 
+>>>>>> in an
+>>>>>> identity mode it is actually a security problem for VFIO to 
+>>>>>> switch the
+>>>>>> translation to identity during attach_device. I'd really prefer new
+>>>>>> drivers don't make this mistake.
+>>>>>>
+>>>>>> It seems the main thing motivating this is the fact a linked list 
+>>>>>> has
+>>>>>> only a single iommu->node so you can't attach the iommu to both the
+>>>>>> new/old domain and atomically update the page table base.
+>>>>>>
+>>>>>> Is it possible for the HW to do a blocking behavior? That would 
+>>>>>> be an
+>>>>>> easy fix.. You should always be able to force this by allocating a
+>>>>>> shared top page table level during probe time and making it entirely
+>>>>>> empty while staying always in the paging mode. Maybe there is a less
+>>>>>> expensive way.
+>>>>>>
+>>>>>> Otherwise you probably have work more like the other drivers and
+>>>>>> allocate a struct for each attachment so you can have the iommu
+>>>>>> attached two domains during the switch over and never drop to an
+>>>>>> identity mode.
+>>>>> I will remove the switch to identity domain and it will works fine.
+>>>> You'll loose invalidations..
+>>>>
+>>>> Maybe the easiest thing is to squish vsi_iommu_enable() and reorganize
+>>>> it so that the spinlock is held across the register programming and
+>>>> then you can atomically under the lock change the registers and change
+>>>> the linked list. The register write cannot fail so this is fine.
+>>>>
+>>>> This should probably also flush the iotlb inside the lock.
+>>> I will try to summarize:
+>>> in vsi_iommu_attach_device() I should:
+>>> - take the lock
+>>> - do nothing if the domain is the same.
+>>> - if iommu is used (ie powered up):
+>>>    - update the registers to enable the iommu
+>>>    - flush
+>>>    - update the link list
+>>> - update iommu->domain
+>>> - release the lock
+>> That sounds believable, yes.. Though can you do the "powered up" checks
+>> inside the spinlock - are they sleeping? Can they be done before the
+>> spinlock?
+>>
+>>> in vsi_iommu_identity_attach() I should:
+>>> - take the lock
+>>> - do nothing if the domain is the same.
+>>> - if iommu is used (ie powered up):
+>>>    - disable the iommu
+>>>    - remove the node from the list
+>>> - update iommu->domain
+>>> - release the lock
+>> And maybe flush too? How does the caching hw work at this point? You
+>> can't have stale entries in the cache when you switch back to an
+>> enabled/translating configuration. So either the HW flushes implicitly
+>> or you need to add a flush somewhere..
 >
-> Best regards,
-> Krzysztof
+> I do not have the documentation for the hardware but it seems that
+> enable/disable are enough to do the job.
+>
+>
+>>> vsi_iommu_suspend() and vsi_iommu_resume() will also have to take 
+>>> the lock
+>>> before calling vsi_iommu_disable() and vsi_iommu_enable().
+>> Yes, if they use iommu->domain that seems good
+>>
+>> If the above locking is a problem then I'd use the group mutex instead
+>> during resume/suspend. The attach functions are already called with
+>> the group mutex held.
+>
+> Does group mutex is also called when using vsi_iommu_map or 
+> vsi_iommu_unmap ?
+>
+>>
+>>> Do I have to switch to identity domain in vsi_iommu_attach_device()
+>>> before applying the requested domain ?
+>> No, that is what creates the security problem. What you want is to
+>> update the HW registers in a way that the HW just changes hitlessly
+>> from one translation to another, then flush the cache.
+>>
+>> Jason
 
