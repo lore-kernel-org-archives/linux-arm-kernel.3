@@ -4,100 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D279C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68792C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKSU6GlAD0b+reZYhRj4iOMFyn23zu+YAR94aAzdOEg=; b=S4wzfqn/y5wKO4NPta1+F457J7
-	cpGqofGI+n4xc4iQCxkVcqkZfqMDsR/jD5ZU7xgUk4NAR8wDFNBLgtrJ8hVI8SznM9sM6JaTVqYWw
-	QvQrnB5JnV3Xd3V36oPSQLLmbyQX6t9L9xpBbBTpCmANrj5nVe9Wd/gczKeb7iEDW2slJv2LvwI2Z
-	sbEZ1lltmqAu2xGOfkGnNAHDaDaS1w/etV7i61qutc0y7I0kf5mp4NK/FYr0MQc2qT6ywFUkPeIho
-	IKJ54qEEy/bZgw9fzmsk8yKBrkl8ddgjUXjvLQ3qhtNHyuOl1Qa0izrrXxyGIdhrM/rEMJqZc5li0
-	9wL2T9EA==;
+	bh=2421UXHoKKeVPREDXCWm5x2jIaMA4XjRj2zL07QMC+U=; b=Q4AZGZci9VXIpdloGs7Q8E1xlv
+	bwjrNTpAVaroJgaPG6n6drgzskose4zx533Hy7rl0jDAeEpM6pX6fE3g/J+16niOSe8hjVcyRLqaA
+	CuwQZ1DuQwHdqE5gtPmyqIBWIsyrUdECPl4uS76rE+HnUJm9YXch9GSK2g2sqqIi93i9pFI3qNxz1
+	pFqD8Tgu0EfRf6Y1c67EYfAvOSM2NGZtAMjlpSCTmSCVSaXpVyZq4peClH6/zNWrH8ftIIFhXAd7F
+	WHTZxzLf+rNZdkflE6/8E8yGbRT0/x8zQ5L0nPpss7aK0XSn3rm/5aJN70Bk3ILMaOiiL6t+rRQyK
+	SBPAXP9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbJa-0000000Fc8G-0ng5;
-	Fri, 20 Jun 2025 12:57:54 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1uSbJU-0000000Fc3l-2GW5;
+	Fri, 20 Jun 2025 12:57:49 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSaUZ-0000000FXBa-3ywo
+	id 1uSYtu-0000000FKCS-2qva
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 12:05:13 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6fabe9446a0so18403316d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 05:05:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1750421111; x=1751025911; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=iKSU6GlAD0b+reZYhRj4iOMFyn23zu+YAR94aAzdOEg=;
-        b=jikDa22vqBLybL3FtnKWmSqpGPW44sSErN0uM3spTwu81P1OfWYFzpuUm452oDCYKL
-         vS3RCDhDXuJPLDuna6IKfkLSGxVd7jEyaVaA3fptQlG7yv2ptoojSqTzehJEvc4zUDDm
-         LhbxStizXB25bwD6vxIRWbQBj2v1EN7cJChxN/fqpCINbM8EdikWzfhBuYep5oEyCRc2
-         ptKYGXNu3Axb/CIixh/G3/m0vNMGnMDmzmm+Y3pZjO7q6ZP7/NFFLpXNr5DFZFyghIiX
-         8c3/himanJbrlJZUA1y0uzY+MukbIjQRgsIReM4JEOimAWPkbYQFIVw1luInfnK29oCM
-         ijYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750421111; x=1751025911;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iKSU6GlAD0b+reZYhRj4iOMFyn23zu+YAR94aAzdOEg=;
-        b=FgVhQRuQxnZ0K7bpvKkXLyr7eMI9DF2HUYlwNbBu1dWYEdRK/PT09qWfkXcBFX8ZBY
-         EhLCRMvqhHrxhGsYrzuXeyJJHg4UzE2yplbTWPn+pU4M9tDm+mGipQ5UFpscIEHbAOgl
-         k6vNo5HDugLXjAfJZcnQtNZxX+yVbCK0f0teEkSscZ36l37GwJtUf06vxOPCVfljCzf+
-         LZjIIZZcZKGGPd0R2B3NIJZRU9zn0GiGLMRh0GowVKu7HQoZBty8/efovaZT/xlPfD3j
-         vM4zMGjqsQbWfbGwVyzoD4PgPJXkNR1FIcuaC8HJfrMujgOyEAQ9GWq3vBMLBDUyqg98
-         Ycmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUu4aHguKcAsfK5+bOeYa9eU3FSwo8I88tw/HrlU6Rmq+dtp01vJ36MWmbyZjfxg1sAv6Sdq0yyOz1AO6FUrtyK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN6VdWwjoMzXkiJdj8prP6QuAOmfqHd6As6n1hf23H/jVEsonG
-	MLrDIl3CbwaSIlexUjyJzVfmwU0mJFzs7hl2yvno6nMH2hZD5vob0ZD+KllsE208/1o=
-X-Gm-Gg: ASbGncs0ZOxqP0jHW3v9qAWCN4IkIifAgfvqJb1OCgs2jbNcEk+9nUQX1hyDjcDnNW4
-	rIpYNv1AmTsPnF+Joxk2eMzCMKdh72sOHn9WBqvoK/XyWBynByXxtNtZw7KZVxAmb/+ZdPBMCsl
-	g4uF3qsmyXiM09dskjYxfDm9wmWhc5B5ZEYYH7DDrNL5JRMrTxmPnkTKUEKG3BnuGdPKgSNs7KS
-	0S32UJ1uD+Z/DviC7sA13S9TyIuZTpJDeXvWLJIOvo5hNQUvrQKF3CUzMOLS7fJDWbOkoLU8ZJM
-	FkN+fAVPZz/HZEZzoyq0vPxAaABuIB5uHOFqcQ6X1qPt08y2V+yQJGmOkIy7CnYSwG83WmYyQLZ
-	Liwgi/kFmrJVK2KVoHxv1e+JpkKwuM5r1McWAog==
-X-Google-Smtp-Source: AGHT+IHfu4I3beDwgjtHUIfD6yuQvdS/JqKOrGvhTdy+iUwvWk3om69mhib1iCashING8Al0Lp0xvw==
-X-Received: by 2002:a05:6214:1d24:b0:6fa:c81a:6202 with SMTP id 6a1803df08f44-6fd0a58f236mr37698336d6.29.1750421110649;
-        Fri, 20 Jun 2025 05:05:10 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fd09576766sm11104646d6.81.2025.06.20.05.05.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 05:05:10 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uSaUX-00000000Dmo-1ZEQ;
-	Fri, 20 Jun 2025 09:05:09 -0300
-Date: Fri, 20 Jun 2025 09:05:09 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
-Message-ID: <20250620120509.GA39770@ziepe.ca>
-References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
- <20250619131232.69208-4-benjamin.gaignard@collabora.com>
- <20250619134752.GB1643390@ziepe.ca>
- <073ffe14-d631-4a4f-8668-ddeb7d611448@collabora.com>
- <20250619165928.GA10257@ziepe.ca>
- <e034a111-93eb-42e8-a533-46553b4f5588@collabora.com>
+	Fri, 20 Jun 2025 10:23:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hbsHdx4b3rbp8rY+oGKBFbbRnbq8LAn5X3oxvm9LguNffwM8Tu58qDQ5+L21+ScUD4V0kXtuAdw3Sid1Vce2tXg9yK8eIpOQx37nAFFIGlJjnS2Oc1w6F6KZnXSSoagRc6y891XeWlCJeg5qJFqqnRf+cmvW8XpUjY//HlioFqVL23v8N/jHTyfAEj8UAT6e6EJ1cdUUVSk3ksAEMQNgwOA1X6EpAfHTaQ1/y0XV8LzIUoCHVvaYXViINxIvSxmkRi9m111JORzeNTGm5iNq8B98HhWjnJjyNBRaE6JpEnu+loEeb3HCktsQ6QPo+K5rTQOzuw27OJmwknzhtZDZ8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2421UXHoKKeVPREDXCWm5x2jIaMA4XjRj2zL07QMC+U=;
+ b=U1BB1CAEq6DoPMs3zeyyq8KJjaLWXiNarOjcNDOfvOJog+vzdJar9lTp071vMqnli7QdzYQSAtctRHdTXYz5Xzi9oVKbRJP/+g330s2zjFjOq8MrYtOEkL163f3siL3Juvh/lpYj31kUWD8X1LNoyru9jIUAVSTQr1cR2rAoG9ix/U4XWd6DBggfwwyLEsAbf/E+QvfpEbPVelEijvfgNyROTVwSPemWIQN/r+QwRC5OAea2YyCURS16VHSUG9qMafJAPN3LTvuwCOp73djFopBDEGrUt0o71xgqc9NfiYeXwRnrizHHXkQfQYHtvBldBX1L2G444LAkQ5G0rPwAhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2421UXHoKKeVPREDXCWm5x2jIaMA4XjRj2zL07QMC+U=;
+ b=cTwGo3kMxXWwjXUw11nouMZ+pl2sASBJwCMWbRXvMZFDWUsYn6QeGjgBB6o/4SYQ8pPswfw+tR7wHgYbtpKb2UY9ZqSXRIzQbZa7KSZ00c6NJA+TEe+pYWm94zKVzt+wwOFvp4EuHFR1w/in8iIglhYSWTWqpUoCOcPF98kTbGWxSFMF61x39fP+n2hxgOfIffaGUCwfp1AwfkrFNasjx5P4MD/3YmaIiBDngj/RMw97JTaKqurPk6BS5XiMuHJ1r3L+eP7zB+jGYEYm2gG96swuVJN5ID7pr1WAWPDyy7S8kuD9WVgWRpPCvYDYlzDA1kduhH2vf2mQj93sjCR18A==
+Received: from SEYPR06MB7072.apcprd06.prod.outlook.com (2603:1096:101:1db::9)
+ by SI6PR06MB7113.apcprd06.prod.outlook.com (2603:1096:4:247::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.19; Fri, 20 Jun
+ 2025 10:23:05 +0000
+Received: from SEYPR06MB7072.apcprd06.prod.outlook.com
+ ([fe80::427f:4d26:e479:7659]) by SEYPR06MB7072.apcprd06.prod.outlook.com
+ ([fe80::427f:4d26:e479:7659%4]) with mapi id 15.20.8857.022; Fri, 20 Jun 2025
+ 10:23:04 +0000
+From: Cool Lee <cool_lee@aspeedtech.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, "adrian.hunter@intel.com"
+	<adrian.hunter@intel.com>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-mmc@vger.kernel.org"
+	<linux-mmc@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: RE: [PATCH 7/8] mmc: sdhci-of-aspeed: Remove timing phase
+Thread-Topic: [PATCH 7/8] mmc: sdhci-of-aspeed: Remove timing phase
+Thread-Index: AQHb3/yk8lgT4h+z1EKWpQv7CmYpOrQLoncw
+Date: Fri, 20 Jun 2025 10:23:04 +0000
+Message-ID: <SEYPR06MB7072FC07B4EFC03BB25B537F957CA@SEYPR06MB7072.apcprd06.prod.outlook.com>
+References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
+	 <20250615035803.3752235-8-cool_lee@aspeedtech.com>
+ <9c85755a8aff6e6f8a5548f0b5e758dce7d6353e.camel@codeconstruct.com.au>
+In-Reply-To: <9c85755a8aff6e6f8a5548f0b5e758dce7d6353e.camel@codeconstruct.com.au>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB7072:EE_|SI6PR06MB7113:EE_
+x-ms-office365-filtering-correlation-id: 496c4ad9-ab7d-4b03-f828-08ddafe47185
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018|921020;
+x-microsoft-antispam-message-info: =?us-ascii?Q?bwzJt0zcaS83/pKxJGUGP5ipZczGpAFYGQKlWPJiXt6YQ8bunp38H8vunN8r?=
+ =?us-ascii?Q?VSKtO4m1WYOXrCfiA1yRFFjEDIIHCEaFjZsBEjrlR91TnJRewnnL2f+5Q9j/?=
+ =?us-ascii?Q?JlG7VClcu3aPILitYXs0ds8/secRdaOyvLbuHSSGVQrJCrYzWz6DV70V8mAF?=
+ =?us-ascii?Q?C/E1jb+ftu7hLFiXAktPJmYj9kq52LmYk2pOIO1kCR2hXhJLVeKpVMkj0E28?=
+ =?us-ascii?Q?AK7hP5gmbncQYltnBSifTuOeFQ8smNrSbwy161T/IAxQ9ANgxiB2rnaTK19r?=
+ =?us-ascii?Q?xBYqmlLdJRkBAEeSperBo+8Lls5jIfv3GpMyqbaoMzsZozFFPCp1HceBGyP7?=
+ =?us-ascii?Q?VUsNnuzZQwI53ghDhOYR7cLntR/1JijlOybXnoI2hLASxFm4RpjlZzfG3ZE9?=
+ =?us-ascii?Q?lAr1rnODjfvKwCZemNU8G322dPcvmFyGI9l3jMpzYj9c+8KJewi/wAygMFbp?=
+ =?us-ascii?Q?gGpTqfh/pAeVtQ4rH/lOuovt6Fr0kCIqj5ujCTn0NzPhV6IljGyHYAXIGqCS?=
+ =?us-ascii?Q?USDTlI9u9s3FPTWklisNl/afNz7l7CKFyY7Vy+Dqb5ryloKNcu4LGa0vhhel?=
+ =?us-ascii?Q?wVPOd6saz+r4MzASygOOYTP/lRJunAecrQOo2phYyXYiZO4+SaIW1gX1NiM2?=
+ =?us-ascii?Q?R/n4PDOafDb30rMurOPlrRuEKdjnaSbypMAUtyjdDDgytS4x7nGrrfSjQ2ml?=
+ =?us-ascii?Q?b5LhP7Kt6mW4c2//OIlgZ/EcjPkceJIH+1BIh5Gg8QRWnGpQEHOBsZU/B8ok?=
+ =?us-ascii?Q?nFiyy4RstTRCK5lol0sWsnM/vt23gOiaTK7Tkz8wfRHFtJrkzt9SYK01UdKz?=
+ =?us-ascii?Q?5Raqf6RhiYoHg2GNEuKp0I6VV+NQzrcw9Ljr3CZAyZkw2qA8gwb/1LDNZ2VO?=
+ =?us-ascii?Q?UF8B3EO94CT8T8YOqNriu0cMjfh+nrOhq8ne2rO0CZo1nzOkVcvKaWHatk5V?=
+ =?us-ascii?Q?n5CIFReQ854RDhz03A1B8SHvL74FHho3Fws5A25W0jbq63KonNtWGnnofwPh?=
+ =?us-ascii?Q?s7pD0bxVIa+OrJOXbFsSm96oGsD/l/fNue+Wbt1/6Z/OodU39sOnrxr1IPF4?=
+ =?us-ascii?Q?no0N5Bz3RZFqYU9pbchTMbKCP4CUjHE7FNnbM6f2ThYBEQX1qhmIfL+/iiYo?=
+ =?us-ascii?Q?z9jAFOBCxuGC4E6u3DZl0Pb1lm0YD36WaT9evXYUDdFji3zw+fby/gGsyMw3?=
+ =?us-ascii?Q?ULnZpSQU2Pf0FIVuoPx3YcLJ5nUOR+FfRNnnSJxLghOwbK8ISeRlYDa4UZoM?=
+ =?us-ascii?Q?kg5yBpigLIlUcjQdZAjOembzzgujhPb+W0POcddfqshfCKDvTSbB6+JSgMhc?=
+ =?us-ascii?Q?b3f6dt2V3HAJIGCai5LEJMpc9652UmPbPoTRnPySqNd7sjFb1uJIac+6uk1X?=
+ =?us-ascii?Q?bVaDsw7qCUVWJyr+MKdShXS7wrwO6GESAxhr0Z04lD0nhcZQpmA/EU1R8aSZ?=
+ =?us-ascii?Q?L3+Jf7vp2aA7IjDsgzDnri2tjur3LaHsgMPvD/hBv+3EVcasf6kFxvPkR3Mn?=
+ =?us-ascii?Q?l3Pr3ToJdrQyTKI=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB7072.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018)(921020);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FSCQRkjyRvUncPN2WNU+1eqKIZLiQcuxqtqHkRo1TeBXz3Lwg842wZU4u9mR?=
+ =?us-ascii?Q?XhLn8fExB8hwkpInjQWlEvMnBGGFCjlzxPmkkYYdxrgGmJZ5ggjFrfmwz8xg?=
+ =?us-ascii?Q?8ALXl8ZSnoA8FbxqWZT6M9HvYPSf9YYKkwXLqvX0nPUlOogR9PiZkfsM9yWG?=
+ =?us-ascii?Q?stUC0lLb+9w5df9Sw+kiEuuLE2PN8uVchkFvrpwv5Gma/3rTwNR4MJgrCl9L?=
+ =?us-ascii?Q?FmBzBL3kmkvUCpTZTJjkTVyiWbC2ImAbtTKBjM0dxpKJpJMnArQT0Lq1QfTj?=
+ =?us-ascii?Q?A1CnL/5T49NR0MHAcYRpSPZgI4II0I6aJdajf7/kX6hUy21rslXw+yn5gHYL?=
+ =?us-ascii?Q?SiOFnt2v21rJK/flDsp52IKUtU0ppidDsDXmGc69Qfd7xWK0uVyq8XwpnBap?=
+ =?us-ascii?Q?Qi+6+sfRGkaAZlE9BcxzdjjyQwXeXHIUm9fflxhT5QRROn3sPS1efIr3CsLa?=
+ =?us-ascii?Q?h4M3NKBSkv1jEFLbSv4LI/fVIs/P10utSGCS7RbnTROJim4dcFQI//D09wbP?=
+ =?us-ascii?Q?C6BxxchmeKtaCWezlUtx9Ci3XHK5bu5vSJjJVDTPT3fDtGhgTCWiVu4asbsw?=
+ =?us-ascii?Q?ZJImLe/6FuervIbCgWRYb4277OMmZNs0apaLGmJLWo6uupy2AVSZWqkKwQ5o?=
+ =?us-ascii?Q?6o/BG6HdVRmA8XHJD1HNX/yJhxULucDH8R7wrRrDXxBERbbxpPTiyBpki8nE?=
+ =?us-ascii?Q?AZN6DExyqsxYcwxKdZ6v/cROo0475WPqJ23CoBDiISlqNqGfX3kZpqGSLeoD?=
+ =?us-ascii?Q?KRNza0tbUjCiJ+92K8MOENoOqb/+p39CenLZLCi28lAc5cP1yh4sVAhDBcD0?=
+ =?us-ascii?Q?7jJRrtdN2ufLyGv7BCZay1b3Bku5EvYhimjPRoXU8B2WPCnQkgA5YEt/kmMh?=
+ =?us-ascii?Q?I2IiCIiVATbAsG9KliNfxtsRJgLRg7CI8CHn8pBFtITS+S1n8txS2v1ZJSAc?=
+ =?us-ascii?Q?E4fs4ilwzFIFWdPJJo6pjR/vc6d2V56aslHd05BRzkElwcg/70eUk/SiPUZz?=
+ =?us-ascii?Q?+6qSsX3GrpgutuZoHP+t5a0V2INnedk2BQGe3Wt6xstwJY1C2lgFzZZimUoe?=
+ =?us-ascii?Q?1CnAdnXBO3swgIBu3Ep4FjIOFRuJIw+6E6gnSqqUCuiUg1oml/KTGAIQSWtM?=
+ =?us-ascii?Q?gcDV5DV93dBR2vq/dOL7IAOP1ZdxJgsgkCoJCBnRN3yyBI8453/+zIfUyPgx?=
+ =?us-ascii?Q?VMqwA2QYMw+Arzl7wm+yoeiQKtbgpEATJNPVCnyToUwof5bIoJFLtaT/diGE?=
+ =?us-ascii?Q?IyIL1z0dbfkyK2ssWS0+D1muiRSxZ4GdfSPcuPlX64nQBSKzVNt9zlec+8bA?=
+ =?us-ascii?Q?Yx51hULbGV6buXw0cQcCMisuw8Mbq7SKniuL20C4PcNG7c1Ua7HEy1DXrd3N?=
+ =?us-ascii?Q?+Z7SP9NqCYSISLUfjLGQg+Z/GNPthhFFlTWu8UMmbl1zkxKoXYAdLslNQL0j?=
+ =?us-ascii?Q?r7hYxeeVwqK6ROQpvTo9GfNq3MqznFMf5TU9SvgMlgn1v5leNuckbE6+0xCr?=
+ =?us-ascii?Q?j2GW0c6c1vPC3SYNzEmUDUYoqbTQongMZrgLS15XXixRH9VL1ABk/O+EmJpy?=
+ =?us-ascii?Q?bKJYFwwiB4A33vkadxrUghJ4/mUfihTFdGpuXYXi?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e034a111-93eb-42e8-a533-46553b4f5588@collabora.com>
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB7072.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 496c4ad9-ab7d-4b03-f828-08ddafe47185
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jun 2025 10:23:04.8468
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /4A0RiYGZPZLvofAhuCp2KPARtV4UQPTuD2tsG5FyL199AM037LLNf0X+s1kX2pkSUV7wmDRFm4HXttHIo6QDg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI6PR06MB7113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_050512_056754_5ED326E7 
-X-CRM114-Status: GOOD (  48.30  )
+X-CRM114-CacheID: sfid-20250620_032316_677873_027DCF91 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,116 +168,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:57:49AM +0200, Benjamin Gaignard wrote:
-> 
-> Le 19/06/2025 à 18:59, Jason Gunthorpe a écrit :
-> > On Thu, Jun 19, 2025 at 06:27:52PM +0200, Benjamin Gaignard wrote:
-> > > Le 19/06/2025 à 15:47, Jason Gunthorpe a écrit :
-> > > > Ugh. This ignores the gfp flags that are passed into map because you
-> > > > have to force atomic due to the spinlock that shouldn't be there :(
-> > > > This means it does not set GFP_KERNEL_ACCOUNT when required. It would
-> > > > be better to continue to use the passed in GFP flags but override them
-> > > > to atomic mode.
-> > > I will add a gfp_t parameter and use it like that:
-> > > page_table = iommu_alloc_pages_sz(gfp | GFP_ATOMIC | GFP_DMA32, SPAGE_SIZE);
-> > This will or together GFP_ATOMIC and GFP_KERNEL, I don't think that
-> > works..
-> 
-> I have test it, I don't see conflicts or errors. What worries you ?
 
-Just looking at the bitmaps I'm not sure? Did you run with lockdep?
+> > The timing phase is no more needed since the auto tuning is applied.
+> >
+>=20
+> I feel this is unwise: we're now ignoring constraints set in the devicetr=
+ee.
+> Auto-tuning is fine, but I think that should be a feature that new platfo=
+rms can
+> exploit by default. Older platforms that do specify the phase values via =
+the
+> devicetree can be converted at the leisure of their maintainers (by remov=
+ing
+> the phase properties).
+>=20
+> Support needs to remain in the driver until there are no (aspeed-based)
+> devicetrees specifying the phases.
+The timing phase only works on AST2600 or newer platform which has added a =
+delay cell in the RTL.
+The older platform AST2500, AST2400 doesn't support the timing phase.
+It supposed no effect on older platform.=20
+The old manner that a static timing value customized from devicetree is inc=
+onvenient because customer needs to check waveform associated with each del=
+ay taps. Once the emmc parts changed, a fixed timing value may not work. Th=
+at's why auto tune here instead of a static value.
 
-> > > > > +static int vsi_iommu_attach_device(struct iommu_domain *domain,
-> > > > > +				   struct device *dev)
-> > > > > +{
-> > > > > +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> > > > > +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> > > > > +	unsigned long flags;
-> > > > > +	int ret;
-> > > > > +
-> > > > > +	if (WARN_ON(!iommu))
-> > > > > +		return -ENODEV;
-> > > > > +
-> > > > > +	/* iommu already attached */
-> > > > > +	if (iommu->domain == domain)
-> > > > > +		return 0;
-> > > > > +
-> > > > > +	ret = vsi_iommu_identity_attach(&vsi_identity_domain, dev);
-> > > > > +	if (ret)
-> > > > > +		return ret;
-> > > > Hurm, this is actually quite bad, now that it is clear the HW is in an
-> > > > identity mode it is actually a security problem for VFIO to switch the
-> > > > translation to identity during attach_device. I'd really prefer new
-> > > > drivers don't make this mistake.
-> > > > 
-> > > > It seems the main thing motivating this is the fact a linked list has
-> > > > only a single iommu->node so you can't attach the iommu to both the
-> > > > new/old domain and atomically update the page table base.
-> > > > 
-> > > > Is it possible for the HW to do a blocking behavior? That would be an
-> > > > easy fix.. You should always be able to force this by allocating a
-> > > > shared top page table level during probe time and making it entirely
-> > > > empty while staying always in the paging mode. Maybe there is a less
-> > > > expensive way.
-> > > > 
-> > > > Otherwise you probably have work more like the other drivers and
-> > > > allocate a struct for each attachment so you can have the iommu
-> > > > attached two domains during the switch over and never drop to an
-> > > > identity mode.
-> > > I will remove the switch to identity domain and it will works fine.
-> > You'll loose invalidations..
-> > 
-> > Maybe the easiest thing is to squish vsi_iommu_enable() and reorganize
-> > it so that the spinlock is held across the register programming and
-> > then you can atomically under the lock change the registers and change
-> > the linked list. The register write cannot fail so this is fine.
-> > 
-> > This should probably also flush the iotlb inside the lock.
-> 
-> I will try to summarize:
-> in vsi_iommu_attach_device() I should:
-> - take the lock
-> - do nothing if the domain is the same.
-> - if iommu is used (ie powered up):
->   - update the registers to enable the iommu
->   - flush
->   - update the link list
-> - update iommu->domain
-> - release the lock
-
-That sounds believable, yes.. Though can you do the "powered up" checks
-inside the spinlock - are they sleeping? Can they be done before the
-spinlock?
-
-> in vsi_iommu_identity_attach() I should:
-> - take the lock
-> - do nothing if the domain is the same.
-> - if iommu is used (ie powered up):
->   - disable the iommu
->   - remove the node from the list
-> - update iommu->domain
-> - release the lock
-
-And maybe flush too? How does the caching hw work at this point? You
-can't have stale entries in the cache when you switch back to an
-enabled/translating configuration. So either the HW flushes implicitly
-or you need to add a flush somewhere..
- 
-> vsi_iommu_suspend() and vsi_iommu_resume() will also have to take the lock
-> before calling vsi_iommu_disable() and vsi_iommu_enable().
-
-Yes, if they use iommu->domain that seems good
-
-If the above locking is a problem then I'd use the group mutex instead
-during resume/suspend. The attach functions are already called with
-the group mutex held.
-
-> Do I have to switch to identity domain in vsi_iommu_attach_device()
-> before applying the requested domain ?
-
-No, that is what creates the security problem. What you want is to
-update the HW registers in a way that the HW just changes hitlessly
-from one translation to another, then flush the cache.
-
-Jason
+>=20
+> Andrew
 
