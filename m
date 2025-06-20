@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0091FC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 20:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1389DC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 20:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pdtWMoCinyj89bjdjI6OzYDNaMakww7IsU4AzJ521M=; b=LFg+SBwZEXTtN9JUSecyvv0YpB
-	T08DNcZ5JvqeyVQqM958DycMG5OIOUFnVRKU3JN4xmPBxszIe47ye5Q3EWdphwRdbFQqECs8/G8DO
-	59ETjjW7C+suOsUjwzc/iXecsurD+JnQiz1vzhsxJiB2jT+L9TayielAn02KLJ3jZMMiUSoQ6iRj+
-	GgTKZj/f7b8OkQkzq+dcOz+838Y7efqbKx3LBe30wY1xZ5jPegV+U6W0PgVoPXnw62LT6rrj/w5Lp
-	yE4sr69QrofubYNlGiB8KGgtpewHxjpyuF1KjXmoLc4STvbSWHij/OplFFAZLq86VWlqjZ3A4yASx
-	DhVHfUNA==;
+	bh=gzFkdvKaxH4Hel5gdQlPGogDXbokx4DTWEowJWNszls=; b=3K5fd1wtBRFR/rXHEROfLM6cYh
+	by/exw0rUOl9bgI2+yPcysoFH+ouGTuZ0OpoPYmZAQkZEE6bFsX6Ky6dz24f/gekeZh9jHvsXtlVY
+	KLZWC5S8qf8Y1bQZIldoYplNluBUnKvjAFmOfpJHjVPCfV28AhomWCdWdWEK47PNVK/IjPAZYTGzi
+	ln4sNNtQxMxZOMVylY5rugDrvbHE2FnKCFFJ1V6Y+GUfI8nPX3yNcWCNXhxNbo5hMCMFjkKRJIL5W
+	/6dbDOJQGlWLclXKcMQMeRZCdMXAYQ27vfBj9oU3W9M8dpZdyjZoFFp5GUPZymZplZbzEwI0vETzx
+	jt9pIZEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSiGh-0000000GWXV-0iTf;
-	Fri, 20 Jun 2025 20:23:23 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1uSiKm-0000000GXGb-0rr4;
+	Fri, 20 Jun 2025 20:27:36 +0000
+Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSiEQ-0000000GW4p-2LS7
+	id 1uSiIW-0000000GX7C-10Gv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 20:21:04 +0000
-Date: Fri, 20 Jun 2025 13:20:36 -0700
+	Fri, 20 Jun 2025 20:25:17 +0000
+Date: Fri, 20 Jun 2025 13:25:05 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750450859;
+	t=1750451114;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9pdtWMoCinyj89bjdjI6OzYDNaMakww7IsU4AzJ521M=;
-	b=QFYgtk8IHCNJ2IufikHWLfCT60VrcIOlQ3tXXqV41huMzW1qweQtKUcUyknhvkGp0CAG5F
-	N+u0FqUVlUCV3ude8SmDGj5HhMLMZJY/17UUbpfszawkWB0SyFFGCEon1d0yBH1QwrIpcl
-	nAmgF2/zXqNYxx7Z+qwVaf4b8siQcaU=
+	bh=gzFkdvKaxH4Hel5gdQlPGogDXbokx4DTWEowJWNszls=;
+	b=WNCqy5yC5MX/HewEIIsCqlmZEpdwRBR7Eu9ebrC5gbzo0wO891VjXDboDIhMH/JvlSc97B
+	HbOotk0k+L9BOaQZfdEbVCIgUE3YI5dKoAxwqSeQVk1x/sRb9+g4/qKO4G3tmcCve82DXF
+	pkT8e0KeLMe843FhbKYPHU9TMSzzPFk=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Sascha Bischoff <Sascha.Bischoff@arm.com>
@@ -51,18 +51,18 @@ Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org
 	"tglx@linutronix.de" <tglx@linutronix.de>,
 	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
 	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 4/5] KVM: arm64: gic-v5: Support GICv3 compat
-Message-ID: <aFXClKQRG3KNAD2y@linux.dev>
+Subject: Re: [PATCH 5/5] KVM: arm64: gic-v5: Probe for GICv5
+Message-ID: <aFXDobZ2GXPC4wOJ@linux.dev>
 References: <20250620160741.3513940-1-sascha.bischoff@arm.com>
- <20250620160741.3513940-5-sascha.bischoff@arm.com>
+ <20250620160741.3513940-6-sascha.bischoff@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250620160741.3513940-5-sascha.bischoff@arm.com>
+In-Reply-To: <20250620160741.3513940-6-sascha.bischoff@arm.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_132102_974129_A2C6C0FD 
-X-CRM114-Status: GOOD (  40.27  )
+X-CRM114-CacheID: sfid-20250620_132516_431059_060F4573 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,286 +77,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+On Fri, Jun 20, 2025 at 04:07:52PM +0000, Sascha Bischoff wrote:
+> +/**
+> + * vgic_v5_probe - probe for a VGICv5 compatible interrupt controller
+> + * @info:	pointer to the GIC description
+> + *
+> + * Returns 0 if the VGICv5 has been probed successfully, returns an error code
+> + * otherwise.
+> + */
 
-Thank you for posting this. Very excited to see the GICv5 enablement get
-started.
+nit: avoid kerneldoc style
 
-On Fri, Jun 20, 2025 at 04:07:51PM +0000, Sascha Bischoff wrote:
-> Add support for GICv3 compat mode (FEAT_GCIE_LEGACY) which allows a
-> GICv5 host to run GICv3-based VMs. This change enables the
-> VHE/nVHE/hVHE/protected modes, but does not support nested
-> virtualization.
-
-Can't we just load the shadow state into the compat VGICv3? I'm worried
-this has sharp edges on the UAPI side as well as users wanting to
-migrate VMs to new hardware.
-
-The guest hypervisor should only see GICv3-only or GICv5-only, we can
-pretend FEAT_GCIE_LEGACY never existed :)
-
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/include/asm/kvm_asm.h   |  2 ++
->  arch/arm64/include/asm/kvm_hyp.h   |  2 ++
->  arch/arm64/kvm/Makefile            |  3 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 +++++++
->  arch/arm64/kvm/hyp/vgic-v3-sr.c    | 51 +++++++++++++++++++++++++-----
->  arch/arm64/kvm/sys_regs.c          | 10 +++++-
->  arch/arm64/kvm/vgic/vgic-init.c    |  6 ++--
->  arch/arm64/kvm/vgic/vgic-v3.c      |  6 ++++
->  arch/arm64/kvm/vgic/vgic-v5.c      | 14 ++++++++
->  arch/arm64/kvm/vgic/vgic.h         |  2 ++
->  include/kvm/arm_vgic.h             |  9 +++++-
->  11 files changed, 104 insertions(+), 13 deletions(-)
->  create mode 100644 arch/arm64/kvm/vgic/vgic-v5.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index bec227f9500a..ad1ef0460fd6 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -81,6 +81,8 @@ enum __kvm_host_smccc_func {
->  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
->  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_vmcr_aprs,
->  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
-> +	__KVM_HOST_SMCCC_FUNC___vgic_v3_compat_mode_enable,
-> +	__KVM_HOST_SMCCC_FUNC___vgic_v3_compat_mode_disable,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vcpu,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_teardown_vm,
-> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-> index e6be1f5d0967..9c8adc5186ec 100644
-> --- a/arch/arm64/include/asm/kvm_hyp.h
-> +++ b/arch/arm64/include/asm/kvm_hyp.h
-> @@ -85,6 +85,8 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if);
->  void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
->  void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
->  int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
-> +void __vgic_v3_compat_mode_enable(void);
-> +void __vgic_v3_compat_mode_disable(void);
->  
->  #ifdef __KVM_NVHE_HYPERVISOR__
->  void __timer_enable_traps(struct kvm_vcpu *vcpu);
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 7c329e01c557..3ebc0570345c 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -23,7 +23,8 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->  	 vgic/vgic-v3.o vgic/vgic-v4.o \
->  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
->  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
-> -	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o
-> +	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
-> +	 vgic/vgic-v5.o
->  
->  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
->  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index e9198e56e784..61af55df60a9 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -475,6 +475,16 @@ static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt
->  	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
->  }
->  
-> +static void handle___vgic_v3_compat_mode_enable(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	__vgic_v3_compat_mode_enable();
-> +}
-> +
-> +static void handle___vgic_v3_compat_mode_disable(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	__vgic_v3_compat_mode_disable();
-> +}
-> +
->  static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
->  {
->  	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
-> @@ -603,6 +613,8 @@ static const hcall_t host_hcall[] = {
->  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
->  	HANDLE_FUNC(__vgic_v3_save_vmcr_aprs),
->  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
-> +	HANDLE_FUNC(__vgic_v3_compat_mode_enable),
-> +	HANDLE_FUNC(__vgic_v3_compat_mode_disable),
->  	HANDLE_FUNC(__pkvm_init_vm),
->  	HANDLE_FUNC(__pkvm_init_vcpu),
->  	HANDLE_FUNC(__pkvm_teardown_vm),
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index f162b0df5cae..b03b5f012226 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -257,6 +257,18 @@ void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
->  	}
->  }
->  
-> +void __vgic_v3_compat_mode_enable(void)
-> +{
-> +	sysreg_clear_set_s(SYS_ICH_VCTLR_EL2, 0, ICH_VCTLR_EL2_V3);
-> +	isb();
-> +}
-> +
-> +void __vgic_v3_compat_mode_disable(void)
-> +{
-> +	sysreg_clear_set_s(SYS_ICH_VCTLR_EL2, ICH_VCTLR_EL2_V3, 0);
-> +	isb();
-> +}
-> +
-
-It isn't clear to me what these ISBs are synchonizing against. AFAICT,
-the whole compat thing is always visible and we can restore the rest of
-the VGICv3 context before guaranteeing the enable bit has been observed.
-
-Can we consolidate this into a single hyp call along with
-__vgic_v3_*_vmcr_aprs()?
-
-Last bit as an FYI, kvm_call_hyp() has an implied context synchronization upon
-return, either because of ERET in nVHE or an explicit ISB on VHE.
-
->  void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
->  {
->  	/*
-> @@ -296,12 +308,19 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
->  	}
->  
->  	/*
-> -	 * Prevent the guest from touching the ICC_SRE_EL1 system
-> -	 * register. Note that this may not have any effect, as
-> -	 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
-> +	 * GICv5 BET0 FEAT_GCIE_LEGACY doesn't include ICC_SRE_EL2. This is due
-> +	 * to be relaxed in a future spec release, likely BET1, at which point
-> +	 * this in condition can be dropped again.
->  	 */
-> -	write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
-> -		     ICC_SRE_EL2);
-> +	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif)) {
-> +		/*
-> +		 * Prevent the guest from touching the ICC_SRE_EL1 system
-> +		 * register. Note that this may not have any effect, as
-> +		 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
-> +		 */
-> +		write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
-> +			     ICC_SRE_EL2);
-> +	}
->  
->  	/*
->  	 * If we need to trap system registers, we must write
-> @@ -322,8 +341,14 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
->  		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
->  	}
->  
-> -	val = read_gicreg(ICC_SRE_EL2);
-> -	write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
-> +	/*
-> +	 * Can be dropped in the future when GICv5 BET1 is released. See
-> +	 * comment above.
-> +	 */
-> +	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif)) {
-
-Can we use the GCIE cpucap instead, possibly via a shared helper with
-the driver?
-
-> -	if (kvm_vgic_global_state.type == VGIC_V3) {
-> +	if (kvm_vgic_global_state.type == VGIC_V3 || kvm_vgic_in_v3_compat_mode()) {
-
-Can we do a helper for this too?
-
->  		val &= ~ID_AA64PFR0_EL1_GIC_MASK;
->  		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
->  	}
-> @@ -1953,6 +1953,14 @@ static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
->  	    (vcpu_has_nv(vcpu) && !FIELD_GET(ID_AA64PFR0_EL1_EL2, user_val)))
->  		return -EINVAL;
->  
-> +	/*
-> +	 * If we are running on a GICv5 host and support FEAT_GCIE_LEGACY, then
-> +	 * we support GICv3. Fail attempts to do anything but set that to IMP.
-> +	 */
-> +	if (kvm_vgic_in_v3_compat_mode() &&
-> +	    FIELD_GET(ID_AA64PFR0_EL1_GIC_MASK, user_val) != ID_AA64PFR0_EL1_GIC_IMP)
-> +		return -EINVAL;
-> +
-
-
-
->  	return set_id_reg(vcpu, rd, user_val);
->  }
->  
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index eb1205654ac8..5f6506e297c1 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -674,10 +674,12 @@ void kvm_vgic_init_cpu_hardware(void)
->  	 * We want to make sure the list registers start out clear so that we
->  	 * only have the program the used registers.
->  	 */
-> -	if (kvm_vgic_global_state.type == VGIC_V2)
-> +	if (kvm_vgic_global_state.type == VGIC_V2) {
->  		vgic_v2_init_lrs();
-> -	else
-> +	} else if (kvm_vgic_global_state.type == VGIC_V3 ||
-> +		   kvm_vgic_in_v3_compat_mode()) {
->  		kvm_call_hyp(__vgic_v3_init_lrs);
-> +	}
->  }
->  
->  /**
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index b9ad7c42c5b0..b5df4d36821d 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -734,6 +734,9 @@ void vgic_v3_load(struct kvm_vcpu *vcpu)
->  {
->  	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
->  
-> +	if (static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif))
-> +		kvm_call_hyp(__vgic_v3_compat_mode_enable);
-> +
->  	/* If the vgic is nested, perform the full state loading */
->  	if (vgic_state_is_nested(vcpu)) {
->  		vgic_v3_load_nested(vcpu);
-> @@ -764,4 +767,7 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
->  
->  	if (has_vhe())
->  		__vgic_v3_deactivate_traps(cpu_if);
-> +
-> +	if (static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif))
-> +		kvm_call_hyp(__vgic_v3_compat_mode_disable);
->  }
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> new file mode 100644
-> index 000000000000..57199449ca0f
-> --- /dev/null
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -0,0 +1,14 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <kvm/arm_vgic.h>
-> +
-> +#include "vgic.h"
-> +
-> +inline bool kvm_vgic_in_v3_compat_mode(void)a
-
-nit: we're generally trusting of the compiler to 'do the right thing'
-and avoid explicit inline specifiers unless necessary.
-
-> +{
-> +	if (static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif) &&
-> +	    kvm_vgic_global_state.has_gcie_v3_compat)
-> +		return true;
-> +
-> +	return false;
-> +}
-
-This should be a per-VM thing once KVM support for GICv5 lands. Can you
-get ahead of that and take a KVM pointer that goes unused. Maybe rename
-it:
-
-bool vgic_is_v3_compat(struct kvm *kvm)
-
-Or something similar.
+This actually generates documentation as well as build warnings when we
+screw up the format. I'd only do this sort of thing for sufficiently
+public functions.
 
 Thanks,
 Oliver
+
+> +int vgic_v5_probe(const struct gic_kvm_info *info)
+> +{
+> +	u64 ich_vtr_el2;
+> +	int ret;
+> +
+> +	if (!info->has_gcie_v3_compat)
+> +		return -ENODEV;
+> +
+> +	kvm_vgic_global_state.type = VGIC_V5;
+> +	kvm_vgic_global_state.has_gcie_v3_compat = true;
+> +	static_branch_enable(&kvm_vgic_global_state.gicv5_cpuif);
+> +
+> +	/* We only support v3 compat mode - use vGICv3 limits */
+> +	kvm_vgic_global_state.max_gic_vcpus = VGIC_V3_MAX_CPUS;
+> +
+> +	kvm_vgic_global_state.vcpu_base = 0;
+> +	kvm_vgic_global_state.vctrl_base = NULL;
+> +	kvm_vgic_global_state.can_emulate_gicv2 = false;
+> +	kvm_vgic_global_state.has_gicv4 = false;
+> +	kvm_vgic_global_state.has_gicv4_1 = false;
+> +
+> +	ich_vtr_el2 =  kvm_call_hyp_ret(__vgic_v3_get_gic_config);
+> +	kvm_vgic_global_state.ich_vtr_el2 = (u32)ich_vtr_el2;
+> +
+> +	/*
+> +	 * The ListRegs field is 5 bits, but there is an architectural
+> +	 * maximum of 16 list registers. Just ignore bit 4...
+> +	 */
+> +	kvm_vgic_global_state.nr_lr = (ich_vtr_el2 & 0xf) + 1;
+> +
+> +	ret = kvm_register_vgic_device(KVM_DEV_TYPE_ARM_VGIC_V3);
+> +	if (ret) {
+> +		kvm_err("Cannot register GICv3-legacy KVM device.\n");
+> +		return ret;
+> +	}
+> +
+> +	static_branch_enable(&kvm_vgic_global_state.gicv3_cpuif);
+> +	kvm_info("GCIE legacy system register CPU interface\n");
+> +
+> +	return 0;
+> +}
+> +
+>  inline bool kvm_vgic_in_v3_compat_mode(void)
+>  {
+>  	if (static_branch_unlikely(&kvm_vgic_global_state.gicv5_cpuif) &&
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 5c78eb915a22..a5292cad60ff 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -308,6 +308,8 @@ int vgic_init(struct kvm *kvm);
+>  void vgic_debug_init(struct kvm *kvm);
+>  void vgic_debug_destroy(struct kvm *kvm);
+>  
+> +int vgic_v5_probe(const struct gic_kvm_info *info);
+> +
+>  static inline int vgic_v3_max_apr_idx(struct kvm_vcpu *vcpu)
+>  {
+>  	struct vgic_cpu *cpu_if = &vcpu->arch.vgic_cpu;
+> -- 
+> 2.34.1
 
