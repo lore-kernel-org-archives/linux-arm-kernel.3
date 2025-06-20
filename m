@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDFAC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F0CC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tz78elThMly+GZ1FrLr2n0ha/hZoqC+tkJdCnyvFqsA=; b=hBfnnL2HMSMFM1dkTQPqFbgmzy
-	OQtUqHhJ2UL2PwOKWPL5Ydk1pTQGcbuZiCGmh8DhcJBoHzuriJwvfOjnrBXuZiuvMtOuK3Y85yICN
-	bpL2pxWQHdGsDeVZDw0c5K3Khj1RydkdpT8B0NwmHNcnpEmxUpAyqkY644U5+hReVyhxb1Na5b8K+
-	b/YsFf03mkbdTLlmm4GmKwv8Q4WwXTyZaz52KZ87x8lYKtWDeip2fpIQb6mNzLidY4THLHhnCzJb7
-	bf+oRnKGkdMf/A3huIioaAdb3wG82YaA8egIxMLCPdMW0ubU+3AzO8jpe23HoMO1lrUXQ+Q/18Xqy
-	i+NQYoUg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P00Z3xPwRskc8OUtUjr926saB/lzl8GGGS3PfGvGynE=; b=DWiFvDFH2XecDpe3FjKJFdQfhg
+	KyCSo+2k96xlcLOV2vM1XkgKsp98B3Jhco/kS0oqBuvSvAgwPIo36mPpJ4ZTFDm2JRGydMds7rnb7
+	DPOXJEYHSftJnwvdvAyJEtqiP7gajRkSsycV66x4Sh4Jf665n1xKWhL17BkAxk8dnKN+A9WMEsq6U
+	FOAwM/UUIjSKwWkZ0HsV2Dcs4QXwDZu034+1wxtgUYSRcuNqqWcs0g9iYGTwEpV+NerhrDUkZTRHa
+	mAVspo+c/voZWvSB0aH+SjtokXoSc7KQ1K9pv6wyC2DWH8BuMJ8abmczYEB7HxgW+QFZGoBOkNxgL
+	xRRoWQnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeLc-0000000G6SP-11OX;
-	Fri, 20 Jun 2025 16:12:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uSeNx-0000000G6p5-4AOT;
+	Fri, 20 Jun 2025 16:14:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSduH-0000000G1U9-22wp;
+	id 1uSduF-0000000G1RC-1GxM;
 	Fri, 20 Jun 2025 15:43:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 597714AF92;
-	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0F260C116D0;
-	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E8D49A52679;
+	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B5A1C4CEE3;
+	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750434234;
-	bh=JRA+0OlnUj5dL3Gg9wNBfV4MEgqiibfc5y/swMwEpNg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=oibj5AUUVtxRNoR5qlIYqblBoNYAZQM/T4vR+znZMfpWFHBqUuxywUX0mjUIQ5O2s
-	 9vVBOEj+4OmlGbZBrZ9mZWMvGSOaz7Ml5ecSRa/rVz9Vm0ukkdU/OyVLt4P/tmSpX8
-	 N1uxb4mxBkT69zp+U/fSxqjEjWv0chdDuly6K49OMMnonuLLl31saXYpRRd1s+Tz1e
-	 uutNg6T4Rmc2qNpBteLkER1bLIM//vBnJ62RzOLguVrJj1UinmESL37vlth4iryGC1
-	 mPrHfZ/1U2cAhsJVWeq959mcutlMIeHgPiwpVxc0u/+sPdnbxchurEiVvk1EhhqIF0
-	 9Dnaz9EhtzdhA==
+	s=k20201202; t=1750434233;
+	bh=1gkbm0Ahe3s4IB6dtM7/gc/Nr6esMFpIeX5/yPsyc1Y=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Xnep2/MvdKDz/fdHmq2XY10w5uvObo11RdsEiCdlf+obnwW/860uuf3r37MAGFKxQ
+	 28faH4Z2e2Ptr2+nKQdmpSEtkpqcc73fjncWeDQU8mjP9JxE17VvVAXfcvU87ZHFi/
+	 EDVN5fOOCcaEIvW2Vmk+8RmJUj9eoPxOpjW694/0xfsyxyfkqyMfzw1Kp6lyWofRIr
+	 Mamo+p+0rRaXS9YrZT9VoTEQtpYPab2mTrORYIw9PD16sjtR9Ti7K0RUfhKVD0qwpN
+	 jTTa04qD7Z3YxDhGTguvgckMT6RewnkFOlBmbb83DYyNFKBJxs/hC+2jHTI/BuN1Mu
+	 KMVbaFFySn9oQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06C3DC7EE2A;
-	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76497C7115B;
+	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Fri, 20 Jun 2025 18:40:49 +0300
-Subject: [PATCH 10/11] ARM: dts: mediatek: add basic support for JTY D101
- board
+Subject: [PATCH 00/11] ASoC: mediatek: Add support for MT6572 SoC
+Date: Fri, 20 Jun 2025 18:40:39 +0300
+Message-Id: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-mt6572-v1-10-e2d47820f042@proton.me>
-References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
-In-Reply-To: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
+X-B4-Tracking: v=1; b=H4sIAPeAVWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDM0NL3dwSM1NzI93UNHOLROMUE1NDMwsloOKCotS0zAqwQdGxtbUASpa
+ sVlgAAAA=
+X-Change-ID: 20250619-mt6572-ef78a3d45168
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -70,19 +71,19 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Max Shevchenko <wctrl@proton.me>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=2358;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=1888;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=okQp4pzksQbwAVarYxmDvovk3WSeUiFA8NPTsCwIRQ0=;
- b=fy95bpb/Xfh299fxSxNw8c1epXw9BD3oGxi84uIgIUG+mRzRw4pvGhKR1ZNV7Fz/xBLHtN265
- qO6IJAcAL/+AYjI8b3yFJW3xVHFJVFrQz+znwamwN1vv0l6wwSrCsUQ
+ bh=1gkbm0Ahe3s4IB6dtM7/gc/Nr6esMFpIeX5/yPsyc1Y=;
+ b=3AEld+8wk5+1U1fLhIXFcIWHi3wiF54pBxW8LeyFpiSwe5e/VCsRfBazfxNwxh67svgValpwe
+ WLwLty6rQADAqyZaM7c8c8wsEzl+0990wJFZUTgodCzBj5BoVIqNY1r
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_084357_618609_F458A74D 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250620_084355_485927_AAB6050C 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,101 +99,45 @@ Reply-To: wctrl@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Max Shevchenko <wctrl@proton.me>
-
-This tablet uses a MediaTek MT6572 system-on-chip with 1GB of RAM.
-It can currently boot into initramfs with a working UART and
-Simple Framebuffer using already initialized panel by the bootloader.
+This series of patches adds support for the MT6572 SoC and
+the JTY D101 tablet and Lenovo A369i smartphone based on it.
 
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- arch/arm/boot/dts/mediatek/Makefile            |  1 +
- arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts | 62 ++++++++++++++++++++++++++
- 2 files changed, 63 insertions(+)
+Max Shevchenko (11):
+      dt-bindings: serial: mediatek,uart: add MT6572
+      dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: add MT6572
+      dt-bindings: timer: mediatek: add MT6572
+      dt-bindings: watchdog: mediatek,mtk-wdt: add MT6572
+      dt-bindings: vendor-prefixes: add JTY
+      dt-bindings: arm: mediatek: add boards based on the MT6572 SoC
+      ARM: mediatek: show the hardware name for the MT6572
+      ARM: mediatek: add MT6572 smp bring up code
+      ARM: dts: mediatek: add basic support for MT6572 SoC
+      ARM: dts: mediatek: add basic support for JTY D101 board
+      ARM: dts: mediatek: add basic support for Lenovo A369i board
 
-diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
-index 1957947cb41ce86ed101466bf822d4e2dfdfbb61..cb869a1aaec21a1d99f7f2a829b84672a3f52726 100644
---- a/arch/arm/boot/dts/mediatek/Makefile
-+++ b/arch/arm/boot/dts/mediatek/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_MEDIATEK) += \
- 	mt2701-evb.dtb \
-+	mt6572-jty-d101.dtb \
- 	mt6580-evbp1.dtb \
- 	mt6582-prestigio-pmt5008-3g.dtb \
- 	mt6589-aquaris5.dtb \
-diff --git a/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..5c3b9833073e43fb42e28719c1f206e8884b5f6a
---- /dev/null
-+++ b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
-@@ -0,0 +1,62 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 Max Shevchenko <wctrl@proton.me>
-+ */
-+
-+/dts-v1/;
-+#include "mt6572.dtsi"
-+
-+/ {
-+	model = "JTY D101";
-+	compatible = "jty,d101", "mediatek,mt6572";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		stdout-path = "serial0:921600n8";
-+
-+		framebuffer: framebuffer@bf400000 {
-+			compatible = "simple-framebuffer";
-+			memory-region = <&framebuffer_reserved>;
-+			width = <1024>;
-+			height = <600>;
-+			stride = <(1024 * 2)>;
-+			format = "r5g6b5";
-+			status = "okay";
-+		};
-+	};
-+
-+	memory {
-+		device_type = "memory";
-+		reg = <0x80000000 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		connsys@80000000 {
-+			reg = <0x80000000 0x100000>;
-+			no-map;
-+		};
-+
-+		modem@be000000 {
-+			reg = <0xbe000000 0x1400000>;
-+			no-map;
-+		};
-+
-+		framebuffer_reserved: framebuffer@bf400000 {
-+			reg = <0xbf400000 0xc00000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
+ .../devicetree/bindings/arm/mediatek.yaml          |   5 +
+ .../mediatek,mt6577-sysirq.yaml                    |   1 +
+ .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
+ .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ .../bindings/watchdog/mediatek,mtk-wdt.yaml        |   1 +
+ arch/arm/boot/dts/mediatek/Makefile                |   2 +
+ arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts     |  62 ++++++++++++
+ arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts |  57 +++++++++++
+ arch/arm/boot/dts/mediatek/mt6572.dtsi             | 105 +++++++++++++++++++++
+ arch/arm/mach-mediatek/Kconfig                     |   4 +
+ arch/arm/mach-mediatek/mediatek.c                  |   1 +
+ arch/arm/mach-mediatek/platsmp.c                   |   7 ++
+ 13 files changed, 249 insertions(+)
+---
+base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+change-id: 20250619-mt6572-ef78a3d45168
 
+Best regards,
 -- 
-2.50.0
+Max Shevchenko <wctrl@proton.me>
 
 
 
