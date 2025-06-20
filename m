@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0EFC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CA8C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jbJHVcoq7NiQABs8ZlPrmxzrxAeRD2HALcHntXvIP84=; b=NlG+eHlYKMP7n2wufM5093vO7N
-	wajWW22DvF+3sx5B0UAMBAjeBtirH+INPhxqpKbpnd54d+fLKAAyuwfjjhpb/G3KxJr3J6N0vgUSQ
-	qpXZrs7hi+ItcG9sQHQGEHtRU5aZEEBtplazPf98QSfVsQWtDL4ymdnc9uCZnaoFYdxJ96JcB1uW8
-	EQHFuUhAVOcvGN29Kh4J7dGjysMY2sEQ6/EG/PRqdC0JUeUM83kw9kVWUxMcIOwrqU+rMOfGAXs9I
-	eF34KfMhvx4ov8s7fVNtie0jUKm8FV4+yxRIhRNG2BU/uyp1IyuRDvX8dx01pvPoMvaiQP3vbMCLa
-	BMbYVDIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GK6e6w1xb/5R+UW8gTgnT6hijKGuDluLmnbi1Q0GbwE=; b=NGmPRcsoUfk8Ic60gipo5JQ26U
+	j1NzhAsiI2SxNg0ziJmKxTrtWAoei4eaEEHHLSweAPgSZtn30HHLqguQtDJcReqRqTKessv0M3mEj
+	x9kW8KwoQkxcKZDtOI9pQzZB2+X1yMmVvn2okS5g7JkVlt3xIRTG4pJRLhFinrF/US1RJhfhPSVxU
+	aldjrIzvSD4KI+4HgvGC1kzfoPE21lRW0YZ5ROFvmkSko/vDEDdAJO3Vz87nVrTQOJu+sGxwc1HXE
+	UKdN3aE0sDxv7lp1MsiZeoop1ZagMI9XQ/emfdpAU4q3XVldSggl/9Xn1cUXgJss4Z2AgtjhxMbUJ
+	9zKZmZxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSaIf-0000000FVcK-0myX;
-	Fri, 20 Jun 2025 11:52:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uSaN3-0000000FWFj-1eiV;
+	Fri, 20 Jun 2025 11:57:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZi5-0000000FRRV-2QZD
+	id 1uSZr5-0000000FSXi-2MZ4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 20 Jun 2025 11:24:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GK6e6w1xb/5R+UW8gTgnT6hijKGuDluLmnbi1Q0GbwE=; b=DMDZ+EbokDKzccyCxvrrirdJPr
+	WaFXRMvnWJbudE6FQiQsNWfu/zBbwPlcr3yohcbQA62TTuk+zW364/h3kkRteyxMDsaH1t7kfz7kj
+	p8pV5cG+YIMZxoeGylZtk+VzooZdzyhGvisMYcWrrCel3YtQeFYBcmPeHB7taLSlfRH7X/YUqGxyn
+	NTpYEODUy/30pvHiP7jjHGQyyXk05HB+vPNa5/pNCnwWpJ3rMd0nXsTSpPjmhbWob5rTvkkjlSDKl
+	79CQill9HUBB5yavj/PrB06vZkeEcrShtKkWiymbuX20ry3nZkIYhD2cTLTANNd0bMqhf+Msgz+Lx
+	/+3HEyMw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSZr2-00000004iME-3N3r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 11:15:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A86D95C46ED;
-	Fri, 20 Jun 2025 11:12:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B40FC4CEE3;
-	Fri, 20 Jun 2025 11:15:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750418103;
-	bh=fHGPT6U5lkOL40pG3L6uGrMxMnoD5rKHLmnMjGJM4HY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uGab8+3sBVTk65V/vppELrITzxhLlKqt/PCYK2f5nMEGtMUyW+WIkJqwPgnLVFOyD
-	 0fOKKPXlQl2KqwX26lksY/qNWuHp64d58okXUTeKO05KvGbmxfxtujqIg7djsQItzi
-	 X/UCt4M8DmP71vRTg/TgUNm3J0KZ/Ha5+XWyfIdRrErxW4igRLUx073rB392UUO+Q7
-	 BqLkXJWXWW8bkrS+QlHFwcj25XZECy2qpTtzvpB8exo60fWc736uctEizzutPd5tvj
-	 DNmipNK8nm9LkGqS4yzR1xjYBgdOqe4pWSX9mdNFpOYuTbW/3q2qerphMxmEB3CxcZ
-	 khkyzLPXi98Ew==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] cpufreq: armada-8k: make both cpu masks static
-Date: Fri, 20 Jun 2025 13:14:53 +0200
-Message-Id: <20250620111459.3366195-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Fri, 20 Jun 2025 11:24:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6031C176A;
+	Fri, 20 Jun 2025 04:23:58 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B68553F673;
+	Fri, 20 Jun 2025 04:24:16 -0700 (PDT)
+Date: Fri, 20 Jun 2025 12:24:14 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	James Morse <james.morse@arm.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: move smp_send_stop() cpu mask off stack
+Message-ID: <aFVE3uuNCbHF7f5z@arm.com>
+References: <20250620111045.3364827-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620111045.3364827-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_041505_659609_5FA72226 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20250620_122421_124292_B8708A1F 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Jun 20, 2025 at 01:10:41PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> For really large values of CONFIG_NR_CPUS, a CPU mask value should
+> not be put on the stack:
+> 
+> arch/arm64/kernel/smp.c:1188:1: error: the frame size of 8544 bytes is larger than 1536 bytes [-Werror=frame-larger-than=]
+> 
+> This could be achieved using alloc_cpumask_var(), which makes it
+> depend on CONFIG_CPUMASK_OFFSTACK, but as this function is already
+> serialized and can only run on one CPU, making the variable 'static'
+> is easier.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/arm64/kernel/smp.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 15987100c0cf..5c605dc7f5be 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1107,7 +1107,7 @@ static inline unsigned int num_other_online_cpus(void)
+>  void smp_send_stop(void)
+>  {
+>  	static unsigned long stop_in_progress;
+> -	cpumask_t mask;
+> +	static cpumask_t mask;
+>  	unsigned long timeout;
 
-An earlier patch marked one of the two CPU masks as 'static' to reduce stack
-usage, but if CONFIG_NR_CPUS is large enough, the function still produces
-a warning for compile testing:
+This would work, there's a stop_in_progress check and only one CPU would
+modify the mask.
 
-drivers/cpufreq/armada-8k-cpufreq.c: In function 'armada_8k_cpufreq_init':
-drivers/cpufreq/armada-8k-cpufreq.c:203:1: error: the frame size of 1416 bytes is larger than 1408 bytes [-Werror=frame-larger-than=]
-
-Normally this should be done using alloc_cpumask_var(), but since the
-driver already has a static mask and the probe function is not called
-concurrently, use the same trick for both.
-
-Fixes: 1ffec650d07f ("cpufreq: armada-8k: Avoid excessive stack usage")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/cpufreq/armada-8k-cpufreq.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/cpufreq/armada-8k-cpufreq.c b/drivers/cpufreq/armada-8k-cpufreq.c
-index 5a3545bd0d8d..006f4c554dd7 100644
---- a/drivers/cpufreq/armada-8k-cpufreq.c
-+++ b/drivers/cpufreq/armada-8k-cpufreq.c
-@@ -132,7 +132,7 @@ static int __init armada_8k_cpufreq_init(void)
- 	int ret = 0, opps_index = 0, cpu, nb_cpus;
- 	struct freq_table *freq_tables;
- 	struct device_node *node;
--	static struct cpumask cpus;
-+	static struct cpumask cpus, shared_cpus;
- 
- 	node = of_find_matching_node_and_match(NULL, armada_8k_cpufreq_of_match,
- 					       NULL);
-@@ -154,7 +154,6 @@ static int __init armada_8k_cpufreq_init(void)
- 	 * divisions of it).
- 	 */
- 	for_each_cpu(cpu, &cpus) {
--		struct cpumask shared_cpus;
- 		struct device *cpu_dev;
- 		struct clk *clk;
- 
--- 
-2.39.5
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
