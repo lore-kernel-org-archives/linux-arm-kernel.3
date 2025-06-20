@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F95C7115C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06F6C71155
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 13:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lJ+45IvRoWJ5YGcGkBPP+37icny9O5EOvwoloUYTRWM=; b=Bgal9T8rEtE93q55kLo0Wt7nO+
-	J2td3/oA0oMao3ET9yL5ylEj01K3T0N5uo6/J/mOYaDSe3GFF58vIXQAGVvGra2+T7richWSQDjxG
-	1tnWSlpALfMIgT8tjx3Vum6Lb8FJa2rzJYZX53lhO70feu/wJbrs8roRxyq/2sOpCnfxb5YE7aQMW
-	/0n/SLpyafweKZ2zDNkz0Puo3KpzoO7Fo4N0Pcrj6umgggEUjprYcaFngwVnjhu3MzUDIjGx5FQdI
-	fHn57TR1aUd5/0WvJ1eAeXd0Crr+PTW9nXS5wv3TjOXnUEtz1JMg21IaLvQb3SXKoJHAMuuBNN2iU
-	p8Eg2phA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2h9UIYX1uYfUtH693EwkaDV+piOGtAPqTMVpXrWNLM4=; b=e+joyxDqEA9YnDjf6NJPS68Ty5
+	zuVlhqL2WiiGEqid7exsWOOV5Oole+j50EzSogAwCAPXL5LFrHBVZ3SE4qCAOQSYTCCUQlC1GtRF3
+	Rfp2gehDJWquV0/KuMPUVWuztAdO88GBG37fL3bsxGuQTQ1UEmof8/Vcfr8AEa3hql81rXb8SmKW4
+	xnHlQbK/CATSnVB3IdzDouc4ZObkJSNZiJiMMtzFh16IUKkpH3Mjq9dKD6s4CbYD9yvqAteNRc5qH
+	x9+EgzpbC+pPFwnaGx/MInEmlWzS460MyXQH6PMpUmfUMaP6mH7J6rzf3HhmacYXPMyGcmQ4w9SOs
+	JSnLw5Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbNl-0000000Fep2-23qm;
-	Fri, 20 Jun 2025 13:02:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZg7-0000000FRFo-1O7s
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 11:13:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDE0A44CD2;
-	Fri, 20 Jun 2025 11:13:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD33AC4CEE3;
-	Fri, 20 Jun 2025 11:13:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750417982;
-	bh=Z+FfhbY2dIQj1OgYnBauCW6kLhQRKO0ds9VLINPnkqc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BDyuj5EwAviEGIEXuSCZoHjBq2v3OJqRI81UdNRoIs3x6p2SKoHURMU6pCVK+VuIr
-	 PajUfp+Qg5iXaO11tioHL7nHhYflpctwSW6WBJWdv2M5toGaiyb8g5cT1optX3reHK
-	 UTDNEClf1FJnA3VCEfkA9Bls/jNtm1T0q7CSNXa4bv3LQU0nDyadFoTLm14UpuPIZB
-	 jzfU2iFmNOtJ4yCXzklVHh1UxxUr7uAsjPDYLW2r2iV2VJEvHdW03xtbGWvpUv6kvJ
-	 VqsnqG2j0xf4Q1wy9RO0HgPdFJK8FaBubZbQ8NDSEGmPC0KW4saB9qlukrwrYsfBZC
-	 /UJlW2X1sLPYQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Abbott Liu <liuwenliang@huawei.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: export __memset/__memcpy/__memmove
-Date: Fri, 20 Jun 2025 13:12:44 +0200
-Message-Id: <20250620111257.3365489-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	id 1uSbNm-0000000Fepb-2W8v;
+	Fri, 20 Jun 2025 13:02:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSZmX-0000000FRyT-0twX;
+	Fri, 20 Jun 2025 11:19:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D909C176A;
+	Fri, 20 Jun 2025 04:19:18 -0700 (PDT)
+Received: from [10.57.31.151] (unknown [10.57.31.151])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C72773F673;
+	Fri, 20 Jun 2025 04:19:35 -0700 (PDT)
+Message-ID: <340d76b8-c3a6-4116-ae51-ac4e4ee6a994@arm.com>
+Date: Fri, 20 Jun 2025 12:19:28 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: prevent iommus dead loop when two masters
+ share one IOMMU
+To: Simon Xue <xxm@rock-chips.com>, joro@8bytes.org, will@kernel.org,
+ heiko@sntech.de
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250620073945.572523-1-xxm@rock-chips.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250620073945.572523-1-xxm@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_041303_395469_3A607093 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_041941_302178_AB4A4BE0 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +65,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On 2025-06-20 8:39 am, Simon Xue wrote:
+> When two masters share an IOMMU, calling ops->of_xlate during
+> the second master's driver init may overwrite iommu->domain set
+> by the first. This causes the check if (iommu->domain == domain)
+> in rk_iommu_attach_device() to fail, resulting in the same
+> iommu->node being added twice to &rk_domain->iommus, which can
+> lead to an infinite loop in subsequent &rk_domain->iommus operations.
 
-When KASAN is locally disabled for one file, the string functions
-get redirected to internal helpers, but those are not actually exported,
-so this only works in built-in code but fails for loadable modules:
+Indeed this is a property of the IOMMU instance itself so it really 
+should be initialised before registration, irrespective of client 
+devices. FWIW, if it's possible to take an unexpected 
+RK_MMU_IRQ_PAGE_FAULT immediately after requesting the IRQ (e.g. in a 
+kdump kernel after a crash with the hardware still running) then I think 
+the current code could probably end up dereferencing NULL in 
+report_iommu_fault() as well.
 
-ERROR: modpost: "__memset" [crypto/ecc.ko] undefined!
-ERROR: modpost: "__memcpy" [crypto/ecc.ko] undefined!
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-Add the missig exports.
+And probably also:
 
-Fixes: d6d51a96c7d6 ("ARM: 9014/2: Replace string mem* functions for KASan")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/kernel/armksyms.c | 3 +++
- 1 file changed, 3 insertions(+)
+Cc: stable@vger.kernel.org
+Fixes: 25c2325575cc ("iommu/rockchip: Add missing set_platform_dma_ops 
+callback")
 
-diff --git a/arch/arm/kernel/armksyms.c b/arch/arm/kernel/armksyms.c
-index 82e96ac83684..1ff50106afa4 100644
---- a/arch/arm/kernel/armksyms.c
-+++ b/arch/arm/kernel/armksyms.c
-@@ -83,10 +83,13 @@ EXPORT_SYMBOL(__raw_writesl);
- EXPORT_SYMBOL(strchr);
- EXPORT_SYMBOL(strrchr);
- EXPORT_SYMBOL(memset);
-+EXPORT_SYMBOL(__memset);
- EXPORT_SYMBOL(__memset32);
- EXPORT_SYMBOL(__memset64);
- EXPORT_SYMBOL(memcpy);
-+EXPORT_SYMBOL(__memcpy);
- EXPORT_SYMBOL(memmove);
-+EXPORT_SYMBOL(__memmove);
- EXPORT_SYMBOL(memchr);
- 
- EXPORT_SYMBOL(mmioset);
--- 
-2.39.5
+Thanks,
+Robin.
+
+> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+> ---
+>   drivers/iommu/rockchip-iommu.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+> index 22f74ba33a0e..e6bb3c784017 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -1157,7 +1157,6 @@ static int rk_iommu_of_xlate(struct device *dev,
+>   		return -ENOMEM;
+>   
+>   	data->iommu = platform_get_drvdata(iommu_dev);
+> -	data->iommu->domain = &rk_identity_domain;
+>   	dev_iommu_priv_set(dev, data);
+>   
+>   	platform_device_put(iommu_dev);
+> @@ -1195,6 +1194,8 @@ static int rk_iommu_probe(struct platform_device *pdev)
+>   	if (!iommu)
+>   		return -ENOMEM;
+>   
+> +	iommu->domain = &rk_identity_domain;
+> +
+>   	platform_set_drvdata(pdev, iommu);
+>   	iommu->dev = dev;
+>   	iommu->num_mmu = 0;
 
 
