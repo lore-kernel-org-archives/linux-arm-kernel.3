@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE4AC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EDDC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XvklUYDFwl5UGXL1Gm8oQZqPfot4W+sW1OgI6J/vQq8=; b=IiV8kFIo/QAACGPrYQ1ciH7kA6
-	8oktbT+tfYL/5r4ji02JPI4+ZtywTh5HoqD3DRuP7ITcCrYno9WtxwKRiYc293HPt+0aLeHwXnDft
-	9Uc0Mtq1IVL4sAWXb2t7QQa6a/9k5oDHY6ScjQGlYz3mDk4phRzlwUR2G7sZ+QWZLGUB45yzlkuH6
-	x2704JnSSNZDvJyxER2+n2jy09T5VcUpOjxXlfXgo470hluhFkOh7QuXPGvEboMHfo9FyzapTpL82
-	g2Ypuq3tvsBzAd0I/8tDC6zk5pX181J5KGO1hZUJRqZP+M5rRfDwoBlG6p9MBgc149MKH6G0EmN+p
-	tKjF23Vg==;
+	bh=uk1h/OSRQW76dr7YBIYqdBe7lZw8tZ9KpxMBcLXXza8=; b=XWiieQQEZa4OPre7vUEFlevjYO
+	a3HNQrsbQ+hcT43+Fwb2I/UtF/yOx3EoADpItWBg71xEqVndft+GyI3KB86r7XaX9/ereG2Qy1X+m
+	YYrEshSMEiDuL64gw+pu85eef3EdH+PQjifHwXdU5VFtUIM8VfwmNH6Vy9O/JedD4sBS1uiCwLixs
+	ZaxpPhryJF3xV/snGiNdlqS3gN6hCgO0Im/tpL9QQVi52nY8Ju/lyWW7n9xQbo+TKhCPF/I23fJkA
+	9LXauQKGSej+RLnI9jxmO8+vsXGggIQd8lfSp1Y7dPpdNsMpb+fZ3jMt405kCj0SNL54hpRw1mN1L
+	kmTLgswA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSf04-0000000GBEs-24nW;
-	Fri, 20 Jun 2025 16:54:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeKJ-0000000G6Eh-0oCL
+	id 1uSf2H-0000000GBQF-19MS;
+	Fri, 20 Jun 2025 16:56:17 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSeMB-0000000G6Xq-1lmz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 16:10:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A26016F2;
-	Fri, 20 Jun 2025 09:10:27 -0700 (PDT)
-Received: from [10.1.30.146] (XHFQ2J9959.cambridge.arm.com [10.1.30.146])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 207873F58B;
-	Fri, 20 Jun 2025 09:10:42 -0700 (PDT)
-Message-ID: <7105112f-b0bb-4191-b3c9-93522162319c@arm.com>
-Date: Fri, 20 Jun 2025 17:10:41 +0100
+	Fri, 20 Jun 2025 16:12:48 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-60b8a9be972so506192eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 09:12:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gateworks.com; s=google; t=1750435966; x=1751040766; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uk1h/OSRQW76dr7YBIYqdBe7lZw8tZ9KpxMBcLXXza8=;
+        b=ZtNf9n4yN+EgDPp7uw7pgc81c6PkROSkmzC6sZR9aefdHq06KVL7Ey24jQy8anVGER
+         J9Hrmy1eVlXmsjSn5DYdA+mt3hKv29/R7fDV3A2Fy7UoCyv28fpnnzOxsR0hgutCzI9+
+         oNOi8g4b9UH/GXcvrQQjkgpoEC12BBOwu+cQPhxCwERn8VZ8CzkCZ3FQeYPwS/JN0Hk7
+         UUb3Kn8VNb1aHEcD5Y/RrS+Q2DZesQ4XzPbmmokd7+qIbj+R4ew75HZtR58kdwZPOtw8
+         Cd19JJ1IY02dU/dq576SVL/NGPJL5ATCLOtIJ+s4kvZ/Q8sCPP60mbulmjXNytQdbRce
+         op1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750435966; x=1751040766;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uk1h/OSRQW76dr7YBIYqdBe7lZw8tZ9KpxMBcLXXza8=;
+        b=KgaoStLM7zxfwi4TTPJJumvH+EztbdMN89sopK0mvHhhHQsNijoNweNhyiuRTe5Iw6
+         RsN2nbEnKJ/X0v60N0I1w7NFQ+uvx0z/aAN+ExPCG/4uLCHWERcSbORDpDOC7joBZEt0
+         m5oR/k0y+YUQX1W+OSKCTzRbpaJA0fPckaFHOvAfhV9oZ+fT/Lq+hr+9ZeZKWEJ+yknK
+         0lrn7b0AKZUlEuEeOA7BzVUixym56HNxwOWAPR9AtR7fooZNbd/xAhk5XtNqVACMBu/E
+         HP175JmSjR8062KiBl6pXpNVcf98cOJbwmE/+rFDrpskcvAuMIMLXfM4EBfH+nA/rqDZ
+         0OKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUxDwD3ieCQsd4zlPkDbyIPkITKKSDhJsrASAF5bZ7Ib3EWj1821pAS1IIpGW2+QvqCBzGALG/6GIn5swVoxR0L@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ4J1wPmn9nEUbdusVcZlFHnDA5XEsmPVUBUsosNXtbLUrjT4K
+	X+3ydi/X9IUbve/wo7xYUybm4/J2WOmmM9paoC02IDlXwz4RZr4EuPSBJLNkoBePnGaTz8Xhbvb
+	Aef73iWFff+1pkpKDUiH/Nt/krjUWiFPUePKXV+ShPQ==
+X-Gm-Gg: ASbGncuzrs8nWktTGGkKmpoNNKWWQdKoLTvtK4pyQRdFlRamIHCth7r9utCja3Bmu5D
+	ZjL8c8zfqKd1Xqt3t9mgMrgZMi9Zgxbc9q7vGlSQWFp6lSUK4z9tUsuSzaPMx/atDBEq4UryzQp
+	bOcG7n4MWLf7nCG44T0BS4PaUR6aoyESYzuFj+4qVrCLo=
+X-Google-Smtp-Source: AGHT+IEWHRk01AMNXUO3Iti/LVUHyPY06MPi2HY582F4LaypQ5ZkZqqgLLKeo/FHsS0LAg4XUMcQcmQIpTlGgPfCCxs=
+X-Received: by 2002:a05:6820:1e87:b0:610:fc12:cbb4 with SMTP id
+ 006d021491bc7-6115b8a077cmr2461053eaf.1.1750435966109; Fri, 20 Jun 2025
+ 09:12:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
- BBML2
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: yang@os.amperecomputing.com, will@kernel.org, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
- broonie@kernel.org, ardb@kernel.org, baohua@kernel.org,
- suzuki.poulose@arm.com, david@redhat.com, jgg@ziepe.ca, nicolinc@nvidia.com,
- jsnitsel@redhat.com, mshavit@google.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev
-References: <20250617095104.6772-1-miko.lenczewski@arm.com>
- <20250617095104.6772-5-miko.lenczewski@arm.com> <aFRlDSZ2PPnHixjc@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aFRlDSZ2PPnHixjc@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250616085742.2684742-1-hongxing.zhu@nxp.com> <20250616085742.2684742-2-hongxing.zhu@nxp.com>
+In-Reply-To: <20250616085742.2684742-2-hongxing.zhu@nxp.com>
+From: Tim Harvey <tharvey@gateworks.com>
+Date: Fri, 20 Jun 2025 09:12:35 -0700
+X-Gm-Features: AX0GCFupqyePYKY1h7Imt92So6Th1StimJuRSWH0VvVxy1uS8kPjLbLXM76L3Es
+Message-ID: <CAJ+vNU15XpyLuxO4EowyqO9P+ZUqNApoH2Wu261iu-5b2GrkGw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] PCI: imx6: Remove apps_reset toggle in _core_reset functions
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_091051_321553_318C59A1 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20250620_091247_546628_DFA6D8E9 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,105 +98,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2025 20:29, Catalin Marinas wrote:
-> On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index bcac4f55f9c1..203357061d0a 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->>  			pte = pte_mkyoung(pte);
->>  	}
->>  
->> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->> +	/*
->> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
->> +	 *
->> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
->> +	 *       N=4 for clarity.
->> +	 *
->> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
->> +	 *       unset and set, respectively.
->> +	 *
->> +	 * We worry about two cases where contiguous bit is used:
->> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
->> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
->> +	 *
->> +	 * Currently, the BBML0 folding case looks as follows:
->> +	 *
->> +	 *  0) Initial page-table layout:
->> +	 *
->> +	 *   +----+----+----+----+
->> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
->> +	 *   +----+----+----+----+
->> +	 *
->> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
->> +	 *
->> +	 *   +----+----+----+----+
->> +	 *   |  0 |  0 |  0 |  0 |
->> +	 *   +----+----+----+----+
->> +	 *
->> +	 *  2) __flush_tlb_range():
->> +	 *
->> +	 *   |____ tlbi + dsb ____|
->> +	 *
->> +	 *  3) __set_ptes() to repaint contiguous block:
->> +	 *
->> +	 *   +----+----+----+----+
->> +	 *   |RO,c|RO,c|RO,c|RO,c|
->> +	 *   +----+----+----+----+
-> 
-> From the initial layout to point (3), we are also changing the
-> permission. Given the rules you mentioned in the Arm ARM, I think that's
-> safe (hardware seeing either the old or the new attributes). The
-> FEAT_BBM description, however, only talks about change between larger
-> and smaller blocks but no mention of also changing the attributes at the
-> same time. Hopefully the microarchitects claiming certain CPUs don't
-> generate conflict aborts understood what Linux does.
-> 
->> +	 *
->> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
->> +	 *
->> +	 *                  |____| <--- tlbi + dsb
-> [...]
->> +	 * It is also important to note that at the end of the BBML2 folding
->> +	 * case, we are still left with potentially all N TLB entries still
->> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
->> +	 * block). However, over time, natural TLB pressure will cause the
->> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
->> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
->> +	 * not only correct, but also keeps our eventual performance benefits.
-> 
-> Step 4 above implies some TLB flushing from the core code eventually.
-> What is the situation mentioned in the paragraph above? Is it only until
-> we get the TLB flushing from the core code?
+On Mon, Jun 16, 2025 at 1:59=E2=80=AFAM Richard Zhu <hongxing.zhu@nxp.com> =
+wrote:
+>
+> apps_reset is LTSSM_EN on i.MX7, i.MX8MQ, i.MX8MM and i.MX8MP platforms.
+> Since the assertion/de-assertion of apps_reset(LTSSM_EN bit) had been
+> wrappered in imx_pcie_ltssm_enable() and imx_pcie_ltssm_disable();
+>
+> Remove apps_reset toggle in imx_pcie_assert_core_reset() and
+> imx_pcie_deassert_core_reset() functions. Use imx_pcie_ltssm_enable()
+> and imx_pcie_ltssm_disable() to configure apps_reset directly.
+>
+> Fix fail to enumerate reliably PI7C9X2G608GP (hotplug) at i.MX8MM, which
+> reported By Tim.
+>
+> Reported-by: Tim Harvey <tharvey@gateworks.com>
+> Closes: https://lore.kernel.org/all/CAJ+vNU3ohR2YKTwC4xoYrc1z-neDoH2TTZcM=
+HDy+poj9=3DjSy+w@mail.gmail.com/
+> Fixes: ef61c7d8d032 ("PCI: imx6: Deassert apps_reset in imx_pcie_deassert=
+_core_reset()")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controll=
+er/dwc/pci-imx6.c
+> index 9754cc6e09b9..f5f2ac638f4b 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -860,7 +860,6 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx=
+_pcie, bool assert)
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>         reset_control_assert(imx_pcie->pciephy_reset);
+> -       reset_control_assert(imx_pcie->apps_reset);
+>
+>         if (imx_pcie->drvdata->core_reset)
+>                 imx_pcie->drvdata->core_reset(imx_pcie, true);
+> @@ -872,7 +871,6 @@ static void imx_pcie_assert_core_reset(struct imx_pci=
+e *imx_pcie)
+>  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>         reset_control_deassert(imx_pcie->pciephy_reset);
+> -       reset_control_deassert(imx_pcie->apps_reset);
+>
+>         if (imx_pcie->drvdata->core_reset)
+>                 imx_pcie->drvdata->core_reset(imx_pcie, false);
+> @@ -1247,6 +1245,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp=
+)
+>                 }
+>         }
+>
+> +       /* Make sure that PCIe LTSSM is cleared */
+> +       imx_pcie_ltssm_disable(dev);
+> +
+>         ret =3D imx_pcie_deassert_core_reset(imx_pcie);
+>         if (ret < 0) {
+>                 dev_err(dev, "pcie deassert core reset failed: %d\n", ret=
+);
+> --
+> 2.37.1
+>
 
-I think the point that Miko is making here is that at some point between step 3
-and 4, we could end up with up to any 3 of the original small entries as well as
-the large entry in the TLB. Then the flush at step 4 will only remove the small
-entry at the last entry and the large entry - i.e. it will only remove the
-entries that overlap the region that the tlbi targets, and up to 3 of the small
-entries may be left in the TLB after step 4. Our rationale here was that this is
-safe due to BBML2 and it will naturally sort itself out over time with natural
-eviction.
+Tested-by: Tim Harvey <tharvey@gateworks.com> # imx8mp-venice-gw74xx
+(i.MX8MP + hotplug capable switch)
 
-> 
-> [...]
->> +	if (!system_supports_bbml2_noabort())
->> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->>  
->>  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
-> 
-> Eliding the TLBI here is all good but looking at the overall set_ptes(),
-> why do we bother with unfold+fold for BBML2? Can we not just change
-> them in place without going through __ptep_get_and_clear()?
+Best Regards,
 
-We need to collect the access and dirty bits so we can apply the aggregate
-across all entries. We can only accurately collect the access and dirty bits if
-we go via invalid, otherwise the HW could update after we have read the old
-entry but before we have written the new entry.
-
-Thanks,
-Ryan
-
+Tim
 
