@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 137DEC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B021C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oj7aDLhck8d5+ayvvwLkGQOKkyv7fiwIxcrymm6gaWY=; b=eqW7GotNS2uy4xxN78kq1W26re
-	fo1RccbYByDaNXfV76r4RXFsIDby4m/uQoRV22QixtqYUwNMPfKeTwO6AP+Ku2zJk6lLzLrLFqFQM
-	yOalWC06/X3yfPm/BMkJJOW1BXIYLThOxJHwi96Fh9iOxWbbnd/mZnSNnNVzK8G8QjWVpwWKottVl
-	zkfq5FKgl3vKEf92siUgDwJICqRBfMPbTUZ1BfXxh3ZOYgAnhztoSpQCcsQBvlfjVfBOhFeb+HavE
-	JZPgI3XdIcK9WM547pi4AUwkl490UjINif4gbTmXSolWvpbFzfoJ1U6nYLFBHq0wdyZbJugB9fVlz
-	IidbFUXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nv26tnOr8pnIDMXACP8UAYDnqpOYpsrVyGvNEFZ2Dj4=; b=PXqru1MivbUwSXudxhAPNuR9Al
+	NqNti1aimW7KwQ5U579zU4ItRTZswqIojskHW6HyUWbYraRK+F/QBJf7hNB5oSnRI0utZejH2LUiw
+	bmZWQ/rY1Gem0WHALPAnAcUToZmglsaVSgKX49898P5zAQxutditDqUwA4M8q39Lc21SaqiKrCWSY
+	//M/MLlnjKhHG28eRqIyQmVg7Esp6m5N2HYAI+xm+P/gjTW1W1Pmh6SvhYHkdZsOaL6LRvamnMZq4
+	N6dc722pjW/VEssBK5vBiE+evrL3PB/ltdpcRZnx6tkxE0QBxOYpKQfo4Kvfa5r2URVoVwcfs/9wI
+	OGBqrYlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbKA-0000000Fd2E-2YRJ;
-	Fri, 20 Jun 2025 12:58:30 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uSbKE-0000000Fd98-0zDX;
+	Fri, 20 Jun 2025 12:58:34 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSb5j-0000000Fafw-3dgR;
-	Fri, 20 Jun 2025 12:43:36 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-234c5b57557so17402095ad.3;
-        Fri, 20 Jun 2025 05:43:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750423415; x=1751028215; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oj7aDLhck8d5+ayvvwLkGQOKkyv7fiwIxcrymm6gaWY=;
-        b=cLmugfXdWtJXmqTUfVZ5OTfIwbq5GR7tJe9PqZVxGpu/pipNRhpqbQPuPtbfT+fMTK
-         HKKlQ9kM1fq3MtWMD49gj/EiqDTlQk353/NqhdSEPXkv3xB/r1AJ6Vzf2yUt6cDadcg0
-         5kYMRij0K/4n3bh/Xvvki3uEEAYbaLHMP3UySE3ZPdiemZwDTYvRBraSLay8/dLTKwLa
-         ixmhkibf4Deogjf/x8MZGu30HVQrJmuwantaXH4no0AWPlQ+QaE9IsCbb+XVBMSyaUjI
-         9x9g4cdwGrhH4i3XJL9dsTV369Sj0Pb4dEgyvSB1I6bdyUqpoNB2hYi/QO9AWkCX8KIL
-         207A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750423415; x=1751028215;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oj7aDLhck8d5+ayvvwLkGQOKkyv7fiwIxcrymm6gaWY=;
-        b=JajXWqXrHiK+NcmeykLaWP7mbTeqiRKncpbiD98aBSj7iHqp6/TN1oC6UAcu6DIYGy
-         N7k1z16xZmb6tSJVdk5gLpeTNNfGlXNi8pWuWQWvvwc171646sw2+Hgi3AlqZYN8fJ8y
-         UtmHtFdbQs0VGN+KVXPhQmKAdEHPcGqoVtM+U1G4qwXjv2eORAyz5mpobwC8hxuygseq
-         D1yRAsstw92WU3nsIa4dYSvJgv/L774JAc37LJG/Y1u0tRXriycHczfgcyT0D09zvUcJ
-         xMruv/ws6sxMGkPV+efd/iuN8P3JubriyOBZ1vSIznN8eIjuOgw1Vq8Reew0ezqmG7wy
-         Ugzg==
-X-Forwarded-Encrypted: i=1; AJvYcCVL3hmJZtmhCD1NkonYwxv1x4kxHb9qyRGnWjDfLr4EVQl/dqRX9iwmrEG5iHxOeEX2ug5UHsjWHBeuofwxtdC0@lists.infradead.org, AJvYcCVbvNtoTZAdJWauWYFQrsD1wf8EOL0F5uuBpsT8LT7VETUqUWdrZv2rpn/m/SjwNIgOMjeRBGTUGOj6@lists.infradead.org
-X-Gm-Message-State: AOJu0YySeVf19lkKx3Voyymx5wqqp4nMmHolC30Yloz1Gdb6e+f9Z+QW
-	Kf+mGCqTdX/kF3VAHQf43zc+IpGnncIU4eyT6W02dhcCJBbPE0A8IGiA
-X-Gm-Gg: ASbGnct4pJSnGL2rjCG8LusdQQk3VJpHQSzVTWKhhuASxIsbhh7t2uqLShhav2v3JTr
-	jrA5EVJQ/SXhFct9IpL18fCDTj/pBE89NvPSZSLZHaIdrVfdN1nXhfSi+MGKOC5UOdzcleEb9kd
-	gjt+Jito++iKAa5KK6oyZsfY8xXVd92y3LyS4dkNF2RXaTLAoWvDDxkWrrRO93NbGGsJ1C70MaP
-	wNn7gyGnen/CDAu55jH+88QbsQcsXdPvtoChTUdfWIN92pS16R9l1yvpzAZMDfHP+wyEFX3C5Za
-	UIE3OHazJRMLklJpji9Q24SKsaJ+OQm3cl3Er2aAvqaFUF6YzQ==
-X-Google-Smtp-Source: AGHT+IEuD3H+HAfeXs9W/BR6wxzL9h2mEYrXblCAc4qefsZX7SSfF2y9fHbF07Keq6sv02/yWTML7w==
-X-Received: by 2002:a17:903:3201:b0:229:1619:ab58 with SMTP id d9443c01a7336-237d99f4420mr46670075ad.43.1750423415114;
-        Fri, 20 Jun 2025 05:43:35 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:cab9::dead:c001])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d8674544sm17204025ad.167.2025.06.20.05.43.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 05:43:34 -0700 (PDT)
-Date: Fri, 20 Jun 2025 09:43:28 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v5 2/4] PCI: rockchip: Set Target Link Speed before
- retraining
-Message-ID: <aFVXcIGHC9aeSuAF@geday>
-References: <cover.1749833986.git.geraldogabriel@gmail.com>
- <1966f8ddc4a81426b4f1f48c22bea9b4a6e6297c.1749833987.git.geraldogabriel@gmail.com>
- <562662d4-69ca-4d0e-ad0d-fd8cece417e0@arm.com>
+	id 1uSb7x-0000000Fb9a-3wqt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 12:45:56 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bNxyR4Y4Wz6M553;
+	Fri, 20 Jun 2025 20:45:03 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id BA943140446;
+	Fri, 20 Jun 2025 20:45:41 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 20 Jun
+ 2025 14:45:41 +0200
+Date: Fri, 20 Jun 2025 13:45:38 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Junhao He <hejunhao3@huawei.com>, <linuxarm@huawei.com>
+CC: <suzuki.poulose@arm.com>, <james.clark@arm.com>, <leo.yan@arm.com>,
+	<anshuman.khandual@arm.com>, <coresight@lists.linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+Subject: Re: [PATCH v2 2/3] coresight: tmc: refactor the tmc-etr mode
+ setting to avoid race conditions
+Message-ID: <20250620134515.00004d58@huawei.com>
+In-Reply-To: <20250620075412.952934-3-hejunhao3@huawei.com>
+References: <20250620075412.952934-1-hejunhao3@huawei.com>
+	<20250620075412.952934-3-hejunhao3@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <562662d4-69ca-4d0e-ad0d-fd8cece417e0@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_054335_903206_BFCAF4B4 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_054554_272684_E2DA83A8 
+X-CRM114-Status: GOOD (  31.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +75,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 01:33:11PM +0100, Robin Murphy wrote:
-> On 2025-06-13 6:03 pm, Geraldo Nascimento wrote:
-> > Current code may fail Gen2 retraining if Target Link Speed
-> > is set to 2.5 GT/s in Link Control and Status Register 2.
-> > Set it to 5.0 GT/s accordingly.
-> 
-> I have max-link-speed overridden to 2 in my local DTB, and indeed this 
-> seems to make my NVMe report a 5.0 GT/s link where previously it was 
-> still downgrading to 2.5, so:
-> 
-> Tested-by: Robin Murphy <robin.murphy@arm.com>
->
+On Fri, 20 Jun 2025 15:54:11 +0800
+Junhao He <hejunhao3@huawei.com> wrote:
 
-Hi Robin,
+> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+> in tmc_etr_enable_hw() is triggered sometimes:
+>=20
+>  WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-t=
+mc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>  [..snip..]
+>  Call trace:
+>   tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>   tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>   tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>   coresight_enable_path+0x1c8/0x218 [coresight]
+>   coresight_enable_sysfs+0xa4/0x228 [coresight]
+>   enable_source_store+0x58/0xa8 [coresight]
+>   dev_attr_store+0x20/0x40
+>   sysfs_kf_write+0x4c/0x68
+>   kernfs_fop_write_iter+0x120/0x1b8
+>   vfs_write+0x2c8/0x388
+>   ksys_write+0x74/0x108
+>   __arm64_sys_write+0x24/0x38
+>   el0_svc_common.constprop.0+0x64/0x148
+>   do_el0_svc+0x24/0x38
+>   el0_svc+0x3c/0x130
+>   el0t_64_sync_handler+0xc8/0xd0
+>   el0t_64_sync+0x1ac/0x1b0
+>  ---[ end trace 0000000000000000 ]---
+>=20
+> Since the sysfs buffer allocation and the hardware enablement is not
+> in the same critical region, it's possible to race with the perf
+>=20
+> mode:
+>   [sysfs mode]                   [perf mode]
+>   tmc_etr_get_sysfs_buffer()
+>     spin_lock(&drvdata->spinlock)
+>     [sysfs buffer allocation]
+>     spin_unlock(&drvdata->spinlock)
+>                                  spin_lock(&drvdata->spinlock)
+>                                  tmc_etr_enable_hw()
+>                                    drvdata->etr_buf =3D etr_perf->etr_buf
+>                                  spin_unlock(&drvdata->spinlock)
+>  spin_lock(&drvdata->spinlock)
+>  tmc_etr_enable_hw()
+>    WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
+>                                 the perf side
+>   spin_unlock(&drvdata->spinlock)
+>=20
+> A race condition is introduced here, perf always prioritizes execution, a=
+nd
+> warnings can lead to concerns about potential hidden bugs, such as getting
+> out of sync.
+>=20
+> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
+> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
+> enabled in a different mode, and simplily the setup and checks for "mode".
+> To prevent race conditions between mode transitions.
+>=20
+> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function =
+for ETR")
+> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
+> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-y=
+angyicong@huawei.com/
+> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> ---
+>  .../hwtracing/coresight/coresight-tmc-etr.c   | 73 +++++++++++--------
+>  1 file changed, 43 insertions(+), 30 deletions(-)
+>=20
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hw=
+tracing/coresight/coresight-tmc-etr.c
+> index b07fcdb3fe1a..252a57a8e94e 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1263,11 +1263,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(st=
+ruct coresight_device *csdev)
+>  		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>  	}
+> =20
+> -	if (drvdata->reading || coresight_get_mode(csdev) =3D=3D CS_MODE_PERF) {
+> -		ret =3D -EBUSY;
+> -		goto out;
+> -	}
+> -
+>  	/*
+>  	 * If we don't have a buffer or it doesn't match the requested size,
+>  	 * use the buffer allocated above. Otherwise reuse the existing buffer.
+> @@ -1278,7 +1273,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(str=
+uct coresight_device *csdev)
+>  		drvdata->sysfs_buf =3D new_buf;
+>  	}
+> =20
+> -out:
+>  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> =20
+>  	/* Free memory outside the spinlock if need be */
+> @@ -1289,7 +1283,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(str=
+uct coresight_device *csdev)
+> =20
+>  static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>  {
+> -	int ret =3D 0;
+> +	int ret;
+>  	unsigned long flags;
+>  	struct tmc_drvdata *drvdata =3D dev_get_drvdata(csdev->dev.parent);
+>  	struct etr_buf *sysfs_buf =3D tmc_etr_get_sysfs_buffer(csdev);
+> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct cores=
+ight_device *csdev)
+> =20
+>  	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> =20
+> -	/*
+> -	 * In sysFS mode we can have multiple writers per sink.  Since this
+> -	 * sink is already enabled no memory is needed and the HW need not be
+> -	 * touched, even if the buffer size has changed.
+> -	 */
+> -	if (coresight_get_mode(csdev) =3D=3D CS_MODE_SYSFS) {
+> -		csdev->refcnt++;
+> -		goto out;
+> -	}
+> -
+>  	ret =3D tmc_etr_enable_hw(drvdata, sysfs_buf);
+> -	if (!ret) {
+> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
+> +	if (!ret)
+>  		csdev->refcnt++;
+> -	}
+> =20
+> -out:
+>  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> =20
+>  	if (!ret)
+> @@ -1735,11 +1716,6 @@ static int tmc_enable_etr_sink_perf(struct coresig=
+ht_device *csdev, void *data)
+>  	struct etr_perf_buffer *etr_perf =3D etm_perf_sink_config(handle);
+> =20
+>  	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> -	 /* Don't use this sink if it is already claimed by sysFS */
+> -	if (coresight_get_mode(csdev) =3D=3D CS_MODE_SYSFS) {
+> -		rc =3D -EBUSY;
+> -		goto unlock_out;
+> -	}
+> =20
+>  	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
+>  		rc =3D -EINVAL;
+> @@ -1768,7 +1744,6 @@ static int tmc_enable_etr_sink_perf(struct coresigh=
+t_device *csdev, void *data)
+>  	if (!rc) {
+>  		/* Associate with monitored process. */
+>  		drvdata->pid =3D pid;
+> -		coresight_set_mode(csdev, CS_MODE_PERF);
+>  		drvdata->perf_buf =3D etr_perf->etr_buf;
+>  		csdev->refcnt++;
+>  	}
+> @@ -1781,14 +1756,52 @@ static int tmc_enable_etr_sink_perf(struct coresi=
+ght_device *csdev, void *data)
+>  static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>  			       enum cs_mode mode, void *data)
+>  {
+> +	struct tmc_drvdata *drvdata =3D dev_get_drvdata(csdev->dev.parent);
+> +	enum cs_mode old_mode;
+> +	int rc =3D -EINVAL;
+> +
+> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+> +		old_mode =3D coresight_get_mode(csdev);
+> +		if (old_mode !=3D CS_MODE_DISABLED && old_mode !=3D mode)
+> +			return -EBUSY;
+> +
+> +		if (drvdata->reading)
+> +			return -EBUSY;
+> +
+> +		/* In sysFS mode we can have multiple writers per sink. */
+> +		if (old_mode =3D=3D CS_MODE_SYSFS) {
 
-thanks for the testing, I'll include the tag in v6 once Bjorn gets back
-to me on the 16-bit adjacent registers problem.
+This seems odd.  You are incrementing the reference count when potentially =
+changing
+away from CS_MODE_SYSFS?
+Is this meant to only occur if old_mode =3D=3D mode && old_mode =3D=3D CS_M=
+ODE_SYSFS?
 
-Geraldo Nascimento
+In the code prior to this patch this bit only ran in tmc_enable_etr_sink_sy=
+sfs()
+which was only called based on the mode being configured (mode here I think=
+) being
+sysfs.  That no longer looks to be the case.
+
+Maybe I'm missing something as the flows around this are complex.
+
+
+
+> +			csdev->refcnt++;
+> +			return 0;
+> +		}
+> +
+> +		/*
+> +		 * minor note: In sysFS mode, the task1 get locked first, it setup
+> +		 * etr mode to SYSFS. Then task2 get locked=EF=BC=8Cit will directly r=
+eturn
+> +		 * success even when the tmc-etr is not enabled at this moment.
+> +		 * Ultimately, task1 will still successfully enable tmc-etr.
+> +		 * This is a transient state and does not cause an anomaly.
+> +		 */
+> +		coresight_set_mode(csdev, mode);
+> +	}
+> +
+>  	switch (mode) {
+>  	case CS_MODE_SYSFS:
+> -		return tmc_enable_etr_sink_sysfs(csdev);
+> +		rc =3D tmc_enable_etr_sink_sysfs(csdev);
+> +		break;
+>  	case CS_MODE_PERF:
+> -		return tmc_enable_etr_sink_perf(csdev, data);
+> +		rc =3D tmc_enable_etr_sink_perf(csdev, data);
+> +		break;
+>  	default:
+> -		return -EINVAL;
+> +		rc =3D -EINVAL;
+>  	}
+> +
+> +	if (rc && old_mode !=3D mode) {
+> +		scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+
+Might be a local style matching thing but if not the scope is tight anyway
+so could use the unscoped version.
+
+		guard(spinlock_irqsave)(&drvdata->spinlock);
+		coresight_set_mode(csdev, old_mode);
+
+> +			coresight_set_mode(csdev, old_mode);
+> +		}
+> +	}
+> +
+> +	return rc;
+>  }
+> =20
+>  static int tmc_disable_etr_sink(struct coresight_device *csdev)
+
 
