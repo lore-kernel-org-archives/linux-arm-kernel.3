@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD360C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 05:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E32C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 05:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbSgdIBI6iFxe6i3FZyu7YD7BmxVQ2+dyEsXTuaoFLA=; b=REV6/Gr9hBE09YVsvwmunrwURN
-	sfri4xz7YS/U361nUKDBfEl9a5379Yupwr1BYTqNItrrj5W5lhPPx2VRppAyc8nO1Pi/Tk6cr0+SZ
-	of7FwfWIb7Pe76ZdSwzigsnAsvQcXwvuxgDcv9oLciShcP7Bd6gQtYJTKLuNIHFXDPv/JXeaDS0Rv
-	sXPQ3DRMGJQukI59MpM/wv0E/I/1msx0mhaGrpFSd5Ua2bTs4AdB6tp1eoIlnXsfkK/I0ofc7xh59
-	vx0cI+Pg7p8RaCeycJGI+htv7O+iFARkeX3rSMITt5S64zj/blCavwmfboaw6u/67bGAi0yyDsAH2
-	G3bQ4Kkg==;
+	bh=NGNP+E7dZ1oSpZJ46TdDRtc73eumPyKOzwha6rIjCVk=; b=TQE4xliihk8mL2BT0apYyupHSy
+	SxHwkPEGBlLORbNzxX9jo35ZrLm2r4kQmJmyY7oCp5+JpthgBtfUyEjioE5YCwNc9RgH93YP630cp
+	s8+UOQ2gwsSpx8PKWGsgDsSriL9bEKKR89YvIi14Irha3oqb+157jue5XuKQ1MUtTCLiXhaqkaS6j
+	Vz9ZLKSeSW6QKkFIj6/reu2Sqr3S4ngXo/3fqN1B6PbJo54Of00G1yykDQ92D7jpm3Yot9OgeiHes
+	piWJaoCAU+OA7/9bCG3hZiB2HZQj+iIbl6topTc3ZxEcpDnCleee5SfE/+8OjY+fjEd9j0JGcx3a4
+	mvgNzYuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSUPV-0000000EnGY-1glM;
-	Fri, 20 Jun 2025 05:35:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uSUgs-0000000Eofz-1oOb;
+	Fri, 20 Jun 2025 05:53:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSUNH-0000000EnBo-1n5s
+	id 1uSUef-0000000EoSL-01oW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 05:33:16 +0000
+	Fri, 20 Jun 2025 05:51:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A4968A4E34E;
-	Fri, 20 Jun 2025 05:33:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66D5FC4CEE3;
-	Fri, 20 Jun 2025 05:33:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0870661784;
+	Fri, 20 Jun 2025 05:51:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B810C4CEE3;
+	Fri, 20 Jun 2025 05:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750397594;
-	bh=TkLDljsbMhtLJhxqjzJUv7UevVWMCGbLDXB0WZK3CLg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=FXai8ZqM4tUSiw/qaG877oMgYtkGvl5ReiajplkOndTU3Svzi5hyykfX4i4dCY0/y
-	 /rnSk0wb0GkcgHfhZ4Htlt9bKATG142VIh3eAGWUL6hp0xjDNgXTMSuN5NvaHtCmuP
-	 AD+fw/O7PBsf9C+60Qh3YE/hkteJr5yCZ0otyNlN22IQwtQ3it4IBt74XJ6D4a/IP+
-	 qOeH06I2WJxqsIjtN8hDSGkvybqPbn1eo/e7Flje/nei1ARDdM1Y1wjOAal4PSxWf7
-	 rzMqU2BAOFmZaxuzSHEjq/kAW7CI4uYKUvMJDmErm0RpkN83BWbZynwSPJYbjGSab5
-	 gxBNVaCqdmGTA==
-Message-ID: <dfa712ed-1f13-41d8-83c1-d2dac4107d23@kernel.org>
-Date: Fri, 20 Jun 2025 07:33:10 +0200
+	s=k20201202; t=1750398671;
+	bh=SdLUypz02FkCtdQzEWZIv0P2z2NdPLyN5uSg8+UhyaQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PJivP71bnkRLzFuPLm/0btRMesETL+q2P0xjOF7xB1cvwtTuZMeou10k5Cs4GbpMa
+	 R7mEVXZ8JXxbRLAzyCToLntfTKOzSXc8KB/YCJHXsZoJKeVyoM0FwVzqSQIu/9yZFw
+	 MHDG/O5im8D5JvlOzZEE/vm79ZdwSpvAsHLIVqA4Fp/9kCsj2eumBrGbFrV5zZjUbG
+	 dc5lcEFXE+9jybEY+kl2ihIBxBDXiXK1QkJC8VnMLrZwTRsJ3RG3D3PR6f7ZT+5Zrn
+	 szG+RNRxOUSoKxjhIV081w+bWAJXTM2P+qo2jUfa1zvYfGTKUZJ9v1lL7+NaryWoDV
+	 OYBq95h7lInRA==
+Message-ID: <4ce59cfd-1d0d-4152-b19d-2c0b86d25fc7@kernel.org>
+Date: Fri, 20 Jun 2025 07:51:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH][next] clk: moxart: Make read-only array div_idx static
- const
+Subject: Re: [PATCH v1] mmc: Convert ternary operator to str_true_false()
+ helper
+To: Li Dong <lidong@vivo.com>, Aubin Constans <aubin.constans@microchip.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ "open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..."
+ <linux-mmc@vger.kernel.org>,
+ "moderated list:ARM/Microchip (AT91) SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+Cc: opensource.kernel@vivo.com, rongqianfeng@vivo.com
+References: <20250620043517.172705-1-lidong@vivo.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>, Colin Ian King <colin.i.king@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250619083035.1835133-1-colin.i.king@gmail.com>
- <175036278075.4372.3898345624525344837@lazor>
- <23f5da2f-0da1-449a-ab4e-c62fbfd74d4f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,13 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <23f5da2f-0da1-449a-ab4e-c62fbfd74d4f@kernel.org>
+In-Reply-To: <20250620043517.172705-1-lidong@vivo.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250619_223315_600382_A9E2FD3B 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,21 +122,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2025 22:18, Krzysztof Kozlowski wrote:
-> On 19/06/2025 21:53, Stephen Boyd wrote:
->> Quoting Colin Ian King (2025-06-19 01:30:35)
->>> Don't populate the read-only array div_idx on the stack at run time,
->>> instead make it static const.
->>
->> Why? This is in __init code so it can be thrown away if it stays on the
->> stack.
+On 20/06/2025 06:35, Li Dong wrote:
+> Replace direct ternary condition check with existing helper function
+> str_true_false() to improve code readability and maintain consistency.
 > 
-> Indeed previous code could be discarded, now will be in rodata, but we
-> save several instructions runtime on copying it. Plus the actual binary
-> will be slower (really less code), so also loading it will be faster.
+> Signed-off-by: Li Dong <lidong@vivo.com>
+> ---
+>  drivers/mmc/host/atmel-mci.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+Why are you sending this line per patch? Not even patchset?
 
-
-s/slower/smaller/
+Is it again another run of @vivo.com submissions when you spam community
+with low quality things, just because someone told you to run coccinelle?
 
 Best regards,
 Krzysztof
