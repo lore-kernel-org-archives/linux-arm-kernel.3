@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A70EC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 09:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0F7C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 09:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7sHWoK+S4dor/cCGOhSqusJFB/am18LqdmWaQ7hQvKA=; b=GbZnS1fG3j1LK/AAv5/slAUJ7e
-	W+AtyJzB1LGtIIbAJX1Jtc7lYu/5WH/sLNOmFXS4GdJ+nXcT50M+xx/XMC83bcFNyJlD67iMXar71
-	MM44/KJs0ZXBkiQ3PxKH65nkm4uyxjuuyEOiOwVK0syGUbyR92q7xVVd9IC+0OCFRbMKsJmbNAmro
-	EUptOyFvD6rZpLV58PmGUDGcs/9rbeRvQV9KuHKleXYiNv6m/up/V0S/NzO3i1CgijuZ19H4lSHHY
-	MLwnlUSXVFp+ZfFD6XJ/fWzHSTVWNXZ+YvpsPrsygb83qDKRgLr7k/XF4q9ydUP/ZaRt4ydOhmhYh
-	NuFNhphQ==;
+	bh=DIMuNne++IWVgY0azMoYkvyXCjaefI/n17TVM+rpZxc=; b=Cv2gdCOXUoFd1DRZdcrb9xvj1c
+	ZAmkzhNEXLTXo2LrZErBFx7PTTZpw3oA9YRA/SW/vITz/xpPC+PZSFGiS7Fm/SDNp4nnwZowlRjO1
+	TNPUXHFbABMY6KHYiUBF+LdhMaR2TSxDX/6dba8r7FIkUTvM6VRuMg5onk25+7vKpBaGoJdk2IZCf
+	i4u29NSRmd5gS62rDAfvBQ1NMtPH4TdFhha/evMxH6C6HciotyyyYHrsD+0672P1KD+alTGtB6vko
+	RHFgmHCxIAJMyomT1vVI0hcoi0XZ1zDQa6bf8cWu5H2/MP59JNq0ZS3zlcdDzAxzQOnlZMhbpnStK
+	SWzD1dHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYAm-0000000FChz-40pK;
-	Fri, 20 Jun 2025 09:36:37 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1uSYD0-0000000FDMa-1WSr;
+	Fri, 20 Jun 2025 09:38:54 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSXEO-0000000F4ya-2ngx;
-	Fri, 20 Jun 2025 08:36:18 +0000
+	id 1uSXEP-0000000F4zF-2Hgz;
+	Fri, 20 Jun 2025 08:36:19 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout3.routing.net (Postfix) with ESMTP id 9ADAB605EB;
-	Fri, 20 Jun 2025 08:36:14 +0000 (UTC)
+	by mxout4.routing.net (Postfix) with ESMTP id C30D7100DA1;
+	Fri, 20 Jun 2025 08:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750408574;
+	s=20200217; t=1750408573;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7sHWoK+S4dor/cCGOhSqusJFB/am18LqdmWaQ7hQvKA=;
-	b=B35ySnqh6iExPSQp3UpHwxSlTowk2Nuwu+/0zBnu7+6BdoGMtx6GLMmFMYv94y5RwUzXUs
-	vTmxsMwEhy6RhVCOeDMSfcL2jbJy1xL56+4lBFpw6q+SxCSVIpuJpSx4B7JWBn9FPpwPwC
-	E1vDY7099Nb+7977GhKkuDIJC7h1a2Q=
+	bh=DIMuNne++IWVgY0azMoYkvyXCjaefI/n17TVM+rpZxc=;
+	b=CodhBDQcfHxyptCsdV7EzbPLAKi2/WqdhPPPrn/BIYMm/fwxHo3MeSCzFHas2hYNDb2XV4
+	X0IuzS7Mzmsfje2iJzLcJFodTQ9BD55f+meMXuu5sdBqM7NXw4y2lK8Gjq1uRaqG3Thlqe
+	iRgKbCs9XqEBlpu5laq7srf6U+GN93U=
 Received: from frank-u24.. (fttx-pool-157.180.225.81.bambit.de [157.180.225.81])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 3EF051226B1;
-	Fri, 20 Jun 2025 08:36:14 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 6A0271226B1;
+	Fri, 20 Jun 2025 08:36:13 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -74,17 +74,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v5 10/13] arm64: dts: mediatek: mt7988a-bpi-r4: add gpio leds
-Date: Fri, 20 Jun 2025 10:35:41 +0200
-Message-ID: <20250620083555.6886-11-linux@fw-web.de>
+Subject: [PATCH v5 08/13] arm64: dts: mediatek: mt7988a-bpi-r4: add proc-supply for cci
+Date: Fri, 20 Jun 2025 10:35:39 +0200
+Message-ID: <20250620083555.6886-9-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250620083555.6886-1-linux@fw-web.de>
 References: <20250620083555.6886-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_013616_846451_67A7416F 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20250620_013617_750856_4158E8E1 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,48 +102,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Bananapi R4 has a green and a blue led which can be switched by gpio.
-Green led is for running state so default on.
-
-Green led also shares pin with eeprom writeprotect where led off allows
-writing to eeprom.
+CCI requires proc-supply. Add it on board level.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 30affedf84d4..21eb91c8609f 100644
+index 81ba045e0e0e..afa9e3b2b16a 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -21,6 +21,25 @@ fan: pwm-fan {
- 		status = "okay";
+@@ -40,6 +40,10 @@ reg_3p3v: regulator-3p3v {
  	};
+ };
  
-+	gpio-leds {
-+		compatible = "gpio-leds";
++&cci {
++	proc-supply = <&rt5190_buck3>;
++};
 +
-+		led_green: led-green {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&pio 79 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+		};
-+
-+		led_blue: led-blue {
-+			function = LED_FUNCTION_WPS;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pio 63 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+	};
-+
-+
- 	reg_1p8v: regulator-1p8v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "fixed-1.8V";
+ &cpu0 {
+ 	proc-supply = <&rt5190_buck3>;
+ };
 -- 
 2.43.0
 
