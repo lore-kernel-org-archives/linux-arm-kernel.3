@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 662BEC7EE2E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246E3C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oQZPCQlL01STFivOq4uM2KDIfp6YbbOsKwLoJEg45CM=; b=XZ1l93nHli4WZtpmN7QB+wZBBn
-	naCSqsuhLGOJ38AFrIpa8BDZMDqFfvJzsk6Owg18I4bXaj5vGjZhKlC1OQqHtWtvf2KgEkqtVPSrc
-	EzTW5qQbRbKKrtyewwojn1DJ+NuJ0RS9CY7AEw3MCU7t3x5V+b/lEXAWiCEUI0uOomaMLEpGQxxh0
-	t5MRosnKZH1ucivHvC42FYiopONsP6PMQSPI5hHihFDs9CB+Vfl4ECVHxTL0pGDLi+LehULsBTwbH
-	iYuVftzcuyF6AsHdW8tKlLewqchRVk9sK4U1jNKZBGKK+Ac1eSU+8+mfBfT5ZPPeHq7CVtDuJViFx
-	XMKuLLmQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0zrM8W2TbSsSIHvT1Fq4IVGHy7WN7Km4fk5n2KCsDZg=; b=GTfU9S+gKbm0hyjW+cI3ADd3er
+	5U7dRaSdmYJJ2FVTKfN8A+WLwgnfJKrkt22kGzS9PhioZQ+uSvIgpENy6C5l/sDt8/fa0aWDpVS8E
+	UGXE0ykvOAcOWmDAR2Apv2DSdelho2jWcTrunXO2iEb27WKalgCGiMnY/38I08M9gvRV0V68KMas3
+	CQ4QxUN1l70L9RE1rvUNO2MmN2lznIYKfsY+AhQbGHNl8EVQINKnHvf0mzmqfKPlNyLaAJiI9UZao
+	Qypuw3v6JxkZv0l7KwIuFEHdKwQtP4oeGv+x8bsgXkX4Cq+afBd3eSreDfmC6zYngVVL9T4o4rxzx
+	2OY8YmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeUy-0000000G7pX-0JHB;
-	Fri, 20 Jun 2025 16:21:52 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1uSeXF-0000000G83E-3lzO;
+	Fri, 20 Jun 2025 16:24:13 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSe6F-0000000G43x-3M6U;
-	Fri, 20 Jun 2025 15:56:21 +0000
+	id 1uSe8x-0000000G4Yw-2e3p;
+	Fri, 20 Jun 2025 15:59:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=oQ
-	ZPCQlL01STFivOq4uM2KDIfp6YbbOsKwLoJEg45CM=; b=VBrUoXzc2gSTvyzwq7
-	EBr6Og07qOm0qv+6T/jbcGNm/XzOXwvQ9UnJ0ZzTWttid231GQ8m5WFiry61vyyd
-	BcoXHnJnN2lFjDon8RCz4/HPHeVaTtdR5PQlEGYSZU4Z6B97+aS6QFiQelc+E02t
-	vTX7rYeRG9LUWLC8sGSJX9alE=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDHyCldhFVo3bDnAg--.55764S2;
-	Fri, 20 Jun 2025 23:55:10 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	bhelgaas@google.com,
-	heiko@sntech.de,
-	mani@kernel.org,
-	yue.wang@Amlogic.com
-Cc: pali@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	jingoohan1@gmail.com,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v5 0/2] Configure root port MPS during host probing
-Date: Fri, 20 Jun 2025 23:55:05 +0800
-Message-Id: <20250620155507.1022099-1-18255117159@163.com>
-X-Mailer: git-send-email 2.25.1
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=0zrM8W2TbSsSIHvT1Fq4IVGHy7WN7Km4fk5n2KCsDZg=;
+	b=J4fitMSVfCyFl9sFMsejJfExQJjX5ak/mbOya/qJbysx2L2x6nfErZb0HeEn2t
+	4u1d8czktvXwNmZTtXizOgBTIs59ATRW7ZbUk2LowXejD5t/XYtNA2K9GobExCeh
+	pOIIK2ouvF0xt8SkVj2G249iaVqK5g0eiYGF+rwejVsLQ=
+Received: from [IPV6:240e:b8f:919b:3100:8440:da7c:be7e:927f] (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgCnzAA9hVVoKwqyAA--.25131S2;
+	Fri, 20 Jun 2025 23:58:54 +0800 (CST)
+Message-ID: <4bfc8c05-c6e6-4246-960c-ee5802840523@163.com>
+Date: Fri, 20 Jun 2025 23:58:53 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDHyCldhFVo3bDnAg--.55764S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7CrW8AFWrWF4fWrWfuryDJrb_yoW8uw4DpF
-	WfGan3trs7GF13GF9rWa1kCFy5Xa4xGFWUGr9rJwnxZanxAFyUXry8Kw4rA3srXrWfZ3W2
-	9F1jqFy8u3WDZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pina9fUUUUU=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] PCI: rockchip: Remove redundant PCIe message routing
+ definitions
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: lpieralisi@kernel.org, bhelgaas@google.com, kwilczynski@kernel.org,
+ shawn.lin@rock-chips.com, heiko@sntech.de, robh@kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250620154202.GA1292011@bhelgaas>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <20250620154202.GA1292011@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: QCgvCgCnzAA9hVVoKwqyAA--.25131S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWw1DWF4xAF4xCF1kCrWfXwb_yoW5Jw4rpr
+	WUXayFyF48Jr43ua4aqan3XF47XanrtF4jgr1I9w4fKF1fWryrWa4Yvr45Grn8XrW8Xrn2
+	k390ka4DKFZ8J37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UntxhUUUUU=
 X-Originating-IP: [240e:b8f:919b:3100:8440:da7c:be7e:927f]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiQwdyo2hVgfhDOQAAsr
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxVyo2hVgqRJRAAAsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_085620_194926_BA6DF61F 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_085907_998463_64C0E980 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +76,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current PCIe initialization exhibits a key optimization gap: Root Ports
-may operate with non-optimal Maximum Payload Size (MPS) settings. While
-downstream device configuration is handled during bus enumeration, Root
-Port MPS values inherited from firmware or hardware defaults often fail
-to utilize the full capabilities supported by controller hardware. This
-results in suboptimal data transfer efficiency throughout the PCIe
-hierarchy.
-
-This patch series addresses this by:
-
-1.  Core PCI enhancement (Patch 1):
-- Proactively configures Root Port MPS during host controller probing
-- Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
-- Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
-- Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
-- Preserves standard MPS negotiation during downstream enumeration
-
-2.  Driver cleanup (Patch 2):
-- Removes redundant MPS configuration from Meson PCIe controller driver
-- Functionality is now centralized in PCI core
-- Simplifies driver maintenance long-term
-
----
-Changes for v5:
-- Use pcie_set_mps directly instead of pcie_write_mps.
-- The patch 1 commit message were modified.
-
-Changes for v4:
-- The patch [v4 1/2] add a comment to explain why it was done this way.
-- The patch [v4 2/2] have not been modified.
-- Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
-  that this patch cannot be submitted. In addition, Mani also suggests
-  dropping this patch until this series of issues is resolved.
-
-Changes for v3:
-- The new split is patch 2/3 and 3/3.
-- Modify the patch 1/3 according to Niklas' suggestion.
-
-Changes for v2:
-- According to the Maintainer's suggestion, limit the setting of MPS
-  changes to platforms with controller drivers.
-- Delete the MPS code set by the SOC manufacturer.
----
-
-Hans Zhang (2):
-  PCI: Configure root port MPS during host probing
-  PCI: dwc: Remove redundant MPS configuration
-
- drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
- drivers/pci/probe.c                    | 10 ++++++++++
- 2 files changed, 10 insertions(+), 17 deletions(-)
 
 
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
--- 
-2.25.1
+On 2025/6/20 23:42, Bjorn Helgaas wrote:
+> On Sat, Jun 07, 2025 at 11:49:13PM +0800, Hans Zhang wrote:
+>> The Rockchip driver contained duplicated message routing and INTx code
+>> definitions (e.g., ROCKCHIP_PCIE_MSG_ROUTING_TO_RC,
+>> ROCKCHIP_PCIE_MSG_CODE_ASSERT_INTA). These are already provided by the
+>> PCI core in drivers/pci/pci.h as PCIE_MSG_TYPE_R_RC and
+>> PCIE_MSG_CODE_ASSERT_INTA, respectively.
+>>
+>> Remove the driver-specific definitions and use the common PCIe macros
+>> instead. This aligns the driver with the PCIe specification and reduces
+>> maintenance overhead.
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/controller/pcie-rockchip.h | 14 --------------
+>>   1 file changed, 14 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
+>> index 5864a20323f2..12bc8da59d73 100644
+>> --- a/drivers/pci/controller/pcie-rockchip.h
+>> +++ b/drivers/pci/controller/pcie-rockchip.h
+>> @@ -215,20 +215,6 @@
+>>   #define RC_REGION_0_TYPE_MASK			GENMASK(3, 0)
+>>   #define MAX_AXI_WRAPPER_REGION_NUM		33
+>>   
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_TO_RC		0x0
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_VIA_ADDR		0x1
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_VIA_ID		0x2
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_BROADCAST		0x3
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_LOCAL_INTX		0x4
+>> -#define ROCKCHIP_PCIE_MSG_ROUTING_PME_ACK		0x5
+>> -#define ROCKCHIP_PCIE_MSG_CODE_ASSERT_INTA		0x20
+>> -#define ROCKCHIP_PCIE_MSG_CODE_ASSERT_INTB		0x21
+>> -#define ROCKCHIP_PCIE_MSG_CODE_ASSERT_INTC		0x22
+>> -#define ROCKCHIP_PCIE_MSG_CODE_ASSERT_INTD		0x23
+>> -#define ROCKCHIP_PCIE_MSG_CODE_DEASSERT_INTA		0x24
+>> -#define ROCKCHIP_PCIE_MSG_CODE_DEASSERT_INTB		0x25
+>> -#define ROCKCHIP_PCIE_MSG_CODE_DEASSERT_INTC		0x26
+>> -#define ROCKCHIP_PCIE_MSG_CODE_DEASSERT_INTD		0x27
+> 
+> Thanks for doing this!  In fact, these definitions are not only
+> redundant, they're not even used at all.
+> 
+>>   #define ROCKCHIP_PCIE_MSG_ROUTING_MASK			GENMASK(7, 5)
+>>   #define ROCKCHIP_PCIE_MSG_ROUTING(route) \
+>>   	(((route) << 5) & ROCKCHIP_PCIE_MSG_ROUTING_MASK)
+> 
+> And neither are these ROUTING and CODE definitions.
+
+Dear Bjorn,
+
+Yes, this driver has too many unused definitions. I can delete the other 
+unused definitions next. For this series, I just delete the similar 
+macro definitions in drivers/pci/pci.h.
+
+Best regards,
+Hans
 
 
