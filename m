@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43E9C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB930C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOeipMVy1qgYxSusPYoAgVzI/NzzXASY/LRIXeicWSM=; b=vp/us5SQblV3MpBgsovo3g4G47
-	34MSpAgw0WseRyNsDlrYyyYrDxSFDHrrLjloXX8C67zSz49uoTbZFfMqJmaVxCfD0ugIWR4qEqVTU
-	Ygdo8H3+kaHPj2kpasNPM4Xew97Ppq7ttbC8H7psDwx5l1dLHFcLMd54Hwiv0e/fDe85ANpFqhxti
-	OAS+B42/di4ytvoLcpJMDzjgZRHOqoh5WQtHb2c1ZGCopmw8W6pzr2F78KzuPUy34WP+5LOcAQSIZ
-	+qk1Lvs3sOX8EXpFQaj5PcFqMNHSOIcDeFmNC6yRG8Ywol3yHxF72tIuXmMvjj+x3Ckh/oixHvw1J
-	blUx/Vcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a1fVwyLUNRRQLEW5jE16tOspIQXmMehXwXSn1BH4tOI=; b=Cm6R7z3GUrMnLIrBNvO/6K64wJ
+	hIi4RhraePdWnN0LyEPgSNFCIB8c0ypKHXYnFXfn7rGN/Xj6q5l4+f3deVjbj1cyhJDtfKIRJr/re
+	XAnB7dRD5VCsWp9iauI+qznKE0b6aamyQphIf5/WKmO31ysNvF5l3KV/rrqTMbSYgML5O8EHGF/g/
+	pfTvNu4U0+TGQQv59o28yQnPmqPb5zT4lGn6oqemx2M6D5C90mgkn2qsDpiUOfEewz7ZTThGfPVRG
+	Hyiuk+50tNIPENiHUfDCqeKRFQHkKCC3Oo2+EEkD4SLWQUfR+JHF/Dyw56hkQMzYxC2sGYnoMCJ5B
+	wTacLspg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScf1-0000000FqHh-3QPH;
-	Fri, 20 Jun 2025 14:24:07 +0000
+	id 1uSchp-0000000Fqgd-12Lh;
+	Fri, 20 Jun 2025 14:27:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScaF-0000000FpuT-3rj5;
-	Fri, 20 Jun 2025 14:19:13 +0000
+	id 1uScfa-0000000FqR1-16Ur
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 14:24:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 483E816F2;
-	Fri, 20 Jun 2025 07:18:51 -0700 (PDT)
-Received: from [10.57.27.59] (unknown [10.57.27.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 795A33F58B;
-	Fri, 20 Jun 2025 07:19:08 -0700 (PDT)
-Message-ID: <d52fce68-d01e-4b92-825f-f7408df2ca18@arm.com>
-Date: Fri, 20 Jun 2025 15:19:06 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8EC3106F;
+	Fri, 20 Jun 2025 07:24:21 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBD5D3F58B;
+	Fri, 20 Jun 2025 07:24:40 -0700 (PDT)
+Date: Fri, 20 Jun 2025 15:24:39 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 05/11] coresight: Save activated path into source
+ device
+Message-ID: <20250620142439.GL794930@e132581.arm.com>
+References: <20250516160742.1200904-1-leo.yan@arm.com>
+ <20250516160742.1200904-6-leo.yan@arm.com>
+ <788e698d-aa1a-47ba-829f-aef9cd4b7417@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v5 4/4] phy: rockchip-pcie: Adjust read mask and write
-To: Geraldo Nascimento <geraldogabriel@gmail.com>,
- linux-rockchip@lists.infradead.org
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rick wertenbroek <rick.wertenbroek@gmail.com>,
- linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1749833986.git.geraldogabriel@gmail.com>
- <7068a941037eca8ef37cc65e8e08a136c7aac924.1749833987.git.geraldogabriel@gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <7068a941037eca8ef37cc65e8e08a136c7aac924.1749833987.git.geraldogabriel@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <788e698d-aa1a-47ba-829f-aef9cd4b7417@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_071912_009070_72E341D4 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20250620_072442_391559_03BB33D9 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +67,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-13 6:04 pm, Geraldo Nascimento wrote:
-> Section 17.6.10 of the RK3399 TRM "PCIe PIPE PHY registers Description"
-> defines asynchronous strobe TEST_WRITE which should be enabled then
-> disabled and seems to have been copy-pasted as of current. Adjust it.
+On Tue, Jun 03, 2025 at 03:49:26PM +0100, James Clark wrote:
 
-FWIW that's a bit hard to make sense of, given that it bears no relation 
-whatsoever to the naming used in the code :/
+[...]
 
-(Not least because the mapping of register fields to phy signals here is 
-really a property of GRF_SOC_CON8 rather than the phy itself)
+> > @@ -577,6 +583,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> >   		}
+> >   	}
+> > +	source = coresight_get_source(path);
+> > +	if (coresight_is_percpu_source(source))
+> > +		source->path = path;
+> > +
+> >   out:
+> >   	return ret;
+> >   err_disable_helpers:
+> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> > index 64cee4040daa..cd9709a36b9c 100644
+> > --- a/include/linux/coresight.h
+> > +++ b/include/linux/coresight.h
+> > @@ -265,6 +265,7 @@ struct coresight_trace_id_map {
+> >    *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+> >    *		spinlock.
+> >    * @orphan:	true if the component has connections that haven't been linked.
+> > + * @path:	activated path pointer (only used for source device).
+> >    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
+> >    *		by writing a 1 to the 'enable_sink' file.  A sink can be
+> >    *		activated but not yet enabled.  Enabling for a _sink_ happens
+> > @@ -291,6 +292,8 @@ struct coresight_device {
+> >   	local_t	mode;
+> >   	int refcnt;
+> >   	bool orphan;
+> > +	/* activated path (for source only) */
+> > +	struct coresight_path *path;
+> 
+> This is probably cleaner if it's saved in the new global per-cpu you added
+> in patch 2. It's even more specific than "for source only", it's actually
+> only for per-cpu sources so it's not worth having it on every device.
 
-> While at it, adjust read mask which should be the same as write mask.
+We can maintain Coresight path pointers in a global per-CPU data
+structure. These path pointers are set and cleared during path enable
+and disable operations, respectively. Idle threads can then access
+these pointers for power management purposes.
 
-Which write mask? Certainly not PHY_CFG_WR_MASK... However as this 
-definition is unused since 64cdc0360811 ("phy: rockchip-pcie: remove 
-unused phy_rd_cfg function"), I don't see much point in touching it 
-other than to remove it entirely. If it is the case that only the 
-address field is significant for whatever a "read" operation actually 
-means, well then that's just another job for ADDR_MASK (which I guess is 
-what the open-coded business with PHY_CFG_PLL_LOCK is actually doing...)
+However, the challenge is how we can safely access the path pointer from
+an idle thread - particularly because idle threads cannot acquire
+coresight_mutex, which is a sleepable lock. Consider a race condition
+scenario where SysFS knobs frequently enable and disable paths, while
+the corresponding CPUs enter and exit idle states. In such cases, if
+an idle thread attempts to access the path pointers, we would need to
+use raw spinlocks to ensure safety. This is problematic, as it could
+result in the CPU suspend/resume flow waiting on SysFS operations.
+
+This is why it turns out to use lockless approach. Two key background
+info:
+
+- Path pointers are not guaranteed to be safe to access in CPU power
+  management (PM) notifiers. In contrast, the coresight_device pointer
+  of a source device (e.g., an ETM) is safe to access.
+
+  A path's lifecycle begins and ends with SysFS enable and disable
+  operations. OTOH, an ETM’s coresight_device pointer is initialized
+  during the probe phase and cleared during module removal. Module
+  loading and unloading trigger SMP calls for initialization and
+  cleanup. These synchronized SMP calls ensure that it is safe for CPU
+  PM notifiers to access the source device structure.
+
+- Another factor is that the device mode is used to determine whether
+  it is safe to access the path pointer. When a source device is
+  enabled, we must ensure that its state transitions from DISABLED to
+  an enabled state on the target CPU. This guarantees that the mode,
+  and any subsequent operations dependent on it, follow a strictly
+  sequential order.
+
+  CPU0                                    CPU1
+  etm4_enable()
+   ` etm4_enable_sysfs()
+      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
+                                           ` coresight_take_mode(SYSFS)
+
+                                           CPU idle:
+                                           etm4_cpu_save()
+                                            ` coresight_get_mode()
+                                               ^^^
+                                               Read out the SYSFS mode
+                                               Safely access coresight_device::path
+
+Therefore, safe access to the Coresight path heavily relies on the
+mode (as part of the state machine). This is why the patch adds the
+path pointer to the same structure as the mode.
 
 Thanks,
-Robin.
+Leo
 
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->   drivers/phy/rockchip/phy-rockchip-pcie.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+> >   	/* sink specific fields */
+> >   	bool sysfs_sink_activated;
+> >   	struct dev_ext_attribute *ea;
 > 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
-> index 48bcc7d2b33b..35d2523ee776 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-pcie.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
-> @@ -30,9 +30,9 @@
->   #define PHY_CFG_ADDR_SHIFT    1
->   #define PHY_CFG_DATA_MASK     0xf
->   #define PHY_CFG_ADDR_MASK     0x3f
-> -#define PHY_CFG_RD_MASK       0x3ff
-> +#define PHY_CFG_RD_MASK       0x3f
->   #define PHY_CFG_WR_ENABLE     1
-> -#define PHY_CFG_WR_DISABLE    1
-> +#define PHY_CFG_WR_DISABLE    0
->   #define PHY_CFG_WR_SHIFT      0
->   #define PHY_CFG_WR_MASK       1
->   #define PHY_CFG_PLL_LOCK      0x10
-
 
