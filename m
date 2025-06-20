@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA9C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1070BC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wE63LoVDPWCa0QMdvT4TmnO/F7iQTH1SWzFz1ZbwKGo=; b=sbRYElbB9WRtaOFvxRRf7vvtUJ
-	b/LFoF6xC7E6ILU9lckJZQaJeycAzqRS7ksroXSWgLY3AtA2kfEWoekxJGciu8OaqKarOEhjIy76s
-	Gqhsj6JsVsztfxggPxq2jyTkdkmyGYsV36/2mbMXF4fXHgQpYvUbD0NCgwRKzV3X+fmAWRItwG8wx
-	NkuexlSBz/SlaTu2Fw9uCTrtgJuNpsIZzR5fLIr1JZoBzQ/cuubTwB3e9m+ypTlNJgoz0SplvUf53
-	k7E7xqu8ucW4PjokXV4HUK+ZIOTCaiMP5tCx/Djd6xGcgOFN8g/74Y+AS35EEDSdbMFJkYcE+sxAz
-	ocNzLGCg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QUDJU35AM9kzHk4YIR5DF+IBht1+rCZRXjiyPtd5Ts0=; b=3T3wu5QMAfCSCK
+	qFH+mcFNN2PpW6eC9OANSmAlKNsLaqUrIRVnsc78o0bg30UBeoxx439gF3r6eVTVTJul+LVVMQAvL
+	NAxf1LZoy+nyNlQnwIl140TCRUoE2imGLUIKv0OktkND/ddtFSNGQZ4TP2x4opqefm+LuspA9goe9
+	FUMidJH7tT43cTqurg3xpiT2Csd3Ygh8pNCeZti0xv6hTwAJA2p5c+q6N+QisOAC8kD7zwem0F54G
+	lrSJ16HUiZ012q9RJ5r2QReaWUNIlYkifanqfTQgzuWonorTYzbfe2ZVcqTLa+bcLFF6NsdcAPgIW
+	xXXV7NTb1lpmWnkE6XiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSXDJ-0000000F4mP-0f6F;
-	Fri, 20 Jun 2025 08:35:09 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1uSXFV-0000000F5Do-3rmX;
+	Fri, 20 Jun 2025 08:37:25 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWuu-0000000F1rs-0siF
+	id 1uSWut-0000000F1rp-2X5a
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Jun 2025 08:16:11 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 36132433F1;
-	Fri, 20 Jun 2025 08:16:04 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3EDAF4341B;
+	Fri, 20 Jun 2025 08:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750407365;
+	t=1750407362;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wE63LoVDPWCa0QMdvT4TmnO/F7iQTH1SWzFz1ZbwKGo=;
-	b=kwCVz3451E2JKDHiZtUrySRjTxpiEWrbLUhMuqigelChaoGpMCFQo7E+/yyK8byoQvlbhT
-	5pbnP4NaMntnRufmh1tXWsvvIy086xo8fKAcM5X4uVGPh0T7Y5/rCpSE8pd6jNdci+oomG
-	4AZSaTPn2uYfcdPklrDwWfGgOoCBPYh8r6Vnq8tRcP6UYkskC1nVrBjMN/4zKnHETyt/sQ
-	t9ZJOGtGLFIeLXuIpyAgsO/RytnNKfKa2fFN5Pj1GLHLt9LGoIkE7IyHcq86BHS0eqIiNe
-	Oz4Ts0kbvd5ahqymX3TtmZg6/keBwy+PaW11edGClJDfAbo8q2MqgHDPZl0H5g==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QUDJU35AM9kzHk4YIR5DF+IBht1+rCZRXjiyPtd5Ts0=;
+	b=GD6uArs9646hiod0S1X8K4P5IhI8vi4OLk0U+9Ny4tPI0Utvm0+k8Enl9zygdQjVTyJb+T
+	oL4CkbHjzVwGjKP8sR1sgrNXRfyb86MPmK3Lb0Cy459jQ5dP3i0tXB5ZSNxCJo3pqxAp9U
+	R88GepDtgFl/7i6utHMNvfBRzGLieoTWz+qr0AsvAHUofzB9G+XzgaHaiC8SMXl8FidKxL
+	JKosLQ3sbNIoCxflYnUVEQhy3XIWHLLGlMjzmDdOwfd8Y0SlCO3m0QoW1i7g5+K2UtXJZB
+	z7tmMHrGD5nwOuSLEmps4inhl+4lCi0aTviiyUFJgD/nbYIMo8Pd2p7KN2ktMw==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Fri, 20 Jun 2025 10:15:53 +0200
-Subject: [PATCH v5 2/5] dt-bindings: omap: Add Seeed BeagleBone Green Eco
+Subject: [PATCH v5 0/5] Add support for BeagleBone Green Eco board
+Date: Fri, 20 Jun 2025 10:15:51 +0200
+Message-Id: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-bbg-v5-2-84f9b9a2e3a8@bootlin.com>
-References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIALcYVWgC/23Nyw6CMBAF0F8hXVvTDn3hyv8wLugDaKLUFEI0h
+ H+3gIkQnd2dzLkzos5F7zp0ykYU3eA7H9oU+CFDpinb2mFvU0ZAgBMOOda6xlIUhCpLKyglSpe
+ P6Cr/XFou15Qb3/UhvpbSgc7bvR8oJthVrCwcly7NWYfQ33x7NOGO5oYBvkqQYlWQFAepCAgtW
+ aF+Vb5R9PMrnxVlxhopFGN/FNsquSqWlAJptBVEWC32apqmN/9g31w6AQAA
+X-Change-ID: 20250523-bbg-769018d1f2a7
 To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
@@ -70,13 +72,12 @@ Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>,
 X-Mailer: b4 0.15-dev-dd21f
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdejkeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgfdvgfektefgfefggeekudfggffhtdfffedtueetheejtddvledvvdelhedtveenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrghrtgdrmhhurhhphhihsehsrghntghlohhuugdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepphhrrghnvggvthhhsehtihdrtghomhdprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkohhrhidrm
- hgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhho
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdejkeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthekredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhgfeiieefgedtvdehvdeujeffleetveehueeuveeiteduveekvdetvdeigeegvdenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdguvggsihgrnhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrghrtgdrmhhurhhphhihsehsrghntghlohhuugdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepphhrrghnvggvthhhsehtihdrtghomhdprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgto
+ hhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhho
 X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_011608_383350_4F4C6261 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_011608_029798_FD421F48 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the seeed,am335x-bone-green-eco compatible string in the
-appropriate place within the omap family binding file.
+SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
+(BBG). It has minor differences from the BBG, such as a different PMIC,
+a different Ethernet PHY, and a larger eMMC.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
+Changes in v5:
+- Split the patch series. As the cleaning process faced some pushback,
+  I prefer to first get this support accepted and separately work on the
+  devicetree and binding cleaning process.
+- Link to v4: https://lore.kernel.org/r/20250617-bbg-v4-0-827cbd606db6@bootlin.com
+
 Changes in v4:
-- Forgot a 'e' to seeed in the commit message.
+- Drop model value change to avoid conflict with script based on this
+  value like:
+  https://salsa.debian.org/installer-team/flash-kernel/-/blob/master/db/all.db?ref_type=heads
+- Rename ti,am335x-shc to bosch,am335x-shc
+- Forgot to change to "Seeed" in BeagleBone Green Eco model description.
+- Link to v3: https://lore.kernel.org/r/20250613-bbg-v3-0-514cdc768448@bootlin.com
 
 Changes in v3:
-- New patch
+- Update multi_v7_defconfig with TPS65219 config.
+- Remove extraneous compatible strings.
+- Replace BeagleBone compatible board name vendor to use "beagle" instead
+  of "ti".
+- Link to v2: https://lore.kernel.org/r/20250609-bbg-v2-0-5278026b7498@bootlin.com
+
+Changes in v2:
+- Add patch 1 to 3 to fix binding and devicetree inconsistencies.
+- Rename tps node name to generic pmic node name in am335x-bone-common.
+- Link to v1: https://lore.kernel.org/r/20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com
+
 ---
- Documentation/devicetree/bindings/arm/ti/omap.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Kory Maincent (5):
+      arm: dts: omap: am335x-bone-common: Rename tps to generic pmic node
+      dt-bindings: omap: Add Seeed BeagleBone Green Eco
+      arm: dts: omap: Add support for BeagleBone Green Eco board
+      arm: omap2plus_defconfig: Enable TPS65219 regulator
+      arm: multi_v7_defconfig: Enable TPS65219 regulator
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-index 3603edd7361d..aa5df4692e37 100644
---- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-@@ -107,6 +107,7 @@ properties:
-               - compulab,cm-t335
-               - moxa,uc-8100-me-t
-               - novatech,am335x-lxm
-+              - seeed,am335x-bone-green-eco
-               - ti,am335x-bone
-               - ti,am335x-evm
-               - ti,am3359-icev2
+ Documentation/devicetree/bindings/arm/ti/omap.yaml |   1 +
+ arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
+ arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi  |   2 +-
+ arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 169 +++++++++++++++++++++
+ arch/arm/configs/multi_v7_defconfig                |   3 +
+ arch/arm/configs/omap2plus_defconfig               |   3 +
+ 6 files changed, 178 insertions(+), 1 deletion(-)
+---
+base-commit: e22b9ddaf3afd031abc350c303c7c07a51c569d8
+change-id: 20250523-bbg-769018d1f2a7
 
--- 
-2.43.0
+Best regards,
+--  
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
 
