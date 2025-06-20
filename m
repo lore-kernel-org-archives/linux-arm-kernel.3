@@ -4,135 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62AC9C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FACC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBdfHxgDJgOqigYeEcGRcZAqNtzox+8jCwZpAsLzJwI=; b=JK7NrR0hf2yoxQwaKBgaXTsSW5
-	E8nDTyi2/LBMO/s35tQJHJR1DM+AYR3mdhUZi7572dR51IJM+BgFE2QdsZJA4rH9zrkw0pO+MkiH5
-	Q6OSeyh9DFLlMRFKcAZLtD9t8OXNdFZYjwowadQQij0DkTRP9C4/0DkplufJmXcN3tf/pBop5ycL7
-	U4bqE4gRgrSHHosjBD4+02C9hYuzeW56fRI7IebM7QakxK65tD+v0KMb/zvQr728UjBHjkvORH1o3
-	XVxVC8TbYZg0nFeeSbzECR3PqLT9pr57ODx7ze8HkUhaKaWkGtKR60dZ58UFvjENrJS4q6AwN6NGj
-	+LYsDi1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5Atg3Rc7cRXeCIh8YFwspecN95/uWyzn7dtCK3EZcIY=; b=mioIPQZG4amsIRzeRek4RwENvu
+	W59t37nmF4r62a0n+eGvrpBkIxMaCD8QjSCH8uuPoH764xggzx4p4LT96BWn9E+0OX3+8wkZYp8Bk
+	HdtCnf9L7x4gjg/xKigNQiKsPibFluR24m46wUz3D4ZXc33jLsLuYSb77Q8unilaWaDEEoS5xuypY
+	s2lixX3Gb1VQydpLPPxdCucLokiUT4+copOMpwJ1Qm/ibck63LGQixHuILHD80qVr78eDVxKPRbxF
+	xEkHV7ZfAZwUijfEsVGQ1Xqo3D+emLzW6sYTdKytrn9G0LhvNO3hqzYExt4a5PmFzjJsffIFGhKor
+	47Kx5fFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWoI-0000000F0a3-0GzD;
-	Fri, 20 Jun 2025 08:09:18 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uSWqh-0000000F0tY-3zJ0;
+	Fri, 20 Jun 2025 08:11:48 +0000
+Received: from mail.wintix.pl ([151.80.129.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWhx-0000000EzmV-0gmB
+	id 1uSWiH-0000000Ezqx-2x6b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 08:02:46 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D5E33211F4;
-	Fri, 20 Jun 2025 08:02:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750406561; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBdfHxgDJgOqigYeEcGRcZAqNtzox+8jCwZpAsLzJwI=;
-	b=xSQ3BENt0Ey4p9oXPf0aelaBSBPr8+LPQqrGMLhP1AVzamyhjuYVucUZTNzDJgqlce/K2G
-	97Jcc2atr+yGHI3e/Auixrzkm2wrhLQ4/YwsblB1HbngO/qsRuB6SnX1Th4y7zAuQ9rDpF
-	Uqg/s175w8fSbn/WQM2ZTxkEV3P9P4Q=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750406561;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBdfHxgDJgOqigYeEcGRcZAqNtzox+8jCwZpAsLzJwI=;
-	b=2aimzrqEVwTK2LNFM5vo/pNUEkftGIX5KjW+76JjYfvZB6SUOtNQtLjNlNDPe3EG606Kgl
-	w2mH3V8TwvVuCHCQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="J2vGJ/wp";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=S9mNe68W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750406551; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBdfHxgDJgOqigYeEcGRcZAqNtzox+8jCwZpAsLzJwI=;
-	b=J2vGJ/wpVUD8Ta/tzNw2e9U/MXAuddlSr+2kYlC5eOfOULs544qSJNE4PRyC7TbGQ37/p7
-	ZRHDoDXnvIlZ0YAtML6MU3Gas2ufK/tD148/qLUrz9QbKTJecnUZXU6gNe5da9L5Wbvqr2
-	cIPR0vTZdT6orXIqGbdIGz75xfcse1w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750406551;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBdfHxgDJgOqigYeEcGRcZAqNtzox+8jCwZpAsLzJwI=;
-	b=S9mNe68WrNAyNiu/zjtEUn2GQHJ+vl9DqdbvRSAnyJX2/+dBVZ+6SPCG7khxKgHvCVp8+4
-	ngyw5qXXPaC1viCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 954D713736;
-	Fri, 20 Jun 2025 08:02:31 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mUsII5cVVWgJWQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 20 Jun 2025 08:02:31 +0000
-Date: Fri, 20 Jun 2025 10:02:31 +0200
-Message-ID: <87tt4ax2lk.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: wangdicheng <wangdich9700@163.com>
-Cc: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-kernel@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: Re: [PATCH v2] ALSA: hda/realtek: Fixup ft alc257 rename alc3328
-In-Reply-To: <20250619071745.149299-1-wangdich9700@163.com>
-References: <20250619071745.149299-1-wangdich9700@163.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-5.51 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	DWL_DNSWL_MED(-2.00)[suse.de:dkim];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ASN_FAIL(0.00)[7.9.0.0.4.6.0.0.0.5.1.0.0.1.0.0.4.0.1.0.1.8.2.b.0.4.e.d.7.0.a.2.asn6.rspamd.com:query timed out];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[163.com];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RSPAMD_URIBL_FAIL(0.00)[kylinos.cn:server fail];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,vger.kernel.org,alsa-project.org,lists.infradead.org,kylinos.cn];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: D5E33211F4
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+	Fri, 20 Jun 2025 08:03:07 +0000
+Received: by mail.wintix.pl (Postfix, from userid 1002)
+	id BE5BC263DC; Fri, 20 Jun 2025 08:00:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=wintix.pl; s=mail;
+	t=1750406504; bh=5Atg3Rc7cRXeCIh8YFwspecN95/uWyzn7dtCK3EZcIY=;
+	h=Date:From:To:Subject:From;
+	b=riuvLPeWBJZ2rURaufH5U+F0Ydkq0DQ5Hp7IBjnKwxrETuiO+D8zNERw05okvo7MD
+	 7Tf9/jPuJ0dwMKx1UYeQA8vRJUE6pNzwbBmzy0xVIXW0aTmyKMq855mRxnOxFdNos/
+	 TXBKmRaLhrMsy/2eahLh3YWk39w8rKNH+oDh11yLANdcowk4aSwVW/0Rcv87kspaWA
+	 8sG8/Xy+vZzfds3mE3XDgvh6zqe73DnbJDawZTe935WN4woRaObbg3sv+ZjXTBv5uK
+	 Eb6T42ICUe96ETn5eIky7o7qpr/GeDRA+RovFyo6waZ1KLDhuqJm1YJgfR39jhMIAw
+	 z+6JihP9NHFsQ==
+Received: by mail.wintix.pl for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 08:00:31 GMT
+Message-ID: <20250620064500-0.1.7t.fg7q.0.wj4k5f9ih2@wintix.pl>
+Date: Fri, 20 Jun 2025 08:00:31 GMT
+From: =?UTF-8?Q?"Adam_Szcz=C4=99sny"?= <adam.szczesny@wintix.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?=E2=80=9EJestem_zainteresowany=2C_ale_teraz_nie_ma_czasu=E2=80=9D_=E2=80=93_znasz_to=3F?=
+X-Mailer: mail.wintix.pl
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_010245_347454_53334DBF 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20250620_010306_423915_867E0CBB 
+X-CRM114-Status: UNSURE (   2.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -148,15 +66,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Jun 2025 09:17:45 +0200,
-wangdicheng wrote:
-> 
-> Audio ALC3328 recognized as ALC257, updated PCI ID0x10EC12F0 to rename it to 3328
-> 
-> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+=E2=80=9EJestem zainteresowany, ale teraz nie ma czasu=E2=80=9D - jak cz=C4=
+=99sto to jedyne usprawiedliwienie handlowc=C3=B3w w Pa=C5=84stwa firmie?
 
-Applied now.  Thanks.
+Jestem przekonany, =C5=BCe temat generowania lead=C3=B3w nie jest obcy =E2=
+=80=94 pozwol=C4=99 wi=C4=99c sobie pomin=C4=85=C4=87 marketingowe bana=C5=
+=82y o "rewolucji w sprzeda=C5=BCy".
+
+Przejd=C5=BAmy od razu do rzeczy:
+Czy w tej chwili rozwa=C5=BCacie Pa=C5=84stwo wsp=C3=B3=C5=82prac=C4=99 z=
+ partnerem, kt=C3=B3ry przejmie na siebie weryfikacj=C4=99, kto na rynku =
+realnie interesuje si=C4=99 Pa=C5=84stwa ofert=C4=85?
+
+Oczywi=C5=9Bcie zak=C5=82adam, =C5=BCe nie opieracie si=C4=99 Pa=C5=84stw=
+o na =E2=80=9Edeklaracjach na s=C5=82owo=E2=80=9D. Ka=C5=BCdy sygna=C5=82=
+ o potencjalnym zainteresowaniu wymaga weryfikacji =E2=80=94 rozmowy, kt=C3=
+=B3ra pozwoli Pa=C5=84stwu samodzielnie zdecydowa=C4=87, czy dany kontakt=
+ zas=C5=82uguje na miejsce w lejku sprzeda=C5=BCowym. To umo=C5=BCliwiamy=
+ - tego wymagamy!
+
+Je=C5=9Bli temat brzmi interesuj=C4=85co =E2=80=94 jestem do dyspozycji.
+
+Prosz=C4=99 o kontakt lub propozycj=C4=99 terminu na kr=C3=B3tk=C4=85 roz=
+mow=C4=99.
 
 
-Takashi
+Z powa=C5=BCaniem
+Adam Szcz=C4=99sny
 
