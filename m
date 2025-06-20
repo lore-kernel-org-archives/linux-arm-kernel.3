@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A800AC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3999DC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yU/fLL+92RLO71Pe+syN2lmq3wCTn8ghsMcg6jKW0VU=; b=eYCXKSyJwHfRCdmhCaO8mN6c+z
-	3vQqyDSUiDKnUh9wLPbf3xqrMWRZ+/AqCv9eZNLvsxM/DdV5/LsMJXNUjM5T+qd9ybCSWWjH2a6LW
-	p35cuujPPsA2lmC9xxx6u/oGIaM7CZ6MvaKYPZGjXjv47rHknooSO/okF5eWNxQFdX4U8Io8GqXkN
-	MJ2QGMSi0jwVBCUu/ThcOqIL4EfVOu3bbYlTrgpb8sM91Zm2Fw8H+ZE7sLOxaRDhPFCteNSgjgBbZ
-	2yzY+4IxQzIfX3pBB4eUHnkgJFz0JbFdnw9kK7d3EB25frD0CRTfFDX0uLSGTQXJkjeEIBy92IFA9
-	wYMGpAVA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ycwbhAp7Zd2F37ixHvuXJ2dafaPBGypIo/idKjOgZXE=; b=ZFoFJn/BcB64lRWjrNSfIIrb/b
+	EXyTB/croiYcqHiHnwVKSp5F1aVblzMn0cbBxZsmQxb3v4Wk+B6JFpoVY8U5wMfBdlQ39A6p3PQsn
+	9XByKwlwiuFyvpOIz79UwCVxfA9XTPmVVbB5ua311P55OjomM0O3NMW/iqVZvH+Qn5jTioXfIhfAw
+	xkKpMdGhEX6NYPVHagSYG/9te1j00DtoyHg/DI95YyLhoDlZtRL3Y6qfyXae0F6Sw2CVcfS3tgIDF
+	++P+QDVZCS026gsVlLVjn4Nz4Y7NcfbVeIhPFP0aOM1r5frQqEUG/0uOXScuWt3wqcDe/u5DbXG58
+	DXpreZJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSk6T-0000000Ghkr-18m1;
-	Fri, 20 Jun 2025 22:20:57 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1uSk8g-0000000GiTp-4BSj;
+	Fri, 20 Jun 2025 22:23:15 +0000
+Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSk4C-0000000GgyK-2lWK
+	id 1uSk4E-0000000Ggys-0aeY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 22:18:37 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3ddbb34fc1cso26073915ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 15:18:35 -0700 (PDT)
+	Fri, 20 Jun 2025 22:18:39 +0000
+Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-8760733a107so183293539f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 15:18:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750457915; x=1751062715; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=yU/fLL+92RLO71Pe+syN2lmq3wCTn8ghsMcg6jKW0VU=;
-        b=GnQuMhSsS2Ujw0Nihv7qlabiTmXRTusO46ypvNtMqRdullQKg0lsZ0M44G0eeZsrJK
-         lB0y+nYrtI5TmJnQN8eqyGV0Ave/IYJ3f/OC8YecE0bERtRycVBKrlhDpTg2X/v/iMom
-         v3FNIiLQBu/x50GWhRvBajFamq1mkXawSynub0DotvZh4C4lCopxWBgz/oJPYUu63A3u
-         09+2uhsOjlBXNvjNHf+UlVFQB5Mw3DyFq2o6G0m4WWN/PzzIPGrPBgNkKVkIA15iyKef
-         5kiJQyBH+1fYWZeqCssrGy5ieZ1JpYnt2nTdmQPyYBtfNiD/qM/8DM9KRx54AEcuJm78
-         cW3Q==
+        d=google.com; s=20230601; t=1750457916; x=1751062716; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ycwbhAp7Zd2F37ixHvuXJ2dafaPBGypIo/idKjOgZXE=;
+        b=3idtivfmQCEJzPCzUwBtozCdj7Ryg+B70IXjp83PPogEtW9k8LPLlQQTimA43I8sfP
+         2+dT6beg6Oy74Rse3o/1HxrY1e4LO5P71eZx/USWoo3wX6To7ghZuINhV3iUMEgwQdce
+         qOyae8mcdv5ETSeu26IgR/23KJJhKfE6UoOo9WLeEEIollbe1QrRb0y7VsPTaP4EAM3r
+         jdGGkuQ7iOiM3INcDlfOEw0R96dXw4uGtj2g2MxcQWVtfaiFFuhC4oCnzKWyRatrOFto
+         OFxEruXe4gc+z8hsLv5kz+Buxtvk6SvWz6flsM8W/y+Obdjf96AX+7jpW/IuxlgjhdQo
+         h+Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750457915; x=1751062715;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yU/fLL+92RLO71Pe+syN2lmq3wCTn8ghsMcg6jKW0VU=;
-        b=Wdyo7W8jPJnqD403GFKS3lNkBKTXKV0gFzhk+HRd5s52Sl7GFxKE9x4U5SnoNgx7af
-         sY52tlrovJpRs92UsJWRvF8DygKreIIS9HeIzsTSftrsUGxkxp+VX0qRIHI3iKb3Rs3V
-         xhdl6GSR77ueJTbncbuSdFclLzSPeEASSSbSUpbp2TZgoUVUZkaIk7bq8vwUjcyu7fa3
-         jKjWWwsGLLrmtu0LukqwAhS4721d7SZRK9JmnkunOoc4yi2WkwvGZ1LFgVYPFu65EnGc
-         AJrwZ3EAgF/WQNrKrljVIlxV/24fqp5SELeBlo0aOyyXh0se29dtTMCzSxcSArLw3xP2
-         WYgA==
-X-Forwarded-Encrypted: i=1; AJvYcCUvimPjzdjTmXX7UiGjbjEL7ual6BSrqTizgFaSpnPUqGoVcpTabsgtWzqnyTT3pFXs5GmY6u4X6Pa5+VGxO6cE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGbT54m3ZOPjVmxDXZhpqclP9fdwQlaCCThxqdV5a6FlcAdfXt
-	euOWOJIDHpcml1pNtqDK3JogWCc6riyV46wu9ptZzVZajrC23KiRLdgYFLRMH0hGWdOmitJvLcp
-	xBlq1HnhZGGkhelCns5xLfmpcXg==
-X-Google-Smtp-Source: AGHT+IFQfd+HFEgJUFIDJKFNT2FwvsKl4Qb5d6oW09ns3YI6iz4RavO8zz9nyubEwG4dIvHgjtj9BKcQ+WfnlUpyug==
-X-Received: from ilbbb11.prod.google.com ([2002:a05:6e02:b:b0:3de:11fe:800c])
+        d=1e100.net; s=20230601; t=1750457916; x=1751062716;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ycwbhAp7Zd2F37ixHvuXJ2dafaPBGypIo/idKjOgZXE=;
+        b=ewJgnWTpEDZ0Z92A1UeAx+BIZ7WD8EidqZJ1TyPlJgEXYyRxn3K0n3t2CVqxDEVbkz
+         I+6WnLlbAm8YURwq55LOqvB2m5zHP9URtrOWoYLu0UNkQo+hYNOMq8sMXyUm2BX4oYn7
+         BHIQSNMR0hgEVY0/FZySWtjSOZdf1u+7V9zI9Ax+Dwx4CTkuzzOM+du0Kv0Nmdge1sgE
+         1ggK+i+kNW3ZTEKsHWaLcnjdnzSjj2vlOqZ+yfDvKhd1nZExwiimQbH/R41flsFqNfp/
+         1jCLGM01CDZs2us2m1RgSesMyYj2/YKiDGM3UxZz0MsOu4t6YfswDg1fzoBdZvQwS61p
+         h/0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+KCqIc0l/cIuTgHmQ9Pkpl4G88vTq+2SavE2krjwt01Mjhm1+k7VzWgMsjOXkpKnkwelmO29kqvMAYA47xuOP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbRl9pXqX5dNHH33Pe7Yi1tt3LctRBpHphVHUKDMd6x8walmBt
+	Upatc7lfb98OaNUEbtm0Flf1IzSti8DAJQW92inik2VnfVbDN4nBrn0pf2Rn9ffs3BEHQhI4bLW
+	FRD5qr0EbnrrwFK2P/4hSJYxAPQ==
+X-Google-Smtp-Source: AGHT+IHdG4exJg/OMLEag+SmUtZLjuBoL7XDzzcwpjklziK4h+sFdGNrbUVUxPa6LEbWOqyaRb+b3/J1oVJBEuicPg==
+X-Received: from ilbcp2.prod.google.com ([2002:a05:6e02:3982:b0:3dd:c6fb:13fb])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:16ce:b0:3dd:d653:5a05 with SMTP id e9e14a558f8ab-3de38c1bec3mr55832985ab.3.1750457915390;
- Fri, 20 Jun 2025 15:18:35 -0700 (PDT)
-Date: Fri, 20 Jun 2025 22:13:00 +0000
+ 2002:a92:c26c:0:b0:3dd:c18b:c03e with SMTP id e9e14a558f8ab-3de38c21fe9mr52496035ab.5.1750457916490;
+ Fri, 20 Jun 2025 15:18:36 -0700 (PDT)
+Date: Fri, 20 Jun 2025 22:13:01 +0000
+In-Reply-To: <20250620221326.1261128-1-coltonlewis@google.com>
 Mime-Version: 1.0
+References: <20250620221326.1261128-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
-Message-ID: <20250620221326.1261128-1-coltonlewis@google.com>
-Subject: [PATCH v2 00/23] ARM64 PMU Partitioning
+Message-ID: <20250620221326.1261128-2-coltonlewis@google.com>
+Subject: [PATCH v2 01/23] arm64: cpufeature: Add cpucap for HPMN0
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
@@ -78,8 +80,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
 	Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_151836_736531_19495B01 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20250620_151838_179895_78CDCD6B 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,114 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series creates a new PMU scheme on ARM, a partitioned PMU that
-allows reserving a subset of counters for more direct guest access,
-significantly reducing overhead. More details, including performance
-benchmarks, can be read in the v1 cover letter linked below.
+Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+counters reserved for the guest.
 
-v2:
+This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+because otherwise not all the appropriate macros are generated to add
+it to arm64_cpu_capabilities_arm64_features.
 
-* Rebased on top of kvm/queue to pick up Sean's patch [1] that
-  reorganizes some of the same headers and would otherwise conflict.
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
+---
+ arch/arm64/kernel/cpufeature.c | 8 ++++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ arch/arm64/tools/sysreg        | 6 +++---
+ 3 files changed, 12 insertions(+), 3 deletions(-)
 
-* Changed the semantics of the command line parameters and the
-  ioctl. It was pointed out in the comments last time that it doesn't
-  work to repartition at runtime because the perf subsystem assumes
-  the number of counters it gets will not change after the PMU is
-  probed. Now the PMUv3 command line parameters are the sole thing
-  that divides up guest and host counters and the ioctl just toggles a
-  flag for whether a vcpu should use the partitioned PMU. I've also
-  moved from one to two parameters: partition_pmu=[y/n] and
-  reserved_guest_counters=[0-N]. This makes it possible to
-  unambiguously express configurations like a partitioned PMU with 0
-  general purpose counters exposed to the guest (which still exposes
-  the cycle counter.
-
-* Moved the partitioning code into the PMUv3 driver itself so KVM code
-  isn't modifying fields that are otherwise internal to the driver.
-
-* Define PMI{CNTR,FILTR} as undef_access since KVM isn't ready to
-  support that counter. It is, however, still handled in the
-  partitioning because the driver recognizes it.
-
-* Take out the dependency on FEAT_FGT since it is not widely available
-  on hardware yet. Instead, define a fast path in switch.h for
-  handling accesses to the registers that would otherwise be
-  untrapped.
-
-* During MDCR_EL2 setup for guests, ensure the computed HPMN value is
-  always below the number of guest counters allocated by the driver at
-  boot and always below the number of counters on the current
-  CPU. This accounts for the possibiliy of heterogeneous hardware
-  where I guest might be able to use the partitioned PMU on one CPU
-  but not another.
-
-* The KVM PMU event filter API says that counters must not count while
-  the event is filtered. To ensure this, enforce the filter on every
-  vcpu_load into the guest.
-
-* Settable PMCR_EL0.N with a partitioned PMU now works and the
-  vcpu_counter_access selftest changes reflect that.
-
-v1:
-https://lore.kernel.org/kvm/20250602192702.2125115-1-coltonlewis@google.com/
-
-Colton Lewis (22):
-  arm64: cpufeature: Add cpucap for HPMN0
-  arm64: Generate sign macro for sysreg Enums
-  arm64: cpufeature: Add cpucap for PMICNTR
-  arm64: Define PMI{CNTR,FILTR}_EL0 as undef_access
-  KVM: arm64: Reorganize PMU functions
-  perf: arm_pmuv3: Introduce method to partition the PMU
-  perf: arm_pmuv3: Generalize counter bitmasks
-  perf: arm_pmuv3: Keep out of guest counter partition
-  KVM: arm64: Correct kvm_arm_pmu_get_max_counters()
-  KVM: arm64: Set up FGT for Partitioned PMU
-  KVM: arm64: Writethrough trapped PMEVTYPER register
-  KVM: arm64: Use physical PMSELR for PMXEVTYPER if partitioned
-  KVM: arm64: Writethrough trapped PMOVS register
-  KVM: arm64: Write fast path PMU register handlers
-  KVM: arm64: Setup MDCR_EL2 to handle a partitioned PMU
-  KVM: arm64: Account for partitioning in PMCR_EL0 access
-  KVM: arm64: Context swap Partitioned PMU guest registers
-  KVM: arm64: Enforce PMU event filter at vcpu_load()
-  perf: arm_pmuv3: Handle IRQs for Partitioned PMU guest counters
-  KVM: arm64: Inject recorded guest interrupts
-  KVM: arm64: Add ioctl to partition the PMU when supported
-  KVM: arm64: selftests: Add test case for partitioned PMU
-
-Marc Zyngier (1):
-  KVM: arm64: Cleanup PMU includes
-
- Documentation/virt/kvm/api.rst                |  21 +
- arch/arm/include/asm/arm_pmuv3.h              |  34 +
- arch/arm64/include/asm/arm_pmuv3.h            |  61 +-
- arch/arm64/include/asm/kvm_host.h             |  20 +-
- arch/arm64/include/asm/kvm_pmu.h              |  61 ++
- arch/arm64/kernel/cpufeature.c                |  15 +
- arch/arm64/kvm/Makefile                       |   2 +-
- arch/arm64/kvm/arm.c                          |  22 +
- arch/arm64/kvm/debug.c                        |  24 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h       | 233 ++++++
- arch/arm64/kvm/pmu-emul.c                     | 676 +----------------
- arch/arm64/kvm/pmu-part.c                     | 359 +++++++++
- arch/arm64/kvm/pmu.c                          | 687 ++++++++++++++++++
- arch/arm64/kvm/sys_regs.c                     |  66 +-
- arch/arm64/tools/cpucaps                      |   2 +
- arch/arm64/tools/gen-sysreg.awk               |   1 +
- arch/arm64/tools/sysreg                       |   6 +-
- drivers/perf/arm_pmuv3.c                      | 150 +++-
- include/linux/perf/arm_pmu.h                  |  15 +-
- include/linux/perf/arm_pmuv3.h                |  14 +-
- include/uapi/linux/kvm.h                      |   4 +
- tools/include/uapi/linux/kvm.h                |   2 +
- .../selftests/kvm/arm64/vpmu_counter_access.c |  63 +-
- virt/kvm/kvm_main.c                           |   1 +
- 24 files changed, 1791 insertions(+), 748 deletions(-)
- create mode 100644 arch/arm64/kvm/pmu-part.c
-
-
-base-commit: 79150772457f4d45e38b842d786240c36bb1f97f
---
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index b34044e20128..278294fdc97d 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+ };
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
+ 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+@@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+ 	},
++	{
++		.desc = "Allow MDCR_EL2.HPMN = 0",
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.capability = ARM64_HAS_HPMN0,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
++	},
+ #ifdef CONFIG_ARM64_SME
+ 	{
+ 		.desc = "Scalable Matrix Extension",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 10effd4cff6b..5b196ba21629 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
+ HAS_GIC_PRIO_MASKING
+ HAS_GIC_PRIO_RELAXED_SYNC
+ HAS_HCR_NV1
++HAS_HPMN0
+ HAS_HCX
+ HAS_LDAPR
+ HAS_LPA2
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8a8cf6874298..d29742481754 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1531,9 +1531,9 @@ EndEnum
+ EndSysreg
+ 
+ Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+-Enum	63:60	HPMN0
+-	0b0000	UNPREDICTABLE
+-	0b0001	DEF
++UnsignedEnum	63:60	HPMN0
++	0b0000	NI
++	0b0001	IMP
+ EndEnum
+ UnsignedEnum	59:56	ExtTrcBuff
+ 	0b0000	NI
+-- 
 2.50.0.714.g196bf9f422-goog
+
 
