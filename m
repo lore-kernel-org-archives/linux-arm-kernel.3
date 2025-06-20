@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB930C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC1BC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1fVwyLUNRRQLEW5jE16tOspIQXmMehXwXSn1BH4tOI=; b=Cm6R7z3GUrMnLIrBNvO/6K64wJ
-	hIi4RhraePdWnN0LyEPgSNFCIB8c0ypKHXYnFXfn7rGN/Xj6q5l4+f3deVjbj1cyhJDtfKIRJr/re
-	XAnB7dRD5VCsWp9iauI+qznKE0b6aamyQphIf5/WKmO31ysNvF5l3KV/rrqTMbSYgML5O8EHGF/g/
-	pfTvNu4U0+TGQQv59o28yQnPmqPb5zT4lGn6oqemx2M6D5C90mgkn2qsDpiUOfEewz7ZTThGfPVRG
-	Hyiuk+50tNIPENiHUfDCqeKRFQHkKCC3Oo2+EEkD4SLWQUfR+JHF/Dyw56hkQMzYxC2sGYnoMCJ5B
-	wTacLspg==;
+	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=; b=QNq1Cbxbapcu5LzDuohnHhw61f
+	A/b3urQZrYeUmFUqUVlpe2zBcqmY/Yont/3wZWKTX9vd6M1tf4RphwsNVIDLbuYfZPv37ABG6Kdfa
+	I5vGYiZdC+ZvI4ltaA8DIVXSnNOxXqZII6WqvUH066L036OwzKhYe2Tkxteert6vj7ErVoGv/aOwV
+	OLc/HvZ7CjtjfcYWtbj3UjJW2y6UINBJ7ooiE1LLBQfiv3h3oy/jgNl/z51ZWvkgl2q8+4H6o2GFt
+	3EPJf+s+9C+KdwYL7DbsXtsDmkfMoAbnI4CwX/k/vloRJOpxolTymhCOYlmt47+qKHuRRobUzcatK
+	O2w9ApEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSchp-0000000Fqgd-12Lh;
-	Fri, 20 Jun 2025 14:27:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScfa-0000000FqR1-16Ur
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 14:24:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8EC3106F;
-	Fri, 20 Jun 2025 07:24:21 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBD5D3F58B;
-	Fri, 20 Jun 2025 07:24:40 -0700 (PDT)
-Date: Fri, 20 Jun 2025 15:24:39 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 05/11] coresight: Save activated path into source
- device
-Message-ID: <20250620142439.GL794930@e132581.arm.com>
-References: <20250516160742.1200904-1-leo.yan@arm.com>
- <20250516160742.1200904-6-leo.yan@arm.com>
- <788e698d-aa1a-47ba-829f-aef9cd4b7417@linaro.org>
+	id 1uSctA-0000000Fs7B-0mgw;
+	Fri, 20 Jun 2025 14:38:44 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uScqv-0000000Frpc-0iOd;
+	Fri, 20 Jun 2025 14:36:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750430158; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mhO6q0KQo+lFB765sFrQ0iJALubCt/dkVgj5bkqda8vOBMS+mFPwLg5e1J5BOaSF9Pk9AQ0kWe9gDmzSpxW7uNAlruYwIoUNXKZjfkq/oZDJd/NbkWMBbEP+XrKRjM207rgBUFWSvYkcplnuPtON1Ggm4vwMh8om2868LwMuKqw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750430158; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=; 
+	b=UpTqogv6s6SAUyT1Sg7j7vc2eU/8VD8wgn6VXYNQ0RTbA7F3ZxzsXQ8WisTeFTyPb58BInjo27Tt6mIe+jZhSVRLvNfE3HpNeVgUi96b3yZ0irV+AnGBzBOkwxQSRj0lBz4lFH/3Cy8LxA+UEcETCw99RGi8PR1FUIoYv0yw470=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750430158;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=;
+	b=GvScAD3XvhayzIDIZUlN55amv4Y6YTg57qFNkOCjgOcc/x9nn/CD0OL5+OW9UbXo
+	XXQum83rcELnJYlZE5fGAOkrFAPNZnU59Pdlc3o1vfraUrwAIYvFClMXaB0n/jFeQQH
+	LjwXW3K+nKpk5JyUxT4p+ls8SA/t0OyTJgwSnCrQ=
+Received: by mx.zohomail.com with SMTPS id 1750430157359198.38922411057285;
+	Fri, 20 Jun 2025 07:35:57 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kever Yang <kever.yang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Alexey Charkov <alchark@gmail.com>, kernel@collabora.com,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] phy: rockchip: inno-usb2: add soft vbusvalid control
+Date: Fri, 20 Jun 2025 16:35:49 +0200
+Message-ID: <4228996.iIbC2pHGDl@workhorse>
+In-Reply-To: <2600104.PYKUYFuaPT@workhorse>
+References: <20250619-rk3576-sige5-usb-v5-0-9069a7e750e1@collabora.com>
+ <7131451.G0QQBjFxQf@phil> <2600104.PYKUYFuaPT@workhorse>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <788e698d-aa1a-47ba-829f-aef9cd4b7417@linaro.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_072442_391559_03BB33D9 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20250620_073625_277335_87E0FB37 
+X-CRM114-Status: GOOD (  52.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,100 +84,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 03:49:26PM +0100, James Clark wrote:
+Hi Heiko, a quick follow-up,
 
-[...]
+On Thursday, 19 June 2025 22:23:35 Central European Summer Time Nicolas Fra=
+ttaroli wrote:
+> Hi Heiko,
+>=20
+> On Thursday, 19 June 2025 21:42:00 Central European Summer Time Heiko Stu=
+ebner wrote:
+> > Hi Nicolas,
+> >=20
+> > Am Donnerstag, 19. Juni 2025, 20:36:36 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Nicolas Frattaroli:
+> > > With USB type C connectors, the vbus detect pin of the OTG controller
+> > > attached to it is pulled high by a USB Type C controller chip such as
+> > > the fusb302. This means USB enumeration on Type-C ports never works, =
+as
+> > > the vbus is always seen as high.
+> > >=20
+> > > Rockchip added some GRF register flags to deal with this situation. T=
+he
+> > > RK3576 TRM calls these "soft_vbusvalid_bvalid" (con0 bit index 15) and
+> > > "soft_vbusvalid_bvalid_sel" (con0 bit index 14).
+> >=20
+> > I would expect a paragraph more about what those bits (and their
+> > functionality) actually do here :-)=20
+>=20
+> :( fiiine
+>=20
+> Quick non-patch explainer though, in case it helps you spot a problem in
+> the code: looks like svbus_sel to 1 tells the SoC that the OTG
+> controller's vbus valid and bvalid signal is controlled by the svbus_en
+> GRF flag instead of whatever the controller does based on what it sees
+> on the voltage lines.
+>=20
+> >=20
+> >=20
+> > > Downstream introduces a new vendor property which tells the USB 2 PHY
+> > > that it's connected to a type C port, but we can do better. Since in
+> > > such an arrangement, we'll have an OF graph connection from the USB
+> > > controller to the USB connector anyway, we can walk said OF graph and
+> > > check the connector's compatible to determine this without adding any
+> > > further vendor properties.
+> > >=20
+> > > Do keep in mind that the usbdp PHY driver seemingly fiddles with these
+> > > register fields as well, but what it does doesn't appear to be enough
+> > > for us to get working USB enumeration, presumably because the whole
+> > > vbus_attach logic needs to be adjusted as well either way.
+> >=20
+> >=20
+> > In the rk3588 TRM I find USB2PHY_GRF_CON4
+> > bit3 - sft_vbus_sel (VBUS software control select)
+> > bit2 - sft_vbus (When sft_vbus_sel is 1'b1, vbusvalid and bvalid is
+> >                  controlled by sft_vbus)
+> >=20
+> > Is that the same stuff as you're adding for rk3576 ?
+>=20
+> Yes, these appear to be the same ones. I'd need to check whether Type-C
+> USB devices enumerate on RK3588 first to see if we have the same problem
+> there though (it would be weird if it weren't a problem there).
+>=20
+> If you pick the DT patch, I can send a new version of the soft vbusvalid
+> control patch with RK3588 addressed as well, if I manage to confirm it's
+> the same thing there.
 
-> > @@ -577,6 +583,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
-> >   		}
-> >   	}
-> > +	source = coresight_get_source(path);
-> > +	if (coresight_is_percpu_source(source))
-> > +		source->path = path;
-> > +
-> >   out:
-> >   	return ret;
-> >   err_disable_helpers:
-> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> > index 64cee4040daa..cd9709a36b9c 100644
-> > --- a/include/linux/coresight.h
-> > +++ b/include/linux/coresight.h
-> > @@ -265,6 +265,7 @@ struct coresight_trace_id_map {
-> >    *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
-> >    *		spinlock.
-> >    * @orphan:	true if the component has connections that haven't been linked.
-> > + * @path:	activated path pointer (only used for source device).
-> >    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
-> >    *		by writing a 1 to the 'enable_sink' file.  A sink can be
-> >    *		activated but not yet enabled.  Enabling for a _sink_ happens
-> > @@ -291,6 +292,8 @@ struct coresight_device {
-> >   	local_t	mode;
-> >   	int refcnt;
-> >   	bool orphan;
-> > +	/* activated path (for source only) */
-> > +	struct coresight_path *path;
-> 
-> This is probably cleaner if it's saved in the new global per-cpu you added
-> in patch 2. It's even more specific than "for source only", it's actually
-> only for per-cpu sources so it's not worth having it on every device.
+So I tested this on RK3588, and could not reproduce the issue. Then, out of
+curiosity, I reverted the patch and tested on the Sige5 again. I could also
+not reproduce the issue anymore (?!). Even with the udphy line commented out
+that sets those GRF regs as well, I can't get it to have issues enumerating
+things on Type-C anymore.
 
-We can maintain Coresight path pointers in a global per-CPU data
-structure. These path pointers are set and cleared during path enable
-and disable operations, respectively. Idle threads can then access
-these pointers for power management purposes.
+The downstream commit this was based on is here:
 
-However, the challenge is how we can safely access the path pointer from
-an idle thread - particularly because idle threads cannot acquire
-coresight_mutex, which is a sleepable lock. Consider a race condition
-scenario where SysFS knobs frequently enable and disable paths, while
-the corresponding CPUs enter and exit idle states. In such cases, if
-an idle thread attempts to access the path pointers, we would need to
-use raw spinlocks to ensure safety. This is problematic, as it could
-result in the CPU suspend/resume flow waiting on SysFS operations.
+https://github.com/rockchip-linux/kernel/commit/7d2237b0adc2e0a0105d63b6455=
+28993b44c8c36
 
-This is why it turns out to use lockless approach. Two key background
-info:
+So for now, this patch can be considered "abandoned, maybe unnecessary"
+until the problem rears its head again for someone. I really don't get
+why it works now :(
 
-- Path pointers are not guaranteed to be safe to access in CPU power
-  management (PM) notifiers. In contrast, the coresight_device pointer
-  of a source device (e.g., an ETM) is safe to access.
+>=20
+> >=20
+> > My last dance with rk3588-type-c is already some months back, but I do
+> > remember running into "some" issue - but don't remember which one ;-)
+> >=20
+> >=20
+> > Heiko
+> >=20
+>=20
+> Kind regards,
+> Nicolas Frattaroli
+>=20
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 108 ++++++++++++++++=
++++++++++-
+> > >  1 file changed, 104 insertions(+), 4 deletions(-)
+> > >=20
+> > > diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/=
+phy/rockchip/phy-rockchip-inno-usb2.c
+> > > index b0f23690ec3002202c0f33a6988f5509622fa10e..71810c07e4150ea81f65a=
+8a932541b144e95a137 100644
+> > > --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> > > +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> > > @@ -17,6 +17,7 @@
+> > >  #include <linux/module.h>
+> > >  #include <linux/mutex.h>
+> > >  #include <linux/of.h>
+> > > +#include <linux/of_graph.h>
+> > >  #include <linux/of_irq.h>
+> > >  #include <linux/phy/phy.h>
+> > >  #include <linux/platform_device.h>
+> > > @@ -114,6 +115,8 @@ struct rockchip_chg_det_reg {
+> > >  /**
+> > >   * struct rockchip_usb2phy_port_cfg - usb-phy port configuration.
+> > >   * @phy_sus: phy suspend register.
+> > > + * @svbus_en: soft vbus bvalid enable register.
+> > > + * @svbus_sel: soft vbus bvalid selection register.
+> > >   * @bvalid_det_en: vbus valid rise detection enable register.
+> > >   * @bvalid_det_st: vbus valid rise detection status register.
+> > >   * @bvalid_det_clr: vbus valid rise detection clear register.
+> > > @@ -140,6 +143,8 @@ struct rockchip_chg_det_reg {
+> > >   */
+> > >  struct rockchip_usb2phy_port_cfg {
+> > >  	struct usb2phy_reg	phy_sus;
+> > > +	struct usb2phy_reg	svbus_en;
+> > > +	struct usb2phy_reg	svbus_sel;
+> > >  	struct usb2phy_reg	bvalid_det_en;
+> > >  	struct usb2phy_reg	bvalid_det_st;
+> > >  	struct usb2phy_reg	bvalid_det_clr;
+> > > @@ -203,6 +208,7 @@ struct rockchip_usb2phy_cfg {
+> > >   * @event_nb: hold event notification callback.
+> > >   * @state: define OTG enumeration states before device reset.
+> > >   * @mode: the dr_mode of the controller.
+> > > + * @typec_vbus_det: whether to apply Type C logic to OTG vbus detect=
+ion.
+> > >   */
+> > >  struct rockchip_usb2phy_port {
+> > >  	struct phy	*phy;
+> > > @@ -222,6 +228,7 @@ struct rockchip_usb2phy_port {
+> > >  	struct notifier_block	event_nb;
+> > >  	enum usb_otg_state	state;
+> > >  	enum usb_dr_mode	mode;
+> > > +	bool typec_vbus_det;
+> > >  };
+> > > =20
+> > >  /**
+> > > @@ -495,6 +502,13 @@ static int rockchip_usb2phy_init(struct phy *phy)
+> > >  	mutex_lock(&rport->mutex);
+> > > =20
+> > >  	if (rport->port_id =3D=3D USB2PHY_PORT_OTG) {
+> > > +		if (rport->typec_vbus_det) {
+> > > +			if (rport->port_cfg->svbus_en.enable &&
+> > > +					rport->port_cfg->svbus_sel.enable) {
+> > > +				property_enable(rphy->grf, &rport->port_cfg->svbus_en, true);
+> > > +				property_enable(rphy->grf, &rport->port_cfg->svbus_sel, true);
+> > > +			}
+> > > +		}
+> > >  		if (rport->mode !=3D USB_DR_MODE_HOST &&
+> > >  		    rport->mode !=3D USB_DR_MODE_UNKNOWN) {
+> > >  			/* clear bvalid status and enable bvalid detect irq */
+> > > @@ -535,8 +549,7 @@ static int rockchip_usb2phy_init(struct phy *phy)
+> > >  			if (ret)
+> > >  				goto out;
+> > > =20
+> > > -			schedule_delayed_work(&rport->otg_sm_work,
+> > > -					      OTG_SCHEDULE_DELAY * 3);
+> > > +			schedule_delayed_work(&rport->otg_sm_work, 0);
+> > >  		} else {
+> > >  			/* If OTG works in host only mode, do nothing. */
+> > >  			dev_dbg(&rport->phy->dev, "mode %d\n", rport->mode);
+> > > @@ -666,8 +679,12 @@ static void rockchip_usb2phy_otg_sm_work(struct =
+work_struct *work)
+> > >  	unsigned long delay;
+> > >  	bool vbus_attach, sch_work, notify_charger;
+> > > =20
+> > > -	vbus_attach =3D property_enabled(rphy->grf,
+> > > -				       &rport->port_cfg->utmi_bvalid);
+> > > +	if (rport->port_cfg->svbus_en.enable && rport->typec_vbus_det) {
+> > > +		vbus_attach =3D true;
+> > > +	} else {
+> > > +		vbus_attach =3D property_enabled(rphy->grf,
+> > > +					       &rport->port_cfg->utmi_bvalid);
+> > > +	}
+> > > =20
+> > >  	sch_work =3D false;
+> > >  	notify_charger =3D false;
+> > > @@ -1276,6 +1293,83 @@ static int rockchip_otg_event(struct notifier_=
+block *nb,
+> > >  	return NOTIFY_DONE;
+> > >  }
+> > > =20
+> > > +static const char *const rockchip_usb2phy_typec_cons[] =3D {
+> > > +	"usb-c-connector",
+> > > +	NULL,
+> > > +};
+> > > +
+> > > +static struct device_node *rockchip_usb2phy_to_controller(struct roc=
+kchip_usb2phy *rphy)
+> > > +{
+> > > +	struct device_node *np;
+> > > +	struct device_node *parent;
+> > > +
+> > > +	for_each_node_with_property(np, "phys") {
+> > > +		struct of_phandle_iterator it;
+> > > +		int ret;
+> > > +
+> > > +		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
+> > > +			parent =3D of_get_parent(it.node);
+> > > +			if (it.node !=3D rphy->dev->of_node && rphy->dev->of_node !=3D pa=
+rent) {
+> > > +				if (parent)
+> > > +					of_node_put(parent);
+> > > +				continue;
+> > > +			}
+> > > +
+> > > +			/*
+> > > +			 * Either the PHY phandle we're iterating or its parent
+> > > +			 * matched, we don't care about which out of the two in
+> > > +			 * particular as we just need to know it's the right
+> > > +			 * USB controller for this PHY.
+> > > +			 */
+> > > +			of_node_put(it.node);
+> > > +			of_node_put(parent);
+> > > +			return np;
+> > > +		}
+> > > +	}
+> > > +
+> > > +	return NULL;
+> > > +}
+> > > +
+> > > +static bool rockchip_usb2phy_otg_is_type_c(struct rockchip_usb2phy *=
+rphy)
+> > > +{
+> > > +	struct device_node *controller =3D rockchip_usb2phy_to_controller(r=
+phy);
+> > > +	struct device_node *ports;
+> > > +	struct device_node *ep =3D NULL;
+> > > +	struct device_node *parent;
+> > > +
+> > > +	if (!controller)
+> > > +		return false;
+> > > +
+> > > +	ports =3D of_get_child_by_name(controller, "ports");
+> > > +	if (ports) {
+> > > +		of_node_put(controller);
+> > > +		controller =3D ports;
+> > > +	}
+> > > +
+> > > +	for_each_of_graph_port(controller, port) {
+> > > +		ep =3D of_get_child_by_name(port, "endpoint");
+> > > +		if (!ep)
+> > > +			continue;
+> > > +
+> > > +		parent =3D of_graph_get_remote_port_parent(ep);
+> > > +		of_node_put(ep);
+> > > +		if (!parent)
+> > > +			continue;
+> > > +
+> > > +		if (of_device_compatible_match(parent, rockchip_usb2phy_typec_cons=
+)) {
+> > > +			of_node_put(parent);
+> > > +			of_node_put(controller);
+> > > +			return true;
+> > > +		}
+> > > +
+> > > +		of_node_put(parent);
+> > > +	}
+> > > +
+> > > +	of_node_put(controller);
+> > > +
+> > > +	return false;
+> > > +}
+> > > +
+> > >  static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *r=
+phy,
+> > >  					  struct rockchip_usb2phy_port *rport,
+> > >  					  struct device_node *child_np)
+> > > @@ -1297,6 +1391,8 @@ static int rockchip_usb2phy_otg_port_init(struc=
+t rockchip_usb2phy *rphy,
+> > > =20
+> > >  	mutex_init(&rport->mutex);
+> > > =20
+> > > +	rport->typec_vbus_det =3D rockchip_usb2phy_otg_is_type_c(rphy);
+> > > +
+> > >  	rport->mode =3D of_usb_get_dr_mode_by_phy(child_np, -1);
+> > >  	if (rport->mode =3D=3D USB_DR_MODE_HOST ||
+> > >  	    rport->mode =3D=3D USB_DR_MODE_UNKNOWN) {
+> > > @@ -2050,6 +2146,8 @@ static const struct rockchip_usb2phy_cfg rk3576=
+_phy_cfgs[] =3D {
+> > >  		.port_cfgs	=3D {
+> > >  			[USB2PHY_PORT_OTG] =3D {
+> > >  				.phy_sus	=3D { 0x0000, 8, 0, 0, 0x1d1 },
+> > > +				.svbus_en	=3D { 0x0000, 15, 15, 0, 1 },
+> > > +				.svbus_sel	=3D { 0x0000, 14, 14, 0, 1 },
+> > >  				.bvalid_det_en	=3D { 0x00c0, 1, 1, 0, 1 },
+> > >  				.bvalid_det_st	=3D { 0x00c4, 1, 1, 0, 1 },
+> > >  				.bvalid_det_clr =3D { 0x00c8, 1, 1, 0, 1 },
+> > > @@ -2087,6 +2185,8 @@ static const struct rockchip_usb2phy_cfg rk3576=
+_phy_cfgs[] =3D {
+> > >  		.port_cfgs	=3D {
+> > >  			[USB2PHY_PORT_OTG] =3D {
+> > >  				.phy_sus	=3D { 0x2000, 8, 0, 0, 0x1d1 },
+> > > +				.svbus_en	=3D { 0x2000, 15, 15, 0, 1 },
+> > > +				.svbus_sel	=3D { 0x2000, 14, 14, 0, 1 },
+> > >  				.bvalid_det_en	=3D { 0x20c0, 1, 1, 0, 1 },
+> > >  				.bvalid_det_st	=3D { 0x20c4, 1, 1, 0, 1 },
+> > >  				.bvalid_det_clr =3D { 0x20c8, 1, 1, 0, 1 },
+> > >=20
+> > >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+>=20
+>=20
 
-  A path's lifecycle begins and ends with SysFS enable and disable
-  operations. OTOH, an ETM’s coresight_device pointer is initialized
-  during the probe phase and cleared during module removal. Module
-  loading and unloading trigger SMP calls for initialization and
-  cleanup. These synchronized SMP calls ensure that it is safe for CPU
-  PM notifiers to access the source device structure.
 
-- Another factor is that the device mode is used to determine whether
-  it is safe to access the path pointer. When a source device is
-  enabled, we must ensure that its state transitions from DISABLED to
-  an enabled state on the target CPU. This guarantees that the mode,
-  and any subsequent operations dependent on it, follow a strictly
-  sequential order.
 
-  CPU0                                    CPU1
-  etm4_enable()
-   ` etm4_enable_sysfs()
-      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
-                                           ` coresight_take_mode(SYSFS)
 
-                                           CPU idle:
-                                           etm4_cpu_save()
-                                            ` coresight_get_mode()
-                                               ^^^
-                                               Read out the SYSFS mode
-                                               Safely access coresight_device::path
-
-Therefore, safe access to the Coresight path heavily relies on the
-mode (as part of the state machine). This is why the patch adds the
-path pointer to the same structure as the mode.
-
-Thanks,
-Leo
-
-> >   	/* sink specific fields */
-> >   	bool sysfs_sink_activated;
-> >   	struct dev_ext_attribute *ea;
-> 
 
