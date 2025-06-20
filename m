@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46702C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2849DC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9Zds3UP/situ6ISevmHMtuu63UMPBW4EEjyEou8xwI=; b=4njpGbWvhWH9wR0xgM+zvYtJXi
-	ufq9GTP6gs910vbL4uDBkvDORBm6MCUpHVu+UABtU74ABECBNNWBzrLhg5TVUeY1WZBhrfAwJmc++
-	baGse/9qPorM5RtRr23lv/dALyKr9DxJ2pdnoWWNgBxY+MTm2+EnhlhVtUtqPXotI3BZlCMJV7VNl
-	96oPTjcIdwdUopLAWddwfTP2lywpwJrqUBmkBY7DOFvj4CqN5F2ZUIUgKVpLiTL69E9zDmR9EMlxU
-	WjJwNa8HScxwzPvboE381elqb0GuSMmeBrAcyJUUC1zwH8U4JGWUj3c1ZOacErCNYsmy3QTo5B2KB
-	pEzEHjWA==;
+	bh=/Z4BVrmQkLIwm7m7rb7gCUqVGPdJjmrMg3Rxc+uOd3A=; b=4N0RaodmDAdE3rgGhfj1okN+Dd
+	2WRCcIV1PjeocAmGfeBfUZoh5aSPDp0t3JOXTvnD3JbiUCoXWCGphif8/jTeQpjbBbUuOJyqkT3dC
+	qvnx1Fhf/ph10pYKsj22RPNOCESo3GetKkMeR8haCE/oKHDOXjFGsRO7mO02O+u01rNMYPGZ6u8C4
+	3plQrkOjFakWa8jhFf+BLWLUXjVl5DqWLErO2loX7a6LEsdKptJchnQyCN3Id2QsGkwsG9f077RgO
+	gXjiGGtoY8gmlvy+K/IcVvyxq9pEtcLDf47tGNnQ+pJ3PEL0j5DgrIp/UJX1VdvNeLbMeOVR/AxyZ
+	prU9xXdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeAC-0000000G4i7-2YlS;
-	Fri, 20 Jun 2025 16:00:24 +0000
+	id 1uSeCR-0000000G55h-2qED;
+	Fri, 20 Jun 2025 16:02:43 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSduF-0000000G1RA-07tz;
-	Fri, 20 Jun 2025 15:43:57 +0000
+	id 1uSduF-0000000G1RL-0yFW;
+	Fri, 20 Jun 2025 15:43:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 762D45C6BAF;
-	Fri, 20 Jun 2025 15:41:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 96F22C4CEEF;
-	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 18B065C6BB2;
+	Fri, 20 Jun 2025 15:41:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1DF8FC4CEF0;
+	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750434233;
-	bh=7Cz9DeYbJNfdxqyC5I/LakjQd58o56ZwWd4MumaDT84=;
+	s=k20201202; t=1750434234;
+	bh=n3mrHhbKnKUpC1kN1NJ7p70/oxST9+GlzZGgUiw5Xms=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iUNZJO6O210/UFXdJnkMzN3jEh572jNTT9CA+bJlgZPecXkOEXKIWALsnO22GafiD
-	 iwLEwD25S2oc3NDAZSIbrSz4d6oaTBYLhIGG3JBbfXvsFZQeyWOHLKygYN3kI+ZGU2
-	 Urp1PqGcPHimYUaKZ2qhqVZBdHqzSCuOqSh0ik8DuijpsNYBzdGrc+iUtO0nGIvfeO
-	 5ZfIoDRbF4WH2cFDPRKd9aA/Y3jsbRb5l0ia0WXc1QfKMxCk228wsfJ8/xJ73ix3bw
-	 qmcx/MyfAhA3qNxER5yuUJRqaWOyTlJZ09s9k5nsyoYkVxSt7WKZrNYShq51i3DFKs
-	 H+5zsB7z4e5Mw==
+	b=c0cdnnRCMiUXGUWRZKXjuQmmed1u1TmtaK0z2m8n7D0R3KpYtieyKYq4ZU2adkxIK
+	 v0XfH4uedfuYeKiHMFP/WclYAZhKY/C1gN9p58PpigwzJHHd4OF/t9QvlFAS7J6oAa
+	 3Rny6oFVXm99QF49ZNpZXtJ45gqFsbi0fCk2G+AZw54v0yOYQKbYAgZeWodi+nx597
+	 XHHwEhh31CO5H1aYuPX1V+6TOp63xuChlkMFwWYdzPAeV44NdUJ8RS00DqnEthGzBY
+	 THsRre7+TYNJtEQumx0l1yeNmf43bLJKBWuVoH1BBgoaowhdSPy8WERy/YK3d1buPp
+	 dIUXQ9PUJs8Ww==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8653FC7115C;
-	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1343DC7115B;
+	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Fri, 20 Jun 2025 18:40:40 +0300
-Subject: [PATCH 01/11] dt-bindings: serial: mediatek,uart: add MT6572
+Date: Fri, 20 Jun 2025 18:40:50 +0300
+Subject: [PATCH 11/11] ARM: dts: mediatek: add basic support for Lenovo
+ A369i board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-mt6572-v1-1-e2d47820f042@proton.me>
+Message-Id: <20250620-mt6572-v1-11-e2d47820f042@proton.me>
 References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
 In-Reply-To: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -69,20 +70,19 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Max Shevchenko <wctrl@proton.me>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=881;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=2299;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=V5vXqZRhKe/QPDs6cq0TFRVUVaBGJI2I3Hr9UkPlHFc=;
- b=vQ6ta+L0cSyrNmAT6pH6n2zLB7oXQGEryTst+S7AsWcfCTKZG8qHMy2e8vJCnnwrSNdSGQ89l
- 2Gsid+w4Fr/DaCDCS8FA2rfQ6IzGdhG94i/Dl1O9e8ML0+x+9zqmQkF
+ bh=lTjo3ihR3gUlpL1GW0vPSnD1O+oT6SyQn7cpI3Gt7SU=;
+ b=AJjRsHDZP2J6V9EgEJwBSC0mqa9ApUP+Ke6oP/dYMgZ8GuD8lxcVsUuCuG0TjHk29w5JOc3sR
+ L2O+R7DD6/3CnY8tLfMAxbq+ollMI5/867XTIes34t+guE0rQF2NjyT
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_084355_144594_A52C3FA5 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_084355_392664_011B3A4F 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +100,91 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Max Shevchenko <wctrl@proton.me>
 
-Add a compatible string for serial on the MT6572 SoC.
+This smartphone uses a MediaTek MT6572 system-on-chip with 512MB of RAM.
+It can currently boot into initramfs with a working UART and
+Simple Framebuffer using already initialized panel by the bootloader.
 
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/mediatek/Makefile                |  1 +
+ arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts | 57 ++++++++++++++++++++++
+ 2 files changed, 58 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/mediatek,uart.yaml b/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
-index 1b02f0b197ff46e3530372d1d9303210cca9c2d5..fe283494188dea64bdfdd34a781bf54c8cbc1f05 100644
---- a/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
-@@ -25,6 +25,7 @@ properties:
-           - enum:
-               - mediatek,mt2701-uart
-               - mediatek,mt2712-uart
-+              - mediatek,mt6572-uart
-               - mediatek,mt6580-uart
-               - mediatek,mt6582-uart
-               - mediatek,mt6589-uart
+diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
+index cb869a1aaec21a1d99f7f2a829b84672a3f52726..e48de3efeb3b9ab00108cc28afa8da525d0ec14a 100644
+--- a/arch/arm/boot/dts/mediatek/Makefile
++++ b/arch/arm/boot/dts/mediatek/Makefile
+@@ -2,6 +2,7 @@
+ dtb-$(CONFIG_ARCH_MEDIATEK) += \
+ 	mt2701-evb.dtb \
+ 	mt6572-jty-d101.dtb \
++	mt6572-lenovo-a369i.dtb \
+ 	mt6580-evbp1.dtb \
+ 	mt6582-prestigio-pmt5008-3g.dtb \
+ 	mt6589-aquaris5.dtb \
+diff --git a/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts b/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..da8865a6b7e4f0e346f42504b3f8a4db61cb240e
+--- /dev/null
++++ b/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2025 Max Shevchenko <wctrl@proton.me>
++ */
++
++/dts-v1/;
++#include "mt6572.dtsi"
++
++/ {
++	model = "Lenovo A369i";
++	compatible = "lenovo,a369i", "mediatek,mt6572";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		stdout-path = "serial0:921600n8";
++
++		framebuffer: framebuffer@9fa00000 {
++			compatible = "simple-framebuffer";
++			memory-region = <&framebuffer_reserved>;
++			width = <480>;
++			height = <800>;
++			stride = <(480 * 2)>;
++			format = "r5g6b5";
++			status = "okay";
++		};
++	};
++
++	memory {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		connsys@80000000 {
++			reg = <0x80000000 0x100000>;
++			no-map;
++		};
++
++		framebuffer_reserved: framebuffer@9fa00000 {
++			reg = <0x9fa00000 0x600000>;
++			no-map;
++		};
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
 
 -- 
 2.50.0
