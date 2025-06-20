@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A83EC71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 07:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB0FC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 07:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i7/0+Wyt/F5MZdrfVE3XpgV5j2JngVJirMoqeFq65mM=; b=0Rt7ohYp6MgnWys5Ku9gmQ/mlK
-	xsYbfqJLxrE4dyqlcf9yBMxmOTEIhOt1V04NnK6WQKz5KJQ8JqzK/wyRcRMLrvbwoH1KDqtD5MVGM
-	HL/qTAF5Zn7Q8XNqp4MQWrHABzfcdUv/gwCyjKW1RB3l60IzBuzP3Tolo6oT3r0oO6QzB1hxfuZgw
-	ZMAMaDrwpj+y1ej+3YIlgNHp6NArT6dccDvxSpFY+6Kz0/Hzv4FZFH5pQisUBzWYF6FU0OzzareJ2
-	XFkm6TF852G0Jy5h1uJvjHRKEWrzF4sXCZWfHyVTr1/oiGqMJJPUvTb2Ym+r8bViz583FoRjhwblk
-	4PvszNkg==;
+	bh=tD7HrBct3iPXCOCg6GBhxFLmNa6T2PdVjBcEySVUgIc=; b=hNMf4BuiCybLrjSn0w3BiiypPl
+	qWAw1F859pvqntjfU5z3oVrWcFJFv2qj97FqH4I4TsOnyodl8GLx7XDXzfCxY5knn6Sd2518GsX+T
+	47IdFPkNqwX4APF9VobTp4PIe+iAOxyyhTM4fYYTcOYPtwRPC1/bbqh4Qkoc2XqdB1L6qhxS3fFlc
+	kAlR7IeDHnUvoG4dBJxNLzOA1AP8aWt2BIyXBH2YKvqCp1N5nwYZdfaQLmPz/EoXgdh2/dGvHt5fS
+	PxK2bS7nHKu5z8MjLi4sGotAR9KJrARjOtPqUPU2wyxLdGSDC34MFMbkyqiBmMCi0YOuLYSc5ging
+	2gS7s9jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWRE-0000000Ey6Q-222u;
-	Fri, 20 Jun 2025 07:45:28 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uSWaq-0000000EzBp-3FsY;
+	Fri, 20 Jun 2025 07:55:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWOz-0000000Exw4-2WTv
+	id 1uSWYc-0000000Eymz-11CN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 07:43:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1750405387;
-	bh=i7/0+Wyt/F5MZdrfVE3XpgV5j2JngVJirMoqeFq65mM=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=Upnbze+oVWrWajZF7Trx4o5DhGMK8sIHMGHpedbaCKqqtEzEprWId2j66qzhef1bm
-	 J9uJtaYs+/1SEB2aSPJ9pceE+xxxmsSko5D6WB3iFM1HLjGZWSt+9KPdnTLLLmU8v8
-	 Fqc/fkKtMQ4w0EMq9aVmDZI+7Od1rYSluSUwxzxU/M2xS0oFV5F9nElZaS1moTpqZm
-	 8LvfocHfXNLAHQK3gqFaVP8IgmZjRUFNNU6KRhYoLpAxsFaFBC4dvdhesOQb6epLmi
-	 tq02Jf4MQiyKjrB9dwKawzpt+7BRh/oBrud9XU2qj6pQi9T8DY8m3UhcNz2LLEj8bL
-	 hjekzPsCkiziQ==
-Received: from [192.168.68.112] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D16F3640A0;
-	Fri, 20 Jun 2025 15:43:06 +0800 (AWST)
-Message-ID: <2d17ec4f5f9e2cfd75902217a8dd621538a73bc2.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 1/8] mmc: sdhci-of-aspeed: Fix sdhci software reset
- can't be cleared issue.
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Cool Lee <cool_lee@aspeedtech.com>, "adrian.hunter@intel.com"
- <adrian.hunter@intel.com>, "ulf.hansson@linaro.org"
- <ulf.hansson@linaro.org>,  "joel@jms.id.au" <joel@jms.id.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
-Date: Fri, 20 Jun 2025 17:13:06 +0930
-In-Reply-To: <TYSPR06MB7068A5F04CE0A5BDB03073C0957DA@TYSPR06MB7068.apcprd06.prod.outlook.com>
-References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
-	 <20250615035803.3752235-2-cool_lee@aspeedtech.com>
-	 <80f56269175d8658ba1ab4a1fe9a43d18294ca60.camel@codeconstruct.com.au>
-	 <TYSPR06MB7068A5F04CE0A5BDB03073C0957DA@TYSPR06MB7068.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Fri, 20 Jun 2025 07:53:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6A31617EE;
+	Fri, 20 Jun 2025 07:53:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3CF9C4CEED;
+	Fri, 20 Jun 2025 07:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750405985;
+	bh=4m726/Z0me12Me+hnL7MnK4ol0AFM26gZ8tqBJ8UZHU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S0qlmAo65bRWeUlFDIeElHSlh4l/ayGsWEX6JUZ093r4Q3ZYb3XIAq/+ZDziGhFFt
+	 hyLFw4gzwjY9GE3pJfOwRv8ij+j06A66cK+JfskFOgnzLK8eU6C0dB0tKXlxgoC3+o
+	 6ijUUtjhR/Eo9cyOuFWOaDBAMApb4gw4AaJJwig1KS2lyUVcdskkSRvy6xspBO2sJA
+	 8U9G1PuY8NpEZNiaZF88uW2H0W+AUGtvzd/SdWP7iHbY3kAyfemQsZRhKPeyOKbgSG
+	 h5I+fPW/3iyG3d9DhqIh/AisUvv/tCr/d2L9r6seTOjp21aQw70mmRcvqfa5aHU+ur
+	 SQ7p6sNFTLOAA==
+Date: Fri, 20 Jun 2025 09:53:02 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-binding: pci-imx6: Add external reference
+ clock mode support
+Message-ID: <20250620-honored-versed-donkey-6d7ef4@kuoka>
+References: <20250620031350.674442-1-hongxing.zhu@nxp.com>
+ <20250620031350.674442-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_004309_845538_A2AAEC7F 
-X-CRM114-Status: GOOD (  24.60  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250620031350.674442-2-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,129 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Fri, Jun 20, 2025 at 11:13:49AM GMT, Richard Zhu wrote:
+> On i.MX, the PCIe reference clock might come from either internal
+> system PLL or external clock source.
+> Add the external reference clock source for reference clock.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> index ca5f2970f217..c472a5daae6e 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> @@ -219,7 +219,12 @@ allOf:
+>              - const: pcie_bus
+>              - const: pcie_phy
+>              - const: pcie_aux
+> -            - const: ref
+> +            - description: PCIe reference clock.
+> +              oneOf:
+> +                - description: The controller might be configured clocking
+> +                    coming in from either an internal system PLL or an
+> +                    external clock source.
+> +                  enum: [ref, gio]
 
-On Thu, 2025-06-19 at 06:53 +0000, Cool Lee wrote:
->=20
-> > > Replace sdhci software reset by scu reset from top.
-> > >=20
-> > > Signed-off-by: Cool Lee <cool_lee@aspeedtech.com>
-> >=20
-> > Can you please add a Fixes: tag?
-> This patch wasn't used to fix a commit. This is a workaround for a hardwa=
-re bug.
+Internal like within PCIe or coming from other SoC block? What does
+"gio" mean?
 
-A hardware bug in which SoCs? AST2400-AST2700? Or just the AST2700?
+Best regards,
+Krzysztof
 
-> For this condition, do I need a Fixes?
-
-If the bug exists for all SoCs it's a deficiency in the original driver
-and so should have a Fixes: tag.
-
-> >=20
-
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0for (i =3D 0; i < ARRAY_SIZE(reg_array); i++)
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sdh=
-ci_writel(host, save_array[i],
-> > > +reg_array[i]);
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0sdhci_writew(host, tran_mode,
-> > SDHCI_TRANSFER_MODE);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0writel(mmc8_mode, aspeed_sdc->regs);
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0aspeed_sdhci_set_clock(host, host->clock);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sdhci_reset(host, mask);
-> >=20
-> > Given that we do this after the SCU reset above, what exactly is the SC=
-U reset
-> > fixing? Can you provide more details?
-> The issue is sdhci Software Reset ALL (0x12C[24]) cannot complete which m=
-eans it's always being 1 and not back to 0.
-> The root cause is when sdhci dma operates, it might hold some state signa=
-ls which is not well cleared by Software Reset. These signals prevent Softw=
-are Reset to be cleared.
-> This is a hardware issue so that the workaround is resetting whole SDHCI =
-controller from SCU reset.
-
-Can you please put these details in the commit message?
-
->=20
-> >=20
-> > > +}
-> > > +
-> > > =C2=A0static const struct sdhci_ops aspeed_sdhci_ops =3D {
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.read_l =3D aspeed_sd=
-hci_readl,
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.set_clock =3D aspeed=
-_sdhci_set_clock,
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.get_max_clock =3D as=
-peed_sdhci_get_max_clock,
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.set_bus_width =3D as=
-peed_sdhci_set_bus_width,
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.get_timeout_clock =
-=3D sdhci_pltfm_clk_get_max_clock,
-> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.reset =3D sdhci_reset,
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.reset =3D aspeed_sdhci_re=
-set,
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.set_uhs_signaling =
-=3D sdhci_set_uhs_signaling,
-> > > =C2=A0};
-> > >=20
-> > > @@ -535,6 +582,12 @@ static int aspeed_sdc_probe(struct
-> > > platform_device *pdev)
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0spin_lock_init(&sdc->=
-lock);
-> > >=20
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sdc->rst =3D devm_reset_co=
-ntrol_get(&pdev->dev, NULL);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (!IS_ERR(sdc->rst)) {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0reset_control_assert(sdc->rst);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0reset_control_deassert(sdc->rst);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
-> > > +
-> >=20
-> > The clock driver for the AST2400, AST2500 and AST2600 manages the reset=
- as
-> > part of managing the clock[1][2].
-> >=20
-> > [1]:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers
-> > /clk/clk-aspeed.c?h=3Dv6.16-rc2#n71
-> > [2]:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers
-> > /clk/clk-aspeed.c?h=3Dv6.16-rc2#n209
-> >=20
-> > What you have here asks for a resets property, but that's not currently
-> > specified in the devicetree binding.
-> >=20
-> > So: is the clock driver not doing the right thing given we enable the c=
-lock
-> > directly below this hunk? If not, should we fix that instead?
-> >=20
-> > We can add the resets property to the binding, but I'd also like a bett=
-er
-> > explanation of the problem.
-> For legacy projects, the clock property handles reset simultaneously in t=
-he clock driver.
-> For new project AST2700, clock and reset are separated, and we add a rese=
-t property to the binding.
-> Hence, the patch won't affect until the reset property to the binding.
-> Should I add the reset property in this patch serious?
-
-Yes, please.
-
-Andrew
 
