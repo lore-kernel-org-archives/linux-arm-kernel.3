@@ -4,118 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2195C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 07:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 779CCC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 07:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kl8Fi8PtXuuQqfw0EJ0WOgCWDeGkqF/dqYi2CD6wyoQ=; b=SFzpwOrU2NwlnMYL1u60UECMJt
-	HmzGWkFSHp6hXq42cI6nrCGV/tP5RJq/KMgn/mAV4ITghUIPAbW/QJGyH2n/apYaQdAGqkGcPReOy
-	/QIALOCfrkI06fXdiASN8xC1DN/6/NH3jvOFyDj0++J7ZH+fobMKpnocLse7rSyTnka9k/nKXN7v8
-	GKcWPT2fHbk45pG+pvR0vc7Ppr8Q4GXoiqnZGeLYesGQxcev8M9NNFN0j7r1sGHVLgUfH37cXL5fw
-	9V2XcO9dt+Sx0OiyGPKQVZkHhHUqkKgbuKM53Ge7imvQkmEK64bKCV6AkoAKf3wLiB7Y4/pgtQPFu
-	Ktmv8SRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VJVc/Bqimb/04dTPJhdiePqGlWXQYi6s6TXswEG790U=; b=aHVcjL2iOZEO6LKUvSNk6sFmdo
+	24jfFpTQbdvXxO6cTw12Q5377ZEU2hqulhccRDgJge/O/VBThMgChoKgobu85DX6aLj4/6IeEQZzm
+	yP8tlJsr+jmP92R9+ywLtdxO6TbdZkT6pw/HRtXwMHhCeOKb1eBUszDxkwQVY/J+hHTX3oQwJk2xH
+	kB1FTH6CfKG/uBwJ4US7oWLlirSg214lZloj3KvGRQXtdUzXW5P1hUYgESQShouWqbrb4sNiAoDe3
+	nQ8FK4lEkY/rRegVQpmjRpv/NcQCFv3RzBp542xo7Sv7E3qDiLdkbKLMHPnBfn7iN5bsMAKO3DdQa
+	+/WbFukg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSVuv-0000000EvSq-2CoC;
-	Fri, 20 Jun 2025 07:12:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uSVx7-0000000Evb4-1nip;
+	Fri, 20 Jun 2025 07:14:21 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSVsh-0000000EvGJ-1Q1e
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 07:09:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 59C255C6A33;
-	Fri, 20 Jun 2025 07:07:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C47C5C4CEEE;
-	Fri, 20 Jun 2025 07:09:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750403385;
-	bh=BCFllEoY5gzDCd+pq8P7iPKpzwybmkCLAP5pwNN5M98=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GxOUOpN4VXDvY/WttyaqkcOUWF731SS3YM4qSbiD9OSw2hQNyB6X367NZBRULwysb
-	 6RHRzWiypNZze0YVgwqcIm/0lW0XlX78Zi8lQ+NTFWPxw9g06bS/eAbyw8TRYXptHm
-	 QnfCsitpVT32vjNLJkVqNTDnhVhc8xiuSVgV0cHnBSSNz8IBtZvULhBVZNJUNxiIWk
-	 IH6c6iPWUcQ/ZCK6p4oVAXo/9WhoYmyLy9sacl8a10+DOIRxcE3QstQZV2+dJpMR3q
-	 UAbhKLDaMPFyGzF6wY3SRpx5mlswfcnWgrpRLhr95raFKiSipcF8TslhR+TAeiEcCp
-	 f3FR/z1Ma2dUg==
-Message-ID: <66094c33-07bd-4621-b49c-b29a0270e002@kernel.org>
-Date: Fri, 20 Jun 2025 09:09:38 +0200
+	id 1uSVsx-0000000EvJv-0owu;
+	Fri, 20 Jun 2025 07:10:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1750403401;
+	bh=VJVc/Bqimb/04dTPJhdiePqGlWXQYi6s6TXswEG790U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aw8vMIFr+cXE2mO/q8Oyu1dt9tnCq1lFaxSAROzAWBthwSXvbUQkKB1U6L6uCSkLL
+	 2+acxXCyNDkhpz0/pbbOIZSy1x4qwTS3WjNq1nqRpnfLjTjFo0L1DCpeNywuHWsQNP
+	 /xmQNCIlx4wV06dP6nDW2tuKvxvIBMeL/eGduIs1nknST7JZlIbBB3mMSOWU/HGi7u
+	 y2y/qZTIOwZgrg6zSoXs3t0MtVzQOeK7/MmIoI9aK6W0XyouS7MCZ00VA2dRKTZQoU
+	 ypcf0Lm4d/vLU3gBemeyjhzLtybrXugWPxjIDkxa8T+/Qx3H+QvBYSdQjl4eD/aXfG
+	 wY/kl+cgKfeMA==
+Received: from [192.168.68.112] (unknown [180.150.112.166])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 40186640A0;
+	Fri, 20 Jun 2025 15:09:58 +0800 (AWST)
+Message-ID: <10d493cb37748aeb1f4c97856929845727c4c3bc.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 6/7] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com, 
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org,  krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ vkoul@kernel.org,  kishon@kernel.org, linus.walleij@linaro.org,
+ p.zabel@pengutronix.de,  linux-aspeed@lists.ozlabs.org,
+ linux-pci@vger.kernel.org,  devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org,  openbmc@lists.ozlabs.org,
+ linux-gpio@vger.kernel.org
+Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
+ wak@google.com,  yuxiaozhang@google.com, BMC-SW@aspeedtech.com
+Date: Fri, 20 Jun 2025 16:39:57 +0930
+In-Reply-To: <20250613033001.3153637-7-jacky_chou@aspeedtech.com>
+References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
+	 <20250613033001.3153637-7-jacky_chou@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] arm64: defconfig: Enable X1P42100 GPUCC driver
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
- Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
- Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org, Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-References: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
- <20250620-x1p-adreno-v3-2-56398c078c15@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250620-x1p-adreno-v3-2-56398c078c15@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_000947_466128_F5220D18 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250620_001003_432153_67B4BAD0 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,33 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/06/2025 08:54, Akhil P Oommen wrote:
-> In order to enable GPU support in X1P42100-CRD and other similar
-> laptops with Snapdragon X1P42100 SoC, enable X1P42100 GPUCC driver
-> as a module.
-> 
-> Tested-by: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-
-Defconfigs cannot be tested really...
-
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+On Fri, 2025-06-13 at 11:30 +0800, Jacky Chou wrote:
+> The PCIe RC PERST uses SSPRST# as PERST#=C2=A0 and enable this pin
+> to output.
+>=20
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 897fc686e6a91b79770639d3eb15beb3ee48ef77..ccd03ab5de495498281175a4550bc73d3e65f3f4 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1347,6 +1347,7 @@ CONFIG_CLK_X1E80100_CAMCC=m
->  CONFIG_CLK_X1E80100_DISPCC=m
->  CONFIG_CLK_X1E80100_GCC=y
->  CONFIG_CLK_X1E80100_GPUCC=m
-> +CONFIG_CLK_X1P42100_GPUCC=m
+> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 12 +++++++++++-
+> =C2=A01 file changed, 11 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl=
+/aspeed/pinctrl-aspeed-g6.c
+> index 5a7cd0a88687..c751703acdb9 100644
+> --- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+> @@ -17,6 +17,7 @@
+> =C2=A0#include "../pinctrl-utils.h"
+> =C2=A0#include "pinctrl-aspeed.h"
+> =C2=A0
+> +#define SCU040=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A00x04=
+0 /* Reset Control Set 1=C2=A0 */
+> =C2=A0#define SCU400=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A00x400 /* Multi-function Pin Control #1=C2=A0 */
+> =C2=A0#define SCU404=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A00x404 /* Multi-function Pin Control #2=C2=A0 */
+> =C2=A0#define SCU40C=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A00x40C /* Multi-function Pin Control #3=C2=A0 */
+> @@ -52,7 +53,7 @@
+> =C2=A0#define SCU6D0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A00x6D0 /* Multi-function Pin Control #29 */
+> =C2=A0#define SCUC20=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A00xC20 /* PCIE configuration Setting Control */
+> =C2=A0
+> -#define ASPEED_G6_NR_PINS 256
+> +#define ASPEED_G6_NR_PINS 258
+> =C2=A0
+> =C2=A0#define M24 0
+> =C2=A0SIG_EXPR_LIST_DECL_SESG(M24, MDC3, MDIO3, SIG_DESC_SET(SCU410, 0));
+> @@ -1636,6 +1637,12 @@ FUNC_DECL_1(USB11BHID, USBB);
+> =C2=A0FUNC_DECL_1(USB2BD, USBB);
+> =C2=A0FUNC_DECL_1(USB2BH, USBB);
+> =C2=A0
+> +#define D7 257
+> +SIG_EXPR_LIST_DECL_SESG(D7, RCRST, PCIERC1, SIG_DESC_SET(SCU040, 19),
 
-Not placed in proper spot. Don't add things in random order, but follow
-savedefconfig.
+The documentation for SCU040[19] says it will assert the reset. I
+expect that's not what's desired.
 
-Best regards,
-Krzysztof
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0SIG_DESC_=
+SET(SCU500, 24));
+
+SCU500[24] seems okay.
+
+> +PIN_DECL_(D7, SIG_EXPR_LIST_PTR(D7, RCRST));
+> +FUNC_GROUP_DECL(PCIERC1, D7);
+
+It only makes sense to describe pins with multiple functions. The other
+function this pin has is the reset line for the secondary service
+processor. Can we describe that too?
+
+Andrew
 
