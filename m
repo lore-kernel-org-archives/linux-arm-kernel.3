@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCAE2C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B74C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SOTXCJZc1IC8VPVoYvX7V1/MLXap7rcbZBvDGjde/o=; b=Y2qkq7xrs8rLF0tskw/qdmDfFl
-	clvqDAUbd0mctH0ByK2buvs/mfvVFEMawl+VJc23TDLrJShiGwtd9dGwJZNdS9AjW60rGzJdsi6m7
-	LK4Q877JllpJ7HDUIac6W0W0vKa7WGp3cVJSRdAXyGaPQWITQHFWEu7xLZ0yxdlsv6DX1ZsVSfiKV
-	5L1LkKBj1C8CLbn5ygeuRIU2ElGP3l2udKFEiZM8jFbkl5hdGkCvu91jKQLNUBveIHxYwo90SbGmM
-	fQCgwRA14Jt3mokzXAS+qfhFHPDB7qTmIHXbNkRLH8v0JjYSzYylv1ZLdZs/Q8Id79fuu8szbOlno
-	EtEYI24Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/wdMdZT+pCp4KkelnHGr3LtNc52lAFT/knG6SFw82yE=; b=ZUlNly+umefov5KLWEX2idulSt
+	KXtNyKmBuAP72tXpOWSjcbRwOkF/UDfX3dnK6mI4/ey4SbwL3qc9ybwzTy5tjklr5ffwIsH5x5MOu
+	p1xEkNKPiE6a7xudjj3Pr4pxCLkSgKqoTWTS3DmWLQ9F1Li0/mrZge9jSXJlUAi1VOkhb1ltY6CL6
+	qlinT1RGYUzxZaXJzg+vZLJjBMjI8Ws0oSSfc0C+cUyVTeszEzqYijr1C/3ihYBINnn7EcaW/kbCk
+	Vz2euWE2r372KOPyW2euErMLg4Q1CB7flQDV4tem+yv1j8NhZmGew5Y2z9cU2crlS9UqaSaDiGWQi
+	mDCm4cvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScMB-0000000FoFY-2IrF;
-	Fri, 20 Jun 2025 14:04:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uScOO-0000000FoW3-10dS;
+	Fri, 20 Jun 2025 14:06:56 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScD7-0000000Fmyf-0uXj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Jun 2025 13:55:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/SOTXCJZc1IC8VPVoYvX7V1/MLXap7rcbZBvDGjde/o=; b=STEio21Hv0v/SDqqhiyZ3lCRGd
-	RZs+u82GEYZmmobtHmoRA2sko8xuwmwutg9xVOmv/hR3BK1DvNjlZ0F/2sKeB1nRfmKe/rQZGOsYi
-	IWgKtJCPFpqdhwck4mqhxLVYgr4p5bqRFWfcfgHfoYVCaCNexwBJ4NM2d09lVFG2MjnC1bK9da+Iq
-	MXA4G3j2qGDZpfSKLjEfNIkEQqsegIqgczczaE0rGTgEUIhnWsLOHuLilCFCEV/I9EED2+GuiAubD
-	deUwOi71OiwgwKL7OZT32QT0bOxq0ZJplzwQFDr7VyshiFTlz0oWTcoyTmS35CXTsDV3tF1Qz2ylZ
-	qSscwv6g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScD4-00000004l8Y-2lou
+	id 1uScLC-0000000Fo84-1lXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 13:55:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA0A516F2;
-	Fri, 20 Jun 2025 06:54:53 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FCF33F58B;
-	Fri, 20 Jun 2025 06:55:11 -0700 (PDT)
-Date: Fri, 20 Jun 2025 14:55:08 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a523: Add UART1 pins
-Message-ID: <20250620145508.4d483885@donnerap.manchester.arm.com>
-In-Reply-To: <20250619173007.3367034-5-wens@kernel.org>
-References: <20250619173007.3367034-1-wens@kernel.org>
-	<20250619173007.3367034-5-wens@kernel.org>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 20 Jun 2025 14:03:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750428218; x=1781964218;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=p9nC1h8R9HgKVWcy4BLKg7nHMZViNKOTBn/WYNwJk18=;
+  b=AO3JtqI6U7B8VnLSN/xrF5WawEy8uI0hBx0mp3GbH+LnINY4D+05b2ic
+   rxfCw0tX+9WZx8Mhu4Ud2oz5i1Vn7K0OdDUNW2cPxZL1idzeyfKRdFep8
+   avGlvVvVLxyfRqulmIEet9Xsf4gFT3mSx/JSIbAKLSWQrgyNF5rSpEj48
+   BoY7AKP1K8yEUp2Cl2OVZHl3c/7G6KSEd/XolCydB7V4YV6X1/VZZxDDJ
+   EJWSUgzWya/uC8zrpVdmyo7hZuldT34/wViqKQ+XCWKmZT/isDvk9iGXW
+   FT2I/Rz5jtHIGLm/wvuNvWw512Tr3InQSDSSIArDL4oMNzlyLyFqEGlgH
+   w==;
+X-CSE-ConnectionGUID: m3bG2cpRTd+fAClqnmHOFA==
+X-CSE-MsgGUID: GtGlqvpsQ+yDaTCO9qtFpA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11469"; a="63744882"
+X-IronPort-AV: E=Sophos;i="6.16,251,1744095600"; 
+   d="scan'208";a="63744882"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jun 2025 07:03:27 -0700
+X-CSE-ConnectionGUID: RuhpVMTJTUCTIYqFQpaKbw==
+X-CSE-MsgGUID: yd7fuzCsTgmcfEDgpRruHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,251,1744095600"; 
+   d="scan'208";a="151471639"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 20 Jun 2025 07:03:23 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uScKu-000LpW-2I;
+	Fri, 20 Jun 2025 14:03:20 +0000
+Date: Fri, 20 Jun 2025 22:03:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sean Anderson <sean.anderson@linux.dev>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Michal Simek <monstr@monstr.eu>,
+	Saravana Kannan <saravanak@google.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
+Message-ID: <202506202126.EmqQsj0w-lkp@intel.com>
+References: <20250619200537.260017-5-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250619200537.260017-5-sean.anderson@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_145515_048961_4663AE63 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250620_070338_544048_1E548699 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +101,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025 01:30:06 +0800
-Chen-Yu Tsai <wens@kernel.org> wrote:
+Hi Sean,
 
-> From: Chen-Yu Tsai <wens@csie.org>
-> 
-> UART1 is normally used to connect to the Bluetooth side of a Broadcom
-> WiFi+BT combo chip. The connection uses 4 pins.
-> 
-> Add pinmux nodes for UART1, one for the RX/TX pins, and one for the
-> RTS/CTS pins.
+kernel test robot noticed the following build errors:
 
-Interestingly there is only one possible set of pins for UART1, so the
-naming is correct. Which would also mean we can insert the pinctrl-0
-property in the UART DT node in the .dtsi file already.
-Regardless, checked against the manual:
+[auto build test ERROR on net/main]
 
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Anderson/auxiliary-Allow-empty-id/20250620-040839
+base:   net/main
+patch link:    https://lore.kernel.org/r/20250619200537.260017-5-sean.anderson%40linux.dev
+patch subject: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250620/202506202126.EmqQsj0w-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250620/202506202126.EmqQsj0w-lkp@intel.com/reproduce)
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506202126.EmqQsj0w-lkp@intel.com/
 
-Cheers,
-Andre
+All errors (new ones prefixed by >>):
 
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index 30613a0b1124..6f62201fd739 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -168,6 +168,20 @@ uart0_pb_pins: uart0-pb-pins {
->  				allwinner,pinmux = <2>;
->  				function = "uart0";
->  			};
-> +
-> +			/omit-if-no-ref/
-> +			uart1_pins: uart1-pins {
-> +				pins = "PG6", "PG7";
-> +				function = "uart1";
-> +				allwinner,pinmux = <2>;
-> +			};
-> +
-> +			/omit-if-no-ref/
-> +			uart1_rts_cts_pins: uart1-rts-cts-pins {
-> +				pins = "PG8", "PG9";
-> +				function = "uart1";
-> +				allwinner,pinmux = <2>;
-> +			};
->  		};
->  
->  		ccu: clock-controller@2001000 {
+>> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:3225:1: error: redefinition of '__inittest'
+    3225 | module_platform_driver(axienet_driver);
+         | ^
+   include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+     292 |         module_driver(__platform_driver, platform_driver_register, \
+         |         ^
+   include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+     261 | } \
+         |   ^
+   include/linux/module.h:131:42: note: expanded from macro '\
+   module_init'
+     131 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^
+   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2900:1: note: previous definition is here
+    2900 | module_auxiliary_driver(xilinx_axienet_mac)
+         | ^
+   include/linux/auxiliary_bus.h:289:2: note: expanded from macro 'module_auxiliary_driver'
+     289 |         module_driver(__auxiliary_driver, auxiliary_driver_register, auxiliary_driver_unregister)
+         |         ^
+   include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+     261 | } \
+         |   ^
+   include/linux/module.h:131:42: note: expanded from macro '\
+   module_init'
+     131 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^
+>> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:3225:1: error: redefinition of 'init_module'
+    3225 | module_platform_driver(axienet_driver);
+         | ^
+   include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+     292 |         module_driver(__platform_driver, platform_driver_register, \
+         |         ^
+   include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+     261 | } \
+         |   ^
+   include/linux/module.h:133:6: note: expanded from macro '\
+   module_init'
+     133 |         int init_module(void) __copy(initfn)                    \
+         |             ^
+   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2900:1: note: previous definition is here
+    2900 | module_auxiliary_driver(xilinx_axienet_mac)
+         | ^
+   include/linux/auxiliary_bus.h:289:2: note: expanded from macro 'module_auxiliary_driver'
+     289 |         module_driver(__auxiliary_driver, auxiliary_driver_register, auxiliary_driver_unregister)
+         |         ^
+   include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+     261 | } \
+         |   ^
+   include/linux/module.h:133:6: note: expanded from macro '\
+   module_init'
+     133 |         int init_module(void) __copy(initfn)                    \
+         |             ^
+>> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:3225:1: error: redefinition of '__exittest'
+    3225 | module_platform_driver(axienet_driver);
+         | ^
+   include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+     292 |         module_driver(__platform_driver, platform_driver_register, \
+         |         ^
+   include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+     266 | } \
+         |   ^
+   include/linux/module.h:139:42: note: expanded from macro '\
+   module_exit'
+     139 |         static inline exitcall_t __maybe_unused __exittest(void)                \
+         |                                                 ^
+   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2900:1: note: previous definition is here
+    2900 | module_auxiliary_driver(xilinx_axienet_mac)
+         | ^
+   include/linux/auxiliary_bus.h:289:2: note: expanded from macro 'module_auxiliary_driver'
+     289 |         module_driver(__auxiliary_driver, auxiliary_driver_register, auxiliary_driver_unregister)
+         |         ^
+   include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+     266 | } \
+         |   ^
+   include/linux/module.h:139:42: note: expanded from macro '\
+   module_exit'
+     139 |         static inline exitcall_t __maybe_unused __exittest(void)                \
+         |                                                 ^
+>> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:3225:1: error: redefinition of 'cleanup_module'
+    3225 | module_platform_driver(axienet_driver);
+         | ^
+   include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+     292 |         module_driver(__platform_driver, platform_driver_register, \
+         |         ^
+   include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+     266 | } \
+         |   ^
+   include/linux/module.h:141:7: note: expanded from macro '\
+   module_exit'
+     141 |         void cleanup_module(void) __copy(exitfn)                \
+         |              ^
+   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2900:1: note: previous definition is here
+    2900 | module_auxiliary_driver(xilinx_axienet_mac)
+         | ^
+   include/linux/auxiliary_bus.h:289:2: note: expanded from macro 'module_auxiliary_driver'
+     289 |         module_driver(__auxiliary_driver, auxiliary_driver_register, auxiliary_driver_unregister)
+         |         ^
+   include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+     266 | } \
+         |   ^
+   include/linux/module.h:141:7: note: expanded from macro '\
+   module_exit'
+     141 |         void cleanup_module(void) __copy(exitfn)                \
+         |              ^
+   4 errors generated.
 
+
+vim +/__inittest +3225 drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+
+8a3b7a252dca9f Daniel Borkmann  2012-01-19  3224  
+2be586205ca2b8 Srikanth Thokala 2015-05-05 @3225  module_platform_driver(axienet_driver);
+8a3b7a252dca9f Daniel Borkmann  2012-01-19  3226  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
