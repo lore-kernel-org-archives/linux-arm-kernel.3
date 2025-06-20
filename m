@@ -4,80 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDE1C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DF5C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Z0BMlDcqn4E4cqFhk9MnMqrOq0vBBFZoW9QiLj1MBs=; b=UXq1F7/HJMdlfp3MpqIq3xWjBA
-	64y7w5gILgLFcwjhK90xa7doKYgWWDgN35rU+c/6P5IEV6MpgBZi3+zDAxYPQd1TYekMXCu80oaC6
-	2SiL9uE/U/iZ5/qc2gDMHG51zOh8sYai5y+v2JG1cgDSU7RZ66IBDDZbRdJGTPqRj0NaraSiXxCoD
-	0k1j6jIrbTY9pm6+jX/Td3BZhh6TWbdv//B45Z7+Zxqh8/hMdLQulL1ul+879RHcR2ZzW9mXLcdFz
-	xB6/4tgzmhrUhu12TF7gN28TaqMAKa48EwAHc4RzlQ2YcoWNQCWTyzomWQuEQh1cms+LWk5DmSgRb
-	00dPwinw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=; b=RM03tRQGIOsx190nx7Rv1gq/BE
+	DScxcq8EfToX5AgENDCqYXyY2zhy3QCS3GjUw+Y3r+HFaYZuvAOh04xV3oIlPXN9I5uYF3ZdItqWv
+	fX5zE/SdlQneLRJFuqKwcwPKMAS2aUSJqkxmHhlyZf3Wbh17x46fWa1oVRdEltPErGvdmtHL0Pk/b
+	ZBF/LyqPHog7Bh2x/JQrkni0ldB3Uy/61cdxY8oqSyZmTpHJyF+RE9JSYX6J/p45vCm7RJkvsfsXv
+	yLFBRfrY1c2ktV9VUW5BChwqyOokyZZ04jT3Vfyu52v7MQYgHmgVeEWTVKBY/ZRGtKBPu9A039Be0
+	6MtxMmDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZN9-0000000FPBV-0QW9;
-	Fri, 20 Jun 2025 10:53:27 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uSZPK-0000000FPLl-3Ia4;
+	Fri, 20 Jun 2025 10:55:42 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYGF-0000000FEGJ-0fhw;
-	Fri, 20 Jun 2025 09:42:16 +0000
-X-UUID: d688b3484dba11f09eb0dd999d3936bf-20250620
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=6Z0BMlDcqn4E4cqFhk9MnMqrOq0vBBFZoW9QiLj1MBs=;
-	b=AxB48K1dyHuyuKj7/zRJoRUFytLZiD1T2LG7rMmS0ZkdM8ZjeDxMY0MGkWGWwi+UJNcxyYIsfSRNnCk26g5g2FlyFjRQ8oTbMvcEQJ1zGbEOW8f9P1L1AeACMKZj5+o6fSA96BvnrPKggjF39/+YDN6W29Q0OmZ/upNPUu16SgA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:94361e4d-7f0d-4a40-9afa-cc66b0542a7e,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:09905cf,CLOUDID:4d243277-7521-4364-b0ef-cd7d9c0ecbde,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d688b3484dba11f09eb0dd999d3936bf-20250620
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 893988847; Fri, 20 Jun 2025 02:42:10 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 20 Jun 2025 17:42:07 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 20 Jun 2025 17:42:06 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
- Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH v5 10/10] ASoC: dt-bindings: mediatek,mt8196-nau8825: Add audio sound card
-Date: Fri, 20 Jun 2025 17:40:43 +0800
-Message-ID: <20250620094140.11093-11-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250620094140.11093-1-darren.ye@mediatek.com>
-References: <20250620094140.11093-1-darren.ye@mediatek.com>
+	id 1uSYNT-0000000FG8X-1jaV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 09:49:44 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-236192f8770so11013895ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 02:49:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750412982; x=1751017782; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=;
+        b=ULNuS7iIi0WgPxS+t5vmgK3N3gCel4g4SkR4KL86mj6nDiFLk1XF7dXGNRJAQlcaNj
+         CqO7AloT7vFLgpETRLNJJ0RBsyBnih3F+L3JOfDVSJo+A/BvZY5oAuZ2YVOH+jYNqdkO
+         P5KwrzCgcnJxrzKTrVvI9a4akicI6DdOnjQU76tqsCYIiZ0E7Q6YsR4tGHkGFpPxW4Hm
+         XEs6g/I5ixVCJhECP6jCVjc+YAPqbApwo7XzhaL0rHcPww225ApVg3RedlgKMOIicLPC
+         nNirrR/qL3D5n5vwpn36vaC3dbmxhlEsmoYxNi4GM4u8DLY573QgclFY7XwsU5ouomgP
+         Xi0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750412982; x=1751017782;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=;
+        b=HUZkdyCkcoPmol9QLDsDJA5IYEbxt0aOVjgs5grfu9qIPDxKNFNuBWobQrDFlawOPL
+         lPykkhPfeqvxS5PT9J1SEJMAsoalerBgfs2wL7jpMqy50BN7P9aIRhk0rUg1Iv4fl7Am
+         bK/0zBQMIvibzXPI7KOwugweQVu4R5DimmVeROSBQKnf4AFGeKjUWV/xPOKPyXmupa37
+         r05m6qk0Wv0e0L6tIG3BScbqNnPjkPcmfD9PVPN8YiuGurFOhd0HLhSsKia5PvfyOL0T
+         HW1hLa7ti5neZqQAz5cIfHoNnyt/S8+gFl7f8k8ndi28/7slI430/kUW835PWNC2lazA
+         rmRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUtHYkEwelcYQUp1hpJPJwzF9NTL0cXj7hOxkxFlZcF01i+OKYIXzwphrfV6LODMwCOttH20SSXDbdLL0H40ui+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5GDgv1VKVI6BLuKGPlkPubc5fv9DKHRphZHyEZqAbtrml6wIr
+	Y/JW5CE9F+NRGmwhMMvpn3BUrAcwWAIwivBRA/YWqiEdtIllQVTfVrw31kJgGrU0
+X-Gm-Gg: ASbGncv5LrnTjikSdtbFUCMHXn7p1wXf2R+bK1khJqadM6+OF/Dl7+RXJLq1kuyrZVb
+	Hw4xrHlClxtGi+qNAZeiTWyJydIGpW/LpJDNUzW7lw/Hiep2XBQ//GUL6v15PaLVScFQQjlTvER
+	E3aaGVwzXDDwYzUw6PemOI4xhi64zfLevBDTuzO/5nmNIEoS5lWUxI/cbPHnZpfgiipIAWtvKBb
+	ONIvOK4PfRuaRreTGh/FlsrMu8vUXp86iYfr5GJV5nYxB447dHYE7NbE3/lEbn1BSv0nyoqX+DF
+	r8BFBOGHjZw+ngBOfDOhUsitBBqb2irxX/pazFzkU2fj5vYAcV0Qq8hHJq8ksuYB+CTDt9nwIZv
+	a+cxF3101q8I=
+X-Google-Smtp-Source: AGHT+IH6Be5gP3+3exFSkxm22vF5iZh7JCUxNtdjaBLajdekU8Xmj0n59/agYpsJTUMoVM2m4rUZ0Q==
+X-Received: by 2002:a17:903:32ca:b0:215:a303:24e9 with SMTP id d9443c01a7336-237daf6593emr27765085ad.3.1750412982159;
+        Fri, 20 Jun 2025 02:49:42 -0700 (PDT)
+Received: from [127.0.1.1] (061092221177.ctinets.com. [61.92.221.177])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-237d86ef88bsm14167885ad.219.2025.06.20.02.49.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 02:49:41 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Fri, 20 Jun 2025 17:49:11 +0800
+Subject: [PATCH] arm64: dts: apple: t8012-j132: Include touchbar
+ framebuffer node
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250620-j132-fb-v1-1-bc6937baf0b9@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAJYuVWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDMyMD3SxDYyPdtCTdFPMUUzML8xRjc4MUJaDqgqLUtMwKsEnRsbW1ADN
+ YMSFZAAAA
+X-Change-ID: 20250620-j132-fb-d7d5687d370d
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, stable@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=882; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=qTnLGaYE4mSJe4XGJd9c1paMNelCcWBLch1kHcCtYSY=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoVS6zKNgfrxDu4IxQuG+XErH6r6Vm9rzm0pebd
+ Z3LpvEPtguJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaFUuswAKCRABygi3psUI
+ JHJoD/0c+i2KQVhxj9K7upj3umunHHR5iGCOEG7jxFTtrsE+9UuVngAG8qtLOrYp/X9GUmrrZ2t
+ YjB8zqTSrGCkMZgDCQSvVnYq7RApDSyigQQ36SWV5Lh0zMI7tuF4rx1m8MgENCWOqRwZKEK64UX
+ MBz8IOTYYDcFK+G5Dj9SL2QLI9HQWxAjpS13aSuYZ6+jT0s4U06FeLHcrPlOg8V+5os/NVVo+/q
+ Zx4GZs+Gtry/8S1DKD3+TARaqvlCXS5qZiEvnGwCEOochN2Xh/DHTQqUlrjhAVL3XQn1DiN1hMQ
+ EBd2Feg6UYw+iXnzywYNLUJZYcYGpD6SGYjwnxXBpJ1iN4izrVDbcXaSYfcrzlLhLBPyFDU1MQE
+ oKCoPZco6WkgKXu6Ocnj1rMY7OqrrvGYT4ii2JrimT3DE1hf2BkIwfb1SIh5+aElTHTR056aGOW
+ YIy7brULuGRblckBPK5MZZfsKFNaPgrwNN2BEj1C152m/CZgQmFouQG2X3BQZjdMLNtksmVCQ16
+ SnmdffQVXD3VCC8cK6iALZdxHjRAhAFBCbTaRGg76wX/Be4wEiOniKeQAwHSAXi17FE+cjwdL3q
+ luHN2WxpWowukCRgX/7ADKFDgaLOUxVo95rtVpeUopwEB4llG89OR/eUN4QiImlW+nfZ2mvXQ5a
+ 1taNYho8VbNMnHg==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_024215_202409_E6434535 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250620_024943_456230_48BB244B 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,125 +122,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+Apple T2 MacBookPro15,2 (j132) has a touchbar so include the framebuffer
+node.
 
-Add soundcard bindings for the MT8196 SoC with the NAU8825 audio codec.
-
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+Fixes: 4efbcb623e9bc ("arm64: dts: apple: Add T2 devices")
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- .../sound/mediatek,mt8196-nau8825.yaml        | 102 ++++++++++++++++++
- 1 file changed, 102 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
+ arch/arm64/boot/dts/apple/t8012-j132.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
-new file mode 100644
-index 000000000000..5c4162e64004
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mt8196-nau8825.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT8196 ASoC sound card
-+
-+maintainers:
-+  - Darren Ye <darren.ye@mediatek.com>
-+
-+allOf:
-+  - $ref: sound-card-common.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-nau8825-sound
-+      - mediatek,mt8196-rt5682s-sound
-+      - mediatek,mt8196-rt5650-sound
-+
-+  mediatek,platform:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of MT8188 ASoC platform.
-+
-+patternProperties:
-+  "^dai-link-[0-9]+$":
-+    type: object
-+    description:
-+      Container for dai-link level properties and CODEC sub-nodes.
-+
-+    properties:
-+      link-name:
-+        description:
-+          This property corresponds to the name of the BE dai-link to which
-+          we are going to update parameters in this node.
-+        items:
-+          enum:
-+            - TDM_DPTX_BE
-+            - I2SOUT6_BE
-+            - I2SIN6_BE
-+            - I2SOUT4_BE
-+            - I2SOUT3_BE
-+
-+      codec:
-+        description: Holds subnode which indicates codec dai.
-+        type: object
-+        additionalProperties: false
-+        properties:
-+          sound-dai:
-+            minItems: 1
-+            maxItems: 2
-+        required:
-+          - sound-dai
-+
-+      dai-format:
-+        description: audio format.
-+        items:
-+          enum:
-+            - i2s
-+            - right_j
-+            - left_j
-+            - dsp_a
-+            - dsp_b
-+
-+      mediatek,clk-provider:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        description: Indicates dai-link clock master.
-+        enum:
-+          - cpu
-+          - codec
-+
-+    additionalProperties: false
-+
-+    required:
-+      - link-name
-+
-+required:
-+  - compatible
-+  - mediatek,platform
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    sound {
-+        compatible = "mediatek,mt8196-nau8825-sound";
-+        model = "mt8196-nau8825";
-+        mediatek,platform = <&afe>;
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&aud_pins_default>;
-+        dai-link-0 {
-+            link-name = "I2SOUT6_BE";
-+            dai-format = "i2s";
-+            mediatek,clk-provider = "cpu";
-+            codec {
-+                sound-dai = <&nau8825>;
-+            };
-+        };
-+    };
-+
-+...
+diff --git a/arch/arm64/boot/dts/apple/t8012-j132.dts b/arch/arm64/boot/dts/apple/t8012-j132.dts
+index 778a69be18dd81ab49076fb39ca4bc82f551e40f..7dcac51703ff60e0a6ef0929572a70adb65b580f 100644
+--- a/arch/arm64/boot/dts/apple/t8012-j132.dts
++++ b/arch/arm64/boot/dts/apple/t8012-j132.dts
+@@ -7,6 +7,7 @@
+ /dts-v1/;
+ 
+ #include "t8012-jxxx.dtsi"
++#include "t8012-touchbar.dtsi"
+ 
+ / {
+ 	model = "Apple T2 MacBookPro15,2 (j132)";
+
+---
+base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
+change-id: 20250620-j132-fb-d7d5687d370d
+
+Best regards,
 -- 
-2.45.2
+Nick Chan <towinchenmi@gmail.com>
 
 
