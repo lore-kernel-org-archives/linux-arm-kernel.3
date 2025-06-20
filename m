@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA0AC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA21C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ffg0iXEA2G0pgrfFnPLVJ/IivgD9mYBR14NIBm41Bw=; b=rbosIr7kvLjt8abkBTjzJjHoCe
-	P/S4aNjNRh5yYlLXGW78Mg7QCTBcMJ1gF9IUNHBMnv4uqn+W2kPhJvQr27kaGl+8maLJTGYNZZedn
-	gxwnJzfNRF7yfNU00Pv0CYG/78rbQvFjKs+4HcFbmi5sZ3Nptw0GB7UxqqaENODmty+NehROae05L
-	BNJCnZxqCpaXYZqStTzgpWV9yPsfm+sbxDqBaidmQeTIpxq6nImzXKl3c1XlXJXcjis6stV0rXXGg
-	hWyL7Th/NmOiYZtvQ4x8dINzYTsK2R+Eh2I79PZQ36CDIGiVL/sn5NFSUcZhnKvO9m2IZXTXa1qK1
-	sErn3clg==;
+	bh=fR2JiKduz29SihBHyUhqzOKWWeUFFTMa8sDNsxCND9o=; b=Xf6Js2gbxgbvMAk99lmR7ZrUV1
+	sf5oWFtNm54C31CzYwekkuSRqmcOJ6JTn+1nHV77o2G77vaJ5075Ft07ZPmlo3uH08aR98jNoQrXs
+	ML7aivjMAK6qzTSVYwDm3Tx0JuC0J+ZfL0BlQhfqOScYgmWK0Skw+F108vBr1uvEYj/JYjdZYxYYD
+	dUI45RenWFtD5/NJGS+v81ghTnUrF3x2mfBfuy4XQNgR47m5KeSnB5WyoSD63yC3DRp8wytqp4hOt
+	g/hoZAFpUkQK7wbvYfGl/AmmjVtRtPcmPUlRkIgxZewi5Ofl8yuDZlHWfwNPp8FF6ygAnh2JCTBZW
+	AXhYAOlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZgw-0000000FRIp-0zWQ;
-	Fri, 20 Jun 2025 11:13:54 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uSZj9-0000000FRYa-3wFT;
+	Fri, 20 Jun 2025 11:16:11 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYxb-0000000FKft-3tjZ
+	id 1uSZ0n-0000000FKyb-4AMi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 10:27:05 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a4ef2c2ef3so1351670f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 03:27:03 -0700 (PDT)
+	Fri, 20 Jun 2025 10:30:23 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-453426170b6so16623275e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 03:30:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750415222; x=1751020022; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1750415420; x=1751020220; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=9ffg0iXEA2G0pgrfFnPLVJ/IivgD9mYBR14NIBm41Bw=;
-        b=u4nW9nL6M1XaZQoVq7llrueU9/m6GcoDAp2gQiUxvtikFosI4r+/KC8uOhvolByWyE
-         byb0zXPrdYQ4zZYzfhoDYHyDg+feRtF4rg4qtKyilQFkT8NVjB+r1Wt+R9WQ0OyNeHh/
-         2Y20OywulG181VRtUEtBM5bXwRgJuWm3LPupNGzm8nO+SaJY/FP+G59ts9/V9nfSPl0f
-         BAjICp0Y2vnudxhjVosIC3XOp3LRsKBzNlv9r6/xbxwp4mg4ZPpWP8oLlff6ei8e4Brv
-         2rmooeDMQm2Cd2FWBuR78FokZ5ZNozpNeihmVx9B6/62z485z9SmmQGZiQSFncA6JwAP
-         xQaQ==
+        bh=fR2JiKduz29SihBHyUhqzOKWWeUFFTMa8sDNsxCND9o=;
+        b=mkIJXIQgAqWBYYqAOZT9wEOKEi+DVZPtD33TB/hgZmBD6XypeJgx3pX9mSnBpdG8n6
+         ryx+8BYrjI/TeKNmZ+UKRawZcHhZ9EP6SMqD7+07HLv7Kb9BK6cYHHgi3GHDSaALJMfR
+         /XTvYofSn7BgdiZAyQ6hhNOSECucB+3BhoOwIKDUm7yR4tHVtMKnHet7ZDCnwcFIlAK7
+         7NzVxgGcVN5P01yUlMRvvT61nwHNwDHCSwxpw3FsnNK31GSr2p6yYi5tEF+9iD3Vuo8o
+         23E7VC+aypou5tX9esU+75vju5TbWbmHb63QZBa34a23P+058ul7LWbQRLgG+6Y5yesA
+         AEaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750415222; x=1751020022;
+        d=1e100.net; s=20230601; t=1750415420; x=1751020220;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9ffg0iXEA2G0pgrfFnPLVJ/IivgD9mYBR14NIBm41Bw=;
-        b=kbN76BlnZhgclPRyt1xyx7pE1rmkhVaupcVWuSdWjgLVzZlAy3X3yBiou52kKURucg
-         nOMX5msIx9WbPy17pL/rwg28YauiisNPqWeFusuXxsIk56wqyQFucb4ogydiudKpvbkp
-         mbA/aJksqjUS6y091aK88aybcQz34wNiO2FZE+Gei7f+Nb5bvHNlNvw2K3wevxYGa8rV
-         vEJPa6LK3aQBs+WqNSZ6jI4OYK8h0VM/PRXpM7wrHpOgzSoC95sZe0OJ+eCRcH/P1p9N
-         /PWWX4h/hESDCenAIgfkET/0tkzOBtkVk58tFRzMPvP8rWhIiRSpdPev9E7aJ7ClZMjm
-         P1fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWCuBW2b0viwimdgGxIMOdyHYHvh4+5SlceYOXk5GPto6KOGB8i08K3TUrSo0ErNrk64wYnNGai/W1WUWvBHPK1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyU0iOewG3KP76xdgterzT4kjxqiNryKYsvlRiEWxtoejRCbjQp
-	SUVyQmV7ly6LDWidD8QNtKFltVPLcuk2wPbFua2p4aMI/8jPMIwfI7NTqdYhpqyaWk4=
-X-Gm-Gg: ASbGncs6okZiA4nxU2P516hEVf0L5jY7defMRi0ILVCkDToY/hTi1Q06JIW09AnVFwq
-	HUqHl1n7h/rcNPs6OBA66KivzCCT5hWnLqIrr3gobxt6EhJyliOP3p6cfPVewfOKZJXK5c4vgF+
-	zBe+Ds3BOgLGShAyZuCo4wxCYmxxwc8JpjnWt+n2OH5fXFQH51plamCcnCfPqxmTbccohtwpl5N
-	aL2dDwlMYzCSuBQ79h9qnmU/X2uRJ2Km+hYRNEuo5jTYyJkouzno0xvP2Uk/nrcNfRoJkODIyDy
-	PIIwdnpVtonLpjtIQc1zfnA/xPXPgD/mm8QvmiVgm3qVzgqiLJvf/EuHQNuTwyr85GgS04xWtYt
-	hkg==
-X-Google-Smtp-Source: AGHT+IHE8BSpoZxO7KuVCVXUe3qb6bi6sj1JXY7eEQFY8+4LrfXFVw++FIBjk+kGTF27zg9cp2n8Jg==
-X-Received: by 2002:a05:6000:4906:b0:3a4:f661:c3e0 with SMTP id ffacd0b85a97d-3a6d12e6a3emr1737494f8f.45.1750415222121;
-        Fri, 20 Jun 2025 03:27:02 -0700 (PDT)
+        bh=fR2JiKduz29SihBHyUhqzOKWWeUFFTMa8sDNsxCND9o=;
+        b=X7Id5EJ0UVjuC9tBhK8SgGVze+Sb63K9mGuoOvbq3KKzWP6PjeblibF+Ao7tVfpOh/
+         LLRwR593bk5lb/X93EJDcHApshSeXZmj5pbafFK3ONnQJR7dkZInRAGN7uUfedt1QWsf
+         UTHUkj3mGHxeFBF082Svvcq8E6YTPLQFdnaPaI8SkS6jRBHHNLLczKRnaZ5AR7BbThXk
+         Ub3SnzIbJTT1L7KW192zhxQHIvm9rY378iLZLBo2mcUltVBSysIerC2mVBkDlem7bA7j
+         vdmtdBJ3V2kEWmzQ4hPWEX4x44sch8b80rT4YYrVG1lMTypa4dvru9SCkd5XJU1/DZU9
+         bFDw==
+X-Forwarded-Encrypted: i=1; AJvYcCV3yz0GFyzj66nA/gaqgoCE+0gAjS6tGz3aJ43HkWDLwjgOyoZp9B+rfC0KK88a9uWC6RtfE7UU0cJGkk3ArK3p@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJN37qvQ8RBmQINqnM29Xkm4K31Y0i4XTYp25rFKNnqAwkb8dV
+	qhhvW+NqlRuOSiXXvruf9KbPIuLliotTrkP1doRN3VfTXfmyKZEPcmjtXhKtW4d4FU4=
+X-Gm-Gg: ASbGnct6QmhP2BNCHoEU+O5gKFchjJbDgigz35BvwoT95EfXYlj2bjZGkdHkD92SA7h
+	O5mcNnZyNQk6pSbdt8T2m/ouq+nhGpoW6pHjboejLAtIUOr1ur/KE9APpbU6o08coz0hyYlBwOR
+	sP5yoOpMqpGlCJS0j9XC/uGD/RTjJGfxq2oUtDe43g+h1TYtHFdB1oA0s6/9cghtec1xI8F3yLG
+	HenWNzU9F4WFkbMYeKJeQN1Avblvl8rH8kSTfe9qXMMCjjEvfqqnlNCaolZTMvOVKjFn/YLrhXd
+	xxFwwvnNN5eTQF5I/kG02uQ0fVXs+Kyr2NpmW0n1mar8zJmwYrJK2tO1IQHu/lNrryM=
+X-Google-Smtp-Source: AGHT+IGrcCthqm0ioH86WkDuKawZp+7l51060VVgntKbeJZgzMtH2dkN5uKRibR7xMjW8qMY6Mo5bg==
+X-Received: by 2002:a05:600c:871b:b0:453:ec2:c7b2 with SMTP id 5b1f17b1804b1-45365e3dfc0mr17238275e9.7.1750415420300;
+        Fri, 20 Jun 2025 03:30:20 -0700 (PDT)
 Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45364705748sm20361355e9.28.2025.06.20.03.27.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4536470415csm20680135e9.31.2025.06.20.03.30.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Jun 2025 03:27:01 -0700 (PDT)
-Message-ID: <4d96e0a9-23af-4fdc-b5a2-945b258c45cf@linaro.org>
-Date: Fri, 20 Jun 2025 11:27:00 +0100
+        Fri, 20 Jun 2025 03:30:19 -0700 (PDT)
+Message-ID: <3ede12b2-7d70-4e8d-8d6c-694c53d19098@linaro.org>
+Date: Fri, 20 Jun 2025 11:30:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/12] perf arm_spe: Refine memory level filling
+Subject: Re: [PATCH 08/12] perf arm_spe: Separate setting of memory levels for
+ loads and stores
 To: Leo Yan <leo.yan@arm.com>
 Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
@@ -84,15 +84,15 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
  Adrian Hunter <adrian.hunter@intel.com>
 References: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
- <20250613-arm_spe_support_hitm_overhead_v1_public-v1-7-6faecf0a8775@arm.com>
+ <20250613-arm_spe_support_hitm_overhead_v1_public-v1-8-6faecf0a8775@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-7-6faecf0a8775@arm.com>
+In-Reply-To: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-8-6faecf0a8775@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_032703_993187_622345AB 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250620_033022_035800_A3F108AD 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +110,95 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 13/06/2025 4:53 pm, Leo Yan wrote:
-> This commit introduces macros for detecting cache level and cache miss.
+> For a load hit, the lowest-level cache reflects the latency of fetching
+> a data. Otherwise, the highest-level cache involved in refilling
+> indicates the overhead caused by a load.
 > 
-> Populates the 'mem_lvl_num' field which is a later added attribute for
-> representing memory level. Set NA ("not available") to memory levels if
-> memory hierarchy info is absent.
+> Store operations remain unchanged to keep the descending order when
+> iterating through cache levels.
+> 
+> Split into two functions: one is for setting memory levels for loads and
+> another for stores.
 > 
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 
 > ---
->   tools/perf/util/arm-spe.c | 32 +++++++++++++++++++++-----------
->   1 file changed, 21 insertions(+), 11 deletions(-)
+>   tools/perf/util/arm-spe.c | 45 +++++++++++++++++++++++++++++++++++++++++++--
+>   1 file changed, 43 insertions(+), 2 deletions(-)
 > 
 > diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 55b8391990467c8b7818bb63de3545d94d021bb7..b2296cd025382ea36820641164ec71b13a4e7a0e 100644
+> index b2296cd025382ea36820641164ec71b13a4e7a0e..8f18af7336db53b00b450eb4299feee350d0ecb9 100644
 > --- a/tools/perf/util/arm-spe.c
 > +++ b/tools/perf/util/arm-spe.c
-> @@ -39,6 +39,15 @@
+> @@ -45,6 +45,9 @@
+>   #define arm_spe_is_cache_level(type, lvl) \
+>   	((type) & ARM_SPE_CACHE_EVENT(lvl))
 >   
->   #define is_ldst_op(op)		(!!((op) & ARM_SPE_OP_LDST))
+> +#define arm_spe_is_cache_hit(type, lvl) \
+> +	(((type) & ARM_SPE_CACHE_EVENT(lvl)) == ARM_SPE_##lvl##_ACCESS)
+> +
+>   #define arm_spe_is_cache_miss(type, lvl) \
+>   	((type) & ARM_SPE_##lvl##_MISS)
 >   
-> +#define ARM_SPE_CACHE_EVENT(lvl) \
-> +	(ARM_SPE_##lvl##_ACCESS | ARM_SPE_##lvl##_MISS)
-> +
-> +#define arm_spe_is_cache_level(type, lvl) \
-> +	((type) & ARM_SPE_CACHE_EVENT(lvl))
-> +
-> +#define arm_spe_is_cache_miss(type, lvl) \
-> +	((type) & ARM_SPE_##lvl##_MISS)
-> +
->   struct arm_spe {
->   	struct auxtrace			auxtrace;
->   	struct auxtrace_queues		queues;
-> @@ -822,20 +831,21 @@ static const struct data_source_handle data_source_handles[] = {
->   static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
->   					union perf_mem_data_src *data_src)
->   {
-> -	if (record->type & (ARM_SPE_LLC_ACCESS | ARM_SPE_LLC_MISS)) {
-> +	if (arm_spe_is_cache_level(record->type, LLC)) {
->   		data_src->mem_lvl = PERF_MEM_LVL_L3;
-> -
-> -		if (record->type & ARM_SPE_LLC_MISS)
-> -			data_src->mem_lvl |= PERF_MEM_LVL_MISS;
-> -		else
-> -			data_src->mem_lvl |= PERF_MEM_LVL_HIT;
-> -	} else if (record->type & (ARM_SPE_L1D_ACCESS | ARM_SPE_L1D_MISS)) {
-> +		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, LLC) ?
-> +				     PERF_MEM_LVL_MISS : PERF_MEM_LVL_HIT;
+> @@ -828,9 +831,38 @@ static const struct data_source_handle data_source_handles[] = {
+>   	DS(hisi_hip_ds_encoding_cpus, data_source_hisi_hip),
+>   };
+>   
+> -static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+> -					union perf_mem_data_src *data_src)
+> +static void arm_spe__synth_ld_memory_level(const struct arm_spe_record *record,
+> +					   union perf_mem_data_src *data_src)
+> +{
+> +	/*
+> +	 * To find a cache hit, search in ascending order from the lower level
+> +	 * caches to the higher level caches. This reflects the best scenario
+> +	 * for a cache hit.
+> +	 */
+> +	if (arm_spe_is_cache_hit(record->type, L1D)) {
+> +		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
+> +	} else if (arm_spe_is_cache_hit(record->type, LLC)) {
+> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
 > +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-> +	} else if (arm_spe_is_cache_level(record->type, L1D)) {
->   		data_src->mem_lvl = PERF_MEM_LVL_L1;
-> +		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, L1D) ?
-> +				     PERF_MEM_LVL_MISS : PERF_MEM_LVL_HIT;
+> +	/*
+> +	 * To find a cache miss, search in descending order from the higher
+> +	 * level cache to the lower level cache. This represents the worst
+> +	 * scenario for a cache miss.
+> +	 */
+> +	} else if (arm_spe_is_cache_miss(record->type, LLC)) {
+> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_MISS;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> +	} else if (arm_spe_is_cache_miss(record->type, L1D)) {
+> +		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_MISS;
 > +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
 > +	}
->   
-> -		if (record->type & ARM_SPE_L1D_MISS)
-> -			data_src->mem_lvl |= PERF_MEM_LVL_MISS;
-> -		else
-> -			data_src->mem_lvl |= PERF_MEM_LVL_HIT;
-> +	if (!data_src->mem_lvl) {
-> +		data_src->mem_lvl = PERF_MEM_LVL_NA;
-> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
+> +}
+> +
+> +static void arm_spe__synth_st_memory_level(const struct arm_spe_record *record,
+> +					   union perf_mem_data_src *data_src)
+>   {
+> +	/* Record the greatest level info for a store operation. */
+>   	if (arm_spe_is_cache_level(record->type, LLC)) {
+>   		data_src->mem_lvl = PERF_MEM_LVL_L3;
+>   		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, LLC) ?
+> @@ -842,6 +874,15 @@ static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+>   				     PERF_MEM_LVL_MISS : PERF_MEM_LVL_HIT;
+>   		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
 >   	}
+> +}
+> +
+> +static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+> +					union perf_mem_data_src *data_src)
+> +{
+> +	if (data_src->mem_op == PERF_MEM_OP_LOAD)
+> +		arm_spe__synth_ld_memory_level(record, data_src);
+> +	if (data_src->mem_op == PERF_MEM_OP_STORE)
+> +		arm_spe__synth_st_memory_level(record, data_src);
 >   
->   	if (record->type & ARM_SPE_REMOTE_ACCESS)
+>   	if (!data_src->mem_lvl) {
+>   		data_src->mem_lvl = PERF_MEM_LVL_NA;
 > 
 
 
