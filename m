@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60780C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 09:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6F2C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 09:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kC5v9ze9x9toLS8TmWv43Wu3P6QZKGYMdRPuLYWSdAk=; b=KI0eUhS+7ow05cNpUgzyYF5102
-	LG/IB75TPhUCVyPZqOWlsxUL6dX2RIw31eZt5X7QBkSA2eRRu95o+m+gP/ElbGKBbPHmP6sB/SmJu
-	l7ZxIEZomJNViA8qFXaTDkr6ZL8Ek8+rViKwE6bcZifWWDlA7VOrxbnpvpo/oRIZmiSvRtYPYbApr
-	a3nlgUn6nkZ0SnqY+qfNbK9UJ0khcrrnr0pcr0TWXIlduRpQX5tJeGjtYVYDSyZfZKHmiwb5L5lby
-	Sk9yJ9MeF1z31wL78qAjUzarsGhEX3uq4ixayUKnL26YhgLpaBDC57WPlChihiqFH8VOIUqYKXakC
-	UCRgOUlA==;
+	bh=AMfSWKfWlsVG5kJFYY9nMKmKjjqRwbIiq6r4sbujFwM=; b=Dn6fXaXvRk47OHe549SuPHg/kA
+	P40RJpSMXMm61zx0hVZ9xYRlij24extBRXvT/jwpU5MP2bBBpCAsatZ4ynZEUkfB6r8wrTEJqIVgX
+	mFTxZHjFCo2LVrnxT4V2MkI5pCPvCba2WrPq3Wj+BEWtaZUgMM/HmLof+Ms7vu7PVCrtuLBvS+1mI
+	5J+7lYHWg2dQw1sJZAHUNnU8yaQ59oUydn/lP8S3FzV5IxchG5itvKgiNVutpADRMR/w4BVX6UDdl
+	ZPJc5OwrKre22EOyKm+7frFrzP/G1YCv3iPleN8jt54gOCBsBYFiRuLM4dDF8zYOPf4Z227Fx4/uv
+	t1SYeOmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYFD-0000000FDv0-1RpG;
-	Fri, 20 Jun 2025 09:41:11 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uSYHQ-0000000FERs-1yBK;
+	Fri, 20 Jun 2025 09:43:28 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSXEQ-0000000F4zi-235q;
-	Fri, 20 Jun 2025 08:36:19 +0000
+	id 1uSXEQ-0000000F4zu-2mWG;
+	Fri, 20 Jun 2025 08:36:20 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 6414041AF5;
+	by mxout2.routing.net (Postfix) with ESMTP id 022B9601EE;
 	Fri, 20 Jun 2025 08:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=20200217; t=1750408573;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kC5v9ze9x9toLS8TmWv43Wu3P6QZKGYMdRPuLYWSdAk=;
-	b=dg6AvJo0pW28wyAghtGqUqa//Y74brD30ySyrfBhRu/tv28cy3buh/xvNzFfPzw++Kogz4
-	IHYIpDrqDPEG3tOiRp9CnkkAfazt5uJwLEmNWDk3w3IX0Sgwf/EneRDfdFZecvaLuGpP0o
-	tMMZ9KgH3jZuvq+u6y3l69wKXVMvg0Y=
+	bh=AMfSWKfWlsVG5kJFYY9nMKmKjjqRwbIiq6r4sbujFwM=;
+	b=ej1t5pzPN1f4ntPWFsyeVVB0qECb9PujuXTATEjUFzp+ul4bJSEaY4POBGK2yllJ6cALG8
+	UxvpUMEuThlhH1Whz+3WALpReFcBWguWn00fwHsaBg+OORYFgby0Qc/S2pYoLFe5kW3nMS
+	NOu/fKE/RA7HHk9MhBZBq5xJIqcBOwY=
 Received: from frank-u24.. (fttx-pool-157.180.225.81.bambit.de [157.180.225.81])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 06C8B1226F1;
-	Fri, 20 Jun 2025 08:36:13 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 92CA01226B1;
+	Fri, 20 Jun 2025 08:36:12 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -74,18 +74,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v5 07/13] arm64: dts: mediatek: mt7988: add switch node
-Date: Fri, 20 Jun 2025 10:35:38 +0200
-Message-ID: <20250620083555.6886-8-linux@fw-web.de>
+Subject: [PATCH v5 06/13] arm64: dts: mediatek: mt7988: add basic ethernet-nodes
+Date: Fri, 20 Jun 2025 10:35:37 +0200
+Message-ID: <20250620083555.6886-7-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250620083555.6886-1-linux@fw-web.de>
 References: <20250620083555.6886-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_013618_821714_FAFD7FBB 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_013619_020193_4D352918 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,181 +101,189 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add mt7988 builtin mt753x switch nodes.
+Add basic ethernet related nodes.
+
+Mac1+2 needs pcs (sgmii+usxgmii) to work correctly which will be linked
+later when driver is merged.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
-v4:
-- drop phy-mode for gsw-phy
-- reorder phy-mode after phy-handle
-- drop interrupt parent from switch
+v5:
+- add reserved irqs and change name to fe0..fe3
+- change rx-ringX to pdmaX to be closer to documentation
 
-v2:
-- drop labels and led-function too (have to be in board)
+v4:
+- comment for fixed-link on gmac0
+- update 2g5 phy node
+  - unit-name dec instead of hex to match reg property
+  - move compatible before reg
+  - drop phy-mode
+- add interrupts for RSS
+- add interrupt-names and drop reserved irqs for ethernet
+- some reordering
+- eth-reg and clock whitespace-fix based on angelos review
 ---
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 148 ++++++++++++++++++++++
- 1 file changed, 148 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 128 +++++++++++++++++++++-
+ 1 file changed, 125 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 3ab77ad4736a..33a80199ffbe 100644
+index 560ec86dbec0..3ab77ad4736a 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -742,6 +742,154 @@ ethsys: clock-controller@15000000 {
+@@ -680,7 +680,28 @@ xphyu3port0: usb-phy@11e13000 {
+ 			};
+ 		};
+ 
+-		clock-controller@11f40000 {
++		xfi_tphy0: phy@11f20000 {
++			compatible = "mediatek,mt7988-xfi-tphy";
++			reg = <0 0x11f20000 0 0x10000>;
++			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
++				 <&topckgen CLK_TOP_XFI_PHY_0_XTAL_SEL>;
++			clock-names = "xfipll", "topxtal";
++			resets = <&watchdog 14>;
++			mediatek,usxgmii-performance-errata;
++			#phy-cells = <0>;
++		};
++
++		xfi_tphy1: phy@11f30000 {
++			compatible = "mediatek,mt7988-xfi-tphy";
++			reg = <0 0x11f30000 0 0x10000>;
++			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
++				 <&topckgen CLK_TOP_XFI_PHY_1_XTAL_SEL>;
++			clock-names = "xfipll", "topxtal";
++			resets = <&watchdog 15>;
++			#phy-cells = <0>;
++		};
++
++		xfi_pll: clock-controller@11f40000 {
+ 			compatible = "mediatek,mt7988-xfi-pll";
+ 			reg = <0 0x11f40000 0 0x1000>;
+ 			resets = <&watchdog 16>;
+@@ -714,19 +735,120 @@ phy_calibration_p3: calib@97c {
+ 			};
+ 		};
+ 
+-		clock-controller@15000000 {
++		ethsys: clock-controller@15000000 {
+ 			compatible = "mediatek,mt7988-ethsys", "syscon";
+ 			reg = <0 0x15000000 0 0x1000>;
+ 			#clock-cells = <1>;
  			#reset-cells = <1>;
  		};
  
-+		switch: switch@15020000 {
-+			compatible = "mediatek,mt7988-switch";
-+			reg = <0 0x15020000 0 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+			interrupts = <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&ethwarp MT7988_ETHWARP_RST_SWITCH>;
+-		clock-controller@15031000 {
++		ethwarp: clock-controller@15031000 {
+ 			compatible = "mediatek,mt7988-ethwarp";
+ 			reg = <0 0x15031000 0 0x1000>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
+ 		};
 +
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++		eth: ethernet@15100000 {
++			compatible = "mediatek,mt7988-eth";
++			reg = <0 0x15100000 0 0x80000>, <0 0x15400000 0 0x200000>;
++			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
++                                     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
++                                     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
++                                     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "fe0", "fe1", "fe2", "fe3", "pdma0",
++					  "pdma1", "pdma2", "pdma3";
++			clocks = <&ethsys CLK_ETHDMA_CRYPT0_EN>,
++				 <&ethsys CLK_ETHDMA_FE_EN>,
++				 <&ethsys CLK_ETHDMA_GP2_EN>,
++				 <&ethsys CLK_ETHDMA_GP1_EN>,
++				 <&ethsys CLK_ETHDMA_GP3_EN>,
++				 <&ethwarp CLK_ETHWARP_WOCPU2_EN>,
++				 <&ethwarp CLK_ETHWARP_WOCPU1_EN>,
++				 <&ethwarp CLK_ETHWARP_WOCPU0_EN>,
++				 <&ethsys CLK_ETHDMA_ESW_EN>,
++				 <&topckgen CLK_TOP_ETH_GMII_SEL>,
++				 <&topckgen CLK_TOP_ETH_REFCK_50M_SEL>,
++				 <&topckgen CLK_TOP_ETH_SYS_200M_SEL>,
++				 <&topckgen CLK_TOP_ETH_SYS_SEL>,
++				 <&topckgen CLK_TOP_ETH_XGMII_SEL>,
++				 <&topckgen CLK_TOP_ETH_MII_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_500M_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_PAO_2X_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_SYNC_250M_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_PPEFB_250M_SEL>,
++				 <&topckgen CLK_TOP_NETSYS_WARP_SEL>,
++				 <&ethsys CLK_ETHDMA_XGP1_EN>,
++				 <&ethsys CLK_ETHDMA_XGP2_EN>,
++				 <&ethsys CLK_ETHDMA_XGP3_EN>;
++			clock-names = "crypto", "fe", "gp2", "gp1", "gp3",
++				      "ethwarp_wocpu2", "ethwarp_wocpu1",
++				      "ethwarp_wocpu0", "esw", "top_eth_gmii_sel",
++				      "top_eth_refck_50m_sel", "top_eth_sys_200m_sel",
++				      "top_eth_sys_sel", "top_eth_xgmii_sel",
++				      "top_eth_mii_sel", "top_netsys_sel",
++				      "top_netsys_500m_sel", "top_netsys_pao_2x_sel",
++				      "top_netsys_sync_250m_sel",
++				      "top_netsys_ppefb_250m_sel",
++				      "top_netsys_warp_sel","xgp1", "xgp2", "xgp3";
++			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
++					  <&topckgen CLK_TOP_NETSYS_GSW_SEL>,
++					  <&topckgen CLK_TOP_USXGMII_SBUS_0_SEL>,
++					  <&topckgen CLK_TOP_USXGMII_SBUS_1_SEL>,
++					  <&topckgen CLK_TOP_SGM_0_SEL>,
++					  <&topckgen CLK_TOP_SGM_1_SEL>;
++			assigned-clock-parents = <&apmixedsys CLK_APMIXED_NET2PLL>,
++						 <&topckgen CLK_TOP_NET1PLL_D4>,
++						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
++						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
++						 <&apmixedsys CLK_APMIXED_SGMPLL>,
++						 <&apmixedsys CLK_APMIXED_SGMPLL>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			mediatek,ethsys = <&ethsys>;
++			mediatek,infracfg = <&topmisc>;
 +
-+				gsw_port0: port@0 {
-+					reg = <0>;
-+					phy-handle = <&gsw_phy0>;
-+					phy-mode = "internal";
-+				};
++			gmac0: mac@0 {
++				compatible = "mediatek,eth-mac";
++				reg = <0>;
++				phy-mode = "internal";
 +
-+				gsw_port1: port@1 {
-+					reg = <1>;
-+					phy-handle = <&gsw_phy1>;
-+					phy-mode = "internal";
-+				};
-+
-+				gsw_port2: port@2 {
-+					reg = <2>;
-+					phy-handle = <&gsw_phy2>;
-+					phy-mode = "internal";
-+				};
-+
-+				gsw_port3: port@3 {
-+					reg = <3>;
-+					phy-handle = <&gsw_phy3>;
-+					phy-mode = "internal";
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+					ethernet = <&gmac0>;
-+					phy-mode = "internal";
-+
-+					fixed-link {
-+						speed = <10000>;
-+						full-duplex;
-+						pause;
-+					};
++				/* Connected to internal switch */
++				fixed-link {
++					speed = <10000>;
++					full-duplex;
++					pause;
 +				};
 +			};
 +
-+			mdio {
++			gmac1: mac@1 {
++				compatible = "mediatek,eth-mac";
++				reg = <1>;
++				status = "disabled";
++			};
++
++			gmac2: mac@2 {
++				compatible = "mediatek,eth-mac";
++				reg = <2>;
++				status = "disabled";
++			};
++
++			mdio_bus: mdio-bus {
 +				#address-cells = <1>;
 +				#size-cells = <0>;
-+				mediatek,pio = <&pio>;
 +
-+				gsw_phy0: ethernet-phy@0 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <0>;
-+					interrupts = <0>;
-+					nvmem-cells = <&phy_calibration_p0>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy0_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy0_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy1: ethernet-phy@1 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <1>;
-+					interrupts = <1>;
-+					nvmem-cells = <&phy_calibration_p1>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy1_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy1_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy2: ethernet-phy@2 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <2>;
-+					interrupts = <2>;
-+					nvmem-cells = <&phy_calibration_p2>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy2_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy2_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy3: ethernet-phy@3 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <3>;
-+					interrupts = <3>;
-+					nvmem-cells = <&phy_calibration_p3>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy3_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy3_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
++				/* internal 2.5G PHY */
++				int_2p5g_phy: ethernet-phy@15 {
++					compatible = "ethernet-phy-ieee802.3-c45";
++					reg = <15>;
 +				};
 +			};
 +		};
-+
- 		ethwarp: clock-controller@15031000 {
- 			compatible = "mediatek,mt7988-ethwarp";
- 			reg = <0 0x15031000 0 0x1000>;
+ 	};
+ 
+ 	thermal-zones {
 -- 
 2.43.0
 
