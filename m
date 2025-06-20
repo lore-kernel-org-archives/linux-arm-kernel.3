@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C52EC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 18:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16AFC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 18:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4BtGj5IM9fOMsL9rGEeYG0L2bnwTk/mzU1tC5NhGAw=; b=RZYbfm0m+M9Nb8z2D+ktBHxlgK
-	9V8yJyf8A+CRJaT2unrK9ssZ0C4lDQ7r/3ppQpKQzjTwyNIV+XkJnYH6vmku63+MIW9+JHO93Ox93
-	uezoEFykJUUdAJosMnaryXUXJMunlGnt87nqONypwVvv/2w1h/UmIVeTTE8Cv9vpXqGGi+LrB1swh
-	EL0ldixR+RNPkChrsjmRGPLbCyTNUO18mxS7sIPGKVDvXOLUHMQVNiIv0X8tl/dLewqK5OBiNzD8O
-	l4yTSWBvD6LGujD7CEeNMu4QtZ562ntRFb7LiyDbswfoS2PDRlzUv7IOEOekCB9I1cYz7/0jqHx3J
-	o5pP/cTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=; b=aUDBGM/m3sGG+Cqa/BsY9RCwXr
+	FZ1U7+UZVNW1XBcSS1Gv0u+G1wRpqSafbVZDMxauZIUYPm7Z+joFGB2VI4k+sktd0uCzRsjm16Yts
+	P2VnPrKzfXKLAeXQtqk7+toUE7T7HJH1HPp2WGZkv2i5uPVDUm+FBOwwUmtz/aUQLyAd/Tj29dFxg
+	EPd5SeWM12ydCTENV6RrmNu0zeWX04B72B3PCYgeF/4iMJrysRxSviRCTHDM/DPXcRt2VBymfBWcF
+	N8JVReH/vPdgvo0YdiidF12MJLHDjKWe7PXRfuso8rUFQjGcxUyI2OKlteiydgckxTxd9DOQtH+22
+	4WdKEweQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSg4R-0000000GK6M-1xnp;
-	Fri, 20 Jun 2025 18:02:35 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uSgLG-0000000GLgp-0xsW;
+	Fri, 20 Jun 2025 18:19:58 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSg2D-0000000GJuC-2mY4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Jun 2025 18:00:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=V4BtGj5IM9fOMsL9rGEeYG0L2bnwTk/mzU1tC5NhGAw=; b=FpDJ0ppU2cz+Gy7OZxO+YydSmq
-	4NsQe9Y22p5v6Fnl8tm3NpgRLAUsfB+z5YsNATk+Jnh65F2c4qzeS9l7XB+BDhRHiWlQvWTdgjJPH
-	pSNBZEniC6s6WuWi8T5N5qM1v+KpgjiNZ6aJaMXclCbH//+Ud0DuFcr4lYSwq+eNMRkbvuJe36RGS
-	moWsCTeWo2deuOQ1mC1iCLlLYScqVCwtt40ZNmQv2qnFQma7794kGicaNGyLXjObXqtiQJ1MB4SP1
-	hNGaI5T8fASvuePTlRhYKk4QCu8SjvRSv1Ln3zXRq1AgsC6l7JdYq+71jamf51mph5YpkpcFQxUWn
-	IdNDGoJQ==;
-Received: from [2001:8b0:10b:5:92ee:a97b:9346:ea1d] (helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSg2A-0000000DGwR-0nHH;
-	Fri, 20 Jun 2025 18:00:14 +0000
-Message-ID: <5ab7c4684b0a81a4078701518f2a9786e2b8c7fc.camel@infradead.org>
-Subject: Re: [PATCH v3 02/62] KVM: arm64: WARN if unmapping vLPI fails
-From: David Woodhouse <dwmw2@infradead.org>
-To: Sean Christopherson <seanjc@google.com>, Oliver Upton
-	 <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
- Joerg Roedel <joro@8bytes.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, iommu@lists.linux.dev,  linux-kernel@vger.kernel.org,
- Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>,
- Maxim Levitsky <mlevitsk@redhat.com>, Joao Martins
- <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>,
-  David Matlack <dmatlack@google.com>
-Date: Fri, 20 Jun 2025 19:00:12 +0100
-In-Reply-To: <aFWY2LTVIxz5rfhh@google.com>
-References: <20250611224604.313496-2-seanjc@google.com>
-	 <20250611224604.313496-4-seanjc@google.com> <86tt4lcgs3.wl-maz@kernel.org>
-	 <aErlezuoFJ8u0ue-@google.com> <aEyOcJJsys9mm_Xs@linux.dev>
-	 <aFWY2LTVIxz5rfhh@google.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-N2ILD2/GdREWZxl5A43d"
-User-Agent: Evolution 3.52.3-0ubuntu1 
-MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+	id 1uSgJ0-0000000GLKT-1E00
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 18:17:39 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747cebffd4eso1716311b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 11:17:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750443457; x=1751048257; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=;
+        b=4a7AK/HY0wvwEjh9o+M0kJdgGFv66wN0X8CYpX2lAXneuZUmR3NFuTnWv1yYtnY9I+
+         U2vWHLM4CAuB9Oz1j2ce2QgSMzuBFL8RPewDuUkIg/Rql5gbckiiCj+CRLOcSn55O8Bx
+         yiqJ6O9cOlKUIcf8dIqONyu3AKYnhUTdGsvrNgy8gK+xaKBqiG7stO9FlglDwAwf2PJb
+         YiXhjr3Rju9Ck83zAZlymAXQX+PUJYbTa2DYiERlpibSQsQGOBObEN+trpWtLbPYMCD1
+         cBT56Oh/GIoohUz8XCn+uA92RtkfLNerfnAbjpIwZ7d98GLSqGa35qSp9Qyayhfmc3TM
+         JcYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750443457; x=1751048257;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=;
+        b=ds2erBCsWiacUrumzVDvqOLTI4aPOGHO/BN+F2Wxxs3FbW9lrL9DYb1Ym7vguYGc1i
+         5zn99H2EANADhNnr5MkXax7AEurXOnftzFtrEUvcvfBz6nKx+VFysUE5kP/Szf7+VICa
+         ot2PPqNBtwHuCxaVpo8c5f+OUWngBPckNiOaut3VgpcWtYLtGf0s/ttlwvPmCE4zmH6w
+         iroXWaKkKckPhwy9nu1yTOrjAooJDxXQjPjmpL6idwF3cyJTPQnq7l1XxnSqvIrSmHFm
+         mEOaGPgxwqjKd8CB6tTOPMmuE6HrHfVkmBsBMTwXPweni0Eym91sL3rdR+MksBpbAFR2
+         oVpg==
+X-Forwarded-Encrypted: i=1; AJvYcCVtVlAZqCqgs1Y6Tf2NfGgLrnVIeJKXmq85YcbIboqbx+eUCRPta1C+NZl8WtIoEwyLB3uF7yO2fpDkgG8KU0jE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN4y76xw21pSa6WYBRqwr60ej8AoyNCzceV3XxJtGrKGGdmVaz
+	JaPisH18EdtkKfqMEXgNKEeDGjaOHvO/J8bO5SkHgux7m4/yzsnEeqI70pAOLFof7Bgnm+XJeT8
+	wlnWrlh9Ap1Z3YjXMEwdeRMmmZeKsZw==
+X-Google-Smtp-Source: AGHT+IGLyMBA9YVtduYhTCnTre04zoapWO94rFAMkDl8DZB2kVIM8sEEP0xqi2SKfllFUVq4GFuWa2lUG16t4cETsX4=
+X-Received: from pfbly4.prod.google.com ([2002:a05:6a00:7584:b0:749:d28:4ca2])
+ (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:238c:b0:742:ae7e:7da8 with SMTP id d2e1a72fcca58-7490d64699fmr6106675b3a.8.1750443456920;
+ Fri, 20 Jun 2025 11:17:36 -0700 (PDT)
+Date: Fri, 20 Jun 2025 11:17:03 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.0.rc2.761.g2dc52ea45b-goog
+Message-ID: <20250620181719.1399856-1-willmcvicker@google.com>
+Subject: [PATCH v4 0/6] Add module support for Arm64 Exynos MCT driver
+From: Will McVicker <willmcvicker@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>
+Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>, 
+	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	John Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250620_111738_334378_46B59C20 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,171 +97,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds support to build the Arm64 Exynos MCT driver as a module.
+This is only possible on Arm64 SoCs since they can use the Arm architected
+timer as the clocksource. Once the Exynos MCT module is loaded and the
+device probes, the MCT is used as the wakeup source for the arch_timer to
+ensure the device can wakeup from the "c2" idle state.
 
---=-N2ILD2/GdREWZxl5A43d
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+These patches are originally from the downstream Pixel 6 (gs101) kernel
+found at [1] and have been adapted for upstream. Not only has the Exynos MC=
+T
+driver been shipping as a module in the field with Android, but I've also
+tested this series with the upstream kernel on my Pixel 6 Pro.
 
-On Fri, 2025-06-20 at 10:22 -0700, Sean Christopherson wrote:
-> On Fri, Jun 13, 2025, Oliver Upton wrote:
-> > On Thu, Jun 12, 2025 at 07:34:35AM -0700, Sean Christopherson wrote:
-> > > On Thu, Jun 12, 2025, Marc Zyngier wrote:
-> > > > But not having an VLPI mapping for an interrupt at the point where =
-we're
-> > > > tearing down the forwarding is pretty benign. IRQs *still* go where=
- they
-> > > > should, and we don't lose anything.
-> >=20
-> > The VM may not actually be getting torn down, though. The series of
-> > fixes [*] we took for 6.16 addressed games that VMMs might be playing o=
-n
-> > irqbypass for a live VM.
-> >=20
-> > [*] https://lore.kernel.org/kvmarm/20250523194722.4066715-1-oliver.upto=
-n@linux.dev/
-> >=20
-> > > All of those failure scenario seem like warnable offences when KVM th=
-inks it has
-> > > configured the IRQ to be forwarded to a vCPU.
-> >=20
-> > I tend to agree here, especially considering how horribly fragile GICv4
-> > has been in some systems. I know of a couple implementations where ITS
-> > command failures and/or unmapped MSIs are fatal for the entire machine.
-> > Debugging them has been a genuine pain in the ass.
-> >=20
-> > WARN'ing when state tracking for vLPIs is out of whack would've made it
-> > a little easier.
->=20
-> Marc, does this look and read better?
->=20
-> I'd really, really like to get this sorted out asap, as it's the only thi=
-ng
-> blocking the series, and I want to get the series into linux-next early n=
-ext
-> week, before I go OOO for ~10 days.
->=20
-> --
-> From: Sean Christopherson <seanjc@google.com>
-> Date: Thu, 12 Jun 2025 16:51:47 -0700
-> Subject: [PATCH] KVM: arm64: WARN if unmapping a vLPI fails in any path
->=20
-> When unmapping a vLPI, WARN if nullifying vCPU affinity fails, not just i=
-f
-> failure occurs when freeing an ITE.=C2=A0 If undoing vCPU affinity fails,=
- then
-> odds are very good that vLPI state tracking has has gotten out of whack,
-> i.e. that KVM and the GIC disagree on the state of an IRQ/vLPI.=C2=A0 At =
-best,
-> inconsistent state means there is a lurking bug/flaw somewhere.=C2=A0 At =
-worst,
-> the inconsistency could eventually be fatal to the host, e.g. if an ITS
-> command fails because KVM's view of things doesn't match reality/hardware=
+In addition, I verified that the Exynos MCT module cannot be unloaded on my
+Pixel 6. This is due to /sys/module/exynos_mct/refcnt > 0. So if you try,
+you'll get this:
+
+  root@google-gs:~# rmmod exynos_mct
+  rmmod: ERROR: Module exynos_mct is in use
+  root@google-gs:~# cat /sys/module/exynos_mct/refcnt
+  9
+
+Thanks,
+Will
+
+Note1, instructions to build and flash a Pixel 6 device with the upstream
+kernel can be found at [2].
+
+Note2, this series is based off of krzk/for-next commit a15edf91668b ("Merg=
+e
+branch 'next/dt64' into for-next") with [3] on top.
+
+[1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-r=
+aviole-5.10-android12-d1
+[2] https://git.codelinaro.org/linaro/googlelt/pixelscripts/-/blob/clo/main=
+/README.md?ref_type=3Dheads
+[3] https://lore.kernel.org/linux-arm-kernel/20250602151853.1942521-1-danie=
+l.lezcano@linaro.org/
+
+Cc: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Donghoon Yu <hoony.yu@samsung.com>
+Cc: Hosung Kim <hosung0.kim@samsung.com>
+Cc: kernel-team@android.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>
+Cc: Saravana Kannan <saravanak@google.com>
+Cc: John Stultz <jstultz@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org
+
+---
+Changes in v4:
+- Missed the "v3" string in the previous series for the actual patches
+- Re-generated patches with --base a15edf91668beefdb5171c53fa698c9b43dd1e0d
+  for kernel test robot.
+
+Changes in v3:
+- Rebased on top of Daniel's timer modularization prep series [3] and
+  krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
+  for-next")
+- Added owner references to Exynos MCT clocksource and clockevent objects.
+- Dropped #ifdef MODULE conditional section in favor of just using
+  module_platform_driver() which will properly handle setting up the
+  of_device_id table based on if the driver is built-in or a module.
+- Update commit message for patch 2 based on John's feedback.
+- Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
+
+Changes in v2:
+- Re-worked patch v1 5 based on Rob Herring's review to use the compatible
+  data for retrieving the mct_init function pointer.
+- Updated the Kconfig logic to disallow building the Exynos MCT driver as
+  a module for ARM32 configurations based on Krzysztof Kozlowski's findings=
 .
+- Added comments and clarified commit messages in patches 1 and 2 based on
+  reviews from John Stultz and Youngmin Nam.
+- Fixed an issue found during testing that resulted in the device getting
+  stuck on boot. This is included in v2 as patch 5.
+- Collected *-by tags
+- Rebased to the latest linux-next/master.
+---
+=20
 
-Btw, we finally figured out the reason some machines were just going
-dark on kexec, with the new kernel being corrupted. It turns out the
-GIC is still scribbling on the vLPI Pending Table even after it isn't
-the vLPI Pending Table any more, and is now part of the new kernel's
-text.
+Donghoon Yu (1):
+  clocksource/drivers/exynos_mct: Add module support
 
-In my queue I have a patch to call unmap_all_vpes() =E2=88=80 kvm on kexec,
-which makes the problem go away.
+Hosung Kim (1):
+  clocksource/drivers/exynos_mct: Set local timer interrupts as percpu
 
---=-N2ILD2/GdREWZxl5A43d
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+Will McVicker (4):
+  of/irq: Export of_irq_count for modules
+  clocksource/drivers/exynos_mct: Don't register as a sched_clock on
+    arm64
+  clocksource/drivers/exynos_mct: Fix uninitialized irq name warning
+  arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDYyMDE4MDAx
-MlowLwYJKoZIhvcNAQkEMSIEIIyFvPcwbS1Vs7ZJA4/YgpmenZ12652b2+hXdccFnroEMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAM2H61fFbhMLR
-OzqkJlEp279nrOR12jsAN4XKX9ZURyFfSWmeDqzu1Szt3hNdQolYyehVXNRDEzdKbluyBel9UeOS
-xYeXsMHmdQ8FZ8FWkUAWWhb8xVRFmnzYm5aPNoZ4D4L9k29I3vaTnj9lsJ7kxg8eaVqxMA8Aqp6F
-011xwwibujrG838ALsJRHFYYriHKUOKe8H6SC8akGmLItSMDN0j1N9ipYzO/xSH+KJF9YBmUAi1n
-LJ/BeWTRGrfDIy6PIWLWcdhKROnFyUDCiU04huCRTe+/0LGRPxWizzwQbx5ufFqDqiOUCEaQzKqH
-Wd/qYXwmoiomLYzRteVZ7I5FflxS9N1osg7jjHjdmEPSKE85N6U6D86kBFTy7emwDnJe805w058E
-5wthOQACVxFbcyvL7MyRj5Ad5OUAz6cn6+ykrbBI6+QzmqoYO5M2M7IWyTyAPoA2ujcDFgrUn60O
-bww4VICeFJlZRmv86VjJX7jLY+e9XA0JJXfW2VVPAHgceP9gmufL4Wos8DEPJ1VbL7A3bBx1ujKh
-znPvB6MBNLEQBiFl1ONFlotGsz827BbupDhiHMlbop5L9d+ib6GkChz0iKo9TTIvZmjQH50maWAK
-g2uAvxO7Frfd0NVzovfpsk///+zFHxhrOhygr3OQJVtfXB7juNO38jh0YbJAsi8AAAAAAAA=
+ arch/arm64/Kconfig.platforms     |  1 -
+ drivers/clocksource/Kconfig      |  3 +-
+ drivers/clocksource/exynos_mct.c | 75 ++++++++++++++++++++++++++------
+ drivers/of/irq.c                 |  1 +
+ 4 files changed, 64 insertions(+), 16 deletions(-)
 
 
---=-N2ILD2/GdREWZxl5A43d--
+base-commit: a15edf91668beefdb5171c53fa698c9b43dd1e0d
+prerequisite-patch-id: 0c5b7e9fb27295e0c125c537ac80d1eb16cef60d
+prerequisite-patch-id: 6a9b683baee83ddc2b2fada31479b27b53469759
+prerequisite-patch-id: b9cbd59ff2f4c905001ecb02868d20fb004034cc
+prerequisite-patch-id: cdde1a76624089aa818cb35e612f880107bdc073
+prerequisite-patch-id: cec67e07038c7aa93a2b53879781626d738cd199
+prerequisite-patch-id: 8fda377fcaf407026f04f2a547086cf1ecf4efc9
+prerequisite-patch-id: dce925ac224bb361c74fdb23126fab53e7c5c26b
+--=20
+2.50.0.rc2.761.g2dc52ea45b-goog
+
 
