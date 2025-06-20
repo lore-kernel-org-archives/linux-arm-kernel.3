@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4357CC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDFAC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1ekRqR8sclf5kjPGwfD2Er+4fHOBAml7GmI5iGuA8A=; b=TnuqYeSK7o0Ppu3dEMrU5TyEf+
-	z8hpyhGB47ZAUMOWIRDOgJhLoAFWYvX2gcUsyWrOJZya4YfkHzD++ynqvgGq8cqWFJbp+C2uPk5X1
-	SL5AZMuKjogHz2LhNKygHjGyWSFUNGRe1nnklMSjTyaAjgPmEu3ziQZHbKCMmJz+akRS8yDKU2I8k
-	TO/ciKmFG+NB7/cxCcir+xjmtZy6zT+soeMqA4R5ZMzWMJJcGAy9rDvk2a60AN86WLK/EyO2zGOqK
-	Jfnyi4GOWUzNemrpKVkYT+aSrzg8zx4c0I2JNHUyIVl4Ue0akpzluuqyB6YNu226ru8zZ8tEKq03u
-	2iXbwrFw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=; b=AjU6e7fVpP+5orbEr9nQ9QHVfn
+	rTe4OkFmJ3u81usWZjvlY1RLiNZ8e/8fEbZC8u0o3ats8X6qgHM8rdAbYXnKDjXnTMLbQfExnkbaW
+	7SVnhaSpujittgOvRW9IQ5p7KdcTzDvuU3nRfkEY5ysyow5SYW0dSV1OgxoDmQhNcF8m1QbnPT/OW
+	6hh66Uh+P4iz0Vg/+M+UaRjZJ+zGCIQdN1p9uXD8nzd5I5b5zK8WsanNOX/HoPPuZ/ZxkhKBcC/dc
+	61FMctub/zFIjqnR1AM00Msp8olq58EPTJzNuy41TGo7C3IsvoSV7lQpYlh5dgce0jCiXvpwlzxin
+	GszhtXxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfHj-0000000GCvQ-446n;
-	Fri, 20 Jun 2025 17:12:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uSfTC-0000000GE32-48Ye;
+	Fri, 20 Jun 2025 17:24:06 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfFE-0000000GCei-0QqD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 17:09:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750439379;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M1ekRqR8sclf5kjPGwfD2Er+4fHOBAml7GmI5iGuA8A=;
-	b=THW2dfTP0j72CzdP911Gv3V4olkujWPWalLca47wDz+94PfNNISAaFQ/8sWpYpGUhV+Kda
-	wBTJBbXKM+aapTBGBuSxD2ZJzwN4tqiXP8tckj5seOsro290xshlsE9VY03cZl+KlxyRGf
-	w5r/izVgaedMjfC4KmvSnBk5t+FMvcc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-377-mKimXP4YNOqyLRYnvWg8Gw-1; Fri, 20 Jun 2025 13:09:37 -0400
-X-MC-Unique: mKimXP4YNOqyLRYnvWg8Gw-1
-X-Mimecast-MFC-AGG-ID: mKimXP4YNOqyLRYnvWg8Gw_1750439376
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-451d5600a54so15951865e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 10:09:36 -0700 (PDT)
+	id 1uSfQx-0000000GDkh-3Qkc;
+	Fri, 20 Jun 2025 17:21:48 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-71101668dedso18147877b3.1;
+        Fri, 20 Jun 2025 10:21:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750440106; x=1751044906; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=;
+        b=gL2wcLyLHztyaafv4l714nqB7Ga8S25UpHkIZ28/JcuwSR2aKef9FSU8x4gGrZy4mK
+         z2DBYDO2SC2z5/iY+Aesq+Mvly+CKuKXTK1d0I4RVlj/aj6I6sLT1g13SDhaWg9pNiAb
+         8uCa2UVJPRb+ARjLTNlWqTFB32L/2ZH7r2BL9SeVDhb+md+ZGf0c6USBhi0LolY4/OOJ
+         hgICWylnXWpMYTdKMmRqu3oUUenqRFf28eWaFgCPRoHMuS8j5cwZs1G/oI9OzIq0RSZR
+         yzu5LN8VkHQ8JQ1SYTEl1zCecjJlkjf91gZPNTQekNdHeWxsL/NdlroNUWL+dmgCc5l8
+         kBKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750439376; x=1751044176;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M1ekRqR8sclf5kjPGwfD2Er+4fHOBAml7GmI5iGuA8A=;
-        b=kDQeiDEl8P5bcNG8D2J670z6ip8qlE3JDgf601oWb6M9ZJUo95sxW6ntnl5iRZ6kDh
-         KYduSlpnYavdpNf06kW7dGsYATIy8cp6tc2EyamRNnIehwPx1+Z0tEI9i5fKbzBi4rDZ
-         QxyDLD+kNfHiIoNS0+RPWtxjiyVvMPZU3RGvVbdz+RyPgLQ47iapznkhD0KmGhuVWW2K
-         +wHZe/+DFYoC2cf6xLDe3vD5GPtmIYf2MVeAgVCJrxTEHA98jd9O8vu+6e0NItiHT2ry
-         K2w7mib8o8IPPFajHE1aLlRThLrexH2o9uF0FzqhndLYouFz9lVUB1idHS9SHGE9TvVz
-         REqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVbHzwsxs7p3Sh6bEodESvhMSwtuUHrEr7N3gUxyAPtLej7Pb7Za8HVBOlwAhEe0Z+rDdVaK7dDDYT9zurzCX3b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyrg3g+QpRFHRAbGZwk41fUCJW3RFc20mUYJxCZLBofNm/DDVi2
-	83StVXQQBgutIeAK1ejvMTjHvNbQN15ZT2syys0zABH+lcXOiRrHi5fX+ZoSbhmd9LwJSI6KBUl
-	u21bdNhkilS22qNVc5DzpmYi4jPsiUx8k9AjtEpby0pwBR29Qu3RKsFIoNM00mdCIWjJ6V26PWh
-	uGRvadvjQXYNN5/KsjXO7yTxbOoKCG1Q0czk6klRzVZRD8x8MOPYo=
-X-Gm-Gg: ASbGncuCVKg3UNYD5TY67hWBCxUvAHR5UNkcMXFJuJ9N75DX13DGnGZzndkK+WwYStx
-	zUqJKlrefDyKieaWHudf6L6tcvZAyiq9bEgv3qCN4LHFQme3AYOkB3orap3j8tLKK4uH7R9uQj+
-	oVk8E=
-X-Received: by 2002:a05:6000:481e:b0:3a4:fb33:85ce with SMTP id ffacd0b85a97d-3a6d130cb6cmr3215814f8f.46.1750439375709;
-        Fri, 20 Jun 2025 10:09:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEIC2N1+6qyCY+73jGybmhqG2lkoyl7bI3OfwoPqdXTWp1p58WQ3hVSE1JBPnpkmVDoWah0q9odmoL6/U/X/s0=
-X-Received: by 2002:a05:6000:481e:b0:3a4:fb33:85ce with SMTP id
- ffacd0b85a97d-3a6d130cb6cmr3215780f8f.46.1750439375305; Fri, 20 Jun 2025
- 10:09:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750440106; x=1751044906;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=;
+        b=SBVxrjUuY5Hiu2ISy6GXrWddX/zigmaihbOJobDFaCaCNi2ud8G62fkaJDRSpO0K3z
+         JZ9dZ36vNhBkcnZpQE5f66OFWyY9H/CPX0hHCLz4iasuG6Y3wQpjhX/0lcAqp7AJTp3B
+         lwwrZEzkBwC/mtIDvMlgozGr3WzOvOC8WLpBUzohJ1SKgB/hhAEjje7p1pW05HlxRnHB
+         qP6eGVb+4aLYChR2S0UyHhUgpSLWJlQegZwkdiYXbfdIF1TB0H9rMuJ0IREbLn3qf3vd
+         58tMKSBIA3JwFoxp36QtZAdK7jjrzd/n2al+jjOhq5vsHlDhSgh15t8IxfZWDUpuyASa
+         cljg==
+X-Forwarded-Encrypted: i=1; AJvYcCWYS0LGxnexRUUp0XDIqPy0k+VSCBJTfLBDIAeRGHkHsTEc7PUnH+hbwRPwUPot1ODEvp6RZthRKVvFdQ45ecBC@lists.infradead.org, AJvYcCXXajUHstMblOiupqkQsGnrgtLhiqocumC9HMPCq+/U25DcCq2nBO7ugsFOj7zhuBrUQqXG8aFt+GW8BaqUgEY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM4Y7Yu/SH+LXwIZHtjNoA8A6fYIX+YptsR3gVdY1ahFofgqSz
+	jO+RvrrQdgBjwTz7nu0p7wpUr/boQTXgPAOH+/WmSh5vDm2DAu8EcYlK
+X-Gm-Gg: ASbGnctZgcdvs2dNWJfKyZdJk7J1dZMK9soAYRlj/CIqWoDi07jodfAyJ3IfCETaYvO
+	7gtyLJulJemqYPE8b9XHU6Zyw74NUoSux4E4pDQ+5KNkNrK+RbIRjSJ+iEyTiiKcEmKa0+FoTUF
+	2lEyXCYgntDzWgUVpW6OjVqcJAt82PKDVXud3wHwH8eL+5/xEomXrcFMYlmJFOfIv15bhrO49il
+	ZX/JIygh8lZWxTZ887LMfTjsVZMpfilUoMMwx7hLoZFmj0sl6HLbKvyIrLpXL0KAaytU0biZRmT
+	59iWU+6np91+z+k7GibalXKsqv6ww65Nmb9jR3tNK+tFtsaBMtPZzfdXHWcPJ+P598iW3Zo=
+X-Google-Smtp-Source: AGHT+IEHjO40uKSkV7nfam+/N57foyW5wCOVz4cX1+zGDB4XHw1dSOQQdikhvdY9IR7c5chzXB9wCg==
+X-Received: by 2002:a05:690c:6f86:b0:70e:7ae4:59f4 with SMTP id 00721157ae682-712c6517768mr50267987b3.17.1750440106089;
+        Fri, 20 Jun 2025 10:21:46 -0700 (PDT)
+Received: from localhost.localdomain ([192.34.165.40])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-712c4a4a7besm5004037b3.52.2025.06.20.10.21.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 10:21:45 -0700 (PDT)
+From: John Clark <inindev@gmail.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	John Clark <inindev@gmail.com>
+Subject: [PATCH v2 0/2] Add FriendlyElec NanoPi M5 support for Rockchip RK3576
+Date: Fri, 20 Jun 2025 13:21:39 -0400
+Message-Id: <20250620172141.173266-1-inindev@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20250619130049.3133524-1-maz@kernel.org>
-In-Reply-To: <20250619130049.3133524-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Fri, 20 Jun 2025 19:09:23 +0200
-X-Gm-Features: Ac12FXyeUmiA3r9jYilzHr01DzOSd5DLfk5ROg5WkKSbcqmWMU5McoHSJ-zkNws
-Message-ID: <CABgObfZ=9ZEJ8ouESTVfRiRLrQpyURo7pe04OBDgfwbjz6q9eQ@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes, take #3
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Fuad Tabba <tabba@google.com>, 
-	Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Miguel Luis <miguel.luis@oracle.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Sean Christopherson <seanjc@google.com>, Sebastian Ott <sebott@redhat.com>, 
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>, Will Deacon <will@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MZUuY0_jkwbPPrx52uxP6ZQPxS4usrWxMtTCgpRX7Gs_1750439376
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_100940_219656_FE61EC27 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20250620_102147_856526_BDDC14F8 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +99,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 3:01=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> Paolo,
->
-> Here's the third set of KVM/arm64 fixes for 6.16. The most notable
-> thing is yet another batch of FP/SVE fixes from Mark, this time
-> addressing NV, and additionally plugging some missing synchronisation.
-> The rest is a mix of interrupt stuff (routing change, mishandling of
-> shadow LRs) and selftest fixes.
->
-> Please pull,
+This series adds device tree support for the FriendlyElec NanoPi M5 board,
+powered by the Rockchip RK3576 SoC (4x Cortex-A72, 4x Cortex-A53, Mali-G52
+MC3 GPU, 6 TOPS NPU). The patches enable basic booting and connectivity,
+including dual 1Gbps Ethernet, USB 3.2, microSD, M.2 PCIe NVMe, and HDMI.
 
-Done, thanks.
+Changes in v2:
+- Fixed DT schema warnings (Rob Herring):
+  - Renamed spi-nor@0 to flash@0
+  - Renamed pmic@23 pinctrl nodes to end with -pins
+  - Renamed hym8563@51 to rtc@51 and removed clock-frequency
+  - Renamed button@1 to button-user
+- Addressed Heiko Stuebner's feedback:
+  - Sorted non-addressed nodes alphabetically
+  - Added blank lines in regulator nodes
+  - Improved fspi1m1_pins comment to clarify SPI NOR flash pinmux
+  - Moved status property in saradc to last
 
-Paolo
+Patch 1: Updates DT bindings in rockchip.yaml
+Patch 2: Adds NanoPi M5 device tree and Makefile entry
 
->         M.
->
-> The following changes since commit e04c78d86a9699d136910cfc0bdcf01087e326=
-7e:
->
->   Linux 6.16-rc2 (2025-06-15 13:49:41 -0700)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
-marm-fixes-6.16-3
->
-> for you to fetch changes up to 04c5355b2a94ff3191ce63ab035fb7f04d036869:
->
->   KVM: arm64: VHE: Centralize ISBs when returning to host (2025-06-19 13:=
-34:59 +0100)
->
-> ----------------------------------------------------------------
-> KVM/arm64 fixes for 6.16, take #3
->
-> - Fix another set of FP/SIMD/SVE bugs affecting NV, and plugging some
->   missing synchronisation
->
-> - A small fix for the irqbypass hook fixes, tightening the check and
->   ensuring that we only deal with MSI for both the old and the new
->   route entry
->
-> - Rework the way the shadow LRs are addressed in a nesting
->   configuration, plugging an embarrassing bug as well as simplifying
->   the whole process
->
-> - Add yet another fix for the dreaded arch_timer_edge_cases selftest
->
-> ----------------------------------------------------------------
-> Marc Zyngier (1):
->       KVM: arm64: nv: Fix tracking of shadow list registers
->
-> Mark Rutland (7):
->       KVM: arm64: VHE: Synchronize restore of host debug registers
->       KVM: arm64: VHE: Synchronize CPTR trap deactivation
->       KVM: arm64: Reorganise CPTR trap manipulation
->       KVM: arm64: Remove ad-hoc CPTR manipulation from fpsimd_sve_sync()
->       KVM: arm64: Remove ad-hoc CPTR manipulation from kvm_hyp_handle_fps=
-imd()
->       KVM: arm64: Remove cpacr_clear_set()
->       KVM: arm64: VHE: Centralize ISBs when returning to host
->
-> Sean Christopherson (1):
->       KVM: arm64: Explicitly treat routing entry type changes as changes
->
-> Zenghui Yu (1):
->       KVM: arm64: selftests: Close the GIC FD in arch_timer_edge_cases
->
->  arch/arm64/include/asm/kvm_emulate.h               |  62 ---------
->  arch/arm64/include/asm/kvm_host.h                  |   6 +-
->  arch/arm64/kvm/arm.c                               |   3 +-
->  arch/arm64/kvm/hyp/include/hyp/switch.h            | 147 +++++++++++++++=
-++++--
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |   5 +-
->  arch/arm64/kvm/hyp/nvhe/switch.c                   |  59 ---------
->  arch/arm64/kvm/hyp/vhe/switch.c                    | 107 ++-------------
->  arch/arm64/kvm/vgic/vgic-v3-nested.c               |  81 ++++++------
->  .../selftests/kvm/arm64/arch_timer_edge_cases.c    |  16 ++-
->  9 files changed, 215 insertions(+), 271 deletions(-)
->
+No MAINTAINERS update needed, as the new file is covered by the existing
+ARM/Rockchip SoC entry.
+
+Tested on NanoPi M5 with successful boot and feature validation.
+
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+John Clark (2):
+  dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
+  arm64: dts: rockchip: Add FriendlyElec NanoPi M5 support
+
+ .../devicetree/bindings/arm/rockchip.yaml     |    6 +
+ arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+ .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 1001 +++++++++++++++++
+ 3 files changed, 1008 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+
+-- 
+2.39.5
 
 
