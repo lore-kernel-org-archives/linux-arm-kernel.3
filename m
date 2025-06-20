@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCDEC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 20:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF62C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 20:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TzPtW7lwZVrBQV2l7Q5OjCWqTLssSpFx4FWMfablxBU=; b=xQwH2FrKGRLhVnPJGpwBBgOfIw
-	VYSpuUrfmT5xIknnkQpuMLToAQL0Vsnf1+EbfKvKyvyuXso+NFHQvyuwfCnTwPzqKf+SyTccRw3o8
-	AJh07mGvsPe+RDPwyl+qee7HjC7IJU63g9qgiB378yopniyWzdx4Zd00GYN9ZO3i4RDrhRo7tBxIk
-	Zg1cVfwdgSuYVRneteK7DTcleQcBkr6dCFhSkBZJicg9Op4I0I1EoeROkQjYWK5Oalg3HrWGc2TEc
-	AChzgbWZnasVc7X8tx0Rpf8TdSYECJPzuQzIOJ4eizPleycf3dEl8yiQ6kaDdVYicfAVAns2NWMH7
-	L0Jya3Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mGxKurpsvHmgW89VHzKxiFNLvfM2W4TYEkHDY6+Y9n8=; b=mIErL02hvUFgKzaPshb4wlKbVS
+	hURF0bDYvK9uP2LU8mVlQIa08YmtfrzOpVO4M6sK3hWq3o0uDsnRlRjN9QLBiYS2FOyfAbohoLKdP
+	UX2BwGkY6n6YxZRabnKcGvykqL+FPY2cNgj1ogr0S0K5CQFVghcycndQJmVcwSlFMHmMS/9nsfVai
+	18/S8hAQ0koZABEjn/kCp50bRdEZCIk0tGKUX8FjsBgdAKTKhpCI8yiiQa3oWizcAGwR+g7Atwdvh
+	AWfnETx//eNslV/ryycaSARlYtTgV9d41aFYKS4aDiCJt89T5Gu4zNDbIkX+Beuk6S7hefmizcYrw
+	lSrD3IjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSied-0000000GZYm-2xzZ;
-	Fri, 20 Jun 2025 20:48:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uSigv-0000000GZkP-1iUk;
+	Fri, 20 Jun 2025 20:50:29 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSicJ-0000000GZ51-2haS
+	id 1uSich-0000000GZD3-2T7v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 20:45:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3B226155F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 20:45:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A526C4CEEE
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 20:45:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750452342;
-	bh=jT4pwqZu770AfPs28HMcGmVZzo3HY+8w0IIFr8RfnEw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Km9WlWZ8piXCl6DiJrKe7nSuIAVy89OBxZ/F2yC6z2uFmzzZ0HJ50o24DIxhecwRg
-	 LEbWwl5ANkRf5ZnwY7jbgn4QmCmhxu2vf3UNuye+ZfgJKq9GNCHfNisBbkvjrEdNe4
-	 +VZmjs0UCagKjevJsfNO7Qg0yi0yvBaKUOv8aaLjeHp7usDux70Avhkrca3Dhw2ziM
-	 u+FrFalwlzkurJEJ8TW7RkbMjWusXZ/ANfQ2Z24rDFQkNap8ugwZRx9DINsx7gQQhT
-	 Y9+IiaDf3A3dkbA5KoTMI2Ut0Pn8aB1hQmyUueSptzNdimRfFp2o7CcpyDs3wAMTyf
-	 s7BMKQfxWpHWg==
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-4a745fc9bafso23438941cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 13:45:42 -0700 (PDT)
-X-Gm-Message-State: AOJu0YyCk2BNyDFrIFB434Si8SEvFHtsZJTt5Hu+P7miJz9YMNV9GAwK
-	49fpbFwSuPdJgXfyXjs9OTufeJCIfNv00nDXhxJAIeNGKWr4MkgmvwWHr955eRMjOzKuzX/OYla
-	viBoPcvhYE/oD8wkWzB4ubJWY1JGubjc=
-X-Google-Smtp-Source: AGHT+IEqMF68Qb4iQprw6czg61CaUToifU0J6UPsPV9YLZ7gihEJwGZpOcdvBvogvqyX3ZOWruWS8i5+uiniaUPHRRo=
-X-Received: by 2002:a05:622a:488a:b0:494:731c:8746 with SMTP id
- d75a77b69052e-4a77c382e85mr53421641cf.23.1750452341633; Fri, 20 Jun 2025
- 13:45:41 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250521111000.2237470-1-mark.rutland@arm.com> <175042293850.3925078.16138215907121902894.b4-ty@arm.com>
-In-Reply-To: <175042293850.3925078.16138215907121902894.b4-ty@arm.com>
-From: Song Liu <song@kernel.org>
-Date: Fri, 20 Jun 2025 13:45:30 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW4s+vGdMqJiGSvacUtq_-JQeRyk2jqBRPiB=7WBXvpj3A@mail.gmail.com>
-X-Gm-Features: AX0GCFvCWPmDIR1-1Yb6I0cEDSp7hG_-dHzlYvPC7MjDarzq5GtcXfASg7KKw8s
-Message-ID: <CAPhsuW4s+vGdMqJiGSvacUtq_-JQeRyk2jqBRPiB=7WBXvpj3A@mail.gmail.com>
-Subject: Re: [PATCH 0/2] arm64: stacktrace: Enable reliable stacktrace
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Will Deacon <will@kernel.org>, andrea.porta@suse.com, jpoimboe@kernel.org, 
-	leitao@debian.org, linux-toolchains@vger.kernel.org, 
-	live-patching@vger.kernel.org, mbenes@suse.cz, pmladek@suse.com
+	Fri, 20 Jun 2025 20:46:11 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1uSicJ-0008Gr-KZ; Fri, 20 Jun 2025 22:45:43 +0200
+Message-ID: <c7dd8ac53170cafab5489f98d3da13f65cd67a1a.camel@pengutronix.de>
+Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
+From: Lucas Stach <l.stach@pengutronix.de>
+To: Robin Murphy <robin.murphy@arm.com>, Benjamin Gaignard
+	 <benjamin.gaignard@collabora.com>, joro@8bytes.org, will@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	nicolas.dufresne@collabora.com, jgg@ziepe.ca
+Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, kernel@collabora.com
+Date: Fri, 20 Jun 2025 22:45:41 +0200
+In-Reply-To: <43276c9a-5434-467c-abb2-dd2806ab81d0@arm.com>
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+	 <20250619131232.69208-4-benjamin.gaignard@collabora.com>
+	 <43276c9a-5434-467c-abb2-dd2806ab81d0@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250620_134607_628297_2E3EDF2D 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +72,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+Am Freitag, dem 20.06.2025 um 20:37 +0100 schrieb Robin Murphy:
+> On 19/06/2025 2:12 pm, Benjamin Gaignard wrote:
+> > The Verisilicon IOMMU hardware block can be found in combination
+> > with Verisilicon hardware video codecs (encoders or decoders) on
+> > different SoCs.
+> > Enable it will allow us to use non contiguous memory allocators
+> > for Verisilicon video codecs.
+> >=20
+> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> > ---
+>=20
+[...]
+> I'm especially curious what this "pta" really is - is the comment above=
+=20
+> just wrong, and you've actually got a 3-level pagetable supporting=20
+> somewhere between 33 and 42 bits of VA? If not, then the additional=20
+> level of indirection would very much seem to imply some kind of=20
+> mechanism for accommodating multiple pagetables at once, and in that=20
+> case, is it like a PASID table where the client device gets to choose=20
+> which entry to use, or a StreamID table to disambiguate multiple client=
+=20
+> devices? (Where in the latter case it should most likely belong to the=
+=20
+> IOMMU rather than the domain, and you probably want nonzero #iommu-cells=
+=20
+> in the DT binding for the client IDs).
+>=20
+PTA is short for page table array and it's another level of indirection
+to select the page tables to be used for the specific translation. On
+the Vivante GPU, where this MMU IP originated, the GPU can select the
+index into this array to be used for a specific command stream to
+implement GPU client isolation, so it's much like a PASID table.
 
-Thanks for landing these patches!
+I have no idea if and how the integration with the video codecs can
+select the PTA index.
 
-On Fri, Jun 20, 2025 at 5:36=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
-m.com> wrote:
->
-> On Wed, 21 May 2025 12:09:58 +0100, Mark Rutland wrote:
-> > These patches enable (basic) reliable stacktracing for arm64,
-> > terminating at exception boundaries as we do not yet have data necessar=
-y
-> > to determine whether or not the LR is live.
-> >
-> > The key changes are in patch 2, which is derived from Song Liu's earlie=
-r
-> > patch:
-> >
-> > [...]
->
-> Applied to arm64 (for-next/livepatch), thanks!
->
-> [1/2] arm64: stacktrace: Check kretprobe_find_ret_addr() return value
->       https://git.kernel.org/arm64/c/beecfd6a88a6
-> [2/2] arm64: stacktrace: Implement arch_stack_walk_reliable()
->       https://git.kernel.org/arm64/c/805f13e403cd
+Regards,
+Lucas
 
-
-At the moment, we still need [1] to enable livepatch for arm64.
-Would you mind landing it soon?
-
-Thanks,
-Song
-
-
-[1] https://lore.kernel.org/live-patching/20250617173734.651611-1-song@kern=
-el.org/
 
