@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C23C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CEFC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WUKLvg1ZWvkXACSLY1nnIdv6VhjNb2SeWb+dvg/Zts=; b=TV6LAnSqMybChaWoKQRs68xseX
-	xZkunYMOLsIV8nrO8yqJx8cxxdWC9rtYipquLv1cE3PM453GYgoOrGerR0QJ0Ymke9c/ZEBFTa+zf
-	uYLb8GJO5ONaqxc4bVorhSKd7r6TWfHc6dqJxGrhqSMi0ciQWBZo5Jq+1ARcJrIEL/2V3QwHE/19y
-	bxfYxXZbLX3tNBNblOwcwzaeOLHifcNpu3RjesdXyd0V1K1L94sU2RZBeBAVVtLwQP75Kp/HDhW32
-	zfvB5O8LPzEVfgYsdBN/wPDSaA70LJVQsvcvPt8HRHG+d9odUURBnoGks7xu8Uh/3lORY6r9H0wqn
-	/8q98a6A==;
+	bh=QHHGIQytDlWYJk3ZnBqFOacYVHxrAC0rVNyyCdSHnXU=; b=YX+Le6c3WOX7205Whi5ZEZTOba
+	4oeHq8hn0tZ8IyZwgJ8EnSN9tSBYH1AlqwHUOKrg7WYpESs4xyDQ5lXBV6hWFBlMq3QNBdFnpuQrI
+	VV9XSZR/kjJzwW8xcnILRrCPYwJOK1Y7tJyeCLLtvcuYm1hBXTWrALS82JBCyIjzOBuo24sPczqaR
+	CmO1TqlCUJw5oFB0heQ7NW9qIxACBtvL+bQBIAIm2BoO1xicDpzVX6kWnSbzA770XjHts2/Q1kcLg
+	IFfJYEZX7S4cSblPGpVG8H96bQ+4iyqkLfioq3qwlvpzX0vSnGm/uwT6iK01jwKhipcMDwvBciGvF
+	/wuA2wmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYvU-0000000FKMA-36DY;
-	Fri, 20 Jun 2025 10:24:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uSYxn-0000000FKhE-2y2y;
+	Fri, 20 Jun 2025 10:27:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSXuq-0000000FAjX-1a58
+	id 1uSXuz-0000000FAlX-3GlU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 09:20:09 +0000
+	Fri, 20 Jun 2025 09:20:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E55F5C6B02;
-	Fri, 20 Jun 2025 09:17:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B687C4CEE3;
-	Fri, 20 Jun 2025 09:20:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 81EBF5C6B02;
+	Fri, 20 Jun 2025 09:18:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6C7C4CEEF;
+	Fri, 20 Jun 2025 09:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750411207;
-	bh=pYC/ISpQojUw9ozQVsIBqPPUCtFFg0eYzpwvNDiDyx4=;
+	s=k20201202; t=1750411216;
+	bh=ZclNXEJGgmtvivW3+zTBau1Wqx9MCt1Nu5jQDpqLs1U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jkju6hweJ397tt5Z0cLK/rJHQ1FylaFrQKV8dUkoi1kpuLEJmRNDfqrkuLchnLAsn
-	 V7wTfCI0pPW6Jv9gf3lGSIulaNyiZskrDpQLO46ssykUI7x2XVaeYG3H23Lkeqq+5v
-	 V0uD8/VV34/q3q1oDXvhObSFre8bwEoNZ1KOK6yIYeb+lU3iJkZLheWpmHH3+XhpBg
-	 gHzVhCq/hLCvxdIC3lza5KFeaYHEIsEjGSruEE77puPXUFK8+CuK06eazj9FxwfFXb
-	 pwbJuaV1saLogvwyLJwRCpWQ0fdmVi1DMEh+aRm1Jumq0lSh3rATgjLYLG8g+OOKo2
-	 qFKLhOI3qI9yA==
-Message-ID: <1a8d023e-f27e-47ae-86ec-3f0760a7e74a@kernel.org>
-Date: Fri, 20 Jun 2025 11:19:59 +0200
+	b=taqNcruz4qiBDwEUxWLJi6i8RZdIS2nFjggQS6vFH30g5XqOf/aYaP5sPvxbPVwO+
+	 op9N6ifVe4ci97R1wvnuTwLjf98eH069n9Srxtgq4XS9vJ/EkGSdTJpJ3K3oNjzSWB
+	 kkTLr5ru2/Yj6BrW/auJ9rvi9F3BZLMVSwhmnjHWq1qPEzH13tDnuonBPuW2ujMaKt
+	 +cXI8l5vGDvKnbY7VrCS/v0S7uCR7466Z52GiYMXn3jtFhFyuqaR/Ll/RYFAEzwxQ5
+	 E2I2rr0C92H+JYHr2B36D4bgfDq9PNchbQ1gUlXRwmHfXAmEdoZGzTR1nk4Ff/RKdf
+	 izrQfbw4STafQ==
+Message-ID: <1a4b060e-475e-46a1-9ff5-aae16a7d326a@kernel.org>
+Date: Fri, 20 Jun 2025 11:20:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add Mettler-Toledo
+Subject: Re: [PATCH v2 2/4] dt-bindings: arm: fsl: Add Mettler-Toledo
+ Snowflake V2 board
 To: Wojciech Dubowik <Wojciech.Dubowik@mt.com>, linux-kernel@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
@@ -66,9 +67,9 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Kever Yang <kever.yang@rock-chips.com>, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 References: <20250620084512.31147-1-Wojciech.Dubowik@mt.com>
- <20250620084512.31147-2-Wojciech.Dubowik@mt.com>
-Content-Language: en-US
+ <20250620084512.31147-3-Wojciech.Dubowik@mt.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -112,12 +113,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250620084512.31147-2-Wojciech.Dubowik@mt.com>
+In-Reply-To: <20250620084512.31147-3-Wojciech.Dubowik@mt.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_022008_500324_189CAC7E 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250620_022017_901438_74E3EEFD 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,31 +135,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/06/2025 10:41, Wojciech Dubowik wrote:
-> Add the "mt" vendor prefix for Mettler-Toledo.
+> Add bindings for Mettler-Toledo Snowflake V2 terminal. The board
+> is using Kontron SL i.MX 8M Mini SoM.
+> Split the existing Kontron BL i.MX8MM as it uses the same module.
 > 
 > Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++--
 
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here ('b4 trailers -u ...'). However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for tags received on the version they apply.
-
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
