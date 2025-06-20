@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16AFC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 18:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AB6C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 18:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=; b=aUDBGM/m3sGG+Cqa/BsY9RCwXr
-	FZ1U7+UZVNW1XBcSS1Gv0u+G1wRpqSafbVZDMxauZIUYPm7Z+joFGB2VI4k+sktd0uCzRsjm16Yts
-	P2VnPrKzfXKLAeXQtqk7+toUE7T7HJH1HPp2WGZkv2i5uPVDUm+FBOwwUmtz/aUQLyAd/Tj29dFxg
-	EPd5SeWM12ydCTENV6RrmNu0zeWX04B72B3PCYgeF/4iMJrysRxSviRCTHDM/DPXcRt2VBymfBWcF
-	N8JVReH/vPdgvo0YdiidF12MJLHDjKWe7PXRfuso8rUFQjGcxUyI2OKlteiydgckxTxd9DOQtH+22
-	4WdKEweQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VIV2B0fUwqK8CLLa1kWwxVC8BX5dJhCy6gXrqz6FTh0=; b=Mwz+2skRMI+u3d0GvQGDnY1qNN
+	8aPkjlnMNXDLwtDIA96XQbExrQSg+49oGmfOQvoF1ai6r0EeTHeP7wLIB55JJjnZ5RlTNc6l3GfBI
+	hDrGgbEHDqg30s5yxvCBgEG2QwlESGxPR9c/WAB24JstMy0cxhtk/PRMqE5g680lMY3Kj8LN6+QY2
+	/bxT3aY1yldYCVG6xUi1y4B95UuAnTaBj/oMP3EpMzuFvPpKnpSzkJ/GtY2ijS8aaoCJ6USMrpLzr
+	b8ePHlfGCZ1gxE2dSxvOnf6T9uHl9yEL9tgEuOGa02xxF1l+Xh3W4IHvgmQeXiGJw8gINRhM/qV+L
+	HZiew3Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSgLG-0000000GLgp-0xsW;
-	Fri, 20 Jun 2025 18:19:58 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uSgNS-0000000GLuv-3qz1;
+	Fri, 20 Jun 2025 18:22:14 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSgJ0-0000000GLKT-1E00
+	id 1uSgJ3-0000000GLKu-0o15
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 18:17:39 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747cebffd4eso1716311b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 11:17:37 -0700 (PDT)
+	Fri, 20 Jun 2025 18:17:42 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-748f3d4c7e7so1763697b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 11:17:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750443457; x=1751048257; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=;
-        b=4a7AK/HY0wvwEjh9o+M0kJdgGFv66wN0X8CYpX2lAXneuZUmR3NFuTnWv1yYtnY9I+
-         U2vWHLM4CAuB9Oz1j2ce2QgSMzuBFL8RPewDuUkIg/Rql5gbckiiCj+CRLOcSn55O8Bx
-         yiqJ6O9cOlKUIcf8dIqONyu3AKYnhUTdGsvrNgy8gK+xaKBqiG7stO9FlglDwAwf2PJb
-         YiXhjr3Rju9Ck83zAZlymAXQX+PUJYbTa2DYiERlpibSQsQGOBObEN+trpWtLbPYMCD1
-         cBT56Oh/GIoohUz8XCn+uA92RtkfLNerfnAbjpIwZ7d98GLSqGa35qSp9Qyayhfmc3TM
-         JcYQ==
+        d=google.com; s=20230601; t=1750443460; x=1751048260; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VIV2B0fUwqK8CLLa1kWwxVC8BX5dJhCy6gXrqz6FTh0=;
+        b=fzJ+4YdclbJe3EKJkZCIiWJBDUSApRWgeThHARbzXlLwJlBBYNtz8L3kFjggmAANcs
+         bAwlTwuthGfIFvOt+6rbwkM9KIFb/lX1/xqnjAJ9jfnEJ3/rvPAVYtlext5x6mjkZhyy
+         grMp/9pof7saKlPgbn7jimKRRcu+WreEm9dqazjNtVwZ3+ILzTfP3Fhc1JoMulkV5VOL
+         oHW72I19ulRSyg+Z0hm2EL/q3f2Ux8OM4PO9k9NKdwyfLmF3lYeOjtY1QszZcs4kqYaA
+         Jg/qc3IwaFotSGqjPaJ1cRWoSmKHD9HHz7+X3o6pA/00rT4OvbHSJLFbT9g31JYusvVN
+         aKgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750443457; x=1751048257;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AoOqUmI/ukeAvOCDfitszVNrmRf7QCXDZ9hIanYDn+c=;
-        b=ds2erBCsWiacUrumzVDvqOLTI4aPOGHO/BN+F2Wxxs3FbW9lrL9DYb1Ym7vguYGc1i
-         5zn99H2EANADhNnr5MkXax7AEurXOnftzFtrEUvcvfBz6nKx+VFysUE5kP/Szf7+VICa
-         ot2PPqNBtwHuCxaVpo8c5f+OUWngBPckNiOaut3VgpcWtYLtGf0s/ttlwvPmCE4zmH6w
-         iroXWaKkKckPhwy9nu1yTOrjAooJDxXQjPjmpL6idwF3cyJTPQnq7l1XxnSqvIrSmHFm
-         mEOaGPgxwqjKd8CB6tTOPMmuE6HrHfVkmBsBMTwXPweni0Eym91sL3rdR+MksBpbAFR2
-         oVpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVtVlAZqCqgs1Y6Tf2NfGgLrnVIeJKXmq85YcbIboqbx+eUCRPta1C+NZl8WtIoEwyLB3uF7yO2fpDkgG8KU0jE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN4y76xw21pSa6WYBRqwr60ej8AoyNCzceV3XxJtGrKGGdmVaz
-	JaPisH18EdtkKfqMEXgNKEeDGjaOHvO/J8bO5SkHgux7m4/yzsnEeqI70pAOLFof7Bgnm+XJeT8
-	wlnWrlh9Ap1Z3YjXMEwdeRMmmZeKsZw==
-X-Google-Smtp-Source: AGHT+IGLyMBA9YVtduYhTCnTre04zoapWO94rFAMkDl8DZB2kVIM8sEEP0xqi2SKfllFUVq4GFuWa2lUG16t4cETsX4=
-X-Received: from pfbly4.prod.google.com ([2002:a05:6a00:7584:b0:749:d28:4ca2])
+        d=1e100.net; s=20230601; t=1750443460; x=1751048260;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VIV2B0fUwqK8CLLa1kWwxVC8BX5dJhCy6gXrqz6FTh0=;
+        b=M2BJLo82Du7dfv7NuRMzRQJ6KwHCdMCPyIwCYjgDIV4awFfd9bEAYMc+CjMydiRf5M
+         F5HACFa2/nyy5Z9cDxGOZYnJ3TodmRKwVMslHWuX4NwVHtLAfpQcrd/AwyRqFJ9YCAa6
+         BhwgJOez4gU4n+zDX5aLrIKLQZ5Y/dLIuk+o3Qy/PjD2rk5o5t3rLrhEdK5zfkGZ9jTN
+         l76pTfbN7XEX3NXKIEOWgX8XYCcvdKE6kSUBKqa3jQxtGlPW4FWtlLSOYoAVmBqtiYzs
+         oM5kAWn0B5NvDX+Kw5bAQGGuqDmkhe+EBbQHmd3sH/K1Zr0q61LLKGqIiPItQh2XZL38
+         Atvg==
+X-Forwarded-Encrypted: i=1; AJvYcCXeszeMKyDOXgAiDadUcVTphaIUA7x2IPewskYsSBZeTqVJfdp3KcGlzrdqXIz+UbZT8wVGSdUa9m2J/vNizXWd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw6Per5ZbPdrckmkwg0Mc0VfhZuFsMSv3UY+oHBeBc1YszIHO0
+	fTxi9Ka6VoI/MMwuuxJOj2gL9JfPXQr0QP8/jfgAt6a0AhVfRpLjq2GJANdAXb+Z609u0t2JU2S
+	qZFDI7F3mvHb5IQngjAvpz+18R47NOg==
+X-Google-Smtp-Source: AGHT+IER+5ubUXb+yU0g6Y0g4aUyAkU4ur+g2SnRAtI7gYMUtRakP+WKgzwI5sAh2R7yuuPE5LK9mNIpkJ/4UWR5zIg=
+X-Received: from pgww8.prod.google.com ([2002:a05:6a02:2c88:b0:b2c:4548:13d0])
  (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:238c:b0:742:ae7e:7da8 with SMTP id d2e1a72fcca58-7490d64699fmr6106675b3a.8.1750443456920;
- Fri, 20 Jun 2025 11:17:36 -0700 (PDT)
-Date: Fri, 20 Jun 2025 11:17:03 -0700
+ 2002:a05:6a21:920e:b0:1f5:591b:4f7a with SMTP id adf61e73a8af0-22026fe7f17mr6330358637.38.1750443460127;
+ Fri, 20 Jun 2025 11:17:40 -0700 (PDT)
+Date: Fri, 20 Jun 2025 11:17:04 -0700
+In-Reply-To: <20250620181719.1399856-1-willmcvicker@google.com>
 Mime-Version: 1.0
+References: <20250620181719.1399856-1-willmcvicker@google.com>
 X-Mailer: git-send-email 2.50.0.rc2.761.g2dc52ea45b-goog
-Message-ID: <20250620181719.1399856-1-willmcvicker@google.com>
-Subject: [PATCH v4 0/6] Add module support for Arm64 Exynos MCT driver
+Message-ID: <20250620181719.1399856-2-willmcvicker@google.com>
+Subject: [PATCH v4 1/6] of/irq: Export of_irq_count for modules
 From: Will McVicker <willmcvicker@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -77,12 +78,14 @@ Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>,
 	John Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, 
 	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
 	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	Arnd Bergmann <arnd@arndb.de>, 
+	Linus Walleij <linus.walleij-QSEj5FYQhm4dnm+yROfE0A@public.gmane.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_111738_334378_46B59C20 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250620_111741_223399_0E5EA910 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,125 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support to build the Arm64 Exynos MCT driver as a module.
-This is only possible on Arm64 SoCs since they can use the Arm architected
-timer as the clocksource. Once the Exynos MCT module is loaded and the
-device probes, the MCT is used as the wakeup source for the arch_timer to
-ensure the device can wakeup from the "c2" idle state.
+Need to export `of_irq_count` in preparation for modularizing the Exynos
+MCT driver which uses this API for setting up the timer IRQs.
 
-These patches are originally from the downstream Pixel 6 (gs101) kernel
-found at [1] and have been adapted for upstream. Not only has the Exynos MC=
-T
-driver been shipping as a module in the field with Android, but I've also
-tested this series with the upstream kernel on my Pixel 6 Pro.
-
-In addition, I verified that the Exynos MCT module cannot be unloaded on my
-Pixel 6. This is due to /sys/module/exynos_mct/refcnt > 0. So if you try,
-you'll get this:
-
-  root@google-gs:~# rmmod exynos_mct
-  rmmod: ERROR: Module exynos_mct is in use
-  root@google-gs:~# cat /sys/module/exynos_mct/refcnt
-  9
-
-Thanks,
-Will
-
-Note1, instructions to build and flash a Pixel 6 device with the upstream
-kernel can be found at [2].
-
-Note2, this series is based off of krzk/for-next commit a15edf91668b ("Merg=
-e
-branch 'next/dt64' into for-next") with [3] on top.
-
-[1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-r=
-aviole-5.10-android12-d1
-[2] https://git.codelinaro.org/linaro/googlelt/pixelscripts/-/blob/clo/main=
-/README.md?ref_type=3Dheads
-[3] https://lore.kernel.org/linux-arm-kernel/20250602151853.1942521-1-danie=
-l.lezcano@linaro.org/
-
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Donghoon Yu <hoony.yu@samsung.com>
-Cc: Hosung Kim <hosung0.kim@samsung.com>
-Cc: kernel-team@android.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>
-Cc: Saravana Kannan <saravanak@google.com>
-Cc: John Stultz <jstultz@google.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Linus Walleij <linus.walleij-QSEj5FYQhm4dnm+yROfE0A@public.gmane.org>
+Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
+Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
+Signed-off-by: Will McVicker <willmcvicker@google.com>
 ---
-Changes in v4:
-- Missed the "v3" string in the previous series for the actual patches
-- Re-generated patches with --base a15edf91668beefdb5171c53fa698c9b43dd1e0d
-  for kernel test robot.
+ drivers/of/irq.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v3:
-- Rebased on top of Daniel's timer modularization prep series [3] and
-  krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
-  for-next")
-- Added owner references to Exynos MCT clocksource and clockevent objects.
-- Dropped #ifdef MODULE conditional section in favor of just using
-  module_platform_driver() which will properly handle setting up the
-  of_device_id table based on if the driver is built-in or a module.
-- Update commit message for patch 2 based on John's feedback.
-- Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
-
-Changes in v2:
-- Re-worked patch v1 5 based on Rob Herring's review to use the compatible
-  data for retrieving the mct_init function pointer.
-- Updated the Kconfig logic to disallow building the Exynos MCT driver as
-  a module for ARM32 configurations based on Krzysztof Kozlowski's findings=
-.
-- Added comments and clarified commit messages in patches 1 and 2 based on
-  reviews from John Stultz and Youngmin Nam.
-- Fixed an issue found during testing that resulted in the device getting
-  stuck on boot. This is included in v2 as patch 5.
-- Collected *-by tags
-- Rebased to the latest linux-next/master.
----
-=20
-
-Donghoon Yu (1):
-  clocksource/drivers/exynos_mct: Add module support
-
-Hosung Kim (1):
-  clocksource/drivers/exynos_mct: Set local timer interrupts as percpu
-
-Will McVicker (4):
-  of/irq: Export of_irq_count for modules
-  clocksource/drivers/exynos_mct: Don't register as a sched_clock on
-    arm64
-  clocksource/drivers/exynos_mct: Fix uninitialized irq name warning
-  arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
-
- arch/arm64/Kconfig.platforms     |  1 -
- drivers/clocksource/Kconfig      |  3 +-
- drivers/clocksource/exynos_mct.c | 75 ++++++++++++++++++++++++++------
- drivers/of/irq.c                 |  1 +
- 4 files changed, 64 insertions(+), 16 deletions(-)
-
-
-base-commit: a15edf91668beefdb5171c53fa698c9b43dd1e0d
-prerequisite-patch-id: 0c5b7e9fb27295e0c125c537ac80d1eb16cef60d
-prerequisite-patch-id: 6a9b683baee83ddc2b2fada31479b27b53469759
-prerequisite-patch-id: b9cbd59ff2f4c905001ecb02868d20fb004034cc
-prerequisite-patch-id: cdde1a76624089aa818cb35e612f880107bdc073
-prerequisite-patch-id: cec67e07038c7aa93a2b53879781626d738cd199
-prerequisite-patch-id: 8fda377fcaf407026f04f2a547086cf1ecf4efc9
-prerequisite-patch-id: dce925ac224bb361c74fdb23126fab53e7c5c26b
---=20
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index f8ad79b9b1c9..5adda1dac3cf 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -519,6 +519,7 @@ int of_irq_count(struct device_node *dev)
+ 
+ 	return nr;
+ }
++EXPORT_SYMBOL_GPL(of_irq_count);
+ 
+ /**
+  * of_irq_to_resource_table - Fill in resource table with node's IRQ info
+-- 
 2.50.0.rc2.761.g2dc52ea45b-goog
 
 
