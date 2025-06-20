@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC13FC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 19:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D58C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 19:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRXEQZPCj7l7cgoLJhwMNeBSjSEvdeZN1dCfdxLfsGE=; b=jsXUrkjiPL8extWMOXuqOFzfLJ
-	lJNay/NYrssKOln6T18hSnoAKEx7phr3izVd5SpHsXGqUNWEwkBw+RPGuHBJ4CbwYOdOkjDd0RfSM
-	gTVsOFNAM92GAuFvi2nxp9nOgF4ri0j2FtkpB7WBTXGkspc4a8hFNO1aQcwPKCD4cz5KRObOFpW6n
-	9QQQnQsMyzL35f4AlBb8hFPztTfmJ9esXvlF7srzx7asCCNiZBpHBu1pxgXWKNvnGW+e4RCSX+ZqO
-	dh9wQoIvBdpYrKOkzBAbkJWXsoB5kwEahlQoaM9lk9oyeAHSNluXC2kFKPRS4K+gSKaugL5ryf5Wz
-	gTDBQyww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WGYISA8z9/4t1RElnFdc8qsxW3ZIILQqhm9SqD/7xZI=; b=FpLT9HF34R3nqP3MsqMDYKeBFN
+	UJgGtzkxoPbt66kZNGkFnimndPSWgGdA/uF1GdI2a/BXi9W1BVEabEz+dKE4vol6vtEckAGeS8PJ+
+	c2hWL4uUFt/YEaWoTBM7hmvS+z4sVH3wzMtwks1Nn1UtQ8hwBMJv5wsTErhD3aNSQ5AiwEOb4YB1n
+	dV1pkSWFmm6tLMU9h2FPmA+Fl5dMKjAUqor/PeRyynZdIkqSdERwfmkZsp4bAWUYBpzTzYHO+cfIb
+	LXrPeHr1c03CRwUupYi/R8A4YtJLRltC2XJ27yxF92m8J9GtCuRCsB1e2A2SeI521YBPcBv+Ph2sx
+	NcPr+RGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uShkB-0000000GTYb-0J6x;
-	Fri, 20 Jun 2025 19:49:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uShQ8-0000000GROr-0QYo
+	id 1uShmO-0000000GTqG-1ntn;
+	Fri, 20 Jun 2025 19:52:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uShWQ-0000000GSDA-2IcY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 19:29:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A526616F2;
-	Fri, 20 Jun 2025 12:28:43 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E3BE83F673;
-	Fri, 20 Jun 2025 12:29:00 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [RFC PATCH 4/7] firmware: arm_scmi: Add System Telemetry driver
-Date: Fri, 20 Jun 2025 20:28:10 +0100
-Message-ID: <20250620192813.2463367-5-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250620192813.2463367-1-cristian.marussi@arm.com>
-References: <20250620192813.2463367-1-cristian.marussi@arm.com>
+	Fri, 20 Jun 2025 19:35:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 972716155F;
+	Fri, 20 Jun 2025 19:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1C6C4CEE3;
+	Fri, 20 Jun 2025 19:35:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750448133;
+	bh=66fn9HVkApU3iF680tkkXdzVYX3EDaTH1IPNsA4xYo0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a86iKB2MRIz4v9m6LsFIb8ONcnhcuTQPxRZKu0C5BUOgErlz1OXiJ2JOEMYDoRSzE
+	 kCuWGO/SbX/Voecf3TOeXzitec/I7AGaxYd6ECLTwTWcJyr5vVTcX8fcWbMgLMZ58F
+	 iRRYPb4b+DlERg5W8rFWyYViYCEDVDFPptfqPqBkAgojjEDzcdrRF9QdSvq516HHz9
+	 LXigkFexulhuoDD5a+ubrUdwIbgfZzWSub2NNStB9yPmfxIBZlQyzZKEtQR7EDBsyF
+	 alZS71MD635veIDrmg8NX+RPs8us103R992X09tzJGsK2Q7bV7c+AohIAUfFbs4IJP
+	 UCTzRJJi73nsQ==
+Date: Sat, 21 Jun 2025 01:05:21 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, 
+	manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	p.zabel@pengutronix.de, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, john.madieu.xa@bp.renesas.com, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v2 4/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+Message-ID: <z7o26wizu5j3sft67yjbe2hgvqz7lqtsimgklzrvvwytahrhrd@rquvx32ctqtc>
+References: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250530111917.1495023-5-claudiu.beznea.uj@bp.renesas.com>
+ <764d3uocv4kj6mrciaumoazwnquxhtn7u33u6v3a7tjwqhiyxf@2rtfsjyzny37>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_122904_282737_C3D73D2A 
-X-CRM114-Status: GOOD (  24.09  )
+In-Reply-To: <764d3uocv4kj6mrciaumoazwnquxhtn7u33u6v3a7tjwqhiyxf@2rtfsjyzny37>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,1023 +77,432 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an SCMI System Telemetry driver which exposes a sysfs custom API to
-configure and consume Telemetry data from userspace.
+On Wed, Jun 18, 2025 at 11:12:28PM +0530, Manivannan Sadhasivam wrote:
+> On Fri, May 30, 2025 at 02:19:13PM +0300, Claudiu wrote:
+> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> > 
+> > The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+> > Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+> > only as a root complex, with a single-lane (x1) configuration. The
+> > controller includes Type 1 configuration registers, as well as IP
+> > specific registers (called AXI registers) required for various adjustments.
+> > 
+> > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> > ---
 
-Still lacking:
- - complete groups handling
- - ungrouped DEs handling
+[...]
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/Kconfig             |  10 +
- drivers/firmware/arm_scmi/Makefile            |   1 +
- .../firmware/arm_scmi/scmi_system_telemetry.c | 967 ++++++++++++++++++
- 3 files changed, 978 insertions(+)
- create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> > +static int rzg3s_pcie_msi_setup(struct rzg3s_pcie_host *host)
+> > +{
+> > +	size_t size = RZG3S_PCI_MSI_INT_NR * sizeof(u32);
+> > +	struct rzg3s_pcie_msi *msi = &host->msi;
+> > +	struct device *dev = host->dev;
+> > +	int id, ret;
+> > +
+> > +	msi->pages = __get_free_pages(GFP_KERNEL | GFP_DMA, 0);
+> > +	if (!msi->pages)
+> > +		return -ENOMEM;
+> > +
+> > +	msi->dma_addr = dma_map_single(dev, (void *)msi->pages, size * 2,
+> > +				       DMA_BIDIRECTIONAL);
+> > +	if (dma_mapping_error(dev, msi->dma_addr)) {
+> > +		ret = -ENOMEM;
+> > +		goto free_pages;
+> > +	}
 
-diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-index e3fb36825978..9e51b3cd0c93 100644
---- a/drivers/firmware/arm_scmi/Kconfig
-+++ b/drivers/firmware/arm_scmi/Kconfig
-@@ -99,4 +99,14 @@ config ARM_SCMI_POWER_CONTROL
- 	  called scmi_power_control. Note this may needed early in boot to catch
- 	  early shutdown/reboot SCMI requests.
- 
-+config ARM_SCMI_SYSTEM_TELEMETRY
-+	tristate "SCMI System Telemetry driver"
-+	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-+	help
-+	  This enables SCMI Systemn Telemetry support that allows userspace to
-+	  retrieve ARM Telemetry data made available via SCMI.
-+
-+	  This driver can also be built as a module.  If so, the module will be
-+	  called scmi_system_telemetry.
-+
- endmenu
-diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
-index fe55b7aa0707..20f8d55840a5 100644
---- a/drivers/firmware/arm_scmi/Makefile
-+++ b/drivers/firmware/arm_scmi/Makefile
-@@ -18,3 +18,4 @@ obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-core.o
- obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-module.o
- 
- obj-$(CONFIG_ARM_SCMI_POWER_CONTROL) += scmi_power_control.o
-+obj-$(CONFIG_ARM_SCMI_SYSTEM_TELEMETRY) += scmi_system_telemetry.o
-diff --git a/drivers/firmware/arm_scmi/scmi_system_telemetry.c b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
-new file mode 100644
-index 000000000000..a2f59001747d
---- /dev/null
-+++ b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
-@@ -0,0 +1,967 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * SCMI - System Telemetry Driver
-+ *
-+ * Copyright (C) 2025 ARM Ltd.
-+ */
-+
-+#include <linux/atomic.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/fs.h>
-+#include <linux/kstrtox.h>
-+#include <linux/module.h>
-+#include <linux/scmi_protocol.h>
-+#include <linux/sysfs.h>
-+#include <linux/slab.h>
-+
-+#define MAX_BULK_LINE_CHAR_LENGTH	64
-+
-+struct scmi_tlm_setup;
-+
-+static atomic_t scmi_tlm_instance_count = ATOMIC_INIT(0);
-+
-+struct scmi_tlm_grp_dev {
-+	struct device dev;
-+	struct scmi_tlm_setup *tsp;
-+	const struct scmi_telemetry_group *grp;
-+};
-+
-+#define to_tlm_grp_dev(d)					\
-+	(container_of((d), struct scmi_tlm_grp_dev, dev))
-+
-+struct scmi_tlm_de_dev {
-+	struct device dev;
-+	struct scmi_tlm_setup *tsp;
-+	const struct scmi_telemetry_de *de;
-+};
-+
-+#define to_tlm_de_dev(d)					\
-+	(container_of((d), struct scmi_tlm_de_dev, dev))
-+
-+struct scmi_tlm_instance {
-+	struct device dev;
-+	struct device des_dev;
-+	struct device groups_dev;
-+	struct scmi_tlm_de_dev **des;
-+	struct scmi_tlm_setup *tsp;
-+	const struct scmi_telemetry_info *info;
-+};
-+
-+#define dev_to_tlm_instance(d)	\
-+	(container_of((d), struct scmi_tlm_instance, dev))
-+
-+#define des_dev_to_tlm_instance(e)	\
-+	(container_of((e), struct scmi_tlm_instance, des_dev))
-+
-+#define groups_dev_to_tlm_instance(e)	\
-+	(container_of((e), struct scmi_tlm_instance, groups_dev))
-+
-+/**
-+ * struct scmi_tlm_setup  - Telemetry setup descriptor
-+ * @sdev: A reference to the related SCMI device
-+ * @ops: A reference to the protocol ops
-+ * @ph: A reference to the protocol handle to be used with the ops
-+ * @priv: A reference to optional driver-specific data
-+ */
-+struct scmi_tlm_setup {
-+	struct scmi_device *sdev;
-+	const struct scmi_telemetry_proto_ops *ops;
-+	struct scmi_protocol_handle *ph;
-+	const void *priv;
-+};
-+
-+static void scmi_telemetry_release(struct device *dev)
-+{
-+}
-+
-+static ssize_t __all_enable_store(struct device *dev,
-+				  struct device_attribute *attr,
-+				  const char *buf, size_t len,
-+				  bool is_enable_entry)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+	struct scmi_tlm_setup *tsp = ti->tsp;
-+	bool enable;
-+	int ret;
-+
-+	if (kstrtobool(buf, &enable))
-+		return -EINVAL;
-+
-+	if (is_enable_entry && !enable) {
-+		ret = tsp->ops->all_disable(tsp->ph, false);
-+		if (ret)
-+			return ret;
-+	} else {
-+		for (int i = 0; i < ti->info->num_de; i++) {
-+			const struct scmi_telemetry_de *de = ti->info->des[i];
-+
-+			ret = tsp->ops->state_set(tsp->ph, false, de->id,
-+						   is_enable_entry ? &enable : NULL,
-+						   !is_enable_entry ? &enable : NULL);
-+			if (ret)
-+				return ret;
-+		}
-+	}
-+
-+	return len;
-+}
-+
-+static ssize_t all_des_enable_store(struct device *dev,
-+				    struct device_attribute *attr,
-+				    const char *buf, size_t len)
-+{
-+	return __all_enable_store(dev, attr, buf, len, true);
-+}
-+
-+static ssize_t all_des_tstamp_enable_store(struct device *dev,
-+					   struct device_attribute *attr,
-+					   const char *buf, size_t len)
-+{
-+	return __all_enable_store(dev, attr, buf, len, false);
-+}
-+
-+static inline ssize_t __current_update_show(char *buf,
-+					    unsigned int active_update_interval)
-+{
-+	return sysfs_emit(buf, "%u\n",
-+			  SCMI_GET_UPDATE_INTERVAL_SECS(active_update_interval));
-+}
-+
-+static inline ssize_t __current_update_store(struct scmi_tlm_setup *tsp,
-+					     const char *buf, size_t len,
-+					     unsigned int grp_id)
-+{
-+	bool grp_ignore = grp_id == SCMI_TLM_GRP_INVALID ? true : false;
-+	unsigned int update_interval_ms = 0;
-+	int ret;
-+
-+	ret = kstrtouint(buf, 0, &update_interval_ms);
-+	if (ret)
-+		return ret;
-+
-+	ret = tsp->ops->collection_configure(tsp->ph, grp_id, grp_ignore, NULL,
-+					     &update_interval_ms, NULL);
-+	if (ret)
-+		return ret;
-+
-+	return len;
-+}
-+
-+static ssize_t current_update_interval_ms_show(struct device *dev,
-+					       struct device_attribute *attr,
-+					       char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return __current_update_show(buf,
-+				     ti->info->intervals.active_update_interval);
-+}
-+
-+static ssize_t current_update_interval_ms_store(struct device *dev,
-+						struct device_attribute *attr,
-+						const char *buf, size_t len)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+	struct scmi_tlm_setup *tsp = ti->tsp;
-+
-+	return __current_update_store(tsp, buf, len, SCMI_TLM_GRP_INVALID);
-+}
-+
-+static ssize_t tlm_enable_show(struct device *dev,
-+			       struct device_attribute *attr,
-+			       char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return sysfs_emit(buf, "%c\n", ti->info->enabled ? 'Y' : 'N');
-+}
-+
-+static ssize_t tlm_enable_store(struct device *dev,
-+				struct device_attribute *attr,
-+				const char *buf, size_t len)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+	struct scmi_tlm_setup *tsp = ti->tsp;
-+	enum scmi_telemetry_collection mode = SCMI_TLM_ONDEMAND;
-+	bool enabled;
-+	int ret;
-+
-+	ret = kstrtobool(buf, &enabled);
-+	if (ret)
-+		return ret;
-+
-+	ret = tsp->ops->collection_configure(tsp->ph, SCMI_TLM_GRP_INVALID, true,
-+					     &enabled, NULL, &mode);
-+	if (ret)
-+		return ret;
-+
-+	return len;
-+}
-+
-+static int scmi_tlm_buffer_fill(struct device *dev, char *buf, size_t size,
-+				int *len, int num,
-+				struct scmi_telemetry_de_sample *samples)
-+{
-+	int idx, bytes = 0;
-+
-+	/* Loop till there space for the next line */
-+	for (idx = 0; idx < num && size - bytes >= MAX_BULK_LINE_CHAR_LENGTH; idx++) {
-+		bytes += snprintf(buf + bytes, size - bytes,
-+				  "0x%04X %llu %016llX\n", samples[idx].id,
-+				  samples[idx].tstamp, samples[idx].val);
-+	}
-+
-+	if (idx < num) {
-+		dev_err(dev, "Bulk buffer truncated !\n");
-+		return -ENOSPC;
-+	}
-+
-+	if (len)
-+		*len = bytes;
-+
-+	return 0;
-+}
-+
-+static inline ssize_t __des_bulk_read_show(struct scmi_tlm_instance *ti,
-+					   unsigned int grp_id, char *buf,
-+					   int size)
-+{
-+	struct scmi_telemetry_de_sample *samples;
-+	struct scmi_tlm_setup *tsp = ti->tsp;
-+	int ret, num;
-+
-+	num = ti->info->num_de;
-+	samples = kcalloc(num, sizeof(*samples), GFP_KERNEL);
-+	if (!samples)
-+		return -ENOMEM;
-+
-+	ret = tsp->ops->des_bulk_read(tsp->ph, grp_id, &num, samples);
-+	if (ret) {
-+		kfree(samples);
-+		return ret;
-+	}
-+
-+	ret = scmi_tlm_buffer_fill(&ti->dev, buf, size, NULL, num, samples);
-+	kfree(samples);
-+	if (ret)
-+		return ret;
-+
-+	return sysfs_emit(buf, "%s", buf);
-+}
-+
-+static ssize_t des_bulk_read_show(struct device *dev,
-+				  struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return __des_bulk_read_show(ti, SCMI_TLM_GRP_INVALID, buf, PAGE_SIZE);
-+}
-+
-+static inline ssize_t __des_single_sample_read_show(struct scmi_tlm_instance *ti,
-+						    unsigned int grp_id,
-+						    char *buf, int len)
-+{
-+	struct scmi_telemetry_de_sample *samples;
-+	struct scmi_tlm_setup *tsp = ti->tsp;
-+	int ret, num, bytes = 0;
-+
-+	num = ti->info->num_de;
-+	samples = kcalloc(num, sizeof(*samples), GFP_KERNEL);
-+	if (!samples)
-+		return -ENOMEM;
-+
-+	ret = tsp->ops->des_sample_get(tsp->ph, grp_id, &num, samples);
-+	if (ret) {
-+		kfree(samples);
-+		return ret;
-+	}
-+
-+	for (int i = 0; i < num; i++) {
-+		bytes += snprintf(buf + bytes, len - bytes,
-+				  "0x%04X %llu %016llX\n", samples[i].id,
-+				  samples[i].tstamp, samples[i].val);
-+
-+		if (bytes >= len) {
-+			dev_err(&ti->dev, "==>> BULK BUFFER OVERFLOW !\n");
-+			kfree(samples);
-+			return -ENOSPC;
-+		}
-+	}
-+
-+	kfree(samples);
-+
-+	return sysfs_emit(buf, "%s", buf);
-+}
-+
-+static ssize_t des_single_sample_read_show(struct device *dev,
-+					   struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return __des_single_sample_read_show(ti, SCMI_TLM_GRP_INVALID,
-+					     buf, PAGE_SIZE);
-+}
-+
-+static ssize_t de_implementation_version_show(struct device *dev,
-+					      struct device_attribute *attr,
-+					      char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return sysfs_emit(buf, "%pUL\n", ti->info->de_impl_version);
-+}
-+
-+static inline ssize_t __intervals_discrete_show(char *buf, const bool discrete)
-+{
-+	return sysfs_emit(buf, "%c\n", discrete ? 'Y' : 'N');
-+}
-+
-+static ssize_t intervals_discrete_show(struct device *dev,
-+				       struct device_attribute *attr,
-+				       char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return __intervals_discrete_show(buf, ti->info->intervals.discrete);
-+}
-+
-+//TODO Review available interval show
-+#define BUF_SZ	1024
-+static inline ssize_t
-+__available_update_show(char *buf,
-+			const struct scmi_telemetry_update_interval *intervals)
-+{
-+	int len = 0, num_intervals = intervals->num;
-+	char available[BUF_SZ];
-+
-+	for (int i = 0; i < num_intervals; i++) {
-+		len += scnprintf(available + len, BUF_SZ - len, "%u ",
-+				 intervals->update_intervals[i]);
-+	}
-+
-+	available[len - 1] = '\0';
-+
-+	return sysfs_emit(buf, "%s\n", available);
-+}
-+
-+static ssize_t available_update_intervals_ms_show(struct device *dev,
-+						  struct device_attribute *attr,
-+						  char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return __available_update_show(buf, &ti->info->intervals);
-+}
-+
-+static ssize_t version_show(struct device *dev, struct device_attribute *attr,
-+			    char *buf)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+
-+	return sysfs_emit(buf, "0x%08x\n", ti->info->version);
-+}
-+
-+static DEVICE_ATTR_WO(all_des_enable);
-+static DEVICE_ATTR_WO(all_des_tstamp_enable);
-+static DEVICE_ATTR_RW(current_update_interval_ms);
-+static DEVICE_ATTR_RW(tlm_enable);
-+static DEVICE_ATTR_RO(des_bulk_read);
-+static DEVICE_ATTR_RO(des_single_sample_read);
-+static DEVICE_ATTR_RO(de_implementation_version);
-+static DEVICE_ATTR_RO(intervals_discrete);
-+static DEVICE_ATTR_RO(available_update_intervals_ms);
-+static DEVICE_ATTR_RO(version);
-+
-+static ssize_t reset_store(struct device *dev, struct device_attribute *attr,
-+			   const char *buf, size_t len)
-+{
-+	struct scmi_tlm_instance *ti = dev_to_tlm_instance(dev);
-+	int ret;
-+
-+	ret = ti->tsp->ops->reset(ti->tsp->ph);
-+	if (ret)
-+		return ret;
-+
-+	return len;
-+}
-+
-+static struct device_attribute dev_attr_reset = {
-+	.attr	= { .name = "reset", .mode = 0200 },
-+	.store	= reset_store,
-+};
-+
-+static struct attribute *scmi_telemetry_attrs[] = {
-+	&dev_attr_all_des_enable.attr,
-+	&dev_attr_all_des_tstamp_enable.attr,
-+	&dev_attr_current_update_interval_ms.attr,
-+	&dev_attr_tlm_enable.attr,
-+	&dev_attr_des_bulk_read.attr,
-+	&dev_attr_des_single_sample_read.attr,
-+	&dev_attr_de_implementation_version.attr,
-+	&dev_attr_intervals_discrete.attr,
-+	&dev_attr_available_update_intervals_ms.attr,
-+	&dev_attr_version.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(scmi_telemetry);
-+
-+static struct class scmi_telemetry_class = {
-+	.name = "scmi_telemetry",
-+	.dev_release = scmi_telemetry_release,
-+};
-+
-+static ssize_t value_show(struct device *dev, struct device_attribute *attr,
-+			  char *buf)
-+{
-+	struct scmi_tlm_de_dev *tde = to_tlm_de_dev(dev);
-+	struct scmi_tlm_setup *tsp = tde->tsp;
-+	struct scmi_telemetry_de_sample sample;
-+	int ret;
-+
-+	sample.id = tde->de->id;
-+	ret = tsp->ops->de_data_read(tsp->ph, &sample);
-+	if (ret)
-+		return ret;
-+
-+	return sysfs_emit(buf, "%llu: %016llX\n", sample.tstamp, sample.val);
-+}
-+static DEVICE_ATTR_RO(value);
-+
-+#define DEFINE_DE_ATTR_INT_RO(_attr, _fmt)				\
-+static ssize_t _attr##_show(struct device *dev,				\
-+			    struct device_attribute *attr,		\
-+			    char *buf)					\
-+{									\
-+	struct scmi_tlm_de_dev *tde = to_tlm_de_dev(dev);		\
-+									\
-+	return sysfs_emit(buf, _fmt "\n", tde->de->_attr);		\
-+}									\
-+static DEVICE_ATTR_RO(_attr)
-+
-+#define DEFINE_DE_ATTR_BOOL_RO(_attr)					\
-+static ssize_t _attr##_show(struct device *dev,				\
-+			    struct device_attribute *attr,		\
-+			    char *buf)					\
-+{									\
-+	struct scmi_tlm_de_dev *tde = to_tlm_de_dev(dev);		\
-+									\
-+	return sysfs_emit(buf, "%c\n", tde->de->_attr ? 'Y' : 'N');	\
-+}									\
-+static DEVICE_ATTR_RO(_attr)
-+
-+DEFINE_DE_ATTR_INT_RO(type, "%u");
-+DEFINE_DE_ATTR_INT_RO(unit, "%u");
-+DEFINE_DE_ATTR_INT_RO(unit_exp, "%d");
-+DEFINE_DE_ATTR_INT_RO(instance_id, "%u");
-+DEFINE_DE_ATTR_INT_RO(compo_type, "%u");
-+DEFINE_DE_ATTR_INT_RO(compo_instance_id, "%u");
-+DEFINE_DE_ATTR_BOOL_RO(persistent);
-+DEFINE_DE_ATTR_INT_RO(name, "%s");
-+DEFINE_DE_ATTR_INT_RO(tstamp_exp, "%d");
-+
-+#define DEFINE_DE_ATTR_STATE_RW(_name, _is_enable)			\
-+static ssize_t _name##_store(struct device *dev,			\
-+			     struct device_attribute *attr,		\
-+			     const char *buf, size_t len)		\
-+{									\
-+	struct scmi_tlm_de_dev *tde = to_tlm_de_dev(dev);		\
-+	struct scmi_tlm_setup *tsp = tde->tsp;				\
-+	typeof(_is_enable) _is_ena = _is_enable;			\
-+	bool enabled;							\
-+	int ret;							\
-+									\
-+	ret = kstrtobool(buf, &enabled);				\
-+	if (ret)							\
-+		return ret;						\
-+									\
-+	ret = tsp->ops->state_set(tsp->ph, false, tde->de->id,		\
-+				  _is_ena ? &enabled : NULL,		\
-+				  !_is_ena ? &enabled : NULL);		\
-+	if (ret)							\
-+		return ret;						\
-+									\
-+	return len;							\
-+}									\
-+									\
-+static ssize_t _name##_show(struct device *dev,				\
-+			    struct device_attribute *attr, char *buf)	\
-+{									\
-+	struct scmi_tlm_de_dev *tde = to_tlm_de_dev(dev);		\
-+									\
-+	return sysfs_emit(buf, "%c\n", tde->de->_name ## d ? 'Y' : 'N');\
-+}									\
-+static DEVICE_ATTR_RW(_name)
-+
-+DEFINE_DE_ATTR_STATE_RW(enable, true);
-+DEFINE_DE_ATTR_STATE_RW(tstamp_enable, false);
-+
-+static struct attribute *scmi_des_attrs[] = {
-+	&dev_attr_value.attr,
-+	&dev_attr_type.attr,
-+	&dev_attr_unit.attr,
-+	&dev_attr_unit_exp.attr,
-+	&dev_attr_instance_id.attr,
-+	&dev_attr_compo_type.attr,
-+	&dev_attr_compo_instance_id.attr,
-+	&dev_attr_persistent.attr,
-+	&dev_attr_enable.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(scmi_des);
-+
-+static void scmi_tlm_dev_release(struct device *dev)
-+{
-+}
-+
-+static int
-+scmi_telemetry_dev_register(struct device *dev, struct device *parent,
-+			    const char *name)
-+{
-+	int ret;
-+
-+	dev->parent = parent;
-+	dev->release = scmi_tlm_dev_release;
-+	dev_set_name(dev, "%s", name);
-+	device_set_pm_not_required(dev);
-+	dev_set_uevent_suppress(dev, true);
-+	ret = device_register(dev);
-+	if (ret)
-+		put_device(dev);
-+
-+	return ret;
-+}
-+
-+static int scmi_des_iter(struct device *dev, void *data)
-+{
-+	device_unregister(dev);
-+
-+	return 0;
-+}
-+
-+static void scmi_telemetry_dev_unregister(struct device *parent)
-+{
-+	device_for_each_child(parent, NULL, scmi_des_iter);
-+	device_unregister(parent);
-+}
-+
-+static ssize_t grp_obj_store(struct device *dev,
-+			     struct device_attribute *attr,
-+			     const char *buf, size_t len)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+	struct scmi_tlm_setup *tsp = gde->tsp;
-+	bool enabled, is_ena_entry;
-+	int ret;
-+
-+	ret = kstrtobool(buf, &enabled);
-+	if (ret)
-+		return ret;
-+
-+	is_ena_entry = !strncmp(attr->attr.name, "enable", 6);
-+	ret = tsp->ops->state_set(tsp->ph, true, gde->grp->id,
-+				  is_ena_entry ? &enabled : NULL,
-+				  !is_ena_entry ? &enabled : NULL);
-+	if (ret)
-+		return ret;
-+
-+	return len;
-+}
-+
-+static ssize_t grp_obj_show(struct device *dev,
-+			    struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+	bool enabled, is_ena_entry;
-+
-+	is_ena_entry = !strncmp(attr->attr.name, "enable", 6);
-+	enabled = is_ena_entry ? gde->grp->enabled : gde->grp->tstamp_enabled;
-+
-+	return sysfs_emit(buf, "%c\n", enabled ? 'Y' : 'N');
-+}
-+
-+static struct device_attribute dev_attr_grp_enable = {
-+	.attr	= { .name = "enable", .mode = 0600 },
-+	.show	= grp_obj_show,
-+	.store	= grp_obj_store,
-+};
-+
-+static struct device_attribute dev_attr_grp_tstamp_enable = {
-+	.attr	= { .name = "tstamp_enable", .mode = 0600 },
-+	.show	= grp_obj_show,
-+	.store	= grp_obj_store,
-+};
-+
-+static ssize_t composing_des_show(struct device *dev,
-+				  struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+
-+	return sysfs_emit(buf, "%s\n", gde->grp->des_str);
-+}
-+static DEVICE_ATTR_RO(composing_des);
-+
-+static ssize_t grp_current_update_show(struct device *dev,
-+				       struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+
-+	return __current_update_show(buf,
-+				     gde->grp->intervals.active_update_interval);
-+}
-+
-+static ssize_t grp_current_update_store(struct device *dev,
-+					struct device_attribute *attr,
-+					const char *buf, size_t len)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+	struct scmi_tlm_setup *tsp = gde->tsp;
-+
-+	return __current_update_store(tsp, buf, len, gde->grp->id);
-+}
-+
-+static struct device_attribute dev_attr_grp_current_update = {
-+	.attr	= { .name = "current_update_interval_ms", .mode = 0600 },
-+	.show	= grp_current_update_show,
-+	.store	= grp_current_update_store,
-+};
-+
-+static ssize_t grp_intervals_discrete_show(struct device *dev,
-+					   struct device_attribute *attr,
-+					   char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+
-+	return __intervals_discrete_show(buf, gde->grp->intervals.discrete);
-+}
-+
-+static struct device_attribute dev_attr_grp_intervals_discrete = {
-+	.attr	= { .name = "intervals_discrete", .mode = 0400 },
-+	.show	= grp_intervals_discrete_show,
-+};
-+
-+static ssize_t grp_available_intervals_show(struct device *dev,
-+					    struct device_attribute *attr,
-+					    char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+
-+	return __available_update_show(buf, &gde->grp->intervals);
-+}
-+
-+static struct device_attribute dev_attr_grp_available_intervals = {
-+	.attr	= { .name = "available_update_intervals_ms", .mode = 0400 },
-+	.show	= grp_available_intervals_show,
-+};
-+
-+static ssize_t grp_des_bulk_read_show(struct device *dev,
-+				      struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+	struct scmi_tlm_instance *ti =
-+		groups_dev_to_tlm_instance(gde->dev.parent);
-+
-+	return __des_bulk_read_show(ti, gde->grp->id, buf, PAGE_SIZE);
-+}
-+
-+static ssize_t grp_des_single_sample_read_show(struct device *dev,
-+					       struct device_attribute *attr,
-+					       char *buf)
-+{
-+	struct scmi_tlm_grp_dev *gde = to_tlm_grp_dev(dev);
-+	struct scmi_tlm_instance *ti =
-+		groups_dev_to_tlm_instance(gde->dev.parent);
-+
-+	return __des_single_sample_read_show(ti, gde->grp->id, buf, PAGE_SIZE);
-+}
-+
-+static struct device_attribute dev_attr_grp_des_bulk_read = {
-+	.attr	= { .name = "des_bulk_read", .mode = 0400 },
-+	.show	= grp_des_bulk_read_show,
-+};
-+
-+static struct device_attribute dev_attr_grp_des_single_sample_read = {
-+	.attr	= { .name = "des_single_sample_read", .mode = 0400 },
-+	.show	= grp_des_single_sample_read_show,
-+};
-+
-+static struct attribute *scmi_grp_attrs[] = {
-+	&dev_attr_grp_enable.attr,
-+	&dev_attr_grp_tstamp_enable.attr,
-+	&dev_attr_grp_des_bulk_read.attr,
-+	&dev_attr_grp_des_single_sample_read.attr,
-+	&dev_attr_composing_des.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(scmi_grp);
-+
-+static int scmi_telemetry_groups_initialize(struct device *dev,
-+					    struct scmi_tlm_instance *ti)
-+{
-+	int ret;
-+
-+	if (ti->info->num_groups == 0)
-+		return 0;
-+
-+	ret = scmi_telemetry_dev_register(&ti->groups_dev, &ti->dev, "groups");
-+	if (ret)
-+		return ret;
-+
-+	for (int i = 0; i < ti->info->num_groups; i++) {
-+		const struct scmi_telemetry_group *grp = &ti->info->des_groups[i];
-+		struct scmi_tlm_grp_dev *gdev;
-+		char name[16];
-+
-+		gdev = devm_kzalloc(dev, sizeof(*gdev), GFP_KERNEL);
-+		if (!gdev) {
-+			ret = -ENOMEM;
-+			goto err;
-+		}
-+
-+		gdev->tsp = ti->tsp;
-+		gdev->grp = grp;
-+		gdev->dev.groups = scmi_grp_groups;
-+
-+		snprintf(name, 8, "%d", grp->id);
-+		ret = scmi_telemetry_dev_register(&gdev->dev,
-+						  &ti->groups_dev, name);
-+		if (ret)
-+			goto err;
-+
-+		if (ti->info->per_group_config_support) {
-+			sysfs_add_file_to_group(&gdev->dev.kobj,
-+						&dev_attr_grp_current_update.attr,
-+						NULL);
-+			sysfs_add_file_to_group(&gdev->dev.kobj,
-+						&dev_attr_grp_intervals_discrete.attr,
-+						NULL);
-+			sysfs_add_file_to_group(&gdev->dev.kobj,
-+						&dev_attr_grp_available_intervals.attr,
-+						NULL);
-+		}
-+	}
-+
-+	dev_info(dev, "Found %d Telemetry GROUPS resources.\n",
-+		 ti->info->num_groups);
-+
-+	return 0;
-+
-+err:
-+	scmi_telemetry_dev_unregister(&ti->groups_dev);
-+
-+	return ret;
-+}
-+
-+static int scmi_telemetry_des_initialize(struct device *dev,
-+					 struct scmi_tlm_instance *ti)
-+{
-+	int ret;
-+
-+	ret = scmi_telemetry_dev_register(&ti->des_dev, &ti->dev, "des");
-+	if (ret)
-+		return ret;
-+
-+	for (int i = 0; i < ti->info->num_de; i++) {
-+		const struct scmi_telemetry_de *de = ti->info->des[i];
-+		struct scmi_tlm_de_dev *tdev;
-+		char name[16];
-+
-+		tdev = devm_kzalloc(dev, sizeof(*tdev), GFP_KERNEL);
-+		if (!tdev) {
-+			ret = -ENOMEM;
-+			goto err;
-+		}
-+
-+		tdev->tsp = ti->tsp;
-+		tdev->de = de;
-+		tdev->dev.groups = scmi_des_groups;
-+
-+		/*XXX What about of ID/name digits-length used ? */
-+		snprintf(name, 8, "0x%04X", de->id);
-+		ret = scmi_telemetry_dev_register(&tdev->dev,
-+						  &ti->des_dev, name);
-+		if (ret)
-+			goto err;
-+
-+		if (de->name)
-+			sysfs_add_file_to_group(&tdev->dev.kobj,
-+						&dev_attr_name.attr, NULL);
-+		if (de->tstamp_support) {
-+			sysfs_add_file_to_group(&tdev->dev.kobj,
-+						&dev_attr_tstamp_exp.attr,
-+						NULL);
-+			sysfs_add_file_to_group(&tdev->dev.kobj,
-+						&dev_attr_tstamp_enable.attr,
-+						NULL);
-+		}
-+	}
-+
-+	dev_info(dev, "Found %d Telemetry DE resources.\n",
-+		 ti->info->num_de);
-+
-+	return 0;
-+
-+err:
-+	scmi_telemetry_dev_unregister(&ti->des_dev);
-+
-+	return ret;
-+}
-+
-+static int
-+scmi_tlm_root_instance_initialize(struct device *dev,
-+				  struct scmi_tlm_instance *ti, int instance_id)
-+{
-+	char name[16];
-+	int ret;
-+
-+	ti->dev.class = &scmi_telemetry_class;
-+	ti->dev.groups = scmi_telemetry_groups;
-+
-+	snprintf(name, 16, "scmi_tlm_%d", instance_id);
-+	ret = scmi_telemetry_dev_register(&ti->dev, NULL, name);
-+	if (ret)
-+		return ret;
-+
-+	if (ti->info->reset_support)
-+		ret = sysfs_add_file_to_group(&ti->dev.kobj,
-+					      &dev_attr_reset.attr, NULL);
-+
-+	return ret;
-+}
-+
-+static struct scmi_tlm_instance *scmi_tlm_init(struct scmi_tlm_setup *tsp,
-+					       int instance_id)
-+{
-+	const struct scmi_telemetry_proto_ops *tlm_ops = tsp->ops;
-+	struct device *dev = &tsp->sdev->dev;
-+	struct scmi_tlm_instance *ti;
-+	int ret;
-+
-+	ti = devm_kzalloc(dev, sizeof(*ti), GFP_KERNEL);
-+	if (!ti)
-+		return ERR_PTR(-ENOMEM);
-+
-+	ti->info = tlm_ops->info_get(tsp->ph);
-+	if (!ti->info) {
-+		dev_err(dev, "invalid Telemetry info !\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	ti->tsp = tsp;
-+
-+	ret = scmi_tlm_root_instance_initialize(dev, ti, instance_id);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	ret = scmi_telemetry_des_initialize(dev, ti);
-+	if (ret) {
-+		device_unregister(&ti->dev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	ret = scmi_telemetry_groups_initialize(dev, ti);
-+	if (ret) {
-+		scmi_telemetry_dev_unregister(&ti->des_dev);
-+		device_unregister(&ti->dev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	return ti;
-+}
-+
-+static int scmi_telemetry_probe(struct scmi_device *sdev)
-+{
-+	const struct scmi_handle *handle = sdev->handle;
-+	struct scmi_protocol_handle *ph;
-+	struct device *dev = &sdev->dev;
-+	struct scmi_tlm_instance *ti;
-+	struct scmi_tlm_setup *tsp;
-+	const void *ops;
-+
-+	if (!handle)
-+		return -ENODEV;
-+
-+	ops = handle->devm_protocol_get(sdev, sdev->protocol_id, &ph);
-+	if (IS_ERR(ops))
-+		return dev_err_probe(dev, PTR_ERR(ops),
-+				     "Cannot access protocol:0x%X\n",
-+				     sdev->protocol_id);
-+
-+	tsp = devm_kzalloc(&sdev->dev, sizeof(*tsp), GFP_KERNEL);
-+	if (!tsp)
-+		return -ENOMEM;
-+
-+	tsp->sdev = sdev;
-+	tsp->ops = ops;
-+	tsp->ph = ph;
-+
-+	//TODO Better to get info->id from SCMI/core
-+	ti = scmi_tlm_init(tsp, atomic_fetch_inc(&scmi_tlm_instance_count));
-+	if (IS_ERR(ti))
-+		return PTR_ERR(ti);
-+
-+	dev_set_drvdata(&sdev->dev, ti);
-+
-+	return 0;
-+}
-+
-+static void scmi_telemetry_remove(struct scmi_device *sdev)
-+{
-+	struct device *dev = &sdev->dev;
-+	struct scmi_tlm_instance *ti;
-+	bool enabled = false;
-+	int ret;
-+
-+	ti = dev_get_drvdata(&sdev->dev);
-+
-+	ret = ti->tsp->ops->collection_configure(ti->tsp->ph,
-+						 SCMI_TLM_GRP_INVALID, true,
-+						 &enabled, NULL, NULL);
-+	if (ret)
-+		dev_warn(dev, "Failed to stop Telemetry collection\n");
-+
-+	scmi_telemetry_dev_unregister(&ti->groups_dev);
-+	scmi_telemetry_dev_unregister(&ti->des_dev);
-+	device_unregister(&ti->dev);
-+}
-+
-+static const struct scmi_device_id scmi_id_table[] = {
-+	{ SCMI_PROTOCOL_TELEMETRY, "telemetry" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(scmi, scmi_id_table);
-+
-+static struct scmi_driver scmi_telemetry_driver = {
-+	.name = "scmi-telemetry-driver",
-+	.probe = scmi_telemetry_probe,
-+	.remove = scmi_telemetry_remove,
-+	.id_table = scmi_id_table,
-+};
-+
-+static int __init scmi_telemetry_init(void)
-+{
-+	int ret;
-+
-+	ret = class_register(&scmi_telemetry_class);
-+	if (ret)
-+		return ret;
-+
-+	ret = scmi_register(&scmi_telemetry_driver);
-+	if (ret)
-+		class_unregister(&scmi_telemetry_class);
-+
-+	return ret;
-+}
-+module_init(scmi_telemetry_init);
-+
-+static void __exit scmi_telemetry_exit(void)
-+{
-+	scmi_unregister(&scmi_telemetry_driver);
-+
-+	class_unregister(&scmi_telemetry_class);
-+}
-+module_exit(scmi_telemetry_exit);
-+
-+MODULE_AUTHOR("Cristian Marussi <cristian.marussi@arm.com>");
-+MODULE_DESCRIPTION("ARM SCMI Telemetry Driver");
-+MODULE_LICENSE("GPL v2");
+Why can't you use dma_alloc_coherent()?
+
+> > +
+> > +	/*
+> > +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.4.5.2 Setting
+> > +	 * the MSI Window) the MSI window need to be within any AXI window. Find
+> > +	 * an AXI window to setup the MSI window.
+> > +	 */
+> > +	for (id = 0; id < RZG3S_MAX_WINDOWS; id++) {
+> > +		u64 base, basel, baseu;
+> > +		u64 mask, maskl, masku;
+> > +
+> > +		basel = readl(host->axi + RZG3S_PCI_AWBASEL(id));
+> > +		/* Skip checking this AXI window if it's not enabled */
+> > +		if (!(basel & RZG3S_PCI_AWBASEL_WIN_ENA))
+> > +			continue;
+> > +
+> > +		baseu = readl(host->axi + RZG3S_PCI_AWBASEU(id));
+> > +		base = baseu << 32 | basel;
+> > +
+> > +		maskl = readl(host->axi + RZG3S_PCI_AWMASKL(id));
+> > +		masku = readl(host->axi + RZG3S_PCI_AWMASKU(id));
+> > +		mask = masku << 32 | maskl;
+> > +
+> > +		if (msi->dma_addr < base || msi->dma_addr > base + mask)
+> > +			continue;
+> > +
+> > +		break;
+> > +	}
+> > +
+> > +	if (id == RZG3S_MAX_WINDOWS) {
+> > +		ret = -EINVAL;
+> > +		goto dma_unmap;
+> > +	}
+> > +
+> > +	/* The MSI base address need to be aligned to the MSI size */
+> > +	msi->window_base = ALIGN(msi->dma_addr, size);
+> > +	if (msi->window_base < msi->dma_addr) {
+> > +		ret = -EINVAL;
+> > +		goto dma_unmap;
+> > +	}
+> > +
+> > +	rzg3s_pcie_msi_hw_setup(host);
+> > +
+> > +	return 0;
+> > +
+> > +dma_unmap:
+> > +	dma_unmap_single(dev, msi->dma_addr, size * 2, DMA_BIDIRECTIONAL);
+> > +free_pages:
+> > +	free_pages(msi->pages, 0);
+> > +	return ret;
+> > +}
+> > +
+> > +static int rzg3s_pcie_msi_enable(struct rzg3s_pcie_host *host)
+> > +{
+> > +	struct platform_device *pdev = to_platform_device(host->dev);
+> > +	struct rzg3s_pcie_msi *msi = &host->msi;
+> > +	struct device *dev = host->dev;
+> > +	const char *devname;
+> > +	int irq, ret;
+> > +
+> > +	mutex_init(&msi->map_lock);
+> > +
+> > +	irq = platform_get_irq_byname(pdev, "msi");
+> > +	if (irq < 0)
+> > +		return dev_err_probe(dev, irq ? irq : -EINVAL,
+> > +				     "Failed to get MSI IRQ!\n");
+> > +
+> > +	devname = devm_kasprintf(dev, GFP_KERNEL, "%s-msi", dev_name(dev));
+> > +	if (!devname)
+> > +		return -ENOMEM;
+> > +
+> > +	ret = rzg3s_pcie_msi_allocate_domains(msi);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = devm_request_irq(dev, irq, rzg3s_pcie_msi_irq, 0, devname, host);
+> > +	if (ret) {
+> > +		dev_err_probe(dev, ret, "Failed to request IRQ: %d\n", ret);
+> > +		goto free_domains;
+> > +	}
+> > +
+
+So you've modelled INTx as hierarchial IRQ domain, but not MSI. May I know why?
+Both are chained to GIC, isn't it?
+
+> > +	ret = rzg3s_pcie_msi_setup(host);
+> > +	if (ret) {
+> > +		dev_err_probe(dev, ret, "Failed to setup MSI!\n");
+> > +		goto free_domains;
+> > +	}
+> > +
+> > +	return 0;
+> > +
+> > +free_domains:
+> > +	rzg3s_pcie_msi_free_domains(msi);
+> > +	return ret;
+> > +}
+> > +
+
+[...]
+
+> > +static int rzg3s_soc_pcie_init_phy(struct rzg3s_pcie_host *host)
+> > +{
+> > +	static const u32 xcfgd_settings[RZG3S_PCI_PHY_XCFGD_NUM] = {
+> > +		[8]  = 0xe0006801, 0x007f7e30, 0x183e0000, 0x978ff500,
+> > +		       0xec000000, 0x009f1400, 0x0000d009,
+> > +		[17] = 0x78000000,
+> > +		[19] = 0x00880000, 0x000005c0, 0x07000000, 0x00780920,
+> > +		       0xc9400ce2, 0x90000c0c, 0x000c1414, 0x00005034,
+> > +		       0x00006000, 0x00000001,
+> > +	};
+> > +	static const u32 xcfga_cmn_settings[RZG3S_PCI_PHY_XCFGA_CMN_NUM] = {
+> > +		0x00000d10, 0x08310100, 0x00c21404, 0x013c0010, 0x01874440,
+> > +		0x1a216082, 0x00103440, 0x00000080, 0x00000010, 0x0c1000c1,
+> > +		0x1000c100, 0x0222000c, 0x00640019, 0x00a00028, 0x01d11228,
+> > +		0x0201001d,
+> > +	};
+> > +	static const u32 xcfga_rx_settings[RZG3S_PCI_PHY_XCFGA_RX_NUM] = {
+> > +		0x07d55000, 0x030e3f00, 0x00000288, 0x102c5880, 0x0000000b,
+> > +		0x04141441, 0x00641641, 0x00d63d63, 0x00641641, 0x01970377,
+> > +		0x00190287, 0x00190028, 0x00000028,
+> > +	};
+> > +
+> > +	writel(RZG3S_PCI_PERM_PIPE_PHY_REG_EN, host->axi + RZG3S_PCI_PERM);
+> > +
+> > +	for (u8 i = 0; i < RZG3S_PCI_PHY_XCFGD_NUM; i++)
+> > +		writel(xcfgd_settings[i], host->axi + RZG3S_PCI_PHY_XCFGD(i));
+> > +
+> > +	for (u8 i = 0; i < RZG3S_PCI_PHY_XCFGA_CMN_NUM; i++) {
+> > +		writel(xcfga_cmn_settings[i],
+> > +		       host->axi + RZG3S_PCI_PHY_XCFGA_CMN(i));
+> > +	}
+> > +
+> > +	for (u8 i = 0; i < RZG3S_PCI_PHY_XCFGA_RX_NUM; i++) {
+> > +		writel(xcfga_rx_settings[i],
+> > +		       host->axi + RZG3S_PCI_PHY_XCFGA_RX(i));
+> > +	}
+> > +
+> > +	writel(0x107, host->axi + RZG3S_PCI_PHY_XCFGA_TX);
+> > +
+> > +	/* Select PHY settings values */
+> > +	writel(RZG3S_PCI_PHY_XCFG_CTRL_PHYREG_SEL,
+> > +	       host->axi + RZG3S_PCI_PHY_XCFG_CTRL);
+> > +
+> > +	writel(0, host->axi + RZG3S_PCI_PERM);
+> > +
+> > +	return 0;
+> > +}
+
+Why didn't these go into a PHY driver? Please provide justification.
+
+> > +
+> > +static void rzg3s_pcie_pm_runtime_put(void *data)
+> > +{
+> > +	pm_runtime_put_sync(data);
+> > +}
+> > +
+
+[...]
+
+> > +static int rzg3s_pcie_probe(struct platform_device *pdev)
+> > +{
+> > +	struct pci_host_bridge *bridge;
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device_node *np = dev->of_node;
+> > +	struct device_node *sysc_np __free(device_node) =
+> > +		of_parse_phandle(np, "renesas,sysc", 0);
+> > +	struct rzg3s_pcie_host *host;
+> > +	int ret;
+> > +
+> > +	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*host));
+> > +	if (!bridge)
+> > +		return -ENOMEM;
+> > +
+> > +	host = pci_host_bridge_priv(bridge);
+> > +	host->dev = dev;
+> > +	host->data = device_get_match_data(dev);
+> > +	platform_set_drvdata(pdev, host);
+> > +
+> > +	host->axi = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(host->axi))
+> > +		return PTR_ERR(host->axi);
+> > +	host->pcie = host->axi + RZG3S_PCI_CFG_BASE;
+> > +
+> > +	ret = of_property_read_u32(np, "vendor-id", &host->vendor_id);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = of_property_read_u32(np, "device-id", &host->device_id);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	host->sysc = syscon_node_to_regmap(sysc_np);
+> > +	if (IS_ERR(host->sysc))
+> > +		return PTR_ERR(host->sysc);
+> > +
+> > +	ret = regmap_update_bits(host->sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> > +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> > +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 1));
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_sysc_signal_action,
+> > +				       host->sysc);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = rzg3s_pcie_resets_prepare(host);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = devm_pm_runtime_enable(dev);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = pm_runtime_resume_and_get(dev);
+> > +	if (ret)
+> > +		return ret;
+
+Why do you need runtime PM? Do you need to enable any parent domain before
+intializing the controller?
+
+> > +
+> > +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_pm_runtime_put, dev);
+> > +	if (ret)
+> > +		return ret;
+> > +
+
+Why is this needed?
+
+> > +	raw_spin_lock_init(&host->hw_lock);
+> > +
+> > +	ret = rzg3s_pcie_host_setup(host, rzg3s_pcie_intx_setup,
+> > +				    rzg3s_pcie_msi_enable, true);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	bridge->sysdata = host;
+> > +	bridge->ops = &rzg3s_pcie_root_ops;
+> > +	bridge->child_ops = &rzg3s_pcie_child_ops;
+> > +	ret = pci_host_probe(bridge);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return devm_add_action_or_reset(dev, rzg3s_pcie_host_remove_action,
+> > +					host);
+
+Is this a workaround for not having a .remove() callback?
+
+> > +}
+> > +
+> > +static int rzg3s_pcie_suspend_noirq(struct device *dev)
+> > +{
+> > +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
+> > +	const struct rzg3s_pcie_soc_data *data = host->data;
+> > +	struct regmap *sysc = host->sysc;
+> > +	int ret;
+> > +
+> > +	ret = pm_runtime_put_sync(dev);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = reset_control_bulk_assert(data->num_power_resets,
+> > +					host->power_resets);
+> > +	if (ret)
+> > +		goto rpm_restore;
+> > +
+> > +	ret = reset_control_bulk_assert(data->num_cfg_resets,
+> > +					host->cfg_resets);
+> > +	if (ret)
+> > +		goto power_resets_restore;
+> > +
+> > +	ret = regmap_update_bits(sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> > +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> > +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 0));
+> > +	if (ret)
+> > +		goto cfg_resets_restore;
+
+Don't you need to control the endpoint state here? Like putting it into D3Cold,
+toggling PERST#, enabling wakeup etc...?
+
+> > +
+> > +	return 0;
+> > +
+> > +	/* Restore the previous state if any error happens */
+> > +cfg_resets_restore:
+> > +	reset_control_bulk_deassert(data->num_cfg_resets,
+> > +				    host->cfg_resets);
+> > +power_resets_restore:
+> > +	reset_control_bulk_deassert(data->num_power_resets,
+> > +				    host->power_resets);
+> > +rpm_restore:
+> > +	pm_runtime_resume_and_get(dev);
+> > +	return ret;
+> > +}
+> > +
+> > +static int rzg3s_pcie_resume_noirq(struct device *dev)
+> > +{
+> > +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
+> > +	const struct rzg3s_pcie_soc_data *data = host->data;
+> > +	struct regmap *sysc = host->sysc;
+> > +	int ret;
+> > +
+> > +	ret = regmap_update_bits(sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> > +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> > +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 1));
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	/*
+> > +	 * According to the RZ/G3S HW manual (Rev.1.10, section
+> > +	 * 34.5.1.2 De-asserting the Reset) the PCIe IP needs to wait 5ms from
+> > +	 * power on to the de-assertion of reset.
+> > +	 */
+> > +	usleep_range(5000, 5100);
+> > +	ret = reset_control_bulk_deassert(data->num_power_resets,
+> > +					  host->power_resets);
+> > +	if (ret)
+> > +		goto assert_rst_rsm_b;
+> > +
+> > +	ret = pm_runtime_resume_and_get(dev);
+> > +	if (ret)
+> > +		goto assert_power_resets;
+> > +
+> > +	ret = rzg3s_pcie_host_setup(host, NULL, rzg3s_pcie_msi_hw_setup, false);
+> > +	if (ret)
+> > +		goto rpm_put;
+> > +
+> > +	return 0;
+> > +
+> > +	/*
+> > +	 * If any error happens there is no way to recover the IP. Put it in the
+> > +	 * lowest possible power state.
+> > +	 */
+> > +rpm_put:
+> > +	pm_runtime_put_sync(dev);
+> > +assert_power_resets:
+> > +	reset_control_bulk_assert(data->num_power_resets,
+> > +				  host->power_resets);
+> > +assert_rst_rsm_b:
+> > +	regmap_update_bits(sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> > +			   RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> > +			   FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 0));
+> > +	return ret;
+> > +}
+> > +
+> > +static const struct dev_pm_ops rzg3s_pcie_pm_ops = {
+> > +	NOIRQ_SYSTEM_SLEEP_PM_OPS(rzg3s_pcie_suspend_noirq,
+> > +				  rzg3s_pcie_resume_noirq)
+> > +};
+> > +
+> > +const char * const rzg3s_soc_power_resets[] = {
+> > +	"aresetn", "rst_cfg_b", "rst_load_b",
+> > +};
+> > +
+> > +const char * const rzg3s_soc_cfg_resets[] = {
+> > +	"rst_b", "rst_ps_b", "rst_gp_b", "rst_rsm_b",
+> > +};
+> > +
+> > +static const struct rzg3s_pcie_soc_data rzg3s_soc_data = {
+> > +	.power_resets = rzg3s_soc_power_resets,
+> > +	.num_power_resets = ARRAY_SIZE(rzg3s_soc_power_resets),
+> > +	.cfg_resets = rzg3s_soc_cfg_resets,
+> > +	.num_cfg_resets = ARRAY_SIZE(rzg3s_soc_cfg_resets),
+> > +	.init_phy = rzg3s_soc_pcie_init_phy,
+> > +};
+
+Are you expecting these callbacks to be different in next gen SoCs? I'd
+recommend to get rid of callbacks until the support for newer SoCs get added.
+
+> > +
+> > +static const struct of_device_id rzg3s_pcie_of_match[] = {
+> > +	{
+> > +		.compatible = "renesas,r9a08g045s33-pcie",
+> > +		.data = &rzg3s_soc_data,
+> > +	},
+> > +	{},
+> > +};
+> > +
+> > +static struct platform_driver rzg3s_pcie_driver = {
+> > +	.driver = {
+> > +		.name = "rzg3s-pcie-host",
+> > +		.of_match_table = rzg3s_pcie_of_match,
+> > +		.pm = pm_ptr(&rzg3s_pcie_pm_ops),
+> > +	},
+> > +	.probe = rzg3s_pcie_probe,
+
+You haven't implemented .remove(), but didn't set '.suppress_bind_attrs = true'.
+PCI controller drivers acting as an IRQCHIP are not safe to be removed.
+
+- Mani
+
 -- 
-2.47.0
-
+மணிவண்ணன் சதாசிவம்
 
