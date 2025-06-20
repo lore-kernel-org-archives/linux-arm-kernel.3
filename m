@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC1BC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF3DC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 14:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=; b=QNq1Cbxbapcu5LzDuohnHhw61f
-	A/b3urQZrYeUmFUqUVlpe2zBcqmY/Yont/3wZWKTX9vd6M1tf4RphwsNVIDLbuYfZPv37ABG6Kdfa
-	I5vGYiZdC+ZvI4ltaA8DIVXSnNOxXqZII6WqvUH066L036OwzKhYe2Tkxteert6vj7ErVoGv/aOwV
-	OLc/HvZ7CjtjfcYWtbj3UjJW2y6UINBJ7ooiE1LLBQfiv3h3oy/jgNl/z51ZWvkgl2q8+4H6o2GFt
-	3EPJf+s+9C+KdwYL7DbsXtsDmkfMoAbnI4CwX/k/vloRJOpxolTymhCOYlmt47+qKHuRRobUzcatK
-	O2w9ApEg==;
+	bh=9hYeG/lN/dobWu+WOAuHe6WhQ/AJqqM1f1NumulS6iw=; b=q4fpyEI+s9MJsdkxu3mfNd1Zvn
+	IaGlsAbLeaxMm7L25+tMYgjGJVyt7wXmq6+Feye/wRlVMsNMMvqubtleWJCi9PTcKJ5Opv4sVANbE
+	2mGjsqfC2muvfogPdnEP66nocQGXJC3Q/uKR7zVXYTTn61U0CconvxzYPCKx1eDwyqpBQ7FUyGgas
+	z4ijktbwyfe2uvTCq4xNGAk2XpgfL/cKBKPsCppv8ogpaPxEc2hIY7i9ttKjs2zqw7A4KpaWp7h3o
+	XOuiQQbSf5BJ7psICckBbMJNH2fvtvOdRnCqDtbV95MAjiPjeiF279lKSjjSiFYOasSsT1vK7w8ud
+	sBHg1e+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSctA-0000000Fs7B-0mgw;
-	Fri, 20 Jun 2025 14:38:44 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uScvy-0000000FsZr-2oxf;
+	Fri, 20 Jun 2025 14:41:38 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uScqv-0000000Frpc-0iOd;
-	Fri, 20 Jun 2025 14:36:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750430158; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mhO6q0KQo+lFB765sFrQ0iJALubCt/dkVgj5bkqda8vOBMS+mFPwLg5e1J5BOaSF9Pk9AQ0kWe9gDmzSpxW7uNAlruYwIoUNXKZjfkq/oZDJd/NbkWMBbEP+XrKRjM207rgBUFWSvYkcplnuPtON1Ggm4vwMh8om2868LwMuKqw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750430158; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=; 
-	b=UpTqogv6s6SAUyT1Sg7j7vc2eU/8VD8wgn6VXYNQ0RTbA7F3ZxzsXQ8WisTeFTyPb58BInjo27Tt6mIe+jZhSVRLvNfE3HpNeVgUi96b3yZ0irV+AnGBzBOkwxQSRj0lBz4lFH/3Cy8LxA+UEcETCw99RGi8PR1FUIoYv0yw470=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750430158;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=ew+3+z/rH+xR39wGq9iWJzKgGomA9aScdQLeq5R+HM0=;
-	b=GvScAD3XvhayzIDIZUlN55amv4Y6YTg57qFNkOCjgOcc/x9nn/CD0OL5+OW9UbXo
-	XXQum83rcELnJYlZE5fGAOkrFAPNZnU59Pdlc3o1vfraUrwAIYvFClMXaB0n/jFeQQH
-	LjwXW3K+nKpk5JyUxT4p+ls8SA/t0OyTJgwSnCrQ=
-Received: by mx.zohomail.com with SMTPS id 1750430157359198.38922411057285;
-	Fri, 20 Jun 2025 07:35:57 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kever Yang <kever.yang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Alexey Charkov <alchark@gmail.com>, kernel@collabora.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] phy: rockchip: inno-usb2: add soft vbusvalid control
-Date: Fri, 20 Jun 2025 16:35:49 +0200
-Message-ID: <4228996.iIbC2pHGDl@workhorse>
-In-Reply-To: <2600104.PYKUYFuaPT@workhorse>
-References: <20250619-rk3576-sige5-usb-v5-0-9069a7e750e1@collabora.com>
- <7131451.G0QQBjFxQf@phil> <2600104.PYKUYFuaPT@workhorse>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1uSctj-0000000FsCv-310c
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 14:39:21 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-313fab41f4bso2673690a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 07:39:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750430358; x=1751035158; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9hYeG/lN/dobWu+WOAuHe6WhQ/AJqqM1f1NumulS6iw=;
+        b=iQFwsBl6yp0K6qODDePTMELViM7WMbxIdZ0+LllWUTUTGqvquf9Mqlg+LGGJIbdRNy
+         wJtQX4bcxIcMYj5uyda+HacNJ6N/p5Ml//JF8RH+CNy+rk1ZEMGGh6CcooFTm42iT0IX
+         xwMZl0DF0VXbostGChdG9UU4DhXShzgEqw3gsVvDDLzVt34uPXCd55rGtEc5h1OYBQX3
+         Nsew6iafKGOdu6RqPup7VJpxscTWnzNKcpUpI+y5WWj1YRap6IDuSAHAx5XGGKzixAtp
+         8whRGGP/ZiOZ8am0g59PqDXRaloa0weNML92OhsmzsvC5c+r7ZIj1Ha5Mt15chWvEN0u
+         AdbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750430358; x=1751035158;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=9hYeG/lN/dobWu+WOAuHe6WhQ/AJqqM1f1NumulS6iw=;
+        b=jqMdmF9fLV2HAvqjwW6VZL7JTarDmIaHsyAfKxkS6BC7+o9OSBF3x7DGKJZgkdUpQM
+         0oXDAN7DCJRMrMPHEUq9blUJDYVtaQowHMMJIxtLcbsU1ET/7KY9BDWS86c4abzS7EF9
+         oyj2TFE/XRRE4OnTS0psqnjMsRQmZhnMjJkuOSwzoOYFjNqItRJUvu5JIhzSyYXbmTKK
+         QkAluy1JymJkdSk9KPM4MSnJ/FqW7yu6Oow5uiAuzAsJi3dABHEYdgfCFaFEj/Bla4Mv
+         Ajb4b1ada2+MFxVcAGC/AXtSKbqTDLwlzsGRYHwy8QYs257o5RWGrjeCOicznG3JjFqw
+         1aqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUyHSd3+ZzQtpkigwmUpaUvB5ujbfbz2uFMiY/tUn6jvw+k0dr6kFBK5121pGubEgDAa9YXydRnVXDbsGVmQjHB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+1/7Zi/Z61D96H4C1xmjx8srjY8ivVW0k0pb/RHMWs+2jZ+2q
+	j4Rmbpay1JSUKaMmSyXrLAgJnsWioScqM3hU95tGspd+6e6N3QgHuX8vuU9V4awX8Dun//LUrLS
+	THMGNRw==
+X-Google-Smtp-Source: AGHT+IEu/kAyF65SAfQsKleZ41Vg0owDojNFVAMM/0F6gElDwFbB1sj7AbPvBVKqQ3YY8zBgnoMiSm1QDmM=
+X-Received: from pjbee15.prod.google.com ([2002:a17:90a:fc4f:b0:314:d44:4108])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2e87:b0:312:51a9:5d44
+ with SMTP id 98e67ed59e1d1-3159d61a5c5mr5175181a91.5.1750430358355; Fri, 20
+ Jun 2025 07:39:18 -0700 (PDT)
+Date: Fri, 20 Jun 2025 07:39:16 -0700
+In-Reply-To: <2eqjnjnszlmhlnvw6kcve4exjnpy7skguypwtmxutb2gecs3an@gcou53thsqww>
+Mime-Version: 1.0
+References: <20250611224604.313496-2-seanjc@google.com> <20250611224604.313496-19-seanjc@google.com>
+ <2eqjnjnszlmhlnvw6kcve4exjnpy7skguypwtmxutb2gecs3an@gcou53thsqww>
+Message-ID: <aFVylP1XzMoqocOx@google.com>
+Subject: Re: [PATCH v3 17/62] KVM: SVM: Add enable_ipiv param, never set
+ IsRunning if disabled
+From: Sean Christopherson <seanjc@google.com>
+To: Naveen N Rao <naveen@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>, 
+	Maxim Levitsky <mlevitsk@redhat.com>, Joao Martins <joao.m.martins@oracle.com>, 
+	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_073625_277335_87E0FB37 
-X-CRM114-Status: GOOD (  52.56  )
+X-CRM114-CacheID: sfid-20250620_073919_753925_DCB4BF44 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,324 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko, a quick follow-up,
+On Thu, Jun 19, 2025, Naveen N Rao wrote:
+> On Wed, Jun 11, 2025 at 03:45:20PM -0700, Sean Christopherson wrote:
+> > From: Maxim Levitsky <mlevitsk@redhat.com>
+> >=20
+> > Let userspace "disable" IPI virtualization for AVIC via the enable_ipiv
+> > module param, by never setting IsRunning.  SVM doesn't provide a way to
+> > disable IPI virtualization in hardware, but by ensuring CPUs never see
+> > IsRunning=3D1, every IPI in the guest (except for self-IPIs) will gener=
+ate a
+> > VM-Exit.
+>=20
+> I think this is good to have regardless of the erratum. Not sure about VM=
+X,
+> but does it make sense to intercept writes to the self-ipi MSR as well?
 
-On Thursday, 19 June 2025 22:23:35 Central European Summer Time Nicolas Fra=
-ttaroli wrote:
-> Hi Heiko,
->=20
-> On Thursday, 19 June 2025 21:42:00 Central European Summer Time Heiko Stu=
-ebner wrote:
-> > Hi Nicolas,
-> >=20
-> > Am Donnerstag, 19. Juni 2025, 20:36:36 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Nicolas Frattaroli:
-> > > With USB type C connectors, the vbus detect pin of the OTG controller
-> > > attached to it is pulled high by a USB Type C controller chip such as
-> > > the fusb302. This means USB enumeration on Type-C ports never works, =
-as
-> > > the vbus is always seen as high.
-> > >=20
-> > > Rockchip added some GRF register flags to deal with this situation. T=
-he
-> > > RK3576 TRM calls these "soft_vbusvalid_bvalid" (con0 bit index 15) and
-> > > "soft_vbusvalid_bvalid_sel" (con0 bit index 14).
-> >=20
-> > I would expect a paragraph more about what those bits (and their
-> > functionality) actually do here :-)=20
->=20
-> :( fiiine
->=20
-> Quick non-patch explainer though, in case it helps you spot a problem in
-> the code: looks like svbus_sel to 1 tells the SoC that the OTG
-> controller's vbus valid and bvalid signal is controlled by the svbus_en
-> GRF flag instead of whatever the controller does based on what it sees
-> on the voltage lines.
->=20
-> >=20
-> >=20
-> > > Downstream introduces a new vendor property which tells the USB 2 PHY
-> > > that it's connected to a type C port, but we can do better. Since in
-> > > such an arrangement, we'll have an OF graph connection from the USB
-> > > controller to the USB connector anyway, we can walk said OF graph and
-> > > check the connector's compatible to determine this without adding any
-> > > further vendor properties.
-> > >=20
-> > > Do keep in mind that the usbdp PHY driver seemingly fiddles with these
-> > > register fields as well, but what it does doesn't appear to be enough
-> > > for us to get working USB enumeration, presumably because the whole
-> > > vbus_attach logic needs to be adjusted as well either way.
-> >=20
-> >=20
-> > In the rk3588 TRM I find USB2PHY_GRF_CON4
-> > bit3 - sft_vbus_sel (VBUS software control select)
-> > bit2 - sft_vbus (When sft_vbus_sel is 1'b1, vbusvalid and bvalid is
-> >                  controlled by sft_vbus)
-> >=20
-> > Is that the same stuff as you're adding for rk3576 ?
->=20
-> Yes, these appear to be the same ones. I'd need to check whether Type-C
-> USB devices enumerate on RK3588 first to see if we have the same problem
-> there though (it would be weird if it weren't a problem there).
->=20
-> If you pick the DT patch, I can send a new version of the soft vbusvalid
-> control patch with RK3588 addressed as well, if I manage to confirm it's
-> the same thing there.
+That doesn't work for AVIC, i.e. if the guest is MMIO to access the virtual=
+ APIC.
 
-So I tested this on RK3588, and could not reproduce the issue. Then, out of
-curiosity, I reverted the patch and tested on the Sige5 again. I could also
-not reproduce the issue anymore (?!). Even with the udphy line commented out
-that sets those GRF regs as well, I can't get it to have issues enumerating
-things on Type-C anymore.
+Regardless, I don't see any reason to manually intercept self-IPIs when IPI
+virtualization is disabled.  AFAIK, there's no need to do so for correctnes=
+s,
+and Intel's self-IPI virtualization isn't tied to IPI virtualization either=
+.
+Self-IPI virtualization is enabled by virtual interrupt delivery, which in =
+turn
+is enabled by KVM when enable_apicv is true:
 
-The downstream commit this was based on is here:
-
-https://github.com/rockchip-linux/kernel/commit/7d2237b0adc2e0a0105d63b6455=
-28993b44c8c36
-
-So for now, this patch can be considered "abandoned, maybe unnecessary"
-until the problem rears its head again for someone. I really don't get
-why it works now :(
-
->=20
-> >=20
-> > My last dance with rk3588-type-c is already some months back, but I do
-> > remember running into "some" issue - but don't remember which one ;-)
-> >=20
-> >=20
-> > Heiko
-> >=20
->=20
-> Kind regards,
-> Nicolas Frattaroli
->=20
-> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > ---
-> > >  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 108 ++++++++++++++++=
-+++++++++-
-> > >  1 file changed, 104 insertions(+), 4 deletions(-)
-> > >=20
-> > > diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/=
-phy/rockchip/phy-rockchip-inno-usb2.c
-> > > index b0f23690ec3002202c0f33a6988f5509622fa10e..71810c07e4150ea81f65a=
-8a932541b144e95a137 100644
-> > > --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> > > +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> > > @@ -17,6 +17,7 @@
-> > >  #include <linux/module.h>
-> > >  #include <linux/mutex.h>
-> > >  #include <linux/of.h>
-> > > +#include <linux/of_graph.h>
-> > >  #include <linux/of_irq.h>
-> > >  #include <linux/phy/phy.h>
-> > >  #include <linux/platform_device.h>
-> > > @@ -114,6 +115,8 @@ struct rockchip_chg_det_reg {
-> > >  /**
-> > >   * struct rockchip_usb2phy_port_cfg - usb-phy port configuration.
-> > >   * @phy_sus: phy suspend register.
-> > > + * @svbus_en: soft vbus bvalid enable register.
-> > > + * @svbus_sel: soft vbus bvalid selection register.
-> > >   * @bvalid_det_en: vbus valid rise detection enable register.
-> > >   * @bvalid_det_st: vbus valid rise detection status register.
-> > >   * @bvalid_det_clr: vbus valid rise detection clear register.
-> > > @@ -140,6 +143,8 @@ struct rockchip_chg_det_reg {
-> > >   */
-> > >  struct rockchip_usb2phy_port_cfg {
-> > >  	struct usb2phy_reg	phy_sus;
-> > > +	struct usb2phy_reg	svbus_en;
-> > > +	struct usb2phy_reg	svbus_sel;
-> > >  	struct usb2phy_reg	bvalid_det_en;
-> > >  	struct usb2phy_reg	bvalid_det_st;
-> > >  	struct usb2phy_reg	bvalid_det_clr;
-> > > @@ -203,6 +208,7 @@ struct rockchip_usb2phy_cfg {
-> > >   * @event_nb: hold event notification callback.
-> > >   * @state: define OTG enumeration states before device reset.
-> > >   * @mode: the dr_mode of the controller.
-> > > + * @typec_vbus_det: whether to apply Type C logic to OTG vbus detect=
-ion.
-> > >   */
-> > >  struct rockchip_usb2phy_port {
-> > >  	struct phy	*phy;
-> > > @@ -222,6 +228,7 @@ struct rockchip_usb2phy_port {
-> > >  	struct notifier_block	event_nb;
-> > >  	enum usb_otg_state	state;
-> > >  	enum usb_dr_mode	mode;
-> > > +	bool typec_vbus_det;
-> > >  };
-> > > =20
-> > >  /**
-> > > @@ -495,6 +502,13 @@ static int rockchip_usb2phy_init(struct phy *phy)
-> > >  	mutex_lock(&rport->mutex);
-> > > =20
-> > >  	if (rport->port_id =3D=3D USB2PHY_PORT_OTG) {
-> > > +		if (rport->typec_vbus_det) {
-> > > +			if (rport->port_cfg->svbus_en.enable &&
-> > > +					rport->port_cfg->svbus_sel.enable) {
-> > > +				property_enable(rphy->grf, &rport->port_cfg->svbus_en, true);
-> > > +				property_enable(rphy->grf, &rport->port_cfg->svbus_sel, true);
-> > > +			}
-> > > +		}
-> > >  		if (rport->mode !=3D USB_DR_MODE_HOST &&
-> > >  		    rport->mode !=3D USB_DR_MODE_UNKNOWN) {
-> > >  			/* clear bvalid status and enable bvalid detect irq */
-> > > @@ -535,8 +549,7 @@ static int rockchip_usb2phy_init(struct phy *phy)
-> > >  			if (ret)
-> > >  				goto out;
-> > > =20
-> > > -			schedule_delayed_work(&rport->otg_sm_work,
-> > > -					      OTG_SCHEDULE_DELAY * 3);
-> > > +			schedule_delayed_work(&rport->otg_sm_work, 0);
-> > >  		} else {
-> > >  			/* If OTG works in host only mode, do nothing. */
-> > >  			dev_dbg(&rport->phy->dev, "mode %d\n", rport->mode);
-> > > @@ -666,8 +679,12 @@ static void rockchip_usb2phy_otg_sm_work(struct =
-work_struct *work)
-> > >  	unsigned long delay;
-> > >  	bool vbus_attach, sch_work, notify_charger;
-> > > =20
-> > > -	vbus_attach =3D property_enabled(rphy->grf,
-> > > -				       &rport->port_cfg->utmi_bvalid);
-> > > +	if (rport->port_cfg->svbus_en.enable && rport->typec_vbus_det) {
-> > > +		vbus_attach =3D true;
-> > > +	} else {
-> > > +		vbus_attach =3D property_enabled(rphy->grf,
-> > > +					       &rport->port_cfg->utmi_bvalid);
-> > > +	}
-> > > =20
-> > >  	sch_work =3D false;
-> > >  	notify_charger =3D false;
-> > > @@ -1276,6 +1293,83 @@ static int rockchip_otg_event(struct notifier_=
-block *nb,
-> > >  	return NOTIFY_DONE;
-> > >  }
-> > > =20
-> > > +static const char *const rockchip_usb2phy_typec_cons[] =3D {
-> > > +	"usb-c-connector",
-> > > +	NULL,
-> > > +};
-> > > +
-> > > +static struct device_node *rockchip_usb2phy_to_controller(struct roc=
-kchip_usb2phy *rphy)
-> > > +{
-> > > +	struct device_node *np;
-> > > +	struct device_node *parent;
-> > > +
-> > > +	for_each_node_with_property(np, "phys") {
-> > > +		struct of_phandle_iterator it;
-> > > +		int ret;
-> > > +
-> > > +		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
-> > > +			parent =3D of_get_parent(it.node);
-> > > +			if (it.node !=3D rphy->dev->of_node && rphy->dev->of_node !=3D pa=
-rent) {
-> > > +				if (parent)
-> > > +					of_node_put(parent);
-> > > +				continue;
-> > > +			}
-> > > +
-> > > +			/*
-> > > +			 * Either the PHY phandle we're iterating or its parent
-> > > +			 * matched, we don't care about which out of the two in
-> > > +			 * particular as we just need to know it's the right
-> > > +			 * USB controller for this PHY.
-> > > +			 */
-> > > +			of_node_put(it.node);
-> > > +			of_node_put(parent);
-> > > +			return np;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	return NULL;
-> > > +}
-> > > +
-> > > +static bool rockchip_usb2phy_otg_is_type_c(struct rockchip_usb2phy *=
-rphy)
-> > > +{
-> > > +	struct device_node *controller =3D rockchip_usb2phy_to_controller(r=
-phy);
-> > > +	struct device_node *ports;
-> > > +	struct device_node *ep =3D NULL;
-> > > +	struct device_node *parent;
-> > > +
-> > > +	if (!controller)
-> > > +		return false;
-> > > +
-> > > +	ports =3D of_get_child_by_name(controller, "ports");
-> > > +	if (ports) {
-> > > +		of_node_put(controller);
-> > > +		controller =3D ports;
-> > > +	}
-> > > +
-> > > +	for_each_of_graph_port(controller, port) {
-> > > +		ep =3D of_get_child_by_name(port, "endpoint");
-> > > +		if (!ep)
-> > > +			continue;
-> > > +
-> > > +		parent =3D of_graph_get_remote_port_parent(ep);
-> > > +		of_node_put(ep);
-> > > +		if (!parent)
-> > > +			continue;
-> > > +
-> > > +		if (of_device_compatible_match(parent, rockchip_usb2phy_typec_cons=
-)) {
-> > > +			of_node_put(parent);
-> > > +			of_node_put(controller);
-> > > +			return true;
-> > > +		}
-> > > +
-> > > +		of_node_put(parent);
-> > > +	}
-> > > +
-> > > +	of_node_put(controller);
-> > > +
-> > > +	return false;
-> > > +}
-> > > +
-> > >  static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *r=
-phy,
-> > >  					  struct rockchip_usb2phy_port *rport,
-> > >  					  struct device_node *child_np)
-> > > @@ -1297,6 +1391,8 @@ static int rockchip_usb2phy_otg_port_init(struc=
-t rockchip_usb2phy *rphy,
-> > > =20
-> > >  	mutex_init(&rport->mutex);
-> > > =20
-> > > +	rport->typec_vbus_det =3D rockchip_usb2phy_otg_is_type_c(rphy);
-> > > +
-> > >  	rport->mode =3D of_usb_get_dr_mode_by_phy(child_np, -1);
-> > >  	if (rport->mode =3D=3D USB_DR_MODE_HOST ||
-> > >  	    rport->mode =3D=3D USB_DR_MODE_UNKNOWN) {
-> > > @@ -2050,6 +2146,8 @@ static const struct rockchip_usb2phy_cfg rk3576=
-_phy_cfgs[] =3D {
-> > >  		.port_cfgs	=3D {
-> > >  			[USB2PHY_PORT_OTG] =3D {
-> > >  				.phy_sus	=3D { 0x0000, 8, 0, 0, 0x1d1 },
-> > > +				.svbus_en	=3D { 0x0000, 15, 15, 0, 1 },
-> > > +				.svbus_sel	=3D { 0x0000, 14, 14, 0, 1 },
-> > >  				.bvalid_det_en	=3D { 0x00c0, 1, 1, 0, 1 },
-> > >  				.bvalid_det_st	=3D { 0x00c4, 1, 1, 0, 1 },
-> > >  				.bvalid_det_clr =3D { 0x00c8, 1, 1, 0, 1 },
-> > > @@ -2087,6 +2185,8 @@ static const struct rockchip_usb2phy_cfg rk3576=
-_phy_cfgs[] =3D {
-> > >  		.port_cfgs	=3D {
-> > >  			[USB2PHY_PORT_OTG] =3D {
-> > >  				.phy_sus	=3D { 0x2000, 8, 0, 0, 0x1d1 },
-> > > +				.svbus_en	=3D { 0x2000, 15, 15, 0, 1 },
-> > > +				.svbus_sel	=3D { 0x2000, 14, 14, 0, 1 },
-> > >  				.bvalid_det_en	=3D { 0x20c0, 1, 1, 0, 1 },
-> > >  				.bvalid_det_st	=3D { 0x20c4, 1, 1, 0, 1 },
-> > >  				.bvalid_det_clr =3D { 0x20c8, 1, 1, 0, 1 },
-> > >=20
-> > >=20
-> >=20
-> >=20
-> >=20
-> >=20
-> >=20
->=20
->=20
-
-
-
-
+  Self-IPI virtualization occurs only if the =E2=80=9Cvirtual-interrupt del=
+ivery=E2=80=9D
+  VM-execution control is 1.
 
