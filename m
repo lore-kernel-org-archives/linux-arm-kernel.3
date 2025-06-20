@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D05C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 15:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7664CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 15:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvxZO4N9F3SNKNOm1onD9xO6i9NtGujY17iYa22sH2E=; b=PbpaCbM+GaSy+6puYWPVJDFyUY
-	hFvmp2t0w8NemaAQcG84AD5yZkg5LRj7yDH4OkHFKcqmCv/jrewh+oQfcDprTD3saSuPC2xPSFdXg
-	qaAfKu1QZnqpAs/TaMlGyGs8ax8iVX1OtA78Cj1YEb1jPUejFz1gNL+JSY7kg3oXnU5a7k8Sl4GuU
-	QLqswXp1gTEaGL0nhrJOA4RKVrxDvH3cfh4Na1E097DhwMS9ik7J9FG1S69E9X1xslKVrZP0CQGde
-	kLSmyyrHU8QiOuSSbNu/QskXHo42Oex5NTsV6LxtxvWirwLGSi1C2EW/UtYtBVWQL2WG3xuMycfvd
-	EdPwikrA==;
+	bh=S7xPlkynI7rnrhTtmJqKir5ZbbaiCUoZkYHBYroq5IU=; b=hD7axvaA3MhQ5IHRvg5sPwferC
+	T0P2OfVz6IDIDsYiFTLAxHsOd1G1Pa7RvdTkGrB7AxfmYXNBNh2dD+He4uN0sTZZPY0RZ3Qwq4fUD
+	Mkqh3RMV+q/i74fnccYP9bDLQimgvOvU5xqhg06Vq5HbR5DNr5dTnBjBPRzpqY7htuoY1tFdGwfcn
+	YEHnLgb+CfCaKnzS+dDIgW8yfsDMesQgvsK+gxZ6sLMEoX2SrHBp9OLl1sDcrzejdfTrhEh/7VWf7
+	hof5xWWzStTHudI2GDUdCBMUI0kACaWZvTdz/L3G7JlhkSr6ih2ZRDwEnnmCRD/NFuk6KmbumnBsC
+	UkrqSFSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSdz7-0000000G2rb-3EyB;
-	Fri, 20 Jun 2025 15:48:57 +0000
+	id 1uSe1L-0000000G3JS-2DMz;
+	Fri, 20 Jun 2025 15:51:15 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSduE-0000000G1RE-48Wp;
+	id 1uSduF-0000000G1RD-0Bmj;
 	Fri, 20 Jun 2025 15:43:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FB1A4AF86;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BE884AF7B;
 	Fri, 20 Jun 2025 15:43:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DE8FEC4CEFD;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C5B1EC4CEF5;
 	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750434233;
-	bh=/M12+r3YGfgPHhzGTzEcUUQ8kBfgerEmUSZKMmlZH00=;
+	bh=Uybg34ONCi1PiPWXXJtnORZRidX9fKV+ZB6A14EWDK8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sayVJNVZKgLKISWVLQnDSfZVXSuRJUYolV3t/8JZfkBqqb2XB1enavSnQwa2nsJB9
-	 +mIyyMOLPPeEPuTdYCcUYLgtX51OXZcrOYviOEAns2IAK0v75hr/VaT+uZMlRh/PiD
-	 NWi7v9OkLX9C0X7GEVzvLLMxQMDQddCO+MCcuM4XcUMIOY3y/hpKXfi/MOElcUcvXk
-	 eQqbKAhJaUsxWxs/GpwBY8KKYoRunxkT3CsABeTE5BU9ce1BWwbBgBYyXluCv8Y6KQ
-	 CEdnjNHAOkmnIYv55HZcphQt89Yjw1P4fjRrhy+CfGoW9dUM0VJ4MdBglsg8pYmCCJ
-	 FBt1LS/jItfBQ==
+	b=Re3c5ByU3H94DFDU+2m3umuAWviPlxWbcL2f9gkwtla2KeJuYCIBJZdFRf6hZGyFP
+	 mAxAXCP7RIqBv+stJfkEGZ8t+MvPNeeczipVQ8i8+tNhPOd26CUhurJDCvorT59JuN
+	 a8lomXo6PcNwxSlXCoYPtRNP7/XnqPPgEzAgJuanSJQT3F6J0re/fAZMPJI2/9tiBJ
+	 nuWgvKrFIXPCC7HkCZzNZEKPJefrqxVRQUTaLznsKBaI+No7gKX6/yw+e5xsJLEjS0
+	 muDxc8bqewjR6kAsuabgUg78nP5LDiuPvmOSCrTqwZouMnxTxIjosL5SFUl64A2UO0
+	 cfZENJKZcGZOw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D516DC7EE2A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC88AC7115B;
 	Fri, 20 Jun 2025 15:43:53 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Fri, 20 Jun 2025 18:40:46 +0300
-Subject: [PATCH 07/11] ARM: mediatek: show the hardware name for the MT6572
+Date: Fri, 20 Jun 2025 18:40:44 +0300
+Subject: [PATCH 05/11] dt-bindings: vendor-prefixes: add JTY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-mt6572-v1-7-e2d47820f042@proton.me>
+Message-Id: <20250620-mt6572-v1-5-e2d47820f042@proton.me>
 References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
 In-Reply-To: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -69,19 +69,19 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Max Shevchenko <wctrl@proton.me>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=692;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750434231; l=808;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=rvoGWdqv2dSMmfg1LUoO8gwzH9kguQfgav6FpmmRDKI=;
- b=nNMbs5zJQLhpvdSJJKi/yGGVZeDkYGDkjeiXJDReJgWtS1NTPEzGxUCKW4O4tcSkxrG1bIzE3
- UJdouGOoePyClnORUtCLwsqvZzsYQ4bqCml/qnPubIdUn8ju1nwwA7E
+ bh=qkgh9NSe5C5X30r4tLops4d54dSNCo6iOJTAIZMBoyI=;
+ b=kO4OmP4BxOqIVa2atkaH6K79hBsbJY9G6vCDkKW5XfQA11HDIqxK22P0FfCRaTbVk7LvAnXjC
+ T6elsaqLM2LC8784F08bgPT0g4HnsRkftkaSst2AdhRmqxy/yCoc4+V
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_084355_049868_5F3D98D4 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20250620_084355_143755_94214092 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,25 +100,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Max Shevchenko <wctrl@proton.me>
 
-Add a compatible string for the MT6572 SoC.
+JTY produced low-cost Android tablets based on various
+MediaTek MT65xx SoCs.
 
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- arch/arm/mach-mediatek/mediatek.c | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/mach-mediatek/mediatek.c b/arch/arm/mach-mediatek/mediatek.c
-index e6e9f93a1f01c7d043cf4312b9406b25c8897198..5c28124bd0078b31665fef647e496f4131b82c8d 100644
---- a/arch/arm/mach-mediatek/mediatek.c
-+++ b/arch/arm/mach-mediatek/mediatek.c
-@@ -38,6 +38,7 @@ static void __init mediatek_timer_init(void)
- 
- static const char * const mediatek_board_dt_compat[] = {
- 	"mediatek,mt2701",
-+	"mediatek,mt6572",
- 	"mediatek,mt6589",
- 	"mediatek,mt6592",
- 	"mediatek,mt7623",
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b28ae217643bf7a63a471f74819d18238..517bd129288c96483ffe358127ce8e16f60d902b 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -782,6 +782,8 @@ patternProperties:
+     description: Jide Tech
+   "^joz,.*":
+     description: JOZ BV
++  "^jty,.*":
++    description: JTY
+   "^kam,.*":
+     description: Kamstrup A/S
+   "^karo,.*":
 
 -- 
 2.50.0
