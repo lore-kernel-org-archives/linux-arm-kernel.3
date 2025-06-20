@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1644C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3590FC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RmxX3GcEAqirVX2xL3JmZWN/yrXriImaULmWLhDXmS8=; b=fCYNm0XNy5WJ+OREfyaK17LYUe
-	dEHPJtRpO3eSxp88KOdH+cE4wAZZP47F0chuBh1rt0Dnd2L8aiwWD+9/Q2b8IblFHFQRHI+mIXO4W
-	+JmZUehi17YKKUfyyqq9LXyBD2tOspZ8MOjfQ7NMNoDIRPuKoHakh5zxOmrUgdwj9EzYUU4iesiPX
-	q6783xMVxfq5Uad1ZFH2l7uFUgIKO9SF7W2Itl1z68ZK/TYUp7CDiedZZvc/jHBczu0AOkANeofjO
-	tcwXTvWEHKMx5Bd7c5ZKBshQqprLRq0+PWpV+z1EYll6FT5iQNFuJoQun1IcEyyVQWu+XI3jqcxaO
-	cEXtPxRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bPfdrJsc6SyDgZhcqK06/DS6CQf5yfjgO3ypGfImvDI=; b=w3E6jXcohdd5M5JGGRbUxYzt37
+	KA6+h6IVvZOMjfq6fQHII8SGCASDlxUtikI6vl4fXrJCBYnwCwCsd+FLcHS2sNxsuKUP6hOET8NAQ
+	4e08Fi2nqPo7JYOcC8eGRKX9R5DJnjkFWDttJ1/YzkxdxgxIuaMqcJgso/zDfGl2XoCvq4JVVtQ36
+	PSQNBTPmH5Us63Cn0jlZ+mYrzlk5tOiYxfTjfgo9LhsN0rQhhwjMB+zqlAJ5mExtwWz+wvDt4D2Gi
+	EM9fRi5QvDytlD7Dp84RwVCC6uQ9bKDz2N6tMSXYrEb6HeKtgdvO2idle9CZWnAn8sb7Ry7Xbz914
+	53q0hSgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSir2-0000000GaHA-2TiE;
-	Fri, 20 Jun 2025 21:00:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uSitm-0000000GaUT-2tig;
+	Fri, 20 Jun 2025 21:03:46 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSion-0000000Ga9y-0rc3;
-	Fri, 20 Jun 2025 20:58:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=RmxX3GcEAqirVX2xL3JmZWN/yrXriImaULmWLhDXmS8=; b=ISdXrzz2QewK1kgmY3GyFg++AM
-	/6qLB8uUlYUyKOF6vEmVu4PkYV1YU9zFWU6/5+u3ruI2VhbjQ/vvKep6buGqhREZwFnUwn8rHkWNr
-	pOEMuAdZXTOe7kwoLzLgXcrDUxvdojBE5aH0cuyjcY/ZWPFELOafQQhBlhaXpBM65ogxfw4VyYVMq
-	Q9ADmHPsdKuLYUz0rgw6+BFnP7AAm+HP8QxiVXjiA4ARcUToS5kmBFrsQoJS7tfbikZM1VNQuNcW1
-	UkOyJxRLekQrw3O850Ik4Tp8M1UvubhqAbKvS1mC7wHJoA2kP3JFB3gukvY0D4uV827oJy1r8dYnG
-	3fumYUYw==;
-Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uSioS-0005nr-Ra; Fri, 20 Jun 2025 22:58:16 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Hsun Lai <i@chainsx.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	andrew@lunn.ch,
-	inindev@gmail.com,
-	quentin.schulz@cherry.de,
-	jonas@kwiboo.se,
-	sfr@canb.auug.org.au,
-	nicolas.frattaroli@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [RESEND PATCH v5 0/2] Add support for Firefly Station-M3/ROC-RK3588S-PC
-Date: Fri, 20 Jun 2025 22:58:06 +0200
-Message-ID: <175045307845.1579770.12394851384194838033.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250609113044.8846-1-i@chainsx.cn>
-References: <20250609113044.8846-1-i@chainsx.cn>
+	id 1uSirX-0000000GaM1-2g5U
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 21:01:28 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-735a8be4ea9so614612a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 14:01:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750453287; x=1751058087; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bPfdrJsc6SyDgZhcqK06/DS6CQf5yfjgO3ypGfImvDI=;
+        b=pn0VM1GUv1WpM2JuB47Kxd8vwRfVBYV6S03P7RmU8BdAyj1uUUFTwI9s7RgbsNgAY1
+         zOD8KvKQdYKTyKHntPcCEterqqvj9JDfvoalQ4WvT71AOwVBrmMD5tEgv0yjSxEiOvmt
+         ZUrGDCIiO99iqlhSh6Ac3pTcmPNowBG8GlWVbfl8fBb5WuDwpLDlBGFnAMLsAcbtgKaH
+         NF4pekEDbT6U/Bk1zITdAFCKlS583k6Rmol79Qszn2hAxxi5YAAfrIwTigGlnB6M59hc
+         rS9Ek9DpDGdMosZ5an5CsNMk/XMnBTeRT8I53Uqv3P/a6qFcud58SEBlJ+Gpxgr8na1k
+         mRnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750453287; x=1751058087;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bPfdrJsc6SyDgZhcqK06/DS6CQf5yfjgO3ypGfImvDI=;
+        b=Kma7eb8uuzb2eYp3E9WzH7u82LWULWGygmvTpELzpQTEOQ6DMrPl2+gHAFDwwYH7bF
+         W6a2bJw11SbJLTCfPfB39rj4uCm2RFFhb7W9aPHdu4AkYs7co7Wse0GsRsCc+Rw/Cfpl
+         vWV5QkhjtCFqS5k+4j5CzlCEclhV9WVeqX0JvI/sU/gvET5eItoyBqIH+yzzPjWMES1F
+         x4qAch15OPf4IE6FrW2svsQkwjBAYt7f87VtGmfGvXtTmrxXakCglhFx3ez4aG+UjJVn
+         jtFXgl4+tNsRxKbWmVFbOQk0ljmKHE9RkkrjB5J5Kd6RdsVfzpIjtuUQa8T3UJduBetq
+         rQ7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUFt/aRFXXPS0Wwwn6w53twg5RFF9ylhncNaXboynGe6ihPSIV3IIJI/CQpnYT7TQTDU2hq8pCAVu4zqBW2vgyA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWGVF9U5K6/uDFCwYCiPMtMm+apIMJcGqKg14eijyv+V7uX49m
+	xYEBcH1YotHDnRP9IAtVWPXJ0FLe47yuEXNylOOEYYmS+eegnXOFGUCWYbuX2s7rrhs=
+X-Gm-Gg: ASbGnctAmCO+Kx1JXoSR5cYlhaBF7ozOSygHDngY0BJeS50MdlM6PS31c46hCYYcI1G
+	jpcFyEGGeXM6KgcDi7JFxrrl2GGqoiwIjK8znBHffJUb4CLn+ReOY/lPkOcGpB80z23l2G0rnzL
+	q/f3SH+j15FBsxxT949jE4Z+jpEKZev8pGDQQqQkAXephzYQkwDJErZFlLFNOGCTJBZfjU1gb1e
+	DtOD4H7m1kdDBNlSXAh8umpyloXFkzux//1ir2+NdUdb2uklzlUMpAKFum3vCbEe58Mv/E5Gg2s
+	pqtdQhnVsNPhI1JqhcjzyIExBkyYzL+tahAbzU70MNdjUwIWMM3H0WIODpOUqIKvFy40WA==
+X-Google-Smtp-Source: AGHT+IHKvI+mlOijqo3udRWnDlycAVvVSoeM8zvft6XIXbrw2Mbg1ujBAm0ngTbxYas49+aqilccLQ==
+X-Received: by 2002:a05:6871:7393:b0:2d9:3868:b324 with SMTP id 586e51a60fabf-2eeee4e0080mr2955071fac.23.1750453286668;
+        Fri, 20 Jun 2025 14:01:26 -0700 (PDT)
+Received: from localhost ([2603:8080:b800:f700:35a7:a70f:9610:a99b])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2eead967b86sm543589fac.50.2025.06.20.14.01.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 14:01:25 -0700 (PDT)
+Date: Sat, 21 Jun 2025 00:01:23 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	d-gole@ti.com, souvik.chakravarty@arm.com
+Subject: Re: [RFC PATCH 3/7] firmware: arm_scmi: Add Telemetry protocol
+ support
+Message-ID: <b33a0c18-2850-453f-8ee6-5574330b3670@suswa.mountain>
+References: <20250620192813.2463367-1-cristian.marussi@arm.com>
+ <20250620192813.2463367-4-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620192813.2463367-4-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_135837_240587_BBFA076B 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250620_140127_699170_0D0370D9 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 20, 2025 at 08:28:09PM +0100, Cristian Marussi wrote:
+> +	/* Build compsing DES string */
+> +	for (int i = 0; i < ti->info.num_groups; i++) {
+> +		struct scmi_telemetry_group *grp = &ti->info.des_groups[i];
+> +		char *buf = grp->des_str;
+> +		size_t bufsize = grp->des_str_sz;
+> +
+> +		for (int j = 0; j < grp->num_de; j++) {
+> +			char term = j != (grp->num_de - 1) ? ' ' : '\0';
+> +			int len;
+> +
+> +			len = snprintf(buf, bufsize, "0x%04X%c",
+> +				       ti->info.des[grp->des[j]]->id, term);
 
-On Mon, 09 Jun 2025 19:30:42 +0800, Hsun Lai wrote:
-> This series add support for Firefly Station-M3/ROC-RK3588S-PC.
-> 
-> Info of device can be found at:
-> https://wiki.t-firefly.com/en/Station-M3/index.html
-> 
-> Changes in v5:
-> - Make led-1 off by default (Chukun Pan, v4)
-> - Add color settings for led (Chukun Pan, v4)
-> - Remove vcc5v0_usbdcin
-> - Put enable/gpio before regulator (Chukun Pan, v4)
-> - Remove always-on and boot-on from vcc5v0_host (Chukun Pan, v4)
-> - Update the name of vbus_typec (Chukun Pan, v4)
-> - Remove always-on and boot-on from vbus5v0_typec (Chukun Pan, v4)
-> - Put pinctrl-names before pinctrl-0 (Chukun Pan, v4)
-> - Remove usb_con node
-> - Remove extra blank lines (Chukun Pan, v4)
-> - Add phy-supply for u2phy3_host (Chukun Pan, v4)
-> 
-> [...]
+Please use scnprintf() btw.  Otherwise if there is an overflow the
+next iteration will complain that bufsize is negative.
 
-Applied, thanks!
+> +
+> +			buf += len;
+> +			bufsize -= len;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
 
-[1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
-      commit: 4734c93b5032a3a28ab2313fd9e2a792204de2fe
-[2/2] arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
-      commit: 471f0718c815767c2c7f6ce66880f1acb9515581
+regards,
+dan carpenter
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
 
