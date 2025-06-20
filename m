@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2A7C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE4AC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DJDQ5jsltpJAHqGixOU5/Ni4jPTDl32ucuObQ0mSDyM=; b=NkCkF8zDqsBHpiryT9RQHCeWVK
-	JTgVAXk1UUBsebnnKVksiTNvGfcwPd7Dv8feo/+Akl7u2ucEukT7VTZUv/9WqD/cNYNmcqWb89x/J
-	D1rcStpTXkzu34G4BP4urD43XVxOc8UkGw0QJPlZnTN19nVuHebdFeE6sPpPYmR/qk5uk6Evi+SH7
-	YTXW9hGl1gwjf3enHnFKiQ/0gmMBy8WRuHyrvgVgUKfxYSELRj3G5kaXqMYjjofYC2WJNL0dbnRIq
-	c2YutkBklO2Jr1YzzGyG+6NM0I4jngbxR0Am5aS8nzGVjpm/J1egrDS3H7mfZkTIqmoAZUcWlBXm/
-	UlCB+HPg==;
+	bh=XvklUYDFwl5UGXL1Gm8oQZqPfot4W+sW1OgI6J/vQq8=; b=IiV8kFIo/QAACGPrYQ1ciH7kA6
+	8oktbT+tfYL/5r4ji02JPI4+ZtywTh5HoqD3DRuP7ITcCrYno9WtxwKRiYc293HPt+0aLeHwXnDft
+	9Uc0Mtq1IVL4sAWXb2t7QQa6a/9k5oDHY6ScjQGlYz3mDk4phRzlwUR2G7sZ+QWZLGUB45yzlkuH6
+	x2704JnSSNZDvJyxER2+n2jy09T5VcUpOjxXlfXgo470hluhFkOh7QuXPGvEboMHfo9FyzapTpL82
+	g2Ypuq3tvsBzAd0I/8tDC6zk5pX181J5KGO1hZUJRqZP+M5rRfDwoBlG6p9MBgc149MKH6G0EmN+p
+	tKjF23Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSexr-0000000GAxf-2UM6;
-	Fri, 20 Jun 2025 16:51:43 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeJ9-0000000G5zu-11nn
+	id 1uSf04-0000000GBEs-24nW;
+	Fri, 20 Jun 2025 16:54:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSeKJ-0000000G6Eh-0oCL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 16:09:40 +0000
-Message-ID: <91a9e80a-1a45-470b-90cf-12faae67debd@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750435775;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DJDQ5jsltpJAHqGixOU5/Ni4jPTDl32ucuObQ0mSDyM=;
-	b=BvVaoDdE4HfZlrhFrGHfLidXQq982iceIFHYawUFS82oIZutrM74DFbTSJO1YVWfqduR9M
-	mUeggRzAA2wPS595IFKDZm9MSrf6DKadVBei1/GDHu/JsDk0RSNnArFH1dYIURgjvzYjT2
-	BdUHQuD6f3YB0eV9pTofQbziWxGdBDM=
-Date: Fri, 20 Jun 2025 12:09:29 -0400
+	Fri, 20 Jun 2025 16:10:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A26016F2;
+	Fri, 20 Jun 2025 09:10:27 -0700 (PDT)
+Received: from [10.1.30.146] (XHFQ2J9959.cambridge.arm.com [10.1.30.146])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 207873F58B;
+	Fri, 20 Jun 2025 09:10:42 -0700 (PDT)
+Message-ID: <7105112f-b0bb-4191-b3c9-93522162319c@arm.com>
+Date: Fri, 20 Jun 2025 17:10:41 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH net 1/4] auxiliary: Allow empty id
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
- Saravana Kannan <saravanak@google.com>, Leon Romanovsky <leon@kernel.org>,
- Dave Ertman <david.m.ertman@intel.com>, linux-kernel@vger.kernel.org,
- Ira Weiny <ira.weiny@intel.com>, linux-arm-kernel@lists.infradead.org,
- Danilo Krummrich <dakr@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>
-References: <20250619200537.260017-1-sean.anderson@linux.dev>
- <20250619200537.260017-2-sean.anderson@linux.dev>
- <2025062004-essay-pecan-d5be@gregkh>
- <8b9662ab-580c-44ea-96ee-b3fe3d4672ff@linux.dev>
- <2025062006-detergent-spruce-5ae2@gregkh>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <2025062006-detergent-spruce-5ae2@gregkh>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
+ BBML2
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: yang@os.amperecomputing.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+ broonie@kernel.org, ardb@kernel.org, baohua@kernel.org,
+ suzuki.poulose@arm.com, david@redhat.com, jgg@ziepe.ca, nicolinc@nvidia.com,
+ jsnitsel@redhat.com, mshavit@google.com, kevin.tian@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+ <20250617095104.6772-5-miko.lenczewski@arm.com> <aFRlDSZ2PPnHixjc@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aFRlDSZ2PPnHixjc@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_090939_493922_388E28E3 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20250620_091051_321553_318C59A1 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +73,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/20/25 12:02, Greg Kroah-Hartman wrote:
-> On Fri, Jun 20, 2025 at 11:37:40AM -0400, Sean Anderson wrote:
->> On 6/20/25 01:13, Greg Kroah-Hartman wrote:
->> > On Thu, Jun 19, 2025 at 04:05:34PM -0400, Sean Anderson wrote:
->> >> Support creating auxiliary devices with the id included as part of the
->> >> name. This allows for non-decimal ids, which may be more appropriate for
->> >> auxiliary devices created as children of memory-mapped devices. For
->> >> example, a name like "xilinx_emac.mac.802c0000" could be achieved by
->> >> setting .name to "mac.802c0000" and .id to AUXILIARY_DEVID_NONE.
->> > 
->> > I don't see the justification for this, sorry.  An id is just an id, it
->> > doesn't matter what is is and nothing should be relying on it to be the
->> > same across reboots or anywhere else.  The only requirement is that it
->> > be unique at this point in time in the system.
->> 
->> It identifies the device in log messages. Without this you have to read
->> sysfs to determine what device is (for example) producing an error.
+On 19/06/2025 20:29, Catalin Marinas wrote:
+> On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
+>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>> index bcac4f55f9c1..203357061d0a 100644
+>> --- a/arch/arm64/mm/contpte.c
+>> +++ b/arch/arm64/mm/contpte.c
+>> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+>>  			pte = pte_mkyoung(pte);
+>>  	}
+>>  
+>> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+>> +	/*
+>> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
+>> +	 *
+>> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
+>> +	 *       N=4 for clarity.
+>> +	 *
+>> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
+>> +	 *       unset and set, respectively.
+>> +	 *
+>> +	 * We worry about two cases where contiguous bit is used:
+>> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
+>> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
+>> +	 *
+>> +	 * Currently, the BBML0 folding case looks as follows:
+>> +	 *
+>> +	 *  0) Initial page-table layout:
+>> +	 *
+>> +	 *   +----+----+----+----+
+>> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
+>> +	 *   +----+----+----+----+
+>> +	 *
+>> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
+>> +	 *
+>> +	 *   +----+----+----+----+
+>> +	 *   |  0 |  0 |  0 |  0 |
+>> +	 *   +----+----+----+----+
+>> +	 *
+>> +	 *  2) __flush_tlb_range():
+>> +	 *
+>> +	 *   |____ tlbi + dsb ____|
+>> +	 *
+>> +	 *  3) __set_ptes() to repaint contiguous block:
+>> +	 *
+>> +	 *   +----+----+----+----+
+>> +	 *   |RO,c|RO,c|RO,c|RO,c|
+>> +	 *   +----+----+----+----+
 > 
-> That's fine, read sysfs :)
-
-I should not have to read sysfs to decode boot output. If there is an
-error during boot I should be able to determine the offending device.
-This very important when the boot process fails before init is started,
-and very convenient otherwise. 
-
->> This
->> may be inconvenient to do if the error prevents the system from booting.
->> This series converts a platform device with a legible ID like
->> "802c0000.ethernet" to an auxiliary device, and I believe descriptive
->> device names produce a better developer experience.
+> From the initial layout to point (3), we are also changing the
+> permission. Given the rules you mentioned in the Arm ARM, I think that's
+> safe (hardware seeing either the old or the new attributes). The
+> FEAT_BBM description, however, only talks about change between larger
+> and smaller blocks but no mention of also changing the attributes at the
+> same time. Hopefully the microarchitects claiming certain CPUs don't
+> generate conflict aborts understood what Linux does.
 > 
-> You can still have 802c0000.ethernet be the prefix of the name, that's
-> fine.
-
-This is not possible due to how the auxiliary bus works. If device's
-name is in the form "foo.id", then the driver must have an
-auxiliary_device_id in its id_table with .name = "foo". So the address
-*must* come after the last period in the name.
-
---Sean
-
->> This is also shorter and simpler than auto-generated IDs.
+>> +	 *
+>> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
+>> +	 *
+>> +	 *                  |____| <--- tlbi + dsb
+> [...]
+>> +	 * It is also important to note that at the end of the BBML2 folding
+>> +	 * case, we are still left with potentially all N TLB entries still
+>> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
+>> +	 * block). However, over time, natural TLB pressure will cause the
+>> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
+>> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
+>> +	 * not only correct, but also keeps our eventual performance benefits.
 > 
-> Please stick with auto-generated ids, they will work properly here.
+> Step 4 above implies some TLB flushing from the core code eventually.
+> What is the situation mentioned in the paragraph above? Is it only until
+> we get the TLB flushing from the core code?
+
+I think the point that Miko is making here is that at some point between step 3
+and 4, we could end up with up to any 3 of the original small entries as well as
+the large entry in the TLB. Then the flush at step 4 will only remove the small
+entry at the last entry and the large entry - i.e. it will only remove the
+entries that overlap the region that the tlbi targets, and up to 3 of the small
+entries may be left in the TLB after step 4. Our rationale here was that this is
+safe due to BBML2 and it will naturally sort itself out over time with natural
+eviction.
+
 > 
-> thanks,
+> [...]
+>> +	if (!system_supports_bbml2_noabort())
+>> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+>>  
+>>  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
 > 
-> greg k-h
+> Eliding the TLBI here is all good but looking at the overall set_ptes(),
+> why do we bother with unfold+fold for BBML2? Can we not just change
+> them in place without going through __ptep_get_and_clear()?
+
+We need to collect the access and dirty bits so we can apply the aggregate
+across all entries. We can only accurately collect the access and dirty bits if
+we go via invalid, otherwise the HW could update after we have read the old
+entry but before we have written the new entry.
+
+Thanks,
+Ryan
+
 
