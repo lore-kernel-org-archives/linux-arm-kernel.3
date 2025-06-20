@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A01C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA9C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 08:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZm1o6+egkUCw/+uFtfcUYBozL8JD2074TeBrjrjeRI=; b=cn9fDNZbgFgietdxYh/8WpJjJS
-	4rQbk0XHzFLp2xL0XDsWDFFig+cC2kOL00gEac5fEr+Hr2NO0885NLFRxlKfJjYjpizRK2JaFeylM
-	oMLzRezS0ecPeXqM1hpK5R/JHVG9Vl5cxTOVOKfgAIw/X6EMXoE8oeV4+PEuLJnVk4lQwC+618249
-	lVPerQXJ28xsaq8LqyFeyzOgFtzrs+HgThjDHJsfTXiOI7+2XkeQlQ6ikf9BFaqG4ElqULkJSOtMD
-	VIOulSSdgHqGuK24gee+k5ympwd6Bcu1Yra1yXlUMOHQTR8q/DcIDAVoYuAbmAoy1TPahfn+rJHhs
-	H8xPN+Pw==;
+	bh=wE63LoVDPWCa0QMdvT4TmnO/F7iQTH1SWzFz1ZbwKGo=; b=sbRYElbB9WRtaOFvxRRf7vvtUJ
+	b/LFoF6xC7E6ILU9lckJZQaJeycAzqRS7ksroXSWgLY3AtA2kfEWoekxJGciu8OaqKarOEhjIy76s
+	Gqhsj6JsVsztfxggPxq2jyTkdkmyGYsV36/2mbMXF4fXHgQpYvUbD0NCgwRKzV3X+fmAWRItwG8wx
+	NkuexlSBz/SlaTu2Fw9uCTrtgJuNpsIZzR5fLIr1JZoBzQ/cuubTwB3e9m+ypTlNJgoz0SplvUf53
+	k7E7xqu8ucW4PjokXV4HUK+ZIOTCaiMP5tCx/Djd6xGcgOFN8g/74Y+AS35EEDSdbMFJkYcE+sxAz
+	ocNzLGCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSXB6-0000000F4RO-1k0M;
-	Fri, 20 Jun 2025 08:32:52 +0000
+	id 1uSXDJ-0000000F4mP-0f6F;
+	Fri, 20 Jun 2025 08:35:09 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSWut-0000000F1rv-3eR7
+	id 1uSWuu-0000000F1rs-0siF
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Jun 2025 08:16:11 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6954843423;
-	Fri, 20 Jun 2025 08:16:05 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 36132433F1;
+	Fri, 20 Jun 2025 08:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750407366;
+	t=1750407365;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MZm1o6+egkUCw/+uFtfcUYBozL8JD2074TeBrjrjeRI=;
-	b=WBXF9GUGCT7g1dy0nhcpo2SpuqQN6i/s23zX+d+ikqh0MpUuaXzLezau7cqW2nytG9m+ZZ
-	KjO+Q4cbA6cW3NcAa9L5nTwq2LagYMkcJhDawz9tC3/V2+JydN4G9T+ZgR2dH+xzzcdrqV
-	kRLSd3Iq/VWGHDcqntc9GEBsEQhp8IqkZFn1tIAl+jvPnSK81z30Vgi+JXApB8ooa+1RAm
-	OHW52OKcB16ounHnKceEJP1M0MZAu24OWgdqtcPVl26pDnpW630bek0U5qLOKyEfHEOXDD
-	ws/9cVbN9cVGRpqExXpsXYK7sXPPk7PBRvsp3jdYZ/v/c3Qv+9eW9GSw/6cRCw==
+	bh=wE63LoVDPWCa0QMdvT4TmnO/F7iQTH1SWzFz1ZbwKGo=;
+	b=kwCVz3451E2JKDHiZtUrySRjTxpiEWrbLUhMuqigelChaoGpMCFQo7E+/yyK8byoQvlbhT
+	5pbnP4NaMntnRufmh1tXWsvvIy086xo8fKAcM5X4uVGPh0T7Y5/rCpSE8pd6jNdci+oomG
+	4AZSaTPn2uYfcdPklrDwWfGgOoCBPYh8r6Vnq8tRcP6UYkskC1nVrBjMN/4zKnHETyt/sQ
+	t9ZJOGtGLFIeLXuIpyAgsO/RytnNKfKa2fFN5Pj1GLHLt9LGoIkE7IyHcq86BHS0eqIiNe
+	Oz4Ts0kbvd5ahqymX3TtmZg6/keBwy+PaW11edGClJDfAbo8q2MqgHDPZl0H5g==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Fri, 20 Jun 2025 10:15:54 +0200
-Subject: [PATCH v5 3/5] arm: dts: omap: Add support for BeagleBone Green
- Eco board
+Date: Fri, 20 Jun 2025 10:15:53 +0200
+Subject: [PATCH v5 2/5] dt-bindings: omap: Add Seeed BeagleBone Green Eco
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-bbg-v5-3-84f9b9a2e3a8@bootlin.com>
+Message-Id: <20250620-bbg-v5-2-84f9b9a2e3a8@bootlin.com>
 References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
 In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
 To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
@@ -66,16 +65,18 @@ Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>,
  linux-arm-kernel@lists.infradead.org, 
  Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
  Romain Gantois <romain.gantois@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>
+ Kory Maincent <kory.maincent@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.15-dev-dd21f
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdejkeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgfdvgfektefgfefggeekudfggffhtdfffedtueetheejtddvledvvdelhedtveenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehmrghrtgdrmhhurhhphhihsehsrghntghlohhuugdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepphhrrghnvggvthhhsehtihdrtghomhdprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkohhrhidrm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdejkeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgfdvgfektefgfefggeekudfggffhtdfffedtueetheejtddvledvvdelhedtveenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrghrtgdrmhhurhhphhihsehsrghntghlohhuugdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepphhrrghnvggvthhhsehtihdrtghomhdprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkohhrhidrm
  hgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhho
 X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_011608_072156_B65DBEFA 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250620_011608_383350_4F4C6261 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,214 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
-(BBG). It has minor differences from the BBG, such as a different PMIC,
-a different Ethernet PHY, and a larger eMMC.
+Document the seeed,am335x-bone-green-eco compatible string in the
+appropriate place within the omap family binding file.
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
 Changes in v4:
-- Forgot to change the model description to "Seeed Studio" instead of "ti".
+- Forgot a 'e' to seeed in the commit message.
 
 Changes in v3:
-- Move the omap.yaml binding change in another patch.
-
-Changes in v2:
-- Used generic pmic node name.
-- Add regulator prefix to fixed regulator node name.
-- Add the compatible to omap.yaml binding
+- New patch
 ---
- arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
- arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 169 +++++++++++++++++++++
- 2 files changed, 170 insertions(+)
+ Documentation/devicetree/bindings/arm/ti/omap.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/ti/omap/Makefile b/arch/arm/boot/dts/ti/omap/Makefile
-index 95c68135dd0c..1aef60eef671 100644
---- a/arch/arm/boot/dts/ti/omap/Makefile
-+++ b/arch/arm/boot/dts/ti/omap/Makefile
-@@ -93,6 +93,7 @@ dtb-$(CONFIG_SOC_AM33XX) += \
- 	am335x-boneblue.dtb \
- 	am335x-bonegreen.dtb \
- 	am335x-bonegreen-wireless.dtb \
-+	am335x-bonegreen-eco.dtb \
- 	am335x-chiliboard.dtb \
- 	am335x-cm-t335.dtb \
- 	am335x-evm.dtb \
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
-new file mode 100644
-index 000000000000..d21118cdb6c2
---- /dev/null
-+++ b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 Bootlin
-+ */
-+/dts-v1/;
-+
-+#include "am33xx.dtsi"
-+#include "am335x-bone-common.dtsi"
-+#include "am335x-bonegreen-common.dtsi"
-+#include <dt-bindings/net/ti-dp83867.h>
-+
-+/ {
-+	model = "Seeed Studio BeagleBone Green Eco";
-+	compatible = "seeed,am335x-bone-green-eco", "ti,am33xx";
-+
-+	cpus {
-+		cpu@0 {
-+			cpu0-supply = <&buck1>;
-+		};
-+	};
-+
-+	sys_5v: regulator-sys-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "sys_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	v3v3: regulator-v3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "v3v3";
-+		regulator-always-on;
-+	};
-+};
-+
-+&usb0 {
-+	interrupts-extended = <&intc 18>;
-+	interrupt-names = "mc";
-+};
-+
-+&baseboard_eeprom {
-+	vcc-supply = <&v3v3>;
-+};
-+
-+&i2c0 {
-+	/delete-node/ pmic@24;
-+
-+	tps65214: pmic@30 {
-+		compatible = "ti,tps65214";
-+		reg = <0x30>;
-+		buck1-supply = <&sys_5v>;
-+		buck2-supply = <&sys_5v>;
-+		buck3-supply = <&sys_5v>;
-+		ldo1-supply = <&sys_5v>;
-+		ldo2-supply = <&sys_5v>;
-+
-+		interrupt-parent = <&intc>;
-+		interrupts = <7>;
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+
-+		regulators {
-+			buck1: buck1 {
-+				regulator-name = "vdd_mpu";
-+				regulator-min-microvolt = <925000>;
-+				regulator-max-microvolt = <1298500>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck2: buck2 {
-+				regulator-name = "vdd_core";
-+				regulator-min-microvolt = <925000>;
-+				regulator-max-microvolt = <1150000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-name = "vdds_ddr";
-+				regulator-min-microvolt = <1350000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+			};
-+
-+			ldo1_reg: ldo1 {
-+				regulator-name = "vdd_1v8_1";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo2_reg: ldo2 {
-+				regulator-name = "vdd_1v8_2";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&cpsw_port1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&dp83867_0>;
-+	ti,dual-emac-pvid = <1>;
-+};
-+
-+&mac_sw {
-+	pinctrl-0 = <&cpsw_b_default>;
-+	pinctrl-1 = <&cpsw_b_sleep>;
-+};
-+
-+&davinci_mdio_sw {
-+	/delete-node/ ethernet-phy@0;
-+
-+	dp83867_0: ethernet-phy@0 {
-+		reg = <0>;
-+		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
-+		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
-+		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_8_B_NIB>;
-+		ti,min-output-impedance;
-+		ti,dp83867-rxctrl-strap-quirk;
-+	};
-+};
-+
-+&am33xx_pinmux {
-+	cpsw_b_default: cpsw-b-default-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_EN, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_DV, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_CLK, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD0, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD1, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD2, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD3, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD0, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD1, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD2, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD3, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+		>;
-+	};
-+
-+	cpsw_b_sleep: cpsw-b-sleep-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_EN, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_DV, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD0, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD1, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD2, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD3, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD0, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD1, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD2, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD3, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+		>;
-+	};
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_IOPAD(AM335X_PIN_NNMI, PIN_INPUT_PULLUP | MUX_MODE0)
-+		>;
-+	};
-+};
+diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+index 3603edd7361d..aa5df4692e37 100644
+--- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+@@ -107,6 +107,7 @@ properties:
+               - compulab,cm-t335
+               - moxa,uc-8100-me-t
+               - novatech,am335x-lxm
++              - seeed,am335x-bone-green-eco
+               - ti,am335x-bone
+               - ti,am335x-evm
+               - ti,am3359-icev2
 
 -- 
 2.43.0
