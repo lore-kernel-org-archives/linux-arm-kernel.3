@@ -4,109 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE32C7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53C6C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=; b=30imPncQcsqMT9M1Vcy+hv/69E
-	lbPQxjH1a2HveC6jE8h/esnVEABuPj+rOZ5fmfonQJqhX4nvOQZ/2vYNkHkNZk8iGY1ENM3xWfnlM
-	T2pemwxUVGFLmbsJDHljodxA4bCiCrGUAocOJdMzzU2IAXf7b75OCWtAjeDOh6Z0Oiqrsg7paHvfJ
-	blv96gjmO0jkMuA/EIX313mXIFdVqm77bAjVv2barwzNPUU5Ka0TWFcKpDwnWhBqEc59jaYVNQUUJ
-	o1feHy9wICHcWaEeJOwmIStFRxLaLjDuSsILEjtVw7gsYKsUHeA1xHSvw8LEgLxGeXcWM2F7j3CdH
-	1TY80GJA==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PcgXI/SwiX/bwD34wkRIbcjhA4z+lQnGQOUOu85+vT8=; b=EZT5vI1gUQSVJsoE3Z6ioUUVai
+	1Csy/KZrJeLT/nby0/tEQ1739RcmyJX681QHXw7gJybKnw0hSlI5gAMTis5sMcIs5ivBsOKettvRq
+	iPOjHGUzKwuJITDqMFvWFV/HvivpcPUpCYAipR3fFMgiXzoCtsTOjDKW/+ZwkdtX9hzSWzBszTaK/
+	OmRqfCtDHhj/KnIH9AksqOto3evm31jRMb1jGtd/D4Egr8JIFAdIbvs0WMCDpwKpdmwKtQ06rtnrb
+	3JlSh/FqL/a++vi6LJMcI7Mxf5jugVIhpEnFdg386HSQW6EQGfWneThDxJ5wpYKebl797lKQjNW9F
+	i4M5Q7WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSaRU-0000000FWUe-1XqM;
-	Fri, 20 Jun 2025 12:02:00 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uSaTj-0000000FWnJ-0F3I;
+	Fri, 20 Jun 2025 12:04:19 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSa1P-0000000FTVl-1MDa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 11:35:04 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-451ebd3d149so10928905e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 04:35:02 -0700 (PDT)
+	id 1uSa2d-0000000FTfe-0VkX;
+	Fri, 20 Jun 2025 11:36:20 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-607cf70b00aso3110762a12.2;
+        Fri, 20 Jun 2025 04:36:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750419301; x=1751024101; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=;
-        b=SCeR2X0YxrDV7RnAp89S81KtU5UwQLnBhM5F3m+0rs5jPY3NaD/xJgVSHUa9LZPHVm
-         vCKsN49d3+ryzh3JktZkGTrEVlsDTOkKasgW0y0HoFG21FzBXnCSiw9ax+MxBAYpSNYI
-         Ai/6Y+PrtXYx/oNkfIapyGmxePVEOvfDtW3x7YHTxcZaw0F4Rus3GReJdL3L9ZNGgEEy
-         Y6qeTmwHeKgpUDk+LzYbBSX6Z/vLKwPc5xiU61VTb39gajdeW8BrJr8hr4O+e3ttkqCS
-         7UtiyMhYwTZM4TsIvniyACz5rcBSChwoLvkQm77WJGO7pbppvfOAqEvlse25aYIaWBts
-         49Dw==
+        d=gmail.com; s=20230601; t=1750419377; x=1751024177; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PcgXI/SwiX/bwD34wkRIbcjhA4z+lQnGQOUOu85+vT8=;
+        b=DSa7LVLU459+NKxKHHJQja4hJRQ0MVr5LWEsPoO4pI8gmLWs0aqC36gkUZQBK1AanA
+         +XxVtP/FWdC/J/EktpK0/ezRI+pk9zaaTDReBUOSutjMZiPbgtb24CKUWIMtU6GQQImC
+         VLMonKLg/awcXHCPYHIPm6HZMt2iRt8moI0zPqqwrDDGLqWRnh7TGzwrgToJDiauQH2C
+         tr7jbLN0c2IadgLcfUDyjguxC9aCCiqUrbJcFjrvRf8haorGOwgc3X4YGHo/1nOLZWGI
+         X75Ex4FvVBqEuWOR/pps85BXWTXeOwLCvmF0P0uAbMfW4y0n/XIrJQ4B9BAUxbTgT01e
+         etyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750419301; x=1751024101;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=;
-        b=vbRBXc7yuW+sDrAzky8n+KVfSp9uKwZ8NJaM0IQkgk9p88zGndAHNSXFt/LejfOPjR
-         hjcwNj4CAEtdyAU8JaP3Pnes+0h+X/UmjXAd91AnCADFO9Ri+62fwQveAzroEIMgRM26
-         XoNi6JNnpbaJ8+ECuGrQAyKO9uw4zfsfGh3UBe6puw4fliSj6n3mqdLSbB9Wnadbjd9s
-         hzzjInHv/jruwXTD24woQ/L4dcRgNHBlmoIglQUdCttD5pcDzrb2BtsMOplEx65My8J0
-         V78n8sbA1YJ5DZgMNQF7nzhO6sZXl9wfHc8NADZYDmBxu24+yjenypcKk2/cwPGNf3nE
-         6D5A==
-X-Forwarded-Encrypted: i=1; AJvYcCWnlhTzhbsjW09L5EyDT6ror+ui6piveA9UuMSWCKxJ2RQSjOF68X/r7AiYZhnICrEz97HLPqGM7/P+gWVlaRh5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzIkDg9SbB8IuavljJ9treZVUIwfQlLKy95Q9ZbSy26trL1NCI
-	6/C2UABwCibT6JI54/ucnkNDInHpIKOP3jidB2RtstvJDh27DxnbKbKSlX4XFcKpndw=
-X-Gm-Gg: ASbGncsrVYkYjTyHhyp0x/73GTr9EnIu7Qdldqc3YP3BdlUPDq4B1jf3N58PoJlQENR
-	MMCw76m1cqYKqbmeA+m7GL/+KcuJiep/4JEs+Bv+3AMTvTQUkmnBYmdQeOMStbSoorgrUdCc01Y
-	AshsyFMYAUQhRlLanBgcrnG5BUaAgmCTw2XgkHlYbMZLcG51Eptki40G4p2HVC82VYwh6+fKfWx
-	cerxEA6Q3MYHbcsV8kVWwTUFaCIfwHPw/7mZOF9EDw4oX/ylbnIuv8rwtt09rHN+oYAI6pxTbBt
-	2dzTy/LClr8+kZcZggUjvL4psEFgU5j89NBeNOAWH16tpMds4gQ32747hmIdMXOsnLXgeqxZIub
-	rR8VDWpAU5nu5qjvDWdNGbFJ+lRSLPKZ+Klf4/g==
-X-Google-Smtp-Source: AGHT+IE1sXxRjLWuyIxfMRq0XXnIfr9OoB0veGRrzBhEEckmil/o3iPtYIVQriMIP2J3nRsToyH7gw==
-X-Received: by 2002:a05:600c:3b15:b0:450:cf46:5510 with SMTP id 5b1f17b1804b1-453656c3641mr24495235e9.29.1750419301323;
-        Fri, 20 Jun 2025 04:35:01 -0700 (PDT)
-Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4535ebcecb5sm56839975e9.37.2025.06.20.04.34.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Jun 2025 04:35:00 -0700 (PDT)
-Message-ID: <0ee2a535-82e9-4916-9755-a68695167715@linaro.org>
-Date: Fri, 20 Jun 2025 12:34:58 +0100
+        d=1e100.net; s=20230601; t=1750419377; x=1751024177;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PcgXI/SwiX/bwD34wkRIbcjhA4z+lQnGQOUOu85+vT8=;
+        b=oF95SOWnZmFS0coDvsCasUZjb7H44bdAXmsU/FeV5CabDdd04kZ+k2Zbew1hb6T7eF
+         xn+U64SpFYkDhq8N9Wz/LnIPkNsf4ezvvQtED77fF3d4R2+FcIiZtK54uysnOt0BhGp8
+         UhZZ66OHJXdzNqjFkGIudjOH3Z4c6Cn++5Bu2wnc/TIrVCBMMUgX/wMvtVQtOyEJOBA4
+         X+SJXX9T+IlnElyHkv+aGX5K7Ukf2AMtkHA2ktt/rzBTzRlMocfIZA145EsaJXJJPY5q
+         Z3bVq+elOWdA9JB5RR5PmbiGhmEcAHBvL7QCfwWpgwSN4tDlyW9l2TZ+xZDOPeTwRQ1b
+         jTLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUs7LDpmhKl5OzCVOE0ENkrezV9srmOdtSuskraYIA/8Gqsy7nPA+g5pS5vgzKflD3qj7e4GalW9NUsDe5zzwXY@lists.infradead.org, AJvYcCWdQ5II2kx9WihoqLVcj7BXg/9nhlRRKLrtEQQeRrR1yE/XtGkvRwBgn8X5PGMbvT/18DvfE/p7LfEN6B8VYBA=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9c8EqIXbVG49icOR6alkeOVEbw9vzADBh5JwhoHZAqKDNrxbO
+	o0zBwvAH5J2LBZa8mdf7bIBHlsugI/JwOCorcxDMj+1k0UUELI4S5R0O
+X-Gm-Gg: ASbGncuuFkKcjuh1BbpW9KGd8YwUJy2N4bNeZ1kzd9Y5zsI5wY6tVm7RTgSC2bY/2XO
+	nYezqpD4U+02VEJ0tBxZxq0dWkOc3s1H76j583B7TjJCLMyaUDYzd4lPffBqTBiJ+e2QQ0vDuCR
+	3PCMkf4jifFw/VZcsLVOpU2K2VeIgjCm+RVyp4yYqQFIMIE7AE6/S2TFs1LPHGE3lIokbrptshv
+	d89lF0i62FUA96kaPE3KFIj5vR0T6CImB+lEj0kRYRcQDTs328/paI/xf0gNaawjpHhJ/UYAKVZ
+	mIoGbHbWTLrfy+8Ku6X7G6oqYFp89VnR/ygLcSSLVYQIZzyMe4Xm22Umc+c6coyqMELb82/a1sw
+	zo331v4ZzqMez4iXVagpVbHrcN/g59nFotARD2KKX
+X-Google-Smtp-Source: AGHT+IHBoM3zuM2+rcjourKLd9oqU11oDVF2zMJ82/RpbVFFdMzcRAVeWNOk+uMVQHC4Dg6qq0mMDA==
+X-Received: by 2002:a05:6402:2749:b0:608:42f9:a5cb with SMTP id 4fb4d7f45d1cf-60a1cd314aemr2249040a12.10.1750419376882;
+        Fri, 20 Jun 2025 04:36:16 -0700 (PDT)
+Received: from localhost.localdomain (ip092042140082.rev.nessus.at. [92.42.140.82])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60a18504e95sm1302003a12.4.2025.06.20.04.36.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 04:36:16 -0700 (PDT)
+From: Jakob Unterwurzacher <jakobunt@gmail.com>
+X-Google-Original-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Farouk Bouabid <farouk.bouabid@cherry.de>,
+	Johan Jonker <jbx6244@gmail.com>
+Cc: stable@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: use cs-gpios for spi1 on ringneck
+Date: Fri, 20 Jun 2025 13:35:46 +0200
+Message-Id: <20250620113549.2900285-1-jakob.unterwurzacher@cherry.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 07/13] media: rockchip: add driver for mipi csi-2
- receiver
-To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Markus Elfring <Markus.Elfring@web.de>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20240220-rk3568-vicap-v8-0-9d9cbc4b524d@collabora.com>
- <20240220-rk3568-vicap-v8-7-9d9cbc4b524d@collabora.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20240220-rk3568-vicap-v8-7-9d9cbc4b524d@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_043503_393911_C7402958 
-X-CRM114-Status: GOOD (  33.20  )
+X-CRM114-CacheID: sfid-20250620_043619_161499_FAAD3837 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,353 +110,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2025 18:06, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@collabora.com>
-> 
-> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
-> input port and one output port. It receives the data with the help
-> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
-> Rockchip RK3568 Video Capture (VICAP) block.
-> 
-> Add a V4L2 subdevice driver for this unit.
-> 
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->   MAINTAINERS                                    |   1 +
->   drivers/media/platform/rockchip/Kconfig        |   1 +
->   drivers/media/platform/rockchip/Makefile       |   1 +
->   drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
->   drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
->   drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 735 +++++++++++++++++++++++++
->   6 files changed, 757 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 40d806c206be..5b9228f6ddae 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21463,6 +21463,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
->   L:	linux-media@vger.kernel.org
->   S:	Maintained
->   F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
-> +F:	drivers/media/platform/rockchip/rkcsi/
->   
->   ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
->   M:	Daniel Golle <daniel@makrotopia.org>
-> diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-> index 549f4e9f443e..96b38768c17e 100644
-> --- a/drivers/media/platform/rockchip/Kconfig
-> +++ b/drivers/media/platform/rockchip/Kconfig
-> @@ -4,4 +4,5 @@ comment "Rockchip media platform drivers"
->   
->   source "drivers/media/platform/rockchip/rga/Kconfig"
->   source "drivers/media/platform/rockchip/rkcif/Kconfig"
-> +source "drivers/media/platform/rockchip/rkcsi/Kconfig"
->   source "drivers/media/platform/rockchip/rkisp1/Kconfig"
-> diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-> index 6aba32c8830c..932be2d3fdd6 100644
-> --- a/drivers/media/platform/rockchip/Makefile
-> +++ b/drivers/media/platform/rockchip/Makefile
-> @@ -1,4 +1,5 @@
->   # SPDX-License-Identifier: GPL-2.0-only
->   obj-y += rga/
->   obj-y += rkcif/
-> +obj-y += rkcsi/
->   obj-y += rkisp1/
-> diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
-> new file mode 100644
-> index 000000000000..d8004198c386
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
-> @@ -0,0 +1,16 @@
-> +config VIDEO_ROCKCHIP_CSI
-> +	tristate "Rockchip MIPI CSI-2 Receiver"
-> +	depends on VIDEO_DEV
-> +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> +	depends on V4L_PLATFORM_DRIVERS
-> +	depends on PM && COMMON_CLK
-> +	select MEDIA_CONTROLLER
-> +	select V4L2_FWNODE
-> +	select VIDEO_V4L2_SUBDEV_API
-> +	help
-> +	  This is a driver for Rockchip MIPI CSI-2 Receiver. It is featured
-> +	  in various Rockchips SoCs, usually in combination with a Video
-> +	  Capture (VICAP) unit (see Rockchip Camera Interface (CIF) driver).
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called rockchip-mipi-csi.
-> diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
-> new file mode 100644
-> index 000000000000..147712cbb68a
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkcsi/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +obj-$(CONFIG_VIDEO_ROCKCHIP_CSI) += rockchip-mipi-csi.o
-> +rockchip-mipi-csi-objs += rkcsi.o
-> diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-> new file mode 100644
-> index 000000000000..eaad3608337e
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-> @@ -0,0 +1,735 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Rockchip MIPI CSI-2 Receiver Driver
-> + *
-> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
-> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/reset.h>
-> +
-> +#include <media/mipi-csi2.h>
-> +#include <media/v4l2-ctrls.h>
-> +#include <media/v4l2-fwnode.h>
-> +#include <media/v4l2-subdev.h>
-> +
-> +#define CSI2HOST_N_LANES     0x04
-> +#define CSI2HOST_CSI2_RESETN 0x10
-> +#define CSI2HOST_PHY_STATE   0x14
-> +#define CSI2HOST_ERR1	     0x20
-> +#define CSI2HOST_ERR2	     0x24
-> +#define CSI2HOST_MSK1	     0x28
-> +#define CSI2HOST_MSK2	     0x2c
-> +#define CSI2HOST_CONTROL     0x40
-> +
-> +#define SW_CPHY_EN(x)	     ((x) << 0)
-> +#define SW_DSI_EN(x)	     ((x) << 4)
-> +#define SW_DATATYPE_FS(x)    ((x) << 8)
-> +#define SW_DATATYPE_FE(x)    ((x) << 14)
-> +#define SW_DATATYPE_LS(x)    ((x) << 20)
-> +#define SW_DATATYPE_LE(x)    ((x) << 26)
-> +
-> +#define RKCSI_CLKS_MAX	     1
-> +
-> +enum {
-> +	RKCSI_PAD_SINK,
-> +	RKCSI_PAD_SRC,
-> +	RKCSI_PAD_MAX,
-> +};
-> +
-> +struct rkcsi_format {
-> +	u32 code;
-> +	u8 depth;
-> +	u8 csi_dt;
-> +};
-> +
-> +struct rkcsi_device {
-> +	struct device *dev;
-> +
-> +	void __iomem *base_addr;
-> +	struct clk_bulk_data *clks;
-> +	unsigned int clks_num;
-> +	struct phy *phy;
-> +	struct reset_control *reset;
-> +
-> +	const struct rkcsi_format *formats;
-> +	unsigned int formats_num;
-> +
-> +	struct media_pad pads[RKCSI_PAD_MAX];
-> +	struct v4l2_async_notifier notifier;
-> +	struct v4l2_fwnode_endpoint vep;
-> +	struct v4l2_subdev sd;
-> +
-> +	struct v4l2_subdev *source_sd;
-> +	u32 source_pad;
-> +};
-> +
-> +static const struct v4l2_mbus_framefmt default_format = {
-> +	.width = 3840,
-> +	.height = 2160,
-> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +	.field = V4L2_FIELD_NONE,
-> +	.colorspace = V4L2_COLORSPACE_RAW,
-> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
-> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
-> +	.xfer_func = V4L2_XFER_FUNC_NONE,
-> +};
-> +
-> +static const struct rkcsi_format formats[] = {
-> +	/* YUV formats */
-> +	{
-> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.depth = 16,
-> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-> +		.depth = 16,
-> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
-> +		.depth = 16,
-> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
-> +		.depth = 16,
-> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> +	},
-> +	/* RGB formats */
-> +	{
-> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
-> +		.depth = 24,
-> +		.csi_dt = MIPI_CSI2_DT_RGB888,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
-> +		.depth = 24,
-> +		.csi_dt = MIPI_CSI2_DT_RGB888,
-> +	},
-> +	/* Bayer formats */
-> +	{
-> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> +		.depth = 8,
-> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> +		.depth = 8,
-> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> +		.depth = 8,
-> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> +		.depth = 8,
-> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +		.depth = 10,
-> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +		.depth = 10,
-> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +		.depth = 10,
-> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +		.depth = 10,
-> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +		.depth = 12,
-> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +		.depth = 12,
-> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +		.depth = 12,
-> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> +	},
-> +	{
-> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +		.depth = 12,
-> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> +	},
-> +};
-> +
-> +static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
-> +{
-> +	return container_of(sd, struct rkcsi_device, sd);
-> +}
-> +
-> +static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
-> +					      unsigned int addr, u32 val)
-> +{
-> +	writel(val, csi_dev->base_addr + addr);
-> +}
-> +
-> +static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
-> +					    unsigned int addr)
-> +{
-> +	return readl(csi_dev->base_addr + addr);
-> +}
-> +
-> +static const struct rkcsi_format *
-> +rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
-> +{
-> +	const struct rkcsi_format *format;
-> +
-> +	WARN_ON(csi_dev->formats_num == 0);
-> +
-> +	for (int i = 0; i < csi_dev->formats_num; i++) {
-> +		format = &csi_dev->formats[i];
-> +		if (format->code == mbus_code)
-> +			return format;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static int rkcsi_start(struct rkcsi_device *csi_dev)
-> +{
-> +	struct media_pad *source_pad =
-> +		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
-> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
-> +	union phy_configure_opts opts;
-> +	s64 link_freq;
-> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
-> +	u32 control = 0;
-> +	int ret;
-> +
-> +	if (lanes < 1 || lanes > 4)
-> +		return -EINVAL;
-> +
-> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
-> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
-> +	if (link_freq <= 0)
-> +		return -EINVAL;
-> +
-> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
-> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
-> +
-> +		phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2, lanes,
-> +							   cfg);
-> +		phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
-> +		phy_configure(csi_dev->phy, &opts);
+From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 
-This function can return an error, shouldn't you be capturing it ?
+Hardware CS has a very slow rise time of about 6us,
+causing transmission errors when CS does not reach
+high between transaction.
 
-drivers/phy/rockchip/phy-rockchip-innoc-csidphy.c::rockchip_inno_csidphy_configure();
+It looks like it's not driven actively when transitioning
+from low to high but switched to input, so only the CPU
+pull-up pulls it high, slowly. Transitions from high to low
+are fast. On the oscilloscope, CS looks like an irregular sawtooth
+pattern like this:
+                         _____
+              ^         /     |
+      ^      /|        /      |
+     /|     / |       /       |
+    / |    /  |      /        |
+___/  |___/   |_____/         |___
 
-> +
-> +		control |= SW_CPHY_EN(0);
-> +
-> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
-> +		control |= SW_CPHY_EN(1);
+With cs-gpios we have a CS rise time of about 20ns, as it should be,
+and CS looks rectangular.
 
-Do you need to flag this when you are returning an error ?
+This fixes the data errors when running a flashcp loop against a
+m25p40 spi flash.
 
-Other than that looks pretty good.
+With the Rockchip 6.1 kernel we see the same slow rise time, but
+for some reason CS is always high for long enough to reach a solid
+high.
 
+The RK3399 and RK3588 SoCs use the same SPI driver, so we also
+checked our "Puma" (RK3399) and "Tiger" (RK3588) boards.
+They do not have this problem. Hardware CS rise time is good.
+
+Fixes: c484cf93f61b ("arm64: dts: rockchip: add PX30-µQ7 (Ringneck) SoM with Haikou baseboard")
+Cc: stable@vger.kernel.org
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 ---
-bod
+ .../boot/dts/rockchip/px30-ringneck.dtsi      | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+index ab232e5c7ad6..dcc62dd9b894 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+@@ -379,6 +379,18 @@ pmic_int: pmic-int {
+ 				<0 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
++
++	spi1 {
++		spi1_csn0_gpio: spi1-csn0-gpio {
++			rockchip,pins =
++				<3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up_4ma>;
++		};
++
++		spi1_csn1_gpio: spi1-csn1-gpio {
++			rockchip,pins =
++				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up_4ma>;
++		};
++	};
+ };
+ 
+ &pmu_io_domains {
+@@ -396,6 +408,16 @@ &sdmmc {
+ 	vqmmc-supply = <&vccio_sd>;
+ };
+ 
++&spi1 {
++	/*
++	 * Hardware CS has a very slow rise time of about 6us,
++	 * causing transmission errors.
++	 * With cs-gpios we have a rise time of about 20ns.
++	 */
++	cs-gpios = <&gpio3 RK_PB1 GPIO_ACTIVE_LOW>, <&gpio3 RK_PB2 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&spi1_clk &spi1_csn0_gpio &spi1_csn1_gpio &spi1_miso &spi1_mosi>;
++};
++
+ &tsadc {
+ 	status = "okay";
+ };
+-- 
+2.39.5
+
 
