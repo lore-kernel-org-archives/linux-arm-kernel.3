@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10136C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 19:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD28C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 19:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59fJrwZxjafWN+QFB8BrjXsMTWEtPPm85FJajeJ6YAk=; b=UPd4PhiFZkNGBwRdNYqorKP2xm
-	fp2Q7/3QeGhrgtYorh3YfD2R42UT2OTDmODCio2iwSl8FKr2vu1n+MGo//6MQiUffu9swrKIc/vdf
-	D5YnZkxCd6n9NIfJKnkNGADnlsc6JBhsxERBT9cAaz8Tj5cTTbapPz1BmlgfJeM365VdcVhapx/Xe
-	5DnMmWOMjW5kYd/YPx4NY5/THY90LOWxtaInzjYyc5ct/OOnsFbcetwaJnJrMR902BZ0HvF+hk9+E
-	LqTpTsRplQviX/REuFcWSxqFg9nm25XkIx+9eOBtDBTlB3L0Awt80zC2bkkZV0udyfw36UVikFO8E
-	rronh7gQ==;
+	bh=uwr06MFvGVBzgSWZTSdVUltVi8gB5Z7/O162b21KKzU=; b=oM82jjv0fvdCOxxYdaMI1tA7pu
+	6J3YueSRVP4wgyrdKzwxR7ac1Wx4v1l9Aqv93SkImUZh4VKFl/OBL1t2avHcmSgKQr80fQ5HeVimz
+	C2pdagxR8zGzruzsdtyysusvF1buAbtKUuVHCkqDGjXI95gpSxOpNY1Oy82BIuUYGhqG8Lf8xhZvc
+	biBozc9OTEVdEkRL92fQHfrRA+cnHn2E63WtukLfCDJtdTjdqn2ADoaETppni3kjVDrPX93NKwTL2
+	FrAQyuve8nDA59J7Q+xGSg9Wmw7R6GMOITHHyiqs1yVFbGLJUicsaFTB+mi7XcjYCp4J1IjWMLQB2
+	UOKJ8jQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uShfl-0000000GT95-2sYw;
-	Fri, 20 Jun 2025 19:45:13 +0000
+	id 1uShhy-0000000GTR3-1nPJ;
+	Fri, 20 Jun 2025 19:47:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uShQC-0000000GRR5-3HHe
+	id 1uShQF-0000000GRRP-1JYY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 19:29:09 +0000
+	Fri, 20 Jun 2025 19:29:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2D0F16F2;
-	Fri, 20 Jun 2025 12:28:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28A8816A3;
+	Fri, 20 Jun 2025 12:28:51 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCE7E3F673;
-	Fri, 20 Jun 2025 12:29:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6390F3F673;
+	Fri, 20 Jun 2025 12:29:08 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -49,18 +49,17 @@ Cc: sudeep.holla@arm.com,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [RFC PATCH 6/7] include: trace: Add Telemetry trace events
-Date: Fri, 20 Jun 2025 20:28:12 +0100
-Message-ID: <20250620192813.2463367-7-cristian.marussi@arm.com>
+Subject: [RFC PATCH 7/7] firmware: arm_scmi: Use new Telemetry traces
+Date: Fri, 20 Jun 2025 20:28:13 +0100
+Message-ID: <20250620192813.2463367-8-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250620192813.2463367-1-cristian.marussi@arm.com>
 References: <20250620192813.2463367-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_122908_863668_0ABD4DAA 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_122911_479019_EB6B33A4 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +74,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add custom traces to report Telemetry failed accesses and to report when DE
-values are updated internally after a notification is processed.
+Track failed SHMTI accesses and notification updates.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- include/trace/events/scmi.h | 48 ++++++++++++++++++++++++++++++++++++-
- 1 file changed, 47 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_scmi/telemetry.c | 35 +++++++++++++++++++++++----
+ 1 file changed, 30 insertions(+), 5 deletions(-)
 
-diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
-index 127300481123..471f028f36db 100644
---- a/include/trace/events/scmi.h
-+++ b/include/trace/events/scmi.h
-@@ -7,7 +7,8 @@
+diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+index 3cbad06251a9..7843ff802bd0 100644
+--- a/drivers/firmware/arm_scmi/telemetry.c
++++ b/drivers/firmware/arm_scmi/telemetry.c
+@@ -16,6 +16,8 @@
+ #include "protocols.h"
+ #include "notify.h"
  
- #include <linux/tracepoint.h>
++#include <trace/events/scmi.h>
++
+ /* Updated only after ALL the mandatory features for that version are merged */
+ #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
  
--#define TRACE_SCMI_MAX_TAG_LEN	6
-+#define TRACE_SCMI_MAX_TAG_LEN		6
-+#define TRACE_SCMI_TLM_MAX_TAG_LEN	16
+@@ -813,8 +815,10 @@ static int scmi_telemetry_tdcf_parse_one(struct telemetry_info *ti,
+ 	int used_qwords;
  
- TRACE_EVENT(scmi_fc_call,
- 	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 val1, u32 val2),
-@@ -176,6 +177,51 @@ TRACE_EVENT(scmi_msg_dump,
- 		  __entry->tag, __entry->msg_id, __entry->seq, __entry->status,
- 		__print_hex_str(__get_dynamic_array(cmd), __entry->len))
- );
-+
-+TRACE_EVENT(scmi_tlm_access,
-+	TP_PROTO(u64 de_id, unsigned char *tag, u64 startm, u64 endm),
-+	TP_ARGS(de_id, tag, startm, endm),
-+
-+	TP_STRUCT__entry(
-+		__field(u64, de_id)
-+		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
-+		__field(u64, startm)
-+		__field(u64, endm)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->de_id = de_id;
-+		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
-+		__entry->startm = startm;
-+		__entry->endm = endm;
-+	),
-+
-+	TP_printk("de_id=0x%llX [%s] - startm=%016llX endm=%016llX",
-+		  __entry->de_id, __entry->tag, __entry->startm, __entry->endm)
-+);
-+
-+TRACE_EVENT(scmi_tlm_collect,
-+	TP_PROTO(u64 ts, u64 de_id, u64 value, unsigned char *tag),
-+	TP_ARGS(ts, de_id, value, tag),
-+
-+	TP_STRUCT__entry(
-+		__field(u64, ts)
-+		__field(u64, de_id)
-+		__field(u64, value)
-+		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->ts = ts;
-+		__entry->de_id = de_id;
-+		__entry->value = value;
-+		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
-+	),
-+
-+	TP_printk("ts=%llu  de_id=0x%04llX  value=%016llu [%s]",
-+		  __entry->ts, __entry->de_id, __entry->value, __entry->tag)
-+);
-+
- #endif /* _TRACE_SCMI_H */
+ 	de = xa_load(&ti->xa_des, le32_to_cpu(payld->id));
+-	if (!de || DATA_INVALID(payld))
++	if (!de || DATA_INVALID(payld)) {
++		trace_scmi_tlm_access(de->id, "DE_INVALID", 0, 0);
+ 		return -EINVAL;
++	}
  
- /* This part must be outside protection */
+ 	used_qwords = 4;
+ 
+@@ -840,6 +844,8 @@ static int scmi_telemetry_tdcf_parse_one(struct telemetry_info *ti,
+ 	else
+ 		tde->last_ts = 0;
+ 
++	trace_scmi_tlm_collect(0, de->id, tde->last_val, "SHMTI_UPDATE");
++
+ 	return used_qwords;
+ }
+ 
+@@ -864,8 +870,10 @@ static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
+ 		fsleep((SCMI_TLM_TDCF_MAX_RETRIES - retries) * 1000);
+ 
+ 		startm = TDCF_START_SEQ_GET(tdcf);
+-		if (IS_BAD_START_SEQ(startm))
++		if (IS_BAD_START_SEQ(startm)) {
++			trace_scmi_tlm_access(0, "MSEQ_BADSTART", startm, 0);
+ 			continue;
++		}
+ 
+ 		qwords = tdcf->prlg.num_qwords;
+ 		next = tdcf->payld;
+@@ -874,14 +882,18 @@ static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
+ 
+ 			used_qwords = scmi_telemetry_tdcf_parse_one(ti, next,
+ 								    update ? shmti : NULL);
+-			if (qwords < used_qwords)
++			if (qwords < used_qwords) {
++				trace_scmi_tlm_access(0, "BAD_QWORDS", 0, 0);
+ 				return -EINVAL;
++			}
+ 
+ 			next += used_qwords * 4;
+ 			qwords -= used_qwords;
+ 		}
+ 
+ 		endm = TDCF_END_SEQ_GET(eplg);
++		if (startm != endm)
++			trace_scmi_tlm_access(0, "MSEQ_MISMATCH", startm, endm);
+ 	} while (startm != endm && --retries);
+ 
+ 	if (startm != endm)
+@@ -1252,12 +1264,17 @@ static int scmi_telemetry_de_tdcf_parse(struct telemetry_de *tde,
+ 		fsleep((SCMI_TLM_TDCF_MAX_RETRIES - retries) * 1000);
+ 
+ 		startm = TDCF_START_SEQ_GET(tdcf);
+-		if (IS_BAD_START_SEQ(startm))
++		if (IS_BAD_START_SEQ(startm)) {
++			trace_scmi_tlm_access(tde->de.id, "MSEQ_BADSTART",
++					      startm, 0);
+ 			continue;
++		}
+ 
+ 		payld = tde->base + tde->offset;
+-		if (le32_to_cpu(payld->id) != tde->de.id || DATA_INVALID(payld))
++		if (le32_to_cpu(payld->id) != tde->de.id || DATA_INVALID(payld)) {
++			trace_scmi_tlm_access(tde->de.id, "DE_INVALID", 0, 0);
+ 			return -EINVAL;
++		}
+ 
+ 		//TODO BLK_TS
+ 		if (tstamp && USE_LINE_TS(payld) && TS_VALID(payld))
+@@ -1266,6 +1283,9 @@ static int scmi_telemetry_de_tdcf_parse(struct telemetry_de *tde,
+ 		*val = LINE_DATA_GET(&payld->tsl);
+ 
+ 		endm = TDCF_END_SEQ_GET(tde->eplg);
++		if (startm != endm)
++			trace_scmi_tlm_access(tde->de.id, "MSEQ_MISMATCH",
++					      startm, endm);
+ 	} while (startm != endm && --retries);
+ 
+ 	if (startm != endm)
+@@ -1412,6 +1432,9 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+ 			tde->last_ts = LINE_TSTAMP_GET(&payld->tsl);
+ 		else
+ 			tde->last_ts = 0;
++
++		trace_scmi_tlm_collect(timestamp, tde->de.id, tde->last_val,
++				       "MESSAGE");
+ 	}
+ }
+ 
+@@ -1622,6 +1645,8 @@ static void scmi_telemetry_scan_update(struct telemetry_info *ti, u64 ts)
+ 			tde->last_ts = tstamp;
+ 		else
+ 			tde->last_ts = 0;
++
++		trace_scmi_tlm_collect(ts, de->id, tde->last_val, "FC_UPDATE");
+ 	}
+ }
+ 
 -- 
 2.47.0
 
