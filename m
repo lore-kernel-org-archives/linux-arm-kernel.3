@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDFAC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6964C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=; b=AjU6e7fVpP+5orbEr9nQ9QHVfn
-	rTe4OkFmJ3u81usWZjvlY1RLiNZ8e/8fEbZC8u0o3ats8X6qgHM8rdAbYXnKDjXnTMLbQfExnkbaW
-	7SVnhaSpujittgOvRW9IQ5p7KdcTzDvuU3nRfkEY5ysyow5SYW0dSV1OgxoDmQhNcF8m1QbnPT/OW
-	6hh66Uh+P4iz0Vg/+M+UaRjZJ+zGCIQdN1p9uXD8nzd5I5b5zK8WsanNOX/HoPPuZ/ZxkhKBcC/dc
-	61FMctub/zFIjqnR1AM00Msp8olq58EPTJzNuy41TGo7C3IsvoSV7lQpYlh5dgce0jCiXvpwlzxin
-	GszhtXxA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TuU/RbW+cz7bY01MdkUli4UXkzNIisU/tS1eH4Yg+lQ=; b=jkUgEvdLa5q+Ik9r8+7amIj2ry
+	wS9AJN7b0PoRi5+FgndGOFMqucoxovyqi9eVkmS8S52baJMqbjXBu30gUpNi3bo8e7YMwVAX4tIF6
+	luDqcyQFy6esIN+ee6RuujA8SH+7qxfFba3MyvfTspVY5WPexbCcPe1IQUWqgUjQZOQcJM6S7ihJv
+	ojlGIggVfUWqn9XGKGA7n3buIAcralwtRPspr2f7PWmYVmY2wQ5iBjJI2bvFunXoRbX8h7RERyH1G
+	tzv46QsTkYSu9EfPn/Y0MuZ99oVwmHouC3Q5m1jnqwGp9fRRgPI190FKY9mmSh88WOAw9SVNd/w83
+	6tE3yi4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfTC-0000000GE32-48Ye;
-	Fri, 20 Jun 2025 17:24:06 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1uSfVP-0000000GEIX-49r1;
+	Fri, 20 Jun 2025 17:26:23 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfQx-0000000GDkh-3Qkc;
-	Fri, 20 Jun 2025 17:21:48 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-71101668dedso18147877b3.1;
-        Fri, 20 Jun 2025 10:21:47 -0700 (PDT)
+	id 1uSfQz-0000000GDlL-09Sc;
+	Fri, 20 Jun 2025 17:21:50 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-710fd2d0372so15387947b3.0;
+        Fri, 20 Jun 2025 10:21:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750440106; x=1751044906; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=;
-        b=gL2wcLyLHztyaafv4l714nqB7Ga8S25UpHkIZ28/JcuwSR2aKef9FSU8x4gGrZy4mK
-         z2DBYDO2SC2z5/iY+Aesq+Mvly+CKuKXTK1d0I4RVlj/aj6I6sLT1g13SDhaWg9pNiAb
-         8uCa2UVJPRb+ARjLTNlWqTFB32L/2ZH7r2BL9SeVDhb+md+ZGf0c6USBhi0LolY4/OOJ
-         hgICWylnXWpMYTdKMmRqu3oUUenqRFf28eWaFgCPRoHMuS8j5cwZs1G/oI9OzIq0RSZR
-         yzu5LN8VkHQ8JQ1SYTEl1zCecjJlkjf91gZPNTQekNdHeWxsL/NdlroNUWL+dmgCc5l8
-         kBKA==
+        d=gmail.com; s=20230601; t=1750440108; x=1751044908; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TuU/RbW+cz7bY01MdkUli4UXkzNIisU/tS1eH4Yg+lQ=;
+        b=l3hisvRDRVujXJej49ujhuLS0xVANiu8H05lUuLsNamt6irUEVm+bSb7/pdnwmIi38
+         9FBBHmd0YQ8cUplcuuI5F+W/jvGiiXlftc0J6W9KMV4N7VQBpgFoDhCrckAnK+uaLLM/
+         RPtSkQhrwXtDUgp+QjvdET13RdipCVBOlRIMUafiTXSPLwYEhokqkSszGrR/MMrDkigu
+         bpwsYSAQZFMyoTI+5hCVJthjqxXFqJZqFEufXywXWcmj0sPTbCKldAY3qPlsFNOLEZng
+         rGlQw9LA4AoZo1UBUqRaeDvdW4r/UPRixd/LjJkqQm+UVC+xZlSARKUbIC3PthXXXJSC
+         xpMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750440106; x=1751044906;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fvS3KMtz9AvK+cQpsMLXwD2ffJ5jVL2vkB80StYNZLs=;
-        b=SBVxrjUuY5Hiu2ISy6GXrWddX/zigmaihbOJobDFaCaCNi2ud8G62fkaJDRSpO0K3z
-         JZ9dZ36vNhBkcnZpQE5f66OFWyY9H/CPX0hHCLz4iasuG6Y3wQpjhX/0lcAqp7AJTp3B
-         lwwrZEzkBwC/mtIDvMlgozGr3WzOvOC8WLpBUzohJ1SKgB/hhAEjje7p1pW05HlxRnHB
-         qP6eGVb+4aLYChR2S0UyHhUgpSLWJlQegZwkdiYXbfdIF1TB0H9rMuJ0IREbLn3qf3vd
-         58tMKSBIA3JwFoxp36QtZAdK7jjrzd/n2al+jjOhq5vsHlDhSgh15t8IxfZWDUpuyASa
-         cljg==
-X-Forwarded-Encrypted: i=1; AJvYcCWYS0LGxnexRUUp0XDIqPy0k+VSCBJTfLBDIAeRGHkHsTEc7PUnH+hbwRPwUPot1ODEvp6RZthRKVvFdQ45ecBC@lists.infradead.org, AJvYcCXXajUHstMblOiupqkQsGnrgtLhiqocumC9HMPCq+/U25DcCq2nBO7ugsFOj7zhuBrUQqXG8aFt+GW8BaqUgEY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM4Y7Yu/SH+LXwIZHtjNoA8A6fYIX+YptsR3gVdY1ahFofgqSz
-	jO+RvrrQdgBjwTz7nu0p7wpUr/boQTXgPAOH+/WmSh5vDm2DAu8EcYlK
-X-Gm-Gg: ASbGnctZgcdvs2dNWJfKyZdJk7J1dZMK9soAYRlj/CIqWoDi07jodfAyJ3IfCETaYvO
-	7gtyLJulJemqYPE8b9XHU6Zyw74NUoSux4E4pDQ+5KNkNrK+RbIRjSJ+iEyTiiKcEmKa0+FoTUF
-	2lEyXCYgntDzWgUVpW6OjVqcJAt82PKDVXud3wHwH8eL+5/xEomXrcFMYlmJFOfIv15bhrO49il
-	ZX/JIygh8lZWxTZ887LMfTjsVZMpfilUoMMwx7hLoZFmj0sl6HLbKvyIrLpXL0KAaytU0biZRmT
-	59iWU+6np91+z+k7GibalXKsqv6ww65Nmb9jR3tNK+tFtsaBMtPZzfdXHWcPJ+P598iW3Zo=
-X-Google-Smtp-Source: AGHT+IEHjO40uKSkV7nfam+/N57foyW5wCOVz4cX1+zGDB4XHw1dSOQQdikhvdY9IR7c5chzXB9wCg==
-X-Received: by 2002:a05:690c:6f86:b0:70e:7ae4:59f4 with SMTP id 00721157ae682-712c6517768mr50267987b3.17.1750440106089;
-        Fri, 20 Jun 2025 10:21:46 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750440108; x=1751044908;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TuU/RbW+cz7bY01MdkUli4UXkzNIisU/tS1eH4Yg+lQ=;
+        b=gGl4J3wXgpTyrkR7dF17DEnIQ4+Vh9/tnzLHkBMMDdee6D+qaLzm6oABLeIRbXM8Tj
+         v0cgasKoMUBvoPjTeHHHkbkfnpQQ8+48Zp/tRAptMuh1u6qoNS1e9/KTyU0pA7q8J1UF
+         8Kx3ih7xUk1nM2Y/2PtYDRvRkD6goPHUir6tcYQFB1LBNqU2BSHtRpOe4/soANhxVheM
+         E0xwoL8CWa9azlweZ2KwQpu185FKvmSsZHpUEPtJ/uR0eb/cl6945znAPQICa1iaRn8K
+         jH5ZS6poMeCfX0dbt4nmknABRPtCGZy5z/0cOEYdy5OyGE5A47LeLH9OnTohfFBXAg3g
+         G/rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULves0cvbArWjmchouPqTku0Ds+a1OGm+Aa56OpSxTKfP9pS8Jin8YvMHphLfX+LPkK/Ts4L4FIrAgT672atlj@lists.infradead.org, AJvYcCW/EXiD/0jPtQVQpgQ3Gj6U4Ygt1HFDb7bOg/mEtLOASEBh9AJYmaUWzp/LYowu6kaxIr0w25D7L6sbdhZZeiw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWIgS+8HB2M0w7Rk2t+NHjd4mOsWZiuQ3YQvNz6xL9PBtMdEj3
+	RodnoqcWKRFdpYbIUwY71WYO2GnFPSwX+Kr/rJiL6+4gKGBXWq8Ce7LV
+X-Gm-Gg: ASbGncso/Zqvb4hpHSLemOgplefLLWkVuAYYGo9N+WMVENv+A4u6pInUIeq+C5u42tA
+	aM6z+dunN8YdWjmuGFoPUBaG8Q/yYKr+g3QaTzverGS/EzujPDJzjBFzMZRqo+qgmHBiEbhQ9Yd
+	FusxRNXuOlls3Zb5eeCv7g4vgaCHyDU2rWOQlobpSQQ1mdLEojz8F1YXIEZVWegZBpOJAeaauey
+	bJAEsqho4VDSNcz/mtC4yJJBV/PaQ90pi7lUnTPxwCvKc1srP5f+DB60UmPu9SnJaNWsAmW4M/U
+	r/g+SZspWTWlKG/Drla9apefvbz5+W5FHWxjyPxJmd6Tu137oI3whajV4hzo7epGPTkn0DU=
+X-Google-Smtp-Source: AGHT+IEKMfIKxqzSxlwm/b6Pu7iU5cqdkCqXdmQOfZnLOU60LHHV6vXUt5Ra9c/TlNbBQZw5gq+MNA==
+X-Received: by 2002:a05:690c:9418:10b0:712:c295:d01f with SMTP id 00721157ae682-712ca2f7576mr27493007b3.3.1750440107847;
+        Fri, 20 Jun 2025 10:21:47 -0700 (PDT)
 Received: from localhost.localdomain ([192.34.165.40])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-712c4a4a7besm5004037b3.52.2025.06.20.10.21.45
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-712c4a4a7besm5004037b3.52.2025.06.20.10.21.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 10:21:45 -0700 (PDT)
+        Fri, 20 Jun 2025 10:21:47 -0700 (PDT)
 From: John Clark <inindev@gmail.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -76,15 +77,18 @@ Cc: robh@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	John Clark <inindev@gmail.com>
-Subject: [PATCH v2 0/2] Add FriendlyElec NanoPi M5 support for Rockchip RK3576
-Date: Fri, 20 Jun 2025 13:21:39 -0400
-Message-Id: <20250620172141.173266-1-inindev@gmail.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
+Date: Fri, 20 Jun 2025 13:21:40 -0400
+Message-Id: <20250620172141.173266-2-inindev@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250620172141.173266-1-inindev@gmail.com>
+References: <20250620172141.173266-1-inindev@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_102147_856526_BDDC14F8 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250620_102149_073026_BBE104B8 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds device tree support for the FriendlyElec NanoPi M5 board,
-powered by the Rockchip RK3576 SoC (4x Cortex-A72, 4x Cortex-A53, Mali-G52
-MC3 GPU, 6 TOPS NPU). The patches enable basic booting and connectivity,
-including dual 1Gbps Ethernet, USB 3.2, microSD, M.2 PCIe NVMe, and HDMI.
-
-Changes in v2:
-- Fixed DT schema warnings (Rob Herring):
-  - Renamed spi-nor@0 to flash@0
-  - Renamed pmic@23 pinctrl nodes to end with -pins
-  - Renamed hym8563@51 to rtc@51 and removed clock-frequency
-  - Renamed button@1 to button-user
-- Addressed Heiko Stuebner's feedback:
-  - Sorted non-addressed nodes alphabetically
-  - Added blank lines in regulator nodes
-  - Improved fspi1m1_pins comment to clarify SPI NOR flash pinmux
-  - Moved status property in saradc to last
-
-Patch 1: Updates DT bindings in rockchip.yaml
-Patch 2: Adds NanoPi M5 device tree and Makefile entry
-
-No MAINTAINERS update needed, as the new file is covered by the existing
-ARM/Rockchip SoC entry.
-
-Tested on NanoPi M5 with successful boot and feature validation.
+Add device tree documentation for rk3576-nanopi-m5
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
-John Clark (2):
-  dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
-  arm64: dts: rockchip: Add FriendlyElec NanoPi M5 support
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml     |    6 +
- arch/arm64/boot/dts/rockchip/Makefile         |    1 +
- .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 1001 +++++++++++++++++
- 3 files changed, 1008 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 59b69c4741c5..10de9b7bdfcc 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -295,6 +295,12 @@ properties:
+               - friendlyarm,nanopi-r4s-enterprise
+           - const: rockchip,rk3399
+ 
++      - description: FriendlyElec NanoPi M5 series boards
++        items:
++          - enum:
++              - friendlyarm,nanopi-m5
++          - const: rockchip,rk3576
++
+       - description: FriendlyElec NanoPi R5 series boards
+         items:
+           - enum:
 -- 
 2.39.5
 
