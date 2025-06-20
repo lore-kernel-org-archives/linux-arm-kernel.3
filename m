@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D33C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8111BC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y0XDozIgHBTuryXqhnh8H2JD5/cpVpZyVVY8uuAwAOw=; b=YXw/+9y2L6gVJJ
-	G5TpgAB1CA0QHvZHbvTrDieqASoafGTc3ism6oQKbwsn9iD6YixoCc2SeEjuG5AuGO7UCuo2xAWMR
-	NzmHRrFAZEYo/HeqRlsXOy5Q0lEr99XuhVA1AKCBl258EyevAMcJT/v74vojtZsAhHbc28PW3xy//
-	F960JRNPzEh1pgdwEwl3r9h1J4yk7ABgsYALt6xxoB5QEqqG/PMO0D2JCSKaLqsPbVzmQCTlWksLS
-	Eu3CQLsPXhQPja9IgBMLe7qZW/O55qMaviztJUn/Xrjh+sObtIdSiU28EnpihrBgKIWjiJ7H8LPy0
-	96/t+ihzLqdL7pbo3q6g==;
+	List-Owner; bh=s2bCeBfOnVCkaeYtN6HnHSJtg1xgEuJ+FYTkUTZ+GEE=; b=xCIUmzJbCd7Y9U
+	DMggAQA9uonwjuywKii1C0fKN4k7+KONNxBeuEDU/SpaDKLt4UIGJEObzUjfRvd8cVYLylktDBVl9
+	gvT3iDElvDDjVuIeTfUbV1SIz+4swabOMUALUqmqA7dvp1H+Cvywb7Nb9JX2HbQcFlXUP+1OzW9Bt
+	VCUTT929YKJM/qaPL1/eEyfH3nfj7P5VK0iRdKrZMKrIakQpG0R5IeT/xHsQGPpFsHivLTiAiE7Ru
+	BEcPplAGzdLGvxLHBisd99mIxzvEqM+UFGVU2fhquzgcU68HRv5GHgT28UrU5Lp63FJue4QrRbWwJ
+	gOKcqVhrF88pfIEI/ePg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjUu-0000000GdcB-3Xmn;
-	Fri, 20 Jun 2025 21:42:08 +0000
+	id 1uSjX7-0000000GdqR-2KLx;
+	Fri, 20 Jun 2025 21:44:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSj2R-0000000Gb1s-3Ofn
+	id 1uSj2T-0000000Gb2C-16VX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 21:12:45 +0000
+	Fri, 20 Jun 2025 21:12:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 732C0169C;
-	Fri, 20 Jun 2025 14:12:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 266AB16A3;
+	Fri, 20 Jun 2025 14:12:25 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.50.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4B0EA3F673;
-	Fri, 20 Jun 2025 14:12:41 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 218CA3F673;
+	Fri, 20 Jun 2025 14:12:43 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 12/13] arm64: debug: split bkpt32 exception entry
-Date: Fri, 20 Jun 2025 22:12:06 +0100
-Message-ID: <20250620211207.773980-13-ada.coupriediaz@arm.com>
+Subject: [PATCH v4 13/13] arm64: debug: remove debug exception registration infrastructure
+Date: Fri, 20 Jun 2025 22:12:07 +0100
+Message-ID: <20250620211207.773980-14-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250620211207.773980-1-ada.coupriediaz@arm.com>
 References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_141243_977069_7FA8449A 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250620_141245_388916_BF696AE7 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,113 +61,232 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@ar
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently all debug exceptions share common entry code and are routed
-to `do_debug_exception()`, which calls dynamically-registered
-handlers for each specific debug exception. This is unfortunate as
-different debug exceptions have different entry handling requirements,
-and it would be better to handle these distinct requirements earlier.
+Now that debug exceptions are handled individually and without the need
+for dynamic registration, remove the unused registration infrastructure.
 
-The BKPT32 exception can only be triggered by a BKPT instruction. Thus,
-we know that the PC is a legitimate address and isn't being used to train
-a branch predictor with a bogus address : we don't need to call
-`arm64_apply_bp_hardening()`.
+This removes the external caller for `debug_exception_enter()` and
+`debug_exception_exit()`.
+Make them static again and remove them from the header.
 
-The handler for this exception only pends a signal and doesn't depend
-on any per-CPU state : we don't need to inhibit preemption, nor do we
-need to keep the DAIF exceptions masked, so we can unmask them earlier.
-
-Split the BKPT32 exception entry and adjust function signatures and its
-behaviour to match its relaxed constraints compared to other
-debug exceptions.
-We can also remove `NOKRPOBE_SYMBOL`, as this cannot lead to a kprobe
-recursion.
-
-This replaces the last usage of `el0_dbg()`, so remove it.
+Remove `early_brk64()` as it has been made redundant by
+(arm64: debug: split brk64 exception entry) and is not used anymore.
+Note : in `early_brk64()` `bug_brk_handler()` is called unconditionally
+as a fall-through, but now `call_break_hook()` only calls it if the
+immediate matches.
+This does not change the behaviour in early boot, as if
+`bug_brk_handler()` was called on a non-BUG immediate it would return
+DBG_HOOK_ERROR anyway, which `call_break_hook()` will do if no immediate
+matches.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
 ---
- arch/arm64/include/asm/exception.h |  1 +
- arch/arm64/kernel/debug-monitors.c |  7 +++++++
- arch/arm64/kernel/entry-common.c   | 21 +++++++++------------
- 3 files changed, 17 insertions(+), 12 deletions(-)
+ arch/arm64/include/asm/debug-monitors.h |  2 -
+ arch/arm64/include/asm/exception.h      |  6 ---
+ arch/arm64/include/asm/system_misc.h    |  4 --
+ arch/arm64/kernel/debug-monitors.c      |  3 --
+ arch/arm64/kernel/entry-common.c        |  4 +-
+ arch/arm64/kernel/traps.c               | 26 +-----------
+ arch/arm64/mm/fault.c                   | 53 -------------------------
+ 7 files changed, 3 insertions(+), 95 deletions(-)
 
+diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
+index 586290e95d87..4dfc37dd1d96 100644
+--- a/arch/arm64/include/asm/debug-monitors.h
++++ b/arch/arm64/include/asm/debug-monitors.h
+@@ -94,7 +94,5 @@ static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
+ 
+ bool try_handle_aarch32_break(struct pt_regs *regs);
+ 
+-void debug_traps_init(void);
+-
+ #endif	/* __ASSEMBLY */
+ #endif	/* __ASM_DEBUG_MONITORS_H */
 diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index 075fb81cacc2..484809ff03d5 100644
+index 484809ff03d5..acaee1c5b3e3 100644
 --- a/arch/arm64/include/asm/exception.h
 +++ b/arch/arm64/include/asm/exception.h
-@@ -68,6 +68,7 @@ void do_watchpoint(unsigned long addr, unsigned long esr,
- 			struct pt_regs *regs);
- void do_el0_brk64(unsigned long esr, struct pt_regs *regs);
- void do_el1_brk64(unsigned long esr, struct pt_regs *regs);
-+void do_bkpt32(unsigned long esr, struct pt_regs *regs);
- void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
- void do_sve_acc(unsigned long esr, struct pt_regs *regs);
- void do_sme_acc(unsigned long esr, struct pt_regs *regs);
+@@ -59,8 +59,6 @@ void do_el0_bti(struct pt_regs *regs);
+ void do_el1_bti(struct pt_regs *regs, unsigned long esr);
+ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
+ void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
+-void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+-			struct pt_regs *regs);
+ void do_breakpoint(unsigned long esr, struct pt_regs *regs);
+ void do_el0_softstep(unsigned long esr, struct pt_regs *regs);
+ void do_el1_softstep(unsigned long esr, struct pt_regs *regs);
+@@ -88,8 +86,4 @@ void do_serror(struct pt_regs *regs, unsigned long esr);
+ void do_signal(struct pt_regs *regs);
+ 
+ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far);
+-
+-void debug_exception_enter(struct pt_regs *regs);
+-void debug_exception_exit(struct pt_regs *regs);
+-
+ #endif	/* __ASM_EXCEPTION_H */
+diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
+index c34344256762..344b1c1a4bbb 100644
+--- a/arch/arm64/include/asm/system_misc.h
++++ b/arch/arm64/include/asm/system_misc.h
+@@ -25,10 +25,6 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
+ 		      int signo, int sicode, unsigned long far,
+ 		      unsigned long err);
+ 
+-void hook_debug_fault_code(int nr, int (*fn)(unsigned long, unsigned long,
+-					     struct pt_regs *),
+-			   int sig, int code, const char *name);
+-
+ struct mm_struct;
+ extern void __show_regs(struct pt_regs *);
+ 
 diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 7c1c89bb9ad1..43a612eaa7d2 100644
+index 43a612eaa7d2..43f342a01fdf 100644
 --- a/arch/arm64/kernel/debug-monitors.c
 +++ b/arch/arm64/kernel/debug-monitors.c
-@@ -270,6 +270,13 @@ void do_el1_brk64(unsigned long esr, struct pt_regs *regs)
+@@ -316,9 +316,6 @@ bool try_handle_aarch32_break(struct pt_regs *regs)
  }
- NOKPROBE_SYMBOL(do_el1_brk64);
+ NOKPROBE_SYMBOL(try_handle_aarch32_break);
  
-+#ifdef CONFIG_COMPAT
-+void do_bkpt32(unsigned long esr, struct pt_regs *regs)
-+{
-+	arm64_notify_die("aarch32 BKPT", regs, SIGTRAP, TRAP_BRKPT, regs->pc, esr);
-+}
-+#endif /* CONFIG_COMPAT */
-+
- bool try_handle_aarch32_break(struct pt_regs *regs)
+-void __init debug_traps_init(void)
+-{}
+-
+ /* Re-enable single step for syscall restarting. */
+ void user_rewind_single_step(struct task_struct *task)
  {
- 	u32 arm_instr;
 diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 1e8306817056..bbf58fcab142 100644
+index bbf58fcab142..4b67312a88ad 100644
 --- a/arch/arm64/kernel/entry-common.c
 +++ b/arch/arm64/kernel/entry-common.c
-@@ -866,17 +866,6 @@ static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
- 	exit_to_user_mode(regs);
- }
+@@ -448,7 +448,7 @@ static __always_inline void fpsimd_syscall_exit(void)
+  * accidentally schedule in exception context and it will force a warning
+  * if we somehow manage to schedule by accident.
+  */
+-void debug_exception_enter(struct pt_regs *regs)
++static void debug_exception_enter(struct pt_regs *regs)
+ {
+ 	preempt_disable();
  
--static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
+@@ -457,7 +457,7 @@ void debug_exception_enter(struct pt_regs *regs)
+ }
+ NOKPROBE_SYMBOL(debug_exception_enter);
+ 
+-void debug_exception_exit(struct pt_regs *regs)
++static void debug_exception_exit(struct pt_regs *regs)
+ {
+ 	preempt_enable_no_resched();
+ }
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 654c8ea46ec6..d6c5268e6947 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -1101,29 +1101,5 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ }
+ #endif
+ 
+-/*
+- * Initial handler for AArch64 BRK exceptions
+- * This handler only used until debug_traps_init().
+- */
+-int __init early_brk64(unsigned long addr, unsigned long esr,
+-		struct pt_regs *regs)
 -{
--	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
--	unsigned long far = read_sysreg(far_el1);
--
--	enter_from_user_mode(regs);
--	do_debug_exception(far, esr, regs);
--	local_daif_restore(DAIF_PROCCTX);
--	exit_to_user_mode(regs);
+-#ifdef CONFIG_CFI_CLANG
+-	if (esr_is_cfi_brk(esr))
+-		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-#ifdef CONFIG_KASAN_SW_TAGS
+-	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+-		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-#ifdef CONFIG_UBSAN_TRAP
+-	if (esr_is_ubsan_brk(esr))
+-		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
 -}
 -
- static void noinstr el0_svc(struct pt_regs *regs)
+ void __init trap_init(void)
+-{
+-	debug_traps_init();
+-}
++{}
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index d451d7d834f1..bc7f554dea9f 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -53,18 +53,12 @@ struct fault_info {
+ };
+ 
+ static const struct fault_info fault_info[];
+-static struct fault_info debug_fault_info[];
+ 
+ static inline const struct fault_info *esr_to_fault_info(unsigned long esr)
  {
- 	enter_from_user_mode(regs);
-@@ -1037,6 +1026,14 @@ static void noinstr el0_svc_compat(struct pt_regs *regs)
- 	exit_to_user_mode(regs);
+ 	return fault_info + (esr & ESR_ELx_FSC);
  }
  
-+static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
-+{
-+	enter_from_user_mode(regs);
-+	local_daif_restore(DAIF_PROCCTX);
-+	do_bkpt32(esr, regs);
-+	exit_to_user_mode(regs);
-+}
-+
- asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
+-static inline const struct fault_info *esr_to_debug_fault_info(unsigned long esr)
+-{
+-	return debug_fault_info + DBG_ESR_EVT(esr);
+-}
+-
+ static void data_abort_decode(unsigned long esr)
  {
- 	unsigned long esr = read_sysreg(esr_el1);
-@@ -1080,7 +1077,7 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
- 		el0_watchpt(regs, esr);
- 		break;
- 	case ESR_ELx_EC_BKPT32:
--		el0_dbg(regs, esr);
-+		el0_bkpt32(regs, esr);
- 		break;
- 	default:
- 		el0_inv(regs, esr);
+ 	unsigned long iss2 = ESR_ELx_ISS2(esr);
+@@ -938,53 +932,6 @@ void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs)
+ }
+ NOKPROBE_SYMBOL(do_sp_pc_abort);
+ 
+-/*
+- * __refdata because early_brk64 is __init, but the reference to it is
+- * clobbered at arch_initcall time.
+- * See traps.c and debug-monitors.c:debug_traps_init().
+- */
+-static struct fault_info __refdata debug_fault_info[] = {
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware breakpoint"	},
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware single-step"	},
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware watchpoint"	},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 3"		},
+-	{ do_bad,	SIGTRAP,	TRAP_BRKPT,	"aarch32 BKPT"		},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"aarch32 vector catch"	},
+-	{ early_brk64,	SIGTRAP,	TRAP_BRKPT,	"aarch64 BRK"		},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 7"		},
+-};
+-
+-void __init hook_debug_fault_code(int nr,
+-				  int (*fn)(unsigned long, unsigned long, struct pt_regs *),
+-				  int sig, int code, const char *name)
+-{
+-	BUG_ON(nr < 0 || nr >= ARRAY_SIZE(debug_fault_info));
+-
+-	debug_fault_info[nr].fn		= fn;
+-	debug_fault_info[nr].sig	= sig;
+-	debug_fault_info[nr].code	= code;
+-	debug_fault_info[nr].name	= name;
+-}
+-
+-void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+-			struct pt_regs *regs)
+-{
+-	const struct fault_info *inf = esr_to_debug_fault_info(esr);
+-	unsigned long pc = instruction_pointer(regs);
+-
+-	debug_exception_enter(regs);
+-
+-	if (user_mode(regs) && !is_ttbr0_addr(pc))
+-		arm64_apply_bp_hardening();
+-
+-	if (inf->fn(addr_if_watchpoint, esr, regs)) {
+-		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+-	}
+-
+-	debug_exception_exit(regs);
+-}
+-NOKPROBE_SYMBOL(do_debug_exception);
+-
+ /*
+  * Used during anonymous page fault handling.
+  */
 -- 
 2.43.0
 
