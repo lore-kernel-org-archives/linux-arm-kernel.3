@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5AFC7EE24
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 13:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05C4C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 13:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ydvxy1sRh0XdyUY78UINI/d5MUqA5T2bAotDmBZAf6w=; b=Kt+YXIaCXKMeRF6ojPayxmzxYH
-	ZldwNTlGFCrU+rHwNxivwranEuSbYEnNdapp0v5ELR1H9ABTWyeznx138lxNAlReY7QMeNSm4lVbG
-	dHiwVDZEmOUYwpCrPD8sTzM/pHAArIZ08OuYeO7PSqyTYneat8w9LOlhpPph/WluX1GGlzixGaWot
-	xnJ63pzW1ulDoPDLuvzmHklHZ31bT0ccUxeZPB6sxsq6rcyZc5j59Ee5JWuNrT6OkJuxLcuM1Hkmw
-	aR4W/84VdAWB2SSu5umyg7rz/n9B9QUo4VtTSE6t4ghMJJgpMtmJ8dCBmW5tSYemN4xjSAZMLW2NQ
-	4h3pCHgg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eD67VGoIFc7viTaixF6jhGk+Vu3kiN+A3PvW7sAsva4=; b=3qqHQkZpg4pKSWOsdkTi6TtKqx
+	YCOS6D4oGqWwCELEb4/sp1RiHC1q1/mr/Ri2gb5GnWyTGxBuQJu4zxxR0GHQXYUp3Ngobun/crSUq
+	IwxouYTmHZ5p3Zd953W/Cq3cBHUVdJgvvf4suVLELSkflvJdmBcJki4PC5DN4jLXQNE54IjTuW5zp
+	aYS3nRwaFAIspzhTD4ZnRvKwVQB1aa/5cgVSFFRqoZLegm94F3qXT2vhJg8e2spdfJRMe+MmHHvZZ
+	h3sl0faPP914YX9kj0pL4eMwbxP28szjBO/v20qVB1hQz7maKHJTo6atjmls+xKi7oBMj778fQMzY
+	Z1ZhyGMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbyR-0000000FkDQ-49Bo;
-	Fri, 20 Jun 2025 13:40:07 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1uSbyW-0000000FkGr-2I1q;
+	Fri, 20 Jun 2025 13:40:12 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbYk-0000000FgyC-0Ube
+	id 1uSbqR-0000000FjcZ-3B1G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 13:13:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750425200; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ag6sm19tCZyRI1BO2CAVBqUY3xmXRXJa92+mdmoKr64FDpX00OTD2KOnRqm91jz7XjJ+rmjaL+312oJM0bPTvEpue8+nIPxQEMelWaVu40gxosO422ZaXGDei0X9ocNE3svu+X4vyLT0Y14mK/Bbiz/fmH44sXyP/I0EYqdp5Xs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750425200; h=Content-Transfer-Encoding:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
-	bh=Ydvxy1sRh0XdyUY78UINI/d5MUqA5T2bAotDmBZAf6w=; 
-	b=ljK02p0OoIZuydQAGJsoVnGKSlUXXg0QKS3ddUTcdkWCokCBMfCVFlA8AmvhSxtWRpqTy5u3kUM2kdyV5j7ShRCSJqyop3xwf4xrWHRXIbzD+JHPnGpdIOwDBgw8jLAdf89++/DAnV4sAPjPSSMljYph4ZwZlDPSTaJCL2c9LfE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=linux.beauty;
-	spf=pass  smtp.mailfrom=me@linux.beauty;
-	dmarc=pass header.from=<me@linux.beauty>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750425200;
-	s=zmail; d=linux.beauty; i=me@linux.beauty;
-	h=From:From:To:To:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
-	bh=Ydvxy1sRh0XdyUY78UINI/d5MUqA5T2bAotDmBZAf6w=;
-	b=QGlDSicnOv6qys1rQpkrOFbO9r5rCtI2Rg8ZI7nc19PanS3DdqWsz8p4fZOUwbeN
-	EuQ/YhXGI5NXYINn7s+oEqtYJfFEyOcA+OCJ531usFR9aiVgMIc11iX987MPm7uWZ7d
-	FOLJ/9kSeo7gw9QX3u4nV2Qo53E9Hlje4Ll985jg=
-Received: by mx.zohomail.com with SMTPS id 175042519577329.422760089999883;
-	Fri, 20 Jun 2025 06:13:15 -0700 (PDT)
-From: Li Chen <me@linux.beauty>
-To: Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Liu Wei <liuwei09@cestc.cn>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org
-Subject: [PATCH v2 0/2] ACPI: Improve SPCR handling and messaging on SPCR-less systems
-Date: Fri, 20 Jun 2025 21:13:06 +0800
-Message-ID: <20250620131309.126555-1-me@linux.beauty>
-X-Mailer: git-send-email 2.49.0
+	Fri, 20 Jun 2025 13:31:52 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b31d578e774so1268520a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 06:31:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750426311; x=1751031111; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eD67VGoIFc7viTaixF6jhGk+Vu3kiN+A3PvW7sAsva4=;
+        b=TchivOJEy/A2DiSSbZReqky1gXeRUyAmhEUE1pGH8h8fYWGIUoSUjtrn9oNjNV6vhe
+         BQq4xa1C8Q2szZ3Hu/o6VGKxKNDGHjkmDPr9nvUf3bPTzCAiPC3wSFNZk0/Vjh66P4GX
+         t+b3cPbu55Y5g1TXtD7+Xg41on6RCNrhof2nySXJb2ihLVALt/3DkGDXPlisFUXlGpFH
+         /bKU4Mc5yNrdlQ63leUD2Yr/Pi2xoq+6I5MTiD2uiuUK2acYNak71ASQlMhrUsXooku4
+         tBcfCTS7g475xxkN1AdyjZiIPvwWB2rhQ1p3/rQGnLpKqyk3dvkrjFVfZpMihYhrasHs
+         KLrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750426311; x=1751031111;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eD67VGoIFc7viTaixF6jhGk+Vu3kiN+A3PvW7sAsva4=;
+        b=dYE+xYR4nZhvQRe3MQd0nz8US0K8o0s4ESNC95tqB9ALkj9ulnuoNfRWJZc5TgCJhS
+         j3v5grCbz250AgHMdBi6bcWj51TrlKWBU3/M+ZFXPuq02noOEb0krtyj3Lak5oPG1N2F
+         7omRpj4/n7YK1Mh8ulvLkSyfLvHM7D1MlscxIi12L/toHLc3WronWDJ/bwS/fvUgKbjX
+         Z5itxC7my1zEDD/YOcGKM0YZYW4wWTZr3jzjwX7u6CXzXIkCC/pM8DHZpsAB6nW/szcI
+         5Ny3Fj2cym536tDYsOcG0TGlvOdInYaIZw/vXjO1ilau9SC4igD2K9LQ7mCoMsMnWrqy
+         ixiw==
+X-Forwarded-Encrypted: i=1; AJvYcCVM2ecFLIyyFr59/EfXip9wTcPdjMBaPOdcPnE68MWyfhkr9cAKcHcSIZHY/I2p/QDwoetHj/a1Gcy1ME693BRH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWQfcYANf3zaRT/8j4ZLTtcpzE1YsBMimiLvDityAQz2Vt/lD+
+	diZpSnrbV8pKj/xly0qa7JFPbG7FM/lOkZfkjhxywLwRcHw32QM4HZSvuSHO8FFdiC9zf7C3cNP
+	Z6VpRtoLSxX8nbXnRLSDac8q+sfPfVXZaZik4DAU=
+X-Gm-Gg: ASbGnctZljn956G0rheFr6w49Vc5rgxBgT6Ax+qjwGbvNxq1p98D6yN8i1fs0h/kb1x
+	MZFyg8V72Ac5dhDZ79bcSXmCIWdYxBNvG3zc6YujHlt4oViIEO/PBk5r5MPC6ygHP4TEz7V0Mvr
+	I2BkS24viSSHeJKKoovWd2jyIDBSDBHLoKvVkVtBof
+X-Google-Smtp-Source: AGHT+IH3fQ614Vx5GzkzKNEt57w45C62O8m4Fe+y3Z88xij0+BBvMKQejo4mfuZeKaeYz95v1iqBe0ZzmZyXbsNGhCo=
+X-Received: by 2002:a17:90b:2dcb:b0:2ff:4a8d:74f9 with SMTP id
+ 98e67ed59e1d1-3159f503784mr3641263a91.10.1750426310887; Fri, 20 Jun 2025
+ 06:31:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com> <20250610160152.1113930-6-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250610160152.1113930-6-laurentiumihalcea111@gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 20 Jun 2025 16:33:50 +0300
+X-Gm-Features: AX0GCFuHG9nwEDIse9o6OGABxZ9DBwglQi1amT5GMFegc87DEv-xylKcvAMSJZE
+Message-ID: <CAEnQRZD0RYeOsy-0cK4CDzroKySoOoKu=nJD4GT+Tyiii9x43A@mail.gmail.com>
+Subject: Re: [PATCH v7 5/6] arm64: dts: imx8mp: add aipstz-related definitions
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+	Frank Li <Frank.Li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>, 
+	Marc Kleine-Budde <mkl@pengutronix.de>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_061334_218527_6CE2325B 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_063151_795642_BCA019FF 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +100,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Li Chen <chenl311@chinatelecom.cn>
+On Tue, Jun 10, 2025 at 7:04=E2=80=AFPM Laurentiu Mihalcea
+<laurentiumihalcea111@gmail.com> wrote:
+>
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Add header file with AIPSTZ-related definitions: consumer types,
+> master/peripheral configuration bits, and master ID definitions.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-From: Li Chen <chenl311@chinatelecom.cn>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-This small series improves the kernel behavior and output when the ACPI SPCR
-table is not present or not supported.
-
-Currently, even on systems that completely lack an SPCR table, the kernel prints:
-"Use ACPI SPCR as default console: Yes"
-
-This may mislead users into thinking an SPCR table exists
-when in fact there is no such table at all. This series addresses this in two steps:
-
-Patch 1 ensures that acpi_parse_spcr() returns -ENODEV if CONFIG_ACPI_SPCR_TABLE is disabled.
-
-Patch 2 updates arm64 acpi_boot_table_init() to only print the Yes
-if acpi_parse_spcr() succeeds.
-
-This results in cleaner and more accurate boot logs on ARM64.
-
-Tested on both SPCR-enabled and SPCR-less qemu-system arm64 virt platform. [1]
-
-Changelog:
-v2: refine the printk message logic as suggested by Hanjun Guo. [2]
-
-[1]: https://patchew.org/QEMU/20250528105404.457729-1-me@linux.beauty/
-[2]: https://www.spinics.net/lists/kernel/msg5730585.html
-
-Li Chen (2):
-  ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is
-    disabled
-  ACPI: Suppress misleading SPCR console message when SPCR table is
-    absent
-
- arch/arm64/kernel/acpi.c | 10 +++++++---
- include/linux/acpi.h     |  2 +-
- 2 files changed, 8 insertions(+), 4 deletions(-)
-
--- 
-2.49.0
-
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-aipstz.h | 33 +++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  1 +
+>  2 files changed, 34 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h b/arch/arm64/b=
+oot/dts/freescale/imx8mp-aipstz.h
+> new file mode 100644
+> index 000000000000..6481c484ca37
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+> @@ -0,0 +1,33 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#ifndef __IMX8MP_AIPSTZ_H
+> +#define __IMX8MP_AIPSTZ_H
+> +
+> +/* consumer type - master or peripheral */
+> +#define IMX8MP_AIPSTZ_MASTER           0x0
+> +#define IMX8MP_AIPSTZ_PERIPH           0x1
+> +
+> +/* master configuration options */
+> +#define IMX8MP_AIPSTZ_MPL              (1 << 0)
+> +#define IMX8MP_AIPSTZ_MTW              (1 << 1)
+> +#define IMX8MP_AIPSTZ_MTR              (1 << 2)
+> +#define IMX8MP_AIPSTZ_MBW              (1 << 3)
+> +
+> +/* peripheral configuration options */
+> +#define IMX8MP_AIPSTZ_TP               (1 << 0)
+> +#define IMX8MP_AIPSTZ_WP               (1 << 1)
+> +#define IMX8MP_AIPSTZ_SP               (1 << 2)
+> +#define IMX8MP_AIPSTZ_BW               (1 << 3)
+> +
+> +/* master ID definitions */
+> +#define IMX8MP_AIPSTZ_EDMA             0 /* AUDIOMIX EDMA */
+> +#define IMX8MP_AIPSTZ_CA53             1 /* Cortex-A53 cluster */
+> +#define IMX8MP_AIPSTZ_SDMA2            3 /* AUDIOMIX SDMA2 */
+> +#define IMX8MP_AIPSTZ_SDMA3            3 /* AUDIOMIX SDMA3 */
+> +#define IMX8MP_AIPSTZ_HIFI4            5 /* HIFI4 DSP */
+> +#define IMX8MP_AIPSTZ_CM7              6 /* Cortex-M7 */
+> +
+> +#endif /* __IMX8MP_AIPSTZ_H */
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
+dts/freescale/imx8mp.dtsi
+> index 307e1671eccf..9b550f225856 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -13,6 +13,7 @@
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/thermal/thermal.h>
+>
+> +#include "imx8mp-aipstz.h"
+>  #include "imx8mp-pinfunc.h"
+>
+>  / {
+> --
+> 2.34.1
+>
+>
 
