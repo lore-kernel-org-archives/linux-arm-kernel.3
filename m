@@ -4,90 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72C5C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5D0C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qciZZcm9ZhGrH66JTdpjaM1ur/fzC7K8oAKg3h0lmsU=; b=ZykZKgSXpEnDH6dV8i++XqWzRP
-	o5jze0VsjVR4Ut2FezNC2nuKVqk0FRFD3/XSfMvWYZwXGlCnxe3MU2+21R9NRLGLQNg7/LwTyaYJb
-	rVjmks72qElpl2OKB4JdGZOmn1JVYZXpccTpGh3p3teOP0LZTRWGhzKnb6me62ccxGj3LAhFypblq
-	IfHqRIzPkBvwJnDDa/3LRVtvdNIOUO/CNvDaBqdRrpO7QNbVcLBk4l+DpoxGEodk624m495qwvaCm
-	hAm1ydqdYncu6bJYteOIS9FinUcB/pSfPjrBtQpvu3tIW2W2XXgfYKajzjhYkaEqxS5U1Z/0C1VPe
-	XUdfyi5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/nZ5vLwAzsNnnPm1vpVhd40+MzAtASMHps3Kb30tzxE=; b=4dUIFyZzF+V2aSLq7HYrktd2o0
+	wi1WG4ga8612rn+a3svrlqaJ1f2puBdJFC14ZYJrvtoYbUDP2xr8qFBql/HqzXDGLu0mlPwIGvX45
+	DPAILj5Bls8ZDCZB2jBNBYwei4yR7tic9KlFLeo2gqrP9uMPNCqG2oNk5JKaHOTbnboKJPVqUMtlL
+	LZKJB8Lh7ljIi77v3vCuqb1Ysq/sydhcItp+/PGr3Z+GCkZY9xNVbVgT7xQhNTxKOPHVOh78Jpljg
+	3IBMFrywlsfBkM1DlSjf9spbcEu624xAQ+PtSmgABU7GcDxdciOFNIjog0mmvf4ZS2TvOe5nkdLZD
+	w4O96dmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjwH-0000000GgWL-0WS5;
-	Fri, 20 Jun 2025 22:10:25 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1uSjyU-0000000GggY-0OyS;
+	Fri, 20 Jun 2025 22:12:42 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjdl-0000000Gejh-3k2w
+	id 1uSjsK-0000000GgH5-2o57
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 21:51:19 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-40aa391ce1aso622646b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 14:51:17 -0700 (PDT)
+	Fri, 20 Jun 2025 22:06:22 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-adb4e36904bso453607966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 15:06:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750456277; x=1751061077; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qciZZcm9ZhGrH66JTdpjaM1ur/fzC7K8oAKg3h0lmsU=;
-        b=xPixvMyuTGAMcS0Oz5FhQuSmaJURrl8m3X0NzKFDdP8Viea1tloD1+RNST0R2hDH0x
-         Vi8iq6F91HMAIhwuMyrOs//0Y+j3E7+ShRVUm2zAfQVniwLfHIM5p8eBZ7sX/7/570BN
-         o73xa1ghz+o5RxTSNPhypMpZDjxqDRw3fkHyC6yYJbGtvTxbBFjEKA0/kW11Q+uyDkz0
-         fUo61pk7vJpV/XYe7Qpht24aXZ/yGnTxy+e17UFR63tzM7zfBZsCTRYeWK/urflkkqen
-         4nhqGwOQ7S5fYSveollgzGO6MFxcOwxFeNycLa6R8zbNeSlRr+KDbFDgtfD5/vCAnpj8
-         JDUQ==
+        d=gmail.com; s=20230601; t=1750457179; x=1751061979; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/nZ5vLwAzsNnnPm1vpVhd40+MzAtASMHps3Kb30tzxE=;
+        b=RdZD+vl1H/jxss69EFGEOYXXFrOSYVFyOornUWSMkKXl/eyGItqU0CjGqg5UvvggGM
+         k2xOyM+E0ZUJUGn8x0oXnV0GyIvJY0ekC/+mjCar82rju3JiqyjpsTBOkkEegYQBy83V
+         TigeKBDkFQweDn9KoM7osFeUvjhxsPoUWOVHstWVOvJtJTQWcd8Idf3OleXJJvkMT4yA
+         RmVUHJkZqyQueR9hyjrwBukmNqsRkdPdArWUiGnz2gWbhpG9doHqC1azYFDFx1juprKg
+         kprYggDPlnuTNEkeI30ZFqxoD/WZDroZ9TIZRevVIDPSFGHYW0kXNT760pzR7zHG63Mf
+         6jQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750456277; x=1751061077;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qciZZcm9ZhGrH66JTdpjaM1ur/fzC7K8oAKg3h0lmsU=;
-        b=qHTHfghhgFCAWmMaY96ZT6mS2kjxH4r5i3kgsenEWqzw9G5Xwl72YEFjTSM0zYVEOX
-         bRbcEupnHgQSA6De0iM+VaUUpmOPW9o7ERbadx17VlJ+lSjZSgfcqfo++ljrNiGDRQgf
-         SfcTd2dERnyxa09xGJoAe456uxm+YAMAIT+pY50oBuT9YM7xWVn7z0tO8ZhG4NbsE7VI
-         MtBkcHTp9cFYBEPl4IPDdjJz/tGuBWTFeRuwtvK+dnqve3hDowtuTHi3f380s0InuAZx
-         xZIhpn+dqABszxs84MsZb6LHP6/Q2KiDC8gyBfnQaTE04F26U/EyOiHp+rvB1ioTy53B
-         0hHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVITcAQspKaNsST5lIFvQzl3oxNgwxLws4UMf0DYe5z9kkGfNYHPHmlBhFvd/jI39Vk1GkUpgI+vTLMwMBy1vzh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8NBtV9IGbd/lebR0oYPE26n5mS91GIEh63PvbcjDY7FFzJoxO
-	rYPPYo105UBaHjw/FlWNETgakCgXTrS9cl9N94xqg53RF9Ycw34vXVC27tuvGi2a7J8=
-X-Gm-Gg: ASbGncvaZOOJ/9+6rVNCGqAHDR1SDgMze6HY92xU8raOQZendP33xyWmebxla0bc8iX
-	zSM7G7fcdFNbPUsqnyIxwRGgbXPDtefHee4yTY+65KCe37Wo+xppMkpixZY32ulXbiyOHuAbjh1
-	TYVcOBXX5bf0kolh7KLS1ksQ21DuyXvFrV7HofUkHghBnPTWHF7szg0wSorhz3FHXxxXio7k7Y2
-	Sfa4rpoGq1it5DmZsY9tu5593qbRMAW+amPKWsFngevkF6+B18IIYpDhNbIyuY6yfRbZ+oSEE00
-	TEYjJfWusp+zgMRDQMd1IVwwDYW5G23J8R3P5mj/QocHwntJSGM0BMFpN30PmYssqTS2OA==
-X-Google-Smtp-Source: AGHT+IEUKt2T8NPo19dPeOycUEZfJIdPu2BwWVzJ6tGEwvl4xQ4AjLwthY3jfBkPvwEIgCaF/ro8vQ==
-X-Received: by 2002:a05:6870:af42:b0:2d5:2955:aa66 with SMTP id 586e51a60fabf-2eeda4e114emr3105643fac.1.1750456276972;
-        Fri, 20 Jun 2025 14:51:16 -0700 (PDT)
-Received: from localhost ([2603:8080:b800:f700:35a7:a70f:9610:a99b])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6115b7c909esm342923eaf.27.2025.06.20.14.51.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 14:51:15 -0700 (PDT)
-Date: Sat, 21 Jun 2025 00:51:12 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	d-gole@ti.com, souvik.chakravarty@arm.com
-Subject: Re: [RFC PATCH 5/7] firmware: arm_scmi: Add System Telemetry
- chardev/ioctls API
-Message-ID: <6fa26a61-1f61-4ab0-8b7d-caeae7eb801e@suswa.mountain>
-References: <20250620192813.2463367-1-cristian.marussi@arm.com>
- <20250620192813.2463367-6-cristian.marussi@arm.com>
+        d=1e100.net; s=20230601; t=1750457179; x=1751061979;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/nZ5vLwAzsNnnPm1vpVhd40+MzAtASMHps3Kb30tzxE=;
+        b=eCVCjr63UiiH0FwZE+IC7a31ezlPGG1/HFDKtkKoJwiSV591E6LJtCgbbdD8rvQ8zi
+         eEl+0rgeguFEcf5+m/M2ObIfTSo5JMjuW8c7Kgib8qrLUTYICFRrSPaOMQJ3JrT4eX53
+         xczIDvIU/RN+ryG/8iSVRCfhU25IgXCe4ZSYaxteZqRWqroTxLzxeTk6LNkJF+6DdRNJ
+         XkRCO5OHVIjdZ5NMbM+XOqaxsguQJKvvCURdrv65D36TBoXXxvTB2TF6uRnK+bRoBcpH
+         kABQBtmdVavnRW1vahG8WSL5qr0KhYTlcQr/WJg9Rx3Cdt7iw0SjGbhKWOSwUC0r8gTA
+         wyDA==
+X-Gm-Message-State: AOJu0YxGyjNjWht9HeIRDQVf2OFRbpmXUMGaCP/P+jEIOeNhxI2ib3eD
+	6Nc1r8292e1mPXDx0riSdlzdGodZJZHYN1l+SbyUkBzZYXlgYnNxYXk=
+X-Gm-Gg: ASbGncu+xtHCirCeKg7hkdQWbphsutfs4Xl81Bd4muZAjn4QLwj1FETcz/rHOKG3CzG
+	/RivLkXoO36WnT9SE3lbw3UnKhLVVu5vpHjjSMlzERMIWM709LC3px+Cp298G6y9FzeWNZfxixV
+	yoBNa/AdIOJpOSYudnhNqd/zm8jw2YWUg+pumN9DT4cD3riT3hDsi1HRLO+s8LaZor4ELU55164
+	nD/rJexBpQDC9gzEEZpBIqoS3oT394xQOYdqBCqy5H+AG1misE9NqiHm0ZqUg7NxL03RWWzezhz
+	lVAD/9tdTFPNcYEfYybuveN3wkr4riPwNqn3XOp23Wxop6nCgqbIFd3PaM7X9xqF23iQRp829A=
+	=
+X-Google-Smtp-Source: AGHT+IEYDHPLPS/aiLsylQmdV4aS29FcdoVYkARHkjeD3JC5HuUi2/GalehZw8KEnx2WXwNuzXZgDw==
+X-Received: by 2002:a17:907:1ca8:b0:ade:35fc:1a73 with SMTP id a640c23a62f3a-ae057f9e1b6mr483910966b.55.1750457178076;
+        Fri, 20 Jun 2025 15:06:18 -0700 (PDT)
+Received: from [192.168.20.26] ([84.226.118.249])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae054083406sm227701466b.75.2025.06.20.15.06.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Jun 2025 15:06:17 -0700 (PDT)
+Message-ID: <970c41dc-e89b-4963-abbe-398dc3d53110@gmail.com>
+Date: Sat, 21 Jun 2025 00:06:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620192813.2463367-6-cristian.marussi@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] Support for Adreno X1-45 GPU
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
+ Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org, Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
+Content-Language: en-US
+From: Aleksandrs Vinarskis <alex.vinarskis@gmail.com>
+In-Reply-To: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_145117_933341_DCEB891F 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250620_150620_717285_AF9E6A04 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +114,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 08:28:11PM +0100, Cristian Marussi wrote:
-> +static long scmi_tlm_des_read_ioctl(struct scmi_tlm_instance *ti,
-> +				    unsigned long arg, bool single)
-> +{
-> +	void * __user uptr = (void * __user)arg;
-> +	struct scmi_tlm_setup *tsp = ti->tsp;
-> +	struct scmi_tlm_bulk_read bulk, *bulk_ptr;
-> +	int ret;
-> +
-> +	if (copy_from_user(&bulk, uptr, sizeof(bulk)))
-> +		return -EFAULT;
-> +
-> +	bulk_ptr = kzalloc(sizeof(*bulk_ptr) +
-> +			     bulk.num_samples * sizeof(bulk_ptr->samples[0]),
 
-This should be struct_size(bulk_ptr, samples, bulk.num_samples) to
-avoid an integer overflow on 32bit systems.
+On 6/20/25 08:54, Akhil P Oommen wrote:
+> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
+> version). X1-45 is a smaller version of X1-85 with lower core count and
+> smaller memories. From UMD perspective, this is similar to "FD735"
+> present in Mesa.
+>
+> Tested Glmark & Vkmark on Debian Gnome desktop.
+>
+> I think Bjorn can pick the DT patch and Rob Clark can pick up the rest.
+>
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 
-regards,
-dan carpenter
+Hi,
 
-> +			     GFP_KERNEL);
-> +	if (!bulk_ptr)
-> +		return -ENOMEM;
-> +
-> +	bulk_ptr->grp_id = bulk.grp_id;
-> +	bulk_ptr->num_samples = bulk.num_samples;
-> +	if (!single)
-> +		ret = tsp->ops->des_bulk_read(tsp->ph, bulk_ptr->grp_id,
-> +					      &bulk_ptr->num_samples,
-> +			  (struct scmi_telemetry_de_sample *)bulk_ptr->samples);
-> +	else
-> +		ret = tsp->ops->des_sample_get(tsp->ph, bulk_ptr->grp_id,
-> +					       &bulk_ptr->num_samples,
-> +			  (struct scmi_telemetry_de_sample *)bulk_ptr->samples);
-> +	if (ret)
-> +		goto out;
-> +
-> +	if (copy_to_user(uptr, bulk_ptr, sizeof(*bulk_ptr) +
-> +			 bulk_ptr->num_samples * sizeof(bulk_ptr->samples[0])))
-> +		ret = -EFAULT;
-> +
-> +out:
-> +	kfree(bulk_ptr);
-> +
-> +	return ret;
-> +}
+Thanks for the long awaited series!
+Works on Asus Zenbook A14 UX3407QA (x1-26-100), tested on Ubuntu 24.10 
+with Gnome 47 on Wayland.
 
+Tested-by: Aleksandrs Vinarskis <alex.vinarskis@gmail.com> # x1-26-100
+
+Regards,
+Alex
+
+> ---
+> Changes in v3:
+> - Rebased on v6.16-rc1
+> - Fixed speedbin table in drm/msm
+> - Corrected the regex for the adreno opp node (Krzysztof)
+> - Replace underscore with hypen in DT node names (Krzysztof)
+> - Link to v2: https://lore.kernel.org/r/20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com
+>
+> Changes in v2:
+> - Skip 'delete-property' wherever it is unnecessary (Dmitry)
+> - Reorder dt nodes alphabetically (Konrad)
+> - A new patch#1 to fix the dtbs_check error
+> - Link to v1: https://lore.kernel.org/r/20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com
+>
+> ---
+> Akhil P Oommen (4):
+>        dt-bindings: opp: adreno: Update regex of OPP entry
+>        arm64: defconfig: Enable X1P42100 GPUCC driver
+>        drm/msm/adreno: Add Adreno X1-45 support
+>        arm64: dts: qcom: Add GPU support to X1P42100 SoC
+>
+>   .../bindings/opp/opp-v2-qcom-adreno.yaml           |   2 +-
+>   arch/arm64/boot/dts/qcom/x1e80100.dtsi             |   7 ++
+>   arch/arm64/boot/dts/qcom/x1p42100-crd.dts          |   4 +
+>   arch/arm64/boot/dts/qcom/x1p42100.dtsi             | 120 ++++++++++++++++++++-
+>   arch/arm64/configs/defconfig                       |   1 +
+>   drivers/gpu/drm/msm/adreno/a6xx_catalog.c          |  39 +++++++
+>   6 files changed, 170 insertions(+), 3 deletions(-)
+> ---
+> base-commit: d9946fe286439c2aeaa7953b8c316efe5b83d515
+> change-id: 20250603-x1p-adreno-219da2fd4ca4
+>
+> Best regards,
 
