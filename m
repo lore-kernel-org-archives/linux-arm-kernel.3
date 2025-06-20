@@ -4,48 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8111BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DA1C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s2bCeBfOnVCkaeYtN6HnHSJtg1xgEuJ+FYTkUTZ+GEE=; b=xCIUmzJbCd7Y9U
-	DMggAQA9uonwjuywKii1C0fKN4k7+KONNxBeuEDU/SpaDKLt4UIGJEObzUjfRvd8cVYLylktDBVl9
-	gvT3iDElvDDjVuIeTfUbV1SIz+4swabOMUALUqmqA7dvp1H+Cvywb7Nb9JX2HbQcFlXUP+1OzW9Bt
-	VCUTT929YKJM/qaPL1/eEyfH3nfj7P5VK0iRdKrZMKrIakQpG0R5IeT/xHsQGPpFsHivLTiAiE7Ru
-	BEcPplAGzdLGvxLHBisd99mIxzvEqM+UFGVU2fhquzgcU68HRv5GHgT28UrU5Lp63FJue4QrRbWwJ
-	gOKcqVhrF88pfIEI/ePg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/pKDq8IkD7Gp3uCohQ5thcPbl5SLnAvtiLxz8LuwTUU=; b=KQQY4GO+bK1BubbjbR4KCYDbzs
+	Lxl1HLPx6+gb7kHKmX0AjFLjRrZogJ9rG0nWx3X3fCB36BJwiXE7E3cuL+rB2LIZo/Bl7i+Gl973O
+	YuVbqPppXa2sgX0+sjrqQEXKrWM6sPmsqdtBtXLlcNbcouSnDt4BSqt7dE7nwFK6sqv+8Ij63a9Pf
+	xdOJsuzMY+RFxUgJDPk4Mt/JInv2TizpsZvHcIPCWGGwKqvzPrRMq9JrownGBy9fqppH+Auwmf5ii
+	TNz0L6fJsqBoCIOrFTf2c3shhBPD0uM6XRURKI4vPrkRdhi49mFmyFsW3euteRFszYHVJy1h7xK/n
+	0qFXqpng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjX7-0000000GdqR-2KLx;
-	Fri, 20 Jun 2025 21:44:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSj2T-0000000Gb2C-16VX
+	id 1uSjZL-0000000GeHJ-34ox;
+	Fri, 20 Jun 2025 21:46:43 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSj5v-0000000GbFA-28vx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 21:12:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 266AB16A3;
-	Fri, 20 Jun 2025 14:12:25 -0700 (PDT)
-Received: from e137867.arm.com (unknown [10.57.50.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 218CA3F673;
-	Fri, 20 Jun 2025 14:12:43 -0700 (PDT)
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 13/13] arm64: debug: remove debug exception registration infrastructure
-Date: Fri, 20 Jun 2025 22:12:07 +0100
-Message-ID: <20250620211207.773980-14-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250620211207.773980-1-ada.coupriediaz@arm.com>
-References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
+	Fri, 20 Jun 2025 21:16:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=oldschoolsolutions.biz; s=s1-ionos; t=1750454164; x=1751058964;
+	i=jens.glathe@oldschoolsolutions.biz;
+	bh=/pKDq8IkD7Gp3uCohQ5thcPbl5SLnAvtiLxz8LuwTUU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=dF1kMzth5ZzrBDMTwLFwF9s91xo663A4skSNoKVyqRDDqESW4ecgJa1g5vI5qYlc
+	 cQZJQdLb2DExntKg4EP2CdE7XfCXBwXCDTKtwkZxfe7Wsnsb1eO/H9amqq6DFClYV
+	 r3mITW3zoRH40uFPwpEYjJhSbEae5oEb0ZMKx8voJZrNOzQFpqiYAouUo/BYRbaIN
+	 8Yv59rC3fxEeDDBZO0vLt0OgUgp01/T40OEjYk5PEkIMAiPnidALYWrtHL9dl9cbb
+	 b8XuIPNYzxT07WiQZXdzQUBzQg0+CqpV9LiA1J3oqbRNdEWqsiElOzK5K8e8kOAz1
+	 QIoSDaxqvjaNqOvWJw==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from [192.168.0.174] ([91.64.235.193]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1MDyc8-1uaSKl32HM-0003Lx; Fri, 20 Jun 2025 23:16:03 +0200
+Message-ID: <33239018-ea33-49e4-87d2-4d5c399dda9b@oldschoolsolutions.biz>
+Date: Fri, 20 Jun 2025 23:15:59 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v3 0/4] Support for Adreno X1-45 GPU
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
+ Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
+Content-Language: en-US
+From: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
+In-Reply-To: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:+4YE6MTuUgvgsp65a+V8AX62NWNmLb2aNAbb/aU8gVx1rTyqQ7I
+ jIfDf8NURnQva8qIefL59RrZ8H3hcVKWVwMk0b2yVPyQU9pSAL896sUdq5gsFkQAfFK2t9I
+ roVKD73VNBILh4vVemSmF1OhkuYV9Wf0sVca45PoxpL8F7elWwNR9ftsbQSMgrstwWEF7Cg
+ RNPAfuMCsikU7jgwcPx+A==
+UI-OutboundReport: notjunk:1;M01:P0:L7p3mqP57R0=;Yf+zHyW9R9O3+3Lcv97T4M3IQ7R
+ WMTMefP4P3sEZwafIrNDEyOWOkSf54qAjYd+5JdqK+Kv0TQn4NeDSne4Hh/KcRt6LDWObnGRT
+ 2+Us7JtBAwdT4SvNQ+sYKaUBqKojcV5MoQDB2w1y7V3io5LrVT+2kD8RJLOglrImOofL0KYIh
+ nGm/2ZS+EYUdwITYhMbroaabQ+ULJqwTAjiQBz+XwfunVgILNLSJZG4zwfaceLR6tVIjb1qxv
+ bkMu3H5WbYix6outeyNL+1u5FwXNZZ2j/mtdqJibgf7xAyxvfrcrvqkaozxyNgVw5pqkWoCg9
+ b9DEw72rJTOKW99nRhZhB1pBJwkIhB1iC5V332T2kNBUv8/dPWYTq03YKRx3XjGhaJU33hu8P
+ YFT3G/oTVvUfZwdvDV5x3yv7hfpPOSAmGbdtGBWrnvsjBt2WdRvSqX2eCxvTbt9wodIWqa9wY
+ yiQ820AxMkMCmrYUeUVYrpfYtt/mCRd48cKo4fUfinnSF8MM41fs0oK44m+pvnbVSk2R4147q
+ igaYnf6mKF+AtD5o/ZvNonP4c5khkj11h6P4XrPfcQqB/iI7dITzbqcOx16pDJm9tR2LTusRq
+ gIImiPeM5SQELR8J9l5yZCswbd2oPlbbcAv30O8JL7cbAac6GtdvZyszdTL8uzapaOIeGScmS
+ Zb3kO5D2WeCuos+i/B8F3BNKmkK/JJ9NzPXpJQVhQWnnKFHT73EWHGbAg9vufUnkiWt75nR6k
+ 8w3DZcQmEK+zzryFP5tgrp5DNSZsyrMGWG9KaTmOC17/PtL9WOHhaA7jqB8qwLGRZVNTGnkIa
+ mbmZ66OfTOJYYlrrIfOw982UdI2V/UXqj2aM35aFAO1Avm1DnfXsNyD3O9/Nzj9ZI0a7OEP1j
+ LEeQ/xYjb3+gKPMYLrXC7WB9cqmxyMI1RFJoSoVMOD/EVof/19uqSzVcBda6cElkbfu0xFlRw
+ 3p1wiZ+gndSaP/tuRo1D+ukkyqGuKs0asT3fcUjPiDxyb9IMEznF8Gdz0X3pnCWh4WN7UTDFI
+ sxvOJwc2WZWiqEU0+iP0CLM3o3dlf/N0ed4PtesDJCsW4Afy2l+g5wVysOOleV7ygs6lgxRs5
+ AvJzzj+/ZQnLdf0t4cqkEBqv2jb+CfRS0EI+EKvTP+fP8rlo4U/GIjQrirQr4EG6wSB6LuNi0
+ wjAhQGuPqGlZ2a4Ub9u53vh5Vbpn7QKww+pnrNUOMOMDwXQ3NJCg6xCeSMqh8F2+Zf2NIK+Fy
+ D3wZFXXjHlF7A8Suw4Y6ub1DOr+5dd/XXXFc21xk3oUdiyH2nAKLe0yA3YJrO8BzbHnkUcPlf
+ WNSjKnz0Uk0xpP69q6o8+4LeCsnllrowf6prZR2RQF5TgYqb9YJdO5JQ0QA3MTjhyWkNLFKmv
+ SXASEXucMAXFfBOYmbjiLLsatULsRj1nXi2qbgrbHJ9Lt+vg7thT4DqtMa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_141245_388916_BF696AE7 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250620_141619_982845_1B535944 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,237 +114,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that debug exceptions are handled individually and without the need
-for dynamic registration, remove the unused registration infrastructure.
+On 20.06.25 08:54, Akhil P Oommen wrote:
+> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
+> version). X1-45 is a smaller version of X1-85 with lower core count and
+> smaller memories. From UMD perspective, this is similar to "FD735"
+> present in Mesa.
+>
+> Tested Glmark & Vkmark on Debian Gnome desktop.
+>
+Hi Akhil,
 
-This removes the external caller for `debug_exception_enter()` and
-`debug_exception_exit()`.
-Make them static again and remove them from the header.
+thank you for the patch set. It works well on the Lenovo ThinkBook 16 G7=
+=20
+QOY, tested on X11 and Wayland on Ubuntu 25.04.
 
-Remove `early_brk64()` as it has been made redundant by
-(arm64: debug: split brk64 exception entry) and is not used anymore.
-Note : in `early_brk64()` `bug_brk_handler()` is called unconditionally
-as a fall-through, but now `call_break_hook()` only calls it if the
-immediate matches.
-This does not change the behaviour in early boot, as if
-`bug_brk_handler()` was called on a non-BUG immediate it would return
-DBG_HOOK_ERROR anyway, which `call_break_hook()` will do if no immediate
-matches.
+Tested-by: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
 
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
----
- arch/arm64/include/asm/debug-monitors.h |  2 -
- arch/arm64/include/asm/exception.h      |  6 ---
- arch/arm64/include/asm/system_misc.h    |  4 --
- arch/arm64/kernel/debug-monitors.c      |  3 --
- arch/arm64/kernel/entry-common.c        |  4 +-
- arch/arm64/kernel/traps.c               | 26 +-----------
- arch/arm64/mm/fault.c                   | 53 -------------------------
- 7 files changed, 3 insertions(+), 95 deletions(-)
+with best regards
 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index 586290e95d87..4dfc37dd1d96 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -94,7 +94,5 @@ static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
- 
- bool try_handle_aarch32_break(struct pt_regs *regs);
- 
--void debug_traps_init(void);
--
- #endif	/* __ASSEMBLY */
- #endif	/* __ASM_DEBUG_MONITORS_H */
-diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index 484809ff03d5..acaee1c5b3e3 100644
---- a/arch/arm64/include/asm/exception.h
-+++ b/arch/arm64/include/asm/exception.h
-@@ -59,8 +59,6 @@ void do_el0_bti(struct pt_regs *regs);
- void do_el1_bti(struct pt_regs *regs, unsigned long esr);
- void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
- void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
--void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
--			struct pt_regs *regs);
- void do_breakpoint(unsigned long esr, struct pt_regs *regs);
- void do_el0_softstep(unsigned long esr, struct pt_regs *regs);
- void do_el1_softstep(unsigned long esr, struct pt_regs *regs);
-@@ -88,8 +86,4 @@ void do_serror(struct pt_regs *regs, unsigned long esr);
- void do_signal(struct pt_regs *regs);
- 
- void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far);
--
--void debug_exception_enter(struct pt_regs *regs);
--void debug_exception_exit(struct pt_regs *regs);
--
- #endif	/* __ASM_EXCEPTION_H */
-diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
-index c34344256762..344b1c1a4bbb 100644
---- a/arch/arm64/include/asm/system_misc.h
-+++ b/arch/arm64/include/asm/system_misc.h
-@@ -25,10 +25,6 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
- 		      int signo, int sicode, unsigned long far,
- 		      unsigned long err);
- 
--void hook_debug_fault_code(int nr, int (*fn)(unsigned long, unsigned long,
--					     struct pt_regs *),
--			   int sig, int code, const char *name);
--
- struct mm_struct;
- extern void __show_regs(struct pt_regs *);
- 
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 43a612eaa7d2..43f342a01fdf 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -316,9 +316,6 @@ bool try_handle_aarch32_break(struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(try_handle_aarch32_break);
- 
--void __init debug_traps_init(void)
--{}
--
- /* Re-enable single step for syscall restarting. */
- void user_rewind_single_step(struct task_struct *task)
- {
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index bbf58fcab142..4b67312a88ad 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -448,7 +448,7 @@ static __always_inline void fpsimd_syscall_exit(void)
-  * accidentally schedule in exception context and it will force a warning
-  * if we somehow manage to schedule by accident.
-  */
--void debug_exception_enter(struct pt_regs *regs)
-+static void debug_exception_enter(struct pt_regs *regs)
- {
- 	preempt_disable();
- 
-@@ -457,7 +457,7 @@ void debug_exception_enter(struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(debug_exception_enter);
- 
--void debug_exception_exit(struct pt_regs *regs)
-+static void debug_exception_exit(struct pt_regs *regs)
- {
- 	preempt_enable_no_resched();
- }
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 654c8ea46ec6..d6c5268e6947 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -1101,29 +1101,5 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
- }
- #endif
- 
--/*
-- * Initial handler for AArch64 BRK exceptions
-- * This handler only used until debug_traps_init().
-- */
--int __init early_brk64(unsigned long addr, unsigned long esr,
--		struct pt_regs *regs)
--{
--#ifdef CONFIG_CFI_CLANG
--	if (esr_is_cfi_brk(esr))
--		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--#ifdef CONFIG_KASAN_SW_TAGS
--	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
--		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--#ifdef CONFIG_UBSAN_TRAP
--	if (esr_is_ubsan_brk(esr))
--		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--}
--
- void __init trap_init(void)
--{
--	debug_traps_init();
--}
-+{}
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index d451d7d834f1..bc7f554dea9f 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -53,18 +53,12 @@ struct fault_info {
- };
- 
- static const struct fault_info fault_info[];
--static struct fault_info debug_fault_info[];
- 
- static inline const struct fault_info *esr_to_fault_info(unsigned long esr)
- {
- 	return fault_info + (esr & ESR_ELx_FSC);
- }
- 
--static inline const struct fault_info *esr_to_debug_fault_info(unsigned long esr)
--{
--	return debug_fault_info + DBG_ESR_EVT(esr);
--}
--
- static void data_abort_decode(unsigned long esr)
- {
- 	unsigned long iss2 = ESR_ELx_ISS2(esr);
-@@ -938,53 +932,6 @@ void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(do_sp_pc_abort);
- 
--/*
-- * __refdata because early_brk64 is __init, but the reference to it is
-- * clobbered at arch_initcall time.
-- * See traps.c and debug-monitors.c:debug_traps_init().
-- */
--static struct fault_info __refdata debug_fault_info[] = {
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware breakpoint"	},
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware single-step"	},
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware watchpoint"	},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 3"		},
--	{ do_bad,	SIGTRAP,	TRAP_BRKPT,	"aarch32 BKPT"		},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"aarch32 vector catch"	},
--	{ early_brk64,	SIGTRAP,	TRAP_BRKPT,	"aarch64 BRK"		},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 7"		},
--};
--
--void __init hook_debug_fault_code(int nr,
--				  int (*fn)(unsigned long, unsigned long, struct pt_regs *),
--				  int sig, int code, const char *name)
--{
--	BUG_ON(nr < 0 || nr >= ARRAY_SIZE(debug_fault_info));
--
--	debug_fault_info[nr].fn		= fn;
--	debug_fault_info[nr].sig	= sig;
--	debug_fault_info[nr].code	= code;
--	debug_fault_info[nr].name	= name;
--}
--
--void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
--			struct pt_regs *regs)
--{
--	const struct fault_info *inf = esr_to_debug_fault_info(esr);
--	unsigned long pc = instruction_pointer(regs);
--
--	debug_exception_enter(regs);
--
--	if (user_mode(regs) && !is_ttbr0_addr(pc))
--		arm64_apply_bp_hardening();
--
--	if (inf->fn(addr_if_watchpoint, esr, regs)) {
--		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
--	}
--
--	debug_exception_exit(regs);
--}
--NOKPROBE_SYMBOL(do_debug_exception);
--
- /*
-  * Used during anonymous page fault handling.
-  */
--- 
-2.43.0
+Jens
 
 
