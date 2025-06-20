@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CA8C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE32C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 12:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GK6e6w1xb/5R+UW8gTgnT6hijKGuDluLmnbi1Q0GbwE=; b=NGmPRcsoUfk8Ic60gipo5JQ26U
-	j1NzhAsiI2SxNg0ziJmKxTrtWAoei4eaEEHHLSweAPgSZtn30HHLqguQtDJcReqRqTKessv0M3mEj
-	x9kW8KwoQkxcKZDtOI9pQzZB2+X1yMmVvn2okS5g7JkVlt3xIRTG4pJRLhFinrF/US1RJhfhPSVxU
-	aldjrIzvSD4KI+4HgvGC1kzfoPE21lRW0YZ5ROFvmkSko/vDEDdAJO3Vz87nVrTQOJu+sGxwc1HXE
-	UKdN3aE0sDxv7lp1MsiZeoop1ZagMI9XQ/emfdpAU4q3XVldSggl/9Xn1cUXgJss4Z2AgtjhxMbUJ
-	9zKZmZxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=; b=30imPncQcsqMT9M1Vcy+hv/69E
+	lbPQxjH1a2HveC6jE8h/esnVEABuPj+rOZ5fmfonQJqhX4nvOQZ/2vYNkHkNZk8iGY1ENM3xWfnlM
+	T2pemwxUVGFLmbsJDHljodxA4bCiCrGUAocOJdMzzU2IAXf7b75OCWtAjeDOh6Z0Oiqrsg7paHvfJ
+	blv96gjmO0jkMuA/EIX313mXIFdVqm77bAjVv2barwzNPUU5Ka0TWFcKpDwnWhBqEc59jaYVNQUUJ
+	o1feHy9wICHcWaEeJOwmIStFRxLaLjDuSsILEjtVw7gsYKsUHeA1xHSvw8LEgLxGeXcWM2F7j3CdH
+	1TY80GJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSaN3-0000000FWFj-1eiV;
-	Fri, 20 Jun 2025 11:57:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uSaRU-0000000FWUe-1XqM;
+	Fri, 20 Jun 2025 12:02:00 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZr5-0000000FSXi-2MZ4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Jun 2025 11:24:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GK6e6w1xb/5R+UW8gTgnT6hijKGuDluLmnbi1Q0GbwE=; b=DMDZ+EbokDKzccyCxvrrirdJPr
-	WaFXRMvnWJbudE6FQiQsNWfu/zBbwPlcr3yohcbQA62TTuk+zW364/h3kkRteyxMDsaH1t7kfz7kj
-	p8pV5cG+YIMZxoeGylZtk+VzooZdzyhGvisMYcWrrCel3YtQeFYBcmPeHB7taLSlfRH7X/YUqGxyn
-	NTpYEODUy/30pvHiP7jjHGQyyXk05HB+vPNa5/pNCnwWpJ3rMd0nXsTSpPjmhbWob5rTvkkjlSDKl
-	79CQill9HUBB5yavj/PrB06vZkeEcrShtKkWiymbuX20ry3nZkIYhD2cTLTANNd0bMqhf+Msgz+Lx
-	/+3HEyMw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZr2-00000004iME-3N3r
+	id 1uSa1P-0000000FTVl-1MDa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 11:24:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6031C176A;
-	Fri, 20 Jun 2025 04:23:58 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B68553F673;
-	Fri, 20 Jun 2025 04:24:16 -0700 (PDT)
-Date: Fri, 20 Jun 2025 12:24:14 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	James Morse <james.morse@arm.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: move smp_send_stop() cpu mask off stack
-Message-ID: <aFVE3uuNCbHF7f5z@arm.com>
-References: <20250620111045.3364827-1-arnd@kernel.org>
+	Fri, 20 Jun 2025 11:35:04 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-451ebd3d149so10928905e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 04:35:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750419301; x=1751024101; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=;
+        b=SCeR2X0YxrDV7RnAp89S81KtU5UwQLnBhM5F3m+0rs5jPY3NaD/xJgVSHUa9LZPHVm
+         vCKsN49d3+ryzh3JktZkGTrEVlsDTOkKasgW0y0HoFG21FzBXnCSiw9ax+MxBAYpSNYI
+         Ai/6Y+PrtXYx/oNkfIapyGmxePVEOvfDtW3x7YHTxcZaw0F4Rus3GReJdL3L9ZNGgEEy
+         Y6qeTmwHeKgpUDk+LzYbBSX6Z/vLKwPc5xiU61VTb39gajdeW8BrJr8hr4O+e3ttkqCS
+         7UtiyMhYwTZM4TsIvniyACz5rcBSChwoLvkQm77WJGO7pbppvfOAqEvlse25aYIaWBts
+         49Dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750419301; x=1751024101;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mSb/WJqG6Ly3nh1AG/W9OmaMQWkMp8HS6RDgfGbzx/I=;
+        b=vbRBXc7yuW+sDrAzky8n+KVfSp9uKwZ8NJaM0IQkgk9p88zGndAHNSXFt/LejfOPjR
+         hjcwNj4CAEtdyAU8JaP3Pnes+0h+X/UmjXAd91AnCADFO9Ri+62fwQveAzroEIMgRM26
+         XoNi6JNnpbaJ8+ECuGrQAyKO9uw4zfsfGh3UBe6puw4fliSj6n3mqdLSbB9Wnadbjd9s
+         hzzjInHv/jruwXTD24woQ/L4dcRgNHBlmoIglQUdCttD5pcDzrb2BtsMOplEx65My8J0
+         V78n8sbA1YJ5DZgMNQF7nzhO6sZXl9wfHc8NADZYDmBxu24+yjenypcKk2/cwPGNf3nE
+         6D5A==
+X-Forwarded-Encrypted: i=1; AJvYcCWnlhTzhbsjW09L5EyDT6ror+ui6piveA9UuMSWCKxJ2RQSjOF68X/r7AiYZhnICrEz97HLPqGM7/P+gWVlaRh5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzIkDg9SbB8IuavljJ9treZVUIwfQlLKy95Q9ZbSy26trL1NCI
+	6/C2UABwCibT6JI54/ucnkNDInHpIKOP3jidB2RtstvJDh27DxnbKbKSlX4XFcKpndw=
+X-Gm-Gg: ASbGncsrVYkYjTyHhyp0x/73GTr9EnIu7Qdldqc3YP3BdlUPDq4B1jf3N58PoJlQENR
+	MMCw76m1cqYKqbmeA+m7GL/+KcuJiep/4JEs+Bv+3AMTvTQUkmnBYmdQeOMStbSoorgrUdCc01Y
+	AshsyFMYAUQhRlLanBgcrnG5BUaAgmCTw2XgkHlYbMZLcG51Eptki40G4p2HVC82VYwh6+fKfWx
+	cerxEA6Q3MYHbcsV8kVWwTUFaCIfwHPw/7mZOF9EDw4oX/ylbnIuv8rwtt09rHN+oYAI6pxTbBt
+	2dzTy/LClr8+kZcZggUjvL4psEFgU5j89NBeNOAWH16tpMds4gQ32747hmIdMXOsnLXgeqxZIub
+	rR8VDWpAU5nu5qjvDWdNGbFJ+lRSLPKZ+Klf4/g==
+X-Google-Smtp-Source: AGHT+IE1sXxRjLWuyIxfMRq0XXnIfr9OoB0veGRrzBhEEckmil/o3iPtYIVQriMIP2J3nRsToyH7gw==
+X-Received: by 2002:a05:600c:3b15:b0:450:cf46:5510 with SMTP id 5b1f17b1804b1-453656c3641mr24495235e9.29.1750419301323;
+        Fri, 20 Jun 2025 04:35:01 -0700 (PDT)
+Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4535ebcecb5sm56839975e9.37.2025.06.20.04.34.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Jun 2025 04:35:00 -0700 (PDT)
+Message-ID: <0ee2a535-82e9-4916-9755-a68695167715@linaro.org>
+Date: Fri, 20 Jun 2025 12:34:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620111045.3364827-1-arnd@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 07/13] media: rockchip: add driver for mipi csi-2
+ receiver
+To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20240220-rk3568-vicap-v8-0-9d9cbc4b524d@collabora.com>
+ <20240220-rk3568-vicap-v8-7-9d9cbc4b524d@collabora.com>
+Content-Language: en-US
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <20240220-rk3568-vicap-v8-7-9d9cbc4b524d@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_122421_124292_B8708A1F 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250620_043503_393911_C7402958 
+X-CRM114-Status: GOOD (  33.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +121,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 01:10:41PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On 11/06/2025 18:06, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
 > 
-> For really large values of CONFIG_NR_CPUS, a CPU mask value should
-> not be put on the stack:
+> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
+> input port and one output port. It receives the data with the help
+> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
+> Rockchip RK3568 Video Capture (VICAP) block.
 > 
-> arch/arm64/kernel/smp.c:1188:1: error: the frame size of 8544 bytes is larger than 1536 bytes [-Werror=frame-larger-than=]
+> Add a V4L2 subdevice driver for this unit.
 > 
-> This could be achieved using alloc_cpumask_var(), which makes it
-> depend on CONFIG_CPUMASK_OFFSTACK, but as this function is already
-> serialized and can only run on one CPU, making the variable 'static'
-> is easier.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
->  arch/arm64/kernel/smp.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>   MAINTAINERS                                    |   1 +
+>   drivers/media/platform/rockchip/Kconfig        |   1 +
+>   drivers/media/platform/rockchip/Makefile       |   1 +
+>   drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
+>   drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
+>   drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 735 +++++++++++++++++++++++++
+>   6 files changed, 757 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 15987100c0cf..5c605dc7f5be 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -1107,7 +1107,7 @@ static inline unsigned int num_other_online_cpus(void)
->  void smp_send_stop(void)
->  {
->  	static unsigned long stop_in_progress;
-> -	cpumask_t mask;
-> +	static cpumask_t mask;
->  	unsigned long timeout;
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 40d806c206be..5b9228f6ddae 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21463,6 +21463,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+>   L:	linux-media@vger.kernel.org
+>   S:	Maintained
+>   F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> +F:	drivers/media/platform/rockchip/rkcsi/
+>   
+>   ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+>   M:	Daniel Golle <daniel@makrotopia.org>
+> diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
+> index 549f4e9f443e..96b38768c17e 100644
+> --- a/drivers/media/platform/rockchip/Kconfig
+> +++ b/drivers/media/platform/rockchip/Kconfig
+> @@ -4,4 +4,5 @@ comment "Rockchip media platform drivers"
+>   
+>   source "drivers/media/platform/rockchip/rga/Kconfig"
+>   source "drivers/media/platform/rockchip/rkcif/Kconfig"
+> +source "drivers/media/platform/rockchip/rkcsi/Kconfig"
+>   source "drivers/media/platform/rockchip/rkisp1/Kconfig"
+> diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
+> index 6aba32c8830c..932be2d3fdd6 100644
+> --- a/drivers/media/platform/rockchip/Makefile
+> +++ b/drivers/media/platform/rockchip/Makefile
+> @@ -1,4 +1,5 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   obj-y += rga/
+>   obj-y += rkcif/
+> +obj-y += rkcsi/
+>   obj-y += rkisp1/
+> diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
+> new file mode 100644
+> index 000000000000..d8004198c386
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
+> @@ -0,0 +1,16 @@
+> +config VIDEO_ROCKCHIP_CSI
+> +	tristate "Rockchip MIPI CSI-2 Receiver"
+> +	depends on VIDEO_DEV
+> +	depends on ARCH_ROCKCHIP || COMPILE_TEST
+> +	depends on V4L_PLATFORM_DRIVERS
+> +	depends on PM && COMMON_CLK
+> +	select MEDIA_CONTROLLER
+> +	select V4L2_FWNODE
+> +	select VIDEO_V4L2_SUBDEV_API
+> +	help
+> +	  This is a driver for Rockchip MIPI CSI-2 Receiver. It is featured
+> +	  in various Rockchips SoCs, usually in combination with a Video
+> +	  Capture (VICAP) unit (see Rockchip Camera Interface (CIF) driver).
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called rockchip-mipi-csi.
+> diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
+> new file mode 100644
+> index 000000000000..147712cbb68a
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_VIDEO_ROCKCHIP_CSI) += rockchip-mipi-csi.o
+> +rockchip-mipi-csi-objs += rkcsi.o
+> diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+> new file mode 100644
+> index 000000000000..eaad3608337e
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+> @@ -0,0 +1,735 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Rockchip MIPI CSI-2 Receiver Driver
+> + *
+> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
+> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+> +
+> +#include <media/mipi-csi2.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-fwnode.h>
+> +#include <media/v4l2-subdev.h>
+> +
+> +#define CSI2HOST_N_LANES     0x04
+> +#define CSI2HOST_CSI2_RESETN 0x10
+> +#define CSI2HOST_PHY_STATE   0x14
+> +#define CSI2HOST_ERR1	     0x20
+> +#define CSI2HOST_ERR2	     0x24
+> +#define CSI2HOST_MSK1	     0x28
+> +#define CSI2HOST_MSK2	     0x2c
+> +#define CSI2HOST_CONTROL     0x40
+> +
+> +#define SW_CPHY_EN(x)	     ((x) << 0)
+> +#define SW_DSI_EN(x)	     ((x) << 4)
+> +#define SW_DATATYPE_FS(x)    ((x) << 8)
+> +#define SW_DATATYPE_FE(x)    ((x) << 14)
+> +#define SW_DATATYPE_LS(x)    ((x) << 20)
+> +#define SW_DATATYPE_LE(x)    ((x) << 26)
+> +
+> +#define RKCSI_CLKS_MAX	     1
+> +
+> +enum {
+> +	RKCSI_PAD_SINK,
+> +	RKCSI_PAD_SRC,
+> +	RKCSI_PAD_MAX,
+> +};
+> +
+> +struct rkcsi_format {
+> +	u32 code;
+> +	u8 depth;
+> +	u8 csi_dt;
+> +};
+> +
+> +struct rkcsi_device {
+> +	struct device *dev;
+> +
+> +	void __iomem *base_addr;
+> +	struct clk_bulk_data *clks;
+> +	unsigned int clks_num;
+> +	struct phy *phy;
+> +	struct reset_control *reset;
+> +
+> +	const struct rkcsi_format *formats;
+> +	unsigned int formats_num;
+> +
+> +	struct media_pad pads[RKCSI_PAD_MAX];
+> +	struct v4l2_async_notifier notifier;
+> +	struct v4l2_fwnode_endpoint vep;
+> +	struct v4l2_subdev sd;
+> +
+> +	struct v4l2_subdev *source_sd;
+> +	u32 source_pad;
+> +};
+> +
+> +static const struct v4l2_mbus_framefmt default_format = {
+> +	.width = 3840,
+> +	.height = 2160,
+> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +	.field = V4L2_FIELD_NONE,
+> +	.colorspace = V4L2_COLORSPACE_RAW,
+> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
+> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
+> +	.xfer_func = V4L2_XFER_FUNC_NONE,
+> +};
+> +
+> +static const struct rkcsi_format formats[] = {
+> +	/* YUV formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	/* RGB formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	/* Bayer formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +};
+> +
+> +static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
+> +{
+> +	return container_of(sd, struct rkcsi_device, sd);
+> +}
+> +
+> +static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
+> +					      unsigned int addr, u32 val)
+> +{
+> +	writel(val, csi_dev->base_addr + addr);
+> +}
+> +
+> +static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
+> +					    unsigned int addr)
+> +{
+> +	return readl(csi_dev->base_addr + addr);
+> +}
+> +
+> +static const struct rkcsi_format *
+> +rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
+> +{
+> +	const struct rkcsi_format *format;
+> +
+> +	WARN_ON(csi_dev->formats_num == 0);
+> +
+> +	for (int i = 0; i < csi_dev->formats_num; i++) {
+> +		format = &csi_dev->formats[i];
+> +		if (format->code == mbus_code)
+> +			return format;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int rkcsi_start(struct rkcsi_device *csi_dev)
+> +{
+> +	struct media_pad *source_pad =
+> +		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
+> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
+> +	union phy_configure_opts opts;
+> +	s64 link_freq;
+> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
+> +	u32 control = 0;
+> +	int ret;
+> +
+> +	if (lanes < 1 || lanes > 4)
+> +		return -EINVAL;
+> +
+> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
+> +	if (link_freq <= 0)
+> +		return -EINVAL;
+> +
+> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
+> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
+> +
+> +		phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2, lanes,
+> +							   cfg);
+> +		phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
+> +		phy_configure(csi_dev->phy, &opts);
 
-This would work, there's a stop_in_progress check and only one CPU would
-modify the mask.
+This function can return an error, shouldn't you be capturing it ?
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+drivers/phy/rockchip/phy-rockchip-innoc-csidphy.c::rockchip_inno_csidphy_configure();
+
+> +
+> +		control |= SW_CPHY_EN(0);
+> +
+> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
+> +		control |= SW_CPHY_EN(1);
+
+Do you need to flag this when you are returning an error ?
+
+Other than that looks pretty good.
+
+---
+bod
 
