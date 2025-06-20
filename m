@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E824C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F758C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+B3F6T5itIIw6Fea+hP0fYMEiq/rD2eFXwlu5ekNYU=; b=1ngGpXUPYm2vJLbsHy6sqWXl37
-	BdYA3t/aaHY0LH3HjWd9Peg71pUx+Qei64RpOohtes1VgD/jMsBmFIvy9t3Rv/ChzaeJln1lYIBS2
-	nYxtIVQnpM9CL3KU5eU1+74oaJDvLpbhCfiElmj3Tsf4BnyB6PvePUzXB9dici0DS83+Ssi7DV5DK
-	w8W6aGRx1LaOqZdanF87tJUYdcv4lzuzvA9FHBIW1O5XP4gQG3+6GuXL02Pfyuqzjrp1jxt8ekZdh
-	T69u5Hh1MBQrDQ2zXUnoDQmGp7VoOIt+z/FpcKEJpa02gnCfPXs8UnfY46eyA41H7+Rb132Fqhe3q
-	11MDRXIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VlZH0l+Wf1bVanJ4bbEfo9R/bk9uY0/tSUsiGui4YeI=; b=rnoAGzfCAoLYMMhwQlaGorP9Qe
+	vphBo44xASom615arvejmGCifj3kmfTbI1uZtvREg9VElAgzIjD+y/lGhdlDbpMe0Kv+3aKfJEsmN
+	UuFQrEtCVY53NbErBBzkphg1Vz0pMxhZIHzHLoHJUmyLqsHmoOQ5xXtR6LFVThwyrc8rEzl4SKnTs
+	zsC399XpjlFjRe8k6Jvw3wlIrsxta70lzek5zoRkcS2G4MiAUqXz7hfysKbbuuPFvLaghiZ3jAdt2
+	3W5fJNRqT5MjtBMqSJ5xoS/0yNiacUqxndCxPclOqagJvnsLVTg/mSy22W9QJp9SSScFIo6IPr5gF
+	68tqPEaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjgm-0000000Gewy-1JgK;
-	Fri, 20 Jun 2025 21:54:24 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1uSjj0-0000000Gf72-06TB;
+	Fri, 20 Jun 2025 21:56:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSjNs-0000000GcnU-3GHu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 21:34:53 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3ddd68aeb4fso23705985ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 14:34:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750455291; x=1751060091; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e+B3F6T5itIIw6Fea+hP0fYMEiq/rD2eFXwlu5ekNYU=;
-        b=gvGePlzitowd6TO7rQf2ZF/m8V8rTN20/QlaAtE+P3FPDCB0V4jMtfobXaN7ZJuhJW
-         I7oYczeaAwT2KwhXRLZzPNbBD2TSsCbOvBETFVLwo6ptV1xNtHejC2BynWe20wgEX01B
-         ClAhOkbkeDNsDB/fj+UQFMwoJqSAt31iTnPzNbQLqjriuRPJIKuGoL8sf92T77GiO8Yp
-         G/1zU1JEGAXlXXctQg9fWGDo5d+EwmlVQ6zUYF7KkHcsEMCcIVT73xPGClAvtH13F/nq
-         HYH33/cgN6qyawpwH1rWzw3KgyQ6xBHem4TEAqjT0pgShAzocTKG6gaCvHg71D3Ing9e
-         M1AQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750455291; x=1751060091;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e+B3F6T5itIIw6Fea+hP0fYMEiq/rD2eFXwlu5ekNYU=;
-        b=pBIHzg/CYFtFv8t34i8ZSyoKozvAV5YiUGABVGgw55cdHO+akY4Ns6v7h4vmflo5U1
-         ztb8YEq+/7TQbAJUqmeVjDwUsxunx0GP570mcKOMHxy3LFlDHPM8BBA/oN+pz4sn7VdR
-         PnGtiaRUqpv++ALaSkJQVq6+u5fhsDqAv0seHNAJ7WQNDdr6ZnpObBQeNCSFn3QCsYLj
-         2S8nyQ7nQaxF4FxI8dvAVe25jWpH6MvyTCZ2idem+8SCFjrVBpbnSf/rAaFFLbCfgmKV
-         WeBGNICSmnQDjbbXVVDd7XSqHFCqlk+lMgDrSd0CNBfFMVTGj/qr3AQm1XzfR/PMkOiX
-         wawg==
-X-Gm-Message-State: AOJu0Yw2HCe0GhN1lcFoq2kgJPn84QgZHPd0s5to6kjzUQ5D4yg1wP8A
-	UUqJ/CRmZAbsvRF3BBiW1+K0Op3oV9PiFIM7JvNUBAjFoF+7Nuigne65S/XZYw==
-X-Gm-Gg: ASbGncuz8N/1AUGnSZDHtI2KGOGmawIRd9v/qAFsdzqSuZWHU3uSvvwvNWlT6btuG9X
-	Qel/M0cQq63kxFBTY7Wx0rjZ4PskJ5xK29dw8Hi7aRXzNKmts3F3om3kC2LPc8FlaSKdKofhIdW
-	AG4hy3ENQbWdbBqnkcrbxV3ldVOvGTm9rJxpxA89wpYvACfTvBMlCC26EZJrDJZg/2h3UxEf+7K
-	3ro5WytsVMw1eBai/J8SwlHPtIbQ0tnssoH0t1GErSHnJRw8elF4EJmRkSRrz6ShLI2leqGdI3E
-	8QVj7G+kC78DLaBcitF/EMXDZNXhLdTL7YD4MdYlK81djG9zrXj7fWAq25PRnAtwIPQCALBN9mx
-	3ObCSTHT4h4gxtO2uJLnC4nM5ltvTKIn1Qd71SYOB7icO8qM=
-X-Google-Smtp-Source: AGHT+IEWnxZaEsUoXIyBXQdtG3ofERkIZgoD94IDVPmbvQCBnUrK9o6S+P5EUx9I2ltMG/Cyr6ePaw==
-X-Received: by 2002:a05:6e02:174d:b0:3db:754c:63b with SMTP id e9e14a558f8ab-3de38ca55cbmr47468705ab.12.1750455291583;
-        Fri, 20 Jun 2025 14:34:51 -0700 (PDT)
-Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5019e0d03e7sm546707173.139.2025.06.20.14.34.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 14:34:51 -0700 (PDT)
-From: Adam Ford <aford173@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: aford@beaconembedded.com,
-	Adam Ford <aford173@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: imx8mn-beacon: Fix HS400 USDHC clock speed
-Date: Fri, 20 Jun 2025 16:34:46 -0500
-Message-ID: <20250620213447.56392-2-aford173@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250620213447.56392-1-aford173@gmail.com>
-References: <20250620213447.56392-1-aford173@gmail.com>
+	id 1uSjSU-0000000Gd7G-3gNi;
+	Fri, 20 Jun 2025 21:39:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 02C79615EC;
+	Fri, 20 Jun 2025 21:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF15FC4CEF6;
+	Fri, 20 Jun 2025 21:39:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750455577;
+	bh=HvoFMsnVPaebNolXyEd0amy4ilKaPCQCYOjaJT3HRfw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jJfZU4Vlyv60JLf4iYDzXyYj/nNjhRcuRyHNx/9hf1bvjOsD/F3//RsHPhpBnMvu1
+	 sHOuMaZNHrm1NP/OmRnsAsoiIfuN6NQdHRux1JYZKklSHFNo3QRkWEmGXQhA9bQ1Pt
+	 7Je39+LmoAGcqvDoPPqBsDnIYV9O0mez0OCndPDKcLPSYZm4s9atUB+OzHNXTpIsWk
+	 BFDevwltARm0TQJUc0KDj4xt99mrgD5pveawyhxsuMTTJtSOfhBaUXVRX8RtDN+haj
+	 5jImxo/vKcxFVFTcWmRi9pN5JK/XeV0v4p2sCz/ECpyw8qTB0/Oo9ixY3eo5cEIrfp
+	 Ycg1/VMY7bIYw==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-553b16a0e38so2431877e87.1;
+        Fri, 20 Jun 2025 14:39:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW4ZnAP3bZw+peYN8pZVquAlcBHUGGM9BzJsR3SUaYPo9hnudsQkB5w11Lb6VSsqzRtjN4HE0VFrUzdzEEA9j2J@lists.infradead.org, AJvYcCXnsVpc76bJ2hcRnmUh+ElYoL9h7bXdjE0bSkEJalqyDWUln+ckzgnrvMOx0TKa9nIoNW0Kf6JVihpM6Xg=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJvNUOSHpzHj4AV6PupjIxHjBwl527Vgcmf0l4bZlEGyR4849d
+	DIbF/zwtkNzRXr5kVILtWpCDYaQQnLzzcru1wNeaxD4y1zDCBgnZ23WmDybXW3KVFiySxiV1Rra
+	Q16bOvf0+1vE4XBUTTxrt4BGbbmH5YRA=
+X-Google-Smtp-Source: AGHT+IFlzPdW/TAjB41pWNx+EWn0IQNKfWjtbAPkCDzwR/Cmxb5FPmWfpoRjKRGa+GebEYrhPkOrWG7ilfOzIslgaJA=
+X-Received: by 2002:a05:6512:15a2:b0:553:510d:f464 with SMTP id
+ 2adb3069b0e04-553e3be0118mr1238378e87.25.1750455576146; Fri, 20 Jun 2025
+ 14:39:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_143452_813973_D8E2F0DD 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+References: <20250619191908.134235-1-ebiggers@kernel.org>
+In-Reply-To: <20250619191908.134235-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 20 Jun 2025 23:39:24 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHMjG77Q9WxwqACekQNnEU0DdQPsamt5v5PjtmgguWDuw@mail.gmail.com>
+X-Gm-Features: AX0GCFsPzv-r5KhW4GCiBgsxcKQ8jDKA8HBlXZ_WU75HnhkUOj_Q-bl9RCm5Y74
+Message-ID: <CAMj1kXHMjG77Q9WxwqACekQNnEU0DdQPsamt5v5PjtmgguWDuw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/9] lib/crypto: move arch/$(ARCH)/lib/crypto/ to lib/crypto/$(ARCH)/
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The reference manual for the i.MX8MN states the clock rate in
-MMC mode is 1/2 of the input clock, therefore to properly run
-at HS400 rates, the input clock must be 400MHz to operate at
-200MHz.  Currently the clock is set to 200MHz which is half the
-rate it should be, so the throughput is half of what it should be
-for HS400 operation.
+On Thu, 19 Jun 2025 at 21:22, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> This series applies on top of
+> https://lore.kernel.org/r/20250616014019.415791-1-ebiggers@kernel.org/
+> and is also available in git at:
+>
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git arch-to-lib-crypto-v2
+>
+> This series moves the contents of arch/$(ARCH)/lib/crypto/ into
+> lib/crypto/$(ARCH)/.
+>
+> The new code organization makes a lot more sense for how this code
+> actually works and is developed.  In particular, it makes it possible to
+> build each algorithm as a single module, with better inlining and dead
+> code elimination.  For a more detailed explanation, see the patchset
+> which did this for the CRC library code:
+> https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
+> Also see the patchset which did this for SHA-512:
+> https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
+>
+> This is just a preparatory series, which does the move to get the files
+> into their new location but keeps them building the same way as before.
+> Later patch series will make the actual improvements to the way the
+> arch-optimized code is integrated for each algorithm.
+>
+> Changed in v2:
+>    - Instead of keeping arch/*/lib/crypto/.gitignore, instead add entry
+>      for now-removed crypto directory to arch/*/lib/.gitignore.
+>    - Adjusted commit messages and titles.
+>    - Added Reviewed-by.
+>
+> Eric Biggers (9):
+>   lib/crypto: arm: move arch/arm/lib/crypto/ into lib/crypto/
+>   lib/crypto: arm64: move arch/arm64/lib/crypto/ into lib/crypto/
+>   lib/crypto: mips: move arch/mips/lib/crypto/ into lib/crypto/
+>   lib/crypto: powerpc: move arch/powerpc/lib/crypto/ into lib/crypto/
+>   lib/crypto: riscv: move arch/riscv/lib/crypto/ into lib/crypto/
+>   lib/crypto: s390: move arch/s390/lib/crypto/ into lib/crypto/
+>   lib/crypto: sparc: move arch/sparc/lib/crypto/ into lib/crypto/
+>   lib/crypto: x86: move arch/x86/lib/crypto/ into lib/crypto/
+>   MAINTAINERS: drop arch/*/lib/crypto/ pattern
+>
 
-Fixes: 36ca3c8ccb53 ("arm64: dts: imx: Add Beacon i.MX8M Nano development kit")
-Signed-off-by: Adam Ford <aford173@gmail.com>
+For the series,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-index 67a99383a632..917b7d0007a7 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-@@ -305,6 +305,8 @@ &usdhc3 {
- 	pinctrl-0 = <&pinctrl_usdhc3>;
- 	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
- 	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	assigned-clocks = <&clk IMX8MN_CLK_USDHC3>;
-+	assigned-clock-rates = <400000000>;
- 	bus-width = <8>;
- 	non-removable;
- 	status = "okay";
--- 
-2.48.1
-
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
