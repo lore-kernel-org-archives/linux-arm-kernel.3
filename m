@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1EBC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10252C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 22:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBxhIed3fkpmOQu/SLH3ienlsanfX2Wz3izzC9sfark=; b=WytMEt/I/FeilsDYEqRMdtvPSR
-	zXxx2SAQiVagGuAR01n1mG2C8wJrTSeWvsKhHUVQXvEW5FiSWUct6pqQ6JFRZag99y9o+sYJ0VE2w
-	N4cWiyLSJ7c90N8duuOXcfXYPN/tOkPYR4Iz17Eu1HizH/4FQVwXzxpaYqPrfZe0YnBdXC2EbCBtm
-	5Foj/tlRG5Pa2ulKqj0p7M768oO/rRll/DM9HOFm6GdNf8dZm8Qr8A+itZVy0EBk1bci1/WK7oinK
-	FIHvFOzBsiYrgyyyBd06FfnDKV43wv8BBOyUosITR/qmD/sdKfZz1pzNvj6roA+CIMj4FoQQu4aAX
-	Q5553uPQ==;
+	bh=6vRk6zke2lpK9XGCO0Sj8vZO43QSodRcPYun9h3GVGY=; b=PG9VsBSSRKGf6X5jw6vWyV3hRi
+	CxqrRonrKgPNOFbanYYbbeLYly6SyYvmgL+Rf2dT5qYrXhWDtu7h1ectwRTsa7Fa/1zual7IppNjr
+	igt0TyjKkBxznE9vXNN7b4NfoR1tdzk4EGdNGYxUvJFnIuOZVd7Un5tH73r60jkZUxb7vtFwkW6WT
+	FElpafjC4dyLxZe3kkd16qeBNu7jOCuFNvP3SyaZOeMWap85On+uFXqg29g5SBD1SxMVnKCOtwiUl
+	aAPh2hIzBIT9f73WVXo4OQBUTjC9m4b5eNCgw03+zbXvM+7Rpd0ELYxpNX60tMGk4NDnsczSTdJWU
+	7DWNCKvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSkUp-0000000Gl2U-1xLm;
-	Fri, 20 Jun 2025 22:46:07 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1uSkX3-0000000GlQ9-170B;
+	Fri, 20 Jun 2025 22:48:25 +0000
+Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSk4O-0000000Gh4j-3AKT
+	id 1uSk4R-0000000Gh6t-0vB0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 22:18:50 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3ddafe52d04so70001635ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 15:18:48 -0700 (PDT)
+	Fri, 20 Jun 2025 22:18:52 +0000
+Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-86463467dddso188109139f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 15:18:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750457927; x=1751062727; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750457930; x=1751062730; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qBxhIed3fkpmOQu/SLH3ienlsanfX2Wz3izzC9sfark=;
-        b=XR82sKxAYlyYoTwyYOIAoBmiFRXh3X7WpvUWzGBkc+nMUyLCUFAiLdNzTwucaOhnzh
-         O2kT1qgT4kLMZxGo8ea2ow7SPd1Fe9K055eXY0lR+533GQcGe1SfBlhGW5s5zyMZObK/
-         h0JmKV1hP9vrlys4N08utjut13RpHPoidRnPfczPDFx32F6mnEprJTLSp8fTZbHroqwG
-         2c7G21OSxucgJSZFSiH5yWL8RB4kYjEhP0GI49IGg2v1dlc+jWR9MtDabQFWCv5wK0bE
-         3ED1mLGqu1nf0rkTYl2zmym5NtVo6E9rgxBQKFsAQZm4SgjKnyyRv3lDgfc2gVXOrDCx
-         GmXw==
+        bh=6vRk6zke2lpK9XGCO0Sj8vZO43QSodRcPYun9h3GVGY=;
+        b=h6Kfzrxmi2vICrPCkj8nSy3KIwmd6iVTzvkXhLybQwIuyVP58/5v7tVPIR4RCaGGD3
+         9KEtvnvRDpt3WYMl1zElyIQG3rw0miqxQAxwNsREEtidJgWk1OmWXunkpQTsJUBew3b6
+         lsffPjo2jpyPpJLVYTAvKyz4CynVYwLB84XqjvARme7dQ1fqB1DXIOPt7K/pJTgFcP1d
+         DnaokGYVqDCY0UsKhGIfBAgJgY8sE4kh0FfX7zFhqYMbbGNTdVaoJMpEGuPw2XPjkYiW
+         bE/EyiZ8GCaY7UQrvK12M4S2FXq3rjQQ/YWPhe+rbiEv3h2Z4PNg2IecqGtitYeg4SQd
+         k3kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750457927; x=1751062727;
+        d=1e100.net; s=20230601; t=1750457930; x=1751062730;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qBxhIed3fkpmOQu/SLH3ienlsanfX2Wz3izzC9sfark=;
-        b=CgjjXh56y0tDIJdmYjgMNHheXh2FnTGT2wVN5jPof0VTFgLbd+OZ2A55RQ+oHnfclP
-         TgoWJNnl5kHYZdiZ82F9sot3/Lyzd0Vbg2odbF11yrmBfIvCXPJ16qbbot5A7Aw2VjZE
-         bq+bWOcpT5WwGFT+YUgxWmFsaog4A8VfpOqby2MQ0m2KRpg9ECwlgS/LwB01e9s10Ryo
-         opWsFrLqO3sML5eKr7G4askOv+V3oFggHk1vppPcsTvbTob7Sn/s5dQFfPHc0nQz8DAz
-         ysR7aBvrXnsFbQHdhSfsX/ktu2zpOevbOGZsQKZKw6aXCQWSg67muvOzGhj4sd60hdVm
-         Owug==
-X-Forwarded-Encrypted: i=1; AJvYcCWNla+rzsUmZDHpKqcpOg7BDl8ufwg/Q83Bx0JYaqeo32rkRuTBONMnoY/UjVqygaD2ErVok825pWYECfREF8WK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2SAxcXaup67z1gD0eG3+pUb8JBMuiA1HEkfaYzrX6f067Xj5b
-	dLgddBBc08G3LUZGVECS57Nlu6rbOifob/oVJepEIAYDAQvVqzSIG9Er7RFShZn9Ky6uhn1BWXe
-	GY/iVWYewrxlJAIUZ0QshLsOZBA==
-X-Google-Smtp-Source: AGHT+IFTbBL04tu/5o1zgL0CZq/zWbduiqa+Y5YKeofcr7jFQYs86cUlPmuIGNSiiyk8Ax4cMVHcBUNCIBRZtQH70g==
-X-Received: from ilbcp10.prod.google.com ([2002:a05:6e02:398a:b0:3dc:756a:e520])
+        bh=6vRk6zke2lpK9XGCO0Sj8vZO43QSodRcPYun9h3GVGY=;
+        b=SmRcowxnSskAY4D+4bwRDe3fW+2HRTuOxO1DOYPBxBbUS8APHXHR6lE6FUT9RAvT9X
+         g8gF1LOlnU7l4JA+eV8JmmT/ln96RqEDnGhBFpd/dUzcSJduga8u22IG0QYMUgGtRj2J
+         dPUqQGyZVxsnJ6FYQHqTneWe+jkMqbfcZzfPQY/7U+iHceS+maJesJS64Yt2Y69KL3th
+         Uo5M4FfrUyi/3dJDIuu9ydJNmvaTXk+rPt6v1IW3fcL0tWAMyR+o/kEq/11ukBX7CWuz
+         bb4ZBGdEpCj9hHukulCBhFp0qgxHqrVVOOrM/vKEep4RTvaRtWaoE/psNjYB9cFOYY95
+         HcDA==
+X-Forwarded-Encrypted: i=1; AJvYcCWskczCKJQTkOocwgV6C5XqARa7frMko5a/hy/wbBWFynEreyZHncQHsXFUyMHIFwfYn+END94GdvYFLaPTb4jy@lists.infradead.org
+X-Gm-Message-State: AOJu0YywFVwTYunmLR68eABswbpYpBw3MVkEpss6cRCAqZougwFLvpOP
+	4z9PQUjSEoRB1Mdx+Ld2jyk2KmFTfITzNUQdHx+wt2NuNRbnlvIoxrTdAxn3gDfYJFVM2DRC334
+	JnHRvB+D2eus1NjgzhXT7F3vtAA==
+X-Google-Smtp-Source: AGHT+IEkoSb5VH84QY4nbT8Ifa51AqeoGsCAL340Tv3oIBa14LiCdgJYJOfuore5wja+yy1LW8r/DPYGzutAdJdswQ==
+X-Received: from ilbbb11.prod.google.com ([2002:a05:6e02:b:b0:3de:11fe:800c])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:2488:b0:3dd:c40d:787e with SMTP id e9e14a558f8ab-3de38c1b8f3mr60278825ab.2.1750457927652;
- Fri, 20 Jun 2025 15:18:47 -0700 (PDT)
-Date: Fri, 20 Jun 2025 22:13:11 +0000
+ 2002:a05:6e02:17c7:b0:3de:287b:c430 with SMTP id e9e14a558f8ab-3de38c1ba23mr58907475ab.3.1750457929911;
+ Fri, 20 Jun 2025 15:18:49 -0700 (PDT)
+Date: Fri, 20 Jun 2025 22:13:13 +0000
 In-Reply-To: <20250620221326.1261128-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20250620221326.1261128-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
-Message-ID: <20250620221326.1261128-12-coltonlewis@google.com>
-Subject: [PATCH v2 10/23] KVM: arm64: Correct kvm_arm_pmu_get_max_counters()
+Message-ID: <20250620221326.1261128-14-coltonlewis@google.com>
+Subject: [PATCH v2 12/23] KVM: arm64: Writethrough trapped PMEVTYPER register
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
@@ -80,8 +80,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
 	Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_151848_792787_D18D01CB 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250620_151851_259283_7B7CDD63 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +96,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since cntr_mask is modified when the PMU is partitioned to remove some
-bits, make sure the missing counters are added back to get the right
-total.
+With FGT in place, the remaining trapped registers need to be written
+through to the underlying physical registers as well as the virtual
+ones. Failing to do this means delaying when guest writes take effect.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/kvm/pmu.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/sys_regs.c | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
-index 79b7ea037153..67216451b8ce 100644
---- a/arch/arm64/kvm/pmu.c
-+++ b/arch/arm64/kvm/pmu.c
-@@ -533,6 +533,8 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
- u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
- {
- 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
-+	u8 counters;
-+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index eaff6d63ef77..3733e3ce8f39 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -18,6 +18,7 @@
+ #include <linux/printk.h>
+ #include <linux/uaccess.h>
+ #include <linux/irqchip/arm-gic-v3.h>
++#include <linux/perf/arm_pmu.h>
+ #include <linux/perf/arm_pmuv3.h>
  
- 	/*
- 	 * PMUv3 requires that all event counters are capable of counting any
-@@ -545,7 +547,12 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
- 	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
- 	 * Ignore those and return only the general-purpose counters.
- 	 */
--	return bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
-+	counters = bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
+ #include <asm/arm_pmuv3.h>
+@@ -943,6 +944,7 @@ static bool pmu_counter_idx_valid(struct kvm_vcpu *vcpu, u64 idx)
+ 	u64 pmcr, val;
+ 
+ 	pmcr = kvm_vcpu_read_pmcr(vcpu);
 +
-+	if (kvm_pmu_is_partitioned(arm_pmu))
-+		counters += arm_pmu->hpmn_max;
-+
-+	return counters;
+ 	val = FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
+ 	if (idx >= val && idx != ARMV8_PMU_CYCLE_IDX) {
+ 		kvm_inject_undefined(vcpu);
+@@ -1037,6 +1039,30 @@ static bool access_pmu_evcntr(struct kvm_vcpu *vcpu,
+ 	return true;
  }
  
- static void kvm_arm_set_nr_counters(struct kvm *kvm, unsigned int nr)
++static bool writethrough_pmevtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++				   u64 reg, u64 idx)
++{
++	u64 eventsel;
++
++	if (idx == ARMV8_PMU_CYCLE_IDX)
++		eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
++	else
++		eventsel = p->regval & kvm_pmu_evtyper_mask(vcpu->kvm);
++
++	if (vcpu->kvm->arch.pmu_filter &&
++	    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
++		return false;
++
++	__vcpu_sys_reg(vcpu, reg) = eventsel;
++
++	if (idx == ARMV8_PMU_CYCLE_IDX)
++		write_pmccfiltr(eventsel);
++	else
++		write_pmevtypern(idx, eventsel);
++
++	return true;
++}
++
+ static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			       const struct sys_reg_desc *r)
+ {
+@@ -1063,7 +1089,9 @@ static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (!pmu_counter_idx_valid(vcpu, idx))
+ 		return false;
+ 
+-	if (p->is_write) {
++	if (kvm_vcpu_pmu_is_partitioned(vcpu) && p->is_write) {
++		writethrough_pmevtyper(vcpu, p, reg, idx);
++	} else if (p->is_write) {
+ 		kvm_pmu_set_counter_event_type(vcpu, p->regval, idx);
+ 		kvm_vcpu_pmu_restore_guest(vcpu);
+ 	} else {
 -- 
 2.50.0.714.g196bf9f422-goog
 
