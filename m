@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3034BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28286C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 21:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=150aeiOcQ1eF8Bs7d2sR6Df6GhkMz/3RX32+OJnAQoM=; b=SJS0d5m0MlVMpX
-	UwXBFggl9s+kCmhjWfs2mAutIyvLW8DRgyAvEQZPHpZgQdhV2suN7GpSOx0TeL1Pf5GzgiVYqeBME
-	Jec5twaCLs2eLSV1P6ZiCMD18DI/waimMe8l+eWxucJOceHon2S+sivOpW9/VEBGX0uFvfc63F1zm
-	1PV/8zWdt9UhtNl2E36pZKv8xWrZluYWaargtISW/cxiIolNY3T2tSdOHYUaXv4Yv38nUJh++lTiU
-	J5k2Tf8Lxc/xmBcT27ACW2lt53Mzio1NRJqWCtAc0bQxyNYBW0720PFJzKe4nXBOfZz+CmRsCpoI0
-	8Il2b+/TmYtWzQ7lxvsA==;
+	List-Owner; bh=o/r52VuwTcW9jULpSkyD9igiRu7i2LzNyAIWDskFuVs=; b=k7WOjnpvDw9ilq
+	050YpJskEf2lMHnfSAd9Ww32acChvCa72tLdQ8SZje7HXBSBCHSrQMzRUJNwSlcHCAml7ScZp/kOm
+	VS1bmZeHYgrG8tT9RobsOGquXImCdNmX+7qcNdljqmIv3RzV9zOB8sd2x80ZtHHq3rWvGGrifW8g1
+	1mQwpEoNwsE9iH0DyGfsfRyqXeKnPoGQinz86YlPFFQIT3fo6o73PfeOKY8Tbp970VdgfXsZLngOW
+	+epf1KuHTGIz5MwswXGrsTiA0vgEsxCPZEfPMY1j4SSCkE6b71ZJz0FyLkHjSJmfhQ6JDSdQiOYDf
+	485YXcmgrIicL8N6QruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSj6a-0000000GbK1-3Z1l;
-	Fri, 20 Jun 2025 21:17:00 +0000
+	id 1uSj8o-0000000GbSm-2HGQ;
+	Fri, 20 Jun 2025 21:19:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSj29-0000000Gaxm-3iOD
+	id 1uSj2A-0000000GaxT-14iA
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Jun 2025 21:12:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBF6222FA;
-	Fri, 20 Jun 2025 14:12:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE91316A3;
+	Fri, 20 Jun 2025 14:12:03 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.50.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A87493F673;
-	Fri, 20 Jun 2025 14:12:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 51FE63F673;
+	Fri, 20 Jun 2025 14:12:21 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 02/13] arm64: refactor aarch32_break_handler()
-Date: Fri, 20 Jun 2025 22:11:56 +0100
-Message-ID: <20250620211207.773980-3-ada.coupriediaz@arm.com>
+Subject: [PATCH v4 01/13] arm64: debug: clean up single_step_handler logic
+Date: Fri, 20 Jun 2025 22:11:55 +0100
+Message-ID: <20250620211207.773980-2-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250620211207.773980-1-ada.coupriediaz@arm.com>
 References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_141226_052021_D99F57C5 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250620_141226_341198_916BAF3B 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,94 +61,55 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@ar
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-`aarch32_break_handler()` is called in `do_el0_undef()` when we
-are trying to handle an exception whose Exception Syndrome is unknown.
-It checks if the instruction hit might be a 32-bit arm break (be it
-A32 or T2), and sends a SIGTRAP to userspace if it is so that it can
-be handled.
-
-However, this is badly represented in the naming of the function, and
-is not consistent with the other functions called with the same logic
-in `do_el0_undef()`.
-
-Rename it `try_handle_aarch32_break()` and change the return value to
-a boolean to align with the logic of the other tentative handlers in
-`do_el0_undef()`, the previous error code being ignored anyway.
+Remove the unnecessary boolean which always checks if the handler was found
+and return early instead.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Acked-by: Mark Rutland <mark.rutland@arm.com>
 ---
- arch/arm64/include/asm/debug-monitors.h |  2 +-
- arch/arm64/kernel/debug-monitors.c      | 10 +++++-----
- arch/arm64/kernel/traps.c               |  2 +-
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/debug-monitors.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index 8f6ba31b8658..e1caf6a8380c 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -116,7 +116,7 @@ static inline int reinstall_suspended_bps(struct pt_regs *regs)
- }
- #endif
- 
--int aarch32_break_handler(struct pt_regs *regs);
-+bool try_handle_aarch32_break(struct pt_regs *regs);
- 
- void debug_traps_init(void);
- 
 diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 676fa0231935..9e69f2e915e8 100644
+index 58f047de3e1c..676fa0231935 100644
 --- a/arch/arm64/kernel/debug-monitors.c
 +++ b/arch/arm64/kernel/debug-monitors.c
-@@ -334,7 +334,7 @@ static int brk_handler(unsigned long unused, unsigned long esr,
- }
- NOKPROBE_SYMBOL(brk_handler);
- 
--int aarch32_break_handler(struct pt_regs *regs)
-+bool try_handle_aarch32_break(struct pt_regs *regs)
+@@ -241,8 +241,6 @@ static void send_user_sigtrap(int si_code)
+ static int single_step_handler(unsigned long unused, unsigned long esr,
+ 			       struct pt_regs *regs)
  {
- 	u32 arm_instr;
- 	u16 thumb_instr;
-@@ -342,7 +342,7 @@ int aarch32_break_handler(struct pt_regs *regs)
- 	void __user *pc = (void __user *)instruction_pointer(regs);
+-	bool handler_found = false;
+-
+ 	/*
+ 	 * If we are stepping a pending breakpoint, call the hw_breakpoint
+ 	 * handler first.
+@@ -250,10 +248,10 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
+ 	if (!reinstall_suspended_bps(regs))
+ 		return 0;
  
- 	if (!compat_user_mode(regs))
--		return -EFAULT;
-+		return false;
+-	if (!handler_found && call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
+-		handler_found = true;
++	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
++		return 0;
  
- 	if (compat_thumb_mode(regs)) {
- 		/* get 16-bit Thumb instruction */
-@@ -366,12 +366,12 @@ int aarch32_break_handler(struct pt_regs *regs)
- 	}
+-	if (!handler_found && user_mode(regs)) {
++	if (user_mode(regs)) {
+ 		send_user_sigtrap(TRAP_TRACE);
  
- 	if (!bp)
--		return -EFAULT;
-+		return false;
- 
- 	send_user_sigtrap(TRAP_BRKPT);
--	return 0;
-+	return true;
- }
--NOKPROBE_SYMBOL(aarch32_break_handler);
-+NOKPROBE_SYMBOL(try_handle_aarch32_break);
- 
- void __init debug_traps_init(void)
- {
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 9bfa5c944379..685c11b2c553 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -454,7 +454,7 @@ void do_el0_undef(struct pt_regs *regs, unsigned long esr)
- 	u32 insn;
- 
- 	/* check for AArch32 breakpoint instructions */
--	if (!aarch32_break_handler(regs))
-+	if (try_handle_aarch32_break(regs))
- 		return;
- 
- 	if (user_insn_read(regs, &insn))
+ 		/*
+@@ -263,7 +261,7 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
+ 		 * to the active-not-pending state).
+ 		 */
+ 		user_rewind_single_step(current);
+-	} else if (!handler_found) {
++	} else {
+ 		pr_warn("Unexpected kernel single-step exception at EL1\n");
+ 		/*
+ 		 * Re-enable stepping since we know that we will be
+
+base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
 -- 
 2.43.0
 
