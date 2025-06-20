@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65D9C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2A7C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 16:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SexsvDtdFHy59LCXhZgboYD+J7kOX3/xH1GfCS5qJ70=; b=Uq4Kwdvfwd2bFTQmrWpWqpX6JJ
-	BcbhVHIZ4p8NeWlVzvJ+9nbFmisEVj2Y5zjWelcfQA+zi5YIu32FchpWcIxhxY4eTjRBPlLvezCXt
-	KMJMX69jGsqTE1vAPuSyIfcv82TieZJqF8Wlfq/Si6GQ9oxW6J7OlW/PRdEzLoMxGIjTeKzIASJ2r
-	z9Wxjh/3c8J8HsEcnorbMCWO+y1+HObIF499ZZZGAs2xdbO9vqQ97NehHGrESuQO4dBdY76KovNvu
-	KsMQ8j4QFT7YwTv7Sbg6m4oycpeEQjI6hmLpkvwsSfc2/FC/iPFKAnQHA1XIBn8Xilx+vhpZypW/3
-	0KOgKmIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DJDQ5jsltpJAHqGixOU5/Ni4jPTDl32ucuObQ0mSDyM=; b=NkCkF8zDqsBHpiryT9RQHCeWVK
+	JTgVAXk1UUBsebnnKVksiTNvGfcwPd7Dv8feo/+Akl7u2ucEukT7VTZUv/9WqD/cNYNmcqWb89x/J
+	D1rcStpTXkzu34G4BP4urD43XVxOc8UkGw0QJPlZnTN19nVuHebdFeE6sPpPYmR/qk5uk6Evi+SH7
+	YTXW9hGl1gwjf3enHnFKiQ/0gmMBy8WRuHyrvgVgUKfxYSELRj3G5kaXqMYjjofYC2WJNL0dbnRIq
+	c2YutkBklO2Jr1YzzGyG+6NM0I4jngbxR0Am5aS8nzGVjpm/J1egrDS3H7mfZkTIqmoAZUcWlBXm/
+	UlCB+HPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeve-0000000GAh2-2OHg;
-	Fri, 20 Jun 2025 16:49:26 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uSexr-0000000GAxf-2UM6;
+	Fri, 20 Jun 2025 16:51:43 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSeIl-0000000G5wW-3V6i;
-	Fri, 20 Jun 2025 16:09:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750435740; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=PRHhROmhmYIWX9VQQTxybnvoc6qtwZl5IIv2lrQyU98SI8PSQRx3OjmL+nHgHnNS8rTURwoaRXTh+vxHmIaDy8fRSwylDuLVuZVs4LIdelQ3u6q54VthaJuNQHNYjtLjqC07mL8d50No7OH95WaHgWlaHrET0wFhPLDDJ6twZ6U=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750435740; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SexsvDtdFHy59LCXhZgboYD+J7kOX3/xH1GfCS5qJ70=; 
-	b=h9oyyW/ShfW+J2W6xs46kQAwkHnoOUIwW2XBIBgUnCkQKyn7Sr2HJ54u+P+67V7+3KbxMSkO0xw87YpZdv3W2OF9waXajHC6XjmMMn9hADzgWWRHNwFF80fTWa5S7JPjpX68Pc09rHS2Ac7BpWLVefhp+6GPDiFYr9DcGRwX324=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750435740;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=SexsvDtdFHy59LCXhZgboYD+J7kOX3/xH1GfCS5qJ70=;
-	b=NI6Skgtfq0cL37ispMMDCYE5YRle5rAWCFeZ+7d0YB8+csnfhvzI2pmpKzi7NAd5
-	+oJpfITXVKuhQYJ0oqbIKmMPAJIzaccGQzqlylF2Aghsy29G8FgFRrzb1iMS5kOlCOL
-	ErgAgrQqu4yrkemovl4e/k3+8bIlb0kfLjXCP0LU=
-Received: by mx.zohomail.com with SMTPS id 1750435737953532.631082223741;
-	Fri, 20 Jun 2025 09:08:57 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Chanwoo Choi <cw00.choi@samsung.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>, Heiko Stuebner <heiko@sntech.de>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] RK3588 rockchip-dfi enhancements
-Date: Fri, 20 Jun 2025 18:08:53 +0200
-Message-ID: <2422670.VLH7GnMWUR@workhorse>
-In-Reply-To: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
-References: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
+	id 1uSeJ9-0000000G5zu-11nn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 16:09:40 +0000
+Message-ID: <91a9e80a-1a45-470b-90cf-12faae67debd@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750435775;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DJDQ5jsltpJAHqGixOU5/Ni4jPTDl32ucuObQ0mSDyM=;
+	b=BvVaoDdE4HfZlrhFrGHfLidXQq982iceIFHYawUFS82oIZutrM74DFbTSJO1YVWfqduR9M
+	mUeggRzAA2wPS595IFKDZm9MSrf6DKadVBei1/GDHu/JsDk0RSNnArFH1dYIURgjvzYjT2
+	BdUHQuD6f3YB0eV9pTofQbziWxGdBDM=
+Date: Fri, 20 Jun 2025 12:09:29 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH net 1/4] auxiliary: Allow empty id
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
+ Saravana Kannan <saravanak@google.com>, Leon Romanovsky <leon@kernel.org>,
+ Dave Ertman <david.m.ertman@intel.com>, linux-kernel@vger.kernel.org,
+ Ira Weiny <ira.weiny@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Danilo Krummrich <dakr@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>
+References: <20250619200537.260017-1-sean.anderson@linux.dev>
+ <20250619200537.260017-2-sean.anderson@linux.dev>
+ <2025062004-essay-pecan-d5be@gregkh>
+ <8b9662ab-580c-44ea-96ee-b3fe3d4672ff@linux.dev>
+ <2025062006-detergent-spruce-5ae2@gregkh>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <2025062006-detergent-spruce-5ae2@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_090915_946151_C7C8A307 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20250620_090939_493922_388E28E3 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +80,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 30 May 2025 15:38:07 Central European Summer Time Nicolas Frattaroli wrote:
-> This series consists of two related patches. The first fixes the memory
-> cycle counter on RK3588, which read half of what it should've been
-> reading. You can easily verify this with
+On 6/20/25 12:02, Greg Kroah-Hartman wrote:
+> On Fri, Jun 20, 2025 at 11:37:40AM -0400, Sean Anderson wrote:
+>> On 6/20/25 01:13, Greg Kroah-Hartman wrote:
+>> > On Thu, Jun 19, 2025 at 04:05:34PM -0400, Sean Anderson wrote:
+>> >> Support creating auxiliary devices with the id included as part of the
+>> >> name. This allows for non-decimal ids, which may be more appropriate for
+>> >> auxiliary devices created as children of memory-mapped devices. For
+>> >> example, a name like "xilinx_emac.mac.802c0000" could be achieved by
+>> >> setting .name to "mac.802c0000" and .id to AUXILIARY_DEVID_NONE.
+>> > 
+>> > I don't see the justification for this, sorry.  An id is just an id, it
+>> > doesn't matter what is is and nothing should be relying on it to be the
+>> > same across reboots or anywhere else.  The only requirement is that it
+>> > be unique at this point in time in the system.
+>> 
+>> It identifies the device in log messages. Without this you have to read
+>> sysfs to determine what device is (for example) producing an error.
 > 
->   perf stat -a -e rockchip_ddr/cycles/ sleep 1
-> 
-> and then dividing the result by the number of Hertz the ddr init settles
-> on, which for LPDDR4X on RK3588 appears to be 2112MHz.
-> 
-> The second adds support for measuring memory bandwidth with LPDDR5
-> memory. Results have been validated by comparing its reported bandwidth
-> with that reported by stress-ng --stream 8 --timeout 15, which line up
-> almost perfectly.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Nicolas Frattaroli (2):
->       PM / devfreq: rockchip-dfi: double count on RK3588
->       PM / devfreq: rockchip-dfi: add support for LPDDR5
-> 
->  drivers/devfreq/event/rockchip-dfi.c | 91 ++++++++++++++++++++++++++++--------
->  include/soc/rockchip/rk3588_grf.h    |  8 +++-
->  include/soc/rockchip/rockchip_grf.h  |  1 +
->  3 files changed, 79 insertions(+), 21 deletions(-)
-> ---
-> base-commit: ba2b2250bbaf005016ba85e345add6e19116a1ea
-> change-id: 20250530-rk3588-dfi-improvements-f646424715d2
-> 
-> Best regards,
-> 
+> That's fine, read sysfs :)
 
-I see someone has merged patch 1 into -next without leaving a message,
-but patch 2 was not picked.
+I should not have to read sysfs to decode boot output. If there is an
+error during boot I should be able to determine the offending device.
+This very important when the boot process fails before init is started,
+and very convenient otherwise. 
 
-Could this mysterious patron saint of PM / devfreq make themselves
-heard and let me know whether they would like to see a second revision
-of patch 2, and if so, what said revision should address?
+>> This
+>> may be inconvenient to do if the error prevents the system from booting.
+>> This series converts a platform device with a legible ID like
+>> "802c0000.ethernet" to an auxiliary device, and I believe descriptive
+>> device names produce a better developer experience.
+> 
+> You can still have 802c0000.ethernet be the prefix of the name, that's
+> fine.
 
-I am asking specifically as I would like to continue working on the
-driver in a follow-up series, and BYEWORD_UPDATE already complicates
-the situation by being another in-flight patch.
+This is not possible due to how the auxiliary bus works. If device's
+name is in the form "foo.id", then the driver must have an
+auxiliary_device_id in its id_table with .name = "foo". So the address
+*must* come after the last period in the name.
 
-Kind regards,
-Nicolas Frattaroli
+--Sean
 
-
+>> This is also shorter and simpler than auto-generated IDs.
+> 
+> Please stick with auto-generated ids, they will work properly here.
+> 
+> thanks,
+> 
+> greg k-h
 
