@@ -4,88 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE58C71155
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9282AC7115C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 13:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVbVRFQUAznwYxpCtzkO4d0c66o8bC/lMZQmfZTPce8=; b=3YYUm1Z98YvlMPvi49Pw+7Qv7A
-	6MHG3m+BDjpuzqlFAxATNvAPlP5NtkE/9Q2haWOI0EbVdEI2HW6sA8Y4MFr7VT6mXVeIM3w4ivwOk
-	ED4RIAH49OddMzyRczDy1ugrjzXNE617JGlBYHKeGcOlzycHCDXUA3Ev3E8G/+bM0IxvZOvpDVf52
-	8b/5mbh4trMhiJcFQQEL1AloNWREM0UPhhomW2ihWdogtYR/FdLFsYBQfD/lrMvjmfcWvy3Iw5gjO
-	Z6kEMy8IM05O2QC1V3qf+bZZYykmeSuLXAGPdaSed7l8wR7XF+6hdEEBr2vQK5Imfuj2k1acFeYrU
-	dQ82wjJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dM1iIgQEOaOLBHShUWBj9x+RovZVG7Za/6uALilylTw=; b=jjovwlJ4tHrApuDNTlciJD4hwz
+	FeacBIBQK9JOgwdy4FsNNhwCbY5tYfY20bULgyvSFqSjt3KffjLLlUQlCscNT3Zq5oYfMzd284F0a
+	Ngr4MRseeaYKsdpuBU53eJ2iPdp2qQ2RWISS9//QmWIQnmH6qsufaQbrQsyJttV+VBxixXLZGHFyR
+	hCyRN7czKeowlGiBpJPeQA8sfFCqs7Osk15li0e6Hj98tvaDzcujUJkD+5pisoiCXaek02vg7kPGI
+	x4Xf+UzwELNPDq/CTX+uUCW3Dr/PJ0DObaVBhtWMNXEJnZITrnnxjPUsi7LECYHdbcx5WiwdB4BHA
+	bg0AKwJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbyU-0000000FkF4-3K2a;
-	Fri, 20 Jun 2025 13:40:10 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1uSbyQ-0000000FkCY-3xqw;
+	Fri, 20 Jun 2025 13:40:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSbhy-0000000FiCm-11S0
+	id 1uSbUK-0000000FftW-2voj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 13:23:07 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-312e747d2d8so1460850a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 06:23:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750425785; x=1751030585; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vVbVRFQUAznwYxpCtzkO4d0c66o8bC/lMZQmfZTPce8=;
-        b=f6l/cILz4qBIw2GIPR7Tm4zSb9OxAHGhyCNFvPdy0zqrIapiDzPAd4N87a9VLyeMRv
-         T8xqvabIIfMq2Tg4Z3to2TF5PEWHXV1BQjF5A3N0fcsnYBNv5IYkaVPg0km7SE6h/lca
-         0BgR9/INdpRFKPnIjBXWvuQZWyBzvOjM0VOq2605tWYCZzQqdBsTlm/XIfm2wQ5gdpIa
-         tcJ53i2GQj3gIUCXQbYpRvHY4pZri62FAHwepc8Z+Ai3X0BKF1Rnfy2hWq48nnMyg6J/
-         NIvP8E/VPbBA4dwUPBP4iayw4RYBBSQxLVs8PBDKv5lUohchDWjSR0D0efQBIqOjVPtp
-         GSPQ==
+	Fri, 20 Jun 2025 13:09:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750424939;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dM1iIgQEOaOLBHShUWBj9x+RovZVG7Za/6uALilylTw=;
+	b=We1nMmtAXovCqg0KTQbUNRpXmiTEhDs4B+PjTjDpH5wjv5hu3CCp3sM6WWIs423C3/hQX3
+	AkP1RFz7Y4cHMVX/oZu2EzPDLhBAQNNcspM7ffczvQXmY8aCW71XxMM/bToW8d76c1Xc4E
+	ws64kV995vJOzvSj2PiyV+Sn7bSxy5I=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-693-AKazDoTQM12bt6Xix9-KoA-1; Fri, 20 Jun 2025 09:08:58 -0400
+X-MC-Unique: AKazDoTQM12bt6Xix9-KoA-1
+X-Mimecast-MFC-AGG-ID: AKazDoTQM12bt6Xix9-KoA_1750424938
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a37a0d1005so1125887f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 06:08:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750425785; x=1751030585;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1750424937; x=1751029737;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vVbVRFQUAznwYxpCtzkO4d0c66o8bC/lMZQmfZTPce8=;
-        b=uoHKjdFcRyuebv4ORi5cl0xg0Kz4XdGR6dwD/+Wj8S1AvlWx3ifPQW39CNWEPoFNjg
-         jnlv7bbks5IYZKoUAhDzS1tgJiyzDA4bduwtL3SVjSsa5as99v5uDEPAdlNbXG4m71MY
-         XnxYp4UZNZIUw88DaRndbqM1jd+Qm4H/QmyyiCbJGI6j1YgeEdZLHi+z6JEsAA/OpE8A
-         nrL96TD8SfCkNCHF4Zqsq4na1YtYnaW5tzjeQp1b4UnUbDcflYRwYDxoYPUi2RwaSZ6+
-         EFgviQuNhO09dLVcAlIuie06pVzvLwc+vkpVZP9iUjZeQv+vNQQ6kigB4Ofv1zAXY3pP
-         5naw==
-X-Forwarded-Encrypted: i=1; AJvYcCWSD6FQog4Yrv5ahnxFSMpmmvcqDd1UAO1UgG0LN7TI5ncb6s8ZJcyq3eGcEA39fQPqdlv7BhNFnI+ZrEg5h3Hy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxECIOBE4b8vwGWubHvawS88agXgVj3C9p6swUKmuMii1DvDibv
-	o/Y02H9H3q1IPW4VHBkzxSWkOCneymfHZrN3/8aEBdQpHW6uIIyShYcV4F7/BCeBVIvavMk65oj
-	pEqoatePmVUf+lnttvWgM4/joNp5qp+RXs6B1
-X-Gm-Gg: ASbGncth1MdO+NTDALqMxgsZazXSsfoKHrcGwSzcMLGEIw1t1hf0drMjWr6DOirywey
-	UllvIbwxLEf24NHC4kA+reopaUaZzQ8NT8RYQ94OiU2NLaoHZ3QzvV4VWsV7cMwkDtWcSx5Fmzg
-	ov2zOJxSxKCyUuSV7oV9sdC2WyFXw3VFYMJAWiDvRC
-X-Google-Smtp-Source: AGHT+IE1J/3agy2pvlBUpx5CZrzP7qFSI3FtPdha4ZfRPlkfSyGlRzieK+BAcz2I5VxrRAtzHU31ktVhErvAuBdqNfo=
-X-Received: by 2002:a17:90b:288f:b0:310:8d4a:4a97 with SMTP id
- 98e67ed59e1d1-3159f518ab7mr3470283a91.15.1750425785075; Fri, 20 Jun 2025
- 06:23:05 -0700 (PDT)
+        bh=dM1iIgQEOaOLBHShUWBj9x+RovZVG7Za/6uALilylTw=;
+        b=dVGMqi/iawrXTQ4yaMstGU/Tc+w+l410AWcEkvNlRPKK/Uc0BdBfuFftKfbBheE+5i
+         pN3qnqP/VJuJrexKGyxBOvKruVdW6TmwF+BfsINd+gIIOPrIFVKu6fUD/GzD5/0QOWhP
+         nV/DqVKpOcoWIXuFFic3Qy4LEbTiQS94pm0inD8GoOkw68sdm43LUySDNUpNlrVd/O2y
+         4XQOWBPFp6UYer2f5X3JPNbKq1pI5mUbFJJL77tOJv8ZmMcbt1xWow2BIOi0UbE5ALwb
+         jIvLe/mCmH429cWrsr4jeooXERyM0zjpCPWkIpp1UrN0KZcMCE5hi2iByYUoK02fGg9w
+         L+CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXggKzvc8LCeqQ651PpDE5HFBqQeo+nuOxjiJSfKOrmejh6URDdYd+o3qVTSyH95VzTELByy9piraK/JHRpm2RY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN270VTpf/jRxOOt1swHSxueXJXm6tdhfhx7WxQdbf8zFpTI+W
+	mqA5lce3h2wYe1A0PPAjRhnq8iTW8afOX4fR0GlVcHTBPE0dNlRQyuljY89hDTd6pxiMotyDL2n
+	9Oy7UV9hahpxYgFy3QdQ5kdLW9LpOvdZ7FpuaxljHXkzGejQXie51JVTOVrbpKcDqkOvGX+PcXl
+	e/
+X-Gm-Gg: ASbGncvGc89nlpQbffkUZ5y8jQmOZ6uuoBEubH0Ilw6KdSGptqD2iXLAKhoHLtiKgBb
+	BshWaxMTUH+dzEt8o5Tfgg57Pwy3Tp2BGpL/WzDbTBQMgiRiZBYW/vWR3sWqBXPwchLdsDdVAbK
+	ozahVpCuNyOjZBGigx75NoJ+xvLhCWgQa1pd+VF//F1AXhKkraMuMq3Jihe33XDqPQPwXNgHtGY
+	hgHRqXz5rsOC63jr6wNhnJxc7iI4yHuJEElfVPWwHGKEGBALGzGred9BCW+zz2e090uOFwGLOuO
+	37CMvqwoueGKOl2R2iNNv/tdqvDpikgWAmE=
+X-Received: by 2002:a05:6000:23c1:b0:3a4:fcc3:4a14 with SMTP id ffacd0b85a97d-3a6d13176fbmr1522861f8f.34.1750424937551;
+        Fri, 20 Jun 2025 06:08:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IErCfEU/IVq7uI6YOAV42Q6eu/6bPqI5NWLxqRlPFpxO3LmsQRBOu3Tts8nxYdGgHaYTR596A==
+X-Received: by 2002:a05:6000:23c1:b0:3a4:fcc3:4a14 with SMTP id ffacd0b85a97d-3a6d13176fbmr1522807f8f.34.1750424936821;
+        Fri, 20 Jun 2025 06:08:56 -0700 (PDT)
+Received: from localhost.localdomain ([193.207.146.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6d0f18215sm2026391f8f.29.2025.06.20.06.08.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 06:08:55 -0700 (PDT)
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	linux-integrity@vger.kernel.org,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	James Bottomley <James.Bottomley@HansenPartnership.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Stefano Garzarella <sgarzare@redhat.com>
+Subject: [PATCH v6 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Date: Fri, 20 Jun 2025 15:08:10 +0200
+Message-ID: <20250620130810.99069-5-sgarzare@redhat.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250620130810.99069-1-sgarzare@redhat.com>
+References: <20250620130810.99069-1-sgarzare@redhat.com>
 MIME-Version: 1.0
-References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com> <20250610160152.1113930-7-laurentiumihalcea111@gmail.com>
-In-Reply-To: <20250610160152.1113930-7-laurentiumihalcea111@gmail.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 20 Jun 2025 16:25:04 +0300
-X-Gm-Features: AX0GCFu22qEJwTwiXYLJyDUpuSZfvl_dtoxWhsBOKOtPed2Sd_Y2mWRPu5m8p4M
-Message-ID: <CAEnQRZAhsCc==X1At+s5pb1bocnVmb2sFKmzNo+gqkiWAqFHag@mail.gmail.com>
-Subject: Re: [PATCH v7 6/6] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	Frank Li <Frank.Li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>, 
-	Marc Kleine-Budde <mkl@pengutronix.de>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: KccpLhcr-URd0WwN3ZuYA4TkbXDs0Njhwa-FCmKjjV4_1750424938
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_062306_280739_34605F68 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250620_060900_809847_59A85932 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,18 +125,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 7:04=E2=80=AFPM Laurentiu Mihalcea
-<laurentiumihalcea111@gmail.com> wrote:
->
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> The DSP needs to access peripherals on AIPSTZ5 (to communicate with
-> the AP using AUDIOMIX MU, for instance). To do so, the security-related
-> registers of the bridge have to be configured before the DSP is started.
-> Enforce a dependency on AIPSTZ5 by adding the 'access-controllers'
-> property to the 'dsp' node.
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+From: Stefano Garzarella <sgarzare@redhat.com>
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+This driver does not support interrupts, and receiving the response is
+synchronous with sending the command.
+
+Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+->send() already fills the provided buffer with a response, and ->recv()
+is not implemented.
+
+Keep using the same pre-allocated buffer to avoid having to allocate
+it for each command. We need the buffer to have the header required by
+the SVSM protocol and the command contiguous in memory.
+
+Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+---
+v5:
+- changed order and parameter names to match tpm_try_transmit() [Jarkko]
+v4:
+- reworked commit description [Jarkko]
+---
+ drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
+ 1 file changed, 11 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
+index 0847cbf450b4..f5ba0f64850b 100644
+--- a/drivers/char/tpm/tpm_svsm.c
++++ b/drivers/char/tpm/tpm_svsm.c
+@@ -26,37 +26,31 @@ struct tpm_svsm_priv {
+ };
+ 
+ static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+-			 size_t len)
++			 size_t cmd_len)
+ {
+ 	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+ 	int ret;
+ 
+-	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
++	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/*
+ 	 * The SVSM call uses the same buffer for the command and for the
+-	 * response, so after this call, the buffer will contain the response
+-	 * that can be used by .recv() op.
++	 * response, so after this call, the buffer will contain the response.
++	 *
++	 * Note: we have to use an internal buffer because the device in SVSM
++	 * expects the svsm_vtpm header + data to be physically contiguous.
+ 	 */
+-	return snp_svsm_vtpm_send_command(priv->buffer);
+-}
+-
+-static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
+-{
+-	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
++	ret = snp_svsm_vtpm_send_command(priv->buffer);
++	if (ret)
++		return ret;
+ 
+-	/*
+-	 * The internal buffer contains the response after we send the command
+-	 * to SVSM.
+-	 */
+-	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
++	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, bufsiz);
+ }
+ 
+ static struct tpm_class_ops tpm_chip_ops = {
+ 	.flags = TPM_OPS_AUTO_STARTUP,
+-	.recv = tpm_svsm_recv,
+ 	.send = tpm_svsm_send,
+ };
+ 
+@@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
+ 
+ 	dev_set_drvdata(&chip->dev, priv);
+ 
++	chip->flags |= TPM_CHIP_FLAG_SYNC;
+ 	err = tpm2_probe(chip);
+ 	if (err)
+ 		return err;
+-- 
+2.49.0
+
 
