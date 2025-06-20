@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DF5C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C55C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 10:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=; b=RM03tRQGIOsx190nx7Rv1gq/BE
-	DScxcq8EfToX5AgENDCqYXyY2zhy3QCS3GjUw+Y3r+HFaYZuvAOh04xV3oIlPXN9I5uYF3ZdItqWv
-	fX5zE/SdlQneLRJFuqKwcwPKMAS2aUSJqkxmHhlyZf3Wbh17x46fWa1oVRdEltPErGvdmtHL0Pk/b
-	ZBF/LyqPHog7Bh2x/JQrkni0ldB3Uy/61cdxY8oqSyZmTpHJyF+RE9JSYX6J/p45vCm7RJkvsfsXv
-	yLFBRfrY1c2ktV9VUW5BChwqyOokyZZ04jT3Vfyu52v7MQYgHmgVeEWTVKBY/ZRGtKBPu9A039Be0
-	6MtxMmDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PwxAthPjmI1ic6P01b6IWTuo7e6HnLmqXzNXxwM6Kuo=; b=q1BeJrx88F38girvyk2qBJQ8BZ
+	9nRnRcsRnPkwpBLbceGTQStao2J5hnyI6gIRBbG+t4hGSxoPUx14jCr3wNgBCWpMx6K2sQLMKNess
+	uEQvFPwuXTM5X6FsyVLFdwU/NiBsn8jfq4eJYOQTeySsxtgP8gUFnrX9j+TswRa/PwngnEpgWEHvv
+	SLhBEoMQ5cBvBc/TozyCMmVwO/NFxMwaJx8sjMPtr59F5aJobeIQrHk3GCTceslmgCZfI8b991FlY
+	OF97x2iHpWOlek1DvshORVRNxDoB+brywfjT2C/cA6t4Aho5KunnBRy3NEgeyfC92H7l+qh/zumM1
+	7u8Uj2wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSZPK-0000000FPLl-3Ia4;
-	Fri, 20 Jun 2025 10:55:42 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1uSZRX-0000000FPZp-2Bu0;
+	Fri, 20 Jun 2025 10:57:59 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYNT-0000000FG8X-1jaV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 09:49:44 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-236192f8770so11013895ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Jun 2025 02:49:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750412982; x=1751017782; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=;
-        b=ULNuS7iIi0WgPxS+t5vmgK3N3gCel4g4SkR4KL86mj6nDiFLk1XF7dXGNRJAQlcaNj
-         CqO7AloT7vFLgpETRLNJJ0RBsyBnih3F+L3JOfDVSJo+A/BvZY5oAuZ2YVOH+jYNqdkO
-         P5KwrzCgcnJxrzKTrVvI9a4akicI6DdOnjQU76tqsCYIiZ0E7Q6YsR4tGHkGFpPxW4Hm
-         XEs6g/I5ixVCJhECP6jCVjc+YAPqbApwo7XzhaL0rHcPww225ApVg3RedlgKMOIicLPC
-         nNirrR/qL3D5n5vwpn36vaC3dbmxhlEsmoYxNi4GM4u8DLY573QgclFY7XwsU5ouomgP
-         Xi0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750412982; x=1751017782;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wm9uNcsgLmLy2CTce8UTPVgm6JKmZNFE7FHPVZSoHGI=;
-        b=HUZkdyCkcoPmol9QLDsDJA5IYEbxt0aOVjgs5grfu9qIPDxKNFNuBWobQrDFlawOPL
-         lPykkhPfeqvxS5PT9J1SEJMAsoalerBgfs2wL7jpMqy50BN7P9aIRhk0rUg1Iv4fl7Am
-         bK/0zBQMIvibzXPI7KOwugweQVu4R5DimmVeROSBQKnf4AFGeKjUWV/xPOKPyXmupa37
-         r05m6qk0Wv0e0L6tIG3BScbqNnPjkPcmfD9PVPN8YiuGurFOhd0HLhSsKia5PvfyOL0T
-         HW1hLa7ti5neZqQAz5cIfHoNnyt/S8+gFl7f8k8ndi28/7slI430/kUW835PWNC2lazA
-         rmRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtHYkEwelcYQUp1hpJPJwzF9NTL0cXj7hOxkxFlZcF01i+OKYIXzwphrfV6LODMwCOttH20SSXDbdLL0H40ui+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5GDgv1VKVI6BLuKGPlkPubc5fv9DKHRphZHyEZqAbtrml6wIr
-	Y/JW5CE9F+NRGmwhMMvpn3BUrAcwWAIwivBRA/YWqiEdtIllQVTfVrw31kJgGrU0
-X-Gm-Gg: ASbGncv5LrnTjikSdtbFUCMHXn7p1wXf2R+bK1khJqadM6+OF/Dl7+RXJLq1kuyrZVb
-	Hw4xrHlClxtGi+qNAZeiTWyJydIGpW/LpJDNUzW7lw/Hiep2XBQ//GUL6v15PaLVScFQQjlTvER
-	E3aaGVwzXDDwYzUw6PemOI4xhi64zfLevBDTuzO/5nmNIEoS5lWUxI/cbPHnZpfgiipIAWtvKBb
-	ONIvOK4PfRuaRreTGh/FlsrMu8vUXp86iYfr5GJV5nYxB447dHYE7NbE3/lEbn1BSv0nyoqX+DF
-	r8BFBOGHjZw+ngBOfDOhUsitBBqb2irxX/pazFzkU2fj5vYAcV0Qq8hHJq8ksuYB+CTDt9nwIZv
-	a+cxF3101q8I=
-X-Google-Smtp-Source: AGHT+IH6Be5gP3+3exFSkxm22vF5iZh7JCUxNtdjaBLajdekU8Xmj0n59/agYpsJTUMoVM2m4rUZ0Q==
-X-Received: by 2002:a17:903:32ca:b0:215:a303:24e9 with SMTP id d9443c01a7336-237daf6593emr27765085ad.3.1750412982159;
-        Fri, 20 Jun 2025 02:49:42 -0700 (PDT)
-Received: from [127.0.1.1] (061092221177.ctinets.com. [61.92.221.177])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-237d86ef88bsm14167885ad.219.2025.06.20.02.49.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Jun 2025 02:49:41 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-Date: Fri, 20 Jun 2025 17:49:11 +0800
-Subject: [PATCH] arm64: dts: apple: t8012-j132: Include touchbar
- framebuffer node
+	id 1uSYSk-0000000FGwD-0nyZ;
+	Fri, 20 Jun 2025 09:55:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750413294; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=buxEGVBXCHdiuRG7q6sV4d7yeqisQewFmfTArcPMLDMJpVhZiQuhXPN4YH3nsW4EX4A+94uzTa1+mcC9m8i2tpwyZ0YeeVOCMpH8ZmrCpMxWXo+DplH30C870y4PqeaehgSZDEaWTQUTWGuDnJDI/meJgM7KOSAXBSw4B5kIcO8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750413294; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PwxAthPjmI1ic6P01b6IWTuo7e6HnLmqXzNXxwM6Kuo=; 
+	b=UjItsuDRwJWVwiC9s/iFH6yZkARBVy/bUrQwerP4Qq/Z6QProSOvgVbEpymy1IfInMue2XZhMiKIQZv1U3jzMDr5KTL8hSrsrQ2hZW9LzLdDt+YKHzhoauu4oVQYwqcm1UpxZEFPL9CMD9ujT0qy+6LwpkOj0bPjIe6Tgdf91IU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750413294;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=PwxAthPjmI1ic6P01b6IWTuo7e6HnLmqXzNXxwM6Kuo=;
+	b=b/q7LDjRPLKkw0j9TTNYtSjmnIfQ0z6/o4T8vE45q5PeXmqtyVFcMk/sRT03KhRl
+	tF5z2L3pGW/oYrbRtiwIKTKc4e0wmJDztFMJ3KVwtmtp9gCtQnGtnIfU22blVE1KTen
+	jfna8vqrDKhd4aPBUALRvOsCv8aXhBQhrYalZeEc=
+Received: by mx.zohomail.com with SMTPS id 17504132917981020.3930091890192;
+	Fri, 20 Jun 2025 02:54:51 -0700 (PDT)
+Message-ID: <34c871c9-3367-4b62-b2f8-11ed7d3482e5@collabora.com>
+Date: Fri, 20 Jun 2025 11:54:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-j132-fb-v1-1-bc6937baf0b9@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAJYuVWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDMyMD3SxDYyPdtCTdFPMUUzML8xRjc4MUJaDqgqLUtMwKsEnRsbW1ADN
- YMSFZAAAA
-X-Change-ID: 20250620-j132-fb-d7d5687d370d
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, stable@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=882; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=qTnLGaYE4mSJe4XGJd9c1paMNelCcWBLch1kHcCtYSY=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoVS6zKNgfrxDu4IxQuG+XErH6r6Vm9rzm0pebd
- Z3LpvEPtguJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaFUuswAKCRABygi3psUI
- JHJoD/0c+i2KQVhxj9K7upj3umunHHR5iGCOEG7jxFTtrsE+9UuVngAG8qtLOrYp/X9GUmrrZ2t
- YjB8zqTSrGCkMZgDCQSvVnYq7RApDSyigQQ36SWV5Lh0zMI7tuF4rx1m8MgENCWOqRwZKEK64UX
- MBz8IOTYYDcFK+G5Dj9SL2QLI9HQWxAjpS13aSuYZ6+jT0s4U06FeLHcrPlOg8V+5os/NVVo+/q
- Zx4GZs+Gtry/8S1DKD3+TARaqvlCXS5qZiEvnGwCEOochN2Xh/DHTQqUlrjhAVL3XQn1DiN1hMQ
- EBd2Feg6UYw+iXnzywYNLUJZYcYGpD6SGYjwnxXBpJ1iN4izrVDbcXaSYfcrzlLhLBPyFDU1MQE
- oKCoPZco6WkgKXu6Ocnj1rMY7OqrrvGYT4ii2JrimT3DE1hf2BkIwfb1SIh5+aElTHTR056aGOW
- YIy7brULuGRblckBPK5MZZfsKFNaPgrwNN2BEj1C152m/CZgQmFouQG2X3BQZjdMLNtksmVCQ16
- SnmdffQVXD3VCC8cK6iALZdxHjRAhAFBCbTaRGg76wX/Be4wEiOniKeQAwHSAXi17FE+cjwdL3q
- luHN2WxpWowukCRgX/7ADKFDgaLOUxVo95rtVpeUopwEB4llG89OR/eUN4QiImlW+nfZ2mvXQ5a
- 1taNYho8VbNMnHg==
-X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
- fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/5] dt-bindings: iommu: verisilicon: Add binding for
+ VSI IOMMU
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ nicolas.dufresne@collabora.com, jgg@ziepe.ca, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+ <20250619131232.69208-3-benjamin.gaignard@collabora.com>
+ <n5ddeogrpgctrljnxjfxqaz22qfnxsgm6ro7qihbjeyhd5br44@ojlzlz7gsuzb>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <n5ddeogrpgctrljnxjfxqaz22qfnxsgm6ro7qihbjeyhd5br44@ojlzlz7gsuzb>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_024943_456230_48BB244B 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250620_025510_300759_755A4BD0 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +84,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple T2 MacBookPro15,2 (j132) has a touchbar so include the framebuffer
-node.
 
-Fixes: 4efbcb623e9bc ("arm64: dts: apple: Add T2 devices")
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- arch/arm64/boot/dts/apple/t8012-j132.dts | 1 +
- 1 file changed, 1 insertion(+)
+Le 19/06/2025 à 16:19, Sebastian Reichel a écrit :
+> Hi,
+>
+> On Thu, Jun 19, 2025 at 03:12:23PM +0200, Benjamin Gaignard wrote:
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - const: verisilicon,iommu
+>> +      - const: rockchip,rk3588-iommu-1.2
+> The entries should be ordered the other way around, so that the
+> "generic" compatible is the fallback. Also the 1.2 version is from
+> Verisilicon. It does not really make sense for Rockchip. So I
+> think it should look like this:
+>
+> properties:
+>    compatible:
+>      items:
+>        - const: rockchip,rk3588-av1-iommu
+>        - const: verisilicon,iommu-1.2
+>
+> Otherwise LGTM.
 
-diff --git a/arch/arm64/boot/dts/apple/t8012-j132.dts b/arch/arm64/boot/dts/apple/t8012-j132.dts
-index 778a69be18dd81ab49076fb39ca4bc82f551e40f..7dcac51703ff60e0a6ef0929572a70adb65b580f 100644
---- a/arch/arm64/boot/dts/apple/t8012-j132.dts
-+++ b/arch/arm64/boot/dts/apple/t8012-j132.dts
-@@ -7,6 +7,7 @@
- /dts-v1/;
- 
- #include "t8012-jxxx.dtsi"
-+#include "t8012-touchbar.dtsi"
- 
- / {
- 	model = "Apple T2 MacBookPro15,2 (j132)";
+Thanks I will do like that.
 
----
-base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
-change-id: 20250620-j132-fb-d7d5687d370d
+Regards,
+Benjamin
 
-Best regards,
--- 
-Nick Chan <towinchenmi@gmail.com>
-
+>
+> -- Sebastian
+>
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: Core clock
+>> +      - description: Interface clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: core
+>> +      - const: iface
+>> +
+>> +  "#iommu-cells":
+>> +    const: 0
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - clocks
+>> +  - clock-names
+>> +  - "#iommu-cells"
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +
+>> +    bus {
+>> +      #address-cells = <2>;
+>> +      #size-cells = <2>;
+>> +
+>> +      iommu@fdca0000 {
+>> +        compatible = "verisilicon,iommu","rockchip,rk3588-iommu-1.2";
+>> +        reg = <0x0 0xfdca0000 0x0 0x600>;
+>> +        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
+>> +        clock-names = "core", "iface";
+>> +        #iommu-cells = <0>;
+>> +      };
+>> +    };
+>> -- 
+>> 2.43.0
+>>
 
