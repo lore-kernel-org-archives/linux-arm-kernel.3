@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA305C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E44C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 11:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMiUbP+aC6CKVSwU+3SgtZe+5nQE7rMAf5Q4NZyTgkI=; b=tUEIL2N0dAQy8gJqLK34r8ZrP7
-	1v3YZoTJSEJ8GdhfQYlkzj408xtSZi48K3N6pECuqkHXP6/8mxLU8LzXMnhHZBaqOH9UbfWmrRznL
-	Krod1dnQdj3mt6yA5sgugH1kUTlXkjkH7sW5PaDP16G3XBmIcn+ppXpYXG1HqClTwQIJ3QQzTq0rV
-	inhQij1kGL+t9V/2TfCk1eV2Zg+kfT3nN8W8SHunIFfjtQMjC667tzViN4D8FYcd4S1GttbuUE6uu
-	fMLSGMkxEVIMUpiY1X6xWIoGbznDsSwNjpW1afXTnVS4shppKKYGqoLy6zXtDJnOEW/OoMcOJG6ZJ
-	QPtMg8bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V2nCVZwSTdzhwpnquuJVpQTO9Vvb3soMR1RzCaMT9f0=; b=Bcho6lVaY+VDhPHeqVBcm6M1ah
+	nrVyfW5NqYv7Qlx3qp/ifWkpe/gdKf7j1gbW4VVTE6QBLqDFDkvNqBB122uUqALDkNujLXyp4nzlE
+	k+K7FrNmeiDjXkbzEdbERl0QkrIiLVNvfb22sdWhIYof99tiN9D967+fr8tma4xT85Crfc8CDiEDt
+	shj9iI0PMK3MkQK2G3LI/E/5B3iznelwXIOntLhZpxhG2fQEoix2AnpSSjyB9YByroxH9cAVFitAw
+	EqkV9U0NvqxZQjvWYB/7AQJJ+WaPd+VSYvSRc+uM20/7u86qJw0vq1MrnkXVk7hOxWaLui7/IWPnh
+	3UDWLO1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSa14-0000000FTTP-0wFt;
-	Fri, 20 Jun 2025 11:34:42 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uSa5T-0000000FTsN-0yZk;
+	Fri, 20 Jun 2025 11:39:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSYG9-0000000FEF2-2lm6;
-	Fri, 20 Jun 2025 09:42:10 +0000
-X-UUID: d39717c44dba11f09f706fa2197c6ceb-20250620
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=lMiUbP+aC6CKVSwU+3SgtZe+5nQE7rMAf5Q4NZyTgkI=;
-	b=iPj5YsENycYb0ejYZoY8+YJKy3P1e4oXRYjaqIlm3Ie/ny0/PFxTDKEWdxULiKs5i4sfPuwYpKJZTZEQivvgQXENY9Q1tDQ+rQJZyvt8+vaK6RcCMA451FoGdnWzbccvQXvBPLFh5TrMxJEwdM3y0LMZTUA8TA3OzSc01bCo90I=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:348d8c9f-1e2f-4d2b-bd82-7965e4654dd3,IP:0,UR
-	L:25,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:20
-X-CID-META: VersionHash:09905cf,CLOUDID:52aee658-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d39717c44dba11f09f706fa2197c6ceb-20250620
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1482208020; Fri, 20 Jun 2025 02:42:05 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 20 Jun 2025 17:42:02 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 20 Jun 2025 17:42:01 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
- Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add support for MT8196 audio AFE controller
-Date: Fri, 20 Jun 2025 17:40:41 +0800
-Message-ID: <20250620094140.11093-9-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250620094140.11093-1-darren.ye@mediatek.com>
-References: <20250620094140.11093-1-darren.ye@mediatek.com>
+	id 1uSZJz-0000000FP0d-2wEI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Jun 2025 10:50:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EAC85A47826;
+	Fri, 20 Jun 2025 10:50:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF55C4CEE3;
+	Fri, 20 Jun 2025 10:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750416610;
+	bh=vCwR+vgZaANWT+DX6tuXMLx5vzPlxMcIfrhlOdZgpE0=;
+	h=Date:From:To:Cc:Subject:From;
+	b=eHFzJ+E7tzfit7vZPwamrR96dRzKK40YBJ5L8zwfpfmezE697ryxGA5+B0QnjFlC+
+	 XOg70mzx+mQ9k6/WPClZXDuJLkjGmU0ZwiM69v2qGy9ckITaKNl6WCklzU+gaBQFnV
+	 YIE7mrsVAR17y9GPsnhd4ksecWrRsNunrH8637RhuuZND/0rNGdQs4auoWNvwusbd8
+	 hRNjs734BqfCrUzLJ1/rrWgPUS5codBZE0gVXty4st2jRuTIN7NhyFvDw27kovakTT
+	 fzYZNa5hTdqSTaRJODM2/b6BvaPb9iJe4BTJTLUNQLhOLK7eOUDDEnrzGhXHwoodBy
+	 zMhJYWhccOGDg==
+Date: Fri, 20 Jun 2025 11:50:06 +0100
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc3
+Message-ID: <20250620105005.GA22615@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_024209_716412_09FA4FD1 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250620_035011_807847_4C6B66F9 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,182 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+Hi Linus,
 
-This patch adds initial support for the audio AFE(Audio Front End) controller
-on the mediatek MT8196 platform.
+Please pull these four arm64 fixes for -rc3. There's nothing major (even
+the vmalloc one is just suppressing a potential warning) but all worth
+having, nonetheless.
 
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../bindings/sound/mediatek,mt8196-afe.yaml   | 157 ++++++++++++++++++
- 1 file changed, 157 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
+Cheers,
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
-new file mode 100644
-index 000000000000..fe147eddf5e7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
-@@ -0,0 +1,157 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mt8196-afe.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek Audio Front End PCM controller for MT8196
-+
-+maintainers:
-+  - Darren Ye <darren.ye@mediatek.com>
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt8196-afe
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  memory-region:
-+    maxItems: 1
-+
-+  mediatek,vlpcksys:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: To set up the apll12 tuner
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: mux for audio intbus
-+      - description: mux for audio engen1
-+      - description: mux for audio engen2
-+      - description: mux for audio h
-+      - description: vlp 26m clock
-+      - description: audio apll1 clock
-+      - description: audio apll2 clock
-+      - description: audio apll1 divide4
-+      - description: audio apll2 divide4
-+      - description: audio apll12 divide for i2sin0
-+      - description: audio apll12 divide for i2sin1
-+      - description: audio apll12 divide for fmi2s
-+      - description: audio apll12 divide for tdmout mck
-+      - description: audio apll12 divide for tdmout bck
-+      - description: mux for audio apll1
-+      - description: mux for audio apll2
-+      - description: mux for i2sin0 mck
-+      - description: mux for i2sin1 mck
-+      - description: mux for fmi2s mck
-+      - description: mux for tdmout mck
-+      - description: mux for adsp clock
-+      - description: 26m clock
-+
-+  clock-names:
-+    items:
-+      - const: top_aud_intbus
-+      - const: top_aud_eng1
-+      - const: top_aud_eng2
-+      - const: top_aud_h
-+      - const: vlp_clk26m
-+      - const: apll1
-+      - const: apll2
-+      - const: apll1_d4
-+      - const: apll2_d4
-+      - const: apll12_div_i2sin0
-+      - const: apll12_div_i2sin1
-+      - const: apll12_div_fmi2s
-+      - const: apll12_div_tdmout_m
-+      - const: apll12_div_tdmout_b
-+      - const: top_apll1
-+      - const: top_apll2
-+      - const: top_i2sin0
-+      - const: top_i2sin1
-+      - const: top_fmi2s
-+      - const: top_tdmout
-+      - const: top_adsp
-+      - const: clk26m
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - memory-region
-+  - mediatek,vlpcksys
-+  - power-domains
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        afe@1a110000 {
-+            compatible = "mediatek,mt8196-afe";
-+            reg = <0 0x1a110000 0 0x9000>;
-+            interrupts = <GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH 0>;
-+            memory-region = <&afe_dma_mem_reserved>;
-+            mediatek,vlpcksys = <&vlp_cksys_clk>;
-+            power-domains = <&scpsys 14>; //MT8196_POWER_DOMAIN_AUDIO
-+            clocks = <&vlp_cksys_clk 40>, //CLK_VLP_CK_AUD_INTBUS_SEL
-+                     <&vlp_cksys_clk 38>, //CLK_VLP_CK_AUD_ENGEN1_SEL
-+                     <&vlp_cksys_clk 39>, //CLK_VLP_CK_AUD_ENGEN2_SEL
-+                     <&vlp_cksys_clk 37>, //CLK_VLP_CK_AUDIO_H_SEL
-+                     <&vlp_cksys_clk 45>, //CLK_VLP_CK_CLKSQ
-+                     <&cksys_clk 129>, //CLK_CK_APLL1
-+                     <&cksys_clk 132>, //CLK_CK_APLL2
-+                     <&cksys_clk 130>, //CLK_CK_APLL1_D4
-+                     <&cksys_clk 133>, //CLK_CK_APLL2_D4
-+                     <&cksys_clk 80>, //CLK_CK_APLL12_CK_DIV_I2SIN0
-+                     <&cksys_clk 81>, //CLK_CK_APLL12_CK_DIV_I2SIN1
-+                     <&cksys_clk 92>, //CLK_CK_APLL12_CK_DIV_FMI2S
-+                     <&cksys_clk 93>, //CLK_CK_APLL12_CK_DIV_TDMOUT_M
-+                     <&cksys_clk 94>, //CLK_CK_APLL12_CK_DIV_TDMOUT_B
-+                     <&cksys_clk 43>, //CLK_CK_AUD_1_SEL
-+                     <&cksys_clk 44>, //CLK_CK_AUD_2_SEL
-+                     <&cksys_clk 66>, //CLK_CK_APLL_I2SIN0_MCK_SEL
-+                     <&cksys_clk 67>, //CLK_CK_APLL_I2SIN1_MCK_SEL
-+                     <&cksys_clk 78>, //CLK_CK_APLL_FMI2S_MCK_SEL
-+                     <&cksys_clk 79>, //CLK_CK_APLL_TDMOUT_MCK_SEL
-+                     <&cksys_clk 45>, //CLK_CK_ADSP_SEL
-+                     <&cksys_clk 140>; //CLK_CK_TCK_26M_MX9
-+            clock-names = "top_aud_intbus",
-+                          "top_aud_eng1",
-+                          "top_aud_eng2",
-+                          "top_aud_h",
-+                          "vlp_clk26m",
-+                          "apll1",
-+                          "apll2",
-+                          "apll1_d4",
-+                          "apll2_d4",
-+                          "apll12_div_i2sin0",
-+                          "apll12_div_i2sin1",
-+                          "apll12_div_fmi2s",
-+                          "apll12_div_tdmout_m",
-+                          "apll12_div_tdmout_b",
-+                          "top_apll1",
-+                          "top_apll2",
-+                          "top_i2sin0",
-+                          "top_i2sin1",
-+                          "top_fmi2s",
-+                          "top_tdmout",
-+                          "top_adsp",
-+                          "clk26m";
-+        };
-+    };
-+
-+...
--- 
-2.45.2
+Will
 
+--->8
+
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 39dfc971e42d886e7df01371cd1bef505076d84c:
+
+  arm64/ptrace: Fix stack-out-of-bounds read in regs_get_kernel_stack_nth() (2025-06-12 17:28:18 +0100)
+
+----------------------------------------------------------------
+arm64 fixes for -rc3
+
+- Suppress KASAN false positive in stack unwinding code.
+
+- Drop redundant reset of the GCS state on exec().
+
+- Don't try to descend into a !present PMD when creating a huge vmap()
+  entry at the PUD level.
+
+- Fix a small typo in the arm64 booting Documentation.
+
+----------------------------------------------------------------
+Dev Jain (1):
+      arm64: Restrict pagetable teardown to avoid false warning
+
+Lorenzo Pieralisi (1):
+      docs: arm64: Fix ICC_SRE_EL2 register typo in booting.rst
+
+Mark Brown (1):
+      arm64/gcs: Don't call gcs_free() during flush_gcs()
+
+Tengda Wu (1):
+      arm64/ptrace: Fix stack-out-of-bounds read in regs_get_kernel_stack_nth()
+
+ Documentation/arch/arm64/booting.rst | 2 +-
+ arch/arm64/kernel/process.c          | 4 +++-
+ arch/arm64/kernel/ptrace.c           | 2 +-
+ arch/arm64/mm/mmu.c                  | 3 ++-
+ 4 files changed, 7 insertions(+), 4 deletions(-)
 
