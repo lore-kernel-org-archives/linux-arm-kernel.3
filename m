@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5D9C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9653C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Jun 2025 17:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vFKtUfBUhcJlO/W1NX74ubUlAjHwCKwupAMbbu7GUs=; b=c8ZVLgQbfbdlo3jBdzVNZhNqe5
-	Af6HkAUe4aeuC/47CbH9C3Y1CSpG/dXpHFfk/V6raboUaFS7IpVdezEMwrcH/eA2SORfO7E9lycDn
-	ll1+0Bs7Q2pnk9PRKbJz9savycQ9qtnRMGVT2AjB6cFuRtXHid6WIzEdQDEnQjQ0ATXrbCF6tiWEr
-	bz83jSGvbXemMKWpuvjZJo93OVUHmtTWpmi0X3xKIxG2UavbR++8yvvVj5ioK66nqmPTBq2vQcq2T
-	vSZq8hY2F3aiJll/zcSUGz72DsC7uiL2KlUs68xqaQnlJM2nqTD1tFcfoL0WHQAXWm7UfvqdGG+DN
-	KuMDK0ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LihcTHli0P/Yfu9REE6rSXeIhBtTH1JWKT2B9EqFMeE=; b=2H+Eh/HuljXgPF5vJzxd4oQWsf
+	imgY7XxRzZlyz8vwFmbUkvGKjnCBHAchH1nIjW3nQMyhaUCToFWaJJ3nLzi0xpePUFgFtUEiLPg0g
+	4/VnzM0Kg1/0P7INBwtwT41EZq8xI5o7n6qNlseLSpb4kM88mxuabLGQzedIhNfGSIgD+MlpRUbFk
+	HgNAveImIZqRVVA+XmnRNjweghpHl/6pwOx4s3T/FME1OgTAvzqVoVSm7IxN4dc+pbp5caIj+8tn9
+	Hls8MV3CQr6fyfonD2QM51nbbWOUPaa4578m/aM9eo6Y6163Xf7tZ8ovcbD5hdyT5gWa9qvKQJFVM
+	oHAeiZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfpL-0000000GHWJ-07GD;
-	Fri, 20 Jun 2025 17:46:59 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1uSfrX-0000000GHsP-3ul3;
+	Fri, 20 Jun 2025 17:49:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSfVZ-0000000GEO1-2aAN
+	id 1uSfYJ-0000000GEtd-0CzJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Jun 2025 17:26:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6C4DB1FD3A;
-	Fri, 20 Jun 2025 17:26:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750440392;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3vFKtUfBUhcJlO/W1NX74ubUlAjHwCKwupAMbbu7GUs=;
-	b=MshE/riHO2H9pB3v+OclS26BzTgwHdJp+0TPaqmFQ4AB3wwzC+ULwUoim+SmrJfQ5GNHeQ
-	rir8K7+rF+4cWaFX1oq5W8JDsgrXUcuIPvZC24yZxpLHdfYHmWPE8PsfIxvAFI10yqrrdq
-	PpZIEH/bTKF0G9WtWuz6x1xK4oTn4OuXadQ+UtC7Bl8siXFl8bf1evAhdslIXU8XTC9CgN
-	07VY6z/ZF40IcIbrhoAMWopsSGKuOQS9Ipd1gCqPy03uY6rSZWZ5hQ2olbTZKxvBveen2p
-	sN8SO3GTtixvCzBRoklWESMyng5LkC/tElt7cxgwtR7BQTnDyU8eiH6yQdc5BQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 20 Jun 2025 19:26:17 +0200
-Subject: [PATCH v8 5/5] drm/probe-helper: put the bridge returned by
- drm_bridge_chain_get_first_bridge()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-5-0321845fcafb@bootlin.com>
-References: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
-In-Reply-To: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgdekleelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdegpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhin
- hdrtghomhdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhtvghfrghnsegrghhnvghrrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhm
-X-GND-Sasl: luca.ceresoli@bootlin.com
+	Fri, 20 Jun 2025 17:29:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C2EF0A52B64;
+	Fri, 20 Jun 2025 17:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57416C4CEE3;
+	Fri, 20 Jun 2025 17:29:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750440561;
+	bh=85cr4eLyWlNP87n+hSpFBj2t7Xu9xQ0rfmOLdT9i2B0=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=mqvPrcjg0YsD6pPYqwQkC0g+f61GnckyP16nfS1pmpDQvUA8D2AEM1mViJTdjamgW
+	 5uaGwKRdSpGTr3PdaB+skvwbawUz9MPzIo5RSoydL2EGBkTWrvXDWsk5kdNM9yRy3m
+	 qCxvBe/3YV3dxlrqvIv+h9rZfu5B5UgnOrg4cRyFpXE8vt1ZmSVHnjCrQr5uIDrxjI
+	 Xu7goyCOSg4sLxZC2hg6Vr/1mgcKJexe7bvUD3TDFjgeVm34e4fK8LoIUzug0yX2b4
+	 ZTycvpRpolP5gCP9Oink4oMSsNDp1CAP2KdszJSz6rMGMv3ulIUwp0IkihX/m8ANWC
+	 eivCN/XWT5rCA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70FC639FEB78;
+	Fri, 20 Jun 2025 17:29:50 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20250620105005.GA22615@willie-the-truck>
+References: <20250620105005.GA22615@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20250620105005.GA22615@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 39dfc971e42d886e7df01371cd1bef505076d84c
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: d41fef1ce2f3cd9df128d2c3cf6d91ce15130daf
+Message-Id: <175044058898.1649825.15526665644913580484.pr-tracker-bot@kernel.org>
+Date: Fri, 20 Jun 2025 17:29:48 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_102633_803404_D2E74306 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20250620_102923_150222_78A5CB6A 
+X-CRM114-Status: UNSURE (   4.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,32 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bridge returned by drm_bridge_chain_get_first_bridge() is
-refcounted. Put it when done.
+The pull request you sent on Fri, 20 Jun 2025 11:50:06 +0100:
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-This patch was added in v7.
----
- drivers/gpu/drm/drm_probe_helper.c | 1 +
- 1 file changed, 1 insertion(+)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/d41fef1ce2f3cd9df128d2c3cf6d91ce15130daf
 
-diff --git a/drivers/gpu/drm/drm_probe_helper.c b/drivers/gpu/drm/drm_probe_helper.c
-index 6b3541159c0ffdd6dc05b6a2324ec0de9d1c5474..09b12c30df69d44f099f119739b8d5d2f77907d5 100644
---- a/drivers/gpu/drm/drm_probe_helper.c
-+++ b/drivers/gpu/drm/drm_probe_helper.c
-@@ -119,6 +119,7 @@ drm_mode_validate_pipeline(struct drm_display_mode *mode,
- 		*status = drm_bridge_chain_mode_valid(bridge,
- 						      &connector->display_info,
- 						      mode);
-+		drm_bridge_put(bridge);
- 		if (*status != MODE_OK) {
- 			/* There is also no point in continuing for crtc check
- 			 * here. */
+Thank you!
 
 -- 
-2.49.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
