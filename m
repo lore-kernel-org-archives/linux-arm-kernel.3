@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F88C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 15:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E622C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 16:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkRJVAz25cOKB4Ike8uj1TDbewu9GKT1vjs3etq6Y80=; b=y78adRGPEw6qtcKdjeiY4t1u9Y
-	BygNt/CtAM16NqOim45IIhjh5j1PVxREV1SZSO5VImZfrjIASLhuZNDEqvGP9Ozfjl4nD+mpkU03R
-	pTSktNOBe9+hF1Jcq/FHjQ+ujQPHJLKXeuG8XkkgpiqnkpSJm1/6faJMtapWplgdELeTEj4GVEeHz
-	8jm9CASJZNEQ+aloF7yENUrKs+qVjR7N8pnsOMU0bhJ8IQRf/F4E18Xa6zXwLNnt2517hniBuwwEW
-	W5QF4cRnSxtWZi/a7NBpHX68rhzjZ55JKW7PyH38WaWsTn2n+KuNK38NDgSFK76CfdTCdjE92xH0D
-	vIUC/ryQ==;
+	bh=ZHNOSIhtOyvyVPKauEqUP759mlBlK0I8r5abFLbWgUM=; b=4E7yN43z6lIwKswx4aHUBSIlPM
+	GLTVDsrBM+vSdOgSCXI1+lSOYjytsrq8hoZlYpNx4x+MqAB7QbUQA78SCCAWb5TQOHP8r9WcSjMte
+	sARwXrVOwpsXtF1JkYbWorIE63FqFxpMIlSr6UMjOIyqjimrsvHvon70SJvVRsHWyOcpLehEScydK
+	TqBcwMMXQtzAnO5ZnTdj314FEsfaX3IiJCgWCmYsmlJe4LjH/bIkycQ5BUFCJPMXHmKSzKk7BDbaH
+	d2eJijlB44Ye6Vq+GJ+vavhN7bzFtwY/I4/34ufBPGeNddTIEZsgctjPlcJcfE6jRcdbnw//WaLQY
+	r5ddMNyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT0XY-0000000HajI-2RL3;
-	Sat, 21 Jun 2025 15:54:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uT0eY-000000000ID-2xQ9;
+	Sat, 21 Jun 2025 16:01:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT0VJ-0000000Haaf-2y6Q
+	id 1uT0cJ-0000000006H-0ie3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 15:51:42 +0000
+	Sat, 21 Jun 2025 15:58:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D9125C3A59;
-	Sat, 21 Jun 2025 15:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78776C4CEE7;
-	Sat, 21 Jun 2025 15:51:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F65F60008;
+	Sat, 21 Jun 2025 15:58:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A87C4CEE7;
+	Sat, 21 Jun 2025 15:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750521099;
-	bh=RwP81emvQorDLrxRkfUbpFTx2KvYq1XkDDhakXZLA38=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aXtULFaVgekIStsylN4vdg7HUyzivNz0nR/MJSwVzTkpruzTLf09+mzKvXkhSxwD6
-	 RfdN8Od5f/jxKMfkRbddhs5qxoS+QoS46W+d0+b1qS8+AJxa+pObgodXZycAnqJbL5
-	 gem5fqZiCD+HRYOrXaZXZmKHTNeK1QgLdynUz9VXQ5u4JDhZP5nOO3CQXZfDQZudBp
-	 d6cX58KTKDdUT5SRafdvX4onFl9UpYAy5YNgB7V0VjO2pugG98guCnmakD1DhOMOvP
-	 IbTJOhfMjLOTL7cCYtNtILPzxbrr9AtexQUIJRZ/m8HT5DhA72WLDVkeB3m3VNKief
-	 vEVYcskD2Qe6g==
-Message-ID: <f30406ae-90ed-4f81-9519-e6ae2dcc9e03@kernel.org>
-Date: Sat, 21 Jun 2025 17:51:33 +0200
+	s=k20201202; t=1750521533;
+	bh=uD1aowYPmj+UJLXVDosDmzbGxqXKB+j7Khv6FiWy4dI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uuiBzVRcEkC2Sxa/8Sv+mVWSSwv0SA0+lxjSMoXxmEthDJ53F1UsDFQEV7vqtLof3
+	 I4gpSGdr20sf6S838T6kun/3W9EqYXLnQGcBVSCdjAi0MNlWQfbqxdAFFSj+bwAgqe
+	 JRgA/xHLyAdD7wHRhQox0MLHZbOsdJEstsEhZPNFRuAV3U4NcUOvDGEDHlFlPzjIwO
+	 bmhnC7b6CjMUd6Ce1g9AOpH/bnAx2pM7Zxqh53r/E0IDNy/QpHeFFLTHjntlZroK5n
+	 YZZksBuIIBPlFaol+MiAKyZkT+lkp7OymawE/gkYy5hGQl7qQrT7PHLkbasgrCrkRX
+	 vr8xdY7xTk/8Q==
+Date: Sat, 21 Jun 2025 16:58:44 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Bough Chen <haibo.chen@nxp.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iio: adc: imx93_adc: load calibrated values even
+ calibration failed
+Message-ID: <20250621165845.0bd7ac7f@jic23-huawei>
+In-Reply-To: <DU0PR04MB94962C741E378CAC3F8910E69073A@DU0PR04MB9496.eurprd04.prod.outlook.com>
+References: <20250423-adcpatch-v1-1-b0e84c27ae98@nxp.com>
+	<DU0PR04MB94962C741E378CAC3F8910E69073A@DU0PR04MB9496.eurprd04.prod.outlook.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/10] mfd: Add Apple Silicon System Management
- Controller
-To: Lee Jones <lee@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>, Sebastian Reichel <sre@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-5-556cafd771d3@kernel.org>
- <20250619114958.GJ587864@google.com>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250619114958.GJ587864@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_085141_790455_B639CF3B 
-X-CRM114-Status: GOOD (  14.03  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +78,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.06.25 13:49, Lee Jones wrote:
-> On Tue, 10 Jun 2025, Sven Peter wrote:
-> 
->> The System Management Controller (SMC) on Apple Silicon machines is a
->> piece of hardware that exposes various functionalities such as
->> temperature sensors, voltage/power meters, shutdown/reboot handling,
->> GPIOs and more.
->>
->> Communication happens via a shared mailbox using the RTKit protocol
->> which is also used for other co-processors. The SMC protocol then allows
->> reading and writing many different keys which implement the various
->> features. The MFD core device handles this protocol and exposes it
->> to the sub-devices.
->>
->> Some of the sub-devices are potentially also useful on pre-M1 Apple
->> machines and support for SMCs on these machines can be added at a later
->> time.
->>
->> Co-developed-by: Hector Martin <marcan@marcan.st>
->> Signed-off-by: Hector Martin <marcan@marcan.st>
->> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
->> Reviewed-by: Neal Gompa <neal@gompa.dev>
->> Signed-off-by: Sven Peter <sven@kernel.org>
->> ---
->>   MAINTAINERS                |   2 +
->>   drivers/mfd/Kconfig        |  18 ++
->>   drivers/mfd/Makefile       |   1 +
->>   drivers/mfd/macsmc.c       | 498 +++++++++++++++++++++++++++++++++++++++++++++
->>   include/linux/mfd/macsmc.h | 279 +++++++++++++++++++++++++
->>   5 files changed, 798 insertions(+)
-> 
-> This is ready.  Let me know when you have all of the other driver/* Acks.
-> 
+On Tue, 17 Jun 2025 03:07:11 +0000
+Bough Chen <haibo.chen@nxp.com> wrote:
 
-They've all been reviewed by the respective maintainers.
+> Any comment for this patch?
+I guess you didn't receive this mail from Andy for some reason?
 
-I assume you want to take this all through the mfd tree and we'll need 
-acks from Sebastian for power/reset and either Linus or Bartosz for gpio 
-then.
+https://lore.kernel.org/all/aAkYvE6VtoQItM5o@smile.fi.intel.com/
 
-The one line change inside drivers/soc/apple would usually go through my 
-tree and I'm fine with taking that through mfd instead.
-
-
-Sven
+There were a few minor requested changes in there.
+>=20
+> > -----Original Message-----
+> > From: Bough Chen <haibo.chen@nxp.com>
+> > Sent: 2025=E5=B9=B44=E6=9C=8823=E6=97=A5 16:03
+> > To: Jonathan Cameron <jic23@kernel.org>; David Lechner
+> > <dlechner@baylibre.com>; Nuno S=C3=A1 <nuno.sa@analog.com>; Andy Shevch=
+enko
+> > <andy@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> > <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>
+> > Cc: linux-iio@vger.kernel.org; imx@lists.linux.dev;
+> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Bou=
+gh
+> > Chen <haibo.chen@nxp.com>
+> > Subject: [PATCH] iio: adc: imx93_adc: load calibrated values even calib=
+ration
+> > failed
+> >=20
+> > ADC calibration might fail because of the noise on reference voltage.
+> > To avoid calibration fail, need to meet the following requirement:
+> > ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> >=20
+> > For the case which the ADC reference voltage on board do not meet the
+> > requirement, still load the calibrated values, so ADC can also work but=
+ maybe
+> > not that accurate.
+> >=20
+> > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> > ---
+> >  drivers/iio/adc/imx93_adc.c | 21 ++++++++++++++++-----
+> >  1 file changed, 16 insertions(+), 5 deletions(-)
+> >=20
+> > diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c =
+index
+> > 7feaafd2316f246bd0c32fea99309900b5c65099..ebf976db746f02431a315b1faa
+> > 86f151bb67132e 100644
+> > --- a/drivers/iio/adc/imx93_adc.c
+> > +++ b/drivers/iio/adc/imx93_adc.c
+> > @@ -38,6 +38,7 @@
+> >  #define IMX93_ADC_PCDR6		0x118
+> >  #define IMX93_ADC_PCDR7		0x11c
+> >  #define IMX93_ADC_CALSTAT	0x39C
+> > +#define IMX93_ADC_CALCFG0	0X3A0
+> >=20
+> >  /* ADC bit shift */
+> >  #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
+> > @@ -58,6 +59,8 @@
+> >  #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
+> >  #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
+> >=20
+> > +#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
+> > +
+> >  /* ADC status */
+> >  #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
+> >  #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
+> > @@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc
+> > *adc)
+> >=20
+> >  static int imx93_adc_calibration(struct imx93_adc *adc)  {
+> > -	u32 mcr, msr;
+> > +	u32 mcr, msr, calcfg;
+> >  	int ret;
+> >=20
+> >  	/* make sure ADC in power down mode */ @@ -158,6 +161,11 @@ static
+> > int imx93_adc_calibration(struct imx93_adc *adc)
+> >=20
+> >  	imx93_adc_power_up(adc);
+> >=20
+> > +	/* Enable loading of calibrated values even in fail condition */
+> > +	calcfg =3D readl(adc->regs + IMX93_ADC_CALCFG0);
+> > +	calcfg |=3D IMX93_ADC_CALCFG0_LDFAIL_MASK;
+> > +	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
+> > +
+> >  	/*
+> >  	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
+> >  	 * can add the setting of these bit if need in future.
+> > @@ -179,11 +187,14 @@ static int imx93_adc_calibration(struct imx93_adc
+> > *adc)
+> >=20
+> >  	/* check whether calbration is success or not */
+> >  	msr =3D readl(adc->regs + IMX93_ADC_MSR);
+> > -	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
+> > +	if (msr & IMX93_ADC_MSR_CALFAIL_MASK)
+> > +		/*
+> > +		 * Only give warning here, this means the noise of the
+> > +		 * reference voltage do not meet the requirement:
+> > +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> > +		 * And the reault of ADC is not that accurate.
+> > +		 */
+> >  		dev_warn(adc->dev, "ADC calibration failed!\n");
+> > -		imx93_adc_power_down(adc);
+> > -		return -EAGAIN;
+> > -	}
+> >=20
+> >  	return 0;
+> >  }
+> >=20
+> > ---
+> > base-commit: bc8aa6cdadcc00862f2b5720e5de2e17f696a081
+> > change-id: 20250423-adcpatch-cb59c5255961
+> >=20
+> > Best regards,
+> > --
+> > Haibo Chen <haibo.chen@nxp.com> =20
+>=20
 
 
