@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DC6C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 08:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEA3C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 08:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=suVnQvsGEV8jCLR7EWqQ6LhJALtHVEOYpwn3iZU8550=; b=eqU0XgBt8mRhX5JiLQ3qQbXoFv
-	s2wO1S76sqI2xCnx3zwSP7Hkny6VkTHuNFZHUn2RSRj/OSMUKnD/RDIHT3IYmAfNpAsPNiEHOgCAf
-	ET9L9OXoVhKhhSNMZcW1J3ADrEarBvxngkw48MWDOpWUEqKfye7sZRzpf8bBdCVlJAySc5DRqOPNk
-	ToaqJgnZqAaN1924aeLOFH1me56/T0QR3yMhAqOYK8KPO9tpjxCeTzGTUaF69dAQZgugJInoKzc2r
-	X9y+yrd2oZ0dl1Nlx1xBrwMMRUsZ1mPLTvoCFyW6asxlMblA2LpSq9yG4UdqZbJCgooSm4oRac+hI
-	sfAWzKNA==;
+	bh=AJC1w3AmRHHpL07AmVFinwuTqbXz6zOK8YOKfz50jUo=; b=H6mEp+3jO7wX3QA/BU44g0dSuu
+	yaJRLSp5pHNgCFgw6TgVP6kLjrt18Sur61wnySg3ImH317oEYgJXPsfCW35boyUxfLHwJn9fxP6xr
+	eL715TjPXTGn2/2o398lw3PhDEpc2u3PjN6qISc/lfXhQwx287B83GbljudzR8YtDK/B2FRX9iIGI
+	q5oPF++I58k2Zn3nuWHMJi5uOZRemG93jJehIoecZFibfmtxLo/J8RUa0RiDHjmI4LLCfo8J0fh/F
+	6tXFHK1My3QCkc2mhS6vTTrPLiofzffe6GJ72atC8uBVmeaoXpyiaZdgKcVWNVaXU1bqZV8hDT+r6
+	ucS4yupA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uStjc-0000000HG3H-0KhH;
-	Sat, 21 Jun 2025 08:38:00 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uStyO-0000000HH2G-1NjN;
+	Sat, 21 Jun 2025 08:53:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSthK-0000000HFuN-3E3C;
-	Sat, 21 Jun 2025 08:35:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750494939; x=1782030939;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IxnvwpPtE9uiMFUZjHjsqPPB12QCtRhBXJ2KaoEI0sk=;
-  b=mJVUJZ/GMMKyymdeTYHvn+8A/55SzicpiBvQu39pcyzUcplA2cx0vXlC
-   HGBdOhjy1DozdoiUX4BciqkEpZddnH6/PwR6uIW2vF0ATfBYJ8ehbTTd1
-   wswSbL1nR3ozRt9FVXJiba7VPaCx9QgF0XKAse1uvZQtUDppeOvM+8f4Y
-   OxoKbE2dXNJwFypl6PLwsYP0yaL4bIOB2qFsH5b2arKW4geIXq2fcTx5C
-   KZCwz0Ag4FuI/Je3PFmXRLaN+Fgjs5xqaxNnAjBOGfq1FXmStbsO+L6Au
-   pVtOLLaeEXJhiyQ/VhocZiuBrHnUjLHfKHShzMRuevXvUTeczWLL+p61G
-   g==;
-X-CSE-ConnectionGUID: yext3jtkTz+K9U51v6VVXQ==
-X-CSE-MsgGUID: lIKtIlzxSXaPdA8wLq24mA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11469"; a="52459037"
-X-IronPort-AV: E=Sophos;i="6.16,253,1744095600"; 
-   d="scan'208";a="52459037"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jun 2025 01:35:33 -0700
-X-CSE-ConnectionGUID: x3bpnHumREixSSOk2WjHgQ==
-X-CSE-MsgGUID: tYh93x4SQcS5i6AK0sfC5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,253,1744095600"; 
-   d="scan'208";a="150897564"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 21 Jun 2025 01:35:28 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uSth7-000MU4-1R;
-	Sat, 21 Jun 2025 08:35:25 +0000
-Date: Sat, 21 Jun 2025 16:34:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Darren.Ye" <darren.ye@mediatek.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	Darren Ye <darren.ye@mediatek.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Subject: Re: [PATCH v5 01/10] ASoC: mediatek: common: modify mtk afe platform
- driver for mt8196
-Message-ID: <202506211649.TGCEqNZ6-lkp@intel.com>
-References: <20250620094140.11093-2-darren.ye@mediatek.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620094140.11093-2-darren.ye@mediatek.com>
+	id 1uStw6-0000000HGtP-3Z3U
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Jun 2025 08:50:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AC8DC45338;
+	Sat, 21 Jun 2025 08:50:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FBC6C4CEE7;
+	Sat, 21 Jun 2025 08:50:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750495851;
+	bh=rKyE8IXZALHKw3NE/EHwg4GeUXpJIUOSLMr19SCqxSA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=n1poLS87RgFr/Y73+xM9/JN7R23jpVHrIX2E6wpZrygMI+ASCHH/oJwjvwpgGJNnC
+	 5x/tg5U0ftKRTBNT3ZlS5BJRWsLGVNTQoWyxRZwveRMhetNKNRzBEVYaJQZFk0jDRq
+	 h+9xJ7gHkRtjsVdj5F3L6ChRgeq0kdaUUALr0XTVredpZLvmlkJQJwuRRYaAHX8pAG
+	 L6WjHwH+HBx7pTdQufNJxfSuQqj9M45Gzow7prVFK2uMCd9u7gJtTkP2K7YANnZj0y
+	 vPu0cjri9U3DT9T1fqlOZUXlwbXXJcJ2VLS6S1qjPB5kdKb8zwTgqcvistf3qAaDPc
+	 1VXzAaavGEbDw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uStw1-008mP9-7S;
+	Sat, 21 Jun 2025 09:50:49 +0100
+Date: Sat, 21 Jun 2025 09:50:48 +0100
+Message-ID: <87frftfpg7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v3 3/4] KVM: arm64: Introduce attribute to control GICD_TYPER2.nASSGIcap
+In-Reply-To: <20250613155239.2029059-4-rananta@google.com>
+References: <20250613155239.2029059-1-rananta@google.com>
+	<20250613155239.2029059-4-rananta@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, mizhang@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_013538_876668_B93FB10F 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250621_015054_934924_4D95C0B2 
+X-CRM114-Status: GOOD (  34.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,101 +88,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Darren.Ye,
+On Fri, 13 Jun 2025 16:52:37 +0100,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+> 
+> KVM unconditionally advertises GICD_TYPER2.nASSGIcap (which internally
+> implies vSGIs) on GICv4.1 systems. Allow userspace to change whether a
+> VM supports the feature. Only allow changes prior to VGIC initialization
+> as at that point vPEs need to be allocated for the VM.
+> 
+> For convenience, bundle support for vLPIs and vSGIs behind this feature,
+> allowing userspace to control vPE allocation for VMs in environments
+> that may be constrained on vPE IDs.
+> 
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  .../virt/kvm/devices/arm-vgic-v3.rst          | 29 +++++++++++++++
+>  arch/arm64/include/uapi/asm/kvm.h             |  3 ++
+>  arch/arm64/kvm/vgic/vgic-init.c               |  3 ++
+>  arch/arm64/kvm/vgic/vgic-kvm-device.c         | 37 +++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-mmio-v3.c            | 10 ++++-
+>  arch/arm64/kvm/vgic/vgic-v3.c                 |  5 ++-
+>  arch/arm64/kvm/vgic/vgic-v4.c                 |  2 +-
+>  include/kvm/arm_vgic.h                        |  3 ++
+>  8 files changed, 88 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/devices/arm-vgic-v3.rst b/Documentation/virt/kvm/devices/arm-vgic-v3.rst
+> index e860498b1e35..049d77eae591 100644
+> --- a/Documentation/virt/kvm/devices/arm-vgic-v3.rst
+> +++ b/Documentation/virt/kvm/devices/arm-vgic-v3.rst
+> @@ -306,3 +306,32 @@ Groups:
+>  
+>      The vINTID specifies which interrupt is generated when the vGIC
+>      must generate a maintenance interrupt. This must be a PPI.
+> +
+> +  KVM_DEV_ARM_VGIC_GRP_FEATURES
+> +   Attributes:
+> +
+> +    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap
+> +      Control whether support for SGIs without an active state is exposed
+> +      to the VM. attr->addr points to a __u8 value which indicates whether
+> +      he feature is enabled / disabled.
 
-kernel test robot noticed the following build warnings:
+s/he/the/
 
-[auto build test WARNING on broonie-sound/for-next]
-[also build test WARNING on broonie-spi/for-next robh/for-next linus/master v6.16-rc2 next-20250620]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> +
+> +      A value of 0 indicates that the feature is disabled. A nonzero value
+> +      indicates that the feature is enabled.
+> +
+> +      This attribute can only be set prior to initializing the VGIC (i.e.
+> +      KVM_DEV_ARM_VGIC_CTRL_INIT).
+> +
+> +      Support for SGIs without an active state depends on hardware support.
+> +      Userspace can discover support for the feature by reading the
+> +      attribute after creating a VGICv3. It is possible that
+> +      KVM_DEV_ARM_VGIC_CTRL_INIT can later fail if this feature is enabled
+> +      and KVM is unable to allocate GIC vPEs for the VM.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Darren-Ye/ASoC-mediatek-common-modify-mtk-afe-platform-driver-for-mt8196/20250620-174746
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-patch link:    https://lore.kernel.org/r/20250620094140.11093-2-darren.ye%40mediatek.com
-patch subject: [PATCH v5 01/10] ASoC: mediatek: common: modify mtk afe platform driver for mt8196
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250621/202506211649.TGCEqNZ6-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250621/202506211649.TGCEqNZ6-lkp@intel.com/reproduce)
+Can you please add a sentence about the default behaviour? We
+currently rely on the GICv4.1 capabilities to be available by default,
+and it'd be important to capture this.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506211649.TGCEqNZ6-lkp@intel.com/
+> +
+> +  Errors:
+> +
+> +    =======  ========================================================
+> +    -ENXIO   Invalid attribute in attr->attr
+> +    -EFAULT  Invalid user address in attr->addr
+> +    -EBUSY   The VGIC has already been initialized
+> +    -EINVAL  KVM doesn't support the requested feature setting
+> +    =======  ========================================================
+> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+> index ed5f3892674c..41e9ce412afd 100644
+> --- a/arch/arm64/include/uapi/asm/kvm.h
+> +++ b/arch/arm64/include/uapi/asm/kvm.h
+> @@ -417,6 +417,7 @@ enum {
+>  #define KVM_DEV_ARM_VGIC_GRP_LEVEL_INFO  7
+>  #define KVM_DEV_ARM_VGIC_GRP_ITS_REGS 8
+>  #define KVM_DEV_ARM_VGIC_GRP_MAINT_IRQ  9
+> +#define KVM_DEV_ARM_VGIC_GRP_FEATURES 10
+>  #define KVM_DEV_ARM_VGIC_LINE_LEVEL_INFO_SHIFT	10
+>  #define KVM_DEV_ARM_VGIC_LINE_LEVEL_INFO_MASK \
+>  			(0x3fffffULL << KVM_DEV_ARM_VGIC_LINE_LEVEL_INFO_SHIFT)
+> @@ -429,6 +430,8 @@ enum {
+>  #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
+>  #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
+>  
+> +#define   KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap	0
+> +
+>  /* Device Control API on vcpu fd */
+>  #define KVM_ARM_VCPU_PMU_V3_CTRL	0
+>  #define   KVM_ARM_VCPU_PMU_V3_IRQ		0
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 5e0e4559004b..944e24750ac4 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -157,6 +157,9 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  
+>  	kvm->arch.vgic.in_kernel = true;
+>  	kvm->arch.vgic.vgic_model = type;
+> +	if (type == KVM_DEV_TYPE_ARM_VGIC_V3)
+> +		kvm->arch.vgic.nassgicap = kvm_vgic_global_state.has_gicv4_1 &&
+> +					   gic_cpuif_has_vsgi();
+>  
+>  	kvm->arch.vgic.vgic_dist_base = VGIC_ADDR_UNDEF;
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> index e28cf68a49c3..629f56063a13 100644
+> --- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> +++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> @@ -626,6 +626,26 @@ static int vgic_v3_set_attr(struct kvm_device *dev,
+>  		dev->kvm->arch.vgic.mi_intid = val;
+>  		return 0;
+>  	}
+> +	case KVM_DEV_ARM_VGIC_GRP_FEATURES: {
+> +		u8 __user *uaddr = (u8 __user *)attr->addr;
+> +		u8 val;
+> +
+> +		if (attr->attr != KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap)
+> +			return -ENXIO;
+> +
+> +		if (get_user(val, uaddr))
+> +			return -EFAULT;
+> +
+> +		guard(mutex)(&dev->kvm->arch.config_lock);
+> +		if (vgic_initialized(dev->kvm))
+> +			return -EBUSY;
+> +
+> +		if (!(kvm_vgic_global_state.has_gicv4_1 && gic_cpuif_has_vsgi()) && val)
+> +			return -EINVAL;
+> +
+> +		dev->kvm->arch.vgic.nassgicap = val;
+> +		return 0;
+> +	}
+>  	default:
+>  		return vgic_set_common_attr(dev, attr);
+>  	}
+> @@ -646,6 +666,17 @@ static int vgic_v3_get_attr(struct kvm_device *dev,
+>  		guard(mutex)(&dev->kvm->arch.config_lock);
+>  		return put_user(dev->kvm->arch.vgic.mi_intid, uaddr);
+>  	}
+> +	case KVM_DEV_ARM_VGIC_GRP_FEATURES: {
+> +		u8 __user *uaddr = (u8 __user *)attr->addr;
+> +		u8 val;
+> +
+> +		if (attr->attr != KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap)
+> +			return -ENXIO;
+> +
+> +		guard(mutex)(&dev->kvm->arch.config_lock);
+> +		val = dev->kvm->arch.vgic.nassgicap;
+> +		return put_user(val, uaddr);
+> +	}
+>  	default:
+>  		return vgic_get_common_attr(dev, attr);
+>  	}
+> @@ -683,8 +714,14 @@ static int vgic_v3_has_attr(struct kvm_device *dev,
+>  			return 0;
+>  		case KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES:
+>  			return 0;
+> +		default:
+> +			return -ENXIO;
+>  		}
+> +	case KVM_DEV_ARM_VGIC_GRP_FEATURES:
+> +		return attr->attr != KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap ?
+> +		       -ENXIO : 0;
 
-All warnings (new ones prefixed by >>):
+Do we really want to advertise KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap even
+when we don't have GICv4.1? This seems rather odd. My take on this API
+is that this should report whether the feature is configurable, making
+it backward compatible with older versions of KVM.
 
->> sound/soc/mediatek/common/mtk-afe-platform-driver.c:125:18: warning: shift count is negative [-Wshift-count-negative]
-     125 |         pcm_ptr_bytes = MTK_ALIGN_16BYTES(hw_ptr - hw_base);
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   sound/soc/mediatek/common/mtk-afe-platform-driver.h:15:37: note: expanded from macro 'MTK_ALIGN_16BYTES'
-      15 | #define MTK_ALIGN_16BYTES(x) ((x) & GENMASK(39, 4))
-         |                                     ^~~~~~~~~~~~~~
-   include/linux/bits.h:87:31: note: expanded from macro 'GENMASK'
-      87 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
-         |                                      ^~~~~~~~~~~~~~~
-   include/uapi/linux/bits.h:7:56: note: expanded from macro '__GENMASK'
-       7 | #define __GENMASK(h, l) (((~_UL(0)) << (l)) & (~_UL(0) >> (BITS_PER_LONG - 1 - (h))))
-         |                                                        ^  ~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
+Thanks,
 
-
-vim +125 sound/soc/mediatek/common/mtk-afe-platform-driver.c
-
-    79	
-    80	snd_pcm_uframes_t mtk_afe_pcm_pointer(struct snd_soc_component *component,
-    81					      struct snd_pcm_substream *substream)
-    82	{
-    83		struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-    84		struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
-    85		struct mtk_base_afe_memif *memif = &afe->memif[snd_soc_rtd_to_cpu(rtd, 0)->id];
-    86		const struct mtk_base_memif_data *memif_data = memif->data;
-    87		struct regmap *regmap = afe->regmap;
-    88		struct device *dev = afe->dev;
-    89		unsigned int hw_ptr_lower32 = 0, hw_ptr_upper32 = 0;
-    90		unsigned int hw_base_lower32 = 0, hw_base_upper32 = 0;
-    91		unsigned long long hw_ptr = 0, hw_base = 0;
-    92		int ret;
-    93		unsigned long long pcm_ptr_bytes = 0;
-    94	
-    95		ret = regmap_read(regmap, memif_data->reg_ofs_cur, &hw_ptr_lower32);
-    96		if (ret || hw_ptr_lower32 == 0) {
-    97			dev_err(dev, "%s hw_ptr_lower32 err\n", __func__);
-    98			goto POINTER_RETURN_FRAMES;
-    99		}
-   100	
-   101		if (memif_data->reg_ofs_cur_msb) {
-   102			ret = regmap_read(regmap, memif_data->reg_ofs_cur_msb, &hw_ptr_upper32);
-   103			if (ret) {
-   104				dev_err(dev, "%s hw_ptr_upper32 err\n", __func__);
-   105				goto POINTER_RETURN_FRAMES;
-   106			}
-   107		}
-   108	
-   109		ret = regmap_read(regmap, memif_data->reg_ofs_base, &hw_base_lower32);
-   110		if (ret || hw_base_lower32 == 0) {
-   111			dev_err(dev, "%s hw_base_lower32 err\n", __func__);
-   112			goto POINTER_RETURN_FRAMES;
-   113		}
-   114		if (memif_data->reg_ofs_base_msb) {
-   115			ret = regmap_read(regmap, memif_data->reg_ofs_base_msb, &hw_base_upper32);
-   116			if (ret) {
-   117				dev_err(dev, "%s hw_base_upper32 err\n", __func__);
-   118				goto POINTER_RETURN_FRAMES;
-   119			}
-   120		}
-   121		hw_ptr = ((unsigned long long)hw_ptr_upper32 << 32) + hw_ptr_lower32;
-   122		hw_base = ((unsigned long long)hw_base_upper32 << 32) + hw_base_lower32;
-   123	
-   124	POINTER_RETURN_FRAMES:
- > 125		pcm_ptr_bytes = MTK_ALIGN_16BYTES(hw_ptr - hw_base);
-   126		return bytes_to_frames(substream->runtime, (ssize_t)pcm_ptr_bytes);
-   127	}
-   128	EXPORT_SYMBOL_GPL(mtk_afe_pcm_pointer);
-   129	
+	M.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jazz isn't dead. It just smells funny.
 
