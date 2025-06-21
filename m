@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49D4C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 14:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98833C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 15:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UUSINKezBIROTJ8AT+Yl5jVbZLLeLNpkkgCaZEFxgNE=; b=Xg1z6ML0TLgBSYIx+19sMrUL1t
-	o75virG7qONcFvBZp5cAJyCg4hI0ioN/7sf48Xy96vcXhF0QQneiljIh3ozVPQy4rcUgjC6zM5Ezr
-	9x4SCYAMsv9iyBvTTOJ3rpD7ksgJYj0OvlOL2HaJKlgJhO/sxfgxx9hiRd2d7kdIUTf6N/alhROnn
-	BalNE74fOnjPUJE/utrbdEG3S7jGTEjyUDBjKzwoJg/NHqiXlLGYsdYE27ilWlBgDXdDvNE2rQe16
-	ns0VZMpprkbdaS9eMHFgac5+h8CXNuT5RLB0AgZOQFjD2dpI3fHfCr6+0oyHaACGMCtRaYn2+VprK
-	kMxfqqaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zlOLeLmBcQz76Xx4bxMmYhoGNA+XAsarcG9K2kjyKws=; b=Wg08XDHE+sWBf+
+	khoef1BFh6aEtGx9234heIZ0K+1IGoe1tOxcwc0VU0Z9KSzEzRCAqAUv075aJ74AKMVUHzhSaEMUv
+	Gl4eb/LhGwmaj/T1IKPzJg6RYRunkvWCWdB6vTUaYJMH3vw5mMRcYwStuqbu+JHDpG0cuVADaa3SQ
+	bKUk+cIkAPsrsyEpbEm4TEOxBda7ocRe9l1RbwoW/Mg6PgeRyDai0b2DmeZTOU6TW3aS7/7jfvOaH
+	4Owu96GwR+7+XIErYkt3YU7Sh9R3DqCCx70mfv5spVtkypHWk1wx7WFTp7hVbZuaaBgSz/5j5w3bq
+	6tpC8qEdXZwD/hgsnSIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSzgl-0000000HXlq-11UF;
-	Sat, 21 Jun 2025 14:59:27 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uT0Lz-0000000HZuC-00Q9;
+	Sat, 21 Jun 2025 15:42:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSzeW-0000000HXcW-1146
+	id 1uT0Jj-0000000HZos-2JFj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 14:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750517828; x=1782053828;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=X3vV+eJu0dvr53qzXk4iuxmihuUGtVvgs8eqeDhJh9o=;
-  b=avEzWE8RhpejSpMIpCWpVkjD0JbKnxovumBr1tjd7BYDDjfU6RmyNo9m
-   PdBlIjpJit0BF+IHGVFTiOs9aOq+kXPK7v+XIBILwrP7QZ+NDIPtoiOJ8
-   CQWLUjPFQFoyRfTd3bn1Wmet87vdy1Q2Ui5UrQa0C9s454ADmpJ41a0vl
-   N5+/ig3kiI6PzHXZgZQCPkZy0JNV0EuA8xr77dPS5HbMQhRmYIQbfn/zn
-   u2jU11k/MJiIDPCx2UHGE+RwccqIIXY611uyidrP9twzDZL8N0qeeSE+h
-   cs2+B2KdivzR24zElJKdR7Ax8q60ugvvZ5r92X8g6kv5NvY0MiTobU7rh
-   g==;
-X-CSE-ConnectionGUID: vmnAxmnMS5+y5GdWgpjHXQ==
-X-CSE-MsgGUID: t1B0U71YQmiQrhYu+kYPwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11470"; a="52697051"
-X-IronPort-AV: E=Sophos;i="6.16,254,1744095600"; 
-   d="scan'208";a="52697051"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jun 2025 07:57:07 -0700
-X-CSE-ConnectionGUID: /ElNxIjAQAOkdsx+BhBW4w==
-X-CSE-MsgGUID: YjlOm5efQmS2CH7jY5cacw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,254,1744095600"; 
-   d="scan'208";a="155720770"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 21 Jun 2025 07:57:03 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uSzeN-000MgQ-2S;
-	Sat, 21 Jun 2025 14:56:59 +0000
-Date: Sat, 21 Jun 2025 22:56:09 +0800
-From: kernel test robot <lkp@intel.com>
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Colton Lewis <coltonlewis@google.com>
-Subject: Re: [PATCH v2 05/23] KVM: arm64: Cleanup PMU includes
-Message-ID: <202506212205.NmAR3sAH-lkp@intel.com>
-References: <20250620221326.1261128-6-coltonlewis@google.com>
+	Sat, 21 Jun 2025 15:39:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA4CA5C10AC
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 15:37:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD1FC4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 15:39:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750520382;
+	bh=dplF8ekAxy0g9mjGS0TkbciEvIH5BOn328ZM7y56QMU=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=CxLZRfsZuT4zKM7mMcYSLnekN+VWNdM4ntkVy+cR4qqOAE3ft82UDnVDoVHgWfNWJ
+	 QExaIOemdfA8xa0ujTNgPcHDkJekn7qHUr6aZVTglWNI0gRJAjrAmvoeMH+KenBmA8
+	 7tpmAkdInLLEiwt08YzLgHCdwXQoipVT7/TR5Pwu4DEC52DYGs2dk8xUVq8/dSS1yL
+	 fm2zjxSgLDpmgrKlrUxaRMN4JbI6Ypq2CGvH3MYjypNxeiUsFFcXMWGD+XXjvAUxey
+	 gPkvilmUZHShVf29t21iwWlCc0NhuG0rjZ2RzKV52jFBrT9CTKHq1k5hYneGXILzFB
+	 90FTrhtwujmSg==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-32addf54a00so22207241fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 08:39:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXrd/RQd6sFVfUIMxIALJDREOFssWBtHJLri9nXkHO++gGAfWTOkqnSN++TPgkqSZJ9IeOgN2o9ZV2/XanbnGWX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMTqYO9CLURuO8+5JrAcEu/6u/a8ype3OwUrnldTtNVEQ4YP96
+	CDr623NLUWUhpXfwRqBZ2of2PaRzz2E+3/m7WaxaSpSml32vLvyRw5F3ytSlJUD0VkTXYhqa3iY
+	jcwM2gbyIhl7t6z2eaZAlDrNZW+ibRO8=
+X-Google-Smtp-Source: AGHT+IHp+KTn6vrfzc/etDt3kJzlnpgqNnQtsoMZL4Gc1/QE7cGkyToUM5xdaei/51KZAZZFA9559BxEBagsXbi5UnM=
+X-Received: by 2002:a2e:bea9:0:b0:32a:91e6:1a26 with SMTP id
+ 38308e7fff4ca-32b991634e6mr22175591fa.3.1750520380134; Sat, 21 Jun 2025
+ 08:39:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620221326.1261128-6-coltonlewis@google.com>
+References: <20250619173007.3367034-1-wens@kernel.org> <20250619173007.3367034-6-wens@kernel.org>
+ <20250621153229.6796e824@minigeek.lan>
+In-Reply-To: <20250621153229.6796e824@minigeek.lan>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sat, 21 Jun 2025 23:39:27 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65-KNN2x+HNE7cSPiTRyo0s5O_yiC147YKDkMhVJjW7Qw@mail.gmail.com>
+X-Gm-Features: AX0GCFsagBrOtjfAiLiTlC6pylx4Eb7dHXq8d26EI-noP8C4gcnGxxd8rnfNPHE
+Message-ID: <CAGb2v65-KNN2x+HNE7cSPiTRyo0s5O_yiC147YKDkMhVJjW7Qw@mail.gmail.com>
+Subject: Re: [PATCH 5/5] arm64: dts: allwinner: t527: Add OrangePi 4A board
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_075708_335319_8C7F540C 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250621_083943_680545_194AF016 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,237 +84,513 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
+On Sat, Jun 21, 2025 at 10:33=E2=80=AFPM Andre Przywara <andre.przywara@arm=
+.com> wrote:
+>
+> On Fri, 20 Jun 2025 01:30:07 +0800
+> Chen-Yu Tsai <wens@kernel.org> wrote:
+>
+> Hi Chen-Yu,
+>
+> many thanks for piecing this together!
+> I compared this against the schematic, and found only some minor nits,
+> see below.
+>
+> > From: Chen-Yu Tsai <wens@csie.org>
+> >
+> > The OrangePi 4A is a typical Raspberry Pi model B sized development
+> > board from Xunlong designed around an Allwinner T527 SoC.
+> >
+> > The board has the following features:
+> > - Allwinner T527 SoC
+> > - AXP717B + AXP323 PMICs
+> > - Up to 4GB LPDDR4 DRAM
+> > - micro SD slot
+> > - optional eMMC module
+> > - M.2 slot for PCIe 2.0 x1
+> > - 16 MB SPI-NOR flash
+> > - 4x USB 2.0 type-A ports (one can be used in gadget mode)
+> > - 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMA=
+C200)
+> > - 3.5mm audio jack via internal audio codec
+> > - HDMI 2.0 output
+> > - eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
+> > - USB type-C port purely for power
+> > - AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
+> > - unsoldered headers for ADC and an additional USB 2.0 host port
+> > - 40-pin GPIO header
+> >
+> > Add a device tree for it, enabling all peripherals currently supported.
+> >
+> > Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> > ---
+> >  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+> >  .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 378 ++++++++++++++++++
+> >  2 files changed, 379 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-=
+4a.dts
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/d=
+ts/allwinner/Makefile
+> > index 773cc02a13d0..780aeba0f3a4 100644
+> > --- a/arch/arm64/boot/dts/allwinner/Makefile
+> > +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> > @@ -57,3 +57,4 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg=
+35xx-sp.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-a527-cubie-a5e.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-h728-x96qpro+.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-avaota-a1.dtb
+> > +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-orangepi-4a.dtb
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts =
+b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> > new file mode 100644
+> > index 000000000000..8a62607e584c
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> > @@ -0,0 +1,378 @@
+> > +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "sun55i-a523.dtsi"
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/leds/common.h>
+> > +
+> > +/ {
+> > +     model =3D "OrangePi 4A";
+> > +     compatible =3D "xunlong,orangepi-4a", "allwinner,sun55i-t527";
+> > +
+> > +     aliases {
+> > +             serial0 =3D &uart0;
+> > +     };
+> > +
+> > +     chosen {
+> > +             stdout-path =3D "serial0:115200n8";
+> > +     };
+> > +
+> > +     ext_osc32k: ext-osc32k-clk {
+> > +             #clock-cells =3D <0>;
+> > +             compatible =3D "fixed-clock";
+> > +             clock-frequency =3D <32768>;
+> > +             clock-output-names =3D "ext_osc32k";
+> > +     };
+> > +
+> > +     leds {
+> > +             compatible =3D "gpio-leds";
+> > +
+> > +             /* PWM capable pin, but PWM isn't supported yet. */
+> > +             led {
+> > +                     function =3D LED_FUNCTION_STATUS;
+> > +                     color =3D <LED_COLOR_ID_GREEN>;
+> > +                     gpios =3D <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 *=
+/
+> > +             };
+> > +     };
+> > +
+> > +     wifi_pwrseq: pwrseq {
+> > +             compatible =3D "mmc-pwrseq-simple";
+> > +             reset-gpios =3D <&r_pio 1 1 GPIO_ACTIVE_LOW>; /* PM1 */
+> > +             clocks =3D <&rtc CLK_OSC32K_FANOUT>;
+> > +             clock-names =3D "ext_clock";
+> > +     };
+> > +
+> > +     reg_otg_vbus: regulator-otg-vbus {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "otg-vbus";
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             vin-supply =3D <&reg_vcc5v>;
+> > +             gpio =3D <&r_pio 0 4 GPIO_ACTIVE_HIGH>;   /* PL4 */
+> > +             enable-active-high;
+> > +     };
+> > +
+> > +     reg_pcie_vcc3v3: regulator-pcie-vcc3v3 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vcc-pcie-3v3";
+> > +             regulator-min-microvolt =3D <3300000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             vin-supply =3D <&reg_vcc5v>;
+> > +             gpio =3D <&r_pio 0 8 GPIO_ACTIVE_HIGH>;   /* PL8 */
+> > +             enable-active-high;
+> > +     };
+> > +
+> > +     reg_usb_vbus: regulator-usb-vbus {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "usb-vbus";
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             vin-supply =3D <&reg_vcc5v>;
+> > +             gpio =3D <&r_pio 0 12 GPIO_ACTIVE_HIGH>;  /* PL12 */
+> > +             enable-active-high;
+> > +     };
+> > +
+> > +     reg_vcc5v: regulator-vcc5v {
+> > +             /* board wide 5V supply from USB type-C port */
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vcc-5v";
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             regulator-always-on;
+> > +     };
+> > +};
+> > +
+> > +&ehci0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&ehci1 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mmc0 {
+> > +     vmmc-supply =3D <&reg_cldo3>;
+> > +     cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 =
+*/
+> > +     bus-width =3D <4>;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mmc1 {
+> > +     bus-width =3D <4>;
+> > +     mmc-pwrseq =3D <&wifi_pwrseq>;
+> > +     non-removable;
+> > +     vmmc-supply =3D <&reg_dldo1_323>;
+> > +     vqmmc-supply =3D <&reg_bldo1>;
+> > +     status =3D "okay";
+> > +
+> > +     brcmf: wifi@1 {
+> > +             compatible =3D "brcm,bcm4329-fmac";
+> > +             reg =3D <1>;
+> > +             interrupt-parent =3D <&r_pio>;
+> > +             interrupts =3D <1 0 IRQ_TYPE_LEVEL_LOW>; /* PM0 */
+> > +             interrupt-names =3D "host-wake";
+> > +     };
+> > +};
+> > +
+> > +&mmc2 {
+> > +     bus-width =3D <8>;
+> > +     cap-mmc-hw-reset;
+> > +     mmc-ddr-1_8v;
+> > +     mmc-hs200-1_8v;
+> > +     non-removable;
+> > +     vmmc-supply =3D <&reg_cldo3>;
+> > +     vqmmc-supply =3D <&reg_cldo1>;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&ohci0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&ohci1 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&pio {
+> > +     vcc-pb-supply =3D <&reg_cldo3>;   /* via VCC-IO */
+> > +     vcc-pc-supply =3D <&reg_cldo1>;
+> > +     vcc-pd-supply =3D <&reg_cldo3>;
+> > +     vcc-pe-supply =3D <&reg_aldo2>;
+> > +     vcc-pf-supply =3D <&reg_cldo3>;   /* VCC-IO for 3.3v; VCC-MCSI fo=
+r 1.8v */
+> > +     vcc-pg-supply =3D <&reg_bldo1>;
+> > +     vcc-ph-supply =3D <&reg_cldo3>;   /* via VCC-IO */
+> > +     vcc-pi-supply =3D <&reg_cldo3>;
+> > +     vcc-pj-supply =3D <&reg_cldo1>;
+> > +     vcc-pk-supply =3D <&reg_cldo1>;
+> > +};
+> > +
+> > +&r_i2c0 {
+> > +     status =3D "okay";
+> > +
+> > +     axp717: pmic@35 {
+> > +             compatible =3D "x-powers,axp717";
+> > +             reg =3D <0x35>;
+> > +             interrupt-controller;
+> > +             #interrupt-cells =3D <1>;
+> > +             interrupts-extended =3D <&nmi_intc 0 IRQ_TYPE_LEVEL_LOW>;
+> > +
+> > +             vin1-supply =3D <&reg_vcc5v>;
+> > +             vin2-supply =3D <&reg_vcc5v>;
+> > +             vin3-supply =3D <&reg_vcc5v>;
+> > +             vin4-supply =3D <&reg_vcc5v>;
+> > +             aldoin-supply =3D <&reg_vcc5v>;
+> > +             bldoin-supply =3D <&reg_vcc5v>;
+> > +             cldoin-supply =3D <&reg_vcc5v>;
+> > +
+> > +             regulators {
+> > +                     /* Supplies the "little" cluster (1.4 GHz cores) =
+*/
+> > +                     reg_dcdc1: dcdc1 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <900000>;
+> > +                             regulator-max-microvolt =3D <1160000>;
+> > +                             regulator-name =3D "vdd-cpul";
+> > +                     };
+> > +
+> > +                     reg_dcdc2: dcdc2 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <920000>;
+> > +                             regulator-max-microvolt =3D <920000>;
+> > +                             regulator-name =3D "vdd-gpu-sys";
+> > +                     };
+> > +
+> > +                     reg_dcdc3: dcdc3 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <1160000>;
+> > +                             regulator-max-microvolt =3D <1160000>;
+> > +                             regulator-name =3D "vcc-dram";
+> > +                     };
+> > +
+> > +                     reg_dcdc4: dcdc4 {
+> > +                             /* feeds 3.3V pin on GPIO header */
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vdd-io";
+> > +                     };
+> > +
+> > +                     reg_aldo1: aldo1 {
+> > +                             regulator-name =3D "avdd-csi";
+> > +                     };
+> > +
+> > +                     reg_aldo2: aldo2 {
+> > +                             regulator-name =3D "vcc-pe";
+> > +                     };
+> > +
+> > +                     reg_aldo3: aldo3 {
+> > +                             /* supplies the I2C pins for this PMIC */
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc-pl-usb";
+> > +                     };
+> > +
+> > +                     reg_aldo4: aldo4 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-name =3D "vcc-pll-dxco-avcc";
+> > +                     };
+> > +
+> > +                     reg_bldo1: bldo1 {
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-name =3D "vcc-pg-wifi";
+> > +                     };
+> > +
+> > +                     reg_bldo2: bldo2 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-name =3D "vcc-pm-lpddr";
+> > +                     };
+> > +
+> > +                     reg_bldo3: bldo3 {
+> > +                             regulator-name =3D "dvdd-csi";
+>
+> In my version of the schematic this is AFVCC-CSI (whatever that means),
 
-kernel test robot noticed the following build errors:
+I believe it's power for the autofocus part, if one is included.
 
-[auto build test ERROR on 79150772457f4d45e38b842d786240c36bb1f97f]
+> and ...
+>
+> > +                     };
+> > +
+> > +                     reg_bldo4: bldo4 {
+>
+> ... BLDO4 is DVDD-CSI.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20250621-102220
-base:   79150772457f4d45e38b842d786240c36bb1f97f
-patch link:    https://lore.kernel.org/r/20250620221326.1261128-6-coltonlewis%40google.com
-patch subject: [PATCH v2 05/23] KVM: arm64: Cleanup PMU includes
-config: arm64-randconfig-004-20250621 (https://download.01.org/0day-ci/archive/20250621/202506212205.NmAR3sAH-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250621/202506212205.NmAR3sAH-lkp@intel.com/reproduce)
+You are right. I must've edited the wrong entry.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506212205.NmAR3sAH-lkp@intel.com/
+> Not that it really matters, since both are not used yet ...
 
-All errors (new ones prefixed by >>):
+Actually, I believe the names you gave are from the first page, but if
+you look at the page with the camera connectors, neither of them are used.
+The connectors both get power only from VCC3V3-CSI, which is CLDO2.
+So neither of them are connected.
 
-   drivers/perf/arm_pmuv3.c:143:41: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_RD'
-     143 |  [C(L1D)][C(OP_READ)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_RD,
-         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:123:45: warning: initialized field overwritten [-Woverride-init]
-     123 | #define ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR   0x0041
-         |                                             ^~~~~~
-   drivers/perf/arm_pmuv3.c:144:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR'
-     144 |  [C(L1D)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:123:45: note: (near initialization for 'armv8_vulcan_perf_cache_map[0][1][0]')
-     123 | #define ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR   0x0041
-         |                                             ^~~~~~
-   drivers/perf/arm_pmuv3.c:144:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR'
-     144 |  [C(L1D)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_CACHE_WR,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:125:51: warning: initialized field overwritten [-Woverride-init]
-     125 | #define ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR  0x0043
-         |                                                   ^~~~~~
-   drivers/perf/arm_pmuv3.c:145:42: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR'
-     145 |  [C(L1D)][C(OP_WRITE)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR,
-         |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:125:51: note: (near initialization for 'armv8_vulcan_perf_cache_map[0][1][1]')
-     125 | #define ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR  0x0043
-         |                                                   ^~~~~~
-   drivers/perf/arm_pmuv3.c:145:42: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR'
-     145 |  [C(L1D)][C(OP_WRITE)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_CACHE_REFILL_WR,
-         |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:134:44: warning: initialized field overwritten [-Woverride-init]
-     134 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD    0x004E
-         |                                            ^~~~~~
-   drivers/perf/arm_pmuv3.c:147:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD'
-     147 |  [C(DTLB)][C(OP_READ)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:134:44: note: (near initialization for 'armv8_vulcan_perf_cache_map[3][0][0]')
-     134 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD    0x004E
-         |                                            ^~~~~~
-   drivers/perf/arm_pmuv3.c:147:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD'
-     147 |  [C(DTLB)][C(OP_READ)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_RD,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:135:44: warning: initialized field overwritten [-Woverride-init]
-     135 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR    0x004F
-         |                                            ^~~~~~
-   drivers/perf/arm_pmuv3.c:148:45: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR'
-     148 |  [C(DTLB)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR,
-         |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:135:44: note: (near initialization for 'armv8_vulcan_perf_cache_map[3][1][0]')
-     135 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR    0x004F
-         |                                            ^~~~~~
-   drivers/perf/arm_pmuv3.c:148:45: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR'
-     148 |  [C(DTLB)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_WR,
-         |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:132:50: warning: initialized field overwritten [-Woverride-init]
-     132 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD   0x004C
-         |                                                  ^~~~~~
-   drivers/perf/arm_pmuv3.c:149:42: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD'
-     149 |  [C(DTLB)][C(OP_READ)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD,
-         |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:132:50: note: (near initialization for 'armv8_vulcan_perf_cache_map[3][0][1]')
-     132 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD   0x004C
-         |                                                  ^~~~~~
-   drivers/perf/arm_pmuv3.c:149:42: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD'
-     149 |  [C(DTLB)][C(OP_READ)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_RD,
-         |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:133:50: warning: initialized field overwritten [-Woverride-init]
-     133 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR   0x004D
-         |                                                  ^~~~~~
-   drivers/perf/arm_pmuv3.c:150:43: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR'
-     150 |  [C(DTLB)][C(OP_WRITE)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR,
-         |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:133:50: note: (near initialization for 'armv8_vulcan_perf_cache_map[3][1][1]')
-     133 | #define ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR   0x004D
-         |                                                  ^~~~~~
-   drivers/perf/arm_pmuv3.c:150:43: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR'
-     150 |  [C(DTLB)][C(OP_WRITE)][C(RESULT_MISS)] = ARMV8_IMPDEF_PERFCTR_L1D_TLB_REFILL_WR,
-         |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:149:46: warning: initialized field overwritten [-Woverride-init]
-     149 | #define ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD   0x0060
-         |                                              ^~~~~~
-   drivers/perf/arm_pmuv3.c:152:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD'
-     152 |  [C(NODE)][C(OP_READ)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:149:46: note: (near initialization for 'armv8_vulcan_perf_cache_map[6][0][0]')
-     149 | #define ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD   0x0060
-         |                                              ^~~~~~
-   drivers/perf/arm_pmuv3.c:152:44: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD'
-     152 |  [C(NODE)][C(OP_READ)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_RD,
-         |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:150:46: warning: initialized field overwritten [-Woverride-init]
-     150 | #define ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR   0x0061
-         |                                              ^~~~~~
-   drivers/perf/arm_pmuv3.c:153:45: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR'
-     153 |  [C(NODE)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR,
-         |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/perf/arm_pmuv3.h:150:46: note: (near initialization for 'armv8_vulcan_perf_cache_map[6][1][0]')
-     150 | #define ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR   0x0061
-         |                                              ^~~~~~
-   drivers/perf/arm_pmuv3.c:153:45: note: in expansion of macro 'ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR'
-     153 |  [C(NODE)][C(OP_WRITE)][C(RESULT_ACCESS)] = ARMV8_IMPDEF_PERFCTR_BUS_ACCESS_WR,
-         |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/perf/arm_pmuv3.c: In function 'armv8pmu_enable_event_counter':
->> drivers/perf/arm_pmuv3.c:680:2: error: implicit declaration of function 'kvm_set_pmu_events' [-Werror=implicit-function-declaration]
-     680 |  kvm_set_pmu_events(mask, attr);
-         |  ^~~~~~~~~~~~~~~~~~
-   drivers/perf/arm_pmuv3.c: In function 'armv8pmu_disable_event_counter':
->> drivers/perf/arm_pmuv3.c:702:2: error: implicit declaration of function 'kvm_clr_pmu_events' [-Werror=implicit-function-declaration]
-     702 |  kvm_clr_pmu_events(mask);
-         |  ^~~~~~~~~~~~~~~~~~
-   drivers/perf/arm_pmuv3.c: In function 'update_pmuserenr':
->> drivers/perf/arm_pmuv3.c:757:6: error: implicit declaration of function 'kvm_set_pmuserenr' [-Werror=implicit-function-declaration]
-     757 |  if (kvm_set_pmuserenr(val))
-         |      ^~~~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
+> > +                             /* not connected */
+> > +                     };
+> > +
+> > +                     reg_cldo1: cldo1 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-name =3D "vcc-cvp-pc-lvds-mcsi-=
+pk-efuse-pcie-edp-1v8";
+> > +                     };
+> > +
+> > +                     reg_cldo2: cldo2 {
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc3v3-csi";
+> > +                     };
+> > +
+> > +                     reg_cldo3: cldo3 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc-io-mmc-nand-pd-pi=
+-usb";
+> > +                     };
+> > +
+> > +                     reg_cldo4: cldo4 {
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc-3v3-phy1-lcd";
+> > +                     };
+> > +
+> > +                     reg_cpusldo: cpusldo {
+> > +                             /* supplies the management core */
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <900000>;
+> > +                             regulator-max-microvolt =3D <900000>;
+> > +                             regulator-name =3D "vdd-cpus";
+>
+> This also supplies some 0.9V USB circuitry, so maybe add this to the
+> name?
+
+Sure.
+
+> > +                     };
+> > +             };
+> > +     };
+> > +
+> > +     axp323: pmic@36 {
+> > +             compatible =3D "x-powers,axp323";
+> > +             reg =3D <0x36>;
+> > +             #interrupt-cells =3D <1>;
+> > +             interrupt-controller;
+> > +             status =3D "okay";
+> > +
+> > +             vin1-supply =3D <&reg_vcc5v>;
+> > +             vin2-supply =3D <&reg_vcc5v>;
+> > +             vin3-supply =3D <&reg_vcc5v>;
+> > +
+> > +             regulators {
+> > +                     reg_aldo1_323: aldo1 {
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc-wifi";
+> > +                     };
+> > +
+> > +                     reg_dldo1_323: dldo1 {
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-name =3D "vcc-wifi2";
+> > +                     };
+> > +
+> > +                     /* Supplies the "big" cluster (1.8 GHz cores) */
+> > +                     reg_dcdc1_323: dcdc1 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <900000>;
+> > +                             regulator-max-microvolt =3D <1150000>;
+> > +                             regulator-name =3D "vdd-cpub";
+> > +                     };
+> > +
+> > +                     /* DCDC2 is polyphased with DCDC1 */
+> > +
+> > +                     /* Some RISC-V management core related voltage */
+> > +                     reg_dcdc3_323: dcdc3 {
+> > +                             regulator-always-on;
+> > +                             regulator-min-microvolt =3D <900000>;
+> > +                             regulator-max-microvolt =3D <900000>;
+> > +                             regulator-name =3D "vdd-dnr";
+> > +                     };
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&r_pio {
+> > +/*
+> > + * Specifying the supply would create a circular dependency.
+> > + *
+> > + *   vcc-pl-supply =3D <&reg_aldo3>;
+> > + */
+> > +     vcc-pm-supply =3D <&reg_bldo2>;
+> > +};
+> > +
+> > +&uart0 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&uart0_pb_pins>;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&uart1 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&uart1_pins>, <&uart1_rts_cts_pins>;
+> > +     uart-has-rtscts;
+> > +     status =3D "okay";
+> > +
+> > +     bluetooth {
+> > +             compatible =3D "brcm,bcm4345c5";
+> > +             clocks =3D <&rtc CLK_OSC32K_FANOUT>;
+> > +             clock-names =3D "lpo";
+> > +             vbat-supply =3D <&reg_aldo1_323>;
+>
+> Is that some kind of trick, to accommodate *two* power rails for the
+> chip? Because to me it looks like the AXP323 ALDO1 and DLDO1 are
+> connected together and both supply the WiFi-BT-combo chip.
+> It's probably fine to model this way, since ALDO1 is the weaker of
+> the two, and I'd guess the WiFi needs more power, but worth a comment, I
+> guess.
+
+Yeah, it's mostly a trick. I suppose we can use the regulator coupler
+thing to couple them together, but the kernel coupler driver currently
+doesn't do non-always-on regulator coupling. I would need to look into
+why that's the case.
+
+Mark (CC-ed), do you have any idea off the top of your head?
+
+> Rest looks good to me.
+
+Thanks.
 
 
-vim +/kvm_set_pmu_events +680 drivers/perf/arm_pmuv3.c
+ChenYu
 
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  674  
-9343c790e6de7e drivers/perf/arm_pmuv3.c       James Clark       2023-12-11  675  static void armv8pmu_enable_event_counter(struct perf_event *event)
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  676  {
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  677  	struct perf_event_attr *attr = &event->attr;
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  678) 	u64 mask = armv8pmu_event_cnten_mask(event);
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  679  
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17 @680  	kvm_set_pmu_events(mask, attr);
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  681  
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  682  	/* We rely on the hypervisor switch code to enable guest counters */
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17  683  	if (!kvm_pmu_counter_deferred(attr))
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17  684  		armv8pmu_enable_counter(mask);
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  685  }
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  686  
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  687) static void armv8pmu_disable_counter(u64 mask)
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  688  {
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  689  	write_pmcntenclr(mask);
-0fdf1bb75953a6 arch/arm64/kernel/perf_event.c Mark Rutland      2020-09-24  690  	/*
-0fdf1bb75953a6 arch/arm64/kernel/perf_event.c Mark Rutland      2020-09-24  691  	 * Make sure the effects of disabling the counter are visible before we
-0fdf1bb75953a6 arch/arm64/kernel/perf_event.c Mark Rutland      2020-09-24  692  	 * start configuring the event.
-0fdf1bb75953a6 arch/arm64/kernel/perf_event.c Mark Rutland      2020-09-24  693  	 */
-0fdf1bb75953a6 arch/arm64/kernel/perf_event.c Mark Rutland      2020-09-24  694  	isb();
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  695  }
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  696  
-9343c790e6de7e drivers/perf/arm_pmuv3.c       James Clark       2023-12-11  697  static void armv8pmu_disable_event_counter(struct perf_event *event)
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  698  {
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  699  	struct perf_event_attr *attr = &event->attr;
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  700) 	u64 mask = armv8pmu_event_cnten_mask(event);
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  701  
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17 @702  	kvm_clr_pmu_events(mask);
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  703  
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  704  	/* We rely on the hypervisor switch code to disable guest counters */
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17  705  	if (!kvm_pmu_counter_deferred(attr))
-29227d6ea1572b arch/arm64/kernel/perf_event.c Robin Murphy      2020-03-17  706  		armv8pmu_disable_counter(mask);
-d1947bc4bc63e5 arch/arm64/kernel/perf_event.c Andrew Murray     2019-04-09  707  }
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  708  
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  709) static void armv8pmu_enable_intens(u64 mask)
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  710  {
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  711  	write_pmintenset(mask);
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  712  }
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  713  
-9343c790e6de7e drivers/perf/arm_pmuv3.c       James Clark       2023-12-11  714  static void armv8pmu_enable_event_irq(struct perf_event *event)
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  715  {
-bf5ffc8c80e0cf drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  716) 	armv8pmu_enable_intens(BIT(event->hw.idx));
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  717  }
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  718  
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  719) static void armv8pmu_disable_intens(u64 mask)
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  720  {
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  721  	write_pmintenclr(mask);
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  722  	isb();
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  723  	/* Clear the overflow flag in case an interrupt is pending. */
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  724  	write_pmovsclr(mask);
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  725  	isb();
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  726  }
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  727  
-9343c790e6de7e drivers/perf/arm_pmuv3.c       James Clark       2023-12-11  728  static void armv8pmu_disable_event_irq(struct perf_event *event)
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  729  {
-bf5ffc8c80e0cf drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  730) 	armv8pmu_disable_intens(BIT(event->hw.idx));
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  731  }
-c13207905340d8 arch/arm64/kernel/perf_event.c Suzuki K Poulose  2018-07-10  732  
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  733) static u64 armv8pmu_getreset_flags(void)
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  734  {
-a4a6e2078d85a9 drivers/perf/arm_pmuv3.c       Rob Herring (Arm  2024-07-31  735) 	u64 value;
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  736  
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  737  	/* Read */
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  738  	value = read_pmovsclr();
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  739  
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  740  	/* Write to clear flags */
-d30f09b6d7de5d drivers/perf/arm_pmuv3.c       James Clark       2023-12-11  741  	value &= ARMV8_PMU_OVERFLOWED_MASK;
-df29ddf4f04b00 drivers/perf/arm_pmuv3.c       Marc Zyngier      2023-03-17  742  	write_pmovsclr(value);
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  743  
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  744  	return value;
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  745  }
-030896885ade0a arch/arm64/kernel/perf_event.c Will Deacon       2012-03-05  746  
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  747  static void update_pmuserenr(u64 val)
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  748  {
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  749  	lockdep_assert_irqs_disabled();
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  750  
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  751  	/*
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  752  	 * The current PMUSERENR_EL0 value might be the value for the guest.
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  753  	 * If that's the case, have KVM keep tracking of the register value
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  754  	 * for the host EL0 so that KVM can restore it before returning to
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  755  	 * the host EL0. Otherwise, update the register now.
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  756  	 */
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02 @757  	if (kvm_set_pmuserenr(val))
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  758  		return;
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  759  
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  760  	write_pmuserenr(val);
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  761  }
-0c2f9acf6ae741 drivers/perf/arm_pmuv3.c       Reiji Watanabe    2023-06-02  762  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> Cheers,
+> Andre
+>
+>
+> > +             vddio-supply =3D <&reg_bldo1>;
+> > +             device-wakeup-gpios =3D <&r_pio 1 3 GPIO_ACTIVE_HIGH>; /*=
+ PM3 */
+> > +             host-wakeup-gpios =3D <&r_pio 1 4 GPIO_ACTIVE_HIGH>; /* P=
+M4 */
+> > +             shutdown-gpios =3D <&r_pio 1 2 GPIO_ACTIVE_HIGH>; /* PM2 =
+*/
+> > +     };
+> > +};
+> > +
+> > +&usb_otg {
+> > +      /*
+> > +       * The OTG controller is connected to one of the type-A ports.
+> > +       * There is a regulator, controlled by a GPIO, to provide VBUS p=
+ower
+> > +       * to the port, and a VBUSDET GPIO, to detect externally provide=
+d
+> > +       * power. But without ID or CC pins there is no real way to do a
+> > +       * runtime role detection.
+> > +       */
+> > +     dr_mode =3D "host";
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&usbphy {
+> > +     usb0_vbus-supply =3D <&reg_otg_vbus>;
+> > +     usb0_vbus_det-gpios =3D <&r_pio 0 7 GPIO_ACTIVE_HIGH>; /* PL7 */
+> > +     usb1_vbus-supply =3D <&reg_usb_vbus>;
+> > +     status =3D "okay";
+> > +};
+>
 
