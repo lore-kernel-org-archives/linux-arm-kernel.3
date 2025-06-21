@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB4EC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 11:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E19C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 11:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UF7hadND9s3UrrMKF80WbZP/w/q/Chjap2NrEwYw97g=; b=0JtKwNHtAzfS7MB5egcrhgC5ds
-	gYb6A3XXALlzyS20K4hYVOlAoRMahU/iErwVys0BF5d6DJUEXACoeUQbCQ2C0mpBAVLYoWqs5gPzR
-	t9AcYBktOE/bLDxY/2jVm8ASR6crkfvvCsRCnNNGe0JYQNTasmrTW07UZ73bydj63iaLUVcdIv7kp
-	aeuE4HsTKMbqA/OaqEbdB6M9axuNLL3ZMO/oSUbIk++xMgs3n3CotYPUsrz076CVIShEqEqbeefd8
-	7TO+XZrhqYr3PR+WDxNRN23I1buDSbJTz+8UZqo7zgWjhQl0aqAfIJxcUwIKYoWvcJH4p4/n1BDjK
-	WN2g29sA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fyspq0V2HWwwS+VnZ1WgkjemW6T0dfdq87ixJii18ZY=; b=n8EquOCz3IYSQh3yLmwOzwfDr4
+	UM8zwjB3GMO/46LNsPSmehCdc53c7wkIx7LXQTxBEFynnSQPUDHmmUZ1TEtamnQPNIE/acw/erKOD
+	oW3BZrHXugLCqkaP2FTg+64KWPoj8ciVk7QbAqiTOXfMKfp2s68erHLsH2UZ06c8p5VRS3ns/JSg7
+	JbTOWFXQvlExHDPPjDfL3oy09gVgIjmkDEvyyD3k97txxQ0d7V+U3TbsxAzAP+UAzvPJuZsiMirFt
+	/mFqRUPfy6c2vyCZ+d7TFtZKL1GPokjE0konjR3jBPrT/hGA9vp+NG2xmQq7xCvihNj12rJYQQztR
+	nSXM2gDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSwMF-0000000HOOJ-2DCJ;
-	Sat, 21 Jun 2025 11:26:03 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1uSwOS-0000000HOUR-0v1V;
+	Sat, 21 Jun 2025 11:28:20 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSwJX-0000000HOF4-0yHI
+	id 1uSwJY-0000000HOFP-3n5E
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 11:23:16 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3de1875bfd4so11002495ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 04:23:15 -0700 (PDT)
+	Sat, 21 Jun 2025 11:23:17 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3d948ce7d9dso10877655ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 04:23:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750504994; x=1751109794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UF7hadND9s3UrrMKF80WbZP/w/q/Chjap2NrEwYw97g=;
-        b=OBPJOplLtEh2OqrRZW7mu4/KNigr1YK0K/wumzBU50qaiRdKyw6Uw9WKQyszjMPwqI
-         AXUyKlRDLAu/1v+VZ5J2yUUFjVlc+tO9wp0sA9V+oxofKSR+0Ps6LGIbI4UAmdDTK1T5
-         VNMQG4olHXQJub/pV8sf3MwXfcTLiQFfud4m5KKvSLy42itdIiiwyNA66z9q1HjTheTD
-         QECZxfxGOreiRd7aQV7Nx2gLPh7Nv91tQs9R6//zzuE24QrmIlApvRNNBR4FFxqsfO+Z
-         Hf51k87X/hWb0RCt5J4mYNRiORZOF/L510whskLiPytmGE0E/LLPyOQeMXZtjSKhomXv
-         1HzQ==
+        d=gmail.com; s=20230601; t=1750504996; x=1751109796; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fyspq0V2HWwwS+VnZ1WgkjemW6T0dfdq87ixJii18ZY=;
+        b=K+f8rYtlR3Xyk3vEQomrDAQaOXpeuQqqiVBoRqvb12SHulETQix6KXEVp1F6SH4Ep/
+         ZQwgQw0rodbzus9SuBMycUMbmwKS4LutOMpm3NJF151mmSz523kqybcAX4K2z5J4FCTf
+         Y9IxJTElSIbY7rcl9zSgwixshbf1BLZQkpCBlYP50G/rNDiW5VSlnZu1zkXTIiuA5Zdq
+         XgA+LSp3kxYu/ZvyM/bNSysLwJ4DzIje76hyvlpH0FINRL1/wOX6u+Uj/Ts9Wq5IKn1l
+         tBp/U6/l4YfuCv9ZG/NLMEBj9qzFs+nRjsfg7Z0lid1IzWDtcTWujfiuDZQ0Rd/u91iJ
+         mqzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750504994; x=1751109794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UF7hadND9s3UrrMKF80WbZP/w/q/Chjap2NrEwYw97g=;
-        b=Cx0evdpTikCxcp3//0xOVFNQ9nheN+fEQ6SMMFFlQtQ4Jkix1x8cxGeuUYujpp2zmG
-         4OxIWbJnuyiWtmB/sQ6OYPCCxelGkSCB5MDZN1qmHig+keR/M4WSDXadeFtj7zhPZnQt
-         8lJQ6rea36btFT9EKq6fnTaei27gkbQc3SNjL5h2UXuJ87sN+1x8UUpLfEJLzMIDu7Ed
-         EW4FHTc8pVRacJBRtO40SygAhhBlx5mYoDu/cXSJBQqIXdTrPdCrNvlofmVIhoiGDavm
-         xigdkIqJoAp8yZWGqXCanopFicIh8PQqaaRmybhR+Y5Q2z4b+ypa4r/WTbQ+CDZNFB3Z
-         P0Og==
-X-Gm-Message-State: AOJu0YwFGqhGpaZ/y187j8iyHQzS9cqaPxQ3bT5NaGnecZ/tdQccc6rL
-	5LT85l2UEklANPVTcRKY93xnE1/vOwP51mIQFV9VU/SCsJtS+Bk2vCWJYd+RPQ==
-X-Gm-Gg: ASbGncvInzaZth3I8Rps4al594XMsTDxjQolRTRwhjRmv4wtCbPu4mBBAijuxwxv4MX
-	UwZbfEBLLLgm5i/xOPnv9968lT7DbDXpu0U4nsxZW5KGae0fcnLOILNKzvVW/eDRew9jxh+vkPS
-	8/CGb8XrwTPghdQzjZHABAC4Ou9AxCKvBZIVt7tUVeL82pTEHjF875BaIc6fZpQ1Jo74A/5dPCr
-	FScgF3m7Gey5ghecysb7MgjRqtEyg2S+c3LApP0g/gtDj19ajZPnhXUeGELfX3cD/sKJs8gY2FR
-	t8gdKtah9zUf2DcEjyhjtFeRzDrmHzfpifDTNS+IwK85BuKOESt4lWMB7FHjQGnsz6ALNgi+Npw
-	kJDLZrHUGvYsPIbQWonwLfnHSZ2zgOmZaTbxyk1Pz8S0ATAs=
-X-Google-Smtp-Source: AGHT+IFygc8LNOika5Gsbzg0FvICu6wDzZeaHLaClXsS2ujOTAv2/VuH7qQJ9WvXWPOzMEJqiZfyqw==
-X-Received: by 2002:a05:6e02:160c:b0:3dd:d33a:741a with SMTP id e9e14a558f8ab-3de38cc23a5mr66804735ab.18.1750504994014;
-        Sat, 21 Jun 2025 04:23:14 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750504996; x=1751109796;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fyspq0V2HWwwS+VnZ1WgkjemW6T0dfdq87ixJii18ZY=;
+        b=GQjH6I/nCQTfXKjlfQWFH4dDBl87UcgB7YmzrVV/naPZuIHRXiqMnxR/tS76kk1LUK
+         DfPs298wluCkKRXdUZ2Uook+S7CXLHvB9wrqDsguHwZGhpRG1NzPp5aTxb6XlgtcOhoh
+         tjW4cHJkP07RYyiVFEWvqrij65ITAjTBrALspUnf3hU6RhqJEhkCkqxCLu4m1oqINkoH
+         HcyrlKzA2Vl4fb/0ysSuEMFBhTbpHGp3cDY+eaOOAexSZtMp2Q0hBCKUN2Rq35gsOqee
+         Z+rJMsuxzV7Vud8fLPLfNQHw/95sv9Yk/TiAvCkEOaHBE55mJlUY93loMJbp/TwmHTo8
+         xAFg==
+X-Gm-Message-State: AOJu0Yyr3laX+sl6oLZd0r5te5CFDMZ+oX6PILNDU7FeqC9nP7JUhvlX
+	H3uZz/IAFc/f8iAdbUEvkq3EHESkpPB7onbUDpcY6XNxp5PIkaJFstgzcexYew==
+X-Gm-Gg: ASbGncuT6WY41X8QKvIbUjaf5Kg5WxIoMhRgDFf7CikyKDrKpyejSDZvUwn/Q9AfZw5
+	8/lPfyQqeOJHqFy4KKsSUzpFIvECUqpSP5YciDaGCOHvKqay7w0PquPhP8j4alx6B4zwrxgulqc
+	ev4iiAl0pnga6/BdiLAeESCdRAuhbBsGJ8HD+66VBHKNGLwwCEQNacjwQ+eEJrA1gpB2b8+Ueje
+	qdQDOwJnxB4AG+H+CPvAo3Nln798PLSp2i76JuZfo1ja+iQYkHgIsg0NZ3tRVw1cOlvQZ93wk7z
+	Wj3hFQMriI+qVfSveq3acxNXE7tqUOpr74BeXURGhYtPs1W4Q6UW4IFeOtTs7/saYWWpmBLmYLv
+	KSHkBTh5mkB9oHZRRe02wDM4VlYQCL/1wNrs0
+X-Google-Smtp-Source: AGHT+IEbOxBx/Sd+Bsqwp70aHm+2E+WsoOI4o1sbT5qYTMXDbDTw25OzNNsCWFVkE+Cq2EY8YZaaAg==
+X-Received: by 2002:a92:c267:0:b0:3de:25cb:42c2 with SMTP id e9e14a558f8ab-3de38cc4f87mr72766065ab.18.1750504995670;
+        Sat, 21 Jun 2025 04:23:15 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de3761874esm13654385ab.9.2025.06.21.04.23.12
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3de3761874esm13654385ab.9.2025.06.21.04.23.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Jun 2025 04:23:13 -0700 (PDT)
+        Sat, 21 Jun 2025 04:23:15 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
@@ -81,15 +82,17 @@ Cc: aford@beaconembedded.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] arm64: dts: imx8mm: Configure DMA on UART2
-Date: Sat, 21 Jun 2025 06:23:09 -0500
-Message-ID: <20250621112311.68101-1-aford173@gmail.com>
+Subject: [PATCH 2/2] arm64: dts: imx8mn: Configure DMA on UART2
+Date: Sat, 21 Jun 2025 06:23:10 -0500
+Message-ID: <20250621112311.68101-2-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250621112311.68101-1-aford173@gmail.com>
+References: <20250621112311.68101-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_042315_285294_318DE4BD 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250621_042316_938467_C6AAB4FE 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,13 +115,13 @@ should be safe to enable DMA on UART2 for all users.
 
 Signed-off-by: Adam Ford <aford173@gmail.com>
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-index cfebaa01217e..ded89b046970 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-@@ -915,6 +915,8 @@ uart2: serial@30890000 {
- 					clocks = <&clk IMX8MM_CLK_UART2_ROOT>,
- 						 <&clk IMX8MM_CLK_UART2_ROOT>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+index 848ba5e46ee6..b98b3d0ddf25 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+@@ -860,6 +860,8 @@ uart2: serial@30890000 {
+ 					clocks = <&clk IMX8MN_CLK_UART2_ROOT>,
+ 						 <&clk IMX8MN_CLK_UART2_ROOT>;
  					clock-names = "ipg", "per";
 +					dmas = <&sdma1 24 4 0>, <&sdma1 25 4 0>;
 +					dma-names = "rx", "tx";
