@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E622C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 16:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C62C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 16:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHNOSIhtOyvyVPKauEqUP759mlBlK0I8r5abFLbWgUM=; b=4E7yN43z6lIwKswx4aHUBSIlPM
-	GLTVDsrBM+vSdOgSCXI1+lSOYjytsrq8hoZlYpNx4x+MqAB7QbUQA78SCCAWb5TQOHP8r9WcSjMte
-	sARwXrVOwpsXtF1JkYbWorIE63FqFxpMIlSr6UMjOIyqjimrsvHvon70SJvVRsHWyOcpLehEScydK
-	TqBcwMMXQtzAnO5ZnTdj314FEsfaX3IiJCgWCmYsmlJe4LjH/bIkycQ5BUFCJPMXHmKSzKk7BDbaH
-	d2eJijlB44Ye6Vq+GJ+vavhN7bzFtwY/I4/34ufBPGeNddTIEZsgctjPlcJcfE6jRcdbnw//WaLQY
-	r5ddMNyQ==;
+	bh=VEkg5LBKYinV1r8tt5aq6GdwmPaAYKSq+sOdMKLg5EU=; b=3Vrt9usHF1UxLWVmOz2AW+Ab1p
+	LMBalmGZEjp1KSt7YLqn3u7k3WzckoVeltvMWTSO1zRRWNYmNPj52cHm3mup/0WQKQkzCppnj1cmM
+	o3QGGqT+qJXTPHbDwyUF0vr+6jklFDK1n90elp8bl84OYfbPnnJN+cMmlOOG252+hGMZZlkMEYk2t
+	75Qap7om7kzlYCSruK/Jyq8nVAmpfFBHVZL6a9HnC9pFm7RlvpPpFUceau6AvOXn28ACesPq6V6Fa
+	Rnlxsqq/62b+ekYJTMNv3sbSb2pqULdzu9cqNs2xGqfbHDx9T+95XV9MtUqVs/c9sksclJI6BjiiV
+	3sKL2QgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT0eY-000000000ID-2xQ9;
-	Sat, 21 Jun 2025 16:01:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uT0hG-000000000Wr-3nJA;
+	Sat, 21 Jun 2025 16:04:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT0cJ-0000000006H-0ie3
+	id 1uT0f1-000000000Kh-04Lz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 15:58:55 +0000
+	Sat, 21 Jun 2025 16:01:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F65F60008;
-	Sat, 21 Jun 2025 15:58:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A87C4CEE7;
-	Sat, 21 Jun 2025 15:58:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2895E60008;
+	Sat, 21 Jun 2025 16:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3502C4CEE7;
+	Sat, 21 Jun 2025 16:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750521533;
-	bh=uD1aowYPmj+UJLXVDosDmzbGxqXKB+j7Khv6FiWy4dI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uuiBzVRcEkC2Sxa/8Sv+mVWSSwv0SA0+lxjSMoXxmEthDJ53F1UsDFQEV7vqtLof3
-	 I4gpSGdr20sf6S838T6kun/3W9EqYXLnQGcBVSCdjAi0MNlWQfbqxdAFFSj+bwAgqe
-	 JRgA/xHLyAdD7wHRhQox0MLHZbOsdJEstsEhZPNFRuAV3U4NcUOvDGEDHlFlPzjIwO
-	 bmhnC7b6CjMUd6Ce1g9AOpH/bnAx2pM7Zxqh53r/E0IDNy/QpHeFFLTHjntlZroK5n
-	 YZZksBuIIBPlFaol+MiAKyZkT+lkp7OymawE/gkYy5hGQl7qQrT7PHLkbasgrCrkRX
-	 vr8xdY7xTk/8Q==
-Date: Sat, 21 Jun 2025 16:58:44 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Bough Chen <haibo.chen@nxp.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iio: adc: imx93_adc: load calibrated values even
- calibration failed
-Message-ID: <20250621165845.0bd7ac7f@jic23-huawei>
-In-Reply-To: <DU0PR04MB94962C741E378CAC3F8910E69073A@DU0PR04MB9496.eurprd04.prod.outlook.com>
-References: <20250423-adcpatch-v1-1-b0e84c27ae98@nxp.com>
-	<DU0PR04MB94962C741E378CAC3F8910E69073A@DU0PR04MB9496.eurprd04.prod.outlook.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1750521701;
+	bh=7z06BI2WfCKHgocG5mZp+KFS5XZpvyaukvIGuVj/RlU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uDwXevel3/1jiq4Sl2EDKgEHARqYuu8Bl7nrJLZ8lUCzHpBkeoumIp6jzt/ZP4Nsl
+	 wqLBEHqbQv7BeGHwV/DPP5ckgANF6VbYI5AyU+Yd7Skc57x9V4PhZEjE744+ExYRFr
+	 AkERmpzc03BtzkqT5tG8hywtOyMFB4oMbjoTgSssty33EMxdWKqHIONBBQ3NX56YP1
+	 1s66LaJ7sUP5cIPW3qhTCIyNXnqk1AvoKqeUz+bq+RtWlN5ktVenNOvVQfcXtnbR0P
+	 yISLwmztKCaQ6JNWVfJn38zjoEhxBT4pRdcGegeMhL6zVqHpjw3aesU2v9O/kMhLww
+	 W9a4U4D46RlpQ==
+Message-ID: <d5a616f3-67a3-4504-904e-6cec503ab157@kernel.org>
+Date: Sat, 21 Jun 2025 18:01:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/11] arm64: defconfig: Enable Apple Silicon drivers
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: asahi@lists.linux.dev, Stephen Boyd <sboyd@kernel.org>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ Srinivas Kandagatla <srini@kernel.org>, linux-kernel@vger.kernel.org,
+ Viresh Kumar <viresh.kumar@linaro.org>, Neal Gompa <neal@gompa.dev>,
+ linux-clk@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-i2c@vger.kernel.org, Takashi Iwai <tiwai@suse.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, =?UTF-8?Q?Martin_Povi=C5=A1er?=
+ <povik+lin@cutebit.org>, Joerg Roedel <joro@8bytes.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Mark Brown <broonie@kernel.org>, iommu@lists.linux.dev,
+ linux-input@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-sound@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Will Deacon <will@kernel.org>
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+ <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+ <2e022f4e-4c87-4da1-9d02-f7a3ae7c5798@arm.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <2e022f4e-4c87-4da1-9d02-f7a3ae7c5798@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,119 +87,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Jun 2025 03:07:11 +0000
-Bough Chen <haibo.chen@nxp.com> wrote:
+On 13.06.25 18:50, Robin Murphy wrote:
+> On 2025-06-12 10:11 pm, Sven Peter wrote:
+>> Enable drivers for hardware present on Apple Silicon machines.
+>> The power domain and interrupt driver should be built-it since these are
+>> critical for the system to boot, the rest can be build as modules.
+> 
+> Nit: I'd be tempted to put this patch first, just in case anyone 
+> bisecting with "make defconfig" in their process lands in the middle and 
+> suddenly loses some drivers (although arguably them going from "=y" to 
+> "=m" could still be a surprise, but at least a bit less so).
 
-> Any comment for this patch?
-I guess you didn't receive this mail from Andy for some reason?
+Ah, that's a good point that I hadn't even thought about.
+Now that most of these have already been merged into different trees 
+that ship has sailed though.
 
-https://lore.kernel.org/all/aAkYvE6VtoQItM5o@smile.fi.intel.com/
+> 
+> [...]
+>> @@ -1504,6 +1520,7 @@ CONFIG_ARCH_TEGRA_194_SOC=y
+>>   CONFIG_ARCH_TEGRA_234_SOC=y
+>>   CONFIG_TI_PRUSS=m
+>>   CONFIG_OWL_PM_DOMAINS=y
+>> +CONFIG_APPLE_PMGR_PWRSTATE=y
+> 
+> If this is critical for any Apple platform to work then it would 
+> probably make sense to explicitly select it from ARCH_APPLE, as is done 
+> for APPLE_AIC...
 
-There were a few minor requested changes in there.
->=20
-> > -----Original Message-----
-> > From: Bough Chen <haibo.chen@nxp.com>
-> > Sent: 2025=E5=B9=B44=E6=9C=8823=E6=97=A5 16:03
-> > To: Jonathan Cameron <jic23@kernel.org>; David Lechner
-> > <dlechner@baylibre.com>; Nuno S=C3=A1 <nuno.sa@analog.com>; Andy Shevch=
-enko
-> > <andy@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
-> > <s.hauer@pengutronix.de>; Pengutronix Kernel Team
-> > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>
-> > Cc: linux-iio@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Bou=
-gh
-> > Chen <haibo.chen@nxp.com>
-> > Subject: [PATCH] iio: adc: imx93_adc: load calibrated values even calib=
-ration
-> > failed
-> >=20
-> > ADC calibration might fail because of the noise on reference voltage.
-> > To avoid calibration fail, need to meet the following requirement:
-> > ADC reference voltage Noise < 1.8V * 1/2^ENOB
-> >=20
-> > For the case which the ADC reference voltage on board do not meet the
-> > requirement, still load the calibrated values, so ADC can also work but=
- maybe
-> > not that accurate.
-> >=20
-> > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> > ---
-> >  drivers/iio/adc/imx93_adc.c | 21 ++++++++++++++++-----
-> >  1 file changed, 16 insertions(+), 5 deletions(-)
-> >=20
-> > diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c =
-index
-> > 7feaafd2316f246bd0c32fea99309900b5c65099..ebf976db746f02431a315b1faa
-> > 86f151bb67132e 100644
-> > --- a/drivers/iio/adc/imx93_adc.c
-> > +++ b/drivers/iio/adc/imx93_adc.c
-> > @@ -38,6 +38,7 @@
-> >  #define IMX93_ADC_PCDR6		0x118
-> >  #define IMX93_ADC_PCDR7		0x11c
-> >  #define IMX93_ADC_CALSTAT	0x39C
-> > +#define IMX93_ADC_CALCFG0	0X3A0
-> >=20
-> >  /* ADC bit shift */
-> >  #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
-> > @@ -58,6 +59,8 @@
-> >  #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
-> >  #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
-> >=20
-> > +#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
-> > +
-> >  /* ADC status */
-> >  #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
-> >  #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
-> > @@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc
-> > *adc)
-> >=20
-> >  static int imx93_adc_calibration(struct imx93_adc *adc)  {
-> > -	u32 mcr, msr;
-> > +	u32 mcr, msr, calcfg;
-> >  	int ret;
-> >=20
-> >  	/* make sure ADC in power down mode */ @@ -158,6 +161,11 @@ static
-> > int imx93_adc_calibration(struct imx93_adc *adc)
-> >=20
-> >  	imx93_adc_power_up(adc);
-> >=20
-> > +	/* Enable loading of calibrated values even in fail condition */
-> > +	calcfg =3D readl(adc->regs + IMX93_ADC_CALCFG0);
-> > +	calcfg |=3D IMX93_ADC_CALCFG0_LDFAIL_MASK;
-> > +	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
-> > +
-> >  	/*
-> >  	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
-> >  	 * can add the setting of these bit if need in future.
-> > @@ -179,11 +187,14 @@ static int imx93_adc_calibration(struct imx93_adc
-> > *adc)
-> >=20
-> >  	/* check whether calbration is success or not */
-> >  	msr =3D readl(adc->regs + IMX93_ADC_MSR);
-> > -	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
-> > +	if (msr & IMX93_ADC_MSR_CALFAIL_MASK)
-> > +		/*
-> > +		 * Only give warning here, this means the noise of the
-> > +		 * reference voltage do not meet the requirement:
-> > +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
-> > +		 * And the reault of ADC is not that accurate.
-> > +		 */
-> >  		dev_warn(adc->dev, "ADC calibration failed!\n");
-> > -		imx93_adc_power_down(adc);
-> > -		return -EAGAIN;
-> > -	}
-> >=20
-> >  	return 0;
-> >  }
-> >=20
-> > ---
-> > base-commit: bc8aa6cdadcc00862f2b5720e5de2e17f696a081
-> > change-id: 20250423-adcpatch-cb59c5255961
-> >=20
-> > Best regards,
-> > --
-> > Haibo Chen <haibo.chen@nxp.com> =20
->=20
+
+Documentation/kbuild/kconfig-language.rst:
+
+   select should be used with care. select will force a symbol to a value
+   without visiting the dependencies. By abusing select you are able to
+   select a symbol FOO even if FOO depends on BAR that is not set. In
+   general use select only for non-visible symbols (no prompts anywhere)
+   and for symbols with no dependencies. That will limit the usefulness
+   but on the other hand avoid the illegal configurations all over.
+
+
+That's probably fine for APPLE_AIC which only depends on ARM64 (and 
+ARCH_APPLE) which is guaranteed to be set when ARCH_APPLE is set anyway.
+APPLE_PMGR_PWRSTATE also has an additional dependency on PM so it should 
+probably remain in defconfig and not use select.
+
+
+>>   CONFIG_RASPBERRYPI_POWER=y
+>>   CONFIG_IMX_SCU_PD=y
+>>   CONFIG_QCOM_CPR=y
+>> @@ -1567,6 +1584,7 @@ CONFIG_QCOM_PDC=y
+>>   CONFIG_QCOM_MPM=y
+>>   CONFIG_TI_SCI_INTR_IRQCHIP=y
+>>   CONFIG_TI_SCI_INTA_IRQCHIP=y
+>> +CONFIG_APPLE_AIC=y
+> 
+> ...which I think means this would already be redundant.
+
+Yup, this can be dropped.
+
+
+Thanks,
+
+Sven
 
 
