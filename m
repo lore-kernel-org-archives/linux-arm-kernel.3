@@ -4,89 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2959C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 13:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A94C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 14:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bTflLiAJEMI7+0/3feKtggy4eDDBbx+qju7cZDBIaN0=; b=Iu1bESWe5ZcsW+nyLsQoB6VnYZ
-	sTX6Vufotc/oxmdDQ0BT+ZQisqesFVyz8EP1/Dr6ooZeOW0cN06MlZ2xC+wwlQyo5t4SBF/h1sqfI
-	KrU5DkPpvgPcP/68g4DpfevujVn8/dfgqlH/CdHHsmdYii5ORSQpuvO94WvLiVH14mhVEQmgU7+T8
-	RPZA0264x1JcMmWyotMTTEvlk5oL09uqaksRJzCyvGggnMXpKfxYiQ0755vjLk5KHXLZW6d8aik4R
-	lJYI5u+PKHDtAK3pwigsp2NLOF7Jo6kTJl1RmWTqBQSgE7f+A7yTm0xlGuptpd5XiPiKw56ugebOm
-	ZHjEesTA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T6NXhXp/9/cpXnNO0yhizM2JybQPbBrKuGE6RWeI6nw=; b=guwmbReQH7P6DAlqOOLTyMutol
+	XAgjNbR+DoJhqsOdoQndm1O9jKdnqFw7fnhza4kOSMLa88Qz4n5Ws9h+r52PHWYwTRHWNnxsLeID+
+	5uFcuyyEMqyDU2JoVtJ3kjUMk2+Wbeuo64iWHkjS7E6+FMXkhtKkuH0hkMm52H4XJTO4TBPvJu9Xj
+	dxXInzhJtVFdmLUlrhEw2A4g7VQrFL4XlnW0YkeX2a8ozaQY1BpdfKOlyntY9XMO6jdBmmwGNC/8o
+	nwXkdMK55k/IOfDOXAeGBtgZttRlVfXkkXNqrIK3qdFworNu+uoW+K0PAoILEIvJMHc6GbaEWyolr
+	XRnrMU8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSyhI-0000000HUMr-3pC3;
-	Sat, 21 Jun 2025 13:55:56 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSyf3-0000000HUDw-2VLP;
-	Sat, 21 Jun 2025 13:53:38 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-23496600df1so5603395ad.2;
-        Sat, 21 Jun 2025 06:53:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750514016; x=1751118816; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bTflLiAJEMI7+0/3feKtggy4eDDBbx+qju7cZDBIaN0=;
-        b=LdYx8QbSSXYJSgfh6dTCphLNA2MZUcGZtKLoBJ63e/LIACYLpszR3Qzw+3kZgoliA8
-         aLvcpvjZXJ1CB6+3YC6Icvf4TMwxL0JNDxgBpxc7F9OfkxJQVHo/XkK7UPfhqZmAZOAi
-         rvA4irjyzyJMa5AsBK7A+JK1OuLU0ZH/7085Hb/xFOvCaFXKgNxk9oTt6/Z5pc3Vw/rM
-         D157yHJXcZhWSBqusAKffU/uCzJEplcpzZMeJ6o26RJabEBDLWWEZHvRxpgBMUStRa6x
-         o6U0dLGd0D/BUh63XmlEyH5XxOdPojgPVtVSPkP1+EFIReF+Uv849Xc6kLX82gegCNsD
-         cCMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750514016; x=1751118816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bTflLiAJEMI7+0/3feKtggy4eDDBbx+qju7cZDBIaN0=;
-        b=ZtAJbHrbMbhBGYe1VCc59wkZZwl37xGFnyWfcrncFUpGekJ7wT6bPnk/2YZ5KQCq+L
-         crK01BEIhwG1XbwamIZr14H+kdcfwproVJJ1zg8T/hSiDyyzAe3hDDV167Jk4Ebab0i5
-         zTGhCCI230oZCcJhmpAw2hwCyx9MN4xZSxtIOEKEH4ScbpvmvxOOHp4/nenfVERj5i4I
-         fFo3Nndn97outTcc052IETsDapk/+1Ld6+skYjxn5H2nrZls9VwV89WlxOegsaoSeYuv
-         PSwO7Mjf/ecpMRPYMgAbV3/uNENkZ8KCiQnSoT2zw0ChgtzqWwcyxDhxvxLdL7Xq+eUd
-         ByIg==
-X-Forwarded-Encrypted: i=1; AJvYcCUmCys+nvdYnZFJsqUA+cBmkS2oJsUgZBC4r3c5yxMbUQx0WEddvK16t3gbvUvwiYpDxidfRLlpLZyinN78gWSS@lists.infradead.org
-X-Gm-Message-State: AOJu0YykBVo6LHZmjcxMxanappQl8VQFneWwuHdYCsp8/Co426VQRGIO
-	CrpZ2iKWmXeEZU3c3VyoJlEvsqFOFedlCiPjNhQGubRXX5kEvPgphf+EcOAd4wwPsEs=
-X-Gm-Gg: ASbGnctk+558dOFbaVk2QHKS55ACM308km/MEw3emxJNpYlnxP7xHwOIseeyAwLvCic
-	z4N3z6HpJHot/U6he2xVfwffd9wj7A9ZW+jQ+AG2goLRjryoiAjtCz5KSJMmu3ILS6TGmSbKjiW
-	V4vGqBCIOHBgVM7WF8oDzkVd7NJZ4b676aBRZ4Bl3G/+H9QvPlWqQnx+IUQyAjwP3zIN6ECOQ9m
-	bQO4nVOpGjbcYhtXNzYd6YMBY5yucfPgxSBj6O4f/mkVsj0YmmsEYAy5vSHzhsBKx51M4l0VUii
-	GRuDzelyJ9Q2A/q59Y4c8vOfcEwDmCtDBO2YOL4+y9iXp1xxtElvMFwFu9lutN4=
-X-Google-Smtp-Source: AGHT+IHNSz1H+Y6EvxrMfpwVtSmD5EjhjR2Uj7VVL9JBRhFfCwNGQaZuAsJ9UFVRyUwVzOhTpkaRDg==
-X-Received: by 2002:a17:902:d4ce:b0:235:f1e4:3381 with SMTP id d9443c01a7336-237d9a2539fmr35469485ad.8.1750514016224;
-        Sat, 21 Jun 2025 06:53:36 -0700 (PDT)
-Received: from rock-5b.. ([45.32.55.39])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86103c1sm40700275ad.105.2025.06.21.06.53.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Jun 2025 06:53:35 -0700 (PDT)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Add bluetooth support to ArmSoM Sige7
-Date: Sat, 21 Jun 2025 21:53:14 +0800
-Message-ID: <20250621135319.61766-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uSzKF-0000000HWJT-0Yx0;
+	Sat, 21 Jun 2025 14:36:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uSzHz-0000000HW97-1hrm
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Jun 2025 14:33:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01EBE1691;
+	Sat, 21 Jun 2025 07:33:28 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D2013F58B;
+	Sat, 21 Jun 2025 07:33:45 -0700 (PDT)
+Date: Sat, 21 Jun 2025 15:32:29 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] arm64: dts: allwinner: t527: Add OrangePi 4A board
+Message-ID: <20250621153229.6796e824@minigeek.lan>
+In-Reply-To: <20250619173007.3367034-6-wens@kernel.org>
+References: <20250619173007.3367034-1-wens@kernel.org>
+	<20250619173007.3367034-6-wens@kernel.org>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_065337_634907_B2A66A32 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_073351_546362_FA1F6A63 
+X-CRM114-Status: GOOD (  30.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,71 +68,467 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ArmSoM Sige7 has onboard AP6275P Wi-Fi6 (PCIe) and BT5 (UART) module
-which is similar with Khadas Edge2. This commit enables bluetooth
-at uart6.
+On Fri, 20 Jun 2025 01:30:07 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
 
-Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
----
+Hi Chen-Yu,
 
- .../boot/dts/rockchip/rk3588-armsom-sige7.dts | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
+many thanks for piecing this together!
+I compared this against the schematic, and found only some minor nits,
+see below.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-index ae9274365be..39197ee1983 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-@@ -373,6 +373,20 @@ vcc5v0_host_en: vcc5v0-host-en {
- 			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	wireless-bluetooth {
-+		bt_reset_pin: bt-reset-pin {
-+			rockchip,pins = <3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		bt_wake_pin: bt-wake-pin {
-+			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		bt_wake_host_irq: bt-wake-host-irq {
-+			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
- };
- 
- &pwm1 {
-@@ -767,6 +781,28 @@ &uart2 {
- 	status = "okay";
- };
- 
-+&uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart6m1_xfer &uart6m1_ctsn &uart6m1_rtsn>;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		clocks = <&hym8563>;
-+		clock-names = "lpo";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		device-wakeup-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_wake_host_irq &bt_wake_pin &bt_reset_pin>;
-+		vbat-supply = <&vcc_3v3_s3>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
-+
- &usbdp_phy1 {
- 	status = "okay";
- };
--- 
-2.43.0
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> The OrangePi 4A is a typical Raspberry Pi model B sized development
+> board from Xunlong designed around an Allwinner T527 SoC.
+> 
+> The board has the following features:
+> - Allwinner T527 SoC
+> - AXP717B + AXP323 PMICs
+> - Up to 4GB LPDDR4 DRAM
+> - micro SD slot
+> - optional eMMC module
+> - M.2 slot for PCIe 2.0 x1
+> - 16 MB SPI-NOR flash
+> - 4x USB 2.0 type-A ports (one can be used in gadget mode)
+> - 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMAC200)
+> - 3.5mm audio jack via internal audio codec
+> - HDMI 2.0 output
+> - eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
+> - USB type-C port purely for power
+> - AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
+> - unsoldered headers for ADC and an additional USB 2.0 host port
+> - 40-pin GPIO header
+> 
+> Add a device tree for it, enabling all peripherals currently supported.
+> 
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 378 ++++++++++++++++++
+>  2 files changed, 379 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+> index 773cc02a13d0..780aeba0f3a4 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -57,3 +57,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> new file mode 100644
+> index 000000000000..8a62607e584c
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> @@ -0,0 +1,378 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/*
+> + * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sun55i-a523.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	model = "OrangePi 4A";
+> +	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	ext_osc32k: ext-osc32k-clk {
+> +		#clock-cells = <0>;
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <32768>;
+> +		clock-output-names = "ext_osc32k";
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		/* PWM capable pin, but PWM isn't supported yet. */
+> +		led {
+> +			function = LED_FUNCTION_STATUS;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
+> +		};
+> +	};
+> +
+> +	wifi_pwrseq: pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&r_pio 1 1 GPIO_ACTIVE_LOW>; /* PM1 */
+> +		clocks = <&rtc CLK_OSC32K_FANOUT>;
+> +		clock-names = "ext_clock";
+> +	};
+> +
+> +	reg_otg_vbus: regulator-otg-vbus {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "otg-vbus";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&reg_vcc5v>;
+> +		gpio = <&r_pio 0 4 GPIO_ACTIVE_HIGH>;	/* PL4 */
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_pcie_vcc3v3: regulator-pcie-vcc3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc-pcie-3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&reg_vcc5v>;
+> +		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_usb_vbus: regulator-usb-vbus {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "usb-vbus";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&reg_vcc5v>;
+> +		gpio = <&r_pio 0 12 GPIO_ACTIVE_HIGH>;	/* PL12 */
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_vcc5v: regulator-vcc5v {
+> +		/* board wide 5V supply from USB type-C port */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc-5v";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-always-on;
+> +	};
+> +};
+> +
+> +&ehci0 {
+> +	status = "okay";
+> +};
+> +
+> +&ehci1 {
+> +	status = "okay";
+> +};
+> +
+> +&mmc0 {
+> +	vmmc-supply = <&reg_cldo3>;
+> +	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+> +	bus-width = <4>;
+> +	status = "okay";
+> +};
+> +
+> +&mmc1 {
+> +	bus-width = <4>;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+> +	non-removable;
+> +	vmmc-supply = <&reg_dldo1_323>;
+> +	vqmmc-supply = <&reg_bldo1>;
+> +	status = "okay";
+> +
+> +	brcmf: wifi@1 {
+> +		compatible = "brcm,bcm4329-fmac";
+> +		reg = <1>;
+> +		interrupt-parent = <&r_pio>;
+> +		interrupts = <1 0 IRQ_TYPE_LEVEL_LOW>; /* PM0 */
+> +		interrupt-names = "host-wake";
+> +	};
+> +};
+> +
+> +&mmc2 {
+> +	bus-width = <8>;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	non-removable;
+> +	vmmc-supply = <&reg_cldo3>;
+> +	vqmmc-supply = <&reg_cldo1>;
+> +	status = "okay";
+> +};
+> +
+> +&ohci0 {
+> +	status = "okay";
+> +};
+> +
+> +&ohci1 {
+> +	status = "okay";
+> +};
+> +
+> +&pio {
+> +	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
+> +	vcc-pc-supply = <&reg_cldo1>;
+> +	vcc-pd-supply = <&reg_cldo3>;
+> +	vcc-pe-supply = <&reg_aldo2>;
+> +	vcc-pf-supply = <&reg_cldo3>;	/* VCC-IO for 3.3v; VCC-MCSI for 1.8v */
+> +	vcc-pg-supply = <&reg_bldo1>;
+> +	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
+> +	vcc-pi-supply = <&reg_cldo3>;
+> +	vcc-pj-supply = <&reg_cldo1>;
+> +	vcc-pk-supply = <&reg_cldo1>;
+> +};
+> +
+> +&r_i2c0 {
+> +	status = "okay";
+> +
+> +	axp717: pmic@35 {
+> +		compatible = "x-powers,axp717";
+> +		reg = <0x35>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <1>;
+> +		interrupts-extended = <&nmi_intc 0 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		vin1-supply = <&reg_vcc5v>;
+> +		vin2-supply = <&reg_vcc5v>;
+> +		vin3-supply = <&reg_vcc5v>;
+> +		vin4-supply = <&reg_vcc5v>;
+> +		aldoin-supply = <&reg_vcc5v>;
+> +		bldoin-supply = <&reg_vcc5v>;
+> +		cldoin-supply = <&reg_vcc5v>;
+> +
+> +		regulators {
+> +			/* Supplies the "little" cluster (1.4 GHz cores) */
+> +			reg_dcdc1: dcdc1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <900000>;
+> +				regulator-max-microvolt = <1160000>;
+> +				regulator-name = "vdd-cpul";
+> +			};
+> +
+> +			reg_dcdc2: dcdc2 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <920000>;
+> +				regulator-max-microvolt = <920000>;
+> +				regulator-name = "vdd-gpu-sys";
+> +			};
+> +
+> +			reg_dcdc3: dcdc3 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <1160000>;
+> +				regulator-max-microvolt = <1160000>;
+> +				regulator-name = "vcc-dram";
+> +			};
+> +
+> +			reg_dcdc4: dcdc4 {
+> +				/* feeds 3.3V pin on GPIO header */
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vdd-io";
+> +			};
+> +
+> +			reg_aldo1: aldo1 {
+> +				regulator-name = "avdd-csi";
+> +			};
+> +
+> +			reg_aldo2: aldo2 {
+> +				regulator-name = "vcc-pe";
+> +			};
+> +
+> +			reg_aldo3: aldo3 {
+> +				/* supplies the I2C pins for this PMIC */
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc-pl-usb";
+> +			};
+> +
+> +			reg_aldo4: aldo4 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-name = "vcc-pll-dxco-avcc";
+> +			};
+> +
+> +			reg_bldo1: bldo1 {
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-name = "vcc-pg-wifi";
+> +			};
+> +
+> +			reg_bldo2: bldo2 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-name = "vcc-pm-lpddr";
+> +			};
+> +
+> +			reg_bldo3: bldo3 {
+> +				regulator-name = "dvdd-csi";
+
+In my version of the schematic this is AFVCC-CSI (whatever that means),
+and ...
+
+> +			};
+> +
+> +			reg_bldo4: bldo4 {
+
+... BLDO4 is DVDD-CSI.
+
+Not that it really matters, since both are not used yet ...
+
+
+> +				/* not connected */
+> +			};
+> +
+> +			reg_cldo1: cldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-name = "vcc-cvp-pc-lvds-mcsi-pk-efuse-pcie-edp-1v8";
+> +			};
+> +
+> +			reg_cldo2: cldo2 {
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc3v3-csi";
+> +			};
+> +
+> +			reg_cldo3: cldo3 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc-io-mmc-nand-pd-pi-usb";
+> +			};
+> +
+> +			reg_cldo4: cldo4 {
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc-3v3-phy1-lcd";
+> +			};
+> +
+> +			reg_cpusldo: cpusldo {
+> +				/* supplies the management core */
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <900000>;
+> +				regulator-max-microvolt = <900000>;
+> +				regulator-name = "vdd-cpus";
+
+This also supplies some 0.9V USB circuitry, so maybe add this to the
+name?
+
+> +			};
+> +		};
+> +	};
+> +
+> +	axp323: pmic@36 {
+> +		compatible = "x-powers,axp323";
+> +		reg = <0x36>;
+> +		#interrupt-cells = <1>;
+> +		interrupt-controller;
+> +		status = "okay";
+> +
+> +		vin1-supply = <&reg_vcc5v>;
+> +		vin2-supply = <&reg_vcc5v>;
+> +		vin3-supply = <&reg_vcc5v>;
+> +
+> +		regulators {
+> +			reg_aldo1_323: aldo1 {
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc-wifi";
+> +			};
+> +
+> +			reg_dldo1_323: dldo1 {
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-name = "vcc-wifi2";
+> +			};
+> +
+> +			/* Supplies the "big" cluster (1.8 GHz cores) */
+> +			reg_dcdc1_323: dcdc1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <900000>;
+> +				regulator-max-microvolt = <1150000>;
+> +				regulator-name = "vdd-cpub";
+> +			};
+> +
+> +			/* DCDC2 is polyphased with DCDC1 */
+> +
+> +			/* Some RISC-V management core related voltage */
+> +			reg_dcdc3_323: dcdc3 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt = <900000>;
+> +				regulator-max-microvolt = <900000>;
+> +				regulator-name = "vdd-dnr";
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&r_pio {
+> +/*
+> + * Specifying the supply would create a circular dependency.
+> + *
+> + *	vcc-pl-supply = <&reg_aldo3>;
+> + */
+> +	vcc-pm-supply = <&reg_bldo2>;
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0_pb_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&uart1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "brcm,bcm4345c5";
+> +		clocks = <&rtc CLK_OSC32K_FANOUT>;
+> +		clock-names = "lpo";
+> +		vbat-supply = <&reg_aldo1_323>;
+
+Is that some kind of trick, to accommodate *two* power rails for the
+chip? Because to me it looks like the AXP323 ALDO1 and DLDO1 are
+connected together and both supply the WiFi-BT-combo chip.
+It's probably fine to model this way, since ALDO1 is the weaker of
+the two, and I'd guess the WiFi needs more power, but worth a comment, I
+guess.
+
+Rest looks good to me.
+
+Cheers,
+Andre
+
+
+> +		vddio-supply = <&reg_bldo1>;
+> +		device-wakeup-gpios = <&r_pio 1 3 GPIO_ACTIVE_HIGH>; /* PM3 */
+> +		host-wakeup-gpios = <&r_pio 1 4 GPIO_ACTIVE_HIGH>; /* PM4 */
+> +		shutdown-gpios = <&r_pio 1 2 GPIO_ACTIVE_HIGH>; /* PM2 */
+> +	};
+> +};
+> +
+> +&usb_otg {
+> +	 /*
+> +	  * The OTG controller is connected to one of the type-A ports.
+> +	  * There is a regulator, controlled by a GPIO, to provide VBUS power
+> +	  * to the port, and a VBUSDET GPIO, to detect externally provided
+> +	  * power. But without ID or CC pins there is no real way to do a
+> +	  * runtime role detection.
+> +	  */
+> +	dr_mode = "host";
+> +	status = "okay";
+> +};
+> +
+> +&usbphy {
+> +	usb0_vbus-supply = <&reg_otg_vbus>;
+> +	usb0_vbus_det-gpios = <&r_pio 0 7 GPIO_ACTIVE_HIGH>; /* PL7 */
+> +	usb1_vbus-supply = <&reg_usb_vbus>;
+> +	status = "okay";
+> +};
 
 
