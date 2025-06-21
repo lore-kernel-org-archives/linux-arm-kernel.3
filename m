@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499D0C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 01:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E561FC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 01:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9bGMpSO4WqiAydjTYI1BvmIFHA6ViKMaNDWLEKT1C0=; b=D3DEwoztFvv9TAMM8jK4eyR/cL
-	qo/sEuugYJQG+COfvUPcJpjAiG9OrYK1JXqvqGp6oAenyXC15qHJGnBTqB6/vC19IY2JGrymG6F1t
-	OCjJRFSdk21PWkCbj56hyotdIqt4AWjf1I3U5fdeVLkP4FH9TyERuA8YTzQ+4e1kiLQb/YuvffwaZ
-	zZqvS+4B1JlE1A5Y/4xruw5dmWEO+wu1EvpbhSJKdT2a/9cGnD0zyBuV/cOAYREZW0NJ4d7qxGTXu
-	rOMPMNSUuZAm8t8sk5pH/RPQP/fxaqWppDHb/cRBg0oqYl3wL2Dkc6amTwJHtsBynwUIjY44DMIci
-	JOfqFTzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NXz3exVEQXWDc3wTEzEXN840OGMK0hx/i3YSgfAvZ0s=; b=Tw8vO+g+xNsLQ/XYsOD7huT4Q4
+	CGa+8yucmxcR2Xhb8vD0FHrhkOu7U6LMM51dQ2xUcsjdibflNs2kVw/47o87sFKrWE67StPNQD70V
+	nbFBva2scSjY/x7zWJwslCBxnvu3+UIN5e0SgCMGCruSUDz5n3uMqaz+e26b/TkSnzOCuh2TiaUMH
+	cRqYVRtZnUi+M4y0OxOwLRridREXQyyD6UyQ0t+80qSGcMJohfrZmeUVE0OTi4+vb+Fu7IwfdsTY9
+	PgOlP3ca51BaVXRDqiVyrEL38tg6vdKEMHjFr5rNwO2iDlPcOiG4LvDGeg71InBJpx4qprwZmRuUp
+	fPvNMtJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSmjR-0000000GtnU-2tZD;
-	Sat, 21 Jun 2025 01:09:21 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1uSnNE-0000000GwFG-0k4d;
+	Sat, 21 Jun 2025 01:50:28 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSmhC-0000000GtXo-0gAk
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 01:07:03 +0000
-Date: Fri, 20 Jun 2025 18:06:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750468018;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x9bGMpSO4WqiAydjTYI1BvmIFHA6ViKMaNDWLEKT1C0=;
-	b=lcs+3a2ZLhflGQHKJ+gTgO7tBN917ZPbJW/VqGm5qDtkba9vGMlVsl2g4UsIib1GPpDr4G
-	Qz0ka4yuqWFfIVF8ZG1dVxusdCKjloC/kN1XPEVs7C6tPFt7GQ6bMeuvijVPunIWZecPoH
-	tkaZ/VVRFsn3eo+FUkZ0KJuGDM0AJ7I=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 07/23] perf: arm_pmuv3: Introduce method to partition
- the PMU
-Message-ID: <aFYFqrYRsmCi6oii@linux.dev>
-References: <20250620221326.1261128-1-coltonlewis@google.com>
- <20250620221326.1261128-8-coltonlewis@google.com>
+	id 1uSnKx-0000000GvrE-3xiw;
+	Sat, 21 Jun 2025 01:48:09 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-234bfe37cccso31991155ad.0;
+        Fri, 20 Jun 2025 18:48:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750470487; x=1751075287; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NXz3exVEQXWDc3wTEzEXN840OGMK0hx/i3YSgfAvZ0s=;
+        b=NKyjYepAistIoUtC/cHcrZYxx2WrOQkOOyXQmjze0u38TAVBH02O9Qee9B+/Ip9F1X
+         fIVqdStMhCb8BVz3bb/QUJENiedykSa8aeE+9fOOtgB/f8P33id4ENTM0aqRGN/ave+t
+         k+YxZDTk6l/mdWIT2WnXox6nP4Y8tECmfZg2YTihsrQqyZwEiT0Zz6dA59GJKj3Vsqpj
+         z0AfCPkwHqIFCWbCnIGhHShVOpgAtNDGZOZCFSM25qw1ceXB0525OtMGLtb3cir+d7kZ
+         q5WfqVGo78tWq3OeBJW1cNkb9RfTHgdF3caNO1RitW8C5I74JFtmMx1dww6ybDydFWgy
+         lhZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750470487; x=1751075287;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NXz3exVEQXWDc3wTEzEXN840OGMK0hx/i3YSgfAvZ0s=;
+        b=cjIHc+mSjfE9iIjcspf8ULInodtwxEkEfI244yhGoqvCLWM/9dMwJxwetYhEhQ3JxB
+         aB/gUP50UXXVG7jiOkO0qyyYjGjNL00GDGQrAMxTG5f5bMPHMcDOAJ0t/Hg2spVI7dO8
+         Lb/tSn8isFFEKz5ugKnR+eWGonIeM07CUW0QtjSCg1YOgnwb4MuER0NW9NK8+sj7omHN
+         S7HGu1oZG09Wn8nUab94ocgRIVrGLg+i8NLzo1Hl1RhBOPi8mbVAO8pVOGlSPY7RakLU
+         /FQScSAP24MOoAG5rbALp6AlrpQEkQeoUDabNCFXFihdO2lWuu6ITQ1EIGLNy1JJliZR
+         P4jw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIcgFR1YRQ48KJCl3MH2Rm7y5S19W3sTpy/ME7hXZok9XbNU/eN3Ep+SqrO0lqzxmVSTJWHus3wykM@lists.infradead.org, AJvYcCWs6ewGlfRPtwe/QfuWlt0NO+r2BUKv6/cf2YyNmjccEss5lTYN9iTUIFMf8MCwjRMpq0+3JVH3274q77zC/HMf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOt20m5OElWWGImLITZKP+6KLhm7y000+DcehtFHiiVQEBtVOJ
+	NKH11rag5+AhYyBvbbIRBpfxtmg+ck97IJ5Q1DPss9pYE9rsF5Bo9kGv0O7WWRhF
+X-Gm-Gg: ASbGncsxt4LXs1wmtsJ+42USsXrAX1ZjT+IIi0r2iCEq9tY6A2mphKT6kSZQsH01Yww
+	VHZmEenOEFfVlBjwuU6XcxJf0W6m09ZmLvAR8UPCHJq7eIiDDEl4FWTyVpRNjnSuHLnxlT63hLO
+	pJEUoWlsFb+XhM4jBuyaaOFAFnlTcln3kCyZt0By/iynzQLLBAGScwSi0hh0tSOnlZq1daXLja4
+	/unzyEtVeuNUEElcEJESp2wUkOkfeRHMeMUPMuP763USx5Hk17ZowN5AG+T4aQnrtscdwy127hH
+	7p3iZ0ZmW4FVOjpNj++nGFpHnNvGJKQRwKLJtlfqEieebd+9oQ==
+X-Google-Smtp-Source: AGHT+IFMj8zujnmQyUnnom6Sk4SjVcrZEQeYPoia8cwd9VCLwZSbqcg4mJosbw1axQAjm2sXPpgR7w==
+X-Received: by 2002:a17:903:32c5:b0:235:2799:61d with SMTP id d9443c01a7336-237d991f9b4mr79363855ad.33.1750470486935;
+        Fri, 20 Jun 2025 18:48:06 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:d1c8::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d8393893sm28573845ad.25.2025.06.20.18.48.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Jun 2025 18:48:06 -0700 (PDT)
+Date: Fri, 20 Jun 2025 22:47:51 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rick wertenbroek <rick.wertenbroek@gmail.com>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v6 0/4] PCI: rockchip: Improve driver quality
+Message-ID: <cover.1750470187.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250620221326.1261128-8-coltonlewis@google.com>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_180702_561943_639AADB6 
-X-CRM114-Status: GOOD (  36.29  )
+X-CRM114-CacheID: sfid-20250620_184807_989316_0D54E89F 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,137 +101,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:13:07PM +0000, Colton Lewis wrote:
-> For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
-> counters into two ranges where counters 0..HPMN-1 are accessible by
-> EL1 and, if allowed, EL0 while counters HPMN..N are only accessible by
-> EL2.
-> 
-> Create module parameters partition_pmu and reserved_guest_counters to
-> reserve a number of counters for the guest. These numbers are set at
-> boot because the perf subsystem assumes the number of counters will
-> not change after the PMU is probed.
-> 
-> Introduce the function armv8pmu_partition() to modify the PMU driver's
-> cntr_mask of available counters to exclude the counters being reserved
-> for the guest and record reserved_guest_counters as the maximum
-> allowable value for HPMN.
-> 
-> Due to the difficulty this feature would create for the driver running
-> at EL1 on the host, partitioning is only allowed in VHE mode. Working
-> on nVHE mode would require a hypercall for every counter access in the
-> driver because the counters reserved for the host by HPMN are only
-> accessible to EL2.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm/include/asm/arm_pmuv3.h   | 10 ++++
->  arch/arm64/include/asm/arm_pmuv3.h |  5 ++
->  drivers/perf/arm_pmuv3.c           | 95 +++++++++++++++++++++++++++++-
->  include/linux/perf/arm_pmu.h       |  1 +
->  4 files changed, 109 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
-> index 2ec0e5e83fc9..9dc43242538c 100644
-> --- a/arch/arm/include/asm/arm_pmuv3.h
-> +++ b/arch/arm/include/asm/arm_pmuv3.h
-> @@ -228,6 +228,11 @@ static inline bool kvm_set_pmuserenr(u64 val)
->  
->  static inline void kvm_vcpu_pmu_resync_el0(void) {}
->  
-> +static inline bool has_vhe(void)
-> +{
-> +	return false;
-> +}
-> +
+During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+some quality improvements began to take form and this is my attempt
+at upstreaming it. It will ensure maximum chance of retraining to Gen2
+5.0GT/s, on all four lanes and fix async strobe TEST_WRITE disablement.
 
-This has nothing to do with PMUv3, I'm a bit surprised to see you're
-touching 32-bit ARM. Can you just gate the whole partitioning thing on
-arm64?
+---
+V5 -> V6: reflow to 75 cols, use 5.0GTs instead of Gen2 nomenclature,
+clarify strobe write adjustment and remove PHY_CFG_RD_MASK
+V4 -> V5: fix build failure, reflow commit messages and also convert
+registers for EP operation, all suggested by Ilpo
+V3 -> V4: fix setting-up of TLS in Link Control and Status Register 2,
+also adjust commit titles
+V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+suggestion
+V1 -> V2: use standard PCIe defines as suggested by Bjorn
 
-> +static bool partition_pmu __read_mostly;
-> +static u8 reserved_guest_counters __read_mostly;
-> +
-> +module_param(partition_pmu, bool, 0);
-> +MODULE_PARM_DESC(partition_pmu,
-> +		 "Partition the PMU into host and guest VM counters [y/n]");
-> +
-> +module_param(reserved_guest_counters, byte, 0);
-> +MODULE_PARM_DESC(reserved_guest_counters,
-> +		 "How many counters to reserve for guest VMs [0-$NR_COUNTERS]");
-> +
+Geraldo Nascimento (4):
+  PCI: rockchip: Use standard PCIe defines
+  PCI: rockchip: Set Target Link Speed before retraining
+  phy: rockchip-pcie: Enable all four lanes if required
+  phy: rockchip-pcie: Properly disable TEST_WRITE strobe signal
 
-This is confusing and not what we discussed offline.
+ drivers/pci/controller/pcie-rockchip-ep.c   |  4 +-
+ drivers/pci/controller/pcie-rockchip-host.c | 48 +++++++++++----------
+ drivers/pci/controller/pcie-rockchip.h      | 12 +-----
+ drivers/phy/rockchip/phy-rockchip-pcie.c    | 15 +++----
+ 4 files changed, 36 insertions(+), 43 deletions(-)
 
-Please use a single parameter that describes the number of counters used
-by the *host*. This affects the *host* PMU driver, KVM can discover (and
-use) the leftovers.
+-- 
+2.49.0
 
-If the single module parameter goes unspecified the user did not ask for
-PMU partitioning.
-
-> +/**
-> + * armv8pmu_reservation_is_valid() - Determine if reservation is allowed
-> + * @guest_counters: Number of host counters to reserve
-> + *
-> + * Determine if the number of host counters in the argument is
-> + * allowed. It is allowed if it will produce a valid value for
-> + * register field MDCR_EL2.HPMN.
-> + *
-> + * Return: True if reservation allowed, false otherwise
-> + */
-> +static bool armv8pmu_reservation_is_valid(u8 guest_counters)
-> +{
-> +	return guest_counters <= armv8pmu_pmcr_n_read();
-> +}
-> +
-> +/**
-> + * armv8pmu_partition_supported() - Determine if partitioning is possible
-> + *
-> + * Partitioning is only supported in VHE mode (with PMUv3, assumed
-> + * since we are in the PMUv3 driver)
-> + *
-> + * Return: True if partitioning is possible, false otherwise
-> + */
-> +static bool armv8pmu_partition_supported(void)
-> +{
-> +	return has_vhe();
-> +}
-> +
-> +/**
-> + * armv8pmu_partition() - Partition the PMU
-> + * @pmu: Pointer to pmu being partitioned
-> + * @guest_counters: Number of host counters to reserve
-> + *
-> + * Partition the given PMU by taking a number of host counters to
-> + * reserve and, if it is a valid reservation, recording the
-> + * corresponding HPMN value in the hpmn field of the PMU and clearing
-> + * the guest-reserved counters from the counter mask.
-> + *
-> + * Passing 0 for @guest_counters has the effect of disabling partitioning.
-> + *
-> + * Return: 0 on success, -ERROR otherwise
-> + */
-> +static int armv8pmu_partition(struct arm_pmu *pmu, u8 guest_counters)
-> +{
-> +	u8 nr_counters;
-> +	u8 hpmn;
-> +
-> +	if (!armv8pmu_reservation_is_valid(guest_counters))
-> +		return -EINVAL;
-> +
-> +	nr_counters = armv8pmu_pmcr_n_read();
-> +	hpmn = guest_counters;
-> +
-> +	pmu->hpmn_max = hpmn;
-
-I'm not sure the host driver needs this for anything, KVM just needs to
-know what's potentially in use by the host.
-
-> +	/* Inform host driver of available counters */
-
-... said the driver to itself :)
-
-Thanks,
-Oliver
 
