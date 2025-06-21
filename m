@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155A3C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 17:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F21BC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 17:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4cuZR2OeJH9U0xo9iqQwKBOuSBnLCscDjqcJkUSqVlk=; b=hMC8U41TWLsMl1Km5DdXG7rWqp
-	9w9xgmCOJU2VRYV9/GbXQ/cyOFZ+0s3d7hX/eHHiaaCS+Jdm/k35VLHK49hd66eg7jF04X2bnVI0Q
-	yM2Cg6+rWrDD6Xc0/7npru+t2ia4sBXuR+UGkp0+rTGcC3cwwI8LYjv7YrBJwBVnTGkW+mMAksYHh
-	+BuXCC2cuoHhkZqORFTRtJbuyIfexwuDRNFmIY0KtuOvTGMP3YUKy4b3IOIhlFK/fWPCodlECz9Tx
-	3Yzpk/ThcRWHicVNf0p13NDMp8tg0LRBGiDPQHdARcJrxFUjbKEqz91daIL58pHYNhSGJR9sboxfs
-	XbLdrIxA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TEIzKxs0GNs/VcFKM7BeuHzukEWwgOUFRzKScKCJzFA=; b=2LrbF/j5Z3s+/+VYwi2FEfVfVm
+	6e5uG7BaQTNqN+xHJ8s+1EF+CiaZ4tZeIul1bMtHIZ8KNMEIxwphDTDflv8mqWNQS+yeXO1UByctf
+	JWjV0gd1svZN8E+5Uayhwlkl2ILhC7BR7mSSdx8ilut7b9sJ8qpnzDoHdBScQoI/tQ5t5Z1+qqr4v
+	zDVwNqcwn1mdrEHgx2hJ0jn5uZbrdhtG5d/xtVx8aeq9OZkaR7JqPQNl4C7GjZB8C3h5tSudqU1lt
+	lnO1c3R888GebYuIabh7RIRuyjPVi44QKj4u2AXeG7xTZtztUr2BO9beagUJjILJMA/aJZMQ/FGHE
+	n2rNWlFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT1aR-000000003ND-1FCd;
-	Sat, 21 Jun 2025 17:01:03 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uT1jb-000000003lx-29rp;
+	Sat, 21 Jun 2025 17:10:31 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uT1YB-000000003Ec-2mdI
+	id 1uT1hK-000000003eU-0J6t
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 16:58:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1750525121;
- bh=4cuZR2OeJH9U0xo9iqQwKBOuSBnLCscDjqcJkUSqVlk=;
- b=FFK8NHgQ31ekNfm4u/gEMUnu+arZHGBeICnZcwormlTzeGgUHp7RTxHAvi65fQ/oyahysMyU7
- Bev4WfdhxEihd3Y8MGixvmFNbxfCufUssYi/d9dKX+jVNCFwez0BKGJW6Grs5jFZFu/W7+9yH+r
- TisXaNByNgCgHrj61053DTz1Euh/0GQwrZo297nb94//7V5efIjbZ5DMH3wCzGW4O2LJdGnhXQU
- 1ztZa+K/4e3BT9mti8+a+rE+sghTc5JvMDdKkK4W5ONj/FKJ+DdHc7ZxufjQP2yqIDdE82NrgR0
- dEPMKsTBkMhTleSOnLi717gqMEiNa39EVp2WVZpwEGlA==
-X-Forward-Email-ID: 6856e4be9932e6905b7c425e
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix eMMC HS200 mode on Radxa E20C
-Date: Sat, 21 Jun 2025 16:58:30 +0000
-Message-ID: <20250621165832.2226160-1-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.49.0
+	Sat, 21 Jun 2025 17:08:11 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54998f865b8so2397054e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 10:08:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750525688; x=1751130488; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TEIzKxs0GNs/VcFKM7BeuHzukEWwgOUFRzKScKCJzFA=;
+        b=UAe4QycqMaZQhEJmBreqlIGCspkdYITvypPJxhsgDbbGYa1UR+Ye48KCGxOt9s0G2i
+         JigB0+12TRw7WVmcK9wIz41M72LsbTEhv7PqTbhRYRVRC6TKHGNL3Yxq54rrkFDMAyd+
+         txgiUaILJ7oDR/Sl7QjCgQCVeg66Ryj1mMLoKFucdvz1lwUBDA/fVKIK7ikP7BkcX5r5
+         yzq2YSqFOabz4/EDgERApAWxsoIeujPYtNB9NngLjRFxt82XoDwztkj7rF6nvKB1Twx4
+         K45PhUvyE+LmI2agCrbjDaUiaXX/BPLNg4F8V87yFIS+iwu2YSC6vSJYd9JZ5PLc9smD
+         jzDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750525688; x=1751130488;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TEIzKxs0GNs/VcFKM7BeuHzukEWwgOUFRzKScKCJzFA=;
+        b=HFCZ1qZvT/Y5uIK0LhI/TLvl8+FUxcdv7BNLuQBMrLq4a2CuutTvBKlaqEmbEZe5Rb
+         aHIOMsBt121CW0axIzsK/oNtzXQ18AGm9a23UV4MtElC9cM0bjXwye10BhuUlxlnUbqn
+         M78V9XynQQ9Ab6Ya/btFnOtZHwStjWWRFVi5RQansp8DGt6xRTjV5/tmmTS0Fjw+UV9X
+         ZuQPePcOHQQzaJ2C7RF3RrUBJ+meVIT2jy+D/CqZ4egi72Jh/jdTfHhBoL+N5tgM7tIH
+         +Xr9gR2Kz/9ggeBZin+ZjgsBm44I+6+TJeEIjqcOmhSrPt24GX71Y8kM8XUiIYEiC6l6
+         KwDw==
+X-Gm-Message-State: AOJu0YyOrmyi3tQQENTBDHrVCDooHDFnH1Rv7fy1RaDkRvaylfxduZDD
+	X5Woxcx2YsAoXq4o+CN1KeCeCmavnY2vo6AYZ2rkaTFHs5TkLL1cZ1vVQPxdU/37alLs4FHcAS8
+	KH//h+DD5O449tZUC8M5tbhnohMthOuM=
+X-Gm-Gg: ASbGncuxay082Cmt9Z8cUQzdEXLjCCwl2ULDb+1HobPTtawp52I32II1WeZ5ZyoZ0+g
+	wwI8w/Ta/QJ6D6fADXd3GtRJ4WcKW+7T6waH5OR1I6fsj8M48zOvybh9pGlbzMNzoFFONym1iuk
+	AFENauh6hAJx2bIT+FNjBIMaeyWDOBcGrFB6SzwirFAUG7JBtu5GVNZLAqLTiGDBzTZnpHbWye9
+	3o=
+X-Google-Smtp-Source: AGHT+IE9XukBFnfqYPGxv15LwD4aFI78caQyw/4Eu8EFUxN/5Av0fimYLTnJIM5a8dCDg+V1FF7pxxWduBGUw5Lpv/Y=
+X-Received: by 2002:a05:6512:4014:b0:553:acf9:c430 with SMTP id
+ 2adb3069b0e04-553e3ba865emr2715526e87.17.1750525687553; Sat, 21 Jun 2025
+ 10:08:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250621112311.68101-1-aford173@gmail.com>
+In-Reply-To: <20250621112311.68101-1-aford173@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Sat, 21 Jun 2025 14:07:56 -0300
+X-Gm-Features: AX0GCFsyZkLAi_IdniUJd_5FXJgXSkkE5eshqUFluI-nTmyTXyPV2FSCarf00P8
+Message-ID: <CAOMZO5DUVVBmxfrJPjcZPCQGFg-rVNTUch6APWfSKF6LY1DWHQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: dts: imx8mm: Configure DMA on UART2
+To: Adam Ford <aford173@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_095844_095156_62333588 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_100810_112045_D47147EA 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +97,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-eMMC HS200 mode (1.8V I/O) is supported by the MMC host controller on
-RK3528 and works with the optional on-board eMMC module on Radxa E20C.
+On Sat, Jun 21, 2025 at 8:23=E2=80=AFAM Adam Ford <aford173@gmail.com> wrot=
+e:
+>
+> UART2 is often used as the console, so the DMA was likely left
+> off on purpose, since it's recomended to not use the DMA on the
 
-Be explicit about HS200 support in the device tree for Radxa E20C.
+Typo: recommended
 
-Fixes: 3a01b5f14a8a ("arm64: dts: rockchip: Enable onboard eMMC on Radxa E20C")
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-This also help assist boot firmware that consume Linux device tree's to
-use HS200 mode when booting from eMMC, see [1] for a related U-Boot fix.
 
-[1] https://source.denx.de/u-boot/u-boot/-/commit/f8cb3fde935ed003ad1d7cf6a06d59586fe65cd5
----
- arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 1 +
- 1 file changed, 1 insertion(+)
+> console. Beacause, the driver checks to see if the UART is used for
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-index e4333674a0ec..12eec2c1db22 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-@@ -283,6 +283,7 @@ &saradc {
- &sdhci {
- 	bus-width = <8>;
- 	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
- 	no-sd;
- 	no-sdio;
- 	non-removable;
--- 
-2.49.0
+Typo: Because
 
+> the console when determining if it should initialize DMA, it
+> should be safe to enable DMA on UART2 for all users.
+
+The same comment applies to the other patch.
+
+Reviewed-by: Fabio Estevam <festevam@gmail.com>
 
