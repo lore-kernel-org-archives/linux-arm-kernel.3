@@ -4,86 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 968ADC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 08:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7F5C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 08:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uv6wxfrJppsxhE62iBQhcbElKSZgzipS3KVYWsXdRos=; b=D1j8qheOvX4OqPqrf5s4rUi997
-	g8vdy59DHrIh4N3Q59XhsuTPIpoicHI1rr4rgfNZ2J3ePufw/aKtdJzrOu8aR6Fo6WsA+jgdSbaQr
-	L3hG+ZuyPYbt8pQ46BuXP568IkBTal7AjoNWKpxheUBljR9uvwsaermvDr4KkBIdsJoe8vQAAZpsr
-	RvDn37YqNV+PHNNiNyrKLUcMhmpCEBoDrLwHqKytzFDVWlKmUZeEHvF6Y82ksUabSbxDYJLlF+PmH
-	3ArqiBh+w2Lozzqnxhz5YNpp+rL34E1E9IBVEDkmdq0jMFmZJqwtnBSea57PZqlLWqTGX6vrDTeV9
-	ZJfTLd3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XoUF/tw2WzjpK2T15ybPyBfIE+f8EoUkHlDNrzXDKfc=; b=HggJlqsvMU7J9L7tHfhHczISI1
+	RcKZ/u8bCwkAAFmXkPv+QLEqy6qCYqdGeQMVCWGxYyVmlN/U+HToVUREUYBO3egYAvwzgYO5I3G84
+	HWH7eXBjifQ0Rcfuox2f2noJ/qUa8a3MTmqiDzB2m7yCHeW8aJDstf+ckx3pWW5hUHFp0sXwiNxiQ
+	9NuwdAIlq0qU35XGsiBnJkyWjl+fZ21xcdZFQI5hvI1+B5OOF+3RK6npqyWG5G2n6003nyRMYWXMr
+	ta2Fy3zCxq5GfDkM0OLm/SK+mfHIHEMfhFgwXcc0fMvsujEeeZLlQIYz4hIiRgL6tL4ZLXV+Ep+Cz
+	hzFtEhKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uStLe-0000000HElV-0dQP;
-	Sat, 21 Jun 2025 08:13:14 +0000
-Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
+	id 1uStdv-0000000HFhH-0MDx;
+	Sat, 21 Jun 2025 08:32:07 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uStJK-0000000HEen-2QCq
+	id 1uStbd-0000000HFYL-3Ct3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 08:10:52 +0000
-Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-53164bd0df3so719211e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 01:10:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750493449; x=1751098249; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=uv6wxfrJppsxhE62iBQhcbElKSZgzipS3KVYWsXdRos=;
-        b=Gw+aWnRzi/UepZpsPUF+pDaZSjL/hnqR9NF8U3RDznY1M4DxHNMZuWANJIqlVdDjP2
-         uhfmHnfUstnvmV4IdCwteXMEtyG39FtS4XlIxiA8qBz1tEQ3N8tCGsGRvX/bPuODNgD9
-         9Od2s3h8RH/qicipAMo56NH0LhdMhOCQVI3Z+CYOV3jmysEH+dkHnc611jzJWHJmyASI
-         dk6UKVU+W+qNpoF0qn7/kFEN2VeBLcyu6vKsBJAFD32PvyxzRfHZyjsF//RP/fHgm13c
-         sTkCUW4od2oDDDJMWnGSA+r5vgIuGRdCXxEnE+e2BDGSxioVy5EJJOowqq/lVjVGKG7J
-         p/Og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750493449; x=1751098249;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uv6wxfrJppsxhE62iBQhcbElKSZgzipS3KVYWsXdRos=;
-        b=vNuADRFjqjrNCKLM1wfIOxAI2QD+amJD5jXMzSPVkfc+aCSxMCUwF25XGzS5HP2uS2
-         S7qEtS6LSQ1TURjV1sx+wYvAAhajdKPNrGRkZqGUAL2mj3EXvRCe3czKgMQ4GXRfEKH5
-         bD5o3sHON7B46hSdHBxZTi+svXPRciT0uR+nCFntcfuh8Am58qFY970OOPvzBJ/2pGeY
-         Z82PSwG9NkhO4JxP8FVqUiETHqCzvijx7yphnObnuenZYzQbXKlqGKgFwdpl/hKKsZmA
-         dye8uGAoAuX+DwHRIKJhNdMl/8T7iFDI9Ty3C96fxgeQ9VyxG5Wwb2LbdT0dS4M14/ik
-         OL+A==
-X-Forwarded-Encrypted: i=1; AJvYcCUFqsx5WOAGBCCIVAfb6UPSuuOT6jWdNA9cfltYm2Pb15T1Y7cvc3xy/CR5d6bVPOiIqW+SsbBzF+vAqGzu6cpr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZryaCDBKKal6xNUtY7inIn5XX2FSFNiv9k6GJNyjxVKkxoF3q
-	G2op8SkRgA22cM3fdW6F4CQAANsPBjQpPLLGSHo/wqAMCZWTKVWyINctzfo2pjhTq0flGiKl5u4
-	6GJo4QPOvMtqYXhc6m7LMtjkKWe6iGbpjMA/Hp4RR9w==
-X-Gm-Gg: ASbGncuebxl3IPwitYtSqLt4VjJ+NlYjI/ROriYz+XcnEVJ+4VteHvQfHG7nElNDRXw
-	+kTV9aF/9BOks7AZH8bsqcBzh4Q/V2ieFb1dQZj9G4ZgWmHJKDAtL4d/mOJHqkqRaaPM9EtKaz9
-	cckaVr9m9r0Rb3yREGCopNhj6d0x4BGi63PdhXoGM9NgbRP5nqIxkaR4ekV1lntUX31rsh6ESKM
-	LC4
-X-Google-Smtp-Source: AGHT+IHne2H/xECMfrQ5hD2vXtYM8uvntThObLzerHiwLYgtm+94fiQkXmkqgi1PpqPk2BT3LgZkb0zk4MJsYXLd4N0=
-X-Received: by 2002:a05:6102:41a4:b0:4e6:67f6:e9af with SMTP id
- ada2fe7eead31-4e9c284a5camr3747596137.9.1750493448628; Sat, 21 Jun 2025
- 01:10:48 -0700 (PDT)
+	Sat, 21 Jun 2025 08:29:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D8BFJzwv0MkRy2X/l0XURN7xncJHDwjqfWEu7HB7Ne45c5XpQcEb1l96yyRz+H3v3Fu0/JLcuwmvmk8dKYRjFcbLvlsc0sxvNThC/ULO0xq5J8ellXL/Y/WYyt7J7clv3ZPwhhGAWjz/btvT8qGsX2Qadi4gg60EQbjW1AEM/J2QzxR7yreXnPzkltv/Nq9n9+0ruhr9YZECjAC+DvCKsoU9TNlHZEKkWA1x/dfA+OkKIVou+Zm0/ovFuGp71SibzYAzrFLwSRtRETx5NqoYZbebQ2OGFN4ICR1R54ezh12QTQLilYDRabME047Vq/Fo8MkInQgb/C91rPoFf/3bVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XoUF/tw2WzjpK2T15ybPyBfIE+f8EoUkHlDNrzXDKfc=;
+ b=IkT8cbLV/VU0xV7Z+T01X4RLspWtkRJdEB4yIun72eMBeJbOaS3vZqtwZWAyKjcduI996Pe2Pl0zEvi8wMH2a5M/6tyDSi7OYewu/URdSX0E/uGhvs5KECkYQgg9/2f25a9JrsJD4pnGlAbmHEbnRqwI0QCBIQqCaaoC9JwPjHpfnlVCWrHxFTUjtqHzP6ctIfcPFbgt10SgW7lnTUCRLbEHhjXsodBjglO4e931unSS9oFYy5ppD4bMV8QBb2V0ITVgNoWSM0NDD3YSq8HdEUy/DS60t1BAexL/rLWQFmOrN/F5b1ehpDVMjAHNjIjguxinDfkOw+gSU+cza+tP9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XoUF/tw2WzjpK2T15ybPyBfIE+f8EoUkHlDNrzXDKfc=;
+ b=DuHx9WexMTwEdZLVU0s0k5xvJdLgGOujCRwfmlrCosy0OrmyNRwX8OLAQbBBUt1ksKarP74qSS8e8gsga/Z1vJCmb9ItxtrdoDz8JuQXEinBczXIX+nYiX+H46Tw+RTJtDI7/k0wWUy6AbfttXNEFCFtPR9zctvzSPPOuRNwwex1O8U2XxVXhvdLhnHNhxn0F6X3+V3L6YRVHjYMSaseSTnEVeismubGxXT0TEXHHDdbyQcAKf7wdAYo47P6+2jqT176OKdFY11aAicK+dxSgu8KNAhJzjhHeX9BimNkZr7ruG9b3Fg/IuWvg2B+9sVxi8YcK9kcr5x64JQUcgV4tA==
+Received: from TYSPR06MB7068.apcprd06.prod.outlook.com (2603:1096:400:466::8)
+ by JH0PR06MB6437.apcprd06.prod.outlook.com (2603:1096:990:2d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.21; Sat, 21 Jun
+ 2025 08:29:32 +0000
+Received: from TYSPR06MB7068.apcprd06.prod.outlook.com
+ ([fe80::e1c7:8707:7d43:bbed]) by TYSPR06MB7068.apcprd06.prod.outlook.com
+ ([fe80::e1c7:8707:7d43:bbed%4]) with mapi id 15.20.8857.025; Sat, 21 Jun 2025
+ 08:29:32 +0000
+From: Cool Lee <cool_lee@aspeedtech.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, "adrian.hunter@intel.com"
+	<adrian.hunter@intel.com>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-mmc@vger.kernel.org"
+	<linux-mmc@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: RE: [PATCH 1/8] mmc: sdhci-of-aspeed: Fix sdhci software reset can't
+ be cleared issue.
+Thread-Topic: [PATCH 1/8] mmc: sdhci-of-aspeed: Fix sdhci software reset can't
+ be cleared issue.
+Thread-Index: AQHb3/anykUBDV8RQEG+uyGdBhEOerQIRHyggANpggCAABWdQA==
+Date: Sat, 21 Jun 2025 08:29:31 +0000
+Message-ID: <TYSPR06MB706845CACFD7095F53BBCDCD957FA@TYSPR06MB7068.apcprd06.prod.outlook.com>
+References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
+	 <20250615035803.3752235-2-cool_lee@aspeedtech.com>
+	 <80f56269175d8658ba1ab4a1fe9a43d18294ca60.camel@codeconstruct.com.au>
+	 <TYSPR06MB7068A5F04CE0A5BDB03073C0957DA@TYSPR06MB7068.apcprd06.prod.outlook.com>
+ <2d17ec4f5f9e2cfd75902217a8dd621538a73bc2.camel@codeconstruct.com.au>
+In-Reply-To: <2d17ec4f5f9e2cfd75902217a8dd621538a73bc2.camel@codeconstruct.com.au>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYSPR06MB7068:EE_|JH0PR06MB6437:EE_
+x-ms-office365-filtering-correlation-id: 36349963-7c8c-463d-1c3c-08ddb09dbf1a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020|13003099007|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?T1JzVGdiMXVHb3lobXlBRVQ5VE9UUXlmRHJiN1V4eTE4ZlVJb2lZK2E3azNK?=
+ =?utf-8?B?V1RocHAvYmp5WXNCS3JhV01vWkhQQ2lqU3FRR1ROaWlIUWNkRGwxWXUxTDZv?=
+ =?utf-8?B?Q3RkaDNSRDZEbVpWd1k4NnBPWFBQaEErSVhzc1E2ZGZNNW0rWk51bzVFT05Z?=
+ =?utf-8?B?Q3NUR1pqY3VoeDFmSVZaR2I4MUxhZVcyQWhTUVZ0WjNyMnRnOS9vSFIwL1l6?=
+ =?utf-8?B?ajlwYTlLanUvYWtxQmJRdnpod0J6bE93VjQ3bnpjV2MzUjRVOWd5QXRmTVY3?=
+ =?utf-8?B?NHpOZXZDM25nVHpNSDNHMVgwVTZ6eU5wbEtzQ1ZlV1RHdC9GZG84QjJWeFFI?=
+ =?utf-8?B?YXVFR2NlRzVkNFEzNEQweDhqUzByR1BwZFBzd20xUGpqNEtNNGtwZHB3elpV?=
+ =?utf-8?B?RUo4dkFlQ1UzUWxoWmFSVGFJcXZvWUF6YnJXc0U5VDZGRnNPaWc0WjhVdFRQ?=
+ =?utf-8?B?VktsZy84RTJOaHB1Q0QraTJIM3FlWFRXbWpsWWExT0hEcmlaeHE2bVE3a3RZ?=
+ =?utf-8?B?RzFaSDNiRlMrcEo2WEFFSlBpRnZFK2VuYXkweXV6TlkwSnh1eGhVemR0TTZY?=
+ =?utf-8?B?RDBGbDlta2lPQSt6RndJYzF2VVVGNlMxWlBFcVVFK2tmS2RJMVIwNDU3bE1m?=
+ =?utf-8?B?ekQzMlhVdTgrSGk2eWM4cnpiaEtJaTU5SDRjdDNMYVdrSEVVeEYxS1dZYTlt?=
+ =?utf-8?B?aHBhZENVUzd5SHNLU0ZYcHhXYkdFTm5ESE0wOFJERFpYdGg4bitMYzZzaW95?=
+ =?utf-8?B?cTZUMVB5WXllaHlzeHE1ZnZUcjBVNDRISDZuQkNSNEEwbS9vaVZPZjlsWTNW?=
+ =?utf-8?B?clVqdi9nckJwYnR6WXVMeHNIVnFpcnNGZWI1ekNZNHVaeFY0VzZkcnllYXJW?=
+ =?utf-8?B?Z002WERORklSVWpsR2lTeUlUcHVXQzNiWHNUR0UyU3ZzK2VUdXNZRmZ4QWc4?=
+ =?utf-8?B?L2hwYitXWUU5S3FVcWxhN0MyUFBiNitINEhmT1dJMnpoa1A2Qno2MW1Ec2tO?=
+ =?utf-8?B?M1ZsUWJrSis4c0puUVV0RUtyTjhpRTVrODBIckcxaVR2VSsyNVBkWjF1TGZQ?=
+ =?utf-8?B?dGJJYTVsa2dFdS80SFR3aStZOGpJNi9tRllmMFNUSWVNbStlb1o3c1UrN2dM?=
+ =?utf-8?B?bHpaUlB2ajVIUzFvb1hGLzNUQlpkL25ZMmJRMS80UGFscGJjNWNMZWVWNStn?=
+ =?utf-8?B?cHhOcUx0YnhOSSt2WWtiYkY0TFBKalROZElwZW9rRktFQWNsejM3OXNFT2ox?=
+ =?utf-8?B?SVVoSnQ0MzlHY1NwRWFyemF3YTJWYWFFYStEdkVSUnJHbkliUVU1RUhoR0ha?=
+ =?utf-8?B?OXc5cjlGSC9sZDk5V1BjQjdVTFVtR2ZtSmVDOHk3TUZyK3NiSlN5eXB1Qmpz?=
+ =?utf-8?B?VmpaMERTOG1jYnY2YlFtak54STU5ak1rVEpaZGcweDdpZzZpK0dsV0dtdjJs?=
+ =?utf-8?B?eUU2N1dUdGwwdW0vaDFDTTc4ZCtSVnlIN1dHdkxRc0h4cjlGa1dqanMwK3ha?=
+ =?utf-8?B?cFordzBBbWl4bmdWVzd1TXFKU084ZjlrbGt0VjE4eXlHaU1hWjlyZmhVMXpk?=
+ =?utf-8?B?ejJJbGZmcnpLNWVRd2dLOVFyd1dXNmt5ZElvVngwd1NIYzRKNlhadVZHZzZy?=
+ =?utf-8?B?N0t0NHBPYWUwUXd1R0xPNThadjMxR25vempNSWRaejdPT21OdWtHTEViUTV4?=
+ =?utf-8?B?Q2pKWWlSdjZZdzVGZkN3ZHlSRXRnbTNUcUNJZDJxUXhuR1F3Ukt6NjRRSUN1?=
+ =?utf-8?B?Tlp3NkpEQlp1aitLbTdxRnIyaWFXdXV2dE5pUDVpS25wZ0I3WVdVOGtVRy9q?=
+ =?utf-8?B?dE5Fc1lhVU9UbGZXZ1RIN1FPLzR4MmRxSTE1WkVpNE1sR2dMTGhPd3pveW9D?=
+ =?utf-8?B?NFVIOFJOVU45dW0vNGdraklZVlllVlY3V0F3cEhHOTBHb1NhU3BDcGNsVzZW?=
+ =?utf-8?B?eDJySlJLYW50aXlTR3pwLzlLcTFxWVVHbnJNUmJLZUQwcDBINHhObUhZaDJZ?=
+ =?utf-8?B?VFU1dktRTWd6RkcybnZhOFdodDNxU016MmdpVUhXNE9RT1NZOTdkb2VQUGRW?=
+ =?utf-8?Q?pWMETX?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYSPR06MB7068.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020)(13003099007)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eDFIQXJEaU9rN3QrT1BEZU1aSXZlY2RCMGNkeTVJNmRBaXk5Ky92Y3FTUHVl?=
+ =?utf-8?B?RGt4dFlTU291QklMeDc3VlZvYVV6ZHFRajRDdDkyMUlPOCtCT3VDKy9tenpj?=
+ =?utf-8?B?MUw3aHhCd0gvVFpFMzJVV0VkVkk1Y0tsRVZUMklleDBjSk0zWll2bXhlVHdD?=
+ =?utf-8?B?SXVyaEJyR2RTY2d0UkIzaE1RUVg0V0Fkb3pLMEJtRUdsUk9QL2VOMkxpOTFG?=
+ =?utf-8?B?a2U2ODNyMFh2T1pVQWg1bzQ0Y3ZVcmRYNUprZTNFbVB0Z0tJSVgxbjBadmFz?=
+ =?utf-8?B?UkZPd0F5Z2ZvQS9nbVBBVTcxSlAwYk9UUnRiQVlmaVpZbWxOUHQ3ZzIzWmFL?=
+ =?utf-8?B?Y3NtSXl5ZUJKRXlERnVrUlpiVXl6dXYxOXlubjI3T2hBeTd5TWMxTEFZb0NP?=
+ =?utf-8?B?Zi9kVlNWSjdWaDljZXQzSWJOdEtxOURWaWQ1eXFVOEEvdkFsZ1ZFU0Q2Qmg0?=
+ =?utf-8?B?UTlyVzZ2M2NmeDJUZDR4MHJMRmd5Z1owRmNtK3hyQmpZb2NDVmVKMHJHOEFR?=
+ =?utf-8?B?MnZzbi9JZVRuSUpNYjYxUkhqVnMvdjB0MzBhU04wY0F4dXVEUHNxa29NcG42?=
+ =?utf-8?B?YnUwcENPYm1rTE1JNDRMeWEySWdaUHRLMmZBQnJqNmZxTjQwbVVkYWxGekJM?=
+ =?utf-8?B?SG05U2VQcWIzMXB0eFJBdkpQTDBVdHRGTytpYXBJOUQvMkdFaEpERXJpMExK?=
+ =?utf-8?B?YzA2Q3RmR01UcUlEK3pBRTI1YzVEb0NpWTBGMUh6eWZza1h4N3hCM09Ba29t?=
+ =?utf-8?B?bE9STnZxNmZ4WFpXZUp3ZWd2VVQ4VlMxQnltNC9wV0RHWng0WGlDcjZjb2Jp?=
+ =?utf-8?B?azZrcTd5M2c2Z2p1TTNqRVVkZzdoOEh6QXBzWGg4dEpRMnhGaVhOdjVJL25T?=
+ =?utf-8?B?ZGMrSmduK3hjUDdLanJGWnEwcDBURUdyelN6MllEbnpyZlVQYUJlc0FOY3ZV?=
+ =?utf-8?B?MVdSUlNsNTJzd2hXNmViVjIwNXRFZlJ6RjZ4bFdrRVFsMTJKTFNCQzF4VVc2?=
+ =?utf-8?B?VHpmOHppK1JsWXR3a2ZHckFHSkZjZk9GQkFFL3BoWllQSHM4YWtLTzM2K0xT?=
+ =?utf-8?B?RE80ajR0cXoxOWFqTWdaT2ZubFdBdDc0bVNKeE5YL29IRkxWU1lpQVRxQ1pM?=
+ =?utf-8?B?VUZKSng4MU9adVlCYnVuOTNqUHZCVmRUcEhodzVzeWJIbG9ISlV4TGtZenFT?=
+ =?utf-8?B?c2hhaTF0OU5aeUdkR1Q0SkpEeFJ5OEdUNEdtRWlZQ1ZIWkJsVFhnSTFMbk55?=
+ =?utf-8?B?aHdnSlRmWldIWVNVL21uZnM2TzNDMUNUYUtkb3JIYkxTWDFmMS9FbExCZE41?=
+ =?utf-8?B?R2l1MXJHc25Zdy9vR0h3MUc2QU5lQjZOZ3B1Q1lpRzMyY0NaY2xJR3MvUnE3?=
+ =?utf-8?B?TW5IOU1NWkxQa1pDbEZjd3FxRkZNL2xJSTdKYXB2V205V24wbng0V25XMW1k?=
+ =?utf-8?B?elVVSloxQ1hBYU11SVBvaENSWm85L21VVWNqUGhwbEJ5dW9HbVU5M3EwREk5?=
+ =?utf-8?B?OUdEVXpDN3dDejNmUzIvMEMyUkdhdi9iNng0RjI2UnR3b0o4SXorVjZsSjF2?=
+ =?utf-8?B?L1ovT3dvWFdUWCs2RlVuOUNoK0hZVVBmRWNjS3EvejZJdHJxdm45Mk8vSFNn?=
+ =?utf-8?B?SnFmdGJ0YmwwOFYvaXBnc2UveWV0R3NuNXlTOFFJOTBFTWlZaE9SWUhYcWFR?=
+ =?utf-8?B?SWJpcDg4YnBjWkRsNVV6UUJsRnlESldYd1MybGhLdVNZRjhNY0lvWjUreTZw?=
+ =?utf-8?B?L0VWWlhYZFBMcEovYVYyR2ZDL0VHM3JtekhNdk9IOTB6a2plTDlERzNBSU0x?=
+ =?utf-8?B?UHcvVGl3UEdJam9HbDc2ZnE3bnEveEhrQ1Z5WVlyK05wSVhzSFlRRTdUR2pG?=
+ =?utf-8?B?YXlxSUNTcjFLbDN0RURtZlpNbjNLNFlZQW1DclRvUU1tY3NoVDBFTndWYUlN?=
+ =?utf-8?B?RHVtUFRzZXlVWlVrZ3NZd1BIQlN1NkJxUDlZOEZMcnU1cTlacjBwRitVK1ZY?=
+ =?utf-8?B?cHRTcFZEWEV4N0g3VmtlUVhVV0NUdDZCRFhlNi9NZTlxV3pEdGh5RXVEdUVt?=
+ =?utf-8?B?Y3ZWMk1hNHNaOE9jbUNlMTliWU82TGxkTmEzZ1lpYnQvTk1IV1VzTHNCQ2pN?=
+ =?utf-8?Q?jCFQzQ5Ei46NmtYQ1qsoUuDRa?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Sat, 21 Jun 2025 13:40:37 +0530
-X-Gm-Features: Ac12FXzzjuLKwwB_cXCZktPbz85J27-ZMylRTlHgzb69EvDP-QZzdbjC_WTRMfQ
-Message-ID: <CA+G9fYuOnfvm7N0pa=PNvq=tQsp6CVA34eDq5=rGthEBrdMJuQ@mail.gmail.com>
-Subject: next-20250620: Qualcomm Dragonboard 845c Internal error Oops at ufs_qcom_setup_clocks
-To: open list <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, lkft-triage@lists.linaro.org, 
-	Linux Regressions <regressions@lists.linux.dev>, linux-phy@lists.infradead.org, 
-	linux-scsi@vger.kernel.org
-Cc: Nitin Rawat <quic_nitirawa@quicinc.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Bart Van Assche <bvanassche@acm.org>, 
-	Bjorn Andersson <andersson@kernel.org>, konrad.dybcio@oss.qualcomm.com, 
-	dmitry.baryshkov@oss.qualcomm.com, Manivannan Sadhasivam <mani@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYSPR06MB7068.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 36349963-7c8c-463d-1c3c-08ddb09dbf1a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jun 2025 08:29:31.8391
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JZkE/4P2m5eS2z9TeAmTIbvzlVtYwRjyRYbtmT9wKEUQMThogh/ZM70EtTUXzt0wkwAOE5E5qgMR/kznd3hJHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6437
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_011050_648774_2C9A9943 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_012947_058479_D2B540F0 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,146 +190,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Regressions noticed on the Qualcomm Dragonboard 845c device while booting the
-Linux next tags from next-20250616..next-20250620 the following kernel oops
-noticed and boot failed.
-
-Regressions found on Thundercomm Dragonboard 845c (DT)
-- Boot
-
-Regression Analysis:
-- New regression? Yes
-- Reproducibility? Yes
-
-First seen on the next-20250616
-Good: next-20250613
-Bad:  next-20250616
-
-Boot regression: Qualcomm Dragonboard 845c Internal error Oops at
-ufs_qcom_setup_clocks
-
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-## Boot log
-[    6.446825] ufshcd-qcom 1d84000.ufshc: ufshcd_populate_vreg: Unable
-to find vccq2-supply regulator, assuming enabled
-[    6.448070] Unable to handle kernel NULL pointer dereference at
-virtual address 0000000000000000
-[    6.448080] Mem abort info:
-[    6.448086]   ESR = 0x0000000096000006
-[    6.448093]   EC = 0x25: DABT (current EL), IL = 32 bits
-[    6.448101]   SET = 0, FnV = 0
-[    6.448107]   EA = 0, S1PTW = 0
-[    6.448113]   FSC = 0x06: level 2 translation fault
-[    6.448120] Data abort info:
-[    6.448125]   ISV = 0, ISS = 0x00000006, ISS2 = 0x00000000
-[    6.448132]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[    6.448139]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[    6.448146] user pgtable: 4k pages, 48-bit VAs, pgdp=000000010447b000
-[    6.448154] [0000000000000000] pgd=080000010447d403,
-p4d=080000010447d403, pud=080000010447e403, pmd=0000000000000000
-[    6.448186] Internal error: Oops: 0000000096000006 [#1]  SMP
-[    6.448193] Modules linked in: qcom_q6v5_mss(+) ufs_qcom(+)
-cfg80211(+) coresight_stm stm_core phy_qcom_qmp_pcie rfkill qcom_wdt
-lmh(+) icc_osm_l3 qrtr slim_qcom_ngd_ctrl slimbus pdr_interface
-qcom_pdr_msg icc_bwmon qcom_q6v5_pas(+) llcc_qcom qcom_pil_info
-display_connector qcom_q6v5 qcom_sysmon drm_kms_helper qcom_common
-qcom_glink_smem mdt_loader qmi_helpers drm backlight socinfo rmtfs_mem
-[    6.448278] CPU: 6 UID: 0 PID: 385 Comm: (udev-worker) Not tainted
-6.16.0-rc2-next-20250620 #1 PREEMPT
-[    6.448288] Hardware name: Thundercomm Dragonboard 845c (DT)
-[    6.448292] pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    6.448299] pc : ufs_qcom_setup_clocks+0x28/0x148 ufs_qcom
-[    6.448317] lr : ufshcd_setup_clocks
-(drivers/ufs/core/ufshcd-priv.h:142 drivers/ufs/core/ufshcd.c:9290)
-[    6.448332] sp : ffff800081213640
-[    6.448335] x29: ffff800081213640 x28: 0000000000000001 x27: ffff00008b633270
-[    6.448347] x26: ffff00008b6332a0 x25: ffff00008b632870 x24: 0000000000000000
-[    6.448359] x23: ffff00008b633280 x22: ffff00008b6332a0 x21: 0000000000000000
-[    6.448369] x20: ffffd7eabf84d618 x19: ffff00008b632870 x18: 0000000000000000
-[    6.448380] x17: 5453595342555300 x16: 305f666d745f6973 x15: 0000000000000100
-[    6.448391] x14: ffffffffffffffff x13: 0000000000000030 x12: 0101010101010101
-[    6.448402] x11: ffff00008188ea18 x10: 0000000000000000 x9 : ffffd7eabd9c3c28
-[    6.448413] x8 : ffff8000812134b8 x7 : fefefefefefefefe x6 : 0000000000000001
-[    6.448423] x5 : ffffffffffffffc8 x4 : 00000000c0000000 x3 : ffffd7eab32aa058
-[    6.448433] x2 : 0000000000000000 x1 : 0000000000000001 x0 : ffff00008b632870
-[    6.448444] Call trace:
-[    6.448449] ufs_qcom_setup_clocks+0x28/0x148 ufs_qcom (P)
-[    6.448466] ufshcd_setup_clocks (drivers/ufs/core/ufshcd-priv.h:142
-drivers/ufs/core/ufshcd.c:9290)
-[    6.448477] ufshcd_init (drivers/ufs/core/ufshcd.c:9468
-drivers/ufs/core/ufshcd.c:10636)
-[    6.448485] ufshcd_pltfrm_init (drivers/ufs/host/ufshcd-pltfrm.c:504)
-[    6.448495] ufs_qcom_probe+0x28/0x68 ufs_qcom
-[    6.448508] platform_probe (drivers/base/platform.c:1404)
-[    6.448519] really_probe (drivers/base/dd.c:579 drivers/base/dd.c:657)
-[    6.448526] __driver_probe_device (drivers/base/dd.c:799)
-[    6.448532] driver_probe_device (drivers/base/dd.c:829)
-[    6.448539] __driver_attach (drivers/base/dd.c:1216)
-[    6.448545] bus_for_each_dev (drivers/base/bus.c:370)
-[    6.448556] driver_attach (drivers/base/dd.c:1234)
-[    6.448567] bus_add_driver (drivers/base/bus.c:678)
-[    6.448577] driver_register (drivers/base/driver.c:249)
-[    6.448584] __platform_driver_register (drivers/base/platform.c:868)
-[    6.448592] ufs_qcom_pltform_init+0x28/0xff8 ufs_qcom
-[    6.448605] do_one_initcall (init/main.c:1274)
-[    6.448615] do_init_module (kernel/module/main.c:3041)
-[    6.448626] load_module (kernel/module/main.c:3511)
-[    6.448635] init_module_from_file (kernel/module/main.c:3704)
-[    6.448644] __arm64_sys_finit_module (kernel/module/main.c:3715
-kernel/module/main.c:3741 kernel/module/main.c:3725
-kernel/module/main.c:3725)
-[    6.448653] invoke_syscall (arch/arm64/include/asm/current.h:19
-arch/arm64/kernel/syscall.c:54)
-[    6.448661] el0_svc_common.constprop.0
-(include/linux/thread_info.h:135 (discriminator 2)
-arch/arm64/kernel/syscall.c:140 (discriminator 2))
-[    6.448668] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-[    6.448674] el0_svc (arch/arm64/include/asm/irqflags.h:82
-(discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
-1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
-arch/arm64/kernel/entry-common.c:165 (discriminator 1)
-arch/arm64/kernel/entry-common.c:178 (discriminator 1)
-arch/arm64/kernel/entry-common.c:768 (discriminator 1))
-[    6.448685] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:787)
-[    6.448694] el0t_64_sync (arch/arm64/kernel/entry.S:600)
-[ 6.448705] Code: a90157f3 aa0003f3 f90013f6 f9405c15 (f94002b6)
-All code
-========
-   0: a90157f3 stp x19, x21, [sp, #16]
-   4: aa0003f3 mov x19, x0
-   8: f90013f6 str x22, [sp, #32]
-   c: f9405c15 ldr x21, [x0, #184]
-  10:* f94002b6 ldr x22, [x21] <-- trapping instruction
-
-Code starting with the faulting instruction
-===========================================
-   0: f94002b6 ldr x22, [x21]
-[    6.448710] ---[ end trace 0000000000000000 ]---
-
-## Source
-* Kernel version: 6.16.0-rc2-next-20250620
-* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
-* Git sha: 2c923c845768a0f0e34b8161d70bc96525385782
-* Git describe: next-20250620
-* Project details:
-https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250620/
-* Architectures: arm64 Dragonboard 845c
-* Toolchains: gcc-13
-* Kconfigs: defconfig+lkfttestconfigs
-
-## Build arm64
-* Test log: https://qa-reports.linaro.org/api/testruns/28811906/log_file/
-* Test Lava log: https://lkft.validation.linaro.org/scheduler/job/8323501#L5646
-* Test Lava log 2:
-https://lkft.validation.linaro.org/scheduler/job/8323351#L5682
-* Test details:
-https://regressions.linaro.org/lkft/linux-next-master/next-20250620/boot/gcc-13-lkftconfig/
-* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2yj4otvwBRT4UktLTyKEN8ZtUQm/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2yj4otvwBRT4UktLTyKEN8ZtUQm/config
-
---
-Linaro LKFT
-https://lkft.linaro.org
+DQo+ID4NCj4gPiA+ID4gUmVwbGFjZSBzZGhjaSBzb2Z0d2FyZSByZXNldCBieSBzY3UgcmVzZXQg
+ZnJvbSB0b3AuDQo+ID4gPiA+DQo+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IENvb2wgTGVlIDxjb29s
+X2xlZUBhc3BlZWR0ZWNoLmNvbT4NCj4gPiA+DQo+ID4gPiBDYW4geW91IHBsZWFzZSBhZGQgYSBG
+aXhlczogdGFnPw0KPiA+IFRoaXMgcGF0Y2ggd2Fzbid0IHVzZWQgdG8gZml4IGEgY29tbWl0LiBU
+aGlzIGlzIGEgd29ya2Fyb3VuZCBmb3IgYSBoYXJkd2FyZQ0KPiBidWcuDQo+IA0KPiBBIGhhcmR3
+YXJlIGJ1ZyBpbiB3aGljaCBTb0NzPyBBU1QyNDAwLUFTVDI3MDA/IE9yIGp1c3QgdGhlIEFTVDI3
+MDA/DQpUaGlzIGlzIGEgYnVnIG9uIGFsbCBwbGF0Zm9ybXMsIGV4Y2VwdCBBU1QyNzAwLg0KDQo+
+IA0KPiA+IEZvciB0aGlzIGNvbmRpdGlvbiwgZG8gSSBuZWVkIGEgRml4ZXM/DQo+IA0KPiBJZiB0
+aGUgYnVnIGV4aXN0cyBmb3IgYWxsIFNvQ3MgaXQncyBhIGRlZmljaWVuY3kgaW4gdGhlIG9yaWdp
+bmFsIGRyaXZlciBhbmQgc28gc2hvdWxkDQo+IGhhdmUgYSBGaXhlczogdGFnLg0KT2ssIEknbGwg
+ZG8gdGhpcy4NCg0KPiANCj4gPiA+DQo+IA0KPiA+ID4gPiArDQo+ID4gPiA+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBmb3IgKGkgPSAwOyBpIDwgQVJSQVlfU0laRShyZWdfYXJyYXkp
+OyBpKyspDQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgc2RoY2lfd3JpdGVsKGhvc3QsIHNhdmVfYXJyYXlbaV0sDQo+ID4gPiA+ICtyZWdfYXJy
+YXlbaV0pOw0KPiA+ID4gPiArDQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqBzZGhjaV93cml0ZXcoaG9zdCwgdHJhbl9tb2RlLA0KPiA+ID4gU0RIQ0lfVFJBTlNGRVJfTU9E
+RSk7DQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB3cml0ZWwobW1jOF9t
+b2RlLCBhc3BlZWRfc2RjLT5yZWdzKTsNCj4gPiA+ID4gKw0KPiA+ID4gPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgYXNwZWVkX3NkaGNpX3NldF9jbG9jayhob3N0LCBob3N0LT5jbG9j
+ayk7DQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoH0NCj4gPiA+ID4gKw0KPiA+ID4gPiArwqDCoMKg
+wqDCoMKgwqBzZGhjaV9yZXNldChob3N0LCBtYXNrKTsNCj4gPiA+DQo+ID4gPiBHaXZlbiB0aGF0
+IHdlIGRvIHRoaXMgYWZ0ZXIgdGhlIFNDVSByZXNldCBhYm92ZSwgd2hhdCBleGFjdGx5IGlzIHRo
+ZQ0KPiA+ID4gU0NVIHJlc2V0IGZpeGluZz8gQ2FuIHlvdSBwcm92aWRlIG1vcmUgZGV0YWlscz8N
+Cj4gPiBUaGUgaXNzdWUgaXMgc2RoY2kgU29mdHdhcmUgUmVzZXQgQUxMICgweDEyQ1syNF0pIGNh
+bm5vdCBjb21wbGV0ZSB3aGljaA0KPiBtZWFucyBpdCdzIGFsd2F5cyBiZWluZyAxIGFuZCBub3Qg
+YmFjayB0byAwLg0KPiA+IFRoZSByb290IGNhdXNlIGlzIHdoZW4gc2RoY2kgZG1hIG9wZXJhdGVz
+LCBpdCBtaWdodCBob2xkIHNvbWUgc3RhdGUgc2lnbmFscw0KPiB3aGljaCBpcyBub3Qgd2VsbCBj
+bGVhcmVkIGJ5IFNvZnR3YXJlIFJlc2V0LiBUaGVzZSBzaWduYWxzIHByZXZlbnQgU29mdHdhcmUN
+Cj4gUmVzZXQgdG8gYmUgY2xlYXJlZC4NCj4gPiBUaGlzIGlzIGEgaGFyZHdhcmUgaXNzdWUgc28g
+dGhhdCB0aGUgd29ya2Fyb3VuZCBpcyByZXNldHRpbmcgd2hvbGUgU0RIQ0kNCj4gY29udHJvbGxl
+ciBmcm9tIFNDVSByZXNldC4NCj4gDQo+IENhbiB5b3UgcGxlYXNlIHB1dCB0aGVzZSBkZXRhaWxz
+IGluIHRoZSBjb21taXQgbWVzc2FnZT8NCk9rLCBJJ2xsIGRvIHRoaXMuDQoNCj4gDQo+ID4NCj4g
+PiA+DQo+ID4gPiA+ICt9DQo+ID4gPiA+ICsNCj4gPiA+ID4gwqBzdGF0aWMgY29uc3Qgc3RydWN0
+IHNkaGNpX29wcyBhc3BlZWRfc2RoY2lfb3BzID0gew0KPiA+ID4gPiDCoMKgwqDCoMKgwqDCoMKg
+LnJlYWRfbCA9IGFzcGVlZF9zZGhjaV9yZWFkbCwNCj4gPiA+ID4gwqDCoMKgwqDCoMKgwqDCoC5z
+ZXRfY2xvY2sgPSBhc3BlZWRfc2RoY2lfc2V0X2Nsb2NrLA0KPiA+ID4gPiDCoMKgwqDCoMKgwqDC
+oMKgLmdldF9tYXhfY2xvY2sgPSBhc3BlZWRfc2RoY2lfZ2V0X21heF9jbG9jaywNCj4gPiA+ID4g
+wqDCoMKgwqDCoMKgwqDCoC5zZXRfYnVzX3dpZHRoID0gYXNwZWVkX3NkaGNpX3NldF9idXNfd2lk
+dGgsDQo+ID4gPiA+IMKgwqDCoMKgwqDCoMKgwqAuZ2V0X3RpbWVvdXRfY2xvY2sgPSBzZGhjaV9w
+bHRmbV9jbGtfZ2V0X21heF9jbG9jaywNCj4gPiA+ID4gLcKgwqDCoMKgwqDCoMKgLnJlc2V0ID0g
+c2RoY2lfcmVzZXQsDQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoC5yZXNldCA9IGFzcGVlZF9zZGhj
+aV9yZXNldCwNCj4gPiA+ID4gwqDCoMKgwqDCoMKgwqDCoC5zZXRfdWhzX3NpZ25hbGluZyA9IHNk
+aGNpX3NldF91aHNfc2lnbmFsaW5nLA0KPiA+ID4gPiDCoH07DQo+ID4gPiA+DQo+ID4gPiA+IEBA
+IC01MzUsNiArNTgyLDEyIEBAIHN0YXRpYyBpbnQgYXNwZWVkX3NkY19wcm9iZShzdHJ1Y3QNCj4g
+PiA+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+ID4gPg0KPiA+ID4gPiDCoMKgwqDCoMKg
+wqDCoMKgc3Bpbl9sb2NrX2luaXQoJnNkYy0+bG9jayk7DQo+ID4gPiA+DQo+ID4gPiA+ICvCoMKg
+wqDCoMKgwqDCoHNkYy0+cnN0ID0gZGV2bV9yZXNldF9jb250cm9sX2dldCgmcGRldi0+ZGV2LCBO
+VUxMKTsNCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgaWYgKCFJU19FUlIoc2RjLT5yc3QpKSB7DQo+
+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXNldF9jb250cm9sX2Fzc2Vy
+dChzZGMtPnJzdCk7DQo+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXNl
+dF9jb250cm9sX2RlYXNzZXJ0KHNkYy0+cnN0KTsNCj4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgfQ0K
+PiA+ID4gPiArDQo+ID4gPg0KPiA+ID4gVGhlIGNsb2NrIGRyaXZlciBmb3IgdGhlIEFTVDI0MDAs
+IEFTVDI1MDAgYW5kIEFTVDI2MDAgbWFuYWdlcyB0aGUNCj4gPiA+IHJlc2V0IGFzIHBhcnQgb2Yg
+bWFuYWdpbmcgdGhlIGNsb2NrWzFdWzJdLg0KPiA+ID4NCj4gPiA+IFsxXToNCj4gPiA+IGh0dHBz
+Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4
+LmdpdC90DQo+ID4gPiByZWUvZHJpdmVycw0KPiA+ID4gL2Nsay9jbGstYXNwZWVkLmM/aD12Ni4x
+Ni1yYzIjbjcxDQo+ID4gPiBbMl06DQo+ID4gPiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9z
+Y20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdA0KPiA+ID4gcmVlL2RyaXZl
+cnMNCj4gPiA+IC9jbGsvY2xrLWFzcGVlZC5jP2g9djYuMTYtcmMyI24yMDkNCj4gPiA+DQo+ID4g
+PiBXaGF0IHlvdSBoYXZlIGhlcmUgYXNrcyBmb3IgYSByZXNldHMgcHJvcGVydHksIGJ1dCB0aGF0
+J3Mgbm90DQo+ID4gPiBjdXJyZW50bHkgc3BlY2lmaWVkIGluIHRoZSBkZXZpY2V0cmVlIGJpbmRp
+bmcuDQo+ID4gPg0KPiA+ID4gU286IGlzIHRoZSBjbG9jayBkcml2ZXIgbm90IGRvaW5nIHRoZSBy
+aWdodCB0aGluZyBnaXZlbiB3ZSBlbmFibGUNCj4gPiA+IHRoZSBjbG9jayBkaXJlY3RseSBiZWxv
+dyB0aGlzIGh1bms/IElmIG5vdCwgc2hvdWxkIHdlIGZpeCB0aGF0IGluc3RlYWQ/DQo+ID4gPg0K
+PiA+ID4gV2UgY2FuIGFkZCB0aGUgcmVzZXRzIHByb3BlcnR5IHRvIHRoZSBiaW5kaW5nLCBidXQg
+SSdkIGFsc28gbGlrZSBhDQo+ID4gPiBiZXR0ZXIgZXhwbGFuYXRpb24gb2YgdGhlIHByb2JsZW0u
+DQo+ID4gRm9yIGxlZ2FjeSBwcm9qZWN0cywgdGhlIGNsb2NrIHByb3BlcnR5IGhhbmRsZXMgcmVz
+ZXQgc2ltdWx0YW5lb3VzbHkgaW4gdGhlDQo+IGNsb2NrIGRyaXZlci4NCj4gPiBGb3IgbmV3IHBy
+b2plY3QgQVNUMjcwMCwgY2xvY2sgYW5kIHJlc2V0IGFyZSBzZXBhcmF0ZWQsIGFuZCB3ZSBhZGQg
+YSByZXNldA0KPiBwcm9wZXJ0eSB0byB0aGUgYmluZGluZy4NCj4gPiBIZW5jZSwgdGhlIHBhdGNo
+IHdvbid0IGFmZmVjdCB1bnRpbCB0aGUgcmVzZXQgcHJvcGVydHkgdG8gdGhlIGJpbmRpbmcuDQo+
+ID4gU2hvdWxkIEkgYWRkIHRoZSByZXNldCBwcm9wZXJ0eSBpbiB0aGlzIHBhdGNoIHNlcmlvdXM/
+DQo+IA0KPiBZZXMsIHBsZWFzZS4NCk9rLCBJJ2xsIGRvIHRoaXMuDQoNCj4gDQo+IEFuZHJldw0K
 
