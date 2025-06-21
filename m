@@ -4,151 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5BEC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 05:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03425C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 07:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIgn7SL0TtQ55YACedjuQ0Y3gwIeSXteZ6U8meVU2/w=; b=hxDH5sdzJ2d6uvmhawSrqc3d0U
-	0/fkxwCgnVuvLH5C5qlBWbD9IwmyrDw7ZhcW6N2fmgjCQE7DzN7sdJFAZn7ATuWs0/xX5ugCuUzZd
-	/hnd+eDy64W5NQ4a+vjUju23Ve2iT0yrBkcd98z+XIgI2a7Da2L/FI7oMHP6Z6pJcninqFM2iggvk
-	aR2Wva4wRXSeUcpT5/amkmTgfkGu34zVzDgAJIoBUli8BaZinsMSm5j2VmWPDS4a7r4tndt8jZIug
-	Dd7N6+act7fzbCx+u7dxsr/zfJiFpGFEojRqpa2kLqJLxTXeWCojtG5BnTx5LWAo9q4u2TSw5NraA
-	GgAKrqiA==;
+	bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=; b=zXy1x4C/ZBstHPFL/M3Gur7GYm
+	na0KCO3khI2XXrVbGZ3Zuof3Br6FogcVd/CZNSQGmjOg3vMgWrAaVI3Au04lTigDD/+8eXzRN809h
+	CWYob31GpZApdIVUTE3qzgRwGimRecbzjXYE7BArlf82jYwfeDbIZpHdXgWMVKvj7AdANJFqjSqt+
+	rT8cNX070QpsR2d6t8BWsibIz9h1IEl9fLBhq5VlaZdtg8q5bDnj3cWIhvwu3jPsjrFtuK9okoemN
+	VNR2caG18/Zepub80C+/5604f7J1IYMtmk4zB0m8ZuUlIMcTy5bbCBWP8YBZ0T4t+KCsWd/KlNkoX
+	SEi1LGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSqxA-0000000H8i0-2pzr;
-	Sat, 21 Jun 2025 05:39:48 +0000
-Received: from mail-bn7nam10on2062e.outbound.protection.outlook.com ([2a01:111:f403:2009::62e] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uSsVh-0000000HBzy-1Eyw;
+	Sat, 21 Jun 2025 07:19:33 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSquv-0000000H8aG-3Muw
+	id 1uSsTR-0000000HBsZ-2OVB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 05:37:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pfYjOG9CLitEwjkGo6fMPHIS94nLikxAR1ltabQcH/wcmSkxx+dFwRWj+wBtHOaxm8f70sOO3ar59j4yB0Okeu6raJ7Z5s9t9Ii9KvgV4kHzOVOf0Hvl4VsoEOUG/Bkd3vdtBLjma90X2VS+2MZj95Ij1Jm6Al8SRvBWPa23ts6YXZC/veYfsBHCD1ula15PebsZUtkVK9DIlwh5ADQJf46VEr0cS/jp/qUZO4MaD0YV3jH8olS2cdFhnQXDzhYIWLPgmlO6KGTu1JCq7xsdRDcWQIo+Nks28XVP9lpTHOPTyFH3C/CzbyBye7r31KWgAOKFXAJgm0vcE2KBdKO5VA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LIgn7SL0TtQ55YACedjuQ0Y3gwIeSXteZ6U8meVU2/w=;
- b=DNYphH3gQYYe0WxFn/clSMsbkO+8aPP5m9gY+JqO6xjcwvtatlWnNnr+GCNZ4QKWzDh3kBFUMHPk50QnwDPkQU3ps+FatmWSs9f3CtS3/CFB4aIe9seUb2+efhQlwU9aXARL5FtkfViQJKO2h3hGlCJvkEVpW0m4YJQkn2KQfC6oJI4kgpbnlsq+S8y68Lx/m008hpHsb+ue3QY2fcdWC2ybFI4zhDe29n2+/Dy6BrxgjoPCdch1Khn+0JV4NYUjzLk/W9iW3KBWE3PU9ntNzUK2+U7QV0irFRA83BC6OV+G7bZ86/w8T1HDy5x5dgnolnjrWrhOrMkJusQVmxXWGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LIgn7SL0TtQ55YACedjuQ0Y3gwIeSXteZ6U8meVU2/w=;
- b=aSAB/ePXf3cFYiRDawp0vNx/WM+d2ILCza/wisyNvV99l2y7+rJipBkSUXE6hZV2gVg9+m9YwAttY01FTPXqen3OpIdCjXdRzINbeMtalzCUKTXxhH7mC/yzwQ8mS9cmZFfDcnat7X/y6cV/kLm2p6Hfo0meE4Y+ESKmnFxH/tEG3gbxEIrG+6PLgvtkb6yPLx31EFLYPSJgMc7wp2c0S01FfJnrfUDyqiD3dzTsFPUP+GemSfwukdv2VFECiK4dTwFf18tOAqE7q3ub2ZYado+60io/+WE9ejLw7Zj0+wGCWnc2jje3uDeXtrrsI+QiAHezWNquvFPBSPe+nCtrqQ==
-Received: from CH0PR03CA0224.namprd03.prod.outlook.com (2603:10b6:610:e7::19)
- by SA0PR12MB7479.namprd12.prod.outlook.com (2603:10b6:806:24b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Sat, 21 Jun
- 2025 05:37:15 +0000
-Received: from CH1PEPF0000AD77.namprd04.prod.outlook.com
- (2603:10b6:610:e7:cafe::11) by CH0PR03CA0224.outlook.office365.com
- (2603:10b6:610:e7::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8857.25 via Frontend Transport; Sat,
- 21 Jun 2025 05:37:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH1PEPF0000AD77.mail.protection.outlook.com (10.167.244.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8857.21 via Frontend Transport; Sat, 21 Jun 2025 05:37:14 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 20 Jun
- 2025 22:37:06 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 20 Jun
- 2025 22:37:06 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 20 Jun 2025 22:36:59 -0700
-Date: Fri, 20 Jun 2025 22:36:56 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, Pranjal Shrivastava <praan@google.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v6 20/25] iommu/arm-smmu-v3-iommufd: Add hw_info to
- impl_ops
-Message-ID: <aFZE+MhTOCvbkKbH@nvidia.com>
-References: <cover.1749884998.git.nicolinc@nvidia.com>
- <f36b5e42bac83d0cdf5773cad1c3a44c3eaed396.1749884998.git.nicolinc@nvidia.com>
- <aFP4zHIVT6epJeLb@google.com>
- <20250619185325.GB17127@nvidia.com>
- <aFTWQ4v6aZABpzeV@google.com>
+	Sat, 21 Jun 2025 07:17:14 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ad89333d603so467162966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 00:17:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750490231; x=1751095031; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=;
+        b=II7oBFslUimhjal0j12LvTmDKkqULwx85NllM3tasVlUI/NBoL7QaZio3+PZ9WzXdX
+         pTaeI4FeDVt4H9AHgIWEof1dbPXnBppcMAbyuCOT7F1ZR6zzk7LtPYlJ7VkfJ0f7xLnG
+         8fiIErJC3kuvIeF5H7JHA1Cv9YODivC6QiqH8pZnyoa6q3JDDX0EYbsHY7tFQLkBtyWY
+         /vEXtD8/pHzi+DRQZ3Q5EplrLrORPsSid+mhI5RfE37rkqFus3YShWFl/cQ9Xh/FV736
+         FjcuTemZTTW/HMXjjZmoKYj5BDpz58vhGwK3pHX+Jv0rYjfqRQ7BLP/bJhnSSuKMNyul
+         bsLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750490231; x=1751095031;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=;
+        b=s2xh2ONAHzvRsLFwVB22UZ4Qj7GMyiKPEGR5BJOhO8Jdip4PfyWSwssYrGTNby4WU6
+         SNyMyiYb63SvAklCcNNPBfTlxwcjJ74kPpgbYMWCg0P8byIKvbmcTklJpRdbhJ+4DzXA
+         tFDVaSZAeTXKTMyq5m4FkrCbne4opnCkSjE3+VsU7qhj1f+ZEvhh/O1W/CKt+N7J8N3i
+         Al/ZMI/JxCqJ/B45bgT9QLHAp3yBWXg6rlf514N/JFAUYvpzOMf+wb9/AysP4hjuTfkq
+         D7qr3KXdyTS8PKqZnyVL+WrOpdTRLww+7WOEOPbcTR6UWVh7TdFQbHwcQsnLnC7S0ANG
+         WbnA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7rjP4C69cwbrSvadSdVQkaEmkwsoGnT/89cg9Uq9w4kXN7K2iCnxbQzmNBt6mC972ybDuPXzYjtv70n5i2F/N@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPQ9DcMa5jAumTAk8+DlgDOJDhATu+Q59pGVYmO2AWdwgNh8Cr
+	ylQCm4HkOf9lOvxnOOCSnk2MBa5+s2YCf1A5hn1Z5g/hLypUz+6yCLwE4bnXcCyvld8o7GF9E1x
+	YeEKYhboXBSYRh+yJjRDwy5wQGrx3JJA=
+X-Gm-Gg: ASbGncuHgTFR/CTQnVr4wQfR6bgB2LfmDEdrAwWAC25AJlmJrvL2IVChDGASb0BE8+r
+	1L3D6AeKncnTasr+BBDMwk/MyyiLGYwY5uPKCOZmYskB9uSdhZ3NauD5CyDCmj2ONUweJCjgRST
+	/0eoWrf7O66mG2i4sxRpPVF/31IEd7iwoVY6Y5U5Qidw==
+X-Google-Smtp-Source: AGHT+IH66doWMpGtWOMFqbeLqscHl6eWKJT3vUmx953SEzxCv+zBCKw7VBGa8S2Rn8h7FbOcfjnLkvGiGRemhUti3i0=
+X-Received: by 2002:a17:906:30cb:b0:ad2:4da6:f58c with SMTP id
+ a640c23a62f3a-ae057bdea98mr459148666b.46.1750490231238; Sat, 21 Jun 2025
+ 00:17:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aFTWQ4v6aZABpzeV@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD77:EE_|SA0PR12MB7479:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d76f8aa-2610-434a-5bf9-08ddb085adc0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DUyq0zFI0sBDjw/tijAV1DMo8WalCRlNiy0Zpdcz/7Aayf8/YMKgKFuaA5fs?=
- =?us-ascii?Q?WqYBO2ZiwKmbOHtftQaJY5g2ik7tDfZh2zaV7J9H85qRXvTpXpbZvNYEj2gx?=
- =?us-ascii?Q?r8nwwRhoyVg6y4jy54S3r5ZfYdzKdKJRy04jnWEHJRVFA82nxhmR5ekv6Yi1?=
- =?us-ascii?Q?jE4BdI8as8UxX2mXKN5CW84uh0yh/heeYEB55l8MQkBGtA2eaHeeFEw/Kn/0?=
- =?us-ascii?Q?JhKVHU3a020vGgCtMB3TvJoqd018q4uAsvKvmvD0Vo8S9JI7qFEYTWqzeBtU?=
- =?us-ascii?Q?0h16CTZmfLyKt0R392lpa+11Vx7gTHwYrb0Q2NQzv1D3VjRnn+jAOR1EiYxW?=
- =?us-ascii?Q?YZHZqInSXmEnLcvw+jmxmiMnCm4LdWwgxi9LbcJL0o1SNgibtunA9TqACx2j?=
- =?us-ascii?Q?xi/iR9TZCF+ClD9AUXw3fODv95At0pjS6LB/S0hSUPamR3Wt0WtgFhxjVQUG?=
- =?us-ascii?Q?SyzwP71IOsjq14uAOwYp9R8ifU2veHGiT+Loz/a+hY83+8SHQKRM4KQCmlLY?=
- =?us-ascii?Q?jWVCH+o+3YZ7gLM7raJYTdbH9qqHlvf+GCmOiNbtnSese/VDERBDIWORQ7wH?=
- =?us-ascii?Q?2aKlS3btar0wyHemBcoA+ihNkoYR2DLU4IiN0e/M6tqrYGKueKdEY2BPJUqh?=
- =?us-ascii?Q?/tZh4L2kUkwYSFIoYn8sCnpORl3fEXtCjs2Og8W5xkE6Q1GxRc06INwF9Mt4?=
- =?us-ascii?Q?QoQMmn7GQrrCKmAylyj/lvvKr1PCF7eokKZwnXbJaC/uBQJ/SNeT6PZVj9fA?=
- =?us-ascii?Q?HboM5+yFYZeM1ohcAe/TkY/cgJjwgX1w2PQar6C/vZMt5swjqZkZejVAHNhH?=
- =?us-ascii?Q?hkyJ37oAY43X2sJlV1Muh9IikXTsfXB278iTBg5CpKk4jFFf20jg6wtEMS4q?=
- =?us-ascii?Q?pilNStimqr1tvqQeYOp4EaRG9Ja5fCTRNwKmlyNZyzlW+sa0vEzb+mcEqkHD?=
- =?us-ascii?Q?dAg4puqpiCZrHLFVUxEV6kyxJipEyl15WdY2TRl65XxuCT7Tlien2MY0svCi?=
- =?us-ascii?Q?B0vF1iPTcxKsCbhN2uBNaLIiO186oiOFyhNU84V6AVFiRY5Da+P8Fsu7zjBc?=
- =?us-ascii?Q?HezpE4hEKq2Ie49C37XLED6XTc6exfAk0G/+fA/veE0+EJbw/oFwyC0jrjxm?=
- =?us-ascii?Q?uir2WZZNKu8k8VBR2Xrf33KHnZnU1lu58R4YRrEPgKYP+9YQiNUHYIr1egZI?=
- =?us-ascii?Q?fCt6aA0TvDll1CuTB0pieahfMUzbBQJd6RfB7m9BsGmsz3tPA8HW+YTqD1BX?=
- =?us-ascii?Q?paQ7TokCCth8bGRlVXDnERrm+ZU6Dal+2+lR/odqTxrl3rA9ZSoTopXqH/s7?=
- =?us-ascii?Q?UuAmTnDi+pTjMSzsnph7bQQ0F/1H9n8TUkf/65DKIxvnNYcKbb+C/AiY+4ZN?=
- =?us-ascii?Q?YCwIHzMqiInyGWhwss/PzSEvpEDc1QZDioUDu/5alVZiEvD581ujjZ6QRuSg?=
- =?us-ascii?Q?3qryjkkxgXJrXIoPJ0eMjzHVphAuUNVdrkLkjdoWxryZc+cjm/X+DbMhZCnw?=
- =?us-ascii?Q?FGqw6cDQ0KIiOYTm8OO+0/C86DqnMzQeX1xS?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jun 2025 05:37:14.7086
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d76f8aa-2610-434a-5bf9-08ddb085adc0
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD77.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7479
+References: <CGME20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f@eucas1p2.samsung.com>
+ <20250616163831.8138-3-linux.amoon@gmail.com> <20250618115211.2239335-1-m.majewski2@samsung.com>
+ <CANAwSgRV=JT+qdAN=M46CZdWaSZnjazdw66fQETw7HeEcLSx8A@mail.gmail.com>
+In-Reply-To: <CANAwSgRV=JT+qdAN=M46CZdWaSZnjazdw66fQETw7HeEcLSx8A@mail.gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sat, 21 Jun 2025 12:46:53 +0530
+X-Gm-Features: Ac12FXyDzDmafHO30O7tOj_g1UTTGVYFB7ldEiK1JVaf1dtCf3kj-sESMmUqQko
+Message-ID: <CANAwSgQ=G1yJXOg1LdeEf-J56epyNiohCSdNYUvs2AHNv90Hkg@mail.gmail.com>
+Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature threshold
+ interrupts and clear corresponding IRQs
+To: Mateusz Majewski <m.majewski2@samsung.com>
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
+	rui.zhang@intel.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_223729_837124_79151DDD 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250621_001713_614861_65F375E1 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,32 +98,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 03:32:19AM +0000, Pranjal Shrivastava wrote:
-> My point is that in-case someone passed INTEL_VTD type, we would end up
-> calling impl_ops->hw_info and then the impl_ops->hw_info shall check for
-> the type to return -EOPNOTSUPP. Either we should clearly mention that
-> each impl_op implementing hw_info *must* add another type and check for
-> it
+Hi Mateusz,
 
-Let's add this:
+On Thu, 19 Jun 2025 at 11:15, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Hi Mateusz,
+>
+> On Wed, 18 Jun 2025 at 17:22, Mateusz Majewski <m.majewski2@samsung.com> wrote:
+> >
+> > Hello :)
+> >
+> > > +#define INTSTAT_FALL2        BIT(24)
+> > > +#define INTSTAT_FALL1        BIT(20)
+> > > +#define INTSTAT_FALL0        BIT(16)
+> > > +#define INTSTAT_RISE2        BIT(8)
+> > > +#define INTSTAT_RISE1        BIT(4)
+> > > +#define INTSTAT_RISE0        BIT(0)
+> > > +
+> > > +#define INTCLEAR_FALL2       BIT(24)
+> > > +#define INTCLEAR_FALL1       BIT(20)
+> > > +#define INTCLEAR_FALL0       BIT(16)
+> > > +#define INTCLEAR_RISE2       BIT(8)
+> > > +#define INTCLEAR_RISE1       BIT(4)
+> > > +#define INTCLEAR_RISE0       BIT(0)
+> >
+> > > +     /* Map INTSTAT bits to INTCLEAR bits */
+> > > +     if (val_irq & INTSTAT_FALL2)
+> > > +             clearirq |= INTCLEAR_FALL2;
+> > > +     else if (val_irq & INTSTAT_FALL1)
+> > > +             clearirq |= INTCLEAR_FALL1;
+> > > +     else if (val_irq & INTSTAT_FALL0)
+> > > +             clearirq |= INTCLEAR_FALL0;
+> > > +     else if (val_irq & INTSTAT_RISE2)
+> > > +             clearirq |= INTCLEAR_RISE2;
+> > > +     else if (val_irq & INTSTAT_RISE1)
+> > > +             clearirq |= INTCLEAR_RISE1;
+> > > +     else if (val_irq & INTSTAT_RISE0)
+> > > +             clearirq |= INTCLEAR_RISE0;
+> >
+> > This implies that only these 6 bits are used. Is this true for all SoCs
+> > supported by this driver? My understanding is that Exynos 5433 in particular
+> > uses bits 7:0 for rise interrupts and 23:16 for fall interrupts. When I tested
+> > this patch (both alone and the whole series) on 5433 by running some CPU load,
+> > the interrupt seemed to not fire consistently:
+> > /sys/class/thermal/cooling_device1/cur_state would never go above 1 (which is
+> > consistent with the interrupt firing once, not getting cleared and never firing
+> > again; without this patch, it consistently went up to 6) and I got a quick
+> > reboot every time.
+> >
+> Thanks for the feedback,
+>
+> As per the user manual Exynos4412
+> INTSTAT and INTCLEAR have a clear mapping with bits
+> falling 20, 16, 12 and rising 8 4 0
+>
+> whereas Exyno5422 has
+> INTSTAT and INTCLEAR have a clear mapping with bits
+> falling 24, 20, 16, and rising 8 4 0
+>
+> Yes, it could differ for all the SoCs,
+> I don't have the user manual or TRM for these SoCs
+> to configure correctly.
+>
+> I tried to configure this, referring to the comment in the driver
+>         /*
+>          * Clear the interrupts.  Please note that the documentation for
+>          * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
+>          * states that INTCLEAR register has a different placing of bits
+>          * responsible for FALL IRQs than INTSTAT register.  Exynos5420
+>          * and Exynos5440 documentation is correct (Exynos4210 doesn't
+>          * support FALL IRQs at all).
+>          */
+>
+> By the way, I don't see Exynos5433 and Exynos7 support
+> INTSTAT and INTCLEAR registers. We are using TMU_REG_INTPEND
+>  to read and update the same register.
+>
+>         if (data->soc == SOC_ARCH_EXYNOS5260) {
+>                 tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
+>                 tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
+>         } else if (data->soc == SOC_ARCH_EXYNOS7) {
+>                 tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
+>                 tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
+>         } else if (data->soc == SOC_ARCH_EXYNOS5433) {
+>                 tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
+>                 tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
+>         } else {
+>                 tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
+>                 tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
+>         }
+>
+I don't have Exynos  Arm64 boards to test on
 
-@@ -721,6 +721,11 @@ struct arm_smmu_impl_ops {
-        int (*init_structures)(struct arm_smmu_device *smmu);
-        struct arm_smmu_cmdq *(*get_secondary_cmdq)(
-                struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
-+       /*
-+        * An implementation should define its own type other than the default
-+        * IOMMU_HW_INFO_TYPE_ARM_SMMUV3. And it must validate the input @type
-+        * to return its own structure.
-+        */
-        void *(*hw_info)(struct arm_smmu_device *smmu, u32 *length, u32 *type);
-        const size_t vsmmu_size;
-        const enum iommu_viommu_type vsmmu_type;
+I believe the Exynos5433 and Exynos7 also use the same
+register addresses for INTSTAT and INTCLEAR.
 
-And I found that we could have another patch changing "u32 *type"
-to "enum iommufd_hw_info_flags *type" to avoid some duplications
-in the kdocs.
+[1] https://github.com/universal5433/android_kernel_samsung_universal5433/blob/lineage-18.1/drivers/thermal/exynos_thermal.c#L854-L892
+[2] https://github.com/enesuzun2002/android_kernel_samsung_exynos7420/blob/nx-9.0/drivers/thermal/cal_tmu7420.c#L14-L221
+
+If you have details on how INTSTAT and INTCLEAR are used
+particularly regarding the update bits, please share them.
+Specifically, I'm interested in how bits [7:0] correspond to rising edge
+interrupts and bits [23:16] to falling edge interrupts
+I feel it's the same as Exynos54222.
+
+Can you test with these changes? If you have any suggestions,
+please feel free to share them
 
 Thanks
-Nicolin
+-Anand
 
