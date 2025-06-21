@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CA7C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 07:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F6EC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 07:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6oppky/HuD45K/qSvDG5L56EwYU89EoqMPm448d4Ck=; b=gcGsBIdFjcSeZcCAFiEFEe35EW
-	Gu83CsXvssDomzVZjYhwMYkEBaR6hXKFgiQrj7lIHBqUAehaSOG22rx0WkU/LxnwXa1stUcTs1ZEP
-	P0RD7ogWncUhbYMEVnYVa/4JdLfA3dgQ3hwbrJ39T1pAAoc/aQf/SURuGuXeov03iU7W/TRahreG8
-	HnACMUYdMet0QhlNK8LSPApTGkVwnrjmdiqMt+p/VbfUNCD7GwluH2SGvh17JfO6UsF/oaxQ0Agrp
-	PMj1H9f4I7EeDUVWh3auLGnlfW2h84pz9evMw5fCQWU1pMQ2z8d7T1ACF+PBwBBW/aRXWt5bEvP0P
-	vejDwUOw==;
+	bh=ZitZ8bWumcyW1MR/MaKS/o+JAIlQ+zy7xef+odnx7uM=; b=cBgjgCx2/h/ig0pEfWOzoU9eUQ
+	Z2Oj4WyJtVr7teErNytoqnPTr8g2w63bJqfqFx1ajx+QnUEPXy/gKQurKaswIzmD6xzPzFavc/IRl
+	DT0RvJSTvPurHUsA6Yxjj+j8WDwJvjArdE4f3CI+tiFGO/0thGKiH3NbCtK5a84XWfoqGNTHW5nvt
+	z7YEKuEOPwkraVDEVGnfjzDBTJgDS/CEdtOfcfGbIjHkm9mnm3bCbg1tzefPMEOLlqiGpcylV+udq
+	Yau6T+hFSi9SVTBpeyHHZYs9BBK0Hm/agD0JjAYb7mMNG+VjOPvdD3jHmeWlE/nb3hb1mxu3j7M9O
+	1E+otIPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSslL-0000000HClb-257U;
-	Sat, 21 Jun 2025 07:35:43 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uSsr3-0000000HD2J-0N2h;
+	Sat, 21 Jun 2025 07:41:37 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSsj6-0000000HCdF-3u5B
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 07:33:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=P6oppky/HuD45K/qSvDG5L56EwYU89EoqMPm448d4Ck=; b=zZr2EyrtjfAoEXFVpYOe75oQ7C
-	h7TTzyrajv6hQX9CQRFer7tonijLaBrMATW2Af3XwfGWeRRSSnYo4QAsOnMN617iU76K89P+BTqKD
-	dvyxUfF6yMdcRPzJ0FGgkLwtXlaTAZ2uEO/Stp7DvKShIXT1kDz50KFkVIhJIh7fBY3Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uSsin-00GZCR-UD; Sat, 21 Jun 2025 09:33:05 +0200
-Date: Sat, 21 Jun 2025 09:33:05 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
-Message-ID: <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
-References: <20250619200537.260017-1-sean.anderson@linux.dev>
- <20250619200537.260017-5-sean.anderson@linux.dev>
+	id 1uSsoo-0000000HCuI-203c;
+	Sat, 21 Jun 2025 07:39:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=ZitZ8bWumcyW1MR/MaKS/o+JAIlQ+zy7xef+odnx7uM=; b=C4NDFT8ANCUVmX3P5VsdZa6rIK
+	/P3uu4Zg9awdZuPmOmGaCBUFrChk/ie0XymVM4KlvFRBxN3MHvPl36nrvChRlXiaeQro08YdVsIpi
+	friKF9S3HzhCpJzy+007YBHJMZzP9K68EKsSCER1eQWAXmZDyunU5C0IUelZVjvWv3Ctf6UnjhNZF
+	YB6b6VtqSfe6W/tkaiVwIbiBQpwD6dz7rsT1Ix4gAl92HEolqEZ9kXwG1Dtal6XTJJYSCNqtKCnnF
+	JglR3KkfRhdGmVzl2iOGB4OGcNVidSBtzSc628JPCpGWvyJb3R65zV3wJvuILAsQQvhZOx7yaDaU0
+	vzEvGF6Q==;
+Received: from 85-207-219-154.static.bluetone.cz ([85.207.219.154] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uSsof-0004Xc-TU; Sat, 21 Jun 2025 09:39:09 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-rockchip@lists.infradead.org,
+ Geraldo Nascimento <geraldogabriel@gmail.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rick wertenbroek <rick.wertenbroek@gmail.com>, linux-phy@lists.infradead.org,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v6 0/4] PCI: rockchip: Improve driver quality
+Date: Sat, 21 Jun 2025 09:39:08 +0200
+Message-ID: <4760493.mogB4TqSGs@phil>
+In-Reply-To: <cover.1750470187.git.geraldogabriel@gmail.com>
+References: <cover.1750470187.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250619200537.260017-5-sean.anderson@linux.dev>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_003324_968292_EB424027 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_003918_538435_DBBBEBA0 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
-> Returning EPROBE_DEFER after probing a bus may result in an infinite
-> probe loop if the EPROBE_DEFER error is never resolved.
+Hi Geraldo,
 
-That sounds like a core problem. I also thought there was a time
-limit, how long the system will repeat probes for drivers which defer.
+Am Samstag, 21. Juni 2025, 03:47:51 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Geraldo Nascimento:
+> During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+> some quality improvements began to take form and this is my attempt
+> at upstreaming it. It will ensure maximum chance of retraining to Gen2
+> 5.0GT/s, on all four lanes and fix async strobe TEST_WRITE disablement.
 
-This seems like the wrong fix to me.
+just a driver by comment, you might want to drop the RFC element from
+the patch subjects.
 
-	Andrew
+It does look like things take form nicely and how people read those
+RFC marks varies wildly. Some may even read it as "this is unfinished"
+or something and spent review time on other things.
+
+So if you're mostly happy with your changes, just drop the RFC part :-)
+
+
+> ---
+> V5 -> V6: reflow to 75 cols, use 5.0GTs instead of Gen2 nomenclature,
+> clarify strobe write adjustment and remove PHY_CFG_RD_MASK
+> V4 -> V5: fix build failure, reflow commit messages and also convert
+> registers for EP operation, all suggested by Ilpo
+> V3 -> V4: fix setting-up of TLS in Link Control and Status Register 2,
+> also adjust commit titles
+> V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+> suggestion
+> V1 -> V2: use standard PCIe defines as suggested by Bjorn
+>=20
+> Geraldo Nascimento (4):
+>   PCI: rockchip: Use standard PCIe defines
+>   PCI: rockchip: Set Target Link Speed before retraining
+>   phy: rockchip-pcie: Enable all four lanes if required
+>   phy: rockchip-pcie: Properly disable TEST_WRITE strobe signal
+>=20
+>  drivers/pci/controller/pcie-rockchip-ep.c   |  4 +-
+>  drivers/pci/controller/pcie-rockchip-host.c | 48 +++++++++++----------
+>  drivers/pci/controller/pcie-rockchip.h      | 12 +-----
+>  drivers/phy/rockchip/phy-rockchip-pcie.c    | 15 +++----
+>  4 files changed, 36 insertions(+), 43 deletions(-)
+>=20
+>=20
+
+
+
+
 
