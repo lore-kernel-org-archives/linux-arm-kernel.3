@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49724C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 11:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758FEC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 12:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ir11YpcbwxWD+w+nzz2s0FsuVrnNjiwPhxkmWuSazqw=; b=FXjp24u8r9TwK5Z1bEHF4JP9J2
-	GNj+5qOPWZubrmLySoegWg6Qdq/UM8PUWm2swuGJ7TcAW/Zf191zu4syXpHeiNjYGgw44J6BGjqgH
-	Ob8jF5iYRNn9yIj5dSUfZohI2bVeUvya1yTtxZIJ+07BQ3KVyvXgkaBbvLBwCCUBf6h72Um0LwIWJ
-	AnGX+WNeoyH6kOdSzGYSsyobvG9wKl7EDC0YRM5winnP8EGf12UWAOejy2L/UWm6K5hdQ4qlKoZT/
-	pZs0BK1IamUXNTTRjezCPsaIIsbv1aE//44sjkX+JUM/gyt5It0zNrYWcBs0D/nsXBKPBTgfksAyv
-	QBXcKdFw==;
+	bh=fjFo4OcPQCDhs/fkG6WHOCsTe4/XpEYceoAXLfRtUA0=; b=PUA8KEsSon8qkVJ3EYGSx4o6So
+	NgrNe3DntcS5iZezRCxdJAqPNknrSTh12Q9m5saENvaF/e+2OzQtax15Vlgfmdg/7ysvTgsXwvxe6
+	QrRQXt65o1UCJpfnE1TK3MVeqxBWnGpb1sNhKaLq/szGMmjykVJ/j4sEEW8UXIFAwRxUiCONv6mj8
+	6SDdbU2tw9I811Ff2RAsO93s92btKxX18p3V+XaCZbz2PSVfZco+xiUPtutapsVapPICb1sCxQI0B
+	bjFH2SJBcIxwOOQ6tuSlLwn9Z6rb7/ieuPx9SZKavmcjOCJeMtAIZArpCUAW/dSedqn7LXtNUyXgs
+	UVo6qd3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSwbE-0000000HPFv-2Gmw;
-	Sat, 21 Jun 2025 11:41:32 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uSxgv-0000000HRvc-0Tiq;
+	Sat, 21 Jun 2025 12:51:29 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSwYy-0000000HPAE-1OVL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 11:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1750505949;
- bh=ir11YpcbwxWD+w+nzz2s0FsuVrnNjiwPhxkmWuSazqw=;
- b=dSYTpBQmGRmwze8YHSaJlkEW3c6M1mKz7foeTNWjnKodkrE43+IuMlcJ6iB4LL7Ciu5kTzvWz
- ReU7xQKNsyPzBHhEzhKH+JIknt6CkT1TKfPE9cY7OcDP9gEWl1MNxjEfuuifshuavhgeG4WQRhx
- xJbU9IYMsLmi4NMJwx8ToZz+2OVKZX6aH/WB6SpDYhlJ8+oljINsU9yXrwjb4D/W7XaxU73I+ME
- +S153F9mPEwuUDvfAYa0ebHiIWk+9d2Kc/RTZ1cNx5xR/7m2JDJRxPOkS8s9nuIap3ONcGw9tnh
- TXwMA4XCgqmKW3ODH4+2UzoxKvc2+HwuhRi6dgOgqKDg==
-X-Forward-Email-ID: 685699d9f0bccf4584158851
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: devicetree@vger.kernel.org,
+	id 1uSxee-0000000HRmE-274p;
+	Sat, 21 Jun 2025 12:49:09 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-708d90aa8f9so26762817b3.3;
+        Sat, 21 Jun 2025 05:49:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750510147; x=1751114947; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fjFo4OcPQCDhs/fkG6WHOCsTe4/XpEYceoAXLfRtUA0=;
+        b=GzpwCBV5kS7UbLF56VYsu6dkHYv8RV6yNjvzvsglQYivPC3cAPdFaBLdlKZaKvZJ1l
+         npT/YOBH4vQdR+8HUt2RfwB1K8dy5+wNjR13kJVb+AcXH4ps5TPtnDXf6q9q/ibXXLIJ
+         EBhAWL+kCnK1pITvGPwJNFyAlzSD0uPW3eEoW24vfdxBnY1LeNdq1ZnWRT0aTh9dhYz2
+         wXwgxKdpFAS1B4gS01/rQd9HvfYfwMyQPVhfI+a/pt+tP3eW6XGzxG6516u99Ei4UXEM
+         v30R6sf/a+4RdM1jP4Q674SFTQqCro1nCFNZuiuKTcOAGIzpoadvKrL/QszdWtaTUNx4
+         SNCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750510147; x=1751114947;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fjFo4OcPQCDhs/fkG6WHOCsTe4/XpEYceoAXLfRtUA0=;
+        b=PojWylrPg/hj4UkAxE96IMSOrfItcCBKBEKt99JAZCK7J9W+TPYgzh08Elkx2HMjJN
+         M8HEp3C2r6ycmZdNflIKttozwQQH6U260okbNrpE52Tzugy7qsPETK1MN+N8hHEy2S4O
+         4+XVVtO7qDfzQTA5M4S8ac/B8yFZzP2IwtldVxswrfcDMKzS6t9SiKUq2xOnMlBPaF7p
+         +LRsXnDP1uWovKGedLjTRXDd4egnuaW9xR/ctK7Iq4bMVJUHugNmPVnCVqgTUy/P5Llc
+         fS3H5BcseLymV/CgkNzCv74dRVFOoo+V3ADT+0mM1yRgeW8Nb9RBXAPNo29w1X3HAyEo
+         R2SQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBieEmP0GQHSfXpq7Tn3In91axDC4OGqml8s6sm9XhVTCTIALR34MVBPoYjanor6XRtnaaMlTq4zxr7ZIoyLS5@lists.infradead.org, AJvYcCXD0Bt+XgeL5hI/6huWVpx0WQXXkhxW9JRVUQXjEs84ln/3YVE2/7pXFvkpsnNJk1Izvo1ToyX3cPd5KgG/Npo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAwZaLulDLDoGpDZxKCsNHj67RWUR9BwrUVMU1ODQMrRZPeMQN
+	P+qvycYGdNPvqpnaKXGm4NQLhrrX6gDH2hdCfhgm6zSLr9+/7l0Xzti5
+X-Gm-Gg: ASbGncvCRHkrt5UCggJNjQGVzIbn5KA3EjUXNC+qGVLw4Ji8tDvwzvp2qBKqf0P1nrj
+	c7s8XXVxJutFgX85yRh5S4cKxK4X379QSy9ZbPw5AbeIhjP+clRhItJTOKrjmlas9b3oepBdlg+
+	uT98+xYEBx70JYrjhaJwJ37NAyshp8+pocN3GK5/wAN44yiHzzPfLAX9o5/QGhjPD45RcZ4Nrwb
+	CmO1l73BlmO1ue6pDP+l8Q520zxr++utdotFiA9qnmMezOUcnl3y+z86EpZDVAETj4MBLpbs6vl
+	t/Dwrgxj5MrowboCTAMFO3/a8qh6Z/jJb9Szg9wusv7zKsyaTNL491I3gmh6QxqdAPbGE8k=
+X-Google-Smtp-Source: AGHT+IGpXQnN3tAt0kNP39OWMV3gBlwYAWIavcD6N1VqsfZCkQau6Hx5p4QBL32otzK/bnphmUSnZA==
+X-Received: by 2002:a05:690c:7106:b0:70f:6ec6:62b3 with SMTP id 00721157ae682-712c6756223mr93147527b3.26.1750510147324;
+        Sat, 21 Jun 2025 05:49:07 -0700 (PDT)
+Received: from localhost.localdomain ([192.34.165.40])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-712c4a1625fsm8357727b3.27.2025.06.21.05.49.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Jun 2025 05:49:06 -0700 (PDT)
+From: John Clark <inindev@gmail.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix pinctrl node names for RK3528
-Date: Sat, 21 Jun 2025 11:38:57 +0000
-Message-ID: <20250621113859.2146400-1-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.49.0
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	John Clark <inindev@gmail.com>
+Subject: [PATCH v3 0/2] Add FriendlyElec NanoPi M5 support for Rockchip RK3576
+Date: Sat, 21 Jun 2025 08:48:58 -0400
+Message-Id: <20250621124900.214098-1-inindev@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_043912_704207_E2B776AF 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250621_054908_539869_354FE18D 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,127 +99,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following warnings can be observed with CHECK_DTBS=y for the RK3528:
+This series adds device tree support for the FriendlyElec NanoPi M5 board,
+powered by the Rockchip RK3576 SoC (4x Cortex-A72, 4x Cortex-A53, Mali-G52
+MC3 GPU, 6 TOPS NPU). The patches enable basic booting and connectivity,
+including dual 1Gbps Ethernet, USB 3.2, microSD, M.2 PCIe NVMe, and HDMI.
 
-  rk3528-pinctrl.dtsi:101.36-105.5: Warning (node_name_chars_strict):
-    /pinctrl/fephy/fephym0-led_dpx: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:108.38-112.5: Warning (node_name_chars_strict):
-    /pinctrl/fephy/fephym0-led_link: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:115.36-119.5: Warning (node_name_chars_strict):
-    /pinctrl/fephy/fephym0-led_spd: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:122.36-126.5: Warning (node_name_chars_strict):
-   /pinctrl/fephy/fephym1-led_dpx: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:129.38-133.5: Warning (node_name_chars_strict):
-    /pinctrl/fephy/fephym1-led_link: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:136.36-140.5: Warning (node_name_chars_strict):
-    /pinctrl/fephy/fephym1-led_spd: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:782.32-790.5: Warning (node_name_chars_strict):
-    /pinctrl/rgmii/rgmii-rx_bus2: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:793.32-801.5: Warning (node_name_chars_strict):
-    /pinctrl/rgmii/rgmii-tx_bus2: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:804.36-810.5: Warning (node_name_chars_strict):
-    /pinctrl/rgmii/rgmii-rgmii_clk: Character '_' not recommended in node name
-  rk3528-pinctrl.dtsi:813.36-823.5: Warning (node_name_chars_strict):
-    /pinctrl/rgmii/rgmii-rgmii_bus: Character '_' not recommended in node name
+Changes in v3:
+- Improved (even more) fspi1m1_pins comment for clarity, specifying
+  gpio1_d5, gpio1_c4-c7 (clk, d0-d4) for SPI NOR flash.
+- Removed redundant #address-cells and #size-cells from sfc1 node, as they
+  are inherited from rk3576.dtsi.
 
-Rename the affected nodes to fix these warnings.
+Changes in v2:
+- Fixed DT schema warnings (Rob Herring):
+  - Renamed spi-nor@0 to flash@0
+  - Renamed pmic@23 pinctrl nodes to end with -pins
+  - Renamed hym8563@51 to rtc@51 and removed clock-frequency
+  - Renamed button@1 to button-user
+- Addressed Heiko Stuebner's feedback:
+  - Sorted non-addressed nodes alphabetically
+  - Added blank lines in regulator nodes
+  - Improved fspi1m1_pins comment to clarify SPI NOR flash pinmux
+  - Moved status property in saradc to last
 
-Fixes: a31fad19ae39 ("arm64: dts: rockchip: Add pinctrl and gpio nodes for RK3528")
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Patch 1: Updates DT bindings in rockchip.yaml
+Patch 2: Adds NanoPi M5 device tree and Makefile entry
+
+No MAINTAINERS update needed, as the new file is covered by the existing
+ARM/Rockchip SoC entry.
+
+Tested on NanoPi M5 with successful boot and feature validation.
+
+Signed-off-by: John Clark <inindev@gmail.com>
 ---
- .../boot/dts/rockchip/rk3528-pinctrl.dtsi     | 20 +++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+John Clark (2):
+  dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
+  arm64: dts: rockchip: Add FriendlyElec NanoPi M5 support
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
-index ea051362fb26..59b75c91bbb7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
-@@ -98,42 +98,42 @@ eth_pins: eth-pins {
- 
- 	fephy {
- 		/omit-if-no-ref/
--		fephym0_led_dpx: fephym0-led_dpx {
-+		fephym0_led_dpx: fephym0-led-dpx {
- 			rockchip,pins =
- 				/* fephy_led_dpx_m0 */
- 				<4 RK_PB5 2 &pcfg_pull_none>;
- 		};
- 
- 		/omit-if-no-ref/
--		fephym0_led_link: fephym0-led_link {
-+		fephym0_led_link: fephym0-led-link {
- 			rockchip,pins =
- 				/* fephy_led_link_m0 */
- 				<4 RK_PC0 2 &pcfg_pull_none>;
- 		};
- 
- 		/omit-if-no-ref/
--		fephym0_led_spd: fephym0-led_spd {
-+		fephym0_led_spd: fephym0-led-spd {
- 			rockchip,pins =
- 				/* fephy_led_spd_m0 */
- 				<4 RK_PB7 2 &pcfg_pull_none>;
- 		};
- 
- 		/omit-if-no-ref/
--		fephym1_led_dpx: fephym1-led_dpx {
-+		fephym1_led_dpx: fephym1-led-dpx {
- 			rockchip,pins =
- 				/* fephy_led_dpx_m1 */
- 				<2 RK_PA4 5 &pcfg_pull_none>;
- 		};
- 
- 		/omit-if-no-ref/
--		fephym1_led_link: fephym1-led_link {
-+		fephym1_led_link: fephym1-led-link {
- 			rockchip,pins =
- 				/* fephy_led_link_m1 */
- 				<2 RK_PA6 5 &pcfg_pull_none>;
- 		};
- 
- 		/omit-if-no-ref/
--		fephym1_led_spd: fephym1-led_spd {
-+		fephym1_led_spd: fephym1-led-spd {
- 			rockchip,pins =
- 				/* fephy_led_spd_m1 */
- 				<2 RK_PA5 5 &pcfg_pull_none>;
-@@ -779,7 +779,7 @@ rgmii_miim: rgmii-miim {
- 		};
- 
- 		/omit-if-no-ref/
--		rgmii_rx_bus2: rgmii-rx_bus2 {
-+		rgmii_rx_bus2: rgmii-rx-bus2 {
- 			rockchip,pins =
- 				/* rgmii_rxd0 */
- 				<3 RK_PA3 2 &pcfg_pull_none>,
-@@ -790,7 +790,7 @@ rgmii_rx_bus2: rgmii-rx_bus2 {
- 		};
- 
- 		/omit-if-no-ref/
--		rgmii_tx_bus2: rgmii-tx_bus2 {
-+		rgmii_tx_bus2: rgmii-tx-bus2 {
- 			rockchip,pins =
- 				/* rgmii_txd0 */
- 				<3 RK_PA1 2 &pcfg_pull_none_drv_level_2>,
-@@ -801,7 +801,7 @@ rgmii_tx_bus2: rgmii-tx_bus2 {
- 		};
- 
- 		/omit-if-no-ref/
--		rgmii_rgmii_clk: rgmii-rgmii_clk {
-+		rgmii_rgmii_clk: rgmii-rgmii-clk {
- 			rockchip,pins =
- 				/* rgmii_rxclk */
- 				<3 RK_PA5 2 &pcfg_pull_none>,
-@@ -810,7 +810,7 @@ rgmii_rgmii_clk: rgmii-rgmii_clk {
- 		};
- 
- 		/omit-if-no-ref/
--		rgmii_rgmii_bus: rgmii-rgmii_bus {
-+		rgmii_rgmii_bus: rgmii-rgmii-bus {
- 			rockchip,pins =
- 				/* rgmii_rxd2 */
- 				<3 RK_PA7 2 &pcfg_pull_none>,
+ .../devicetree/bindings/arm/rockchip.yaml     |   6 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 999 ++++++++++++++++++
+ 3 files changed, 1006 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+
 -- 
-2.49.0
+2.39.5
 
 
