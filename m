@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03425C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 07:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93F0C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 07:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=; b=zXy1x4C/ZBstHPFL/M3Gur7GYm
-	na0KCO3khI2XXrVbGZ3Zuof3Br6FogcVd/CZNSQGmjOg3vMgWrAaVI3Au04lTigDD/+8eXzRN809h
-	CWYob31GpZApdIVUTE3qzgRwGimRecbzjXYE7BArlf82jYwfeDbIZpHdXgWMVKvj7AdANJFqjSqt+
-	rT8cNX070QpsR2d6t8BWsibIz9h1IEl9fLBhq5VlaZdtg8q5bDnj3cWIhvwu3jPsjrFtuK9okoemN
-	VNR2caG18/Zepub80C+/5604f7J1IYMtmk4zB0m8ZuUlIMcTy5bbCBWP8YBZ0T4t+KCsWd/KlNkoX
-	SEi1LGDw==;
+	bh=Bo59aSl355A+wShZW/KV0Ru3ekeBmk5oXEnZ7H/l/wg=; b=xrrCbmZGlQNZwEqJpdqZNZY7YO
+	DSTRnlkP0SzCnZP8qrwYuGdhQi8L0etR9h6PLH3bbYRP+riG6IX7q3jMdiByrbiCSKS71RqL4x1y6
+	kiFzSKBmkMQz9fax6DG5AFQofdGUsC6lySpjMHgElCdmDN/26DPJUPbq9HBYM5JYljjYxfeWDMrA6
+	M/qdgEOo2t2WRdvESCCJylxzi9rMmzD7fnjV6X3gXmkjxRv3uUezFQPh84HrEpct5IMSqeOLkDsHf
+	KM6EgRFJ1iTPeRZ/rJMLymLq1dpgEGZ7z+GnoWXcGEKVBP5CRcszCmvKBkX60so1GTjv7lwYrOexJ
+	ej1d6cAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSsVh-0000000HBzy-1Eyw;
-	Sat, 21 Jun 2025 07:19:33 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1uSsXt-0000000HCAp-44iF;
+	Sat, 21 Jun 2025 07:21:49 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSsTR-0000000HBsZ-2OVB
+	id 1uSsTp-0000000HBv5-2I8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 07:17:14 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ad89333d603so467162966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 00:17:12 -0700 (PDT)
+	Sat, 21 Jun 2025 07:17:38 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-604bff84741so4691882a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Jun 2025 00:17:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750490231; x=1751095031; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1750490256; x=1751095056; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=;
-        b=II7oBFslUimhjal0j12LvTmDKkqULwx85NllM3tasVlUI/NBoL7QaZio3+PZ9WzXdX
-         pTaeI4FeDVt4H9AHgIWEof1dbPXnBppcMAbyuCOT7F1ZR6zzk7LtPYlJ7VkfJ0f7xLnG
-         8fiIErJC3kuvIeF5H7JHA1Cv9YODivC6QiqH8pZnyoa6q3JDDX0EYbsHY7tFQLkBtyWY
-         /vEXtD8/pHzi+DRQZ3Q5EplrLrORPsSid+mhI5RfE37rkqFus3YShWFl/cQ9Xh/FV736
-         FjcuTemZTTW/HMXjjZmoKYj5BDpz58vhGwK3pHX+Jv0rYjfqRQ7BLP/bJhnSSuKMNyul
-         bsLw==
+        bh=Bo59aSl355A+wShZW/KV0Ru3ekeBmk5oXEnZ7H/l/wg=;
+        b=GQLEWURSlomqMdfPU43DgUKbczYCPhAtjiEI1gkPviEY69xggQumEVqdSpf1cmBKRP
+         Tpn8wLRmu7OtOBjnsNctv7hNWiA4Ltegbex/mPd1vgRAQCD3n2X59Lv6hPe0A+APmxwS
+         xtOnPjz8F3fuF96R/InHdfrZZ8Nv4HYOcUoHg0Eu3IFTFI9HS68T0SDw3+UozMbSm8Oc
+         OHWmSxaUXAx6fG//pA5w9QBoMchnh/gK6wuykmC2CuKg2EHRxvXp95iJlIcLzdCCovju
+         1NhmIleMsY36K/vGYHhrhcIYy3mXL32XydSn8IX5tTxSdaTU8woveQTcMmcasmXkkqUh
+         ftbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750490231; x=1751095031;
+        d=1e100.net; s=20230601; t=1750490256; x=1751095056;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/bcaFXfQWjofieOOSzrQZuk2N3r45IQ/D1htHwwGLOY=;
-        b=s2xh2ONAHzvRsLFwVB22UZ4Qj7GMyiKPEGR5BJOhO8Jdip4PfyWSwssYrGTNby4WU6
-         SNyMyiYb63SvAklCcNNPBfTlxwcjJ74kPpgbYMWCg0P8byIKvbmcTklJpRdbhJ+4DzXA
-         tFDVaSZAeTXKTMyq5m4FkrCbne4opnCkSjE3+VsU7qhj1f+ZEvhh/O1W/CKt+N7J8N3i
-         Al/ZMI/JxCqJ/B45bgT9QLHAp3yBWXg6rlf514N/JFAUYvpzOMf+wb9/AysP4hjuTfkq
-         D7qr3KXdyTS8PKqZnyVL+WrOpdTRLww+7WOEOPbcTR6UWVh7TdFQbHwcQsnLnC7S0ANG
-         WbnA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7rjP4C69cwbrSvadSdVQkaEmkwsoGnT/89cg9Uq9w4kXN7K2iCnxbQzmNBt6mC972ybDuPXzYjtv70n5i2F/N@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPQ9DcMa5jAumTAk8+DlgDOJDhATu+Q59pGVYmO2AWdwgNh8Cr
-	ylQCm4HkOf9lOvxnOOCSnk2MBa5+s2YCf1A5hn1Z5g/hLypUz+6yCLwE4bnXcCyvld8o7GF9E1x
-	YeEKYhboXBSYRh+yJjRDwy5wQGrx3JJA=
-X-Gm-Gg: ASbGncuHgTFR/CTQnVr4wQfR6bgB2LfmDEdrAwWAC25AJlmJrvL2IVChDGASb0BE8+r
-	1L3D6AeKncnTasr+BBDMwk/MyyiLGYwY5uPKCOZmYskB9uSdhZ3NauD5CyDCmj2ONUweJCjgRST
-	/0eoWrf7O66mG2i4sxRpPVF/31IEd7iwoVY6Y5U5Qidw==
-X-Google-Smtp-Source: AGHT+IH66doWMpGtWOMFqbeLqscHl6eWKJT3vUmx953SEzxCv+zBCKw7VBGa8S2Rn8h7FbOcfjnLkvGiGRemhUti3i0=
-X-Received: by 2002:a17:906:30cb:b0:ad2:4da6:f58c with SMTP id
- a640c23a62f3a-ae057bdea98mr459148666b.46.1750490231238; Sat, 21 Jun 2025
- 00:17:11 -0700 (PDT)
+        bh=Bo59aSl355A+wShZW/KV0Ru3ekeBmk5oXEnZ7H/l/wg=;
+        b=knQCLaWxf3MVOG0giNcPyDKEmI+6ssQU1KY8F34Zqoj2MXywKtiqrLcoge7dBZ1iP0
+         OJTdHGg2/YSGkRxMeGKZm4nrX0SEUm3NTwbaNbgF54VmqJ9XYdqGOwNaLI3bass2Hjs8
+         Z1HWfecyh2HmOqxyDK8Ef6sK9WUjVX0X9aG1p3FpxdYC78leATt0dEzdTeieRLxPvMim
+         5Jcl9nI7DURN2OzsMK3F5FkiyZ+1LAt2qMbM+uTqkHjhNGdPnsbOTH4k+94Hwd7B9G+K
+         YRZeNN+y9iE4cncg+FAYOENpkp0XulrM1RHfeM5TJBh0mbn8TvFzmITmhePOcY4lM9NF
+         PfpA==
+X-Forwarded-Encrypted: i=1; AJvYcCVuHR5xyXNSPa5oFbgTSVzdO3UgYHNjb/KIzLFb+Axe+94E3qrF6GT/Jf6owMMgni4Us+sg1hsNDdZEVjUrIQyn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb8Y7+xX8xKC357kPwC8MwxvKEieLpGB5UtIrGVH+lMKy/EiSE
+	KhfuwrBCldqbA5pzUGgIUZWvxPbfvJH86Thtq7AwmEVILRp3FuMubZBWqCrcktNb96Fgz/JKKaR
+	eyLbH2eUYzbTupZrDC5xZxRC9EajYhMY=
+X-Gm-Gg: ASbGnctOOSacKrDCHItfenZOnkTe2o3uzte1Bkn/NYoGsES/Gp9AV+KQMffc+lVSyGm
+	tC91lBRy6CFO+GtckZtYPqhizPGFUx9s0rhJXlVe0zXLo0aoiXRtbXHCmQqjleG5D3KAjolPIE5
+	6KGfmwQGykgTPD8Wjd9ZLcywEXST33KNpWecrYVBS/rg==
+X-Google-Smtp-Source: AGHT+IFJDhovq12Hf4eA4SNosqcCft5uT2vIt6ARrg45/n4N8HVFpkpi6/xoPTExRyFmBOJk7i7Y6xznFo8rDhMVMXI=
+X-Received: by 2002:a17:907:3d86:b0:ad5:8412:1c9 with SMTP id
+ a640c23a62f3a-ae057c709afmr512391466b.59.1750490255672; Sat, 21 Jun 2025
+ 00:17:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <CGME20250618115220eucas1p2b9d37e8cdd1997fa010f51cecdea5e4f@eucas1p2.samsung.com>
- <20250616163831.8138-3-linux.amoon@gmail.com> <20250618115211.2239335-1-m.majewski2@samsung.com>
- <CANAwSgRV=JT+qdAN=M46CZdWaSZnjazdw66fQETw7HeEcLSx8A@mail.gmail.com>
-In-Reply-To: <CANAwSgRV=JT+qdAN=M46CZdWaSZnjazdw66fQETw7HeEcLSx8A@mail.gmail.com>
+References: <CGME20250618125812eucas1p11a1ab5210d4efa95a51b3bc7c4f0924d@eucas1p1.samsung.com>
+ <20250616163831.8138-2-linux.amoon@gmail.com> <20250618125806.2260184-1-m.majewski2@samsung.com>
+ <CANAwSgQ-NFBtUareFmRzNVuKTSC8Vp7HTA0psBqYu2r=aqAGxg@mail.gmail.com>
+In-Reply-To: <CANAwSgQ-NFBtUareFmRzNVuKTSC8Vp7HTA0psBqYu2r=aqAGxg@mail.gmail.com>
 From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 21 Jun 2025 12:46:53 +0530
-X-Gm-Features: Ac12FXyDzDmafHO30O7tOj_g1UTTGVYFB7ldEiK1JVaf1dtCf3kj-sESMmUqQko
-Message-ID: <CANAwSgQ=G1yJXOg1LdeEf-J56epyNiohCSdNYUvs2AHNv90Hkg@mail.gmail.com>
-Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature threshold
- interrupts and clear corresponding IRQs
+Date: Sat, 21 Jun 2025 12:47:17 +0530
+X-Gm-Features: Ac12FXx6b9_Iy6FveNsY4BBaQRZfx2OrqYMft6MDANpLfMD2oPkqTyGtIAq5PSo
+Message-ID: <CANAwSgTBzpL+XMJGhG=38A7GOzeayZaG_2LTvsaE2=mF-pn5mg@mail.gmail.com>
+Subject: Re: [RRC v1 1/3] thermal/drivers/exynos: Remove unused base_second
+ mapping and references
 To: Mateusz Majewski <m.majewski2@samsung.com>
 Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org, 
 	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -82,8 +82,8 @@ Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
 	rui.zhang@intel.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250621_001713_614861_65F375E1 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20250621_001737_583298_F312388B 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,113 +98,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mateusz,
+Hi Mateusz
 
 On Thu, 19 Jun 2025 at 11:15, Anand Moon <linux.amoon@gmail.com> wrote:
 >
 > Hi Mateusz,
 >
-> On Wed, 18 Jun 2025 at 17:22, Mateusz Majewski <m.majewski2@samsung.com> wrote:
+> On Wed, 18 Jun 2025 at 18:28, Mateusz Majewski <m.majewski2@samsung.com> wrote:
 > >
-> > Hello :)
+> > >       /* On exynos5420 the triminfo register is in the shared space */
+> > > -     if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
+> > > -             trim_info = readl(data->base_second + EXYNOS_TMU_REG_TRIMINFO);
+> > > -     else
+> > > +     if (data->soc == SOC_ARCH_EXYNOS5420 ||
+> > > +                     data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO) {
+> > >               trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
+> > > -
+> > > -     sanitize_temp_error(data, trim_info);
+> > > +             sanitize_temp_error(data, trim_info);
+> > > +     }
 > >
-> > > +#define INTSTAT_FALL2        BIT(24)
-> > > +#define INTSTAT_FALL1        BIT(20)
-> > > +#define INTSTAT_FALL0        BIT(16)
-> > > +#define INTSTAT_RISE2        BIT(8)
-> > > +#define INTSTAT_RISE1        BIT(4)
-> > > +#define INTSTAT_RISE0        BIT(0)
-> > > +
-> > > +#define INTCLEAR_FALL2       BIT(24)
-> > > +#define INTCLEAR_FALL1       BIT(20)
-> > > +#define INTCLEAR_FALL0       BIT(16)
-> > > +#define INTCLEAR_RISE2       BIT(8)
-> > > +#define INTCLEAR_RISE1       BIT(4)
-> > > +#define INTCLEAR_RISE0       BIT(0)
+> > If I understand correctly, this means that the triminfo will no longer
+> > be read on other SoCs calling this function (3250, 4412, 5250, 5260). Is
+> > this intended?
 > >
-> > > +     /* Map INTSTAT bits to INTCLEAR bits */
-> > > +     if (val_irq & INTSTAT_FALL2)
-> > > +             clearirq |= INTCLEAR_FALL2;
-> > > +     else if (val_irq & INTSTAT_FALL1)
-> > > +             clearirq |= INTCLEAR_FALL1;
-> > > +     else if (val_irq & INTSTAT_FALL0)
-> > > +             clearirq |= INTCLEAR_FALL0;
-> > > +     else if (val_irq & INTSTAT_RISE2)
-> > > +             clearirq |= INTCLEAR_RISE2;
-> > > +     else if (val_irq & INTSTAT_RISE1)
-> > > +             clearirq |= INTCLEAR_RISE1;
-> > > +     else if (val_irq & INTSTAT_RISE0)
-> > > +             clearirq |= INTCLEAR_RISE0;
-> >
-> > This implies that only these 6 bits are used. Is this true for all SoCs
-> > supported by this driver? My understanding is that Exynos 5433 in particular
-> > uses bits 7:0 for rise interrupts and 23:16 for fall interrupts. When I tested
-> > this patch (both alone and the whole series) on 5433 by running some CPU load,
-> > the interrupt seemed to not fire consistently:
-> > /sys/class/thermal/cooling_device1/cur_state would never go above 1 (which is
-> > consistent with the interrupt firing once, not getting cleared and never firing
-> > again; without this patch, it consistently went up to 6) and I got a quick
-> > reboot every time.
-> >
-> Thanks for the feedback,
->
-> As per the user manual Exynos4412
-> INTSTAT and INTCLEAR have a clear mapping with bits
-> falling 20, 16, 12 and rising 8 4 0
->
-> whereas Exyno5422 has
-> INTSTAT and INTCLEAR have a clear mapping with bits
-> falling 24, 20, 16, and rising 8 4 0
->
-> Yes, it could differ for all the SoCs,
-> I don't have the user manual or TRM for these SoCs
-> to configure correctly.
->
-> I tried to configure this, referring to the comment in the driver
->         /*
->          * Clear the interrupts.  Please note that the documentation for
->          * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
->          * states that INTCLEAR register has a different placing of bits
->          * responsible for FALL IRQs than INTSTAT register.  Exynos5420
->          * and Exynos5440 documentation is correct (Exynos4210 doesn't
->          * support FALL IRQs at all).
->          */
->
-> By the way, I don't see Exynos5433 and Exynos7 support
-> INTSTAT and INTCLEAR registers. We are using TMU_REG_INTPEND
->  to read and update the same register.
->
->         if (data->soc == SOC_ARCH_EXYNOS5260) {
->                 tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
->                 tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
->         } else if (data->soc == SOC_ARCH_EXYNOS7) {
->                 tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
->                 tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
->         } else if (data->soc == SOC_ARCH_EXYNOS5433) {
->                 tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
->                 tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
->         } else {
->                 tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
->                 tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
->         }
->
-I don't have Exynos  Arm64 boards to test on
+> Thanks for your feedback.
+> I will remove the data->soc check for Exynos5420 in the next patch.
 
-I believe the Exynos5433 and Exynos7 also use the same
-register addresses for INTSTAT and INTCLEAR.
+Can you check with with following changes
 
-[1] https://github.com/universal5433/android_kernel_samsung_universal5433/blob/lineage-18.1/drivers/thermal/exynos_thermal.c#L854-L892
-[2] https://github.com/enesuzun2002/android_kernel_samsung_exynos7420/blob/nx-9.0/drivers/thermal/cal_tmu7420.c#L14-L221
+diff --git a/drivers/thermal/samsung/exynos_tmu.c
+b/drivers/thermal/samsung/exynos_tmu.c
+index 9fc085f4ea1a..0776801fafea 100644
+--- a/drivers/thermal/samsung/exynos_tmu.c
++++ b/drivers/thermal/samsung/exynos_tmu.c
+@@ -469,14 +469,11 @@ static void exynos4412_tmu_initialize(struct
+platform_device *pdev)
+                ctrl = readl(data->base + EXYNOS_TMU_TRIMINFO_CON2);
+                ctrl |= EXYNOS_TRIMINFO_RELOAD_ENABLE;
+                writel(ctrl, data->base + EXYNOS_TMU_TRIMINFO_CON2);
++               return;
+        }
 
-If you have details on how INTSTAT and INTCLEAR are used
-particularly regarding the update bits, please share them.
-Specifically, I'm interested in how bits [7:0] correspond to rising edge
-interrupts and bits [23:16] to falling edge interrupts
-I feel it's the same as Exynos54222.
-
-Can you test with these changes? If you have any suggestions,
-please feel free to share them
+-       /* On exynos5420 the triminfo register is in the shared space */
+-       if (data->soc == SOC_ARCH_EXYNOS5420 ||
+-                       data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO) {
+-               trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
+-               sanitize_temp_error(data, trim_info);
+-       }
++       trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
++       sanitize_temp_error(data, trim_info);
+ }
+>
+> > By the way, are we sure that data->base_second really is unnecessary?
+> > According to the bindings documentation (in
+> > Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml),
+> > the different address is necessary because the triminfo registers are
+> > misplaced on 5420.
+>
+> As per my Exynos5422 user manual and DTS mapping
+> thermal-sensor tmu@10060000 is mapped to CPU0 with tmu_apbif clock
+> thermal-sensor tmu@10064000 is mapped to CPU1 with tmu_apbif clock
+> thermal-sensor tmu@10068000 is mapped to CPU2 with tmu_apbif clock
+> thermal-sensor tmu@1006c000 is mapped to CPU3 with tmu_apbif clock
+> thermal-sensor tmu@100a0000 is mapped to GPU with tmu_triminfo_apbif clock.
+>
+> Well, we are using tmu_triminfo_apbif to configure clk_sec, which is
+> using the data->base to enable the clk.
+> So, data->base_second is not used any further in the code after we set triminfo
 
 Thanks
--Anand
+Anand
 
