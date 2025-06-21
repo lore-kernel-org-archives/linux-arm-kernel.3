@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64B0C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 00:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DADC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Jun 2025 00:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCQ8zfuNYckMQwi0qvUEsR7Le3lMOKXcVy5xk0DxTYA=; b=aIGPqLZ+MbVn8S22BQ8Em2m+G1
-	lOeQkaJrO5WqgwPy6FCU+MBdiYEQlkWQ38+7KkeXHSiuWkYwA10Lz9AKM9ZB4qOW5bLPfX7Lf+nFF
-	oRvbd/fj9GfW9qjz8k1TzMfgmEPbFXWNJ1rvDYJvVz+Hb5V/A30HEh75/6NbhIqK4BuQ/AEJ/VVyz
-	zRpoihUEBJEePojs4tCDORLzVCUaKl4I0iq6v+UB13eWaCcPM5wmJhVrXN5/nWaM+Wn0eTcnn4DnH
-	y+KNwk9z31Vt40zOriuoac37HPrzkgIQuBsUqtxMR6wHZ/QNvqyzDzFjBtqPCs1kn1xcWBh4Ic8uE
-	W5rQ88Jw==;
+	bh=Kpi3z/hNG1omr0pyfwgE93KYt7IiamCkriHdc1+ZtYI=; b=lm41ez8HbPbMD4OCvp6INQVqeh
+	7Ukl3JtA3GH2ETnju/yEeFR0VrPV2pCzlmJ679ucW4S2A+PKHExV02fGtq26e0Rygkl1WG5osUmHH
+	ARpQnW6wpQ0wUM56A7itRSj5EGjnYkhgw+Zo4RzNb0M9kgMJWTLuolejvfITu+tn89sUUlAp6eQK0
+	v5VR7WOvWLg6Jf1xQhTLzdWdG70XQruRx11jchhd5SummqAUgavHJF1gNWESebTCOTVmuOQjNKdc7
+	NQubNxd5XKc600r9FRZzfGqVoj5nYXqHMjhX402NxM5e0MCpFedc0nK7ga2kHeTIggnslIMkZJwdr
+	DKpBfrrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSmOz-0000000Gsaj-0bkC;
-	Sat, 21 Jun 2025 00:48:13 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1uSmRF-0000000Gsln-3bdD;
+	Sat, 21 Jun 2025 00:50:33 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uSmLQ-0000000GsCN-3vlt
+	id 1uSmMX-0000000GsJZ-2BQg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Jun 2025 00:44:34 +0000
-Date: Fri, 20 Jun 2025 17:44:14 -0700
+	Sat, 21 Jun 2025 00:45:43 +0000
+Date: Fri, 20 Jun 2025 17:45:31 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750466669;
+	t=1750466738;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yCQ8zfuNYckMQwi0qvUEsR7Le3lMOKXcVy5xk0DxTYA=;
-	b=UZ/5ECnuGxQxLGkdlEVk5aN863gG4arF7YO8/7tQT2PR15Yom3lU3nhRIGghO8pVgcTkKp
-	TKcxke9ArrcHNI70a7paWMs4pBKKKrKAbEQDXIak/UGnQARCQoas/eaBbznjs45wzybj7J
-	f7oqDRxJ5PeJ0wwRzxTWPQ1SYlxg0V8=
+	bh=Kpi3z/hNG1omr0pyfwgE93KYt7IiamCkriHdc1+ZtYI=;
+	b=vCuYaekTWBlPi19QjJ6BkAuNfYaHJHZpoZH6fyYfCKbSeZ3TbNq0iuiNshL0PH0BNKBq6s
+	FXYMCBwxw/y1EmA2UzvuntJoB0IpgIMBryhmTdlEx+Raib3BifedgKp08j9RSP940/ctKF
+	dS8wOC5a5WYT+OkVB0l8XRSb9/GZTFM=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Colton Lewis <coltonlewis@google.com>
@@ -52,18 +52,18 @@ Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 01/23] arm64: cpufeature: Add cpucap for HPMN0
-Message-ID: <aFYAXjzICzgmSyLI@linux.dev>
+Subject: Re: [PATCH v2 03/23] arm64: cpufeature: Add cpucap for PMICNTR
+Message-ID: <aFYAq7GcSx4pTK9Y@linux.dev>
 References: <20250620221326.1261128-1-coltonlewis@google.com>
- <20250620221326.1261128-2-coltonlewis@google.com>
+ <20250620221326.1261128-4-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250620221326.1261128-2-coltonlewis@google.com>
+In-Reply-To: <20250620221326.1261128-4-coltonlewis@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250620_174433_178009_DF44F7D6 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20250620_174541_709699_B1C8860E 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,83 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:13:01PM +0000, Colton Lewis wrote:
-> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
-> counters reserved for the guest.
-> 
-> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
-> because otherwise not all the appropriate macros are generated to add
-> it to arm64_cpu_capabilities_arm64_features.
+On Fri, Jun 20, 2025 at 10:13:03PM +0000, Colton Lewis wrote:
+> Add a cpucap for FEAT_PMUv3_PMICNTR, meaning there is a dedicated
+> instruction counter as well as the cycle counter.
 > 
 > Signed-off-by: Colton Lewis <coltonlewis@google.com>
+
+I don't see this capability being used in this series.
+
+Thanks,
+Oliver
+
 > ---
->  arch/arm64/kernel/cpufeature.c | 8 ++++++++
+>  arch/arm64/kernel/cpufeature.c | 7 +++++++
 >  arch/arm64/tools/cpucaps       | 1 +
->  arch/arm64/tools/sysreg        | 6 +++---
->  3 files changed, 12 insertions(+), 3 deletions(-)
+>  2 files changed, 8 insertions(+)
 > 
 > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index b34044e20128..278294fdc97d 100644
+> index 278294fdc97d..85dea9714928 100644
 > --- a/arch/arm64/kernel/cpufeature.c
 > +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
->  };
->  
->  static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
->  	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
-> @@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> @@ -2904,6 +2904,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
 >  		.matches = has_cpuid_feature,
->  		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+>  		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
 >  	},
 > +	{
-> +		.desc = "Allow MDCR_EL2.HPMN = 0",
-
-This feedback still stands...
-
-		.desc = "HPMN0",
-
-[*] https://lore.kernel.org/kvm/aD4ijUaSGm9b2g5H@linux.dev/
-
+> +		.desc = "PMU Dedicated Instruction Counter",
 > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.capability = ARM64_HAS_HPMN0,
+> +		.capability = ARM64_HAS_PMICNTR,
 > +		.matches = has_cpuid_feature,
-> +		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
+> +		ARM64_CPUID_FIELDS(ID_AA64DFR1_EL1, PMICNTR, IMP)
 > +	},
 >  #ifdef CONFIG_ARM64_SME
 >  	{
 >  		.desc = "Scalable Matrix Extension",
 > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 10effd4cff6b..5b196ba21629 100644
+> index 5b196ba21629..6dd72fcdd612 100644
 > --- a/arch/arm64/tools/cpucaps
 > +++ b/arch/arm64/tools/cpucaps
-> @@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
->  HAS_GIC_PRIO_MASKING
->  HAS_GIC_PRIO_RELAXED_SYNC
->  HAS_HCR_NV1
-> +HAS_HPMN0
->  HAS_HCX
->  HAS_LDAPR
->  HAS_LPA2
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 8a8cf6874298..d29742481754 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -1531,9 +1531,9 @@ EndEnum
->  EndSysreg
->  
->  Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
-> -Enum	63:60	HPMN0
-> -	0b0000	UNPREDICTABLE
-> -	0b0001	DEF
-> +UnsignedEnum	63:60	HPMN0
-> +	0b0000	NI
-> +	0b0001	IMP
->  EndEnum
->  UnsignedEnum	59:56	ExtTrcBuff
->  	0b0000	NI
+> @@ -47,6 +47,7 @@ HAS_LSE_ATOMICS
+>  HAS_MOPS
+>  HAS_NESTED_VIRT
+>  HAS_PAN
+> +HAS_PMICNTR
+>  HAS_PMUV3
+>  HAS_S1PIE
+>  HAS_S1POE
 > -- 
 > 2.50.0.714.g196bf9f422-goog
 > 
