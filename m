@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A2CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 13:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A29C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 15:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFDaay6ObVe+UiujVij89FfjrwGtWai4DDnEmqpInLE=; b=KEKWxeWzGGnK6KsGl6SLX6HuZG
-	zL0OY7WtZkFCvdXz8mt9HhCD/DeiIrJ1Dvtag7/LyzHq/KrkTqMyOTq+6PPGh3xWxKBYi7oqyuJg+
-	KUkruAsAY5X+y9zeqgARU6fw+sg12PzL3QCsrQUHNmGvXzyIdyULOKEhAFUMJfy2kwrqzcqtMjQUW
-	DyTYTSl7lkX565gCSf2ifATADKxPgYRqCpJF3Kb7MdWVrurPxbRXvknPaE9yxSGNkwWMWVr4YB26z
-	KEAy85K166RbDj5fgnKWKmmj/K3EY8eEhdXdyXYdzcJiinW4yBQHoaAteE5/6dKxMbK+magnqk58q
-	qBpVncRg==;
+	bh=bm69vQQYMGAsC6CQotbCgpq2n6vTrtAkzVloqlGnBZs=; b=GbCT6ZtbpeZPVO/qXR3KQZJAFW
+	AKxa/d22FQSODgg+CLwotfdiX4IVbbrFphAzlwY+KelrAzN5N7f/rfCTRnZH9FFtqUwBxP+yYSX6N
+	mwLCVnxO7I7OkS6XR77jxdpuxXloDTFM14QR86D2l+wx2fra4lIQ9fvrnC7IbCc4HMtrGGmrnWiLV
+	xLSb6wog0kwDXoXMQxvsd5LHw85b4l5AJI+h+FB4uWv4tWkgGgfFzBHQdCyehF8Hq/3n/JMaOadIK
+	G7ttc8RBMrF/9dBv8HmIRlc+s+ivhUOYbwJ5iFvjAfiCLW0hPRWyOF0COkJXGJu7OxzE/N7OUar71
+	+yQV7H6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTL6O-00000000uQV-2rKK;
-	Sun, 22 Jun 2025 13:51:20 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uTMlA-00000000y8f-2VuY;
+	Sun, 22 Jun 2025 15:37:32 +0000
+Received: from www637.your-server.de ([168.119.26.117])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTL46-00000000uKD-3nMP;
-	Sun, 22 Jun 2025 13:49:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oFDaay6ObVe+UiujVij89FfjrwGtWai4DDnEmqpInLE=; b=0yqyLpAVlfQnyyUFI3XCCmjU/d
-	hRDtO8qUnFY9FQx7ktw8FLvqR0u9rtq4nycjmwVs+TEWQrDNBDZ0WkVwumb9volVpfH1lzAbpFxr2
-	t2szVJ7sD3VRredSZ24Xk6v44DlJU8HqrOktbMfJCE55V8OrrPhn7Aa/BtrnL2rOOdDN1M+PEb3Bh
-	ltnZadRUDO5AexCLF0Tnm+t+vOrWyHfKjSxxbTFR3Ok7MPxaWv+xHjcUaT6Qf+crEeJgAjIW/WEKk
-	nu7zHQwgHKLb/fvRJaJAbqJ7Mc9jj1I+19AF/6t8ZRfTxVUI1s6ifcwGqBQryEd/6UF3vR5YPc77C
-	NBhEDGrw==;
-Received: from [185.15.108.45] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uTL3y-0004W7-K6; Sun, 22 Jun 2025 15:48:50 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- XiaoDong Huang <derrick.huang@rock-chips.com>,
- Piotr Oniszczuk <piotr.oniszczuk@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-Date: Sun, 22 Jun 2025 15:48:49 +0200
-Message-ID: <5897576.DvuYhMxLoT@phil>
-In-Reply-To: <CABjd4YyaNF1zosFFi6hEsZanPDxoaa1h4Dpd6uTPRwA3BZn0=w@mail.gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <3286000.Y6S9NjorxK@phil>
- <CABjd4YyaNF1zosFFi6hEsZanPDxoaa1h4Dpd6uTPRwA3BZn0=w@mail.gmail.com>
-MIME-Version: 1.0
+	id 1uTMis-00000000y2R-2PmK
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Jun 2025 15:35:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=apitzsch.eu
+	; s=default2410; h=MIME-Version:Content-Transfer-Encoding:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=bm69vQQYMGAsC6CQotbCgpq2n6vTrtAkzVloqlGnBZs=; b=ht5BuAWC19vvtWnN6JlAl2Z4PQ
+	Ws2G3b8/mLYeTjwIW5h/9EWv/aKiwP9Jh11F19Gulqon8mxai+LPwn7Yqg5MLJ2QImeaw8ZYuD+Mh
+	cfbMk+BSNqygDeBkAwTDRnTnS3ra/p0mRJOyd+jz0SokL6Btl+ViP0qVXvLQ85sTYd32gCNtqxZAr
+	9ts4BtRsP13xSIKeAKr2MNkpeSRRZNem4kHenslnl7pON86tcs9INZV1nCNU/p2g+mnSLJqWPxCzm
+	8DVa/gw3kfz58NNhkG/fdxH9eJNQ9v/YvWrf6PnitoGkHqkIJXqB9ymRDZA0mchIwfjX70KZUj5ey
+	oLjiPBtw==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www637.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <git@apitzsch.eu>)
+	id 1uTMig-000B26-0u;
+	Sun, 22 Jun 2025 17:34:58 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <git@apitzsch.eu>)
+	id 1uTMif-0008mM-1p;
+	Sun, 22 Jun 2025 17:34:57 +0200
+Message-ID: <ed0b8fe3a20111477cafb1de7b399afb99caaa0c.camel@apitzsch.eu>
+Subject: Re: [PATCH RESEND v4 3/5] media: i2c: imx214: Make use of CCS PLL
+ calculator
+From: =?ISO-8859-1?Q?Andr=E9?= Apitzsch <git@apitzsch.eu>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Ricardo Ribalda <ribalda@kernel.org>, Sakari Ailus	
+ <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,  Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team	
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Ricardo Ribalda <ribalda@chromium.org>
+Date: Sun, 22 Jun 2025 17:34:56 +0200
+In-Reply-To: <20250621181751.GA9125@pendragon.ideasonboard.com>
+References: <20250621-imx214_ccs_pll-v4-0-12178e5eb989@apitzsch.eu>
+		 <20250621-imx214_ccs_pll-v4-3-12178e5eb989@apitzsch.eu>
+		 <20250621181751.GA9125@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Evolution 3.56.2 
+MIME-Version: 1.0
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27677/Sun Jun 22 10:32:59 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_064859_111266_F835E45C 
-X-CRM114-Status: GOOD (  62.63  )
+X-CRM114-CacheID: sfid-20250622_083511_071945_137B3613 
+X-CRM114-Status: GOOD (  32.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,275 +92,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 21. Juni 2025, 23:21:11 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Alexey Charkov:
-> On Sat, Jun 21, 2025 at 11:44=E2=80=AFPM Heiko Stuebner <heiko@sntech.de>=
- wrote:
-> >
-> > Am Samstag, 21. Juni 2025, 21:35:56 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Alexey Charkov:
-> > > On Fri, Jun 20, 2025 at 8:02=E2=80=AFPM Alexey Charkov <alchark@gmail=
-=2Ecom> wrote:
-> > > >
-> > > > On Wed, Jun 18, 2025 at 6:48=E2=80=AFPM Alexey Charkov <alchark@gma=
-il.com> wrote:
-> > > > >
-> > > > > On Wed, Jun 18, 2025 at 6:06=E2=80=AFPM Nicolas Frattaroli
-> > > > > <nicolas.frattaroli@collabora.com> wrote:
-> > > > > >
-> > > > > > Hello,
-> > > > > >
-> > > > > > +Cc Jonas Karlman as he is intimately familiar with RK3576 cloc=
-k shenanigans by now,
-> > > > > >
-> > > > > > On Wednesday, 18 June 2025 15:51:45 Central European Summer Tim=
-e Alexey Charkov wrote:
-> > > > > > > On Sun, Jun 15, 2025 at 8:00=E2=80=AFPM Piotr Oniszczuk
-> > > > > > > <piotr.oniszczuk@gmail.com> wrote:
-> > > > > > > >
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > > Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchar=
-k@gmail.com> w dniu 9 cze 2025, o godz. 16:05:
-> > > > > > > > >
-> > > > > > > > > On Sun, Jun 8, 2025 at 11:24=E2=80=AFAM Piotr Oniszczuk
-> > > > > > > > > <piotr.oniszczuk@gmail.com> wrote:
-> > > > > > > > >>> Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alch=
-ark@gmail.com> w dniu 5 cze 2025, o godz. 15:42:
-> > > > > > > > >>>> Alexey,
-> > > > > > > > >>>> I see you are using rk3576 board like me (nanopi-m5)
-> > > > > > > > >>>> Have you on your board correctly working cpu dvfs?
-> > > > > > > > >>>> I mean: [1][desired clocks reported by kernel sysfs ar=
-e in pair with [2[]cur clocks?
-> > > > > > > > >>>> In my case i see mine cpu lives totally on it=E2=80=99=
-s own with dvfs:
-> > > > > > > > >>>
-> > > > > > > > >>> Hi Piotr,
-> > > > > > > > >>>
-> > > > > > > > >>> I haven't tried to validate actual running frequencies =
-vs. requested
-> > > > > > > > >>> frequencies, but subjective performance and power consu=
-mption seem to
-> > > > > > > > >>> be in line with what I expect.
-> > > > > > > > >>
-> > > > > > > > >> well - my subjective l&f is that  - currently - my rk357=
-6 seems =E2=80=9Eslower" than i.e. 4xA53 h618.
-> > > > > > > > >
-> > > > > > > > > In my experience, native compilation of GCC 14 using 8 th=
-reads on
-> > > > > > > > > RK3576 (mainline with passive cooling and throttling enab=
-led): 2 hours
-> > > > > > > > > 6 minutes, on RK3588 (mainline with passive cooling via R=
-adxa Rock 5B
-> > > > > > > > > case and throttling enabled but never kicking in): 1 hour=
- 10 minutes
-> > > > > > > >
-> > > > > > > > by curiosity i looked randomly on 3576 vs 3588:
-> > > > > > > > multithread passmark: 3675 (https://www.cpubenchmark.net/cp=
-u.php?cpu=3DRockchip+RK3576&id=3D6213)
-> > > > > > > > multithread passmark: 4530 (https://www.cpubenchmark.net/cp=
-u.php?cpu=3DRockchip+RK3588&id=3D4906)
-> > > > > > > >
-> > > > > > > > assuming 3588 as baseline, 3576 is approx 20% slower on mul=
-tithread passmark (has ~0,8 comp power of 3588)
-> > > > > > > > 70 min compile on 3588 should take something like ~86min on=
- 3576.
-> > > > > > > > In your case 126min compile on 3576 shows 3576 offers 0,55 =
-comp power of 3588.
-> > > > > > > > Roughly 3576 should do this task in 40min less than you cur=
-rently see i think
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > > Can't see how u-boot would affect CPU speed in Linux, as =
-long as you
-> > > > > > > > > use comparable ATF images. Do you use the same kernel and=
- dtb in all
-> > > > > > > > > these cases? Also, what's your thermal setup?
-> > > > > > > >
-> > > > > > > > yes. in all cases only change was: uboot & atf
-> > > > > > > > thermal is based on recent collabora series (+ recent pooli=
-ng fix for clocks return from throttling)
-> > > > > > > >
-> > > > > > > > >
-> > > > > > > > >
-> > > > > > > > > Not sure UX is a particularly good measure of CPU perform=
-ance, as long
-> > > > > > > > > as you've got a properly accelerated DRM graphics pipelin=
-e. More
-> > > > > > > > > likely 2D/3D and memory.
-> > > > > > > >
-> > > > > > > > indeed.
-> > > > > > > > For quantified look i=E2=80=99m looking on v.simple approac=
-h to estimate real clock is http://uob-hpc.github.io/2017/11/22/arm-clock-f=
-req.html
-> > > > > > > > by curiosity i looked what it reports on a53/a55/a72/a76 an=
-d it is surprisingly accurate :-)
-> > > > > > > > on mine 3576 with collabora uboot+mainline atf is hows 800M=
-Hz (and in perf. gov it seems to be constant)
-> > > > > > > >
-> > > > > > > > >
-> > > > > > > > > There might be some difference in how PVTPLL behaves on R=
-K3576 vs.
-> > > > > > > > > RK3588. But frankly first I would check if you are using =
-comparable
-> > > > > > > > > ATF implementations (e.g. upstream TF-A in both cases), k=
-ernels and
-> > > > > > > > > thermal environment :)
-> > > > > > > >
-> > > > > > > > all tests: the same 6.15.2 mainline + some collabora patches
-> > > > > > > >
-> > > > > > > > diffs were:
-> > > > > > > > 1.collabora uboot[1] + mainline atf 2.13
-> > > > > > > > 2.collabora uboot[1] + rockchip rkbin bl31 blob
-> > > > > > > > 3.vendor uboot (bin dump from friendlyelec ubuntu image)
-> > > > > > > >
-> > > > > > > > on 1/2 i see kind of issue with clock values (i.e. perf gov=
- gives constant 800MHz on mainline atf).
-> > > > > > > > 3 seems to perform better - (i.e. perf gov gives constant 1=
-500MHz so all is snappier/faster)
-> > > > > > >
-> > > > > > > There is indeed something weird going on. I've tried running =
-sbc-bench
-> > > > > > > [1], and even though I observe dynamically varying CPU freque=
-ncies
-> > > > > > > after boot with schedutil governor, once sbc-bench switches t=
-he
-> > > > > > > governor to "performance" and goes through the OPPs in descen=
-ding
-> > > > > > > frequency order, the CPUs seem to get stuck at the last appli=
-ed low
-> > > > > > > frequency. Even after max frequency gets reverted from 408 MH=
-z to
-> > > > > > > something higher, even after I switch the governor to somethi=
-ng else -
-> > > > > > > no matter what. Only a reboot gets the higher frequencies 'un=
-stuck'
-> > > > > > > for me.
-> > > > > > >
-> > > > > > > These are all observed at around 55C SoC temperature, so thro=
-ttling is
-> > > > > > > not an issue. Regulators are stuck at 950000 uV - way above 7=
-00000 uV
-> > > > > > > that the 408 MHz OPP requires (and power readings seem to mat=
-ch: I'm
-> > > > > > > getting about 2.3W consumption at 408 MHz in idle vs. normal =
-idle
-> > > > > > > reading of 1.4W at around 1 GHz).
-> > > > > > >
-> > > > > > > Not sure what's going on here, and I don't remember seeing an=
-ything
-> > > > > > > similar on RK3588. Thoughts welcome.
-> > > > > >
-> > > > > > This may once again be a "accidentally uses wrong clock IDs" ty=
-pe
-> > > > > > situation. The other possibility is that we're getting confused
-> > > > > > between what we think the clock rate is and what SCMI actually =
-set
-> > > > > > the clock rate to.
-> > > > > >
-> > > > > > Things to check is whether the right clock controller (scmi vs =
-cru)
-> > > > > > and the right clock id (check ATF source for this) is used.
-> > > > >
-> > > > > Clock IDs in the kernel seem to match those in ATF, but I've noti=
-ced
-> > > > > what appears to be a buffer overflow in some of the SCMI clock na=
-mes
-> > > > > defined in the opensource TF-A (thanks GCC 15 and its zealous
-> > > > > warnings):
-> > > >
-> > > > After some more testing, I tend to confirm what Piotr observed
-> > > > earlier. Namely, frequency scaling acts weird on any ATF version (be
-> > > > it binary BL31 or opensource TF-A), as long as mainline u-boot is
-> > > > used. Using the u-boot binary extracted from the ArmSoM QWRT image
-> > > > does not lead to "stuck" CPU frequencies when running sbc-bench.
-> > > >
-> > > > I'm getting this with the exact same kernel build (6.16-rc1 with so=
-me
-> > > > Sige5 related patches, namely v2 of this series, Nicolas' USB
-> > > > enablement series and TSADC). The only other difference is that the
-> > > > binary u-boot doesn't have EFI support, so I had to boot into the
-> > > > ARM64 uncompressed Image instead of vmlinuz.efi, but those were both
-> > > > taken from the same build.
-> > > >
-> > > > What I'm observing during the sbc-bench run:
-> > > >  - It switches the cpufreq governor from schedutil to performance
-> > > >  - It goes through all CPU OPPs in descending frequency order
-> > > >  --- While it does that when booted using mainline u-boot +
-> > > > vmlinuz.efi: "hardware limits" line in "cpupower -c 0,4
-> > > > frequency-info" changes with each OPP change (the max frequency
-> > > > getting reduced sequentially), then it resets to the initial full
-> > > > range, but the actual frequency stays stuck at the lowest possible
-> > > > value
-> > > >  --- While it does that when booted using binary u-boot + Image:
-> > > > "hardware limits" line in "cpupower -c 0,4 frequency-info" doesn't
-> > > > change, but the actual frequency gets reduced sequentially. Then af=
-ter
-> > > > the iteration over all OPPs is completed it returns to the highest
-> > > > possible value, and adjusts dynamically based on thermal throttling=
- as
-> > > > the benchmark progresses
-> > >
-> > > Slight correction: it's not the "hardware limits" line, but rather
-> > > "current policy".
-> > >
-> > > Note that booting mainline u-boot in non-EFI mode (using plain Image)
-> > > doesn't change the results above.
-> >
-> > I'm in a similar boat, while trying to make DSI run on the rk3576.
-> > Andy from Rockchip was able to make it work "just" by using vendor-
-> > firmware - while using mainline u-boot (with both mainline TF-A
-> > or vendor TF-A) produces just black output.
-> >
-> > I think when I did the mainline u-boot thing I took the "vendor"-code
-> > from the armbian rk3576 vendor-u-boot ... but that actually may differ
-> > from what the vendors provided?
+Hi Laurent,
+
+thanks for the review. Some comments below.
+
+
+Am Samstag, dem 21.06.2025 um 21:17 +0300 schrieb Laurent Pinchart:
+> Hi Andr=C3=A9,
 >=20
-> Just tried booting into u-boot built from ArmSoM sources at [1] - same
-> issues as using mainline. Either I'm doing something stupid building
-> it (don't know what though), or the binary shipped in ArmSoM images is
-> indeed different from what the sources are.
+> Thank you for the patch.
+>=20
+> On Sat, Jun 21, 2025 at 11:37:27AM +0200, Andr=C3=A9 Apitzsch via B4 Rela=
+y
+> wrote:
+> > From: Andr=C3=A9 Apitzsch <git@apitzsch.eu>
+> >=20
+> > Calculate PLL parameters based on clock frequency and link
+> > frequency.
+> >=20
+> > Acked-by: Ricardo Ribalda <ribalda@chromium.org>
+> > Signed-off-by: Andr=C3=A9 Apitzsch <git@apitzsch.eu>
+> > ---
+> > =C2=A0drivers/media/i2c/Kconfig=C2=A0 |=C2=A0=C2=A0 1 +
+> > =C2=A0drivers/media/i2c/imx214.c | 213
+> > ++++++++++++++++++++++++++++++++++++---------
+> > =C2=A02 files changed, 175 insertions(+), 39 deletions(-)
+> >=20
+> > diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+> > index
+> > e68202954a8fd4711d108cf295d5771246fbc406..08db8abeea218080b0bf5bfe6
+> > cf82f1c0b100c4a 100644
+> > --- a/drivers/media/i2c/Kconfig
+> > +++ b/drivers/media/i2c/Kconfig
+> > [..]
+> > @@ -1224,42 +1336,52 @@ static int imx214_parse_fwnode(struct
+> > device *dev)
+> > =C2=A0 if (!endpoint)
+> > =C2=A0 return dev_err_probe(dev, -EINVAL, "endpoint node not found\n");
+> > =C2=A0
+> > - ret =3D v4l2_fwnode_endpoint_alloc_parse(endpoint, &bus_cfg);
+> > + bus_cfg->bus_type =3D V4L2_MBUS_CSI2_DPHY;
+> > + ret =3D v4l2_fwnode_endpoint_alloc_parse(endpoint, bus_cfg);
+> > + fwnode_handle_put(endpoint);
+>=20
+> ... drop this. Up to you.
+>=20
+> > =C2=A0 if (ret) {
+> > =C2=A0 dev_err_probe(dev, ret, "parsing endpoint node failed\n");
+> > - goto done;
+> > + goto error;
+>=20
+> You can return ret here.
+>=20
+> > =C2=A0 }
+> > =C2=A0
+> > =C2=A0 /* Check the number of MIPI CSI2 data lanes */
+> > - if (bus_cfg.bus.mipi_csi2.num_data_lanes !=3D 4) {
+> > + if (bus_cfg->bus.mipi_csi2.num_data_lanes !=3D 4) {
+> > =C2=A0 ret =3D dev_err_probe(dev, -EINVAL,
+> > =C2=A0 =C2=A0=C2=A0=C2=A0 "only 4 data lanes are currently supported\n"=
+);
+> > - goto done;
+> > + goto error;
+> > =C2=A0 }
+> > =C2=A0
+> > - if (bus_cfg.nr_of_link_frequencies !=3D 1)
+> > + if (bus_cfg->nr_of_link_frequencies !=3D 1)
+> > =C2=A0 dev_warn(dev, "Only one link-frequency supported, please review
+> > your DT. Continuing anyway\n");
+>=20
+> Now that the driver can calculate PLL parameters dynamically, it
+> would be nice to lift this restriction and make the link frequency
+> control writable, in a separate patch on top of this series.
+>=20
+Maybe this could be postponed, as I don't have any use for it at the
+moment and I don't want to further delay this series.
 
-Can you list the versions you see for the _working_ binaries?
+> > =C2=A0
+> > - for (i =3D 0; i < bus_cfg.nr_of_link_frequencies; i++) {
+> > - if (bus_cfg.link_frequencies[i] =3D=3D IMX214_DEFAULT_LINK_FREQ)
+> > + for (i =3D 0; i < bus_cfg->nr_of_link_frequencies; i++) {
+> > + u64 freq =3D bus_cfg->link_frequencies[i];
+> > + struct ccs_pll pll;
+> > +
+> > + if (!imx214_pll_calculate(imx214, &pll, freq))
+> > =C2=A0 break;
+> > - if (bus_cfg.link_frequencies[i] =3D=3D
+> > - =C2=A0=C2=A0=C2=A0 IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+> > + if (freq =3D=3D IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+> > =C2=A0 dev_warn(dev,
+> > =C2=A0 "link-frequencies %d not supported, please review your DT.
+> > Continuing anyway\n",
+> > =C2=A0 IMX214_DEFAULT_LINK_FREQ);
+> > + freq =3D IMX214_DEFAULT_LINK_FREQ;
+> > + if (imx214_pll_calculate(imx214, &pll, freq))
+> > + continue;
+> > + bus_cfg->link_frequencies[i] =3D freq;
+> > =C2=A0 break;
+> > =C2=A0 }
+>=20
+> How about separating the IMX214_DEFAULT_LINK_FREQ_LEGACY check from
+> the PLL calculation ? Something like
+>=20
+>  u64 freq =3D bus_cfg->link_frequencies[i];
+>  struct ccs_pll pll;
+>=20
+>  if (freq =3D=3D IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+>  dev_warn(dev,
+>  "link-frequencies %d not supported, please review your DT.
+> Continuing anyway\n",
+>  IMX214_DEFAULT_LINK_FREQ);
+>  freq =3D IMX214_DEFAULT_LINK_FREQ;
+>  bus_cfg->link_frequencies[i] =3D freq;
+>  }
 
-I.e. u-boot and friends may list someversion-gGITHASH thingy like your
-OPTEE already does: OP-TEE version: 3.13.0-791-g185dc3c92 .
-Also possibly the build date.
-
-I.e. I'm wondering/hoping if we can match to some git commit.
-
-
-Heiko
-
+With PLL calculation, 480000000 (=3DIMX214_DEFAULT_LINK_FREQ_LEGACY)
+might be a valid link frequency explicitly set by the user. I'm not
+sure whether it is a good idea to overwrite the link frequency, before
+trying the PLL calculation. That's why I would keep the code the way it
+is.
 
 >=20
-> FTR, my steps to build the vendor u-boot were:
+>  if (!imx214_pll_calculate(imx214, &pll, freq))
+>  break;
 >=20
-> make rk3576_defconfig
-> cp ~/rkbin/bin/rk35/rk3576_bl31_v1.15.elf bl31.elf
-> cp ~/rkbin/bin/rk35/rk3576_bl32_v1.05.bin tee.bin
-> make -j12
-> make u-boot.itb
-> ./tools/mkimage -n rk3576 -T rksd -d
-> ~/rkbin/bin/rk35/rk3576_ddr_lp4_2112MHz_lp5_2736MHz_v1.09.bin:spl/u-boot-=
-spl-dtb.bin
-> idbloader.img
->=20
-> Then I wrote idbloader.img to eMMC starting from sector 64, u-boot.itb
-> starting from sector 16384. It boots, but exhibits the same "stuck"
-> CPU frequencies as with mainline u-boot.
->=20
-> FWIW, I've managed to load Rockchip BL32 as OP-TEE with mainline
-> u-boot too: turns out the right address to load it is 0x48400000 and
-> not 0x08400000. It didn't help with the problem though.
->=20
-> Best regards,
-> Alexey
->=20
-> [1] https://github.com/ArmSoM/u-boot/tree/rk3576-6.1-rk3.1
->=20
+> It will then become easier to drop this legacy support from the
+> driver. What platform(s) are know to specify an incorrect link
+> frequency ?
 
+I don't know.
 
+Best regards,
+Andr=C3=A9
 
-
+>=20
+> > =C2=A0 }
+> > =C2=A0
+> > - if (i =3D=3D bus_cfg.nr_of_link_frequencies)
+> > + if (i =3D=3D bus_cfg->nr_of_link_frequencies)
+> > =C2=A0 ret =3D dev_err_probe(dev, -EINVAL,
+> > - =C2=A0=C2=A0=C2=A0 "link-frequencies %d not supported, please review =
+your DT\n",
+> > - =C2=A0=C2=A0=C2=A0 IMX214_DEFAULT_LINK_FREQ);
+> > + =C2=A0=C2=A0=C2=A0 "link-frequencies %lld not supported, please revie=
+w your
+> > DT\n",
+> > + =C2=A0=C2=A0=C2=A0 bus_cfg->nr_of_link_frequencies ?
+> > + =C2=A0=C2=A0=C2=A0 bus_cfg->link_frequencies[0] : 0);
+> > =C2=A0
+> > -done:
+> > - v4l2_fwnode_endpoint_free(&bus_cfg);
+> > - fwnode_handle_put(endpoint);
+> > + return 0;
+> > +
+> > +error:
+> > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > =C2=A0 return ret;
+> > =C2=A0}
+> > =C2=A0
+> > @@ -1299,7 +1421,7 @@ static int imx214_probe(struct i2c_client
+> > *client)
+> > =C2=A0 return dev_err_probe(dev, PTR_ERR(imx214->regmap),
+> > =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0 "failed to initialize CCI\n");
+> > =C2=A0
+> > - ret =3D imx214_parse_fwnode(dev);
+> > + ret =3D imx214_parse_fwnode(dev, imx214);
+> > =C2=A0 if (ret)
+> > =C2=A0 return ret;
+> > =C2=A0
+> > @@ -1310,7 +1432,9 @@ static int imx214_probe(struct i2c_client
+> > *client)
+> > =C2=A0 * Enable power initially, to avoid warnings
+> > =C2=A0 * from clk_disable on power_off
+> > =C2=A0 */
+> > - imx214_power_on(imx214->dev);
+> > + ret =3D imx214_power_on(imx214->dev);
+> > + if (ret < 0)
+> > + goto error_fwnode;
+>=20
+> This change seems to belong to a separate patch.
+>=20
+> > =C2=A0
+> > =C2=A0 ret =3D imx214_identify_module(imx214);
+> > =C2=A0 if (ret)
+> > @@ -1341,6 +1465,12 @@ static int imx214_probe(struct i2c_client
+> > *client)
+> > =C2=A0 pm_runtime_set_active(imx214->dev);
+> > =C2=A0 pm_runtime_enable(imx214->dev);
+> > =C2=A0
+> > + ret =3D imx214_pll_update(imx214);
+> > + if (ret < 0) {
+> > + dev_err_probe(dev, ret, "failed to update PLL\n");
+> > + goto error_subdev_cleanup;
+> > + }
+>=20
+> I would move this to imx214_ctrls_init().
+>=20
+> > +
+> > =C2=A0 ret =3D v4l2_async_register_subdev_sensor(&imx214->sd);
+> > =C2=A0 if (ret < 0) {
+> > =C2=A0 dev_err_probe(dev, ret,
+> > @@ -1366,6 +1496,9 @@ static int imx214_probe(struct i2c_client
+> > *client)
+> > =C2=A0error_power_off:
+> > =C2=A0 imx214_power_off(imx214->dev);
+> > =C2=A0
+> > +error_fwnode:
+> > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > +
+> > =C2=A0 return ret;
+> > =C2=A0}
+> > =C2=A0
+> > @@ -1378,6 +1511,8 @@ static void imx214_remove(struct i2c_client
+> > *client)
+> > =C2=A0 v4l2_subdev_cleanup(sd);
+> > =C2=A0 media_entity_cleanup(&imx214->sd.entity);
+> > =C2=A0 v4l2_ctrl_handler_free(&imx214->ctrls);
+> > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > +
+> > =C2=A0 pm_runtime_disable(&client->dev);
+> > =C2=A0 if (!pm_runtime_status_suspended(&client->dev)) {
+> > =C2=A0 imx214_power_off(imx214->dev);
 
