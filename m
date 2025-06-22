@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0023C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 10:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADE5C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 10:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLmj8At5rCZydKZ/NuU9WeFWrkkddMqXvFT9m23RLf4=; b=YyolI0n5GNm7KWYUE+AVFNOJK9
-	t65irtncpLbomOjt9l4l97FKcetdwGpKaAVVih4AH01riV/SoeLKnRrdnRAxouDPVoudbrh7te+K1
-	prdlkPc+O7KEW5WaWS/nAKh9ZiGInHQ2AT9oTnDUW4ktvoDBAC4mQJX+C/0umkxFL0LszWUhViy+U
-	TgXBKSpJ2AQx08H8sdIeMfLmKBW3TLf+HTXonJp9Rov/Ci5BLk8lC661E0jBGTILBRqmInFFt59eQ
-	6Yt5KZ/0XhCy44jW3I3j6myzmHKimYgg6mNyxfRP1mfdfibU4SmHzzM8zIdj6hu2xoV0vl2lPpUMH
-	sS6CfLiQ==;
+	bh=/0qTRlh8RkQ3/XLy0GozftirYDX1VPPHdaPUAFFVQww=; b=KV6bC8dGIcBubNI4BOmfp82X9d
+	R4zO0KdVTF3tCUEQD8mZoQ88wCvmUc8n1L8MFshIOu5+iMaU2P5g75WnZkmdH7dpF5IOwmNMbyoMS
+	1uqjo/rrfdfmzltzh1Vnm782pKs+EcxF+7OxhD7HkaXEa3AcSfEtAzpB6rocPZqeMzboLTtPr9Pc5
+	O0cBt2jsAZHp43L8QNr9No6VVIHIgTZyc0JBMWl4qyoVjDnz0CapyysL9ClL4UE5zPs6Ef+hdVR+e
+	moj8J8dDWmNUbjNZcY/NSOoBZmGxBtaoF2J+rwHtJAfJEEF1Y+dUW9KTvmjiZJIRNJo8w3Vb5OF5F
+	HuDKkKOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTHcv-00000000jb8-0Ibo;
-	Sun, 22 Jun 2025 10:08:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uTHfA-00000000jjK-0mlz;
+	Sun, 22 Jun 2025 10:11:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTHEO-00000000hrj-01gF;
-	Sun, 22 Jun 2025 09:43:21 +0000
+	id 1uTHKh-00000000iUr-0OEJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Jun 2025 09:49:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68E925C1D06;
-	Sun, 22 Jun 2025 09:41:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60EFDC4CEE3;
-	Sun, 22 Jun 2025 09:43:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F267DA4C046;
+	Sun, 22 Jun 2025 09:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F19FC4CEE3;
+	Sun, 22 Jun 2025 09:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750585397;
-	bh=e1iTg55YXGYZf/uvlSW1Nxdb1Xs0RNsU3Mekj6cFODU=;
+	s=k20201202; t=1750585789;
+	bh=iwltcif6vICScgREcP+h+g1nFFViLlwsSAlyON+V8C0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CSf1wYRnx6mhnlUz/ZS0L086OYQTAsug3WeLL8oprIsrJWpznpYTOJbYEReD8p4nb
-	 RVDvFBFNnhx/O+e8DxwpdZZDDSjpJxe3TQbTfYCyKwanYyoAc8lNuxg1GOqk696f+7
-	 6I/NwAGswkku/MZ+h4aYXp5+gE6lVBr2WLlwpqBFSuK4fXcXNk7layHpXsFHVL7ewz
-	 nBWsO2hZbO24pqQr4XiS8U1GXBrzMQap11RpoYr46IwSKT5P9PcgKl2KfdgVbR+9JP
-	 lQb3ddRSO05mMe8a69nCAjky5nj1hGZNYPBF5OzdUM32DyQkbniLk/fW58edMW6vHt
-	 4TbLgMIrv4q5Q==
-Message-ID: <011093f8-85a1-4c3c-b3fa-7be9e6df8a25@kernel.org>
-Date: Sun, 22 Jun 2025 11:43:11 +0200
+	b=ZC5htukG+JujMTd/Oouril8iRlgg7NBrGcD84+g6QR7kh87GrsZG6LMmgoiCQzJPX
+	 ir60lA5pI4pl3uTWjDJOOayp9QmgA2amNdlzrnFh3fxJfiSpU4wFMIT8a14VfSLXlI
+	 NI3l6OSgGBze94S1jfT15CddeajuXfda+WpelDz01XCFsFAp72KaZgjR8Zno2ZE4cX
+	 Vpb7TnUQNM47F0RymTq9zdSN0FdoNCF7jRAi1giLW4Qy1xfFK9gQf9YzDPkJg42j5+
+	 2cngnJtoqq8fyCaIbsSob8f0Sxjt0uHRWfAtuwV8GeOJ5ZbKmUuurhHNxgHE6iPGn4
+	 sy8siG8TeeWpQ==
+Message-ID: <5163d9d8-d106-47f3-a0f9-0eaa01f15498@kernel.org>
+Date: Sun, 22 Jun 2025 11:49:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add
- support for MT8196 audio AFE controller
-To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250620094140.11093-1-darren.ye@mediatek.com>
- <20250620094140.11093-9-darren.ye@mediatek.com>
+Subject: Re: [PATCH v2 4/6] arm64: dts: axiado: Add initial support for AX3000
+ SoC and eval board
+To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>
+References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
+ <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-4-341502d38618@axiado.com>
+ <6ef92d1a-39cc-409f-8ebe-d28ad2006988@kernel.org>
+ <bfcde082-270f-4152-b474-7828beab7cb9@axiado.com>
+ <9012cc61-b499-4213-9753-54cf4d24c822@kernel.org>
+ <bdc4408c-6fe4-48cd-bb40-3a17aed79cb6@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250620094140.11093-9-darren.ye@mediatek.com>
+In-Reply-To: <bdc4408c-6fe4-48cd-bb40-3a17aed79cb6@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_024320_141773_C4F1ED0E 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250622_024951_281525_FAD0410E 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,26 +130,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/06/2025 11:40, Darren.Ye wrote:
-> From: Darren Ye <darren.ye@mediatek.com>
+On 20/06/2025 23:18, Harshit Shah wrote:
+> On 6/19/2025 11:08 PM, Krzysztof Kozlowski wrote:
+>>>>> +
+>>>>> +             spi_clk: spi_clk {
+>>>>> +                     compatible = "fixed-clock";
+>>>>> +                     #clock-cells = <0>;
+>>>>> +                     clock-frequency = <25000000>;
+>>>>> +             };
+>>>>> +
+>>>>> +             apb_pclk: apb_pclk {
+>>>> No underscores in node names, but all these look incorrect - don't you
+>>>> have clock controller?
+>>> Noted, we will remove the "_" from the nodes. We do have clock
+>>> controller however that is being accessed by other CPU before Linux will
+>>> come-up.
+>> What does it mean? Is the clock controller not available at all for
+>> Linux or any other OS?
 > 
-> This patch adds initial support for the audio AFE(Audio Front End) controller
-
-Why this was changed to undesired 'This patch' (see submitting patches)?
-I think you are circling back to previous versions, reintroducing issues
-fixed in between.
-
-> on the mediatek MT8196 platform.
+> Apologies for the confusion. Yes, clock controller is available however 
+> it is only accessible by another CPU which boots up before Linux comes up.
 > 
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> This another CPU is setting up the various output clocks (& PLLs) before 
+> the Linux comes up.
+> 
+> So, that's the reason haven not added the clock controller in this DTS 
+> but only will add fixed clocks.
 
-
-Subject: I asked to drop document, because the rest was correct and you
-totally rewritten it to unnecessary too long subject.
-
-Well, at least the rest you implemented, but I just don't get why, when
-asked to change something you change several things to less desired style.
+And what happens if that other part decides to change frequencies?
 
 Best regards,
 Krzysztof
