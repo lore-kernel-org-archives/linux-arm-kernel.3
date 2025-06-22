@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13857C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 09:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF413C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 09:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5lPhTSE2zTuiMBZn1AtjoxK8UzlHIHkyXKH3rPd4I0=; b=cRx2TgDbq7KYy0e17/keQPDbDt
-	e3f4/1ZAmQq9Wujii1XQ+wC68T+odB7FtVINbjQXWkGQL9RZ6U3mddxUTsWh8FCSaTkB3E2dy3mct
-	KI//QTBh8oul/0V+VIyyL8NO37+VmxjaQWIBb1KYqY/rbi2TckHVHrd+H8nxpL/5tOWNJxAAMMXR2
-	3LRkiH2CozRY+zaOTV6yZU2+GakCIeqcNhD9IvgO75K/r8KmN6KUGuTZXLWh0BOeLa5XCln1ceQ+O
-	I5oqFjC87PCSWGAF2z5OST1W5pHzBWldPbukzBWp39RgetsDMKyqJdJwovP755MCZSTZhwwS5ahrM
-	6CYu+k7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xBG33tnis71Sr0EDlRpBlSKmzNxe4OxUEpnEMtmfTsQ=; b=RLaFQlF7xEsAiXR9oOSAxTWOlj
+	c3TKeZvWkoeiCfQ9wIRljpW+1u4IYCn2gpQgWHZTeAZZkZKjuCMGM8PhBZoB9NJ6Cue5YpJawmYBB
+	eRJH1K3EoVzH/sEDpCGT+P5IDrJO5MOz3QMHqm3eIBTE+BR5ikbsmoMHT7GG1qEKz//boJQgvegfW
+	YfgtRRXqiMH3GSwtU4XPeunNPNnuezFkt5nwRA7Hl/q7f1DxWq/YYiLEJBZSswCdZpQSwgkgBAsGG
+	yAJs0rCFaY8QmFFXPP5YkdO4agssvKYt9jhF9lvmnOz1JVKI9qnVAaLg5CEMO2uYqVOyWsL7bLw0b
+	ffcbhKRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTH7D-00000000gtB-3TpI;
-	Sun, 22 Jun 2025 09:35:55 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uTHBw-00000000hSq-3H24;
+	Sun, 22 Jun 2025 09:40:48 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTH4u-00000000gmQ-1i2C
+	id 1uTH9e-00000000h15-2pL0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 09:33:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750584813; x=1782120813;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3Z08jdlIHcA4c+ovnj3MepowoUSoFcvbFQogJV3s/Wk=;
-  b=AkMnSn8YYV6BJnnydZ5Kehktdf7p2EDUIdEmAy7bmp3E44peM1Sk0j+f
-   ice2/U9gsg4SEiR8z1Wcq0uSLhQPMYiDM/YYbSYlrAhDNZswqYVdeTLIQ
-   AIaDFFY1LzzSZbpXa3E8zVYz334fKlLsnXatNROurSFXxOS6xzKglKpB2
-   gOl/C1xAvj4V9aCJF1Icexf7hlOH8aNsZ1nwSoEaLfHI57MSszg3Fe/oh
-   0jW7uBfN6aTb6xMFs4m+QbExlt8DVEWemAWFmhZYVfr62HkE5exX4WmU2
-   Jyglo3vEODF9FyW6rSsJIB1e9CLc5CZrEl50ZrI4Qok3exGILBrkjdrJ+
-   w==;
-X-CSE-ConnectionGUID: KtJITjNCQmOP5wBkJWOW0Q==
-X-CSE-MsgGUID: 90gyFJRcSBCUxriO2wX5rA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11470"; a="52671242"
-X-IronPort-AV: E=Sophos;i="6.16,256,1744095600"; 
-   d="scan'208";a="52671242"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2025 02:33:32 -0700
-X-CSE-ConnectionGUID: 36sjy7DyT/ewbISEKvtofg==
-X-CSE-MsgGUID: MBzS2UecQH6f7owpkj2ZqQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,256,1744095600"; 
-   d="scan'208";a="156810984"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 22 Jun 2025 02:33:27 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uTH4n-000NBI-0H;
-	Sun, 22 Jun 2025 09:33:25 +0000
-Date: Sun, 22 Jun 2025 17:32:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Colton Lewis <coltonlewis@google.com>
-Subject: Re: [PATCH v2 17/23] KVM: arm64: Account for partitioning in
- PMCR_EL0 access
-Message-ID: <202506221711.tFNGpzj4-lkp@intel.com>
-References: <20250620221326.1261128-19-coltonlewis@google.com>
+	Sun, 22 Jun 2025 09:38:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9BA48102A8C91;
+	Sun, 22 Jun 2025 11:38:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1750585101; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=xBG33tnis71Sr0EDlRpBlSKmzNxe4OxUEpnEMtmfTsQ=;
+	b=a2PWTCOmpNsP56a+GJXzG0H05zD65JUWxZRrMEToWi8plNi0rzagC6C5jP8lq+Pn1VNOE3
+	mpAoHhGCVR1C/aOigNEFDTgpl5rtsHVmmpwZk9VS44Iomm+DjQvzLRsvKIIQrHUOK7gIkj
+	kRsc49jyoGKywc7mg9sxo59ZwI2fEi5jii2sjuZfHlx5KlaXs+A184PC/9XvXwX5d3rQzd
+	EOSvUaxuFuaCS718ibaFQyNvhJymty1jIBY15VxR2xp6KMm3SWmu5efPv3PYDCAgFdB/h1
+	wzyiL1jntkg86tv5zct3KHM/iZBKLW3j66+wjpvzJD0+UnqjwyDqe/40P/41Lg==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v13 00/11] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Sun, 22 Jun 2025 11:37:45 +0200
+Message-Id: <20250622093756.2895000-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620221326.1261128-19-coltonlewis@google.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_023332_520053_66B97AD7 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250622_023827_015977_755F64E8 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +83,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
 
-kernel test robot noticed the following build errors:
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
-[auto build test ERROR on 79150772457f4d45e38b842d786240c36bb1f97f]
+In the past there has been performed some attempts to upstream this driver:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20250621-102220
-base:   79150772457f4d45e38b842d786240c36bb1f97f
-patch link:    https://lore.kernel.org/r/20250620221326.1261128-19-coltonlewis%40google.com
-patch subject: [PATCH v2 17/23] KVM: arm64: Account for partitioning in PMCR_EL0 access
-config: arm64-randconfig-r073-20250622 (https://download.01.org/0day-ci/archive/20250622/202506221711.tFNGpzj4-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250622/202506221711.tFNGpzj4-lkp@intel.com/reproduce)
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506221711.tFNGpzj4-lkp@intel.com/
+All three approaches were not accepted as eligible for upstreaming.
 
-All errors (new ones prefixed by >>):
+The driver from this series has floowing features:
 
-   In file included from arch/arm64/include/asm/kvm_host.h:32,
-                    from include/linux/kvm_host.h:45,
-                    from arch/arm64/kvm/sys_regs.c:16:
-   arch/arm64/include/asm/kvm_pmu.h:236:50: warning: 'struct arm_pmu' declared inside parameter list will not be visible outside of this definition or declaration
-    static inline bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
-                                                     ^~~~~~~
-   arch/arm64/include/asm/kvm_pmu.h:241:52: warning: 'struct arm_pmu' declared inside parameter list will not be visible outside of this definition or declaration
-    static inline u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
-                                                       ^~~~~~~
-   arch/arm64/include/asm/kvm_pmu.h:246:53: warning: 'struct arm_pmu' declared inside parameter list will not be visible outside of this definition or declaration
-    static inline u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
-                                                        ^~~~~~~
-   arch/arm64/kvm/sys_regs.c:856:6: warning: no previous prototype for 'pmu_access_el0_disabled' [-Wmissing-prototypes]
-    bool pmu_access_el0_disabled(struct kvm_vcpu *vcpu)
-         ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/arm64/kvm/sys_regs.c: In function 'access_pmu_evtyper':
-   arch/arm64/kvm/sys_regs.c:1076:7: error: implicit declaration of function 'kvm_vcpu_pmu_is_partitioned'; did you mean 'kvm_pmu_is_partitioned'? [-Werror=implicit-function-declaration]
-      if (kvm_vcpu_pmu_is_partitioned(vcpu))
-          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-          kvm_pmu_is_partitioned
-   arch/arm64/kvm/sys_regs.c: In function 'set_pmcr':
->> arch/arm64/kvm/sys_regs.c:1271:33: error: dereferencing pointer to incomplete type 'struct arm_pmu'
-          new_n <= kvm->arch.arm_pmu->hpmn_max))
-                                    ^~
-   cc1: some warnings being treated as errors
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
+
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
+
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+5. Clang build:
+	make LLVM_SUFFIX=-19 LLVM=1 mrproper
+	cp ./arch/arm/configs/mxs_defconfig .config
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
+
+6. Kernel compliance checks:
+	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
+	~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
 
 
-vim +1271 arch/arm64/kvm/sys_regs.c
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
 
-  1253	
-  1254	static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
-  1255			    u64 val)
-  1256	{
-  1257		u8 new_n = FIELD_GET(ARMV8_PMU_PMCR_N, val);
-  1258		struct kvm *kvm = vcpu->kvm;
-  1259	
-  1260		mutex_lock(&kvm->arch.config_lock);
-  1261	
-  1262		/*
-  1263		 * The vCPU can't have more counters than the PMU hardware
-  1264		 * implements. Ignore this error to maintain compatibility
-  1265		 * with the existing KVM behavior.
-  1266		 */
-  1267		if (!kvm_vm_has_ran_once(kvm) &&
-  1268		    !vcpu_has_nv(vcpu)	      &&
-  1269		    new_n <= kvm_arm_pmu_get_max_counters(kvm) &&
-  1270		    (!kvm_vcpu_pmu_is_partitioned(vcpu) ||
-> 1271		     new_n <= kvm->arch.arm_pmu->hpmn_max))
-  1272			kvm->arch.nr_pmu_counters = new_n;
-  1273	
-  1274		mutex_unlock(&kvm->arch.config_lock);
-  1275	
-  1276		/*
-  1277		 * Ignore writes to RES0 bits, read only bits that are cleared on
-  1278		 * vCPU reset, and writable bits that KVM doesn't support yet.
-  1279		 * (i.e. only PMCR.N and bits [7:0] are mutable from userspace)
-  1280		 * The LP bit is RES0 when FEAT_PMUv3p5 is not supported on the vCPU.
-  1281		 * But, we leave the bit as it is here, as the vCPU's PMUver might
-  1282		 * be changed later (NOTE: the bit will be cleared on first vCPU run
-  1283		 * if necessary).
-  1284		 */
-  1285		val &= ARMV8_PMU_PMCR_MASK;
-  1286	
-  1287		/* The LC bit is RES1 when AArch32 is not supported */
-  1288		if (!kvm_supports_32bit_el0())
-  1289			val |= ARMV8_PMU_PMCR_LC;
-  1290	
-  1291		__vcpu_assign_sys_reg(vcpu, r->reg, val);
-  1292		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-  1293	
-  1294		return 0;
-  1295	}
-  1296	
+
+Lukasz Majewski (11):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+  net: mtip: Add net_device_ops functions to the L2 switch driver
+  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
+  net: mtip: Extend the L2 switch driver with management operations
+  net: mtip: Extend the L2 switch driver for imx287 with bridge
+    operations
+  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+  ARM: mxs_defconfig: Update mxs_defconfig to 6.16-rc1
+  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
+    switch
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
+ arch/arm/configs/mxs_defconfig                |   13 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1999 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  655 ++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  120 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
+ 13 files changed, 3460 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.5
+
 
