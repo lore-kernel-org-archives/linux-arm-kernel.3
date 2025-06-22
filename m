@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895A3C7EE2E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 21:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E16AC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 22:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XRH4hMACcrJ9IpVyVF37mpGPo04ZkN/zThl4hTG3eOM=; b=Vp+E9NKce31p3dP3HVt9FWUrQE
-	oe3FbnuNmVSXajHbW1FL/4d3TomOcbR88tJa4HAE6gr+xoGPsPx56nAMo6kJYLtbenJRcXkYCzvtz
-	Kjz/N6A4Z2OHvsKGEOL0zjQZ39g5wfGtnWZMcbVKSEVPHbkIF09KrlKTjOiXes5jE+K2zOirCsoy2
-	zlEQUBozoTZxSabcojjHw+2XRvzyApWii2XxDMC3cXetynVW6UJm1XU+1tVjHDRs6GZ739NxqHUzb
-	Af6u6hBGm+FWLVbR/eFVE7JrHb+J1rWksvDxGXi/Spdcls0q/eif/cv8yGJhwAf7OORORECAC1l0w
-	pv/f5NLQ==;
+	bh=MD/dLarw0d6IdKUG/1yooRE7P3CJNyXw9dAnU2kSRBg=; b=q6rDDrZmtdrYJk+hYrx5MkEmUQ
+	dBLMe3E/3CFngHA3PnySsfmNrrhfxLMgEyYoUHJ/Q70Bt3Ki/gpga4eb2tCDbyo37ebSsUSIaL+lJ
+	ra5UeCeEUPEXOtQeipJ6RkCyvOTdQDa3DUP+9gm9T2QNYyJ96toRnhsSeU08RK2Hnp05ivPJuBW0G
+	sRVoeqQ4+3Pgl6zsmuJLUdk5G3zsYDo5bX7YxYHKje+G/GLMXxDWPKiPDbZ/VBKDklZT/gGdRIUrs
+	3MGUPrX6GJT756eNVp3QC4/Ta27tQGUP2bTxdhLe/5PMiStUsHEYRs+oMUWAyKqDuY7efwmZSqKA1
+	DbDUcNdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTSKE-00000001F3O-2Vqy;
-	Sun, 22 Jun 2025 21:34:06 +0000
+	id 1uTTIe-00000001I0U-32sB;
+	Sun, 22 Jun 2025 22:36:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTSHs-00000001Eip-1t4c
+	id 1uTTGO-00000001HuE-2Xfi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 21:31:41 +0000
+	Sun, 22 Jun 2025 22:34:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9EC644960;
-	Sun, 22 Jun 2025 21:31:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80AD4C4CEE3;
-	Sun, 22 Jun 2025 21:31:39 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 7CAAE180958; Sun, 22 Jun 2025 23:31:37 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Thomas Antoine <t.antoine@uclouvain.be>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
-Subject: Re: (subset) [PATCH v4 0/5] Google Pixel 6 (oriole): max77759 fuel
- gauge enablement and driver support
-Message-Id: <175062789749.296878.8897572566383047929.b4-ty@collabora.com>
-Date: Sun, 22 Jun 2025 23:31:37 +0200
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	by sea.source.kernel.org (Postfix) with ESMTP id 92AE643BFC;
+	Sun, 22 Jun 2025 22:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E66C4CEE3;
+	Sun, 22 Jun 2025 22:34:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1750631651;
+	bh=MD/dLarw0d6IdKUG/1yooRE7P3CJNyXw9dAnU2kSRBg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KDsBcoQ2zlUOqf4+WJM7mnbgEr5DzxIeYw1U95bLwqJ8gA34GOJFcKbYQMSDfaoLS
+	 rO8kavqoob2P6ynRBN4dI1zrP6F0SuXvA1J3TeU+9alhUoCbhc6aRY+GHvl4h56XjC
+	 9j6VNQsaQ01k3aHime8Qc99JjJNEb5ZO6VKIBCDo=
+Date: Sun, 22 Jun 2025 15:34:10 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Xavier Xia <xavier.qyxia@gmail.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Xavier Xia
+ <xavier_qy@163.com>, 21cnbao@gmail.com, dev.jain@arm.com,
+ ioworker0@gmail.com, catalin.marinas@arm.com, david@redhat.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, willy@infradead.org, ziy@nvidia.com, Barry
+ Song <baohua@kernel.org>, linux-mm@kvack.org
+Subject: Re: [PATCH v6] arm64/mm: Optimize loop to reduce redundant
+ operations of contpte_ptep_get
+Message-Id: <20250622153410.1f74305615cbd089fcf943bb@linux-foundation.org>
+In-Reply-To: <CAEmg6AW0ZoKf_8XK7EjA2sE6HEL3Tneg7-CKakTNdgZrd585Ng@mail.gmail.com>
+References: <20250510125948.2383778-1-xavier_qy@163.com>
+	<99a0a2c8-d98e-4c81-9207-c55c72c00872@arm.com>
+	<CAEmg6AUBf1wVjXSoqBseWffLbixUV7U-nY52ScKCeNXwrkBcqg@mail.gmail.com>
+	<225fd9dd-2b97-4ec6-a9a6-fe148c4b901e@arm.com>
+	<CAEmg6AW0ZoKf_8XK7EjA2sE6HEL3Tneg7-CKakTNdgZrd585Ng@mail.gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_143140_515488_1B9B7259 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250622_153412_657110_D9156D03 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 20 Jun 2025 15:56:55 +0800 Xavier Xia <xavier.qyxia@gmail.com> wrote:
 
-On Fri, 23 May 2025 14:51:43 +0200, Thomas Antoine wrote:
-> The Google Pixel 6 has a Maxim MAX77759 which provides a fuel gauge with
-> an interface with a lot in common with the Maxim max1720x.
-> 
-> Modify the Maxim MAX1720x driver to be compatible with the Maxim MAX77759
-> and enable it for the gs101-oriole board.
-> 
-> The voltage, current, capacity, temperature and charge have all been
-> tested and show coherent results. The charge full design and capacity
-> equal the ones seen on android, the ratio between average charge and
-> average current does predict pretty accurately the time to empty under
-> a constant workload and temperature is coherent with the dynamic state
-> of the device.
-> 
-> [...]
+> May I follow up: Does this patch require any further changes? Is it
+> now meeting the merging criteria?
 
-Applied, thanks!
-
-[1/5] power: supply: max1720x correct capacity computation
-      commit: 58ae036172b5f051a19a32eba94a3e5eb37bf47e
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+I think a refresh/retest/resend would be best at this time please, help
+people take a fresh look at it.
 
