@@ -4,144 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FB2C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 10:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF86C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 10:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6EYLYLFpyiYDHg8AKXScLdaa7AF+5W/s+IRWYHsl/k=; b=AVbCOaT0yzdgi7k9iHZ2tQYFKN
-	2V5Oytc8ZBLlA1lnO1j9en01Q+1vQeF6zEB5zXqHggJdExNjT8wMjFDkoLogtEFkyiMd2boo1mEP9
-	ket3o8KKTsMzoPg7cxVSGFunTOwwArymPxiakmHTw6fZSCM+5nl6EyDvakxC+NUwBUvBk8aA3beuA
-	EFlTXESFkxJEqD/JjU/gyCtVugnC7h96Iq9TOpYfq9vuiZ10olLyYp559O+gQ9GoJEwr7jIpPvtg1
-	nR9hPxSGYMaWalK1ekYX4Tmzt2qKRXuDHPN3chGWMIGirTCa3hzs+Eh+eaLa1ae0SQki42UESHxUF
-	j8ky8hBw==;
+	bh=pBXbBlv9I6C6FSR5Kw14+0xZtNhfR0ySSaXaQFkKeI8=; b=2dD3/QCOSXeDnfZniW2sGvOUWl
+	5NQ+OliotK8DfLkwrzqSY5oGbhylwpdBLD3pElZyOdYThVPF0d0CiMaCSkhz39SUic1DbjCVbQ2gM
+	SlaNLaoJWaLnZDJ7F4bJTzeH1dgtuNGb5qooL4/WG4UbJ6f1fA5/cjiIfQSzGXfWWAg/cZ/rmag3W
+	cz+8/0ybFu3zrTtQY0OPZ2dgT13lLCmqXOWe/y5cDLG8nNOg0aqvuOtAiO2+BHo8SyX8SywjMtio0
+	sQHPJpLZv3ooTEsh7rWKW3QPBOjWStIQ5APQMsw+vBibi0FgLY2UecmDwWqV3oCfPRTkgqYq17uoL
+	ij+kgd0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTHxz-00000000kql-0n1U;
-	Sun, 22 Jun 2025 10:30:27 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uTIKZ-00000000ls4-1c14;
+	Sun, 22 Jun 2025 10:53:47 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTHvi-00000000kkI-0nl8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 10:28:07 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-453079c1e2eso3793715e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Jun 2025 03:28:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750588084; x=1751192884; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=q6EYLYLFpyiYDHg8AKXScLdaa7AF+5W/s+IRWYHsl/k=;
-        b=PmT94lpsqsDd9MjVveJXAK5k3YSnS+VOhRBSrUKGxxwFy1Kvag+Zfw/JMb86brxJYg
-         YHlZeN8aZzbWp8L7IKZHbaqaK4oP7dQL8nO6B/q7qkKHPqqtzckeKqqfbea1kTk9+ooR
-         kTDuKJvLKDdBjZ8z8MGscyMR8kS1h3ugYqlpPYBU0+0E1X2pBhOsGyQNImos2G+X8mGH
-         3bvIcpbeavJnWVKN6VbtknHGPVQ0dBVHxj7CoipvyZVcsqOySXv7VIyDPF9qbzeDKH5a
-         FlAZkOyXB3KosNKUb3vxtugXb0hUpEip5+WTkWC2m9SmniFny/DXriZnask8FgykqFdu
-         nISw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750588084; x=1751192884;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q6EYLYLFpyiYDHg8AKXScLdaa7AF+5W/s+IRWYHsl/k=;
-        b=Tp8vB3JfS3jJAaHpwJzk2mPKCojf29y435VVD2Jo3Ekg7x5Aijv84xbUHZvgcSFkPe
-         wwqR5ZR7SW6BO2TKWAg3nn9MwpJRPK5REwR5geLPCoIOzohHry+M0y3EVB7w/hapnMdQ
-         64l2RaOzZuRgkkWTpRlb1/6SbkcQnyL4C0znhLz0xxzefM2TJdouBQNvn25MSHpiDoLH
-         jbUUJXWT4oI3mujv5Q7NRhoTCiNy30iFzgi6gJEgHNRRgNn392nLOKuzjLPgRF9NELyN
-         E41ZvJN9opyqp7Ww8zWXRxCfLrVLsvaf1eO+nLGdHLuk/m7Xt80vfSpQPsg7lmYiFSq0
-         bJLA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtCBbJi0LeRVUgB34QSlPh12sbVEEWuzt6P4E8wfm8k3NQOzUytuWpTEYrz8FBPyWf+ugtroOVTwJezvM37KAr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOXrGQ3sE1lTDGtJwF4PTjtNVCGVFyuKjHzlCTCI91TeHpvvKo
-	ymFf9uXOmbyyljUl1JLOHEwBByGh4It2gy2/2Sd4kGFHpNZps7EusK/QlLvQwZg6I54=
-X-Gm-Gg: ASbGncsVC570E/6j9QhhAqyCQ8AUB2xjihsqdSKLLTiMx++HcNCkdX1gtsFxmYLRWYQ
-	q+hUcGi9vhItAe0dwpmxDfCXQxPN19nHXU1iuEAkWAKRpNlI79t9Cu2oZzYJ2+KOQFGnJwk4axB
-	hth1kLKKy38fGgVwARLm+pI4sboZZt75+ZKnb/4DhlzYXQ665+Hl06kvjEFoSFQEGMsead7VmN8
-	ClVwHahQJzrAzwHcTydoF8daQ3YaXLiB14NDaV4PzLzpC9RPx186DI1r14PgcI2IhO7TDod4JjO
-	hlpcLQg4s7GwpTvFXPcarpp3UMxBMV5zoo5MRc7MPwwzG37RVpyWFReS2rv7WvjWf0EOmhbe1gK
-	14sKHBZA=
-X-Google-Smtp-Source: AGHT+IGExnyr33PA01GZxb+bF5kgM29BezDYfAl+iMhypV/l7Sou3GfjrHoyyQam3QcDSe2CP4RzQw==
-X-Received: by 2002:adf:9ccb:0:b0:3a5:2554:71ff with SMTP id ffacd0b85a97d-3a6d1319e1emr2002220f8f.13.1750588084189;
-        Sun, 22 Jun 2025 03:28:04 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453647084a5sm76513045e9.38.2025.06.22.03.28.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Jun 2025 03:28:03 -0700 (PDT)
-Message-ID: <af90121a-37e3-488f-aa28-fac0d1c69c09@linaro.org>
-Date: Sun, 22 Jun 2025 12:28:01 +0200
+	id 1uTIIJ-00000000lkn-16uY;
+	Sun, 22 Jun 2025 10:51:28 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55MAoCMk022049;
+	Sun, 22 Jun 2025 10:51:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pBXbBlv9I6C6FSR5Kw14+0xZtNhfR0ySSaXaQFkKeI8=; b=ag+GgjNJ6BeNewlW
+	zUMIzgUvYPNfUFBgcw5CAfORDAiWngG41LDbTojDVaGGLyhGPMpSjigePMIt326g
+	nwwQnGQoenUH0ekm5Cc+VJfcnoZH170evmhtTJ2kF/W+7si7Jk2DJb4CmnorCzL8
+	e783TQr8TzONe6/MAOXMVCxjQHLrX63MqsSKdLC6/2sreAr8e2BxUDReGxN0jzdt
+	w4RUR60r8+3p8i0wGmo1sbRXopgIK2LhcJLG+Hi4iD2HVRO/NDU3xVgGO6qEsTCn
+	509W0cU3T9xQiomx8gdxkLVT1vZYWWoOTcBZa04AYfrvrKAgsrOkSyAXhcQVoHCS
+	Iy1wvg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ege0r01d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 22 Jun 2025 10:51:09 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55MAp8R9010853
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 22 Jun 2025 10:51:08 GMT
+Received: from [10.216.13.113] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 22 Jun
+ 2025 03:51:03 -0700
+Message-ID: <118d58ab-b458-4472-a92b-00f98995bc79@quicinc.com>
+Date: Sun, 22 Jun 2025 16:20:53 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 1/2] media: dt-bindings: nxp,imx8-jpeg: Add
- compatible strings for IMX95 JPEG
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, Shawn Guo <shawnguo2@yeah.net>
-Cc: Frank Li <Frank.Li@nxp.com>, mirela.rabulea@nxp.com, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, ming.qian@nxp.com
-References: <20250521-95_jpeg-v1-0-392de5d29672@nxp.com>
- <20250521173444.310641-1-Frank.Li@nxp.com>
- <eef5ccd99d82dd33e3a4ecdb5d4a5b75ccb0b972.camel@ndufresne.ca>
- <aFORokzx/sImgDtA@dragon>
- <d46d73f84e78daf152962ffb5cce7dd3ae0920d1.camel@ndufresne.ca>
- <6898ce74-808d-4976-b04e-31737396a86c@linaro.org>
- <82d38c0dc93255da3195a919dc650ef8fc07e7f2.camel@ndufresne.ca>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: next-20250620: Qualcomm Dragonboard 845c Internal error Oops at
+ ufs_qcom_setup_clocks
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+CC: open list <linux-kernel@vger.kernel.org>,
+        Linux ARM
+	<linux-arm-kernel@lists.infradead.org>,
+        <lkft-triage@lists.linaro.org>,
+        "Linux Regressions" <regressions@lists.linux.dev>,
+        <linux-phy@lists.infradead.org>, <linux-scsi@vger.kernel.org>,
+        Vinod Koul
+	<vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kishon Vijay
+ Abraham I <kishon@kernel.org>,
+        "James E.J. Bottomley"
+	<James.Bottomley@hansenpartnership.com>,
+        "Martin K. Petersen"
+	<martin.petersen@oracle.com>,
+        Bart Van Assche <bvanassche@acm.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        <konrad.dybcio@oss.qualcomm.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+        Manivannan Sadhasivam <mani@kernel.org>
+References: <CA+G9fYuOnfvm7N0pa=PNvq=tQsp6CVA34eDq5=rGthEBrdMJuQ@mail.gmail.com>
+ <e392a025-2417-4df8-b3f6-853a33cc8fe2@quicinc.com>
+ <CA+G9fYuFQ2dBvYm1iB6rbwT=4b1c8e4NJ3yxqFPGZGUKH3GmMA@mail.gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <82d38c0dc93255da3195a919dc650ef8fc07e7f2.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Nitin Rawat <quic_nitirawa@quicinc.com>
+In-Reply-To: <CA+G9fYuFQ2dBvYm1iB6rbwT=4b1c8e4NJ3yxqFPGZGUKH3GmMA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: -k8KxG-8C94D_j62VGzXz4sptFeJALed
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjIyMDA2NiBTYWx0ZWRfXwia1m7vneYwT
+ rHe8zBqV1JQSS0qVdBZHp7tLkbCyHe5RxKN6w8GV8dOLqIXbD3TzCIbe/4wkGM2C3W8eDRktP0W
+ Gb1XInKTMuAI5IxqqbHG1RzfYKRxEpZfvWdg8AWO6GV39np9iweYoLzhUsu/SaJ8sxTCc6528gt
+ 0V2PGBnBWH/HNk1VkctGDTdI+q2w1Rju947sLYhqkTBZOwAtL1H4SABVi2daixc5loNLMYKMHzj
+ k2ZizeeI8KWL6MztiQCrsE84Cl6gDa7jgCl4Zwy77mBR7XnAcQ+Wk4mxa7ZI90fTrUZxR+4sE7f
+ aYCRWTFvGxSIE6S5whLklT59PywmEjLxXCSZZW5kuIIlwRensmnZ9bExW2GG0SGxaWbhOTR4Fzt
+ yFIe1vy432hUIfItVo2gcwkzDkZ8zFnPa2oJLI00QlX6T3rl4hRFqjxRoJTuCMB68vPquCL0
+X-Authority-Analysis: v=2.4 cv=CesI5Krl c=1 sm=1 tr=0 ts=6857e01d cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=KKAkSRfTAAAA:8
+ a=Oh2cFVv5AAAA:8 a=21D8NHQQAAAA:8 a=COk6AnOGAAAA:8 a=DIQkKumCARwGTuhbXasA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=7KeoIwV6GZqOttXkcoxL:22
+ a=aE7_2WBlPvBBVsBbSUWX:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: -k8KxG-8C94D_j62VGzXz4sptFeJALed
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-22_03,2025-06-20_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
+ mlxlogscore=999 suspectscore=0 malwarescore=0 priorityscore=1501
+ impostorscore=0 mlxscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506220066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_032806_253598_31BCA658 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250622_035127_436137_71B80156 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,45 +132,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/06/2025 17:06, Nicolas Dufresne wrote:
-> Le vendredi 20 juin 2025 à 07:54 +0200, Krzysztof Kozlowski a écrit :
->> On 19/06/2025 19:16, Nicolas Dufresne wrote:
->>> Le jeudi 19 juin 2025 à 12:27 +0800, Shawn Guo a écrit :
->>>> On Fri, May 23, 2025 at 07:22:04PM -0400, Nicolas Dufresne wrote:
->>>>> Hi,
->>>>>
->>>>> Le mercredi 21 mai 2025 à 13:34 -0400, Frank Li a écrit :
->>>>>> Add compatible strings "nxp,imx95-jpgdec" and "nxp,imx95-jpgenc", which
->>>>>> are backward compatible with "nxp,imx8qxp-jpgdec" and
->>>>>> "nxp,imx8qxp-jpegenc". i.MX95 just need one power domain which combine
->>>>>> wrap and all slots together. Reduce minItems of power-domains to 1 for
->>>>>> i.MX95 and keep the same restriction for others.
->>>>>>
->>>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>>>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
->>>>>
->>>>> Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->>>>>
->>>>> Krzysztof, will you take this one once the DTS part is ready ?
->>>>
->>>> dt-bindings is the prerequisite of DTS.  DTS patch looks good to me
->>>> and I'm waiting for dt-bindings part to be applied first.
->>>
->>> I was waiting for sign of life on the DTS part, we usually get some ack,
->>> which is good sign we can take the bindings.
+
+
+On 6/22/2025 2:22 PM, Naresh Kamboju wrote:
+> On Sat, 21 Jun 2025 at 22:45, Nitin Rawat <quic_nitirawa@quicinc.com> wrote:
 >>
->> Such process never happens. DT bindings are the prerequisite here and
->> platform maintainers wait for bindings to be accepted before taking DTS
->> or even sometimes reviewing DTS. Why even bother to review DTS if it
->> follows entirely incorrect binding?
+>>
+>>
+>> On 6/21/2025 1:40 PM, Naresh Kamboju wrote:
+>>> Regressions noticed on the Qualcomm Dragonboard 845c device while booting the
+>>> Linux next tags from next-20250616..next-20250620 the following kernel oops
+>>> noticed and boot failed.
+>>>
+>>> Regressions found on Thundercomm Dragonboard 845c (DT)
+>>> - Boot
+>>>
+>>> Regression Analysis:
+>>> - New regression? Yes
+>>> - Reproducibility? Yes
+>>>
+>>> First seen on the next-20250616
+>>> Good: next-20250613
+>>> Bad:  next-20250616
+>>>
+>>> Boot regression: Qualcomm Dragonboard 845c Internal error Oops at
+>>> ufs_qcom_setup_clocks
+>>>
+>>> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+>>
+>>
+>> Hi Naresh,
+>>
+>> Thanks for testing and reporting this issue. Can you please
+>> test with the attached fix and let me know if it helps.
 > 
-> You are the one requesting DTS with DT bindings for review purpose. You've
-> done so regularly this year.
+> The attached patch applied on top of the Linux next and
+> boot test pass and also LTP smoke runs smooth.
 
-Yes, I asked for DTS for before/while reviewing very questionable
-bindings and drivers. Was this reviewed already? Yes, it was. Therefore
-after my review, how is this relevant?
+Thank you, Naresh, for testing the fix. I have sent the patch for
+review.
 
-Best regards,
-Krzysztof
+Thanks,
+Nitin
+
+> 
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> 
+> Boot test pass LAVA test jobs runs links,
+> - https://lkft.validation.linaro.org/scheduler/job/8324919#L5075
+> - https://lkft.validation.linaro.org/scheduler/job/8324918#L5105
+>   - https://lkft.validation.linaro.org/scheduler/job/8324917#L5120
+> 
+> - Naresh
+> 
+>>
+>> Regards,
+>> Nitin
+>>
+>>
+>>>
+>>> ## Boot log
+>>> [    6.446825] ufshcd-qcom 1d84000.ufshc: ufshcd_populate_vreg: Unable
+>>> to find vccq2-supply regulator, assuming enabled
+>>> [    6.448070] Unable to handle kernel NULL pointer dereference at
+>>> virtual address 0000000000000000
+>>> [    6.448080] Mem abort info:
+>>> [    6.448086]   ESR = 0x0000000096000006
+>>> [    6.448093]   EC = 0x25: DABT (current EL), IL = 32 bits
+>>> [    6.448101]   SET = 0, FnV = 0
+>>> [    6.448107]   EA = 0, S1PTW = 0
+>>> [    6.448113]   FSC = 0x06: level 2 translation fault
+>>> [    6.448120] Data abort info:
+>>> [    6.448125]   ISV = 0, ISS = 0x00000006, ISS2 = 0x00000000
+>>> [    6.448132]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>>> [    6.448139]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>>> [    6.448146] user pgtable: 4k pages, 48-bit VAs, pgdp=000000010447b000
+>>> [    6.448154] [0000000000000000] pgd=080000010447d403,
+>>> p4d=080000010447d403, pud=080000010447e403, pmd=0000000000000000
+>>> [    6.448186] Internal error: Oops: 0000000096000006 [#1]  SMP
+>>> [    6.448193] Modules linked in: qcom_q6v5_mss(+) ufs_qcom(+)
+>>> cfg80211(+) coresight_stm stm_core phy_qcom_qmp_pcie rfkill qcom_wdt
+>>> lmh(+) icc_osm_l3 qrtr slim_qcom_ngd_ctrl slimbus pdr_interface
+>>> qcom_pdr_msg icc_bwmon qcom_q6v5_pas(+) llcc_qcom qcom_pil_info
+>>> display_connector qcom_q6v5 qcom_sysmon drm_kms_helper qcom_common
+>>> qcom_glink_smem mdt_loader qmi_helpers drm backlight socinfo rmtfs_mem
+>>> [    6.448278] CPU: 6 UID: 0 PID: 385 Comm: (udev-worker) Not tainted
+>>> 6.16.0-rc2-next-20250620 #1 PREEMPT
+>>> [    6.448288] Hardware name: Thundercomm Dragonboard 845c (DT)
+>>> [    6.448292] pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>> [    6.448299] pc : ufs_qcom_setup_clocks+0x28/0x148 ufs_qcom
+>>> [    6.448317] lr : ufshcd_setup_clocks
+>>> (drivers/ufs/core/ufshcd-priv.h:142 drivers/ufs/core/ufshcd.c:9290)
+>>> [    6.448332] sp : ffff800081213640
+>>> [    6.448335] x29: ffff800081213640 x28: 0000000000000001 x27: ffff00008b633270
+>>> [    6.448347] x26: ffff00008b6332a0 x25: ffff00008b632870 x24: 0000000000000000
+>>> [    6.448359] x23: ffff00008b633280 x22: ffff00008b6332a0 x21: 0000000000000000
+>>> [    6.448369] x20: ffffd7eabf84d618 x19: ffff00008b632870 x18: 0000000000000000
+>>> [    6.448380] x17: 5453595342555300 x16: 305f666d745f6973 x15: 0000000000000100
+>>> [    6.448391] x14: ffffffffffffffff x13: 0000000000000030 x12: 0101010101010101
+>>> [    6.448402] x11: ffff00008188ea18 x10: 0000000000000000 x9 : ffffd7eabd9c3c28
+>>> [    6.448413] x8 : ffff8000812134b8 x7 : fefefefefefefefe x6 : 0000000000000001
+>>> [    6.448423] x5 : ffffffffffffffc8 x4 : 00000000c0000000 x3 : ffffd7eab32aa058
+>>> [    6.448433] x2 : 0000000000000000 x1 : 0000000000000001 x0 : ffff00008b632870
+>>> [    6.448444] Call trace:
+>>> [    6.448449] ufs_qcom_setup_clocks+0x28/0x148 ufs_qcom (P)
+>>> [    6.448466] ufshcd_setup_clocks (drivers/ufs/core/ufshcd-priv.h:142
+>>> drivers/ufs/core/ufshcd.c:9290)
+>>> [    6.448477] ufshcd_init (drivers/ufs/core/ufshcd.c:9468
+>>> drivers/ufs/core/ufshcd.c:10636)
+>>> [    6.448485] ufshcd_pltfrm_init (drivers/ufs/host/ufshcd-pltfrm.c:504)
+>>> [    6.448495] ufs_qcom_probe+0x28/0x68 ufs_qcom
+>>> [    6.448508] platform_probe (drivers/base/platform.c:1404)
+>>> [    6.448519] really_probe (drivers/base/dd.c:579 drivers/base/dd.c:657)
+>>> [    6.448526] __driver_probe_device (drivers/base/dd.c:799)
+>>> [    6.448532] driver_probe_device (drivers/base/dd.c:829)
+>>> [    6.448539] __driver_attach (drivers/base/dd.c:1216)
+>>> [    6.448545] bus_for_each_dev (drivers/base/bus.c:370)
+>>> [    6.448556] driver_attach (drivers/base/dd.c:1234)
+>>> [    6.448567] bus_add_driver (drivers/base/bus.c:678)
+>>> [    6.448577] driver_register (drivers/base/driver.c:249)
+>>> [    6.448584] __platform_driver_register (drivers/base/platform.c:868)
+>>> [    6.448592] ufs_qcom_pltform_init+0x28/0xff8 ufs_qcom
+>>> [    6.448605] do_one_initcall (init/main.c:1274)
+>>> [    6.448615] do_init_module (kernel/module/main.c:3041)
+>>> [    6.448626] load_module (kernel/module/main.c:3511)
+>>> [    6.448635] init_module_from_file (kernel/module/main.c:3704)
+>>> [    6.448644] __arm64_sys_finit_module (kernel/module/main.c:3715
+>>> kernel/module/main.c:3741 kernel/module/main.c:3725
+>>> kernel/module/main.c:3725)
+>>> [    6.448653] invoke_syscall (arch/arm64/include/asm/current.h:19
+>>> arch/arm64/kernel/syscall.c:54)
+>>> [    6.448661] el0_svc_common.constprop.0
+>>> (include/linux/thread_info.h:135 (discriminator 2)
+>>> arch/arm64/kernel/syscall.c:140 (discriminator 2))
+>>> [    6.448668] do_el0_svc (arch/arm64/kernel/syscall.c:152)
+>>> [    6.448674] el0_svc (arch/arm64/include/asm/irqflags.h:82
+>>> (discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
+>>> 1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
+>>> arch/arm64/kernel/entry-common.c:165 (discriminator 1)
+>>> arch/arm64/kernel/entry-common.c:178 (discriminator 1)
+>>> arch/arm64/kernel/entry-common.c:768 (discriminator 1))
+>>> [    6.448685] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:787)
+>>> [    6.448694] el0t_64_sync (arch/arm64/kernel/entry.S:600)
+>>> [ 6.448705] Code: a90157f3 aa0003f3 f90013f6 f9405c15 (f94002b6)
+>>> All code
+>>> ========
+>>>      0: a90157f3 stp x19, x21, [sp, #16]
+>>>      4: aa0003f3 mov x19, x0
+>>>      8: f90013f6 str x22, [sp, #32]
+>>>      c: f9405c15 ldr x21, [x0, #184]
+>>>     10:* f94002b6 ldr x22, [x21] <-- trapping instruction
+>>>
+>>> Code starting with the faulting instruction
+>>> ===========================================
+>>>      0: f94002b6 ldr x22, [x21]
+>>> [    6.448710] ---[ end trace 0000000000000000 ]---
+>>>
+>>> ## Source
+>>> * Kernel version: 6.16.0-rc2-next-20250620
+>>> * Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
+>>> * Git sha: 2c923c845768a0f0e34b8161d70bc96525385782
+>>> * Git describe: next-20250620
+>>> * Project details:
+>>> https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250620/
+>>> * Architectures: arm64 Dragonboard 845c
+>>> * Toolchains: gcc-13
+>>> * Kconfigs: defconfig+lkfttestconfigs
+>>>
+>>> ## Build arm64
+>>> * Test log: https://qa-reports.linaro.org/api/testruns/28811906/log_file/
+>>> * Test Lava log: https://lkft.validation.linaro.org/scheduler/job/8323501#L5646
+>>> * Test Lava log 2:
+>>> https://lkft.validation.linaro.org/scheduler/job/8323351#L5682
+>>> * Test details:
+>>> https://regressions.linaro.org/lkft/linux-next-master/next-20250620/boot/gcc-13-lkftconfig/
+>>> * Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2yj4otvwBRT4UktLTyKEN8ZtUQm/
+>>> * Kernel config:
+>>> https://storage.tuxsuite.com/public/linaro/lkft/builds/2yj4otvwBRT4UktLTyKEN8ZtUQm/config
+>>>
+>>> --
+>>> Linaro LKFT
+>>> https://lkft.linaro.org
+
 
