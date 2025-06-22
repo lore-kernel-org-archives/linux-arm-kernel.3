@@ -4,64 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E26DC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 11:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC150C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 11:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SKU4vnqU/VYaJQ55+TKAhS5xj/KuQfRHxHui1BDv+k4=; b=MBC8eGiICnTwTAHM4ZrYXrqisD
-	wbjyvhHX3If1FzgwL6gibzLFEx5a5X/7JeWbR+29ErLN97E+jvIJqGNqPuu0WGt30x0CjUD6N+yif
-	0tj50862bdtDWu/1B5zeBtYO0iwKu7djBVsuj7az4OUQiKUTRQZ/T4hyFuytrLq6DVm/TS6my2hmq
-	zxUvyK25jw2nwJPVIV2EZCcc4gLB4hFSgEbv09nK3NTEYUBhd2iNKlsAuaK9e6GZi+KDjztWpIKhR
-	sVgAm9BY/XgwdFnQV099rbM9k5XSUdTIlmYBW5HNz7hURcLq4a9R9JpdZRuxzOB/bFZAbUNmtMWuL
-	1QDBx9Kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V5PqOs3/xKFezUmd6NAwv3w8UOkeGu5C9tM8XmOfbSQ=; b=OZGS9qyZn+qOfQ
+	KB1CYzbSbVEVpw0HabXuHlz9XI6VU3qG5A5JWrfZ4ZZ6pv6Udm1BWoksWW1XxqVd1Flc6y0Il/GPE
+	BWrKBeXJkDPyjE05ICCqMhk2wyUq50RX0n0+8rfNaaVA/KGZ4zbp9P84Iy4V0rF3AEPwOL4azmQgR
+	m/KO4b6mL89pyW5Cv6cQki1PpRx6ov3/P5zXT3PFWpH9vE736vtFkZi1jw6Zd2exh84O7pds1yWB9
+	JbsXf+DlaiJjbNr3wbSCvI4VY+AH2feL0XVVmamXLU+ahtssIzCtq1WWpK1W6hzW8FHTDua9uXNV7
+	Rsbh4+xG7XPhKzeAMW/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTJ24-00000000nW4-3MgP;
-	Sun, 22 Jun 2025 11:38:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uTJAl-00000000oLi-1jN9;
+	Sun, 22 Jun 2025 11:47:43 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTIzn-00000000nQ2-33tp
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 11:36:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C36A1A4A26A;
-	Sun, 22 Jun 2025 11:36:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D371C4CEE3;
-	Sun, 22 Jun 2025 11:36:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750592182;
-	bh=6EBc43I0hRetS6oG4fS9WzjeCLsol5+NvkR7edl/i6w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=becY3tL9N6PqEruLxFbcmySSiLdV9J7nYdd79GVeM0qf3neU8OvEIkDSYQpmmL424
-	 voDH4OKqkMpRFZK7XznSONMPSuSJEl39rst9RufOf9MnVdA8T3E3u+7o79pc+8ts7Z
-	 5UuPjFOzzIVQSU7HUD923hyVnEFBW/XPBlmZNImlXNbpcQ15Rqbgglvp1HPaGGusNO
-	 c9x9bCFxKFUXv5TvSpm9fLl1/yVKi/R3jMDXSqpU2xEBlYXcjRV8GGL5dst3tfRMM9
-	 OhdG12UGrBRnoRb7AlixQPmPavJJiwV7ML+2N5Qudlcfw8+VOx0lv2peTxVTqQQa8e
-	 8c6bdPLi1zUGQ==
-Date: Sun, 22 Jun 2025 13:36:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shubhi Garg <shgarg@nvidia.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v4 1/6] dt-bindings: mfd: add NVIDIA VRS PSEQ
-Message-ID: <ug3zbannk22ziy7g25rhe4v2vv2vlxg3ylwvksy2mbzkf3lb2f@uib4qcvxjig6>
-References: <20250619084427.3559207-1-shgarg@nvidia.com>
- <20250619084427.3559207-2-shgarg@nvidia.com>
+	id 1uTJ8T-00000000nqq-04Cm;
+	Sun, 22 Jun 2025 11:45:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1750592706; x=1751197506; i=frank-w@public-files.de;
+	bh=V5PqOs3/xKFezUmd6NAwv3w8UOkeGu5C9tM8XmOfbSQ=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=kFkDrSkoN5p2YldLIl98CfwrfIcyhOqULm+WmcdIHZXHnkIaXc3sLhDUJbiJx0Qc
+	 eMN80zsvd8WtD83oIOopeXQnX9YKcjZ3Imtrl7CKJvz1uA4mEU0XEyyzV1nLswmzG
+	 1tH7qQ7ceUKc9z5dBI5Ew9ndZVD1Mr6hW/fn+R/F8T/cLO5vY3y5ozQ5/B6A3mz+p
+	 f8IIF5vPPbXc3QCFoxqP1c295l3rKtXa6xrypS+Sh9Odwfli3gk7WErOOy5GgZ4Wl
+	 C3cOm7wkR0R6m1S6Z/INbzztFbqPtcNx9KtLgZIyUEoRgoVvFNJh9jW6lZ6KnmFdm
+	 SX/YT3unxu14P5ek5w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([157.180.225.81]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mk0JM-1vDK8Y0sie-00cVd7; Sun, 22
+ Jun 2025 13:45:06 +0200
+Date: Sun, 22 Jun 2025 13:44:52 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Frank Wunderlich <linux@fw-web.de>
+CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+ Johnson Wang <johnson.wang@mediatek.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_01/13=5D_dt-bindings=3A_n?=
+ =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_update_for_mt7988?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <jnrlk7lwob2qel453wy2igaravxt4lqgkzfl4hctybwk7qvmwm@pciwvmzkxatd>
+References: <20250620083555.6886-1-linux@fw-web.de> <20250620083555.6886-2-linux@fw-web.de> <jnrlk7lwob2qel453wy2igaravxt4lqgkzfl4hctybwk7qvmwm@pciwvmzkxatd>
+Message-ID: <100D79A2-12A9-478D-81F7-F2E5229C4269@public-files.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250619084427.3559207-2-shgarg@nvidia.com>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:+r1sBgNM7c57oZwI1X1Lex+Vk+TlgKFmXGGKMZI21F/aRb9y7qQ
+ upSptjxfZBqLpOGruu5mXs/Ondcwe7HU2HwpsFNQb0HhlqXLcHOCZcasJNByAOoDrHQ2SC+
+ EXGC5inY7x3PdD+gGZj8DTEuBXQL33tO6CYv2VU+eLM3GUAyxGwQ5YtDzj9eZPt1UQRVnt/
+ Rxzk1lhyjApnX034rNTNg==
+UI-OutboundReport: notjunk:1;M01:P0:bWFyMbVZYnw=;lif7dhqLi3iNLh4tsO2z2HnMbx0
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_043623_895778_D1099A13 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20250622_044521_438252_05792AB1 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,93 +139,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 19, 2025 at 08:44:22AM +0000, Shubhi Garg wrote:
-> Add support for NVIDIA VRS (Voltage Regulator Specification) power
-> sequencer device. NVIDIA VRS PSEQ provides 32kHz RTC support with backup
-> battery for system timing. It controls ON/OFF and suspend/resume power
-> sequencing of system power rails on below NVIDIA platforms:
-> 
-> - NVIDIA Jetson AGX Orin Developer Kit
-> - NVIDIA IGX Orin Development Kit
-> - NVIDIA Jetson Orin NX Developer Kit
-> - NVIDIA Jetson Orin Nano Developer Kit
-> 
-> Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
-> ---
-> 
-> v4:
-> - no changes
-> 
-> v3:
-> - fixed device tree node name to generic "pmic@3c"
-> - fixed indentation
-> 
-> v2:
-> - fixed copyrights
-> - updated description with RTC information
-> - added status node in dtb node example
-> 
->  .../bindings/mfd/nvidia,vrs-pseq.yaml         | 60 +++++++++++++++++++
->  1 file changed, 60 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/nvidia,vrs-pseq.yaml
+Hi,
 
-Does not look like mfd device. Isn't there appropriate directory for this?
+Thank you for review=2E
 
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/nvidia,vrs-pseq.yaml b/Documentation/devicetree/bindings/mfd/nvidia,vrs-pseq.yaml
-> new file mode 100644
-> index 000000000000..65bf77f70c44
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/nvidia,vrs-pseq.yaml
-> @@ -0,0 +1,60 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/nvidia,vrs-pseq.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NVIDIA Voltage Regulator Specification Power Sequencer
-> +
-> +maintainers:
-> +  - Shubhi Garg <shgarg@nvidia.com>
-> +
-> +description:
-> +  NVIDIA Voltage Regulator Specification Power Sequencer device controls
-> +  ON/OFF and suspend/resume power sequencing of system power rails for NVIDIA
-> +  SoCs. It provides 32kHz RTC clock support with backup battery for system
-> +  timing. The device also acts as an interrupt controller for managing
-> +  interrupts from the VRS power sequencer.
-> +
-> +properties:
-> +  compatible:
-> +    const: nvidia,vrs-pseq
+Am 22=2E Juni 2025 13:10:31 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=
+=2Eorg>:
+>On Fri, Jun 20, 2025 at 10:35:32AM +0200, Frank Wunderlich wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> Update binding for mt7988 which has 3 gmac and 2 reg items=2E
+>
+>Why?
 
-I2C devices, even internal to vendors like Qcom, Samsung, Renesas,
-usually have models and version numbers. This looks really incomplete. I
-don't think generic compatible would be acceptable for I2C.
+I guess this is for reg? Socs toll mt7986 afair
+ get the SRAM register by offset to the MAC
+ register=2E
+On mt7988 we started defining it directly=2E
 
-Plus, pseq is redundant. Can it be anything else?
+>> MT7988 has 4 FE IRQs (currently only 2 are used) and the 4 IRQs for
+>> use with RSS/LRO later=2E
+>>=20
+>> Add interrupt-names to make them accessible by name=2E
+>>=20
+=2E=2E=2E
+>>    reg:
+>> -    maxItems: 1
+>> +    items:
+>> +      - description: Register for accessing the MACs=2E
+>> +      - description: SoC internal SRAM used for DMA operations=2E
+>
+>SRAM like mmio-sram?
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 2
-> +    description:
-> +      The first cell is the IRQ number, the second cell is the trigger type.
+Not sure,but as far as i understand the driver
+ the sram is used to handle tx packets directly
+ on the soc (less dram operations)=2E
 
-That's the default/standard, drop description.
+As mt7988 is the first 10Gbit/s capable SoC
+ there are some changes=2E But do we really need=20
+ a new binding? We also thing abour adding
+ RSS/LRO to mt7986 too,so we come into
+ similar situation regarding the Interrupts/ =20
+ -names=2E
 
-Best regards,
-Krzysztof
+>> +    minItems: 1
+>> =20
+>>    clocks:
+>>      minItems: 2
+>> @@ -40,7 +43,11 @@ properties:
+>> =20
+>>    interrupts:
+>>      minItems: 1
+>> -    maxItems: 4
+>> +    maxItems: 8
+>> +
+>> +  interrupt-names:
+>> +    minItems: 1
+>> +    maxItems: 8
+>
+>So now all variants get unspecified names? You need to define it=2E Or
+>just drop=2E
 
+Most socs using the Fe-irqs like mt7988,some
+ specify only 3 and 2 soc (mt762[18]) have only
+ 1 shared irq=2E But existing dts not yet using the
+ irq-names=2E
+Thats why i leave it undefined here and
+ defining it only for mt7988 below=2E But leaving it
+ open to add irq names to other socs like filogic
+ socs (mt798x) where we are considering
+ adding rss/lro support too=2E
+
+>> =20
+>>    power-domains:
+>>      maxItems: 1
+>> @@ -348,7 +355,19 @@ allOf:
+>>      then:
+>>        properties:
+>>          interrupts:
+>> -          minItems: 4
+>> +          minItems: 2
+>
+>Why? Didn't you say it has 4?
+
+Sorry missed to change it after adding the 2
+ reserved fe irqs back again (i tried adding only used irqs - rx+tx,but go=
+t info that all irqs can be used - for future functions - so added all avai=
+lable)=2E
+
+>> +
+>> +        interrupt-names:
+>> +          minItems: 2
+>> +          items:
+>> +            - const: fe0
+>> +            - const: fe1
+>> +            - const: fe2
+>> +            - const: fe3
+>> +            - const: pdma0
+>> +            - const: pdma1
+>> +            - const: pdma2
+>> +            - const: pdma3
+>> =20
+>>          clocks:
+>>            minItems: 24
+>> @@ -381,8 +400,11 @@ allOf:
+>>              - const: xgp2
+>>              - const: xgp3
+>> =20
+>> +        reg:
+>> +          minItems: 2
+>
+>
+>And all else? Why they got 2 reg and 8 interrupts now? All variants are
+>now affected/changed=2E We have been here: you need to write specific
+>bindings=2E
+
+Mt7988 is more powerful and we wanted to add
+ all irqs available to have less problems when
+ adding rss support later=2E E=2Eg=2E mt7986 also have
+ the pdma irqs,but they are not part of
+ binding+dts yet=2E Thats 1 reason why
+ introducing irq-names now=2E And this block is
+ for mt7988 only=2E=2E=2Ethe other still have a regcount of 1 (min-items)=
+=2E
+
+But of course i can limit the reg/ irqs/
+ irq-names for each compatible=2E
+
+>https://elixir=2Ebootlin=2Ecom/linux/v6=2E11-rc6/source/Documentation/dev=
+icetree/bindings/ufs/qcom,ufs=2Eyaml#L127
+>
+>https://elixir=2Ebootlin=2Ecom/linux/v6=2E11-rc6/source/Documentation/dev=
+icetree/bindings/ufs/samsung,exynos-ufs=2Eyaml#L39
+
+I take a look into it,but allowing irq names for all matching compatibles =
+does not require it for them=2E Or am i wrong here?
+
+>Best regards,
+>Krzysztof
+
+
+
+regards Frank
 
