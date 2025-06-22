@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D035C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 13:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F69C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 13:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4+vkfv19nsFG3JWWcSn0RJuwkZKQGKRg+WJmGYnaTdw=; b=I8JP7FVbS7I93dvYSl4w2kGnpr
-	HCgwSc2wiXlZajctWmgTiDwe8VOzt7zVfNJWJrzrKvlwcFZQNq71ruAzOYTc1dy2h4SnXSxrkxeN6
-	uiu/2iDWUD/0B5z8EJaok2l70griG48JIb46aao366tM8x0DtfSegc6aMA94UMAcLr2694oE5b5tR
-	45e4zqQjG3EIWZlPS3cuRYY79sfpRCicMft5K/FhMu5AhsACt9OOvR/gDmJ/Z3Bs3WR1eGO2FAT1+
-	dJTIqCIRwLl7vqC+67ICdZuvBYKia1iHRKk+ivp0v9sQm1W+/ElfL1GH8VF5YEaSl+pRe8LWwRlEU
-	fCrW9T5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eck2Y/ere+FZBvB8r9DWh/GGz0lRVjgIg2ZNg2JDTYU=; b=4fs+Qf8vXJS5Zh67HpSQQZTy/I
+	jnzRE3DvfQpG9SDSA8oXLBtte1+loY3DkYwSh49GqIcYcvjM66MKh/xpCa9HiGAYOfHO0ejeqCRqL
+	Sk36od1ljGe9/vU+WqfjVuQIFBKjEaif+lEIhhCV9J+e/XCfIHnVgOZjLx/10286EGrYA9zGEgOjH
+	hfzM5mFXZ9zF2PZmtWQr+/btUePYXWTZR87apjNBZZusGexVtZXO6a0Zet6wTUcVAktq2+hPE3qDz
+	4JI1HXNWaSaiuookruCOVlGwh2o8bPNTdCS2ZatYImT5XjVV3aVQUKfweglus4z9J72JunHbIBYs8
+	ogMSIC/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTKIa-00000000s86-0uZL;
-	Sun, 22 Jun 2025 12:59:52 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uTKMM-00000000sTl-1jPe;
+	Sun, 22 Jun 2025 13:03:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTKGI-00000000rvU-3xyt
+	id 1uTKK5-00000000sOE-3b9r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 12:57:32 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a50fc7ac4dso1811500f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Jun 2025 05:57:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750597049; x=1751201849; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4+vkfv19nsFG3JWWcSn0RJuwkZKQGKRg+WJmGYnaTdw=;
-        b=jl0BwUUCYC8iKXM0N+WsSMKNc77gUrNGIjayGUCBz7LI/S+6dvyWdNNQLuDatLPpTZ
-         Va19x1K0xCc0Rf1RwzfuPwr9TLo/MppZC/e3CuU1OkQW4rxH0wHXUeishgpr+/OdVewt
-         8FP22GE2V4sMyDlI9xmTeMZdoqkddVjcRx8dXhHw6ZUy6PqLlRulDxHSGW7BqneJoCYE
-         aWRPvE+tvm4G5o9KdA0+QrdRh0wNvzpBZnY8tw9n0XlZYubk/65Ygx86ziThr3NltMTl
-         mHNy+yFfaNg+mGHSL5CUnyAHjJwp2SmdrFKBlZMMovrO/roQoAyKhePTKMrVNHm7T5A0
-         swVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750597049; x=1751201849;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4+vkfv19nsFG3JWWcSn0RJuwkZKQGKRg+WJmGYnaTdw=;
-        b=FUsrtVaOsANeaObVeZs4elaocNLnAVXI0gU8ubnT2VJJn6FEc3KC947WIOG6lVjgJA
-         +W9pKnToCkrkU2HoLUnUKrLx0Sm2mWAb0mq4CIpafV5Ef/q0qAwi/Eb9sDSAY+Aqr5g1
-         AxPmlSXQOOCbb5HKEPwtktPOq73dCAN5Lkf2Qb8W5wVyVXIHMQK7fddcZ7Yf21c74Y4D
-         hjYknafp5vMw61BLBdXln2BVVKgtkJQVw0uu+zIFvQn9B1VHt4rGbiblmIsKHjRB4rnY
-         SxGdjPMqvtnvN5HDmhNmsxpyIC2IRLG0F24B1/13aSWCwcEWhU/MStLPNB9B7TAw4OOx
-         EwTg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5xwszbzmnOsCjkIIoF0NoCWLPLQD5hMIGGGTQ3j4pQsopifh/uEB2fQD4seruo47SAwCnUgjKAyDF+Y/FOKhE@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywbq12kQ+o/K/Jiempez9Tlr1XVVy9XA/z43ri51YjERiszL2JJ
-	gd/pCPYFHOkgx9qTNRjf6UeyGfZNMxDaXaEcH3PbMooFMQoF5Bp6kZsHgPczdilCIePBxiEHP6V
-	/SvVGUwjjGf0jAlO4+37bcFXBAPWhqks=
-X-Gm-Gg: ASbGnctj9Ck6GGEnUCry4WlezqsibI7SCKZnFPx+crlBxyJkCFtIb3e/4HobChT47LK
-	ElzibzVXxrVhD1EHX1uHiUGj1ivZ3PMVOMhlOUikwt61TBC5mIAgXAJnxJWotnx8tIVYg8OSGsC
-	ldRZl8QIVdnuMnacXZUPpAAOCs9msqDfZVa/1NdyBn4HB5iA==
-X-Google-Smtp-Source: AGHT+IEhsLkdHI04BQhNQneZfcWZKZUKTAWLIjCKILhfBfcByb7/8yzYOiwf7BViNIafnURgUPHjWWsstrkywtwcuG8=
-X-Received: by 2002:adf:9cc4:0:b0:3a4:dbdf:7154 with SMTP id
- ffacd0b85a97d-3a6d1330d8fmr5584264f8f.54.1750597048529; Sun, 22 Jun 2025
- 05:57:28 -0700 (PDT)
-MIME-Version: 1.0
-References: <aFVVEgD0236LdrL6@gmail.com>
-In-Reply-To: <aFVVEgD0236LdrL6@gmail.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Sun, 22 Jun 2025 14:57:16 +0200
-X-Gm-Features: Ac12FXwFbIPranIr5CD7aMTRcJJTKGnL_GbrxcoA-Rg5n9d4zqqzGNtm5fJhgK8
-Message-ID: <CA+fCnZfzHOFjVo43UZK8H6h3j=OHjfF13oFJvT0P-SM84Oc4qQ@mail.gmail.com>
-Subject: Re: arm64: BUG: KASAN: invalid-access in arch_stack_walk
-To: Breno Leitao <leitao@debian.org>
-Cc: kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, song@kernel.org, 
-	mark.rutland@arm.com, usamaarif642@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Sun, 22 Jun 2025 13:01:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B575C5C4C6F;
+	Sun, 22 Jun 2025 12:59:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA79FC4CEE3;
+	Sun, 22 Jun 2025 13:01:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750597284;
+	bh=qLkw/Q/EM8Dh1Jv3fjeRRfrI8ZV5UvvY6GtQl0d2ph8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=svhYhSBYlgsO6WqFP4DG4Ibuoyfs7mZ3VZaQyyfK3cYXuQ0TQD35EJCeO/Mpshh2H
+	 xI3l7iAcoH8Bf8iRZBWccJ5GrzMaRZJILNtjGG8VtbXhy54gQylP0dOS2Jk2MuACPE
+	 FSjdjYJOaGghCEmOzMtN6Ft7E+xIzfIbS/VSO6KdArui1yqYKZMzQcvBPftqt1JGaj
+	 DOfGCNspTpHwq9QYr0pbpKOvajO6/24wPJroJuPcoDb/YwD3OlYCt3/QBw3mlKH/ye
+	 MaVsl12q7zVD78TW1ZmNS7u/jjPQwfMbEKC8MgP4Q/mIIzN1y1u6/H+ij3K4dPwhFC
+	 XvKYae1nDy1yw==
+Received: from [213.123.58.114] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uTKK2-008y5h-Af;
+	Sun, 22 Jun 2025 14:01:22 +0100
+Date: Sun, 22 Jun 2025 14:01:21 +0100
+Message-ID: <878qlkexr2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: perlarsen@google.com
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/6] KVM: arm64: Use SMCCC 1.2 in host FF-A handler
+In-Reply-To: <20250619-virtio-msg-ffa-v5-3-412c98558807@google.com>
+References: <20250619-virtio-msg-ffa-v5-0-412c98558807@google.com>
+	<20250619-virtio-msg-ffa-v5-3-412c98558807@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 213.123.58.114
+X-SA-Exim-Rcpt-To: perlarsen@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_055730_989693_FF4ABDC9 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250622_060125_972981_D55D8086 
+X-CRM114-Status: GOOD (  28.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,118 +92,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 2:33=E2=80=AFPM Breno Leitao <leitao@debian.org> wr=
-ote:
->
-> I'm encountering a KASAN warning during aarch64 boot and I am struggling
-> to determine the cause. I haven't come across any reports about this on
-> the mailing list so far, so I'm sharing this early in case others are
-> seeing it too.
->
-> This issue occurs both on Linus's upstream branch and in the 6.15 final
-> release. The stack trace below is from 6.15 final. I haven't started
-> bisecting yet, but that's my next step.
->
-> Here are a few details about the problem:
->
-> 1) it happen on my kernel boots on a aarch64 host
-> 2) The lines do not match the code very well, and I am not sure why. It
->    seems it is offset by two lines. The stack is based on commit
->    0ff41df1cb26 ("Linux 6.15")
-> 3) My config is at https://pastebin.com/ye46bEK9
->
->
->         [  235.831690] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->         [  235.861238] BUG: KASAN: invalid-access in arch_stack_walk (arc=
-h/arm64/kernel/stacktrace.c:346 arch/arm64/kernel/stacktrace.c:387)
->         [  235.887206] Write of size 96 at addr a5ff80008ae8fb80 by task =
-kworker/u288:26/3666
->         [  235.918139] Pointer tag: [a5], memory tag: [00]
->         [  235.942722] Workqueue: efi_rts_wq efi_call_rts
->         [  235.942732] Call trace:
->         [  235.942734] show_stack (arch/arm64/kernel/stacktrace.c:468) (C=
-)
->         [  235.942741] dump_stack_lvl (lib/dump_stack.c:123)
->         [  235.942748] print_report (mm/kasan/report.c:409 mm/kasan/repor=
-t.c:521)
->         [  235.942755] kasan_report (mm/kasan/report.c:636)
->         [  235.942759] kasan_check_range (mm/kasan/sw_tags.c:85)
->         [  235.942764] memset (mm/kasan/shadow.c:53)
->         [  235.942769] arch_stack_walk (arch/arm64/kernel/stacktrace.c:34=
-6 arch/arm64/kernel/stacktrace.c:387)
->         [  235.942773] return_address (arch/arm64/kernel/return_address.c=
-:44)
->         [  235.942778] trace_hardirqs_off.part.0 (kernel/trace/trace_pree=
-mptirq.c:95)
->         [  235.942784] trace_hardirqs_off_finish (kernel/trace/trace_pree=
-mptirq.c:98)
->         [  235.942789] enter_from_kernel_mode (arch/arm64/kernel/entry-co=
-mmon.c:62)
->         [  235.942794] el1_interrupt (arch/arm64/kernel/entry-common.c:55=
-9 arch/arm64/kernel/entry-common.c:575)
->         [  235.942799] el1h_64_irq_handler (arch/arm64/kernel/entry-commo=
-n.c:581)
->         [  235.942804] el1h_64_irq (arch/arm64/kernel/entry.S:596)
->         [  235.942809]  0x3c52ff1ecc (P)
->         [  235.942825]  0x3c52ff0ed4
->         [  235.942829]  0x3c52f902d0
->         [  235.942833]  0x3c52f953e8
->         [  235.942837] __efi_rt_asm_wrapper (arch/arm64/kernel/efi-rt-wra=
-pper.S:49)
->         [  235.942843] efi_call_rts (drivers/firmware/efi/runtime-wrapper=
-s.c:269)
->         [  235.942848] process_one_work (./arch/arm64/include/asm/jump_la=
-bel.h:36 ./include/trace/events/workqueue.h:110 kernel/workqueue.c:3243)
->         [  235.942854] worker_thread (kernel/workqueue.c:3313 kernel/work=
-queue.c:3400)
->         [  235.942858] kthread (kernel/kthread.c:464)
->         [  235.942863] ret_from_fork (arch/arm64/kernel/entry.S:863)
->
->         [  236.436924] The buggy address belongs to the virtual mapping a=
-t
->         [a5ff80008ae80000, a5ff80008aea0000) created by:
->         arm64_efi_rt_init (arch/arm64/kernel/efi.c:219)
->
->         [  236.506959] The buggy address belongs to the physical page:
->         [  236.529724] page: refcount:1 mapcount:0 mapping:00000000000000=
-00 index:0x0 pfn:0x12682
->         [  236.562077] flags: 0x17fffd6c0000000(node=3D0|zone=3D2|lastcpu=
-pid=3D0x1ffff|kasantag=3D0x5b)
->         [  236.593722] raw: 017fffd6c0000000 0000000000000000 dead0000000=
-00122 0000000000000000
->         [  236.625365] raw: 0000000000000000 0000000000000000 00000001fff=
-fffff 0000000000000000
->         [  236.657004] page dumped because: kasan: bad access detected
->
->         [  236.685828] Memory state around the buggy address:
->         [  236.705390]  ffff80008ae8f900: 00 00 00 00 00 a5 a5 a5 a5 00 0=
-0 00 00 00 a5 a5
->         [  236.734899]  ffff80008ae8fa00: a5 a5 a5 00 00 00 00 00 00 a5 a=
-5 a5 a5 a5 00 a5
->         [  236.764409] >ffff80008ae8fb00: 00 a5 a5 a5 00 a5 a5 a5 a5 a5 a=
-5 00 a5 a5 a5 00
->         [  236.793918]                                                   =
-  ^
->         [  236.818810]  ffff80008ae8fc00: a7 a5 a5 a5 a5 a5 a5 a5 a5 00 a=
-5 00 a5 a5 a5 a5
->         [  236.848321]  ffff80008ae8fd00: a5 a5 a5 a5 00 a5 00 a5 a5 a5 a=
-5 a5 a5 a5 a5 a5
->         [  236.877828] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+On Thu, 19 Jun 2025 10:02:56 +0100,
+Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+> 
+> From: Per Larsen <perlarsen@google.com>
+> 
+> SMCCC 1.1 and prior allows four registers to be sent back as a result
+> of an FF-A interface. SMCCC 1.2 increases the number of results that can
+> (and often must) be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs
+> respectively.
+> 
+> FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
+> explicitly requires SMCCC 1.2 so it should be safe to use this version
+> unconditionally. Moreover, it is simpler to implement FF-A features
+> without having to worry about compatibility with SMCCC 1.1 and older.
+> 
+> Add SMCCC 1.2 helper routines and use this version unconditionally.
 
-Looks like the memory allocated/mapped in arm64_efi_rt_init() is
-tagged by __vmalloc_node(). And this memory then gets used as a
-(irq-related? EFI-related?) stack. And having the SP register tagged
-breaks SW_TAGS instrumentation AFAIR [1], which is likely what
-produces this report.
+Well, the previous patch already mandates that, so I wonder why you
+have two patches tackling the same thing.
 
-Adding kasan_reset_tag() to arm64_efi_rt_init() should likely fix
-this; similar to what we have in arch_alloc_vmap_stack(). Or should we
-make arm64_efi_rt_init() just call arch_alloc_vmap_stack()?
+> 
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 297 ++++++++++++++++++++++++------------------
+>  1 file changed, 173 insertions(+), 124 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 51bbe8f9c94584e9001ee769cbfd608d930ff723..23b75b9f0bcc62724f0d0d185ac2ed2526375da4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -71,36 +71,55 @@ static u32 hyp_ffa_version;
+>  static bool has_version_negotiated;
+>  static hyp_spinlock_t version_lock;
+>  
+> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+> +static void ffa_to_smccc_1_2_error(struct arm_smccc_1_2_regs *regs, u64 ffa_errno)
+>  {
+> -	*res = (struct arm_smccc_res) {
+> +	*regs = (struct arm_smccc_1_2_regs) {
+>  		.a0	= FFA_ERROR,
+>  		.a2	= ffa_errno,
+>  	};
+>  }
+>  
+> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
+> +static void ffa_to_smccc_regs_prop(struct arm_smccc_1_2_regs *regs, int ret,
+> +				   u64 prop)
+>  {
+>  	if (ret == FFA_RET_SUCCESS) {
+> -		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
+> -						.a2 = prop };
+> +		*regs = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
+> +						      .a2 = prop };
+>  	} else {
+> -		ffa_to_smccc_error(res, ret);
+> +		ffa_to_smccc_1_2_error(regs, ret);
+>  	}
+>  }
+>  
+> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
+> +static void ffa_to_smccc_regs(struct arm_smccc_1_2_regs *regs, int ret)
+>  {
+> -	ffa_to_smccc_res_prop(res, ret, 0);
+> +	ffa_to_smccc_regs_prop(regs, ret, 0);
+>  }
+>  
+>  static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+> -			   struct arm_smccc_res *res)
+> +			   struct arm_smccc_1_2_regs *regs)
+>  {
+> -	cpu_reg(ctxt, 0) = res->a0;
+> -	cpu_reg(ctxt, 1) = res->a1;
+> -	cpu_reg(ctxt, 2) = res->a2;
+> -	cpu_reg(ctxt, 3) = res->a3;
+> +	cpu_reg(ctxt, 0) = regs->a0;
+> +	cpu_reg(ctxt, 1) = regs->a1;
+> +	cpu_reg(ctxt, 2) = regs->a2;
+> +	cpu_reg(ctxt, 3) = regs->a3;
+> +	cpu_reg(ctxt, 4) = regs->a4;
+> +	cpu_reg(ctxt, 5) = regs->a5;
+> +	cpu_reg(ctxt, 6) = regs->a6;
+> +	cpu_reg(ctxt, 7) = regs->a7;
+> +
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3D51fb34de2a4c8fa0f221246313700bfe3b6c586d
+But my main problem with this patch is this sort of pointless
+churn. Changing "res" to "regs" just for the sake of it is completely
+pointless, and makes everything harder to read.
+
+Please do yourself (and everybody else) a favour by keeping the
+variable name the same.
+
+> +	/* DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30 */
+> +	if (ARM_SMCCC_IS_64(regs->a0)) {
+
+This is the *return value*, right? Not the function number. How can
+you tell about the 64-bitness of the function number based on that?
+
+> +		cpu_reg(ctxt, 8) = regs->a8;
+> +		cpu_reg(ctxt, 9) = regs->a9;
+> +		cpu_reg(ctxt, 10) = regs->a10;
+> +		cpu_reg(ctxt, 11) = regs->a11;
+> +		cpu_reg(ctxt, 12) = regs->a12;
+> +		cpu_reg(ctxt, 13) = regs->a13;
+> +		cpu_reg(ctxt, 14) = regs->a14;
+> +		cpu_reg(ctxt, 15) = regs->a15;
+> +		cpu_reg(ctxt, 16) = regs->a16;
+> +		cpu_reg(ctxt, 17) = regs->a17;
+> +	}
+>  }
+>  
+>  static bool is_ffa_call(u64 func_id)
+> @@ -113,82 +132,104 @@ static bool is_ffa_call(u64 func_id)
+>  
+>  static int ffa_map_hyp_buffers(u64 ffa_page_count)
+>  {
+> -	struct arm_smccc_res res;
+> +	struct arm_smccc_1_2_regs regs;
+>  
+> -	arm_smccc_1_1_smc(FFA_FN64_RXTX_MAP,
+> -			  hyp_virt_to_phys(hyp_buffers.tx),
+> -			  hyp_virt_to_phys(hyp_buffers.rx),
+> -			  ffa_page_count,
+> -			  0, 0, 0, 0,
+> -			  &res);
+> +	regs = (struct arm_smccc_1_2_regs) {
+> +		.a0 = FFA_FN64_RXTX_MAP,
+> +		.a1 = hyp_virt_to_phys(hyp_buffers.tx),
+> +		.a2 = hyp_virt_to_phys(hyp_buffers.rx),
+> +		.a3 = ffa_page_count,
+> +	};
+> +	arm_smccc_1_2_smc(&regs, &regs);
+
+To expand on my previous comment about this res/regs repainting, I'd
+rather see something like:
+
+	struct arm_smccc_1_2_regs res;
+
+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
+			 .a0 = FFA_FN64_RXTX_MAP,
+			 .a1 = hyp_virt_to_phys(hyp_buffers.tx),
+ 	 		 .a2 = hyp_virt_to_phys(hyp_buffers.rx),
+			 .a3 = ffa_page_count,
+	}, &res);
+
+
+> +	if (regs.a0 != FFA_SUCCESS)
+> +		return regs.a2;
+>  
+> -	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
+> +	return regs.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : regs.a2;
+
+Why are you writing the same thing twice?
+
+I stopped reading here.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
