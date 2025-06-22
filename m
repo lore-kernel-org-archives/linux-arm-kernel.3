@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9194C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 17:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC93C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 19:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvjMh6xHjfGovjYf+2MAnKPCwYWdWq/nxmY+F6jynh4=; b=YFuSZtaP5nie8n21Rrqq9ASNAG
-	tYgSJ1Hy89ltLSdqlhHPXh1EEmWbsd8KoIUcY5UzpYaAf70MfIEJLgtVJPHkglxt73m5kJ97DoJph
-	YEAxgSCCHTmqTGvK0TNlvrKs/kUI6NMe0hYVGeP7kXv/TVsr0aoUKORiDA/KWb32jcw8U+SuZWue3
-	m5Y24iLzJs+vl2EL/ciHwFNqssptGSIGad/R3a2PyUHAsOUgrdkSnS7dOpheGEJk9C9QUYDTrbG4N
-	+NUmyrZBq8stIsgSgd0/Vhek+k7qv+B6Hm3JwXFF4hcksMWSd1aUxEeo3axYD/i1gGjPJ/XONA1lw
-	us89xU/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uSVO5sTqAoj9Cyt8EcznPZsRyzi2cKVQFTlXzQdwggE=; b=YIcXLMUpT4rvUzAQDJ7CsS94vw
+	989Q2H4TABnhjaOnffvmEgWsrGJLel5IkGPks9DWMeraU8+Z/mc7Kze5ffgzs47hHQIMxt8Hujird
+	OPf0+7sMzTmK+P1bBpHTPlPTADtTtiXKfnREelqw3UUvdZnwxJYTw+7ul32Jt5jbEdSvUL508p53+
+	Wg2QM9L3nAR79Vv2STnXTQTHGfHchpnEkB2GDx4bC21Y9fXA1UA45bibWudaFJFgjY0ozFjhAH3gN
+	37GI0Uj4FDODWhOElIgnW/mK7gjWLdM7n6DHeonJuVr8LuclV017WW5PakXdQrjViSSx5RzVBCQNW
+	pleCIvUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTOkZ-000000013gZ-36Eb;
-	Sun, 22 Jun 2025 17:45:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uTPw5-000000016x5-1tzI;
+	Sun, 22 Jun 2025 19:01:01 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTOiG-000000013Zh-3Pxg
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Jun 2025 17:42:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F7FF60052;
-	Sun, 22 Jun 2025 17:42:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75315C4CEE3;
-	Sun, 22 Jun 2025 17:42:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750614159;
-	bh=iIRZerzboVHSiIdEuNt8ByZGFCKc+tjHJxcG6FpZOWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N9RqyvRmbHOVrL9UzHLi44GzJIMibY9kCJty9Jp4w/Tq0rdGgthxIbaORe2FbnRCQ
-	 t2ItuP8RmzyUecXD7MluuXFQsB4T7Ulb+igBtyqIiDn413BcCHriFk3tQ2pTeKSVy8
-	 Ie9avpCQwJi4/QKx4TPjzQ7cLnyVU5OPBGlL8cGfYwLM62Ri6IWHWUlZbi9YbdY69c
-	 DH4shDPg6zImylYZDea7l/WyBSmJ4j3xiXA+5BhX5zGRPFdb8pR3XgGhS2jLeokDLR
-	 qB0Io9/e49F2PljufBFfYg3b+glJOpAYdGSh+DiWMPfIBhDVJSlI2A934qX18Y6gyR
-	 PIpmA4zgeoYBA==
-Date: Sun, 22 Jun 2025 19:42:35 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	linux-arm-kernel@lists.infradead.org, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-Message-ID: <vgtrbci4nffarwtkk4oy7tbespt3w3nvv7dgur4sq6s3bbqqsg@d5qzp5zxtc2o>
-References: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
- <jgafc7te2zotqwvetudo6c4o4nit6zi3yp4ecg4gka53hrypk5@7ypb5asrc2ct>
- <b464bc12-e921-4d98-9462-ec9d13ccb5ce@mailbox.org>
- <pb5gr65kbkokb7ybx3smqaa6vve4rkpg6qks2hdibwgrwmdzfu@6s5msb3k2p6y>
- <224fb424-6be7-455e-a2b1-f6e39e40d0d1@mailbox.org>
+	id 1uTPth-000000016gR-1V7V;
+	Sun, 22 Jun 2025 18:58:34 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-450ce671a08so21625905e9.3;
+        Sun, 22 Jun 2025 11:58:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750618711; x=1751223511; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=uSVO5sTqAoj9Cyt8EcznPZsRyzi2cKVQFTlXzQdwggE=;
+        b=bVYq3UP5lZnXvlanllR+hD5YuFty8Ck7aLwNZUc2FAcWaMdiul97KxmAAQUCxZtRs8
+         yOGGK+IMtt+FHGtV+cuAVpZR5z4zJB2sFcbe1kfyK6+u7MFWKdZzN4EzjAgYbegl0ZF8
+         0tE1nax50fCL7Kh4c8W9L74yq6ouGzfTJBT8APhQ6Hxu3RWU7o/4kDpdKpaqti4g3xcF
+         jlMLXemgPEnb3PqPWV6G1vHHBvatXfoqRM5CwuiPuZ+PeQPirLVp4S1R/r/VfjDe7SCi
+         2vuH/21wLLC6AsDCCm35mJmSQc/mcxhhinxyJ2nyJB3qwmWglyKkbE57BrDpH+uoNvzr
+         nicw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750618711; x=1751223511;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uSVO5sTqAoj9Cyt8EcznPZsRyzi2cKVQFTlXzQdwggE=;
+        b=skLB9Jg5F5ETDLBe1oQVvlKad3rldJFHw8VevmkjPWwUz0j7Zlc+FBMORSrCJeBJsN
+         mL1/qJKFyzucs24TCrVGllmXoAAiDJmMkALGN97Ix+lmoiuWzC4JfqYYlGFuVzxA7o0T
+         nRxCwoNrVZmWD6KNaquQYxRWA8+bqdzF5IIAvfS2nqIPIz2iyCVBNdyUwBceuDDX5JWo
+         b41+9R0FtIscaQpDdILpHxT8Q8vtJsDZxxQJ38HJtTjb6IDwU7I9a5ryMSiKogUHNXs4
+         ppbPPN/fNfIxo9p/8AA8cMmML+fStdwiu34+c16YAfjoW9mjJ0fr3+JgJGKs1zGtY2T/
+         yfHA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5CIwF62lH5EUwMVm9HtYdtK5mnGbaZnWkHqZkGPyYmsD3Gqb2EowhYV62uWIsxzBQeyd509+m3VhwTE6ow1E=@lists.infradead.org, AJvYcCXQNwDl/ONjNo13yVCycz7TPbpDoIk0iO7Cj/1cYBmloUcDLO/Xm+7PFt/qUzizmfZvbq9Syl2kRrGL0op0xnBe@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN0Qp6DG6GwZKHgQwS7lEhCtxv81qPDAnpSG1JGc7BUAzsKXHt
+	Ln+BAwlVD4JlhHBkX7GHdiwHGySAQC28Cos8vkbP7ssMYQv0wj/wOP4=
+X-Gm-Gg: ASbGnctpWKmezcNkqAgWwDSgSPFuNZUCI8OzWzIkxKUs/Ch8aHjm7a3pelGzjxfXFe2
+	S17fKUvDfwJUBaBt6YZX5oV4BqY0OlDCTuChGQkHcRI+p+j4TVqsdXlI/HvCBr8P4aQ467CA9a4
+	dQytdc2bEjFHDJeO7emuVMVRwr1DBr24Brc0MaEn4dw99OFYsE+YVm3fWSPr+32His2mAmicrlh
+	x6I+5SV+iEtaDNmh3QM8Nz6GmU1p35CH7HCo9nKjq3bqv4xqPzZrK7UrPJnQVSAROeLEmtTPLXs
+	DApxcNrz9rGT6z1uwsubq70TSdwiKV35dPFzwiqpJehORH5a4gcA78pglFPkWz1jZdBzDih28Qx
+	B
+X-Google-Smtp-Source: AGHT+IH3xVQDsV2b3eNirbfyc89CSjt22T6srKK0geP2sYvw93s1z7TyOBPUqY/JjE4XrqHgNi24lQ==
+X-Received: by 2002:a05:600c:46cc:b0:453:b1c:442a with SMTP id 5b1f17b1804b1-453656c3168mr94060515e9.27.1750618711137;
+        Sun, 22 Jun 2025 11:58:31 -0700 (PDT)
+Received: from nas.lab.vially.dev ([89.101.66.164])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646d1391sm87238045e9.9.2025.06.22.11.58.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Jun 2025 11:58:30 -0700 (PDT)
+From: =?UTF-8?q?Valentin=20H=C4=83loiu?= <valentin.haloiu@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: =?UTF-8?q?Valentin=20H=C4=83loiu?= <valentin.haloiu@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Enable HDMI receiver on CM3588
+Date: Sun, 22 Jun 2025 19:58:12 +0100
+Message-ID: <20250622185814.35031-1-valentin.haloiu@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="is2iys6sxmeav7qo"
-Content-Disposition: inline
-In-Reply-To: <224fb424-6be7-455e-a2b1-f6e39e40d0d1@mailbox.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250622_115833_400324_DCF55B0C 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,141 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Enable support for the HDMI input port found on FriendlyElec CM3588 and
+CM3588 Plus.
 
---is2iys6sxmeav7qo
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-MIME-Version: 1.0
+Signed-off-by: Valentin Hăloiu <valentin.haloiu@gmail.com>
+---
+ .../rockchip/rk3588-friendlyelec-cm3588-nas.dts | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-Hello Marek,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+index 8171fbfd819a..5fbbeb6f5a93 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+@@ -335,6 +335,17 @@ hdmi0_out_con: endpoint {
+ 	};
+ };
+ 
++&hdmi_receiver_cma {
++	status = "okay";
++};
++
++&hdmi_receiver {
++	hpd-gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
++	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_hpd>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+@@ -478,6 +489,12 @@ key1_pin: key1-pin {
+ 		};
+ 	};
+ 
++	hdmirx {
++		hdmirx_hpd: hdmirx-5v-detection {
++			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
+ 	pcie {
+ 		pcie2_0_rst: pcie2-0-rst {
+ 			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+-- 
+2.50.0
 
-On Sat, Jun 21, 2025 at 06:18:01PM +0200, Marek Vasut wrote:
-> On 6/17/25 4:13 PM, Uwe Kleine-K=F6nig wrote:
-> > > > /* The actual value isn't known, so this is made up. */
-> > > > #define RPI_PANEL_V2_FIXED_PERIOD_NS 100000
-> > > >=20
-> > > >=20
-> > > > static int rpi_panel_v2_pwm_round_waveform_tohw(...)
-> > > > {
-> > > > 	...
-> > > >=20
-> > > > 	if (wf->duty_length_ns > RPI_PANEL_V2_FIXED_PERIOD_NS)
-> > > > 		*wfhw =3D 100;
-> > > > 	else
-> > > > 		*wfhw =3D mul_u64_u64_div_u64(wf->duty_length_ns * 100, RPI_PANEL=
-_V2_FIXED_PERIOD_NS);
-> > > >=20
-> > > > 	return 0;
-> > > > }
-> > >=20
-> > > This fixed period specified in driver has one problem -- what if the =
-period
-> > > is also specified in DT by the consumer, e.g. pwm-backlight pwms prop=
-erty,
-> > > and it does not match RPI_PANEL_V2_FIXED_PERIOD_NS ?
-> >=20
-> > If it's off by only a little amount you will hardly notice. If it's
-> > further off that's less optimal. I don't think this is a problem. If the
-> > device tree is wrong, the machine doesn't work optimally. That's quite
-> > expected.
->=20
-> Before this rework, the DT period and duty cycle were scaled to match, so
-> the period mismatch problem never occurred no matter what period was set =
-in
-> DT. I suspect with this rework, such a behavior is no longer possible, or=
- is
-> it ?
-
-I see your point. But looking at it from the other side (which is the
-official one) the duty_cycle was set very inconsistently before. I'm
-aware that whatever policy is the one that you should base the hardware
-settings on has strange corner cases. The one that was chosen is one
-that typically is easy to implement. And with the waveform API the
-consumers that would benefit from a "implement a setting that minimizes
-the difference in the relative duty_cycles" policy can cope now. But
-that only works if the drivers implement the promise this API gives.
-
-> > > This is easy to solve for this tohw function, but what about the from=
-hw
-> > > which assigns period_ns ?
-> >=20
-> > If you only write waveforms to the hardware (probably using
-> > pwm_apply_might_sleep()), the fromhw callback isn't involved (apart from
-> > debugging). And all fromhw callbacks are supposed to assign
-> > period_length_ns. I suspect we don't have the same understanding of the
-> > PWM abstraction.
->=20
-> The core does check whether the fromhw is implemented alongside
-> .write_waveform , so how should the fromhw behave in such a case ?
->=20
-> See this drivers/pwm/core.c :
->=20
-> 1633 static bool pwm_ops_check(const struct pwm_chip *chip)
-> 1634 {
-> 1635         const struct pwm_ops *ops =3D chip->ops;
-> 1636
-> 1637         if (ops->write_waveform) {
-> 1638                 if (!ops->round_waveform_tohw ||
-> 1639                     !ops->round_waveform_fromhw || // <------ HERE
-> 1640                     !ops->write_waveform)
-> 1641                         return false;
->=20
-> Maybe this should be patched out of the core.c and fromhw removed from th=
-is
-> driver ?
-
-Most drivers can read out the current setting and those benefit from a
-=66romhw callback, as it's needed to interpret the read settings. Every
-driver can implement fromhw. Additionally I find it usually easier to
-understand the fromhw callback than the tohw one. And it's needed for
-the PWM_DEBUG checks. So no, I don't want to make it optional.
-
-> > > > > +static int rpi_panel_v2_pwm_write_waveform(struct pwm_chip *chip,
-> > > > > +					   struct pwm_device *pwm,
-> > > > > +					   const void *_wfhw)
-> > > > > +{
-> > > > > +	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
-> > > > > +	const u8 *wfhw =3D _wfhw;
-> > > > > -	duty =3D pwm_get_relative_duty_cycle(state, PWM_BL_MASK);
-> > > > > -	return regmap_write(regmap, REG_PWM, duty | PWM_BL_ENABLE);
-> > > > > +	return regmap_write(regmap, REG_PWM, *wfhw | (*wfhw ? PWM_BL_EN=
-ABLE : 0));
-> > > >=20
-> > > > How does the PWM behave without PWM_BL_ENABLE set?
-> > > The display stays dark.
-> >=20
-> > So you cannot distinguish writing `0` (or any other value) and
-> > `PWM_BL_ENABLE | 0` I guess?
->=20
-> I think no.
->=20
-> > I ask because for some hardware's it makes a difference, the output
-> > might e.g go High-Z on disable.
->=20
-> Maybe Dave can clarify this, although I suspect this is also some third
-> party hardware with no documentation.
-
-Maybe this question is better directed to the vendor of the device?
-
-Best regards
-Uwe
-
---is2iys6sxmeav7qo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhYQIgACgkQj4D7WH0S
-/k6IlQgApyBy3MqoO0IlaUgXGRjQJBQtryuuPzPG1/6iN6rcu5qs1U9XGEExUgBg
-Ezdqsq20+vGROKAXX2w/6lNGzgcsD8VtCteOoYt4/3lkG+CyTGM1/A+gdfWulj13
-WhoxfOWorXTaM9KwDilDttaeJy7ujZe3UJlVkhobfFVGbkK9wAnSUHo3IV1SNz9e
-Rz8z1tCV7ohlzrmhcucG4ULN/Ua1xY818sm4vi5dpxloJoyFA6aqZ6kuVbbJO6at
-+c4lLENNQLGvzpdrwogHpRTMS6HADtcHYCTezQHxytsfp13O6SzrgfJKyMyx0prR
-e4CCrqsI3845KVZ5KuV5HuDNE3UgFA==
-=JdaO
------END PGP SIGNATURE-----
-
---is2iys6sxmeav7qo--
 
