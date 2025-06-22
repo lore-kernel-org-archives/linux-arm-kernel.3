@@ -4,130 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC150C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 11:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE6CC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Jun 2025 12:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V5PqOs3/xKFezUmd6NAwv3w8UOkeGu5C9tM8XmOfbSQ=; b=OZGS9qyZn+qOfQ
-	KB1CYzbSbVEVpw0HabXuHlz9XI6VU3qG5A5JWrfZ4ZZ6pv6Udm1BWoksWW1XxqVd1Flc6y0Il/GPE
-	BWrKBeXJkDPyjE05ICCqMhk2wyUq50RX0n0+8rfNaaVA/KGZ4zbp9P84Iy4V0rF3AEPwOL4azmQgR
-	m/KO4b6mL89pyW5Cv6cQki1PpRx6ov3/P5zXT3PFWpH9vE736vtFkZi1jw6Zd2exh84O7pds1yWB9
-	JbsXf+DlaiJjbNr3wbSCvI4VY+AH2feL0XVVmamXLU+ahtssIzCtq1WWpK1W6hzW8FHTDua9uXNV7
-	Rsbh4+xG7XPhKzeAMW/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DYEtz0QjMFDuQsi6QEkJKz+NmJSfbh+bhiLnLP/gCKo=; b=igTt4sQ1aAaivea2Z5dPB0HUfO
+	js/CsyysPQb50D0SEkt509Cq4aNxbvtEFc6e6nX548bBWsrDqeFj8UAUdV4QqKyTWrEQaqQmX1pP1
+	UPfl2g++RKIlgig11jdR1ksyNkMnjnm0aqHNv5Lc0nO/tFd42H9hhTw88+9MFKZMkZNI82uOwqkyh
+	RmcdZrYO5RueqG32Se8Ln6Pad2OqseiyQEohdD4gOV/9xP9XWXjpQwpInMHWyorqbaKu5HFn8wX1w
+	OkT6T/QVpC3VpGDobHAgXe2VZE9xh7PYikeWlwZoUjn6prEunnMKDfrV4k6nSyOjajwQB94qtqXDZ
+	PU/SgeGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTJAl-00000000oLi-1jN9;
-	Sun, 22 Jun 2025 11:47:43 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uTJhj-00000000pt6-3kA0;
+	Sun, 22 Jun 2025 12:21:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTJ8T-00000000nqq-04Cm;
-	Sun, 22 Jun 2025 11:45:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1750592706; x=1751197506; i=frank-w@public-files.de;
-	bh=V5PqOs3/xKFezUmd6NAwv3w8UOkeGu5C9tM8XmOfbSQ=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=kFkDrSkoN5p2YldLIl98CfwrfIcyhOqULm+WmcdIHZXHnkIaXc3sLhDUJbiJx0Qc
-	 eMN80zsvd8WtD83oIOopeXQnX9YKcjZ3Imtrl7CKJvz1uA4mEU0XEyyzV1nLswmzG
-	 1tH7qQ7ceUKc9z5dBI5Ew9ndZVD1Mr6hW/fn+R/F8T/cLO5vY3y5ozQ5/B6A3mz+p
-	 f8IIF5vPPbXc3QCFoxqP1c295l3rKtXa6xrypS+Sh9Odwfli3gk7WErOOy5GgZ4Wl
-	 C3cOm7wkR0R6m1S6Z/INbzztFbqPtcNx9KtLgZIyUEoRgoVvFNJh9jW6lZ6KnmFdm
-	 SX/YT3unxu14P5ek5w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([157.180.225.81]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mk0JM-1vDK8Y0sie-00cVd7; Sun, 22
- Jun 2025 13:45:06 +0200
-Date: Sun, 22 Jun 2025 13:44:52 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Frank Wunderlich <linux@fw-web.de>
-CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jia-Wei Chang <jia-wei.chang@mediatek.com>,
- Johnson Wang <johnson.wang@mediatek.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_01/13=5D_dt-bindings=3A_n?=
- =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_update_for_mt7988?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <jnrlk7lwob2qel453wy2igaravxt4lqgkzfl4hctybwk7qvmwm@pciwvmzkxatd>
-References: <20250620083555.6886-1-linux@fw-web.de> <20250620083555.6886-2-linux@fw-web.de> <jnrlk7lwob2qel453wy2igaravxt4lqgkzfl4hctybwk7qvmwm@pciwvmzkxatd>
-Message-ID: <100D79A2-12A9-478D-81F7-F2E5229C4269@public-files.de>
-MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+r1sBgNM7c57oZwI1X1Lex+Vk+TlgKFmXGGKMZI21F/aRb9y7qQ
- upSptjxfZBqLpOGruu5mXs/Ondcwe7HU2HwpsFNQb0HhlqXLcHOCZcasJNByAOoDrHQ2SC+
- EXGC5inY7x3PdD+gGZj8DTEuBXQL33tO6CYv2VU+eLM3GUAyxGwQ5YtDzj9eZPt1UQRVnt/
- Rxzk1lhyjApnX034rNTNg==
-UI-OutboundReport: notjunk:1;M01:P0:bWFyMbVZYnw=;lif7dhqLi3iNLh4tsO2z2HnMbx0
- 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
+	id 1uTJfK-00000000pmD-0IKa
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Jun 2025 12:19:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 05E6644121;
+	Sun, 22 Jun 2025 12:19:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CDCEC4CEE3;
+	Sun, 22 Jun 2025 12:19:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750594756;
+	bh=i/+4q+ps+2ON5ZvTxo7NwhX8KcLqLmTVZsBvXPkV188=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JlFxlw1DQHE5od6lTucH/vBois+LfVVElISjoGePhXtFkTFVlBRhCibiDG3N13KXk
+	 J9liLVTEtNHLMY8aV/gksxDrThlUO1YdzDZULk466Q2GlrDx7F6jm+3qs3lRAYIYTl
+	 dIKmmytUEGznE8pjPhSrveLCywUf8H6fhskhPbImBmr3xEE8DYkOuikLNSewqAr52R
+	 pBqRZXgjAW+8HOksko2dnyEkrIAVvMC90j8gM86lQgyJEai5KsgMTDrFnbxXd8ezUv
+	 lu44PW1vbZvTmPRZjCSPxfwg7kofFncSoDP25a7oXfBciprE92uQZ/gqjeKl7ZRntL
+	 XHI+t73lPLr7w==
+Received: from [213.123.58.114] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uTJfG-008xmc-4O;
+	Sun, 22 Jun 2025 13:19:14 +0100
+Date: Sun, 22 Jun 2025 13:19:13 +0100
+Message-ID: <87a560ezpa.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 4/5] KVM: arm64: gic-v5: Support GICv3 compat
+In-Reply-To: <aFXClKQRG3KNAD2y@linux.dev>
+References: <20250620160741.3513940-1-sascha.bischoff@arm.com>
+	<20250620160741.3513940-5-sascha.bischoff@arm.com>
+	<aFXClKQRG3KNAD2y@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 213.123.58.114
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, tglx@linutronix.de, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_044521_438252_05792AB1 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250622_051918_160174_B958B708 
+X-CRM114-Status: GOOD (  33.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,150 +93,174 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Thank you for review=2E
-
-Am 22=2E Juni 2025 13:10:31 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=
-=2Eorg>:
->On Fri, Jun 20, 2025 at 10:35:32AM +0200, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> Update binding for mt7988 which has 3 gmac and 2 reg items=2E
+On Fri, 20 Jun 2025 21:20:36 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Hi Sascha,
+> 
+> Thank you for posting this. Very excited to see the GICv5 enablement get
+> started.
+> 
+> On Fri, Jun 20, 2025 at 04:07:51PM +0000, Sascha Bischoff wrote:
+> > Add support for GICv3 compat mode (FEAT_GCIE_LEGACY) which allows a
+> > GICv5 host to run GICv3-based VMs. This change enables the
+> > VHE/nVHE/hVHE/protected modes, but does not support nested
+> > virtualization.
+> 
+> Can't we just load the shadow state into the compat VGICv3? I'm worried
+> this has sharp edges on the UAPI side as well as users wanting to
+> migrate VMs to new hardware.
 >
->Why?
+> The guest hypervisor should only see GICv3-only or GICv5-only, we can
+> pretend FEAT_GCIE_LEGACY never existed :)
 
-I guess this is for reg? Socs toll mt7986 afair
- get the SRAM register by offset to the MAC
- register=2E
-On mt7988 we started defining it directly=2E
+That's exactly what this does. And the only reason NV isn't supported
+yet is the current BET0 spec makes ICC_SRE_EL2 UNDEF at EL1 with NV,
+which breaks NV in a spectacular way.
 
->> MT7988 has 4 FE IRQs (currently only 2 are used) and the 4 IRQs for
->> use with RSS/LRO later=2E
->>=20
->> Add interrupt-names to make them accessible by name=2E
->>=20
-=2E=2E=2E
->>    reg:
->> -    maxItems: 1
->> +    items:
->> +      - description: Register for accessing the MACs=2E
->> +      - description: SoC internal SRAM used for DMA operations=2E
->
->SRAM like mmio-sram?
+This will be addressed in a future revision of the architecture, and
+no HW will actually be built with this defect. As such, there is no
+UAPI to break.
 
-Not sure,but as far as i understand the driver
- the sram is used to handle tx packets directly
- on the soc (less dram operations)=2E
+> 
+> > Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_asm.h   |  2 ++
+> >  arch/arm64/include/asm/kvm_hyp.h   |  2 ++
+> >  arch/arm64/kvm/Makefile            |  3 +-
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 +++++++
+> >  arch/arm64/kvm/hyp/vgic-v3-sr.c    | 51 +++++++++++++++++++++++++-----
+> >  arch/arm64/kvm/sys_regs.c          | 10 +++++-
+> >  arch/arm64/kvm/vgic/vgic-init.c    |  6 ++--
+> >  arch/arm64/kvm/vgic/vgic-v3.c      |  6 ++++
+> >  arch/arm64/kvm/vgic/vgic-v5.c      | 14 ++++++++
+> >  arch/arm64/kvm/vgic/vgic.h         |  2 ++
+> >  include/kvm/arm_vgic.h             |  9 +++++-
+> >  11 files changed, 104 insertions(+), 13 deletions(-)
+> >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5.c
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > index bec227f9500a..ad1ef0460fd6 100644
+> > --- a/arch/arm64/include/asm/kvm_asm.h
+> > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > @@ -81,6 +81,8 @@ enum __kvm_host_smccc_func {
+> >  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_vmcr_aprs,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> > +	__KVM_HOST_SMCCC_FUNC___vgic_v3_compat_mode_enable,
+> > +	__KVM_HOST_SMCCC_FUNC___vgic_v3_compat_mode_disable,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vcpu,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_teardown_vm,
+> > diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> > index e6be1f5d0967..9c8adc5186ec 100644
+> > --- a/arch/arm64/include/asm/kvm_hyp.h
+> > +++ b/arch/arm64/include/asm/kvm_hyp.h
+> > @@ -85,6 +85,8 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if);
+> >  void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
+> >  void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
+> >  int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
+> > +void __vgic_v3_compat_mode_enable(void);
+> > +void __vgic_v3_compat_mode_disable(void);
+> >  
+> >  #ifdef __KVM_NVHE_HYPERVISOR__
+> >  void __timer_enable_traps(struct kvm_vcpu *vcpu);
+> > diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> > index 7c329e01c557..3ebc0570345c 100644
+> > --- a/arch/arm64/kvm/Makefile
+> > +++ b/arch/arm64/kvm/Makefile
+> > @@ -23,7 +23,8 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+> >  	 vgic/vgic-v3.o vgic/vgic-v4.o \
+> >  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+> >  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> > -	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o
+> > +	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
+> > +	 vgic/vgic-v5.o
+> >  
+> >  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+> >  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index e9198e56e784..61af55df60a9 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -475,6 +475,16 @@ static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt
+> >  	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
+> >  }
+> >  
+> > +static void handle___vgic_v3_compat_mode_enable(struct kvm_cpu_context *host_ctxt)
+> > +{
+> > +	__vgic_v3_compat_mode_enable();
+> > +}
+> > +
+> > +static void handle___vgic_v3_compat_mode_disable(struct kvm_cpu_context *host_ctxt)
+> > +{
+> > +	__vgic_v3_compat_mode_disable();
+> > +}
+> > +
+> >  static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
+> >  {
+> >  	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
+> > @@ -603,6 +613,8 @@ static const hcall_t host_hcall[] = {
+> >  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+> >  	HANDLE_FUNC(__vgic_v3_save_vmcr_aprs),
+> >  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> > +	HANDLE_FUNC(__vgic_v3_compat_mode_enable),
+> > +	HANDLE_FUNC(__vgic_v3_compat_mode_disable),
+> >  	HANDLE_FUNC(__pkvm_init_vm),
+> >  	HANDLE_FUNC(__pkvm_init_vcpu),
+> >  	HANDLE_FUNC(__pkvm_teardown_vm),
+> > diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> > index f162b0df5cae..b03b5f012226 100644
+> > --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> > +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> > @@ -257,6 +257,18 @@ void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
+> >  	}
+> >  }
+> >  
+> > +void __vgic_v3_compat_mode_enable(void)
+> > +{
+> > +	sysreg_clear_set_s(SYS_ICH_VCTLR_EL2, 0, ICH_VCTLR_EL2_V3);
+> > +	isb();
+> > +}
+> > +
+> > +void __vgic_v3_compat_mode_disable(void)
+> > +{
+> > +	sysreg_clear_set_s(SYS_ICH_VCTLR_EL2, ICH_VCTLR_EL2_V3, 0);
+> > +	isb();
+> > +}
+> > +
+> 
+> It isn't clear to me what these ISBs are synchonizing against. AFAICT,
+> the whole compat thing is always visible and we can restore the rest of
+> the VGICv3 context before guaranteeing the enable bit has been observed.
 
-As mt7988 is the first 10Gbit/s capable SoC
- there are some changes=2E But do we really need=20
- a new binding? We also thing abour adding
- RSS/LRO to mt7986 too,so we come into
- similar situation regarding the Interrupts/ =20
- -names=2E
+No, some registers have a behaviour that is dependent on the status of
+the V3 bit (ICH_VMCR_EL2 being one), so that synchronisation is
+absolutely needed before accessing this register.
 
->> +    minItems: 1
->> =20
->>    clocks:
->>      minItems: 2
->> @@ -40,7 +43,11 @@ properties:
->> =20
->>    interrupts:
->>      minItems: 1
->> -    maxItems: 4
->> +    maxItems: 8
->> +
->> +  interrupt-names:
->> +    minItems: 1
->> +    maxItems: 8
->
->So now all variants get unspecified names? You need to define it=2E Or
->just drop=2E
+The disabling is probably the wrong way around though, and I'd expect
+the clearing of V3 to have an ISB *before* the write to the sysreg,
 
-Most socs using the Fe-irqs like mt7988,some
- specify only 3 and 2 soc (mt762[18]) have only
- 1 shared irq=2E But existing dts not yet using the
- irq-names=2E
-Thats why i leave it undefined here and
- defining it only for mt7988 below=2E But leaving it
- open to add irq names to other socs like filogic
- socs (mt798x) where we are considering
- adding rss/lro support too=2E
+> Can we consolidate this into a single hyp call along with
+> __vgic_v3_*_vmcr_aprs()?
 
->> =20
->>    power-domains:
->>      maxItems: 1
->> @@ -348,7 +355,19 @@ allOf:
->>      then:
->>        properties:
->>          interrupts:
->> -          minItems: 4
->> +          minItems: 2
->
->Why? Didn't you say it has 4?
+I agree that we should be able to move this to be driven by
+load/put entirely.
 
-Sorry missed to change it after adding the 2
- reserved fe irqs back again (i tried adding only used irqs - rx+tx,but go=
-t info that all irqs can be used - for future functions - so added all avai=
-lable)=2E
+But we first need to fix the whole WFI sequencing first, because this
+is a bit of a train wreck at the moment (entering the WFI emulation
+results in *two* "put" sequences on the vgic, and exiting WFI results
+in two loads).
 
->> +
->> +        interrupt-names:
->> +          minItems: 2
->> +          items:
->> +            - const: fe0
->> +            - const: fe1
->> +            - const: fe2
->> +            - const: fe3
->> +            - const: pdma0
->> +            - const: pdma1
->> +            - const: pdma2
->> +            - const: pdma3
->> =20
->>          clocks:
->>            minItems: 24
->> @@ -381,8 +400,11 @@ allOf:
->>              - const: xgp2
->>              - const: xgp3
->> =20
->> +        reg:
->> +          minItems: 2
->
->
->And all else? Why they got 2 reg and 8 interrupts now? All variants are
->now affected/changed=2E We have been here: you need to write specific
->bindings=2E
+Thanks,
 
-Mt7988 is more powerful and we wanted to add
- all irqs available to have less problems when
- adding rss support later=2E E=2Eg=2E mt7986 also have
- the pdma irqs,but they are not part of
- binding+dts yet=2E Thats 1 reason why
- introducing irq-names now=2E And this block is
- for mt7988 only=2E=2E=2Ethe other still have a regcount of 1 (min-items)=
-=2E
+	M.
 
-But of course i can limit the reg/ irqs/
- irq-names for each compatible=2E
-
->https://elixir=2Ebootlin=2Ecom/linux/v6=2E11-rc6/source/Documentation/dev=
-icetree/bindings/ufs/qcom,ufs=2Eyaml#L127
->
->https://elixir=2Ebootlin=2Ecom/linux/v6=2E11-rc6/source/Documentation/dev=
-icetree/bindings/ufs/samsung,exynos-ufs=2Eyaml#L39
-
-I take a look into it,but allowing irq names for all matching compatibles =
-does not require it for them=2E Or am i wrong here?
-
->Best regards,
->Krzysztof
-
-
-
-regards Frank
+-- 
+Jazz isn't dead. It just smells funny.
 
