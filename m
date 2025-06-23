@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16859C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A25C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZa735fH/TMPXiLLbcp+s5ZBvlVgx4jayqrOGdHzhjg=; b=ivw0CCRoXhLmG6cFZmd9eZmHeV
-	QUNlOuR6EcziIudYKC92CHTP1EDJggxAWRR31kAaL0aBACnaIhBjkfGKRpOg0jRXBicNkZ8avNbIy
-	/RY/Ker6tb0uzxRhO9k+2RJSHmrns8eh5mCJ8nV5gclK/JlYZYshgFmwMa5ZXzCyphtczsDxxtP36
-	lD65VCdGwL3Hk62iji4kOxUTPDmiYEtjRhg0jRHxuLXaGGB5edTtofyXluBqWXPROzZncDnyF2r22
-	7Hm0FCzQNmKF1f5Y78ogqMoJ/cSb3tAJSVJGjG6YtnTTQl1uVTkdKhLHsSjubcxebuvoL3FGhNTA0
-	BswksZLw==;
+	bh=f78YX8Jv2hkXlixOcjovzULMHQy54ZDO00RkiEOZMLg=; b=Ak0oJ2GsRCtaupElII6gVWDKPI
+	39AWXqrP+EGz9Umhv/NSDuNtEP+FjU68UVrKcXsR5JTmiW7eda62lPUhcOqkxTwnLdzkxIUa/BSMF
+	LG91X5ItMjSlUUT/isM9r3F3t+Q9+bjcepNU5QDTUV33fllxZHKqC5JFz5ijAhrgSoUvYLfBRV5eT
+	YGeS3o8YtlkeRoep1Hk56EBfPAAHCT2VsWD6Yorp+ZhPFmNA9DwiHvCaBSq1ZtCqy5+sOBxhDA5uV
+	cQIGCm9mJ69pTJ89IPcNdrgkcrs5DYU9B5E1SAJLi5a2TsaKwOc2Xm71814XartiWH9JO3nj1St/M
+	2+4Zp/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uToOy-00000003ysS-34zk;
-	Mon, 23 Jun 2025 21:08:28 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uToRG-00000003z3d-2KIJ;
+	Mon, 23 Jun 2025 21:10:50 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjmg-00000003NG2-01SW
+	id 1uTjmj-00000003NGq-1HQI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 16:12:39 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-742c7a52e97so3609458b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:12:37 -0700 (PDT)
+	Mon, 23 Jun 2025 16:12:42 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-748feca4a61so2398544b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:12:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750695157; x=1751299957; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1750695160; x=1751299960; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iZa735fH/TMPXiLLbcp+s5ZBvlVgx4jayqrOGdHzhjg=;
-        b=epJUwMAKbwtLJGrjWiPU5c0TznNpgcbjCbumNphN2NM0J6qd0JNBcakWNWR39po7B+
-         Uc32nNAhR9VMw2K0sfwZ1H2o25psiVM9QCN3sPhsh7lJtVR+qUObkqpI6r+pwoLnMkk/
-         viEdCflV3/8b2XweEJPh8T6TgSpR+s6GbVdRORMOLvbaoxQr9GADts34DAIN1sv/ybfw
-         h+f97nBkidgLRwViLsXQ1OnChieVM+k8ReRsRi/LnBJT+8n33yX8ONdc8pV6cqnpzAXE
-         O7QgFGgRoeeSiE3QweIBu2yIUnwAC4ox3HPk/y4NmaEpM8fWj8r/X9xjbZ9Lc1EKB48d
-         BeTA==
+        bh=f78YX8Jv2hkXlixOcjovzULMHQy54ZDO00RkiEOZMLg=;
+        b=BA02P+bfCfzRYqhzKCfSvqv/BoPjAD/nrjAHKky6AcFD4NL4qtXlzrY5bqt8RezFev
+         DfRi8JnCpC5CdtRPbumIZ8t9tnBVJbvWkTW2ulCnv6Io3ik/cYgpy/qtgFinGztEA5JZ
+         6o8+hsE3PLwfXVCbyWnSU6eNEhE3isUqqaS/8LoQ95dFRlGegS5iXuYqjCHuP3m+QPGM
+         xOR0iQiQL5+pal0h0d5gQte5FtRgupujqY68NawYlJKpQ9dbBn+B1u+o1wmfc9182f8J
+         xDxgwbY+r48ORJdKbuvjwdWH2ylsYSb1Sb8DZBAzBhVSaaNT7lfH5IU0d1FMOYPUV5KV
+         Cq1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750695157; x=1751299957;
+        d=1e100.net; s=20230601; t=1750695160; x=1751299960;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iZa735fH/TMPXiLLbcp+s5ZBvlVgx4jayqrOGdHzhjg=;
-        b=S1gGmW16tc9kTmddsuGZO0a0+8LtHxU5vcVMD6C8YPaw/c9Up691uBKdst313DTJGh
-         g6eSgxXigmjbEv4dNnt9X7h1Vd0q5VfvHck9JbWlhQ8Za8aH5UExggKPH8zLOov2WNDW
-         TRlijm1GPpbhfpDLLguo/W0VP4vXczmvCX0wutub3msdJjBCYkl/ajJDrLWYZ1NQzbLD
-         0uqEva/jg+/11dJ9WB1rClgMV/jZbTfWcqeMWVa3HYw+F0AN6gnkc3rYgG0rqSsnHm8l
-         klMvoPdHmA3XmoWP1NqsB0jliJs/8Zai1EFUd5nCVWN05s67YXSvnXqW00mG/TzQhG1J
-         pyrw==
-X-Gm-Message-State: AOJu0Yz/EzIoPz91Uav8/Sb0zNPvzwMsPSB2HgAdAa1bjLNbmIwPqCm3
-	a6VUk0w53uFCOTfIxChbjB+EuALT9JmH62pkQrOm1F0eMLMFEZ5c2iYf
-X-Gm-Gg: ASbGncsttVAPioXsRXN7jtRGiUdojUVHSGs4n+NrcDfdn18xoVphfsMCYmSpJcJ9iEP
-	1e3fjP8CpsqXu6bcLciHqdcH6V3VsglPwLteGddH+e7pe7WD7foFKNGEoyLJIytXyg4QS6OrxIL
-	YrVR/e95gJBNQOmXgE1Oyo94mRKM9p6PsY6x70h6jyA/SxfZN/zFHB8mP3yIJwVB8djXtMdvCrd
-	O/M7TWAUw+xUuMnloU+b8OG6T0tU6bw2Pqm13kGmpDr8sgb3Len4lfJsLpihf6Acm47j1Xn+50y
-	6GZYYnmr7oPewOCil8fcZlwVC2vRRhfUrUphZVZtcdjMh0kTYHu4G76pMDQf9NnkIyekgR+v0rY
-	veNou+McV6Ja5KaI=
-X-Google-Smtp-Source: AGHT+IHbIPvjsHfg7Sb2eO5LgYj4ARuy56pLEb/egTFxA2oVO4ufvqtUM5hYA7WL45ggD7zMTd5CVg==
-X-Received: by 2002:a05:6a21:4d8f:b0:21f:54e0:b09a with SMTP id adf61e73a8af0-22026e933dcmr21976430637.15.1750695157151;
-        Mon, 23 Jun 2025 09:12:37 -0700 (PDT)
+        bh=f78YX8Jv2hkXlixOcjovzULMHQy54ZDO00RkiEOZMLg=;
+        b=I0vWJUXD74s9CX7qBFUj5FZyBAzg9+Ap7NQpySPNQIxHd5cqggmK6MyKXjyu/FabO4
+         lJTduSAZA9/QbHn40jAmtBQr/AMkERfS//4Qxk3JKbXb/zGioCidyUZVMX97jEiwH2/f
+         hNv5rBzgDEkxNjnZqtV2QGm0hC57HnTU5OTyTin6132xzq5XyteaVIWRr+PvZsN105aw
+         EyDZHx+SEoKPPkzb+FWQxPlbD/4dX5HYMfn5rQSGC6LiARMGq2hKeypjO8wVUHrIRh/7
+         lvb1ds62+TYl1c1tG1TCyks6JTIJnMT1t1dAq0S6QtCOrFlauI3fuBNwWhvdik+tkEy1
+         aQ4Q==
+X-Gm-Message-State: AOJu0Yy02ZJWUteFSJYuZ6+pJRPMFRs8GtwTIQllQi/tuaGZccki72JI
+	0StW+/0/lJv2A7pWsg0z0EZLnx8iY3DN9tlvzjWqTUpTVy4cQknxrhNp
+X-Gm-Gg: ASbGncuQN/RWhbhOjomdBYtO3z0Dbes5r5hZKJpRpLJj868AYdattk8JIH2FDv7Clrz
+	geLnQLQsPx4I/tUPHxcoTKzQr3yA5nKhlZJHAZYsqcfteIsuaUz6iB0JrFQpSmae1mnZGeEUV97
+	IhFdwTRnxIyqCFD+tDruj0LsyltpbqH8B3cy1Xm/3H0cUwNci7ASczpXyhYJdSSI8VEgt8/5Ka1
+	Xt1AF82uuq1Rs17BL24CXLUHtnBMK0W+2AgSZz5uap2CH7Gf23V5JluN6Ys5iz7/muUI82UWPGb
+	0Fg1oaOqswgdZyEJmAhWSK0yIpKhJF4OavQlURBS3yP1DB9L2FZTK2148nmLyr+X5he8N3eNdaF
+	Xjlj7hweuCk8M4Rw=
+X-Google-Smtp-Source: AGHT+IEQFD7ncJGbn/pBz/+p1d4K7L7mh1a5kN90gM3aF97um4Xo6JRQuOcwRlaKlzaUrBNsaYvNLw==
+X-Received: by 2002:a05:6a00:2e18:b0:748:ffaf:9b53 with SMTP id d2e1a72fcca58-7490d723218mr17461031b3a.16.1750695160533;
+        Mon, 23 Jun 2025 09:12:40 -0700 (PDT)
 Received: from [10.22.1.180] ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7490a467e6dsm9029608b3a.13.2025.06.23.09.12.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7490a467e6dsm9029608b3a.13.2025.06.23.09.12.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 09:12:36 -0700 (PDT)
+        Mon, 23 Jun 2025 09:12:40 -0700 (PDT)
 From: =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-Date: Mon, 23 Jun 2025 13:12:26 -0300
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am62p-j722s: Enable freq throttling
- on thermal alert
+Date: Mon, 23 Jun 2025 13:12:27 -0300
+Subject: [PATCH 2/2] arm64: dts: ti: k3-am62p-verdin: Adjust temperature
+ trip points
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250623-b4-verdin-am62p-cooling-device-v1-1-cc185ba5843d@toradex.com>
+Message-Id: <20250623-b4-verdin-am62p-cooling-device-v1-2-cc185ba5843d@toradex.com>
 References: <20250623-b4-verdin-am62p-cooling-device-v1-0-cc185ba5843d@toradex.com>
 In-Reply-To: <20250623-b4-verdin-am62p-cooling-device-v1-0-cc185ba5843d@toradex.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -87,8 +87,9 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_091238_049975_E2F224C7 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20250623_091241_355959_A2B4480E 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,181 +106,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: João Paulo Gonçalves <joao.goncalves@toradex.com>
 
-Enable throttling down the CPU frequency when an alert temperature
-threshold is reached before the critical temperature for shutdown.
+While the TI AM62P supports a junction temperature (Tj) of up to 125°C
+for industrial and automotive parts, Toradex Verdin-AM62P hardware
+lifetime guarantees consider a 105°C Tj. Change the passive trip points
+to 95°C and the critical trip points to 105°C to be compliant with the
+hardware specifications.
 
 Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
 ---
- .../boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi | 51 ++++++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62p5.dtsi              |  4 ++
- arch/arm64/boot/dts/ti/k3-j722s.dtsi               |  4 ++
- 3 files changed, 59 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi
-index c7486fb2a5b45cfa2bd7798eb4746ad2af8c390a..138b9c395be4bf7bd6c1941d752871af8cc9b1b6 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi
-@@ -12,12 +12,29 @@ main0_thermal: main0-thermal {
- 		thermal-sensors = <&wkup_vtm0 0>;
- 
- 		trips {
-+			main0_alert: main0-alert {
-+				temperature = <115000>;
-+				hysteresis = <2000>;
-+				type = "passive";
-+			};
-+
- 			main0_crit: main0-crit {
- 				temperature = <125000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
- 		};
-+
-+		cooling-maps {
-+			map0 {
-+				trip = <&main0_alert>;
-+				cooling-device =
-+					<&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			};
-+		};
- 	};
- 
- 	main1_thermal: main1-thermal {
-@@ -26,12 +43,29 @@ main1_thermal: main1-thermal {
- 		thermal-sensors = <&wkup_vtm0 1>;
- 
- 		trips {
-+			main1_alert: main1-alert {
-+				temperature = <115000>;
-+				hysteresis = <2000>;
-+				type = "passive";
-+			};
-+
- 			main1_crit: main1-crit {
- 				temperature = <125000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
- 		};
-+
-+		cooling-maps {
-+			map0 {
-+				trip = <&main1_alert>;
-+				cooling-device =
-+					<&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			};
-+		};
- 	};
- 
- 	main2_thermal: main2-thermal {
-@@ -40,11 +74,28 @@ main2_thermal: main2-thermal {
- 	       thermal-sensors = <&wkup_vtm0 2>;
- 
- 		trips {
-+			main2_alert: main2-alert {
-+				temperature = <115000>;
-+				hysteresis = <2000>;
-+				type = "passive";
-+			};
-+
- 			main2_crit: main2-crit {
- 				temperature = <125000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
- 		};
-+
-+		cooling-maps {
-+			map0 {
-+				trip = <&main2_alert>;
-+				cooling-device =
-+					<&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+					<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			};
-+		};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 226398c37fa9b348b8ea30e1e21f75e98bd3d60b..7676b24b13f67da81245c023e0fdc27294efec82 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -848,6 +848,30 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
  	};
  };
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-index 140587d02e88e9d391c41001643ec715d41bf262..202378d9d5cfdc8eced935117398bcf859088d1b 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-@@ -49,6 +49,7 @@ cpu0: cpu@0 {
- 			next-level-cache = <&l2_0>;
- 			operating-points-v2 = <&a53_opp_table>;
- 			clocks = <&k3_clks 135 0>;
-+			#cooling-cells = <2>;
- 		};
  
- 		cpu1: cpu@1 {
-@@ -65,6 +66,7 @@ cpu1: cpu@1 {
- 			next-level-cache = <&l2_0>;
- 			operating-points-v2 = <&a53_opp_table>;
- 			clocks = <&k3_clks 136 0>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu2: cpu@2 {
-@@ -81,6 +83,7 @@ cpu2: cpu@2 {
- 			next-level-cache = <&l2_0>;
- 			operating-points-v2 = <&a53_opp_table>;
- 			clocks = <&k3_clks 137 0>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu3: cpu@3 {
-@@ -97,6 +100,7 @@ cpu3: cpu@3 {
- 			next-level-cache = <&l2_0>;
- 			operating-points-v2 = <&a53_opp_table>;
- 			clocks = <&k3_clks 138 0>;
-+			#cooling-cells = <2>;
- 		};
- 	};
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s.dtsi b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
-index 14c6c6a332ef2f118e483744e97222865560e6ac..cdc8570e54b29d068aab4e2788a8b36dfa539cfa 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
-@@ -56,6 +56,7 @@ cpu0: cpu@0 {
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
- 			clocks = <&k3_clks 135 0>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu1: cpu@1 {
-@@ -71,6 +72,7 @@ cpu1: cpu@1 {
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
- 			clocks = <&k3_clks 136 0>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu2: cpu@2 {
-@@ -86,6 +88,7 @@ cpu2: cpu@2 {
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
- 			clocks = <&k3_clks 137 0>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu3: cpu@3 {
-@@ -101,6 +104,7 @@ cpu3: cpu@3 {
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
- 			clocks = <&k3_clks 138 0>;
-+			#cooling-cells = <2>;
- 		};
- 	};
- 
++&main0_alert {
++	temperature = <95000>;
++};
++
++&main0_crit {
++	temperature = <105000>;
++};
++
++&main1_alert {
++	temperature = <95000>;
++};
++
++&main1_crit {
++	temperature = <105000>;
++};
++
++&main2_alert {
++	temperature = <95000>;
++};
++
++&main2_crit {
++	temperature = <105000>;
++};
++
+ &main_gpio0 {
+ 	gpio-line-names =
+ 		"SODIMM_52",
 
 -- 
 2.43.0
