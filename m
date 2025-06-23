@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464C9C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1002C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKkW4+XVrDVdyJMGMoOg/KRLZUDhgXliMkMQQ7T6pik=; b=1z+I7jBr7cCD/WZ56850QjcEaY
-	xviXYHu5+QMsLV9SymSRUoDRZcXqwWNxyxa+IFD4/lBsr3qm6mL2Qt68Q1p/kF27ZLo3WHfpdqnwn
-	Wvi7kpna5dPEawdiGk1gsNSGnAU5rBEu/VcO5ZxZfG0xbZzdAuTbF+SC+KYgITMPRXRHFV+xCmEi5
-	YeDE/06/QZ9GSMWcE74lBr9HFLCKCnTbglZBqMOOGXIsh/sopv4wQcmlhpB0R2fynLXAJcRw1v+zO
-	u/od1o+TCfUw6cwweHHTiR2rcySVeEMtnuvsQQAwabzo38iLSfCLP3rIPyPDkOSQYBg4PdzCp1SSl
-	d0mVBjTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fFVerlv1rup6mF5IH5Ew1KKnD+3iU06ke4X3UNXN3IU=; b=fCIiBgDeFEmNU0apOkEScqAcO9
+	RGnmCVVEpDX7NHENFxj5M0PN0JnRDYF5gnEtpOuQ6DWZ3HRKhlqVWExIIJ5Va0iH2hN5Y0T1ldExT
+	+TyfewstDa8bgmDXoSEQE1UQqIqGDgodUo7dvigIbMMcaXRof//uvpTkrdc5f6qsPpWrrCx7RMmO8
+	nn7A0CO/0bu8V53DS9PTmqCCPARV0ykWe3nCKuCBt0/Olx2Zu+2E4qf6rbgH5UCjwXOGj1GDndqL7
+	NRwUkId/in1GMZJLw1H7/dtlMJdcPmUZoOOHFVYpsinNOeOFM4kLw1MzazDWuetRMPPl75qMyiiEj
+	jaZp2bVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTov3-000000041st-37Nh;
-	Mon, 23 Jun 2025 21:41:37 +0000
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
+	id 1uToxL-000000041zZ-3aEP;
+	Mon, 23 Jun 2025 21:43:59 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkTG-00000003UcK-40qc
+	id 1uTkjA-00000003WnF-3f11
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 16:56:40 +0000
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6097b404f58so8019900a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:56:38 -0700 (PDT)
+	Mon, 23 Jun 2025 17:13:06 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4519dd6523dso2001575e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 10:13:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=innosonix.de; s=google; t=1750698783; x=1751303583; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fFVerlv1rup6mF5IH5Ew1KKnD+3iU06ke4X3UNXN3IU=;
+        b=V9AJdCjH4Tq1axQtWVTYf7w9BoFqknx76lPWsdssvyE8SavZOhw/iNxCCJWiAbNmoH
+         NcpN4MPtlkxYIbrYZid6ptRdVDZ7kHyVMbSSyKqoT4qxQunFHWEGW2sNlykMZGwFDPQ8
+         dP8MdwLg+pG0ow5Y6zaxeAKS9QBGm1EVLFZtc5fVQTjcw8ilJ/0nHAk83W4eOwtvqx1+
+         yO5Kl0mbnwQXIQYF/0SBHc4w6qjdtpNhenMe/vztd3JXjZ6OwTDp0kh52S1AFQdYH932
+         4FTswpcd7Dp5TZ3HNGpS9kitCEl7XRCcItXvG32YDYMypexrVGvDOOq1l7AGItHe+Xwe
+         XJqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750697797; x=1751302597;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EKkW4+XVrDVdyJMGMoOg/KRLZUDhgXliMkMQQ7T6pik=;
-        b=Xc2ivb+o7AJfLYL0jwZVO6FLkMu9E3mn2FIE73lqALuNbvsOXtv54oa/geW7S8RcTj
-         Yel4Ka3TuPWOM16FfBS7XoNl/6v68xZ/gEvOxfRENL0RjocvL+Rl91I7BOdx8wCfE5+y
-         sD8UCV2qmMox/Zs0SnRpYedS2lxd9vnbBnybTQXvQJHags0bsE0DM9zeoyXivsGZqFyS
-         tWL0dpw1BqK+naFeNp58aC36yaL3txV6pXDUf0zJsTylfIwehu9/2YtREblibi1KmJsG
-         cGveg5UkX/vB+/O6iQkEfxXNxMczk1W8fKtBLuEdhx2bTeJgSI0DpoG1nwYmpWyC05Le
-         FQ/A==
-X-Forwarded-Encrypted: i=1; AJvYcCXtQlmtzqsSzW6kOzBLn8YAVEsRkJQHzuol1e99T9x2FNVvdktjDC9prcPRGH09QgJBsA+lJv6HDsa759Fct3K+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCCEdvFXWWYoRmMHsOl+lJdFdmMBtF0aYxmDEGOyMfaQT/+WrF
-	tSBV3KB3eFljRE5zV/t1hm4Gg8fteuUETCtu3U3rhTaKa2Gl30s+Aqyv
-X-Gm-Gg: ASbGncvu0sbi2qJrbhPryCMu5crixg4hWL/gpCE8JBDexzyG+UmXMxIiTMcM3/dP32K
-	NSgRnI82BHHT6Gi7rys9zqNE2R2rXdWNx3TEzqX3VlUtfgyG/b+pR+DwKeBD8ggCEsZI5F3z948
-	mw+Iy2rMnijfwUUZMVTKd2SJJ65+mfIKHMHCQO3RQhJETordtDMcLkTihBu6tzQ0Jc7OEpJWWR5
-	tOS2K50P5XJNjrc/xM24CH49uCYCmKQTvGSv0VNTxstZrM2muNGHX1BY9apnN/qrRZgsd6xkPgj
-	xOGfaAhMfSrs1c+TfYFEl8qoGXUj3MGILdJAZGoZoP5My5OBjuH2Uw==
-X-Google-Smtp-Source: AGHT+IFuuiJ7hwhPP7REvZZAdBwiDq48UgRKHsUFqEjQfTFwPXA33KyLu0BTqZ5IL7d9tF0bI3+zyA==
-X-Received: by 2002:a17:907:3d09:b0:ae0:a684:2594 with SMTP id a640c23a62f3a-ae0a684278bmr38731066b.0.1750697796691;
-        Mon, 23 Jun 2025 09:56:36 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:71::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae06aa5ff34sm549543666b.40.2025.06.23.09.56.35
+        d=1e100.net; s=20230601; t=1750698783; x=1751303583;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fFVerlv1rup6mF5IH5Ew1KKnD+3iU06ke4X3UNXN3IU=;
+        b=NOi4VhACyBlsDe+4L49db0fWORJZ/YXRY2KzPaHm1ZGpT4KaSPLaql0eFrPFEI+UEM
+         ap0GwVz3TBenNEfYZLi3vsKcUMcmxIAc4wecEJIC5is3RN80r94R3EPO2UbspzOlAVsN
+         YIG0+uoKtXdHq1GMbmDEMSfxVjGd65M9Hvzb9c/3xpDSTqWrdOC8zCleZ7dhWbGij+zu
+         Z0mD8YPDgFcM0QQHW5shAjVYMO4Cj+daVfqOdw1vzUdlfzaSnrK/RKHPYB1tU0zoxupw
+         Q0Lc2FiJq0oKsoOZ9MJ+3FW2RVmi65asKhgPXGZc/YctY1uTgJMraYmzyW+Ik3ILA2Gj
+         E3Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCXEND0lsRAL4bBMe5RkwRcVT+h8LMf/k88VqA1UmrhTAull24Tfi8b5SuHXsT1Cs1nHuHGGZ3y77F5djTDitk8w@lists.infradead.org
+X-Gm-Message-State: AOJu0YwySDLDhF92UQhMtTXaMZgWAqERJvujLxY7t/4AfMmyFNhLBYi8
+	GBEiPyV+iFvXDR+gXPQ2IAeGFOKjkxJhN66BjG5oVdc9GHSGTn4LgPqk84gbow1MuLAUWWQ3kqV
+	u2ikvR5sxaQ43t56gkCLQv5Bn2iOpjxNxB1VQnp7GUlgE+7Ld96dnQjFPg3rcSmVBA7dK6A==
+X-Gm-Gg: ASbGncsCGBnZheY4liClQymMtxVL53Noc5+3d85hj67WsgVFX8JTLH1QsgHVkrR/WK9
+	t6mMd3RFw9oDs3QXl+fmLadShZ9QNGIU7DZeXw9qs2Xfws8sovdYssGon+tovLMN13RQTtoReZf
+	hJ7B00B9MwzoJnqgMDP+O8OD3N1+QyegoRE67p3CuGEAxyhCKXGUyWGbDbVPMJn29rResaP5WGr
+	oTibrLMAYcQdBL0LBaxx7Wwc4iq4ukbDviKFc/expKoOuJMwDo4VFduXn3rzghO/ox+cJt/OR21
+	Lgz1+BtoDUUNtYvDDmtHlax2mHVTgo6TKLOv/Q9KZlm1UEDmOI6I908sQEGkN/yZ89Y=
+X-Google-Smtp-Source: AGHT+IErer93kOXokwq6+DGSfC4ugUszBo78NJco3EFwM9G1wiRi3El8E+vg0RKm5OXQE67tFwgtNQ==
+X-Received: by 2002:a05:600c:5494:b0:453:590b:d392 with SMTP id 5b1f17b1804b1-453657bf79cmr45941935e9.2.1750698783204;
+        Mon, 23 Jun 2025 10:13:03 -0700 (PDT)
+Received: from steffen-linux.. ([24.134.20.169])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646cb57fsm118001245e9.1.2025.06.23.10.13.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 09:56:36 -0700 (PDT)
-Date: Mon, 23 Jun 2025 09:56:33 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, andreyknvl@gmail.com
-Cc: Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org, will@kernel.org,
-	song@kernel.org, mark.rutland@arm.com, usamaarif642@gmail.com,
-	Ard Biesheuvel <ardb@kernel.org>, rmikey@meta.com
-Subject: Re: arm64: BUG: KASAN: invalid-access in arch_stack_walk
-Message-ID: <aFmHQbpwX4WnR/5p@gmail.com>
-References: <aFVVEgD0236LdrL6@gmail.com>
- <CA+fCnZfzHOFjVo43UZK8H6h3j=OHjfF13oFJvT0P-SM84Oc4qQ@mail.gmail.com>
- <aFlA1tXXUEBZP1NH@arm.com>
+        Mon, 23 Jun 2025 10:13:02 -0700 (PDT)
+From: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>
+To: 
+Cc: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>,
+	stable@vger.kernel.org,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] nvmem: imx-ocotp: fix MAC address byte length
+Date: Mon, 23 Jun 2025 19:09:55 +0200
+Message-ID: <20250623171003.1875027-1-steffen@innosonix.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aFlA1tXXUEBZP1NH@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_095638_997262_DA041A7D 
-X-CRM114-Status: GOOD (  34.31  )
+X-CRM114-CacheID: sfid-20250623_101305_067288_A5D056B0 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,150 +106,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 12:56:06PM +0100, Catalin Marinas wrote:
-> On Sun, Jun 22, 2025 at 02:57:16PM +0200, Andrey Konovalov wrote:
-> > On Fri, Jun 20, 2025 at 2:33 PM Breno Leitao <leitao@debian.org> wrote:
-> > > I'm encountering a KASAN warning during aarch64 boot and I am struggling
-> > > to determine the cause. I haven't come across any reports about this on
-> > > the mailing list so far, so I'm sharing this early in case others are
-> > > seeing it too.
-> > >
-> > > This issue occurs both on Linus's upstream branch and in the 6.15 final
-> > > release. The stack trace below is from 6.15 final. I haven't started
-> > > bisecting yet, but that's my next step.
-> > >
-> > > Here are a few details about the problem:
-> > >
-> > > 1) it happen on my kernel boots on a aarch64 host
-> > > 2) The lines do not match the code very well, and I am not sure why. It
-> > >    seems it is offset by two lines. The stack is based on commit
-> > >    0ff41df1cb26 ("Linux 6.15")
-> > > 3) My config is at https://pastebin.com/ye46bEK9
-> > >
-> > >
-> > >         [  235.831690] ==================================================================
-> > >         [  235.861238] BUG: KASAN: invalid-access in arch_stack_walk (arch/arm64/kernel/stacktrace.c:346 arch/arm64/kernel/stacktrace.c:387)
-> > >         [  235.887206] Write of size 96 at addr a5ff80008ae8fb80 by task kworker/u288:26/3666
-> > >         [  235.918139] Pointer tag: [a5], memory tag: [00]
-> > >         [  235.942722] Workqueue: efi_rts_wq efi_call_rts
-> > >         [  235.942732] Call trace:
-> > >         [  235.942734] show_stack (arch/arm64/kernel/stacktrace.c:468) (C)
-> > >         [  235.942741] dump_stack_lvl (lib/dump_stack.c:123)
-> > >         [  235.942748] print_report (mm/kasan/report.c:409 mm/kasan/report.c:521)
-> > >         [  235.942755] kasan_report (mm/kasan/report.c:636)
-> > >         [  235.942759] kasan_check_range (mm/kasan/sw_tags.c:85)
-> > >         [  235.942764] memset (mm/kasan/shadow.c:53)
-> > >         [  235.942769] arch_stack_walk (arch/arm64/kernel/stacktrace.c:346 arch/arm64/kernel/stacktrace.c:387)
-> > >         [  235.942773] return_address (arch/arm64/kernel/return_address.c:44)
-> > >         [  235.942778] trace_hardirqs_off.part.0 (kernel/trace/trace_preemptirq.c:95)
-> > >         [  235.942784] trace_hardirqs_off_finish (kernel/trace/trace_preemptirq.c:98)
-> > >         [  235.942789] enter_from_kernel_mode (arch/arm64/kernel/entry-common.c:62)
-> > >         [  235.942794] el1_interrupt (arch/arm64/kernel/entry-common.c:559 arch/arm64/kernel/entry-common.c:575)
-> > >         [  235.942799] el1h_64_irq_handler (arch/arm64/kernel/entry-common.c:581)
-> > >         [  235.942804] el1h_64_irq (arch/arm64/kernel/entry.S:596)
-> > >         [  235.942809]  0x3c52ff1ecc (P)
-> > >         [  235.942825]  0x3c52ff0ed4
-> > >         [  235.942829]  0x3c52f902d0
-> > >         [  235.942833]  0x3c52f953e8
-> > >         [  235.942837] __efi_rt_asm_wrapper (arch/arm64/kernel/efi-rt-wrapper.S:49)
-> > >         [  235.942843] efi_call_rts (drivers/firmware/efi/runtime-wrappers.c:269)
-> > >         [  235.942848] process_one_work (./arch/arm64/include/asm/jump_label.h:36 ./include/trace/events/workqueue.h:110 kernel/workqueue.c:3243)
-> > >         [  235.942854] worker_thread (kernel/workqueue.c:3313 kernel/workqueue.c:3400)
-> > >         [  235.942858] kthread (kernel/kthread.c:464)
-> > >         [  235.942863] ret_from_fork (arch/arm64/kernel/entry.S:863)
-> > >
-> > >         [  236.436924] The buggy address belongs to the virtual mapping at
-> > >         [a5ff80008ae80000, a5ff80008aea0000) created by:
-> > >         arm64_efi_rt_init (arch/arm64/kernel/efi.c:219)
-> > >
-> > >         [  236.506959] The buggy address belongs to the physical page:
-> > >         [  236.529724] page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x12682
-> > >         [  236.562077] flags: 0x17fffd6c0000000(node=0|zone=2|lastcpupid=0x1ffff|kasantag=0x5b)
-> > >         [  236.593722] raw: 017fffd6c0000000 0000000000000000 dead000000000122 0000000000000000
-> > >         [  236.625365] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
-> > >         [  236.657004] page dumped because: kasan: bad access detected
-> > >
-> > >         [  236.685828] Memory state around the buggy address:
-> > >         [  236.705390]  ffff80008ae8f900: 00 00 00 00 00 a5 a5 a5 a5 00 00 00 00 00 a5 a5
-> > >         [  236.734899]  ffff80008ae8fa00: a5 a5 a5 00 00 00 00 00 00 a5 a5 a5 a5 a5 00 a5
-> > >         [  236.764409] >ffff80008ae8fb00: 00 a5 a5 a5 00 a5 a5 a5 a5 a5 a5 00 a5 a5 a5 00
-> > >         [  236.793918]                                                     ^
-> > >         [  236.818810]  ffff80008ae8fc00: a7 a5 a5 a5 a5 a5 a5 a5 a5 00 a5 00 a5 a5 a5 a5
-> > >         [  236.848321]  ffff80008ae8fd00: a5 a5 a5 a5 00 a5 00 a5 a5 a5 a5 a5 a5 a5 a5 a5
-> > >         [  236.877828] ==================================================================
-> > 
-> > Looks like the memory allocated/mapped in arm64_efi_rt_init() is
-> > tagged by __vmalloc_node(). And this memory then gets used as a
-> > (irq-related? EFI-related?) stack. And having the SP register tagged
-> > breaks SW_TAGS instrumentation AFAIR [1], which is likely what
-> > produces this report.
-> > 
-> > Adding kasan_reset_tag() to arm64_efi_rt_init() should likely fix
-> > this; similar to what we have in arch_alloc_vmap_stack(). Or should we
-> > make arm64_efi_rt_init() just call arch_alloc_vmap_stack()?
-> 
-> In theory, we can still disable the vmap stack, so we either fall back
-> to something else or require that EFI runtime depends on VMAP_STACK.
-> We can do like init_sdei_stacks(), just bail out if VMAP_STACK is
-> disabled.
+The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
+extension of the "mac-address" cell from 6 to 8 bytes due to word_size
+of 4 bytes.
 
-Thanks for the feedback and suggestions. Are we talking about a patch
-that looks like the following:
+Thus, the required byte swap for the mac-address of the full buffer length,
+caused an trucation of the read mac-address.
+From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
 
-	Author: Breno Leitao <leitao@debian.org>
-	Date:   Mon Jun 23 09:46:54 2025 -0700
+After swapping only the first 6 bytes, the mac-address is correctly passed
+to the upper layers.
 
-	arm64: Use arch_alloc_vmap_stack for EFI runtime stack allocation
-	
-	Refactor vmap stack allocation by moving the CONFIG_VMAP_STACK check
-	from BUILD_BUG_ON to a runtime return of NULL if the config is not set.
-	The side effect of this is that _init_sdei_stack() might NOT fail in
-	build time if _VMAP_STACK, but in runtime. It shifts error
-	detection from compile-time to runtime
-	
-	Then, reuse arch_alloc_vmap_stack() to allocate the ACPI stack
-	memory in the arm64_efi_rt_init().
-	
-	Suggested-by: Andrey Konovalov <andreyknvl@gmail.com>
-	Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-	Signed-off-by: Breno Leitao <leitao@debian.org>
+Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
+Cc: stable@vger.kernel.org
+Signed-off-by: Steffen B=C3=A4tz <steffen@innosonix.de>
+---
+v3:
+- replace magic number 6 with ETH_ALEN
+- Fix misleading indentation and properly group 'mac-address' statements
+v2:
+- Add Cc: stable@vger.kernel.org as requested by Greg KH's patch bot
+ drivers/nvmem/imx-ocotp-ele.c | 6 +++++-
+ drivers/nvmem/imx-ocotp.c     | 6 +++++-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
 
-	diff --git a/arch/arm64/include/asm/vmap_stack.h b/arch/arm64/include/asm/vmap_stack.h
-	index 20873099c035c..8380af4507d01 100644
-	--- a/arch/arm64/include/asm/vmap_stack.h
-	+++ b/arch/arm64/include/asm/vmap_stack.h
-	@@ -19,7 +19,8 @@ static inline unsigned long *arch_alloc_vmap_stack(size_t stack_size, int node)
-	{
-		void *p;
-	
-	-	BUILD_BUG_ON(!IS_ENABLED(CONFIG_VMAP_STACK));
-	+	if (!IS_ENABLED(CONFIG_VMAP_STACK))
-	+		return NULL;
-	
-		p = __vmalloc_node(stack_size, THREAD_ALIGN, THREADINFO_GFP, node,
-				__builtin_return_address(0));
-	diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-	index 3857fd7ee8d46..6c371b158b99f 100644
-	--- a/arch/arm64/kernel/efi.c
-	+++ b/arch/arm64/kernel/efi.c
-	@@ -15,6 +15,7 @@
-	
-	#include <asm/efi.h>
-	#include <asm/stacktrace.h>
-	+#include <asm/vmap_stack.h>
-	
-	static bool region_is_misaligned(const efi_memory_desc_t *md)
-	{
-	@@ -214,9 +215,8 @@ static int __init arm64_efi_rt_init(void)
-		if (!efi_enabled(EFI_RUNTIME_SERVICES))
-			return 0;
-	
-	-	p = __vmalloc_node(THREAD_SIZE, THREAD_ALIGN, GFP_KERNEL,
-	-			   NUMA_NO_NODE, &&l);
-	-l:	if (!p) {
-	+	p = arch_alloc_vmap_stack(THREAD_SIZE, NUMA_NO_NODE);
-	+	if (!p) {
-			pr_warn("Failed to allocate EFI runtime stack\n");
-			clear_bit(EFI_RUNTIME_SERVICES, &efi.flags);
-			return -ENOMEM;
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index ca6dd71d8a2e..9ef01c91dfa6 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -12,6 +12,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
++#include <linux/if_ether.h>	/* ETH_ALEN */
+=20
+ enum fuse_type {
+ 	FUSE_FSB =3D BIT(0),
+@@ -118,9 +119,12 @@ static int imx_ocotp_cell_pp(void *context, const char=
+ *id, int index,
+ 	int i;
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+-	if (id && !strcmp(id, "mac-address"))
++	if (id && !strcmp(id, "mac-address")) {
++		if (bytes > ETH_ALEN)
++			bytes =3D ETH_ALEN;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
++	}
+=20
+ 	return 0;
+ }
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 79dd4fda0329..1343cafc37cc 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -23,6 +23,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/delay.h>
++#include <linux/if_ether.h>	/* ETH_ALEN */
+=20
+ #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address of the
+ 					       * OTP Bank0 Word0
+@@ -227,9 +228,12 @@ static int imx_ocotp_cell_pp(void *context, const char=
+ *id, int index,
+ 	int i;
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+-	if (id && !strcmp(id, "mac-address"))
++	if (id && !strcmp(id, "mac-address")) {
++		if (bytes > ETH_ALEN)
++			bytes =3D ETH_ALEN;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
++	}
+=20
+ 	return 0;
+ }
+--=20
+2.43.0
+
+
+--=20
+
+
+*innosonix GmbH*
+Hauptstr. 35
+96482 Ahorn
+central: +49 9561 7459980
+www.innosonix.de <http://www.innosonix.de>
+
+innosonix GmbH
+Gesch=C3=A4ftsf=C3=BChrer:=20
+Markus B=C3=A4tz, Steffen B=C3=A4tz
+USt.-IdNr / VAT-Nr.: DE266020313
+EORI-Nr.:=20
+DE240121536680271
+HRB 5192 Coburg
+WEEE-Reg.-Nr. DE88021242
 
