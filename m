@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F84C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 12:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18BAC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 12:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqdC3+RgBDG3GcbX542JQMuFfLlldgvMkuIVsoEVHlM=; b=AFa3FQYpGs7q7u9YbnddP/6Ppe
-	o5lw1za9B6iBSPVzsGaVkzOmlHs4Dx/Z/sPPVuMoAJTVUgKWmRjpH/nVNFU0MR8DjFbx3whaGCLpd
-	Gi74VqagawBGbvnjUB0XcdragSdq2WRh2v73KiXPXaVFmLjLrZ9u28wvmXD4ljEOlpuJ+GmGB8kzX
-	jpMQmXKSQLawtSFK/Ok3/J9bn66jCMqA1NySJYvq1quFnc8HEo1rI4dMHcndLW/Ei4u0FqxSEm/6l
-	yubeSOOc8xagmkX5yDsjG7fq3rmDj9LGzcu7B6wDRQ3kjnlwq2R8BQNKJLQrj/ct0TOoG5rs3bg3H
-	63XasWRg==;
+	bh=Eb+/MxyHCMzsclzghbr5K6u+1GQ8F6l7VnzdS8p67yk=; b=m3EpJjWmekjj1edClwpC79H4tJ
+	znL5sCbVvBvG75PND2eHgudR72aCRyoIzV7fwWiIagahrUxWoYJ7fVKNgXWkOewBC5NbOPqnSr9EL
+	PCJiSIsfwN0X/yCC/Dex3uZTEREOWCJBpX80lZpTXlqAl8ZLC/VHn8DgtsMKP25oeayZ25NwYSQoy
+	nPxWcGbHrQ0dgOSBVZGoInjF7u3FC7tKr4T5AvN5hSEatmEf6/Q0geY40ydTRfnPraFup0VYXFH/0
+	IjPS9zEwQU41A4oZKQzBvK/KCbkCnb/FaqgDMbH/wxgr25R26XBuVd8iDLGoIErYqVCeIWd0Ipflu
+	qC5czHAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgAQ-00000002eqH-0ZJc;
-	Mon, 23 Jun 2025 12:20:54 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTgCj-00000002fOB-0hmQ;
+	Mon, 23 Jun 2025 12:23:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeS7-00000002MEF-01d9;
-	Mon, 23 Jun 2025 10:31:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750674661;
-	bh=RFJhIudXoevB8i9e17NjUhTB+/HFdFHHQmmjsYmIn1o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PR4RtzZuOKx2Q9rtO2No8AFBVpSKqNLoa15acOfVunNJHTyHQciq2HnCAHv9j4ZrA
-	 5uaap/502e9R7T+taGia0Yl1p4Z+nAB3VUui+DWCZbkxDTGw5L0l0xMyMi3ZJ261fR
-	 A1Dp7sdORTFO6eoqAJRxduQry0JQPVWdjZXyQF0oVsnFp+NREZRljgOZx3HbUyNVaR
-	 4qQPrJ40cr1SORH0ZVL8iy95DTPe06dZKORXxxg0zZ8j716Adgcrnm/8zh1MSloqqk
-	 3zd9d4hVaHj7Vws7nsfyJf8KRrVKZSA5a6sgEHZQ7V5Mq6UyXnJPcI1WIC+b1P1z5R
-	 1K5ncNlE2m+3w==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:e046:b666:1d47:e832])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A322817E0FDB;
-	Mon, 23 Jun 2025 12:31:00 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH 26/30] clk: mediatek: Add MT8196 ovl1 clock support
-Date: Mon, 23 Jun 2025 12:29:36 +0200
-Message-Id: <20250623102940.214269-27-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250623102940.214269-1-laura.nao@collabora.com>
-References: <20250623102940.214269-1-laura.nao@collabora.com>
+	id 1uTdWg-00000002BMf-3MOw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Jun 2025 09:31:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Eb+/MxyHCMzsclzghbr5K6u+1GQ8F6l7VnzdS8p67yk=; b=Ub1fEs1I/0x/GjST2NwBIk3ZEF
+	BfeKieHDF6c3RksgX5WGzuvlPufHxmztsW9w6O06d0Jsf/S7OofrG/7fn0hlOlkKTaLUt1p1o+2sh
+	iTMdcw1LNVB9JL8AXmlNp7yAHwRBrivJ1Ewzu+0oCDoq2TlqOVToTClUzEe1/6hydVGxfo4VW9BQW
+	haDBiYP3Q4hgS1lfGTEZ4WzilvcS1SQFC0tAUInyI/dj93wkA70VX2unEkWlqjDm3Xb3H/2y+mNcp
+	BdSo2vURMSv8puqiSrzCHBN17v6qDT+6GopGZj49Bq0U4+uSvm9Ga7WbufaQUCu7gVcR17Q3drezM
+	K+0bT+0w==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTdWc-00000005AcC-3HqD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 09:31:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69B8D4A9A5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:31:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45CB6C4CEF4
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:31:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750671095;
+	bh=VsdfeJJ1hbGO21E4KqYifLzRCmMbubAPRj++2/0zit4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=s1cju4ynEtfb27DxqAfIyPWw+QccoHZXy/cILRWXRC9BCUUTcYZth671pV6kVxzW3
+	 bZS+YtCZyyz1futjCyDE8xgu6wjRpKdIgapgHzGyhFEMEg1YT50DHS0tUoRD1Ibsll
+	 R+MnnGbwCK0JGc4yk8PVPCja+nHEskLMbz7eSmNWvf4o9UXKvoOVl7DBBh6XIIRJp1
+	 n59zpYwXG+SCItsUBO3LfqqZobHpaQzqIfq56gMI+9W10P9GuVO3AF5muMHfr3gU2y
+	 86n8lkhz0pqmBQdZDfL2DGLieSB8KPSipauN7EMGINil27ltzveq2tnprwnPXGDo+A
+	 t0yF8DokTlciA==
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-53185535ed9so2759929e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 02:31:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXXrYYjUNDfkUvK0c7XWZmMKwfJyc6bbrURqbsJvj8YeS+//3XSyvXb65zl1OxpHp2GB5xeqJEESiPsZJE+bPZS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAievagZpQi74mPoG8BlhTw3MogNr3AOxX0EO7VVC9uBxyFOi4
+	vsxFsIe6S95lMCK3qf9KSLCsAsJPG+oIlU3plAxAkIoN5jTZejcVs/hqtYEGIfsltIP7/9D5ABD
+	3EN1fEvO6WB9u5ylAq9T3IlSVQxUMjUQ=
+X-Google-Smtp-Source: AGHT+IFz8HjnezG1zR147UloDiu7tc7NZbIaEkNDb0AV0ej/bEverhGUrGz1fw9s6NlbMHi5uUyf6V0APJORZMqK2bI=
+X-Received: by 2002:a05:6122:4882:b0:520:4806:a422 with SMTP id
+ 71dfb90a1353d-531aeb929d9mr5790320e0c.3.1750671094254; Mon, 23 Jun 2025
+ 02:31:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250621-imx214_ccs_pll-v4-0-12178e5eb989@apitzsch.eu>
+ <20250621-imx214_ccs_pll-v4-3-12178e5eb989@apitzsch.eu> <20250621181751.GA9125@pendragon.ideasonboard.com>
+ <ed0b8fe3a20111477cafb1de7b399afb99caaa0c.camel@apitzsch.eu> <20250622171320.GA826@pendragon.ideasonboard.com>
+In-Reply-To: <20250622171320.GA826@pendragon.ideasonboard.com>
+From: Ricardo Ribalda Delgado <ribalda@kernel.org>
+Date: Mon, 23 Jun 2025 11:31:17 +0200
+X-Gmail-Original-Message-ID: <CAPybu_2WF=t4jnwsrTSCiSZ4T7Sck4-fCoub33=P_6KvdZ5ePg@mail.gmail.com>
+X-Gm-Features: Ac12FXxTrZtaPEPozn4yeGUBc3IN-yDzlj7J5zciRPbs1FoIczjQDRPa5pgF3Bk
+Message-ID: <CAPybu_2WF=t4jnwsrTSCiSZ4T7Sck4-fCoub33=P_6KvdZ5ePg@mail.gmail.com>
+Subject: Re: [PATCH RESEND v4 3/5] media: i2c: imx214: Make use of CCS PLL calculator
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: =?UTF-8?Q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Ricardo Ribalda <ribalda@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_033103_349992_0339CCA5 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250623_103139_299998_D9173373 
+X-CRM114-Status: GOOD (  54.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,191 +107,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 ovl1 clock controller, which provides clock
-gate control for the display system. It is integrated with the mtk-mmsys
-driver, which registers the ovl1 clock driver via
-platform_device_register_data().
+On Sun, Jun 22, 2025 at 7:13=E2=80=AFPM Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+>
+> Hi Andr=C3=A9,
+>
+> On Sun, Jun 22, 2025 at 05:34:56PM +0200, Andr=C3=A9 Apitzsch wrote:
+> > Am Samstag, dem 21.06.2025 um 21:17 +0300 schrieb Laurent Pinchart:
+> > > On Sat, Jun 21, 2025 at 11:37:27AM +0200, Andr=C3=A9 Apitzsch via B4 =
+Relay wrote:
+> > > > From: Andr=C3=A9 Apitzsch <git@apitzsch.eu>
+> > > >
+> > > > Calculate PLL parameters based on clock frequency and link
+> > > > frequency.
+> > > >
+> > > > Acked-by: Ricardo Ribalda <ribalda@chromium.org>
+> > > > Signed-off-by: Andr=C3=A9 Apitzsch <git@apitzsch.eu>
+> > > > ---
+> > > >  drivers/media/i2c/Kconfig  |   1 +
+> > > >  drivers/media/i2c/imx214.c | 213 +++++++++++++++++++++++++++++++++=
++++---------
+> > > >  2 files changed, 175 insertions(+), 39 deletions(-)
+> > > >
+> > > > diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+> > > > index
+> > > > e68202954a8fd4711d108cf295d5771246fbc406..08db8abeea218080b0bf5bfe6
+> > > > cf82f1c0b100c4a 100644
+> > > > --- a/drivers/media/i2c/Kconfig
+> > > > +++ b/drivers/media/i2c/Kconfig
+> > > > [..]
+> > > > @@ -1224,42 +1336,52 @@ static int imx214_parse_fwnode(struct
+> > > > device *dev)
+> > > >   if (!endpoint)
+> > > >   return dev_err_probe(dev, -EINVAL, "endpoint node not found\n");
+> > > >
+> > > > - ret =3D v4l2_fwnode_endpoint_alloc_parse(endpoint, &bus_cfg);
+> > > > + bus_cfg->bus_type =3D V4L2_MBUS_CSI2_DPHY;
+> > > > + ret =3D v4l2_fwnode_endpoint_alloc_parse(endpoint, bus_cfg);
+> > > > + fwnode_handle_put(endpoint);
+> > >
+> > > ... drop this. Up to you.
+> > >
+> > > >   if (ret) {
+> > > >   dev_err_probe(dev, ret, "parsing endpoint node failed\n");
+> > > > - goto done;
+> > > > + goto error;
+> > >
+> > > You can return ret here.
+> > >
+> > > >   }
+> > > >
+> > > >   /* Check the number of MIPI CSI2 data lanes */
+> > > > - if (bus_cfg.bus.mipi_csi2.num_data_lanes !=3D 4) {
+> > > > + if (bus_cfg->bus.mipi_csi2.num_data_lanes !=3D 4) {
+> > > >   ret =3D dev_err_probe(dev, -EINVAL,
+> > > >       "only 4 data lanes are currently supported\n");
+> > > > - goto done;
+> > > > + goto error;
+> > > >   }
+> > > >
+> > > > - if (bus_cfg.nr_of_link_frequencies !=3D 1)
+> > > > + if (bus_cfg->nr_of_link_frequencies !=3D 1)
+> > > >   dev_warn(dev, "Only one link-frequency supported, please review
+> > > > your DT. Continuing anyway\n");
+> > >
+> > > Now that the driver can calculate PLL parameters dynamically, it
+> > > would be nice to lift this restriction and make the link frequency
+> > > control writable, in a separate patch on top of this series.
+> >
+> > Maybe this could be postponed, as I don't have any use for it at the
+> > moment and I don't want to further delay this series.
+>
+> When I said "on top", I didn't mean in a new version of this series. We
+> can merge this first, and then lift this restriction. I don't have an
+> imx214-based device so I can't do it myself and test it :-/
+>
+> > > > - for (i =3D 0; i < bus_cfg.nr_of_link_frequencies; i++) {
+> > > > - if (bus_cfg.link_frequencies[i] =3D=3D IMX214_DEFAULT_LINK_FREQ)
+> > > > + for (i =3D 0; i < bus_cfg->nr_of_link_frequencies; i++) {
+> > > > + u64 freq =3D bus_cfg->link_frequencies[i];
+> > > > + struct ccs_pll pll;
+> > > > +
+> > > > + if (!imx214_pll_calculate(imx214, &pll, freq))
+> > > >   break;
+> > > > - if (bus_cfg.link_frequencies[i] =3D=3D
+> > > > -     IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+> > > > + if (freq =3D=3D IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+> > > >   dev_warn(dev,
+> > > >   "link-frequencies %d not supported, please review your DT.
+> > > > Continuing anyway\n",
+> > > >   IMX214_DEFAULT_LINK_FREQ);
+> > > > + freq =3D IMX214_DEFAULT_LINK_FREQ;
+> > > > + if (imx214_pll_calculate(imx214, &pll, freq))
+> > > > + continue;
+> > > > + bus_cfg->link_frequencies[i] =3D freq;
+> > > >   break;
+> > > >   }
+> > >
+> > > How about separating the IMX214_DEFAULT_LINK_FREQ_LEGACY check from
+> > > the PLL calculation ? Something like
+> > >
+> > >  u64 freq =3D bus_cfg->link_frequencies[i];
+> > >  struct ccs_pll pll;
+> > >
+> > >  if (freq =3D=3D IMX214_DEFAULT_LINK_FREQ_LEGACY) {
+> > >  dev_warn(dev,
+> > >  "link-frequencies %d not supported, please review your DT.
+> > > Continuing anyway\n",
+> > >  IMX214_DEFAULT_LINK_FREQ);
+> > >  freq =3D IMX214_DEFAULT_LINK_FREQ;
+> > >  bus_cfg->link_frequencies[i] =3D freq;
+> > >  }
+> >
+> > With PLL calculation, 480000000 (=3DIMX214_DEFAULT_LINK_FREQ_LEGACY)
+> > might be a valid link frequency explicitly set by the user. I'm not
+> > sure whether it is a good idea to overwrite the link frequency, before
+> > trying the PLL calculation. That's why I would keep the code the way it
+> > is.
+>
+> The current code accepts both IMX214_DEFAULT_LINK_FREQ (600 MHz) and
+> IMX214_DEFAULT_LINK_FREQ_LEGACY (400 MHz), and programs the PLL with (as
+> far as I understand) a 600 MHz clock frequency in either case. To avoid
+> a change in behaviour, I think overriding the 400 MHz frequency with 600
+> MHz in this patch would be best. We could then drop that in a later
+> patch, possibly by patching the clock frequency in a platform-specific
+> driver instead of the imx214 driver.
+>
+> > >  if (!imx214_pll_calculate(imx214, &pll, freq))
+> > >  break;
+> > >
+> > > It will then become easier to drop this legacy support from the
+> > > driver. What platform(s) are know to specify an incorrect link
+> > > frequency ?
+> >
+> > I don't know.
+>
+> Ricardo, do you have any information about this ?
 
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/clk/mediatek/Makefile          |   2 +-
- drivers/clk/mediatek/clk-mt8196-ovl1.c | 153 +++++++++++++++++++++++++
- 2 files changed, 154 insertions(+), 1 deletion(-)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
 
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 14a3caac04e4..e3fa5cc2163a 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -169,7 +169,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MFGCFG) += clk-mt8196-mfg.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MMSYS) += clk-mt8196-disp0.o clk-mt8196-disp1.o clk-mt8196-vdisp_ao.o \
--					 clk-mt8196-ovl0.o
-+					 clk-mt8196-ovl0.o clk-mt8196-ovl1.o
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-ovl1.c b/drivers/clk/mediatek/clk-mt8196-ovl1.c
-new file mode 100644
-index 000000000000..b6a820cce80e
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-ovl1.c
-@@ -0,0 +1,153 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
-+
-+static const struct mtk_gate_regs ovl10_cg_regs = {
-+	.set_ofs = 0x104,
-+	.clr_ofs = 0x108,
-+	.sta_ofs = 0x100,
-+};
-+
-+static const struct mtk_gate_regs ovl10_hwv_regs = {
-+	.set_ofs = 0x0050,
-+	.clr_ofs = 0x0054,
-+	.sta_ofs = 0x2c28,
-+};
-+
-+static const struct mtk_gate_regs ovl11_cg_regs = {
-+	.set_ofs = 0x114,
-+	.clr_ofs = 0x118,
-+	.sta_ofs = 0x110,
-+};
-+
-+static const struct mtk_gate_regs ovl11_hwv_regs = {
-+	.set_ofs = 0x0058,
-+	.clr_ofs = 0x005c,
-+	.sta_ofs = 0x2c2c,
-+};
-+
-+#define GATE_HWV_OVL10(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ovl10_cg_regs,			\
-+		.hwv_regs = &ovl10_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags =  CLK_OPS_PARENT_ENABLE,	\
-+	}
-+
-+#define GATE_HWV_OVL11(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ovl11_cg_regs,			\
-+		.hwv_regs = &ovl11_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+static const struct mtk_gate ovl1_clks[] = {
-+	/* OVL10 */
-+	GATE_HWV_OVL10(CLK_OVL1_OVLSYS_CONFIG, "ovl1_ovlsys_config", "disp", 0),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_FAKE_ENG0, "ovl1_ovl_fake_eng0", "disp", 1),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_FAKE_ENG1, "ovl1_ovl_fake_eng1", "disp", 2),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_MUTEX0, "ovl1_ovl_mutex0", "disp", 3),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA0, "ovl1_ovl_exdma0", "disp", 4),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA1, "ovl1_ovl_exdma1", "disp", 5),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA2, "ovl1_ovl_exdma2", "disp", 6),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA3, "ovl1_ovl_exdma3", "disp", 7),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA4, "ovl1_ovl_exdma4", "disp", 8),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA5, "ovl1_ovl_exdma5", "disp", 9),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA6, "ovl1_ovl_exdma6", "disp", 10),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA7, "ovl1_ovl_exdma7", "disp", 11),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA8, "ovl1_ovl_exdma8", "disp", 12),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_EXDMA9, "ovl1_ovl_exdma9", "disp", 13),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER0, "ovl1_ovl_blender0", "disp", 14),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER1, "ovl1_ovl_blender1", "disp", 15),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER2, "ovl1_ovl_blender2", "disp", 16),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER3, "ovl1_ovl_blender3", "disp", 17),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER4, "ovl1_ovl_blender4", "disp", 18),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER5, "ovl1_ovl_blender5", "disp", 19),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER6, "ovl1_ovl_blender6", "disp", 20),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER7, "ovl1_ovl_blender7", "disp", 21),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER8, "ovl1_ovl_blender8", "disp", 22),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_BLENDER9, "ovl1_ovl_blender9", "disp", 23),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC0, "ovl1_ovl_outproc0", "disp", 24),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC1, "ovl1_ovl_outproc1", "disp", 25),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC2, "ovl1_ovl_outproc2", "disp", 26),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC3, "ovl1_ovl_outproc3", "disp", 27),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC4, "ovl1_ovl_outproc4", "disp", 28),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_OUTPROC5, "ovl1_ovl_outproc5", "disp", 29),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_MDP_RSZ0, "ovl1_ovl_mdp_rsz0", "disp", 30),
-+	GATE_HWV_OVL10(CLK_OVL1_OVL_MDP_RSZ1, "ovl1_ovl_mdp_rsz1", "disp", 31),
-+	/* OVL11 */
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_DISP_WDMA0, "ovl1_ovl_disp_wdma0", "disp", 0),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_DISP_WDMA1, "ovl1_ovl_disp_wdma1", "disp", 1),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_UFBC_WDMA0, "ovl1_ovl_ufbc_wdma0", "disp", 2),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_MDP_RDMA0, "ovl1_ovl_mdp_rdma0", "disp", 3),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_MDP_RDMA1, "ovl1_ovl_mdp_rdma1", "disp", 4),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_BWM0, "ovl1_ovl_bwm0", "disp", 5),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI0, "ovl1_dli0", "disp", 6),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI1, "ovl1_dli1", "disp", 7),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI2, "ovl1_dli2", "disp", 8),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI3, "ovl1_dli3", "disp", 9),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI4, "ovl1_dli4", "disp", 10),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI5, "ovl1_dli5", "disp", 11),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI6, "ovl1_dli6", "disp", 12),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI7, "ovl1_dli7", "disp", 13),
-+	GATE_HWV_OVL11(CLK_OVL1_DLI8, "ovl1_dli8", "disp", 14),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO0, "ovl1_dlo0", "disp", 15),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO1, "ovl1_dlo1", "disp", 16),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO2, "ovl1_dlo2", "disp", 17),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO3, "ovl1_dlo3", "disp", 18),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO4, "ovl1_dlo4", "disp", 19),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO5, "ovl1_dlo5", "disp", 20),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO6, "ovl1_dlo6", "disp", 21),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO7, "ovl1_dlo7", "disp", 22),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO8, "ovl1_dlo8", "disp", 23),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO9, "ovl1_dlo9", "disp", 24),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO10, "ovl1_dlo10", "disp", 25),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO11, "ovl1_dlo11", "disp", 26),
-+	GATE_HWV_OVL11(CLK_OVL1_DLO12, "ovl1_dlo12", "disp", 27),
-+	GATE_HWV_OVL11(CLK_OVL1_OVLSYS_RELAY0, "ovl1_ovlsys_relay0", "disp", 28),
-+	GATE_HWV_OVL11(CLK_OVL1_OVL_INLINEROT0, "ovl1_ovl_inlinerot0", "disp", 29),
-+	GATE_HWV_OVL11(CLK_OVL1_SMI, "ovl1_smi", "disp", 30),
-+};
-+
-+static const struct mtk_clk_desc ovl1_mcd = {
-+	.clks = ovl1_clks,
-+	.num_clks = ARRAY_SIZE(ovl1_clks),
-+};
-+
-+static const struct platform_device_id clk_mt8196_ovl1_id_table[] = {
-+	{ .name = "clk-mt8196-ovl1", .driver_data = (kernel_ulong_t)&ovl1_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(platform, clk_mt8196_ovl1_id_table);
-+
-+static struct platform_driver clk_mt8196_ovl1_drv = {
-+	.probe = mtk_clk_pdev_probe,
-+	.remove = mtk_clk_pdev_remove,
-+	.driver = {
-+		.name = "clk-mt8196-ovl1",
-+	},
-+	.id_table = clk_mt8196_ovl1_id_table,
-+};
-+module_platform_driver(clk_mt8196_ovl1_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 ovl1 clocks driver");
-+MODULE_LICENSE("GPL");
--- 
-2.39.5
+This was for a development platform for Qualcomm, think of a pizero
+like, but with a Snapdragon device.
 
+There was a Qtechnology product based on that platform. I asked them
+if they could provide me a device for testing, but it has been
+discontinued and  replaced with something better.
+
+We can start to deprecate the clock quirk if you want.
+
+>
+> > > >   }
+> > > >
+> > > > - if (i =3D=3D bus_cfg.nr_of_link_frequencies)
+> > > > + if (i =3D=3D bus_cfg->nr_of_link_frequencies)
+> > > >   ret =3D dev_err_probe(dev, -EINVAL,
+> > > > -     "link-frequencies %d not supported, please review your DT\n",
+> > > > -     IMX214_DEFAULT_LINK_FREQ);
+> > > > +     "link-frequencies %lld not supported, please review your
+> > > > DT\n",
+> > > > +     bus_cfg->nr_of_link_frequencies ?
+> > > > +     bus_cfg->link_frequencies[0] : 0);
+> > > >
+> > > > -done:
+> > > > - v4l2_fwnode_endpoint_free(&bus_cfg);
+> > > > - fwnode_handle_put(endpoint);
+> > > > + return 0;
+> > > > +
+> > > > +error:
+> > > > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > > >   return ret;
+> > > >  }
+> > > >
+> > > > @@ -1299,7 +1421,7 @@ static int imx214_probe(struct i2c_client
+> > > > *client)
+> > > >   return dev_err_probe(dev, PTR_ERR(imx214->regmap),
+> > > >        "failed to initialize CCI\n");
+> > > >
+> > > > - ret =3D imx214_parse_fwnode(dev);
+> > > > + ret =3D imx214_parse_fwnode(dev, imx214);
+> > > >   if (ret)
+> > > >   return ret;
+> > > >
+> > > > @@ -1310,7 +1432,9 @@ static int imx214_probe(struct i2c_client
+> > > > *client)
+> > > >   * Enable power initially, to avoid warnings
+> > > >   * from clk_disable on power_off
+> > > >   */
+> > > > - imx214_power_on(imx214->dev);
+> > > > + ret =3D imx214_power_on(imx214->dev);
+> > > > + if (ret < 0)
+> > > > + goto error_fwnode;
+> > >
+> > > This change seems to belong to a separate patch.
+> > >
+> > > >
+> > > >   ret =3D imx214_identify_module(imx214);
+> > > >   if (ret)
+> > > > @@ -1341,6 +1465,12 @@ static int imx214_probe(struct i2c_client
+> > > > *client)
+> > > >   pm_runtime_set_active(imx214->dev);
+> > > >   pm_runtime_enable(imx214->dev);
+> > > >
+> > > > + ret =3D imx214_pll_update(imx214);
+> > > > + if (ret < 0) {
+> > > > + dev_err_probe(dev, ret, "failed to update PLL\n");
+> > > > + goto error_subdev_cleanup;
+> > > > + }
+> > >
+> > > I would move this to imx214_ctrls_init().
+> > >
+> > > > +
+> > > >   ret =3D v4l2_async_register_subdev_sensor(&imx214->sd);
+> > > >   if (ret < 0) {
+> > > >   dev_err_probe(dev, ret,
+> > > > @@ -1366,6 +1496,9 @@ static int imx214_probe(struct i2c_client
+> > > > *client)
+> > > >  error_power_off:
+> > > >   imx214_power_off(imx214->dev);
+> > > >
+> > > > +error_fwnode:
+> > > > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > > > +
+> > > >   return ret;
+> > > >  }
+> > > >
+> > > > @@ -1378,6 +1511,8 @@ static void imx214_remove(struct i2c_client
+> > > > *client)
+> > > >   v4l2_subdev_cleanup(sd);
+> > > >   media_entity_cleanup(&imx214->sd.entity);
+> > > >   v4l2_ctrl_handler_free(&imx214->ctrls);
+> > > > + v4l2_fwnode_endpoint_free(&imx214->bus_cfg);
+> > > > +
+> > > >   pm_runtime_disable(&client->dev);
+> > > >   if (!pm_runtime_status_suspended(&client->dev)) {
+> > > >   imx214_power_off(imx214->dev);
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
