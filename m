@@ -4,116 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3632C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A27CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2t+Y2YQ4hksJmIBlm2pPPDL4qcQcsnFpoJe5GC3X4I=; b=m8WwKZFjG1FnWPUJWrAcngutaY
-	4AiV14LHo3gt9DpqzIOSgoovGKdyQscaAvoPQeoENY12lT15aU5EBkDprVP8sxfN/6IYPji4BA2Fl
-	Wz0zafGXl+z0uTtEH1o8C9fOs3gpgGTDYfRWQJH2Em1YsYGIm2g6ESg9RMpDctlCV2goY9fpcp6NL
-	aa7VcEpafm7g9CJG1MsU2sJN5yT4XzkT6oo5M6j+9dHWqB0b2ChOfHgnUTeNZGq3w+4mP7HCxh9T5
-	WKex0xFEnuwpQYoQ4+WeiDbBNp8O8D6FuEVZM5CFx+G28XlO+4Fj3PFlpEMLrfUsCXrAma3ICaWO0
-	Rp2cc+5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZJyZjPBYu2epxsSHsbCGqldfnDJGgL4Q6skpZkKYyPg=; b=Bg0ENRIWBHEMYwvBdX+XozmFlv
+	lS9jAKj8bCi+FuM9C6zb0JZaZocQuFW0SulL0aVT9RIx4hOcDL2TmgeKgTvzPob6Dc1EJ7dtxnRay
+	FVm2nkMg26i6J4rblCQXdHTTIx+ETqo9S2i0H4+cgY32CCN+YUKHOC1upheIAs4qGLuR9QVyhqFPH
+	msrwEAeIWxSJBvi9kmVicF5/votRFykwOtW6fFCj4PmkzKbD9kK39ufm0nhPpVW/PcOhOpi+nR/nP
+	xX23ErY9bMe82gnq3Yj3ovsMeTf9xHvVEDIYgSGBG78+o7I/xs7fKuaElhy9aLI531c6YMJkN9ZLq
+	E4Ldmpzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfIV-00000002Uw5-1Oka;
-	Mon, 23 Jun 2025 11:25:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uTfKo-00000002VG5-1UHP;
+	Mon, 23 Jun 2025 11:27:34 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdkZ-00000002E97-2nEq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:46:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 92977A50C9A;
-	Mon, 23 Jun 2025 09:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FD6BC4CEEA;
-	Mon, 23 Jun 2025 09:45:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750671962;
-	bh=IXHCJoWMn6t0vuB+CqKs2zgjVDxkVwBIUruHUkwEJL4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OQK6XKaZ3SgxAoBcvh46QDZ/jPhUumeA/Ka7NMNlcrqTKHve8WKl/71rkimvULhX/
-	 dFdTle+i4DeJguB+bdIFSen1dXz30rzfshPHdwfB4cmkxcp4iWn4+fwx3TSkZWVg9N
-	 tTuejgKBPxqs11/yKnHm3cuC+KXej4TgBLq0NESolo/dfSElBO+JnN6lyp6voJ31tm
-	 pQCdNIB03yRoTRK+ek0tIiKGqBIudJkDQzJPufqGlaLxV+CmOrZ+v4127U4W6eeZfy
-	 ClklJmh+F+JYjZk9/bB5ChtkM+x28DCId/RTol+B4yrnbp6UgtZfms1E40u3FJa/vD
-	 zr286BKeHQ+EA==
-Message-ID: <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
-Date: Mon, 23 Jun 2025 11:45:55 +0200
-MIME-Version: 1.0
+	id 1uTdn4-00000002Emn-0QvI;
+	Mon, 23 Jun 2025 09:48:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FDguRsyHfn2RIjtVoSrI/AljXY/knVODc0y1K+tkX3CvMzR1zqxKqgvwyqFONJDTOi73P1nxE/RDR9UZkdXuLtVUDDlOUXnb/Bkaz2xrhQDbil0K83T3SgHtHQVe+YcY5YZq5vRn+BsjMfBiYTmX9dI6O9rBxFW9TzVvzakevalGEH+MzewSGjG/OsJaRfUcCQ58fJtu17xnsOIxgtjFThxPOFaNdNS0aO+JBha7s7TTzvdX2dGIGnqwaMJa4HSw0EhvVa6JBhefuOPoW0yoPNeo1nBMdfPhwX0hoih+GhCqxy/Ql3Nu7gkIsS07QR9SQIcaEkF8PL8vHlBQaf2Iew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZJyZjPBYu2epxsSHsbCGqldfnDJGgL4Q6skpZkKYyPg=;
+ b=YdUqFvR6oEtqJLlasr1gVLJAXLDuAKB1F4QagZRh5f7+Dv4NvAJcPsIVVXeGRw5/C/Wl1hNae9TE0xeCSeZB9NWIbellBAtsFg8z8ycEnMtb7rebcjTMVyaRev2WKd39jpNaUlQORkZkKpIzPYGW6HzGlXNccvHBK6vMUSXSNOok3DpJOpbm4bc7h1K8ZwfO2SUilAbZ07Lo6ZYmm4ujXfsseoVnSvhzuH1TIiYvfZcNlsmqTZWCyiBdSakc+uXpZN45f0hBIMykwfgqGo6ufGkFJPKFsKsse4LXDGAQfIoBO8WmS4c/qsrWGhLH4GKLjlUxAKup1IHC3968J0CwTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZJyZjPBYu2epxsSHsbCGqldfnDJGgL4Q6skpZkKYyPg=;
+ b=Qudzo8tL8O4aVNUpsSDi/CharGP+yCwHlqVVYJggBRfUaCqJgvDxOduDdpJipu9+xaf6yVQDHdEMDZ+UVuigDGWVw/lFGPQykKCOERhHo08/Jdkg3ZOry06UTXc2gWiNq4UgSJBdeSPwrjMsx8Lhg0VmW1LgxTFLSuIaMjkOCfs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by DU4PR04MB10552.eurprd04.prod.outlook.com (2603:10a6:10:58f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Mon, 23 Jun
+ 2025 09:48:30 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1%6]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
+ 09:48:30 +0000
+Message-ID: <7149b6a8-7715-4920-829d-5b416d40fc16@cherry.de>
+Date: Mon, 23 Jun 2025 11:48:27 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
- Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
- <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
+ constants
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Quentin Schulz <foss+kernel@0leil.net>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
+ Daniel Semkowicz <dse@thaumatec.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+ <20250618-rk8xx-rst-fun-v3-3-081f02d3d348@cherry.de>
+ <t3wbjpbw7phqvip4yvxm5kux6hor5pehzamrw6hjv3hq2b3j3n@zuf2vuhgpdpp>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <t3wbjpbw7phqvip4yvxm5kux6hor5pehzamrw6hjv3hq2b3j3n@zuf2vuhgpdpp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GV2PEPF0000452F.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:401::358) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DU4PR04MB10552:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e943c92-190f-4217-6d77-08ddb23b1bfe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TUtNT3ViWldJRHhaSHNlZU9XQk9ITi96Mi9mbU90OW5TZnRRMkJwcExpSWcz?=
+ =?utf-8?B?ZVBvS0VIRGsydjdiZVVMQkRpUVFqNVl6dElOdGVXRmsvdVpMbXQ4bXRYbVRj?=
+ =?utf-8?B?RkxmOXlxU2ZLc1dVbEwvQ2dlZ0xZQUxKblZDZXhybzBlYUM0Q3l5WUVqV05v?=
+ =?utf-8?B?UkNvY0JveElGdWx0OGcySzM3U1FCajZ0MDVhZnExbWxBSjVBV0tkRUFSZGVq?=
+ =?utf-8?B?Ny8xdlNpZ0FtSFJXcldKSmpwUGgxR3YzaG9qQk1tNnl1b1VBSHI3ZGpQWDR2?=
+ =?utf-8?B?NlJReHlEV3JuWGo3VG1BOGp3ZWJtM3QxVlhEUExDUXZJazg3aU1TTmZidXdm?=
+ =?utf-8?B?Zm0rWDFWYkdvZWZIVG41dHAwbkF5RHlmQmtKa3FiOVcyT1UvbGNGZ0phOVdp?=
+ =?utf-8?B?N0J6ZmdEWkhzeFNsZlVHbFBXM2w2MzVNWnRzdXRNMXdvWTNXSFUvVXo5R1NT?=
+ =?utf-8?B?MnhLSTNyWW1IR1hobS8xM3AyVGUwRGMrdnhsSzJyNlJFbmlGTHE1TTdsRFJY?=
+ =?utf-8?B?dzNCaUY4ZXpYa2c2K0F5RFJRakZPZUV0MFVTVEU0NUFJT1FSMlY5LytMZWZG?=
+ =?utf-8?B?b0duRFBMS2dwdndqM29iT1BQeS9RWURYOEt2UWhkMFZLbWFjZ2xLT0FQSWR1?=
+ =?utf-8?B?VFdiajlLNDY1R0ZZQktzNG1mcGdPVEdLSklqcWQrMHRjQWZvZEJaV3h2VEUy?=
+ =?utf-8?B?c3Q0ZmxnQmJkTjNUb242eHNFTjJVR3MvRnlFT2Q1UVFlbnV4Q0t2a0ZHejN6?=
+ =?utf-8?B?OUF1Z2QweXZaYmR3czJKaFJwZFg2d2hzN293VE0zNE5OcjdHcGZpU3VXMlgx?=
+ =?utf-8?B?NGE1dEx0Vnkydm16YXRRWVFSOVVaY0pvOGRPOXZCaHdJT01OQVdYQWxxUjln?=
+ =?utf-8?B?UVFjSFlNTXhxVGluRVBBZHREMXFET0xBSDh6RlZxdHNoVXdkekQ4Yi8raEsy?=
+ =?utf-8?B?b0lIY3RHeWFBT1RranRoeWZaenU1OUNVNFlGT3lqTUlwUUdTVm1oWEV2UGdO?=
+ =?utf-8?B?YkhvckVRTEFiYy9IaE9MNEVUWGxjaHhMaFV6Q09Ndi9TNGcyZ09CSmViL1Ji?=
+ =?utf-8?B?a2JtOEM0S1VSME9BeGhyTHM3VlljaFJ3NUV2dzlNK29ISkd4QjFPOGZ4U0hi?=
+ =?utf-8?B?OU54L2dTY2gzcndhcWYySTlHVnhIblZSWFlBMHlzaWtOSnJOaDQrUGZhZnVx?=
+ =?utf-8?B?RWFTQk1WdlFDWGlCckhQWUlWMW9ZbDJRL0ZZcXA5M3MwNXkwaFVjbW1YTUp6?=
+ =?utf-8?B?NnBlbGJqOXlzd1pJaWhwb1VNN2JUSlVmZGRrME1mc01pSFNlYnIxWjdCOStS?=
+ =?utf-8?B?ZkNITS80TmhRTVFROS9SekNDb3VCdDlOb09LWmdZd1IwdGIzM0d2OEFFYVZH?=
+ =?utf-8?B?RER1eEM4NThiMmN5bHU4bk5nVUxpaHcwZDJYdWQvbEhOQzM4Nml6ZU1Va1hL?=
+ =?utf-8?B?MHd4eUF5Tm1RRGVCcXd4dTlYalZJNUpKQXpIWUR0QWpCVlBySjdZVFZONWdx?=
+ =?utf-8?B?SWJiV2lORnhCeGFlbHNHM2MxTE5HcmxQZkpmUUxUZkZyNDVjRmM5TFlXYkh1?=
+ =?utf-8?B?VG9ocE13cVdxUUdGYnFvUlZZUFZlS2J0Sm54Nnk1TEdCK3czYTFTUjNsV0Zv?=
+ =?utf-8?B?eDI0QzFpN0laeTFtNXpWUUFZSyt5dlpqdnpud0FvZmx0Sk4yTy9zdVI4Y2kr?=
+ =?utf-8?B?UFRnR1dRbU52WGhKVzZKWmJrVlVERDh4TW1acDBFNGZaNndyWGpmT0c1ejVm?=
+ =?utf-8?B?YmRNYVgzeG1UdEtRNERxY0JPNlNmSndpb2xsajBqdkZ1QVlVWFo1eExFTHBX?=
+ =?utf-8?B?ZlVKZ01KOEoybjFwMVRpRmFWOW1TQXlFMXovWnZ1THlPdU91T3QyMmxTUFQ4?=
+ =?utf-8?B?ZUV6cWplUC9QaEtYUEU3L3FuYmU5TURSSTl4WEh0akdVcnFHUlZLbmtGQVk0?=
+ =?utf-8?Q?3tDbVG6ny6c=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2VMSFlTelQyVlJtazFXbzB4RWRXamJtMXZ1WkRqTjgrVyt1dFRwTDFRTkZj?=
+ =?utf-8?B?a3dtVWp6ZnIzVGg3d2h4QVFuOEY5Wm9vUDBRSHpCQTVCWWJOKytFb3V4SnZv?=
+ =?utf-8?B?cVE3UG1qMFFkZUdDMVpSbkd0RUlidFAzbmoxeHpGYmdNclNQZ1EzQW0vakZl?=
+ =?utf-8?B?VHR5dmFqWkxIU0lZdk5JOENFdlQrQ1RRQno5QVN4QnMvSkc2bzg3UzdXRTJa?=
+ =?utf-8?B?SHA1SzMvRjJza0ZDaTZ5Um1hNmRDNHRGOHlwZ3ozTVdjL1hHMjZwOXZEalMx?=
+ =?utf-8?B?TWJvRDZoMzNQVmU4WWpTNUdmNk4rdGRNY25GODUyNnN6LytQNWd6bXJOUWx2?=
+ =?utf-8?B?ZWJkSHRVREJMdFB0RE1wdXRsQndZUVBGT3VHdk5YWDB1aVRWNlNCdWVhamlm?=
+ =?utf-8?B?bmdTVTcvV3RsSmNDamN3RmpPcldOL0U4UWZLY3N6Q3BkU2NKR01qSmZEdzN6?=
+ =?utf-8?B?MmhqRzh0dUczV1Zmc05YY2tYMEhJUG1SOXR4OFkyTlUrMVMrQzFkem9wK3JS?=
+ =?utf-8?B?c2RSSW9UTmRWUDhJNldpVHpFZ3h1ZFpPUkhLNHVlSFNvb01aY0Y1aFR6cTZs?=
+ =?utf-8?B?WTRuZ0F2Sko5OTVkVklYZVpmVWRIMmtQN3lnOHVOTXl4andxaHRzckdrK2Iv?=
+ =?utf-8?B?d3hCRDVCTFJQeVVudzB2bU5YNlNkQXZxc1UzM3ZUbXl6WTZzMjNmWWhYZHpD?=
+ =?utf-8?B?RWVGUmcvZ00vNDRnR1BscHpUaS9mWUtIZGNXT0dLWDRHVU1PUEZWU1VvN3NI?=
+ =?utf-8?B?YTBBeUV0T0s1RDJPamtIYm5TQVkyeWVubnBGYVB3ODBsbnh0ZGNjNjBnU2lM?=
+ =?utf-8?B?NDJLbHZ5Y1o0T3FrZ0oxelZmTXFHVVFnbFBUQlh4Nm9pZW43VmhXcTRCUENR?=
+ =?utf-8?B?Zzdab2xYRFk5OGJtcHdGdEViUmdwZVJqQ3p5Y1RXM01jRDhKM3NIWGNFN1U5?=
+ =?utf-8?B?L09jd3l0Yit4Y0xDa1lab0t6RDBYSitsV1JVU3NtcGNuQlp5R25lYUM4eUlZ?=
+ =?utf-8?B?cXpvVHhmL0dJd2J6cnp2ZzU2Q1NqbjRZbUk5UHlFbHhnbVFFSEgzWWcyNk1i?=
+ =?utf-8?B?UlJBSDdNQkEydHphNnJmbTl0aDdWZkxTaW14T1hPN09RZW1wTVp6eWJRRjFa?=
+ =?utf-8?B?YThOQUlxZlVUK2VxVmt0M2NVZTdYTGtUSWh2UTZYV2hobVJLRTNrdWU3WDA2?=
+ =?utf-8?B?MjZNd1JqNytWL3YrZEdLSVk4TTBUSnJ3RUEyNGsrK0owcklpM3RPYnZSbFJJ?=
+ =?utf-8?B?U0ltc2pkWGd4OXlZdUhIdEhydEFkalRUNnd4QlB5NVU1MjhaWDB5cWllTjhX?=
+ =?utf-8?B?SmpIK216NWJvRmNqbTBadUlIc1BhOUd5TkJxWm1XR1JZK1ZJbXpEK2Nremls?=
+ =?utf-8?B?OFdaNHJOd2R0cGY4OHc3OTU3anZReVhaQlg2TGxYTmJNWnVZRU5aNzByRHQ0?=
+ =?utf-8?B?anV4cWZneGhob0xIYXpMSTZkM1NRQzRNQ3YwMlIrd2RTN1NkSlBPc0hYczdq?=
+ =?utf-8?B?aGI4S2JmcjVJNmRHeElqQU8veWI1STl3ZCtsWkxwblhqdFU5a3BmNmpqQ2sx?=
+ =?utf-8?B?U2c3TTNsLy94WEUyL01sYVB6VDNLNkJJQUJYcmdCMC9XYkFLYkhMOUNIUkRx?=
+ =?utf-8?B?MnlxaVl5L0tWVFhoSkxRRnVDYXJ3VUp3ZGdFa2hVS2RRV2I2eEZIV0wrMk1R?=
+ =?utf-8?B?cjhQbmRCSC9UbFFOV2ptYzIrWERKaGFaaHBFMWpaaTZqZktxVExsVGl0ekUr?=
+ =?utf-8?B?NVZtbFMzdFd4ZkZDdTBlUFVDem5PTHRsWnBnZm8xMFZkcmVValdnM2lPdXJv?=
+ =?utf-8?B?ekxrazBsa2tuMmVVcVFDa09zbE9IeTl3QStuM1ViaWJFeWlicXpTNXEwMm45?=
+ =?utf-8?B?U3hiZ3VlallnQ3l4SENkdU1vbWpiUW1lcmpCbkcya0ZrWTBIYjFSdG1RYVd1?=
+ =?utf-8?B?OWhMYm0wcGFCZzdmbEFCS3RIYXM5L1l0RzE0ZHhEMTVyVktjb3dVMXRTaVNP?=
+ =?utf-8?B?aHNrTzd0Zjc4UFN1d3Y2MDBIbS9XNnlMT0NRaGdnVHBlbndHeDcraEkxdHlz?=
+ =?utf-8?B?ekgwVmRqdWcrN00razAzWXQxZndPY1R4bzg5bkhRVnRkbDE3dHEwRFZ2Q1pl?=
+ =?utf-8?B?djhrSytyYy80K2xUcUU1QnhRRkwyekJNQmJoR2Uyc3hMc1hqZE5HclB6TjAz?=
+ =?utf-8?B?WlE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e943c92-190f-4217-6d77-08ddb23b1bfe
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 09:48:30.0510
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s0assZxwI/cjvTkeNwKudfoZu7PHWjDPg6G10RMmPlaz0UcuEWIMO7POxpBxX84iRriOM+Ev445kmJfkbV0SDIVpFL9SyfWcr4bfJn20Y4c=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10552
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_024603_839311_45700BBA 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20250623_024838_193129_4FB66072 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,207 +185,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2025 11:27, Clément Le Goffic wrote:
-> +	if (of_property_present(pmu->dev->of_node, "access-controllers")) {
-> +		ret = stm32_firewall_get_firewall(pmu->dev->of_node, &firewall, 1);
-> +		if (ret) {
-> +			dev_err(pmu->dev, "Failed to get firewall\n");
-> +			return ret;
-> +		}
-> +		ret = stm32_firewall_grant_access_by_id(&firewall, firewall.firewall_id);
-> +		if (ret) {
-> +			dev_err(pmu->dev, "Failed to grant access\n");
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	if (of_property_present(pmu->dev->of_node, "clocks")) {
+Hi Sebastian,
 
-No, don't open-code get clk optional.
+On 6/19/25 5:51 PM, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Wed, Jun 18, 2025 at 12:32:42PM +0200, Quentin Schulz wrote:
+>> From: Quentin Schulz <quentin.schulz@cherry.de>
+>>
+>> To make it easier to read the device tree, let's add constants for the
+>> rockchip,reset-mode property values that are currently only applicable
+>> to RK806 PMIC.
+>>
+>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk8xx.h | 18 ++++++++++++++++++
+> 
+> I think this header should be in include/dt-bindings/, otherwise the
 
-> +		pmu->clk = devm_clk_get_prepared(pmu->dev, NULL);
-> +		if (IS_ERR(pmu->clk)) {
-> +			dev_err(pmu->dev, "Failed to get clock\n");
-> +			return PTR_ERR(pmu->clk);
-> +		}
-> +	}
-> +
-> +	clk_enable(pmu->clk);
-> +
-> +	if (of_property_present(pdev->dev.of_node, "resets")) {
-> +		rst = devm_reset_control_get(&pdev->dev, NULL);
-> +		if (IS_ERR(rst)) {
-> +			dev_err(&pdev->dev, "Failed to get reset\n");
-> +			ret = PTR_ERR(rst);
-> +			goto err_clk;
-> +		}
-> +		reset_control_assert(rst);
-> +		reset_control_deassert(rst);
-> +	}
-> +
-> +	pmu->poll_period = ms_to_ktime(POLL_MS);
-> +	hrtimer_setup(&pmu->hrtimer, stm32_ddr_pmu_poll, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
-> +
-> +	for (int i = 0; i < MP2_CNT_NB; i++)
-> +		INIT_LIST_HEAD(&pmu->counters[i]);
-> +
-> +	pmu->selected_set = -1;
-> +
-> +	pmu->pmu = (struct pmu) {
-> +		.task_ctx_nr = perf_invalid_context,
-> +		.start = stm32_ddr_pmu_event_start,
-> +		.stop = stm32_ddr_pmu_event_stop,
-> +		.add = stm32_ddr_pmu_event_add,
-> +		.del = stm32_ddr_pmu_event_del,
-> +		.read = stm32_ddr_pmu_event_read,
-> +		.event_init = stm32_ddr_pmu_event_init,
-> +		.attr_groups = pmu->cfg->attribute,
-> +		.module = THIS_MODULE,
-> +	};
-> +
-> +	ret = perf_pmu_register(&pmu->pmu, DRIVER_NAME, -1);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Couldn't register DDRPERFM driver as a PMU\n");
-> +		goto err_clk;
-> +	}
-> +
-> +	if (pmu->cfg->regs->dram_inf.reg) {
-> +		ret = of_property_read_u32(pdev->dev.of_node, "st,dram-type", &pmu->dram_type);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "Missing device-tree property 'st,dram-type'\n");
-> +			perf_pmu_unregister(&pmu->pmu);
-> +
-> +			return ret;
-> +		}
-> +
-> +		writel_relaxed(pmu->dram_type, pmu->membase + pmu->cfg->regs->dram_inf.reg);
-> +	}
-> +
-> +	clk_disable(pmu->clk);
+v2 did that and the feedback from dt-binding people was they didn't want 
+(as far as I understood) unused constants as ABI[1][2].
 
-Why do you keep clock prepared? This device does not know what sort of
-clock it gets, so you end up with clock always active for example and
-this being no-op.
+[1] 
+https://lore.kernel.org/all/704d75df-a484-4da3-9bcb-85b480e2ecf0@kernel.org/
+[2] 
+https://lore.kernel.org/all/a9baf6b0-b668-4d10-b9de-b63eb3fd8f23@kernel.org/
 
-> +
-> +	return 0;
-> +
-> +err_clk:
-> +	clk_disable_unprepare(pmu->clk);
-> +
-> +	return ret;
-> +}
-> +
-> +static void stm32_ddr_pmu_device_remove(struct platform_device *pdev)
-> +{
-> +	struct stm32_ddr_pmu *stm32_ddr_pmu = platform_get_drvdata(pdev);
-> +
-> +	perf_pmu_unregister(&stm32_ddr_pmu->pmu);
-> +}
-> +
-> +static int __maybe_unused stm32_ddr_pmu_device_resume(struct device *dev)
-> +{
-> +	struct stm32_ddr_pmu *pmu = dev_get_drvdata(dev);
-> +
-> +	clk_enable(pmu->clk);
-> +	writel_relaxed(pmu->dram_type, pmu->membase + pmu->cfg->regs->dram_inf.reg);
-> +	clk_disable(pmu->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct stm32_ddr_pmu_regspec stm32_ddr_pmu_regspec_mp1 = {
-> +	.stop =		{ DDRPERFM_CTRL, CTRL_STOP },
-> +	.start =	{ DDRPERFM_CTRL, CTRL_START },
-> +	.enable =	{ DDRPERFM_CFG },
-> +	.cfg =		{ DDRPERFM_CFG },
-> +	.status =	{ DDRPERFM_STATUS, MP1_STATUS_BUSY },
-> +	.clear_cnt =	{ DDRPERFM_CLR, MP1_CLR_CNT},
-> +	.clear_time =	{ DDRPERFM_CLR, MP1_CLR_TIME},
-> +	.counter_time =	{ DDRPERFM_TCNT },
-> +	.counter_evt =	{
-> +				{ DDRPERFM_EVCNT(0) },
-> +				{ DDRPERFM_EVCNT(1) },
-> +				{ DDRPERFM_EVCNT(2) },
-> +				{ DDRPERFM_EVCNT(3) },
-> +	},
-> +};
-> +
-> +static const struct stm32_ddr_pmu_regspec stm32_ddr_pmu_regspec_mp2 = {
-> +	.stop =		{ DDRPERFM_CTRL, CTRL_STOP },
-> +	.start =	{ DDRPERFM_CTRL, CTRL_START },
-> +	.status =	{ DDRPERFM_MP2_STATUS, MP2_STATUS_BUSY },
-> +	.clear_cnt =	{ DDRPERFM_CLR, MP2_CLR_CNT},
-> +	.clear_time =	{ DDRPERFM_CLR, MP2_CLR_TIME},
-> +	.cfg0 =		{ DDRPERFM_MP2_CFG0 },
-> +	.cfg1 =		{ DDRPERFM_MP2_CFG1 },
-> +	.enable =	{ DDRPERFM_MP2_CFG5 },
-> +	.dram_inf =	{ DDRPERFM_MP2_DRAMINF },
-> +	.counter_time =	{ DDRPERFM_MP2_TCNT },
-> +	.counter_evt =	{
-> +				{ DDRPERFM_MP2_EVCNT(0) },
-> +				{ DDRPERFM_MP2_EVCNT(1) },
-> +				{ DDRPERFM_MP2_EVCNT(2) },
-> +				{ DDRPERFM_MP2_EVCNT(3) },
-> +				{ DDRPERFM_MP2_EVCNT(4) },
-> +				{ DDRPERFM_MP2_EVCNT(5) },
-> +				{ DDRPERFM_MP2_EVCNT(6) },
-> +				{ DDRPERFM_MP2_EVCNT(7) },
-> +	},
-> +};
-> +
-> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
-> +	.regs = &stm32_ddr_pmu_regspec_mp1,
-> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
-> +	.counters_nb = MP1_CNT_NB,
-> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
-> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
-> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
-> +};
-> +
-> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
-> +	.regs = &stm32_ddr_pmu_regspec_mp2,
-> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
-> +	.counters_nb = MP2_CNT_NB,
-> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
-> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
-> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
-> +};
-> +
-> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
-> +};
-> +
-> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
-> +	{
-> +		.compatible = "st,stm32mp131-ddr-pmu",
-> +		.data = &stm32_ddr_pmu_cfg_mp1
-> +	},
-> +	{
-> +		.compatible = "st,stm32mp151-ddr-pmu",
-> +		.data = &stm32_ddr_pmu_cfg_mp1
-
-So devices are compatible, thus express it correctly and drop this.
-
-> +	},
-> +	{
-> +		.compatible = "st,stm32mp251-ddr-pmu",
-> +		.data = &stm32_ddr_pmu_cfg_mp2
-> +	},
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(of, stm32_ddr_pmu_of_match);
-> +
-> +static struct platform_driver stm32_ddr_pmu_driver = {
-> +	.driver = {
-> +		.name = DRIVER_NAME,
-> +		.pm = &stm32_ddr_pmu_pm_ops,
-> +		.of_match_table = of_match_ptr(stm32_ddr_pmu_of_match),
-
-Drop of_match_ptr, you have here warnings.
-
-
-
-Best regards,
-Krzysztof
+Cheers,
+Quentin
 
