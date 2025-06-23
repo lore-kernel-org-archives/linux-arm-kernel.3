@@ -4,76 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED19AC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 19:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02340C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDJvnnP1g6HzFSsr/nXffuaKpElPDYcfUn/pYE/gpJM=; b=Ee+gbs7FiZFxqcDGp89XMB16Ku
-	KmS6x/9x47DygTAdmXBjNEzXa+QjdbmG0AAWEWqHGPH783hchiT0vs6VxIrVoVnek/ItQhxoBAOyG
-	JCsUsyy4g9yJqgyuwM4aVWTZ3PYwrou/FEQQqCY9TqLN5rmzf/T3nuaHfSRl3FayORY1s0lxXf8L+
-	1eGtCUPJJDa3F0QqDHE65tWVgCbYIJXxJB6FDPVHDFKGAThfXQizhERWV/UwGca9A7ywq2iXFH47Z
-	dvZ+2h6tx+y5cGKCxgVmbRdVIeTR8F9VJL/Wf6yv9ucALoHyOX5Hu1fPbGLU4PBuuQaKj3y0vwSSe
-	8rguJ0Xw==;
+	bh=3xtGGPP2UKgaIyk2tkpHf09Q7Xd78INEn2mD5YuWsf8=; b=Mf6AqWyM9zwDmSXdzgbeZYrN9e
+	YRl8oUmsWM3TrU8OlcEbft0DaGtyZ70A/5+S5btw6eAXhnd218hEifSD9FpEEnppyUdih9CTfIyfv
+	9nSTLEIFBCGXxGG24l0XoJQFoC3esSjOyqYHtv0hE+54rC3pxKfrX778/EOLi2OXSekeeDms09+I2
+	H4a/2mReN3U3BLK6jIgEQoIcVkfFCerF/GuE6FgtbLJN3y7eBEO0safTXYcOTaLYutKWztGfLtXaO
+	BhtNbibD/iSr9VgeaO/aY+wIw096/jdm173M5P0BIN7HO0DpFbmMg/lQnemFZASnvxwjxtzotEydh
+	cFY6OfIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnJY-00000003tBJ-1GDA;
-	Mon, 23 Jun 2025 19:58:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTnLr-00000003tJx-39A5;
+	Mon, 23 Jun 2025 20:01:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeRb-00000002M1R-2eoe;
-	Mon, 23 Jun 2025 10:30:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750674630;
-	bh=/QFxXe01PFFnCtLqP1DFxluzDGDSgJm4wedQNERGaTc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VLH4pBzS/Pz+mliv6tH0ryJV3+7WRO/fbyBBcu0kswDysQchF61NAkMGtf30tGiXU
-	 zqUCC0Um+JFiWufcIlZ+kUafI6Ym5TcQw80aeYKLyMIHHvy+ZdvCvyALHN99MCHuRj
-	 KE7mnUfoXccwOhLnj+QaFUxg86LkTcuWZGUrXtIiKxTaY7BYr56lb4e06Zh7/H3U9d
-	 ExiRwLomgo9U18Yn3HTny+hqghLW4l9GarUH9ibPYyO++gZRGaK92pxcZKTcyx/Ami
-	 D8KrUyJwNZKO5BiTiIvMe3ZlcdCE9lE/R5CE7C6Ttz5ZnErLdnPa0rfjVT516gbyNM
-	 jyoFkox+87t4Q==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:e046:b666:1d47:e832])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0C4DB17E156D;
-	Mon, 23 Jun 2025 12:30:29 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH 03/30] clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and FENC
-Date: Mon, 23 Jun 2025 12:29:13 +0200
-Message-Id: <20250623102940.214269-4-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250623102940.214269-1-laura.nao@collabora.com>
-References: <20250623102940.214269-1-laura.nao@collabora.com>
+	id 1uTflu-00000002ZsJ-1VFD;
+	Mon, 23 Jun 2025 11:55:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEFD94A4C2;
+	Mon, 23 Jun 2025 11:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B6BC4CEEA;
+	Mon, 23 Jun 2025 11:55:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750679733;
+	bh=vkiXm82MD3vKyDWzyUX21uuqwb8oXur+DMopq21TfJ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EV9fxhGR7CCytT5jL/k9D8KHRJn/1yFnqnZfw1GHuFkmLx2gywmWc2e9Vx4GM7Tnh
+	 8QSbZkB2W3E8LngcigmyP6YgwMYCMpFYZLPHgHqAybGNlRWrjsdmPfwKBgcQ0wgPPO
+	 yDpDJvJ2gv1UmX1aFb4bQgd0t5SddRNiWHMSBX49juQ5goPgl2I4jlz+Es4vEJK1ue
+	 EYbGJeziN60baSEH+3tvVvRW/78pxzdXYs1j8SoccZMt/PTCmF94cmTccowx0Hlv32
+	 s6342HbbObbPg7F64UHT90g5y1FJ/Z/0z8b+f36f2N3RDvuEp6en9w9oWEASGizUri
+	 06K7cnXr83AQw==
+Message-ID: <21dfd397-abd1-42b8-ae89-576a5eadc320@kernel.org>
+Date: Mon, 23 Jun 2025 13:55:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/1] Bluetooth: mediatek: add gpio pin to reset bt
+To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
+ Marcel Holtmann <marcel@holtmann.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Luiz Von Dentz <luiz.dentz@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Sean Wang <sean.wang@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>,
+ Chris Lu <chris.lu@mediatek.com>, Hao Qin <Hao.qin@mediatek.com>,
+ linux-bluetooth <linux-bluetooth@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mediatek <linux-mediatek@lists.infradead.org>
+References: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_033031_817604_C866A525 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250623_045534_449619_FE31704C 
+X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,175 +124,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196 uses set/clr/upd registers for mux gate enable/disable control,
-along with a FENC bit to check the status. Add new set of mux gate
-clock operations with support for set/clr/upd and FENC status logic.
+On 23/06/2025 12:23, Zhangchao Zhang wrote:
+> Reset Bluetooth using hardware pin via dts
+> 
+> Compared with the previously submitted version, the following
+> information are some specific revision histories
+> 
+> V3-->V4 modifications:
+> Modify dt binding format information and
 
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/clk/mediatek/clk-mtk.h |  2 ++
- drivers/clk/mediatek/clk-mux.c | 48 ++++++++++++++++++++++++++++++++++
- drivers/clk/mediatek/clk-mux.h | 34 ++++++++++++++++++++++++
- 3 files changed, 84 insertions(+)
+How? There is no binding, so what and how did you modify?
 
-diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
-index c17fe1c2d732..136a4bc6dbe6 100644
---- a/drivers/clk/mediatek/clk-mtk.h
-+++ b/drivers/clk/mediatek/clk-mtk.h
-@@ -20,6 +20,8 @@
- 
- #define MHZ (1000 * 1000)
- 
-+#define MTK_WAIT_FENC_DONE_US	30
-+
- struct platform_device;
- 
- /*
-diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mux.c
-index 60990296450b..b1b8eeb0b501 100644
---- a/drivers/clk/mediatek/clk-mux.c
-+++ b/drivers/clk/mediatek/clk-mux.c
-@@ -15,6 +15,7 @@
- #include <linux/spinlock.h>
- #include <linux/slab.h>
- 
-+#include "clk-mtk.h"
- #include "clk-mux.h"
- 
- struct mtk_clk_mux {
-@@ -30,6 +31,33 @@ static inline struct mtk_clk_mux *to_mtk_clk_mux(struct clk_hw *hw)
- 	return container_of(hw, struct mtk_clk_mux, hw);
- }
- 
-+static int mtk_clk_mux_fenc_enable_setclr(struct clk_hw *hw)
-+{
-+	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
-+	unsigned long flags;
-+	u32 val;
-+	int ret;
-+
-+	if (mux->lock)
-+		spin_lock_irqsave(mux->lock, flags);
-+	else
-+		__acquire(mux->lock);
-+
-+	regmap_write(mux->regmap, mux->data->clr_ofs,
-+		     BIT(mux->data->gate_shift));
-+
-+	ret = regmap_read_poll_timeout_atomic(mux->regmap, mux->data->fenc_sta_mon_ofs,
-+					      val, val & BIT(mux->data->fenc_shift), 1,
-+					      MTK_WAIT_FENC_DONE_US);
-+
-+	if (mux->lock)
-+		spin_unlock_irqrestore(mux->lock, flags);
-+	else
-+		__release(mux->lock);
-+
-+	return ret;
-+}
-+
- static int mtk_clk_mux_enable_setclr(struct clk_hw *hw)
- {
- 	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
-@@ -70,6 +98,16 @@ static void mtk_clk_mux_disable_setclr(struct clk_hw *hw)
- 			BIT(mux->data->gate_shift));
- }
- 
-+static int mtk_clk_mux_fenc_is_enabled(struct clk_hw *hw)
-+{
-+	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
-+	u32 val;
-+
-+	regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val);
-+
-+	return val & BIT(mux->data->fenc_shift);
-+}
-+
- static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
- {
- 	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
-@@ -168,6 +206,16 @@ const struct clk_ops mtk_mux_gate_clr_set_upd_ops  = {
- };
- EXPORT_SYMBOL_GPL(mtk_mux_gate_clr_set_upd_ops);
- 
-+const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops = {
-+	.enable = mtk_clk_mux_fenc_enable_setclr,
-+	.disable = mtk_clk_mux_disable_setclr,
-+	.is_enabled = mtk_clk_mux_fenc_is_enabled,
-+	.get_parent = mtk_clk_mux_get_parent,
-+	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
-+	.determine_rate = mtk_clk_mux_determine_rate,
-+};
-+EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
-+
- static struct clk_hw *mtk_clk_register_mux(struct device *dev,
- 					   const struct mtk_mux *mux,
- 					   struct regmap *regmap,
-diff --git a/drivers/clk/mediatek/clk-mux.h b/drivers/clk/mediatek/clk-mux.h
-index 943ad1d7ce4b..ba390b579e6c 100644
---- a/drivers/clk/mediatek/clk-mux.h
-+++ b/drivers/clk/mediatek/clk-mux.h
-@@ -28,11 +28,13 @@ struct mtk_mux {
- 	u32 set_ofs;
- 	u32 clr_ofs;
- 	u32 upd_ofs;
-+	u32 fenc_sta_mon_ofs;
- 
- 	u8 mux_shift;
- 	u8 mux_width;
- 	u8 gate_shift;
- 	s8 upd_shift;
-+	u8 fenc_shift;
- 
- 	const struct clk_ops *ops;
- 	signed char num_parents;
-@@ -77,6 +79,7 @@ struct mtk_mux {
- 
- extern const struct clk_ops mtk_mux_clr_set_upd_ops;
- extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
-+extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
- 
- #define MUX_GATE_CLR_SET_UPD_FLAGS(_id, _name, _parents, _mux_ofs,	\
- 			_mux_set_ofs, _mux_clr_ofs, _shift, _width,	\
-@@ -118,6 +121,37 @@ extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
- 			0, _upd_ofs, _upd, CLK_SET_RATE_PARENT,		\
- 			mtk_mux_clr_set_upd_ops)
- 
-+#define MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,		\
-+			_mux_ofs, _mux_set_ofs, _mux_clr_ofs,		\
-+			_shift, _width, _gate, _upd_ofs, _upd,		\
-+			_fenc_sta_mon_ofs, _fenc, _flags) {		\
-+		.id = _id,						\
-+		.name = _name,						\
-+		.mux_ofs = _mux_ofs,					\
-+		.set_ofs = _mux_set_ofs,				\
-+		.clr_ofs = _mux_clr_ofs,				\
-+		.upd_ofs = _upd_ofs,					\
-+		.fenc_sta_mon_ofs = _fenc_sta_mon_ofs,			\
-+		.mux_shift = _shift,					\
-+		.mux_width = _width,					\
-+		.gate_shift = _gate,					\
-+		.upd_shift = _upd,					\
-+		.fenc_shift = _fenc,					\
-+		.parent_names = _parents,				\
-+		.num_parents = ARRAY_SIZE(_parents),			\
-+		.flags = _flags,					\
-+		.ops = &mtk_mux_gate_fenc_clr_set_upd_ops,		\
-+	}
-+
-+#define MUX_GATE_FENC_CLR_SET_UPD(_id, _name, _parents,			\
-+			_mux_ofs, _mux_set_ofs, _mux_clr_ofs,		\
-+			_shift, _width, _gate, _upd_ofs, _upd,		\
-+			_fenc_sta_mon_ofs, _fenc)			\
-+		MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,	\
-+			_mux_ofs, _mux_set_ofs, _mux_clr_ofs,		\
-+			_shift, _width, _gate, _upd_ofs, _upd,		\
-+			_fenc_sta_mon_ofs, _fenc, 0)
-+
- int mtk_clk_register_muxes(struct device *dev,
- 			   const struct mtk_mux *muxes,
- 			   int num, struct device_node *node,
--- 
-2.39.5
-
+Best regards,
+Krzysztof
 
