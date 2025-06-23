@@ -4,63 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76C5C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C057C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ivmc+JejguiY/KKIcD3QDZJHkOsUoQCH4PPRA9dXW8=; b=YvMercmpWHctWOZ+or18P98udI
-	XSzbf1YcOFMKqpBQH3FQlUci8qIR6tbfxZY1A0Hj0QsZEXmjhgt0FwMWmzFvclmRpAzz8Fb+bChbE
-	BvP6/0OxLJvwbXFyMcGKIsE4w9/7Zyvf+vReQ4vz0ey4yb9Ctdr8jhpiym/1Muirp7pJKDb1GcnMf
-	6Szyl6ajz6fg/wkmOpXicB0m2UTRMroI2koDTUomDB/i4r2GgW2ovUMRoqJ3UhYo16JVcPVkSwjdT
-	Pe7LkvrxK5Iix4sfZ1Qm/xlVy8cpmzDDla9+EWH+eq+JzMLVSzPa4htN67eE6iU+2Fa0cc5AjtrZm
-	XBUJIXSw==;
+	bh=FAG7IULtL6EAiRdP89o+18YYsFgJDT8hysW41PRL/Kg=; b=fj2PuVdsBP1f7myL6r2MN9bmRC
+	kpRJd8x+sFTI1qn97MdxM8sIcmNq8SqG2XjM59J865oDm78+iDjJs6mA/SW8bP3rRF7vlNMW2OAOv
+	ZQncWwus5Wj8bP4T5mDUHg4DCMPbwVsM6s6t67pOhn5pA6CV/s221nbXySIlmNIRIQaMPSOemZa+i
+	qFyhYnTTX2suvaCIUqDLuE3yLMrIawXmVKkOhb9PvHhc2DmenrSp+RFKXx58XZ6nhTGk828jeOWiq
+	v6GVssFp2y/0ocSKfkKShJFigqVWV9NcFqHPFrnpH+qKyjMUvxRFb89du080kEtTcrVp/cuootU4P
+	5a9LKItg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjB3-00000003Fj5-49yR;
-	Mon, 23 Jun 2025 15:33:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uTjDR-00000003G5j-39pk;
+	Mon, 23 Jun 2025 15:36:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTg2v-00000002dR5-2OjB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 12:13:09 +0000
+	id 1uTg3S-00000002dVI-0nn0;
+	Mon, 23 Jun 2025 12:13:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0251060EDF;
-	Mon, 23 Jun 2025 12:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7C3C4CEEA;
-	Mon, 23 Jun 2025 12:13:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72E5160EDF;
+	Mon, 23 Jun 2025 12:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4DB2C4CEEA;
+	Mon, 23 Jun 2025 12:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750680788;
-	bh=2PC+knTY5x5lOCBbzbS0Ubx+8aVrsaLIP9Mh9VLPrJo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=VA4AwAHWOkFYBn7OH625vRsz3hViv53X4iPL6X6ZiITzC8cKgpkQK/0N75a4eIYz7
-	 rGoK9Bm+IUHpFrSnnlZrKXR9n91QeliX2c5WbEp5ZMHMMcSeRAPyWVePkC0VZF/agE
-	 4mqlNTtRYJbBV9uNyasd0fE+Qg+HV4lgnhS5Ag1x4yTNtgamHyRUARGgbcpw0hJrtx
-	 YkHKHu0gISdZgToGUUXUCp4UCDdzzL9BwSCnaoTqPeKEbOp+/cwxOeOzYjdJuELU+u
-	 yZzeLm3SHx7igvbAPpW9J38/Q0i9T4ksvwZuFtNZ7O4xUkdEmxwUiqzAWwKYdy+W3Y
-	 Ewfiui5D3qUCQ==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
- bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
- p.zabel@pengutronix.de, johan+linaro@kernel.org, cassel@kernel.org, 
- shradha.t@samsung.com, thippeswamy.havalige@amd.com, 
- quic_schintav@quicinc.com, Christian Bruel <christian.bruel@foss.st.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250610090714.3321129-1-christian.bruel@foss.st.com>
-References: <20250610090714.3321129-1-christian.bruel@foss.st.com>
-Subject: Re: (subset) [PATCH v12 0/9] Add STM32MP25 PCIe drivers
-Message-Id: <175068078778.15794.15418191733712827693.b4-ty@kernel.org>
-Date: Mon, 23 Jun 2025 06:13:07 -0600
+	s=k20201202; t=1750680821;
+	bh=ueR3nwsqBvhrycpfvVhVdbKTsds3A/sZLdw2rshMJas=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oqIRZf6SgwCntYShV6rYOoNG6ZfwNIcaMs6ZOpNYBu5xNpW37ev9/Nr8Bx3/j68Mo
+	 tewirxnpq56dPeguPEl6ZoLgTtCoVxM+0aa+E/zPALL5UCtkdQcgOcovZgpBe2m3RR
+	 CcuIayIAIWCNItmG5JfLEGmTGkPdHUr8ZbU7AGVhihit9HylPg56ZzppCYLcsUZ6DM
+	 yuoAOIxKipMcuRLLd9mIuhmCTiFGd+G9jMIYzIEirOWo+DUcI0RnU/Wh5wLNFEcTqH
+	 WqIYpbAUIA/afqwm9cUgk2VHglGL4vvRrS5Ygol8ai2d27lgsuv2egWr4I5+k2CyCb
+	 bJWJfMyfhgzxg==
+Message-ID: <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
+Date: Mon, 23 Jun 2025 14:13:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 29/30] dt-bindings: reset: Add MediaTek MT8196 Reset
+ Controller binding
+To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250623102940.214269-1-laura.nao@collabora.com>
+ <20250623102940.214269-30-laura.nao@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250623102940.214269-30-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 10 Jun 2025 11:07:05 +0200, Christian Bruel wrote:
-> Changes in v12;
->    Fix warning reported by kernel test robot <lkp@intel.com>
+On 23/06/2025 12:29, Laura Nao wrote:
+> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > 
-> Changes in v11;
->    Address comments from Manivanna:
->    - RC driver: Do not call pm_runtime_get_noresume in probe
->                 More uses of dev_err_probe
->    - EP driver: Use level triggered PERST# irq
+> Add a binding for the PEXTP0/1 and UFS reset controllers found in
+> the MediaTek MT8196 Chromebook SoC.
 > 
-> [...]
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
 
-Applied, thanks!
+This belongs to the binding doc.
 
-[1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-      commit: 41d5cfbdda7a61c5d646a54035b697205cff1cf0
-[2/9] PCI: stm32: Add PCIe host support for STM32MP25
-      commit: f6111bc2d8fe6ffc741661126a2174523124dc11
-[3/9] dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
-      commit: 203cfc4a23506ffb9c48d1300348c290dbf9368e
-[4/9] PCI: stm32: Add PCIe Endpoint support for STM32MP25
-      commit: 8869fb36a107a9ff18dab8c224de6afff1e81dec
-[5/9] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-      commit: 003902ed7778d62083120253cd282a9112674986
+>  1 file changed, 26 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+> 
+> diff --git a/include/dt-bindings/reset/mediatek,mt8196-resets.h b/include/dt-bindings/reset/mediatek,mt8196-resets.h
+> new file mode 100644
+> index 000000000000..1a01b2b01f7f
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/mediatek,mt8196-resets.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: (GPL-2.0+ OR BSD-2-Clause) */
+
+Wrong license, use standard ones.
 
 Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
-
+Krzysztof
 
