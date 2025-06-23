@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8284FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 19:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5ABC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 19:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DxwxRyaG5jF4/uwIPZGuF6ijA1I6hYxXPandl++a5s=; b=SIMOEtszmsuQ2hjB9yI6ln8AFL
-	QyAwEBwVfShrly6CBaTrgzAJtkBQluD1ab1z+CGESNgOXgzMxthgT96Lc3xKmiN7dKU4Xhb1i1dO1
-	+H58HXnhnzgdCOA3q+8fN23/7M9JdNJC9+CwLapijMHNuyCxCW53keG9z+arpHPzPKkKL27rEcJXA
-	Ca6kiQfzMftIBJIMVU2wkHvLrFBeCsfq0hweVCr1x1Qfv/YRZ72KzHtFlySpSLKiqNuUJjbbMS6Fv
-	8RykevJCq2ioyMybOwaYR/dRvQCiHtRqMOQ54Y1oVHhMCUvwzPgGqXHU6DtraqYLNjYk132nZses8
-	S6YpUm5w==;
+	bh=440Lf5uinQkdFKrCECmkcjs6oNpZSMKXM7Md4d+7k4E=; b=JAzMyhyhOR0yB1qXOriYfs4OVT
+	537N51EcFEHMcVTn0Dk3f2Ob9vIPADf6xeK9QGaC+ZEztjn0kQJs/oHYcgGmEcis5RAINBJ+nK9eb
+	4gICLuJvXWcygwCWzS5vZLA6OMycSzlPk7krj413B/rui15AI3RtmhcxjyY2sN/Y6Nxm/5wjJ5iKh
+	ISykzxiiC/Ly9GrDZurHl6r4sICZToMxSNNQPiuY7QUHC91tn1mlMS/ajrHwx1+vsuY8sGC/xBM/B
+	S4B99Fq2DZf7AvStEHv97Q1jgrZO6cvqipsemNPWdy0WmhMA9QUgbCmrGhOaVg5qU4D63v4aBw+3D
+	AoP7siOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnEq-00000003sSA-3cI8;
-	Mon, 23 Jun 2025 19:53:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTnHA-00000003sc6-00Ob;
+	Mon, 23 Jun 2025 19:56:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjiM-00000003MBr-21DR;
-	Mon, 23 Jun 2025 16:08:12 +0000
+	id 1uTjiQ-00000003ME9-1vnx;
+	Mon, 23 Jun 2025 16:08:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750694889;
-	bh=xDvkLdk8hMUQqSvQi1R6ZixD6fEY6eb3RFzWM6baH4o=;
+	s=mail; t=1750694892;
+	bh=L4p5mXi7DFDYHCSaTVxJNafGXSHDm+zZmxqXO3mMrMY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oNoRSzib+zbMQPDZnMpSIymSkOk5vbP2+kE4B+QLlBlmB2nWX22ZzU2G76VfViNKM
-	 KQJ8IqahXEvsP4i4F3Wgg0hhMmsLKQtQzi/J5AAvVMTkXrOctj1vFrokZQY2mBtfIb
-	 9hGF32pz7VLt4p2bqpWF+/LnSNOEucTIFkoRlqonHewBS9WrtFUSeDSo7xmD96nDUd
-	 Hu69tPCHe3pdg9fG1XeHaj+npraAnyGCeOVqPtExWSUZW5gzxrsKx+cHAv7bqqYzWS
-	 z06/VySIHr7ETpczvNE3H8MYUnUMZwiYW4SjVUg0OemLCd+KgyvRZ5pwvbMd2fJHpg
-	 NC4tNIyZb9CjA==
+	b=qskRex4KS5ZZJaJwLsSUyUFsAf1k4QKIQF0MgHltmvgQxKp9+2+d//S4QHw/Q3Uea
+	 fH5rR/de88nZaQ4f5gJfPxOY3WCUTR9TxeZDGtVPKyjxe3mUlsYP53rSeANhyNHMWx
+	 sJjhLlyEn/tOFLFlOzmxpx78ZmDnGHMi3+1Sv+IcPFAsmr5JQfU9A35hwRsdSVKcFd
+	 WPPfDCSNgLWT4agyfvYPfgK/3OyKn/93e+8BFS16TXhP5jA+YBuJ5i8YUB0gBIkOTQ
+	 W8M5WjDI32QzMLnNbwu27TMdzQMSXAh+NWDYDEeUA5iA8oF0YvcR03GFtucqa01Hpz
+	 c40gtzlbT85jw==
 Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E065E17E3700;
-	Mon, 23 Jun 2025 18:08:05 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8969617E37C2;
+	Mon, 23 Jun 2025 18:08:09 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
@@ -70,17 +70,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	Yunke Cao <yunkec@google.com>,
 	linux-media@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 7/8] media: rkvdec: Remove TODO file
-Date: Mon, 23 Jun 2025 12:07:21 -0400
-Message-ID: <20250623160722.55938-8-detlev.casanova@collabora.com>
+Subject: [PATCH 8/8] media: rkvdec: Unstage the driver
+Date: Mon, 23 Jun 2025 12:07:22 -0400
+Message-ID: <20250623160722.55938-9-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250623160722.55938-1-detlev.casanova@collabora.com>
 References: <20250623160722.55938-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_090810_663217_CB260781 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250623_090814_677115_936C01BB 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +95,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2 items are present in the TODO file:
- - HEVC support
- - Evaluate adding helper for rkvdec_request_validate
+The TODO list for unstaging being empty, the driver can now be moved to the
+main media folder.
 
-Missing HEVC support is not a reason for a driver to be in staging,
-support for different features of the hardware can be added in drivers
-in the main tree.
-
-The rkvdec_request_validate function was simplified in
-commit 54676d5f5630 ("media: rkvdec: Do not require all controls to be present in every request")
-by not setting controls that have not changed.
-As it now basically just calls vb2_request_validate(), there is no need
-for a helper.
+Also add myself as maintainer.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/staging/media/rkvdec/TODO | 11 -----------
- 1 file changed, 11 deletions(-)
- delete mode 100644 drivers/staging/media/rkvdec/TODO
+ MAINTAINERS                                               | 8 ++++++++
+ drivers/media/platform/rockchip/Kconfig                   | 1 +
+ drivers/media/platform/rockchip/Makefile                  | 1 +
+ .../media => media/platform/rockchip}/rkvdec/Kconfig      | 0
+ .../media => media/platform/rockchip}/rkvdec/Makefile     | 0
+ .../platform/rockchip}/rkvdec/rkvdec-h264.c               | 0
+ .../platform/rockchip}/rkvdec/rkvdec-regs.h               | 0
+ .../media => media/platform/rockchip}/rkvdec/rkvdec-vp9.c | 0
+ .../media => media/platform/rockchip}/rkvdec/rkvdec.c     | 0
+ .../media => media/platform/rockchip}/rkvdec/rkvdec.h     | 0
+ drivers/staging/media/Kconfig                             | 2 --
+ drivers/staging/media/Makefile                            | 1 -
+ 12 files changed, 10 insertions(+), 3 deletions(-)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/Kconfig (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/Makefile (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/rkvdec-h264.c (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/rkvdec-regs.h (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/rkvdec-vp9.c (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/rkvdec.c (100%)
+ rename drivers/{staging/media => media/platform/rockchip}/rkvdec/rkvdec.h (100%)
 
-diff --git a/drivers/staging/media/rkvdec/TODO b/drivers/staging/media/rkvdec/TODO
-deleted file mode 100644
-index 2c0779383276e..0000000000000
---- a/drivers/staging/media/rkvdec/TODO
-+++ /dev/null
-@@ -1,11 +0,0 @@
--* Support for HEVC is planned for this driver.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c3f7fbd0d67af..d05a153c21526 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21466,6 +21466,14 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/rockchip-rga.yaml
+ F:	drivers/media/platform/rockchip/rga/
+ 
++ROCKCHIP RKVDEC VIDEO DECODER DRIVER
++M:	Detlev Casanova <detlev.casanova@collabora.com>
++L:	linux-media@vger.kernel.org
++L:	linux-rockchip@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++F:	drivers/media/platform/rockchip/rkvdec/
++
+ ROCKCHIP RK3308 INTERNAL AUDIO CODEC
+ M:	Luca Ceresoli <luca.ceresoli@bootlin.com>
+ S:	Maintained
+diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
+index b41d3960c1b41..9bbeec4996aa2 100644
+--- a/drivers/media/platform/rockchip/Kconfig
++++ b/drivers/media/platform/rockchip/Kconfig
+@@ -4,3 +4,4 @@ comment "Rockchip media platform drivers"
+ 
+ source "drivers/media/platform/rockchip/rga/Kconfig"
+ source "drivers/media/platform/rockchip/rkisp1/Kconfig"
++source "drivers/media/platform/rockchip/rkvdec/Kconfig"
+diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
+index 4f782b876ac9b..286dc5c53f7e1 100644
+--- a/drivers/media/platform/rockchip/Makefile
++++ b/drivers/media/platform/rockchip/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y += rga/
+ obj-y += rkisp1/
++obj-y += rkvdec/
+diff --git a/drivers/staging/media/rkvdec/Kconfig b/drivers/media/platform/rockchip/rkvdec/Kconfig
+similarity index 100%
+rename from drivers/staging/media/rkvdec/Kconfig
+rename to drivers/media/platform/rockchip/rkvdec/Kconfig
+diff --git a/drivers/staging/media/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
+similarity index 100%
+rename from drivers/staging/media/rkvdec/Makefile
+rename to drivers/media/platform/rockchip/rkvdec/Makefile
+diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
+similarity index 100%
+rename from drivers/staging/media/rkvdec/rkvdec-h264.c
+rename to drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
+diff --git a/drivers/staging/media/rkvdec/rkvdec-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+similarity index 100%
+rename from drivers/staging/media/rkvdec/rkvdec-regs.h
+rename to drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+diff --git a/drivers/staging/media/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+similarity index 100%
+rename from drivers/staging/media/rkvdec/rkvdec-vp9.c
+rename to drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+diff --git a/drivers/staging/media/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+similarity index 100%
+rename from drivers/staging/media/rkvdec/rkvdec.c
+rename to drivers/media/platform/rockchip/rkvdec/rkvdec.c
+diff --git a/drivers/staging/media/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+similarity index 100%
+rename from drivers/staging/media/rkvdec/rkvdec.h
+rename to drivers/media/platform/rockchip/rkvdec/rkvdec.h
+diff --git a/drivers/staging/media/Kconfig b/drivers/staging/media/Kconfig
+index b442148543995..b9d52a51841b5 100644
+--- a/drivers/staging/media/Kconfig
++++ b/drivers/staging/media/Kconfig
+@@ -32,8 +32,6 @@ source "drivers/staging/media/max96712/Kconfig"
+ 
+ source "drivers/staging/media/meson/vdec/Kconfig"
+ 
+-source "drivers/staging/media/rkvdec/Kconfig"
 -
--  Given the V4L controls for that CODEC will be part of
--  the uABI, it will be required to have the driver in staging.
--
--  For this reason, we are keeping this driver in staging for now.
--
--* Evaluate introducing a helper to consolidate duplicated
--  code in rkvdec_request_validate and cedrus_request_validate.
--  The helper needs to the driver private data associated with
--  the videobuf2 queue, from a media request.
+ source "drivers/staging/media/starfive/Kconfig"
+ 
+ source "drivers/staging/media/sunxi/Kconfig"
+diff --git a/drivers/staging/media/Makefile b/drivers/staging/media/Makefile
+index ad4e9619a9e07..102ca632ddf5c 100644
+--- a/drivers/staging/media/Makefile
++++ b/drivers/staging/media/Makefile
+@@ -4,7 +4,6 @@ obj-$(CONFIG_INTEL_ATOMISP)     += atomisp/
+ obj-$(CONFIG_VIDEO_IMX_MEDIA)	+= imx/
+ obj-$(CONFIG_VIDEO_MAX96712)	+= max96712/
+ obj-$(CONFIG_VIDEO_MESON_VDEC)	+= meson/vdec/
+-obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC)	+= rkvdec/
+ obj-$(CONFIG_VIDEO_STARFIVE_CAMSS)	+= starfive/
+ obj-$(CONFIG_VIDEO_SUNXI)	+= sunxi/
+ obj-$(CONFIG_VIDEO_TEGRA)	+= tegra-video/
 -- 
 2.50.0
 
