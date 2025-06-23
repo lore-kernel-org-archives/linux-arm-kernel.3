@@ -4,176 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22638C7115B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B70DC77B7C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XrdQYRzc4i6gQxXe/L3NrovTIRXD3dty8Sm3Fve1Uck=; b=pH2dI20+xccaJeiTwvu4hGOXSr
-	vABM4dXlYHJBRsJnD7gO3/AdztQqfkMvHatIxlJNsN9IMWeYLApcSLtwKEUaEcG9HLsa1yglUGDXi
-	kBOS/ES3dnun49TxP54KkJUBGA9pw0NS6YV5FfRM+bpn4nxFXlGoLozHXbntzuJVGWLhUhtilyS7C
-	K1E2eq30B287Mnywszsj60QOqKuPpXmYnKNlvL7RcScHaMiOIApyk4TqrUX5YRFEVvVDweFexA+i6
-	PS3Of47C3R/5hZrJ6aYaPq1ZwKP6NPw6viXvlpTCwnXaMwI3KjiKyVWh0+UB00hjvZ7Wdmk1DIyzk
-	m2T7Mfgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=31eJ+AWxiGbYg4zWcNeGQWhipTSARDm8us14p739GWk=; b=jDRBL0tslTTvN8GfJf5K7Nk/5Q
+	yJv579lCsy+CmTdWkUB/Ub6TvGqlEiB2JFeYETRNcIcTkk+fjsXSogqw2Nqq3wMB0Cde4TinxvOVw
+	vnp2gJEY4xDW5J5uyOzGkHo6mCUB2bwGV1HL6+H6eykEkDKK9Jwlvfsc0+Kr7g/uDjzp2tu0L0ScF
+	jGQq18JWkqAoVa1/Mblg/jUZ7QseP2veoN7/zmznZR6VuIa6/wcH2DPq5/zm93+y6L4B1KpRFB4/3
+	RGxlW9AsKmVIApU4CocB6iyXQ+ldDXXrvAuMczd48UBqkex/QopJ6piupDYa4VnODKpq+uUygwPNG
+	rWND1LGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZ0-00000004ErL-1j9d;
-	Tue, 24 Jun 2025 00:31:02 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1uTrZ5-00000004Eub-0Yp4;
+	Tue, 24 Jun 2025 00:31:07 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgW1-00000002k4o-0wdo
+	id 1uTgkG-00000002nJA-3D5G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 12:43:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QvEuap8gp+KyXDQnQ62OuRibg22LNF9y0vr4C0ucrM5oQhdyMCNv7MM17tJ9rpjBwMlMf9vYvrABvdm8YG6VM55tPHgffuHEcTZjE/y8iEJ+DzyRLL1hEOhyIAH3qlWFaC/9GwU4O+2upn4R9mM6UVceKyY2A6YWklH6Kv0AMOL/hBY/XPx1Iz02MhSiPnOD4FO+Qv++97VwekemyrufXFyPp7S14G4PyooUDqJ0TkDpOpvRiFHo+hPKO4559DJqnX4ZKbuNd523fGR/vZ8qJggNQEzonYnbPR4s/mY8X58DhzQgunI9iKHSZHOMVZiMASHPeK6+tAeDYygQ2qsP1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XrdQYRzc4i6gQxXe/L3NrovTIRXD3dty8Sm3Fve1Uck=;
- b=Xd5FOmvpSTAjWzRBcVre5zA7/fwwzZaaolX2DmFI1Oa93POK5HAazrjFN0uuO4+Ii7wlHGHMInD3R/HglNJnUrCaNo0Q2XqBACUh4vO9c/o+FSnFbsi0tjpk7ASuIQ3x4M4YbYxyNr/RgsApRK+PBrZpqFVhLWK2w7QLh78wHN5jchf00lX2EAxSQiI3ZIe83dHzMsJ/Yq45AiZ9zhwu63lxNGVOPjsK9Hbg+jCL8XqHoOe9ayvYNZpwGLPi+xCyEiIyBAYuQWP3N/1t2RQ6GVIX2U9zG6FGaG2SAhSLPE7ejVK15SZvtkQKjOrggJ4uKmVMXH4d0Z7OJfxMKHzhxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XrdQYRzc4i6gQxXe/L3NrovTIRXD3dty8Sm3Fve1Uck=;
- b=SaZl12Cwqfjqb+QzXcm1HN9JrItZLQ4fvHliqUxvCxXz8bV2ONrekTpSlHOk5ih+1XNWqi/yfD9aq4P3EW2mnZRbmeSNuHdWSqwvksiaz7NJwXukpP3Ycs7qF1hkr62hFW2vp7RDV2iCyL8ttzBzni2BgYLNZumuOyX+t2UWdIk9CBHwzKzpTyRwXtVWSyNx9XQYQ0AUKHhUik9o7DvPQsELgF+cdm7DjpG2cXTzt1La3efvSpqhfc2dzLLgF+sfuiOALtwIBD2q5zp1rs4z9YFo/OC7+EnWdgdmtj58u/iJqUMvTYrdgDUlllJ1m5ljKcjhD2Ng64ZCv9KSYD1RwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from OS8PR06MB7663.apcprd06.prod.outlook.com (2603:1096:604:2ac::8)
- by SEZPR06MB6611.apcprd06.prod.outlook.com (2603:1096:101:18a::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Mon, 23 Jun
- 2025 12:43:07 +0000
-Received: from OS8PR06MB7663.apcprd06.prod.outlook.com
- ([fe80::46a5:9b06:416e:1e49]) by OS8PR06MB7663.apcprd06.prod.outlook.com
- ([fe80::46a5:9b06:416e:1e49%3]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
- 12:43:07 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Yangtao Li <frank.li@vivo.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH v6 22/24] thermal/drivers/imx: convert to use devm_request*_irq_probe()
-Date: Mon, 23 Jun 2025 20:42:57 +0800
-Message-Id: <20250623124257.475083-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TY4P286CA0020.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:2b0::13) To OS8PR06MB7663.apcprd06.prod.outlook.com
- (2603:1096:604:2ac::8)
+	Mon, 23 Jun 2025 12:57:58 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NCvqqj889428;
+	Mon, 23 Jun 2025 07:57:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750683472;
+	bh=31eJ+AWxiGbYg4zWcNeGQWhipTSARDm8us14p739GWk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=ZQh8aRsLTZ/HYz2VBgn6xeYDbBaWGyxFZ+DW2pnNvEuJU+xN3NQc2XRrk02KGFRJH
+	 tfX+was6O/v15f66++Jd9mNJsouyAMIfmP6L7W8qMUS5yw9P/A+XUdTDLtRiH2J3mo
+	 R6we3XetfvJ4kAUNJjOc90HYbls0wo8xKgb7ScUc=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NCvppg3243449
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 23 Jun 2025 07:57:52 -0500
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
+ Jun 2025 07:57:51 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 23 Jun 2025 07:57:51 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NCvoeg4136274;
+	Mon, 23 Jun 2025 07:57:51 -0500
+Date: Mon, 23 Jun 2025 18:27:50 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Sudeep Holla <sudeep.holla@arm.com>,
+        Cristian Marussi
+	<cristian.marussi@arm.com>,
+        <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>,
+        Chuck Cannon
+	<chuck.cannon@nxp.com>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/2] firmware: arm_scmi: power_control: Set
+ SCMI_SYSPOWER_IDLE in pm resume
+Message-ID: <20250623125750.kzwndmcf5yo3siao@lcpd911>
+References: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
+ <20250620-scmi-pm-v1-2-c2f02cae5122@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS8PR06MB7663:EE_|SEZPR06MB6611:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44a0fcd0-ee84-41d1-0547-08ddb253811f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|376014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SGx4OEFCelBOb2d4cTJVUFV2UiswNU1LQ2o4OFBVM0F0Wm9oWEhDUThOWFlD?=
- =?utf-8?B?anpwTVg4YndXWnVpNzBvYWxydU5xNmdUcTJPMFhLM2RpbkkrcytiVmJPM2Fm?=
- =?utf-8?B?bTJuTzB1V2djTXZ6RHYxeTlsVnhDMDV2VFV3d3FXT0RiY2d5cUR5aGZac0pU?=
- =?utf-8?B?aS9DNTZWK205Mm5Kd09nRjYrb1d5Mk9uaE9iZkNTOE9SUXNNSDl0Q0N6SmpN?=
- =?utf-8?B?dmxKbnFmMXNFQWc0cU44N0ZiQlJVQU1wUmtJZ1Myc3JGNjlYcFVMRkc5Slht?=
- =?utf-8?B?ekNIc1lwME43aFpOU1ZqVUV4RkpwSmpOVUhwTGpzcWtNbXhBQWEwaE00aVZF?=
- =?utf-8?B?UnZBYzJDLzhxMU9ZdTZ0UUtxcEYrWWN4UCtpdVMzVWFSbUZTUDBQUDhrL09Y?=
- =?utf-8?B?L0lkYnlldXhBWjJ3WjZ0SjJ5VjRueEF1TEM0V3JDU2RoendrM0ljd2VsUUgx?=
- =?utf-8?B?VjNSelBubkdTbjdpZk1IOVpQTGQyclhRQmpBemI3U0htRXFzUjFLa2RmdmFr?=
- =?utf-8?B?N1h3SUEvZXNDWkhKRGpKSU8wdHBxdVJEem00aFo2U2ZsbVBZYW5Md2F6L2Vu?=
- =?utf-8?B?SlB0UTJEcXNrWlkzdnlpQS9WZTc3WGREQ21iMGlpTkZpeFhwaTlvVHQxYjBL?=
- =?utf-8?B?dk1MYmRqYmdxaDBrOUJjVm90ek1TREw1RDQ4a1YrMTVxRXh6TVZUVDY1dVlZ?=
- =?utf-8?B?WkJFS3N5K0dCUjZFUWhNankxNm0yZVhZUlVZUVBGOExpYWxocENWdjlFUW41?=
- =?utf-8?B?eU1pblhkY1hvV2FkRGY5eWtRLzRnMmlDS0pMSW5aYnplSHpFQlQ2ejlaTXd3?=
- =?utf-8?B?dXplcnJMOU1mQXZhWHZ2S3FTTTFseDhmQTdHVU1TVWRuYitMWmFPMXhVNkQ4?=
- =?utf-8?B?NmZCb2NJVlNHWWpORW9TWmwrZzMvN0x5VjliUlUyQkVWMURCaW1xS3AwdnZM?=
- =?utf-8?B?VmFRV1R2aUJHQXl0SUhDTG0vMUdHWXJIclA1UjFKdDBYZVNlTmRBdDhCV0lG?=
- =?utf-8?B?a3pVRjkyTXl2RURMM3kzRityU3B6SlpxcE4xRFowbnEzL2VzL0NnOEo3OUxQ?=
- =?utf-8?B?a05aUDdja214WGJwUXh2RUxtQUZtWXUrZzZVU3JGQ3I3N2J1cWE2NUFmWXBF?=
- =?utf-8?B?c21uV2lsMnFwdmJNNjJseUFqb2grcEtPQit0WUNuNlJwL2lzWngxK0hEelNI?=
- =?utf-8?B?NjVLMXFCU21oV1ByWmd2TFdydXFjb3pwS0xMREpVclNvV3JSSXpjVUpjdHRX?=
- =?utf-8?B?S3FpckhKR0VYNll6eHU0WUlpZDUxZkJJTFE5NDBXK1p4eUJSdytmeEFwOCtw?=
- =?utf-8?B?R0w3b2tCdksrK2xlelB5L3NWUmlXSkZSTTNrdjJ3UVVjaTBoZ3VocG1xWU1p?=
- =?utf-8?B?M3pmL0hXNW9kV0h5NlpZQjBHSFJic1p5RHRGakV2RGZ1Z2g1U3pPeFc3RGF4?=
- =?utf-8?B?YjFUZ3pWVWhWSDZWamV5dURSSmpwclU4YWJXcmxyQXd6VHk5RDB1dVJJWTZi?=
- =?utf-8?B?L2JPSmY3T3l5cTlnRkxBd2d2S2RLbXowMGt4bGFuTzBGTWFTNTBUMzhkK3BV?=
- =?utf-8?B?UUFWNXNudlhrYjFtMmJUbmNQdWNKZ0IrWjQ5TnBVYXFQWTRjaUJWM3lxSHRP?=
- =?utf-8?B?aWtFUjhObEJpcGNPcStWb3Vsd1YyU1MxMGRpQXFaUlVYV1pHaEhzNGRXdUNS?=
- =?utf-8?B?K2VwM0tiK1ZsaHpscjBsMWJ1dlRKWW52eFBUSE9neEtvRlNVVWRCdUxocHpx?=
- =?utf-8?B?OWEyM0V1MVhXWktnMkpIbDdWa09XZ2xBRm9STzVvZGdrakRxNnd5aFlwUmNN?=
- =?utf-8?B?aGxvci9YM3Qxbys2TWUvN2RoWlZvKzZvQ3VLamR1dzdGSDd4aUpzODZpMkUy?=
- =?utf-8?B?RU5hMjJ4RE9EUG9zc002KzRnVmorSTgxdnF4SlpUUFdkL3dkTmduc2wrNTIx?=
- =?utf-8?B?YkZYS0ZKWG03Z3g0RGMzSzVsdDBOajZ0NXFGOVRZTUdvZXJqakhHSXE3cUNJ?=
- =?utf-8?Q?8q9JjDKv9KunGgUNj4xGh3J/XgiQkE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7663.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXJZTEphb2ExZDRuMW5Pc1hEY2Z5aDAwczlaZldFNVI2b1pnSVRFV0RDUFBQ?=
- =?utf-8?B?QlJzOGprZ2V4c3paQ1FhOEpNSHVaUjFkb2djR3h0VlYzYllRMmRPVGxXdHVC?=
- =?utf-8?B?eXVOTW1UWjJmWDFVd0dHRUNiZWsrd2hlaXFvY3VYWmdGVmZGYXVRMkVWUnlh?=
- =?utf-8?B?QWR4YzJmMjh1NnpIdWJxazV6TGg3QWpYcVlZUWpiOC9iT0NDaW91bnFmR2cr?=
- =?utf-8?B?UmZXdDJTaDhkUW5DVW5vdzgzd2pUaHJ4bzRoWndrQ240bkFZck1xa3VqZWMz?=
- =?utf-8?B?RHVzYTN6WXQwbC8xRk1RcFVKYzFCUGpzRlRrRVArMm9nbXNNV0FVV1NBRWVv?=
- =?utf-8?B?VHRkblliTDMyVFZzN2F6Y1dVaDhnU3kvWDhhdE1FZUpyMzFGR3poYS9YcC9n?=
- =?utf-8?B?NStUUGp5a1pzbk1jOXRIYlh0dEdpZW5SYW82K0w2bGNNY1lROEFoazRNWlZK?=
- =?utf-8?B?QmFOeEwzWithd0RHbXJQSHhSdHIzSzZ0djl4NFJNOGVHWVZIb29tWndRWE5n?=
- =?utf-8?B?M00yTVpGRmNZaWRqUVdaam02ekZVWmRFTFVFUFd4YU1qQW5GWlo4cVAzK3NE?=
- =?utf-8?B?aUdRQ2h4TDgvVXZ2dDhmV1ZmUXV6ang1bG9RS0t0NEozdjBDU0IvMG1sSkhE?=
- =?utf-8?B?ZHBSdjFOMnZJN0JyTDJ1VjFiclpuRFFpNDFYeXdQeVlnZXU3WldIWkRFYXlQ?=
- =?utf-8?B?a1IvSWs4bE9EbGVyajg1bm9CVUxwRHdoMnpUckVGZXJSRXFFWHBMdXJzS1lC?=
- =?utf-8?B?eUFRMDhBVlBsWkI3TGRSUDNHL0w1bUlCdERjeGV0ZXRNRmJiK0hrS0RaUVRH?=
- =?utf-8?B?M1NOVXhwSFFSeXJITWg4Z1lZQVZ6d29aakdTSFRpdjFiQjNDbURZamJVRTZ3?=
- =?utf-8?B?OVd6MjVuZzNTU01PNXRiMVdGMGVPT3pwcDdaeFZwQ1JYcHUyL25nL0VucGo3?=
- =?utf-8?B?SklscjQvNmdWRnJiWnB0QXNSa01LalB4dW5laFVML0NyTFVqTDJxWkpOV09k?=
- =?utf-8?B?Wmp2RGJUOHZ1QWt2R1NxRllDNHlCY1VjZmZERFFpL3NPOWw4TVNweEs4VjJr?=
- =?utf-8?B?aUdjaHY0QXJzWTBqMSs2ZkpWN2FsSld4UHAvZmNwdHRyQS9ZNHpyQXQ5NVZW?=
- =?utf-8?B?TkhPTDhLa2x1WWNEaGxNc1NPaThOSWV3N0NFM25pQnZJTWl3RkRmc1pNVGsv?=
- =?utf-8?B?TTdkN3RUS3p1YmtGN3BMYlIzSjZsYnNMK09oZkNlS2RMYlZ1YW8xZVh0ZUZp?=
- =?utf-8?B?NUZMU3Bpdm85ZmJndkZqM0RDbVpKaTZtZElRdmZSRGliVHRIcXN0SzhOc0pq?=
- =?utf-8?B?ZFVoRlJRWEk4Z3FyTC91cHpCM1psT3l4MENCL2NrUGcyVWFhVkdkK1V6c1Jy?=
- =?utf-8?B?NE5PeEZ2QkZCQ2RnbjNFL0Y2cExSTkM3cnBHN2xoQVhJaXFkMlFvdjE1VkVn?=
- =?utf-8?B?ZTBQR3cvTHRuTjgreHFzNHFOZURJVU0yUE5PYzBpSFkycVhRTkgwYkxFTVJF?=
- =?utf-8?B?ZERWcEEvMWJwaCt0akdSMGJOTHh1YmpPUnRRTlh1MTVHbTd2UXlMUVBKektk?=
- =?utf-8?B?Y1FkK3hKRmx4dVBVNDg2S0M4T0xadlE5cFhNOFRtZkR5MTdMUW5WWi8vcEpt?=
- =?utf-8?B?OTY4N21qdVl6LzlUMVVMYklrYTZQL1IzZmxjY0Y1bGRvZFdJQ2hvNUxWWEVI?=
- =?utf-8?B?TU5nVkJqUHV6cVhvZnY2SENsc1AycDBzMVd0MGhVbm5FSUp0WEJlNmhSdUJq?=
- =?utf-8?B?Q1BvcDVhTkJidlRZTm8ybVJkdS93eG15THFtMGUxOThPbytLMzluRmhjTDFQ?=
- =?utf-8?B?enU0a0VOM25kRVJXcUJJSjRqRUF5VnlLTVRaV29ZZWJLUGNPcUh5c0QyYnJs?=
- =?utf-8?B?a2lEd2o3MXdDdUFjRkYwRzEvL0xOdGVQKzlYSUxkVWhVVzJSTnowWGhFWER0?=
- =?utf-8?B?NlF2U1M5WjUrREZEbzVpUWp1NVVkbk9MWTEvTUJhclNrL0NqcjBTWVd4aHhL?=
- =?utf-8?B?eWFCd2JJa3dvT3R1cFNyT0xUdXduM1FENE9wYWJKZm5hQ3hrVFE3bUtmTFlr?=
- =?utf-8?B?bnA5aVJpeVZZT3g5K0kvMXFvdWd3bFBrVCtJS0lHOW5WRjkzQ2l1R3FyVHZ1?=
- =?utf-8?Q?hlgiwCY1A4jGN0t2N+42Id/m+?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44a0fcd0-ee84-41d1-0547-08ddb253811f
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7663.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 12:43:07.6770
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tg32qEwa3U4FZhGPDubLC6mZexaXe6TGAQsynMP23YGcI4IyTyM8C9Ex9hUaafQUPMvgjRexLrJOlG25paxDIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6611
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250620-scmi-pm-v1-2-c2f02cae5122@nxp.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_054313_267311_14E2DD95 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250623_055756_933913_B3F6D84C 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,57 +90,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yangtao Li <frank.li@vivo.com>
+On Jun 20, 2025 at 11:37:14 +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> When two consecutive suspend message send to the Linux agent, Linux will
+> suspend and wake up. The exepcted behaviour should be suspend, wake up
 
-The new devm_request_*irq_probe API prints an error message by default
-when the request fails, and consumers can provide custom error messages.
+I am first trying to gather more context of the issue at hand here,
+Why and who is sending 2 consecutive suspend messages to Linux?
 
-Converting drivers to use this API has the following benefits:
+Just quoting the cover letter:
 
-  1.More than 2,000 lines of code can be saved by removing redundant error
-  messages in drivers.
+> When testing on i.MX95, two consecutive suspend message send to the Linux
+> agent, Linux will suspend(by the 1st suspend message) and wake up(by the
+> 2nd suspend message).
+> 
+> The ARM SCMI spec does not allow for filtering of which messages an agent
+> wants to get on the system power protocol. To i.MX95, as we use mailbox
+> to receive message, and the mailbox supports wake up, so linux will also
+> get a repeated suspend message. This will cause Linux to wake (and should
+> then go back into suspend).
 
-  2.Upper-layer functions can directly return error codes without missing
-  debugging information.
+When you say mailbox supports wake up you mean the mailbox IP in your
+SoC actually gets some sort of wake interrupt that triggers a wakeup?
+Is this wakeup sent to the SM then to be processed further and trigger a
+linux wakeup?
 
-  3.Having proper and consistent information about why the device cannot
-  be used is useful.
+<or> the mailbox directly wakes up linux, ie. triggers a resume flow but
+then you are saying it was an unintentional wakeup so you want to
+suspend linux again? This just seems like the wakeup routing is
+incorrect and the system is going through a who resume and then suspend
+cycle without a good reason?
 
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Uwe Kleine-König" <u.kleine-koenig@pengutronix.de>
-Cc: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-Cc: AngeloGioacchino Del Regno  <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Yangtao Li <frank.li@vivo.com>
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
----
- drivers/thermal/imx_thermal.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+Why and when in this flow is linux ending up with a duplicate suspend message is
+something I still don't follow.
 
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-index bab52e6b3b15..151976d0820e 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -729,13 +729,12 @@ static int imx_thermal_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto thermal_zone_unregister;
- 
--	ret = devm_request_threaded_irq(dev, data->irq,
--			imx_thermal_alarm_irq, imx_thermal_alarm_irq_thread,
--			0, "imx_thermal", data);
--	if (ret < 0) {
--		dev_err(dev, "failed to request alarm irq: %d\n", ret);
-+	ret = devm_request_threaded_irq_probe(dev, data->irq,
-+					      imx_thermal_alarm_irq,
-+					      imx_thermal_alarm_irq_thread,
-+					      0, "imx_thermal", data, "alarm");
-+	if (ret < 0)
- 		goto thermal_zone_unregister;
--	}
- 
- 	pm_runtime_put(data->dev);
- 
+Could you point us to any flow diagrams or software sequences that we
+could review?
+
+> and suspend again.
+> 
+> The ARM SCMI spec does not allow for filtering of which messages an agent
+> wants to get on the system power protocol. To i.MX95, as we use mailbox
+> to receive message, and the mailbox supports wake up, so linux will also
+> get a repeated suspend message. This will cause Linux to wake (and should
+> then go back into suspend).
+> 
+> In current driver, the state is set back to SCMI_SYSPOWER_IDLE after
+> pm_suspend finish, however the workqueue could be scheduled after
+> thaw_kernel_threads. So the 2nd suspend will return early with
+> "Transition already in progress...ignore", and leave Linux in wakeup
+> state.
+> 
+> So set SCMI_SYSPOWER_IDLE in device resume phase before workqueue
+> is scheduled to make the 2nd suspend message could suspend Linux again.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/firmware/arm_scmi/scmi_power_control.c | 24 +++++++++++++++++++-----
+>  1 file changed, 19 insertions(+), 5 deletions(-)
+> 
+[...]
+
 -- 
-2.39.0
-
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
