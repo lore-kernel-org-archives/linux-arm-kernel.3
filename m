@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B8AC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2195C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdjVctuM4goZ/UfUF8oH7Uso3v0VX6CfD8MC5A/7/sw=; b=TTK9rLwClAKSF8pGSbabZpPzp+
-	X83YiHsJjLNUKTlmy+lPF7/OBWEypqPbZ74QjD888YAsDzZ5wy0NypO44Q+ft3nYacCrtCbAwphLc
-	6dUfltRUe+0oGeRGc+NvlEeopCgZEpr5VRtshsWuQnSwa3RJH5aj0qRcGBc77+ctgT11s8jPeGiI2
-	5o5osXKpOVg79ZaDt9A8rvImnpaU0nvTzTPohWdjiIIZVIw76QHDpRKSWSwqMDVXkxruiRfVqSlRS
-	G680yXv5h9Z5ROOw62GhKOkKEgreklnkymkJPw8lgQMUICXQSmKIfZ6GmDNjUHlWQ4OszcTjBFyF9
-	15KexTpg==;
+	bh=28qHpeJ7n3i+ZmLypf33BQPEzMkO3cAjs7UitAeXugs=; b=1j5P9nOiPrPemXa+EKX4Md6ggK
+	g54MmcrMAPDxhMEcRLfj/ecmu35dSwIqZTYdU/a/uHe7vdd0B109ae07zt9ZLWSwW7SAO1Z63yE09
+	xZby3KmzMP87by5axQ1eturZQ02xLEAfJr60CK0GHga89QaJ6/I+fzAbtkpwsy/JKavvxu6tK2bZ7
+	a89deonGNwgsWQ/Pdpu1RTtEOtmqTxbxPy8LnpWDRN8kt0RVKTKr0xAFd0iDqcRRHkcWB2dlU0Nk3
+	72FL6CiuBWiQsNqCCUuHXs/Em2hl0IjW6FRf77kY6+kfM4jN9WEq4wjgZEzrAlE1rDCSAfI9zo6ki
+	Tg1OrBGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlO7-00000003cRx-1EG6;
-	Mon, 23 Jun 2025 17:55:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uTlQP-00000003cpo-1cgc;
+	Mon, 23 Jun 2025 17:57:45 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTi7P-000000032cX-04sx;
-	Mon, 23 Jun 2025 14:25:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 219736112C;
-	Mon, 23 Jun 2025 14:25:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B253C4CEF0;
-	Mon, 23 Jun 2025 14:25:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750688753;
-	bh=wqtKOrmiL3JpO2Y2SIVr4pcAl7mgmV65FohrGrz9zlQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lK4NzZybEtxBPVkPicenXBcv26helZQ76BwcbNs7/TiRjIlFqpssg+NUb2+znt/Kp
-	 iwEHq03Cx5TzL7a70itCG+apUDPO2NUA7QK3T39d9JPkgDyV8eNflv+nhQWAS38OgV
-	 dn+e1gQmjyYHYW/iEysLsWFDUwyNEAC9iY9hrej0TFWrCgKBREVh+nqoIFmntcMV4M
-	 0c8Fn2ryDkUjGUdwY7/2Opq9EHIwJ6XYiHLFTWHVgKKtlelLD5wUc71lYUEFgd5aF3
-	 ZVBk8uRBaDDSw13bmc7tIwDdqZhupn1E6Jw09qlxq9qJ9L5b2PEqTUGK6o1RTUsMZP
-	 B83q9B3VdIuog==
-Date: Mon, 23 Jun 2025 08:25:50 -0600
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/6] PCI: rockchip-host: Use macro
- PCIE_RESET_CONFIG_WAIT_MS
-Message-ID: <ofgbvui2kvnegpj37yhiabxdkehls5euarmo5wqcjkvscwyyxd@ulf7lr7njd6m>
-References: <20250613124839.2197945-8-cassel@kernel.org>
- <20250613124839.2197945-10-cassel@kernel.org>
+	id 1uTiAS-000000033EA-06Qs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 14:29:05 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NESxFn1278087;
+	Mon, 23 Jun 2025 09:28:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750688939;
+	bh=28qHpeJ7n3i+ZmLypf33BQPEzMkO3cAjs7UitAeXugs=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=JvZ2X/EOpGlRsganSuUUE+PJAJhid3g9wMVBCFpGtCvRqtXdpmyKu3wb4HDr0oPK0
+	 Jh042cw9t3ELPlYEu9qASLMUL3lOLE59Y+FDSaVLfhs1m/87LMMy0K4bBC1z6TaTtD
+	 xwwTw/yQcq3p5dx5FpgCgmfaDQLuiFEZlzF0aZiU=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NESxow838469
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 23 Jun 2025 09:28:59 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
+ Jun 2025 09:28:59 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 23 Jun 2025 09:28:59 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NESxAP070412;
+	Mon, 23 Jun 2025 09:28:59 -0500
+Date: Mon, 23 Jun 2025 09:28:59 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Paresh Bhagat <p-bhagat@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
+        <afd@ti.com>, <devarsht@ti.com>
+Subject: Re: [PATCHv4 6/6] arm64: dts: ti: Add eMMC support for AM62D
+Message-ID: <20250623142859.fankjmvhdo2bxjgd@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250623141253.3519546-1-p-bhagat@ti.com>
+ <20250623141253.3519546-7-p-bhagat@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250613124839.2197945-10-cassel@kernel.org>
+In-Reply-To: <20250623141253.3519546-7-p-bhagat@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_072904_153631_429FE9DB 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,71 +87,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 02:48:41PM +0200, Niklas Cassel wrote:
-> Macro PCIE_RESET_CONFIG_WAIT_MS was added to pci.h in commit d5ceb9496c56
-
-s/PCIE_RESET_CONFIG_WAIT_MS/PCIE_RESET_CONFIG_DEVICE_WAIT_MS
-
-> ("PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value").
+On June 23, 2025 thus sayeth Paresh Bhagat:
+> Add the necessary device tree node for eMMC controller along with the
+> required pinmux configuration.
 > 
-> Later, in commit 70a7bfb1e515 ("PCI: rockchip-host: Wait 100ms after reset
-> before starting configuration"), PCIE_T_RRS_READY_MS was added to pci.h.
-> 
-> These macros are duplicates, and represent the exact same delay in the
-> PCIe specification.
-> 
-> Since the comment above PCIE_RESET_CONFIG_WAIT_MS is strictly more correct
-> than the comment above PCIE_T_RRS_READY_MS, change rockchip-host to use
-> PCIE_RESET_CONFIG_WAIT_MS, and remove PCIE_T_RRS_READY_MS, as
-> rockchip-host is the only user of this macro.
-> 
-> Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
 
-LGTM!
+Could this be squashed in 4/6?
 
-- Mani
-
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 > ---
->  drivers/pci/controller/pcie-rockchip-host.c | 2 +-
->  drivers/pci/pci.h                           | 7 -------
->  2 files changed, 1 insertion(+), 8 deletions(-)
+>  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 27 ++++++++++++++++++++++++
+>  1 file changed, 27 insertions(+)
 > 
-> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-> index b9e7a8710cf0..c11ed45c25f6 100644
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -325,7 +325,7 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
->  	msleep(PCIE_T_PVPERL_MS);
->  	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> index c98e4c98c956..5ceecdd68b3f 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> @@ -20,6 +20,7 @@ aliases {
+>  		serial0 = &wkup_uart0;
+>  		serial1 = &mcu_uart0;
+>  		serial2 = &main_uart0;
+> +		mmc0 = &sdhci0;
+>  		mmc1 = &sdhci1;
+>  		rtc0 = &wkup_rtc0;
+>  		ethernet0 = &cpsw_port1;
+> @@ -226,6 +227,22 @@ AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
+>  		>;
+>  	};
 >  
-> -	msleep(PCIE_T_RRS_READY_MS);
-> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +	main_mmc0_pins_default: main-mmc0-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62DX_IOPAD(0x0220, PIN_INPUT_PULLUP, 0) /* (Y6) MMC0_CMD */
+> +			AM62DX_IOPAD(0x0218, PIN_OUTPUT, 0) /* (AB7) MMC0_CLK */
+> +			AM62DX_IOPAD(0x0214, PIN_INPUT_PULLUP, 0) /* (AA6) MMC0_DAT0 */
+> +			AM62DX_IOPAD(0x0210, PIN_INPUT_PULLUP, 0) /* (AB6) MMC0_DAT1 */
+> +			AM62DX_IOPAD(0x020c, PIN_INPUT_PULLUP, 0) /* (Y7) MMC0_DAT2 */
+> +			AM62DX_IOPAD(0x0208, PIN_INPUT_PULLUP, 0) /* (AA7) MMC0_DAT3 */
+> +			AM62DX_IOPAD(0x0204, PIN_INPUT_PULLUP, 0) /* (Y8) MMC0_DAT4 */
+> +			AM62DX_IOPAD(0x0200, PIN_INPUT_PULLUP, 0) /* (W7) MMC0_DAT5 */
+> +			AM62DX_IOPAD(0x01fc, PIN_INPUT_PULLUP, 0) /* (W9) MMC0_DAT6 */
+> +			AM62DX_IOPAD(0x01f8, PIN_INPUT_PULLUP, 0) /* (AB8) MMC0_DAT7 */
+> +		>;
+> +		bootph-all;
+> +	};
+> +
+>  	main_mmc1_pins_default: main-mmc1-default-pins {
+>  		pinctrl-single,pins = <
+>  			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
+> @@ -397,6 +414,16 @@ &main_i2c2 {
+>  	clock-frequency = <400000>;
+>  };
 >  
->  	/* 500ms timeout value should be enough for Gen1/2 training */
->  	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
-> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> index 98d6fccb383e..819833e57590 100644
-> --- a/drivers/pci/pci.h
-> +++ b/drivers/pci/pci.h
-> @@ -35,13 +35,6 @@ struct pcie_tlp_log;
->   */
->  #define PCIE_T_PERST_CLK_US		100
->  
-> -/*
-> - * End of conventional reset (PERST# de-asserted) to first configuration
-> - * request (device able to respond with a "Request Retry Status" completion),
-> - * from PCIe r6.0, sec 6.6.1.
-> - */
-> -#define PCIE_T_RRS_READY_MS	100
-> -
->  /*
->   * PCIe r6.0, sec 5.3.3.2.1 <PME Synchronization>
->   * Recommends 1ms to 10ms timeout to check L2 ready.
-> -- 
-> 2.49.0
-> 
+> +&sdhci0 {
+> +	/* eMMC */
+> +	bootph-all;
+> +	status = "okay";
+> +	non-removable;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&main_mmc0_pins_default>;
+> +	disable-wp;
+> +};
 
--- 
-மணிவண்ணன் சதாசிவம்
+Make sure we follow the ordering of these properties:
+
+    https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
+
+> +
+>  &sdhci1 {
+>  	/* SD/MMC */
+>  	status = "okay";
+> -- 
+> 2.34.1
+> 
 
