@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C36C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A17C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0EbzysFzXSx6fbpE2Q3MPF8+aVu47XcRJFl5T1QnUX4=; b=TnmYU0bNU/v9VJ5ESZRHWkZY1r
-	qsHAmfygR3PJ00ggSdsdKMrwIgMEHBkRU5RTNBL2lZ7f3DRBnJmOiKg6wFLxztrIC2r1ILK8K948/
-	F+w812YdWN9LopYerctWStIivT5PUCFVhQ3tyMFBu3D7CiLIKDmxEaoOMg8ccjS3JE42OnuMhxEQY
-	kHYTp2ZBTfAi9RxGi6x0d+JZKwQ96LquJAYf57tL+RMBVztBxbyXQPMzx3EypviqtdeHmYJSe//Mu
-	M0/pxALJJYT1oZNg/Y1AIUll3rC3HBzbw2QCFHEYdLhZwm6z2JQyejdjLa1gYZHvAXMQLo1+JSRAV
-	wF8BT+Nw==;
+	bh=QIRWE08Jz2hqy+Qos4XgtLW5hC7mTV+M8qYJ7bO1IKg=; b=XL8pkLn2v3rTJPtGKbkEACbBu2
+	urs5cHPTV45WZbEMLnwEDkKOedy1uzS9ZWI8rVDS6oZqvCNT6KupTpk4XCnSnrnn53LVS+CPn1zJd
+	6JSF5hs1ven7tJIoOlPzhOrBpAaZgS1rdkqnRZtpvftDmiwixK3I9kF00JfYqFki7TyPSmtUIqvqH
+	efgsT2I1IZVla1NlsTdTuMbnsgEYXLP6P5i+OvXX/UzQXC7f2Qz0GP5tjN+pa+2T/DauQvCSvvGRV
+	L7RhbkB9HN1I9y8lnEc55vRiYGalMUht4UQG9z9lBS8J1Fn+81bekDfKzV+DgN8OTe/OlRaNky3rA
+	1AIPgrqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjag-00000003Kkk-1cNh;
-	Mon, 23 Jun 2025 16:00:14 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTjd4-00000003L9r-29SL;
+	Mon, 23 Jun 2025 16:02:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgLb-00000002hdg-0YiT;
-	Mon, 23 Jun 2025 12:32:28 +0000
+	id 1uTgMZ-00000002hot-28C3;
+	Mon, 23 Jun 2025 12:33:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750681945;
-	bh=Hi9Eh4Q8Idz+PcP0DJGiXpcq9TCKuca5A6YCe8h1Q6U=;
+	s=mail; t=1750682006;
+	bh=WaDo2VjuGWUJif4F4F5rmWUyOyYzy9Md9CqJKUmOAlw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fRzoI1dlS3MhNk3kaIep6i4WWNWcAedful78drVRlvm/4Xh1SkS3K+ztOxFgSXAoH
-	 2vbxKawbsztUnl09cPgSt+uFvVJ1tHS6KKrdllwE7bz4z7Nx8fjloQ81iDlj4Xj79Q
-	 /D5ypsq0jDLDquYdSE6sGH6Vs3QoA6d6ufaxnnBWl5rl/oV0zaA/r9/MsmuncGTLQ/
-	 zChQ5ri/Q5UxqkUf8s5FwHisxQIwpUKH8BYjPGN4ASCoS3jQkHgPzClBohAjnAg3zh
-	 ePgONva+hO8UErkrt4zINF+7jcMmK0nTWjXo4ELEAsJk5/M9CCDUjpnlURnSI/Wd6Q
-	 usJOc2BEtxn3w==
+	b=GwEn1t03W2xslPqY+JSc+nqh27zLnSDo5JzMbiCjMzDii8k2dCfUQrAP6TDHGpyOk
+	 Zoh0XCIedaFFESIy41gEpfo3PQqeWmso6TBDQ+z6W6vPRcqfVT2jDM2i+ROgKtacQA
+	 xHz7birge5qTDmPcL8vP7qdOqdaoRA545TV5SGbT7oM/0x58XKTg7KIQkI0z716ek0
+	 KKulX8gimq7y7ip/G4+pvMr2Thu1JOvcNmwk4NDX81Px+nxNfzuvJONm1ACL1MMLJX
+	 fjPBR3IELUuxu5cGVVndGaBdELp9LA1ZaQ54VSPrtYYDhqKligrrLhQjGwmMc+JKjC
+	 yZEniMLIx/h4w==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 13E9717E05BD;
-	Mon, 23 Jun 2025 14:32:25 +0200 (CEST)
-Message-ID: <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
-Date: Mon, 23 Jun 2025 14:32:24 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2EFE117E090E;
+	Mon, 23 Jun 2025 14:33:25 +0200 (CEST)
+Message-ID: <b7b78f8c-b70f-424c-90b8-eeb0eda50041@collabora.com>
+Date: Mon, 23 Jun 2025 14:33:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/2] firmware: Add MediaTek TinySYS SCMI Protocol
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, sudeep.holla@arm.com, devicetree@vger.kernel.org,
+Subject: Re: [PATCH 30/30] clk: mediatek: mt8196: Add UFS and PEXTP0/1 reset
+ controllers
+To: Krzysztof Kozlowski <krzk@kernel.org>, Laura Nao
+ <laura.nao@collabora.com>, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
  kernel@collabora.com
-References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
- <aFlFw-AjqxXcIuBO@pluto>
+References: <20250623102940.214269-1-laura.nao@collabora.com>
+ <20250623102940.214269-31-laura.nao@collabora.com>
+ <d1802074-5472-475c-94b6-a0667e353208@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <aFlFw-AjqxXcIuBO@pluto>
+In-Reply-To: <d1802074-5472-475c-94b6-a0667e353208@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_053227_324490_BE32C126 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20250623_053327_692643_579CE9E7 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/06/25 14:17, Cristian Marussi ha scritto:
-> On Mon, Jun 23, 2025 at 02:01:34PM +0200, AngeloGioacchino Del Regno wrote:
->> This series adds basic support for the MediaTek TinySYS SCMI Protocol,
->> found on the MediaTek Dimensity 9200, 9300 and 9400, other than on the
->> MT8196 Chromebook SoC.
+Il 23/06/25 14:14, Krzysztof Kozlowski ha scritto:
+> On 23/06/2025 12:29, Laura Nao wrote:
+>> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 >>
->> This is used to communicate with the CM_MGR and other MCUs for power
->> management purposes.
+>> Add definitions to register the reset controllers found in the
+>> UFS and PEXTP clock controllers.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>   drivers/clk/mediatek/clk-mt8196-pextp.c  | 36 ++++++++++++++++++++++++
+>>   drivers/clk/mediatek/clk-mt8196-ufs_ao.c | 25 ++++++++++++++++
+>>   2 files changed, 61 insertions(+)
 > 
-> Hi Angelo,
+> You just added these files. Don't add incomplete driver just to fix it
+> later. Add complete driver.
 > 
-> thanks for this.
-> 
-> I will do a proper review in the coming days of this series anyway, but
-> upfront for future V2:
-> 
-> - you should provide some sort of documentation for this new
->    vendor protocol and its messages, as an example from IMX:
-> 
-> 	drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> Patch should be squashed.
 
-Noted.
+Laura, feel free to squash the patches.
 
-> 
-> - where is the SCMI driver that will call all the new vendor ops
->    defined in: scmi_mtk_protocol.h ?
-
-This was tested with code that is not clean at all (hence I can't push it upstream)
-and well... I didn't think about the fact that, effectively, without an user, this
-code ends up being unused.
-
-I can't promise to send a clean user in this cycle, but I would really appreciate
-if you could still check the protocol code, so that if there's anything that you
-can spot I can fix it while the rest gets done :-)
-
-Thank you,
+Cheers,
 Angelo
 
 > 
-> Thanks,
-> Cristian
-
+> Best regards,
+> Krzysztof
 
 
