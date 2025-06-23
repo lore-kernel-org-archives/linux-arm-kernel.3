@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B143C77B7F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB41BC7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ePt40yJvrO33B0QpVlIo/HV5dJRHpWVq5OdajjSVb8=; b=mXd2RVBMn3aZHmQPip6g+Brbdi
-	Hw81XIOI+HiAYBusbCA8lHWuTbVR6BkBi1H5UlY0AiESogl0K9AMyc1K31ohiCo0UsMq22/yPTWKi
-	q7bZEVU95MRpkrmyC1MA9O7br1gkf6Pm919JANv5UdJvUlmqAMRjMdwTBZbEXadHnnBcGfqFQV27a
-	ZQ73J05RDuY7Kqxg2p2V8Dq/hCJtUdj15zJQC0RER/3G7FT6BDwhs8k3M2n42KcUdpGKnWB3MYRiX
-	OdDSMDs330kwypvsZJ2/5GIEADDcNYUJnM4kSuKg6+VH7gRu6oX2v7j15azAGwWLFI1JskqaP1QKy
-	GZnwh1RA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sbYIPEArgEjkhtMURHidg8ZEr50Ni3vsZ4/42HdWJTs=; b=NUoulEy6kGwVr9bIEC/QSEMC8/
+	n5Z4UDIvMEiq+dVXSTSvY1nQ7MgP4zWMPgKq2nzdPH/ZeMcgXXYeZb/SFf+v2zMNzSFa7pk11zVoD
+	XFnrTSCgM+4mPlj9xSJ1EV6Or3t5qwOgRxfQYGflfbQb5jCC9oDWIFIubgytwM9CyGBHQbNaquUub
+	kM06zi6xcfSCO8axvaqmgOeGBoPHpPyZzO880um7BOeB43bAIV3LkwfZtUQB2qcKnSnVYn4ZTlHWf
+	8pw6xWEmZpcL9Afhm4xw2ojCDIezTOiVg/aD8thhrWB20qAQoIgWQkHl4/TiBeVnyfZd7/fp28AyS
+	uDeBGDbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZA-00000004Eyq-3llf;
-	Tue, 24 Jun 2025 00:31:13 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1uTrZE-00000004F4r-3BhC;
+	Tue, 24 Jun 2025 00:31:16 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThrD-00000002z5H-3zXR
+	id 1uThvP-00000002zvE-2Adt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:09:14 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0A41720453;
-	Mon, 23 Jun 2025 14:09:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750687747;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9ePt40yJvrO33B0QpVlIo/HV5dJRHpWVq5OdajjSVb8=;
-	b=OSVBBqfTG09UyTei7Nq8pZ1s6OMA19TYtgRlgZ4Ttnj3iFPs2YpySG3Mn3qtN+76gAu7MP
-	3G4DI8MqOZs3EMfOuCPQRw63/ZIw3L1Wfn0lJHTiampezCEtlJWz2TgatjDj7O+RddT8nI
-	LqLRQWIBq/hrcGNZii8aoSetSIQt/sHQxmt7+56BHG4e8082Jjd+WeftitpLQuC4nVa3/s
-	06evNf5AbkOY2mrVGNV0NJYeUvF8mNAW/s7asxH6Xev6U8bDUv0HsCGDiUQXnHDQtCZIPj
-	pAUOyi2Z5kXS73OklkeGvOtk3gSwvyJX7r6R1/+x5kp3eVUNRFJwyvUwfeOaTg==
-Date: Mon, 23 Jun 2025 16:09:03 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Andrzej
- Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Marek Vasut
- <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 2/5] drm/bridge: get the bridge returned by
- drm_bridge_chain_get_first_bridge()
-Message-ID: <20250623160903.01c56bfc@booty>
-In-Reply-To: <be6a4d90-2c6e-42be-9948-df1840fd2f83@nxp.com>
-References: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
-	<20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-2-0321845fcafb@bootlin.com>
-	<be6a4d90-2c6e-42be-9948-df1840fd2f83@nxp.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Mon, 23 Jun 2025 14:13:32 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NEDSp21572760;
+	Mon, 23 Jun 2025 09:13:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750688008;
+	bh=sbYIPEArgEjkhtMURHidg8ZEr50Ni3vsZ4/42HdWJTs=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=Fnz5H5j2zI7SdKPtnPbkM9GCjc+F5svU5yBSka91Ffjq/Dv0CCEALDD8GeFxnGkkd
+	 H49Kb2SqkfhHAUm5AtFmcOkbLLY7Gggo1gh5qEXcLUTOv9BRdbjQzZGPkLJos4lCDI
+	 YTiqgsPMq329LJkwWKg6hMKTEfXgWc/sRcQYcueI=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NEDSKY574346
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 23 Jun 2025 09:13:28 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
+ Jun 2025 09:13:27 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 23 Jun 2025 09:13:27 -0500
+Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NEDQC4050246;
+	Mon, 23 Jun 2025 09:13:27 -0500
+From: Paresh Bhagat <p-bhagat@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
+        <devarsht@ti.com>
+Subject: [PATCHv4 2/6] dt-bindings: arm: ti: Add bindings for AM62D2 SoC
+Date: Mon, 23 Jun 2025 19:42:49 +0530
+Message-ID: <20250623141253.3519546-3-p-bhagat@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250623141253.3519546-1-p-bhagat@ti.com>
+References: <20250623141253.3519546-1-p-bhagat@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddujedvvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehvihgtthhorhdrlhhiuhesnhigphdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepmhhrihhprghrugeskhgvr
- hhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhm
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_070912_608689_A8506087 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20250623_071331_652170_FAF95B47 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,53 +86,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+The AM62D2 SoC belongs to the K3 Multicore SoC architecture with DSP core
+targeted for applications needing high-performance Digital Signal
+Processing. It is used in applications like automotive audio systems,
+professional sound equipment, radar and radio for aerospace, sonar in
+marine devices, and ultrasound in medical imaging. It also supports
+precise signal analysis in test and measurement tools.
 
-On Mon, 23 Jun 2025 10:56:13 +0800
-Liu Ying <victor.liu@nxp.com> wrote:
+Some highlights of AM62D2 SoC are:
 
-> On 06/21/2025, Luca Ceresoli wrote:
-> > drm_bridge_chain_get_first_bridge() returns a bridge pointer that the
-> > caller could hold for a long time. Increment the refcount of the returned
-> > bridge and document it must be put by the caller.  
-> 
-> To make sure the incremented refcount is decremented once this patch is
-> applied, does it make sense to squash patch 3, 4 and 5 into this one?
+* Quad-Cortex-A53s (running up to 1.4GHz) in a single cluster. Dual/Single
+  core variants are provided in the same package to allow HW compatible
+  designs.
+* One Device manager Cortex-R5F for system power and resource management,
+  and one Cortex-R5F for Functional Safety or general-purpose usage.
+* DSP with Matrix Multiplication Accelerator(MMA) (up to 2 TOPS) based on
+  single core C7x.
+* 3x Multichannel Audio Serial Ports (McASP) Up to 4/6/16 Serial Data Pins
+  which can Transmit and Receive Clocks up to 50MHz, with multi-channel I2S
+  and TDM Audio inputs and outputs.
+* Integrated Giga-bit Ethernet switch supporting up to a total of two
+  external ports with TSN capable to enable audio networking features such
+  as, Ethernet Audio Video Bridging (eAVB) and Dante.
+* 9xUARTs, 5xSPI, 6xI2C, 2xUSB2, 3xCAN-FD, 3x eMMC and SD, OSPI memory
+  controller, 1x CSI-RX-4L for Camera, eCAP/eQEP, ePWM, among other
+  peripherals.
+* Dedicated Centralized Hardware Security Module with support for secure
+  boot, debug security and crypto acceleration and trusted execution
+  environment.
+* One 32 bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
+* Low power mode support: Partial IO support for CAN/GPIO/UART wakeup.
 
-I see there is a trade off here between bisectability and patch
-readability.
+This SoC is of part K3 AM62x family, which includes the AM62A and AM62P
+variants. While the AM62A and AM62D are largely similar, the AM62D is
+specifically targeted for general-purpose DSP applications, whereas the
+AM62A focuses on edge AI workloads. A key distinction is that the AM62D
+does not include multimedia components such as the video encoder/decoder,
+MJPEG encoder, Vision Processing Accelerator (VPAC) for image signal
+processing, or the display subsystem. Additionally, the AM62D has a
+different pin configuration compared to the AM62A, which impacts
+embedded software development.
 
-However about bisectability the problem is limited for this series. To
-get an actual get/put imbalance you'd have to be able to remove the
-bridge, but removing (part of) the bridge chain is not at all supported
-right now, and it won't be until after chapter 4 of this work (see
-cover letter).
+This adds dt bindings for TI's AM62D2 family of devices.
 
-However I realize there is an issue if:
-* patch 2 is applied but patches 3/4/5 are not
-  (it does not make sense to apply this series partially, but this
-  might happen when cherry-picking?)
-* an entire DRM card is removed where
-  drm_bridge_chain_get_first_bridge() is used by some components
+More details about the SoCs can be found in the Technical Reference Manual:
+https://www.ti.com/lit/pdf/sprujd4
 
-If both happen we'd have a get without put, thus a missing free and a
-memory leak for the container struct.
+Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Note that, besides drm_bridge_chain_get_first_bridge() that this
-series covers, there are various other accessors: see items 1.E.{2..8}
-in cover letter. For some of those there are many more changes to apply
-because they are called in more places. Squashing them would result in
-a really large patch that is likely hard to review and manage.
-
-So I'll leave the decision to DRM subsystem maintainers. For the time
-being I'm keeping the current approach given that Maxime already
-reviewed these patches in the past, not squashed.
-
-Best regards,
-Luca
-
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index bf6003d8fb76..e80c653fa438 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -25,6 +25,12 @@ properties:
+               - ti,am62a7-sk
+           - const: ti,am62a7
+ 
++      - description: K3 AM62D2 SoC and Boards
++        items:
++          - enum:
++              - ti,am62d2-evm
++          - const: ti,am62d2
++
+       - description: K3 AM62A7 SoC PHYTEC phyBOARD-Lyra
+         items:
+           - const: phytec,am62a7-phyboard-lyra-rdk
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.34.1
+
 
