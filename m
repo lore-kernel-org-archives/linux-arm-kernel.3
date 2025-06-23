@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CAFC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21050C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=jEQi7zwrzyDIj3PdB7vMHUhBM8BUzUufnuUw+YHWca4=; b=wbjhDRZy+Ubekg
-	6R88AgfYCLLqIxvV3P01hDWT4cGsDKkOuLVQK6IiEC8BlBBHNarUrm+PkY4Tntvo28yy7nBoTiTPh
-	z2ggn77ziet1Y7UJB8rBgZXtVocYZg/S6f73VO/kv9BlNS+rJJ4zQ6wej6Kvqb76pkwExPGS1jz6S
-	XylwK8GaACo8cbEICS5iD4i3f1mEbCZ6+8rli1gT5372I9kb3qFTmiGIAcS1w3tVvCqBeppGUtt0e
-	TU9ok2wOsWt4+3vtGAjyzCSWCES0DZ0Pct2jkT1AvnxHBU7J8GdUznkCvFNow2wIFXApvP+7JpEs/
-	5aayjauT0BHBXye73nvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lMLuqEEmB90h4r00MzRwYNp3Oo/PGki0fb0ws8udUSM=; b=KtPbpepa7qDlzV+u3ANqrfqHHl
+	wre0xlo8jyc4lmzTZSSbic3vnZJrSzogmKjEOUuRKm+Pxlk0OWcQzKLtGXGC0mTlhBl9QC/iHkHho
+	8sjzonGGNSHgYd/awRNGlYO/8KWv1nOJ6Fu6dTzew8LELPpB5diKl+zXf4fhVPOXJmMvHjUEFUj+o
+	DsQrRO8G9iQvdsY9oi9NeHYfgJJ2MBujOrgWlQsYVzbYfVfy0zsidWrPncYAilxHKW3BTt56VcNVm
+	D/f9M6guPreExxJbOYyUyakqqz1a/u73T6COoYv9/TvdNQPJhcLaNL6ZJUqq2PF/6ZgUxm4GM2of9
+	GwSoW41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTscf-00000004OFF-3KJE;
-	Tue, 24 Jun 2025 01:38:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uTscj-00000004OLQ-0Hc2;
+	Tue, 24 Jun 2025 01:38:57 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTqNF-000000049LI-3su4
+	id 1uTqPP-000000049g9-1Cp1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 23:14:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8484C5C58A4;
-	Mon, 23 Jun 2025 23:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72C9BC4CEEA;
-	Mon, 23 Jun 2025 23:14:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750720488;
-	bh=6LzesJl0kmLg/Yoa6T382QmQxVwEVUfX/TAiShEDAEk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=kMx7Wr4fbnk/OW/YvdljcMwfmBjZhDh0Q/9ALni+SFRZvk8ogsIogtkBFck15xHZs
-	 oKelFlmsXQgR7XLJoiMShq98NGyWzsGi7AuplNLuw0GdmkYKB7U4Rxnj+60kW6CDHi
-	 W0YJVlA5fFOMFPdnbucDFKkLuR8ILnblAy0jY/4Sc9O1jG7MfuQ3oxjwOYrwAhpMMZ
-	 4ALzWQ/bHaLnLeUJqada7xvk/desc+kQCG5Tq8tbdpbxpNb9qk0XliDwBklYtFLk/2
-	 FzxBBOzRttdHDDi9xHVtjWYATXb7IrOzaj6ybNDVcb4CLu1oU4tNuFtGpBMu7lbZyf
-	 SANU2FJJvYBvw==
-Date: Mon, 23 Jun 2025 18:14:47 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-Subject: Re: [PATCH v2 stblinux/next 2/2] clk: rp1: Implement remaining clock
- tree
-Message-ID: <20250623231447.GA1450188@bhelgaas>
+	Mon, 23 Jun 2025 23:17:05 +0000
+Message-ID: <d87ab382-cc6c-46df-bd7e-1200154dd84f@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750720619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lMLuqEEmB90h4r00MzRwYNp3Oo/PGki0fb0ws8udUSM=;
+	b=g3zCtqLRxmPfhCgbxCQEg6i4iLxj8I8QtrxLtOUrr/eQxxOy34RNxKdhGE+WZId/GtZfur
+	JyFfKxNY0T57L1VRhlunB4w3XeZD3ZetoQXsOB+ayco/2oUeYo8QBuL4dBg25gbD2Y8Ddj
+	f/3jhFJ8d+j770X2Wb9P+iKxrVsVNJ4=
+Date: Mon, 23 Jun 2025 19:16:53 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <17e5c6e0c085cfa0bf4b63b639cdc92c6a4c1418.1750714412.git.andrea.porta@suse.com>
+Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michal Simek <michal.simek@amd.com>, Saravana Kannan <saravanak@google.com>,
+ Leon Romanovsky <leon@kernel.org>, Dave Ertman <david.m.ertman@intel.com>,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250619200537.260017-1-sean.anderson@linux.dev>
+ <20250619200537.260017-5-sean.anderson@linux.dev>
+ <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
+ <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
+ <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
+ <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
+ <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_161450_000849_A389EFC6 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250623_161704_093002_D1C9F702 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +82,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 11:46:28PM +0200, Andrea della Porta wrote:
-> The RP1 clock generator driver currently defines only the fundamental
-> clocks such as the front PLLs for system, audio and video subsystems
-> and the ethernet clock.
+On 6/23/25 18:45, Andrew Lunn wrote:
+> On Mon, Jun 23, 2025 at 02:48:53PM -0400, Sean Anderson wrote:
+>> On 6/23/25 14:27, Andrew Lunn wrote:
+>> > On Mon, Jun 23, 2025 at 11:16:08AM -0400, Sean Anderson wrote:
+>> >> On 6/21/25 03:33, Andrew Lunn wrote:
+>> >> > On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
+>> >> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
+>> >> >> probe loop if the EPROBE_DEFER error is never resolved.
+>> >> > 
+>> >> > That sounds like a core problem. I also thought there was a time
+>> >> > limit, how long the system will repeat probes for drivers which defer.
+>> >> > 
+>> >> > This seems like the wrong fix to me.
+>> >> 
+>> >> I agree. My first attempt to fix this did so by ignoring deferred probes
+>> >> from child devices, which would prevent "recursive" loops like this one
+>> >> [1]. But I was informed that failing with EPROBE_DEFER after creating a
+>> >> bus was not allowed at all, hence this patch.
+>> > 
+>> > O.K. So why not change the order so that you know you have all the
+>> > needed dependencies before registering the MDIO bus?
+>> > 
+>> > Quoting your previous email:
+>> > 
+>> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
+>> >> probe loop if the EPROBE_DEFER error is never resolved. For example,
+>> >> if the PCS is located on another MDIO bus and that MDIO bus is
+>> >> missing its driver then we will always return EPROBE_DEFER.
+>> > 
+>> > Why not get a reference on the PCS device before registering the MDIO
+>> > bus?
+>> 
+>> Because the PCS may be on the MDIO bus. This is probably the most-common
+>> case.
 > 
-> Add the remaining clocks to the tree so as to be completed, which means
-> that the following RP1 peripherals could now consume their specific clocks
-> and be enabled to work (provided that the relevant driver changes for each
-> specific peripheral, if any, are committed):
+> So you are saying the PCS is physically there, but the driver is
+> missing because of configuration errors? Then it sounds like a kconfig
+> issue?
 > 
-> - ADC
-> - Audio IN/OUT
-> - DMA controller
-> - I2S
-> - MIPI DPI/DSI
-> - PWM
-> - SDIO
-> - UART
-> - Video Encoder
+> Or are you saying the driver has been built but then removed from
+> /lib/modules/
 
-Thanks for this detail, that's exactly what I hoped for!
+The latter. Or maybe someone just forgot to install it (or include it
+with their initramfs). Or maybe there was some error with the MDIO bus.
+
+There are two mutually-exclusive scenarios (that can both occur in the
+same system). First, the PCS can be attached to our own MDIO bus:
+
+MAC
+ |
+ +->MDIO
+     |
+     +->PCS
+     +->PHY (etc)
+
+In this scenario, we have to probe the MDIO bus before we can look up
+the PCS, since otherwise the PCS will always be missing when we look for
+it. But if we do things in the right order then we can't get
+EPROBE_DEFER, and so there's no risk of a probe loop.
+
+Second, the PCS can be attached to some other MDIO bus:
+
+MAC              MDIO
+ |                 |
+ +->MDIO           +->PCS
+      |
+      +->PHY (etc)
+
+In this scenario, the MDIO bus might not be present for whatever reason
+and we have the possibility of an EPROBE_DEFER error. If that happens,
+we will end up in a probe loop because the PHY on the MDIO bus
+incremented deferred_trigger_count when it probed successfully:
+
+deferred_probe_work_func()
+  driver_probe_device(MAC)
+    axienet_probe(MAC)
+      mdiobus_register(MDIO)
+        device_add(PHY)
+          (probe successful)
+          driver_bound(PHY)
+            driver_deferred_probe_trigger()
+      return -EPROBE_DEFER
+    driver_deferred_probe_add(MAC)
+    // deferred_trigger_count changed, so...
+    driver_deferred_probe_trigger()
+
+--Sean 
 
