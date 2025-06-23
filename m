@@ -4,53 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4976C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A88DC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YpcF2ZhSIJ+So/RYgOphDpJacDD4AlmBjE4FkDNCIi0=; b=3Hz4jgHCOD7SNeWn8wLxGKf4tt
-	XAJhvx5D9MqeehseTdEwM5Dv9eWL91WjFoWBi9tvor4ztG7CG6zUU84MlUqHpuZCPpHHdqT4pBUqd
-	s2hZQnutUY9xtdXACtJK9KUCdfx1eoIWNZQ7qvMMjtMUMMToR0O/9BBtgK/OAG9Z+AgFeLN6DbKXq
-	8pvxE+HmUvCf2Y3H2mg/+XtXXpOBroHjCR2u5+dpuVm5wxwxqdLurH5MHY0vljIy2B1vVuTkpQstO
-	3qqJEDPU5mpNIkpINeIZjxicv6AwJUNoHNvfWHm/9gho1dNrnc6QmyLvMrs3F4RKkPGgT+O2lu8h5
-	LME7c2+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/3ch7xamCbyea4JaVYKV3Lir+DoV0VKrVnNbKEsep+M=; b=Yx92YHuY1twSaZdbfVzia5gA+f
+	ZsZl3OGeqnBxPc4aHlTTkmkoywloOR+43QTSny4RHGmaBGbC9OV7z6osYveAePaTfeH9auRm8vCT7
+	MldARQwPyreGfRLQuDcZPDqWlIWO0d8ORRxvhPA2oIkpQI4NuUkNXcIuR/qFL44BkfOu6MJvzY91D
+	r8UJfD4zb4ddHNwG/BPkU+5VTe5yhqGHo0Dc0HnaN7iRekqv6JF8wHeC8XHtDlnOgAd4qr4/GQ2Ci
+	d8+nOGTkCRlpU67PYQsTcScMfZQmkrOT5qanrmZx1L4ydlLrO4H/SHj+Loj4oxXFkxuWHXoqXSmoB
+	QzD4EoRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjP5-00000003IlS-3Pek;
-	Mon, 23 Jun 2025 15:48:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTg6x-00000002e9I-21LM;
-	Mon, 23 Jun 2025 12:17:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3D78113E;
-	Mon, 23 Jun 2025 05:16:58 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B5A43F58B;
-	Mon, 23 Jun 2025 05:17:14 -0700 (PDT)
-Date: Mon, 23 Jun 2025 13:17:07 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, sudeep.holla@arm.com,
-	cristian.marussi@arm.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v1 0/2] firmware: Add MediaTek TinySYS SCMI Protocol
-Message-ID: <aFlFw-AjqxXcIuBO@pluto>
-References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
+	id 1uTjRQ-00000003JJJ-26W0;
+	Mon, 23 Jun 2025 15:50:40 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTgBX-00000002f8Z-2zuh;
+	Mon, 23 Jun 2025 12:22:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750681322;
+	bh=BX3kWGffKwR8jKbbugtulEnXj6o/sd8kiTE3A0kY6pg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nlCFAT4qrsm8CJbwA6C9jm53wiNm1n1d/wI2w8xmVhuIRTPHk06c68q4u4nMFKm+n
+	 T3RYFwA4sQatd9lOioQGhKgiY1kRNkjFqN0DkadumCvSCKtFp7vJlLiY0jZQ/GFYCv
+	 OwHXaKXhfzxdmTtDvbg6qySKVx/CdGeM8Iwr9Xkm8unsdLe6M4pA/Hruzscf3CA9cv
+	 Y4MiotqPf3FEuQUFRYKDrQPakNIFMHv6VxGBm2NPrqqEkTgE5+P9PAuOwa+9sEkYnf
+	 0mzckR8pSS/VBtF4pEVra+r4X4uVNfk62V+chyGPdfeaYHRSgpUrfprijXC6tEvIqn
+	 GkpvbbRQMwTmw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1349417E0FDB;
+	Mon, 23 Jun 2025 14:22:01 +0200 (CEST)
+Message-ID: <dfbd00bd-37bd-425a-aa98-e536b2a3f2d4@collabora.com>
+Date: Mon, 23 Jun 2025 14:22:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 29/30] dt-bindings: reset: Add MediaTek MT8196 Reset
+ Controller binding
+To: Krzysztof Kozlowski <krzk@kernel.org>, Laura Nao
+ <laura.nao@collabora.com>, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250623102940.214269-1-laura.nao@collabora.com>
+ <20250623102940.214269-30-laura.nao@collabora.com>
+ <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_051719_560129_55F38827 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250623_052203_903400_FB1D0499 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,29 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 02:01:34PM +0200, AngeloGioacchino Del Regno wrote:
-> This series adds basic support for the MediaTek TinySYS SCMI Protocol,
-> found on the MediaTek Dimensity 9200, 9300 and 9400, other than on the
-> MT8196 Chromebook SoC.
+Il 23/06/25 14:13, Krzysztof Kozlowski ha scritto:
+> On 23/06/2025 12:29, Laura Nao wrote:
+>> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>
+>> Add a binding for the PEXTP0/1 and UFS reset controllers found in
+>> the MediaTek MT8196 Chromebook SoC.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>   .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
 > 
-> This is used to communicate with the CM_MGR and other MCUs for power
-> management purposes.
+> This belongs to the binding doc.
+> 
+>>   1 file changed, 26 insertions(+)
+>>   create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+>>
+>> diff --git a/include/dt-bindings/reset/mediatek,mt8196-resets.h b/include/dt-bindings/reset/mediatek,mt8196-resets.h
+>> new file mode 100644
+>> index 000000000000..1a01b2b01f7f
+>> --- /dev/null
+>> +++ b/include/dt-bindings/reset/mediatek,mt8196-resets.h
+>> @@ -0,0 +1,26 @@
+>> +/* SPDX-License-Identifier: (GPL-2.0+ OR BSD-2-Clause) */
+> 
+> Wrong license, use standard ones.
 
-Hi Angelo,
+Oh WHOOOOOPS! No idea how that happened.
 
-thanks for this.
+Laura, can you please change this to (GPL-2.0-only OR BSD-2-Clause)?
 
-I will do a proper review in the coming days of this series anyway, but
-upfront for future V2:
+Thanks!
 
-- you should provide some sort of documentation for this new
-  vendor protocol and its messages, as an example from IMX:
+Cheers,
+Angelo
 
-	drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> 
+> Best regards,
+> Krzysztof
 
-- where is the SCMI driver that will call all the new vendor ops
-  defined in: scmi_mtk_protocol.h ?
 
-Thanks,
-Cristian
 
