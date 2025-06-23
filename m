@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE04C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 10:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D60C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 10:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qh1CJjO8c2zLPbBAKpH3KGrCB+i0u1GVzjXdu6Efzw=; b=m6+pDnbciuCHSmGS2bwu6RUH6x
-	QzcmWFxJEDEIsBDAa9zBPDVl3uOdlU6XzCKFKBuL8E2FWXwWvYT5rGnk9zn2iovV4Jwahii3jtGt6
-	nDlz72swsYCNNK7ZgEaT4S7MWk+oH/PXiA3hOkcfflOjoLfnnKP/3Kb5ImjnoHDr9dhx3VFlJdgE1
-	0TST3Biso9QalUbHlnZ4OG52/FRaNZj1xfM97btpgD+VMhn2CVKjzA+oiEJjhhGBIe6hr+3fjiIdv
-	ALAKuPvma6GGMeEGOugriTQ8THhBegxS8nAfD+8x6K2JnE5bjqrlPBQRMJtg2FcWENK56/Fh2L7Mg
-	V9pieNSA==;
+	bh=LPeDtzputbBG8BYmPS4Q6TNFFvEXgzemPhqRvBeZ31Y=; b=BzG1RgfUHIopLkD3Ft1wdnZIMj
+	I6MhSdmXxSdr8tsoapRDj09XEnY5wENrvyntCKTnPbPR7UwywXLtd0hAAwZiMUbM8QLBYcqWIR330
+	OiCU/MhzsfMIsgcln/gJV1L6Er5kEd5hfJPY0A+tLGjbdjDqzV2cHdoT01NA4NQ6b+a/YNgjrI2Yd
+	GhdMWC7bS4ss/o4/crCL17opBmAuQCyCpbV4CbB0xo9fmpO7UjAsGCK02e7GA8B/RdlKrcvBXdd/J
+	VUaaIv84+l/vgba6+BX9LTbxoAVjIQDPPU3QEOqRLMunx/atoTHu8ssvx5NZpZuP5pXUeMTZ73mUg
+	97mtKhdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeMD-00000002L35-0m0o;
-	Mon, 23 Jun 2025 10:24:57 +0000
-Received: from mail-24425.protonmail.ch ([109.224.244.25])
+	id 1uTeOX-00000002LTL-0CHm;
+	Mon, 23 Jun 2025 10:27:21 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdoX-00000002F6H-2lyC
+	id 1uTduN-00000002G2G-1OOL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:50:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1750672205; x=1750931405;
-	bh=2qh1CJjO8c2zLPbBAKpH3KGrCB+i0u1GVzjXdu6Efzw=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=E8POB4Dv/lqhX+/sJjDZa0/eRygsCa8wa0bD650TGPocFSrQmngVcmH1D3sAxuPA+
-	 LW1kx1i/1pOmqd1rUMvyIAhqBWl1APVUa8m9mGWcG7GKTjZYT6pcqc9TgtP7e47tmX
-	 qniN6zrdbbESjD1VetTautbvt1mkQo6xrcZtlg2bNE8ZxjqWMJH+FOeC792/ZFCjA2
-	 cJYsbS5g0TjVCk8W/p8chAN4R8U7yoOff0HvBQ2Nd5H/49aF46mWlAnjhafpzeMz3Z
-	 K47KMGRf+oZnnk9ahBhiWXKdU8vibpziYrRLgevjgfQ3LlNNNuqTpqC9bZtwqcdO9a
-	 e7L6adwy/WWKQ==
-Date: Mon, 23 Jun 2025 09:49:59 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Max Shevchenko <wctrl@proton.me>
-Cc: "conor+dt@kernel.org" <conor+dt@kernel.org>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "jirislaby@kernel.org" <jirislaby@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>, "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>, "linux@roeck-us.net" <linux@roeck-us.net>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "robh@kernel.org" <robh@kernel.org>, "sean.wang@mediatek.com" <sean.wang@mediatek.com>, "tglx@linutronix.de" <tglx@linutronix.de>, "wctrl@proton.me" <wctrl@proton.me>, "wim@linux-watchdog.org"
-	<wim@linux-watchdog.org>
-Subject: Re: [PATCH 09/11] ARM: dts: mediatek: add basic support for MT6572 SoC
-Message-ID: <kZ6sH6-8EHhW5FtsAmo9HXndj7D1jFyW0cv0A4KDO3i5SS9JiGEZNTd1gbMXizu4vI0M0hjROLK5DEnKbB36jWUKUPRKukq5IRK9Tz2qz7k=@proton.me>
-In-Reply-To: <94fd71e6-0f09-42d0-94ef-1ff111daac9f@collabora.com>
-References: <20250620-mt6572-v1-0-e2d47820f042@proton.me> <20250620-mt6572-v1-9-e2d47820f042@proton.me> <94fd71e6-0f09-42d0-94ef-1ff111daac9f@collabora.com>
-Feedback-ID: 131238559:user:proton
-X-Pm-Message-ID: 776204d2426614811a793f4a9aa639b87ffcd972
+	Mon, 23 Jun 2025 09:56:12 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-553dceb345eso4377080e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 02:56:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750672569; x=1751277369; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LPeDtzputbBG8BYmPS4Q6TNFFvEXgzemPhqRvBeZ31Y=;
+        b=xd42oAUbYUJqr+qxtVfFPd+KBf3f5VhuzzOGt+RAjkwLZRbrw6KRuvLZ1yYYcrCY0k
+         upLyB0zFwS1gfR6l1x6QgNrToXbmJJfST32rEUqH2gpfrL9NnTzG2EAoknUNo2eBV9tW
+         WzYqMcqu3rPK92oJ1ETxCxZC/a61BsFjfxONa2lDTEo5bVoWHxJ72tS8024ObK/I+M56
+         RIKmN2eknH3cvFkglgqsOGNb3A4E2DYbGz8UkT5Qnd5qadvhE8w0E5SDsbtDl+2kd9vc
+         YWEWvcyid7DXIKj/pGjwDi6f7z36O9Y9UtdIHeIZ0jYyTHHIf/hrvH1pYscx2ovn5qIX
+         Q74w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750672569; x=1751277369;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LPeDtzputbBG8BYmPS4Q6TNFFvEXgzemPhqRvBeZ31Y=;
+        b=wuzT5SZZCWV4KSgBKatCKLsDsHhrWyApiumPUSdVT0fHXp1MvncMHVAnOMDahUPbM5
+         erOAJ1Qx1J7yF3nEBF6z0WiMjZRG09Gj6FPw6zugt8kp0O5WTci3zChgi7P1n/tlnGs8
+         vWaA/mTzThkjxxNsJEPuhh2IriTRqzZOAllsaAwFHjzRLaZ5vbRHr3ZwLIPCwbYSciig
+         0akky4JTzBpXOT1Gigczdla8nQiwzeUEnpQJoNSH+woQx6AKOIb+V+uNSs6YvL7iLGHk
+         I6hWFdzwx4jRfW8lplCkB1Uwfqy5PCoFFwdVXgfH6CEADLkD3AIMXuSMKnFxDFKcaKBm
+         D+KA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjfWsX04vkxm4HMDmzKpqK1ji58pfJUnPBu3OryQneiHMevqvMFGXIRuCi8crbZZGrgjxzVBloc9mxDL56viZl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7SFjHjcUTHJTjxGZsWeUPSsFFDlXOCyyNv6q9beJoAovdZ1vi
+	BtwQpc4QP45UnLUurrHI5WJEKpLcnmDiV4xfDC2ZSYiQh6mNHUP561cqxmdU4PaZkSvdDzstrUF
+	Lo1pnC4nbVTR/UsGq8lKvjSIAHF1BfkQoAaDKXrXn2Q==
+X-Gm-Gg: ASbGnctR8FefZtZ4YXf/KPw0iFBkpD17WxcJ2QPvsgNu0wykDtPyV5wgBgkZEm3jAmp
+	nLmX5OLMPsYBqINj9pFA6uFJWGmS05YUoUTUd53eItGxvnTt2E80DiL53wgJcbpJvOiLjBt2A/I
+	/p0WGgPmAkqaUlZr2ELbqnkJM/7FAHjFCpB0XwgoQa2EPU2CxiFMnH0/RKWmjhiPa4uHXfGkIhd
+	g==
+X-Google-Smtp-Source: AGHT+IGMaE9K7TjoPvRiPlXWOuU8YRsnFELOXhWXUfRnOBAE1HlGniGGtDxisVHNWEEQuzgyMBQMIN/+AwV3/43kfW8=
+X-Received: by 2002:a05:6512:3c88:b0:553:cc61:1724 with SMTP id
+ 2adb3069b0e04-553e3bb51camr3441310e87.24.1750672569238; Mon, 23 Jun 2025
+ 02:56:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20250610-gpiochip-set-rv-soc-v1-0-1a0c36c9deed@linaro.org>
+ <CAMRc=McVV=VBw0DRiz-4tTjh7ZtRLWg=N_LQ2-7O1sKyW30rxw@mail.gmail.com> <c6eece57-8767-4435-beda-c9f399e3fa80@csgroup.eu>
+In-Reply-To: <c6eece57-8767-4435-beda-c9f399e3fa80@csgroup.eu>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 23 Jun 2025 11:55:58 +0200
+X-Gm-Features: AX0GCFuwq80YRRas_rerTXxamhsQCeIBZVM5a2xh0c93mD5kLuLbXD7aaKlDuiI
+Message-ID: <CAMRc=MdYuk_O3P1QtepvF-6m01jn3xpDP4YxttQSp1-J-J2GvA@mail.gmail.com>
+Subject: Re: [PATCH 0/2] soc: use new GPIO line value setter callbacks
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_025010_307425_798F71B5 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250623_025611_394377_F08B4D58 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,200 +100,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Monday, June 23rd, 2025 at 11:35 AM, AngeloGioacchino Del Regno <angelog=
-ioacchino.delregno@collabora.com> wrote:
-
-> Il 20/06/25 17:40, Max Shevchenko via B4 Relay ha scritto:
+On Mon, Jun 23, 2025 at 11:54=E2=80=AFAM Christophe Leroy
+<christophe.leroy@csgroup.eu> wrote:
 >
-> > From: Max Shevchenko wctrl@proton.me
+> Hi,
+>
+>
+> Le 23/06/2025 =C3=A0 09:33, Bartosz Golaszewski a =C3=A9crit :
+> > On Tue, Jun 10, 2025 at 2:38=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev=
+.pl> wrote:
+> >>
+> >> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that retur=
+n
+> >> values") added new line setter callbacks to struct gpio_chip. They all=
+ow
+> >> to indicate failures to callers. We're in the process of converting al=
+l
+> >> GPIO controllers to using them before removing the old ones. This seri=
+es
+> >> converts all GPIO chips implemented under drivers/soc/.
+> >>
+> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >> ---
+> >> Bartosz Golaszewski (2):
+> >>        soc: fsl: qe: use new GPIO line value setter callbacks
+> >>        soc: renesas: pwc-rzv2m: use new GPIO line value setter callbac=
+ks
+> >>
+> >>   drivers/soc/fsl/qe/gpio.c       | 6 ++++--
+> >>   drivers/soc/renesas/pwc-rzv2m.c | 8 +++++---
+> >>   2 files changed, 9 insertions(+), 5 deletions(-)
+> >> ---
+> >> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+> >> change-id: 20250523-gpiochip-set-rv-soc-14e1d9414f70
+> >>
+> >> Best regards,
+> >> --
+> >> Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >>
 > >
-> > Add basic support for the MediaTek MT6572 SoC.
-> >
-> > Signed-off-by: Max Shevchenko wctrl@proton.me
-> > ---
-> > arch/arm/boot/dts/mediatek/mt6572.dtsi | 105 ++++++++++++++++++++++++++=
-+++++++
-> > 1 file changed, 105 insertions(+)
-> >
-> > diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts=
-/mediatek/mt6572.dtsi
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..dd12231ca745be7455e9939=
-1abd2d708f2f1a8a9
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-> > @@ -0,0 +1,105 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (c) 2025 Max Shevchenko wctrl@proton.me
-> > + */
-> > +
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +
-> > +/ {
-> > + #address-cells =3D <1>;
-> > + #size-cells =3D <1>;
-> > + compatible =3D "mediatek,mt6572";
-> > + interrupt-parent =3D <&sysirq>;
-> > +
-> > + cpus {
-> > + #address-cells =3D <1>;
-> > + #size-cells =3D <0>;
-> > + enable-method =3D "mediatek,mt6589-smp";
-> > +
-> > + cpu@0 {
-> > + device_type =3D "cpu";
-> > + compatible =3D "arm,cortex-a7";
-> > + reg =3D <0x0>;
-> > + };
-> > + cpu@1 {
-> > + device_type =3D "cpu";
-> > + compatible =3D "arm,cortex-a7";
-> > + reg =3D <0x1>;
-> > + };
-> > + };
-> > +
-> > + system_clk: dummy13m {
-> > + compatible =3D "fixed-clock";
-> > + clock-frequency =3D <13000000>;
-> > + #clock-cells =3D <0>;
-> > + };
-> > +
-> > + rtc_clk: dummy32k {
-> > + compatible =3D "fixed-clock";
-> > + clock-frequency =3D <32000>;
-> > + #clock-cells =3D <0>;
-> > + };
-> > +
-> > + uart_clk: dummy26m {
-> > + compatible =3D "fixed-clock";
-> > + clock-frequency =3D <26000000>;
-> > + #clock-cells =3D <0>;
-> > + };
-> > +
+> > I see Geert queued patch 2/2, who would take patch 1/2?
 >
 >
-> Anything that has an MMIO address shall be child of "soc".
+> It is in my pipe for v6.17 but if someone else wants to take it I can
+> Ack it instead.
 >
-> soc {
-> watchdog@....
->
-> timer@....
->
-> etc.
-> };
->
-> > + watchdog: watchdog@10007000 {
-> > + compatible =3D "mediatek,mt6572-wdt",
-> > + "mediatek,mt6589-wdt";
->
->
-> those fit in one line:
->
-> compatible =3D "mediatek,mt6572-wdt", "mediatek,mt6589-wdt";
->
-> > + reg =3D <0x10007000 0x100>;
-> > + interrupts =3D <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
-> > + timeout-sec =3D <15>;
-> > + #reset-cells =3D <1>;
-> > + };
-> > +
-> > + timer: timer@10008000 {
-> > + compatible =3D "mediatek,mt6572-timer",
-> > + "mediatek,mt6577-timer";
->
->
-> same
->
-> > + reg =3D <0x10008000 0x80>;
-> > + interrupts =3D <GIC_SPI 74 IRQ_TYPE_LEVEL_LOW>;
-> > + clocks =3D <&system_clk>, <&rtc_clk>;
-> > + clock-names =3D "system-clk", "rtc-clk";
-> > + };
-> > +
-> > + sysirq: interrupt-controller@10200100 {
-> > + compatible =3D "mediatek,mt6572-sysirq",
-> > + "mediatek,mt6577-sysirq";
->
->
-> same; and reg goes after compatible.
->
-> > + interrupt-controller;
-> > + #interrupt-cells =3D <3>;
-> > + interrupt-parent =3D <&gic>;
->
->
-> are you sure that interrupt-parent is gic?
+> Christophe
 
-Other MT65xx devicetrees have GIC as parent for itself and SYSIRQ, so I ass=
-ume.
+No, that's alright, I just didn't get any notification nor is it in
+linux-next yet.
 
->
-> > + reg =3D <0x10200100 0x1c>;
-> > + };
-> > +
-> > + gic: interrupt-controller@10211000 {
-> > + compatible =3D "arm,cortex-a7-gic";
->
->
-> reg here.
->
-> > + interrupt-controller;
-> > + #interrupt-cells =3D <3>;
-> > + interrupt-parent =3D <&gic>;
->
->
-> are you sure that the interrupt parent isn't sysirq here? :-)
-
-not really, downstream has no mentions about SYSIRQ or its' address
-
->
-> > + reg =3D <0x10211000 0x1000>,
-> > + <0x10212000 0x2000>,
-> > + <0x10214000 0x2000>,
-> > + <0x10216000 0x2000>;
-> > + };
-> > +
-> > + uart0: serial@11005000 {
-> > + compatible =3D "mediatek,mt6572-uart",
-> > + "mediatek,mt6577-uart";
->
->
-> fits in one line
->
-> > + reg =3D <0x11005000 0x400>;
-> > + interrupts =3D <GIC_SPI 31 IRQ_TYPE_LEVEL_LOW>;
-> > + clocks =3D <&uart_clk>;
->
->
-> clock-names =3D .....
->
-> > + status =3D "disabled";
-> > + };
-> > +
-> > + uart1: serial@11006000 {
-> > + compatible =3D "mediatek,mt6572-uart",
->
->
-> ...again.
->
-> > + "mediatek,mt6577-uart";
-> > + reg =3D <0x11006000 0x400>;
-> > + interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
-> > + clocks =3D <&uart_clk>;
-> > + status =3D "disabled";
-> > + };
-> > +};
->
->
-> Cheers,
-> Angelo
-
-thanks for suggestions, applied.
-
-
-Sincerely,
-Max
+Bart
 
