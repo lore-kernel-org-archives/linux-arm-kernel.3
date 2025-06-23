@@ -4,104 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F29C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 07:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF7CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 07:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1kWOkDs7l6DKIrvxwugdor4k3RUV9HV/EqTyaUExsc=; b=1XxSp+RiYLYvOJbQ7juZ0uEtEw
-	BPtFe59ag4/0ngS/nwua0q01lGwJiosDQkrhoyyH+AdWundD9oNqsgnAYk6iinnHY8WwH4DZMMqhf
-	fd/0lzUMHjP2N4TLv9DzG8EaxyWkmV7d3BauthOI0hedgwVZdVaVDUFJj/RcVq8qZmmPpTU+9mpjD
-	YPs1MgBJAmvzHnN4PF+ZgI6hnp4dnzjB2L5nnEaEff+qj51cp/P6E/Jz/yeNBXV4w5Fm3TodMxsiN
-	2KX92VWN6b8oNomu+cyuztrYC8bmoDD8QccmdichP6kDiZrSuNett0XpnXSpMMBQlQf7tGGdaMrV4
-	ofcIW8Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=; b=vyT2pL3jqny5Tdo1/ehU2yofp2
+	OgarMPG+4If3uy/k8irNbFbhALN1pVlYDErbWohouDCm3k5ZCR1MDNbk52/ovpgZlg5j+O2J+P+7X
+	JBI8XsS9mxXmjM0yj9wPdkxW0pGN+mwqRg/+JaGP98qQ9G+oq+xA/q/ZiXNEdm6l8N4fXFhpyJ2dX
+	0dIXgtWK9l7Q6VcJ654Yl0sB/6uprM/UfWiz9ySH7p4/wN7cjvBNBsxANmOLeeskBUFZKS22VnfKs
+	eMladWas+byZ366GOvJcZvNP4YOustLnwd8Kyolpdw1E25DqEjA7r8EIXyP4qz4l+ZHi8+szftA5l
+	cucqJbaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTbJj-00000001pyo-0gYP;
-	Mon, 23 Jun 2025 07:10:11 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uTbM3-00000001qCf-2axe;
+	Mon, 23 Jun 2025 07:12:35 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTbAb-00000001pI3-2WTS
+	id 1uTbJ0-00000001pvS-0FGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 07:00:46 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-74924255af4so1323554b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 00:00:45 -0700 (PDT)
+	Mon, 23 Jun 2025 07:09:27 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-450ddb35583so5444985e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 00:09:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750662045; x=1751266845; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=r1kWOkDs7l6DKIrvxwugdor4k3RUV9HV/EqTyaUExsc=;
-        b=RbSdIIKAc6+cP1U3WTSHEoqzsZfCMbLQQpjQsPydntnA8Uzq3y0j0RBxkcB/jPc8t4
-         nGBvjjZD+S/0dxRRJCYnKW4VZd2teb6u1ArOA9UpJL2ot0CtC7zc56A7FBY4geeinKvV
-         pQKZofUxc3+FiNcI2+cxsGOslxxuDpShtN+4G5qcQw8nkTQ0HCtoy77+pbbm9DyvMzo1
-         QfESYIEhEl7zL7BkP12rjqcKKEyYl+K2ZaUoEIQ8wLQZlESOtkcvW/oh0+gFQL5Po9Hp
-         W49XrUuOB7gRpHxiqg9tjfypsrBZNozKlQxERcp1vL6xlQ2OJMVm4ChhWpQeJrmPm104
-         rQCQ==
+        d=innosonix.de; s=google; t=1750662564; x=1751267364; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=;
+        b=N8xTVdwxyiOgRNWsC5VMoZNSJ+liE7wWZp/0mNjgNMcYKo1Al6dTEWIaOHTezBMQdo
+         g6hGQae/7HHriqJTfVBCq5zYHyH3M0fagTbzFSjyX1YBSDy7onlwFjyfDPiHFVhle/z3
+         xnDLylvq65xxd3AplDApL0FhTldkhngscWhILsgEqddi2RauPw/HUSeNGKIVQ9pII5lN
+         CTDqinoVQWJY3vz5LlKkd1A5+J1jwEkBrYkUoVSZoBU8PqHUaMt3fNKezaEYhvLxOCVz
+         Vu9wanvzTElXUULBFPPJuc4OojeKoSVqwCBIum8DWnM9frJxOqfuGcYbKJybokhfO1iN
+         OjtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750662045; x=1751266845;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r1kWOkDs7l6DKIrvxwugdor4k3RUV9HV/EqTyaUExsc=;
-        b=BvFstYtuHJUTqeVW/mDqJJPEnkFMP+2YvFeNlt1lB8bC3PDuQRF0ey8BEd4XsxIBMt
-         +zoJMUTUnVbRY30W52VjVZyv/z7jZmuEkLt5RmkzsYS8oNUiUUfi+RDdVb6vCZMBB62T
-         pS0E+22E/ik0IyT/c6cdm6TXoc5yIpzPhBA13TDMetZUp+y7hriKl+7xpqhroOgFdJly
-         ynh/A0Z1R2fY4Xx1PiCAXlwf/6Eg/ur3Hr6nV/KYjJOVavjFi3AapZjJs2qu3RBJZ0nA
-         sNeir3kcEBWPeuIVwbho9eWYm2SSnZaitAsqTPCf0uyEkAyefE+ddI49kyNNlu5EGVTe
-         uh8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUTjsHh976qB9OCPOqPXqGqv2UX4J/NIgluTt7B4dYB4SFU/ZJ1Fs3oo0VOpH3TunLEVhZoKsUId83qJEkKnzk9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmO54eILLqpNMYCnmGzfn4n6nin72w6nFWqxKPZHYcMqPFw69L
-	9HvspeYJtCmEPzIpKAKGU6FI4PnjYQ3KOkGVWz1w/6m/N0XhgrZCXwNxmrvBusSbo9M=
-X-Gm-Gg: ASbGncv3ILILR81i0kosk7/8Su/KT9b8kUbN/RzgadyoMGX7mdcMGnYZfcY+wFiBRcC
-	OG1UrAnrUgnmc67zXrCFgmShO1awiK4ADjrHbN5FZ60c2cuLSWUlUpUU7KDT2pGZ6X88SmaIwBP
-	upgyLWHkNmD/3ZOPXu2JNoOLUY+B90HtvrtBUHt8AsNURVOjRU8ErBOsvBoNX8gq8vearM5rp9x
-	tFsNtcfXy82ypSkzt+MaZT2P0l3f5IK/jKLhaIV+f7WeIbGBv0XjMFEcTxELtvYqJB4L1+J1Vb8
-	upalt7KE3Ym3rptrGelJ8qGJcXngUTB0+gDD8pUlGQYTPxQUOqryjAgaK4eSBUE=
-X-Google-Smtp-Source: AGHT+IEXarhTj8XelbP6w978NQxFdzm3KYgRpu9wOKj/2FZyhLsamJaeZ3ORI0nsqTL5pXTi/4utUw==
-X-Received: by 2002:a05:6a00:4fc2:b0:736:35d4:f03f with SMTP id d2e1a72fcca58-7490d52ca7cmr17381283b3a.6.1750662044834;
-        Mon, 23 Jun 2025 00:00:44 -0700 (PDT)
-Received: from localhost ([122.172.81.72])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7490a6a72afsm7310911b3a.163.2025.06.23.00.00.43
+        d=1e100.net; s=20230601; t=1750662564; x=1751267364;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=;
+        b=efCWMtIWGZDUyW18/onBOIkdwIrWgSoPrqyw8/rgJKsEzq6adiTacGeE/kt+g/3qrS
+         etuOiBf3j2L0o+VCP45aG4cdrhiDEx7jrS8pr9CKZG4kDQazJ7OzOGn2qm9RHkNNbyYF
+         VEJ8w/0qoaY6eeVpq8izLUR38KO7UVnJ9ei52TRSLBRwjdRXctJnHFI+bHaWHTXDqDAV
+         t0P8m5NNlWJC9w8rGL+fJU5FwHnQhQ6h+jREyUyrUvYPkXijE0f1lIyLefqZ5UuV6CQC
+         1l3bANx+y+pb4gewWezrvaEFjBeX3hwY4sZ6jCvYz4Kk2QHMH3Qb9E+9xdVoOZOoHejn
+         /K3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUYbhF62HxPn0pSdlSZom/GDV+38xbNOpkY7As5n0tedn7GvzSNVuNPvQK2qivIB8Z0wY4JC9j5YQyX7c1N2VAP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQTh4KeIPS16QDs8HquDYplduCp0C9IG5FRE6gDoWhLh8Tfej2
+	VOXunSIUE4Dk3OgY/1DNQYaAd0bhN1QMRtm5oh0PbtVc5J6WR6eh3EnZSq0sGXSY47aZylZfdJp
+	J9+Oss+iBK368vZwYIBw31ffMd0EuPyXgZa2rkwBHMFwZeG8rnNyJmIfUZXnmfhZFy4MqUw==
+X-Gm-Gg: ASbGnctJ3yIqFEM0mpKXUMIuHYRUsXW3rjXdO7+qWGamSqrdMfjWrJ96lbFptbBASOZ
+	p2xgX+5xu+8olyDkWXnn4aN7AYspVJbW4KBXyo+Br0ibVYvFWNEUHam0sA2IRcd7kOBeJHvY9pz
+	URvJn1IBD631XNeYpkrp+E68BAaeStHH0xTx7uiCbirhBolzf+Ika2lfRMpl8mSf0tKIms8PDEo
+	jf21YG9bdMA+eyEgH3CzyIUs+uQS15TMZFldWsh9L7cTDW5LjsfA+e5N+VbCggCAkYOkpe+O1cS
+	cQGQikAex+PuvxIcjtHG6b/0nP2fINr540maLs/qYinoZVPGO5HhfTdPOh5AOqWLdgg=
+X-Google-Smtp-Source: AGHT+IEI5NpQNUMy1aJAjdYtizFyZ4FhXhpX1D2RY5hWJP9EHsy+nQxupmDpC1IL2ETakmaeoEEB8g==
+X-Received: by 2002:a05:6000:210d:b0:3a4:eeeb:7e79 with SMTP id ffacd0b85a97d-3a6d1319d8dmr2308687f8f.12.1750662563989;
+        Mon, 23 Jun 2025 00:09:23 -0700 (PDT)
+Received: from steffen-linux.. ([24.134.20.169])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646cb57fsm102070475e9.1.2025.06.23.00.09.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 00:00:44 -0700 (PDT)
-Date: Mon, 23 Jun 2025 12:30:42 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Mon, 23 Jun 2025 00:09:23 -0700 (PDT)
+From: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>
+To: 
+Cc: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-Subject: Re: [PATCH v3 1/4] dt-bindings: opp: adreno: Update regex of OPP
- entry
-Message-ID: <20250623070042.d7ibrjc24gbtfyci@vireshk-i7>
-References: <20250620-x1p-adreno-v3-0-56398c078c15@oss.qualcomm.com>
- <20250620-x1p-adreno-v3-1-56398c078c15@oss.qualcomm.com>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] nvmem: imx-ocotp: fix MAC address byte length
+Date: Mon, 23 Jun 2025 09:08:49 +0200
+Message-ID: <20250623070901.1733755-1-steffen@innosonix.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620-x1p-adreno-v3-1-56398c078c15@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_000045_664780_41FB0D9F 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20250623_000926_124708_7F43E183 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,53 +105,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20-06-25, 12:24, Akhil P Oommen wrote:
-> In some cases, an OPP may have multiple varients to describe the
-> differences in the resources between SKUs. As an example, we may
-> want to vote different peak bandwidths in different SKUs for the
-> same frequency and the OPP node names can have an additional
-> integer suffix to denote this difference like below:
-> 
->  opp-666000000-0 {
->          opp-hz = /bits/ 64 <666000000>;
->          opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
->          opp-peak-kBps = <8171875>;
->          qcom,opp-acd-level = <0xa82d5ffd>;
->          opp-supported-hw = <0xf>;
->  };
-> 
->  /* Only applicable for SKUs which has 666Mhz as Fmax */
->  opp-666000000-1 {
->          opp-hz = /bits/ 64 <666000000>;
->          opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
->          opp-peak-kBps = <16500000>;
->          qcom,opp-acd-level = <0xa82d5ffd>;
->          opp-supported-hw = <0x10>;
->  };
-> 
-> Update the regex to allow this usecase.
-> 
-> Tested-by: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
->  Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> index a27ba7b663d456f964628a91a661b51a684de1be..0bd7d6b69755f5f53a045ba7b5e1d08030d980e6 100644
-> --- a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> +++ b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> @@ -23,7 +23,7 @@ properties:
->        const: operating-points-v2-adreno
->  
->  patternProperties:
-> -  '^opp-[0-9]+$':
-> +  '^opp(-[0-9]+){1,2}$':
->      type: object
->      additionalProperties: false
+The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
+extension of the "mac-address" cell from 6 to 8 bytes due to word_size
+of 4 bytes.
 
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Thus, the required byte swap for the mac-address of the full buffer length,
+caused an trucation of the read mac-address.
+From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
 
--- 
-viresh
+After swapping only the first 6 bytes, the mac-address is correctly passed
+to the upper layers.
+
+Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
+Signed-off-by: Steffen B=C3=A4tz <steffen@innosonix.de>
+---
+ drivers/nvmem/imx-ocotp-ele.c | 2 ++
+ drivers/nvmem/imx-ocotp.c     | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index ca6dd71d8a2e..3af7968f5a34 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -119,6 +119,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
+*id, int index,
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
++		if (bytes > 6)
++			bytes =3D 6;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
+=20
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 79dd4fda0329..63e9974d9618 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -228,6 +228,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
+*id, int index,
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
++		if (bytes > 6)
++			bytes =3D 6;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
+=20
+--=20
+2.43.0
+
+
+--=20
+
+
+*innosonix GmbH*
+Hauptstr. 35
+96482 Ahorn
+central: +49 9561 7459980
+www.innosonix.de <http://www.innosonix.de>
+
+innosonix GmbH
+Gesch=C3=A4ftsf=C3=BChrer:=20
+Markus B=C3=A4tz, Steffen B=C3=A4tz
+USt.-IdNr / VAT-Nr.: DE266020313
+EORI-Nr.:=20
+DE240121536680271
+HRB 5192 Coburg
+WEEE-Reg.-Nr. DE88021242
 
