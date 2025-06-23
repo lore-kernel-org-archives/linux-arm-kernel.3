@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55ADC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 08:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A740C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 08:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUOansBOJmvnkcEZqO7KuEOy43CI6wTZaKlZ/WmlueQ=; b=uS5cD0DjxOdXFkP+0t6kB/wHuJ
-	4ql2O6PjJ4asLoYJzjyPC2V5yTXKn47sQfd3aYh70j0DIoEEwg22D+2IlDp+Ksgb1YjKJ0hiq4s6l
-	272mdbA9KMmpzcQ/OFBK2pfB+RbDW/kAnnWXVmy9ATTkzLhL0lz0+nkuxzpIFessf4O93wDCbFMHj
-	BsNKXwyB3axydGrcpAVwetLRCMYRiF6XP6/DfTU9JqduFZXho06/L97esT2YioFlP8a0lMaYTLVqo
-	Y13/pOihy9xhN+7ffJEYFo1In9XL8dJimUgOE+rPmaMMtLoem13HPvTKItE1yFPKcl4z1KS/05gpB
-	xWFRb0wg==;
+	bh=68lUwuyihGJ/FS/O4Rr1Ufo0z7cvUD/WCV61oL8aits=; b=1/kFpcfxwUzDcTi6bBduHn8+2F
+	t0m1O8OGnJMANjZ1dkmBYmu/Ykxpww3TnSUvSQ3K33u4zcE7cBFl7P6UvEqVu3wSV0gC1Qk43Iv8J
+	Dbw3OwrIS1EWu/pU+luXLr5NcXvvVeQTZFCQ1b39Osu35Acb3F4jYgv+9hZ9jGrTQIHu89XBZF50x
+	6Cus6NBcbHY3rPwTdVFM3GlGdM6F2ddQOlNkfRwoQVa6Obm93I+jrWFFWmuG/79ms4a1X3hpCUZK4
+	PmqniSBms7rmyED5v+nikEIv+3aQLF4/1TipOCO6YPhaV80lqolZGgpRJ11DCvS2DhhJrW6i5xYXe
+	XJFoSOpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTcrn-000000023KL-39Wh;
-	Mon, 23 Jun 2025 08:49:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uTcu8-00000002464-2VFS;
+	Mon, 23 Jun 2025 08:51:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTce3-0000000214w-2vrk;
-	Mon, 23 Jun 2025 08:35:16 +0000
+	id 1uTce6-0000000215j-1hfB;
+	Mon, 23 Jun 2025 08:35:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750667714;
-	bh=BVqyDTmiCEkrBVIJgwDyuX0wGNoR5DAzI5LXVrpra9A=;
+	s=mail; t=1750667717;
+	bh=YU41Sp80pqlhUDxe2jPkjz382ottt88kUUyJc6M5FDs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=edcb6j8Z3c/hA370Bv1g0g0X9v6ea0lu3zioME18VSKt6blqD+VzSR13tUiZk9edy
-	 BwIott1YjJoA2XA2u8XqaqLADyXYfqEnoNC+ll18uRFN/Sc5dO8Bi7sTwbn+1mS3r0
-	 mDu3BGLYfwcNMOh/Jx+HA3cOFXUMPXBNr1z0GQGI3SYRKXsftVOYs3HoM0x7sOgE3t
-	 F4x0PI2xuRljZg6RH33+3HXfw/mS2oDpnZZaccO11Tu63wmKyg3QQmKF3/V11gUSn2
-	 b1PhQwp342cSMQMGdY/Yhr4h8JntkzGwtpbyacXMIdcaO7ddRwjHaBefFm6cIOkh6Q
-	 /qnHxtwAl4jOw==
+	b=UyLJtDQZtrSmzZPL7ocG7LPyv+UtHaMBKwtS5T0jLgBTlimfsQ7B0wmKQNVHpZQMj
+	 NsPS8SoKF6gFiSTh7AqBPBpt5gtgsxkRZ1wVxl20Dx6QoHjoV6Hvw5394pboV/neuq
+	 gg37ihdAihWa566F8hu2HQcan4cmyI0MIniaD2dFeye5VTBLaRmNl9+FKu6NMcFiYG
+	 AOE4OkTeTBIWgXqEpXebShUcQZc8uIQntzzG8W09dMLpFR3u5H7uLah445l/TRPTtc
+	 OJDfynR+Shv5AK/ajGN1WimF492uR4BXapTqtoUSg4HuqEFEUtsaB9bw25qVo2Dk3g
+	 7dcsYbx2VTgxg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81C3B17E156D;
-	Mon, 23 Jun 2025 10:35:13 +0200 (CEST)
-Message-ID: <41a90422-6137-4bdc-b268-29f420ed50aa@collabora.com>
-Date: Mon, 23 Jun 2025 10:35:13 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B90717E156E;
+	Mon, 23 Jun 2025 10:35:16 +0200 (CEST)
+Message-ID: <b0c43d9e-bd29-4fcd-9c62-269f6c6ef7e4@collabora.com>
+Date: Mon, 23 Jun 2025 10:35:15 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/11] dt-bindings: serial: mediatek,uart: add MT6572
+Subject: Re: [PATCH 07/11] ARM: mediatek: show the hardware name for the
+ MT6572
 To: wctrl@proton.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -61,16 +62,15 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org
 References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
- <20250620-mt6572-v1-1-e2d47820f042@proton.me>
+ <20250620-mt6572-v1-7-e2d47820f042@proton.me>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250620-mt6572-v1-1-e2d47820f042@proton.me>
+In-Reply-To: <20250620-mt6572-v1-7-e2d47820f042@proton.me>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_013515_901443_10D2650A 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_013518_611551_7C79F4B2 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,11 +88,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Il 20/06/25 17:40, Max Shevchenko via B4 Relay ha scritto:
 > From: Max Shevchenko <wctrl@proton.me>
 > 
-> Add a compatible string for serial on the MT6572 SoC.
+> Add a compatible string for the MT6572 SoC.
 > 
-> Signed-off-by: Max Shevchenko <wctrl@proton.me>
+
+Please clarify the commit title.
+
+ARM: mediatek: Add board_dt_compat entry for the MT6572 SoC
+
+after which:
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> Signed-off-by: Max Shevchenko <wctrl@proton.me>
+> ---
+>   arch/arm/mach-mediatek/mediatek.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm/mach-mediatek/mediatek.c b/arch/arm/mach-mediatek/mediatek.c
+> index e6e9f93a1f01c7d043cf4312b9406b25c8897198..5c28124bd0078b31665fef647e496f4131b82c8d 100644
+> --- a/arch/arm/mach-mediatek/mediatek.c
+> +++ b/arch/arm/mach-mediatek/mediatek.c
+> @@ -38,6 +38,7 @@ static void __init mediatek_timer_init(void)
+>   
+>   static const char * const mediatek_board_dt_compat[] = {
+>   	"mediatek,mt2701",
+> +	"mediatek,mt6572",
+>   	"mediatek,mt6589",
+>   	"mediatek,mt6592",
+>   	"mediatek,mt7623",
+> 
 
 
 
