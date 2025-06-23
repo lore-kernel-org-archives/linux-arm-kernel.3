@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFB5C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA7BC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ud+JXHrPKPaq8qIANE1zzBbSdUXRJHEUD6JJ8MZJ6M=; b=JktClfweMoF1FRgG8Md00HdEaL
-	Dcfx8gi8OE3+mO29VKi7kxWf0ZpnVmeBWGn1JWWyTsWyrytq95KIeBncLtchk6QpGBXR3FOLMwpX3
-	8Y9xcQT5eOAfjXKcrDa1CqAwZL4fV1UPzGhjA9InHOJqR90A7aRlfzwWaoriPeQfsZ0nrueRmycgE
-	eKNNIqN4rJWm36WA9S1QSs9//Ccnm3P5Bn7HNg6siqLcqop8/MsWavor1KRKED5yVuCZHXWc/25Dk
-	VQb9Qfn160MbzKjzUyMpWLsXZRnOIHZ+mQYPwPIs1NUvt7S0AMJRRIpP0FiaQFbCejjQ6gsS/APD7
-	9KYmZJrQ==;
+	bh=XRsS3l8dhi9TIh1Dkfg9W3AR5WCMRnckr3atRlVTi4M=; b=yTwjIlif5s8rAxBJBhoPCdXtZ3
+	kxD+iKcsjy3KR1JxbPQeK4rhZRO19BCs29EGRxKvtawbO0nPfZPfaadUoeEJklkjx1CcQmh4YntQ/
+	NlFlHnfGWjRUHL2e3/PttxxtqHAXIihFER0Fpv+9afzT0zXjy/IW23G8H29r9lIr6cu5vWuo4zIvI
+	cdziaIGaQvIYEwg9TPm5v+DMTP9pcML1JhPxhuGNT9bds3KEIEUB3WfD40y5ErMTedxA6YHb45MJa
+	xrF8XUu7JgOmm84/+AAdNLzIdPCEv/xnGVi/TrXIr0yvYF8+AgGSXwuW+zSwOn1zOCCe5yfzTlSiE
+	WDFb9oPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTiko-00000003A5D-1Zdu;
-	Mon, 23 Jun 2025 15:06:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTimP-00000003APG-1eOC;
+	Mon, 23 Jun 2025 15:08:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfsB-00000002bCp-2Zlw;
-	Mon, 23 Jun 2025 12:02:05 +0000
+	id 1uTfr3-00000002akc-2Jru;
+	Mon, 23 Jun 2025 12:00:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750680122;
-	bh=Jy2EB1cMlsijtNMvI79qnH/ppAJrlFyGTqcN90xczFE=;
+	s=mail; t=1750680052;
+	bh=7i4gj4FLic9Db/zKjHzbibMfS0LjHs3CHldwZgnqQRM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GJPBje4Y/oh8tcXAZoW56YBHVZFu3VGDXLy1AfplnLW1nOV7EUewmi4jD7PYpNTMQ
-	 RKulYByBDNdqKGQxip5chnjDeUTJKYUu2Cc9ZzGP27FY9dpq3V1y29e6ZyFwSxdeQT
-	 zZPSnOcU7k3T/kZtecSRbj1x6TVTQb/9ifcHCZO+kJyduJgkSuG/z5ouYWAzxKO2hn
-	 gyAuQHY9oqrcTlA45Ry4XGEXknX/X4TEXENgotvOuGTX76+rwrISOoHziTt+58P/He
-	 LTrbGRLGgnsyDp7s37p3PaEFGvq8rteWSzYzugLAHFE0NSGHghj1mq6aOdYAvvAhQ3
-	 jtul1iJ+UlnSw==
+	b=eK1+ppPb3x94K3iNJno2UtDG+eL+a33xnoHqwao4b0D/2aGSazdFf6I/ldqKfxrz5
+	 6cEBZReRY7QBLfaWzdYG3Y/ZbwO0PY11g6JU0qitLS/2WFzfom+QbuTIn7LrGTreHo
+	 47W73vPrAnnPuu4ZwkMHJ+Q+h83Vvz/Fb6DPIPeFC6Rj7a64K63yu3R+a08FVZQKfO
+	 s2l4K7KZIZDEJmQMEBd+pGpTGev+fK+ZOp55MedawQH9ixipZ7uaO9zJV4OUdr0JKm
+	 Ei/Wvj2aTHFeRED4Gye0zVy4gP7MCJ8jedtHfAESU34tvL+QydLiENcETqeRjWUcfZ
+	 WhPwJ6spgaOmg==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 73CE817E156D;
-	Mon, 23 Jun 2025 14:02:01 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 97E1417E0EC0;
+	Mon, 23 Jun 2025 14:00:51 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
+To: sboyd@kernel.org
 Cc: robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	ulf.hansson@linaro.org,
-	y.oudjana@protonmail.com,
-	fshao@chromium.org,
-	wenst@chromium.org,
-	lihongbo22@huawei.com,
-	mandyjh.liu@mediatek.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
+	hsin-hsiung.wang@mediatek.com,
 	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 04/13] pmdomain: mediatek: Move ctl sequences out of power_on/off functions
-Date: Mon, 23 Jun 2025 14:01:45 +0200
-Message-ID: <20250623120154.109429-5-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 1/5] dt-bindings: spmi: Add MediaTek MT8196 SPMI 2 Arbiter/Controllers
+Date: Mon, 23 Jun 2025 14:00:43 +0200
+Message-ID: <20250623120047.108961-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
-References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
+References: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050203_816308_55C903C0 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250623_050053_748660_DC2013A3 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +81,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to support power domains of new SoCs and the modem
-power domains for both new and already supported chips, move the
-generic control power sequences out of the scpsys_power_on() and
-scpsys_power_off() and put them in new scpsys_ctl_pwrseq_on(),
-scpsys_ctl_pewseq_off() functions.
+Document the MT8196 SPMI 2.0 Controller with a new schema.
+This is a MIPI SPMI 2.0 compliant IP, composed of a main arbiter
+and two SPMI master controllers with Request Capable Slave (RCS)
+support.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 57 ++++++++++++++--------
- 1 file changed, 38 insertions(+), 19 deletions(-)
+ .../bindings/spmi/mediatek,mt8196-spmi.yaml   | 138 ++++++++++++++++++
+ 1 file changed, 138 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index 2a430e7cd353..331736d55329 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -244,11 +244,45 @@ static int scpsys_regulator_disable(struct regulator *supply)
- 	return supply ? regulator_disable(supply) : 0;
- }
- 
-+static int scpsys_ctl_pwrseq_on(struct scpsys_domain *pd)
-+{
-+	struct scpsys *scpsys = pd->scpsys;
-+	bool tmp;
-+	int ret;
+diff --git a/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+new file mode 100644
+index 000000000000..d7eb63e81a5c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+@@ -0,0 +1,138 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spmi/mediatek,mt8196-spmi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	/* subsys power on */
-+	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
-+	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_2ND_BIT);
++title: MediaTek MT8196 SPMI 2.0 Controller
 +
-+	/* wait until PWR_ACK = 1 */
-+	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, tmp, MTK_POLL_DELAY_US,
-+				 MTK_POLL_TIMEOUT);
-+	if (ret < 0)
-+		return ret;
++maintainers:
++  - Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 +
-+	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
-+	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ISO_BIT);
-+	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
++description:
++  The MediaTek MT8196 SoC features a SPMI version 2.0 compliant controller,
++  with internal wrapping arbitration logic to allow for multiple on-chip
++  devices to control up to two SPMI buses.
++  The main arbiter also acts as an interrupt controller, arbitering also
++  the interrupts coming from SPMI-connected devices into each of the nested
++  interrupt controllers from any of the present SPMI buses.
 +
-+	return 0;
-+}
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - mediatek,mt8196-spmi
++      - items:
++          - enum:
++              - mediatek,mt6991-spmi
++          - const: mediatek,mt8196-spmi
 +
-+static void scpsys_ctl_pwrseq_off(struct scpsys_domain *pd)
-+{
-+	struct scpsys *scpsys = pd->scpsys;
++  ranges: true
 +
-+	/* subsys power off */
-+	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ISO_BIT);
-+	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
-+	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
-+	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_2ND_BIT);
-+	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
-+}
++  '#address-cells':
++    const: 1
 +
- static int scpsys_power_on(struct generic_pm_domain *genpd)
- {
- 	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
- 	struct scpsys *scpsys = pd->scpsys;
--	bool tmp;
- 	int ret;
- 
- 	ret = scpsys_regulator_enable(pd->supply);
-@@ -263,20 +297,10 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
- 		regmap_clear_bits(scpsys->base, pd->data->ext_buck_iso_offs,
- 				  pd->data->ext_buck_iso_mask);
- 
--	/* subsys power on */
--	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
--	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_2ND_BIT);
--
--	/* wait until PWR_ACK = 1 */
--	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, tmp, MTK_POLL_DELAY_US,
--				 MTK_POLL_TIMEOUT);
--	if (ret < 0)
-+	ret = scpsys_ctl_pwrseq_on(pd);
-+	if (ret)
- 		goto err_pwr_ack;
- 
--	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
--	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ISO_BIT);
--	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
--
- 	/*
- 	 * In few Mediatek platforms(e.g. MT6779), the bus protect policy is
- 	 * stricter, which leads to bus protect release must be prior to bus
-@@ -342,12 +366,7 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
- 
- 	clk_bulk_disable_unprepare(pd->num_subsys_clks, pd->subsys_clks);
- 
--	/* subsys power off */
--	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_ISO_BIT);
--	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
--	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
--	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_2ND_BIT);
--	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
-+	scpsys_ctl_pwrseq_off(pd);
- 
- 	/* wait until PWR_ACK = 0 */
- 	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, !tmp, MTK_POLL_DELAY_US,
++  '#size-cells':
++    const: 1
++
++patternProperties:
++  "^spmi@[a-f0-9]+$":
++    type: object
++    $ref: /schemas/spmi/spmi.yaml
++    unevaluatedProperties: false
++
++    properties:
++      reg:
++        items:
++          - description: controller interface registers
++          - description: spmi master controller registers
++
++      reg-names:
++        items:
++          - const: pmif
++          - const: spmimst
++
++      clocks:
++        items:
++          - description: controller interface system clock
++          - description: controller interface timer clock
++          - description: spmi controller master clock
++
++      clock-names:
++        items:
++          - const: pmif_sys_ck
++          - const: pmif_tmr_ck
++          - const: spmimst_clk_mux
++
++      interrupts:
++        maxItems: 1
++
++      interrupt-names:
++        const: rcs
++
++      interrupt-controller: true
++
++      "#interrupt-cells":
++        const: 3
++        description: |
++          cell 1: slave ID for the requested interrupt (0-15)
++          cell 2: the requested peripheral interrupt (0-7)
++          cell 3: interrupt flags indicating level-sense information,
++                  as defined in dt-bindings/interrupt-controller/irq.h
++    required:
++      - reg
++      - reg-names
++      - clocks
++      - clock-names
++      - interrupts
++      - interrupt-names
++      - interrupt-controller
++      - "#interrupt-cells"
++
++required:
++  - compatible
++  - ranges
++  - '#address-cells'
++  - '#size-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      spmi-arbiter@1c018000 {
++        compatible = "mediatek,mt8196-spmi";
++        ranges = <0 0 0x1c018000 0x4900>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        spmi@0 {
++          reg = <0 0x900>, <0x4800 0x100>;
++          reg-names = "pmif", "spmimst";
++          interrupts-extended = <&pio 292 IRQ_TYPE_LEVEL_HIGH>;
++          interrupt-names = "rcs";
++         interrupt-controller;
++          #interrupt-cells = <3>;
++          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
++          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
++        };
++
++        spmi@2000 {
++          reg = <0x2000 0x900>, <0x4000 0x100>;
++          reg-names = "pmif", "spmimst";
++          interrupts-extended = <&pio 291 IRQ_TYPE_LEVEL_HIGH>;
++          interrupt-names = "rcs";
++          interrupt-controller;
++          #interrupt-cells = <3>;
++          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
++          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
++        };
++      };
++    };
++...
 -- 
 2.49.0
 
