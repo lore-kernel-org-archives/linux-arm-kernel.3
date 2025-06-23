@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CC0C8300E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB95C8300F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 19:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1S5heQrcYvAeu3WUp69aeC7WiFMaPEzzrWgW+LjVcjc=; b=v5erzEh1hXMvgAdkJNjgismbNT
-	bbJFOUI+6r2QGFspbdUQZVjqdM4eM8++i05+R3UeVEC1D4lfM1pVU3ZY5tVPCnOIkuFzD3a5zm6FJ
-	XPhN3pRF5tGl3ShZSL45mwRf4UjhnO6k6ogXVYboiIlHX42QYO9lAbVQ5h88d3mrs9CWA5807yYkI
-	o1nFDvnJqNc9aFQ456ocBXVhK8XBvcynimb2rAv1h03XD8eO+X5ZW1hqokMfomElv6XDFNJ1TxJ8s
-	CXvzG8uoU3IWRhdNvH1kG/bc/+TM4iolerAg0mk2kQGfxhGlphwZ6WdQDTX+ugJQoOT9X4/N/lALk
-	EueF9HzQ==;
+	bh=WTAWkN6pTdlNNmM2sldTtlbeQFPtzkZ588tjHTemtVA=; b=SwLTbFt482ckSRokAi6D8YdEeV
+	cVCrEJhGx17m6q9g5Mu3jy2K2mD2vDETm2OsYWu7X2qX0TNHG4Ndz8a9Za/Ro0Xb9iP248nZsySmq
+	8pupwxplWzWRkzMseyFF8AqMESiZYb9utKIJoHhncLKELwBk/66i2HIHxm+AuCOiWSWDMkXjLLqO8
+	TOUVTKHpivt5auo16eSk1xqnzbNyVfoZXGxtnJSkcg0aWm4GJa0etB0vr9vbAlQ80HAoyrfZndWHE
+	3G0lXAiBwAIyYx/TqZY73umttYFcawz3FkM/znVmb0/+ehFpwjlrdZDDV8Z5zrjvEEf6RiFhANjwj
+	mGDEnwNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTn3K-00000003p0z-1xcl;
-	Mon, 23 Jun 2025 19:42:02 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uTn3D-00000003ow5-0xla;
+	Mon, 23 Jun 2025 19:41:55 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjGm-00000003Gla-0oP0;
-	Mon, 23 Jun 2025 15:39:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750693178;
-	bh=KDH+/gW6yn9I2UwYlMTdNzQWTyMyt5BVfKx7aD5TECo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VXrR8XiyDlGac1c/hJuar7OefG8QiBek+2tWhysQOpEW/HUc1IEv6hmLIKTyKPVNi
-	 UDB5tCM4Pi4XLcj1gliAUzTulIpWbFXLWkD4Bnps15OV2ZnPz+Tvw5LDgVPWRq29Ko
-	 0BUq9ewsbMR2MY0MA6nZVoBGSSbD2M9Y1Tr5cyTwrVUfvI9pdI6WY5xcKxPF3ut2IE
-	 4p465XfCWUA+DWQfFGuLvIufNYMfK35rwsrLCjWWrGVaHOZj+epGwfoxhi3A2vxEcE
-	 y1TqWzwguZHy5+LIyyZB41bPMAegH+elH1daq65hF+/tVco2dB1cBfU8YTEyMoMil0
-	 GH5LhJROs3Bng==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:d44b:b63b:15ee:9c1d])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6737E17E156E;
-	Mon, 23 Jun 2025 17:39:38 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
+	id 1uTj5E-00000003EM5-2a5M
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 15:27:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=WTAWkN6pTdlNNmM2sldTtlbeQFPtzkZ588tjHTemtVA=; b=mbO5d8522i6IlMDkVgta40dUuZ
+	ziGf7/Knd3fYbuys3n1OXta0YOf6WpC2G+Hf48y2FBunrEckgZ7+eMLEHomqC1SYknPIAkzl0iIG5
+	2ZLh16z8K2zS+iDxZABdRarALL2Ou29ofrWMw1ZS4AdeL6UdXvRK27v2g3Ja1oo40n8WO9PAjklKZ
+	wpdFwUGtnVTwzJmXK9r48UJJgGCcuIS4cDMeDsZN4DppA8hGxqjHpi80IAfhRNySkI5k3F9diJVCr
+	er/a2tMIPpve/n2AkDYWd2RvHbAcbDFfV48RrNYAvDwKgC4HkEWbIF3Fu/yw/Z1LOkzZ0LAxXAM97
+	XcV1nrGQ==;
+Received: from [122.175.9.182] (port=46225 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uTj59-00000006TQ0-3cCT;
+	Mon, 23 Jun 2025 11:27:40 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca
-Cc: iommu@lists.linux.dev,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	s.hauer@pengutronix.de,
+	m-karicheri2@ti.com,
+	glaroque@baylibre.com,
+	afd@ti.com,
+	saikrishnag@marvell.com,
+	m-malladi@ti.com,
+	jacob.e.keller@intel.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	horms@kernel.org,
+	s-anna@ti.com,
+	basharath@couthit.com,
+	parvathi@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v4 3/5] iommu: Add verisilicon IOMMU driver
-Date: Mon, 23 Jun 2025 17:39:27 +0200
-Message-ID: <20250623153931.158765-4-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250623153931.158765-1-benjamin.gaignard@collabora.com>
-References: <20250623153931.158765-1-benjamin.gaignard@collabora.com>
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v9 06/11] net: ti: prueth: Adds HW timestamping support for PTP using PRU-ICSS IEP module
+Date: Mon, 23 Jun 2025 20:56:33 +0530
+Message-Id: <20250623152638.254964-7-parvathi@couthit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250623135949.254674-1-parvathi@couthit.com>
+References: <20250623135949.254674-1-parvathi@couthit.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_083940_539751_133BE358 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20250623_082744_715187_3ED4F1E8 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,802 +118,881 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Verisilicon IOMMU hardware block can be found in combination
-with Verisilicon hardware video codecs (encoders or decoders) on
-different SoCs.
-Enable it will allow us to use non contiguous memory allocators
-for Verisilicon video codecs.
+From: Roger Quadros <rogerq@ti.com>
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+PRU-ICSS IEP module, which is capable of timestamping RX and
+TX packets at HW level, is used for time synchronization by PTP4L.
+
+This change includes interaction between firmware and user space
+application (ptp4l) with required packet timestamps. The driver
+initializes the PRU firmware with appropriate mode and configuration
+flags. Firmware updates local registers with the flags set by driver
+and uses for further operation. RX SOF timestamp comes along with
+packet and firmware will rise interrupt with TX SOF timestamp after
+pushing the packet on to the wire.
+
+IEP driver is available in upstream and we are reusing for hardware
+configuration for ICSSM as well. On top of that we have extended it
+with the changes for AM57xx SoC.
+
+Extended ethtool for reading HW timestamping capability of the PRU
+interfaces.
+
+Currently ordinary clock (OC) configuration has been validated with
+Linux ptp4l.
+
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 ---
-change in version 4:
-- Kconfig dependencies
-- Fix the remarks done by Jason and Robin: locking, clocks, macros
-  probing, pm_runtime, atomic allocation.
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |  42 ++
+ drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  23 +
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 439 +++++++++++++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  11 +
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 ++++
+ 5 files changed, 598 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
 
- drivers/iommu/Kconfig     |  11 +
- drivers/iommu/Makefile    |   1 +
- drivers/iommu/vsi-iommu.c | 741 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 753 insertions(+)
- create mode 100644 drivers/iommu/vsi-iommu.c
-
-diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index 0a33d995d15d..e6e75b39ec22 100644
---- a/drivers/iommu/Kconfig
-+++ b/drivers/iommu/Kconfig
-@@ -383,4 +383,15 @@ config SPRD_IOMMU
+diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+index 2a1c43316f46..031a6be6a4e3 100644
+--- a/drivers/net/ethernet/ti/icssg/icss_iep.c
++++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+@@ -968,11 +968,53 @@ static const struct icss_iep_plat_data am654_icss_iep_plat_data = {
+ 	.config = &am654_icss_iep_regmap_config,
+ };
  
- 	  Say Y here if you want to use the multimedia devices listed above.
- 
-+config VSI_IOMMU
-+	tristate "Verisilicon IOMMU Support"
-+	depends on (ARCH_ROCKCHIP && ARM64) || COMPILE_TEST
-+	select IOMMU_API
-+	help
-+	  Support for IOMMUs used by Verisilicon sub-systems like video
-+	  decoders or encoder hardware blocks.
++static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
++	.flags = ICSS_IEP_64BIT_COUNTER_SUPPORT |
++		 ICSS_IEP_SLOW_COMPEN_REG_SUPPORT,
++	.reg_offs = {
++		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
++		[ICSS_IEP_COMPEN_REG] = 0x08,
++		[ICSS_IEP_SLOW_COMPEN_REG] = 0x0C,
++		[ICSS_IEP_COUNT_REG0] = 0x10,
++		[ICSS_IEP_COUNT_REG1] = 0x14,
++		[ICSS_IEP_CAPTURE_CFG_REG] = 0x18,
++		[ICSS_IEP_CAPTURE_STAT_REG] = 0x1c,
 +
-+	  Say Y here if you want to use this IOMMU in front of these
-+	  hardware blocks.
++		[ICSS_IEP_CAP6_RISE_REG0] = 0x50,
++		[ICSS_IEP_CAP6_RISE_REG1] = 0x54,
 +
- endif # IOMMU_SUPPORT
-diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
-index 355294fa9033..68aeff31af8b 100644
---- a/drivers/iommu/Makefile
-+++ b/drivers/iommu/Makefile
-@@ -34,3 +34,4 @@ obj-$(CONFIG_IOMMU_SVA) += iommu-sva.o
- obj-$(CONFIG_IOMMU_IOPF) += io-pgfault.o
- obj-$(CONFIG_SPRD_IOMMU) += sprd-iommu.o
- obj-$(CONFIG_APPLE_DART) += apple-dart.o
-+obj-$(CONFIG_VSI_IOMMU) += vsi-iommu.o
-diff --git a/drivers/iommu/vsi-iommu.c b/drivers/iommu/vsi-iommu.c
-new file mode 100644
-index 000000000000..d26c2fd06711
---- /dev/null
-+++ b/drivers/iommu/vsi-iommu.c
-@@ -0,0 +1,741 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Copyright (C) 2025 Collabora Ltd.
-+ *
-+ * IOMMU API for Verisilicon
-+ *
-+ * Module Authors:	Yandong Lin <yandong.lin@rock-chips.com>
-+ *			Simon Xue <xxm@rock-chips.com>
-+ *			Benjamin Gaignard <benjamin.gaignard@collabora.com>
-+ */
++		[ICSS_IEP_CAP7_RISE_REG0] = 0x60,
++		[ICSS_IEP_CAP7_RISE_REG1] = 0x64,
 +
-+#include <linux/clk.h>
-+#include <linux/compiler.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/errno.h>
-+#include <linux/init.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iommu.h>
-+#include <linux/list.h>
-+#include <linux/mm.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_iommu.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
++		[ICSS_IEP_CMP_CFG_REG] = 0x70,
++		[ICSS_IEP_CMP_STAT_REG] = 0x74,
++		[ICSS_IEP_CMP0_REG0] = 0x78,
++		[ICSS_IEP_CMP0_REG1] = 0x7c,
++		[ICSS_IEP_CMP1_REG0] = 0x80,
++		[ICSS_IEP_CMP1_REG1] = 0x84,
 +
-+#include "iommu-pages.h"
-+
-+struct vsi_iommu {
-+	struct device *dev;
-+	void __iomem *regs;
-+	struct clk_bulk_data *clocks;
-+	int num_clocks;
-+	struct iommu_device iommu;
-+	struct list_head node; /* entry in vsi_iommu_domain.iommus */
-+	struct iommu_domain *domain; /* domain to which iommu is attached */
-+	spinlock_t lock;
-+	int irq;
++		[ICSS_IEP_CMP8_REG0] = 0xc0,
++		[ICSS_IEP_CMP8_REG1] = 0xc4,
++		[ICSS_IEP_SYNC_CTRL_REG] = 0x180,
++		[ICSS_IEP_SYNC0_STAT_REG] = 0x188,
++		[ICSS_IEP_SYNC1_STAT_REG] = 0x18c,
++		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x190,
++		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x194,
++		[ICSS_IEP_SYNC1_DELAY_REG] = 0x198,
++		[ICSS_IEP_SYNC_START_REG] = 0x19c,
++	},
++	.config = &am654_icss_iep_regmap_config,
 +};
 +
-+struct vsi_iommu_domain {
-+	struct vsi_iommu *iommu;
-+	struct list_head iommus;
-+	u32 *dt;
-+	dma_addr_t dt_dma;
-+	struct iommu_domain domain;
-+	u64 *pta;
-+	dma_addr_t pta_dma;
-+};
-+
-+static struct iommu_domain vsi_identity_domain;
-+
-+#define NUM_DT_ENTRIES	1024
-+#define NUM_PT_ENTRIES	1024
-+#define PT_SIZE		(NUM_PT_ENTRIES * sizeof(u32))
-+
-+#define SPAGE_SIZE	BIT(12)
-+
-+/* vsi iommu regs address */
-+#define VSI_MMU_CONFIG1_BASE			0x1ac
-+#define VSI_MMU_AHB_EXCEPTION_BASE		0x380
-+#define VSI_MMU_AHB_CONTROL_BASE		0x388
-+#define VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE	0x38C
-+
-+/* MMU register offsets */
-+#define VSI_MMU_FLUSH_BASE		0x184
-+#define VSI_MMU_BIT_FLUSH		BIT(4)
-+
-+#define VSI_MMU_PAGE_FAULT_ADDR		0x380
-+#define VSI_MMU_STATUS_BASE		0x384	/* IRQ status */
-+
-+#define VSI_MMU_BIT_ENABLE		BIT(0)
-+
-+#define VSI_MMU_OUT_OF_BOUND		BIT(28)
-+/* Irq mask */
-+#define VSI_MMU_IRQ_MASK		0x7
-+
-+#define VSI_DTE_PT_ADDRESS_MASK		0xffffffc0
-+#define VSI_DTE_PT_VALID		BIT(0)
-+
-+#define VSI_PAGE_DESC_LO_MASK		0xfffff000
-+
-+static inline phys_addr_t vsi_dte_pt_address(u32 dte)
+ static const struct of_device_id icss_iep_of_match[] = {
+ 	{
+ 		.compatible = "ti,am654-icss-iep",
+ 		.data = &am654_icss_iep_plat_data,
+ 	},
++	{
++		.compatible = "ti,am5728-icss-iep",
++		.data = &am57xx_icss_iep_plat_data,
++	},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, icss_iep_of_match);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+index 6faa46ba6364..6aafca17b730 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+@@ -8,6 +8,7 @@
+ #include <linux/if_bridge.h>
+ #include <linux/if_vlan.h>
+ #include "icssm_prueth.h"
++#include "../icssg/icss_iep.h"
+ 
+ /* set PRU firmware statistics */
+ void icssm_emac_set_stats(struct prueth_emac *emac,
+@@ -221,6 +222,27 @@ icssm_emac_get_eth_mac_stats(struct net_device *ndev,
+ 	mac_stats->MultipleCollisionFrames = pstats.multi_coll;
+ }
+ 
++static int icssm_emac_get_ts_info(struct net_device *ndev,
++				  struct kernel_ethtool_ts_info *info)
 +{
-+	return (phys_addr_t)dte & VSI_DTE_PT_ADDRESS_MASK;
++	struct prueth_emac *emac = netdev_priv(ndev);
++
++	if ((PRUETH_IS_EMAC(emac->prueth) && !emac->emac_ptp_tx_irq))
++		return ethtool_op_get_ts_info(ndev, info);
++
++	info->so_timestamping =
++		SOF_TIMESTAMPING_TX_HARDWARE |
++		SOF_TIMESTAMPING_RX_HARDWARE |
++		SOF_TIMESTAMPING_RAW_HARDWARE;
++
++	info->phc_index = icss_iep_get_ptp_clock_idx(emac->prueth->iep);
++	info->tx_types = BIT(HWTSTAMP_TX_OFF) | BIT(HWTSTAMP_TX_ON);
++	info->rx_filters = BIT(HWTSTAMP_FILTER_NONE) |
++				BIT(HWTSTAMP_FILTER_PTP_V2_EVENT);
++
++	return 0;
 +}
 +
-+static inline u32 vsi_mk_dte(u32 dte)
+ /* Ethtool support for EMAC adapter */
+ const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_drvinfo = icssm_emac_get_drvinfo,
+@@ -233,5 +255,6 @@ const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_regs = icssm_emac_get_regs,
+ 	.get_rmon_stats = icssm_emac_get_rmon_stats,
+ 	.get_eth_mac_stats = icssm_emac_get_eth_mac_stats,
++	.get_ts_info = icssm_emac_get_ts_info,
+ };
+ EXPORT_SYMBOL_GPL(emac_ethtool_ops);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index 2b10538c616e..e45f67160d99 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -30,6 +30,7 @@
+ 
+ #include "icssm_prueth.h"
+ #include "../icssg/icssg_mii_rt.h"
++#include "../icssg/icss_iep.h"
+ 
+ #define OCMC_RAM_SIZE		(SZ_64K)
+ 
+@@ -50,6 +51,45 @@ static void icssm_prueth_write_reg(struct prueth *prueth,
+ 						ETH_FCS_LEN + \
+ 						ICSSM_LRE_TAG_SIZE)
+ 
++static void icssm_prueth_ptp_ts_enable(struct prueth_emac *emac)
 +{
-+	return (phys_addr_t)dte | VSI_DTE_PT_VALID;
-+}
++	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	u8 val = 0;
 +
-+#define VSI_PTE_PAGE_WRITABLE		BIT(2)
-+#define VSI_PTE_PAGE_VALID		BIT(0)
-+
-+static inline phys_addr_t vsi_pte_page_address(u32 pte)
-+{
-+	return (phys_addr_t)(pte & VSI_PAGE_DESC_LO_MASK);
-+}
-+
-+static u32 vsi_mk_pte(phys_addr_t page, int prot)
-+{
-+	u32 flags = 0;
-+
-+	flags |= (prot & IOMMU_WRITE) ? VSI_PTE_PAGE_WRITABLE : 0;
-+	page = (page & VSI_PAGE_DESC_LO_MASK);
-+
-+	return page | flags | VSI_PTE_PAGE_VALID;
-+}
-+
-+#define VSI_DTE_PT_VALID	BIT(0)
-+
-+static inline bool vsi_dte_is_pt_valid(u32 dte)
-+{
-+	return dte & VSI_DTE_PT_VALID;
-+}
-+
-+static inline bool vsi_pte_is_page_valid(u32 pte)
-+{
-+	return pte & VSI_PTE_PAGE_VALID;
-+}
-+
-+static u32 vsi_mk_pte_invalid(u32 pte)
-+{
-+	return pte & ~VSI_PTE_PAGE_VALID;
-+}
-+
-+#define VSI_MASTER_TLB_MASK	GENMASK_ULL(31, 10)
-+/* mode 0 : 4k */
-+#define VSI_PTA_4K_MODE	0
-+
-+static u64 vsi_mk_pta(dma_addr_t dt_dma)
-+{
-+	u64 val = (dt_dma & VSI_MASTER_TLB_MASK) | VSI_PTA_4K_MODE;
-+
-+	return val;
-+}
-+
-+static struct vsi_iommu_domain *to_vsi_domain(struct iommu_domain *dom)
-+{
-+	return container_of(dom, struct vsi_iommu_domain, domain);
-+}
-+
-+static void vsi_iommu_disable(struct vsi_iommu *iommu)
-+{
-+	writel(0, iommu->regs + VSI_MMU_AHB_CONTROL_BASE);
-+}
-+
-+static void vsi_iommu_enable(struct vsi_iommu *iommu, struct iommu_domain *domain)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+
-+	writel(vsi_domain->pta_dma, iommu->regs + VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE);
-+	writel(VSI_MMU_OUT_OF_BOUND, iommu->regs + VSI_MMU_CONFIG1_BASE);
-+	writel(VSI_MMU_BIT_ENABLE, iommu->regs + VSI_MMU_AHB_EXCEPTION_BASE);
-+	writel(VSI_MMU_BIT_ENABLE, iommu->regs + VSI_MMU_AHB_CONTROL_BASE);
-+}
-+
-+static inline void vsi_table_flush(struct vsi_iommu_domain *vsi_domain, dma_addr_t dma,
-+				   unsigned int count)
-+{
-+	size_t size = count * sizeof(u32); /* count of u32 entry */
-+
-+	dma_sync_single_for_device(vsi_domain->iommu->dev, dma, size, DMA_TO_DEVICE);
-+}
-+
-+#define VSI_IOVA_DTE_MASK	0xffc00000
-+#define VSI_IOVA_DTE_SHIFT	22
-+#define VSI_IOVA_PTE_MASK	0x003ff000
-+#define VSI_IOVA_PTE_SHIFT	12
-+#define VSI_IOVA_PAGE_MASK	0x00000fff
-+#define VSI_IOVA_PAGE_SHIFT	0
-+
-+static u32 vsi_iova_dte_index(u32 iova)
-+{
-+	return (iova & VSI_IOVA_DTE_MASK) >> VSI_IOVA_DTE_SHIFT;
-+}
-+
-+static u32 vsi_iova_pte_index(u32 iova)
-+{
-+	return (iova & VSI_IOVA_PTE_MASK) >> VSI_IOVA_PTE_SHIFT;
-+}
-+
-+static u32 vsi_iova_page_offset(u32 iova)
-+{
-+	return (iova & VSI_IOVA_PAGE_MASK) >> VSI_IOVA_PAGE_SHIFT;
-+}
-+
-+static void vsi_iommu_flush_tlb_all(struct iommu_domain *domain)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	struct list_head *pos;
-+
-+	list_for_each(pos, &vsi_domain->iommus) {
-+		struct vsi_iommu *iommu;
-+		unsigned long flags;
-+		int ret;
-+
-+		iommu = list_entry(pos, struct vsi_iommu, node);
-+		ret = pm_runtime_resume_and_get(iommu->dev);
-+		if (ret < 0)
-+			continue;
-+
-+		spin_lock_irqsave(&iommu->lock, flags);
-+
-+		writel(VSI_MMU_BIT_FLUSH, iommu->regs + VSI_MMU_FLUSH_BASE);
-+		writel(0, iommu->regs + VSI_MMU_FLUSH_BASE);
-+
-+		spin_unlock_irqrestore(&iommu->lock, flags);
-+		pm_runtime_mark_last_busy(iommu->dev);
-+		pm_runtime_put_autosuspend(iommu->dev);
++	if (emac->ptp_tx_enable) {
++		/* Disable fw background task */
++		val &= ~TIMESYNC_CTRL_BG_ENABLE;
++		/* Enable forced 2-step */
++		val |= TIMESYNC_CTRL_FORCED_2STEP;
 +	}
++
++	writeb(val, sram + TIMESYNC_CTRL_VAR_OFFSET);
 +}
 +
-+static irqreturn_t vsi_iommu_irq(int irq, void *dev_id)
++static void icssm_prueth_ptp_tx_ts_enable(struct prueth_emac *emac,
++					  bool enable)
 +{
-+	struct vsi_iommu *iommu = dev_id;
++	emac->ptp_tx_enable = enable;
++	icssm_prueth_ptp_ts_enable(emac);
++}
++
++static bool icssm_prueth_ptp_tx_ts_is_enabled(struct prueth_emac *emac)
++{
++	return !!emac->ptp_tx_enable;
++}
++
++static void icssm_prueth_ptp_rx_ts_enable(struct prueth_emac *emac,
++					  bool enable)
++{
++	emac->ptp_rx_enable = enable;
++	icssm_prueth_ptp_ts_enable(emac);
++}
++
++static bool icssm_prueth_ptp_rx_ts_is_enabled(struct prueth_emac *emac)
++{
++	return !!emac->ptp_rx_enable;
++}
++
+ /* ensure that order of PRUSS mem regions is same as enum prueth_mem */
+ static enum pruss_mem pruss_mem_ids[] = { PRUSS_MEM_DRAM0, PRUSS_MEM_DRAM1,
+ 					  PRUSS_MEM_SHRD_RAM2 };
+@@ -469,6 +509,173 @@ static void icssm_get_block(struct prueth_queue_desc __iomem *queue_desc,
+ 		       queue->buffer_desc_offset) / BD_SIZE;
+ }
+ 
++static u8 icssm_prueth_ptp_ts_event_type(struct sk_buff *skb, u8 *ptp_msgtype)
++{
++	unsigned int ptp_class = ptp_classify_raw(skb);
++	struct ptp_header *hdr;
++	u8 msgtype, event_type;
++
++	if (ptp_class == PTP_CLASS_NONE)
++		return PRUETH_PTP_TS_EVENTS;
++
++	hdr = ptp_parse_header(skb, ptp_class);
++	if (!hdr)
++		return PRUETH_PTP_TS_EVENTS;
++
++	msgtype = ptp_get_msgtype(hdr, ptp_class);
++	/* Treat E2E Delay Req/Resp messages in the same way as P2P peer delay
++	 * req/resp in driver here since firmware stores timestamps in the same
++	 * memory location for either (since they cannot operate simultaneously
++	 * anyway)
++	 */
++	switch (msgtype) {
++	case PTP_MSGTYPE_SYNC:
++		event_type = PRUETH_PTP_SYNC;
++		break;
++	case PTP_MSGTYPE_DELAY_REQ:
++	case PTP_MSGTYPE_PDELAY_REQ:
++		event_type = PRUETH_PTP_DLY_REQ;
++		break;
++	/* TODO: Check why PTP_MSGTYPE_DELAY_RESP needs timestamp
++	 * and need for it.
++	 */
++	case 0x9:
++	case PTP_MSGTYPE_PDELAY_RESP:
++		event_type = PRUETH_PTP_DLY_RESP;
++		break;
++	default:
++		event_type = PRUETH_PTP_TS_EVENTS;
++	}
++
++	if (ptp_msgtype)
++		*ptp_msgtype = msgtype;
++
++	return event_type;
++}
++
++static void icssm_prueth_ptp_tx_ts_reset(struct prueth_emac *emac, u8 event)
++{
++	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	u32 ts_notify_offs, ts_offs;
++
++	ts_offs = icssm_prueth_tx_ts_offs_get(emac->port_id - 1, event);
++	ts_notify_offs = icssm_prueth_tx_ts_notify_offs_get(emac->port_id - 1,
++							    event);
++
++	writeb(0, sram + ts_notify_offs);
++	memset_io(sram + ts_offs, 0, sizeof(u64));
++}
++
++static int icssm_prueth_ptp_tx_ts_enqueue(struct prueth_emac *emac,
++					  struct sk_buff *skb)
++{
++	u8 event, changed = 0;
 +	unsigned long flags;
-+	dma_addr_t iova;
-+	u32 status;
 +
-+	if (pm_runtime_resume_and_get(iommu->dev) < 0)
-+		return IRQ_NONE;
-+
-+	spin_lock_irqsave(&iommu->lock, flags);
-+
-+	status = readl(iommu->regs + VSI_MMU_STATUS_BASE);
-+	if (status & VSI_MMU_IRQ_MASK) {
-+		dev_err(iommu->dev, "unexpected int_status=%08x\n", status);
-+		iova = readl(iommu->regs + VSI_MMU_PAGE_FAULT_ADDR);
-+		report_iommu_fault(iommu->domain, iommu->dev, iova, status);
++	if (skb_vlan_tagged(skb)) {
++		__skb_pull(skb, VLAN_HLEN);
++		changed += VLAN_HLEN;
 +	}
-+	writel(0, iommu->regs + VSI_MMU_STATUS_BASE);
 +
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+	pm_runtime_mark_last_busy(iommu->dev);
-+	pm_runtime_put_autosuspend(iommu->dev);
++	skb_reset_mac_header(skb);
++	event = icssm_prueth_ptp_ts_event_type(skb, NULL);
++	__skb_push(skb, changed);
++	if (event == PRUETH_PTP_TS_EVENTS) {
++		netdev_err(emac->ndev, "invalid PTP event\n");
++		return -EINVAL;
++	}
++
++	spin_lock_irqsave(&emac->ptp_skb_lock, flags);
++	if (emac->ptp_skb[event]) {
++		dev_consume_skb_any(emac->ptp_skb[event]);
++		icssm_prueth_ptp_tx_ts_reset(emac, event);
++		netdev_warn(emac->ndev, "Dropped event waiting for tx ts.\n");
++	}
++
++	skb_get(skb);
++	emac->ptp_skb[event] = skb;
++	spin_unlock_irqrestore(&emac->ptp_skb_lock, flags);
++
++	return 0;
++}
++
++irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev)
++{
++	struct net_device *ndev = (struct net_device *)dev;
++	struct prueth_emac *emac = netdev_priv(ndev);
++
++	if (unlikely(netif_queue_stopped(ndev)))
++		netif_wake_queue(ndev);
++
++	if (icssm_prueth_ptp_tx_ts_is_enabled(emac))
++		return IRQ_WAKE_THREAD;
 +
 +	return IRQ_HANDLED;
 +}
 +
-+static struct vsi_iommu *vsi_iommu_get_from_dev(struct device *dev)
++static u64 icssm_prueth_ptp_ts_get(struct prueth_emac *emac, u32 ts_offs)
 +{
-+	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
-+	struct device *iommu_dev = bus_find_device_by_fwnode(&platform_bus_type,
-+							     fwspec->iommu_fwnode);
++	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	u64 cycles;
 +
-+	put_device(iommu_dev);
++	memcpy_fromio(&cycles, sram + ts_offs, sizeof(cycles));
++	memset_io(sram + ts_offs, 0, sizeof(cycles));
 +
-+	return iommu_dev ? dev_get_drvdata(iommu_dev) : NULL;
++	return cycles;
 +}
 +
-+static struct iommu_domain *vsi_iommu_domain_alloc_paging(struct device *dev)
++static void icssm_prueth_ptp_tx_ts_get(struct prueth_emac *emac, u8 event)
 +{
-+	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-+	struct vsi_iommu_domain *vsi_domain;
-+
-+	vsi_domain = kzalloc(sizeof(*vsi_domain), GFP_KERNEL);
-+	if (!vsi_domain)
-+		return NULL;
-+
-+	vsi_domain->iommu = iommu;
-+
-+	/*
-+	 * iommu use a 2 level pagetable.
-+	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
-+	 * Allocate one 4 KiB page for each table.
-+	 */
-+	vsi_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-+					      SPAGE_SIZE);
-+	if (!vsi_domain->dt)
-+		goto err_free_domain;
-+
-+	vsi_domain->dt_dma = dma_map_single(iommu->dev, vsi_domain->dt,
-+					    SPAGE_SIZE, DMA_TO_DEVICE);
-+	if (dma_mapping_error(iommu->dev, vsi_domain->dt_dma)) {
-+		dev_err(iommu->dev, "DMA map error for DT\n");
-+		goto err_free_dt;
-+	}
-+
-+	vsi_domain->pta = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-+					       SPAGE_SIZE);
-+	if (!vsi_domain->pta)
-+		goto err_unmap_dt;
-+
-+	vsi_domain->pta[0] = vsi_mk_pta(vsi_domain->dt_dma);
-+	vsi_domain->pta_dma = dma_map_single(iommu->dev, vsi_domain->pta,
-+					     SPAGE_SIZE, DMA_TO_DEVICE);
-+	if (dma_mapping_error(iommu->dev, vsi_domain->pta_dma)) {
-+		dev_err(iommu->dev, "DMA map error for PTA\n");
-+		goto err_free_pta;
-+	}
-+
-+	INIT_LIST_HEAD(&vsi_domain->iommus);
-+
-+	vsi_domain->domain.geometry.aperture_start = 0;
-+	vsi_domain->domain.geometry.aperture_end   = DMA_BIT_MASK(32);
-+	vsi_domain->domain.geometry.force_aperture = true;
-+	vsi_domain->domain.pgsize_bitmap = SZ_4K;
-+
-+	return &vsi_domain->domain;
-+
-+err_free_pta:
-+	iommu_free_pages(vsi_domain->pta);
-+err_unmap_dt:
-+	dma_unmap_single(iommu->dev, vsi_domain->dt_dma,
-+			 SPAGE_SIZE, DMA_TO_DEVICE);
-+err_free_dt:
-+	iommu_free_pages(vsi_domain->dt);
-+err_free_domain:
-+	kfree(vsi_domain);
-+
-+	return NULL;
-+}
-+
-+static phys_addr_t vsi_iommu_iova_to_phys(struct iommu_domain *domain,
-+					  dma_addr_t iova)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	struct vsi_iommu *iommu = vsi_domain->iommu;
-+	phys_addr_t pt_phys, phys = 0;
++	struct skb_shared_hwtstamps ssh;
++	struct sk_buff *skb;
 +	unsigned long flags;
-+	u32 dte, pte;
-+	u32 *page_table;
++	u64 ns;
 +
-+	spin_lock_irqsave(&iommu->lock, flags);
-+	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-+	if (!vsi_dte_is_pt_valid(dte))
-+		goto unlock;
-+
-+	pt_phys = vsi_dte_pt_address(dte);
-+	page_table = (u32 *)phys_to_virt(pt_phys);
-+	pte = page_table[vsi_iova_pte_index(iova)];
-+	if (!vsi_pte_is_page_valid(pte))
-+		goto unlock;
-+
-+	phys = vsi_pte_page_address(pte) + vsi_iova_page_offset(iova);
-+
-+unlock:
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+	return phys;
-+}
-+
-+static size_t vsi_iommu_unmap_iova(struct vsi_iommu_domain *vsi_domain,
-+				   u32 *pte_addr, dma_addr_t pte_dma,
-+				   size_t size)
-+{
-+	unsigned int pte_count;
-+	unsigned int pte_total = size / SPAGE_SIZE;
-+
-+	for (pte_count = 0;
-+	     pte_count < pte_total && pte_count < NUM_PT_ENTRIES; pte_count++) {
-+		u32 pte = pte_addr[pte_count];
-+
-+		if (!vsi_pte_is_page_valid(pte))
-+			break;
-+
-+		pte_addr[pte_count] = vsi_mk_pte_invalid(pte);
++	/* get the msg from list */
++	spin_lock_irqsave(&emac->ptp_skb_lock, flags);
++	skb = emac->ptp_skb[event];
++	emac->ptp_skb[event] = NULL;
++	spin_unlock_irqrestore(&emac->ptp_skb_lock, flags);
++	if (!skb) {
++		netdev_err(emac->ndev, "no tx msg %u found waiting for ts\n",
++			   event);
++		return;
 +	}
 +
-+	vsi_table_flush(vsi_domain, pte_dma, pte_count);
++	/* get timestamp */
++	ns = icssm_prueth_ptp_ts_get(emac,
++				     icssm_prueth_tx_ts_offs_get
++				     (emac->port_id - 1, event));
 +
-+	return pte_count * SPAGE_SIZE;
++	memset(&ssh, 0, sizeof(ssh));
++	ssh.hwtstamp = ns_to_ktime(ns);
++	skb_tstamp_tx(skb, &ssh);
++	dev_consume_skb_any(skb);
 +}
 +
-+static int vsi_iommu_map_iova(struct vsi_iommu_domain *vsi_domain, u32 *pte_addr,
-+			      dma_addr_t pte_dma, dma_addr_t iova,
-+			      phys_addr_t paddr, size_t size, int prot)
++irqreturn_t icssm_prueth_ptp_tx_irq_work(int irq, void *dev)
 +{
-+	unsigned int pte_count;
-+	unsigned int pte_total = size / SPAGE_SIZE;
++	struct prueth_emac *emac = netdev_priv(dev);
++	u32 ts_notify_offs, ts_notify_mask, i;
++	void __iomem *sram;
 +
-+	for (pte_count = 0;
-+	     pte_count < pte_total && pte_count < NUM_PT_ENTRIES; pte_count++) {
-+		u32 pte = pte_addr[pte_count];
++	/* get and reset the ts notifications */
++	sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	for (i = 0; i < PRUETH_PTP_TS_EVENTS; i++) {
++		ts_notify_offs =
++			icssm_prueth_tx_ts_notify_offs_get(emac->port_id - 1,
++							   i);
++		memcpy_fromio(&ts_notify_mask, sram + ts_notify_offs,
++			      PRUETH_PTP_TS_NOTIFY_SIZE);
++		memset_io(sram + ts_notify_offs, 0, PRUETH_PTP_TS_NOTIFY_SIZE);
 +
-+		if (vsi_pte_is_page_valid(pte))
-+			return (pte_count - 1) * SPAGE_SIZE;
-+
-+		pte_addr[pte_count] = vsi_mk_pte(paddr, prot);
-+
-+		paddr += SPAGE_SIZE;
++		if (ts_notify_mask & PRUETH_PTP_TS_NOTIFY_MASK)
++			icssm_prueth_ptp_tx_ts_get(emac, i);
 +	}
 +
-+	vsi_table_flush(vsi_domain, pte_dma, pte_total);
-+
-+	return 0;
++	return IRQ_HANDLED;
 +}
 +
-+static size_t vsi_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
-+			      size_t size, size_t count, struct iommu_iotlb_gather *gather)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	struct vsi_iommu *iommu = vsi_domain->iommu;
-+	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
-+	unsigned long flags;
-+	phys_addr_t pt_phys;
-+	u32 dte;
-+	u32 *pte_addr;
-+	size_t unmap_size = 0;
-+
-+	spin_lock_irqsave(&iommu->lock, flags);
-+
-+	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-+	/* Just return 0 if iova is unmapped */
-+	if (!vsi_dte_is_pt_valid(dte))
-+		goto unlock;
-+
-+	pt_phys = vsi_dte_pt_address(dte);
-+	pte_addr = (u32 *)phys_to_virt(pt_phys) + vsi_iova_pte_index(iova);
-+	pte_dma = pt_phys + vsi_iova_pte_index(iova) * sizeof(u32);
-+	unmap_size = vsi_iommu_unmap_iova(vsi_domain, pte_addr, pte_dma, size);
-+
-+unlock:
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+
-+	return unmap_size;
-+}
-+
-+static u32 *vsi_dte_get_page_table(struct vsi_iommu_domain *vsi_domain,
-+				   dma_addr_t iova, gfp_t gfp)
-+{
-+	u32 *page_table, *dte_addr;
-+	u32 dte_index, dte;
-+	phys_addr_t pt_phys;
-+	dma_addr_t pt_dma;
-+	gfp_t flags;
-+
-+	dte_index = vsi_iova_dte_index(iova);
-+	dte_addr = &vsi_domain->dt[dte_index];
-+	dte = *dte_addr;
-+	if (vsi_dte_is_pt_valid(dte))
-+		goto done;
-+
-+	/* Do not allow to sleep while allocating the buffer */
-+	flags = (gfp & ~GFP_KERNEL) | GFP_ATOMIC | GFP_DMA32;
-+	page_table = iommu_alloc_pages_sz(flags, PAGE_SIZE);
-+	if (!page_table)
-+		return ERR_PTR(-ENOMEM);
-+
-+	pt_dma = dma_map_single(vsi_domain->iommu->dev, page_table, PAGE_SIZE, DMA_TO_DEVICE);
-+	if (dma_mapping_error(vsi_domain->iommu->dev, pt_dma)) {
-+		dev_err(vsi_domain->iommu->dev, "DMA mapping error while allocating page table\n");
-+		iommu_free_pages(page_table);
-+		return ERR_PTR(-ENOMEM);
+ /**
+  * icssm_emac_rx_irq - EMAC Rx interrupt handler
+  * @irq: interrupt number
+@@ -597,6 +804,12 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 		memcpy(dst_addr, src_addr, pktlen);
+ 	}
+ 
++	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
++	    icssm_prueth_ptp_tx_ts_is_enabled(emac)) {
++		skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
++		icssm_prueth_ptp_tx_ts_enqueue(emac, skb);
 +	}
 +
-+	dte = vsi_mk_dte(pt_dma);
-+	*dte_addr = dte;
-+
-+	vsi_table_flush(vsi_domain,
-+			vsi_domain->dt_dma + dte_index * sizeof(u32), 1);
-+done:
-+	pt_phys = vsi_dte_pt_address(dte);
-+	return (u32 *)phys_to_virt(pt_phys);
-+}
-+
-+static int vsi_iommu_map(struct iommu_domain *domain, unsigned long _iova,
-+			 phys_addr_t paddr, size_t size, size_t count,
-+			 int prot, gfp_t gfp, size_t *mapped)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	struct vsi_iommu *iommu = vsi_domain->iommu;
-+	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
-+	u32 *page_table, *pte_addr;
-+	u32 dte, pte_index;
-+	unsigned long flags;
-+	int ret;
-+
-+	spin_lock_irqsave(&iommu->lock, flags);
-+
-+	page_table = vsi_dte_get_page_table(vsi_domain, iova, gfp);
-+	if (IS_ERR(page_table)) {
-+		spin_unlock_irqrestore(&iommu->lock, flags);
-+		return PTR_ERR(page_table);
-+	}
-+
-+	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-+	pte_index = vsi_iova_pte_index(iova);
-+	pte_addr = &page_table[pte_index];
-+	pte_dma = vsi_dte_pt_address(dte) + pte_index * sizeof(u32);
-+	ret = vsi_iommu_map_iova(vsi_domain, pte_addr, pte_dma, iova,
-+				 paddr, size, prot);
-+
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+	if (!ret)
-+		*mapped = size;
-+
-+	return ret;
-+}
-+
-+static int vsi_iommu_identity_attach(struct iommu_domain *domain,
-+				     struct device *dev)
-+{
-+	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-+	unsigned long flags;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(iommu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	spin_lock_irqsave(&iommu->lock, flags);
-+	if (iommu->domain == domain)
-+		goto unlock;
-+
-+	vsi_iommu_disable(iommu);
-+	list_del_init(&iommu->node);
-+	iommu->domain = domain;
-+
-+unlock:
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+	pm_runtime_mark_last_busy(iommu->dev);
-+	pm_runtime_put_autosuspend(iommu->dev);
-+	return 0;
-+}
-+
-+static const struct iommu_domain_ops vsi_identity_ops = {
-+	.attach_dev = vsi_iommu_identity_attach,
-+};
-+
-+static struct iommu_domain vsi_identity_domain = {
-+	.type = IOMMU_DOMAIN_IDENTITY,
-+	.ops = &vsi_identity_ops,
-+};
-+
-+static int vsi_iommu_attach_device(struct iommu_domain *domain,
-+				   struct device *dev)
-+{
-+	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	ret = pm_runtime_resume_and_get(iommu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	spin_lock_irqsave(&iommu->lock, flags);
-+	/* iommu already attached */
-+	if (iommu->domain == domain)
-+		goto unlock;
-+
-+	vsi_iommu_enable(iommu, domain);
-+	list_add_tail(&iommu->node, &vsi_domain->iommus);
-+	iommu->domain = domain;
-+
-+unlock:
-+	spin_unlock_irqrestore(&iommu->lock, flags);
-+	pm_runtime_mark_last_busy(iommu->dev);
-+	pm_runtime_put_autosuspend(iommu->dev);
-+	return ret;
-+}
-+
-+static void vsi_iommu_domain_free(struct iommu_domain *domain)
-+{
-+	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-+	int i;
-+
-+	WARN_ON(!list_empty(&vsi_domain->iommus));
-+
-+	for (i = 0; i < NUM_DT_ENTRIES; i++) {
-+		u32 dte = vsi_domain->dt[i];
-+
-+		if (vsi_dte_is_pt_valid(dte)) {
-+			phys_addr_t pt_phys = vsi_dte_pt_address(dte);
-+			u32 *page_table = phys_to_virt(pt_phys);
-+
-+			dma_unmap_single(vsi_domain->iommu->dev, pt_phys,
-+					 SPAGE_SIZE, DMA_TO_DEVICE);
-+			iommu_free_pages(page_table);
+        /* update first buffer descriptor */
+ 	wr_buf_desc = (pktlen << PRUETH_BD_LENGTH_SHIFT) &
+ 		       PRUETH_BD_LENGTH_MASK;
+@@ -647,6 +860,7 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 			 const struct prueth_queue_info *rxqueue)
+ {
+ 	struct net_device *ndev = emac->ndev;
++	struct skb_shared_hwtstamps *ssh;
+ 	unsigned int buffer_desc_count;
+ 	int read_block, update_block;
+ 	unsigned int actual_pkt_len;
+@@ -656,6 +870,7 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 	struct sk_buff *skb;
+ 	int pkt_block_size;
+ 	void *ocmc_ram;
++	u64 ts = 0;
+ 
+ 	/* the PRU firmware deals mostly in pointers already
+ 	 * offset into ram, we would like to deal in indexes
+@@ -665,6 +880,8 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 	buffer_desc_count = icssm_get_buff_desc_count(rxqueue);
+ 	read_block = (*bd_rd_ptr - rxqueue->buffer_desc_offset) / BD_SIZE;
+ 	pkt_block_size = DIV_ROUND_UP(pkt_info->length, ICSS_BLOCK_SIZE);
++	if (pkt_info->timestamp)
++		pkt_block_size++;
+ 
+ 	/* calculate end BD address post read */
+ 	update_block = read_block + pkt_block_size;
+@@ -735,6 +952,15 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 	if (!pkt_info->sv_frame) {
+ 		skb_put(skb, actual_pkt_len);
+ 
++		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
++		    pkt_info->timestamp) {
++			src_addr = (void *)PTR_ALIGN((uintptr_t)src_addr,
++						     ICSS_BLOCK_SIZE);
++			memcpy(&ts, src_addr, sizeof(ts));
++			ssh = skb_hwtstamps(skb);
++			memset(ssh, 0, sizeof(*ssh));
++			ssh->hwtstamp = ns_to_ktime(ts);
++		}
+ 		/* send packet up the stack */
+ 		skb->protocol = eth_type_trans(skb, ndev);
+ 		netif_receive_skb(skb);
+@@ -895,9 +1121,67 @@ static int icssm_emac_request_irqs(struct prueth_emac *emac)
+ 		return ret;
+ 	}
+ 
++	if (emac->emac_ptp_tx_irq) {
++		ret = request_threaded_irq(emac->emac_ptp_tx_irq,
++					   icssm_prueth_ptp_tx_irq_handle,
++					   icssm_prueth_ptp_tx_irq_work,
++					   IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
++					   ndev->name, ndev);
++		if (ret) {
++			netdev_err(ndev, "unable to request PTP TX IRQ\n");
++			goto free_irq;
 +		}
 +	}
 +
-+	dma_unmap_single(vsi_domain->iommu->dev, vsi_domain->dt_dma,
-+			 SPAGE_SIZE, DMA_TO_DEVICE);
-+	iommu_free_pages(vsi_domain->dt);
++	return 0;
 +
-+	dma_unmap_single(vsi_domain->iommu->dev, vsi_domain->pta_dma,
-+			 SPAGE_SIZE, DMA_TO_DEVICE);
-+	iommu_free_pages(vsi_domain->pta);
-+
-+	kfree(vsi_domain);
-+}
-+
-+static struct iommu_device *vsi_iommu_probe_device(struct device *dev)
++free_irq:
++	free_irq(emac->rx_irq, ndev);
+ 	return ret;
+ }
+ 
++static void icssm_iptp_dram_init(struct prueth_emac *emac)
 +{
-+	struct vsi_iommu *iommu = vsi_iommu_get_from_dev(dev);
-+	struct device_link *link;
++	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	u64 temp64;
 +
-+	link = device_link_add(dev, iommu->dev,
-+			       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-+	if (!link)
-+		dev_err(dev, "Unable to link %s\n", dev_name(iommu->dev));
++	writew(0, sram + MII_RX_CORRECTION_OFFSET);
++	writew(0, sram + MII_TX_CORRECTION_OFFSET);
 +
-+	dev_iommu_priv_set(dev, iommu);
-+	return &iommu->iommu;
++	/* Initialize RCF to 1 (Linux N/A) */
++	writel(1 * 1024, sram + TIMESYNC_TC_RCF_OFFSET);
++
++	/* This flag will be set and cleared by firmware */
++	/* Write Sync0 period for sync signal generation in PTP
++	 * memory in shared RAM
++	 */
++	writel(200000000 / 50, sram + TIMESYNC_SYNC0_WIDTH_OFFSET);
++
++	/* Write CMP1 period for sync signal generation in PTP
++	 * memory in shared RAM
++	 */
++	temp64 = 1000000;
++	memcpy_toio(sram + TIMESYNC_CMP1_CMP_OFFSET, &temp64, sizeof(temp64));
++
++	/* Write Sync0 period for sync signal generation in PTP
++	 * memory in shared RAM
++	 */
++	writel(1000000, sram + TIMESYNC_CMP1_PERIOD_OFFSET);
++
++	/* Configures domainNumber list. Firmware supports 2 domains */
++	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST);
++	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST + 1);
++
++	/* Configure 1-step/2-step */
++	writeb(1, sram + DISABLE_SWITCH_SYNC_RELAY_OFFSET);
++
++	/* Configures the setting to Link local frame without HSR tag */
++	writeb(0, sram + LINK_LOCAL_FRAME_HAS_HSR_TAG);
++
++	/* Enable E2E/UDP PTP message timestamping */
++	writeb(1, sram + PTP_IPV4_UDP_E2E_ENABLE);
 +}
 +
-+static void vsi_iommu_release_device(struct device *dev)
-+{
-+	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-+
-+	device_link_remove(dev, iommu->dev);
-+}
-+
-+static const struct iommu_ops vsi_iommu_ops = {
-+	.identity_domain = &vsi_identity_domain,
-+	.release_domain = &vsi_identity_domain,
-+	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
-+	.probe_device = vsi_iommu_probe_device,
-+	.release_device = vsi_iommu_release_device,
-+	.device_group = generic_single_device_group,
-+	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.attach_dev		= vsi_iommu_attach_device,
-+		.map_pages		= vsi_iommu_map,
-+		.unmap_pages		= vsi_iommu_unmap,
-+		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
-+		.iova_to_phys		= vsi_iommu_iova_to_phys,
-+		.free			= vsi_iommu_domain_free,
+ /**
+  * icssm_emac_ndo_open - EMAC device open
+  * @ndev: network adapter device
+@@ -922,9 +1206,18 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ 
+ 	icssm_emac_set_stats(emac, &emac->stats);
+ 
++	if (!prueth->emac_configured) {
++		icssm_iptp_dram_init(emac);
++		ret = icss_iep_init(prueth->iep, NULL, NULL, 0);
++		if (ret) {
++			netdev_err(ndev, "Failed to initialize iep: %d\n", ret);
++			goto iep_exit;
++		}
 +	}
++
+ 	ret = icssm_emac_set_boot_pru(emac, ndev);
+ 	if (ret)
+-		return ret;
++		goto iep_exit;
+ 
+ 	ret = icssm_emac_request_irqs(emac);
+ 	if (ret)
+@@ -948,6 +1241,10 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ rproc_shutdown:
+ 	rproc_shutdown(emac->pru);
+ 
++iep_exit:
++	if (!prueth->emac_configured)
++		icss_iep_exit(prueth->iep);
++
+ 	return ret;
+ }
+ 
+@@ -963,6 +1260,7 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
++	int i;
+ 
+ 	prueth->emac_configured &= ~BIT(emac->port_id);
+ 
+@@ -973,14 +1271,32 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+ 	phy_stop(emac->phydev);
+ 
+ 	napi_disable(&emac->napi);
++	/* inform the upper layers. */
++	netif_stop_queue(ndev);
+ 
+ 	/* stop the PRU */
+ 	rproc_shutdown(emac->pru);
+ 
+ 	icssm_emac_get_stats(emac, &emac->stats);
+ 
++	/* Cleanup ptp related stuff for all protocols */
++	icssm_prueth_ptp_tx_ts_enable(emac, 0);
++	icssm_prueth_ptp_rx_ts_enable(emac, 0);
++	for (i = 0; i < PRUETH_PTP_TS_EVENTS; i++) {
++		if (emac->ptp_skb[i]) {
++			icssm_prueth_ptp_tx_ts_reset(emac, i);
++			dev_consume_skb_any(emac->ptp_skb[i]);
++			emac->ptp_skb[i] = NULL;
++		}
++	}
++
+ 	/* free rx interrupts */
+ 	free_irq(emac->rx_irq, ndev);
++	if (emac->emac_ptp_tx_irq)
++		free_irq(emac->emac_ptp_tx_irq, ndev);
++
++	if (!prueth->emac_configured)
++		icss_iep_exit(prueth->iep);
+ 
+ 	if (netif_msg_drv(emac))
+ 		dev_notice(&ndev->dev, "stopped\n");
+@@ -1072,6 +1388,30 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct sk_buff *skb,
+ 	return ret;
+ }
+ 
++/**
++ * icssm_emac_ndo_tx_timeout - EMAC Transmit timeout function
++ * @ndev: The EMAC network adapter
++ * @txqueue: TX queue being used
++ *
++ * Called when system detects that a skb timeout period has expired
++ * potentially due to a fault in the adapter in not being able to send
++ * it out on the wire.
++ */
++static void icssm_emac_ndo_tx_timeout(struct net_device *ndev,
++				      unsigned int txqueue)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++
++	if (netif_msg_tx_err(emac))
++		netdev_err(ndev, "xmit timeout");
++
++	ndev->stats.tx_errors++;
++
++	/* TODO: can we recover or need to reboot firmware? */
++
++	netif_wake_queue(ndev);
++}
++
+ /**
+  * icssm_emac_ndo_get_stats64 - EMAC get statistics function
+  * @ndev: The EMAC network adapter
+@@ -1100,11 +1440,86 @@ static void icssm_emac_ndo_get_stats64(struct net_device *ndev,
+ 	stats->rx_length_errors = ndev->stats.rx_length_errors;
+ }
+ 
++static int icssm_emac_hwtstamp_config_set(struct net_device *ndev,
++					  struct ifreq *ifr)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct hwtstamp_config cfg;
++
++	if (copy_from_user(&cfg, ifr->ifr_data, sizeof(cfg)))
++		return -EFAULT;
++
++	/* reserved for future extensions */
++	if (cfg.flags)
++		return -EINVAL;
++
++	if (cfg.tx_type != HWTSTAMP_TX_OFF && cfg.tx_type != HWTSTAMP_TX_ON)
++		return -ERANGE;
++
++	switch (cfg.rx_filter) {
++	case HWTSTAMP_FILTER_NONE:
++		icssm_prueth_ptp_rx_ts_enable(emac, 0);
++		break;
++	case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
++	case HWTSTAMP_FILTER_PTP_V2_L4_SYNC:
++	case HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ:
++	case HWTSTAMP_FILTER_PTP_V2_L2_EVENT:
++	case HWTSTAMP_FILTER_PTP_V2_L2_SYNC:
++	case HWTSTAMP_FILTER_PTP_V2_L2_DELAY_REQ:
++	case HWTSTAMP_FILTER_PTP_V2_EVENT:
++	case HWTSTAMP_FILTER_PTP_V2_SYNC:
++	case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
++		icssm_prueth_ptp_rx_ts_enable(emac, 1);
++		cfg.rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
++		break;
++	case HWTSTAMP_FILTER_ALL:
++	case HWTSTAMP_FILTER_PTP_V1_L4_EVENT:
++	case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
++	case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
++	default:
++		return -ERANGE;
++	}
++
++	icssm_prueth_ptp_tx_ts_enable(emac, cfg.tx_type == HWTSTAMP_TX_ON);
++
++	return copy_to_user(ifr->ifr_data, &cfg, sizeof(cfg)) ? -EFAULT : 0;
++}
++
++static int icssm_emac_hwtstamp_config_get(struct net_device *ndev,
++					  struct ifreq *ifr)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct hwtstamp_config cfg;
++
++	cfg.flags = 0;
++	cfg.tx_type = icssm_prueth_ptp_tx_ts_is_enabled(emac) ?
++		      HWTSTAMP_TX_ON : HWTSTAMP_TX_OFF;
++	cfg.rx_filter = icssm_prueth_ptp_rx_ts_is_enabled(emac) ?
++			HWTSTAMP_FILTER_PTP_V2_EVENT : HWTSTAMP_FILTER_NONE;
++
++	return copy_to_user(ifr->ifr_data, &cfg, sizeof(cfg)) ? -EFAULT : 0;
++}
++
++static int icssm_emac_ndo_ioctl(struct net_device *ndev, struct ifreq *ifr,
++				int cmd)
++{
++	switch (cmd) {
++	case SIOCSHWTSTAMP:
++		return icssm_emac_hwtstamp_config_set(ndev, ifr);
++	case SIOCGHWTSTAMP:
++		return icssm_emac_hwtstamp_config_get(ndev, ifr);
++	}
++
++	return phy_do_ioctl(ndev, ifr, cmd);
++}
++
+ static const struct net_device_ops emac_netdev_ops = {
+ 	.ndo_open = icssm_emac_ndo_open,
+ 	.ndo_stop = icssm_emac_ndo_stop,
+ 	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
++	.ndo_tx_timeout = icssm_emac_ndo_tx_timeout,
+ 	.ndo_get_stats64 = icssm_emac_ndo_get_stats64,
++	.ndo_eth_ioctl = icssm_emac_ndo_ioctl,
+ };
+ 
+ /* get emac_port corresponding to eth_node name */
+@@ -1205,6 +1620,14 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+ 		goto free;
+ 	}
+ 
++	emac->emac_ptp_tx_irq = of_irq_get_byname(eth_node, "emac_ptp_tx");
++	if (emac->emac_ptp_tx_irq < 0) {
++		emac->emac_ptp_tx_irq = 0;
++		dev_err(prueth->dev, "could not get ptp tx irq. Skipping PTP support\n");
++	}
++
++	spin_lock_init(&emac->ptp_skb_lock);
++
+ 	/* get mac address from DT and set private and netdev addr */
+ 	ret = of_get_ethdev_address(eth_node, ndev);
+ 	if (!is_valid_ether_addr(ndev->dev_addr)) {
+@@ -1443,12 +1866,19 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
++	prueth->iep = icss_iep_get(np);
++	if (IS_ERR(prueth->iep)) {
++		ret = PTR_ERR(prueth->iep);
++		dev_err(dev, "unable to get IEP\n");
++		goto netdev_exit;
++	}
++
+ 	/* register the network devices */
+ 	if (eth0_node) {
+ 		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
+ 		if (ret) {
+ 			dev_err(dev, "can't register netdev for port MII0");
+-			goto netdev_exit;
++			goto iep_put;
+ 		}
+ 
+ 		prueth->registered_netdevs[PRUETH_MAC0] =
+@@ -1482,6 +1912,9 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 		unregister_netdev(prueth->registered_netdevs[i]);
+ 	}
+ 
++iep_put:
++	icss_iep_put(prueth->iep);
++
+ netdev_exit:
+ 	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+ 		eth_node = prueth->eth_node[i];
+@@ -1550,6 +1983,8 @@ static void icssm_prueth_remove(struct platform_device *pdev)
+ 						 &prueth->mem[i]);
+ 	}
+ 
++	icss_iep_put(prueth->iep);
++
+ 	pruss_put(prueth->pruss);
+ 
+ 	if (prueth->eth_node[PRUETH_MAC0])
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+index c44edf47bce3..14dd58f48d56 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -14,6 +14,7 @@
+ #include <linux/remoteproc/pruss.h>
+ 
+ #include "icssm_switch.h"
++#include "icssm_prueth_ptp.h"
+ 
+ /* ICSSM size of redundancy tag */
+ #define ICSSM_LRE_TAG_SIZE	6
+@@ -346,6 +347,12 @@ struct prueth_emac {
+ 	u8 mac_addr[6];
+ 	phy_interface_t phy_if;
+ 	spinlock_t lock;	/* serialize access */
++
++	struct sk_buff *ptp_skb[PRUETH_PTP_TS_EVENTS];
++	spinlock_t ptp_skb_lock;	/* serialize access */
++	int emac_ptp_tx_irq;
++	bool ptp_tx_enable;
++	bool ptp_rx_enable;
+ };
+ 
+ struct prueth {
+@@ -355,6 +362,7 @@ struct prueth {
+ 	struct pruss_mem_region mem[PRUETH_MEM_MAX];
+ 	struct gen_pool *sram_pool;
+ 	struct regmap *mii_rt;
++	struct icss_iep *iep;
+ 
+ 	const struct prueth_private_data *fw_data;
+ 	struct prueth_fw_offsets *fw_offsets;
+@@ -383,6 +391,9 @@ static inline void icssm_emac_finish_napi(struct prueth_emac *emac,
+ 	enable_irq(irq);
+ }
+ 
++irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev);
++irqreturn_t icssm_prueth_ptp_tx_irq_work(int irq, void *dev);
++
+ void icssm_emac_update_hardware_stats(struct prueth_emac *emac);
+ void icssm_emac_set_stats(struct prueth_emac *emac,
+ 			  struct port_statistics *pstats);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+new file mode 100644
+index 000000000000..e0bf692beda1
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+@@ -0,0 +1,85 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2020-2021 Texas Instruments Incorporated - https://www.ti.com
++ */
++#ifndef PRUETH_PTP_H
++#define PRUETH_PTP_H
++
++#define RX_SYNC_TIMESTAMP_OFFSET_P1		0x8    /* 8 bytes */
++#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x14   /* 12 bytes */
++
++#define DISABLE_PTP_FRAME_FORWARDING_CTRL_OFFSET 0x14	/* 1 byte */
++
++#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x20   /* 12 bytes */
++#define RX_SYNC_TIMESTAMP_OFFSET_P2		0x2c   /* 12 bytes */
++#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0x38   /* 12 bytes */
++#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0x44   /* 12 bytes */
++#define TIMESYNC_DOMAIN_NUMBER_LIST		0x50   /* 2 bytes */
++#define P1_SMA_LINE_DELAY_OFFSET		0x52   /* 4 bytes */
++#define P2_SMA_LINE_DELAY_OFFSET		0x56   /* 4 bytes */
++#define TIMESYNC_SECONDS_COUNT_OFFSET		0x5a   /* 6 bytes */
++#define TIMESYNC_TC_RCF_OFFSET			0x60   /* 4 bytes */
++#define DUT_IS_MASTER_OFFSET			0x64   /* 1 byte */
++#define MASTER_PORT_NUM_OFFSET			0x65   /* 1 byte */
++#define SYNC_MASTER_MAC_OFFSET			0x66   /* 6 bytes */
++#define TX_TS_NOTIFICATION_OFFSET_SYNC_P1	0x6c   /* 1 byte */
++#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P1	0x6d   /* 1 byte */
++#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P1	0x6e   /* 1 byte */
++#define TX_TS_NOTIFICATION_OFFSET_SYNC_P2	0x6f   /* 1 byte */
++#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P2	0x70   /* 1 byte */
++#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P2	0x71   /* 1 byte */
++#define TX_SYNC_TIMESTAMP_OFFSET_P1		0x72   /* 12 bytes */
++#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x7e   /* 12 bytes */
++#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x8a   /* 12 bytes */
++#define TX_SYNC_TIMESTAMP_OFFSET_P2		0x96   /* 12 bytes */
++#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0xa2   /* 12 bytes */
++#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0xae   /* 12 bytes */
++#define TIMESYNC_CTRL_VAR_OFFSET		0xba   /* 1 byte */
++#define DISABLE_SWITCH_SYNC_RELAY_OFFSET	0xbb   /* 1 byte */
++#define MII_RX_CORRECTION_OFFSET		0xbc   /* 2 bytes */
++#define MII_TX_CORRECTION_OFFSET		0xbe   /* 2 bytes */
++#define TIMESYNC_CMP1_CMP_OFFSET		0xc0   /* 8 bytes */
++#define TIMESYNC_SYNC0_CMP_OFFSET		0xc8   /* 8 bytes */
++#define TIMESYNC_CMP1_PERIOD_OFFSET		0xd0   /* 4 bytes */
++#define TIMESYNC_SYNC0_WIDTH_OFFSET		0xd4   /* 4 bytes */
++#define SINGLE_STEP_IEP_OFFSET_P1		0xd8   /* 8 bytes */
++#define SINGLE_STEP_SECONDS_OFFSET_P1		0xe0   /* 8 bytes */
++#define SINGLE_STEP_IEP_OFFSET_P2		0xe8   /* 8 bytes */
++#define SINGLE_STEP_SECONDS_OFFSET_P2		0xf0   /* 8 bytes */
++#define LINK_LOCAL_FRAME_HAS_HSR_TAG		0xf8   /* 1 bytes */
++#define PTP_PREV_TX_TIMESTAMP_P1		0xf9  /* 8 bytes */
++#define PTP_PREV_TX_TIMESTAMP_P2		0x101  /* 8 bytes */
++#define PTP_CLK_IDENTITY_OFFSET			0x109  /* 8 bytes */
++#define PTP_SCRATCH_MEM				0x111  /* 16 byte */
++#define PTP_IPV4_UDP_E2E_ENABLE			0x121  /* 1 byte */
++
++enum {
++	PRUETH_PTP_SYNC,
++	PRUETH_PTP_DLY_REQ,
++	PRUETH_PTP_DLY_RESP,
++	PRUETH_PTP_TS_EVENTS,
 +};
 +
-+static const struct of_device_id vsi_iommu_dt_ids[] = {
-+	{
-+		.compatible = "verisilicon,iommu-1.2",
-+	},
-+	{
-+		.compatible = "rockchip,rk3588-av1-iommu",
-+	},
-+	{ /* sentinel */ }
-+};
++#define PRUETH_PTP_TS_SIZE		12
++#define PRUETH_PTP_TS_NOTIFY_SIZE	1
++#define PRUETH_PTP_TS_NOTIFY_MASK	0xff
 +
-+static int vsi_iommu_probe(struct platform_device *pdev)
++/* Bit definitions for TIMESYNC_CTRL */
++#define TIMESYNC_CTRL_BG_ENABLE    BIT(0)
++#define TIMESYNC_CTRL_FORCED_2STEP BIT(1)
++
++static inline u32 icssm_prueth_tx_ts_offs_get(u8 port, u8 event)
 +{
-+	struct device *dev = &pdev->dev;
-+	struct vsi_iommu *iommu;
-+	int err;
-+
-+	iommu = devm_kzalloc(dev, sizeof(*iommu), GFP_KERNEL);
-+	if (!iommu)
-+		return -ENOMEM;
-+
-+	iommu->dev = dev;
-+
-+	iommu->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(iommu->regs))
-+		return -ENOMEM;
-+
-+	iommu->num_clocks = devm_clk_bulk_get_all(dev, &iommu->clocks);
-+	if  (iommu->num_clocks < 0)
-+		return err;
-+
-+	err = clk_bulk_prepare(iommu->num_clocks, iommu->clocks);
-+	if (err)
-+		return err;
-+
-+	iommu->irq = platform_get_irq(pdev, 0);
-+	if (iommu->irq < 0)
-+		return iommu->irq;
-+
-+	err = devm_request_irq(iommu->dev, iommu->irq, vsi_iommu_irq,
-+			       IRQF_SHARED, dev_name(dev), iommu);
-+	if (err)
-+		goto err_unprepare_clocks;
-+
-+	spin_lock_init(&iommu->lock);
-+	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
-+	platform_set_drvdata(pdev, iommu);
-+
-+	pm_runtime_set_autosuspend_delay(dev, 100);
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_enable(dev);
-+
-+	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
-+	if (err)
-+		goto err_runtime_disable;
-+
-+	err = iommu_device_register(&iommu->iommu, &vsi_iommu_ops, dev);
-+	if (err)
-+		goto err_remove_sysfs;
-+
-+	return 0;
-+
-+err_remove_sysfs:
-+	iommu_device_sysfs_remove(&iommu->iommu);
-+err_runtime_disable:
-+	pm_runtime_disable(dev);
-+err_unprepare_clocks:
-+	clk_bulk_unprepare(iommu->num_clocks, iommu->clocks);
-+	return err;
++	return TX_SYNC_TIMESTAMP_OFFSET_P1 + port *
++		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_SIZE +
++		event * PRUETH_PTP_TS_SIZE;
 +}
 +
-+static void vsi_iommu_shutdown(struct platform_device *pdev)
++static inline u32 icssm_prueth_tx_ts_notify_offs_get(u8 port, u8 event)
 +{
-+	struct vsi_iommu *iommu = platform_get_drvdata(pdev);
-+
-+	disable_irq(iommu->irq);
-+	pm_runtime_force_suspend(&pdev->dev);
++	return TX_TS_NOTIFICATION_OFFSET_SYNC_P1 +
++		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_NOTIFY_SIZE * port +
++		event * PRUETH_PTP_TS_NOTIFY_SIZE;
 +}
 +
-+static int __maybe_unused vsi_iommu_suspend(struct device *dev)
-+{
-+	struct vsi_iommu *iommu = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable(iommu->num_clocks, iommu->clocks);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused vsi_iommu_resume(struct device *dev)
-+{
-+	struct vsi_iommu *iommu = dev_get_drvdata(dev);
-+
-+	return clk_bulk_enable(iommu->num_clocks, iommu->clocks);
-+}
-+
-+static DEFINE_RUNTIME_DEV_PM_OPS(vsi_iommu_pm_ops,
-+				 vsi_iommu_suspend, vsi_iommu_resume,
-+				 NULL);
-+
-+static struct platform_driver rockchip_vsi_iommu_driver = {
-+	.probe = vsi_iommu_probe,
-+	.shutdown = vsi_iommu_shutdown,
-+	.driver = {
-+		   .name = "vsi_iommu",
-+		   .of_match_table = vsi_iommu_dt_ids,
-+		   .pm = pm_sleep_ptr(&vsi_iommu_pm_ops),
-+		   .suppress_bind_attrs = true,
-+	},
-+};
-+module_platform_driver(rockchip_vsi_iommu_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Benjamin Gaignard <benjamin.gaignard@collabora.com>");
-+MODULE_DESCRIPTION("Verisilicon IOMMU driver");
++#endif /* PRUETH_PTP_H */
 -- 
-2.43.0
+2.34.1
 
 
