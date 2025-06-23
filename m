@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D86BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 03:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFFAC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 05:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kjdw5IHxvEuqunGX5BJLrwaz5nB4TF3E92WLJ1Br2u4=; b=TBZTusI2IszgsK
-	zbt3YbACXxxqKA9f/fNjbhCpaeOV3RUyWi8kSgqS4UAI9daUfkuWwzxg++BOXIijj2Td83BzUU+di
-	3d1F0XlA089j1V/oNqEFmFn59oe2iti4BOjjRavozunpuAJxlEdaGHZrWH6jaD05Sm6EcXwljhHEt
-	QIEnuFDtSqMLZZsMSaA5qmvKWCLuz1feORmYcuAAkxUSUZHjNvaV87yelG9NgpoJlmi38e4WOV1a7
-	X132de2yBv4JCuFxXbQQGrL9VRPfmaZeMqbun9cFBX4zVzArsZMR+Lvdv6dSRxQzsx3bUZAbC94Co
-	AL3/XmcC22937IzaDxqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=En0pq+jCzMYs3olwKBVBf+cE3fdHEMn7c2+JHjmC2Bc=; b=Y1FTtUcNPwlE3R+jKi6/39VREm
+	++d4u/GcfbYKMW1YioGnbOwjSu/WibDuEiXpC5qpVQ5FZVaXCRVeT5ooB4ZCbcTm7goZpPNRyC5g0
+	umjzHpPXc6aNE6mkoFO0XiN7RBrj8m35KB+aSHW8sWEbe0znSq3hoaSLoB7x6bbAF3b9cUGV+aqU4
+	yNK7ioRIvdl8lJv2I2KoONr15DQWxLWsb8dJGGHA+BH304qJYbSiJp05JrVJBXB7UU1tCqk3MdZqh
+	bUTNdeMjUQETRZmsiwoeUKkZQVb2MDiHkkvgXnLFrv7+VFC32Cgok0ExWkN7sieVhQL9lTj/NLN67
+	4azntjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTY4n-00000001VfQ-0JZs;
-	Mon, 23 Jun 2025 03:42:33 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uTZaM-00000001bKp-2Pmm;
+	Mon, 23 Jun 2025 05:19:14 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTY2V-00000001VSD-09kK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 03:40:13 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bQYd56Qd5zTgrY;
-	Mon, 23 Jun 2025 11:35:37 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 68E8218007F;
-	Mon, 23 Jun 2025 11:39:56 +0800 (CST)
-Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 23 Jun 2025 11:39:56 +0800
-Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
- (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 23 Jun
- 2025 11:39:55 +0800
-Message-ID: <508bdca6-eab8-4661-a8e8-560b1ef0a325@huawei.com>
-Date: Mon, 23 Jun 2025 11:39:40 +0800
+	id 1uTZY6-00000001bCu-0gBy;
+	Mon, 23 Jun 2025 05:16:55 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-311e2cc157bso2886094a91.2;
+        Sun, 22 Jun 2025 22:16:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750655813; x=1751260613; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=En0pq+jCzMYs3olwKBVBf+cE3fdHEMn7c2+JHjmC2Bc=;
+        b=kaPjan7BhjqnUI+Ini1our2Ft8mtat9jf9BIcbCt01FKxC2K9UsKLl90HTFpxfE37y
+         543P/A+aZp2XSE/XUkSnuQ13dqu2tk49uT36mb53+qoN9FTjclIBl4kVboNIJTD911Yv
+         p5xGLY+cJRrWZOTg8O21uHFFEWS5/D58q8M8dEAhlndY/ehGzT0Rcoociz//BjMj+7X4
+         MvvHO0hD9HgDhAI3atYRivu9JkxDulOjS9VEryNV+xcrpEFU2pgVjm1x+SriZC+LNrod
+         F683Qs95vstYoA+UO6Zw5M6spvNLeBi+rI+WMhKU63KhnXMWEce9EsfXizdH5QjxmbMb
+         fSQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750655813; x=1751260613;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=En0pq+jCzMYs3olwKBVBf+cE3fdHEMn7c2+JHjmC2Bc=;
+        b=sr4/TkeZqEYIeZCfgEjdcSG33e6OEm8KXDawGtk+eDwZroQgUe2QTp3kUHfhZ95Vlx
+         /fNNcdoJTc4KVurK3b98Nj8KNZO5Sn2DCdHR+/eW19Ja0q9P1D4pkuH5MfAE/b9qyfBV
+         Rst4GKbKfr9E+/KZS74dTuN0B1OJAhkQ3p0ZriJLeU59nS23HtoDU4QFd+LpNODXq8Al
+         o4jUtSX5OA95uXmSJpmKW7YSBEBM7awEQowEWa7gdP0oA8+kRS3IdYt33bwK3N4xwt6h
+         6rSontm+CpYCS1q+rpH+b33tZGAhPPwdqiE1ezu9GoZwF2CFVnix2sxWVZVOaxbaXb2x
+         zthg==
+X-Forwarded-Encrypted: i=1; AJvYcCWjOdteGPnJ95dEi6mmTjGSMGko6J3oOxjABhRNPs1eGYzyzovOjjtFO3NfXQllWM0ywoju/RebiTa988zF7fc=@lists.infradead.org, AJvYcCXxuP9msStdwe1Mb6Yca/8QAHsdAMC+EDcsFiw7m75ZFjyNJktN61DW+/ba8XVhpC/DVGp3mHxGdN+2LvI2cexA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwavriI4L8URnaUPZHoOxqnrBrsFm1XS4UKdJFohvG4bsQEghEL
+	5bm9EmN9ylDiTDwcaoHv3DA6b0+hmlvae84ufIg1OhYsq/UViivsTIYJ
+X-Gm-Gg: ASbGncsCcqEQu3SCX2zoOW03Ninylq3FdrTrj6nVn3DN5g606Ngmbs7RrRQjHo2Etp/
+	7hDtpeF8rt6aEEjZiXm/ktecqN1gpHKp4RXFi8n1haemyi8+Fquj1+qvJ4Y76VuTVp0IO9cVRMo
+	yEokgzCZZ7JPxTSj3QKypfoLAqEHYDuZla/vkuEMXy0p4j8M1ps1/ReQdB0TUo6SdZVaVFphK49
+	1JFUf5qHrjXB/hqqtkrYa82UvSQGKgHpE2Cl0671ht7iTPgb523Hjz5Fksi3Q2FrIr1qxwZzt1L
+	QwRdVIgfd/rYAZ/gRoCgAxfGmVBYNA0vR9bfeM7qpbTDx0GcRWmxi7G9DE+YVU9Rq1lV8oBN
+X-Google-Smtp-Source: AGHT+IG9TUKXoeyvlp4X4lyFMSjBOFbruQUMqCiCZF+ohvgS9TLgNer/JkiWcjcRvc8wDgqad/VFHw==
+X-Received: by 2002:a17:90b:390f:b0:311:e8cc:425d with SMTP id 98e67ed59e1d1-3159d6470dbmr17802629a91.10.1750655812825;
+        Sun, 22 Jun 2025 22:16:52 -0700 (PDT)
+Received: from Barrys-MBP.hub ([118.92.21.225])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3159e06ce4bsm7136997a91.38.2025.06.22.22.16.46
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Jun 2025 22:16:52 -0700 (PDT)
+From: Barry Song <21cnbao@gmail.com>
+To: nphamcs@gmail.com
+Cc: 21cnbao@gmail.com,
+	akpm@linux-foundation.org,
+	andrew.yang@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	casper.li@mediatek.com,
+	chinwen.chang@mediatek.com,
+	hannes@cmpxchg.org,
+	james.hsu@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org,
+	matthias.bgg@gmail.com,
+	minchan@kernel.org,
+	qun-wei.lin@mediatek.com,
+	rppt@kernel.org,
+	senozhatsky@chromium.org,
+	sj@kernel.org
+Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
+Date: Mon, 23 Jun 2025 17:16:42 +1200
+Message-Id: <20250623051642.3645-1-21cnbao@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <CAKEwX=ObLVcbR9q7ZvR3WE2hhmxLpk1bSuvcbWZwo5o5vPCDRA@mail.gmail.com>
+References: <CAKEwX=ObLVcbR9q7ZvR3WE2hhmxLpk1bSuvcbWZwo5o5vPCDRA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-To: Jie Zhan <zhanjie9@hisilicon.com>, <cw00.choi@samsung.com>,
-	<myungjoo.ham@samsung.com>, <kyungmin.park@samsung.com>,
-	<jonathan.cameron@huawei.com>
-References: <20250619151456.3328624-1-zhanjie9@hisilicon.com>
-From: "lihuisong (C)" <lihuisong@huawei.com>
-In-Reply-To: <20250619151456.3328624-1-zhanjie9@hisilicon.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.59]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_204011_404525_3D00901F 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250622_221654_205449_15789C90 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,81 +110,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LGTM, for series,
-Reviewed-by: lihuisong@huawei.com
+Hi Nhat,
 
+On Wed, Jun 18, 2025 at 2:21 AM Nhat Pham <nphamcs@gmail.com> wrote:
+>
+> On Sun, Jun 15, 2025 at 8:41 PM Barry Song <21cnbao@gmail.com> wrote:
+> > >>
+> > >> That seems unnecessary. There is an existing method for asynchronous
+> > >> writeback, and pageout() is naturally fully set up to handle this.
+> > >>
+> > >> IMO the better way to do this is to make zswap_store() (and
+> > >> zram_bio_write()?) asynchronous. Make those functions queue the work
+> > >> and wake the compression daemon, and then have the daemon call
+> > >> folio_end_writeback() / bio_endio() when it's done with it.
+> >
+> > > +1.
+> >
+> >
+> > But,
+> > How could this be possible for zswap? zswap_store() is only a frontend —
+> > we still need its return value to determine whether __swap_writepage()
+> > is required. Waiting for the result of zswap_store() is inherently a
+> > synchronous step.
+>
+> Hmm, I might be misunderstanding either of you, but it sounds like
+> what you're describing here does not contradict what Johannes is
+> proposing?
 
-在 2025/6/19 23:14, Jie Zhan 写道:
-> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
-> the devfreq framework.  The uncore domain contains shared computing
-> resources, including system interconnects and L3 cache.  The uncore
-> frequency significantly impacts the system-wide performance as well as
-> power consumption.  This driver adds support for runtime management of
-> uncore frequency from kernel and userspace.  The main function includes
-> setting and getting frequencies, changing frequency scaling policies, and
-> querying the list of CPUs whose performance is significantly related to
-> this uncore frequency domain, etc.  The driver communicates with a platform
-> controller through an ACPI PCC mailbox to take the actual actions of
-> frequency scaling.
+It seems contradictory: Johannes proposes that zswap could behave like zRAM
+by invoking `folio_end_writeback()` or `bio_endio()`, but this doesn’t align
+with actual behavior since zswap_store might not end `swap_writeout()`—it may
+still proceed to `__swap_writeback()` to complete the final steps.
+
+Meanwhile, Qun-wei’s RFC has already explored using `folio_end_writeback()` and
+`bio_endio()` at the end of `__swap_writepage()` for zRAM, though that approach
+also has its own issues.
+
 >
-> Changelog:
+> >
+> > My point is that folio_end_writeback() and bio_endio() can only be
+> > called after the entire zswap_store() → __swap_writepage() sequence is
+> > completed. That’s why both are placed in the new kcompressed.
 >
-> v5:
-> - Comment more on error code related stuff about
->    hisi_uncore_mark_related_cpus(), and return failure early on errors
->    except for -EINVAL, which indicates possibly broken firmware.
-> - Separate error prints apart for two cases in hisi_platform_gov_handler()
-> - Make the 'related_cpus' sysfs ABI description more generic
-> - Some coding style cleanups and typo fixes
+> Hmm, how about:
 >
-> v4:
-> https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/
-> - Allow devfreq core to accept device-specific sysfs ABIs
-> - Replace custom sysfs attrs with dev_groups and let the devfreq core
->    manage it
-> - Update 'related_cpus' description in the devfreq ABI doc
-> - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
->    this yet
-> - Replace dev_err() with dev_err_probe() during drv->probe()
-> - Replace mutex_init() with devm_mutex_init() to warn on UAF
-> - Replace uncore->dev with dev in some places to make code a bit shorter
-> - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
-> - Use __free() to let compiler release temporary memory
-> - Clean up the error handling and redundant 'status = 0' in
->    hisi_uncore_send_cmd()
-> - Some coding style cleanup
+> 1. Inside zswap_store(), we first obtain the obj_cgroup reference,
+> check cgroup and pool limit, and grab a zswap pool reference (in
+> effect, determining the slot allocator and compressor).
 >
-> v3:
-> https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/
-> - Remove redundant resource freeing processes when drv->probe() fails as
->    they're already handled by devm
+> 2. Next, we try to queue the work to kcompressd, saving the folio and
+> the zswap pool (and whatever else we need for the continuation). If
+> this fails, we can proceed with the old synchronous path.
 >
-> v2:
-> https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/
-> - Make devm manage the release sequence, remove drv->remove()
-> - Warn on !uncore or !uncore->pchan as they're no longer expected
-> - Remove ioremap of pcc shared memory because it's done by the pcc driver
-> - Fix compiler warning of discarding 'const'
-> - Minor trivial coding style changes
+> 3. In kcompressed daemon, we perform the continuation of
+> zswap_store(): compression, slot allocation, storing, zswap's LRU
+> modification, etc. If this fails, we check if the mem_cgroup enables
+> writeback. If it's enabled, we can call __swap_writepage(). Ideally,
+> if writeback is disabled, we should activate the page, but it might
+> not be possible since shrink_folio_list() might already re-add the
+> page to the inactive lru. Maybe some modification of pageout() and
+> shrink_folio_list() can make this work, but I haven't thought too
+> deeply about it :) If it's impossible, we can perform async
+> compression only for cgroups that enable writeback for now. Once we
+> fix zswap's handling of incompressible pages, we can revisit this
+> decision (+ SJ).
 >
-> v1:
-> https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/
+> TLDR: move the work-queueing step forward a bit, into the middle of
+> zswap_store().
 >
-> Jie Zhan (2):
->    PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
->    PM / devfreq: Add HiSilicon uncore frequency scaling driver
->
->   Documentation/ABI/testing/sysfs-class-devfreq |   9 +
->   drivers/devfreq/Kconfig                       |  11 +
->   drivers/devfreq/Makefile                      |   1 +
->   drivers/devfreq/devfreq.c                     |   1 +
->   drivers/devfreq/hisi_uncore_freq.c            | 664 ++++++++++++++++++
->   include/linux/devfreq.h                       |   4 +
->   6 files changed, 690 insertions(+)
->   create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->
+> One benefit of this is we skip pages of cgroups that disable zswap, or
+> when zswap pool is full.
+
+I assume you meant something like the following:
+
+bool try_to_sched_async_zswap_store()
+{
+	get_obj_cgroup_from_folio()
+	if (err) goto xxx;
+	zswap_check_limits();
+	if (err) goto xxx;
+	zswap_pool_current_get()
+	if (err) goto xxx;
+	   
+	queue_folio_to_kcompressd(folio);
+	return true;
+
+xxx:
+	error handler things;
+	return false;
+}
+
+If this function returns true, it suggests that compression requests  
+have been queued to kcompressd. Following that, in kcompressd():
+
+int __zswap_store(folio)
+{
+	for(i=0;i<nr_pages;i++) {
+		zswap_store_page();
+		if (err) return err;
+	}
+	return 0;
+}
+
+kcompressd()
+{
+	while(folio_queue_is_not_empty) {
+		folio = dequeue_folio();
+		if (folio_queued_by_zswap(folio)) {
+			if(!__zswap_store(folio))
+				continue;
+		}
+		if ((zswap_store_page_fails && mem_cgroup_zswap_writeback_enabled()) ||
+		    folio_queued_by_zram) {
+			__swap_writepage();
+		}
+	}
+}
+
+In kswapd, we will need to do
+int swap_writeout(struct folio *folio, struct swap_iocb **swap_plug)
+{
+	...
+	if (try_to_sched_async_zswap_store(folio))
+		return;
+	if (is_sync_comp_blkdev(swap)) {
+		queue_folio_to_kcompressd(folio);
+		return;
+	}
+	__swap_writepage();
+}
+
+To be honest, I'm not sure if there's a flag that indicates whether the  
+folio was queued by zswap or zram. If not, we may need to add a member  
+associated with folio pointers in the queue between kswapd and kcompressd,  
+since we need to identify zswap cases. Maybe we can reuse bit 0 of the  
+folio pointer?
+
+What I mean is: while queuing, if the folio is queued by zswap, we do  
+`pointer |= BIT(0)`. Then in kcompressd, we restore the original folio  
+with `folio = pointer & ~BIT(0)`. It's a bit ugly, but I’m not sure  
+there’s a better approach.
+
+Thanks
+Barry
 
