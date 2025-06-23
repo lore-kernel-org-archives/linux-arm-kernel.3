@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E17CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E36C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tKcDIsLtDkJF8WnaZ9J4aPyfYmz76ZwgpoDVX5vadBE=; b=x9t4AEI3c+rpbdX/Ifkm8ZOcH6
-	i6r5Xb47Ol9XQ4Y+3HShgm+4DNrBlR18tP/mDdB/u9oBATFTyEHcIdpeS+UGAmd5jEl3cZr0HGzJb
-	iXHm5In1tKZRLS8X7FjVEkuI/w6XSmNTVzF5jUgrfyprCcr3kTzO2Br2JD95tcX2j3dqH23s+pIv3
-	RqScIqO/EtAOtuGKxD8Ng0zkeYzM9S3gN10CDU2KSKDWbqYq/h4m2W/OW7wVxvIOZwL5UvybYHfVN
-	7DxsrmcX85rhifcQLjmnC6vPcqmvqimSgN9yntZa8jQIiGFSHtGbdbMhsbPHntbcW0k1igDnEyW3r
-	kBf6h2Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bci8p3IZMtUnGVV/yGdgCwUbxn3sfGQwj0xpFyR4dSU=; b=s21DPy9pFtMOyYOMRGz0uOrTcE
+	XHunOUu+Y+GZM+KXe1yxnqSDZzLpcKx4ocupnatLpPh18dH943PwjkTvwq7ysmrZV7YlcaDLnJfk/
+	/9Ka4hkhTj2Yp5PjbPwJ5oeZi+LmGYok7PMqyOIUZ2FYYD46st8O9qSpp74x31vcGrylJQLRyHsAE
+	+21O/JhZk/75gX3Kj+BJcIbyx/boDnaROmXAJhO7QF9j/rRrR4wok+zmZo80xxGB7QbvnUhaSaj+J
+	e42fEvb46NtZsYGrWzBTKzmqVbJ5U8rCfSgSWUtyasUYxdwhkhO7HTmT6uEwX4Luzd2IrM3rEFtIr
+	B4aac8ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgyK-00000002pmq-1b1R;
-	Mon, 23 Jun 2025 13:12:28 +0000
-Received: from www637.your-server.de ([168.119.26.117])
+	id 1uTh0d-00000002q4V-0XRi;
+	Mon, 23 Jun 2025 13:14:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfRD-00000002W3G-1sx8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 11:34:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=apitzsch.eu
-	; s=default2410; h=MIME-Version:Content-Transfer-Encoding:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=tKcDIsLtDkJF8WnaZ9J4aPyfYmz76ZwgpoDVX5vadBE=; b=MuSaY5n74FI9fcbi6OCoUj2h6L
-	HCrKEel8kuCKkMraPu6hSn0aioGtpsMeoANQbEi05Fy14IFgoJxbT7PHgS6iFy7ZJivHtKa4vmOfX
-	HDb0aXCeQfAiJYqvkMaOHH9ltryHJpRUusEren5v5dZSFUhDP1ljSp16R4mwckW8/iWrkBrAaoxmm
-	Eiub8zq0wzFE0V6X1IHwxYyQvrPlmFgkVxQ6tzL3rrCUdxb6aJp3xgCC8LzbiTmDpF6vRsg7Xcjmw
-	LDFkgdZ4J9+rgAiSwtMQ0Il/O0WdaM4Nl4BeAB1cPWbqn33xIxk1SHbfUqSIX5+C1FkqG2JJ2FPF/
-	eUNcZ1Uw==;
-Received: from sslproxy01.your-server.de ([78.46.139.224])
-	by www637.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <git@apitzsch.eu>)
-	id 1uTfR8-000P6I-1o;
-	Mon, 23 Jun 2025 13:34:07 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <git@apitzsch.eu>)
-	id 1uTfR7-0002er-0U;
-	Mon, 23 Jun 2025 13:34:06 +0200
-Message-ID: <46a681a84a7493e2d0a6d3a4eedb6c86ccd9903f.camel@apitzsch.eu>
-Subject: Re: [PATCH RESEND v4 0/5] media: i2c: imx214: Add support for more
- clock frequencies
-From: =?ISO-8859-1?Q?Andr=E9?= Apitzsch <git@apitzsch.eu>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Ricardo Ribalda <ribalda@kernel.org>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	 <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, Laurent Pinchart
-	 <laurent.pinchart@ideasonboard.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Ricardo Ribalda
-	 <ribalda@chromium.org>, Conor Dooley <conor.dooley@microchip.com>
-Date: Mon, 23 Jun 2025 13:34:03 +0200
-In-Reply-To: <aFj5QnPBO0We5SBQ@kekkonen.localdomain>
-References: <20250621-imx214_ccs_pll-v4-0-12178e5eb989@apitzsch.eu>
-	 <aFj5QnPBO0We5SBQ@kekkonen.localdomain>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 
+	id 1uTfRy-00000002WDB-31Ka;
+	Mon, 23 Jun 2025 11:35:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750678497;
+	bh=T5SUbISDYE0U3ndj/fUfEJmuuEiLHNdsAPnultnjOuw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jOvyQqig1PXeIOkhqzTJgc7CWTlzPM9KLhSl2nLshTqwFckdzO+82Np+/okVsuEaX
+	 5kkdlePa/8gq1xcYhx+xs0XRxM9TBlpYMfTmHGgC4QVU5il9u35gKo8H3+XHY2dGQH
+	 nRfSi33UNd/LdXQfyNrhinj0JYL6FlfqbrjH0qM37dOvlEjx7/HlbSXPLZQvadz3r8
+	 Pf2ZRjUCWnjjEZSLL+ML+7Qlo+OpizSOXDkNpCA2b16A3gqSogfQNiRdxmD7oHjcRh
+	 p8TwbTE1zl8jbXlb3WdhPMul2g/UpyNCqEK3rTC8bjXtzE0Xx/yTaPBJ4kjl9x1zf3
+	 kmW+TX9FPCPTQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2598217E0184;
+	Mon, 23 Jun 2025 13:34:56 +0200 (CEST)
+Message-ID: <88a04bcc-b287-432c-b309-5c76259ceda3@collabora.com>
+Date: Mon, 23 Jun 2025 13:34:55 +0200
 MIME-Version: 1.0
-X-Virus-Scanned: Clear (ClamAV 1.0.7/27678/Mon Jun 23 10:34:34 2025)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/30] Add support for MT8196 clock controllers
+To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250623102940.214269-1-laura.nao@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250623102940.214269-1-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_043411_839370_F47C96CB 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20250623_043458_913664_4B6C7194 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,93 +79,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
+Il 23/06/25 12:29, Laura Nao ha scritto:
+> This patch series introduces support for the clock controllers on the
+> MediaTek MT8196 platform, following up on an earlier submission[1].
+> 
+> MT8196 uses a hardware voting mechanism to control some of the clock muxes
+> and gates, along with a fence register responsible for tracking PLL and mux
+> gate readiness. The series introduces support for these voting and fence
+> mechanisms, and includes drivers for all clock controllers on the platform.
+> 
 
-Am Montag, dem 23.06.2025 um 06:50 +0000 schrieb Sakari Ailus:
-> Hi Andr=C3=A9,
->=20
-> On Sat, Jun 21, 2025 at 11:37:24AM +0200, Andr=C3=A9 Apitzsch via B4 Rela=
-y
-> wrote:
-> > The imx214 driver currently supports only a 24 MHz external clock.
-> > But
-> > there are devices, like Qualcomm-MSM8916-based phones, which cannot
-> > provide this frequency. To make the sensor usable by those devices,
-> > add
-> > support for additional clock frequencies.
-> >=20
-> > This series supersedes
-> > https://lore.kernel.org/linux-media/20250308-imx214_clk_freq-v1-0-467a4=
-c083c35@apitzsch.eu/
->=20
-> Is there a difference in this set from the v4 you posted previously?
+Whole series is
 
-There is no difference to the v4 posted previously. This is a resend
-because there was no activity in the original v4.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Best regards,
-Andr=C3=A9
->=20
-> >=20
-> > Signed-off-by: Andr=C3=A9 Apitzsch <git@apitzsch.eu>
-> > ---
-> > Changes in v4:
-> > - Add missing colon to error message
-> > - Add A-b, R-b tags
-> > - Link to v3:
-> > https://lore.kernel.org/r/20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@api=
-tzsch.eu
-> >=20
-> > Changes in v3:
-> > - Limit range of pll_ip_clk_freq_hz (Sakari)
-> > - Drop unneeded 'ret'
-> > - Use pll.pixel_rate_csi for bit rate calculation
-> > - Add patch that deprecates the clock-frequency property
-> > - Link to v2:
-> > https://lore.kernel.org/r/20250505-imx214_ccs_pll-v2-0-f50452061ff1@api=
-tzsch.eu
-> >=20
-> > Changes in v2:
-> > - Add A-b tags
-> > - Switch to v4l2_ctrl_s_ctrl_int64() to acquire the control handler
-> > mutex
-> > - Add error handling for v4l2_ctrl_s_ctrl_int64() and
-> > =C2=A0 imx214_pll_update()
-> > - Replace "read clock frequency from dt" patch by "remove hard-
-> > coded
-> > =C2=A0 external clock frequency" patch
-> > - Link to v1:
-> > =C2=A0
-> > https://lore.kernel.org/r/20250415-imx214_ccs_pll-v1-0-d3d7748e5fbd@api=
-tzsch.eu
-> >=20
-> > ---
-> > Andr=C3=A9 Apitzsch (5):
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: i2c: imx214: Reorder imx214_parse=
-_fwnode call
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: i2c: imx214: Prepare for variable=
- clock frequency
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: i2c: imx214: Make use of CCS PLL =
-calculator
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: dt-bindings: sony,imx214: Depreca=
-te property clock-
-> > frequency
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: i2c: imx214: Remove hard-coded ex=
-ternal clock
-> > frequency
-> >=20
-> > =C2=A0.../devicetree/bindings/media/i2c/sony,imx214.yaml |=C2=A0 29 ++-
-> > =C2=A0drivers/media/i2c/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > =C2=A0drivers/media/i2c/imx214.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 263
-> > ++++++++++++++++-----
-> > =C2=A03 files changed, 217 insertions(+), 76 deletions(-)
-> > ---
-> > base-commit: 176e917e010cb7dcc605f11d2bc33f304292482b
-> > change-id: 20250406-imx214_ccs_pll-e4aed0e9e532
-> >=20
-> > Best regards,
+(as I reviewed this entire thing internally and before submission anyway :-D)
+
+Cheers,
+Angelo
+
+
+> [1] https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
+> 
+> AngeloGioacchino Del Regno (2):
+>    dt-bindings: reset: Add MediaTek MT8196 Reset Controller binding
+>    clk: mediatek: mt8196: Add UFS and PEXTP0/1 reset controllers
+> 
+> Laura Nao (28):
+>    clk: mediatek: clk-pll: Add set/clr regs for shared PLL enable control
+>    clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
+>    clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and
+>      FENC
+>    clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
+>    clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
+>    clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use
+>      mtk_gate struct
+>    clk: mediatek: clk-gate: Add ops for gates with HW voter
+>    clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
+>    dt-bindings: clock: mediatek: Describe MT8196 peripheral clock
+>      controllers
+>    clk: mediatek: Add MT8196 apmixedsys clock support
+>    clk: mediatek: Add MT8196 topckgen clock support
+>    clk: mediatek: Add MT8196 topckgen2 clock support
+>    clk: mediatek: Add MT8196 vlpckgen clock support
+>    clk: mediatek: Add MT8196 peripheral clock support
+>    clk: mediatek: Add MT8196 ufssys clock support
+>    clk: mediatek: Add MT8196 pextpsys clock support
+>    clk: mediatek: Add MT8196 adsp clock support
+>    clk: mediatek: Add MT8196 I2C clock support
+>    clk: mediatek: Add MT8196 mcu clock support
+>    clk: mediatek: Add MT8196 mdpsys clock support
+>    clk: mediatek: Add MT8196 mfg clock support
+>    clk: mediatek: Add MT8196 disp0 clock support
+>    clk: mediatek: Add MT8196 disp1 clock support
+>    clk: mediatek: Add MT8196 disp-ao clock support
+>    clk: mediatek: Add MT8196 ovl0 clock support
+>    clk: mediatek: Add MT8196 ovl1 clock support
+>    clk: mediatek: Add MT8196 vdecsys clock support
+>    clk: mediatek: Add MT8196 vencsys clock support
+> 
+>   .../bindings/clock/mediatek,mt8196-clock.yaml |   79 ++
+>   .../clock/mediatek,mt8196-sys-clock.yaml      |   76 +
+>   drivers/clk/mediatek/Kconfig                  |   78 +
+>   drivers/clk/mediatek/Makefile                 |   14 +
+>   drivers/clk/mediatek/clk-gate.c               |  106 +-
+>   drivers/clk/mediatek/clk-gate.h               |    3 +
+>   drivers/clk/mediatek/clk-mt8196-adsp.c        |  193 +++
+>   drivers/clk/mediatek/clk-mt8196-apmixedsys.c  |  203 +++
+>   drivers/clk/mediatek/clk-mt8196-disp0.c       |  169 +++
+>   drivers/clk/mediatek/clk-mt8196-disp1.c       |  170 +++
+>   .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    |  117 ++
+>   drivers/clk/mediatek/clk-mt8196-mcu.c         |  166 +++
+>   drivers/clk/mediatek/clk-mt8196-mdpsys.c      |  187 +++
+>   drivers/clk/mediatek/clk-mt8196-mfg.c         |  150 ++
+>   drivers/clk/mediatek/clk-mt8196-ovl0.c        |  154 ++
+>   drivers/clk/mediatek/clk-mt8196-ovl1.c        |  153 ++
+>   drivers/clk/mediatek/clk-mt8196-peri_ao.c     |  144 ++
+>   drivers/clk/mediatek/clk-mt8196-pextp.c       |  131 ++
+>   drivers/clk/mediatek/clk-mt8196-topckgen.c    | 1257 +++++++++++++++++
+>   drivers/clk/mediatek/clk-mt8196-topckgen2.c   |  662 +++++++++
+>   drivers/clk/mediatek/clk-mt8196-ufs_ao.c      |  109 ++
+>   drivers/clk/mediatek/clk-mt8196-vdec.c        |  253 ++++
+>   drivers/clk/mediatek/clk-mt8196-vdisp_ao.c    |   78 +
+>   drivers/clk/mediatek/clk-mt8196-venc.c        |  235 +++
+>   drivers/clk/mediatek/clk-mt8196-vlpckgen.c    |  769 ++++++++++
+>   drivers/clk/mediatek/clk-mtk.c                |   16 +
+>   drivers/clk/mediatek/clk-mtk.h                |   23 +
+>   drivers/clk/mediatek/clk-mux.c                |  119 +-
+>   drivers/clk/mediatek/clk-mux.h                |   76 +
+>   drivers/clk/mediatek/clk-pll.c                |   46 +-
+>   drivers/clk/mediatek/clk-pll.h                |    9 +
+>   .../dt-bindings/clock/mediatek,mt8196-clock.h |  867 ++++++++++++
+>   .../reset/mediatek,mt8196-resets.h            |   26 +
+>   33 files changed, 6814 insertions(+), 24 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
+>   create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-adsp.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-disp1.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl0.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen2.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-vdisp_ao.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+>   create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
+>   create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+> 
+
 
