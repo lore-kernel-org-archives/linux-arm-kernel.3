@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DF2C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1695C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nZZPcFFpczlCCH3+jUC8DptxGeSvN4AN6UN7IiqcAco=; b=SnXAkZyUlYnMfFP9go2g+Yu9Vw
-	Fda7zo5Yak8XptdIq4nq5wBvDVhkAcX07fZHdehgMqgIOJnN/oFs/4rsTk8pjn4A1VwYVJuYO1m0/
-	jKvMag2J2m/moKzgWBB6elOh6jlQ5nJ95srY6cROCEuaXW7idLiExJJn9BSxHvk351zj0y8pys5p/
-	G8lrsdyDogiFxUw58Z7SgDFKJ4dclh+p7Ww9F8bGI6F7lb7ZGKvNNIHoAVji0N1/pauV2BeaEUDqC
-	2z7/TW3MdRJjWrwunONVdDA1/2BImBDvIiPBYUjpRX+4zfsifsjAcuRzyQb4Y75kJXWf1WPr1Cb2G
-	vk35PiQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2umrYHd0J3tqzw0yG5M5k9L2TulLqh3KukmLpWDNa1I=; b=mAOXh/t/fPOvdum794iiAW9fua
+	nxKNItOuQI/pLwQJr5AoSGIsOyAaT66qMbv9fwVWyXy3vPE9MCpKcanUPeZGUDk1DzM5XWXQuDFPk
+	YPlT+uzExMe0/6u2TrW9rbAVLXRl93M+setiGPNVLKNpUXVyLnzaeWBwOmIBCy8dYrF/prm94tDWM
+	ywIzPRxHscwIYZm8QCdaRWgfJsz6lWwIqY6XBodOoTz5l4N6NcJP0gsaehCzicLfjEGocLd/yb8E7
+	nrtUJMj3Hl+vfR3LocHgI4rVzjRjzAHiACmNCSXfYUOkJUrzydSENL8xQD9O0GFVS8iGEZhNhgZZn
+	jgtC6ClA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZP-00000004FI0-0IlD;
-	Tue, 24 Jun 2025 00:31:27 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uTrZN-00000004FG8-3Izh;
+	Tue, 24 Jun 2025 00:31:25 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlPg-00000003cgg-3nDw
+	id 1uTlNT-00000003cKu-1IM1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 17:57:02 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-60780d74c85so7033421a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 10:57:00 -0700 (PDT)
+	Mon, 23 Jun 2025 17:54:45 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e8187601f85so3915757276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 10:54:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750701419; x=1751306219; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nZZPcFFpczlCCH3+jUC8DptxGeSvN4AN6UN7IiqcAco=;
-        b=fHkTYT9L2hFSFxVPNbkoWYzfQfYk0K52F6DUWjWIwNXnEA26NgCMz8nn0UsVdjzS9o
-         nkoo4q8E0AiCZcmoiKpLf1WfMNSOF9tdDiLs5/GBysH68KbmogZTNyUCtjlIF03ibNdc
-         9YXqYGxZ7PGHcZWT0cqvOMcuUSo+qGQysQ3veZJaAfFcCWRYZFHJenOaf6zqWA4y/krB
-         3xjJ4m5mnA+sqwXazEk54rKwtoIoaeEdFE/I4fhxwJ/oeGItvRa1al3z3u3zJ54hgNcB
-         FaTN+EvWbfspmXnfeJMCoBB7NGlf5Ks9+dYmmioPBccQ4B8l6zq9Egs28xjKWAaOZGra
-         rzmQ==
+        d=raspberrypi.com; s=google; t=1750701282; x=1751306082; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=2umrYHd0J3tqzw0yG5M5k9L2TulLqh3KukmLpWDNa1I=;
+        b=DJPd97oSsZVHWyGew57g3P3OoU5B35po/RugzUIT4xOxNEkBPRCUtDqJjLgsHMqqej
+         C/CLbvVaq08grnhFiFc2IIwvwlUqJaAkE9pU9cYvDc/DYvI/W6qkiQKvXws7+1jbq5r7
+         J+VTjWNeMkzGJse4vLCvA8jKsfE5cpGsxxBefwqAh8QMKAn8CT9j6FmMX9OZFAjXXgV8
+         KGLgCeqdoknGYPL3XaroJ25BQhpS4l5eZKalO7itUwDh76OE3CyNcLmuVLcDNtLkVFjn
+         G0kPosE8xQ49R3IVt6rK1/IQuAjXFl33Muqf/jZsCIx4Yh4bNscM2ao1LRZ0kD6kFLmL
+         FijQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750701419; x=1751306219;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1750701282; x=1751306082;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nZZPcFFpczlCCH3+jUC8DptxGeSvN4AN6UN7IiqcAco=;
-        b=Jpn8g30NbN2Gd+MfE5AuO7b7l9Ud4JRqQjqGS3qL00l02I2QMgDyqk0E4zypZCsLoJ
-         THwqQoiqr4KHR9nPbyqXSZZ43PPsiL0Z3HpLtU5EJn9UjWfAkbgBTVFhIuCKcWvlFtRc
-         OBj11/KmditepdJs2ovukUdZgMerhbyzbe1lY/9jBW+vfwyQ5HgIu8mKUF5syOSErKtr
-         C4XqMxtucJc1uDoFZfCXvXn5D0vOzyUE/5/FwShf/Od0E/otB7/vF5HLR3lQOdkj4eAl
-         V9SITTm947x4zzZqE5yQA+kiTZvL6dBE/3m+7s3IOOEx6XJfqp9kgoAo+ZzY/8pRkBjb
-         Ittg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4tRT0/lrgaUv5GR779//p/bRTrE+iNDKRNQz7RhkoADDJ82v+R/pXnqxZJ+NdUbW5dm3d5KLVHW6VTcJ2fjct@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwfnrNeF4Og2BPeYtv0XPZJhC6mT7x+kfJfR1X4iBlGDtWQh+0
-	Kb9MGGUvZ5jLjGryJAfIPnvMIkS94nDWOWpsD1Tuee2vQQNfg1HrgVRc
-X-Gm-Gg: ASbGncsbdcn93LOXDgeDkR73j3fu/WY1I0nThcpJQXpOU1uT3PAwTlB0uaetnN/ttuK
-	DcIzQcnzmED859AXZQf11JlTMVa89sNLxXtol4Hb0ZjENJkTroHT2Kb7puWuAYUpbD9mpydASbr
-	UzG0Ant8+1L1V7Rla9cu/b8HPTHjpoFWBdYZW+V2lvw0f5iuTay6GXCpZx+aKtzBfcBCYlnNqyN
-	q+gT9/QD+8PSPM5hMpAM9CPCqnzm5JfdfGL2ImLBtcn5T9ft1ikd9SYE7+S1OFCZhYIvCBgf+Gq
-	ZhuKWkqplymbp1w9t9XS+AV+g3qYmRmV2tficGKw/22WAZfrH6yB0BY3mvC5aX/i2w==
-X-Google-Smtp-Source: AGHT+IFHYGJzGKcHxHbMeasOLjpLtoHx3VNYxm2w5V3zB7PXBaWircwkfG+MxrjaKvR+fMF9gFZEZw==
-X-Received: by 2002:a05:6402:350f:b0:607:f082:583a with SMTP id 4fb4d7f45d1cf-60a1d187fa0mr11731886a12.27.1750701418968;
-        Mon, 23 Jun 2025 10:56:58 -0700 (PDT)
-Received: from wslxew242.. ([188.193.103.108])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60a18cb9e5dsm6360789a12.53.2025.06.23.10.56.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 10:56:58 -0700 (PDT)
-From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
-To: Frank.li@nxp.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	boerge.struempfel@gmail.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
-	kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 0/3] arm64: dts: Add support for Ultratronik i.MX8MP Ultra-MACH SBC
-Date: Mon, 23 Jun 2025 19:56:49 +0200
-Message-ID: <20250623175654.844281-1-goran.radni@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=2umrYHd0J3tqzw0yG5M5k9L2TulLqh3KukmLpWDNa1I=;
+        b=sz0wmo6RlNLlXrnFTnzosb5xQdYA4k1YtMfJenCMxZPNprMdmSklOBRSDqeTRYOJrn
+         aF3WyWeN6IhjI8YpF4G9pddHD+egM6cqizOsaP4vpHKAiMCoWeeIVLmLube96LXq+eQz
+         WJVzuj4FCK/LEljfbJWUNOkZf1m1l5TzxIyNMvDQIk/Jka0JX4GNAYB4mwWrd1xa4nKm
+         cd3qJvVkXfjPHgU+R9kp6JMqsGQ8Wnysv5BthGwuTMQ7fFqMDYzbPwVShA9FDxVV0SA9
+         ByPak0q/UIe23Q5TKs6f8+6CVZ14fWbx1Ab/QHP/n9sDQp2o7o6NQpS8u6z05t9P0A1o
+         6ZdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXIhxxco7aGO6peIcF6wkVjeKycmgqp5gLCHtX2fDEPGRLZup4aYg9Q0KXue0JhLrv9HmKJQKLG+lra6s/nppdD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNhxZolRWSMrkaOMD7Ird71xT65mDpD79Rghmg9xvbE8sas1ax
+	J5GE5WQ3TXKzb9zea68OQsnDA7WV/uhGb1UC10rn4Nxq/pv6tYiE6l7363OVj4feaNFWBIoEE/C
+	btE7Qak6qFM7/i9UobI32sgRh9j0PsZD20tZp3WIN9Q==
+X-Gm-Gg: ASbGnctGRUHw1BHbW92OYrT5wbpppfgq4063rtruFRYBdzcA/beHHqJloLZnm11PscC
+	XFMUUyD1dOFHuFvyKMK1PbsSZh2HPLGHS6h4KkE3HNbNoGEZhmZkDyl1yNrBQJqFwdqw/5a6ICM
+	A2OTubFgH7z6WEBRcoo48DWOei+hNVVf8y1fs4cVjp/CbK7jGzWmSXW3Xrb1zcqzi76ioV77U6+
+	/4=
+X-Google-Smtp-Source: AGHT+IGfoKcrgWxXbXinchiD0boKI8XS21vm7EaD/9/fAZ8SN+qxvOdYfr3tfI2hM/Ouf1leep1F62DdDBljcNdq3YM=
+X-Received: by 2002:a05:6902:2b85:b0:e81:b2a2:c633 with SMTP id
+ 3f1490d57ef6-e842bcf7d10mr16162769276.32.1750701281840; Mon, 23 Jun 2025
+ 10:54:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
+ <20250423-media-rpi-hevc-dec-v3-3-8fd3fad1d6fb@raspberrypi.com>
+ <20250425-inescapable-beagle-of-bliss-8ae3ff@kuoka> <CAPY8ntCWzp9cRKwLg44G20jG17q2KhavZa_8qpodhGUGS2Bc7Q@mail.gmail.com>
+ <e00ec6f8-479e-46c4-9c99-7de4c9fa1c27@kernel.org>
+In-Reply-To: <e00ec6f8-479e-46c4-9c99-7de4c9fa1c27@kernel.org>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Mon, 23 Jun 2025 18:54:23 +0100
+X-Gm-Features: AX0GCFsJmnJSIgh3LKawkx-7MO5eDaDetGX5z3Whb404Zemw7AoPyaf6laHApe8
+Message-ID: <CAPY8ntCkgnwhA_OuDY3zMMrptFmLqTm_mLdmdLeO5txyFuG1Jw@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] media: dt-bindings: media: Add binding for the
+ Raspberry Pi HEVC decoder
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, John Cox <john.cox@raspberrypi.com>, 
+	Dom Cobley <dom@raspberrypi.com>, review list <kernel-list@raspberrypi.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox <jc@kynesim.co.uk>, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_105700_943014_ED3B3244 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250623_105443_529329_C024C220 
+X-CRM114-Status: GOOD (  44.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +106,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Ultratronik i.MX8MP-based Ultra-MACH SBC.
+Thanks Krzysztof
 
-The Ultra-MACH SBC is an industrial-grade single-board computer based on the NXP i.MX8M Plus SoC. This initial support includes:
+Sorry for the delay in replying - other priorities.
 
-- Updating the MAINTAINERS file to include the new board in the Ultratronik support section.
-- Adding a compatible string entry for the board to `fsl.yaml` in device tree bindings.
-- Introducing a new device tree source file `imx8mp-ultra-mach-sbc.dts` with basic hardware support.
+On Mon, 28 Apr 2025 at 18:57, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 28/04/2025 12:03, Dave Stevenson wrote:
+> > Hi Krzysztof
+> >
+> > On Fri, 25 Apr 2025 at 08:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>
+> >> On Wed, Apr 23, 2025 at 06:20:20PM GMT, Dave Stevenson wrote:
+> >>> Adds a binding for the HEVC decoder found on th +maintainers:
+> >>> +  - John Cox <john.cox@raspberrypi.com>
+> >>> +  - Dom Cobley <dom@raspberrypi.com>
+> >>> +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
+> >>
+> >>> +  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
+> >>
+> >> Drop, no mailing lists in bindings maintainers. These must be people.
+> >
+> > Ack
+> >
+> >>> +
+> >>> +description:
+> >>> +  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
+> >>> +  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
+> >>> +  boards respectively.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    items:
+> >>> +      - enum:
+> >>> +          - brcm,bcm2711-hevc-dec
+> >>> +          - brcm,bcm2712-hevc-dec
+> >>> +      - const: raspberrypi,hevc-dec
+> >>
+> >> Not what Rob asked. You should use specific SoC compatible as fallback.
+> >
+> > In which case I don't understand what Rob was asking for.
+> > I asked for clarification in [1], but got no reply. Sending a new
+> > version has at least got an answer, but I'm none the wiser.
+> >
+> > Staring at this trying to work out your meaning, you want the generic
+> > first, and SoC specific second? ie
+> > +  compatible:
+> > +    items:
+> > +      - const: raspberrypi,hevc-dec
+>
+> Drop
+>
+> > +      - enum:
+>
+> That's enum, not fallback.
+>
+> > +          - brcm,bcm2711-hevc-dec
+> > +          - brcm,bcm2712-hevc-dec
+> >
+> >> You referred to file "raspberrypi,pisbe.yaml" before, but there is no
+> >> such file in the next.
+> >
+> > Typo.
+> > https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/media/raspberrypi%2Cpispbe.yaml
+> > Reviewed by Rob only just over a year ago [2]
+>
+> There were some discussions and reasons with explanations.
+> Feel free to use same arguments and accurately describe the hardware, so
+> we won't be needing to ask usual questions.
 
-This series is modeled after the support added for the STM32MP157C-based Ultra-FLY SBC and aims to follow the conventions used for other i.MX8MP boards in mainline..
+Sorry if the previous descriptions hadn't been clear. All the same
+points as for raspberrypi,pispbe.yaml apply here, which is why I'd
+tried to link to it originally.
 
-Changes in v2:
-  - Use `enum` with `const:` values in fsl.yaml to correctly represent multiple compatibles.
-  - Updated SPI child node name to use the generic `nfc-transceiver` per DT naming conventions.
-  - Renamed several peripheral nodes (`crypto@35`, `pmic@25`, etc.) to standard names.
-  - Minor formatting cleanup and compliance fixes per review feedback.
+Describe the hardware:
+Raspberry Pi designed and are the sole owners of the IP for this HEVC
+decoder block. This is *not* Broadcom IP.
 
-Changes in v3:
-- Added "ultratronik,imx8mp-ultra-mach-sbc" to the shared i.MX8MP enum block in `fsl.yaml` [1].
-- Ensured the compatible entry is validated by the existing binding structure.
-- Updated `imx8mp-ultra-mach-sbc.dts` to address review feedback from v2 [2], including:
-  - Proper formatting and indentation fixes.
-  - Cleaned up node ordering and property alignment.
+That design was given to Broadcom as Verilog to wire into the
+bus/interrupt/clock fabric of BCM2711, and to manufacture it via TSMC
+on a 28nm process node.
 
-Changes in v4:
-  - Moved `status = "okay";` to the last property in the TPM node.
-  - Fixed indentation of `cs-gpios` multi-line property in the ecspi2 node.
-  - Removed an outdated comment.
+A few years later the same design was given to Broadcom to wire into
+BCM2712, and to manufacture it on a 16nm process node.
 
-No functional changes otherwise. Patch series is based on feedback from Frank Li and Krzysztof Kozlowski.
+As it is Raspberry Pi owned IP it can be used in other places than
+Broadcom SoCs.
+Broadcom does not have a licence to use the IP in any other of their chips.
 
-Thanks for the reviews!
+It is the same situation as for raspberrypi,pispbe.yaml except the
+block already exists in 2 chips rather than just the 1. There also
+isn't a version register in the hardware that is different between
+those chips (an oversight noted for future chips).
+It could be compared to a Synopsis or Cadence IP block dropped into an
+SoC. The vendor prefix happens to be raspberrypi instead of snps or
+cdns.
 
-Link to v2 DT binding discussion:
-[1] https://lore.kernel.org/all/578ea477-c68c-4427-8013-550bf4f9c05b@kernel.org/#t
+Is there any part that needs to be further clarified?
 
-Link to v2 DTS review:
-[2] https://lore.kernel.org/all/aEmh7VL7BHkXp5Fu@lizhi-Precision-Tower-5810/
+> Anyway, we asked for fallback, so you need items, just like every SoC
+> compatible (see also example schema).
+>
+>
+> >
+> >> Before you reply that there is a binding using different rules: well,
+> >> there is always poor code. Above two comments are repeated, especially
+> >> this about specific compatible - all the time, so these are not new
+> >> rules. These are given in reviews since some years.
+> >
+> > My Google-foo is totally failing with the only directly relevant
+> > mention of "fallback compatible" I find is [3], which just says to use
+> > them.
+> >
+> > You're effectively saying I can't take anything in the kernel tree as
+> > being a valid example as it could be poor code, and a layman such as
+> > myself has no way of telling.
+>
+> No, I am saying that argument "I saw someone doing this, so I am allowed
+> to do the same" is not correct. There are good and bad examples. For
+> example in my talks I mentioned good examples. The list of good examples
+> was not accepted to the kernel so well... I just use as an example any
+> recent Qcom binding using specific compatibles.
+>
+> > Could you please point me at documentation and examples I can rely on,
+> > or educate me with what is wanted in this situation to avoid me having
+> > to guess?
+> >
+> > A further mailing list search has brought up [4] which is a thread
+> > with yourself from 2 years ago which looks to be a very similar
+> > situation. Other than missing the const on the SoC strings (although
+> > that isn't in the merged version of cnm,wave521c.yaml), and two SoC
+> > specific strings, I'm not seeing an obvious difference between there
+> > and here either.
+>
+> How is the [4] relevant? That's IP block from other vendor.
 
-The board is based on NXP's i.MX8MP SoC and includes eMMC, LPDDR4, USB-C, Ethernet, and HDMI.
+It was another example of an IP block belonging to vendor A being
+added into an SoC from vendor B, same as the situation here. Raspberry
+Pi != Broadcom.
 
-Tested with:
-- `make ARCH=arm64 dtbs_check` (passes)
-- Boot tested on hardware
+Thanks
+  Dave
 
-Best regards,  
-Goran Rađenović
-
-
-Goran Rađenović (3):
-  MAINTAINERS: Add i.MX8MP Ultra-MACH SBC to ULTRATRONIK BOARD SUPPORT
-  dt-bindings: arm: imx8mp: Add Ultratronik Ultra-MACH SBC
-  arm64: dts: imx8mp: Add initial support for Ultratronik
-    imx8mp-ultra-mach-sbc board
-
- .../devicetree/bindings/arm/fsl.yaml          |   1 +
- MAINTAINERS                                   |   1 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx8mp-ultra-mach-sbc.dts   | 908 ++++++++++++++++++
- 4 files changed, 911 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
-
-
-base-commit: 86731a2a651e58953fc949573895f2fa6d456841
--- 
-2.43.0
-
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/writing-bindings.html#properties
+>
+> https://elixir.bootlin.com/linux/v6.3-rc6/source/Documentation/devicetree/bindings/sound/nvidia,tegra210-ope.yaml#L31
+>
+> Best regards,
+> Krzysztof
 
