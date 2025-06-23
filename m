@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF33C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 05:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC0FC7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 05:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPDu97suDP0aSdU3roBpwlaCvYP1s/VTci9lg7WXmio=; b=K+PiqqHWly7gciAU9WLwj+yan0
-	zyVtyHr5ngMmHOJ/R2y378+p1ZrJPStb5nA6wJqGes0YUWDzQuZpiMmV6p1RyQPxAKpOui+yy5p0c
-	QJfmPXNgSwi5TB/lvyUrE9ikbIs9+LyTDN0UtHqyQwjCoxCJTFiJYhi3iK7X2Sjhngan/wqYcjFOz
-	SqvwLImF/v9qAo/ppL3M0UDOrWcZIO4b0u3UvzFbkxclM911jnBAjVR/geMWjFhUp4X5B1JkVl5ok
-	5X+KHrkvXYqqC1J4F76JI1X1yLc4rFQid216yMW0OixPKiMNnChR/4rXDfNbXBvIGZ3+QWDXDJWpV
-	IGm6PdoA==;
+	bh=pw2ER6SBG/IISjyjxgmZAlUHQV2vo4+rOyme5Sovtjo=; b=Ldy+oYRiB98/UMW/PXZJ8fmH7o
+	pvVcXHRTJvUDiHAxRfRV6Y/J6Dio/QrCmr5oKK6D6mUXau0WH//G8pCfljirVh20JGDUVdufIHL8j
+	KTxtSk3wWS1nod8r2hMHqk5RkPyCOo4x6PTwYCHUv0Q9D3uliYAx6TFW0wRH3QNDvCDS9wN2zooOI
+	1tomN7mszXdUTR6hfraSbrCZNYyyy7baDvSMXVcELUo7LEUaCrQdRgq8X1d/HUsr5R/b7A8SYhlue
+	4k0iWuAThmbWBIT9GorHlUCWa0dBZWR1i2WsTygWfPGbOOqQfSH/HRh52+DIDAQ0BTT1nOxC4qGV7
+	5FViaOPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTa5r-00000001fcR-3UXR;
-	Mon, 23 Jun 2025 05:51:47 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uTa8A-00000001fob-3G1A;
+	Mon, 23 Jun 2025 05:54:10 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTZsa-00000001dND-1HUr
+	id 1uTZsf-00000001dOk-34e7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 05:38:05 +0000
+	Mon, 23 Jun 2025 05:38:10 +0000
 Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55N5c0mJ1447391;
-	Mon, 23 Jun 2025 00:38:00 -0500
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55N5c6j21393193;
+	Mon, 23 Jun 2025 00:38:06 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750657080;
-	bh=qPDu97suDP0aSdU3roBpwlaCvYP1s/VTci9lg7WXmio=;
+	s=ti-com-17Q1; t=1750657086;
+	bh=pw2ER6SBG/IISjyjxgmZAlUHQV2vo4+rOyme5Sovtjo=;
 	h=From:To:Subject:Date:In-Reply-To:References;
-	b=U0F7dUdndBlXHXYdhNiby8gMMgpHZC2PMGuwpyILiwWFi/ElqognnRYI4T4KbEs3x
-	 +fS1Bt/1FiRewlqJGsoQUHjUdbvX/xab1C1PpVz/WZRpFR+d7VcYOPtKDUfpoERzHi
-	 37mLyg915/Yz+qomlgG476dR9qGUfBUoxLvYbQ/8=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55N5c0BP183709
+	b=QGDm0gU23+t9Y5XekNOtz7gnqQevvU5AI32gIbMFGM0avkyBULC3jO+okLWRcFstB
+	 xrwnt8ZA6BevXMWeL8/k35nvvMVOsVj0KmkrGrK8BuNqBH+TkFQWyRoZmqqbb1CtsU
+	 z6BDYI9T284bpfVDJUhxsXXmRjWp9XVKV7y/yGGE=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55N5c62p183890
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 23 Jun 2025 00:38:00 -0500
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 23 Jun 2025 00:38:06 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
- Jun 2025 00:38:00 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 00:38:05 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 23 Jun 2025 00:38:00 -0500
+ Frontend Transport; Mon, 23 Jun 2025 00:38:05 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.227.7])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55N5bSqU3428603;
-	Mon, 23 Jun 2025 00:37:55 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55N5bSqV3428603;
+	Mon, 23 Jun 2025 00:38:00 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
         Rob Herring <robh@kernel.org>,
@@ -64,9 +64,9 @@ To: Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <praneeth@ti.com>,
         <vigneshr@ti.com>, <u-kumar1@ti.com>, <a-chavda@ti.com>,
         <p-mantena@ti.com>
-Subject: [PATCH v3 05/17] dmaengine: ti: k3-udma: move ring management functions to k3-udma-common.c
-Date: Mon, 23 Jun 2025 11:07:04 +0530
-Message-ID: <20250623053716.1493974-6-s-adivi@ti.com>
+Subject: [PATCH v3 06/17] dmaengine: ti: k3-udma: Add variant-specific function pointers to udma_dev
+Date: Mon, 23 Jun 2025 11:07:05 +0530
+Message-ID: <20250623053716.1493974-7-s-adivi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250623053716.1493974-1-s-adivi@ti.com>
 References: <20250623053716.1493974-1-s-adivi@ti.com>
@@ -75,8 +75,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_223804_441071_26FB53F8 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250622_223809_863749_9699C603 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,254 +91,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relocate the ring management functions such as push, pop, and reset
-from k3-udma.c to k3-udma-common.c file. These operations are
-common across multiple K3 UDMA variants and will be reused by
-future implementations like K3 UDMA v2.
+Introduce function pointers in the udma_dev structure to allow
+variant-specific implementations for certain operations.
+This prepares the driver for supporting multiple K3 UDMA variants,
+such as UDMA v2, with minimal code duplication.
 
-No functional changes intended.
+No functional changes intended in this commit.
 
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/k3-udma-common.c | 100 ++++++++++++++++++++++++++++++++
- drivers/dma/ti/k3-udma.c        | 100 --------------------------------
- drivers/dma/ti/k3-udma.h        |   4 ++
- 3 files changed, 104 insertions(+), 100 deletions(-)
+ drivers/dma/ti/k3-udma.c | 38 ++++++++++++++++++++++----------------
+ drivers/dma/ti/k3-udma.h |  5 +++++
+ 2 files changed, 27 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-index 742edc0ea14db..384f0c7e0dc52 100644
---- a/drivers/dma/ti/k3-udma-common.c
-+++ b/drivers/dma/ti/k3-udma-common.c
-@@ -1229,3 +1229,103 @@ void udma_desc_pre_callback(struct virt_dma_chan *vc,
- 		}
- 	}
- }
-+
-+int udma_push_to_ring(struct udma_chan *uc, int idx)
-+{
-+	struct udma_desc *d = uc->desc;
-+	struct k3_ring *ring = NULL;
-+	dma_addr_t paddr;
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		ring = uc->rflow->fd_ring;
-+		break;
-+	case DMA_MEM_TO_DEV:
-+	case DMA_MEM_TO_MEM:
-+		ring = uc->tchan->t_ring;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* RX flush packet: idx == -1 is only passed in case of DEV_TO_MEM */
-+	if (idx == -1) {
-+		paddr = udma_get_rx_flush_hwdesc_paddr(uc);
-+	} else {
-+		paddr = udma_curr_cppi5_desc_paddr(d, idx);
-+
-+		wmb(); /* Ensure that writes are not moved over this point */
-+	}
-+
-+	return k3_ringacc_ring_push(ring, &paddr);
-+}
-+
-+int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr)
-+{
-+	struct k3_ring *ring = NULL;
-+	int ret;
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		ring = uc->rflow->r_ring;
-+		break;
-+	case DMA_MEM_TO_DEV:
-+	case DMA_MEM_TO_MEM:
-+		ring = uc->tchan->tc_ring;
-+		break;
-+	default:
-+		return -ENOENT;
-+	}
-+
-+	ret = k3_ringacc_ring_pop(ring, addr);
-+	if (ret)
-+		return ret;
-+
-+	rmb(); /* Ensure that reads are not moved before this point */
-+
-+	/* Teardown completion */
-+	if (cppi5_desc_is_tdcm(*addr))
-+		return 0;
-+
-+	/* Check for flush descriptor */
-+	if (udma_desc_is_rx_flush(uc, *addr))
-+		return -ENOENT;
-+
-+	return 0;
-+}
-+
-+void udma_reset_rings(struct udma_chan *uc)
-+{
-+	struct k3_ring *ring1 = NULL;
-+	struct k3_ring *ring2 = NULL;
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		if (uc->rchan) {
-+			ring1 = uc->rflow->fd_ring;
-+			ring2 = uc->rflow->r_ring;
-+		}
-+		break;
-+	case DMA_MEM_TO_DEV:
-+	case DMA_MEM_TO_MEM:
-+		if (uc->tchan) {
-+			ring1 = uc->tchan->t_ring;
-+			ring2 = uc->tchan->tc_ring;
-+		}
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (ring1)
-+		k3_ringacc_ring_reset_dma(ring1,
-+					  k3_ringacc_ring_get_occ(ring1));
-+	if (ring2)
-+		k3_ringacc_ring_reset(ring2);
-+
-+	/* make sure we are not leaking memory by stalled descriptor */
-+	if (uc->terminated_desc) {
-+		udma_desc_free(&uc->terminated_desc->vd);
-+		uc->terminated_desc = NULL;
-+	}
-+}
 diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 0a1291829611f..214a1ca1e1776 100644
+index 214a1ca1e1776..740ccc6c675c3 100644
 --- a/drivers/dma/ti/k3-udma.c
 +++ b/drivers/dma/ti/k3-udma.c
-@@ -174,106 +174,6 @@ static bool udma_is_chan_paused(struct udma_chan *uc)
- 	return false;
- }
+@@ -329,7 +329,7 @@ static int udma_start(struct udma_chan *uc)
+ 	}
  
--static int udma_push_to_ring(struct udma_chan *uc, int idx)
--{
--	struct udma_desc *d = uc->desc;
--	struct k3_ring *ring = NULL;
--	dma_addr_t paddr;
--
--	switch (uc->config.dir) {
--	case DMA_DEV_TO_MEM:
--		ring = uc->rflow->fd_ring;
--		break;
--	case DMA_MEM_TO_DEV:
--	case DMA_MEM_TO_MEM:
--		ring = uc->tchan->t_ring;
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	/* RX flush packet: idx == -1 is only passed in case of DEV_TO_MEM */
--	if (idx == -1) {
--		paddr = udma_get_rx_flush_hwdesc_paddr(uc);
--	} else {
--		paddr = udma_curr_cppi5_desc_paddr(d, idx);
--
--		wmb(); /* Ensure that writes are not moved over this point */
--	}
--
--	return k3_ringacc_ring_push(ring, &paddr);
--}
--
--static int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr)
--{
--	struct k3_ring *ring = NULL;
--	int ret;
--
--	switch (uc->config.dir) {
--	case DMA_DEV_TO_MEM:
--		ring = uc->rflow->r_ring;
--		break;
--	case DMA_MEM_TO_DEV:
--	case DMA_MEM_TO_MEM:
--		ring = uc->tchan->tc_ring;
--		break;
--	default:
--		return -ENOENT;
--	}
--
--	ret = k3_ringacc_ring_pop(ring, addr);
--	if (ret)
--		return ret;
--
--	rmb(); /* Ensure that reads are not moved before this point */
--
--	/* Teardown completion */
--	if (cppi5_desc_is_tdcm(*addr))
--		return 0;
--
--	/* Check for flush descriptor */
--	if (udma_desc_is_rx_flush(uc, *addr))
--		return -ENOENT;
--
--	return 0;
--}
--
--static void udma_reset_rings(struct udma_chan *uc)
--{
--	struct k3_ring *ring1 = NULL;
--	struct k3_ring *ring2 = NULL;
--
--	switch (uc->config.dir) {
--	case DMA_DEV_TO_MEM:
--		if (uc->rchan) {
--			ring1 = uc->rflow->fd_ring;
--			ring2 = uc->rflow->r_ring;
--		}
--		break;
--	case DMA_MEM_TO_DEV:
--	case DMA_MEM_TO_MEM:
--		if (uc->tchan) {
--			ring1 = uc->tchan->t_ring;
--			ring2 = uc->tchan->tc_ring;
--		}
--		break;
--	default:
--		break;
--	}
--
--	if (ring1)
--		k3_ringacc_ring_reset_dma(ring1,
--					  k3_ringacc_ring_get_occ(ring1));
--	if (ring2)
--		k3_ringacc_ring_reset(ring2);
--
--	/* make sure we are not leaking memory by stalled descriptor */
--	if (uc->terminated_desc) {
--		udma_desc_free(&uc->terminated_desc->vd);
--		uc->terminated_desc = NULL;
--	}
--}
--
- static void udma_decrement_byte_counters(struct udma_chan *uc, u32 val)
- {
- 	if (uc->desc->dir == DMA_DEV_TO_MEM) {
+ 	/* Make sure that we clear the teardown bit, if it is set */
+-	udma_reset_chan(uc, false);
++	uc->ud->reset_chan(uc, false);
+ 
+ 	/* Push descriptors before we start the channel */
+ 	udma_start_desc(uc);
+@@ -521,8 +521,8 @@ static void udma_check_tx_completion(struct work_struct *work)
+ 		if (uc->desc) {
+ 			struct udma_desc *d = uc->desc;
+ 
+-			udma_decrement_byte_counters(uc, d->residue);
+-			udma_start(uc);
++			uc->ud->decrement_byte_counters(uc, d->residue);
++			uc->ud->start(uc);
+ 			vchan_cookie_complete(&d->vd);
+ 			break;
+ 		}
+@@ -554,7 +554,7 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+ 		}
+ 
+ 		if (!uc->desc)
+-			udma_start(uc);
++			uc->ud->start(uc);
+ 
+ 		goto out;
+ 	}
+@@ -576,8 +576,8 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+ 				vchan_cyclic_callback(&d->vd);
+ 			} else {
+ 				if (udma_is_desc_really_done(uc, d)) {
+-					udma_decrement_byte_counters(uc, d->residue);
+-					udma_start(uc);
++					uc->ud->decrement_byte_counters(uc, d->residue);
++					uc->ud->start(uc);
+ 					vchan_cookie_complete(&d->vd);
+ 				} else {
+ 					schedule_delayed_work(&uc->tx_drain.work,
+@@ -612,8 +612,8 @@ static irqreturn_t udma_udma_irq_handler(int irq, void *data)
+ 			vchan_cyclic_callback(&d->vd);
+ 		} else {
+ 			/* TODO: figure out the real amount of data */
+-			udma_decrement_byte_counters(uc, d->residue);
+-			udma_start(uc);
++			uc->ud->decrement_byte_counters(uc, d->residue);
++			uc->ud->start(uc);
+ 			vchan_cookie_complete(&d->vd);
+ 		}
+ 	}
+@@ -1654,7 +1654,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -1821,7 +1821,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -2014,7 +2014,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -2123,7 +2123,7 @@ static void udma_issue_pending(struct dma_chan *chan)
+ 		 */
+ 		if (!(uc->state == UDMA_CHAN_IS_TERMINATING &&
+ 		      udma_is_chan_running(uc)))
+-			udma_start(uc);
++			uc->ud->start(uc);
+ 	}
+ 
+ 	spin_unlock_irqrestore(&uc->vc.lock, flags);
+@@ -2265,7 +2265,7 @@ static int udma_terminate_all(struct dma_chan *chan)
+ 	spin_lock_irqsave(&uc->vc.lock, flags);
+ 
+ 	if (udma_is_chan_running(uc))
+-		udma_stop(uc);
++		uc->ud->stop(uc);
+ 
+ 	if (uc->desc) {
+ 		uc->terminated_desc = uc->desc;
+@@ -2297,11 +2297,11 @@ static void udma_synchronize(struct dma_chan *chan)
+ 			dev_warn(uc->ud->dev, "chan%d teardown timeout!\n",
+ 				 uc->id);
+ 			udma_dump_chan_stdata(uc);
+-			udma_reset_chan(uc, true);
++			uc->ud->reset_chan(uc, true);
+ 		}
+ 	}
+ 
+-	udma_reset_chan(uc, false);
++	uc->ud->reset_chan(uc, false);
+ 	if (udma_is_chan_running(uc))
+ 		dev_warn(uc->ud->dev, "chan%d refused to stop!\n", uc->id);
+ 
+@@ -2355,7 +2355,7 @@ static void udma_free_chan_resources(struct dma_chan *chan)
+ 
+ 	udma_terminate_all(chan);
+ 	if (uc->terminated_desc) {
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		udma_reset_rings(uc);
+ 	}
+ 
+@@ -3694,6 +3694,12 @@ static int udma_probe(struct platform_device *pdev)
+ 		ud->soc_data = soc->data;
+ 	}
+ 
++	// Setup function pointers
++	ud->start = udma_start;
++	ud->stop = udma_stop;
++	ud->reset_chan = udma_reset_chan;
++	ud->decrement_byte_counters = udma_decrement_byte_counters;
++
+ 	ret = udma_get_mmrs(pdev, ud);
+ 	if (ret)
+ 		return ret;
 diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 7c807bd9e178b..4c6e5b946d5cf 100644
+index 4c6e5b946d5cf..8ab28f5ec0561 100644
 --- a/drivers/dma/ti/k3-udma.h
 +++ b/drivers/dma/ti/k3-udma.h
-@@ -610,6 +610,10 @@ void udma_desc_pre_callback(struct virt_dma_chan *vc,
- 			    struct virt_dma_desc *vd,
- 			    struct dmaengine_result *result);
- 
-+int udma_push_to_ring(struct udma_chan *uc, int idx);
-+int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr);
-+void udma_reset_rings(struct udma_chan *uc);
+@@ -344,6 +344,11 @@ struct udma_dev {
+ 	u32 psil_base;
+ 	u32 atype;
+ 	u32 asel;
 +
- /* Direct access to UDMA low lever resources for the glue layer */
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
++	int (*start)(struct udma_chan *uc);
++	int (*stop)(struct udma_chan *uc);
++	int (*reset_chan)(struct udma_chan *uc, bool hard);
++	void (*decrement_byte_counters)(struct udma_chan *uc, u32 val);
+ };
+ 
+ struct udma_desc {
 -- 
 2.34.1
 
