@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B439C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826BCC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tS3/CGAByUQ4+I5LX/qP7QKpxIhInZkcD8IlTZBt+LU=; b=qHINIV8kry8cdM7UfGyQFb0YEK
-	2DFZ63kB8g14i3UA2Wwl+dF7EVe/kvrrigkPl/L2g8bKVobPNGSB67VOadlAji66bQck7k2wrVGUx
-	HbO+sIaeSKD4LdSMrVVH+AgfkvYqc9aVFoaReg69LCvQjeOVB8wo1UA7/oK6wLe2euDjcs9HIu7eq
-	ckgnLBJnKdqoYsNwt4cC4X6Jp+4PEcBf02EuUg4JZZroREJGFEnKlkpjHgshwBxJrhqeksfUEK4DT
-	DmqCfXFRW/O5/p3OWdhvfssXbNQsftROQehwf2LqkYgp9Esdq0pAlzKPemoBJzPAtI/GpBU/y2uxG
-	BOidPq4g==;
+	bh=BcYwGv9iqkIeMCeWEP9899KFqJJduWiTFH4yvJ1CV6w=; b=kyYVt/bhzvYwsNmoXvPJwHRHrG
+	JWg3wocrSXs9gAhEpBzpUP2AVhcVvST+O082vWm1auVHKiLIQqL+5/qTKk6jmUhOdstGx/Qr4XI8V
+	UNq/TswbFqDnDmjJhzOhS6rCmQ+oWhU9/WwARRZchmHZbP2eK6OWDczK4BAHocNk9YFMa3Oy/gLHb
+	rE/zCK/XZQ1vJN2U6pLotd9R4CN9+ewgpGP0a/CLRllCyHk0AvDaYAUEAbIxkOMGjD6v+v3pzJVlx
+	G+bq6KhRSAObTyEUqmWcENiM9hp8Vmp+9DzN92dGea9yNnu2mcZ1Sq1SRmfei1kSAb77E61THRA5J
+	KQ8X26PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfBY-00000002UUK-02EM;
-	Mon, 23 Jun 2025 11:18:00 +0000
-Received: from hours.tkos.co.il ([84.110.109.230] helo=mail.tkos.co.il)
+	id 1uTfDt-00000002UdX-3IuZ;
+	Mon, 23 Jun 2025 11:20:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdYA-00000002BcP-0ncm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:33:16 +0000
-Received: from localhost (unknown [10.0.8.3])
-	by mail.tkos.co.il (Postfix) with ESMTP id D2125440242;
-	Mon, 23 Jun 2025 12:31:55 +0300 (IDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tkos.co.il;
-	s=default; t=1750671115;
-	bh=BwJm+0ENa935xRL7dXx302SmtpFL0P2DqD3scehu6WE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=sLhqgFiZcJISa68ATcz9tShQKzw7d5hrONv1+tv9N0xSWbwfsYvidBFxdtdILjsGN
-	 owCdjhmCYIRgaNs5D3SA1mylaf20D8gHGmUGorWAjOf5kttKzVBGPkyauEUlE2QJhO
-	 YlL4REHjr0naMXgdoPGzEOsbmyZxkYCB3JYcWDhmEJyr+DFxuN6qNdtJqmt06zrFzK
-	 RUg4UtNhrVhOtu5RSXmN27cIv0aKTDzaJXXnS9feEOR9K3Ksc1A68BSD6Iy0vJPs5k
-	 dwIqxsyoqk2i8ZOfjB61OeuVhCXkIMd4H+Ro3M/6V1VAA02GSXxbZxm+dof55tNtRu
-	 sQV10oFZB1Nyg==
-From: Baruch Siach <baruch@tkos.co.il>
-To: Steffen =?utf-8?Q?B=C3=A4tz?= <steffen@innosonix.de>
-Cc: stable@vger.kernel.org,  Srinivas Kandagatla <srini@kernel.org>,  Shawn
- Guo <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  Dmitry Baryshkov <lumag@kernel.org>,  Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,  imx@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] nvmem: imx-ocotp: fix MAC address byte length
-In-Reply-To: <20250623084351.1734037-1-steffen@innosonix.de> ("Steffen
- =?utf-8?Q?B=C3=A4tz=22's?=
-	message of "Mon, 23 Jun 2025 10:43:45 +0200")
-References: <20250623084351.1734037-1-steffen@innosonix.de>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 23 Jun 2025 12:33:05 +0300
-Message-ID: <87ldpikdke.fsf@tarshish>
+	id 1uTdaa-00000002CBJ-0UBI;
+	Mon, 23 Jun 2025 09:35:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750671342;
+	bh=Elxj9GYOHcazH6V54iHsSYqjb7QlABuqYV7BQAi2XqY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GL4UZv5fAgtltu9INSScSxlnP6N1thlBP+S+R0Bx2trCWoveWDVAV237v9mAfKNva
+	 b8ET1c0wfamymcQqANzW3lkP3i/dBC2jqwNPJuLOkuKFxiySu5jiGhpoOhxpN76h3M
+	 i92jKI8dWuHpPIMChTxtUe7tQW5ldy2iN0rT3nBEWkf1SYJ7HSDnfQiklbb8Ub2xR+
+	 V6VOUFSmSHbLtlfdtzfiXg2/8NhtiIUhvj7mkJRANXfjipggtRiZGHYK0GtwCeNcTQ
+	 43i8oX9U5eOkl1HCytszbqTFshL1UyaAO2p5vxpZverOTIbLekxqswajBRP9ejnsoa
+	 ZppUcarbyXj1w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A339217E090E;
+	Mon, 23 Jun 2025 11:35:41 +0200 (CEST)
+Message-ID: <75d0fe76-2fa3-4ffc-920e-a6a49f428036@collabora.com>
+Date: Mon, 23 Jun 2025 11:35:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: mediatek: mtk-mutex: Fix confusing usage of
+ MUTEX_MOD2
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ Nancy Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>,
+ Paul-PL Chen <paul-pl.chen@mediatek.com>,
+ Yongqiang Niu <yongqiang.niu@mediatek.com>,
+ Zhenxing Qin <zhenxing.qin@mediatek.com>,
+ Xiandong Wang <xiandong.wang@mediatek.com>,
+ Sirius Wang <sirius.wang@mediatek.com>,
+ Xavier Chang <xavier.chang@mediatek.com>,
+ Jarried Lin <jarried.lin@mediatek.com>, Fei Shao <fshao@chromium.org>,
+ Chen-yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250620024305.2303935-1-jason-jh.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250620024305.2303935-1-jason-jh.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_023314_708559_40F7DB1C 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250623_023544_305984_89630DF1 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steffen,
+Il 20/06/25 04:40, Jason-JH Lin ha scritto:
+> The usage of MUTEX_MOD1 and MUTEX_MOD2 for calculating mod settings
+> over 32 has been confusing. To improve consistency and clarity, these
+> defines need to fit into the same MUTEX_MOD define as possible.
+> 
+> However, MUTEX_MOD1 cannot be directly used for all SoCs because,
+> for example, the mod1 register (0x34) of MT2712 is not adjacent to
+> its mod0 register (0x2c). To address this, a `mutex_mod1_reg` field
+> is introduced in the mutex driver data structure. This allows all
+> SoCs to use a unified MUTEX_MOD to determine their register offsets.
+> 
+> With this change, the separate usage of MUTEX_MOD1 and MUTEX_MOD2 is
+> eliminated, simplifying the logic for obtaining offsets and mod IDs.
 
-On Mon, Jun 23 2025, Steffen B=C3=A4tz wrote:
-> The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
-> extension of the "mac-address" cell from 6 to 8 bytes due to word_size
-> of 4 bytes.
->
-> Thus, the required byte swap for the mac-address of the full buffer lengt=
-h,
-> caused an trucation of the read mac-address.
-> From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
->
-> After swapping only the first 6 bytes, the mac-address is correctly passed
-> to the upper layers.
->
-> Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Steffen B=C3=A4tz <steffen@innosonix.de>
-> ---
-> v2:
-> - Add Cc: stable@vger.kernel.org as requested by Greg KH's patch bot
->  drivers/nvmem/imx-ocotp-ele.c | 2 ++
->  drivers/nvmem/imx-ocotp.c     | 2 ++
->  2 files changed, 4 insertions(+)
->
-> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-> index ca6dd71d8a2e..3af7968f5a34 100644
-> --- a/drivers/nvmem/imx-ocotp-ele.c
-> +++ b/drivers/nvmem/imx-ocotp-ele.c
-> @@ -119,6 +119,8 @@ static int imx_ocotp_cell_pp(void *context, const cha=
-r *id, int index,
->=20=20
->  	/* Deal with some post processing of nvmem cell data */
->  	if (id && !strcmp(id, "mac-address"))
-> +		if (bytes > 6)
-> +			bytes =3D 6;
+Yeah, okay, that makes sense, but...
 
-Maybe better use ETH_ALEN instead of magic number?
+> 
+> Fixes: e1e4f7fea375 ("soc / drm: mediatek: Move mtk mutex driver to soc folder")
 
-baruch
+...this is an improvement, it's not a fix, so please drop the Fixes tag.
 
->  		for (i =3D 0; i < bytes / 2; i++)
->  			swap(buf[i], buf[bytes - i - 1]);
->=20=20
-> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> index 79dd4fda0329..63e9974d9618 100644
-> --- a/drivers/nvmem/imx-ocotp.c
-> +++ b/drivers/nvmem/imx-ocotp.c
-> @@ -228,6 +228,8 @@ static int imx_ocotp_cell_pp(void *context, const cha=
-r *id, int index,
->=20=20
->  	/* Deal with some post processing of nvmem cell data */
->  	if (id && !strcmp(id, "mac-address"))
-> +		if (bytes > 6)
-> +			bytes =3D 6;
->  		for (i =3D 0; i < bytes / 2; i++)
->  			swap(buf[i], buf[bytes - i - 1]);
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 
---=20
-                                                     ~. .~   Tk Open Systems
-=3D}------------------------------------------------ooO--U--Ooo------------=
-{=3D
-   - baruch@tkos.co.il - tel: +972.52.368.4656, http://www.tkos.co.il -
+After which:
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+
 
