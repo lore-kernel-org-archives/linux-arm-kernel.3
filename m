@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A806CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67584C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UH1bAfPgsbTdwQOw++nDUnjZRfZFJJLgGsLVCvJ6ahA=; b=ujScqoHgPgk3RJ8wkAQA/zSpQz
-	2y65Gdk9gXA7OlqCBNzPRjNI+h5znM7Pwq4cbkrNj+IM3ne0rTWxm++KNR642FoQnkGB9marsXE9A
-	9yNrgX8EHBl94OKRlhsv1KwxyMyah6aXQR8OGdWqc36DeOSIszZAFOQGC8yDrW6SPYHgQbvPpLDed
-	yUYKAHFyCAu/3w0g50FOuoCTxV5yLKbQnfQbElWv2N3TuN2Z4/NBAsYGYqhnLXAPTsdQqHNr5N9Zo
-	RG94tGqrwmAAjkUHQWyeNatQW8gTLiFIfGwb296Rsw/mp2EE72SM96R8gNlfvROeMEioG5XOMmRuz
-	JuB9Ta8A==;
+	bh=CHdSNTwyhEj3ZOnn8e0uBB6QJpASsij9hXSlRqn95gA=; b=e25hLKkQyKnEXFhRzJZ+gEsyaI
+	IGElLf1iNS+t+8PcbFgwIyiXiVPW/iHlGIm9m3oDaoXAktRWE1fNSLaHD5YSNNDbgKqR9+TsxpCOg
+	ykXrDdO0SRjDF5Szi/+bIbzSjgzerx9+2zmIgieJYp3EgiPwYaOUe9wfVxFESBwpv+mHwIPsLhHLC
+	u/OBH3iekH19QBvLsvJNWDi9Ej54FXp4Er0rTgyn5PsZGBcjtQkF0YThw0BzUQKlRePrtsC0hpCR5
+	UiQ0TGGCwAeFzSNoqgHSuT4OX/kz4xIdxSCpxsjY4j0xK2RCvfOFD6h6WCtn1NejQLn1SJ/xITtP+
+	zNb+lTUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTscU-00000004Nug-3D31;
-	Tue, 24 Jun 2025 01:38:42 +0000
-Received: from relay16.mail.gandi.net ([217.70.178.236])
+	id 1uTscW-00000004Nxr-2QaN;
+	Tue, 24 Jun 2025 01:38:44 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTpWC-0000000469y-1YKT
+	id 1uTpux-000000047dq-3XIO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 22:20:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 89E8E43881;
-	Mon, 23 Jun 2025 22:19:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750717196;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UH1bAfPgsbTdwQOw++nDUnjZRfZFJJLgGsLVCvJ6ahA=;
-	b=idfOPu6CKmH+9DH+hAvWkFB5OofPXN392rj5MHDlHB7xm5A8JpjB/Ngp7ZPM83CWguuY3U
-	SsIzspdvUAij3+0eOVlPVAHFCA4wtw9YCQTKyzr/Cgk7NwEl/u3VW00Rz+SGPTO5k9v0Cj
-	74swYO9CSSSYiqJU01Wr3uTG3QKqeR1khIuQnv9qKVcZc6Qie+rE7jL4gEuZtOrroZGXbQ
-	Dd70dgWo6RiOyY8V3o/XAzc++Hwm/8uGcEyKgfwQhVbnyXRdJNvj5dYbEk8x0fGphnqbWe
-	mmaDYf8MBvvzHPZZ5/XXCsf7JIm+N7/LT9F4L0J8S/68pbTpJUOvNxq0YAd5qQ==
-Date: Tue, 24 Jun 2025 00:19:55 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	Lee Jones <lee@kernel.org>
-Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
-Message-ID: <202506232219552539103b@mail.local>
-References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
- <20250415160212.GA372032@google.com>
- <2025041715425693974c6d@mail.local>
- <24314441936d97a1892474eacdbbd690612de265.camel@linaro.org>
- <905e6cab9932c814a578826329f5e3f944418ef9.camel@linaro.org>
- <b193e94f042cf6134d2bed92152c23ee5bba6a26.camel@linaro.org>
+	Mon, 23 Jun 2025 22:45:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=CHdSNTwyhEj3ZOnn8e0uBB6QJpASsij9hXSlRqn95gA=; b=zS4OurQOgKjixDkTZUxxvRu1MV
+	cdvpkvkICmkHHCwoGqsknSGMpLlkE+f2CHsH1GUTo+zHMFyt7HiJiDwUxjvk4ckGiGAhhp5uNT6yG
+	F16tQKiX5GaqxW2XIWe8IRjvrgPKywJIstwjT9jHUCiiul80dG5BXcawhVwVujbdZbSc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uTpuc-00Gjnq-Lj; Tue, 24 Jun 2025 00:45:14 +0200
+Date: Tue, 24 Jun 2025 00:45:14 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
+Message-ID: <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
+References: <20250619200537.260017-1-sean.anderson@linux.dev>
+ <20250619200537.260017-5-sean.anderson@linux.dev>
+ <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
+ <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
+ <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
+ <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b193e94f042cf6134d2bed92152c23ee5bba6a26.camel@linaro.org>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddukedvtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggugfgjsehtkeertddttddunecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveduvefhvdehlefgieelfeetudeugfehgfeugfekleejueefueettdffueetiedvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemvgdtrgemvdgumeeifeejtdemjeekvgdtmegttdgvkeemvdektdeimeekrggtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdgumeeifeejtdemjeekvgdtmegttdgvkeemvdektdeimeekrggtiedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdefpdhrtghpthhtoheprghnughrvgdrughrrghsiihikheslhhinhgrrhhordhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnv
- ghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhnrgifrhhotghkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtfidttddrtghhohhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheprghlihhmrdgrkhhhthgrrhesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
+In-Reply-To: <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_152000_546454_09B15AF2 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20250623_154535_887269_0DCCB50B 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2025 12:33:21+0100, André Draszik wrote:
-> Hi Alexandre,
+On Mon, Jun 23, 2025 at 02:48:53PM -0400, Sean Anderson wrote:
+> On 6/23/25 14:27, Andrew Lunn wrote:
+> > On Mon, Jun 23, 2025 at 11:16:08AM -0400, Sean Anderson wrote:
+> >> On 6/21/25 03:33, Andrew Lunn wrote:
+> >> > On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
+> >> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
+> >> >> probe loop if the EPROBE_DEFER error is never resolved.
+> >> > 
+> >> > That sounds like a core problem. I also thought there was a time
+> >> > limit, how long the system will repeat probes for drivers which defer.
+> >> > 
+> >> > This seems like the wrong fix to me.
+> >> 
+> >> I agree. My first attempt to fix this did so by ignoring deferred probes
+> >> from child devices, which would prevent "recursive" loops like this one
+> >> [1]. But I was informed that failing with EPROBE_DEFER after creating a
+> >> bus was not allowed at all, hence this patch.
+> > 
+> > O.K. So why not change the order so that you know you have all the
+> > needed dependencies before registering the MDIO bus?
+> > 
+> > Quoting your previous email:
+> > 
+> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
+> >> probe loop if the EPROBE_DEFER error is never resolved. For example,
+> >> if the PCS is located on another MDIO bus and that MDIO bus is
+> >> missing its driver then we will always return EPROBE_DEFER.
+> > 
+> > Why not get a reference on the PCS device before registering the MDIO
+> > bus?
 > 
-> On Mon, 2025-05-19 at 15:41 +0100, André Draszik wrote:
-> > Hi Alexandre,
-> > 
-> > On Mon, 2025-04-28 at 19:17 +0100, André Draszik wrote:
-> > > Hi Alexandre,
-> > > 
-> > > On Thu, 2025-04-17 at 17:42 +0200, Alexandre Belloni wrote:
-> > > > On 15/04/2025 17:02:12+0100, Lee Jones wrote:
-> > > > > >  drivers/mfd/Kconfig                                |  35 +-
-> > > > > >  drivers/mfd/Makefile                               |   5 +-
-> > > > > >  drivers/mfd/sec-acpm.c                             | 442 +++++++++++++++++++
-> > > > > >  drivers/mfd/sec-common.c                           | 301 +++++++++++++
-> > > > > >  drivers/mfd/sec-core.c                             | 481 ---------------------
-> > > > > >  drivers/mfd/sec-core.h                             |  23 +
-> > > > > >  drivers/mfd/sec-i2c.c                              | 239 ++++++++++
-> > > > > >  drivers/mfd/sec-irq.c                              | 460 +++++++-------------
-> > > > > 
-> > > > > >  drivers/rtc/rtc-s5m.c                              | 197 ++++++---
-> > > > > 
-> > > > > MFD parts look okay to me now.
-> > > > > 
-> > > > > With Acks from the Clk and RTC maintainers, I can merge all of the
-> > > > > driver stuff together and submit a PR for others to pull from.
-> > > > > 
-> > > > 
-> > > > I don't think the RTC part depends on the MFD one so I was going to
-> > > > apply the patches in my tree if this is fine for everyone.
-> > > 
-> > > RTC patch 27 does depend on the s2mpg10 mfd core driver (due to
-> > > using enums and macros introduced there).
-> > 
-> > Lee has kindly merged all the core driver patches.
-> > 
-> > Any chance the rtc changes will make it into the same kernel release?
-> 
-> Friendly ping.
+> Because the PCS may be on the MDIO bus. This is probably the most-common
+> case.
 
-I've applied the patches, I'll try to send them to Linus but there are no
-guarantee they will make it for this release.
+So you are saying the PCS is physically there, but the driver is
+missing because of configuration errors? Then it sounds like a kconfig
+issue?
 
+Or are you saying the driver has been built but then removed from
+/lib/modules/
 
+	Andrew
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
