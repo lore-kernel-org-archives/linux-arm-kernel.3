@@ -4,53 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE89AC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 08:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585B7C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 08:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nKFyL6kHGsUkO+q8agC+zR0Go57BP4LT86ehYkplXn0=; b=xUYNDAI2TzIQNd1mXR1cBCt3k2
-	2HyuFm1/jmcY3SQcByhjPTBtDTVeUFF915jrpp1qcf3M/eSAIRFKy82xxTk1yPyj4uF1BOmPQo1Is
-	u/6/WbGFXCYOe2cgq/cBcN7kVriCymfKrxxkxYRFjIPw+7nhz/nEUNlX1s4DVrEOqEuKH2CIUV1uy
-	WkJbnXRvXaNPVvksh8AqU2ANpvlqyTcIrCraPE4Uta5518y4q3yJtdmPCmQ5UQ4MCftDY9j9Rd6kE
-	CIIEt2G0FZOUDN2JWoAznGQ5vppuvvwYENX6ftnjWVImcrvfx0FlDLa1cgBX+QNqPsdDDMQVgisjN
-	AYTGCiUg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TKT+V0iEs0iuHc/eKxrla5u58/EzxIfdMOz04irhFjM=; b=dCNuR1ZfD8Uh+WkW36LVNXWV5P
+	4KouC8CrscHApn4RszB6mDlRJEzCUssOnpdDeMhuH3Fr5/FJO8LSRFojwp/3+bh0BI5tUoEByTvLG
+	hVQCAA2r6w8NgU2ItvW28WUyGn+6Mkt/1bEHrSQLd3Jdcy4FL0ordTccpCbT0ut/z4GLVuVTPGNDf
+	WiBYnitsaCZmeB0Sux0IWpTWLB5C/juiAahuEcWy2311peUyDljG8XWkgnATwL6+YCm9QFmJ5pWPG
+	G3DfQQLxyBdOaJevrkMJHsRIqxIZ2WzW853DeZpiN5n0ANOVxpvSGbT8rmMkE3DOJzsI5m9GjwHx9
+	JiuHR3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTcFg-00000001yC7-4AR2;
-	Mon, 23 Jun 2025 08:10:04 +0000
-Received: from mail.quantro.pl ([51.195.47.38])
+	id 1uTcgI-000000021U0-0uNs;
+	Mon, 23 Jun 2025 08:37:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTcDK-00000001xnJ-4Axr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 08:07:41 +0000
-Received: by mail.quantro.pl (Postfix, from userid 1002)
-	id 4C8B42537B; Mon, 23 Jun 2025 10:06:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=quantro.pl; s=mail;
-	t=1750665991; bh=nKFyL6kHGsUkO+q8agC+zR0Go57BP4LT86ehYkplXn0=;
-	h=Date:From:To:Subject:From;
-	b=Gy64qcWz7jS4prApTpVmzeXSyF6B6MRwiuzGcn871Zqh209C1xefeLyq98Gfthenm
-	 3yZR77Cr5jd2xLIU75PA+Z5nDSNi0uySpXQ7ilX0dICa+RhsoPZTOSAh3Km6KM52Jp
-	 yqPAFyiJWWFS5CR69wcEFBaGs1NpNnpJDl5Ej3+FldKdMJNgr2T/XstWBZ4WEOHwgA
-	 3gVIBp5sT9OputOhVY2VtostmvPOyuTQAZJ7SU6v2nUIct+8ddBfH/U4ZbwH6z87Xp
-	 BVYaaEB4Ht32DISDSFee2Z4G6BRwJ24mk0tu43YhukuFazgW3wA3U+oTfShLzWr5mD
-	 8E1K7lxMq7LAA==
-Received: by mail.quantro.pl for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 08:06:07 GMT
-Message-ID: <20250623084500-0.1.ib.5jgxk.0.8qje3qd3na@quantro.pl>
-Date: Mon, 23 Jun 2025 08:06:07 GMT
-From: "Ewelina Koprowska" <ewelina.koprowska@quantro.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Karta lunchowa
-X-Mailer: mail.quantro.pl
+	id 1uTcdw-0000000213B-1krV;
+	Mon, 23 Jun 2025 08:35:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750667705;
+	bh=WgyOGh6KByq65pMFF30SHRqulkvAymZ2itS0WDt9a5g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Cuj2HlN89tSEZvvGVZGHhqkOW70Aq9udWV1Df9Rq7vOaA3eRCxroBcZiN8BPmsbib
+	 1EyF9RwgBdC5uQfcDgqizozK8j1mW9QWmd29UCPImPfHBemloT/aHcbkDg/eDUlHWR
+	 ZbhbqyJF0OY6N19cLH0AevLacrYpMp1g/HDskTRISNb1xkCYuGRBwAPZz4zScyRZSP
+	 FDshKbOKB7G4APlt2RRE28v0aOLIg9ok0Qire4uR3y+0YrscpvzTJ6VnuJ8cmARtgS
+	 /gq/kwT2hiFZNdU/LIfzxUs3fdCWQ8Ur7Y3xG+ZNTuifRDMCjprhFtJrT7V/f5lEXe
+	 OhCamWIc3rXVQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D211C17E0202;
+	Mon, 23 Jun 2025 10:35:03 +0200 (CEST)
+Message-ID: <8710877a-9032-4d27-99ac-891d5940f187@collabora.com>
+Date: Mon, 23 Jun 2025 10:35:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/11] dt-bindings: timer: mediatek: add MT6572
+To: wctrl@proton.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Sean Wang <sean.wang@mediatek.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org
+References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
+ <20250620-mt6572-v1-3-e2d47820f042@proton.me>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250620-mt6572-v1-3-e2d47820f042@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_010739_739888_A8FF8988 
-X-CRM114-Status: UNSURE (   1.47  )
+X-CRM114-CacheID: sfid-20250623_013508_634362_69A0ADF8 
+X-CRM114-Status: UNSURE (   6.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,26 +85,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Szanowni Pa=C5=84stwo,
+Il 20/06/25 17:40, Max Shevchenko via B4 Relay ha scritto:
+> From: Max Shevchenko <wctrl@proton.me>
+> 
+> Add a compatible string for timer on the MT6572 SoC.
+> 
+> Signed-off-by: Max Shevchenko <wctrl@proton.me>
 
-czy zastanawiali si=C4=99 Pa=C5=84stwo, jak zwi=C4=99kszy=C4=87 zadowolen=
-ie pracownik=C3=B3w i jednocze=C5=9Bnie zaoszcz=C4=99dzi=C4=87 na kosztac=
-h zatrudnienia?=20
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Obecnie jest mo=C5=BCliwo=C5=9B=C4=87 zwolnienia z op=C5=82at ZUS a=C5=BC=
- do 450 z=C5=82 miesi=C4=99cznie na ka=C5=BCdego pracownika poprzez dofin=
-ansowanie posi=C5=82k=C3=B3w.=20
-
-Za pomoc=C4=85 karty lunch pracownicy mog=C4=85 p=C5=82aci=C4=87 w restau=
-racjach, zamawia=C4=87 jedzenie online, korzysta=C4=87 z cateringu czy ro=
-bi=C4=87 zakupy spo=C5=BCywcze. To doskona=C5=82e narz=C4=99dzie motywacy=
-jne, kt=C3=B3re tak=C5=BCe wyr=C3=B3=C5=BCnia firm=C4=99 na rynku pracy.
-
-Ch=C4=99tnie opowiem wi=C4=99cej na ten temat, czy mogliby=C5=9Bmy porozm=
-awia=C4=87 w najbli=C5=BCszym czasie?
-
-
-Pozdrawiam
-Ewelina Koprowska
-Senior HR Manager
 
