@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C005C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 14:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE010C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 14:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9dfTQhvKJUnr7BaSVQY2KwiFgbJ8aZ5AL6smnlFNoY=; b=VkaFz4vBQc/pN3fa6gXqVG2QfK
-	3jTucs6X3K5pAn8QPMl16T702ZE5wy30XKpEFq3HEo2/d4r9kzViCn1cGBJO/zdZyHmJBtJS7Or9q
-	YMaTuEFYQb/YKb6c24lYPN7cxHoEY5vHRhsSA1TEeQnSjK4CyzqglJS8X2jLY6aem9O04hlcyxO8x
-	BxMsjupYthM0bUZ0vMUf1eIKZfL0ky3Sep7abfn5rklI/oMIJOYJiUTEu78T5ZDHk4bHGsEItq9/f
-	cAd7NvVumUU9yXxcq1dXelLNb3aSF5RdMaGyNu+ts2LPb0w7Qux7CiqJGej9ugUJaqF307EY/wmOm
-	ET9JEBxA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LOjXmaimuYzCDVD8J8YQj7tqbZLwH8GSuglqbXGHcbA=; b=Tudvp7NmThKr+md+GTPXEZowyL
+	oH3W0F79UvtnS1RCNMLDgM2T4mWAl1BhZ3cmbi1/z9sWZfJtZFJX9q3asr+VIzLxYFyWVDisuD1Hf
+	AS4q/0K0v7bPxFGacgh2EyXf5hUZIq+uXPdajlLMYEves6pzosRvTUOQeLRSiFMr/XqUZ29WngS+B
+	d0bipyqFXSy5nntydtRTh/jpc7oHObX31vd8Fuo9QmaxCUdxcYYHfupTxTJnaXcuy26qBlcsti4bt
+	sgMciHyxVE9ZuHhd7hLNUAcP++fLhtzZbVjYFNoTiXN5r6fHkRtD3MMXHg4O6Q23ZZ7dqnzS0NJRX
+	38Y2D/ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTi0P-00000003184-1krr;
-	Mon, 23 Jun 2025 14:18:41 +0000
+	id 1uTi2l-000000031fy-28NP;
+	Mon, 23 Jun 2025 14:21:07 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfrK-00000002arA-079t;
-	Mon, 23 Jun 2025 12:01:11 +0000
+	id 1uTfrY-00000002atu-2L8E;
+	Mon, 23 Jun 2025 12:01:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750680068;
-	bh=hggLnCb5W6mqHyWLaRt+klzDu+LtdyTLXbh8FYBkU3o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=f+NovE4rNp5POOblkw5XkHQSywS6Lqih/nV+xeErNblFRaKE+u2YXKMPVxhdV+mxG
-	 S4xiK7WI4ZIsJjeypaWTa2Kh4BLTJP05nM2RLEcLSuDrn7hFXvifHS0xDuH1l9DLsS
-	 V8rken+bECTBlr6xUCJMF8X29j/L4GWOY4ZfsswXyosFweeUl41fZ0lXpbQUoXmphE
-	 VEBZ6SMra0QscFpFuH+zp+v/gRgpRYV0XwQTzZz/YDt6GEa7fJSTq2fIgMWpDiFlut
-	 erUL1aGxiRd4NcTxE7jI3zFn/2M8brM8mO17tZW9oAjofV22lICqngJQu29q0AxWe+
-	 hf5+TKSxQTwXA==
+	s=mail; t=1750680083;
+	bh=YMJ1LS+KoR0M9I0Sxf/wRosogdBiBEWRZnfRRB9Zjw8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eNMZ7LqnqvnP39GaVTEhiQlRuMnKYwlHyzY38hOHZKoLBeZK9aMwYAcf5fcIsmJGP
+	 7U1UIEGty2G7qpEZwwS/cwnMe62eIaRPbKLRyBZiYsmjbbF7IvdSVSJRhJgzMZtjRe
+	 9c5rOLlEjFd5NxKTFg8a3yogSfUlvJAgn/4Ze7shDUp3fThXSSI8/2LkJso2BmmruE
+	 y9Kwb1uDXBKzaTg4GTY6odYw5PqBaHQLlDh/LZWTNOWqqpYX/rnDYTiGJbzx67vxKv
+	 SRk65wYFI958m3ByiUETTYyRQ+T6vgRjaQ1r/V0wyMcvd7wJAVGGvnZqu8DQabcIkf
+	 blaf4EoYLAgFw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB74C17E1560;
-	Mon, 23 Jun 2025 14:01:07 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F33117E0EC0;
+	Mon, 23 Jun 2025 14:01:22 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: jianjun.wang@mediatek.com
-Cc: ryder.lee@mediatek.com,
-	bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
+To: ukleinek@kernel.org
+Cc: robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+	john@phrozen.org,
+	linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 3/3] PCI: mediatek-gen3: Add support for MediaTek MT8196 SoC
-Date: Mon, 23 Jun 2025 14:00:58 +0200
-Message-ID: <20250623120058.109036-4-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 0/3] pwm-mediatek: Add support for MT6991/MT8196 SoCs
+Date: Mon, 23 Jun 2025 14:01:15 +0200
+Message-ID: <20250623120118.109170-1-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623120058.109036-1-angelogioacchino.delregno@collabora.com>
-References: <20250623120058.109036-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050110_246499_8F0DA4C7 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250623_050124_770900_3474B3B6 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +81,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for the PCI-Express Gen3 controller found in the
-MT8196 (and MT6991) SoC by adding a compatible string and platform
-specific data.
+This series adds support for the PWM IP, version 3.002, found in the
+MT6991 Dimensity 9400 Smartphone SoC and in the MT8196 Chromebook SoC.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+AngeloGioacchino Del Regno (3):
+  dt-bindings: pwm: mediatek,mt2712-pwm: Add support for MT6991/MT8196
+  pwm: pwm-mediatek: Pass PWM_CK_26M_SEL from platform data
+  pwm: pwm-mediatek: Add support for PWM IP V3.0.2 in MT6991/MT8196
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 00c9f2532870..43b99779274f 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -1359,6 +1359,15 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_mt8192 = {
- 	},
- };
- 
-+static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_mt8196 = {
-+	.power_up = mtk_pcie_power_up,
-+	.phy_resets = {
-+		.id[0] = "phy",
-+		.num_resets = 1,
-+	},
-+	.sys_clk_rdy_time_us = 10,
-+};
-+
- static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
- 	.power_up = mtk_pcie_en7581_power_up,
- 	.phy_resets = {
-@@ -1373,6 +1382,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
- static const struct of_device_id mtk_pcie_of_match[] = {
- 	{ .compatible = "airoha,en7581-pcie", .data = &mtk_pcie_soc_en7581 },
- 	{ .compatible = "mediatek,mt8192-pcie", .data = &mtk_pcie_soc_mt8192 },
-+	{ .compatible = "mediatek,mt8196-pcie", .data = &mtk_pcie_soc_mt8196 },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_pcie_of_match);
+ .../bindings/pwm/mediatek,mt2712-pwm.yaml     |  5 +++
+ drivers/pwm/pwm-mediatek.c                    | 38 +++++++++++--------
+ 2 files changed, 28 insertions(+), 15 deletions(-)
+
 -- 
 2.49.0
 
