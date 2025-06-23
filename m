@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A4BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BE3C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7Pf4Tw/xl4ZzOJcSTeUWy9hR8fh3hnPuV5B7YmZsKc=; b=rmfrXR10AorBdyj52LGW1+1dgs
-	vXwmWw7Q1zWmjmIjkH3jHhCnQ2p8YPetPzra9MZ7not0J4RoPuQmnlWjaArhuB2V22W76y3uHCXjr
-	EdfeIGFxJtPG/HRQTa0IcCG4ba1BU+muhwPYh+vPqH+7qbYBCdov5gGkzQ4+VJECAAvUNP8GJxqK1
-	aGHrFTCEfhI0EO9XPBkZm6FFoGbDMvel/wH9FX2SNP73UYuMaGpF8lcOAVZoiECRughTeDoaY2upy
-	ug0rcuP2Qxftf97Cx8LBn7XZvSC2ZO9p++kfDNZLYXtBR1XK4KaV2bTZfKhrSue0pSUtm4VtyocCU
-	ck12Qd8Q==;
+	bh=9h5W4CZb41J9mEMMU6ZZk+XRq4XRRTtTn42DnFEFGEQ=; b=YlJiWrsWtd2SRrHigUWjQ7ToFF
+	xlU0w+4pTLmK1mbpg0JyVAAw9QfyODjZ1yAJj/YWygDKxzHe2y6npOgpfZXkyTbIto3G9W0lxrXoA
+	NyMPiQR1VIxkqCXOaUU+Dw6Nx5LmQ5eUXw/F6KHcDc/hwA/BFNkins87KsdX8Ey8PEygyJhxkeRhC
+	Mz/CD/xYUifQV5nSmXlVAxX8UtSqdvV+X3qqR/YwQV+Jz1ZQT8D7y0baSTof3u0JHqFkqSP+O8kV1
+	wdTrlIg44DXcnHOWcEGr5wgBUoDwjGYbTxFVSzNid7yjAtAaT9ggXswANjewPARCPDNLnq4NMrda/
+	KsEK2t7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlEv-00000003b7k-2xha;
-	Mon, 23 Jun 2025 17:45:53 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1uTlHD-00000003bYs-1jdS;
+	Mon, 23 Jun 2025 17:48:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTi2w-000000031lL-3PvT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:21:21 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e81cf6103a6so3683728276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 07:21:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750688477; x=1751293277; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=U7Pf4Tw/xl4ZzOJcSTeUWy9hR8fh3hnPuV5B7YmZsKc=;
-        b=dkwO0mmEIWlZhEHhUF/dXvJG1A2ujZ/WUm9YGT0Hl4td3SmOdP/dBpZC+0yvIf33xj
-         7Oj04RQe5zKuCSkupCWcOcZ6xx4yANiPqL5n7pCUvzzlCpChmVFVaE6q0kLwDCFAMBmR
-         F6PUyOM9OdDgguGkOGTvKtwx5r0WrhPSoG83G/MKU6daL/jIieBqTZvQgaSPhkpZlTDg
-         Uc2Qloi4Px2AmdYzXRZMn8I/U+mNQNw2ajNGSvjCVSY/YrsZ9YRjAzLI9uZQKib1/bMO
-         sAo9P14cO15kiMKGZKa6B/DtNfZZEtBFW0pbrga0qgzZTrNv7g8sDGM8NvYdPRWBBpPg
-         TQHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750688477; x=1751293277;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U7Pf4Tw/xl4ZzOJcSTeUWy9hR8fh3hnPuV5B7YmZsKc=;
-        b=ArJACaq2MeNUmYlaa1HJ3XmUArM++6clWXXaJsJOFKh9AWWI0l78IMBhFo7axKi8Mb
-         OPWsFLyrs4qKUWdLgqpX0NyleAZBGQrC1AozEarKW1BFU03Hai2x31L15cPHKaUqBO+n
-         NZIdACylY7lEk4dz7syU/EyIY2uyf0U+IEKsez+vqCAGC0zZaTIcQyoHeEJDBu4KqSBM
-         WsyAxbW/4DsXTAzcIeIXrccsduJLrcU1go6OmsvSLWhXpFw7NQc5nydRonCsiasBq9XZ
-         9k0LHA+pR/fJmXfHmrsWXphy1xq0H+VAbBfbnnbc4EfTM/6ygVLKIi/uK5SHXxOGJYzP
-         szbw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzVNn5KdzmPUr3QUgvqWuRROduOvez2rWlztzJPW2c1ALUnDSczVtQd3ebu1PjrYBX8pWEQY2sbjaMIn1Bo6En@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyipGgqD2MD6GfkkVimWZod+4FFBm29NrDJWMFuHLNRHszW4wT
-	RQPDbyDRM1btQF8Ylu3KXutGuz5eO0XzaIa91Jme633BN/Rmj+lEA3dt8/zwlnpDkAxeCW8Hagz
-	Vj5H4aIjf53v0R7Ow/0UhWTFtG72kMEMutQC5oD35ng==
-X-Gm-Gg: ASbGncuKS4rC+ey8+4fImzW/CzmH07vb3GtPeTRBV1+VN59E0qdQL1ys2imLXjmtOJR
-	a35x7OlG7zntLunkWSodcVdkhcXhh4omVCEGsBK7NECDdZ81afqWLiraY7WvapAoY2W6r0njp9f
-	Xw6v/YYulWUtmR+EhrsM80d1g2VfAQPjgThmu4hvARYA1D
-X-Google-Smtp-Source: AGHT+IHOeZZKYswcD2+7mNFNITMikJvufzmGWdphs9OZVOVEegSi+TQx3Mqq1zDy67QaE2m9d/2OADaGrEZ0W8PZuM8=
-X-Received: by 2002:a05:6902:70b:b0:e7f:263e:6c40 with SMTP id
- 3f1490d57ef6-e842bc884dcmr16607791276.16.1750688477207; Mon, 23 Jun 2025
- 07:21:17 -0700 (PDT)
+	id 1uTi3m-000000031xi-0XZm;
+	Mon, 23 Jun 2025 14:22:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B7A85C5DB6;
+	Mon, 23 Jun 2025 14:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13C01C4CEEA;
+	Mon, 23 Jun 2025 14:22:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750688529;
+	bh=M8/FB18nORJdfDyegU9zi8E3Z4snaCgnu0tkxZFO1MA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=imQ0wxZSqqpK9O+CKmtdYgA7zX444k0D+P/xGxcsMHNi0t5HHoQFbzfyUpLJ/INPy
+	 Ae7mEAFxSUkYY7TIccBy1jdNxc84YLUSe4DaTp+gaUiPdx2P8814uacmsuv8OXzfwF
+	 tX+tl7fkVGFELnjSKSrOh7LC5AGSgp+wVq5PyPGMrK8gK4PKyJZOsIXodHOBt4fWg0
+	 1J4/qtxL7YIIBzj1bN012w/fC7s/DgLpgAcAphyKoWD04o255JAy+4aBYhKup2yAyV
+	 ewmgZgb8vmG+e0QFViZ7udLfHuXHqYZGp2Ln5vwN+3tYLOfmWmuhjHtKMEuITO3GBL
+	 LRbEDXQEX4lFA==
+Date: Mon, 23 Jun 2025 09:22:08 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250523134025.75130-1-ulf.hansson@linaro.org>
- <fd4cfe7a-e29b-4237-b82f-48354deead3b@ideasonboard.com> <CAPDyKFpprO=HGuiHX3MQ_+m1YRnaWG=XwCx8-fSdXak8VBDUbQ@mail.gmail.com>
-In-Reply-To: <CAPDyKFpprO=HGuiHX3MQ_+m1YRnaWG=XwCx8-fSdXak8VBDUbQ@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 23 Jun 2025 16:20:41 +0200
-X-Gm-Features: AX0GCFtl7MtxcE4vyAd4TW4aP7KiFQbKSRPzfdkRqmmetdjmZM6hCv3ubI_yHWQ
-Message-ID: <CAPDyKFpXcpwkacnYqWz2vxaTd7pW5bSRa2F063BryFxVNEAmPA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/21] pmdomain: Add generic ->sync_state() support to genpd
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: lee@kernel.org, linux-kernel@vger.kernel.org, conor+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
+ linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com, 
+ kernel@collabora.com, devicetree@vger.kernel.org
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250623120038.108891-2-angelogioacchino.delregno@collabora.com>
+References: <20250623120038.108891-1-angelogioacchino.delregno@collabora.com>
+ <20250623120038.108891-2-angelogioacchino.delregno@collabora.com>
+Message-Id: <175068852802.3230004.1923972457454728043.robh@kernel.org>
+Subject: Re: [PATCH v1 1/2] dt-bindings: mfd: Add binding for MediaTek
+ MT6363 series SPMI PMIC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_072118_861026_4955AC11 
-X-CRM114-Status: GOOD (  34.57  )
+X-CRM114-CacheID: sfid-20250623_072210_247873_FD735085 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,75 +74,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Jun 2025 at 13:40, Ulf Hansson <ulf.hansson@linaro.org> wrote:
->
-> On Fri, 13 Jun 2025 at 12:33, Tomi Valkeinen
-> <tomi.valkeinen@ideasonboard.com> wrote:
-> >
-> > Hi Ulf,
-> >
-> > On 23/05/2025 16:39, Ulf Hansson wrote:
-> > > Changes in v2:
-> > >       - Well, quite a lot as I discovered various problems when doing
-> > >       additional testing of corner-case. I suggest re-review from scratch,
-> > >       even if I decided to keep some reviewed-by tags.
-> > >       - Added patches to allow some drivers that needs to align or opt-out
-> > >       from the new common behaviour in genpd.
-> > >
-> > > If a PM domain (genpd) is powered-on during boot, there is probably a good
-> > > reason for it. Therefore it's known to be a bad idea to allow such genpd to be
-> > > powered-off before all of its consumer devices have been probed. This series
-> > > intends to fix this problem.
-> > >
-> > > We have been discussing these issues at LKML and at various Linux-conferences
-> > > in the past. I have therefore tried to include the people I can recall being
-> > > involved, but I may have forgotten some (my apologies), feel free to loop them
-> > > in.
-> > >
-> > > I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
-> > > Let me know if you want me to share this code too.
-> > >
-> > > Please help review and test!
-> >
-> > I tested this Renesas white-hawk board, and it hangs at boot. With
-> > earlycon, I captured with/without boot logs, attached.
-> >
-> > The hang case doesn't look very healthy with all these: "kobject:
-> > '(null)' ((____ptrval____)): is not initialized, yet kobject_get() is
-> > being called."
->
-> Tomi, thanks a lot for helping out with testing!
->
-> rcar_gen4_sysc_pd_init() calls pm_genpd_init() and
-> of_genpd_add_provider_onecell().
->
-> rcar_gen4_sysc_pd_init() is an early_initcall, which I guess is the
-> reason for these problems, as the genpd_provider_bus has not been
-> registered that early (it's done at core_initcall)
->
-> Do you think it would be possible to move rcar_gen4_sysc_pd_init() to
-> a postcore/arch_initcall?
 
-I did some investigation around this and found that both
-drivers/pmdomain/renesas/rcar-gen4-sysc.c and
-drivers/pmdomain/renesas/rcar-sysc.c are registering their genpd
-providers at the early_initcall() level.
+On Mon, 23 Jun 2025 14:00:37 +0200, AngeloGioacchino Del Regno wrote:
+> Add a binding for the MediaTek MT6363/6373 (and similar) multi
+> function PMICs connected over SPMI.
+> 
+> These PMICs are found on board designs using newer MediaTek SoCs,
+> such as the Dimensity 9400 Smartphone chip, or the Chromebook
+> MT8196 chip.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../bindings/mfd/mediatek,mt6363.yaml         | 98 +++++++++++++++++++
+>  1 file changed, 98 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+> 
 
-I was trying to find (by browsing renesas DTSes and looking into
-drivers) if there is any consumers that actually relies on this, but
-so far the earliest consumer I have found is the
-drivers/irqchip/irq-renesas-irqc.c, but that's at postcore_initcall().
-Of course, it's difficult to say if my analysis is complete as there
-are a lot of platform variants and I didn't check them all.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Maybe we should just give it a try and move both two drivers above to
-postcore_initcall and see if it works (assuming the irq-renesas-irqc
-supports -EPROBE_DEFER correctly too).
+yamllint warnings/errors:
 
-If this doesn't work, I think we need to find a way to allow deferring
-the call to device_add() in of_genpd_provider_add*() for genpd
-provider's devices.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml:
+	Error in referenced schema matching $id: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator.yaml
+	Tried these paths (check schema $id if path is wrong):
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
+	/usr/local/lib/python3.11/dist-packages/dtschema/schemas/regulator/mediatek,mt6363-regulator.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/mediatek,mt6363.example.dtb: pmic@4 (mediatek,mt6363): regulators: 'oneOf' conditional failed, one must be fixed:
+	{'compatible': ['mediatek,mt6363-regulator']} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator.yaml#"}
+	{'compatible': ['mediatek,mt6363-regulator']} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/regulator/mediatek,mt6373-regulator.yaml#"}
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
+Documentation/devicetree/bindings/mfd/mediatek,mt6363.example.dtb: /example-0/spmi/pmic@4/regulators: failed to match any schema with compatible: ['mediatek,mt6363-regulator']
 
-Kind regards
-Uffe
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250623120038.108891-2-angelogioacchino.delregno@collabora.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
