@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE30FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB02C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sfEbSpxuj6iCO3S7ehFSQfszMAGt5vRbG8XfTrlB69o=; b=2toideTlW5jfDN79RrxOtuZqTe
-	q2pWY2CfEJSdzHuR32M1srYm5RKVr/qIgnFKCELc5/FIjyGCneKh6BgI/Jn7TsvHgbA2EfQJ+m+BL
-	hXDB0buZWpA+7+nuwl9+fsIShMVw6GpajjsNXYac5ZwyBqrQQMwxO2JG7m6fLhSP1reJdmaNCfZ/t
-	fb7E1WLSaivDZeLd2InrY88jFqQHYS1jFpBV2RyOGcQx08zuscvZfZK3X+uIYNRXlDrOrhYvyM6o+
-	KJoA80IftfeptJTvXGzKm1qj0BN+4L3hnTUNk61ctOerI/36gwnC/VSHT3+yTuWRAVb1E3ihmDytE
-	L4F4YpxQ==;
+	bh=wV1xdbkNsJPajHeiS4I3l8fMjaxYCyZUEva8YqrT++4=; b=owE8W3AQfSupODLL6L8jELNoIO
+	G0tErGXBXgJF7sL7qphuWVdGAWM74Thilw7zekzBGmRaB9UWLvsb+jzrr3HEmuicis3mY1b3uQELp
+	BVPk0CzJ29Q5qPlQsd7RNvT/5dlBFumPrCnQjQZAKzLDz2SRfpebVJlVsqGWSb4fLv0EgU/Ou9KK3
+	Q8Ml8zgf4GLNfxJ+TwzADi2r9BwtOT1KieKhcZrmOAPUrzI9b/SzJZOghbikEVoP0ZT+silJKBFLS
+	+CVtG0gHToO/Q2N2vdsCR/VnuZ5YVfzpPjRlxZKdVwmgoi6QCmW37EmehEIuzudOYo4i5EPGi95Ix
+	cdGXgYAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZR-00000004FKz-1AJ2;
-	Tue, 24 Jun 2025 00:31:29 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1uTrZQ-00000004FJO-0oRe;
+	Tue, 24 Jun 2025 00:31:28 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlPk-00000003chJ-08ld
+	id 1uTlPi-00000003cgy-1CPy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 17:57:05 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6084dfb4cd5so10742394a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 10:57:03 -0700 (PDT)
+	Mon, 23 Jun 2025 17:57:03 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-60794c43101so6777678a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 10:57:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750701422; x=1751306222; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1750701421; x=1751306221; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sfEbSpxuj6iCO3S7ehFSQfszMAGt5vRbG8XfTrlB69o=;
-        b=MDKWY/MmmdQV7W90qlNCOOLCNHUfUAHilwd5LNymaeaNYnA9U3pA8jlbBh2LXbfGiK
-         muMFFVpbB+P8Ww/wiEb6rlgkUJou9mvfsSEM3dcxnfh6BB9tCAN0zGCROibvIu+j0omV
-         RketNcJM79LAxbp6y7bKWEpONBly/IM97TQU9M5VVkTfFn7tKtbP6VQzgMgDoDzIHFy1
-         FW7qhpZwbh/hYRCGXL3TCDPIt1zfJhNFgxeGcrv826jAqYGikr1Jf9DC4jiCrcUcg28Z
-         h9KMF7BDzMEZq64rP9w7auitxseAC7ko0lksDWAKg1IA3jan33bRyOfgUrC+j9xgAh1t
-         Xp9Q==
+        bh=wV1xdbkNsJPajHeiS4I3l8fMjaxYCyZUEva8YqrT++4=;
+        b=D009UiulR1m90JuJiGshdCYMLvG1o2BkobA1j3SfYDC3jPgI1iTZd3+NKf/1zYQZQs
+         J9rzVYnkp1ZBV37gOmvEIFthcj+T7W648eze1lOijJP+aGdi9SAspyCNOWVsOgvKFY2Y
+         LsNTZAH45LctZVPs+aR7jhB7lnSJKnOtsbPzZ9BgM6+3H8JhOS5pDwywwifMnsLYMjj7
+         Q/QHTDm3hVtYypXCvyUiZOQSz67b1HG0AfqH+aY2yL4agopjTgf/w47swost0yaqnFfb
+         ofrJlnwpbEVfEDOXJtCfIxiPLdqLNcAn7CiODIaTaU42QmvazsbSwaLBR30pcKPeD6BL
+         YTGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750701422; x=1751306222;
+        d=1e100.net; s=20230601; t=1750701421; x=1751306221;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sfEbSpxuj6iCO3S7ehFSQfszMAGt5vRbG8XfTrlB69o=;
-        b=CCw5MVBJdjTObFmf5hugDMQTsOCSNMnUz4Bc6jDXDo4Iu8xRmjGdntRZvh02INDFiF
-         tiLiGW963oYyPtGLZauOs3SY4hwsBZSNhh9vnGvN1P0uNCSjH+umEr767qMuSbmn5zw8
-         GT+KJ1mzmuXQNLQwvc99QOn/ZF7CYT0OLRvAFEON6AsrUU3FiDZ5AyaWZKoMoY2xw0PA
-         mxzRPPbS+t5mOPWgIYW44i7Z4ClU/+EvH4ZjYOLUbce5FWQzd6/LJtKgK4Wy4l2IdPsA
-         Pv96rvLK+G0Ki3EkePaHuFL+GGCaRl7jznXDnT/efv748H4caQ6ftjF6lDR56+0Qz+XH
-         HdsA==
-X-Forwarded-Encrypted: i=1; AJvYcCVgqtN2tA2uAHudObi1XvWWY4hel9ANqa+Q34jiN4LNwY0v2qyjGu7GLz+yrm7ueZOukzcadtSqKVZfv6MrUOFB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlV/7qNZFU9acEH+ygUdWnWHxgjCJZTULEqZHye5zFVcLK1Ugi
-	8TcUZNBCdecV6hBZMnq1LA7yTcqZavnvJx2zwS+EP5Oh3lp18Dp8R/M5UZpKbQ==
-X-Gm-Gg: ASbGncsygfQDq+zp41k9J5uIfc6MGRjz0k7P3il62UvCc3QoL175tySPoEJz+gM6wgs
-	RxWyehSPlGNwyEPly6O94Q7QqO91ejuRZ5EVxBORlfkXDC+76Bfx8DEG6b/WiwbiiCZHg9gis/R
-	AS9xCx8YpA//tDKXalgIRnDh6pfgF6T4Lt1Vq6eLYu03izRzwLXuAA6icq03b1+BRfjWghlL+IV
-	5aV5P3kDnW/wVDM/a37lMkjrHCYZWZ8MudRefZ08UY59Mje1AHzH+DUX2l6Em+5aOR0CZ70/nTC
-	hk6RUpGWYzv1lqWp2tvS9KfRvaw4+jZ6/WfjqIFeQEx4RRWhrzDVe99cW68JjYwgeg==
-X-Google-Smtp-Source: AGHT+IGuAcG+GXrfdigNkDxStpd+S8OA8ZKWEze3cbtEMBDblwvHmNJAD3Ekbk37wTL6q0w5F0fZFg==
-X-Received: by 2002:a17:907:9558:b0:ad5:9ff3:c6ce with SMTP id a640c23a62f3a-ae0a715dcd7mr43147766b.4.1750701422257;
-        Mon, 23 Jun 2025 10:57:02 -0700 (PDT)
+        bh=wV1xdbkNsJPajHeiS4I3l8fMjaxYCyZUEva8YqrT++4=;
+        b=g2kfXGoxe8VQiX9BVcHTSUFivuJ4fg2pAS72WEZO3vTeaanu9JZ/+gtYnWlnnd/VhO
+         ryLGazViodOWzHiqQpkvvKjJ/5v5z9RBJsrYdtTJrykWBX8EW5bUrj1ibWbHk9l6Y/h2
+         k3dbBBOOgDR3a3Y4RJrvSSPaskgY0/k4fEjc1GQM/HStgDcC1dFLqqSZCsPO7SIrvEHn
+         8Jl8CfvkhNXUBduJyeM/wM5Fml2rYYoqaXjCR4IruoIfDVvMY3C2jgRkVMl60rqmFO24
+         zXmPPnF7In2gu6oVgRXXClJznVz8vWN5HTX1u3ghktzsM1VEM6934hzk5+/biBPJ4a9l
+         V3aA==
+X-Forwarded-Encrypted: i=1; AJvYcCWMwMay1Y/LeTzmvRnvMFa5MzCJ1dH4h9gvLy9xphFu52EwWu3FFjfyjJFFMQYr44M5EdEDvZzYOaxyDfC/Q+SO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/M97bR5JJrWU6/Sg8d2Dd5I0IyzhklOxhkDf3HtsN+ztgqdV3
+	fw1FcFFumD4D/A+YH4FiMKA42tVxK+vziy4oOKIwGEVeMWNW7JFEs2XM
+X-Gm-Gg: ASbGncvAO/2FkK0UVfMZNok/j+2XkAcdPAC0Y6gUEujpDvy50ZX9zpL4JFf4PxyrGmu
+	je9DWL05LuXHMS0qCKc109PL1BRE8p6OhLdj7API6Ika34ZYTQIy8F+Lf/A/FeTrOjV50v9tK2Q
+	8PctOZRSCEdSt85ChZ29Dvz2Iq2KGyXU7UphypOBzeKcpTTimqJLxB3iXQ+ud1SidaiRlqJoNC5
+	tQpev8kmaLntktpzpIprNrvBLp7RVeSlyFDCMY9IZNJVsyD8wVmMcAXv+7Gl7HDhieighc4NN0N
+	X+ZZVdD/F9PSf2dm6o2DRt/dt1SX5RTN9Zu/Lmkh0M3YcilG7/RRLFyzcnU6MeGqUw==
+X-Google-Smtp-Source: AGHT+IHR5nn3u6Mv7ocbuLDN61MWU9EZWoqVXA0uTBbGSLbAMV2C/+qnL1ce0DHE5uebTg0oqAbKoQ==
+X-Received: by 2002:a05:6402:1a4b:b0:602:f026:7cfa with SMTP id 4fb4d7f45d1cf-60a1cd30fcfmr11406465a12.13.1750701420638;
+        Mon, 23 Jun 2025 10:57:00 -0700 (PDT)
 Received: from wslxew242.. ([188.193.103.108])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60a18cb9e5dsm6360789a12.53.2025.06.23.10.57.01
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60a18cb9e5dsm6360789a12.53.2025.06.23.10.56.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 10:57:01 -0700 (PDT)
+        Mon, 23 Jun 2025 10:57:00 -0700 (PDT)
 From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
 To: Frank.li@nxp.com,
 	robh@kernel.org,
@@ -82,11 +82,10 @@ Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 2/3] dt-bindings: arm: imx8mp: Add Ultratronik Ultra-MACH SBC
-Date: Mon, 23 Jun 2025 19:56:51 +0200
-Message-ID: <20250623175654.844281-3-goran.radni@gmail.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 1/3] MAINTAINERS: Add i.MX8MP Ultra-MACH SBC to ULTRATRONIK BOARD SUPPORT
+Date: Mon, 23 Jun 2025 19:56:50 +0200
+Message-ID: <20250623175654.844281-2-goran.radni@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250623175654.844281-1-goran.radni@gmail.com>
 References: <20250623175654.844281-1-goran.radni@gmail.com>
@@ -94,9 +93,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_105704_069726_7FCD1B30 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_105702_327611_3970D8F0 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +109,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the Ultratronik Ultra-MACH SBC, based on the NXP i.MX8MP SoC.
+The i.MX8MP-based Ultra-MACH SBC is supported by Ultratronik, and its
+device tree has been added under arch/arm64/boot/dts/freescale/.
 
-This board is manufactured by Ultratronik GmbH and uses the compatible
-string "ux,imx8mp-ultra-mach-sbc".
+To ensure proper maintainer coverage and notification of relevant
+changes, add the imx8mp-ultra-mach-sbc.dts file to the existing
+ULTRATRONIK BOARD SUPPORT section.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This follows the established pattern already used for the STM32MP157C-
+based Ultra-FLY SBC.
+
 Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ MAINTAINERS | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index d3b5e6923e41..9cf2ab3b12db 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1101,6 +1101,7 @@ properties:
-               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
-               - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
-               - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
-+              - ultratronik,imx8mp-ultra-mach-sbc # Ultratronik SBC i.MX8MP based board
-               - ysoft,imx8mp-iota2-lumpy  # Y Soft i.MX8MP IOTA2 Lumpy Board
-           - const: fsl,imx8mp
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c3f7fbd0d67a..48af272eb62b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25411,6 +25411,7 @@ M:	Goran Rađenović <goran.radni@gmail.com>
+ M:	Börge Strümpfel <boerge.struempfel@gmail.com>
+ S:	Maintained
+ F:	arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
++F:	arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
  
+ UNICODE SUBSYSTEM
+ M:	Gabriel Krisman Bertazi <krisman@kernel.org>
 -- 
 2.43.0
 
