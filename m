@@ -4,110 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3118BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C906CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ke9lYKrcqcunI+A5Ne5AxdEtfxFkYD5UM58Jvg5HrNo=; b=EMrKxxFg8wyFhBAgf1wbmwDEDo
-	nUz59dkPwXtAN8NJuiaRk7D8jWxjEi2QLFB9HRZYC8ujt4FDEw4OFhdBxyankFj9w0MPCRc6cWTg/
-	ViUhydwPsfglRpScNAXPwJhqlKD7ms0MsFmlhCHQRHqV9SZ8oalfEyjGJXkN/27CDrF0XDFtdsS7X
-	jGgLKCVutzgX/jIKsDlGJabtyF2yXrkh4z16sZFJYuFxVhp2Yr+ytPwh7/46JZ/VdC/fLA0CBT8m/
-	y8ghUaQMv0sf2Ge8HtOWP8CrBWoQFFiSux96hXiGhcCNYa8MZQBVVSU07yQ7EIXzRvPiN0JW4vxHK
-	g8+u7wOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vhYz/5fgMINq4cCb6y6f21WdcPvdaHa7LDsVjxXH4Gk=; b=HAr8fgUpCIPSCBzv4ie4TwdmZ9
+	5WJAGPeU7Z2umjFO1erraPCtzvZb4yydKcMfLxJziMPhUG508H2S0GJuvZ0trZ6tbBw2pvjiHDlMu
+	UPBNdf9iAWgvuTeoZBUoyw7y6LnvwHHUuuQd4Mov1ESn8VcxSQnqqm6fV1g0Yipp68meq1cpjU+xh
+	9yvkF/WtUWvdm+tuvjdsGafK0V00gvbCaKQZ0aZAf9dzHCCvaMWoTChqOoTKn53s81+Jg3UylNlcC
+	/fhLjR2nadCuYBqtP+qtZonWuAU6Zpv0VhQ36HuSMXlY9nEbsH9rfGVupBO/4dR6poXijShh+sFSJ
+	NHxMKU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTaxa-00000001miu-39Gs;
-	Mon, 23 Jun 2025 06:47:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uTb1I-00000001oAI-1zEX;
+	Mon, 23 Jun 2025 06:51:08 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTanx-00000001kG6-2ATA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 06:37:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CEBC5C4AD3;
-	Mon, 23 Jun 2025 06:35:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CEF0C4CEF1;
-	Mon, 23 Jun 2025 06:37:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750660640;
-	bh=buOrcItc7yFXj8/CRQ3HtUD8/SjMJ7yOSDKIv29T3ng=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=T65d0tDUe1US9zePadEL+6tCzAXcbFizDttfkcVhDQy9thSXFf8LTOwcycUrKE5f9
-	 rYDhcJX4R9Rhs0WLpsJ3B6lxOgZxXzIZzIvxgF43pnonWnu3f/13r/RNERtFxuVYra
-	 cFKhsJBUogYwFe6R3rdOdH/6CWFi9feiVWAg2M2denOPAAriu6g9fJFCT90+PgV2J1
-	 J09cTIhsphm8TaXsGBQxmDLR1nOFhZUXak2juvkYAPui+ORnOqIcIEwddGawcN2QiQ
-	 9ZVoMbN0cdu2Fri+eZK9lvsJifwa9hM6pK9MI3aYnmUVFbiXpfQtPLMlhN8cdXDOO8
-	 irHLW05gERtKw==
-Message-ID: <809a7142-7055-47e7-8bc3-18bef86e2b4e@kernel.org>
-Date: Mon, 23 Jun 2025 08:37:14 +0200
+	id 1uTay9-00000001nB3-41Ci;
+	Mon, 23 Jun 2025 06:47:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750661274; x=1782197274;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YS5QfchkXQuDpizebXwc+i/GQO/Ujou+O/e0qMENePo=;
+  b=llZsTLidIR1hmI/BOI2wnG4GVALzva+Lp0Up2TcJW8DPfTwyvF+jSJJB
+   NYl5LKsGKh7M2HjricPRM8dq1T4QyCwXE5kxrlLyI34/zxqdQlgYuxwE0
+   QItjxUwI0avsETwTIITNmHdoilAzVC+Vu1H7Be3UfRZ5VRAIYNGNTENdn
+   nOQekEq1FfuialJK7roI4L64RFCwExDS5fH77CuezB/I7sM+t9HMUEDr+
+   tT729RkZdiJyHBMLghcRDiAFmaByX0HQVXgEtjNbdiXy+47ZdzqH0mczz
+   hTCgjv8qVR8/eJfKfEFPvEOzQIwbFizRWyhxmBKe8BHF7IW9lH5hYvepQ
+   A==;
+X-CSE-ConnectionGUID: y05lE7cfQzuTGn/8iizCZw==
+X-CSE-MsgGUID: ink3BfkiSTyvdCwOU78IHw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11472"; a="52991731"
+X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
+   d="scan'208";a="52991731"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2025 23:47:52 -0700
+X-CSE-ConnectionGUID: mNrnjtrWSK6xeohGlUJjsw==
+X-CSE-MsgGUID: Pz/9sXzLRiW91MMh1pUT1Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
+   d="scan'208";a="150924944"
+Received: from abityuts-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.8])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2025 23:47:48 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 9431E1201F7;
+	Mon, 23 Jun 2025 09:47:44 +0300 (EEST)
+Date: Mon, 23 Jun 2025 06:47:44 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+	imx@lists.linux.dev, ~diederik/pine64-discuss@lists.sr.ht,
+	Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH v4 0/4] Describe the cameras in the PinePhone Pro dts
+Message-ID: <aFj4kAXEhrR4Wbnz@kekkonen.localdomain>
+References: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/17] dt-bindings: dma: ti: Add K3 BCDMA V2
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>,
- Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
- Santosh Shilimkar <ssantosh@kernel.org>, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, praneeth@ti.com, vigneshr@ti.com,
- u-kumar1@ti.com, a-chavda@ti.com, p-mantena@ti.com
-References: <20250623053716.1493974-1-s-adivi@ti.com>
- <20250623053716.1493974-13-s-adivi@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250623053716.1493974-13-s-adivi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_233721_645774_15DD545E 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250622_234754_034579_7995FCA6 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2025 07:37, Sai Sree Kartheek Adivi wrote:
-> New binding document for
-> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
+Hi Olivier,
+
+On Fri, Jun 20, 2025 at 05:21:31PM +0200, Olivier Benjamin wrote:
+> This series adds support for the Pine64 PinePhone Pro's rear and front
+> cameras in Device Tree.
+> This is based on some of Ondrej Jirman's patches hosted in his tree at
+> https://codeberg.org/megi/linux, but I have also fully reviewed and
+> re-written the code from the RK3399 datasheet, the PinePhone Pro
+> schematic, and the IMX258-0AQH5 software reference manual.
 > 
-> BCDMA V2 is introduced as part of AM62L.
+> I have tested these changes on my PinePhone Pro and am able to take
+> photos from both cameras using libcamera's cam.
 > 
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
->  .../bindings/dma/ti/k3-bcdma-v2.yaml          | 94 +++++++++++++++++++
->  1 file changed, 94 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> This series has raised a question about the proper label name for the
+> front/user camera and rear/world camera for phones.
+> This series is using "ucam" and "wcam", which is used in a few other
+> Rockship DTBs:
+>  - arch/arm64/boot/dts/rockchip/px30-evb.dts
+>  - rk3399-gru-scarlet.dtsi
 > 
-> diff --git a/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
-> new file mode 100644
-> index 0000000000000..c50b2edbf8441
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
 
-Filename: missing vendor and anyway this should be compatible, so
-ti,am62l-dmss-bcdma.yaml
+Thanks for the patches.
 
+I've picked the first two in the set, presumably the rest will be merged
+via another tree?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+-- 
+Regards,
 
-Best regards,
-Krzysztof
+Sakari Ailus
 
