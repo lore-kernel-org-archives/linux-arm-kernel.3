@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C057C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2A8C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FAG7IULtL6EAiRdP89o+18YYsFgJDT8hysW41PRL/Kg=; b=fj2PuVdsBP1f7myL6r2MN9bmRC
-	kpRJd8x+sFTI1qn97MdxM8sIcmNq8SqG2XjM59J865oDm78+iDjJs6mA/SW8bP3rRF7vlNMW2OAOv
-	ZQncWwus5Wj8bP4T5mDUHg4DCMPbwVsM6s6t67pOhn5pA6CV/s221nbXySIlmNIRIQaMPSOemZa+i
-	qFyhYnTTX2suvaCIUqDLuE3yLMrIawXmVKkOhb9PvHhc2DmenrSp+RFKXx58XZ6nhTGk828jeOWiq
-	v6GVssFp2y/0ocSKfkKShJFigqVWV9NcFqHPFrnpH+qKyjMUvxRFb89du080kEtTcrVp/cuootU4P
-	5a9LKItg==;
+	bh=xIYD3nH+N48w92WXZpiFr8iGzHO68pDSa0Mwt5s78NI=; b=U0S0HmNCc2vGNt2XPnbC3yTxhw
+	OrmURuIevmbafrewCqbjSeSUzhna3l2roQoYpNIC7H5xiZTV4UCMjeaGSPz2da+oPCfQHK70qaO+z
+	JL6tmMFCyWyrvZ+kc2sBCcDeHIiCL0WTiUv7A4faOLLXKLabfyNr6Fwm+gJtUwnRUJg52Uq2c0+1t
+	XuAVEz+tmDLuKMjKO5TqmeJKhzUzbhcr93v8LIi1tSSIfTRwDNoNy2ikV1oCNJDJcn8bR0lDq1/f3
+	kfHc7tT6/PosHHtVVu7WG7uPmWRyQa2PTVy4EmzL/WERCdAlPQGp/deOy3F8MfG9ZUug9/rHWGzXd
+	H6WPmucA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjDR-00000003G5j-39pk;
-	Mon, 23 Jun 2025 15:36:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uTjFk-00000003GaB-3Eeu;
+	Mon, 23 Jun 2025 15:38:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTg3S-00000002dVI-0nn0;
-	Mon, 23 Jun 2025 12:13:42 +0000
+	id 1uTg4V-00000002dkK-23g9;
+	Mon, 23 Jun 2025 12:14:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72E5160EDF;
-	Mon, 23 Jun 2025 12:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4DB2C4CEEA;
-	Mon, 23 Jun 2025 12:13:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8009B5C4972;
+	Mon, 23 Jun 2025 12:12:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D51C4CEF0;
+	Mon, 23 Jun 2025 12:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750680821;
-	bh=ueR3nwsqBvhrycpfvVhVdbKTsds3A/sZLdw2rshMJas=;
+	s=k20201202; t=1750680886;
+	bh=o/om+5oc+Ti+iKJv0+pm2Nb+TnULQl3shWGHQYtDlw8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oqIRZf6SgwCntYShV6rYOoNG6ZfwNIcaMs6ZOpNYBu5xNpW37ev9/Nr8Bx3/j68Mo
-	 tewirxnpq56dPeguPEl6ZoLgTtCoVxM+0aa+E/zPALL5UCtkdQcgOcovZgpBe2m3RR
-	 CcuIayIAIWCNItmG5JfLEGmTGkPdHUr8ZbU7AGVhihit9HylPg56ZzppCYLcsUZ6DM
-	 yuoAOIxKipMcuRLLd9mIuhmCTiFGd+G9jMIYzIEirOWo+DUcI0RnU/Wh5wLNFEcTqH
-	 WqIYpbAUIA/afqwm9cUgk2VHglGL4vvRrS5Ygol8ai2d27lgsuv2egWr4I5+k2CyCb
-	 bJWJfMyfhgzxg==
-Message-ID: <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
-Date: Mon, 23 Jun 2025 14:13:35 +0200
+	b=p+nKa5ja+zDAPNVmSQWKjplk0v5hOGK6Q/XlJbsTL5sbfiQOwIy6T1LT8V++Uylqu
+	 uOiIY2Yc9R+h8nnWIN5dvEyudvIlJhrf2qky5/RFp63yvQsBCAt0JoZc1RHg7iDqaZ
+	 mB9946nDS9/1zE2dS0e4fzjEm03RL1Mz86KXPCaupMgtG/ow/LsuXzkAPNX4ccrfNz
+	 6Pk4eAJ963DaPSboxbhp8diRyfDWn3qnEHUGYv/0UERzAod7IEwGjO0IcPlpXgXb8Y
+	 OXTGm9Jz+/oVjObqcFCe1sdMxMAwu76OF0MM2e3tTsPj0uor7/vxfLzxrFnunS1AaH
+	 n7IsphcyEeCuQ==
+Message-ID: <d1802074-5472-475c-94b6-a0667e353208@kernel.org>
+Date: Mon, 23 Jun 2025 14:14:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 29/30] dt-bindings: reset: Add MediaTek MT8196 Reset
- Controller binding
+Subject: Re: [PATCH 30/30] clk: mediatek: mt8196: Add UFS and PEXTP0/1 reset
+ controllers
 To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
@@ -57,7 +57,7 @@ Cc: guangjie.song@mediatek.com, wenst@chromium.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
  kernel@collabora.com
 References: <20250623102940.214269-1-laura.nao@collabora.com>
- <20250623102940.214269-30-laura.nao@collabora.com>
+ <20250623102940.214269-31-laura.nao@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,9 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623102940.214269-30-laura.nao@collabora.com>
+In-Reply-To: <20250623102940.214269-31-laura.nao@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_051447_616239_E697716F 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,28 +127,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 23/06/2025 12:29, Laura Nao wrote:
 > From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > 
-> Add a binding for the PEXTP0/1 and UFS reset controllers found in
-> the MediaTek MT8196 Chromebook SoC.
+> Add definitions to register the reset controllers found in the
+> UFS and PEXTP clock controllers.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
 > ---
->  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
+>  drivers/clk/mediatek/clk-mt8196-pextp.c  | 36 ++++++++++++++++++++++++
+>  drivers/clk/mediatek/clk-mt8196-ufs_ao.c | 25 ++++++++++++++++
+>  2 files changed, 61 insertions(+)
 
-This belongs to the binding doc.
+You just added these files. Don't add incomplete driver just to fix it
+later. Add complete driver.
 
->  1 file changed, 26 insertions(+)
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
-> 
-> diff --git a/include/dt-bindings/reset/mediatek,mt8196-resets.h b/include/dt-bindings/reset/mediatek,mt8196-resets.h
-> new file mode 100644
-> index 000000000000..1a01b2b01f7f
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/mediatek,mt8196-resets.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: (GPL-2.0+ OR BSD-2-Clause) */
-
-Wrong license, use standard ones.
+Patch should be squashed.
 
 Best regards,
 Krzysztof
