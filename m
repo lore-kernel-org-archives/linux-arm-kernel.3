@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E9EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDB7C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T27t2nmr6ecFVKTwe7GdRGC1UuMYhsoPFZxzjgMw7XA=; b=cxQSRUKAeS9lWc9851a0ISKrmv
-	/DIKybz2yU81tv0V35YJg880gAsfHGCwlIXjaOx2orcYyDjsCePg4OYDiB/S4DKqeATs4snzyVol4
-	ampWZa780gMvuD2wqy1h5d9Tlleq9CwqnbzpbU/VDOYlV/17HIvCog7gaibeWhaZOo3M0bonJbMxU
-	5LG/op/5ePz8dTiO3L4Fi00PelBjAiAGa1F9yz3l+WbjQ74xsnQE4a8RDcKOxDcx08IW1lWCcerLS
-	YY3mByibo0k04eyGBsot/edADS34AQnBCfF6p8LLk8Yuj/UP4jdghHg59bBkgKuG0UtF+kQGg/BLI
-	mpVnyB1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rd1u1j3eg8lhJXpqmh2gB1y5eFliojuhqpAg0rdcDaI=; b=Khuoh5MfQ/hC9lhG3feuRfzb00
+	q8CIknlYAJgYX6ZtNlLGCQtdb61jeNRfamQrex0bz8Asr7vjZ1O9i71elHH07Ri6SFTaNjXXEsVCm
+	K7aWTDGB3b6Vyf3tn7aNQNgqbZGyKLk2dvnRBpcGb7qQP5RkGhbFA5ie+vyzzjehVPuYof9TRWFOx
+	gixTurLYDRomiNTlTO7VI+7i787hHRwQOdCafotU3DETRmIA3G3g/2vA4dWAwpIyV9gGLX43TjYgv
+	gqetxavZupXMfovGcR3yuq9orXULW/6jtDJxgyNy8QnXaC2AsMb2dZ+Mjl/rwN50JC4cIprrS6ZAC
+	NSbUDcyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTmHN-00000003kmz-0Zy3;
-	Mon, 23 Jun 2025 18:52:29 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1uTmJh-00000003l54-1Ltl;
+	Mon, 23 Jun 2025 18:54:53 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTitn-00000003BlC-3xSX
+	id 1uTiuC-00000003Bph-2R3j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 15:15:57 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-23694cec0feso39407285ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 08:15:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750691755; x=1751296555; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T27t2nmr6ecFVKTwe7GdRGC1UuMYhsoPFZxzjgMw7XA=;
-        b=oyEH3UNPwmZDmLg6L/c6dcY2qZgTymgFfrds5k3P1ShC9MaaawMbShw/lwUz5ISGLp
-         8JY0/o5sqCGbIMn5dn+3ogDuT4lP+dz+5EqfXjYCeSFD0PB/08p8amUfFa2CrGwcQG0w
-         Jwym5sk7FUeDpMiq1oaJfmxaFN7r5hYtCkIc6uqo4ue3wvyNXcBz2EQFxkWoe7lW4hND
-         eKZNmhRnUJpZSYVMArNpM7/ei6Ffca2/bFWP2qF5LPB3ykaYX/GWZSwyoBEfG+zRSFrr
-         xedwNzhSW/SzgWjeqirROj3Wt4wraYPq1+XeAG4ZFlnemX5mzIVfCw5ZEf9I43JzXI24
-         QMdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750691755; x=1751296555;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T27t2nmr6ecFVKTwe7GdRGC1UuMYhsoPFZxzjgMw7XA=;
-        b=j3Hb4KCHsjIhnVgB2lpYwHizWQt3pWYFU2/FUs8xkrh9BOalDPHE4f6OXP399pp6G5
-         2iMZnQChc93IqDFWyJjhOg3ri3AiVnqMTxNcRzNS/Hs8x8rGh9GHc559fzWwe86CkxMd
-         K2bzxa/sBDJy/Vx1SQUrhWjxTSRF1PsSdtc508dKXghwWZbHBcz/orxypVUXhzvF984z
-         EIeBoDOg7JcLB0vQyJMFBXOcd1pvnpRvDvxphPh3Ecr4JNtuO3yWW0FsoxLtC80fvzim
-         yJ4dd+fsz9HiSsf+40ezczOGUGdMq3Q8n65u4eNKD/zVZUwQhpCCX2zkhHytozdImi7v
-         1S+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVgQoKOFQfGvTsD8lsMADM8gmJorsmAATv8ABTQkHr7AQvBxp3glyIPi2DRdrddkN2ewIRGXv8lIv/VON1/3sv9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjVDWzHQYLKvSzkXCTEqiKZZBGRqgdMryrH4uzZ2ryR01oY4l9
-	68xfmpzY1ZO5jExxlgFzApcg+zj4GcH9OPwS1gGOwDyT0PveAY9eQB8W+adPeN6pLek=
-X-Gm-Gg: ASbGnctADaQlVT4d04xN6/A//Lhkp9yICEcSUqd7RzvCg+8Q104w3qa6TIxcXUmvcek
-	pomFu9RDDjJ5a2Crint/iNm4PdSjOOueZmAEKYJXxjzzjIw8fVVRa1aNypJR3zND2dhRBk015uX
-	ZjC3c9ATEpGsjdlRm+x0f0ld7Zf5yBnXbuw5xHfHAevl33Tk0GOc1DPIVkemBDiShfLnq1zj2Kj
-	SfR0hsNgSsDZWAfo6Vb5UTnzCNhCO4WrIKPwAVQCaxIahZ4EcpGK8OteIuo5Sg/0cfKmWk21Hwa
-	VA5Bpu2l3OC1ajJsJMstyT46d3SjQXYNL9s49fcwAdlB9bUPSSc/4sECKjn7Ejcb
-X-Google-Smtp-Source: AGHT+IGEfd7ew/DbegL4/ehEu6z8rdU2NqGKWQUxfqGQJFlSmPlquHaa0QFJscSdtTcWRu86BS4OCA==
-X-Received: by 2002:a17:903:1b66:b0:234:d2fb:2d0e with SMTP id d9443c01a7336-237d96dfe41mr236501275ad.10.1750691755197;
-        Mon, 23 Jun 2025 08:15:55 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:d145:b99:ea4b:a65f])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d866488csm85961605ad.158.2025.06.23.08.15.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 08:15:54 -0700 (PDT)
-Date: Mon, 23 Jun 2025 09:15:52 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v5 2/3] remoteproc: imx_rproc: skip clock enable when
- M-core is managed by the SCU
-Message-ID: <aFlvqK6SHvWHIpMn@p14s>
-References: <20250617193450.183889-1-hiagofranco@gmail.com>
- <20250617193450.183889-3-hiagofranco@gmail.com>
+	Mon, 23 Jun 2025 15:16:22 +0000
+Message-ID: <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750691776;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rd1u1j3eg8lhJXpqmh2gB1y5eFliojuhqpAg0rdcDaI=;
+	b=dsmeYcZBdpgJopeN4LNPwALDwYY+cURYbbJFzwtvGAFWR3Lmky/rd1MjDVS5iF/C5J5Dx2
+	WViTrdief/+/PyFhnRJPblh77uiIy/aKL5lLcFHLVHs/4iVkw+4eL+p5RlhkAkywMUl2Iz
+	FSBlI6hQdcjFGHPHGSmncD4B4LpYKnw=
+Date: Mon, 23 Jun 2025 11:16:08 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250617193450.183889-3-hiagofranco@gmail.com>
+Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michal Simek <michal.simek@amd.com>, Saravana Kannan <saravanak@google.com>,
+ Leon Romanovsky <leon@kernel.org>, Dave Ertman <david.m.ertman@intel.com>,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250619200537.260017-1-sean.anderson@linux.dev>
+ <20250619200537.260017-5-sean.anderson@linux.dev>
+ <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_081555_984149_54461A58 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20250623_081621_205430_48C4FED0 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hiago,
+On 6/21/25 03:33, Andrew Lunn wrote:
+> On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
+>> Returning EPROBE_DEFER after probing a bus may result in an infinite
+>> probe loop if the EPROBE_DEFER error is never resolved.
+> 
+> That sounds like a core problem. I also thought there was a time
+> limit, how long the system will repeat probes for drivers which defer.
+> 
+> This seems like the wrong fix to me.
 
-On Tue, Jun 17, 2025 at 04:34:49PM -0300, Hiago De Franco wrote:
-> From: Hiago De Franco <hiago.franco@toradex.com>
-> 
-> For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
-> by the bootloader, M-core and Linux are in same SCFW (System Controller
-> Firmware) partition, so linux has permission to control M-core.
+I agree. My first attempt to fix this did so by ignoring deferred probes
+from child devices, which would prevent "recursive" loops like this one
+[1]. But I was informed that failing with EPROBE_DEFER after creating a
+bus was not allowed at all, hence this patch.
 
-Ok
+Limiting the number of deferred probe attempts (at least before
+continuing to boot) is a good idea in theory, but would not address the
+root of the issue. Setting a good threshold is not obvious, since there
+are almost certainly systems out there that are missing some device
+links and have a lot of deferred probes. 
 
-> 
-> But when M-core is started, the SCFW will automatically enable the clock
+--Sean
 
-I find the "But when M-core is started" part confusing.  Started by who?  And
-are you making a distinction between "powered up" and "started"?  It is not
-possible for someone that doesn't have HW documentation to understand what is
-going on. 
-
-> and configure the rate, and any users that want to enable the clock will
-> get error 'LOCKED' from SCFW. So current imx_rproc.c probe function
-> fails because clk_prepare_enable also fails. With that, the M-core power
-> domain is powered off when it is still running, causing a SCU (System
-> Controller Unit) fault reset, and the system restarts.
-> 
-> To address the issue, ignore handling the clk for i.MX8X and i.MX8 M-core,
-> because SCFW will automatically enable and configure the clock.
-> 
-> Suggested-by: Peng Fan <peng.fan@nxp.com>
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> ---
-> v4 -> v5:
->  - Unchanged.
-> v3 -> v4:
->  - Unchanged.
-> v2 -> v3:
->  - Unchanged.
-> v1 -> v2:
->  - Commit description updated, as suggested. Fixed Peng Fan email.
-> ---
->  drivers/remoteproc/imx_rproc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 74299af1d7f1..627e57a88db2 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
->  	struct device *dev = priv->dev;
->  	int ret;
->  
-> -	/* Remote core is not under control of Linux */
-> -	if (dcfg->method == IMX_RPROC_NONE)
-> +	/* Remote core is not under control of Linux or it is managed by SCU API */
-> +	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
->  		return 0;
->  
->  	priv->clk = devm_clk_get(dev, NULL);
-> -- 
-> 2.39.5
-> 
+[1] https://lore.kernel.org/all/CAGETcx-koKBvSXTHChYYF-qSU-r1cBUbLghJZcqtJOGQZjn3BA@mail.gmail.com/
 
