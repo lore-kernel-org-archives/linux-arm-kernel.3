@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DE0C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6020CC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gPeP8du2qBa6yFfD4N13fXz74Emk3SySRJAz2DZwT+g=; b=KJtEpV3ert7dRtCEzkL4sNleYj
-	xV76En5LPW7PZlh/MYT2bzgGojhdr8AuGRw08ameX67ZyyqSbquyorVtOHaTIxJdB+pXEIblFamhg
-	B/3HTAUQU51oXqVQTMkBiGgf9xpkODy2AWOVMsu770k7EyCEpbGzj/GahS9SH+flO+uiASwFQbR/Q
-	Yu/sx2OXJJnPwY0xHgwf0q3zbqHZsjpdnfkEGioW/lf0bGj6wGrRN70rg2vO4v3MdNazN/B7CN1WV
-	d6lL+5EHmYXd2xCvZdv6ASvxiq/UONOYSnwzPbq8KACRZd9Nda6Wd2ZM+jhGCn6JPySpzXTi/W38w
-	1vE7hPEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X6DcYddt5wym2Xskxe6KfcsdaZsVhnmiyQICeoOHbM8=; b=HrolP/NsAY30ZCLm0BCODiNPxk
+	ga4MuIo9RTEAwc8zaM0Rq+kTZbolhepv1mpe5ISlPootzMaPBwuWZFvKUcNzsAvXvGY5aaVPFB0aV
+	W3XB2UHztfcYAxYkVxDJQlhm3BClr75u0Al3xOTUhKmqlfIaOVRQvIxvwHD8Ym8DWIV9B8jGtE6NA
+	pCx0IEOi2htizXNYSicqkD3G0AG4SznNS1bpHzn8wIcbM0xVJgE0UTWacaL8HuKCHR23vPPZzCq2C
+	4EzPGAWE6oKbHN/autQ3x5HMoHcQ9Mw4xLkhMdUDW84aIXzP9jF4JVLaXZh1lU9ZEclrfel62qQJz
+	ZpxlAnLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTraJ-00000004GOl-1GRA;
-	Tue, 24 Jun 2025 00:32:24 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1uTrag-00000004GpP-0Blj;
+	Tue, 24 Jun 2025 00:32:46 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTmE1-00000003k5T-0OJC
+	id 1uTmTR-00000003lxn-3RFj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 18:49:03 +0000
-Message-ID: <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750704537;
+	Mon, 23 Jun 2025 19:04:59 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750705495;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gPeP8du2qBa6yFfD4N13fXz74Emk3SySRJAz2DZwT+g=;
-	b=PXieTfFNnH2x0MB6xi3e+6LGZLqrOxLZI3i0CcOdyGfCvdjd7oBe6wW/zwNLrAyB877f21
-	ejPCyCi4UknfuJ1Xgqn8myevhtFm14NvQVD9OS0Q/Am4s6Dc+xdwaO3JAtIQ1BLfv3DdhU
-	bKacHtVK2GuqyI7UQ2SIZtfsr58L+QE=
-Date: Mon, 23 Jun 2025 14:48:53 -0400
+	bh=X6DcYddt5wym2Xskxe6KfcsdaZsVhnmiyQICeoOHbM8=;
+	b=Wq8P8oSOSnrEFmyK5tBA94+ro+F6vK1BDqjUoE2cyXQ7+BV/JEjWO58VVuAZ1TfKjH+64f
+	WqMXCGXHSNX07tPREailSfueUDYo2DFKi5TrXV1mokTpLI+TnIybDSvX3Zg6RMMhvqPfaC
+	9X0mPgCp0A74LFynqgJE9znnOlfXksasKZfK4BOi5Higm6dCMf7kj3KvYJrxjsfeDueYAV
+	LSs8H2jtQYcdk9VPUaDlP3cm5DT6EgWEq0xhz0uHXSzszsZx+JgilzK4NQ6XP5RqlsPMH1
+	DpyBg6RJKWxlRJUD32Rz6uK5YHRWPKhJFvOBNZlTL/ggRfmRqEMCh0ikudVXsw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750705495;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=X6DcYddt5wym2Xskxe6KfcsdaZsVhnmiyQICeoOHbM8=;
+	b=bJ3uGDEsaB26JP9V7UX1Jlx1g4wZEoUxaRVea7vzQCcQzJlekZks5lMZkgtZUr16gahBgA
+	SNi+iyrrJuUoCwBQ==
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Timothy Hayes
+ <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>, Peter Maydell
+ <peter.maydell@linaro.org>, Mark Rutland <mark.rutland@arm.com>, Jiri
+ Slaby <jirislaby@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-pci@vger.kernel.org
+Subject: Re: [PATCH v5 24/27] irqchip/gic-v5: Add GICv5 ITS support
+In-Reply-To: <aFkd0cigSKOSqUQI@lpieralisi>
+References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
+ <20250618-gicv5-host-v5-24-d9e622ac5539@kernel.org> <87y0tmp6gn.ffs@tglx>
+ <aFkd0cigSKOSqUQI@lpieralisi>
+Date: Mon, 23 Jun 2025 21:04:54 +0200
+Message-ID: <87ms9ynusp.ffs@tglx>
 MIME-Version: 1.0
-Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Simek <michal.simek@amd.com>, Saravana Kannan <saravanak@google.com>,
- Leon Romanovsky <leon@kernel.org>, Dave Ertman <david.m.ertman@intel.com>,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20250619200537.260017-1-sean.anderson@linux.dev>
- <20250619200537.260017-5-sean.anderson@linux.dev>
- <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
- <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
- <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_114901_578283_1657B929 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250623_120458_002033_A74E83B0 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/23/25 14:27, Andrew Lunn wrote:
-> On Mon, Jun 23, 2025 at 11:16:08AM -0400, Sean Anderson wrote:
->> On 6/21/25 03:33, Andrew Lunn wrote:
->> > On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
->> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
->> >> probe loop if the EPROBE_DEFER error is never resolved.
->> > 
->> > That sounds like a core problem. I also thought there was a time
->> > limit, how long the system will repeat probes for drivers which defer.
->> > 
->> > This seems like the wrong fix to me.
+On Mon, Jun 23 2025 at 11:26, Lorenzo Pieralisi wrote:
+> On Fri, Jun 20, 2025 at 09:18:32PM +0200, Thomas Gleixner wrote:
+>> Just add a MSI flag and set it in parent_ops::required_flags and extend
+>
+> I added that but it does not work (not if we use d->flags as below), it works
+> if I add it as an
+>
+> IRQ_DOMAIN_FLAG_*
+>
+> and set it in irq_domain_info in the msi_create_parent_irq_domain()
+> call in the GICv5 ITS driver when creating the domain.
+>
+>> the lib with
 >> 
->> I agree. My first attempt to fix this did so by ignoring deferred probes
->> from child devices, which would prevent "recursive" loops like this one
->> [1]. But I was informed that failing with EPROBE_DEFER after creating a
->> bus was not allowed at all, hence this patch.
-> 
-> O.K. So why not change the order so that you know you have all the
-> needed dependencies before registering the MDIO bus?
-> 
-> Quoting your previous email:
-> 
->> Returning EPROBE_DEFER after probing a bus may result in an infinite
->> probe loop if the EPROBE_DEFER error is never resolved. For example,
->> if the PCS is located on another MDIO bus and that MDIO bus is
->> missing its driver then we will always return EPROBE_DEFER.
-> 
-> Why not get a reference on the PCS device before registering the MDIO
-> bus?
+>>         struct fwnode_handle *fwh;
+>> 
+>>         fwh = d->flags & MAGIC ? fwnode_get_parent(fwspec->fwnode) : fwspec->fwnode;
+>
+> Here we are using the domain flags and I think that's what we want.
+>
+> If I go with parent_ops flag, I believe here we need to use the parent
+> msi_domain_info::flags - I don't think that's what we want.
+>
+> It is a property of the IRQ domain so I think that adding an
+>
+> IRQ_DOMAIN_FLAG_FWNODE_PARENT
+>
+> is the best option.
+>
+> Please let me know.
 
-Because the PCS may be on the MDIO bus. This is probably the most-common
-case.
-
---Sean
-
+Obviously. Doh :)
 
