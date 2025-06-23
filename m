@@ -4,88 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A179DC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 10:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3835CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 10:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wEvLV+XUDkUUbf+MnYAq5KDj79to69aojQVd2SW7lk=; b=hGRyn3dRJOu+zRYVDXqOIxUdM3
-	z4z4QpA/T/ylLw3ikOOyuFlWcHGJl7Jc+j5QqSF/uM/0KuUorPlXmu2OMXtcf/AP0uW4gBEeYJALX
-	0sAxtqiv7KeuYIb8j2HJOSMR2cu7XTwm/RFkeG7l+/hkc4slvViAXMBxtCxejObZp9yjjZMzCYaw6
-	MZh9CQI1/fAd8XO0Iukb+8PIeJl1IW+MdrV837rxJuDfeg8lZGRvcj22Ds09723diAHnO7hmn87k8
-	MukBG/bVG2Qa1Pep3JTPVoyupfHO0df1sbYOgJb9d34ObJkSGL1yLETZTPYIsHlrXTZvCi+ff09TZ
-	zW/DvnCA==;
+	bh=dbE+66LFmQJo5J/dMPCr9Rnd6W1EQB/Bi7cKlFllcso=; b=xJnr3RsptLY+NoqTaQnCW8PxFn
+	YhII2QkXfw82AxaqxoajEtd4j/8JfD3EaycJNwrshNjsjAmV/WYnR231Wl2hVwFKoKsRn98hLGWNw
+	BKmwALbQiWGVeVfXrfyYLVwaRgWV+VKKc5B6iinVYh0lnK9mwRs4xmWgJL/+iZstsNZ4oqJzoet2e
+	sis9CTZqQYcYp/npVkaNSlqv/fe8jLOYcu5mdP+zO+UToeHSLZS+TaZ66PK8GXWjEESTlGXhrT42U
+	koL00w67kEB5oPUq5fN1bhShYFNar0CMGURJ09IiBza9wAruGV9qQto2dtJOht4euFVNSv5Fi1hTE
+	WwT+9EsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeZ6-00000002Nkg-41X4;
-	Mon, 23 Jun 2025 10:38:16 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1uTea4-00000002O7L-0qQ6;
+	Mon, 23 Jun 2025 10:39:16 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdLK-000000029Ho-2hVJ;
-	Mon, 23 Jun 2025 09:20:00 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4a4323fe8caso23142131cf.2;
-        Mon, 23 Jun 2025 02:19:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750670397; x=1751275197; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/wEvLV+XUDkUUbf+MnYAq5KDj79to69aojQVd2SW7lk=;
-        b=Jl60+l+/UhuqtbDVxLE2TW6iwu5IjaRIupaLv1b0r3kDnMEEJQxp6mXAkm3Btgt/Uu
-         V9jHKAyMmAuCdWegfKP1ohlvR5htQe5jB6R8gOzAoaIrAlfWUNwfZcGKDawRrtkUAJMU
-         vHDC99EOU9TfJqYklv1h0cyg5hQnsy0yv3sVSVzTvVxiwQ5FT+tqGowMT5yPVIwUdtgx
-         N0REsJkcQjx5PH5wUZSDHNvhK9tyLrXIVTYjuHw6wijWd7EV0z/t8NqPyfMMV32284Xf
-         Kgs157ViPZui4mgHdBEJmEU8VAW77zF18xD4VhXCNEjyHHwK4m3ki2MF8bgueFPMh0C2
-         nXdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750670397; x=1751275197;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/wEvLV+XUDkUUbf+MnYAq5KDj79to69aojQVd2SW7lk=;
-        b=mXELYxxYS7ibwrv/WMU57nQOqv6EEbsAza2KOc72nRPNAx22th0kzuz5GCsVpekncA
-         Tpy5wuhgCs0XJy1Arj4CFjRwIxkJ7IwMae7Cka8VIwIrgUL43tY9fMpv0xjVS7s7zrbJ
-         pSOjU/QS7jaPCp2LTp5CZk02utKNE3L7onrbKdbew0hABhyN/Fq7Vtuo97g/BQHC/ynj
-         f0rm+Qg6CTIzCHjLelm7hVSDQUrUkKZWCkzPFw9pne9wNuHCISB7YZctA735Am3sRTZ8
-         R5+kjYgT0XP+sHoS3f0uaN21vcTp2djqY6qi5rpQt0WEExMTDfANvsa1w07niecawbMZ
-         fvQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVyOqbjEyseaVX80tCHD+S6F8MEaM3WRfIRd9UqfZXgzfw9BAaVqjliK/RD3nhENsAhVMmF8+uiRZs6RQG3aYWz@lists.infradead.org, AJvYcCWdIZYjoWF1vbpm524HfUC420VFVX4jHRNAk+dmAZ/iJMsIXMtl9ElvVLUwOlEodFstgvO3ogCFLtG0t/jVIaA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt+gVT2MDosohYgMBlvhGsS56WfrE9BfMouxi2j0xSzvsOw8IF
-	tdDm1GzQsNtI9JT7qhncYO80Q8XzDlVH2UwApieiXjjPFq90+T/mkjRqIJGRdxrYOFiak7y8adE
-	NKC9/cqxGNy7x+YH7kjTaCYfyMwy8Mco=
-X-Gm-Gg: ASbGncvqogMZe02jj9M1yHLVNb8ajqa/KM/tTZe5YqPVRkQdupcpxafTnRg/reLjIEw
-	43m+Yply0uEbdrKrDNFKPTsQoS4y8bvk0M8QgCTdG35si/JgNnpo8lqsKJ7wbeoTl1rH9a+t4Ws
-	sVMw7QKVKEQTshR1E+IAdqOhCzabIorlThmcqqWN9nNxnulq5QxD0ZM1kTV74EXE/l31u/lyMCm
-	eo2
-X-Google-Smtp-Source: AGHT+IGHzYJ6UUrqi2LdYMqwXyHs8/FIiY5UXWI3E9jHjR9GWQsbOSjLJkISB6YHyOMmQdHzeFbLLj6oiz/sUnrm6N0=
-X-Received: by 2002:ac8:5803:0:b0:49a:8542:b496 with SMTP id
- d75a77b69052e-4a77a25edcdmr137669461cf.25.1750670396800; Mon, 23 Jun 2025
- 02:19:56 -0700 (PDT)
+	id 1uTdxs-00000002Ge8-3U7L
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 09:59:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UzW/Jxcxr0a+P0L8een8FCLMvOCVj/WX6XbkluIkORY6QHoGxzhngAqZPHXgs6Q3Qnh1JiV9L2LMP2EOSs7cgp8I3/oSAmhEjH4Lc+4hjiBpIS53S8tY0wRZCh3nPQEq1j41hNpQ6GimgYLBh83GzbgQeW8AN0GTocJQq/EJjrw93v4nsFJcSrZ9cgZFc9Qx8ENUpuswb/rPl43o6q193OANoM6QgJ5AOHUTYWUdBbr/eQpDua/92dQkjeYL4cPjABf9BWyeBV+PT5i2juK5KxZZZQbj6aF7TBLDVS5HBvJzfz8KYjiEtXDb8V4nET26h7S5eGSq4y7rzk1YTzFOnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dbE+66LFmQJo5J/dMPCr9Rnd6W1EQB/Bi7cKlFllcso=;
+ b=iAPCqufkfpxH1wJ9nPIBYI1TbY5PhK+bmJfp1ljnn71crqj2lGzJm6uHFNGs5E59FLJ8FHtQXJQvpsusG9zn7886svYF5llioCChhkz9etTKw3omPisQXUwkCQWG7+sJnv+/8anJYlHg25nkyfthpZEYysipeXbq0lvLS1WJvMQrp0uKeuIJhRn+e7K2eDW5A+5MyGsgY3LHgoQ/XlMtt3oxnPuPNmrYIQgNa6K/NnTQl8+Ehlx/DTAn7uFKkzWO036mXWlzzz2JndpyLzSMYdDqX/juxCVT1BFWmqm3GmMAcbOAVoDdpTFcaAjUM9nh7oZ3pBGwpqV9da2DGOAbJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dbE+66LFmQJo5J/dMPCr9Rnd6W1EQB/Bi7cKlFllcso=;
+ b=EiP7bQzs+72aR6/w1dhXbl/MKMN9ScgGIIaEuX0BqlseFixnIcwz/Dcy/SApTg66fjCIEk7lT3bWg9H+5QvK4eX3N6ry1EUdft0LW7ZfWX6/jqzOCrPfVYFjxFl0Ym4eJkKpIP0f+P4yf8r27qitfawcjNp3fDhI0hSnRMdiYtfrTuS5j0IuF4RA2Xrjh0cW/WJ2gnLjc/18lQx94wAfxU//GmqBA8hgH1A+iDAQ6jZbx964Yy2z/Wn4+Gh7i22XCbNzkLfDcLF0WM7JP93VByo4JesVTcGl1AKm/6BtSH+NxlTWSgiuQwS2xF9bHjfdMZfD0JUcQUxdsgndyBpecA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by PA1PR04MB10841.eurprd04.prod.outlook.com (2603:10a6:102:487::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.25; Mon, 23 Jun
+ 2025 09:59:44 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
+ 09:59:44 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	ulf.hansson@linaro.org,
+	richardcochran@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-pm@vger.kernel.or,
+	frank.li@nxp.com,
+	ye.li@nxp.com,
+	ping.bai@nxp.com,
+	aisheng.dong@nxp.com
+Subject: [PATCH v6 1/9] dt-bindings: arm: fsl: add i.MX91 11x11 evk board
+Date: Mon, 23 Jun 2025 17:57:24 +0800
+Message-Id: <20250623095732.2139853-2-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250623095732.2139853-1-joy.zou@nxp.com>
+References: <20250623095732.2139853-1-joy.zou@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR04CA0159.apcprd04.prod.outlook.com (2603:1096:4::21)
+ To AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <3286000.Y6S9NjorxK@phil> <CABjd4YyaNF1zosFFi6hEsZanPDxoaa1h4Dpd6uTPRwA3BZn0=w@mail.gmail.com>
- <5897576.DvuYhMxLoT@phil>
-In-Reply-To: <5897576.DvuYhMxLoT@phil>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 23 Jun 2025 13:19:48 +0400
-X-Gm-Features: AX0GCFvGIfu_h2Tdo6Q6Ri5vaM7FSPBRqMyn87PiNr6wtzGYqe2UABSxfmrvMMs
-Message-ID: <CABjd4Yy8WeXKmmxh2-TjjF5-ABy-NzzJsWpt1KvSjJqTHh0Xwg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	XiaoDong Huang <derrick.huang@rock-chips.com>, Piotr Oniszczuk <piotr.oniszczuk@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Jonas Karlman <jonas@kwiboo.se>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|PA1PR04MB10841:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5af9e7b1-3bed-44ee-e4be-08ddb23cad9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gGlk4MfTiO7Q6JwEegHvjOmqj4LhilH8j9y6FgH5H11r40xm74KGQA7f9iUv?=
+ =?us-ascii?Q?zgGGeAeqcgmQxbl8qDkgBR48VTS+a+vVF0hCUOPihoPnrM1PfuzpJKAy0y2Q?=
+ =?us-ascii?Q?HCNYH0/pI/tkf9F2N+r1YPIvMFolaT/H3+zqO1AfiZprBl0r1Gb/ePOjGwd3?=
+ =?us-ascii?Q?vA4rsQGQYSxn0DgVvnYIecBIZO0npXrOw3k5VGi0JcuOzVGo88rrqLWJOGlm?=
+ =?us-ascii?Q?kNZQ0gHMctgD9JvQH75gX8xWjECdrkDrEYWvL40GqKAnHbvnx1hS5smWPXFG?=
+ =?us-ascii?Q?YYhMGhBncQEPe8vzJQ7FgsqJuGnnzEC9TXE5BDyenly4b9w1HM8yrZy36MDr?=
+ =?us-ascii?Q?mSTP/yaFR/mhT0RmRPQimqF/cLSpoiCW0r9QWsz+g1MIZ8KwRiSlg5zj/OMF?=
+ =?us-ascii?Q?EDIC7VucHikxD5dDmqlPl1hxiQjG5iUIKLvEfHDeFnGx2mYYd1nGFgD87Iui?=
+ =?us-ascii?Q?9oQOhNcgLNny7f02XB8asDXQgunDYAYwSiC/ynhs77p/dewWYt7st090ANb7?=
+ =?us-ascii?Q?qoE9q7br7ozSTHAoFgg77BvkkO+OgcGZ8MR/21ya78PxvCu1/Ik5ygioXgJy?=
+ =?us-ascii?Q?rvNHRjfvQ1Xl6TVYb1wJ38Bp91tyDn/tHdfOvABG/dKq+Pn/r5a6+dm/P91P?=
+ =?us-ascii?Q?D6QJPBmPKRCqxquVVQxhtXAmOAqcnhY7wlcJ55KsXJ0FSgN15qYsqKvg2RLf?=
+ =?us-ascii?Q?NJ0cxuMCkrt8Prj3uvkRgjGzrKd/dAno/HCf2Zrdgw0wcEPn2QUa7I/qmkL0?=
+ =?us-ascii?Q?I74Sz2qDsCSAjnBdgSc+mnLloWxe2UA43a+4cHDXaW4UEz8LgbyayF+XQbAG?=
+ =?us-ascii?Q?I9YTAOsEM+7RLEpG6btP82QjeXdjJG9YacK5/JfEAdKH206TOLy4N2zwVXXe?=
+ =?us-ascii?Q?y3csTP4pzoCfV/A1dUTqTjlGhk2EoEjugksROldWiPRJJR0RBZojuzmy2aNV?=
+ =?us-ascii?Q?cWb4tz6CjxF5CF2NBBWvRJe2h9pgJLO0LdQNzYumVH24z0UzY+4gsS87XWQ9?=
+ =?us-ascii?Q?wvszvgY8FxsgXcdrj7RaWnizYMHkPM7TFKN1QPuzlLiNgrWsjRWG56HAeR1x?=
+ =?us-ascii?Q?8522Y5F3wlri3UOa2CLeDs0MT61o/XLNqFze0b219cLeGOuUj42TG3nuHuc9?=
+ =?us-ascii?Q?x37gIXuMEKJuYPL4W70r0SRaCsueQAmW5ogX7MGWJAGJVNqSeMJFoDABdf+c?=
+ =?us-ascii?Q?XIrNFM9oGhpq3fhneaCBcOlpn1Wn+yb7LwmgQ0cFn0DT9s6qVYlydgLvlh5E?=
+ =?us-ascii?Q?MjSJwU+WVs4wOzAvsp/Ns6mQhI69xekituZgZ4dwF4IPLUXBVC08M5KgI5x5?=
+ =?us-ascii?Q?kx7jdQZM70m3gHIk/SKjRMtwhmBbl1Lq/xGSy6B2C3uqQcK7KPQzOqVz2Pea?=
+ =?us-ascii?Q?JH2Bj9Bur+4+KnI37hP38p60aaEcw2ZKZHWKuKx+LyztzLI1xvYhOX3SqO8A?=
+ =?us-ascii?Q?+3ROKMhcshAFMOndbQ/mlHWfJqv7/wh82citYtOn/j9K9tOOCWIpp4fNH0r6?=
+ =?us-ascii?Q?tIBgCf/NkEWnMhQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yCo5LxKQc1rIZHoUmcMMv2UK1PRGJarjnuvo/HKZhJymFxteKEq4jHNEg50B?=
+ =?us-ascii?Q?YccWc4GkFEHLf8gtMb8dwtXxrIx8oSIMfNiPpFzI35jIp7JXVvvd9mpsTFDv?=
+ =?us-ascii?Q?g4aibauQQXAT0KtMmkxjanfuN37WH9AonFAGJWMoiku1/9hEszhYN2OciNQ6?=
+ =?us-ascii?Q?RXlXCODp2+GAozUZliEP1m2D/NMLEQ4S1V3ipU+Qv3MOPcgcpakqyF5fJC1D?=
+ =?us-ascii?Q?DhmgsU1irymvK/OQ6T8KH0PCd+JtBzZtq0eGLOAEt24pCHJ9+I3mBxDzu9Lv?=
+ =?us-ascii?Q?1psQqjOBaPf3RV8xFD3kTu183sjD/oYMrdaWne7gqlp7KP9JEmmjLdSyrw/a?=
+ =?us-ascii?Q?9aaeRsmvNaLsz2sy87X4WBnoA8uQ6Mlpj+ouk8o7AJujOMqGEutyTu7yAvy4?=
+ =?us-ascii?Q?Zrj61xnNuR7YBbKyNLrAYWHbCtW8q4nKleTBO2zuRKTCGmwhp6forw0Rac3n?=
+ =?us-ascii?Q?jU35vweluVnnw9b+7y35fAcep68ojmrEuhAfPORWDsmRR+vn3GWUosjPJ9I1?=
+ =?us-ascii?Q?Mmeq5w2CvlSMCtx2nf88xDjm5Grqu2xxFSc+gZM8fpnCDHrHpX7SK4OsgiCz?=
+ =?us-ascii?Q?SFMiGuZx0L14+KEo7DId2f+0lHYQ8uMwF5NS+uzyAISnk6CRx+cy2uAzOzMA?=
+ =?us-ascii?Q?PxFMxoL5sFFbMA8hFb/ZaRYZpRjAxS7p5zUWfLHHLK8S0t1jw7GGSOStIjHN?=
+ =?us-ascii?Q?NJTcDnhro85TK82XmmJf2d4j8X+o+S8ktlowNMKsYokVrkw3n9tOYP5dz+L4?=
+ =?us-ascii?Q?Sj8DJSnWsut72gNTaDxhj2fxxdBOtTNkniUTl8n/rObSnNQo2TC0+dSC+7+6?=
+ =?us-ascii?Q?HTy7vID2rFFDyI5l/Av+sRHTrN0ZSg6Z44KxZQHP8CMeJbdOIph141ylqQnC?=
+ =?us-ascii?Q?t1WVW4kYqWFRiapz8rNQWHAz9rnLF4rtwmJ6BFGmf6D4amJ5GHD01prFDRoS?=
+ =?us-ascii?Q?w/6wv1nLjaPXbI9GucgAqGlMMtZqk+IQgDncQ2elbEw/XG+sYNzPVZnz/R8u?=
+ =?us-ascii?Q?0IP1z72ti/5ALNVXh8sBmAqWbfTkNdhBB6fJvPeYIepTZJrPxgLIM02c4w3b?=
+ =?us-ascii?Q?+zMbYHvlt5IZd7Ggi+6kuEMYxCPB/KaFXNPesI07Cz5FBzlaqdF8o/bjk0Bf?=
+ =?us-ascii?Q?HWadnFVhRa9u2IngP8FESlAlKl8r8pYucA4xAoWOCjN+6msmw2iJUGiynzyY?=
+ =?us-ascii?Q?bdRRM/PGwhoQFjOc3ooIMUhJwm2J9xLXzbZrLgJ/W8xFTcIecz38QV6+goTe?=
+ =?us-ascii?Q?sU9OcukkJGmjFhov9/7OGINorSqmxFlb4PxViopG1pN+j4mZJT7QJ/viyOJC?=
+ =?us-ascii?Q?ugoOV0tftnWfve1Z2oRc2Jmhs4TzCO16g/mvKEjm8rL1CegwbarESnnMtCLc?=
+ =?us-ascii?Q?IvcffIGxY6IXndhYmZIIhwi509EKZXU75Dn4csK5yN+IfFhAfck/BHf118oX?=
+ =?us-ascii?Q?p4obmp4rhhWvi+mOfJSKKxyG4CNvKolHiCMGAXUEE7JsVLNL3SSyCMePY2iw?=
+ =?us-ascii?Q?mBcQ4gwzzMXDWSa/mLTsN6YvOTOl1D85kgrcF5H2RX1qw5UskS1gXa2B/kJ5?=
+ =?us-ascii?Q?PDK/rjdScnGx0JmXeQuruMCnJpAHvAF0AqNLFZJB?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5af9e7b1-3bed-44ee-e4be-08ddb23cad9b
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 09:59:44.0294
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9ZFtkwDidwHrZdPHx2pyBlGMt92OLTzKJF1CngOvbh8CUmpDeUOvtul7jTw1FrGS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10841
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_021958_692261_577F956D 
-X-CRM114-Status: GOOD (  61.26  )
+X-CRM114-CacheID: sfid-20250623_025948_871216_D2455E81 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,295 +183,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 22, 2025 at 5:48=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
-ote:
->
-> Am Samstag, 21. Juni 2025, 23:21:11 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Alexey Charkov:
-> > On Sat, Jun 21, 2025 at 11:44=E2=80=AFPM Heiko Stuebner <heiko@sntech.d=
-e> wrote:
-> > >
-> > > Am Samstag, 21. Juni 2025, 21:35:56 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Alexey Charkov:
-> > > > On Fri, Jun 20, 2025 at 8:02=E2=80=AFPM Alexey Charkov <alchark@gma=
-il.com> wrote:
-> > > > >
-> > > > > On Wed, Jun 18, 2025 at 6:48=E2=80=AFPM Alexey Charkov <alchark@g=
-mail.com> wrote:
-> > > > > >
-> > > > > > On Wed, Jun 18, 2025 at 6:06=E2=80=AFPM Nicolas Frattaroli
-> > > > > > <nicolas.frattaroli@collabora.com> wrote:
-> > > > > > >
-> > > > > > > Hello,
-> > > > > > >
-> > > > > > > +Cc Jonas Karlman as he is intimately familiar with RK3576 cl=
-ock shenanigans by now,
-> > > > > > >
-> > > > > > > On Wednesday, 18 June 2025 15:51:45 Central European Summer T=
-ime Alexey Charkov wrote:
-> > > > > > > > On Sun, Jun 15, 2025 at 8:00=E2=80=AFPM Piotr Oniszczuk
-> > > > > > > > <piotr.oniszczuk@gmail.com> wrote:
-> > > > > > > > >
-> > > > > > > > >
-> > > > > > > > >
-> > > > > > > > > > Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alch=
-ark@gmail.com> w dniu 9 cze 2025, o godz. 16:05:
-> > > > > > > > > >
-> > > > > > > > > > On Sun, Jun 8, 2025 at 11:24=E2=80=AFAM Piotr Oniszczuk
-> > > > > > > > > > <piotr.oniszczuk@gmail.com> wrote:
-> > > > > > > > > >>> Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <al=
-chark@gmail.com> w dniu 5 cze 2025, o godz. 15:42:
-> > > > > > > > > >>>> Alexey,
-> > > > > > > > > >>>> I see you are using rk3576 board like me (nanopi-m5)
-> > > > > > > > > >>>> Have you on your board correctly working cpu dvfs?
-> > > > > > > > > >>>> I mean: [1][desired clocks reported by kernel sysfs =
-are in pair with [2[]cur clocks?
-> > > > > > > > > >>>> In my case i see mine cpu lives totally on it=E2=80=
-=99s own with dvfs:
-> > > > > > > > > >>>
-> > > > > > > > > >>> Hi Piotr,
-> > > > > > > > > >>>
-> > > > > > > > > >>> I haven't tried to validate actual running frequencie=
-s vs. requested
-> > > > > > > > > >>> frequencies, but subjective performance and power con=
-sumption seem to
-> > > > > > > > > >>> be in line with what I expect.
-> > > > > > > > > >>
-> > > > > > > > > >> well - my subjective l&f is that  - currently - my rk3=
-576 seems =E2=80=9Eslower" than i.e. 4xA53 h618.
-> > > > > > > > > >
-> > > > > > > > > > In my experience, native compilation of GCC 14 using 8 =
-threads on
-> > > > > > > > > > RK3576 (mainline with passive cooling and throttling en=
-abled): 2 hours
-> > > > > > > > > > 6 minutes, on RK3588 (mainline with passive cooling via=
- Radxa Rock 5B
-> > > > > > > > > > case and throttling enabled but never kicking in): 1 ho=
-ur 10 minutes
-> > > > > > > > >
-> > > > > > > > > by curiosity i looked randomly on 3576 vs 3588:
-> > > > > > > > > multithread passmark: 3675 (https://www.cpubenchmark.net/=
-cpu.php?cpu=3DRockchip+RK3576&id=3D6213)
-> > > > > > > > > multithread passmark: 4530 (https://www.cpubenchmark.net/=
-cpu.php?cpu=3DRockchip+RK3588&id=3D4906)
-> > > > > > > > >
-> > > > > > > > > assuming 3588 as baseline, 3576 is approx 20% slower on m=
-ultithread passmark (has ~0,8 comp power of 3588)
-> > > > > > > > > 70 min compile on 3588 should take something like ~86min =
-on 3576.
-> > > > > > > > > In your case 126min compile on 3576 shows 3576 offers 0,5=
-5 comp power of 3588.
-> > > > > > > > > Roughly 3576 should do this task in 40min less than you c=
-urrently see i think
-> > > > > > > > >
-> > > > > > > > >
-> > > > > > > > > > Can't see how u-boot would affect CPU speed in Linux, a=
-s long as you
-> > > > > > > > > > use comparable ATF images. Do you use the same kernel a=
-nd dtb in all
-> > > > > > > > > > these cases? Also, what's your thermal setup?
-> > > > > > > > >
-> > > > > > > > > yes. in all cases only change was: uboot & atf
-> > > > > > > > > thermal is based on recent collabora series (+ recent poo=
-ling fix for clocks return from throttling)
-> > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > Not sure UX is a particularly good measure of CPU perfo=
-rmance, as long
-> > > > > > > > > > as you've got a properly accelerated DRM graphics pipel=
-ine. More
-> > > > > > > > > > likely 2D/3D and memory.
-> > > > > > > > >
-> > > > > > > > > indeed.
-> > > > > > > > > For quantified look i=E2=80=99m looking on v.simple appro=
-ach to estimate real clock is http://uob-hpc.github.io/2017/11/22/arm-clock=
--freq.html
-> > > > > > > > > by curiosity i looked what it reports on a53/a55/a72/a76 =
-and it is surprisingly accurate :-)
-> > > > > > > > > on mine 3576 with collabora uboot+mainline atf is hows 80=
-0MHz (and in perf. gov it seems to be constant)
-> > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > There might be some difference in how PVTPLL behaves on=
- RK3576 vs.
-> > > > > > > > > > RK3588. But frankly first I would check if you are usin=
-g comparable
-> > > > > > > > > > ATF implementations (e.g. upstream TF-A in both cases),=
- kernels and
-> > > > > > > > > > thermal environment :)
-> > > > > > > > >
-> > > > > > > > > all tests: the same 6.15.2 mainline + some collabora patc=
-hes
-> > > > > > > > >
-> > > > > > > > > diffs were:
-> > > > > > > > > 1.collabora uboot[1] + mainline atf 2.13
-> > > > > > > > > 2.collabora uboot[1] + rockchip rkbin bl31 blob
-> > > > > > > > > 3.vendor uboot (bin dump from friendlyelec ubuntu image)
-> > > > > > > > >
-> > > > > > > > > on 1/2 i see kind of issue with clock values (i.e. perf g=
-ov gives constant 800MHz on mainline atf).
-> > > > > > > > > 3 seems to perform better - (i.e. perf gov gives constant=
- 1500MHz so all is snappier/faster)
-> > > > > > > >
-> > > > > > > > There is indeed something weird going on. I've tried runnin=
-g sbc-bench
-> > > > > > > > [1], and even though I observe dynamically varying CPU freq=
-uencies
-> > > > > > > > after boot with schedutil governor, once sbc-bench switches=
- the
-> > > > > > > > governor to "performance" and goes through the OPPs in desc=
-ending
-> > > > > > > > frequency order, the CPUs seem to get stuck at the last app=
-lied low
-> > > > > > > > frequency. Even after max frequency gets reverted from 408 =
-MHz to
-> > > > > > > > something higher, even after I switch the governor to somet=
-hing else -
-> > > > > > > > no matter what. Only a reboot gets the higher frequencies '=
-unstuck'
-> > > > > > > > for me.
-> > > > > > > >
-> > > > > > > > These are all observed at around 55C SoC temperature, so th=
-rottling is
-> > > > > > > > not an issue. Regulators are stuck at 950000 uV - way above=
- 700000 uV
-> > > > > > > > that the 408 MHz OPP requires (and power readings seem to m=
-atch: I'm
-> > > > > > > > getting about 2.3W consumption at 408 MHz in idle vs. norma=
-l idle
-> > > > > > > > reading of 1.4W at around 1 GHz).
-> > > > > > > >
-> > > > > > > > Not sure what's going on here, and I don't remember seeing =
-anything
-> > > > > > > > similar on RK3588. Thoughts welcome.
-> > > > > > >
-> > > > > > > This may once again be a "accidentally uses wrong clock IDs" =
-type
-> > > > > > > situation. The other possibility is that we're getting confus=
-ed
-> > > > > > > between what we think the clock rate is and what SCMI actuall=
-y set
-> > > > > > > the clock rate to.
-> > > > > > >
-> > > > > > > Things to check is whether the right clock controller (scmi v=
-s cru)
-> > > > > > > and the right clock id (check ATF source for this) is used.
-> > > > > >
-> > > > > > Clock IDs in the kernel seem to match those in ATF, but I've no=
-ticed
-> > > > > > what appears to be a buffer overflow in some of the SCMI clock =
-names
-> > > > > > defined in the opensource TF-A (thanks GCC 15 and its zealous
-> > > > > > warnings):
-> > > > >
-> > > > > After some more testing, I tend to confirm what Piotr observed
-> > > > > earlier. Namely, frequency scaling acts weird on any ATF version =
-(be
-> > > > > it binary BL31 or opensource TF-A), as long as mainline u-boot is
-> > > > > used. Using the u-boot binary extracted from the ArmSoM QWRT imag=
-e
-> > > > > does not lead to "stuck" CPU frequencies when running sbc-bench.
-> > > > >
-> > > > > I'm getting this with the exact same kernel build (6.16-rc1 with =
-some
-> > > > > Sige5 related patches, namely v2 of this series, Nicolas' USB
-> > > > > enablement series and TSADC). The only other difference is that t=
-he
-> > > > > binary u-boot doesn't have EFI support, so I had to boot into the
-> > > > > ARM64 uncompressed Image instead of vmlinuz.efi, but those were b=
-oth
-> > > > > taken from the same build.
-> > > > >
-> > > > > What I'm observing during the sbc-bench run:
-> > > > >  - It switches the cpufreq governor from schedutil to performance
-> > > > >  - It goes through all CPU OPPs in descending frequency order
-> > > > >  --- While it does that when booted using mainline u-boot +
-> > > > > vmlinuz.efi: "hardware limits" line in "cpupower -c 0,4
-> > > > > frequency-info" changes with each OPP change (the max frequency
-> > > > > getting reduced sequentially), then it resets to the initial full
-> > > > > range, but the actual frequency stays stuck at the lowest possibl=
-e
-> > > > > value
-> > > > >  --- While it does that when booted using binary u-boot + Image:
-> > > > > "hardware limits" line in "cpupower -c 0,4 frequency-info" doesn'=
-t
-> > > > > change, but the actual frequency gets reduced sequentially. Then =
-after
-> > > > > the iteration over all OPPs is completed it returns to the highes=
-t
-> > > > > possible value, and adjusts dynamically based on thermal throttli=
-ng as
-> > > > > the benchmark progresses
-> > > >
-> > > > Slight correction: it's not the "hardware limits" line, but rather
-> > > > "current policy".
-> > > >
-> > > > Note that booting mainline u-boot in non-EFI mode (using plain Imag=
-e)
-> > > > doesn't change the results above.
-> > >
-> > > I'm in a similar boat, while trying to make DSI run on the rk3576.
-> > > Andy from Rockchip was able to make it work "just" by using vendor-
-> > > firmware - while using mainline u-boot (with both mainline TF-A
-> > > or vendor TF-A) produces just black output.
-> > >
-> > > I think when I did the mainline u-boot thing I took the "vendor"-code
-> > > from the armbian rk3576 vendor-u-boot ... but that actually may diffe=
-r
-> > > from what the vendors provided?
-> >
-> > Just tried booting into u-boot built from ArmSoM sources at [1] - same
-> > issues as using mainline. Either I'm doing something stupid building
-> > it (don't know what though), or the binary shipped in ArmSoM images is
-> > indeed different from what the sources are.
->
-> Can you list the versions you see for the _working_ binaries?
+From: Pengfei Li <pengfei.li_1@nxp.com>
 
-Those are not as detailed as I'd like, as vendor builds seem to
-override the default U-boot versioning rules (stripping the git hash
-information off).
+Add the board imx91-11x11-evk in the binding document.
 
-I've identified the following versions for the binary image that worked for=
- me:
+Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes for v6:
+1. correct the commit message spell.
 
-DDR init v1.03 (version string "DDR 81dd75088a wesley.yao
-24/04/16-11:19:41,fwver: v1.03")
-U-boot SPL 2017.09 (no traces of any particular git commit, version
-string "U-Boot SPL 2017.09 (Aug 23 2024 - 00:47:39)")
-U-boot proper 2017.09 (ditto, version string "U-Boot 2017.09 (Aug 23
-2024 - 00:47:39 +0000) OpenWrt")
-BL31 image v1.04 (version string
-"v2.3():v2.3-749-g30018b771:derrick.huang, fwver: v1.04")
-BL32 image v1.01 (version string "U3.13.0-791-g185dc3c92 #hisping.lin
-(gcc version 10.2.1 20201103 (GNU Toolchain for the A-profile
-Architecture 10.2-2020.11 (arm-10.16))) #2 Tue Apr 16 11:05:25 CST
-2024 aarch64, fwver: v1.01")
+Changes for v3:
+1. add Acked-by tag.
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> I.e. u-boot and friends may list someversion-gGITHASH thingy like your
-> OPTEE already does: OP-TEE version: 3.13.0-791-g185dc3c92 .
-> Also possibly the build date.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index d3b5e6923e41..a778666b1d42 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1374,6 +1374,12 @@ properties:
+               - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
+           - const: fsl,imx8ulp
+ 
++      - description: i.MX91 based Boards
++        items:
++          - enum:
++              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
++          - const: fsl,imx91
++
+       - description: i.MX93 based Boards
+         items:
+           - enum:
+-- 
+2.37.1
 
-The build date is later than any commit I see in the ArmSoM repo
-leading up to either of the two tags they have there ("rk3576" and
-"rk3576-6.1-rk3.1", neither of them belonging to any published branch
-there)
-
-> I.e. I'm wondering/hoping if we can match to some git commit.
-
-I've also noticed that ArmSoM SDK references the "boost" binary from
-rkbin (rk3576_boost_v1.00.bin in particular), but it doesn't seem to
-be present in the bootloader binary I'm looking at. The version string
-of the SPL binary in rkbin as included in the SDK is also different
-from what I'm seeing in the actual binary: SDK has "U-Boot SPL
-2017.09-g57b8ceed1c3-240418 #lxh (Apr 19 2024 - 17:07:22), fwver:
-v1.02".
-
-I'll try and rebuild the vendor u-boot from source with these specific
-versions of rkbin blobs (ddr v1.03, bl31 v1.04 and bl32 v1.01), but
-the changelog in rkbin didn't mention anything that would seem
-relevant to the issue I'm observing :(
-
-Best regards,
-Alexey
 
