@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44438C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720C3C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGCV1LuIfVW/wqcWyb87V+Yiw8OwzGRaGZLb9/lBLHo=; b=vBwGYXNNOVArhAcLjcQUs+TWNK
-	genMFAYLpD5X1au3+2avrJ0sYOjvMikw6p0K2IPKk0RNxfVh7I2H3oL0WNB5fTpaXTHttHkiaqLdR
-	5Fj5pyBQYyh1rJVqoCx4jeMK5RI2z4MVJxoVhZMi0qcfno7OpqCarYdpacY9pqKDpDmXbjjUMyyxj
-	bjeFWrnXR79bO9rLXghwPv8xe6J7uhheyL3g0xhnwPbrKxnn5AoSglxtqW+vAjs+127bcFyluuF2E
-	tmz9AaZ04YuU1vaKmq0OeUh0jqjzxDv6W0CzAWESASLiB8aPYpErWyl0kJ0F2lnuocwa7WN4z9iB/
-	S/MWs3Og==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sn5vYj3aPsmszrvVC8/yhh5Ay0yngHBYQl6EjM7KYEs=; b=pns4xaqTNJp4yL+xVFj76SfQss
+	eTykP8whT0B+mHIxKomACyIIZCM+9HcJI/CzHSnYZZqEni/o0X180S6jtIkjAGYxm2vU5XpaNu0BV
+	O0XSV6663oEWqFYrvVIht2jhIss59PWtF1+D/Ke9xAy8BPfNjEIXqMOFbQnT0CPdWuCT13EpuTYry
+	7H5I10uqPoIgaqgdln4uZkVNjsSjTZ6JG5IaEq0984YTIS1SCYdce0AAp4cQ67gQz5/sG1OIyGILQ
+	Ji19bYSOXfxvAhYotijjRlf9yDUb4BAW2tsMHClpJ61jUjfILgIjR6x20AsNATud8HeALa59My7z/
+	xZH4BTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTaq8-00000001kVx-0sL5;
-	Mon, 23 Jun 2025 06:39:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uTasy-00000001lg4-1ChO;
+	Mon, 23 Jun 2025 06:42:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTaQH-00000001hUf-26kn;
-	Mon, 23 Jun 2025 06:12:54 +0000
+	id 1uTaoi-00000001kML-0zka
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 06:38:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D6FA243612;
-	Mon, 23 Jun 2025 06:12:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26316C4CEED;
-	Mon, 23 Jun 2025 06:12:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4B9505C5936;
+	Mon, 23 Jun 2025 06:35:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC542C4CEED;
+	Mon, 23 Jun 2025 06:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750659172;
-	bh=ipyMiwFridGNIpCj5UCNP6+iAxZ3W1cW3YDlAHFhPa8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W27/pfjnF74SskGV05Qk8nfVXT0oewWyiQz8jKinBlLXBpzvjjA1fgzUjc12bnyLw
-	 3HxHdU00L247RzNF0l1whKdfbqw6V6HQ7Zfz6Fnj11UXp480udaWHSh8OxMm77YVRd
-	 tiuU9XbaLvl/meL/9iHJsJUGlA8s4OW7+/b006YknIvs8q2uLXgUgtF25q9mUl78sj
-	 2zluu4qOnI/Dco6tuqowrl7YbNjTZ+KV3Frv5bZNeqSiBTd+JAQm68D7ga08HjgwQo
-	 w67Nv+q8DG/33J4dY3NwaxPjOs0YfMPpjJc7rezDaWZXcuQJhheJxTTpIVazpZ2pGo
-	 kFbDRyLeXIzgQ==
-Message-ID: <75338b7f-8861-440a-9604-6b39e2db50b2@kernel.org>
-Date: Mon, 23 Jun 2025 08:12:45 +0200
+	s=k20201202; t=1750660687;
+	bh=9/9WTVqa0C7WJIcOxs3cFYKX0yUJgk3qTQ1JInpRfEM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=T3j7qsVtimDMgWpMos/k9ha+/f/1Oz7SDCp3VT79qTTH84EfnMvk+SPKffZK/gyaC
+	 3wbxszBHbFN6WI5GZTrnrGiaOo1wCBBTvMUdBF3HQ/8GRiR7DgA99ECSciDPZnbqMX
+	 Yicup12gO1Vr6WpxgHU2qCkGvnYzsF0iBGohdiPOqvDVJAyKMHa4hQXbzLemAVZDDh
+	 Ahqu8HLoISS3W9GAq1ALEimZp4ilbkszP8eCnBBccHP2/T4db3HjNx1aOBRW+FrU+u
+	 x7Bs1WT+UaYQCjQUKyvZMs2o/WvuNUKChWwgSgDzM2BHZC+RttshH/SpOw8Wr/1BFv
+	 Hxj4DZcYZ2kHw==
+Message-ID: <832eaca0-185f-47f6-9c0d-9206a4a814f3@kernel.org>
+Date: Mon, 23 Jun 2025 08:38:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/11] ARM: dts: mediatek: add basic support for JTY D101
- board
-To: wctrl@proton.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Sean Wang <sean.wang@mediatek.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org
-References: <20250620-mt6572-v1-0-e2d47820f042@proton.me>
- <20250620-mt6572-v1-10-e2d47820f042@proton.me>
+Subject: Re: [PATCH v3 13/17] dt-bindings: dma: ti: Add K3 PKTDMA V2
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>,
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, praneeth@ti.com, vigneshr@ti.com,
+ u-kumar1@ti.com, a-chavda@ti.com, p-mantena@ti.com
+References: <20250623053716.1493974-1-s-adivi@ti.com>
+ <20250623053716.1493974-14-s-adivi@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250620-mt6572-v1-10-e2d47820f042@proton.me>
+In-Reply-To: <20250623053716.1493974-14-s-adivi@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_231253_582322_71326DF2 
-X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-CacheID: sfid-20250622_233808_359429_B3454912 
+X-CRM114-Status: UNSURE (   7.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,16 +123,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/06/2025 17:40, Max Shevchenko via B4 Relay wrote:
-> +		framebuffer: framebuffer@bf400000 {
-> +			compatible = "simple-framebuffer";
-> +			memory-region = <&framebuffer_reserved>;
-> +			width = <1024>;
-> +			height = <600>;
-> +			stride = <(1024 * 2)>;
-> +			format = "r5g6b5";
-> +			status = "okay";
-Drop
+On 23/06/2025 07:37, Sai Sree Kartheek Adivi wrote:
+> New binding document for
+> Texas Instruments K3 Packet DMA (PKTDMA) V2.
+> 
+> PKTDMA V2 is introduced as part of AM62L.
+> 
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  .../bindings/dma/ti/k3-pktdma-v2.yaml         | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-pktdma-v2.yaml
+
+ti,am62l-dmss-pktdma.yaml
 
 Best regards,
 Krzysztof
