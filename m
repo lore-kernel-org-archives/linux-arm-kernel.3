@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21050C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BCEC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMLuqEEmB90h4r00MzRwYNp3Oo/PGki0fb0ws8udUSM=; b=KtPbpepa7qDlzV+u3ANqrfqHHl
-	wre0xlo8jyc4lmzTZSSbic3vnZJrSzogmKjEOUuRKm+Pxlk0OWcQzKLtGXGC0mTlhBl9QC/iHkHho
-	8sjzonGGNSHgYd/awRNGlYO/8KWv1nOJ6Fu6dTzew8LELPpB5diKl+zXf4fhVPOXJmMvHjUEFUj+o
-	DsQrRO8G9iQvdsY9oi9NeHYfgJJ2MBujOrgWlQsYVzbYfVfy0zsidWrPncYAilxHKW3BTt56VcNVm
-	D/f9M6guPreExxJbOYyUyakqqz1a/u73T6COoYv9/TvdNQPJhcLaNL6ZJUqq2PF/6ZgUxm4GM2of9
-	GwSoW41w==;
+	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=; b=2SS8jEwS4kQLxvl9R62IXynuDo
+	EKLehHAgNK89s9rM8vLSwyho+rBHA8ySO+y9lBKvv6fcGuHm2SzBKvNprPGKg//hi9JKwodxJSYtq
+	DsqndiBMgVq17zEBUsE4cA1Qqqvx8h3OGRJMGAXQwNT5Z7eZvF/TI9trSK3Vn/q9TCcJ19rkHhwg5
+	LSXUJMQPAikSlZpdAIEd8KiJeHIPMEw+7oJp48KwXsisazLMEKnuV00ABGotX82MJj0D/2cE67fKV
+	o5uRgw7VDeWKBHFziZKHDOEfOUTriLUOwmVfe37A0DTpy34wws4vPxK5kW11pfqiEo2S5U6TSaM39
+	0acHtSFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTscj-00000004OLQ-0Hc2;
-	Tue, 24 Jun 2025 01:38:57 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1uTscm-00000004ORV-0QPN;
+	Tue, 24 Jun 2025 01:39:00 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTqPP-000000049g9-1Cp1
+	id 1uTqW1-00000004AP4-3tV5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 23:17:05 +0000
-Message-ID: <d87ab382-cc6c-46df-bd7e-1200154dd84f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750720619;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lMLuqEEmB90h4r00MzRwYNp3Oo/PGki0fb0ws8udUSM=;
-	b=g3zCtqLRxmPfhCgbxCQEg6i4iLxj8I8QtrxLtOUrr/eQxxOy34RNxKdhGE+WZId/GtZfur
-	JyFfKxNY0T57L1VRhlunB4w3XeZD3ZetoQXsOB+ayco/2oUeYo8QBuL4dBg25gbD2Y8Ddj
-	f/3jhFJ8d+j770X2Wb9P+iKxrVsVNJ4=
-Date: Mon, 23 Jun 2025 19:16:53 -0400
-MIME-Version: 1.0
-Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Simek <michal.simek@amd.com>, Saravana Kannan <saravanak@google.com>,
- Leon Romanovsky <leon@kernel.org>, Dave Ertman <david.m.ertman@intel.com>,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20250619200537.260017-1-sean.anderson@linux.dev>
- <20250619200537.260017-5-sean.anderson@linux.dev>
- <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
- <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
- <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
- <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
- <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+	Mon, 23 Jun 2025 23:23:55 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7390d21bb1cso3714749b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 16:23:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1750721033; x=1751325833; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=;
+        b=RQ1ZkJgfMEJEIsqFP8ve6alwqzGTvIyGHYawO0sALguAGLhXnUwMhbzifL85wdqjiG
+         M+uT+fbBxLQzrv3/9TuszstCYEmKNmBfuOxkN7yGIIilfgl7gMOAlwzRRA9V7I9xaINQ
+         weouhegeLyJaXKTMfpU32TeMA26IRSFc/2Pffr6p9NSKUmpMp1+itMNg1EuRiu4/nOCA
+         GnSfmeTjiD+aHm7W/56kdgKgxIf4DKXBlXFg5b9bh90hcwuGnhVSDxSja2Sgn5cSJfBF
+         JRyAiDlBQdcFfvHLz/xT9FOTTb5uGipxO80w29yB7zOsVWoFHTXrAYu6Rfo8Muuemea/
+         O6BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750721033; x=1751325833;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=;
+        b=XEzO2p+Jk1yGL4f8HudeS0E7dz3TuC14fsbBGrI7TJLO0sTv6q+wAprM+MRXa4isK0
+         k7/5Qf4gkyw8iYhM47aK3E9+q/U3yk6MvdBgGYjyu+t+4ieZFRzxwTX3VsBpwt8yaEuW
+         m5qfXmbDe6F2ybXQpdYGlJAA+EdrKJnWLUF2+r/rYlLnv2q7XwBP5OK8RmCBzU3zk+ah
+         TzUvVO6LrWB5n+8whb7aFRUClikGZpRjcv4+pKXMeaRBP7oGbA5pqLY9gi1v6od7Cpsz
+         bmNKjelSIEO2MfqCL6pnwYH3B/uBNoZz+43a3KawKibVLfNVEd8+gJri0RmGam4YbzH0
+         fltg==
+X-Forwarded-Encrypted: i=1; AJvYcCULph1562E8ef+WzLwm4vz3Hy7wSW4AkAwTWzMS6niXXMYrOglSw45sD+QW80ImEkZsak4bT4v3xZ5G/dsuA76d@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoLUrd4uiWqMjHUr2aKoLD9+zeAVRcFUC61iyV9d1sxeSqHAXJ
+	Fn8tJChIODvbx7rb/iwriBMkHEqVtGcbrekRvEBb8DQFbv4WVAsqTm8n6a4an1gNDx8=
+X-Gm-Gg: ASbGnctFtp3EAWbw2JUuQNnGPSfJCHRuNRJyXFNBWsOQlM7QJjUbftlfQBA6DrJXRr+
+	VswzVrcx/5tJTONLOU72ARxfII1YOXewe5YwuUnyTmobVzte/9KFJrhJAPGM7EuRQAZG+sLE7jL
+	+inMaNX58o6M3XuyNn9aZlWxF22zQZx61e4VbwKDcgxSg4Pmf0tWwyQD15ka1qajNPujhKQoGXN
+	GR9yfivApdqSx9jGTAFNmyEWt0oYmUqer5izgyIv/OH9gl9JxCl7I7ubNb6GEH8kWS53GVMxHpN
+	/wOwEBVWVpmDwy9QrS2gVI7xdmY+0cOuf+1noIGgOzjAK9XO/dCHR3eeZp7W
+X-Google-Smtp-Source: AGHT+IGv2SJju6xgRevma8Cx/i6GeIJiS1WAChIRaAqec6j+z8o+1u/uy+Lb1YfHwJThHoUvyYrxYQ==
+X-Received: by 2002:a05:6a00:3cd4:b0:748:e38d:fecc with SMTP id d2e1a72fcca58-7490d71c76amr16954440b3a.22.1750721033150;
+        Mon, 23 Jun 2025 16:23:53 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:8d10])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-749b5e211d1sm243166b3a.44.2025.06.23.16.23.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 16:23:52 -0700 (PDT)
+Date: Mon, 23 Jun 2025 16:23:52 -0700 (PDT)
+X-Google-Original-Date: Mon, 23 Jun 2025 16:23:50 PDT (-0700)
+Subject: Re: [PATCH v2 5/9] lib/crypto: riscv: move arch/riscv/lib/crypto/ into lib/crypto/
+In-Reply-To: <20250619191908.134235-6-ebiggers@kernel.org>
+CC: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Jason@zx2c4.com,
+  Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+  sparclinux@vger.kernel.org, x86@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: ebiggers@kernel.org
+Message-ID: <mhng-8FC37478-859D-40EA-A0E9-3EA86429DC53@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_161704_093002_D1C9F702 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250623_162353_969017_BE0F408E 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +99,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/23/25 18:45, Andrew Lunn wrote:
-> On Mon, Jun 23, 2025 at 02:48:53PM -0400, Sean Anderson wrote:
->> On 6/23/25 14:27, Andrew Lunn wrote:
->> > On Mon, Jun 23, 2025 at 11:16:08AM -0400, Sean Anderson wrote:
->> >> On 6/21/25 03:33, Andrew Lunn wrote:
->> >> > On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
->> >> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
->> >> >> probe loop if the EPROBE_DEFER error is never resolved.
->> >> > 
->> >> > That sounds like a core problem. I also thought there was a time
->> >> > limit, how long the system will repeat probes for drivers which defer.
->> >> > 
->> >> > This seems like the wrong fix to me.
->> >> 
->> >> I agree. My first attempt to fix this did so by ignoring deferred probes
->> >> from child devices, which would prevent "recursive" loops like this one
->> >> [1]. But I was informed that failing with EPROBE_DEFER after creating a
->> >> bus was not allowed at all, hence this patch.
->> > 
->> > O.K. So why not change the order so that you know you have all the
->> > needed dependencies before registering the MDIO bus?
->> > 
->> > Quoting your previous email:
->> > 
->> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
->> >> probe loop if the EPROBE_DEFER error is never resolved. For example,
->> >> if the PCS is located on another MDIO bus and that MDIO bus is
->> >> missing its driver then we will always return EPROBE_DEFER.
->> > 
->> > Why not get a reference on the PCS device before registering the MDIO
->> > bus?
->> 
->> Because the PCS may be on the MDIO bus. This is probably the most-common
->> case.
-> 
-> So you are saying the PCS is physically there, but the driver is
-> missing because of configuration errors? Then it sounds like a kconfig
-> issue?
-> 
-> Or are you saying the driver has been built but then removed from
-> /lib/modules/
+On Thu, 19 Jun 2025 12:19:04 PDT (-0700), ebiggers@kernel.org wrote:
+> From: Eric Biggers <ebiggers@google.com>
+>
+> Move the contents of arch/riscv/lib/crypto/ into lib/crypto/riscv/.
+>
+> The new code organization makes a lot more sense for how this code
+> actually works and is developed.  In particular, it makes it possible to
+> build each algorithm as a single module, with better inlining and dead
+> code elimination.  For a more detailed explanation, see the patchset
+> which did this for the CRC library code:
+> https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
+> Also see the patchset which did this for SHA-512:
+> https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
+>
+> This is just a preparatory commit, which does the move to get the files
+> into their new location but keeps them building the same way as before.
+> Later commits will make the actual improvements to the way the
+> arch-optimized code is integrated for each algorithm.
+>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
+> ---
+>  arch/riscv/lib/Makefile                                         | 1 -
+>  lib/crypto/Kconfig                                              | 2 +-
+>  lib/crypto/Makefile                                             | 1 +
+>  {arch/riscv/lib/crypto => lib/crypto/riscv}/Kconfig             | 0
+>  {arch/riscv/lib/crypto => lib/crypto/riscv}/Makefile            | 0
+>  .../riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-glue.c | 0
+>  .../riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-zvkb.S | 0
+>  .../crypto/riscv}/sha256-riscv64-zvknha_or_zvknhb-zvkb.S        | 0
+>  {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256.c            | 0
+>  9 files changed, 2 insertions(+), 2 deletions(-)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Kconfig (100%)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Makefile (100%)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-glue.c (100%)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-zvkb.S (100%)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (100%)
+>  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256.c (100%)
 
-The latter. Or maybe someone just forgot to install it (or include it
-with their initramfs). Or maybe there was some error with the MDIO bus.
+I'm assuming you want to keep these all together.
 
-There are two mutually-exclusive scenarios (that can both occur in the
-same system). First, the PCS can be attached to our own MDIO bus:
+Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
 
-MAC
- |
- +->MDIO
-     |
-     +->PCS
-     +->PHY (etc)
-
-In this scenario, we have to probe the MDIO bus before we can look up
-the PCS, since otherwise the PCS will always be missing when we look for
-it. But if we do things in the right order then we can't get
-EPROBE_DEFER, and so there's no risk of a probe loop.
-
-Second, the PCS can be attached to some other MDIO bus:
-
-MAC              MDIO
- |                 |
- +->MDIO           +->PCS
-      |
-      +->PHY (etc)
-
-In this scenario, the MDIO bus might not be present for whatever reason
-and we have the possibility of an EPROBE_DEFER error. If that happens,
-we will end up in a probe loop because the PHY on the MDIO bus
-incremented deferred_trigger_count when it probed successfully:
-
-deferred_probe_work_func()
-  driver_probe_device(MAC)
-    axienet_probe(MAC)
-      mdiobus_register(MDIO)
-        device_add(PHY)
-          (probe successful)
-          driver_bound(PHY)
-            driver_deferred_probe_trigger()
-      return -EPROBE_DEFER
-    driver_deferred_probe_add(MAC)
-    // deferred_trigger_count changed, so...
-    driver_deferred_probe_trigger()
-
---Sean 
+Thanks!
 
