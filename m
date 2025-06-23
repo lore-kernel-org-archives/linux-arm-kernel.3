@@ -4,75 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE4FC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540A5C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhif/0DtWujpdZXYMmN/Xo5HfI9kmZWj97vBSy1R7gY=; b=1NNkwfFfIslNYb06BfGrSIUnvs
-	X9rHRydFXh5hyUtrrt8Q/CQots/onqeAAZRLOfys91o8gCIRHAKcaP6N/+AHrLTWtOZeX5J5/giI4
-	3py9ZnJmbbu9739GQvHw9wCHSTmuBAbGmiN8m++Sgx6xFsj7mZskUDn3ysY1NxEAHaESuZMYFQvwa
-	LaGNlT67lv4qm5Lad9DnvcnRK/bGDPtsUHJWOWencjDNVdRxfz6JpQPCMxnAPJ4nBXj1aqeBHsrzz
-	uByacwPHdIhIBiXN2LqVwj+aq7Cdo+US0pDdb46aBwm2m6uF3MyzmpN8nNjy99MI5J3FRo4F1Zhpx
-	51w4Swpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+O7/+7Ai9m0OqsHin5+SL6BcHhcdoVf98qN7WrR5QYc=; b=ql+TxJVcUDXsiAnsWdlQfBItl/
+	1WI/UUL9nFfuFjwRXrLhDnKizOHkV09anoqH+x3tW8qu6KtxCc0Qaj9/bDXplLcH0Yb1zvPpdvJpX
+	We/l+QwE0ZmeUqzbLtEnu5eXrK+lh0k6SBBjTX/OQJ7i55buMslMTPHX/kbHQdRtpbZJOIvAmq3EA
+	1nJqZg9VcnFEaPTulyF6URK0cOO839xgaE3XTDSDte7F3PF6cQDnRbncY8hbBSwzPM3lorME9+54c
+	C7Ig4CcEOsAKt6IIJ/9Ze4KXoOGBEH6NXx1yGNjqgR2CI/E3z4aTeY/Y8pNVFMtgpfWUJy2QwSQu+
+	d1tNcTnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnl0-00000003vNp-3fjX;
-	Mon, 23 Jun 2025 20:27:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uTnnG-00000003vbN-2uVh;
+	Mon, 23 Jun 2025 20:29:30 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfsK-00000002bHZ-0zDw;
-	Mon, 23 Jun 2025 12:02:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750680130;
-	bh=LSyHrlFGyo7c0WTq8DAXk9KB6kA39KmJiCDm729+Ri4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=piW7G54zbaxx/aYF5CAumpGElXiuj+gwJakyfyi3GhOHkyTxOiutpG1aFMdnTCmG5
-	 xBtlTVw6cmaFODrYORX34W7RtUJ3ktzaC8RKeFb+VaDygslMSuPXUlMKLF8FU+Amnj
-	 6A0mfnVvr8/qeV02h6VIUfI2dqYKIGQxhQwciQqFWaD6Q7APP+tYJlp86ltjP6zE8s
-	 duD1CW03+S3nXFd19EG0OUS3oDCMH/qNUg+w38NuIrjsYBu0i+WyeXY3p498TL06nc
-	 XGmWDhmCSB7Cvfx5lWMg6Uwj8QzJpl0IDJocs7nj3VZw6XmZLgBJY5+7DETMXvZ2pL
-	 vlU/LJP5ZmBrA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D3BD417E1560;
-	Mon, 23 Jun 2025 14:02:09 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ulf.hansson@linaro.org,
-	y.oudjana@protonmail.com,
-	fshao@chromium.org,
-	wenst@chromium.org,
-	lihongbo22@huawei.com,
-	mandyjh.liu@mediatek.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
+	id 1uTgT3-00000002jIU-04JD;
+	Mon, 23 Jun 2025 12:40:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Muki1GNT0gRtSRX5oLhYfcCDxp9pQh92lbI42tVOQ4J8vQaZgCKiTRl66EnLXps1qirj1SxXpoxH8KYUhb2utqmZFRfZXDb2HaNvMi3SvTXwlHImIT/bNsfgZmWGFjPcLfQoBjUp3rqYq4FyPAD81Aov8dV63zFTKHfFMhFdpQNWgBDTdPHtzIuph3BZ5xvyuhYdq8qwzKgbWHb1hcLtklRjmUZwvhIy/ycOLRwFx6lIstEMKLcAaDn6iGz6Rr7PJIUAdW268mIoorjoUDLOQ1sM7aBkY3J+Vq75dwN0TtaAJ4v7+pSfm7w2AGkOLiZqmoJo+/irisxt3hbHljVRcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+O7/+7Ai9m0OqsHin5+SL6BcHhcdoVf98qN7WrR5QYc=;
+ b=VtEKOsONaR/u4rWwlNNZg0Jh4RbmU23WJsw6P89CNkmLFRX6POjuzjKJwRpRWrywqJoWzZ27irzy7fI2cJKdGyq2eAYM0c2302mt1gOnqLDBmTmOuliAoXnM0EHnJ1IbbM7P8k8rxyIkp8lL//UgucbCQumMDneva0iNwhOzLvpbRaN8slbKS6cKZfsH98uiQk6Fii/Fk6D5wPDJA8RUDUUrk6sd3i0e4z2WYaxZlPMXAZtvfeyqbwOTvvmf91Lj/IRE9lRW5uqj7jjHraGmI8/dB880NArwnhrqenIvX8DjXRj0PMu1Bs2I4dZX45r50PBxsI59Zus2PhhNwpWo4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+O7/+7Ai9m0OqsHin5+SL6BcHhcdoVf98qN7WrR5QYc=;
+ b=XWIDW0/W7lYb3cTk/W7UEldMCY58dRlVkQG/RItDeyeTJD7eyQokuVBsI5ymX6JyZD8Uq+gcmEYb2eYmVuxI9YNBmUTEuv7RdpQX43t4vivpb+f0FiXgyjLwI/qxhddJIn0czPI60YkUXLfZmnshcJ1RkfHZf+ppGezPiL83ZGo5fjv8nM1eionRLb2BZ/BHXiCB3LYkWnTlIpbAmxZ3E5EChRDrv+ANA9CAE3qED8l1VHDQlwSFEUsZW7qyd/SNZi2inEkfcw+mGeWHdHPSnM24ZA7xgWqy/dnrGeuUbDmtEqYqfVdgnAVHwYKpRLzVkWaan7edFmK5a5yN424nxA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from OS8PR06MB7663.apcprd06.prod.outlook.com (2603:1096:604:2ac::8)
+ by SE3PR06MB8096.apcprd06.prod.outlook.com (2603:1096:101:2e3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Mon, 23 Jun
+ 2025 12:40:02 +0000
+Received: from OS8PR06MB7663.apcprd06.prod.outlook.com
+ ([fe80::46a5:9b06:416e:1e49]) by OS8PR06MB7663.apcprd06.prod.outlook.com
+ ([fe80::46a5:9b06:416e:1e49%3]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
+ 12:40:02 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Julien Panis <jpanis@baylibre.com>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	kernel@collabora.com
-Subject: [PATCH v1 12/13] pmdomain: mediatek: Add support for MT8196 SCPSYS power domains
-Date: Mon, 23 Jun 2025 14:01:53 +0200
-Message-ID: <20250623120154.109429-13-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
-References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
-MIME-Version: 1.0
+	linux-mediatek@lists.infradead.org
+Cc: Yangtao Li <frank.li@vivo.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+	Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH v6 15/24] thermal/drivers/mediatek/lvts_thermal: convert to use devm_request*_irq_probe()
+Date: Mon, 23 Jun 2025 20:39:37 +0800
+Message-Id: <20250623123940.474310-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TY4P286CA0021.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:2b0::6) To OS8PR06MB7663.apcprd06.prod.outlook.com
+ (2603:1096:604:2ac::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS8PR06MB7663:EE_|SE3PR06MB8096:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc3d9859-341e-4d70-8e5c-08ddb25312d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SDBCN2lRVnpXYjBIajJPWUNnYUJWbW1hMHpmTWhHZFE5UnRBNTdRUzNYQUZY?=
+ =?utf-8?B?WDBJbUJuRDhQR0JkYW5NMzZDdGdITkEyNDR0bFgwT29HdGdPMjdiK2o5YWs3?=
+ =?utf-8?B?VGMyaXFqZ1h0WW44WTNORnl6SGExYjVJdVk0bnBBVmhYWVN1S3RRMVdmSFRr?=
+ =?utf-8?B?TlMrK1diejFIcjFVdXdXTHRhYkwzbUhEaGNBVzRjMEtBbkd5cFdRblZhdDEz?=
+ =?utf-8?B?UU1YZmdidlAxU2orMG4wSXp3cmhYb0QwL3pvK0NEajA1MkxyQTVEeGo1SXZN?=
+ =?utf-8?B?TVk4Um81alJEejFSNDFNelpaUjVHTkxIRDgrbXU1L1NoOGRHT24wWjN0UFRs?=
+ =?utf-8?B?RXVyZmFpRTloZ25NNWZ0L1BhYWxiMDJpS09IWUxESmRJU3A3RnFFd2tHR2U3?=
+ =?utf-8?B?YVB5bElhdXhMdUZyRHQzM0s0Vk5xTGFraW03blljZE9PSENHTUdEZjQ0ZlF4?=
+ =?utf-8?B?MDBQbHFzQk91VXoxR0Y5dUd3eUdGNzBSQjdIOXpoVzRzdmlweTV6WnNuQzMv?=
+ =?utf-8?B?cWxTbm5sLzM1c2pGQzJWSU1yUzQrV3N0SWlFQUREOHExRWhhclNLNEZZUGtR?=
+ =?utf-8?B?MVduQUdNRUY2NTNtMHNTVEh2TWMxY3lSTVVYT2F0aWFtZU5mNzdrQ1JENnNh?=
+ =?utf-8?B?Mnp1d2dLMDF5YnZkbU9naXQxL2ZXcGxFOWswRk1tTnZsaE9LL1Z1Zm01eUIw?=
+ =?utf-8?B?QUZSSHcwQStFYTBHdFhTU0JhaE84WHFRWmRVMjl0VUplZEhTeE5xczh3QURn?=
+ =?utf-8?B?djMwQ1h1WnJmNjFDZFlOZTBnUEwzYW8rdmZZOW55ZWpOTFRDSWJoUHJuTzlZ?=
+ =?utf-8?B?QUZLdmNMNzlqT0F4bzJ4YUlvUXpLQ05pRlc1WDNkakZnK1o4bVZXa3FBQWJV?=
+ =?utf-8?B?aFZ5Z3k3UkNJVFRRQ0JDbHRwYlEwRWJwelh0UHowclFtUHVGTmVmSW5oL1NQ?=
+ =?utf-8?B?SkJ3Z3gvaFhDTzN5cXJuUklzd1pIZTBlTE9RSFllT2NrV0JRczc0eVZ0c21D?=
+ =?utf-8?B?NzRKTUoxRkZuNmpwYWNIMm9mWFVOc0hxeG1LdWIrUjlwQ3VLZkxRZzNRQkl4?=
+ =?utf-8?B?amdKdFl1dlo2QlVrQVFJdjhOWEthT1VDclkvNDRQWHpUbjFhUlM0NEorWTll?=
+ =?utf-8?B?UjZ2STNvQTJ1aFV4bWZhd2FUWkl0YlVRNXh6QWVhb2ZvdEJ2aUhEQkpKRTNi?=
+ =?utf-8?B?YXRha0piQytmUmZFK09uSEJ6Qzc4eGFDU1creXNCZ3h6ajRGOGxaWGNuUXRK?=
+ =?utf-8?B?Tkx2UnpQWFNpQTgxc0hxUUdtWHEyTmN2aVYxOTJhdVYxSjZhOGR0Q3ZwRThr?=
+ =?utf-8?B?WDFkUnFIR2NmbWdXV3U4MlFRWDc4YURLTFA0TkNoZW5rQWxPbklOL2gvS0dP?=
+ =?utf-8?B?SUdjZkVpS0pkV05RWmJLeExnOGplS3p1TDA0RkxFS05ZZ3lLWVlNVStqcmMx?=
+ =?utf-8?B?TjR3UlV2NHF3Y1pQdzdldFA4QU5nNVBaNGNWckZpdGJoa0Q4VEJnMXo0NHMx?=
+ =?utf-8?B?Wko4VjRlb3BFRTJsZ0Z1eTBpV20xSFJtSXFLb0FoRGdnczdIcHhtRDcrUENM?=
+ =?utf-8?B?YXpCSGRmMFl5SDlBQ1E1RUVJdTBjQ1FsZDc1dSt5aENMdFNINFV2eUJFSDRo?=
+ =?utf-8?B?dHVWRWFDZzkwcTZ0OXFycWxOZ3lHQ0pNK1hwWVovRTdRNzA5TXVyeDFjQzA1?=
+ =?utf-8?B?Nk9aekhLQytsWmhkckNBYnZsY2NpV3hpd2pFRVpLNFV3RC9sdUpaVVhzMzVP?=
+ =?utf-8?B?bUZUOG5iMzdGRENGUWVlNyszS2pZd2dVOWM5LytOVERhcVptcWFTdmhidVZ2?=
+ =?utf-8?B?S3JjSDhPTkRVWUZqWitTRXdZOFI4UE9qQXNneVZVV3VJclcxa2lvRXJrWnRv?=
+ =?utf-8?B?RFNaUS9mYjJEcW9MRkpmK05hekkzYjZhVUgwNzZJYk83QnBoWkJYbHJ6U1Zl?=
+ =?utf-8?B?eVc5Tk5TcEpsRUlhUUtXTzlJKzJvdUF5NTAwc09vTVBFV3VvekdVYUk3L0t6?=
+ =?utf-8?Q?H1tyTz4hdtBEjF7yqxZyZTH3SRSKg0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7663.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L2xuOTUwWkJVUnJqR0JMekxqUVBsRjBkM2g5ZzNuVUhwYWZORmZSTUxEQ3Ay?=
+ =?utf-8?B?NnNsVDZNNVljUXhTTkpzWDBoV093bGVDNitpZUgwaGtXaHlPbHFOU0xjQUwv?=
+ =?utf-8?B?WWFFT1dlU3VldTNlVUNFaHRNTExkNTlHR3ZGMElaRGNWQS8zdUJZRFB6QUZE?=
+ =?utf-8?B?WUtNVWJvbkl6OE9nSzB0MHM1STY2SzdKUi9udWNUNlFZcVNqZlRZcVhHbkZH?=
+ =?utf-8?B?SGpHSGFLclM2ZDM0SndJY2tpTTEyRUtISXBiZ2JJaEVaODdyV253Y1RkVkR6?=
+ =?utf-8?B?eGFSMURQUXAvNUdSbkxtcllUV1BvcnQwOE1XajBQVXIyenU0S21jbG1DNmo0?=
+ =?utf-8?B?OHJKL1VUNjdOZGNnZjREWGVOK3E0b1RTTnZsc1k1M29EaW44UHBITUtZaGIr?=
+ =?utf-8?B?cU5iMUxXSDNvZjVZcm5xTXNlL1VWYktPUzY1dUpnL2dGWWloNjcrcDhSOFJF?=
+ =?utf-8?B?bER4Yks1U3NYeFdCRENUMnRIMFhmVHA1WjJSL2s4Vm40OHBGUUNiUkg1bnZR?=
+ =?utf-8?B?QS9rdnRLM0Q0ZVVCbzkzK3dGNXBaNjdOZHhHMzIzc1Q0WGpnRXVUM3ZoTytQ?=
+ =?utf-8?B?VytKZW16cXNST0VUZmJQOTYyU1dOeFJhQm5NaFBOVWszWFlNWkxvYTlmT2FL?=
+ =?utf-8?B?N3d1UDRmQVNGR2tKRXc3ZlFGVXZEL21FbXJ0U2ZyM0IzZTRONHFvSGFmU002?=
+ =?utf-8?B?WFFVUkptQXduNHp0VGlVdTFCekZDY2NCd256eWZlaC9iVWRqeU9tYWtxYU5Y?=
+ =?utf-8?B?SWs5RVlSWlBJMmpDWFEyNGZ1WUU5MHhQRHNLU0hEaTc4TTRzYVdWNlF1b20r?=
+ =?utf-8?B?TWswWmhrT2hIM1o2NmVmMDBIN2M4S2VkR2xnd0pQTDFOczlIcXNLREtBN21m?=
+ =?utf-8?B?RXhyb1htVm05ejhDdHZvajhzdjhXY0hmdVlkb2VXd0xuUHRXQmhMY1JScFYw?=
+ =?utf-8?B?RFNrN2FjSkxSTWFiTHJacHNGQUloWDNwMkhuYldnVXZtRnNaV2E1b2M5TEpv?=
+ =?utf-8?B?SGtWN2k4Vm5WTm5LckxTVmZFQk9hL0J6cXhURVFzZzllWDY1Um9QZXNRaXY3?=
+ =?utf-8?B?NVZHNHF0b3VreEM4KzNjN0c4S0xCeStFcVdWbVhJTlJScmlzZFQwaXdTcWxE?=
+ =?utf-8?B?NzE0Y1drcU5HSlFQcUxReXA5UDZZa2JBY0ZLZ1QvUURIZ1BEb3NxSnE4OUxo?=
+ =?utf-8?B?ZG9HUjNjY0UwMXZ4RUN3amhDQWlKWVdxSnpBS2hFckwrYWJMYkZwQVFjQVBB?=
+ =?utf-8?B?VGhQSmZSMTBFeU5HSHBFRWEvOFp3SS9NMGlaRnpXWERUWXVCdnM3SDBndXZv?=
+ =?utf-8?B?bzJnSzVZWm5pYTBnVmNla0RCUmFtU0JmQVQwaGJIOTZyZ2dydEoyK0hOUWZ2?=
+ =?utf-8?B?THhVKy9BQ1NkZG9VbXV5TlVyaVp2MWVNNnJsRUJKWnhLdDlRb0pZMk0yWnZF?=
+ =?utf-8?B?am5UdlduZmNHckhwMVI0dGo3SEQ5T1dkLzdBT2NvSDJsSWk4V1h1VUZ6K2Q5?=
+ =?utf-8?B?M0VpMVA4dUp4UE15YWl0WHgrdnpTcG1od0V2Q1hIWmRTTWdNUFNRRlhLWmRX?=
+ =?utf-8?B?SjNiRnp3d0YxaTZEOHBWeG1PYWhYREJ0c0ZGQmdWR2lzb1pMZEpqamhvSjhV?=
+ =?utf-8?B?dVNzMW9Kd043Rk9PY1c1V0FoOWFmaERiRlpHb09mY3RtSFpwQ3ZES1VZT2RG?=
+ =?utf-8?B?SjJBNmdhYzkxaFpyWDJ4MjBhL0RPcloxVWVCQWRZemhqMEpzWkNJd29tT1hj?=
+ =?utf-8?B?N1plNGFBQlROMVBPQ2NUQWpUdkdqVVY1Y0h6UzhVY2tndTFUd0ZFRURocHdx?=
+ =?utf-8?B?SmNUUEdsQWxzalBZdWNEcVFzTjJEYVVSck5WcTBpU2xmbDRIajVORXNFNngz?=
+ =?utf-8?B?Wk1qUlNTam5JU2gyYzhhS3FyM0djR2x1aVlRZjJrWVZHWllHa1VMRlNDMENM?=
+ =?utf-8?B?bGVvRnVHSUxyUU5ZY0VoWXhEaVVZNTRwWUNra0h4QW5yai84TTZhOXFoMVVS?=
+ =?utf-8?B?UWszYUUwTFpxcXlpNnhlRFV3TDUzdEVvVkg5c3BFaHlTWDV2WE93NkJzTlE5?=
+ =?utf-8?B?aWU5b042QW8xcFRjNWRZd3pSQ2ZQdDNQZnpxODh2VUpHTnptVUpRWEYrMWdh?=
+ =?utf-8?Q?oH8d9MtqnIrM82NRO8ZWYZpIo?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc3d9859-341e-4d70-8e5c-08ddb25312d1
+X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7663.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 12:40:02.5699
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qf3PR5JLSougv548Xft8ZTASGjk5kWjgQUduVVaWbqKIkbygiiXaM5McPgMREaFKc61xxcttJful2nnqOcfilg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050212_641840_3EA0089F 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250623_054009_070700_A5A5963A 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,486 +190,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new SPM bus protection block and add support for both the
-direct control and HW Voter control SCPSYS power domains found
-in the MT8196 and MT6991 SoCs.
+From: Yangtao Li <frank.li@vivo.com>
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+The new devm_request_*irq_probe API prints an error message by default
+when the request fails, and consumers can provide custom error messages.
+
+Converting drivers to use this API has the following benefits:
+
+  1.More than 2,000 lines of code can be saved by removing redundant error
+  messages in drivers.
+
+  2.Upper-layer functions can directly return error codes without missing
+  debugging information.
+
+  3.Having proper and consistent information about why the device cannot
+  be used is useful.
+
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "Uwe Kleine-König" <u.kleine-koenig@pengutronix.de>
+Cc: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+Cc: AngeloGioacchino Del Regno  <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Yangtao Li <frank.li@vivo.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Pan Chuang <panchuang@vivo.com>
 ---
- drivers/pmdomain/mediatek/mt8196-pm-domains.h | 386 ++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c    |  18 +-
- drivers/pmdomain/mediatek/mtk-pm-domains.h    |   3 +
- 3 files changed, 404 insertions(+), 3 deletions(-)
- create mode 100644 drivers/pmdomain/mediatek/mt8196-pm-domains.h
+ drivers/thermal/mediatek/lvts_thermal.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pmdomain/mediatek/mt8196-pm-domains.h b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
-new file mode 100644
-index 000000000000..ce8d594c46f8
---- /dev/null
-+++ b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
-@@ -0,0 +1,386 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2025 Collabora Ltd
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#ifndef __SOC_MEDIATEK_MT8196_PM_DOMAINS_H
-+#define __SOC_MEDIATEK_MT8196_PM_DOMAINS_H
-+
-+#include "mtk-pm-domains.h"
-+#include <dt-bindings/power/mediatek,mt8196-power.h>
-+
-+/*
-+ * MT8196 and MT6991 power domain support
-+ */
-+
-+/* INFRA TOP_AXI registers */
-+#define MT8196_TOP_AXI_PROT_EN_SET		0x4
-+#define MT8196_TOP_AXI_PROT_EN_CLR		0x8
-+#define MT8196_TOP_AXI_PROT_EN_STA		0xc
-+ #define MT8196_TOP_AXI_PROT_EN_SLEEP0_MD	BIT(29)
-+
-+#define MT8196_TOP_AXI_PROT_EN_1_SET		0x24
-+#define MT8196_TOP_AXI_PROT_EN_1_CLR		0x28
-+#define MT8196_TOP_AXI_PROT_EN_1_STA		0x2c
-+ #define MT8196_TOP_AXI_PROT_EN_1_SLEEP1_MD	BIT(0)
-+
-+/* SPM BUS_PROTECT registers */
-+#define MT8196_SPM_BUS_PROTECT_CON_SET		0xdc
-+#define MT8196_SPM_BUS_PROTECT_CON_CLR		0xe0
-+#define MT8196_SPM_BUS_PROTECT_RDY		0x208
-+ #define MT8196_SPM_PROT_EN_BUS_CONN		BIT(1)
-+ #define MT8196_SPM_PROT_EN_BUS_SSUSB_DP_PHY_P0	BIT(6)
-+ #define MT8196_SPM_PROT_EN_BUS_SSUSB_P0	BIT(7)
-+ #define MT8196_SPM_PROT_EN_BUS_SSUSB_P1	BIT(8)
-+ #define MT8196_SPM_PROT_EN_BUS_SSUSB_P23	BIT(9)
-+ #define MT8196_SPM_PROT_EN_BUS_SSUSB_PHY_P2	BIT(10)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_MAC0	BIT(13)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_MAC1	BIT(14)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_MAC2	BIT(15)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_PHY0	BIT(16)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_PHY1	BIT(17)
-+ #define MT8196_SPM_PROT_EN_BUS_PEXTP_PHY2	BIT(18)
-+ #define MT8196_SPM_PROT_EN_BUS_AUDIO		BIT(19)
-+ #define MT8196_SPM_PROT_EN_BUS_ADSP_TOP	BIT(21)
-+ #define MT8196_SPM_PROT_EN_BUS_ADSP_INFRA	BIT(22)
-+ #define MT8196_SPM_PROT_EN_BUS_ADSP_AO		BIT(23)
-+ #define MT8196_SPM_PROT_EN_BUS_MM_PROC		BIT(24)
-+
-+/* PWR_CON registers */
-+#define MT8196_PWR_ACK				BIT(30)
-+#define MT8196_PWR_ACK_2ND			BIT(31)
-+
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8196[] = {
-+	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_SPM
-+};
-+
-+static const struct scpsys_domain_data scpsys_domain_data_mt8196[] = {
-+	[MT8196_POWER_DOMAIN_MD] = {
-+		.name = "md",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe00,
-+		.pwr_sta_offs = 0xe00,
-+		.pwr_sta2nd_offs = 0xe00,
-+		.ext_buck_iso_offs = 0xefc,
-+		.ext_buck_iso_mask = GENMASK(1, 0),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA, MT8196_TOP_AXI_PROT_EN_SLEEP0_MD,
-+					MT8196_TOP_AXI_PROT_EN_SET,
-+					MT8196_TOP_AXI_PROT_EN_CLR,
-+					MT8196_TOP_AXI_PROT_EN_STA),
-+			BUS_PROT_WR_IGN(INFRA, MT8196_TOP_AXI_PROT_EN_1_SLEEP1_MD,
-+					MT8196_TOP_AXI_PROT_EN_1_SET,
-+					MT8196_TOP_AXI_PROT_EN_1_CLR,
-+					MT8196_TOP_AXI_PROT_EN_1_STA),
-+		},
-+		.caps = MTK_SCPD_MODEM_PWRSEQ | MTK_SCPD_EXT_BUCK_ISO |
-+			MTK_SCPD_SKIP_RESET_B | MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT8196_POWER_DOMAIN_CONN] = {
-+		.name = "conn",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe04,
-+		.pwr_sta_offs = 0xe04,
-+		.pwr_sta2nd_offs = 0xe04,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_CONN,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_SSUSB_DP_PHY_P0] = {
-+		.name = "ssusb-dp-phy-p0",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe18,
-+		.pwr_sta_offs = 0xe18,
-+		.pwr_sta2nd_offs = 0xe18,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_SSUSB_DP_PHY_P0,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_SSUSB_P0] = {
-+		.name = "ssusb-p0",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe1c,
-+		.pwr_sta_offs = 0xe1c,
-+		.pwr_sta2nd_offs = 0xe1c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_SSUSB_P0,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_SSUSB_P1] = {
-+		.name = "ssusb-p1",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe20,
-+		.pwr_sta_offs = 0xe20,
-+		.pwr_sta2nd_offs = 0xe20,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_SSUSB_P1,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_SSUSB_P23] = {
-+		.name = "ssusb-p23",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe24,
-+		.pwr_sta_offs = 0xe24,
-+		.pwr_sta2nd_offs = 0xe24,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_SSUSB_P23,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_SSUSB_PHY_P2] = {
-+		.name = "ssusb-phy-p2",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe28,
-+		.pwr_sta_offs = 0xe28,
-+		.pwr_sta2nd_offs = 0xe28,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_SSUSB_PHY_P2,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_MAC0] = {
-+		.name = "pextp-mac0",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe34,
-+		.pwr_sta_offs = 0xe34,
-+		.pwr_sta2nd_offs = 0xe34,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_MAC0,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_MAC1] = {
-+		.name = "pextp-mac1",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe38,
-+		.pwr_sta_offs = 0xe38,
-+		.pwr_sta2nd_offs = 0xe38,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_MAC1,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_MAC2] = {
-+		.name = "pextp-mac2",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe3c,
-+		.pwr_sta_offs = 0xe3c,
-+		.pwr_sta2nd_offs = 0xe3c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_MAC2,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_PHY0] = {
-+		.name = "pextp-phy0",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe40,
-+		.pwr_sta_offs = 0xe40,
-+		.pwr_sta2nd_offs = 0xe40,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_PHY0,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_PHY1] = {
-+		.name = "pextp-phy1",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe44,
-+		.pwr_sta_offs = 0xe44,
-+		.pwr_sta2nd_offs = 0xe44,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_PHY1,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_PEXTP_PHY2] = {
-+		.name = "pextp-phy2",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe48,
-+		.pwr_sta_offs = 0xe48,
-+		.pwr_sta2nd_offs = 0xe48,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_PEXTP_PHY2,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_PCIE_PHY,
-+	},
-+	[MT8196_POWER_DOMAIN_AUDIO] = {
-+		.name = "audio",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe4c,
-+		.pwr_sta_offs = 0xe4c,
-+		.pwr_sta2nd_offs = 0xe4c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_AUDIO,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_ADSP_TOP_DORMANT] = {
-+		.name = "adsp-top-dormant",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe54,
-+		.pwr_sta_offs = 0xe54,
-+		.pwr_sta2nd_offs = 0xe54,
-+		/* Note: This is not managing powerdown (pdn), but sleep instead (slp) */
-+		.sram_pdn_bits = BIT(9),
-+		.sram_pdn_ack_bits = BIT(13),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_ADSP_TOP,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_SRAM_ISO | MTK_SCPD_SRAM_PDN_INVERTED,
-+	},
-+	[MT8196_POWER_DOMAIN_ADSP_INFRA] = {
-+		.name = "adsp-infra",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe58,
-+		.pwr_sta_offs = 0xe58,
-+		.pwr_sta2nd_offs = 0xe58,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_ADSP_INFRA,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+	[MT8196_POWER_DOMAIN_ADSP_AO] = {
-+		.name = "adsp-ao",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0xe5c,
-+		.pwr_sta_offs = 0xe5c,
-+		.pwr_sta2nd_offs = 0xe5c,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(SPM, MT8196_SPM_PROT_EN_BUS_ADSP_AO,
-+					MT8196_SPM_BUS_PROTECT_CON_SET,
-+					MT8196_SPM_BUS_PROTECT_CON_CLR,
-+					MT8196_SPM_BUS_PROTECT_RDY),
-+		},
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+		.rtff_type = SCPSYS_RTFF_TYPE_GENERIC,
-+	},
-+};
-+
-+static const struct scpsys_hwv_domain_data scpsys_hwv_domain_data_mt8196[] = {
-+	[MT8196_POWER_DOMAIN_MM_PROC_DORMANT] = {
-+		.name = "mm-proc-dormant",
-+		.set = 0x0218,
-+		.clr = 0x021c,
-+		.done = 0x141c,
-+		.en = 0x1410,
-+		.set_sta = 0x146c,
-+		.clr_sta = 0x1470,
-+		.setclr_bit = 0,
-+		.caps = MTK_SCPD_ALWAYS_ON,
-+	},
-+	[MT8196_POWER_DOMAIN_SSR] = {
-+		.name = "ssrsys",
-+		.set = 0x0218,
-+		.clr = 0x021c,
-+		.done = 0x141c,
-+		.en = 0x1410,
-+		.set_sta = 0x146c,
-+		.clr_sta = 0x1470,
-+		.setclr_bit = 1,
-+	},
-+};
-+
-+static const struct scpsys_soc_data mt8196_scpsys_data = {
-+	.domains_data = scpsys_domain_data_mt8196,
-+	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8196),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8196,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8196),
-+	.type = SCPSYS_MTCMOS_TYPE_DIRECT_CTL,
-+};
-+
-+static const struct scpsys_soc_data mt8196_scpsys_hwv_data = {
-+	.hwv_domains_data = scpsys_hwv_domain_data_mt8196,
-+	.num_hwv_domains = ARRAY_SIZE(scpsys_hwv_domain_data_mt8196),
-+	.type = SCPSYS_MTCMOS_TYPE_HW_VOTER,
-+};
-+
-+#endif /* __SOC_MEDIATEK_MT8196_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index 101ce20d5be4..bff78775baf7 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -27,6 +27,7 @@
- #include "mt8188-pm-domains.h"
- #include "mt8192-pm-domains.h"
- #include "mt8195-pm-domains.h"
-+#include "mt8196-pm-domains.h"
- #include "mt8365-pm-domains.h"
+diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+index 985925147ac0..459bbead3095 100644
+--- a/drivers/thermal/mediatek/lvts_thermal.c
++++ b/drivers/thermal/mediatek/lvts_thermal.c
+@@ -1355,10 +1355,10 @@ static int lvts_probe(struct platform_device *pdev)
+ 	 * At this point the LVTS is initialized and enabled. We can
+ 	 * safely enable the interrupt.
+ 	 */
+-	ret = devm_request_threaded_irq(dev, irq, NULL, lvts_irq_handler,
+-					IRQF_ONESHOT, dev_name(dev), lvts_td);
++	ret = devm_request_threaded_irq_probe(dev, irq, NULL, lvts_irq_handler,
++					      IRQF_ONESHOT, dev_name(dev), lvts_td, NULL);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to request interrupt\n");
++		return ret;
  
- #define MTK_POLL_DELAY_US		10
-@@ -81,13 +82,16 @@ struct scpsys {
- static bool scpsys_domain_is_on(struct scpsys_domain *pd)
- {
- 	struct scpsys *scpsys = pd->scpsys;
--	u32 status, status2;
-+	u32 mask = pd->data->sta_mask;
-+	u32 status, status2, mask2;
-+
-+	mask2 = pd->data->sta2nd_mask ? pd->data->sta2nd_mask : mask;
+ 	platform_set_drvdata(pdev, lvts_td);
  
- 	regmap_read(scpsys->base, pd->data->pwr_sta_offs, &status);
--	status &= pd->data->sta_mask;
-+	status &= mask;
- 
- 	regmap_read(scpsys->base, pd->data->pwr_sta2nd_offs, &status2);
--	status2 &= pd->data->sta_mask;
-+	status2 &= mask2;
- 
- 	/* A domain is on when both status bits are set. */
- 	return status && status2;
-@@ -1150,6 +1154,14 @@ static const struct of_device_id scpsys_of_match[] = {
- 		.compatible = "mediatek,mt8195-power-controller",
- 		.data = &mt8195_scpsys_data,
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-power-controller",
-+		.data = &mt8196_scpsys_data,
-+	},
-+	{
-+		.compatible = "mediatek,mt8196-hwv-scp-power-controller",
-+		.data = &mt8196_scpsys_hwv_data,
-+	},
- 	{
- 		.compatible = "mediatek,mt8365-power-controller",
- 		.data = &mt8365_scpsys_data,
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-index 8adf23d4d0f9..ace05de5795f 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-@@ -62,6 +62,7 @@ enum scpsys_bus_prot_block {
- 	BUS_PROT_BLOCK_INFRA,
- 	BUS_PROT_BLOCK_INFRA_NAO,
- 	BUS_PROT_BLOCK_SMI,
-+	BUS_PROT_BLOCK_SPM,
- 	BUS_PROT_BLOCK_COUNT,
- };
- 
-@@ -143,6 +144,7 @@ enum scpsys_mtcmos_type {
-  * struct scpsys_domain_data - scp domain data for power on/off flow
-  * @name: The name of the power domain.
-  * @sta_mask: The mask for power on/off status bit.
-+ * @sta2nd_mask: The mask for second power on/off status bit.
-  * @ctl_offs: The offset for main power control register.
-  * @sram_pdn_bits: The mask for sram power control bits.
-  * @sram_pdn_ack_bits: The mask for sram power control acked bits.
-@@ -155,6 +157,7 @@ enum scpsys_mtcmos_type {
- struct scpsys_domain_data {
- 	const char *name;
- 	u32 sta_mask;
-+	u32 sta2nd_mask;
- 	int ctl_offs;
- 	u32 sram_pdn_bits;
- 	u32 sram_pdn_ack_bits;
 -- 
-2.49.0
+2.39.0
 
 
