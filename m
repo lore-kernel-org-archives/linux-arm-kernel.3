@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B34C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C18C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dp+AundY2vqjDbK/qVJpZYm4kcwSvBAafhJcn12dCb8=; b=nr1CQ11YFqzFNQXG/QN8J9Yc/1
-	mDty3xUUDwJXHoPCvarWuyrCbR7T6AQhgiLVSVCCH9s1HwKCCT/bOWyeHpJp9dmwHsxdIKlrSe/ya
-	OLKmOYMC7SM+KJFV50iTv2Hc4JqbFdzmHxR2GrZ9WBsG3iVtJljx/yhjPsSYKevik8COH7v9wVxGw
-	k6NTYYGM+oyBbZaKpkvpLFlMBIvLvhXDa1BYqOoaU19tc1sykDZ7OvvoJnNce0Db9zJsdsX41RcGp
-	gz9VPduWkLO7rqeeNFXh9v9hzNMpjlgmmRJzpdI9NiT2vnwszHgpDGBAfIZCf6CRPGjuliNCYb66J
-	87oILqXg==;
+	bh=Z46EB7tAB6uXHPgyBwtVJdsA76sFg0lSYdtu6EVWknE=; b=PIwPUdxSI5IbwicMRR4jNn+m5M
+	oTWINCNCuB82g+gXxRYkA46v6PQUcYAb2SNRPJ9Fu5zWBVS3lmFuBV8AluuXnWLpQy7wQvnbMi35y
+	hqZ5f4XfivPW1p43Qh0bXEfG2CFedn4lhkSWkjNUkpBwhhVotROFFDwMkSaLxnNV/tYG4DeP9/1Iu
+	pdQo3PjRPHO7/4xVFZ6IzsR7Ja7BlPaLrEjKQWP4xMQrRD+sfzJxNJceiBi1VokHrD7+DA7TK1fxh
+	8XUxwBcL0DaHnkz+gwnxQIDANBygsq5u9oXBW3muArJt052W5iyasIgR6qcdsiGkZnN55nQN1xL7S
+	9/EksS6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uToFn-00000003y40-2nKv;
-	Mon, 23 Jun 2025 20:58:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uToI4-00000003yEC-1Zrp;
+	Mon, 23 Jun 2025 21:01:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjNO-00000003IG3-2KqM
+	id 1uTjZ8-00000003KYa-12at
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 15:46:32 +0000
+	Mon, 23 Jun 2025 15:58:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB0CBA51F60;
-	Mon, 23 Jun 2025 15:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DEC3C4CEEA;
-	Mon, 23 Jun 2025 15:46:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2F90F5C5F8B;
+	Mon, 23 Jun 2025 15:56:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81277C4CEEA;
+	Mon, 23 Jun 2025 15:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750693589;
-	bh=/4KsbPAse2gBLI2Ox0d7l/Q7GL1NPX4pE7wmy0udwmM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=OoDInESZM7/L1hXTMhbx8atsRBHWSfEFd1Dw4SgExj45OI08Pcq9nlx5nrdGmILVa
-	 /P9jp6U77156fXkSaWLPOCw7t9krm8wwiTEdoovKPnjGYFXsEOINXFWoSrpx6jdyJV
-	 RWzAGUW7uxtHm78z3XIfB813uNBs1oNIicOmhC2wuYaQ2oQYsy7chLhoIhtzY3/iaE
-	 kh7Plm+hU/rwt4rZwBHx/E4Ni7ec+B9y6sX7LZLLXmmvHsrTwzbauIzuF1gYU7rH68
-	 tkyNkJFKyjzoELun9nhA+kS0SlvZ9nZnrgqzL29idtY4o6tObjrfq2454eOntAohgY
-	 KgWYF43jcQPUA==
-Date: Mon, 23 Jun 2025 10:46:28 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1750694317;
+	bh=MBmtOH9m6zr81wji+yIuMSpqTbR3C3+WuqdmMBu0WVU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a/hdkmmf37JuuBRRIQqHxENDG6LmCaTmsJp2DHu7KCr0mZRs4pMvtzIzwaJWRy3Xa
+	 4fYQWPNVfpITMNEkZLGMafBo6GVgCwxjW8sW0YsiqKG/unwlNXMPR4GpPrZy6AwCzZ
+	 vvAWz50fwIGN7BHS5wK8ouR+ISNxq8yd16oS8fYckmhD5hAvz0hvTy7muPjfc4kxbg
+	 QyicczYhD/4fzwCShSSpTX4eWkVEvInZKE5MBwmC2xDCqWQUWSqTN5dHU18wYrSTHG
+	 QLZyUBoHa9ZkMEWNMJZV0ebpOq8Q6Z89vV3uYkr98l4tGodaCeAaa0iiLEfybrQRRd
+	 1nRuvP660Ry6w==
+Date: Mon, 23 Jun 2025 21:24:37 +0530
+From: Naveen N Rao <naveen@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
+	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
+	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
+	David Matlack <dmatlack@google.com>
+Subject: Re: [PATCH v3 20/62] KVM: SVM: Add a comment to explain why
+ avic_vcpu_blocking() ignores IRQ blocking
+Message-ID: <pxtvegopzsyhn7lelksclxiiee7tumppu76553rax7octqpy7i@giclgo667htf>
+References: <20250611224604.313496-2-seanjc@google.com>
+ <20250611224604.313496-22-seanjc@google.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org, 
- Tony Luck <tony.luck@intel.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
- Magnus Damm <magnus.damm@gmail.com>, linux-aspeed@lists.ozlabs.org, 
- bruce.jy.hung@fii-foxconn.com, Leo Wang <leo.jt.wang@fii-foxconn.com>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- george.kw.lee@fii-foxconn.com, Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Leo Wang <leo.jt.wang@gmail.com>
-In-Reply-To: <20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com>
-References: <20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com>
-Message-Id: <175069348316.3797100.9893206518887905689.robh@kernel.org>
-Subject: Re: [PATCH v3 0/2] ARM: dts: Add support for Meta Clemente BMC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250611224604.313496-22-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_084630_728671_578EB3B5 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20250623_085838_372469_E2901FFD 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,119 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 23 Jun 2025 18:29:00 +0800, Leo Wang wrote:
-> This series adds initial support for the Meta Clemente BMC based on the ASPEED AST2600 SoC.
+On Wed, Jun 11, 2025 at 03:45:23PM -0700, Sean Christopherson wrote:
+> Add a comment to explain why KVM clears IsRunning when putting a vCPU,
+> even though leaving IsRunning=1 would be ok from a functional perspective.
+> Per Maxim's experiments, a misbehaving VM could spam the AVIC doorbell so
+> fast as to induce a 50%+ loss in performance.
 > 
-> Patch 1 documents the compatible string.
-> Patch 2 adds the device tree for the board.
-> 
-> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
+> Link: https://lore.kernel.org/all/8d7e0d0391df4efc7cb28557297eb2ec9904f1e5.camel@redhat.com
+> Cc: Maxim Levitsky <mlevitsk@redhat.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
-> Changes in v3:
-> - Modify leakage sensor to reflect current design.
-> - Link to v2: https://lore.kernel.org/r/20250621-add-support-for-meta-clemente-bmc-v2-0-6c5ef059149c@fii-foxconn.com
+>  arch/x86/kvm/svm/avic.c | 31 ++++++++++++++++++-------------
+>  1 file changed, 18 insertions(+), 13 deletions(-)
 > 
-> Changes in v2:
-> - Fix patch 1/2 subject line to match dt-bindings convention.
-> - Reorder device tree nodes in patch 2/2 to follow upstream DTS style.
-> - Link to v1: https://lore.kernel.org/r/20250618-add-support-for-meta-clemente-bmc-v1-0-e5ca669ee47b@fii-foxconn.com
-> 
-> ---
-> Leo Wang (2):
->       dt-bindings: arm: aspeed: add Meta Clemente board
->       ARM: dts: aspeed: clemente: add Meta Clemente BMC
-> 
->  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
->  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
->  .../dts/aspeed/aspeed-bmc-facebook-clemente.dts    | 1254 ++++++++++++++++++++
->  3 files changed, 1256 insertions(+)
-> ---
-> base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
-> change-id: 20250618-add-support-for-meta-clemente-bmc-941a469bc523
-> 
-> Best regards,
-> --
-> Leo Wang <leo.jt.wang@fii-foxconn.com>
-> 
-> 
-> 
+> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+> index bf8b59556373..3cf929ac117f 100644
+> --- a/arch/x86/kvm/svm/avic.c
+> +++ b/arch/x86/kvm/svm/avic.c
+> @@ -1121,19 +1121,24 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
+>  	if (!kvm_vcpu_apicv_active(vcpu))
+>  		return;
+>  
+> -       /*
+> -        * Unload the AVIC when the vCPU is about to block, _before_
+> -        * the vCPU actually blocks.
+> -        *
+> -        * Any IRQs that arrive before IsRunning=0 will not cause an
+> -        * incomplete IPI vmexit on the source, therefore vIRR will also
+> -        * be checked by kvm_vcpu_check_block() before blocking.  The
+> -        * memory barrier implicit in set_current_state orders writing
+> -        * IsRunning=0 before reading the vIRR.  The processor needs a
+> -        * matching memory barrier on interrupt delivery between writing
+> -        * IRR and reading IsRunning; the lack of this barrier might be
+> -        * the cause of errata #1235).
+> -        */
+> +	/*
+> +	 * Unload the AVIC when the vCPU is about to block, _before_ the vCPU
+> +	 * actually blocks.
+> +	 *
+> +	 * Note, any IRQs that arrive before IsRunning=0 will not cause an
+> +	 * incomplete IPI vmexit on the source; kvm_vcpu_check_block() handles
+> +	 * this by checking vIRR one last time before blocking.  The memory
+> +	 * barrier implicit in set_current_state orders writing IsRunning=0
+> +	 * before reading the vIRR.  The processor needs a matching memory
+> +	 * barrier on interrupt delivery between writing IRR and reading
+> +	 * IsRunning; the lack of this barrier might be the cause of errata #1235).
+> +	 *
+> +	 * Clear IsRunning=0 even if guest IRQs are disabled, i.e. even if KVM
+> +	 * doesn't need to detect events for scheduling purposes.  The doorbell
+
+Nit: just IsRunning (you can drop the =0 part).
+
+Trying to understand the significance of IRQs being disabled here. Is 
+that a path KVM tries to optimize? Theoretically, it looks like we want 
+to clear IsRunning regardless of whether the vCPU is blocked so as to 
+prevent the guest from spamming the host with AVIC doorbells -- compared 
+to always keeping IsRunning set so as to speed up VM entry/exit.
+
+> +	 * used to signal running vCPUs cannot be blocked, i.e. will perturb the
+> +	 * CPU and cause noisy neighbor problems if the VM is sending interrupts
+> +	 * to the vCPU while it's scheduled out.
+> +	 */
+>  	avic_vcpu_put(vcpu);
+>  }
+
+Otherwise, this LGTM.
+Acked-by: Naveen N Rao (AMD) <naveen@kernel.org>
 
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 52da431bf03b5506203bca27fe14a97895c80faf
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@34 (maxim,max1363): '#address-cells', '#size-cells', 'channel@0', 'channel@1', 'channel@2', 'channel@3' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/maxim,max1363.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@35 (maxim,max1363): '#address-cells', '#size-cells', 'channel@0', 'channel@1', 'channel@2', 'channel@3' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/maxim,max1363.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtmitchell.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-
-
-
-
+Thanks,
+Naveen
 
 
