@@ -4,167 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29508C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EF3C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIsxXjSNfyM1KvGSe6iVwHLdKS+IOXyYbj+dKIDKiGM=; b=oegAzBNOYf5loKEFbcRYE0lGSi
-	9eXe+yOEfn4TmEIpgzSNamWUkDcVNpoAEyYNdvBi0/qVTCNrDPJvYBgdb/UMxFHEjs62FKc4JdJw+
-	cRYpxkBCDdPV319r7QytBURwGJ06q39BDB0Lw4TjkLMQsUV7EHHPKkY80d1qyfsbsNc1GBoYsfOFO
-	8bA51diC7ucaeWNjd8B/JJCKQ/DZ92jzX0x4Il0iRkuW1WhV0YMnqdJ4lKYETjaklfhVtPF706Gvk
-	0HeiOUJHCWJulKloT9/XkLgy6ejFaHMz0RR8xcGxNkBanXmXO0L937uSB3TQwm3YGf7YQWXFRv5O4
-	hDY1vCGw==;
+	bh=U3UErYnrVYZ1g9kUUb3a1dfR1/w+hPH2Q/0/oF/UJJM=; b=nh1gWNQJo4/QfCjpiQWkXuGqoz
+	uXhjuqqO23qZDUC159fu4uZ7frkH0gvMl7W8v1i6MFDM/Z9l/rvEOvr3vtlxYd/hVJSgBmmnbb+RS
+	z+o/bn5FexKzrC841qLC9uXLaEg8bAX6tgspHt2wFETYdzfZmYuH8Uip61WDYd24JdRF4+AuSRXpD
+	/WcWaAAYvzTMaTp0he4gf2M8jByCn3Mxqcw1ur1cbVpZsbBHURVWnrRXdo8T3Q8S/rk45ONFmwlGL
+	hBJwPoqEnKDL8UyVUa7Bj+4vmOUoQoMy9dAqxZATmOfYptDAnNPreQm2o8QLuEp2JsbkXzONZd+gg
+	d5XVzusg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrb6-00000004HXV-2utX;
-	Tue, 24 Jun 2025 00:33:12 +0000
-Received: from mail-westusazlp170130003.outbound.protection.outlook.com ([2a01:111:f403:c000::3] helo=SJ2PR03CU002.outbound.protection.outlook.com)
+	id 1uTrb9-00000004HcY-2Odu;
+	Tue, 24 Jun 2025 00:33:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uToDy-00000003xre-3LwY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 20:57:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P2db27lnMkm0v3y/AbXGx9KA0NkPpoSnj0qiDNnOATzYX/R5buc849xF++MsA4HggKonWm3zXcxSW7pl5YN+9KuCQI+0UpDmL78x0CpsCxLERAFqk/B0NdQKJvsK07AbOHVGCCqvpIbejFnkxOnx1MwIqLxc8q9rvvZg2g9UscDVZDZ4fHCUD036u1inaNeLq/QNWnv4TLqhbeOyokDgYe7JriHvuz9L2/agZYeOqk3bhxD6Ne5oZsR9zTRXhPfRqHs8k90k32WNsY16WzUumzY/0oQoGmVPJ28OGiGb1ICYMpGKGfqYrTWzSvK9MKV+afHJ5yydCqFwsn5SJIbmFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qIsxXjSNfyM1KvGSe6iVwHLdKS+IOXyYbj+dKIDKiGM=;
- b=gn5W0e8WWFwmTo/JMJa8rGpuaLSofKQaxxiuf8p6jab8azfVi8W65NehvkXJ7GLLvjLu1FRUJNLvyRCYW8KwrBo6Z3/it7qu3WMvjoCacuoxGojpBvr6cYIbkl5bw5LjvJCxM0PFepUfmAZ/51nq7DFOgR20xBUtiQOjOgQ+/osyuYGlEB59RCNKN5QhSpyxzBk8S3wlgjc1W5Bb2+iEdvvPflyQzsP0U/klaCmzi5w7xkOJI3JiWClIWW3aKW3EYojxJTehbnROXQMPw9S57agOTGe+wlAojEuwpos250ZbjpY+WI61txNOILf4sS+x0yIszzbCxXJ7Qy1cm1x7Jg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qIsxXjSNfyM1KvGSe6iVwHLdKS+IOXyYbj+dKIDKiGM=;
- b=MYpIL/bx/ZsVJu6/v/NwepE0Y2S46LGRN+s3GMXfWYrcDqnma+IWcEFj3UyXblrqWB7RY2JQdLzUVAr252IegAKnZcu7kd7uLwizsuyjvoAq5LvLppUzZS0W7XbYcTEVOZopr/Fn71kVKAOmQWev6ukso5suGmr25JpgeBbMg5w=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BL4PR01MB9100.prod.exchangelabs.com (2603:10b6:208:58e::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8857.29; Mon, 23 Jun 2025 20:56:59 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
- 20:56:59 +0000
-Message-ID: <e304762f-6d66-44f4-8fe4-7ca866f93d69@os.amperecomputing.com>
-Date: Mon, 23 Jun 2025 13:56:56 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: mm: split linear mapping if BBML2 is not
- supported on secondary CPUs
-To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com, dev.jain@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250531024545.1101304-1-yang@os.amperecomputing.com>
- <20250531024545.1101304-5-yang@os.amperecomputing.com>
- <3bc77e2c-66d6-40d3-a30f-07139e8e8f43@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <3bc77e2c-66d6-40d3-a30f-07139e8e8f43@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR03CA0356.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::31) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	id 1uToXW-00000003zkn-2egI;
+	Mon, 23 Jun 2025 21:17:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=U3UErYnrVYZ1g9kUUb3a1dfR1/w+hPH2Q/0/oF/UJJM=; b=NBBdcAa17Q+xwBYcEk2T6MBbry
+	w7IWwueFxcfmjTlpHwOGRhXYx5Fuy0Z+BbUbgg9Va1yENMiAG2uL4ZAFmI+LKgJ+qMR9O+Rj+DMnM
+	Mf6QJ+ALWgWZxJL4mGvlqr+tVfF3BKK3cgqEO6LzZI+CDS1eSTU5cC12HQJpqCwRRPQihZJCcGQui
+	/fNd/rcdv0yWaazQDq9y4npbIarXGCzCMf+996ZwLU1wH0rpbucuPRZ30hdnZoE2y3j56zr0bMGiq
+	8+7rqqKvZUQR5xEbiDf5zgOdHekB+imCHSnFp81KD5lQJE4FZmUu6UHVyfSzKbdzxpQTYftX/b7Mh
+	Sty6zhGw==;
+Received: from [185.15.108.45] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uToXM-0006NM-Cv; Mon, 23 Jun 2025 23:17:08 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>,
+ Alexey Charkov <alchark@gmail.com>, Jonas Karlman <jonas@kwiboo.se>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ XiaoDong Huang <derrick.huang@rock-chips.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
+Date: Mon, 23 Jun 2025 23:17:06 +0200
+Message-ID: <12692993.O9o76ZdvQC@phil>
+In-Reply-To: <90b7a1b6-bc49-414d-9cde-e6fad46d2650@kwiboo.se>
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <dd1d0676-4eaa-4df7-b557-676b3de9a52e@kwiboo.se>
+ <90b7a1b6-bc49-414d-9cde-e6fad46d2650@kwiboo.se>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BL4PR01MB9100:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c5be724-5e5c-4c04-5107-08ddb2987f23
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZU9KVDA0MGcyMW93S1Q4MERHVmZmcVRhK3JUYkpGZmdoRmUxZHB5VjN6V3ZU?=
- =?utf-8?B?bmdISXliNDJGaEtxclJWUXFNMzFoUWtpSVFtcCsyVjB1VkpZK1U3VmxIWTNM?=
- =?utf-8?B?ZE1XeEovNkV5YTczUHdvdnlla0dCY2J2Q0hLU0F2L2dWVFIrVmdMYjdNcFZa?=
- =?utf-8?B?ZVQvRHVUK0NubXlGSVA5dTBaM1pQcCsxK0U1aWdJVkk2eW8xWGlsdkhNRzBl?=
- =?utf-8?B?Tms3NU5FMjB0U3lxK3hMNnlvZUJjb0pLN2grRkEwRndZZ3NmWXBPaUlYYktJ?=
- =?utf-8?B?dkQ4RXA0TUhta2hIY0ppaktzek9XWmhSeWpMbUhVL2FQUTRoNllwaXJ2QXFC?=
- =?utf-8?B?NTdyYktpNUZGazZsRU9qYVlieTVEbTNyNDdyVmsvZGF5WDU4MWdJcDEwQnZj?=
- =?utf-8?B?ZldFcWx5QXlhZDNhWktFUnp1YXkyU2ZoeW1VRjN3MUptSytIWmhPRG9HYzQy?=
- =?utf-8?B?VkI0WmFpbHVmR0t5TUR2WDdiLzlpalNCWExhMVRaNml2RVFHMWI1NFhReURT?=
- =?utf-8?B?VDExME9NSmpWUzEwYWhEU1ZXdXpMSElMSm5NelNIb1ZGQTVaS0F5cHIrVXlQ?=
- =?utf-8?B?YlBPQUZjZEgvSmZaVENKQzhwb0JhSFNuT1oxMk45REp5dUgySHowWC96WGJq?=
- =?utf-8?B?cDM4Y0tndUY1dFN1cmRnOEQrSkpXc0MvL1pRWUZlV3NYQXlvbXZJTmVUdktt?=
- =?utf-8?B?Um1oVDBYRFV4S0YyRnRVMkw2QmNObzVoUDVPQ0NyclFLOWcrRjQyemZWS1I2?=
- =?utf-8?B?MnZVbHlIRVlnQnRCN2FLeWFPMzliYmZ3MGdMYkZrWDZnWWRBNW5RU2pzd1Ew?=
- =?utf-8?B?cFlQUytMK0QxSTdERytiZjgwYmo0S2k3eHc3N3RIZkg1NENQbVlIR1NETG4x?=
- =?utf-8?B?bEtQS3hMaGNKQlhYTktEYVBmWC9jcm1aV05KTDFIZ2NGM1dnK0hvYW1aVjNr?=
- =?utf-8?B?M0tOMFdoa1FNdzEyMnM4R1doUE9acURZYmlxRUJWdzdxcU5rVnhNWWF2ZkpK?=
- =?utf-8?B?c2NadFBYZTFoS0FsQVcxbkh0NTBBbS9ZN2pmV2MvSXluTC9RYWQ5NUdScjA3?=
- =?utf-8?B?QmEvUGlyL0J6WUJYdHU5WGN3WjFQV2JDL1RMNThLYnZ6R0JBL1dYUUErVTd5?=
- =?utf-8?B?Zk1LTW5ScVV1c0ZkYkluZ3IvajZERENxazNWRlhySTROQURPMHA1WEw1Nm5B?=
- =?utf-8?B?aWxUaEhwQktzVmFXZmVFRHZ1M0ZhekFnZFBzUWNXRkdOVlM0M0JmbkViMWwv?=
- =?utf-8?B?aFFoSFpLditKcTk3Uk1mL1ZpMWJFeEZucnRoZmFLTE91dXlKOW55ZCtBS0k5?=
- =?utf-8?B?VFNTNFBla1paRnRiS2ljSFg0cXBIMHdBdEh0dWlkYXByZk5ncFduaVlDZ3lR?=
- =?utf-8?B?b3VmT2k0c1JIQUhHMDV4NHRYZ2M3QnhSdzl2L29WNEpPdGRNRnYweWdETDc1?=
- =?utf-8?B?aVlaMG83MHZ4TkRldXVRMlFXOVRKOWxRc1dCZW8yekp6UEJnQ2E0eHVDSjJn?=
- =?utf-8?B?WTVpS2FIVzFYMkhaL0ZiNnZCbFBWU2VkeFdPRXhhMjJ5dU84S2lKU1puREZq?=
- =?utf-8?B?S1YwdVQrZ012Yy95NFk2bC96UGZPUzY0bHN6TG5lV21lei9takZ6RTl0V3FG?=
- =?utf-8?B?L3pJai9wSDN5TTIwdXptOFQ3N0Nna1FaTEJEQWliUGgwbXpPM1N4ZHdiNUlQ?=
- =?utf-8?B?MCsxdmd5amtSVnJkT2c5TFFYczZiVlFmOXZpSzFhUXBCeU9WZmdxV1F6MWQ1?=
- =?utf-8?B?TVMvT3JBR3BaRmpGT1BxNjZtN1VYS2E1ZXUzL1lEUkRLbHlSL2I2VldnSHFp?=
- =?utf-8?B?Z0kwSGNhTUZWeFZNdzRlbmNVaEg1TGJNb0VWNnlGaE5aN09SY0dyVXMrVDl1?=
- =?utf-8?B?SGhUZ0trWGpXS3JZWTRJOFNxWmRoOWNnd2gvcXFHVzNvV2c9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THEvc0Fiem1MMmVWdzBOb1p6NXNSSnlPZGwrS0ZQbG1WcmFYRjRrb01DUGFG?=
- =?utf-8?B?RmJaTU5veS9QRnE4QW9qM1pENlg1bURNSUplL0hHMXJUZThadjgzVGRybmFY?=
- =?utf-8?B?SzE3OWNVRkRmeDJsUE9Rd1VpWDVjNUIyNHRrRG9ZMGUzY0FWWVVYZFlMTi95?=
- =?utf-8?B?akFmOVV6VU90VDQwWS9MR0NTeUhBcHN6TGh3dUVqZXUydU40aU92Vy9QSzZm?=
- =?utf-8?B?RmVRWnJsaGZkT0hFcVhDNk5uMU5uTklRUFozZ3p3ekhHaDUyOUc0RnBvTVJF?=
- =?utf-8?B?ekNJcEZiQjMyTWQ0NitHcEhIR2NaL2FxSUJsODR3ODVwQ09taTMwd0xSNE1a?=
- =?utf-8?B?Z01yTWg5Yk12Q2paTlpnNWppd096YmhlaTUxWisrK3BEMUhCNHIySGtvdUFP?=
- =?utf-8?B?NWQ4S0lhNEVUb2hnYzhJS21EWGVSRTdRVkhoeHdKcmtCOXNaeVZoa2plSWhY?=
- =?utf-8?B?QjBpK0JDbEltcEdBenZLUWtCSnlLMkowb21UMTkvTmx1THUyblhGU2VaM2JR?=
- =?utf-8?B?RWFQOU5VYjdzWGpLQlkrSTlJZjJnN2krbnF4MFBIMXZyUEV3MkYrTUZmd1ZI?=
- =?utf-8?B?WTN2L0s5bUpGc0k3ZGt2V2RPVzMzYUNNcXcyQkJFZVp2QUhVdE5wdFBESllM?=
- =?utf-8?B?M2dsSEZQVXpFa2tneG10ZXgyT0xDZ0pZcDMzSFVlN0RPeXN2MVlWM2kzdG9s?=
- =?utf-8?B?ZGlNQW11U0RnREdSKyt1bU5VaDJoM2E3WFRBb1FaQ1o1aXBXZGQ3bHVuVFE3?=
- =?utf-8?B?RW5LM1NlYXhoR2dmellyd1oyVjI3elZ0ZFc4dkc1aTBqN0JtZS9naXJnNVpt?=
- =?utf-8?B?am0yVEJMQzdoZ2o4bnUycUtQNHN1KzNWUzNQOWpWY2NHeWcrVlFRbTY3N3Ny?=
- =?utf-8?B?dXVFYjN4SjRETUhLMXhudnhxK05GYStZd3ZSTmhza3RRaFVBSGVLTldBSmdr?=
- =?utf-8?B?S2lFcFluY0J2Y0UveVh3THBBMUxVTWlOK3NxV05TNHMwTkVrYzZEdFpyOXRG?=
- =?utf-8?B?UFhyMVBPODRoL1gzOVBzUnlmYVk4NENQQkNmY2piMk9JSUN3QlJTZk9JbW9E?=
- =?utf-8?B?M2RFbXRyYzI2UHJ2T2RNckoyRUxkdExzcW5VVS9mZ0pmVnN5clF6SkNQRlhx?=
- =?utf-8?B?SnNNWU51SFU5Vk1Hd1d4WGg1R21jbG9icEFGNlQva0pzbFZSUElHRTdUTnVw?=
- =?utf-8?B?L2dKMXZCNmwrMlVNeE1CaUc4QkdqWXlDRXZ1UzRGRndyb2txdnVSWUxPdmpx?=
- =?utf-8?B?YmYrdGc2QmNqVXZQMXpvakJoSlZBTk1EUFpxU1BSY2prY3g0bHU2N3FPL3l5?=
- =?utf-8?B?aUFadnNRSmVnbVphc0prVjVaUEhSUi8xY3hiL1B5V082Zy9wdEtIYlMrelQv?=
- =?utf-8?B?T3ovamY2VTl5ajZvcnIwU0hxTnpKUDNteHB6TlVFckRqL1pyS3cwT3JtOUJ1?=
- =?utf-8?B?VmdBYnZkQXVXdTVvdHJSamNTcG4xK1A5R3E3UXR3eWN4OGV2YjBLbGFHcFBw?=
- =?utf-8?B?aDBCaS83T2plQnNXeHJyZkFhVzBoU3JrdVBYMlZhSmFGK1ozQitzM09oUVlY?=
- =?utf-8?B?dnJFVnlZbGFTZTREV0Z6RWZtZGdjdU9DRSthamh4OUVOYVpvbjIxdUVQNmtF?=
- =?utf-8?B?WDRiVjRwUzd5VDZ2V2wzdlFoeVQ4aFhHVDVnQ1ZIdktSNzA0RDhLeGVmKzFE?=
- =?utf-8?B?bm1Kdmdsc3hLcGloWWZyNW5RK3MrZkk5bmVxdk9XT2d4bWRlc0N0VWF3RDVl?=
- =?utf-8?B?d1ZPNHFLOG5taXZwUVdWLzQyNXFranB0SXgxcHpvVm4xdFJuNDUrNUhhOHln?=
- =?utf-8?B?T1oxQkswMUx5WnFuVjN6d0gya1NGNE9OSzd3eXpuS3ZGbDJtWWQ2WTNKNlNI?=
- =?utf-8?B?aS83NTQrV053ejFaMXRCRyt4Qng4elFKUVdaTm9xQ2lYZjk0aklpck9MalNp?=
- =?utf-8?B?cGsxNnVWUXE1Qjc1bG9EVjJZK3kxcGhiR0lsVG5aenFkVWlyZkg2M3pGYm5S?=
- =?utf-8?B?Z0dFR2xhRDBnODc4WWdhSk5ybVB3OVZROVZSaUliWEVNWlJMZk1sZ0N5bHFE?=
- =?utf-8?B?V0lWL0g0cXZhZ1Zla0ZJN2pRNnJTV1A4R0pBN2VGN0tCdGMzK1lmL0NOWDlB?=
- =?utf-8?B?VUNFY1NWaEtkRXQyelFsMHBNcHhHd0oyVWtTeDNWaHZQclFUSHNlT2FnV2No?=
- =?utf-8?B?RlE9PQ==?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c5be724-5e5c-4c04-5107-08ddb2987f23
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 20:56:59.5767
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gdGF4QbZBk44pyEt/hqy8NG4hiSI0WGNztwViUdiFbvar0ipHmiKETl8ppRKVPTXBHHvlDsNIq66MEI50bflJkT66D4SZYBDFjtxzqGKo/Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR01MB9100
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_135706_929030_EA7DF877 
-X-CRM114-Status: GOOD (  32.17  )
+X-CRM114-CacheID: sfid-20250623_141718_688693_21670710 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,448 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Montag, 23. Juni 2025, 23:07:53 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Jonas Karlman:
+> On 2025-06-23 19:40, Jonas Karlman wrote:
+> > On 2025-06-23 17:02, Piotr Oniszczuk wrote:
+> >>
+> >>
+> >>> Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchark@gmail.com>=
+ w dniu 23 cze 2025, o godz. 15:58:
+> >>>
+> >>> On Mon, Jun 23, 2025 at 1:19=E2=80=AFPM Alexey Charkov <alchark@gmail=
+=2Ecom> wrote:
+> >>>>
+> >>>>
+> >>>
+> >>> Okay, I've bisected this.
+> >>>
+> >>> TLDR: Linux and u-boot seem to have nothing to do with it, opensource
+> >>> TF-A doesn't work, binary BL31 starting with v1.09 do not work. BL31
+> >>> v1.08 and earlier work fine.
+> >=20
+> > v1.09 added support for 1 GHz hrtimer in addition to the normal 24 MHz
+> > rate. Mainline U-Boot may only support use of 24 MHz hrtimer, unsure
+> > what impact the hrtimer rate has. Mixing blobs with/without 1 GHz
+> > support is known to cause issues. At one point the latest rkbin tree may
+> > have contained incompatible rk3576 blobs (mixed 1 ghz vs 24 mhz rate).
+>=20
+> Clarification:
+> Following boot1 parameter activates use of 1 GHz hrtimer, see [3].
+>=20
+> This parameter was added to rkbin repo before all blobs was updated to
+> fully support use of the 1 ghz mode, and is the source for incompatible
+> blobs I referenced above.
+>=20
+>   [BOOT1_PARAM]
+>   WORD_2=3D0x100
+
+which I guess is something we don't do in u-boot at all right now?
+Which would also mean, that something may have broken with the 24MHz mode
+when the 1GHz thing was added. And nobody ever realized that because the
+Rockchip thing uses that boot param for all of them?
 
 
-On 6/23/25 5:26 AM, Ryan Roberts wrote:
-> On 31/05/2025 03:41, Yang Shi wrote:
->> The kernel linear mapping is painted in very early stage of system boot.
->> The cpufeature has not been finalized yet at this point.  So the linear
->> mapping is determined by the capability of boot CPU.  If the boot CPU
->> supports BBML2, large block mapping will be used for linear mapping.
->>
->> But the secondary CPUs may not support BBML2, so repaint the linear mapping
->> if large block mapping is used and the secondary CPUs don't support BBML2
->> once cpufeature is finalized on all CPUs.
->>
->> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
->> same BBML2 capability with the boot CPU, repainting the linear mapping
->> is not needed.
->>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->>   arch/arm64/include/asm/mmu.h   |   3 +
->>   arch/arm64/kernel/cpufeature.c |  16 +++++
->>   arch/arm64/mm/mmu.c            | 108 ++++++++++++++++++++++++++++++++-
->>   arch/arm64/mm/proc.S           |  41 +++++++++++++
->>   4 files changed, 166 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->> index 2693d63bf837..ad38135d1aa1 100644
->> --- a/arch/arm64/include/asm/mmu.h
->> +++ b/arch/arm64/include/asm/mmu.h
->> @@ -56,6 +56,8 @@ typedef struct {
->>    */
->>   #define ASID(mm)	(atomic64_read(&(mm)->context.id) & 0xffff)
->>   
->> +extern bool block_mapping;
-> Is this really useful to cache? Why not just call force_pte_mapping() instead?
-> Its the inverse. It's also not a great name for a global variable.
-
-We can use force_pte_mapping().
-
->
-> But perhaps it is better to cache a boolean that also reflects the bbml2 status:
->
-> bool linear_map_requires_bbml2;
->
-> Then create_idmap() will only bother to add to the idmap if there is a chance
-> you will need to repaint. And repaint_linear_mappings() won't need to explcitly
-> check !rodata_full.
-
-OK, IIUC linear_map_requires_bbml2 = !force_pte_mapping() && rodata_full
-
->
-> I think this can be __initdata too?
-
-Yes, it is just used at bootup stage.
-
->
->> +
->>   static inline bool arm64_kernel_unmapped_at_el0(void)
->>   {
->>   	return alternative_has_cap_unlikely(ARM64_UNMAP_KERNEL_AT_EL0);
->> @@ -72,6 +74,7 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
->>   extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
->>   extern void mark_linear_text_alias_ro(void);
->>   extern int split_linear_mapping(unsigned long start, unsigned long end);
->> +extern int __repaint_linear_mappings(void *__unused);
-> nit: "repaint_linear_mappings" is a bit vague. How about
-> linear_map_split_to_ptes() or similar?
-
-Sounds good to me.
-
->
->>   
->>   /*
->>    * This check is triggered during the early boot before the cpufeature
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 5fc2a4a804de..5151c101fbaf 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -85,6 +85,7 @@
->>   #include <asm/insn.h>
->>   #include <asm/kvm_host.h>
->>   #include <asm/mmu_context.h>
->> +#include <asm/mmu.h>
->>   #include <asm/mte.h>
->>   #include <asm/hypervisor.h>
->>   #include <asm/processor.h>
->> @@ -2005,6 +2006,20 @@ static int __init __kpti_install_ng_mappings(void *__unused)
->>   	return 0;
->>   }
->>   
->> +static void __init repaint_linear_mappings(void)
->> +{
->> +	if (!block_mapping)
->> +		return;
->> +
->> +	if (!rodata_full)
->> +		return;
->> +
->> +	if (system_supports_bbml2_noabort())
->> +		return;
->> +
->> +	stop_machine(__repaint_linear_mappings, NULL, cpu_online_mask);
-> With the above suggestions, I think this can be simplified to something like:
->
-> static void __init linear_map_maybe_split_to_ptes(void)
-> {
-> 	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort())
-> 		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
-> }
-
-Yeah, ack.
-
->
->> +}
->> +
->>   static void __init kpti_install_ng_mappings(void)
->>   {
->>   	/* Check whether KPTI is going to be used */
->> @@ -3868,6 +3883,7 @@ void __init setup_system_features(void)
->>   {
->>   	setup_system_capabilities();
->>   
->> +	repaint_linear_mappings();
->>   	kpti_install_ng_mappings();
->>   
->>   	sve_setup();
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 4c5d3aa35d62..3922af89abbb 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -209,6 +209,8 @@ static void split_pmd(pmd_t pmd, phys_addr_t pte_phys, int flags)
->>   	/* It must be naturally aligned if PMD is leaf */
->>   	if ((flags & NO_CONT_MAPPINGS) == 0)
->>   		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->> +	else
->> +		prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
->>   
->>   	for (int i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
->>   		__set_pte_nosync(ptep, pfn_pte(pfn, prot));
->> @@ -230,6 +232,8 @@ static void split_pud(pud_t pud, phys_addr_t pmd_phys, int flags)
->>   	/* It must be naturally aligned if PUD is leaf */
->>   	if ((flags & NO_CONT_MAPPINGS) == 0)
->>   		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->> +	else
->> +		prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
->>   
->>   	for (int i = 0; i < PTRS_PER_PMD; i++, pmdp++) {
->>   		__set_pmd_nosync(pmdp, pfn_pmd(pfn, prot));
->> @@ -833,6 +837,86 @@ void __init mark_linear_text_alias_ro(void)
->>   			    PAGE_KERNEL_RO);
->>   }
->>   
->> +static phys_addr_t repaint_pgtable_alloc(int shift)
->> +{
->> +	void *ptr;
->> +
->> +	ptr = (void *)__get_free_page(GFP_ATOMIC);
->> +	if (!ptr)
->> +		return -1;
->> +
->> +	return __pa(ptr);
->> +}
->> +
->> +extern u32 repaint_done;
->> +
->> +int __init __repaint_linear_mappings(void *__unused)
->> +{
->> +	typedef void (repaint_wait_fn)(void);
->> +	extern repaint_wait_fn bbml2_wait_for_repainting;
->> +	repaint_wait_fn *wait_fn;
->> +
->> +	phys_addr_t kernel_start = __pa_symbol(_stext);
->> +	phys_addr_t kernel_end = __pa_symbol(__init_begin);
->> +	phys_addr_t start, end;
->> +	unsigned long vstart, vend;
->> +	u64 i;
->> +	int ret;
->> +	int flags = NO_EXEC_MAPPINGS | NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS |
->> +		    SPLIT_MAPPINGS;
->> +	int cpu = smp_processor_id();
-> nit: most of these variables are only needed by cpu 0 so you could defer their
-> initialization until inside the if condition below.
-
-OK
-
->
->> +
->> +	wait_fn = (void *)__pa_symbol(bbml2_wait_for_repainting);
->> +
->> +	/*
->> +	 * Repainting just can be run on CPU 0 because we just can be sure
->> +	 * CPU 0 supports BBML2.
->> +	 */
->> +	if (!cpu) {
->> +		/*
->> +		 * Wait for all secondary CPUs get prepared for repainting
->> +		 * the linear mapping.
->> +		 */
->> +wait_for_secondary:
->> +		if (READ_ONCE(repaint_done) != num_online_cpus())
->> +			goto wait_for_secondary;
-> This feels suspect when comparing against the assembly code that does a similar
-> sync operation in idmap_kpti_install_ng_mappings:
->
-> 	/* We're the boot CPU. Wait for the others to catch up */
-> 	sevl
-> 1:	wfe
-> 	ldaxr	w17, [flag_ptr]
-> 	eor	w17, w17, num_cpus
-> 	cbnz	w17, 1b
->
-> The acquire semantics of the ldaxr are needed here to ensure that program-order
-> future memory accesses don't get reordered before. READ_ONCE() is relaxed so
-> permits reordering.
->
-> The wfe means the CPU is not just furiously spinning, but actually waiting for a
-> secondary cpu exclusively write to the variable at flag_ptr.
->
-> I think you can drop the whole loop and just call:
->
-> 	smp_cond_load_acquire(&repaint_done, VAL == num_online_cpus());
-
-Yeah, it seems better.
-
->
->> +
->> +		memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
->> +		/* Split the whole linear mapping */
->> +		for_each_mem_range(i, &start, &end) {
->> +			if (start >= end)
->> +				return -EINVAL;
->> +
->> +			vstart = __phys_to_virt(start);
->> +			vend = __phys_to_virt(end);
->> +			ret = __create_pgd_mapping_locked(init_mm.pgd, start,
->> +					vstart, (end - start), __pgprot(0),
->> +					repaint_pgtable_alloc, flags);
->> +			if (ret)
->> +				panic("Failed to split linear mappings\n");
->> +
->> +			flush_tlb_kernel_range(vstart, vend);
->> +		}
->> +		memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
-> You're relyng on the memblock API here. Is that valid, given we are quite late
-> into the boot at this point and we have transferred control to the buddy?
-
-Yes, it is still valid at this point. The memblock won't be discarded 
-until page_alloc_init_late(), it is called after smp_init(). And whether 
-discarding memblock also depends on !CONFIG_ARCH_KEEP_MEMBLOCK, however 
-arm64 (and some other arches, i.e. x86, riscv, etc) selects this config. 
-It means memblock is always valid.
-
->
-> I was thinking you would just need to traverse the the linear map region of the
-> kernel page table, splitting each large leaf you find into the next size down?
-
-The benefit with using memblock is we can easily skip the memory for 
-kernel itself. Kernel itself is always mapped by block mappings, we 
-don't want to split it. Traversing page table is hard to tell whether 
-the mapping is for kernel itself or not.
-
->
->> +
->> +		WRITE_ONCE(repaint_done, 0);
-> I think this depends on the dsb(ish) in flush_tlb_kernel_range() to ensure it is
-> not re-ordered before any pgtable split operations? Might be worth a comment.
-
-Sure.
-
->
->
->> +	} else {
->> +		/*
->> +		 * The secondary CPUs can't run in the same address space
->> +		 * with CPU 0 because accessing the linear mapping address
->> +		 * when CPU 0 is repainting it is not safe.
->> +		 *
->> +		 * Let the secondary CPUs run busy loop in idmap address
->> +		 * space when repainting is ongoing.
->> +		 */
->> +		cpu_install_idmap();
->> +		wait_fn();
->> +		cpu_uninstall_idmap();
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->>   #ifdef CONFIG_KFENCE
->>   
->>   bool __ro_after_init kfence_early_init = !!CONFIG_KFENCE_SAMPLE_INTERVAL;
->> @@ -887,6 +971,8 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
->>   
->>   #endif /* CONFIG_KFENCE */
->>   
->> +bool block_mapping;
->> +>  static inline bool force_pte_mapping(void)
->>   {
->>   	/*
->> @@ -915,6 +1001,8 @@ static void __init map_mem(pgd_t *pgdp)
->>   	int flags = NO_EXEC_MAPPINGS;
->>   	u64 i;
->>   
->> +	block_mapping = true;
->> +
->>   	/*
->>   	 * Setting hierarchical PXNTable attributes on table entries covering
->>   	 * the linear region is only possible if it is guaranteed that no table
->> @@ -930,8 +1018,10 @@ static void __init map_mem(pgd_t *pgdp)
->>   
->>   	early_kfence_pool = arm64_kfence_alloc_pool();
->>   
->> -	if (force_pte_mapping())
->> +	if (force_pte_mapping()) {
->> +		block_mapping = false;
->>   		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->> +	}
->>   
->>   	/*
->>   	 * Take care not to create a writable alias for the
->> @@ -1063,7 +1153,8 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
->>   		    int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
->>   
->>   static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
->> -	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
->> +	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
->> +	  bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
->>   
->>   static void __init create_idmap(void)
->>   {
->> @@ -1088,6 +1179,19 @@ static void __init create_idmap(void)
->>   			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->>   			       __phys_to_virt(ptep) - ptep);
->>   	}
->> +
->> +	/*
->> +	 * Setup idmap mapping for repaint_done flag.  It will be used if
->> +	 * repainting the linear mapping is needed later.
->> +	 */
->> +	if (block_mapping) {
->> +		u64 pa = __pa_symbol(&repaint_done);
->> +		ptep = __pa_symbol(bbml2_ptes);
->> +
->> +		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
->> +			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->> +			       __phys_to_virt(ptep) - ptep);
->> +	}
->>   }
->>   
->>   void __init paging_init(void)
->> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->> index fb30c8804f87..c40e6126c093 100644
->> --- a/arch/arm64/mm/proc.S
->> +++ b/arch/arm64/mm/proc.S
->> @@ -440,6 +440,47 @@ SYM_FUNC_END(idmap_kpti_install_ng_mappings)
->>   	.popsection
->>   #endif
->>   
->> +/*
->> + * Wait for repainting is done. Run on secondary CPUs
->> + * only.
->> + */
->> +	.pushsection	".data", "aw", %progbits
->> +SYM_DATA(repaint_done, .long 1)
->> +	.popsection
->> +
->> +	.pushsection ".idmap.text", "a"
->> +SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
->> +	swapper_ttb	.req	x0
->> +	flag_ptr	.req	x1
->> +
->> +	mrs	swapper_ttb, ttbr1_el1
->> +	adr_l	flag_ptr, repaint_done
->> +
->> +	/* Uninstall swapper before surgery begins */
->> +	__idmap_cpu_set_reserved_ttbr1 x16, x17
->> +
->> +	/* Increment the flag to let the boot CPU we're ready */
->> +1:	ldxr	w16, [flag_ptr]
->> +	add	w16, w16, #1
->> +	stxr	w17, w16, [flag_ptr]
->> +	cbnz	w17, 1b
->> +
->> +	/* Wait for the boot CPU to finish repainting */
->> +	sevl
->> +1:	wfe
->> +	ldxr	w16, [flag_ptr]
->> +	cbnz	w16, 1b
->> +
->> +	/* All done, act like nothing happened */
->> +	msr	ttbr1_el1, swapper_ttb
->> +	isb
->> +	ret
->> +
->> +	.unreq	swapper_ttb
->> +	.unreq	flag_ptr
->> +SYM_FUNC_END(bbml2_wait_for_repainting)
->> +	.popsection
-> This is identical to __idmap_kpti_secondary. Can't we just refactor it into a
-> common function? I think you can even reuse the same refcount variable (i.e. no
-> need for both repaint_done and __idmap_kpti_flag).
-
-I think we can extract the below busy-loop logic into a macro:
-
-         .macro wait_for_boot_cpu, swapper_ttb, flag_ptr
-         /* Uninstall swapper before surgery begins */
-         __idmap_cpu_set_reserved_ttbr1 x16, x17
-
-         /* Increment the flag to let the boot CPU we're ready */
-1:      ldxr    w16, [flag_ptr]
-         add     w16, w16, #1
-         stxr    w17, w16, [flag_ptr]
-         cbnz    w17, 1b
-
-         /* Wait for the boot CPU to finish messing around with swapper */
-         sevl
-1:      wfe
-         ldxr    w16, [flag_ptr]
-         cbnz    w16, 1b
-
-         /* All done, act like nothing happened */
-         msr     ttbr1_el1, swapper_ttb
-         isb
-         ret
-         .endm
-
-Then kpti and repainting can just call this macro so that we don't have 
-to keep both them use the same registers for swapper_ttb and flag_ptr 
-parameters.
-
-Thanks,
-Yang
+>=20
+> [3] https://github.com/rockchip-linux/rkbin/commit/cbbc6868221fb416d4f0d8=
+6a10e493dbbbc1f117
+>=20
+> Regards,
+> Jonas
+>=20
+> >=20
+> > Did you try with newer blobs, i.e. ddr init v1.09, bl31 v1.19 blobs [1]
+> > and mainline U-Boot [2] ?
+> >=20
+> > [1] https://github.com/radxa/rkbin/commits/develop-v2025.04/
+> > [2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/=
+rk3576
+> >=20
+> > Regards,
+> > Jonas
+> >=20
+> >>
+> >>
+> >> just fyi:=20
+> >> to confirm: replacing only bl31 to 1.08 makes all good
+> >> with perf gov. clocks staying on 2200/2300
+> >> clock estimations are predictable, constant and estimating constantly =
+2400
+> >> ux is =E2=80=9Elike=E2=80=9D on 3588
+> >>
+> >> Alexey: many thx for finding root cause component!
+> >>  =20
+> >>   =20
+> >=20
+>=20
+>=20
 
 
->
-> Thanks,
-> Ryan
->
->
->> +
->>   /*
->>    *	__cpu_setup
->>    *
+
 
 
