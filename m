@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0994C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FE7C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAhLw8ix9vTodMyuqVidjoZiElBE05wHApINWeqOpZA=; b=w5UecfokfuHyiLpTrjCetkc4l4
-	FI0YDK8mm3ccFJvWEbfHCqE0wN52whe+8KE4dVC/sxm6THBPRByjbSJLj8oApo0R58pPTSw75vmjL
-	Wo7HIUJqKgr6eYfa9RbOFh4wCQZX6nt60PcXpwHmbNh2YxJM2eI7LFlv0ZJskc/1BOU3zaJmpndPb
-	py3zOuYK45NNFIgK2/QBvQYBDQhAtznQvUxqe8QXp8CZIzCiT5u8Rk3z1wBKcSpdGJs24WP8KyLtl
-	Ft1f0rUq+GOcQj5Qy4ztUil5NcEyXTRTNFwDKHUHNKwPKq8evKpSdVa7NvBS7alH7ZXwax478+EnM
-	oRq1JKfA==;
+	bh=J/9SSmZ8YzY2Okeft29F/tmLjOli1BA9xBbdLb9bITw=; b=stjE9Vy2LEl5rmsWIJCVXd/7/Q
+	h6L0fWyTmjmmEPniwlhm1w6GNkXmbUevcwjxYj/JqpokCbJ+aoCKqM7f+KrUdJSjgiRqD4kaVOBJr
+	bIB16wYWiSUgNA7KC+IfKw46/lYL9KOpD+/n0acMoGR+WBuvb7DR4GMHAMhuiBhEh5u1gqKHzyFMn
+	QEml9mCJVLaqs4N5v/Gvu1A88ma+pirimSmH7PyFxWl2zNqfTVkVuzlZyJsYQgMR9H1Qjeyfiuu5g
+	meneERpZBufEidTYVLFZSWCRJamusrPeiQGbkAmqlXCWpd2dE9caqYG3Wj1Pr2x5TYzJ1UEi86Qfa
+	hQ5fHPOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTf6t-00000002U4l-23G2;
-	Mon, 23 Jun 2025 11:13:11 +0000
+	id 1uTf9E-00000002UHj-0uNg;
+	Mon, 23 Jun 2025 11:15:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdXT-00000002BTa-3j8V;
-	Mon, 23 Jun 2025 09:32:31 +0000
+	id 1uTdXV-00000002BTz-0EjV;
+	Mon, 23 Jun 2025 09:32:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dAhLw8ix9vTodMyuqVidjoZiElBE05wHApINWeqOpZA=; b=D8s57iFf8jfRAGAC+643neiesG
-	G/QfiSe0vM/bN7sK5JoHcORGZrIG9T/KGO9L8tgB+fAxUxARwybavua8TY8fCULinhJvJDiLKWAhG
-	lIaPo66SmmZrM3pMFVHOvcykjEribcCt0zdMo0Uu1yywIKypyjAlElqRZ20JtShr8moBJO6dmWS3t
-	z8s76GjP9YHjaCuP03fYb+lKpu8/sKhNn5kVl1in3elJsJwYq8SJScuP8swpS5C79sQHGZJbGyNzt
-	pwsFO+Ycsj5CzDb4mM7r3TgSP72uqyYaZ6VKeCO2QzkoewCjLMHEbW37fSUJ8M26mHf5RimObERO2
-	eea6K9vg==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	bh=J/9SSmZ8YzY2Okeft29F/tmLjOli1BA9xBbdLb9bITw=; b=TaHwmfr7Es+tTrFhMalav+GS/0
+	tduMlt9oKiJgaaMUATFa0b4w6ypoGwZfaS8fUpSgrk3T8P+uP2KEIjHCcZ83unPgwMgQTHBDekMPo
+	BtpVFvPtd+xl/4WcZ6c9SLnfcm//epR7F4o2qZIfOiMGSVOYyh5h5wvJn0tLwX9+p6ukz2ByqS3nR
+	vP3asXYW9Y/YLwBNI3JUg+SKyZGDfjIkZakBnCFl+L1YxN/vc22QQ01wQeMpnjcf2OjiVRBlqYiwA
+	tjDRsFGeXDVWmyAPadJ8AOJG46lTJMftjv9FBCNsBiSYLxnrBPvGE23nDKilaOSq9UpmYO8mSmOwG
+	I1A5Rt3g==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdXQ-00000005Akd-1Si8;
-	Mon, 23 Jun 2025 09:32:31 +0000
+	id 1uTdXS-00000005Aks-1h4Q;
+	Mon, 23 Jun 2025 09:32:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750671146;
-	bh=36tf2K/9hUByUZGrXncX4bNZ2l5rw2ra9GVPJ2PLCa0=;
+	s=mail; t=1750671148;
+	bh=rp7QXlpJ88U461NSYjTe7hshUlrWe0crXomaDdZmcKI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MTBpNLRkEKEkVz5HWfPsaefWPF4KLf5W0VPAu0pSafLVBQ50mxtEzmfJwnPadjE4m
-	 yo8PWJFEbbMoebAU+WCvR6UBobF1hZM6pMMo1iEfX0sw8zVm4JEjzmQFF0JdkuOzGE
-	 h50nJ2XnOrBEunWptBVlVo9vCeJLQiKv+Vb13C2lk/Ej8ICx28iqexYbxpIDrQ3XUs
-	 7OGgftAlLQRi2py9fggXQfhW3bW4Tb6y2/WGYXYN3TCXXbAUfnGUfkbcc8xjSutNa4
-	 Mj5tSy/DMvjqJNVlFi9axNTVDTlCDRD3sZXtBxVVRcnXE7qRNibXxxbVNqgbzXxTDP
-	 4XnKqxEcx2WiQ==
+	b=R8JHlTsizWSjQYLcBahFGj4zGojwUmlSMVkZ4ijKBn+4fH9DIyTZqMa3nllfw/usi
+	 5cA1Aq6PqWhxsx+duJTf1OUW9V3+eRAaPuyBhZLe/yVTUi+LwhN/lfZa1Jl1KQtVHI
+	 Axwss5Wpv2AJ2wY2EF1wwW4l+82z6QN5yEvdIOW/Rn6jGooeuGIUst+XanhGftoQxP
+	 43Y1E4USahPp4Dqga3Z8bNso4x4YobbvUHanSJTGsTndRsjiV1UESz8UF/UeWQbx+L
+	 RJfHk758fnyM6m8wSW0FaOxDwmCLm+pTiHSQzq2uMmmOJLbHPwUUNyGnJhTKQHRE9m
+	 CowHRBTninilA==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30C4D17E05BD;
-	Mon, 23 Jun 2025 11:32:25 +0200 (CEST)
-Message-ID: <df51b1ce-a205-4e4c-90a0-e827f87a44a1@collabora.com>
-Date: Mon, 23 Jun 2025 11:32:24 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 10BA717E0CE6;
+	Mon, 23 Jun 2025 11:32:27 +0200 (CEST)
+Message-ID: <cfb78d27-b4e4-4e91-b904-2632a574e08e@collabora.com>
+Date: Mon, 23 Jun 2025 11:32:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/13] dt-bindings: net: dsa: mediatek,mt7530: add
- internal mdio bus
+Subject: Re: [PATCH v5 02/13] dt-bindings: net: dsa: mediatek,mt7530: add
+ dsa-port definition for mt7988
 To: Frank Wunderlich <linux@fw-web.de>,
  MyungJoo Ham <myungjoo.ham@samsung.com>,
  Kyungmin Park <kyungmin.park@samsung.com>,
@@ -84,15 +84,15 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
  netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
 References: <20250620083555.6886-1-linux@fw-web.de>
- <20250620083555.6886-4-linux@fw-web.de>
+ <20250620083555.6886-3-linux@fw-web.de>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250620083555.6886-4-linux@fw-web.de>
+In-Reply-To: <20250620083555.6886-3-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_103229_532122_1DDD0DF0 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20250623_103230_672370_2CEB17D8 
+X-CRM114-Status: UNSURE (   6.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,8 +111,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Il 20/06/25 10:35, Frank Wunderlich ha scritto:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Mt7988 buildin switch has own mdio bus where ge-phys are connected.
-> Add related property for this.
+> Add own dsa-port binding for SoC with internal switch where only phy-mode
+> 'internal' is valid.
 > 
 > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
