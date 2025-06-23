@@ -4,118 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE97C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 07:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6ABEC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 08:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AeW6Uuzf1Bl2HUqpMLFHqgIH+Q2PYHxgIXjI/kFeO3s=; b=r+7+BOPrdk2jOXDz6Hk+lYfAS+
-	wGYHeJwMtcAWjMxitxS0bM0P6XX7twE/XEdpl5qFkxx6HGhAdGFA776bAW8WylL6zUzTR/SC52Stc
-	AAspB/0dIiNA2HpNAP370ixmcaez5KklLrnUiDe1DG0FXqKF6nka2u7YNZ4YnZ+xPFkQTbHxSowIL
-	/AybVx3/5JiYhXmjub6qY0crc99JX9EcnM501opDoPRHsLvYPPNHdrAGgv2Ac/Tz8N4i3r8H0FMpW
-	5jyIBEECdjTkMuxcKSK3neoZI734kz9f1FCkXZK1Uo66tZiVm+rdkq9/3nTC8uCiFg3NE2r/r8644
-	BvqCwkmA==;
+	bh=dodbzlqA9pg+Xv3rARuhyF8DlYA03JGA7gzYMEsEDP8=; b=hezjXhPEGsbK7ivgfK1skRluR2
+	KBLGJ4zW0AsVGuSPe9KD060kyX6Qi8GB/Dp5hlzGTFYqqZpHCjpERK3/8HYB+tX3geVxuPPbxwwcd
+	Mbi3tOglcecVKFrTs/2cpnumog30fuAkIkduxGO9QBbxeRmSL0ruQ1mUkmSNrJya9oUgNtxx247fE
+	2zVmjAO3WgKAnTwCTByE+PNYDj1A8txPbjVFgVGmqJsIWBV05OPzH/dK+3d1llnu9OPOKSksPTkVk
+	GQ8gW0Entc1sjU5IYGEq/3FPzFJ4bmXaL9b/LnNYTqSj2dM52sI7fBmAl6UaC/XghMIj3Y3jTqgac
+	EyY517ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTc51-00000001wLv-2lwj;
-	Mon, 23 Jun 2025 07:59:03 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uTc7O-00000001wiP-0vR7;
+	Mon, 23 Jun 2025 08:01:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTbne-00000001tcB-0t07
+	id 1uTbqV-00000001trc-43wJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 07:41:10 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-450d668c2a1so29306685e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 00:41:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750664464; x=1751269264; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AeW6Uuzf1Bl2HUqpMLFHqgIH+Q2PYHxgIXjI/kFeO3s=;
-        b=EtJUTm7ch9tOotGMSMddKcLBZceXNYQex/d91/yqbwJhHip2Sh6B1JMPRQPxhAaVWq
-         ZZeI66UVZ9c+nwNTkMQ3aUVIKNpfvJt9OZoaOyT1SxVMT0WoHJFg59NV4gNPy88y0gJl
-         iVAu4D51O2UdajroJh/RZdvWQKBdhbKvidjka0U1MG52UxMLuxNxdp2sidFum78b+Ua+
-         /ROBj1GRcPkKXc/oA8+17kbY59hnoEVWjEAhlc72QXsegXNo0UZtJn6jlf8SZOCRzTE4
-         NCo8Y94ccbhvd4ar13ogXfflb1iKokEjHGgnPh0JsPZDmVPzwTBKYY2xYqaK6jipryHu
-         INUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750664464; x=1751269264;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=AeW6Uuzf1Bl2HUqpMLFHqgIH+Q2PYHxgIXjI/kFeO3s=;
-        b=CnYs4VyO5zuR5tTj0jx+oFrQDkT3JTxm+BWdSuvF2K5BCt7dk7lDQTsVzpHuwCD9Ou
-         6yVopUg9tcu+ZCdv8j6Y9QAQwKa1bVOIb1D/5pP9E8MbE2CospDfMluwE1LCvRdJgkoM
-         /Ptexap7Z+C3cWPyYCOmXOwoNMhI5Y1+7nzzO8CVYu/roYEkHwOD6GexONGBoHRKxs6L
-         xudF4F+Fu23pbHOfj/j9Y+W55u4dgZfAlfEuO+Y9+EK30vDW1qS2psdNWAAiZveMyJad
-         NZAUcqrd06m7siCxuY2kGdwKCTmoYiSaZ+KbzxSrM34VLEKmv8G4+VLBpCBxZ9VmxsuA
-         b+jA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNnXU+QfmDdjpsiHxltjZjy8qDHlbww3608pyNglQgWnCbsxRhQNEMNOU8N6Rk529vddDyijyPe8MK3bOVLJ9Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJyy1vDX4GjNYAGCElZcOV/c99XEmOF/TH0t/HGJIGIlv51QQr
-	N5m9n3AbXkkKe/88RlWBS5dISN4miF7Gc5kHTJjpH4p7jJdb6DoG1zB1TzSkrBD0RXbNI4GYdCS
-	0uVL7W44=
-X-Gm-Gg: ASbGncvcyEi8ePaoEsSqNCGvZySFiOInAQB4tFlQx1ZCs/38X9Bz+8RjUuJAxS2cLgJ
-	rZBnVodeyk3T2e9lPXpHXW5CuUP/74kerDHyIwpR7HqWs60xIufY99aU/TM3csQGb2ADKeFKa9C
-	PBHIZTtG7PUXCaGsht/0p3U59VwmzHsFVOzWjb0/wGL+RKe25NfNXjVhsisIq+asXUieKstbRiJ
-	uOdbdYUiKo5g4Hw9GIAK40YcqDaJHR9wJfTwXIrl0LBpAyhRsEFzEPphsgxNKwSw9BvLsurKPoJ
-	Ro7EQdUuy+zSKHfMfM6d5lxkaHbkkyUXXyh5Ct9jic5Y0os/Ky7G0T31SmGRCr/H1PQAtubTGnT
-	PQeQCJMSfcVYX+wYDJDw1xBpO2vmsbuqIhdFUzgA=
-X-Google-Smtp-Source: AGHT+IHD+/fz1sWecInD3T1Za6Q8jYc1LEFBXvsskAFiJv2dUlnZNh4T9pnHkuNli8KWbY6bfCumQg==
-X-Received: by 2002:a05:600c:5403:b0:453:aca:4d08 with SMTP id 5b1f17b1804b1-45365e2f118mr93390785e9.1.1750664464218;
-        Mon, 23 Jun 2025 00:41:04 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:8c08:7c51:bbb1:5a2d? ([2a01:e0a:3d9:2080:8c08:7c51:bbb1:5a2d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6d117c6a7sm8879897f8f.51.2025.06.23.00.41.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Jun 2025 00:41:03 -0700 (PDT)
-Message-ID: <3f335e16-8528-422a-a73e-efa06e68851c@linaro.org>
-Date: Mon, 23 Jun 2025 09:41:03 +0200
+	Mon, 23 Jun 2025 07:44:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D90161137;
+	Mon, 23 Jun 2025 07:44:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 177E5C4CEED;
+	Mon, 23 Jun 2025 07:43:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750664642;
+	bh=FvVZWSxbxCHHvArP/ksDKZe8srWR5WNbNBaWxp4Q1Aw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dHl251/wXN40lIxPpKuiJLq7g+cRz0OPuZjvkBC/xMaROyDdQ8w4ZrZ/Jm0YFW3B0
+	 mOLWWQvceF45KymGEVE7huhiVsitvfvHZoqe9cLRWhFQa1h8Xq7gyb/5t7qcKADrEK
+	 XPNOJcoTrNQyyyS6RTkFIj4cWsqzhujE3Bf3xMCGOBxu1Mein/CGPhzl0rxrcglnu3
+	 HiEzJCBfhvIS9si++V+jD7MCmeGmvszcG84dSFsEWCX0GVnJFRY6h9VRHWLjXjGroh
+	 n/d+u4osjwOnWk+14GQaPkcuA7kpeSpmiNNkZzW+gVhdMoNGbIv3g0V1iM6jMIEOe8
+	 hsFP1L+eIkm6w==
+Date: Mon, 23 Jun 2025 09:43:55 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v5 24/27] irqchip/gic-v5: Add GICv5 ITS support
+Message-ID: <aFkFu9j56S3fagHd@lpieralisi>
+References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
+ <20250618-gicv5-host-v5-24-d9e622ac5539@kernel.org>
+ <87y0tmp6gn.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] pinctrl: meson-g12a: add g12b pwm groups
-To: Da Xue <da@libre.computer>, Linus Walleij <linus.walleij@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250619022337.43900-1-da@libre.computer>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250619022337.43900-1-da@libre.computer>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_004106_259390_1E397069 
-X-CRM114-Status: GOOD (  13.22  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87y0tmp6gn.ffs@tglx>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,86 +80,219 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2025 04:23, Da Xue wrote:
-> g12b and sm1 have additional pwm pinmuxes for b, c, and d
+On Fri, Jun 20, 2025 at 09:18:32PM +0200, Thomas Gleixner wrote:
+> On Wed, Jun 18 2025 at 12:17, Lorenzo Pieralisi wrote:
+> >  drivers/of/irq.c                                   |   21 +
+> >  drivers/pci/msi/irqdomain.c                        |   19 +
+> >  include/linux/msi.h                                |    5 +
+> >  include/linux/of_irq.h                             |    7 +
 > 
-> Signed-off-by: Da Xue <da@libre.computer>
-> ---
->   drivers/pinctrl/meson/pinctrl-meson-g12a.c | 22 +++++++++++++++++++---
->   1 file changed, 19 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/meson/pinctrl-meson-g12a.c b/drivers/pinctrl/meson/pinctrl-meson-g12a.c
-> index e2788bfc5874..8b9130c6e170 100644
-> --- a/drivers/pinctrl/meson/pinctrl-meson-g12a.c
-> +++ b/drivers/pinctrl/meson/pinctrl-meson-g12a.c
-> @@ -270,15 +270,21 @@ static const unsigned int pwm_a_pins[]			= { GPIOX_6 };
->   /* pwm_b */
->   static const unsigned int pwm_b_x7_pins[]		= { GPIOX_7 };
->   static const unsigned int pwm_b_x19_pins[]		= { GPIOX_19 };
-> +static const unsigned int pwm_b_z0_pins[]		= { GPIOZ_0 };
-> +static const unsigned int pwm_b_z13_pins[]		= { GPIOZ_13 };
-> +static const unsigned int pwm_b_h_pins[]		= { GPIOH_7 };
->   
->   /* pwm_c */
->   static const unsigned int pwm_c_c_pins[]		= { GPIOC_4 };
->   static const unsigned int pwm_c_x5_pins[]		= { GPIOX_5 };
->   static const unsigned int pwm_c_x8_pins[]		= { GPIOX_8 };
-> +static const unsigned int pwm_c_z_pins[]		= { GPIOZ_1 };
->   
->   /* pwm_d */
->   static const unsigned int pwm_d_x3_pins[]		= { GPIOX_3 };
->   static const unsigned int pwm_d_x6_pins[]		= { GPIOX_6 };
-> +static const unsigned int pwm_d_z_pins[]		= { GPIOZ_2 };
-> +static const unsigned int pwm_d_a_pins[]		= { GPIOA_4 };
->   
->   /* pwm_e */
->   static const unsigned int pwm_e_pins[]			= { GPIOX_16 };
-> @@ -649,12 +655,22 @@ static const struct meson_pmx_group meson_g12a_periphs_groups[] = {
->   	GROUP(pwm_a,			1),
->   	GROUP(pwm_b_x7,			4),
->   	GROUP(pwm_b_x19,		1),
-> +	GROUP(pwm_b_z0,			5),
-> +	GROUP(pwm_b_z13,		5),
-> +	GROUP(pwm_b_h,			5),
->   	GROUP(pwm_c_x5,			4),
->   	GROUP(pwm_c_x8,			5),
-> +	GROUP(pwm_c_c,			5),
-> +	GROUP(pwm_c_z,			5),
-> +	GROUP(pwm_d_z,			4),
-> +	GROUP(pwm_d_a,			3),
->   	GROUP(pwm_d_x3,			4),
->   	GROUP(pwm_d_x6,			4),
->   	GROUP(pwm_e,			1),
-> +	GROUP(pwm_f_a,			3),
-> +	GROUP(pwm_f_h,			4),
->   	GROUP(pwm_f_x,			1),
-> +	GROUP(pwm_f_z,			5),
->   	GROUP(tsin_a_valid,		3),
->   	GROUP(tsin_a_sop,		3),
->   	GROUP(tsin_a_din0,		3),
-> @@ -1058,15 +1074,15 @@ static const char * const pwm_a_groups[] = {
->   };
->   
->   static const char * const pwm_b_groups[] = {
-> -	"pwm_b_x7", "pwm_b_x19",
-> +	"pwm_b_h", "pwm_b_x7", "pwm_b_x19", "pwm_b_z0", "pwm_b_z13"
->   };
->   
->   static const char * const pwm_c_groups[] = {
-> -	"pwm_c_c", "pwm_c_x5", "pwm_c_x8",
-> +	"pwm_c_c", "pwm_c_x5", "pwm_c_x8", "pwm_c_z",
->   };
->   
->   static const char * const pwm_d_groups[] = {
-> -	"pwm_d_x3", "pwm_d_x6",
-> +	"pwm_d_a", "pwm_d_x3", "pwm_d_x6", "pwm_d_z",
->   };
->   
->   static const char * const pwm_e_groups[] = {
+> This are preparatory changes. Please split them out into a seperate patch.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Done. I did not do it because some maintainers require changes to
+be added in the patch(es) that uses them.
+
+> >  ...3-its-msi-parent.c => irq-gic-its-msi-parent.c} |  187 ++-
+> >  drivers/irqchip/irq-gic-its-msi-parent.h           |   14 +
+> >  drivers/irqchip/irq-gic-v3-its.c                   |    3 +-
+> 
+> Ditto, i.e. the rename and code move, not the v5 add ons.
+
+Done.
+
+> > +static bool its_v5_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+> > +				     struct irq_domain *real_parent, struct msi_domain_info *info)
+> > +{
+> > +	if (!msi_lib_init_dev_msi_info(dev, domain, real_parent, info))
+> > +		return false;
+> > +
+> > +	switch (info->bus_token) {
+> > +	case DOMAIN_BUS_PCI_DEVICE_MSI:
+> > +	case DOMAIN_BUS_PCI_DEVICE_MSIX:
+> > +		/*
+> > +		 * FIXME: This probably should be done after a (not yet
+> > +		 * existing) post domain creation callback once to make
+> > +		 * support for dynamic post-enable MSI-X allocations
+> > +		 * work without having to reevaluate the domain size
+> > +		 * over and over. It is known already at allocation
+> > +		 * time via info->hwsize.
+> > +		 *
+> > +		 * That should work perfectly fine for MSI/MSI-X but needs
+> > +		 * some thoughts for purely software managed MSI domains
+> > +		 * where the index space is only limited artificially via
+> > +		 * %MSI_MAX_INDEX.
+> 
+> 
+> This comment is stale after Marc moved the prepare callback into
+> the domain creation, where the prepare callback gets hwsize for scaling.
+> 
+> The only valid caveat are software managed domains, where hwsize is
+> unspecified, but that's a different problem (and not used as of today).
+
+Right, I should have removed it. Done.
+
+> > +		 */
+> > +		info->ops->msi_prepare = its_v5_pci_msi_prepare;
+> > +		info->ops->msi_teardown = its_msi_teardown;
+> > +		break;
+> > +	case DOMAIN_BUS_DEVICE_MSI:
+> > +	case DOMAIN_BUS_WIRED_TO_MSI:
+> > +		/*
+> > +		 * FIXME: See the above PCI prepare comment. The domain
+> > +		 * size is also known at domain creation time.
+> > +		 */
+> 
+> See above.
+> 
+> > +void gicv5_irs_syncr(void)
+> > +{
+> > +	struct gicv5_irs_chip_data *irs_data;
+> > +	u32 syncr;
+> > +
+> > +	irs_data = list_first_entry_or_null(&irs_nodes,
+> > +					    struct gicv5_irs_chip_data, entry);
+> 
+> Let it stick out. You have 100 characters.
+
+Done.
+
+> > +	if (WARN_ON(!irs_data))
+> 
+> WARN_ON_ONCE() ?
+
+Done.
+
+> 
+> > +static unsigned int gicv5_its_l2sz_to_l2_bits(unsigned int sz)
+> > +{
+> > +	switch (sz) {
+> > +	case GICV5_ITS_DT_ITT_CFGR_L2SZ_64k:
+> > +		return 13;
+> > +	case GICV5_ITS_DT_ITT_CFGR_L2SZ_16k:
+> > +		return 11;
+> > +	case GICV5_ITS_DT_ITT_CFGR_L2SZ_4k:
+> > +	default:
+> > +		return 9;
+> 
+> Magic numbers pulled out of thin air?
+
+I will add defines but I thought the function name would be enough to tag
+the value with a meaning.
+
+> > +static __le64 *gicv5_its_device_get_itte_ref(struct gicv5_its_dev *its_dev,
+> > +					     u16 event_id)
+> > +{
+> > +	unsigned int l1_idx, l2_idx, l2_bits;
+> > +	__le64 *l2_itt, *l1_itt;
+> > +
+> > +	if (!its_dev->itt_cfg.l2itt) {
+> > +		__le64 *itt = its_dev->itt_cfg.linear.itt;
+> > +
+> > +		return &itt[event_id];
+> > +	}
+> > +
+> > +	l1_itt = its_dev->itt_cfg.l2.l1itt;
+> > +
+> > +	l2_bits = gicv5_its_l2sz_to_l2_bits(its_dev->itt_cfg.l2.l2sz);
+> > +
+> > +	l1_idx = event_id >> l2_bits;
+> > +
+> > +	BUG_ON(!FIELD_GET(GICV5_ITTL1E_VALID, le64_to_cpu(l1_itt[l1_idx])));
+> 
+> I assume this is truly unrecoverable
+
+At this stage, we mapped an IRQ and we are activating it, this must not
+happen (like any bug out there, granted). I can remove it, I understand
+it bothers you adding BUG_ON(), if something goes wrong there we will
+notice.
+
+> > +	l2_idx = event_id & GENMASK(l2_bits - 1, 0);
+> > +
+> > +	l2_itt = its_dev->itt_cfg.l2.l2ptrs[l1_idx];
+> > +
+> > +	return &l2_itt[l2_idx];
+> > +}
+> > +
+> ....
+> > +
+> > +	return 0;
+> > +out_free_lpi:
+> 
+> It's amazing. All the code has a gazillion of empty newlines, which just
+> take up space and have no delimiting value. But on these error labels,
+> you glue them right at the return statement (not only here, noticed that
+> before).
+
+You have a point here, will change it (and I will check other error
+labels sites).
+
+> > +	gicv5_free_lpi(lpi);
+> > +out_eventid:
+> > +	gicv5_its_free_eventid(its_dev, event_id_base, nr_irqs);
+> > +
+> > +	return ret;
+> > +}
+> 
+> > + * Taken from msi_lib_irq_domain_select(). The only difference is that
+> > + * we have to match the fwspec->fwnode parent against the domain->fwnode
+> > + * in that in GICv5 the ITS domain is represented by the ITS fwnode but
+> > + * the MSI controller (ie the ITS frames) are ITS child nodes.
+> > + */
+> > +static int gicv5_its_irq_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
+> > +				       enum irq_domain_bus_token bus_token)
+> > +{
+> > +	const struct msi_parent_ops *ops = d->msi_parent_ops;
+> > +	u32 busmask = BIT(bus_token);
+> > +
+> > +	if (!ops)
+> > +		return 0;
+> > +
+> > +	if (fwnode_get_parent(fwspec->fwnode) != d->fwnode ||
+> > +	    fwspec->param_count != 0)
+> > +		return 0;
+> 
+> Just add a MSI flag and set it in parent_ops::required_flags and extend
+> the lib with
+> 
+>         struct fwnode_handle *fwh;
+> 
+>         fwh = d->flags & MAGIC ? fwnode_get_parent(fwspec->fwnode) : fwspec->fwnode;
+> 
+> No?
+
+I did not know if this use case granted a new flag. You cleared my
+concern.
+
+> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > index c2e7ba7e38f7..4a0990f46358 100644
+> > --- a/drivers/irqchip/irq-gic-v5.c
+> > +++ b/drivers/irqchip/irq-gic-v5.c
+> > @@ -57,12 +57,12 @@ static void release_lpi(u32 lpi)
+> >  	ida_free(&lpi_ida, lpi);
+> >  }
+> >  
+> > -static int gicv5_alloc_lpi(void)
+> > +int gicv5_alloc_lpi(void)
+> >  {
+> >  	return alloc_lpi();
+> >  }
+> >  
+> > -static void gicv5_free_lpi(u32 lpi)
+> > +void gicv5_free_lpi(u32 lpi)
+> >  {
+> >  	release_lpi(lpi);
+> >  }
+> 
+> Just make them global right away when you implement them. No point for
+> this kind of churn.
+
+Yes, hopefully someone will not point out that in the respective patch
+the function could be static :).
+
+Thanks a lot for your review.
+
+Lorenzo
 
