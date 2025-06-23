@@ -4,90 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9E0C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20648C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRUWTVvPr1yAn+DH33u9nddl4ICwL7m9XNyge0uZ0XA=; b=i6wXGjBAW+I3baDYoenxALCEek
-	8sij4j9gZej1K68UpGkyqbEjocKql1OZt8FMi4t5eJltMyaO0siGl/h9WNiOXT0e7+hYGAiLfzPth
-	RR5XdLyAvDN4DVXN5oZ8bG9QE9PeJpkpVhuVbkNk50Ibf1L2ow4vRR4EbDZ2SyAryywsINg3dVdYb
-	D0Dq2ehU6bfLe9QJutec8JdBWev/+mESzGRIKCQeZqpJ6i4zpJySpXIjGW3QxSc2N9Q5Q0Yhv4Hry
-	1MCYbOpkvQoHOJXYgUhpbnK8BkSitsoYVPWd9J0SYXYRDATtC7UM1ngc+9ynjoIeiXpTYpEJoztBj
-	zM1eBsRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aam5t5m+PhmcMtuwt7AqpsiK6i5Q9hwZpinhRIvU+aI=; b=XbCmPZAXP6Immh71sq0NQnlgrf
+	k+YDSdAh9tKTzY++9luQfzp6Y1MuBVG46mphyeUbomn8SXTbW1kyhmVLLj2emotZwUW13YxiiQkKY
+	uSDXQZri2oD2R5oGMvoz08SmyehP5oUeXF79x+NEOmpM5N2J4XIzsgGzC4QHVP5uLibekiXb2QtxP
+	5hJ3kSOUO70OzJCzGf8x3BIps2nVYQhb2cDW+nvMay6VvKLJMhOSnYGztoBSlguvmM2bbQFIrzjNj
+	bjW2vcH2xS7ZTS/HdGuiRjOaPOpCeprJm0jP8pebrKKxHMBjFG0VaKZe/1vY6pdej1lmOIyo530sN
+	ubA/2M8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrar-00000004HAd-29eA;
-	Tue, 24 Jun 2025 00:32:57 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1uTrap-00000004H6x-2LyS;
+	Tue, 24 Jun 2025 00:32:55 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnkz-00000003vN3-1nFB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 20:27:10 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-31223a4cddeso3466269a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 13:27:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750710428; x=1751315228; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=TRUWTVvPr1yAn+DH33u9nddl4ICwL7m9XNyge0uZ0XA=;
-        b=X039vVvAdCeNsde0T9cbpO+PVTv2mPk5SdxtABRyJvozHvc0kZYGQfkhYxJ7GG4w+g
-         TZJ5Sd0R/hN1g4xuZzdbpCBt2facZYOUB0kw0zqa2sTfRBLlf1u/ktU2m/QjNqEsVUNk
-         4dSQOpShI0eM1FRq5VuJZ4SD/Nu2K9faG7OG+Zu8sT/7noA1pB9LQe+m/4U7aUlgoxCT
-         t30fubX3c1lp1lHgg+NGHa6oV9TC2b89QlZrK+yZ/AJaki8JADdqOebx4j1WuRfR6ZVB
-         wvafgruUG7DS4lSWgJorQk2B6Tdb4FiE/abRifF9WGZV8tUfFXNBr8FbAqJhOZL7Svce
-         YJvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750710428; x=1751315228;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TRUWTVvPr1yAn+DH33u9nddl4ICwL7m9XNyge0uZ0XA=;
-        b=OoEMUuINHZTst0XdAe6wVumihN/hEG3ZWqQV5b5N6Y/+cbGwHXusFiuNqmMme9XRon
-         H6B75cfzqzj6K5e85gf1+nX6tRtYolsBxXpeFKup7Ug3nE1s/4IY5o3xP8erYInbg0ee
-         qHkte5ZQgGYy7uOQgvpCs4iIxIdQTxdpfu8NeLcy7P3cwhXFG4OaDV6vN4p+IDwR6MTC
-         NGB19b5irvZv1NoQce60pOikzEXgsUWNkIEKVNfFBIXnn4lcgHSIjJc9hxnK+0TBq7U6
-         bbwWag0bNsO1ztdmhqDpQOhbklPp+j/0s5lnEnOw9v7k94ujldt9hEUwskT2zG6WLs+Q
-         t2Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCWBlsf8deAJFrIvgcK5j1QSPevFfF4JPnd1cHgwmdE0r6Wr3vbY2emyw8z9dO7JVjdrI9+SQ5oGc6EpEnUZBtw/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfIoNVF1trgfd3+x6UUG3SiLsMJ2h5CIsBAFt2rcN7t4UidEdi
-	rsxwIw6chOXkEhdQ1OEdwnpkHIIVadSFNFgGIe59OPeUuM18tcr6xit2jfPYFJ3I+ZuDI0Myox8
-	jIVcCRYQVWdL3DWw0k6tM1ip7/KL8fOuCk4WkbSHaojiuZrXei4JfBixamg==
-X-Gm-Gg: ASbGncuMwO9Q9j+/XbnGuWj56l+gFiOhq626WWePswlS+//clOgA8JWR9bIV4CYaqOM
-	M7rrk6KAFBiB+MNNnuF8nAWf5PVBqVPSR2rM+AzfGVXLskvYqju70N/uAb2ZBm/4Nk7fcgb9XvM
-	hbCmr75YpPQRbtmhGEjWgdcmc1WxrmZ2/aQLMDn9F669emFXiKEdCMDvcnY7l4HkBodvMaMJCeQ
-	cre
-X-Google-Smtp-Source: AGHT+IH/jRTZELaiRlcOXYueghlWrSKvl+Er6wcSXSYeSJ4Ygh1TNzIY808loskXKKypj3EiWW7XbMMUZvUaCEZC52s=
-X-Received: by 2002:a17:90a:c10f:b0:312:e91c:e340 with SMTP id
- 98e67ed59e1d1-3159d8f92a0mr17862431a91.35.1750710428532; Mon, 23 Jun 2025
- 13:27:08 -0700 (PDT)
+	id 1uTnkr-00000003vMb-1wyq;
+	Mon, 23 Jun 2025 20:27:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AbP06X251/lSMmu3IqzZg4gPVHyvYRP0l5cdXLVsLYUDDmr0U1W/5+dM8c/D4pLnfs06BrkOTAB+/FYSlp93pFOlSTsY2DzFJnbGy7gkMGXkyL5Apl8Yhc/WuZpzkyg2w2WyuPHbUy/3moDDj+o8kjBki4pGYSoXQ5Z5/3BptDOPMjShoyKjIPbc+fCUj67TLtjvlVvO9CdaZ3moMUTnPhXVlWV/teLrmO7Q3oaIiGFvKmkfaHwOW6v1qo+OpvFUmE4rM6v4EdYsO/SkhTUu3SOrWuP3/0fxfvuokJGKtbLUjoPHZPuvHCAzjTln1PjYre3SJEllM5Qs2CPXoa7evw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aam5t5m+PhmcMtuwt7AqpsiK6i5Q9hwZpinhRIvU+aI=;
+ b=I3Dch2JhYJXm1xZH826hgfRf9AUmxSBBD2PcOt6ULHZB9hUiER2wYcZrWTaCLTkT1WF+vvowxmRs8b2l2XDTOf6eSAYRaQzzHjkr3k/zCvrrSenhgqvXLYjN8N3sF/o/62ezQPwD6uxAwRqeSCa4mMd5ArwvNvrnNm7AH6ehVw1hDhwo8Pl+iQLX8R2/o/2qG+fGYFFuyBAmwfswhmftNDH8+usj4GjjA6MWhbpVPbVd773E82I+FLMDZSBmsR6Amdj3ttewbdOW0MdYKciyLKdrjf5BG7WV0YygaTiGWZdhA/VOZ8tZnhtqzeYMmH3lRKhG7UcNNXpPz0y6zt3oLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aam5t5m+PhmcMtuwt7AqpsiK6i5Q9hwZpinhRIvU+aI=;
+ b=JIebDiJHB5yegRCMWe8fn8zgS9BMMBULB5fGdropDvNRYZ/b+tWgVHOLd52JDVlHLktl2mg33ZpSlj/o8ScwKgtFF4jAIQ8OchUOW5bhJkD95iKLM7l/v7Kv5KLSWOWxHU5s6gkDqujvdtirRyHpmqd1UFOpgK8Bf2VYtGGlm67YetATCV09NMYfGTcY1bcKxkrmdjSYS8E5n+/GN8DBdIsKZDkHiUMzC+1iyXGs05m+gMwDcqs9V5rlhwEpT1Gft2AVhrqOpqiejZOSvZ2YNFfmzQWOq6fb/r+byESAsp7lgSV8TfU+42RYwOUyQTVcsKvPsVGxjopzRrbNkN0s3g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB8973.eurprd04.prod.outlook.com (2603:10a6:102:20c::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Mon, 23 Jun
+ 2025 20:26:55 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Mon, 23 Jun 2025
+ 20:26:55 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-mtd@lists.infradead.org (open list:MEMORY TECHNOLOGY DEVICES (MTD)),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: mtd: convert lpc32xx-mlc.txt to yaml format
+Date: Mon, 23 Jun 2025 16:26:42 -0400
+Message-Id: <20250623202643.2468759-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH8PR02CA0053.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250623130626.716971725@linuxfoundation.org>
-In-Reply-To: <20250623130626.716971725@linuxfoundation.org>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 24 Jun 2025 01:56:56 +0530
-X-Gm-Features: Ac12FXzbqaWlyV-mY2jBAeAf_VzRigYao0-wWRbsMa_bGEBBFai-0Z6bbuS6vrY
-Message-ID: <CA+G9fYt2e-ZGhU57oqWwC1_t2RPgxLCJFVC0Pa8-fYPkZcUvVQ@mail.gmail.com>
-Subject: Re: [PATCH 5.10 000/355] 5.10.239-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
-	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@denx.de, 
-	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
-	srw@sladewatkins.net, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
-	broonie@kernel.org, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Julien Thierry <jthierry@redhat.com>, James Morse <james.morse@arm.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Anders Roxell <anders.roxell@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8973:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84d46a5c-bf31-4586-64d6-08ddb2944bd1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|52116014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SUIBI/qJIrEqT5SZ1TeiDnGyC/30pf9h7osCZEi9no8+UoNAb3OMRZHblFon?=
+ =?us-ascii?Q?5uSwdy532MdeedHxPE/zaf7Jo5muf0/EzaDaf+3lYWaBFERSzSHNy0k/ZKfd?=
+ =?us-ascii?Q?X9JKUC4m4ZodysAAjBuOshZykvfpPOJfgbLXaXnCfOSe1ZqWB4yIpdw+Fxtr?=
+ =?us-ascii?Q?owafNgwpVPDuLD5RpgXjfxQ5XD1voAuPQF7C03eUUYxi97fi0TSs/QxokU/f?=
+ =?us-ascii?Q?iiRkhd9aE+7bdL5MP8L+lpxGAROigINC7548iqWpeTZ+sgXad85JjtxOO1nB?=
+ =?us-ascii?Q?vTts5QhWfGQi75CJaTGutQ/H7PNs3QDF627YiVvZJjc4F5BddGCExNoagqhA?=
+ =?us-ascii?Q?ZMK1tVsEYxzCeJrZN770YwxVFKRlynRJZVOjIgvd09+hWsPDvoJWm0zgu25Z?=
+ =?us-ascii?Q?e+39Tnc/nwpxz/D29BCS6SQpkDaCAPZsO37qIim523t9d0ZYjHN9lOd9joAG?=
+ =?us-ascii?Q?bICmn3lt2VDs8nhbBivdK/AnVWlayvzPYg9X+WjQK7VRcQKVm5DSV/BkNdr/?=
+ =?us-ascii?Q?rTPr+AXV7Aj64JDMKxqN2GV0s5H5MTFNmLDK3Rkm2GlBz0Qp8MliVH+p6KB6?=
+ =?us-ascii?Q?wT++GJKroYOiI0YgHMPJs4JBiSudC8+88oQwFMsHHTnS5gH84iDvGzwCsB16?=
+ =?us-ascii?Q?iUCe5xP4AbbjZBuk+XQimUlD9I1bgoEgYAeZZBOZ0lNljwMAsDR+T04Vm64i?=
+ =?us-ascii?Q?zHGp7yLVt2NDiM/kio2+gwTzOu12hRIHmTt1pViNWnW1v804L3HjUwC6QlNH?=
+ =?us-ascii?Q?zlkNjLqrhXLu6oqxwGpUSPBGIBLFTFysS53TtGGzE1yT9+TIpMK+vMrMD3Ra?=
+ =?us-ascii?Q?gnkeUUimtUwGz5UFufC5B22FDfplQFMm4EiYcb285I5TSQrvhwVb/JavHWkm?=
+ =?us-ascii?Q?0kziFEJGaT5s2Mno21y/JTa7vCkogWdJejqQwXGaCiMhmiClECP2ApyJXLmd?=
+ =?us-ascii?Q?u3lEgbB+gv6Aj11XjPXkrn3AVDAWcNVIYD8a/Du1pBi9VBbOhv4zRBrSrJSU?=
+ =?us-ascii?Q?VE0TB6ZgcXbtAyk1DlenLEvKtY/TM5Wh66365sXfr5NNPlXPK3Nm8HxN7FwQ?=
+ =?us-ascii?Q?R8HSXrsR9Es3h/hAhjHV312JyrGyTXsPQAQvaKUHl8kZY1var1rnSsYABQku?=
+ =?us-ascii?Q?vjKPvQ/waZYjF6lny6BhboyNUlU2tw0OIXImOaCQCl06hMtwGO8Fu9ZvdM1v?=
+ =?us-ascii?Q?1QzD6CNAN7eNXf7a1wx+dkgveamNbjCxSEngS/tL1UsaNsI9pVhsxSINQTxN?=
+ =?us-ascii?Q?N0GgmCFxpblHCasd28Qm13F4ICCy2M+cNcwC3TX6kD1T5LplKvOv4rtCYm0O?=
+ =?us-ascii?Q?TfoGDPMh79u4mzX8bt4m9h6NVKCuG2URaTD/NYUfn59muovFQDy6aq4jseen?=
+ =?us-ascii?Q?GoyG6lIy4tjMwLoDhDhhkZtR/s9dVvLpqR5bSt1O/HFSLmzdFdPirTPTaxOg?=
+ =?us-ascii?Q?pDzDutHOVGaZzuuFhswaELeMtO6bPEYN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W+wRj5z+fsAe3Q+E+/sVwP60mf1tZi7F28ahN7TfwZXGiq60keiuuA2qpJ39?=
+ =?us-ascii?Q?tpza5x8VsTmWuezVL6wc3ukpMim2Z9QQlQCEizzYSsOvL1CwBNghZxCqlEVr?=
+ =?us-ascii?Q?A7K26omyuH2+jYvsKg3uygdpIZEUIJBije8olJEvdESynIfy/1o/UNgTxuHj?=
+ =?us-ascii?Q?nYAE5oCZSV7I2zH637GLuJuOGwYnHAOl9yC/h/eeK5fue/LhandYvxFD5vwq?=
+ =?us-ascii?Q?LH0Iqed5EZRrbQZ7cepI5Mpxg4IjnMiAuqkiul43gC2kZlvnsK6VPWZaDeNF?=
+ =?us-ascii?Q?8U01fgaYRMsJflsiRW7CWVsDE5Paq01jkICqP8dwIsLUW/T/RFIqMXJiz0PC?=
+ =?us-ascii?Q?hTgx+qsLtAtaBJujNke0GNTGmuJYwSpSow6jc/HAQdoatoeysHBgxeegL0gv?=
+ =?us-ascii?Q?5LjldSJs7b3o4goGwmZNhN+fwgf+8p7XcySajbmJPokZe4aPDTCxGQJRroSw?=
+ =?us-ascii?Q?wERIz9wQj9yrfOtIWi2E3QS42+rPaK3mb+k2Eb6RnKBjOGvKqDuosx4PDHrK?=
+ =?us-ascii?Q?ywqHuvUATjWp6IoVIyWxXBlIb6k8E/QeU8AoD4uQSaUunMW8RahbyWN/SqfT?=
+ =?us-ascii?Q?+NI7XFDlkCDatEccUIwqdsAZK1ASPcMVswgmfiE0vG1yKqtY+DWRE3EEXmy+?=
+ =?us-ascii?Q?YSZraQsfkyaGa18RwFZ00QNXYn/O3SFXJmYtcaEWFV1HL/RDrFstJsoeEw1M?=
+ =?us-ascii?Q?wqly8sJhcLCub9W+wicavRMm1C4VUUyF8q9UBOceBwSciiBlE3/3w5osuMFz?=
+ =?us-ascii?Q?ibdhLCNXbwseBrm0ru4oW5evp3j48qeFAOfWAZy6S78cKEijXDg7WU0+cZZQ?=
+ =?us-ascii?Q?fEayWh7k+oXmkD6oO0Btv8RxlV4Si/cGGbloeDQ31VAoVf5n/INJNHIKYHFj?=
+ =?us-ascii?Q?7MElsiXfjnLiYQT8AGqM238SLaoHg3BN8T6dOpNrz6BrpSOZZE1436QLLoAb?=
+ =?us-ascii?Q?RnAG34iiOb6L8G42aXLMxtI9Eofd5g95QibUSkNM6WhaWPM0X/RbA9tbwct7?=
+ =?us-ascii?Q?qRMT8aU0Y8wPAvh4fYz8ienWy1jqLbDGOd/dwxKkwt/e+ccWwENMqWsPqnQo?=
+ =?us-ascii?Q?kIPgm+OLimyO0DFK3viCjph/FjSyKOxL1N9i0nHkig1q/ZWU2xRU5ork0xZZ?=
+ =?us-ascii?Q?rH/G8Vh+LAAoY7t7pvx5shJsgjwCwtJv8qz1PKDC1DPzkRfywim+Piddww/E?=
+ =?us-ascii?Q?74+AfzO/Im4BnXAjmgUPxi7GlL72Rbh8MtjbZ+vACzkkGQuYW3lFj4e1MMJ2?=
+ =?us-ascii?Q?mmqCpZHXoLhYfJwCP1blkrx/anw41QXFEX0p/nkUu/gaLiooO2Xdz10FWySv?=
+ =?us-ascii?Q?aEmYwsmeVoCf7PoGUlQjxRTXV8BYpXyBarVCvRcO3Yp1hKLX0C/D1NrT7iu7?=
+ =?us-ascii?Q?T2g/V2EjkEbAuh9/YMMkv+PIG5yvQDNhopok7+1VKNby6mhYeNtJk4WXy8YA?=
+ =?us-ascii?Q?KgtXvAVthQLk5qUqCnF+/yRXmAtDuKp7U4rMHhK9gd/rd177sjdxFMp1QS/V?=
+ =?us-ascii?Q?aVGm0jPi5GlexMCiYV9XuNXStWefhZYsi+J/Tl/40Jy3QFRfzXh31qJKmqxb?=
+ =?us-ascii?Q?vKlNXxXPU+eMcrKlWRLMg6Tm87UiM26VaY/H/M4u?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84d46a5c-bf31-4586-64d6-08ddb2944bd1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 20:26:55.5340
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kOql5BduuMc572Ack2qkWakri/BrscR3umP9hpROU40l7Dk6dRFet9KvEVly3nhZpI0r1Jd8uFHuXuUtX0oCGA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8973
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_132709_477976_1E1FE102 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20250623_132701_506046_B42FDD84 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,92 +163,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 at 18:39, Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> This is the start of the stable review cycle for the 5.10.239 release.
-> There are 355 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Wed, 25 Jun 2025 13:05:51 +0000.
-> Anything received after that time might be too late.
->
-> The whole patch series can be found in one patch at:
->         https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.10.239-rc1.gz
-> or in the git tree and branch at:
->         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.10.y
-> and the diffstat can be found below.
->
-> thanks,
->
-> greg k-h
+Convert lpc32xx-mlc.txt to yaml format.
 
-Regressions on arm64 tinyconfig builds with gcc-12 and clang failed on
-the Linux stable-rc 5.10.239-rc1.
+Additional changes:
+- add ref to nand-controller.yaml.
+- replace _ with - in property names.
 
-Regressions found on arm
-* arm64, build
-  - clang-20-allnoconfig
-  - clang-20-tinyconfig
-  - gcc-12-allnoconfig
-  - gcc-12-tinyconfig
-  - gcc-8-allnoconfig
-  - gcc-8-tinyconfig
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../devicetree/bindings/mtd/lpc32xx-mlc.txt   | 50 ------------
+ .../bindings/mtd/nxp,lpc3220-mlc.yaml         | 81 +++++++++++++++++++
+ 2 files changed, 81 insertions(+), 50 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/mtd/lpc32xx-mlc.txt
+ create mode 100644 Documentation/devicetree/bindings/mtd/nxp,lpc3220-mlc.yaml
 
+diff --git a/Documentation/devicetree/bindings/mtd/lpc32xx-mlc.txt b/Documentation/devicetree/bindings/mtd/lpc32xx-mlc.txt
+deleted file mode 100644
+index 64c06aa05ac71..0000000000000
+--- a/Documentation/devicetree/bindings/mtd/lpc32xx-mlc.txt
++++ /dev/null
+@@ -1,50 +0,0 @@
+-NXP LPC32xx SoC NAND MLC controller
+-
+-Required properties:
+-- compatible: "nxp,lpc3220-mlc"
+-- reg: Address and size of the controller
+-- interrupts: The NAND interrupt specification
+-- gpios: GPIO specification for NAND write protect
+-
+-The following required properties are very controller specific. See the LPC32xx
+-User Manual 7.5.14 MLC NAND Timing Register (the values here are specified in
+-Hz, to make them independent of actual clock speed and to provide for good
+-accuracy:)
+-- nxp,tcea_delay: TCEA_DELAY
+-- nxp,busy_delay: BUSY_DELAY
+-- nxp,nand_ta: NAND_TA
+-- nxp,rd_high: RD_HIGH
+-- nxp,rd_low: RD_LOW
+-- nxp,wr_high: WR_HIGH
+-- nxp,wr_low: WR_LOW
+-
+-Optional subnodes:
+-- Partitions, see Documentation/devicetree/bindings/mtd/mtd.yaml
+-
+-Example:
+-
+-	mlc: flash@200a8000 {
+-		compatible = "nxp,lpc3220-mlc";
+-		reg = <0x200A8000 0x11000>;
+-		interrupts = <11 0>;
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+-
+-		nxp,tcea-delay = <333333333>;
+-		nxp,busy-delay = <10000000>;
+-		nxp,nand-ta = <18181818>;
+-		nxp,rd-high = <31250000>;
+-		nxp,rd-low = <45454545>;
+-		nxp,wr-high = <40000000>;
+-		nxp,wr-low = <83333333>;
+-		gpios = <&gpio 5 19 1>; /* GPO_P3 19, active low */
+-
+-		mtd0@00000000 {
+-			label = "boot";
+-			reg = <0x00000000 0x00064000>;
+-			read-only;
+-		};
+-
+-		...
+-
+-	};
+diff --git a/Documentation/devicetree/bindings/mtd/nxp,lpc3220-mlc.yaml b/Documentation/devicetree/bindings/mtd/nxp,lpc3220-mlc.yaml
+new file mode 100644
+index 0000000000000..acc430db5244e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mtd/nxp,lpc3220-mlc.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mtd/nxp,lpc3220-mlc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP LPC32xx SoC NAND MLC controller
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++properties:
++  compatible:
++    const: nxp,lpc3220-mlc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  gpios:
++    maxItems: 1
++    description: GPIO specification for NAND write protect
++
++  nxp,tcea-delay:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: TCEA_DELAY in Hz
++
++  nxp,busy-delay:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: BUSY_DELAY in Hz
++
++  nxp,nand-ta:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: NAND_TA in Hz
++
++  nxp,rd-high:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: RD_HIGH in Hz
++
++  nxp,rd-low:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: RD_LOW in Hz
++
++  nxp,wr-high:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: WR_HIGH in Hz
++
++  nxp,wr-low:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: WR_LOW in Hz
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - gpios
++
++allOf:
++  - $ref: nand-controller.yaml
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    nand-controller@200a8000 {
++        compatible = "nxp,lpc3220-mlc";
++        reg = <0x200A8000 0x11000>;
++        interrupts = <11 0>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        nxp,tcea-delay = <333333333>;
++        nxp,busy-delay = <10000000>;
++        nxp,nand-ta = <18181818>;
++        nxp,rd-high = <31250000>;
++        nxp,rd-low = <45454545>;
++        nxp,wr-high = <40000000>;
++        nxp,wr-low = <83333333>;
++        gpios = <&gpio 5 19 1>; /* GPO_P3 19, active low */
++    };
+-- 
+2.34.1
 
-Regression Analysis:
- - New regression? Yes
- - Reproducibility? Yes
-
-Build regression: stable-rc 5.10.239-rc1 arm64 insn.h error use of
-undeclared identifier 'FAULT_BRK_IMM'
-
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-
-## Build errors
-arch/arm64/include/asm/insn.h:573:9: error: use of undeclared
-identifier 'FAULT_BRK_IMM'
-  573 |         return AARCH64_BREAK_FAULT;
-      |                ^
-arch/arm64/include/asm/insn.h:26:54: note: expanded from macro
-'AARCH64_BREAK_FAULT'
-   26 | #define AARCH64_BREAK_FAULT    (AARCH64_BREAK_MON |
-(FAULT_BRK_IMM << 5))
-      |                                                      ^
-arch/arm64/include/asm/insn.h:583:9: error: use of undeclared
-identifier 'FAULT_BRK_IMM'
-  583 |         return AARCH64_BREAK_FAULT;
-      |                ^
-arch/arm64/include/asm/insn.h:26:54: note: expanded from macro
-'AARCH64_BREAK_FAULT'
-   26 | #define AARCH64_BREAK_FAULT    (AARCH64_BREAK_MON |
-(FAULT_BRK_IMM << 5))
-      |                                                      ^
-2 errors generated.
-
-
-## Source
-* Kernel version: 5.10.239-rc1
-* Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-* Git sha: 7b5e3f5b0ebc00e3fd81739cee4390854bf954b5
-* Git describe: v5.10.238-356-g7b5e3f5b0ebc
-* Project details:
-https://regressions.linaro.org/lkft/linux-stable-rc-linux-5.10.y/v5.10.238-356-g7b5e3f5b0ebc/
-* Architectures: arm64
-* Toolchains: gcc-12, clang-20
-* Kconfigs: tinyconfig, allnoconfig
-
-## Build arm64
-* Build log: https://qa-reports.linaro.org/api/testruns/28836206/log_file/
-* Build details:
-https://regressions.linaro.org/lkft/linux-stable-rc-linux-5.10.y/v5.10.238-356-g7b5e3f5b0ebc/build/clang-20-tinyconfig/
-* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2yuYOGFXQjUoxSVcOdLsYPowznR/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2yuYOGFXQjUoxSVcOdLsYPowznR/config
-
---
-Linaro LKFT
-https://lkft.linaro.org
 
