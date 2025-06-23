@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF7CC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 07:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3C3C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 07:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=; b=vyT2pL3jqny5Tdo1/ehU2yofp2
-	OgarMPG+4If3uy/k8irNbFbhALN1pVlYDErbWohouDCm3k5ZCR1MDNbk52/ovpgZlg5j+O2J+P+7X
-	JBI8XsS9mxXmjM0yj9wPdkxW0pGN+mwqRg/+JaGP98qQ9G+oq+xA/q/ZiXNEdm6l8N4fXFhpyJ2dX
-	0dIXgtWK9l7Q6VcJ654Yl0sB/6uprM/UfWiz9ySH7p4/wN7cjvBNBsxANmOLeeskBUFZKS22VnfKs
-	eMladWas+byZ366GOvJcZvNP4YOustLnwd8Kyolpdw1E25DqEjA7r8EIXyP4qz4l+ZHi8+szftA5l
-	cucqJbaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yyHkTy+uItTnTq/uOBBEXSp08Q/IiHn0VP1wcMeZFag=; b=gIeEG4LxBMQIFQu3opKcxq6ZPI
+	KIrojVrSMqOPLYcJyGgvFcMYJe/94WGLfXk7krB6dtRudo3c8689mL2IJivXHnbbfKTGap/QuaTOp
+	oWLuFh7DhiWqkN8PmHlZb9mEFihM8RrdiAZ2Ii613QSRg/mVwPcGAHO0G2dpBKNJ0PC4OL2HxsZcs
+	i7JwZypdFcsuWTmO7sxPYyaLK9KfLp9r4zbagVhOuseJsQ3xR2ALBl2cHbbtebfWdesu/873O0+3M
+	AHM5kQRuorbWHHBPkClm5IHaWf/9Ihztk/LjalwmoIXecYNMVuHoqC/QEGM+JH8hqO895D2d/ZTiN
+	tdt1/p7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTbM3-00000001qCf-2axe;
-	Mon, 23 Jun 2025 07:12:35 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uTbUx-00000001r4n-2sL3;
+	Mon, 23 Jun 2025 07:21:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTbJ0-00000001pvS-0FGJ
+	id 1uTbSa-00000001qhl-3ft4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 07:09:27 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-450ddb35583so5444985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 00:09:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=innosonix.de; s=google; t=1750662564; x=1751267364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=;
-        b=N8xTVdwxyiOgRNWsC5VMoZNSJ+liE7wWZp/0mNjgNMcYKo1Al6dTEWIaOHTezBMQdo
-         g6hGQae/7HHriqJTfVBCq5zYHyH3M0fagTbzFSjyX1YBSDy7onlwFjyfDPiHFVhle/z3
-         xnDLylvq65xxd3AplDApL0FhTldkhngscWhILsgEqddi2RauPw/HUSeNGKIVQ9pII5lN
-         CTDqinoVQWJY3vz5LlKkd1A5+J1jwEkBrYkUoVSZoBU8PqHUaMt3fNKezaEYhvLxOCVz
-         Vu9wanvzTElXUULBFPPJuc4OojeKoSVqwCBIum8DWnM9frJxOqfuGcYbKJybokhfO1iN
-         OjtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750662564; x=1751267364;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8mPzUKR6pDs+YdmrnvyhwiipFzKzX/hjhdrnWp861tE=;
-        b=efCWMtIWGZDUyW18/onBOIkdwIrWgSoPrqyw8/rgJKsEzq6adiTacGeE/kt+g/3qrS
-         etuOiBf3j2L0o+VCP45aG4cdrhiDEx7jrS8pr9CKZG4kDQazJ7OzOGn2qm9RHkNNbyYF
-         VEJ8w/0qoaY6eeVpq8izLUR38KO7UVnJ9ei52TRSLBRwjdRXctJnHFI+bHaWHTXDqDAV
-         t0P8m5NNlWJC9w8rGL+fJU5FwHnQhQ6h+jREyUyrUvYPkXijE0f1lIyLefqZ5UuV6CQC
-         1l3bANx+y+pb4gewWezrvaEFjBeX3hwY4sZ6jCvYz4Kk2QHMH3Qb9E+9xdVoOZOoHejn
-         /K3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUYbhF62HxPn0pSdlSZom/GDV+38xbNOpkY7As5n0tedn7GvzSNVuNPvQK2qivIB8Z0wY4JC9j5YQyX7c1N2VAP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQTh4KeIPS16QDs8HquDYplduCp0C9IG5FRE6gDoWhLh8Tfej2
-	VOXunSIUE4Dk3OgY/1DNQYaAd0bhN1QMRtm5oh0PbtVc5J6WR6eh3EnZSq0sGXSY47aZylZfdJp
-	J9+Oss+iBK368vZwYIBw31ffMd0EuPyXgZa2rkwBHMFwZeG8rnNyJmIfUZXnmfhZFy4MqUw==
-X-Gm-Gg: ASbGnctJ3yIqFEM0mpKXUMIuHYRUsXW3rjXdO7+qWGamSqrdMfjWrJ96lbFptbBASOZ
-	p2xgX+5xu+8olyDkWXnn4aN7AYspVJbW4KBXyo+Br0ibVYvFWNEUHam0sA2IRcd7kOBeJHvY9pz
-	URvJn1IBD631XNeYpkrp+E68BAaeStHH0xTx7uiCbirhBolzf+Ika2lfRMpl8mSf0tKIms8PDEo
-	jf21YG9bdMA+eyEgH3CzyIUs+uQS15TMZFldWsh9L7cTDW5LjsfA+e5N+VbCggCAkYOkpe+O1cS
-	cQGQikAex+PuvxIcjtHG6b/0nP2fINr540maLs/qYinoZVPGO5HhfTdPOh5AOqWLdgg=
-X-Google-Smtp-Source: AGHT+IEI5NpQNUMy1aJAjdYtizFyZ4FhXhpX1D2RY5hWJP9EHsy+nQxupmDpC1IL2ETakmaeoEEB8g==
-X-Received: by 2002:a05:6000:210d:b0:3a4:eeeb:7e79 with SMTP id ffacd0b85a97d-3a6d1319d8dmr2308687f8f.12.1750662563989;
-        Mon, 23 Jun 2025 00:09:23 -0700 (PDT)
-Received: from steffen-linux.. ([24.134.20.169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646cb57fsm102070475e9.1.2025.06.23.00.09.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 00:09:23 -0700 (PDT)
-From: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>
-To: 
-Cc: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Mon, 23 Jun 2025 07:19:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 113DD4A86E;
+	Mon, 23 Jun 2025 07:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957F3C4CEED;
+	Mon, 23 Jun 2025 07:19:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1750663159;
+	bh=avq5GSOpmlAjDpFvdLk3ekAvTWbX29Z9+MPrZVT0QmM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L3CB5ov49BFO3mcFgc1jfxdnpFJ8pU813wFSa11t6BFh8aj/LDIhjwUKpcO03X+dx
+	 Mngjod4kQru3gGTO4OuTcKx4TZDiBHEPa1WnaA+M1E44RnyrIs8U6XA0LXVmO4SGoI
+	 EQbdlbm95hIQ7WCMdqd3HkRdHOqnqbg3fYySh7NQ=
+Date: Mon, 23 Jun 2025 09:19:13 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Steffen =?iso-8859-1?Q?B=E4tz?= <steffen@innosonix.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] nvmem: imx-ocotp: fix MAC address byte length
-Date: Mon, 23 Jun 2025 09:08:49 +0200
-Message-ID: <20250623070901.1733755-1-steffen@innosonix.de>
-X-Mailer: git-send-email 2.43.0
+	Dmitry Baryshkov <lumag@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] nvmem: imx-ocotp: fix MAC address byte length
+Message-ID: <2025062357-pulp-unlaced-cdd9@gregkh>
+References: <20250623070901.1733755-1-steffen@innosonix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250623070901.1733755-1-steffen@innosonix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_000926_124708_7F43E183 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250623_001920_966031_E2D46436 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,71 +73,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
-extension of the "mac-address" cell from 6 to 8 bytes due to word_size
-of 4 bytes.
+On Mon, Jun 23, 2025 at 09:08:49AM +0200, Steffen Bätz wrote:
+> The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
+> extension of the "mac-address" cell from 6 to 8 bytes due to word_size
+> of 4 bytes.
+> 
+> Thus, the required byte swap for the mac-address of the full buffer length,
+> caused an trucation of the read mac-address.
+> >From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
+> 
+> After swapping only the first 6 bytes, the mac-address is correctly passed
+> to the upper layers.
+> 
+> Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
+> Signed-off-by: Steffen Bätz <steffen@innosonix.de>
+> ---
+>  drivers/nvmem/imx-ocotp-ele.c | 2 ++
+>  drivers/nvmem/imx-ocotp.c     | 2 ++
+>  2 files changed, 4 insertions(+)
+> 
+> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+> index ca6dd71d8a2e..3af7968f5a34 100644
+> --- a/drivers/nvmem/imx-ocotp-ele.c
+> +++ b/drivers/nvmem/imx-ocotp-ele.c
+> @@ -119,6 +119,8 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+>  
+>  	/* Deal with some post processing of nvmem cell data */
+>  	if (id && !strcmp(id, "mac-address"))
+> +		if (bytes > 6)
+> +			bytes = 6;
+>  		for (i = 0; i < bytes / 2; i++)
+>  			swap(buf[i], buf[bytes - i - 1]);
+>  
+> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+> index 79dd4fda0329..63e9974d9618 100644
+> --- a/drivers/nvmem/imx-ocotp.c
+> +++ b/drivers/nvmem/imx-ocotp.c
+> @@ -228,6 +228,8 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+>  
+>  	/* Deal with some post processing of nvmem cell data */
+>  	if (id && !strcmp(id, "mac-address"))
+> +		if (bytes > 6)
+> +			bytes = 6;
+>  		for (i = 0; i < bytes / 2; i++)
+>  			swap(buf[i], buf[bytes - i - 1]);
+>  
+> -- 
+> 2.43.0
+> 
+> 
+> -- 
 
-Thus, the required byte swap for the mac-address of the full buffer length,
-caused an trucation of the read mac-address.
-From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
+Hi,
 
-After swapping only the first 6 bytes, the mac-address is correctly passed
-to the upper layers.
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
 
-Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
-Signed-off-by: Steffen B=C3=A4tz <steffen@innosonix.de>
----
- drivers/nvmem/imx-ocotp-ele.c | 2 ++
- drivers/nvmem/imx-ocotp.c     | 2 ++
- 2 files changed, 4 insertions(+)
+You are receiving this message because of the following common error(s)
+as indicated below:
 
-diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index ca6dd71d8a2e..3af7968f5a34 100644
---- a/drivers/nvmem/imx-ocotp-ele.c
-+++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -119,6 +119,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
-*id, int index,
-=20
- 	/* Deal with some post processing of nvmem cell data */
- 	if (id && !strcmp(id, "mac-address"))
-+		if (bytes > 6)
-+			bytes =3D 6;
- 		for (i =3D 0; i < bytes / 2; i++)
- 			swap(buf[i], buf[bytes - i - 1]);
-=20
-diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-index 79dd4fda0329..63e9974d9618 100644
---- a/drivers/nvmem/imx-ocotp.c
-+++ b/drivers/nvmem/imx-ocotp.c
-@@ -228,6 +228,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
-*id, int index,
-=20
- 	/* Deal with some post processing of nvmem cell data */
- 	if (id && !strcmp(id, "mac-address"))
-+		if (bytes > 6)
-+			bytes =3D 6;
- 		for (i =3D 0; i < bytes / 2; i++)
- 			swap(buf[i], buf[bytes - i - 1]);
-=20
---=20
-2.43.0
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
 
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
 
---=20
+thanks,
 
-
-*innosonix GmbH*
-Hauptstr. 35
-96482 Ahorn
-central: +49 9561 7459980
-www.innosonix.de <http://www.innosonix.de>
-
-innosonix GmbH
-Gesch=C3=A4ftsf=C3=BChrer:=20
-Markus B=C3=A4tz, Steffen B=C3=A4tz
-USt.-IdNr / VAT-Nr.: DE266020313
-EORI-Nr.:=20
-DE240121536680271
-HRB 5192 Coburg
-WEEE-Reg.-Nr. DE88021242
+greg k-h's patch email bot
 
