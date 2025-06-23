@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76446C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD5DC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpEBy0jOsHwPp2AMdHOGAyhQpQmhIZuo0GX5sSx4urU=; b=b9Y1cnQyN5o+oZ8NRLP4An0CP+
-	DCAcbuEmgiT6s8t4afOW4MlmFvZj1XX6WXLiQdwIdeqO5HPDrTHEknzW7q3DhdGHZRfO+qgT2R6BB
-	ncfgEbYFJjXPuBuMjKuyFpCoP1YkNtMpHDHFPArUhCxvoQ3ZYpAch++6EHXbXq2JzqitIEx6vgJ7E
-	/JisgPrGWF00R5pUbgtuxwv+4tY2s6M4RRoqLxL8spJpDiKLTimhpHOjp/HpdD3KezC6FKXyQjtNb
-	zWYEKDSzG7GSn8tmc5/R0SNbfL5xQt9q3rrvl9xbrNeSj7mJR1bf2WH2iMYAh4IPlSguSGGIFrWqm
-	I9qteLEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gz8t2oZkkwfZO8pX28gYQB4KOa728jeU/jhzTTj6UZc=; b=djWq4rmIgpWQCX1eV86ttXXI/x
+	WmtwpWBbE69yCu2AUQG7hTW2QtFkIuNuTWlvAZNt7EAf0HIju5KF4FvhHFHjwvmsHfCoNPwvw60j6
+	Q0XTcxqj9EUm9DwnLDHs4IuBpTrRRcxp7A0MZ8NdogXiWGc16XFVNQnSpGH8dXACAGDrNGXYdi2La
+	ZhD53npr30ablBt3r6zQ01HS5khgwqoPqwOAwW/sfiRbX0puDBhYvRaA3S6D9RImv194j8TcMPo8b
+	0TmqqEVAye95+AQ4iJc0afdSpUpcFjwBMalxEwucuqa1OfchrnpXfONn9EJB2q7+UdKpzK2uP0YuO
+	68/81etQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdLv-000000029QQ-02Tg;
-	Mon, 23 Jun 2025 09:20:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uTdOF-000000029wL-01cY;
+	Mon, 23 Jun 2025 09:22:59 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTd7a-000000026dT-3HmC
+	id 1uTdCm-000000027pa-2Mse
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:05:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AE82D5C58FA;
-	Mon, 23 Jun 2025 09:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D786BC4CEEA;
-	Mon, 23 Jun 2025 09:05:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750669545;
-	bh=UQtpKkCNK/ydA/BGLNBKX3hmfJ58T1rD0l8E43Ckjyw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RdwNAsk/8b7WLbAxEMp1SS3DyQKQ4MKz8D03+cE6S+ArTXiVisYG9wF410ACpoqq2
-	 MQjJwmiG0UCQ9jSboMnpuA3UlOnCywiOifZjOSNHRTgkvf03uUhA72Veum88iRVuCc
-	 pNoYneMfGqzCKBbLfvIERKnD3u9We8NU2Hsc5Qeob0BpKl5CP3Fb+csjI7qoTqLJrX
-	 SEpQAmhfLNvjZq/Kxp2DXUduqy0iEmUBWJgmA2rJVx3iXl6keckrbZK9DLhkt/8Tkm
-	 A3bRxUsGauu5MdlqZR9oAfJ6PBMqi45NuQxLLlAwlTf+OdwI4h4zi8yJjOVSuo7LYj
-	 Iye6m91OBcEjw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uTd7X-0097hz-BJ;
-	Mon, 23 Jun 2025 10:05:43 +0100
-Date: Mon, 23 Jun 2025 10:05:42 +0100
-Message-ID: <868qliddzt.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Raghavendra Rao Ananta <rananta@google.com>,
-	Mingwei Zhang <mizhang@google.com>,
+	Mon, 23 Jun 2025 09:11:11 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-453486940fdso1325285e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 02:11:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750669867; x=1751274667; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gz8t2oZkkwfZO8pX28gYQB4KOa728jeU/jhzTTj6UZc=;
+        b=kGIyz/8KbaMRDJiMwMyG5cWqFESZ4pNJNEv65ybgexvDll1ve9B0Jj6HdoI5cto4eY
+         HW+fObyKpRmCvbUYF60pnjTLpsCbJAF/d+mz3C4KFEf2LRRYp7Y7+8f3HX/wBlHYlgWA
+         JwOMk0ULg0AVKwEBl5lgr1iy4NgEdFrBHL1zkC9iDTagBZXIPKarsXXCJCV7hqPKqGHx
+         XFeKrQhpjr7JNVIB7glPM8579BNj8xGSzGyHkB9F+IB3UuzsY2/t2yQ/5zFLNu79iS+8
+         W+rpBjHDkLvu0G4K3lrbK/mU7wIe57xoaVkdfMxd9cTVNR/Q6ZLttceeomGcKZHBP1AP
+         y/0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750669867; x=1751274667;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Gz8t2oZkkwfZO8pX28gYQB4KOa728jeU/jhzTTj6UZc=;
+        b=NiCrfdT5njPa1QDVXnbZmjVcgLM3uS2s2qMX8J6pIvKpsC69CXBkj3grsnFCLtsTLa
+         Y5t5xMk5eJbriCGVK8bpcf1wi+aa/ObMDJ6WHFAQnc4bKtdYY2T9+CbP1zW6C+xnvihU
+         uMjDnLgbTVPHLejLdoHttrn3rbWeG8eekdiJfPDHPk52ckn/KBhBzosO/e/tOB9+HZrq
+         iFjqSfZDZU4Lp6dr2X2GVsM2ftaCEOLsN8ax7X/Hyd9QkAErtHKl+hchh0kaTsQN4+UO
+         yfrq7dGVxMaqZvVT8TPSLePNqTYKl6vnD9MOsqcylo+FMoOSeyom6tQvB4jxskja9yj1
+         2ohw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2ugdDYXVoGWRXDNWV0DPhHw3yWiY2enrCVm0BRVjcPAny2ThIZhPQmUELARCZsrzKlko6y2m6BY0a+D5gTLJS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyk8Ub00KTEozFtv/JslddpCIFO5roq4vw0QdTp88pmuksqesEV
+	eQz2HmQtC0kcu9E8Hq4S2DRsGs7kYd4O4zlDYEyfm2sUrTkWvi56kr7U
+X-Gm-Gg: ASbGncv0ebgIGpyt3UhWbysBIL6lnQ5Amx2qflIHb6AYv+XMDAdoSL2UQTVCCxT2K3M
+	SP7TCqUVA5IB19iyfisaPj13AoP6NTlLhV+/+Hcj1LwkGcg1Wv2vwieDhUd0zC9WfZOKfKz9UxU
+	+Y7d5efgwaJ/i72a7xponAZctoHKwHKBAshjKSQ3S9uyN2Yh/X7P4vo/3JRRv5LVEbNG0qj3xEz
+	7YK4XLcmNDa6AiRISlP6zMdaUzACxNV4obyHwEcemnsB01wlcSkgJvswEhGriflnTKQ62ORZcYB
+	akCOCRhIQjyzGsT+nEb84bzyFerGLUil1pd2LwJtGFHeK6Dy8fAwqcQ5/6vJm4ap/ciTSRp9wn3
+	wqauWLuLS2ha9mfVP2WmvV4Wugw==
+X-Google-Smtp-Source: AGHT+IGDWWZaT403xBnNIukKkNikvHSsmJYoL9MI3srvKJv2z/ou2KLsn00R7ev+p8rY646+IShMCw==
+X-Received: by 2002:a05:600c:4685:b0:442:e608:12a6 with SMTP id 5b1f17b1804b1-453653d3d5cmr41354345e9.1.1750669866408;
+        Mon, 23 Jun 2025 02:11:06 -0700 (PDT)
+Received: from thomas-precision3591.imag.fr ([2001:660:5301:24:9a26:612f:7b52:ee76])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4536466596asm107683615e9.0.2025.06.23.02.11.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 02:11:06 -0700 (PDT)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v3 3/4] KVM: arm64: Introduce attribute to control GICD_TYPER2.nASSGIcap
-In-Reply-To: <aFkTDmj9u1ERnvHO@linux.dev>
-References: <20250613155239.2029059-1-rananta@google.com>
-	<20250613155239.2029059-4-rananta@google.com>
-	<87frftfpg7.wl-maz@kernel.org>
-	<aFkTDmj9u1ERnvHO@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, rananta@google.com, mizhang@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: sun8i-ce: Fix `dma_unmap_sg()` nents value
+Date: Mon, 23 Jun 2025 11:10:06 +0200
+Message-ID: <20250623091009.65436-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_020546_906207_D5FDAD91 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20250623_021108_608646_1B7EAE0F 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 09:40:46 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Sat, Jun 21, 2025 at 09:50:48AM +0100, Marc Zyngier wrote:
-> > On Fri, 13 Jun 2025 16:52:37 +0100, Raghavendra Rao Ananta <rananta@google.com> wrote:
-> > > @@ -683,8 +714,14 @@ static int vgic_v3_has_attr(struct kvm_device *dev,
-> > >  			return 0;
-> > >  		case KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES:
-> > >  			return 0;
-> > > +		default:
-> > > +			return -ENXIO;
-> > >  		}
-> > > +	case KVM_DEV_ARM_VGIC_GRP_FEATURES:
-> > > +		return attr->attr != KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap ?
-> > > +		       -ENXIO : 0;
-> > 
-> > Do we really want to advertise KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap even
-> > when we don't have GICv4.1? This seems rather odd. My take on this API
-> > is that this should report whether the feature is configurable, making
-> > it backward compatible with older versions of KVM.
-> 
-> So this was because of me, as I wanted nASSGIcap to behave exactly like
-> the ID registers. I do think exposing the capability unconditionally is
-> useful, as otherwise there's no way to definitively say whether or not
-> the underlying platform supports GICv4.1.
-> 
-> KVM_HAS_DEVICE_ATTR can't be used alone for probing since old kernels
-> use GICv4.1 but don't expose the attribute.
-> 
-> Does that make sense?
+The `dma_unmap_sg()` functions should be called with the same nents as the
+`dma_map_sg()`, not the value the map function returned.
 
-My own reasoning is that if we expose the capability, userspace is
-able to use it and rely on it to take effect (VPE allocation error
-notwithstanding). This is not the case with this approach, and that's
-at odds with the other attributes.
+Fixes: 0605fa0f7826 ("crypto: sun8i-ce - split into prepare/run/unprepare")
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-But taking a step back: if we want to control the nASSGIcap bit, why
-don't we allow writing to GICD_TYPER2 from userspace? This does
-matches your view that we treat it as an ID register (GICD_TYPER2
-matches this definition if you squint hard enough). It also avoids
-adding new UAPI with unusual semantics.
-
-Has this been considered?
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+index f9cf00d690e2..ce9d071f5693 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+@@ -326,8 +326,8 @@ static void sun8i_ce_cipher_unprepare(struct crypto_engine *engine,
+ 	struct sun8i_ce_flow *chan;
+ 	struct ce_task *cet;
+ 	unsigned int ivsize, offset;
+-	int nr_sgs = rctx->nr_sgs;
+-	int nr_sgd = rctx->nr_sgd;
++	int ns = sg_nents_for_len(areq->src, areq->cryptlen);
++	int nd = sg_nents_for_len(areq->dst, areq->cryptlen);
+ 	int flow;
+ 
+ 	flow = rctx->flow;
+@@ -336,11 +336,11 @@ static void sun8i_ce_cipher_unprepare(struct crypto_engine *engine,
+ 	ivsize = crypto_skcipher_ivsize(tfm);
+ 
+ 	if (areq->src == areq->dst) {
+-		dma_unmap_sg(ce->dev, areq->src, nr_sgs, DMA_BIDIRECTIONAL);
++		dma_unmap_sg(ce->dev, areq->src, ns, DMA_BIDIRECTIONAL);
+ 	} else {
+-		if (nr_sgs > 0)
+-			dma_unmap_sg(ce->dev, areq->src, nr_sgs, DMA_TO_DEVICE);
+-		dma_unmap_sg(ce->dev, areq->dst, nr_sgd, DMA_FROM_DEVICE);
++		if (rctx->nr_sgs > 0)
++			dma_unmap_sg(ce->dev, areq->src, ns, DMA_TO_DEVICE);
++		dma_unmap_sg(ce->dev, areq->dst, nd, DMA_FROM_DEVICE);
+ 	}
+ 
+ 	if (areq->iv && ivsize > 0) {
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
