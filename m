@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C062C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF9BC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6NXSanu83dX54+JJjP16cMXc8cDDNffkaxggPTCLWA=; b=o/WVvPvQY9s38U4L2RZ74A2oh2
-	iuqib/QfHWKed0mkGi2gjuuFeSUSakSw10GFLKJui8BLkPv5A+FhirSJV7J0Xp2Bu6DpgbpQSt4k/
-	Lh/n1watHmEiR+pWQEK53vYRit8vz2zXvY8oSQGXAWNm3dX2aWP33vWE232qRhEFCdDwFIyZgpktV
-	uYQ3vLP5ywdQ8+fLApi9VFQ7TFqH6aj81BLt2e5UUfyP4DSrQhRKoD79hFvZgAAHws6Mml0inMLfE
-	NSHLf5XfJoTcHuLs9A2eagdxK7Y0xMN2MK8BGV6ay0Wh8PAlqadaTpK1feYHPq0laSg9iGu8MlFF/
-	mWabAJgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rdv1PxmvFCh9wiNgGRosrM0Uc3xj+4CFvasqWSPAQqQ=; b=2tDdUzOrJGASGhXjWyEyq+wiSh
+	huf2EBod/GFkIPhjMpaDHfMGtxrT0Lsn92Z8e9rP4+tN6PRc9CMiKDD6nHrw2cG3uL7I5yO7507II
+	A2gcRjZZtEwEUKKPP7neaTTZq3xQDvOGfvLkGoGr6/3PnCYVsk2CaahaT/2Q3E02sqZlBbg9Vlj+n
+	4oFrzgiSy9r8h93SjRtcmwgQ2GdgPxuR03GmeQqht2JTci38bFgootBURwrXrLEBEc3CV2zCRhFaQ
+	BRmRBEEVPMpNYme8BjCm8P3lEd5nNKmro/dwxUBTQrZ2QCyIMYGnU2OxHlpofWFyHO7OlnGTzyJDj
+	5Hg+Jd4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTf00-00000002TY5-0bcR;
-	Mon, 23 Jun 2025 11:06:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uTf4a-00000002TvL-3Inz;
+	Mon, 23 Jun 2025 11:10:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeAV-00000002JIU-3sMe;
-	Mon, 23 Jun 2025 10:12:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4492DA5109F;
-	Mon, 23 Jun 2025 10:12:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7F9C4CEEA;
-	Mon, 23 Jun 2025 10:12:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750673570;
-	bh=ExnjUdK3o3V8JO7BKifNCHsFEL5+cTDvCzznc0e+CIw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EBlE5ybKSu1rLcbTXXI3HgTUqxf0bccQjD17XemEfn9oZZoTPKImPs6anBi9PoEBP
-	 Jmvkc9ITMdIoVob4hp+yF00wzU4w9BUC4SZEY2sg0LZcIvdFeG8jYFoUldD2RoAdUB
-	 SdnGIAUm/0lA3aJ57/3ewjwRO/DBFWePZ5xhdfY3VxPSspoI6iDG3j5N+iSSl6TH/1
-	 2nJq8FNAyMs6muppcoHOtJQHO4BZ9ZZgVPqZy+S83U5m+b24fUBNuJJzd5kIYJ1cfH
-	 oMj4f2OOyIDTKT6SKuf9ApmGeO85i8WFJx4ZTX4f1JSY7TMw+dabKiU9X+81PGsPCd
-	 bNzh0MW/zxn6w==
-Date: Mon, 23 Jun 2025 12:12:44 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>,
-	Kever Yang <kever.yang@rock-chips.com>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>, Simon Xue <xxm@rock-chips.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v3 0/6] PCI: dwc: Do not enumerate bus before endpoint
- devices are ready
-Message-ID: <aFkonAnTZN80jsrP@ryzen>
-References: <20250613124839.2197945-8-cassel@kernel.org>
+	id 1uTdXB-00000002BPt-1Ite;
+	Mon, 23 Jun 2025 09:32:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750671131;
+	bh=Uh1SmrFE3wdw/cPkwQjay39ohrqiBFdxOB2U7Xc19d8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B2AkBD2+MPg1Miz03CgmE94LPkTv+3zBIl2so/3V/ZZDm7qxsKOhnnN4SGNHxBCXP
+	 xcgnJEfiLj4/pdM9jaw+0GvsUIkVLMxrB2RXW5BnBL/9Ad3QCfUq0jZ071XFy4xbVq
+	 P8nFJTXbg428VGkr98cZfUmEeoBw7clNt8AMSZfvCFWhbO+13kply1YnVUpMpHcZR6
+	 363+CagJx8mjHgkAxSFXKc2yq/7GeeGCzSx2PT3GN/jVQfza7kHozxhJyXhGwuaLc8
+	 AmuB01YrL4whEGQ3JWwzFXCNmx9ejr3z+22vjZPl6tVsuwFb3Wmii62QElaPHBFg3N
+	 TBFx4vB8zwIHA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6AD1E17E05BD;
+	Mon, 23 Jun 2025 11:32:10 +0200 (CEST)
+Message-ID: <61ed8a51-9714-482f-ae92-184a991560ce@collabora.com>
+Date: Mon, 23 Jun 2025 11:32:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250613124839.2197945-8-cassel@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/13] arm64: dts: mediatek: mt7988: add switch node
+To: Frank Wunderlich <linux@fw-web.de>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250620083555.6886-1-linux@fw-web.de>
+ <20250620083555.6886-8-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250620083555.6886-8-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_031252_028704_790E2858 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250623_023213_497062_C517AC5A 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,48 +93,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 02:48:39PM +0200, Niklas Cassel wrote:
-> Hello all,
+Il 20/06/25 10:35, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> The DWC PCIe controller driver currently does not follow the PCIe
-> specification with regards to the delays after link training, before
-> sending out configuration requests. This series fixes this.
+> Add mt7988 builtin mt753x switch nodes.
 > 
-> At the same time, PATCH 1/4 addresses a regression where a Plextor
-> NVMe drive fails to be configured correctly. With this series, the
-> Plextor NVMe drive works once again.
-> 
-> 
-> Kind regards,
-> Niklas
-> 
-> 
-> Changes since v2:
-> -Rename PCIE_RESET_CONFIG_DEVICE_WAIT_MS to PCIE_RESET_CONFIG_WAIT_MS.
-> 
-> 
-> Niklas Cassel (6):
->   PCI: Rename PCIE_RESET_CONFIG_DEVICE_WAIT_MS to
->     PCIE_RESET_CONFIG_WAIT_MS
->   PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_WAIT_MS
->   PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
->   PCI: qcom: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
->   PCI: dwc: Ensure that dw_pcie_wait_for_link() waits 100 ms after link
->     up
->   PCI: dwc: Reduce LINK_WAIT_SLEEP_MS
-> 
->  drivers/pci/controller/dwc/pcie-designware.c  | 13 ++++++++++++-
->  drivers/pci/controller/dwc/pcie-designware.h  | 13 +++++++++----
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c |  1 +
->  drivers/pci/controller/dwc/pcie-qcom.c        |  1 +
->  drivers/pci/controller/pcie-rockchip-host.c   |  2 +-
->  drivers/pci/controller/plda/pcie-starfive.c   |  2 +-
->  drivers/pci/pci.h                             |  9 +--------
->  7 files changed, 26 insertions(+), 15 deletions(-)
-> 
-> -- 
-> 2.49.0
-> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-Gentle ping
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+
 
