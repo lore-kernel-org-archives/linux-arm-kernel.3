@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02126C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D00C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HBO5CcGznAwIN9/5B2PE/8D6YEy4TOPnjiqgMTrUWDI=; b=zYEMrJcRncPdzUUSLRQbN+v15k
-	90k1y3aMB92P+sqyW+bXAZox7sOVKnZI9NoUQe0is+Q7AL71tL3iPHdhGpQmwjRyl7d6rKsGCSyr7
-	/4AW1Fh6JXMC5dFS5CO/lDARIZxgMDabjEDpJWzlczPLsu8ZDyKROt2lx9jcEWDXXRkQcAOogjykJ
-	mZwdj/W5x+aaANKgDBrvaHlHrWfuR9TKJbyT8KfiJazr1ZJMiCJ1TBJG/hiHQCbMgRHHdG7m6roWa
-	b1x0SOh/ByevO2G2XAZJ3qpThcOtgfbFg1sEpiSRiceRdNZjW1VS1VnXN4gljJztxjDy+9YDfbEUq
-	yJWKc6kA==;
+	bh=Nvmlz/szUKhZfL+w1pU1U3K7BfxJcHPUJb8u76uf5A0=; b=M8bK5t+DzjawS9pIRwyqK/q5eV
+	D5p6+RlrPlTZ6x9oVFQR3atfPVEROenTvx13POxX+hTTtMKiL+86oWaBRAMssBn+f2Ehj8gEr4+oR
+	GChOVsdnaqrgkZhAXuGUfGu04W4lRN0A01/q4DBS74346qBpQCSILmzN8ebYlDROOiLCEXBWBdntm
+	Jl+izF9Vz5UsxrkugtdvkjLPuf0AaDUhtjcQewSPg/aI+9YZ0VLc517RXPAi17AtJVhKrksiFC5Hr
+	Z3G6PzsuX7C/UOXTPSdAcQj4vekZ2gaZltN5kkPZkP47Zlx+Gqd9t6UyBFiI5Lt/GhHkpJ8NbhRyR
+	QeZQfeiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkyR-00000003YkX-0Bi0;
-	Mon, 23 Jun 2025 17:28:51 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uTl0k-00000003ZFv-3eJl;
+	Mon, 23 Jun 2025 17:31:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThvb-00000002zyb-3F6B
+	id 1uThvf-00000002zzA-2qYO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Jun 2025 14:13:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Nvmlz/szUKhZfL+w1pU1U3K7BfxJcHPUJb8u76uf5A0=; b=lbv5kf3PTGr7FTug/5WdrgKoD8
+	wGWhlihGufXn3EG5At4Da7uMxi5sdXV6T4ZZWYafy5tH7UjrvSMHhx7gQ9bWDmZ9j5vnMy2MGdfLk
+	Y76xdVRxxmcnLnlB7sH6mA8wiTWWryUyQEShXBm6WnoPl4/o1YB2FhjnoYPSu0jLi2VOSQWnDDrZu
+	j9BrIDBslUXylPNsVduApaNt2kppS7ygls3/A1MT2BUkkIUup1nQYcIvk4q4Liz6icFUvVM/R0iHr
+	i1SsBSfzy35rRdsvuvWO8Sn+LVWER0L9fHlysXDKDTW2LcKDPocd2wACXUw2sCUk84a6M1ty9iGJh
+	QvZke0Rg==;
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uThvZ-00000005Enb-2Qoo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:13:44 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NEDfXP1572848;
-	Mon, 23 Jun 2025 09:13:41 -0500
+	Mon, 23 Jun 2025 14:13:45 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NEDPHZ904973;
+	Mon, 23 Jun 2025 09:13:25 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750688021;
-	bh=HBO5CcGznAwIN9/5B2PE/8D6YEy4TOPnjiqgMTrUWDI=;
+	s=ti-com-17Q1; t=1750688005;
+	bh=Nvmlz/szUKhZfL+w1pU1U3K7BfxJcHPUJb8u76uf5A0=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=StueOXpHNQaE00rRvhj734lNU3Lxn03jzgWzvCmgFWcNdbs2XUv6htG9576+W4gEn
-	 IGAXQV9zTh7zYuHAy7o46/gckIHZ6ejEt+p2yWtEQvkNttJpFqPn4P9sfpoMHQKgHk
-	 VGmuymaOjuigJ6gN7gZlYks4C9MQ9UKusbX0Shuo=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NEDf8u574429
+	b=TpM1/Udbnf2pQ96SWlpCUx3dTyOslg7BhrnDY4g+GR4lga8cR8pRZJ+K4Hv3bEOfc
+	 IIr27fLJLUNMCueqEs2kREyRfNSHKRzJUcAljHinzkgFvfOz5xXHgqVPPN52PhReOu
+	 uHLy8nn04W1mA0D05LUzinZJ1JEjTnxNjl/ohMQg=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NEDPdB3299803
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 23 Jun 2025 09:13:41 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 23 Jun 2025 09:13:25 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
- Jun 2025 09:13:41 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 09:13:24 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 23 Jun 2025 09:13:41 -0500
+ Frontend Transport; Mon, 23 Jun 2025 09:13:24 -0500
 Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NEDe783987722;
-	Mon, 23 Jun 2025 09:13:41 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NEDOik3987465;
+	Mon, 23 Jun 2025 09:13:24 -0500
 From: Paresh Bhagat <p-bhagat@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -59,9 +74,9 @@ CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
         <devarsht@ti.com>
-Subject: [PATCHv4 6/6] arm64: dts: ti: Add eMMC support for AM62D
-Date: Mon, 23 Jun 2025 19:42:53 +0530
-Message-ID: <20250623141253.3519546-7-p-bhagat@ti.com>
+Subject: [PATCHv4 1/6] arm64: dts: ti: Add bootph property to nodes at source for am62a
+Date: Mon, 23 Jun 2025 19:42:48 +0530
+Message-ID: <20250623141253.3519546-2-p-bhagat@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250623141253.3519546-1-p-bhagat@ti.com>
 References: <20250623141253.3519546-1-p-bhagat@ti.com>
@@ -70,8 +85,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_071343_899492_6CC9CD16 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250623_151342_132264_F834C43A 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +101,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary device tree node for eMMC controller along with the
-required pinmux configuration.
+Add bootph property directly into the original definitions of relevant
+nodes (e.g., power domains, USB controllers, and other peripherals)
+within their respective DTSI files (ex. main, mcu, and wakeup)i for
+am62a.
+
+By defining bootph in the nodes source definitions instead of appending
+it later in final DTS files, this change ensures that the property is
+inherently present wherever the nodes are reused across derived device
+trees.
 
 Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 27 ++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi   | 15 +++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi    |  1 +
+ arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi |  3 +++
+ arch/arm64/boot/dts/ti/k3-am62a.dtsi        |  3 +++
+ 4 files changed, 22 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index c98e4c98c956..5ceecdd68b3f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -20,6 +20,7 @@ aliases {
- 		serial0 = &wkup_uart0;
- 		serial1 = &mcu_uart0;
- 		serial2 = &main_uart0;
-+		mmc0 = &sdhci0;
- 		mmc1 = &sdhci1;
- 		rtc0 = &wkup_rtc0;
- 		ethernet0 = &cpsw_port1;
-@@ -226,6 +227,22 @@ AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
- 		>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+index 63e097ddf988..1b7fe4487475 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+@@ -51,6 +51,7 @@ phy_gmii_sel: phy@4044 {
+ 			compatible = "ti,am654-phy-gmii-sel";
+ 			reg = <0x4044 0x8>;
+ 			#phy-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		epwm_tbclk: clock-controller@4130 {
+@@ -84,6 +85,7 @@ dmss: bus@48000000 {
+ 		#size-cells = <2>;
+ 		dma-ranges;
+ 		ranges = <0x00 0x48000000 0x00 0x48000000 0x00 0x06000000>;
++		bootph-all;
+ 
+ 		ti,sci-dev-id = <25>;
+ 
+@@ -96,6 +98,7 @@ secure_proxy_main: mailbox@4d000000 {
+ 			#mbox-cells = <1>;
+ 			interrupt-names = "rx_012";
+ 			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
++			bootph-all;
+ 		};
+ 
+ 		inta_main_dmss: interrupt-controller@48000000 {
+@@ -131,6 +134,7 @@ main_bcdma: dma-controller@485c0100 {
+ 			ti,sci-rm-range-bchan = <0x20>; /* BLOCK_COPY_CHAN */
+ 			ti,sci-rm-range-rchan = <0x21>; /* SPLIT_TR_RX_CHAN */
+ 			ti,sci-rm-range-tchan = <0x22>; /* SPLIT_TR_TX_CHAN */
++			bootph-all;
+ 		};
+ 
+ 		main_pktdma: dma-controller@485c0000 {
+@@ -167,6 +171,7 @@ main_pktdma: dma-controller@485c0000 {
+ 						<0x2c>, /* FLOW_CPSW_RX_CHAN */
+ 						<0x2e>, /* FLOW_SAUL_RX_0/1_CHAN */
+ 						<0x32>; /* FLOW_SAUL_RX_2/3_CHAN */
++			bootph-all;
+ 		};
  	};
  
-+	main_mmc0_pins_default: main-mmc0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x0220, PIN_INPUT_PULLUP, 0) /* (Y6) MMC0_CMD */
-+			AM62DX_IOPAD(0x0218, PIN_OUTPUT, 0) /* (AB7) MMC0_CLK */
-+			AM62DX_IOPAD(0x0214, PIN_INPUT_PULLUP, 0) /* (AA6) MMC0_DAT0 */
-+			AM62DX_IOPAD(0x0210, PIN_INPUT_PULLUP, 0) /* (AB6) MMC0_DAT1 */
-+			AM62DX_IOPAD(0x020c, PIN_INPUT_PULLUP, 0) /* (Y7) MMC0_DAT2 */
-+			AM62DX_IOPAD(0x0208, PIN_INPUT_PULLUP, 0) /* (AA7) MMC0_DAT3 */
-+			AM62DX_IOPAD(0x0204, PIN_INPUT_PULLUP, 0) /* (Y8) MMC0_DAT4 */
-+			AM62DX_IOPAD(0x0200, PIN_INPUT_PULLUP, 0) /* (W7) MMC0_DAT5 */
-+			AM62DX_IOPAD(0x01fc, PIN_INPUT_PULLUP, 0) /* (W9) MMC0_DAT6 */
-+			AM62DX_IOPAD(0x01f8, PIN_INPUT_PULLUP, 0) /* (AB8) MMC0_DAT7 */
-+		>;
+@@ -216,20 +221,24 @@ dmsc: system-controller@44043000 {
+ 		mbox-names = "rx", "tx";
+ 		mboxes = <&secure_proxy_main 12>,
+ 			 <&secure_proxy_main 13>;
 +		bootph-all;
-+	};
-+
- 	main_mmc1_pins_default: main-mmc1-default-pins {
- 		pinctrl-single,pins = <
- 			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
-@@ -397,6 +414,16 @@ &main_i2c2 {
- 	clock-frequency = <400000>;
- };
  
-+&sdhci0 {
-+	/* eMMC */
-+	bootph-all;
-+	status = "okay";
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mmc0_pins_default>;
-+	disable-wp;
-+};
-+
- &sdhci1 {
- 	/* SD/MMC */
- 	status = "okay";
+ 		k3_pds: power-controller {
+ 			compatible = "ti,sci-pm-domain";
+ 			#power-domain-cells = <2>;
++			bootph-all;
+ 		};
+ 
+ 		k3_clks: clock-controller {
+ 			compatible = "ti,k2g-sci-clk";
+ 			#clock-cells = <2>;
++			bootph-all;
+ 		};
+ 
+ 		k3_reset: reset-controller {
+ 			compatible = "ti,sci-reset";
+ 			#reset-cells = <2>;
++			bootph-all;
+ 		};
+ 	};
+ 
+@@ -254,6 +263,7 @@ secure_proxy_sa3: mailbox@43600000 {
+ 		 * firmware on non-MPU processors
+ 		 */
+ 		status = "disabled";
++		bootph-all;
+ 	};
+ 
+ 	main_pmx0: pinctrl@f4000 {
+@@ -262,6 +272,7 @@ main_pmx0: pinctrl@f4000 {
+ 		#pinctrl-cells = <1>;
+ 		pinctrl-single,register-width = <32>;
+ 		pinctrl-single,function-mask = <0xffffffff>;
++		bootph-all;
+ 	};
+ 
+ 	main_esm: esm@420000 {
+@@ -282,6 +293,7 @@ main_timer0: timer@2400000 {
+ 		assigned-clock-parents = <&k3_clks 36 3>;
+ 		power-domains = <&k3_pds 36 TI_SCI_PD_EXCLUSIVE>;
+ 		ti,timer-pwm;
++		bootph-all;
+ 	};
+ 
+ 	main_timer1: timer@2410000 {
+@@ -653,6 +665,7 @@ usb0: usb@31000000 {
+ 			dr_mode = "otg";
+ 			snps,usb2-gadget-lpm-disable;
+ 			snps,usb2-lpm-disable;
++			bootph-all;
+ 		};
+ 	};
+ 
+@@ -745,6 +758,7 @@ cpsw_port1: port@1 {
+ 				phys = <&phy_gmii_sel 1>;
+ 				mac-address = [00 00 00 00 00 00];
+ 				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
++				bootph-all;
+ 			};
+ 
+ 			cpsw_port2: port@2 {
+@@ -764,6 +778,7 @@ cpsw3g_mdio: mdio@f00 {
+ 			clocks = <&k3_clks 13 0>;
+ 			clock-names = "fck";
+ 			bus_freq = <1000000>;
++			bootph-all;
+ 		};
+ 
+ 		cpts@3d000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+index ee961ced7208..df4aa131097f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+@@ -12,6 +12,7 @@ mcu_pmx0: pinctrl@4084000 {
+ 		#pinctrl-cells = <1>;
+ 		pinctrl-single,register-width = <32>;
+ 		pinctrl-single,function-mask = <0xffffffff>;
++		bootph-all;
+ 	};
+ 
+ 	mcu_esm: esm@4100000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+index 259ae6ebbfb5..86aae252385c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+@@ -13,10 +13,12 @@ wkup_conf: bus@43000000 {
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+ 		ranges = <0x00 0x00 0x43000000 0x20000>;
++		bootph-all;
+ 
+ 		chipid: chipid@14 {
+ 			compatible = "ti,am654-chipid";
+ 			reg = <0x14 0x4>;
++			bootph-all;
+ 		};
+ 
+ 		opp_efuse_table: syscon@18 {
+@@ -67,6 +69,7 @@ wkup_uart0: serial@0 {
+ 			reg = <0 0x100>;
+ 			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
++			bootph-pre-ram;
+ 	       };
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a.dtsi b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
+index 4d79b3e9486a..54eab2c93eff 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
+@@ -50,6 +50,7 @@ cbass_main: bus@f0000 {
+ 		compatible = "simple-bus";
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
++		bootph-all;
+ 
+ 		ranges = <0x00 0x000f0000 0x00 0x000f0000 0x00 0x00030000>, /* Main MMRs */
+ 			 <0x00 0x00420000 0x00 0x00420000 0x00 0x00001000>, /* ESM0 */
+@@ -104,6 +105,7 @@ cbass_mcu: bus@4000000 {
+ 				 <0x00 0x79020000 0x00 0x79020000 0x00 0x00008000>, /* MCU R5 BTCM */
+ 				 <0x00 0x79100000 0x00 0x79100000 0x00 0x00040000>, /* MCU IRAM0 */
+ 				 <0x00 0x79140000 0x00 0x79140000 0x00 0x00040000>; /* MCU IRAM1 */
++			bootph-all;
+ 		};
+ 
+ 		cbass_wakeup: bus@b00000 {
+@@ -115,6 +117,7 @@ cbass_wakeup: bus@b00000 {
+ 				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>, /* WKUP CTRL MMR */
+ 				 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM*/
+ 				 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
++			bootph-all;
+ 		};
+ 	};
+ 
 -- 
 2.34.1
 
