@@ -4,54 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302DDC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DB8C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvHz1/QrJLUhB+Ur+/5fExR+dVuq4w9+Rq+nxh2ga7k=; b=2/KgXNXO85897aa6rCHEoybhDh
-	pc+uw1JZgpSQn40gv0quJ9NBZNeVSylTUjRs37W06xd4pl6ogBrQJqXp0iZsVixYqjYTGOOKl5GGu
-	gwYUgUUeR8bMVt1OiJWuCz6X4JbTzst0FVzC/v3zyXWQ2Zd0LP10P6TZfvakQOVa4BoZAwsfq1UAg
-	yW0NPxVVqn6tyJLqU1JZyeQXx83riavcaLvCjVkkc6YXwUxg2+ac2dLg2xP7323mA0Js16qF1uisP
-	k9G/bsE1up63qd+p+Eu9LKHBTo0AkcmNlkBFXQXRhdGozq88XVhRbyWobKumPEqc2CV4NVgToQFnp
-	d+/JPGDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MfuuC+7w2DxvL1+4IGdyXxSYobWxsOTw9r2v/sqdLBo=; b=ZZmRNDQtsoDxbS3vzo3ml9BxVg
+	rZcwxE7lXSavYNnRt7JpbLEHJXKDtnSaKun7iICzHW/qUF7uBGAG1AKkNyIK/4+Qyl0mstxMJu92O
+	/WHNroCwJnSQnAdgLyT7PEqJbrcG9QiiCvCwXdZmbWc3B6trALasJfcK3mvPDw07p7ckmYrvfn9qL
+	ts3tiPiCIkN8z5tIgpD70UnwwTEKcePcIOg8J1SzXtAGcaeNzCbTX0/OAADB65QMDEsrSDb0YpiFB
+	D0A3OkXLIizSSHfFA2EekC57xBFRz6RVgZXZsmy4A15u5n3mm6oWkAJ5C6DewTkT9apQcKwKHWJq3
+	CnDkaD5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlxK-00000003gz3-3sEs;
-	Mon, 23 Jun 2025 18:31:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTiT2-000000036rn-1PA5
+	id 1uTlze-00000003hCe-2sLx;
+	Mon, 23 Jun 2025 18:34:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTiTG-000000036th-2u3K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:48:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7E37113E;
-	Mon, 23 Jun 2025 07:47:55 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 946B93F66E;
-	Mon, 23 Jun 2025 07:48:12 -0700 (PDT)
-Date: Mon, 23 Jun 2025 15:48:05 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>,
-	Chuck Cannon <chuck.cannon@nxp.com>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 0/2] firmware: arm_scmi: add pm ops for scmi_power_control
-Message-ID: <aFlpJV_hXvX_nGqV@pluto>
-References: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
+	Mon, 23 Jun 2025 14:48:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 92E0D5C59BA
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 14:46:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC1BAC4CEF3
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 14:48:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750690109;
+	bh=MfuuC+7w2DxvL1+4IGdyXxSYobWxsOTw9r2v/sqdLBo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=FlzIhNrGnbcVaZRsLjfayf/H1e5q4VaqwbypmWeDnLZmbZhaklNrk4I+mXFkrsp/H
+	 z4UtQLebpLgkQo6wMFXJVE/q73Qtl5XzERzGGhdl4ljZmJ3FQublkGZqk/lkSVTX0l
+	 YBZs80f04bSuk4Px+IHENSQyAL+0WoqGzNJqo0w/Fcs1hd1jA686qpoCbhl4RYOa4z
+	 s18gtTztshzgFdugwxbtR7kgsbbap5j+oMAH2Awd71d8Yf2kePhlHCzOLCiuKFTt4m
+	 AlklHYlaA/XuWqGC+SDy+3rvTnCtQB3caMEcW4SPmURZmpeuSZ8+LtCue81UQFXP4U
+	 1C0mLrSeMDAsg==
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-606fdbd20afso8204688a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 07:48:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXwBjRNFBZ8F2XHkzaurvrO9pWoVFVYeWOsBpgsotN7cLkb78Uz5aBWpMOwqWuRSJPZYSMtJQdVWdjPRIWGnNDX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOJ8ztHTn7N4k/MV3pEAPERtl/Ff/ks4ZzX4iXnD1zs0B//fFi
+	Zj8INnpnAZFvAHoeU+i6PsuAzOcBkPzvnl+Kl0/K0qCce/ShfXGAD2RjI5ayc1l+ntLGc+TV34C
+	SCey37TJh1gzveQwPYtYcQoP9p5c3EA==
+X-Google-Smtp-Source: AGHT+IEkJTaouEoSLqOFM+aNoCD2YfrR9XQOA+ZEyc7rZToekEocazcacZ5lvHceLe9SxcjElzIsPrZrLktHZjFbJ5w=
+X-Received: by 2002:a17:907:3d0a:b0:ae0:67aa:6c95 with SMTP id
+ a640c23a62f3a-ae067aa70f8mr1000125866b.53.1750690108323; Mon, 23 Jun 2025
+ 07:48:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
+References: <20250613130356.8080-1-james.morse@arm.com> <20250613130356.8080-3-james.morse@arm.com>
+In-Reply-To: <20250613130356.8080-3-james.morse@arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 23 Jun 2025 09:48:14 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+rsBq1Dsw4+hfkMhopN9Pdwyp9JJbqeT6yB+d++s4v7g@mail.gmail.com>
+X-Gm-Features: Ac12FXyKBJRIelfk3y1WfSywu5MXnF4Xh2DfdmJn8G-sIhaA3G0-KsrimYntTJA
+Message-ID: <CAL_Jsq+rsBq1Dsw4+hfkMhopN9Pdwyp9JJbqeT6yB+d++s4v7g@mail.gmail.com>
+Subject: Re: [PATCH 2/5] cacheinfo: Add arch hook to compress CPU h/w id into
+ 32 bits for cache-id
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com, 
+	Ben Horgan <ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_074816_417335_429C5C64 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250623_074830_816400_F4CC302F 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,62 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 11:37:12AM +0800, Peng Fan (OSS) wrote:
-> When testing on i.MX95, two consecutive suspend message send to the Linux
-> agent, Linux will suspend(by the 1st suspend message) and wake up(by the
-> 2nd suspend message).
-> 
+On Fri, Jun 13, 2025 at 8:04=E2=80=AFAM James Morse <james.morse@arm.com> w=
+rote:
+>
+> Filesystems like resctrl use the cache-id exposed via sysfs to identify
+> groups of CPUs. The value is also used for PCIe cache steering tags. On
+> DT platforms cache-id is not something that is described in the
+> device-tree, but instead generated from the smallest CPU h/w id of the
+> CPUs associated with that cache.
+>
+> CPU h/w ids may be larger than 32 bits.
+>
+> Add a hook to allow architectures to compress the value from the devicetr=
+ee
+> into 32 bits. Returning the same value is always safe as cache_of_set_id(=
+)
+> will stop if a value larger than 32 bits is seen.
+>
+> For example, on arm64 the value is the MPIDR affinity register, which onl=
+y
+> has 32 bits of affinity data, but spread across the 64 bit field. An
+> arch-specific bit swizzle gives a 32 bit value.
 
-Hi,
+What's missing here is why do we need the cache id to be only 32-bits?
+I suppose it is because the sysfs 'id' file has been implicitly that?
+Why can't we just allow 64-bit values there? Obviously, you can't have
+a 64-bit value on x86 because that might break existing userspace. But
+for Arm, there is no existing userspace to break. Even with 32-bits,
+it is entirely possible that an existing userspace assumed values less
+than 32-bits and would be broken for Arm as-is. It is obviously nice
+if we can avoid modifying userspace, but I don't think that's a
+requirement and I'd be surprised if there's not other things that need
+to be adapted for MPAM support.
 
-> The ARM SCMI spec does not allow for filtering of which messages an agent
-> wants to get on the system power protocol. To i.MX95, as we use mailbox
-> to receive message, and the mailbox supports wake up, so linux will also
-> get a repeated suspend message. This will cause Linux to wake (and should
-> then go back into suspend).
-> 
-> This patchset is to make the 2nd suspend message could suspend linux
-> again.
-> 
-> So why SCMI fireware couldn't block the 2nd suspend message from being
-> sent to Linux agent? Per checking with our SCMI firmware owner:
-> The SM(System Manager) does not know exactly when Linux is in suspend.
-> There are no handshakes that clearly tell the SM this. The flow should
-> be, if in suspend and you send a suspend (or graceful reset/power off)
-> it will wake and then do the request action
+Also, what if an architecture can't swizzle their value into 32-bits?
+They would be stuck with requiring userspace to deal with 64-bit
+values.
 
-Shouldn't the suspended-state of the agent be known to the SCNI server
-since:
-
-  A. the SCMI/server has somehow requested a suspend itself sending
-     previously a SUSPEND SysPower notification (maybe to fulfill a
-     Mnagement entity request)
-
-OR
-
-  B. Linux suspended itself by issuing a PSCI_SUSPEND call to EL3 which
-     in turn should have notified the SCMI server os such request by
-     issuing a SYSTEM_POWER_STATE_SET to the SCMI server
-
-As in 3.4.1
-
-"On application processors, a PSCI implementation. The PSCI implementation
-fulfills OSPM calls to SYSTEM_OFF, SYSTEM_SUSPEND, SYSTEM_RESET and
-SYSTEM_RESET2 functions. To do so, the PSCI implementation uses the SCMI
-protocol to request system power down or reset transitions."
-
-
-So how can the SCMI server be NOT aware of the current state of the OSPM
-and send a second unneeded message ?
-
-Also addressing Chuck reply later in this thread...
-
-...why if the system is suspended, for whatever reason, and receives a
-graceful shutdown notification it does NOT wakeup (due to the
-notification received) and then shuwdown to fulfill the request just
-received ? Is this the bug ? The wakeup-nortificatin is NOT processed
-properly by the driver after it has been woke up ? 
-
-Thanks,
-Cristian
+Rob
 
