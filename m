@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E26DC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EACC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATiRoLPlJLzjLYTHs5xl6wmPdAzeGvBxBAsTqwQ2F44=; b=b22xOfYei9lwMNeO91VZNTz+Gt
-	hol9ewIa5s5ty2PCN0x8/3nyq7DpKWwsazldAPhv0/8NtkUGXKuLt3QDmeBf/GzikujcyDlqcBySw
-	iMLChr0v7iLb9tAaAw2bsmkd/HQTTEOZtTmlUX8pIOXtKTK9xAwX7LBA1xOsIpVqfrIO9qlTX1WPD
-	D3erMzkBZEru7UzOtUtxhknFEGv+h0m5r8KBtHsx3EKEO/gfGqHELsBinJPlbhv1suJf+h3EFrZl2
-	p1DeBSZjsnC19nHmkcs6BzQ/mO/MVB73MfcdgOH6qaM1z/JcBY6H3/y6KxhSIIkqP+0GiCk3QeOiL
-	/I0WITTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1S9ufKPeWjduqquHeh/Qk3/1qUx2ZKvjuVjP1pIJLpE=; b=o/pyl6xnRDQSmc85SJht3mj5NB
+	Z9O6R4YtKZYM51gf34PIhBECMko4zO0wZviNTP1zE5KTf1yxC0S+rkG01/F5FfsrZWqGnWeOVgOcB
+	evD282Q+gzZ6vhPj9M4pxfDhvf48lhh9gq0fhYfKI+PdwZhVkuy6lgBP3YiT4nesm7ylO5wqVJv6v
+	4IS4ryE3Tz4HXPTizS7neGF/P8ydKQ+AVUiNE9ikRSUnpHLBCpIdNfCcPMTUxmJWKVSQMibx1WBxf
+	y9Fi/YFIFkj5lkTzGZ7Qq6BCKzXHb9A7UjtRAWGyi3itTBOKsMzehkm0yFsM8MY1tXSVZYiZUxX3Q
+	YpI4+7ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgp4-00000002oBU-0L0m;
-	Mon, 23 Jun 2025 13:02:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uTgrN-00000002oZv-3u1o;
+	Mon, 23 Jun 2025 13:05:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeRr-00000002M80-2Jcg;
-	Mon, 23 Jun 2025 10:30:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750674646;
-	bh=sw18rrfHZEvy3ocQv8FUrFydTmIlqw6egm1KStiUgFg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G+3iUuVVF6Ay3ECeRqNRsFZSTREvETYnVoMVuE4VKCaT67B+CT2B989SaI4gotpV6
-	 B7dp/ylQcTn7mA12E4/BoUAUI/ummmdUu8s698V2RBNzmIcvMalpOmGKd1f5IReqOL
-	 Lq6VYE/roRSSnT7XRLo3DxXn8IQL0aJUAjC6erbnQ7MhwQ+MXBMKKpftcfsNwXdzeO
-	 W0/teuHBUaqaRj0NizCbQYqnEn1Ev47yKne4WRvEp1rF79fDQ3/V6nWT2oO+5ueQEF
-	 W0H1e8abo/sOlm9/e9CAmydNIqv9Xs1ttaCo4edcVFbyBMP11fvpcGPzZJN1oxfGvq
-	 bMQz5AEWokLCg==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:e046:b666:1d47:e832])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC03A17E0342;
-	Mon, 23 Jun 2025 12:30:44 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH 15/30] clk: mediatek: Add MT8196 ufssys clock support
-Date: Mon, 23 Jun 2025 12:29:25 +0200
-Message-Id: <20250623102940.214269-16-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250623102940.214269-1-laura.nao@collabora.com>
-References: <20250623102940.214269-1-laura.nao@collabora.com>
+	id 1uTesN-00000002Sp8-0T5c;
+	Mon, 23 Jun 2025 10:58:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 69D646112D;
+	Mon, 23 Jun 2025 10:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6401AC4CEF2;
+	Mon, 23 Jun 2025 10:58:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750676290;
+	bh=KQEP5ij24VEA8YmbYKGHIizffbrpTimsVDgCFJ93uCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZOWRX/WM6ATuFay5qVBF3U6yDvYFbsL3dgLTVha1A3bEeH7hijXd05KUo/J5ZjMyc
+	 rwjOiaWuHyBKQnQ5OFzoCFYklqOMIg0XNCmfSVOSdDZe+JVnHTME+pdagvTLqQipBm
+	 weVAhIE3pZ52YocrXvvyhMyBG/7Z6osMkG01ct9z9wZHyApZd2gDCSn5XT+ahyD3Cn
+	 LGOL9JWJfS4auNvI7mXtG6ra8xdVhbS9Mvgn2ZtLovJUoBBisQiRkVfC6lM0sEVkZW
+	 UyFybkR+AX5MPihNsp9J7iIsqb2qWAIp5iih0UcoB0h1h/gP/GzL+U4rCTxrMwmMJA
+	 r0qkmqWOv9qdw==
+Date: Mon, 23 Jun 2025 04:58:08 -0600
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, 
+	heiko@sntech.de, yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org, 
+	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
+Message-ID: <qxbedjehrhddc627lukpxvxje6dze6nxfjztlbexp5hap327ac@ojo564izhttk>
+References: <20250620155507.1022099-1-18255117159@163.com>
+ <20250620155507.1022099-2-18255117159@163.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_033047_944203_1AE31611 
-X-CRM114-Status: GOOD (  16.06  )
+In-Reply-To: <20250620155507.1022099-2-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,138 +73,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 ufssys clock controller, which provides clock
-gate control for UFS.
+On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
+> Current PCIe initialization logic may leave root ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, root port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result in
+> suboptimal data transfer efficiency across the PCIe hierarchy.
+> 
+> During host controller probing phase, when PCIe bus tuning is enabled,
+> the implementation now configures root port MPS settings to their
+> hardware-supported maximum values. Specifically, when configuring the MPS
+> for a PCIe device, if the device is a root port and the bus tuning is not
+> disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
+> match the Root Port's maximum supported payload size. The Max Read Request
+> Size (MRRS) is subsequently adjusted through existing companion logic to
+> maintain compatibility with PCIe specifications.
+> 
+> Note that this initial setting of the root port MPS to the maximum might
+> be reduced later during the enumeration of downstream devices if any of
+> those devices do not support the maximum MPS of the root port.
+> 
+> Explicit initialization at host probing stage ensures consistent PCIe
+> topology configuration before downstream devices perform their own MPS
+> negotiations. This proactive approach addresses platform-specific
+> requirements where controller drivers depend on properly initialized
+> root port settings, while maintaining backward compatibility through
+> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+> utilized without altering existing device negotiation behaviors.
+> 
+> Suggested-by: Niklas Cassel <cassel@kernel.org>
+> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/clk/mediatek/Kconfig             |  7 ++
- drivers/clk/mediatek/Makefile            |  1 +
- drivers/clk/mediatek/clk-mt8196-ufs_ao.c | 84 ++++++++++++++++++++++++
- 3 files changed, 92 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index c55a7c8bdcc5..848624792a23 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1068,6 +1068,13 @@ config COMMON_CLK_MT8196
- 	help
- 	  This driver supports MediaTek MT8196 basic clocks.
- 
-+config COMMON_CLK_MT8196_UFSSYS
-+	tristate "Clock driver for MediaTek MT8196 ufssys"
-+	depends on COMMON_CLK_MT8196
-+	default COMMON_CLK_MT8196
-+	help
-+	  This driver supports MediaTek MT8196 ufssys clocks.
-+
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index fc941b5baf04..ee6a1bb5ce38 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -163,6 +163,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
- obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o \
- 				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
- 				   clk-mt8196-peri_ao.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-ufs_ao.c b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
-new file mode 100644
-index 000000000000..49f4f4af7f41
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
-+
-+static const struct mtk_gate_regs ufsao0_cg_regs = {
-+	.set_ofs = 0x108,
-+	.clr_ofs = 0x10c,
-+	.sta_ofs = 0x104,
-+};
-+
-+static const struct mtk_gate_regs ufsao1_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0xc,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_UFSAO0(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ufsao0_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+#define GATE_UFSAO1(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ufsao1_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+static const struct mtk_gate ufsao_clks[] = {
-+	/* UFSAO0 */
-+	GATE_UFSAO0(CLK_UFSAO_UFSHCI_UFS, "ufsao_ufshci_ufs", "ufs", 0),
-+	GATE_UFSAO0(CLK_UFSAO_UFSHCI_AES, "ufsao_ufshci_aes", "aes_ufsfde", 1),
-+	/* UFSAO1 */
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_TX_SYM, "ufsao_unipro_tx_sym", "clk26m", 0),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM0, "ufsao_unipro_rx_sym0", "clk26m", 1),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM1, "ufsao_unipro_rx_sym1", "clk26m", 2),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_SYS, "ufsao_unipro_sys", "ufs", 3),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_SAP, "ufsao_unipro_sap", "clk26m", 4),
-+	GATE_UFSAO1(CLK_UFSAO_PHY_SAP, "ufsao_phy_sap", "clk26m", 8),
-+};
-+
-+static const struct mtk_clk_desc ufsao_mcd = {
-+	.clks = ufsao_clks,
-+	.num_clks = ARRAY_SIZE(ufsao_clks),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_ufs_ao[] = {
-+	{ .compatible = "mediatek,mt8196-ufscfg-ao", .data = &ufsao_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_ufs_ao);
-+
-+static struct platform_driver clk_mt8196_ufs_ao_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8196-ufs-ao",
-+		.of_match_table = of_match_clk_mt8196_ufs_ao,
-+	},
-+};
-+
-+module_platform_driver(clk_mt8196_ufs_ao_drv);
-+MODULE_DESCRIPTION("MediaTek MT8196 ufs_ao clocks driver");
-+MODULE_LICENSE("GPL");
+- Mani
+
+> ---
+>  drivers/pci/probe.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 4b8693ec9e4c..9f8803da914c 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -2178,6 +2178,16 @@ static void pci_configure_mps(struct pci_dev *dev)
+>  		return;
+>  	}
+>  
+> +	/*
+> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
+> +	 * start off by setting root ports' MPS to MPSS. Depending on the MPS
+> +	 * strategy, and the MPSS of the devices below the root port, the MPS
+> +	 * of the root port might get overridden later.
+> +	 */
+> +	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
+> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
+> +		pcie_set_mps(dev, 128 << dev->pcie_mpss);
+> +
+>  	if (!bridge || !pci_is_pcie(bridge))
+>  		return;
+>  
+> -- 
+> 2.25.1
+> 
+
 -- 
-2.39.5
-
+மணிவண்ணன் சதாசிவம்
 
