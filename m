@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8806C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C3CC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9c+coh4ly1jybM3FeRUMnBt3DkuFjiY7IJQHdGZRgU=; b=TMqZqquMw67Xr8s/eCv9vdfAHS
-	1mZ67LctsRuM29BuqVxMv4M/dqUot+h6vQtuyMSTwITmF224CxfPpVez4Xm2QpjYr7LU2w2ifRyEj
-	SBQ26TkrqOsxVT7FFoMKOnStfLA81Vt5QhCc5OWzi37LhAz0LEQ0+fBIFMePq5Cjvk4usE822t0q6
-	fEBiDcWj+o6PnXTRRqWmfF+THtf7VOYlkP+YAywUGqkeutL7V4PUThuxi0qyotyDiPOjtVJzGiOT0
-	/vLBHojXyTErKtD8h6RW9fG0P5eLp7+RsKO93IrDsYBwvAjbwCi44ocXrBaatzfyKrEnWTdhNdCuh
-	K49ZB3qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8VtcumMQpGWJUhK15pJtoo02/DLnPfbplbsv3dC/LoQ=; b=JnT8oy3irFLrbW
+	lkGrqK+BLQj1Pj3TvF8rZZotGnKdcWYaafB5bRoPEhMf53T03txjFq3FLIckGTmIk9qceCwO3OOm4
+	DlbhYXEQDHA3eIj3PEbNzOLxh6uaSyn33whnk/NgCINqZDebjpYYkOCbK+ZCuVh3nsJZ+5SFK9N3b
+	hXqAEonu9Nc8xM8AYj8MpjPY0t1mbsmtt0R1UGgRCsyK7UgKBUocG8ZqPz5an9mrhxIfUJnDLxyPa
+	ToosziI6AlaakS7BfHLiNl18S/vvRc0KbrWHUy0008hmbKEaYMS5yeu8OSiJ8J4RoZNJyeyx39pWR
+	5NdEOHuCoGHPSswsPrkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uToKN-00000003yQo-0uTZ;
-	Mon, 23 Jun 2025 21:03:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjeb-00000003LNS-0EwE
+	id 1uToMg-00000003ybU-43JE;
+	Mon, 23 Jun 2025 21:06:06 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTjmc-00000003NEn-33tt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 16:04:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 107A7113E;
-	Mon, 23 Jun 2025 09:03:58 -0700 (PDT)
-Received: from [10.57.29.183] (unknown [10.57.29.183])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA5B23F66E;
-	Mon, 23 Jun 2025 09:04:11 -0700 (PDT)
-Message-ID: <69e0107f-6c40-4ea1-ac69-51ad8aa78dff@arm.com>
-Date: Mon, 23 Jun 2025 17:04:09 +0100
+	Mon, 23 Jun 2025 16:12:35 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-74931666cbcso1539585b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 09:12:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750695154; x=1751299954; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8VtcumMQpGWJUhK15pJtoo02/DLnPfbplbsv3dC/LoQ=;
+        b=GMB7riNV+x6nelnrz59qXKmHRV94/A+20nh+szKuM3Q87FP8VSInau5hOvslcNBjkB
+         11ffov07NyWDjCg6dnlyp7tuUEO8N6iNOt6OfSr7LPabi3a7iTGZkHQXZYzYTn4agCQJ
+         7kuBTcsvgafZq4Y6WIkqQHJiSHDjidk+w7AQAuKlmasstPxP9o13oRW13v+uBu+/FVlE
+         OJyv5dDvSvZFSF3Tg4bkNL8K62rUbwwjHUErIFe6CVvsx4p/BipOYASO2c4F5njBJmXX
+         8Szhg+/l+I4X8+ZLkGcJo81Dt+IfqFt7xnQXF32FD1DW6PAG+R18DvRwUFIPZEiXtnnA
+         SnQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750695154; x=1751299954;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8VtcumMQpGWJUhK15pJtoo02/DLnPfbplbsv3dC/LoQ=;
+        b=pbISze6dWASDtoyISQRnQzUe9F+9/JGX011g/c6kF+9V1rYjpPhC+n+W01y7BECMsv
+         1HZ8ZlUL9FOsmZSnLPd154ohYksKDgiPaFAZuJipdHECp5e4c7WVLj16DaoaY1SZfKuu
+         fb8TNLa3yTM+b/QqQZ4Gtj+aJkhyySWBvrAbHViHWpNP7y1YPnYxoHL8oRgV3akzJtQJ
+         MybhBfW4jmpyiY97XmsdudDceA10v8wgbBfaEqvDv3uxAFY2hkviSHLhZXlG+okqcRef
+         XZSbnu0gDef17mJwVA+gB5m4JskHrmZIxTQnRnHkGPBuC734wEzH68tY794MRYDlbAnO
+         YQwQ==
+X-Gm-Message-State: AOJu0YzkJ9sNan/0f6eJGwCG00e7m5Q84yixvMu/RLnhbS8Xi6dWl6xI
+	bqQUHiXy5J8645tdPzCRNDI8ylzLDG5Vs3EE4EFbULywZuVmgmDhOQUU
+X-Gm-Gg: ASbGncvyTZeYNUVRmp6KdRTSmzUmj8Cq9HYUVno3UHvGAQM1Ipc2gNiFX/JihcVfuAO
+	pltoNlmzb0PrjOT98r0BDJx752dFbyHcAeHVjognlLwbArywhpDofbaDjzrlTlwGyheui32ep5E
+	IhzaMNa1lOFtDv0X6raJLAzeN1F/8iRKyLx/c6E51bOsYia7k1j5IxxH66bq7Qw+cvc53XqlCpp
+	DFhHgncAHyWuev9it6aYuXMl9qa3yKYo7ZrZldOe1gCLyckdVT8wVWAWcqNgvuX/WtjqhP5KTe9
+	o4CPyNgsCMkAyOTqVdEEjdSxIMjGjDhfDY3rQ7/N0V0Hbev3wKIZPmoMmhiWRQhkZw4UbsI17E2
+	qNEtcRs4ug63QX08=
+X-Google-Smtp-Source: AGHT+IHW3hfevuEAc7PYQYSetzR7HrPI8vD9FdBDkz+I2rAyNHC54TdMIOOA/EJsqo1/5/SmxuoIvQ==
+X-Received: by 2002:a05:6a00:3e17:b0:748:ff39:a0ed with SMTP id d2e1a72fcca58-7490d6a2b0bmr17949578b3a.20.1750695153598;
+        Mon, 23 Jun 2025 09:12:33 -0700 (PDT)
+Received: from [10.22.1.180] ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7490a467e6dsm9029608b3a.13.2025.06.23.09.12.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 09:12:33 -0700 (PDT)
+From: =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
+Subject: [PATCH 0/2] arm64: dts: ti: k3-am62p|j722s: Add passive trip
+ points
+Date: Mon, 23 Jun 2025 13:12:25 -0300
+Message-Id: <20250623-b4-verdin-am62p-cooling-device-v1-0-cc185ba5843d@toradex.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 20/43] arm64: RME: Runtime faulting of memory
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-21-steven.price@arm.com>
- <e75dfc47-5b74-4898-91c0-fed9880f9727@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <e75dfc47-5b74-4898-91c0-fed9880f9727@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOl8WWgC/x2NQQqDMBQFryJ/7YckxGh7FXGRJk/7oU0kASmId
+ 29wOYuZOamiCCo9u5MKDqmSUwPddxTePm1giY3JKDMopyd+WT5QoiT2X2d2Djl/JG0cmxzAzo4
+ PBKu0mkAtshes8rsH83Jdf+DqMGpwAAAA
+X-Change-ID: 20250618-b4-verdin-am62p-cooling-device-6479ec40108e
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_090417_182610_ADE13EC9 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20250623_091234_775049_C3220608 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +105,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2025 12:55, Gavin Shan wrote:
-> Hi Steven,
-> 
-> On 6/11/25 8:48 PM, Steven Price wrote:
->> At runtime if the realm guest accesses memory which hasn't yet been
->> mapped then KVM needs to either populate the region or fault the guest.
->>
->> For memory in the lower (protected) region of IPA a fresh page is
->> provided to the RMM which will zero the contents. For memory in the
->> upper (shared) region of IPA, the memory from the memslot is mapped
->> into the realm VM non secure.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->>   arch/arm64/include/asm/kvm_emulate.h |  10 ++
->>   arch/arm64/include/asm/kvm_rme.h     |  10 ++
->>   arch/arm64/kvm/mmu.c                 | 133 ++++++++++++++++++++-
->>   arch/arm64/kvm/rme.c                 | 165 +++++++++++++++++++++++++++
->>   4 files changed, 312 insertions(+), 6 deletions(-)
->>
-> 
-> [...]
-> 
->> @@ -1078,6 +1091,9 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->>       if (kvm_is_realm(kvm) &&
->>           (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
->>            kvm_realm_state(kvm) != REALM_STATE_NONE)) {
->> +        struct realm *realm = &kvm->arch.realm;
->> +
->> +        kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
->>           write_unlock(&kvm->mmu_lock);
->>           kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
->>   
-> 
-> I'm giving it a try before taking time to review, @may_block needs to be
-> true.
-> I don't see there is anything why not to do so :)
+Enable CPU frequency throttling on AM62P/J722S when an alert temperature
+threshold is reached before the critical temperature for shutdown.
 
-You are right - I've no idea why I passed false to may_block. Thanks for
-the report.
+Adjust Verdin AM62P thermal threshold accordingly to the SoM
+thermal specification.
 
-Thanks,
-Steve
+Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+---
+João Paulo Gonçalves (2):
+      arm64: dts: ti: k3-am62p-j722s: Enable freq throttling on thermal alert
+      arm64: dts: ti: k3-am62p-verdin: Adjust temperature trip points
 
->   kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
-> 
-> Otherwise, there is RCU stall when the VM is destroyed.
-> 
-> [12730.399825] rcu: INFO: rcu_preempt self-detected stall on CPU
-> [12730.401922] rcu:     5-....: (5165 ticks this GP)
-> idle=3544/1/0x4000000000000000 softirq=41673/46605 fqs=2625
-> [12730.404598] rcu:     (t=5251 jiffies g=61757 q=36 ncpus=8)
-> [12730.406771] CPU: 5 UID: 0 PID: 170 Comm: qemu-system-aar Not tainted
-> 6.16.0-rc1-gavin-gfbc56042a9cf #36 PREEMPT
-> [12730.407918] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown
-> 02/02/2022
-> [12730.408796] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS
-> BTYPE=--)
-> [12730.409515] pc : realm_unmap_private_range+0x1b4/0x310
-> [12730.410825] lr : realm_unmap_private_range+0x98/0x310
-> [12730.411377] sp : ffff8000808f3920
-> [12730.411777] x29: ffff8000808f3920 x28: 0000000104d29000 x27:
-> 000000004229b000
-> [12730.413410] x26: 0000000000000000 x25: ffffb8c82d23f000 x24:
-> 00007fffffffffff
-> [12730.414292] x23: 000000004229c000 x22: 0001000000000000 x21:
-> ffff80008019deb8
-> [12730.415229] x20: 0000000101b3f000 x19: 000000004229b000 x18:
-> ffff8000808f3bd0
-> [12730.416119] x17: 0000000000000001 x16: ffffffffffffffff x15:
-> 0000ffff91cc5000
-> [12730.417004] x14: ffffb8c82cfccb48 x13: 0000ffff4b1fffff x12:
-> 0000000000000000
-> [12730.417876] x11: 0000000038e38e39 x10: 0000000000000004 x9 :
-> ffffb8c82c39a030
-> [12730.418863] x8 : ffff80008019deb8 x7 : 0000010000000000 x6 :
-> 0000000000000000
-> [12730.419738] x5 : 0000000038e38e39 x4 : ffff0000c0d80000 x3 :
-> 0000000000000000
-> [12730.420609] x2 : 000000004229c000 x1 : 0000000104d2a000 x0 :
-> 0000000000000000
-> [12730.421602] Call trace:
-> [12730.422209]  realm_unmap_private_range+0x1b4/0x310 (P)
-> [12730.423096]  kvm_realm_unmap_range+0xbc/0xe0
-> [12730.423657]  __unmap_stage2_range+0x74/0xa8
-> [12730.424198]  kvm_free_stage2_pgd+0xc8/0x120
-> [12730.424746]  kvm_uninit_stage2_mmu+0x24/0x48
-> [12730.425284]  kvm_arch_flush_shadow_all+0x74/0x98
-> [12730.425849]  kvm_mmu_notifier_release+0x38/0xa0
-> [12730.426409]  __mmu_notifier_release+0x80/0x1f0
-> [12730.427031]  exit_mmap+0x3d8/0x438
-> [12730.427526]  __mmput+0x38/0x160
-> [12730.428000]  mmput+0x58/0x78
-> [12730.428463]  do_exit+0x210/0x9d8
-> [12730.428945]  do_group_exit+0x3c/0xa0
-> [12730.429458]  get_signal+0x8d4/0x9c0
-> [12730.429954]  do_signal+0x98/0x400
-> [12730.430455]  do_notify_resume+0xec/0x1a0
-> [12730.431030]  el0_svc+0xe8/0x130
-> [12730.431536]  el0t_64_sync_handler+0x10c/0x138
-> [12730.432085]  el0t_64_sync+0x1ac/0x1b0
-> 
-> Thanks,
-> Gavin
-> 
+ .../boot/dts/ti/k3-am62p-j722s-common-thermal.dtsi | 51 ++++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 24 ++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p5.dtsi              |  4 ++
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi               |  4 ++
+ 4 files changed, 83 insertions(+)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250618-b4-verdin-am62p-cooling-device-6479ec40108e
+
+Best regards,
+-- 
+João Paulo Gonçalves <joao.goncalves@toradex.com>
 
 
