@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2495C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DA4C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9t2y3tyZjYPBLarIFtUoA4o7nS0qFOFN06yvaTheJs=; b=BcvnDfP6O2u+GAe/R8OJFdhzLy
-	cIMIy/NgDEr8XD+IatpX2/yYu8qIjmfSAX5f7HxvYppzxJqadldKuqxs5xq5FeCmautg8uLuWyu+6
-	AOIA15vUtwv1qNNGez7Edq7mNhmLxiwQ3Q1M+KevBUfaQFKS2UHbZ55XamAe/oGLac6ENTDWFk0UE
-	BHt5hsqers4OGhFp8rCp2IJ1UhUk4AX8072HeehHEQcavvxfVh7bCjswtp3irxQ/31qM6ogmZJ7i+
-	CsfS0UhOtzCtuE2GiRLzUrEVvw2FQuDg4E9nOEEOODikxTJQIyrId9RgeicMsiNAVhOsmHPwYO7U0
-	Ax+LzNvg==;
+	bh=nDe7FeaszHBgc9lAIq4+yTKV2a7k2KTmDIkZ75QG+zs=; b=y9G9s+S2Su7Kt6QiIfNeKSZP16
+	YEU3fRMmSqNAMy74b1VZWvGXd5SJ/zPmzn4yGnHOBi4NhXxvJXydI4xvFxUWpOf2FLL6puwAuOdu4
+	hacq1ikJF8V8pNCSBc3bAUDzVTzx5DOyjxy6WLzlTdxm+SXefBFAre3D/onHbw9eWzxiClF7j7Xvm
+	RYVWfGE6zzGzvLz55KN1cHYQMMO9W2OxZ2zRgNNXzMD/wu3yxsCXrCCmW4pQ6p5a/TWgJZ9u6O+H/
+	+x4k+eZeOf+xspAwJStiseoexBBcjh/FwDP14OSqhnVBXNnYgQkyVs5tj2017tgAlk2fDyceKGUU6
+	3kUpzg5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTj43-00000003E33-2aTc;
-	Mon, 23 Jun 2025 15:26:31 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTftR-00000002bVJ-1qoW;
-	Mon, 23 Jun 2025 12:03:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750680200;
-	bh=Kep1UgV29OPQ4w66WpWqd9vnrdD0pGwhoXX2kcCncG8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BUzmfupdU6G5IRchHGNXcuAebw5hxhpDacHOT/DWgyEzLViO9xtUWxUcQ+gP9b8uF
-	 ndeIDVomCTwt6eJ+5DcV/s10pqt3z38Hy4XUGciZ7PVOps0f3jazLLIwHIenfzt2r/
-	 rtBLwhk2HcASt+uzC36u8Iii2WbuCPFfehLLp32R5HDZgZHleS0E6cF1iiCpdTHil1
-	 eH5qfPRptEesQLj7FLzqou88V6ruGw4bXvT8ld4uNnSg0MqVjQ68ZctKMRtLaTDmsV
-	 12svNUv9f9nuWa40CUPMRd/dKLDIYuwDuTrPNmdj4w+taFBIMo+X6Bxptg5PEbaU0h
-	 6hHD95Wu/jwnw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9107417E10D5;
-	Mon, 23 Jun 2025 14:03:19 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunfeng.yun@mediatek.com
-Cc: vkoul@kernel.org,
-	kishon@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@collabora.com
-Subject: [PATCH v1 2/2] phy: mediatek: tphy: Cleanup and document slew calibration
-Date: Mon, 23 Jun 2025 14:03:15 +0200
-Message-ID: <20250623120315.109881-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623120315.109881-1-angelogioacchino.delregno@collabora.com>
-References: <20250623120315.109881-1-angelogioacchino.delregno@collabora.com>
+	id 1uTj6M-00000003Ecf-0fAs;
+	Mon, 23 Jun 2025 15:28:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTfvd-00000002by2-0CiH;
+	Mon, 23 Jun 2025 12:05:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEC8C113E;
+	Mon, 23 Jun 2025 05:05:17 -0700 (PDT)
+Received: from [10.57.29.116] (unknown [10.57.29.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 374713F58B;
+	Mon, 23 Jun 2025 05:05:33 -0700 (PDT)
+Message-ID: <61011213-8916-4634-997a-f9c5fd06460a@arm.com>
+Date: Mon, 23 Jun 2025 13:05:31 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] iommu: Add verisilicon IOMMU driver
+To: Lucas Stach <l.stach@pengutronix.de>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org,
+ will@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ heiko@sntech.de, nicolas.dufresne@collabora.com, jgg@ziepe.ca
+Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com
+References: <20250619131232.69208-1-benjamin.gaignard@collabora.com>
+ <20250619131232.69208-4-benjamin.gaignard@collabora.com>
+ <43276c9a-5434-467c-abb2-dd2806ab81d0@arm.com>
+ <c7dd8ac53170cafab5489f98d3da13f65cd67a1a.camel@pengutronix.de>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <c7dd8ac53170cafab5489f98d3da13f65cd67a1a.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050321_629277_934D6198 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250623_050537_179974_D8E0BCF4 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,141 +70,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While it's true that, generally, the T-PHY V3 does not support the
-slew calibration process, some minor versions of it actually do,
-moreover, some SoCs may not support this even though the version
-of the PHY IP does.
+On 2025-06-20 9:45 pm, Lucas Stach wrote:
+> Am Freitag, dem 20.06.2025 um 20:37 +0100 schrieb Robin Murphy:
+>> On 19/06/2025 2:12 pm, Benjamin Gaignard wrote:
+>>> The Verisilicon IOMMU hardware block can be found in combination
+>>> with Verisilicon hardware video codecs (encoders or decoders) on
+>>> different SoCs.
+>>> Enable it will allow us to use non contiguous memory allocators
+>>> for Verisilicon video codecs.
+>>>
+>>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+>>> ---
+>>
+> [...]
+>> I'm especially curious what this "pta" really is - is the comment above
+>> just wrong, and you've actually got a 3-level pagetable supporting
+>> somewhere between 33 and 42 bits of VA? If not, then the additional
+>> level of indirection would very much seem to imply some kind of
+>> mechanism for accommodating multiple pagetables at once, and in that
+>> case, is it like a PASID table where the client device gets to choose
+>> which entry to use, or a StreamID table to disambiguate multiple client
+>> devices? (Where in the latter case it should most likely belong to the
+>> IOMMU rather than the domain, and you probably want nonzero #iommu-cells
+>> in the DT binding for the client IDs).
+>>
+> PTA is short for page table array and it's another level of indirection
+> to select the page tables to be used for the specific translation. On
+> the Vivante GPU, where this MMU IP originated, the GPU can select the
+> index into this array to be used for a specific command stream to
+> implement GPU client isolation, so it's much like a PASID table.
 
-The reference clock and rate coefficient parameters are used only
-for slew calibration: move those to platform data, then document
-and change the checks in hs_slew_rate_calibrate() to perform the
-calibration only if:
- - EYE value was not supplied (pre-calculated calibration); and
- - Slew reference clock value is present (not zero); and
- - Slew coefficient is present (not zero).
+Thanks for the clarification!
 
-Moreover, change the probe function to always check if both the
-slew reference clock and coefficient properties are present and,
-if not, assign the value from platform data (which, as reminder,
-if not added means that it's zero!), instead of checking the PHY
-IP version.
+(Although, similarly to panfrost, does this mean we should at least 
+break out an io-pgtable implementation to share between the two drivers 
+rather than duplicate code between here and etnaviv_iommu?)
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/phy/mediatek/phy-mtk-tphy.c | 45 +++++++++++++++++------------
- 1 file changed, 27 insertions(+), 18 deletions(-)
+> I have no idea if and how the integration with the video codecs can
+> select the PTA index.
 
-diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
-index 858824b4476e..e5ce1255d735 100644
---- a/drivers/phy/mediatek/phy-mtk-tphy.c
-+++ b/drivers/phy/mediatek/phy-mtk-tphy.c
-@@ -210,8 +210,6 @@
- #define P2F_USB_FM_VALID	BIT(0)
- #define P2F_RG_FRCK_EN		BIT(8)
- 
--#define U3P_REF_CLK		26	/* MHZ */
--#define U3P_SLEW_RATE_COEF	28
- #define U3P_SR_COEF_DIVISOR	1000
- #define U3P_FM_DET_CYCLE_CNT	1024
- 
-@@ -285,12 +283,16 @@ enum mtk_phy_version {
-  * @sw_efuse_supported:       Switches off eFuse auto-load from PHY and applies values
-  *                            read from different nvmem (usually different eFuse array)
-  *                            that is pointed at in the device tree node for this PHY
-+ * @slew_ref_clk_mhz:         Default reference clock (in MHz) for slew rate calibration
-+ * @slew_rate_coefficient:    Coefficient for slew rate calibration
-  * @version:                  PHY IP Version
-  */
- struct mtk_phy_pdata {
- 	bool avoid_rx_sen_degradation;
- 	bool sw_pll_48m_to_26m;
- 	bool sw_efuse_supported;
-+	u8 slew_ref_clock_mhz;
-+	u8 slew_rate_coefficient;
- 	enum mtk_phy_version version;
- };
- 
-@@ -686,12 +688,14 @@ static void hs_slew_rate_calibrate(struct mtk_tphy *tphy,
- 	int fm_out;
- 	u32 tmp;
- 
--	/* HW V3 doesn't support slew rate cal anymore */
--	if (tphy->pdata->version == MTK_PHY_V3)
--		return;
--
--	/* use force value */
--	if (instance->eye_src)
-+	/*
-+	 * If a fixed HS slew rate (EYE) value was supplied, don't run the
-+	 * calibration sequence and prefer using that value instead; also,
-+	 * if there is no reference clock for slew calibration or there is
-+	 * no slew coefficient, this means that the slew rate calibration
-+	 * sequence is not supported.
-+	 */
-+	if (instance->eye_src || !tphy->src_ref_clk || !tphy->src_coef)
- 		return;
- 
- 	/* enable USB ring oscillator */
-@@ -1516,12 +1520,16 @@ static const struct phy_ops mtk_tphy_ops = {
- 
- static const struct mtk_phy_pdata tphy_v1_pdata = {
- 	.avoid_rx_sen_degradation = false,
-+	.slew_ref_clock_mhz = 26,
-+	.slew_rate_coefficient = 28,
- 	.version = MTK_PHY_V1,
- };
- 
- static const struct mtk_phy_pdata tphy_v2_pdata = {
- 	.avoid_rx_sen_degradation = false,
- 	.sw_efuse_supported = true,
-+	.slew_ref_clock_mhz = 26,
-+	.slew_rate_coefficient = 28,
- 	.version = MTK_PHY_V2,
- };
- 
-@@ -1532,6 +1540,8 @@ static const struct mtk_phy_pdata tphy_v3_pdata = {
- 
- static const struct mtk_phy_pdata mt8173_pdata = {
- 	.avoid_rx_sen_degradation = true,
-+	.slew_ref_clock_mhz = 26,
-+	.slew_rate_coefficient = 28,
- 	.version = MTK_PHY_V1,
- };
- 
-@@ -1561,7 +1571,7 @@ static int mtk_tphy_probe(struct platform_device *pdev)
- 	struct resource *sif_res;
- 	struct mtk_tphy *tphy;
- 	struct resource res;
--	int port;
-+	int port, ret;
- 
- 	tphy = devm_kzalloc(dev, sizeof(*tphy), GFP_KERNEL);
- 	if (!tphy)
-@@ -1591,15 +1601,14 @@ static int mtk_tphy_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	if (tphy->pdata->version < MTK_PHY_V3) {
--		tphy->src_ref_clk = U3P_REF_CLK;
--		tphy->src_coef = U3P_SLEW_RATE_COEF;
--		/* update parameters of slew rate calibrate if exist */
--		device_property_read_u32(dev, "mediatek,src-ref-clk-mhz",
--					 &tphy->src_ref_clk);
--		device_property_read_u32(dev, "mediatek,src-coef",
--					 &tphy->src_coef);
--	}
-+	/* Optional properties for slew calibration variation */
-+	ret = device_property_read_u32(dev, "mediatek,src-ref-clk-mhz", &tphy->src_ref_clk);
-+	if (ret)
-+		tphy->src_ref_clk = tphy->pdata->slew_ref_clock_mhz;
-+
-+	ret = device_property_read_u32(dev, "mediatek,src-coef", &tphy->src_coef);
-+	if (ret)
-+		tphy->src_coef = tphy->pdata->slew_rate_coefficient;
- 
- 	port = 0;
- 	for_each_child_of_node_scoped(np, child_np) {
--- 
-2.49.0
+Yeah, that's really the thing - it may smell like a PASID table for the 
+GPU use-case, but AFAICS that still wouldn't necessarily rule it out 
+from turning up in some codec block with, say, all the decode 
+functionality hard-wired to index 0 and encode to index 1, then all of a 
+sudden we start needing different driver behaviour and potentially a 
+different DT binding. I guess the door is still open to support 
+"#iommu-cells = 1" to specify explicit PTA indices without breaking the 
+implicit "#iommu-cells = 0" behaviour, so I don't think we're painting 
+ourselves into a corner at this point, it's more just something to be 
+wary of for the future.
 
+Thanks,
+Robin.
 
