@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F928C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6291AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tTqzFXucfoLXojG6cheHnIsoX2Ng1HXB6wnPXyTTz+E=; b=3AEHCA2sLWY2yN3QHfe2PRHXDD
-	O5gFfyM+XWYYODbp5r4jff3hfsSgZdWRAbU64NKrj1h+OdWgTEQvN/eldus6BKPKz212dL3ZCHpJV
-	R98Jm7SCzM6eDD+n5xN4xR1dsfBssVHNmoIBkPuidPq1lMsg7NB593gtJXPHDQ1hNgBJnTWQYr+1J
-	y9DzZTEMzCbeYNTQxy+hUI9gr+AISaLXEJcYIekz/zsEFUR2Vd+SNNp26wRQ+DGFE52Mv9Qum0n9a
-	8Luj1tOGT+YlNutNCyxEcFwAFKQb1Em/yu+xILPe47E9jd/Xc281HINmqEyPexET/7lJgawLRzzXu
-	vEG1C1aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/gnO49ipbVQfoRjUTAo8XJ0Syz4un4P+oYU1S0eLwk=; b=lBIjFwqppOLUEWycymR82+jp9G
+	gv5iXBxT2hKyoYTO37QNk4HoaUXqZ275jD/2xIdzUpw9qbFRpm/iX/lG0qOajfp3qvs9Kfcjl9f6h
+	62EZoAxxwHOgoo79wb4wVOAyrFx7qjClJD0twEMhvxUaMMDx+dcIX/qokOEqPjDmZAguK+N+X/WSa
+	xZw/VDWvGKapeZuSFkj5C2ijKSxwiFMmEsqLYNhL3D40qxdADjvNsNcKAsccoOWXzDEFqlCjCIbT1
+	01KDLUKjoJP57aTRiHZMqieYqyKB5EkKhGTMHIiP2j5O9Q61ABK7UerzGWc7PLNAK4pmAM2cmtB/i
+	Mvr4wxEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZB-00000004F0e-43Ae;
-	Tue, 24 Jun 2025 00:31:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uTrZC-00000004F1Z-2pAK;
+	Tue, 24 Jun 2025 00:31:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThrP-00000002zAr-08rP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Jun 2025 14:09:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tTqzFXucfoLXojG6cheHnIsoX2Ng1HXB6wnPXyTTz+E=; b=d9P3bwxZdoitsoQjcCIIfECq57
-	ZLsHXDWkxcyuEVMv1Vrjna2gwN2cGfrHoRHZli6/9leVcZZIMWaMBcwiDp0eVAYxvrWVVCuQpcPYS
-	g4n5mIJ2Wup90UZivxck9f1dwRAiK8edqhc623D6Z1HJcwmL3nNTeoAfMUEZlxFMOjHrG8hOBAsUg
-	/SBAYleGBQ/TY7xhHrHQbkiuuQLIgUlbcMempSUTywgnaDIFWg59F2c/+eafX/CM8orwZlXkE1lak
-	K4KyR5kTjVHb7zwrSYeNHsv8yMS3m1qlaQFCCV9qHiwn+t/0ZGp4QHHAGk6cO17EomZhxJtN+Nymi
-	z0/Mv4PA==;
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThrL-00000005Ejo-2FjD
+	id 1uTht4-00000002zPs-3N6J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:09:22 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 531EE443B1;
-	Mon, 23 Jun 2025 14:09:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1750687754;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tTqzFXucfoLXojG6cheHnIsoX2Ng1HXB6wnPXyTTz+E=;
-	b=oQkLm/T6QHfWzh5bGMAbnsCa34uI46vKHRhUpHxX5NE0IaJr2zYoPsHc7EzUtZVsSFVfGS
-	I8AltFv5PRy/XTgp7ujqzUS6QWK+GQpLAbxpIgm4eEguFNa2zGavOb5z6UXDIGNJ0p+Qqu
-	lZSnNWMzP9Rpbk9uYt7Oe++HnqFKnKj28Bu0pkl50yyVyU142lKiFpbpIAJZoa0hq07xOL
-	sR3SBQfRmZnFrG51fUxbR3vDd1urvXDs7MR8Pp5PY2fS1YMZ/ReSwfMsg2Vaa9pUufqhkY
-	WSZrgEam039YLW+BxLoOTU2Pwbe78g/vCpmGGMx28FIwrnpedTjp/WD4tMVEDw==
-Date: Mon, 23 Jun 2025 16:09:09 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Andrzej
- Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Marek Vasut
- <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 3/5] drm/mxsfb: put the bridge returned by
- drm_bridge_chain_get_first_bridge()
-Message-ID: <20250623160909.7d11cfee@booty>
-In-Reply-To: <6ed34611-d2fe-4c9c-8b00-0939ac407e07@nxp.com>
-References: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
-	<20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-3-0321845fcafb@bootlin.com>
-	<6ed34611-d2fe-4c9c-8b00-0939ac407e07@nxp.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
-MIME-Version: 1.0
+	Mon, 23 Jun 2025 14:11:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C5495C54AF;
+	Mon, 23 Jun 2025 14:08:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A196EC4CEEA;
+	Mon, 23 Jun 2025 14:11:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750687865;
+	bh=S2l2sY8x6ARHJCtqhLtvEeZM+BBhQzDuZlxOYaXKcro=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mndeAcmiY8OItl4Ckcb2czE0f2tEwgc3Cau0eEXESzK/XDwyuIwW0rhXkL+s0pwBY
+	 9Ud3mGQwNkC738m+R6Tsbc8fQ5gAF4v4Cudno6MaO+TV/UTxzMqAywc7h7+8MrT9I9
+	 JyB4gLClWPxobJjjk6yf/Tps6oJKt3p4dRABaopcFAqrUCOwpIdA5c4rG0RWplbL8P
+	 yO0Exd2e313f3404E0BbmIjKW87GovUfFAmAXYofrbqD7m2rjH2bGk8fqKmuE26uxm
+	 8b1tO3NrRaKmViaTf5qKh6tiS/cqmrA1ModCeRVuafw2Duvx7iQtZaX/2+xPO52UXy
+	 c13lMLJ3DN/zQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uTht1-009Dbr-6F;
+	Mon, 23 Jun 2025 15:11:03 +0100
+Date: Mon, 23 Jun 2025 15:11:02 +0100
+Message-ID: <867c12czux.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Eric Auger <eauger@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	seanjc@google.com,
+	darren@os.amperecomputing.com
+Subject: Re: [RFC PATCH v2 0/9] KVM: Enable Nested Virt selftests
+In-Reply-To: <9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
+References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
+	<92c7e99c-5574-422c-92f1-62d5cde58fec@redhat.com>
+	<7bf7bd52-7553-42a7-afdb-a5e95f8699b5@os.amperecomputing.com>
+	<86a56veiyy.wl-maz@kernel.org>
+	<3be548bf-aee4-46ab-bcbf-15bf629b24da@os.amperecomputing.com>
+	<86jz58c5ut.wl-maz@kernel.org>
+	<9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddujedvvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehvihgtthhorhdrlhhiuhesnhigphdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepmhhrihhprghrugeskhgvr
- hhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhm
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com, darren@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_150919_757103_FB2B25D4 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250623_071106_918433_900F140E 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,62 +98,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 11:06:37 +0800
-Liu Ying <victor.liu@nxp.com> wrote:
-
-[...]
-
-> > diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > index dbd42cc1da87f82ef9cd4ccc70cdecbe56035174..21311cf5efee7d26c80316bffe80dd2bfed02238 100644
-> > --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > @@ -433,7 +433,6 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
-> >  	struct drm_connector *connector;
-> >  	struct drm_encoder *encoder;
-> >  	struct drm_bridge_state *bridge_state;
-> > -	struct drm_bridge *bridge;
-> >  	u32 bus_format, bus_flags;
-> >  	bool format_set = false, flags_set = false;
-> >  	int ret, i;
-> > @@ -448,6 +447,8 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
-> >  
-> >  	/* Try to find consistent bus format and flags across first bridges. */
-> >  	for_each_new_connector_in_state(state, connector, connector_state, i) {
-> > +		struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
-> > +
-> >  		if (!connector_state->crtc)
-> >  			continue;  
+On Mon, 23 Jun 2025 11:31:32 +0100,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> To avoid the unnecessary cleanup for !connector_state->crtc, I would write:
+> On 6/19/2025 5:15 PM, Marc Zyngier wrote:
+> >>   >
+> >>> Also, running EL2 is the least of our worries, because that's pretty
+> >>> easy to deal with. It is running at EL1/0 when EL2 is present that is
+> >>> interesting, and I see no coverage on that front.
+> >> 
+> >> Sorry, I did not get this comment fully.
+> >> When we run selftest on Host with -g option, the guest code will run in vEL2 as L1.
+> >> This is implemented as per comment in V1.
+> >> 
+> >> When we run same selftest from L1 shell, then guest_code will be running in EL0/1 like running from L0.
+> > 
+> > What good does this bring us if we need to boot a full guest OS to run
+> > tests? What we need is synthetic tests that implement the whole stack:
+> > 
+> > - L1 guest hypervisor
+> > - L2 guest hypervisor
+> > - L2 guest
+> > - L3 guest hypervisor
+> > - L3 guest
+> > - [...]
 > 
-> -8<-
-> --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> @@ -433,7 +433,6 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
->         struct drm_connector *connector;
->         struct drm_encoder *encoder;
->         struct drm_bridge_state *bridge_state;
-> -       struct drm_bridge *bridge;
->         u32 bus_format, bus_flags;
->         bool format_set = false, flags_set = false;
->         int ret, i;
-> @@ -453,7 +452,8 @@ static int lcdif_crtc_atomic_check(struct drm_crtc *crtc,
->  
->                 encoder = connector_state->best_encoder;
->  
-> -               bridge = drm_bridge_chain_get_first_bridge(encoder);
-> +               struct drm_bridge *bridge __free(drm_bridge_put) =
-> +                               drm_bridge_chain_get_first_bridge(encoder);
+> IIUC, selftest leverages host OS support and uses various IOCTLs to
+> support the guest_code run. Are you saying to implement all this
+> again (without OS help) in guest_code to run it as hypervisor and
+> launch guest_code2 as NestedVM?.
 
-Good idea, I probably didn't think about it because I was grown up in a
-world where all declarations must before the code. :-)
+The whole point of having small selftests is to run something that is
+simpler several orders of magnitude simpler than the full blown
+OS/hypervisor. So indeed, I'm asking for selftests that build chains
+of guests up to some level and verify that the nesting, as described
+in the architecture, works correctly.
 
-Changing this in v9.
+> It seems to be complicated, doesn't it?
 
-Luca
+Yes, it is complicated. What did you expect?
+
+	M.
 
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Without deviation from the norm, progress is not possible.
 
