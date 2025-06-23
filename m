@@ -4,56 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5B5C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3118BC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 06:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZTQQuCL7FpY90fviFNuryA5K0USXRmsaYT1nxgBXO4=; b=C6H0zvNwGwE5MbRO6JsR9NAPWU
-	wUq7zim8BEy22eDB4nfHJWfSnkvwexu4gjUheDileSQ+cF0pn1xHQiz4i3p6fJXJ00REdYUaLB7TU
-	CQSzZa6t/f5lMU00DgleRJXfSF2JxQDqAd0zbaxw4JMUeCrKnycy2yy10tI6lgJ/7tFID/2V4TvvF
-	b41fhIgwFzCmyX8sPG7jAPNvy/jZc/6EHeqjgonjvCNeQkyW9TDSgpT/RmZGff0OsWyDF0MnCMG0Z
-	82q5yVbIYzyz3GJlQt8y+Y9sBDTbSe2TyuquvvzAkXgdNLA9Kzc4P/0si0N9RbeZsMj8NmSRJEZ68
-	nM/h9yWQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ke9lYKrcqcunI+A5Ne5AxdEtfxFkYD5UM58Jvg5HrNo=; b=EMrKxxFg8wyFhBAgf1wbmwDEDo
+	nUz59dkPwXtAN8NJuiaRk7D8jWxjEi2QLFB9HRZYC8ujt4FDEw4OFhdBxyankFj9w0MPCRc6cWTg/
+	ViUhydwPsfglRpScNAXPwJhqlKD7ms0MsFmlhCHQRHqV9SZ8oalfEyjGJXkN/27CDrF0XDFtdsS7X
+	jGgLKCVutzgX/jIKsDlGJabtyF2yXrkh4z16sZFJYuFxVhp2Yr+ytPwh7/46JZ/VdC/fLA0CBT8m/
+	y8ghUaQMv0sf2Ge8HtOWP8CrBWoQFFiSux96hXiGhcCNYa8MZQBVVSU07yQ7EIXzRvPiN0JW4vxHK
+	g8+u7wOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTavH-00000001m6R-052n;
-	Mon, 23 Jun 2025 06:44:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uTaxa-00000001miu-39Gs;
+	Mon, 23 Jun 2025 06:47:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTaf3-00000001jQP-0lbB
+	id 1uTanx-00000001kG6-2ATA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 06:28:10 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uTaeS-0007Ec-61; Mon, 23 Jun 2025 08:27:32 +0200
-Message-ID: <133e7a14-9c61-46e6-9ac4-e1c17c0c28b1@pengutronix.de>
-Date: Mon, 23 Jun 2025 08:27:29 +0200
+	Mon, 23 Jun 2025 06:37:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CEBC5C4AD3;
+	Mon, 23 Jun 2025 06:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CEF0C4CEF1;
+	Mon, 23 Jun 2025 06:37:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750660640;
+	bh=buOrcItc7yFXj8/CRQ3HtUD8/SjMJ7yOSDKIv29T3ng=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=T65d0tDUe1US9zePadEL+6tCzAXcbFizDttfkcVhDQy9thSXFf8LTOwcycUrKE5f9
+	 rYDhcJX4R9Rhs0WLpsJ3B6lxOgZxXzIZzIvxgF43pnonWnu3f/13r/RNERtFxuVYra
+	 cFKhsJBUogYwFe6R3rdOdH/6CWFi9feiVWAg2M2denOPAAriu6g9fJFCT90+PgV2J1
+	 J09cTIhsphm8TaXsGBQxmDLR1nOFhZUXak2juvkYAPui+ORnOqIcIEwddGawcN2QiQ
+	 9ZVoMbN0cdu2Fri+eZK9lvsJifwa9hM6pK9MI3aYnmUVFbiXpfQtPLMlhN8cdXDOO8
+	 irHLW05gERtKw==
+Message-ID: <809a7142-7055-47e7-8bc3-18bef86e2b4e@kernel.org>
+Date: Mon, 23 Jun 2025 08:37:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: export __memset/__memcpy/__memmove
-To: Arnd Bergmann <arnd@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>, Abbott Liu <liuwenliang@huawei.com>,
- Ard Biesheuvel <ardb@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250620111257.3365489-1-arnd@kernel.org>
+Subject: Re: [PATCH v3 12/17] dt-bindings: dma: ti: Add K3 BCDMA V2
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>,
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, praneeth@ti.com, vigneshr@ti.com,
+ u-kumar1@ti.com, a-chavda@ti.com, p-mantena@ti.com
+References: <20250623053716.1493974-1-s-adivi@ti.com>
+ <20250623053716.1493974-13-s-adivi@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250620111257.3365489-1-arnd@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250623053716.1493974-13-s-adivi@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_232809_225175_9E4D2BB4 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20250622_233721_645774_15DD545E 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,50 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.06.25 13:12, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On 23/06/2025 07:37, Sai Sree Kartheek Adivi wrote:
+> New binding document for
+> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
 > 
-> When KASAN is locally disabled for one file, the string functions
-> get redirected to internal helpers, but those are not actually exported,
-> so this only works in built-in code but fails for loadable modules:
+> BCDMA V2 is introduced as part of AM62L.
 > 
-> ERROR: modpost: "__memset" [crypto/ecc.ko] undefined!
-> ERROR: modpost: "__memcpy" [crypto/ecc.ko] undefined!
-> 
-> Add the missig exports.
-> 
-> Fixes: d6d51a96c7d6 ("ARM: 9014/2: Replace string mem* functions for KASan")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 > ---
->  arch/arm/kernel/armksyms.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  .../bindings/dma/ti/k3-bcdma-v2.yaml          | 94 +++++++++++++++++++
+>  1 file changed, 94 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
 > 
-> diff --git a/arch/arm/kernel/armksyms.c b/arch/arm/kernel/armksyms.c
-> index 82e96ac83684..1ff50106afa4 100644
-> --- a/arch/arm/kernel/armksyms.c
-> +++ b/arch/arm/kernel/armksyms.c
-> @@ -83,10 +83,13 @@ EXPORT_SYMBOL(__raw_writesl);
->  EXPORT_SYMBOL(strchr);
->  EXPORT_SYMBOL(strrchr);
->  EXPORT_SYMBOL(memset);
-> +EXPORT_SYMBOL(__memset);
->  EXPORT_SYMBOL(__memset32);
->  EXPORT_SYMBOL(__memset64);
->  EXPORT_SYMBOL(memcpy);
-> +EXPORT_SYMBOL(__memcpy);
->  EXPORT_SYMBOL(memmove);
-> +EXPORT_SYMBOL(__memmove);
->  EXPORT_SYMBOL(memchr);
->  
->  EXPORT_SYMBOL(mmioset);
+> diff --git a/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> new file mode 100644
+> index 0000000000000..c50b2edbf8441
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+
+Filename: missing vendor and anyway this should be compatible, so
+ti,am62l-dmss-bcdma.yaml
 
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
