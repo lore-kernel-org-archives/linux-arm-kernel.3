@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD053C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907C9C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlOL8X69KAf43rpa448wfskj/jjDGmOWw431Aoz2DQk=; b=blFdW9lLIvBiqAE5gxoTID3G0s
-	SbbdaOuWz5Xvsr5HwaDF36KrYzDccu79cbdp/GoW3ZjsUOQ1oIH2eAGRBPl34XXRnCu9CK/ByzjSn
-	l0c97S7mgw+D0LtNe/oxnPjAe1GL20TbkRjXN4AD4jb90jStKmVcJTVBttQtvLvMbkjDWMMoS35fh
-	sHQKz4SK0ptYQX7UdU5SYYFLulOz5NBx3FLmIMAzktzqYsMM0zs2Gro2GYdTDKChrDxqtlNpWh5Vr
-	WoNwXVAUhhSvo9+KsoTGbfsTZ7TIGGtYUlNkdIsSWRtUWRo3CQ9vFopNxUg8Bf2r1dNK4D7KsGwxY
-	DPCtrWng==;
+	bh=cN0aaT6+bUw/Kg1Ouvk9kDnxJXHWJDCZ1stvd2Xc8u4=; b=tBB+XJTziJuNO7vud1MijJR5PP
+	A7nYthvKSdyrPbNReJz+wbpACCARqp9tTLIl+nyASUOos8+xdDmgD1TZ3nNfTyH5AUPDSkf4AcEan
+	pMqZS62nzf2IaueqKcFOTlBluSRfArXRa1dWFTOmVjD/gvoYBVrju1y0cAHPeptxu/tQAGUpuDcQF
+	4jLJSrQDVCQ7m1iynseKw84r1DyXfqHiz8agI8VChbiy65vYlvGpyIFu8F9ztVhZDJwhCUBzHh3Rv
+	bhhIwSHOZGc7z0CpOifPYQLwNurhzUVQhOMml7lchUSg0Bp6bwEE8V0O2TwYSTppXJWi1C6hDlaJ0
+	jUjcBVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTpPA-000000045NM-0Wb1;
-	Mon, 23 Jun 2025 22:12:44 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uTpRS-000000045eW-1WDN;
+	Mon, 23 Jun 2025 22:15:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTl9d-00000003aEi-06BN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 17:40:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1750700423;
- bh=vlOL8X69KAf43rpa448wfskj/jjDGmOWw431Aoz2DQk=;
- b=My/JfhL2A+AFMA2EBYfHFUSWERa0EPVTwJwo+ORyqE71fCZAMAIX234qbTiD19pJ/7sEQ9WOV
- 5rUuVL7Zds4mFqzZ3EeiQZdk8psDHzOAaBT4C0BoSCILngQiZS2sRhfwBN8bQvj/SF9uZUfE4K5
- UwPjqAZ1BTnxvQvpUYDgOLdkVGG5gXBGE2dYL7LkRKyALBHCWwsrhGUoneKF7eWX/qd94MzIsSU
- e/pnj6YpHEx4nG8mGnrGzrcjuJBmJGXuyACZCRUyyLezHzTs3sWScDdDZs8XwrDqB0HRBTOvkNN
- cRM4K+HYHzuC+axMHuGW6mgJOjMWbUFMnafL5Fh1GHmg==
-X-Forward-Email-ID: 6859917f54073d00e4b5a183
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <dd1d0676-4eaa-4df7-b557-676b3de9a52e@kwiboo.se>
-Date: Mon, 23 Jun 2025 19:40:11 +0200
+	id 1uTlB0-00000003aOs-2Wyp;
+	Mon, 23 Jun 2025 17:41:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6907AA50B29;
+	Mon, 23 Jun 2025 17:41:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03739C4CEEA;
+	Mon, 23 Jun 2025 17:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750700509;
+	bh=xN/A8HvexlN7YR43s6eAIX13svQo3ngl0HP/TpVfgL8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=JkLc4AK5rsNIaammDjeW4cmKVnVKAoa2c54D5jWoFfJvWgMWEZBsO6E746V/w2EHR
+	 uW8gGVkIe10A50Dadg5750SaRxEOw6bc7ZZSalsTsbSvAJr3DKikCBQlyVpLrR3rnB
+	 WggFC+r7Tq3wCbGXgAwZ/rLPWsF/J6LW883h+BwV0CfmzrRKjaelkXb/bQW/thljcE
+	 Dwgpd1XRh/1ZbR9NCzkB/5SsCPh7yumJTLdtgGVbONVFll5ikzQ7AqmZSv3dEgX+fV
+	 sNlURWvQXOQF3iXJ7bvYJCAOzae9+86xObv2DzJH8R1nTj0Uv21APn03y1wf9XHz7D
+	 cQfJnitoVHhmg==
+From: Mark Brown <broonie@kernel.org>
+To: lgirdwood@gmail.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ matthias.bgg@gmail.com, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, kernel@collabora.com
+In-Reply-To: <20250623120144.109359-1-angelogioacchino.delregno@collabora.com>
+References: <20250623120144.109359-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v1 0/4] regulator: dvfsrc: Add support for MT8196 and
+ MT6893
+Message-Id: <175070050673.180798.18078248798013183788.b4-ty@kernel.org>
+Date: Mon, 23 Jun 2025 18:41:46 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM
- Sige5
-To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>,
- Alexey Charkov <alchark@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- XiaoDong Huang <derrick.huang@rock-chips.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <3286000.Y6S9NjorxK@phil>
- <CABjd4YyaNF1zosFFi6hEsZanPDxoaa1h4Dpd6uTPRwA3BZn0=w@mail.gmail.com>
- <5897576.DvuYhMxLoT@phil>
- <CABjd4Yy8WeXKmmxh2-TjjF5-ABy-NzzJsWpt1KvSjJqTHh0Xwg@mail.gmail.com>
- <CABjd4Yz4NbqzZH4Qsed3ias56gcga9K6CmYA+BLDBxtbG915Ag@mail.gmail.com>
- <36711B65-DD45-4539-BD9C-0382936FD0A3@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <36711B65-DD45-4539-BD9C-0382936FD0A3@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-08c49
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_104025_106707_B04824E0 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250623_104150_721371_3B8F5270 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-23 17:02, Piotr Oniszczuk wrote:
+On Mon, 23 Jun 2025 14:01:40 +0200, AngeloGioacchino Del Regno wrote:
+> This series adds support for the DVFSRC regulators found on the MediaTek
+> MT8196 Chromebook SoC and the (unrelated) MT6893 Dimensity 1200.
 > 
+> AngeloGioacchino Del Regno (4):
+>   dt-bindings: regulator: mediatek-dvfsrc: Add MT6893 support
+>   regulator: mtk-dvfsrc: Add support for Dimensity 1200 MT6893
+>   dt-bindings: regulator: mediatek-dvfsrc: Add MT8196 support
+>   regulator: mtk-dvfsrc: Add support for MediaTek MT8196 DVFSRC
 > 
->> Wiadomość napisana przez Alexey Charkov <alchark@gmail.com> w dniu 23 cze 2025, o godz. 15:58:
->>
->> On Mon, Jun 23, 2025 at 1:19 PM Alexey Charkov <alchark@gmail.com> wrote:
->>>
->>>
->>
->> Okay, I've bisected this.
->>
->> TLDR: Linux and u-boot seem to have nothing to do with it, opensource
->> TF-A doesn't work, binary BL31 starting with v1.09 do not work. BL31
->> v1.08 and earlier work fine.
+> [...]
 
-v1.09 added support for 1 GHz hrtimer in addition to the normal 24 MHz
-rate. Mainline U-Boot may only support use of 24 MHz hrtimer, unsure
-what impact the hrtimer rate has. Mixing blobs with/without 1 GHz
-support is known to cause issues. At one point the latest rkbin tree may
-have contained incompatible rk3576 blobs (mixed 1 ghz vs 24 mhz rate).
+Applied to
 
-Did you try with newer blobs, i.e. ddr init v1.09, bl31 v1.19 blobs [1]
-and mainline U-Boot [2] ?
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-[1] https://github.com/radxa/rkbin/commits/develop-v2025.04/
-[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3576
+Thanks!
 
-Regards,
-Jonas
+[1/4] dt-bindings: regulator: mediatek-dvfsrc: Add MT6893 support
+      commit: a6c05c2e6871c94b349703c1ec8584763797fd8e
+[2/4] regulator: mtk-dvfsrc: Add support for Dimensity 1200 MT6893
+      commit: 7aafbb463be85472dc6db194ab9df45fd497c998
+[3/4] dt-bindings: regulator: mediatek-dvfsrc: Add MT8196 support
+      commit: ae77b8e8b0326818bd170818b37d055aa57a1569
+[4/4] regulator: mtk-dvfsrc: Add support for MediaTek MT8196 DVFSRC
+      commit: 024f39fff6d222cedde361f7fe34d9ba4e6afb92
 
-> 
-> 
-> just fyi: 
-> to confirm: replacing only bl31 to 1.08 makes all good
-> with perf gov. clocks staying on 2200/2300
-> clock estimations are predictable, constant and estimating constantly 2400
-> ux is „like” on 3588
-> 
-> Alexey: many thx for finding root cause component!
->   
->    
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
