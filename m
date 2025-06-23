@@ -4,159 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96291C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFC5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJrrLyaH2wo7MPJBpqAZCxvjbPK86HBzp0mDzzanHwc=; b=EFx8B1YovINabSFZc7oLIAV2um
-	9E/ypcOhmPjW4dHD9zZ0XO3RVj5yta3C4HuPSuoPH3/vXAn9oxesOEU6ZJLumENFl28SefBag1uH0
-	5tXlcbBj4d5a2xMDrsFhwMPKxY2XUJbbvTB4Dy5F63F4DV99Z3BxNxc3Ur6A4ZBZYSBEjobjyA2eF
-	X8jN/3nMefFvsCuoDWJI8KwRZrUJ+aivXL8XMwKWIPpiLHrPaVvyBoLEdmUiyeDBAxa4baa+TR7Bj
-	oNeWdKqV3uIPEWF9yYltD3XLGQbssSnF0srbt46WL7qJEyfAo/qTFdAyRUi+1O9+WQ9GIUh387ZeK
-	nEHpBNJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YENhMs4/6mnixeMLP66geyPQgG06rHwcdJ2WanceGTQ=; b=qacnYDRFnLwEy+EZBNeDalwpGJ
+	iDibvx5pa2/fcmebkgrz1qdyZJHxp3ksqLioxvr/2WJ6sJYkQy1/XpocQ98dS73Uo2ABdoyozg2Qw
+	sgWYNC2hBW6kE/EXeRUa+7DnaD2ZCWvs6lK6Hz7SxxkYWOTU/uDAU/RBBzxXTuhKEYyElQPsBztxf
+	jIUwkjjjW1oFQZJu9sohi6a6NaH5FH4UQCS8xKZQJE7ReJ8vnGqJDCMQzNvGcbr/MyQkDr/IEUDcl
+	hfpmi0ZQi7rrYRnIPk5KS4EeLK0L+KVX68MxKwg9M04CJtJ/hGkQj4rdXfK5k3T80u4LvFw32If/n
+	X75Z3h+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTmM0-00000003lJf-33Wb;
-	Mon, 23 Jun 2025 18:57:16 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uTmOK-00000003lT7-2HHN;
+	Mon, 23 Jun 2025 18:59:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTiy3-00000003Clj-3meJ
+	id 1uTiyv-00000003Czk-48Eq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 15:20:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sl2rB+vugogKkuLVebUGFRj4SFFsx6zTgCkRr5ht/3lJfjcIQfbKuOTrKdX0yB3j3R5C6NZiwpoSVyGwPsLYenoT6iDjzCqcfeTBzWxHAjccm4hGaIHC8XwEQZjnfbd4Ocfd6/0KD+9EkSPMXeFgZwpCU7TUaZ0RSfGzRAD5l4b7mCQ+qgfVYVHLG4zhTmVlpnBYzm+Eqz6HVjGnTgWnSLXrC7u8Vdzagbf17o0Gly1rH7t4I5MuV/GQtp21uFRUpETyOgCU+cdV2CEQXLGikWQnCwmknJiikEnQ7FM0vWmcF1fZ1EfYej4pPBeQA9Z/51o4xtOcu4DAp01LGtp7pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HT3DJhCOpt/pld+msgTRxpi7smDoJ3QEPUK1xUq/AsQ=;
- b=TJBMh82KUS+t+OCkOT/wYuoPleKNUCJL/EudST+JfEviKgsdN6kUOWSys6IEkjprlmYbd+ZfB432q+kFQToH0tLQzVtjEiB3rGBGDGA0jXjxr0is3fjcWNW854tDkl4r1ZnBXW9oYD0x3dwjDTtLamqx+wA7/2u/3fZeKKY4DrhkA6VjDsEdcE12dBXhgxCk3nLBmZx46XN1Wf7DDI91wEw9jvZuHlWpkCDUzOocQRaqGq0H5jGuncvMFqZvDimagkf+J1Vw7Oa22t9/WTZYtTQ6HXqcFak6hgWFQbwzKQJpGbkOW2vdRgJIVZEqEJk7nctrO7asGUAtnEnLRmGotg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HT3DJhCOpt/pld+msgTRxpi7smDoJ3QEPUK1xUq/AsQ=;
- b=gabtvXYLSLWc6Yf97JL4s5MBIui5aRegCr2FBE42QXP5AIOifL2qSMI3znXHMqB6bKsrWv0gaHwHjuuCk3lNLfkvwM6qFZG/J24j/6/RK4qy8DrEG41QX4JsiPQcTo6I0kmoGI5Eo8BxmzXwDUoAA3hu2d0JVd44muezPnyuZeeueq8mIkRkLynAYkEQiPjKoqCyqNu+5pScS/cZPD3wzlvwFWpgqZPt89R+mFY0TESelANKJECNnIFybiRbab4yryRBFaMm3IQgk7el4O5C05UU9hf9iQ8MD+a/KF+lzVp8UGc+SAVH0UH7+ZbIROn4+zUKHDeSHzy4H46WaU4/6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB7656.eurprd04.prod.outlook.com (2603:10a6:20b:29b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Mon, 23 Jun
- 2025 15:20:15 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Mon, 23 Jun 2025
- 15:20:15 +0000
-Date: Mon, 23 Jun 2025 11:20:09 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Yangtao Li <frank.li@vivo.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v6 22/24] thermal/drivers/imx: convert to use
- devm_request*_irq_probe()
-Message-ID: <aFlwqaNvHtPk7wbR@lizhi-Precision-Tower-5810>
-References: <20250623124257.475083-1-panchuang@vivo.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250623124257.475083-1-panchuang@vivo.com>
-X-ClientProxiedBy: AM0PR10CA0091.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:15::44) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 23 Jun 2025 15:21:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA65B5C5A76;
+	Mon, 23 Jun 2025 15:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A034C4CEEA;
+	Mon, 23 Jun 2025 15:21:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750692073;
+	bh=AO8oR9iVOI3X3E2H+YguT8JIoUYuH/+e9B86cY82fto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Sa+E3D8P4hEplewoicY3Mvfbf4eR2Yo3VUfGk+HHCP5ZBEVNk5ilpjQhWbrsTiCdC
+	 j+CngHKTkWWRmYVxRaRrX1dqJlq8EeMIknsiE6xq5D9SzAYt4IIP4Z8HUbgKTbs4FN
+	 qVOM08civmJRGvOsffFXSJgKDJXDyBmWxsuDHhgkFPG5qTLQjZPM9K9dQV2S+XBBo2
+	 vQrWZASrHOvgjJvjtHT+QNTIxyK+F8tW9SRonKLYT+KfivTmEPxjX3B1kx+Fe7yId5
+	 30TZvOO+kK50QC7CP3ShJLMiph/awnZRvDul3fzpWj6qrsdVKn3aMSkQDbS8yQKRkk
+	 P0xUF1/W8G/oQ==
+Date: Mon, 23 Jun 2025 17:21:06 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 1/5] irqchip/gic-v5: Skip deactivate for forwarded PPI
+ interrupts
+Message-ID: <aFlw4lOj8tUGrSTb@lpieralisi>
+References: <20250620160741.3513940-1-sascha.bischoff@arm.com>
+ <20250620160741.3513940-2-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7656:EE_
-X-MS-Office365-Filtering-Correlation-Id: a62d2d82-2f9c-4a64-561d-08ddb269743c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|7416014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?xHwmzbV6tOYb6P2g0bHVhF7kqFvBHYgwyLKj/4hx69e2OKqPqUib0slCgK?=
- =?iso-8859-1?Q?Wh4R5mYO95kdI22wrsaExBj4y9iITAklfuTSpm8PbfsAOtzR64wTmRUdi0?=
- =?iso-8859-1?Q?G/kXsFzHY0PEu9gX1vFoPneIXQoORxc4fOvBy9dGNKvQfgoKvC2N3NwDcd?=
- =?iso-8859-1?Q?MXDqCKqRGRX3ZednlIgrk82Pxmke51TSdpGIfOII7FeX9omFeOzi5T5TiG?=
- =?iso-8859-1?Q?l4zEzYYqZIwFdvjF8ql+Be15e1sWivf14spyINtQy60mYN0Ji4YxoiCV3W?=
- =?iso-8859-1?Q?CzDRbUDFjbjnfOgJxLsVwKHSU+vT0zHfDLs5FmEuRzMxc/ZlG2cFA52BW0?=
- =?iso-8859-1?Q?x/kkbN0av/sgmEvqifqZnmKHspyhmj+CifFHk3u4l6JbE3LHGztJBjaXad?=
- =?iso-8859-1?Q?zbUmTDQDo/mlg328jI8l0cC7ri+b71FPeJZGF/5QJG8SRPpb05NxfPK05h?=
- =?iso-8859-1?Q?fgAoajmdOTVf/1FpSZFL2BAssOtpus90EvxeSZeRm4h+aGmjUSMgZDGwBn?=
- =?iso-8859-1?Q?TptG4EjSlGdtDRoZyYnoN8t6mx6pFrAkPfspF0BQXHGg156/usJcQKobKO?=
- =?iso-8859-1?Q?tYur8kI3XNiexOClNciM3GwSAsGyAbbrHaeBwpOHrQP/qRTPicU3d6J5zn?=
- =?iso-8859-1?Q?8JYd7LSX65Hv+Bf0u3UHDiUBQHSFzcDXGWbGQsOeFiKhFbEq2Y9cbUnup7?=
- =?iso-8859-1?Q?edOaMpHV9jFgCwi+ly5/kghLVu7bYzQpoJ6DOFBu3XwE+G6q2Uc9Bd1aAs?=
- =?iso-8859-1?Q?kRhih7DtCoes//rAWpcki4yI6poMnLUQSNcKMyVgBPMxfm057yrUlTVWnv?=
- =?iso-8859-1?Q?DM+3lEWsj+OP2GoY04hBuMZG4ZD8bWegoMD8WKpT7ns0QDqOT/D0xUtngl?=
- =?iso-8859-1?Q?Wt3P7J7JCzUOsus78P+L6OuApwAOLq+X1mdheEKtKuTkqvkOzecjTQfm6c?=
- =?iso-8859-1?Q?FjtdgQdExnP30zvDGr93HBhfuVxBu3dcL+LoyqGOI0QKbJFI3Eq3vVuCEQ?=
- =?iso-8859-1?Q?0QQnzEdSU3Hb07lXYue2hD9RMg5vT4fQ6h9ontIhiiEpvf3KLhoU+2j2+9?=
- =?iso-8859-1?Q?1id7RgLBiq3wjdTOCh+1Tsjm2zXzxv65tBQ/3dUclq746Gt2Zzo/lT6Zvp?=
- =?iso-8859-1?Q?zUzJFN0MJpyw2W6iCKlg6i3J4e8eRCSKAC+M77x5eOYrUpQj7y83BHC5nM?=
- =?iso-8859-1?Q?T/ahcZW+fEilAK1P2nBxV5oQ27N8v7Srg6HmaFHH9SZZBrkPA9sZxUqtOC?=
- =?iso-8859-1?Q?oUZMAV1J+5fXE2ioUKmSUQp7Wu8BWxoXWpQAq6vIR0HcS/5J0ZL58AHWO4?=
- =?iso-8859-1?Q?pKlPt3wL+fG9zBB2D0/AjeYUJYoEJWk9oqLIUFJzux76NAYj0aKpgyqfKU?=
- =?iso-8859-1?Q?iuEae5x/3FjhP087fzI6I9nl0f3jVC0FCtBAhg9753X6ZQKmufX6NY8rUD?=
- =?iso-8859-1?Q?A/8lPJMsBZpFPzZq7Xqqpb17ac9aEJYEquF/19ozLixwSnpeYZun2I0cd6?=
- =?iso-8859-1?Q?Fjw4brjxDC/0AbFE1yVIYvDVuPwOvmP+dbEVLompTUyQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?zIfOh6l5nKCD2HJr/VCluAT1xTc36eBmGmodS2krAZ6ss8vhKQh/24QA4q?=
- =?iso-8859-1?Q?zlPAAERSuZzRkCby9pRDQnre1ARUAsylpevHGM4xcg+A7hwzLR900b2mlL?=
- =?iso-8859-1?Q?LIsIFDPsms6EENji1/FuXiyOaPFOiQ2xNR/FKSL0zzpgvWEjeX0CKPd1m8?=
- =?iso-8859-1?Q?wLfYf8IDdru4e6SKWpp/DNKvSYkolQo/zMWMUVOHP7XT45qHVcsY14i/FZ?=
- =?iso-8859-1?Q?vpqF9Ayv7gFF5UjicmEPWAmZ3M7uuTK3Ebs4L+BJMh2YukQ4gu7b7Kk7HZ?=
- =?iso-8859-1?Q?uAQXPphsfx8xG2YY6DCXrzVhRh0bHBEhF4ttHtZ3v6fYndE7/saRQBJA22?=
- =?iso-8859-1?Q?53JApbr/fB4MIpkydCxo1RO2RnX7hZQrV/5uggZtDL9YHhQTxWhjSLxZ2g?=
- =?iso-8859-1?Q?58AATMwAjRiiGS31pNT5GB8fdf+w8GxtPhSiSllLzZIZuZivo2LxL7FSMr?=
- =?iso-8859-1?Q?J/rvysHroVRBNnGLOctpN0hfz6rDaH9hLA18/9cS8DliFuko10JjxVMwM7?=
- =?iso-8859-1?Q?AzXJa1iBszjyOqwWMHts9Q9zQSo9xH036Orsf10rH5SheEHvJwAflgViXg?=
- =?iso-8859-1?Q?q2e94Y9kzzBkwwXytADj4YvAjiE+r1lLOMDS6c96I+baKG85LJnR9PZQC1?=
- =?iso-8859-1?Q?Qm0WmqjFsAom+mW0g+ynaMS/41WZFPAZgrJlDfIVnHo2YlepnCZ0L7bO2W?=
- =?iso-8859-1?Q?WNPwl/OVoRKCjDs2sYMA9uDtn9mtv00s8YZ9L/6CjN/Kdce4qxYJSpnD5g?=
- =?iso-8859-1?Q?iDsi1ip0twuEckI8OpjGAtMaCUWKLmNfsfGVooCe+arEerHI2ZBsYxhwLN?=
- =?iso-8859-1?Q?7NbFwM6jvxLfKGlhoIwII/6Te0EC5wV0Qa3Kl9L4JMstA8Q3ojovaUq7am?=
- =?iso-8859-1?Q?ZEdKivXF0q3Cu9ArfHKX88yLF9wHM32zignp4QKJesPl5TU8LdptNd0O+0?=
- =?iso-8859-1?Q?e357Tt4Rn+t9Vf7+253jrQzG8obNukGNSO2M7iyFMxqv5GEk8WAyWWq+t8?=
- =?iso-8859-1?Q?M79Otg0YYMb2WLGv0sQSElmustOPOQyvP/Yirr8XIIyImmbSm2JA3Ognja?=
- =?iso-8859-1?Q?ipV6VS86EOHzBqPH4vztFbjw8JRQ4nz2ImdIiUZWQS1+aEITm/VnXoI8FE?=
- =?iso-8859-1?Q?HmKY2eR5OghZdi2HHlwrZ1Pkhm87p1GfDltvvK6fFdFyI+UAnuERBI2hWb?=
- =?iso-8859-1?Q?tvy8MEK4vxObdwbO1a96ptYsy5vm88GvGXRJ7stHi8nATwuyUSDJnYaBK0?=
- =?iso-8859-1?Q?h6y6WTYzHSFW2XS096o6n+IwL4wPGMfA7+mf1h/5oq4yjCkp7ZcDKcv84Y?=
- =?iso-8859-1?Q?rlnUms+DYDpdtg2OLrrlmEd/Nyj/zfZVrRCRe+PFgr6kj9M6fuMIbEmZrK?=
- =?iso-8859-1?Q?B8v972EKndRXdlPf7C9r52NHahPJSqPeDQCpW7xOW9XpwpJCqOoSfKQ5oo?=
- =?iso-8859-1?Q?+81ZR/Yj0mUnLeB+NccDwQIBUZCQPdtWTX/AC57kmgPPf6mF1AHIUaL7ZZ?=
- =?iso-8859-1?Q?NYtq6x+7AhbgUeg9WBvBUo4dXeszo7EvuwSno0m604qGEl+I/A4G6FYvyB?=
- =?iso-8859-1?Q?kOX83oN04z2d5FqeLtxft1Y+annhj1w2MeY1AP/m+hk5e1bbD1OrudA8Ft?=
- =?iso-8859-1?Q?sB6JO+zpQAZXc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a62d2d82-2f9c-4a64-561d-08ddb269743c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 15:20:15.1139
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7Ii8YlBi6cNowkaNjmA293rfNh4ovKLllKJj5rA11c3hxGatjl4t2f5dQa68Y7XQ96C9pBPI6lHjwOhbYWLcdg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7656
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620160741.3513940-2-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_082019_946207_6762A9D1 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20250623_082114_107761_3CB4C49B 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,66 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 08:42:57PM +0800, Pan Chuang wrote:
-> From: Yangtao Li <frank.li@vivo.com>
->
-> The new devm_request_*irq_probe API prints an error message by default
-> when the request fails, and consumers can provide custom error messages.
->
-> Converting drivers to use this API has the following benefits:
->
->   1.More than 2,000 lines of code can be saved by removing redundant error
->   messages in drivers.
+On Fri, Jun 20, 2025 at 04:07:50PM +0000, Sascha Bischoff wrote:
+> If a PPI interrupt is forwarded to a guest, skip the deactivate and
+> only EOI. Rely on the guest deactivating the both the virtual and
 
-This one should be total save, not for this patch. Each patch's commit
-message should be independent.
+"deactivating both"
 
-You just need said, use new API to simple code because commit xxx add new
-helper function devm_request_threaded_irq_probe().
-
-Frank
->
->   2.Upper-layer functions can directly return error codes without missing
->   debugging information.
->
->   3.Having proper and consistent information about why the device cannot
->   be used is useful.
->
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: "Uwe Kleine-König" <u.kleine-koenig@pengutronix.de>
-> Cc: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-> Cc: AngeloGioacchino Del Regno  <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Yangtao Li <frank.li@vivo.com>
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
+> physical interrupts (due to ICH_LRx_EL2.HW being set) later on as part
+> of handling the injected interrupt. This mimics the behaviour seen on
+> native GICv3.
+> 
+> This is part of adding support for the GICv3 compatibility mode on a
+> GICv5 host.
+> 
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  drivers/thermal/imx_thermal.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-> index bab52e6b3b15..151976d0820e 100644
-> --- a/drivers/thermal/imx_thermal.c
-> +++ b/drivers/thermal/imx_thermal.c
-> @@ -729,13 +729,12 @@ static int imx_thermal_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto thermal_zone_unregister;
->
-> -	ret = devm_request_threaded_irq(dev, data->irq,
-> -			imx_thermal_alarm_irq, imx_thermal_alarm_irq_thread,
-> -			0, "imx_thermal", data);
-> -	if (ret < 0) {
-> -		dev_err(dev, "failed to request alarm irq: %d\n", ret);
-> +	ret = devm_request_threaded_irq_probe(dev, data->irq,
-> +					      imx_thermal_alarm_irq,
-> +					      imx_thermal_alarm_irq_thread,
-> +					      0, "imx_thermal", data, "alarm");
-> +	if (ret < 0)
->  		goto thermal_zone_unregister;
-> -	}
->
->  	pm_runtime_put(data->dev);
->
-> --
-> 2.39.0
->
+>  drivers/irqchip/irq-gic-v5.c | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+
+Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 4a0990f46358..28853d51a2ea 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -213,6 +213,12 @@ static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
+>  
+>  static void gicv5_ppi_irq_eoi(struct irq_data *d)
+>  {
+> +	/* Skip deactivate for forwarded PPI interrupts */
+> +	if (irqd_is_forwarded_to_vcpu(d)) {
+> +		gic_insn(0, CDEOI);
+> +		return;
+> +	}
+> +
+>  	gicv5_hwirq_eoi(d->hwirq, GICV5_HWIRQ_TYPE_PPI);
+>  }
+>  
+> @@ -494,6 +500,16 @@ static bool gicv5_ppi_irq_is_level(irq_hw_number_t hwirq)
+>  	return !!(read_ppi_sysreg_s(hwirq, PPI_HM) & bit);
+>  }
+>  
+> +static int gicv5_ppi_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu)
+> +{
+> +	if (vcpu)
+> +		irqd_set_forwarded_to_vcpu(d);
+> +	else
+> +		irqd_clr_forwarded_to_vcpu(d);
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct irq_chip gicv5_ppi_irq_chip = {
+>  	.name			= "GICv5-PPI",
+>  	.irq_mask		= gicv5_ppi_irq_mask,
+> @@ -501,6 +517,7 @@ static const struct irq_chip gicv5_ppi_irq_chip = {
+>  	.irq_eoi		= gicv5_ppi_irq_eoi,
+>  	.irq_get_irqchip_state	= gicv5_ppi_irq_get_irqchip_state,
+>  	.irq_set_irqchip_state	= gicv5_ppi_irq_set_irqchip_state,
+> +	.irq_set_vcpu_affinity	= gicv5_ppi_irq_set_vcpu_affinity,
+>  	.flags			= IRQCHIP_SKIP_SET_WAKE	  |
+>  				  IRQCHIP_MASK_ON_SUSPEND,
+>  };
+> -- 
+> 2.34.1
 
