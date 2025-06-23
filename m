@@ -4,76 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235B0C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E949C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 18:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWZzLN00QuY/uLhA+Ts4bqB2SeNX24R8PTnGue61Wmg=; b=hgw5S9FEZYctSpvlLfEfrq3pSO
-	R1pU50kL3Fzpd3uxzLJ1siSm6qX8Xp2iClxaxVnEUJwOKopBTOhkclNHJGjanhufqY0GG4O2qa8LY
-	nM5gVeuXdw/lt5+kddKheQ9/mspVkjBUvgeYKQccMYm9dsID0VVVWzdPpxWjDqhknU1HTDYj7csJ6
-	b2UnzUitmCyf2GeOXf7kIDiUqeP1i7u137UGWUsc90l7x9Sf51JS/B2lMVABcu3lO6giYNwrDbSki
-	yFD1UeLPZL533WBA3Oeg11YNvCWGKtwBzDfrneZEKFRx6vrsRJOdtt2sP5MZmm/ESM9qXEAdB+fbQ
-	DkLUUYBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWuWh8ikyqXxF6OQcZheqX+Rb8Kv2Uc5WIvvy8TsDtg=; b=47irIEOwxozdq8JN+2WW776ZlR
+	qul7SlekdrHn5w7zTj3LsOKqil+Y4SQRSVsD3pZAeeBCa7JBr68Rd8I0M7pIR/ARDY5TG6Ke2C8Qw
+	GMGXIKIUgSQx2wznyBZFEr5gVRTwM4+om7incAwq5/3JRY2NvgM90pTmhw4ls3hpmlTLEEYHR+BNa
+	Ddxo5xxUYu97hFHcS1cBgzpVK7Km/e+Fe3fbkbylqpiHFI6XTUTfZNpdIxMltajbo4J7NkRolTK/T
+	y6c97ful8Z3ZFmyAjPg+GH52xLP68VAWwLEQtw0iNrhg08y7GvyKHxfAUNMnAbSXXMPiT2zQYBY8l
+	5O2gj4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlsk-00000003gWN-1CKd;
-	Mon, 23 Jun 2025 18:27:02 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uTlv1-00000003gl9-0l5E;
+	Mon, 23 Jun 2025 18:29:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTiQh-000000036SN-3Hfz
+	id 1uTiSG-000000036ik-120V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:45:53 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NEjl291582769;
-	Mon, 23 Jun 2025 09:45:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750689947;
-	bh=aWZzLN00QuY/uLhA+Ts4bqB2SeNX24R8PTnGue61Wmg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=OxxEE1U0Th9Ay7/N/qxBrKSj9oIedkjlcXbGAnhm7rnns0i26wv99xac5QDHXST9Q
-	 R3UEjPnH7h34gpG9hxSPZVr9jwQX2WfU7yIboSKlSGAOhjgYLw77Tqv0W4XvM6uPbb
-	 mkxCawfkWE8nCMEFyJiXEYiMt+nDvadFve1tAam4=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NEjlYM598026
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 23 Jun 2025 09:45:47 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
- Jun 2025 09:45:47 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 23 Jun 2025 09:45:47 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NEjlgG096006;
-	Mon, 23 Jun 2025 09:45:47 -0500
-Date: Mon, 23 Jun 2025 09:45:47 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>, <devarsht@ti.com>
-Subject: Re: [PATCHv4 1/6] arm64: dts: ti: Add bootph property to nodes at
- source for am62a
-Message-ID: <20250623144547.xuitjtmfq6mswmxk@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250623141253.3519546-1-p-bhagat@ti.com>
- <20250623141253.3519546-2-p-bhagat@ti.com>
+	Mon, 23 Jun 2025 14:47:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DEB2843F7F;
+	Mon, 23 Jun 2025 14:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C853C4CEEA;
+	Mon, 23 Jun 2025 14:47:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750690047;
+	bh=froFt0xlmhZpMtmmxgNvZNNlg3iicomanv7nCbBVYBA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FRiK45hN55rAW4x5Jpy37El7vQzLspLV7ZCbGbe9TbxFYrHfUht1OgtGpmXfJ9RiY
+	 VeQe+Tn1QzzPtV5oKdG8C2BvGOyhIOlHj3cF7zXE6ICljhS5gDEeVcxUAL6I32SbxL
+	 4QbD58hiXQV2B5fVSX35p2py5DvDPx5kc/SJKDgfe0LpbLGh3wYIFZPuXHrKeZGdm1
+	 12VQh6J8rzkqtG1qVx9nS7PKkAc0iqUswbfQeZk1l/vaUjHbO87lBcLWwmLEkK664F
+	 2ZVcpsQmoIXKK7x/Zr714DrD9yXHzbDYiVwd7b7gkvTS2GlDreoZC1nDzXWKAwvUzB
+	 eK5Feuysw5Abg==
+Message-ID: <bd840fac-a698-4961-914e-80b739266e1b@kernel.org>
+Date: Mon, 23 Jun 2025 16:47:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <20250623141253.3519546-2-p-bhagat@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: remoteproc: fsl,imx-rproc: Add
+ support for i.MX95
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Iuliana Prodan <iuliana.prodan@nxp.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+References: <20250606-imx95-rproc-1-v2-0-a2bd64438be9@nxp.com>
+ <20250606-imx95-rproc-1-v2-1-a2bd64438be9@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250606-imx95-rproc-1-v2-1-a2bd64438be9@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_074551_918649_1A6859A6 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250623_074728_342494_ECA1237F 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,192 +128,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On June 23, 2025 thus sayeth Paresh Bhagat:
-> Add bootph property directly into the original definitions of relevant
-> nodes (e.g., power domains, USB controllers, and other peripherals)
-> within their respective DTSI files (ex. main, mcu, and wakeup)i for
-> am62a.
-> 
-> By defining bootph in the nodes source definitions instead of appending
-> it later in final DTS files, this change ensures that the property is
-> inherently present wherever the nodes are reused across derived device
-> trees.
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-am62a-main.dtsi   | 15 +++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi    |  1 +
->  arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi |  3 +++
->  arch/arm64/boot/dts/ti/k3-am62a.dtsi        |  3 +++
->  4 files changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-> index 63e097ddf988..1b7fe4487475 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
-> @@ -51,6 +51,7 @@ phy_gmii_sel: phy@4044 {
->  			compatible = "ti,am654-phy-gmii-sel";
->  			reg = <0x4044 0x8>;
->  			#phy-cells = <1>;
-> +			bootph-all;
->  		};
+On 06/06/2025 03:55, Peng Fan (OSS) wrote:
+>    fsl,entry-address:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      description:
+> @@ -78,6 +85,12 @@ properties:
+>      description:
+>        Phandle to IOMUXC GPR block which provide access to CM7 CPUWAIT bit.
 >  
->  		epwm_tbclk: clock-controller@4130 {
-> @@ -84,6 +85,7 @@ dmss: bus@48000000 {
->  		#size-cells = <2>;
->  		dma-ranges;
->  		ranges = <0x00 0x48000000 0x00 0x48000000 0x00 0x06000000>;
-> +		bootph-all;
->  
->  		ti,sci-dev-id = <25>;
->  
-> @@ -96,6 +98,7 @@ secure_proxy_main: mailbox@4d000000 {
->  			#mbox-cells = <1>;
->  			interrupt-names = "rx_012";
->  			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-> +			bootph-all;
->  		};
->  
->  		inta_main_dmss: interrupt-controller@48000000 {
-> @@ -131,6 +134,7 @@ main_bcdma: dma-controller@485c0100 {
->  			ti,sci-rm-range-bchan = <0x20>; /* BLOCK_COPY_CHAN */
->  			ti,sci-rm-range-rchan = <0x21>; /* SPLIT_TR_RX_CHAN */
->  			ti,sci-rm-range-tchan = <0x22>; /* SPLIT_TR_TX_CHAN */
-> +			bootph-all;
->  		};
->  
->  		main_pktdma: dma-controller@485c0000 {
-> @@ -167,6 +171,7 @@ main_pktdma: dma-controller@485c0000 {
->  						<0x2c>, /* FLOW_CPSW_RX_CHAN */
->  						<0x2e>, /* FLOW_SAUL_RX_0/1_CHAN */
->  						<0x32>; /* FLOW_SAUL_RX_2/3_CHAN */
-> +			bootph-all;
->  		};
->  	};
->  
-> @@ -216,20 +221,24 @@ dmsc: system-controller@44043000 {
->  		mbox-names = "rx", "tx";
->  		mboxes = <&secure_proxy_main 12>,
->  			 <&secure_proxy_main 13>;
-> +		bootph-all;
->  
->  		k3_pds: power-controller {
->  			compatible = "ti,sci-pm-domain";
->  			#power-domain-cells = <2>;
-> +			bootph-all;
->  		};
->  
->  		k3_clks: clock-controller {
->  			compatible = "ti,k2g-sci-clk";
->  			#clock-cells = <2>;
-> +			bootph-all;
->  		};
->  
->  		k3_reset: reset-controller {
->  			compatible = "ti,sci-reset";
->  			#reset-cells = <2>;
-> +			bootph-all;
->  		};
->  	};
->  
-> @@ -254,6 +263,7 @@ secure_proxy_sa3: mailbox@43600000 {
->  		 * firmware on non-MPU processors
->  		 */
->  		status = "disabled";
-> +		bootph-all;
->  	};
->  
->  	main_pmx0: pinctrl@f4000 {
-> @@ -262,6 +272,7 @@ main_pmx0: pinctrl@f4000 {
->  		#pinctrl-cells = <1>;
->  		pinctrl-single,register-width = <32>;
->  		pinctrl-single,function-mask = <0xffffffff>;
-> +		bootph-all;
->  	};
->  
->  	main_esm: esm@420000 {
-> @@ -282,6 +293,7 @@ main_timer0: timer@2400000 {
->  		assigned-clock-parents = <&k3_clks 36 3>;
->  		power-domains = <&k3_pds 36 TI_SCI_PD_EXCLUSIVE>;
->  		ti,timer-pwm;
-> +		bootph-all;
->  	};
->  
->  	main_timer1: timer@2410000 {
-> @@ -653,6 +665,7 @@ usb0: usb@31000000 {
->  			dr_mode = "otg";
->  			snps,usb2-gadget-lpm-disable;
->  			snps,usb2-lpm-disable;
-> +			bootph-all;
->  		};
->  	};
->  
-> @@ -745,6 +758,7 @@ cpsw_port1: port@1 {
->  				phys = <&phy_gmii_sel 1>;
->  				mac-address = [00 00 00 00 00 00];
->  				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
-> +				bootph-all;
->  			};
->  
->  			cpsw_port2: port@2 {
-> @@ -764,6 +778,7 @@ cpsw3g_mdio: mdio@f00 {
->  			clocks = <&k3_clks 13 0>;
->  			clock-names = "fck";
->  			bus_freq = <1000000>;
-> +			bootph-all;
->  		};
->  
->  		cpts@3d000 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> index ee961ced7208..df4aa131097f 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
-> @@ -12,6 +12,7 @@ mcu_pmx0: pinctrl@4084000 {
->  		#pinctrl-cells = <1>;
->  		pinctrl-single,register-width = <32>;
->  		pinctrl-single,function-mask = <0xffffffff>;
-> +		bootph-all;
->  	};
->  
->  	mcu_esm: esm@4100000 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-> index 259ae6ebbfb5..86aae252385c 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-> @@ -13,10 +13,12 @@ wkup_conf: bus@43000000 {
->  		#address-cells = <1>;
->  		#size-cells = <1>;
->  		ranges = <0x00 0x00 0x43000000 0x20000>;
-> +		bootph-all;
->  
->  		chipid: chipid@14 {
->  			compatible = "ti,am654-chipid";
->  			reg = <0x14 0x4>;
-> +			bootph-all;
->  		};
->  
->  		opp_efuse_table: syscon@18 {
-> @@ -67,6 +69,7 @@ wkup_uart0: serial@0 {
->  			reg = <0 0x100>;
->  			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
->  			status = "disabled";
-> +			bootph-pre-ram;
->  	       };
->  	};
->  
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a.dtsi b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> index 4d79b3e9486a..54eab2c93eff 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
-> @@ -50,6 +50,7 @@ cbass_main: bus@f0000 {
->  		compatible = "simple-bus";
->  		#address-cells = <2>;
->  		#size-cells = <2>;
-> +		bootph-all;
+> +  fsl,lmm-id:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      This property is to specify the Logical Machine ID of the remote processor
+> +      in SoC which supports System Manager
 
-We only need to add the bootph-* properties to the leaf nodes. U-Boot is 
-smart enough to propagate these properties all the way to the root when 
-it's pruning the device tree for the bootloaders.
+As explained on IRC, none of above are suitable for DT, because these
+are soc specific. Also, post upstream your DTS, so we will see complete
+picture instead of guessing such things.
 
-~Bryan
+Best regards,
+Krzysztof
 
