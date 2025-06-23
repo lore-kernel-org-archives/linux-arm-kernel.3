@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A88DC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA06C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/3ch7xamCbyea4JaVYKV3Lir+DoV0VKrVnNbKEsep+M=; b=Yx92YHuY1twSaZdbfVzia5gA+f
-	ZsZl3OGeqnBxPc4aHlTTkmkoywloOR+43QTSny4RHGmaBGbC9OV7z6osYveAePaTfeH9auRm8vCT7
-	MldARQwPyreGfRLQuDcZPDqWlIWO0d8ORRxvhPA2oIkpQI4NuUkNXcIuR/qFL44BkfOu6MJvzY91D
-	r8UJfD4zb4ddHNwG/BPkU+5VTe5yhqGHo0Dc0HnaN7iRekqv6JF8wHeC8XHtDlnOgAd4qr4/GQ2Ci
-	d8+nOGTkCRlpU67PYQsTcScMfZQmkrOT5qanrmZx1L4ydlLrO4H/SHj+Loj4oxXFkxuWHXoqXSmoB
-	QzD4EoRw==;
+	bh=p9gyn/Vj7KFF8ULISXwmah1RQZPTkGEnOk1ExR0N0+Q=; b=lOegaDLFpDisZ6zKLtWmX69xko
+	/QKyyLUetle7RiWKWCYNm6IBtljutGOveHfXTpFvH07vc6p7rJbRBL6IHLN/GzEd582wzdjOZTj0O
+	BzZh/K8LQB31sUV89xHgMI6mFf1Zy4ATkr4TXEola8nAYxZPPIU8AlG0U2Ev3tpbOVbq2FC0CNmWc
+	jIEfN1J5JhWem6AGHa2mEE2IsiRXYctXheAk2K9b4Bnbun9PpatVCPmOTxov2pzvDf5xzTq7IKHls
+	huCbYlUjg4MC7rp/aOtVlx3wChmaboapv+dxloMJNBEmR8la8FRBps+ec1i19YaarmuvA/F9zV7Hs
+	KxQTanjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjRQ-00000003JJJ-26W0;
-	Mon, 23 Jun 2025 15:50:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgBX-00000002f8Z-2zuh;
-	Mon, 23 Jun 2025 12:22:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750681322;
-	bh=BX3kWGffKwR8jKbbugtulEnXj6o/sd8kiTE3A0kY6pg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nlCFAT4qrsm8CJbwA6C9jm53wiNm1n1d/wI2w8xmVhuIRTPHk06c68q4u4nMFKm+n
-	 T3RYFwA4sQatd9lOioQGhKgiY1kRNkjFqN0DkadumCvSCKtFp7vJlLiY0jZQ/GFYCv
-	 OwHXaKXhfzxdmTtDvbg6qySKVx/CdGeM8Iwr9Xkm8unsdLe6M4pA/Hruzscf3CA9cv
-	 Y4MiotqPf3FEuQUFRYKDrQPakNIFMHv6VxGBm2NPrqqEkTgE5+P9PAuOwa+9sEkYnf
-	 0mzckR8pSS/VBtF4pEVra+r4X4uVNfk62V+chyGPdfeaYHRSgpUrfprijXC6tEvIqn
-	 GkpvbbRQMwTmw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1349417E0FDB;
-	Mon, 23 Jun 2025 14:22:01 +0200 (CEST)
-Message-ID: <dfbd00bd-37bd-425a-aa98-e536b2a3f2d4@collabora.com>
-Date: Mon, 23 Jun 2025 14:22:00 +0200
+	id 1uTjTj-00000003Jh8-3mJE;
+	Mon, 23 Jun 2025 15:53:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTgFp-00000002gN7-3yc7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 12:26:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EEDE113E;
+	Mon, 23 Jun 2025 05:26:09 -0700 (PDT)
+Received: from [10.1.29.169] (XHFQ2J9959.cambridge.arm.com [10.1.29.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 126FA3F58B;
+	Mon, 23 Jun 2025 05:26:25 -0700 (PDT)
+Message-ID: <3bc77e2c-66d6-40d3-a30f-07139e8e8f43@arm.com>
+Date: Mon, 23 Jun 2025 13:26:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 29/30] dt-bindings: reset: Add MediaTek MT8196 Reset
- Controller binding
-To: Krzysztof Kozlowski <krzk@kernel.org>, Laura Nao
- <laura.nao@collabora.com>, mturquette@baylibre.com, sboyd@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250623102940.214269-1-laura.nao@collabora.com>
- <20250623102940.214269-30-laura.nao@collabora.com>
- <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <2bc23bcf-0021-44dd-ae42-9ef0e95e3b32@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 4/4] arm64: mm: split linear mapping if BBML2 is not
+ supported on secondary CPUs
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com, dev.jain@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250531024545.1101304-1-yang@os.amperecomputing.com>
+ <20250531024545.1101304-5-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250531024545.1101304-5-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_052203_903400_FB1D0499 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250623_052630_094109_5A998C0C 
+X-CRM114-Status: GOOD (  49.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +67,383 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/06/25 14:13, Krzysztof Kozlowski ha scritto:
-> On 23/06/2025 12:29, Laura Nao wrote:
->> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>
->> Add a binding for the PEXTP0/1 and UFS reset controllers found in
->> the MediaTek MT8196 Chromebook SoC.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>   .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
+On 31/05/2025 03:41, Yang Shi wrote:
+> The kernel linear mapping is painted in very early stage of system boot.
+> The cpufeature has not been finalized yet at this point.  So the linear
+> mapping is determined by the capability of boot CPU.  If the boot CPU
+> supports BBML2, large block mapping will be used for linear mapping.
 > 
-> This belongs to the binding doc.
+> But the secondary CPUs may not support BBML2, so repaint the linear mapping
+> if large block mapping is used and the secondary CPUs don't support BBML2
+> once cpufeature is finalized on all CPUs.
 > 
->>   1 file changed, 26 insertions(+)
->>   create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
->>
->> diff --git a/include/dt-bindings/reset/mediatek,mt8196-resets.h b/include/dt-bindings/reset/mediatek,mt8196-resets.h
->> new file mode 100644
->> index 000000000000..1a01b2b01f7f
->> --- /dev/null
->> +++ b/include/dt-bindings/reset/mediatek,mt8196-resets.h
->> @@ -0,0 +1,26 @@
->> +/* SPDX-License-Identifier: (GPL-2.0+ OR BSD-2-Clause) */
+> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
+> same BBML2 capability with the boot CPU, repainting the linear mapping
+> is not needed.
 > 
-> Wrong license, use standard ones.
-
-Oh WHOOOOOPS! No idea how that happened.
-
-Laura, can you please change this to (GPL-2.0-only OR BSD-2-Clause)?
-
-Thanks!
-
-Cheers,
-Angelo
-
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/include/asm/mmu.h   |   3 +
+>  arch/arm64/kernel/cpufeature.c |  16 +++++
+>  arch/arm64/mm/mmu.c            | 108 ++++++++++++++++++++++++++++++++-
+>  arch/arm64/mm/proc.S           |  41 +++++++++++++
+>  4 files changed, 166 insertions(+), 2 deletions(-)
 > 
-> Best regards,
-> Krzysztof
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 2693d63bf837..ad38135d1aa1 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -56,6 +56,8 @@ typedef struct {
+>   */
+>  #define ASID(mm)	(atomic64_read(&(mm)->context.id) & 0xffff)
+>  
+> +extern bool block_mapping;
 
+Is this really useful to cache? Why not just call force_pte_mapping() instead?
+Its the inverse. It's also not a great name for a global variable.
+
+But perhaps it is better to cache a boolean that also reflects the bbml2 status:
+
+bool linear_map_requires_bbml2;
+
+Then create_idmap() will only bother to add to the idmap if there is a chance
+you will need to repaint. And repaint_linear_mappings() won't need to explcitly
+check !rodata_full.
+
+I think this can be __initdata too?
+
+> +
+>  static inline bool arm64_kernel_unmapped_at_el0(void)
+>  {
+>  	return alternative_has_cap_unlikely(ARM64_UNMAP_KERNEL_AT_EL0);
+> @@ -72,6 +74,7 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+>  extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
+>  extern void mark_linear_text_alias_ro(void);
+>  extern int split_linear_mapping(unsigned long start, unsigned long end);
+> +extern int __repaint_linear_mappings(void *__unused);
+
+nit: "repaint_linear_mappings" is a bit vague. How about
+linear_map_split_to_ptes() or similar?
+
+>  
+>  /*
+>   * This check is triggered during the early boot before the cpufeature
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 5fc2a4a804de..5151c101fbaf 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -85,6 +85,7 @@
+>  #include <asm/insn.h>
+>  #include <asm/kvm_host.h>
+>  #include <asm/mmu_context.h>
+> +#include <asm/mmu.h>
+>  #include <asm/mte.h>
+>  #include <asm/hypervisor.h>
+>  #include <asm/processor.h>
+> @@ -2005,6 +2006,20 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+>  	return 0;
+>  }
+>  
+> +static void __init repaint_linear_mappings(void)
+> +{
+> +	if (!block_mapping)
+> +		return;
+> +
+> +	if (!rodata_full)
+> +		return;
+> +
+> +	if (system_supports_bbml2_noabort())
+> +		return;
+> +
+> +	stop_machine(__repaint_linear_mappings, NULL, cpu_online_mask);
+
+With the above suggestions, I think this can be simplified to something like:
+
+static void __init linear_map_maybe_split_to_ptes(void)
+{
+	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort())
+		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
+}
+
+> +}
+> +
+>  static void __init kpti_install_ng_mappings(void)
+>  {
+>  	/* Check whether KPTI is going to be used */
+> @@ -3868,6 +3883,7 @@ void __init setup_system_features(void)
+>  {
+>  	setup_system_capabilities();
+>  
+> +	repaint_linear_mappings();
+>  	kpti_install_ng_mappings();
+>  
+>  	sve_setup();
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 4c5d3aa35d62..3922af89abbb 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -209,6 +209,8 @@ static void split_pmd(pmd_t pmd, phys_addr_t pte_phys, int flags)
+>  	/* It must be naturally aligned if PMD is leaf */
+>  	if ((flags & NO_CONT_MAPPINGS) == 0)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +	else
+> +		prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
+>  
+>  	for (int i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
+>  		__set_pte_nosync(ptep, pfn_pte(pfn, prot));
+> @@ -230,6 +232,8 @@ static void split_pud(pud_t pud, phys_addr_t pmd_phys, int flags)
+>  	/* It must be naturally aligned if PUD is leaf */
+>  	if ((flags & NO_CONT_MAPPINGS) == 0)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +	else
+> +		prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
+>  
+>  	for (int i = 0; i < PTRS_PER_PMD; i++, pmdp++) {
+>  		__set_pmd_nosync(pmdp, pfn_pmd(pfn, prot));
+> @@ -833,6 +837,86 @@ void __init mark_linear_text_alias_ro(void)
+>  			    PAGE_KERNEL_RO);
+>  }
+>  
+> +static phys_addr_t repaint_pgtable_alloc(int shift)
+> +{
+> +	void *ptr;
+> +
+> +	ptr = (void *)__get_free_page(GFP_ATOMIC);
+> +	if (!ptr)
+> +		return -1;
+> +
+> +	return __pa(ptr);
+> +}
+> +
+> +extern u32 repaint_done;
+> +
+> +int __init __repaint_linear_mappings(void *__unused)
+> +{
+> +	typedef void (repaint_wait_fn)(void);
+> +	extern repaint_wait_fn bbml2_wait_for_repainting;
+> +	repaint_wait_fn *wait_fn;
+> +
+> +	phys_addr_t kernel_start = __pa_symbol(_stext);
+> +	phys_addr_t kernel_end = __pa_symbol(__init_begin);
+> +	phys_addr_t start, end;
+> +	unsigned long vstart, vend;
+> +	u64 i;
+> +	int ret;
+> +	int flags = NO_EXEC_MAPPINGS | NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS |
+> +		    SPLIT_MAPPINGS;
+> +	int cpu = smp_processor_id();
+
+nit: most of these variables are only needed by cpu 0 so you could defer their
+initialization until inside the if condition below.
+
+> +
+> +	wait_fn = (void *)__pa_symbol(bbml2_wait_for_repainting);
+> +
+> +	/*
+> +	 * Repainting just can be run on CPU 0 because we just can be sure
+> +	 * CPU 0 supports BBML2.
+> +	 */
+> +	if (!cpu) {
+> +		/*
+> +		 * Wait for all secondary CPUs get prepared for repainting
+> +		 * the linear mapping.
+> +		 */
+> +wait_for_secondary:
+> +		if (READ_ONCE(repaint_done) != num_online_cpus())
+> +			goto wait_for_secondary;
+
+This feels suspect when comparing against the assembly code that does a similar
+sync operation in idmap_kpti_install_ng_mappings:
+
+	/* We're the boot CPU. Wait for the others to catch up */
+	sevl
+1:	wfe
+	ldaxr	w17, [flag_ptr]
+	eor	w17, w17, num_cpus
+	cbnz	w17, 1b
+
+The acquire semantics of the ldaxr are needed here to ensure that program-order
+future memory accesses don't get reordered before. READ_ONCE() is relaxed so
+permits reordering.
+
+The wfe means the CPU is not just furiously spinning, but actually waiting for a
+secondary cpu exclusively write to the variable at flag_ptr.
+
+I think you can drop the whole loop and just call:
+
+	smp_cond_load_acquire(&repaint_done, VAL == num_online_cpus());
+
+> +
+> +		memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
+> +		/* Split the whole linear mapping */
+> +		for_each_mem_range(i, &start, &end) {
+> +			if (start >= end)
+> +				return -EINVAL;
+> +
+> +			vstart = __phys_to_virt(start);
+> +			vend = __phys_to_virt(end);
+> +			ret = __create_pgd_mapping_locked(init_mm.pgd, start,
+> +					vstart, (end - start), __pgprot(0),
+> +					repaint_pgtable_alloc, flags);
+> +			if (ret)
+> +				panic("Failed to split linear mappings\n");
+> +
+> +			flush_tlb_kernel_range(vstart, vend);
+> +		}
+> +		memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+
+You're relyng on the memblock API here. Is that valid, given we are quite late
+into the boot at this point and we have transferred control to the buddy?
+
+I was thinking you would just need to traverse the the linear map region of the
+kernel page table, splitting each large leaf you find into the next size down?
+
+> +
+> +		WRITE_ONCE(repaint_done, 0);
+
+I think this depends on the dsb(ish) in flush_tlb_kernel_range() to ensure it is
+not re-ordered before any pgtable split operations? Might be worth a comment.
+
+
+> +	} else {
+> +		/*
+> +		 * The secondary CPUs can't run in the same address space
+> +		 * with CPU 0 because accessing the linear mapping address
+> +		 * when CPU 0 is repainting it is not safe.
+> +		 *
+> +		 * Let the secondary CPUs run busy loop in idmap address
+> +		 * space when repainting is ongoing.
+> +		 */
+> +		cpu_install_idmap();
+> +		wait_fn();
+> +		cpu_uninstall_idmap();
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  #ifdef CONFIG_KFENCE
+>  
+>  bool __ro_after_init kfence_early_init = !!CONFIG_KFENCE_SAMPLE_INTERVAL;
+> @@ -887,6 +971,8 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
+>  
+>  #endif /* CONFIG_KFENCE */
+>  
+> +bool block_mapping;
+> +>  static inline bool force_pte_mapping(void)
+>  {
+>  	/*
+> @@ -915,6 +1001,8 @@ static void __init map_mem(pgd_t *pgdp)
+>  	int flags = NO_EXEC_MAPPINGS;
+>  	u64 i;
+>  
+> +	block_mapping = true;
+> +
+>  	/*
+>  	 * Setting hierarchical PXNTable attributes on table entries covering
+>  	 * the linear region is only possible if it is guaranteed that no table
+> @@ -930,8 +1018,10 @@ static void __init map_mem(pgd_t *pgdp)
+>  
+>  	early_kfence_pool = arm64_kfence_alloc_pool();
+>  
+> -	if (force_pte_mapping())
+> +	if (force_pte_mapping()) {
+> +		block_mapping = false;
+>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> +	}
+>  
+>  	/*
+>  	 * Take care not to create a writable alias for the
+> @@ -1063,7 +1153,8 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
+>  		    int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
+>  
+>  static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
+> -	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
+> +	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
+> +	  bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
+>  
+>  static void __init create_idmap(void)
+>  {
+> @@ -1088,6 +1179,19 @@ static void __init create_idmap(void)
+>  			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
+>  			       __phys_to_virt(ptep) - ptep);
+>  	}
+> +
+> +	/*
+> +	 * Setup idmap mapping for repaint_done flag.  It will be used if
+> +	 * repainting the linear mapping is needed later.
+> +	 */
+> +	if (block_mapping) {
+> +		u64 pa = __pa_symbol(&repaint_done);
+> +		ptep = __pa_symbol(bbml2_ptes);
+> +
+> +		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
+> +			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
+> +			       __phys_to_virt(ptep) - ptep);
+> +	}
+>  }
+>  
+>  void __init paging_init(void)
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index fb30c8804f87..c40e6126c093 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -440,6 +440,47 @@ SYM_FUNC_END(idmap_kpti_install_ng_mappings)
+>  	.popsection
+>  #endif
+>  
+> +/*
+> + * Wait for repainting is done. Run on secondary CPUs
+> + * only.
+> + */
+> +	.pushsection	".data", "aw", %progbits
+> +SYM_DATA(repaint_done, .long 1)
+> +	.popsection
+> +
+> +	.pushsection ".idmap.text", "a"
+> +SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
+> +	swapper_ttb	.req	x0
+> +	flag_ptr	.req	x1
+> +
+> +	mrs	swapper_ttb, ttbr1_el1
+> +	adr_l	flag_ptr, repaint_done
+> +
+> +	/* Uninstall swapper before surgery begins */
+> +	__idmap_cpu_set_reserved_ttbr1 x16, x17
+> +
+> +	/* Increment the flag to let the boot CPU we're ready */
+> +1:	ldxr	w16, [flag_ptr]
+> +	add	w16, w16, #1
+> +	stxr	w17, w16, [flag_ptr]
+> +	cbnz	w17, 1b
+> +
+> +	/* Wait for the boot CPU to finish repainting */
+> +	sevl
+> +1:	wfe
+> +	ldxr	w16, [flag_ptr]
+> +	cbnz	w16, 1b
+> +
+> +	/* All done, act like nothing happened */
+> +	msr	ttbr1_el1, swapper_ttb
+> +	isb
+> +	ret
+> +
+> +	.unreq	swapper_ttb
+> +	.unreq	flag_ptr
+> +SYM_FUNC_END(bbml2_wait_for_repainting)
+> +	.popsection
+
+This is identical to __idmap_kpti_secondary. Can't we just refactor it into a
+common function? I think you can even reuse the same refcount variable (i.e. no
+need for both repaint_done and __idmap_kpti_flag).
+
+Thanks,
+Ryan
+
+
+> +
+>  /*
+>   *	__cpu_setup
+>   *
 
 
