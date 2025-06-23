@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC0FC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE57DC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NdYIM1zqMrAzNULxpymsWOzLFBCVxy07p5yGYgibkJ8=; b=3G3vymClh7JJ3m3bYem9ZDDw74
-	c1ECfbVDxqpMRMAmXOGs5SzLHeWNfQ4iPoHwBZeBCIiUVzdIqd5nz5BqkmVToas8QcBb6n3F4j4lR
-	EnAg6pnAaiHcsayibDB285X4H7+EFKDRg0hJlo8yroDY7Q2QtHlQwhXthpmMglP8bckKkb7BpRDDk
-	h0xqIF+KceveHs7kiD0bVfmQlNpwO4NM4f47xCmQBEA34rvXinnDv17nvNPBCDLa9Yktd+0PnPiyM
-	+uKKqUUi5dmzfjUc6nZlWYVh9YDGiu79Y8X8xhsKqwwX/7sBTOCInhIzgwxgZkxKVnFnM6gxbyK1H
-	+VGSnKhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fsbsauwEEvVYFUe01KKy9XW9qM0WY3YfPjxbbUkSvKM=; b=M6AzHmMTLh5fAD
+	tod2tj+Bj1j/63gGOc/I9jlVAjidMvXc/K0dSt3Throi4KSWVeMVqdz6F30jTfxKdfRKcTb4ZYc5Y
+	9cUw3e/uOu0yoRM3jP0mPytPKAa412C8+JpqOBl+b/g2eEoIjClfPQiXt0ZCQ/nOgL9O9/fHpqup5
+	HuWSt7fotr0DMnhAiPfbIMuwewmm10/dSrXLBSxxUz7048Lzanmuu8Tz4rK4Rd7RAytE5BfrEPC15
+	O+bkCmECviKV4CLKwTGjpGsuTwLtjum5I4b/TK22YYSXQ+6tcyAno4B77TDnagmRLjkM6xAVQzvOw
+	dC9XpRCHNQuvU91O1skw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTd81-000000026jO-1vZR;
-	Mon, 23 Jun 2025 09:06:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uTdAJ-000000027C3-0WpA;
+	Mon, 23 Jun 2025 09:08:35 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTcnU-000000022f6-2lfk;
-	Mon, 23 Jun 2025 08:45:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C964A6113A;
-	Mon, 23 Jun 2025 08:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA2CC4CEED;
-	Mon, 23 Jun 2025 08:44:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750668299;
-	bh=T+ZvFATpMVmo9JrjrJ0psl5XSDccDVqxEVtTuUwWGYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qSeSVtBe24oPA3fxyQOIEjU6APWTd0ILLyIKNoUPlgMC/+0TiNHEq3l3qE3rN+kw6
-	 hXGrKsSt8/wXQNmnNBULq5BmlBb7gqK8KaaJRkfaIG8DlApgOhMO8NIEeYVehCdwM/
-	 eDvCQwA5LefVr1p1ZlFqdla9/blsb+eQQPZwTeuINQmlw2Gkc9FdYvfjvuEra0JcLO
-	 d2ycrAcDI8W0CQSz7WIui8aaKVg02RFR9uxGiYnOEqqjJn3+AQWk80ekdlX/xRUNT+
-	 VvAWhbkaExKX1N5xk2b2sQjKBu5BJNvNKn+dyo1lOdsAhRD5ogrCThLnEQNmWaGQIC
-	 QZ41rtsNkZIPw==
-Date: Mon, 23 Jun 2025 10:44:57 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	William Breathitt Gray <wbg@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Kever Yang <kever.yang@rock-chips.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	Leon Romanovsky <leon@kernel.org>, Lee Jones <lee@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	linux-iio@vger.kernel.org, kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH v2 5/7] pwm: Add rockchip PWMv4 driver
-Message-ID: <o5xaoorrqb6a3jwwpdcsowrqbo7owrjzwj4r3laytusms6txdi@ku4bvbynkwh7>
-References: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
- <20250602-rk3576-pwm-v2-5-a6434b0ce60c@collabora.com>
+	id 1uTcoA-000000022pZ-1FH7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 08:45:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bQhRr2l9Dz28fQJ;
+	Mon, 23 Jun 2025 16:43:04 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id 55DD2140276;
+	Mon, 23 Jun 2025 16:45:31 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 23 Jun
+ 2025 16:45:30 +0800
+Message-ID: <c7222b9c-316a-d6a9-efd0-49de136f2fbd@hisilicon.com>
+Date: Mon, 23 Jun 2025 16:45:30 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4g26suiz7oblktsa"
-Content-Disposition: inline
-In-Reply-To: <20250602-rk3576-pwm-v2-5-a6434b0ce60c@collabora.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v5 0/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+To: "lihuisong (C)" <lihuisong@huawei.com>, <cw00.choi@samsung.com>,
+	<myungjoo.ham@samsung.com>, <kyungmin.park@samsung.com>,
+	<jonathan.cameron@huawei.com>
+References: <20250619151456.3328624-1-zhanjie9@hisilicon.com>
+ <508bdca6-eab8-4661-a8e8-560b1ef0a325@huawei.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <508bdca6-eab8-4661-a8e8-560b1ef0a325@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_014542_648951_5FC99E54 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,269 +70,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---4g26suiz7oblktsa
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v2 5/7] pwm: Add rockchip PWMv4 driver
-MIME-Version: 1.0
 
-Hello Nicolas,
+On 23/06/2025 11:39, lihuisong (C) wrote:
+> LGTM, for series,
+> Reviewed-by: lihuisong@huawei.com
+> 
 
-On Mon, Jun 02, 2025 at 06:19:16PM +0200, Nicolas Frattaroli wrote:
-> +/**
-> + * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
-> + * @rate: PWM clock rate to do the calculations at
-> + * @duty: PWM duty cycle in nanoseconds
-> + * @period: PWM period in nanoseconds
-> + * @offset: PWM offset in nanoseconds
-> + * @out_duty: pointer to where the rounded duty value should be stored
-> + * @out_period: pointer to where the rounded period value should be stored
-> + * @out_offset: pointer to where the rounded offset value should be stored
-> + *
-> + * Convert nanosecond-based duty/period/offset parameters to the PWM hardware's
-> + * native rounded representation in number of cycles at clock rate @rate. Should
-> + * any of the input parameters be out of range for the hardware, the
-> + * corresponding output parameter is the maximum permissible value for said
-> + * parameter with considerations to the others.
-> + */
-> +static void rockchip_pwm_v4_round_params(unsigned long rate, u64 duty,
-> +					u64 period, u64 offset, u32 *out_duty,
-> +					u32 *out_period, u32 *out_offset)
-> +{
-> +	int ret;
-> +
-> +	ret = rockchip_pwm_v4_round_single(rate, period, out_period);
-> +	if (ret)
-> +		*out_period = U32_MAX;
-
-It's strange to let rockchip_pwm_v4_round_single return failure just to
-reset it to U32_MAX here then. I'd make rockchip_pwm_v4_round_single do:
-
-	tmp = mul_u64_u64_div_u64(rate, in_val, NSEC_PER_SEC);
-	if (tmp > U32_MAX)
-		return U32_MAX
-	return tmp;
-
-and then just do
-
-	*out_period = rockchip_pwm_v4_round_single(rate, period);
-	*out_duty = rockchip_pwm_v4_round_single(rate, duty)
-	...
-
-> +
-> +	ret = rockchip_pwm_v4_round_single(rate, duty, out_duty);
-> +	if (ret || *out_duty > *out_period)
-> +		*out_duty = *out_period;
-
-You can assume that .round_wf_tohw() is called only with duty <= period.
-
-> +	ret = rockchip_pwm_v4_round_single(rate, offset, out_offset);
-> +	if (ret || *out_offset > (*out_period - *out_duty))
-> +		*out_offset = *out_period - *out_duty;
-
-Is this a hardware limitation? In general
-
-	.period_length_ns = 1000
-	.duty_length_ns = 600
-	.duty_offset_ns = 600
-
-is a valid waveform.
-
-> +}
-> +
-> +static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
-> +					 struct pwm_device *pwm,
-> +					 const struct pwm_waveform *wf,
-> +					 void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-> +	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-> +	unsigned long rate;
-> +	int ret;
-> +
-> +	/* We do not want chosen_clk to change out from under us here */
-> +	ret = mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rate = clk_get_rate(pc->pwmf->core);
-> +
-> +	rockchip_pwm_v4_round_params(rate, wf->duty_length_ns,
-> +				     wf->period_length_ns, wf->duty_offset_ns,
-> +				     &wfhw->duty, &wfhw->period, &wfhw->offset);
-> +
-> +	if (wf->period_length_ns > 0)
-> +		wfhw->enable = PWMV4_EN_BOTH_MASK;
-> +	else
-> +		wfhw->enable = 0;
-> +
-> +	dev_dbg(&chip->dev, "tohw: duty = %u, period = %u, offset = %u, rate %lu\n",
-> +		wfhw->duty, wfhw->period, wfhw->offset, rate);
-
-This is more helpful if the input parameters (i.e. wf) is also emitted.
-
-> +	mfpwm_release(pc->pwmf);
-> +	return 0;
-> +}
-> +
-> +static int rockchip_pwm_v4_round_wf_fromhw(struct pwm_chip *chip,
-> +					   struct pwm_device *pwm,
-> +					   const void *_wfhw,
-> +					   struct pwm_waveform *wf)
-> +{
-> +	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-> +	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-> +	unsigned long rate;
-> +	int ret = 0;
-> +
-> +	/* We do not want chosen_clk to change out from under us here */
-> +	ret = mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-
-Hmm, there is little gain here. Correct me if I'm wrong, but you prevent
-a rate change only until mfpwm_release() is called, so the assertion
-ends before the caller can use the calculated parameters anyhow. So
-maybe drop the acquire/release pair?
-
-> +	rate = clk_get_rate(pc->pwmf->core);
-> +
-> +	if (rockchip_pwm_v4_is_enabled(wfhw->enable)) {
-> +		if (!rate) {
-> +			ret = -EINVAL;
-> +			goto out_mfpwm_release;
-> +		}
-> +		wf->period_length_ns = mul_u64_u64_div_u64(wfhw->period, NSEC_PER_SEC, rate);
-
-(u64)wfhw->period * NSEC_PER_SEC cannot overflow, so a plain
-multiplication and then a division is cheaper here.
-
-> +		wf->duty_length_ns = mul_u64_u64_div_u64(wfhw->duty, NSEC_PER_SEC, rate);
-> +		wf->duty_offset_ns = mul_u64_u64_div_u64(wfhw->offset, NSEC_PER_SEC, rate);
-> +	} else {
-> +		wf->period_length_ns = 0;
-> +		wf->duty_length_ns = 0;
-> +		wf->duty_offset_ns = 0;
-> +	}
-> +
-> +	dev_dbg(&chip->dev, "fromhw: duty = %llu, period = %llu, offset = %llu, rate = %lu\n",
-> +		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns, rate);
-
-As above, please include wfhw in the output.
-
-> +out_mfpwm_release:
-> +	mfpwm_release(pc->pwmf);
-> +	return ret;
-> +}
-> +
-> [...]
-> +static int rockchip_pwm_v4_probe(struct platform_device *pdev)
-> +{
-> +	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
-> +	struct rockchip_pwm_v4 *pc;
-> +	struct pwm_chip *chip;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	chip = devm_pwmchip_alloc(dev, 1, sizeof(*pc));
-> +	if (IS_ERR(chip))
-> +		return PTR_ERR(chip);
-> +
-> +	pc = to_rockchip_pwm_v4(chip);
-> +	pc->pwmf = pwmf;
-> +
-> +	ret = mfpwm_acquire(pwmf);
-> +	if (ret == -EBUSY)
-> +		dev_warn(dev, "pwm hardware already in use, can't check initial state\n");
-> +	else if (ret < 0)
-> +		return dev_err_probe(dev, ret, "couldn't acquire mfpwm in probe\n");
-> +
-> +	if (!rockchip_pwm_v4_on_and_continuous(pc))
-> +		mfpwm_release(pwmf);
-> +	else {
-> +		dev_dbg(dev, "pwm was already on at probe time\n");
-> +		ret = clk_enable(pwmf->core);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret, "enabling pwm clock failed\n");
-> +		ret = clk_rate_exclusive_get(pc->pwmf->core);
-> +		if (ret) {
-> +			clk_disable(pwmf->core);
-> +			return dev_err_probe(dev, ret, "protecting pwm clock failed\n");
-> +		}
-> +	}
-> +
-> +	platform_set_drvdata(pdev, chip);
-> +
-> +	chip->ops = &rockchip_pwm_v4_ops;
-> +
-> +	ret = pwmchip_add(chip);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to add PWM chip\n");
-
-I like error messages starting with a capital letter.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void rockchip_pwm_v4_remove(struct platform_device *pdev)
-> +{
-> +	struct pwm_chip *chip = platform_get_drvdata(pdev);
-> +	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-> +
-> +	mfpwm_remove_func(pc->pwmf);
-
-What does this function do? It is not used in .probe()'s error path?!
-
-> +	pwmchip_remove(chip);
-
-Wrong order (I think). If mfpwm_remove_func() affects operation,
-pwmchip_remove() must be called first.
-
-> +}
-> +
-> +static const struct platform_device_id rockchip_pwm_v4_ids[] = {
-> +	{ .name = "pwm-rockchip-v4", },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(platform, rockchip_pwm_v4_ids);
-> +
-> +static struct platform_driver rockchip_pwm_v4_driver = {
-> +	.probe = rockchip_pwm_v4_probe,
-> +	.remove = rockchip_pwm_v4_remove,
-> +	.driver = {
-> +		.name = "pwm-rockchip-v4",
-> +	},
-> +	.id_table = rockchip_pwm_v4_ids,
-> +};
-> +module_platform_driver(rockchip_pwm_v4_driver);
-> +
-> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> +MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
-
-Best regards
-Uwe
-
---4g26suiz7oblktsa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhZFAYACgkQj4D7WH0S
-/k5t6ggAjmDJYKJYUEg5lEGucA+QTWdT0UbHkO7qf1jcahM1hd34ZOp7tYXkD9wC
-m28YV1gus2tgEIqldCRmqO0y5hJhniDfOJ92BRihB50Bkg1m6hox9P4iqMRPSJnd
-uDnmATiNVdY7Et8MPEe9Y9YDACD2CKfv/DSvUxkp3la1rhIglcTMHfPDFRMnSynw
-WUgyHKQ1hLEokOyBXvXY3wlDZCTpUZQpW5eSVW6p+h+Qj/liLp7CWNbW5myK/H49
-GYN3F/oEPrF+TMASFJkOfQb4Cs+MgPWOhTZfjj693TbWuFxc1p6seTByPZN8h3gg
-8B0jF2BSQvP4BiSbf9asZfRRNTd3DQ==
-=4kAc
------END PGP SIGNATURE-----
-
---4g26suiz7oblktsa--
+Huisong, thanks for reviewing!
+> 
+> 在 2025/6/19 23:14, Jie Zhan 写道:
+>> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+>> the devfreq framework.  The uncore domain contains shared computing
+>> resources, including system interconnects and L3 cache.  The uncore
+>> frequency significantly impacts the system-wide performance as well as
+>> power consumption.  This driver adds support for runtime management of
+>> uncore frequency from kernel and userspace.  The main function includes
+>> setting and getting frequencies, changing frequency scaling policies, and
+>> querying the list of CPUs whose performance is significantly related to
+>> this uncore frequency domain, etc.  The driver communicates with a platform
+>> controller through an ACPI PCC mailbox to take the actual actions of
+>> frequency scaling.
+>>
+>> Changelog:
+>>
+>> v5:
+>> - Comment more on error code related stuff about
+>>    hisi_uncore_mark_related_cpus(), and return failure early on errors
+>>    except for -EINVAL, which indicates possibly broken firmware.
+>> - Separate error prints apart for two cases in hisi_platform_gov_handler()
+>> - Make the 'related_cpus' sysfs ABI description more generic
+>> - Some coding style cleanups and typo fixes
+>>
+>> v4:
+>> https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/
+>> - Allow devfreq core to accept device-specific sysfs ABIs
+>> - Replace custom sysfs attrs with dev_groups and let the devfreq core
+>>    manage it
+>> - Update 'related_cpus' description in the devfreq ABI doc
+>> - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
+>>    this yet
+>> - Replace dev_err() with dev_err_probe() during drv->probe()
+>> - Replace mutex_init() with devm_mutex_init() to warn on UAF
+>> - Replace uncore->dev with dev in some places to make code a bit shorter
+>> - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
+>> - Use __free() to let compiler release temporary memory
+>> - Clean up the error handling and redundant 'status = 0' in
+>>    hisi_uncore_send_cmd()
+>> - Some coding style cleanup
+>>
+>> v3:
+>> https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/
+>> - Remove redundant resource freeing processes when drv->probe() fails as
+>>    they're already handled by devm
+>>
+>> v2:
+>> https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/
+>> - Make devm manage the release sequence, remove drv->remove()
+>> - Warn on !uncore or !uncore->pchan as they're no longer expected
+>> - Remove ioremap of pcc shared memory because it's done by the pcc driver
+>> - Fix compiler warning of discarding 'const'
+>> - Minor trivial coding style changes
+>>
+>> v1:
+>> https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/
+>>
+>> Jie Zhan (2):
+>>    PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
+>>    PM / devfreq: Add HiSilicon uncore frequency scaling driver
+>>
+>>   Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>>   drivers/devfreq/Kconfig                       |  11 +
+>>   drivers/devfreq/Makefile                      |   1 +
+>>   drivers/devfreq/devfreq.c                     |   1 +
+>>   drivers/devfreq/hisi_uncore_freq.c            | 664 ++++++++++++++++++
+>>   include/linux/devfreq.h                       |   4 +
+>>   6 files changed, 690 insertions(+)
+>>   create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+>>
 
