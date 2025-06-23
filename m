@@ -4,89 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42526C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FAD4C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixpb+nHlGGknFBKNLeayHLKvF1B7kEUCeI9moxPdPuk=; b=KyHU9ZuFBG0yz7vSVXSzX8EyZR
-	kM16Bf66pzML3XiRrxbQK0DYl158fLB3WtzIrgBidXmqrw1JYqGBTse+nmq0ZrNF3Gx8MtFYbMYXl
-	HGF+03Gz4zI6LNG+yYqGh0JUVYoG+3r7++eDfBwe3/59yuly7MZlZqJE2sddwb91wNmUYpLsyoo2D
-	IcSSm8cqsD7dyo7eCPsRI/BMNNLHkLwWWI692gFBFMBK+aBlXouAuwHd8bQKSmZuQfDOBSbODLnWB
-	WIgAy2OP8KzvCFmv8c3YT7GCIuRxB8+oIi4mu50tSaYNnSj0zCq/AF7FggpFz+V6WVHsqpSeOwcvK
-	7G6hSR8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOsuluXNSLkxvHwd4tbbEr6WHEQwIqQwF7TiT8kGSEY=; b=lAQdblJJAU7hYd/u4XgMKbb8H3
+	ALjTxazF3j3EqGr9mwoUNa/M/ZPiaxnclV5RS4/1tIEc0b3pKEfMr9VR4QJ6PqotXRhs1GHRjMUt5
+	CLhkI+VQi2rLPy3+ipffRV7T8hcKVpiMSbTGVTIg1OFB5QwrslF0inBH5tQLVa+T4Yc8iatGYrugQ
+	YiyZ0hCOPYo3p6+CFUdPMv5mBJUkcKG0WXsx/NOB5G1f31PXwcYq849LTP8EL0TBmJmsA1EIbaw2b
+	NJM7QbXs9sIW6GAAzT8S5Lcq6xNQul/5kXkBUVEhJDEt6Vqim+zhzEOK0wbMv1QP2PMPfb9bxyLED
+	Uriqj1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdc6-00000002CaG-1O6H;
-	Mon, 23 Jun 2025 09:37:18 +0000
+	id 1uTdeO-00000002D4m-0aNZ;
+	Mon, 23 Jun 2025 09:39:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdS4-00000002AhU-2o8O
+	id 1uTdUv-00000002Avc-2L36
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Jun 2025 09:26:56 +0000
+	Mon, 23 Jun 2025 09:29:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ixpb+nHlGGknFBKNLeayHLKvF1B7kEUCeI9moxPdPuk=; b=dfDcMwE7Le8vLaO4Wb3lXCQx3v
-	YY+rca/uid1CZrhokpjRmriqhLeBqspvIBpuo7gZWyWzGqZSv2r9BN0anyhNoN+jd0g1JylpXB9pE
-	s6DPnJ1CaLeh4B0drawNC4UeTINAx4QA7/tFHHY6W2D4WM0H6FMrZvv88bVD/tbzBGoI4Zj8aGIko
-	ppZqy8iIQSsou4Fr48yHHrrhRianspVf+m7RYMP3UWJY4+lHm42BSZ6V3yTG/Spp0w5vHpfFc86hK
-	+10W/FpZ3yVVBxl7CYRC+Ex1NkBYHMV34tYKmwGwMqHjmD6rxoMPKFsgDVUdT6+F/ZRgoRKXnU6Q9
-	SzaGd2Xg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZOsuluXNSLkxvHwd4tbbEr6WHEQwIqQwF7TiT8kGSEY=; b=pXbSL0kofYxhJ+Z2oDmhn8jEwb
+	PvtroSy7V+Doe3mDvcvKr1UYS1BofAAOcPLtVvR/7qbg3ERFLFt4xhSAaSosShIBBI6/lTfDALrra
+	mHKH/CsnYDw8u43/85TSJ89qYuE3iLD79kpAsEaKkuWrWPEFwexhX4+Vjy1g523FqfNPsg5VPHCTT
+	zzAbMWiTwrrslogwA4VkUEhBPoPmbCShoeG5TIJis/1d6zOhZ8KBMfi1WvKEfgWCFEmy1IXXTdvZq
+	5O5ateAuI6WyzJH0Oc9lrfMnJgPnDU7uH6mPL+q0lhxAO7Sd3XPKMhkl94RpqEjvBGNUlm3NsSANQ
+	C6f2I4EQ==;
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdS1-00000005AMB-38gY
+	id 1uTdUs-00000005ASp-1OC9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:26:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CF8744CE8;
-	Mon, 23 Jun 2025 09:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A007EC4CEEA;
-	Mon, 23 Jun 2025 09:26:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750670808;
-	bh=WefXIWazEPskl9B0X1xFtEXjeBSL+nY1ELytivVzN98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qw+aUfQSuKHEk4enVIrEz606dRtP6XgNppP2YO4INXtXX0fpKl7h4u8sf/OIVdZnD
-	 NV0a4MPutrCtYNNsfopZKOvqLp1uChhTnXU/ifibAjQcX5+vHM+wZYC5u2QZdbBUbG
-	 hqLK7QSB1BRJ/asx988F/PfQIVQ/RY4GUmm1JFsgN4/Mo8DqYKJQw5At6VHOYn0S0c
-	 /UfP5gASQorEsfU+ZD4hXDXpdiSjND8/UoejeEyZYy69Ux4hUolfJth5AbnALTSJow
-	 usdestU/sQ5azXOngEas1a3myuz4c299HGo5Yyo31BePXHs+oevsQhp/8PUPfwE+Tz
-	 /Jbrjo0uFvWOw==
-Date: Mon, 23 Jun 2025 11:26:41 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v5 24/27] irqchip/gic-v5: Add GICv5 ITS support
-Message-ID: <aFkd0cigSKOSqUQI@lpieralisi>
-References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
- <20250618-gicv5-host-v5-24-d9e622ac5539@kernel.org>
- <87y0tmp6gn.ffs@tglx>
+	Mon, 23 Jun 2025 09:29:52 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55N5ppEk002482;
+	Mon, 23 Jun 2025 11:29:39 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ZOsuluXNSLkxvHwd4tbbEr6WHEQwIqQwF7TiT8kGSEY=; b=xKjNtqKI9/+dDLG9
+	oFTGydhHzjiJWbKuNHqPXZyh2TRLdnYlIx9Wm85jf7VTjSZEvYT25ojtBP+kPV7z
+	9OlpKZApBw9+xxKb4ywsAoojQBi5XX62vGKvxYhUB7DwqOyVytNjHH5NX0eDuUUg
+	oANtco0jJceMp29Z9UDP5B+jVmhEDXG6ForKdRVtZe5gU3FLGUzWqCN2I0P71Enu
+	9vHisFwQQ02suimEnYZI5Yjgj8CWp4ShkUCe6bsyJq5DnP6BEdUehg84U2WlKDsU
+	/ps1szoDjLVxduRU1fyVtDGIWj3fexp2bRoywhcM1xQEbY6OsvEoMrzKchqre+8I
+	lAXVnQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dj5nfca1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Jun 2025 11:29:39 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2629E40051;
+	Mon, 23 Jun 2025 11:28:30 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A5B2E5C37FE;
+	Mon, 23 Jun 2025 11:27:22 +0200 (CEST)
+Received: from localhost (10.252.18.29) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 23 Jun
+ 2025 11:27:22 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Mon, 23 Jun 2025 11:27:07 +0200
+Subject: [PATCH 02/13] dt-bindings: stm32: stm32mp25: add
+ `access-controller-cell` property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87y0tmp6gn.ffs@tglx>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250623-ddrperfm-upstream-v1-2-7dffff168090@foss.st.com>
+References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
+In-Reply-To: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Originating-IP: [10.252.18.29]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-23_03,2025-06-23_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_102654_299380_C1233013 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20250623_102951_244034_FBFED1BF 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,87 +127,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 09:18:32PM +0200, Thomas Gleixner wrote:
+RCC is able to check the availability of a clock.
+Allow to query the RCC with a firewall ID.
 
-[...]
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+ Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> > + * Taken from msi_lib_irq_domain_select(). The only difference is that
-> > + * we have to match the fwspec->fwnode parent against the domain->fwnode
-> > + * in that in GICv5 the ITS domain is represented by the ITS fwnode but
-> > + * the MSI controller (ie the ITS frames) are ITS child nodes.
-> > + */
-> > +static int gicv5_its_irq_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
-> > +				       enum irq_domain_bus_token bus_token)
-> > +{
-> > +	const struct msi_parent_ops *ops = d->msi_parent_ops;
-> > +	u32 busmask = BIT(bus_token);
-> > +
-> > +	if (!ops)
-> > +		return 0;
-> > +
-> > +	if (fwnode_get_parent(fwspec->fwnode) != d->fwnode ||
-> > +	    fwspec->param_count != 0)
-> > +		return 0;
-> 
-> Just add a MSI flag and set it in parent_ops::required_flags and extend
+diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+index 88e52f10d1ec..83974b7fb82f 100644
+--- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
++++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+@@ -31,6 +31,11 @@ properties:
+   '#reset-cells':
+     const: 1
+ 
++  '#access-controller-cells':
++    const: 1
++    description:
++      Contains the firewall ID associated to the peripheral.
++
+   clocks:
+     items:
+       - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
+@@ -123,6 +128,7 @@ required:
+   - reg
+   - '#clock-cells'
+   - '#reset-cells'
++  - '#access-controller-cells'
+   - clocks
+ 
+ additionalProperties: false
 
-I added that but it does not work (not if we use d->flags as below), it works
-if I add it as an
+-- 
+2.43.0
 
-IRQ_DOMAIN_FLAG_*
-
-and set it in irq_domain_info in the msi_create_parent_irq_domain()
-call in the GICv5 ITS driver when creating the domain.
-
-> the lib with
-> 
->         struct fwnode_handle *fwh;
-> 
->         fwh = d->flags & MAGIC ? fwnode_get_parent(fwspec->fwnode) : fwspec->fwnode;
-
-Here we are using the domain flags and I think that's what we want.
-
-If I go with parent_ops flag, I believe here we need to use the parent
-msi_domain_info::flags - I don't think that's what we want.
-
-It is a property of the IRQ domain so I think that adding an
-
-IRQ_DOMAIN_FLAG_FWNODE_PARENT
-
-is the best option.
-
-Please let me know.
-
-Thanks,
-Lorenzo
-
-> 
-> No?
-> 
-> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> > index c2e7ba7e38f7..4a0990f46358 100644
-> > --- a/drivers/irqchip/irq-gic-v5.c
-> > +++ b/drivers/irqchip/irq-gic-v5.c
-> > @@ -57,12 +57,12 @@ static void release_lpi(u32 lpi)
-> >  	ida_free(&lpi_ida, lpi);
-> >  }
-> >  
-> > -static int gicv5_alloc_lpi(void)
-> > +int gicv5_alloc_lpi(void)
-> >  {
-> >  	return alloc_lpi();
-> >  }
-> >  
-> > -static void gicv5_free_lpi(u32 lpi)
-> > +void gicv5_free_lpi(u32 lpi)
-> >  {
-> >  	release_lpi(lpi);
-> >  }
-> 
-> Just make them global right away when you implement them. No point for
-> this kind of churn.
-> 
-> Thanks,
-> 
->         tglx
 
