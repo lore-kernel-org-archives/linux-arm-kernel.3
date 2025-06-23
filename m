@@ -4,155 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC32DC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8222C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFoA89QVcaYYLnB2RN6cerZ9zp2Bddf4tdx0csqDBII=; b=UZhjBnBHiopanM+jjqsawtXYl3
-	HhN7F4HZ3eE0hlycfMYMmwKhlF8bFDnupMOS+BitxU95/ZxkCTc9YcVxL1gyUSvduDZcwYZK+pW3m
-	aSEPVf4Ju9S8OE8lXQ5V1cBbJ3ghNKmax0p2tVogpEwwvTwUz1lJbM6L/DjQX6n+O7D58vIV+cuuO
-	v79PrOYNtjX/bztjpyixjm2ve45hDaJxa+hvg2kH83W0XDkM4K1wuoPy+sPrFjJpRmp07GM1rnmkn
-	tkMTRROlnk+8Sh6yeRrAJzI3pW4UwVXEtSw3B+XQJ6h0G8PXOt5bM4fgqkOOtRB37MKxnoaQPz3X5
-	aLPAqILA==;
+	bh=XRx2ygGON68DaC/gtiwKh8VTYLOnLvGNtc5thNaQgcw=; b=MUBiY+AhYzgYjRI/SPg6RyrHAU
+	3nmLMlL1/fu37yMCjBItH5T2DYlgYTGxcrvFx1rjNkz1VpxIk9aLCwppVo+meMRTY7UOrg5nPgNFE
+	NnQEuPdB6UQn8v04IlKJa6QmqwncwAV2CgklusgneXg0Ul04RZQCQanjWzsK+O/zEpgSGq0M79uJH
+	kkr072qyZT/gLauCTqquaSsta90mOzpz+BI7NKflW1iqTd/NONDSjp79x0u1c/Lz0H2zTWPxZfqS9
+	Tk/nzCzsM5EDP0zRbHJKEpj328i167VFr8qY+r9mY3YyYz4vCrG1+0uvQlY0CRAWPd+tmexn7/PeZ
+	dXzT+XKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTpFk-000000044IO-1JLA;
-	Mon, 23 Jun 2025 22:03:00 +0000
-Received: from mail-bn8nam11on20719.outbound.protection.outlook.com ([2a01:111:f403:2414::719] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uTpI4-000000044UE-1Snm;
+	Mon, 23 Jun 2025 22:05:24 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkyR-00000003YkU-31ZN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 17:28:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XpDNTtOkOLivD0quutymyUl4duny1P9fXU/yI1rLPr3S+VTqE+mdq2iRazZJC/Ws+w79b570+8xTMzLeejX9nIlyjlBLduV0QaycqqqpPL8PmCWKd6oH2gWx2CB1wly0lqUNnIILyAtbbt9uiWTaUdNY0/SDjOn69yTd7KoSmA4oeLVSAY7sVglvMkVzyNSsovNRit4cSmMDZ48lhalTwlQMLNMW2Pce7seLpB9sScXb/d0OEWpbENbx7+4EQusHdWvj+1SkyduuJ8PQ17lWU56Z7ItbH+2JAQ90gmVFO4Sq6hFNgXBB91fgYxIH2+ylP/3fWJqYVaEMNLK+/e1Qcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oFoA89QVcaYYLnB2RN6cerZ9zp2Bddf4tdx0csqDBII=;
- b=P84ESejkL5sOkiwJCkAkL1yb9vFEPqePdu1uYuHiAPQ9tcaIWZfpN286vcMZ98cd6sAcTjRb85IR07RCCHGCx9MJl9CK3dMRj8JTXt/fb8o/dyseOYb2mZfWqd3tOQGb+MAAIUVPUA2gwH1RjfqK+WN2gYLlTxhPVE7BDDjj0iuRzzh6rSFdl/h91X2PZ/rMQu619DKwlpgY3W1gTGEKrrFt+fwqRmXd33s40AFPZtov5qq3oDibo9c0yxEUXO3/KHILDBBfohJxdRklGWnpouRojjSxehcZhXcdCcQm3jAUVkPkixrjO137IDHFKFvj832DJBRVIyURnSVlYegbRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 50.233.182.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oFoA89QVcaYYLnB2RN6cerZ9zp2Bddf4tdx0csqDBII=;
- b=ueedHtoEB/PRm+mPtaYy0MhGO1c9XGYMp7RRuxQ7tbXTSiWRJ9ORi9BLm6gycCJDU5icgMgr/bAngfurX98msXHygFBajGphXBl4jusv0BoyY+F5qaS0TwF3HfY9+RylmA6L+MXINWMKp9D19SoP79R/p49o8/TPmmj06Nzpg4i12b0YLLbuTKbj3hgczGEloM6WDQ0t8QS6KexXb8SbzTbEQF8zBD1wPhYkAlQeqDFgMu9NkUIintHLmGeXdFG4FGucjx5DhHUjyQWcH7y49Drrib34Ek6XumnFC4AThfNsATSVdzlxPoMw5/SbuOEzI1pxdZNAZSpcDO8RE9nhFw==
-Received: from BN9PR03CA0102.namprd03.prod.outlook.com (2603:10b6:408:fd::17)
- by MW5PR18MB5176.namprd18.prod.outlook.com (2603:10b6:303:1ca::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Mon, 23 Jun
- 2025 17:28:45 +0000
-Received: from BL02EPF00029928.namprd02.prod.outlook.com
- (2603:10b6:408:fd:cafe::45) by BN9PR03CA0102.outlook.office365.com
- (2603:10b6:408:fd::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8857.30 via Frontend Transport; Mon,
- 23 Jun 2025 17:28:44 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 50.233.182.194 as permitted sender)
- receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.0.1];
-Received: from [127.0.0.1] (50.233.182.194) by
- BL02EPF00029928.mail.protection.outlook.com (10.167.249.53) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.14
- via Frontend Transport; Mon, 23 Jun 2025 17:28:43 +0000
-From: Harshit Shah <hshah@axiado.com>
-Date: Mon, 23 Jun 2025 10:28:18 -0700
-Subject: [PATCH v3 7/7] MAINTAINERS: Add entry for Axiado
+	id 1uTkzz-00000003Z5n-22bX;
+	Mon, 23 Jun 2025 17:30:28 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-32b3b250621so41641221fa.2;
+        Mon, 23 Jun 2025 10:30:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750699825; x=1751304625; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XRx2ygGON68DaC/gtiwKh8VTYLOnLvGNtc5thNaQgcw=;
+        b=mQFIsLHlAh+qbmuv4aP7WBLYR9Pdh3YbC0yOMSRVHcpUT/OvksX26nKSSNAP8f2J7p
+         A7mrAApQ9uX6F7xcVB+ZqAtQVBN0MsmSaBQ0cAvWaaSZkOalUbcfx8Mt4Jpf4Of1gA7t
+         T1O0bG0iz64NdcUjaHPRsQz1BssQoQ7m0SnX3KgApx2r1UGeGzOwEJrAiXHTCV5GKY7R
+         hElFZXSXqQnA/MwwsiNyjYOxZwjlrPKbQMzQ+leyyQOLGorpfxy2w5EvvJp2V5vsgbrd
+         1NsgjjmEZ5TJMLza7oLqGerZQmpq6rJrfXtGnOyAPsPQXxPxNbbn5zv3XJ5m3cX3gVP4
+         cO2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750699825; x=1751304625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XRx2ygGON68DaC/gtiwKh8VTYLOnLvGNtc5thNaQgcw=;
+        b=TfYNnw2De18YpX4zXwsW6mGxT8Ks8AKFg8gL8Iu0pAA0Qwpv3aUFh0aAFARSPWWu4+
+         pYKc2iVO+4+KpmB4xog0k1+SxQAi3LrJzPKRTh0jcaBKYQi9azsCar4N8x8OiVHy6rvd
+         pT65O2wtHJX/xp+PAWzVvQsS0K4fcdu6iOX0d6fp/fcy2oYQYSqqtVIcqSNsR1WzR998
+         +NwVoxXevkWlzGMvZUy0CH937yT6ie8fBwJ8PDJOvq3ZFa0uxELeI5mIt2RsmAB5N9iA
+         eMeSDjIRyMtx9fgaQg6AAaxPpMpd8D6TiGV4ji5lE6ydPNCv8lKnFEu21ER3TTfuOdwB
+         439g==
+X-Forwarded-Encrypted: i=1; AJvYcCUxeJdbAAchf23fbO7HY7wweUk3i6nkjtaJYdSWU9q9bZc2sTZRzbNH+96t2d3uHuLQI4nUhbypK2Q5ugyboQs=@lists.infradead.org, AJvYcCXA/u2n0yJM0n2JzE/TNwF/lHPDDW6631VqfJWG5AIWiCAzFzy6ewaEtUYSjmiO2D+SLNsYE0b7t4GTHLteZGxT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/JN03dMr42FVHHVqwUacgsOskXPIcrs3MwXmJ2LMwslrO1TfT
+	5kSfZl8kJ4S/wojCJA0zG65Dpxc61+WhO1rFMEmaZ/f2AAN+Mh5NXJQxf294t3+xID9UKS5yqjU
+	R739GdlyQagvnvkgMX5lj5cUgeI77XxQ=
+X-Gm-Gg: ASbGnctPt1+y4AhEraDW8Z9Vjg0G+FlHKm1lXFN4xD5brzoLEtj6nITI4YUDce5GQ9x
+	CIf+t3rC9Qz3SqZXo4SAwLb8HLn2tF4gWuvSd2RryNyqujpMc1xqYMqTSII5AvluGOYMy4bi9Ue
+	/4/RX1ZAu3kK38HFTGHZPTCsOWZvQCqx3ijV/q30gh5A==
+X-Google-Smtp-Source: AGHT+IHyqF/zUWPtp+0ZEzV6kVohh/dVuHVOrwyoaqqRb8CbyietJFOO8QAtGYViBm0uTfYLshN81twTdhq7CL9TmZ8=
+X-Received: by 2002:a2e:bc05:0:b0:32c:a006:2a1d with SMTP id
+ 38308e7fff4ca-32ca0062f65mr19202371fa.4.1750699824943; Mon, 23 Jun 2025
+ 10:30:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
-References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
-In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Jan Kotas <jank@cadence.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- soc@lists.linux.dev, Jan Kotas <jank@cadence.com>, 
- Harshit Shah <hshah@axiado.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=845; i=hshah@axiado.com;
- h=from:subject:message-id; bh=VZNBO2tpnaQiJHYXLC9Vzwt0SiEeDdPJxtAAGdh4crU=;
- b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBoWY68agcMfoF1HR8s42HjPFRWHlx5UPLmAuzIz
- oWrCf7kuBaJAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaFmOvAAKCRDxWHMRoTLV
- +y2CDACBHXAot5e2BzYNwzIkzx15/tS2PoB5B7W2CE6CFhkHGZ+Wry0wzRlxfMJ/Aug3OF0oZW5
- djb0YBi/zsld+VnZVCONDd3c2WavmNp3CkVq3k+IqOniAmeag/ST6b/j4WK4eWVAtzPFe2GhyIR
- +6Y81Gb5bpqvGi1JNZw+D1cUJieM/5x+p1XRjjhUhOpQAZIDpInSkfShF/iM9u/wCEl0UJ8qX+O
- b4PMTyxpAzz/hMIgxieEz5VFjYpfK4Si8btF/dUcXuAluywupRK3ArEMLLuNNDTY4RpOGryxAGj
- Ujtqn/tmRJKgJ4b2etJO7wCao0yvgiB7Yg5XpVbuVeBmAZNUV9DZIeEXgd65BrBiEo7pOp4pbcC
- Z1jTNKTi8FJcDkoohYehsljhwGnI2b9wZtZwVB31fco5bb3/WUDH+OhVc152hKkZEhxF/B+OktW
- A0jpYiMEloiHv1OkMdZrAUnJ78FH8wHNaOp8nhrfW3vMm4PVz38wMBkJpy4iOO97Pgo2g=
-X-Developer-Key: i=hshah@axiado.com; a=openpgp;
- fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00029928:EE_|MW5PR18MB5176:EE_
-X-MS-Office365-Filtering-Correlation-Id: cfd5b12c-8abe-4958-0859-08ddb27b67b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RVA0Q0diZDJOK0FDd1lYLzVHMDEzRGR4RTBFMEhtY01ISDVMTUlMMzFHZU96?=
- =?utf-8?B?N2VGbmgvWTRpeDVtWHlFUUZhdXZIRmtxVGFwTkIvQWR4QXh0OUxta0ZFYmpP?=
- =?utf-8?B?elZOTWV1aEhBNk9RbjJGd003dnd6aTRUWU1iTnV1OUkzTm42OEROMFUzeDhp?=
- =?utf-8?B?bmVXY3N0RCtYOWZFYmJYNmtZcld2NHp0N2x4V2s0MUVpKzlBc0RzdlROWXBz?=
- =?utf-8?B?MUo2ZmRJWnpvdEZNYVpOVXNvaWl3OUZIM1AwQU0zZ2pBR1dQY3VIOVhJc1Rh?=
- =?utf-8?B?TVpEZ0JEYnpOUjFkWE5xdFk2blMwRHF6VkUvREsrMVhVSzZyWlFHMG1aWUVt?=
- =?utf-8?B?cVpnVk1NampRTWt4RHoza2VQYWVuQVRUem9hYzQxYUpxT3Q4VVgrNE9qd01z?=
- =?utf-8?B?bldMaFVnMktScXNXcitDaklGTmhTY0lWTFFMSjBwcTJnazZxYnV4ajh0SGU1?=
- =?utf-8?B?aldnbVdPTzh6L0s4cGxtazk1MU5LMnVEWVZtbzVtUEJvTXZTa1Q3dkg3V0dJ?=
- =?utf-8?B?ME1KbStMdmJ3c01xMXFkbjl2ZlBpV1JrMXVVYWtWZEdwZ09oRlF0clRwSG5y?=
- =?utf-8?B?QlpYNWVIMG5KTDZxYnNvcFQ0ejZzVmtKTXE1TTF6SjV1eE13UHQ2bVRuc2s2?=
- =?utf-8?B?dFg0RTZjNFpwVzFnTW9OOFFKY3hwLzVndDBpTThRd1dhMU1QZVUxUE5pK3Ur?=
- =?utf-8?B?bFRaUWxYN2pFeldOWFJ3QjV1eG5SUEpXbU9ERllZUzlnak5pQTh5ekpHeFNW?=
- =?utf-8?B?aHpUTVRLaGxQUXhoMlphUzBacUFXUGZtMy9Mcmt2MmQvZGNlMHRlNkFueEQv?=
- =?utf-8?B?d20xQzlTV0pGU0NzekVhZkVSL1lESUpGNUlCK2ZrZmQwdWFhclFMOFc5alF5?=
- =?utf-8?B?S1ZOcjlTcUtqMklWNDM5U2pmK0NyU0Q3clRtc0RValFrVjFEOVRyTHJSUlM4?=
- =?utf-8?B?ckxVaDZicmFUT1l5TGJkZUE2KzlSejR5c3hGUUVrNUYzZDRtUjlDcnRQalZE?=
- =?utf-8?B?cGtVMythUlBrLyt1Z0dZOUxjTU5MQjFLaXhlV1BLREpqL1lUc0FTd01wcXdH?=
- =?utf-8?B?aEpxQXhLcjdpTE1LYk5VejRZVCtHb0FnVEFyRTFpclZHZjlDZzh0M0QzSDFI?=
- =?utf-8?B?LzVSZ3lDR28zazd3QlBEMllXY3JPb2VONDcvNnBtWWxzQVgxRXlBZHcrNEV5?=
- =?utf-8?B?NVNTYTc4czk2ZDRia2JrRExVWG5TT3B5dFJzUHRISWJMV1lqbUtKYUtHTjZr?=
- =?utf-8?B?QlhRbDRpYmhRRzZHM3loSm9keGYrekhVbWV1STdMQ0NGMkc5M3hwTnlNcWpZ?=
- =?utf-8?B?bWJ3Qll1elg3angrQUNBeEtCb281RyttUTJDNVBYNjNxY2ZzVlEwVUo3MHhv?=
- =?utf-8?B?S3hteHRRdWtMZ1RmcFpyT1hFREVTUDBQenRvM005RFpLVlFLWU5Oa25ZL0pD?=
- =?utf-8?B?WDU0WEVzQks5QlV5S1ZEbkMya1dQTm1FbXg0dXBicFEwc3VBNzlCUmI1RTk3?=
- =?utf-8?B?QjZLaHRCSVVqQVZLNFc5Q2grSFovNWhVc3ZvQWlXK1N4bzh3MS9aZjhla3lK?=
- =?utf-8?B?YTNFOVRvcFNSMEt0Ukgxa2wrU0RLazM1Z1ZzUENFVGdhMG1SRFRNTG0vSmw3?=
- =?utf-8?B?NjlFSk5mWU12NnJqVHk4SUNycXBwYk54VUhCUUR0YmpXWU00NVZ1V1VJNjB0?=
- =?utf-8?B?RWZLbFQ5UFRybkxHZUFuWEVqbmIxQk5aNU1OU3ZyTnJZem1JVjRkZENLcktp?=
- =?utf-8?B?VlFFMG45SkZVaW04MXNRdFdCRU5LVjNDZDBJTGI3Z3REWDVJeitLOWltTk92?=
- =?utf-8?B?VXNjazNWYnRjdTZWYWNuNVpqVHRBRmtaRXRBdzMyb0NKbTU4S1FDMnpjd2xV?=
- =?utf-8?B?b1ZUZ3dtZkFJWVh2T1c5RFFteWJpWkhmRDhXNENxeUJIYnExT21LVTI2MzNS?=
- =?utf-8?B?dW1ydE5XQXNaTDh1MGIyd3JMMHoya3ptd21xWWRkeC9oeTdoS2lvSlh6TXNI?=
- =?utf-8?B?dGhydnpqRTZVS0V0TlFZTi9YU0k0dExZaTQ1VENUZ2RRVjVpSTQxNEVDanRS?=
- =?utf-8?Q?A3aY0x?=
-X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.0.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 17:28:43.5347
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfd5b12c-8abe-4958-0859-08ddb27b67b6
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.0.1]]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00029928.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR18MB5176
+References: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+ <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com> <3df0b3f2-0d73-4116-8bbf-37020892e773@kernel.org>
+In-Reply-To: <3df0b3f2-0d73-4116-8bbf-37020892e773@kernel.org>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Mon, 23 Jun 2025 13:30:12 -0400
+X-Gm-Features: AX0GCFsnpLQwwKtnijqZGlv0tstZiyS3XM4yXHsIdV3Lgvijxwc-1eNX5GxkkhQ
+Message-ID: <CABBYNZJ8qJTjyzfZBBCbYCon1zinRbxOmUvvPbheqUNSTh13_Q@mail.gmail.com>
+Subject: Re: [PATCH v4 1/1] Bluetooth: mediatek: add gpio pin to reset bt
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>, Marcel Holtmann <marcel@holtmann.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>, 
+	Chris Lu <chris.lu@mediatek.com>, Hao Qin <Hao.qin@mediatek.com>, 
+	linux-bluetooth <linux-bluetooth@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-mediatek <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_102852_456683_6A736C4A 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_103027_552499_6BCB20C7 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,34 +101,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entry for Axiado maintainer and related files
+Hi,
 
-Signed-off-by: Harshit Shah <hshah@axiado.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+On Mon, Jun 23, 2025 at 7:55=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 23/06/2025 12:23, Zhangchao Zhang wrote:
+> > Makes the platform Bluetooth to be reset by hardware pin,
+> > it provides two methods to do it for mediatek controller,
+> > and it has been tested locally many times and can reset normally.
+> >
+> > When an exception occurs, resetting Bluetooth by hardware pin
+> > is more stable than resetting Bluetooth by software.
+> > If the corresponding pin is not found in dts,
+> > bluetooth can also be reset successfully.
+> >
+> > Co-developed: Hao Qin <hao.qin@mediatek.com>
+> > Co-developed: Chris Lu <chris.lu@mediatek.com>
+> > Co-developed: Jiande Lu <jiande.lu@mediatek.com>
+> > Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+> > ---
+> >  drivers/bluetooth/btmtk.c | 69 +++++++++++++++++++++++++++++++++++++++
+> >  drivers/bluetooth/btmtk.h |  5 +++
+> >  2 files changed, 74 insertions(+)
+> >
+> > diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> > index 4390fd571dbd..3e5f3ca6f0d5 100644
+> > --- a/drivers/bluetooth/btmtk.c
+> > +++ b/drivers/bluetooth/btmtk.c
+> > @@ -6,6 +6,8 @@
+> >  #include <linux/firmware.h>
+> >  #include <linux/usb.h>
+> >  #include <linux/iopoll.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_gpio.h>
+> >  #include <linux/unaligned.h>
+> >
+> >  #include <net/bluetooth/bluetooth.h>
+> > @@ -109,6 +111,65 @@ static void btmtk_coredump_notify(struct hci_dev *=
+hdev, int state)
+> >       }
+> >  }
+> >
+> > +static void btmtk_reset_by_gpio_work(struct work_struct *work)
+> > +{
+> > +     struct btmtk_reset_gpio *reset_gpio_data =3D
+> > +                     container_of(work, struct btmtk_reset_gpio, reset=
+_work.work);
+> > +
+> > +     gpio_direction_output(reset_gpio_data->gpio_number, 1);
+> > +     kfree(reset_gpio_data);
+> > +}
+> > +
+> > +static int btmtk_reset_by_gpio(struct hci_dev *hdev)
+> > +{
+> > +     struct btmtk_data *data =3D hci_get_priv(hdev);
+> > +     struct btmtk_reset_gpio *reset_gpio_data;
+> > +     struct device_node *node;
+> > +     int reset_gpio_number;
+> > +
+> > +     node =3D of_find_compatible_node(NULL, NULL, "mediatek,usb-blueto=
+oth");
+>
+>
+> Can you finally respond to the comments you got weeks ago at v1?
+>
+> NAK and I will keep NAKing your patches because total disregard to
+> review is not going to make this patch accepted.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0c1d245bf7b84f8a78b811e0c9c5a3edc09edc22..7a04bee308cda1d8079ef61d1c0c68bafa89fa12 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2414,6 +2414,14 @@ F:	arch/arm/boot/dts/aspeed/
- F:	arch/arm/mach-aspeed/
- N:	aspeed
- 
-+ARM/AXIADO ARCHITECTURE
-+M:	Harshit Shah <hshah@axiado.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/arm/axiado.yaml
-+F:	arch/arm64/boot/dts/axiado/
-+N:	axiado
-+
- ARM/AXM LSI SOC
- M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+Can someone at mediatek respond to Krzysztof, he is the maintainer of
+device tree, so he has the authority to NAK patches so you guys better
+start addressing his requests.
 
--- 
-2.25.1
-
+--=20
+Luiz Augusto von Dentz
 
