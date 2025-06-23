@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E36C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B61C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bci8p3IZMtUnGVV/yGdgCwUbxn3sfGQwj0xpFyR4dSU=; b=s21DPy9pFtMOyYOMRGz0uOrTcE
-	XHunOUu+Y+GZM+KXe1yxnqSDZzLpcKx4ocupnatLpPh18dH943PwjkTvwq7ysmrZV7YlcaDLnJfk/
-	/9Ka4hkhTj2Yp5PjbPwJ5oeZi+LmGYok7PMqyOIUZ2FYYD46st8O9qSpp74x31vcGrylJQLRyHsAE
-	+21O/JhZk/75gX3Kj+BJcIbyx/boDnaROmXAJhO7QF9j/rRrR4wok+zmZo80xxGB7QbvnUhaSaj+J
-	e42fEvb46NtZsYGrWzBTKzmqVbJ5U8rCfSgSWUtyasUYxdwhkhO7HTmT6uEwX4Luzd2IrM3rEFtIr
-	B4aac8ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CWttItOwWOczR/JIXXwPQrDzLPV075F/+DhRIjyDOBE=; b=QFPfLCx2kElEt1LRH8w5hZg1fg
+	zXjuUyL4HuPTbLZHhCr6oszJ00GisX9JlmdpQtCx2g9Ze3aJStKK96ji7Pq5V46i6Vvnc0QOmq9Ln
+	5iTSesizASdw0SxP95zksznNTM4GQ6kJ2TlGIORcnijnxMYck3Yp3UrLbIoSUQsOrKZgBP3uR4D65
+	ypmV0zmAXVByOGjB9c97VrAKtLmiCjZNsVzX7wovVa3QdLlVPGXiyb7DFwSIxundub5hfWs5gpThN
+	F3J032rkQLKHsct6IYSVBxShQcIy/dFIGeMpRboKiDVmUSeg9dNS+/JzeUYl/1Z5vXFb20vjPEspV
+	Q+s+jOKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTh0d-00000002q4V-0XRi;
-	Mon, 23 Jun 2025 13:14:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uTh2y-00000002qF4-0rYv;
+	Mon, 23 Jun 2025 13:17:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfRy-00000002WDB-31Ka;
-	Mon, 23 Jun 2025 11:35:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750678497;
-	bh=T5SUbISDYE0U3ndj/fUfEJmuuEiLHNdsAPnultnjOuw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jOvyQqig1PXeIOkhqzTJgc7CWTlzPM9KLhSl2nLshTqwFckdzO+82Np+/okVsuEaX
-	 5kkdlePa/8gq1xcYhx+xs0XRxM9TBlpYMfTmHGgC4QVU5il9u35gKo8H3+XHY2dGQH
-	 nRfSi33UNd/LdXQfyNrhinj0JYL6FlfqbrjH0qM37dOvlEjx7/HlbSXPLZQvadz3r8
-	 Pf2ZRjUCWnjjEZSLL+ML+7Qlo+OpizSOXDkNpCA2b16A3gqSogfQNiRdxmD7oHjcRh
-	 p8TwbTE1zl8jbXlb3WdhPMul2g/UpyNCqEK3rTC8bjXtzE0Xx/yTaPBJ4kjl9x1zf3
-	 kmW+TX9FPCPTQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2598217E0184;
-	Mon, 23 Jun 2025 13:34:56 +0200 (CEST)
-Message-ID: <88a04bcc-b287-432c-b309-5c76259ceda3@collabora.com>
-Date: Mon, 23 Jun 2025 13:34:55 +0200
+	id 1uTfZd-00000002XAz-0hjm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 11:42:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 64F2DA5145C;
+	Mon, 23 Jun 2025 11:42:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68E13C4CEEA;
+	Mon, 23 Jun 2025 11:42:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750678972;
+	bh=2m5CfZQaw2dv5R3Bx1BYdCmiNkSM8d2I9a7oqNpDaJg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vJQ3ID8qLCiFR8Pxde6rF2KJJUAOZVH8hsgrPoPWLp9XsVub8YquvV1sgl7Xc7+ep
+	 owTauxF/ndQDiCzVeTf2yjAcNYDE/pW79OdZKaH6JbutbKuWrCSeGIi/Joi25lDODC
+	 uBi3KqSVZav3oTXjLfjJadHCrwVa2fHUmhMBabGYPVDhK2i1vkp/9Tmg72GCOdjQn8
+	 1la1NsNuC4JyZ59DCFc9mXQT/RJHTgQrYRjZA5yhQMrCbFzuvCAbURgwj65ULx4ayz
+	 E2Pi5T2PJt/7QLTKK7VUDglj7VtKrzyylDa9NGdbCYpWq1IBICjrRHHdWc/z9tCqyJ
+	 8ZOHbkT/1SwBg==
+Date: Mon, 23 Jun 2025 05:42:50 -0600
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Tim Harvey <tharvey@gateworks.com>
+Subject: Re: [PATCH v3 1/2] PCI: imx6: Remove apps_reset toggle in
+ _core_reset functions
+Message-ID: <kjsaipr2xq777dmiv2ac7qzrxw47nevc75j7ryma32vsnyr2le@mrwurn6rgnac>
+References: <20250616085742.2684742-1-hongxing.zhu@nxp.com>
+ <20250616085742.2684742-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/30] Add support for MT8196 clock controllers
-To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250623102940.214269-1-laura.nao@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250623102940.214269-1-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250616085742.2684742-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_043458_913664_4B6C7194 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250623_044253_334203_C9003C7C 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,122 +77,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/06/25 12:29, Laura Nao ha scritto:
-> This patch series introduces support for the clock controllers on the
-> MediaTek MT8196 platform, following up on an earlier submission[1].
-> 
-> MT8196 uses a hardware voting mechanism to control some of the clock muxes
-> and gates, along with a fence register responsible for tracking PLL and mux
-> gate readiness. The series introduces support for these voting and fence
-> mechanisms, and includes drivers for all clock controllers on the platform.
+On Mon, Jun 16, 2025 at 04:57:41PM +0800, Richard Zhu wrote:
+> apps_reset is LTSSM_EN on i.MX7, i.MX8MQ, i.MX8MM and i.MX8MP platforms.
+> Since the assertion/de-assertion of apps_reset(LTSSM_EN bit) had been
+> wrappered in imx_pcie_ltssm_enable() and imx_pcie_ltssm_disable();
 > 
 
-Whole series is
+What about other i.MX chipsets like 6Q and its cousins? Wouldn't this change
+affect them since they treat 'apps_reset' differently?
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+- Mani
 
-(as I reviewed this entire thing internally and before submission anyway :-D)
-
-Cheers,
-Angelo
-
-
-> [1] https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
+> Remove apps_reset toggle in imx_pcie_assert_core_reset() and
+> imx_pcie_deassert_core_reset() functions. Use imx_pcie_ltssm_enable()
+> and imx_pcie_ltssm_disable() to configure apps_reset directly.
 > 
-> AngeloGioacchino Del Regno (2):
->    dt-bindings: reset: Add MediaTek MT8196 Reset Controller binding
->    clk: mediatek: mt8196: Add UFS and PEXTP0/1 reset controllers
+> Fix fail to enumerate reliably PI7C9X2G608GP (hotplug) at i.MX8MM, which
+> reported By Tim.
 > 
-> Laura Nao (28):
->    clk: mediatek: clk-pll: Add set/clr regs for shared PLL enable control
->    clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
->    clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and
->      FENC
->    clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
->    clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
->    clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use
->      mtk_gate struct
->    clk: mediatek: clk-gate: Add ops for gates with HW voter
->    clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
->    dt-bindings: clock: mediatek: Describe MT8196 peripheral clock
->      controllers
->    clk: mediatek: Add MT8196 apmixedsys clock support
->    clk: mediatek: Add MT8196 topckgen clock support
->    clk: mediatek: Add MT8196 topckgen2 clock support
->    clk: mediatek: Add MT8196 vlpckgen clock support
->    clk: mediatek: Add MT8196 peripheral clock support
->    clk: mediatek: Add MT8196 ufssys clock support
->    clk: mediatek: Add MT8196 pextpsys clock support
->    clk: mediatek: Add MT8196 adsp clock support
->    clk: mediatek: Add MT8196 I2C clock support
->    clk: mediatek: Add MT8196 mcu clock support
->    clk: mediatek: Add MT8196 mdpsys clock support
->    clk: mediatek: Add MT8196 mfg clock support
->    clk: mediatek: Add MT8196 disp0 clock support
->    clk: mediatek: Add MT8196 disp1 clock support
->    clk: mediatek: Add MT8196 disp-ao clock support
->    clk: mediatek: Add MT8196 ovl0 clock support
->    clk: mediatek: Add MT8196 ovl1 clock support
->    clk: mediatek: Add MT8196 vdecsys clock support
->    clk: mediatek: Add MT8196 vencsys clock support
+> Reported-by: Tim Harvey <tharvey@gateworks.com>
+> Closes: https://lore.kernel.org/all/CAJ+vNU3ohR2YKTwC4xoYrc1z-neDoH2TTZcMHDy+poj9=jSy+w@mail.gmail.com/
+> Fixes: ef61c7d8d032 ("PCI: imx6: Deassert apps_reset in imx_pcie_deassert_core_reset()")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 > 
->   .../bindings/clock/mediatek,mt8196-clock.yaml |   79 ++
->   .../clock/mediatek,mt8196-sys-clock.yaml      |   76 +
->   drivers/clk/mediatek/Kconfig                  |   78 +
->   drivers/clk/mediatek/Makefile                 |   14 +
->   drivers/clk/mediatek/clk-gate.c               |  106 +-
->   drivers/clk/mediatek/clk-gate.h               |    3 +
->   drivers/clk/mediatek/clk-mt8196-adsp.c        |  193 +++
->   drivers/clk/mediatek/clk-mt8196-apmixedsys.c  |  203 +++
->   drivers/clk/mediatek/clk-mt8196-disp0.c       |  169 +++
->   drivers/clk/mediatek/clk-mt8196-disp1.c       |  170 +++
->   .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    |  117 ++
->   drivers/clk/mediatek/clk-mt8196-mcu.c         |  166 +++
->   drivers/clk/mediatek/clk-mt8196-mdpsys.c      |  187 +++
->   drivers/clk/mediatek/clk-mt8196-mfg.c         |  150 ++
->   drivers/clk/mediatek/clk-mt8196-ovl0.c        |  154 ++
->   drivers/clk/mediatek/clk-mt8196-ovl1.c        |  153 ++
->   drivers/clk/mediatek/clk-mt8196-peri_ao.c     |  144 ++
->   drivers/clk/mediatek/clk-mt8196-pextp.c       |  131 ++
->   drivers/clk/mediatek/clk-mt8196-topckgen.c    | 1257 +++++++++++++++++
->   drivers/clk/mediatek/clk-mt8196-topckgen2.c   |  662 +++++++++
->   drivers/clk/mediatek/clk-mt8196-ufs_ao.c      |  109 ++
->   drivers/clk/mediatek/clk-mt8196-vdec.c        |  253 ++++
->   drivers/clk/mediatek/clk-mt8196-vdisp_ao.c    |   78 +
->   drivers/clk/mediatek/clk-mt8196-venc.c        |  235 +++
->   drivers/clk/mediatek/clk-mt8196-vlpckgen.c    |  769 ++++++++++
->   drivers/clk/mediatek/clk-mtk.c                |   16 +
->   drivers/clk/mediatek/clk-mtk.h                |   23 +
->   drivers/clk/mediatek/clk-mux.c                |  119 +-
->   drivers/clk/mediatek/clk-mux.h                |   76 +
->   drivers/clk/mediatek/clk-pll.c                |   46 +-
->   drivers/clk/mediatek/clk-pll.h                |    9 +
->   .../dt-bindings/clock/mediatek,mt8196-clock.h |  867 ++++++++++++
->   .../reset/mediatek,mt8196-resets.h            |   26 +
->   33 files changed, 6814 insertions(+), 24 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
->   create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-adsp.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-disp1.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl0.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen2.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-vdisp_ao.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
->   create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
->   create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
->   create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 9754cc6e09b9..f5f2ac638f4b 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -860,7 +860,6 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+> -	reset_control_assert(imx_pcie->apps_reset);
+>  
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, true);
+> @@ -872,7 +871,6 @@ static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>  	reset_control_deassert(imx_pcie->pciephy_reset);
+> -	reset_control_deassert(imx_pcie->apps_reset);
+>  
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, false);
+> @@ -1247,6 +1245,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  		}
+>  	}
+>  
+> +	/* Make sure that PCIe LTSSM is cleared */
+> +	imx_pcie_ltssm_disable(dev);
+> +
+>  	ret = imx_pcie_deassert_core_reset(imx_pcie);
+>  	if (ret < 0) {
+>  		dev_err(dev, "pcie deassert core reset failed: %d\n", ret);
+> -- 
+> 2.37.1
 > 
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
