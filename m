@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6B3C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CE5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLS0jqGrb3MS8d9+Zqocfz6+iEasSrP5hi+kiaqEmQE=; b=iJiAnPActwEZgzTEKKZOfp8bwz
-	8zOy1yIv0IVKN4DnHGN6fvpmIGMJlUPeZt+73bq47z8VpRg4+rXklCnvbSfAfEWuE6RQNTYOGHk9a
-	ajdXBnYLXh5P3XNrxA0az3EqJrpPNgVp9JgeL6CJF9OQjOiV/j1ip2KhrVajU7jJgqqYjXYaBxxDR
-	H8p8qaqJ4lzKxOdjJaXzEXFh51D4CyRpgrKr1Box+4vVdkgsQgsBLRYgVVPzirEUpp0ycA8IPiLGa
-	wJ6JJUF32Lp1M90c78rgwHb6HinAAqOMqNBM9zxzxRW7WaLoCAcpdtn6glNGvTR2e/v2xQOtmDomD
-	3GphCCgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oWXHzMFQWrf3zwl6nd3ar71G9P2ea95Xb7EiOWcUnfA=; b=BSgqafb59mIyc1BBFWaVY1JpFQ
+	B9LS06ojc1EF6xQA2liAk4+vcSyNihwgQUEbOAxtdsFU2PYrrI7YysmVN6V7XG/Mkr1DiAlfliqOC
+	4yFNFG2gFdoh09t3ozuhumghaRtxio8Qj0NhqyM1yhXWtHTk+QovKUxSTU5uYaIyo+pNJCMp+cBfh
+	h2Dox8PnU4WQ/DD7Vuwn3um0DoROOjcxBFQ7rOQ8Tk9PFvq46swX8BDTEsW3UNxXBj3GNzC2DQViG
+	SOBqEANXMvwmT86ftoi0pwcU3TyZnYGEqn/k73b4GLQdAsTXEgkKzdENlYsqI3pY98Me9Vr1TNZGy
+	Os1d2/0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkV7-00000003Un6-2oOH;
-	Mon, 23 Jun 2025 16:58:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThCi-00000002sDE-3AXy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Jun 2025 13:27:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description;
-	bh=tLS0jqGrb3MS8d9+Zqocfz6+iEasSrP5hi+kiaqEmQE=; b=ecprC0BeB4NxOfTFqXpdgg1LEM
-	5eXgD9f0C3XYq+pHcYoq7Ztl/bJbw5L9Ch82IPn1W2+iVqy2FpMiHLpJjsRJn3bdhg1fDd9N3wJkh
-	mJTSuhvs45tGnJfLS5od6lE4qCOKvDGKgmLoT9QPOivFufL4Qto8OSTjbV99CmbqR1AvmpewxgC3T
-	psnj+n7fKFLeFmMh1AxIr+lMPltlUZG2lQkWFny+SguVW32kM/5bqVwBLDlE3DBfRl20ZrrcIH5ER
-	3kUZe24CFUFJlR4w1QiNfiX34Lbnumd3K2za9rylJ5nk5SDruYpFlogA1Moq4wsFnomxa51OEmwg7
-	5CFdaX2Q==;
-Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThCe-00000005Du5-1SQN;
-	Mon, 23 Jun 2025 13:27:16 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uThCc-000000043AO-2kz9;
-	Mon, 23 Jun 2025 14:27:14 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Thorsten Blum <thorsten.blum@linux.dev>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: [RFC PATCH 2/2] KVM: arm64: vgic-its: Unmap all vPEs on shutdown
-Date: Mon, 23 Jun 2025 14:27:14 +0100
-Message-ID: <20250623132714.965474-2-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623132714.965474-1-dwmw2@infradead.org>
-References: <20250623132714.965474-1-dwmw2@infradead.org>
+	id 1uTkXR-00000003V54-2TGa;
+	Mon, 23 Jun 2025 17:00:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uThFh-00000002siv-2AL3;
+	Mon, 23 Jun 2025 13:30:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8641E113E;
+	Mon, 23 Jun 2025 06:30:06 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7C723F58B;
+	Mon, 23 Jun 2025 06:30:22 -0700 (PDT)
+Date: Mon, 23 Jun 2025 14:30:15 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+	sudeep.holla@arm.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v1 0/2] firmware: Add MediaTek TinySYS SCMI Protocol
+Message-ID: <aFlW5zVERnpwIkS4@pluto>
+References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
+ <aFlFw-AjqxXcIuBO@pluto>
+ <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_063025_598777_85DBE5CA 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +67,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+On Mon, Jun 23, 2025 at 02:32:24PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 23/06/25 14:17, Cristian Marussi ha scritto:
+> > On Mon, Jun 23, 2025 at 02:01:34PM +0200, AngeloGioacchino Del Regno wrote:
+> > > This series adds basic support for the MediaTek TinySYS SCMI Protocol,
+> > > found on the MediaTek Dimensity 9200, 9300 and 9400, other than on the
+> > > MT8196 Chromebook SoC.
+> > > 
+> > > This is used to communicate with the CM_MGR and other MCUs for power
+> > > management purposes.
+> > 
+> > Hi Angelo,
+> > 
+> > thanks for this.
+> > 
+> > I will do a proper review in the coming days of this series anyway, but
+> > upfront for future V2:
+> > 
+> > - you should provide some sort of documentation for this new
+> >    vendor protocol and its messages, as an example from IMX:
+> > 
+> > 	drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> 
+> Noted.
+> 
+> > 
+> > - where is the SCMI driver that will call all the new vendor ops
+> >    defined in: scmi_mtk_protocol.h ?
+> 
+> This was tested with code that is not clean at all (hence I can't push it upstream)
+> and well... I didn't think about the fact that, effectively, without an user, this
+> code ends up being unused.
+> 
+> I can't promise to send a clean user in this cycle, but I would really appreciate
+> if you could still check the protocol code, so that if there's anything that you
+> can spot I can fix it while the rest gets done :-)
 
-We observed systems going dark on kexec, due to corruption of the new
-kernel's text (and sometimes the initrd). This was eventually determined
-to be caused by the vLPI pending tables used by the GIC in the previous
-kernel, which were not being quiesced properly.
+Sure, I will anyway review, but a driver user exampe would be useful, maybe
+posting it at the end of the series as a NOT-FOR-UPSTREAM/RFC (something like that)
+so that we can have an iddea of the usage patterns while being aware that it is
+still not clean for upstream.
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
----
- arch/arm64/kvm/arm.c          |  5 +++++
- arch/arm64/kvm/vgic/vgic-v3.c | 14 ++++++++++++++
- include/kvm/arm_vgic.h        |  2 ++
- 3 files changed, 21 insertions(+)
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 38a91bb5d4c7..2b76f506bc2d 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2164,6 +2164,11 @@ void kvm_arch_disable_virtualization_cpu(void)
- 		cpu_hyp_uninit(NULL);
- }
- 
-+void kvm_arch_shutdown(void)
-+{
-+	kvm_vgic_v3_shutdown();
-+}
-+
- #ifdef CONFIG_CPU_PM
- static int hyp_init_cpu_pm_notifier(struct notifier_block *self,
- 				    unsigned long cmd,
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index b9ad7c42c5b0..6591e8d84855 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -382,6 +382,20 @@ static void map_all_vpes(struct kvm *kvm)
- 						dist->its_vm.vpes[i]->irq));
- }
- 
-+void kvm_vgic_v3_shutdown(void)
-+{
-+	struct kvm *kvm;
-+
-+	if (!kvm_vgic_global_state.has_gicv4_1)
-+		return;
-+
-+	mutex_lock(&kvm_lock);
-+	list_for_each_entry(kvm, &vm_list, vm_list) {
-+		unmap_all_vpes(kvm);
-+	}
-+	mutex_unlock(&kvm_lock);
-+}
-+
- /*
-  * vgic_v3_save_pending_tables - Save the pending tables into guest RAM
-  * kvm lock and all vcpu lock must be held
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 4a34f7f0a864..e850ee860238 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -442,6 +442,8 @@ int vgic_v4_put(struct kvm_vcpu *vcpu);
- 
- bool vgic_state_is_nested(struct kvm_vcpu *vcpu);
- 
-+void kvm_vgic_v3_shutdown(void);
-+
- /* CPU HP callbacks */
- void kvm_vgic_cpu_up(void);
- void kvm_vgic_cpu_down(void);
--- 
-2.49.0
-
+Thanks,
+Cristian
 
