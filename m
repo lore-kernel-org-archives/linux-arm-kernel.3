@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85695C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4501AC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 13:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mZ0QdohGt0uP6s8O+UNeN8PYRn5d7EkWYTCfF6wBdJA=; b=0VMQsdNYDk87sAroiKhGiRzatP
-	8UMOunWVJLmhApuZDm9176PwtivvZ2dGIzoDBYVWDK/dtaZSZHs0ohbVBhhS5KaATTor4x1ykgcrR
-	OIwOc5gRL970OEP2CgZo6VLmHdza/tPSfKyj9lG6KjkGzW4o+idKZDd+GaxiUqPE2LCS/kG1AVHOm
-	n0+pxxAH9r1IvAHSVOFlzDjRXnwTT2sjqoQkQs5fNtUfUy0PpWPRIzzy3PAifD53H3xDPnAb3C/6o
-	D+RWfTh9zyNYPEfWwC/FTWjeFeJfzyX8wH3qoJ6Z57/nkzq0gA4qi/LVhxjaaaqU4WcbDg9hzZBhg
-	5ZXoiHZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e7oVO46DBh/16PeVX4JcwoYXyRBR5YI8RI3tftw12ZE=; b=joUAVbPG54lOVz1zz9kSYw3hf9
+	NMM2OLslsfV6kmEDU+ogJVp/9iguBSZFPi3eVJhCoqtRJuPz6l/pcYsEYuWggTmCiI0ns+OGS2MB1
+	96jraXo1ZowoOvZ7dFJ79Lr8dd5g3VBRgnYJoxhxEtiubHDkJsGekxmm7ex3kOecfh7zTc/lX+2MC
+	eMVjqWZ8XCh9G8nFMs50+rG12/m1AVNiIIdfZGLnWYliphXOooykogcKYcdcQzhGI4ASaS0ADNRBV
+	YnkiUOM74EDX4MLQc/Cw/NIUMkNxb7wd0cYmno4wyAwALF3DiJjkbHLEgE9429VIF3Ne/bUDSZyQS
+	Y9TxNlzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgth-00000002p6m-3mhj;
-	Mon, 23 Jun 2025 13:07:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfMz-00000002VUw-1fVO;
-	Mon, 23 Jun 2025 11:29:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEF0143F43;
-	Mon, 23 Jun 2025 11:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EE97C4CEF7;
-	Mon, 23 Jun 2025 11:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750678188;
-	bh=w6AaO6fgK2fNbORRzUvx6Qa3WCSt0XSFElEO927wLeY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rqSFoUy60QVVLtbY4efKUq1P1PcXwr3lo6+JMXseUEvm9py7YL7hax6kFOSdZwdym
-	 pTpZJh8spMc7wsGJXNvqY21TZArnFf5DV4hBRq0OxOzUd6GwDcmYQdd4J1eKvLEtlD
-	 AJLG+YlZNMWC/1H2uMoN+rbrbbLrP7vqX5C67lAzhbSZB1GV9XWz00+6wGx6F6eWto
-	 L5XtZS/rW+goRAs5AX+JNetLMNKAYTyAjsJNR3mC5ZmjWGu+Kf7eoiL4Y8L0r0BrEu
-	 z9R8efYMX4mKAU89Yf/gBmIuL5DVZafBAb1zVfMSVph/EPQeOAufP4yXBkhCx1AyTS
-	 Pcn2e2Bnp0C2g==
-Date: Mon, 23 Jun 2025 05:29:46 -0600
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-Cc: linux-rockchip@lists.infradead.org, 
-	Hugh Cole-Baker <sigmaris@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
- failure without PERST#
-Message-ID: <zuiq3b2rsixymtjr3xzrb26clikvlja62wgj65umnse4kuk75c@x5qan73ispxe>
-References: <cover.1749582046.git.geraldogabriel@gmail.com>
- <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+	id 1uTgvz-00000002pSO-2OXR;
+	Mon, 23 Jun 2025 13:10:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTfQN-00000002Vw6-1wy9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 11:33:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43268113E;
+	Mon, 23 Jun 2025 04:32:58 -0700 (PDT)
+Received: from [10.57.29.116] (unknown [10.57.29.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3092E3F66E;
+	Mon, 23 Jun 2025 04:33:12 -0700 (PDT)
+Message-ID: <9f80f7c4-01a3-4a03-94dc-2a19136707f8@arm.com>
+Date: Mon, 23 Jun 2025 12:33:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/11] arm64: defconfig: Enable Apple Silicon drivers
+To: Sven Peter <sven@kernel.org>
+Cc: asahi@lists.linux.dev, Stephen Boyd <sboyd@kernel.org>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ Srinivas Kandagatla <srini@kernel.org>, linux-kernel@vger.kernel.org,
+ Viresh Kumar <viresh.kumar@linaro.org>, Neal Gompa <neal@gompa.dev>,
+ linux-clk@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-i2c@vger.kernel.org, Takashi Iwai <tiwai@suse.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, =?UTF-8?Q?Martin_Povi=C5=A1er?=
+ <povik+lin@cutebit.org>, Joerg Roedel <joro@8bytes.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Mark Brown <broonie@kernel.org>, iommu@lists.linux.dev,
+ linux-input@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-sound@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Will Deacon <will@kernel.org>
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+ <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+ <2e022f4e-4c87-4da1-9d02-f7a3ae7c5798@arm.com>
+ <d5a616f3-67a3-4504-904e-6cec503ab157@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <d5a616f3-67a3-4504-904e-6cec503ab157@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_042949_474240_C76CA5A2 
-X-CRM114-Status: GOOD (  28.84  )
+X-CRM114-CacheID: sfid-20250623_043319_590382_D5A5324F 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 04:05:40PM -0300, Geraldo Nascimento wrote:
-> After almost 30 days of battling with RK3399 buggy PCIe on my Rock Pi
-> N10 through trial-and-error debugging, I finally got positive results
-> with enumeration on the PCI bus for both a Realtek 8111E NIC and a
-> Samsung PM981a SSD.
+On 2025-06-21 5:01 pm, Sven Peter wrote:
+> On 13.06.25 18:50, Robin Murphy wrote:
+>> On 2025-06-12 10:11 pm, Sven Peter wrote:
+>>> Enable drivers for hardware present on Apple Silicon machines.
+>>> The power domain and interrupt driver should be built-it since these are
+>>> critical for the system to boot, the rest can be build as modules.
+>>
+>> Nit: I'd be tempted to put this patch first, just in case anyone 
+>> bisecting with "make defconfig" in their process lands in the middle 
+>> and suddenly loses some drivers (although arguably them going from 
+>> "=y" to "=m" could still be a surprise, but at least a bit less so).
 > 
-> The NIC was connected to a M.2->PCIe x4 riser card and it would get
-> stuck on Polling.Compliance, without breaking electrical idle on the
-> Host RX side. The Samsung PM981a SSD is directly connected to M.2
-> connector and that SSD is known to be quirky (OEM... no support)
-> and non-functional on the RK3399 platform.
+> Ah, that's a good point that I hadn't even thought about.
+> Now that most of these have already been merged into different trees 
+> that ship has sailed though.
+
+Yeah, like I say it's only minor and rather contrived anyway. Not a big 
+worry.
+
+>> [...]
+>>> @@ -1504,6 +1520,7 @@ CONFIG_ARCH_TEGRA_194_SOC=y
+>>>   CONFIG_ARCH_TEGRA_234_SOC=y
+>>>   CONFIG_TI_PRUSS=m
+>>>   CONFIG_OWL_PM_DOMAINS=y
+>>> +CONFIG_APPLE_PMGR_PWRSTATE=y
+>>
+>> If this is critical for any Apple platform to work then it would 
+>> probably make sense to explicitly select it from ARCH_APPLE, as is 
+>> done for APPLE_AIC...
 > 
-> The Samsung SSD was even worse than the NIC - it would get stuck on
-> Detect.Active like a bricked card, even though it was fully functional
-> via USB adapter.
 > 
-> It seems both devices benefit from retrying Link Training if - big if
-> here - PERST# is not toggled during retry.
+> Documentation/kbuild/kconfig-language.rst:
 > 
-> For retry to work, flow must be exactly as handled by present patch,
-> that is, we must cut power, disable the clocks, then re-enable
-> both clocks and power regulators and go through initialization
-> without touching PERST#. Then quirky devices are able to sucessfully
-> enumerate.
+>    select should be used with care. select will force a symbol to a value
+>    without visiting the dependencies. By abusing select you are able to
+>    select a symbol FOO even if FOO depends on BAR that is not set. In
+>    general use select only for non-visible symbols (no prompts anywhere)
+>    and for symbols with no dependencies. That will limit the usefulness
+>    but on the other hand avoid the illegal configurations all over.
 > 
-
-This sounds weird. PERST# is just an indication to the device that the power and
-refclk are applied or going to be removed. The devices uses PERST# to prepare
-for the power removal during assert and start functioning after deassert.
-
-It looks like the PERST# polarity is inverted in your case. Could you please
-change the 'ep-gpios' polarity to GPIO_ACTIVE_LOW and see if it fixes the issue
-without this patch?
-
-If that didn't work, could you please drop the 'ep-gpios' property and check?
-
-> No functional change intended for already working devices.
 > 
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/pci/controller/pcie-rockchip-host.c | 47 ++++++++++++++++++---
->  1 file changed, 40 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-> index 2a1071cd3241..67b3b379d277 100644
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -338,11 +338,14 @@ static int rockchip_pcie_set_vpcie(struct rockchip_pcie *rockchip)
->  static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
->  {
->  	struct device *dev = rockchip->dev;
-> -	int err, i = MAX_LANE_NUM;
-> +	int err, i = MAX_LANE_NUM, is_reinit = 0;
->  	u32 status;
->  
-> -	gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
-> +	if (!is_reinit) {
-> +		gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
-> +	}
->  
-> +reinit:
+> That's probably fine for APPLE_AIC which only depends on ARM64 (and 
+> ARCH_APPLE) which is guaranteed to be set when ARCH_APPLE is set anyway.
+> APPLE_PMGR_PWRSTATE also has an additional dependency on PM so it should 
+> probably remain in defconfig and not use select.
 
-So this reinit part only skips the PERST# assert, but calls
-rockchip_pcie_init_port() which resets the Root Port including PHY. I don't
-think it is safe to do it if PERST# is wired.
+Sorry if the implication wasn't clear, but I did mean "select it" in the 
+sense of "select it and all of its necessary dependencies in a manner 
+that works correctly". The same argument applies all the way down - if a 
+!PM config will not be able to boot on ARCH_APPLE platforms due to 
+forcibly deselecting APPLE_PMGR_PWRSTATE, then there is little point in 
+permitting that combination. Which of course the user would already have 
+to disable at least ARCH_MXC, ARCH_ROCKCHIP, ARCH_TEGRA and 
+ARCH_VEXPRESS to achieve in the first place ;)
 
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks,
+Robin.
 
