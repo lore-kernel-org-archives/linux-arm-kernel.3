@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EFFC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88527C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvX/P/SG/SFzHP1pyPRjGEyMLB0uWfnXE56q6Nx+TqM=; b=o+3FN1ZtBU4brI9dDKDkFtmRv0
-	w4V99sXrMku7Jo1RfFDKR7JR93ZKQmBSAxQLhVzVrPqEJXgxyAGCnISHTOVD79g1oueLBAQESJw1O
-	U/XN/PpDdXGOSpf/aYKWtY76ThNiRPBrVpmQtIdrCRltdOzQAlJm0/snA4LVooFlnJOK0U9DFzeYh
-	cCyzuu2kCYamUPDW5ojisb38Ne0I9sBWscUKlew+jNjH9Dvj9llsY6V5WzcuONSLetZlroMcTfmKM
-	KZ33iIJVEfRhFHmxO5QwdFvnkyGxat0HHIB0Y3M8hxvTbu00LDDLQOGIE285e4wSoe0qFGwHvndN/
-	MGG1beuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yvxj19SbeNEOO0ywdv6ag+9IhX7YkP9phiR8id2zwyo=; b=1sQrBOK/2VlCNlxuFi4s4j6YlR
+	+GZBJfrbdiyEd9XlBWObR3g+bO/22qOzZv1l/k3RABOyNq+/VLNqu6VqiTtpFqmUY1nqKaL3fNFID
+	1pOnjrzZbzWubMXrXdziOqrPMd8fyicDwT+Nv6vreJYVtcKrlZAmiVQks2mZyCx8i5iTw1tbKEwIp
+	LfzAmYSWwikbsz+AJMp7Sgwkv6g4j564FTinw+FYhLCiF92lszM3t0lHREcOTW2sTy8Y+jWD2Ww/F
+	l5I1xgZ06DUYuSl2w86B1or5GVjaS0YzFkaRlYP0xqWo4U0g/GbqEtf4jo+YFktC6NztE7yACHeLx
+	7mWaizwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfYg-00000002X0O-0N5X;
-	Mon, 23 Jun 2025 11:41:54 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uTfay-00000002XK1-3Uua;
+	Mon, 23 Jun 2025 11:44:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTeMd-00000002LAR-3C7H;
-	Mon, 23 Jun 2025 10:25:24 +0000
-X-UUID: 5b5686f0501c11f09f706fa2197c6ceb-20250623
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qvX/P/SG/SFzHP1pyPRjGEyMLB0uWfnXE56q6Nx+TqM=;
-	b=VA2aWiyK/SwUO50OV1CLAbjG5wFwHSFDcoYRBF5REuMFM/zmC5QjLa4LOqxSiYER1q5/lLoh4oWldP19nHi9Xduv3P8y7IXs3EreyW63IrDwVCWHJdop3O/U6IB2nfkz02U8HkowplGSxcnK+d/QyTCnKgBJfD6Bh2JMNUenvTw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:311366e0-87db-460d-92ce-87460689b590,IP:0,UR
-	L:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:fd7dfc58-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
-	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5b5686f0501c11f09f706fa2197c6ceb-20250623
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <ot_zhangchao.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1880131654; Mon, 23 Jun 2025 03:25:17 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 23 Jun 2025 18:25:12 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 23 Jun 2025 18:25:12 +0800
-From: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-To: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Sean Wang <sean.wang@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>,
-	Chris Lu <chris.lu@mediatek.com>, Hao Qin <Hao.qin@mediatek.com>,
-	linux-bluetooth <linux-bluetooth@vger.kernel.org>, linux-kernel
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, linux-mediatek
-	<linux-mediatek@lists.infradead.org>, Zhangchao Zhang
-	<ot_zhangchao.zhang@mediatek.com>
-Subject: [PATCH v4 1/1] Bluetooth: mediatek: add gpio pin to reset bt
-Date: Mon, 23 Jun 2025 18:23:59 +0800
-Message-ID: <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
-References: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+	id 1uTeQd-00000002Ll0-1taU;
+	Mon, 23 Jun 2025 10:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6CF3D6112D;
+	Mon, 23 Jun 2025 10:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5C3DC4CEF0;
+	Mon, 23 Jun 2025 10:29:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750674570;
+	bh=E/V1S8fsQv28bkCAhEQ4ycEwjcFe4GGI4EAwIkH482Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SYaBP2lk0MdWtqUfv/93HDoI9bgXyLZ1tLGUoFvVQn3m/gqL2pzfO8H4ej/tMuOpo
+	 IXbbs9NfCHZpJMK0JIbPK/vuggsuzrNRQJBulX9F4h0vF0THpre66D/rUBsy7scHzk
+	 QX50s5saUijGk5oN6fRLOScqEUc6zqKa4/zfL2n9JgdYg81DsDyzEtJHiOsL7HFN+R
+	 vTqdIAWvpLpm/my4bGLRZp7TV0NO8xnMoqV/nxj2tsq2xkZpHLA3PAmboH6yFxF10J
+	 /gau00wQxz5avfk7CdHNGiNOQnlDl9jAqoe2CJjATH80ADl1hqH21K/kcGJhM9PlBl
+	 8rZa7P40gbD/w==
+Message-ID: <1d622833-d509-4f5b-ba19-b1f30c592d3b@kernel.org>
+Date: Mon, 23 Jun 2025 13:29:10 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_032523_804212_0CD44920 
-X-CRM114-Status: GOOD (  20.86  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 04/13] dt-bindings: interconnect: add mt7988-cci
+ compatible
+To: Frank Wunderlich <linux@fw-web.de>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250620083555.6886-1-linux@fw-web.de>
+ <20250620083555.6886-5-linux@fw-web.de>
+Content-Language: en-US
+From: Georgi Djakov <djakov@kernel.org>
+In-Reply-To: <20250620083555.6886-5-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Makes the platform Bluetooth to be reset by hardware pin,
-it provides two methods to do it for mediatek controller,
-and it has been tested locally many times and can reset normally.
+On 20.06.25 11:35, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> Add compatible for Mediatek MT7988 SoC with mediatek,mt8183-cci fallback
+> which is taken by driver.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-When an exception occurs, resetting Bluetooth by hardware pin
-is more stable than resetting Bluetooth by software.
-If the corresponding pin is not found in dts,
-bluetooth can also be reset successfully.
+Acked-by: Georgi Djakov <djakov@kernel.org>
 
-Co-developed: Hao Qin <hao.qin@mediatek.com>
-Co-developed: Chris Lu <chris.lu@mediatek.com>
-Co-developed: Jiande Lu <jiande.lu@mediatek.com>
-Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
----
- drivers/bluetooth/btmtk.c | 69 +++++++++++++++++++++++++++++++++++++++
- drivers/bluetooth/btmtk.h |  5 +++
- 2 files changed, 74 insertions(+)
+This can go with the rest of the patches or please let me know if i should apply it.
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 4390fd571dbd..3e5f3ca6f0d5 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -6,6 +6,8 @@
- #include <linux/firmware.h>
- #include <linux/usb.h>
- #include <linux/iopoll.h>
-+#include <linux/of.h>
-+#include <linux/of_gpio.h>
- #include <linux/unaligned.h>
- 
- #include <net/bluetooth/bluetooth.h>
-@@ -109,6 +111,65 @@ static void btmtk_coredump_notify(struct hci_dev *hdev, int state)
- 	}
- }
- 
-+static void btmtk_reset_by_gpio_work(struct work_struct *work)
-+{
-+	struct btmtk_reset_gpio *reset_gpio_data =
-+			container_of(work, struct btmtk_reset_gpio, reset_work.work);
-+
-+	gpio_direction_output(reset_gpio_data->gpio_number, 1);
-+	kfree(reset_gpio_data);
-+}
-+
-+static int btmtk_reset_by_gpio(struct hci_dev *hdev)
-+{
-+	struct btmtk_data *data = hci_get_priv(hdev);
-+	struct btmtk_reset_gpio *reset_gpio_data;
-+	struct device_node *node;
-+	int reset_gpio_number;
-+
-+	node = of_find_compatible_node(NULL, NULL, "mediatek,usb-bluetooth");
-+	if (node) {
-+		reset_gpio_number = of_get_named_gpio(node, "reset-gpios", 0);
-+		if (!gpio_is_valid(reset_gpio_number)) {
-+			bt_dev_warn(hdev, "invalid reset GPIO, use software reset");
-+			return -EINVAL;
-+		}
-+	} else {
-+		bt_dev_warn(hdev, "no reset GPIO, use software reset");
-+		return -ENODEV;
-+	}
-+
-+	/* Toggle the hard reset line. The Mediatek device is going to
-+	 * yank itself off the USB and then replug. The cleanup is handled
-+	 * correctly on the way out (standard USB disconnect), and the new
-+	 * device is detected cleanly and bound to the driver again like
-+	 * it should be.
-+	 */
-+
-+	if (test_and_set_bit(BTMTK_HW_RESET_ACTIVE, &data->flags)) {
-+		bt_dev_err(hdev, "last reset failed? Not resetting again");
-+		return 0;
-+	}
-+
-+	reset_gpio_data = kzalloc(sizeof(*reset_gpio_data), GFP_KERNEL);
-+	if (!reset_gpio_data)
-+		return -ENOMEM;
-+
-+	INIT_DELAYED_WORK(&reset_gpio_data->reset_work, btmtk_reset_by_gpio_work);
-+	reset_gpio_data->gpio_number = reset_gpio_number;
-+
-+	gpio_direction_output(reset_gpio_number, 0);
-+
-+	/* It requires 200ms for mtk bt chip to do reset,
-+	 * although Schedule_delayed_work is asynchronous,
-+	 * it is risk-free. If it is not completed in 200ms,
-+	 * it will only postpone the next probe, which will
-+	 * only make the probe run later. There is no other risk.
-+	 */
-+	schedule_delayed_work(&reset_gpio_data->reset_work, msecs_to_jiffies(200));
-+	return 0;
-+}
-+
- void btmtk_fw_get_filename(char *buf, size_t size, u32 dev_id, u32 fw_ver,
- 			   u32 fw_flavor)
- {
-@@ -364,6 +425,14 @@ void btmtk_reset_sync(struct hci_dev *hdev)
- 	struct btmtk_data *reset_work = hci_get_priv(hdev);
- 	int err;
- 
-+	/* Toggle reset gpio if the platform provieds one,
-+	 * if the compatibility field or pin cannot be found
-+	 * in the dts files, it can still reset bluetooth using
-+	 * software reset.
-+	 */
-+	err = btmtk_reset_by_gpio(hdev);
-+	if (!err)
-+		return;
- 	hci_dev_lock(hdev);
- 
- 	err = hci_cmd_sync_queue(hdev, reset_work->reset_sync, NULL, NULL);
-diff --git a/drivers/bluetooth/btmtk.h b/drivers/bluetooth/btmtk.h
-index 5df7c3296624..8a265ce367d1 100644
---- a/drivers/bluetooth/btmtk.h
-+++ b/drivers/bluetooth/btmtk.h
-@@ -179,6 +179,11 @@ struct btmtk_data {
- 	spinlock_t isorxlock;
- };
- 
-+struct btmtk_reset_gpio {
-+	struct delayed_work reset_work;
-+	int gpio_number;
-+};
-+
- typedef int (*wmt_cmd_sync_func_t)(struct hci_dev *,
- 				   struct btmtk_hci_wmt_params *);
- 
--- 
-2.46.0
+BR,
+Georgi
+
+> ---
+> v2:
+> - no RFC
+> - drop "items" as sugested by conor
+> ---
+>   .../bindings/interconnect/mediatek,cci.yaml           | 11 ++++++++---
+>   1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml b/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
+> index 58611ba2a0f4..4d72525f407e 100644
+> --- a/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
+> +++ b/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
+> @@ -17,9 +17,14 @@ description: |
+>   
+>   properties:
+>     compatible:
+> -    enum:
+> -      - mediatek,mt8183-cci
+> -      - mediatek,mt8186-cci
+> +    oneOf:
+> +      - enum:
+> +          - mediatek,mt8183-cci
+> +          - mediatek,mt8186-cci
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt7988-cci
+> +          - const: mediatek,mt8183-cci
+>   
+>     clocks:
+>       items:
 
 
