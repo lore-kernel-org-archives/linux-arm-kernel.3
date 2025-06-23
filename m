@@ -4,53 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86759C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 02:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EBAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 03:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmuiRc5Oy+i8T8Djb3XfsZY02vtWdmzEF1dP2C+Yx3w=; b=JeJqmxRyW2US07PC78u37p47LS
-	qZHsxNxfSyZ8gRn0iEfANFwpk+OeD/uN8O6eV1YNem37M72/oxEOee8FAmJqLiJ9gAY0rysGMYszG
-	aN7Wan2bJVVuuXkGya/gnCsBKLkEKlEcbIVwIFqkR4nYXcD95ZO52ofI9zeRfKB4fL9DU9jgu9K5S
-	sGvx1GlwmJbC/QhOT8iKQi1CFKn9uNhwwAt65Vj7E6r8AFyQ7EA3fJKJ5h3IEz0FadnltgpgpFt9k
-	Wdv8trbNg7licpxJC/HmMYkzSnCXZfJqYynD45rL18SCrJGv9kMpyWhV9mx3BI2dLs01deY/UOS8O
-	RONr352w==;
+	bh=5bxHArbBQIp2KtJbvWfWit8Zuj1Xq6X3+LPwrqtMuRM=; b=lZFh3XdnQlco6fx0D3HRkSU0lD
+	doDPj0+AAVvi4k9LmrzPFoGrF9rx4u2L0P1DE/MzorfLKUdUzdeFBpSGfKelGLl52ksTYLTq19xc/
+	k/7OtHcifV/QAsDadILc8KGIE34+KQI064O4Sfkv+oxhcfuWJDOn4WTm7rHeO1yoqNG44P1EuyQrM
+	grocV5GhXgUHX0eQUMMHfwrPuF3AYjJOBCTjSW9siPfwq1YMxt/I7dXYhFhFhnxdHp/7uV9OnXPq0
+	q8rxlDh6/xs83IeVoItfQg4puXrIYPx0o0VqlTJKEXvwnlWftI+vF1K0QB1pH6DbE+OIdYwEUU9ez
+	7vtY/WhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTXNY-00000001TY0-0nF5;
-	Mon, 23 Jun 2025 02:57:52 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uTXPo-00000001Teo-3lyy;
+	Mon, 23 Jun 2025 03:00:12 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTXBI-00000001SON-0s4x
+	id 1uTXKc-00000001TLX-2cIJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 02:45:13 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 23 Jun
- 2025 10:44:56 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 23 Jun 2025 10:44:56 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: <jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>
-Subject: [PATCH v4 2/2] mailbox: aspeed: add mailbox driver for AST27XX series SoC
-Date: Mon, 23 Jun 2025 10:44:56 +0800
-Message-ID: <20250623024456.2068370-3-jammy_huang@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250623024456.2068370-1-jammy_huang@aspeedtech.com>
-References: <20250623024456.2068370-1-jammy_huang@aspeedtech.com>
+	Mon, 23 Jun 2025 02:54:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L0msKdfw3ucOuXl2i/V9G653gfaJ1tXQxp769rOSsht74H0MdELAXsgmrl1WmNvKuuaXDLqCsXCQocWTNCNSiOfIuAxPeVni7Z2hNFAT6BBbZmsXoWTvP2OCXShJkfgFYN8J0/zRiBuvTXR4XkN4F9G0Ra0BSVfvrHL9W5OnQHjHbVs5UWWdkhmS9BOwXaGeVftr9fYb6oszEA2eFxUm8o3VXVFK7tk9E15BEjWWN1XkmtQsemhgJeyFJuXc+ZTmZcqXzLr3JdD05HRWDKejEOoKumPyTYM9NRdtcWXgaGPehAOk71W7oAnfJJ0f/jVARgz2083nxQXGJw8XUnYpjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5bxHArbBQIp2KtJbvWfWit8Zuj1Xq6X3+LPwrqtMuRM=;
+ b=Ej8lUSUKZipw1A8I+U6nl+fogfpj3tBQo5/p41WOQPqqzYu9go4sgoj+SItRQqZ/25rVm54ue6nm1/7VtCNKnw14wByycrarEs/60eR/YiM23EvqyJ088PqiMXmkRucjODb8E9CNrWU3AWusTbGvZ9Zw3JKawTYL8uRe463eUkxS9jiqNx+RTqh029gOzDfSQXp++MctT6BziN/9EVOvwD1fgqYeYWTCE3ub3F7hg8LDVx5+aJ6o81fmlcjdfB1YN4I2mJZIRnx2c0r2NfmkelQX4j+QRpPJFTa7hBBuCTxuIgCM2g3NyUdyzD/v/knShFubNPy7EuiraUyKv0Tibw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5bxHArbBQIp2KtJbvWfWit8Zuj1Xq6X3+LPwrqtMuRM=;
+ b=F0SxwhngCM12oLp9uVIePkXgPqucnC5+FFfeV8585t9rEzKkQP4Dh098H9qT3ZT/4rCJ13omsUL5kFVBRfOhTQ6vYmHo1c0bkj8pETzqHQtyU3v8PhJeU/bCESCWVmKuUmDllrXJmSthe1qp/pqmyX+iF0oT3+xH8fm+rKPlrQIwxW6pRYByZORNFSogsHlLrKW3fi9DbNUSFd5FCljL5YVW5IP0V59+zBdqWW8AZFsx2z3W7InmPD8JWATOo8bWe3j0VMDI0qSWiw0FabfBoYuv0Lka2dvEnme+CSNMF0Fo9Mv+RSrZtiqhkdvDpWcdy7mMpBJRTP7oEaVah0pknQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by PA2PR04MB10214.eurprd04.prod.outlook.com (2603:10a6:102:404::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Mon, 23 Jun
+ 2025 02:54:44 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8857.026; Mon, 23 Jun 2025
+ 02:54:44 +0000
+Message-ID: <be6a4d90-2c6e-42be-9948-df1840fd2f83@nxp.com>
+Date: Mon, 23 Jun 2025 10:56:13 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/5] drm/bridge: get the bridge returned by
+ drm_bridge_chain_get_first_bridge()
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
+ <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-2-0321845fcafb@bootlin.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-2-0321845fcafb@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0060.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ac::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA2PR04MB10214:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b3f75ca-76e4-47bf-e957-08ddb2014eb5
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0xiUGIvb2cwTEt2amp1U24zY0dMc3h6TlRWKzFTdTBWRFNiY285K1FNeHFE?=
+ =?utf-8?B?emFHN0JBSFVWVlg5MUpaRk9MaHpnSk9xRHI3MFkweDdzZTRoUHJvUVVzbkVV?=
+ =?utf-8?B?azhKWWdObmpRWkZCL01wZHFBOEFLYVdmMnMrL2s2UDUvSTFnWkRISmd1emtZ?=
+ =?utf-8?B?SUNNZWhUR2FLN0xzUVZ1N2x1cWs3cjdJMVJoSTVEYituZWxJbkJibEQwWnR2?=
+ =?utf-8?B?ZjUwZWxGcjM4ckprcWM5Zmkzak1TOVNQb1ZBTG1LOXN4dTVEdWx0NW9XdEVS?=
+ =?utf-8?B?QjBLSmVkL2NWaWFxMTRvcHBhTjhTOGdZOEt4Zk1HUkg1MFg0aDNNbUZlY0Nv?=
+ =?utf-8?B?cFhHUVk4elQzOGFFdmFIc3RJanhRSzNnemdXUFlncENld0Y4MEE4d2VKQWJu?=
+ =?utf-8?B?dzgwRkNHbWFwSG1lMVpXVHBqNXdCaytBKzZBeGd0eFYyYzcyM3l4UktJSWRz?=
+ =?utf-8?B?cng3N1dvbGRjSzRncy9EMnZmb1U4QXloYTF5K014eVRUd2NlK0hZM3Zkeks5?=
+ =?utf-8?B?U2I3aFQ1K1AxaTZPYVdZQmF1bzBXcFV6K1BXVjBQd1FQaHMyZkFqYTJ6QlUz?=
+ =?utf-8?B?a2NncEVldnF3cXZZdkluY1pGcFJMKzJBV3VoNzZnQ3Fud0h4QlVMbnk1ZXdB?=
+ =?utf-8?B?OEt4WTZVQWVWaE5yWkNsWDM5WVJGS0pLSGxKb2RJSndMMnhjMk9CVG9nV2lM?=
+ =?utf-8?B?L2V0bjZ1amdHcXZYcGRlc05PdllpM0ZGWkN6d285TnA2NTVlbzZlT0dGMERP?=
+ =?utf-8?B?Z2dlNmdRYTBXbURKKzlQRGxQdW9ON2s0Y2VGbDk4VWZ0WGFRcFNrRms0dnIy?=
+ =?utf-8?B?ejZNbERpUEVITDFtNHl1UmVVeUNqMHFwNHRUNHZWUzZ2QkZoMWZNeGNqeFk4?=
+ =?utf-8?B?ZTV2WjFZL05qa29WQjUzeEZvOWxRVmZGdlo1NGtNb3NDbEJka3ZkYlVHM1RD?=
+ =?utf-8?B?ZXdmWFlyZ1FnQkM3T0pGWXBvUWxMS2s4cjFubkhiRWc4aWk4SUVIL1d0cnpU?=
+ =?utf-8?B?TFlXdmNiczlPUmp6WE1pRnZ1UHVrODg0cFhGZ3lWVXZCWThkVXVReVVxdmpR?=
+ =?utf-8?B?OXRqbGZMK3VlUkpyc0crdm5SNmI1OHRacGFFNDVsdjFoUHVOZzdDbnZHNDMw?=
+ =?utf-8?B?ek4ySFhyNlRRTUZCeGRRVzNGK0xuNGZQNDZnZlA5RFRRajA3OFllNU5GRHkr?=
+ =?utf-8?B?ZEg2NWRoOTZFL1FTeDZaK2NlUVdyTmhncFhMcWxFekdCbHBIbW0rYTc2Q1JH?=
+ =?utf-8?B?NXc4dStFT2tZTzRHUkhQWVVDeGxPNmRRS3g1dXBXMEJzTy93WC9UUkFLYnJT?=
+ =?utf-8?B?MVV5aEFFUGdYdjh0M05vaW1rMVFubDdPVkV2SjR4V0JhSHRwRWpPdnNQMTlO?=
+ =?utf-8?B?djdFU2hqdmlJb3FWeEZLRzlQYVl5ZUdqWFNWSVhtWGVVRm1TOGZhUzFBLyt5?=
+ =?utf-8?B?WFNJb0pRZjNOVnVGMnhYTHh2b2djQXVJWlh2L1lLN052MjJUZzZXR1BMUWo2?=
+ =?utf-8?B?TDNoYTBjSHZTNHNRcTJQUzhlMUNDcDdiUm1ydUNDbmx2a0JCTm90bFJKcE96?=
+ =?utf-8?B?d3ZJa21NY0liR2hmL3dyMG9mK2FJYkUyWGlPU3pFMzlNVFRGbTV6QklQeHF6?=
+ =?utf-8?B?amdIMmY1eTN5L3Z3MFZZeTFweUxTZmhKcmhnUXZOMncxL1VTc2dxL1B4d2Z1?=
+ =?utf-8?B?ZHFHMGV4dStIUzVGbDk4cm5XYU9FL25tdHYyTitZc2xRWlA0bXg3U0R1R2tS?=
+ =?utf-8?B?OUxLYVBReFduNGZjQWd2Tk8rYlFScFY5cFYvSjUvcy9FOFBzUU1LZGNsbCs1?=
+ =?utf-8?B?aUhoM3lJeFNtcllvZEZ6dVRST0ZpRHV6STNrRHNtV2hJTTF5SUE3b1dXTS9k?=
+ =?utf-8?B?d0UyYjZxUGxvbS9tSzZsNnRTYTltQnRCTHF6WGZzenJEenBVdmt5NnR1a2d0?=
+ =?utf-8?B?RWRCZHg5T242aTA4aWQvb0pXbGZSb0w4UDFndE11YjBvc3NYcWdRa0pFSDkv?=
+ =?utf-8?B?R2N5eGcxK2JRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cWVFOWZhVE53a04yM0xSK1NMYmtpbE9kRG95cVZDR0s2dnBUNkZLdVBJYVNE?=
+ =?utf-8?B?UFVHdEMrZ0FYb1RMakRyOTk3RjNNYlpjWExrWnJnV3dWWm9OTWRxb25FM2Vz?=
+ =?utf-8?B?Y3oya2tqc3lYZ0E5WExueFdGNVdLZmpKQnVkaWVpb3hnWDg0cThCL2dOZG04?=
+ =?utf-8?B?OFdRUlBONkV4dWp2Y1NlZW9YMkQ0MWRZQ1BHVndIRk9uUXk2Smx4L2FuMUM0?=
+ =?utf-8?B?UmtHRWJZb0VVWEl5V1hSYzc5MVREc1VXWkFRTFBPOHk5NCtsVnF4cVlOMHFz?=
+ =?utf-8?B?ckVhYU5CTXVQd2hWcEpwdERqL3QvSGl2YjJBSTJ4SXNOdXNrM21ZaHI4V1NI?=
+ =?utf-8?B?MjdDa0FpcVJXcXIyYks0UGYxN3RmY3RzdHkyakZnRk5keHN6S2FPUlhuMnpy?=
+ =?utf-8?B?SGsxZm9GeDVvVjBhb0p4MlR6TjJNeVVidUpzRmRsVzBpTi9uSTdTaHd5T3Jk?=
+ =?utf-8?B?b3gzdjZRUXJNcE1ONEcxbmVNaW04bWFoak1mVVV4MUxTbER5UjBkeFc3VUpv?=
+ =?utf-8?B?TTE3K1BqVnVBamdXTFA1T3pucHdRUnZwYW1TMWh0dVRDTGJrdXgvMk1QTHhm?=
+ =?utf-8?B?TWlVL3VUY1dpVksxaERsNXlIN2NCcTZZR1oxWUcyTkhiaHJwamJpQkxwT0tT?=
+ =?utf-8?B?Y01WVjk1ZmdPb2dNNkUyd05FdmxXSXhNS2ZmSWpISWUxdDJXVkFXZVVPdmww?=
+ =?utf-8?B?SGphTnBhM1NnOG1xTitzazN3RkpVcVRic0tpNHhpSG9na2M4RGkrSFFqWTdG?=
+ =?utf-8?B?ODNGRk9yOVh2S2pERFFuTlpLTWJENDVZVWh3OStlb0Z1c3pmenZHQWVBbVRt?=
+ =?utf-8?B?MkpqN2dDUlBPWTBCVElncWZ3STJxZUt5TEtGelZPN2JCUUh2bytMZTQ4S3U1?=
+ =?utf-8?B?Nzhvc1RhYnR6VndSbWVRT1E3cWJ3ODhjRk9tZ3VFaERicW9ReFJINElnazlD?=
+ =?utf-8?B?S1JuekxJNEJyZUJ3c1JYdEhEY1ByMWxrYnlWK1AwcHc0N0Nad1BrZ0JYcGJw?=
+ =?utf-8?B?U0dvQ25obDNjWkp3V3FVM1JzRGZqQ0t4MnhPMEdBM2FWQnhkUUZ0R1hVQmRh?=
+ =?utf-8?B?YS9tSVZvQWRwY3MwdnFYODVWZkl3dmdNUDNzTlhmK1BRTWEyQUV2M1hvTDlF?=
+ =?utf-8?B?eDF5N0FRM0JrTnk4c3YvOUNLRzFJSXhZYTJCZGpONHhzSUVCRDJtM1dKNTZh?=
+ =?utf-8?B?V2tQZFBBOWYzVWdRTHZyc3hnRDF4U0lENkpqdGhDVGpLd3l0TW5NL2FJb3kz?=
+ =?utf-8?B?bmQrMWNkZ2pDelI2bHBYMndPbzVUZXMzQW5teGE3V2VCSFh0T1N2RUh2aGFn?=
+ =?utf-8?B?T3dpc1lSZ25tVFlIbDd5bkJ6Sm5yejYzdktWMnpLMnRUSzhQK2hQUm5IRDVY?=
+ =?utf-8?B?NDN5NEpRbGpmVWpnZ0RzWXlISExXQ2hoWk16aGdXMkVuZ3lwRmtpdllmMjZv?=
+ =?utf-8?B?Q2ZzVmcraEVlcDZKZUpqM2dXR3dVb2kyNlFkaHByMXJ3WFJneVVUaXo1Rkc4?=
+ =?utf-8?B?RkVGLytQT0xZSTJHTDl5dkliSU1seFlFRUViNDZOQTBOSjNTRVoxL1BuUmRT?=
+ =?utf-8?B?K0tSSDdFOE9NKzJ5bHVwQUJsOGtPOGR2dWd0NVFxeXhtMVhBRVVnYjl6TG9Q?=
+ =?utf-8?B?eUtSSlJ4NWZibnE2RmFZUmxXME5BMU10aG5GYmpibTBxU243elJOcXBETVRx?=
+ =?utf-8?B?cUJvQjkvR0lNKzRuTDZraWZxLzlyRlFkV2tPMkEzL3pqOHV3NmtRakd0UU9k?=
+ =?utf-8?B?Rmh4ZXRKTE0vNTNRTGdGWlJKTTZTbHRmTUdWamhhSGZ1MENSdDhlWmFSNzFW?=
+ =?utf-8?B?L0NUY3hqM2I4aW9neDFRYlVPSUY3L0RpSEJndzhTU1pJWVJxOGgyZ3lvdHBN?=
+ =?utf-8?B?SytvNXdwWkxZOFJrL2tPUXFWdVVXb3NjK2lvL2NnRDRYdjFheWxmc1MzS0po?=
+ =?utf-8?B?WDFhS2xha0wzRjlROFNpd085SDdKdkJRT1VLY1BUUUgzc1dnQnMxOXlZZnBV?=
+ =?utf-8?B?WkhPRVNKdVRuaVgwRktHRERMWFYvSGJ6UjBnSkNPYXJ3NjVzd2xsaC90Rkg3?=
+ =?utf-8?B?V3ZEYjFWbCtnOTRqMDdlL1VPTm04eU8wVTRqZVJVWFJCMVBzaFB5RnVLMnVy?=
+ =?utf-8?Q?VCNw6wn/m5g34OGMoAD+JVFcE?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b3f75ca-76e4-47bf-e957-08ddb2014eb5
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2025 02:54:44.5167
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g6mdU1vYwG6N6GiTQb0HC2ls/4OrB266OLwq+Nd893TPhH3JfGv5h+OGuewv7L9gzyL+kpc3v4JxFh+kvK9sLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10214
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250622_194512_253192_06DF0022 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20250622_195450_697541_AC00D9EC 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,282 +191,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add mailbox controller driver for AST27XX SoCs, which provides
-independent tx/rx mailbox between different processors. There are 4
-channels for each tx/rx mailbox and each channel has an 32-byte FIFO.
+On 06/21/2025, Luca Ceresoli wrote:
+> drm_bridge_chain_get_first_bridge() returns a bridge pointer that the
+> caller could hold for a long time. Increment the refcount of the returned
+> bridge and document it must be put by the caller.
 
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
----
- drivers/mailbox/Kconfig           |   8 ++
- drivers/mailbox/Makefile          |   2 +
- drivers/mailbox/ast2700-mailbox.c | 230 ++++++++++++++++++++++++++++++
- 3 files changed, 240 insertions(+)
- create mode 100644 drivers/mailbox/ast2700-mailbox.c
+To make sure the incremented refcount is decremented once this patch is
+applied, does it make sense to squash patch 3, 4 and 5 into this one?
 
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 68eeed660a4a..1c38cd570091 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -340,4 +340,12 @@ config THEAD_TH1520_MBOX
- 	  kernel is running, and E902 core used for power management among other
- 	  things.
- 
-+config AST2700_MBOX
-+	tristate "ASPEED AST2700 IPC driver"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	help
-+	  Mailbox driver implementation for ASPEED AST27XX SoCs. This driver
-+	  can be used to send message between different processors in SoC.
-+	  The driver provides mailbox support for sending interrupts to the
-+	  clients. Say Y here if you want to build this driver.
- endif
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 13a3448b3271..9a9add9a7548 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -72,3 +72,5 @@ obj-$(CONFIG_QCOM_CPUCP_MBOX)	+= qcom-cpucp-mbox.o
- obj-$(CONFIG_QCOM_IPCC)		+= qcom-ipcc.o
- 
- obj-$(CONFIG_THEAD_TH1520_MBOX)	+= mailbox-th1520.o
-+
-+obj-$(CONFIG_AST2700_MBOX)	+= ast2700-mailbox.o
-diff --git a/drivers/mailbox/ast2700-mailbox.c b/drivers/mailbox/ast2700-mailbox.c
-new file mode 100644
-index 000000000000..64638ac67e7a
---- /dev/null
-+++ b/drivers/mailbox/ast2700-mailbox.c
-@@ -0,0 +1,230 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright Aspeed Technology Inc. (C) 2025. All rights reserved
-+ */
-+
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+/* Each bit in the register represents an IPC ID */
-+#define IPCR_TX_TRIG		0x00
-+#define IPCR_TX_ENABLE		0x04
-+#define IPCR_RX_ENABLE		0x104
-+#define IPCR_TX_STATUS		0x08
-+#define IPCR_RX_STATUS		0x108
-+#define  RX_IRQ(n)		BIT(0 + 1 * (n))
-+#define  RX_IRQ_MASK		0xf
-+#define IPCR_TX_DATA		0x10
-+#define IPCR_RX_DATA		0x110
-+
-+struct ast2700_mbox_data {
-+	u8 num_chans;
-+	u8 msg_size;
-+};
-+
-+struct ast2700_mbox {
-+	struct mbox_controller mbox;
-+	const struct ast2700_mbox_data *drv_data;
-+	void __iomem *regs;
-+};
-+
-+static inline int ch_num(struct mbox_chan *chan)
-+{
-+	return chan - chan->mbox->chans;
-+}
-+
-+static inline int ast2700_mbox_tx_done(struct ast2700_mbox *mb, int idx)
-+{
-+	return !(readl(mb->regs + IPCR_TX_STATUS) & BIT(idx));
-+}
-+
-+static irqreturn_t ast2700_mbox_irq(int irq, void *p)
-+{
-+	struct ast2700_mbox *mb = p;
-+	void __iomem *data_reg;
-+	int num_words;
-+	u32 *word_data;
-+	u32 status;
-+	int n;
-+
-+	/* Only examine channels that are currently enabled. */
-+	status = readl(mb->regs + IPCR_RX_ENABLE) &
-+		 readl(mb->regs + IPCR_RX_STATUS);
-+
-+	if (!(status & RX_IRQ_MASK))
-+		return IRQ_NONE;
-+
-+	for (n = 0; n < mb->mbox.num_chans; ++n) {
-+		struct mbox_chan *chan = &mb->mbox.chans[n];
-+
-+		if (!(status & RX_IRQ(n)))
-+			continue;
-+
-+		/* Read the message data */
-+		for (data_reg = mb->regs + IPCR_RX_DATA + mb->drv_data->msg_size * n,
-+		     word_data = chan->con_priv,
-+		     num_words = (mb->drv_data->msg_size / sizeof(u32));
-+		     num_words;
-+		     num_words--, data_reg += sizeof(u32), word_data++)
-+			*word_data = readl(data_reg);
-+
-+		mbox_chan_received_data(chan, chan->con_priv);
-+
-+		/* The IRQ can be cleared only once the FIFO is empty. */
-+		writel(RX_IRQ(n), mb->regs + IPCR_RX_STATUS);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int ast2700_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct ast2700_mbox *mb = dev_get_drvdata(chan->mbox->dev);
-+	void __iomem *data_reg;
-+	u32 *word_data;
-+	int num_words;
-+	int idx = ch_num(chan);
-+
-+	if (!(readl(mb->regs + IPCR_TX_ENABLE) & BIT(idx))) {
-+		dev_warn(mb->mbox.dev, "%s: Ch-%d not enabled yet\n", __func__, idx);
-+		return -EBUSY;
-+	}
-+
-+	if (!(ast2700_mbox_tx_done(mb, idx))) {
-+		dev_warn(mb->mbox.dev, "%s: Ch-%d last data has not finished\n", __func__, idx);
-+		return -EBUSY;
-+	}
-+
-+	/* Write the message data */
-+	for (data_reg = mb->regs + IPCR_TX_DATA + mb->drv_data->msg_size * idx,
-+	     word_data = (u32 *)data,
-+	     num_words = (mb->drv_data->msg_size / sizeof(u32));
-+	     num_words;
-+	     num_words--, data_reg += sizeof(u32), word_data++)
-+		writel(*word_data, data_reg);
-+
-+	writel(BIT(idx), mb->regs + IPCR_TX_TRIG);
-+	dev_dbg(mb->mbox.dev, "%s: Ch-%d sent\n", __func__, idx);
-+
-+	return 0;
-+}
-+
-+static int ast2700_mbox_startup(struct mbox_chan *chan)
-+{
-+	struct ast2700_mbox *mb = dev_get_drvdata(chan->mbox->dev);
-+	int idx = ch_num(chan);
-+	void __iomem *reg = mb->regs + IPCR_RX_ENABLE;
-+
-+	writel(readl(reg) | BIT(idx), reg);
-+
-+	return 0;
-+}
-+
-+static void ast2700_mbox_shutdown(struct mbox_chan *chan)
-+{
-+	struct ast2700_mbox *mb = dev_get_drvdata(chan->mbox->dev);
-+	int idx = ch_num(chan);
-+	void __iomem *reg = mb->regs + IPCR_RX_ENABLE;
-+
-+	writel(readl(reg) & ~BIT(idx), reg);
-+}
-+
-+static bool ast2700_mbox_last_tx_done(struct mbox_chan *chan)
-+{
-+	struct ast2700_mbox *mb = dev_get_drvdata(chan->mbox->dev);
-+	int idx = ch_num(chan);
-+
-+	return ast2700_mbox_tx_done(mb, idx) ? true : false;
-+}
-+
-+static const struct mbox_chan_ops ast2700_mbox_chan_ops = {
-+	.send_data	= ast2700_mbox_send_data,
-+	.startup	= ast2700_mbox_startup,
-+	.shutdown	= ast2700_mbox_shutdown,
-+	.last_tx_done	= ast2700_mbox_last_tx_done,
-+};
-+
-+static int ast2700_mbox_probe(struct platform_device *pdev)
-+{
-+	struct ast2700_mbox *mb;
-+	const struct ast2700_mbox_data *drv_data;
-+	struct device *dev = &pdev->dev;
-+	int irq, ret;
-+
-+	if (!pdev->dev.of_node)
-+		return -ENODEV;
-+
-+	drv_data = device_get_match_data(&pdev->dev);
-+
-+	mb = devm_kzalloc(dev, sizeof(*mb), GFP_KERNEL);
-+	if (!mb)
-+		return -ENOMEM;
-+
-+	mb->mbox.chans = devm_kcalloc(&pdev->dev, drv_data->num_chans,
-+				      sizeof(*mb->mbox.chans), GFP_KERNEL);
-+	if (!mb->mbox.chans)
-+		return -ENOMEM;
-+
-+	/* con_priv of each channel is used to store the message received */
-+	for (int i = 0; i < drv_data->num_chans; i++) {
-+		mb->mbox.chans[i].con_priv = devm_kcalloc(dev, drv_data->msg_size,
-+							  sizeof(u8), GFP_KERNEL);
-+		if (!mb->mbox.chans[i].con_priv)
-+			return -ENOMEM;
-+	}
-+
-+	platform_set_drvdata(pdev, mb);
-+
-+	mb->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(mb->regs))
-+		return PTR_ERR(mb->regs);
-+
-+	mb->drv_data = drv_data;
-+	mb->mbox.dev = dev;
-+	mb->mbox.num_chans = drv_data->num_chans;
-+	mb->mbox.ops = &ast2700_mbox_chan_ops;
-+	mb->mbox.txdone_irq = false;
-+	mb->mbox.txdone_poll = true;
-+	mb->mbox.txpoll_period = 5;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_irq(dev, irq, ast2700_mbox_irq, 0, dev_name(dev), mb);
-+	if (ret)
-+		return ret;
-+
-+	return devm_mbox_controller_register(dev, &mb->mbox);
-+}
-+
-+static const struct ast2700_mbox_data ast2700_drv_data = {
-+	.num_chans = 4,
-+	.msg_size = 0x20,
-+};
-+
-+static const struct of_device_id ast2700_mbox_of_match[] = {
-+	{ .compatible = "aspeed,ast2700-mailbox", .data = &ast2700_drv_data },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, ast2700_mbox_of_match);
-+
-+static struct platform_driver ast2700_mbox_driver = {
-+	.driver = {
-+		.name = "ast2700-mailbox",
-+		.of_match_table = ast2700_mbox_of_match,
-+	},
-+	.probe = ast2700_mbox_probe,
-+};
-+module_platform_driver(ast2700_mbox_driver);
-+
-+MODULE_AUTHOR("Jammy Huang <jammy_huang@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED AST2700 IPC driver");
-+MODULE_LICENSE("GPL");
+> 
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+> 
+> This patch was added in v7.
+> ---
+>  include/drm/drm_bridge.h | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+> index b110c5bba8c0612a71f749ad51345e7a8ccdc910..f98044581d67c380c3bc3a1943bd6ab09b764ec3 100644
+> --- a/include/drm/drm_bridge.h
+> +++ b/include/drm/drm_bridge.h
+> @@ -1336,6 +1336,9 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridge)
+>   * drm_bridge_chain_get_first_bridge() - Get the first bridge in the chain
+>   * @encoder: encoder object
+>   *
+> + * The refcount of the returned bridge is incremented. Use drm_bridge_put()
+> + * when done with it.
+> + *
+>   * RETURNS:
+>   * the first bridge in the chain, or NULL if @encoder has no bridge attached
+>   * to it.
+> @@ -1343,8 +1346,8 @@ drm_bridge_get_prev_bridge(struct drm_bridge *bridge)
+>  static inline struct drm_bridge *
+>  drm_bridge_chain_get_first_bridge(struct drm_encoder *encoder)
+>  {
+> -	return list_first_entry_or_null(&encoder->bridge_chain,
+> -					struct drm_bridge, chain_node);
+> +	return drm_bridge_get(list_first_entry_or_null(&encoder->bridge_chain,
+> +						       struct drm_bridge, chain_node));
+>  }
+>  
+>  /**
+> 
+
 -- 
-2.25.1
-
+Regards,
+Liu Ying
 
