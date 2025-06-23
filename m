@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AA9C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018F0C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ow24c27y1MdDUasmTFiG6SjMW8p2EZl/QfEeSzXEiH0=; b=IXDXPG9DA/rDwM
-	UVnS4aZJPN7nHKXGjCNejz4hc3Me/EpQKFd46PDH1D7V6LLUwkfnWMCBcnhd/xoJcvEVvgtX/aNYj
-	psd2ioom3u+z5HVH5QdIyHXkkYOGmNTHhdhJMkmWzfAyjNVbfjP6m/ntNu0gX1oqa9dXF31YHXxGF
-	E/ultEkiqkIXiO1bbAfZ3gUFmDnNQjBwRLfidZIinj1E1EmjhEXaHj8wWKtZJOkogcNV776J1HSDG
-	4pHXrwX0eV7qOySnDi9G+TPH8RbTsh4AwMNbcA5R3yL/9o0/2mTWPe0c5q8G2eXBn22v7qlTlrtzh
-	YWTrR/o6+FE7bCRO+IQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/wEOD3FOK1XNyQ/YyTEnECjOhDUHmpEcYDOM9V4Bw4Y=; b=vDyDKrECW0S+YfcYlIo4iMk5h2
+	khx/G5ErbXkGslBEnhFXY2zLHMb33boQaKS1tgMOShXtjVK5Wu4SaOm1rtT1wtvT1+vUWyBYCEzmZ
+	4soGO8FrNOX3RAQV1WmMmd8C0pRsiD9f1eX2VRkEjiUUkPIXt8cLGRqSW7O6EuJbU041NJPw9wlc9
+	ax/F8iWN4r6F8Qr4RidXhZMVCEhp+kLe1wcglLxCHyYNg7j+6JVYJYrqeV29MMv9MWuVgLzalEEeI
+	hEJtZh3ldJDpMSlXVhDxSFyQwm8CTpnnknd0Ok/g7amMu+nVDxqNoEy02bffylkHZWpitjbwQn1E0
+	01MTGLRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTd3N-000000025lS-3uDG;
-	Mon, 23 Jun 2025 09:01:25 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uTd5g-000000026GP-2fvv;
+	Mon, 23 Jun 2025 09:03:48 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTcmF-000000022Uu-3z2x
+	id 1uTcms-000000022Xz-12eQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 08:43:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bQhM72796z10XM3;
-	Mon, 23 Jun 2025 16:38:59 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id AB1F91402DF;
-	Mon, 23 Jun 2025 16:43:35 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
- (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 23 Jun
- 2025 16:43:34 +0800
-Message-ID: <6d6e7ea0-4188-1f5b-43a2-2d76f79286c3@hisilicon.com>
-Date: Mon, 23 Jun 2025 16:43:34 +0800
+	Mon, 23 Jun 2025 08:44:23 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a4e749d7b2so736920f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 01:44:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=innosonix.de; s=google; t=1750668261; x=1751273061; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/wEOD3FOK1XNyQ/YyTEnECjOhDUHmpEcYDOM9V4Bw4Y=;
+        b=TlQb84xVf8lv7u4lPDvD/E83oCQJ9f5SjGrIxvQ195rqtHMsqTErtCPrV4MTlQmCFR
+         YyADcO5ajSVAZeAsXd7RYwCETp1ZSd4y8WRbMZ183fr6urcgekuQBMVqVvh2nXkpWxXy
+         sW+0vSHcbPE9s16ygJq27UTUD1y5dMl0aFRuR8AiLhhJRKvl4i3eHR6SUjybd+5k2iP5
+         tB1TYTNPtnwCDnu6BiZOfRdizee/FIRi2Vdg8tUE3T4C0Gi8hotumZaALP358oCHhNg0
+         n3Ps1sx0qzOURKzpaJV/2u3IRf2zWBxkNN88ef/x5t4BugDpkZNDamHja+T7hjKSDSaN
+         qfWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750668261; x=1751273061;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/wEOD3FOK1XNyQ/YyTEnECjOhDUHmpEcYDOM9V4Bw4Y=;
+        b=IFHnU2xhY56g1VHUcrd8If/Js4A2kLUuQ9HkTsflmcCIFneBVLeJYPYAh8ZAxsmltL
+         pOVVv4/XZhWNwSx7FQWe6/HoG7L5SK+BXslXE1CIuHpq09zU/txHZl9FQ8z1rvSzd5tV
+         vpj75uLp4i9QAsveb5AZC5uITQ6C0HoVgTK2ccRuBOb8fhTmF3en6+JV/2LH9rwnuc8u
+         JSRl9iy2hQc2PsJbAi6yL42l0KHdYSXmDxi43TxaeCu9aOs/OVERKemaORi2MwPA0bFU
+         Ax894y1WdR6axwoy93lDRb3SUDm5rkF0xXDi6RRQRxISJj7gFCUvLI4dST88PO09iAeS
+         rolw==
+X-Forwarded-Encrypted: i=1; AJvYcCXIPUibGpF8f8JHw5/sRdWZDh1r2C9UjsSyaRfiGpGkU6o7W5c3vIblFuMBJ7pEGHaCscFp0JQ4r2YENUi9T/ng@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpwc4y2PIZi5gmRFtVgVaOULiGnOTPksLGfwe1WovJGDplCCL8
+	WqSzSNTJy9hv2lmo6WNZKaEcUHIEmoetvS8gvU1kd1dbiSRHA1Se5Kes30y6v5JzqTDHgWscmuw
+	lIeVfkSAPq8kpg/DBFBt1ldbM8BKSc4FfqzXxeGQNyfOOPbeVt04NxjvIQkeY+awf2q0ukA==
+X-Gm-Gg: ASbGnct8yt1VGS0q9eWFXcWgHCoE6EmbFQQtec1JtRgWAVpZ5pob8MeHyMZFUeu+0wd
+	tqwVkJD3fYoKw8BSk66mI52icGOGur4SE/pPOCg3BVf4XvO5/7vxYVhbHBS1VmjC6S7+WiE5w6j
+	HWoT9FtZVfVHDeQrzK/veVqhTKJT54kjy1+5JwH4fUA0Jz6LbntzHriKWaMOvLvZ+pn29/5eEU9
+	0CnmbaofeIraZTuVVzPi1FlZ7gB7vbLKyUyOi8M7sSLuNSBclrE9htnzf1YHbytgdqn0l6ude2E
+	++nfEsnDVuZGAO1Nau3lDCLQ/2GCIbRLGCXqZcCl5lE+CDt/52j/5td5a1tLJkPJM6+8xSauecW
+	jSbjGakiBzFZuseptqhk4nQ==
+X-Google-Smtp-Source: AGHT+IEWhvT9kJ4u3LtaSyEodBMjwnY5987G/5eQkLBt7VVzz2bNjSEBbmFEI7Y+I6ci+DYcirb26g==
+X-Received: by 2002:a05:6000:220e:b0:3a5:1306:3c30 with SMTP id ffacd0b85a97d-3a6d112f3a6mr3539913f8f.0.1750668260596;
+        Mon, 23 Jun 2025 01:44:20 -0700 (PDT)
+Received: from steffen-linux.. (p57b79c3d.dip0.t-ipconnect.de. [87.183.156.61])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6d0f1057esm8987316f8f.10.2025.06.23.01.44.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 01:44:19 -0700 (PDT)
+From: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>
+To: 
+Cc: =?UTF-8?q?Steffen=20B=C3=A4tz?= <steffen@innosonix.de>,
+	stable@vger.kernel.org,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] nvmem: imx-ocotp: fix MAC address byte length
+Date: Mon, 23 Jun 2025 10:43:45 +0200
+Message-ID: <20250623084351.1734037-1-steffen@innosonix.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v5 2/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-References: <20250619151456.3328624-1-zhanjie9@hisilicon.com>
- <20250619151456.3328624-3-zhanjie9@hisilicon.com>
- <20250620141021.0000694c@huawei.com>
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <20250620141021.0000694c@huawei.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_014344_305362_C6141494 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20250623_014422_290613_FADCE364 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,132 +104,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, linuxarm@huawei.com, cw00.choi@samsung.com, kyungmin.park@samsung.com, myungjoo.ham@samsung.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The commit "13bcd440f2ff nvmem: core: verify cell's raw_len" caused an
+extension of the "mac-address" cell from 6 to 8 bytes due to word_size
+of 4 bytes.
+
+Thus, the required byte swap for the mac-address of the full buffer length,
+caused an trucation of the read mac-address.
+From the original address 70:B3:D5:14:E9:0E to 00:00:70:B3:D5:14
+
+After swapping only the first 6 bytes, the mac-address is correctly passed
+to the upper layers.
+
+Fixes: 13bcd440f2ff ("nvmem: core: verify cell's raw_len")
+Cc: stable@vger.kernel.org
+Signed-off-by: Steffen B=C3=A4tz <steffen@innosonix.de>
+---
+v2:
+- Add Cc: stable@vger.kernel.org as requested by Greg KH's patch bot
+ drivers/nvmem/imx-ocotp-ele.c | 2 ++
+ drivers/nvmem/imx-ocotp.c     | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index ca6dd71d8a2e..3af7968f5a34 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -119,6 +119,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
+*id, int index,
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
++		if (bytes > 6)
++			bytes =3D 6;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
+=20
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 79dd4fda0329..63e9974d9618 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -228,6 +228,8 @@ static int imx_ocotp_cell_pp(void *context, const char =
+*id, int index,
+=20
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
++		if (bytes > 6)
++			bytes =3D 6;
+ 		for (i =3D 0; i < bytes / 2; i++)
+ 			swap(buf[i], buf[bytes - i - 1]);
+=20
+--=20
+2.43.0
 
 
-On 20/06/2025 21:10, Jonathan Cameron wrote:
-> On Thu, 19 Jun 2025 23:14:56 +0800
-> Jie Zhan <zhanjie9@hisilicon.com> wrote:
-> 
->> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->> the devfreq framework.  The uncore domain contains shared computing
->> resources, including system interconnects and L3 cache.  The uncore
->> frequency significantly impacts the system-wide performance as well as
->> power consumption.  This driver adds support for runtime management of
->> uncore frequency from kernel and userspace.  The main function includes
->> setting and getting frequencies, changing frequency scaling policies, and
->> querying the list of CPUs whose performance is significantly related to
->> this uncore frequency domain, etc.  The driver communicates with a platform
->> controller through an ACPI PCC mailbox to take the actual actions of
->> frequency scaling.
->>
->> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-> 
-> Hi zhanjie,
-> 
-> A few more things inline that I missed in earlier review.
-> 
-> The devm_mutex one is a definite thing to fix as having it
-> where it is will make it far to easy to add bugs.
-> 
-> The other stuff is a nice to have.
-> 
-> So with at least the devm_mutex() call moved
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
-> 
-Hi Jonathan,
+--=20
 
-Thanks for reviewing again.
-Will update the next version soon.
 
-Jie
+*innosonix GmbH*
+Hauptstr. 35
+96482 Ahorn
+central: +49 9561 7459980
+www.innosonix.de <http://www.innosonix.de>
 
->> diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
->> new file mode 100644
->> index 000000000000..e19678692c16
->> --- /dev/null
->> +++ b/drivers/devfreq/hisi_uncore_freq.c
->> @@ -0,0 +1,664 @@
-> 
->> +static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
->> +{
->> +	struct device *dev = uncore->dev;
->> +	struct pcc_mbox_chan *pcc_chan;
->> +	int rc;
->> +
->> +	uncore->cl = (struct mbox_client) {
->> +		.dev = dev,
->> +		.tx_block = false,
->> +		.knows_txdone = true,
->> +	};
->> +
->> +	pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
-> 
-> I'm not particularly keen on the repeats of pcc_mbox_free_channel() in each of
-> the error paths.  Either use a goto and clean it up at the end or
-> DEFINE_FREE(pcc_mbox_chan, struct pcc_mbox_chan *, if (_T) pcc_mbox_free_channel(_T));
-> 
-> then here
-> 	struct pcc_mbox_chan __free(pcc_mbox_chan) *pcc_chan =
-> 		pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
-> 
-> remembering to do 
-> 	uncor->chan = no_free_ptr(pcc_chan);
-> where you currently set it below.
-> 
-> The DEFINE_FREE() might prove useful in other drivers.  kunpeng_hccs
-> for instance could be simplified with this.  Various other candidates
-> though not sure how keen on cleanup.h magic those areas of the kernel are.
-> 
-> 
-Yeah, good suggestion for cleanup, but the DEFINE_FREE() stuff should go
-into acpi/pcc.h.
-
-I think it's better to make it a new patchset later, including the new
-DEFINE_FREE() for pcc_mbox_free_channel() and other corresponding driver
-changes, and send it to the ACPI/PCC folks.  Let's keep it unchanged for
-this driver patch at this stage.
->> +	if (IS_ERR(pcc_chan))
->> +		return dev_err_probe(dev, PTR_ERR(pcc_chan),
->> +			"Failed to request PCC channel %u\n", uncore->chan_id);
->> +
->> +	if (!pcc_chan->shmem_base_addr) {
->> +		pcc_mbox_free_channel(pcc_chan);
->> +		return dev_err_probe(dev, -EINVAL,
->> +			"Invalid PCC shared memory address\n");
->> +	}
->> +
->> +	if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
->> +		pcc_mbox_free_channel(pcc_chan);
->> +		return dev_err_probe(dev, -EINVAL,
->> +			"Invalid PCC shared memory size (%lluB)\n",
->> +			pcc_chan->shmem_size);
->> +	}
->> +
->> +	rc = devm_mutex_init(dev, &uncore->pcc_lock);
-> 
-> This is oddly placed.  Drop this out of this function and do it at least one layer
-> up.
-> 
-> Having it here leaves the risk of future error cases being added after this
-> where the devm cleanup will happen out of order as a result.
-> 
-Thanks, nice spot.
-hisi_uncore_init_pcc_chan() is a suitable place.
->> +	if (rc) {
->> +		pcc_mbox_free_channel(pcc_chan);
->> +		return rc;
->> +	}
->> +
->> +	uncore->pchan = pcc_chan;
->> +
->> +	return 0;
->> +}
+innosonix GmbH
+Gesch=C3=A4ftsf=C3=BChrer:=20
+Markus B=C3=A4tz, Steffen B=C3=A4tz
+USt.-IdNr / VAT-Nr.: DE266020313
+EORI-Nr.:=20
+DE240121536680271
+HRB 5192 Coburg
+WEEE-Reg.-Nr. DE88021242
 
