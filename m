@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02340C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28389C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xtGGPP2UKgaIyk2tkpHf09Q7Xd78INEn2mD5YuWsf8=; b=Mf6AqWyM9zwDmSXdzgbeZYrN9e
-	YRl8oUmsWM3TrU8OlcEbft0DaGtyZ70A/5+S5btw6eAXhnd218hEifSD9FpEEnppyUdih9CTfIyfv
-	9nSTLEIFBCGXxGG24l0XoJQFoC3esSjOyqYHtv0hE+54rC3pxKfrX778/EOLi2OXSekeeDms09+I2
-	H4a/2mReN3U3BLK6jIgEQoIcVkfFCerF/GuE6FgtbLJN3y7eBEO0safTXYcOTaLYutKWztGfLtXaO
-	BhtNbibD/iSr9VgeaO/aY+wIw096/jdm173M5P0BIN7HO0DpFbmMg/lQnemFZASnvxwjxtzotEydh
-	cFY6OfIg==;
+	bh=Qo7tgqf96TsyL2LTPp7bZsgf1ep7m5AO7GpKBklMO90=; b=KgzxiQq2nCijfU44NLiDDYVdKP
+	NedUBwA+7P0gnjIfITAKN01YkuSyo6TLlb5BERsQXEBJY4aQ9LgkwYZ946H+OMSU11dXeNIHDaxgX
+	E18PQEMIgK3MOPmu9oTgsY7y9IdJ2KK4abz9yJ2yF28vM/X4bUS/im52uXVrVdWxMsetTd5UKRN4C
+	ZI+TCbSngu7XvMUEzViHLKjlYn/64tCs2vmOFFZ3w9ElGcpXZ251Smeb8w/NfJiSbtFCjUXpbSNrI
+	aD77pGHlrcEtXtnh9eQwixSTdilBYxCJkMw5ZJvp8Ox0H03xseGfTgRWMQqbj1HQKcEgwrmzxUQa0
+	occOPWUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnLr-00000003tJx-39A5;
-	Mon, 23 Jun 2025 20:01:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uTnO8-00000003tRe-3a8x;
+	Mon, 23 Jun 2025 20:03:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTflu-00000002ZsJ-1VFD;
-	Mon, 23 Jun 2025 11:55:36 +0000
+	id 1uTfmH-00000002Zw2-1wrx;
+	Mon, 23 Jun 2025 11:55:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEFD94A4C2;
-	Mon, 23 Jun 2025 11:55:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B6BC4CEEA;
-	Mon, 23 Jun 2025 11:55:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BA86EA512DF;
+	Mon, 23 Jun 2025 11:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB6FC4CEEA;
+	Mon, 23 Jun 2025 11:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750679733;
-	bh=vkiXm82MD3vKyDWzyUX21uuqwb8oXur+DMopq21TfJ8=;
+	s=k20201202; t=1750679756;
+	bh=gmwcmHOxZpFVUxz9LtBvGtOcwxrdV7w393tCqoXHplU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EV9fxhGR7CCytT5jL/k9D8KHRJn/1yFnqnZfw1GHuFkmLx2gywmWc2e9Vx4GM7Tnh
-	 8QSbZkB2W3E8LngcigmyP6YgwMYCMpFYZLPHgHqAybGNlRWrjsdmPfwKBgcQ0wgPPO
-	 yDpDJvJ2gv1UmX1aFb4bQgd0t5SddRNiWHMSBX49juQ5goPgl2I4jlz+Es4vEJK1ue
-	 EYbGJeziN60baSEH+3tvVvRW/78pxzdXYs1j8SoccZMt/PTCmF94cmTccowx0Hlv32
-	 s6342HbbObbPg7F64UHT90g5y1FJ/Z/0z8b+f36f2N3RDvuEp6en9w9oWEASGizUri
-	 06K7cnXr83AQw==
-Message-ID: <21dfd397-abd1-42b8-ae89-576a5eadc320@kernel.org>
-Date: Mon, 23 Jun 2025 13:55:28 +0200
+	b=ZKOBUzWQvsmuFOViczK8Vb7yegdYpFcwTgu2XiZvziUfKt+qXWHqa+i+b5EpU0qiG
+	 evvxeymdz3L7XgLQ6S1mIMM5qVGExLsdw4CGay8JBmwOlhDTZ342G+KpPomI/NHvTB
+	 1EJhpM7bu7NzQvzwn2cg6Fld9JUDq3UTMJD0RG5udq/Puc0C2olYyM82fj4mlQTvHw
+	 hKjq85P05bgtF7Ha2Sp31YD+T9FY6HuR+NawcdzK6zApniXnqtlRnq+Xm2jtEJTS9M
+	 7XN3mSNW3MCG+7wtca6vlJnWVi0D0Anr8ANNPdb3XulOZ66q2qhQz7KbvmBXI6K4wW
+	 uzLgCSgoMC2Tw==
+Message-ID: <3df0b3f2-0d73-4116-8bbf-37020892e773@kernel.org>
+Date: Mon, 23 Jun 2025 13:55:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/1] Bluetooth: mediatek: add gpio pin to reset bt
+Subject: Re: [PATCH v4 1/1] Bluetooth: mediatek: add gpio pin to reset bt
 To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
  Marcel Holtmann <marcel@holtmann.org>,
  Matthias Brugger <matthias.bgg@gmail.com>,
@@ -58,6 +58,7 @@ Cc: Sean Wang <sean.wang@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>,
  linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
  linux-mediatek <linux-mediatek@lists.infradead.org>
 References: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+ <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
+In-Reply-To: <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_045534_449619_FE31704C 
-X-CRM114-Status: UNSURE (   6.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_045557_653936_B98E2372 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,15 +125,65 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/06/2025 12:23, Zhangchao Zhang wrote:
-> Reset Bluetooth using hardware pin via dts
+> Makes the platform Bluetooth to be reset by hardware pin,
+> it provides two methods to do it for mediatek controller,
+> and it has been tested locally many times and can reset normally.
 > 
-> Compared with the previously submitted version, the following
-> information are some specific revision histories
+> When an exception occurs, resetting Bluetooth by hardware pin
+> is more stable than resetting Bluetooth by software.
+> If the corresponding pin is not found in dts,
+> bluetooth can also be reset successfully.
 > 
-> V3-->V4 modifications:
-> Modify dt binding format information and
+> Co-developed: Hao Qin <hao.qin@mediatek.com>
+> Co-developed: Chris Lu <chris.lu@mediatek.com>
+> Co-developed: Jiande Lu <jiande.lu@mediatek.com>
+> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+> ---
+>  drivers/bluetooth/btmtk.c | 69 +++++++++++++++++++++++++++++++++++++++
+>  drivers/bluetooth/btmtk.h |  5 +++
+>  2 files changed, 74 insertions(+)
+> 
+> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> index 4390fd571dbd..3e5f3ca6f0d5 100644
+> --- a/drivers/bluetooth/btmtk.c
+> +++ b/drivers/bluetooth/btmtk.c
+> @@ -6,6 +6,8 @@
+>  #include <linux/firmware.h>
+>  #include <linux/usb.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/of.h>
+> +#include <linux/of_gpio.h>
+>  #include <linux/unaligned.h>
+>  
+>  #include <net/bluetooth/bluetooth.h>
+> @@ -109,6 +111,65 @@ static void btmtk_coredump_notify(struct hci_dev *hdev, int state)
+>  	}
+>  }
+>  
+> +static void btmtk_reset_by_gpio_work(struct work_struct *work)
+> +{
+> +	struct btmtk_reset_gpio *reset_gpio_data =
+> +			container_of(work, struct btmtk_reset_gpio, reset_work.work);
+> +
+> +	gpio_direction_output(reset_gpio_data->gpio_number, 1);
+> +	kfree(reset_gpio_data);
+> +}
+> +
+> +static int btmtk_reset_by_gpio(struct hci_dev *hdev)
+> +{
+> +	struct btmtk_data *data = hci_get_priv(hdev);
+> +	struct btmtk_reset_gpio *reset_gpio_data;
+> +	struct device_node *node;
+> +	int reset_gpio_number;
+> +
+> +	node = of_find_compatible_node(NULL, NULL, "mediatek,usb-bluetooth");
 
-How? There is no binding, so what and how did you modify?
+
+Can you finally respond to the comments you got weeks ago at v1?
+
+NAK and I will keep NAKing your patches because total disregard to
+review is not going to make this patch accepted.
+
 
 Best regards,
 Krzysztof
