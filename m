@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C162BC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD053C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 22:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mGFD+TEQmheZhWqHvHH/h1FUuzjuW8fcVIkD9mNsloo=; b=3HE4FGUE3Oc2htt7woOeWP7dmO
-	74KpVzUHw2rKjflapSIIcE3hL/5AGNVPE6/Uvt6tp4UgXV+OHHF5mR9BRBuBCUId+LWyZl3YZTTKT
-	QBJpm/ac0CjgQqBMCd0rqiZZVyHqpBirpLYjySj5LQGDD2HTdI9yu2MOkP/mJn+fPJP7MlLBtReZd
-	wMYsePvDaPnz0SQZ/cVwe1c3ESqAjPLuknufXCf5/nP5dVV53IjSVfVM1/6PWTv8/BOebwPVvSXvC
-	csVips08NTPAiu60JQD93PNMR/G14elQFPXoel4Clxg19102gt731pBRhtkv3ZeH6CJAU0U5Fy3o5
-	c0L3W6bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vlOL8X69KAf43rpa448wfskj/jjDGmOWw431Aoz2DQk=; b=blFdW9lLIvBiqAE5gxoTID3G0s
+	SbbdaOuWz5Xvsr5HwaDF36KrYzDccu79cbdp/GoW3ZjsUOQ1oIH2eAGRBPl34XXRnCu9CK/ByzjSn
+	l0c97S7mgw+D0LtNe/oxnPjAe1GL20TbkRjXN4AD4jb90jStKmVcJTVBttQtvLvMbkjDWMMoS35fh
+	sHQKz4SK0ptYQX7UdU5SYYFLulOz5NBx3FLmIMAzktzqYsMM0zs2Gro2GYdTDKChrDxqtlNpWh5Vr
+	WoNwXVAUhhSvo9+KsoTGbfsTZ7TIGGtYUlNkdIsSWRtUWRo3CQ9vFopNxUg8Bf2r1dNK4D7KsGwxY
+	DPCtrWng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTpMp-000000044zM-1MuH;
-	Mon, 23 Jun 2025 22:10:19 +0000
-Received: from www637.your-server.de ([168.119.26.117])
+	id 1uTpPA-000000045NM-0Wb1;
+	Mon, 23 Jun 2025 22:12:44 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTl4m-00000003ZiG-23BR
+	id 1uTl9d-00000003aEi-06BN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 17:35:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=apitzsch.eu
-	; s=default2410; h=MIME-Version:Content-Transfer-Encoding:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=mGFD+TEQmheZhWqHvHH/h1FUuzjuW8fcVIkD9mNsloo=; b=G1Uv5dqB5EuWkcfS4CSlHkTc4G
-	3IwxfpnGtWhHQxIrHjkqdFul2xigJfuo+PMSnRonHmQMif3Il9vFKBt4F/hUDuEjhYhgIg4d/w3s2
-	fbqq0TlaafplRZ02zoi6d8bIrst/zs6h1AQ6xpGtUBrKXR0Z6uDraQVohKkAkKaScAhod7xiVOCdq
-	QMV8z5VzxTmiLUCh8YJX8hBr+EUeupmu/oLYCrjKAK5qviCIhoyrrv3sqsSB/6Hg73teOqqFqcibo
-	L2JRnF3fBcjq9Al2+WOMvwgDP116B7EsvYbl+yzxKL0WAQcmUxQO4QxzUHbbhtL+uvuOI0RcUghxt
-	3jhPTARA==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www637.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <git@apitzsch.eu>)
-	id 1uTl4c-0005Et-0z;
-	Mon, 23 Jun 2025 19:35:14 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <git@apitzsch.eu>)
-	id 1uTl4b-0001FO-22;
-	Mon, 23 Jun 2025 19:35:13 +0200
-Message-ID: <c243b93675f8136e30abb7608b58badf4b1ada35.camel@apitzsch.eu>
-Subject: Re: [PATCH RESEND v4 0/5] media: i2c: imx214: Add support for more
- clock frequencies
-From: =?ISO-8859-1?Q?Andr=E9?= Apitzsch <git@apitzsch.eu>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Ricardo Ribalda <ribalda@kernel.org>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	 <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, Laurent Pinchart
-	 <laurent.pinchart@ideasonboard.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Ricardo Ribalda
-	 <ribalda@chromium.org>, Conor Dooley <conor.dooley@microchip.com>
-Date: Mon, 23 Jun 2025 19:35:12 +0200
-In-Reply-To: <aFk-yTSOqzmEW1sz@kekkonen.localdomain>
-References: <20250621-imx214_ccs_pll-v4-0-12178e5eb989@apitzsch.eu>
-	 <aFj5QnPBO0We5SBQ@kekkonen.localdomain>
-	 <46a681a84a7493e2d0a6d3a4eedb6c86ccd9903f.camel@apitzsch.eu>
-	 <aFk-yTSOqzmEW1sz@kekkonen.localdomain>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 
+	Mon, 23 Jun 2025 17:40:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1750700423;
+ bh=vlOL8X69KAf43rpa448wfskj/jjDGmOWw431Aoz2DQk=;
+ b=My/JfhL2A+AFMA2EBYfHFUSWERa0EPVTwJwo+ORyqE71fCZAMAIX234qbTiD19pJ/7sEQ9WOV
+ 5rUuVL7Zds4mFqzZ3EeiQZdk8psDHzOAaBT4C0BoSCILngQiZS2sRhfwBN8bQvj/SF9uZUfE4K5
+ UwPjqAZ1BTnxvQvpUYDgOLdkVGG5gXBGE2dYL7LkRKyALBHCWwsrhGUoneKF7eWX/qd94MzIsSU
+ e/pnj6YpHEx4nG8mGnrGzrcjuJBmJGXuyACZCRUyyLezHzTs3sWScDdDZs8XwrDqB0HRBTOvkNN
+ cRM4K+HYHzuC+axMHuGW6mgJOjMWbUFMnafL5Fh1GHmg==
+X-Forward-Email-ID: 6859917f54073d00e4b5a183
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.0.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <dd1d0676-4eaa-4df7-b557-676b3de9a52e@kwiboo.se>
+Date: Mon, 23 Jun 2025 19:40:11 +0200
 MIME-Version: 1.0
-X-Virus-Scanned: Clear (ClamAV 1.0.7/27678/Mon Jun 23 10:34:34 2025)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM
+ Sige5
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>,
+ Alexey Charkov <alchark@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ XiaoDong Huang <derrick.huang@rock-chips.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <3286000.Y6S9NjorxK@phil>
+ <CABjd4YyaNF1zosFFi6hEsZanPDxoaa1h4Dpd6uTPRwA3BZn0=w@mail.gmail.com>
+ <5897576.DvuYhMxLoT@phil>
+ <CABjd4Yy8WeXKmmxh2-TjjF5-ABy-NzzJsWpt1KvSjJqTHh0Xwg@mail.gmail.com>
+ <CABjd4Yz4NbqzZH4Qsed3ias56gcga9K6CmYA+BLDBxtbG915Ag@mail.gmail.com>
+ <36711B65-DD45-4539-BD9C-0382936FD0A3@gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <36711B65-DD45-4539-BD9C-0382936FD0A3@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_103524_823798_BF918366 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250623_104025_106707_B04824E0 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
+On 2025-06-23 17:02, Piotr Oniszczuk wrote:
+> 
+> 
+>> Wiadomość napisana przez Alexey Charkov <alchark@gmail.com> w dniu 23 cze 2025, o godz. 15:58:
+>>
+>> On Mon, Jun 23, 2025 at 1:19 PM Alexey Charkov <alchark@gmail.com> wrote:
+>>>
+>>>
+>>
+>> Okay, I've bisected this.
+>>
+>> TLDR: Linux and u-boot seem to have nothing to do with it, opensource
+>> TF-A doesn't work, binary BL31 starting with v1.09 do not work. BL31
+>> v1.08 and earlier work fine.
 
-Am Montag, dem 23.06.2025 um 11:47 +0000 schrieb Sakari Ailus:
-> Hi Andr=C3=A9,
->=20
-> On Mon, Jun 23, 2025 at 01:34:03PM +0200, Andr=C3=A9 Apitzsch wrote:
-> > Hi Sakari,
-> >=20
-> > Am Montag, dem 23.06.2025 um 06:50 +0000 schrieb Sakari Ailus:
-> > > Hi Andr=C3=A9,
-> > >=20
-> > > On Sat, Jun 21, 2025 at 11:37:24AM +0200, Andr=C3=A9 Apitzsch via B4
-> > > Relay
-> > > wrote:
-> > > > The imx214 driver currently supports only a 24 MHz external
-> > > > clock.
-> > > > But
-> > > > there are devices, like Qualcomm-MSM8916-based phones, which
-> > > > cannot
-> > > > provide this frequency. To make the sensor usable by those
-> > > > devices,
-> > > > add
-> > > > support for additional clock frequencies.
-> > > >=20
-> > > > This series supersedes
-> > > > https://lore.kernel.org/linux-media/20250308-imx214_clk_freq-v1-0-4=
-67a4c083c35@apitzsch.eu/
-> > >=20
-> > > Is there a difference in this set from the v4 you posted
-> > > previously?
-> >=20
-> > There is no difference to the v4 posted previously. This is a
-> > resend because there was no activity in the original v4.
->=20
-> It's not useful to resend patches, especially those that already have
-> been merged somewhere. Please ping people instead.
+v1.09 added support for 1 GHz hrtimer in addition to the normal 24 MHz
+rate. Mainline U-Boot may only support use of 24 MHz hrtimer, unsure
+what impact the hrtimer rate has. Mixing blobs with/without 1 GHz
+support is known to cause issues. At one point the latest rkbin tree may
+have contained incompatible rk3576 blobs (mixed 1 ghz vs 24 mhz rate).
 
-I wasn't aware that patches already had been merged. Maybe I missed it,
-when checking=C2=A0https://git.linuxtv.org/sailus/media_tree.git
-Next time I'll ping.
+Did you try with newer blobs, i.e. ddr init v1.09, bl31 v1.19 blobs [1]
+and mainline U-Boot [2] ?
 
-Best regards,
-Andr=C3=A9
+[1] https://github.com/radxa/rkbin/commits/develop-v2025.04/
+[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3576
+
+Regards,
+Jonas
+
+> 
+> 
+> just fyi: 
+> to confirm: replacing only bl31 to 1.08 makes all good
+> with perf gov. clocks staying on 2200/2300
+> clock estimations are predictable, constant and estimating constantly 2400
+> ux is „like” on 3588
+> 
+> Alexey: many thx for finding root cause component!
+>   
+>    
+
 
