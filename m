@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9D1C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 14:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9310C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 14:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZlssJ1za+rvmiGBg5+y230lU6WEOZ50WqDacWudXeoY=; b=JzK8VwE+0x6Wvh7mLkxMVgC1XN
-	4p6dF1rD45ZHVPJgJwUPjNpuDyV6FjkmHXcnwgVqYwU2D9oQYYPVZkYu1GtRf6/rcXetzqGZupkQI
-	CHdW+e3W5SDxvNaERJMmUrF2iQMxcfx1erG0qU91Du9jSrDOA772mO3o1fMb8j7PEq+78EFWZTQWp
-	9sh5WAfmiE0Cm2oWLUiJDJ8ErnPeZoEKGM1MOBQ1YbuHko5E21IFUqelD74wEuiAzHNunijB9g3wS
-	1dNNWWEhDolJUlzLK1kYhtVczubVg2ijE6jXH37RgfH44ip7JnrKvHjzhze0z4aAJP3A1Rf4/rk2b
-	TRkf6KMw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JeP86jDP3OwtZtXRx9m6eRsXxfB3H7LIVlvvv7r0Dpg=; b=E+JxvHHX9OMw6LoQ9PDxk8NNnO
+	KWdVaUnxDa1YgJRYIq8QNpaD8MD9+XDOvbrizExyQQ8xYz4SIxI/2apGeV32jE96tfEJ/kAVODN9+
+	esQ5/OUwrXNepK5xsWadyLVeciX0SspaHzZhfOf36FEqPu1S5EmbsIDtS3xoYFdHpjvhfpfqN7+D+
+	d6Da9GNBKfZ+1F2NTIJRIHIgspzS9g/++wgjBAfKZDY5VBknqkYUJW+o8fkWsqopcI+jZw2EiOc9q
+	QkP495cEbM3MmfvtvF5wffFh8TKnoxZitOHh9kHo6SGwwrHdUaW5Qq7yZFahppYA245lXd+03551I
+	d41ik8vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThr7-00000002z48-3CXI;
-	Mon, 23 Jun 2025 14:09:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uThtS-00000002zVd-3WIH;
+	Mon, 23 Jun 2025 14:11:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfr7-00000002anW-0D6K;
-	Mon, 23 Jun 2025 12:00:58 +0000
+	id 1uTfrG-00000002aqF-35eC;
+	Mon, 23 Jun 2025 12:01:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750680055;
-	bh=ynNjCYWY9OpY9ODTpNTte5w8auGVt0pVguNPVv+omyg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j1CsyIVi8GkACgQWt4etOQ6+2ZM59CLWcjCwtsjqc6aYtESU+UTJYdZ7KCquEZ+tP
-	 LQ70CnzSstnsvQWWTCR19wiLb3HhiruYlKMrbwfopokkLIR7hw9PGzvv1AokKclvWZ
-	 piB9ubabBIeJewMJXHK2SkyzlLJlIG+FyzVXYiAwPYtxkjM11wlC10F9dLt9sfYx7X
-	 N6kOqybP+V7OwvppH88qsLwLlz/+zm6hvWC8T8jJZ0YJq6YI78FUj51Qa8y8SrG3YY
-	 c5oLkEulVi0Us1UX25x9J7G9xSoL+y6FLCzoSrVUQqPLCxmGzIxfUHgTLGu6Xs1ina
-	 5koqsw5zldT0A==
+	s=mail; t=1750680065;
+	bh=uyxGJ86xnKrIwF7mL8C2j+/YYGNG0EkD6tb5xhkwxoQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DDknmJwhqFXhqysH7Akq9OflP9CRiXHFN6wZrgjG7h+RGO/ZMncB+dzJQi/+cLLCD
+	 3mPyEl7anqpRGqnVJCy4Cu7yshGGt9btPE3lgZ/nBUzYxol6DseoFli5FxBEbQXE2K
+	 mCduWnubROoSHnA3aebwNy/HCJIKBLrRP34fNN+uRXfuPBlRbhzifsH6onxqv4vvP2
+	 UMb/EVBSmOyPPCzvXgTB+QP9ViJnbh2KvKhVxOk1MqUW6/4ZZw9xbjSDnCpapVHhiV
+	 h6w87+pFekxKXWwnG9b/TD9C01ZvrgahEQsYFTET5Q6rkH8C7ir4LNYoPUqoxk+vQv
+	 +4NB+L/BiD/WA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 16F1F17E156E;
-	Mon, 23 Jun 2025 14:00:55 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9B4BD17E090E;
+	Mon, 23 Jun 2025 14:01:04 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: sboyd@kernel.org
-Cc: robh@kernel.org,
+To: jianjun.wang@mediatek.com
+Cc: ryder.lee@mediatek.com,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	hsin-hsiung.wang@mediatek.com,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 5/5] spmi: mtk-pmif: Add support for MT8196 SPMI Controller
-Date: Mon, 23 Jun 2025 14:00:47 +0200
-Message-ID: <20250623120047.108961-6-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 0/3] mediatek-gen3: Add support for MT8196/MT6991
+Date: Mon, 23 Jun 2025 14:00:55 +0200
+Message-ID: <20250623120058.109036-1-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
-References: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_050057_236349_C5CBE29E 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20250623_050106_925317_BB849A0D 
+X-CRM114-Status: UNSURE (   8.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,43 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the SPMI controller found in the MT8196 SoC:
-this supports SPMI 2.0 and features two SPMI buses.
+This series adds (at least partial) support for the MediaTek MT8196
+Chromebook SoC and for the MT6991 Dimensity 9400 Smartphone SoC's
+PCI-Express controller.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/spmi/spmi-mtk-pmif.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Some strange PEXTP settings were omitted, as the intention is to find
+a way to set those bits *outside* of the PCI-Express driver itself as
+the downstream implementation is using ugly syscons to make the PCIe
+controller driver to change bits inside of a clock controller.
 
-diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
-index ad7b0cc9cdaa..719753651234 100644
---- a/drivers/spmi/spmi-mtk-pmif.c
-+++ b/drivers/spmi/spmi-mtk-pmif.c
-@@ -636,6 +636,14 @@ static const struct pmif_data mt8195_pmif_arb = {
- 	.soc_chan = 2,
- };
- 
-+static const struct pmif_data mt8196_pmif_arb = {
-+	.regs = mt8195_regs,
-+	.spmimst_regs = mt8195_spmi_regs,
-+	.soc_chan = 2,
-+	.spmi_ver = 2,
-+	.num_spmi_buses = 2,
-+};
-+
- static int mtk_spmi_irq_init(struct device_node *node,
- 			     const struct pmif_data *pdata,
- 			     struct pmif_bus *pbus)
-@@ -834,6 +842,9 @@ static const struct of_device_id mtk_spmi_match_table[] = {
- 	}, {
- 		.compatible = "mediatek,mt8195-spmi",
- 		.data = &mt8195_pmif_arb,
-+	}, {
-+		.compatible = "mediatek,mt8196-spmi",
-+		.data = &mt8196_pmif_arb,
- 	}, {
- 		/* sentinel */
- 	},
+In the meanwhile, this is a set of clean changes that are required for
+the controller inside those SoCs in *any* case; further development
+will occur, with high hopes to find a solution outside of this driver.
+
+AngeloGioacchino Del Regno (3):
+  PCI: mediatek-gen3: Implement sys clock ready time setting
+  dt-bindings: PCI: mediatek-gen3: Add support for MT6991/MT8196
+  PCI: mediatek-gen3: Add support for MediaTek MT8196 SoC
+
+ .../bindings/pci/mediatek-pcie-gen3.yaml      | 35 +++++++++++++++++++
+ drivers/pci/controller/pcie-mediatek-gen3.c   | 24 +++++++++++++
+ 2 files changed, 59 insertions(+)
+
 -- 
 2.49.0
 
