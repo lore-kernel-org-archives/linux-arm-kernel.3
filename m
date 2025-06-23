@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B744C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:53:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B8AC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u+uFiP/cQeKkOTD6fc5wQMcjMGmy3Mcby1TgFOYHp5E=; b=uiMB9VjBwW0n4G4tCjI06/vh/H
-	iH+EIJdRdNA4aAyigI5qXiod0jwX3RXIdZFZ9QSEJA65LpCREteHH+K3sDe03zXLraoOrURS67zeb
-	3P39ntSIoPJ4jkoNAXF2kQsJU0eCY0+T3Q5Dd38Yd/xwcDkoTWAJX3frR/u+uMHLPYQSYNoZFxBmj
-	EV+UI2OEf/6nyoH3cVvD77c+KaJjimpWzMGvsnF0uOBWlj8BUxMgTMdE8KBNg9/V3Df5xMl4Ts4m2
-	JdI0seKGVRK4LiQm67sbAn8LPdjvaj1X9L0IB1/UR1PKXs3RzZnVnvZztbAJ8NBhKhN+D+PtDNgaw
-	KWDus3sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vdjVctuM4goZ/UfUF8oH7Uso3v0VX6CfD8MC5A/7/sw=; b=TTK9rLwClAKSF8pGSbabZpPzp+
+	X83YiHsJjLNUKTlmy+lPF7/OBWEypqPbZ74QjD888YAsDzZ5wy0NypO44Q+ft3nYacCrtCbAwphLc
+	6dUfltRUe+0oGeRGc+NvlEeopCgZEpr5VRtshsWuQnSwa3RJH5aj0qRcGBc77+ctgT11s8jPeGiI2
+	5o5osXKpOVg79ZaDt9A8rvImnpaU0nvTzTPohWdjiIIZVIw76QHDpRKSWSwqMDVXkxruiRfVqSlRS
+	G680yXv5h9Z5ROOw62GhKOkKEgreklnkymkJPw8lgQMUICXQSmKIfZ6GmDNjUHlWQ4OszcTjBFyF9
+	15KexTpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTlM8-00000003c1A-084J;
-	Mon, 23 Jun 2025 17:53:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uTlO7-00000003cRx-1EG6;
+	Mon, 23 Jun 2025 17:55:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThBg-00000002rzK-0mp6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Jun 2025 13:26:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=u+uFiP/cQeKkOTD6fc5wQMcjMGmy3Mcby1TgFOYHp5E=; b=qygE+S3G+LNQu5q1cV7qpkZkwd
-	F4V3JO06a2EpjaTmoZDC2x/7HZUZmBttQ+xLTaXpaaTegQFPsxPtoorvSLdl367qSO6OuPNpn7Uoj
-	T8D19QbMg1Qm1yfX5wDJdrVYqgbKq/zEbUMqcyFWarbAlRs8kxIxv5mtZsNAcPknKz6Gfi/BWDwhv
-	kEzUvsPZ1vakQO6ELb6t63PoHsUvTxLOr84pot3eY/2F62Q+cbg3fTMt1D9VSjsXU/TNQ09G1DgqD
-	OMBu4IjO/j2DL3zb0BPmWdD4RnMXA/UcCZEqMlz5sTNaBRjZl4NhuKOdpwoO0CZWoouKBC0rZm+y9
-	NOHwpeLw==;
-Received: from mail11.truemail.it ([217.194.8.81])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThBb-00000005Drx-2b9U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 13:26:14 +0000
-Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 84BC71FC30;
-	Mon, 23 Jun 2025 15:26:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1750685166;
-	bh=u+uFiP/cQeKkOTD6fc5wQMcjMGmy3Mcby1TgFOYHp5E=; h=From:To:Subject;
-	b=rO6nA/SFi386mqqis4g2A7h4UbC+DOwyyYEhBIcZUrQOvduPGB9q1ake9SCkiUGjA
-	 3bQ24qb0BVQvS+6SSdF3N6W/rEn4QIOqiBdqJuXqgRtKlT5JX0myKtimX81ukmm4JW
-	 LNiyRuPf2m8P0hSKfxEtV2SzX5GNcbDmmgAZVy+L+uymG0eVrIMipRzt0Z9HhwtVHL
-	 ev1m1+6TfyAY5aECOULVChITLLIDtPPt5EwXpqp7lf1hFktPiJNdyB8zNojZU7G1cO
-	 UKN/qF7vYSaHJoXlmmPYh1H450pJizr0Ytha2iNgRxV790/uKAVXY53Kn+EeKNHTK5
-	 IK2gCsyu13BQQ==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: freescale: imx8mm-verdin: Keep LDO5 always on
-Date: Mon, 23 Jun 2025 15:25:45 +0200
-Message-Id: <20250623132545.111619-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.39.5
+	id 1uTi7P-000000032cX-04sx;
+	Mon, 23 Jun 2025 14:25:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 219736112C;
+	Mon, 23 Jun 2025 14:25:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B253C4CEF0;
+	Mon, 23 Jun 2025 14:25:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750688753;
+	bh=wqtKOrmiL3JpO2Y2SIVr4pcAl7mgmV65FohrGrz9zlQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lK4NzZybEtxBPVkPicenXBcv26helZQ76BwcbNs7/TiRjIlFqpssg+NUb2+znt/Kp
+	 iwEHq03Cx5TzL7a70itCG+apUDPO2NUA7QK3T39d9JPkgDyV8eNflv+nhQWAS38OgV
+	 dn+e1gQmjyYHYW/iEysLsWFDUwyNEAC9iY9hrej0TFWrCgKBREVh+nqoIFmntcMV4M
+	 0c8Fn2ryDkUjGUdwY7/2Opq9EHIwJ6XYiHLFTWHVgKKtlelLD5wUc71lYUEFgd5aF3
+	 ZVBk8uRBaDDSw13bmc7tIwDdqZhupn1E6Jw09qlxq9qJ9L5b2PEqTUGK6o1RTUsMZP
+	 B83q9B3VdIuog==
+Date: Mon, 23 Jun 2025 08:25:50 -0600
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/6] PCI: rockchip-host: Use macro
+ PCIE_RESET_CONFIG_WAIT_MS
+Message-ID: <ofgbvui2kvnegpj37yhiabxdkehls5euarmo5wqcjkvscwyyxd@ulf7lr7njd6m>
+References: <20250613124839.2197945-8-cassel@kernel.org>
+ <20250613124839.2197945-10-cassel@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_142611_995049_3FEA86ED 
-X-CRM114-Status: GOOD (  10.26  )
+In-Reply-To: <20250613124839.2197945-10-cassel@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +74,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Fri, Jun 13, 2025 at 02:48:41PM +0200, Niklas Cassel wrote:
+> Macro PCIE_RESET_CONFIG_WAIT_MS was added to pci.h in commit d5ceb9496c56
 
-LDO5 regulator is used to power the i.MX8MM NVCC_SD2 I/O supply, that is
-used for the SD2 card interface and also for some GPIOs.
+s/PCIE_RESET_CONFIG_WAIT_MS/PCIE_RESET_CONFIG_DEVICE_WAIT_MS
 
-When the SD card interface is not enabled the regulator subsystem could
-turn off this supply, since it is not used anywhere else, however this
-will also remove the power to some other GPIOs, for example one I/O that
-is used to power the ethernet phy, leading to a non working ethernet
-interface.
+> ("PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value").
+> 
+> Later, in commit 70a7bfb1e515 ("PCI: rockchip-host: Wait 100ms after reset
+> before starting configuration"), PCIE_T_RRS_READY_MS was added to pci.h.
+> 
+> These macros are duplicates, and represent the exact same delay in the
+> PCIe specification.
+> 
+> Since the comment above PCIE_RESET_CONFIG_WAIT_MS is strictly more correct
+> than the comment above PCIE_T_RRS_READY_MS, change rockchip-host to use
+> PCIE_RESET_CONFIG_WAIT_MS, and remove PCIE_T_RRS_READY_MS, as
+> rockchip-host is the only user of this macro.
+> 
+> Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
 
-[   31.820515] On-module +V3.3_1.8_SD (LDO5): disabling
-[   31.821761] PMIC_USDHC_VSELECT: disabling
-[   32.764949] fec 30be0000.ethernet end0: Link is Down
+LGTM!
 
-Fix this keeping the LDO5 supply always on.
+- Mani
 
-Cc: stable@vger.kernel.org
-Fixes: 6a57f224f734 ("arm64: dts: freescale: add initial support for verdin imx8m mini")
-Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5")
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+> ---
+>  drivers/pci/controller/pcie-rockchip-host.c | 2 +-
+>  drivers/pci/pci.h                           | 7 -------
+>  2 files changed, 1 insertion(+), 8 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> index b9e7a8710cf0..c11ed45c25f6 100644
+> --- a/drivers/pci/controller/pcie-rockchip-host.c
+> +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> @@ -325,7 +325,7 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+>  	msleep(PCIE_T_PVPERL_MS);
+>  	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+>  
+> -	msleep(PCIE_T_RRS_READY_MS);
+> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
+>  
+>  	/* 500ms timeout value should be enough for Gen1/2 training */
+>  	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 98d6fccb383e..819833e57590 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -35,13 +35,6 @@ struct pcie_tlp_log;
+>   */
+>  #define PCIE_T_PERST_CLK_US		100
+>  
+> -/*
+> - * End of conventional reset (PERST# de-asserted) to first configuration
+> - * request (device able to respond with a "Request Retry Status" completion),
+> - * from PCIe r6.0, sec 6.6.1.
+> - */
+> -#define PCIE_T_RRS_READY_MS	100
+> -
+>  /*
+>   * PCIe r6.0, sec 5.3.3.2.1 <PME Synchronization>
+>   * Recommends 1ms to 10ms timeout to check L2 ready.
+> -- 
+> 2.49.0
+> 
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-index d29710772569..1594ce9182a5 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-@@ -464,6 +464,7 @@ reg_vdd_phy: LDO4 {
- 			};
- 
- 			reg_nvcc_sd: LDO5 {
-+				regulator-always-on;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-min-microvolt = <1800000>;
- 				regulator-name = "On-module +V3.3_1.8_SD (LDO5)";
 -- 
-2.39.5
-
+மணிவண்ணன் சதாசிவம்
 
