@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61114C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2784C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yNOh+kHHDsQbyjoheTLKeQlDQjmBur62fR/GvELDNN8=; b=amrVXecxVG9NehKDdHfVxFlpK+
-	5P38WIJ2KjHiZ93tkdsODKE26hhB2JVQkkgO3DmgC1nas+pUndobEK+hDxXXMBOzC3q6hVAx35P7+
-	bPbJmJsdbMynHmlB0E2Y6SPHOAayDWVBPjI/Ak86ew5uMfC1nT6AFpWsNVM1xVt2ljTiNkjyFpXCJ
-	U5MoIwIMTNBMg+1hEIS0N+QxOA4100iEfH0x4uG21+gUVoN1y+djXLtphPmbWhWNacUYUlNvWOise
-	1EtnKErlTZemJx9mw5KhNbb1EkHo6aj6XDf1uQ6sb0kQ1e9yU72ORsLA0dhVJGoepuWiZr8xUzAPt
-	Uflxj4Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B/XkLposKeTlBvC3DS66mYJZW9lA+byuezVAoelL6gU=; b=4N5upNh3SgE+Y1Kyot16/lWLQS
+	/L5RKpp28y7RX1oCyIB7/GsvzP71PbY4DBcs+DH4ouUVyO8MAJf9A8c0sHe56wBSQnWKr1LeumZYA
+	kJQt9gBMPGme+pdtCrNOCV5ZeHhEAiRhVfKuRI/I7TH9ExyWK9UqoDqtM/bv1U9M357rW+dQcXcEi
+	Dcxp7k8w38EMIaLkZK6cNLGrR+rSi5HYySjTMdvor01u9ts7NP4+EgTrnld9lQN1fazoW/k+IYiMn
+	FiGKe+vOI2lg6t/vTJWm1fr/NF+znSx/yCGFZC1vkP1wpsx9pMr9rkVcpX5RtZZowo8xD/4OH62Jm
+	Iw0YHDNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkLh-00000003TuZ-0Vvf;
-	Mon, 23 Jun 2025 16:48:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTh8U-00000002rXe-1jtt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Jun 2025 13:22:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:Date:To:From:
-	Subject:Message-ID:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=yNOh+kHHDsQbyjoheTLKeQlDQjmBur62fR/GvELDNN8=; b=sObKbPp/ovodduk2+uE4lSBTZM
-	Zj7NBtKtHPi7fH1ll8ECaOAlSexzzgKq2Uj1VZ94mpxwMeg8oBW88aqA78KjzYnw2vOvBdrK0qdKb
-	Jpsa4ZJ9SohRTjRWOHgwXS7Uo+/Ym/kitYVT80Qboac+qRFi++AKoNeliol1O3ldEAcM7qTPQp5SC
-	33rMCOIb77VXYhuHRe7t+tfiZLhKEc1ZH2L4uLWKlHpMPgbG6DdfN9Is9NPKG5ofcnbPY1aMIjDRe
-	FUwNfPZm7ICoLM4eU4Sh96V2LeXvVAfRRmcMFxOakU3oErSawD7qE1rP3BBQ3kCse6TOv9jpCN2Lq
-	HFF0Iwcg==;
-Received: from [54.239.6.189] (helo=edge-cache-144.e-fra50.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTh8Q-00000003WtB-37QN;
-	Mon, 23 Jun 2025 13:22:54 +0000
-Message-ID: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
-Subject: KVM: arm64: vgic-its: Return -ENXIO to invalid
- KVM_DEV_ARM_VGIC_GRP_CTRL attrs
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jing Zhang
- <jingzhangos@google.com>, Kunkun Jiang <jiangkunkun@huawei.com>, Paolo
- Bonzini <pbonzini@redhat.com>, Sebastian Ott <sebott@redhat.com>, Maxim
- Levitsky <mlevitsk@redhat.com>, Keisuke Nishimura
- <keisuke.nishimura@inria.fr>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Mon, 23 Jun 2025 15:22:52 +0200
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-9SyjBzaP+qiGxEQMpbHF"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uTkQY-00000003ULm-0vaY;
+	Mon, 23 Jun 2025 16:53:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uThCL-00000002s4H-2TSl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 13:26:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA28A113E;
+	Mon, 23 Jun 2025 06:26:38 -0700 (PDT)
+Received: from [10.1.29.169] (XHFQ2J9959.cambridge.arm.com [10.1.29.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B4E53F58B;
+	Mon, 23 Jun 2025 06:26:55 -0700 (PDT)
+Message-ID: <ed942c01-58e8-4d91-8f86-3b3645af6940@arm.com>
+Date: Mon, 23 Jun 2025 14:26:54 +0100
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: mm: support large block mapping when
+ rodata=full
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com, dev.jain@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250531024545.1101304-1-yang@os.amperecomputing.com>
+ <20250531024545.1101304-4-yang@os.amperecomputing.com>
+ <f036acea-1bd1-48a7-8600-75ddd504b8db@arm.com>
+ <50a4f767-0007-4f6a-8c62-398962d54029@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <50a4f767-0007-4f6a-8c62-398962d54029@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_062657_725709_0382FA81 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,138 +69,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[...]
 
---=-9SyjBzaP+qiGxEQMpbHF
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+>> +
+>> +int split_leaf_mapping(unsigned long addr)
+> 
+> Thanks for coming up with the code. It does help to understand your idea. Now I
+> see why you suggested "split_mapping(start); split_mapping(end);" model. It does
+> make the implementation easier because we don't need a loop anymore. But this
+> may have a couple of problems:
+>   1. We need walk the page table twice instead of once. It sounds expensive.
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+Yes we need to walk twice. That may be more expensive or less expensive,
+depending on the size of the range that you are splitting. If the range is large
+then your approach loops through every leaf mapping between the start and end
+which will be more expensive than just doing 2 walks. If the range is small then
+your approach can avoid the second walk, but at the expense of all the extra
+loop overhead.
 
-A preliminary version of a hack to invoke unmap_all_vpes() from an ioctl
-didn't work very well. We eventually determined this was because we were
-invoking it on the wrong file descriptor, but not getting an error.
-
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
----
- arch/arm64/kvm/vgic/vgic-its.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.=
-c
-index 534049c7c94b..b34f8976c9cc 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -2694,6 +2694,9 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic=
-_its *its, u64 attr)
- 	case KVM_DEV_ARM_ITS_RESTORE_TABLES:
- 		ret =3D abi->restore_tables(its);
- 		break;
-+	default:
-+		ret =3D -ENXIO;
-+		break;
- 	}
-=20
- 	mutex_unlock(&its->its_lock);
---=20
-2.43.0
+My suggestion requires 5 loads (assuming the maximum of 5 levels of lookup).
+Personally I think this is probably acceptable? Perhaps we need some other
+voices here.
 
 
+>   2. How should we handle repainting? We need split all the page tables all the
+> way down to PTE for repainting between start and end rather than keeping block
+> mappings. This model doesn't work, right? For example, repaint a 2G block. The
+> first 1G is mapped by a PUD, the second 1G is mapped by 511 PMD and 512 PTEs.
+> split_mapping(start) will split the first 1G, but split_mapping(end) will do
+> nothing, the 511 PMDs are kept intact. In addition, I think we also prefer reuse
+> the split primitive for repainting instead of inventing another one.
 
---=-9SyjBzaP+qiGxEQMpbHF
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+I agree my approach doesn't work for the repainting case. But I think what I'm
+trying to say is that the 2 things are different operations;
+split_leaf_mapping() is just trying to ensure that the start and end of a ragion
+are on leaf boundaries. Repainting is trying to ensure that all leaf mappings
+within a range are PTE-size. I've implemented the former and you've implemented
+that latter. Your implementation looks like meets the former's requirements
+because you are only testing it for the case where the range is 1 page. But
+actually it is splitting everything in the range to PTEs.
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDYyMzEzMjI1
-MlowLwYJKoZIhvcNAQkEMSIEICB9/dYzerulZ81vm+6LrdjwxwYIb5Zrj68KK+bWz++GMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAe8nJ4MxV/BEg
-4zHiUHP9rSbhkUfVvYA+Tn8nmxlBKrMxenhP/ClO5MsKoDwiuCOh5j1wt22Xk2cC1Fw1p3V9XNLW
-ZyikEaAC7ArB2D1pLbvrpLvYQCNm3XuuJX2SosSj1UjCCN+2Huh9Ir8ToPvFSyseYqo285kid0cH
-V7EYYBv9QggYdJOw8rxp/UbU8tNyhgpncO2hBXcjrNHRqK+g+g+RJfoS9lP3gcV3a4B6ZKixhfyf
-qnX5GyJclQ6u9Oo10mmQJ3PSPxoxnmacFVvXGAqNN81lp+clMK2EuwVo8Gp1tna/vQidPiELh5oe
-dNDnVx6eVWyrB7J5G1T1o/0SmOvJbUlq5Eqq8G3MQ+SS7HEOvYyWo0Mgr8Ry+J/EZW2T8Ojo9Fp1
-GWMLTGbaJrSnejRvAeD8tjrdxntE87w4MoSBuCtDpQ18nDXs19tkx6rnnTmtwa7Z3jhyWvwxH+oA
-VPAJY/lTP6SOJaWr6NkK+ySnhQ6opSeFry8ZpqhJgQdOUr/Dc7Y7FY1nh8VXsNILP199xIjvXZk+
-ncb4w00z9sZbcgJiSc+0T3Dh6kBA3UhOHZDDVbuWRfaokAl1qJLKIFjOQQQ6gwF1N3xMXVHlkY7s
-3lc3jRHLDIA3b36t0yYEzw9swNjSNkbffPdf1wmxYxxzJq8qlHLgjuufAZt/bGsAAAAAAAA=
+Thanks,
+Ryan
 
+> 
+> Thanks,
+> Yang
+> 
+>> +{
+>> +    pgd_t *pgdp, pgd;
+>> +    p4d_t *p4dp, p4d;
+>> +    pud_t *pudp, pud;
+>> +    pmd_t *pmdp, pmd;
+>> +    pte_t *ptep, pte;
+>> +    int ret = 0;
+>> +
+>> +    /*
+>> +     * !BBML2_NOABORT systems should not be trying to change permissions on
+>> +     * anything that is not pte-mapped in the first place. Just return early
+>> +     * and let the permission change code raise a warning if not already
+>> +     * pte-mapped.
+>> +     */
+>> +    if (!system_supports_bbml2_noabort())
+>> +        return 0;
+>> +
+>> +    /*
+>> +     * Ensure addr is at least page-aligned since this is the finest
+>> +     * granularity we can split to.
+>> +     */
+>> +    if (addr != PAGE_ALIGN(addr))
+>> +        return -EINVAL;
+>> +
+>> +    arch_enter_lazy_mmu_mode();
+>> +
+>> +    /*
+>> +     * PGD: If addr is PGD aligned then addr already describes a leaf
+>> +     * boundary. If not present then there is nothing to split.
+>> +     */
+>> +    if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
+>> +        goto out;
+>> +    pgdp = pgd_offset_k(addr);
+>> +    pgd = pgdp_get(pgdp);
+>> +    if (!pgd_present(pgd))
+>> +        goto out;
+>> +
+>> +    /*
+>> +     * P4D: If addr is P4D aligned then addr already describes a leaf
+>> +     * boundary. If not present then there is nothing to split.
+>> +     */
+>> +    if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
+>> +        goto out;
+>> +    p4dp = p4d_offset(pgdp, addr);
+>> +    p4d = p4dp_get(p4dp);
+>> +    if (!p4d_present(p4d))
+>> +        goto out;
+>> +
+>> +    /*
+>> +     * PUD: If addr is PUD aligned then addr already describes a leaf
+>> +     * boundary. If not present then there is nothing to split. Otherwise,
+>> +     * if we have a pud leaf, split to contpmd.
+>> +     */
+>> +    if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
+>> +        goto out;
+>> +    pudp = pud_offset(p4dp, addr);
+>> +    pud = pudp_get(pudp);
+>> +    if (!pud_present(pud))
+>> +        goto out;
+>> +    if (pud_leaf(pud)) {
+>> +        ret = split_pud(pudp, pud);
+>> +        if (ret)
+>> +            goto out;
+>> +    }
+>> +
+>> +    /*
+>> +     * CONTPMD: If addr is CONTPMD aligned then addr already describes a
+>> +     * leaf boundary. If not present then there is nothing to split.
+>> +     * Otherwise, if we have a contpmd leaf, split to pmd.
+>> +     */
+>> +    if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
+>> +        goto out;
+>> +    pmdp = pmd_offset(pudp, addr);
+>> +    pmd = pmdp_get(pmdp);
+>> +    if (!pmd_present(pmd))
+>> +        goto out;
+>> +    if (pmd_leaf(pmd)) {
+>> +        if (pmd_cont(pmd))
+>> +            split_contpmd(pmdp);
+>> +        /*
+>> +         * PMD: If addr is PMD aligned then addr already describes a
+>> +         * leaf boundary. Otherwise, split to contpte.
+>> +         */
+>> +        if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
+>> +            goto out;
+>> +        ret = split_pmd(pmdp, pmd);
+>> +        if (ret)
+>> +            goto out;
+>> +    }
+>> +
+>> +    /*
+>> +     * CONTPTE: If addr is CONTPTE aligned then addr already describes a
+>> +     * leaf boundary. If not present then there is nothing to split.
+>> +     * Otherwise, if we have a contpte leaf, split to pte.
+>> +     */
+>> +    if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
+>> +        goto out;
+>> +    ptep = pte_offset_kernel(pmdp, addr);
+>> +    pte = __ptep_get(ptep);
+>> +    if (!pte_present(pte))
+>> +        goto out;
+>> +    if (pte_cont(pte))
+>> +        split_contpte(ptep);
+>> +
+>> +out:
+>> +    arch_leave_lazy_mmu_mode();
+>> +    return ret;
+>> +}
+>> ---8<---
+>>
+>> Thanks,
+>> Ryan
+>>
+> 
 
---=-9SyjBzaP+qiGxEQMpbHF--
 
