@@ -4,112 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28389C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09117C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 20:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qo7tgqf96TsyL2LTPp7bZsgf1ep7m5AO7GpKBklMO90=; b=KgzxiQq2nCijfU44NLiDDYVdKP
-	NedUBwA+7P0gnjIfITAKN01YkuSyo6TLlb5BERsQXEBJY4aQ9LgkwYZ946H+OMSU11dXeNIHDaxgX
-	E18PQEMIgK3MOPmu9oTgsY7y9IdJ2KK4abz9yJ2yF28vM/X4bUS/im52uXVrVdWxMsetTd5UKRN4C
-	ZI+TCbSngu7XvMUEzViHLKjlYn/64tCs2vmOFFZ3w9ElGcpXZ251Smeb8w/NfJiSbtFCjUXpbSNrI
-	aD77pGHlrcEtXtnh9eQwixSTdilBYxCJkMw5ZJvp8Ox0H03xseGfTgRWMQqbj1HQKcEgwrmzxUQa0
-	occOPWUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=64+Kcu62qwNapQJ3CG8fsGya6FkUjObefaU0itBbNEg=; b=FX+rCSe5gKVgo3VPqIpSB3811R
+	IeMftXzJ3qZPaNp/J4ntMQ+dUEb6JTlNs6nK39ydjdKnoFRutqSH2s0aZPGoKhjEAxTLCul5Kn3Y6
+	/UuQios/0OwX+T2mLZmrQIPWOKqB7IYKEE3JeYKUXDc06Qm8MpqmcdVp9/QqSReeY/rkGto18dzfg
+	qe3k2CT+8hUed8pMDm2Y9itLaXchGJ1qe6GtiOoS0W53tNnnBWHX2pkCZo0KoNYsIlf7TXArBQCrx
+	drs/bF/bRcCcLPRkOHv4AbEZVEe1v6Hs5l/dv1TMfh6CSjMyarOkGzp3klrRUvHwMegCoxBAnemkC
+	JYe1cMWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTnO8-00000003tRe-3a8x;
-	Mon, 23 Jun 2025 20:03:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTfmH-00000002Zw2-1wrx;
-	Mon, 23 Jun 2025 11:55:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA86EA512DF;
-	Mon, 23 Jun 2025 11:55:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB6FC4CEEA;
-	Mon, 23 Jun 2025 11:55:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750679756;
-	bh=gmwcmHOxZpFVUxz9LtBvGtOcwxrdV7w393tCqoXHplU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZKOBUzWQvsmuFOViczK8Vb7yegdYpFcwTgu2XiZvziUfKt+qXWHqa+i+b5EpU0qiG
-	 evvxeymdz3L7XgLQ6S1mIMM5qVGExLsdw4CGay8JBmwOlhDTZ342G+KpPomI/NHvTB
-	 1EJhpM7bu7NzQvzwn2cg6Fld9JUDq3UTMJD0RG5udq/Puc0C2olYyM82fj4mlQTvHw
-	 hKjq85P05bgtF7Ha2Sp31YD+T9FY6HuR+NawcdzK6zApniXnqtlRnq+Xm2jtEJTS9M
-	 7XN3mSNW3MCG+7wtca6vlJnWVi0D0Anr8ANNPdb3XulOZ66q2qhQz7KbvmBXI6K4wW
-	 uzLgCSgoMC2Tw==
-Message-ID: <3df0b3f2-0d73-4116-8bbf-37020892e773@kernel.org>
-Date: Mon, 23 Jun 2025 13:55:50 +0200
+	id 1uTnQR-00000003tcJ-0Gt4;
+	Mon, 23 Jun 2025 20:05:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTfmW-00000002Zy9-2y5e
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 11:56:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A209D113E;
+	Mon, 23 Jun 2025 04:55:51 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A21FA3F58B;
+	Mon, 23 Jun 2025 04:56:08 -0700 (PDT)
+Date: Mon, 23 Jun 2025 12:56:06 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: Breno Leitao <leitao@debian.org>, kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	song@kernel.org, mark.rutland@arm.com, usamaarif642@gmail.com,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: arm64: BUG: KASAN: invalid-access in arch_stack_walk
+Message-ID: <aFlA1tXXUEBZP1NH@arm.com>
+References: <aFVVEgD0236LdrL6@gmail.com>
+ <CA+fCnZfzHOFjVo43UZK8H6h3j=OHjfF13oFJvT0P-SM84Oc4qQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/1] Bluetooth: mediatek: add gpio pin to reset bt
-To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
- Marcel Holtmann <marcel@holtmann.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Luiz Von Dentz <luiz.dentz@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Sean Wang <sean.wang@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>,
- Chris Lu <chris.lu@mediatek.com>, Hao Qin <Hao.qin@mediatek.com>,
- linux-bluetooth <linux-bluetooth@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mediatek <linux-mediatek@lists.infradead.org>
-References: <20250623102359.2684-1-ot_zhangchao.zhang@mediatek.com>
- <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250623102359.2684-2-ot_zhangchao.zhang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+fCnZfzHOFjVo43UZK8H6h3j=OHjfF13oFJvT0P-SM84Oc4qQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_045557_653936_B98E2372 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20250623_045612_835107_11BC90E6 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,67 +66,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2025 12:23, Zhangchao Zhang wrote:
-> Makes the platform Bluetooth to be reset by hardware pin,
-> it provides two methods to do it for mediatek controller,
-> and it has been tested locally many times and can reset normally.
+On Sun, Jun 22, 2025 at 02:57:16PM +0200, Andrey Konovalov wrote:
+> On Fri, Jun 20, 2025 at 2:33 PM Breno Leitao <leitao@debian.org> wrote:
+> > I'm encountering a KASAN warning during aarch64 boot and I am struggling
+> > to determine the cause. I haven't come across any reports about this on
+> > the mailing list so far, so I'm sharing this early in case others are
+> > seeing it too.
+> >
+> > This issue occurs both on Linus's upstream branch and in the 6.15 final
+> > release. The stack trace below is from 6.15 final. I haven't started
+> > bisecting yet, but that's my next step.
+> >
+> > Here are a few details about the problem:
+> >
+> > 1) it happen on my kernel boots on a aarch64 host
+> > 2) The lines do not match the code very well, and I am not sure why. It
+> >    seems it is offset by two lines. The stack is based on commit
+> >    0ff41df1cb26 ("Linux 6.15")
+> > 3) My config is at https://pastebin.com/ye46bEK9
+> >
+> >
+> >         [  235.831690] ==================================================================
+> >         [  235.861238] BUG: KASAN: invalid-access in arch_stack_walk (arch/arm64/kernel/stacktrace.c:346 arch/arm64/kernel/stacktrace.c:387)
+> >         [  235.887206] Write of size 96 at addr a5ff80008ae8fb80 by task kworker/u288:26/3666
+> >         [  235.918139] Pointer tag: [a5], memory tag: [00]
+> >         [  235.942722] Workqueue: efi_rts_wq efi_call_rts
+> >         [  235.942732] Call trace:
+> >         [  235.942734] show_stack (arch/arm64/kernel/stacktrace.c:468) (C)
+> >         [  235.942741] dump_stack_lvl (lib/dump_stack.c:123)
+> >         [  235.942748] print_report (mm/kasan/report.c:409 mm/kasan/report.c:521)
+> >         [  235.942755] kasan_report (mm/kasan/report.c:636)
+> >         [  235.942759] kasan_check_range (mm/kasan/sw_tags.c:85)
+> >         [  235.942764] memset (mm/kasan/shadow.c:53)
+> >         [  235.942769] arch_stack_walk (arch/arm64/kernel/stacktrace.c:346 arch/arm64/kernel/stacktrace.c:387)
+> >         [  235.942773] return_address (arch/arm64/kernel/return_address.c:44)
+> >         [  235.942778] trace_hardirqs_off.part.0 (kernel/trace/trace_preemptirq.c:95)
+> >         [  235.942784] trace_hardirqs_off_finish (kernel/trace/trace_preemptirq.c:98)
+> >         [  235.942789] enter_from_kernel_mode (arch/arm64/kernel/entry-common.c:62)
+> >         [  235.942794] el1_interrupt (arch/arm64/kernel/entry-common.c:559 arch/arm64/kernel/entry-common.c:575)
+> >         [  235.942799] el1h_64_irq_handler (arch/arm64/kernel/entry-common.c:581)
+> >         [  235.942804] el1h_64_irq (arch/arm64/kernel/entry.S:596)
+> >         [  235.942809]  0x3c52ff1ecc (P)
+> >         [  235.942825]  0x3c52ff0ed4
+> >         [  235.942829]  0x3c52f902d0
+> >         [  235.942833]  0x3c52f953e8
+> >         [  235.942837] __efi_rt_asm_wrapper (arch/arm64/kernel/efi-rt-wrapper.S:49)
+> >         [  235.942843] efi_call_rts (drivers/firmware/efi/runtime-wrappers.c:269)
+> >         [  235.942848] process_one_work (./arch/arm64/include/asm/jump_label.h:36 ./include/trace/events/workqueue.h:110 kernel/workqueue.c:3243)
+> >         [  235.942854] worker_thread (kernel/workqueue.c:3313 kernel/workqueue.c:3400)
+> >         [  235.942858] kthread (kernel/kthread.c:464)
+> >         [  235.942863] ret_from_fork (arch/arm64/kernel/entry.S:863)
+> >
+> >         [  236.436924] The buggy address belongs to the virtual mapping at
+> >         [a5ff80008ae80000, a5ff80008aea0000) created by:
+> >         arm64_efi_rt_init (arch/arm64/kernel/efi.c:219)
+> >
+> >         [  236.506959] The buggy address belongs to the physical page:
+> >         [  236.529724] page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x12682
+> >         [  236.562077] flags: 0x17fffd6c0000000(node=0|zone=2|lastcpupid=0x1ffff|kasantag=0x5b)
+> >         [  236.593722] raw: 017fffd6c0000000 0000000000000000 dead000000000122 0000000000000000
+> >         [  236.625365] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+> >         [  236.657004] page dumped because: kasan: bad access detected
+> >
+> >         [  236.685828] Memory state around the buggy address:
+> >         [  236.705390]  ffff80008ae8f900: 00 00 00 00 00 a5 a5 a5 a5 00 00 00 00 00 a5 a5
+> >         [  236.734899]  ffff80008ae8fa00: a5 a5 a5 00 00 00 00 00 00 a5 a5 a5 a5 a5 00 a5
+> >         [  236.764409] >ffff80008ae8fb00: 00 a5 a5 a5 00 a5 a5 a5 a5 a5 a5 00 a5 a5 a5 00
+> >         [  236.793918]                                                     ^
+> >         [  236.818810]  ffff80008ae8fc00: a7 a5 a5 a5 a5 a5 a5 a5 a5 00 a5 00 a5 a5 a5 a5
+> >         [  236.848321]  ffff80008ae8fd00: a5 a5 a5 a5 00 a5 00 a5 a5 a5 a5 a5 a5 a5 a5 a5
+> >         [  236.877828] ==================================================================
 > 
-> When an exception occurs, resetting Bluetooth by hardware pin
-> is more stable than resetting Bluetooth by software.
-> If the corresponding pin is not found in dts,
-> bluetooth can also be reset successfully.
+> Looks like the memory allocated/mapped in arm64_efi_rt_init() is
+> tagged by __vmalloc_node(). And this memory then gets used as a
+> (irq-related? EFI-related?) stack. And having the SP register tagged
+> breaks SW_TAGS instrumentation AFAIR [1], which is likely what
+> produces this report.
 > 
-> Co-developed: Hao Qin <hao.qin@mediatek.com>
-> Co-developed: Chris Lu <chris.lu@mediatek.com>
-> Co-developed: Jiande Lu <jiande.lu@mediatek.com>
-> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-> ---
->  drivers/bluetooth/btmtk.c | 69 +++++++++++++++++++++++++++++++++++++++
->  drivers/bluetooth/btmtk.h |  5 +++
->  2 files changed, 74 insertions(+)
-> 
-> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-> index 4390fd571dbd..3e5f3ca6f0d5 100644
-> --- a/drivers/bluetooth/btmtk.c
-> +++ b/drivers/bluetooth/btmtk.c
-> @@ -6,6 +6,8 @@
->  #include <linux/firmware.h>
->  #include <linux/usb.h>
->  #include <linux/iopoll.h>
-> +#include <linux/of.h>
-> +#include <linux/of_gpio.h>
->  #include <linux/unaligned.h>
->  
->  #include <net/bluetooth/bluetooth.h>
-> @@ -109,6 +111,65 @@ static void btmtk_coredump_notify(struct hci_dev *hdev, int state)
->  	}
->  }
->  
-> +static void btmtk_reset_by_gpio_work(struct work_struct *work)
-> +{
-> +	struct btmtk_reset_gpio *reset_gpio_data =
-> +			container_of(work, struct btmtk_reset_gpio, reset_work.work);
-> +
-> +	gpio_direction_output(reset_gpio_data->gpio_number, 1);
-> +	kfree(reset_gpio_data);
-> +}
-> +
-> +static int btmtk_reset_by_gpio(struct hci_dev *hdev)
-> +{
-> +	struct btmtk_data *data = hci_get_priv(hdev);
-> +	struct btmtk_reset_gpio *reset_gpio_data;
-> +	struct device_node *node;
-> +	int reset_gpio_number;
-> +
-> +	node = of_find_compatible_node(NULL, NULL, "mediatek,usb-bluetooth");
+> Adding kasan_reset_tag() to arm64_efi_rt_init() should likely fix
+> this; similar to what we have in arch_alloc_vmap_stack(). Or should we
+> make arm64_efi_rt_init() just call arch_alloc_vmap_stack()?
 
+In theory, we can still disable the vmap stack, so we either fall back
+to something else or require that EFI runtime depends on VMAP_STACK.
+We can do like init_sdei_stacks(), just bail out if VMAP_STACK is
+disabled.
 
-Can you finally respond to the comments you got weeks ago at v1?
+Adding Ard, it's his code.
 
-NAK and I will keep NAKing your patches because total disregard to
-review is not going to make this patch accepted.
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=51fb34de2a4c8fa0f221246313700bfe3b6c586d
 
-
-Best regards,
-Krzysztof
+-- 
+Catalin
 
