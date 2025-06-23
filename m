@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C18C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8806C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 21:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z46EB7tAB6uXHPgyBwtVJdsA76sFg0lSYdtu6EVWknE=; b=PIwPUdxSI5IbwicMRR4jNn+m5M
-	oTWINCNCuB82g+gXxRYkA46v6PQUcYAb2SNRPJ9Fu5zWBVS3lmFuBV8AluuXnWLpQy7wQvnbMi35y
-	hqZ5f4XfivPW1p43Qh0bXEfG2CFedn4lhkSWkjNUkpBwhhVotROFFDwMkSaLxnNV/tYG4DeP9/1Iu
-	pdQo3PjRPHO7/4xVFZ6IzsR7Ja7BlPaLrEjKQWP4xMQrRD+sfzJxNJceiBi1VokHrD7+DA7TK1fxh
-	8XUxwBcL0DaHnkz+gwnxQIDANBygsq5u9oXBW3muArJt052W5iyasIgR6qcdsiGkZnN55nQN1xL7S
-	9/EksS6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9c+coh4ly1jybM3FeRUMnBt3DkuFjiY7IJQHdGZRgU=; b=TMqZqquMw67Xr8s/eCv9vdfAHS
+	1mZ67LctsRuM29BuqVxMv4M/dqUot+h6vQtuyMSTwITmF224CxfPpVez4Xm2QpjYr7LU2w2ifRyEj
+	SBQ26TkrqOsxVT7FFoMKOnStfLA81Vt5QhCc5OWzi37LhAz0LEQ0+fBIFMePq5Cjvk4usE822t0q6
+	fEBiDcWj+o6PnXTRRqWmfF+THtf7VOYlkP+YAywUGqkeutL7V4PUThuxi0qyotyDiPOjtVJzGiOT0
+	/vLBHojXyTErKtD8h6RW9fG0P5eLp7+RsKO93IrDsYBwvAjbwCi44ocXrBaatzfyKrEnWTdhNdCuh
+	K49ZB3qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uToI4-00000003yEC-1Zrp;
-	Mon, 23 Jun 2025 21:01:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjZ8-00000003KYa-12at
+	id 1uToKN-00000003yQo-0uTZ;
+	Mon, 23 Jun 2025 21:03:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTjeb-00000003LNS-0EwE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 15:58:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2F90F5C5F8B;
-	Mon, 23 Jun 2025 15:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81277C4CEEA;
-	Mon, 23 Jun 2025 15:58:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750694317;
-	bh=MBmtOH9m6zr81wji+yIuMSpqTbR3C3+WuqdmMBu0WVU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a/hdkmmf37JuuBRRIQqHxENDG6LmCaTmsJp2DHu7KCr0mZRs4pMvtzIzwaJWRy3Xa
-	 4fYQWPNVfpITMNEkZLGMafBo6GVgCwxjW8sW0YsiqKG/unwlNXMPR4GpPrZy6AwCzZ
-	 vvAWz50fwIGN7BHS5wK8ouR+ISNxq8yd16oS8fYckmhD5hAvz0hvTy7muPjfc4kxbg
-	 QyicczYhD/4fzwCShSSpTX4eWkVEvInZKE5MBwmC2xDCqWQUWSqTN5dHU18wYrSTHG
-	 QLZyUBoHa9ZkMEWNMJZV0ebpOq8Q6Z89vV3uYkr98l4tGodaCeAaa0iiLEfybrQRRd
-	 1nRuvP660Ry6w==
-Date: Mon, 23 Jun 2025 21:24:37 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
-	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
-	David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 20/62] KVM: SVM: Add a comment to explain why
- avic_vcpu_blocking() ignores IRQ blocking
-Message-ID: <pxtvegopzsyhn7lelksclxiiee7tumppu76553rax7octqpy7i@giclgo667htf>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-22-seanjc@google.com>
+	Mon, 23 Jun 2025 16:04:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 107A7113E;
+	Mon, 23 Jun 2025 09:03:58 -0700 (PDT)
+Received: from [10.57.29.183] (unknown [10.57.29.183])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA5B23F66E;
+	Mon, 23 Jun 2025 09:04:11 -0700 (PDT)
+Message-ID: <69e0107f-6c40-4ea1-ac69-51ad8aa78dff@arm.com>
+Date: Mon, 23 Jun 2025 17:04:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611224604.313496-22-seanjc@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 20/43] arm64: RME: Runtime faulting of memory
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-21-steven.price@arm.com>
+ <e75dfc47-5b74-4898-91c0-fed9880f9727@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <e75dfc47-5b74-4898-91c0-fed9880f9727@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_085838_372469_E2901FFD 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20250623_090417_182610_ADE13EC9 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +77,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 03:45:23PM -0700, Sean Christopherson wrote:
-> Add a comment to explain why KVM clears IsRunning when putting a vCPU,
-> even though leaving IsRunning=1 would be ok from a functional perspective.
-> Per Maxim's experiments, a misbehaving VM could spam the AVIC doorbell so
-> fast as to induce a 50%+ loss in performance.
+On 16/06/2025 12:55, Gavin Shan wrote:
+> Hi Steven,
 > 
-> Link: https://lore.kernel.org/all/8d7e0d0391df4efc7cb28557297eb2ec9904f1e5.camel@redhat.com
-> Cc: Maxim Levitsky <mlevitsk@redhat.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/svm/avic.c | 31 ++++++++++++++++++-------------
->  1 file changed, 18 insertions(+), 13 deletions(-)
+> On 6/11/25 8:48 PM, Steven Price wrote:
+>> At runtime if the realm guest accesses memory which hasn't yet been
+>> mapped then KVM needs to either populate the region or fault the guest.
+>>
+>> For memory in the lower (protected) region of IPA a fresh page is
+>> provided to the RMM which will zero the contents. For memory in the
+>> upper (shared) region of IPA, the memory from the memslot is mapped
+>> into the realm VM non secure.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_emulate.h |  10 ++
+>>   arch/arm64/include/asm/kvm_rme.h     |  10 ++
+>>   arch/arm64/kvm/mmu.c                 | 133 ++++++++++++++++++++-
+>>   arch/arm64/kvm/rme.c                 | 165 +++++++++++++++++++++++++++
+>>   4 files changed, 312 insertions(+), 6 deletions(-)
+>>
 > 
-> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> index bf8b59556373..3cf929ac117f 100644
-> --- a/arch/x86/kvm/svm/avic.c
-> +++ b/arch/x86/kvm/svm/avic.c
-> @@ -1121,19 +1121,24 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
->  	if (!kvm_vcpu_apicv_active(vcpu))
->  		return;
->  
-> -       /*
-> -        * Unload the AVIC when the vCPU is about to block, _before_
-> -        * the vCPU actually blocks.
-> -        *
-> -        * Any IRQs that arrive before IsRunning=0 will not cause an
-> -        * incomplete IPI vmexit on the source, therefore vIRR will also
-> -        * be checked by kvm_vcpu_check_block() before blocking.  The
-> -        * memory barrier implicit in set_current_state orders writing
-> -        * IsRunning=0 before reading the vIRR.  The processor needs a
-> -        * matching memory barrier on interrupt delivery between writing
-> -        * IRR and reading IsRunning; the lack of this barrier might be
-> -        * the cause of errata #1235).
-> -        */
-> +	/*
-> +	 * Unload the AVIC when the vCPU is about to block, _before_ the vCPU
-> +	 * actually blocks.
-> +	 *
-> +	 * Note, any IRQs that arrive before IsRunning=0 will not cause an
-> +	 * incomplete IPI vmexit on the source; kvm_vcpu_check_block() handles
-> +	 * this by checking vIRR one last time before blocking.  The memory
-> +	 * barrier implicit in set_current_state orders writing IsRunning=0
-> +	 * before reading the vIRR.  The processor needs a matching memory
-> +	 * barrier on interrupt delivery between writing IRR and reading
-> +	 * IsRunning; the lack of this barrier might be the cause of errata #1235).
-> +	 *
-> +	 * Clear IsRunning=0 even if guest IRQs are disabled, i.e. even if KVM
-> +	 * doesn't need to detect events for scheduling purposes.  The doorbell
+> [...]
+> 
+>> @@ -1078,6 +1091,9 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>>       if (kvm_is_realm(kvm) &&
+>>           (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+>>            kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+>> +        struct realm *realm = &kvm->arch.realm;
+>> +
+>> +        kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
+>>           write_unlock(&kvm->mmu_lock);
+>>           kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
+>>   
+> 
+> I'm giving it a try before taking time to review, @may_block needs to be
+> true.
+> I don't see there is anything why not to do so :)
 
-Nit: just IsRunning (you can drop the =0 part).
-
-Trying to understand the significance of IRQs being disabled here. Is 
-that a path KVM tries to optimize? Theoretically, it looks like we want 
-to clear IsRunning regardless of whether the vCPU is blocked so as to 
-prevent the guest from spamming the host with AVIC doorbells -- compared 
-to always keeping IsRunning set so as to speed up VM entry/exit.
-
-> +	 * used to signal running vCPUs cannot be blocked, i.e. will perturb the
-> +	 * CPU and cause noisy neighbor problems if the VM is sending interrupts
-> +	 * to the vCPU while it's scheduled out.
-> +	 */
->  	avic_vcpu_put(vcpu);
->  }
-
-Otherwise, this LGTM.
-Acked-by: Naveen N Rao (AMD) <naveen@kernel.org>
-
+You are right - I've no idea why I passed false to may_block. Thanks for
+the report.
 
 Thanks,
-Naveen
+Steve
+
+>   kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
+> 
+> Otherwise, there is RCU stall when the VM is destroyed.
+> 
+> [12730.399825] rcu: INFO: rcu_preempt self-detected stall on CPU
+> [12730.401922] rcu:     5-....: (5165 ticks this GP)
+> idle=3544/1/0x4000000000000000 softirq=41673/46605 fqs=2625
+> [12730.404598] rcu:     (t=5251 jiffies g=61757 q=36 ncpus=8)
+> [12730.406771] CPU: 5 UID: 0 PID: 170 Comm: qemu-system-aar Not tainted
+> 6.16.0-rc1-gavin-gfbc56042a9cf #36 PREEMPT
+> [12730.407918] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown
+> 02/02/2022
+> [12730.408796] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS
+> BTYPE=--)
+> [12730.409515] pc : realm_unmap_private_range+0x1b4/0x310
+> [12730.410825] lr : realm_unmap_private_range+0x98/0x310
+> [12730.411377] sp : ffff8000808f3920
+> [12730.411777] x29: ffff8000808f3920 x28: 0000000104d29000 x27:
+> 000000004229b000
+> [12730.413410] x26: 0000000000000000 x25: ffffb8c82d23f000 x24:
+> 00007fffffffffff
+> [12730.414292] x23: 000000004229c000 x22: 0001000000000000 x21:
+> ffff80008019deb8
+> [12730.415229] x20: 0000000101b3f000 x19: 000000004229b000 x18:
+> ffff8000808f3bd0
+> [12730.416119] x17: 0000000000000001 x16: ffffffffffffffff x15:
+> 0000ffff91cc5000
+> [12730.417004] x14: ffffb8c82cfccb48 x13: 0000ffff4b1fffff x12:
+> 0000000000000000
+> [12730.417876] x11: 0000000038e38e39 x10: 0000000000000004 x9 :
+> ffffb8c82c39a030
+> [12730.418863] x8 : ffff80008019deb8 x7 : 0000010000000000 x6 :
+> 0000000000000000
+> [12730.419738] x5 : 0000000038e38e39 x4 : ffff0000c0d80000 x3 :
+> 0000000000000000
+> [12730.420609] x2 : 000000004229c000 x1 : 0000000104d2a000 x0 :
+> 0000000000000000
+> [12730.421602] Call trace:
+> [12730.422209]  realm_unmap_private_range+0x1b4/0x310 (P)
+> [12730.423096]  kvm_realm_unmap_range+0xbc/0xe0
+> [12730.423657]  __unmap_stage2_range+0x74/0xa8
+> [12730.424198]  kvm_free_stage2_pgd+0xc8/0x120
+> [12730.424746]  kvm_uninit_stage2_mmu+0x24/0x48
+> [12730.425284]  kvm_arch_flush_shadow_all+0x74/0x98
+> [12730.425849]  kvm_mmu_notifier_release+0x38/0xa0
+> [12730.426409]  __mmu_notifier_release+0x80/0x1f0
+> [12730.427031]  exit_mmap+0x3d8/0x438
+> [12730.427526]  __mmput+0x38/0x160
+> [12730.428000]  mmput+0x58/0x78
+> [12730.428463]  do_exit+0x210/0x9d8
+> [12730.428945]  do_group_exit+0x3c/0xa0
+> [12730.429458]  get_signal+0x8d4/0x9c0
+> [12730.429954]  do_signal+0x98/0x400
+> [12730.430455]  do_notify_resume+0xec/0x1a0
+> [12730.431030]  el0_svc+0xe8/0x130
+> [12730.431536]  el0t_64_sync_handler+0x10c/0x138
+> [12730.432085]  el0t_64_sync+0x1ac/0x1b0
+> 
+> Thanks,
+> Gavin
+> 
 
 
