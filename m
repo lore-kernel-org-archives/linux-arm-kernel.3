@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4774C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C062C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 11:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6dMYxVnvxa1UNO7xEVlM451daxCVOIHYFXAOvuF+/34=; b=41tZmbbI7GK3dYoVtdlY6mH0qw
-	FDXrx8Ekg7mtxZpb2MtHO8lJudtN0b6/uRVvwMHp7Kefif+rk5phLike/ZhhbqHgpfML77g8HeFm5
-	RSHPpokEwnOa69lDRe9LgofsZSGDDAPKbcVe49CRi99YypUS8sHuCdWH7Q58360x444qZBfvixzO5
-	BxkvC0VxSgTnrLJxFctLP80buRmEwj4H5W4WSPBMSl2u0SXG7a5/dQ70nFA8817jgWjhFX4t2+Yrq
-	WJmRPcrsmv2Ni0f0ba5m9Ak9xd1YlP6aBhz7rOZnMpbG47ezQGFjEWgnn2KXaZcOxzKbYtfzTncGP
-	LYUUhR2g==;
+	bh=I6NXSanu83dX54+JJjP16cMXc8cDDNffkaxggPTCLWA=; b=o/WVvPvQY9s38U4L2RZ74A2oh2
+	iuqib/QfHWKed0mkGi2gjuuFeSUSakSw10GFLKJui8BLkPv5A+FhirSJV7J0Xp2Bu6DpgbpQSt4k/
+	Lh/n1watHmEiR+pWQEK53vYRit8vz2zXvY8oSQGXAWNm3dX2aWP33vWE232qRhEFCdDwFIyZgpktV
+	uYQ3vLP5ywdQ8+fLApi9VFQ7TFqH6aj81BLt2e5UUfyP4DSrQhRKoD79hFvZgAAHws6Mml0inMLfE
+	NSHLf5XfJoTcHuLs9A2eagdxK7Y0xMN2MK8BGV6ay0Wh8PAlqadaTpK1feYHPq0laSg9iGu8MlFF/
+	mWabAJgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTexg-00000002TL6-08Oe;
-	Mon, 23 Jun 2025 11:03:40 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uTf00-00000002TY5-0bcR;
+	Mon, 23 Jun 2025 11:06:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTe65-00000002IOU-3hmV;
-	Mon, 23 Jun 2025 10:08:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750673298; x=1782209298;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=dix0Yhu3c8boRB+3OYeK+56zmV1v3N5vctgiK7sTU9I=;
-  b=cYkpcNezUV2xakHOiZC36QbFYtfEC7BCtMRFbxDfEszHw5mdOKr9ajVf
-   BPjFj+rsR2U//6l7UfRaS2sZJ+JptxCFRbwpfiM4TTJ0ESEw1d6lahr0h
-   kS82kq3FaJ3BwIDEPbtscAxkzHfQKdHiAd7w867hPDNKAqGh0qxR2JhS3
-   kGPPr5lXLvclSoumIFQjgx4lUhG9c6+yQ0pzxgFrFzmDaw8zPfXdUrkMU
-   Qgy6WUEsDF+PvlfijQVPisGCYTyLQ35kICjQKR9coH12o6XYdKeIWsMRP
-   VbjKERHtcfA2No2WL/AQRSxQox6VtOdP9+UJ7zCo4VYicGnZogmcUjKm+
-   A==;
-X-CSE-ConnectionGUID: 3aF+oRXCT0Oa2O9i2HZRHw==
-X-CSE-MsgGUID: RRh5YkBoRLqN9rNWXZv7rQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11472"; a="52740977"
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="52740977"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 03:08:14 -0700
-X-CSE-ConnectionGUID: b1RtfYh9QqGx1/7cVXdpcA==
-X-CSE-MsgGUID: lQO2/vW8TGuyVMaj/z1Yig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,258,1744095600"; 
-   d="scan'208";a="175160611"
-Received: from abityuts-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.8])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 03:08:11 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 42C691201F7;
-	Mon, 23 Jun 2025 13:08:07 +0300 (EEST)
-Date: Mon, 23 Jun 2025 10:08:07 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Olivier Benjamin <olivier.benjamin@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Nicholas Roth <nicholas@rothemail.net>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
-	imx@lists.linux.dev, ~diederik/pine64-discuss@lists.sr.ht,
-	Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
-Subject: Re: [PATCH v4 0/4] Describe the cameras in the PinePhone Pro dts
-Message-ID: <aFknh7weIKoGKajQ@kekkonen.localdomain>
-References: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
- <aFj4kAXEhrR4Wbnz@kekkonen.localdomain>
- <13788127.uLZWGnKmhe@phil>
+	id 1uTeAV-00000002JIU-3sMe;
+	Mon, 23 Jun 2025 10:12:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4492DA5109F;
+	Mon, 23 Jun 2025 10:12:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7F9C4CEEA;
+	Mon, 23 Jun 2025 10:12:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750673570;
+	bh=ExnjUdK3o3V8JO7BKifNCHsFEL5+cTDvCzznc0e+CIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EBlE5ybKSu1rLcbTXXI3HgTUqxf0bccQjD17XemEfn9oZZoTPKImPs6anBi9PoEBP
+	 Jmvkc9ITMdIoVob4hp+yF00wzU4w9BUC4SZEY2sg0LZcIvdFeG8jYFoUldD2RoAdUB
+	 SdnGIAUm/0lA3aJ57/3ewjwRO/DBFWePZ5xhdfY3VxPSspoI6iDG3j5N+iSSl6TH/1
+	 2nJq8FNAyMs6muppcoHOtJQHO4BZ9ZZgVPqZy+S83U5m+b24fUBNuJJzd5kIYJ1cfH
+	 oMj4f2OOyIDTKT6SKuf9ApmGeO85i8WFJx4ZTX4f1JSY7TMw+dabKiU9X+81PGsPCd
+	 bNzh0MW/zxn6w==
+Date: Mon, 23 Jun 2025 12:12:44 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>,
+	Kever Yang <kever.yang@rock-chips.com>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Laszlo Fiat <laszlo.fiat@proton.me>, Simon Xue <xxm@rock-chips.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] PCI: dwc: Do not enumerate bus before endpoint
+ devices are ready
+Message-ID: <aFkonAnTZN80jsrP@ryzen>
+References: <20250613124839.2197945-8-cassel@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <13788127.uLZWGnKmhe@phil>
+In-Reply-To: <20250613124839.2197945-8-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_030817_962394_BCE5DAD5 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20250623_031252_028704_790E2858 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On Mon, Jun 23, 2025 at 12:05:22PM +0200, Heiko Stuebner wrote:
-> Hi,
+On Fri, Jun 13, 2025 at 02:48:39PM +0200, Niklas Cassel wrote:
+> Hello all,
 > 
-> Am Montag, 23. Juni 2025, 08:47:44 Mitteleuropäische Sommerzeit schrieb Sakari Ailus:
-> > Hi Olivier,
-> > 
-> > On Fri, Jun 20, 2025 at 05:21:31PM +0200, Olivier Benjamin wrote:
-> > > This series adds support for the Pine64 PinePhone Pro's rear and front
-> > > cameras in Device Tree.
-> > > This is based on some of Ondrej Jirman's patches hosted in his tree at
-> > > https://codeberg.org/megi/linux, but I have also fully reviewed and
-> > > re-written the code from the RK3399 datasheet, the PinePhone Pro
-> > > schematic, and the IMX258-0AQH5 software reference manual.
-> > > 
-> > > I have tested these changes on my PinePhone Pro and am able to take
-> > > photos from both cameras using libcamera's cam.
-> > > 
-> > > This series has raised a question about the proper label name for the
-> > > front/user camera and rear/world camera for phones.
-> > > This series is using "ucam" and "wcam", which is used in a few other
-> > > Rockship DTBs:
-> > >  - arch/arm64/boot/dts/rockchip/px30-evb.dts
-> > >  - rk3399-gru-scarlet.dtsi
-> > > 
-> > > Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
-> > 
-> > Thanks for the patches.
-> > 
-> > I've picked the first two in the set, presumably the rest will be merged
-> > via another tree?
+> The DWC PCIe controller driver currently does not follow the PCIe
+> specification with regards to the delays after link training, before
+> sending out configuration requests. This series fixes this.
 > 
-> correct, and with the first two being applied, I can now also safely pick
-> the other two :-)
+> At the same time, PATCH 1/4 addresses a regression where a Plextor
+> NVMe drive fails to be configured correctly. With this series, the
+> Plextor NVMe drive works once again.
+> 
+> 
+> Kind regards,
+> Niklas
+> 
+> 
+> Changes since v2:
+> -Rename PCIE_RESET_CONFIG_DEVICE_WAIT_MS to PCIE_RESET_CONFIG_WAIT_MS.
+> 
+> 
+> Niklas Cassel (6):
+>   PCI: Rename PCIE_RESET_CONFIG_DEVICE_WAIT_MS to
+>     PCIE_RESET_CONFIG_WAIT_MS
+>   PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_WAIT_MS
+>   PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
+>   PCI: qcom: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
+>   PCI: dwc: Ensure that dw_pcie_wait_for_link() waits 100 ms after link
+>     up
+>   PCI: dwc: Reduce LINK_WAIT_SLEEP_MS
+> 
+>  drivers/pci/controller/dwc/pcie-designware.c  | 13 ++++++++++++-
+>  drivers/pci/controller/dwc/pcie-designware.h  | 13 +++++++++----
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c |  1 +
+>  drivers/pci/controller/dwc/pcie-qcom.c        |  1 +
+>  drivers/pci/controller/pcie-rockchip-host.c   |  2 +-
+>  drivers/pci/controller/plda/pcie-starfive.c   |  2 +-
+>  drivers/pci/pci.h                             |  9 +--------
+>  7 files changed, 26 insertions(+), 15 deletions(-)
+> 
+> -- 
+> 2.49.0
+> 
 
-Once in my tree, they'll next end up to the media committers' tree and
-after some time you should be able to find them in linux-next. This process
-will take some time. Just FYI.
-
--- 
-Sakari Ailus
+Gentle ping
 
