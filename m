@@ -4,55 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CE5C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CBAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 17:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWXHzMFQWrf3zwl6nd3ar71G9P2ea95Xb7EiOWcUnfA=; b=BSgqafb59mIyc1BBFWaVY1JpFQ
-	B9LS06ojc1EF6xQA2liAk4+vcSyNihwgQUEbOAxtdsFU2PYrrI7YysmVN6V7XG/Mkr1DiAlfliqOC
-	4yFNFG2gFdoh09t3ozuhumghaRtxio8Qj0NhqyM1yhXWtHTk+QovKUxSTU5uYaIyo+pNJCMp+cBfh
-	h2Dox8PnU4WQ/DD7Vuwn3um0DoROOjcxBFQ7rOQ8Tk9PFvq46swX8BDTEsW3UNxXBj3GNzC2DQViG
-	SOBqEANXMvwmT86ftoi0pwcU3TyZnYGEqn/k73b4GLQdAsTXEgkKzdENlYsqI3pY98Me9Vr1TNZGy
-	Os1d2/0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BcRT+NYpbdzPXOED5vFm930hD+F6AH0QJgXxP3RxDZk=; b=4TE0dhuJyNRWLy3GVbNFPIy7ji
+	5BTItfycIN5NW3jBLyRl5tD7sAwbfbFhnWI2Oa3yTQhDBXtwzFK31GAPUaQGRUvoKGjZrCGwgWJjT
+	SGS3o8NKLkdp+TWBN3cE7n7g887mihrZEX/FmRgoLoj2skzf1l3VXYBv/+R/FlllN2Ibt7uI+9URh
+	RL+sIKzXqk2f7RkX9A90H//gbgEZ1ySX636hw74G3rkX6tfidmHtgM9H6u3/uNVm3/b5GiVHtn74k
+	Myn2/69GFu9baqegNItgbKJ8e7+2w9RpymAjP+V6A9JpOynMdbYJvF9p7I/v6tIIVewO3qiag8q1Q
+	3lKEqN/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTkXR-00000003V54-2TGa;
-	Mon, 23 Jun 2025 17:00:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uThFh-00000002siv-2AL3;
-	Mon, 23 Jun 2025 13:30:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8641E113E;
-	Mon, 23 Jun 2025 06:30:06 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7C723F58B;
-	Mon, 23 Jun 2025 06:30:22 -0700 (PDT)
-Date: Mon, 23 Jun 2025 14:30:15 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	sudeep.holla@arm.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v1 0/2] firmware: Add MediaTek TinySYS SCMI Protocol
-Message-ID: <aFlW5zVERnpwIkS4@pluto>
-References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
- <aFlFw-AjqxXcIuBO@pluto>
- <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
+	id 1uTkZj-00000003VL3-3wAx;
+	Mon, 23 Jun 2025 17:03:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uThH5-00000002ssv-2cC6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Jun 2025 13:31:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BcRT+NYpbdzPXOED5vFm930hD+F6AH0QJgXxP3RxDZk=; b=lQ7Bqv0Pf3292BkwOxlrIw3A9N
+	BZLOgkBssKyKtgdRIme0/XCytx+dfPBhEesOIg+SsKgQkVp4pTJCogOaYw/fIuaRo1zisJoBpoRDP
+	wTU9y41M3qKocebo9WR7vsJWT5eaJTea8k5BUf26itqJqV/hEy76kH8g6g/M5Xken2XLQiapm3xOe
+	ZmXhdOQLVcXEu/GlO9ZdK7hP2+blsygIiya3tJRC0rMSC3eqESdNft+mFSSDdF5fD+ypiE4s1QCd4
+	BPWiz2nE1DvKfkKlZg05hPb7PLVhfLHjm31LoqcaStgZjYandkjuo6ucO2GbfNHMGJ8E6QMonRK4W
+	l1T9ckwQ==;
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uThH1-00000005E1C-1Pmz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Jun 2025 13:31:50 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a507e88b0aso3554985f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 06:31:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1750685504; x=1751290304; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BcRT+NYpbdzPXOED5vFm930hD+F6AH0QJgXxP3RxDZk=;
+        b=CLq4D/2ABPLGTOsxkciHhccOeg1/sp0klMjsqjr5wSpKTc/tBgrPBH5I12KPS1b0Sg
+         Wra3yz619IzDvs4DaqEMBGD56bQfBk2qX4ZI5s3dBjUvNqV57OxXG0Q4pqXoyuk7TuL9
+         Rn77P1M6hNQi0ujEV4PPQ7zVycPppGUDnjWROtDis809Fuy3CC1Sa7Pv6oT//lDM7i9p
+         2txHfVBbowJRCcJknhdsuujEepBAQq7lMhlEeAMt6CQhOooqg36LlUiw2H7VZkErPPW0
+         +gkmJ7A3xEtDav0LC9eZkwTsjS3HrAZJMYx60eo6eMCzyX/b9a1MkGIfmWq5Aaodu4o+
+         p3YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750685504; x=1751290304;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BcRT+NYpbdzPXOED5vFm930hD+F6AH0QJgXxP3RxDZk=;
+        b=tUoukPt1NGUzqj1CA23wdFL7zhvgPaiMSVNMoSjRD37MA+CxlRONXZk18HuczI6GuG
+         s8FKMlq/gPs3BifTYxIE7K0z4YYmKMfINmStXyKeBqRhAR3kcChZZoxpaAfOASajsipI
+         aoNPWvEe2l/iNux7eGR8urwMP2v0jAA6dpv4Zmyb4VRWu9cwxoT7i2zZYAzUqnTMiIOC
+         +pOmr6zKANIE2VL0HOt9MVRPLwmhBMQg27vWzWsCv1d/rcqixJCxEC2W8SxxjoOnvdpD
+         rydUecZGfyEVqDjxCBVjp+3vOiSGI37VdAy0K/XUHHJItg8NXWfZCF5JaqvH41mrk+qm
+         oGdg==
+X-Forwarded-Encrypted: i=1; AJvYcCXRwmk9BqxbDZSOLzZp8oGxYc6Z1CyHkUfZoCdFxK+EuTGejXdqNvH97oHz9TrvAV2Nn3GVTJzlubthXFQgcG2m@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEi8wIbjGEd27FJJz0YsaNAvhh2zj5aPFdff1npmIqpELR9evx
+	iqD1T4zJTWQUZ/Gk6nWIiNHqu0khV4YjW+fniybcxJ9Tqx8GSGkge3ugrWw0s0ldHkM=
+X-Gm-Gg: ASbGncua1Z2QEdSTXmrbHR4p0X4YJwhOa4LYq8/xAcK5Gv6pVTBuS8etDtIrRkzSLhl
+	y4Jz/wTKvHPDsxgXCLPvwxN+oGcOXiCiuO01zrfPMGTqOf+1odmzUlZp7zeuN7UGmwjrwg2NtAa
+	RFJ0UgFfiW5bSX9bDp2iLCYL7wX2IjPrmUq9kp3ALmwZ+90VpGPKiZWwRzxtElm9Y7u8fnij+ka
+	wKN5aSN2E6u7sujGleH+aO4wb5BrFRoibJLU6YZcGOfBsY/oJ/K/JzWer9ZqoYuTTStaYxJL8Ke
+	Tb+2+iqxSjYvladlQK9vOrKPcWvGV/GGb4Q8VZIT+hquqh+bw7RBpoxk+szrcnWr
+X-Google-Smtp-Source: AGHT+IFMA6wLpwWOu66ZBT/Uwcl+XoqhLxK9+V0tMp8/c191NViuqFm+b+1J2RS5eF5XWF43kziHdw==
+X-Received: by 2002:a05:6000:491c:b0:3a4:f7dd:234b with SMTP id ffacd0b85a97d-3a6d1164217mr12380643f8f.0.1750685504100;
+        Mon, 23 Jun 2025 06:31:44 -0700 (PDT)
+Received: from toaster.lan ([2a01:e0a:3c5:5fb1:7b0f:c522:cad6:acd1])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a6d0f1808bsm9401818f8f.24.2025.06.23.06.31.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 06:31:43 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: (subset) [PATCH 0/4] clk: use the auxiliary device creation helper
+Date: Mon, 23 Jun 2025 15:29:56 +0200
+Message-ID: <175068537068.1888277.981802582113061223.b4-ty@baylibre.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250611-clk-aux-v1-0-fb6575ed86a7@baylibre.com>
+References: <20250611-clk-aux-v1-0-fb6575ed86a7@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_063025_598777_85DBE5CA 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20250623_143148_033023_3B04DB7D 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,47 +133,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 02:32:24PM +0200, AngeloGioacchino Del Regno wrote:
-> Il 23/06/25 14:17, Cristian Marussi ha scritto:
-> > On Mon, Jun 23, 2025 at 02:01:34PM +0200, AngeloGioacchino Del Regno wrote:
-> > > This series adds basic support for the MediaTek TinySYS SCMI Protocol,
-> > > found on the MediaTek Dimensity 9200, 9300 and 9400, other than on the
-> > > MT8196 Chromebook SoC.
-> > > 
-> > > This is used to communicate with the CM_MGR and other MCUs for power
-> > > management purposes.
-> > 
-> > Hi Angelo,
-> > 
-> > thanks for this.
-> > 
-> > I will do a proper review in the coming days of this series anyway, but
-> > upfront for future V2:
-> > 
-> > - you should provide some sort of documentation for this new
-> >    vendor protocol and its messages, as an example from IMX:
-> > 
-> > 	drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> 
-> Noted.
-> 
-> > 
-> > - where is the SCMI driver that will call all the new vendor ops
-> >    defined in: scmi_mtk_protocol.h ?
-> 
-> This was tested with code that is not clean at all (hence I can't push it upstream)
-> and well... I didn't think about the fact that, effectively, without an user, this
-> code ends up being unused.
-> 
-> I can't promise to send a clean user in this cycle, but I would really appreciate
-> if you could still check the protocol code, so that if there's anything that you
-> can spot I can fix it while the rest gets done :-)
+Applied to clk-meson (clk-meson-next), thanks!
 
-Sure, I will anyway review, but a driver user exampe would be useful, maybe
-posting it at the end of the series as a NOT-FOR-UPSTREAM/RFC (something like that)
-so that we can have an iddea of the usage patterns while being aware that it is
-still not clean for upstream.
+[4/4] clk: amlogic: axg-audio: use the auxiliary reset driver
+      https://github.com/BayLibre/clk-meson/commit/301b96e0668a
 
-Thanks,
-Cristian
+Best regards,
+--
+Jerome
 
