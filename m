@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F775C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42526C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZQ09S5HUXQL8QzEMqvPTcx0P4EQYBwyl6nfwHAEjAk=; b=4lkHZiwrEtXpaGfHoDhvQXyrX5
-	90ROzUv4VsqsTnnVVZENtEvuiuk8ft/bUpM6NJA/TxLyzA17MNn/wCswTKbPsJFyCgkCDxsQhEMGd
-	RHBbrTTRzHz7lOLSFgX4KSlxM3cOW4uzmaA2lPSlHQ2xeGbHAd3BDaDs8y79neopKHPE+C+2rTNYh
-	MoUJiQ50FerHUmOOrUfChDPQyIMtoplgK0DbEMhTvXpjDJm+Mr4/7VfgHHsxr2FEAOB07zRvoY1NL
-	6LZ3h0PSnq/fbEs8ltg42bv8nKj4lOwJZRwBk/yQaka+7Y0oouAXc1zbBd88QgOwGLpmsEvMyXNyr
-	T+JKD5aw==;
+	bh=ixpb+nHlGGknFBKNLeayHLKvF1B7kEUCeI9moxPdPuk=; b=KyHU9ZuFBG0yz7vSVXSzX8EyZR
+	kM16Bf66pzML3XiRrxbQK0DYl158fLB3WtzIrgBidXmqrw1JYqGBTse+nmq0ZrNF3Gx8MtFYbMYXl
+	HGF+03Gz4zI6LNG+yYqGh0JUVYoG+3r7++eDfBwe3/59yuly7MZlZqJE2sddwb91wNmUYpLsyoo2D
+	IcSSm8cqsD7dyo7eCPsRI/BMNNLHkLwWWI692gFBFMBK+aBlXouAuwHd8bQKSmZuQfDOBSbODLnWB
+	WIgAy2OP8KzvCFmv8c3YT7GCIuRxB8+oIi4mu50tSaYNnSj0zCq/AF7FggpFz+V6WVHsqpSeOwcvK
+	7G6hSR8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdZl-00000002Bw0-06qW;
-	Mon, 23 Jun 2025 09:34:53 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1uTdc6-00000002CaG-1O6H;
+	Mon, 23 Jun 2025 09:37:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdRJ-00000002AYy-3lf0
+	id 1uTdS4-00000002AhU-2o8O
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Jun 2025 09:26:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ixpb+nHlGGknFBKNLeayHLKvF1B7kEUCeI9moxPdPuk=; b=dfDcMwE7Le8vLaO4Wb3lXCQx3v
+	YY+rca/uid1CZrhokpjRmriqhLeBqspvIBpuo7gZWyWzGqZSv2r9BN0anyhNoN+jd0g1JylpXB9pE
+	s6DPnJ1CaLeh4B0drawNC4UeTINAx4QA7/tFHHY6W2D4WM0H6FMrZvv88bVD/tbzBGoI4Zj8aGIko
+	ppZqy8iIQSsou4Fr48yHHrrhRianspVf+m7RYMP3UWJY4+lHm42BSZ6V3yTG/Spp0w5vHpfFc86hK
+	+10W/FpZ3yVVBxl7CYRC+Ex1NkBYHMV34tYKmwGwMqHjmD6rxoMPKFsgDVUdT6+F/ZRgoRKXnU6Q9
+	SzaGd2Xg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTdS1-00000005AMB-38gY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:26:12 +0000
-Date: Mon, 23 Jun 2025 02:25:53 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750670765;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tZQ09S5HUXQL8QzEMqvPTcx0P4EQYBwyl6nfwHAEjAk=;
-	b=rA/N5fxMhzQdApW5Xv7M+X1a139TwAKG9UaWY2mpQpeEc/c+dIet3ZFxIS0LV2rCru/SXL
-	fzQKIqSKK8k7HU15zCSL2sZA6TYN2LfAYSGv33CQx46tpWptwXBDeTV/rQXBr9Pu/6ZhS7
-	kS1R51UD95Se6iuE+blTrVPTU1UHYjc=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Raghavendra Rao Ananta <rananta@google.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Subject: Re: [PATCH v3 3/4] KVM: arm64: Introduce attribute to control
- GICD_TYPER2.nASSGIcap
-Message-ID: <aFkdofSolis53JgO@linux.dev>
-References: <20250613155239.2029059-1-rananta@google.com>
- <20250613155239.2029059-4-rananta@google.com>
- <87frftfpg7.wl-maz@kernel.org>
- <aFkTDmj9u1ERnvHO@linux.dev>
- <868qliddzt.wl-maz@kernel.org>
+	Mon, 23 Jun 2025 09:26:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CF8744CE8;
+	Mon, 23 Jun 2025 09:26:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A007EC4CEEA;
+	Mon, 23 Jun 2025 09:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750670808;
+	bh=WefXIWazEPskl9B0X1xFtEXjeBSL+nY1ELytivVzN98=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qw+aUfQSuKHEk4enVIrEz606dRtP6XgNppP2YO4INXtXX0fpKl7h4u8sf/OIVdZnD
+	 NV0a4MPutrCtYNNsfopZKOvqLp1uChhTnXU/ifibAjQcX5+vHM+wZYC5u2QZdbBUbG
+	 hqLK7QSB1BRJ/asx988F/PfQIVQ/RY4GUmm1JFsgN4/Mo8DqYKJQw5At6VHOYn0S0c
+	 /UfP5gASQorEsfU+ZD4hXDXpdiSjND8/UoejeEyZYy69Ux4hUolfJth5AbnALTSJow
+	 usdestU/sQ5azXOngEas1a3myuz4c299HGo5Yyo31BePXHs+oevsQhp/8PUPfwE+Tz
+	 /Jbrjo0uFvWOw==
+Date: Mon, 23 Jun 2025 11:26:41 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v5 24/27] irqchip/gic-v5: Add GICv5 ITS support
+Message-ID: <aFkd0cigSKOSqUQI@lpieralisi>
+References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
+ <20250618-gicv5-host-v5-24-d9e622ac5539@kernel.org>
+ <87y0tmp6gn.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <868qliddzt.wl-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <87y0tmp6gn.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_022610_150726_13FEB499 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20250623_102654_299380_C1233013 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +101,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 10:05:42AM +0100, Marc Zyngier wrote:
-> On Mon, 23 Jun 2025 09:40:46 +0100,
-> Oliver Upton <oliver.upton@linux.dev> wrote:
-> > 
-> > On Sat, Jun 21, 2025 at 09:50:48AM +0100, Marc Zyngier wrote:
-> > > On Fri, 13 Jun 2025 16:52:37 +0100, Raghavendra Rao Ananta <rananta@google.com> wrote:
-> > > > @@ -683,8 +714,14 @@ static int vgic_v3_has_attr(struct kvm_device *dev,
-> > > >  			return 0;
-> > > >  		case KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES:
-> > > >  			return 0;
-> > > > +		default:
-> > > > +			return -ENXIO;
-> > > >  		}
-> > > > +	case KVM_DEV_ARM_VGIC_GRP_FEATURES:
-> > > > +		return attr->attr != KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap ?
-> > > > +		       -ENXIO : 0;
-> > > 
-> > > Do we really want to advertise KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap even
-> > > when we don't have GICv4.1? This seems rather odd. My take on this API
-> > > is that this should report whether the feature is configurable, making
-> > > it backward compatible with older versions of KVM.
-> > 
-> > So this was because of me, as I wanted nASSGIcap to behave exactly like
-> > the ID registers. I do think exposing the capability unconditionally is
-> > useful, as otherwise there's no way to definitively say whether or not
-> > the underlying platform supports GICv4.1.
-> > 
-> > KVM_HAS_DEVICE_ATTR can't be used alone for probing since old kernels
-> > use GICv4.1 but don't expose the attribute.
-> > 
-> > Does that make sense?
-> 
-> My own reasoning is that if we expose the capability, userspace is
-> able to use it and rely on it to take effect (VPE allocation error
-> notwithstanding). This is not the case with this approach, and that's
-> at odds with the other attributes.
-> 
-> But taking a step back: if we want to control the nASSGIcap bit, why
-> don't we allow writing to GICD_TYPER2 from userspace? This does
-> matches your view that we treat it as an ID register (GICD_TYPER2
-> matches this definition if you squint hard enough). It also avoids
-> adding new UAPI with unusual semantics.
+On Fri, Jun 20, 2025 at 09:18:32PM +0200, Thomas Gleixner wrote:
 
-This approach would bring its own set of complications. At least right
-now we allocate vPEs at vgic_init() but prevent register accesses prior
-to initialization. If we want to bake this thing into GICD_TYPER2
-directly we either need to relax this register to be accessed before
-init or defer the vPE allocation later on.
+[...]
 
-I'm worried that the latter approach is gonna be a mess, and the
-attribute was done to avoid a one-off accessor in the VGIC state. But if
-you'd like to see it done that way then that's OK with me.
+> > + * Taken from msi_lib_irq_domain_select(). The only difference is that
+> > + * we have to match the fwspec->fwnode parent against the domain->fwnode
+> > + * in that in GICv5 the ITS domain is represented by the ITS fwnode but
+> > + * the MSI controller (ie the ITS frames) are ITS child nodes.
+> > + */
+> > +static int gicv5_its_irq_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
+> > +				       enum irq_domain_bus_token bus_token)
+> > +{
+> > +	const struct msi_parent_ops *ops = d->msi_parent_ops;
+> > +	u32 busmask = BIT(bus_token);
+> > +
+> > +	if (!ops)
+> > +		return 0;
+> > +
+> > +	if (fwnode_get_parent(fwspec->fwnode) != d->fwnode ||
+> > +	    fwspec->param_count != 0)
+> > +		return 0;
+> 
+> Just add a MSI flag and set it in parent_ops::required_flags and extend
+
+I added that but it does not work (not if we use d->flags as below), it works
+if I add it as an
+
+IRQ_DOMAIN_FLAG_*
+
+and set it in irq_domain_info in the msi_create_parent_irq_domain()
+call in the GICv5 ITS driver when creating the domain.
+
+> the lib with
+> 
+>         struct fwnode_handle *fwh;
+> 
+>         fwh = d->flags & MAGIC ? fwnode_get_parent(fwspec->fwnode) : fwspec->fwnode;
+
+Here we are using the domain flags and I think that's what we want.
+
+If I go with parent_ops flag, I believe here we need to use the parent
+msi_domain_info::flags - I don't think that's what we want.
+
+It is a property of the IRQ domain so I think that adding an
+
+IRQ_DOMAIN_FLAG_FWNODE_PARENT
+
+is the best option.
+
+Please let me know.
 
 Thanks,
-Oliver
+Lorenzo
+
+> 
+> No?
+> 
+> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > index c2e7ba7e38f7..4a0990f46358 100644
+> > --- a/drivers/irqchip/irq-gic-v5.c
+> > +++ b/drivers/irqchip/irq-gic-v5.c
+> > @@ -57,12 +57,12 @@ static void release_lpi(u32 lpi)
+> >  	ida_free(&lpi_ida, lpi);
+> >  }
+> >  
+> > -static int gicv5_alloc_lpi(void)
+> > +int gicv5_alloc_lpi(void)
+> >  {
+> >  	return alloc_lpi();
+> >  }
+> >  
+> > -static void gicv5_free_lpi(u32 lpi)
+> > +void gicv5_free_lpi(u32 lpi)
+> >  {
+> >  	release_lpi(lpi);
+> >  }
+> 
+> Just make them global right away when you implement them. No point for
+> this kind of churn.
+> 
+> Thanks,
+> 
+>         tglx
 
