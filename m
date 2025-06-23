@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C534C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 15:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C36C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 16:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
-	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=igvA1VrySGQrAl9Tt2Vjxwss8RFCsK0tjf5RoIwrLxo=; b=3eByF99NX8FSsXxWXQJtYXCLjz
-	RvS5gaqlk9sPYLxsjLgV20x44mNlONl1voYECRvt01xWt8MCL5sZcrFH3tdz9/7H2NBgKB29d37AM
-	DI7AhocvrcxPVWYEEGr2NA8g/VV1bNIh26omVoaFnwt14my4VD26+fzJFvvGtov5Xw/6YF36WlX4t
-	e0cfpK6jVIaD9dnS83F+KXrTq5Vakr0IwsYYaMTVbCSVUaMNy61IorMQhRo/sNpx77F10CCI3ziFB
-	vEqALa1H53sBhES5BFodhIPIRgLL54zyFceFLKx9OrXjSfxJk/fgEP1z/75G91WlNLCVN7qOVznVl
-	frX4uQBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0EbzysFzXSx6fbpE2Q3MPF8+aVu47XcRJFl5T1QnUX4=; b=TnmYU0bNU/v9VJ5ESZRHWkZY1r
+	qsHAmfygR3PJ00ggSdsdKMrwIgMEHBkRU5RTNBL2lZ7f3DRBnJmOiKg6wFLxztrIC2r1ILK8K948/
+	F+w812YdWN9LopYerctWStIivT5PUCFVhQ3tyMFBu3D7CiLIKDmxEaoOMg8ccjS3JE42OnuMhxEQY
+	kHYTp2ZBTfAi9RxGi6x0d+JZKwQ96LquJAYf57tL+RMBVztBxbyXQPMzx3EypviqtdeHmYJSe//Mu
+	M0/pxALJJYT1oZNg/Y1AIUll3rC3HBzbw2QCFHEYdLhZwm6z2JQyejdjLa1gYZHvAXMQLo1+JSRAV
+	wF8BT+Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTjYL-00000003KQH-3a0g;
-	Mon, 23 Jun 2025 15:57:49 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1uTjag-00000003Kkk-1cNh;
+	Mon, 23 Jun 2025 16:00:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTgLC-00000002hZo-2TUp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 12:32:04 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1uTgLb-00000002hdg-0YiT;
+	Mon, 23 Jun 2025 12:32:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750681945;
+	bh=Hi9Eh4Q8Idz+PcP0DJGiXpcq9TCKuca5A6YCe8h1Q6U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fRzoI1dlS3MhNk3kaIep6i4WWNWcAedful78drVRlvm/4Xh1SkS3K+ztOxFgSXAoH
+	 2vbxKawbsztUnl09cPgSt+uFvVJ1tHS6KKrdllwE7bz4z7Nx8fjloQ81iDlj4Xj79Q
+	 /D5ypsq0jDLDquYdSE6sGH6Vs3QoA6d6ufaxnnBWl5rl/oV0zaA/r9/MsmuncGTLQ/
+	 zChQ5ri/Q5UxqkUf8s5FwHisxQIwpUKH8BYjPGN4ASCoS3jQkHgPzClBohAjnAg3zh
+	 ePgONva+hO8UErkrt4zINF+7jcMmK0nTWjXo4ELEAsJk5/M9CCDUjpnlURnSI/Wd6Q
+	 usJOc2BEtxn3w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4bQnWh4Mb7z4xPSq;
-	Mon, 23 Jun 2025 20:31:44 +0800 (CST)
-Received: from njy2app02.zte.com.cn ([10.40.13.116])
-	by mse-fl1.zte.com.cn with SMTP id 55NCVeuH048305;
-	Mon, 23 Jun 2025 20:31:40 +0800 (+08)
-	(envelope-from long.yunjian@zte.com.cn)
-Received: from mapi (njy2app03[null])
-	by mapi (Zmail) with MAPI id mid201;
-	Mon, 23 Jun 2025 20:31:44 +0800 (CST)
-Date: Mon, 23 Jun 2025 20:31:44 +0800 (CST)
-X-Zmail-TransId: 2afb68594930fffffffff5f-67598
-X-Mailer: Zmail v1.0
-Message-ID: <20250623203144007kQF7E1Bhy5PJl-Ph3u3Ou@zte.com.cn>
-Mime-Version: 1.0
-From: <long.yunjian@zte.com.cn>
-To: <pierre-yves.mordret@foss.st.com>
-Cc: <alain.volmat@foss.st.com>, <andi.shyti@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <linux-i2c@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <mou.yi@zte.com.cn>, <xu.lifeng1@zte.com.cn>,
-        <ouyang.maochun@zte.com.cn>, <fang.yumeng@zte.com.cn>
-Subject: =?UTF-8?B?UEFUQ0hdIGkyYzogc3RtMzJmNzogVXNlIHN0cl9vbl9vZmYoKSBoZWxwZXI=?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL: mse-fl1.zte.com.cn 55NCVeuH048305
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 68594930.002/4bQnWh4Mb7z4xPSq
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 13E9717E05BD;
+	Mon, 23 Jun 2025 14:32:25 +0200 (CEST)
+Message-ID: <9e8d0dfc-7dc4-461d-afd9-bd381219422f@collabora.com>
+Date: Mon, 23 Jun 2025 14:32:24 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/2] firmware: Add MediaTek TinySYS SCMI Protocol
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, sudeep.holla@arm.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
+ kernel@collabora.com
+References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
+ <aFlFw-AjqxXcIuBO@pluto>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <aFlFw-AjqxXcIuBO@pluto>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_053202_800565_11249B28 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_053227_324490_BE32C126 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yumeng Fang <fang.yumeng@zte.com.cn>
+Il 23/06/25 14:17, Cristian Marussi ha scritto:
+> On Mon, Jun 23, 2025 at 02:01:34PM +0200, AngeloGioacchino Del Regno wrote:
+>> This series adds basic support for the MediaTek TinySYS SCMI Protocol,
+>> found on the MediaTek Dimensity 9200, 9300 and 9400, other than on the
+>> MT8196 Chromebook SoC.
+>>
+>> This is used to communicate with the CM_MGR and other MCUs for power
+>> management purposes.
+> 
+> Hi Angelo,
+> 
+> thanks for this.
+> 
+> I will do a proper review in the coming days of this series anyway, but
+> upfront for future V2:
+> 
+> - you should provide some sort of documentation for this new
+>    vendor protocol and its messages, as an example from IMX:
+> 
+> 	drivers/firmware/arm_scmi/vendors/imx/imx95.rst
 
-Remove hard-coded strings by using the str_on_off() helper.
+Noted.
 
-Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
----
- drivers/i2c/busses/i2c-stm32f7.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> - where is the SCMI driver that will call all the new vendor ops
+>    defined in: scmi_mtk_protocol.h ?
 
-diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-index e4aaeb2262d0..ef15475a7ee1 100644
---- a/drivers/i2c/busses/i2c-stm32f7.c
-+++ b/drivers/i2c/busses/i2c-stm32f7.c
-@@ -34,6 +34,7 @@
- #include <linux/regmap.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
+This was tested with code that is not clean at all (hence I can't push it upstream)
+and well... I didn't think about the fact that, effectively, without an user, this
+code ends up being unused.
 
- #include "i2c-stm32.h"
+I can't promise to send a clean user in this cycle, but I would really appreciate
+if you could still check the protocol code, so that if there's anything that you
+can spot I can fix it while the rest gets done :-)
 
-@@ -722,7 +723,7 @@ static int stm32f7_i2c_setup_timing(struct stm32f7_i2c_dev *i2c_dev,
- 	dev_dbg(i2c_dev->dev, "I2C Rise(%i) and Fall(%i) Time\n",
- 		setup->rise_time, setup->fall_time);
- 	dev_dbg(i2c_dev->dev, "I2C Analog Filter(%s), DNF(%i)\n",
--		(i2c_dev->analog_filter ? "On" : "Off"), i2c_dev->dnf);
-+		str_on_off(i2c_dev->analog_filter), i2c_dev->dnf);
+Thank you,
+Angelo
 
- 	i2c_dev->bus_rate = setup->speed_freq;
+> 
+> Thanks,
+> Cristian
 
--- 
-2.25.1
+
 
