@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6291AC77B7F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7CBC77B7C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/gnO49ipbVQfoRjUTAo8XJ0Syz4un4P+oYU1S0eLwk=; b=lBIjFwqppOLUEWycymR82+jp9G
-	gv5iXBxT2hKyoYTO37QNk4HoaUXqZ275jD/2xIdzUpw9qbFRpm/iX/lG0qOajfp3qvs9Kfcjl9f6h
-	62EZoAxxwHOgoo79wb4wVOAyrFx7qjClJD0twEMhvxUaMMDx+dcIX/qokOEqPjDmZAguK+N+X/WSa
-	xZw/VDWvGKapeZuSFkj5C2ijKSxwiFMmEsqLYNhL3D40qxdADjvNsNcKAsccoOWXzDEFqlCjCIbT1
-	01KDLUKjoJP57aTRiHZMqieYqyKB5EkKhGTMHIiP2j5O9Q61ABK7UerzGWc7PLNAK4pmAM2cmtB/i
-	Mvr4wxEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N+XxtETMhphvkKQCUquvctKd1Yg9fvwXG/AZvqg3R6U=; b=uMxVPA50sjk5WBxQuaQsCkRL7v
+	1Pqs/BiPN1fkh5ek17B/77tqt1dRy4Pwmb/n0mH4fR0Rn4PqOjbCSRbSZOXq5CTp+2u9tBfdYOFsV
+	6ddM6hb7G4dVgotB6rgr/xEV+HStAwdoefdI2XO974kC0TtCB4rK9mL3ON6uc6ivGZb3IgyMAf80P
+	NCsdpQmfW53hrSq3A+aObI9SlaGLGY2dn/3zMFdKguuFXGrVmgwwPNVV7gOH6BLyB6meZj0EfZADz
+	52Re4Sa9DutMGnsxD/Upyb1TzeQwStZH4na1kQHEVERNTlmrbVku2U1L2wEUs0eER0KXih+ZKUYf8
+	xQ7dCM4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrZC-00000004F1Z-2pAK;
-	Tue, 24 Jun 2025 00:31:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uTrZD-00000004F30-35er;
+	Tue, 24 Jun 2025 00:31:15 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTht4-00000002zPs-3N6J
+	id 1uThvL-00000002zsg-2Bjj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 14:11:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7C5495C54AF;
-	Mon, 23 Jun 2025 14:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A196EC4CEEA;
-	Mon, 23 Jun 2025 14:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750687865;
-	bh=S2l2sY8x6ARHJCtqhLtvEeZM+BBhQzDuZlxOYaXKcro=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mndeAcmiY8OItl4Ckcb2czE0f2tEwgc3Cau0eEXESzK/XDwyuIwW0rhXkL+s0pwBY
-	 9Ud3mGQwNkC738m+R6Tsbc8fQ5gAF4v4Cudno6MaO+TV/UTxzMqAywc7h7+8MrT9I9
-	 JyB4gLClWPxobJjjk6yf/Tps6oJKt3p4dRABaopcFAqrUCOwpIdA5c4rG0RWplbL8P
-	 yO0Exd2e313f3404E0BbmIjKW87GovUfFAmAXYofrbqD7m2rjH2bGk8fqKmuE26uxm
-	 8b1tO3NrRaKmViaTf5qKh6tiS/cqmrA1ModCeRVuafw2Duvx7iQtZaX/2+xPO52UXy
-	 c13lMLJ3DN/zQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uTht1-009Dbr-6F;
-	Mon, 23 Jun 2025 15:11:03 +0100
-Date: Mon, 23 Jun 2025 15:11:02 +0100
-Message-ID: <867c12czux.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Eric Auger <eauger@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	seanjc@google.com,
-	darren@os.amperecomputing.com
-Subject: Re: [RFC PATCH v2 0/9] KVM: Enable Nested Virt selftests
-In-Reply-To: <9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
-References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
-	<92c7e99c-5574-422c-92f1-62d5cde58fec@redhat.com>
-	<7bf7bd52-7553-42a7-afdb-a5e95f8699b5@os.amperecomputing.com>
-	<86a56veiyy.wl-maz@kernel.org>
-	<3be548bf-aee4-46ab-bcbf-15bf629b24da@os.amperecomputing.com>
-	<86jz58c5ut.wl-maz@kernel.org>
-	<9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com, darren@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 23 Jun 2025 14:13:29 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55NEDMTY1572752;
+	Mon, 23 Jun 2025 09:13:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750688002;
+	bh=N+XxtETMhphvkKQCUquvctKd1Yg9fvwXG/AZvqg3R6U=;
+	h=From:To:CC:Subject:Date;
+	b=Vz3K5ziwm4duq2pQdJl5tIVqNh9Gh5HMbsBBcV9vmvNK9qzHeCPkePWG36gxZc3Xx
+	 9YseZXRRFN9CA31YcxoN2tjjihM90srUO4xybTjJoY0BtSSQ3hUYZYBJ3a0YsopofM
+	 M85R80xqsiYGSnjU9QZ8aDv+ROvNqiqqLSR7RXHk=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55NEDLeV3541024
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 23 Jun 2025 09:13:21 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 23
+ Jun 2025 09:13:21 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 23 Jun 2025 09:13:21 -0500
+Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55NEDKus3987370;
+	Mon, 23 Jun 2025 09:13:21 -0500
+From: Paresh Bhagat <p-bhagat@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
+        <devarsht@ti.com>
+Subject: [PATCHv4 0/6] Add support for AM62D2 SoC and EVM
+Date: Mon, 23 Jun 2025 19:42:47 +0530
+Message-ID: <20250623141253.3519546-1-p-bhagat@ti.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_071106_918433_900F140E 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20250623_071327_688661_644B7307 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +84,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 11:31:32 +0100,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> 
-> On 6/19/2025 5:15 PM, Marc Zyngier wrote:
-> >>   >
-> >>> Also, running EL2 is the least of our worries, because that's pretty
-> >>> easy to deal with. It is running at EL1/0 when EL2 is present that is
-> >>> interesting, and I see no coverage on that front.
-> >> 
-> >> Sorry, I did not get this comment fully.
-> >> When we run selftest on Host with -g option, the guest code will run in vEL2 as L1.
-> >> This is implemented as per comment in V1.
-> >> 
-> >> When we run same selftest from L1 shell, then guest_code will be running in EL0/1 like running from L0.
-> > 
-> > What good does this bring us if we need to boot a full guest OS to run
-> > tests? What we need is synthetic tests that implement the whole stack:
-> > 
-> > - L1 guest hypervisor
-> > - L2 guest hypervisor
-> > - L2 guest
-> > - L3 guest hypervisor
-> > - L3 guest
-> > - [...]
-> 
-> IIUC, selftest leverages host OS support and uses various IOCTLs to
-> support the guest_code run. Are you saying to implement all this
-> again (without OS help) in guest_code to run it as hypervisor and
-> launch guest_code2 as NestedVM?.
+This patch series adds support for the AM62D SoC and its evaluation
+module (EVM) board, enable eMMC and firmware-name update for
+AM62D2-EVM board.
 
-The whole point of having small selftests is to run something that is
-simpler several orders of magnitude simpler than the full blown
-OS/hypervisor. So indeed, I'm asking for selftests that build chains
-of guests up to some level and verify that the nesting, as described
-in the architecture, works correctly.
+The AM62D SoC is a high-performance Digital Signal Processing (DSP)
+device with a quad-core Cortex-A53 cluster, dual Cortex-R5F cores,
+and a Cx7 DSP core with Matrix Multiplication Accelerator (MMA).
+It features a range of peripherals, including multichannel audio
+serial ports, Ethernet, UARTs, SPI, I2C, USB, and more.
 
-> It seems to be complicated, doesn't it?
+The EVM board is a low-cost, expandable platform designed for the AM62D2
+SoC, having 4GB LPDDR4 RAM, Gigabit Ethernet expansion connectors, audio
+jacks, USB ports, and more.
 
-Yes, it is complicated. What did you expect?
+This SoC is part K3 AM62x family, which includes the AM62A and AM62P
+variants. While the AM62A and AM62D are largely similar, the AM62D is
+specifically targeted for general-purpose DSP applications, whereas the
+AM62A focuses on edge AI workloads. A key distinction is that the AM62D
+does not include multimedia components such as the video encoder/decoder,
+MJPEG encoder, Vision Processing Accelerator (VPAC) for image signal
+processing, or the display subsystem. Additionally, the AM62D has a
+different pin configuration compared to the AM62A, which impacts embedded
+software development.
 
-	M.
+This patch series includes updates to the dts and dtsi files, device tree
+bindings, and pin control header files to support the AM62D SoC and EVM
+board.
+
+Bootlog-
+
+SD Card
+https://gist.github.com/paresh-bhagat12/1757cc54a39f1baf883341af2a383db6
+
+eMMC
+https://gist.github.com/paresh-bhagat12/36c756422ff71fa9568c45e9b44332f0
+
+Tech Ref Manual-https://www.ti.com/lit/pdf/sprujd4
+Schematics Link-https://www.ti.com/lit/zip/sprcal5
+
+Change Log:
+V3 -> V4:
+	- Added bootph-all property at source nodes.
+	- Reuse dtsi files of am62a (instead of common files).
+	- Added eMMC support.
+	- Updated firmware name for am62d.
+
+V2 -> V3:
+	- Added bootph-all property to essential device nodes.
+	- Updated reserved memory for ATF.
+	- Introduce common dtsi files for AM62A and AM62D.
+
+V1 -> V2: Fixed indentation and build errors.
+
+Paresh Bhagat (6):
+  arm64: dts: ti: Add bootph property to nodes at source for am62a
+  dt-bindings: arm: ti: Add bindings for AM62D2 SoC
+  arm64: dts: ti: Add pinctrl entries for AM62D2 family of SoCs
+  arm64: dts: ti: Add support for AM62D2-EVM
+  arm64: dts: ti: Update firmware-name for IPC
+  arm64: dts: ti: Add eMMC support for AM62D
+
+ .../devicetree/bindings/arm/ti/k3.yaml        |   6 +
+ arch/arm64/boot/dts/ti/Makefile               |   3 +
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi     |  15 +
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi      |   1 +
+ arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi   |   3 +
+ arch/arm64/boot/dts/ti/k3-am62a.dtsi          |   3 +
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts      | 590 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-pinctrl.h           |   3 +
+ 8 files changed, 624 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
