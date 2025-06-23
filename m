@@ -4,98 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EA0C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 09:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA322C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Jun 2025 10:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UBGOUpuPOeKtQ2u8AmnXlBkDE/8J7UlX6pI6buIBoY=; b=OEwzBFvAJ4PC8qsaxpo8UYEIuI
-	KydKUxpS5RfMcH5hxoS03mLkttHYuz5LVo9C8xrxXt7Rd+hz/I/J0uKDJvY9gsCd6xTVUSmgyQopz
-	BMof8A5nW9TbMYLxlcPGxQn4H7bXUSh0aI1lJg3hj4z8e2LXd700OE5oHXQftmfv2D5tu97xVnOMh
-	h4qEygZB2PYb9oK7PFpS1fZnT/AbsnzJB0x24qrZ11MnoDfoZrAG6m86HMWU2DD+tg0KLxCsmLY7l
-	vb2sD2dAEzQ/yguQX872VtHJNyYk9lFVXDN/sxR7BQlgUjAjaY2ZxkhvCt9F0Hq+5V4rdxKLdaxaM
-	250RzOJg==;
+	bh=CO2Yv8mvtVnbw83S4ygWvmH/aXMEMWmBFGSlH89yQbE=; b=FXXUv7COCT4ic4E4Jf+XWffZZU
+	gd92XjUdg0PPNCHQE5vgp79y2t3VrnjgEUpbsgLT7UBOvgsRQrsKmykBDgsSgdu/gvb9HAqaZdqOf
+	EZonOQVgLjL229+9Iw/V1I6qtfJs3hIf8l04f/kqzzYl+Vh1UYjykaTA/9YHSxvheqpGPg6v2JuYF
+	6G6mjnl1dOh9aKfCjO/GcYqF9uAFmwKVG4yeQ/5js0CHBlmj4H1xX3msRvR7c9AhmSZBF/n4EuXja
+	B3ShzQLMKTAIdNfCaMery+t1lXMmaLKklEEZSbZFRGpF3cYfA8oUf1J1o9ZyZ3Cicmy1XqS0F2tm2
+	lb+L3XaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdx3-00000002GTx-0wzn;
-	Mon, 23 Jun 2025 09:58:57 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uTdzN-00000002GzY-4AYg;
+	Mon, 23 Jun 2025 10:01:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTdV4-00000002AyO-2M3F
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 09:30:04 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55N6FIfA015580;
-	Mon, 23 Jun 2025 11:29:52 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	4UBGOUpuPOeKtQ2u8AmnXlBkDE/8J7UlX6pI6buIBoY=; b=8A0DskKkVRd4jcDB
-	kIqXuPfJA3i+Z70bOMyPkcoWwUjmMgHsriIQlswxSPPxWhpVfVJtT4SpmSXCJ2g2
-	eJLSSvnd1AsIHQyHH3VqGqj9Wny+vLIO5SiqR+1iXD1kubeMmgGL32K9D2Y9PcoB
-	xVUZPHxvIsoQT4dEONQtAleMRDFTt/WmOO5tGlw4JNZRyK/ubRZ+YGeMFZizEAb7
-	VtrqSZw1+GBgBhRWOL/CuhR37PkRDDunHtA/SsxA/Ovu0W5Ye3v+7rv0mG28n//D
-	Xad3FLCfbS5MvHotgd+W0WgA0rDrYSSRQ68hdIvHHvuZC/taa8D2kNlAFiBJm+7L
-	K3h3aQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dm3372qg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Jun 2025 11:29:52 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 539DD40053;
-	Mon, 23 Jun 2025 11:28:34 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8C1135C3DDD;
-	Mon, 23 Jun 2025 11:27:26 +0200 (CEST)
-Received: from localhost (10.252.18.29) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 23 Jun
- 2025 11:27:26 +0200
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 23 Jun 2025 11:27:11 +0200
-Subject: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
+	id 1uTdV7-00000002Az6-3j1R;
+	Mon, 23 Jun 2025 09:30:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=CO2Yv8mvtVnbw83S4ygWvmH/aXMEMWmBFGSlH89yQbE=; b=RHIAGf85I0GVIekzse2flPZfzc
+	fKqYx9hxvhmArOCBKPFy1O2WcLxY1GMeUMGlA5VkulLjB0EGwtl77Cz3o04+85ngNoOhn4fGmUL+R
+	rmBJ/FDxKA3FX/KJWRoxeRsHWEKvWniTBOHizc64BGZIyTLxue8Ope3rqjlEUtXSBLQizZ4VxS0rz
+	AUpjpZANQrbNSSanvQ7sduTBsYkux0GtNA75NZpPutFUF+4vehkUzMXG3N4IITlGwMLHtLrXEKx1j
+	zMltlT9a2o7hDfZ75ttK2R69tSS0XdphFO/VI6mJeXbFuWUFN9eMcams9vSRp2ha1YnXzj1K0AxyG
+	umUVF59A==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTdV4-00000005AUZ-10ZM;
+	Mon, 23 Jun 2025 09:30:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750670997;
+	bh=93LvT2AyDuZLCkQY4pcrxtgY+4xqSrj/F2js6dy7NLc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B43e1nc+8u8xc3ZSQsLIvfdR4IT47N8C105njen/znscR7m9r3XPf9OSsSXYg5Dhu
+	 GbF42+9aQXC5aAm7ehKReyr0B2GVOwMpGVeF+TAmAdQsjLddOCawSoERhwUlACeYX6
+	 uiICdFopniqOxcWd+mV0GRk7M6vjf6vjVmUTpc50aDeEEsvEVymLILQtR81uFWGUrX
+	 5pwKd4bhpJzbDV3Amwwl5RC2lqgyndzsujTX+veJfxhVKDfIwu21+iwicAhKQEqpkV
+	 ccptGFADPuAYZ26avbCI2G6sPvu+2mkXyZL+LzsyhxtVNodR4UF3Pv5rGVyRb40ZAw
+	 5DvLPDAPqlJEA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0748717E0CE6;
+	Mon, 23 Jun 2025 11:29:56 +0200 (CEST)
+Message-ID: <141c1501-6dd0-442b-8156-95497eb6c866@collabora.com>
+Date: Mon, 23 Jun 2025 11:29:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
-In-Reply-To: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Originating-IP: [10.252.18.29]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-23_03,2025-06-23_02,2025-03-28_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/10] ASoC: mediatek: mt8196: add platform driver
+To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
+References: <20250620094140.11093-1-darren.ye@mediatek.com>
+ <20250620094140.11093-8-darren.ye@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250620094140.11093-8-darren.ye@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_023002_910972_65C3BBEE 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20250623_103002_630906_B46FFB2D 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,967 +96,893 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the driver for the DDR Performance Monitor available on
-STM32MPU SoC.
+Il 20/06/25 11:40, Darren.Ye ha scritto:
+> From: Darren Ye <darren.ye@mediatek.com>
+> 
+> Add mt8196 platform driver.
+> 
+> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+> ---
+>   sound/soc/mediatek/Kconfig                 |   10 +
+>   sound/soc/mediatek/Makefile                |    1 +
+>   sound/soc/mediatek/mt8196/Makefile         |   14 +
+>   sound/soc/mediatek/mt8196/mt8196-afe-pcm.c | 2657 ++++++++++++++++++++
+>   4 files changed, 2682 insertions(+)
+>   create mode 100644 sound/soc/mediatek/mt8196/Makefile
+>   create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+> 
+> diff --git a/sound/soc/mediatek/Kconfig b/sound/soc/mediatek/Kconfig
+> index 90e367586493..63d4abebb539 100644
+> --- a/sound/soc/mediatek/Kconfig
+> +++ b/sound/soc/mediatek/Kconfig
+> @@ -319,3 +319,13 @@ config SND_SOC_MT8365_MT6357
+>   	  boards with the MT6357 PMIC codec.
+>   	  Select Y if you have such device.
+>   	  If unsure select "N".
+> +
+> +config SND_SOC_MT8196
+> +	tristate "ASoC support for Mediatek MT8196 chip"
+> +	depends on ARCH_MEDIATEK
+> +	select SND_SOC_MEDIATEK
+> +	help
+> +	  This adds ASoC driver for Mediatek MT8196 boards
+> +	  that can be used with other codecs.
+> +	  Select Y if you have such device.
+> +	  If unsure select "N".
+> \ No newline at end of file
+> diff --git a/sound/soc/mediatek/Makefile b/sound/soc/mediatek/Makefile
+> index 4b55434f2168..11d7c484a5d3 100644
+> --- a/sound/soc/mediatek/Makefile
+> +++ b/sound/soc/mediatek/Makefile
+> @@ -10,3 +10,4 @@ obj-$(CONFIG_SND_SOC_MT8188) += mt8188/
+>   obj-$(CONFIG_SND_SOC_MT8192) += mt8192/
+>   obj-$(CONFIG_SND_SOC_MT8195) += mt8195/
+>   obj-$(CONFIG_SND_SOC_MT8365) += mt8365/
+> +obj-$(CONFIG_SND_SOC_MT8196) += mt8196/
+> diff --git a/sound/soc/mediatek/mt8196/Makefile b/sound/soc/mediatek/mt8196/Makefile
+> new file mode 100644
+> index 000000000000..33f1fc768bd2
+> --- /dev/null
+> +++ b/sound/soc/mediatek/mt8196/Makefile
+> @@ -0,0 +1,14 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +# common include path
+> +subdir-ccflags-y += -I$(srctree)/sound/soc/mediatek/common
+> +
+> +# platform driver
+> +snd-soc-mt8196-afe-objs += \
+> +	mt8196-afe-pcm.o \
+> +	mt8196-afe-clk.o \
+> +	mt8196-dai-adda.o \
+> +	mt8196-dai-i2s.o \
+> +	mt8196-dai-tdm.o
+> +
+> +obj-$(CONFIG_SND_SOC_MT8196) += snd-soc-mt8196-afe.o
+> diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+> new file mode 100644
+> index 000000000000..3f3c8715c2d1
+> --- /dev/null
+> +++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+> @@ -0,0 +1,2657 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + *  Mediatek ALSA SoC AFE platform driver for 8196
+> + *
+> + *  Copyright (c) 2024 MediaTek Inc.
+> + *  Author: Darren Ye <darren.ye@mediatek.com>
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+> +#include <linux/of_device.h>
+> +#include <sound/soc.h>
+> +#include <linux/of_reserved_mem.h>
+> +
+> +#include "mt8196-afe-clk.h"
+> +#include "mt8196-afe-common.h"
+> +#include "mtk-afe-fe-dai.h"
+> +#include "mtk-afe-platform-driver.h"
+> +#include "mt8196-interconnection.h"
+> +
+> +static const struct snd_pcm_hardware mt8196_afe_hardware = {
+> +	.info = (SNDRV_PCM_INFO_MMAP |
+> +		 SNDRV_PCM_INFO_NO_PERIOD_WAKEUP |
+> +		 SNDRV_PCM_INFO_INTERLEAVED |
+> +		 SNDRV_PCM_INFO_MMAP_VALID),
+> +	.formats = (SNDRV_PCM_FMTBIT_S16_LE |
+> +		    SNDRV_PCM_FMTBIT_S24_LE |
+> +		    SNDRV_PCM_FMTBIT_S32_LE),
+> +	.period_bytes_min = 96,
+> +	.period_bytes_max = 4 * 48 * 1024,
+> +	.periods_min = 2,
+> +	.periods_max = 256,
+> +	.buffer_bytes_max = 256 * 1024,
+> +	.fifo_size = 0,
+> +};
+> +
+> +static unsigned int mt8196_rate_transform(struct device *dev,
+> +					  unsigned int rate)
+> +{
+> +	switch (rate) {
+> +	case 8000:
+> +		return MTK_AFE_IPM2P0_RATE_8K;
+> +	case 11025:
+> +		return MTK_AFE_IPM2P0_RATE_11K;
+> +	case 12000:
+> +		return MTK_AFE_IPM2P0_RATE_12K;
+> +	case 16000:
+> +		return MTK_AFE_IPM2P0_RATE_16K;
+> +	case 22050:
+> +		return MTK_AFE_IPM2P0_RATE_22K;
+> +	case 24000:
+> +		return MTK_AFE_IPM2P0_RATE_24K;
+> +	case 32000:
+> +		return MTK_AFE_IPM2P0_RATE_32K;
+> +	case 44100:
+> +		return MTK_AFE_IPM2P0_RATE_44K;
+> +	case 48000:
+> +		return MTK_AFE_IPM2P0_RATE_48K;
+> +	case 88200:
+> +		return MTK_AFE_IPM2P0_RATE_88K;
+> +	case 96000:
+> +		return MTK_AFE_IPM2P0_RATE_96K;
+> +	case 176400:
+> +		return MTK_AFE_IPM2P0_RATE_176K;
+> +	case 192000:
+> +		return MTK_AFE_IPM2P0_RATE_192K;
+> +	/* not support 260K */
+> +	case 352800:
+> +		return MTK_AFE_IPM2P0_RATE_352K;
+> +	case 384000:
+> +		return MTK_AFE_IPM2P0_RATE_384K;
+> +	default:
+> +		dev_info(dev, "rate %u invalid, use %d!!!\n",
 
-On STM32MP2 platforms, the DDRPERFM allows to monitor up to 8 DDR events
-that come from the DDR Controller such as read or write events.
+dev_err
 
-On STM32MP1 platforms, the DDRPERFM cannot monitor any event on any
-counter, there is a notion of set of events.
-Events from different sets cannot be monitored at the same time.
-The first chosen event selects the set.
-The set is coded in the first two bytes of the config value which is on 4
-bytes.
+> +			 rate, MTK_AFE_IPM2P0_RATE_48K);
+> +		return MTK_AFE_IPM2P0_RATE_48K;
+> +	}
+> +}
+> +
+> +static void mt8196_set_cm_rate(struct mtk_base_afe *afe, int id, unsigned int rate)
+> +{
+> +	struct mt8196_afe_private *afe_priv = afe->platform_priv;
+> +
+> +	afe_priv->cm_rate[id] = rate;
+> +}
+> +
+> +static int mt8196_convert_cm_ch(unsigned int ch)
 
-On STM32MP25x series, the DDRPERFM clock is shared with the DDR controller
-and may be secured by bootloaders.
-Access controllers allow to check access to a resource. Use the access
-controller defined in the devicetree to know about the access to the
-DDRPERFM clock.
+static inline int....
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
----
- drivers/perf/Kconfig         |  11 +
- drivers/perf/Makefile        |   1 +
- drivers/perf/stm32_ddr_pmu.c | 893 +++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 905 insertions(+)
+> +{
+> +	return ch - 1;
+> +}
+> +
+> +static unsigned int calculate_cm_update(unsigned int rate, unsigned int ch)
+> +{
+> +	unsigned int update_val;
+> +
+> +	update_val = (((26000000 / rate) - 10) / (ch / 2)) - 1;
+> +
+> +	return update_val;
 
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 278c929dc87a..5118535134ee 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -198,6 +198,17 @@ config QCOM_L3_PMU
- 	   Adds the L3 cache PMU into the perf events subsystem for
- 	   monitoring L3 cache events.
- 
-+config STM32_DDR_PMU
-+	tristate "STM32 DDR PMU"
-+	depends on ARCH_STM32 || COMPILE_TEST
-+	default m
-+	help
-+	  Provides support for the DDR performance monitor on STM32MPU platforms.
-+	  The monitor provides counters for memory related events.
-+	  It allows developers to analyze and optimize DDR performance.
-+	  Enabling this feature is useful for performance tuning and debugging memory
-+	  subsystem issues on supported hardware.
-+
- config THUNDERX2_PMU
- 	tristate "Cavium ThunderX2 SoC PMU UNCORE"
- 	depends on ARCH_THUNDER2 || COMPILE_TEST
-diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
-index de71d2574857..7f83b50feb71 100644
---- a/drivers/perf/Makefile
-+++ b/drivers/perf/Makefile
-@@ -20,6 +20,7 @@ obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
- obj-$(CONFIG_RISCV_PMU_LEGACY) += riscv_pmu_legacy.o
- obj-$(CONFIG_RISCV_PMU_SBI) += riscv_pmu_sbi.o
- obj-$(CONFIG_STARFIVE_STARLINK_PMU) += starfive_starlink_pmu.o
-+obj-$(CONFIG_STM32_DDR_PMU) += stm32_ddr_pmu.o
- obj-$(CONFIG_THUNDERX2_PMU) += thunderx2_pmu.o
- obj-$(CONFIG_XGENE_PMU) += xgene_pmu.o
- obj-$(CONFIG_ARM_SPE_PMU) += arm_spe_pmu.o
-diff --git a/drivers/perf/stm32_ddr_pmu.c b/drivers/perf/stm32_ddr_pmu.c
-new file mode 100644
-index 000000000000..c0bce1f446a0
---- /dev/null
-+++ b/drivers/perf/stm32_ddr_pmu.c
-@@ -0,0 +1,893 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025, STMicroelectronics - All Rights Reserved
-+ * Author: Clément Le Goffic <clement.legoffic@foss.st.com> for STMicroelectronics.
-+ */
-+
-+#include <linux/bus/stm32_firewall_device.h>
-+#include <linux/clk.h>
-+#include <linux/hrtimer.h>
-+#include <linux/module.h>
-+#include <linux/of_platform.h>
-+#include <linux/perf_event.h>
-+#include <linux/reset.h>
-+
-+#define DRIVER_NAME		"stm32_ddr_pmu"
-+
-+/*
-+ * The PMU is able to freeze all counters and generate an interrupt when there
-+ * is a counter overflow. But, relying on this means that we lose all the
-+ * events that occur between the freeze and the interrupt handler execution.
-+ * So we use a polling mechanism to avoid this lost of information.
-+ * The fastest counter can overflow in ~7s @600MHz (that is the maximum DDR
-+ * frequency supported on STM32MP257), so we poll in 3.5s intervals to ensure
-+ * we don't reach this limit.
-+ */
-+#define POLL_MS			3500
-+
-+#define DDRPERFM_CTRL		0x000
-+#define DDRPERFM_CFG		0x004
-+#define DDRPERFM_STATUS		0x008
-+#define DDRPERFM_CLR		0x00C
-+#define DDRPERFM_TCNT		0x020
-+#define DDRPERFM_EVCNT(X)	(0x030 + 8 * (X))
-+
-+#define DDRPERFM_MP2_CFG0	0x010
-+#define DDRPERFM_MP2_CFG1	0x014
-+#define DDRPERFM_MP2_CFG5	0x024
-+#define DDRPERFM_MP2_DRAMINF	0x028
-+#define DDRPERFM_MP2_EVCNT(X)	(0x040 + 4 * (X))
-+#define DDRPERFM_MP2_TCNT	0x060
-+#define DDRPERFM_MP2_STATUS	0x080
-+
-+#define MP1_STATUS_BUSY		BIT(16)
-+#define MP2_STATUS_BUSY		BIT(31)
-+
-+#define CTRL_START		BIT(0)
-+#define CTRL_STOP		BIT(1)
-+
-+#define CFG_SEL_MSK		GENMASK(17, 16)
-+#define CFG_SEL_SHIFT		16
-+#define CFG_EN_MSK		GENMASK(3, 0)
-+
-+#define MP1_CLR_CNT		GENMASK(3, 0)
-+#define MP1_CLR_TIME		BIT(31)
-+#define MP2_CLR_CNT		GENMASK(7, 0)
-+#define MP2_CLR_TIME		BIT(8)
-+
-+/* 4 event counters plus 1 dedicated to time */
-+#define MP1_CNT_NB		(4 + 1)
-+/* Index of the time dedicated counter */
-+#define MP1_TIME_CNT_IDX	4
-+
-+/* 8 event counters plus 1 dedicated to time */
-+#define MP2_CNT_NB		(8 + 1)
-+/* Index of the time dedicated counter */
-+#define MP2_TIME_CNT_IDX	8
-+/* 4 event counters per register */
-+#define MP2_CNT_SEL_PER_REG	4
-+
-+/* Arbitrary value used to identify a time event */
-+#define TIME_CNT		64
-+
-+struct stm32_ddr_pmu_reg {
-+	unsigned int reg;
-+	u32 mask;
-+};
-+
-+struct stm32_ddr_cnt {
-+	int idx;
-+	struct perf_event *evt;
-+	struct list_head cnt_list;
-+};
-+
-+struct stm32_ddr_pmu_regspec {
-+	const struct stm32_ddr_pmu_reg stop;
-+	const struct stm32_ddr_pmu_reg start;
-+	const struct stm32_ddr_pmu_reg enable;
-+	const struct stm32_ddr_pmu_reg status;
-+	const struct stm32_ddr_pmu_reg clear_cnt;
-+	const struct stm32_ddr_pmu_reg clear_time;
-+	const struct stm32_ddr_pmu_reg cfg;
-+	const struct stm32_ddr_pmu_reg cfg0;
-+	const struct stm32_ddr_pmu_reg cfg1;
-+	const struct stm32_ddr_pmu_reg dram_inf;
-+	const struct stm32_ddr_pmu_reg counter_time;
-+	const struct stm32_ddr_pmu_reg counter_evt[];
-+};
-+
-+struct stm32_ddr_pmu {
-+	struct pmu pmu;
-+	void __iomem *membase;
-+	struct device *dev;
-+	struct clk *clk;
-+	const struct stm32_ddr_pmu_cfg *cfg;
-+	struct hrtimer hrtimer;
-+	ktime_t poll_period;
-+	int selected_set;
-+	u32 dram_type;
-+	struct list_head counters[];
-+};
-+
-+struct stm32_ddr_pmu_cfg {
-+	const struct stm32_ddr_pmu_regspec *regs;
-+	const struct attribute_group **attribute;
-+	u32 counters_nb;
-+	u32 evt_counters_nb;
-+	u32 time_cnt_idx;
-+	struct stm32_ddr_cnt * (*get_counter)(struct stm32_ddr_pmu *p, struct perf_event *e);
-+};
-+
-+#define EVENT_NUMBER(group, index)	(((group) << 8) | (index))
-+#define GROUP_VALUE(event_number)		((event_number) >> 8)
-+#define EVENT_INDEX(event_number)	((event_number) & 0xFF)
-+
-+/* MP1 ddrperfm events */
-+enum stm32_ddr_pmu_events_mp1 {
-+	PERF_OP_IS_RD			= EVENT_NUMBER(0, 0),
-+	PERF_OP_IS_WR			= EVENT_NUMBER(0, 1),
-+	PERF_OP_IS_ACTIVATE		= EVENT_NUMBER(0, 2),
-+	CTL_IDLE			= EVENT_NUMBER(0, 3),
-+	PERF_HPR_REQ_WITH_NO_CREDIT	= EVENT_NUMBER(1, 0),
-+	PERF_LPR_REQ_WITH_NO_CREDIT	= EVENT_NUMBER(1, 1),
-+	CACTIVE_DDRC			= EVENT_NUMBER(1, 3),
-+	PERF_OP_IS_ENTER_POWERDOWN	= EVENT_NUMBER(2, 0),
-+	PERF_OP_IS_REFRESH		= EVENT_NUMBER(2, 1),
-+	PERF_SELFRESH_MODE		= EVENT_NUMBER(2, 2),
-+	DFI_LP_REQ			= EVENT_NUMBER(2, 3),
-+	PERF_HPR_XACT_WHEN_CRITICAL	= EVENT_NUMBER(3, 0),
-+	PERF_LPR_XACT_WHEN_CRITICAL	= EVENT_NUMBER(3, 1),
-+	PERF_WR_XACT_WHEN_CRITICAL	= EVENT_NUMBER(3, 2),
-+	DFI_LP_REQ_SCND			= EVENT_NUMBER(3, 3),
-+};
-+
-+/* MP2 ddrperfm events */
-+enum stm32_ddr_pmu_events_mp2 {
-+	DFI_IS_ACT			= EVENT_NUMBER(0, 0),
-+	DFI_IS_PREPB			= EVENT_NUMBER(0, 1),
-+	DFI_IS_PREAB			= EVENT_NUMBER(0, 2),
-+	DFI_IS_RD			= EVENT_NUMBER(0, 3),
-+	DFI_IS_RDA			= EVENT_NUMBER(0, 4),
-+	DFI_IS_WR			= EVENT_NUMBER(0, 6),
-+	DFI_IS_WRA			= EVENT_NUMBER(0, 7),
-+	DFI_IS_MWR			= EVENT_NUMBER(0, 9),
-+	DFI_IS_MWRA			= EVENT_NUMBER(0, 10),
-+	DFI_IS_MRW			= EVENT_NUMBER(0, 12),
-+	DFI_IS_MRR			= EVENT_NUMBER(0, 13),
-+	DFI_IS_REFPB			= EVENT_NUMBER(0, 14),
-+	DFI_IS_REFAB			= EVENT_NUMBER(0, 15),
-+	DFI_IS_MPC			= EVENT_NUMBER(0, 16),
-+	PERF_OP_IS_ACT			= EVENT_NUMBER(0, 32),
-+	PERF_OP_IS_RD_MP2		= EVENT_NUMBER(0, 33),
-+	PERF_OP_IS_WR_MP2		= EVENT_NUMBER(0, 34),
-+	PERF_OP_IS_MWR			= EVENT_NUMBER(0, 35),
-+	PERF_OP_IS_REF			= EVENT_NUMBER(0, 36),
-+	PERF_OP_IS_CRIT_REF		= EVENT_NUMBER(0, 37),
-+	PERF_OP_IS_SPEC_REF		= EVENT_NUMBER(0, 38),
-+	PERF_OP_IS_ZQCAL		= EVENT_NUMBER(0, 39),
-+	PERF_OP_IS_ENTER_POWDN		= EVENT_NUMBER(0, 40),
-+	PERF_OP_IS_ENTER_SELFREF	= EVENT_NUMBER(0, 41),
-+	PERF_OP_IS_PRE			= EVENT_NUMBER(0, 42),
-+	PERF_OP_IS_PRE_FOR_RDWR		= EVENT_NUMBER(0, 43),
-+	PERF_OP_IS_PRE_FOR_OTHERS	= EVENT_NUMBER(0, 44),
-+	PERF_OP_IS_RD_ACTIVATE		= EVENT_NUMBER(0, 45),
-+	PERF_HPR_REQ_WITH_NOCREDIT	= EVENT_NUMBER(0, 48),
-+	PERF_LPR_REQ_WITH_NOCREDIT	= EVENT_NUMBER(0, 49),
-+	PERF_HPR_XACT_WHEN_CRITICAL_MP2	= EVENT_NUMBER(0, 50),
-+	PERF_LPR_XACT_WHEN_CRITICAL_MP2	= EVENT_NUMBER(0, 51),
-+	PERF_WR_XACT_WHEN_CRITICAL_MP2	= EVENT_NUMBER(0, 52),
-+	PERF_RDWR_TRANSITIONS		= EVENT_NUMBER(0, 53),
-+	PERF_WAR_HAZARD			= EVENT_NUMBER(0, 54),
-+	PERF_RAW_HAZARD			= EVENT_NUMBER(0, 55),
-+	PERF_WAW_HAZARD			= EVENT_NUMBER(0, 56),
-+	PERF_RANK			= EVENT_NUMBER(0, 58),
-+	PERF_READ_BYPASS		= EVENT_NUMBER(0, 59),
-+	PERF_ACT_BYPASS			= EVENT_NUMBER(0, 60),
-+	PERF_WINDOW_LIMIT_REACHED_RD	= EVENT_NUMBER(0, 61),
-+	PERF_WINDOW_LIMIT_REACHED_WR	= EVENT_NUMBER(0, 62),
-+	NO_EVENT			= EVENT_NUMBER(0, 63),
-+};
-+
-+static struct stm32_ddr_pmu *to_stm32_ddr_pmu(struct pmu *p)
-+{
-+	return container_of(p, struct stm32_ddr_pmu, pmu);
-+}
-+
-+static struct stm32_ddr_pmu *hrtimer_to_stm32_ddr_pmu(struct hrtimer *h)
-+{
-+	return container_of(h, struct stm32_ddr_pmu, hrtimer);
-+}
-+
-+static void stm32_ddr_start_counters(struct stm32_ddr_pmu *pmu)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+
-+	writel_relaxed(r->start.mask, pmu->membase + r->start.reg);
-+}
-+
-+static void stm32_ddr_stop_counters(struct stm32_ddr_pmu *pmu)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+
-+	writel_relaxed(r->stop.mask, pmu->membase + r->stop.reg);
-+}
-+
-+static void stm32_ddr_clear_time_counter(struct stm32_ddr_pmu *pmu)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+
-+	writel_relaxed(r->clear_time.mask, pmu->membase + r->clear_time.reg);
-+}
-+
-+static void stm32_ddr_clear_event_counter(struct stm32_ddr_pmu *pmu, struct stm32_ddr_cnt *counter)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+
-+	writel_relaxed(r->clear_cnt.mask & BIT(counter->idx), pmu->membase + r->clear_cnt.reg);
-+}
-+
-+static void stm32_ddr_clear_counter(struct stm32_ddr_pmu *pmu, struct stm32_ddr_cnt *counter)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+	u32 status = readl_relaxed(pmu->membase + r->status.reg);
-+
-+	if (counter->idx == pmu->cfg->time_cnt_idx)
-+		stm32_ddr_clear_time_counter(pmu);
-+	else
-+		stm32_ddr_clear_event_counter(pmu, counter);
-+
-+	if (status & r->status.mask)
-+		dev_err(pmu->dev, "Failed to clear counter %i because the PMU is busy\n",
-+			counter->idx);
-+}
-+
-+static void stm32_ddr_counter_enable(struct stm32_ddr_pmu *pmu, struct stm32_ddr_cnt *counter)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+	u32 val = readl_relaxed(pmu->membase + r->enable.reg);
-+
-+	val |= BIT(counter->idx);
-+	writel_relaxed(val, pmu->membase + r->enable.reg);
-+}
-+
-+static void stm32_ddr_counter_disable(struct stm32_ddr_pmu *pmu, struct stm32_ddr_cnt *counter)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+	u32 val = readl_relaxed(pmu->membase + r->enable.reg);
-+
-+	val &= ~BIT(counter->idx);
-+	writel_relaxed(val, pmu->membase + r->enable.reg);
-+}
-+
-+static int stm32_ddr_sel_evnt(struct stm32_ddr_pmu *pmu, struct stm32_ddr_cnt *counter)
-+{
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+	u32 cnt_sel_val;
-+
-+	u32 group_val = GROUP_VALUE(counter->evt->attr.config);
-+	u32 evt_val = EVENT_INDEX(counter->evt->attr.config);
-+
-+	if (pmu->selected_set != -1 && pmu->selected_set != group_val) {
-+		dev_err(pmu->dev, "Selected events are from different set\n");
-+		return -EINVAL;
-+	}
-+	pmu->selected_set = group_val;
-+
-+	if (pmu->cfg->regs->cfg.reg) {
-+		cnt_sel_val = readl_relaxed(pmu->membase + r->cfg.reg);
-+		cnt_sel_val &= ~CFG_SEL_MSK;
-+		cnt_sel_val |= (CFG_SEL_MSK & (group_val << CFG_SEL_SHIFT));
-+		writel_relaxed(cnt_sel_val, pmu->membase + r->cfg.reg);
-+
-+		return 0;
-+	}
-+
-+	/* We assume cfg0 and cfg1 are filled in the match data */
-+	u32 cnt_idx = counter->idx;
-+	u32 cnt_sel_evt_reg = r->cfg0.reg;
-+
-+	if (!(cnt_idx < MP2_CNT_SEL_PER_REG)) {
-+		cnt_sel_evt_reg = r->cfg1.reg;
-+		cnt_idx -= MP2_CNT_SEL_PER_REG;
-+	}
-+
-+	cnt_sel_val = readl_relaxed(pmu->membase + cnt_sel_evt_reg);
-+	cnt_sel_val &= ~GENMASK(8 * cnt_idx + 7, 8 * cnt_idx);
-+	cnt_sel_val |= evt_val << (8 * cnt_idx);
-+
-+	writel_relaxed(cnt_sel_val, pmu->membase + cnt_sel_evt_reg);
-+
-+	return 0;
-+}
-+
-+static struct stm32_ddr_cnt *stm32_ddr_pmu_get_event_counter_mp1(struct stm32_ddr_pmu *pmu,
-+								 struct perf_event *event)
-+{
-+	u32 config = event->attr.config;
-+	u32 event_idx = EVENT_INDEX(config);
-+	struct stm32_ddr_cnt *cnt;
-+
-+	cnt = kzalloc(sizeof(*cnt), GFP_KERNEL);
-+	if (!cnt)
-+		return ERR_PTR(-ENOMEM);
-+
-+	cnt->evt = event;
-+	cnt->idx = event_idx;
-+	event->pmu_private = cnt;
-+	list_add(&cnt->cnt_list, &pmu->counters[event_idx]);
-+
-+	return cnt;
-+}
-+
-+static struct stm32_ddr_cnt *stm32_ddr_pmu_get_event_counter_mp2(struct stm32_ddr_pmu *pmu,
-+								 struct perf_event *event)
-+{
-+	struct stm32_ddr_cnt *cnt;
-+	int idx = -1;
-+
-+	/* Loop on all the counters except TIME_CNT_IDX */
-+	for (int i = 0; i < pmu->cfg->evt_counters_nb; i++) {
-+		u64 config;
-+
-+		if (list_empty(&pmu->counters[i])) {
-+			idx = i;
-+			continue;
-+		}
-+		config = list_first_entry(&pmu->counters[i], struct stm32_ddr_cnt,
-+					  cnt_list)->evt->attr.config;
-+		if (config == event->attr.config) {
-+			idx = i;
-+			break;
-+		}
-+	}
-+
-+	if (idx == -1)
-+		return ERR_PTR(-ENOENT);
-+
-+	cnt = kzalloc(sizeof(*cnt), GFP_KERNEL);
-+	if (!cnt)
-+		return ERR_PTR(-ENOMEM);
-+
-+	cnt->evt = event;
-+	cnt->idx = idx;
-+	event->pmu_private = cnt;
-+
-+	list_add(&cnt->cnt_list, &pmu->counters[idx]);
-+
-+	return cnt;
-+}
-+
-+static inline struct stm32_ddr_cnt *stm32_get_event_counter(struct stm32_ddr_pmu *pmu,
-+							    struct perf_event *event)
-+{
-+	return pmu->cfg->get_counter(pmu, event);
-+}
-+
-+static int stm32_ddr_pmu_get_counter(struct stm32_ddr_pmu *pmu, struct perf_event *event)
-+{
-+	u32 time_cnt_idx = pmu->cfg->time_cnt_idx;
-+	u32 config = event->attr.config;
-+	struct stm32_ddr_cnt *cnt;
-+
-+	if (!pmu || !event)
-+		return -EINVAL;
-+
-+	pmu->selected_set = GROUP_VALUE(config);
-+
-+	if (config == TIME_CNT) {
-+		cnt = kzalloc(sizeof(*cnt), GFP_KERNEL);
-+		if (!cnt)
-+			return -ENOMEM;
-+
-+		cnt->evt = event;
-+		cnt->idx = time_cnt_idx;
-+		event->pmu_private = cnt;
-+		list_add(&cnt->cnt_list, &pmu->counters[time_cnt_idx]);
-+
-+		return 0;
-+	}
-+
-+	cnt = stm32_get_event_counter(pmu, event);
-+	if (IS_ERR(cnt))
-+		return PTR_ERR(cnt);
-+
-+	if (list_count_nodes(&cnt->cnt_list) == 1) {
-+		stm32_ddr_stop_counters(pmu);
-+		stm32_ddr_sel_evnt(pmu, cnt);
-+		stm32_ddr_counter_enable(pmu, cnt);
-+		stm32_ddr_start_counters(pmu);
-+	}
-+
-+	return 0;
-+}
-+
-+static void stm32_ddr_pmu_free_counter(struct stm32_ddr_pmu *pmu,
-+				       struct stm32_ddr_cnt *counter)
-+{
-+	size_t count = list_count_nodes(&counter->cnt_list);
-+
-+	if (counter->evt->attr.config != TIME_CNT && count == 1)
-+		stm32_ddr_counter_disable(pmu, counter);
-+
-+	list_del(&counter->cnt_list);
-+	kfree(counter);
-+}
-+
-+static void stm32_ddr_pmu_event_update_list(struct stm32_ddr_pmu *pmu, struct list_head *list)
-+{
-+	struct stm32_ddr_cnt *counter = list_first_entry(list, struct stm32_ddr_cnt, cnt_list);
-+	const struct stm32_ddr_pmu_regspec *r = pmu->cfg->regs;
-+	u32 val;
-+
-+	if (counter->evt->attr.config != TIME_CNT)
-+		val = readl_relaxed(pmu->membase + r->counter_evt[counter->idx].reg);
-+	else
-+		val = readl_relaxed(pmu->membase + r->counter_time.reg);
-+
-+	stm32_ddr_clear_counter(pmu, counter);
-+
-+	list_for_each_entry(counter, list, cnt_list)
-+		local64_add(val, &counter->evt->count);
-+}
-+
-+static void stm32_ddr_pmu_event_read(struct perf_event *event)
-+{
-+	struct stm32_ddr_pmu *pmu = to_stm32_ddr_pmu(event->pmu);
-+	struct stm32_ddr_cnt *cnt = event->pmu_private;
-+
-+	hrtimer_start(&pmu->hrtimer, pmu->poll_period, HRTIMER_MODE_REL_PINNED);
-+
-+	stm32_ddr_stop_counters(pmu);
-+
-+	stm32_ddr_pmu_event_update_list(pmu, &pmu->counters[cnt->idx]);
-+
-+	stm32_ddr_start_counters(pmu);
-+}
-+
-+static void stm32_ddr_pmu_event_start(struct perf_event *event, int flags)
-+{
-+	struct stm32_ddr_pmu *pmu = to_stm32_ddr_pmu(event->pmu);
-+	struct stm32_ddr_cnt *counter = event->pmu_private;
-+	struct hw_perf_event *hw = &event->hw;
-+
-+	if (WARN_ON_ONCE(!(hw->state & PERF_HES_STOPPED)))
-+		return;
-+
-+	if (flags & PERF_EF_RELOAD)
-+		WARN_ON_ONCE(!(hw->state & PERF_HES_UPTODATE));
-+
-+	stm32_ddr_stop_counters(pmu);
-+
-+	if (list_count_nodes(&counter->cnt_list) == 1)
-+		stm32_ddr_clear_counter(pmu, counter);
-+	else
-+		stm32_ddr_pmu_event_update_list(pmu, &pmu->counters[counter->idx]);
-+
-+	stm32_ddr_start_counters(pmu);
-+	local64_set(&hw->prev_count, 0);
-+	hw->state = 0;
-+}
-+
-+static void stm32_ddr_pmu_event_stop(struct perf_event *event, int flags)
-+{
-+	struct hw_perf_event *hw = &event->hw;
-+
-+	if (WARN_ON_ONCE(hw->state & PERF_HES_STOPPED))
-+		return;
-+
-+	hw->state |= PERF_HES_STOPPED;
-+
-+	if (flags & PERF_EF_UPDATE) {
-+		stm32_ddr_pmu_event_read(event);
-+		hw->state |= PERF_HES_UPTODATE;
-+	}
-+}
-+
-+static int stm32_ddr_pmu_event_add(struct perf_event *event, int flags)
-+{
-+	struct stm32_ddr_pmu *pmu = to_stm32_ddr_pmu(event->pmu);
-+	int ret;
-+
-+	clk_enable(pmu->clk);
-+
-+	hrtimer_start(&pmu->hrtimer, pmu->poll_period, HRTIMER_MODE_REL_PINNED);
-+
-+	ret = stm32_ddr_pmu_get_counter(pmu, event);
-+	if (ret)
-+		return ret;
-+
-+	event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+
-+	if (flags & PERF_EF_START)
-+		stm32_ddr_pmu_event_start(event, flags);
-+
-+	return 0;
-+}
-+
-+static void stm32_ddr_pmu_event_del(struct perf_event *event, int flags)
-+{
-+	struct stm32_ddr_pmu *pmu = to_stm32_ddr_pmu(event->pmu);
-+	struct stm32_ddr_cnt *counter = event->pmu_private;
-+	bool events = true;
-+
-+	stm32_ddr_pmu_event_stop(event, PERF_EF_UPDATE);
-+
-+	stm32_ddr_pmu_free_counter(pmu, counter);
-+
-+	for (int i = 0; i < pmu->cfg->counters_nb; i++)
-+		events = !list_empty(&pmu->counters[i]);
-+
-+	/* If there is activity nothing to do */
-+	if (events)
-+		return;
-+
-+	hrtimer_cancel(&pmu->hrtimer);
-+	stm32_ddr_stop_counters(pmu);
-+
-+	pmu->selected_set = -1;
-+
-+	clk_disable(pmu->clk);
-+}
-+
-+static int stm32_ddr_pmu_event_init(struct perf_event *event)
-+{
-+	if (event->attr.type != event->pmu->type)
-+		return -ENOENT;
-+
-+	if (is_sampling_event(event) || event->attach_state & PERF_ATTACH_TASK)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static enum hrtimer_restart stm32_ddr_pmu_poll(struct hrtimer *hrtimer)
-+{
-+	struct stm32_ddr_pmu *pmu = hrtimer_to_stm32_ddr_pmu(hrtimer);
-+
-+	stm32_ddr_stop_counters(pmu);
-+
-+	for (int i = 0; i < MP2_CNT_NB; i++)
-+		if (!list_empty(&pmu->counters[i]))
-+			stm32_ddr_pmu_event_update_list(pmu, &pmu->counters[i]);
-+
-+	if (list_empty(&pmu->counters[pmu->cfg->time_cnt_idx]))
-+		stm32_ddr_clear_time_counter(pmu);
-+
-+	stm32_ddr_start_counters(pmu);
-+
-+	hrtimer_forward_now(hrtimer, pmu->poll_period);
-+
-+	return HRTIMER_RESTART;
-+}
-+
-+static ssize_t stm32_ddr_pmu_sysfs_show(struct device *dev, struct device_attribute *attr,
-+					char *buf)
-+{
-+	struct perf_pmu_events_attr *pmu_attr;
-+
-+	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
-+
-+	return sysfs_emit(buf, "event=0x%02llx\n", pmu_attr->id);
-+}
-+
-+#define STM32_DDR_PMU_EVENT_ATTR(_name, _id)			\
-+	PMU_EVENT_ATTR_ID(_name, stm32_ddr_pmu_sysfs_show, _id)
-+
-+static struct attribute *stm32_ddr_pmu_events_attrs_mp[] = {
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_rd, PERF_OP_IS_RD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_wr, PERF_OP_IS_WR),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_activate, PERF_OP_IS_ACTIVATE),
-+	STM32_DDR_PMU_EVENT_ATTR(ctl_idle, CTL_IDLE),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_hpr_req_with_no_credit, PERF_HPR_REQ_WITH_NO_CREDIT),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_lpr_req_with_no_credit, PERF_LPR_REQ_WITH_NO_CREDIT),
-+	STM32_DDR_PMU_EVENT_ATTR(cactive_ddrc, CACTIVE_DDRC),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_enter_powerdown, PERF_OP_IS_ENTER_POWERDOWN),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_refresh, PERF_OP_IS_REFRESH),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_selfresh_mode, PERF_SELFRESH_MODE),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_lp_req, DFI_LP_REQ),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_hpr_xact_when_critical, PERF_HPR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_lpr_xact_when_critical, PERF_LPR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_wr_xact_when_critical, PERF_WR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_lp_req_cpy, DFI_LP_REQ),  /* Suffixed '_cpy' to allow the
-+								* choice between sets 2 and 3
-+								*/
-+	STM32_DDR_PMU_EVENT_ATTR(time_cnt, TIME_CNT),
-+	NULL,
-+};
-+
-+static struct attribute_group stm32_ddr_pmu_events_attrs_group_mp = {
-+	.name = "events",
-+	.attrs = stm32_ddr_pmu_events_attrs_mp,
-+};
-+
-+static struct attribute *stm32_ddr_pmu_events_attrs_mp2[] = {
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_act, DFI_IS_ACT),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_prepb, DFI_IS_PREPB),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_preab, DFI_IS_PREAB),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_rd, DFI_IS_RD),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_rda, DFI_IS_RDA),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_wr, DFI_IS_WR),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_wra, DFI_IS_WRA),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_mwr, DFI_IS_MWR),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_mwra, DFI_IS_MWRA),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_mrw, DFI_IS_MRW),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_mrr, DFI_IS_MRR),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_refpb, DFI_IS_REFPB),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_refab, DFI_IS_REFAB),
-+	STM32_DDR_PMU_EVENT_ATTR(dfi_is_mpc, DFI_IS_MPC),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_act, PERF_OP_IS_ACT),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_rd, PERF_OP_IS_RD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_wr, PERF_OP_IS_WR),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_mwr, PERF_OP_IS_MWR),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_ref, PERF_OP_IS_REF),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_crit_ref, PERF_OP_IS_CRIT_REF),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_spec_ref, PERF_OP_IS_SPEC_REF),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_zqcal, PERF_OP_IS_ZQCAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_enter_powdn, PERF_OP_IS_ENTER_POWDN),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_enter_selfref, PERF_OP_IS_ENTER_SELFREF),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_pre, PERF_OP_IS_PRE),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_pre_for_rdwr, PERF_OP_IS_PRE_FOR_RDWR),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_pre_for_others, PERF_OP_IS_PRE_FOR_OTHERS),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_op_is_rd_activate, PERF_OP_IS_RD_ACTIVATE),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_hpr_req_with_nocredit, PERF_HPR_REQ_WITH_NOCREDIT),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_lpr_req_with_nocredit, PERF_LPR_REQ_WITH_NOCREDIT),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_hpr_xact_when_critical, PERF_HPR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_lpr_xact_when_critical, PERF_LPR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_wr_xact_when_critical, PERF_WR_XACT_WHEN_CRITICAL),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_rdwr_transitions, PERF_RDWR_TRANSITIONS),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_war_hazard, PERF_WAR_HAZARD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_raw_hazard, PERF_RAW_HAZARD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_waw_hazard, PERF_WAW_HAZARD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_rank, PERF_RANK),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_read_bypass, PERF_READ_BYPASS),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_act_bypass, PERF_ACT_BYPASS),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_window_limit_reached_rd, PERF_WINDOW_LIMIT_REACHED_RD),
-+	STM32_DDR_PMU_EVENT_ATTR(perf_window_limit_reached_wr, PERF_WINDOW_LIMIT_REACHED_WR),
-+	STM32_DDR_PMU_EVENT_ATTR(time_cnt, TIME_CNT),
-+	NULL
-+};
-+
-+static struct attribute_group stm32_ddr_pmu_events_attrs_group_mp2 = {
-+	.name = "events",
-+	.attrs = stm32_ddr_pmu_events_attrs_mp2,
-+};
-+
-+PMU_FORMAT_ATTR(event, "config:0-8");
-+
-+static struct attribute *stm32_ddr_pmu_format_attrs[] = {
-+	&format_attr_event.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group stm32_ddr_pmu_format_attr_group = {
-+	.name = "format",
-+	.attrs = stm32_ddr_pmu_format_attrs,
-+};
-+
-+static const struct attribute_group *stm32_ddr_pmu_attr_groups_mp1[] = {
-+	&stm32_ddr_pmu_events_attrs_group_mp,
-+	&stm32_ddr_pmu_format_attr_group,
-+	NULL,
-+};
-+
-+static const struct attribute_group *stm32_ddr_pmu_attr_groups_mp2[] = {
-+	&stm32_ddr_pmu_events_attrs_group_mp2,
-+	&stm32_ddr_pmu_format_attr_group,
-+	NULL,
-+};
-+
-+static int stm32_ddr_pmu_device_probe(struct platform_device *pdev)
-+{
-+	struct stm32_firewall firewall;
-+	struct stm32_ddr_pmu *pmu;
-+	struct reset_control *rst;
-+	struct resource *res;
-+	int ret;
-+
-+	pmu = devm_kzalloc(&pdev->dev, struct_size(pmu, counters, MP2_CNT_NB), GFP_KERNEL);
-+	if (!pmu)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, pmu);
-+	pmu->dev = &pdev->dev;
-+
-+	pmu->cfg = device_get_match_data(&pdev->dev);
-+
-+	pmu->membase = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(pmu->membase))
-+		return PTR_ERR(pmu->membase);
-+
-+	if (of_property_present(pmu->dev->of_node, "access-controllers")) {
-+		ret = stm32_firewall_get_firewall(pmu->dev->of_node, &firewall, 1);
-+		if (ret) {
-+			dev_err(pmu->dev, "Failed to get firewall\n");
-+			return ret;
-+		}
-+		ret = stm32_firewall_grant_access_by_id(&firewall, firewall.firewall_id);
-+		if (ret) {
-+			dev_err(pmu->dev, "Failed to grant access\n");
-+			return ret;
-+		}
-+	}
-+
-+	if (of_property_present(pmu->dev->of_node, "clocks")) {
-+		pmu->clk = devm_clk_get_prepared(pmu->dev, NULL);
-+		if (IS_ERR(pmu->clk)) {
-+			dev_err(pmu->dev, "Failed to get clock\n");
-+			return PTR_ERR(pmu->clk);
-+		}
-+	}
-+
-+	clk_enable(pmu->clk);
-+
-+	if (of_property_present(pdev->dev.of_node, "resets")) {
-+		rst = devm_reset_control_get(&pdev->dev, NULL);
-+		if (IS_ERR(rst)) {
-+			dev_err(&pdev->dev, "Failed to get reset\n");
-+			ret = PTR_ERR(rst);
-+			goto err_clk;
-+		}
-+		reset_control_assert(rst);
-+		reset_control_deassert(rst);
-+	}
-+
-+	pmu->poll_period = ms_to_ktime(POLL_MS);
-+	hrtimer_setup(&pmu->hrtimer, stm32_ddr_pmu_poll, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
-+
-+	for (int i = 0; i < MP2_CNT_NB; i++)
-+		INIT_LIST_HEAD(&pmu->counters[i]);
-+
-+	pmu->selected_set = -1;
-+
-+	pmu->pmu = (struct pmu) {
-+		.task_ctx_nr = perf_invalid_context,
-+		.start = stm32_ddr_pmu_event_start,
-+		.stop = stm32_ddr_pmu_event_stop,
-+		.add = stm32_ddr_pmu_event_add,
-+		.del = stm32_ddr_pmu_event_del,
-+		.read = stm32_ddr_pmu_event_read,
-+		.event_init = stm32_ddr_pmu_event_init,
-+		.attr_groups = pmu->cfg->attribute,
-+		.module = THIS_MODULE,
-+	};
-+
-+	ret = perf_pmu_register(&pmu->pmu, DRIVER_NAME, -1);
-+	if (ret) {
-+		dev_err(&pdev->dev, "Couldn't register DDRPERFM driver as a PMU\n");
-+		goto err_clk;
-+	}
-+
-+	if (pmu->cfg->regs->dram_inf.reg) {
-+		ret = of_property_read_u32(pdev->dev.of_node, "st,dram-type", &pmu->dram_type);
-+		if (ret) {
-+			dev_err(&pdev->dev, "Missing device-tree property 'st,dram-type'\n");
-+			perf_pmu_unregister(&pmu->pmu);
-+
-+			return ret;
-+		}
-+
-+		writel_relaxed(pmu->dram_type, pmu->membase + pmu->cfg->regs->dram_inf.reg);
-+	}
-+
-+	clk_disable(pmu->clk);
-+
-+	return 0;
-+
-+err_clk:
-+	clk_disable_unprepare(pmu->clk);
-+
-+	return ret;
-+}
-+
-+static void stm32_ddr_pmu_device_remove(struct platform_device *pdev)
-+{
-+	struct stm32_ddr_pmu *stm32_ddr_pmu = platform_get_drvdata(pdev);
-+
-+	perf_pmu_unregister(&stm32_ddr_pmu->pmu);
-+}
-+
-+static int __maybe_unused stm32_ddr_pmu_device_resume(struct device *dev)
-+{
-+	struct stm32_ddr_pmu *pmu = dev_get_drvdata(dev);
-+
-+	clk_enable(pmu->clk);
-+	writel_relaxed(pmu->dram_type, pmu->membase + pmu->cfg->regs->dram_inf.reg);
-+	clk_disable(pmu->clk);
-+
-+	return 0;
-+}
-+
-+static const struct stm32_ddr_pmu_regspec stm32_ddr_pmu_regspec_mp1 = {
-+	.stop =		{ DDRPERFM_CTRL, CTRL_STOP },
-+	.start =	{ DDRPERFM_CTRL, CTRL_START },
-+	.enable =	{ DDRPERFM_CFG },
-+	.cfg =		{ DDRPERFM_CFG },
-+	.status =	{ DDRPERFM_STATUS, MP1_STATUS_BUSY },
-+	.clear_cnt =	{ DDRPERFM_CLR, MP1_CLR_CNT},
-+	.clear_time =	{ DDRPERFM_CLR, MP1_CLR_TIME},
-+	.counter_time =	{ DDRPERFM_TCNT },
-+	.counter_evt =	{
-+				{ DDRPERFM_EVCNT(0) },
-+				{ DDRPERFM_EVCNT(1) },
-+				{ DDRPERFM_EVCNT(2) },
-+				{ DDRPERFM_EVCNT(3) },
-+	},
-+};
-+
-+static const struct stm32_ddr_pmu_regspec stm32_ddr_pmu_regspec_mp2 = {
-+	.stop =		{ DDRPERFM_CTRL, CTRL_STOP },
-+	.start =	{ DDRPERFM_CTRL, CTRL_START },
-+	.status =	{ DDRPERFM_MP2_STATUS, MP2_STATUS_BUSY },
-+	.clear_cnt =	{ DDRPERFM_CLR, MP2_CLR_CNT},
-+	.clear_time =	{ DDRPERFM_CLR, MP2_CLR_TIME},
-+	.cfg0 =		{ DDRPERFM_MP2_CFG0 },
-+	.cfg1 =		{ DDRPERFM_MP2_CFG1 },
-+	.enable =	{ DDRPERFM_MP2_CFG5 },
-+	.dram_inf =	{ DDRPERFM_MP2_DRAMINF },
-+	.counter_time =	{ DDRPERFM_MP2_TCNT },
-+	.counter_evt =	{
-+				{ DDRPERFM_MP2_EVCNT(0) },
-+				{ DDRPERFM_MP2_EVCNT(1) },
-+				{ DDRPERFM_MP2_EVCNT(2) },
-+				{ DDRPERFM_MP2_EVCNT(3) },
-+				{ DDRPERFM_MP2_EVCNT(4) },
-+				{ DDRPERFM_MP2_EVCNT(5) },
-+				{ DDRPERFM_MP2_EVCNT(6) },
-+				{ DDRPERFM_MP2_EVCNT(7) },
-+	},
-+};
-+
-+static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
-+	.regs = &stm32_ddr_pmu_regspec_mp1,
-+	.attribute = stm32_ddr_pmu_attr_groups_mp1,
-+	.counters_nb = MP1_CNT_NB,
-+	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
-+	.time_cnt_idx = MP1_TIME_CNT_IDX,
-+	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
-+};
-+
-+static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
-+	.regs = &stm32_ddr_pmu_regspec_mp2,
-+	.attribute = stm32_ddr_pmu_attr_groups_mp2,
-+	.counters_nb = MP2_CNT_NB,
-+	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
-+	.time_cnt_idx = MP2_TIME_CNT_IDX,
-+	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
-+};
-+
-+static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
-+	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
-+};
-+
-+static const struct of_device_id stm32_ddr_pmu_of_match[] = {
-+	{
-+		.compatible = "st,stm32mp131-ddr-pmu",
-+		.data = &stm32_ddr_pmu_cfg_mp1
-+	},
-+	{
-+		.compatible = "st,stm32mp151-ddr-pmu",
-+		.data = &stm32_ddr_pmu_cfg_mp1
-+	},
-+	{
-+		.compatible = "st,stm32mp251-ddr-pmu",
-+		.data = &stm32_ddr_pmu_cfg_mp2
-+	},
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, stm32_ddr_pmu_of_match);
-+
-+static struct platform_driver stm32_ddr_pmu_driver = {
-+	.driver = {
-+		.name = DRIVER_NAME,
-+		.pm = &stm32_ddr_pmu_pm_ops,
-+		.of_match_table = of_match_ptr(stm32_ddr_pmu_of_match),
-+	},
-+	.probe = stm32_ddr_pmu_device_probe,
-+	.remove = stm32_ddr_pmu_device_remove,
-+};
-+
-+module_platform_driver(stm32_ddr_pmu_driver);
-+
-+MODULE_AUTHOR("Clément Le Goffic");
-+MODULE_DESCRIPTION("STMicroelectronics STM32 DDR performance monitor driver");
-+MODULE_LICENSE("GPL");
+	return (((26000000 / rate) - 10) / (ch / 2)) - 1;
 
--- 
-2.43.0
+> +}
+> +
+
+..snip..
+
+> +
+> +static int mt8196_enable_cm_bypass(struct mtk_base_afe *afe, int id, bool en)
+> +{
+> +	int reg = AFE_CM0_CON0 + 0x10 * id;
+> +
+> +	regmap_update_bits(afe->regmap,
+> +			   reg,
+> +			   AFE_CM_BYPASS_MODE_MASK << AFE_CM_BYPASS_MODE_SFT,
+> +			   en << AFE_CM_BYPASS_MODE_SFT);
+> +
+> +	return 0;
+
+return regmap_update_bits(afe->regmap, AFE_CM0_CON0 + 0x10 * id,
+			  AFE_CM_BYPASS_MODE_MASK ... etc
+
+> +}
+> +
+
+..snip..
+
+> +
+> +static int mt8196_fe_trigger(struct snd_pcm_substream *substream, int cmd,
+> +			     struct snd_soc_dai *dai)
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+> +	struct snd_pcm_runtime *const runtime = substream->runtime;
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +	struct mt8196_afe_private *afe_priv = afe->platform_priv;
+> +	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
+> +	int id = cpu_dai->id;
+> +	struct mtk_base_afe_memif *memif = &afe->memif[id];
+> +	int irq_id = memif->irq_usage;
+> +	struct mtk_base_afe_irq *irqs = &afe->irqs[irq_id];
+> +	const struct mtk_base_irq_data *irq_data = irqs->irq_data;
+> +	unsigned int counter = runtime->period_size;
+> +	unsigned int rate = runtime->rate;
+> +	int fs;
+> +	int ret = 0;
+> +	unsigned int tmp_reg = 0;
+
+please avoid variables double initialization.
+
+> +
+> +	dev_info(afe->dev, "%s cmd %d, irq_id %d\n",
+> +		 memif->data->name, cmd, irq_id);
+> +
+> +	switch (cmd) {
+> +	case SNDRV_PCM_TRIGGER_START:
+> +	case SNDRV_PCM_TRIGGER_RESUME:
+> +		dev_dbg(afe->dev, "%s cmd %d, id %d\n",
+> +			memif->data->name, cmd, id);
+> +		ret = mtk_memif_set_enable(afe, id);
+> +		if (ret) {
+> +			dev_err(afe->dev, "id %d, memif enable fail.\n", id);
+> +			return ret;
+> +		}
+> +
+> +		/*
+> +		 * for small latency record
+> +		 * ul memif need read some data before irq enable
+> +		 */
+> +		if (substream->stream == SNDRV_PCM_STREAM_CAPTURE) {
+> +			if ((runtime->period_size * 1000) / rate <= 10)
+> +				usleep_range(300, 350);
+> +		}
+> +
+> +		/* set irq counter */
+> +		if (afe_priv->irq_cnt[id] > 0)
+> +			counter = afe_priv->irq_cnt[id];
+> +
+> +		regmap_update_bits(afe->regmap,
+> +				   irq_data->irq_cnt_reg,
+> +				   irq_data->irq_cnt_maskbit << irq_data->irq_cnt_shift,
+> +				   counter << irq_data->irq_cnt_shift);
+> +
+> +		/* set irq fs */
+> +		fs = afe->irq_fs(substream, runtime->rate);
+> +		if (fs < 0)
+> +			return -EINVAL;
+> +
+> +		if (irq_data->irq_fs_reg >= 0)
+> +			regmap_update_bits(afe->regmap,
+> +					   irq_data->irq_fs_reg,
+> +					   irq_data->irq_fs_maskbit << irq_data->irq_fs_shift,
+> +					   fs << irq_data->irq_fs_shift);
+> +
+> +		/* enable interrupt */
+> +		regmap_update_bits(afe->regmap,
+> +				   irq_data->irq_en_reg,
+> +				   1 << irq_data->irq_en_shift,
+> +				   1 << irq_data->irq_en_shift);
+> +
+> +		return 0;
+> +	case SNDRV_PCM_TRIGGER_STOP:
+> +	case SNDRV_PCM_TRIGGER_SUSPEND:
+> +		ret = mtk_memif_set_disable(afe, id);
+> +		if (ret) {
+> +			dev_warn(afe->dev,
+> +				 "id %d, memif disable fail\n", id);
+> +		}
+> +
+> +		/* disable interrupt */
+> +		regmap_update_bits(afe->regmap,
+> +				   irq_data->irq_en_reg,
+> +				   1 << irq_data->irq_en_shift,
+> +				   0 << irq_data->irq_en_shift);
+> +
+> +		/* clear pending IRQ */
+> +		regmap_read(afe->regmap, irq_data->irq_clr_reg, &tmp_reg);
+> +		regmap_update_bits(afe->regmap, irq_data->irq_clr_reg,
+> +				   AFE_IRQ_CLR_CFG_MASK_SFT | AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT,
+> +				   tmp_reg ^ (AFE_IRQ_CLR_CFG_MASK_SFT |
+> +				   AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT));
+> +
+> +		return ret;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static int mt8196_memif_fs(struct snd_pcm_substream *substream,
+> +			   unsigned int rate)
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+> +	struct snd_soc_component *component =
+> +		snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
+> +	struct mtk_base_afe *afe = NULL;
+> +	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
+> +	int id = cpu_dai->id;
+> +	unsigned int rate_reg = 0;
+> +	int cm = 0;
+
+Please avoid variables double initialization.
+
+> +
+> +	if (!component)
+> +		return -EINVAL;
+> +
+> +	afe = snd_soc_component_get_drvdata(component);
+> +
+> +	if (!afe)
+> +		return -EINVAL;
+> +
+> +	rate_reg = mt8196_rate_transform(afe->dev, rate);
+> +
+> +	switch (id) {
+> +	case MT8196_MEMIF_VUL8:
+> +	case MT8196_MEMIF_VUL_CM0:
+> +		cm = CM0;
+> +		break;
+> +	case MT8196_MEMIF_VUL9:
+> +	case MT8196_MEMIF_VUL_CM1:
+> +		cm = CM1;
+> +		break;
+> +	case MT8196_MEMIF_VUL10:
+> +	case MT8196_MEMIF_VUL_CM2:
+> +		cm = CM2;
+> +		break;
+> +	default:
+> +		cm = CM0;
+> +		break;
+> +	}
+> +
+> +	mt8196_set_cm_rate(afe, cm, rate);
+> +
+> +	return rate_reg;
+> +}
+> +
+> +static int mt8196_get_dai_fs(struct mtk_base_afe *afe,
+> +			     int dai_id, unsigned int rate)
+> +{
+> +	return mt8196_rate_transform(afe->dev, rate);
+> +}
+> +
+> +static int mt8196_irq_fs(struct snd_pcm_substream *substream, unsigned int rate)
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+> +	struct snd_soc_component *component =
+> +		snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
+> +	struct mtk_base_afe *afe = NULL;
+> +
+> +	if (!component)
+> +		return -EINVAL;
+> +	afe = snd_soc_component_get_drvdata(component);
+> +	return mt8196_rate_transform(afe->dev, rate);
+> +}
+> +
+> +static int mt8196_get_memif_pbuf_size(struct snd_pcm_substream *substream)
+> +{
+> +	struct snd_pcm_runtime *runtime = substream->runtime;
+> +
+> +	if ((runtime->period_size * 1000) / runtime->rate > 10)
+> +		return MT8196_MEMIF_PBUF_SIZE_256_BYTES;
+> +	else
+> +		return MT8196_MEMIF_PBUF_SIZE_32_BYTES;
+> +}
+> +
+> +/* FE DAIs */
+> +static const struct snd_soc_dai_ops mt8196_memif_dai_ops = {
+> +	.startup        = mt8196_fe_startup,
+> +	.shutdown       = mt8196_fe_shutdown,
+> +	.hw_params      = mt8196_fe_hw_params,
+> +	.hw_free        = mtk_afe_fe_hw_free,
+> +	.prepare        = mtk_afe_fe_prepare,
+> +	.trigger        = mt8196_fe_trigger,
+> +};
+> +
+> +#define MTK_PCM_RATES (SNDRV_PCM_RATE_8000_48000 |\
+> +		       SNDRV_PCM_RATE_88200 |\
+> +		       SNDRV_PCM_RATE_96000 |\
+> +		       SNDRV_PCM_RATE_176400 |\
+> +		       SNDRV_PCM_RATE_192000)
+> +
+> +#define MTK_PCM_DAI_RATES (SNDRV_PCM_RATE_8000 |\
+> +			   SNDRV_PCM_RATE_16000 |\
+> +			   SNDRV_PCM_RATE_32000 |\
+> +			   SNDRV_PCM_RATE_48000)
+> +
+> +#define MTK_PCM_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
+> +			 SNDRV_PCM_FMTBIT_S24_LE |\
+> +			 SNDRV_PCM_FMTBIT_S32_LE)
+> +
+> +#define MT8196_FE_DAI_PLAYBACK(_name, _id, max_ch) \
+> +{ \
+> +	.name = #_name, \
+> +	.id = _id, \
+> +	.playback = { \
+> +		.stream_name = #_name, \
+> +		.channels_min = 1, \
+> +		.channels_max = max_ch, \
+> +		.rates = MTK_PCM_RATES, \
+> +		.formats = MTK_PCM_FORMATS, \
+> +	}, \
+> +	.ops = &mt8196_memif_dai_ops, \
+> +}
+
+Those two macros are the same.
+
+> +
+> +#define MT8196_FE_DAI_CAPTURE(_name, _id, max_ch) \
+> +{ \
+> +	.name = #_name, \
+> +	.id = _id, \
+> +	.capture = { \
+> +		.stream_name = #_name, \
+> +		.channels_min = 1, \
+> +		.channels_max = max_ch, \
+> +		.rates = MTK_PCM_RATES, \
+> +		.formats = MTK_PCM_FORMATS, \
+> +	}, \
+> +	.ops = &mt8196_memif_dai_ops, \
+> +}
+> +
+
+..snip..
+
+> +
+> +static const struct regmap_config mt8196_afe_regmap_config = {
+> +	.reg_bits = 32,
+> +	.reg_stride = 4,
+> +	.val_bits = 32,
+> +
+> +	.volatile_reg = mt8196_is_volatile_reg,
+> +
+> +	.max_register = AFE_MAX_REGISTER,
+> +	.num_reg_defaults_raw = AFE_MAX_REGISTER,
+> +
+> +	.cache_type = REGCACHE_FLAT,
+> +};
+> +
+> +static irqreturn_t mt8196_afe_irq_handler(int irq_id, void *dev)
+> +{
+> +	struct mtk_base_afe *afe = dev;
+> +	struct mtk_base_afe_irq *irq;
+> +	unsigned int status = 0;
+> +	unsigned int status_mcu;
+> +	unsigned int mcu_en = 0;
+> +	unsigned int cus_status = 0;
+> +	unsigned int cus_status_mcu;
+> +	unsigned int cus_mcu_en = 0;
+> +	unsigned int tmp_reg = 0;
+> +	int ret, cus_ret;
+> +	int i;
+> +	struct timespec64 ts64;
+> +	unsigned long long t1, t2;
+> +	/* one interrupt period = 5ms */
+> +	unsigned long long timeout_limit = 5000000;
+
+const unsigned ....
+
+> +
+> +	/* get irq that is sent to MCU */
+> +	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &mcu_en);
+> +	regmap_read(afe->regmap, AFE_CUSTOM_IRQ_MCU_EN, &cus_mcu_en);
+> +
+> +	ret = regmap_read(afe->regmap, AFE_IRQ_MCU_STATUS, &status);
+> +	cus_ret = regmap_read(afe->regmap, AFE_CUSTOM_IRQ_MCU_STATUS, &cus_status);
+> +	/* only care IRQ which is sent to MCU */
+> +	status_mcu = status & mcu_en & AFE_IRQ_STATUS_BITS;
+> +	cus_status_mcu = cus_status & cus_mcu_en & AFE_IRQ_STATUS_BITS;
+> +	if ((ret || !status_mcu) &&
+> +	    (cus_ret || !cus_status_mcu)) {
+> +		dev_info(afe->dev, "irq status err, ret %d, status 0x%x, mcu_en 0x%x\n",
+> +			 ret, status, mcu_en);
+> +		dev_info(afe->dev, "irq status err, ret %d, cus_status_mcu 0x%x, cus_mcu_en 0x%x\n",
+> +			 ret, cus_status_mcu, cus_mcu_en);
+
+dev_err, and use just one print please.
+
+> +
+> +		goto err_irq;
+> +	}
+> +
+> +	ktime_get_ts64(&ts64);
+> +	t1 = timespec64_to_ns(&ts64);
+> +
+> +	for (i = 0; i < MT8196_MEMIF_NUM; i++) {
+> +		struct mtk_base_afe_memif *memif = &afe->memif[i];
+> +
+> +		if (!memif->substream)
+> +			continue;
+> +
+> +		if (memif->irq_usage < 0)
+> +			continue;
+> +		irq = &afe->irqs[memif->irq_usage];
+> +
+> +		if (i == MT8196_MEMIF_HDMI) {
+> +			if (cus_status_mcu & (0x1 << irq->irq_data->id))
+> +				snd_pcm_period_elapsed(memif->substream);
+> +		} else {
+> +			if (status_mcu & (0x1 << irq->irq_data->id))
+> +				snd_pcm_period_elapsed(memif->substream);
+> +		}
+> +	}
+> +
+> +	ktime_get_ts64(&ts64);
+> +	t2 = timespec64_to_ns(&ts64);
+> +	t2 = t2 - t1; /* in ns (10^9) */
+> +
+> +	if (t2 > timeout_limit) {
+> +		dev_warn(afe->dev, "mcu_en 0x%x, cus_mcu_en 0x%x, timeout %llu, limit %llu, ret %d\n",
+> +			 mcu_en, cus_mcu_en,
+> +			 t2, timeout_limit, ret);
+> +	}
+> +
+> +err_irq:
+> +	/* clear irq */
+> +	for (i = 0; i < MT8196_IRQ_NUM; ++i) {
+> +		/* cus_status_mcu only bit0 is used for TDM */
+> +		if ((status_mcu & (0x1 << i)) || (cus_status_mcu & 0x1)) {
+> +			regmap_read(afe->regmap, irq_data[i].irq_clr_reg, &tmp_reg);
+> +			regmap_update_bits(afe->regmap, irq_data[i].irq_clr_reg,
+> +					   AFE_IRQ_CLR_CFG_MASK_SFT |
+> +					   AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT,
+> +					   tmp_reg ^ (AFE_IRQ_CLR_CFG_MASK_SFT |
+> +					   AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT));
+> +		}
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int mt8196_afe_runtime_suspend(struct device *dev)
+> +{
+> +	struct mtk_base_afe *afe = dev_get_drvdata(dev);
+> +	unsigned int value = 0;
+> +	unsigned int tmp_reg = 0;
+> +	int ret = 0, i;
+
+avoid double init.
+
+> +
+> +	if (!afe->regmap) {
+> +		dev_err(afe->dev, "skip regmap\n");
+> +		goto skip_regmap;
+> +	}
+> +
+> +	/* disable AFE */
+> +	mt8196_afe_disable_main_clock(afe);
+> +
+> +	ret = regmap_read_poll_timeout(afe->regmap,
+> +				       AUDIO_ENGEN_CON0_MON,
+> +				       value,
+> +				       (value & AUDIO_ENGEN_MON_SFT) == 0,
+> +				       20,
+> +				       1 * 1000 * 1000);
+> +	dev_dbg(afe->dev, "read_poll ret %d\n", ret);
+> +	if (ret)
+> +		dev_info(afe->dev, "ret %d\n", ret);
+> +
+> +	/* make sure all irq status are cleared */
+> +	for (i = 0; i < MT8196_IRQ_NUM; ++i) {
+> +		regmap_read(afe->regmap, irq_data[i].irq_clr_reg, &tmp_reg);
+> +		regmap_update_bits(afe->regmap, irq_data[i].irq_clr_reg,
+> +				   AFE_IRQ_CLR_CFG_MASK_SFT | AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT,
+> +				   tmp_reg ^ (AFE_IRQ_CLR_CFG_MASK_SFT |
+> +				   AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT));
+> +	}
+> +
+> +	/* reset audio 26M request */
+> +	regmap_update_bits(afe->regmap,
+> +			   AFE_SPM_CONTROL_REQ, 0x1, 0x0);
+> +
+> +	/* cache only */
+> +	regcache_cache_only(afe->regmap, true);
+> +	regcache_mark_dirty(afe->regmap);
+> +
+> +skip_regmap:
+> +	mt8196_afe_disable_reg_rw_clk(afe);
+> +	return 0;
+> +}
+> +
+> +static int mt8196_afe_runtime_resume(struct device *dev)
+> +{
+> +	struct mtk_base_afe *afe = dev_get_drvdata(dev);
+> +	int ret = 0;
+> +
+> +	ret = mt8196_afe_enable_reg_rw_clk(afe);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!afe->regmap) {
+> +		dev_warn(afe->dev, "skip regmap\n");
+> +		goto skip_regmap;
+> +	}
+> +	regcache_cache_only(afe->regmap, false);
+> +	regcache_sync(afe->regmap);
+> +
+> +	/* set audio 26M request */
+> +	regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x1);
+> +	regmap_update_bits(afe->regmap, AFE_CBIP_CFG0, 0x1, 0x1);
+> +
+> +	/* force cpu use 8_24 format when writing 32bit data */
+> +	regmap_update_bits(afe->regmap, AFE_MEMIF_CON0,
+> +			   CPU_HD_ALIGN_MASK_SFT, 0 << CPU_HD_ALIGN_SFT);
+> +
+> +	/* enable AFE */
+> +	mt8196_afe_enable_main_clock(afe);
+> +
+> +skip_regmap:
+> +	return 0;
+> +}
+> +
+> +static int mt8196_afe_component_probe(struct snd_soc_component *component)
+> +{
+> +	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+> +
+> +	if (component) {
+> +		/* enable clock for regcache get default value from hw */
+> +		pm_runtime_get_sync(afe->dev);
+> +		mtk_afe_add_sub_dai_control(component);
+> +		pm_runtime_put_sync(afe->dev);
+> +	}
+> +	return 0;
+> +}
+> +
+> +static int mt8196_afe_pcm_open(struct snd_soc_component *component,
+> +			       struct snd_pcm_substream *substream)
+> +{
+> +	/* set the wait_for_avail to 2 sec*/
+> +	substream->wait_time = msecs_to_jiffies(2 * 1000);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mt8196_afe_pcm_free(struct snd_soc_component *component, struct snd_pcm *pcm)
+> +{
+> +	snd_pcm_lib_preallocate_free_for_all(pcm);
+> +}
+> +
+> +static const struct snd_soc_component_driver mt8196_afe_component = {
+> +	.name = AFE_PCM_NAME,
+> +	.probe = mt8196_afe_component_probe,
+> +	.pcm_construct = mtk_afe_pcm_new,
+> +	.pcm_destruct = mt8196_afe_pcm_free,
+> +	.open = mt8196_afe_pcm_open,
+> +	.pointer = mtk_afe_pcm_pointer,
+> +};
+> +
+> +static int mt8196_dai_memif_register(struct mtk_base_afe *afe)
+> +{
+> +	struct mtk_base_afe_dai *dai;
+> +
+> +	dai = devm_kzalloc(afe->dev, sizeof(*dai), GFP_KERNEL);
+> +	if (!dai)
+> +		return -ENOMEM;
+> +
+> +	list_add(&dai->list, &afe->sub_dais);
+> +
+> +	dai->dai_drivers = mt8196_memif_dai_driver;
+> +	dai->num_dai_drivers = ARRAY_SIZE(mt8196_memif_dai_driver);
+> +
+> +	dai->controls = mt8196_pcm_kcontrols;
+> +	dai->num_controls = ARRAY_SIZE(mt8196_pcm_kcontrols);
+> +	dai->dapm_widgets = mt8196_memif_widgets;
+> +	dai->num_dapm_widgets = ARRAY_SIZE(mt8196_memif_widgets);
+> +	dai->dapm_routes = mt8196_memif_routes;
+> +	dai->num_dapm_routes = ARRAY_SIZE(mt8196_memif_routes);
+> +	return 0;
+> +}
+> +
+> +typedef int (*dai_register_cb)(struct mtk_base_afe *);
+> +static const dai_register_cb dai_register_cbs[] = {
+> +	mt8196_dai_adda_register,
+> +	mt8196_dai_i2s_register,
+> +	mt8196_dai_tdm_register,
+> +	mt8196_dai_memif_register,
+> +};
+> +
+> +static const struct reg_sequence mt8196_cg_patch[] = {
+> +	{ AUDIO_TOP_CON4, 0x361c },
+> +};
+> +
+> +static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
+> +{
+> +	int ret, i;
+> +	unsigned int tmp_reg = 0;
+
+avoid double init.
+
+> +	int irq_id;
+> +	struct mtk_base_afe *afe;
+> +	struct mt8196_afe_private *afe_priv;
+> +	struct device *dev = &pdev->dev;
+> +
+> +	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(34));
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = of_reserved_mem_device_init(dev);
+> +	if (ret)
+> +		dev_err(dev, "failed to assign memory region: %d\n", ret);
+> +
+> +	afe = devm_kzalloc(dev, sizeof(*afe), GFP_KERNEL);
+> +	if (!afe)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, afe);
+> +
+> +	afe->platform_priv = devm_kzalloc(dev, sizeof(*afe_priv),
+> +					  GFP_KERNEL);
+> +	if (!afe->platform_priv)
+> +		return -ENOMEM;
+> +
+> +	afe_priv = afe->platform_priv;
+> +	afe->dev = dev;
+> +
+> +	afe->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(afe->base_addr))
+> +		return dev_err_probe(dev, PTR_ERR(afe->base_addr),
+> +				     "AFE base_addr not found\n");
+> +
+> +	/* init audio related clock */
+> +	ret = mt8196_init_clock(afe);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "init clock error.\n");
+> +
+> +	/* init memif */
+> +	/* IPM2.0 no need banding */
+> +	afe->memif_32bit_supported = 1;
+> +	afe->memif_size = MT8196_MEMIF_NUM;
+> +	afe->memif = devm_kcalloc(dev, afe->memif_size, sizeof(*afe->memif),
+> +				  GFP_KERNEL);
+> +
+> +	if (!afe->memif)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < afe->memif_size; i++) {
+> +		afe->memif[i].data = &memif_data[i];
+> +		afe->memif[i].irq_usage = memif_irq_usage[i];
+> +		afe->memif[i].const_irq = 1;
+> +	}
+> +
+> +	mutex_init(&afe->irq_alloc_lock);
+> +
+> +	/* init irq */
+> +	afe->irqs_size = MT8196_IRQ_NUM;
+> +	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
+> +				 GFP_KERNEL);
+> +
+> +	if (!afe->irqs)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < afe->irqs_size; i++)
+> +		afe->irqs[i].irq_data = &irq_data[i];
+> +
+> +	/* request irq */
+> +	irq_id = platform_get_irq(pdev, 0);
+> +	if (irq_id < 0)
+> +		return dev_err_probe(dev, irq_id, "no irq found");
+> +
+> +	ret = devm_request_irq(dev, irq_id, mt8196_afe_irq_handler,
+> +			       IRQF_TRIGGER_NONE,
+> +			       "Afe_ISR_Handle", (void *)afe);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "could not request_irq for Afe_ISR_Handle\n");
+> +
+> +	ret = enable_irq_wake(irq_id);
+> +	if (ret < 0)
+> +		dev_warn(dev, "enable_irq_wake %d ret: %d\n", irq_id, ret);
+> +
+> +	/* init sub_dais */
+> +	INIT_LIST_HEAD(&afe->sub_dais);
+> +
+> +	for (i = 0; i < ARRAY_SIZE(dai_register_cbs); i++) {
+> +		ret = dai_register_cbs[i](afe);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "dai register i %d fail\n", i);
+> +	}
+> +
+> +	/* init dai_driver and component_driver */
+> +	ret = mtk_afe_combine_sub_dai(afe);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "mtk_afe_combine_sub_dai fail\n");
+> +
+> +	/* others */
+> +	afe->mtk_afe_hardware = &mt8196_afe_hardware;
+> +	afe->memif_fs = mt8196_memif_fs;
+> +	afe->irq_fs = mt8196_irq_fs;
+> +	afe->get_dai_fs = mt8196_get_dai_fs;
+> +	afe->get_memif_pbuf_size = mt8196_get_memif_pbuf_size;
+> +
+> +	afe->runtime_resume = mt8196_afe_runtime_resume;
+> +	afe->runtime_suspend = mt8196_afe_runtime_suspend;
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Audio device is part of genpd.
+> +	 * Set audio as syscore device to prevent
+> +	 * genpd automatically power off audio
+> +	 * device when suspend
+> +	 */
+> +	dev_pm_syscore_device(dev, true);
+> +
+> +	/* enable clock for regcache get default value from hw */
+> +	pm_runtime_get_sync(dev);
+> +
+> +	afe->regmap = devm_regmap_init_mmio(dev, afe->base_addr,
+> +					    &mt8196_afe_regmap_config);
+> +	if (IS_ERR(afe->regmap))
+> +		return PTR_ERR(afe->regmap);
+> +
+> +	ret = regmap_register_patch(afe->regmap, mt8196_cg_patch,
+> +				    ARRAY_SIZE(mt8196_cg_patch));
+> +	if (ret < 0) {
+> +		dev_info(dev, "Failed to apply cg patch\n");
+> +		goto err_pm_disable;
+> +	}
+> +
+> +	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
+> +	regmap_write(afe->regmap, AFE_IRQ_MCU_EN, 0xffffffff);
+> +	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
+> +
+> +	pm_runtime_put_sync(dev);
+> +
+> +	regcache_cache_only(afe->regmap, true);
+> +	regcache_mark_dirty(afe->regmap);
+> +
+> +	/* register component */
+> +	ret = devm_snd_soc_register_component(dev,
+> +					      &mt8196_afe_component,
+> +					      afe->dai_drivers,
+> +					      afe->num_dai_drivers);
+> +	if (ret) {
+> +		dev_warn(dev, "afe component err\n");
+> +		goto err_pm_disable;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_pm_disable:
+> +	pm_runtime_disable(dev);
+> +	return ret;
+> +}
+> +
+> +static void mt8196_afe_pcm_dev_remove(struct platform_device *pdev)
+> +{
+> +	struct mtk_base_afe *afe = platform_get_drvdata(pdev);
+> +	struct device *dev = &pdev->dev;
+> +
+> +	pm_runtime_disable(dev);
+> +	if (!pm_runtime_status_suspended(dev))
+> +		mt8196_afe_runtime_suspend(dev);
+> +
+> +	/* disable afe clock */
+> +	mt8196_afe_disable_reg_rw_clk(afe);
+> +	mt8196_afe_disable_main_clock(afe);
+> +}
+> +
+> +static const struct of_device_id mt8196_afe_pcm_dt_match[] = {
+> +	{ .compatible = "mediatek,mt8196-afe", },
+> +	{},
+
+  { /* sentinel */ }
+
+> +};
+> +MODULE_DEVICE_TABLE(of, mt8196_afe_pcm_dt_match);
+> +
+
+Regards,
+Angelo
 
 
