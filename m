@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4F7C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 20:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC63C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 20:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vX3EEn9Z/BwCn094NqxmfD5ufgWykyRgzYkRme31G90=; b=egA8OTbdB//BVFh+eoNBpjrT3D
-	qK7uONjssGtWfiUujBbjEJpCP53ez5uWo2SY55T7GHQTnnxsZCJoEta9AtehuUfzd12shAzZdZ6sW
-	u5b/q8JHa7LK+6GHN/hazfVEyW1Wl0t5SuKnWZzXKCxZUwbaW9La3APcEq/8CZGGbz/h32EtwLs2U
-	B+de2m16MEo0TBE/mT1w6sUxRIkDbYrQwUmtYB0dAdSMtuT7V1P4BV1Y9PrZdB4yv0WvdIh656tLW
-	VA7g04pSaCPz2felQvvZkj+/Wm0B2iv7E+unpbVEX72TeFgswrgXuU66Bp9z1oLS0WISFSw87QY23
-	9mqyk2Hg==;
+	bh=ihMu+w7nCoTSGq+4RZCJ2TmkBfciX1sr6w0E83yVPuA=; b=sXnkHOKW6Pf9xubZ8j+qWt6bUh
+	R9jEwWFWle95U6WxxPZzZZ/UOBnzf9jvwcow0OZHyddXZdby8SYEOSiLj3o2C9dAezV296YLi6xRO
+	BrX+JwrOb0riVnhBvCMIzVGO1CwLpsiyskMR7JZI+LbyRfO1P6DjIDHlOEezYLBvbNBMkkssWNAT6
+	lFHr5dLbSaDhtbpE+lEk0evs5ku4DHFSa6kWPEygFxSD41h7kJkU/WdSZbBJcyMNEznIc0KckHvW8
+	6ZqPV2n4HvElLtHY9622aoZlMibD3iprsY1jtWLCG5DALuQDBLPtCNgiHjSJJmfdOIuzL46S9uuVw
+	LI5Kg+TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUARQ-00000006nHd-05B5;
-	Tue, 24 Jun 2025 20:40:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uUATg-00000006nPu-3OvM;
+	Tue, 24 Jun 2025 20:42:48 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iL-00000005vWS-2YH1;
-	Tue, 24 Jun 2025 14:33:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775611;
-	bh=T4Clas5bzqxC87iLgxrgDlE8/O1YxVArn4WnJgBEpKA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Linbs5zYmDSJ0zkA/iGPLy8OFrGC6fGw+57BQTCTC71zIlT3Nyk9QKUjc771ILAch
-	 xd1yU/vY6b+L1qWFFhX3FzCv3EAuQzptiptko7Z02We/fYsC7GqOvM1OWzi4wdODs7
-	 L4uCgp2C+KBU08/zwq4qzpKSpsW1GnXqvLiGvKuFAMFknMrRAvwjd4rqm6skxoYP4L
-	 dTRLsL3gBzmexBaIKpLlFCixY+2E3SSEw9xrdbI72jjUm7F/Vu4IK5GQrT4ruwEh2Q
-	 50Ft5IDSE4L9+tqDn75PrER9Sd0H36uY7GQ66tFtxrNwHrYrXZGmXuFH2RMKpeJP7a
-	 KKLDdpwfyab5g==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 72BA217E0DE3;
-	Tue, 24 Jun 2025 16:33:30 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1uU5YD-000000066dk-24LC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 15:27:10 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-234b9dfb842so49999365ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 08:27:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750778829; x=1751383629; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ihMu+w7nCoTSGq+4RZCJ2TmkBfciX1sr6w0E83yVPuA=;
+        b=dZUF2uEdb0nrVifbHGyGHBsoctSw1BPUJ0F0ElfQ5ruA1LHY9h5sz/EZDHQP6UV2iA
+         cvWcLkCHzeXiHRNXE+IO3MAbmMe3Jy1/iRD60bmBaAfzMhI2Y3L0xLlxyQLVVe7wCTSj
+         +4MKmU1QrARizbRuaP8b4BbdZEkfwPBbjg7sGxOjiMa5VOFx3Ja9OwoE8f94BjIWTZl2
+         CurHgi7p0moUZKI8NxYAxi8AMixo0HMxNExTejbJeTooA4E4eZY3sqvx7nflsPyxJi02
+         QMF3zwd7taYml+A2LlxEQUvePw7cDiuthuXpIiL5+2O1hMAVKspsJ4s/QIh8ARm4y0qY
+         Cqug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750778829; x=1751383629;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ihMu+w7nCoTSGq+4RZCJ2TmkBfciX1sr6w0E83yVPuA=;
+        b=dfJwvxKM9bQ1EY0f6KDYTXMahPuwbxTFS7mgV5NpB76qqhyd0idjqHJGWcS+CEkVu5
+         CyPIvrrqCDejswkT/maaGF7diYkYPcA3eUrudSzlVMJsA8f6qESe3gNPZ610v9TdIvUX
+         u6b+87E5eu0ONXLWZEGfXalxDa8iTUoVZqPodr+7fOJ+wN4BlBXMgFlUNBaw5CI2ZsUs
+         GFqe2tZeHydLk4C8Nm93Sy+JADHB5u6dLHoYRtUDTcMMNX1LswehTg7VtsWWm50KnoWG
+         CNE62jo04f+3HvfuLEBkA2177gSQkXfuC5P1wxNHP/pvKWEiErRVni+nvpBSz0ZiX6ED
+         Eqhw==
+X-Forwarded-Encrypted: i=1; AJvYcCULsMPgJoc6ETLGoY9yUyxO33AMEEm3mCJCHXhKHWzX05aOlc4BXc/1T3tgPDyhWjkiqbWzDrypuHpwHXAjTPBA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjU/eU7x48bpZtO0Y1x4teJJ67FMjkNMNLrpZMdt0bPcTBca68
+	td0pTQ81bXI+PUueNsw+Rw6mLiCpD8k7pIepxnt/rJrPe3EdsE90pVAFhQxplg==
+X-Gm-Gg: ASbGncu36JE5j3keAFCu/z0rhm6bB8AuhqiaHWfD0LVs+4Vsbr9IPSGi9NWInoKVm+s
+	sE0TvW9xq8edmLB8fwE9jrVE5rHnRegAtRMDyrk8wCfQM0q5WJLXZnXATHu6iviOMunLc1Uxh/C
+	KHFEINNgrcsJSWZ0eXcnIcYthT2CYbOSC/ygQNf2Qy5x/JIvGeGvDPW3M2AOxsZOtON0DfLN11W
+	FyhR8rVY+F1KicmnW0nyTeYJMWdrIqS1uB3ysyNBSemAlLY+6yvZCamCdfNDzhjY+YQLNaRlA++
+	poYfooe5HELtmcvaNLBCPjtzzjevmxQ5sjAOKSd97+3fSB3MNXZ49HpEVkj0lcq6Zdp5SMpwUkY
+	=
+X-Google-Smtp-Source: AGHT+IGyXs9ccyO6PIDBnUQkvw3swafltIfKcPLYEq/f4dAu6qbdAkS+Hno5e1qdpaxNZhpT3FQfjQ==
+X-Received: by 2002:a17:903:32c5:b0:234:c5c1:9b63 with SMTP id d9443c01a7336-237d9907243mr218353515ad.18.1750778828233;
+        Tue, 24 Jun 2025 08:27:08 -0700 (PDT)
+Received: from localhost ([101.132.132.191])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2380655376esm15369475ad.26.2025.06.24.08.27.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jun 2025 08:27:07 -0700 (PDT)
+From: Xavier Xia <xavier.qyxia@gmail.com>
+To: ryan.roberts@arm.com,
+	will@kernel.org,
+	21cnbao@gmail.com,
+	ioworker0@gmail.com,
+	dev.jain@arm.com
+Cc: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	david@redhat.com,
+	gshan@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 00/29] Add support for MT8196 clock controllers
-Date: Tue, 24 Jun 2025 16:31:51 +0200
-Message-Id: <20250624143220.244549-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	willy@infradead.org,
+	xavier_qy@163.com,
+	ziy@nvidia.com,
+	Xavier Xia <xavier.qyxia@gmail.com>,
+	Barry Song <baohua@kernel.org>
+Subject: [PATCH v7] arm64/mm: Optimize loop to reduce redundant operations of  contpte_ptep_get
+Date: Tue, 24 Jun 2025 23:25:49 +0800
+Message-Id: <20250624152549.2647828-1-xavier.qyxia@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_073333_793385_A105B317 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20250624_082709_541848_145CF017 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +109,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MT8196 clock controllers
+This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
+function by adding early termination logic. It checks if the dirty and
+young bits of orig_pte are already set and skips redundant bit-setting
+operations during the loop. This reduces unnecessary iterations and
+improves performance.
 
-This patch series introduces support for the clock controllers on the
-MediaTek MT8196 platform, following up on an earlier submission[1].
+In order to verify the optimization performance, a test function has been
+designed. The function's execution time and instruction statistics have
+been traced using perf, and the following are the operation results on a
+certain Qualcomm mobile phone chip:
 
-MT8196 uses a hardware voting mechanism to control some of the clock muxes
-and gates, along with a fence register responsible for tracking PLL and mux
-gate readiness. The series introduces support for these voting and fence
-mechanisms, and includes drivers for all clock controllers on the platform.
+Test Code:
+	#include <stdlib.h>
+	#include <sys/mman.h>
+	#include <stdio.h>
 
-[1] https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
+	#define PAGE_SIZE 4096
+	#define CONT_PTES 16
+	#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
+	#define YOUNG_BIT 8
+	void rwdata(char *buf)
+	{
+		for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
+			buf[i] = 'a';
+			volatile char c = buf[i];
+		}
+	}
+	void clear_young_dirty(char *buf)
+	{
+		if (madvise(buf, TEST_SIZE, MADV_FREE) == -1) {
+			perror("madvise free failed");
+			free(buf);
+			exit(EXIT_FAILURE);
+		}
+		if (madvise(buf, TEST_SIZE, MADV_COLD) == -1) {
+			perror("madvise free failed");
+			free(buf);
+			exit(EXIT_FAILURE);
+		}
+	}
+	void set_one_young(char *buf)
+	{
+		for (size_t i = 0; i < TEST_SIZE; i += CONT_PTES * PAGE_SIZE) {
+			volatile char c = buf[i + YOUNG_BIT * PAGE_SIZE];
+		}
+	}
 
-Changes in v2:
-- Fixed incorrect ID numbering in mediatek,mt8196-clock.h
-- Improved description for 'mediatek,hardware-voter' in mediatek,mt8196-clock.yaml and mediatek,mt8196-sys-clock.yaml
-- Added description for '#reset-cells' in mediatek,mt8196-clock.yaml
-- Added missing mediatek,mt8196-vdisp-ao compatible in mediatek,mt8196-clock.yaml
-- Fixed license in mediatek,mt8196-resets.h
-- Fixed missing of_match_table in clk-mt8196-vdisp_ao.c
-- Squashed commit adding UFS and PEXTP reset controller support
-- Reordered commits to place reset controller binding before dependent drivers
-- Added R-b tags
+	void test_contpte_perf() {
+		char *buf;
+		int ret = posix_memalign((void **)&buf, CONT_PTES * PAGE_SIZE,
+				TEST_SIZE);
+		if ((ret != 0) || ((unsigned long)buf % CONT_PTES * PAGE_SIZE)) {
+			perror("posix_memalign failed");
+			exit(EXIT_FAILURE);
+		}
 
-Link to v1: https://lore.kernel.org/all/20250623102940.214269-1-laura.nao@collabora.com/
+		rwdata(buf);
+	#if TEST_CASE2 || TEST_CASE3
+		clear_young_dirty(buf);
+	#endif
+	#if TEST_CASE2
+		set_one_young(buf);
+	#endif
 
-AngeloGioacchino Del Regno (1):
-  dt-bindings: reset: Add MediaTek MT8196 Reset Controller binding
+		for (int j = 0; j < 500; j++) {
+			mlock(buf, TEST_SIZE);
 
-Laura Nao (28):
-  clk: mediatek: clk-pll: Add set/clr regs for shared PLL enable control
-  clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
-  clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and
-    FENC
-  clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
-  clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
-  clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use
-    mtk_gate struct
-  clk: mediatek: clk-gate: Add ops for gates with HW voter
-  clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
-  dt-bindings: clock: mediatek: Describe MT8196 peripheral clock
-    controllers
-  clk: mediatek: Add MT8196 apmixedsys clock support
-  clk: mediatek: Add MT8196 topckgen clock support
-  clk: mediatek: Add MT8196 topckgen2 clock support
-  clk: mediatek: Add MT8196 vlpckgen clock support
-  clk: mediatek: Add MT8196 peripheral clock support
-  clk: mediatek: Add MT8196 ufssys clock support
-  clk: mediatek: Add MT8196 pextpsys clock support
-  clk: mediatek: Add MT8196 adsp clock support
-  clk: mediatek: Add MT8196 I2C clock support
-  clk: mediatek: Add MT8196 mcu clock support
-  clk: mediatek: Add MT8196 mdpsys clock support
-  clk: mediatek: Add MT8196 mfg clock support
-  clk: mediatek: Add MT8196 disp0 clock support
-  clk: mediatek: Add MT8196 disp1 clock support
-  clk: mediatek: Add MT8196 disp-ao clock support
-  clk: mediatek: Add MT8196 ovl0 clock support
-  clk: mediatek: Add MT8196 ovl1 clock support
-  clk: mediatek: Add MT8196 vdecsys clock support
-  clk: mediatek: Add MT8196 vencsys clock support
+			munlock(buf, TEST_SIZE);
+		}
+		free(buf);
+	}
 
- .../bindings/clock/mediatek,mt8196-clock.yaml |   87 ++
- .../clock/mediatek,mt8196-sys-clock.yaml      |   81 ++
- drivers/clk/mediatek/Kconfig                  |   78 +
- drivers/clk/mediatek/Makefile                 |   14 +
- drivers/clk/mediatek/clk-gate.c               |  106 +-
- drivers/clk/mediatek/clk-gate.h               |    3 +
- drivers/clk/mediatek/clk-mt8196-adsp.c        |  193 +++
- drivers/clk/mediatek/clk-mt8196-apmixedsys.c  |  203 +++
- drivers/clk/mediatek/clk-mt8196-disp0.c       |  169 +++
- drivers/clk/mediatek/clk-mt8196-disp1.c       |  170 +++
- .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    |  117 ++
- drivers/clk/mediatek/clk-mt8196-mcu.c         |  166 +++
- drivers/clk/mediatek/clk-mt8196-mdpsys.c      |  187 +++
- drivers/clk/mediatek/clk-mt8196-mfg.c         |  150 ++
- drivers/clk/mediatek/clk-mt8196-ovl0.c        |  154 ++
- drivers/clk/mediatek/clk-mt8196-ovl1.c        |  153 ++
- drivers/clk/mediatek/clk-mt8196-peri_ao.c     |  144 ++
- drivers/clk/mediatek/clk-mt8196-pextp.c       |  131 ++
- drivers/clk/mediatek/clk-mt8196-topckgen.c    | 1257 +++++++++++++++++
- drivers/clk/mediatek/clk-mt8196-topckgen2.c   |  662 +++++++++
- drivers/clk/mediatek/clk-mt8196-ufs_ao.c      |  109 ++
- drivers/clk/mediatek/clk-mt8196-vdec.c        |  253 ++++
- drivers/clk/mediatek/clk-mt8196-vdisp_ao.c    |   79 ++
- drivers/clk/mediatek/clk-mt8196-venc.c        |  235 +++
- drivers/clk/mediatek/clk-mt8196-vlpckgen.c    |  769 ++++++++++
- drivers/clk/mediatek/clk-mtk.c                |   16 +
- drivers/clk/mediatek/clk-mtk.h                |   23 +
- drivers/clk/mediatek/clk-mux.c                |  119 +-
- drivers/clk/mediatek/clk-mux.h                |   76 +
- drivers/clk/mediatek/clk-pll.c                |   46 +-
- drivers/clk/mediatek/clk-pll.h                |    9 +
- .../dt-bindings/clock/mediatek,mt8196-clock.h |  867 ++++++++++++
- .../reset/mediatek,mt8196-resets.h            |   26 +
- 33 files changed, 6828 insertions(+), 24 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
- create mode 100644 drivers/clk/mediatek/clk-mt8196-adsp.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-disp1.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl0.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen2.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-vdisp_ao.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
- create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
- create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
- create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+	int main(void) 
+	{
+		test_contpte_perf();
+		return 0;
+	}
 
+	Descriptions of three test scenarios
+
+Scenario 1
+	The data of all 16 PTEs are both dirty and young.
+	#define TEST_CASE2 0
+	#define TEST_CASE3 0
+
+Scenario 2
+	Among the 16 PTEs, only the 8th one is young, and there are no dirty ones.
+	#define TEST_CASE2 1
+	#define TEST_CASE3 0
+
+Scenario 3
+	Among the 16 PTEs, there are neither young nor dirty ones.
+	#define TEST_CASE2 0
+	#define TEST_CASE3 1
+
+Test results
+
+|Scenario 1         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    37912436160|     18731580031|
+|test time          |         4.2797|          2.2949|
+|overhead of        |               |                |
+|contpte_ptep_get() |         21.31%|           4.80%|
+
+|Scenario 2         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    36701270862|     36115790086|
+|test time          |         3.2335|          3.0874|
+|Overhead of        |               |                |
+|contpte_ptep_get() |         32.26%|          33.57%|
+
+|Scenario 3         |       Original|       Optimized|
+|-------------------|---------------|----------------|
+|instructions       |    36706279735|     36750881878|
+|test time          |         3.2008|          3.1249|
+|Overhead of        |               |                |
+|contpte_ptep_get() |         31.94%|          34.59%|
+
+For Scenario 1, optimized code can achieve an instruction benefit of 50.59%
+and a time benefit of 46.38%.
+For Scenario 2, optimized code can achieve an instruction count benefit of
+1.6% and a time benefit of 4.5%.
+For Scenario 3, since all the PTEs have neither the young nor the dirty
+flag, the branches taken by optimized code should be the same as those of
+the original code. In fact, the test results of optimized code seem to be
+closer to those of the original code.
+
+Ryan re-ran these tests on Apple M2 with 4K base pages + 64K mTHP.
+
+Scenario 1: reduced to 56% of baseline execution time
+Scenario 2: reduced to 89% of baseline execution time
+Scenario 3: reduced to 91% of baseline execution time
+
+It can be proven through test function that the optimization for
+contpte_ptep_get is effective. Since the logic of contpte_ptep_get_lockless
+is similar to that of contpte_ptep_get, the same optimization scheme is
+also adopted for it.
+
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Tested-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Barry Song <baohua@kernel.org>
+Signed-off-by: Xavier Xia <xavier.qyxia@gmail.com>
+---
+Changes in v7:
+- Update the header files and main function of the test program, as well as Ryan's validation data.
+- Link to v6: https://lore.kernel.org/all/20250510125948.2383778-1-xavier_qy@163.com/
+
+Changes in v6:
+- Move prot = pte_pgprot(pte_mkold(pte_mkclean(pte))) into the contpte_is_consistent(),
+  as suggested by Barry.
+- Link to v5: https://lore.kernel.org/all/20250509122728.2379466-1-xavier_qy@163.com/
+
+Changes in v5:
+- Replace macro CHECK_CONTPTE_CONSISTENCY with inline function contpte_is_consistent
+  for improved readability and clarity, as suggested by Barry.
+- Link to v4: https://lore.kernel.org/all/20250508070353.2370826-1-xavier_qy@163.com/
+
+Changes in v4:
+- Convert macro CHECK_CONTPTE_FLAG to an internal loop for better readability.
+- Refactor contpte_ptep_get_lockless using the same optimization logic, as suggested by Ryan.
+- Link to v3: https://lore.kernel.org/all/3d338f91.8c71.1965cd8b1b8.Coremail.xavier_qy@163.com/
+---
+ arch/arm64/mm/contpte.c | 74 +++++++++++++++++++++++++++++++++++------
+ 1 file changed, 64 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index bcac4f55f9c1..71efe7dff0ad 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -169,17 +169,46 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ 	for (i = 0; i < CONT_PTES; i++, ptep++) {
+ 		pte = __ptep_get(ptep);
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = pte_mkdirty(orig_pte);
+-
+-		if (pte_young(pte))
++			for (; i < CONT_PTES; i++, ptep++) {
++				pte = __ptep_get(ptep);
++				if (pte_young(pte)) {
++					orig_pte = pte_mkyoung(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
++
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			i++;
++			ptep++;
++			for (; i < CONT_PTES; i++, ptep++) {
++				pte = __ptep_get(ptep);
++				if (pte_dirty(pte)) {
++					orig_pte = pte_mkdirty(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return orig_pte;
+ }
+ EXPORT_SYMBOL_GPL(contpte_ptep_get);
+ 
++static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
++					pgprot_t orig_prot)
++{
++	pgprot_t prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
++
++	return pte_valid_cont(pte) && pte_pfn(pte) == pfn &&
++			pgprot_val(prot) == pgprot_val(orig_prot);
++}
++
+ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ {
+ 	/*
+@@ -202,7 +231,6 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ 	pgprot_t orig_prot;
+ 	unsigned long pfn;
+ 	pte_t orig_pte;
+-	pgprot_t prot;
+ 	pte_t *ptep;
+ 	pte_t pte;
+ 	int i;
+@@ -219,18 +247,44 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+ 
+ 	for (i = 0; i < CONT_PTES; i++, ptep++, pfn++) {
+ 		pte = __ptep_get(ptep);
+-		prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
+ 
+-		if (!pte_valid_cont(pte) ||
+-		   pte_pfn(pte) != pfn ||
+-		   pgprot_val(prot) != pgprot_val(orig_prot))
++		if (!contpte_is_consistent(pte, pfn, orig_prot))
+ 			goto retry;
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = pte_mkdirty(orig_pte);
++			for (; i < CONT_PTES; i++, ptep++, pfn++) {
++				pte = __ptep_get(ptep);
++
++				if (!contpte_is_consistent(pte, pfn, orig_prot))
++					goto retry;
++
++				if (pte_young(pte)) {
++					orig_pte = pte_mkyoung(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 
+-		if (pte_young(pte))
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			i++;
++			ptep++;
++			pfn++;
++			for (; i < CONT_PTES; i++, ptep++, pfn++) {
++				pte = __ptep_get(ptep);
++
++				if (!contpte_is_consistent(pte, pfn, orig_prot))
++					goto retry;
++
++				if (pte_dirty(pte)) {
++					orig_pte = pte_mkdirty(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return orig_pte;
 -- 
-2.39.5
+2.34.1
 
 
