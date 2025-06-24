@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55962C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F47C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kX+aDmUm6igolpiXgNXgCg/cD6t2NGaw3+p//ISLo3Q=; b=AS1jMiqHKjzeCm+wTFbS51gjPT
-	sdhKRZsDsQt6vivtDNS0IanGeUqhJJ3CizMcHRZH51kahbD6VYRnzOnhGiHsmExf8wT7LBE/KpkQh
-	uMKZOCuv6LQ9w3CMIsrb6sU2Xguu96KkFCl/15Kt5/mgVuUAbP7dkXWzExbOlZhwH02wW7OrrzNNl
-	0ZP754mhyhQOxIyE4DwGLkhGTVEhCWG+j1hhrIVWc6GtLt1JFQV79KhXua14jcywvz2BrOVCAkgl/
-	rtJJXE3QdNyM1WjDiSpKMhQ0xe7LyXeSOb9adzJN8ocun+9aPF4yPJJSqgp4pHcZynjlFI/2dh1sV
-	YECh877A==;
+	bh=28uWrGAVfZHUZbD6CAD33ZS3i7gjhNRKGVjSHEzATNI=; b=P5Sy0pxMu3L92om7wrfW59Ge58
+	g89W+sNS+e6hziaR7AMlk/8IiiLAQZ+Gv9j0vVyvelwP9TbFlD3Nz2InOP0ZtqFVX6uV+znZYrfaq
+	baECfklsYtzTcva1z906Gesi4jJSrpGm+Wk4l42eR+V4qtxNrQO+dofr98dmwfQuuVSO5sODQrgCN
+	GC72QQfQI4YK3uHHYR7ENFFEzbXbSp9mBUfz40M7wqxG9A2vsP6rJd5Q49JZ6KV4d9meG6yCDn1N+
+	WEGqxD+ZQmVGGVf2940FdDstYDlerNh0x3AYxWHcMAmIiMZYCAD1X2u6LlHwmR1RCg8phqzJv1cey
+	2dXaYqMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTz4b-000000052ID-3vYd;
-	Tue, 24 Jun 2025 08:32:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uTz73-000000052mW-0b0Y;
+	Tue, 24 Jun 2025 08:34:41 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyuG-00000004zwv-3MUG
+	id 1uTyz6-000000050mB-2HYB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 08:21:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=kX+aDmUm6igolpiXgNXgCg/cD6t2NGaw3+p//ISLo3Q=; b=iYp9hcqx4xAC+0WkrlnifTG4Mz
-	cUn+pSx1/5zpt8JU19zea/s0fSQ6x8RSCV4pwydiFdcH64QPDCCNHGBLNIUgpF72fZ4rBEWRQi/VQ
-	Wy0emyklkRwzN9GNtT5ou0HV98fshE9WLPBil6b4Qpd5Dddc4Yx7h7Zw8TzA5KQVQ7kA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uTyuC-00Glop-49; Tue, 24 Jun 2025 10:21:24 +0200
-Date: Tue, 24 Jun 2025 10:21:24 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Paresh Bhagat <p-bhagat@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, praneeth@ti.com, kristo@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, khasim@ti.com, v-singh1@ti.com,
-	afd@ti.com, bb@ti.com, devarsht@ti.com
-Subject: Re: [PATCHv4 4/6] arm64: dts: ti: Add support for AM62D2-EVM
-Message-ID: <bf784ce6-aee7-4366-87ab-f0f79f8ef28c@lunn.ch>
-References: <20250623141253.3519546-1-p-bhagat@ti.com>
- <20250623141253.3519546-5-p-bhagat@ti.com>
+	Tue, 24 Jun 2025 08:26:29 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QOGH1503319;
+	Tue, 24 Jun 2025 03:26:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750753584;
+	bh=28uWrGAVfZHUZbD6CAD33ZS3i7gjhNRKGVjSHEzATNI=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=pTz0QEqmTCRAfSoQdNSw3PnJIGvk5MSUkq1ZDNuK/xmyVXiza/xqrSC4aq6J7/gT3
+	 YWQABIMpAoPcEOPXQ2sY+p2nQgOZYkRPz2fWFVV5iTGRTYQnPuzN9uuvb+Zt00FfyB
+	 oR3p8NZvEgxW9rCRXyNbQcumZc1WgvSQ2WxBOZDI=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QOD8100515
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 24 Jun 2025 03:26:24 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
+ Jun 2025 03:26:24 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 24 Jun 2025 03:26:23 -0500
+Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.214])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QN8D1183582;
+	Tue, 24 Jun 2025 03:26:23 -0500
+From: Jayesh Choudhary <j-choudhary@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
+        <j-choudhary@ti.com>
+Subject: [PATCH v2 2/7] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
+Date: Tue, 24 Jun 2025 13:56:14 +0530
+Message-ID: <20250624082619.324851-3-j-choudhary@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250624082619.324851-1-j-choudhary@ti.com>
+References: <20250624082619.324851-1-j-choudhary@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250623141253.3519546-5-p-bhagat@ti.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_012128_838561_459BB7C2 
-X-CRM114-Status: UNSURE (   5.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250624_012628_673491_C518AD98 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,16 +85,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&cpsw_port1 {
-> +	status = "okay";
-> +	phy-mode = "rgmii-rxid";
-> +	phy-handle = <&cpsw3g_phy0>;
+Enable DSI display for J784S4 EVM.
 
-Does the PCB have extra long RX clock lines?
+Add DT node for DSI-to-eDP bridge. The DSI to eDP bridge is
+SN65DSI86 on the board.
 
-More likely, this should be 'rgmii-id', and you should delete the
-ti,rx-internal-delay in the PHY node, allowing it to insert the 2ns
-delay in the normal way.
+Add the endpoint nodes to describe connection from:
+DSS => DSI => SN65DSI86 bridge => DisplayPort-1
 
-	Andrew
+Set status for all required nodes for display as 'okay'.
+
+Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+---
+ .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 117 +++++++++++++++++-
+ 1 file changed, 116 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+index fa656b7b13a1..63ff3eaedd4a 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+@@ -301,6 +301,52 @@ codec_audio: sound {
+ 		clock-names = "cpb-mcasp-auxclk", "cpb-mcasp-auxclk-48000",
+ 			      "cpb-codec-scki", "cpb-codec-scki-48000";
+ 	};
++
++	vsys_io_1v8: regulator-vsys-io-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_io_1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	vsys_io_1v2: regulator-vsys-io-1v2 {
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_io_1v2";
++		regulator-min-microvolt = <1200000>;
++		regulator-max-microvolt = <1200000>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	edp1_refclk: clock-edp1-refclk {
++		#clock-cells = <0>;
++		compatible = "fixed-clock";
++		clock-frequency = <19200000>;
++	};
++
++	dp1_pwr_3v3: regulator-dp1-prw {
++		compatible = "regulator-fixed";
++		regulator-name = "dp1-pwr";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		gpio = <&exp4 1 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	dp1: connector-dp1 {
++		compatible = "dp-connector";
++		label = "DP1";
++		type = "full-size";
++		dp-pwr-supply = <&dp1_pwr_3v3>;
++
++		port {
++			dp1_connector_in: endpoint {
++				remote-endpoint = <&dp1_out>;
++			};
++		};
++	};
+ };
+ 
+ &wkup_gpio0 {
+@@ -1340,12 +1386,24 @@ &mhdp {
+ };
+ 
+ &dss_ports {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
+ 	/* DP */
+-	port {
++	port@0 {
++		reg = <0>;
+ 		dpi0_out: endpoint {
+ 			remote-endpoint = <&dp0_in>;
+ 		};
+ 	};
++
++	/* DSI */
++	port@2 {
++		reg = <2>;
++		dpi2_out: endpoint {
++			remote-endpoint = <&dsi0_in>;
++		};
++	};
+ };
+ 
+ &main_i2c4 {
+@@ -1360,6 +1418,63 @@ exp4: gpio@20 {
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 	};
++
++	dsi_edp_bridge: dsi-edp-bridge@2c {
++		compatible = "ti,sn65dsi86";
++		reg = <0x2c>;
++
++		clock-names = "refclk";
++		clocks = <&edp1_refclk>;
++
++		enable-gpios = <&exp4 2 GPIO_ACTIVE_HIGH>;
++
++		vpll-supply = <&vsys_io_1v8>;
++		vccio-supply = <&vsys_io_1v8>;
++		vcca-supply = <&vsys_io_1v2>;
++		vcc-supply = <&vsys_io_1v2>;
++
++		dsi_edp_bridge_ports: ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			port@0 {
++				reg = <0>;
++				dp1_in: endpoint {
++					remote-endpoint = <&dsi0_out>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++				dp1_out: endpoint {
++					remote-endpoint = <&dp1_connector_in>;
++				};
++			};
++		};
++	};
++};
++
++&dsi0_ports {
++	port@0 {
++		reg = <0>;
++		dsi0_out: endpoint {
++			remote-endpoint = <&dp1_in>;
++		};
++	};
++
++	port@1 {
++		reg = <1>;
++		dsi0_in: endpoint {
++			remote-endpoint = <&dpi2_out>;
++		};
++	};
++};
++
++&dphy_tx0 {
++	status = "okay";
++};
++
++&dsi0 {
++	status = "okay";
+ };
+ 
+ &dp0_ports {
+-- 
+2.34.1
+
 
