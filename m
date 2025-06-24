@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB87C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FB7C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkFnrSeeIBG8oMt/mWPBr/iI0XDo1CZlwwGPUIw+XTk=; b=OqVCq0CDLsQ0e5NqnwEIYgZi8j
-	8CJ7p0YBq4upyBK6a8VVtxkHPr+phvE1IuTOIEKoUR8XXm3hXDWpl4sidWxahR125Xo3RZ3R7/iWo
-	XyqKliV3hI0FTRSMr48Nue7m8AFv/yAkBbwF+akF5TPn8DBInLcWIZEXaZ6YHJAhZoRH6KOfpCloR
-	QNjXJYuMqUAke9a/zlZxsMSv+ZPiakaNKq0KR5+IjgJQ3yj4NFtRJDxPRPEWpCJ4mTEolMWiylYXh
-	XqIRIfN0RhuH47wSU5aE+n1OaEg1Ufe8+OUSoXAaPZF+VY2SHsfgd+Vke+MyMbzAoD4I5tu2zch9M
-	JYHWMWWQ==;
+	bh=HfMA5jpuUju64NgKFNvWoBRdK8wrazN//HzlWpdAV1U=; b=Qg82ndXbIU1qTw0Y7aBbxGH+D7
+	XVv2Q7hWWS7VcTXFLIP9Qx5d6FZpICJtfhFjk/4aKDZZioAVX0mivTyVLVjG41jCMQJhEVgw2aCnh
+	HyqXkOfom2f4xKX1DXNLwj9mZtf77ET81X74q5+rvxFgC5b4RZAQzLASFgqAVcQxt/+V4I/qmP0H/
+	kkQThqMHTu6RqS5nTXP1l2wugFET8C294BQjg9XItwbDztd+t5omNhLCy4uq5tuG7ly/0zBAVU3db
+	qABKX36BXI/aRojz8ryATVgl84GOXYx3+alsY6QS3CNhy0PQ0kaReavmdozHkVXlJ1EISSegU6GF1
+	KNZHYxUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU54a-0000000608z-1InD;
-	Tue, 24 Jun 2025 14:56:32 +0000
+	id 1uU56q-000000060fz-0a0x;
+	Tue, 24 Jun 2025 14:58:52 +0000
 Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU44b-00000005msl-3cA4
+	id 1uU44h-00000005mul-1KFd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:52:31 +0000
+	Tue, 24 Jun 2025 13:52:36 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 035601F457;
-	Tue, 24 Jun 2025 13:51:58 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 5DC311F460;
+	Tue, 24 Jun 2025 13:51:59 +0000 (UTC)
 Authentication-Results: smtp-out2.suse.de;
 	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4C7E813A96;
-	Tue, 24 Jun 2025 13:51:57 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B284C13A96;
+	Tue, 24 Jun 2025 13:51:58 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id EEZ6EX2tWmjFcQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 24 Jun 2025 13:51:57 +0000
+	id SA1iKn6tWmjFcQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 24 Jun 2025 13:51:58 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: lee@kernel.org,
 	danielt@kernel.org,
@@ -70,11 +70,10 @@ Cc: dri-devel@lists.freedesktop.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH v2 11/15] backlight: ktd2801: Include <linux/mod_devicetable.h>
-Date: Tue, 24 Jun 2025 15:45:51 +0200
-Message-ID: <20250624134858.1736090-12-tzimmermann@suse.de>
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH v2 13/15] backlight: rave-sp: Include <linux/of.h> and <linux/mod_devicetable.h>
+Date: Tue, 24 Jun 2025 15:45:53 +0200
+Message-ID: <20250624134858.1736090-14-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250624134858.1736090-1-tzimmermann@suse.de>
 References: <20250624134858.1736090-1-tzimmermann@suse.de>
@@ -86,15 +85,15 @@ X-Rspamd-Pre-Result: action=no action;
 X-Spamd-Result: default: False [-4.00 / 50.00];
 	REPLY(-4.00)[];
 	TAGGED_RCPT(0.00)[]
-X-Rspamd-Queue-Id: 035601F457
+X-Rspamd-Queue-Id: 5DC311F460
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
 X-Rspamd-Action: no action
 X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_065230_040949_1EF36DF7 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20250624_065235_491352_06BA2F01 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,27 +109,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Include <linux/mod_devicetable.h> to declare struct of_device_id.
-Avoids dependency on backlight header to include it.
+Include <linux/of.h> to declare struct device_node and include
+<linux/mod_devicetable.h> to declare struct of_device_id. Avoids
+dependency on backlight header to include it.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Nick Chan <towinchenmi@gmail.com>
 ---
- drivers/video/backlight/ktd2801-backlight.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/video/backlight/rave-sp-backlight.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/video/backlight/ktd2801-backlight.c b/drivers/video/backlight/ktd2801-backlight.c
-index 0489b0615ceb..17eac1b3bce4 100644
---- a/drivers/video/backlight/ktd2801-backlight.c
-+++ b/drivers/video/backlight/ktd2801-backlight.c
-@@ -6,6 +6,7 @@
- #include <linux/backlight.h>
- #include <linux/gpio/consumer.h>
- #include <linux/leds-expresswire.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
+diff --git a/drivers/video/backlight/rave-sp-backlight.c b/drivers/video/backlight/rave-sp-backlight.c
+index e708a060a6e4..bfe01b9b9174 100644
+--- a/drivers/video/backlight/rave-sp-backlight.c
++++ b/drivers/video/backlight/rave-sp-backlight.c
+@@ -9,8 +9,10 @@
  
+ #include <linux/backlight.h>
+ #include <linux/kernel.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/mfd/rave-sp.h>
++#include <linux/of.h>
+ #include <linux/platform_device.h>
+ 
+ #define	RAVE_SP_BACKLIGHT_LCD_EN	BIT(7)
 -- 
 2.50.0
 
