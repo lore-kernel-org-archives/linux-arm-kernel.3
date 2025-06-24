@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53BCC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 00:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0BBC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEMnrs9w8mOFa54cCrRyf8ZEUg7MiaTXwVSJG82m6gc=; b=UXx7Mpj2Z20TI4CX3F8osu5V/G
-	Wpcc3n54kowCXqf3XO5cQcp2H2qnGDzcx4PMHbVmCQncbZDUknH2omtZEOKbICx6Y+SmgW5aH51kN
-	Q7npS6d5O+xEVgK2D9sAUa40T2XVSXKzPW54AFRh6goR6Et+bPR24RUdd3l9c+81n/VuZtMxZ0kUp
-	DZLOTvSpCv6G17pW6iRfmH2chpiiiHHyuWFAQP0687Whv8yjMihtPcjhBxp2G8nF/ukG8B12fm2+2
-	MpRXp/bxVMf5bIuU1UvnytvpfQW0bqlIFOrA+NOvw4kVFd7pn9k6SLoho8Tvr/zKv0BlULh395Nwf
-	zil8EvYA==;
+	bh=pswaEvXrxqiCuPqguUrIpa+69TcLaVsgIe/a8Du3h30=; b=3TJW9sUo9HtkHpSjMsE0ZezQUo
+	jm9wUIyK2sJrrhJM/UIz+5wV0gCqk5rws/ZUygOqFl+x4Pt86aanb3Xza9fzl0gIq5HN5T4XqfRM+
+	M+1lPEwKbumMc5HVHG3JQ1pJQ2tJpVE6y/dQcKILGC8GQwYmS+KGSoaF1LwDuIf0LGcZdpOZM4WDo
+	ESDOtltjrUc7ltTQ63E62zSr2jtXT/uLtyqSxc4hXTrhfNacsJkgxizNZrhXASWgvfIfvllqhWm6Q
+	FzbZBIfBsymMpcY9nH7g5+InhFEXd/eRGfQ73gI7G2KYf8iLXIAffdg7STgTcANA0Zq5A88WRJCfU
+	VXkJgu6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTrbi-00000004IUl-0H8k;
-	Tue, 24 Jun 2025 00:33:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uTsMW-00000004MNR-13zD;
+	Tue, 24 Jun 2025 01:22:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTqcR-00000004AnH-01iu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 23:30:32 +0000
+	id 1uTsK9-00000004M5E-33Q3;
+	Tue, 24 Jun 2025 01:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AC8E45C611A;
-	Mon, 23 Jun 2025 23:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B876C4CEEA;
-	Mon, 23 Jun 2025 23:30:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1750721429;
-	bh=+pzksmTU21a14H+AoU855eBMzjvNfwKGmzqegPCUfz0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TVwvL7+CH+emFOPEcbSmexDp/bxZo2WpXF5IM4MfNkGpXDwP605gweI/1ro7UCa1c
-	 t/pom6YA4zRP6ewjo5XoW4mwESp6bzj9oABc5VQsNe0EaH5chClFNnipA0F/fNs+/L
-	 DDZfxz+HnvEKeEq+ndtaRhHGHPXXO2JcQiq5uPyk=
-Date: Mon, 23 Jun 2025 16:30:28 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <dianders@chromium.org>,
- <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
- <lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
- <zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>,
- <yangyicong@hisilicon.com>, <linuxarm@huawei.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- linux-pm@vger.kernel.org
-Subject: Re: [RESEND PATCH v2 0/2] Update the watchdog period according to
- real CPU frequency
-Message-Id: <20250623163028.1914d7ec909eb9bfc1daa666@linux-foundation.org>
-In-Reply-To: <20250619114805.16968-1-yangyicong@huawei.com>
-References: <20250619114805.16968-1-yangyicong@huawei.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_163031_112019_83D205CD 
-X-CRM114-Status: GOOD (  13.11  )
+	by tor.source.kernel.org (Postfix) with ESMTP id E7172629C6;
+	Tue, 24 Jun 2025 01:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4619C4CEF3;
+	Tue, 24 Jun 2025 01:19:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750727984;
+	bh=i8HmAnFDktLAN6p9Nv9fj36EDKY0uQqypdcdnsV1cUE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qbApFGTxhNc7UDhHKJ6J3UJL7OJd4o9QzP04wE6FkvuMWVkHWcMPGiR4XeEhNt/jt
+	 Hm7XfNrXcBTbOyvml0OjsO7A5senyOlKulf7qbDc0gGriU7VfqDi6IWwa2LpHL4yzP
+	 eK99+RUI+1DmZhKSI8BvenGL+bVwY1Y8WkBSTih7Lsqtu2ADfL7JHkXQtoi3FsH24Z
+	 1291NiwRQsGbpvbC2yBqJUZXUhCrq/vlj75dbhjJkwFMqZNViC4BhQdrTYnBymlQbU
+	 JOmCCL1QYq132gIQfwfOiakDt4uED1sNUxCjXIbdKRY2PKwdZJJvx+nKnERCTYwunC
+	 oPtTLXkOyNigQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBE5239FEB7D;
+	Tue, 24 Jun 2025 01:20:12 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [net-next v6 0/4] rework IRQ handling in mtk_eth_soc
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175072801175.3355543.2001178239431704817.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Jun 2025 01:20:11 +0000
+References: <20250619132125.78368-1-linux@fw-web.de>
+In-Reply-To: <20250619132125.78368-1-linux@fw-web.de>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, frank-w@public-files.de,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ horms@kernel.org, daniel@makrotopia.org, arinc.unal@arinc9.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Jun 2025 19:48:03 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
+Hello:
 
-> watchdog perf needs architecture to provide method for converting the watchdog
-> thresh to counter period. For arm64 we're using the max CPU frequency for
-> doing the conversion which is from cpufreq driver. But some cpufreq driver
-> are registered lately, for example cppc_cpufreq will be registered at late
-> initcall which is after the initialization of watchdog perf (initialized in
-> armv8_pmuv3 of device initcall). In such case the period of watchdog will not
-> be accurate enough. Fix this by registering a cpufreq notifier and update the
-> watchdog period once the cpufreq driver is initialized.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Great, thanks.  I'll add these to mm.git for testing.
+On Thu, 19 Jun 2025 15:21:20 +0200 you wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> This series introduces named IRQs while keeping the index based way
+> for older dts.
+> Further it makes some cleanup like adding consts for index access and
+> avoids loading first IRQ which was not used on non SHARED_INT SoCs.
+> 
+> [...]
 
-> arch/arm64/kernel/watchdog_hld.c | 58 ++++++++++++++++++++++++++++++++
-> include/linux/nmi.h              |  2 ++
-> kernel/watchdog_perf.c           | 23 +++++++++++++
+Here is the summary with links:
+  - [net-next,v6,1/4] net: ethernet: mtk_eth_soc: support named IRQs
+    https://git.kernel.org/netdev/net-next/c/ee85b483fefb
+  - [net-next,v6,2/4] net: ethernet: mtk_eth_soc: add consts for irq index
+    https://git.kernel.org/netdev/net-next/c/498190100992
+  - [net-next,v6,3/4] net: ethernet: mtk_eth_soc: skip first IRQ if not used
+    https://git.kernel.org/netdev/net-next/c/9c0feca0a68b
+  - [net-next,v6,4/4] net: ethernet: mtk_eth_soc: only use legacy mode on missing IRQ name
+    https://git.kernel.org/netdev/net-next/c/070e98dd4e26
 
-This is not exactly my comfort zone so additional review would be
-appreciated, please.  Even though it doesn't touch drivers/cpufreq,
-perhaps the developers over there could take a look?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
