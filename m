@@ -4,106 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F90C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C954C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=; b=cNozaIL4e1Ykoc5E/3mmSx9kOG
-	DFwhdOyhTJnXVBs4ki5awxQ0o6AwMfu7QpEgYlsUM2fS52k1MxTYNTrAURSEgfmSc9e8FTBS8oTln
-	gMTXrEyT6QfNqoICFBOLAKbZBOrhfKKYJ6wKQu3OpGwSIJmfv6dx+RVhpsli2QjrGpPp1IkXM+B/I
-	EmkYpt9Ok5DfinVK2dabQuM+ywciI96BBfghEz08U+bVtynbgWasJqzgUHONvMOom5322Xy1OjsAK
-	2IenguADOk0Zb5UuuwhcHs4iOShU7+s5pdCkAoK8+/jkScPZB+D+07WzD2TewgdDJRWDozmBCPxbv
-	SoQZuQ1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MoT5YNGQ/JkzWfCB+CF+raKTLgx3XFq6uog751OCn5A=; b=EBjUUgWf/qB57VUS23fgRxf3W0
+	uTrCY+XnZxbulLKSt4ruiKGnklOSs+c3NO6HxSgHWH1/6iRpgVo/jP+xxmjdd62AhjedoE74I1xzb
+	+Tmli6dufGpKJo/JMvRnI/eo4h1D8CF8SME8NdwL1+jBHaD5I/9kW+tH6yBrCBy10QN/XgN9NeZs/
+	N+PKlG362AbhCrG6AmJytHnF/J7vo74izSSa6bndNHquBlzVO3F/eA/8lr8GwHuSP0INMZLK94beo
+	3tOl98pNowfrAtt7bNbaer1dW+fIFp034rA9ngREdDY2dkQj0lB3wKTg6tVD5poFt1J/sdAUG3tf7
+	W0XxXJAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU29h-00000005T4k-0XM1;
-	Tue, 24 Jun 2025 11:49:37 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uU2C3-00000005TF9-1uac;
+	Tue, 24 Jun 2025 11:52:03 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1IK-00000005McL-2TSK
+	id 1uU1SW-00000005O8s-3YrT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:54:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1750762468; x=1782298468;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=;
-  b=CRi1yTCy9nUgiT2haV9kMTnffoDmEKZLT9+2Td/XCecVI9GbRbrFJ6z+
-   b6yF7gLg2+NeMLdF/N6z/o6TQQDrCjRjbfSOxkmhCEmnGRPCmOwhSCgcV
-   +c66jVw0wGI1MUPIluVXaTM4Zs68xaKqDzTIp0n5QiDzd+vPAdY9rZb65
-   DAKdMBV8m6/gnz3JB7bDPLisL8CpOI7AYCJs29T9nXpPsAoVV5hkK/3Y2
-   PeVZZWCRdnNkpCTf+jxbQI5/1PQm7S4W7ByGQWTzky0vqb0xRB/vIFf+T
-   85VcfZh4gLW+0kJ9bujuMgZUhJ4bcTtDbGbZFguQbWSJuofPluSjdLQF9
-   g==;
-X-CSE-ConnectionGUID: eLKUm0CuTYGtOiwXD4x7LA==
-X-CSE-MsgGUID: szbgzfL8T7uRoTX6yCEaZQ==
-X-IronPort-AV: E=Sophos;i="6.16,261,1744063200"; 
-   d="scan'208";a="44816890"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 24 Jun 2025 12:54:27 +0200
-X-CheckPoint: {685A83E3-18-ABFC28F4-D6731B76}
-X-MAIL-CPID: 868EC48A26FC023677F57C65E2F6EDBB_5
-X-Control-Analysis: str=0001.0A006368.685A83FF.000F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A1823165D19;
-	Tue, 24 Jun 2025 12:54:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1750762463;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=;
-	b=MUiSjZjfzTSatmv3j0U1YVfQTh2qXBN1BCFlL4JzAgPYiKKxPG1qOjgcrxgQnLHnMQexIX
-	IWehI7DV5ZKXuQESQFLtA9qONwYCOckDyzxDR5carfawZLhUWvYhrBXqamOQYoszVrl7UN
-	uzw/MC6ncCbm+Cp1MAtFih8lWMSP5bqBpWFpONI1YFfVsKl+h3MgDM0UQUHBTg1Vl/fbso
-	qjdbL0mswPkuzjlhqBg8mXBDo0RuJVx8ZfzuuqnbsDTk/kXXl1HOxFCUgnp3SgBCeC3+KF
-	QhaW7kHc9NGuz/qkeU3C5Wvs412sGTabjPbjkFU2NzKtNUl6zW6YMAjPK9uyug==
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Tue, 24 Jun 2025 11:05:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gnEjAyr194NcFl/WFAwH5W5RN6IH4apOTCPxF8cKSf/vnx/Da3J3vhKiJ28ztSW/QziEFaJKMF0DaGAG6JkI1FwVQ7jVTX6toJummJZVs9cNHHLHjugbFFglj5qSVPlD0b0SMjYT32NZb3KFWDXeaTbRg0S+Zlh3f1vMYypMRzBEVCZYB9wknkguENECkJTzQxfzVwu149EhFQObWZjS+ZJw06+cj6a+jrSEJYtWjHX8jArdNExuNBsZKjyOo/OMfIjG7O2hRNgKJjSxWlgYN53vghVQoIiu2qbfG7LqdI4lFyWjh9+AYz5H8bQXcTwA90gzYrUL4BmaiMag607Dlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MoT5YNGQ/JkzWfCB+CF+raKTLgx3XFq6uog751OCn5A=;
+ b=aN2tD3B3kAh0MrlWpkwjyB70x17IE+bmmNNI2zsshrQVviPhO828dKYnRTolTMS0BxBCsjUylYmFd0AcomtuuC0dmsDaetCWRf7mnShOfMkdrdTSYMhqBNxc15tX3zu0JBAcc7pCL42iAZER93c+jI8kGt4FzEORTEQ8KUDgWfHL6lYZuv0MY8FXKPEQHAuCGvsmfWlfY7RdB+HwCvqA3TA7Bgn6ZRS/BDXsgFBZy15bZ44raSUbiZnmF+hUZyYezfCMvAdPGt4hSdqFSRWorgJI/4T7UqOJia2Jc723H1q6ja7yptD36faBndGw/myDOE0YOF4FIe4241dwvgQOwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MoT5YNGQ/JkzWfCB+CF+raKTLgx3XFq6uog751OCn5A=;
+ b=Iz8QDTYscc4Nyhx/mBD87TIIfngbnzCfx7Ar+MjR37UDhTeNSHBj2AXys+AjWjue88pHM3rikfHziq911hcEIZjoKa57fjuZJrwnEToyb+yI62dKGYdkAPNtswb583tiWPftB/QPrmkif8uoqpYsz5lOacIB4rnIQe5G+GMMx2pXi3y9PPNN6SJc0+fc4HAz7m0cjVt8CMClrxmuwgxD4KNWW0qkscqkh2Jz8rkkL8u5ZVN3gkItfJEOX/gIcJ7HVVlSKXsl1+t1QrKMkdbfZ3442t/tMAwkq0P+ND7/zKmZ4xNEcg/bY0tVWcWHAMUKqFdcpMxAfPlJ77QrzpC6Mw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from VI1PR03MB3856.eurprd03.prod.outlook.com (2603:10a6:803:66::33)
+ by GV1PR03MB10728.eurprd03.prod.outlook.com (2603:10a6:150:202::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Tue, 24 Jun
+ 2025 11:04:52 +0000
+Received: from VI1PR03MB3856.eurprd03.prod.outlook.com
+ ([fe80::e9fe:470f:27e0:b265]) by VI1PR03MB3856.eurprd03.prod.outlook.com
+ ([fe80::e9fe:470f:27e0:b265%5]) with mapi id 15.20.8857.016; Tue, 24 Jun 2025
+ 11:04:51 +0000
+From: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+To: linux-kernel@vger.kernel.org
+Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Andy Whitcroft <apw@canonical.com>
-Cc: Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Joe Perches <joe@perches.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tero Kristo <kristo@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Wojciech Dubowik <wojciech.dubowik@mt.com>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Marek Vasut <marex@denx.de>,
+	Frank Li <Frank.Li@nxp.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	=?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Michael Walle <mwalle@kernel.org>,
+	Heiko Schocher <hs@denx.de>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Tim Harvey <tharvey@gateworks.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Caleb James DeLisle <cjd@cjdns.fr>,
+	Junhao Xie <bigfoot@classfun.cn>,
+	Andre Przywara <andre.przywara@arm.com>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
 	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH net-next v2 1/3] dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example
-Date: Tue, 24 Jun 2025 12:53:32 +0200
-Message-ID: <f9b5e84fcaf565506ed86cf1838444c2bc47334f.1750756583.git.matthias.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
-References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v3 0/4] Support i.MX8MM Mettler Toledo Snowflake board
+Date: Tue, 24 Jun 2025 13:03:58 +0200
+Message-ID: <20250624110408.128283-1-Wojciech.Dubowik@mt.com>
+X-Mailer: git-send-email 2.47.2
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
+X-ClientProxiedBy: ZR2P278CA0078.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:65::13) To VI1PR03MB3856.eurprd03.prod.outlook.com
+ (2603:10a6:803:66::33)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR03MB3856:EE_|GV1PR03MB10728:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cb69cc5-87b2-4d8c-e8bd-08ddb30ef149
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5CW1v8+VL6AvEjA5a56rTZTmtrmf7bx6DpHYMcR6qffMEzIbXTBJWDiKqzZm?=
+ =?us-ascii?Q?GSMIWw4ymvX7T2tIHuEB0TW1ajaY/QH3aoqT7R/lkTwEqU1s54XNX+IRxzTV?=
+ =?us-ascii?Q?bUt0n+lzg0SAvxAt27uIDgenS0GNK973nZmJZCfWK80asugP6k7DInU6r2HI?=
+ =?us-ascii?Q?PzQmDDUvLHvXZf9LlBQdhD+C5KylPoLbYXTIvC3R525PIhU/nFmcnUHPC1IP?=
+ =?us-ascii?Q?mvpesZF+KRmPLXxeQ+bKdRQ32FDtQYP2/Do8HIXvxaHf6AKw2Bk1fTsgbWwE?=
+ =?us-ascii?Q?T1H0pEDuFY3t9wb0tWGx9Jkk9IOc2lt8H+MP5kncTD2pdUZCT6m5FPvxeL41?=
+ =?us-ascii?Q?qTGClZbM6FvxqkNDUU52cej5fn9tzreSlQ3evAdl7M2u3H9hX00bo9Kgw7gG?=
+ =?us-ascii?Q?KUzHHxcpsi8VKHu99aJsOUnSTvX2jpy88QEiCZuY4IUgylqkCZ9AAK1d3ruk?=
+ =?us-ascii?Q?S2D8c/f8xfnD2Ckc6yTIL0hwCi53L96hzswdjN9EKK7F/rfI6HTxjUxpkU40?=
+ =?us-ascii?Q?oa434rWOPI9SL12uf/Ztr4GfZlmMs3uGj/fg/I2jvrK51gZuMQyr2TEMIMYl?=
+ =?us-ascii?Q?4QGWMG0/kgwBp8d9i57Se/VuyULno/v6JlJchOooXlrIlCo4sWvUckCzpXe+?=
+ =?us-ascii?Q?ooGKw8pRQCXnJ7ubhZAPxPMVoq0HHZaX5kQeIdOK159p88adkgRvQExIG0EO?=
+ =?us-ascii?Q?F6wj16elnsyqc/SnaBjfrD3RRdy9MSz3wCacuTgjaAce/CNQUcJ9u1A7N5d0?=
+ =?us-ascii?Q?AT9Y3LjMbtr9sPT4KNKZajLJHW4Xs7+UJg9c4l1idIW0cJRkrg0tPsO36zUw?=
+ =?us-ascii?Q?d5zwMI7RvYykXWYjMVgw3rAfWamN95OA3loWAUkUpl/qBA6OXM82wujIx4d2?=
+ =?us-ascii?Q?3WspFXAfJhcDrQrPp88KLzdQZ8iQwBvY7BQuC6URfS7xUSGM/DHPs7EaUv5c?=
+ =?us-ascii?Q?ViS/LqTLyqHoVJO5ktzLneT1i12oSCfHgdni/4kPGXdCq0PAZjLXxSiVv/fz?=
+ =?us-ascii?Q?ml97MyFjHa5U9sureCM0wpqzaRubzolNxAulngI1rYrPX7BTmRwHyHdkxhCh?=
+ =?us-ascii?Q?55enBwMtRNshj5mj0KHkx/RAjSftMUN91+38YgaW4F9/jNAwNCaoCZkooW5Y?=
+ =?us-ascii?Q?Z64f0bPV8YIeEKmGhcgdg+nNHW7DChfs5CFnIIXh2KR6HU3bRL9DYrDgCXzm?=
+ =?us-ascii?Q?0dSXCVozc9/qN7IcchQo+WzdEZotThAPFdtUnVl37sUWr6mwpTIs3TckUAyY?=
+ =?us-ascii?Q?kFErjbiYho2mcuKLmxyHNPnrAZ2bBdJTtb42KhbEWm9NVEDFaBnz79JTDvuh?=
+ =?us-ascii?Q?+USbmEl4S2NqaSCJs2yBkY0epePZqQwpdwW2a0cOpAd/OlJ+XKV/GUFjaeao?=
+ =?us-ascii?Q?x4M5CzzOnG1fKHxyoJzVokeDl9rL48i1d/O4eJlzfaExHIJ03RSDwWlU0Iaw?=
+ =?us-ascii?Q?qL6WOTBeq7cO3fcvYeJxnUXjFYZZbVedSzoUAKCvBtJiilM8lMQ+vA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR03MB3856.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5sPArDe0Rs5z5zeeNGi5ynGvR2++HHm3k4YZoSgr/rWxjIiZMZ/3ePUFs3p4?=
+ =?us-ascii?Q?THzH+BTVmIo/v00mXdZB4dKJkBHFlwDj8HXIeLC5eR7O+RG7cJuTW0UjA8Mx?=
+ =?us-ascii?Q?JjHV94/Qn4i//bPTKy9kRN+D27cr96OXgMF7QtMMRTG2kHsOmZEzOoX9T78h?=
+ =?us-ascii?Q?Q6vXmYdLPMOpJY6Zg3UWFEvxir3aXp9tQpaoDuPn7bLbo4bEG7OBn3x6fM81?=
+ =?us-ascii?Q?txQsNsvDDPBFTwysRewfZhuJ/35Bja6qgWqko2rXp1iWhPlB/IPd+ykBDivg?=
+ =?us-ascii?Q?hL4EzM+Hucmp2UkoCuYbKYfKzecMGCwIxM9mHAxN9KROdz357i23toi7ek0z?=
+ =?us-ascii?Q?SJshQDBJZQem6pu9erTMliAN+ua4ALsOQp/LwnPHyLjJRF7iDWuBAR+4zQf3?=
+ =?us-ascii?Q?++h8zQiZjkorWTGFmBgwdPzlIS+C6YNLE80kFf1oNUF+PoAQy8z2a0KWpUvB?=
+ =?us-ascii?Q?0uXv0nwgk8mZqj9aGtmG2LcfGJfwWflYehzq15I602FGujzn3LM0k+/uIZey?=
+ =?us-ascii?Q?cvrH/+0bBwTHzLdx6BcfuTiX8ElsJ0ro9JGSo4RxbOr61PXIc0HadTl2ad2t?=
+ =?us-ascii?Q?1U0Cx2/C43LWFREnXak1Wizg232OsEyAJj92sBT+ISxlOuufDHum0MAydx9P?=
+ =?us-ascii?Q?bGU3w/ST7CjBtZ4dgrb07cbTxFEidFES8howsWUs2mKLnB1p4Hjt4FghvdiN?=
+ =?us-ascii?Q?p/C5zWzvUcSyvBLQxwXsXk1JuSkP1xz2jhyV7CXFesT6/9YlIZqaGVFXwgDE?=
+ =?us-ascii?Q?QtjvwEsTiFy8Lhh7rn2x1KsFv7uAil+QYzIZxDQTdd2iFfKcVBDlPPbYsE0r?=
+ =?us-ascii?Q?L6vdxkytM7++6F0Msz72n8Hr33eSFG6BMkqQOdGgbvQvqDqhqjF+Mf1ChWCz?=
+ =?us-ascii?Q?OYijFvrLMdBKN/6rlT6G95u7g7weEYVgAnpssWjZx0oz0FmNYXzTnMtmhTJX?=
+ =?us-ascii?Q?mw9V84Qmj1nspl/GWsJp4witwVEY7nuG95FzhxukRyP7abfCQsmz4W5BX3BC?=
+ =?us-ascii?Q?KFjThQSyKdnmHckw4eIbEKA1kL7kBbKvKAmQ6qu57wkylVxvy1I7vQ+Zm+3Y?=
+ =?us-ascii?Q?Wvl6dCoeBQc/gmfHPBaYpggY/5GR/Xs6h4dVnSrfi4hwo4eQv3XLnIyCb003?=
+ =?us-ascii?Q?GWkrnsxzVoHfTERzU7LvCTi/fuqziULZxyWnSbUv+JDWMM315LSM2woLmP1B?=
+ =?us-ascii?Q?ckxRge08+LO1GP8oNtel8qZ3gtk0Mp37W5tlN1JxV+8Iood76FflE6hioQl7?=
+ =?us-ascii?Q?vjfhtlHeWCda03cjI0nhTwwk87h0Kb5P8SvjfTEmLAUtmmgn+du7IaMnVDYb?=
+ =?us-ascii?Q?QGipnv19J9pOeCknroARewU3ujVsUUbY4Df0P7Htn8U/kO6NQSaiYELe2kCB?=
+ =?us-ascii?Q?pqBNXWdioHxriOLwW/7VSlrdhDcCR1lQ7t1psjf28Tj+XYKaYxVyOZC7SMd8?=
+ =?us-ascii?Q?qgi8scotTuTgLjC5zT410nW8K+clO7ZFN+N1Fn5cfT4BsmlLSRVMOPb4ml0q?=
+ =?us-ascii?Q?RMaLFd+sR3PAhRNU/BOEf9IdQzU8v4PaGsItmYVlIdY7jQbb6Z8vNQLrNK6Z?=
+ =?us-ascii?Q?OkEi+3CBnxgXb+mayFZczP7IX36oQN0MjQWEwiGP?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cb69cc5-87b2-4d8c-e8bd-08ddb30ef149
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR03MB3856.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 11:04:51.6818
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xq5dEPTJXJdIA+QKUrWcQO5EEP5j/Oh/NDbOR+824Z14/6poasR9fQ4gV3z7MzfVcHCIGvAlfTd7p8bGUWnRdQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR03MB10728
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_035428_962339_6A536E3F 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250624_040501_133562_79E04844 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,35 +188,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-k3-am65-cpsw-nuss controllers have a fixed internal TX delay, so RXID
-mode is not actually possible and will result in a warning from the
-driver going forward.
+Add initial support for Mettler-Toledo Snowflake V2 terminal.
+The board is using Kontron SL i.MX 8M Mini SoM with 1GB RAM.
+   
+Supported board features:
+* 7" Display with touchscreen
+* RS-232
+* I2S Audio
+* SD-card/eMMC
+* USB
 
-Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml          | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+- cleanup labels
+- remove unneeded status entry
 
-diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-index 7b3d948f187df..a959c1d7e643a 100644
---- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-@@ -284,7 +284,7 @@ examples:
-                     ti,syscon-efuse = <&mcu_conf 0x200>;
-                     phys = <&phy_gmii_sel 1>;
- 
--                    phy-mode = "rgmii-rxid";
-+                    phy-mode = "rgmii-id";
-                     phy-handle = <&phy0>;
-                 };
-             };
+Changes in v2:
+- In imx8mm-mt-snowflake-v2:
+  - Reformat with dt-format as suggested by Frank Li
+- Separate patch for dt-bindings
+- Add bindings for Mettler-Toledo vendor prefix
+- Add me as a maintainer for MT device tree files
+
+Wojciech Dubowik (4):
+  dt-bindings: vendor-prefixes: Add Mettler-Toledo
+  dt-bindings: arm: fsl: Add Mettler-Toledo Snowflake V2 board
+  arm64: dts: freescale: Add Mettler-Toledo Snowflake V2 support
+  MAINTAINERS: Add entry for METTLER TOLEDO BOARD SUPPORT
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +-
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   5 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8mm-mt-snowflake-v2.dts  | 482 ++++++++++++++++++
+ 5 files changed, 494 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-mt-snowflake-v2.dts
+
 -- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
+2.47.2
 
 
