@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7E1C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F2DC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=; b=IkKB/gD57AJPABnzJb7izzNk+8
-	x5X5NkFunl9Dd6H+a6R2VAZD/wSc43Z7K+26xb/weuSrX5a3mM20ebkyghKIMfR30ZiZbWuNp+I59
-	KRlDEU+own1xvdKHCA3u06DDZGIhwEOU5F3egqDO2K9tHlCzDZWbi/MzqVGhdPo6iJSd/CxE8mTIR
-	qAikj0tGSxpXd3WkbM8XhjiGSj6w+ql8e/c2EIvcBeOTXjde8ACjUVXqXi/FI1JWEFwCITN+T0dxv
-	WfZAarkqApCSnuVh5PPpnDiOZIx/8xQI63afC/KzWEpqydwO89gvEA9vu2EZFln+zgJ30pi23qZoC
-	wl0igZvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=nHGT8Vj0fpnxjALgDAfCT0aQ1Q1r4nSqiXPIo+v18Gc=; b=NEYEItWGv7SOlo
+	wnhriIL+BgeIRWZKbMzuCmq4YVya3D3m9ySeHV6PMlegqg3l6cjNlXGZPx+S5nvAJ66wiJmhGF+wG
+	iH5GQlKeAZ6g6Lfld9zJUwlU05rPkf2RqfsaCejhKmvxiqPBKzuA2iEtr3ub4gMqGDkocyALkOFvw
+	jg5eM9X5J1y8I1acZ98NaPbkfydaAbzg/FwFc/V7FcEmCdeKWj2Xbndpgbjg9oYHmWJvUZes7IJEN
+	BU+foLB6US9nXDa7djtZy5xKfzAf6OyKTdel+XJJVY93cUCfUK0iRvTiAlqgF6AQtaJGVbqaILNiM
+	aiK/ZcQrSvPwwaL7Bzgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUCTv-000000071sC-2YfN;
-	Tue, 24 Jun 2025 22:51:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uUCWB-00000007225-1f4a;
+	Tue, 24 Jun 2025 22:53:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUC01-00000006z3N-1uJI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 22:20:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750803615;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=;
-	b=Jz7NdXND2Pmgoq/XIOrGd7Etvu4fbh7prmUODXvPRL3qN/b/4XNYAsWRb+CHo+rXSfoPrN
-	m5pS53tsKQlgoH0kgz/FCgWqwtezqaFuHyabio8mDp41KppTDlqVB0YnnFaeMJ39ebqdfD
-	YWR+VtFdb0yACoJHF2kzlTLXKqj9oRs=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-375-Ta_pEEidOVSykVp3m7vP4g-1; Tue, 24 Jun 2025 18:18:38 -0400
-X-MC-Unique: Ta_pEEidOVSykVp3m7vP4g-1
-X-Mimecast-MFC-AGG-ID: Ta_pEEidOVSykVp3m7vP4g_1750803517
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a4f7ebfd00so491329f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 15:18:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750803517; x=1751408317;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=;
-        b=xJYI37vDn7ZumUFLdC6Uetaj2lBneU4Ld/W3NhpEcD8wkFPgFFojG/3VgtubaO6Smc
-         br/KglohP67Za6vphmVzgHNFufULpTob7TBPgjfzZfKqJ4tZK/rOVsBrgZbIFQsAA1TJ
-         nOFVM7D0OMJm0aWYY8sY/EVKXikNPJ1/zuU9ypZ9A83D9x5vixJ/w9RiRw/fj1hnDlff
-         TxL6r1N5JXkqIEiICCw2Yh3wo6hWooKPc2QlMU6SB8CH6ZAlgCfhp/Eg2Ocr9O0khWHr
-         fxmfsplIJ32RAE+DpYMaTq75rIiLOZTsSOq1E3sRJSue7Kk5adGftdYsyRWLgNp1bviV
-         /EFw==
-X-Forwarded-Encrypted: i=1; AJvYcCWl9jpVGZ4fyJwapoECQOWXyUGRDraI83XJwlpFUwKw4wpncVk+7PuCuPe/0orcPX10p/RDUwhg9xlLnApz8+W2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHx2XJf44yi35ubnxNh231XH0CrIXurK+n898aTRxZP/8Q4RLs
-	72fAVYwPrb7AeLiKHfJhLRfrWCKjL46X0dmLmf6EXKdv7nT8+zMZnMO7c+kh3K2X83XknyewwbI
-	spLtOG5MREmn0+h1tuSHVdL8pdL+xuF60iAYD2Jt4yJklpzSS3Yei4NAJuNynHog/95dxNr0nVZ
-	0s
-X-Gm-Gg: ASbGncuFK5OvraMvwQpq2RkYPFnSVbd0GZBTbQ8HvlYUxGtdKMC/jJ69hDehSqlqjpr
-	ruJrNsB3MUYztcNBrPDivHfRNd6sndhIy4VM+Fs3w323b4KNIW4vBL0LJgcOeCg80EHQF+qdktb
-	TiFWH3JeWIP3by8Vy9g4S6LJqXe3iFzAaow47xNzK09ig+ZJSzCpBTdT227fVBUGzVAMvwYywKP
-	b+iNiZ/SMPKqtYd9nGIIceR77B2WzZ6L+YwusHnPg7q3r7psrF3+ddi6BXKK2Ra+FEo4CA8Jxja
-	5iCVAwrPx+M/K1DRlDo+c7Tge1E5QVdxZbMF0g6yAM45JY1d5NHTs9pFDaSZ1w==
-X-Received: by 2002:a05:6000:4a04:b0:3a4:fc52:f5d4 with SMTP id ffacd0b85a97d-3a6ed66e660mr259020f8f.47.1750803517054;
-        Tue, 24 Jun 2025 15:18:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGgaiZu6Jnvv4KZOV08AX5p0ZetFt8VZ3DH1c9WqbbWm4WIsdHnH3J35vd6e6Y8A8S4HPKSng==
-X-Received: by 2002:a05:6000:4a04:b0:3a4:fc52:f5d4 with SMTP id ffacd0b85a97d-3a6ed66e660mr259010f8f.47.1750803516581;
-        Tue, 24 Jun 2025 15:18:36 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:c:37e0:8998:e0cf:68cc:1b62? ([2a01:e0a:c:37e0:8998:e0cf:68cc:1b62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45382373c86sm1501705e9.33.2025.06.24.15.18.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Jun 2025 15:18:36 -0700 (PDT)
-Message-ID: <cbaf2819-84b3-4482-8d91-7d3d24625e4f@redhat.com>
-Date: Wed, 25 Jun 2025 00:18:29 +0200
+	id 1uUC7Z-00000006zgk-3F74;
+	Tue, 24 Jun 2025 22:28:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1762643660;
+	Tue, 24 Jun 2025 22:28:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B82D4C4CEE3;
+	Tue, 24 Jun 2025 22:28:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750804084;
+	bh=jXEq0Zryo5iWhdDOObD3sH++As83oQggjSwqxjEgGGE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=iA0eWhzZtQm8KYqXOu60xOUYe58rPuGOKbOApXGwGahTm/Oj78klw/cT8mRksPPQA
+	 tR6nH3Xx8P58UK0AUIedLQmj9kFsO962U0IZGcTjLIWSkls7nQaQo4+VVJgfY3Ro5L
+	 M+gEYg4qFsa++TmbjGysA9o7B1arJEYNUNm7rAVv0J7NC6cuSdm55gq0Ew7oKBvesc
+	 xa7tbWPTAwNItJckvmCgVUjyqeOYmbpUB6s7+EjRrwAhR6pc7m8rLVw4cRWyWNR5W/
+	 VII/IFBXF0xndSwav8RZFZ9m6SVqH00P8EH5cmkvDqvy6X76eiiVRXKfsL3BGXu3/w
+	 H24EtUZCa3sEg==
+Date: Tue, 24 Jun 2025 17:28:03 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Marc Zyngier <maz@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: host-generic: Set driver_data before calling
+ gen_pci_init()
+Message-ID: <20250624222803.GA1549866@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
-To: Andrei Lalaev <andrey.lalaev@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Simona Vetter <simona@ffwll.ch>,
- Paolo Bonzini <pbonzini@redhat.com>, David Airlie <airlied@gmail.com>,
- Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- dri-devel@lists.freedesktop.org,
- rust-for-linux <rust-for-linux@vger.kernel.org>
-References: <20250418165059.560503-1-jfalempe@redhat.com>
- <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: OiuqOQ1dl57dx758PzAlvA5o1OfioacQL2kMT8nyzmE_1750803517
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, fr
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_152017_572140_1E5B3A5D 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20250624_152805_853405_85633BBD 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,157 +79,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 20:55, Andrei Lalaev wrote:
-> On 18.04.25 18:48, Jocelyn Falempe wrote:
->> On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
->> to use a simple fifo with decimal digits as u8 instead.
->> This is slower but should compile on all architecture.
->>
->> Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
->> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
->> ---
->>   drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
->>   1 file changed, 48 insertions(+), 23 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
->> index 6025a705530e..dd55b1cb764d 100644
->> --- a/drivers/gpu/drm/drm_panic_qr.rs
->> +++ b/drivers/gpu/drm/drm_panic_qr.rs
->> @@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
->>           SegmentIterator {
->>               segment: self,
->>               offset: 0,
->> -            carry: 0,
->> -            carry_len: 0,
->> +            decfifo: Default::default(),
->> +        }
->> +    }
->> +}
->> +
->> +/// Max fifo size is 17 (max push) + 2 (max remaining)
->> +const MAX_FIFO_SIZE: usize = 19;
->> +
->> +/// A simple Decimal digit FIFO
->> +#[derive(Default)]
->> +struct DecFifo {
->> +    decimals: [u8; MAX_FIFO_SIZE],
->> +    len: usize,
->> +}
->> +
->> +impl DecFifo {
->> +    fn push(&mut self, data: u64, len: usize) {
->> +        let mut chunk = data;
->> +        for i in (0..self.len).rev() {
->> +            self.decimals[i + len] = self.decimals[i];
->> +        }
->> +        for i in 0..len {
->> +            self.decimals[i] = (chunk % 10) as u8;
->> +            chunk /= 10;
->> +        }
->> +        self.len += len;
->> +    }
->> +
->> +    /// Pop 3 decimal digits from the FIFO
->> +    fn pop3(&mut self) -> Option<(u16, usize)> {
->> +        if self.len == 0 {
->> +            None
->> +        } else {
->> +            let poplen = 3.min(self.len);
->> +            self.len -= poplen;
->> +            let mut out = 0;
->> +            let mut exp = 1;
->> +            for i in 0..poplen {
->> +                out += self.decimals[self.len + i] as u16 * exp;
->> +                exp *= 10;
->> +            }
->> +            Some((out, NUM_CHARS_BITS[poplen]))
->>           }
->>       }
->>   }
->> @@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
->>   struct SegmentIterator<'a> {
->>       segment: &'a Segment<'a>,
->>       offset: usize,
->> -    carry: u64,
->> -    carry_len: usize,
->> +    decfifo: DecFifo,
->>   }
->>   
->>   impl Iterator for SegmentIterator<'_> {
->> @@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
->>                   }
->>               }
->>               Segment::Numeric(data) => {
->> -                if self.carry_len < 3 && self.offset < data.len() {
->> -                    // If there are less than 3 decimal digits in the carry,
->> -                    // take the next 7 bytes of input, and add them to the carry.
->> +                if self.decfifo.len < 3 && self.offset < data.len() {
->> +                    // If there are less than 3 decimal digits in the fifo,
->> +                    // take the next 7 bytes of input, and push them to the fifo.
->>                       let mut buf = [0u8; 8];
->>                       let len = 7.min(data.len() - self.offset);
->>                       buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
->>                       let chunk = u64::from_le_bytes(buf);
->> -                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
->> -                    self.carry = chunk + self.carry * pow;
->> +                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
->>                       self.offset += len;
->> -                    self.carry_len += BYTES_TO_DIGITS[len];
->> -                }
->> -                match self.carry_len {
->> -                    0 => None,
->> -                    len => {
->> -                        // take the next 3 decimal digits of the carry
->> -                        // and return 10bits of numeric data.
->> -                        let out_len = 3.min(len);
->> -                        self.carry_len -= out_len;
->> -                        let pow = u64::pow(10, self.carry_len as u32);
->> -                        let out = (self.carry / pow) as u16;
->> -                        self.carry %= pow;
->> -                        Some((out, NUM_CHARS_BITS[out_len]))
->> -                    }
->>                   }
->> +                self.decfifo.pop3()
->>               }
->>           }
->>       }
->>
->> base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
+On Tue, Jun 24, 2025 at 07:50:10PM +0200, Geert Uytterhoeven wrote:
+> On MicroChip MPFS Icicle:
 > 
-> Hi Jocelyn,
+>     microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
+>     microchip-pcie 2000000000.pcie: Parsing ranges property...
+>     microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
+>     Unable to handle kernel NULL pointer dereference at virtual address 0000000000000368
+>     Current swapper/0 pgtable: 4K pagesize, 39-bit VAs, pgdp=0x00000000814f1000
+>     [0000000000000368] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+>     Oops [#1]
+>     Modules linked in:
+>     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc1-icicle-00003-gafc0a570bb61 #232 NONE
+>     Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+>     [...]
+>     [<ffffffff803fb8a4>] plda_pcie_setup_iomems+0xe/0x78
+>     [<ffffffff803fc246>] mc_platform_init+0x80/0x1d2
+>     [<ffffffff803f9c88>] pci_ecam_create+0x104/0x1e2
+>     [<ffffffff8000adbe>] pci_host_common_init+0x120/0x228
+>     [<ffffffff8000af42>] pci_host_common_probe+0x7c/0x8a
 > 
-> Apologies for reviving this old thread, but I'm still encountering
-> the same issue with the latest master (78f4e737a53e).
+> The initialization of driver_data was moved after the call to
+> gen_pci_init(), while the pci_ecam_ops.init() callback
+> mc_platform_init() expects it has already been initialized.
 > 
-> When compiling this module for ARM32 (multi_v7_defconfig),
-> I get the following error:
+> Fix this by moving the initialization of driver_data up.
 > 
->      ld.lld: error: undefined symbol: __aeabi_uldivmod
->      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
->      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
->      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
->      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->      >>> referenced 14 more times
->      >>> did you mean: __aeabi_uidivmod
->      >>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
-> 
-> Since no one else has reported this in two months, I’m wondering
-> if this might be a configuration issue on my end.
+> Fixes: afc0a570bb613871 ("PCI: host-generic: Extract an ECAM bridge creation helper from pci_host_common_probe()")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Ok, that's surprising, the lines 391 and 392 are:
+Applied to pci/for-linus for v6.16, since afc0a570bb613871 appeared in
+v6.16-rc1.
 
-self.decimals[i] = (chunk % 10) as u8;
-chunk /= 10;
-
-So the compiler should be smart enough to do that without using a division.
-I will try to reproduce, and see if I can fix that.
-
-Best regards,
-
+> ---
+> Notes:
+>   1. Before, driver_data was initialized before calling
+>      of_pci_check_probe_only(), but the latter doesn't rely on that,
+>   2. drivers/pci/controller/plda/pcie-microchip-host.c seems to be the
+>      only driver relying on driver_data being set.
+> ---
+>  drivers/pci/controller/pci-host-common.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> Thanks a lot!
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index b0992325dd65f0da..b37052863847162d 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -64,13 +64,13 @@ int pci_host_common_init(struct platform_device *pdev,
+>  
+>  	of_pci_check_probe_only();
+>  
+> +	platform_set_drvdata(pdev, bridge);
+> +
+>  	/* Parse and map our Configuration Space windows */
+>  	cfg = gen_pci_init(dev, bridge, ops);
+>  	if (IS_ERR(cfg))
+>  		return PTR_ERR(cfg);
+>  
+> -	platform_set_drvdata(pdev, bridge);
+> -
+>  	bridge->sysdata = cfg;
+>  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+>  	bridge->enable_device = ops->enable_device;
+> -- 
+> 2.43.0
 > 
-
 
