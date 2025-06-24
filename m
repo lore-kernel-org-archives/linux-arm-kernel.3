@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467E6C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3996AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmILWo+eEIkmHVcVGp6xMZK5IrqqEHUjUiVUwra1nnU=; b=OQopX5jkPjd7q2Q+4W2d5RpNYe
-	GVjCAg75nojVLM9ELplYg5dMsKFCBQRJivNhavYlcKx+x9qcQqFzKG8gt+A1SAylkaVAG7Q/Dk17k
-	74joLHx2JwdNe2XeYWvxVV3Zs0/o6S3K2vJ2rhAxUE9EizDiyRHoKtMoOcWR0Cd5H+G3Eox6pTXy6
-	6ZuvyoBuGACtri+V0zCeCqFBGiKn/UvztaBSCl8O3RKPZ3LVV62RE8O+WBAWrTNFYONksnHFJ9cYe
-	JoOLaR/rZVpU97REUMcL082sTbaXu2YrVC4W0Jx2q15OOQSBQXqrmpUgGq8YdhqVxthVky3TK8pWg
-	S5TXF1aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JSJyRKfUgsicif6Zhh9aMvR5uHldOPhckaMuBpk84sM=; b=p6wU0ki8Lqqx35KS0AXtNDkoT0
+	gV52ImtUlfuL8gBwbyckdua9AprmjYhMTJINtk9QWmwQC1p45MM4vs8QoyV4WeUK3Xdct0xmB3Jvh
+	8ngkOj9D1ZmYXOA3k/LADz6GRC2lhKLOUnm2NUSHkglpdmdpPHN8REZcuTbRqcB9S5zFB01S/Zebd
+	0BbYg3zc5e6IxHeXs3KwmbR3L2Eb2UODTYYkrgxqDXsvIGZ+UcQzh+Yh5Wtdk1yMhB0gFUgx7K2u/
+	qHBnD22+fdPRItXmjrU7Jw+W1RRkEOSth0rTvAClRqQncu5DS0ONhJKYKQapedy2qHsiXXKCJJ+Ey
+	LRIlPeMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7Mv-00000006NXI-0OHX;
-	Tue, 24 Jun 2025 17:23:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uU7Oj-00000006Nga-0JAN;
+	Tue, 24 Jun 2025 17:25:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iU-00000005vZE-3SN1;
-	Tue, 24 Jun 2025 14:33:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gmILWo+eEIkmHVcVGp6xMZK5IrqqEHUjUiVUwra1nnU=; b=EmIaFhgfPI6ZHVjAdusdSWMhP9
-	JnwrcejIrfY2B8n1y9/U6k3b1P6av91bSwkGNPquel2J/LqwZTrOPlkbDlkIT6bNcKu06bWYMh7Rb
-	4uEwaGak/V3A92zVW7UxszIzo8/JcExeMFcxhMiwuKY9CTjAvSvd8/kUTnzj89L4kaqkqiKuXXiET
-	PVhK5NTAxX73+HBchzK7C1OCC5mpAJCCQvoAFQaqkSqszTurZN1RMX51fX8FRYgLKQ+pyWwS5hoXE
-	vHOZ8mw/jdQVvYILu8+3X2LerKkZ52udkW4jl1hMvdzOboKF/UeIs3Vv5nciInmezyziBbJilT6ZE
-	PG+8u9dw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iR-00000005SqX-2g9M;
-	Tue, 24 Jun 2025 14:33:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775616;
-	bh=faHO25SJcLx7uWcBG03RC4bdFwL6hwZ41XnrLiIbm38=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DpDkwfgQiAlPZSgb2WCzsDEe8Quim2x2xVX/ImoglqQfcJuXVUx5I08p/6YYgtdVa
-	 ZxIL9jYBOMPbjfNIKeTlH9+W1x/wOdKzzs/39iJdRD2+pZfzehg8IbH3O7jwO/mbTH
-	 3mlMXvYlb0SRYqU1TC3GFFerPS6ZkvisiTxNcgJq21YTQAKCOotmM1SwQqqSDhK5Ph
-	 BcaGSiXXR0+9MeB/oZBH7Q0It5wBUd1xK1fzVuYQP5RP7tgqA8KxjtXCeGYIwqH+w9
-	 pg9M5FTLd0dTXbCdIyjt9MOye3MOPTdo3xYynT7u/w+QZFx5i8oY+P+DDqZkxRn8h+
-	 89e5zks+/yTJA==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 73E5E17E159C;
-	Tue, 24 Jun 2025 16:33:35 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 04/29] clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
-Date: Tue, 24 Jun 2025 16:31:55 +0200
-Message-Id: <20250624143220.244549-5-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
-References: <20250624143220.244549-1-laura.nao@collabora.com>
+	id 1uU5GO-000000062UL-2xTB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 15:08:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750777724; x=1782313724;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Zv0CC3WYKH/36O9O0t/SOoiKrmvlfng/rt5RJxB0L+A=;
+  b=sVs1Pb6Wcp/rqjcSfkgmnsgP8Y9aGPjipS+NKcVkxa8f19QsFmTVFvM9
+   l6QELAUpSHBqMq5Urwa/6znPv7hC94IVcL7Alun3OkbiDci3fbukPpl+L
+   s9AMlljJm+++UX/GL3uGmt0hLwz4sGXktCig1ORvPlCLoZKAQ8WVlyY/n
+   GdP0Bpn5Y6M4x3egOJ7EGTA2xCeNUQrEjseU0a06un0QGVK7PmH2wMq6r
+   8F6VMAb1qTbSTgpv5rdXNzmpmCuvOGjKIyiqZ1aunhSKpA+TzG8rvFKl8
+   zHJ3Ufq5W4cGdg7RUrI9KgAb2We2FueFB38iKxI46Y1wI7Mtn5y6IGU24
+   Q==;
+X-CSE-ConnectionGUID: 4+RzxTN1Qsa6vG3Bpty4nA==
+X-CSE-MsgGUID: 2Bnf9nTNT1y4Lw1rqdmKEQ==
+X-IronPort-AV: E=Sophos;i="6.16,262,1744095600"; 
+   d="scan'208";a="42688169"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:08:42 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 24 Jun 2025 08:08:36 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 24 Jun 2025 08:08:36 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<varshini.rajendran@microchip.com>
+Subject: [PATCH v2 01/32] clk: at91: pmc: add macros for clk_parent_data
+Date: Tue, 24 Jun 2025 08:07:58 -0700
+Message-ID: <f3ef0275345578c504b41710c67bfe1238c44c21.1750182562.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1750182562.git.Ryan.Wanner@microchip.com>
+References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_153339_775919_46976D5E 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250624_080844_808863_C3A009F2 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MT8196, some clock controllers use a separate regmap for hardware
-voting via set/clear/status registers. Add mtk_clk_get_hwv_regmap() to
-retrieve this optional regmap, avoiding duplicated lookup code in 
-mtk_clk_register_muxes() and mtk_clk_register_gate().
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Add helpers to set parent_data objects in platform specific drivers.
+
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+[ryan.wanner@microchip.com: enclose complex macro with parentheses.]
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/mediatek/clk-mtk.c | 16 ++++++++++++++++
- drivers/clk/mediatek/clk-mtk.h |  1 +
- 2 files changed, 17 insertions(+)
+ drivers/clk/at91/pmc.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/clk/mediatek/clk-mtk.c b/drivers/clk/mediatek/clk-mtk.c
-index ba1d1c495bc2..19cd27941747 100644
---- a/drivers/clk/mediatek/clk-mtk.c
-+++ b/drivers/clk/mediatek/clk-mtk.c
-@@ -685,4 +685,20 @@ void mtk_clk_simple_remove(struct platform_device *pdev)
- }
- EXPORT_SYMBOL_GPL(mtk_clk_simple_remove);
+diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+index 4fb29ca111f7..0b721a65b77f 100644
+--- a/drivers/clk/at91/pmc.h
++++ b/drivers/clk/at91/pmc.h
+@@ -15,6 +15,12 @@
  
-+struct regmap *mtk_clk_get_hwv_regmap(struct device_node *node)
-+{
-+	struct device_node *hwv_node;
-+	struct regmap *regmap_hwv;
-+
-+	hwv_node = of_parse_phandle(node, "mediatek,hardware-voter", 0);
-+	if (!hwv_node)
-+		return NULL;
-+
-+	regmap_hwv = device_node_to_regmap(hwv_node);
-+	of_node_put(hwv_node);
-+
-+	return regmap_hwv;
-+}
-+EXPORT_SYMBOL_GPL(mtk_clk_get_hwv_regmap);
-+
- MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
-index 136a4bc6dbe6..8ed2c9208b1f 100644
---- a/drivers/clk/mediatek/clk-mtk.h
-+++ b/drivers/clk/mediatek/clk-mtk.h
-@@ -247,5 +247,6 @@ int mtk_clk_pdev_probe(struct platform_device *pdev);
- void mtk_clk_pdev_remove(struct platform_device *pdev);
- int mtk_clk_simple_probe(struct platform_device *pdev);
- void mtk_clk_simple_remove(struct platform_device *pdev);
-+struct regmap *mtk_clk_get_hwv_regmap(struct device_node *node);
+ #include <dt-bindings/clock/at91.h>
  
- #endif /* __DRV_CLK_MTK_H */
++#define AT91_CLK_PD_NAME(n, i) ((struct clk_parent_data){ \
++	.hw = NULL, .name = (n), .fw_name = (n), .index = (i), \
++})
++
++#define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ .hw = (h) })
++
+ extern spinlock_t pmc_pcr_lock;
+ 
+ struct pmc_data {
 -- 
-2.39.5
+2.43.0
 
 
