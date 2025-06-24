@@ -4,61 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6638BC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 04:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14223C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 04:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=838EeDN8R5EdFWzLFyYChCZn0Pbaavtbg9tpIU7MFUI=; b=PYtlhlNnw+09GkzLdtVLWX8W6x
-	GHHoJizqihlpoy2cHDe72tu36XnbVTa9cbzzZ5ZJU/ZKj1MOiEunxyozStByNXAT7gehBOVn9DClm
-	1183viiPtwrrNw+A/4Yd0uOlaEuaYqI2xHpWWtMbsmUPaMCGqI0Xl8iDtPDkDqBG+bZdgjgnuUumS
-	RvDKEULj255YJpn5qNZmZvTCJa88rdPAutO0SvQEWf9DHwkZ0D0QoPjjhPnk0vtUu2cjmHg27a+dU
-	bVq1T7EIBC24GEFshZfrV2jvid108xU38+VsetrsHSoxskmNgwaGPdGUnpeL3kmXlOXZWUQIeejGb
-	GsZWhEMw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V43htX1dGZaj3LjzLzN85N5YuxGq1AdyxzQaJKqWYic=; b=JtEAzzHqLhG3YBe81z8mUnlhrh
+	BcnWQm+5uihlBgLtfgBNvA/nMQcz5GsYoK1Swx4MkCV4kK5hmCWedWfR1/NN7an0fAPZrCFKU9nrY
+	9JzPfhHJRGGwn6zNV3KY0MUvugE1T+PSBIgostkgTq4ex1X5pmzOukqTtyIc7eIGmOvb1Lk26XE39
+	QglmpRWN81be6Iqu6Hn5GU0FnpQrIvpeRL4ZNYAupg2p6y5p36fwyMc22kUgvQueLH0kzjb9Vrp91
+	hnSpzOp9x6vRLvRN6/r0tzTlJJrLCa7F6k/Z+XaW4rlST0LgTazfZe1FU1QNKBp51BueNFYAaTbi+
+	YXzm2nSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTvXo-00000004dGW-35JX;
-	Tue, 24 Jun 2025 04:46:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTvVO-00000004d2d-0ZFD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 04:43:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 304D5106F;
-	Mon, 23 Jun 2025 21:43:15 -0700 (PDT)
-Received: from [10.163.36.19] (unknown [10.163.36.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC0CC3F63F;
-	Mon, 23 Jun 2025 21:43:29 -0700 (PDT)
-Message-ID: <291dae35-af69-4fa5-abca-f0a36e1c47d2@arm.com>
-Date: Tue, 24 Jun 2025 10:13:26 +0530
+	id 1uTvf2-00000004dbM-3u0E;
+	Tue, 24 Jun 2025 04:53:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTuTq-00000004YgO-2nsb;
+	Tue, 24 Jun 2025 03:37:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=V43htX1dGZaj3LjzLzN85N5YuxGq1AdyxzQaJKqWYic=; b=HuiGXwiiR5pT+KOrUmkVHwVB5L
+	cJMm15hR1m2b4o+81SNqdJz2GaekAVJzDt30n3s+9jsFg2e1iDa1jHhhJD2Jw4YFAyi9/jGDkV04F
+	nN8fTupuhTIGhcD1EzMfmtT3yahlGoFAwyNgkBXNg1iPclYIIs5HPh5x6i70dzXZPr0ojvDqNj83q
+	NFPHdsLuQpiJEfh3Wr2PshFF044xvDDY46Y9q7Zk6xtQUhvJvtTKgKyDoQgzBQ5/XejX3E2cK3cQj
+	/+x6bcpXWrM9alxn0ld/60Fsa2lz6RimHa78WUjWW24+hEirjmdL6nX9VO78Pt+5BuS7zcfakLgWZ
+	wBhabtuw==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTuTn-00000005NSA-3U4s;
+	Tue, 24 Jun 2025 03:37:53 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id E821120731;
+	Tue, 24 Jun 2025 05:37:48 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 2-bGI4FkFAEs; Tue, 24 Jun 2025 05:37:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1750736268; bh=cpbZBwjbBZgHkRQ7AWaTRO0fpUi6AJxBeB+TW6Cfd6I=;
+	h=From:To:Cc:Subject:Date;
+	b=N/VwivIjCw02sOY60jg1xWpaSoEBSwLFCl2Adt/Md73nlOrSXxjEPxuvdNFaX3I7f
+	 YWi7W9Pyf+EKdZyldKUGELqQn0Q4Bj/a37syY96jRG73qcMVJRE9vHJS6rITNw7QbL
+	 8Dt6F6o8VOX5mMRsjatHNbhT4M3J0P//f4HLLbV3SVkZvvy4A8+0zYhEl0Gm2FheXr
+	 PICqeXYzJuQHoqlvLc/NStYkj1EhwZrdsiT1qsgmYPW+QOy+DcE3RTo1EEbgqj9Ayv
+	 UaVMozfLmuORpuHKUev6EUb1ylno3ryD9GUxIu/sPsAeD1hi7j9QgPL9wUJxU7mw0J
+	 7Q/hgTBb6C8lw==
+From: Yao Zi <ziyao@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yao Zi <ziyao@disroot.org>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/6] Support RK3528 variant of Rockchip naneng-combphy
+Date: Tue, 24 Jun 2025 03:37:27 +0000
+Message-ID: <20250624033733.50197-1-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] coresight: Avoid enable programming clock
- duplicately
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
- <20250609-arm_cs_fix_clock_v3_public-v3-6-423b3f1f241d@arm.com>
- <b30fc361-a04f-4a48-b8e2-f7c2da213e6c@arm.com>
- <20250609171413.GO8020@e132581.arm.com>
- <b20a6309-ae31-496d-a1ad-61ea358ad7a9@arm.com>
- <20250610120351.GQ8020@e132581.arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250610120351.GQ8020@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_214334_319638_A188571E 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250624_043752_037855_1F722E33 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +99,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Rockchip RK3528 ships a naneng-combphy that operates in either PCIe or
+USB 3.0 mode. It has a similar control logic to previous generations of
+naneng-combphy but an apparently different register layout.
 
+This series prepares phy-rockchip-naneng-combphy.c for variants with a
+different register layout and add RK3528 support.
 
-On 10/06/25 5:33 PM, Leo Yan wrote:
-> On Tue, Jun 10, 2025 at 04:09:32PM +0530, Anshuman Khandual wrote:
->>
->>
->> On 09/06/25 10:44 PM, Leo Yan wrote:
->>> On Mon, Jun 09, 2025 at 05:58:34PM +0100, Suzuki Kuruppassery Poulose wrote:
->>>
->>> [...]
->>>
->>>>>   static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
->>>>>   {
->>>>> -	struct clk *pclk;
->>>>> +	struct clk *pclk = NULL;
->>>>> -	pclk = devm_clk_get_enabled(dev, "apb_pclk");
->>>>> -	if (IS_ERR(pclk))
->>>>> -		pclk = devm_clk_get_enabled(dev, "apb");
->>>>> +	if (!dev_is_amba(dev)) {
->>>>> +		pclk = devm_clk_get_enabled(dev, "apb_pclk");
->>>>> +		if (IS_ERR(pclk))
->>>>> +			pclk = devm_clk_get_enabled(dev, "apb");
->>>>
->>>> AMBA driver doesn't handle "apb" clock ? So we may need to retain that here
->>>> ?
->>>
->>> Here checks the condition "if (!dev_is_amba(dev))", it means the device
->>> is not an AMBA device (e.g., a platform device), the APB clock is
->>> enabled at here.
->>
->> Just exit early for AMBA devices when 'pclk' clock is still NULL ?
->>
->> 	if (dev_is_amba(dev))
->> 		return pclk;
-> 
-> If it is an AMBA device, we should return a NULL pointer, as this
-> indicates that the APB clock is not managed by the CoreSight driver.
-> 
-> In this patch, I did not perform any refactoring and simply made a
-> straightforward changed.  The refactoring is done in the patch 07, as
-> you suggested, where the function is refined as:
-> 
->     if (dev_is_amba(dev)) {
->         return NULL;
->     } else {
->         pclk = devm_clk_get_enabled(dev, "apb_pclk");
->         ...
->     }
-> 
-> Would it be acceptable to keep this patch as it is?
+Testing is done on both Radxa E20C and Radxa Rock 2A with downstream
+devicetree changes, both USB 3 and PCIe modes are verified with mainline
+driver and achives a reasonable link speed.
 
-Agreed. Let's avoid the churn here as the refactoring happens
-later anyway.
+This series depends on v2 of patch "arm64: dts: rockchip: convert rk3528
+power-domains to dt-binding constants"[1] to build.
+
+[1]: https://lore.kernel.org/all/20250620201715.1572609-1-heiko@sntech.de/
+
+Changed from v3
+- Add a dt-binding patch to allow power-domains property when describing
+  Rockchip naneng combphys
+- devicetree patch
+  - Break down long lines
+  - Sort properties to keep the style consistent
+  - Add power-domains property to the combphy node
+- Link to v3: https://lore.kernel.org/linux-rockchip/20250519161612.14261-1-ziyao@disroot.org/
+Changed from v2
+- phy binding patch
+  - Fix format issue
+  - drop review tags
+- Link to v2: https://lore.kernel.org/all/20250509004121.36058-2-ziyao@disroot.
+org/
+Changed from v1
+- Collect review tags
+- Restyle RK3528 register definitions in the combphy driver
+- Drop unused include of phy.h in SoC devicetree
+- Link to v1: https://lore.kernel.org/all/20250508134332.14668-2-ziyao@disroo
+t.org/
+
+Yao Zi (6):
+  dt-bindings: soc: rockchip: Add RK3528 pipe-phy GRF syscon
+  dt-bindings: phy: rockchip: naneng-combphy: Add power-domains property
+  dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
+  phy: rockchip: naneng-combphy: Add SoC prefix to register definitions
+  phy: rockchip: naneng-combphy: Add RK3528 support
+  arm64: dts: rockchip: Add naneng-combphy for RK3528
+
+ .../phy/phy-rockchip-naneng-combphy.yaml      |   8 +-
+ .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      |  24 +
+ .../rockchip/phy-rockchip-naneng-combphy.c    | 746 +++++++++++-------
+ 4 files changed, 505 insertions(+), 274 deletions(-)
+
+-- 
+2.49.0
 
 
