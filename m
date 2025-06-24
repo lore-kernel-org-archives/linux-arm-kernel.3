@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3531FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB6AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MRVlSf43UpZPlnDsHsP5RKgiphK3yxiOkENQ94hu7rw=; b=U5Up0PzkixKP5X2/tc15H12omi
-	MJ6HyET1lMWc2AK8pPxUl1BCF8strUb7D6gO6XKJuu/rq2vh7PZVps4hG1xLkMSPUqzJ3/tQNRDgm
-	DIsiqIf7gsU/vJLupzUgNAP8Bld83CpTIjBDwpI8ucKj9Jrp9jCZOp2e5SCYWkPv4WDyDbE+4PzEG
-	S4kLAUru4/+Ygrhts9cdWd3f1niTOiEhiPFCgCKy+v5+qrR/jvizXABUXQ4+MkagADNZTPcxb756C
-	hKv4mZDd40ZuQ2JPr22/Ez8Omgbo9Smd+sWKRrmw/SXoDdfuybxmK3Th7lS1HOcWTGdJM2st5F+3E
-	+poSd6QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HjzFE4fmyDlXVsPYzogdifl8Zzt69qws0co4hN/MNgM=; b=Wf09V3yV2Y0RtoaPYyLNoPRYK2
+	b98myEkKu6TgitqVt1qkyqONQ01djYJ/KFXA1nQ457yThaPS/p3MerqZYTFnyuw6sD2My2kU30xuY
+	ZTHrLQ6SfzWAdRienarNj8apm+l2dELnHe+BjFVTuPsxw36+EzxaR2QtU/rCMcaVbXREAUVNGVd8V
+	HFarOXPEehpfOcCLEwbuFo3DejVDKCyYBmIhPtcUuLbOS2C7slSI2P37VcEcyrifpP1YFBHGhsqL6
+	VpUFv5beGQI6IKsYLJYGMfbeuNWlYR9D7gp5Y4nhMZiehBZk/0g8rsCpcOxK/FCqM/9+4d0poVTMu
+	p9iwkRgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzfE-000000058QP-1HMS;
-	Tue, 24 Jun 2025 09:10:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uTzpC-00000005A5Q-2lPW;
+	Tue, 24 Jun 2025 09:20:18 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzXD-000000056yT-2Pwo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Jun 2025 09:01:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=MRVlSf43UpZPlnDsHsP5RKgiphK3yxiOkENQ94hu7rw=; b=YmHCdmwrhBBjBKoYUq06OWj/gj
-	n+9ITy2kzBYhXdVrhfs68f3aeyGyihkzw77uxyLeb1tbz6ZjjBDq8cLlYG8nNdmCJ4rU09u0deYZp
-	jW7hhSTbYumkHsBJeEhw4tA/DYQv2m3qtruTTDGWBqRsS+Vkldnj0p6hzKEXrZo5DLJrDKy+Aj92b
-	K4Rs8moK1lSvEM1Bj1a+j0hlhon6gyZZTOfNNmnOtLsF2lp1fnJb4nLiGzqhKI7D5rOWdGk4MAO/3
-	OVSIJzCeIlLm9caB0YlV4SvcJiNleH3U4WsJ+aSXxJ0uBpZqbPAGpA8XVtImXR7neV3hyPROlGvPV
-	3Dp3baQA==;
-Received: from 54-240-197-238.amazon.com ([54.240.197.238] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzXA-000000067kz-0p4M;
-	Tue, 24 Jun 2025 09:01:40 +0000
-Message-ID: <0f86df0c2866114898da1e9f4274e23b3d1c38b4.camel@infradead.org>
-Subject: Re: KVM: arm64: vgic-its: Return -ENXIO to invalid
- KVM_DEV_ARM_VGIC_GRP_CTRL attrs
-From: David Woodhouse <dwmw2@infradead.org>
-To: Eric Auger <eauger@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
- Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jing Zhang <jingzhangos@google.com>, Kunkun Jiang <jiangkunkun@huawei.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Sebastian Ott <sebott@redhat.com>,
- Maxim Levitsky <mlevitsk@redhat.com>, Keisuke Nishimura
- <keisuke.nishimura@inria.fr>,  linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org
-Date: Tue, 24 Jun 2025 11:01:38 +0200
-In-Reply-To: <5e22442e-ddf8-4f5d-b7e4-5e2c9bf783b0@redhat.com>
-References: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
-	 <5e22442e-ddf8-4f5d-b7e4-5e2c9bf783b0@redhat.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kMLRulSc2O33FOgK1sZN"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uTzgo-000000058hW-1HK6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 09:11:39 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O9BY3S1512476;
+	Tue, 24 Jun 2025 04:11:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750756294;
+	bh=HjzFE4fmyDlXVsPYzogdifl8Zzt69qws0co4hN/MNgM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=igmHt30sOLkziNmUmT6sM0zt8tmlv6S351SuqYBNh6XZIs/5aewpKI0DjtOrTuoea
+	 GjosJGDB3ggtYFUfdJCpNyc+BdHxYaqc3bh7e9jnY4q85njgocoX7kE44RDwcyepOq
+	 17XGQ8I7aMAaTZxwVi5a5uNHY+bcQnCyFU6O3nBw=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O9BY884077631
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 24 Jun 2025 04:11:34 -0500
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
+ Jun 2025 04:11:34 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 24 Jun 2025 04:11:34 -0500
+Received: from [172.24.227.38] (ula0502350.dhcp.ti.com [172.24.227.38])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O9BTNd1246614;
+	Tue, 24 Jun 2025 04:11:30 -0500
+Message-ID: <15530643-04a1-4c3d-9879-56d668a59667@ti.com>
+Date: Tue, 24 Jun 2025 14:41:28 +0530
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv4 6/6] arm64: dts: ti: Add eMMC support for AM62D
+To: Bryan Brattlof <bb@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
+        <afd@ti.com>, <devarsht@ti.com>
+References: <20250623141253.3519546-1-p-bhagat@ti.com>
+ <20250623141253.3519546-7-p-bhagat@ti.com>
+ <20250623142859.fankjmvhdo2bxjgd@bryanbrattlof.com>
+Content-Language: en-US
+From: Paresh Bhagat <p-bhagat@ti.com>
+In-Reply-To: <20250623142859.fankjmvhdo2bxjgd@bryanbrattlof.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_021138_476557_E07E6AEE 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,143 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Bryan,
 
---=-kMLRulSc2O33FOgK1sZN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, 2025-06-24 at 09:25 +0200, Eric Auger wrote:
-> Hi David,
->=20
-> On 6/23/25 3:22 PM, David Woodhouse wrote:
-> > From: David Woodhouse <dwmw@amazon.co.uk>
-> >=20
-> > A preliminary version of a hack to invoke unmap_all_vpes() from an ioct=
-l
-> > didn't work very well. We eventually determined this was because we wer=
-e
-> > invoking it on the wrong file descriptor, but not getting an error.
-> >=20
-> > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+On 23/06/25 19:58, Bryan Brattlof wrote:
+> On June 23, 2025 thus sayeth Paresh Bhagat:
+>> Add the necessary device tree node for eMMC controller along with the
+>> required pinmux configuration.
+>>
+> Could this be squashed in 4/6?
+
+
+Yep will do
+
+
 >
-> In the corresponding doc (virt/kvm/devices/arm-vgic-its.rst)
-> it is said about possible returned values:
-> =C2=A0=C2=A0=C2=A0=C2=A0 -ENXIO=C2=A0 ITS not properly configured as requ=
-ired prior to setting
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-this attribute
-> which does not exactly match your situation. Shouldn't we also update
-> the doc or change the returned value?
-
-Hi Eric, thanks for looking at this.
-
-I think this is OK because the -ENXIO return is covered by the high-
-level description of KVM_[GS]ET_DEVICE_ATTR in virt/kvm/api.rst:
-
-Errors:
-
-  =3D=3D=3D=3D=3D   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-  ENXIO   The group or attribute is unknown/unsupported for this device
-          or hardware support is missing.
-
-
---=-kMLRulSc2O33FOgK1sZN
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDYyNDA5MDEz
-OFowLwYJKoZIhvcNAQkEMSIEILD+tAZU6xUkQkwj6FMBq+aYxupPQAG3V7FJiWp4TBtBMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAZ/jj5B6pqIf0
-//KKdNULHRZx28ZR/49kajMVkLHuXcEoxX5ffbH6ZFcfpLRrLU03PtTvFbx4E+9TpCUk4wG7CcqH
-IwivGujlHGQZRFwd4rGD4GiSTWY9k2MwnfzCxa8pYs4vmBlfEhRd/nTqMW56MPOBIX/7wK/qnb1M
-afLp/vbxK/S7f9wO9nd4MInS8T47UdvM6aD05+Xz/VJ5+AkFerNqryJQRhETNSMYziKbGPlWFvGq
-yR96yCbsVEBJvdL9+EJhNnglxJUt0Bf2NpWJjYZB+LX3LcuBzr1JOjoThAgu5UldYrZ8fDBBvhiz
-wkae6TqPV8Rceed/jibY97vf9x6DCkZG2YvMgqu4Dlyab0KAmvdfrDk8RLTv8Gp76BiAaz9RKCr0
-eG9blnVCOs+anDvWYqC1enXDK4Tm2/tVSNPmBt0pjrdfLINXKYev8dlVb0O8GBwWNKoxNbWiZCwf
-xCCjVuOoXFGkIXJIgrrIqFGJC+RUB5oIerfxUsw+Oa/iFLQsZCaRUKPsNSWnSAll9J9K65U84R+R
-BJw6cEhAQCesL0HZXPwMlTopd9pOJ3bweY0NN8JeS3QHD1ZKwMb5S6QQK/NiuuUXlWHOtxoassG6
-Katg/FmqsZ1EriMcPHeVA1EPXrs9mKhXOfFAyFs9M5dfWWLG7AFOhoGw44X556kAAAAAAAA=
+>> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 27 ++++++++++++++++++++++++
+>>   1 file changed, 27 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+>> index c98e4c98c956..5ceecdd68b3f 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+>> @@ -20,6 +20,7 @@ aliases {
+>>   		serial0 = &wkup_uart0;
+>>   		serial1 = &mcu_uart0;
+>>   		serial2 = &main_uart0;
+>> +		mmc0 = &sdhci0;
+>>   		mmc1 = &sdhci1;
+>>   		rtc0 = &wkup_rtc0;
+>>   		ethernet0 = &cpsw_port1;
+>> @@ -226,6 +227,22 @@ AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
+>>   		>;
+>>   	};
+>>   
+>> +	main_mmc0_pins_default: main-mmc0-default-pins {
+>> +		pinctrl-single,pins = <
+>> +			AM62DX_IOPAD(0x0220, PIN_INPUT_PULLUP, 0) /* (Y6) MMC0_CMD */
+>> +			AM62DX_IOPAD(0x0218, PIN_OUTPUT, 0) /* (AB7) MMC0_CLK */
+>> +			AM62DX_IOPAD(0x0214, PIN_INPUT_PULLUP, 0) /* (AA6) MMC0_DAT0 */
+>> +			AM62DX_IOPAD(0x0210, PIN_INPUT_PULLUP, 0) /* (AB6) MMC0_DAT1 */
+>> +			AM62DX_IOPAD(0x020c, PIN_INPUT_PULLUP, 0) /* (Y7) MMC0_DAT2 */
+>> +			AM62DX_IOPAD(0x0208, PIN_INPUT_PULLUP, 0) /* (AA7) MMC0_DAT3 */
+>> +			AM62DX_IOPAD(0x0204, PIN_INPUT_PULLUP, 0) /* (Y8) MMC0_DAT4 */
+>> +			AM62DX_IOPAD(0x0200, PIN_INPUT_PULLUP, 0) /* (W7) MMC0_DAT5 */
+>> +			AM62DX_IOPAD(0x01fc, PIN_INPUT_PULLUP, 0) /* (W9) MMC0_DAT6 */
+>> +			AM62DX_IOPAD(0x01f8, PIN_INPUT_PULLUP, 0) /* (AB8) MMC0_DAT7 */
+>> +		>;
+>> +		bootph-all;
+>> +	};
+>> +
+>>   	main_mmc1_pins_default: main-mmc1-default-pins {
+>>   		pinctrl-single,pins = <
+>>   			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
+>> @@ -397,6 +414,16 @@ &main_i2c2 {
+>>   	clock-frequency = <400000>;
+>>   };
+>>   
+>> +&sdhci0 {
+>> +	/* eMMC */
+>> +	bootph-all;
+>> +	status = "okay";
+>> +	non-removable;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&main_mmc0_pins_default>;
+>> +	disable-wp;
+>> +};
+> Make sure we follow the ordering of these properties:
+>
+>      https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
 
 
---=-kMLRulSc2O33FOgK1sZN--
+Will fix this. Thanks
+
+
+>
+>> +
+>>   &sdhci1 {
+>>   	/* SD/MMC */
+>>   	status = "okay";
+>> -- 
+>> 2.34.1
+>>
 
