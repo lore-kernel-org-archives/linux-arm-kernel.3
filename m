@@ -4,90 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BF7C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 04:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A65CC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 04:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZLBQ5GMO3S5FZKU93RAqvRqbEiTSgWH++nyXw8Nmek=; b=3X3TtvEtf+9FbhPh+8ddiOKgnh
-	MSORInRgSa4Px6jz2IfkqptJUBFHkXO68iX9Nzrd06srtEgcFKkiu1ZzgiojIVh9dapKFxVx0nb3Z
-	wMq+YmQeLk3LUm9UUd423RoTgIDxNeMhVKBIp7CMhF1WADymaqxJuMv4jjSuR7MSqRa6lB0UXkcL8
-	zJW5S8Lf/wZH5gGL9uC8q0kfmOFh25X3sRtLwIXgvdhVD1jEfnWPpKG3HOCreD/tCYRac3LfE1jhi
-	F+1M1AJmGqLGsi7SJWeA2Ej3lzGn+ZdQpEDwaLH0t0JuBbyngyLq5c1wp9bjc113EkpTajbH9/cGF
-	6IHf6lHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQ722ac+6DdXrAPXWdxusOTifbugFGTD2i2qMo39IMY=; b=Ooehp3ukXsR1F8FdxRGRMGNOzv
+	MndFefjePFsFbkrw1s/7EYqfA/sBYO29lPc/EnDnwnOHtUqfdz9qudaVA+gjx/q33VtjTv3x/SkbT
+	+s7BS8yNOzhbm/RTy5iZDFa0InhFcZIXI9xSRwZ8WgwQwCcbdFj9DmaCUOFgkoMtNCxVb+GMojgjo
+	4Ar4JbOTpfOxCVtetBJQMu2tQRkx27xAZ/zp5PbpKTubecXEPQRIMVUhVZmqOxtUkqg7HnyRXDbur
+	8oBoiP42o+RWMoSx1q3ez6bR8ookQFV+ypl4cjy24Ojy64HB7V1m1tFK5Hzxko1YX66auGYAvu9Ss
+	PoVP2m7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTv11-00000004b9T-2xr4;
-	Tue, 24 Jun 2025 04:12:11 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTuyN-00000004avt-36DE
+	id 1uTvE1-00000004c5w-1IzM;
+	Tue, 24 Jun 2025 04:25:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTvBe-00000004bwm-0Pd1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 04:09:29 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-748e81d37a7so9469b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 21:09:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750738166; x=1751342966; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=iZLBQ5GMO3S5FZKU93RAqvRqbEiTSgWH++nyXw8Nmek=;
-        b=X8MlNozrhph/KL3uoKomVWkojbyemlzS1R7IExBQ26GUHCRFgJyHRxktp6BuTMOOzb
-         vypnHa6IiiAYdeSWhC9Xk5y2yKp65urFCluSOGidbZklO7hOx+V7GvNkp2vPEvbj/hkw
-         NEHO3/boRN0rgeLFMjpapeDZMiTth7obKOh5A=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750738166; x=1751342966;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iZLBQ5GMO3S5FZKU93RAqvRqbEiTSgWH++nyXw8Nmek=;
-        b=k1Ib5CQ99SEt8Fh/3w9cyjiXF0sRyhasFccSdhpnkpxPttKnluUIxdR8o0HMEnEHTy
-         NltfIXF0BF3Ix4va+pvxZ3trl+HC80hxvGS8Gay974pvApqytRayYbZ92hFYHbk5E4Zl
-         qFPVdUmTIYInLAI+D4iRP/eqISSNlPJ2GZa1egGPWl3fHfoVOKX7ZbhjvdxfoRw0h5f3
-         5HqsYFkLn5vnjR9sLpIvWFLIvmp7BfiQKk0t/o605a+yM1DopOhIuacImxb8muBuavnf
-         +O/6Tp5OTQhDkeIHXNwAEIrW+TGjOEfsDFOwr1ubPvtPtOl10idQ7Bg3Tt1cktWfHsrD
-         8UkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVe4TvEm7RL1I4BSC0lU90QZwR1EEtIOyg5j1YaeNvTXGURW0CnE+pYCihvJm4T1BHDpMXOnIRlQ9OwhcPsC+LT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaFKw2aICz/9Gu6wbCjucCg1flmzzikhWr/9YuOEv1A12p8f0O
-	XibsMkek3Kld6rNRop1Qbsx652hBmd0YgYEJjcYKvMVvrTEYZ+gDoWVf39Ilbs0PEA==
-X-Gm-Gg: ASbGncuU2dlzQsCzqFEoptEaQM3ZN05XIcW4XuZ5vWIWdd08mDpHyZSVsVeSxJBbXMQ
-	XncL9UZ9Pvl66eC+TTBf5AA7r3Q1+C4pflJ2O+5kbhuKjCUiPRpusp/wHNGbU1JXN821eJNOqfm
-	p6/sEFc/OGlkZltlArXfLqkz/XH4OmdcNxXSeHH0eZopncyUOqJR6hvOyLEmx4EtHZ4pW2QCRc7
-	Xu0fbJWBgyE+GluVQ0qOyZsjX1Zx0VSWFaoHlCWP9C6CywqqVOdZrJcZPAXoLU9Kw/CiOcVkQhA
-	ngy/7JcJ16ry9nWSpPWyQg3jmsoAv6Hx8U9itT44pkieiV/2wBgUUFs=
-X-Google-Smtp-Source: AGHT+IE7k5HWqp6yZ4coLK9zxOOKVUatWn7F2bJv6NZWHFFs+9T9PielkjniSbuXSSxVbFmuLwM0yQ==
-X-Received: by 2002:a05:6a00:b8f:b0:736:3ea8:4805 with SMTP id d2e1a72fcca58-7490d7a170cmr19157532b3a.7.1750738166415;
-        Mon, 23 Jun 2025 21:09:26 -0700 (PDT)
-Received: from google.com ([2401:fa00:1:10:9e4d:2f37:d5ea:8954])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-749b5e4069csm679035b3a.65.2025.06.23.21.09.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 21:09:26 -0700 (PDT)
-Date: Tue, 24 Jun 2025 12:09:22 +0800
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com, weiyi.lu@mediatek.com,
-	tinghan.shen@mediatek.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v1 1/2] arm64: dts: mediatek: mt8195: Add subsys clks for
- PCIe power domains
-Message-ID: <20250624040922.GA1077353@google.com>
-References: <20250402090615.25871-1-angelogioacchino.delregno@collabora.com>
- <20250402090615.25871-2-angelogioacchino.delregno@collabora.com>
- <CAGXv+5GHf5D3JDh+OZ-Cxf91PTAGYk2+jvuwK1gymy=k1YOo_A@mail.gmail.com>
- <33847b76-11b5-4233-a5e6-9f8fd3c691a2@collabora.com>
+	Tue, 24 Jun 2025 04:23:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A58E6106F;
+	Mon, 23 Jun 2025 21:22:48 -0700 (PDT)
+Received: from [10.163.36.19] (unknown [10.163.36.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BD8A3F63F;
+	Mon, 23 Jun 2025 21:23:03 -0700 (PDT)
+Message-ID: <f565a64e-62d8-4cb3-b1b1-6de981b1052a@arm.com>
+Date: Tue, 24 Jun 2025 09:53:00 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <33847b76-11b5-4233-a5e6-9f8fd3c691a2@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/9] coresight: Appropriately disable programming
+ clocks
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
+ <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
+ <e18507cb-bcbf-4cdd-8364-9bce0ea016d5@arm.com>
+ <20250609163840.GL8020@e132581.arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250609163840.GL8020@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_210928_079226_DD8EA41C 
-X-CRM114-Status: GOOD (  28.46  )
+X-CRM114-CacheID: sfid-20250623_212310_412310_AC70EBB7 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,74 +70,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 12:07:16PM +0200, AngeloGioacchino Del Regno wrote:
-> Il 02/04/25 11:34, Chen-Yu Tsai ha scritto:
-> > On Wed, Apr 2, 2025 at 5:10 PM AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com> wrote:
-> > > 
-> > > The PCIe MAC needs the sram to be powered on for internal IP
-> > > access and it has always worked before because the bootloader
-> > > on Chromebooks was leaving the PCIe PERI_AO MEM clocks on
-> > > before booting the kernel.
-> > > Add the SRAM (mem) clock as a subsystem clock on the PCIe MAC
-> > > P0 and P1 to correctly describe the hardware and to avoid any
-> > > issue with bootloaders behaving differently.
-> > > 
-> > > Fixes: 2b515194bf0c ("arm64: dts: mt8195: Add power domains controller")
-> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> > > ---
-> > >   arch/arm64/boot/dts/mediatek/mt8195.dtsi | 4 ++++
-> > >   1 file changed, 4 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> > > index b33726da900b..0cb96cba727a 100644
-> > > --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> > > +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> > > @@ -792,12 +792,16 @@ power-domain@MT8195_POWER_DOMAIN_CAM_MRAW {
-> > > 
-> > >                                  power-domain@MT8195_POWER_DOMAIN_PCIE_MAC_P0 {
-> > >                                          reg = <MT8195_POWER_DOMAIN_PCIE_MAC_P0>;
-> > > +                                       clocks = <&pericfg_ao CLK_PERI_AO_PCIE_P0_MEM>;
-> > > +                                       clock-names = "ss-pextp0-mem";
-> > 
-> > Doesn't the PCIe host controller already reference this clock?
-> > 
-> > >                                          mediatek,infracfg = <&infracfg_ao>;
-> > >                                          #power-domain-cells = <0>;
-> > >                                  };
-> > > 
-> > >                                  power-domain@MT8195_POWER_DOMAIN_PCIE_MAC_P1 {
-> > >                                          reg = <MT8195_POWER_DOMAIN_PCIE_MAC_P1>;
-> > > +                                       clocks = <&pericfg_ao CLK_PERI_AO_PCIE_P1_MEM>;
-> > > +                                       clock-names = "ss-pextp1-mem";
-> > 
-> > Not this one though, since:
-> > 
-> >           /* Designer has connect pcie1 with peri_mem_p0 clock */
-> >           <&pericfg_ao CLK_PERI_AO_PCIE_P0_MEM>;
-> > 
-> 
-> I'm not sure what this comment refers to - as in, whether this is referring
-> to the board designer or to the SoC//IP designer...
 
-When MediaTek says "designer" they are referring to the hardware designer,
-in this case I believe it would be the SoC-level hardware designer /
-integrator.
 
-> ...but if MediaTek can clarify, I'd be happy :-)
+On 09/06/25 10:08 PM, Leo Yan wrote:
+> On Mon, Jun 09, 2025 at 05:11:21PM +0100, Suzuki Kuruppassery Poulose wrote:
+>> On 09/06/2025 17:00, Leo Yan wrote:
+>>> Some CoreSight components have programming clocks (pclk) and are enabled
+>>> using clk_get() and clk_prepare_enable().  However, in many cases, these
+>>> clocks are not disabled when modules exit and only released by clk_put().
+>>>
+>>> To fix the issue, this commit refactors coresight_get_enable_apb_pclk()
+>>> by replacing clk_get() and clk_prepare_enable() with
+>>> devm_clk_get_enabled() for enabling APB clock.  Callers are updated
+>>> to reuse the returned error value.
+>>>
+>>> With the change, programming clocks are managed as resources in driver
+>>> model layer, allowing clock cleanup to be handled automatically.  As a
+>>> result, manual cleanup operations are no longer needed and are removed
+>>> from the Coresight drivers.
+>>>
+>>> Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
+>>
+>> This looks suspicious. This patch covers a lot of components, but the
+>> above commit is only affecting ETMv4 ?
 > 
-> Cheers,
-> Angelo
+> Since commit 73d779a03a76 is the earliest patch that introduced the
+> issue, it has been selected as the fix tag. We assume this will cover
+> any subsequent changes that have the same issue.
+
+Although I am not still sure about this patch actually requiring a
+'Fixes:' tag as it just transitions into the device managed clocks
+rather than fixing an existing issue. But choosing the first commit
+makes sense as Leo has explained.
+
 > 
-> > 
-> > ChenYu
-> > 
-> > >                                          mediatek,infracfg = <&infracfg_ao>;
-> > >                                          #power-domain-cells = <0>;
-> > >                                  };
-> > > --
-> > > 2.48.1
-> > > 
-> > > 
+>> The patch as such looks good to me.
 > 
+> Thanks for review!
+> 
+>> Suzuki
+> 
+
 
