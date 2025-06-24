@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ED4C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EABC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugzOJI0YKfyW/A3C8ymnBAkIEzkeea57CtTfAGJMQbY=; b=XtYk+zjYogvEMev5fWU1DGmiYj
-	NwI54u5eLYRfGFmGiLtjqfXzjzHtP6Tr/PNXQxYk8HZaj6uFIw1vmS9fS/SmBtG89IAJywXJoDDGs
-	orBBG9rGt1sOs7Hv4uIqXuzDcNs4epUmV/yRFjudny9v2gg8liRTPYUk5n+mOG+D+E8zddDGi/a/a
-	YHrBXV0JS7RLTECbSKsYdluLRbrAdqGNLbDFCqDgxQX2YDy17gd+qp6GYqU09mpuhfEP4rUFGf0M5
-	Mou0H4l4lRVJ2H9ftTypaQIyQZFQt4Jj9gdgcUpi9fSnZHoeBp/g8rRg3YCYkBH0WoIJ1mAcdBl2G
-	0ovuJuYg==;
+	bh=tHYYJgQYozNXyXFCaTlEGnXeex1hMGGeDtKN0Br6QaA=; b=sxyWiACujmynuh9/uqOfx3uSW+
+	xNfJCMAmM4KcGBXJO73yZOsFKSkLm4kUqrmyPkX1Ic/lSrw+B+h6Tq32/3z/130d0X91/W8g7C3B3
+	Fn0pOUaKkbvhnWZG7XVRanxcihS895ycqYQ2FemTRonkvoxBSSDelzsFy5Ho1u61pTovYRJ/Ip539
+	fEeo/ixJg49CKAOQHufHbOLxCAxYf8+B59UUJr0ApdWD5iiHAoOUntb3Fox9kPaWq3EihJOGaAIeh
+	C8kXo2AqqPreBIUI7MCC6Cow/RSyvHlxvbtVICtE5O4IPj2Svu+shnYDA1co6oDXHzuSEdeuVB/wG
+	7MBRh3dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU14w-00000005Kna-32qN;
-	Tue, 24 Jun 2025 10:40:38 +0000
+	id 1uU17M-00000005L3U-20jg;
+	Tue, 24 Jun 2025 10:43:08 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU0mb-00000005I0S-0xEO
+	id 1uU0mb-00000005I0f-2Nda
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:21:42 +0000
+	Tue, 24 Jun 2025 10:21:43 +0000
 Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A68131838;
-	Tue, 24 Jun 2025 12:21:17 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B31791DAB;
+	Tue, 24 Jun 2025 12:21:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750760478;
-	bh=ckOBFBNFbarv/jw2bNjiwduRQVJMz9MPGCyJ2CBi1iI=;
+	s=mail; t=1750760480;
+	bh=iyhJbIDgI4Oae74LEOpCqBLfntqEuWvPSqMqL1nUytY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J65NmTezW60NJKuXUtWBZtMBLk0UfPtW+5V7xL01QEOCck0EI7MH5gXYasW99w0Sl
-	 W6I3OMc4F0TepvFOpvw35HOAX3zUGOzJbKuzHdfe5FkTi2WkofQFp5xUxTBbHWZSfo
-	 WiVREdBHFynQlF5qSRIWW37DMsMA90Jg0VR+vyok=
+	b=uhY+eBaaSkgmOZBrHwmzxIdcKXa9fiW8fc83ZJIapbQzVhd0YxZbkgttbJB0IhqXd
+	 qS2+o2Vn/xI0oA7may4MUHHCs76tOqSTlUWeFRxLldvnCdpKTE27Q8x94X/K9jb/PY
+	 mV4v556g6PX6uabzSmBAJE03uYP6zIKceAQXYrMc=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 24 Jun 2025 11:21:19 +0100
-Subject: [PATCH v10 06/17] media: uapi: Add controls for Mali-C55 ISP
+Date: Tue, 24 Jun 2025 11:21:22 +0100
+Subject: [PATCH v10 09/17] MAINTAINERS: Add entry for mali-c55 driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250624-c55-v10-6-54f3d4196990@ideasonboard.com>
+Message-Id: <20250624-c55-v10-9-54f3d4196990@ideasonboard.com>
 References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 In-Reply-To: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -55,26 +55,27 @@ Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
  laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
  Sakari Ailus <sakari.ailus@linux.intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5495;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1688;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=ckOBFBNFbarv/jw2bNjiwduRQVJMz9MPGCyJ2CBi1iI=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwnaWsx5PRyOvZpc7SyC29IbjVXr8c7rNK9T
- GpAaz5uDSiJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8JwAKCRDISVd6bEV1
- Mlt6D/9a3cfpOu9777x+p/qvaWHRS9QQpM5CEKlrQzc9xHYIqfNcCJKqNQEtYHYmHrb95Xh5qXk
- u/2d1p/YUoWJkFRM7yo925hG4a1s3PWgVjqzrbRPsBLW++9aJhd3ron4MPDqgOQ+cA2j5iBT/Qa
- pXgguI9z6QusH7qFd3lNXxFqsxnG1Q27+NCg2cl9BgcPAAYLup6d0GMEFa94oxnyOUCRgkuD5Za
- G54AknuVlmxTLkNAFCbi+9flCZvaNOB0xOhOd6GZDsEEhGdGQMBUGDwVJaQEMrCILaPm/rDpKh/
- UPGaYhJaxMA5uWaQEjDUgabWjr4eIy3U/3Q/3p4ac1RO4UIvsk6B54PdbGM0l9SEj8mPFtlWMf2
- 6yVSMYMxmg1XOFLpvgTYTxGy41t+OpbZ4w/z4glteSkvADaNYSRY2ALJB3qDlVGadBI+do2JTBR
- oLeWef99Dcq7DW8+7iOQDogbQxKmekBktLKN9uAxMywMGqQoV9j7Zt1PpW2REqFc45QEWzJUXBE
- tOOQbCVVBnx8pRwhaPZgKUo1GQ5cw/YB2Vbr1dXftHSMKsC4GpP7s61wkbOHAJjgHweKHz40Tz8
- gbeUOcfEFwj3cNPJIEmT3Zi82mTmewpjFZ27jOofC7WLV0Nx5eY5c6DpTWLtW1cIFeKQfXXWd0l
- +atsb5rlGaiQwig==
+ bh=iyhJbIDgI4Oae74LEOpCqBLfntqEuWvPSqMqL1nUytY=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwoY+5HI6gOtbDj5LRvleNv0DFEHQdcipPdg
+ 1ODLWHT/LuJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8KAAKCRDISVd6bEV1
+ MjExD/wPUehcFtLs1sFnN8x01u0uxfhPTH+ryuV9Sps2xy3BrSpabyqYEurXfCBl5kqRU2Jjqqj
+ rcbNaObr9H3HlGaL8Br2O0ObUCEJpJamo4qB/8XP9P9AGLtcE+BVKLN5P0VV4V24yXMGSQ9/D0+
+ dKPDqje59L3a5poOid5DAhTgokaEmMUScNBSQyMF+hBlCaRylzQwO7U2KvfSVDcMVHnYRGd6pTR
+ XMN9vmIcxMS+bYjJno4LdORQD0P0zx082lm6DKvWuHc4G9Kown1U5ZF9Pzv7Ie9cGz6pDUb49kJ
+ WBZ16ZeZAL2Kl/BZ2cgJfD3t3SOLzDcVtSwDaJfhdQKVxse6snjDpefox89/JjOu/jFOf3oGwpG
+ /sfHbXYBtlDqFgrSH6aTXe32Zp5iuPDPuMvH8d45OUAcwnhFYzlzgYUYef5fj4gd9XJ8JiMm/vp
+ cZDa29iov3uYjBgSmDQqOGXGAAXZ35fDiSPNTub+Yl/rtOn9huRPKLiJ0jOP2Rc+1q3UYBkexxM
+ XVaBbE6LTx88mnoOD2chG8ufZ6T+MS84KrZM7fkwdKge01bZP9TLyeiY+Eu1xtFXijGP5zNBmIP
+ DeUkzz0s05iopEwzTXCdvdTPGwW2atz4bU5VNU958nLQ+L23yJpIhx2yCIud2jw/9gefVcMT3kc
+ tVVahQPdwXCRxsA==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_032141_420714_F23B1166 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250624_032141_756440_8ACA80DE 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,11 +90,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add definitions and documentation for the custom control that will
-be needed by the Mali-C55 ISP driver. This will be a read only
-bitmask of the driver's capabilities, informing userspace of which
-blocks are fitted and which are absent.
+Add a MAINTAINERS entry for the mali-c55 driver and its associated
+documentation.
 
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
 Changes in v10:
@@ -102,137 +104,62 @@ Changes in v10:
 
 Changes in v9:
 
-	- New patch
----
- .../userspace-api/media/drivers/index.rst          |  1 +
- .../userspace-api/media/drivers/mali-c55.rst       | 55 ++++++++++++++++++++++
- include/uapi/linux/media/arm/mali-c55-config.h     | 26 ++++++++++
- include/uapi/linux/v4l2-controls.h                 |  6 +++
- 4 files changed, 88 insertions(+)
+	- Added a File line for
+	  Documentation/userspace-api/media/drivers/mali-c55.rst
 
-diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
-index d706cb47b1122b6e145a02ab826eb3ecc7997c2b..02967c9b18d6e90f414ccc1329c09bffee895e68 100644
---- a/Documentation/userspace-api/media/drivers/index.rst
-+++ b/Documentation/userspace-api/media/drivers/index.rst
-@@ -32,6 +32,7 @@ For more details see the file COPYING in the source distribution of Linux.
- 	cx2341x-uapi
- 	dw100
- 	imx-uapi
-+	mali-c55
- 	max2175
- 	npcm-video
- 	omap3isp-uapi
-diff --git a/Documentation/userspace-api/media/drivers/mali-c55.rst b/Documentation/userspace-api/media/drivers/mali-c55.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..e8519da77d737b91a931bbe47920af707eebf110
---- /dev/null
-+++ b/Documentation/userspace-api/media/drivers/mali-c55.rst
-@@ -0,0 +1,55 @@
-+.. SPDX-License-Identifier: GPL-2.0-only
-+
-+Arm Mali-C55 ISP driver
-+=======================
-+
-+The Arm Mali-C55 ISP driver implements a single driver-specific control:
-+
-+``V4L2_CID_MALI_C55_CAPABILITIES``
-+    Detail the capabilities of the ISP by giving detail about the fitted blocks.
-+
-+    .. flat-table:: Bitmask meaning definitions
-+	:header-rows: 1
-+	:widths: 2 4 8
-+
-+	* - Bit
-+	  - Macro
-+	  - Meaning
-+        * - 0
-+          - MALI_C55_GPS_PONG_FITTED
-+          - Pong configuration space is fitted in the ISP
-+        * - 1
-+          - MALI_C55_GPS_WDR_FITTED
-+          - WDR Framestitch, offset and gain is fitted in the ISP
-+        * - 2
-+          - MALI_C55_GPS_COMPRESSION_FITTED
-+          - Temper compression is fitted in the ISP
-+        * - 3
-+          - MALI_C55_GPS_TEMPER_FITTED
-+          - Temper is fitted in the ISP
-+        * - 4
-+          - MALI_C55_GPS_SINTER_LITE_FITTED
-+          - Sinter Lite is fitted in the ISP instead of the full Sinter version
-+        * - 5
-+          - MALI_C55_GPS_SINTER_FITTED
-+          - Sinter is fitted in the ISP
-+        * - 6
-+          - MALI_C55_GPS_IRIDIX_LTM_FITTED
-+          - Iridix local tone mappine is fitted in the ISP
-+        * - 7
-+          - MALI_C55_GPS_IRIDIX_GTM_FITTED
-+          - Iridix global tone mapping is fitted in the ISP
-+        * - 8
-+          - MALI_C55_GPS_CNR_FITTED
-+          - Colour noise reduction is fitted in the ISP
-+        * - 9
-+          - MALI_C55_GPS_FRSCALER_FITTED
-+          - The full resolution pipe scaler is fitted in the ISP
-+        * - 10
-+          - MALI_C55_GPS_DS_PIPE_FITTED
-+          - The downscale pipe is fitted in the ISP
-+
-+    The Mali-C55 ISP can be configured in a number of ways to include or exclude
-+    blocks which may not be necessary. This control provides a way for the
-+    driver to communicate to userspace which of the blocks are fitted in the
-+    design.
-\ No newline at end of file
-diff --git a/include/uapi/linux/media/arm/mali-c55-config.h b/include/uapi/linux/media/arm/mali-c55-config.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..2bd60a0d78786be368c2e51b1a0a63fd2a5f690b
---- /dev/null
-+++ b/include/uapi/linux/media/arm/mali-c55-config.h
-@@ -0,0 +1,26 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * ARM Mali-C55 ISP Driver - Userspace API
-+ *
-+ * Copyright (C) 2023 Ideas on Board Oy
-+ */
-+
-+#ifndef __UAPI_MALI_C55_CONFIG_H
-+#define __UAPI_MALI_C55_CONFIG_H
-+
-+#include <linux/v4l2-controls.h>
-+
-+#define V4L2_CID_MALI_C55_CAPABILITIES		(V4L2_CID_USER_MALI_C55_BASE + 0x0)
-+#define MALI_C55_GPS_PONG_FITTED		BIT(0)
-+#define MALI_C55_GPS_WDR_FITTED			BIT(1)
-+#define MALI_C55_GPS_COMPRESSION_FITTED		BIT(2)
-+#define MALI_C55_GPS_TEMPER_FITTED		BIT(3)
-+#define MALI_C55_GPS_SINTER_LITE_FITTED		BIT(4)
-+#define MALI_C55_GPS_SINTER_FITTED		BIT(5)
-+#define MALI_C55_GPS_IRIDIX_LTM_FITTED		BIT(6)
-+#define MALI_C55_GPS_IRIDIX_GTM_FITTED		BIT(7)
-+#define MALI_C55_GPS_CNR_FITTED			BIT(8)
-+#define MALI_C55_GPS_FRSCALER_FITTED		BIT(9)
-+#define MALI_C55_GPS_DS_PIPE_FITTED		BIT(10)
-+
-+#endif /* __UAPI_MALI_C55_CONFIG_H */
-diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-index 72e32814ea83dee5f1202c1249eac7cf3b85a22a..a31105115410bd041a3ac492ce86becd93a62d87 100644
---- a/include/uapi/linux/v4l2-controls.h
-+++ b/include/uapi/linux/v4l2-controls.h
-@@ -222,6 +222,12 @@ enum v4l2_colorfx {
-  */
- #define V4L2_CID_USER_UVC_BASE			(V4L2_CID_USER_BASE + 0x11e0)
+Changes in v8:
+
+	- None
+
+Changes in v7:
+
+	- None
+
+Changes in v6:
+
+	- None
+
+Changes in v5:
+
+	- None
+
+Changes in v4:
+	- None
+
+Changes in v3:
+
+	- none
+
+Changes in v2:
+
+	- none
+---
+ MAINTAINERS | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a92290fffa163f9fe8fe3f04bf66426f9a894409..43204b809333bf8f3d05a65fb3c24b063c91c2a4 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2028,6 +2028,18 @@ F:	drivers/gpu/drm/ci/xfails/panfrost*
+ F:	drivers/gpu/drm/panfrost/
+ F:	include/uapi/drm/panfrost_drm.h
  
-+/*
-+ * The base for the Arm Mali-C55 ISP driver controls.
-+ * We reserve 8 controls for this driver
-+ */
-+#define V4L2_CID_USER_MALI_C55_BASE		(V4L2_CID_USER_BASE + 0x1220)
++ARM MALI-C55 ISP DRIVER
++M:	Daniel Scally <dan.scally@ideasonboard.com>
++M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++T:	git git://linuxtv.org/media_tree.git
++F:	Documentation/admin-guide/media/mali-c55-graph.dot
++F:	Documentation/admin-guide/media/mali-c55.rst
++F:	Documentation/devicetree/bindings/media/arm,mali-c55.yaml
++F:	Documentation/userspace-api/media/drivers/mali-c55.rst
++F:	drivers/media/platform/arm/mali-c55/
 +
- /* MPEG-class control IDs */
- /* The MPEG controls are applicable to all codec controls
-  * and the 'MPEG' part of the define is historical */
+ ARM MALI PANTHOR DRM DRIVER
+ M:	Boris Brezillon <boris.brezillon@collabora.com>
+ M:	Steven Price <steven.price@arm.com>
 
 -- 
 2.34.1
