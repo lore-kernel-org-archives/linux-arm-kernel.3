@@ -4,68 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23291C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641CBC8300F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsjZMMtaBbupc4oGzIo3XvAEclb3sb0eigWneHj5NVQ=; b=tuS1cfhK8xO2mXgCvn/OtVGjO/
-	iqLqdEFOjpJCAnpq8GjQOGse/40XPU0fTQjXPdBFmiche8FNXzNnjg9jmjk2Rd1dHhPLWNHr7gJd5
-	TuyRXWf6MeF4+kwKroJ3Ag7eWSc4sU66iNlbw+CSLA5MdWuGgbHObBEsEnunlVUQVudsI1pnABzca
-	rf3FHMwRu2UOYAs2vq5ICVlyITsA9vqoTiUxzcTRAJLudNeIfs4GSg6A9Ax4Ozy3x6+ZvPaDPJoj2
-	JBkZcofDrsNFCDXXXMMcxW7ExXa+GibhzcdWjCCHFogKcWSvuZYRsTEIarFzE4FCqXluNhtlC353j
-	MunoBrzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BXVkZvyl2iCu06wewF9pzvY2+zd2lj+jtZhOikL8maQ=; b=aTREJ69OeaOjbAUOUjhF0QzMAn
+	T6S2SbsD44knWU+2iuvQRvXxUaSdmV8r+B+7JErRczAqoN31UJ8lByJpLSLHPw++94CigdUaen226
+	dDS5CaOxpGFy8IDNQM5rfsf1uaM8yK4KJXI8jGF3qfppzGCcG/SJPvf4538UFEwJlX0GKYnh0OIRd
+	+IEd1GPJJDB9avA3tDeDBsqV5qiCeQVhrvK+1aMxJ03sBGa/118RmbAPiY+iOd5dPKHP8+FgWSvXF
+	ZtOHdzNTpx+Ag3JsxMP5RFN3f0C3YelFJ+1740QsgoOPUzv1MpwOOQJKZuhvJ50mMH8WeOoIXlhTp
+	I3KPDIcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9j6-00000006fHO-2hRj;
-	Tue, 24 Jun 2025 19:54:40 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uU9j8-00000006fJN-31Oi;
+	Tue, 24 Jun 2025 19:54:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5wZ-00000006CEt-3l60
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:52:21 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bRTpt48Ksz6J6l2;
-	Tue, 24 Jun 2025 23:47:18 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 52AE21402C3;
-	Tue, 24 Jun 2025 23:52:18 +0800 (CST)
-Received: from SecurePC-101-06.china.huawei.com (10.122.19.247) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 24 Jun 2025 17:52:17 +0200
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
-	<dave@stgolabs.net>
-CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>
-Subject: [PATCH v2 8/8] Hack: Pretend we have PSCI 1.2
-Date: Tue, 24 Jun 2025 16:48:04 +0100
-Message-ID: <20250624154805.66985-9-Jonathan.Cameron@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+	id 1uU66g-00000006EIu-2yvg;
+	Tue, 24 Jun 2025 16:02:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 25B1361142;
+	Tue, 24 Jun 2025 16:02:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7930C4CEF0;
+	Tue, 24 Jun 2025 16:02:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750780966;
+	bh=59vKwFQx3AuIQaKLpbI7Gr6S80FF6YFWqpzvUTNuNHg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nJMAcTEV70blxKnFZgvWFj2LWgEVDASymi4c29tCl8hSzWuVeXZJ+ZOAWzmqqNBEq
+	 tPocBU8eX+0uR3/rbfFZegavpbkY3zAZ6sAu9buNCWGpUJtKZhK00L8oDiOiU6Y5+G
+	 E7aU9GyptmKYvXYd5cJYn9E5suctfkYAPXm1GqgGzPHPXeqcF3c4jdb5nD0ilJ9Fx5
+	 lLB6E0dhf143xbWxlb5bbBT6omnPqtA22VPwk5sbOmQKDCmKwsSSdGUsBbJ2BYZ7j9
+	 mopvFhMlqc5LeLvkAriVtSKZNSjjFZHcW5PYT5/p+Gd8T3Rm/lanedzZbrBP7EUxxx
+	 fDaycEvRxhqIQ==
+Message-ID: <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
+Date: Tue, 24 Jun 2025 18:02:39 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- frapeml500008.china.huawei.com (7.182.85.71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_085220_072508_367491F0 
-X-CRM114-Status: GOOD (  10.47  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
+ peripheral clock controllers
+To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250624143220.244549-1-laura.nao@collabora.com>
+ <20250624143220.244549-10-laura.nao@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250624143220.244549-10-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Need to update QEMU to PSCI 1.2. In meantime lie.
-This is just here to aid testing, not for review!
+On 24/06/2025 16:32, Laura Nao wrote:
+> +  '#reset-cells':
+> +    const: 1
+> +    description:
+> +      Reset lines for PEXTP0/1 and UFS blocks.
+> +
+> +  mediatek,hardware-voter:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
+> +      MCU manages clock and power domain control across the AP and other
+> +      remote processors. By aggregating their votes, it ensures clocks are
+> +      safely enabled/disabled and power domains are active before register
+> +      access.
 
-Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
----
- drivers/firmware/psci/psci.c | 2 ++
- 1 file changed, 2 insertions(+)
+Resource voting is not via any phandle, but either interconnects or
+required opps for power domain.
 
-diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-index 38ca190d4a22..804b0d7cda4b 100644
---- a/drivers/firmware/psci/psci.c
-+++ b/drivers/firmware/psci/psci.c
-@@ -646,6 +646,8 @@ static void __init psci_init_smccc(void)
- 		}
- 	}
- 
-+	/* Hack until qemu version stuff updated */
-+	arm_smccc_version_init(ARM_SMCCC_VERSION_1_2, psci_conduit);
- 	/*
- 	 * Conveniently, the SMCCC and PSCI versions are encoded the
- 	 * same way. No, this isn't accidental.
--- 
-2.48.1
+I already commented on this, so don't send v3 with the same.
 
+Best regards,
+Krzysztof
 
