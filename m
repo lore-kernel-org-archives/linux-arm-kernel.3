@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4991BC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2E9C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpCVpjHI7ouLJUDbCEW0+AnztEc/9jJ63QZx6Zq10dw=; b=h79R9BqZ2G9tw5cPuQHof6eRcZ
-	JaC1+huvTMchF+KMgR0kpoMa2f3tauepJHG+J8THgbJ7cPS/eENaDdmAxMIB9rmHZ7+Uq1aSyOP6O
-	AEB3QK5rq69+/U/CW5hMj/6I6n2jgiUMnqBulKqIO1aIc4EwJvrfdOgfsin2peSfjLMYmOn0kBu3p
-	KpndZrctJsGgxxboIGIpf3bvyISOHSRUjdSRVUxVxcHBx9ss4q1RFzWlF5CrOjvDIn2ombBFLjiEb
-	2qVHysGEaeitJ3SAaP+TKkuoyGmIh4q4gTbdc4jd14RDzMPtDvh7b+ZrTLhtyP710lxLtSArSEyVM
-	TO0yInMw==;
+	bh=vEF5LU1XxlQXZslQJI/1cFVPlb0p4U7lntfOhrRInvc=; b=A2FfzuOF8O71h+KfuiWNtTT/ZY
+	sO3wD/DSuMaYb9CG+DRPLUwm3WtEX2dnuiJ/w8RrTlPjttZOPQYxM4Vr8ZBJ9szo4SpANdVirv8h2
+	Z0Fgq5jFJO1vBE9RXqggk/GAkzd57m3PiXY2b9GE/9pyjH9tGqTdzfz7XHuA6+sAPyZOapNc7liP6
+	aY0fp0a8Rt9Z44Bgs2z6wNeGAzfSslv1ffJVvF35eeKwdtdDkMIkT152Kl0e4+dTUgVPCvi9knI89
+	2VcgdxPGDjYJouibAXMIB3GgM8PJH89wvBnYc4TJv1fok6sr5yt/tQw09OOlj/yJqWfDl4dhiZDHd
+	c2v1d3hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxhB-00000004pMt-3KSR;
-	Tue, 24 Jun 2025 07:03:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uTxjc-00000004pht-2eDQ;
+	Tue, 24 Jun 2025 07:06:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxUO-00000004nnh-2hYr
+	id 1uTxWU-00000004o4N-1O7T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 06:50:40 +0000
+	Tue, 24 Jun 2025 06:52:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC7A461155;
-	Tue, 24 Jun 2025 06:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52ECDC4CEE3;
-	Tue, 24 Jun 2025 06:50:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0362C4AC86;
+	Tue, 24 Jun 2025 06:52:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94F4CC4CEF3;
+	Tue, 24 Jun 2025 06:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750747839;
-	bh=I+9jn/5mNynKo4iayBDgivuT7YRumXcy0+7d7mJcko0=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=XFjkbAiikXOVASbLYYspYyAw1rAjLioxTdi3CE3eXBia2YrKkRDbDfsEkpXGj8atH
-	 15WV3AaOO7ssmlcHMrZdw3tMhb+uKqSyALdGc3t5jjOCwmlKo5RnMjo5JkM3cAzNbi
-	 wH22N6GMitJkzWrYF98N/7LRtGA1Xht6zOxpU8W0H+lr62kgYEjjzWdwvleJiweNMw
-	 +GhBVpFqUS16cjweBgoG8OghVzvMWv56ecGKJragXqTIHfm3FK5LBP4Rf2a/tAaLm6
-	 6DAyz8w28aDpB7ZGGeuBBmd1NbMOZH4JnD71H9wuU66ANo1xiYRyuJ5QkPRpty8F/l
-	 3mJ4zBKICqHdA==
-Message-ID: <00e76ce2-126a-40ab-badd-210a20041843@kernel.org>
-Date: Tue, 24 Jun 2025 08:50:35 +0200
+	s=k20201202; t=1750747969;
+	bh=ielXhQn2tAd/cBABc1ulVCuVpd2+vBXHyp93ILHOp+Q=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=DTOa9KvysM4PuKKcoj4vfPlRfcyGSc2s5paPrZ6M7jcnwQFN/b4w9LNBRZxJU355p
+	 oO+g4TR99LFJnDMf+nkkSKrTURd1TVVE8FxnKMSNo9w7psP+pg9VckcQY3l6cgDvhY
+	 pV2fk2ymfVjRRSGk+eyNPzRVVyMmQ/zWEkZTDVmC5zXORcd0+73vLSTWmlViCCgVkJ
+	 KChootqhaJGsRSTn+ncCOyn6zuLit+a8BBy+6mYGfEaHEX0e7Xq62D8gqWs+XrgUNG
+	 2HIx28UYtvyUINcWmMjAPFsDhQT0yBBDcECZU3PI8NWv9lbbGcPshnuiA3ENE336eY
+	 YyKqrfSHfWiSA==
+Message-ID: <5b048b32-36b4-4c4f-aefb-058674147b76@kernel.org>
+Date: Tue, 24 Jun 2025 08:52:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] nvmem: imx-ocotp: Use helper function
  devm_clk_get_enabled()
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Huan Tang <tanghuan@vivo.com>, srini@kernel.org, shawnguo@kernel.org,
  s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250624032318.246-1-tanghuan@vivo.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <00e76ce2-126a-40ab-badd-210a20041843@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -98,9 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250624032318.246-1-tanghuan@vivo.com>
+In-Reply-To: <00e76ce2-126a-40ab-badd-210a20041843@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250623_235250_418073_B601B31C 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,33 +119,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 05:23, Huan Tang wrote:
-> Use devm_clk_get_enabled() helper to simplify code.
+On 24/06/2025 08:50, Krzysztof Kozlowski wrote:
+> On 24/06/2025 05:23, Huan Tang wrote:
+>> Use devm_clk_get_enabled() helper to simplify code.
+>>
+>> Signed-off-by: Huan Tang <tanghuan@vivo.com>
+>> ---
+>>  drivers/nvmem/imx-ocotp.c | 3 +--
+>>  1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+>> index 79dd4fda0329..ce5970ba4033 100644
+>> --- a/drivers/nvmem/imx-ocotp.c
+>> +++ b/drivers/nvmem/imx-ocotp.c
+>> @@ -605,7 +605,7 @@ static int imx_ocotp_probe(struct platform_device *pdev)
+>>  	if (IS_ERR(priv->base))
+>>  		return PTR_ERR(priv->base);
+>>  
+>> -	priv->clk = devm_clk_get(dev, NULL);
+>> +	priv->clk = devm_clk_get_enabled(dev, NULL);
 > 
-> Signed-off-by: Huan Tang <tanghuan@vivo.com>
-> ---
->  drivers/nvmem/imx-ocotp.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+> This is just confusing or even wrong. You do not understand the code,
+> just blindly do some changes pointed by scripting.
 > 
-> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> index 79dd4fda0329..ce5970ba4033 100644
-> --- a/drivers/nvmem/imx-ocotp.c
-> +++ b/drivers/nvmem/imx-ocotp.c
-> @@ -605,7 +605,7 @@ static int imx_ocotp_probe(struct platform_device *pdev)
->  	if (IS_ERR(priv->base))
->  		return PTR_ERR(priv->base);
->  
-> -	priv->clk = devm_clk_get(dev, NULL);
-> +	priv->clk = devm_clk_get_enabled(dev, NULL);
-
-This is just confusing or even wrong. You do not understand the code,
-just blindly do some changes pointed by scripting.
-
-NAK.
+> NAK.
 
 
->  
+I spotted error path further, so let's correct above: it is not only
+confusing, but you introduce actual bugs!
 
+No for another round of terrible vivo.com scripted bugs.
 
 Best regards,
 Krzysztof
