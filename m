@@ -4,102 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8E0C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98D2C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOKIm9/dJcTZ6ipUeMx8GILyup6CNf+4evU6I00WnKE=; b=KDHSXqhbPGKmOzVLvx6G7vwYKT
-	uFuwL3LMOyK4WdDZ+d423S4NsMmshS06yQAPqsKsekW4bRURRKGy2xHRkAcnzgxGrkoNWD2Gbsr6W
-	u2b+9Jb1ZMvNGrPTRQPKu0pcAlieNbTBnxpH7B2+g36U50qBgONbxd/XjSLzTQfUN9it+/Vf204Gt
-	KNAdTh6PH6hm9M7YFHH8yeLnyHMfYgHr/n1qTeZilIYbmsfe4GTQHdXU5ka4Dvaa5PwI5t4n+Ds/K
-	Haj0cmNZYa9lLlw4WqL6Za6Qo6BlRBP+TERn3hmL5vGlT30xXIPCazLJ6M5Uem9Zyn92KOhpXql7q
-	TsdlrJCA==;
+	bh=3LDQcD87Wri+XCeuQushsbc9uN7RNaVkwTY6s9v+ves=; b=YfnaaVFkSECdRHdcbHDtzpWEqQ
+	moOE2O0EfGkGyR1m4UhRbF0B68H/brA8SBZGYU52uSkthfyQGWoohjtJXNhRZq02iI6dle9GjXBig
+	VLa5O5NyJBJHVO3dyX3Av+/VZoupiGpjBcCXckwEKW9ciPVUgaZPQGhcQPbxCIfVnxY1br9dSs1Vo
+	aPpRV2jLwugt2s1hT4u265HXOdzQUotejEB/YVXNa/ZARKYGd0h4Z4dvRPoMqZqubB9SzaD4SQNmF
+	Bg07bpMVmX5Un7iU/4Y6QohpkJrn5TVm0dAUUNf9eZX1kabfn7roJZ/xCmwpsbN/we18KbVRCxzXQ
+	LXDD0smQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4U8-00000005sTT-0nfi;
-	Tue, 24 Jun 2025 14:18:52 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uU4WR-00000005syZ-2U92;
+	Tue, 24 Jun 2025 14:21:15 +0000
+Received: from sender4-op-o14.zoho.com ([136.143.188.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU40k-00000005m19-2P1I
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:48:31 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45310223677so40757785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:48:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750772909; x=1751377709; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=sOKIm9/dJcTZ6ipUeMx8GILyup6CNf+4evU6I00WnKE=;
-        b=EgO3rg9t/eRe6rWDZNGLgnay9knBnu89xPC0rwo0iuxSRAEuSFFkTShn0TDKKH4KXW
-         usU8gXVxp5YRkIlsRWKfFuhwWUvb+UBxJi256p1a2QxTxtLnE3xh6sBiXPKPUvrnOpf1
-         PJuhTGLGTMntjSh25RRjcmKQL3HXJIJMmGV7KiovQeN9cRlWx1toaKddM/pQ+QDXd1Zc
-         S30ADYZH99i8rChePSOu8Gp8AnuT9FNCk6MLV/JSDNhfTEwvag7vrHcxDLYk7LCkyUJj
-         V7vusdTuch2tznzlHrC8aP0o3s5CqeMDf7v76u0kAKokfTRHV96NwV8in6QA5OpYEwfS
-         +A6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750772909; x=1751377709;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sOKIm9/dJcTZ6ipUeMx8GILyup6CNf+4evU6I00WnKE=;
-        b=F2CdwkniKJh1RMJUVOW3E9SecSbVK2wcJ4nt3vPN3aayFHfUYTioEc1yXz6FaYYwK1
-         nispTZUPfY3eMeNjC58LZOHNUu8VB2e40kLthXCstatfvs2M+Max5RIQrtgz4OojIYFk
-         QAU/mRj5AvEcaXnCpLclOtN48un4LfIeO/PMo4LPUf4ljuEKXefXc1e0vHOPp5KC4hZP
-         lfFbnMN8qzFIbd4uZrpZcIaOn+fc10gt7tjxxgJEwZwdAliueOpfw6UfVefDKvXMEpe0
-         6Y3GpCvYFXsvuS8tAOPFwRmqPc2mCsfP6SQh+lbkP1kK2yOgCUfqVXiuZda9czg1YB9E
-         NIqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVob5m+lqZLC1fdrfBiwmHcux3QbVws+LeuHN7aspc6Lc0JIQIjhWYyOmyByw+/lHL14E6dv1JVzbZtXIPop9YW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9180dzG9p+AZHMuXsO/X3Lm9dqMC5nZy7ZcRCAzCij5Y//3Ho
-	YbIohEXzi46DqPeH3gR5K3T1NOciBpU6pJLkflTvKO3cZRKk/FnVJNbLrIeIpuqNB6E=
-X-Gm-Gg: ASbGncunrBuUyNbWE/1nTtBE0ZHN9wmlPcMgSF+bzgOEdhYjuCpdiHj5K62G1KzBue/
-	tDCcrr8R1AVVUc+MHpZBWRlBnKPkT2uUgFeSJzZ+qz7zEg1/OH5I2kvQ1HmRFG/4Z5S9bV209v6
-	Fnlnv5ttnDPWwsqqmQxx3Jx9aWVOgPYtg5HDPQAa+Px0v7zLvxOEqeu0maNv5SdwA4RB9uWSJH9
-	kMHBzzuhG88VFJ3WObMY8Z2vRuEGvAafzC7KkYsHsP5vQFdnrRWDhUemyrgb7TegEg1lsUCYiVO
-	Aw7jgM2SiT4ouI4++pYxpIHs9v8+zpOf5yL/lk5awrV/bg4BIsJhQtBbsuonsK2Eqp5oloPvN/T
-	sZ9o+n6JyNIqpGbgQxOAK1+S/
-X-Google-Smtp-Source: AGHT+IHZM/Db3rJ671u0WvDIe/VvY5UdAh5v59kB6hTOoptlOF4+lnhl6a+lk700LR1ins07EJj9kg==
-X-Received: by 2002:a05:600c:34c4:b0:450:30e4:bdf6 with SMTP id 5b1f17b1804b1-453659dccb8mr147036145e9.19.1750772908848;
-        Tue, 24 Jun 2025 06:48:28 -0700 (PDT)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646cb5ecsm147323495e9.8.2025.06.24.06.48.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 06:48:28 -0700 (PDT)
-Date: Tue, 24 Jun 2025 15:48:26 +0200
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Will McVicker <willmcvicker@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	John Stultz <jstultz@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 5/6] clocksource/drivers/exynos_mct: Add module support
-Message-ID: <aFqsqr7i7cdR5-I0@mai.linaro.org>
-References: <20250620181719.1399856-1-willmcvicker@google.com>
- <20250620181719.1399856-6-willmcvicker@google.com>
+	id 1uU42j-00000005mPh-3T7S;
+	Tue, 24 Jun 2025 13:50:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750772999; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=HLWWqkzJBSCO02jmpwtlHthMZkWiBpHDnf9cvDr3XP5JhIgB6ehWRY6etS5qQ3U2jqmFx34awjXzhso7eJFhX5EOhiqfJ5ZHmGnnra78heE07TXhd/wG+BEhJe5hzhKDNHPt3riYBEsBLtGJ9QZMfxmv2RLtAzE4AYibe1ZdM74=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750772999; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3LDQcD87Wri+XCeuQushsbc9uN7RNaVkwTY6s9v+ves=; 
+	b=HXugNEJocg/1EDbe7DPsj2aiYUr7PPRE9V/OktHI8VLRCLiHt6ulZqwUXlKgCvC40ROmSVEekb39878ixPgRwXvU+XRpAIVHfoJvEIMHdQl6WcD5OnlNkPkT1alb0WVDbMFLkubaEO9/YPBiBnnPXE/Vm0m1kFZfB4xDIa4hIAg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750772999;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=3LDQcD87Wri+XCeuQushsbc9uN7RNaVkwTY6s9v+ves=;
+	b=ASSplS6QQZVezYgDHp0gixP86wG7iGU3qlgQy9LSg316kfeJOzDAHHmJ77C+IPG4
+	avXEF0Po3g0xyJmam+yzmlcU/Vu6RfmZYxRd9o41SfeVhbpRrHWzGSJj3E/eistQYDT
+	y/I66yC7rRH7qlu2Zui/copKRLnoQL2WGKqCNH1k=
+Received: by mx.zohomail.com with SMTPS id 175077299645558.67407326984835;
+	Tue, 24 Jun 2025 06:49:56 -0700 (PDT)
+Message-ID: <52bcdfcfe84db4be9eeb7b7ebe926e990e460c03.camel@collabora.com>
+Subject: Re: [PATCH 0/3] Add MT8196 compatibles to bindings
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	devicetree@vger.kernel.org
+Cc: qii.wang@mediatek.com, andi.shyti@kernel.org, robh@kernel.org, 
+ krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+ gregkh@linuxfoundation.org, jirislaby@kernel.org,
+ daniel.lezcano@linaro.org,  tglx@linutronix.de, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,  linux-serial@vger.kernel.org,
+ kernel@collabora.com
+Date: Tue, 24 Jun 2025 09:49:24 -0400
+In-Reply-To: <20250611110800.458164-1-angelogioacchino.delregno@collabora.com>
+References: <20250611110800.458164-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250620181719.1399856-6-willmcvicker@google.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_064830_618165_47D0D9FE 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250624_065033_966071_435B7BAB 
+X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,84 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 11:17:08AM -0700, Will McVicker wrote:
-> From: Donghoon Yu <hoony.yu@samsung.com>
-> 
-> On Arm64 platforms the Exynos MCT driver can be built as a module. On
-> boot (and even after boot) the arch_timer is used as the clocksource and
-> tick timer. Once the MCT driver is loaded, it can be used as the wakeup
-> source for the arch_timer.
-> 
-> Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
-> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> [original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
-> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Signed-off-by: Will McVicker <willmcvicker@google.com>
-> ---
+On Wed, 2025-06-11 at 13:07 +0200, AngeloGioacchino Del Regno wrote:
+> This series adds compatibles for MT8196 (Chromebooks) and MT6991
+> (Smartphones) for HW that is fully compatible with older SoCs.
+>=20
+> AngeloGioacchino Del Regno (3):
+> =C2=A0 dt-bindings: timer: mediatek,timer: Add MediaTek MT8196 compatible
+> =C2=A0 dt-bindings: serial: mediatek,uart: Add compatible for MT8196
+> =C2=A0 dt-bindings: i2c: i2c-mt65xx: Add MediaTek MT8196/6991 compatibles
 
-...
+For the whole series,
 
-> -static int __init mct_init_spi(struct device_node *np)
+Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 
-__init_or_module
+--=20
+Thanks,
 
-> +static int mct_init_spi(struct device_node *np)
->  {
->  	return mct_init_dt(np, MCT_INT_SPI);
->  }
->  
-> -static int __init mct_init_ppi(struct device_node *np)
-> +static int mct_init_ppi(struct device_node *np)
->  {
->  	return mct_init_dt(np, MCT_INT_PPI);
->  }
-> -TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_init_spi);
-> -TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_init_ppi);
-
-Are you sure this is not going to hurt the ARM platforms ? Here the
-timer is enabled very early in the boot process while with this change
-the timer will be available later.
-
-> +static int exynos4_mct_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	int (*mct_init)(struct device_node *np);
-> +
-> +	mct_init = of_device_get_match_data(dev);
-> +	if (!mct_init)
-> +		return -EINVAL;
-> +
-> +	return mct_init(dev->of_node);
-> +}
-> +
-> +static const struct of_device_id exynos4_mct_match_table[] = {
-> +	{ .compatible = "samsung,exynos4210-mct", .data = &mct_init_spi, },
-> +	{ .compatible = "samsung,exynos4412-mct", .data = &mct_init_ppi, },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, exynos4_mct_match_table);
-> +
-> +static struct platform_driver exynos4_mct_driver = {
-> +	.probe		= exynos4_mct_probe,
-> +	.driver		= {
-> +		.name	= "exynos-mct",
-> +		.of_match_table = exynos4_mct_match_table,
-> +	},
-> +};
-> +module_platform_driver(exynos4_mct_driver);
-> +
-> +MODULE_DESCRIPTION("Exynos Multi Core Timer Driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.50.0.rc2.761.g2dc52ea45b-goog
-> 
-
--- 
-
- <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+N=C3=ADcolas
 
