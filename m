@@ -4,79 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB76DC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3D5C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oQQv5SKftafQDp93BKFKqx3Knbyd8+l+43ItvVQJEH8=; b=BgNx4TNrEOwBDTpEmws9dIT0sU
-	375tQ8S0Xo0m4tElvj8fdV50nuu6mFue0dyhQmRDQalTmrAzBQTNrjxdJv+RiRxzs0RF8yhBNRl4x
-	gmoU7S+ONsx3VVEV9CLMN6mJ9ztyfA2oeg8IfjxqnHO8P6ROHsq3SaxZerSlRjxnQ35i4T1hpe93a
-	Ns41NqoRD+evmu0Y8D+6EjDm8m64SShlg+G8KMtoeAAu8mcFEEXsOE03qdiHyemZtea8e6sepwaSP
-	9ndZ3XlTXg9ownjOsnq003qGmVkyfNK7x8A7A70hzJsTPdS3IBbDmOrOVo7wxTY8kZ6IUW5aQX2cO
-	DdHRV/hQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w+7AV6m26eDnZaYo3lt+2Nc7hfDztVQjKP71HKDd9A4=; b=D7CEmMenpl7OQLCo4KnYo50yq2
+	PxFS7Fipi5sdqvTmLXnI3blJrcFhwjsfshQDXdRfjteez5ucjEMC0WDDbwm9Abr5CguhPDex9r2sA
+	8L9TX03ZUXC9V8wMJDZ4/eDVN18SGRzV9puj7VRZ3cU1HxPtJ8WgHpn2HGSl3Stzz+PUfiax1Q+h7
+	32EMPHuGhkSqhBQcl+4/o/8rlivuMNz/3pnPC8AymQvckTrYVSWUs/NYK4NYFUJMGMLuMpjg2HbST
+	i23rPY92tFgeQuQgQE2+LTK+H4KDSVJQ4VB3PZ7jS88OdD+JhB/+GarRSqX9uZ4MQoYdiig3sgcwA
+	VpttkfkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4az-00000005u6G-09BT;
-	Tue, 24 Jun 2025 14:25:57 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uU4dF-00000005ub0-36Ln;
+	Tue, 24 Jun 2025 14:28:17 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU441-00000005meB-0qg2
+	id 1uU442-00000005meE-1i3Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:51:54 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	Tue, 24 Jun 2025 13:51:55 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1B10C1F46E;
-	Tue, 24 Jun 2025 13:51:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750773110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oQQv5SKftafQDp93BKFKqx3Knbyd8+l+43ItvVQJEH8=;
-	b=1WovXrx6UqQo6zQcTf8U7Bu/rWjeSinKFSUf1NPEDGTUQceqnLv16kiIJhBW1SPMlhmTV8
-	CttmqkoQkbBlCEDYgeb59GaTmVlMZoRjdW+B80riomQeLVa6UowWTiBMXFLTpS7Q2hW7sm
-	zy0dFhDkBuS4/FSdzRFDdWHc4QG5kRI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750773110;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oQQv5SKftafQDp93BKFKqx3Knbyd8+l+43ItvVQJEH8=;
-	b=hcveDnqE/tmOpeJFISbFw72dzXR8c8HmEOap5owJHNIaa3Z9BWhHMFc5NfSG7Hr3uKgjGs
-	xA7KCky0GNofSHDw==
-Authentication-Results: smtp-out2.suse.de;
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E001521188;
+	Tue, 24 Jun 2025 13:51:52 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
 	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1750773110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oQQv5SKftafQDp93BKFKqx3Knbyd8+l+43ItvVQJEH8=;
-	b=1WovXrx6UqQo6zQcTf8U7Bu/rWjeSinKFSUf1NPEDGTUQceqnLv16kiIJhBW1SPMlhmTV8
-	CttmqkoQkbBlCEDYgeb59GaTmVlMZoRjdW+B80riomQeLVa6UowWTiBMXFLTpS7Q2hW7sm
-	zy0dFhDkBuS4/FSdzRFDdWHc4QG5kRI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1750773110;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oQQv5SKftafQDp93BKFKqx3Knbyd8+l+43ItvVQJEH8=;
-	b=hcveDnqE/tmOpeJFISbFw72dzXR8c8HmEOap5owJHNIaa3Z9BWhHMFc5NfSG7Hr3uKgjGs
-	xA7KCky0GNofSHDw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7038113751;
-	Tue, 24 Jun 2025 13:51:49 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 39DCD13751;
+	Tue, 24 Jun 2025 13:51:52 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id e9f6GXWtWmjFcQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 24 Jun 2025 13:51:49 +0000
+	id GC/oDHitWmjFcQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 24 Jun 2025 13:51:52 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: lee@kernel.org,
 	danielt@kernel.org,
@@ -103,39 +71,30 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 00/15] backlight: Do not include <linux/fb.h> in header file
-Date: Tue, 24 Jun 2025 15:45:40 +0200
-Message-ID: <20250624134858.1736090-1-tzimmermann@suse.de>
+Subject: [PATCH v2 04/15] drm/panel: panel-summit: Include <linux/of.h>
+Date: Tue, 24 Jun 2025 15:45:44 +0200
+Message-ID: <20250624134858.1736090-5-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250624134858.1736090-1-tzimmermann@suse.de>
+References: <20250624134858.1736090-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.982];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[25];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,gmx.de,diasemi.com,skole.hr];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[];
+	TAGGED_RCPT(0.00)[]
+X-Rspamd-Queue-Id: E001521188
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_065153_387422_7F1E752E 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250624_065154_591263_289B2CB1 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,54 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the final dependencies on fbdev from the backlight subsystem.
-This is really just the include of <linux/fb.h> in <linux/backlight.h>,
-but it has some fallout in other code.
+Include <linux/of.h> to declare device_property_read_u32() and
+struct of_device_id. Avoids dependency on backlight header to include
+it.
 
-Patches 1 to 14 fix all the implicit includes that come from fb.h
-throughout the kernel. It's all trivial, but touches various drivers.
-Maintainers are in CC. Patch 15 fixes the backlight header.
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Janne Grunau <j@jannau.net>
+---
+ drivers/gpu/drm/panel/panel-summit.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-With the series applied the backlight subsystem should be free from
-fbdev dependencies.
-
-v2:
-- fix jornada720, rave-sp and rt4831 (kernel test robot)
-
-Thomas Zimmermann (15):
-  platform/x86: dell-uart-backlight: Use blacklight power constant
-  drm/panel: panel-samsung-s6e63m0: Include <linux/of.h>
-  drm/panel: panel-samsung-s6e88a0-ams427ap24: Include <linux/of.h>
-  drm/panel: panel-summit: Include <linux/of.h>
-  fbcon: Add necessary include statements and forward declarations
-  backlight: Include <linux/of.h>
-  backlight: apple_dwi_bl: Include <linux/mod_devicetable.h>
-  backlight: as3711_bl: Include <linux/of.h>
-  backlight: da9052_bl: Include <linux/mod_devicetable.h>
-  backlight: jornada720: Include <linux/io.h>
-  backlight: ktd2801: Include <linux/mod_devicetable.h>
-  backlight: led_bl: Include <linux/of.h>
-  backlight: rave-sp: Include <linux/of.h> and <linux/mod_devicetable.h>
-  backlight: rt4831: Include <linux/mod_devicetable.h>
-  backlight: Do not include <linux/fb.h> in header file
-
- drivers/gpu/drm/panel/panel-samsung-s6e63m0.c            | 1 +
- drivers/gpu/drm/panel/panel-samsung-s6e88a0-ams427ap24.c | 1 +
- drivers/gpu/drm/panel/panel-summit.c                     | 1 +
- drivers/platform/x86/dell/dell-uart-backlight.c          | 2 +-
- drivers/video/backlight/apple_dwi_bl.c                   | 1 +
- drivers/video/backlight/as3711_bl.c                      | 1 +
- drivers/video/backlight/backlight.c                      | 1 +
- drivers/video/backlight/da9052_bl.c                      | 1 +
- drivers/video/backlight/jornada720_bl.c                  | 1 +
- drivers/video/backlight/ktd2801-backlight.c              | 1 +
- drivers/video/backlight/led_bl.c                         | 1 +
- drivers/video/backlight/rave-sp-backlight.c              | 2 ++
- drivers/video/backlight/rt4831-backlight.c               | 1 +
- include/linux/backlight.h                                | 1 -
- include/linux/fbcon.h                                    | 7 +++++++
- 15 files changed, 21 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/gpu/drm/panel/panel-summit.c b/drivers/gpu/drm/panel/panel-summit.c
+index 4854437e2899..02aa1ec287d6 100644
+--- a/drivers/gpu/drm/panel/panel-summit.c
++++ b/drivers/gpu/drm/panel/panel-summit.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ 
+ #include <linux/backlight.h>
++#include <linux/of.h>
+ #include <drm/drm_device.h>
+ #include <drm/drm_mipi_dsi.h>
+ #include <drm/drm_mode.h>
 -- 
 2.50.0
 
