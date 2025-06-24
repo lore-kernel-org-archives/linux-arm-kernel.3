@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DB3C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 20:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EC5C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 20:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOilgMvwC9d4QnH9gG5iBR+nw29he4c68ErHqUs8XVI=; b=kqn6Bb9+Wh5fXNnBh1zsFBfot3
-	O3A6A+8m6V20Fpq/IWSbcLRCeAaf9dPGwhDEhB8/mEzJwA9yC0J+tSAUzppPsoF3SwwYKAOrduCNL
-	nMmCi2rUjETXxGLndkx9lAEAR5+PfwlXOTV+85sDyC6tF1D/Tdsk5wSZOXTT6ZEWb5VrtGdCaFPKp
-	vVqtYFdqBf6GpUNlaLmCgFdjB8I8oGA6HCegTV9WXAY6i60unaCCxFhu9KQNVXQ5nOkdhpSAxIh2k
-	AqqV3BJq+H3GOkIYmMqKk9s6v3ucD0vHfXCxIN3T2MlWeiq0e0bMJZojiBQkpogcdYk/JKgjjbfSm
-	RlCwMF4Q==;
+	bh=GAGKM7aXbOThzO3wjO02xo7P0wtUNQ0S1F+BZCBLq6s=; b=Vdv8bDnP+eMrrDYqz991xUYwCu
+	FXtKSfh0dIR/BmF8C7qQ1Rhk5FrYTmlSxa0HrDDu+4Rv/w/f0q7JN/OkH1QnlsMSl4/MVMk8SpbTH
+	kuPzPoWNebvvMqDKji4X/1IpfRXg9jwDw5sVFq55HLFI9sWkf8SI1mOi1kuOAcciajDaUNHjhuVj0
+	0vmQjTY/0KUHBxaVqkRlFvt2UOsVLThn2y6JE+sh+lJ+uKcz53urIzAp6vCQJBQZAoRoZTFF8Yv+f
+	R9ANCd2EB0OTo4jJbCN1iWCNSbRPlg9ZF+kTlBXMaSnIhOCUqMFGucmjEhZgdJv/IyVETBw3bKy/r
+	WMijhvkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUA8r-00000006kYG-1Esd;
-	Tue, 24 Jun 2025 20:21:17 +0000
+	id 1uUABE-00000006kpQ-07ZY;
+	Tue, 24 Jun 2025 20:23:44 +0000
 Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU8dU-00000006XgC-0t1x
+	id 1uU8dx-00000006Xlq-3OWs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 18:44:49 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55OIiht91631096;
-	Tue, 24 Jun 2025 13:44:43 -0500
+	Tue, 24 Jun 2025 18:45:19 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55OIjElo1631197;
+	Tue, 24 Jun 2025 13:45:14 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750790683;
-	bh=EOilgMvwC9d4QnH9gG5iBR+nw29he4c68ErHqUs8XVI=;
+	s=ti-com-17Q1; t=1750790714;
+	bh=GAGKM7aXbOThzO3wjO02xo7P0wtUNQ0S1F+BZCBLq6s=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=faZ0PKkefHxzUMhN99WjbqCWG9+AM9QJm6A0oPzc9XD2mcRLMkEPRG7S01uzLHzri
-	 sxGsCN0devc+Ss7XJuFlzM5Bhrom6/iPBwtpYoQN33qNu7wqO6hsjyvk9NOaLrxDs4
-	 hLArnUjOCwmmB0MkgzkTIoCDF7LF1NHuNZ2r8luI=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55OIihZ31960493
+	b=gWneGnWpxwzthlB+TfYFTXuRBh1kVLIS1e+8hYFA6E9W4x4Um/wOqQ0Ra/fJXBIOH
+	 NvtXD4V+9pUOwHhjmIKpQJL944tk+WyVlRp8ZP1C7KgDomkvAuSv8tAD2k58xIf2o9
+	 40+xoa1dwDkc3jeshfytvtPBXGh6hK9Tx9eN23JU=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55OIjDpU523860
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 13:44:43 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 24 Jun 2025 13:45:13 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
- Jun 2025 13:44:42 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 13:45:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 24 Jun 2025 13:44:42 -0500
+ Frontend Transport; Tue, 24 Jun 2025 13:45:13 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.245])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55OIidis2253858;
-	Tue, 24 Jun 2025 13:44:39 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55OIj9eA1992686;
+	Tue, 24 Jun 2025 13:45:10 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Miquel Raynal
-	<miquel.raynal@bootlin.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        Thomas Petazzoni
-	<thomas.petazzoni@bootlin.com>,
-        Steam Lin <stlin2@winbond.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62a7-sk: Describe the SPI NAND
-Date: Wed, 25 Jun 2025 00:14:35 +0530
-Message-ID: <175079060336.1874839.4487491018148640150.b4-ty@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, Wadim Egorov <w.egorov@phytec.de>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am642-phyboard-electra: Fix PRU-ICSSG Ethernet ports
+Date: Wed, 25 Jun 2025 00:15:08 +0530
+Message-ID: <175079060327.1874839.13802437150014477290.b4-ty@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250613182356.1272642-1-miquel.raynal@bootlin.com>
-References: <20250613182356.1272642-1-miquel.raynal@bootlin.com>
+In-Reply-To: <20250521053339.1751844-1-w.egorov@phytec.de>
+References: <20250521053339.1751844-1-w.egorov@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_114448_340715_5B42CB76 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250624_114517_933921_E9A772A9 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +85,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Miquel Raynal,
+Hi Wadim Egorov,
 
-On Fri, 13 Jun 2025 20:23:56 +0200, Miquel Raynal wrote:
-> Describe the octal SPI NAND available on the low-power starter kit.
+On Wed, 21 May 2025 07:33:39 +0200, Wadim Egorov wrote:
+> For the ICSSG PHYs to operate correctly, a 25 MHz reference clock must
+> be supplied on CLKOUT0. Previously, our bootloader configured this
+> clock, which is why the PRU Ethernet ports appeared to work, but the
+> change never made it into the device tree.
 > 
-> The pinctrl configuration comes from TI fork.
-> 
-> With the current mainline tree, we currently get the following
-> performances:
+> Add clock properties to make EXT_REFCLK1.CLKOUT0 output a 25MHz clock.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am62a7-sk: Describe the SPI NAND
-      commit: 9c1185a99811a173e3c126d664982f6744f80997
+[1/1] arm64: dts: ti: k3-am642-phyboard-electra: Fix PRU-ICSSG Ethernet ports
+      commit: 945e48a39c957924bc84d1a6c137da039e13855b
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
