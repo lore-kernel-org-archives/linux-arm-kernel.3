@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA945C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 23:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6495CC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 23:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4YKMjo8OpNeO5r5Qun2FcCWMfPcqDOXTd2oX2IE1cY=; b=XXghe80ByKd1RKJMR12u5L5H3H
-	Gj/c/ocA3sU5gOJrTEkETeuiwruor+WXZUANh2GqJor22LJqgrImXXO3/yMSFA0YFyHEzXL7r0KVF
-	i++9Hjf3ebzJiuZn23lB+K/vC7UOpbJX7RRZ04B5gYxqngiz3cYEyeKdB9bamfw8SSHONSQB4shfx
-	nfoGP2rVwe7KmKGsDss75pnk5igm5eltVE1FyTajXy02d3Dc8owbsi23F2PQlnA3NaD7DaDVmnE5i
-	h3hGtdVinDHtwxMoa8A6dQp42MkVOOL9D6P/A1N/te8YepyO2OkNZjnJ8X8134Bp/6/nHrIlS/tsN
-	yA5zs6MA==;
+	bh=AxbrQgbI9Hp0lzSnXJ8VQEX0GBAeXjw4l4FNRJQO2nw=; b=aVEd1lMr93EgIkQM/u7bdLgYCE
+	IgyzVkkPqGzbgLdxXElUxnakagU/AlMu/NjT/4Jmy2bwLDZDy0BdLylZiO9EiY/lpe2iTbVXdjhoD
+	xWwRdW1Wlzwb6cCLAEQlAZfslGjpJhZEqNjOFZMlysGZe+X+9P+sHfsBjwUhgptF5tZJUDcGVcsRW
+	zzV8MEtR/y8ll/gkMM2ULQxe+0Z7ursLUvDSWUTmknjBk9fHRrZqfJW+dXFghvx6xX77BNUM4ComT
+	O4nyId47zbrTZnKIYwMbRc45Ot69QQNYNANZ/0pk/2feOEl01wHHSl6MkQm3IsXM2Ob5Q8MePIb/Q
+	tDd/N0Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUDQN-000000078nH-2EW3;
-	Tue, 24 Jun 2025 23:51:35 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1uUDSc-000000078yZ-27FG;
+	Tue, 24 Jun 2025 23:53:54 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUDM9-000000078QK-0zA9
+	id 1uUDNb-000000078X9-1LPK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 23:47:14 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-311da0bef4aso6467137a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 16:47:12 -0700 (PDT)
+	Tue, 24 Jun 2025 23:48:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750808832; x=1751413632; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J4YKMjo8OpNeO5r5Qun2FcCWMfPcqDOXTd2oX2IE1cY=;
-        b=Vd+Hn56pwF7kXJHrel/c7XKstkotUq0gGkbkH4HtX2vfrZjNTiO/fl07mzEnJ94+zI
-         LW6+2e8YBJceQzi5WeVpgo6DCcyGd+dUgrg/j0HJwXQTeIWjaomahCCY+oI3MpQIPc7u
-         wp7XbjlwEl1nuu23DMxI0xT9kti+O4CgtpARtz1JM3SinIOQCCcG9W/ZPpsvbjsdU8jp
-         GsfWQAAT3A3xsxQM8viKLiIstWTiZuSzVfhiH62F481P2dcsPBBbURI+kRc81F3L2Lws
-         Fx7+2915PN26nUO1/KpKiPfdwOhY/2Wt0fSmSB9kE9LAD+w5crsbFbWQxAIgE2NWQa6C
-         hS0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750808832; x=1751413632;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J4YKMjo8OpNeO5r5Qun2FcCWMfPcqDOXTd2oX2IE1cY=;
-        b=u+09fGCByZFO5B8JictVkdKG2f6UqGj4fzGWiNYLHkOQBA0RtCtXppFHmDejRfP5xN
-         bTY3O9xkS0AsqUyFliCGUzf914tP/Z7K29DbC9/3WPCRscjYuLexoE87YKzxxppGuXUp
-         H2ZsqBf/jgao2WnEIIvZtg3PUbZb2X2GzB2N+xYG9/VLYM5WjqbD3WZU1DjZkd5L9C35
-         8gaoEizCXRX84vsMzyu5pVLzNWoEq+WrEHpqrizznqbLQ5turzqPNnT6Rzyy4C1af9tH
-         KbBMlBWLDTWNWCfB2e5l78L2GGwJZG/sGDP0CAmUGbgnrvTYfY39e/iVjfY93Ra/RUsF
-         F1uA==
-X-Forwarded-Encrypted: i=1; AJvYcCXYjsm7VgVGiQ4rxSLNbCRGrYfsgENeBEaRDLisONpnQhU2I2M74bg64QmaAskYHcRq8McHWKQ9o6+kCRVFNA0f@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDBKTuz1IQLJCHT7ggudxm9CQ6UmaSj136RFpGCB9HuyzLpLiC
-	rjdkRbjFFdNjzhJj2JtoZLhh/1Id34gkNfOWQ1XBEj5RsgbWoj7LHDCz3R+A6StIjQ==
-X-Gm-Gg: ASbGncsmH/d2geGK4+EcaQ2ZzJVkvshjWH+3FfMOJyeZJUkIUF6MjJ+CS1WoaleQTv3
-	GHoRKK5HZFB+jLXgkX65hOlLRF5SUv3C1OamBdP606gzrYRSRd0EeFKM+GjHnaQY4+N/FrdN6zZ
-	mwptcUM4HnwAkeQFTANTExA0Y+2RXoLkW8XM1PC2CFx5dSvT6ZKeL6d9Rz0VldOeZxMWP/jgae+
-	Yj6BfXQVOmXvNyWV6ylojW0K7YU+PXZTeIySBWB8IBL1XNozAEteI3iNXSG3P40kaQ/s7G+nETP
-	bns3bd662GzT+nyTxezayT01qvsEV7MS4YLn0EPrc+eFSKpv0UHh/ThsN+LqUWu+Kf/ro5oLwJp
-	G0soVRl1LqkOtoy1atjWgMmH1z2Y=
-X-Google-Smtp-Source: AGHT+IG/sOl/kqpMXtibwdZ96A5j8WE1NPsYc5QH8w6AlxiSCpqY0NhSwOKYQiXX05vdAY6hDJ1wIw==
-X-Received: by 2002:a17:90b:3a05:b0:311:f684:d3cd with SMTP id 98e67ed59e1d1-315f2623c5amr1363566a91.12.1750808831471;
-        Tue, 24 Jun 2025 16:47:11 -0700 (PDT)
-Received: from google.com (96.41.145.34.bc.googleusercontent.com. [34.145.41.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f53a1bcbsm221025a91.19.2025.06.24.16.47.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 16:47:11 -0700 (PDT)
-Date: Tue, 24 Jun 2025 16:47:07 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	John Stultz <jstultz@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 5/6] clocksource/drivers/exynos_mct: Add module support
-Message-ID: <aFs4--JdpE1W3Lh8@google.com>
-References: <20250620181719.1399856-1-willmcvicker@google.com>
- <20250620181719.1399856-6-willmcvicker@google.com>
- <aFqsqr7i7cdR5-I0@mai.linaro.org>
+	d=codeconstruct.com.au; s=2022a; t=1750808921;
+	bh=AxbrQgbI9Hp0lzSnXJ8VQEX0GBAeXjw4l4FNRJQO2nw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NEm1SLbIZEjsx9Krx0+hgcKI6aHpzW9XZ4tgOiPgvSg+iO/oAYyxW7hL4fTTI7tPp
+	 tH9Ks/nFlUv3hRMH/LxC2vD8ceGkBQwWMnvfBPB6tpZ6xAcfSxwdOGeCMmmMeCCYcx
+	 I49F73Bthcw21cN1pswCmEh2Pio8p3xVy+YzI+oe1VyVpDr9UJ/38ws/CZi+Ss7kr0
+	 Tpz2VzOe28Kwf3I9goMKhAEyrS/VqnTFBdVDwX1mrjNrukG/OqAUJd5T7xZVNz8ELH
+	 S/ZdATsir6Szpk5H3p7Ye9WSWWpXurzJ2O+dwdGJm836rRne2aLBBxfrxMSsECZMRh
+	 kCX1ENFJV+7GQ==
+Received: from [192.168.68.112] (unknown [180.150.112.166])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 4057C640CD;
+	Wed, 25 Jun 2025 07:48:40 +0800 (AWST)
+Message-ID: <6a787dfc8bfdd56c564c4e2380ea7ca902bad090.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Leo Wang <leo.jt.wang@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Kees Cook
+ <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,  "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus
+ Damm <magnus.damm@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com, Leo Wang
+	 <leo.jt.wang@fii-foxconn.com>
+Date: Wed, 25 Jun 2025 09:18:39 +0930
+In-Reply-To: <20250623-add-support-for-meta-clemente-bmc-v3-2-c223ffcf46cf@fii-foxconn.com>
+References: <20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com>
+	 <20250623-add-support-for-meta-clemente-bmc-v3-2-c223ffcf46cf@fii-foxconn.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFqsqr7i7cdR5-I0@mai.linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_164713_276150_29DBD451 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20250624_164843_547762_8548AD90 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,75 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/24/2025, Daniel Lezcano wrote:
-> On Fri, Jun 20, 2025 at 11:17:08AM -0700, Will McVicker wrote:
-> > From: Donghoon Yu <hoony.yu@samsung.com>
-> > 
-> > On Arm64 platforms the Exynos MCT driver can be built as a module. On
-> > boot (and even after boot) the arch_timer is used as the clocksource and
-> > tick timer. Once the MCT driver is loaded, it can be used as the wakeup
-> > source for the arch_timer.
-> > 
-> > Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
-> > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > [original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
-> > Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > ---
-> 
-> ...
-> 
-> > -static int __init mct_init_spi(struct device_node *np)
-> 
-> __init_or_module
+On Mon, 2025-06-23 at 18:29 +0800, Leo Wang wrote:
+> From: Leo Wang <leo.jt.wang@gmail.com>
+>=20
+> Add linux device tree entry for Meta Clemente compute-tray
+> BMC using AST2600 SoC.
+>=20
+> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
 
-Thanks, I'll update in v5.
+Sorry, I missed that there was a v3. I left some comments on v2 that
+are still applicable on brief inspection:
 
-> 
-> > +static int mct_init_spi(struct device_node *np)
-> >  {
-> >  	return mct_init_dt(np, MCT_INT_SPI);
-> >  }
-> >  
-> > -static int __init mct_init_ppi(struct device_node *np)
-> > +static int mct_init_ppi(struct device_node *np)
-> >  {
-> >  	return mct_init_dt(np, MCT_INT_PPI);
-> >  }
-> > -TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_init_spi);
-> > -TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_init_ppi);
-> 
-> Are you sure this is not going to hurt the ARM platforms ? Here the
-> timer is enabled very early in the boot process while with this change
-> the timer will be available later.
+https://lore.kernel.org/all/0f495eec39fd25d71a59a56876f6142e6fe786f3.camel@=
+codeconstruct.com.au/
 
-I took a second look at the TIMER_OF_DECLARE() macro and FWICT the timer will
-only be enabled "very early" via timer_probe() if "MODULE" is not defined which
-is only defined when this specific driver is compiled as a module. Note, this
-"MODULE" define is not the same as the Kconfig option "CONFIG_MODULES".
-That is why in my v1 and v2 patch [1] I had:
-
- #ifdef MODULE
-   ...
-   module_platform_driver(exynos4_mct_driver);
- #else
-   TIMER_OF_DECLARE(...)
-   TIMER_OF_DECLARE(...)
- #endif
-
-However, I dropped that since Saravana mentioned that we should not be using
-TIMER_OF_DECLARE() for drivers that can be modules. I don't have an ARM Exynos
-device to verify dropping TIMER_OF_DECLARE() is safe. So if you and Saravana
-agree, I can work on creating a patch to define TIMER_OF_DECLARE_MODULE() like
-you proposed in [2] to handle this for all the drivers that are used for both ARM and
-ARM64 SoCs.
-
-Thanks,
-Will
-
-[1] https://lore.kernel.org/all/6e6b0f5f-ac60-48bb-af6c-fa58658d2639@linaro.org/
-[2] https://lore.kernel.org/all/f2f914aa-c554-4135-afaa-f075537ed929@linaro.org/
-
-<snip>
+Andrew
 
