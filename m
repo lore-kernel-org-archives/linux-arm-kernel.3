@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5806AC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02AAEC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Rgb/MWjRbQgzbZEXeoAKEdcNrX9vAugaU8N1j9P3uA=; b=ZRdoGPeRtLagoSNJL1TRcoJvqJ
-	O1yXtdEoSLJTh1W3qjfZOb+mElyxXWTyncRIs+QbVKy4sHdjO9U0rjKJCQ28LAh/jdcwI5pFAsFey
-	f4sgcrfjesY86Lsbuwtknr09Ih503G3u15G/2zdymd97b5cKR36v2JAdsidrDFDyxSbO5Xiw0WExj
-	4iLk1Aavep1rtIC7h313kjZGs5S7ZA0YLWBEBz5zhpHnYA3eHomoQoLesYAgodhUux6qkKQqav7rr
-	8xDEkryZc6Jvf1CxZ7WqehN4ROEeCCm2CHvCP6MgJhbbuNMA4tw0l7o2ciqgXWWNnfX1+pXjGQWO+
-	Bm4Pf2IA==;
+	bh=9dwIAF7OSnhMewltjogUnsbEN7/ZtqTHDLCrZhaKbBQ=; b=WgIsSH7+F8GU76Tz8uoeA2wTla
+	nUAnk9YFnZxW310OUxK9RypGHFaUmLl3yyX/v0oCIQ2giwFEcutJqL6jk507YUBvtFrrhwV0F5/l2
+	isKZcmu/ox2xDH1CtE06mDyDcJl3aYU6i/+nxBbxF89LwAZ2fLj2mMdPKb0v6nxcPs5gENHmgnkgC
+	FDCm9rGbL9UPSL8Hr6RIsOervsIqspQ6tAnwuigJ1qW2jNg1akBuiImMqcDnUeJpts0bANQwH79Fi
+	G5rGfO1ZJZo/QVZubyg4kewo6a9QCWYaDwSnnN6ppe5BKGwod6VpuCWJeLwurBNGoxP6zRbvWC5yr
+	17WtqONg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxO4-00000004mub-0gcU;
-	Tue, 24 Jun 2025 06:44:08 +0000
+	id 1uTxQN-00000004nSr-3kjS;
+	Tue, 24 Jun 2025 06:46:31 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxE9-00000004lmB-0L7t
+	id 1uTxFF-00000004luE-2NQD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 06:33:54 +0000
+	Tue, 24 Jun 2025 06:35:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4885CA4E57A;
-	Tue, 24 Jun 2025 06:33:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACB3C4CEE3;
-	Tue, 24 Jun 2025 06:33:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CB659A4E57A;
+	Tue, 24 Jun 2025 06:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D9EEC4CEE3;
+	Tue, 24 Jun 2025 06:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750746831;
-	bh=CMEL+KH7MaW3oeP91lSEwnYnA71/fN/9HCo5FyBpZws=;
+	s=k20201202; t=1750746900;
+	bh=j7rITJ4juKP2Yy9KV+vQi/jLoYOyZ9Hp6gowzhX2NCE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HoqPmJgg+lWPoRK2cWQFnTLaWzuhqBZqPEjdR0g6HxcsRL/iZHtRLvQarL9KwrubD
-	 O0IvHLsjOvNgJpSYyi1xVLmPtF48uD74zb586MnpCQbo6egPzx0qlnld7z7L1ivWyy
-	 q9TND8nGrg75iUd7qf6FWROt424YxgQzR7ChDFOCi2UZn53TMAXUFg2VwdJ526AM1y
-	 Qw5JD3kGcuawcA46Dhi+LllsWZwi2mwChxIPXY98ZG2c+O4JAVweK2uEgsOFkcJCSk
-	 bcLOk5Cz922d9dYBiRqVqDjKuc0qROJFb3iefI4zp6tvAl06qzwMlusRjQhCBZihOr
-	 FmZ+uviU6lOCQ==
-Message-ID: <cdfa9d1a-dd73-40fe-95ca-75a8693e27ac@kernel.org>
-Date: Tue, 24 Jun 2025 08:33:46 +0200
+	b=Dso2UFGVZhSPK07zy48+dT4AVbc5r9e/locALBZ4uLyOSScRY77FhnOFMO1X1KTA3
+	 c28rsXvc3xUg/jEumrqRAF/+zqCI6nV9O3/fk95Z88RePLvJAubIsoRmEPIT38xQRl
+	 gv/H2efAdNwdHip/dmzzoQymVfuqud27Yzjz+On1OILWrBH9jF+iuEX6uvsWHww1VD
+	 H1BF7EIpOajmBdy51aTsWvCcF6m3+vKk2rnsHG/YRz98WjtfKL7g6HXqUGfoq4BacO
+	 U6N5gyiTkfqktcwSFgxju/U1Kgba4hdeHNtPQ40ONFRW7WFj8y0WsJaPBiBpy12ese
+	 eTBodiOpM1vUQ==
+Message-ID: <1f1eb736-5b04-4e59-afb5-9e5925900100@kernel.org>
+Date: Tue, 24 Jun 2025 08:34:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] dt-bindings: arm: axiado: add AX3000 EVK
- compatible strings
+Subject: Re: [PATCH v3 3/7] dt-bindings: gpio: gpio-cdns: convert to YAML
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -58,7 +57,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  soc@lists.linux.dev
 References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-2-b3e66a7491f5@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-3-b3e66a7491f5@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-2-b3e66a7491f5@axiado.com>
+In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-3-b3e66a7491f5@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_233353_264785_64A93E3A 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_233501_771416_C3E75E35 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,14 +124,53 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/06/2025 19:28, Harshit Shah wrote:
-> Add device tree binding schema for Axiado platforms, specifically the
-> AX3000 SoC and its associated evaluation board. This binding will be
-> used for the board-level DTS files that support the AX3000 platforms.
-> 
-> Signed-off-by: Harshit Shah <hshah@axiado.com>
-> ---
+> +$id: http://devicetree.org/schemas/gpio/cdns,gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Cadence GPIO Controller
+> +
+> +maintainers:
+> +  - Jan Kotas <jank@cadence.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: cdns,gpio-r1p02
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  ngpios:
+> +    minimum: 1
+> +    maximum: 32
+> +    description: Number of GPIO lines supported, maximum 32.
+
+Don't repeat constraints in free form text.
+
+No need to resend just for that.
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+<form letter>
+This is an automated instruction, just in case, because many review tags
+are being ignored. If you know the process, just skip it entirely
+(please do not feel offended by me posting it here - no bad intentions
+intended, no patronizing, I just want to avoid wasted efforts). If you
+do not know the process, here is a short explanation:
+
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here ('b4 trailers -u ...'). However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for tags received on the version they apply.
+
+Full context and explanation:
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
+</form letter>
+
 
 Best regards,
 Krzysztof
