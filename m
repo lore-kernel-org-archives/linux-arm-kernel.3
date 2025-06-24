@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE478C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892A0C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D24anWOYuNH3iAxzn4+kDNN3XAlce9lKjGm5qn4Lqds=; b=eC/9Wh+FDDvzeWhTsajX+oZm0J
-	rFK0sSbr6krwz50w9gOBjq9jd9kCpHH0IyMkN/p2edQqMVlFJ27sgcE48CeXkoqFRiU+Pnnfs27mu
-	InxL5Sm6esw7Zi0CTAyBfcVGWDAZscs9FR9bkaPWEcteNX4KGB6S5Of6wU1xW/qy9I9lnanyLTvPa
-	/90IloKCCEUT74bjAZ47Te6Lt9+ajS95f5q0LUdzIM9G7dLJ+59dxsUuwcWWiNBNmEi3FY9sB7jvT
-	c5mTtKGO2fcd3rn8F2IysqY9C7PkeIxsMZhkNq5StnX0hoR2GsfoBZ2fNOjBWELT9YJd21zCjoWpf
-	/SGG9FqA==;
+	bh=7AcsjKu6awCd922b7usTZpDzoocHmHKDY4WSMcPhCNw=; b=SqvZTqd62341nDRvwoxoYTspSt
+	4XIbdwI7BcBNZvHaJvtG1ns8CSDA33o9GG19GTek94PQdsO5VPdCmpliFPOissBjOSGOP4+X3JoFB
+	WKngjNYzblyB4rOKLtkD5oUUUnlCLOSZeXkHYNnPtCdq/PPdJtPkLdjbEi1RiHOio803nC1qeo/1+
+	V5HAT2Rd4c8HmAiQKWgIH1XXNgCunlJ3f8W9AnIb1xDQl2J0H7RDhYPpbFTkGppUSN2Fa0V50W01c
+	2wPKq4Ig/HmOIdM6hb8NJ5goNPe9cVyScEmpvBuuc/7Yb7D6jGUIsFFVCXDpONMi+BXzzO4YT71XR
+	mx3iAKpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7Xg-00000006Ocn-3O3b;
-	Tue, 24 Jun 2025 17:34:44 +0000
+	id 1uU7Zx-00000006Omo-2Vrb;
+	Tue, 24 Jun 2025 17:37:05 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5GQ-000000062U6-1zIp
+	id 1uU5GR-000000062V2-1rFw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:08:47 +0000
+	Tue, 24 Jun 2025 15:08:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750777726; x=1782313726;
+  t=1750777727; x=1782313727;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=/z69PibqywpVDUupVFU5et9XVf8qDTlwUsinAZCZ8UM=;
-  b=Fm8R0HCulFPUEIKiIaTdB1QVVhlFV+0/4wYusE/StVgA7pm8cg1fL6bU
-   HzpMfjjp4mE/DOHWDC2XHu0XWO/KpXh/aA8z/1qgZ8jHYktH+hk1RdlFL
-   CI3yeEbGqd4T9dbr35HxSwRL8DmQKuBahRo0EWQKinYJ2hG/UmR+4gYL4
-   1pwrgaBX2DWDcqLHdRQNiwPzZhgj1+ZbyXKeTss/qqmrsN/SPLaozaj2B
-   3Ue3ns7/iZI/JWqt9p4gj6w5Jm60M/UO6hObwCpkWzMYIWjBhtjbjGcO0
-   qmG+EXMbN0Fd/PvxWXj03HxAJ5dwt3J2hl95y+Lugp3myvSV/H9x4amOn
-   g==;
+  bh=zo0NpMdOdWIh9B4OagOeYIcPDmAgxC72SvmGefvk/Hw=;
+  b=pmSqjgvdw08lsfrSHKDCBLstUd9X3Ph7gL/IkiyaF7TbU8TUH2gnWgks
+   Q9iEbtMyt5ArZK1OsUkefo1ZWKAGgiKTZ+qggGqM2zuFdoozF04UTVIsj
+   uvYN4AKzc1ZgPWm2YBJtFeHe4zObuyILIVjK/4k0WCBaf/eulCpiHvWUF
+   ZWtv0hMs6LYxrZnOvwgYNkk7lEHsdTb1oMvsjSNbRY6sqOrixu/6WVw8W
+   buVUYw8bua8zll82XW3LAfQunn5Bkb3+36ryfMI2AmZA9LzcD1BYmWxBv
+   hkL816AFB7nSGdY0fDzF4ww7mPYhblERtEcSulU+co7zb9Uwyag21NUNx
+   w==;
 X-CSE-ConnectionGUID: 4+RzxTN1Qsa6vG3Bpty4nA==
-X-CSE-MsgGUID: Q0O/25CwQsu2txuQI1HkOw==
+X-CSE-MsgGUID: 8gRjwljjR/KZuu12BifyyQ==
 X-IronPort-AV: E=Sophos;i="6.16,262,1744095600"; 
-   d="scan'208";a="42688174"
+   d="scan'208";a="42688175"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:08:43 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:08:44 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -61,9 +61,9 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<varshini.rajendran@microchip.com>
-Subject: [PATCH v2 04/32] clk: at91: clk-peripheral: switch to clk_parent_data
-Date: Tue, 24 Jun 2025 08:08:01 -0700
-Message-ID: <94aa65af65553f4251bcc9ca6420c8feafc27324.1750182562.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 05/32] clk: at91: clk-main: switch to clk parent data
+Date: Tue, 24 Jun 2025 08:08:02 -0700
+Message-ID: <222655275e1e58dbb3cb2f6e4e65fc08cc81b7db.1750182562.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1750182562.git.Ryan.Wanner@microchip.com>
 References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_080846_578696_FC1A9CBE 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250624_080847_547537_02F9E572 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +89,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Use struct clk_parent_data instead of parent_hw.
+Use struct clk_parent_data instead of parent_hw as this leads to the use
+of modern clock structures.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-[ryan.wanner@microchip.com: Remove the SoC specific changes those will
-be added in a later commit. And adjust commit message]
+[ryan.wanner@microchip.com: Remove SoC specific changes will be added in
+a later patch. Adjust commit message.]
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/at91/clk-peripheral.c | 16 ++++++++--------
- drivers/clk/at91/pmc.h            |  4 ++--
+ drivers/clk/at91/clk-main.c | 16 ++++++++--------
+ drivers/clk/at91/pmc.h      |  4 ++--
  2 files changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/at91/clk-peripheral.c b/drivers/clk/at91/clk-peripheral.c
-index c173a44c800a..ed97b3c0a66b 100644
---- a/drivers/clk/at91/clk-peripheral.c
-+++ b/drivers/clk/at91/clk-peripheral.c
-@@ -97,7 +97,7 @@ static const struct clk_ops peripheral_ops = {
- 
- struct clk_hw * __init
- at91_clk_register_peripheral(struct regmap *regmap, const char *name,
--			     const char *parent_name, struct clk_hw *parent_hw,
-+			     const char *parent_name, struct clk_parent_data *parent_data,
- 			     u32 id)
+diff --git a/drivers/clk/at91/clk-main.c b/drivers/clk/at91/clk-main.c
+index 9b462becc693..514c5690253f 100644
+--- a/drivers/clk/at91/clk-main.c
++++ b/drivers/clk/at91/clk-main.c
+@@ -402,7 +402,7 @@ struct clk_hw * __init
+ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char *parent_name,
+-			      struct clk_hw *parent_hw)
++			      struct clk_parent_data *parent_data)
  {
- 	struct clk_peripheral *periph;
-@@ -105,7 +105,7 @@ at91_clk_register_peripheral(struct regmap *regmap, const char *name,
- 	struct clk_hw *hw;
- 	int ret;
- 
--	if (!name || !(parent_name || parent_hw) || id > PERIPHERAL_ID_MAX)
-+	if (!name || !(parent_name || parent_data) || id > PERIPHERAL_ID_MAX)
+ 	struct clk_rm9200_main *clkmain;
+ 	struct clk_init_data init = {};
+@@ -412,7 +412,7 @@ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 	if (!name)
  		return ERR_PTR(-EINVAL);
  
- 	periph = kzalloc(sizeof(*periph), GFP_KERNEL);
-@@ -114,8 +114,8 @@ at91_clk_register_peripheral(struct regmap *regmap, const char *name,
+-	if (!(parent_name || parent_hw))
++	if (!(parent_name || parent_data))
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	clkmain = kzalloc(sizeof(*clkmain), GFP_KERNEL);
+@@ -421,8 +421,8 @@ at91_clk_register_rm9200_main(struct regmap *regmap,
  
  	init.name = name;
- 	init.ops = &peripheral_ops;
+ 	init.ops = &rm9200_main_ops;
 -	if (parent_hw)
 -		init.parent_hws = (const struct clk_hw **)&parent_hw;
 +	if (parent_data)
@@ -133,55 +134,53 @@ index c173a44c800a..ed97b3c0a66b 100644
  	else
  		init.parent_names = &parent_name;
  	init.num_parents = 1;
-@@ -448,7 +448,7 @@ struct clk_hw * __init
- at91_clk_register_sam9x5_peripheral(struct regmap *regmap, spinlock_t *lock,
- 				    const struct clk_pcr_layout *layout,
- 				    const char *name, const char *parent_name,
--				    struct clk_hw *parent_hw,
-+				    struct clk_parent_data *parent_data,
- 				    u32 id, const struct clk_range *range,
- 				    int chg_pid, unsigned long flags)
+@@ -552,7 +552,7 @@ struct clk_hw * __init
+ at91_clk_register_sam9x5_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char **parent_names,
+-			      struct clk_hw **parent_hws,
++			      struct clk_parent_data *parent_data,
+ 			      int num_parents)
  {
-@@ -457,7 +457,7 @@ at91_clk_register_sam9x5_peripheral(struct regmap *regmap, spinlock_t *lock,
- 	struct clk_hw *hw;
- 	int ret;
- 
--	if (!name || !(parent_name || parent_hw))
-+	if (!name || !(parent_name || parent_data))
+ 	struct clk_sam9x5_main *clkmain;
+@@ -564,7 +564,7 @@ at91_clk_register_sam9x5_main(struct regmap *regmap,
+ 	if (!name)
  		return ERR_PTR(-EINVAL);
  
- 	periph = kzalloc(sizeof(*periph), GFP_KERNEL);
-@@ -465,8 +465,8 @@ at91_clk_register_sam9x5_peripheral(struct regmap *regmap, spinlock_t *lock,
- 		return ERR_PTR(-ENOMEM);
+-	if (!(parent_hws || parent_names) || !num_parents)
++	if (!(parent_data || parent_names) || !num_parents)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	clkmain = kzalloc(sizeof(*clkmain), GFP_KERNEL);
+@@ -573,8 +573,8 @@ at91_clk_register_sam9x5_main(struct regmap *regmap,
  
  	init.name = name;
--	if (parent_hw)
--		init.parent_hws = (const struct clk_hw **)&parent_hw;
+ 	init.ops = &sam9x5_main_ops;
+-	if (parent_hws)
+-		init.parent_hws = (const struct clk_hw **)parent_hws;
 +	if (parent_data)
 +		init.parent_data = (const struct clk_parent_data *)parent_data;
  	else
- 		init.parent_names = &parent_name;
- 	init.num_parents = 1;
+ 		init.parent_names = parent_names;
+ 	init.num_parents = num_parents;
 diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index b43f6652417f..b6f2aca1e1fd 100644
+index b6f2aca1e1fd..e32a5e85d08f 100644
 --- a/drivers/clk/at91/pmc.h
 +++ b/drivers/clk/at91/pmc.h
-@@ -226,13 +226,13 @@ at91_clk_sama7g5_register_master(struct regmap *regmap,
+@@ -195,11 +195,11 @@ struct clk_hw * __init
+ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char *parent_name,
+-			      struct clk_hw *parent_hw);
++			      struct clk_parent_data *parent_data);
+ struct clk_hw * __init
+ at91_clk_register_sam9x5_main(struct regmap *regmap, const char *name,
+ 			      const char **parent_names,
+-			      struct clk_hw **parent_hws, int num_parents);
++			      struct clk_parent_data *parent_data, int num_parents);
  
  struct clk_hw * __init
- at91_clk_register_peripheral(struct regmap *regmap, const char *name,
--			     const char *parent_name, struct clk_hw *parent_hw,
-+			     const char *parent_name, struct clk_parent_data *parent_data,
- 			     u32 id);
- struct clk_hw * __init
- at91_clk_register_sam9x5_peripheral(struct regmap *regmap, spinlock_t *lock,
- 				    const struct clk_pcr_layout *layout,
- 				    const char *name, const char *parent_name,
--				    struct clk_hw *parent_hw,
-+				    struct clk_parent_data *parent_data,
- 				    u32 id, const struct clk_range *range,
- 				    int chg_pid, unsigned long flags);
- 
+ at91_clk_register_master_pres(struct regmap *regmap, const char *name,
 -- 
 2.43.0
 
