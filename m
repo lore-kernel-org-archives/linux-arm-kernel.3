@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D2FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 05:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B1E6C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 05:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZqEyiR61C1W0/+KTWzUiTKCsg/9mevRSEFCD7wnXFig=; b=g/5j/JCOnekuu8gY2ZOWmpQJB2
-	SQ/Z+ViwSHo8HeuxTy1z98oCbWISdeaQ0cJBix+8LswIs4s7VcM5Jsv/ivGmxrKKfZTSz2v9/rcnZ
-	HjDmPAxXXyfx5/nD2lFziihDfNszaGcrTMUeQ+ulJOXSaf977nDBPRZUZocJifW8HOWf+nizoH/Uw
-	BPb5dv3rweuLB4yI9fGm22YfQ4F1YWnDN/jg/QtbmOAu+jGTklITg51C1VLMCb/8M2LsnrULGzntR
-	12pwCTXT/0DtuLe9rq+EWN6sq525HU8q2Fnw6aZ7PYMLVLS8tPn79owdBBh5Ca3Ud9esHeR/lhsyn
-	C0KW1yrg==;
+	bh=uD6o8T/R/ytocTZ18ZKJucBtSobyCR2zNqFilyHhWV0=; b=h0s+vMC9gCVG2guispD67eQsMb
+	HIDIHVTayNLEFgdSd04BEi1N8mFgVy/FwAGWbEOgABLPOOpdU4AvDXXg6Phptsg60n506pWYWoxjT
+	ZM7Rr8ldEAxna+fLRYMULO0nua1/ud3H+uy7Y5d4WJPntXUj7QlQVKi6z09VF6Wmx+EqfgA7szlHs
+	JOmT3QVrR1i4/hxqqXVZ3WRJgNCTlal6I066x4Q2g47qTDBRX8faqOO/uy95e4JoD+dsO3vwW4xy6
+	x9+asr/Nm3Ss/98RcE6HedINBZtIRFuo4q+UVb2NJx73YRjMQ2HDZCADsb4iazyIQIX32HSHet7Wz
+	XuTyMQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTvrp-00000004ef1-0hPI;
-	Tue, 24 Jun 2025 05:06:45 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTvpK-00000004eWh-17Ds
+	id 1uTvzI-00000004f2H-3Dz2;
+	Tue, 24 Jun 2025 05:14:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTvws-00000004er7-0YXk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 05:04:12 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7111d02c777so41895327b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 22:04:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tomeuvizoso-net.20230601.gappssmtp.com; s=20230601; t=1750741448; x=1751346248; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZqEyiR61C1W0/+KTWzUiTKCsg/9mevRSEFCD7wnXFig=;
-        b=b//4Pz7NGu/eaUjbAvfAKPZpzIEHtLy2mL5XPvxFNYWMatviHt04hEczV1lyezLC3p
-         5EMj4X5+stYJuEKnvtATSgF7g9aRr+Vp96k8FfGmBheNaCxU2LSpAT8CfBSnDJmz85Sc
-         BLWNk0W0oSeV9wyN5tF8Apqvt86bk/UOReDeTGct/knx21+108SdlTMT6XlNojahGca7
-         0/QJfAKeidCO98lbWua2+tRCZscjiRPMFUijAzoDepDvrZek5oIWfYUpE1VmSIbRk31J
-         VIi8hNPUU+ypa81ddT0axKxMofGTfI2HyaoHzVmNy981IyyOyh9ey43rH0Lep21bvwBi
-         Fgpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750741448; x=1751346248;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZqEyiR61C1W0/+KTWzUiTKCsg/9mevRSEFCD7wnXFig=;
-        b=dJqUU7gUrOJ3/SqakF7H7kZcfcy5XXUizKc+ona6HdU18b9rcds3ScFVQBfdXdNzOB
-         WQT7MTUNn/y8N4VILYEHLb902ygksJ/8MXpT+PxudrRPV3TJLbRV+rAiWi0RlbIP7cmL
-         KUuX6/1pmxBFN+WE6Cyf5mcyW6M34QngtZlKyEjngBxyo6CjY2vn+ydxLkb5CxK8MUT9
-         jY4arwPD5BHZBJkGjN6bETuQ+ayR4LWt0OG6bNaLCcGffC3/xghXkW4G65gnriRblJj0
-         NQeHVoBWXljSQQkXen2it6atyqTPeAKZeMAe5wSLexonnoWXxy9LNbeIr/yGNFdYJ5kn
-         MrXg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKe8Zhfq/8VxYkMuzIAKJkUlCiJc4nEOLp4u2EaShLPbcFRFuA9+p2Dkd70Sv2azsZ62lyqe82Suhbm25icIjk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHYpZWMmX5mmECOt1x1jeo221P79+9rUn7jx3OXmaOyJgicOmj
-	ZgNZ0il1dqYJrLJDyX/6n+ldqPmytdts+QM9NHs+tPrJKX4xOXacEqRVxz/IhLXDlm5ysTwKTbH
-	rc0fepUgjMg==
-X-Gm-Gg: ASbGnctSi87PiFgHPkGwQVuOkhndK6/q1cKrlS55qv/4yTMBy1iHq2u7nL+4eZvZWwy
-	O47iRDuLxXYWpNF2WXKD0sQ0ykDNlVj1pP98YuOUUPwKEQ9jSgu6MpnLy8UHgcAsfuLD0WY0Y8W
-	bf1dpBaBUspPcR/fgGqb6gBPyeDlnYkoRmOB6FepiYcPiVujKDowtvLjgDZboCk9XHEZZwU/Bq5
-	EAkAkJAX3ejt8ska+9FiIf6E4+HCLViJj9DcrFoC3Fw/3uQi5Z9Xh6FFDv1C05JRW+7GMvSbpZB
-	A4paEKfmRgAeYMckxv2XbyvwqRTlGI3LadixoYIfEee6B/g8liJYoOZnih55/MKUTp4CNQCpLnD
-	+Gb0bbrxPbRR9tRiN8NKgYCoNkPndGiuaXYGFDQ4+
-X-Google-Smtp-Source: AGHT+IGm/P6K25DpiQF7YkgLr49/raT+4WnLgZKMNcfiNtPUu4DSQdRLH4DmfxjqjeuLlDpGyce8jQ==
-X-Received: by 2002:a05:690c:931c:10b0:70d:fd2a:1457 with SMTP id 00721157ae682-712c638321emr159821667b3.1.1750741448580;
-        Mon, 23 Jun 2025 22:04:08 -0700 (PDT)
-Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-712c49b9ab5sm18631367b3.1.2025.06.23.22.04.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Jun 2025 22:04:07 -0700 (PDT)
-Received: by mail-yb1-f172.google.com with SMTP id 3f1490d57ef6-e81a7d90835so4737553276.1;
-        Mon, 23 Jun 2025 22:04:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUIsgq1XaR7IFRh3nHdSUzqJFFmTFNWLxAyuxA5MC8oi1/U3+0SOVKg4DWJYbKKRPHJ9t1Y45M85bI9MxKX37UI@lists.infradead.org, AJvYcCXSR7w/v0xl+CHMlGvlIHWUFain+GYl+gUHZaIFNiy61/QD42MoLtDtWXOIWKlzBaaIByjXapb2yst4clJAr18=@lists.infradead.org
-X-Received: by 2002:a05:6902:2402:b0:e7d:a012:290a with SMTP id
- 3f1490d57ef6-e842bd31ba5mr17718497276.44.1750741446999; Mon, 23 Jun 2025
- 22:04:06 -0700 (PDT)
+	Tue, 24 Jun 2025 05:11:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F10C5106F;
+	Mon, 23 Jun 2025 22:11:37 -0700 (PDT)
+Received: from [10.163.36.19] (unknown [10.163.36.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B42053F63F;
+	Mon, 23 Jun 2025 22:11:52 -0700 (PDT)
+Message-ID: <140f3fdd-ec11-4a96-bd71-4f6c8b5f13e1@arm.com>
+Date: Tue, 24 Jun 2025 10:41:49 +0530
 MIME-Version: 1.0
-References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net> <2241399.8hzESeGDPO@phil>
-In-Reply-To: <2241399.8hzESeGDPO@phil>
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Tue, 24 Jun 2025 07:03:55 +0200
-X-Gmail-Original-Message-ID: <CAAObsKB2tLewhCt6LWtuCW1niCPAHvqjWYAQ8t6fv9YLVsQmJQ@mail.gmail.com>
-X-Gm-Features: AX0GCFuWUi05UoZnTls2Tcn0dm5ovOsTmo6J_0Og6xGh9EfBiQOG6iE0FtJ2MtI
-Message-ID: <CAAObsKB2tLewhCt6LWtuCW1niCPAHvqjWYAQ8t6fv9YLVsQmJQ@mail.gmail.com>
-Subject: Re: [PATCH v7 00/10] New DRM accel driver for Rockchip's RKNN NPU
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Kever Yang <kever.yang@rock-chips.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>, 
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, 
-	linaro-mm-sig@lists.linaro.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/9] coresight: Avoid enable programming clock
+ duplicately
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
+ <20250609-arm_cs_fix_clock_v3_public-v3-6-423b3f1f241d@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250609-arm_cs_fix_clock_v3_public-v3-6-423b3f1f241d@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_220410_623201_996BFE1A 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20250623_221158_259399_5DB20CBE 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +69,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 11:28=E2=80=AFAM Heiko Stuebner <heiko@sntech.de> w=
-rote:
+
+
+On 09/06/25 9:30 PM, Leo Yan wrote:
+> The programming clock is enabled by AMBA bus driver before a dynamic
+> probe.  As a result, a CoreSight driver may redundantly enable the same
+> clock.
+> 
+> To avoid this, add a check for device type and skip enabling the
+> programming clock for AMBA devices.  The returned NULL pointer will be
+> tolerated by the drivers.
+> 
+> Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  include/linux/coresight.h | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index dd2b4cc7a2b70cf060a3207548fe80e3824c489f..9afa1f76c78a3347e54d94fe9a9ebed72e3fff8e 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -480,15 +480,18 @@ static inline bool is_coresight_device(void __iomem *base)
+>   * Returns:
+>   *
+>   * clk   - Clock is found and enabled
+> + * NULL  - Clock is not needed as it is managed by the AMBA bus driver
+>   * ERROR - Clock is found but failed to enable
+>   */
+>  static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
+>  {
+> -	struct clk *pclk;
+> +	struct clk *pclk = NULL;
+>  
+> -	pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> -	if (IS_ERR(pclk))
+> -		pclk = devm_clk_get_enabled(dev, "apb");
+> +	if (!dev_is_amba(dev)) {
+> +		pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> +		if (IS_ERR(pclk))
+> +			pclk = devm_clk_get_enabled(dev, "apb");
+> +	}
+>  
+>  	return pclk;
+>  }
 >
-> Am Freitag, 6. Juni 2025, 08:28:20 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Tomeu Vizoso:
-> > This series adds a new driver for the NPU that Rockchip includes in its
-> > newer SoCs, developed by them on the NVDLA base.
-> >
-> > In its current form, it supports the specific NPU in the RK3588 SoC.
-> >
-> > The userspace driver is part of Mesa and an initial draft can be found =
-at:
-> >
-> > https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
-> >
-> > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
->
-> > ---
-> > Nicolas Frattaroli (2):
-> >       arm64: dts: rockchip: add pd_npu label for RK3588 power domains
-> >       arm64: dts: rockchip: enable NPU on ROCK 5B
-> >
-> > Tomeu Vizoso (8):
-> >       accel/rocket: Add registers header
-> >       accel/rocket: Add a new driver for Rockchip's NPU
-> >       accel/rocket: Add IOCTL for BO creation
-> >       accel/rocket: Add job submission IOCTL
-> >       accel/rocket: Add IOCTLs for synchronizing memory accesses
-> >       dt-bindings: npu: rockchip,rknn: Add bindings
-> >       arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588-bas=
-e
-> >       arm64: dts: rockchip: Enable the NPU on quartzpro64
->
-> from a handling point of view, I would expect patch 1 - 6
-> (driver code + dt-binding patch) to go through some driver tree
-> but have not clue which one that is.
 
-I think Jeff Hugo would be pulling it into drm-misc? We still need a
-R-b for the job submission patch, and also have the userspace driver
-ready for merging.
+LGTM
 
-> And afterwards, I would pick up the arm64 devicetree additions
-> patches 7 - 10 .
-
-Sounds great.
-
-Thanks!
-
-Tomeu
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
