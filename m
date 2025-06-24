@@ -4,158 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A79C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C07C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9u23QLs/B8AICMDFDt4LVDBNXtfpYa3bDh8/47wQeA=; b=uHXex9cnEKZjewgmarreyRr8vC
-	OsGIxBzgkRPxF8eDVBRykgwQ5R5LntR6bBYav+o+wPdSDBpXtYbGABDscPVw55aReOLyn9jtmZoEp
-	qN8GQpZ/R0MW08mXe53V8SQJj9d9etTPOx3TEVYwzaBwk8Rlq0cqiJxVEqR5ht62axT3zqa1XlKer
-	FRNzUPmfY7Fq2Ftchw6nqRENTdCuCp3rr0zy8CA73WQPkTpBScRAsw6FWkCrX5EJ8hvEMKSOMCt1T
-	iar/H0Ljo5rT9APCx6Ole+fYjPDt48LXYTUj8HpUBd0eqv0Hzx89wzm/K7344V7Jg1FhSfnovMw+W
-	Ghi8zVBw==;
+	bh=7C/AvsVjKXGOCeuen0fY1kmunTzFwWn29v3UAYJXPVg=; b=V2tHr5rqxcoiDt1q1VmykZi3CK
+	uS9d5yIZN6sZS1JZLIL/JHU3Jfv75xxKtb0CL9tXvcBTVKyhOeuA3tPDmaNNP5HQcxAcVRTk8Qygq
+	+nnA3ABn1zCyxMn/fTVIGNR5mEcNoi80ImO29WBHmfyk0it2CfQMgOCBBoIh7TFw1IQ/4GXzP3ee3
+	GsVU4uDKzIVzid5olo0olBFPmpFDubfiv5P02Vk3Bu6EjEA/IGOanaEyrBTZmweIopbkx2ly2/8Rd
+	sAhYGOJ4gwXNOLq0ikr4jnevbR8wPnDsiBv8TX0IzI2XXSxlcFtJ2wLKtPvvcul7fj+pSMuvyMPln
+	vcEzterQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTsPz-00000004MdI-1Vrd;
-	Tue, 24 Jun 2025 01:25:47 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uTsVm-00000004N7s-1a0T;
+	Tue, 24 Jun 2025 01:31:46 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTsNb-00000004MSN-3aIw
+	id 1uTsTO-00000004MuW-0rtx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 01:23:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NrUwf/6kkVG3hS52UiI3BhwzFA4dZWAgoqFRxgjW9luIuf0mF+qDhOD9VF9X6ok3vnUyLGQGC95SZ9+G2W32V4VHEHSfC+6N5sihDEYBu5DA5J5fpKgvjs61jIVLnTvYGCFbmjkCqju64Ocwh43ixqbGE34HKnnh4DH2OPvlU+8ReeyvLR5hAQ5p1wB35glHDe+JiuPoycAzX4l1XkZe8O/XRmY56UdnoDC9KqaGzi/b1LJ+7oKIe/kabnzmtDXURsCNAE8jJ6BdymaqvQjRM6yZwzdspu8xw4rX2Dtz3ZzK9ZgvZR4f0vj+km56wh045OhRCPYUUf1DYQAlefVKYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z9u23QLs/B8AICMDFDt4LVDBNXtfpYa3bDh8/47wQeA=;
- b=F4Wc3rTGbouz5LBCsP6vrp6iG5ZymIWCLVngE97Av0fhttNcIAVvDOU5rD/Sk0Oa8IE7oEyrCJn8Q5gzrBbmk071WIs1c5+4V5O/gt73NImW+Kbd4iTNeUhMt6eWKgHzEU38sx6xhBXMEqpjZzSkFDgFZXWpEWBGj6Rd2+BwLPiSRjschSWZoYDZtBFOF/AiZ+sOAHExiy8n0oErE/tNrLjYC1uujmUP7OWiEJoRv9yCT+ylHTzpgupDXbd8clSPHXhNaRp9T2dwZVM/S6ZBuVTN/sgxcnc6TpgldTAZHHckOGIVV0YmSBc5oXKfvxnUhvxg6qUCTxzi7QE4exGCqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z9u23QLs/B8AICMDFDt4LVDBNXtfpYa3bDh8/47wQeA=;
- b=mE57LeV00LDwK5H01V3uxrxMjecae9pfz4B7enIoj+S/vSakLFCXjNKJdK/aU5vZu8ZvWlzXcV+suI5WjWPwTUyeTChSa7D10bBAi+5rd0CfT6ySOCEDhSKu8sx5IkRmBvMXUZSED0Cnx2AS4BsuUNH6yyo+F2Lqmk8vfe0IlTIVXCZbHVHBZfqZwcmlaGj7NHIOx9nozLpDTiYCKlv9iciZ4vonqkO5Xp5amg+9hrqroO67zLmPfRgb+vtgMxdit/TCR1p7VAoHOV3ZlmF2ZlWdK5cRYybIa+3k5eMRJ2OYGypyrJ5O/YQtYX5tEe6xrfLvIXhNg0iscezCmlF62A==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB7879.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Tue, 24 Jun
- 2025 01:23:10 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8857.026; Tue, 24 Jun 2025
- 01:23:10 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Dhruva Gole <d-gole@ti.com>, Cristian Marussi <cristian.marussi@arm.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Ranjani Vaidyanathan
-	<ranjani.vaidyanathan@nxp.com>, Chuck Cannon <chuck.cannon@nxp.com>
-Subject: RE: [PATCH 2/2] firmware: arm_scmi: power_control: Set
- SCMI_SYSPOWER_IDLE in pm resume
-Thread-Topic: [PATCH 2/2] firmware: arm_scmi: power_control: Set
- SCMI_SYSPOWER_IDLE in pm resume
-Thread-Index: AQHb4ZTdrhHtd/TLakG0cS5bcsjkmbQQua8AgAAZvYCAACDfAIAAlPPQ
-Date: Tue, 24 Jun 2025 01:23:10 +0000
-Message-ID: <PAXPR04MB8459E323E3C77A96272BC1728878A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
- <20250620-scmi-pm-v1-2-c2f02cae5122@nxp.com>
- <20250623125750.kzwndmcf5yo3siao@lcpd911>
- <20250623142957.GA10415@nxa18884-linux>
- <20250623-organic-foamy-tamarin-fefa30@sudeepholla>
-In-Reply-To: <20250623-organic-foamy-tamarin-fefa30@sudeepholla>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS8PR04MB7879:EE_
-x-ms-office365-filtering-correlation-id: a5e3fe49-d5f3-43a4-fe0f-08ddb2bdaeac
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?7ppJnOKLbNU45E2Vn3YSSL+CVIn1uzCmDdfVk8wdeHqiWargiCVDT+WqdrrX?=
- =?us-ascii?Q?SYB8odLpP1P5aaISm+FjJs5O97LGcZj1sAoKZa+f6hDx8u8EDPKr/2nLvdWI?=
- =?us-ascii?Q?GkAnUvfcdWl1L7rgSJ+HiB705T5VcO3O09k3ip50dylLiNDAdTderlB0PtP9?=
- =?us-ascii?Q?ejZCTEnkAYTG1uDNAvNa6LFikw+Pw1ca1gokECo/FPn7emQ7qSkIyqTeqtmU?=
- =?us-ascii?Q?bHK4HfxvHcfqGCReaFkthw1u3hZDvbM8CtvlnIW7ranrwMtY/9GO4wupqLkz?=
- =?us-ascii?Q?7hclILTziBQP+8xS/E07ro9SXfQ9jcCsw4joLKPuUZxyw2IhnZ4aCkWDZmgo?=
- =?us-ascii?Q?KxBbbl1JS2KBBhA1q/sVST7IltXh6Qo1JUTksHwhI08PBqEVtLqJN4L6kKtK?=
- =?us-ascii?Q?rYT1VmA8i8u6aAphfnGxVgR8mZRUgeb+Dww4eYqCtI1fuSPaW2Oy3cKj75oz?=
- =?us-ascii?Q?6pRIEGTQFCIEVZU3xXTvB3F+0FEEe4luGI56+GUtblrHN74lPIZW1pQRQV/3?=
- =?us-ascii?Q?l3WQrgMbBqS9B73ptgj7n7YJ6SFE+xH+9TQUWULtaOErm0mjOIKPWN54XIs0?=
- =?us-ascii?Q?SCx4EIyLv5BcG/50QgzcQMz2EwvTczRnEoj3I5dKfoxLU3I4S4S1gQwGH44L?=
- =?us-ascii?Q?8PpI1YVz5Hp1rYf7IAtqKLH8lKg8SNexKQKl2h3nz9UH06HZSFWigPT4/ATD?=
- =?us-ascii?Q?BF/kTJEt7iyeXtn28aCdByWdJyQKu1wzThnGJCzAriikYew4cMbSJWNXdpYc?=
- =?us-ascii?Q?ZmIdALK3nPm8YS7zM6EIOO4dFYAfcOUClWblss+ofYymCksknT2WqlZlLCwU?=
- =?us-ascii?Q?3Vb+z3SRwzw64axD8OCERhFr50KP9qcgc7SkbWZgZyNYZS/x7p2SM/094iTB?=
- =?us-ascii?Q?KMa0xj2hSwsX8bTpIciRSosfBSK8O48oye0FSfu2PQinnFUJkGuHN4oc2THD?=
- =?us-ascii?Q?Nfssbgu34+j2lJYMapX0ER8OdtxljGlOF20bekwD2Vt5mGYx+YhNb78bBWk9?=
- =?us-ascii?Q?F5yu15V7tIygY8RaTUC+5FetuLHf0XMcKsBKQRMzoXXJmu4nd4rWRq/+rke5?=
- =?us-ascii?Q?K5yjD4E4jJhpm30C6kcI3jE5cDcqJ1jMbaBIFos4raC5TG1ZljNl5f6Gt5gb?=
- =?us-ascii?Q?fLiW2zwsQSlFbXtjeQqthth5B87w2Uaj0e21N3ibejwCr+QpYNFfIm/rKxFm?=
- =?us-ascii?Q?a0RrbomdHjuWHuSW0tCQUh9hq1NmbMN4APXuLBqMaNudNKwFCukF1dMCKLgB?=
- =?us-ascii?Q?JiM0xmk0Jceed+TMvmh+zttgcDZQUM0WCxNffYjWWTOlcvboHaX8FZC52vCN?=
- =?us-ascii?Q?L1x5U4wihxIMFfGopppKROaaAA8AMP+3XiMZypH9g5bJA6SV1te5JFeBMCxa?=
- =?us-ascii?Q?c7QXTwC+MG46BBGtab4LrdL6btM5kIicSVC+Y8As7okcPNElZy5xSrzkKQEY?=
- =?us-ascii?Q?lbzivyHW8YAaX2n6BAzPkcitpE1rhsvboTZ7787GKykhZcg/Y8AyL4gxwlyP?=
- =?us-ascii?Q?jGiYW7MlOp5A120=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9x+9pckBm1WjXpN/xQrs8A+8al26qL7lec+nE/Dd9z8ESQUx4SVfnVhzsDcO?=
- =?us-ascii?Q?eErQeoS+Hc1yT2ygqrYl//e6aLhKQHSxEfgriOEv+CUomRG03CXl+fBGsBni?=
- =?us-ascii?Q?fPFqSk22cBUHFbb56112oC9yDlRy6Wt9zZJnwCWIGAlsaO+hLyXY3IZwKYw6?=
- =?us-ascii?Q?ZHwpeBUy5eheEGapq0XZFCX9C0lfkOYPnQJ7Zy/N3QRl0dXWdG0q0hGhZann?=
- =?us-ascii?Q?bPUvsqPL0sCmqiJ0WPJP844bZuSMW2xPZWN9ktX7jr+7eNJRdJ+AUIQbiFyA?=
- =?us-ascii?Q?nYauesSEX6cmqovy1LG1phaeUGE07fmQS9nY9VmOHFx+ZHH4E02tyqe2+9ZW?=
- =?us-ascii?Q?1UpHjOIat+xr4PyzFwpbVXux1vCWOd6++EgmbBPzc1o1aJkS7PlwODJmjYd6?=
- =?us-ascii?Q?w+kYvRRHIGBWjG7V7FMeHEF33HBVQNMKDQDThu419ZicURVtET69RGIFFhyA?=
- =?us-ascii?Q?a2CZ/TOPcoN+v3LytSAmEeB91rgiACo9DH3EJkn3d5EHo7ZuJUkrS61l96va?=
- =?us-ascii?Q?IQFHbPfFYqESfc1wmOO4sU5JIQMsVhRz0NGRPARNiqb30z8y4PIKkOntFg+F?=
- =?us-ascii?Q?Aii62DrpvDZ1uUFKpfKhPOu+NKcYKFcrYrXWBnt+QftQ492peaaB8q2BvjMC?=
- =?us-ascii?Q?Zk14CSN90GvNbFjA0bG7+s+2ZCFRFxfm6gwkkouUwYmkWCDMtWWUG2jvP1sS?=
- =?us-ascii?Q?zypXxtQVSKglEYOFsves3GJvqNpwgVPe6pJztxfWJ29AVts3e8pf9VnKMTsV?=
- =?us-ascii?Q?4yQxvr1bW1FYauxFkvlJI1QM0oaUKR7/BYDZwT8Klz3uWwa5oe5GsJeSD84C?=
- =?us-ascii?Q?Jx3N2EwU29Zl98xNDCQ8DI71L4DS/KtQwqszBwnuTB9p57wizKO4Y3qXqja0?=
- =?us-ascii?Q?yooUtJuT0CQMSqW+k43JyP3F1uqoRHS1vmmaOs7VGQZv43LIdtYo5xjGj9Cf?=
- =?us-ascii?Q?85heyAiWMkEBw8i2qJY5AykQd5gud8MXQwUB0EU+uojZPExAkc3ko4CV+Wmn?=
- =?us-ascii?Q?TCe7EBVG9dRpJIG17oGDa5d7f9YNg/hVIVSbrdoM2XSUm/ANsNKhWycnlrGl?=
- =?us-ascii?Q?R7wV28iOU1xqSep4Z/4lds4QbHwGihn6XibJWUV7ZxgMgJ5wFm7JukHxjgOj?=
- =?us-ascii?Q?BDfcBrguP33zqiN5fXfcl5K4hAGJ2PIllaN3hkoVzCanEoeDnGA+gNBoLwGL?=
- =?us-ascii?Q?XTyiitAnPy665b60ymyhzc7vawEr/4KTLgXb5pvAYE6hYKKclHXYGpV7vE14?=
- =?us-ascii?Q?aBe9GMiu7rf6+x6W3DWQ8Xobi9hXAwzcy1/zJZEMF9n01ctV0SOhuarsjinR?=
- =?us-ascii?Q?Gu9DMf7DaKYfZgieNWrH4hiQdwPZ2B831b949ATdSZ498QJqqqYvvVBxQqN3?=
- =?us-ascii?Q?KOtdQZ0/Y5QPjZ2Pg4guUtK9f2UsroqmBuyXFa6KocUK2MsUnqoYSdWaL1+C?=
- =?us-ascii?Q?HJrXqwcDTaaNzc6LQYhBqvCl4KSx/uh/ZWDo5pqNvd52BjEkCk1N4orULv//?=
- =?us-ascii?Q?nZkYYL/CvsIf8kcOVslyXtr6WBIqUP+AWcEhBbQDe9csAN0NT+KcJP3BSlnw?=
- =?us-ascii?Q?C8tdtxbBNUCDtQIhte8=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 24 Jun 2025 01:29:19 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2363616a1a6so38840965ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 18:29:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750728557; x=1751333357; darn=lists.infradead.org;
+        h=mime-version:user-agent:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7C/AvsVjKXGOCeuen0fY1kmunTzFwWn29v3UAYJXPVg=;
+        b=JUp38LzD7wUwAycJlTNFDAQNRLcm4u3q0SP9AUo8KhXtz1bM7Lzmxvhx0I2VbkpXmF
+         hVFADAsfjvk38Ae1YkD3z8oPqc3zEw6zCBPazRpglIClIAtt9l9wPDYnZPe6BVXEhSAN
+         e2KksOGP0qO+st+VIVSYPKWjoWp0IZ/q8ARZa7AEaICEOhPKKpJBW2fW6jXl7wWYI0dh
+         JVMSQwV6QXv7d3MIs2+lauqYi0z6lbd+SyMM3Lh3uB6kHNOIZnPBCbW5TxkcES+uF7G8
+         nXNAv4Li5pLQszPwMC0rRTSYS2E9YbM9pUOHTu1l/cCvoqCsB8N4D5fXB1tomOcF9PNQ
+         zO/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750728557; x=1751333357;
+        h=mime-version:user-agent:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7C/AvsVjKXGOCeuen0fY1kmunTzFwWn29v3UAYJXPVg=;
+        b=Bqi5H4M3miA/tskMjsOV6z2563KudPGTW7aLVNjjdz1q9BaTfJYK7faWX5soG45U1z
+         VUVZe1bNuEbXuflk/H4LH1K2EJ+BJYxRrou5YlYLdAwTH6GacRYdCRi/MM884P8QJans
+         PZgzac2iE2mxNwZL7FjP9qMosBiD3Jy1f+botI5qGlWmFN75LKH3fcvUO+TQzk7Oq/Jf
+         aKEKCN1JbFMPgjRQQMU80LyniTNSWEZ031iyFuBHmudOgIKg2K787AETw6om6cv8Ag03
+         47WpbhwwfDGpR7tXi2fok/C9dj6Dx8/tFX5JodxuaQfmzsDgvbsiG0AVD8vfBGNC9x1a
+         wFCg==
+X-Forwarded-Encrypted: i=1; AJvYcCX7Uyh2W8Pt3U2jwefC3bOAwfn7cbQMf4X/Zyn3trnRVEt2E9RsiLC9bjmxHi77v7PqjkpSgbXSD40+rKydA99S@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcuHR9vJLs4FWFzZNQzJ5FKw8DXmmS3sjkcNT1zUgUy3SZ0lRw
+	NT+pKL07o8Sf6ZuTqHmbFUaz/pqI2oqfVv83HRamCRYPSjITu+l2rONp
+X-Gm-Gg: ASbGncujwGymYRpjdXnHW6zSeJXPOd1jPIx/JqF4Bn0CcdFBoJyYd5Wxu/gxtvDrKgQ
+	8SNPr0lRbkSgkvuQv99kiAKYRihACSZ86xix6sJcbmwe6hKyNyjBka7OvS8v9vQD6F1KxTlktkQ
+	O7z1jEnTsvF5OKQPcVXKIx8csy67ijsGRppUCxkqGEicCOqqs9X09IqmyeHkDRmsk8onArNV+Zv
+	DQZe6YfJ/wJm+ytBRfjZ15KmurhruEA4d1RTV444vE3+z/gv4xzgPcSMkBvCDMXUCwv508tm8Iz
+	lcLNf2sbL5jLxYB0wlqRDmUOC6lMwYsJGlNvgSW43cU=
+X-Google-Smtp-Source: AGHT+IEzZpfM7q9rR57opZGg9qPwYrln15z6WF3j6cMTSbVGYFJSxloyEh1jwTmoWiABsuY9/u+/cg==
+X-Received: by 2002:a17:903:2f4b:b0:235:f70:fd44 with SMTP id d9443c01a7336-237d9870d24mr210941125ad.21.1750728556942;
+        Mon, 23 Jun 2025 18:29:16 -0700 (PDT)
+Received: from fedora ([2601:646:8081:3770::1707])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d83937bcsm93228865ad.43.2025.06.23.18.29.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Jun 2025 18:29:16 -0700 (PDT)
+From: Collin Funk <collin.funk1@gmail.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,  Ingo Molnar <mingo@redhat.com>,
+  Arnaldo Carvalho de Melo <acme@kernel.org>,  Namhyung Kim
+ <namhyung@kernel.org>,  Mark Rutland <mark.rutland@arm.com>,  Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>,  Jiri Olsa
+ <jolsa@kernel.org>,  Ian Rogers <irogers@google.com>,  Adrian Hunter
+ <adrian.hunter@intel.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,
+  Mike Leach <mike.leach@linaro.org>,  Nick Terrell <terrelln@fb.com>,
+  David Sterba <dsterba@suse.com>,  linux-perf-users@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  coresight@lists.linaro.org,
+  linux-arm-kernel@lists.infradead.org,  bpf@vger.kernel.org
+Subject: Re: [PATCH] perf test: Change all remaining #!/bin/sh to #!/bin/bash
+In-Reply-To: <20250623-james-perf-bash-tests-v1-1-f572f54d4559@linaro.org>
+References: <20250623-james-perf-bash-tests-v1-1-f572f54d4559@linaro.org>
+Date: Mon, 23 Jun 2025 18:29:15 -0700
+Message-ID: <87bjqehqqc.fsf@gmail.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5e3fe49-d5f3-43a4-fe0f-08ddb2bdaeac
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2025 01:23:10.5324
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yv24kY+u8JACC8lE2h3wjB3gxTPZpbV7yaT0pEifRwBVzOPHdo9e6HYgPbBOi4MMVogBKIpD2eeWhx0y1eE6sA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7879
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_182320_070003_14F982D8 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250623_182918_251916_9FD38BC3 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,52 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+James Clark <james.clark@linaro.org> writes:
 
-> Subject: Re: [PATCH 2/2] firmware: arm_scmi: power_control: Set
-> SCMI_SYSPOWER_IDLE in pm resume
->=20
-> On Mon, Jun 23, 2025 at 10:29:57PM +0800, Peng Fan wrote:
-> >
-> > One more example is
-> > Linux suspended, other agent send reboot linux message, Linux
-> should
-> > wakeup and reboot itself.
-> >
-> > Same to suspend
-> > Linux suspended, other agent send suspend Linux message, Linux
-> wakeup
-> > and suspend again.
-> >
->=20
-> These are very valid requirements and if this is not supported or not
-> working as expected, it is a BUG in the current implementation.
->=20
-> As lots of details were discussed in private unfortunately, I suggest you
-> to repost the patch with all the additional information discussed there
-> for the benefits of all the people following this list or this thread in
-> particular. It is unfair to not provide full context on the list.
+> There are 43 instances of posix shell tests and 35 instances of bash. To
+> give us a single consistent language for testing in, replace
+> all #!/bin/sh to #!/bin/bash. Common sources that are included in both
+> different shells will now work as expected. And we no longer have to fix
+> up bashisms that appear to work when someone's system has sh symlinked
+> to bash, but don't work on other systems that have both shells
+> installed.
+>
+> Although we could have chosen sh, it's not backwards compatible so it
+> wouldn't be possible to bulk convert without re-writing the existing
+> bash tests.
+>
+> Choosing bash also gives us some nicer features including 'local'
+> variable definitions and regexes in if statements that are already
+> widely used in the tests.
+>
+> It's not expected that there are any users with only sh available due to
+> the large number of bash tests that exist.
+>
+> Discussed in relation to running shellcheck here:
+> https://lore.kernel.org/linux-perf-users/e3751a74be34bbf3781c4644f518702a7270220b.1749785642.git.collin.funk1@gmail.com/
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  tools/perf/tests/perf-targz-src-pkg                          | 2 +-
+>  tools/perf/tests/shell/amd-ibs-swfilt.sh                     | 2 +-
+>  tools/perf/tests/shell/buildid.sh                            | 2 +-
+>  tools/perf/tests/shell/coresight/asm_pure_loop.sh            | 2 +-
+>  tools/perf/tests/shell/coresight/memcpy_thread_16k_10.sh     | 2 +-
+>  tools/perf/tests/shell/coresight/thread_loop_check_tid_10.sh | 2 +-
+>  tools/perf/tests/shell/coresight/thread_loop_check_tid_2.sh  | 2 +-
+>  tools/perf/tests/shell/coresight/unroll_loop_thread_10.sh    | 2 +-
+>  tools/perf/tests/shell/diff.sh                               | 2 +-
+>  tools/perf/tests/shell/ftrace.sh                             | 2 +-
+>  tools/perf/tests/shell/lib/perf_has_symbol.sh                | 2 +-
+>  tools/perf/tests/shell/lib/probe_vfs_getname.sh              | 2 +-
+>  tools/perf/tests/shell/lib/setup_python.sh                   | 2 +-
+>  tools/perf/tests/shell/lib/waiting.sh                        | 2 +-
+>  tools/perf/tests/shell/list.sh                               | 2 +-
+>  tools/perf/tests/shell/lock_contention.sh                    | 2 +-
+>  tools/perf/tests/shell/perf-report-hierarchy.sh              | 2 +-
+>  tools/perf/tests/shell/probe_vfs_getname.sh                  | 2 +-
+>  tools/perf/tests/shell/record+probe_libc_inet_pton.sh        | 2 +-
+>  tools/perf/tests/shell/record+script_probe_vfs_getname.sh    | 2 +-
+>  tools/perf/tests/shell/record+zstd_comp_decomp.sh            | 2 +-
+>  tools/perf/tests/shell/record_bpf_filter.sh                  | 2 +-
+>  tools/perf/tests/shell/record_offcpu.sh                      | 2 +-
+>  tools/perf/tests/shell/record_sideband.sh                    | 2 +-
+>  tools/perf/tests/shell/script.sh                             | 2 +-
+>  tools/perf/tests/shell/stat+csv_summary.sh                   | 2 +-
+>  tools/perf/tests/shell/stat+shadow_stat.sh                   | 2 +-
+>  tools/perf/tests/shell/stat_all_pfm.sh                       | 2 +-
+>  tools/perf/tests/shell/stat_bpf_counters.sh                  | 2 +-
+>  tools/perf/tests/shell/stat_bpf_counters_cgrp.sh             | 2 +-
+>  tools/perf/tests/shell/test_arm_callgraph_fp.sh              | 2 +-
+>  tools/perf/tests/shell/test_arm_coresight.sh                 | 2 +-
+>  tools/perf/tests/shell/test_arm_coresight_disasm.sh          | 2 +-
+>  tools/perf/tests/shell/test_arm_spe.sh                       | 2 +-
+>  tools/perf/tests/shell/test_arm_spe_fork.sh                  | 2 +-
+>  tools/perf/tests/shell/test_bpf_metadata.sh                  | 2 +-
+>  tools/perf/tests/shell/test_intel_pt.sh                      | 2 +-
+>  tools/perf/tests/shell/trace+probe_vfs_getname.sh            | 2 +-
+>  tools/perf/tests/shell/trace_btf_enum.sh                     | 2 +-
+>  tools/perf/tests/shell/trace_exit_race.sh                    | 2 +-
+>  tools/perf/tests/shell/trace_record_replay.sh                | 2 +-
+>  tools/perf/tests/shell/trace_summary.sh                      | 2 +-
+>  tools/perf/tests/tests-scripts.c                             | 2 +-
+>  43 files changed, 43 insertions(+), 43 deletions(-)
 
-I will collect the private discussion and post v2 later.
+Patch looks good to me.
 
->=20
-> Just to summarise my understanding here at very high level, the issue
-> exists as the second notification by an agent to the Linux to suspend
-> the system wakes up the system from suspend state. Since the
-> interrupts are enabled before the thaw_processes() (which eventually
-> continues the execution of scmi_suspend_work_func() to set the state
-> to SCMI_SYSPOWER_IDLE, the scmi_userspace_notifier() is executed
-> much before and ends up ignoring the request as the state is still not
-> set to SCMI_SYSPOWER_IDLE. There is a race which your patch is
-> addressing.
+Reviewed-by: Collin Funk <collin.funk1@gmail.com>
 
-Thanks for writing this down, It is very correct and clear.
-
-Thanks,
-Peng.
-
->=20
-> --
-> Regards,
-> Sudeep
+Collin
 
