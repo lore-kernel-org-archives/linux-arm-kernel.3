@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2240EC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4991BC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzvOFVDimc8PvbbHSWIbCCknLXDm2gCnlu7xbOu39b8=; b=uwz1KmPnQAYZGCN5qd5sTrIjIJ
-	USuFOFenIjhjp63/TlUrhZEmXjjA2OgiUoc9Jo+uL6LqwttL64vRIC85ASGHmQByQHLmZB2vQGNHS
-	ZJ7ZQXFTWxS0NHWIdvZ9SpLY28w+a8Vt3oFexL1liSeIx6BV4h84ug8AMBru2PTELngHwrMritPhG
-	fcxBf1Yvzr4JOKHIdeKOBUIyNTbdt/J1Jd2eT5N/7Gx6MWuPQg2QDKSuOBfl4STTecdYGBrCHTHQ7
-	pQ90LCwvVDlfxZpxNvWQRkQJTQe2KMBfWk/FGUYk0S+x2ZEXS4Y3Mr6r0BrIp4kw3jGAyC/0sepn4
-	R6dCaWaw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CpCVpjHI7ouLJUDbCEW0+AnztEc/9jJ63QZx6Zq10dw=; b=h79R9BqZ2G9tw5cPuQHof6eRcZ
+	JaC1+huvTMchF+KMgR0kpoMa2f3tauepJHG+J8THgbJ7cPS/eENaDdmAxMIB9rmHZ7+Uq1aSyOP6O
+	AEB3QK5rq69+/U/CW5hMj/6I6n2jgiUMnqBulKqIO1aIc4EwJvrfdOgfsin2peSfjLMYmOn0kBu3p
+	KpndZrctJsGgxxboIGIpf3bvyISOHSRUjdSRVUxVxcHBx9ss4q1RFzWlF5CrOjvDIn2ombBFLjiEb
+	2qVHysGEaeitJ3SAaP+TKkuoyGmIh4q4gTbdc4jd14RDzMPtDvh7b+ZrTLhtyP710lxLtSArSEyVM
+	TO0yInMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxeo-00000004p2J-1ilN;
-	Tue, 24 Jun 2025 07:01:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uTxhB-00000004pMt-3KSR;
+	Tue, 24 Jun 2025 07:03:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxPo-00000004nHe-2Xnh
+	id 1uTxUO-00000004nnh-2hYr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 06:45:57 +0000
+	Tue, 24 Jun 2025 06:50:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F406A43C79;
-	Tue, 24 Jun 2025 06:45:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FF9EC4CEE3;
-	Tue, 24 Jun 2025 06:45:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC7A461155;
+	Tue, 24 Jun 2025 06:50:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52ECDC4CEE3;
+	Tue, 24 Jun 2025 06:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750747555;
-	bh=Ht83Vts5Nikx4Hos0A9Sqa+RdgKYjKb5+54OxdwWUZM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kspPuAEQWHNFErWEKu3JBLy9IsjWT68yYgf9pNlpUs5YStXbsxE/vCzGZPzOYwCwl
-	 qLx2IRXVMDtFc71BkbFYAz5DteRFOiWYA/uqOTmyW+N00M/1gj41DwoZ2klWY971gB
-	 Gd56qzqUd1y9fn+IN/pL8YFqX4uPYwCOkPl/p/Lg/Smu1q8LATiVa99GjyqN5I35px
-	 fg0YTX1ty9FYrCXtBrLHX7HyHc/WOPCAcFuOe8kvUgZH0Fcfkx9wewbZ3uZ9DKocuI
-	 igUnwp34x5dUWWS+lRBjBL1GLZJ1UiXBjKniSXJHyi5z5ofOUV/R3TIrOi3qkIfOjj
-	 jm/Am+Il1S4bw==
-Message-ID: <085d5ebd-515c-4608-825b-b3319bc3bf7d@kernel.org>
-Date: Tue, 24 Jun 2025 08:45:50 +0200
+	s=k20201202; t=1750747839;
+	bh=I+9jn/5mNynKo4iayBDgivuT7YRumXcy0+7d7mJcko0=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=XFjkbAiikXOVASbLYYspYyAw1rAjLioxTdi3CE3eXBia2YrKkRDbDfsEkpXGj8atH
+	 15WV3AaOO7ssmlcHMrZdw3tMhb+uKqSyALdGc3t5jjOCwmlKo5RnMjo5JkM3cAzNbi
+	 wH22N6GMitJkzWrYF98N/7LRtGA1Xht6zOxpU8W0H+lr62kgYEjjzWdwvleJiweNMw
+	 +GhBVpFqUS16cjweBgoG8OghVzvMWv56ecGKJragXqTIHfm3FK5LBP4Rf2a/tAaLm6
+	 6DAyz8w28aDpB7ZGGeuBBmd1NbMOZH4JnD71H9wuU66ANo1xiYRyuJ5QkPRpty8F/l
+	 3mJ4zBKICqHdA==
+Message-ID: <00e76ce2-126a-40ab-badd-210a20041843@kernel.org>
+Date: Tue, 24 Jun 2025 08:50:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/7] MAINTAINERS: Add entry for Axiado
-To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jan Kotas <jank@cadence.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- soc@lists.linux.dev
-References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
+Subject: Re: [PATCH] nvmem: imx-ocotp: Use helper function
+ devm_clk_get_enabled()
+To: Huan Tang <tanghuan@vivo.com>, srini@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250624032318.246-1-tanghuan@vivo.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,13 +98,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
+In-Reply-To: <20250624032318.246-1-tanghuan@vivo.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_234556_693105_5C2C2FB6 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2025 19:28, Harshit Shah wrote:
-> Add entry for Axiado maintainer and related files
+On 24/06/2025 05:23, Huan Tang wrote:
+> Use devm_clk_get_enabled() helper to simplify code.
 > 
-> Signed-off-by: Harshit Shah <hshah@axiado.com>
+> Signed-off-by: Huan Tang <tanghuan@vivo.com>
 > ---
->  MAINTAINERS | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  drivers/nvmem/imx-ocotp.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 > 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+> index 79dd4fda0329..ce5970ba4033 100644
+> --- a/drivers/nvmem/imx-ocotp.c
+> +++ b/drivers/nvmem/imx-ocotp.c
+> @@ -605,7 +605,7 @@ static int imx_ocotp_probe(struct platform_device *pdev)
+>  	if (IS_ERR(priv->base))
+>  		return PTR_ERR(priv->base);
+>  
+> -	priv->clk = devm_clk_get(dev, NULL);
+> +	priv->clk = devm_clk_get_enabled(dev, NULL);
+
+This is just confusing or even wrong. You do not understand the code,
+just blindly do some changes pointed by scripting.
+
+NAK.
+
+
+>  
+
 
 Best regards,
 Krzysztof
