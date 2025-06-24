@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E692C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 21:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E34EC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 21:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xF54YMu7OxUF/VLJfQRO2xkWO5SFjDCxuPt6tFHYlVQ=; b=qulQNg1I74d/hqGAZozNkbywxf
-	nyA8SG4CNr2qRz2DqQOiSz3Dopcaqgc0g68Kf8GsZFLtH2LixRZLwypB7VjanqqiHK/P4tn2lPv6t
-	zbtTYf6woEj3l9yF87OAmyGjj7dbVnJcuNv44VzXnxX5epkYA394wm4oQ977/hrFAXPbllkZOp22E
-	E9pP4VhBuxAC3JIGB3k3dqrSgaEJGxTlIlj0tXNzu3OA1aadeXMj0hUwcz5LeMRFKgpHX/xABVKoN
-	Rr91pGTst+S9OcD3c1GsaM/csoBNs/dYX5pQZeT89vpuOJXPmEHLA8xpKmnIjt0AImVVPO8qL3Opw
-	2cAR1zUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VnpSnkfgkUADh3xBII6BavGc953e/khu2q4B6DDX498=; b=T1DLSdKfKLHAg4Oxq4MAc7UvFj
+	F8wlz8CP1RWQym6CFc7nm1/oFlLYqcdbDYqE22e0MG+be6tgR2tZ+GO8AxL+BVyPPfpUPZcH6c/gI
+	Ml7orx5+KrpaI9L7qAYPPWj+wBOB5PqAAEVnM8HD6LVzI+xwK0Uw/DtYa5iCLDbTHaOlIlq+nxrI7
+	GoW+j7ZsWLX59k82my4RG/6jUwWrPciFzmrC5OVzDMXYbWylPPt5XOJguahfrEoQdeq5oF/QyBem4
+	/GuuEBYbVRiA1/QO6TP6Wb8D4nyQNEURM8Id9Di9opIlh1z8ONgKCQ8vOIFoWI4f3TunC7gTp6b77
+	IVIqZrdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUAsc-00000006q5Z-2KsK;
-	Tue, 24 Jun 2025 21:08:34 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uUAsh-00000006q8M-0TtP;
+	Tue, 24 Jun 2025 21:08:39 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5sf-00000006B83-2qAW
+	id 1uU8Bv-00000006UW8-1vpb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:48:19 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bRTpy3ByKz6GDn2;
-	Tue, 24 Jun 2025 23:47:22 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id C97041402C3;
-	Tue, 24 Jun 2025 23:48:06 +0800 (CST)
-Received: from SecurePC-101-06.china.huawei.com (10.122.19.247) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 24 Jun 2025 17:48:05 +0200
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
-	<dave@stgolabs.net>
-CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>
-Subject: [PATCH v2 0/8] Cache coherency management subsystem
-Date: Tue, 24 Jun 2025 16:47:56 +0100
-Message-ID: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
-X-Mailer: git-send-email 2.48.1
+	Tue, 24 Jun 2025 18:16:21 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-adb5cb6d8f1so893245666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 11:16:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1750788977; x=1751393777; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VnpSnkfgkUADh3xBII6BavGc953e/khu2q4B6DDX498=;
+        b=BxH8oTFHaMHmbkpv/VsmsAWOpNHsMHo1GB3kbHhceVZXc6QrhPnxZoZOZ8HW/0a8t4
+         LdMulxpNPnH5l+9KD+RHFA6ig9ZWb9RY5CJaNZaSgAHxrHSWXy919cYbDdpLBHbE0NZj
+         dXVxPKGRLLtQtUlB+f7PApmuQXVkrnM/P6VH9yncGVro6dXAw4AJC2MOAeUs/rIyGHzF
+         /AhlBkeYm25scVF162u1/gAMOySnsZd5RxTxkWTRu7c3tJVGMs7sZfZBSWP9TMe664Lm
+         CkZTjohHFxqQxKEfKV9AK7SnG0Dp0Yxa1+w5zkjbrCfN7rLFC7Yr6mE0LO7iYmLXmZEk
+         kQ+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750788977; x=1751393777;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VnpSnkfgkUADh3xBII6BavGc953e/khu2q4B6DDX498=;
+        b=FBbek8Fe1EzaNX6z3T+KgNRNwAtHKwoXbPLj7OoPNRZQSDfRlDScnk2z7iJplIsu9I
+         XTKhmKRLizspi1od0WBpKv+l30kuCTc12rfaApmQ9PXhljtd+hNhzyfv36ijJi4lLxXh
+         /9DQiAniQPJwkfemU9mLjvOWZlm8TRbQmv2sWCTZfoMm6NBlUbFhEiLCA7FbF4myl7Be
+         FRO8rVx6Z8WOT7Csp3q9dXpAtZVs51Qbv6bJtDBMvajIFiK5Uio2U9a5IkeLvPaiCH6d
+         RUfHJxPbeuY7NKJJS989lniU3omdygdCmi3RLmtF8QZCQqwe+VFRty85eVQBQqPvXSSV
+         FRHg==
+X-Forwarded-Encrypted: i=1; AJvYcCV8dYOHp0O5K/kHX+qmp7/GI9c1yWf6mkJE5cHpFJf49h+/CcH+vOtJ4PvgDsiW27qP6+At4C0mHN9ueMr8wczE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjcDr8I19U//QfODM0jJtAzoDHmkklfVI4L1COdHqIvoPlhKVV
+	xztfG7Kv6v+LOlujS4VFUqeuF7jfsCkNGBQtQXqQA4YKkKwpZn8wh4uAycEgcyAFDQ8=
+X-Gm-Gg: ASbGncvHqvpTktGaTFvy0VdRMt9NxgQE3Xov8k+qOkRehkS09LAjZMDcvgjIQRzlXOL
+	umbA945eGnbrdrt/4o0ytTetw0oFGzaHOHiBJJfGvN5javL9DdtPrGb8fuVTYGukrIY94kA0nE0
+	5pi1NTHj7hapkSZM63IrQn0FgtHhINwws74buoanI+//Ha3hLyl5ZYEYQSGabxO1fk9Rek3gHa6
+	MNPEtruvHF4pdx99QO7o7fIoPfjyrkhTBS0/AKwxo3QzyL04KqcCvHBWsjcisZqjyu9uyI2TK1i
+	CMl56fvTptZGUxrhnxoS3ZK4vlrTvTfqQ3qep79p4BZc5aYrWUIhCXRuw4ta3dlGQkc=
+X-Google-Smtp-Source: AGHT+IETySV/NwwqbbDLqMU7Mh5iub1oxToadv0ZxFROQaZJtAgApSrTnuto7oLvvORtd6L1Dbo99A==
+X-Received: by 2002:a17:906:c314:b0:ae0:635c:a400 with SMTP id a640c23a62f3a-ae0beb0531fmr22317666b.51.1750788977207;
+        Tue, 24 Jun 2025 11:16:17 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ae053ecbda9sm905954066b.48.2025.06.24.11.16.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jun 2025 11:16:16 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 0/8] pwm: Drop local locking in several drivers
+Date: Tue, 24 Jun 2025 20:15:36 +0200
+Message-ID: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1325; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=S8bWVrtohU804TFCIPr4aot/z07tET4jFwVUKYqLlZ0=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBoWutKdlfvI7KIzHJ+KN9OasXDBe9Ets/iGGJT3 I980PyuD9GJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaFrrSgAKCRCPgPtYfRL+ ThL9B/wNCs36L/ISd4BA7zNBxQj5xBfjauGisVwporrJNf6qsKCwNrXQzidhknNvp946kr9gTj/ 3GZpj2d+UbQZ3AVgOMPIGsP4KkUomd8bCzxxuV8vCYvqB3oaXo4u7MUMI0/Y6JSmjh9RdLL2nz4 svG2I8ba2XHL8nWHRPNDbvQEPjsDTkU4/z536VcFjQXP1gSTOa/+Yh1JnyezwiP1gcGOBLeUj3P guQ2ykm0AKCku7biNbXTJzIkI1Mzz8P3Tso4jJGZ6a7mquAzUpmue2SbYP1gMV/nm416ULVDwW3 gxd2zphLoM96KFKamXLTbVyKW7sNAeHWRXFVNMiUH+EJF2Kx
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_084817_998359_A83D7F72 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20250624_111619_772967_0064B79E 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,135 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since RFC:
-https://lore.kernel.org/all/20250320174118.39173-1-Jonathan.Cameron@huawei.com/
+Hello,
 
-Mostly ripping out the device class as we have no idea what a possible
-long term userspace interface element for this might look like.
-Instead just use a simple registration list and mutex. We can bring
-the class back easily when / if it is needed. (Greg)
+some time ago the pwm core implemented additional locking to protect
+lowlevel driver callbacks against driver removal. A side effect is that
+.apply() and .get_state() are serialized. This allows to drop some
+locking that is now superfluous due to the core's locking.
 
-Also generalized to remove the arm64 bits in favor of generic support as
-this doesn't have anything much to do with the CPU architecture once
-an implementation isn't using a CPU instruction for this.
+I identified a few drivers that are affected; these are cleaned up
+accordingly here.
 
-It's about as simple as it can be now. Hence I've dropped the RFC marking
-from all by the ACPI patch which is mostly still here just to provide
-a second example.
+Best regards
+Uwe
 
-Catalin raised a good question of whether all implementations would be
-able to do the appropriate CPU Cache flushes. The Hisilicon HHA
-can as it's the coherency home agent for a portion of the host physical
-address space and so can issue the necessary cache invalidations to
-ensure there are no copies left anywhere in the system. I don't have good
-visibility of other implementations. So if you have one, please review
-whether this meets your requirements.
+Uwe Kleine-König (8):
+  pwm: atmel: Drop driver local locking
+  pwm: clps711x: Drop driver local locking
+  pwm: fsl-ftm: Drop driver local locking
+  pwm: lpc18xx-sct: Drop driver local locking
+  pwm: microchip-core: Drop driver local locking
+  pwm: sti: Drop driver local locking
+  pwm: sun4i: Drop driver local locking
+  pwm: twl-led: Drop driver local locking
 
-Updated cover-letter 
+ drivers/pwm/pwm-atmel.c          | 12 --------
+ drivers/pwm/pwm-clps711x.c       |  8 ------
+ drivers/pwm/pwm-fsl-ftm.c        | 28 +++++-------------
+ drivers/pwm/pwm-lpc18xx-sct.c    | 14 ---------
+ drivers/pwm/pwm-microchip-core.c | 17 +----------
+ drivers/pwm/pwm-sti.c            | 23 ++++-----------
+ drivers/pwm/pwm-sun4i.c          | 10 -------
+ drivers/pwm/pwm-twl-led.c        | 49 +++++---------------------------
+ 8 files changed, 21 insertions(+), 140 deletions(-)
 
-Note that I've only a vague idea of who will care about this
-so please do +CC others as needed. The expanded list for v2 includes
-everyone Dan +CC on as well as ARM and CXL types who might care.
-[PATCH v5] memregion: Add cpu_cache_invalidate_memregion() interface
-
-On x86 there is the much loved WBINVD instruction that causes a write back
-and invalidate of all caches in the system. It is expensive but it is
-necessary in a few corner cases. These are cases where the contents of
-Physical Memory may change without any writes from the host. Whilst there
-are a few reasons this might happen, the one I care about here is when
-we are adding or removing mappings on CXL. So typically going from
-there being actual memory at a host Physical Address to nothing there
-(reads as zero, writes dropped) or visa-versa. That involves the
-reprogramming of address decoders (HDM Decoders); in the near future
-it may also include the device offering dynamic capacity extents. The
-thing that makes it very hard to handle with CPU flushes is that the
-instructions are normally VA based and not guaranteed to reach beyond
-the Point of Coherence or similar. You might be able to (ab)use
-various flush operations intended to ensure persistence memory but
-in general they don't work either.
-
-On other architectures (such as ARM64) we have no instruction similar to
-WBINVD but we may have device interfaces in the system that provide a way
-to ensure a PA range undergoes the write back and invalidate action. This
-RFC is to find a way to support those cache maintenance device interfaces.
-The ones I know about are much more flexible than WBINVD, allowing
-invalidation of particular PA ranges, or a much richer set of flush types
-(not supported yet as not needed for upstream use cases).
-
-To illustrate how my suggested solution works, I've taken both a HiSilicon
-design (slight quirk as registers overlap with existing PMU driver)
-and more controversially a firmware interface proposal from ARM
-(wrapped up in made up ACPI) that was dropped from the released spec
-but for which the alpha spec is still available.
-
-Why drivers/cache?
-- Mainly because it exists and smells like a reasonable place.
-  As per discussion on v1, I've added myself as a maintainer to
-  assist Conor.
-
-Why not just register a singleton function pointer?
-- Systems may include multiple cache control devices, responsible
-  for different parts of the PA address range (interleaving etc make
-  this complex).  They may not all share a common hardware interface.
-
-Generalizing to more arch?
-- I've now made this generic an opt in on a per arch basis.
-
-QEMU emulation code at
-http://gitlab.com/jic23/qemu cxl-2025-03-20 
-
-Remaining opens:
-- I don't particularly like defining 'generic' infrastructure with
-  so few implementations. If anyone can point me at docs for another one
-  or two, or confirm that they think this is fine that would be great!
-- I made up the ACPI spec - it's not documented, non official and
-  honestly needs work. I would however like to get feedback on whether
-  it is something we want to try and get through the ACPI Working group
-  as a much improved code first proposal?  The potential justification
-  being to avoid the need for lots trivial drivers where maybe a bit
-  of DSDT interpreted code does the job better.
-
-Jonathan Cameron (5):
-  cache: coherency core registration and instance handling.
-  MAINTAINERS: Add Jonathan Cameron to drivers/cache
-  arm64: Select GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-  acpi: PoC of Cache control via ACPI0019 and _DSM
-  Hack: Pretend we have PSCI 1.2
-
-Yicong Yang (2):
-  memregion: Support fine grained invalidate by
-    cpu_cache_invalidate_memregion()
-  generic: Support ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-
-Yushan Wang (1):
-  cache: Support cache maintenance for HiSilicon SoC Hydra Home Agent
-
- MAINTAINERS                        |   1 +
- arch/arm64/Kconfig                 |   2 +
- arch/x86/mm/pat/set_memory.c       |   2 +-
- drivers/base/Kconfig               |   3 +
- drivers/base/Makefile              |   1 +
- drivers/base/cache.c               |  46 +++++++
- drivers/cache/Kconfig              |  30 +++++
- drivers/cache/Makefile             |   4 +
- drivers/cache/acpi_cache_control.c | 152 ++++++++++++++++++++++++
- drivers/cache/coherency_core.c     | 116 ++++++++++++++++++
- drivers/cache/hisi_soc_hha.c       | 185 +++++++++++++++++++++++++++++
- drivers/cxl/core/region.c          |   6 +-
- drivers/firmware/psci/psci.c       |   2 +
- drivers/nvdimm/region.c            |   3 +-
- drivers/nvdimm/region_devs.c       |   3 +-
- include/asm-generic/cacheflush.h   |  12 ++
- include/linux/cache_coherency.h    |  40 +++++++
- include/linux/memregion.h          |   8 +-
- 18 files changed, 610 insertions(+), 6 deletions(-)
- create mode 100644 drivers/base/cache.c
- create mode 100644 drivers/cache/acpi_cache_control.c
- create mode 100644 drivers/cache/coherency_core.c
- create mode 100644 drivers/cache/hisi_soc_hha.c
- create mode 100644 include/linux/cache_coherency.h
-
+base-commit: f817b6dd2b62d921a6cdc0a3ac599cd1851f343c
 -- 
-2.48.1
+2.49.0
 
 
