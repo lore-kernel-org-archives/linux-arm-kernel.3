@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6212C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07EEC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hvp7xqhrJ8j09Apo35riMe04jFx18ro7DAZaWEWXE64=; b=uuX41dPdR7awON7oiHSSxYy2dr
-	V45uK5m49CLC4uc22kINILlnkqpSvGfMxEFLvU+tOUZE0XKhj8fF5sCTAQA7TGESsLCYwa/6gbTqI
-	s+jahj9tKzd+DYi5G9WCVhUEXgErx70wcLu2cbGjdzHUlVdx3Y8Ppao+4F7iri+jbQPwZ2muSysBt
-	I8Maa3LYTa3VNylHgR9jiQfvR0v5pBqLAq+RF+pGLWuEhcBgyAgjSWYZaPBq3ENrBIv1MeQYb+hMK
-	L628CqhRviPRe9ZHFX2r7VoHfJrdpxzA4KIpl85b3kX5V3VKkTbL0Ni/AMInQeZ7bGy90+fWjB1RF
-	uPe63TIA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tTEfa5CiUFMxvJTh/oXI/dpTy+Tx2rapb6r8r3On4qM=; b=LsMbLmy1kSFr9xzsEiM3artQH2
+	H5fnbkkf/aX1xjivsRz1494v5S09XeA/8iMTZK1J9n4a2FNxa4pPM3rlatbs+2kXJ1zMWrekG7f96
+	kQCVpYqLmRWOEqBXgdWTDlnyDbGvb+lzFiqTRpMR/mKF1FUsXJwOTY7rZDAAbrg+rEqzmUdJJzyxe
+	8kjhkOv4HtanlZkk94VlS3F7rYnA2pPl1EjGD6GGBZB4USXcgxoErv1S8QCOaQmBY+EyeMJVskfeK
+	Zw5n6P6QBUEQ+Ttx88kuF4cQWROfxZlNQaxEKl12uE5AdC+rb5yCveAoKhToQowW2jFg2IWEBRLcd
+	FeSzWZ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTz9W-000000053B5-08oV;
-	Tue, 24 Jun 2025 08:37:14 +0000
+	id 1uTzBv-000000053Uu-3URJ;
+	Tue, 24 Jun 2025 08:39:43 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyz7-000000050mT-2fFv
+	id 1uTyz9-000000050mA-3ELE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 08:26:30 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QQ6l1822877;
-	Tue, 24 Jun 2025 03:26:26 -0500
+	Tue, 24 Jun 2025 08:26:33 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QLRQ1822851;
+	Tue, 24 Jun 2025 03:26:21 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750753587;
-	bh=Hvp7xqhrJ8j09Apo35riMe04jFx18ro7DAZaWEWXE64=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=FaKz7vu7Z0Iw/BPAs6Sbjn3LrXN44kbQm0FCTQDv+rWM3CAEeWzYHnkUtG7+iFsQ5
-	 vSYDNXvEVNpPcEmiZyHlGOEDaKCVfN5WSKapWti8PkQgE+cq7V7WobAAigoP1GwHsU
-	 FdlikZT6AaFdXort1WRpOMThh30UlRdJEDAocfUE=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QQvt100529
+	s=ti-com-17Q1; t=1750753581;
+	bh=tTEfa5CiUFMxvJTh/oXI/dpTy+Tx2rapb6r8r3On4qM=;
+	h=From:To:CC:Subject:Date;
+	b=Vv7MpFFN5uEQ4kwl0UlDxyRPm1j88RNbNNoJfOYPO0hP/1tfqnfvx12pmnctBgTPF
+	 NcRrbcT5D2JtKZuqRupnZVE3PzInM6KaRccVxfe2HHBAqT/D7/G6RsBihIBFi6ywvp
+	 jO+GRsdbMLzQgUkW2vR76uAnrTXfZ4Tvze48SxRs=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QL7J1551231
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 03:26:26 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
- Jun 2025 03:26:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
+	Tue, 24 Jun 2025 03:26:21 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE105.ent.ti.com
  (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
+ Jun 2025 03:26:20 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 24 Jun 2025 03:26:26 -0500
+ Frontend Transport; Tue, 24 Jun 2025 03:26:20 -0500
 Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.214])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QPxj1447994;
-	Tue, 24 Jun 2025 03:26:26 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QKGA1183522;
+	Tue, 24 Jun 2025 03:26:20 -0500
 From: Jayesh Choudhary <j-choudhary@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
         <j-choudhary@ti.com>
-Subject: [PATCH v2 3/7] arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
-Date: Tue, 24 Jun 2025 13:56:15 +0530
-Message-ID: <20250624082619.324851-4-j-choudhary@ti.com>
+Subject: [PATCH v2 0/7] Add DSI display support for TI's Jacinto platforms
+Date: Tue, 24 Jun 2025 13:56:12 +0530
+Message-ID: <20250624082619.324851-1-j-choudhary@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250624082619.324851-1-j-choudhary@ti.com>
-References: <20250624082619.324851-1-j-choudhary@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_012629_763570_8C217171 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20250624_012631_904241_B86D2F83 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,67 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul T R <r-ravikumar@ti.com>
+Hello All,
 
-Add DT nodes for DPI to DSI Bridge and DSI Phy.
-The DSI bridge is Cadence DSI and the PHY is a
-Cadence DPHY with TI wrapper.
+This series adds the dts support to enable DSI on 3 platforms for TI SoCs:
+- J784S4-EVM
+- J721S2-EVM
+- AM68-SK
 
-Signed-off-by: Rahul T R <r-ravikumar@ti.com>
-[j-choudhary@ti.com: disable dsi and dphy nodes, rename dphy node]
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
----
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 37 ++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+Relevant driver fixes, CDNS-DSI fixes[0] and SN65DSI86 detect fix[1]
+are Reviewed and Tested.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-index 83cf0adb2cb7..e17fffc36248 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-@@ -1795,6 +1795,43 @@ main_spi7: spi@2170000 {
- 		status = "disabled";
- 	};
- 
-+	dphy_tx0: phy@4480000 {
-+		compatible = "ti,j721e-dphy";
-+		reg = <0x0 0x04480000 0x0 0x1000>;
-+		clocks = <&k3_clks 363 8>, <&k3_clks 363 14>;
-+		clock-names = "psm", "pll_ref";
-+		#phy-cells = <0>;
-+		power-domains = <&k3_pds 363 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 363 14>;
-+		assigned-clock-parents = <&k3_clks 363 15>;
-+		assigned-clock-rates = <19200000>;
-+		status = "disabled";
-+	};
-+
-+	dsi0: dsi@4800000 {
-+		compatible = "ti,j721e-dsi";
-+		reg = <0x0 0x04800000 0x0 0x100000>, <0x0 0x04710000 0x0 0x100>;
-+		clocks = <&k3_clks 154 4>, <&k3_clks 154 1>;
-+		clock-names = "dsi_p_clk", "dsi_sys_clk";
-+		power-domains = <&k3_pds 154 TI_SCI_PD_EXCLUSIVE>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
-+		phys = <&dphy_tx0>;
-+		phy-names = "dphy";
-+		status = "disabled";
-+
-+		dsi0_ports: ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			port@0 {
-+				reg = <0>;
-+			};
-+			port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
-+
- 	dss: dss@4a00000 {
- 		compatible = "ti,j721e-dss";
- 		reg = <0x00 0x04a00000 0x00 0x10000>, /* common_m */
+[0]: https://lore.kernel.org/all/20250618-cdns-dsi-impro-v4-0-862c841dbe02@ideasonboard.com/
+[1]: https://lore.kernel.org/all/20250624044835.165708-1-j-choudhary@ti.com/
+
+I have locally tested using kmstest utility on all 3 platforms.
+
+Changelog v1->v2:
+- [4/7]: Add gpio-line-names
+- [6/7]: Remove unnecessary clocks from TIDSS
+
+v1 patch link:
+https://lore.kernel.org/all/02f1912f-0a05-4446-923a-7935ed305cb3@ti.com/
+
+Jayesh Choudhary (5):
+  arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
+  arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
+  arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
+  arm64: dts: ti: k3-j721s2-common-proc-board: Enable DisplayPort-1
+  arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
+
+Rahul T R (2):
+  arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
+  arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
+
+ .../boot/dts/ti/k3-am68-sk-base-board.dts     |  96 ++++++++++++++
+ .../dts/ti/k3-j721s2-common-proc-board.dts    | 113 +++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  37 ++++++
+ arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi  |  52 ++++++++
+ .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 117 +++++++++++++++++-
+ .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  |  37 ++++++
+ 6 files changed, 451 insertions(+), 1 deletion(-)
+
 -- 
 2.34.1
 
