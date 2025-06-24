@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C9EFC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CA3C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MDspRci5zaU6CEwc/VcJ8+GSD5SKxahOtZvaf6FCEnA=; b=XA8Y0UEeRuDEyhhwKiTEtUKbPs
-	hU3KhQTiVV93vy4T+2FEuYaLJeHFKFtQi9UsiYUH0gQ04NWXgNM2f+l/h1hPKpV2H9EXbvjEI9wBy
-	4K3PLdOxybusEwC05k2o25H8TTrzDcpWlpGE2D8kXF5A5vdMbYRwuhjYPu9vFaedF8p8mQi1mt7SR
-	tx3O4rKAn6Jj1vyX/r+NBqohbKDkNTKy/+f2elXV+sgTDW0pU3OUWpgUSAv3P/lwJuxz613b5BGrX
-	w+2pRStXJJ8liMXa9trVWEH6SlEdAIza77nb7WwXivqvkCmZgmKOMfh9W5j7O9BPfFeZFWzCl4fw6
-	njnaKtCw==;
+	bh=NqxDpA9iUWnpF+EWquP36xIeb+diPRHE/7ga31x6y/s=; b=MgEYpdydQpUQ2sp04FVNIyT22K
+	WWDDBNrKb0jwkc9NsrpPRDFDG3yrcpF8Of6EpmELK9UjP/AiXIFGlENfDe24MR7zkwGlQk600h8Pe
+	m75esl7WlbHgFVUCIGmmW2g56MMXGzwstMBaBk8dG4njMB1EKlSLGrrEMpiOnSqcP+/wkCd5cEe3w
+	oblM+JTlr4+GpBkv6TtANs49XmV1RO/NiOMWMZOZfWAGdUdJ6Mucm/6nh2aGSJwGa50DFuc/NC/yr
+	GWurjoGKUtFBRnb3sLCxxYRvnGO5tT/lAAGyeZgwklFrOWGDVgd4u6x8kQo3+yY1GTlFoiugMdzIf
+	A242pbiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU76g-00000006LYs-0x8R;
-	Tue, 24 Jun 2025 17:06:50 +0000
+	id 1uU78P-00000006LnC-0q0S;
+	Tue, 24 Jun 2025 17:08:37 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iv-00000005vl1-2BHK;
-	Tue, 24 Jun 2025 14:34:10 +0000
+	id 1uU4iR-00000005vY6-0gx8;
+	Tue, 24 Jun 2025 14:33:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775648;
-	bh=/96BnuoGCVZ8rZue5kL+ylO9FAj55XWaSZhIgWZo+/o=;
+	s=mail; t=1750775617;
+	bh=02J2RMCCRWoF83xMr/RwRbZXm/f8h5W5iuMWifQM2Jg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=njPcV2WS5L4I5aZ6/m+94X5xQt0c4i9CEm6GQ1A4XSFCi5mj4AkjYwO+LomEsc2ec
-	 1d+M67IgK57/LL+7FN3dfJU/LqSNy1464UO/AoKsiLw6p0lP9bXkjfHEESPfZJysmr
-	 Xhwa7t5znydyx/Gbzc2eLhKwuOhTKJKYJSFyw3qo1V4zWC1MpVTphPsPJime7zV7L/
-	 qg2d44e/8iuS95h7arvP/LaqPEU8U8vHSgBlvI0F0x0tCS/Ge1pJiUXedkr0bMsYIR
-	 V68cp3W2iPqr2u24JVBz3B/JfuVQXBhTsbBSSapUQ0TWnx8f+uhAxgeljU57KVqkRA
-	 ut2AbOIkWCVOQ==
+	b=JuetCbET4GtTVJjr5Ac8T9kU2+a8qk1IB7Ml/0cvwv90XK5N4iz1C0+CaEMgCSBfU
+	 M3vb0NY8B8TiApCDjt/2u4eqyfyyZZ+3N8fH7yzZryDCt3Yyqs8mEvii87qoJW22mS
+	 UveF0goUWnV9OGPQHi9FTyr1qEIOpVzuPFDOu+xgPBKFvr3VKtSzdZ0FcZbwtz3Iel
+	 7twvOv2DBwW3jIN6GXWOFrlAMZrKNjrgEkeg5go6qt4KWgPLTmvL3Cq7FImri5k2Mk
+	 oI+rCbjzJfFXgfFi1CAqyQhnoZ+R1LPBgo2OBHrLK6q8Xj2X4diyMGN46qWVf53zQO
+	 cO7re7ud89yOA==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E35C517E0DE3;
-	Tue, 24 Jun 2025 16:34:06 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B6E5D17E088B;
+	Tue, 24 Jun 2025 16:33:36 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -63,17 +63,17 @@ Cc: guangjie.song@mediatek.com,
 	netdev@vger.kernel.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 28/29] clk: mediatek: Add MT8196 vdecsys clock support
-Date: Tue, 24 Jun 2025 16:32:19 +0200
-Message-Id: <20250624143220.244549-29-laura.nao@collabora.com>
+Subject: [PATCH v2 05/29] clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
+Date: Tue, 24 Jun 2025 16:31:56 +0200
+Message-Id: <20250624143220.244549-6-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
 References: <20250624143220.244549-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_073409_733226_B4EB7EF6 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250624_073339_351537_DAA11D6B 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,307 +88,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 vdecsys clock controller, which provides
-clock gate control for the video decoder.
+MT8196 use a HW voter for mux gate enable/disable control, along with a
+FENC status bit to check the status. Voting is performed using
+set/clr/upd registers, with a status bit used to verify the vote state.
+Add new set of mux gate clock operations with support for voting via
+set/clr/upd regs and FENC status logic.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig           |   7 +
- drivers/clk/mediatek/Makefile          |   1 +
- drivers/clk/mediatek/clk-mt8196-vdec.c | 253 +++++++++++++++++++++++++
- 3 files changed, 261 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
+ drivers/clk/mediatek/clk-mtk.h |  1 +
+ drivers/clk/mediatek/clk-mux.c | 71 +++++++++++++++++++++++++++++++++-
+ drivers/clk/mediatek/clk-mux.h | 42 ++++++++++++++++++++
+ 3 files changed, 113 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 6bcefb782b9c..fc20942a547e 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1124,6 +1124,13 @@ config COMMON_CLK_MT8196_UFSSYS
- 	help
- 	  This driver supports MediaTek MT8196 ufssys clocks.
+diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
+index 8ed2c9208b1f..e2cefd9bc5b8 100644
+--- a/drivers/clk/mediatek/clk-mtk.h
++++ b/drivers/clk/mediatek/clk-mtk.h
+@@ -20,6 +20,7 @@
  
-+config COMMON_CLK_MT8196_VDECSYS
-+	tristate "Clock driver for MediaTek MT8196 vdecsys"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 vdecsys clocks.
+ #define MHZ (1000 * 1000)
+ 
++#define MTK_WAIT_HWV_DONE_US	30
+ #define MTK_WAIT_FENC_DONE_US	30
+ 
+ struct platform_device;
+diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mux.c
+index b1b8eeb0b501..65889fc6a3e5 100644
+--- a/drivers/clk/mediatek/clk-mux.c
++++ b/drivers/clk/mediatek/clk-mux.c
+@@ -8,6 +8,7 @@
+ #include <linux/clk-provider.h>
+ #include <linux/compiler_types.h>
+ #include <linux/container_of.h>
++#include <linux/dev_printk.h>
+ #include <linux/err.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+@@ -21,6 +22,7 @@
+ struct mtk_clk_mux {
+ 	struct clk_hw hw;
+ 	struct regmap *regmap;
++	struct regmap *regmap_hwv;
+ 	const struct mtk_mux *data;
+ 	spinlock_t *lock;
+ 	bool reparent;
+@@ -118,6 +120,41 @@ static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
+ 	return (val & BIT(mux->data->gate_shift)) == 0;
+ }
+ 
++static int mtk_clk_mux_hwv_fenc_enable(struct clk_hw *hw)
++{
++	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
++	u32 val;
++	int ret;
 +
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index e3fa5cc2163a..5d3b68649a53 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -172,6 +172,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_MMSYS) += clk-mt8196-disp0.o clk-mt8196-disp1.o c
- 					 clk-mt8196-ovl0.o clk-mt8196-ovl1.o
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_VDECSYS) += clk-mt8196-vdec.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-vdec.c b/drivers/clk/mediatek/clk-mt8196-vdec.c
-new file mode 100644
-index 000000000000..9de07a6c0db7
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-vdec.c
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
++	regmap_write(mux->regmap_hwv, mux->data->hwv_set_ofs,
++		     BIT(mux->data->gate_shift));
 +
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
++	ret = regmap_read_poll_timeout_atomic(mux->regmap_hwv, mux->data->hwv_sta_ofs,
++					      val, val & BIT(mux->data->gate_shift), 0,
++					      MTK_WAIT_HWV_DONE_US);
++	if (ret)
++		return ret;
 +
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
++	ret = regmap_read_poll_timeout_atomic(mux->regmap, mux->data->fenc_sta_mon_ofs,
++					      val, val & BIT(mux->data->fenc_shift), 1,
++					      MTK_WAIT_FENC_DONE_US);
 +
-+static const struct mtk_gate_regs vde20_cg_regs = {
-+	.set_ofs = 0x0,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x0,
++	return ret;
++}
++
++static void mtk_clk_mux_hwv_disable(struct clk_hw *hw)
++{
++	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
++	u32 val;
++
++	regmap_write(mux->regmap_hwv, mux->data->hwv_clr_ofs,
++		     BIT(mux->data->gate_shift));
++
++	regmap_read_poll_timeout_atomic(mux->regmap_hwv, mux->data->hwv_sta_ofs,
++					val, (val & BIT(mux->data->gate_shift)),
++					0, MTK_WAIT_HWV_DONE_US);
++}
++
+ static u8 mtk_clk_mux_get_parent(struct clk_hw *hw)
+ {
+ 	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+@@ -189,6 +226,14 @@ static int mtk_clk_mux_determine_rate(struct clk_hw *hw,
+ 	return clk_mux_determine_rate_flags(hw, req, mux->data->flags);
+ }
+ 
++static bool mtk_clk_mux_uses_hwv(const struct clk_ops *ops)
++{
++	if (ops == &mtk_mux_gate_hwv_fenc_clr_set_upd_ops)
++		return true;
++
++	return false;
++}
++
+ const struct clk_ops mtk_mux_clr_set_upd_ops = {
+ 	.get_parent = mtk_clk_mux_get_parent,
+ 	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
+@@ -216,9 +261,20 @@ const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops = {
+ };
+ EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
+ 
++const struct clk_ops mtk_mux_gate_hwv_fenc_clr_set_upd_ops = {
++	.enable = mtk_clk_mux_hwv_fenc_enable,
++	.disable = mtk_clk_mux_hwv_disable,
++	.is_enabled = mtk_clk_mux_fenc_is_enabled,
++	.get_parent = mtk_clk_mux_get_parent,
++	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
++	.determine_rate = mtk_clk_mux_determine_rate,
 +};
++EXPORT_SYMBOL_GPL(mtk_mux_gate_hwv_fenc_clr_set_upd_ops);
 +
-+static const struct mtk_gate_regs vde20_hwv_regs = {
-+	.set_ofs = 0x0088,
-+	.clr_ofs = 0x008c,
-+	.sta_ofs = 0x2c44,
-+};
-+
-+static const struct mtk_gate_regs vde21_cg_regs = {
-+	.set_ofs = 0x200,
-+	.clr_ofs = 0x204,
-+	.sta_ofs = 0x200,
-+};
-+
-+static const struct mtk_gate_regs vde21_hwv_regs = {
-+	.set_ofs = 0x0080,
-+	.clr_ofs = 0x0084,
-+	.sta_ofs = 0x2c40,
-+};
-+
-+static const struct mtk_gate_regs vde22_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0xc,
-+	.sta_ofs = 0x8,
-+};
-+
-+static const struct mtk_gate_regs vde22_hwv_regs = {
-+	.set_ofs = 0x0078,
-+	.clr_ofs = 0x007c,
-+	.sta_ofs = 0x2c3c,
-+};
-+
-+#define GATE_HWV_VDE20(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde20_cg_regs,			\
-+		.hwv_regs = &vde20_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
+ static struct clk_hw *mtk_clk_register_mux(struct device *dev,
+ 					   const struct mtk_mux *mux,
+ 					   struct regmap *regmap,
++					   struct regmap *regmap_hwv,
+ 					   spinlock_t *lock)
+ {
+ 	struct mtk_clk_mux *clk_mux;
+@@ -234,8 +290,13 @@ static struct clk_hw *mtk_clk_register_mux(struct device *dev,
+ 	init.parent_names = mux->parent_names;
+ 	init.num_parents = mux->num_parents;
+ 	init.ops = mux->ops;
++	if (mtk_clk_mux_uses_hwv(init.ops) && !regmap_hwv) {
++		dev_err(dev, "regmap not found for hardware voter clocks\n");
++		return ERR_PTR(-ENXIO);
++	}
+ 
+ 	clk_mux->regmap = regmap;
++	clk_mux->regmap_hwv = regmap_hwv;
+ 	clk_mux->data = mux;
+ 	clk_mux->lock = lock;
+ 	clk_mux->hw.init = &init;
+@@ -268,6 +329,7 @@ int mtk_clk_register_muxes(struct device *dev,
+ 			   struct clk_hw_onecell_data *clk_data)
+ {
+ 	struct regmap *regmap;
++	struct regmap *regmap_hwv;
+ 	struct clk_hw *hw;
+ 	int i;
+ 
+@@ -277,6 +339,13 @@ int mtk_clk_register_muxes(struct device *dev,
+ 		return PTR_ERR(regmap);
+ 	}
+ 
++	regmap_hwv = mtk_clk_get_hwv_regmap(node);
++	if (IS_ERR(regmap_hwv)) {
++		pr_err("Cannot find hardware voter regmap for %pOF: %pe\n",
++		       node, regmap_hwv);
++		return PTR_ERR(regmap_hwv);
 +	}
 +
-+#define GATE_HWV_VDE21(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde21_cg_regs,			\
-+		.hwv_regs = &vde21_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
+ 	for (i = 0; i < num; i++) {
+ 		const struct mtk_mux *mux = &muxes[i];
+ 
+@@ -286,7 +355,7 @@ int mtk_clk_register_muxes(struct device *dev,
+ 			continue;
+ 		}
+ 
+-		hw = mtk_clk_register_mux(dev, mux, regmap, lock);
++		hw = mtk_clk_register_mux(dev, mux, regmap, regmap_hwv, lock);
+ 
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register clk %s: %pe\n", mux->name,
+diff --git a/drivers/clk/mediatek/clk-mux.h b/drivers/clk/mediatek/clk-mux.h
+index ba390b579e6c..6b47c44f11ed 100644
+--- a/drivers/clk/mediatek/clk-mux.h
++++ b/drivers/clk/mediatek/clk-mux.h
+@@ -28,6 +28,10 @@ struct mtk_mux {
+ 	u32 set_ofs;
+ 	u32 clr_ofs;
+ 	u32 upd_ofs;
 +
-+#define GATE_HWV_VDE22(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde22_cg_regs,			\
-+		.hwv_regs = &vde22_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE |	\
-+			 CLK_IGNORE_UNUSED,		\
-+	}
++	u32 hwv_set_ofs;
++	u32 hwv_clr_ofs;
++	u32 hwv_sta_ofs;
+ 	u32 fenc_sta_mon_ofs;
+ 
+ 	u8 mux_shift;
+@@ -80,6 +84,7 @@ struct mtk_mux {
+ extern const struct clk_ops mtk_mux_clr_set_upd_ops;
+ extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
+ extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
++extern const struct clk_ops mtk_mux_gate_hwv_fenc_clr_set_upd_ops;
+ 
+ #define MUX_GATE_CLR_SET_UPD_FLAGS(_id, _name, _parents, _mux_ofs,	\
+ 			_mux_set_ofs, _mux_clr_ofs, _shift, _width,	\
+@@ -121,6 +126,43 @@ extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
+ 			0, _upd_ofs, _upd, CLK_SET_RATE_PARENT,		\
+ 			mtk_mux_clr_set_upd_ops)
+ 
++#define MUX_GATE_HWV_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,			\
++				_mux_ofs, _mux_set_ofs, _mux_clr_ofs,			\
++				_hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,		\
++				_shift, _width, _gate, _upd_ofs, _upd,			\
++				_fenc_sta_mon_ofs, _fenc, _flags) {			\
++			.id = _id,							\
++			.name = _name,							\
++			.mux_ofs = _mux_ofs,						\
++			.set_ofs = _mux_set_ofs,					\
++			.clr_ofs = _mux_clr_ofs,					\
++			.hwv_sta_ofs = _hwv_sta_ofs,					\
++			.hwv_set_ofs = _hwv_set_ofs,					\
++			.hwv_clr_ofs = _hwv_clr_ofs,					\
++			.upd_ofs = _upd_ofs,						\
++			.fenc_sta_mon_ofs = _fenc_sta_mon_ofs,				\
++			.mux_shift = _shift,						\
++			.mux_width = _width,						\
++			.gate_shift = _gate,						\
++			.upd_shift = _upd,						\
++			.fenc_shift = _fenc,						\
++			.parent_names = _parents,					\
++			.num_parents = ARRAY_SIZE(_parents),				\
++			.flags =  _flags,						\
++			.ops = &mtk_mux_gate_hwv_fenc_clr_set_upd_ops,			\
++		}
 +
-+static const struct mtk_gate vde2_clks[] = {
-+	/* VDE20 */
-+	GATE_HWV_VDE20(CLK_VDE2_VDEC_CKEN, "vde2_vdec_cken", "vdec", 0),
-+	GATE_HWV_VDE20(CLK_VDE2_VDEC_ACTIVE, "vde2_vdec_active", "vdec", 4),
-+	GATE_HWV_VDE20(CLK_VDE2_VDEC_CKEN_ENG, "vde2_vdec_cken_eng", "vdec", 8),
-+	/* VDE21 */
-+	GATE_HWV_VDE21(CLK_VDE2_LAT_CKEN, "vde2_lat_cken", "vdec", 0),
-+	GATE_HWV_VDE21(CLK_VDE2_LAT_ACTIVE, "vde2_lat_active", "vdec", 4),
-+	GATE_HWV_VDE21(CLK_VDE2_LAT_CKEN_ENG, "vde2_lat_cken_eng", "vdec", 8),
-+	/* VDE22 */
-+	GATE_HWV_VDE22(CLK_VDE2_LARB1_CKEN, "vde2_larb1_cken", "vdec", 0),
-+};
++#define MUX_GATE_HWV_FENC_CLR_SET_UPD(_id, _name, _parents,				\
++				_mux_ofs, _mux_set_ofs, _mux_clr_ofs,			\
++				_hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,		\
++				_shift, _width, _gate, _upd_ofs, _upd,			\
++				_fenc_sta_mon_ofs, _fenc)				\
++			MUX_GATE_HWV_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,	\
++				_mux_ofs, _mux_set_ofs, _mux_clr_ofs,			\
++				_hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,		\
++				_shift, _width, _gate, _upd_ofs, _upd,			\
++				_fenc_sta_mon_ofs, _fenc, 0)
 +
-+static const struct mtk_clk_desc vde2_mcd = {
-+	.clks = vde2_clks,
-+	.num_clks = ARRAY_SIZE(vde2_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct mtk_gate_regs vde10_hwv_regs = {
-+	.set_ofs = 0x00a0,
-+	.clr_ofs = 0x00a4,
-+	.sta_ofs = 0x2c50,
-+};
-+
-+static const struct mtk_gate_regs vde11_cg_regs = {
-+	.set_ofs = 0x1e0,
-+	.clr_ofs = 0x1e0,
-+	.sta_ofs = 0x1e0,
-+};
-+
-+static const struct mtk_gate_regs vde11_hwv_regs = {
-+	.set_ofs = 0x00b0,
-+	.clr_ofs = 0x00b4,
-+	.sta_ofs = 0x2c58,
-+};
-+
-+static const struct mtk_gate_regs vde12_cg_regs = {
-+	.set_ofs = 0x1ec,
-+	.clr_ofs = 0x1ec,
-+	.sta_ofs = 0x1ec,
-+};
-+
-+static const struct mtk_gate_regs vde12_hwv_regs = {
-+	.set_ofs = 0x00a8,
-+	.clr_ofs = 0x00ac,
-+	.sta_ofs = 0x2c54,
-+};
-+
-+static const struct mtk_gate_regs vde13_cg_regs = {
-+	.set_ofs = 0x200,
-+	.clr_ofs = 0x204,
-+	.sta_ofs = 0x200,
-+};
-+
-+static const struct mtk_gate_regs vde13_hwv_regs = {
-+	.set_ofs = 0x0098,
-+	.clr_ofs = 0x009c,
-+	.sta_ofs = 0x2c4c,
-+};
-+
-+static const struct mtk_gate_regs vde14_hwv_regs = {
-+	.set_ofs = 0x0090,
-+	.clr_ofs = 0x0094,
-+	.sta_ofs = 0x2c48,
-+};
-+
-+#define GATE_HWV_VDE10(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde20_cg_regs,			\
-+		.hwv_regs = &vde10_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VDE11(_id, _name, _parent, _shift) {		\
-+		.id = _id,					\
-+		.name = _name,					\
-+		.parent_name = _parent,				\
-+		.regs = &vde11_cg_regs,				\
-+		.hwv_regs = &vde11_hwv_regs,			\
-+		.shift = _shift,				\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,	\
-+		.flags = CLK_OPS_PARENT_ENABLE,			\
-+	}
-+
-+#define GATE_HWV_VDE12(_id, _name, _parent, _shift) {		\
-+		.id = _id,					\
-+		.name = _name,					\
-+		.parent_name = _parent,				\
-+		.regs = &vde12_cg_regs,				\
-+		.hwv_regs = &vde12_hwv_regs,			\
-+		.shift = _shift,				\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,	\
-+		.flags = CLK_OPS_PARENT_ENABLE			\
-+	}
-+
-+#define GATE_HWV_VDE13(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde13_cg_regs,			\
-+		.hwv_regs = &vde13_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VDE14(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vde22_cg_regs,			\
-+		.hwv_regs = &vde14_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE |	\
-+			 CLK_IGNORE_UNUSED,		\
-+	}
-+
-+static const struct mtk_gate vde1_clks[] = {
-+	/* VDE10 */
-+	GATE_HWV_VDE10(CLK_VDE1_VDEC_CKEN, "vde1_vdec_cken", "vdec", 0),
-+	GATE_HWV_VDE10(CLK_VDE1_VDEC_ACTIVE, "vde1_vdec_active", "vdec", 4),
-+	GATE_HWV_VDE10(CLK_VDE1_VDEC_CKEN_ENG, "vde1_vdec_cken_eng", "vdec", 8),
-+	/* VDE11 */
-+	GATE_HWV_VDE11(CLK_VDE1_VDEC_SOC_IPS_EN, "vde1_vdec_soc_ips_en", "vdec", 0),
-+	/* VDE12 */
-+	GATE_HWV_VDE12(CLK_VDE1_VDEC_SOC_APTV_EN, "vde1_aptv_en", "ck_tck_26m_mx9_ck", 0),
-+	GATE_HWV_VDE12(CLK_VDE1_VDEC_SOC_APTV_TOP_EN, "vde1_aptv_topen", "ck_tck_26m_mx9_ck", 1),
-+	/* VDE13 */
-+	GATE_HWV_VDE13(CLK_VDE1_LAT_CKEN, "vde1_lat_cken", "vdec", 0),
-+	GATE_HWV_VDE13(CLK_VDE1_LAT_ACTIVE, "vde1_lat_active", "vdec", 4),
-+	GATE_HWV_VDE13(CLK_VDE1_LAT_CKEN_ENG, "vde1_lat_cken_eng", "vdec", 8),
-+	/* VDE14 */
-+	GATE_HWV_VDE14(CLK_VDE1_LARB1_CKEN, "vde1_larb1_cken", "vdec", 0),
-+};
-+
-+static const struct mtk_clk_desc vde1_mcd = {
-+	.clks = vde1_clks,
-+	.num_clks = ARRAY_SIZE(vde1_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_vdec[] = {
-+	{ .compatible = "mediatek,mt8196-vdecsys", .data = &vde2_mcd },
-+	{ .compatible = "mediatek,mt8196-vdecsys-soc", .data = &vde1_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_vdec);
-+
-+static struct platform_driver clk_mt8196_vdec_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8196-vdec",
-+		.of_match_table = of_match_clk_mt8196_vdec,
-+	},
-+};
-+module_platform_driver(clk_mt8196_vdec_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 Video Decoders clocks driver");
-+MODULE_LICENSE("GPL");
+ #define MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,		\
+ 			_mux_ofs, _mux_set_ofs, _mux_clr_ofs,		\
+ 			_shift, _width, _gate, _upd_ofs, _upd,		\
 -- 
 2.39.5
 
