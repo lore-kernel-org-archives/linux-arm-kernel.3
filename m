@@ -4,109 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FE9C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4E7C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvwWzJ+xEypawpGYP8KNWgLGz+0unVKUFrWTYj+42lI=; b=NEWskP5l1yVbJu+/cooxY2nZOT
-	ADwq30CRmkrimh2woyuaazha+h5lBvniXGf3aBDKEFa3ZWwKgNwMLKwNQGjdXCCZpP1KMp+Ghc/Nr
-	ToKxWe3xyh3odriLRZJXCTUAByyDKdYmwt6jLAaRAsy5ZIdaqSqk4oJuO22qcNLymQNcw6xjg3yHF
-	3UVMG1awAEy+VhN8y0qaP4oe+NSi2rhLGTOVVCUN3Gd4t+RD8201+DAeBhrMCyPGe6BlByxUvCoNV
-	6iCUkN0euQK1L7CCHOkJxa7TphJx5X09dQUvMVJAGj1gueKGWBV8Fa1AHvJVdGYapxnDNr/Shtcfk
-	lUMcry0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gv2i/brLalkc/tq9jIyLyFeNgbFV/c/nHTZ8ughGTc0=; b=EtWNuHy9vaQSQiIRHD5NTcwd8U
+	HZ9FbVD093Dq98C3Re4twhav5neIu7JreC10DdzMwKydZW+gzGsrbf0N5bn8XZoWaWzoqjtLYkbaT
+	t/zmSVUA+pcFPlOlWcXYH92kXZDmSjIhaSnWv1GWPXWaE7zR/AS7DtqrUR2O725q1HF/BM9p8eTwl
+	/Zlhf9ESVMoq0yU8JE9ykCMO4UggZYP8jyE8YhZFYhHFwC0BxISXJw/9knl2xjhVOjpGcI3jw0bYf
+	HWhAzrnaAMAu0O/fLLDSrq9bmLvm9Wyf/xG6s8t3Dks33pmkfF5XrNLdRntaVXyCh4o8vVtVMwGdz
+	tRLlRxqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4PZ-00000005r23-1g68;
-	Tue, 24 Jun 2025 14:14:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uU4Rs-00000005s0J-1zT7;
+	Tue, 24 Jun 2025 14:16:32 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3v1-00000005kZJ-0xRB
+	id 1uU403-00000005lo0-0FGU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:42:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750772554;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JvwWzJ+xEypawpGYP8KNWgLGz+0unVKUFrWTYj+42lI=;
-	b=BHXsXaBStaPWx1AK3qrc6qkU27kg8DSBeR3wc5UWLHXoG7l+3sISOMoSSl6q8u5LCtwySh
-	AZpOf9tl0BxDyCQ6BMWzSbOsEjAC/HFk/C/RKGTTs0NsGDN6celS9JftfYLPnTqhqzdvtZ
-	gEfGRpOEi7CFlRXannEBuNDq2CoAQKY=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-456-WP3HUFaCMciDtEaVelfTwQ-1; Tue, 24 Jun 2025 09:42:32 -0400
-X-MC-Unique: WP3HUFaCMciDtEaVelfTwQ-1
-X-Mimecast-MFC-AGG-ID: WP3HUFaCMciDtEaVelfTwQ_1750772551
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-450eaae2934so46153655e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:42:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750772551; x=1751377351;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JvwWzJ+xEypawpGYP8KNWgLGz+0unVKUFrWTYj+42lI=;
-        b=PGV8BEm1b1WrB2HyPhlBcVhcFhpy6CRSpyLr0vPOt8ZG4nRG/kwCoUTvQm3CEn70Hj
-         kxKFueZMY8SBdvVBsTzcOuy8OFZ77Fsm4DFs6a4zqgJYmbowTkeJPytNS+FrWRGzTIE9
-         2oYoIfMyVlsM1mY/DuQxKxu6eKUYWbbM7Zk1srGmb7iyiTWTeyks97r2s7Lyzw2uy/uE
-         Y+QxMZ1M870cFU4e2lz4pZoy4DhY2wuYJi+HG4WafGyA/+UhsPY6tbodpyCa+tIF/IvQ
-         OGlq1N5bA0bzwMbaX3lXnIFkoCAVItECu79LIQYCz33Mb6dsyGcQUVyQAKwjMA3seQdy
-         ixUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWFBYYcFUfB/z/zqE5VR8khIgyaWWyq1I5Tn+zx8itRO24k2HYT4OkYE9qFAgmVQz/wGcegI1B9H2xyBGVIcpXO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG9PjXgwSgzHDGSqREXdboYLlV6OBobLZHmfssg32nh01IUeP5
-	WzPTOZ3qn0V83Ze8ll42Sdta3feQ+W1ZhiRpdJe8CuL9J8tjza5Zq5LBu5Y8tsE2pn9r19FTgQG
-	B+w96njXgthn7swifo0PImrKd0THvEZjIpHxD2IcOQlUC7S97h3wX6z93GNvfB+WBcjvxW5BgG6
-	TZ
-X-Gm-Gg: ASbGncs+t7Bmp8WbpgFLDhbOQcqQrEpTmfRqe/yCTcVhX5AgowDF+q0xFci1YTcnuXS
-	k2soaWRBdKuiBvm6T3T85H1y/8xpIcaKcLf6kILvTD+tCWzNhXha/3HILweaZoUqLrlQCHxtXtf
-	Odcnd4dPan4pmVSVtmBvZqRM7WH+ki5gOCcWoKAoZjIKOzfLh28GNrX0qJozAg6OuXc0FkNi5ag
-	R9vq+z07QZDgfyFT5+XPqIROoY93m8xsCl7R+V0yk8SRDYbn+xHp/vTlCPnAOv/2pxrA+bj+I+R
-	lEGTQty+3AJF+uBRVBOhlukoR8NERw==
-X-Received: by 2002:a05:600c:a07:b0:450:d3c6:84d8 with SMTP id 5b1f17b1804b1-453659caaddmr170383465e9.14.1750772551219;
-        Tue, 24 Jun 2025 06:42:31 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH2Sny+uxCfoL7TQtqauFQPpY8QI669KPmHR2EgF9N41ErRRuNQBKLCDGmFU7bbd2Ddpv4HTQ==
-X-Received: by 2002:a05:600c:a07:b0:450:d3c6:84d8 with SMTP id 5b1f17b1804b1-453659caaddmr170382835e9.14.1750772550636;
-        Tue, 24 Jun 2025 06:42:30 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2445:d510::f39? ([2a0d:3344:2445:d510::f39])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45374582452sm67189385e9.31.2025.06.24.06.42.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Jun 2025 06:42:30 -0700 (PDT)
-Message-ID: <c82c19a6-fd0f-4efe-9d93-838b52102ff4@redhat.com>
-Date: Tue, 24 Jun 2025 15:42:28 +0200
+	Tue, 24 Jun 2025 13:47:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FC2R8HK9096RJjhogczaw28awfPkt1kRuRi+9YTA5FKnD4pnlcUR1Me30eewxeX37wJ/vxMWw41cb9MRfavsWH6QC3P4oFYmSyAKeRQreVVyoGhtnkTU5N4OwzrqOq7LIv0raqa42TlQ5+jTTvLkxZQfl+ZXLZhxDT6UKlC5uypde3fsYmZeQ3KrS8CSHxyJFEE86gdV6a1btg3bcWxFzZp9jQu47DHOuWg/K9AIJBPzEvDvmS7CZIB+MK0cRGdMBFjRnrzPV+f6AzMivuJcWvd6W1+YcX75WAzCn7GGfgvxHlPcgoSKd8GbXFr6YeK00NSlFfvF4YS62d2YqJQtig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gv2i/brLalkc/tq9jIyLyFeNgbFV/c/nHTZ8ughGTc0=;
+ b=UV/bmxhbxyOGylfR+Vd8VrHIaHEEzZgQG+w9CbgzQbtJFb7Z9N6DwOVdmKbJNlhnCKzE+uJP75XunNzKdDAXfCjVsg/UZ3ADkBik5rYXO3q3a4D8wDm3a51oGjdLaAUx1BfaoE3Q6VQqkhXa4ygyaPEA7NmRZIb6EsxifWOjRGtxoQRC/ZiLLhjOC+mjEa69CEWxcXaQvnWqqrb0R31sSnxGsAWu93D4GEvaRv1N7YHfnys1lVIWr4KEItK2pqhiuFDNxlMMvfURDA9hjlmhMt4H14Pq/hRUTtoD0f8D1Uw4WqDphiFGew5wCqv8Dhg5rn7XGB01wi/6DJYVLxO2dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gv2i/brLalkc/tq9jIyLyFeNgbFV/c/nHTZ8ughGTc0=;
+ b=AMY01mfI+fjSchXav/wiM2xqELfxXsvmfhqB/iVcr/NIMo5WyYUvfzhXzCBb1vb2KJR5u1wQjXGMEYOqzRuEcoBI5A7pfAelTxsjE81UtuI9lGeR4XPT9qWQ4hqug5kVxfoDeVTUurykbAL3YMWSK5qji6FY3b0K0jxj8ZvDR+pETwNIHydNeEramMMw4s//WGyZSB4rotAY4X8GXqRshBhMAQggbxlg9zhQZ9ITYUMMhxHolQoHt87VAu5xawgnODRlGQJh3INK7TPVmnx5ox+qy6xaESNXpQzUpu5NCF25K39vFNQEdipVWH85yepyXSttZ4gQgfocZN143BG4Eg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8340.eurprd04.prod.outlook.com (2603:10a6:20b:3e0::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Tue, 24 Jun
+ 2025 13:47:41 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8857.026; Tue, 24 Jun 2025
+ 13:47:40 +0000
+Date: Tue, 24 Jun 2025 22:58:07 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Dhruva Gole <d-gole@ti.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>,
+	Chuck Cannon <chuck.cannon@nxp.com>
+Subject: Re: [PATCH 2/2] firmware: arm_scmi: power_control: Set
+ SCMI_SYSPOWER_IDLE in pm resume
+Message-ID: <20250624145807.GA14878@nxa18884-linux>
+References: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
+ <20250620-scmi-pm-v1-2-c2f02cae5122@nxp.com>
+ <20250623125750.kzwndmcf5yo3siao@lcpd911>
+ <20250623142957.GA10415@nxa18884-linux>
+ <20250623-organic-foamy-tamarin-fefa30@sudeepholla>
+ <PAXPR04MB8459E323E3C77A96272BC1728878A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250624-agile-moth-of-blizzard-c7babf@sudeepholla>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250624-agile-moth-of-blizzard-c7babf@sudeepholla>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR04CA0170.apcprd04.prod.outlook.com (2603:1096:4::32)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v13 05/11] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-References: <20250622093756.2895000-1-lukma@denx.de>
- <20250622093756.2895000-6-lukma@denx.de>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250622093756.2895000-6-lukma@denx.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: OLlDb5gy8m5uAzbX5SJ4jlIJwYk9_PKn8qkhdvhZWdY_1750772551
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8340:EE_
+X-MS-Office365-Filtering-Correlation-Id: bcd53869-57c9-4c6c-e604-08ddb325b01d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uDOnPZdaoWcYhZD8AwwYgN/UVxmmW3J50WUNXLKp45nR6CqSZ+qH5au+wZLt?=
+ =?us-ascii?Q?+6kMPLBxsrpVCaW045dbUgg/H9FQqchS0r/9FTHsd++IjHUu3PfFjsZIe+rN?=
+ =?us-ascii?Q?4WA3DrhhHKV3/QmtFjQ469JlPgsOeyMHe/j4eW503yIDQZdexSqKg70OEGqB?=
+ =?us-ascii?Q?Ptkh3QdA8lw5VYaKwrt8OrlhDs0mI+8JJXfBPHzh7o1/+xwrgHQ7KRXwXYJj?=
+ =?us-ascii?Q?pgE3Z81mqihM+Y2LLEZdsLZ21uCCMDExuPjejB+24qOBHzOYrmHk6HzKYXcJ?=
+ =?us-ascii?Q?K1062G7M21OYXByqhvduVE0MXUPXTIjhMOqFRrsFRJCvUMEUfqWLDzjFSck9?=
+ =?us-ascii?Q?pMkg6bd+OBxIrOGEBHdtY6sDrmhO52wXT0MOqQi2NHk6/rnTobL1rdXoygGm?=
+ =?us-ascii?Q?6WpOyAbMxvBxRVJeHhd6i7MvNvjtIY9XT+JIIEaqGtAW0JXE3dCu6iosB59w?=
+ =?us-ascii?Q?EO4gGukJDnvZzuqsg0dKWTn6frnpzwXspLulxF0+V2gbnO7UMmmQyuMVKmvj?=
+ =?us-ascii?Q?stcoFnJ+VJB+vylJutFEt6OFyVdfWViqA4gpcqUwnmKgFopPl50019H4XS0V?=
+ =?us-ascii?Q?HzMKKPaSbj0m5gLFKIrjjmWnER3NI6Ud8qov14duPAJ3TAHjqOB8bwdV8WwH?=
+ =?us-ascii?Q?4mDQ7LOcOjMMCPOG2rhjhVHsB9uwRGFYf1JtSzkcEH2X90dIwFdKP4+OyyV3?=
+ =?us-ascii?Q?5xdqaVlUa6xwX19AMtq+Iv3yqhLa/bHX324PHhrOSeuOo9WG82nE/oX2JTip?=
+ =?us-ascii?Q?yEj7KNQDtWLQt1Xwqia7bkoQpyGm5vNN+ro0i0lAaRed06AMpCma5OlWbCOP?=
+ =?us-ascii?Q?ZjdRWA9ei6Z6OPbbI3incObo2dMFatktAk4156/5XOhJyN6mDTnKQ86TmFhk?=
+ =?us-ascii?Q?zC0HkQEMG1P8ui9OcWEnoEbKsQCRL0pkayC89fZ+HBNyjMKtDwjcY5cSt1gu?=
+ =?us-ascii?Q?rjzHsn+8RLl2bvMxcFiZyisF4FLAbBIKYplM49DbJdtlREe7H8OGYcxT3Tmt?=
+ =?us-ascii?Q?LmxMlJNd/8JEfc9Gy1Zz8V0VnGdlpEPGJn0vm3s2x+Sruf6DcNFv4FWeXDdf?=
+ =?us-ascii?Q?2KuGKH9ePni9rE+R/WYzMz/64K1bLroEbZgQ7B+9YSObgUe0bPDwnlbv+mWH?=
+ =?us-ascii?Q?vEhtcuWyGoTSj5Qfy5mXB+C1a+aWLiuQm84Nx82rva02RvAmp0zvGwvJbdI8?=
+ =?us-ascii?Q?TLmnCmWINusdv/H337WlbpX0HOJn7DpDteqMP46fMGI+jYj08XgOrEEVLKr0?=
+ =?us-ascii?Q?At5MqnzLApxGEJUasZwhdWeUjAr3Khvi5xLtulicwwzoKW5BYU0yGELntJh/?=
+ =?us-ascii?Q?ebYUYHptIQ6QCTR81BjLmcmz+NXt4ibxHS6FWYvk/Y0ZpQFCnc6MjTzhESbe?=
+ =?us-ascii?Q?1Hw7R2WOj2FkZJYRcAPAu4bVwDgpeKRBif2uDpRo5j6BSvEP5EEedrPt+jUe?=
+ =?us-ascii?Q?oC2px1zLwY4ssH3YyembbA3dlYQLryq2H+Ih/8z2NYMNxjfWHhj3SQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MJXXfiMYcbHB5KI4Ap/stai/JXA7s01hHCmMN1IkVlCZkBiXCp6lUn5Qu/Gq?=
+ =?us-ascii?Q?/n7Q89VIbEhe7vzQCKTKgTZzE5ZEnjPqnYor+20C9xPWRnxzriLPfkFIPwum?=
+ =?us-ascii?Q?7Aw6qwWCOptEWUFgZpxPs2jIQSyritb+B+FrT9CfPVU9fNRXgloPMoLCIPk/?=
+ =?us-ascii?Q?jCCzumltB22kGgy1jKQxYA8za4sablnR4pRcl5LOtNV83T778fo3A8BwoaSO?=
+ =?us-ascii?Q?bgKwTB7IDcU1qAEWCKRuhPBVQS5qS9Du/BJlhWi11yk22McxJNuTHHW3f0R7?=
+ =?us-ascii?Q?LTGbIF6szLCs7RKQ49fl61JbS7Je1HbS+2FAB7JNUyBVuSbn52YeUEXd1Gzh?=
+ =?us-ascii?Q?e4/lQCGnMP5935tXHOPBb0tGjnbX9GtqmXCLI/n+QEMlVQtkiOU6b2EfcDNM?=
+ =?us-ascii?Q?djdHv/8LD6dZKFj8C6hcLzRABFq2CJC1uFRi4HDEhAbAIZ5/doqYlUsq0q7J?=
+ =?us-ascii?Q?Krs5uNm5Rwgwo8kCcTT7ZYoVdXJTnQ7nvu5SmJ/8JD6INuEsLE5240NxBl3L?=
+ =?us-ascii?Q?wzu3A/OTsbs/qCfe95JrSbuncYkcF+bp5EfeiIjMfkSI/nwcF3nrlkB+9l3P?=
+ =?us-ascii?Q?qWpWj6XOCurhAiRPh6Yo2l/JgbXl4abTP6McwpctrZ0jRz+GR+epRIXFmkFc?=
+ =?us-ascii?Q?jIgGvHRo2rnZcg4/0JiX2w9OJJYMkIfHjRvhDbfq3v5KsIkcgA+ZB4j2jt5V?=
+ =?us-ascii?Q?mfMOfNwgpW9s6t6KSHLNd/8xA7F8YANma8UXXMhPwiT3ttNEde1J/9XoSozP?=
+ =?us-ascii?Q?1qPniJo+puncKgNM2IxbAQUENtC/1VcWmqiHtQQeA6BJE7EmL01xHQjoQzMS?=
+ =?us-ascii?Q?bDzfEXiWMnOJAMeDHLgYACJeR/5IZpIunc37L9KBnHhMLzyL9ZcHAWZDWNa0?=
+ =?us-ascii?Q?VNWD4gIcbYiD9pQcjOQnJBlt4HhkQqvDUCFL0h25908sNwT6yQLSOk+Eouvt?=
+ =?us-ascii?Q?a+cKF8IgkvNy7zP1himMqpjk4GC6FRY9rEJQSNEucUpSjC4lxq6VnBmhd2gv?=
+ =?us-ascii?Q?iOGrPsju6aDKJCrmFi9j4H+MyuRL88XhmFzbEMIJA/mV499dshrEAHDNmj5t?=
+ =?us-ascii?Q?Oyl5y6CCrxPLgEcYhSTLWx4SIrwofj+05du/HMiIHAryGz/H/cQjc2VEnIua?=
+ =?us-ascii?Q?9UD9+uZvHoFxZcWZA8tnJ4vxp0ONwD9v7DnUC5wvx3AkZRmsmg/Mr9lhVN5D?=
+ =?us-ascii?Q?1sq/5doHRFTCfGhy1tfQZMIoBdXsbewzbG6Y5vP0mLD0H+oznt4zw/YeR5t3?=
+ =?us-ascii?Q?YE8YX757Js/26x8y7qROwV8ZBEpahtn4Z02psJKO7IZ/Utx7M444YSE92KF9?=
+ =?us-ascii?Q?CWqk1EIga64YwnXlAFTinagt0EJSute9/9Za27I38Dxqc97cAJRU48b5HWxD?=
+ =?us-ascii?Q?G7BTuibyiCT5ENEqTHJ8tGf5xDwbipXrZLha6vRaF4EGdAD6XXJ76PzLJJIS?=
+ =?us-ascii?Q?9rbBqGqR9fN/GvHIisoQLbJP+m2ruVipcUm5IpjB7Tewph0KO8MP9Y+U3smS?=
+ =?us-ascii?Q?gOyhZtFD2IFL4oJDjI1kFDYgtc3J/VFpphiZiAmwEY+BPQhMf8/zqo6bcKvi?=
+ =?us-ascii?Q?67uwnWyByiQgvM25mTe0ZK9FeXzKnU6YepnprB7e?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcd53869-57c9-4c6c-e604-08ddb325b01d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 13:47:40.8842
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ycrY4IZFq+XAg0U0XIckuyvaIqbwiERO/c4b2T13sNHzY/ve+vVBjBH0c9OI8pfD6FkjsNBd+R5jbWNw8QEDSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8340
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_064235_343708_FF8ACC98 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20250624_064747_114583_3155E02B 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,195 +170,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/22/25 11:37 AM, Lukasz Majewski wrote:
-> This patch provides callbacks for struct net_device_ops for MTIP
-> L2 switch.
-> 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> 
-> ---
-> Changes for v13:
-> - New patch - created by excluding some code from large (i.e. v12 and
->   earlier) MTIP driver
-> ---
->  .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 273 ++++++++++++++++++
->  1 file changed, 273 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> index 5142f647d939..813cd39d6d56 100644
-> --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> @@ -43,6 +43,15 @@
->  
->  #include "mtipl2sw.h"
->  
-> +static void swap_buffer(void *bufaddr, int len)
-> +{
-> +	int i;
-> +	unsigned int *buf = bufaddr;
-> +
-> +	for (i = 0; i < len; i += 4, buf++)
-> +		swab32s(buf);
-> +}
-> +
->  /* Set the last buffer to wrap */
->  static void mtip_set_last_buf_to_wrap(struct cbd_t *bdp)
->  {
-> @@ -444,6 +453,128 @@ static void mtip_config_switch(struct switch_enet_private *fep)
->  	       fep->hwp + ESW_IMR);
->  }
->  
-> +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> +					struct net_device *dev, int port)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	unsigned short status;
-> +	struct cbd_t *bdp;
-> +	void *bufaddr;
-> +
-> +	spin_lock_bh(&fep->hw_lock);
-> +
-> +	if (!fep->link[0] && !fep->link[1]) {
-> +		/* Link is down or autonegotiation is in progress. */
-> +		netif_stop_queue(dev);
-> +		spin_unlock_bh(&fep->hw_lock);
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	/* Fill in a Tx ring entry */
-> +	bdp = fep->cur_tx;
-> +
-> +	status = bdp->cbd_sc;
-> +
-> +	if (status & BD_ENET_TX_READY) {
-> +		/* All transmit buffers are full. Bail out.
-> +		 * This should not happen, since dev->tbusy should be set.
-> +		 */
-> +		netif_stop_queue(dev);
-> +		dev_err(&fep->pdev->dev, "%s: tx queue full!.\n", dev->name);
-> +		spin_unlock_bh(&fep->hw_lock);
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	/* Clear all of the status flags */
-> +	status &= ~BD_ENET_TX_STATS;
-> +
-> +	/* Set buffer length and buffer pointer */
-> +	bufaddr = skb->data;
-> +	bdp->cbd_datlen = skb->len;
-> +
-> +	/* On some FEC implementations data must be aligned on
-> +	 * 4-byte boundaries. Use bounce buffers to copy data
-> +	 * and get it aligned.spin
-> +	 */
-> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
-> +		unsigned int index;
-> +
-> +		index = bdp - fep->tx_bd_base;
-> +		memcpy(fep->tx_bounce[index],
-> +		       (void *)skb->data, skb->len);
-> +		bufaddr = fep->tx_bounce[index];
-> +	}
-> +
-> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
-> +		swap_buffer(bufaddr, skb->len);
-> +
-> +	/* Save skb pointer. */
-> +	fep->tx_skbuff[fep->skb_cur] = skb;
-> +
-> +	fep->skb_cur = (fep->skb_cur + 1) & TX_RING_MOD_MASK;
-> +
-> +	/* Push the data cache so the CPM does not get stale memory
-> +	 * data.
-> +	 */
-> +	bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, bufaddr,
-> +					  MTIP_SWITCH_TX_FRSIZE,
-> +					  DMA_TO_DEVICE);
-> +	if (unlikely(dma_mapping_error(&fep->pdev->dev, bdp->cbd_bufaddr))) {
-> +		dev_err(&fep->pdev->dev,
-> +			"Failed to map descriptor tx buffer\n");
-> +		dev->stats.tx_errors++;
-> +		dev->stats.tx_dropped++;
-> +		dev_kfree_skb_any(skb);
-> +		goto err;
-> +	}
-> +
-> +	/* Send it on its way.  Tell FEC it's ready, interrupt when done,
-> +	 * it's the last BD of the frame, and to put the CRC on the end.
-> +	 */
-> +
-> +	status |= (BD_ENET_TX_READY | BD_ENET_TX_INTR
-> +			| BD_ENET_TX_LAST | BD_ENET_TX_TC);
-> +
-> +	/* Synchronize all descriptor writes */
-> +	wmb();
-> +	bdp->cbd_sc = status;
-> +
-> +	netif_trans_update(dev);
-> +	skb_tx_timestamp(skb);
-> +
-> +	/* Trigger transmission start */
-> +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
-> +
-> +	dev->stats.tx_bytes += skb->len;
-> +	/* If this was the last BD in the ring,
-> +	 * start at the beginning again.
-> +	 */
-> +	if (status & BD_ENET_TX_WRAP)
-> +		bdp = fep->tx_bd_base;
-> +	else
-> +		bdp++;
-> +
-> +	if (bdp == fep->dirty_tx) {
-> +		fep->tx_full = 1;
-> +		netif_stop_queue(dev);
+On Tue, Jun 24, 2025 at 11:21:52AM +0100, Sudeep Holla wrote:
+>On Tue, Jun 24, 2025 at 01:23:10AM +0000, Peng Fan wrote:
+>> > 
+>> > Just to summarise my understanding here at very high level, the issue
+>> > exists as the second notification by an agent to the Linux to suspend
+>> > the system wakes up the system from suspend state. Since the
+>> > interrupts are enabled before the thaw_processes() (which eventually
+>> > continues the execution of scmi_suspend_work_func() to set the state
+>> > to SCMI_SYSPOWER_IDLE, the scmi_userspace_notifier() is executed
+>> > much before and ends up ignoring the request as the state is still not
+>> > set to SCMI_SYSPOWER_IDLE. There is a race which your patch is
+>> > addressing.
+>> 
+>> Thanks for writing this down, It is very correct and clear.
+>> 
+>
+>While I am not against adding bus PM ops as it can be useful elsewhere,
+>just wonder if this usecase is a good use of it. Does setting the state
+>before the pm_suspend() call suffice. I still need to think through the
+>possible race with that solution, but just asking you to check if that
 
-You may want to stop the queue earlier, i.e. when 75% or the like of the
-tx ring is full. Also you can use netif_txq_maybe_stop() - with txq ==
-netdev_get_tx_queue(dev, 0)
+There is race condition if setting the state to SCMI_SYSPOWER_IDLE before
+pm_suspend.
 
-[...]
-> +static void mtip_timeout(struct net_device *dev, unsigned int txqueue)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct cbd_t *bdp;
-> +	int i;
-> +
-> +	dev->stats.tx_errors++;
-> +
-> +	if (IS_ENABLED(CONFIG_SWITCH_DEBUG)) {
-> +		dev_info(&dev->dev, "%s: transmit timed out.\n", dev->name);
-> +		dev_info(&dev->dev,
-> +			 "Ring data: cur_tx %lx%s, dirty_tx %lx cur_rx: %lx\n",
-> +			 (unsigned long)fep->cur_tx,
-> +			 fep->tx_full ? " (full)" : "",
-> +			 (unsigned long)fep->dirty_tx,
-> +			 (unsigned long)fep->cur_rx);
-> +
-> +		bdp = fep->tx_bd_base;
-> +		dev_info(&dev->dev, " tx: %u buffers\n", TX_RING_SIZE);
-> +		for (i = 0; i < TX_RING_SIZE; i++) {
-> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
-> +				 (kernel_ulong_t)bdp, bdp->cbd_sc,
-> +				 bdp->cbd_datlen, (int)bdp->cbd_bufaddr);
-> +			bdp++;
-> +		}
-> +
-> +		bdp = fep->rx_bd_base;
-> +		dev_info(&dev->dev, " rx: %lu buffers\n",
-> +			 (unsigned long)RX_RING_SIZE);
-> +		for (i = 0 ; i < RX_RING_SIZE; i++) {
-> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
-> +				 (kernel_ulong_t)bdp,
-> +				 bdp->cbd_sc, bdp->cbd_datlen,
-> +				 (int)bdp->cbd_bufaddr);
-> +			bdp++;
-> +		}
+The 2nd suspend notification could runs into pm_suspend again
+before pm_suspend update system_state to SYSTEM_SUSPEND, if my understanding
+is correct.
 
-Here you are traversing both rings without any lock, which looks race prone.
+Per pm_suspend->enter_state,
+"Make sure that no one else is trying to put the system into a sleep state",
+not sure, but I think better not let pm_suspend to handle the race condition.
 
-/P
+Since syspower only has one per system(linux), the other approach is to
+use syscore, but need a global variable for state in scmi_power_control.c,
+because syscore_suspend/resume does not have parameter.
 
+we need to set state back to IDLE after linux wakeup and before kernel
+thread scheduling. I only see two interfaces to achieve:
+PM ops or syscore ops.
+
+Thanks,
+Peng
+
+
+>helps.
+>
+>-- 
+>Regards,
+>Sudeep
 
