@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6764C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC80C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sj9TWiPMsagwmtAEU+UqMAQLzr3x+ci2skqbvIgOikg=; b=YDMVM6Qen1u71tQCPsUYiAQyTA
-	RVcGJCjhHm3J3kzNS0gYs84P2moIub34lmdHsVQp8KAsspdWp6UugY+CbHXbU45RF9ChxVBnE6FyY
-	019DiGtEp1upYvvzn6vQ/b3rf0/62c84Dj2F0mEQbyYwnBBxqf30GfoEJuB2vFViI4OXD4E+ENe0i
-	yoSFXoLIEA0ZiDqoKL+0r/7udBXhV6S7fff5xRhvxR+A0tWy8VUHFtSg9/KQ7qFgJhJfol1o76sSo
-	tG1Zjapti5AAENovRiBb2AO2lK5XBeCSBjs18k2JcpZw5upYocvZW5tDPFzrtTtq28qhXsqD0BaCz
-	vG+qfTag==;
+	bh=VXf0jcYHfTUCBCgwUowfNZsPMYpOvzMS9Wm7mOPCySY=; b=aOOAI1ewK//rEQVI6fDoX9RIlX
+	AWFGjWpdbESIVmqgKyev35v9Daivc3LaGsGJslwoJc/OoFDjus3/0O85eRjMZXlX7iX86RfGlXBrT
+	N52/PQ/dqGLE5Sbpyke2eWtWXtoBFRjs51Jg4+3R5jma1y+I928S0rTa05yB3KydaS2c25CA0HKfJ
+	St5jDYtVsZVH4o8XgcPj3r3Y2Tl8xSEwiSc1TXE+g2ap5sn7nLZENkh+DJuboPXGoXgXLwWIvmQHa
+	3v7z0pRnr4Vt0IxvwRaraMZrJ75lOaOkcLh6Gho/9x9EZxptZ/0vQ4Ex2SCSMQEz3Ogl/dJqiHZuy
+	rZmbDAWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9j9-00000006fKc-3YT2;
-	Tue, 24 Jun 2025 19:54:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uU9jC-00000006fOa-2zjR;
+	Tue, 24 Jun 2025 19:54:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU672-00000006ELg-1Upi;
-	Tue, 24 Jun 2025 16:03:09 +0000
+	id 1uU68r-00000006EdE-2Uc7;
+	Tue, 24 Jun 2025 16:05:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA9BE43656;
-	Tue, 24 Jun 2025 16:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D339C4CEE3;
-	Tue, 24 Jun 2025 16:03:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D3C45C6870;
+	Tue, 24 Jun 2025 16:02:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62569C4CEE3;
+	Tue, 24 Jun 2025 16:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750780987;
-	bh=r+kbtBtkvupSYbQKKEAYAqkAxHTnFoIv9mvGzVb2VcA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pcZP2bot0uc8aYUXNM4TyNuFCofFDE58lIfoi0mW9SKYZ2/rHUyxdCVkLTr+i1cYF
-	 +6WKRQ2spIeriCw3mYuR9tc8rNqNboI9yFCVhBMwDbiHfWBLWFsj5vGQKn+LnGRutQ
-	 S1Ro7vqfCbUjhOZ821nYpGwbjtFu7y75YgMgOa2OXik8hOmLNsz1qfdafB7v+oI0UM
-	 7eaL+qL1U5lo+xRxFUJepr/SKA4cZ5Gqmk/nFNhoVYCYqbejxYMwRy1oGJhqFguso6
-	 4WL0hHg0ky1Yfc4QDHO1Jwy0v6UhsEhSta08gtLpxDVt635iTmwj15uAlc+VSTL1sa
-	 mSOGm/bLL6LEw==
-Message-ID: <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
-Date: Tue, 24 Jun 2025 18:03:01 +0200
+	s=k20201202; t=1750781100;
+	bh=h35+iqWPfBuYqEWe71ovWfkRt/Oz+j7GFp+J5yhUpkw=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=cB52xsF2NjUTAiDKSfI0ZrZPJ57Zux+QNb3QW1Adxqw/ViaxkVdbczs+N0Pla6wfY
+	 egor1k49RoEpslU9lKt0MQtc2bu3t33Ct8X66CAkVEhaEGz5wcXwFSYibfv9EMp2f2
+	 BDFlsmY/PWBz6WwtdSbheG6pfgN0vBqhE0i18m3L5K0zgrDHdwbLbX+moiP1Enhd1V
+	 5+V5E5eIVhJnWE4CAso5wz3s1d3mWojeroH0Lx0o9BO7VId1PwyCcQquFBXVhxZg1J
+	 5tol9sNvylVgmyYvpUoJg11Oc8n2PXZmVQfuOTJhIq7IbS2O6Tj6VtAkY1f0EpaLLV
+	 uySCiiImtfErQ==
+Message-ID: <eb5e2b27-58a9-4ee4-a1d8-b2df8ecbd13a@kernel.org>
+Date: Tue, 24 Jun 2025 18:04:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 10/29] dt-bindings: reset: Add MediaTek MT8196 Reset
  Controller binding
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
@@ -58,8 +59,8 @@ Cc: guangjie.song@mediatek.com, wenst@chromium.org,
  kernel@collabora.com
 References: <20250624143220.244549-1-laura.nao@collabora.com>
  <20250624143220.244549-11-laura.nao@collabora.com>
+ <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -103,12 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250624143220.244549-11-laura.nao@collabora.com>
+In-Reply-To: <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_090308_446083_ED6059E5 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250624_090501_727861_AD5BD278 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +125,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 16:32, Laura Nao wrote:
-> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On 24/06/2025 18:03, Krzysztof Kozlowski wrote:
+> On 24/06/2025 16:32, Laura Nao wrote:
+>> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>
+>> Add a binding for the PEXTP0/1 and UFS reset controllers found in
+>> the MediaTek MT8196 Chromebook SoC.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
+>>  1 file changed, 26 insertions(+)
+>>  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
 > 
-> Add a binding for the PEXTP0/1 and UFS reset controllers found in
-> the MediaTek MT8196 Chromebook SoC.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
->  1 file changed, 26 insertions(+)
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+> No improvements.
 
-No improvements.
+I see the license got fixed, so half improvements. My other comment stays.
 
-<form letter>
-This is a friendly reminder during the review process.
-
-It seems my or other reviewer's previous comments were not fully
-addressed. Maybe the feedback got lost between the quotes, maybe you
-just forgot to apply it. Please go back to the previous discussion and
-either implement all requested changes or keep discussing them.
-
-Thank you.
-</form letter>
+Respond to the comments instead.
 
 Best regards,
 Krzysztof
