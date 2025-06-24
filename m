@@ -4,215 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B1AC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 05:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C603C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LkNHihRhiZLBWo/VuJmYhMmZ/N4PnlpGsWCH+vXi42M=; b=BR4rkf+zdISBYtm3l6Gls3bfO8
-	8C1ClpHOUsXNSbZOrokQTVlJBMxNbEbSSPRqefsB6Myw7Q247mzaKOgq1WpI6+vfmoP8jz9hzgoNN
-	smTieZA2jmoAde8ASIh6WjKpn3WJPeynIpV+q7GRJBGyn9XXz5f2w3rcEYxvC80RpAhAaAPK0ejcs
-	baDh5xwKqRvpcf1EdqYf56iUR/5EQSmgT7GtY/A/48seObrrdqowSipGQW92e2wmJOYYbIimHwLRf
-	+7fPmWix17dX51sbQSV9EvP9f1+LmMtX38hKZ8IcLJDK43P8EMFQ+xlbgzK7tQO1cvOpEGn00nL39
-	3qjt443A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hYUBslrLHeUP1pRxdRsV7rs+qTsBHB7P9IztxEC42Qg=; b=cHNuzbpfvd5xg+Q1nG6SaY7Oj6
+	HehyEoPrB2EBBiouT9MTZClFCzFRg517yxC9JCcPuqjrVjNM+6Sa0nOKlqTd/Idqemt5uZB8aI45H
+	/QT55IrTTM/l3CtbO9GoTa5OMmq9EM7KKxwAcVe1ZB5vPn9Hm/ewTgPN/xuEWtYB+zR67ygT6Tsui
+	agtXqGq8+roVWv/EkUHwnr7EVh0vKFA85cB/6551ZDSsgv9GQNDpTIx+8CKHkZVZJDC7J0/LX0uJG
+	Yj4GTlvu4Za/hz+30nPKE1udPqm9h9S9l3reYIn/WQhEn2r5ZbO6H6eIjAMhGKOmJLsBrX1oDSxty
+	QxnEMRwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTwZy-00000004hbg-0kLV;
-	Tue, 24 Jun 2025 05:52:22 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uTwlG-00000004iy3-1SIT;
+	Tue, 24 Jun 2025 06:04:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTwXW-00000004hK7-3k8M;
-	Tue, 24 Jun 2025 05:49:52 +0000
-X-UUID: 08d3708450bf11f09eb0dd999d3936bf-20250623
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=LkNHihRhiZLBWo/VuJmYhMmZ/N4PnlpGsWCH+vXi42M=;
-	b=XOUbeoDiyojXUlY0y++BnPUTIYfeC0lsrmUBXoEwB6BOvdsDgn3Crlo1mQUbC0ZBmky5w6oJ3YKqfAyOcYejW7L2ZA7suV8nd8NCkpO/9q9l89HQKI+ze/HW4iCAsEp4q84K+7anueyNlzM8iHwEGijAPUSLE3vQE6ngjKzMzVA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:15c63f31-720e-45ee-ad6d-f407576528c2,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:156e0459-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 08d3708450bf11f09eb0dd999d3936bf-20250623
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 535587985; Mon, 23 Jun 2025 22:49:46 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 24 Jun 2025 13:49:43 +0800
-Received: from SEYPR02CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 24 Jun 2025 13:49:43 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YM7E+M7smaEN4K1eWZjCY7bmE7Zatvh+E+3sJrDA4yVGB1E0MVo75zBIO0pIjnbhVlm51max+yVm7AWe6nfbsRBTAqZRFjwrKsteZ+10pdTcarPJVGk720WQn3bnypsR3Gxw+1C731IBXY6f8ln0PONiJeiUpfZSG8oZSEUC+frzMXs4V6Um+GzvAcg+RCc0/VFccq0MdWsde7HghgQromt0QZMp38otaG8+EDcinyu8bPYbdVi1cb7iKVFLX45oZW/e7aifJMmtva+MOjr+tYMILTTIrBY/Dtw6CT8F665XnWDbgSTijg5PCe0v5IV8hp1rL154l8B3Wl67x3FczQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LkNHihRhiZLBWo/VuJmYhMmZ/N4PnlpGsWCH+vXi42M=;
- b=iJyV2H97YshwICyLzGGU28ifrUS06B+4s1l/ncGKWPOp2WdKBAoCM35aRbxoYOVq8rqTlNKhXWnMQl8KNi2K55WbJw5gtaYStWsdmLSV9fQGyDmfKDnRGBzsmRmT1ZdxZPTyGJEH4rBgixUMCEMVGsYDJZTXb8AuScgqhF78vyjS/xephUAA3eZKXXjc9Xtcmn6mDvCvlTc4r2yKSBmp9Q0UZac5RJkqCxgHT4bx2ZpJROtWhNx0Wv8F1tikfFm/4Kqsxx1wQc1NOlpfCh0SRFP0CNDgq0wPPSLMsRnAliqAjfhgbcoE91d7Bx4x1XT+nctqPhaFkrTBuNbzJafx5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LkNHihRhiZLBWo/VuJmYhMmZ/N4PnlpGsWCH+vXi42M=;
- b=VR6/p0FrhlrTavWvVRl1r4kkCXSzNkJ4NK1MDA2oYo4TPkYYp58Me/kZbodL7nGH0VL1Fp7CU220szw4pVY9W/RP3o1gL/ZKYdHLBzKf/2E7jjRjmEck+8NfF6NRiG18z0BApxidNRS78o8+mC8N89kw2k1UTLMQVOWZmmB/Id8=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SEZPR03MB8014.apcprd03.prod.outlook.com (2603:1096:101:17b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Tue, 24 Jun
- 2025 05:49:40 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%5]) with mapi id 15.20.8835.027; Tue, 24 Jun 2025
- 05:49:40 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, =?utf-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?=
-	<Paul-pl.Chen@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: =?utf-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>,
-	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
-	=?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
-	=?utf-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
-	<Xiandong.Wang@mediatek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"fshao@chromium.org" <fshao@chromium.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, =?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?=
-	<Singo.Chang@mediatek.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "treapking@chromium.org" <treapking@chromium.org>
-Subject: Re: [PATCH v3 16/17] drm/mediatek: Add support for multiple mmsys in
- the one mediatek-drm driver
-Thread-Topic: [PATCH v3 16/17] drm/mediatek: Add support for multiple mmsys in
- the one mediatek-drm driver
-Thread-Index: AQHbxXzQOStQTNOvaE6rHwUIwuScu7QSDJKA
-Date: Tue, 24 Jun 2025 05:49:40 +0000
-Message-ID: <913e53c02f5d3155a0ea26cf5abe3c4b65fb237b.camel@mediatek.com>
-References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
-	 <20250515093454.1729720-17-paul-pl.chen@mediatek.com>
-In-Reply-To: <20250515093454.1729720-17-paul-pl.chen@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SEZPR03MB8014:EE_
-x-ms-office365-filtering-correlation-id: 343a0d0b-d19d-44b1-7e4b-08ddb2e2e988
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?c3dwNW5pWGgrMzg5Y012QVJoaFFkdWRYSGtnNWxRTE1wVFdqZFFQT1MyQWIv?=
- =?utf-8?B?TnZrUHhzM3RJZmg2NDY1TU5tbG5BUVRwMkI3UEFYSGlPeHZMRm1YdzJOd0Na?=
- =?utf-8?B?WURyZjJMSTZVZTAxQVMrR2JaV2dzRk8zQVM0Vythb3lGNzlwcDAzRDNoL1Fs?=
- =?utf-8?B?dU1aNWhMQ0Q3YlRnMmdTUVQvbVpQSU9qaVBVdUVZQW1mSWVGQUtsM0cwemdU?=
- =?utf-8?B?czgrZ2dNMlZBQ29sdjNlREpVK0hCN3VoRDZkekZRS1VOLzNuWndrclRXbW5P?=
- =?utf-8?B?Y0krbitNVDhROUxQOFRZNU0wYTZXeEdiM0RRcDFVaU01dTZKNUI1b0dacXpm?=
- =?utf-8?B?OHpDZmJPU29Mc2lSSXhCWFlLTDV3cDh0VXdOREVkRmsrdzlSRm5TNXdkUGIv?=
- =?utf-8?B?M2VqMFZ1OVZmRXQ0QUpZSUhGUldNUEdLUVhkTzRqZjc4aHMvNXd3L0hNdHNs?=
- =?utf-8?B?YU9XcFFaUlNaa1NKQXlSelNJRUdhWVFEeEgxV3JUSVBFa1lIUysyS28yNkp5?=
- =?utf-8?B?NUlMNXQ2WGthUnhWUHZNMThsN3haRHNVUERRUk1pa2lRcjNrVG9TZTRHb0lL?=
- =?utf-8?B?YzI5QXdycVI2T05nbDV4VllCamVIY01VTWJYSFRmd0ZLU2hSRFUzNUFSWXZk?=
- =?utf-8?B?TXQ4dTdicVJXM1oxNjdnOXovMkJ4eXQ3eGVhVWtna3BPMTRRVzlEc1pPV2pS?=
- =?utf-8?B?SFp3bEkzUFREYTN5QWZxelk4Z3dnaEVFZEI0cEUyS3Y0cmtPWUFJTUcrZkhD?=
- =?utf-8?B?UThNRXV2cnJDTVJncFZkNW42aHJHQllyNXh2Z0lTMU1pM0RnL2k5RGpxK2Fh?=
- =?utf-8?B?d3ZwSER2S3M0Zm5LekUxajNCN0kzN0FoYXcrUW1qcGZHQllvbTR6MWkwdDNF?=
- =?utf-8?B?QU80clV4bDl4T1BNQnRuSmxwMzJHYUdqSm9ZeE1RSWRnUG8zSU5oVmhIMm1D?=
- =?utf-8?B?Z2hlamsrWCtaK2RnZnc0elVWTXJpbXVEQ1JkRWtSelkzalQrZnRxeUlKV2Vq?=
- =?utf-8?B?dW5RV2hDc2VobXZLamVNZ3puTklMRzJmV0dwSU9iV2ZBdHBJZHIvL1ZXQnFK?=
- =?utf-8?B?ZDNSQm1EbEpCOGpNU2llcVNZN2ZkRm1tMEgzZjdGYkh0cVp0Z09pdXRZWUQz?=
- =?utf-8?B?cXcwZU43Vk8wcVRiSXhUTFJTVGJlVmNuQUloUnVaMkUyM1pHam8xS0prVXFZ?=
- =?utf-8?B?K1BvT2RVQktVZnFHR3NpT3VZUmpycDJsblZhYkMwSlpqNHRhcWd5c0k0VHpm?=
- =?utf-8?B?d1EwbDlhSzNGbGlqTEt1WEwxQ0pUbmZWcCt3QUVrN3l1YmEvdmdFQ3FTZDVR?=
- =?utf-8?B?QnNQM2pDYmVRelg4dGhSSzVmZ2FyZmRjUWFvZ1Z2ZVdWZ1lYc0N1L3R2M2Nl?=
- =?utf-8?B?V0hxNDZPdHdZU29ZallpLzU2T21PaXpmY29QMnluY2xqOHAxdm80L3I0a2xo?=
- =?utf-8?B?TEJoVk16K1RnSGpqWmtJWDdTdmVET3BuSkVDSFRDWC9wWXY4bmlHZUZCeUN0?=
- =?utf-8?B?MUErbm4vVVI2WU0yS0YyTVhrRDdrZDBTRFpSNzBOMnJQdkNqaFhZMlkvUGND?=
- =?utf-8?B?cXdLYndzMC9zaEZCbXJtYkh1NXluZE40emozTlJpWFhYVDdOYmdnNitZcHBu?=
- =?utf-8?B?UDl4WEdmaUNoY3dXVW9OUlk2d1lNS09jUVZtbGhvbGNhRnYzZmUveHQ2M1ln?=
- =?utf-8?B?WVdqYWpuVGFMQ3R6a1FqRkswRGE3aHZGTFNiQUJTdHhDMlBmRXRYZHlTUW8x?=
- =?utf-8?B?R0dMbFdFUmNMdHF3RHIwTldhY3MvaGhDNDZhemlWcUFCNWJlM1JVQ1JjRDRU?=
- =?utf-8?B?MlFFNHN6YjF2WXhtNWFVQjcrUUkyTzZXL2EwUHRDQ0pKY1UwdHVnUGZTVDJo?=
- =?utf-8?B?QU5NbTdtMHdlZFY4Z1g5L0RnZTg4bVF0RW1MSlNVMmFyS1FTdjl3TEh4bkRv?=
- =?utf-8?B?SmdUTUw5azM3VzUvL3RKRFVnOEJzZnlxVyt0L2k5V3QwU0NWcTJqLzFVNkhC?=
- =?utf-8?B?b3ZjWVhnSXZBPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YTFjdjI0akFqUElXWjJCY21SalNDaDhMN0VHTkZyNHJ1cENxNXh5V1dabmlt?=
- =?utf-8?B?TTRQSG14WUtSWXdqZDRqU2dPQW5mOVBBWXpIaFVuWTY5SGRxWmw4OEcvc01V?=
- =?utf-8?B?MlBFbWNHMjl2WGZPOENJcWE1ZmpSd21BOFVaM2YzVW9DM2hoTVBmTWU2NXE1?=
- =?utf-8?B?blF0V2tpZVBrOEZCVTAxa2o1WDZhOWlIZ2E0Wjl5RE1sUEdhTEFmU2VGTkFt?=
- =?utf-8?B?bHdZQWtaOTJ5NC9qa1pTV1pocHFBcHBEdmVVNC91WG1DdWdqeWxPQ2tXbmFM?=
- =?utf-8?B?Y0J6aU9WemVRNHlFdzV3aUpYZGVXMVllbW9PVEczOFVFL3RrMnZETnRkeWtZ?=
- =?utf-8?B?VHIrT0s4ZVVJN1FuRjdXa3Y5aWtZQWFqdHBtZzQxK0lSbDJ5RTVEVUliVGRF?=
- =?utf-8?B?c0M0enp1ZEhTWFErTks5SVBCcnRhV1c5Z2RjQU42NnREbW5WSHhVeVdlWlZv?=
- =?utf-8?B?cC9qeVVsQmY5blp5QVJsWmlwT003aTJxTm5PRWFlNWR6WXNSYjhqb244dUdY?=
- =?utf-8?B?NS9Cb3FIYm9TaFZjWE1yaVE2MUlXQlFJWGJ5QkNISmhZTUQ2NE1mV3lGd0M0?=
- =?utf-8?B?aGVieWxramxwbkpiU1QwUjVINFlaanJaOCtSOFg5cEVaV2ZOa2ZhN3JmVDds?=
- =?utf-8?B?Vmp2aG5uNHFNTFh5WkI0eGZNQzNmZUtrZGhTL1pmSks4SjRIZ2F3Ykl3Wm5O?=
- =?utf-8?B?a2x6QjZRYjdoeDdZdURHclZHVXhMdG9qdjVwVTd2NEtwTFVSMzJEcjVZbUla?=
- =?utf-8?B?dDh5Mmw1ckxwUElPWFZEb2t3MXNFMUt5NEd3ZTNueVUwQnRaZ2Foc28wZlZ6?=
- =?utf-8?B?TjU5clMza0MvTzl4OTRNTk16TkZ2NHlQTjJpd0VCZXphdHFJbWRvSlhUU1ow?=
- =?utf-8?B?UVJ6ZUduOWpSWlBuT3VOMlN3Y2t6R2VxTFA0d3c4d0t4SXBtQU5HY3RSRG8y?=
- =?utf-8?B?b3N4SGlWMHF6RjNRUFNDbXBMaDM1QVI3QUowN1dtSjFKUkhxK3hxMTZzZ01L?=
- =?utf-8?B?c3RwT1pGalBPaklJSkFkMEt5R21NY01HTkoxV0JveW11MDdPRTAyUFFCRnYx?=
- =?utf-8?B?RVIxek15aGZqNXZtc2ZVSC9sd09SZFlFb0ZxeE1yVmdzYkhkNnNOUkdxc2RD?=
- =?utf-8?B?M0RvS044SGx4SnBpc0x2ck5mMStQcTdQTnZ5WDFyU04zL3hrVEZGLzhPL3hu?=
- =?utf-8?B?NWt2V0szdjM3dVp0YWtLZVJDeUIvWkV0b29vN2VobHJ2OFZibFFPbVNsOG9Q?=
- =?utf-8?B?Qk9GOHduRXM0bjVLZVk3emw3eGYxWExXdlBqL2dqaERac2pQbHhSS0JyQnBK?=
- =?utf-8?B?ckZIZStheTlCaytzd0hScHR0MVMxZklIT3NncGhhbkRXazZsL2E5K21iZ0E3?=
- =?utf-8?B?UCs3SXVBWUpHRUg4MkFCNnR5aEV4dm1MN0RiQTM2RVdzQlhhWmVvR3NaTXR1?=
- =?utf-8?B?M2pacXJTZUU4bUkwNlI0cStJQ2VrOTVpbVoxT2xZZVFxZVJXYXFWeGo0cmZM?=
- =?utf-8?B?WW9xbHIrU0loMWZ4VFlEOWpicldoOHpwUmQyNzNyZXlEaXV6VUlMbFZST2k1?=
- =?utf-8?B?WDRKUlV3WTFUdjFic0tyTFhuNUpIMkdURk9yeEVXRHExbDJYaGF6UHhaN0hS?=
- =?utf-8?B?dStBbTJCWWdMR1FPZW5xZXVVMVdRMlRxTW0zUHprTy9rSVBMNDhIaGVmaGly?=
- =?utf-8?B?aGlBcXZYd2dRSS9vV1dYdTFVY29lNHNLckRIb3VNN1hPdDZPc3ZQejN1Mm5I?=
- =?utf-8?B?YTA4Ums4bFdWNlltdEJqa3NZSjNLVFF2N1JXdTNOOHhXRGNja0NCYUJoV3c5?=
- =?utf-8?B?Y0tBQ2pOR0FpNXdGSXQvNlIwQW5aVWVHTmlqdEhMQ3pPdDlweFFDV3ZoU1M5?=
- =?utf-8?B?OWJWSFlQcmtjYjhLa3VnT3VreFpURlhsckZRVGUrZm9tR1hkekg3MCtNaXR0?=
- =?utf-8?B?d0ZETXB0TmhDN3RJVDdUbUxNN0RTemI3T1hWd2dVYkZhTDkzdFl4WEhnSGE3?=
- =?utf-8?B?VEpGVW5wMUJZa0kxczFzTllVVDBqamhwbDMvRXMwNysvYmY2cTFjYys3QStS?=
- =?utf-8?B?cWpPaWhWNTZud0FMaWFYdHJCSFhtNFdNNkxwZERXYnVwNkIzV0lMSDAzWnA3?=
- =?utf-8?Q?ZpmqN5WCblDQkww/PKqsTuGeT?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <1697D62994B37B4589B18AA6F6E16537@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1uTwiq-00000004ins-2B2N;
+	Tue, 24 Jun 2025 06:01:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9C3E61139;
+	Tue, 24 Jun 2025 06:01:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55955C4CEE3;
+	Tue, 24 Jun 2025 06:01:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750744891;
+	bh=Re4L/KbulPTuPxlNaGjKu3leE53gc/OLFGO6Ell44L4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FbdptENK06EEkYc+6bTBNOfYETEqh4ezWe15oEn18fNaJ6Qqd7if4s2vC/EG38DI+
+	 lE0Le7bAZPfZxNXQNsZ89T5JkZqrkc/VI3LtIA31OwH9FxmnXrahCylDLTZMh6NNI7
+	 8BKLXpq9twkQvJGYTkoKlKcYyRQ7teUd2jfTYm4sNo6QgRmk6BcnL6hB34TkfHWJSL
+	 Cho5S2JMASOEK1visKc42GGUtlt3JgOoFwxrOeUIlr/tqXcSrwBKatTBbiDJ8Aef8M
+	 iQixiXjhU+CDor79rmwe+wClFeK5RvNtzelBmJKUs3Zm8uQUCL5ayZfcKn8zFBv/AN
+	 +fwfGoj2B6qQQ==
+Message-ID: <10127f4d-a6bf-44b7-8d07-89f1c462ff8e@kernel.org>
+Date: Tue, 24 Jun 2025 08:01:25 +0200
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 343a0d0b-d19d-44b1-7e4b-08ddb2e2e988
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2025 05:49:40.6437
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4TPckcNo+Uywbgt6brw/KBXJLo0CUgkEliS6HvNuTRVt5EX6Ypyc+HOKLaKGFho9Fte4Iy5P8Ay5XzPPGhTxOA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8014
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_224950_938542_184F3A4E 
-X-CRM114-Status: GOOD (  13.33  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] media: dt-bindings: media: Add binding for the
+ Raspberry Pi HEVC decoder
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
+ review list <kernel-list@raspberrypi.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox
+ <jc@kynesim.co.uk>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
+ <20250423-media-rpi-hevc-dec-v3-3-8fd3fad1d6fb@raspberrypi.com>
+ <20250425-inescapable-beagle-of-bliss-8ae3ff@kuoka>
+ <CAPY8ntCWzp9cRKwLg44G20jG17q2KhavZa_8qpodhGUGS2Bc7Q@mail.gmail.com>
+ <e00ec6f8-479e-46c4-9c99-7de4c9fa1c27@kernel.org>
+ <CAPY8ntCkgnwhA_OuDY3zMMrptFmLqTm_mLdmdLeO5txyFuG1Jw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAPY8ntCkgnwhA_OuDY3zMMrptFmLqTm_mLdmdLeO5txyFuG1Jw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,22 +129,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTA1LTE1IGF0IDE3OjM0ICswODAwLCBwYXVsLXBsLmNoZW4gd3JvdGU6DQo+
-IEZyb206IFBhdWwtcGwgQ2hlbiA8cGF1bC1wbC5jaGVuQG1lZGlhdGVrLmNvbT4NCj4gDQo+IFRv
-IHN1cHBvcnQgbXVsdGlwbGUgbW1zeXMgaW5zdGFuY2VzIGluIHRoZSBvbmUgbWVkaWF0ZWstZHJt
-IGluc3RhbmNlLA0KPiBwcm92aWRpbmcgaW1wcm92ZWQgZmxleGliaWxpdHkgYW5kIHNjYWxhYmls
-aXR5IGJ5IHRoZSBmb2xsb3dpbmcgY2hhbmdlczoNCj4gDQo+IDEuIEFkZCBERFBfQ09NUE9ORU5U
-X0RSTV9PVkxTWVNfQURBUFRPUiogdG8gcHJvYmUgdGhlDQo+ICAgb3Zsc3lzX2FkYXB0b3IgZHJp
-dmVycyBhbmQgc3VwcG9ydCBkaWZmZXJlbnQgbW1zeXMgY29tcG9zaXRpb24uDQo+IDIuIEFkZGVk
-IG5ldyBjb21wb25lbnQgdHlwZXMgTVRLX0RJU1BfVklSVFVBTCB0byBzdXBwb3J0IHRoZQ0KPiAg
-IHJvdXRpbmcgdG8gdmlydHVhbCBkaXNwbGF5IGNvbXBvbmVudHMuDQo+IDMuIEFkZGVkIGFuZCBh
-ZGp1c3RlZCB0aGUgZXhpc3RlZCBzdHJ1Y3R1cmUgb3IgaW50ZXJmYWNlIHRvIGV4dGVuZA0KPiAg
-IHRoZSBzdXBwb3J0IG9mIG11bHRpcGxlIG1tc3lzIGluc3RhbmNlcy4NCj4gNC4gTW9kaWZpZWQg
-dGhlIGNvbXBvbmVudCBtYXRjaGluZyBhbmQgYmluZGluZyBsb2dpYyB0byBzdXBwb3J0DQo+ICAg
-bXVsdGlwbGUgbW1zeXMgaW5zdGFuY2VzLg0KDQpMZXRvdmxzeXMgc3ViIGRyaXZlciBjb250cm9s
-IE9WTFNZUzAgYW5kIE9WTFNZUzEsIHNvIG1lZGlhdGVrIGRybSBkcml2ZXIgd291bGQgbm90IHNl
-ZSB0aGVtIGFuZCB0aGlzIHBhdGNoIGlzIG5vdCBuZWNlc3NhcnkuDQoNClJlZ2FyZHMsDQpDSw0K
-DQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBOYW5jeSBMaW4gPG5hbmN5LmxpbkBtZWRpYXRlay5jb20+
-DQo+IFNpZ25lZC1vZmYtYnk6IFBhdWwtcGwgQ2hlbiA8cGF1bC1wbC5jaGVuQG1lZGlhdGVrLmNv
-bT4NCj4gLS0tDQoNCg==
+On 23/06/2025 19:54, Dave Stevenson wrote:
+>>
+>>> +          - brcm,bcm2711-hevc-dec
+>>> +          - brcm,bcm2712-hevc-dec
+>>>
+>>>> You referred to file "raspberrypi,pisbe.yaml" before, but there is no
+>>>> such file in the next.
+>>>
+>>> Typo.
+>>> https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/media/raspberrypi%2Cpispbe.yaml
+>>> Reviewed by Rob only just over a year ago [2]
+>>
+>> There were some discussions and reasons with explanations.
+>> Feel free to use same arguments and accurately describe the hardware, so
+>> we won't be needing to ask usual questions.
+> 
+> Sorry if the previous descriptions hadn't been clear. All the same
+> points as for raspberrypi,pispbe.yaml apply here, which is why I'd
+> tried to link to it originally.
+> 
+> Describe the hardware:
+> Raspberry Pi designed and are the sole owners of the IP for this HEVC
+> decoder block. This is *not* Broadcom IP.
+> 
+> That design was given to Broadcom as Verilog to wire into the
+> bus/interrupt/clock fabric of BCM2711, and to manufacture it via TSMC
+> on a 28nm process node.
+> 
+> A few years later the same design was given to Broadcom to wire into
+> BCM2712, and to manufacture it on a 16nm process node.
+> 
+> As it is Raspberry Pi owned IP it can be used in other places than
+> Broadcom SoCs.
+> Broadcom does not have a licence to use the IP in any other of their chips.
+> 
+> It is the same situation as for raspberrypi,pispbe.yaml except the
+> block already exists in 2 chips rather than just the 1. There also
+> isn't a version register in the hardware that is different between
+> those chips (an oversight noted for future chips).
+> It could be compared to a Synopsis or Cadence IP block dropped into an
+> SoC. The vendor prefix happens to be raspberrypi instead of snps or
+> cdns.
+> 
+> Is there any part that needs to be further clarified?
+
+Dunno, thread is way too old to be in my inbox. Anyway, it is part of
+the SoC as you said, so SoC compatibles rules apply here. It's the same
+for Synopsys.
+
+> 
+>> Anyway, we asked for fallback, so you need items, just like every SoC
+>> compatible (see also example schema).
+
+Just implement the feedback.
+
+>>
+>>
+>>>
+>>>> Before you reply that there is a binding using different rules: well,
+>>>> there is always poor code. Above two comments are repeated, especially
+>>>> this about specific compatible - all the time, so these are not new
+>>>> rules. These are given in reviews since some years.
+>>>
+>>> My Google-foo is totally failing with the only directly relevant
+>>> mention of "fallback compatible" I find is [3], which just says to use
+>>> them.
+>>>
+>>> You're effectively saying I can't take anything in the kernel tree as
+>>> being a valid example as it could be poor code, and a layman such as
+>>> myself has no way of telling.
+>>
+>> No, I am saying that argument "I saw someone doing this, so I am allowed
+>> to do the same" is not correct. There are good and bad examples. For
+>> example in my talks I mentioned good examples. The list of good examples
+>> was not accepted to the kernel so well... I just use as an example any
+>> recent Qcom binding using specific compatibles.
+>>
+>>> Could you please point me at documentation and examples I can rely on,
+>>> or educate me with what is wanted in this situation to avoid me having
+>>> to guess?
+>>>
+>>> A further mailing list search has brought up [4] which is a thread
+>>> with yourself from 2 years ago which looks to be a very similar
+>>> situation. Other than missing the const on the SoC strings (although
+>>> that isn't in the merged version of cnm,wave521c.yaml), and two SoC
+>>> specific strings, I'm not seeing an obvious difference between there
+>>> and here either.
+>>
+>> How is the [4] relevant? That's IP block from other vendor.
+> 
+> It was another example of an IP block belonging to vendor A being
+> added into an SoC from vendor B, same as the situation here. Raspberry
+> Pi != Broadcom.
+
+People hide real explanation, real facts, so don't use one example for
+other case. I was told *explicitly* that Raspberry ISP or whatetever it
+was called, was NOT PART OF the SoC. Now you said:
+"A few years later the same design was given to Broadcom to wire into
+BCM2712, and to manufacture it on a 16nm process node."
+
+
+Best regards,
+Krzysztof
 
