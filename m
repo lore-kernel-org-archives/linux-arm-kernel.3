@@ -4,60 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16497C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0067CC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bv1lKTHFFm3DfIi/TgcdlSfHSAO2gJzBqq986gjNAXc=; b=J7pQnLxx3VfRw9uvXdlyuaReQ0
-	ITsMIa1+jcFnfiWfZ8+GM2FsF1JDqlsobxT9etgSAp9+2QIzgsepcf4mRvCLWZUsXGAWbcbooEbSs
-	xQw1NdBiFEGnaeUB5DyFyhxutz2FFTdZJyo20L6NHdv/C4uIqPTOTFo/VC6cVYJnUxBTS+mveb8x6
-	wXsvVOR1Z8OOc8A/OF9LhGZGdUxUykwXt5UhSOvI2WmpgVanafwW8L9XT+pfuIBucJcBTYtvIcRyI
-	RqONGYsQaco9NWn/oku542yoX9esHHLN4nKln6IWJnFGlBETO3ib1CyQe8gjJhLAgNYZnLZoqNkDj
-	UdjxlWSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GIOHrhTp/mewrh9i9oK1S98LI5rxY1dc4uYp1wgAtk8=; b=qG+o4X9jvbAcT4
+	IBiHX5en/AtOF4B898SmXEpI8+TwHI2k5omO0BpCKsDCj4+W7oCV6glDcl6LM4CBjsGSlZuQIZUXU
+	ZhS+RGfXBjOCdp7tS/Rw5nUpCaOFfy/b397h2iGTAc0A78OjMUnUHN164fDbY217y5rHPFEAt3SAi
+	j0rNjGdQN5NwRLLczIy5ATtcdvm6tI8UWV673DvDle8h9tkEx6gDW+UWPMm4nPzgnzle8htinhm+/
+	Hjvtn0n/uTqcr2TCCPIYDo5CWY4esQSx20nB5U8gRufwwUHRR1T7sZOe4lXmRlmDMF375s4xzYjzI
+	m2nI0QRyobixiHjhj4og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU2px-00000005ayN-1mGB;
-	Tue, 24 Jun 2025 12:33:17 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1uU2sK-00000005bKc-27nF;
+	Tue, 24 Jun 2025 12:35:44 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU2lo-00000005Zzy-0TWx
+	id 1uU2fi-00000005YhP-3lEQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 12:29:01 +0000
-Received: from [141.14.12.217] (g217.RadioFreeInternet.molgen.mpg.de [141.14.12.217])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id B1C1E61E647A8;
-	Tue, 24 Jun 2025 14:27:53 +0200 (CEST)
-Message-ID: <7b1f0f17-197d-4c57-b1d2-a9d8ec6ff398@molgen.mpg.de>
-Date: Tue, 24 Jun 2025 14:27:52 +0200
+	Tue, 24 Jun 2025 12:22:44 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ae0b2ead3c6so5161066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 05:22:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750767761; x=1751372561; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GIOHrhTp/mewrh9i9oK1S98LI5rxY1dc4uYp1wgAtk8=;
+        b=zKRAQ8LT6hMrM70H3eAXm1Wv1SOV24xVGy2vwJSLEwS26Y2DkFZoYp34KV02gSriQa
+         qUnMw6yhpRdA9s5QqZLAGxoxb/AV8Ct36Ysik4W+KPJbvjl+D2m7PlSeaoHGxF3fH2LG
+         XdEp70Oi3EONvR6CqTwECEfldXktDFlrdWncngT9nnt/KwzT9KgUxFR+AhM7Qik1hxIh
+         o1BWdpGYAvwrAZ8UBELrZZO1xPAl4kG4BhOqhQ7v1Rv6Z2fzKDoIeNMGza14NPwRsxcD
+         45KL4KAhDG78wcR0riPb1ErT5d0kGjlvKLZ/TbwvxoOcqxRK8OVNU+ZMu8sR/qC4Mbtt
+         +8CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750767761; x=1751372561;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GIOHrhTp/mewrh9i9oK1S98LI5rxY1dc4uYp1wgAtk8=;
+        b=Po/MIkR3mko4cw1/yEDJ58ebpIgrUtiLNDV6s69QIX+Vh9QceSflJd4nDEXfc0Eecc
+         EfEVOvmx5MK3qkud0ZuHzteQ6sQOYP/5G3B4hm3GUtWS1iyyJG51BEwRHo1gJlYIOmeJ
+         2RMqx9fpNtx9SkN9ea/mHMmS0FBMgwhh5RGqSub99zDvZb5EYgygTfs/3nnfkqS6pmGM
+         U1kxAQngEFSX24CPoDpNbroUIrs58yztZVuYtaAbuTji9iG5wwFL795CkpOVKvH4NeKB
+         p0eLtOiJ56K0e9qs7FRkC179mUFeonGtK7afJc7biMv+qvySPyEsv8qsfV2toL7vnaBa
+         rQMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWl9yY4ZjgrDqVshNi0BHo5izkvkWUMC2GoN0cswarCbioSE7EqabuedCjgTMBT4O9xDr3S/9DuYU38lD9M9NzF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKXJUg9ahgOMWa2puKdAD9Xei27eSpdMpC4KRhaJf2tfI6eoii
+	rpNUbsvF7QD3FJnkhWAE1sdttUA0D2+93kOVH3jVpoSXCkUWgrt1rPpFzK77HXHVcdY=
+X-Gm-Gg: ASbGncs1IB/qWHjHgvGPiqzOYRa5jSnxr273yaXN8ohstsWgxErAPt7KRyp3f7uHLCY
+	jak1sv6j1FblHnAWkwu/gqwzyxMhtHvgc8N4mF4VM5HzHjI7urXpCZyyinCNiDEfA7x/ozJfPIT
+	Xqk24qp0Hh3bBgDP1RS0fDv6FH99LeW8XcLRmDaf2w0QdYkfEQKwEyjSxgUkUQTX9ymWM+XvKVP
+	AT5DCZ3dxTu/ExGXpqnE+yzdDMeiRb1+d9zSTIKWkFX80FB1QeO/rBI+lcAZ0UeX5s0iKfIwdPC
+	P9pqMjodjvbBQVpz+42DQZ3c60G/mz16XKRISG72tp305g40446GQLl95GSD1CA5jd8V/3lzoV1
+	+T9NF4lZzijx2Ruyd
+X-Google-Smtp-Source: AGHT+IF4Jlt2QDiei0JDT0YVWn9adcZO9qMwWDinm6xPhvNP3a25MLMFZSlajNLltiKpdAK3V8gtEQ==
+X-Received: by 2002:a17:907:94d0:b0:ad8:cd31:5c31 with SMTP id a640c23a62f3a-ae057a6d22cmr544529066b.11.1750767760957;
+        Tue, 24 Jun 2025 05:22:40 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.222.89])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0b3448efbsm56794966b.177.2025.06.24.05.22.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jun 2025 05:22:40 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v3 0/3] iommu: omap: Simplify few things
+Date: Tue, 24 Jun 2025 14:22:29 +0200
+Message-Id: <20250624-syscon-phandle-args-iommu-v3-0-1a36487d69b8@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [External] Re: [PATCH] i2c: aspeed: change debug level in irq
- handler
-To: Zhang Jian <zhangjian.3032@bytedance.com>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Joel Stanley <joel@jms.id.au>, Andi Shyti <andi.shyti@kernel.org>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, linux-i2c@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20250618102148.3085214-1-zhangjian.3032@bytedance.com>
- <63e740bf-cd0c-4671-9254-6846048b0366@molgen.mpg.de>
- <CA+J-oUvm-3G9GRCzjOd+j8K6iNs1piCFAKBNfwih49iFwiB4pA@mail.gmail.com>
-Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <CA+J-oUvm-3G9GRCzjOd+j8K6iNs1piCFAKBNfwih49iFwiB4pA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIWYWmgC/43OwQ6CMAwG4FchOzvDOjbAk+9hPBQosAQY2ZRIC
+ O/u4GK4qMe/Tb/+C/PkDHl2iRbmaDLe2CEEeYpY2eLQEDdVyAxiULEQgvvZl3bgY1hWHXF0jef
+ G9v2TA6HQUABITFi4Hx3V5rXbt3vIrfEP6+b91SS26T/qJHjMZarTikhlCvW1MwM6e7au2b7sB
+ Aj4RZSyxiLJdJHAgdiaTfBpE/p8oyBQCmWJBeQ6T+FArev6BnZF73tRAQAA
+X-Change-ID: 20250111-syscon-phandle-args-iommu-2ea162b223a4
+To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Yong Wu <yong.wu@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1270;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=RvFdNy6eRq3jk+TGzSf8jssUcNniJlHcLRIQMwrb/Io=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoWpiHrbqzI4XtvWNg1LD7hn/LUZqgGqbo4sCCr
+ Zd0WoSazmWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaFqYhwAKCRDBN2bmhouD
+ 10GoD/98RHydJ68XUE8URRl8Cvud7c5JUY4F8J8UvqOe0IHaznPrl6ENd2e+5imRRDCKx60zez0
+ lBvmfvH0frs1Escs7BrTcDT0b7GijKtMUsIFDrIq5QfEPY0cge1hijJXgPsrXz7aAEtXUevetcf
+ +Htv7A1ovlxGVVJSJHqCELxOj3kxH92Se8HKhrADEUt7NHOq+wPwjh6BxHstmdgUqnBGhcbaGAP
+ l2V1xQ1aeHO6zsWhE1wikgp+ELRz29G+A7VBz6DS1VFp0NA1y+1S3DApBPF9Ej5LxegzaePFUJO
+ bjwEUHo+GW+prxw5Q29539xnPMP6cwwt3AprX9Mc3Z9R/JmRE6doEiTLu8V/qihWajenLuu7S4K
+ RZbeuY3nDmKuPzurPU+GJl2/DbospvmYNBndkl4QqpewpB6xS4pDCc5DRheDv6nnwOpz5aA5N7H
+ +Z595DGPrElY7rSDw8ZaCD8NRK1KE9qEcWwDNlsq/ZBCTWxhiaYdZ1jmJKcSuCSLLbmjHnxiz+W
+ AcTQOr314cVPQ8+cZNzHyWcxfHj8V6H7R+GjcjQFDR9viZ7sBu+jBQ3RFRZMtcOoeqyHsekkxND
+ cGxfkKfQpvNaABGRY+aloO3BMlOwhVRvFWsITX4aDwJVVLNM6L0DUYJZA1Uw/Pg2bphuN9VtOxb
+ OmjDc18i3BBuuhw==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_052900_303504_87052B88 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250624_052242_957104_5DA6057A 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +123,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Jian,
+Changes in v3:
+- Rebase
+- Link to v2: https://lore.kernel.org/r/20250501-syscon-phandle-args-iommu-v2-0-5a3cab296972@linaro.org
 
+Changes in v2:
+- Combine patches #1 and #2, add dev_err_probe() and drop the comment
+  (resolving Robin's comment)
+- New patch: iommu: mtk_iommu_v1: Simplify by dropping local 'mtk_mapping' variable
+- Rb tag
+- Link to resend of v1: https://lore.kernel.org/r/20250212-syscon-phandle-args-iommu-v1-0-c3fab486b426@linaro.org
+- Link to v1: https://lore.kernel.org/r/20250111-syscon-phandle-args-iommu-v1-0-3767dee585a6@linaro.org
 
-Am 24.06.25 um 12:32 schrieb Zhang Jian:
+Few code simplifications without functional impact.  Not tested on
+hardware.
 
-> Thanks for your reply and sorry for the late reply, I was trying to
-> figure out why this log occurred, it's quite hard to reproduce.
+Best regards,
+Krzysztof
 
-Thank you for your reply. So few days and over the weekend classifies as 
-instant reply. ;-)
+---
+Krzysztof Kozlowski (3):
+      iommu: omap: Drop redundant check if ti,syscon-mmuconfig exists
+      iommu: omap: Use syscon_regmap_lookup_by_phandle_args
+      iommu: mtk_iommu_v1: Simplify by dropping local 'mtk_mapping' variable
 
-Were you able to find a reproducer, or just rebooting?
+ drivers/iommu/mtk_iommu_v1.c |  4 +---
+ drivers/iommu/omap-iommu.c   | 24 +++++-------------------
+ 2 files changed, 6 insertions(+), 22 deletions(-)
+---
+base-commit: 2ae2aaafb21454f4781c30734959cf223ab486ef
+change-id: 20250111-syscon-phandle-args-iommu-2ea162b223a4
 
-> I traced all the master and slave states, and eventually found that 
-> the behavior matches the description in commit b4cc1cbba519. The
-> issue has already been fixed in that commit it was caused by a state
-> machine bug that led to the interrupt not being handled correctly.
-> 
-> see: https://github.com/torvalds/linux/commit/b4cc1cbba519
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-The commit you found is present in Linux since v6.7-rc7.
-
-> (The state transitions between the master and slave here rely on
-> interrupts. When the signal waveform is incomplete (such as during
-> power off/on), it may cause state errors or brief unresponsiveness,
-> resulting in some log prints.)
-
-Thank you for getting to the bottom of this.
-
-Now that you ran into this, and have a suggestion, how the logging or 
-log messages could be improved, please share.
-
-
-Kind regards,
-
-Paul
 
