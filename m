@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7433FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0188C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OVh4Jh0rNBjL9Id+4yEZcEDrJ76F7tEWKqVxELxixE=; b=zbMgtCBIIByjWh8p02rdY/ILic
-	jyimB0y86L44sRKxk7Ujrfxl9lpvtXZkM5sLifpWyp4B/MF34Gq1FyeBziNwAy9q8943ylKvIm2Vv
-	Cl0kEXLZOQ50lPD8+mFWSuTy9ofzi8TQF6RPGqBmXJm4D70W+7bQxZBa9pkhCd0WkN8PAjfSAY/Ih
-	ZP0XzyKo94P7KNDEitFxCbQ6Iqvjlifhdr0W+mdEKDuz/nEVDVLRZ9pKoAVp6iSWnAOf3LNOsNU5M
-	9ywBmKKjepFNTeFkhEgXKq3oQoYxtaP3Fa3/3g6o/Hss39b9I7YYfbix054BSmIETSov7/HSwvyi1
-	9KDIVs2Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VgRiV0j85PSRtreLAuxfC6pTAXhw9pPRAHrk5ra/5Es=; b=N8hZUBaKSgdZvHOgCcBv6StijK
+	7ZF8Vf4OhN1WnNWiYoWv0WrgQzYpsd/JfIiWFwBzey7tGBXrgxuIHwvuIErkB2wouN487S3JihHQS
+	PbXWznO/3o5yyhqBJBwrL/0WGgH3y9GVZb2qmJusl9JWBwLkk6xhf+jNZoEWGGkzIq/AHUTRXFu8E
+	aEfGVMDbCOeUOJFp5pqPpHO6OfbKCr+CinKv3iKLYz8l1Km/wOKfVqyiPx4LKEXKDazHhDD8300tl
+	jhP+JO1BGqi/o2B4rAXChgJtBLN12jzRMz4EjgQeWKRQkL24f8gd4329O6C4XPXfFCwC6TXIz6XeF
+	5h3Um91g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyBW-00000004sxC-2uw0;
-	Tue, 24 Jun 2025 07:35:14 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uTyDs-00000004tcg-0WhF;
+	Tue, 24 Jun 2025 07:37:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxvh-00000004qx7-1bWC
+	id 1uTy1t-00000004rOe-3JMr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 07:18:54 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-adeaa4f3d07so994447966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 00:18:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1750749532; x=1751354332; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2OVh4Jh0rNBjL9Id+4yEZcEDrJ76F7tEWKqVxELxixE=;
-        b=TQXYN3HQIKtS9BXCRtkI4T6WxMriqhU2CM3ZCl6W1u7ZveXLZ1aUhA3IGWCGCRzUB5
-         1jOg2myQSPZkzYPRa/b7RPEBgbduR/+vQNb3HaarsL5QQQf9dzLhmcHmYZupQmq0XQnk
-         wDL5L8hD7oB5w5mCbMSGf82OlqVkRq9vZQr2/tdfS5k2IqV8VgO+T+jxwk7PGjUl9+l0
-         3USMnCqzcPkaE6LNx0FAsEraTM5yxe783mOpJec+aZsKjz3CjjV1iCZwfR1585Bi7RAL
-         mdwRrKs/KGUxYYWS6iVspt/3+zc1ZNNQ9RfT1DiOmUyUinPNFqwFp1QGOcPqNVx9leff
-         yZJQ==
+	Tue, 24 Jun 2025 07:25:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750749915;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VgRiV0j85PSRtreLAuxfC6pTAXhw9pPRAHrk5ra/5Es=;
+	b=SLVekQZfJaZMc3VZ+aH0pytnpWd/hLFCEnvQpU1j+jEzrH8FmjmlYd/1WZD5Gv8Ud5/JZW
+	JT7pQK/DWqtNYTAFDbkmBQGr1rn40oNiduEdqVw/x6979IrIsLmCO/4msfCHUGXLYWC1GF
+	cU0jAvhFaSersCjPjfuLSfWzpfvjBes=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-361-866POXNENMyNOf1FcD8bWw-1; Tue, 24 Jun 2025 03:25:12 -0400
+X-MC-Unique: 866POXNENMyNOf1FcD8bWw-1
+X-Mimecast-MFC-AGG-ID: 866POXNENMyNOf1FcD8bWw_1750749911
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-450d244bfabso39468395e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 00:25:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750749532; x=1751354332;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1750749911; x=1751354711;
+        h=content-transfer-encoding:in-reply-to:from:references:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2OVh4Jh0rNBjL9Id+4yEZcEDrJ76F7tEWKqVxELxixE=;
-        b=JRzdU3h/z3WUdJc2NnXYDb5u8P23YtMwGTfHmySvpUGLVIoMRn8pzj7XDYwHAuJkb9
-         aTgg1AB3t5IlUPyAaF2ptAiqCR42N0VKKBi2EQWj63T8nrpek+PLjwW7ifolLH2DSoTq
-         HexLVkL2Epk8Fnb7Q8Yolg+sk33c/86DuE7ijS1avjDVbtA9PqFAKY1W2oGcUDU5W3IP
-         e4dXjx1rtfjAZ3kddZd99X0yW5IitMuMGDBHt0L1KYIjwK7YL8384y5xjI7JQYiMycZJ
-         romn8C/sWfJLzdpFm36boZQdPCojwngbvb6ddubGkXZEpRRaN8RU/j7OaGshzlb5CeXb
-         qy1A==
-X-Forwarded-Encrypted: i=1; AJvYcCU7JAiNaGOShOCN0lEhiV+DLhju5yAvNpJrvmP840olrWo8o7FYTiRUmlKtL1+etEBPIb1zJXwEbd7rp0+PuhdD@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywx7B0Lui0TgTdQ6ISpvlCxwZU/EJsthhcG5Z6yRYcVRhvmjOE6
-	HjxfdLtIB/PREFlgn+70ca8u5lUNBYSKoXZ8QCxSw63FPi9ZyTbzD/b55MfVc69PmIA=
-X-Gm-Gg: ASbGnctim/uNhmBMbw41ahaFXel0crttAq5aAES4cB7DKw3yecQmmxYoF9wKHaApeFZ
-	6x7MsW2UJSXnjeZWhIEJ5spsufueTIBr4wje+fxa2CNQ2/PtSYO//CWXhpCYj5EiTDLpQZ/czCE
-	zMMLHcvB//L0NGvKAHp4ppGalXKgp5NfrIZxCnZFZJ+stGZ5RXzi8xAIS9j9dSFk024/wevGNHG
-	ZAxZfe362tRub4seLnaW5eQFqZFVLlsLsDafOoefGL8CPFCxBm+gxr40Vp1R1aqIaH0SEU0Yaxw
-	0DGk3vXFcdeKj7CQWIJWgPk6KWVxIKWCqrZ6ykr2ZRQDjPuNqrXe6Qw1N/RjAo/ZK3EDAN0=
-X-Google-Smtp-Source: AGHT+IGI8iwrZ7v404228P/a1AWPFqYItuYifRpy4WeOeTkndey/Diu8iL6ffoSt7fIYpvcvq1pPSg==
-X-Received: by 2002:a17:907:c16:b0:ae0:ac28:ec21 with SMTP id a640c23a62f3a-ae0ac28fbcdmr130864566b.13.1750749531544;
-        Tue, 24 Jun 2025 00:18:51 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.110])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae054082d0esm830333266b.79.2025.06.24.00.18.50
+        bh=VgRiV0j85PSRtreLAuxfC6pTAXhw9pPRAHrk5ra/5Es=;
+        b=mZx7e96zupkkKOdyl45Zh4z4MBeichgjMvBjmoXyTzmbH/H+eueVhlyX8VlK0YPffL
+         QvudKfF9k81A2+yjUiPYdAWnohzHrIPLhNNr+Kua89aG5KDW3LQQi/nuELyzd2XQrFIJ
+         K27iB8qBi9rL2zdjfnSE2vp1ZXzWt2+JBIug+YOvoG386ouxzepdseCMftYNHCwZ1Z/W
+         1HSnLuC2egQlvUflFSLo14gDAsjbgkCKD1s8Xam4rf1xr9N11AjVepsg6/50IO9P2+U3
+         V75OO270/kb09+tJt+fvERx0/VcN+gApB5YjgEBj3b/hbSIPLNq3YLvVkBzH3u+UQwCY
+         shiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVFiTMJ45WztnI/bvABBIHFZQRfCdgg70MAnDQSwFGA8yktbemAYKS4Ycd27LC9Ghst0/xx6jSD/kLZn+f1IDWz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4eDn269nSGu0lqO3+W8koV8fj3e5rmrDVUjpaf07Oizzq/y+b
+	kk5Ud+wawq6a/OojaU0NQVg6pIIqm8pSXRzlubet2f61fqXBcqv59qPCxvEntBaGhw0hwyc+oai
+	RTxWDES6msGK7whEpUZfC3jThrnEldbQ/iPglaVPPjB/iaDcfhDfO88BJcSvhPvutPRZZHpLrYp
+	xd
+X-Gm-Gg: ASbGncuYNSfNyV3lY1upbhHCcFDWnYnqOPWpAo2R1bgXVUrrDyjfdD7ctyiePaOXx4j
+	7XuvgXzNcxj9kQRBpB66qf06VT8FR82wIcZAyNdPf0FHprMeHOP03xa2aGEeICj3L4gJ7i7KgBR
+	Xz4Up6fvL+WOvqzJ4cQzMbemw1hSj8cETZp4F9cfD4k93f5wG98GJyCTZLMojq3BZ9m2ll+rsz2
+	lUV/5dex6mFg34aoIhrFH4rik8r1gFrQBnua+MqaVh2jHL+cSj2m9DziPjy/gSzqLBFm/hZfpSt
+	RQjeY0kjJHonwpjZh7lmWN6/UelC/Ha8cnKl7fWztFGqDKldNDFs/AiBC9NfRZUy
+X-Received: by 2002:a05:600c:c168:b0:43d:9f2:6274 with SMTP id 5b1f17b1804b1-4536c253eecmr103886165e9.14.1750749911187;
+        Tue, 24 Jun 2025 00:25:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF2um9Qis2AN3HWQ37ati9BBnYWI6SS4ICJEoxMmUlVQC8nuNq4Mjr5VoRjvDjjSGN48+TTXw==
+X-Received: by 2002:a05:600c:c168:b0:43d:9f2:6274 with SMTP id 5b1f17b1804b1-4536c253eecmr103885875e9.14.1750749910798;
+        Tue, 24 Jun 2025 00:25:10 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e8105f93sm1186791f8f.76.2025.06.24.00.25.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Jun 2025 00:18:51 -0700 (PDT)
-Message-ID: <1524eb69-e3d1-42f5-94fb-cc783b471807@tuxon.dev>
-Date: Tue, 24 Jun 2025 10:18:49 +0300
+        Tue, 24 Jun 2025 00:25:09 -0700 (PDT)
+Message-ID: <5e22442e-ddf8-4f5d-b7e4-5e2c9bf783b0@redhat.com>
+Date: Tue, 24 Jun 2025 09:25:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/10] SAMA7D65 Add support for Crypto, CAN and PWM
-To: Ryan.Wanner@microchip.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, olivia@selenic.com
-Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1749666053.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: KVM: arm64: vgic-its: Return -ENXIO to invalid
+ KVM_DEV_ARM_VGIC_GRP_CTRL attrs
+To: David Woodhouse <dwmw2@infradead.org>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Jing Zhang <jingzhangos@google.com>,
+ Kunkun Jiang <jiangkunkun@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Sebastian Ott <sebott@redhat.com>, Maxim Levitsky <mlevitsk@redhat.com>,
+ Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: tDuyYobe4pxjO09hFOBBAMNqr1xsoBsbq_91_f3E4X0_1750749911
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <cover.1749666053.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_001853_428118_7CF0388B 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250624_002517_924746_58A1FC44 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,14 +118,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi David,
 
+On 6/23/25 3:22 PM, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
+> 
+> A preliminary version of a hack to invoke unmap_all_vpes() from an ioctl
+> didn't work very well. We eventually determined this was because we were
+> invoking it on the wrong file descriptor, but not getting an error.
+> 
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+In the corresponding doc (virt/kvm/devices/arm-vgic-its.rst)
+it is said about possible returned values:
+     -ENXIO  ITS not properly configured as required prior to setting
+             this attribute
+which does not exactly match your situation. Shouldn't we also update
+the doc or change the returned value?
 
-On 11.06.2025 22:47, Ryan.Wanner@microchip.com wrote:
->   ARM: dts: microchip: sama7d65: Add crypto support
->   ARM: dts: microchip: sama7d65: Add PWM support
->   ARM: dts: microchip: sama7d65: Add CAN bus support
->   ARM: dts: microchip: sama7d65: Clean up extra space
->   ARM: dts: microchip: sama7d65: Enable CAN bus
+Thanks
 
-Applied to at91-dt, thanks!
+Eric
+
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 534049c7c94b..b34f8976c9cc 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -2694,6 +2694,9 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
+>  	case KVM_DEV_ARM_ITS_RESTORE_TABLES:
+>  		ret = abi->restore_tables(its);
+>  		break;
+> +	default:
+> +		ret = -ENXIO;
+> +		break;
+>  	}
+>  
+>  	mutex_unlock(&its->its_lock);
+
 
