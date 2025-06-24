@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB6AC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924EDC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HjzFE4fmyDlXVsPYzogdifl8Zzt69qws0co4hN/MNgM=; b=Wf09V3yV2Y0RtoaPYyLNoPRYK2
-	b98myEkKu6TgitqVt1qkyqONQ01djYJ/KFXA1nQ457yThaPS/p3MerqZYTFnyuw6sD2My2kU30xuY
-	ZTHrLQ6SfzWAdRienarNj8apm+l2dELnHe+BjFVTuPsxw36+EzxaR2QtU/rCMcaVbXREAUVNGVd8V
-	HFarOXPEehpfOcCLEwbuFo3DejVDKCyYBmIhPtcUuLbOS2C7slSI2P37VcEcyrifpP1YFBHGhsqL6
-	VpUFv5beGQI6IKsYLJYGMfbeuNWlYR9D7gp5Y4nhMZiehBZk/0g8rsCpcOxK/FCqM/9+4d0poVTMu
-	p9iwkRgw==;
+	bh=9iG3xsVGlgaAhPeVpSczglMwMQZvy5yTTL4i5JT+vbY=; b=R2h/seBGTb/vHuNEj4vlHhtVwg
+	TiB+5hPeIXvPtLIpjF6N2YO8BE+ZLT3yQ2OqGnO29RaFH3Y84ZFks7CXuY+jRyjggkRxFzVRvKtaF
+	X0Yk6ypfoJtJ3LPT5tXdZn4P8LZXfE/5Y9fiyF9A9y8mx/+5DOdOfOhtCqRIidlampzqmhKk5Yoth
+	k3ym1dzX4Ey0sGf17BQWy18NRwS5vcbzviy+QA4Z9rszgHy3ENU3dE3Em5Rq1TtQqGYyafyonv+ec
+	C6RGJS5x+MMfCfyrD2S+kiU1t+dq/4h5O6Rw2Ifvv6MtnL6DCx9gL2TfN9FtKs2VPUCWENpAOWmHc
+	zt4Kp/sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzpC-00000005A5Q-2lPW;
-	Tue, 24 Jun 2025 09:20:18 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uTzpE-00000005A6k-2bP4;
+	Tue, 24 Jun 2025 09:20:20 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzgo-000000058hW-1HK6
+	id 1uTzj0-000000058yz-3uDp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 09:11:39 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O9BY3S1512476;
-	Tue, 24 Jun 2025 04:11:34 -0500
+	Tue, 24 Jun 2025 09:13:56 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O9DpjZ1742541;
+	Tue, 24 Jun 2025 04:13:51 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750756294;
-	bh=HjzFE4fmyDlXVsPYzogdifl8Zzt69qws0co4hN/MNgM=;
+	s=ti-com-17Q1; t=1750756431;
+	bh=9iG3xsVGlgaAhPeVpSczglMwMQZvy5yTTL4i5JT+vbY=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=igmHt30sOLkziNmUmT6sM0zt8tmlv6S351SuqYBNh6XZIs/5aewpKI0DjtOrTuoea
-	 GjosJGDB3ggtYFUfdJCpNyc+BdHxYaqc3bh7e9jnY4q85njgocoX7kE44RDwcyepOq
-	 17XGQ8I7aMAaTZxwVi5a5uNHY+bcQnCyFU6O3nBw=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O9BY884077631
+	b=mzPwTks63v1PDkCVBbD+JJGC9suzKy0ShdOzJ/pvO6o7pfA6ibNSa7a3bl2ngxBRa
+	 UUf/qnE+G0cempC/wDoTr7FQ98SythMOP9Q1gYIriQG/jLknf76jACvEqgKI18gVEX
+	 MtbR5eOnsghO2hLwhSpXTOBgBXjYMvLN0RpaJhrw=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O9Dp401589893
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 04:11:34 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 24 Jun 2025 04:13:51 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
- Jun 2025 04:11:34 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 04:13:51 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 24 Jun 2025 04:11:34 -0500
+ Frontend Transport; Tue, 24 Jun 2025 04:13:51 -0500
 Received: from [172.24.227.38] (ula0502350.dhcp.ti.com [172.24.227.38])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O9BTNd1246614;
-	Tue, 24 Jun 2025 04:11:30 -0500
-Message-ID: <15530643-04a1-4c3d-9879-56d668a59667@ti.com>
-Date: Tue, 24 Jun 2025 14:41:28 +0530
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O9Dk9Q1513408;
+	Tue, 24 Jun 2025 04:13:46 -0500
+Message-ID: <48258a26-0a29-4f72-a1a1-42369f1af639@ti.com>
+Date: Tue, 24 Jun 2025 14:43:45 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv4 6/6] arm64: dts: ti: Add eMMC support for AM62D
+Subject: Re: [PATCHv4 1/6] arm64: dts: ti: Add bootph property to nodes at
+ source for am62a
 To: Bryan Brattlof <bb@ti.com>
 CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
         <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -64,17 +65,17 @@ CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
         <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
         <afd@ti.com>, <devarsht@ti.com>
 References: <20250623141253.3519546-1-p-bhagat@ti.com>
- <20250623141253.3519546-7-p-bhagat@ti.com>
- <20250623142859.fankjmvhdo2bxjgd@bryanbrattlof.com>
+ <20250623141253.3519546-2-p-bhagat@ti.com>
+ <20250623144547.xuitjtmfq6mswmxk@bryanbrattlof.com>
 Content-Language: en-US
 From: Paresh Bhagat <p-bhagat@ti.com>
-In-Reply-To: <20250623142859.fankjmvhdo2bxjgd@bryanbrattlof.com>
+In-Reply-To: <20250623144547.xuitjtmfq6mswmxk@bryanbrattlof.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_021138_476557_E07E6AEE 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250624_021355_068226_8970D942 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,85 +93,195 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Bryan,
 
 
-On 23/06/25 19:58, Bryan Brattlof wrote:
+On 23/06/25 20:15, Bryan Brattlof wrote:
 > On June 23, 2025 thus sayeth Paresh Bhagat:
->> Add the necessary device tree node for eMMC controller along with the
->> required pinmux configuration.
+>> Add bootph property directly into the original definitions of relevant
+>> nodes (e.g., power domains, USB controllers, and other peripherals)
+>> within their respective DTSI files (ex. main, mcu, and wakeup)i for
+>> am62a.
 >>
-> Could this be squashed in 4/6?
-
-
-Yep will do
-
-
->
+>> By defining bootph in the nodes source definitions instead of appending
+>> it later in final DTS files, this change ensures that the property is
+>> inherently present wherever the nodes are reused across derived device
+>> trees.
+>>
 >> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 >> ---
->>   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 27 ++++++++++++++++++++++++
->>   1 file changed, 27 insertions(+)
+>>   arch/arm64/boot/dts/ti/k3-am62a-main.dtsi   | 15 +++++++++++++++
+>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi    |  1 +
+>>   arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi |  3 +++
+>>   arch/arm64/boot/dts/ti/k3-am62a.dtsi        |  3 +++
+>>   4 files changed, 22 insertions(+)
 >>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->> index c98e4c98c956..5ceecdd68b3f 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->> @@ -20,6 +20,7 @@ aliases {
->>   		serial0 = &wkup_uart0;
->>   		serial1 = &mcu_uart0;
->>   		serial2 = &main_uart0;
->> +		mmc0 = &sdhci0;
->>   		mmc1 = &sdhci1;
->>   		rtc0 = &wkup_rtc0;
->>   		ethernet0 = &cpsw_port1;
->> @@ -226,6 +227,22 @@ AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
->>   		>;
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+>> index 63e097ddf988..1b7fe4487475 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+>> @@ -51,6 +51,7 @@ phy_gmii_sel: phy@4044 {
+>>   			compatible = "ti,am654-phy-gmii-sel";
+>>   			reg = <0x4044 0x8>;
+>>   			#phy-cells = <1>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		epwm_tbclk: clock-controller@4130 {
+>> @@ -84,6 +85,7 @@ dmss: bus@48000000 {
+>>   		#size-cells = <2>;
+>>   		dma-ranges;
+>>   		ranges = <0x00 0x48000000 0x00 0x48000000 0x00 0x06000000>;
+>> +		bootph-all;
+>>   
+>>   		ti,sci-dev-id = <25>;
+>>   
+>> @@ -96,6 +98,7 @@ secure_proxy_main: mailbox@4d000000 {
+>>   			#mbox-cells = <1>;
+>>   			interrupt-names = "rx_012";
+>>   			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		inta_main_dmss: interrupt-controller@48000000 {
+>> @@ -131,6 +134,7 @@ main_bcdma: dma-controller@485c0100 {
+>>   			ti,sci-rm-range-bchan = <0x20>; /* BLOCK_COPY_CHAN */
+>>   			ti,sci-rm-range-rchan = <0x21>; /* SPLIT_TR_RX_CHAN */
+>>   			ti,sci-rm-range-tchan = <0x22>; /* SPLIT_TR_TX_CHAN */
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		main_pktdma: dma-controller@485c0000 {
+>> @@ -167,6 +171,7 @@ main_pktdma: dma-controller@485c0000 {
+>>   						<0x2c>, /* FLOW_CPSW_RX_CHAN */
+>>   						<0x2e>, /* FLOW_SAUL_RX_0/1_CHAN */
+>>   						<0x32>; /* FLOW_SAUL_RX_2/3_CHAN */
+>> +			bootph-all;
+>>   		};
 >>   	};
 >>   
->> +	main_mmc0_pins_default: main-mmc0-default-pins {
->> +		pinctrl-single,pins = <
->> +			AM62DX_IOPAD(0x0220, PIN_INPUT_PULLUP, 0) /* (Y6) MMC0_CMD */
->> +			AM62DX_IOPAD(0x0218, PIN_OUTPUT, 0) /* (AB7) MMC0_CLK */
->> +			AM62DX_IOPAD(0x0214, PIN_INPUT_PULLUP, 0) /* (AA6) MMC0_DAT0 */
->> +			AM62DX_IOPAD(0x0210, PIN_INPUT_PULLUP, 0) /* (AB6) MMC0_DAT1 */
->> +			AM62DX_IOPAD(0x020c, PIN_INPUT_PULLUP, 0) /* (Y7) MMC0_DAT2 */
->> +			AM62DX_IOPAD(0x0208, PIN_INPUT_PULLUP, 0) /* (AA7) MMC0_DAT3 */
->> +			AM62DX_IOPAD(0x0204, PIN_INPUT_PULLUP, 0) /* (Y8) MMC0_DAT4 */
->> +			AM62DX_IOPAD(0x0200, PIN_INPUT_PULLUP, 0) /* (W7) MMC0_DAT5 */
->> +			AM62DX_IOPAD(0x01fc, PIN_INPUT_PULLUP, 0) /* (W9) MMC0_DAT6 */
->> +			AM62DX_IOPAD(0x01f8, PIN_INPUT_PULLUP, 0) /* (AB8) MMC0_DAT7 */
->> +		>;
+>> @@ -216,20 +221,24 @@ dmsc: system-controller@44043000 {
+>>   		mbox-names = "rx", "tx";
+>>   		mboxes = <&secure_proxy_main 12>,
+>>   			 <&secure_proxy_main 13>;
 >> +		bootph-all;
->> +	};
->> +
->>   	main_mmc1_pins_default: main-mmc1-default-pins {
->>   		pinctrl-single,pins = <
->>   			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
->> @@ -397,6 +414,16 @@ &main_i2c2 {
->>   	clock-frequency = <400000>;
->>   };
 >>   
->> +&sdhci0 {
->> +	/* eMMC */
->> +	bootph-all;
->> +	status = "okay";
->> +	non-removable;
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&main_mmc0_pins_default>;
->> +	disable-wp;
->> +};
-> Make sure we follow the ordering of these properties:
+>>   		k3_pds: power-controller {
+>>   			compatible = "ti,sci-pm-domain";
+>>   			#power-domain-cells = <2>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		k3_clks: clock-controller {
+>>   			compatible = "ti,k2g-sci-clk";
+>>   			#clock-cells = <2>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		k3_reset: reset-controller {
+>>   			compatible = "ti,sci-reset";
+>>   			#reset-cells = <2>;
+>> +			bootph-all;
+>>   		};
+>>   	};
+>>   
+>> @@ -254,6 +263,7 @@ secure_proxy_sa3: mailbox@43600000 {
+>>   		 * firmware on non-MPU processors
+>>   		 */
+>>   		status = "disabled";
+>> +		bootph-all;
+>>   	};
+>>   
+>>   	main_pmx0: pinctrl@f4000 {
+>> @@ -262,6 +272,7 @@ main_pmx0: pinctrl@f4000 {
+>>   		#pinctrl-cells = <1>;
+>>   		pinctrl-single,register-width = <32>;
+>>   		pinctrl-single,function-mask = <0xffffffff>;
+>> +		bootph-all;
+>>   	};
+>>   
+>>   	main_esm: esm@420000 {
+>> @@ -282,6 +293,7 @@ main_timer0: timer@2400000 {
+>>   		assigned-clock-parents = <&k3_clks 36 3>;
+>>   		power-domains = <&k3_pds 36 TI_SCI_PD_EXCLUSIVE>;
+>>   		ti,timer-pwm;
+>> +		bootph-all;
+>>   	};
+>>   
+>>   	main_timer1: timer@2410000 {
+>> @@ -653,6 +665,7 @@ usb0: usb@31000000 {
+>>   			dr_mode = "otg";
+>>   			snps,usb2-gadget-lpm-disable;
+>>   			snps,usb2-lpm-disable;
+>> +			bootph-all;
+>>   		};
+>>   	};
+>>   
+>> @@ -745,6 +758,7 @@ cpsw_port1: port@1 {
+>>   				phys = <&phy_gmii_sel 1>;
+>>   				mac-address = [00 00 00 00 00 00];
+>>   				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
+>> +				bootph-all;
+>>   			};
+>>   
+>>   			cpsw_port2: port@2 {
+>> @@ -764,6 +778,7 @@ cpsw3g_mdio: mdio@f00 {
+>>   			clocks = <&k3_clks 13 0>;
+>>   			clock-names = "fck";
+>>   			bus_freq = <1000000>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		cpts@3d000 {
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>> index ee961ced7208..df4aa131097f 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>> @@ -12,6 +12,7 @@ mcu_pmx0: pinctrl@4084000 {
+>>   		#pinctrl-cells = <1>;
+>>   		pinctrl-single,register-width = <32>;
+>>   		pinctrl-single,function-mask = <0xffffffff>;
+>> +		bootph-all;
+>>   	};
+>>   
+>>   	mcu_esm: esm@4100000 {
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>> index 259ae6ebbfb5..86aae252385c 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>> @@ -13,10 +13,12 @@ wkup_conf: bus@43000000 {
+>>   		#address-cells = <1>;
+>>   		#size-cells = <1>;
+>>   		ranges = <0x00 0x00 0x43000000 0x20000>;
+>> +		bootph-all;
+>>   
+>>   		chipid: chipid@14 {
+>>   			compatible = "ti,am654-chipid";
+>>   			reg = <0x14 0x4>;
+>> +			bootph-all;
+>>   		};
+>>   
+>>   		opp_efuse_table: syscon@18 {
+>> @@ -67,6 +69,7 @@ wkup_uart0: serial@0 {
+>>   			reg = <0 0x100>;
+>>   			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
+>>   			status = "disabled";
+>> +			bootph-pre-ram;
+>>   	       };
+>>   	};
+>>   
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a.dtsi b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
+>> index 4d79b3e9486a..54eab2c93eff 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a.dtsi
+>> @@ -50,6 +50,7 @@ cbass_main: bus@f0000 {
+>>   		compatible = "simple-bus";
+>>   		#address-cells = <2>;
+>>   		#size-cells = <2>;
+>> +		bootph-all;
+> We only need to add the bootph-* properties to the leaf nodes. U-Boot is
+> smart enough to propagate these properties all the way to the root when
+> it's pruning the device tree for the bootloaders.
 >
->      https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
+> ~Bryan
 
 
 Will fix this. Thanks
-
-
->
->> +
->>   &sdhci1 {
->>   	/* SD/MMC */
->>   	status = "okay";
->> -- 
->> 2.34.1
->>
 
