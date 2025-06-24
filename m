@@ -4,51 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E2BC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3531FC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 09:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yp5jO+3XqshE99v9cEk3EOttPZ9/nyT0f5i7VRcI51Q=; b=4fW3H05xmh5aKon8yRqZEPdeFH
-	sGxHmErbwcVItFPoWrgdGvZ1EGqXuHzoIri+bhWYQKjcsEnOlmjlj5O5aTQ33YRlT+hKoO2q/HeyH
-	jcf+84uB6iCjVG5dB0MlRuFx01waVRiI4GcgZTQ3iwdErwsIhBCMdGmuhngB3OPQzIz5MHN1tuOL4
-	UzCoUhoogpstmAlIeMQccm+0uF8dx/hWLrrjm1dwMTK3Ia+YQHIopU/giEikfXRMakBz8ROdYYvdG
-	OBjZr3TdsmXPWjkUj2pNWqtx5YLOeHHiZxDFYcXEzsYYCHdxhPUf+pQJSkhIXpUfs76G4jBgZm0OH
-	kNloEDLA==;
+	bh=MRVlSf43UpZPlnDsHsP5RKgiphK3yxiOkENQ94hu7rw=; b=U5Up0PzkixKP5X2/tc15H12omi
+	MJ6HyET1lMWc2AK8pPxUl1BCF8strUb7D6gO6XKJuu/rq2vh7PZVps4hG1xLkMSPUqzJ3/tQNRDgm
+	DIsiqIf7gsU/vJLupzUgNAP8Bld83CpTIjBDwpI8ucKj9Jrp9jCZOp2e5SCYWkPv4WDyDbE+4PzEG
+	S4kLAUru4/+Ygrhts9cdWd3f1niTOiEhiPFCgCKy+v5+qrR/jvizXABUXQ4+MkagADNZTPcxb756C
+	hKv4mZDd40ZuQ2JPr22/Ez8Omgbo9Smd+sWKRrmw/SXoDdfuybxmK3Th7lS1HOcWTGdJM2st5F+3E
+	+poSd6QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzcp-000000057xZ-05z0;
-	Tue, 24 Jun 2025 09:07:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uTzfE-000000058QP-1HMS;
+	Tue, 24 Jun 2025 09:10:00 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzWF-000000056pP-2NQD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 09:00:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1F61629C9;
-	Tue, 24 Jun 2025 09:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9639C4CEE3;
-	Tue, 24 Jun 2025 09:00:40 +0000 (UTC)
-Date: Tue, 24 Jun 2025 10:00:38 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: andreyknvl@gmail.com, kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org, will@kernel.org,
-	song@kernel.org, mark.rutland@arm.com, usamaarif642@gmail.com,
-	Ard Biesheuvel <ardb@kernel.org>, rmikey@meta.com
-Subject: Re: arm64: BUG: KASAN: invalid-access in arch_stack_walk
-Message-ID: <aFppNmkSrdsbwhed@arm.com>
-References: <aFVVEgD0236LdrL6@gmail.com>
- <CA+fCnZfzHOFjVo43UZK8H6h3j=OHjfF13oFJvT0P-SM84Oc4qQ@mail.gmail.com>
- <aFlA1tXXUEBZP1NH@arm.com>
- <aFmHQbpwX4WnR/5p@gmail.com>
+	id 1uTzXD-000000056yT-2Pwo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 24 Jun 2025 09:01:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=MRVlSf43UpZPlnDsHsP5RKgiphK3yxiOkENQ94hu7rw=; b=YmHCdmwrhBBjBKoYUq06OWj/gj
+	n+9ITy2kzBYhXdVrhfs68f3aeyGyihkzw77uxyLeb1tbz6ZjjBDq8cLlYG8nNdmCJ4rU09u0deYZp
+	jW7hhSTbYumkHsBJeEhw4tA/DYQv2m3qtruTTDGWBqRsS+Vkldnj0p6hzKEXrZo5DLJrDKy+Aj92b
+	K4Rs8moK1lSvEM1Bj1a+j0hlhon6gyZZTOfNNmnOtLsF2lp1fnJb4nLiGzqhKI7D5rOWdGk4MAO/3
+	OVSIJzCeIlLm9caB0YlV4SvcJiNleH3U4WsJ+aSXxJ0uBpZqbPAGpA8XVtImXR7neV3hyPROlGvPV
+	3Dp3baQA==;
+Received: from 54-240-197-238.amazon.com ([54.240.197.238] helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uTzXA-000000067kz-0p4M;
+	Tue, 24 Jun 2025 09:01:40 +0000
+Message-ID: <0f86df0c2866114898da1e9f4274e23b3d1c38b4.camel@infradead.org>
+Subject: Re: KVM: arm64: vgic-its: Return -ENXIO to invalid
+ KVM_DEV_ARM_VGIC_GRP_CTRL attrs
+From: David Woodhouse <dwmw2@infradead.org>
+To: Eric Auger <eauger@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
+ Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jing Zhang <jingzhangos@google.com>, Kunkun Jiang <jiangkunkun@huawei.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Sebastian Ott <sebott@redhat.com>,
+ Maxim Levitsky <mlevitsk@redhat.com>, Keisuke Nishimura
+ <keisuke.nishimura@inria.fr>,  linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org
+Date: Tue, 24 Jun 2025 11:01:38 +0200
+In-Reply-To: <5e22442e-ddf8-4f5d-b7e4-5e2c9bf783b0@redhat.com>
+References: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
+	 <5e22442e-ddf8-4f5d-b7e4-5e2c9bf783b0@redhat.com>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-kMLRulSc2O33FOgK1sZN"
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFmHQbpwX4WnR/5p@gmail.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,73 +77,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 09:56:33AM -0700, Breno Leitao wrote:
-> arm64: Use arch_alloc_vmap_stack for EFI runtime stack allocation
-> 
-> Refactor vmap stack allocation by moving the CONFIG_VMAP_STACK check
-> from BUILD_BUG_ON to a runtime return of NULL if the config is not set.
-> The side effect of this is that _init_sdei_stack() might NOT fail in
-> build time if _VMAP_STACK, but in runtime. It shifts error
-> detection from compile-time to runtime
 
-_init_sdei_stack() is only called from init_sdei_stacks() if
-CONFIG_VMAP_STACK is enabled.
+--=-kMLRulSc2O33FOgK1sZN
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Then, reuse arch_alloc_vmap_stack() to allocate the ACPI stack
-> memory in the arm64_efi_rt_init().
-> 
-> Suggested-by: Andrey Konovalov <andreyknvl@gmail.com>
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> 
-> diff --git a/arch/arm64/include/asm/vmap_stack.h b/arch/arm64/include/asm/vmap_stack.h
-> index 20873099c035c..8380af4507d01 100644
-> --- a/arch/arm64/include/asm/vmap_stack.h
-> +++ b/arch/arm64/include/asm/vmap_stack.h
-> @@ -19,7 +19,8 @@ static inline unsigned long *arch_alloc_vmap_stack(size_t stack_size, int node)
-> {
-> 	void *p;
-> 
-> -	BUILD_BUG_ON(!IS_ENABLED(CONFIG_VMAP_STACK));
-> +	if (!IS_ENABLED(CONFIG_VMAP_STACK))
-> +		return NULL;
-> 
-> 	p = __vmalloc_node(stack_size, THREAD_ALIGN, THREADINFO_GFP, node,
-> 			__builtin_return_address(0));
+On Tue, 2025-06-24 at 09:25 +0200, Eric Auger wrote:
+> Hi David,
+>=20
+> On 6/23/25 3:22 PM, David Woodhouse wrote:
+> > From: David Woodhouse <dwmw@amazon.co.uk>
+> >=20
+> > A preliminary version of a hack to invoke unmap_all_vpes() from an ioct=
+l
+> > didn't work very well. We eventually determined this was because we wer=
+e
+> > invoking it on the wrong file descriptor, but not getting an error.
+> >=20
+> > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+>
+> In the corresponding doc (virt/kvm/devices/arm-vgic-its.rst)
+> it is said about possible returned values:
+> =C2=A0=C2=A0=C2=A0=C2=A0 -ENXIO=C2=A0 ITS not properly configured as requ=
+ired prior to setting
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+this attribute
+> which does not exactly match your situation. Shouldn't we also update
+> the doc or change the returned value?
 
-We can leave this unchanged to catch possible misuses in the future.
+Hi Eric, thanks for looking at this.
 
-> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-> index 3857fd7ee8d46..6c371b158b99f 100644
-> --- a/arch/arm64/kernel/efi.c
-> +++ b/arch/arm64/kernel/efi.c
-> @@ -15,6 +15,7 @@
-> 
-> #include <asm/efi.h>
-> #include <asm/stacktrace.h>
-> +#include <asm/vmap_stack.h>
-> 
-> static bool region_is_misaligned(const efi_memory_desc_t *md)
-> {
-> @@ -214,9 +215,8 @@ static int __init arm64_efi_rt_init(void)
-> 	if (!efi_enabled(EFI_RUNTIME_SERVICES))
-> 		return 0;
-> 
-> -	p = __vmalloc_node(THREAD_SIZE, THREAD_ALIGN, GFP_KERNEL,
-> -			   NUMA_NO_NODE, &&l);
-> -l:	if (!p) {
-> +	p = arch_alloc_vmap_stack(THREAD_SIZE, NUMA_NO_NODE);
+I think this is OK because the -ENXIO return is covered by the high-
+level description of KVM_[GS]ET_DEVICE_ATTR in virt/kvm/api.rst:
 
-and bail out earlier here similar to init_sdei_stacks():
+Errors:
 
-	if (!IS_ENABLED(CONFIG_VMAP_STACK))
-		return -ENOMEM;
+  =3D=3D=3D=3D=3D   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+  ENXIO   The group or attribute is unknown/unsupported for this device
+          or hardware support is missing.
 
-> +	if (!p) {
-> 		pr_warn("Failed to allocate EFI runtime stack\n");
-> 		clear_bit(EFI_RUNTIME_SERVICES, &efi.flags);
-> 		return -ENOMEM;
 
--- 
-Catalin
+--=-kMLRulSc2O33FOgK1sZN
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDYyNDA5MDEz
+OFowLwYJKoZIhvcNAQkEMSIEILD+tAZU6xUkQkwj6FMBq+aYxupPQAG3V7FJiWp4TBtBMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAZ/jj5B6pqIf0
+//KKdNULHRZx28ZR/49kajMVkLHuXcEoxX5ffbH6ZFcfpLRrLU03PtTvFbx4E+9TpCUk4wG7CcqH
+IwivGujlHGQZRFwd4rGD4GiSTWY9k2MwnfzCxa8pYs4vmBlfEhRd/nTqMW56MPOBIX/7wK/qnb1M
+afLp/vbxK/S7f9wO9nd4MInS8T47UdvM6aD05+Xz/VJ5+AkFerNqryJQRhETNSMYziKbGPlWFvGq
+yR96yCbsVEBJvdL9+EJhNnglxJUt0Bf2NpWJjYZB+LX3LcuBzr1JOjoThAgu5UldYrZ8fDBBvhiz
+wkae6TqPV8Rceed/jibY97vf9x6DCkZG2YvMgqu4Dlyab0KAmvdfrDk8RLTv8Gp76BiAaz9RKCr0
+eG9blnVCOs+anDvWYqC1enXDK4Tm2/tVSNPmBt0pjrdfLINXKYev8dlVb0O8GBwWNKoxNbWiZCwf
+xCCjVuOoXFGkIXJIgrrIqFGJC+RUB5oIerfxUsw+Oa/iFLQsZCaRUKPsNSWnSAll9J9K65U84R+R
+BJw6cEhAQCesL0HZXPwMlTopd9pOJ3bweY0NN8JeS3QHD1ZKwMb5S6QQK/NiuuUXlWHOtxoassG6
+Katg/FmqsZ1EriMcPHeVA1EPXrs9mKhXOfFAyFs9M5dfWWLG7AFOhoGw44X556kAAAAAAAA=
+
+
+--=-kMLRulSc2O33FOgK1sZN--
 
