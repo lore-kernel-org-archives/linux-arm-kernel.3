@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4D4C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F90C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=; b=nlZGkm3yu9sxP7Jfs9HPjsy7ag
-	o1hq22tTQbZklfqXclcqY8vEb2xmJ4dY4D3mgFvOytEmvmx/N/PNiMMXb0GmGlvcEx1WxCgmWtYAZ
-	zrb1Wp9DTshQfTMX6deW/ynhfbwiUgluhn6vDOuY9VYNdnXs4Kh/kWfLcBLAS6gqbqQ2B0fFiDsa0
-	/S8RamvBi5BRL9w7GoSq15LQBZq/5QuyqChJJ9zz3qL5w6rHqcZyMW3NtKnwYEMU+vOB3A/lnfsBh
-	q7w5p1q+0dKWcjYMLS7vHLyC1gbZy5E3Yp0Ea1S1QQUnnjp88PPQ8yZV3y7rsdj4PlWW2zt5Pk5Jf
-	2H2t7DPQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=; b=cNozaIL4e1Ykoc5E/3mmSx9kOG
+	DFwhdOyhTJnXVBs4ki5awxQ0o6AwMfu7QpEgYlsUM2fS52k1MxTYNTrAURSEgfmSc9e8FTBS8oTln
+	gMTXrEyT6QfNqoICFBOLAKbZBOrhfKKYJ6wKQu3OpGwSIJmfv6dx+RVhpsli2QjrGpPp1IkXM+B/I
+	EmkYpt9Ok5DfinVK2dabQuM+ywciI96BBfghEz08U+bVtynbgWasJqzgUHONvMOom5322Xy1OjsAK
+	2IenguADOk0Zb5UuuwhcHs4iOShU7+s5pdCkAoK8+/jkScPZB+D+07WzD2TewgdDJRWDozmBCPxbv
+	SoQZuQ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU27O-00000005Sh3-0e51;
-	Tue, 24 Jun 2025 11:47:14 +0000
+	id 1uU29h-00000005T4k-0XM1;
+	Tue, 24 Jun 2025 11:49:37 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1IH-00000005McL-0GyD
+	id 1uU1IK-00000005McL-2TSK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:54:27 +0000
+	Tue, 24 Jun 2025 10:54:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1750762465; x=1782298465;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=;
-  b=BQrUqd8BmwYQKVdg2VpNhQ1d7S9JwvIhrZVod52/3SWujJ26rbXmKSnA
-   J5/6VHqjl1XcQ7sbRT/N5lNe/3rdrwA5Y3/9FmYULXHCWd9jV+v3+Vg94
-   hGkAd2RCO7UHCLjp/IVGNkPWB2Rm7q4YdL2CEr2pcSDXXTdWTl5HS7qBG
-   orl7n6pCWOjHJhkFFO8L49mdpTM5xfFR8vSdeu3XtRQhtGNBDUgnCL4y4
-   a+gunzhuR/7wWPxWlJpwV9mT/tnapaSnPv275ggquWtVrLF7CzbH6dwD5
-   8RuZa/rQVtLA7+dLAIfTcuejEpNYSsuqckvQ/3tJfLYep/tiMuMxcxLKz
-   w==;
-X-CSE-ConnectionGUID: XNJw146vS0S96A/0Nhey9g==
-X-CSE-MsgGUID: XYPmM7QWQlSUiFR7VllvFQ==
+  t=1750762468; x=1782298468;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=;
+  b=CRi1yTCy9nUgiT2haV9kMTnffoDmEKZLT9+2Td/XCecVI9GbRbrFJ6z+
+   b6yF7gLg2+NeMLdF/N6z/o6TQQDrCjRjbfSOxkmhCEmnGRPCmOwhSCgcV
+   +c66jVw0wGI1MUPIluVXaTM4Zs68xaKqDzTIp0n5QiDzd+vPAdY9rZb65
+   DAKdMBV8m6/gnz3JB7bDPLisL8CpOI7AYCJs29T9nXpPsAoVV5hkK/3Y2
+   PeVZZWCRdnNkpCTf+jxbQI5/1PQm7S4W7ByGQWTzky0vqb0xRB/vIFf+T
+   85VcfZh4gLW+0kJ9bujuMgZUhJ4bcTtDbGbZFguQbWSJuofPluSjdLQF9
+   g==;
+X-CSE-ConnectionGUID: eLKUm0CuTYGtOiwXD4x7LA==
+X-CSE-MsgGUID: szbgzfL8T7uRoTX6yCEaZQ==
 X-IronPort-AV: E=Sophos;i="6.16,261,1744063200"; 
-   d="scan'208";a="44816885"
+   d="scan'208";a="44816890"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 24 Jun 2025 12:54:22 +0200
-X-CheckPoint: {685A83DE-2C-B72BD212-DAE8BA0F}
-X-MAIL-CPID: A72EB87A374EF68D021090087AE03C24_1
-X-Control-Analysis: str=0001.0A006375.685A83EC.0004,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9384116423B;
-	Tue, 24 Jun 2025 12:54:15 +0200 (CEST)
+  by mx1.tq-group.com with ESMTP; 24 Jun 2025 12:54:27 +0200
+X-CheckPoint: {685A83E3-18-ABFC28F4-D6731B76}
+X-MAIL-CPID: 868EC48A26FC023677F57C65E2F6EDBB_5
+X-Control-Analysis: str=0001.0A006368.685A83FF.000F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A1823165D19;
+	Tue, 24 Jun 2025 12:54:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1750762458;
+	s=dkim; t=1750762463;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=;
-	b=saOa8bYqz49bPCywbHMDxBDmgEkl/9wgRYj/qEDSmQOU4uM2DBolqjUuAWtcnTbyC1Ahzz
-	2MniU12XGqOGT9khFu2JtBdtDeWha8crh1JMQN7IpTpPo+khBkmuOIN/BVxhHxz40xF5YW
-	KXSKGAn3yyfzyk1ZD2Qe/hVu2eHf0qpkkrgCkBjX2ypGxz8Qj27SiUB5mslwISenZ3uu+K
-	GFcmB/zOURYTVtv2oP8Id5nNkbBIMPeQz+wxaYqEPvfGLGZSofRA3Vmnhld/2FtMjOsXTv
-	fzfk61lQKdOUCs5BzayybDhxhSdA9X5LTKe0EjRskLuA0tNiEVcMZ/0EgxwKXA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dIypQyu9izBr/7A1qOa4FEQ2MGblzldihGtaN/SHPP0=;
+	b=MUiSjZjfzTSatmv3j0U1YVfQTh2qXBN1BCFlL4JzAgPYiKKxPG1qOjgcrxgQnLHnMQexIX
+	IWehI7DV5ZKXuQESQFLtA9qONwYCOckDyzxDR5carfawZLhUWvYhrBXqamOQYoszVrl7UN
+	uzw/MC6ncCbm+Cp1MAtFih8lWMSP5bqBpWFpONI1YFfVsKl+h3MgDM0UQUHBTg1Vl/fbso
+	qjdbL0mswPkuzjlhqBg8mXBDo0RuJVx8ZfzuuqnbsDTk/kXXl1HOxFCUgnp3SgBCeC3+KF
+	QhaW7kHc9NGuz/qkeU3C5Wvs412sGTabjPbjkFU2NzKtNUl6zW6YMAjPK9uyug==
 From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -87,18 +88,22 @@ Cc: Dwaipayan Ray <dwaipayanray1@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH net-next v2 0/3] Follow-up to RGMII mode clarification: am65-cpsw fix + checkpatch
-Date: Tue, 24 Jun 2025 12:53:31 +0200
-Message-ID: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH net-next v2 1/3] dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example
+Date: Tue, 24 Jun 2025 12:53:32 +0200
+Message-ID: <f9b5e84fcaf565506ed86cf1838444c2bc47334f.1750756583.git.matthias.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
+References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_035425_588280_9C677A9E 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250624_035428_962339_6A536E3F 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,48 +118,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following previous discussion [1] and the documentation update by
-Andrew [2]:
+k3-am65-cpsw-nuss controllers have a fixed internal TX delay, so RXID
+mode is not actually possible and will result in a warning from the
+driver going forward.
 
-Fix up the mode to account for the fixed TX delay on the AM65 CPSW
-Ethernet controllers, similar to the way the icssg-prueth does it. For
-backwards compatibility, the "impossible" modes that claim to have a
-delay on the PCB are still accepted, but trigger a warning message.
+Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml          | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-As Andrew suggested, I have also added a checkpatch check that requires
-a comment for any RGMII mode that is not "rgmii-id".
-
-No Device Trees are updated to avoid the warning for now, to give other
-projects syncing the Linux Device Trees some time to fix their drivers
-as well. I intend to submit an equivalent change for U-Boot's
-am65-cpsw-nuss driver as soon as the changes are accepted for Linux.
-
-Changelog v2:
-
-- Previous patch 1/4 has been dropped, has it has been replaced by [2]
-- Patches 1/3, 2/3: collected review and ack tags
-- Patch 3/3:
-  - Fixed multiple typos noted during review
-  - Extended to check .dtso in addition to .dts and .dtsi
-  - Changed CHK() to WARN(), so the warning triggers without --strict
-
-[1] https://lore.kernel.org/lkml/d25b1447-c28b-4998-b238-92672434dc28@lunn.ch/
-[2] https://lore.kernel.org/all/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
-    commit c360eb0c3ccb ("dt-bindings: net: ethernet-controller: Add informative text about RGMII delays")
-Patch series v1: https://lore.kernel.org/all/cover.1744710099.git.matthias.schiffer@ew.tq-group.com/
-
-
-Matthias Schiffer (3):
-  dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example
-  net: ethernet: ti: am65-cpsw: fixup PHY mode for fixed RGMII TX delay
-  checkpatch: check for comment explaining rgmii(|-rxid|-txid) PHY modes
-
- Documentation/dev-tools/checkpatch.rst        |  9 +++++++
- .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   |  2 +-
- drivers/net/ethernet/ti/am65-cpsw-nuss.c      | 27 +++++++++++++++++--
- scripts/checkpatch.pl                         | 12 +++++++++
- 4 files changed, 47 insertions(+), 3 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+index 7b3d948f187df..a959c1d7e643a 100644
+--- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
++++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+@@ -284,7 +284,7 @@ examples:
+                     ti,syscon-efuse = <&mcu_conf 0x200>;
+                     phys = <&phy_gmii_sel 1>;
+ 
+-                    phy-mode = "rgmii-rxid";
++                    phy-mode = "rgmii-id";
+                     phy-handle = <&phy0>;
+                 };
+             };
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
