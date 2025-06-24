@@ -4,108 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58D5C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F59BC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KaSirUQP1y7nt53v45U75QfDYbaR7g+CaXyRQ+R4zaQ=; b=UCEHRXqZOgTbGq+sb2+S99VNsR
-	I1V98laf6IxEMRVHyK2McI0eU9UFGSqhWQSLnNGqck/qR6fIWooW+nedDn6Rfx60xAVfqPc9gL5KH
-	sBwet59FB4JjktQ5NEmqdsFQ2gK29of8LEXEhp8lFQOTivZll3zLOs9Xa7pTL1xl4N5ik6VwnfJj0
-	pqrDVzc19m9YBx9sIsZqiyi000ApWMQ/Z60Kpo5s7p731FgmLjEh9+oF7SqYtc2nBLso3y56BkqWb
-	cOdsNFGUelqxIhxnMvVH3x+/T65lkoDkAFuMnIWP20r6kBjoI1XxmsooZKr+tqo5ZUe3rT3kaXnYz
-	WCs6SXjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pBPEC7Udike9uc6BfC0QMKbP5KqggcKqpjSgmkMdnKY=; b=Oq4PNA2p4+pV/gARjNxjkhX48J
+	zzbvlS6Fc0eapdoaK6iv9VPT7Mqagd1l2ZaTcYMCPE2SWkW66LfEM0U5XUyJldVGc5N+vot6/0Z9l
+	YhaGAQ9QYIrzOTEjHJJB3nyO3alZyVE9l4drXEyujQmvtfycui6XoxnMRsP6YT1Uq7pEMvZq37Fed
+	Wu18LXLEfaTSYkzg+0i++VyjY9Bk9i5BTF+rmSynt8D8KpW1IqlhoiVk0RtRhPqzFAiv8dL7NahC5
+	iShWOaKTJFX5Qe6PZk7rdX8h1NcvmN1fxuWph5G1nsLyLCEw+LF6Q02oneN4lXkZd6AHXszHVjo7T
+	sLyhacfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9jR-00000006fmk-3gb4;
-	Tue, 24 Jun 2025 19:55:01 +0000
+	id 1uU9jV-00000006fsH-0D2s;
+	Tue, 24 Jun 2025 19:55:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6Lo-00000006FyB-2HOE
+	id 1uU6OJ-00000006GDq-1abT
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Jun 2025 16:18:24 +0000
+	Tue, 24 Jun 2025 16:20:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KaSirUQP1y7nt53v45U75QfDYbaR7g+CaXyRQ+R4zaQ=; b=GS6G8Ef8+MI0emGRCBG0lF5Q9n
-	MrELJVnAGeR2LDZI2ZxslBbdZuUif2HW1k1SkzLo44FFQFor6J729Qf8LIV3hhrtupkoCJTfQIusZ
-	6gehcrW6GV1uX10jDbXMtPsd0T3ue2xER7w8FSh51p7Dp2PjJUBT/TODzeNejvTu5c1Dr5FMzfZcu
-	d0P306x7vkk+4zvwtRwU3Dpa+Cb+uuS61teh2P/tJQW1AFZRtB4uoc4tRbJIjQ10GOd9hURj2vQVj
-	HEbBPHU+AoUdTAeeeqh2UvYp+3/APc9efZcTMn4+i+6cHdmKrz9he4eVBehyHX4BrNoaY/iSXcTI2
-	we/UtrkA==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pBPEC7Udike9uc6BfC0QMKbP5KqggcKqpjSgmkMdnKY=; b=cMjOYchJvHYAJxqNkoKjdngAXp
+	fSc5dA/LgGAvM2OHPTNaU38TZc+qn4Oc3Y1C2RtgvR4xRQvdVAjFdLCiw9GTI7lOpKEy6jg+5Uu7R
+	0NiGZaLJA5I2y8B/YkaPVE76GbEeXa7TS6ZQJQN3Np7YnzFRTqWqEqQY2N4cZvVwdB8iw06Ix7dkz
+	ZdeTx+JjRdTxgN3zHDsPU3s7EDaXK+C41SrkFFYYAPUiZ6DZysxZi5AJoG6dZ/b9LObPhSCDB2SXR
+	PIhMVobtJrNODV4LCz+sCyxeBrOQQIrfqQpUPLS4QbDarTyizAU1ouKorhol/aYjlV59ya3vlukY3
+	iG2LP34g==;
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6Ll-00000005Uil-2FDp
+	id 1uU6OG-00000005Ukk-2Yu5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 16:18:23 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2350fc2591dso326395ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 09:18:20 -0700 (PDT)
+	Tue, 24 Jun 2025 16:20:58 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4535fbe0299so31011785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 09:20:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750781899; x=1751386699; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KaSirUQP1y7nt53v45U75QfDYbaR7g+CaXyRQ+R4zaQ=;
-        b=ThG0vEiNzckZgnQTNC0kZXSIJVHcugRvBlGwKc3OPTE8pKGV2oj/W5U5jEXT8lAdA9
-         OHaV/mN0SeGy410PGoR9bycb1jeCaconi5uuLaGMskzJh/WET6HHWPk3amKiMzxw9MeQ
-         zySvt2f5WpFogm3Fjk+EIqujcCsOeUuJcZVnnr2aUaJg5rPGLhgN/1GsCOPYvipXQp/q
-         nLX6ALcu/f0e3l63hGyuH4cKUVcjbo4JQ2bSzJZyZ4GnUe+LarbN/sV4ib69tPe0LRa5
-         amTe/dlhyiHnHE8hZ5nt24JNiBP8/rSkBtwYKKSmpkJBQ9CValVigy3yv9D/mP0FIAJX
-         wTtg==
+        d=gmail.com; s=20230601; t=1750782054; x=1751386854; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pBPEC7Udike9uc6BfC0QMKbP5KqggcKqpjSgmkMdnKY=;
+        b=V2BhUgIjMsVuHwOIs3NFbzsz4wvfmvEnPkyx08Y3ZqD0pQdd2EfzCLMNIKXssDUIcF
+         PO4jWXZNfjHUCgAdNqWy/o9VVaJFiT7qqjeYkpWGeC6FPjIyhD2xuhODJ5up28fbBfaJ
+         HdUPJbLiPHQPkCy5Li+/gIsNWJAJylnwIc3Fkwd+y0kQDzwJT9+2xJST6uIi841R/iu0
+         NCJjcaDeXI/7c/CMwSAs009Nnz1jAt5w5WJdoxj39wz4w/xCZuaunUpXABwZe1hl6N1F
+         rHpZqO16Zps6ecI4Y4IPJktYTA15IFc52nUwE20P/M9XpAFHo2RDMlKS6a0cDki3HFCH
+         QIBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750781899; x=1751386699;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KaSirUQP1y7nt53v45U75QfDYbaR7g+CaXyRQ+R4zaQ=;
-        b=dyBe6SdXbAHZJvX0H88NWTkXtctsk+AiamSgByymS7b4S2OVV/g92ge8P10J2p7b7B
-         pbxdrWpUZhp47ygONbeoagvoY3WWdqp06BHr2HGmsVLc6OwCDwWwKeh/RJavrlsIdYBJ
-         zTv21YGtRD7uxfhaBpUH4Bl4sr08hbEGF15N/csLwSxUy55b+V/R/XKTV5caFF5IYJ5R
-         GF7insn89j170p1PNT0Gm2guWkcGlONImPKhNopqSRyscTiX1HCoo0zqjeDG3YsRu/Vr
-         XM6XNjpMB0EXEifB7nqAZBuxcfYcnweJlgk1E+LeZc8pSJT7i57bPChrm0HGoE5Fg3AF
-         zVLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURg26OYwGgbovAR1GqgznQdSkuPzGPN6gH1YW3PNqOaNQPcxG7toG5xQ3kL1pQyv7AbygxihNtbeQOqB7llfCd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQTMTLdjINcUtrkasHmHi43uCxhduYdJjda2xG87ZA/0Gh3ftz
-	ZkbinKoFYKNu/YxWvbS2DfkN1bJGFPAdY2ncnJMfrLdDd0wiR/MlTH3hk50yAkmL
-X-Gm-Gg: ASbGnctnRxCLBke4jHZTeLRwUHDuKGGlFAGPueOp1vt1VfERkIcBuPry3BMIyUZDipm
-	iTQLwSXinfdFE7p46b4Y2ogTZFY21SyXfjeNi79w9y9HwTPDBmiAU/lAK6h3pMhL+IfDCqYx5SU
-	pM3g8s1xUD2VqvVegafVuqQfJtgGIAZEg8f2yNnwdH0iAM/ihxPE4Nqozy/ZEF8kgJfIiBObm3R
-	YMCbXJE+wOTgR5kd8eh5FIrirNFW0ZE2v7uNPnETLX0GfNqxzqhzE1uLe/Z7g2NHkMY/1d/TCsP
-	HcM1Zt2JEp5ARL1EqBSpSZm5/aTlb4/H7uhABm9fV+C9Xcd/7ZP1FpgRawgP7MH/1mGoNw==
-X-Google-Smtp-Source: AGHT+IGY9jDpDk2r2dCyM4JVgT9EfvwZiTIAPDobHHlnMbHmIZb819DFvehZFOYNen2Nr3/FdN/vzA==
-X-Received: by 2002:a17:902:9a09:b0:232:59b:5923 with SMTP id d9443c01a7336-238024b7fe7mr64735195ad.23.1750781898702;
-        Tue, 24 Jun 2025 09:18:18 -0700 (PDT)
-Received: from hiagonb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d83955a3sm110681625ad.36.2025.06.24.09.18.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 09:18:17 -0700 (PDT)
-Date: Tue, 24 Jun 2025 13:18:12 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v5 0/3] remoteproc: imx_rproc: allow attaching to running
- core kicked by the bootloader
-Message-ID: <20250624161812.c4p26zkd37awixpr@hiagonb>
-References: <20250617193450.183889-1-hiagofranco@gmail.com>
- <aFlzpnT1yNGdWWkH@p14s>
+        d=1e100.net; s=20230601; t=1750782054; x=1751386854;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pBPEC7Udike9uc6BfC0QMKbP5KqggcKqpjSgmkMdnKY=;
+        b=FEqoj5N4nHZYjhErd9lOSg1asL6mmJsKbcmeYFruN97zrlr53n+jb+lv28GpwnWXS/
+         hgSb/SdiTefu12ECNsGhhK/11XwIMaaHOXzgLBcXYgrnbj5zWt4xJ6YouqqCN/1Ih0mV
+         JrbsvC3BfNg33+QchbNdz9IvuMI3JmfwUfr0udEvXmoc7U83qZiD7FATR0wxw+KkpYdD
+         iEHke53X88HSSxlhszWL2gS1vU9mxA2fVsYeoFVwzRZhowj0+3xqytrl3JqYyB6zXoO9
+         eJujY1kbZHU6go97USzKy98dalosPEKUUv6NmcOutYTDFD5xUQJ6y54xWOVmmmJq0Lro
+         ZBxw==
+X-Forwarded-Encrypted: i=1; AJvYcCWRt2Es8kRi5ylMCfmtI9lXqBCF3yVVujiOv5pziTfAGOPggfJrna0sfdb0AiT4T7tQBFf8lCfTwtMxxM+PEi5/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2tnhKE5RDZxus0MCg0do8qKYeSObAwYa7gVxNvPv5O6zNnk7Y
+	95ym8Dfawr/XiYQSt2jcxHWJQ02Z6tT6L6MO62uATQVslUMwhTk1cYfx
+X-Gm-Gg: ASbGnct85l0/xrAXiaVQxogmpbnZtSlBXBOej+d0z6pVxo1pdPRz6bH17pShyPXrqgv
+	6jovxly8O47GUXsdaMbTmAqWsXwg1CQqO+nCWIILop2MNuUoE2DckE7AMdDkyQLfpxhvzUPG5d9
+	ZajGlnHvMwlB0Tt3VMLGvW9EiFJd2aBjE+vfqf4EmU8HeZ/pU4LAyPvQeLDpAgmAsFBAPxEZvTk
+	XNJ5SJlZLT6yVA4X6lrk1ouFvRTM13hhuMOHc9Gm5RZXhnmAyf945ud4TfPXBjVR58FfhL0MsXI
+	C9B3Aj3ADIqw0aleGTX9sSBKajMcBxc58gWwTd+u/cInFyrxrV4rpcdOQTJrBpax2AIE
+X-Google-Smtp-Source: AGHT+IF6pE2IAJ7Y1LDV5YWms/8jtl6+meXsDEGvoE2TkHeD+D5JYR9IpOTJZUfa+CipAih/vfpv8g==
+X-Received: by 2002:a05:600c:a016:b0:450:ceb2:67dd with SMTP id 5b1f17b1804b1-45365a0026dmr149159215e9.33.1750782053900;
+        Tue, 24 Jun 2025 09:20:53 -0700 (PDT)
+Received: from [192.168.0.100] ([188.27.131.45])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4535eac8c41sm183195695e9.26.2025.06.24.09.20.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Jun 2025 09:20:53 -0700 (PDT)
+Message-ID: <f6847b24-aa57-4ce5-995f-03b3056f88a1@gmail.com>
+Date: Tue, 24 Jun 2025 19:20:48 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFlzpnT1yNGdWWkH@p14s>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/19] dt-bindings: media: i2c: max96717: add support
+ for MAX96793
+To: Martin Hecht <mhecht73@gmail.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Julien Massot <julien.massot@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: "open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS"
+ <linux-media@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
+ open "list:GPIO"
+ "SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)"
+ <linux-gpio@vger.kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>
+References: <20250618095858.2145209-1-demonsingur@gmail.com>
+ <20250618095858.2145209-7-demonsingur@gmail.com>
+ <49977010-65a5-4ad7-b86d-5e779d0de3de@gmail.com>
+From: Cosmin Tanislav <demonsingur@gmail.com>
+Content-Language: en-US
+In-Reply-To: <49977010-65a5-4ad7-b86d-5e779d0de3de@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_171821_809294_D726D8DB 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20250624_172056_738051_40F555E8 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,81 +133,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 09:32:54AM -0600, Mathieu Poirier wrote:
-> On Tue, Jun 17, 2025 at 04:34:47PM -0300, Hiago De Franco wrote:
-> > From: Hiago De Franco <hiago.franco@toradex.com>
-> > 
-> > This patch series depends on Ulf's patches that are currently under
-> > review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
-> > Without them, this series is not going to work.
-> 
-> Please resend this patchset when [1] and the work in patch 1/3 have been merged.
 
-All right, I will send the v6 with the corrections you mentioned and
-resend it when the other patches have been merged.
 
-Best regards,
-Hiago.
+On 6/24/25 7:14 PM, Martin Hecht wrote:
+> Hi Cosmin,
+> 
+> I'm preparing a test with Alvium + max96717 + max96716. I can't see away 
+> to overwrite cfg settings to force pixel mode or tunnel mode. Any plans 
+> to add this? Sometimes it is required to force the other mode than set 
+> by pin-strapping.
+> 
+> BR Martin
+> 
 
+Hi Martin.
+
+Pixel/tunnel mode is chosen automatically based on HW capabilities
+routing, formats, etc.
+
+I don't plan on adding a way to force it, since the presumption
+is that the serdes framework will pick the best use case available, as
+long as all the data can make its way to the PHY.
+
+Forcing pixel/tunnel mode shouldn't be done via device-tree since it's
+not related to the way hardware is wired up to the rest of the system.
+
+> On 6/18/25 11:58, Cosmin Tanislav wrote:
+>> MAX96793 is a newer variant of the MAX96717 which also supports GMSL3
+>> links.
+>>
+>> Document this compatibility.
+>>
+>> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>> ---
+>>   .../devicetree/bindings/media/i2c/maxim,max96717.yaml          | 3 +++
+>>   1 file changed, 3 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/i2c/ 
+>> maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/ 
+>> maxim,max96717.yaml
+>> index ab46a5f0bd7e..23f611177a87 100644
+>> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+>> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+>> @@ -30,6 +30,8 @@ description:
+>>     MAX9295A only supports pixel mode.
+>> +  MAX96793 also supports GMSL3 mode.
+>> +
+>>   properties:
+>>     compatible:
+>>       oneOf:
+>> @@ -39,6 +41,7 @@ properties:
+>>         - items:
+>>             - enum:
+>>                 - maxim,max96717
+>> +              - maxim,max96793
+>>             - const: maxim,max96717f
+>>     '#gpio-cells':
 > 
-> Thanks,
-> Mathieu
-> 
-> > 
-> > For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
-> > started by the bootloader and the M core and A core are in the same
-> > partition, the driver is not capable to detect the remote core and
-> > report the correct state of it.
-> > 
-> > This patch series implement a new function, dev_pm_genpd_is_on(), which
-> > returns the power status of a given power domain (M core power domains
-> > IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
-> > already powered on, the driver will attach to it.
-> > 
-> > Finally, the imx_rproc_clk_enable() function was also changed to make it
-> > return before dev_clk_get() is called, as it currently generates an SCU
-> > fault reset if the remote core is already running and the kernel tries
-> > to enable the clock again. These changes are a follow up from a v1 sent
-> > to imx_rproc [2] and from a reported regression [3].
-> > 
-> > [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
-> > [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
-> > [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
-> > 
-> > v5:
-> > - pm_runtime_get_sync() removed in favor of pm_runtime_resume_and_get(),
-> >   checking the return value of it.
-> > - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove().
-> > - Fixed missing "()" in dev_pm_genpd_is_on description.
-> > - Updated dev_pm_genpd_is_on() function description to be explicit the
-> >   function reflects the current power status of the device and that this
-> >   might change after the function returns, especially if the genpd is
-> >   shared.
-> > 
-> > v4:
-> > - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
-> > 
-> > v3:
-> > - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
-> > 
-> > v2:
-> > - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
-> > 
-> > v1:
-> > - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
-> > 
-> > Hiago De Franco (3):
-> >   pmdomain: core: introduce dev_pm_genpd_is_on()
-> >   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
-> >     SCU
-> >   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
-> > 
-> >  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
-> >  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
-> >  include/linux/pm_domain.h      |  6 +++++
-> >  3 files changed, 73 insertions(+), 7 deletions(-)
-> > 
-> > -- 
-> > 2.39.5
-> > 
+
 
