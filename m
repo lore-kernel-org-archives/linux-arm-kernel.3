@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6243C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2240EC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyT0EtRd1SSJ4k7Eq8j2mR2hvKHNcyRDwFJdV83PC/Q=; b=cGGFYCxzbV8smZJ8k62jW54sjo
-	PMNgXV6WYhaY+fPtxIIpvKSpcz3TsBv+5m5ujaF5elO6yLaD4WFq6pVQig+l2gEyChmhC8nasG1CJ
-	HHVVzqs+9djd7/GZVt5imKMHgKsZPPFMGKLlRFt4g32OShfhAMDcVrBezNyXJzpMw4I0NUeBX+M3m
-	pk/Ikfyuppndf4LD2MpHli/me2dO7uWhSnTFvH+2dw9hDWjioZTR+NX4rpp1VWwHkXQgsh/XLJqgA
-	AcH8MVjVeIccw2dcIuBR7lEl5eWh0/0/+kLTn2h9inTgmzqawxlQ1xH0vT4EqNLDbbiyI9QV8M9nU
-	d17GygvA==;
+	bh=bzvOFVDimc8PvbbHSWIbCCknLXDm2gCnlu7xbOu39b8=; b=uwz1KmPnQAYZGCN5qd5sTrIjIJ
+	USuFOFenIjhjp63/TlUrhZEmXjjA2OgiUoc9Jo+uL6LqwttL64vRIC85ASGHmQByQHLmZB2vQGNHS
+	ZJ7ZQXFTWxS0NHWIdvZ9SpLY28w+a8Vt3oFexL1liSeIx6BV4h84ug8AMBru2PTELngHwrMritPhG
+	fcxBf1Yvzr4JOKHIdeKOBUIyNTbdt/J1Jd2eT5N/7Gx6MWuPQg2QDKSuOBfl4STTecdYGBrCHTHQ7
+	pQ90LCwvVDlfxZpxNvWQRkQJTQe2KMBfWk/FGUYk0S+x2ZEXS4Y3Mr6r0BrIp4kw3jGAyC/0sepn4
+	R6dCaWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxcL-00000004ooL-2Hjz;
-	Tue, 24 Jun 2025 06:58:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uTxeo-00000004p2J-1ilN;
+	Tue, 24 Jun 2025 07:01:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxPS-00000004nBV-3nVK
+	id 1uTxPo-00000004nHe-2Xnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 06:45:36 +0000
+	Tue, 24 Jun 2025 06:45:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 25FDF5C5DEE;
-	Tue, 24 Jun 2025 06:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0C70C4CEEF;
-	Tue, 24 Jun 2025 06:45:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F406A43C79;
+	Tue, 24 Jun 2025 06:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FF9EC4CEE3;
+	Tue, 24 Jun 2025 06:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750747533;
-	bh=ZjF5W+taFxhk5gEPkkprCxApugodn5zxsYqvo1EHlkU=;
+	s=k20201202; t=1750747555;
+	bh=Ht83Vts5Nikx4Hos0A9Sqa+RdgKYjKb5+54OxdwWUZM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RIGmr+LG8U3+z/2/gj+BrMniElsr1NMnZMGAer8GP9ZhPKW4uuROurjs28NGA2dQ5
-	 1z6m4gdFQovSyYHSqtz5YYZtc6Ep2y4ZAaQPpABXbr1OsUH1bpodrT51ah1Y354yFi
-	 GJvo5N7ZuIM+MXco3U+XLwZd0vF8LGf3nFm/oAD0wgwHPjdsfTTTnmxNgXBStVXZBP
-	 +6sY26CwUntdFI9QLX6sBg4ABnk2Xx70Q+yqgZNP/MF1NawBKh04rrr3VrHec33wK8
-	 QZRUY8Sp2u5CA5QaErTaCemha6v+bPAS9QaMO7q8A8sXBJlR5t1hdZpz7D6fogyqYJ
-	 2/5UXM9rvEcOg==
-Message-ID: <de124c73-df0f-40a1-91dd-ea5287cb90c7@kernel.org>
-Date: Tue, 24 Jun 2025 08:45:28 +0200
+	b=kspPuAEQWHNFErWEKu3JBLy9IsjWT68yYgf9pNlpUs5YStXbsxE/vCzGZPzOYwCwl
+	 qLx2IRXVMDtFc71BkbFYAz5DteRFOiWYA/uqOTmyW+N00M/1gj41DwoZ2klWY971gB
+	 Gd56qzqUd1y9fn+IN/pL8YFqX4uPYwCOkPl/p/Lg/Smu1q8LATiVa99GjyqN5I35px
+	 fg0YTX1ty9FYrCXtBrLHX7HyHc/WOPCAcFuOe8kvUgZH0Fcfkx9wewbZ3uZ9DKocuI
+	 igUnwp34x5dUWWS+lRBjBL1GLZJ1UiXBjKniSXJHyi5z5ofOUV/R3TIrOi3qkIfOjj
+	 jm/Am+Il1S4bw==
+Message-ID: <085d5ebd-515c-4608-825b-b3319bc3bf7d@kernel.org>
+Date: Tue, 24 Jun 2025 08:45:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/7] arm64: defconfig: enable the Axiado family
+Subject: Re: [PATCH v3 7/7] MAINTAINERS: Add entry for Axiado
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -57,7 +57,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  soc@lists.linux.dev
 References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-6-b3e66a7491f5@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-6-b3e66a7491f5@axiado.com>
+In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_234535_031862_7296FE07 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20250623_234556_693105_5C2C2FB6 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,13 +125,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/06/2025 19:28, Harshit Shah wrote:
-> Enable the Axiado SoC family in the arm64 defconfig.
+> Add entry for Axiado maintainer and related files
 > 
 > Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  arch/arm64/configs/defconfig | 1 +
-
-
+>  MAINTAINERS | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
