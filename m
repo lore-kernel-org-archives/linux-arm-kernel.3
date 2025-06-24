@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88FCC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B2AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IR/fhHbAL+bX2KIm5eNUC3qHu4/01SweG+hqfy9QjHc=; b=qYqaM3uvNlyZ/6Am2JdadxXJ8M
-	VDbJi3dG1ySkpprFlWcjqnNukB5I/DT7yd/U74s8MqyK6TmV6QlafopgtR7B8TdGg3EjV3q+qr4UY
-	VFnoEiOs81WViZHZfb591vigupQQBnA3azdMzP/t82nUV6XizIYyJjj6opu0rJ/mCyjDzH9StPcIL
-	abGyqggcLA1xF7aUrdPND2dI18mezxybohFJcT04mqX1PycUv3QCiw6E3zJmN3jJPCkmTtih0U7D3
-	IxF0l6GAJUXZvEKwxVee/MuAAK+ng3GoZI3RGbWsb8nrfDh+UsDDy7xxtjKx6HqRi/lHDnnkXl83H
-	jBBNjp7w==;
+	bh=eJgTMCYrUEzLdUUrCZs/p13PTnDj4ZHtEeRJmK6ojGY=; b=Tiab7sJW44vxY0SVT6x0n7ty7A
+	uSgdhr62mLLxGs/5r48vHQy31KRnozLnvZoJ6ahzFztWlqNK65mnzuKhrtonO6rMmnfMCD4QlfAgM
+	U316FZIz82dotZssvKYiPHcfS5KQbw30QOYv7FBZicMoukGxKVH79jEwlz8r2Rzx/PQVgGNLbiRZi
+	63knyrx9wZUordD0qYzMtsK/ChUQVKaLlEL8fRBRfFq73hfIBbHlMD18T+0DecU0z0YR8UMsQs1BR
+	0c4eyIhjdVrkXdPmBuKMaSB/KOxh8VhgawPOXex/tx4TVucK5MAiGDM0PtpDn3rPxNPqkOcszS1ti
+	TghtwpKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6S3-00000006GUp-2lbR;
-	Tue, 24 Jun 2025 16:24:51 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uU6UL-00000006GbJ-1ydp;
+	Tue, 24 Jun 2025 16:27:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iZ-00000005vad-0RTg;
+	id 1uU4ia-00000005vb2-1sVI;
 	Tue, 24 Jun 2025 14:33:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=eJgTMCYrUEzLdUUrCZs/p13PTnDj4ZHtEeRJmK6ojGY=; b=Ib+by9rGFImaYyQWEADW3UJyC3
+	jMnwrHblAgJUjd2Ut/wME/WvHDYWqOLAgFXoekuWPsVLdp1bL5gl+LHL6YZFpKBFULSKO6YkuZk1r
+	Hp2WDLh27hVT/6lVOf1GKALVazbMx9FfV8gZq2PDS3Rst1SQG9ycImMJSeXkhggwANUJLP5dmJsJX
+	5hA5vJA7TMjMdZhSPTyg/7VNR03ehgB9N68rZIjgcqQVocBoygomjAhuc+KnItiKX7CZe1mHczjJT
+	WkiwhC9YosdacRYANobzGBKErXSOE3Q40GysvJryukk5fx5nnlurL5COQS14eZybcNMEd7rLUAAkp
+	1M04P/UA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU4iX-00000005Ss0-2kNU;
+	Tue, 24 Jun 2025 14:33:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775625;
-	bh=HkWjdGq2PFv47jFUCmV3Fme+J0/pfW9BUauNvIN/lsU=;
+	s=mail; t=1750775624;
+	bh=bf++AAMVsRdlK8ZXZIEoCdT5vXCmrXzvterr8licGP4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ze8lUnafHpIGMQo+ivBvf1LGjPGxMiL+YAGoA6VG7Se60DoIYAeTDeLscCoY42XFK
-	 CcpIbipILj9GH6V05fG0hVhvbt3U0uZD6wBSDxqzvIRc04/NsGAJAmLGlJSLAZ8hGx
-	 FwiOQQBYCh5L0+X3uOG4djvfeR55X0QxLRtJt8i2GiHhxqq0wbGDolFfJI1qpe+ffj
-	 2IFrrKp/RP0wI0UB6eL/T2FRvlccuvubyM9HxZcHChYIccgRm+kyPkFmQ3gPt8b5Xm
-	 EF9V4koaCJfdhvgoIZlAUJ6/3t8JoH8gp3i1MBFCTy8KH5VFJSr5lOI+5fyAor2uFV
-	 kBznHUnf30MzA==
+	b=kCGVLLUZPg6n83RiJw/QUn1WmQlLddpQMsa6yq9QG+f5fV/C5cN1DWLBwaOonmXKl
+	 KNeefaUGGC8JkLlIJJxIo/cYj0NzjDj4QTWXNw/BD3qOU++bQNadvcR4+qhdtFqrbh
+	 iXjuPgUZILvITrwnLO0pFMB+i9L4Q+prR5gw5vs7gGlBtx0KbU72VyOyxauwPiX4A6
+	 rGeEs9tdeSJU+dPqQ90Yd86/y9RN5IGBES1N9asHZqFiF+sHUDiHgcrJP/vPEv5lak
+	 Cipgpyk4fzltEeFaSnUOfu1gKpFwVif8HTh7CTMGOdtMVjd72ldszZ021gq0/pumzE
+	 3tToasGptiOzA==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F27117E0EA4;
-	Tue, 24 Jun 2025 16:33:44 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3114C17E088B;
+	Tue, 24 Jun 2025 16:33:43 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -63,17 +77,17 @@ Cc: guangjie.song@mediatek.com,
 	netdev@vger.kernel.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 11/29] clk: mediatek: Add MT8196 apmixedsys clock support
-Date: Tue, 24 Jun 2025 16:32:02 +0200
-Message-Id: <20250624143220.244549-12-laura.nao@collabora.com>
+Subject: [PATCH v2 10/29] dt-bindings: reset: Add MediaTek MT8196 Reset Controller binding
+Date: Tue, 24 Jun 2025 16:32:01 +0200
+Message-Id: <20250624143220.244549-11-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
 References: <20250624143220.244549-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_073347_287872_30EF1B27 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20250624_153345_964224_FF125DEA 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,258 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 apmixedsys clock controller, which provides
-PLLs generated from SoC 26m.
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Add a binding for the PEXTP0/1 and UFS reset controllers found in
+the MediaTek MT8196 Chromebook SoC.
+
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig                 |   8 +
- drivers/clk/mediatek/Makefile                |   1 +
- drivers/clk/mediatek/clk-mt8196-apmixedsys.c | 203 +++++++++++++++++++
- 3 files changed, 212 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
+ .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index ff8a87112969..c55a7c8bdcc5 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1060,6 +1060,14 @@ config COMMON_CLK_MT8195_VENCSYS
- 	help
- 	  This driver supports MediaTek MT8195 vencsys clocks.
- 
-+config COMMON_CLK_MT8196
-+	tristate "Clock driver for MediaTek MT8196"
-+	depends on ARM64 || COMPILE_TEST
-+	select COMMON_CLK_MEDIATEK
-+	default ARCH_MEDIATEK
-+	help
-+	  This driver supports MediaTek MT8196 basic clocks.
-+
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 73004e318702..b1773d2bcb3d 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -160,6 +160,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_VDOSYS) += clk-mt8195-vdo0.o clk-mt8195-vdo1.o
- obj-$(CONFIG_COMMON_CLK_MT8195_VENCSYS) += clk-mt8195-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8195_VPPSYS) += clk-mt8195-vpp0.o clk-mt8195-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
-+obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-apmixedsys.c b/drivers/clk/mediatek/clk-mt8196-apmixedsys.c
+diff --git a/include/dt-bindings/reset/mediatek,mt8196-resets.h b/include/dt-bindings/reset/mediatek,mt8196-resets.h
 new file mode 100644
-index 000000000000..4bd617d30295
+index 000000000000..46ced0850d91
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-apmixedsys.c
-@@ -0,0 +1,203 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/include/dt-bindings/reset/mediatek,mt8196-resets.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
 + * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
++ * Author: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 + */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
 +
-+#include "clk-mtk.h"
-+#include "clk-pll.h"
++#ifndef _DT_BINDINGS_RESET_CONTROLLER_MT8196
++#define _DT_BINDINGS_RESET_CONTROLLER_MT8196
 +
-+/* APMIXEDSYS PLL control register offsets */
-+#define MAINPLL_CON0	0x250
-+#define MAINPLL_CON1	0x254
-+#define UNIVPLL_CON0	0x264
-+#define UNIVPLL_CON1	0x268
-+#define MSDCPLL_CON0	0x278
-+#define MSDCPLL_CON1	0x27c
-+#define ADSPPLL_CON0	0x28c
-+#define ADSPPLL_CON1	0x290
-+#define EMIPLL_CON0	0x2a0
-+#define EMIPLL_CON1	0x2a4
-+#define EMIPLL2_CON0	0x2b4
-+#define EMIPLL2_CON1	0x2b8
-+#define NET1PLL_CON0	0x2c8
-+#define NET1PLL_CON1	0x2cc
-+#define SGMIIPLL_CON0	0x2dc
-+#define SGMIIPLL_CON1	0x2e0
++/* PEXTP0 resets */
++#define MT8196_PEXTP0_RST0_PCIE0_MAC		0
++#define MT8196_PEXTP0_RST0_PCIE0_PHY		1
 +
-+/* APMIXEDSYS_GP2 PLL control register offsets*/
-+#define MAINPLL2_CON0	0x250
-+#define MAINPLL2_CON1	0x254
-+#define UNIVPLL2_CON0	0x264
-+#define UNIVPLL2_CON1	0x268
-+#define MMPLL2_CON0	0x278
-+#define MMPLL2_CON1	0x27c
-+#define IMGPLL_CON0	0x28c
-+#define IMGPLL_CON1	0x290
-+#define TVDPLL1_CON0	0x2a0
-+#define TVDPLL1_CON1	0x2a4
-+#define TVDPLL2_CON0	0x2b4
-+#define TVDPLL2_CON1	0x2b8
-+#define TVDPLL3_CON0	0x2c8
-+#define TVDPLL3_CON1	0x2cc
++/* PEXTP1 resets */
++#define MT8196_PEXTP1_RST0_PCIE1_MAC		0
++#define MT8196_PEXTP1_RST0_PCIE1_PHY		1
++#define MT8196_PEXTP1_RST0_PCIE2_MAC		2
++#define MT8196_PEXTP1_RST0_PCIE2_PHY		3
 +
-+#define PLLEN_ALL	0x080
-+#define PLLEN_ALL_SET	0x084
-+#define PLLEN_ALL_CLR	0x088
++/* UFS resets */
++#define MT8196_UFSAO_RST0_UFS_MPHY		0
++#define MT8196_UFSAO_RST1_UFS_UNIPRO		1
++#define MT8196_UFSAO_RST1_UFS_CRYPTO		2
++#define MT8196_UFSAO_RST1_UFSHCI		3
 +
-+#define FENC_STATUS_CON0	0x03c
-+
-+#define MT8196_PLL_FMAX		(3800UL * MHZ)
-+#define MT8196_PLL_FMIN		(1500UL * MHZ)
-+#define MT8196_INTEGER_BITS	8
-+
-+#define PLL_FENC(_id, _name, _reg, _fenc_sta_ofs, _fenc_sta_bit,\
-+			_flags, _pd_reg, _pd_shift,		\
-+			_pcw_reg, _pcw_shift, _pcwbits,		\
-+			_pll_en_bit) {				\
-+		.id = _id,					\
-+		.name = _name,					\
-+		.reg = _reg,					\
-+		.fenc_sta_ofs = _fenc_sta_ofs,			\
-+		.fenc_sta_bit = _fenc_sta_bit,			\
-+		.flags = _flags,				\
-+		.fmax = MT8196_PLL_FMAX,			\
-+		.fmin = MT8196_PLL_FMIN,			\
-+		.pd_reg = _pd_reg,				\
-+		.pd_shift = _pd_shift,				\
-+		.pcw_reg = _pcw_reg,				\
-+		.pcw_shift = _pcw_shift,			\
-+		.pcwbits = _pcwbits,				\
-+		.pcwibits = MT8196_INTEGER_BITS,		\
-+		.en_reg = PLLEN_ALL,				\
-+		.en_set_reg = PLLEN_ALL_SET,			\
-+		.en_clr_reg = PLLEN_ALL_CLR,			\
-+		.pll_en_bit = _pll_en_bit,			\
-+		.ops = &mtk_pll_fenc_clr_set_ops,		\
-+}
-+
-+struct mtk_pll_desc {
-+	const struct mtk_pll_data *clks;
-+	size_t num_clks;
-+};
-+
-+static const struct mtk_pll_data apmixed_plls[] = {
-+	PLL_FENC(CLK_APMIXED_MAINPLL, "mainpll", MAINPLL_CON0, FENC_STATUS_CON0,
-+		 7, PLL_AO, MAINPLL_CON1, 24, MAINPLL_CON1, 0, 22, 0),
-+	PLL_FENC(CLK_APMIXED_UNIVPLL, "univpll", UNIVPLL_CON0, FENC_STATUS_CON0,
-+		 6, 0, UNIVPLL_CON1, 24, UNIVPLL_CON1, 0, 22, 1),
-+	PLL_FENC(CLK_APMIXED_MSDCPLL, "msdcpll", MSDCPLL_CON0, FENC_STATUS_CON0,
-+		 5, 0, MSDCPLL_CON1, 24, MSDCPLL_CON1, 0, 22, 2),
-+	PLL_FENC(CLK_APMIXED_ADSPPLL, "adsppll", ADSPPLL_CON0, FENC_STATUS_CON0,
-+		 4, 0, ADSPPLL_CON1, 24, ADSPPLL_CON1, 0, 22, 3),
-+	PLL_FENC(CLK_APMIXED_EMIPLL, "emipll", EMIPLL_CON0, FENC_STATUS_CON0, 3,
-+		 PLL_AO, EMIPLL_CON1, 24, EMIPLL_CON1, 0, 22, 4),
-+	PLL_FENC(CLK_APMIXED_EMIPLL2, "emipll2", EMIPLL2_CON0, FENC_STATUS_CON0,
-+		 2, PLL_AO, EMIPLL2_CON1, 24, EMIPLL2_CON1, 0, 22, 5),
-+	PLL_FENC(CLK_APMIXED_NET1PLL, "net1pll", NET1PLL_CON0, FENC_STATUS_CON0,
-+		 1, 0, NET1PLL_CON1, 24, NET1PLL_CON1, 0, 22, 6),
-+	PLL_FENC(CLK_APMIXED_SGMIIPLL, "sgmiipll", SGMIIPLL_CON0, FENC_STATUS_CON0,
-+		 0, 0, SGMIIPLL_CON1, 24, SGMIIPLL_CON1, 0, 22, 7),
-+};
-+
-+static const struct mtk_pll_desc apmixed_desc = {
-+	.clks = apmixed_plls,
-+	.num_clks = ARRAY_SIZE(apmixed_plls),
-+};
-+
-+static const struct mtk_pll_data apmixed2_plls[] = {
-+	PLL_FENC(CLK_APMIXED2_MAINPLL2, "mainpll2", MAINPLL2_CON0, FENC_STATUS_CON0,
-+		 6, 0, MAINPLL2_CON1, 24, MAINPLL2_CON1, 0, 22, 0),
-+	PLL_FENC(CLK_APMIXED2_UNIVPLL2, "univpll2", UNIVPLL2_CON0, FENC_STATUS_CON0,
-+		 5, 0, UNIVPLL2_CON1, 24, UNIVPLL2_CON1, 0, 22, 1),
-+	PLL_FENC(CLK_APMIXED2_MMPLL2, "mmpll2", MMPLL2_CON0, FENC_STATUS_CON0,
-+		 4, 0, MMPLL2_CON1, 24, MMPLL2_CON1, 0, 22, 2),
-+	PLL_FENC(CLK_APMIXED2_IMGPLL, "imgpll", IMGPLL_CON0, FENC_STATUS_CON0,
-+		 3, 0, IMGPLL_CON1, 24, IMGPLL_CON1, 0, 22, 3),
-+	PLL_FENC(CLK_APMIXED2_TVDPLL1, "tvdpll1", TVDPLL1_CON0, FENC_STATUS_CON0,
-+		 2, 0, TVDPLL1_CON1, 24, TVDPLL1_CON1, 0, 22, 4),
-+	PLL_FENC(CLK_APMIXED2_TVDPLL2, "tvdpll2", TVDPLL2_CON0, FENC_STATUS_CON0,
-+		 1, 0, TVDPLL2_CON1, 24, TVDPLL2_CON1, 0, 22, 5),
-+	PLL_FENC(CLK_APMIXED2_TVDPLL3, "tvdpll3", TVDPLL3_CON0, FENC_STATUS_CON0,
-+		 0, 0, TVDPLL3_CON1, 24, TVDPLL3_CON1, 0, 22, 6),
-+};
-+
-+static const struct mtk_pll_desc apmixed2_desc = {
-+	.clks = apmixed2_plls,
-+	.num_clks = ARRAY_SIZE(apmixed2_plls),
-+};
-+
-+static int clk_mt8196_apmixed_probe(struct platform_device *pdev)
-+{
-+	struct clk_hw_onecell_data *clk_data;
-+	struct device_node *node = pdev->dev.of_node;
-+	const struct mtk_pll_desc *mcd;
-+	int r;
-+
-+	mcd = device_get_match_data(&pdev->dev);
-+	if (!mcd)
-+		return -EINVAL;
-+
-+	clk_data = mtk_alloc_clk_data(mcd->num_clks);
-+	if (!clk_data)
-+		return -ENOMEM;
-+
-+	r = mtk_clk_register_plls(node, mcd->clks, mcd->num_clks, clk_data);
-+	if (r)
-+		goto free_apmixed_data;
-+
-+	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-+	if (r)
-+		goto unregister_plls;
-+
-+	platform_set_drvdata(pdev, clk_data);
-+
-+	return r;
-+
-+unregister_plls:
-+	mtk_clk_unregister_plls(mcd->clks, mcd->num_clks, clk_data);
-+free_apmixed_data:
-+	mtk_free_clk_data(clk_data);
-+	return r;
-+}
-+
-+static void clk_mt8196_apmixed_remove(struct platform_device *pdev)
-+{
-+	const struct mtk_pll_desc *mcd = device_get_match_data(&pdev->dev);
-+	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-+	struct device_node *node = pdev->dev.of_node;
-+
-+	of_clk_del_provider(node);
-+	mtk_clk_unregister_plls(mcd->clks, mcd->num_clks, clk_data);
-+	mtk_free_clk_data(clk_data);
-+}
-+
-+static const struct of_device_id of_match_clk_mt8196_apmixed[] = {
-+	{ .compatible = "mediatek,mt8196-apmixedsys", .data = &apmixed_desc },
-+	{ .compatible = "mediatek,mt8196-apmixedsys-gp2",
-+	  .data = &apmixed2_desc },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_apmixed);
-+
-+static struct platform_driver clk_mt8196_apmixed_drv = {
-+	.probe = clk_mt8196_apmixed_probe,
-+	.remove = clk_mt8196_apmixed_remove,
-+	.driver = {
-+		.name = "clk-mt8196-apmixed",
-+		.of_match_table = of_match_clk_mt8196_apmixed,
-+	},
-+};
-+module_platform_driver(clk_mt8196_apmixed_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 apmixedsys clocks driver");
-+MODULE_LICENSE("GPL");
++#endif  /* _DT_BINDINGS_RESET_CONTROLLER_MT8196 */
 -- 
 2.39.5
 
