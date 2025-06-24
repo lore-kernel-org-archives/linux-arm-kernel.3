@@ -4,68 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F56C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7E1C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGahUqCdf5meXkcjTq5OK95LkheDAyTPie1mUYbgP78=; b=IV6R7OVzxDF+ZsZdLdY8UbLjnB
-	BGmp/pb5oOSV1si0q2EM+g6CM/xpUX3LzINwbznqGi82WwlTa5rNgo8AVjNOcCAjYXihQf6FXIZxN
-	WCyKpk3/ENmdv40+mU8CLkSYcQRCNw4ELfKeB+yAPELu6PcBrLvxcICcWlZvVczNPa2s5110TCSE2
-	mRQFyh4aUSyvUaeOXDIfAEbD5zsi0ewi1Tz0f8RxSxB5L6AAZ1q0nL5uYPR0/Lvo/+5XxUND+UtE9
-	jgiEX93Zz0Xf+6nkmM/ksbFohFLo9nmacBfdv/5a/hjAkmB+/KXTnYlqoQpmcdgYnj66a8aA12274
-	Iz8kXmPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=; b=IkKB/gD57AJPABnzJb7izzNk+8
+	x5X5NkFunl9Dd6H+a6R2VAZD/wSc43Z7K+26xb/weuSrX5a3mM20ebkyghKIMfR30ZiZbWuNp+I59
+	KRlDEU+own1xvdKHCA3u06DDZGIhwEOU5F3egqDO2K9tHlCzDZWbi/MzqVGhdPo6iJSd/CxE8mTIR
+	qAikj0tGSxpXd3WkbM8XhjiGSj6w+ql8e/c2EIvcBeOTXjde8ACjUVXqXi/FI1JWEFwCITN+T0dxv
+	WfZAarkqApCSnuVh5PPpnDiOZIx/8xQI63afC/KzWEpqydwO89gvEA9vu2EZFln+zgJ30pi23qZoC
+	wl0igZvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUCRc-000000071gN-3maj;
-	Tue, 24 Jun 2025 22:48:48 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1uUCTv-000000071sC-2YfN;
+	Tue, 24 Jun 2025 22:51:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUBba-00000006uuc-2CE4
+	id 1uUC01-00000006z3N-1uJI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 21:55:04 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7C4AF101E8501;
-	Tue, 24 Jun 2025 23:54:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1750802100; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=wGahUqCdf5meXkcjTq5OK95LkheDAyTPie1mUYbgP78=;
-	b=RJgakawTrO/SDfig9PyagjMfiQukmvus9v/OOWf32WB0Rol8PnMAFUaqO9yYwtFGkb2eZr
-	8ETiK8jI411rC7apwziHw2QUjkIUhnubRG7WgHjQjS+hwq/Co2vaJYWsKHgGLISZHwBqua
-	biK80g4vB0MM0MJ0OhvEzOOP86velfSX8Nd2BkP2TE/m2VubbwqbDReGzeY9aDU7fnvPwI
-	wi4FFgDaKZjhByrDqQe06PNhlKvSkrmm+EL1wTQfCP1YwP0+dzM8QYZtoI0pdW+q60cOOx
-	ctexi56Wro4TtaGCJColMP1RAzFC9FE8piD5UXQN3EjC2qpFxp9U327aoAnIYA==
-Date: Tue, 24 Jun 2025 23:54:54 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v13 06/11] net: mtip: Add mtip_switch_{rx|tx}
- functions to the L2 switch driver
-Message-ID: <20250624235454.1bf0b96a@wsk>
-In-Reply-To: <0de412ee-c9ce-463b-92ef-58a33fd132d1@redhat.com>
-References: <20250622093756.2895000-1-lukma@denx.de>
-	<20250622093756.2895000-7-lukma@denx.de>
-	<0de412ee-c9ce-463b-92ef-58a33fd132d1@redhat.com>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 24 Jun 2025 22:20:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750803615;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=;
+	b=Jz7NdXND2Pmgoq/XIOrGd7Etvu4fbh7prmUODXvPRL3qN/b/4XNYAsWRb+CHo+rXSfoPrN
+	m5pS53tsKQlgoH0kgz/FCgWqwtezqaFuHyabio8mDp41KppTDlqVB0YnnFaeMJ39ebqdfD
+	YWR+VtFdb0yACoJHF2kzlTLXKqj9oRs=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-375-Ta_pEEidOVSykVp3m7vP4g-1; Tue, 24 Jun 2025 18:18:38 -0400
+X-MC-Unique: Ta_pEEidOVSykVp3m7vP4g-1
+X-Mimecast-MFC-AGG-ID: Ta_pEEidOVSykVp3m7vP4g_1750803517
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a4f7ebfd00so491329f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 15:18:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750803517; x=1751408317;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bxAjegPK/mrUwx8jrxPfkMyNj9EiwAEec1B10qnRZac=;
+        b=xJYI37vDn7ZumUFLdC6Uetaj2lBneU4Ld/W3NhpEcD8wkFPgFFojG/3VgtubaO6Smc
+         br/KglohP67Za6vphmVzgHNFufULpTob7TBPgjfzZfKqJ4tZK/rOVsBrgZbIFQsAA1TJ
+         nOFVM7D0OMJm0aWYY8sY/EVKXikNPJ1/zuU9ypZ9A83D9x5vixJ/w9RiRw/fj1hnDlff
+         TxL6r1N5JXkqIEiICCw2Yh3wo6hWooKPc2QlMU6SB8CH6ZAlgCfhp/Eg2Ocr9O0khWHr
+         fxmfsplIJ32RAE+DpYMaTq75rIiLOZTsSOq1E3sRJSue7Kk5adGftdYsyRWLgNp1bviV
+         /EFw==
+X-Forwarded-Encrypted: i=1; AJvYcCWl9jpVGZ4fyJwapoECQOWXyUGRDraI83XJwlpFUwKw4wpncVk+7PuCuPe/0orcPX10p/RDUwhg9xlLnApz8+W2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHx2XJf44yi35ubnxNh231XH0CrIXurK+n898aTRxZP/8Q4RLs
+	72fAVYwPrb7AeLiKHfJhLRfrWCKjL46X0dmLmf6EXKdv7nT8+zMZnMO7c+kh3K2X83XknyewwbI
+	spLtOG5MREmn0+h1tuSHVdL8pdL+xuF60iAYD2Jt4yJklpzSS3Yei4NAJuNynHog/95dxNr0nVZ
+	0s
+X-Gm-Gg: ASbGncuFK5OvraMvwQpq2RkYPFnSVbd0GZBTbQ8HvlYUxGtdKMC/jJ69hDehSqlqjpr
+	ruJrNsB3MUYztcNBrPDivHfRNd6sndhIy4VM+Fs3w323b4KNIW4vBL0LJgcOeCg80EHQF+qdktb
+	TiFWH3JeWIP3by8Vy9g4S6LJqXe3iFzAaow47xNzK09ig+ZJSzCpBTdT227fVBUGzVAMvwYywKP
+	b+iNiZ/SMPKqtYd9nGIIceR77B2WzZ6L+YwusHnPg7q3r7psrF3+ddi6BXKK2Ra+FEo4CA8Jxja
+	5iCVAwrPx+M/K1DRlDo+c7Tge1E5QVdxZbMF0g6yAM45JY1d5NHTs9pFDaSZ1w==
+X-Received: by 2002:a05:6000:4a04:b0:3a4:fc52:f5d4 with SMTP id ffacd0b85a97d-3a6ed66e660mr259020f8f.47.1750803517054;
+        Tue, 24 Jun 2025 15:18:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGgaiZu6Jnvv4KZOV08AX5p0ZetFt8VZ3DH1c9WqbbWm4WIsdHnH3J35vd6e6Y8A8S4HPKSng==
+X-Received: by 2002:a05:6000:4a04:b0:3a4:fc52:f5d4 with SMTP id ffacd0b85a97d-3a6ed66e660mr259010f8f.47.1750803516581;
+        Tue, 24 Jun 2025 15:18:36 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:c:37e0:8998:e0cf:68cc:1b62? ([2a01:e0a:c:37e0:8998:e0cf:68cc:1b62])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45382373c86sm1501705e9.33.2025.06.24.15.18.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Jun 2025 15:18:36 -0700 (PDT)
+Message-ID: <cbaf2819-84b3-4482-8d91-7d3d24625e4f@redhat.com>
+Date: Wed, 25 Jun 2025 00:18:29 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/V++v/0cAATHYMBWHAJHNfXt";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
+To: Andrei Lalaev <andrey.lalaev@gmail.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>,
+ Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Simona Vetter <simona@ffwll.ch>,
+ Paolo Bonzini <pbonzini@redhat.com>, David Airlie <airlied@gmail.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ dri-devel@lists.freedesktop.org,
+ rust-for-linux <rust-for-linux@vger.kernel.org>
+References: <20250418165059.560503-1-jfalempe@redhat.com>
+ <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: OiuqOQ1dl57dx758PzAlvA5o1OfioacQL2kMT8nyzmE_1750803517
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, fr
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_145502_863730_F50BDFA7 
-X-CRM114-Status: GOOD (  52.99  )
+X-CRM114-CacheID: sfid-20250624_152017_572140_1E5B3A5D 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,393 +120,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/V++v/0cAATHYMBWHAJHNfXt
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On 24/06/2025 20:55, Andrei Lalaev wrote:
+> On 18.04.25 18:48, Jocelyn Falempe wrote:
+>> On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
+>> to use a simple fifo with decimal digits as u8 instead.
+>> This is slower but should compile on all architecture.
+>>
+>> Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
+>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>> ---
+>>   drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
+>>   1 file changed, 48 insertions(+), 23 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
+>> index 6025a705530e..dd55b1cb764d 100644
+>> --- a/drivers/gpu/drm/drm_panic_qr.rs
+>> +++ b/drivers/gpu/drm/drm_panic_qr.rs
+>> @@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
+>>           SegmentIterator {
+>>               segment: self,
+>>               offset: 0,
+>> -            carry: 0,
+>> -            carry_len: 0,
+>> +            decfifo: Default::default(),
+>> +        }
+>> +    }
+>> +}
+>> +
+>> +/// Max fifo size is 17 (max push) + 2 (max remaining)
+>> +const MAX_FIFO_SIZE: usize = 19;
+>> +
+>> +/// A simple Decimal digit FIFO
+>> +#[derive(Default)]
+>> +struct DecFifo {
+>> +    decimals: [u8; MAX_FIFO_SIZE],
+>> +    len: usize,
+>> +}
+>> +
+>> +impl DecFifo {
+>> +    fn push(&mut self, data: u64, len: usize) {
+>> +        let mut chunk = data;
+>> +        for i in (0..self.len).rev() {
+>> +            self.decimals[i + len] = self.decimals[i];
+>> +        }
+>> +        for i in 0..len {
+>> +            self.decimals[i] = (chunk % 10) as u8;
+>> +            chunk /= 10;
+>> +        }
+>> +        self.len += len;
+>> +    }
+>> +
+>> +    /// Pop 3 decimal digits from the FIFO
+>> +    fn pop3(&mut self) -> Option<(u16, usize)> {
+>> +        if self.len == 0 {
+>> +            None
+>> +        } else {
+>> +            let poplen = 3.min(self.len);
+>> +            self.len -= poplen;
+>> +            let mut out = 0;
+>> +            let mut exp = 1;
+>> +            for i in 0..poplen {
+>> +                out += self.decimals[self.len + i] as u16 * exp;
+>> +                exp *= 10;
+>> +            }
+>> +            Some((out, NUM_CHARS_BITS[poplen]))
+>>           }
+>>       }
+>>   }
+>> @@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
+>>   struct SegmentIterator<'a> {
+>>       segment: &'a Segment<'a>,
+>>       offset: usize,
+>> -    carry: u64,
+>> -    carry_len: usize,
+>> +    decfifo: DecFifo,
+>>   }
+>>   
+>>   impl Iterator for SegmentIterator<'_> {
+>> @@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
+>>                   }
+>>               }
+>>               Segment::Numeric(data) => {
+>> -                if self.carry_len < 3 && self.offset < data.len() {
+>> -                    // If there are less than 3 decimal digits in the carry,
+>> -                    // take the next 7 bytes of input, and add them to the carry.
+>> +                if self.decfifo.len < 3 && self.offset < data.len() {
+>> +                    // If there are less than 3 decimal digits in the fifo,
+>> +                    // take the next 7 bytes of input, and push them to the fifo.
+>>                       let mut buf = [0u8; 8];
+>>                       let len = 7.min(data.len() - self.offset);
+>>                       buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
+>>                       let chunk = u64::from_le_bytes(buf);
+>> -                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
+>> -                    self.carry = chunk + self.carry * pow;
+>> +                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
+>>                       self.offset += len;
+>> -                    self.carry_len += BYTES_TO_DIGITS[len];
+>> -                }
+>> -                match self.carry_len {
+>> -                    0 => None,
+>> -                    len => {
+>> -                        // take the next 3 decimal digits of the carry
+>> -                        // and return 10bits of numeric data.
+>> -                        let out_len = 3.min(len);
+>> -                        self.carry_len -= out_len;
+>> -                        let pow = u64::pow(10, self.carry_len as u32);
+>> -                        let out = (self.carry / pow) as u16;
+>> -                        self.carry %= pow;
+>> -                        Some((out, NUM_CHARS_BITS[out_len]))
+>> -                    }
+>>                   }
+>> +                self.decfifo.pop3()
+>>               }
+>>           }
+>>       }
+>>
+>> base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
+> 
+> Hi Jocelyn,
+> 
+> Apologies for reviving this old thread, but I'm still encountering
+> the same issue with the latest master (78f4e737a53e).
+> 
+> When compiling this module for ARM32 (multi_v7_defconfig),
+> I get the following error:
+> 
+>      ld.lld: error: undefined symbol: __aeabi_uldivmod
+>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
+>      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
+>      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/drm_panic_qr.rs:392)
+>      >>>               drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>      >>> referenced 14 more times
+>      >>> did you mean: __aeabi_uidivmod
+>      >>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
+> 
+> Since no one else has reported this in two months, I’m wondering
+> if this might be a configuration issue on my end.
 
-Hi Paolo,
+Ok, that's surprising, the lines 391 and 392 are:
 
-> On 6/22/25 11:37 AM, Lukasz Majewski wrote:
-> > This patch provides mtip_switch_tx and mtip_switch_rx functions
-> > code for MTIP L2 switch.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> > Changes for v13:
-> > - New patch - created by excluding some code from large (i.e. v12
-> > and earlier) MTIP driver
-> > ---
-> >  .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 252
-> > ++++++++++++++++++ 1 file changed, 252 insertions(+)
-> >=20
-> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c index
-> > 813cd39d6d56..a4e38e0d773e 100644 ---
-> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c @@ -228,6
-> > +228,39 @@ struct mtip_port_info *mtip_portinfofifo_read(struct
-> > switch_enet_private *fep) return info; }
-> > =20
-> > +static void mtip_atable_get_entry_port_number(struct
-> > switch_enet_private *fep,
-> > +					      unsigned char
-> > *mac_addr, u8 *port) +{
-> > +	int block_index, block_index_end, entry;
-> > +	u32 mac_addr_lo, mac_addr_hi;
-> > +	u32 read_lo, read_hi;
-> > +
-> > +	mac_addr_lo =3D (u32)((mac_addr[3] << 24) | (mac_addr[2] <<
-> > 16) |
-> > +			    (mac_addr[1] << 8) | mac_addr[0]);
-> > +	mac_addr_hi =3D (u32)((mac_addr[5] << 8) | (mac_addr[4]));
-> > +
-> > +	block_index =3D GET_BLOCK_PTR(crc8_calc(mac_addr));
-> > +	block_index_end =3D block_index + ATABLE_ENTRY_PER_SLOT;
-> > +
-> > +	/* now search all the entries in the selected block */
-> > +	for (entry =3D block_index; entry < block_index_end;
-> > entry++) {
-> > +		mtip_read_atable(fep, entry, &read_lo, &read_hi);
-> > +		*port =3D MTIP_PORT_FORWARDING_INIT;
-> > +
-> > +		if (read_lo =3D=3D mac_addr_lo &&
-> > +		    ((read_hi & 0x0000FFFF) =3D=3D
-> > +		     (mac_addr_hi & 0x0000FFFF))) {
-> > +			/* found the correct address */
-> > +			if ((read_hi & (1 << 16)) && (!(read_hi &
-> > (1 << 17))))
-> > +				*port =3D FIELD_GET(AT_PORT_MASK,
-> > read_hi);
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	dev_dbg(&fep->pdev->dev, "%s: MAC: %pM PORT: 0x%x\n",
-> > __func__,
-> > +		mac_addr, *port);
-> > +}
-> > +
-> >  /* Clear complete MAC Look Up Table */
-> >  void mtip_clear_atable(struct switch_enet_private *fep)
-> >  {
-> > @@ -820,10 +853,229 @@ static irqreturn_t mtip_interrupt(int irq,
-> > void *ptr_fep)=20
-> >  static void mtip_switch_tx(struct net_device *dev)
-> >  {
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	unsigned short status;
-> > +	struct sk_buff *skb;
-> > +	unsigned long flags;
-> > +	struct cbd_t *bdp;
-> > +
-> > +	spin_lock_irqsave(&fep->hw_lock, flags); =20
->=20
-> This is called from napi (bh) context, and every other caller
-> is/should be BH, too. You should use
->=20
-> 	spin_lock_bh()
->=20
+self.decimals[i] = (chunk % 10) as u8;
+chunk /= 10;
 
-Ok.
-
-> Also please test your patches with CONFIG_LOCKDEP and
-> CONFIG_DEBUG_SPINLOCK enabled, thet will help finding this king of
-> issues.
-
-Ok. I will check with lockdep.
-
->=20
-> /P
->=20
-> > +	bdp =3D fep->dirty_tx;
-> > +
-> > +	while (((status =3D bdp->cbd_sc) & BD_ENET_TX_READY) =3D=3D 0) {
-> > +		if (bdp =3D=3D fep->cur_tx && fep->tx_full =3D=3D 0)
-> > +			break;
-> > +
-> > +		dma_unmap_single(&fep->pdev->dev, bdp->cbd_bufaddr,
-> > +				 MTIP_SWITCH_TX_FRSIZE,
-> > DMA_TO_DEVICE);
-> > +		bdp->cbd_bufaddr =3D 0;
-> > +		skb =3D fep->tx_skbuff[fep->skb_dirty];
-> > +		/* Check for errors */
-> > +		if (status & (BD_ENET_TX_HB | BD_ENET_TX_LC |
-> > +				   BD_ENET_TX_RL | BD_ENET_TX_UN |
-> > +				   BD_ENET_TX_CSL)) {
-> > +			dev->stats.tx_errors++;
-> > +			if (status & BD_ENET_TX_HB)  /* No
-> > heartbeat */
-> > +				dev->stats.tx_heartbeat_errors++;
-> > +			if (status & BD_ENET_TX_LC)  /* Late
-> > collision */
-> > +				dev->stats.tx_window_errors++;
-> > +			if (status & BD_ENET_TX_RL)  /* Retrans
-> > limit */
-> > +				dev->stats.tx_aborted_errors++;
-> > +			if (status & BD_ENET_TX_UN)  /* Underrun */
-> > +				dev->stats.tx_fifo_errors++;
-> > +			if (status & BD_ENET_TX_CSL) /* Carrier
-> > lost */
-> > +				dev->stats.tx_carrier_errors++;
-> > +		} else {
-> > +			dev->stats.tx_packets++;
-> > +		}
-> > +
-> > +		if (status & BD_ENET_TX_READY)
-> > +			dev_err(&fep->pdev->dev,
-> > +				"Enet xmit interrupt and
-> > TX_READY.\n"); +
-> > +		/* Deferred means some collisions occurred during
-> > transmit,
-> > +		 * but we eventually sent the packet OK.
-> > +		 */
-> > +		if (status & BD_ENET_TX_DEF)
-> > +			dev->stats.collisions++;
-> > +
-> > +		/* Free the sk buffer associated with this last
-> > transmit */
-> > +		dev_consume_skb_irq(skb);
-> > +		fep->tx_skbuff[fep->skb_dirty] =3D NULL;
-> > +		fep->skb_dirty =3D (fep->skb_dirty + 1) &
-> > TX_RING_MOD_MASK; +
-> > +		/* Update pointer to next buffer descriptor to be
-> > transmitted */
-> > +		if (status & BD_ENET_TX_WRAP)
-> > +			bdp =3D fep->tx_bd_base;
-> > +		else
-> > +			bdp++;
-> > +
-> > +		/* Since we have freed up a buffer, the ring is no
-> > longer
-> > +		 * full.
-> > +		 */
-> > +		if (fep->tx_full) {
-> > +			fep->tx_full =3D 0;
-> > +			if (netif_queue_stopped(dev))
-> > +				netif_wake_queue(dev);
-> > +		}
-> > +	}
-> > +	fep->dirty_tx =3D bdp;
-> > +	spin_unlock_irqrestore(&fep->hw_lock, flags);
-> >  }
-> > =20
-> > +/* During a receive, the cur_rx points to the current incoming
-> > buffer.
-> > + * When we update through the ring, if the next incoming buffer has
-> > + * not been given to the system, we just set the empty indicator,
-> > + * effectively tossing the packet.
-> > + */
-> >  static int mtip_switch_rx(struct net_device *dev, int budget, int
-> > *port) {
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	u8 *data, rx_port =3D MTIP_PORT_FORWARDING_INIT;
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	unsigned short status, pkt_len;
-> > +	struct net_device *pndev;
-> > +	struct ethhdr *eth_hdr;
-> > +	int pkt_received =3D 0;
-> > +	struct sk_buff *skb;
-> > +	struct cbd_t *bdp;
-> > +	struct page *page;
-> > +
-> > +	spin_lock_bh(&fep->hw_lock);
-> > +
-> > +	/* First, grab all of the stats for the incoming packet.
-> > +	 * These get messed up if we get called due to a busy
-> > condition.
-> > +	 */
-> > +	bdp =3D fep->cur_rx;
-> > +
-> > +	while (!((status =3D bdp->cbd_sc) & BD_ENET_RX_EMPTY)) {
-> > +		if (pkt_received >=3D budget)
-> > +			break;
-> > +
-> > +		pkt_received++;
-> > +		/* Since we have allocated space to hold a
-> > complete frame,
-> > +		 * the last indicator should be set.
-> > +		 */
-> > +		if ((status & BD_ENET_RX_LAST) =3D=3D 0)
-> > +			dev_warn_ratelimited(&dev->dev,
-> > +					     "SWITCH ENET: rcv is
-> > not +last\n"); =20
->=20
-> Probably you want to break the look when this condition is hit.
-
-Ok.
-
->=20
-> > +
-> > +		if (!fep->usage_count)
-> > +			goto rx_processing_done;
-> > +
-> > +		/* Check for errors. */
-> > +		if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH |
-> > BD_ENET_RX_NO |
-> > +			      BD_ENET_RX_CR | BD_ENET_RX_OV)) {
-> > +			dev->stats.rx_errors++;
-> > +			if (status & (BD_ENET_RX_LG |
-> > BD_ENET_RX_SH)) {
-> > +				/* Frame too long or too short. */
-> > +				dev->stats.rx_length_errors++;
-> > +			}
-> > +			if (status & BD_ENET_RX_NO)	/*
-> > Frame alignment */
-> > +				dev->stats.rx_frame_errors++;
-> > +			if (status & BD_ENET_RX_CR)	/* CRC
-> > Error */
-> > +				dev->stats.rx_crc_errors++;
-> > +			if (status & BD_ENET_RX_OV)	/* FIFO
-> > overrun */
-> > +				dev->stats.rx_fifo_errors++;
-> > +		}
-> > +
-> > +		/* Report late collisions as a frame error.
-> > +		 * On this error, the BD is closed, but we don't
-> > know what we
-> > +		 * have in the buffer.  So, just drop this frame
-> > on the floor.
-> > +		 */
-> > +		if (status & BD_ENET_RX_CL) {
-> > +			dev->stats.rx_errors++;
-> > +			dev->stats.rx_frame_errors++;
-> > +			goto rx_processing_done;
-> > +		}
-> > +
-> > +		/* Get correct RX page */
-> > +		page =3D fep->page[bdp - fep->rx_bd_base];
-> > +		/* Process the incoming frame */
-> > +		pkt_len =3D bdp->cbd_datlen;
-> > +		data =3D (__u8 *)__va(bdp->cbd_bufaddr);
-> > +
-> > +		dma_sync_single_for_cpu(&fep->pdev->dev,
-> > bdp->cbd_bufaddr,
-> > +					pkt_len, DMA_FROM_DEVICE);
-> > +		prefetch(page_address(page)); =20
->=20
-> Use net_prefetch() instead
->=20
-
-Ok.
-
-> > +
-> > +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
-> > +			swap_buffer(data, pkt_len);
-> > +
-> > +		if (data) {
-> > +			eth_hdr =3D (struct ethhdr *)data;
-> > +			mtip_atable_get_entry_port_number(fep,
-> > +
-> > eth_hdr->h_source,
-> > +
-> > &rx_port);
-> > +			if (rx_port =3D=3D MTIP_PORT_FORWARDING_INIT)
-> > +
-> > mtip_atable_dynamicms_learn_migration(fep,
-> > +
-> >    fep->curr_time,
-> > +
-> >    eth_hdr->h_source,
-> > +
-> >    &rx_port);
-> > +		}
-> > +
-> > +		if ((rx_port =3D=3D 1 || rx_port =3D=3D 2) &&
-> > fep->ndev[rx_port - 1])
-> > +			pndev =3D fep->ndev[rx_port - 1];
-> > +		else
-> > +			pndev =3D dev;
-> > +
-> > +		*port =3D rx_port; =20
->=20
-> Do i read correctly that several network device use the same napi
-> instance? That will break napi assumptions and will incorrectly allow
-> napi merging packets coming from different devices.
-
-Isn't that for what the L2 switch is for? :-)
-
-
-To present the problem is this IP block:
-
-1. I will put aside the "separate" mode, which is only used until the
-bridge is created [*]. In this mode we do have separate uDMAs for each
-ports (i.e. uDMA0 and uDMA1).
-
-2. When offloading in HW L2 frames switching we do have single uDMA0 for
-the bridge (other such devices have separate DMAs for each port - like
-ti's cpsw - the offloading is only by setting one bit - i.e. this bit
-enables switching without touching DMA configuration/setup).
-
-That is why the NAPI is as single instance defined inside
-struct switch_enet_private. It reflects the single uDMA0 used when
-switching offloading is activated.
-
->=20
-> > +
-> > +		/* This does 16 byte alignment, exactly what we
-> > need.
-> > +		 * The packet length includes FCS, but we don't
-> > want to
-> > +		 * include that when passing upstream as it messes
-> > up
-> > +		 * bridging applications.
-> > +		 */
-> > +		skb =3D netdev_alloc_skb(pndev, pkt_len +
-> > NET_IP_ALIGN);
-> > +		if (unlikely(!skb)) {
-> > +			dev_dbg(&fep->pdev->dev,
-> > +				"%s: Memory squeeze, dropping
-> > packet.\n",
-> > +				pndev->name);
-> > +			page_pool_recycle_direct(fep->page_pool,
-> > page);
-> > +			pndev->stats.rx_dropped++;
-> > +			goto err_mem;
-> > +		} else { =20
->=20
-> No need for the else statement above.
->=20
-
-Ok.
-
-> /P
->=20
-
-Note:
-
-[*]:
-
-ip link add name br0 type bridge;
-ip link set lan0 master br0;=20
-ip link set lan1 master br0;=20
-
+So the compiler should be smart enough to do that without using a division.
+I will try to reproduce, and see if I can fix that.
 
 Best regards,
 
-Lukasz Majewski
+> 
+> Thanks a lot!
+> 
 
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/V++v/0cAATHYMBWHAJHNfXt
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhbHq4ACgkQAR8vZIA0
-zr0uBQf8ClaEXIB7Av4OnhGxTJenAk/pKse6Lyj4+j5Y4PKNcWZTCIP5Pot96HqJ
-Bw64dbS5itTjrWt3ondaTumtSiW2FmravAH1CsauaFa+3RH9LHe7TXop/ac+FATr
-6ZbwU2g1fo5uUXVx9Lj63be0cDYCED9PubhcIPh0cL/wsKatiUG0nn2bz3/IMfT+
-2zlgwcPh1gUKis+IoZ1gAYdaRxn3MUkSdNF8GqQNE55sZVittTErhi8UzwV178Qg
-IWtJxrjoxp8uQyEQvDfFVunGmLEJ724XFtxlt44OTsD+wsTeKbHDmU/JIrsO1cKt
-Q7G4GIjvo5BaL0QZvXbACBWaJcxvJA==
-=kw5E
------END PGP SIGNATURE-----
-
---Sig_/V++v/0cAATHYMBWHAJHNfXt--
 
