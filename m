@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578EFC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C00C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 17:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2r4LQY8N9S38XIvZhBEoqY2n9JYGJTHvwo5zKsEYVsw=; b=MJnMSTjOk1eSDN4PUOsGoUu4P9
-	8Qwzpe1VNpbHDGL5MFUtDKD0Nn40AcZEHoCl3IzmFv9kSabjP22cHUtPYhjb5MqlQ7NRcna0j3CPq
-	/21ZQdi8K4k7fxV1PLfCh26dVlNs5YUWTF1Et6N49oiV7Ovrt8uKAKjK3okwuuqutBp2zOcoFhZve
-	QTaN8X+GFtwLSFIrpP/oLIJAUew9ODcGyu8C8d8d7gbhc2Ah49i6e6/0cKdzzPxJn6MptBtw0V7so
-	SZC10mVG60/PudHr5D5l3C3Mu8DSSdnPukxIxSnSAvRqZZxLiUB502ddGbDuxeuM+xZ7r6HblYX1c
-	3jkg3qBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CN1EM1LNpfxd3L9cHG5PBiKIrQfLClVF+CjqNpueUDI=; b=2lNMfqyfkpLP/0jbsETLFtr96B
+	YwU7UeG8bR5glpT6EOtqYqDJl+b3SaDMxPoWj3zgzgUFfuVKF3+PuOoYXLagoM7lnG2Nr+U2zDsIQ
+	1ecspWKc9hq6ByBxQ1RUlKTvLlN8x3j8evSgOLQQ4X0A4Mrc3WesGQYnSZi6st0/qK8s0HOPUiHFs
+	bfvVWmv6k+/nnjx0JRsv20uDzbwxSXczVbxEteADqWtBr8m7RPWGqyVQJAmJzWC3tQBeaETZdemee
+	zCLwoV4FiF2EA67Q3S9m6Ll129IiFqRRzIwdvcNLN9o/LSoi8fwlOZD90+LRCIF22YugMqjsY9Pxz
+	4LfdZXpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7py-00000006QVf-1kkC;
-	Tue, 24 Jun 2025 17:53:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uU7rw-00000006QyK-0YA6;
+	Tue, 24 Jun 2025 17:55:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4im-00000005vfj-1cT6;
-	Tue, 24 Jun 2025 14:34:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775639;
-	bh=2dmleE75d1cFIoYjoDBS7h5u2So5NUz/o2Sx0fmIbl4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ELn8+qECSbdS0prXT6Qii5iRbcMasYWE0xK/fGpGwzTgM7VJrRsnpmsKu//BY91yI
-	 6YNB7DDgL2Acyrt7uDj0CEbJgVMJMqi2SLP3RZpjC9/irYnhkj7AbWUZyflr4FBu7/
-	 5v3Q6KPmfrrStcyIv1nv+Vt1Jmw1SX7PVWMVFYo7Huy2GnHc5K3zI/ofsBQVOt3N23
-	 Ab8C0wmqR7koCfmRO8+U1/2/5049wOTzD8AsGDKv6PqvCm/nLD9LQxnwOuM3apW7EV
-	 8qxNBL9j1SFU4khGGi3SZ6KP1Hi8nM9b0iw5HXM6HsmUPLfAkym6fJSFVyvqEppQGs
-	 o1GADA4KaulBw==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0FBC017E0EA4;
-	Tue, 24 Jun 2025 16:33:58 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 21/29] clk: mediatek: Add MT8196 mdpsys clock support
-Date: Tue, 24 Jun 2025 16:32:12 +0200
-Message-Id: <20250624143220.244549-22-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
-References: <20250624143220.244549-1-laura.nao@collabora.com>
+	id 1uU5GV-000000062U6-0y0N
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 15:08:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750777730; x=1782313730;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=XmdhpYDW+3QqRjHcegC00+obRxvH9zemgREp2uxK+Go=;
+  b=0OFsu1Q0KK6isiAl2l//Vz3NRP1ZXmuWrYiPYd0pQKbNCidaarPYBZqT
+   XKiZKn5lQUvxC+lJHoUi/8gOJ5rwLN+xgcB4g20XKw1sHt0mO/3GPKuRA
+   FmHFe45W7Ol9Vc6L17Tjd3sPdWcTXGbvaggcxCudMevUZj7YO+EU4VJvp
+   ohZIKAypnRPcIwqk9a62epXxDH+f3D4tOv6RPJqFwgmgdKAzhAyCpjkHY
+   2HAZ3wPpXSMuJGMVZSf17+nWL3ihj9kZok2A+lWmCP9C6kSwlWnYzU4Sj
+   zbaKn7WMLKqV6PjPSrHRX3VZaedaiYlvXT776RXuW+0ZrYcna1ewzUrWH
+   w==;
+X-CSE-ConnectionGUID: 4+RzxTN1Qsa6vG3Bpty4nA==
+X-CSE-MsgGUID: NWLryf3aSAOkeiKqt8hB/w==
+X-IronPort-AV: E=Sophos;i="6.16,262,1744095600"; 
+   d="scan'208";a="42688189"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:08:47 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 24 Jun 2025 08:08:38 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 24 Jun 2025 08:08:38 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<varshini.rajendran@microchip.com>
+Subject: [PATCH v2 13/32] clk: at91: clk-audio-pll: add support for parent_hw
+Date: Tue, 24 Jun 2025 08:08:10 -0700
+Message-ID: <c3078a1e34f77bf40777b3ba15d22d2615962cdd.1750182562.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1750182562.git.Ryan.Wanner@microchip.com>
+References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_073400_713393_1B25CD7B 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250624_080851_341060_2E336533 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,242 +87,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 mdpsys clock controller, which provides clock
-gate control for MDP.
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Add support for parent_hw in audio pll clock drivers.
+With this parent-child relation is described with pointers rather
+than strings making registration a bit faster.
+
+All the SoC based drivers that rely on clk-audio-pll were adapted
+to the new API change. The switch itself for SoCs will be done
+in subsequent patches.
+
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+[ryan.wanner@microchip.com: Remove SoC specific changes as they are
+going to be coalesced into one SoC specific commit.]
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/mediatek/Kconfig             |   7 +
- drivers/clk/mediatek/Makefile            |   1 +
- drivers/clk/mediatek/clk-mt8196-mdpsys.c | 187 +++++++++++++++++++++++
- 3 files changed, 195 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
+ drivers/clk/at91/clk-audio-pll.c | 28 ++++++++++++++++++++--------
+ drivers/clk/at91/dt-compat.c     |  6 +++---
+ drivers/clk/at91/pmc.h           |  6 +++---
+ 3 files changed, 26 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index ed1073c5b432..c193295d4136 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1089,6 +1089,13 @@ config COMMON_CLK_MT8196_MCUSYS
- 	help
- 	  This driver supports MediaTek MT8196 mcusys clocks.
+diff --git a/drivers/clk/at91/clk-audio-pll.c b/drivers/clk/at91/clk-audio-pll.c
+index a92da64c12e1..da9b2e699dcc 100644
+--- a/drivers/clk/at91/clk-audio-pll.c
++++ b/drivers/clk/at91/clk-audio-pll.c
+@@ -450,7 +450,8 @@ static const struct clk_ops audio_pll_pmc_ops = {
  
-+config COMMON_CLK_MT8196_MDPSYS
-+	tristate "Clock driver for MediaTek MT8196 mdpsys"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 mdpsys clocks.
-+
- config COMMON_CLK_MT8196_PEXTPSYS
- 	tristate "Clock driver for MediaTek MT8196 pextpsys"
- 	depends on COMMON_CLK_MT8196
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 7b284ccc1b48..b9a54d65e27c 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -166,6 +166,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o
- obj-$(CONFIG_COMMON_CLK_MT8196_ADSP) += clk-mt8196-adsp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-mdpsys.c b/drivers/clk/mediatek/clk-mt8196-mdpsys.c
-new file mode 100644
-index 000000000000..87ac3b52fcbc
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-mdpsys.c
-@@ -0,0 +1,187 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
-+
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+static const struct mtk_gate_regs mdp0_cg_regs = {
-+	.set_ofs = 0x104,
-+	.clr_ofs = 0x108,
-+	.sta_ofs = 0x100,
-+};
-+
-+static const struct mtk_gate_regs mdp1_cg_regs = {
-+	.set_ofs = 0x114,
-+	.clr_ofs = 0x118,
-+	.sta_ofs = 0x110,
-+};
-+
-+static const struct mtk_gate_regs mdp2_cg_regs = {
-+	.set_ofs = 0x124,
-+	.clr_ofs = 0x128,
-+	.sta_ofs = 0x120,
-+};
-+
-+#define GATE_MDP0(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &mdp0_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+#define GATE_MDP1(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &mdp1_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+#define GATE_MDP2(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &mdp2_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+static const struct mtk_gate mdp1_clks[] = {
-+	/* MDP1-0 */
-+	GATE_MDP0(CLK_MDP1_MDP_MUTEX0, "mdp1_mdp_mutex0", "mdp", 0),
-+	GATE_MDP0(CLK_MDP1_SMI0, "mdp1_smi0", "mdp", 1),
-+	GATE_MDP0(CLK_MDP1_APB_BUS, "mdp1_apb_bus", "mdp", 2),
-+	GATE_MDP0(CLK_MDP1_MDP_RDMA0, "mdp1_mdp_rdma0", "mdp", 3),
-+	GATE_MDP0(CLK_MDP1_MDP_RDMA1, "mdp1_mdp_rdma1", "mdp", 4),
-+	GATE_MDP0(CLK_MDP1_MDP_RDMA2, "mdp1_mdp_rdma2", "mdp", 5),
-+	GATE_MDP0(CLK_MDP1_MDP_BIRSZ0, "mdp1_mdp_birsz0", "mdp", 6),
-+	GATE_MDP0(CLK_MDP1_MDP_HDR0, "mdp1_mdp_hdr0", "mdp", 7),
-+	GATE_MDP0(CLK_MDP1_MDP_AAL0, "mdp1_mdp_aal0", "mdp", 8),
-+	GATE_MDP0(CLK_MDP1_MDP_RSZ0, "mdp1_mdp_rsz0", "mdp", 9),
-+	GATE_MDP0(CLK_MDP1_MDP_RSZ2, "mdp1_mdp_rsz2", "mdp", 10),
-+	GATE_MDP0(CLK_MDP1_MDP_TDSHP0, "mdp1_mdp_tdshp0", "mdp", 11),
-+	GATE_MDP0(CLK_MDP1_MDP_COLOR0, "mdp1_mdp_color0", "mdp", 12),
-+	GATE_MDP0(CLK_MDP1_MDP_WROT0, "mdp1_mdp_wrot0", "mdp", 13),
-+	GATE_MDP0(CLK_MDP1_MDP_WROT1, "mdp1_mdp_wrot1", "mdp", 14),
-+	GATE_MDP0(CLK_MDP1_MDP_WROT2, "mdp1_mdp_wrot2", "mdp", 15),
-+	GATE_MDP0(CLK_MDP1_MDP_FAKE_ENG0, "mdp1_mdp_fake_eng0", "mdp", 16),
-+	GATE_MDP0(CLK_MDP1_APB_DB, "mdp1_apb_db", "mdp", 17),
-+	GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC0, "mdp1_mdp_dli_async0", "mdp", 18),
-+	GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC1, "mdp1_mdp_dli_async1", "mdp", 19),
-+	GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC0, "mdp1_mdp_dlo_async0", "mdp", 20),
-+	GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC1, "mdp1_mdp_dlo_async1", "mdp", 21),
-+	GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC2, "mdp1_mdp_dli_async2", "mdp", 22),
-+	GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC2, "mdp1_mdp_dlo_async2", "mdp", 23),
-+	GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC3, "mdp1_mdp_dlo_async3", "mdp", 24),
-+	GATE_MDP0(CLK_MDP1_IMG_DL_ASYNC0, "mdp1_img_dl_async0", "mdp", 25),
-+	GATE_MDP0(CLK_MDP1_MDP_RROT0, "mdp1_mdp_rrot0", "mdp", 26),
-+	GATE_MDP0(CLK_MDP1_MDP_MERGE0, "mdp1_mdp_merge0", "mdp", 27),
-+	GATE_MDP0(CLK_MDP1_MDP_C3D0, "mdp1_mdp_c3d0", "mdp", 28),
-+	GATE_MDP0(CLK_MDP1_MDP_FG0, "mdp1_mdp_fg0", "mdp", 29),
-+	GATE_MDP0(CLK_MDP1_MDP_CLA2, "mdp1_mdp_cla2", "mdp", 30),
-+	GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC4, "mdp1_mdp_dlo_async4", "mdp", 31),
-+	/* MDP1-1 */
-+	GATE_MDP1(CLK_MDP1_VPP_RSZ0, "mdp1_vpp_rsz0", "mdp", 0),
-+	GATE_MDP1(CLK_MDP1_VPP_RSZ1, "mdp1_vpp_rsz1", "mdp", 1),
-+	GATE_MDP1(CLK_MDP1_MDP_DLO_ASYNC5, "mdp1_mdp_dlo_async5", "mdp", 2),
-+	GATE_MDP1(CLK_MDP1_IMG0, "mdp1_img0", "mdp", 3),
-+	GATE_MDP1(CLK_MDP1_F26M, "mdp1_f26m", "clk26m", 27),
-+	/* MDP1-2 */
-+	GATE_MDP2(CLK_MDP1_IMG_DL_RELAY0, "mdp1_img_dl_relay0", "mdp", 0),
-+	GATE_MDP2(CLK_MDP1_IMG_DL_RELAY1, "mdp1_img_dl_relay1", "mdp", 8),
-+};
-+
-+static const struct mtk_clk_desc mdp1_mcd = {
-+	.clks = mdp1_clks,
-+	.num_clks = ARRAY_SIZE(mdp1_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+
-+static const struct mtk_gate mdp_clks[] = {
-+	/* MDP0 */
-+	GATE_MDP0(CLK_MDP_MDP_MUTEX0, "mdp_mdp_mutex0", "mdp", 0),
-+	GATE_MDP0(CLK_MDP_SMI0, "mdp_smi0", "mdp", 1),
-+	GATE_MDP0(CLK_MDP_APB_BUS, "mdp_apb_bus", "mdp", 2),
-+	GATE_MDP0(CLK_MDP_MDP_RDMA0, "mdp_mdp_rdma0", "mdp", 3),
-+	GATE_MDP0(CLK_MDP_MDP_RDMA1, "mdp_mdp_rdma1", "mdp", 4),
-+	GATE_MDP0(CLK_MDP_MDP_RDMA2, "mdp_mdp_rdma2", "mdp", 5),
-+	GATE_MDP0(CLK_MDP_MDP_BIRSZ0, "mdp_mdp_birsz0", "mdp", 6),
-+	GATE_MDP0(CLK_MDP_MDP_HDR0, "mdp_mdp_hdr0", "mdp", 7),
-+	GATE_MDP0(CLK_MDP_MDP_AAL0, "mdp_mdp_aal0", "mdp", 8),
-+	GATE_MDP0(CLK_MDP_MDP_RSZ0, "mdp_mdp_rsz0", "mdp", 9),
-+	GATE_MDP0(CLK_MDP_MDP_RSZ2, "mdp_mdp_rsz2", "mdp", 10),
-+	GATE_MDP0(CLK_MDP_MDP_TDSHP0, "mdp_mdp_tdshp0", "mdp", 11),
-+	GATE_MDP0(CLK_MDP_MDP_COLOR0, "mdp_mdp_color0", "mdp", 12),
-+	GATE_MDP0(CLK_MDP_MDP_WROT0, "mdp_mdp_wrot0", "mdp", 13),
-+	GATE_MDP0(CLK_MDP_MDP_WROT1, "mdp_mdp_wrot1", "mdp", 14),
-+	GATE_MDP0(CLK_MDP_MDP_WROT2, "mdp_mdp_wrot2", "mdp", 15),
-+	GATE_MDP0(CLK_MDP_MDP_FAKE_ENG0, "mdp_mdp_fake_eng0", "mdp", 16),
-+	GATE_MDP0(CLK_MDP_APB_DB, "mdp_apb_db", "mdp", 17),
-+	GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC0, "mdp_mdp_dli_async0", "mdp", 18),
-+	GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC1, "mdp_mdp_dli_async1", "mdp", 19),
-+	GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC0, "mdp_mdp_dlo_async0", "mdp", 20),
-+	GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC1, "mdp_mdp_dlo_async1", "mdp", 21),
-+	GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC2, "mdp_mdp_dli_async2", "mdp", 22),
-+	GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC2, "mdp_mdp_dlo_async2", "mdp", 23),
-+	GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC3, "mdp_mdp_dlo_async3", "mdp", 24),
-+	GATE_MDP0(CLK_MDP_IMG_DL_ASYNC0, "mdp_img_dl_async0", "mdp", 25),
-+	GATE_MDP0(CLK_MDP_MDP_RROT0, "mdp_mdp_rrot0", "mdp", 26),
-+	GATE_MDP0(CLK_MDP_MDP_MERGE0, "mdp_mdp_merge0", "mdp", 27),
-+	GATE_MDP0(CLK_MDP_MDP_C3D0, "mdp_mdp_c3d0", "mdp", 28),
-+	GATE_MDP0(CLK_MDP_MDP_FG0, "mdp_mdp_fg0", "mdp", 29),
-+	GATE_MDP0(CLK_MDP_MDP_CLA2, "mdp_mdp_cla2", "mdp", 30),
-+	GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC4, "mdp_mdp_dlo_async4", "mdp", 31),
-+	/* MDP1 */
-+	GATE_MDP1(CLK_MDP_VPP_RSZ0, "mdp_vpp_rsz0", "mdp", 0),
-+	GATE_MDP1(CLK_MDP_VPP_RSZ1, "mdp_vpp_rsz1", "mdp", 1),
-+	GATE_MDP1(CLK_MDP_MDP_DLO_ASYNC5, "mdp_mdp_dlo_async5", "mdp", 2),
-+	GATE_MDP1(CLK_MDP_IMG0, "mdp_img0", "mdp", 3),
-+	GATE_MDP1(CLK_MDP_F26M, "mdp_f26m", "clk26m", 27),
-+	/* MDP2 */
-+	GATE_MDP2(CLK_MDP_IMG_DL_RELAY0, "mdp_img_dl_relay0", "mdp", 0),
-+	GATE_MDP2(CLK_MDP_IMG_DL_RELAY1, "mdp_img_dl_relay1", "mdp", 8),
-+};
-+
-+static const struct mtk_clk_desc mdp_mcd = {
-+	.clks = mdp_clks,
-+	.num_clks = ARRAY_SIZE(mdp_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_mdpsys[] = {
-+	{ .compatible = "mediatek,mt8196-mdpsys1", .data = &mdp1_mcd },
-+	{ .compatible = "mediatek,mt8196-mdpsys0", .data = &mdp_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mdpsys);
-+
-+static struct platform_driver clk_mt8196_mdpsys_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8196-mdpsys",
-+		.of_match_table = of_match_clk_mt8196_mdpsys,
-+	},
-+};
-+module_platform_driver(clk_mt8196_mdpsys_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 Multimedia Data Path clocks driver");
-+MODULE_LICENSE("GPL");
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
+-				 const char *parent_name)
++				 const char *parent_name,
++				 struct clk_parent_data *parent_data)
+ {
+ 	struct clk_audio_frac *frac_ck;
+ 	struct clk_init_data init = {};
+@@ -462,7 +463,10 @@ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
+ 
+ 	init.name = name;
+ 	init.ops = &audio_pll_frac_ops;
+-	init.parent_names = &parent_name;
++	if (parent_data)
++		init.parent_data = (const struct clk_parent_data *)parent_data;
++	else
++		init.parent_names = &parent_name;
+ 	init.num_parents = 1;
+ 	init.flags = CLK_SET_RATE_GATE;
+ 
+@@ -480,10 +484,11 @@ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
+ 
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
+-				const char *parent_name)
++				const char *parent_name,
++				struct clk_parent_data *parent_data)
+ {
+ 	struct clk_audio_pad *apad_ck;
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	int ret;
+ 
+ 	apad_ck = kzalloc(sizeof(*apad_ck), GFP_KERNEL);
+@@ -492,7 +497,10 @@ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
+ 
+ 	init.name = name;
+ 	init.ops = &audio_pll_pad_ops;
+-	init.parent_names = &parent_name;
++	if (parent_data)
++		init.parent_data = (const struct clk_parent_data *)parent_data;
++	else
++		init.parent_names = &parent_name;
+ 	init.num_parents = 1;
+ 	init.flags = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 		CLK_SET_RATE_PARENT;
+@@ -511,10 +519,11 @@ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
+ 
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
+-				const char *parent_name)
++				const char *parent_name,
++				struct clk_parent_data *parent_data)
+ {
+ 	struct clk_audio_pmc *apmc_ck;
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	int ret;
+ 
+ 	apmc_ck = kzalloc(sizeof(*apmc_ck), GFP_KERNEL);
+@@ -523,7 +532,10 @@ at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
+ 
+ 	init.name = name;
+ 	init.ops = &audio_pll_pmc_ops;
+-	init.parent_names = &parent_name;
++	if (parent_data)
++		init.parent_data = (const struct clk_parent_data *)parent_data;
++	else
++		init.parent_names = &parent_name;
+ 	init.num_parents = 1;
+ 	init.flags = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 		CLK_SET_RATE_PARENT;
+diff --git a/drivers/clk/at91/dt-compat.c b/drivers/clk/at91/dt-compat.c
+index 2c5faa3b1cfd..22bcaa3b28dd 100644
+--- a/drivers/clk/at91/dt-compat.c
++++ b/drivers/clk/at91/dt-compat.c
+@@ -43,7 +43,7 @@ static void __init of_sama5d2_clk_audio_pll_frac_setup(struct device_node *np)
+ 
+ 	parent_name = of_clk_get_parent_name(np, 0);
+ 
+-	hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name);
++	hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name, NULL);
+ 	if (IS_ERR(hw))
+ 		return;
+ 
+@@ -69,7 +69,7 @@ static void __init of_sama5d2_clk_audio_pll_pad_setup(struct device_node *np)
+ 
+ 	parent_name = of_clk_get_parent_name(np, 0);
+ 
+-	hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name);
++	hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name, NULL);
+ 	if (IS_ERR(hw))
+ 		return;
+ 
+@@ -95,7 +95,7 @@ static void __init of_sama5d2_clk_audio_pll_pmc_setup(struct device_node *np)
+ 
+ 	parent_name = of_clk_get_parent_name(np, 0);
+ 
+-	hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name);
++	hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name, NULL);
+ 	if (IS_ERR(hw))
+ 		return;
+ 
+diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+index 0feaf8497b60..519d71652619 100644
+--- a/drivers/clk/at91/pmc.h
++++ b/drivers/clk/at91/pmc.h
+@@ -157,15 +157,15 @@ struct clk_hw *of_clk_hw_pmc_get(struct of_phandle_args *clkspec, void *data);
+ 
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
+-				 const char *parent_name);
++				 const char *parent_name, struct clk_parent_data *parent_data);
+ 
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
+-				const char *parent_name);
++				const char *parent_name, struct clk_parent_data *parent_data);
+ 
+ struct clk_hw * __init
+ at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
+-				const char *parent_name);
++				const char *parent_name, struct clk_parent_data *parent_data);
+ 
+ struct clk_hw * __init
+ at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
 -- 
-2.39.5
+2.43.0
 
 
