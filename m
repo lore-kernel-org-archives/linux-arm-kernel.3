@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD62EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EEFC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9mXoB0hmEQUOqAzambBPKWUXGRpwqp2/RutLHj6JLI=; b=xTG5eBYOUZzh+uMdwAF6lrhh3E
-	BxhKCsAa0Lg//CyI9EGc+dME4agb86MxPvn4yS0mA7yi4282yhBV9lTaRANG/y/+GuJLmPyE7oPBa
-	7e/oacVvZUjss/oZIpwO09fMvIvzr1b8mX2mev5uN4QiSFQkqylLxjGiWC6zzbhlxdbqDLI+Fzbzi
-	eRkQMbuuwHRKIJwES86kQSvhNd9ZiXm3KObuzKZ40PGu/Km+ShThAHiZj4gVL5L/dZ5xK55deKsya
-	lFiRMeysXNOZig5ByZsZenlqLM1J6y048dm+7CsdWItbfizPDmwJgolc0szHogTmagKB4PpLCvezt
-	jm3nf7jg==;
+	bh=JI17jfGVb1g/QMqGoomF8hB7m62tDw1VCJzR/C1p+kI=; b=TmLXgh5uVZIU4wrpv17mKNQN5K
+	0/QTjev2smudwh1wwtAfkSODKtegVLSUDTMfudrZ+kZOQoMbsqti6MH6SfOqC3NNLx3ERjjDktRro
+	JoHQ7kW9yLAzj4loi8HGkVuXfCGEp28LW7Nk1GVRGIfoGNP5xL0retejSHUGAh4+LsCQKEsXh+CPL
+	AYW4VfhUR+x1VUjuYdilrPUavOWNdyv2GW5Svd+xacdW8rVjk+vRqJgEKTuvejYY1BFaWKb5+F6EI
+	cl0a3xaHNL8mjsuj+21Zkt+piR5rAxjVkALX5p/mXkEXsMYVr0ke5La12LKGcR1lM44OO974cCEJk
+	hFW09czA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9jx-00000006ge0-2KXm;
-	Tue, 24 Jun 2025 19:55:33 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7IL-00000006NG3-0fwU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Jun 2025 17:18:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=D9mXoB0hmEQUOqAzambBPKWUXGRpwqp2/RutLHj6JLI=; b=NujHNQ2OnYYeEaXEsUYNleH6ug
-	QTVUIU1QQHbjR71G3gbICoiPb9Rzrd/sdqHMh+NtgWgQ21eS61qVv4c5go8ZecVF3CKX9jn0ehCV0
-	erloRGflpgCwKvNcyt3igKFTr1kuFLqpdnamEasF3NPX2Mf4zGGv+XoEgL6cPWgGcJOfCWCEKQTB0
-	8LKXC8CCE5irZO72zvdt+blMrOn3JBSnSsR1ccH19LZrlbSL0R1FJC8SkUo4yO0c9gZJqBqZ6TEFv
-	QVoqrlN5W8hzRMo0/iwPyWuKQr/w6By0GQG/O4MVmGxxJyeN4Vq+bnhixFFgeokIraly5cNY/DMEr
-	s9jna1yg==;
-Received: from [50.53.25.54] (helo=[192.168.254.17])
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7IE-00000007CNt-32oy;
-	Tue, 24 Jun 2025 17:18:46 +0000
-Message-ID: <037f1ba1-ead1-4627-b464-39f1a8010d3f@infradead.org>
-Date: Tue, 24 Jun 2025 10:18:41 -0700
+	id 1uU9k2-00000006gmF-0hQb;
+	Tue, 24 Jun 2025 19:55:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU7ZT-00000006Ok6-0QWq;
+	Tue, 24 Jun 2025 17:36:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 613AA113E;
+	Tue, 24 Jun 2025 10:36:15 -0700 (PDT)
+Received: from [10.57.29.113] (unknown [10.57.29.113])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FC4E3F58B;
+	Tue, 24 Jun 2025 10:36:31 -0700 (PDT)
+Message-ID: <33672077-77b9-476c-9565-b78aae2a38de@arm.com>
+Date: Tue, 24 Jun 2025 18:36:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] cache: Support cache maintenance for HiSilicon SoC
- Hydra Home Agent
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
- linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
- gregkh@linuxfoundation.org, Will Deacon <will@kernel.org>,
- Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso <dave@stgolabs.net>
-Cc: Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
- Yushan Wang <wangyushan12@huawei.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, H Peter Anvin
- <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
- <20250624154805.66985-7-Jonathan.Cameron@huawei.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20250624154805.66985-7-Jonathan.Cameron@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v3 3/3] iommu: mtk_iommu_v1: Simplify by dropping local
+ 'mtk_mapping' variable
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Yong Wu <yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250624-syscon-phandle-args-iommu-v3-0-1a36487d69b8@linaro.org>
+ <20250624-syscon-phandle-args-iommu-v3-3-1a36487d69b8@linaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250624-syscon-phandle-args-iommu-v3-3-1a36487d69b8@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_103635_188754_CDF1929F 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +68,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi--
+On 2025-06-24 1:22 pm, Krzysztof Kozlowski wrote:
+> Storing 'data->mapping' in local variable in
+> mtk_iommu_v1_probe_finalize() does not make the code easier to read.
+> Use the 'data->mapping' directly.
+> 
+> ARM64 W=1 builds also complain with:
+> 
+>    mtk_iommu_v1.c:512:28: error: variable 'mtk_mapping' set but not used [-Werror,-Wunused-but-set-variable]
+> 
+> but this is not being fixed here and 'data' still won't be used in such
+> compile test.
 
-On 6/24/25 8:48 AM, Jonathan Cameron wrote:
-> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-> index bedc51bea1d1..0ed87f25bd69 100644
-> --- a/drivers/cache/Kconfig
-> +++ b/drivers/cache/Kconfig
-> @@ -10,6 +10,20 @@ config CACHE_COHERENCY_SUBSYSTEM
->  	  kernel subsystems to issue invalidations and similar coherency
->  	  operations.
->  
-> +if CACHE_COHERENCY_SUBSYSTEM
-> +
-> +config HISI_SOC_HHA
-> +	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
-> +	depends on (ARM64 && ACPI) || COMPILE_TEST
-> +	help
-> +	  The Hydra Home Agent (HHA) is responsible of cache coherency
+Sorry, I guess that's on me for doing the COMPILE_TEST stubs the lazy 
+way... TBH I'm still not sure this driver hasn't completely bitrotted, 
+but if we're touching it at all we should probably actually fix the 
+warning, e.g.:
 
-	                                            for cache coherency
+-#define arm_iommu_attach_device(...)   -ENODEV
++#define arm_iommu_attach_device(d, m)  ((void)m, -ENODEV)
 
-> +	  on SoC. This drivers provides cache maintenance functions of HHA.
+or perhaps make it a less lazy static inline.
 
-	  on the SoC.
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> ---
+> 
+> Old warning is changed now to:
+> 
+>    error: variable 'data' set but not used [-Werror,-Wunused-but-set-variable]
+> ---
+>   drivers/iommu/mtk_iommu_v1.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+> index 66824982e05fbfdda224276ad41b90f9d5f9ca4e..bbe3e9d901c69ac6405d9549a4481fc80f1adb80 100644
+> --- a/drivers/iommu/mtk_iommu_v1.c
+> +++ b/drivers/iommu/mtk_iommu_v1.c
+> @@ -509,14 +509,12 @@ static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
+>   
+>   static void mtk_iommu_v1_probe_finalize(struct device *dev)
+>   {
+> -	struct dma_iommu_mapping *mtk_mapping;
+>   	struct mtk_iommu_v1_data *data;
+>   	int err;
+>   
+>   	data        = dev_iommu_priv_get(dev);
 
-> +
-> +	  This driver can be built as a module. If so, the module will be
-> +	  called hisi_soc_hha.
-> +
-> +endif
+And for the sake of a readability cleanup you may as well fold this into 
+the declaration line as well. And then maybe also whack a __maybe_unused 
+on it, for even less effort than the first silly thing I thought of 
+above... :)
 
--- 
-~Randy
+Thanks,
+Robin.
+
+> -	mtk_mapping = data->mapping;
+>   
+> -	err = arm_iommu_attach_device(dev, mtk_mapping);
+> +	err = arm_iommu_attach_device(dev, data->mapping);
+>   	if (err)
+>   		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
+>   }
+> 
 
 
