@@ -4,94 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8B7C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4D4C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GwASaybr7tTBa/RnWzp5kiw4jn5j6IBVC/FDU+4fRf4=; b=Oq6wZ2Ql7gwSJtraA6jgMXToZH
-	q6kn7Z6UyXc0ODH8LB9e5kXAub5QHd6CmkXMmKc3+ul6M5GJww7U7AdPYuGxOA95tQgdfXUwPV/27
-	L3IdElZZ635wn+e4P4gpJtcq6fMafVzaIopvXn4yV91NsEorNbGPLRZ3ZUe8DkRO8vH6jH4Fbz0DK
-	qCTfB56pGECIr1/czA0E+mQ76vB/F/zriNBC9tyKAktpQSCRofLe46xI07GJ+23Y/E9Ai5PrWIaM9
-	rblu6jI2D57u/9OtBJaxfBypNbHPbMKVplDiUFNa0ivfwkUfPb+/JtW39KpJHqJUlEbBu17/ZVDL6
-	Cxh888pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=; b=nlZGkm3yu9sxP7Jfs9HPjsy7ag
+	o1hq22tTQbZklfqXclcqY8vEb2xmJ4dY4D3mgFvOytEmvmx/N/PNiMMXb0GmGlvcEx1WxCgmWtYAZ
+	zrb1Wp9DTshQfTMX6deW/ynhfbwiUgluhn6vDOuY9VYNdnXs4Kh/kWfLcBLAS6gqbqQ2B0fFiDsa0
+	/S8RamvBi5BRL9w7GoSq15LQBZq/5QuyqChJJ9zz3qL5w6rHqcZyMW3NtKnwYEMU+vOB3A/lnfsBh
+	q7w5p1q+0dKWcjYMLS7vHLyC1gbZy5E3Yp0Ea1S1QQUnnjp88PPQ8yZV3y7rsdj4PlWW2zt5Pk5Jf
+	2H2t7DPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU252-00000005SQa-0OU0;
-	Tue, 24 Jun 2025 11:44:48 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uU27O-00000005Sh3-0e51;
+	Tue, 24 Jun 2025 11:47:14 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1EL-00000005M66-3N9u;
-	Tue, 24 Jun 2025 10:50:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750762222; x=1782298222;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=dv6ZN9qLcc39VhlOnYfqWOhVKBnveT9waBSLrEElVx8=;
-  b=ij4CwhzYvUaCnarePJ4CT0iV8uKBhCmG/vOSX5J3NeI8yQsK+UjwvE0K
-   SpliUEWuV64z1H3X0n6xXxr2bOIDgaWUm7m3tpLVq6qVb0fEMiT2/yKm8
-   fD6BleapS9pniiQh9TCGEl5JoZGRs1lfX2v+Msl/GNySNC9Ndax1aWWB3
-   v/nOLNmCI6qQYgLPGZlAmp/wMruMzbtVxNCASVeWaDYmB+ZPUP/ifPjwi
-   KuyExCG40lwgE6yrOLO1cLi1O6KlmYny+sbPaZjbCfy7t+2SJ0kimh0Mj
-   LaBAKJWFGf8GXSUzyYaWBGZxDT1SViJfRSHDQYbK26B+Uq5bW9drxcBNJ
-   Q==;
-X-CSE-ConnectionGUID: qV+7TDwZS+2kg5dacbd6jQ==
-X-CSE-MsgGUID: moKjpSVOTH+2wCkSFYCTmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11473"; a="64352252"
-X-IronPort-AV: E=Sophos;i="6.16,261,1744095600"; 
-   d="scan'208";a="64352252"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 03:50:20 -0700
-X-CSE-ConnectionGUID: P3jobHMUQAe9pUeBJdc30Q==
-X-CSE-MsgGUID: JnGhA3LFT8aHV12Y11RQCw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,261,1744095600"; 
-   d="scan'208";a="151306478"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.16])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 03:50:10 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 24 Jun 2025 13:50:06 +0300 (EEST)
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-cc: "bhelgaas@google.com" <bhelgaas@google.com>, 
-    "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-    "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
-    "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-    "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-    "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-    "joel@jms.id.au" <joel@jms.id.au>, 
-    "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>, 
-    "vkoul@kernel.org" <vkoul@kernel.org>, 
-    "kishon@kernel.org" <kishon@kernel.org>, 
-    "linus.walleij@linaro.org" <linus.walleij@linaro.org>, 
-    "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
-    "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
-    "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-    "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
-    "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
-    "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-    "elbadrym@google.com" <elbadrym@google.com>, 
-    "romlem@google.com" <romlem@google.com>, 
-    "anhphan@google.com" <anhphan@google.com>, 
-    "wak@google.com" <wak@google.com>, 
-    "yuxiaozhang@google.com" <yuxiaozhang@google.com>, 
-    BMC-SW <BMC-SW@aspeedtech.com>
-Subject: Re: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller
- driver
-In-Reply-To: <SEYPR06MB5134973F678EB5B163DD50809D79A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-Message-ID: <a618588d-54fe-69a9-27f7-7b19ba905a52@linux.intel.com>
-References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com> <20250613033001.3153637-8-jacky_chou@aspeedtech.com> <40d1c5bd-0457-55ea-2514-ba27e6a4c720@linux.intel.com> <SEYPR06MB5134973F678EB5B163DD50809D79A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	id 1uU1IH-00000005McL-0GyD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 10:54:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1750762465; x=1782298465;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=;
+  b=BQrUqd8BmwYQKVdg2VpNhQ1d7S9JwvIhrZVod52/3SWujJ26rbXmKSnA
+   J5/6VHqjl1XcQ7sbRT/N5lNe/3rdrwA5Y3/9FmYULXHCWd9jV+v3+Vg94
+   hGkAd2RCO7UHCLjp/IVGNkPWB2Rm7q4YdL2CEr2pcSDXXTdWTl5HS7qBG
+   orl7n6pCWOjHJhkFFO8L49mdpTM5xfFR8vSdeu3XtRQhtGNBDUgnCL4y4
+   a+gunzhuR/7wWPxWlJpwV9mT/tnapaSnPv275ggquWtVrLF7CzbH6dwD5
+   8RuZa/rQVtLA7+dLAIfTcuejEpNYSsuqckvQ/3tJfLYep/tiMuMxcxLKz
+   w==;
+X-CSE-ConnectionGUID: XNJw146vS0S96A/0Nhey9g==
+X-CSE-MsgGUID: XYPmM7QWQlSUiFR7VllvFQ==
+X-IronPort-AV: E=Sophos;i="6.16,261,1744063200"; 
+   d="scan'208";a="44816885"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 24 Jun 2025 12:54:22 +0200
+X-CheckPoint: {685A83DE-2C-B72BD212-DAE8BA0F}
+X-MAIL-CPID: A72EB87A374EF68D021090087AE03C24_1
+X-Control-Analysis: str=0001.0A006375.685A83EC.0004,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9384116423B;
+	Tue, 24 Jun 2025 12:54:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1750762458;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=LNMTaDoZOlzVn3fThn2AT/sDwHK58mLK2vG4Ir0w4rU=;
+	b=saOa8bYqz49bPCywbHMDxBDmgEkl/9wgRYj/qEDSmQOU4uM2DBolqjUuAWtcnTbyC1Ahzz
+	2MniU12XGqOGT9khFu2JtBdtDeWha8crh1JMQN7IpTpPo+khBkmuOIN/BVxhHxz40xF5YW
+	KXSKGAn3yyfzyk1ZD2Qe/hVu2eHf0qpkkrgCkBjX2ypGxz8Qj27SiUB5mslwISenZ3uu+K
+	GFcmB/zOURYTVtv2oP8Id5nNkbBIMPeQz+wxaYqEPvfGLGZSofRA3Vmnhld/2FtMjOsXTv
+	fzfk61lQKdOUCs5BzayybDhxhSdA9X5LTKe0EjRskLuA0tNiEVcMZ/0EgxwKXA==
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Whitcroft <apw@canonical.com>
+Cc: Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Joe Perches <joe@perches.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tero Kristo <kristo@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH net-next v2 0/3] Follow-up to RGMII mode clarification: am65-cpsw fix + checkpatch
+Date: Tue, 24 Jun 2025 12:53:31 +0200
+Message-ID: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_035021_890208_9BD53FDF 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250624_035425_588280_9C677A9E 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +113,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025, Jacky Chou wrote:
+Following previous discussion [1] and the documentation update by
+Andrew [2]:
 
-> > > +static bool aspeed_ast2700_get_link(struct aspeed_pcie *pcie) {
-> > > +	u32 reg;
-> > > +	bool link;
-> > > +
-> > > +	regmap_read(pcie->pciephy, PEHR_MISC_300, &reg);
-> > > +	if (reg & CAPABILITY_GEN2) {
-> > > +		regmap_read(pcie->pciephy, PEHR_MISC_344, &reg);
-> > > +		link = !!(reg & LINK_STATUS_GEN2);
-> > > +	} else {
-> > > +		regmap_read(pcie->pciephy, PEHR_MISC_358, &reg);
-> > > +		link = !!(reg & LINK_STATUS_GEN4);
-> > 
-> > While I don't entirely know the meaning of these bits, what if the link is not
-> > using maximum speed it is capable of, does this check misbehave?
-> > 
-> 
-> In our AST2700, there are gen4 RC and gen2 RC.
-> Therefore, here will get capability to confirm it is gen2 or gen4.
-> And the link status is in different register.
+Fix up the mode to account for the fixed TX delay on the AM65 CPSW
+Ethernet controllers, similar to the way the icssg-prueth does it. For
+backwards compatibility, the "impossible" modes that claim to have a
+delay on the PCB are still accepted, but trigger a warning message.
 
-Okay, but then I'm a bit worried the naming of the defines as "Link 
-Status" has a well-known meaning in PCIe Spec so it is confusing to call 
-something else LINK_STATUS_*. Does that name come from some AST spec? In 
-not, change the define naming. If yes, you should prefix it with so it is 
-clear this is not referring to a generic PCIe thing and I suggest also 
-adding a comment above those defines too so anyone looking them later 
-won't wonder if you're just duplicating something from the PCIe spec.
+As Andrew suggested, I have also added a checkpatch check that requires
+a comment for any RGMII mode that is not "rgmii-id".
+
+No Device Trees are updated to avoid the warning for now, to give other
+projects syncing the Linux Device Trees some time to fix their drivers
+as well. I intend to submit an equivalent change for U-Boot's
+am65-cpsw-nuss driver as soon as the changes are accepted for Linux.
+
+Changelog v2:
+
+- Previous patch 1/4 has been dropped, has it has been replaced by [2]
+- Patches 1/3, 2/3: collected review and ack tags
+- Patch 3/3:
+  - Fixed multiple typos noted during review
+  - Extended to check .dtso in addition to .dts and .dtsi
+  - Changed CHK() to WARN(), so the warning triggers without --strict
+
+[1] https://lore.kernel.org/lkml/d25b1447-c28b-4998-b238-92672434dc28@lunn.ch/
+[2] https://lore.kernel.org/all/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
+    commit c360eb0c3ccb ("dt-bindings: net: ethernet-controller: Add informative text about RGMII delays")
+Patch series v1: https://lore.kernel.org/all/cover.1744710099.git.matthias.schiffer@ew.tq-group.com/
+
+
+Matthias Schiffer (3):
+  dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example
+  net: ethernet: ti: am65-cpsw: fixup PHY mode for fixed RGMII TX delay
+  checkpatch: check for comment explaining rgmii(|-rxid|-txid) PHY modes
+
+ Documentation/dev-tools/checkpatch.rst        |  9 +++++++
+ .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   |  2 +-
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c      | 27 +++++++++++++++++--
+ scripts/checkpatch.pl                         | 12 +++++++++
+ 4 files changed, 47 insertions(+), 3 deletions(-)
 
 -- 
- i.
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
 
