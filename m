@@ -4,149 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDFBC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 03:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D29EC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 03:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O620oYQNBksCom8vNjMM6BZvsqvdF7Ae9NgLAZJvHr0=; b=RRh3YLrtNB6IaH9akEkzexhpv+
-	2ipUxsdmvusnqpUaNYIKcJ3jxnQyZItslPM6y9JO78yDSL0dW4/JQCR5mAquZs2oHXiBA7dS2Nhn7
-	sSpYGk68p9Nf61ujSlwQODutMsvd1pWjp9Etzd6LMME/Z8sN9aMySgHgYkK088Z3wh1wT+JhG3+WS
-	vwqdCFYQQV9OS1dBYGXinbHsDne1Fqx1Ta3DfkzXADizx+Yevc/eNLtzwNR2Zr4r+H1aEdHpG0QBy
-	djLTOXD+Naus9T9vCzxBc54RNrKZH36FLVEJ8lsfCMGC3nZgqgxyTJnYZQiUXD+TSHLv83SCJgZdg
-	4RjeguiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iVnYeGBlDBGrhVKk0r+EaTVkrquS1ikN6rg11Ll70/k=; b=3NdroTVpIu3fzbdvpHCknrPR9b
+	KBi8tzLRFNncvNMbovuMjOaiisWUdOzivH8SzMOIdiQXHMRQw0NZUmBILlSb03vksI/91s+ym1ygn
+	/Two7jtf8iehwHRrfBG5amYsafsboJd8Ywhkhq0W3o9aJIrwRqfoR9zqjmI2zG6h0fLEaQQdhlchg
+	NSO0JTkHDiWr50bPd+LGM45h2/kVR0IFP6NIkFtDZwjATgawG1mDaUU0oOiPWY+/8Gsl4qlMDQYH6
+	iNy40RnlcMtf4xE9TajWycp7Ujebo9oXcj/fm/Y5u0g1CVRiZ9eiKgZXf/BMg+SMqiADqYQazlVcN
+	Zw1reeyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTuIb-00000004Xo8-3tBC;
-	Tue, 24 Jun 2025 03:26:17 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uTuUL-00000004Yk2-0yZE;
+	Tue, 24 Jun 2025 03:38:25 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTuGB-00000004XRf-33Q3
+	id 1uTtSl-00000004UFt-0pIb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 03:23:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eMfu793mEqxrBOegURlL8EYA/WDdlNebAVZfush8uxlcGA4h5w+ki0mDxqSDeKFwz90YenSqZWgc/b/8umdhn4DU+37LAa77vw2ICroqL23hipTLfrF/3P35fEm0KN137QtZfQXFvT2sOxF0TGulhSIOPqRsvS0fmtv3gfP8ppXJiANIuxk7oZ9hDrOy+ZnBnFLU8Ffzg8jQKrLz+eLiTpBsixy1xIjtmttma3sKBCn1KfEr5JmuRhz93PCosiiRvF19B83LuNLX6pmzRh2DIjYp6cU14fXLTv7obbpob5L0SkiYrSnpVxduXxi9qT9ux7HdMWPf/Qnid2rokoK0sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O620oYQNBksCom8vNjMM6BZvsqvdF7Ae9NgLAZJvHr0=;
- b=amrYY/q59faIH43m6utsxOzrWE0G6N5by1zlhSJ3u2auFn8XcFndeQ+8r753WPR65L1EFa4ixivXlyjJQ3YYDf8Ef0TSCyVZrlwOAqpYuOum+KlIuFzRGgzZJQW9Y1cYxxWC/UZWDsfjMTlOZ3R7gorm9+T5VGus/qjNa6iAjZz5cOKURNOmZ1eh+/wJlhI4lpEAJA0xsGQWjVzD1MPs5LeuU4rWeknLM27ipj/Qriv4GBZ1+nyBDkJDWigvC2ixTl1SUj4qNoADlfmz4rb8ytH08MDtkCFmamttY4lc9TB2axQ4ORe7LgHpSJmlbqtrZlREWwEN6lhV7SNxt5ChMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O620oYQNBksCom8vNjMM6BZvsqvdF7Ae9NgLAZJvHr0=;
- b=H78LrDXzXg3FgsDj9lSPfyWbnC+wVJgR7Fwk9Aa2A069mPWTjF0UynszA67MOvgoYMlzIYzqWSKGA1OYlslDp+g+0iX0Gsudx7Q4igOAdn3NHO8G9TMQL5eEalNQNsKmbOw9/Fk4aeWg1yaEFadaVEvUXLP02GzcGd6+G5qwvLzflb1dtELoYdYzTayRT7JHH5qZCbB4cMVsA4tWJzdYuC5GpDgLNiMn+QrqmtynwOaGISNY65wzeSPYuUG/dcd+f0VA/DDlYOBkYm5xotRmEIbg7LmKdj8KPPSVmn4eMhPRTuIJ/Nr3w/1JiIkHhTVB/qql2PiqditDoaZRnZLvWg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from KL1PR06MB6273.apcprd06.prod.outlook.com (2603:1096:820:ec::10)
- by TYZPR06MB6699.apcprd06.prod.outlook.com (2603:1096:400:45b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Tue, 24 Jun
- 2025 03:23:29 +0000
-Received: from KL1PR06MB6273.apcprd06.prod.outlook.com
- ([fe80::1f06:daf8:cbb3:a0be]) by KL1PR06MB6273.apcprd06.prod.outlook.com
- ([fe80::1f06:daf8:cbb3:a0be%3]) with mapi id 15.20.8857.026; Tue, 24 Jun 2025
- 03:23:29 +0000
-From: Huan Tang <tanghuan@vivo.com>
-To: srini@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Huan Tang <tanghuan@vivo.com>
-Subject: [PATCH] nvmem: imx-ocotp: Use helper function devm_clk_get_enabled()
-Date: Tue, 24 Jun 2025 11:23:18 +0800
-Message-Id: <20250624032318.246-1-tanghuan@vivo.com>
-X-Mailer: git-send-email 2.25.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0010.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:26c::18) To KL1PR06MB6273.apcprd06.prod.outlook.com
- (2603:1096:820:ec::10)
+	Tue, 24 Jun 2025 02:32:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bR88126JLz29dp4;
+	Tue, 24 Jun 2025 10:30:57 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id 92A55140276;
+	Tue, 24 Jun 2025 10:32:33 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Jun
+ 2025 10:32:32 +0800
+Message-ID: <04d85016-31db-b451-30d0-345b3984e070@hisilicon.com>
+Date: Tue, 24 Jun 2025 10:32:32 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR06MB6273:EE_|TYZPR06MB6699:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81f26b3a-e77d-4419-68ed-08ddb2ce7d2a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WYPiCx+k+mjd/9aSiJwZwlI00i082+N5XrqeABNbxqdDsYRYuLrsGZa7dAUj?=
- =?us-ascii?Q?tXz1LGmJTahpnMPGod4M2rC4RxCK5bzvfcXkTcSga0cOb7+vwLMsD+0YFiQH?=
- =?us-ascii?Q?FyuT6eEK7AYt/ANZXJA0g6kPT2x+FC1cJp/EQ9Vpcs3urRHBrvwAxi4s5K6u?=
- =?us-ascii?Q?2hANGgurq4/iurecin3FHEU11cBGg+jtSIBGtZhqrt9BaIuHqrr1eix29zLy?=
- =?us-ascii?Q?VNYevLUj/PaWjdwdxJQeGYEN8QXn6nJUSGsz5yy6pXjyMxvtEw1b3F6OJUMs?=
- =?us-ascii?Q?IWRjgiZ/DbfpcSbcJYg/ULizUhl1hBLTJjsM+e2+6Apg44O8MvJEoVdgkWn4?=
- =?us-ascii?Q?JYMFYdDeQZ6dcd0twNIsD5bQtS2x89/EJ48ld7R3eL70Znb4PnTj/ySlgg7X?=
- =?us-ascii?Q?9JQJPJWZwOuRFtXJWpQ3weCoZcIPfGGo6xKp1vxQA4gW8SQrT67AnARoxfF/?=
- =?us-ascii?Q?zQogxDmUWvRiuN+Eo2SKvNyQe3cIseG2dXyD96Y6/BnzMPUx8cT5/CFpHZJI?=
- =?us-ascii?Q?j6rXsDwanUrF+7ba/3B/WHpF6ok+OKZN2v0WezBa1tnyJAmLoCfO92nHrxsK?=
- =?us-ascii?Q?E9Efpr/Pemk3Hh59etZRNpluA49xK7tZ+Slg7Lbr3iXOutoKhVmr8h64PYGf?=
- =?us-ascii?Q?hMDsfmWKQevDPYkRzCFRhyGrjuLy39yrg+9kUV9xwn1LJYCqUjZdeKHoNN1J?=
- =?us-ascii?Q?sFMNT8LNYEj4RNIZ7jGBOTYfRUHoDUh4jG6a1wbzv8X+tgdgwjESCbTRMmzo?=
- =?us-ascii?Q?9GshIorB/hE0lKzigmXavUIiGPaD4Xlzfd75OSTxDw7JUYgQSaZgQC/22y/2?=
- =?us-ascii?Q?ArOtKEWJGJkyNKiTo3CnMXmike4WEJBi3VjJJK1YBGHaW32qyLSm+GlY0fFS?=
- =?us-ascii?Q?G96WugFA2qxnpY4TZFPOmEa2xml/KGFcaWh8SsE6ToRaFYjQS+YSj3KqiDkf?=
- =?us-ascii?Q?1aIH6IRqKSxDKe4LVPcAgKcTNoV5fP86aygZ+WnDlNKexZ6K/8vxidW/+GC+?=
- =?us-ascii?Q?G/r1+8az147tg8y1Ie79ky7d5PnDx92tpIgxpY20jtzuVDU65xhi9Eyoudpx?=
- =?us-ascii?Q?YreYCDWtevIgOS+lPmgzekMeVIfmE91DNI0ZLqE5va4WWC45UQorqL5sCAC7?=
- =?us-ascii?Q?wu/fYHcqm8RZ7PWvFOOb59IK/pdgc8AhdfjzZXjRB3QUvt2ODN8hk47m093s?=
- =?us-ascii?Q?qx3fzxYySv2Rql81TaiGJHLMFiOI6StqKNcQBzYM2u1ZbsEDckPvKk4rDees?=
- =?us-ascii?Q?ZPteBXjPi5YoXYJEad3IFXdTurpVtsC2z69PYZgOsQejq13EJV5lfdrUFBpc?=
- =?us-ascii?Q?uIFlX+POyn/EVlrVv5p1NMheMK78FH6bSa4DDZSWJCnWARJvVPLrLgTCLDUz?=
- =?us-ascii?Q?k4vqj0DoPxUzLUgR+IgEwup3bVuPtiiNUzcZpvAEnyGM7pp9yDskrAF+lyAR?=
- =?us-ascii?Q?SvfiydW9GSlJM+McGHy4SNikPL6682EOpzKB5hcmIxHREFDQZG+89Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR06MB6273.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t4Qs96wcbZha0ESnZyTynO2ArKfLtHTct7YbGHnNA72IsWuAwRki86PawFxN?=
- =?us-ascii?Q?8QKn2QEgPr3eM+W3XbsRyNMoDkNBTbUYgscS94AJoLDAGt/bYkCB9mzi5GDP?=
- =?us-ascii?Q?L7m4yx5hGJpzVB4ECM0Qry9DkJQ+gumHsMgHPRQXyuvUv4Lwb9rbCc3iFX1F?=
- =?us-ascii?Q?zIe1rCpCwBk+YmPobwC6PAJhyHNefayI46MFNyhFlEkNbHefN78B6CuRkr6u?=
- =?us-ascii?Q?swZD7JfQEB09orhsRMUBFokaTOqZOCSy2FqPksvGm7QslL3t9wfIEcINlXAH?=
- =?us-ascii?Q?SrNfPMgZttuFjfePUFSO4vPOoiSXhPE3Q/TwWkr1dE5IrDJxscz9qQCCIPhF?=
- =?us-ascii?Q?FnzMjcXVq0xFsNcWwtrP8M8BzymR0SaVVFVXYOT2PahD+hdc8c+P4GwvfBR6?=
- =?us-ascii?Q?qe3P/DstdJhYYX3ok4t7P2Bhkr2bRILlDmo6UmENvy4LrYGjVjY0UTAFwz93?=
- =?us-ascii?Q?GUbJueGt7hATM714LlXxet4MrGwELin4mnBHcv+RqbvHfcSeo/xixqViwaND?=
- =?us-ascii?Q?XoY5RvTr62PHeiiElHrxyEcVAkQxagDlExg7nksAnGSQwBrJpaKH8MHNbWyb?=
- =?us-ascii?Q?Q1OpelR3sCkjIuhEf55updm7tm5JecfZNkIWa84eL4BIt6GYp01TVqfiNXjk?=
- =?us-ascii?Q?nF8pwAN1hkIUoNjkGhraGIC6IGIzhy/hte05yruDyO/ea8NAhboN94Z4vrll?=
- =?us-ascii?Q?ZJXN0olGi8pHGWF7V8tvjJwtyVkNsTTprLSPNEJvaMwFFibR0skbgwHjdRyx?=
- =?us-ascii?Q?COmCmmY3dmapAgOpfz89BkzJx3jiQGbKP+cdJji72+JIDK5Lh4Rd7C/Dz2u1?=
- =?us-ascii?Q?zAn8qa7+opjOvyX6o2I0cDw3awTuzFywLNle8PA/uKr5V974egBDdg8MUq+e?=
- =?us-ascii?Q?6yzNoqXWgt75JX7JaLC6gGcKhiiNfnPH7AkG/vu4KkDiwb+99YT8YDBYCyNI?=
- =?us-ascii?Q?g1k79ROVgNjeXa9iVKCwWrx4GMKOEKwnEJSftG+OR8FQeP08wSs1dsDRux9d?=
- =?us-ascii?Q?OCLRFh/HbbmXId8baqH34ln0QhPU58J2PdhAlN4TtoSaPjdeO9ithrMYTIX+?=
- =?us-ascii?Q?lC0jVbzpmNdvmYohU8FT7O76VBWIQRAfdI7EGWxZyOzpK8EIpR/BNGYdZmeu?=
- =?us-ascii?Q?1MvkH6+DZMEMS7gkedCtX9lNOhgBu40us5JDZrYTrJQvtjesOpoScDZenPAD?=
- =?us-ascii?Q?c9mjH4qqpqMQxomUYuygYFMeeXZkGw82I7xumsmMaKFnrqPhO2oPEGPiP+MV?=
- =?us-ascii?Q?V+aQmn3cF//aLk/LdW7LJqvAOfpHCJXoxXr4YBe7KmPvviTuRJnoA7LJFA7D?=
- =?us-ascii?Q?opfL9PtEnEYBxT8pOxqkRsq+JCajEKWFNCC7oxNI814dG8Obf9s++XnfepwN?=
- =?us-ascii?Q?lw4ipxr3hV2dzLMSr7r1C/iJJAmiQVX8XmNUoB+RKliJtJaa2CM/eOYbS0a1?=
- =?us-ascii?Q?B25D6iv4OGJwoHIclz0gNdGPg80SBViYYE+H8VstPg4Mvjd1RbCE0qDHpK/4?=
- =?us-ascii?Q?gpI6dxz9qu3YoUkQNFDIZHoOwQIlhHGw3xMvrjiZgMRueZIZMQZCNP/0qU7M?=
- =?us-ascii?Q?nQUqSn0+4+OvgIm6paA9jvVddbmVo2BdC6+oDnk9?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81f26b3a-e77d-4419-68ed-08ddb2ce7d2a
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR06MB6273.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 03:23:29.3090
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lSAZex+s3tS1F+Pl5GOvS8xgZk4KLzzsJwk77+7ZMYlOcDin1ff0plOV53Lix05ZrRIHKcUlKz8HO0n1tN7CuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6699
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [RESEND PATCH v2 2/2] arm64/watchdog_hld: Add a cpufreq notifier
+ for update watchdog thresh
+To: Yicong Yang <yangyicong@huawei.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <akpm@linux-foundation.org>, <dianders@chromium.org>,
+	<sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<yangyicong@hisilicon.com>, <linuxarm@huawei.com>
+References: <20250619114805.16968-1-yangyicong@huawei.com>
+ <20250619114805.16968-3-yangyicong@huawei.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20250619114805.16968-3-yangyicong@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_202347_895063_374C23CA 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_193243_605275_34FFB6AB 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,35 +77,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use devm_clk_get_enabled() helper to simplify code.
 
-Signed-off-by: Huan Tang <tanghuan@vivo.com>
----
- drivers/nvmem/imx-ocotp.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-index 79dd4fda0329..ce5970ba4033 100644
---- a/drivers/nvmem/imx-ocotp.c
-+++ b/drivers/nvmem/imx-ocotp.c
-@@ -605,7 +605,7 @@ static int imx_ocotp_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
--	priv->clk = devm_clk_get(dev, NULL);
-+	priv->clk = devm_clk_get_enabled(dev, NULL);
- 	if (IS_ERR(priv->clk))
- 		return PTR_ERR(priv->clk);
- 
-@@ -618,7 +618,6 @@ static int imx_ocotp_probe(struct platform_device *pdev)
- 
- 	priv->config = &imx_ocotp_nvmem_config;
- 
--	clk_prepare_enable(priv->clk);
- 	imx_ocotp_clr_err_if_set(priv);
- 	clk_disable_unprepare(priv->clk);
- 
--- 
-2.48.1
+On 19/06/2025 19:48, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> arm64 depends on the cpufreq driver to gain the maximum cpu frequency
+> to convert the watchdog_thresh to perf event period. cpufreq drivers
+> like cppc_cpufreq will be initialized lately after the initializing of
+> the hard lockup detector so just use a safe cpufreq which will be
+> inaccurency. Use a cpufreq notifier to adjust the event's period to
+> a more accurate one.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>  arch/arm64/kernel/watchdog_hld.c | 58 ++++++++++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
 
+In general, this makes the watchdog period closer to the expected.
+The actual period might be longer if the cpu maxfreq is lowered down later,
+or shorter if boost is turned on later.
+LGTM as it's anyhow better than a fixed 5GHz.
+
+Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
+
+> 
+> diff --git a/arch/arm64/kernel/watchdog_hld.c b/arch/arm64/kernel/watchdog_hld.c
+> index dcd25322127c..e55548cb26df 100644
+> --- a/arch/arm64/kernel/watchdog_hld.c
+> +++ b/arch/arm64/kernel/watchdog_hld.c
+> @@ -34,3 +34,61 @@ bool __init arch_perf_nmi_is_available(void)
+>  	 */
+>  	return arm_pmu_irq_is_nmi();
+>  }
+> +
+> +static int watchdog_perf_update_period(void *data)
+> +{
+> +	int cpu = raw_smp_processor_id();
+> +	u64 max_cpu_freq, new_period;
+> +
+> +	max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
+> +	if (!max_cpu_freq)
+> +		return 0;
+> +
+> +	new_period = watchdog_thresh * max_cpu_freq;
+> +	hardlockup_detector_perf_adjust_period(cpu, new_period);
+> +
+> +	return 0;
+> +}
+> +
+> +static int watchdog_freq_notifier_callback(struct notifier_block *nb,
+> +					   unsigned long val, void *data)
+> +{
+> +	struct cpufreq_policy *policy = data;
+> +	int cpu;
+> +
+> +	if (val != CPUFREQ_CREATE_POLICY)
+> +		return NOTIFY_DONE;
+> +
+> +	/*
+> +	 * Let each online CPU related to the policy update the period by their
+> +	 * own. This will serialize with the framework on start/stop the lockup
+> +	 * detector (softlockup_{start,stop}_all) and avoid potential race
+> +	 * condition. Otherwise we may have below theoretical race condition:
+> +	 * (core 0/1 share the same policy)
+> +	 * [core 0]                      [core 1]
+> +	 *                               hardlockup_detector_event_create()
+> +	 *                                 hw_nmi_get_sample_period()
+> +	 * (cpufreq registered, notifier callback invoked)
+> +	 * watchdog_freq_notifier_callback()
+> +	 *   watchdog_perf_update_period()
+> +	 *   (since core 1's event's not yet created,
+> +	 *    the period is not set)
+> +	 *                                 perf_event_create_kernel_counter()
+> +	 *                                 (event's period is SAFE_MAX_CPU_FREQ)
+> +	 */
+> +	for_each_cpu(cpu, policy->cpus)
+> +		smp_call_on_cpu(cpu, watchdog_perf_update_period, NULL, false);
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static struct notifier_block watchdog_freq_notifier = {
+> +	.notifier_call = watchdog_freq_notifier_callback,
+> +};
+> +
+> +static int __init init_watchdog_freq_notifier(void)
+> +{
+> +	return cpufreq_register_notifier(&watchdog_freq_notifier,
+> +					 CPUFREQ_POLICY_NOTIFIER);
+> +}
+> +core_initcall(init_watchdog_freq_notifier);
 
