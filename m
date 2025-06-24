@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7446FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B5AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdGPc8oyeGpMuwgv9EDY68OxmA/Y/eSY3jw2W86biNA=; b=dNSrT7EQbm87C4br4S/HPL6Ldo
-	4TBGKllNQCiJZNkdf3jLitxPnTjf38Nz9hSFTznLbzSUL/4egvyg6rXF8yufP8+xWGDIp7rE1e9ZN
-	hb8/v26UUOnCopBx4i5d9ciHKwbtXJ9HJZdLFeqEP21lv1RJ8LBgB2LMBdGXcCMZPrc6Dr0mmyZNR
-	oR8AEn9QYUbm15WoQfTULtMrRNfbdW96hQJpPX5BmQuok2GaWVauh+XdFAF5VJLTA058L5KUd38N7
-	AJ7+sVP0z7vftV78Qp3bdsoLgrsWwrJxuckkJqSwaMy8ug60QmQdLREJB1Inzs7gZZlKQhurMWrDX
-	vmoN3XCg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9+TWzMrm54xfZ0RWb5/Dm+shOivo1lObaYOF3smCwj4=; b=wjf7Ml5R/UYbHZ7z/UFdJZTFiA
+	RPiKrwaCA/b3fvdVv2ZY231tqLSnaHlDga5TWEuVVzBDxTl2SNpEhZC42duFHi6cuhoprBTd/xHtq
+	HuT4yj++zDmyA3x8tSutCjRrVxEac13w+U979spAI59S9KwoABClvJz17JeKSSJ2nlTBKDY0nxmwB
+	ebfOSKm3DrzgQ4ijY19nyiE7V7z3Yh7kHCrqY9DNr5Xoi7Y8/CCJGYo3LGXRsG3RU8Vw2n5Url0ag
+	q8cqxHzO2wBCHwqZrsRtbdPt0lsgroIiaQ+ulp/1OnY1Ow9300ePpU9u13ODLAK8yBTLXLf4Z2gTF
+	KwS1A2FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUC4z-00000006zUf-2m77;
-	Tue, 24 Jun 2025 22:25:25 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uUC7F-00000006zdG-2370;
+	Tue, 24 Jun 2025 22:27:45 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUBsh-00000006x0Q-1qyY
+	id 1uUBsh-00000006wzz-1x8e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 22:12:44 +0000
+	Tue, 24 Jun 2025 22:12:45 +0000
 Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55OMCVwb1281096;
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55OMCV5a1669410;
 	Tue, 24 Jun 2025 17:12:31 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1750803151;
-	bh=IdGPc8oyeGpMuwgv9EDY68OxmA/Y/eSY3jw2W86biNA=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Uxeq/LYUp83F+xfrlhT5QtTHfwZDjjxcgRdWG3LnmSkGlsn1kCssrP/8v1AbHub8P
-	 7mJ3n4JtvU/ceCmzfTHahrRRozcKj4MNzSt4+BAH3d7mddUQpZgLPAJIciwmnGn440
-	 GtdsUqmdMbEIibjISj9VgpOD5xpF3TNK7nNAJuyU=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55OMCVLw1942549
+	bh=9+TWzMrm54xfZ0RWb5/Dm+shOivo1lObaYOF3smCwj4=;
+	h=From:To:CC:Subject:Date;
+	b=JgE1WtSN9PhyKQdfZ59E1u6JrAuHkGJ40AHaSUh2sgThXcI8Nj5D3lDRwqllD5qn5
+	 +FWUSlWCATUURND5C3RApKRZV7HJssEpXwokEWN0zY/IydEHhXN+6RcN8NtKrfL/mI
+	 EhBy7NBE1iJu0+tbfztgZ4tK9K/FpQNbMuVlcCyg=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55OMCUrk1942543
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 17:12:31 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 24 Jun 2025 17:12:30 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
  Jun 2025 17:12:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
  Frontend Transport; Tue, 24 Jun 2025 17:12:30 -0500
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55OMCU9L2248346;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55OMCU9J2248346;
 	Tue, 24 Jun 2025 17:12:30 -0500
 From: Judith Mendez <jm@ti.com>
 To: Judith Mendez <jm@ti.com>, Ulf Hansson <ulf.hansson@linaro.org>,
@@ -65,19 +65,18 @@ CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
 	<conor+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
-Subject: [PATCH 2/3] arm64: dts: ti: k3-am62-main: Remove eMMC High Speed DDR support
-Date: Tue, 24 Jun 2025 17:12:29 -0500
-Message-ID: <20250624221230.1952291-3-jm@ti.com>
+Subject: [PATCH 0/3] Workaround for Errata i2312
+Date: Tue, 24 Jun 2025 17:12:27 -0500
+Message-ID: <20250624221230.1952291-1-jm@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250624221230.1952291-1-jm@ti.com>
-References: <20250624221230.1952291-1-jm@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_151243_527390_A7727E2F 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250624_151243_558137_7143F958 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For eMMC, High Speed DDR mode is not supported [0], so remove
-mmc-ddr-1_8v flag which adds the capability.
+This patch series includes fix for Errata i2312 [0].
 
-[0] https://www.ti.com/lit/gpn/am625
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+Also include fixes for removing eMMC HS DDR support for am62
+SK which has been descoped as per datasheet [1] and enabling internal
+pullups for AM62 SK and AM62SIP SK, as per JESD84 spec recommendations.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 9e0b6eee9ac7..120ba8f9dd0e 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -553,7 +553,6 @@ sdhci0: mmc@fa10000 {
- 		clocks = <&k3_clks 57 5>, <&k3_clks 57 6>;
- 		clock-names = "clk_ahb", "clk_xin";
- 		bus-width = <8>;
--		mmc-ddr-1_8v;
- 		mmc-hs200-1_8v;
- 		ti,clkbuf-sel = <0x7>;
- 		ti,otap-del-sel-legacy = <0x0>;
+[0] https://www.ti.com/lit/pdf/sprz487
+[1] https://www.ti.com/lit/gpn/am625
+
+Judith Mendez (3):
+  mmc: sdhci_am654: Workaround for Errata i2312
+  arm64: dts: ti: k3-am62-main: Remove eMMC High Speed DDR support
+  arm64: dts: ti: k3-am62*: Move eMMC pinmux to top level board file
+
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts      | 25 +++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi      |  1 -
+ arch/arm64/boot/dts/ti/k3-am625-sk.dts        | 25 +++++++++++++++++++
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 ------------------
+ drivers/mmc/host/sdhci_am654.c                |  9 ++++---
+ 5 files changed, 56 insertions(+), 28 deletions(-)
+
 -- 
 2.49.0
 
