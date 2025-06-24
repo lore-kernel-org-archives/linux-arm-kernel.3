@@ -4,73 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B90C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F6C8C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6X8quacUBF/myiWfdN5Sfb5gBn4ACp83+Pp02fzr3rI=; b=yXd6ErYOpl8Yk+G2IF+L9sE3a3
-	/wji7UVVwvF484f4VbX7pZd7xtHSKAcnFX+EkDKpOYDH6NPkl+6MtOPmsYdt/2U6Pm3hkByUrrpS7
-	Nnnq4Gy14obuIwH4YH1KDS5sAUAhsM5N9MdE1baLbm8LkswHCM5ETaByKhJvaLs3jmwngi8jK3BtM
-	QPPFn0oqZYaPznqJo8+xPvCaG6sdlXzwLuEbmsB/j8IDC2dHbddMSVbdAiCeZxf4Jt6i3fWG9ZkhE
-	PgiF5kdWbz0WBBTkJGOsKmdI4+SeU2cfhjBWbtVRjb1k77EEKcpweJ1lWZppwuLUtgZqyXNFMDu/B
-	QMOUukNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MCgrn1CiWIu0sdiGmnIChmG0LI59sA3W2q7wMvRlU5M=; b=NdOMM24IRQUZnxu90MVe130nxI
+	TfgKgq9ARWwUYKvD64LZ7v+uQIxvzKYhOHguH+q186wRMPQUIaTkpX1AgYT4PTCA7eHthCJOM4q/H
+	MrLz55EjYZl+3D3FH8tjYOi+fU0mL/3u3GRdx+uRX87avkoKWC0zIt2MB5VVj0whSY8ywVVryc2Me
+	uLO7Ja4iIvsXW59Ho1OWG8UCVUsGfPSPzBhKL9fTI7A+WsjkxjzDfALMX5G0teGltc6DyYwxIK/fv
+	4gY2AlF4KC+pa/WUnMdWQYackhHou39S25ju/GdOO1ZhSkAdJzrD+PeZHkdqbaW9j7mi9VcMAvIa9
+	xahfQiXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzO7-000000055ZD-3ljn;
-	Tue, 24 Jun 2025 08:52:19 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uTzQX-000000055xH-0K4M;
+	Tue, 24 Jun 2025 08:54:49 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyzD-000000050oL-3K6e
+	id 1uTz61-000000052fR-0X0w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 08:26:37 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QXEG1731148;
-	Tue, 24 Jun 2025 03:26:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750753593;
-	bh=6X8quacUBF/myiWfdN5Sfb5gBn4ACp83+Pp02fzr3rI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=t7EmD3h5wz1SSRE+wFgiYF5tcmV5OzzdjmBIjgfylKZMJiEEM6ZZb2gT7bYPns3D0
-	 EvIsE4UHpuLjkCwFv5ls8Q3gbTLZfIej+PiOl62/kuBuCHOSyeLMvSvogxeONT+ht6
-	 1BKSkoidY7O/Tpv04B8bycRGHIGJV5Z8LBuWhd7Q=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QXeI4039856
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 03:26:33 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
- Jun 2025 03:26:32 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 24 Jun 2025 03:26:32 -0500
-Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.214])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QWZx1183729;
-	Tue, 24 Jun 2025 03:26:32 -0500
-From: Jayesh Choudhary <j-choudhary@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
-        <j-choudhary@ti.com>
-Subject: [PATCH v2 7/7] arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
-Date: Tue, 24 Jun 2025 13:56:19 +0530
-Message-ID: <20250624082619.324851-8-j-choudhary@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250624082619.324851-1-j-choudhary@ti.com>
-References: <20250624082619.324851-1-j-choudhary@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 24 Jun 2025 08:33:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qWB8mJLg/u3oJQsMFbQOA/wqBQG2k0ucipbXhfxcw15Fjt/9dtmbToyYm/S2cTAwUBb+vKyutkdu8dN3UWWESoke4+bHmqi3Rtg5u01VJne0x7oSg/Hozidx8jD5QKVHyyd6hOQ83i6J+zIh1yBmNiVweGUsDZzXqxEm0MQnhTBNLSGhCA+y4PBMKjRZa2RYsQBWII0YLAx6LLAxdq8TTb2wi/wGHYEV7MAmJy8VJCommWdC3qv5dhVRNe2+7wDthP/cEWzz9mNU2bbeBU4IwoKgN1rJR+lVLVrkZJ2Ty3woFUb3kUrRz9jqTE37RHBNRIt9KKZEWp2sLrDSKT4rwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MCgrn1CiWIu0sdiGmnIChmG0LI59sA3W2q7wMvRlU5M=;
+ b=ToaHVtDWtEL1bnKXip3YmBQ3TPzs4RGzsG68w5x65fVBYgVBSiXVMZwPNWhbMvnhAleVsWPpaRCCyx6Jnc6DBlSwIjeIly3LqgPLBzsiQEFafsnrk1nGYXTBdsMNuBJWOjEcZSE6TvWIwWqR2AHk6Ct0iEzzVb/n48+hzP0tsljKsfQTF7Qi5NNhQu58ovgGoSkmoaCxsdmE5acJW2SVKPZgZpnGtJK66LZTR4qUzn+SiLIKMVeKhVxdQ2sH/W07SkWw4Nm+vOtskFQ5LsrK0cltCoaVb1mEgap9AdZgKWrbvbhHvHpvUgffevT7o3oXsLNXJuKRg4OVTujgWvBAwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MCgrn1CiWIu0sdiGmnIChmG0LI59sA3W2q7wMvRlU5M=;
+ b=mwmaD1WBwPF63N1Py+pjMJ05x9qNXpD2/JkLgxCc9jHQlhhfrvU/LmR5qHmSCF8p/MkRCQ21oZ7RSNuGqy6M7oLU1fnz/uCs/trVFOoCZT8MXpzBT1OFKE9TxaD5n8T3IDcNuOFeaQrnLBNTA7ESZsprmJ9Va9rWWOAQhggJ5qorQjHyYyGddfoyTSEiClLdLi+/hU7Dw25VuwGYqpce8cZ7S7ppXL4hY5484xG61TGK5W4MpaZjCe0XUp5yTAQ5kS0fAmYpQh7ONGzUsMSk5DixcJaKJyEV9eGcXSVWkOnLCAL5FV59DJxLip+DrmOWDvKkYkYWaZHuoJX2detDyQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from KL1PR06MB6273.apcprd06.prod.outlook.com (2603:1096:820:ec::10)
+ by SEZPR06MB5120.apcprd06.prod.outlook.com (2603:1096:101:39::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Tue, 24 Jun
+ 2025 08:33:19 +0000
+Received: from KL1PR06MB6273.apcprd06.prod.outlook.com
+ ([fe80::1f06:daf8:cbb3:a0be]) by KL1PR06MB6273.apcprd06.prod.outlook.com
+ ([fe80::1f06:daf8:cbb3:a0be%3]) with mapi id 15.20.8857.026; Tue, 24 Jun 2025
+ 08:33:19 +0000
+From: Huan Tang <tanghuan@vivo.com>
+To: krzk@kernel.org
+Cc: festevam@gmail.com,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	s.hauer@pengutronix.de,
+	shawnguo@kernel.org,
+	srini@kernel.org,
+	tanghuan@vivo.com
+Subject: Re: [PATCH] nvmem: imx-ocotp: Use helper function devm_clk_get_enabled()
+Date: Tue, 24 Jun 2025 16:33:12 +0800
+Message-Id: <20250624083312.453-1-tanghuan@vivo.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <5b048b32-36b4-4c4f-aefb-058674147b76@kernel.org>
+References: <5b048b32-36b4-4c4f-aefb-058674147b76@kernel.org>
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ClientProxiedBy: SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6)
+ To KL1PR06MB6273.apcprd06.prod.outlook.com (2603:1096:820:ec::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR06MB6273:EE_|SEZPR06MB5120:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e580479-1b76-4cd5-6e0f-08ddb2f9c5a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ldXfuYzxuED0yTK0QpNSMI+D6avYfefBZFEqjm2I6r3wRqLEQ6JrlQfr/EyJ?=
+ =?us-ascii?Q?DGBc0X366VtwyJ39UXmzD6kAqZWyc4QBS1IqwZOa7j/TjiihdM9ojdutj9sJ?=
+ =?us-ascii?Q?lwEYICYd34vwQMdFcC90NPZ3f6nUG3/QfrOw/5rgnF5eAauXCtaEj8D17j5u?=
+ =?us-ascii?Q?4FqglpJXuf9wXHw4QNYkJwNY3b+tai+Q0n2g3kh1OY0XvJl4OrWpEtrSvqpH?=
+ =?us-ascii?Q?2UXGHkNrXXHd21xTbwYDw8Dr6MoJvNf/lKh1foOxQXzvYnE4tVlXzpTiVdem?=
+ =?us-ascii?Q?8ZZrb9W8L3rw6o2aY98u9TQ5c9PXa+/yjOI2h+dBpr8IeLBsibTUiFyziizT?=
+ =?us-ascii?Q?zpQ4p4elicgieWZVJwTNnFcTQOjBPILW46dhcgh92qp7is864Xuj7/lFkF3N?=
+ =?us-ascii?Q?k38qZhpElGyfkcfMT6BSvi6UYaGl1uiJNEl5UvPE0pCbICujIH1VhM/EuXcX?=
+ =?us-ascii?Q?iHngyir/znmp4KseF8/Z1GR66pOqTMMHUiQ8JaIh3L4H2blUl42FMFvAslsN?=
+ =?us-ascii?Q?MgUoahGfFTJ8MhSZWc0pryslGpslrAqX7R5l2/1RdrL7uVWQq8dhv5JROT7Y?=
+ =?us-ascii?Q?olcWr45500q49oN9KN5PCBLDezJMzQUBxAYUCc17Q3G8mayVIVdOJ/eD/59T?=
+ =?us-ascii?Q?ZEN9IRpMF9w30qwupwDvxpSTCtGvJcZh5Yn6Vosrtrw8pg+xRJ9TjHDK4CRo?=
+ =?us-ascii?Q?1AD240SMeTLK52sX0/vjyQk9bdgZP+Ulnpe8PCzbYNt67DBXPuiImniMFL1d?=
+ =?us-ascii?Q?0UpDEKxANIeIH7zFoQetymBMepU+jj7wdaLEBHTSV9tNiqvidTbKJTPdlUO5?=
+ =?us-ascii?Q?PLr6b4taOZYcXkx6bKxQjtAoeAjH975KZSZqfPUHI/2k2cO1O7g1y4jfv6Hv?=
+ =?us-ascii?Q?AsIHuhe/R18kxePZFZTroiZieZ62aKx1EHZv8LRouHf0H7r1hRSle2Dk7umS?=
+ =?us-ascii?Q?R+zm0CaTCEb6M6/2w0k6vFKSK0+MTHKEsW3/H5TiEByLiXaJzODNprvZOLJ9?=
+ =?us-ascii?Q?3y39Q6quzpvDE+tvaPEzLxiPIeNjKXRvxDTAFSmQeow8HBm8UbElXqQPnjyX?=
+ =?us-ascii?Q?VtvVps/hB7+BQOywFbcniRPstCJgy4xCIcvddVxrcbKJ5ouWC2dccA/Eq5Io?=
+ =?us-ascii?Q?EjJG3dyzxWgQ/zFB0X1DV+B7/3uZCkZPrGFkA5LnkdtoDvxcym8de3S4Qs/R?=
+ =?us-ascii?Q?G2KBr6yfFysOF8o5UQ8LG2JALly2T3gFIv5+efxi4ov1x0ZmInSoPwJ7nfwr?=
+ =?us-ascii?Q?hpqXcxcJcUrtdpM336zVTVdL5xBisye+C24PhKzBV16lJerZUoJGDdL2jMaE?=
+ =?us-ascii?Q?2QUI6+RS7/JN0ZXIM+fh3nq9SUjDd7kC858PrPrh3nN9/gXTBincXZxuuwfw?=
+ =?us-ascii?Q?F3l5l2r+ZxFecUuRXVBxS+NWGRDNLPryJHKU4JvyC5QMzJ/HyyttE1sQ0Zig?=
+ =?us-ascii?Q?L3E7f2q4I5lKYnA33bB36mXVm7hzEpTL+xrJqR3nS+GCfAO33N9rr0VkneB4?=
+ =?us-ascii?Q?2TeBJKx7iERqr/o=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR06MB6273.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IkRcRPOJbM0YChPxu3YK+S6QSqC4Oh1pG0XLrcr8yHDmbfKYEjVHuqTL6TZj?=
+ =?us-ascii?Q?At6NK5byCqwuxhieTg3Lur887bVkFJY8TZEWamZDnpiYskGNwi5dnFYYZ/wL?=
+ =?us-ascii?Q?oqLA7jo3SpKZGcZGozUw+pzGra9xc3l1IEz0xVDZM6LRHLCFn90b5vCMhanj?=
+ =?us-ascii?Q?wvMGOLeJONI0xtQ1o1pQ45j/x161SBP1mriXXUBtLv92WJHb/wwSeM4MdYDj?=
+ =?us-ascii?Q?Qifo7QE9zZAFvR464zNfXuS4TikB/+qynf2SftPib/q9+0KyDtvEu+xycsJe?=
+ =?us-ascii?Q?3XJ+Ykk/OTeyPxOj6bydIh8nkyKC99YmDjp/g4aSbpU6rGVd+eCyuHqvONHg?=
+ =?us-ascii?Q?GQd9y5uL/c4uQWDVtuJknCuJAzBJIkxE5MVJHet1QftC9VDkcjmhovxRp09K?=
+ =?us-ascii?Q?B2va+FY2IvIwQDJzWuWBSrruYb3CzryFX9PVuUhbjnut6vk206qpJlvqIOXC?=
+ =?us-ascii?Q?XLE1/ZrMOd6Iiw3VfwLvP43ujQ4x0U39x4ANlLVenqqYRqjO+NztZ0AwciBe?=
+ =?us-ascii?Q?9AngsseNBbjI+0gGMfnU0wP0/8/rI20uPeVLJ8Tx5K/DCvADI11UYPKvVuk1?=
+ =?us-ascii?Q?wLmvIQRlMKjpoc5ajZhVmiSjy5TFIb/oXnMyiPo1nsIu4QCpFAwpSmJSM3w/?=
+ =?us-ascii?Q?SbBfBggZOyyy3GLGOpgs3cJ+1VMdq734ZzKECVue+7b1jt5C/ecUIf0tZIHm?=
+ =?us-ascii?Q?AnTlrGEZhGDJ2HMOgvoppu/5jmsG2uaKJQ1liuU/boVmafNbeWnD+z4bQ+pW?=
+ =?us-ascii?Q?f8rw5B6a9zHsYSNL5BwyDBbxVw5212PvnGbt9VNtu/IEolPHUM4WYVHE15zQ?=
+ =?us-ascii?Q?WknlxW4aBLHsu31ViECSQRWz20F0HLlnqJJEKufqAjc4pyR6qp9HIxn2QKXl?=
+ =?us-ascii?Q?s4ks22vprOzU5jZP8DgOKdYmlPKuhAC5+50poNoWSubME24vIt1diYCtw2Ow?=
+ =?us-ascii?Q?qyqn80mqCM6tFJIb/wI1GOrdTSFxqDmDdswWRM/rUV3jvfmEVUtkMMVKsJ1o?=
+ =?us-ascii?Q?IXSmqhmvCvZ15J2mqoA3rBrJ01xFhFc3sBPFehZCJumajieGjRhlw3qGeh8T?=
+ =?us-ascii?Q?YvhHCIapkXB8EmpcVOFLX74g9dX1+uB6spHI2kVJ93uSLGKYnkoGHQi/+rQB?=
+ =?us-ascii?Q?OSsGCCIDQ2QsobU9MZtcmOqwcvzftIXKipT0aKQ+5PhCmiRAEa8AmphpG6ss?=
+ =?us-ascii?Q?eJ658oTuW4f+tGWqDWRkSdWkpx6WtROnauAP4ILIDFq/JkUv+RjZwxQ/ekaY?=
+ =?us-ascii?Q?oHJfEYvxy1/QNeObVP1RZu5i7PSMzzsrcfG8DdbPEyzpQEHKDabg/OP1tg0B?=
+ =?us-ascii?Q?zL4W5fKfqmfLjgGQ+RxYf981Ya5AI4nrkbvPrO1cGtkS9Jnu6sgz0ykIA4EB?=
+ =?us-ascii?Q?nU97N883q++loe/nWIEqZzIFiR4kJydy1BoPzoICHZDAamT9H16LkIITSq/B?=
+ =?us-ascii?Q?U8DdAjVugbGUEeqq8YUc1cFRXZ1LLWInTzQ+FVi5/dwbVc6ZCgun+nZNdFCQ?=
+ =?us-ascii?Q?Boz8eZxGhshkmzWZXtKDJFl8WikmLnfoicaT/I5sgMBbi6u7gebiVFugeBKy?=
+ =?us-ascii?Q?KLMSyEwWjJBxJdq77od2Tvj6Z04V3vW4z4+ZpvVW?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e580479-1b76-4cd5-6e0f-08ddb2f9c5a8
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR06MB6273.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 08:33:19.0764
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m5BljpdQgx+ne2s9VmK0ftPmEDJqcmAu47JzPYpeJEoNhUzafaS5XPUaIzx6/bcxuhKbpQt/zEuA8XzcfRgTsA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_012635_919086_F761BED8 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250624_013337_299921_393FE198 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,147 +164,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DSI support for AM68-SK platform.
-
-Add DT node for DSI2eDP bridge. The DSI to eDP bridge is sn65dsi86
-on the board.
-
-Add the endpoint nodes to describe connection from:
-DSS => DSI => SN65DSI86 bridge => DisplayPort-0
-
-Set status for all required nodes for DisplayPort-0 as 'okay'.
-
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
----
- .../boot/dts/ti/k3-am68-sk-base-board.dts     | 96 +++++++++++++++++++
- 1 file changed, 96 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-index 5fa70a874d7b..aef63ae2994c 100644
---- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-@@ -135,6 +135,35 @@ transceiver4: can-phy3 {
- 		max-bitrate = <5000000>;
- 	};
- 
-+	edp0_refclk: clock-edp0-refclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <19200000>;
-+	};
-+
-+	dp0_pwr_3v3: fixedregulator-dp0-pwr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dp0-pwr";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&exp2 2 GPIO_ACTIVE_HIGH>;     /*P0 - DP0_3V3 _EN */
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+
-+	dp0: dp0-connector {
-+		compatible = "dp-connector";
-+		label = "DP0";
-+		type = "full-size";
-+		dp-pwr-supply = <&dp0_pwr_3v3>;
-+
-+		port {
-+			dp0_connector_in: endpoint {
-+				remote-endpoint = <&dp0_out>;
-+			};
-+		};
-+	};
-+
- 	connector-hdmi {
- 		compatible = "hdmi-connector";
- 		label = "hdmi";
-@@ -605,6 +634,39 @@ exp2: gpio@20 {
- 		gpio-line-names = "HDMI_PDn","HDMI_LS_OE",
- 				  "DP0_3V3_EN","eDP_ENABLE";
- 	};
-+
-+	dsi_edp_bridge: dsi-edp-bridge@2c {
-+		compatible = "ti,sn65dsi86";
-+		reg = <0x2c>;
-+		clock-names = "refclk";
-+		clocks = <&edp0_refclk>;
-+		enable-gpios = <&exp2 3 GPIO_ACTIVE_HIGH>;
-+		vpll-supply = <&vsys_io_1v8>;
-+		vccio-supply = <&vsys_io_1v8>;
-+		vcca-supply = <&vsys_io_1v2>;
-+		vcc-supply = <&vsys_io_1v2>;
-+
-+		dsi_edp_bridge_ports: ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				dp0_in: endpoint {
-+					remote-endpoint = <&dsi0_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				dp0_out: endpoint {
-+					remote-endpoint = <&dp0_connector_in>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &main_sdhci1 {
-@@ -699,6 +761,15 @@ dpi_out0: endpoint {
- 			remote-endpoint = <&tfp410_in>;
- 		};
- 	};
-+
-+	/* DSI */
-+	port@2 {
-+		reg = <2>;
-+
-+		dpi0_out: endpoint {
-+			remote-endpoint = <&dsi0_in>;
-+		};
-+	};
- };
- 
- &serdes_ln_ctrl {
-@@ -756,3 +827,28 @@ &usb0 {
- 	phys = <&serdes0_usb_link>;
- 	phy-names = "cdns3,usb3-phy";
- };
-+
-+&dphy_tx0 {
-+	status = "okay";
-+};
-+
-+&dsi0 {
-+	status = "okay";
-+};
-+
-+&dsi0_ports {
-+
-+	port@0 {
-+		reg = <0>;
-+		dsi0_out: endpoint {
-+			remote-endpoint = <&dp0_in>;
-+		};
-+	};
-+
-+	port@1 {
-+		reg = <1>;
-+		dsi0_in: endpoint {
-+			remote-endpoint = <&dpi0_out>;
-+		};
-+	};
-+};
--- 
-2.34.1
-
+>>> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c=0D
+>>> index 79dd4fda0329..ce5970ba4033 100644=0D
+>>> --- a/drivers/nvmem/imx-ocotp.c=0D
+>>> +++ b/drivers/nvmem/imx-ocotp.c=0D
+>>> @@ -605,7 +605,7 @@ static int imx_ocotp_probe(struct platform_device *=
+pdev)=0D
+>>>  	if (IS_ERR(priv->base))=0D
+>>>  		return PTR_ERR(priv->base);=0D
+>>>  =0D
+>>> -	priv->clk =3D devm_clk_get(dev, NULL);=0D
+>>> +	priv->clk =3D devm_clk_get_enabled(dev, NULL);=0D
+>> =0D
+>> This is just confusing or even wrong. You do not understand the code,=0D
+>> just blindly do some changes pointed by scripting.=0D
+>> =0D
+>> NAK.=0D
+>=0D
+>=0D
+> I spotted error path further, so let's correct above: it is not only=0D
+> confusing, but you introduce actual bugs!=0D
+>=0D
+=0D
+Hi  krzk sir,=0D
+=0D
+Thank you for your reply and guidance.=0D
+=0D
+This patch does have the problem of double clk_unprepare_disable.=0D
+The usage scenarios of devm_clk_get_enabled are limited, as described below=
+:=0D
+=0D
+Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared=
+=0D
+and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be=0D
+replaced by devm_clk_get_enabled() when driver enables (and possibly=0D
+prepares) the clocks for the whole lifetime of the device.=0D
+=0D
+I will learn from you and improve the standards of patch upstream in the fu=
+ture.=0D
+such as this patch:=0D
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
+id=3D0fa8ce76b713a31f6aef2f88d08eee74d7d3d8a7=0D
+=0D
+>=0D
+> No for another round of terrible vivo.com scripted bugs.=0D
+=0D
+To clarify: =0D
+This is my personal mistake. Hope you have a good impression of "vivo.com".=
+=0D
+=0D
+Thanks=0D
+Huan=0D
 
