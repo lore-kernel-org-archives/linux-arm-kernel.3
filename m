@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9EDC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8B7C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LowxC1XeO1Q3ptnV100NCfbZE/+FCacaRTlFDEZ7nw4=; b=xEOZhk+Xi2PCq8W+1LSEme31ln
-	pQIPzB7uwkP1++5gcxbzsX3/wJ28q0lYQiGBL4b3gg7+pp0NGgbWaH498H1hsiLcBxoF8hEaynxoY
-	n5HlNgoK0vnurEWVgIO5aU/3Zbrn4vWqCaxycmhHgvqVJst1BMUtg5JZr1mYtwWGee87G3MkQLLqh
-	3ZnBSWdGhzjE0XC0mHpJwIM9iwgJjoavxO7wMhQIU0/Ds1DGu8QFnrwGmnOA7rWji1QMRZZE8ZR7W
-	wwBJ/4ZGJOmlqu5uIcW/X3qDjKIVv/tJoCgnTnTcBn15efP5v2Kh8UKnyVopeuItST2eIi3ag7TCf
-	zuoBFbcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GwASaybr7tTBa/RnWzp5kiw4jn5j6IBVC/FDU+4fRf4=; b=Oq6wZ2Ql7gwSJtraA6jgMXToZH
+	q6kn7Z6UyXc0ODH8LB9e5kXAub5QHd6CmkXMmKc3+ul6M5GJww7U7AdPYuGxOA95tQgdfXUwPV/27
+	L3IdElZZ635wn+e4P4gpJtcq6fMafVzaIopvXn4yV91NsEorNbGPLRZ3ZUe8DkRO8vH6jH4Fbz0DK
+	qCTfB56pGECIr1/czA0E+mQ76vB/F/zriNBC9tyKAktpQSCRofLe46xI07GJ+23Y/E9Ai5PrWIaM9
+	rblu6jI2D57u/9OtBJaxfBypNbHPbMKVplDiUFNa0ivfwkUfPb+/JtW39KpJHqJUlEbBu17/ZVDL6
+	Cxh888pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU22j-00000005S7u-1Wck;
-	Tue, 24 Jun 2025 11:42:25 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uU252-00000005SQa-0OU0;
+	Tue, 24 Jun 2025 11:44:48 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1AA-00000005LYV-1T55
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:46:07 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55O89PlW018562;
-	Tue, 24 Jun 2025 12:45:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	LowxC1XeO1Q3ptnV100NCfbZE/+FCacaRTlFDEZ7nw4=; b=NW+9A/iYDBIYOudx
-	bupDVw7fFsOUiF1POCQhkWRdtrMnA2SQEgn3ffTStQz7psNYYvO1bykZpdgutoWy
-	1WzDPo1HfRDTujMzGceUmoFF9dI3csRqk+OrSjX2U1Q82AHPZk0yuR9GirUQWEuY
-	0uTXBDmqmhreOATOMkPOrAg+HFRtqZZO74LR/Kz8sUH5woYThZWMJktOCzrRuZP5
-	jloxRIqQkKw51725g6fIFcIyiDtijqkG3NSDKgTMgLLmmSM6OD0+OHlCDgC/T3aL
-	OBE2cZ+Obv2dvhAJpM9vhApHeFKzbOlpzSn/muvTc+F8R53Tnl46alaOILvOrx/r
-	WA2Mzw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dkmjm6bk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Jun 2025 12:45:45 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5B79640046;
-	Tue, 24 Jun 2025 12:44:24 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 974C5B51BAB;
-	Tue, 24 Jun 2025 12:43:10 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 24 Jun
- 2025 12:43:09 +0200
-Message-ID: <5044c733-8836-43bd-85d7-0f552b000fb1@foss.st.com>
-Date: Tue, 24 Jun 2025 12:43:08 +0200
+	id 1uU1EL-00000005M66-3N9u;
+	Tue, 24 Jun 2025 10:50:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750762222; x=1782298222;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=dv6ZN9qLcc39VhlOnYfqWOhVKBnveT9waBSLrEElVx8=;
+  b=ij4CwhzYvUaCnarePJ4CT0iV8uKBhCmG/vOSX5J3NeI8yQsK+UjwvE0K
+   SpliUEWuV64z1H3X0n6xXxr2bOIDgaWUm7m3tpLVq6qVb0fEMiT2/yKm8
+   fD6BleapS9pniiQh9TCGEl5JoZGRs1lfX2v+Msl/GNySNC9Ndax1aWWB3
+   v/nOLNmCI6qQYgLPGZlAmp/wMruMzbtVxNCASVeWaDYmB+ZPUP/ifPjwi
+   KuyExCG40lwgE6yrOLO1cLi1O6KlmYny+sbPaZjbCfy7t+2SJ0kimh0Mj
+   LaBAKJWFGf8GXSUzyYaWBGZxDT1SViJfRSHDQYbK26B+Uq5bW9drxcBNJ
+   Q==;
+X-CSE-ConnectionGUID: qV+7TDwZS+2kg5dacbd6jQ==
+X-CSE-MsgGUID: moKjpSVOTH+2wCkSFYCTmw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11473"; a="64352252"
+X-IronPort-AV: E=Sophos;i="6.16,261,1744095600"; 
+   d="scan'208";a="64352252"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 03:50:20 -0700
+X-CSE-ConnectionGUID: P3jobHMUQAe9pUeBJdc30Q==
+X-CSE-MsgGUID: JnGhA3LFT8aHV12Y11RQCw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,261,1744095600"; 
+   d="scan'208";a="151306478"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.16])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 03:50:10 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Tue, 24 Jun 2025 13:50:06 +0300 (EEST)
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+cc: "bhelgaas@google.com" <bhelgaas@google.com>, 
+    "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+    "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+    "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+    "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+    "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+    "joel@jms.id.au" <joel@jms.id.au>, 
+    "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>, 
+    "vkoul@kernel.org" <vkoul@kernel.org>, 
+    "kishon@kernel.org" <kishon@kernel.org>, 
+    "linus.walleij@linaro.org" <linus.walleij@linaro.org>, 
+    "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
+    "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+    "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+    "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+    LKML <linux-kernel@vger.kernel.org>, 
+    "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
+    "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
+    "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+    "elbadrym@google.com" <elbadrym@google.com>, 
+    "romlem@google.com" <romlem@google.com>, 
+    "anhphan@google.com" <anhphan@google.com>, 
+    "wak@google.com" <wak@google.com>, 
+    "yuxiaozhang@google.com" <yuxiaozhang@google.com>, 
+    BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller
+ driver
+In-Reply-To: <SEYPR06MB5134973F678EB5B163DD50809D79A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+Message-ID: <a618588d-54fe-69a9-27f7-7b19ba905a52@linux.intel.com>
+References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com> <20250613033001.3153637-8-jacky_chou@aspeedtech.com> <40d1c5bd-0457-55ea-2514-ba27e6a4c720@linux.intel.com> <SEYPR06MB5134973F678EB5B163DD50809D79A@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark
- Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
- <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
- <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-24_04,2025-06-23_07,2025-03-28_01
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_034602_888547_B6C55FA8 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250624_035021_890208_9BD53FDF 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,79 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/23/25 11:45, Krzysztof Kozlowski wrote:
-[...]
+On Mon, 23 Jun 2025, Jacky Chou wrote:
 
-Hi Krzysztof,
-
-Sorry I forgot to address comments below.
-
->> +
->> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
->> +	.regs = &stm32_ddr_pmu_regspec_mp1,
->> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
->> +	.counters_nb = MP1_CNT_NB,
->> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
->> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
->> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
->> +};
->> +
->> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
->> +	.regs = &stm32_ddr_pmu_regspec_mp2,
->> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
->> +	.counters_nb = MP2_CNT_NB,
->> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
->> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
->> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
->> +};
->> +
->> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
->> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
->> +};
->> +
->> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
->> +	{
->> +		.compatible = "st,stm32mp131-ddr-pmu",
->> +		.data = &stm32_ddr_pmu_cfg_mp1
->> +	},
->> +	{
->> +		.compatible = "st,stm32mp151-ddr-pmu",
->> +		.data = &stm32_ddr_pmu_cfg_mp1
+> > > +static bool aspeed_ast2700_get_link(struct aspeed_pcie *pcie) {
+> > > +	u32 reg;
+> > > +	bool link;
+> > > +
+> > > +	regmap_read(pcie->pciephy, PEHR_MISC_300, &reg);
+> > > +	if (reg & CAPABILITY_GEN2) {
+> > > +		regmap_read(pcie->pciephy, PEHR_MISC_344, &reg);
+> > > +		link = !!(reg & LINK_STATUS_GEN2);
+> > > +	} else {
+> > > +		regmap_read(pcie->pciephy, PEHR_MISC_358, &reg);
+> > > +		link = !!(reg & LINK_STATUS_GEN4);
+> > 
+> > While I don't entirely know the meaning of these bits, what if the link is not
+> > using maximum speed it is capable of, does this check misbehave?
+> > 
 > 
-> So devices are compatible, thus express it correctly and drop this.
+> In our AST2700, there are gen4 RC and gen2 RC.
+> Therefore, here will get capability to confirm it is gen2 or gen4.
+> And the link status is in different register.
 
-Ok so I assume this comes with your comment in the bindings and 
-basically don't get you point here.
-Can you please be more precise ?
+Okay, but then I'm a bit worried the naming of the defines as "Link 
+Status" has a well-known meaning in PCIe Spec so it is confusing to call 
+something else LINK_STATUS_*. Does that name come from some AST spec? In 
+not, change the define naming. If yes, you should prefix it with so it is 
+clear this is not referring to a generic PCIe thing and I suggest also 
+adding a comment above those defines too so anyone looking them later 
+won't wonder if you're just duplicating something from the PCIe spec.
 
-> 
->> +	},
->> +	{
->> +		.compatible = "st,stm32mp251-ddr-pmu",
->> +		.data = &stm32_ddr_pmu_cfg_mp2
->> +	},
->> +	{ },
->> +};
->> +MODULE_DEVICE_TABLE(of, stm32_ddr_pmu_of_match);
->> +
->> +static struct platform_driver stm32_ddr_pmu_driver = {
->> +	.driver = {
->> +		.name = DRIVER_NAME,
->> +		.pm = &stm32_ddr_pmu_pm_ops,
->> +		.of_match_table = of_match_ptr(stm32_ddr_pmu_of_match),
-> 
-> Drop of_match_ptr, you have here warnings.
-
-Yes Indeed.
-I'll also fix the pm pointer by using "pm_sleep_ptr".
-
-Best regards,
-Clément
-
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
+-- 
+ i.
 
 
