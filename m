@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128B1C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 18:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5864DC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 18:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMJO0b4koy1A6ozzYcQ5+pgAP0oVaetjFuSQF3Sp1BA=; b=HNNlVV/V0qbUBJ0BuAb4Hk0LQP
-	3GrrG/tszY9Va8yjLSxkRu1UhQkZ6MNVMGG/TkIm4T0X/OS5MK65tMZsbVrghD0KXUwFBKkapugb0
-	/UHcM5p4iQ0Bs0JiHU7Omf+0ddWSWmjLRAtzlucfx5qJOQrLN18g/AA5zfOlXAz1JIrFha3esb40+
-	XNXOYc38zTgPwkqC5fIZ/0qRI5CMinYEEzfCac55G5oVUMUqXPo9hC90kMHpJYAVAVfKHqpVH29C7
-	XdlYOnW5qAuje6c3QzfWNtkZVP/TK2CJqQ9t6NtqDlcLd/AzE7WJ40ALnG0URUgmBpdoCx8IXb93Z
-	qH7MDR6g==;
+	bh=TYwJWi5sm6L+Tj4EdkxaIeQxG8pDJXkNZyKcLSc4B4s=; b=12wkJLjYF81eWeTL6GtGxs0qMx
+	ubcmwVvecWMjuG7QqGn2RTGZqN93xWKugKgZm5k6BUAWFRCkl0EOPWNRSTx39yIE4Uc9F9dO7CIjr
+	ou4kXGLMwP35wPE0reeqUfxqVHN6kzVHemPzgvLZs/HD51Xh1JX2q4D/2iNOgLIIV+xIkwTsq4nfS
+	jD9Pl31rrKO6TQ34/6+COWi77fsJUu4Duv5Xj8IqdBQa0hvhJ+fm+wF57sTcLQ7zGQFDafaae95LA
+	cWyPN51mU52qVB2/4MiraoBUBcGnSVTS3mC25a4hjGbYYKXPWl30KI2WR69BiFrqmqZ+qrlu7ZY/P
+	M3amzdRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU8S9-00000006W5i-0TOF;
-	Tue, 24 Jun 2025 18:33:05 +0000
+	id 1uU8UR-00000006WIy-3oFP;
+	Tue, 24 Jun 2025 18:35:27 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5H1-000000062eN-21xW
+	id 1uU5H2-000000062fZ-0Foy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:09:24 +0000
+	Tue, 24 Jun 2025 15:09:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1750777763; x=1782313763;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=01WDjAazIBZnlebGBhQ6OfYUO1K+0yu13s6SYyGN+Jc=;
-  b=sozBVigUA7ddTme5YTqqjE1TyXeNpqMGCu0J9l3Csu2QCCsJEwo/b2w8
-   9e3x4pnWTaPXvoojTnwC6HkRx8cQ5ucbELVxwOkhuQUjJclNi2qKUcBq3
-   FsEYBiLYwWnhQY83fejwn0bgWd/xUIJfQeJvvGx2o0Juc/1RUYSxE5t9H
-   9lrKewsDCSM2w8FPjs95V/cG7eMlUzs12J5BS26mAPm0RNTYezm8O4MB4
-   Q8R71mf8Fyn7ehr9BK89WY93XbUx01N5/NlI3noY7aIVsPizDlYNyp+qR
-   DZ2P7NVp1HJtidcsgzYU72lrNCUVvTQL2FWWM/EQPBhyN3UICUlvOfGBh
-   w==;
+  bh=Q36se3Fv5wrz4xwPyMEyT8KGoXdptrkCfrP0P7CE8os=;
+  b=DQFGi/lPRphMPaMQW+qYcrhNlhlx6JG/tqj+ZJZV5wOkfOT8T2e7ZwFL
+   TAaeScttkLILiyJe8ADmxA9H6qgW29jkbIVZg6PUKq8e+dnhIwZw7GU8A
+   XYty70248FSho1t6wrxTjgP1WOQ7m8NqF5OITGkBrAxVeUCXpPAvQG7qH
+   uLeQ6+kNvbAyUZtT45hshHpISPYoVdyBOVFvszgWoiji3b3bnW+0U6thH
+   +lsUhDjZqp8WqIhWHapu9J3my/X1fTNRu+SG9LLb8PV2t3eXJruOO3lvo
+   vzhwtMcawcx8DzyTN49wNJkkYewJ6u0d0eozinyqIzjNFdG6DgfxaBWeB
+   A==;
 X-CSE-ConnectionGUID: ticneE1VRpCt6c5L3blMOw==
-X-CSE-MsgGUID: vvewy80oT5Wy/lIL5hoydg==
+X-CSE-MsgGUID: nCSw0OAMR0Gbr53mq+OqRA==
 X-IronPort-AV: E=Sophos;i="6.16,262,1744095600"; 
-   d="scan'208";a="210641601"
+   d="scan'208";a="210641602"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:09:21 -0700
@@ -60,10 +60,10 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<claudiu.beznea@tuxon.dev>
 CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<varshini.rajendran@microchip.com>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 30/32] clk: at91: sam9x75: switch to parent_hw and parent_data
-Date: Tue, 24 Jun 2025 08:08:27 -0700
-Message-ID: <5f7063f4905184ee3bf0eea48f09b79df4518b81.1750182562.git.Ryan.Wanner@microchip.com>
+	<varshini.rajendran@microchip.com>
+Subject: [PATCH v2 31/32] clk: at91: sama7g5: switch to clk_parent_data
+Date: Tue, 24 Jun 2025 08:08:28 -0700
+Message-ID: <5bec7266f92f426c061e4452b4a6b67f33911f2c.1750182562.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1750182562.git.Ryan.Wanner@microchip.com>
 References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_080923_629715_F1950EF1 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250624_080924_172056_556FE222 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,814 +87,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Switch SAM9X75 clocks to use modern parent_hw and parent_data.
+Switch SAMA7G5 clocks to use parent_hw and parent_data. Having
+parent_hw instead of parent names improves to clock registration
+speed and re-parenting.
 
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+[ryan.wanner@microchip.com: Took all the small changes for this SoC
+from the clock core commits and put them into this patch as one full
+commit.]
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/at91/sam9x7.c | 330 +++++++++++++++++++++-----------------
- 1 file changed, 186 insertions(+), 144 deletions(-)
+ drivers/clk/at91/sama7g5.c | 108 ++++++++++++++++++-------------------
+ 1 file changed, 54 insertions(+), 54 deletions(-)
 
-diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-index cbb8b220f16b..cd0d5a0884b2 100644
---- a/drivers/clk/at91/sam9x7.c
-+++ b/drivers/clk/at91/sam9x7.c
-@@ -33,10 +33,22 @@ enum pll_ids {
- 	PLL_ID_UPLL,
- 	PLL_ID_AUDIO,
- 	PLL_ID_LVDS,
--	PLL_ID_PLLA_DIV2,
- 	PLL_ID_MAX,
- };
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index bf6092fea217..954202e0e8f9 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -969,35 +969,34 @@ static const struct clk_pcr_layout sama7g5_pcr_layout = {
  
-+/*
-+ * PLL component identifier
-+ * @PLL_COMPID_FRAC: Fractional PLL component identifier
-+ * @PLL_COMPID_DIV0: 1st PLL divider component identifier
-+ * @PLL_COMPID_DIV1: 2nd PLL divider component identifier
-+ */
-+enum pll_component_id {
-+	PLL_COMPID_FRAC,
-+	PLL_COMPID_DIV0,
-+	PLL_COMPID_DIV1,
-+	PLL_COMPID_MAX,
-+};
-+
- /**
-  * enum pll_type - PLL type identifiers
-  * @PLL_TYPE_FRAC:	fractional PLL identifier
-@@ -180,6 +192,18 @@ static const struct clk_pll_layout pll_divio_layout = {
- 	.endiv_shift	= 30,
- };
- 
-+/*
-+ * SAM9X7 PLL possible parents
-+ * @SAM9X7_PLL_PARENT_MAINCK: MAINCK is PLL a parent
-+ * @SAM9X7_PLL_PARENT_MAIN_XTAL: MAIN XTAL is a PLL parent
-+ * @SAM9X7_PLL_PARENT_FRACCK: Frac PLL is a PLL parent (for PLL dividers)
-+ */
-+enum sam9x7_pll_parent {
-+	SAM9X7_PLL_PARENT_MAINCK,
-+	SAM9X7_PLL_PARENT_MAIN_XTAL,
-+	SAM9X7_PLL_PARENT_FRACCK
-+};
-+
- /*
-  * PLL clocks description
-  * @n:		clock name
-@@ -187,22 +211,24 @@ static const struct clk_pll_layout pll_divio_layout = {
-  * @l:		clock layout
-  * @t:		clock type
-  * @c:		pll characteristics
-+ * @hw:		pointer to clk_hw
-  * @f:		clock flags
-  * @eid:	export index in sam9x7->chws[] array
-  */
--static const struct {
-+static struct {
- 	const char *n;
--	const char *p;
- 	const struct clk_pll_layout *l;
- 	u8 t;
- 	const struct clk_pll_characteristics *c;
-+	struct clk_hw *hw;
- 	unsigned long f;
-+	enum sam9x7_pll_parent p;
- 	u8 eid;
--} sam9x7_plls[][3] = {
-+} sam9x7_plls[][PLL_COMPID_MAX] = {
- 	[PLL_ID_PLLA] = {
--		{
-+		[PLL_COMPID_FRAC] = {
- 			.n = "plla_fracck",
--			.p = "mainck",
-+			.p = SAM9X7_PLL_PARENT_MAINCK,
- 			.l = &plla_frac_layout,
- 			.t = PLL_TYPE_FRAC,
- 			/*
-@@ -213,9 +239,9 @@ static const struct {
- 			.c = &plla_characteristics,
- 		},
- 
--		{
-+		[PLL_COMPID_DIV0] = {
- 			.n = "plla_divpmcck",
--			.p = "plla_fracck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
- 			.l = &pll_divpmc_layout,
- 			.t = PLL_TYPE_DIV,
- 			/* This feeds CPU. It should not be disabled */
-@@ -223,21 +249,35 @@ static const struct {
- 			.eid = PMC_PLLACK,
- 			.c = &plla_characteristics,
- 		},
-+
-+		[PLL_COMPID_DIV1] = {
-+			.n = "plla_div2pmcck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
-+			.l = &plladiv2_divpmc_layout,
-+			/*
-+			 * This may feed critical parts of the system like timers.
-+			 * It should not be disabled.
-+			 */
-+			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
-+			.c = &plladiv2_characteristics,
-+			.eid = PMC_PLLADIV2,
-+			.t = PLL_TYPE_DIV,
-+		},
- 	},
- 
- 	[PLL_ID_UPLL] = {
--		{
-+		[PLL_COMPID_FRAC] = {
- 			.n = "upll_fracck",
--			.p = "main_osc",
-+			.p = SAM9X7_PLL_PARENT_MAIN_XTAL,
- 			.l = &pll_frac_layout,
- 			.t = PLL_TYPE_FRAC,
- 			.f = CLK_SET_RATE_GATE,
- 			.c = &upll_characteristics,
- 		},
- 
--		{
-+		[PLL_COMPID_DIV0] = {
- 			.n = "upll_divpmcck",
--			.p = "upll_fracck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
- 			.l = &pll_divpmc_layout,
- 			.t = PLL_TYPE_DIV,
- 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
-@@ -248,18 +288,18 @@ static const struct {
- 	},
- 
- 	[PLL_ID_AUDIO] = {
--		{
-+		[PLL_COMPID_FRAC] = {
- 			.n = "audiopll_fracck",
--			.p = "main_osc",
-+			.p = SAM9X7_PLL_PARENT_MAIN_XTAL,
- 			.l = &pll_frac_layout,
- 			.f = CLK_SET_RATE_GATE,
- 			.c = &audiopll_characteristics,
- 			.t = PLL_TYPE_FRAC,
- 		},
- 
--		{
-+		[PLL_COMPID_DIV0] = {
- 			.n = "audiopll_divpmcck",
--			.p = "audiopll_fracck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
- 			.l = &pll_divpmc_layout,
- 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
- 			     CLK_SET_RATE_PARENT,
-@@ -268,9 +308,9 @@ static const struct {
- 			.t = PLL_TYPE_DIV,
- 		},
- 
--		{
-+		[PLL_COMPID_DIV1] = {
- 			.n = "audiopll_diviock",
--			.p = "audiopll_fracck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
- 			.l = &pll_divio_layout,
- 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
- 			     CLK_SET_RATE_PARENT,
-@@ -281,18 +321,18 @@ static const struct {
- 	},
- 
- 	[PLL_ID_LVDS] = {
--		{
-+		[PLL_COMPID_FRAC] = {
- 			.n = "lvdspll_fracck",
--			.p = "main_osc",
-+			.p = SAM9X7_PLL_PARENT_MAIN_XTAL,
- 			.l = &pll_frac_layout,
- 			.f = CLK_SET_RATE_GATE,
- 			.c = &lvdspll_characteristics,
- 			.t = PLL_TYPE_FRAC,
- 		},
- 
--		{
-+		[PLL_COMPID_DIV0] = {
- 			.n = "lvdspll_divpmcck",
--			.p = "lvdspll_fracck",
-+			.p = SAM9X7_PLL_PARENT_FRACCK,
- 			.l = &pll_divpmc_layout,
- 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
- 			     CLK_SET_RATE_PARENT,
-@@ -301,22 +341,6 @@ static const struct {
- 			.t = PLL_TYPE_DIV,
- 		},
- 	},
--
--	[PLL_ID_PLLA_DIV2] = {
--		{
--			.n = "plla_div2pmcck",
--			.p = "plla_fracck",
--			.l = &plladiv2_divpmc_layout,
--			/*
--			 * This may feed critical parts of the system like timers.
--			 * It should not be disabled.
--			 */
--			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
--			.c = &plladiv2_characteristics,
--			.eid = PMC_PLLADIV2,
--			.t = PLL_TYPE_DIV,
--		},
--	},
- };
- 
- static const struct clk_programmable_layout sam9x7_programmable_layout = {
-@@ -334,9 +358,9 @@ static const struct clk_pcr_layout sam9x7_pcr_layout = {
- 	.pid_mask = GENMASK(6, 0),
- };
- 
--static const struct {
-+static struct {
- 	char *n;
--	char *p;
-+	struct clk_hw *parent_hw;
- 	u8 id;
- 	unsigned long flags;
- } sam9x7_systemck[] = {
-@@ -344,10 +368,10 @@ static const struct {
- 	 * ddrck feeds DDR controller and is enabled by bootloader thus we need
- 	 * to keep it enabled in case there is no Linux consumer for it.
- 	 */
--	{ .n = "ddrck",		.p = "masterck_div",	.id = 2,	.flags = CLK_IS_CRITICAL },
--	{ .n = "uhpck",		.p = "usbck",		.id = 6 },
--	{ .n = "pck0",		.p = "prog0",		.id = 8 },
--	{ .n = "pck1",		.p = "prog1",		.id = 9 },
-+	{ .n = "ddrck",		.id = 2,	.flags = CLK_IS_CRITICAL },
-+	{ .n = "uhpck",		.id = 6 },
-+	{ .n = "pck0",		.id = 8 },
-+	{ .n = "pck1",		.id = 9 },
- };
- 
- /*
-@@ -420,16 +444,21 @@ static const struct {
- /*
-  * Generic clock description
-  * @n:			clock name
-- * @pp:			PLL parents
-+ * @pp:			PLL parents (entry formed by PLL components identifiers
-+ *			(see enum pll_component_id))
-  * @pp_mux_table:	PLL parents mux table
-  * @r:			clock output range
-  * @pp_chg_id:		id in parent array of changeable PLL parent
-  * @pp_count:		PLL parents count
-  * @id:			clock id
-  */
-+
- static const struct {
- 	const char *n;
--	const char *pp[8];
-+	struct {
-+			int pll_id;
-+			int pll_compid;
-+	} pp[8];
- 	const char pp_mux_table[8];
- 	struct clk_range r;
- 	int pp_chg_id;
-@@ -439,7 +468,7 @@ static const struct {
- 	{
- 		.n = "flex0_gclk",
- 		.id = 5,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -448,7 +477,7 @@ static const struct {
- 	{
- 		.n = "flex1_gclk",
- 		.id = 6,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -457,7 +486,7 @@ static const struct {
- 	{
- 		.n = "flex2_gclk",
- 		.id = 7,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -466,7 +495,7 @@ static const struct {
- 	{
- 		.n = "flex3_gclk",
- 		.id = 8,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -475,7 +504,7 @@ static const struct {
- 	{
- 		.n = "flex6_gclk",
- 		.id = 9,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -484,7 +513,7 @@ static const struct {
- 	{
- 		.n = "flex7_gclk",
- 		.id = 10,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -493,7 +522,7 @@ static const struct {
- 	{
- 		.n = "flex8_gclk",
- 		.id = 11,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -503,7 +532,7 @@ static const struct {
- 		.n = "sdmmc0_gclk",
- 		.id = 12,
- 		.r = { .max = 105000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -512,7 +541,7 @@ static const struct {
- 	{
- 		.n = "flex4_gclk",
- 		.id = 13,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -521,7 +550,7 @@ static const struct {
- 	{
- 		.n = "flex5_gclk",
- 		.id = 14,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -530,7 +559,7 @@ static const struct {
- 	{
- 		.n = "flex9_gclk",
- 		.id = 15,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -539,7 +568,7 @@ static const struct {
- 	{
- 		.n = "flex10_gclk",
- 		.id = 16,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -548,7 +577,7 @@ static const struct {
- 	{
- 		.n = "tcb0_gclk",
- 		.id = 17,
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -557,7 +586,7 @@ static const struct {
- 	{
- 		.n = "adc_gclk",
- 		.id = 19,
--		.pp = { "upll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(UPLL, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 5, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -567,7 +596,7 @@ static const struct {
- 		.n = "lcd_gclk",
- 		.id = 25,
- 		.r = { .max = 75000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -577,7 +606,7 @@ static const struct {
- 		.n = "sdmmc1_gclk",
- 		.id = 26,
- 		.r = { .max = 105000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -587,7 +616,7 @@ static const struct {
- 		.n = "mcan0_gclk",
- 		.id = 29,
- 		.r = { .max = 80000000 },
--		.pp = { "upll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(UPLL, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 5, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -597,7 +626,7 @@ static const struct {
- 		.n = "mcan1_gclk",
- 		.id = 30,
- 		.r = { .max = 80000000 },
--		.pp = { "upll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(UPLL, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 5, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -606,7 +635,7 @@ static const struct {
- 	{
- 		.n = "flex11_gclk",
- 		.id = 32,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -615,7 +644,7 @@ static const struct {
- 	{
- 		.n = "flex12_gclk",
- 		.id = 33,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -625,7 +654,7 @@ static const struct {
- 		.n = "i2s_gclk",
- 		.id = 34,
- 		.r = { .max = 100000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -635,7 +664,7 @@ static const struct {
- 		.n = "qspi_gclk",
- 		.id = 35,
- 		.r = { .max = 200000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -644,7 +673,7 @@ static const struct {
- 	{
- 		.n = "pit64b0_gclk",
- 		.id = 37,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -654,7 +683,7 @@ static const struct {
- 		.n = "classd_gclk",
- 		.id = 42,
- 		.r = { .max = 100000000 },
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -663,7 +692,7 @@ static const struct {
- 	{
- 		.n = "tcb1_gclk",
- 		.id = 45,
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -672,7 +701,7 @@ static const struct {
- 	{
- 		.n = "dbgu_gclk",
- 		.id = 47,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -682,7 +711,7 @@ static const struct {
- 		.n = "mipiphy_gclk",
- 		.id = 55,
- 		.r = { .max = 27000000 },
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -691,7 +720,7 @@ static const struct {
- 	{
- 		.n = "pit64b1_gclk",
- 		.id = 58,
--		.pp = { "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 8, },
- 		.pp_count = 1,
- 		.pp_chg_id = INT_MIN,
-@@ -700,7 +729,7 @@ static const struct {
- 	{
- 		.n = "gmac_gclk",
- 		.id = 67,
--		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
-+		.pp = { PLL_IDS_TO_ARR_ENTRY(AUDIO, DIV0), PLL_IDS_TO_ARR_ENTRY(PLLA, DIV1), },
- 		.pp_mux_table = { 6, 8, },
- 		.pp_count = 2,
- 		.pp_chg_id = INT_MIN,
-@@ -709,34 +738,25 @@ static const struct {
- 
- static void __init sam9x7_pmc_setup(struct device_node *np)
+ static void __init sama7g5_pmc_setup(struct device_node *np)
  {
+-	const char *main_xtal_name = "main_xtal";
 +	u8 td_slck_index = 0, md_slck_index = 1, main_xtal_index = 2;
 +	const char * const main_xtal_name = "main_xtal";
 +	const char * const td_slck_name = "td_slck";
 +	const char * const md_slck_name = "md_slck";
 +	struct clk_hw *hw, *main_rc_hw, *main_osc_hw;
-+	struct clk_parent_data parent_data[9];
- 	struct clk_range range = CLK_RANGE(0, 0);
--	const char *td_slck_name, *md_slck_name, *mainxtal_name;
- 	struct pmc_data *sam9x7_pmc;
--	const char *parent_names[9];
- 	void **clk_mux_buffer = NULL;
- 	int clk_mux_buffer_size = 0;
--	struct clk_hw *main_osc_hw;
++	struct clk_parent_data parent_data[10];
+ 	struct pmc_data *sama7g5_pmc;
+ 	void **alloc_mem = NULL;
+ 	int alloc_mem_size = 0;
 +	struct clk *main_xtal;
  	struct regmap *regmap;
--	struct clk_hw *hw;
-+	struct clk_hw *usbck_hw;
+-	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+-	struct clk_hw *td_slck_hw, *md_slck_hw;
+-	static struct clk_parent_data parent_data;
+-	struct clk_hw *parent_hws[10];
+ 	bool bypass;
  	int i, j;
  
--	i = of_property_match_string(np, "clock-names", "td_slck");
--	if (i < 0)
+-	td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+-	md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+-	main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
+-
+-	if (!td_slck_hw || !md_slck_hw || !main_xtal_hw)
 +	main_xtal = of_clk_get(np, main_xtal_index);
 +	if (IS_ERR(main_xtal))
  		return;
  
--	td_slck_name = of_clk_get_parent_name(np, i);
--
--	i = of_property_match_string(np, "clock-names", "md_slck");
--	if (i < 0)
--		return;
--
--	md_slck_name = of_clk_get_parent_name(np, i);
--
--	i = of_property_match_string(np, "clock-names", "main_xtal");
--	if (i < 0)
--		return;
--	mainxtal_name = of_clk_get_parent_name(np, i);
--
  	regmap = device_node_to_regmap(np);
  	if (IS_ERR(regmap))
- 		return;
-@@ -754,46 +774,55 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 	if (!clk_mux_buffer)
+-		return;
++		goto put_main_xtal;
+ 
+ 	sama7g5_pmc = pmc_data_allocate(PMC_MCK1 + 1,
+ 					nck(sama7g5_systemck),
+ 					nck(sama7g5_periphck),
+ 					nck(sama7g5_gck), 8);
+ 	if (!sama7g5_pmc)
+-		return;
++		goto put_main_xtal;
+ 
+ 	alloc_mem = kmalloc(sizeof(void *) *
+ 			    (ARRAY_SIZE(sama7g5_mckx) + ARRAY_SIZE(sama7g5_gck)),
+@@ -1012,16 +1011,15 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 	bypass = of_property_read_bool(np, "atmel,osc-bypass");
+ 
+-	parent_data.name = main_xtal_name;
+-	parent_data.fw_name = main_xtal_name;
+ 	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+-						 &parent_data, bypass);
++						 &AT91_CLK_PD_NAME(main_xtal_name, main_xtal_index),
++						 bypass);
+ 	if (IS_ERR(main_osc_hw))
  		goto err_free;
  
--	hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000,
--					   50000000);
--	if (IS_ERR(hw))
-+	main_rc_hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000,
-+						   50000000);
-+	if (IS_ERR(main_rc_hw))
- 		goto err_free;
- 
--	hw = at91_clk_register_main_osc(regmap, "main_osc", mainxtal_name, NULL, 0);
--	if (IS_ERR(hw))
-+	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
-+						 &AT91_CLK_PD_NAME(main_xtal_name, main_xtal_index), 0);
-+	if (IS_ERR(main_osc_hw))
- 		goto err_free;
--	main_osc_hw = hw;
- 
--	parent_names[0] = "main_rc_osc";
--	parent_names[1] = "main_osc";
--	hw = at91_clk_register_sam9x5_main(regmap, "mainck", parent_names, NULL, 2);
+-	parent_hws[0] = main_rc_hw;
+-	parent_hws[1] = main_osc_hw;
+-	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
 +	parent_data[0] = AT91_CLK_PD_HW(main_rc_hw);
 +	parent_data[1] = AT91_CLK_PD_HW(main_osc_hw);
 +	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_data, 2);
  	if (IS_ERR(hw))
  		goto err_free;
  
- 	sam9x7_pmc->chws[PMC_MAIN] = hw;
+@@ -1029,7 +1027,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
  
  	for (i = 0; i < PLL_ID_MAX; i++) {
--		for (j = 0; j < 3; j++) {
+ 		for (j = 0; j < PLL_COMPID_MAX; j++) {
 -			struct clk_hw *parent_hw;
-+		for (j = 0; j < PLL_COMPID_MAX; j++) {
 +			unsigned long parent_rate = 0;
  
- 			if (!sam9x7_plls[i][j].n)
+ 			if (!sama7g5_plls[i][j].n)
  				continue;
- 
- 			switch (sam9x7_plls[i][j].t) {
+@@ -1038,20 +1036,25 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
  			case PLL_TYPE_FRAC:
--				if (!strcmp(sam9x7_plls[i][j].p, "mainck"))
--					parent_hw = sam9x7_pmc->chws[PMC_MAIN];
--				else if (!strcmp(sam9x7_plls[i][j].p, "main_osc"))
--					parent_hw = main_osc_hw;
--				else
--					parent_hw = __clk_get_hw(of_clk_get_by_name
--								 (np, sam9x7_plls[i][j].p));
--
-+				switch (sam9x7_plls[i][j].p) {
-+				case SAM9X7_PLL_PARENT_MAINCK:
+ 				switch (sama7g5_plls[i][j].p) {
+ 				case SAMA7G5_PLL_PARENT_MAINCK:
+-					parent_hw = sama7g5_pmc->chws[PMC_MAIN];
 +					parent_data[0] = AT91_CLK_PD_NAME("mainck", -1);
-+					parent_rate = clk_hw_get_rate(sam9x7_pmc->chws[PMC_MAIN]);
-+					break;
-+				case SAM9X7_PLL_PARENT_MAIN_XTAL:
++					parent_rate = clk_hw_get_rate(sama7g5_pmc->chws[PMC_MAIN]);
+ 					break;
+ 				case SAMA7G5_PLL_PARENT_MAIN_XTAL:
+-					parent_hw = main_xtal_hw;
 +					parent_data[0] = AT91_CLK_PD_NAME(main_xtal_name,
 +									  main_xtal_index);
 +					parent_rate = clk_get_rate(main_xtal);
-+					break;
-+				default:
-+					/* Should not happen. */
-+					break;
-+				}
-+
+ 					break;
+ 				default:
+ 					/* Should not happen. */
+-					parent_hw = NULL;
+ 					break;
+ 				}
+ 
 +				if (!parent_rate)
 +					return;
++
  				hw = sam9x60_clk_register_frac_pll(regmap,
- 								   &pmc_pll_lock,
- 								   sam9x7_plls[i][j].n,
--								   sam9x7_plls[i][j].p,
--								   parent_hw, i,
-+								   parent_data,
-+								   parent_rate, i,
- 								   sam9x7_plls[i][j].c,
- 								   sam9x7_plls[i][j].l,
- 								   sam9x7_plls[i][j].f);
-@@ -803,7 +832,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 				hw = sam9x60_clk_register_div_pll(regmap,
- 								  &pmc_pll_lock,
- 								  sam9x7_plls[i][j].n,
--								  sam9x7_plls[i][j].p, NULL, i,
-+								  NULL, sam9x7_plls[i][0].hw, i,
- 								  sam9x7_plls[i][j].c,
- 								  sam9x7_plls[i][j].l,
- 								  sam9x7_plls[i][j].f, 0);
-@@ -816,23 +845,24 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 			if (IS_ERR(hw))
- 				goto err_free;
- 
-+			sam9x7_plls[i][j].hw = hw;
- 			if (sam9x7_plls[i][j].eid)
- 				sam9x7_pmc->chws[sam9x7_plls[i][j].eid] = hw;
- 		}
+ 					&pmc_pll_lock, sama7g5_plls[i][j].n,
+-					NULL, parent_hw, i,
++					parent_data, parent_rate, i,
+ 					sama7g5_plls[i][j].c,
+ 					sama7g5_plls[i][j].l,
+ 					sama7g5_plls[i][j].f);
+@@ -1081,7 +1084,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
  	}
  
--	parent_names[0] = md_slck_name;
--	parent_names[1] = "mainck";
--	parent_names[2] = "plla_divpmcck";
--	parent_names[3] = "upll_divpmcck";
-+	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name, md_slck_index);
-+	parent_data[1] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
-+	parent_data[2] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
-+	parent_data[3] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
- 	hw = at91_clk_register_master_pres(regmap, "masterck_pres", 4,
--					   parent_names, NULL, &sam9x7_master_layout,
-+					   NULL, parent_data, &sam9x7_master_layout,
- 					   &mck_characteristics, &mck_lock);
+ 	hw = at91_clk_register_master_div(regmap, "mck0", NULL,
+-					  sama7g5_plls[PLL_ID_CPU][1].hw,
++					  &AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_CPU][1].hw),
+ 					  &mck0_layout, &mck0_characteristics,
+ 					  &pmc_mck0_lock, CLK_GET_RATE_NOCACHE, 5);
  	if (IS_ERR(hw))
- 		goto err_free;
+@@ -1089,12 +1092,11 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
  
- 	hw = at91_clk_register_master_div(regmap, "masterck_div",
--					  "masterck_pres", NULL, &sam9x7_master_layout,
-+					  NULL, &AT91_CLK_PD_HW(hw), &sam9x7_master_layout,
- 					  &mck_characteristics, &mck_lock,
- 					  CLK_SET_RATE_GATE, 0);
- 	if (IS_ERR(hw))
-@@ -840,27 +870,27 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	sama7g5_mckx[PCK_PARENT_HW_MCK0].hw = sama7g5_pmc->chws[PMC_MCK] = hw;
  
- 	sam9x7_pmc->chws[PMC_MCK] = hw;
- 
--	parent_names[0] = "plla_divpmcck";
--	parent_names[1] = "upll_divpmcck";
--	parent_names[2] = "main_osc";
--	hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
-+	parent_data[0] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
-+	parent_data[1] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
-+	parent_data[2] = AT91_CLK_PD_HW(main_osc_hw);
-+	usbck_hw = sam9x60_clk_register_usb(regmap, "usbck", NULL, parent_data, 3);
- 	if (IS_ERR(hw))
- 		goto err_free;
- 
--	parent_names[0] = md_slck_name;
--	parent_names[1] = td_slck_name;
--	parent_names[2] = "mainck";
--	parent_names[3] = "masterck_div";
--	parent_names[4] = "plla_divpmcck";
--	parent_names[5] = "upll_divpmcck";
--	parent_names[6] = "audiopll_divpmcck";
+-	parent_hws[0] = md_slck_hw;
+-	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
 +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name, md_slck_index);
 +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name, td_slck_index);
-+	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
-+	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
-+	parent_data[4] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
-+	parent_data[5] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
-+	parent_data[6] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw);
- 	for (i = 0; i < 2; i++) {
++	parent_data[2] = AT91_CLK_PD_HW(sama7g5_pmc->chws[PMC_MAIN]);
+ 	for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7g5_mckx); i++) {
+ 		u8 num_parents = 3 + sama7g5_mckx[i].ep_count;
+-		struct clk_hw *tmp_parent_hws[8];
+ 		u32 *mux_table;
+ 
+ 		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+@@ -1109,13 +1111,11 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 			u8 pll_id = sama7g5_mckx[i].ep[j].pll_id;
+ 			u8 pll_compid = sama7g5_mckx[i].ep[j].pll_compid;
+ 
+-			tmp_parent_hws[j] = sama7g5_plls[pll_id][pll_compid].hw;
++			parent_data[3 + j] = AT91_CLK_PD_HW(sama7g5_plls[pll_id][pll_compid].hw);
+ 		}
+-		PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
+-			       sama7g5_mckx[i].ep_count);
+ 
+ 		hw = at91_clk_sama7g5_register_master(regmap, sama7g5_mckx[i].n,
+-				   num_parents, NULL, parent_hws, mux_table,
++				   num_parents, NULL, parent_data, mux_table,
+ 				   &pmc_mckX_lock, sama7g5_mckx[i].id,
+ 				   sama7g5_mckx[i].c,
+ 				   sama7g5_mckx[i].ep_chg_id);
+@@ -1129,27 +1129,28 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 			sama7g5_pmc->chws[sama7g5_mckx[i].eid] = hw;
+ 	}
+ 
+-	hw = at91_clk_sama7g5_register_utmi(regmap, "utmick", NULL, main_xtal_hw);
++	hw = at91_clk_sama7g5_register_utmi(regmap, "utmick", NULL,
++					    &AT91_CLK_PD_NAME(main_xtal_name, main_xtal_index));
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+ 	sama7g5_pmc->chws[PMC_UTMI] = hw;
+ 
+-	parent_hws[0] = md_slck_hw;
+-	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
+-	parent_hws[3] = sama7g5_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
+-	parent_hws[4] = sama7g5_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
+-	parent_hws[5] = sama7g5_plls[PLL_ID_IMG][PLL_COMPID_DIV0].hw;
+-	parent_hws[6] = sama7g5_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw;
+-	parent_hws[7] = sama7g5_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw;
+-	parent_hws[8] = sama7g5_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw;
++	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name, md_slck_index);
++	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name, td_slck_index);
++	parent_data[2] = AT91_CLK_PD_HW(sama7g5_pmc->chws[PMC_MAIN]);
++	parent_data[3] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw);
++	parent_data[4] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw);
++	parent_data[5] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_IMG][PLL_COMPID_DIV0].hw);
++	parent_data[6] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw);
++	parent_data[7] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw);
++	parent_data[8] = AT91_CLK_PD_HW(sama7g5_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw);
+ 	for (i = 0; i < 8; i++) {
  		char name[6];
  
  		snprintf(name, sizeof(name), "prog%d", i);
  
- 		hw = at91_clk_register_programmable(regmap, name,
--						    parent_names, NULL, 7, i,
-+						    NULL, parent_data, 7, i,
- 						    &sam9x7_programmable_layout,
- 						    NULL);
+-		hw = at91_clk_register_programmable(regmap, name, NULL, parent_hws,
++		hw = at91_clk_register_programmable(regmap, name, NULL, parent_data,
+ 						    9, i,
+ 						    &programmable_layout,
+ 						    sama7g5_prog_mux_table);
+@@ -1161,7 +1162,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(sama7g5_systemck); i++) {
+ 		hw = at91_clk_register_system(regmap, sama7g5_systemck[i].n,
+-					      NULL, sama7g5_pmc->pchws[i],
++					      NULL, &AT91_CLK_PD_HW(sama7g5_pmc->pchws[i]),
+ 					      sama7g5_systemck[i].id, 0);
  		if (IS_ERR(hw))
-@@ -869,9 +899,14 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 		sam9x7_pmc->pchws[i] = hw;
+ 			goto err_free;
+@@ -1174,7 +1175,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 						&sama7g5_pcr_layout,
+ 						sama7g5_periphck[i].n,
+ 						NULL,
+-						sama7g5_mckx[sama7g5_periphck[i].p].hw,
++						&AT91_CLK_PD_HW(sama7g5_mckx[sama7g5_periphck[i].p].hw),
+ 						sama7g5_periphck[i].id,
+ 						&sama7g5_periphck[i].r,
+ 						sama7g5_periphck[i].chgp ? 0 :
+@@ -1185,12 +1186,11 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 		sama7g5_pmc->phws[sama7g5_periphck[i].id] = hw;
  	}
  
-+	/* Set systemck parent hws. */
-+	sam9x7_systemck[0].parent_hw = sam9x7_pmc->chws[PMC_MCK];
-+	sam9x7_systemck[1].parent_hw = usbck_hw;
-+	sam9x7_systemck[2].parent_hw = sam9x7_pmc->pchws[0];
-+	sam9x7_systemck[3].parent_hw = sam9x7_pmc->pchws[1];
- 	for (i = 0; i < ARRAY_SIZE(sam9x7_systemck); i++) {
- 		hw = at91_clk_register_system(regmap, sam9x7_systemck[i].n,
--					      sam9x7_systemck[i].p, NULL,
-+					      NULL, &AT91_CLK_PD_HW(sam9x7_systemck[i].parent_hw),
- 					      sam9x7_systemck[i].id,
- 					      sam9x7_systemck[i].flags);
- 		if (IS_ERR(hw))
-@@ -884,7 +919,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 		hw = at91_clk_register_sam9x5_peripheral(regmap, &pmc_pcr_lock,
- 							 &sam9x7_pcr_layout,
- 							 sam9x7_periphck[i].n,
--							 "masterck_div", NULL,
-+							 NULL, &AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]),
- 							 sam9x7_periphck[i].id,
- 							 &range, INT_MIN,
- 							 sam9x7_periphck[i].f);
-@@ -894,10 +929,10 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 		sam9x7_pmc->phws[sam9x7_periphck[i].id] = hw;
- 	}
- 
--	parent_names[0] = md_slck_name;
--	parent_names[1] = td_slck_name;
--	parent_names[2] = "mainck";
--	parent_names[3] = "masterck_div";
+-	parent_hws[0] = md_slck_hw;
+-	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
 +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name, md_slck_index);
 +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name, td_slck_index);
-+	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
-+	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
- 	for (i = 0; i < ARRAY_SIZE(sam9x7_gck); i++) {
- 		u8 num_parents = 4 + sam9x7_gck[i].pp_count;
++	parent_data[2] = AT91_CLK_PD_HW(sama7g5_pmc->chws[PMC_MAIN]);
+ 	for (i = 0; i < ARRAY_SIZE(sama7g5_gck); i++) {
+ 		u8 num_parents = 3 + sama7g5_gck[i].pp_count;
+-		struct clk_hw *tmp_parent_hws[8];
  		u32 *mux_table;
-@@ -910,13 +945,18 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 		PMC_INIT_TABLE(mux_table, 4);
- 		PMC_FILL_TABLE(&mux_table[4], sam9x7_gck[i].pp_mux_table,
- 			       sam9x7_gck[i].pp_count);
--		PMC_FILL_TABLE(&parent_names[4], sam9x7_gck[i].pp,
--			       sam9x7_gck[i].pp_count);
-+
-+		for (j = 0; j < sam9x7_gck[i].pp_count; j++) {
-+			u8 pll_id = sam9x7_gck[i].pp[j].pll_id;
-+			u8 pll_compid = sam9x7_gck[i].pp[j].pll_compid;
-+
-+			parent_data[4 + j] = AT91_CLK_PD_HW(sam9x7_plls[pll_id][pll_compid].hw);
-+		}
+ 
+ 		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+@@ -1205,15 +1205,13 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 			u8 pll_id = sama7g5_gck[i].pp[j].pll_id;
+ 			u8 pll_compid = sama7g5_gck[i].pp[j].pll_compid;
+ 
+-			tmp_parent_hws[j] = sama7g5_plls[pll_id][pll_compid].hw;
++			parent_data[3 + j] = AT91_CLK_PD_HW(sama7g5_plls[pll_id][pll_compid].hw);
+ 		}
+-		PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
+-			       sama7g5_gck[i].pp_count);
  
  		hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
- 						 &sam9x7_pcr_layout,
- 						 sam9x7_gck[i].n,
--						 parent_names, NULL, mux_table,
-+						 NULL, parent_data, mux_table,
+ 						 &sama7g5_pcr_layout,
+ 						 sama7g5_gck[i].n, NULL,
+-						 parent_hws, mux_table,
++						 parent_data, mux_table,
  						 num_parents,
- 						 sam9x7_gck[i].id,
- 						 &sam9x7_gck[i].r,
-@@ -931,7 +971,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 	of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sam9x7_pmc);
- 	kfree(clk_mux_buffer);
+ 						 sama7g5_gck[i].id,
+ 						 &sama7g5_gck[i].r,
+@@ -1227,7 +1225,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 	of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sama7g5_pmc);
  
 -	return;
 +	goto put_main_xtal;
  
  err_free:
- 	if (clk_mux_buffer) {
-@@ -940,6 +980,8 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
- 		kfree(clk_mux_buffer);
+ 	if (alloc_mem) {
+@@ -1237,6 +1235,8 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
  	}
- 	kfree(sam9x7_pmc);
+ 
+ 	kfree(sama7g5_pmc);
 +put_main_xtal:
 +	clk_put(main_xtal);
  }
