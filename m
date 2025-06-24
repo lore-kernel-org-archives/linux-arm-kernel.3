@@ -4,103 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB653C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 13:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE25C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 13:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LOOE3chh08F/O7R/WBaJb8nuz+JcsL39gDG2UPlu8EA=; b=1wiBHLc50yv6EGgMCheWyzaxSY
-	faoKtGkabhdYBTr7DxAczHUb0bgLYLoPy/LiHubBI8r+yKMTe53HJNgg0HevVsXJ3X1lUiUrYNDO2
-	cErFGz7U69afbZYrPt2fUF9a5AKzqpaKPvHkAsfq1qagww7hY5NHFKNLAXdqxPWB3UjHMPttg0vyT
-	riadC4rOt+sMMeQnqPaLsXb3Myz+5TUoGNEiTU7EaIiuo4zV/5LpE9+GdA5fON8wzAcVC8Wdk7H0M
-	9Nm33mE+jOlLK5oWzyJnowyygC+z+8Pu/V5ylozEWCwAriX5vsbrrWCh8WPMpUQFXmbLpCpa+Nw/o
-	oWSxlnpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aK5RkAHQrhrmbMgDmli1jYjYYGO7nTlMC7kAqH+maLI=; b=xZORbM7sN+IsdVJd/Q6zi6ALov
+	2u7s/1xCeQFzwkGWUXdgMXuywvJ60f7ZWH95/ImKTr1BmiCfog2jbV0MHOOZpH0ANWlFYCkrgpmSh
+	Sn4smL+Axli6GERa8kPwj6exFKKWU74bQ59pOEpHSyS5DdzMgKVOeTgQnaTwMEks7XX+hQv83nMTs
+	RJ3nXHvm9DrWFRMJ7/QHqrtSWf48Es74F3m74lUp9s1rXQn67z3HM+5q23cl/mopVRt9affsZlzfz
+	73HatA6wFaf4x1zpeR8aNU/qkdtrVzecMWl77ks3G0hLAeCeBtpeTkQ4BFiEqTA9jVHj74TgPa2gR
+	yiwN+cMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3st-00000005k6e-3eIk;
-	Tue, 24 Jun 2025 13:40:23 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uU3v9-00000005kbF-3dSu;
+	Tue, 24 Jun 2025 13:42:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3bN-00000005hKt-0eiL
+	id 1uU3db-00000005haV-0fHi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:22:18 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-450cfb790f7so3219915e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:22:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750771335; x=1751376135; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=LOOE3chh08F/O7R/WBaJb8nuz+JcsL39gDG2UPlu8EA=;
-        b=L0ZQOk1RPcSoMfoEY42MMDTuXMu908UdrqF5C/hQbdCdNglFbopftXiygDAVT5ZgPd
-         MmBP2jBuCC+yo7vpsmaPzDmvkY/XwXRwQCXvpvNgTa/YujMZ5RJHyGIny1IBukShPrE4
-         B/uJZbNRQEEA/Hj7F8FqIHl9eZ40wPrrCMSIfWn1cDFbBBixj+uEyUG9pIC2+UV3+hBw
-         zeDEFOArR4cSoZRz6Ymsx0y6rG9GRXoIKFWIjOMbkmdOIgwV5XKcEK9czd7IzsiWeF3j
-         txDWoQkZ7IlxOInJmR0Fyu3P82GLXhbTwzaMklWvVcHTI2cLLUbnm40FfycbFeuJpLfS
-         nP5g==
+	Tue, 24 Jun 2025 13:24:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750771473;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aK5RkAHQrhrmbMgDmli1jYjYYGO7nTlMC7kAqH+maLI=;
+	b=elPmPNa8qUY/rQWff6eQw9fVoW1T+iLrXbmOTFvu3Rt86pAylfJf/sYfMvG00ydpMJZsj+
+	4eoMKtOF5QUQsMGiZJltqTKF4SN/FTashuBiLgrjFyqh/P/W6CUoD7ob1PRUzl2V+agnJC
+	WApxmqKWOUFg9B7b+LYenbIPE2OHIJY=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-65-7t78uroLPIesoON88Qmawg-1; Tue, 24 Jun 2025 09:24:31 -0400
+X-MC-Unique: 7t78uroLPIesoON88Qmawg-1
+X-Mimecast-MFC-AGG-ID: 7t78uroLPIesoON88Qmawg_1750771471
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a4fabcafecso234844f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:24:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750771335; x=1751376135;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1750771470; x=1751376270;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LOOE3chh08F/O7R/WBaJb8nuz+JcsL39gDG2UPlu8EA=;
-        b=BkjYpcVFx3+5vE8Cn85zH6qPKhu+65BAizZhEo/pqffqbv3M7Ex8kLPetP0rALY5GP
-         WnN5h+lluBEvcYeVcAidCYGKRT+scPW9m1iM+WI6EEaaBBbmOipv7L59ih8tib3P48B6
-         7QZZWHGCWiihv4TfC41q/cJ6xMK+nOHVtYN8+EFGfm8t2jPlbgAwcld4FYO9lJm81YFX
-         fyUPmRSuAzrD7DAlKUmPEJivR2V9f3QbLs3bRbnNSmMfsj9tG4eNkS3473RLs9rjaMDg
-         dAHNjFRIY/TUwTwBDAufMBLStrT+ZGyS5NWDZtPWjWKCJFDdHJS+UzK4f2QHp+TgDli6
-         EqNw==
-X-Forwarded-Encrypted: i=1; AJvYcCWRsUpaj0sS49Aks8LlFvE5CMu7FwFVQ0N9DpFyKt+dzr+3/GCadjFXtqTnrJ3NqJLQ+xP4xFp1zDzkKu81nxpL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRLEDqyE8C6hhUCWgdZKIEeepxMTP+cDJPPg/hdyTYQ1JeOj9/
-	QEbk3ScecxHSX3pO4P/xHrbQYkTDqDQbWQlAyh1773tLZSrfXSoZBkM39KD1dXqxbfA=
-X-Gm-Gg: ASbGncurz0vf4Ux9nM6Vh2Pg7/zK5tHS4vhiwIpzn9njofMDv7uelumaULW/qkDL9le
-	UMa7GT5/+BJ/01h1M5EknSPMo7LPwbqACv8HQOUH/y1wVF1KOJmziG97jlYduiUWetGG1qMKOGD
-	9uexbqOlc7mKsfSgNWGS19u6BLCYtMUE14kSSREFqvB/kYc4fBi0ZcfbKFhc4zgkfgpa7Kcrczz
-	YT0e39/3QFH19YxQM8Aokn4jUkNKzbn4vSAbk7s/x4MTEH0UNgPf3IntJW+8oe+CNPyaNooA+Uo
-	/q1BvxOZcGOxlgvOMxqQ+uT/Kej8qggqEZ5SejGIHtjSN2etPc+SdMWdCdoeQW1axWzy3IrycwH
-	pyaj9SeILKXtqP5CQoaQGpO9X
-X-Google-Smtp-Source: AGHT+IG+8KGqgrD4nKqGiWFlJ35WJi/rcQ0CDHHa05PY7P7SDQChCXBy5adbtSKpQbTgkIYAR9gLDQ==
-X-Received: by 2002:a05:600c:c4aa:b0:453:a95:f07d with SMTP id 5b1f17b1804b1-453654cb7b3mr197942675e9.10.1750771335032;
-        Tue, 24 Jun 2025 06:22:15 -0700 (PDT)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e8051001sm1940164f8f.1.2025.06.24.06.22.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 06:22:14 -0700 (PDT)
-Date: Tue, 24 Jun 2025 15:22:12 +0200
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Will McVicker <willmcvicker@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	John Stultz <jstultz@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 4/6] clocksource/drivers/exynos_mct: Fix uninitialized
- irq name warning
-Message-ID: <aFqmhDQnlUHh4vLY@mai.linaro.org>
-References: <20250618210851.661527-1-willmcvicker@google.com>
- <20250618210851.661527-5-willmcvicker@google.com>
+        bh=aK5RkAHQrhrmbMgDmli1jYjYYGO7nTlMC7kAqH+maLI=;
+        b=qOGuyElflN94IECSgj9LutTx+pYCuKppKGIeXlybAMrHvqvgx+TfeAdIIEUO2w+lPG
+         msMzU+8ELripln5MYK7OsPwl7WMpwGOXhWUzVmTiX+D/eAMT6t9M+gtaSTs3UcDi8DH7
+         odaIjpSj5XdMPZSxYnpLSmzaZZ2b8VK6HgZkoGPz7Av6Dy1C3n23MXgE1s6prOYFFt6S
+         arZHq4j7DpR4fg9I3wMYXnbuXOSC70Mv42GddJy651uvgnR20AMFvUsqXnh7DwcGmUC/
+         BMVDI8ZOOyV3Ww+haiAs1Gylhz5ApYLRlEJGgzwQwRj+UwNzMRn91fQgfMQSlIZojAfG
+         2xpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWIVNJpCMGt7Vg3p8OBHOnoM0Elcf9Pdx/AMcmB0yfPZn+DUjpbtHqjxhAFAY+Z1rKpa7n9KIkY9YjFDE0NLsGs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjTv/T6GFDYzKt8Y6SD+vEMbZDGnxpg2ESerP64cegvVT/TYo8
+	BOx2YsVbs1PlwDVQ3yoW0aZzHxh2Z29+QrlGPYBfPVEQzghG1DpZcUS1Kf61L+ZYaVm0zH3Cz2O
+	qI0hq+lI8H28D4MmDi6v+11VjNUMmn7sdjKJOLNkXg9itl3xTAOrMO6luX2LAQkhuCXAch0Rgku
+	uE
+X-Gm-Gg: ASbGncv0uk5vNKqZQ7EMU3mBB6DQotFy2Qz6/U/3ZUmkqB88qYADKCTZJGgto+eg7VA
+	8Yr0GT8awK49E+RfTuOwFOZHdSQyYf65JfVl0UW1L2j0wRSJz+LSrcdLdfMQpUMf81vrnf1EInb
+	obsdrezuq39uWjP/9rnU6FQFqajsjjuuSy6Ht8KRsLcWSHbIWNltCkYg7DXkVt4qm4BT+1jFDqA
+	0w0Yp5IvgqUP8AMt8JnlrfiflxXF3pP/HelBSLgj0t4dZBn8RaxuVB9qmsezHDEOyVJrFdHt7qe
+	u6G3CqB1MXW5dfq83+PBKWCGsr5LyQ==
+X-Received: by 2002:a05:6000:2c0f:b0:3a4:d0dc:184d with SMTP id ffacd0b85a97d-3a6d12da029mr13966782f8f.27.1750771470460;
+        Tue, 24 Jun 2025 06:24:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFiFZlAyuiksuIl1Yo2GNzHDQQeq8cn/28qYo/og94VXjH6d5Y5X9A9bCgyxSiJRdNpJZsF4Q==
+X-Received: by 2002:a05:6000:2c0f:b0:3a4:d0dc:184d with SMTP id ffacd0b85a97d-3a6d12da029mr13966735f8f.27.1750771469988;
+        Tue, 24 Jun 2025 06:24:29 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2445:d510::f39? ([2a0d:3344:2445:d510::f39])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e80f2274sm1927739f8f.48.2025.06.24.06.24.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Jun 2025 06:24:29 -0700 (PDT)
+Message-ID: <b31793de-e34f-438c-aa37-d68f3cb42b80@redhat.com>
+Date: Tue, 24 Jun 2025 15:24:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250618210851.661527-5-willmcvicker@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v13 04/11] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>
+References: <20250622093756.2895000-1-lukma@denx.de>
+ <20250622093756.2895000-5-lukma@denx.de>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250622093756.2895000-5-lukma@denx.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Ji3mOu3x1ray6Pz9LER8v3phrTkXGUzoQUMO5VLlsAQ_1750771471
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_062217_203232_7CA62254 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20250624_062435_290622_57F12BBC 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,101 +121,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 02:08:41PM -0700, Will McVicker wrote:
-> The Exynos MCT driver doesn't set the clocksource name until the CPU
-> hotplug state is setup which happens after the IRQs are requested. This
-> results in an empty IRQ name which leads to the below warning at
-> proc_create() time. When this happens, the userdata partition fails to
-> mount and the device gets stuck in an endless loop printing the error:
-> 
->   root '/dev/disk/by-partlabel/userdata' doesn't exist or does not contain a /dev.
-> 
-> To fix this, we just need to initialize the name before requesting the
-> IRQs.
-> 
-> Warning from Pixel 6 kernel log:
-> 
-> [  T430] name len 0
-> [  T430] WARNING: CPU: 6 PID: 430 at fs/proc/generic.c:407 __proc_create+0x258/0x2b4
-> [  T430] Modules linked in: dwc3_exynos(E+)
-> [  T430]  ufs_exynos(E+) phy_exynos_ufs(E)
-> [  T430]  phy_exynos5_usbdrd(E) exynos_usi(E+) exynos_mct(E+) s3c2410_wdt(E)
-> [  T430]  arm_dsu_pmu(E) simplefb(E)
-> [  T430] CPU: 6 UID: 0 PID: 430 Comm: (udev-worker) Tainted:
->          ... 6.14.0-next-20250331-4k-00008-g59adf909e40e #1 ...
-> [  T430] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE
-> [  T430] Hardware name: Raven (DT)
-> [...]
-> [  T430] Call trace:
-> [  T430]  __proc_create+0x258/0x2b4 (P)
-> [  T430]  proc_mkdir+0x40/0xa0
-> [  T430]  register_handler_proc+0x118/0x140
-> [  T430]  __setup_irq+0x460/0x6d0
-> [  T430]  request_threaded_irq+0xcc/0x1b0
-> [  T430]  mct_init_dt+0x244/0x604 [exynos_mct ...]
-> [  T430]  mct_init_spi+0x18/0x34 [exynos_mct ...]
-> [  T430]  exynos4_mct_probe+0x30/0x4c [exynos_mct ...]
-> [  T430]  platform_probe+0x6c/0xe4
-> [  T430]  really_probe+0xf4/0x38c
-> [...]
-> [  T430]  driver_register+0x6c/0x140
-> [  T430]  __platform_driver_register+0x28/0x38
-> [  T430]  exynos4_mct_driver_init+0x24/0xfe8 [exynos_mct ...]
-> [  T430]  do_one_initcall+0x84/0x3c0
-> [  T430]  do_init_module+0x58/0x208
-> [  T430]  load_module+0x1de0/0x2500
-> [  T430]  init_module_from_file+0x8c/0xdc
-> 
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Signed-off-by: Will McVicker <willmcvicker@google.com>
-> ---
->  drivers/clocksource/exynos_mct.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-> index a5ef7d64b1c2..62febeb4e1de 100644
-> --- a/drivers/clocksource/exynos_mct.c
-> +++ b/drivers/clocksource/exynos_mct.c
-> @@ -465,8 +465,6 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
->  		per_cpu_ptr(&percpu_mct_tick, cpu);
->  	struct clock_event_device *evt = &mevt->evt;
->  
-> -	snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d", cpu);
-> -
->  	evt->name = mevt->name;
->  	evt->cpumask = cpumask_of(cpu);
->  	evt->set_next_event = exynos4_tick_set_next_event;
-> @@ -567,6 +565,14 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
->  	for (i = MCT_L0_IRQ; i < nr_irqs; i++)
->  		mct_irqs[i] = irq_of_parse_and_map(np, i);
->  
-> +	for_each_possible_cpu(cpu) {
-> +		struct mct_clock_event_device *mevt =
-> +		    per_cpu_ptr(&percpu_mct_tick, cpu);
+On 6/22/25 11:37 AM, Lukasz Majewski wrote:
+> +static void mtip_aging_timer(struct timer_list *t)
+> +{
+> +	struct switch_enet_private *fep = timer_container_of(fep, t,
+> +							     timer_aging);
 > +
-> +		snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d",
-> +			 cpu);
+> +	fep->curr_time = mtip_timeincrement(fep->curr_time);
+> +
+> +	mod_timer(&fep->timer_aging,
+> +		  jiffies + msecs_to_jiffies(LEARNING_AGING_INTERVAL));
+> +}
+
+It's unclear to me why you decided to maintain this function and timer
+while you could/should have used a macro around jiffies instead.
+
+[...]
+> +static int mtip_sw_learning(void *arg)
+> +{
+> +	struct switch_enet_private *fep = arg;
+> +
+> +	while (!kthread_should_stop()) {
+> +		set_current_state(TASK_INTERRUPTIBLE);
+> +		/* check learning record valid */
+> +		mtip_atable_dynamicms_learn_migration(fep, fep->curr_time,
+> +						      NULL, NULL);
+> +		schedule_timeout(HZ / 100);
 > +	}
 > +
->  	if (mct_int_type == MCT_INT_PPI) {
->  
->  		err = request_percpu_irq(mct_irqs[MCT_L0_IRQ],
-> -- 
-> 2.50.0.rc2.761.g2dc52ea45b-goog
-> 
+> +	return 0;
+> +}
 
-There are too many for_each_possible_cpu() loops in this function.
+Why are you using a full blown kernel thread here? Here a timer could
+possibly make more sense. Why are checking the table every 10ms, while
+the learning intervall is 100ms? I guess you could/should align the
+frequency here with such interval.
 
-Why not move the per cpu relevant code in the hotplug callbacks ?
+Side note: I think you should move the buffer management to a later
+patch: this one is still IMHO too big.
 
+/P
 
--- 
-
- <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
