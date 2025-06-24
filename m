@@ -4,46 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B1FC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABABC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9+beGZo84R9CMn8lU1acgZG6l+7I8JU6UFjMkvewIk=; b=jHtgxEQXySoB2XK3IOaVr27WRA
-	7jRqMx/qW4byq2b2UsorC3oZT9Nxp/6AXzn8oGkzsnjBiaHKzMS0OY6YtCzdjO0i9TW9JY0bMh3Rs
-	E0WwvoM+ePC/+DjGVzm3spwVvaag5lyHWbKvs1RPbNfsUKbJHCqOogdG4SlfPxKY39Hz4SKjmKDqK
-	fUdCOJWf4yLLi9cx9PyENI5OVd1F5/aEV7tjQ+pj3A5+8SHed7Wdo1EOjJad67mfWQWP6gEqHIuzY
-	UpQKig1M/YYIyraJtJE/NfuDsHLj7y2NNCNkHGdMCMTkwu08LvTvGRCU8LPKyivRE+zPDyx979R9w
-	5aDbVQuw==;
+	bh=Cf+MBzEQsHiSoMrH9x7N9Xo3MiIXwDIb3xwaZnvc/Ug=; b=bJHqdxWaLcixM/vry0uz0TipEw
+	0wSfBkMu1oAQPkzQiISiph1BuwbDXlJkKxEIBqjZNOB6WC8TaeSMDo4PeaFi7exm7hhP/sSoJDGSw
+	k1fNo7zSm1D2dc/CfaXks1IqF+XM2afRFoTBUOGjilKbqQSptJJcs9Pz/ASkRILDu1ABNt7DAfSW8
+	0fp/K4ZVyyk7eMmdJ/p88hgm2yH2UcD95bOMx0uq3yYxBoD8ka5SaK7poKtAvYwqYgX06hTHLmgGw
+	7yQZJ2iVxHaH76GdjiXsvSuCp5x0DLgOrbBgu7q/cS8rh/4eOZ9eI5aMvZyShbwwtS2vcTU4sAwH2
+	Wzqyx5mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU19n-00000005LTL-1EIu;
-	Tue, 24 Jun 2025 10:45:39 +0000
+	id 1uU1CD-00000005Ls2-0Qf7;
+	Tue, 24 Jun 2025 10:48:09 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU0mb-00000005I0l-3NjW
+	id 1uU0mb-00000005I0b-2Eg7
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 24 Jun 2025 10:21:44 +0000
 Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 590FE1E5C;
-	Tue, 24 Jun 2025 12:21:20 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0D0311D49;
+	Tue, 24 Jun 2025 12:21:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750760480;
-	bh=m/Xqeeea/y3ppbinMP0HM6EGei7bjWHfN4A+3KMaSyw=;
+	s=mail; t=1750760479;
+	bh=+BFOkMwkeT/Kk4kMrjBVNtoL88di7bG0PILYljO6ehA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pXBQwD0ziSu42yN95duxxcwXXDPkmjwsOdoyQFBKdKdfxCFuvtRM6eNOQtCzetRjW
-	 2Sp9IA9Hp6woDH4yBbcK124CqzZx/GIDK+N1gk7ttozvP4/FaySqbrkoswcrSpRLp3
-	 Ru4tgs8rQi8+lWe0g0fOfjioBC/W4ae1B+7zPb8M=
+	b=RtdxZCRUcOgV/6dbmpz2p9+NbhV6iVTWNDcWryT0k9fKf/tvlLYCCB7jZMsJjaaGJ
+	 E0NOBpWmWbwhx8nJnXdMpTzW3JkaTwTZSDFfQq4NtH7/P85p4hheU2/5D7f1U8CS96
+	 J+F99Wq/hAmRV37rGahil+8NY2zmPkyuijMLbUbA=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 24 Jun 2025 11:21:23 +0100
-Subject: [PATCH v10 10/17] media: Add MALI_C55_3A_STATS meta format
+Date: Tue, 24 Jun 2025 11:21:21 +0100
+Subject: [PATCH v10 08/17] media: Documentation: Add Mali-C55 ISP
+ Documentation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250624-c55-v10-10-54f3d4196990@ideasonboard.com>
+Message-Id: <20250624-c55-v10-8-54f3d4196990@ideasonboard.com>
 References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 In-Reply-To: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -55,26 +56,26 @@ Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
  laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
  Sakari Ailus <sakari.ailus@linux.intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2402;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17914;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=m/Xqeeea/y3ppbinMP0HM6EGei7bjWHfN4A+3KMaSyw=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwoBRgy4tWZxme+fRItQlnzXnwEB3OlDNjGO
- QRJ1cl1qmuJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8KAAKCRDISVd6bEV1
- Mm/+D/9xizY+fB0CySbg19JL6d4W6hM/AcynN/dp6njYvvDWb8E/xeBapJTqxag24+lCRjrcB6L
- qGXr0p0BYmtKawFWfUMH6CkpXNAnOqiC7D4u/dFoyUwpgIgxobz2dl+13Qt+bLzuJl6iGh0BZLF
- GUOFlNoUin+W9oedkFIJiMjygu+PUrg/LXjE2Awnq0ask1PwLq52v7GewVBgsN8MK1j807Dezwg
- jQQIgQ56FojYUhe5UEXnLyGX+S0AaPqIow0j2kJRtkrXWL0DRgyzv4o10KuBaQDGVtM5mOH2o6R
- OYcBMnOK9lHIZkjL4O84utxawJMF3kvICstxoq8PLjDcTaYhIeMR89qnm0yj7C44z/44u1dMEU7
- mAPhgtf+kWiLZQm8iGgdUEaywLrFT867YRz1Z63hEk9ORGvdF/z41RehzCQgDDRPJExqeSWKcrJ
- N8xlMk8R+4e9e/Nwj+Spv1ezo4MMgYOXEajzi8vrY0va32GViaq1x+CTsDJyKnAMbxyoJvMSN7s
- 4CWTT5sRdcFDtDxKUOKOmlheJE3EpHRbB1jVpT0dCwQC58Yexde61ymQoRJJWPKVUUkGhyg38Le
- c/xujliQJgd6iFcrw5/SCcul8abh5dosiVbMEIgw54JhCl4ePWPvY5ym8V97Ac2tY+heE0lkPJP
- FdlWBXuAKHwDupg==
+ bh=+BFOkMwkeT/Kk4kMrjBVNtoL88di7bG0PILYljO6ehA=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwo7noGOXUQLkyGbYJO3vkjmNCjy3wlX+d4H
+ noneyskmiGJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8KAAKCRDISVd6bEV1
+ MgYZD/4lVoyABM+7T2zhH8dHI8jLwRbNjlfbcRePvC6nJKdU5GSU2JHxXSj4MtCkFEVotnJ/7DN
+ O/H5kv6zs9n62dsz/Au2EUKpXynAgOXnWf10XQALcPZNgRi+yGD8CEbRp7A4cBRBDcKab9huYsc
+ GuWXjZf6YZQTt3YmrDSoSR2TJRB+dNk5fA20cLUvSo1XkLSwC56xLPqzKnkMZ3PYVBxppPcFZw5
+ BkrVXuEPpSdT6T4mVcDOZoa2OM5yh16EtAS7gp9yPFFZDH3eCy7bTE4ORu8R2UZhhHGj8HsWWa5
+ Oo98j6f4f10yHMenbG8g5RiICjohBy3BdTUErU4kgJQIlueeUP1lJ6nl+p9blZRSAf6t6EiCZVA
+ CDMpiyYsI1O8cQ/bvfHB7X2zo/OBctaKPPl/pSk60s9DivzeeeXxSdMvSR2BhA16+JigHKRBV4F
+ DeWJqh9O/yx7qEcebYMKcLWGVnfBGKN5KO17PzFgJAIr1g7/wjmJ+m3K9XcEydPLHXgEWCjrbJj
+ SOAKlPRedSbB7w4jWzZoHdF3pMtB/x2opDVW4y4PashJcRFS73WMJOENHaCF5czw+h18d6ePdN9
+ h2AIQq7ZY4wfzn3Oj5XHYpOIn+23QEDm8dbT6kj5FszRGJI+pyPvAEJkkYWmNLjBXySxuOd4N7U
+ xMI9oMNRqr4my2A==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_032142_008617_2F5DAAF9 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250624_032141_872598_FF1017C2 
+X-CRM114-Status: GOOD (  27.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,11 +90,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new meta format for the Mali-C55 ISP's 3A Statistics along
-with a new descriptor entry.
+Add a documentation page for the mali-c55 driver, which gives a brief
+overview of the hardware and explains how to use the driver's capture
+devices and the crop/scaler functions.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Acked-by: Nayden Kanchev  <nayden.kanchev@arm.com>
+Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
 Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
@@ -116,42 +118,413 @@ Changes in v7:
 
 Changes in v6:
 
-	- New patch
+	- Minor formatting changes
 
 Changes in v5:
 
-	- New patch
----
- drivers/media/v4l2-core/v4l2-ioctl.c | 1 +
- include/uapi/linux/videodev2.h       | 3 +++
- 2 files changed, 4 insertions(+)
+	- None
 
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 650dc1956f73d2f1943b56c42140c7b8d757259f..674260256681b59ab4919ea1f6bc437487e81ee2 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1466,6 +1466,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_META_FMT_RK_ISP1_EXT_PARAMS:	descr = "Rockchip ISP1 Ext 3A Params"; break;
- 	case V4L2_META_FMT_C3ISP_PARAMS:	descr = "Amlogic C3 ISP Parameters"; break;
- 	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
-+	case V4L2_META_FMT_MALI_C55_STATS:	descr = "ARM Mali-C55 ISP 3A Statistics"; break;
- 	case V4L2_PIX_FMT_NV12_8L128:	descr = "NV12 (8x128 Linear)"; break;
- 	case V4L2_PIX_FMT_NV12M_8L128:	descr = "NV12M (8x128 Linear)"; break;
- 	case V4L2_PIX_FMT_NV12_10BE_8L128:	descr = "10-bit NV12 (8x128 Linear, BE)"; break;
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index 9e3b366d5fc79d8a04c6f0752858fc23363db65c..05023c16590db117503259f60f1d762b181c0350 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -877,6 +877,9 @@ struct v4l2_pix_format {
- #define V4L2_META_FMT_RPI_FE_CFG	v4l2_fourcc('R', 'P', 'F', 'C') /* PiSP FE configuration */
- #define V4L2_META_FMT_RPI_FE_STATS	v4l2_fourcc('R', 'P', 'F', 'S') /* PiSP FE stats */
- 
-+/* Vendor specific - used for Arm Mali-C55 ISP */
-+#define V4L2_META_FMT_MALI_C55_STATS	v4l2_fourcc('C', '5', '5', 'S') /* ARM Mali-C55 3A Statistics */
+Changes in v4:
+	- None
+
+Changes in v3:
+	- Documented the synchronised buffer sequence numbers (Sakari)
+	- Clarified that the downscale pipe cannot output raw data, the ISP'S
+	  resolution limits and choice of media bus format code (Kieran)
+
+Changes in v2:
+
+	- none
+---
+ Documentation/admin-guide/media/mali-c55-graph.dot |  19 ++
+ Documentation/admin-guide/media/mali-c55.rst       | 340 +++++++++++++++++++++
+ Documentation/admin-guide/media/v4l-drivers.rst    |   1 +
+ 3 files changed, 360 insertions(+)
+
+diff --git a/Documentation/admin-guide/media/mali-c55-graph.dot b/Documentation/admin-guide/media/mali-c55-graph.dot
+new file mode 100644
+index 0000000000000000000000000000000000000000..0775ba42bf4cfacc3911dc96b3c20a687bd25e4b
+--- /dev/null
++++ b/Documentation/admin-guide/media/mali-c55-graph.dot
+@@ -0,0 +1,19 @@
++digraph board {
++        rankdir=TB
++        n00000001 [label="{{} | mali-c55 tpg\n/dev/v4l-subdev0 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000001:port0 -> n00000003:port0 [style=dashed]
++        n00000003 [label="{{<port0> 0} | mali-c55 isp\n/dev/v4l-subdev1 | {<port1> 1 | <port2> 2}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000003:port1 -> n00000007:port0 [style=bold]
++        n00000003:port2 -> n00000007:port2 [style=bold]
++        n00000003:port1 -> n0000000b:port0 [style=bold]
++        n00000007 [label="{{<port0> 0 | <port2> 2} | mali-c55 resizer fr\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000007:port1 -> n0000000e [style=bold]
++        n0000000b [label="{{<port0> 0} | mali-c55 resizer ds\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n0000000b:port1 -> n00000012 [style=bold]
++        n0000000e [label="mali-c55 fr\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
++        n00000012 [label="mali-c55 ds\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
++        n00000022 [label="{{<port0> 0} | csi2-rx\n/dev/v4l-subdev4 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000022:port1 -> n00000003:port0
++        n00000027 [label="{{} | imx415 1-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000027:port0 -> n00000022:port0 [style=bold]
++}
+\ No newline at end of file
+diff --git a/Documentation/admin-guide/media/mali-c55.rst b/Documentation/admin-guide/media/mali-c55.rst
+new file mode 100644
+index 0000000000000000000000000000000000000000..72cdded507b3a7918e28d9bd9a1c6f72ddf9e664
+--- /dev/null
++++ b/Documentation/admin-guide/media/mali-c55.rst
+@@ -0,0 +1,340 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
- #ifdef __KERNEL__
- /*
-  * Line-based metadata formats. Remember to update v4l_fill_fmtdesc() when
++==========================================
++ARM Mali-C55 Image Signal Processor driver
++==========================================
++
++Introduction
++============
++
++This file documents the driver for ARM's Mali-C55 Image Signal Processor. The
++driver is located under drivers/media/platform/arm/mali-c55.
++
++The Mali-C55 ISP receives data in either raw Bayer format or RGB/YUV format from
++sensors through either a parallel interface or a memory bus before processing it
++and outputting it through an internal DMA engine. Two output pipelines are
++possible (though one may not be fitted, depending on the implementation). These
++are referred to as "Full resolution" and "Downscale", but the naming is historic
++and both pipes are capable of cropping/scaling operations. The full resolution
++pipe is also capable of outputting RAW data, bypassing much of the ISP's
++processing. The downscale pipe cannot output RAW data. An integrated test
++pattern generator can be used to drive the ISP and produce image data in the
++absence of a connected camera sensor. The driver module is named mali_c55, and
++is enabled through the CONFIG_VIDEO_MALI_C55 config option.
++
++The driver implements V4L2, Media Controller and V4L2 Subdevice interfaces and
++expects camera sensors connected to the ISP to have V4L2 subdevice interfaces.
++
++Mali-C55 ISP hardware
++=====================
++
++A high level functional view of the Mali-C55 ISP is presented below. The ISP
++takes input from either a live source or through a DMA engine for memory input,
++depending on the SoC integration.::
++
++  +---------+    +----------+                                     +--------+
++  | Sensor  |--->| CSI-2 Rx |                "Full Resolution"    |  DMA   |
++  +---------+    +----------+   |\                 Output    +--->| Writer |
++                       |        | \                          |    +--------+
++                       |        |  \    +----------+  +------+---> Streaming I/O
++  +------------+       +------->|   |   |          |  |
++  |            |                |   |-->| Mali-C55 |--+
++  | DMA Reader |--------------->|   |   |    ISP   |  |
++  |            |                |  /    |          |  |      +---> Streaming I/O
++  +------------+                | /     +----------+  |      |
++                                |/                    +------+
++                                                             |    +--------+
++                                                             +--->|  DMA   |
++                                               "Downscaled"       | Writer |
++                                                  Output          +--------+
++
++Media Controller Topology
++=========================
++
++An example of the ISP's topology (as implemented in a system with an IMX415
++camera sensor and generic CSI-2 receiver) is below:
++
++
++.. kernel-figure:: mali-c55-graph.dot
++    :alt:   mali-c55-graph.dot
++    :align: center
++
++The driver has 4 V4L2 subdevices:
++
++- `mali_c55 isp`: Responsible for configuring input crop and color space
++                  conversion
++- `mali_c55 tpg`: The test pattern generator, emulating a camera sensor.
++- `mali_c55 resizer fr`: The Full-Resolution pipe resizer
++- `mali_c55 resizer ds`: The Downscale pipe resizer
++
++The driver has 2 V4L2 video devices:
++
++- `mali-c55 fr`: The full-resolution pipe's capture device
++- `mali-c55 ds`: The downscale pipe's capture device
++
++Frame sequences are synchronised across to two capture devices, meaning if one
++pipe is started later than the other the sequence numbers returned in its
++buffers will match those of the other pipe rather than starting from zero.
++
++Idiosyncrasies
++--------------
++
++**mali-c55 isp**
++The `mali-c55 isp` subdevice has a single sink pad to which all sources of data
++should be connected. The active source is selected by enabling the appropriate
++media link and disabling all others. The ISP has two source pads, reflecting the
++different paths through which it can internally route data. Tap points within
++the ISP allow users to divert data to avoid processing by some or all of the
++hardware's processing steps. The diagram below is intended only to highlight how
++the bypassing works and is not a true reflection of those processing steps; for
++a high-level functional block diagram see ARM's developer page for the
++ISP [3]_::
++
++  +--------------------------------------------------------------+
++  |                Possible Internal ISP Data Routes             |
++  |          +------------+  +----------+  +------------+        |
++  +---+      |            |  |          |  |  Colour    |    +---+
++  | 0 |--+-->| Processing |->| Demosaic |->|   Space    |--->| 1 |
++  +---+  |   |            |  |          |  | Conversion |    +---+
++  |      |   +------------+  +----------+  +------------+        |
++  |      |                                                   +---+
++  |      +---------------------------------------------------| 2 |
++  |                                                          +---+
++  |                                                              |
++  +--------------------------------------------------------------+
++
++
++.. flat-table::
++    :header-rows: 1
++
++    * - Pad
++      - Direction
++      - Purpose
++
++    * - 0
++      - sink
++      - Data input, connected to the TPG and camera sensors
++
++    * - 1
++      - source
++      - RGB/YUV data, connected to the FR and DS V4L2 subdevices
++
++    * - 2
++      - source
++      - RAW bayer data, connected to the FR V4L2 subdevices
++
++The ISP is limited to both input and output resolutions between 640x480 and
++8192x8192, and this is reflected in the ISP and resizer subdevice's .set_fmt()
++operations.
++
++**mali-c55 resizer fr**
++The `mali-c55 resizer fr` subdevice has two _sink_ pads to reflect the different
++insertion points in the hardware (either RAW or demosaiced data):
++
++.. flat-table::
++    :header-rows: 1
++
++    * - Pad
++      - Direction
++      - Purpose
++
++    * - 0
++      - sink
++      - Data input connected to the ISP's demosaiced stream.
++
++    * - 1
++      - source
++      - Data output connected to the capture video device
++
++    * - 2
++      - sink
++      - Data input connected to the ISP's raw data stream
++
++The data source in use is selected through the routing API; two routes each of a
++single stream are available:
++
++.. flat-table::
++    :header-rows: 1
++
++    * - Sink Pad
++      - Source Pad
++      - Purpose
++
++    * - 0
++      - 1
++      - Demosaiced data route
++
++    * - 2
++      - 1
++      - Raw data route
++
++
++If the demosaiced route is active then the FR pipe is only capable of output
++in RGB/YUV formats. If the raw route is active then the output reflects the
++input (which may be either Bayer or RGB/YUV data).
++
++Using the driver to capture video
++=================================
++
++Using the media controller APIs we can configure the input source and ISP to
++capture images in a variety of formats. In the examples below, configuring the
++media graph is done with the v4l-utils [1]_ package's media-ctl utility.
++Capturing the images is done with yavta [2]_.
++
++Configuring the input source
++----------------------------
++
++The first step is to set the input source that we wish by enabling the correct
++media link. Using the example topology above, we can select the TPG as follows:
++
++.. code-block:: none
++
++    media-ctl -l "'lte-csi2-rx':1->'mali-c55 isp':0[0]"
++    media-ctl -l "'mali-c55 tpg':0->'mali-c55 isp':0[1]"
++
++Configuring which video devices will stream data
++------------------------------------------------
++
++The driver will wait for all video devices to have their VIDIOC_STREAMON ioctl
++called before it tells the sensor to start streaming. To facilitate this we need
++to enable links to the video devices that we want to use. In the example below
++we enable the links to both of the image capture video devices
++
++.. code-block:: none
++
++    media-ctl -l "'mali-c55 resizer fr':1->'mali-c55 fr':0[1]"
++    media-ctl -l "'mali-c55 resizer ds':1->'mali-c55 ds':0[1]"
++
++Capturing bayer data from the source and processing to RGB/YUV
++--------------------------------------------------------------
++
++To capture 1920x1080 bayer data from the source and push it through the ISP's
++full processing pipeline, we configure the data formats appropriately on the
++source, ISP and resizer subdevices and set the FR resizer's routing to select
++processed data. The media bus format on the resizer's source pad will be either
++RGB121212_1X36 or YUV10_1X30, depending on whether you want to capture RGB or
++YUV. The ISP's debayering block outputs RGB data natively, setting the source
++pad format to YUV10_1X30 enables the colour space conversion block.
++
++In this example we target RGB565 output, so select RGB121212_1X36 as the resizer
++source pad's format:
++
++.. code-block:: none
++
++    # Set formats on the TPG and ISP
++    media-ctl -V "'mali-c55 tpg':0[fmt:SRGGB20_1X20/1920x1080]"
++    media-ctl -V "'mali-c55 isp':0[fmt:SRGGB20_1X20/1920x1080]"
++    media-ctl -V "'mali-c55 isp':1[fmt:SRGGB20_1X20/1920x1080]"
++
++    # Set routing on the FR resizer
++    media-ctl -R "'mali-c55 resizer fr'[0/0->1/0[1],2/0->1/0[0]]"
++
++    # Set format on the resizer, must be done AFTER the routing.
++    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/1920x1080]"
++
++The downscale output can also be used to stream data at the same time. In this
++case since only processed data can be captured through the downscale output no
++routing need be set:
++
++.. code-block:: none
++
++    # Set format on the resizer
++    media-ctl -V "'mali-c55 resizer ds':1[fmt:RGB121212_1X36/1920x1080]"
++
++Following which images can be captured from both the FR and DS output's video
++devices (simultaneously, if desired):
++
++.. code-block:: none
++
++    yavta -f RGB565 -s 1920x1080 -c10 /dev/video0
++    yavta -f RGB565 -s 1920x1080 -c10 /dev/video1
++
++Cropping the image
++~~~~~~~~~~~~~~~~~~
++
++Both the full resolution and downscale pipes can crop to a minimum resolution of
++640x480. To crop the image simply configure the resizer's sink pad's crop and
++compose rectangles and set the format on the video device:
++
++.. code-block:: none
++
++    media-ctl -V "'mali-c55 resizer fr':0[fmt:RGB121212_1X36/1920x1080 crop:(480,270)/640x480 compose:(0,0)/640x480]"
++    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/640x480]"
++    yavta -f RGB565 -s 640x480 -c10 /dev/video0
++
++Downscaling the image
++~~~~~~~~~~~~~~~~~~~~~
++
++Both the full resolution and downscale pipes can downscale the image by up to 8x
++provided the minimum 640x480 output resolution is adhered to. For the best image
++result the scaling ratio for each direction should be the same. To configure
++scaling we use the compose rectangle on the resizer's sink pad:
++
++.. code-block:: none
++
++    media-ctl -V "'mali-c55 resizer fr':0[fmt:RGB121212_1X36/1920x1080 crop:(0,0)/1920x1080 compose:(0,0)/640x480]"
++    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/640x480]"
++    yavta -f RGB565 -s 640x480 -c10 /dev/video0
++
++Capturing images in YUV formats
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++If we need to output YUV data rather than RGB the color space conversion block
++needs to be active, which is achieved by setting MEDIA_BUS_FMT_YUV10_1X30 on the
++resizer's source pad. We can then configure a capture format like NV12 (here in
++its multi-planar variant)
++
++.. code-block:: none
++
++    media-ctl -V "'mali-c55 resizer fr':1[fmt:YUV10_1X30/1920x1080]"
++    yavta -f NV12M -s 1920x1080 -c10 /dev/video0
++
++Capturing RGB data from the source and processing it with the resizers
++----------------------------------------------------------------------
++
++The Mali-C55 ISP can work with sensors capable of outputting RGB data. In this
++case although none of the image quality blocks would be used it can still
++crop/scale the data in the usual way. For this reason RGB data input to the ISP
++still goes through the ISP subdevice's pad 1 to the resizer.
++
++To achieve this, the ISP's sink pad's format is set to
++MEDIA_BUS_FMT_RGB202020_1X60 - this reflects the format that data must be in to
++work with the ISP. Converting the camera sensor's output to that format is the
++responsibility of external hardware.
++
++In this example we ask the test pattern generator to give us RGB data instead of
++bayer.
++
++.. code-block:: none
++
++    media-ctl -V "'mali-c55 tpg':0[fmt:RGB202020_1X60/1920x1080]"
++    media-ctl -V "'mali-c55 isp':0[fmt:RGB202020_1X60/1920x1080]"
++
++Cropping or scaling the data can be done in exactly the same way as outlined
++earlier.
++
++Capturing raw data from the source and outputting it unmodified
++-----------------------------------------------------------------
++
++The ISP can additionally capture raw data from the source and output it on the
++full resolution pipe only, completely unmodified. In this case the downscale
++pipe can still process the data normally and be used at the same time.
++
++To configure raw bypass the FR resizer's subdevice's routing table needs to be
++configured, followed by formats in the appropriate places:
++
++.. code-block:: none
++
++    media-ctl -R "'mali-c55 resizer fr'[0/0->1/0[0],2/0->1/0[1]]"
++    media-ctl -V "'mali-c55 isp':0[fmt:RGB202020_1X60/1920x1080]"
++    media-ctl -V "'mali-c55 resizer fr':2[fmt:RGB202020_1X60/1920x1080]"
++    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB202020_1X60/1920x1080]"
++
++    # Set format on the video device and stream
++    yavta -f RGB565 -s 1920x1080 -c10 /dev/video0
++
++References
++==========
++.. [1] https://git.linuxtv.org/v4l-utils.git/
++.. [2] https://git.ideasonboard.org/yavta.git
++.. [3] https://developer.arm.com/Processors/Mali-C55
+diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
+index 3bac5165b13416ee94d9f98ccc22d07d334ae90e..ebd9b15efa903ecb62869d4b7e0b0d6f3ed73589 100644
+--- a/Documentation/admin-guide/media/v4l-drivers.rst
++++ b/Documentation/admin-guide/media/v4l-drivers.rst
+@@ -19,6 +19,7 @@ Video4Linux (V4L) driver-specific documentation
+ 	ipu3
+ 	ipu6-isys
+ 	ivtv
++	mali-c55
+ 	mgb4
+ 	omap3isp
+ 	philips
 
 -- 
 2.34.1
