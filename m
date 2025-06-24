@@ -4,98 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0D7C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 15:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A1AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 15:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=at4AGtoJzuUSMRoGQaflHxu5wCpuyRhNqdSwxFevlHw=; b=OLXiAUOYbbKBMAn2M97sHZQPTp
-	87NQ3FqUyC0br+FTcxZAETxN7vaUFYsL0Rb76KXlo+oFWmOvrShTLsvKLXmUdGB/5gtxBq5u8DxtJ
-	J9asABo+1GPIvpr/Op2zBMd+nDSn4J4QgSZ//NcNVG4NxpGkv5G/f9+fv3sK7Te42oOdEJQgupcL6
-	h2Ll1xKlMr//T73hTDSrpxByoSDawmq6qNbv9hHzNXrIkk659CmjuPTq+pMmaC/XBKayzGoWT3+5Z
-	jXdzr3LS464ArtenCWDGQyn+mfp3TVxpYbORDPmT24LxOLKvWK1fKnEg128rZZzKnpR9XEqaKjTuP
-	fpUPSckQ==;
+	bh=nAspC3WP7Npov8DZfWyyVTwC7r8mOQn9CIkK1tgRJnI=; b=zLGbypbvMLYFUc7Sqt7jcwei//
+	0ksOUlRAzqOcz9znUuGx20CC95DaEUZGSgoyeGiMHS81z9yORbgL46qrv9OIuewx8SoM8d4aVvJYD
+	L321pPzdAdIJ6T8l64lGxoqQPVcLX2dg6Qhn0bg1gsIj91UxOj3m/BqUzQbOtDN947rlCmpyJJVwT
+	mHqebDxh5as4Tj8k8C+LhrwYUI7pjTlNkx7onK/QQ4YM/4tfftdwz7AZgrKvqx3J/TQhHFf6DRM5i
+	Ajmcz4kZt3TwLzFUgvfvWD0ESIjDg5raQgj+rIIcb7HSCvaLndAVqiaFvyFkEmD8J671/y9zhzdOw
+	jCtvM8Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5YC-000000066df-32Rn;
-	Tue, 24 Jun 2025 15:27:08 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uU5aS-000000067Mk-2Kwp;
+	Tue, 24 Jun 2025 15:29:28 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU45t-00000005nI7-3qEV;
-	Tue, 24 Jun 2025 13:53:51 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553644b8f56so486986e87.1;
-        Tue, 24 Jun 2025 06:53:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750773228; x=1751378028; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=at4AGtoJzuUSMRoGQaflHxu5wCpuyRhNqdSwxFevlHw=;
-        b=WX2KyA+rz1VK1iIzeL0RFVLgNZW8lQj921HUgb0ssBwNR7mQOmJQyZVopEQEdE7128
-         QGndremLvetiLd0whgftB5of5AlQdrDVyD74zuyqJzpU0Jx7Ok/Fu19HmNgUAUY32gPH
-         Pjai1krvk1SU1IMZ+6vmpnMN0+bJ6x01qtFbCf9Z5zJoP4qFK6H8P+UpBynK+V7s/LLX
-         7IVBjhBsn176oVMwmcQlm5P+59UUSm5aOlN2Od6rUNo06FOKpQjkjSPx82bMo7sxxlEN
-         FsSQ//SSdJwQ15D+5CS3Z1ZJMSvoUvFG9zJdBPIPsew26Cr5yNm6WVCy+VxkPeWTY8Ut
-         cdqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750773228; x=1751378028;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=at4AGtoJzuUSMRoGQaflHxu5wCpuyRhNqdSwxFevlHw=;
-        b=tiRTfMmS/+7SZ3KSeTOOFfd4IqK6FeCTpia2ZR6qUZTUIvLJVe+GA6ZdpH/IHmlbYO
-         htrxwyLcnQGhL35Iyk9OspJatc8nvEw6NINsWIxMNZQMl405rq1VkmA0K1vitZg3W9LK
-         ntS3FCEC31rWz+BXf4/2bd5AFnf7p94AcRqLG5lBJvgFXTichfL1h3HSPjPjL0NFrVa/
-         VT+1ciO5SVK4PYAri2P8tckHCO/TGOvyjojW344ax5DV8LAeNJRNk8gAfS64eK46OkGF
-         efuRuMqCMEb3KJQnlPW5Bjse4k94uZqTUj8kV694LeOuIWrCvXKO63xjsJAq9ySGHx54
-         cpog==
-X-Forwarded-Encrypted: i=1; AJvYcCUJmfWtkapuB5QmMTX2Q6NVq5YjMKfpfXyC56s3hCRG0JXDrFJ8Ia1j4oX6DuDZr6L3TfUgBFVvjopZoJaF@lists.infradead.org, AJvYcCUtVufAHnTOKYSrLf0SIMRnC28jU04f4HzTP59YNhQOUtzKnjK3ZW3pmmAtq1bC3uh5ZwBXGVySrxMKTUAwsUSNwQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHm1o8Ay0xBLEEOF7sOmPrFdn1t3ID8qAuuwGG88wFxZHAh+8v
-	+EUgMXjCORtAlz87by/sKhvdbnVrUirhLZj0Wcv4N7XQxR6mI3IujBN1
-X-Gm-Gg: ASbGncs3T7OOT0/mv94vJ92Vd36fHIVGyWRoYnUhWAXFGjYAVPPRPB+wmHRhIWNBPO3
-	pY1MgmZ10aQHtEwsXK0FkqXAAXHYnfXxlWqTG/ryfA+BfGVz4RyrtF9p6vZcv+dYDhLaaw9G882
-	aeypl1ahZUaUtWyfU0KM/UEGJKwX/2x5JS3ej2VwaNhM/jeFmjVMYXPcj5x/muM8hOGQgIa2lVQ
-	gFymQAHKdkNNjAi51cJ5wYj1tKIE1fBSP5JpqvnoPa+F9U9vXnoJjxk8qC7qWpLgylu7IoKWjYW
-	TZg87EVVyY3h3n1R4uwUeVV5ZujQIrvZ185aF1Fl25dPrAIFjDj21n/6F9wgiphW1iiOQFMCj1q
-	GC+EPIex/mViuIHMe8Zl5mo08MFWofisI3kqx0rAVyLp9ZhaNsHYoySAEu2vAfg==
-X-Google-Smtp-Source: AGHT+IFbDE+lWZiMZmwadCBMjxfgjChAjL5/r/S/Zb6cyZMzeD+uljn9vGxJOP6BB4iHquZJI37Mkw==
-X-Received: by 2002:a05:6512:3f19:b0:553:2c93:6140 with SMTP id 2adb3069b0e04-553e3b98f31mr5355681e87.9.1750773228139;
-        Tue, 24 Jun 2025 06:53:48 -0700 (PDT)
-Received: from user-A520M-DS3H.sberdevices.ru (broadband-188-32-30-96.ip.moscow.rt.ru. [188.32.30.96])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-554e6dc186esm1282905e87.114.2025.06.24.06.53.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 06:53:47 -0700 (PDT)
-From: Alexey Romanov <romanov.alexey2000@gmail.com>
-To: neil.armstrong@linaro.org,
-	clabbe@baylibre.com,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com
-Cc: linux-crypto@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexey Romanov <romanov.alexey2000@gmail.com>
-Subject: [PATCH v12 22/22] arm64: dts: amlogic: axg: add crypto node
-Date: Tue, 24 Jun 2025 16:52:14 +0300
-Message-Id: <20250624135214.1355051-23-romanov.alexey2000@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250624135214.1355051-1-romanov.alexey2000@gmail.com>
-References: <20250624135214.1355051-1-romanov.alexey2000@gmail.com>
+	id 1uU47P-00000005nb4-13Ib
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 13:55:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1750773258; x=1751378058; i=markus.elfring@web.de;
+	bh=nAspC3WP7Npov8DZfWyyVTwC7r8mOQn9CIkK1tgRJnI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=JmQfGbdrycpf7iW1IaEmxK9XgDFX7goswEPbfiNqzDUfbjDn2AfASqGC7NxwgHDw
+	 Yq8NXs5p2vUlW1yPyUl+NOXNzTzsPmMc9eQmpOPlQPMqMP6CjngQpfKMQkVLfVINX
+	 h79nCuGUjSAROTkYzHzsggf58JN40aLpoe5CrF1LggPd3TJOTTNI1QhGahsVtuaBq
+	 QNYw9Nu4Ze76Hmrt2x2xzB93cmMA9KulOjbkm941fB2Y0CethWUo0ZqPKnkLi6/G9
+	 nnuCzGswGOqUf3mIlC99cgo8oC0+K/A6fbvxP0jE1hMO+X3RsYrWpNV1pVdvPhKz9
+	 4PygHQsydPue8x6JHg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.200]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MCXZh-1ucYQb2ZZj-001XJX; Tue, 24
+ Jun 2025 15:54:18 +0200
+Message-ID: <e694666a-ec94-4443-bae7-54ac2f0f0e7d@web.de>
+Date: Tue, 24 Jun 2025 15:54:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] coccinelle: misc: Add field_modify script
+To: Luo Jie <quic_luoj@quicinc.com>, cocci@inria.fr,
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>, Marc Zyngier <maz@kernel.org>,
+ Nicolas Palix <nicolas.palix@imag.fr>, Oliver Upton
+ <oliver.upton@linux.dev>, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Suzuki Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, Zenghui Yu <yuzenghui@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, Andrew Lunn <andrew@lunn.ch>,
+ "Kiran Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
+ Lei Wei <quic_leiwei@quicinc.com>, Pavithra R <quic_pavir@quicinc.com>,
+ Suruchi Agarwal <quic_suruchia@quicinc.com>, quic_linchen@quicinc.com
+References: <20250624-field_modify-v5-1-cd67127030e4@quicinc.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250624-field_modify-v5-1-cd67127030e4@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:BxwhYr5KPqaoChoZS4nBRipO+hb3znKQbMhT2/FewqmcxGiFGXm
+ oChwojR/Ygi3iDg4j7kznTwoKuaAZakLFtDxb0W5BEeZKWQPyZU/UcUTV0p3RelvLTq2TOi
+ FoELt62MsZEUdfIuU3EJwMibjHNJcyMsfO5IvkfnMOJ7hhxqGckQd/lAG4CrabfYzEK2Sva
+ 4kZsMB3Vo/2Faa6nasy4Q==
+UI-OutboundReport: notjunk:1;M01:P0:jweyu8AFEUU=;KIKiMtgt6YoBvgg1ereISGrRNuy
+ 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
+ bqQ3P+e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_065349_954711_1CA0930E 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20250624_065523_589198_8AD5E0D0 
+X-CRM114-Status: UNSURE (   5.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,34 +138,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds a crypto node declaration. With the
-Amlogic crypto driver we can use HW implementation
-of SHA1/224/256 and AES algo.
+> +msg="WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
+> +msg_safe=msg.replace("[","@(").replace("]",")")
+> +coccilib.org.print_todo(p[0], msg_safe)
 
-Signed-off-by: Alexey Romanov <romanov.alexey2000@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+How do you think about to use the following code variant instead?
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-index 2df143aa77ce..f126097ab013 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-@@ -294,6 +294,13 @@ ethmac: ethernet@ff3f0000 {
- 			status = "disabled";
- 		};
- 
-+		crypto: crypto@ff63e000 {
-+			compatible = "amlogic,axg-crypto";
-+			reg = <0x0 0xff63e000 0x0 0x48>;
-+			interrupts = <GIC_SPI 180 IRQ_TYPE_EDGE_RISING>;
-+			clocks = <&clkc CLKID_CLK81>;
-+		};
-+
- 		pcie_phy: phy@ff644000 {
- 			compatible = "amlogic,axg-pcie-phy";
- 			reg = <0x0 0xff644000 0x0 0x1c>;
--- 
-2.34.1
+msg = f"WARNING: Consider using FIELD_MODIFY helper on {x}"
+coccilib.org.print_todo(p[0], msg.replace("[","@(").replace("]",")"))
 
+
+Regards,
+Markus
 
