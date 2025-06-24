@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A403C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1025C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eo2vufChLx1e55QzOzBwTMNU9Z8LIJfaoAcIHFWzr7Q=; b=yMcFsyF3J9ZHzzFKZlJ2pP3aE+
-	x0QBC8zTUd29RdLF7S7MbP7nRgqJVBYTobPCb8F5ySKT8SJlSOZ2CyFSDRK3JoILCt188k2FIzSFr
-	rB6Ry//I6GozBGZlRJP3VTwY5yPVnaLG01sSGU9IwThXINdoOygshn/21beR9pTNGcES3ymwTYI2I
-	YQpvT6EF/hfD5yYgQ2JDWSHZd5x6RXxKaDTSgtm0Ytw3CcuirEAZUeHfTZ3EzDeus6r9qKkrVcc6p
-	S40Isc3o9X2qdb4g0YPoTqlXwCfS4+CkFHF2gadMmxpETnWiEcUPMgZ9LzEq8jeu1BTHuVveia9ei
-	Sym2QRAw==;
+	bh=wkIMyFBlVlgs2Ulo4+3BI7DnkrCtZPojDt3EBpbXk+s=; b=qzW/0gqqXnZ8Na71rdlnqJVthK
+	+8K1IvJMgXZKBc7uE6D1L1LWJ23F1rPdIqY7v+SbX0d9V5vX7ZSYrKr2QrwjIVKuwenkg295ZLwp+
+	4P4kbrOvbtsAi/ob4Y1amzkegypoHqkK/ooh5d2cOlWRqkKzHf4+0JHn4SP5zQHYLgvuW1Gu9CkzA
+	qp6Mi19O2beHbA87QIKV07vVvxNHRIX9rw3Ap8Olh1+lP51CqAjMSbmsuqdnAsAAULM54XgG7CMg+
+	eGeKObbiBFAQB2FVmiy/YfFcuXc8mD9yrlosi5W3mPLQ4J71QceUipAMI0slGgoKanBf2dT9mXkVS
+	QCQS3Sdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUCGJ-000000070UR-0T1T;
-	Tue, 24 Jun 2025 22:37:07 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uUCIZ-000000070h9-3YIv;
+	Tue, 24 Jun 2025 22:39:27 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUAvh-00000006qcb-0SuD
+	id 1uUAwI-00000006qjZ-0l3h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 21:11:46 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-747ef5996edso4173326b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 14:11:44 -0700 (PDT)
+	Tue, 24 Jun 2025 21:12:23 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22c33677183so11095435ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 14:12:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1750799504; x=1751404304; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1750799541; x=1751404341; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Eo2vufChLx1e55QzOzBwTMNU9Z8LIJfaoAcIHFWzr7Q=;
-        b=SYrgxpusZRapF6lK0nKhAojbdgXYJg02+3CcwvVXOb7W8UCmrLwORsuLJjSeakgh2X
-         4b+riRHQFpzY1aegk7p1KbbvDyAbyfUtB7AhR1k4gi+RH0t+YVasbxEKVUCyvfyhxnX1
-         ecqEeCEaVruN07hIxoB1qauqvAYcAUGk9J8CM=
+        bh=wkIMyFBlVlgs2Ulo4+3BI7DnkrCtZPojDt3EBpbXk+s=;
+        b=FLruU3O7jHmJsjgpbgl9g0lmrrpS/uZWfEMj4er3vZtAiZxQfdc5pBBE5pLlzMVXbk
+         SkivkMnsC2Ntifp70nEFIBLgITBSVUyMu97mH5svGZoP43SapJ1vixa8cTEgXXbESOeR
+         pKmsh8AVUV/DZEnYjTV0FtZR3ntfUc1uL6Oc8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750799504; x=1751404304;
+        d=1e100.net; s=20230601; t=1750799541; x=1751404341;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Eo2vufChLx1e55QzOzBwTMNU9Z8LIJfaoAcIHFWzr7Q=;
-        b=b4Zo2Ywg9jm8oHJs1jAT+q4imIafn6yDbbfAvGJa08VnMa9Gd4B9pbckB6lWca5wzo
-         gulLVvSNpaEcVN4qUXCGdJPG/a3PYN+nUdKRDe/pIpGvcNu+ONalAD6bw1p278hW4gRk
-         pxRFZ5xETKaozlo5E2JirI74d2WtXG1c0JHFVFWuGCZCwgpH37RYmnZY18hM9G/jmYcG
-         QBPnM6rzDkyKEAxJg/8Y7NAt+pRdq9WkzivpFhlWJ5Z2OMT1y+rHG4JuZ/OgIdddi8GL
-         QCNYdoYFfCpac4APJexyi+fKZvUgWcClcuDtwm2Rt+eE6P7HJpOFR+fAqSLkGNcQgLmE
-         LhWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWkrlo01Shzu2i/oHfg4Ywm2sci3xaw95ipxH3d2Db/YOUPwRHq3gF73aGJolRIbmzIR/RpbgFF1M0m90lHwF2B@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA8tSKFr3bs5QzA7ovbIGr8nLgWaojd/V07HpTku2nf3cykfhE
-	g1JyA0Z3kEiUOLmfJbFgq37KpdLF2VjCB9NfmCbqsRXjFTa5jLbtEqGdl1DajtDi5w==
-X-Gm-Gg: ASbGncvTU8Vfqd9x9s6VTwvvzVHC71+F68DkFNrDNaTOPbrKIzwz6GdMfDRN3jcZTv4
-	UgO9MkfakhZiys9GQK3mqVosxNQqySAT3XB2De7Q+PvP7Xu+gTZEwYBPjMnpfY9iq9k67YVGZ8b
-	vFywGshl9xupgY0ackQHInlmBp0xhiE7UTZYbDXVNHzNqEktt8jvImZG9CSEWD+aRSPKwKabt5L
-	l8PL74cSExfSCc0RiMxCtqmbs4BYFNlHQqClEuYCV1+vcJA5UyjR1sGqfbExuDrrquxb32OlI12
-	3dwAYetPVS3XRfIJHmT0RrVpVupBQJgDB6JjwwzaBfwFLPsM/TPDn/dyaEIqBBiqAF899SbEXFr
-	L8H88rU8TyJmJvH9ESOAaRUPhzA==
-X-Google-Smtp-Source: AGHT+IFf3/YeR9gk7+WP5WcaJ4mRmmHJiKPywBy37oskEyKjfGaPDSuW17BELTvjbXXXqhnRst+TYA==
-X-Received: by 2002:a05:6a21:8cc6:b0:21a:eabb:ab93 with SMTP id adf61e73a8af0-2207f19255cmr765020637.6.1750799503649;
-        Tue, 24 Jun 2025 14:11:43 -0700 (PDT)
+        bh=wkIMyFBlVlgs2Ulo4+3BI7DnkrCtZPojDt3EBpbXk+s=;
+        b=nyADorUkkNvFWGczkcRF6wxn5s7Dk5ng/tfl73CcHojQq0tBUML78PfWGbueq2+NPI
+         us3RJYhTtmX/hNQ5aRSaQA+G6BkuhuLU31imJ3T72Pi24mGjw9vnjXseL4KtrG6xKrTG
+         0NVfKF/7z0sbOi7Y4NBdn/AdHnh7THDO5VwQwdSdPfp1YhPeojCED/0rmHbrbTeat+I3
+         jpKCi8XMQXMj7s/TDJH0e0ebj/npfv2NsJiFVYbFjO6CTSW2BrussIWP7N1CP+iWBhQr
+         MYWcT0f9vfK3mn1RL3V76WEIB+DF8D07pI+iCDHQ7NX+OnYqkQE50K/+CdxFalQ+ab1t
+         3oGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZswh8fTxSYozwEAdRczdSqkTg8XHvS5RTXK5KzhBG4fmOVhs6nhxuw8XnZCJ/OP3JNVMf3H2r0gkw8DI1uxeL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdseKAhoGhqvavd+VcVkxkiqLPj2VzWmLJDd2ZVX6sRvoMNtal
+	pZd7BaF0toRMP07nFvB7e0CCOcLLDWDBMUrpa1U8w2yRg0e85NNxRW5VKiuSpskomA==
+X-Gm-Gg: ASbGncsrHU1W6LzLx+NMj7ErSkeHd85S3S/zz6Z89sJ3JufAR2zvtsruTWbpXl2jYJi
+	hT1jx0pPveZtdVXZievXzwn7gz10bP47BgnqjtH/KagZC51r1EIGstKqHBYWFlfEJ4bVF13eUm/
+	X85CWkn5V/X5/QyFHyqL1jdXFmF2am0pJIzRXKebwH9e8ICGiMVxP008JzPEey/l7/kNqvUKtdV
+	VHzbJt+GHZATheaCKefswnRA/du5u6fNNtJkIeklkct+JNjZ5iFQdLAF3YOdhmOwT+2Ptx9IFOy
+	g0A1ttBfX3N70oMao75wXNiPIoFQsKPK6gOSTcf7yrDRd+elJQjAtDQqD82zhizlWPLbwCvWuy+
+	/GTK0WCUNGXJcCuPvWu+DsBjjf1Hi92lGWAWO
+X-Google-Smtp-Source: AGHT+IE8AtKCbRL/Ae95ntUOEV0G/Hz0ZyjAAOPX2JCe7DpKTe3ncgHoFdCvDL7h49ynbDxxbTuKNg==
+X-Received: by 2002:a17:902:d60e:b0:234:f6ba:e681 with SMTP id d9443c01a7336-2382409dfc9mr13529245ad.5.1750799541406;
+        Tue, 24 Jun 2025 14:12:21 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b31f1258b55sm9471699a12.61.2025.06.24.14.11.40
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f53d94b1sm23610a91.33.2025.06.24.14.12.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Jun 2025 14:11:42 -0700 (PDT)
-Message-ID: <9d31a4d7-ffd1-48ca-8df6-0ddc6683a49c@broadcom.com>
-Date: Tue, 24 Jun 2025 14:11:39 -0700
+        Tue, 24 Jun 2025 14:12:20 -0700 (PDT)
+Message-ID: <78106b8c-3f4e-44d0-9828-9b46952f3fa6@broadcom.com>
+Date: Tue, 24 Jun 2025 14:12:17 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH stblinux/next] pinctrl: rp1: Implement RaspberryPi RP1
- pinmux/pinconf support
+Subject: Re: [PATCH v2 stblinux/next 2/2] clk: rp1: Implement remaining clock
+ tree
 To: Andrea della Porta <andrea.porta@suse.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -97,7 +97,8 @@ To: Andrea della Porta <andrea.porta@suse.com>,
  <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
  Dave Stevenson <dave.stevenson@raspberrypi.com>,
  kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-References: <8c282b89b1aa8b9e3c00f6bd3980332c47d82df7.1750778806.git.andrea.porta@suse.com>
+References: <c20066500908db854aa4816b40e956296bab526a.1750714412.git.andrea.porta@suse.com>
+ <17e5c6e0c085cfa0bf4b63b639cdc92c6a4c1418.1750714412.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -132,12 +133,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <8c282b89b1aa8b9e3c00f6bd3980332c47d82df7.1750778806.git.andrea.porta@suse.com>
+In-Reply-To: <17e5c6e0c085cfa0bf4b63b639cdc92c6a4c1418.1750714412.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_141145_205074_B9B4D8EF 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250624_141222_223195_06C60B0D 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,20 +153,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/24/25 08:36, Andrea della Porta wrote:
-> The current implementation for the pin controller peripheral
-> on the RP1 chipset supports gpio functionality and just the
-> basic configuration of pin hw capabilities.
+On 6/23/25 14:46, Andrea della Porta wrote:
+> The RP1 clock generator driver currently defines only the fundamental
+> clocks such as the front PLLs for system, audio and video subsystems
+> and the ethernet clock.
 > 
-> Add support for selecting the pin alternate function (pinmux)
-> and full configuration of the pin (pinconf).
+> Add the remaining clocks to the tree so as to be completed, which means
+> that the following RP1 peripherals could now consume their specific clocks
+> and be enabled to work (provided that the relevant driver changes for each
+> specific peripheral, if any, are committed):
 > 
-> Related pins are also gathered into groups.
+> - ADC
+> - Audio IN/OUT
+> - DMA controller
+> - I2S
+> - MIPI DPI/DSI
+> - PWM
+> - SDIO
+> - UART
+> - Video Encoder
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 
-Linus, can I get an ack or reviewed by tag from you and take that in the 
-next few days to go with the Broadcom ARM SoC pull requests? Thanks!
+Stephen, can I get an Acked-by or Reviewed-by from you so I can take 
+those changes in the Broadcom ARM SoC pull request that I will submit in 
+the next few days, thanks!
 -- 
 Florian
 
