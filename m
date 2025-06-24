@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC87C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B6EC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3clt5TgJp8a/Sy433KrrPB+SDk6I4MqDsPJQ6rhnMW8=; b=ma/2TLBe5IdIK9pIjOwPXN+RNb
-	0iL047fy2bkrNbHLr8twQ/CQ41Gh6Rmi3IJitnIu3l/s/DcnYanqZSi1/dVqjwerWWU92oDN85yVI
-	fxSfzVIzjgoknkNIz5YAjI9tUI6Wyp+DHtmabvyT2i0vAc1aR6VMhZyyw/J96CGYSaO6GY7Fsv+CW
-	Uf9aYy+f2vnIl3ob7pJT2jlI5fKZgtwdWI01Dz/xGvIqwf5zPo3F3rtl6hyCtUI7aMlp+jsKqJV1x
-	ely8pebJswmCEUGT6NugWcb2vZ7xWkRKBEi/4jOJgL1STNT7X3DstMBp/+rJ1X8ntST5SYwOnY3TQ
-	M5gQmRzw==;
+	bh=Rvl+LfkUxz42F+u2AhuU0DC7MpN+KcVkghfyXMKrAJU=; b=HDOP6M8SOHienG9Ucsz6MTrmg5
+	KFtq0tewW5hdfuc7X7VCOhMPHcjdkfGG3FnOi5fBlnebO65IIlLUgllMcPqCwys3dGbUPt1j3uY8L
+	XJ42tdk9W9WGCOjU1k0+W49gSkAN3Jddn74i3cyxWD05dUtxX6hwJ1mX5uaZTi5epPClZ4zOp7T4d
+	LwbD8TnH0eo27Prj1IePzctIoPABwNzsnthEBMIQ4/6bGCX9NE/CvbR4eYgqkMmQEPUcSLjgAyA9w
+	jj6yazcWEj0McTrRWWlSzAmDGO2sNaAJzSTMm3ESKPOvQydm5/1ClhjA/sr9bBE8fHiNJ+2GCp5cj
+	7mv5FTbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxqh-00000004qQr-09No;
-	Tue, 24 Jun 2025 07:13:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uTxt0-00000004qbb-3KkH;
+	Tue, 24 Jun 2025 07:16:06 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxiU-00000004pXG-0NDg
+	id 1uTxjp-00000004pYg-20bp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 07:05:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1158661154;
-	Tue, 24 Jun 2025 07:05:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47843C4CEE3;
-	Tue, 24 Jun 2025 07:05:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750748712;
-	bh=eukB8mJ6ncQwPDrZTpnRZ9v5SsQk3rVKzvfudt/NYmw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tOZI3s2wfEv1AlWZ4E/MRDxT+dG65Q61XT9WL5mBS3jcZPqAw6VwWgyolFis4w9PD
-	 odWzXectA7BGD6HDWWfd0VG6T46J26dFHuhzpUiz19Kro1c5l56Tufn2/tiNXXahfQ
-	 mIb5URlRXkOWQ0DML1xRigZnxt7Dd35yKnzpQPkpZKEAwK0jb0t+qZRdQaBt6Y3Mx2
-	 aI4yudkky0fXziI/Nk4FWDSKJaYjG5Cyr7b5kyTsXttoLg96GMi5sgCdbrtpzn6vaA
-	 IFxws7CZ9ozvLFmEkBLkHNWx/H2ArrKKnn4FIFUwziaZIqf8F3T1VeUakXW70qVedA
-	 qT7JWJc+XX5kA==
-Date: Tue, 24 Jun 2025 09:05:09 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Marek Vasut <marex@denx.de>, 
-	Stefan Agner <stefan@agner.ch>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 2/5] drm/bridge: get the bridge returned by
- drm_bridge_chain_get_first_bridge()
-Message-ID: <20250624-precise-loon-of-mastery-ebad24@houat>
-References: <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-0-0321845fcafb@bootlin.com>
- <20250620-drm-bridge-alloc-getput-drm_bridge_chain_get_first_bridge-v8-2-0321845fcafb@bootlin.com>
- <be6a4d90-2c6e-42be-9948-df1840fd2f83@nxp.com>
- <20250623160903.01c56bfc@booty>
- <1d8908b1-b38e-4226-9433-cd9405c7ca63@nxp.com>
+	Tue, 24 Jun 2025 07:06:38 +0000
+Date: Tue, 24 Jun 2025 00:05:07 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750748720;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rvl+LfkUxz42F+u2AhuU0DC7MpN+KcVkghfyXMKrAJU=;
+	b=YdCNEjXQf9Nhf5KzU5i8ggHBOyIXgK50+X3MqptwbGqKbrP84GlAPmVg79d0ScGVzHNWqI
+	9KAlGO56nfnuIB3W0BcRK3X5GneOcZB9c6cWMPJsMsmV7O7M5uCWupxxC81piynZV/OZ4M
+	jVC45rQOrDmJbnTY2tgEni5IU6Cvt4M=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net,
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 07/23] perf: arm_pmuv3: Introduce method to partition
+ the PMU
+Message-ID: <aFpOI7cWTOAIjNjV@linux.dev>
+References: <aFYFqrYRsmCi6oii@linux.dev>
+ <gsntpleu9uvx.fsf@coltonlewis-kvm.c.googlers.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="n2sylnxjileb3gpr"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1d8908b1-b38e-4226-9433-cd9405c7ca63@nxp.com>
+In-Reply-To: <gsntpleu9uvx.fsf@coltonlewis-kvm.c.googlers.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_000637_827181_5F4953CE 
+X-CRM114-Status: GOOD (  43.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +74,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 23, 2025 at 06:26:42PM +0000, Colton Lewis wrote:
+> Oliver Upton <oliver.upton@linux.dev> writes:
+> 
+> > On Fri, Jun 20, 2025 at 10:13:07PM +0000, Colton Lewis wrote:
+> > > For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
+> > > counters into two ranges where counters 0..HPMN-1 are accessible by
+> > > EL1 and, if allowed, EL0 while counters HPMN..N are only accessible by
+> > > EL2.
+> 
+> > > Create module parameters partition_pmu and reserved_guest_counters to
+> > > reserve a number of counters for the guest. These numbers are set at
+> > > boot because the perf subsystem assumes the number of counters will
+> > > not change after the PMU is probed.
+> 
+> > > Introduce the function armv8pmu_partition() to modify the PMU driver's
+> > > cntr_mask of available counters to exclude the counters being reserved
+> > > for the guest and record reserved_guest_counters as the maximum
+> > > allowable value for HPMN.
+> 
+> > > Due to the difficulty this feature would create for the driver running
+> > > at EL1 on the host, partitioning is only allowed in VHE mode. Working
+> > > on nVHE mode would require a hypercall for every counter access in the
+> > > driver because the counters reserved for the host by HPMN are only
+> > > accessible to EL2.
+> 
+> > > Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> > > ---
+> > >   arch/arm/include/asm/arm_pmuv3.h   | 10 ++++
+> > >   arch/arm64/include/asm/arm_pmuv3.h |  5 ++
+> > >   drivers/perf/arm_pmuv3.c           | 95 +++++++++++++++++++++++++++++-
+> > >   include/linux/perf/arm_pmu.h       |  1 +
+> > >   4 files changed, 109 insertions(+), 2 deletions(-)
+> 
+> > > diff --git a/arch/arm/include/asm/arm_pmuv3.h
+> > > b/arch/arm/include/asm/arm_pmuv3.h
+> > > index 2ec0e5e83fc9..9dc43242538c 100644
+> > > --- a/arch/arm/include/asm/arm_pmuv3.h
+> > > +++ b/arch/arm/include/asm/arm_pmuv3.h
+> > > @@ -228,6 +228,11 @@ static inline bool kvm_set_pmuserenr(u64 val)
+> 
+> > >   static inline void kvm_vcpu_pmu_resync_el0(void) {}
+> 
+> > > +static inline bool has_vhe(void)
+> > > +{
+> > > +	return false;
+> > > +}
+> > > +
+> 
+> > This has nothing to do with PMUv3, I'm a bit surprised to see you're
+> > touching 32-bit ARM. Can you just gate the whole partitioning thing on
+> > arm64?
+> 
+> The PMUv3 driver also has to compile on 32-bit ARM.
 
---n2sylnxjileb3gpr
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 2/5] drm/bridge: get the bridge returned by
- drm_bridge_chain_get_first_bridge()
-MIME-Version: 1.0
+Quite aware.
 
-On Tue, Jun 24, 2025 at 10:44:03AM +0800, Liu Ying wrote:
-> On 06/23/2025, Luca Ceresoli wrote:
-> > On Mon, 23 Jun 2025 10:56:13 +0800
-> > Liu Ying <victor.liu@nxp.com> wrote:
-> >=20
-> >> On 06/21/2025, Luca Ceresoli wrote:
-> >>> drm_bridge_chain_get_first_bridge() returns a bridge pointer that the
-> >>> caller could hold for a long time. Increment the refcount of the retu=
-rned
-> >>> bridge and document it must be put by the caller. =20
-> >>
-> >> To make sure the incremented refcount is decremented once this patch is
-> >> applied, does it make sense to squash patch 3, 4 and 5 into this one?
-> >=20
-> > I see there is a trade off here between bisectability and patch
-> > readability.
-> >=20
-> > However about bisectability the problem is limited for this series. To
-> > get an actual get/put imbalance you'd have to be able to remove the
-> > bridge, but removing (part of) the bridge chain is not at all supported
-> > right now, and it won't be until after chapter 4 of this work (see
-> > cover letter).
-> >=20
-> > However I realize there is an issue if:
-> > * patch 2 is applied but patches 3/4/5 are not
-> >   (it does not make sense to apply this series partially, but this
-> >   might happen when cherry-picking?)
->=20
-> Yes for cherry-picking and bisecting.
->=20
-> > * an entire DRM card is removed where
-> >   drm_bridge_chain_get_first_bridge() is used by some components
-> >=20
-> > If both happen we'd have a get without put, thus a missing free and a
-> > memory leak for the container struct.
->=20
-> Yes, that's a memory leak.
->=20
-> > Note that, besides drm_bridge_chain_get_first_bridge() that this
-> > series covers, there are various other accessors: see items 1.E.{2..8}
->=20
-> IIUC, without those items addressed, the issue we have is use-after-free,
-> but not the memory leak this patch introduces(without squash).
+> My first series had the partitioning code in arch/arm64 but you asked me
+> to move it to the PMUv3 driver.
+> 
+> How are you suggesting I square those two requirements?
 
-Given that this structure is going to be allocated a couple of times in
-the system life at best, and that the situation prior to the work Luca
-has been doing was a use-after-free, I'm not really concerned about a
-transient memory leak in a situation that cannot happen.
+You should try to structure your predicates in such a way that the
+partitioning stuff all resolves to false for 32 bit arm, generally. That
+way we can avoid stubbing out silly things like has_vhe() which doesn't
+make sense in the context of 32 bit.
 
-If people want to come and backport random patches without looking at
-the whole thing, that's their problem.
+> > > +static bool partition_pmu __read_mostly;
+> > > +static u8 reserved_guest_counters __read_mostly;
+> > > +
+> > > +module_param(partition_pmu, bool, 0);
+> > > +MODULE_PARM_DESC(partition_pmu,
+> > > +		 "Partition the PMU into host and guest VM counters [y/n]");
+> > > +
+> > > +module_param(reserved_guest_counters, byte, 0);
+> > > +MODULE_PARM_DESC(reserved_guest_counters,
+> > > +		 "How many counters to reserve for guest VMs [0-$NR_COUNTERS]");
+> > > +
+> 
+> > This is confusing and not what we discussed offline.
+> 
+> > Please use a single parameter that describes the number of counters used
+> > by the *host*. This affects the *host* PMU driver, KVM can discover (and
+> > use) the leftovers.
+> 
+> > If the single module parameter goes unspecified the user did not ask for
+> > PMU partitioning.
+> 
+> I understand what we discussed offline, but I had a dilemma.
+> 
+> If we do a single module parameter for number of counters used by the
+> host, then it defaults to 0 if unset and there is no way to distinguish
+> between no partitioning and a request for partitioning reserving 0
+> counters to the host which I also thought you requested. Would you be
+> happy leaving no way to specify that?
 
-Maxime
+You can make the command line use a signed integer for storage and a
+reset value of -1.
 
---n2sylnxjileb3gpr
-Content-Type: application/pgp-signature; name="signature.asc"
+-1 would imply default behavior (no partitioning) and a non-negative
+value would imply partitioning.
 
------BEGIN PGP SIGNATURE-----
+> In any case, I think the usage is more self explainatory if
+> partitition=[y/n] is a separate bit.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaFpOJQAKCRAnX84Zoj2+
-doGDAYDGXM7w79pHAhwD/Toi8Tf7Ko2GEnXH4ChZ9svR68EvHRbyf0xO9Ks5KkZH
-Gsd79QUBfjoS0KN+H67nrkLbjDtRVTDvSyjBZI7nQQ4JPzv7bafVx4WlQaMrji2I
-LY0GD5ZnCw==
-=ipG2
------END PGP SIGNATURE-----
+What would be the user's intent of "partition_pmu=n reserved_guest_counters=$X"?
 
---n2sylnxjileb3gpr--
+Thanks,
+Oliver
 
