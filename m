@@ -4,113 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC80C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46274C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXf0jcYHfTUCBCgwUowfNZsPMYpOvzMS9Wm7mOPCySY=; b=aOOAI1ewK//rEQVI6fDoX9RIlX
-	AWFGjWpdbESIVmqgKyev35v9Daivc3LaGsGJslwoJc/OoFDjus3/0O85eRjMZXlX7iX86RfGlXBrT
-	N52/PQ/dqGLE5Sbpyke2eWtWXtoBFRjs51Jg4+3R5jma1y+I928S0rTa05yB3KydaS2c25CA0HKfJ
-	St5jDYtVsZVH4o8XgcPj3r3Y2Tl8xSEwiSc1TXE+g2ap5sn7nLZENkh+DJuboPXGoXgXLwWIvmQHa
-	3v7z0pRnr4Vt0IxvwRaraMZrJ75lOaOkcLh6Gho/9x9EZxptZ/0vQ4Ex2SCSMQEz3Ogl/dJqiHZuy
-	rZmbDAWw==;
+	bh=B2hJc4hUnpKA+D5XoufJNAk6lZn4GYmwTvIaYpB/Ywo=; b=EvXVLFcyUodELQ9nLQOLZt7kXX
+	wU4YRQmK8CXq03wUQc5DQzWpzvrJrEqfsphY2Q9qSaXZVfgjJM71MBE1hjzwIX4V6dFiVa7SpwvBO
+	yNZnX6BEvoP3sN+Ds0lKOkq7i1tkqMkNUWnglu3eFFRhORz6kMdYKVPegCeBcU6aKiBeNTFsZzzCU
+	M0MYO5FaVTkpwB2Mk8ZPdmamgstuiFsFfHVd4I8gm+0TbZlm6XF7N8iCTo/efTLq2BkTMVbFrixun
+	2Q0ABGgQY7hifVIYl2MBoR1+7XOxi6ut8pfrF3Stp/VVgY6xxliQaAInOnJpULf4P5bfvyt+PcnYm
+	IhqKj5bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9jC-00000006fOa-2zjR;
-	Tue, 24 Jun 2025 19:54:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uU9jE-00000006fSx-3xAt;
+	Tue, 24 Jun 2025 19:54:48 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU68r-00000006EdE-2Uc7;
-	Tue, 24 Jun 2025 16:05:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D3C45C6870;
-	Tue, 24 Jun 2025 16:02:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62569C4CEE3;
-	Tue, 24 Jun 2025 16:04:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750781100;
-	bh=h35+iqWPfBuYqEWe71ovWfkRt/Oz+j7GFp+J5yhUpkw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=cB52xsF2NjUTAiDKSfI0ZrZPJ57Zux+QNb3QW1Adxqw/ViaxkVdbczs+N0Pla6wfY
-	 egor1k49RoEpslU9lKt0MQtc2bu3t33Ct8X66CAkVEhaEGz5wcXwFSYibfv9EMp2f2
-	 BDFlsmY/PWBz6WwtdSbheG6pfgN0vBqhE0i18m3L5K0zgrDHdwbLbX+moiP1Enhd1V
-	 5+V5E5eIVhJnWE4CAso5wz3s1d3mWojeroH0Lx0o9BO7VId1PwyCcQquFBXVhxZg1J
-	 5tol9sNvylVgmyYvpUoJg11Oc8n2PXZmVQfuOTJhIq7IbS2O6Tj6VtAkY1f0EpaLLV
-	 uySCiiImtfErQ==
-Message-ID: <eb5e2b27-58a9-4ee4-a1d8-b2df8ecbd13a@kernel.org>
-Date: Tue, 24 Jun 2025 18:04:54 +0200
+	id 1uU6I0-00000006FPH-3rT6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 16:14:30 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-adfb562266cso127627966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 09:14:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750781667; x=1751386467; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=B2hJc4hUnpKA+D5XoufJNAk6lZn4GYmwTvIaYpB/Ywo=;
+        b=Z5Ejouz+PhmrG107h0jqDeJ91ehsr8PAgYz4M49hN7K8JX3yxFi7/ewrZE5OOpuhJ8
+         xniyzIalVqGMmECblRQs+MXtXW/f3ftUq5GI0i33Vb5Hyf+rxoHMf4bHyG68jWzAoJwo
+         thwU2e3PEQaFB/Sg7xIRHFhfusx0j9ZMwYL6HEh1cCA80dUAG1HluhNKeeqldJwLyvOh
+         5u+BrwGbNykKbJLF18z5G1JCXzuGd7LfpnLWvAMe9tiaT6xYoIsaQGOecdFQ/s87Nd9l
+         L5+JHHsmVdfVDQB7qnqoKZeU/Z+09ZJKSKdDUaNCeyxgAczSavicTOSd22NHRJTFBnR3
+         mZgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750781667; x=1751386467;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=B2hJc4hUnpKA+D5XoufJNAk6lZn4GYmwTvIaYpB/Ywo=;
+        b=aqnEaGo3gi+aGXEEJH/mtNW2DRsuqePLlejMEF4m5wrxBWDuIFDKjCGj9uj5f1in1H
+         WtAfhaHGgRSXG/2/Fgryq2rDSn15P7oqo8N5yjFlxaROarQYOJPOSdxwTu0SXWfJRFaH
+         Jq5C0YpvmeNMFy8uc4WKEsT7+2DQRFyo3YvaVt1g72eyW6JocG5j8fOsO5G9qkECKdaT
+         hKN1ZUgYqVTOeXDmTo8fKSGA1yc4+vDVO/yIENovh5IPeKnp/21zN+NCf6BTBe+5kJqZ
+         MK2u55vN2rXaVuIyuGJJop11j2Ejxhl0GIJLKeV024TjPdGOaKzuUDcNQwqZ9ZQogxdh
+         0Zag==
+X-Forwarded-Encrypted: i=1; AJvYcCWJcMLsdBN58/6p/L/KSYHHhh0/SQkgEeDLUSEU2/qmRNFNrbNazc1XhWoHnyNd4h9zjxfEpGdjO8BTzfJtwcuN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm+bo6Gn+c4NdBnpFauBm+A7Gkf+W/hif2Xo7jIdNNaridPmiY
+	EQTwRMq8tt09r0pZY1RTdSefj354pJL8Oyn3GP+E4oNeFJXw4cHI7p5v
+X-Gm-Gg: ASbGncuE/0Wzb7kBvgyf1MUchA5aNHomSsDmzQj+bEp/4Mpz844Wqc6arpyDOm87QP3
+	gOPtBec9bMh1pJR8fLE1NxoLYycKkICfoxlisaVW/SSxk+DxRiKgC+pAlCv9Ec0pvErGkAm733B
+	aiOHpc2CCup259VAmYyo0qEEJQufmNLWqtiXTnxc4zalFhdb01mRcvOw0r5ARJYiIM6+zcdmlFP
+	klDtSF2MOLRxKQ9mT7Tw3YGD10nP3EW7i5tUA/OdIj3Dko512ydQ8V3k+FnvUqe+Yidr7y/n5QJ
+	c7BV1lt8wtkOfiWdvXuGz4IVvGWJ8SKa+fvlXHupT5iy1JX+fM7/KEzAjKZjvPGShDl5cb2W9R6
+	RnMhsVkut37kpVjkNysSNw2n5jdCikhcHB5Q=
+X-Google-Smtp-Source: AGHT+IETVYqdcYw9iMsIySmRYZrHTjx3OIsh3aRt5hqLHb7AOMHCIRNujIA0merX9VFaG5IGMjGEsw==
+X-Received: by 2002:a17:907:d70b:b0:ae0:b06d:1fb1 with SMTP id a640c23a62f3a-ae0b06d2370mr278552966b.37.1750781666584;
+        Tue, 24 Jun 2025 09:14:26 -0700 (PDT)
+Received: from ?IPV6:2a02:8109:8617:d700:9227:164e:14d5:9967? ([2a02:8109:8617:d700:9227:164e:14d5:9967])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae053e7c6fdsm888167166b.3.2025.06.24.09.14.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Jun 2025 09:14:26 -0700 (PDT)
+Message-ID: <49977010-65a5-4ad7-b86d-5e779d0de3de@gmail.com>
+Date: Tue, 24 Jun 2025 18:14:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/29] dt-bindings: reset: Add MediaTek MT8196 Reset
- Controller binding
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250624143220.244549-1-laura.nao@collabora.com>
- <20250624143220.244549-11-laura.nao@collabora.com>
- <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
+Subject: Re: [PATCH v4 06/19] dt-bindings: media: i2c: max96717: add support
+ for MAX96793
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Julien Massot <julien.massot@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: "open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS"
+ <linux-media@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
+ open "list:GPIO"
+ "SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)"
+ <linux-gpio@vger.kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>
+References: <20250618095858.2145209-1-demonsingur@gmail.com>
+ <20250618095858.2145209-7-demonsingur@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Martin Hecht <mhecht73@gmail.com>
+In-Reply-To: <20250618095858.2145209-7-demonsingur@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_090501_727861_AD5BD278 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250624_091428_964085_4CDB2DD4 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,26 +118,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 18:03, Krzysztof Kozlowski wrote:
-> On 24/06/2025 16:32, Laura Nao wrote:
->> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>
->> Add a binding for the PEXTP0/1 and UFS reset controllers found in
->> the MediaTek MT8196 Chromebook SoC.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
->>  1 file changed, 26 insertions(+)
->>  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+Hi Cosmin,
+
+I'm preparing a test with Alvium + max96717 + max96716. I can't see away 
+to overwrite cfg settings to force pixel mode or tunnel mode. Any plans 
+to add this? Sometimes it is required to force the other mode than set 
+by pin-strapping.
+
+BR Martin
+
+On 6/18/25 11:58, Cosmin Tanislav wrote:
+> MAX96793 is a newer variant of the MAX96717 which also supports GMSL3
+> links.
 > 
-> No improvements.
+> Document this compatibility.
+> 
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>   .../devicetree/bindings/media/i2c/maxim,max96717.yaml          | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+> index ab46a5f0bd7e..23f611177a87 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+> @@ -30,6 +30,8 @@ description:
+>   
+>     MAX9295A only supports pixel mode.
+>   
+> +  MAX96793 also supports GMSL3 mode.
+> +
+>   properties:
+>     compatible:
+>       oneOf:
+> @@ -39,6 +41,7 @@ properties:
+>         - items:
+>             - enum:
+>                 - maxim,max96717
+> +              - maxim,max96793
+>             - const: maxim,max96717f
+>   
+>     '#gpio-cells':
 
-I see the license got fixed, so half improvements. My other comment stays.
-
-Respond to the comments instead.
-
-Best regards,
-Krzysztof
 
