@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C09C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6243C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 06:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssA0w33ZKO7RrnZHJ3dWlL0Vn0+TX3KmqVRgC2DWg6c=; b=nHmxVWRqUGg6YjBFWgMca7q3YQ
-	jQNrbomArcB4dPlWshg/jW0GT+bVqYyGqRT/KeZ6JZ0ju3YMjQRzLQv+KV/iDyLD+1YEwIsOv7F3S
-	+kqNDttjapvQEKdoIO1um3nfjl7zeL1RyMTqSJoWi6k0HhOMratMxs4cl7UqzYjwjT1QKVWDI+MKW
-	vSK7H9eq0+cG3CO7GaSNcYRj921IUvFBai+L/dyoYHlg/Kwkhnamhi3czD4igSz1LQiFkR7vj7et7
-	2DyDudRnrtWpsR+1+GPpuw3gTof+2yaqK9XukOStl0b/Bunk2qzEa9nDk9fWhRlXXrbslH2eTNGtO
-	dpaP7BXA==;
+	bh=kyT0EtRd1SSJ4k7Eq8j2mR2hvKHNcyRDwFJdV83PC/Q=; b=cGGFYCxzbV8smZJ8k62jW54sjo
+	PMNgXV6WYhaY+fPtxIIpvKSpcz3TsBv+5m5ujaF5elO6yLaD4WFq6pVQig+l2gEyChmhC8nasG1CJ
+	HHVVzqs+9djd7/GZVt5imKMHgKsZPPFMGKLlRFt4g32OShfhAMDcVrBezNyXJzpMw4I0NUeBX+M3m
+	pk/Ikfyuppndf4LD2MpHli/me2dO7uWhSnTFvH+2dw9hDWjioZTR+NX4rpp1VWwHkXQgsh/XLJqgA
+	AcH8MVjVeIccw2dcIuBR7lEl5eWh0/0/+kLTn2h9inTgmzqawxlQ1xH0vT4EqNLDbbiyI9QV8M9nU
+	d17GygvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxZx-00000004oc1-31GV;
-	Tue, 24 Jun 2025 06:56:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uTxcL-00000004ooL-2Hjz;
+	Tue, 24 Jun 2025 06:58:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTxP4-00000004n4E-2qLu
+	id 1uTxPS-00000004nBV-3nVK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 06:45:11 +0000
+	Tue, 24 Jun 2025 06:45:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 702F25C00EB;
-	Tue, 24 Jun 2025 06:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2343C4CEE3;
-	Tue, 24 Jun 2025 06:45:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 25FDF5C5DEE;
+	Tue, 24 Jun 2025 06:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0C70C4CEEF;
+	Tue, 24 Jun 2025 06:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750747509;
-	bh=0aEgBJ7K4EG2KbyGGGCzAAIHLOxCA6RrZA2/1lUeBQ4=;
+	s=k20201202; t=1750747533;
+	bh=ZjF5W+taFxhk5gEPkkprCxApugodn5zxsYqvo1EHlkU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i52efIScbSrpoSvqmPzxSIe3k5yZM73VrLEZ5NBFEx7m74MXImfEaAx/Y1wUIgLQX
-	 asnCiiu/PllDeGk0H6/oxYQRv2shnfuH9BRprrOdaZkZPXYVLsQBZc3vg/JcLzhvj4
-	 89JjESn8P4hNlccConlzhsuc6cNtQBsKpsoxcQRy2wzyX/uxSwRol2+ZlSW3iZbDi6
-	 oLhVjzoODyr3FypwuBNY5YvVPXQulrf4itR6zyBIYcssHpYbENdHz91ztbpeZHbbpk
-	 ekhYV5bcQ6aKwNT+02nGt5/CouHw6oLYpKgYnDn+XU4jWPAOP9WDHuACFdvr8QZbsI
-	 h/bw8aZzXhw6g==
-Message-ID: <0709a0a6-1313-452c-85e7-2926a6a03741@kernel.org>
-Date: Tue, 24 Jun 2025 08:45:04 +0200
+	b=RIGmr+LG8U3+z/2/gj+BrMniElsr1NMnZMGAer8GP9ZhPKW4uuROurjs28NGA2dQ5
+	 1z6m4gdFQovSyYHSqtz5YYZtc6Ep2y4ZAaQPpABXbr1OsUH1bpodrT51ah1Y354yFi
+	 GJvo5N7ZuIM+MXco3U+XLwZd0vF8LGf3nFm/oAD0wgwHPjdsfTTTnmxNgXBStVXZBP
+	 +6sY26CwUntdFI9QLX6sBg4ABnk2Xx70Q+yqgZNP/MF1NawBKh04rrr3VrHec33wK8
+	 QZRUY8Sp2u5CA5QaErTaCemha6v+bPAS9QaMO7q8A8sXBJlR5t1hdZpz7D6fogyqYJ
+	 2/5UXM9rvEcOg==
+Message-ID: <de124c73-df0f-40a1-91dd-ea5287cb90c7@kernel.org>
+Date: Tue, 24 Jun 2025 08:45:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/7] arm64: dts: axiado: Add initial support for AX3000
- SoC and eval board
+Subject: Re: [PATCH v3 6/7] arm64: defconfig: enable the Axiado family
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -58,7 +57,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  soc@lists.linux.dev
 References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-5-b3e66a7491f5@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-6-b3e66a7491f5@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-5-b3e66a7491f5@axiado.com>
+In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-6-b3e66a7491f5@axiado.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_234510_817156_745781EC 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20250623_234535_031862_7296FE07 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,615 +125,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/06/2025 19:28, Harshit Shah wrote:
-> Add initial device tree support for the AX3000 SoC and its evaluation
-> platform. The AX3000 is a multi-core SoC featuring 4 Cortex-A53 cores,
-> Secure Vault, AI Engine and Firewall.
-> 
-> This commit adds support for Cortex-A53 CPUs, timer, UARTs, and I3C
-> controllers on the AX3000 evaluation board.
+> Enable the Axiado SoC family in the arm64 defconfig.
 > 
 > Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/axiado/Makefile       |   2 +
->  arch/arm64/boot/dts/axiado/ax3000-evk.dts |  79 +++++
->  arch/arm64/boot/dts/axiado/ax3000.dtsi    | 488 ++++++++++++++++++++++++++++++
->  4 files changed, 570 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc22b17308554e502f8207392935b45..47dd8a1a7960d179ee28969a1d6750bfa0d73da1 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -9,6 +9,7 @@ subdir-y += amlogic
->  subdir-y += apm
->  subdir-y += apple
->  subdir-y += arm
-> +subdir-y += axiado
->  subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
-> diff --git a/arch/arm64/boot/dts/axiado/Makefile b/arch/arm64/boot/dts/axiado/Makefile
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..6676ad07db6129f8b333b0feffee705d272517c2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_AXIADO) += ax3000-evk.dtb
-> diff --git a/arch/arm64/boot/dts/axiado/ax3000-evk.dts b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..cc3bcf681c32430d251f20f6d52905423c182f3b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
-> @@ -0,0 +1,79 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2021-25 Axiado Corporation (or its affiliates). All rights reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "ax3000.dtsi"
-> +
-> +/ {
-> +	model = "Axiado AX3000 EVK";
-> +	compatible = "axiado,ax3000-evk", "axiado,ax3000";
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	aliases {
-> +		serial3 = &uart3;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial3:115200";
-> +	};
-> +
-> +	memory@0 {
-> +		device_type = "memory";
-> +		/* Cortex-A53 will use following memory map */
-> +		reg = <0x00000000 0x3D000000 0x00000000 0x23000000>,
-
-Lowercase hex, see DTS coding style.
-
-> +		      <0x00000004 0x00000000 0x00000000 0x80000000>;
-> +	};
-> +};
-> +
-> +/* GPIO bank 0 - 7 */
-> +&gpio0 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio1 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio2 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio3 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio4 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio5 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio6 {
-> +	status = "okay";
-> +};
-> +
-> +&gpio7 {
-> +	status = "okay";
-> +};
-> +
-> +&uart0 {
-> +	status = "okay";
-> +};
-> +
-> +&uart1 {
-> +	status = "okay";
-> +};
-> +
-> +&uart2 {
-> +	status = "okay";
-> +};
-> +
-> +&uart3 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/axiado/ax3000.dtsi b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ea85ae8ca5dea5ab3288a2770b18d7aeb66cad03
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-> @@ -0,0 +1,488 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2021-25 Axiado Corporation (or its affiliates). All rights reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/memreserve/ 0x3c0013a0 0x00000008;	/* cpu-release-addr */
-> +/ {
-> +	model = "Axiado AX3000";
-> +	interrupt-parent = <&gic500>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x0>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-
-Missing blank line between each new node. See DTS coding style.
-
-> +		cpu1: cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x1>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +		cpu2: cpu@2 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x2>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +		cpu3: cpu@3 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x3>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +		l2: l2-cache0 {
-> +			compatible = "cache";
-> +			cache-size = <0x100000>;
-> +			cache-unified;
-> +			cache-line-size = <64>;
-> +			cache-sets = <1024>;
-> +			cache-level = <2>;
-> +		};
-> +	};
-> +
-> +	clocks {
-> +		clk_xin: clock-200000000 {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <200000000>;
-> +			clock-output-names = "clk_xin";
-> +		};
-> +		refclk: clock-125000000 {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <125000000>;
-> +		};
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +		ranges;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		interrupt-parent = <&gic500>;
-> +
-> +		gic500: interrupt-controller@80300000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x00 0x80300000 0x00 0x10000>,
-> +				  <0x00 0x80380000 0x00 0x80000>;
-
-Does not look aligned.
-
-> +			ranges;
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			interrupt-controller;
-> +			#redistributor-regions = <1>;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		/* GPIO Controller banks 0 - 7 */
-> +		gpio0: gpio-controller@80500000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80500000 0x00  0x400>;
-
-Only one space, not double space.
-
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-
-Please follow DTS coding style.
-
-> +		gpio1: gpio-controller@80580000 {
-> +			compatible = "cdns,gpio-r1p02";
-
-This should not be accepted without specific compatible, but that's some
-old binding so maybe matters less. Anyway, if you ever need quirk or
-custom properties they I will reject them based on what you claim here.
+>  arch/arm64/configs/defconfig | 1 +
 
 
-> +			reg = <0x00 0x80580000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio2: gpio-controller@80600000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80600000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio3: gpio-controller@80680000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80680000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio4: gpio-controller@80700000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80700000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio5: gpio-controller@80780000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80780000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 188 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio6: gpio-controller@80800000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80800000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +		gpio7: gpio-controller@80880000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			reg = <0x00 0x80880000 0x00  0x400>;
-> +			clocks = <&refclk>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +
-> +		/* I3C Controller 0 - 16 */
-> +		i3c0: i3c@80500400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80500400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c1: i3c@80500800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80500800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c2: i3c@80580400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80580400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c3: i3c@80580800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80580800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c4: i3c@80600400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80600400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c5: i3c@80600800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80600800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c6: i3c@80680400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80680400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c7: i3c@80680800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80680800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c8: i3c@80700400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80700400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c9: i3c@80700800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80700800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c10: i3c@80780400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80780400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c11: i3c@80780800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80780800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c12: i3c@80800400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80800400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c13: i3c@80800800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80800800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c14: i3c@80880400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80880400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c15: i3c@80880800 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80880800 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		i3c16: i3c@80620400 {
-> +			compatible = "cdns,i3c-master";
-> +			reg = <0x00 0x80620400 0x00 0x400>;
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +		uart0: serial@80520000 {
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Looks like not ordered by unit address. What is the ordering rule you
-are going to adopt for entire arch?
-
-> +			compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
-
-NAK, you do not have xlnx here. Look at your SoC: name of vendor is
-axiado. Not xlnx. How is your SoC called? Also zynqmp? You cannot just
-randomly pick any compatibles and stuff them around.
-
-Please carefully read writing bindings from DT directory.
-
-
-> +			reg = <0x00 0x80520000 0x00 0x100>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-> +			clock-names = "uart_clk", "pclk";
-> +			clocks = <&refclk &refclk>;
-> +			status = "disabled";
-> +		};
 Best regards,
 Krzysztof
 
