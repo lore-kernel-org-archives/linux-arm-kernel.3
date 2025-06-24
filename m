@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABABC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC216C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 10:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cf+MBzEQsHiSoMrH9x7N9Xo3MiIXwDIb3xwaZnvc/Ug=; b=bJHqdxWaLcixM/vry0uz0TipEw
-	0wSfBkMu1oAQPkzQiISiph1BuwbDXlJkKxEIBqjZNOB6WC8TaeSMDo4PeaFi7exm7hhP/sSoJDGSw
-	k1fNo7zSm1D2dc/CfaXks1IqF+XM2afRFoTBUOGjilKbqQSptJJcs9Pz/ASkRILDu1ABNt7DAfSW8
-	0fp/K4ZVyyk7eMmdJ/p88hgm2yH2UcD95bOMx0uq3yYxBoD8ka5SaK7poKtAvYwqYgX06hTHLmgGw
-	7yQZJ2iVxHaH76GdjiXsvSuCp5x0DLgOrbBgu7q/cS8rh/4eOZ9eI5aMvZyShbwwtS2vcTU4sAwH2
-	Wzqyx5mw==;
+	bh=p+hhvs9YWoWcyvz5G11+mq9ZRWVBKt2WYsWVGUyfU5g=; b=zD2UuMZWRB/9Vm20kuoMjYN1LA
+	XUPBGQk85Gzo029B1ZJn1pwcoLcTSWTRsG1E+6PTjt3OWQ/4BJ9IuP84d+jqm1KhRERuU1pO6Rh1H
+	AALvNt55uopjJFgI4xSg0whzSnKBcJKTGxcWwi1It9dkgQy2pWaGn/dV88Gzog/cuzeun0qVjNFp5
+	ufdhtJalNPkGhZWQdil3ZgEq77uEo7CkBiC5wBbvJLlzgh5bDpThqYOAtvpENuq6CICFIwhTHVS/G
+	YIYWXX0nZwtw2qaH2kvguP36YK9/kfJk0kQCDuaK8UgslXdNwxpPBy6KKepD/Ep1HS0gP0IJOIUha
+	gt7IVNCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1CD-00000005Ls2-0Qf7;
-	Tue, 24 Jun 2025 10:48:09 +0000
+	id 1uU1Ee-00000005M9Y-00Is;
+	Tue, 24 Jun 2025 10:50:40 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU0mb-00000005I0b-2Eg7
+	id 1uU0mc-00000005I1F-0yXC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:21:44 +0000
+	Tue, 24 Jun 2025 10:21:46 +0000
 Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0D0311D49;
-	Tue, 24 Jun 2025 12:21:19 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9951C20A9;
+	Tue, 24 Jun 2025 12:21:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750760479;
-	bh=+BFOkMwkeT/Kk4kMrjBVNtoL88di7bG0PILYljO6ehA=;
+	s=mail; t=1750760482;
+	bh=nj6q5ABLoYZxgyE1h5x8gnSK/ITxmvjRvEbQVQGu0lk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RtdxZCRUcOgV/6dbmpz2p9+NbhV6iVTWNDcWryT0k9fKf/tvlLYCCB7jZMsJjaaGJ
-	 E0NOBpWmWbwhx8nJnXdMpTzW3JkaTwTZSDFfQq4NtH7/P85p4hheU2/5D7f1U8CS96
-	 J+F99Wq/hAmRV37rGahil+8NY2zmPkyuijMLbUbA=
+	b=BQFPubuCacn+aO3JbZqwRqYmdEDBUenpm+Q2O/6B8jCyuWe/0s9BAVvqse2mou2oO
+	 QyzzHNVMhEuL6eLgqeLjhRXA7GT14cXBG74zIfnWj2XpB8HfDZQnRxXh1OCZPqXe7W
+	 72PZGygc7QG5UiwximQspGycUh+Ee2xoJ9jtEz4o=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 24 Jun 2025 11:21:21 +0100
-Subject: [PATCH v10 08/17] media: Documentation: Add Mali-C55 ISP
- Documentation
+Date: Tue, 24 Jun 2025 11:21:25 +0100
+Subject: [PATCH v10 12/17] media: platform: Add mali-c55 3a stats devnode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250624-c55-v10-8-54f3d4196990@ideasonboard.com>
+Message-Id: <20250624-c55-v10-12-54f3d4196990@ideasonboard.com>
 References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 In-Reply-To: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
 To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -56,26 +55,26 @@ Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
  laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
  Sakari Ailus <sakari.ailus@linux.intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17914;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=26400;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=+BFOkMwkeT/Kk4kMrjBVNtoL88di7bG0PILYljO6ehA=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwo7noGOXUQLkyGbYJO3vkjmNCjy3wlX+d4H
- noneyskmiGJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8KAAKCRDISVd6bEV1
- MgYZD/4lVoyABM+7T2zhH8dHI8jLwRbNjlfbcRePvC6nJKdU5GSU2JHxXSj4MtCkFEVotnJ/7DN
- O/H5kv6zs9n62dsz/Au2EUKpXynAgOXnWf10XQALcPZNgRi+yGD8CEbRp7A4cBRBDcKab9huYsc
- GuWXjZf6YZQTt3YmrDSoSR2TJRB+dNk5fA20cLUvSo1XkLSwC56xLPqzKnkMZ3PYVBxppPcFZw5
- BkrVXuEPpSdT6T4mVcDOZoa2OM5yh16EtAS7gp9yPFFZDH3eCy7bTE4ORu8R2UZhhHGj8HsWWa5
- Oo98j6f4f10yHMenbG8g5RiICjohBy3BdTUErU4kgJQIlueeUP1lJ6nl+p9blZRSAf6t6EiCZVA
- CDMpiyYsI1O8cQ/bvfHB7X2zo/OBctaKPPl/pSk60s9DivzeeeXxSdMvSR2BhA16+JigHKRBV4F
- DeWJqh9O/yx7qEcebYMKcLWGVnfBGKN5KO17PzFgJAIr1g7/wjmJ+m3K9XcEydPLHXgEWCjrbJj
- SOAKlPRedSbB7w4jWzZoHdF3pMtB/x2opDVW4y4PashJcRFS73WMJOENHaCF5czw+h18d6ePdN9
- h2AIQq7ZY4wfzn3Oj5XHYpOIn+23QEDm8dbT6kj5FszRGJI+pyPvAEJkkYWmNLjBXySxuOd4N7U
- xMI9oMNRqr4my2A==
+ bh=nj6q5ABLoYZxgyE1h5x8gnSK/ITxmvjRvEbQVQGu0lk=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoWnwpNx3ZL60/aEP/9E4o+D50lpDTKw+TTMDKd
+ yHE1X2VrZKJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaFp8KQAKCRDISVd6bEV1
+ MgmxEACSRxH1N6ZnoFJRVaaTORX3Gcl/A/mKRHCYCdW8uDz7qLf7jEofvNmzewhS3R0IEa47SlU
+ iRbaV2RDIrov7RgmNO2J67TbRkP0k78l1c+cCg6GxyaSXyXNanOQyiuEYuQdFfMMfDnySzFKs9D
+ CwS6WYEK9stTCj8OBpt3DW7fCD1XzjLREmmUbTrVaItIcdoFZKtpR3adHo24bh3TXEozQ3wEWBS
+ anBzJHPmNc0lVG6ZgwsrTPMXaXUwJpNPwB2nvhgBzI8x+koOGR1NgsFoKHreYBNRGRcLfUUyN/1
+ oDYWTewPHBZTf0mWlcmH9aCyQCpKKZHblAK/+sW1Ogr4wI18cAGjNyQNXFD7Jo82ufDz57Unqew
+ GflnibR0MbG/niy9i++Kdd2oAEF0H4i84sahrzLLmbTvLZ/5vE8tzd5NxAuRT9WfThsnOBHt4MH
+ WCF8eHMD+jngGvOhwte1R1cWPtcUm5pooesa8OGDEjlrZHhKysT5uT5J+92xFspMjAkCeu31MLC
+ lY+Z4v8QmmItRKWJTW4BA3VcJVCQ9N+pTsojbIbVe40VeO6dHjOIRe8Wp33dB4+Y/Yb+i7T7CQC
+ GmjaWb+v1g3xilbQViAUvheEcJ0S1j/oTRyMmri5HPHNpSbEuHSvWE/enyDBe/SanR1GzC4SsDg
+ 95V40hEw3pZfJxw==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_032141_872598_FF1017C2 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20250624_032142_639311_A38C7671 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a documentation page for the mali-c55 driver, which gives a brief
-overview of the hardware and explains how to use the driver's capture
-devices and the crop/scaler functions.
+Add a new code file to govern the 3a statistics capture node.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+On ISP_START, fill the stats buffer by reading out the metering space
+in the ISP's memory. This is done for the non-active config just as
+the dma transfer of the registers is. To acheive that, move the
+checking of the current config outside of mali_c55_swap_next_config()
+so we can use it for both functions.
+
+Acked-by: Nayden Kanchev  <nayden.kanchev@arm.com>
 Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
 Changes in v10:
 
-	- None
+	- Account for v2 of media jobs framework
 
 Changes in v9:
 
-	- None
+	- Squashed the originally separate patch that filled the stats buffer on
+	  the ISP start interrupt into this patch.
+	- A couple of differences accounting for the different way of operating
+	  in inline and memory input mode
+	- Infrastructure for the media jobs framework.
+	- Include this video device in the synchronised start/stop across the
+	  pipeline
 
 Changes in v8:
 
@@ -114,417 +122,792 @@ Changes in v8:
 
 Changes in v7:
 
-	- None
+	- Set width and height of MEDIA_BUS_FMT_METADATA_FIXED to 0.
+	- Added cpu fallback to stats in the event of no DMA channel acquired
+	- Terminate ISP streaming in the statistics vb2 stop streaming function
 
 Changes in v6:
 
-	- Minor formatting changes
+	- Fixed mising includes
+	- Minor renames and formatting
+	- Reworked mali_c55_stats_metering_complete() so it could only return
+	  buffers when both halves of the DMA read were done
+	- Terminate dma transfers on streamoff
 
 Changes in v5:
 
-	- None
-
-Changes in v4:
-	- None
-
-Changes in v3:
-	- Documented the synchronised buffer sequence numbers (Sakari)
-	- Clarified that the downscale pipe cannot output raw data, the ISP'S
-	  resolution limits and choice of media bus format code (Kieran)
-
-Changes in v2:
-
-	- none
+	- New patch
 ---
- Documentation/admin-guide/media/mali-c55-graph.dot |  19 ++
- Documentation/admin-guide/media/mali-c55.rst       | 340 +++++++++++++++++++++
- Documentation/admin-guide/media/v4l-drivers.rst    |   1 +
- 3 files changed, 360 insertions(+)
+ drivers/media/platform/arm/mali-c55/Makefile       |   1 +
+ .../media/platform/arm/mali-c55/mali-c55-common.h  |  30 ++
+ .../media/platform/arm/mali-c55/mali-c55-core.c    |  45 +-
+ drivers/media/platform/arm/mali-c55/mali-c55-isp.c |  11 +
+ .../platform/arm/mali-c55/mali-c55-registers.h     |   3 +
+ .../media/platform/arm/mali-c55/mali-c55-stats.c   | 528 +++++++++++++++++++++
+ 6 files changed, 609 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/admin-guide/media/mali-c55-graph.dot b/Documentation/admin-guide/media/mali-c55-graph.dot
+diff --git a/drivers/media/platform/arm/mali-c55/Makefile b/drivers/media/platform/arm/mali-c55/Makefile
+index 9178ac35e50efdc42289f5ed5e3ef5af55e8ac32..b5a22d414479dd1eb6435f474cb95aaa14879aa8 100644
+--- a/drivers/media/platform/arm/mali-c55/Makefile
++++ b/drivers/media/platform/arm/mali-c55/Makefile
+@@ -4,6 +4,7 @@ mali-c55-y := mali-c55-capture.o \
+ 	      mali-c55-core.o \
+ 	      mali-c55-isp.o \
+ 	      mali-c55-resizer.o \
++	      mali-c55-stats.o \
+ 	      mali-c55-tpg.o
+ 
+ obj-$(CONFIG_VIDEO_MALI_C55) += mali-c55.o
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-common.h b/drivers/media/platform/arm/mali-c55/mali-c55-common.h
+index 979fb448e56801d47775ac282a651a6c913e58a8..51291ba8d0031918ba472c34b0720f1d5129089e 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-common.h
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-common.h
+@@ -54,6 +54,7 @@ enum mali_c55_isp_pads {
+ 	MALI_C55_ISP_PAD_SINK_VIDEO,
+ 	MALI_C55_ISP_PAD_SOURCE_VIDEO,
+ 	MALI_C55_ISP_PAD_SOURCE_BYPASS,
++	MALI_C55_ISP_PAD_SOURCE_STATS,
+ 	MALI_C55_ISP_NUM_PADS,
+ };
+ 
+@@ -164,6 +165,30 @@ struct mali_c55_cap_dev {
+ 	} buffers;
+ };
+ 
++struct mali_c55_stats_buf {
++	struct vb2_v4l2_buffer vb;
++	unsigned int segments_remaining;
++	struct list_head queue;
++	bool failed;
++};
++
++struct mali_c55_stats {
++	struct mali_c55 *mali_c55;
++	struct video_device vdev;
++	struct dma_chan *channel;
++	struct vb2_queue queue;
++	struct media_pad pad;
++	/* Mutex to provide to vb2 */
++	struct mutex lock;
++
++	struct {
++		/* Spinlock to guard buffer queue */
++		spinlock_t lock;
++		struct list_head queue;
++		struct list_head pending;
++	} buffers;
++};
++
+ enum mali_c55_config_spaces {
+ 	MALI_C55_CONFIG_PING,
+ 	MALI_C55_CONFIG_PONG,
+@@ -209,6 +234,7 @@ struct mali_c55 {
+ 	struct mali_c55_isp isp;
+ 	struct mali_c55_resizer resizers[MALI_C55_NUM_RSZS];
+ 	struct mali_c55_cap_dev cap_devs[MALI_C55_NUM_CAP_DEVS];
++	struct mali_c55_stats stats;
+ 
+ 	struct mali_c55_context context;
+ 	u32 next_config;
+@@ -237,6 +263,8 @@ int mali_c55_register_resizers(struct mali_c55 *mali_c55);
+ void mali_c55_unregister_resizers(struct mali_c55 *mali_c55);
+ int mali_c55_register_capture_devs(struct mali_c55 *mali_c55);
+ void mali_c55_unregister_capture_devs(struct mali_c55 *mali_c55);
++int mali_c55_register_stats(struct mali_c55 *mali_c55);
++void mali_c55_unregister_stats(struct mali_c55 *mali_c55);
+ struct mali_c55_context *mali_c55_get_active_context(struct mali_c55 *mali_c55);
+ void mali_c55_set_plane_done(struct mali_c55_cap_dev *cap_dev,
+ 			     enum mali_c55_planes plane);
+@@ -254,5 +282,7 @@ mali_c55_isp_get_mbus_config_by_shifted_code(u32 code);
+ const struct mali_c55_isp_format_info *
+ mali_c55_isp_get_mbus_config_by_index(u32 index);
+ bool mali_c55_pipeline_ready(struct media_pipeline *pipe);
++void mali_c55_stats_fill_buffer(struct mali_c55 *mali_c55,
++				enum mali_c55_config_spaces cfg_space);
+ 
+ #endif /* _MALI_C55_COMMON_H */
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-core.c b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+index 1e0554d659abfd96ec6e9c05cc530d7289c992b7..e3550cb936a78c3d34d59a9b1882c062d4f2c2f6 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-core.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+@@ -378,6 +378,16 @@ static int mali_c55_create_links(struct mali_c55 *mali_c55)
+ 		}
+ 	}
+ 
++	ret = media_create_pad_link(&mali_c55->isp.sd.entity,
++				    MALI_C55_ISP_PAD_SOURCE_STATS,
++				    &mali_c55->stats.vdev.entity, 0,
++				    MEDIA_LNK_FL_ENABLED);
++	if (ret) {
++		dev_err(mali_c55->dev,
++			"failed to link ISP and 3a stats node\n");
++		goto err_remove_links;
++	}
++
+ 	return 0;
+ 
+ err_remove_links:
+@@ -392,19 +402,13 @@ static void mali_c55_unregister_entities(struct mali_c55 *mali_c55)
+ 	mali_c55_unregister_isp(mali_c55);
+ 	mali_c55_unregister_resizers(mali_c55);
+ 	mali_c55_unregister_capture_devs(mali_c55);
++	mali_c55_unregister_stats(mali_c55);
+ }
+ 
+ static void mali_c55_swap_next_config(struct mali_c55 *mali_c55)
+ {
+ 	struct mali_c55_context *ctx = mali_c55_get_active_context(mali_c55);
+ 
+-	u32 curr_config;
+-
+-	curr_config = mali_c55_read(mali_c55, MALI_C55_REG_PING_PONG_READ);
+-	curr_config = (curr_config & MALI_C55_REG_PING_PONG_READ_MASK)
+-		      >> (ffs(MALI_C55_REG_PING_PONG_READ_MASK) - 1);
+-	mali_c55->next_config = curr_config ^ 1;
+-
+ 	mali_c55_config_write(ctx, mali_c55->next_config ?
+ 			      MALI_C55_CONFIG_PING : MALI_C55_CONFIG_PONG,
+ 			      false);
+@@ -436,7 +440,7 @@ static int mali_c55_populate_media_job(struct media_job *job, void *data)
+ 	 * the others with the same flag.
+ 	 */
+ 	return media_jobs_add_job_step(job, mali_c55_core_run_step, mali_c55,
+-				       MEDIA_JOBS_FL_STEP_ANYWHERE, 0);
++				       MEDIA_JOBS_FL_STEP_ANYWHERE, 1);
+ }
+ 
+ static struct media_job_contributor_ops mali_c55_core_media_job_ops = {
+@@ -481,6 +485,10 @@ static int mali_c55_register_entities(struct mali_c55 *mali_c55)
+ 	if (ret)
+ 		goto err_unregister_entities;
+ 
++	ret = mali_c55_register_stats(mali_c55);
++	if (ret)
++		goto err_unregister_entities;
++
+ 	ret = mali_c55_create_links(mali_c55);
+ 	if (ret)
+ 		goto err_unregister_entities;
+@@ -699,6 +707,7 @@ static irqreturn_t mali_c55_isr(int irq, void *context)
+ 	struct device *dev = context;
+ 	struct mali_c55 *mali_c55 = dev_get_drvdata(dev);
+ 	u32 interrupt_status;
++	u32 curr_config;
+ 	unsigned int i;
+ 
+ 	interrupt_status = mali_c55_read(mali_c55,
+@@ -721,8 +730,26 @@ static irqreturn_t mali_c55_isr(int irq, void *context)
+ 
+ 			__mali_c55_set_next_buffer(mali_c55);
+ 
+-			if (mali_c55->inline_mode)
++			/*
++			 * When the ISP starts a frame we have some work to do:
++			 *
++			 * 1. Copy over the config for the **next** frame
++			 * 2. Read out the metering stats for the **last** frame
++			 */
++
++			curr_config = mali_c55_read(mali_c55,
++						    MALI_C55_REG_PING_PONG_READ);
++			curr_config &= MALI_C55_REG_PING_PONG_READ_MASK;
++			curr_config >>= ffs(MALI_C55_REG_PING_PONG_READ_MASK) - 1;
++			mali_c55->next_config = curr_config ^ 1;
++
++			if (mali_c55->inline_mode) {
++				mali_c55_stats_fill_buffer(mali_c55,
++					mali_c55->next_config ?
++					MALI_C55_CONFIG_PING :
++					MALI_C55_CONFIG_PONG);
+ 				mali_c55_swap_next_config(mali_c55);
++			}
+ 
+ 			break;
+ 		case MALI_C55_IRQ_ISP_DONE:
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
+index 20d4d16c75fbf0d5519ecadb5ed1d080bdae05de..b9b2806a5eb302c62ca7c20539551e422293ff36 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
+@@ -5,6 +5,8 @@
+  * Copyright (C) 2024 Ideas on Board Oy
+  */
+ 
++#include <linux/media/arm/mali-c55-config.h>
++
+ #include <linux/delay.h>
+ #include <linux/iopoll.h>
+ #include <linux/property.h>
+@@ -512,6 +514,14 @@ static int mali_c55_isp_init_state(struct v4l2_subdev *sd,
+ 	in_crop->width = MALI_C55_DEFAULT_WIDTH;
+ 	in_crop->height = MALI_C55_DEFAULT_HEIGHT;
+ 
++	src_fmt = v4l2_subdev_state_get_format(state,
++					       MALI_C55_ISP_PAD_SOURCE_STATS);
++
++	src_fmt->width = 0;
++	src_fmt->height = 0;
++	src_fmt->field = V4L2_FIELD_NONE;
++	src_fmt->code = MEDIA_BUS_FMT_METADATA_FIXED;
++
+ 	return 0;
+ }
+ 
+@@ -609,6 +619,7 @@ int mali_c55_register_isp(struct mali_c55 *mali_c55)
+ 						       MEDIA_PAD_FL_MUST_CONNECT;
+ 	isp->pads[MALI_C55_ISP_PAD_SOURCE_VIDEO].flags = MEDIA_PAD_FL_SOURCE;
+ 	isp->pads[MALI_C55_ISP_PAD_SOURCE_BYPASS].flags = MEDIA_PAD_FL_SOURCE;
++	isp->pads[MALI_C55_ISP_PAD_SOURCE_STATS].flags = MEDIA_PAD_FL_SOURCE;
+ 
+ 	ret = media_entity_pads_init(&sd->entity, MALI_C55_ISP_NUM_PADS,
+ 				     isp->pads);
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
+index 36a81be0191a15da91809dd2da5d279716f6d725..58dd6ce556a096ede4d3a21e472fdb9ed1cf5de3 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
+@@ -103,6 +103,9 @@ enum mali_c55_interrupts {
+ #define MALI_C55_VC_START(v)				((v) & 0xffff)
+ #define MALI_C55_VC_SIZE(v)				(((v) & 0xffff) << 16)
+ 
++#define MALI_C55_REG_1024BIN_HIST			0x054a8
++#define MALI_C55_1024BIN_HIST_SIZE			4096
++
+ /* Ping/Pong Configuration Space */
+ #define MALI_C55_REG_BASE_ADDR				0x18e88
+ #define MALI_C55_REG_BYPASS_0				0x18eac
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-stats.c b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..0775ba42bf4cfacc3911dc96b3c20a687bd25e4b
+index 0000000000000000000000000000000000000000..4bda386f3afa2e3b05a66f019f6d57b9cf2904fb
 --- /dev/null
-+++ b/Documentation/admin-guide/media/mali-c55-graph.dot
-@@ -0,0 +1,19 @@
-+digraph board {
-+        rankdir=TB
-+        n00000001 [label="{{} | mali-c55 tpg\n/dev/v4l-subdev0 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000001:port0 -> n00000003:port0 [style=dashed]
-+        n00000003 [label="{{<port0> 0} | mali-c55 isp\n/dev/v4l-subdev1 | {<port1> 1 | <port2> 2}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000003:port1 -> n00000007:port0 [style=bold]
-+        n00000003:port2 -> n00000007:port2 [style=bold]
-+        n00000003:port1 -> n0000000b:port0 [style=bold]
-+        n00000007 [label="{{<port0> 0 | <port2> 2} | mali-c55 resizer fr\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000007:port1 -> n0000000e [style=bold]
-+        n0000000b [label="{{<port0> 0} | mali-c55 resizer ds\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n0000000b:port1 -> n00000012 [style=bold]
-+        n0000000e [label="mali-c55 fr\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-+        n00000012 [label="mali-c55 ds\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
-+        n00000022 [label="{{<port0> 0} | csi2-rx\n/dev/v4l-subdev4 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000022:port1 -> n00000003:port0
-+        n00000027 [label="{{} | imx415 1-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000027:port0 -> n00000022:port0 [style=bold]
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
+@@ -0,0 +1,528 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM Mali-C55 ISP Driver - 3A Statistics capture device
++ *
++ * Copyright (C) 2023 Ideas on Board Oy
++ */
++
++#include <linux/container_of.h>
++#include <linux/dev_printk.h>
++#include <linux/dmaengine.h>
++#include <linux/list.h>
++#include <linux/media/arm/mali-c55-config.h>
++#include <linux/mutex.h>
++#include <linux/pm_runtime.h>
++#include <linux/spinlock.h>
++#include <linux/string.h>
++
++#include <media/media-entity.h>
++#include <media/v4l2-dev.h>
++#include <media/v4l2-event.h>
++#include <media/v4l2-fh.h>
++#include <media/v4l2-ioctl.h>
++#include <media/videobuf2-core.h>
++#include <media/videobuf2-dma-contig.h>
++
++#include "mali-c55-common.h"
++#include "mali-c55-registers.h"
++
++static const unsigned int metering_space_addrs[] = {
++	[MALI_C55_CONFIG_PING] = 0x095ac,
++	[MALI_C55_CONFIG_PONG] = 0x2156c,
++};
++
++static int mali_c55_stats_enum_fmt_meta_cap(struct file *file, void *fh,
++					    struct v4l2_fmtdesc *f)
++{
++	if (f->index)
++		return -EINVAL;
++
++	f->pixelformat = V4L2_META_FMT_MALI_C55_STATS;
++
++	return 0;
 +}
-\ No newline at end of file
-diff --git a/Documentation/admin-guide/media/mali-c55.rst b/Documentation/admin-guide/media/mali-c55.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..72cdded507b3a7918e28d9bd9a1c6f72ddf9e664
---- /dev/null
-+++ b/Documentation/admin-guide/media/mali-c55.rst
-@@ -0,0 +1,340 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+==========================================
-+ARM Mali-C55 Image Signal Processor driver
-+==========================================
-+
-+Introduction
-+============
-+
-+This file documents the driver for ARM's Mali-C55 Image Signal Processor. The
-+driver is located under drivers/media/platform/arm/mali-c55.
-+
-+The Mali-C55 ISP receives data in either raw Bayer format or RGB/YUV format from
-+sensors through either a parallel interface or a memory bus before processing it
-+and outputting it through an internal DMA engine. Two output pipelines are
-+possible (though one may not be fitted, depending on the implementation). These
-+are referred to as "Full resolution" and "Downscale", but the naming is historic
-+and both pipes are capable of cropping/scaling operations. The full resolution
-+pipe is also capable of outputting RAW data, bypassing much of the ISP's
-+processing. The downscale pipe cannot output RAW data. An integrated test
-+pattern generator can be used to drive the ISP and produce image data in the
-+absence of a connected camera sensor. The driver module is named mali_c55, and
-+is enabled through the CONFIG_VIDEO_MALI_C55 config option.
-+
-+The driver implements V4L2, Media Controller and V4L2 Subdevice interfaces and
-+expects camera sensors connected to the ISP to have V4L2 subdevice interfaces.
-+
-+Mali-C55 ISP hardware
-+=====================
-+
-+A high level functional view of the Mali-C55 ISP is presented below. The ISP
-+takes input from either a live source or through a DMA engine for memory input,
-+depending on the SoC integration.::
-+
-+  +---------+    +----------+                                     +--------+
-+  | Sensor  |--->| CSI-2 Rx |                "Full Resolution"    |  DMA   |
-+  +---------+    +----------+   |\                 Output    +--->| Writer |
-+                       |        | \                          |    +--------+
-+                       |        |  \    +----------+  +------+---> Streaming I/O
-+  +------------+       +------->|   |   |          |  |
-+  |            |                |   |-->| Mali-C55 |--+
-+  | DMA Reader |--------------->|   |   |    ISP   |  |
-+  |            |                |  /    |          |  |      +---> Streaming I/O
-+  +------------+                | /     +----------+  |      |
-+                                |/                    +------+
-+                                                             |    +--------+
-+                                                             +--->|  DMA   |
-+                                               "Downscaled"       | Writer |
-+                                                  Output          +--------+
-+
-+Media Controller Topology
-+=========================
-+
-+An example of the ISP's topology (as implemented in a system with an IMX415
-+camera sensor and generic CSI-2 receiver) is below:
-+
-+
-+.. kernel-figure:: mali-c55-graph.dot
-+    :alt:   mali-c55-graph.dot
-+    :align: center
-+
-+The driver has 4 V4L2 subdevices:
-+
-+- `mali_c55 isp`: Responsible for configuring input crop and color space
-+                  conversion
-+- `mali_c55 tpg`: The test pattern generator, emulating a camera sensor.
-+- `mali_c55 resizer fr`: The Full-Resolution pipe resizer
-+- `mali_c55 resizer ds`: The Downscale pipe resizer
-+
-+The driver has 2 V4L2 video devices:
-+
-+- `mali-c55 fr`: The full-resolution pipe's capture device
-+- `mali-c55 ds`: The downscale pipe's capture device
-+
-+Frame sequences are synchronised across to two capture devices, meaning if one
-+pipe is started later than the other the sequence numbers returned in its
-+buffers will match those of the other pipe rather than starting from zero.
-+
-+Idiosyncrasies
-+--------------
-+
-+**mali-c55 isp**
-+The `mali-c55 isp` subdevice has a single sink pad to which all sources of data
-+should be connected. The active source is selected by enabling the appropriate
-+media link and disabling all others. The ISP has two source pads, reflecting the
-+different paths through which it can internally route data. Tap points within
-+the ISP allow users to divert data to avoid processing by some or all of the
-+hardware's processing steps. The diagram below is intended only to highlight how
-+the bypassing works and is not a true reflection of those processing steps; for
-+a high-level functional block diagram see ARM's developer page for the
-+ISP [3]_::
-+
-+  +--------------------------------------------------------------+
-+  |                Possible Internal ISP Data Routes             |
-+  |          +------------+  +----------+  +------------+        |
-+  +---+      |            |  |          |  |  Colour    |    +---+
-+  | 0 |--+-->| Processing |->| Demosaic |->|   Space    |--->| 1 |
-+  +---+  |   |            |  |          |  | Conversion |    +---+
-+  |      |   +------------+  +----------+  +------------+        |
-+  |      |                                                   +---+
-+  |      +---------------------------------------------------| 2 |
-+  |                                                          +---+
-+  |                                                              |
-+  +--------------------------------------------------------------+
 +
-+
-+.. flat-table::
-+    :header-rows: 1
-+
-+    * - Pad
-+      - Direction
-+      - Purpose
-+
-+    * - 0
-+      - sink
-+      - Data input, connected to the TPG and camera sensors
-+
-+    * - 1
-+      - source
-+      - RGB/YUV data, connected to the FR and DS V4L2 subdevices
-+
-+    * - 2
-+      - source
-+      - RAW bayer data, connected to the FR V4L2 subdevices
-+
-+The ISP is limited to both input and output resolutions between 640x480 and
-+8192x8192, and this is reflected in the ISP and resizer subdevice's .set_fmt()
-+operations.
-+
-+**mali-c55 resizer fr**
-+The `mali-c55 resizer fr` subdevice has two _sink_ pads to reflect the different
-+insertion points in the hardware (either RAW or demosaiced data):
-+
-+.. flat-table::
-+    :header-rows: 1
-+
-+    * - Pad
-+      - Direction
-+      - Purpose
-+
-+    * - 0
-+      - sink
-+      - Data input connected to the ISP's demosaiced stream.
-+
-+    * - 1
-+      - source
-+      - Data output connected to the capture video device
-+
-+    * - 2
-+      - sink
-+      - Data input connected to the ISP's raw data stream
-+
-+The data source in use is selected through the routing API; two routes each of a
-+single stream are available:
-+
-+.. flat-table::
-+    :header-rows: 1
-+
-+    * - Sink Pad
-+      - Source Pad
-+      - Purpose
-+
-+    * - 0
-+      - 1
-+      - Demosaiced data route
-+
-+    * - 2
-+      - 1
-+      - Raw data route
-+
-+
-+If the demosaiced route is active then the FR pipe is only capable of output
-+in RGB/YUV formats. If the raw route is active then the output reflects the
-+input (which may be either Bayer or RGB/YUV data).
-+
-+Using the driver to capture video
-+=================================
-+
-+Using the media controller APIs we can configure the input source and ISP to
-+capture images in a variety of formats. In the examples below, configuring the
-+media graph is done with the v4l-utils [1]_ package's media-ctl utility.
-+Capturing the images is done with yavta [2]_.
-+
-+Configuring the input source
-+----------------------------
-+
-+The first step is to set the input source that we wish by enabling the correct
-+media link. Using the example topology above, we can select the TPG as follows:
-+
-+.. code-block:: none
-+
-+    media-ctl -l "'lte-csi2-rx':1->'mali-c55 isp':0[0]"
-+    media-ctl -l "'mali-c55 tpg':0->'mali-c55 isp':0[1]"
-+
-+Configuring which video devices will stream data
-+------------------------------------------------
-+
-+The driver will wait for all video devices to have their VIDIOC_STREAMON ioctl
-+called before it tells the sensor to start streaming. To facilitate this we need
-+to enable links to the video devices that we want to use. In the example below
-+we enable the links to both of the image capture video devices
-+
-+.. code-block:: none
-+
-+    media-ctl -l "'mali-c55 resizer fr':1->'mali-c55 fr':0[1]"
-+    media-ctl -l "'mali-c55 resizer ds':1->'mali-c55 ds':0[1]"
-+
-+Capturing bayer data from the source and processing to RGB/YUV
-+--------------------------------------------------------------
-+
-+To capture 1920x1080 bayer data from the source and push it through the ISP's
-+full processing pipeline, we configure the data formats appropriately on the
-+source, ISP and resizer subdevices and set the FR resizer's routing to select
-+processed data. The media bus format on the resizer's source pad will be either
-+RGB121212_1X36 or YUV10_1X30, depending on whether you want to capture RGB or
-+YUV. The ISP's debayering block outputs RGB data natively, setting the source
-+pad format to YUV10_1X30 enables the colour space conversion block.
-+
-+In this example we target RGB565 output, so select RGB121212_1X36 as the resizer
-+source pad's format:
-+
-+.. code-block:: none
-+
-+    # Set formats on the TPG and ISP
-+    media-ctl -V "'mali-c55 tpg':0[fmt:SRGGB20_1X20/1920x1080]"
-+    media-ctl -V "'mali-c55 isp':0[fmt:SRGGB20_1X20/1920x1080]"
-+    media-ctl -V "'mali-c55 isp':1[fmt:SRGGB20_1X20/1920x1080]"
-+
-+    # Set routing on the FR resizer
-+    media-ctl -R "'mali-c55 resizer fr'[0/0->1/0[1],2/0->1/0[0]]"
-+
-+    # Set format on the resizer, must be done AFTER the routing.
-+    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/1920x1080]"
-+
-+The downscale output can also be used to stream data at the same time. In this
-+case since only processed data can be captured through the downscale output no
-+routing need be set:
-+
-+.. code-block:: none
-+
-+    # Set format on the resizer
-+    media-ctl -V "'mali-c55 resizer ds':1[fmt:RGB121212_1X36/1920x1080]"
-+
-+Following which images can be captured from both the FR and DS output's video
-+devices (simultaneously, if desired):
-+
-+.. code-block:: none
-+
-+    yavta -f RGB565 -s 1920x1080 -c10 /dev/video0
-+    yavta -f RGB565 -s 1920x1080 -c10 /dev/video1
-+
-+Cropping the image
-+~~~~~~~~~~~~~~~~~~
-+
-+Both the full resolution and downscale pipes can crop to a minimum resolution of
-+640x480. To crop the image simply configure the resizer's sink pad's crop and
-+compose rectangles and set the format on the video device:
-+
-+.. code-block:: none
-+
-+    media-ctl -V "'mali-c55 resizer fr':0[fmt:RGB121212_1X36/1920x1080 crop:(480,270)/640x480 compose:(0,0)/640x480]"
-+    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/640x480]"
-+    yavta -f RGB565 -s 640x480 -c10 /dev/video0
-+
-+Downscaling the image
-+~~~~~~~~~~~~~~~~~~~~~
-+
-+Both the full resolution and downscale pipes can downscale the image by up to 8x
-+provided the minimum 640x480 output resolution is adhered to. For the best image
-+result the scaling ratio for each direction should be the same. To configure
-+scaling we use the compose rectangle on the resizer's sink pad:
-+
-+.. code-block:: none
-+
-+    media-ctl -V "'mali-c55 resizer fr':0[fmt:RGB121212_1X36/1920x1080 crop:(0,0)/1920x1080 compose:(0,0)/640x480]"
-+    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB121212_1X36/640x480]"
-+    yavta -f RGB565 -s 640x480 -c10 /dev/video0
-+
-+Capturing images in YUV formats
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+If we need to output YUV data rather than RGB the color space conversion block
-+needs to be active, which is achieved by setting MEDIA_BUS_FMT_YUV10_1X30 on the
-+resizer's source pad. We can then configure a capture format like NV12 (here in
-+its multi-planar variant)
-+
-+.. code-block:: none
-+
-+    media-ctl -V "'mali-c55 resizer fr':1[fmt:YUV10_1X30/1920x1080]"
-+    yavta -f NV12M -s 1920x1080 -c10 /dev/video0
-+
-+Capturing RGB data from the source and processing it with the resizers
-+----------------------------------------------------------------------
-+
-+The Mali-C55 ISP can work with sensors capable of outputting RGB data. In this
-+case although none of the image quality blocks would be used it can still
-+crop/scale the data in the usual way. For this reason RGB data input to the ISP
-+still goes through the ISP subdevice's pad 1 to the resizer.
-+
-+To achieve this, the ISP's sink pad's format is set to
-+MEDIA_BUS_FMT_RGB202020_1X60 - this reflects the format that data must be in to
-+work with the ISP. Converting the camera sensor's output to that format is the
-+responsibility of external hardware.
-+
-+In this example we ask the test pattern generator to give us RGB data instead of
-+bayer.
-+
-+.. code-block:: none
-+
-+    media-ctl -V "'mali-c55 tpg':0[fmt:RGB202020_1X60/1920x1080]"
-+    media-ctl -V "'mali-c55 isp':0[fmt:RGB202020_1X60/1920x1080]"
-+
-+Cropping or scaling the data can be done in exactly the same way as outlined
-+earlier.
-+
-+Capturing raw data from the source and outputting it unmodified
-+-----------------------------------------------------------------
-+
-+The ISP can additionally capture raw data from the source and output it on the
-+full resolution pipe only, completely unmodified. In this case the downscale
-+pipe can still process the data normally and be used at the same time.
-+
-+To configure raw bypass the FR resizer's subdevice's routing table needs to be
-+configured, followed by formats in the appropriate places:
-+
-+.. code-block:: none
-+
-+    media-ctl -R "'mali-c55 resizer fr'[0/0->1/0[0],2/0->1/0[1]]"
-+    media-ctl -V "'mali-c55 isp':0[fmt:RGB202020_1X60/1920x1080]"
-+    media-ctl -V "'mali-c55 resizer fr':2[fmt:RGB202020_1X60/1920x1080]"
-+    media-ctl -V "'mali-c55 resizer fr':1[fmt:RGB202020_1X60/1920x1080]"
-+
-+    # Set format on the video device and stream
-+    yavta -f RGB565 -s 1920x1080 -c10 /dev/video0
-+
-+References
-+==========
-+.. [1] https://git.linuxtv.org/v4l-utils.git/
-+.. [2] https://git.ideasonboard.org/yavta.git
-+.. [3] https://developer.arm.com/Processors/Mali-C55
-diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
-index 3bac5165b13416ee94d9f98ccc22d07d334ae90e..ebd9b15efa903ecb62869d4b7e0b0d6f3ed73589 100644
---- a/Documentation/admin-guide/media/v4l-drivers.rst
-+++ b/Documentation/admin-guide/media/v4l-drivers.rst
-@@ -19,6 +19,7 @@ Video4Linux (V4L) driver-specific documentation
- 	ipu3
- 	ipu6-isys
- 	ivtv
-+	mali-c55
- 	mgb4
- 	omap3isp
- 	philips
++static int mali_c55_stats_g_fmt_meta_cap(struct file *file, void *fh,
++					 struct v4l2_format *f)
++{
++	static const struct v4l2_meta_format mfmt = {
++		.dataformat = V4L2_META_FMT_MALI_C55_STATS,
++		.buffersize = sizeof(struct mali_c55_stats_buffer)
++	};
++
++	f->fmt.meta = mfmt;
++
++	return 0;
++}
++
++static int mali_c55_stats_querycap(struct file *file,
++				   void *priv, struct v4l2_capability *cap)
++{
++	strscpy(cap->driver, MALI_C55_DRIVER_NAME, sizeof(cap->driver));
++	strscpy(cap->card, "ARM Mali-C55 ISP", sizeof(cap->card));
++
++	return 0;
++}
++
++static const struct v4l2_ioctl_ops mali_c55_stats_v4l2_ioctl_ops = {
++	.vidioc_reqbufs = vb2_ioctl_reqbufs,
++	.vidioc_querybuf = vb2_ioctl_querybuf,
++	.vidioc_create_bufs = vb2_ioctl_create_bufs,
++	.vidioc_qbuf = vb2_ioctl_qbuf,
++	.vidioc_expbuf = vb2_ioctl_expbuf,
++	.vidioc_dqbuf = vb2_ioctl_dqbuf,
++	.vidioc_prepare_buf = vb2_ioctl_prepare_buf,
++	.vidioc_streamon = vb2_ioctl_streamon,
++	.vidioc_streamoff = vb2_ioctl_streamoff,
++	.vidioc_enum_fmt_meta_cap = mali_c55_stats_enum_fmt_meta_cap,
++	.vidioc_g_fmt_meta_cap = mali_c55_stats_g_fmt_meta_cap,
++	.vidioc_s_fmt_meta_cap = mali_c55_stats_g_fmt_meta_cap,
++	.vidioc_try_fmt_meta_cap = mali_c55_stats_g_fmt_meta_cap,
++	.vidioc_querycap = mali_c55_stats_querycap,
++	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
++	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
++};
++
++static const struct v4l2_file_operations mali_c55_stats_v4l2_fops = {
++	.owner = THIS_MODULE,
++	.unlocked_ioctl = video_ioctl2,
++	.open = v4l2_fh_open,
++	.release = vb2_fop_release,
++	.poll = vb2_fop_poll,
++	.mmap = vb2_fop_mmap,
++};
++
++static int
++mali_c55_stats_queue_setup(struct vb2_queue *q, unsigned int *num_buffers,
++			   unsigned int *num_planes, unsigned int sizes[],
++			   struct device *alloc_devs[])
++{
++	struct mali_c55_stats *stats = vb2_get_drv_priv(q);
++
++	if (*num_planes && *num_planes > 1)
++		return -EINVAL;
++
++	if (sizes[0] && sizes[0] < sizeof(struct mali_c55_stats_buffer))
++		return -EINVAL;
++
++	*num_planes = 1;
++
++	if (!sizes[0])
++		sizes[0] = sizeof(struct mali_c55_stats_buffer);
++
++	if (stats->channel)
++		alloc_devs[0] = stats->channel->device->dev;
++
++	return 0;
++}
++
++static void mali_c55_stats_buf_queue(struct vb2_buffer *vb)
++{
++	struct mali_c55_stats *stats = vb2_get_drv_priv(vb->vb2_queue);
++	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
++	struct mali_c55_stats_buf *buf = container_of(vbuf,
++						struct mali_c55_stats_buf, vb);
++	struct mali_c55 *mali_c55 = stats->mali_c55;
++	struct list_head *queue;
++
++	vb2_set_plane_payload(vb, 0, sizeof(struct mali_c55_stats_buffer));
++	buf->segments_remaining = 2;
++	buf->failed = false;
++
++	queue = mali_c55->inline_mode ? &stats->buffers.queue :
++					&stats->buffers.pending;
++
++	spin_lock(&stats->buffers.lock);
++	list_add_tail(&buf->queue, queue);
++	spin_unlock(&stats->buffers.lock);
++
++	media_jobs_try_queue_job(stats->mali_c55->sched,
++				 MEDIA_JOB_TYPE_PIPELINE_PULSE);
++}
++
++static void mali_c55_stats_return_buffers(struct mali_c55_stats *stats,
++					  enum vb2_buffer_state state)
++{
++	struct mali_c55_stats_buf *buf, *tmp;
++
++	guard(spinlock)(&stats->buffers.lock);
++
++	list_for_each_entry_safe(buf, tmp, &stats->buffers.queue, queue) {
++		list_del(&buf->queue);
++		vb2_buffer_done(&buf->vb.vb2_buf, state);
++	}
++
++	list_for_each_entry_safe(buf, tmp, &stats->buffers.pending, queue) {
++		list_del(&buf->queue);
++		vb2_buffer_done(&buf->vb.vb2_buf, state);
++	}
++}
++
++static int mali_c55_stats_start_streaming(struct vb2_queue *q,
++					  unsigned int count)
++{
++	struct mali_c55_stats *stats = vb2_get_drv_priv(q);
++	struct mali_c55 *mali_c55 = stats->mali_c55;
++	struct media_pipeline *pipe;
++	int ret;
++
++	ret = pm_runtime_resume_and_get(mali_c55->dev);
++	if (ret)
++		goto err_return_buffers;
++
++	ret = video_device_pipeline_alloc_start(&stats->vdev);
++	if (ret)
++		goto err_pm_put;
++
++	pipe = video_device_pipeline(&stats->vdev);
++	if (mali_c55_pipeline_ready(pipe)) {
++		ret = media_pipeline_started(pipe);
++		if (ret)
++			goto err_stop_pipeline;
++
++		media_jobs_run_jobs(stats->mali_c55->sched);
++	}
++
++	return 0;
++
++err_stop_pipeline:
++	video_device_pipeline_stop(&stats->vdev);
++err_pm_put:
++	pm_runtime_put(mali_c55->dev);
++err_return_buffers:
++	mali_c55_stats_return_buffers(stats, VB2_BUF_STATE_QUEUED);
++
++	return ret;
++}
++
++static void mali_c55_stats_stop_streaming(struct vb2_queue *q)
++{
++	struct mali_c55_stats *stats = vb2_get_drv_priv(q);
++	struct media_pipeline *pipe;
++
++	if (stats->channel)
++		dmaengine_terminate_sync(stats->channel);
++
++	pipe = video_device_pipeline(&stats->vdev);
++	if (mali_c55_pipeline_ready(pipe)) {
++		media_pipeline_stopped(pipe);
++		media_jobs_cancel_jobs(stats->mali_c55->sched);
++	}
++
++	video_device_pipeline_stop(&stats->vdev);
++	mali_c55_stats_return_buffers(stats, VB2_BUF_STATE_ERROR);
++}
++
++static const struct vb2_ops mali_c55_stats_vb2_ops = {
++	.queue_setup = mali_c55_stats_queue_setup,
++	.buf_queue = mali_c55_stats_buf_queue,
++	.wait_prepare = vb2_ops_wait_prepare,
++	.wait_finish = vb2_ops_wait_finish,
++	.start_streaming = mali_c55_stats_start_streaming,
++	.stop_streaming = mali_c55_stats_stop_streaming,
++};
++
++static bool mali_c55_stats_job_ready(void *data)
++{
++	struct mali_c55_stats *stats = data;
++	if (IS_ERR_OR_NULL(media_pad_remote_pad_unique(&stats->pad)))
++		return true;
++
++	guard(spinlock)(&stats->buffers.lock);
++
++	if (list_empty(&stats->buffers.pending))
++		return false;
++
++	return true;
++}
++
++static void mali_c55_stats_job_queue(void *data)
++{
++	struct mali_c55_stats *stats = data;
++	struct mali_c55_stats_buf *buf;
++
++	if (IS_ERR_OR_NULL(media_pad_remote_pad_unique(&stats->pad)))
++		return;
++
++	guard(spinlock)(&stats->buffers.lock);
++	buf = list_first_entry(&stats->buffers.pending,
++			       struct mali_c55_stats_buf, queue);
++	list_move_tail(&buf->queue, &stats->buffers.queue);
++}
++
++static void mali_c55_stats_job_abort(void *data)
++{
++	struct mali_c55_stats *stats = data;
++	struct mali_c55_stats_buf *buf;
++
++	guard(spinlock)(&stats->buffers.lock);
++	buf = list_first_entry(&stats->buffers.queue,
++			       struct mali_c55_stats_buf, queue);
++
++	if (buf)
++		list_move(&buf->queue, &stats->buffers.pending);
++}
++
++static void mali_c55_stats_run_step(void *data)
++{
++	struct mali_c55_stats *stats = data;
++	struct mali_c55 *mali_c55 = stats->mali_c55;
++	enum mali_c55_config_spaces cfg_space;
++
++	cfg_space = mali_c55->next_config ? MALI_C55_CONFIG_PING :
++					    MALI_C55_CONFIG_PONG;
++
++	mali_c55_stats_fill_buffer(mali_c55, cfg_space);
++}
++
++static int mali_c55_stats_job_add_steps(struct media_job *job, void *data)
++{
++	return media_jobs_add_job_step(job, mali_c55_stats_run_step, data,
++				       MEDIA_JOBS_FL_STEP_FROM_BACK, 0);
++}
++
++static struct media_job_contributor_ops mali_c55_stats_media_job_ops = {
++	.add_steps	= mali_c55_stats_job_add_steps,
++	.ready		= mali_c55_stats_job_ready,
++	.queue		= mali_c55_stats_job_queue,
++	.abort		= mali_c55_stats_job_abort
++};
++
++static void
++mali_c55_stats_metering_complete(void *param,
++				 const struct dmaengine_result *result)
++{
++	struct mali_c55_stats_buf *buf = param;
++
++	if (result->result != DMA_TRANS_NOERROR)
++		buf->failed = true;
++
++	if (!--buf->segments_remaining)
++		vb2_buffer_done(&buf->vb.vb2_buf, buf->failed ?
++				VB2_BUF_STATE_ERROR : VB2_BUF_STATE_DONE);
++}
++
++static int mali_c55_stats_dma_xfer(struct mali_c55_stats *stats, dma_addr_t src,
++				   dma_addr_t dst,
++				   struct mali_c55_stats_buf *buf,
++				   size_t length)
++{
++	struct dma_async_tx_descriptor *tx;
++	dma_cookie_t cookie;
++
++	tx = dmaengine_prep_dma_memcpy(stats->channel, dst, src, length, 0);
++	if (!tx) {
++		dev_err(stats->mali_c55->dev, "failed to prep stats DMA\n");
++		return -EIO;
++	}
++
++	tx->callback_result = mali_c55_stats_metering_complete;
++	tx->callback_param = buf;
++
++	cookie = dmaengine_submit(tx);
++	if (dma_submit_error(cookie)) {
++		dev_err(stats->mali_c55->dev, "failed to submit stats DMA\n");
++		return -EIO;
++	}
++
++	dma_async_issue_pending(stats->channel);
++	return 0;
++}
++
++static int mali_c55_stats_dma_read(struct mali_c55_stats *stats,
++				   struct mali_c55_stats_buf *buf,
++				   enum mali_c55_config_spaces cfg_space)
++{
++	struct mali_c55 *mali_c55 = stats->mali_c55;
++	struct mali_c55_context *ctx = mali_c55_get_active_context(mali_c55);
++	dma_addr_t src, dst;
++	size_t length;
++	int ret;
++
++	/*
++	 * There are in fact two noncontiguous sections of the ISP's
++	 * memory space that hold statistics for 3a algorithms to use: A
++	 * section in each config space and a global section holding
++	 * histograms which is double buffered and so holds data for the
++	 * last frame. We need to read both.
++	 */
++	src = ctx->base + MALI_C55_REG_1024BIN_HIST;
++	dst = vb2_dma_contig_plane_dma_addr(&buf->vb.vb2_buf, 0);
++
++	ret = mali_c55_stats_dma_xfer(stats, src, dst, buf,
++				      MALI_C55_1024BIN_HIST_SIZE);
++	if (ret)
++		return ret;
++
++	src = ctx->base + metering_space_addrs[cfg_space];
++	dst += MALI_C55_1024BIN_HIST_SIZE;
++
++	length = sizeof(struct mali_c55_stats_buffer) - MALI_C55_1024BIN_HIST_SIZE;
++	ret = mali_c55_stats_dma_xfer(stats, src, dst, buf, length);
++	if (ret) {
++		dmaengine_terminate_sync(stats->channel);
++		return ret;
++	}
++
++	return 0;
++}
++
++static void mali_c55_stats_cpu_read(struct mali_c55_stats *stats,
++				    struct mali_c55_stats_buf *buf,
++				    enum mali_c55_config_spaces cfg_space)
++{
++	struct mali_c55 *mali_c55 = stats->mali_c55;
++	size_t length;
++	void *src;
++	void *dst;
++
++	src = mali_c55->base + MALI_C55_REG_1024BIN_HIST;
++	dst = vb2_plane_vaddr(&buf->vb.vb2_buf, 0);
++	memcpy_fromio(dst, src, MALI_C55_1024BIN_HIST_SIZE);
++
++	src = mali_c55->base + metering_space_addrs[cfg_space];
++	dst += MALI_C55_1024BIN_HIST_SIZE;
++	length = sizeof(struct mali_c55_stats_buffer) - MALI_C55_1024BIN_HIST_SIZE;
++	memcpy_fromio(dst, src, length);
++}
++
++void mali_c55_stats_fill_buffer(struct mali_c55 *mali_c55,
++				enum mali_c55_config_spaces cfg_space)
++{
++	struct mali_c55_stats *stats = &mali_c55->stats;
++	struct mali_c55_stats_buf *buf = NULL;
++	int ret;
++
++	spin_lock(&stats->buffers.lock);
++	if (!list_empty(&stats->buffers.queue)) {
++		buf = list_first_entry(&stats->buffers.queue,
++				       struct mali_c55_stats_buf, queue);
++		list_del(&buf->queue);
++	}
++	spin_unlock(&stats->buffers.lock);
++
++	if (!buf)
++		return;
++
++	buf->vb.sequence = mali_c55->isp.frame_sequence;
++	buf->vb.vb2_buf.timestamp = ktime_get_boottime_ns();
++
++	if (stats->channel) {
++		ret = mali_c55_stats_dma_read(stats, buf, cfg_space);
++		if (ret)
++			vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
++	} else {
++		mali_c55_stats_cpu_read(stats, buf, cfg_space);
++		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
++	}
++}
++
++void mali_c55_unregister_stats(struct mali_c55 *mali_c55)
++{
++	struct mali_c55_stats *stats = &mali_c55->stats;
++
++	if (!video_is_registered(&stats->vdev))
++		return;
++
++	vb2_video_unregister_device(&stats->vdev);
++	media_entity_cleanup(&stats->vdev.entity);
++
++	if (stats->channel)
++		dma_release_channel(stats->channel);
++
++	mutex_destroy(&stats->lock);
++}
++
++int mali_c55_register_stats(struct mali_c55 *mali_c55)
++{
++	struct mali_c55_stats *stats = &mali_c55->stats;
++	struct video_device *vdev = &stats->vdev;
++	struct vb2_queue *vb2q = &stats->queue;
++	dma_cap_mask_t mask;
++	int ret;
++
++	mutex_init(&stats->lock);
++	INIT_LIST_HEAD(&stats->buffers.queue);
++	INIT_LIST_HEAD(&stats->buffers.pending);
++	spin_lock_init(&stats->buffers.lock);
++
++	dma_cap_zero(mask);
++	dma_cap_set(DMA_MEMCPY, mask);
++
++	/*
++	 * No failure here, because we will just fallback on memcpy if there is
++	 * no usable DMA channel on the system.
++	 */
++	stats->channel = dma_request_channel(mask, 0, NULL);
++	if (!stats->channel)
++		dev_dbg(mali_c55->dev,
++			"No DMA channel for stats, falling back to memcpy\n");
++
++	stats->pad.flags = MEDIA_PAD_FL_SINK;
++	ret = media_entity_pads_init(&stats->vdev.entity, 1, &stats->pad);
++	if (ret)
++		goto err_release_dma_channel;
++
++	vb2q->type = V4L2_BUF_TYPE_META_CAPTURE;
++	vb2q->io_modes = VB2_MMAP | VB2_DMABUF;
++	vb2q->drv_priv = stats;
++	vb2q->mem_ops = &vb2_dma_contig_memops;
++	vb2q->ops = &mali_c55_stats_vb2_ops;
++	vb2q->buf_struct_size = sizeof(struct mali_c55_stats_buf);
++	vb2q->min_queued_buffers = 1;
++	vb2q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
++	vb2q->lock = &stats->lock;
++	vb2q->dev = stats->channel ? stats->channel->device->dev : mali_c55->dev;
++
++	ret = vb2_queue_init(vb2q);
++	if (ret) {
++		dev_err(mali_c55->dev, "stats vb2 queue init failed\n");
++		goto err_cleanup_entity;
++	}
++
++	strscpy(stats->vdev.name, "mali-c55 3a stats", sizeof(stats->vdev.name));
++	vdev->release = video_device_release_empty;
++	vdev->fops = &mali_c55_stats_v4l2_fops;
++	vdev->ioctl_ops = &mali_c55_stats_v4l2_ioctl_ops;
++	vdev->lock = &stats->lock;
++	vdev->v4l2_dev = &mali_c55->v4l2_dev;
++	vdev->queue = &stats->queue;
++	vdev->device_caps = V4L2_CAP_META_CAPTURE | V4L2_CAP_STREAMING;
++	vdev->vfl_dir = VFL_DIR_RX;
++	video_set_drvdata(vdev, stats);
++
++	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
++	if (ret) {
++		dev_err(mali_c55->dev,
++			"failed to register stats video device\n");
++		goto err_release_vb2q;
++	}
++
++
++	ret = media_jobs_register_job_contributor(mali_c55->sched,
++						  &mali_c55_stats_media_job_ops,
++						  stats,
++						  MEDIA_JOB_TYPE_PIPELINE_PULSE);
++	if (ret) {
++		dev_err(mali_c55->dev, "Failed to add media job setup func\n");
++		goto err_unregister_video_device;
++	}
++
++	stats->mali_c55 = mali_c55;
++
++	return 0;
++
++err_unregister_video_device:
++	video_unregister_device(vdev);
++err_release_vb2q:
++	vb2_queue_release(vb2q);
++err_cleanup_entity:
++	media_entity_cleanup(&stats->vdev.entity);
++err_release_dma_channel:
++	if (stats->channel)
++		dma_release_channel(stats->channel);
++
++	mutex_destroy(&stats->lock);
++
++	return ret;
++}
 
 -- 
 2.34.1
