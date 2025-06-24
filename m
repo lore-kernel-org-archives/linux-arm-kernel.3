@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B898C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83985C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:53:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPLMUZW9vFpO5b4cduf2LfD3Y7TG2BmrNpVZWKN+Ev4=; b=gTMZdYtnA6BoyhGH6KgC3DZzqH
-	255A1oYRyvPqMGqIOkFUVDxx4EXODjFe6H0Nq6F6ZQP9E7YvyN+1qMN+i3PswKVUs/shxsurAYfvL
-	BHKgmsAkKk90zATO216FyhKIfH01OndCo/34j6wm79AzgK3e/tMRLZVINw9eM1XNFiiRV0Ki92/M1
-	bRIorxwJvtL300J6BJZT7gPtAjyEuTF7WmkKyIfHy6OtKBN/AjzskG3ZtYRiMfcU5+cBRYHNPk7Ju
-	vOuCzIOiUKZzCSWX66OGWB5ppXMx4bY5tySHaxZu4pigdbfUygypjIrJaC8xC4xfwalGuK0MeA7FQ
-	5IkMWrmA==;
+	bh=y3IK9Md4yHqkkrs0Tk17orGssm32wZsRKZTqelMZLBA=; b=o0zUqWWr0rKfw30iJ6paZX8S+F
+	HNmNPYysycN+1VjLP7Zkr89hR3z292FzBmNEoQ9omH6LbF4897yOtDCykYLA6v8rPQlSyWaZdIR4P
+	v3wCLtavYWX1aga4v1YbjtjshF1eUKenaEmfHttFQsNxJj1rhRpQ53KHAbM5CYjVqRx8cEtRe4iZA
+	zYj6rCAIivfWXurL0jaB3GRuyaEjLyXdu4JkMyo/52anSoOCuY5wyEJbPyj9LdPkoFDDSzi3jHBGn
+	OyEXG5bazBeGGk+b8qtBHCdZnjGR7gjRHx4WoxjgiOWttPNvGnWVP1KQz/1XN3MO6Wxx6FJfNlO4e
+	Wqbnc6Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6t8-00000006Jr4-2cBg;
-	Tue, 24 Jun 2025 16:52:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uU6ts-00000006Jzi-2I9d;
+	Tue, 24 Jun 2025 16:53:36 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4in-00000005vge-3nFO;
-	Tue, 24 Jun 2025 14:34:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775640;
-	bh=BD8vaYX+YaB7vDlV1Vs/z5OUWTtjOO6ZQwZ57ymSD6k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GYKYuzqpg+oTxqOtTt2wiK//YdpmrussF5pu5Tt3PU4QPOCFSPrlnJJ6XaJ5Wn4cb
-	 PLC2aS8Z3/03uXADsRm4vi26EG3/Y4y+GMJzEJFhj2b8WJZImxiBRkoyFlBS6a2jf9
-	 4tJcW8a3WWuIVnF3dNhbWOLigLVICszfy+NKQjhLhpcL1QBOxZbwjJoP2v9a5c6fPl
-	 ShoDUYINv4nL3G+O02WsArkyLMCsQCSps1JC7VIDcdK1tEtP9uEyHAjRRZUqTkIS4F
-	 CZ5C7Wq3xdgKh5dCMFL0nxYTQE56gjOX/9d4gWEjSiASzPh8D6TEb/RudKKgH/njVv
-	 zIxWXu4uNu6Gg==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4E5B317E1067;
-	Tue, 24 Jun 2025 16:33:59 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
+	id 1uU45R-00000005n8m-3BC6;
+	Tue, 24 Jun 2025 13:53:22 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-553d771435fso410662e87.3;
+        Tue, 24 Jun 2025 06:53:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750773200; x=1751378000; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y3IK9Md4yHqkkrs0Tk17orGssm32wZsRKZTqelMZLBA=;
+        b=JGNtYspvn8dh2WhK2VdT/IWPp/DuoSu+tRRAXLFi67joc/9YhK1UJQV0ZviQb2gTLZ
+         QOF7w/PwCfFQET3Vkt/r2kBvB2KIQVvHRDbEeZeRE7i9p13H6dsQ3pcNpfRSgveoRO9X
+         2KSiNB/PiABCFoTwhoX3Fjvgfdmu5BsZT6xoTBhbo08qWrbUSHcQ9tGqR9rarMnU/c37
+         7KuHU3DlPVnbICAi9z1aWqd2YTjh1gg0JRZFrDlaMprbJhJbB1f5rZuc8TpWOzXoaKpX
+         UfA0WwScvdxnw+cct6pzT6Ex0/+3FDbQFem3JtMEvevH2qalk1gnKzrWL6Egt8GmFRiB
+         YAcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750773200; x=1751378000;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y3IK9Md4yHqkkrs0Tk17orGssm32wZsRKZTqelMZLBA=;
+        b=d86Szl9UCptrS47ZeD+5cWNzHjQkgHU6gW8Nlv61bkc2u1jenv1WFyYQ7pXVPPTWMt
+         P6XR7dDdv1ZO+6fW8GASWudQeaRrt5OvUUIyB+dMz7j5q2hOO8t4Ly6jb8LBLWO+8Om/
+         kvXuhKzZ9MkF+JzOne9S0c5HYSN2GL48NDE3HDklsNrP76aw40UKn0/LJkgsvKufaoiY
+         3ryAl5vbJNMGgfRADPqNvRU0MWA9E/FrtKtde0lKr7GK1hvntm0Wrb8+hOi2y48Bq+hx
+         9N07bQ7rnlXNn9hMRIdDzAn/bZU3xtc8xAVd87UJ2DABBjtklcTgjwHi6UYEtOECtaBK
+         QZMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUE2RrixHnniJIUeE1V7QjLgPnLu8GWbf6W5kDFUG4e875rYMfavfGm7NC4ZE6XxSZDBaOSWBW0dI4W+aPwTJ/wGw==@lists.infradead.org, AJvYcCVweBO9fjTsuIFdRJkC8EGNZyw2Fy+nmOLIkR+1q/tEJ0FmvJNQcIm+2obZ4AUhzruM3SryqnqsGL9HM2Rt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1BHR+hYYaAwyMZ5FGDHBlqsqU9iY9kirv1EsmBee4S2kCA5og
+	KfnOB537D6yi+LmnzY3b1SGg0zawzhuZTrt69ZDOl6SsAd4ABzJSX5X9
+X-Gm-Gg: ASbGncv8clraqznksoQfTVRCiEIy1KL9X2LCk+vF0wi6GKcSR5m9lWznELhRreMMD7K
+	9uW1qOqwdSEXEoGaD8lppzM/xpwf1wGFFF7aIhYhxeEkEgndXCuj+1anSnqPYhN/+qGfxpp0b+V
+	dmAysAvce39FWE02jMolf8F4faTpld9Oen5Rm3GyEcDoThMgKf0QYZMKS2gU5uI9oRahsNduDza
+	JR1FqFGtf8ocUvpHkbiBM+OqfuJif0I6AQ475Mmu7sXrLUUsrAKgxh5OjiVEMdC5yLrBo9HHRl6
+	rOpgAQyZBD+wloRyrcZ+qe0kdjvNK34ZUbWL1WNa9C4q5djsveoj0s6LZxSeo5XlUdJbCIWdDIL
+	C5bIP0FtqmctWJxNdGhrDQz3QWJAkLGL47HnMpziJRic5wP1b8h66IQfe9ZP6pA==
+X-Google-Smtp-Source: AGHT+IE+EAgkZL6Mw47nQ4R31xegTOWJIViyCWfJJq3iRvoV/c1kCKj26m2mBsJgPc6ES9syjAT9Kg==
+X-Received: by 2002:a05:6512:220b:b0:54b:117b:b54e with SMTP id 2adb3069b0e04-553e3d26967mr4282373e87.57.1750773199669;
+        Tue, 24 Jun 2025 06:53:19 -0700 (PDT)
+Received: from user-A520M-DS3H.sberdevices.ru (broadband-188-32-30-96.ip.moscow.rt.ru. [188.32.30.96])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-554e6dc186esm1282905e87.114.2025.06.24.06.53.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jun 2025 06:53:19 -0700 (PDT)
+From: Alexey Romanov <romanov.alexey2000@gmail.com>
+To: neil.armstrong@linaro.org,
+	clabbe@baylibre.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com
+Cc: linux-crypto@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 22/29] clk: mediatek: Add MT8196 mfg clock support
-Date: Tue, 24 Jun 2025 16:32:13 +0200
-Message-Id: <20250624143220.244549-23-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
-References: <20250624143220.244549-1-laura.nao@collabora.com>
+	Alexey Romanov <romanov.alexey2000@gmail.com>
+Subject: [PATCH v12 11/22] crypto: amlogic - Introduce hasher
+Date: Tue, 24 Jun 2025 16:52:03 +0300
+Message-Id: <20250624135214.1355051-12-romanov.alexey2000@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250624135214.1355051-1-romanov.alexey2000@gmail.com>
+References: <20250624135214.1355051-1-romanov.alexey2000@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_073402_294639_52A0BC11 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250624_065321_802687_4EE8A72B 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,205 +110,691 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 mfg clock controller, which provides PLL
-control for the GPU.
+Introduce support for SHA1/SHA224/SHA256 hash algos.
+Tested via tcrypt and custom tests.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Signed-off-by: Alexey Romanov <romanov.alexey2000@gmail.com>
 ---
- drivers/clk/mediatek/Kconfig          |   7 ++
- drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8196-mfg.c | 150 ++++++++++++++++++++++++++
- 3 files changed, 158 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
+ drivers/crypto/amlogic/Makefile             |   2 +-
+ drivers/crypto/amlogic/amlogic-gxl-core.c   |  25 +-
+ drivers/crypto/amlogic/amlogic-gxl-hasher.c | 485 ++++++++++++++++++++
+ drivers/crypto/amlogic/amlogic-gxl.h        |  48 ++
+ 4 files changed, 558 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/crypto/amlogic/amlogic-gxl-hasher.c
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index c193295d4136..9735f37f1e09 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1096,6 +1096,13 @@ config COMMON_CLK_MT8196_MDPSYS
- 	help
- 	  This driver supports MediaTek MT8196 mdpsys clocks.
+diff --git a/drivers/crypto/amlogic/Makefile b/drivers/crypto/amlogic/Makefile
+index 39057e62c13e..4b6b388b7880 100644
+--- a/drivers/crypto/amlogic/Makefile
++++ b/drivers/crypto/amlogic/Makefile
+@@ -1,2 +1,2 @@
+ obj-$(CONFIG_CRYPTO_DEV_AMLOGIC_GXL) += amlogic-gxl-crypto.o
+-amlogic-gxl-crypto-y := amlogic-gxl-core.o amlogic-gxl-cipher.o
++amlogic-gxl-crypto-y := amlogic-gxl-core.o amlogic-gxl-cipher.o amlogic-gxl-hasher.o
+diff --git a/drivers/crypto/amlogic/amlogic-gxl-core.c b/drivers/crypto/amlogic/amlogic-gxl-core.c
+index c1c445239549..706db22b9f65 100644
+--- a/drivers/crypto/amlogic/amlogic-gxl-core.c
++++ b/drivers/crypto/amlogic/amlogic-gxl-core.c
+@@ -19,6 +19,9 @@
+ #include <linux/of.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
++#include <crypto/internal/skcipher.h>
++#include <crypto/internal/hash.h>
++#include <linux/dma-mapping.h>
  
-+config COMMON_CLK_MT8196_MFGCFG
-+	tristate "Clock driver for MediaTek MT8196 mfgcfg"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 mfgcfg clocks.
+ #include "amlogic-gxl.h"
+ 
+@@ -172,6 +175,15 @@ int meson_register_algs(struct meson_dev *mc, struct meson_alg_template *algs,
+ 				return err;
+ 			}
+ 			break;
++		case CRYPTO_ALG_TYPE_AHASH:
++			err = crypto_engine_register_ahash(&algs[i].alg.ahash);
++			if (err) {
++				dev_err(mc->dev, "Fail to register %s\n",
++					algs[i].alg.ahash.base.halg.base.cra_name);
++				meson_unregister_algs(mc, algs, count);
++				return err;
++			}
++			break;
+ 		}
+ 	}
+ 
+@@ -190,6 +202,9 @@ void meson_unregister_algs(struct meson_dev *mc, struct meson_alg_template *algs
+ 		case CRYPTO_ALG_TYPE_SKCIPHER:
+ 			crypto_engine_unregister_skcipher(&algs[i].alg.skcipher);
+ 			break;
++		case CRYPTO_ALG_TYPE_AHASH:
++			crypto_engine_unregister_ahash(&algs[i].alg.ahash);
++			break;
+ 		}
+ 	}
+ }
+@@ -227,13 +242,20 @@ static int meson_crypto_probe(struct platform_device *pdev)
+ 
+ 		dbgfs_dir = debugfs_create_dir("gxl-crypto", NULL);
+ 		debugfs_create_file("stats", 0444, dbgfs_dir, mc, &meson_debugfs_fops);
+-
+ #ifdef CONFIG_CRYPTO_DEV_AMLOGIC_GXL_DEBUG
+ 		mc->dbgfs_dir = dbgfs_dir;
+ #endif
+ 	}
+ 
++	err = meson_hasher_register(mc);
++	if (err)
++		goto error_hasher;
 +
- config COMMON_CLK_MT8196_PEXTPSYS
- 	tristate "Clock driver for MediaTek MT8196 pextpsys"
- 	depends on COMMON_CLK_MT8196
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index b9a54d65e27c..31436c8e2a80 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -167,6 +167,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_ADSP) += clk-mt8196-adsp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_MFGCFG) += clk-mt8196-mfg.o
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
+ 	return 0;
++
++error_hasher:
++	meson_cipher_unregister(mc);
++
+ error_flow:
+ 	meson_free_chanlist(mc, mc->flow_cnt - 1);
+ 	return err;
+@@ -256,6 +278,7 @@ static const struct meson_pdata meson_gxl_pdata = {
+ 	.descs_reg = 0x0,
+ 	.status_reg = 0x4,
+ 	.setup_desc_cnt = 3,
++	.hasher_supported = false,
+ };
+ 
+ static const struct of_device_id meson_crypto_of_match_table[] = {
+diff --git a/drivers/crypto/amlogic/amlogic-gxl-hasher.c b/drivers/crypto/amlogic/amlogic-gxl-hasher.c
 new file mode 100644
-index 000000000000..77e5d76f5d90
+index 000000000000..c83739ec3456
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-@@ -0,0 +1,150 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/drivers/crypto/amlogic/amlogic-gxl-hasher.c
+@@ -0,0 +1,485 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
++ * Hardware asynchronous hasher for Amlogic SoC's.
++ *
++ * Author: Alexey Romanov <romanov.alexey2000@gmail.com>
 + */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
 +
-+#include "clk-mtk.h"
-+#include "clk-pll.h"
++#include <linux/crypto.h>
++#include <linux/device.h>
++#include <linux/dma-mapping.h>
++#include <linux/err.h>
++#include <crypto/internal/hash.h>
++#include <crypto/sha1.h>
++#include <crypto/sha2.h>
 +
-+#define MFGPLL_CON0	0x008
-+#define MFGPLL_CON1	0x00c
-+#define MFGPLL_CON2	0x010
-+#define MFGPLL_CON3	0x014
-+#define MFGPLL_SC0_CON0	0x008
-+#define MFGPLL_SC0_CON1	0x00c
-+#define MFGPLL_SC0_CON2	0x010
-+#define MFGPLL_SC0_CON3	0x014
-+#define MFGPLL_SC1_CON0	0x008
-+#define MFGPLL_SC1_CON1	0x00c
-+#define MFGPLL_SC1_CON2	0x010
-+#define MFGPLL_SC1_CON3	0x014
++#include "amlogic-gxl.h"
 +
-+#define MT8196_PLL_FMAX		(3800UL * MHZ)
-+#define MT8196_PLL_FMIN		(1500UL * MHZ)
-+#define MT8196_INTEGER_BITS	8
++static int meson_sha_init(struct ahash_request *req)
++{
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
 +
-+#define PLL(_id, _name, _reg, _en_reg, _en_mask, _pll_en_bit,	\
-+	    _flags, _rst_bar_mask,				\
-+	    _pd_reg, _pd_shift, _tuner_reg,			\
-+	    _tuner_en_reg, _tuner_en_bit,			\
-+	    _pcw_reg, _pcw_shift, _pcwbits) {			\
-+		.id = _id,					\
-+		.name = _name,					\
-+		.reg = _reg,					\
-+		.en_reg = _en_reg,				\
-+		.en_mask = _en_mask,				\
-+		.pll_en_bit = _pll_en_bit,			\
-+		.flags = _flags,				\
-+		.rst_bar_mask = _rst_bar_mask,			\
-+		.fmax = MT8196_PLL_FMAX,			\
-+		.fmin = MT8196_PLL_FMIN,			\
-+		.pd_reg = _pd_reg,				\
-+		.pd_shift = _pd_shift,				\
-+		.tuner_reg = _tuner_reg,			\
-+		.tuner_en_reg = _tuner_en_reg,			\
-+		.tuner_en_bit = _tuner_en_bit,			\
-+		.pcw_reg = _pcw_reg,				\
-+		.pcw_shift = _pcw_shift,			\
-+		.pcwbits = _pcwbits,				\
-+		.pcwibits = MT8196_INTEGER_BITS,		\
++	memset(rctx, 0, sizeof(struct meson_hasher_req_ctx));
++
++	rctx->flow = meson_get_engine_number(tctx->mc);
++	rctx->begin_req = true;
++
++	return 0;
++}
++
++static int meson_sha_update(struct ahash_request *req)
++{
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct crypto_engine *engine = tctx->mc->chanlist[rctx->flow].engine;
++
++	return crypto_transfer_hash_request_to_engine(engine, req);
++}
++
++static int meson_sha_final(struct ahash_request *req)
++{
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct crypto_engine *engine = tctx->mc->chanlist[rctx->flow].engine;
++
++	rctx->final_req = true;
++
++	return crypto_transfer_hash_request_to_engine(engine, req);
++}
++
++static int meson_hasher_req_map(struct ahash_request *req)
++{
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_dev *mc = tctx->mc;
++	int ret;
++
++	if (!req->nbytes)
++		return 0;
++
++	ret = dma_map_sg(mc->dev, req->src, sg_nents(req->src), DMA_TO_DEVICE);
++	if (!ret) {
++		dev_err(mc->dev, "Cannot DMA MAP request data\n");
++		return -ENOMEM;
 +	}
 +
-+static const struct mtk_pll_data mfg_ao_plls[] = {
-+	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-+	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-+	    MFGPLL_CON1, 0, 22),
-+};
++	return 0;
++}
 +
-+static const struct mtk_pll_data mfgsc0_ao_plls[] = {
-+	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
-+	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC0_CON1, 0, 22),
-+};
-+
-+static const struct mtk_pll_data mfgsc1_ao_plls[] = {
-+	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
-+	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC1_CON1, 0, 22),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_mfg[] = {
-+	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
-+	  .data = &mfg_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc0-pll-ctrl",
-+	  .data = &mfgsc0_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc1-pll-ctrl",
-+	  .data = &mfgsc1_ao_plls },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
-+
-+static int clk_mt8196_mfg_probe(struct platform_device *pdev)
++static void meson_hasher_req_unmap(struct ahash_request *req)
 +{
-+	const struct mtk_pll_data *plls;
-+	struct clk_hw_onecell_data *clk_data;
-+	struct device_node *node = pdev->dev.of_node;
-+	const int num_plls = 1;
-+	int r;
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_dev *mc = tctx->mc;
 +
-+	plls = of_device_get_match_data(&pdev->dev);
-+	if (!plls)
++	if (!req->nbytes)
++		return;
++
++	dma_unmap_sg(mc->dev, req->src, sg_nents(req->src), DMA_TO_DEVICE);
++}
++
++struct hasher_ctx {
++	struct crypto_async_request *areq;
++
++	unsigned int tloffset;
++	unsigned int nbytes;
++	unsigned int todo;
++
++	dma_addr_t state_addr;
++	dma_addr_t src_addr;
++	unsigned int src_offset;
++	struct scatterlist *src_sg;
++};
++
++static bool meson_final(struct hasher_ctx *ctx)
++{
++	struct ahash_request *req = ahash_request_cast(ctx->areq);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++
++	return !ctx->nbytes && rctx->final_req;
++}
++
++static int meson_fill_partial_buffer(struct hasher_ctx *ctx, unsigned int len)
++{
++	struct ahash_request *req = ahash_request_cast(ctx->areq);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct meson_dev *mc = tctx->mc;
++	unsigned int blocksize = crypto_ahash_blocksize(tfm);
++	unsigned int copy;
++
++	if (len) {
++		copy = min(blocksize - rctx->partial_size, len);
++		memcpy(rctx->partial + rctx->partial_size,
++		       sg_virt(ctx->src_sg) + ctx->src_offset, copy);
++
++		rctx->partial_size += copy;
++		ctx->nbytes -= copy;
++		ctx->src_offset += copy;
++	}
++
++	if (rctx->partial_size == blocksize || meson_final(ctx)) {
++		rctx->partial_addr = dma_map_single(mc->dev,
++						    rctx->partial,
++						    rctx->partial_size,
++						    DMA_TO_DEVICE);
++		if (dma_mapping_error(mc->dev, rctx->partial_addr)) {
++			dev_err(mc->dev, "Cannot DMA MAP SHA partial buffer\n");
++			return -ENOMEM;
++		}
++
++		rctx->partial_mapped = true;
++		ctx->todo = rctx->partial_size;
++		ctx->src_addr = rctx->partial_addr;
++	}
++
++	return 0;
++}
++
++static unsigned int meson_setup_data_descs(struct hasher_ctx *ctx)
++{
++	struct ahash_request *req = ahash_request_cast(ctx->areq);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_dev *mc = tctx->mc;
++	struct meson_flow *flow = &mc->chanlist[rctx->flow];
++	struct hash_alg_common *alg = crypto_hash_alg_common(tfm);
++	struct meson_alg_template *algt = container_of(alg,
++		struct meson_alg_template, alg.ahash.base.halg);
++	struct meson_desc *desc = &flow->tl[ctx->tloffset];
++	u32 v;
++
++	ctx->tloffset++;
++
++	v = DESC_OWN | DESC_ENCRYPTION | DESC_OPMODE_SHA |
++	    ctx->todo | algt->blockmode;
++	if (rctx->begin_req) {
++		rctx->begin_req = false;
++		v |= DESC_BEGIN;
++	}
++
++	if (!ctx->nbytes && rctx->final_req) {
++		rctx->final_req = false;
++		v |= DESC_END;
++	}
++
++	if (!ctx->nbytes || ctx->tloffset == MAXDESC || rctx->partial_mapped)
++		v |= DESC_LAST;
++
++	desc->t_src = cpu_to_le32(ctx->src_addr);
++	desc->t_dst = cpu_to_le32(ctx->state_addr);
++	desc->t_status = cpu_to_le32(v);
++
++	return v & DESC_LAST;
++}
++
++static int meson_kick_hardware(struct hasher_ctx *ctx)
++{
++	struct ahash_request *req = ahash_request_cast(ctx->areq);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_dev *mc = tctx->mc;
++	struct meson_flow *flow = &mc->chanlist[rctx->flow];
++	int ret;
++
++	reinit_completion(&flow->complete);
++	meson_dma_start(mc, rctx->flow);
++
++	ret = wait_for_completion_timeout(&flow->complete,
++					  msecs_to_jiffies(500));
++	if (ret == 0) {
++		dev_err(mc->dev, "DMA timeout for flow %d\n", rctx->flow);
 +		return -EINVAL;
++	} else if (ret < 0) {
++		dev_err(mc->dev, "Waiting for DMA completion is failed (%d)\n", ret);
++		return ret;
++	}
 +
-+	clk_data = mtk_alloc_clk_data(num_plls);
-+	if (!clk_data)
-+		return -ENOMEM;
++	if (rctx->partial_mapped) {
++		dma_unmap_single(mc->dev, rctx->partial_addr,
++				 rctx->partial_size,
++				 DMA_TO_DEVICE);
++		rctx->partial_size = 0;
++		rctx->partial_mapped = false;
++	}
 +
-+	r = mtk_clk_register_plls(node, plls, num_plls, clk_data);
-+	if (r)
-+		goto free_clk_data;
++	ctx->tloffset = 0;
 +
-+	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-+	if (r)
-+		goto unregister_plls;
-+
-+	platform_set_drvdata(pdev, clk_data);
-+
-+	return r;
-+
-+unregister_plls:
-+	mtk_clk_unregister_plls(plls, num_plls, clk_data);
-+free_clk_data:
-+	mtk_free_clk_data(clk_data);
-+
-+	return r;
++	return 0;
 +}
 +
-+static void clk_mt8196_mfg_remove(struct platform_device *pdev)
++static void meson_setup_state_descs(struct hasher_ctx *ctx)
 +{
-+	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
-+	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-+	struct device_node *node = pdev->dev.of_node;
++	struct ahash_request *req = ahash_request_cast(ctx->areq);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_dev *mc = tctx->mc;
++	struct meson_desc *desc;
++	int i;
 +
-+	of_clk_del_provider(node);
-+	mtk_clk_unregister_plls(plls, 1, clk_data);
-+	mtk_free_clk_data(clk_data);
++	if (ctx->tloffset || rctx->begin_req)
++		return;
++
++	for (i = 0; i < mc->pdata->setup_desc_cnt; i++) {
++		int offset = i * 16;
++
++		desc = &mc->chanlist[rctx->flow].tl[ctx->tloffset];
++		desc->t_src = cpu_to_le32(ctx->state_addr + offset);
++		desc->t_dst = cpu_to_le32(offset);
++		desc->t_status = cpu_to_le32(MESON_SHA_BUFFER_SIZE |
++					     DESC_MODE_KEY | DESC_OWN);
++
++		ctx->tloffset++;
++	}
 +}
 +
-+static struct platform_driver clk_mt8196_mfg_drv = {
-+	.probe = clk_mt8196_mfg_probe,
-+	.remove = clk_mt8196_mfg_remove,
-+	.driver = {
-+		.name = "clk-mt8196-mfg",
-+		.owner = THIS_MODULE,
-+		.of_match_table = of_match_clk_mt8196_mfg,
-+	},
-+};
-+module_platform_driver(clk_mt8196_mfg_drv);
++static int meson_hasher_do_one_request(struct crypto_engine *engine, void *areq)
++{
++	struct ahash_request *req = ahash_request_cast(areq);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct meson_hasher_tfm_ctx *tctx = crypto_ahash_ctx_dma(tfm);
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++	struct meson_dev *mc = tctx->mc;
++	struct hasher_ctx ctx = {
++		.tloffset = 0,
++		.src_offset = 0,
++		.nbytes = rctx->final_req ? 0 : req->nbytes,
++		.src_sg = req->src,
++		.areq = areq,
++	};
++	unsigned int blocksize = crypto_ahash_blocksize(tfm);
++	unsigned int digest_size = crypto_ahash_digestsize(tfm);
++	bool final_req = rctx->final_req;
++	int ret;
 +
-+MODULE_DESCRIPTION("MediaTek MT8196 GPU mfg clocks driver");
-+MODULE_LICENSE("GPL");
++	ctx.state_addr = dma_map_single(mc->dev, rctx->state,
++					sizeof(rctx->state), DMA_BIDIRECTIONAL);
++	ret = dma_mapping_error(mc->dev, ctx.state_addr);
++	if (ret) {
++		dev_err(mc->dev, "Cannot DMA MAP SHA state buffer");
++		goto fail_map_single;
++	}
++
++	ret = meson_hasher_req_map(req);
++	if (ret)
++		goto fail_map_req;
++
++	for (;;) {
++		unsigned int len = ctx.src_sg ?
++			min(sg_dma_len(ctx.src_sg) - ctx.src_offset, ctx.nbytes) : 0;
++
++		ctx.src_addr = 0;
++		ctx.todo = 0;
++
++		if (!rctx->final_req && !ctx.nbytes)
++			break;
++
++		meson_setup_state_descs(&ctx);
++
++		if (rctx->partial_size && rctx->partial_size < blocksize) {
++			ret = meson_fill_partial_buffer(&ctx, len);
++			if (ret)
++				goto fail;
++		} else if (len && len < blocksize) {
++			memcpy(rctx->partial, sg_virt(ctx.src_sg) + ctx.src_offset, len);
++
++			rctx->partial_size = len;
++			ctx.nbytes -= len;
++			ctx.src_offset += len;
++		} else if (len) {
++			ctx.src_addr = sg_dma_address(ctx.src_sg) + ctx.src_offset;
++			ctx.todo = min(rounddown(DESC_MAXLEN, blocksize),
++				       rounddown(len, blocksize));
++			ctx.nbytes -= ctx.todo;
++			ctx.src_offset += ctx.todo;
++		}
++
++		if (ctx.src_sg && ctx.src_offset == sg_dma_len(ctx.src_sg)) {
++			ctx.src_offset = 0;
++			ctx.src_sg = sg_next(ctx.src_sg);
++		}
++
++		if (!ctx.todo && ctx.nbytes)
++			continue;
++
++		if (!ctx.todo && !rctx->final_req && !ctx.tloffset)
++			continue;
++
++		if (meson_setup_data_descs(&ctx)) {
++			ret = meson_kick_hardware(&ctx);
++			if (ret)
++				goto fail;
++		}
++	}
++
++fail:
++	meson_hasher_req_unmap(req);
++
++fail_map_req:
++	dma_unmap_single(mc->dev, ctx.state_addr, sizeof(rctx->state),
++			 DMA_BIDIRECTIONAL);
++
++fail_map_single:
++	if (final_req && ret == 0)
++		memcpy(req->result, rctx->state, digest_size);
++
++	local_bh_disable();
++	crypto_finalize_hash_request(engine, req, ret);
++	local_bh_enable();
++
++	return ret;
++}
++
++static int meson_hasher_export(struct ahash_request *req, void *out)
++{
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++
++	memcpy(out, rctx, sizeof(*rctx));
++	return 0;
++}
++
++static int meson_hasher_import(struct ahash_request *req, const void *in)
++{
++	struct meson_hasher_req_ctx *rctx = ahash_request_ctx(req);
++
++	memcpy(rctx, in, sizeof(*rctx));
++	return 0;
++}
++
++static int meson_hasher_init(struct crypto_tfm *tfm)
++{
++	struct meson_hasher_tfm_ctx *tctx = crypto_tfm_ctx_dma(tfm);
++	struct crypto_ahash *atfm = __crypto_ahash_cast(tfm);
++	struct hash_alg_common *alg = crypto_hash_alg_common(atfm);
++	struct meson_alg_template *algt = container_of(alg,
++		struct meson_alg_template, alg.ahash.base.halg);
++
++	crypto_ahash_set_reqsize_dma(atfm, crypto_ahash_statesize(atfm));
++
++	memset(tctx, 0, sizeof(struct meson_hasher_tfm_ctx));
++
++	tctx->mc = algt->mc;
++
++	return 0;
++}
++
++static struct meson_alg_template mc_algs[] = {
++{
++	.type = CRYPTO_ALG_TYPE_AHASH,
++	.blockmode = DESC_MODE_SHA1,
++	.alg.ahash.base = {
++		.halg = {
++			.base = {
++				.cra_name = "sha1",
++				.cra_driver_name = "sha1-gxl",
++				.cra_priority = 400,
++				.cra_blocksize = SHA1_BLOCK_SIZE,
++				.cra_flags = CRYPTO_ALG_ASYNC,
++				.cra_module = THIS_MODULE,
++				.cra_alignmask = 0,
++				.cra_init = meson_hasher_init,
++			},
++			.digestsize = SHA1_DIGEST_SIZE,
++			.statesize = sizeof(struct meson_hasher_req_ctx),
++		},
++		.init = meson_sha_init,
++		.update = meson_sha_update,
++		.final = meson_sha_final,
++		.export = meson_hasher_export,
++		.import = meson_hasher_import,
++	},
++	.alg.ahash.op = {
++		.do_one_request = meson_hasher_do_one_request,
++	},
++},
++{
++	.type = CRYPTO_ALG_TYPE_AHASH,
++	.blockmode = DESC_MODE_SHA224,
++	.alg.ahash.base = {
++		.halg = {
++			.base = {
++				.cra_name = "sha224",
++				.cra_driver_name = "sha224-gxl",
++				.cra_priority = 400,
++				.cra_blocksize = SHA224_BLOCK_SIZE,
++				.cra_flags = CRYPTO_ALG_ASYNC,
++				.cra_module = THIS_MODULE,
++				.cra_alignmask = 0,
++				.cra_init = meson_hasher_init,
++			},
++			.digestsize = SHA224_DIGEST_SIZE,
++			.statesize = sizeof(struct meson_hasher_req_ctx),
++		},
++		.init = meson_sha_init,
++		.update = meson_sha_update,
++		.final = meson_sha_final,
++		.export = meson_hasher_export,
++		.import = meson_hasher_import,
++	},
++	.alg.ahash.op = {
++		.do_one_request = meson_hasher_do_one_request,
++	},
++},
++{
++	.type = CRYPTO_ALG_TYPE_AHASH,
++	.blockmode = DESC_MODE_SHA256,
++	.alg.ahash.base = {
++		.halg = {
++			.base = {
++				.cra_name = "sha256",
++				.cra_driver_name = "sha256-gxl",
++				.cra_priority = 400,
++				.cra_blocksize = SHA256_BLOCK_SIZE,
++				.cra_flags = CRYPTO_ALG_ASYNC,
++				.cra_module = THIS_MODULE,
++				.cra_alignmask = 0,
++				.cra_init = meson_hasher_init,
++			},
++			.digestsize = SHA256_DIGEST_SIZE,
++			.statesize = sizeof(struct meson_hasher_req_ctx),
++		},
++		.init = meson_sha_init,
++		.update = meson_sha_update,
++		.final = meson_sha_final,
++		.export = meson_hasher_export,
++		.import = meson_hasher_import,
++	},
++	.alg.ahash.op = {
++		.do_one_request = meson_hasher_do_one_request,
++	},
++},
++};
++
++int meson_hasher_register(struct meson_dev *mc)
++{
++	int i;
++
++	if (!mc->pdata->hasher_supported) {
++		pr_info("amlogic-gxl-hasher: hasher not supported at current platform");
++		return 0;
++	}
++
++	for (i = 0; i < ARRAY_SIZE(mc_algs); i++) {
++		struct hash_alg_common *alg = &mc_algs[i].alg.ahash.base.halg;
++
++		alg->base.cra_ctxsize = sizeof(struct meson_hasher_tfm_ctx) + crypto_dma_padding();
++	}
++
++	return meson_register_algs(mc, mc_algs, ARRAY_SIZE(mc_algs));
++}
++
++void meson_hasher_unregister(struct meson_dev *mc)
++{
++	if (!mc->pdata->hasher_supported)
++		return;
++
++	meson_unregister_algs(mc, mc_algs, ARRAY_SIZE(mc_algs));
++}
+diff --git a/drivers/crypto/amlogic/amlogic-gxl.h b/drivers/crypto/amlogic/amlogic-gxl.h
+index aca0bbb9badc..c4f65b541f83 100644
+--- a/drivers/crypto/amlogic/amlogic-gxl.h
++++ b/drivers/crypto/amlogic/amlogic-gxl.h
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2018-2019 Corentin LABBE <clabbe@baylibre.com>
+  */
+ #include <crypto/aes.h>
++#include <crypto/sha2.h>
+ #include <crypto/engine.h>
+ #include <crypto/skcipher.h>
+ #include <linux/debugfs.h>
+@@ -23,13 +24,22 @@
+ 
+ #define DESC_OPMODE_ECB (0 << 26)
+ #define DESC_OPMODE_CBC (1 << 26)
++#define DESC_OPMODE_SHA (0 << 26)
+ 
+ #define DESC_MAXLEN GENMASK(16, 0)
+ 
++#define DESC_MODE_SHA1   (0x5 << 20)
++#define DESC_MODE_SHA224 (0x7 << 20)
++#define DESC_MODE_SHA256 (0x6 << 20)
++
+ #define DESC_LAST BIT(18)
++#define DESC_BEGIN BIT(24)
++#define DESC_END BIT(25)
+ #define DESC_ENCRYPTION BIT(28)
+ #define DESC_OWN BIT(31)
+ 
++#define MESON_SHA_BUFFER_SIZE (SHA256_DIGEST_SIZE + 16)
++
+ /*
+  * struct meson_desc - Descriptor for DMA operations
+  * Note that without datasheet, some are unknown
+@@ -83,11 +93,13 @@ struct meson_flow {
+  * @reg_descs:	offset to descriptors register
+  * @reg_status:	offset to status register
+  * @setup_desc_cnt:	number of setup descriptor to configure.
++ * @hasher_supported:	indecates whether hasher is supported.
+  */
+ struct meson_pdata {
+ 	u32 descs_reg;
+ 	u32 status_reg;
+ 	u32 setup_desc_cnt;
++	bool hasher_supported;
+ };
+ 
+ /*
+@@ -141,6 +153,38 @@ struct meson_cipher_tfm_ctx {
+ 	struct crypto_skcipher *fallback_tfm;
+ };
+ 
++/*
++ * struct meson_hasher_req_ctx - context for a hasher request
++ * @state:		state data
++ * @partial:		partial buffer data. Contains sent data which
++ *			size < blocksize
++ * @partial_size:	size of the partial buffer
++ * @partial_addr:	physical address of partial buffer
++ * @partial_mapped:	indicates is partial buffer currently mapped or not
++ * @flags:		request flags (for example, is this final req or not)
++ * @flow:		the flow to use for this request
++ */
++struct meson_hasher_req_ctx {
++	u8 state[SHA256_DIGEST_SIZE + 16] ____cacheline_aligned;
++	u8 partial[SHA256_BLOCK_SIZE] ____cacheline_aligned;
++	unsigned int partial_size ____cacheline_aligned;
++	dma_addr_t partial_addr;
++	bool partial_mapped;
++
++	bool begin_req;
++	bool final_req;
++	int flow;
++};
++
++/*
++ * struct meson_hasher_tfm_ctx - context for a hasher TFM
++ * @enginectx:		crypto_engine used by this TFM
++ * @mc:			pointer to the private data of driver handling this TFM
++ */
++struct meson_hasher_tfm_ctx {
++	struct meson_dev *mc;
++};
++
+ /*
+  * struct meson_alg_template - crypto_alg template
+  * @type:		the CRYPTO_ALG_TYPE for this template
+@@ -155,6 +199,7 @@ struct meson_alg_template {
+ 	u32 blockmode;
+ 	union {
+ 		struct skcipher_engine_alg skcipher;
++		struct ahash_engine_alg ahash;
+ 	} alg;
+ 	struct meson_dev *mc;
+ #ifdef CONFIG_CRYPTO_DEV_AMLOGIC_GXL_DEBUG
+@@ -176,3 +221,6 @@ int meson_cipher_register(struct meson_dev *mc);
+ void meson_cipher_unregister(struct meson_dev *mc);
+ void meson_cipher_debugfs_show(struct seq_file *seq, void *v);
+ int meson_handle_cipher_request(struct crypto_engine *engine, void *areq);
++
++int meson_hasher_register(struct meson_dev *mc);
++void meson_hasher_unregister(struct meson_dev *mc);
 -- 
-2.39.5
+2.34.1
 
 
