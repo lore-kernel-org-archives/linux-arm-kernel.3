@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95683C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 443A7C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cdT6uLvt7v0OlGBZcXbpnLNPp3K3v9W/E3AD3dZIWto=; b=c+CLVjNRrjtzz1aHEk3N/UJCO3
-	uA4pFVw6efOhbOz79ByClhxDAk10gmMF1S+wadGWvulZt2XJFBBMOFKIgkZLJ582RJL6tVcr5jI0B
-	msjhW8DFTSW2+/V1JWJtcx0YJ82owUN7kvTYV70ZM+Uv/sxwvW1rLOxHkqRJtXmbICt2pixyhz8ZH
-	0nvcWGK55uWmp6OB5Ax79mlbPJpQtgD/A5oSrr4DnjhNZsPM/DD7de5CeyPr3Iyptan+4EYMMNXcD
-	6C/nwFlfXTfxlmrgjB5zOCDRZyZtNN/oiJPSZZbiA9Rc4FRHUeK4a0Jpew7T9DHLHw6+WA0sjt0Cy
-	ObLN6UQg==;
+	bh=ARenIHQDE4fGP/l8dHN4HTvBydXiczlX76prE7G/63o=; b=daowAf2CnM9lVyD4AVpABIJ9AS
+	CAZJFNM07Tx7IwguwGhwL9sSXEOYt6dqRdP0Ds9ysb3D4UNk2xsLlaQ0/oPdT3HkHrbAHgdgRP2SU
+	eudwrBAw03XmvdY7YDKEPr5uufqJQsGuzp+EhUuhGAVWRGogYvrM2gK5hVedJ9E2hzmSv+hacc14a
+	4KurJhDRpQsSMHiVxW//LxDQZ1lOUu0Kz31Us5I/ybrXVftZhuX7sU56PB7wA853rl9CXbL6GmNRB
+	/OAGhi+aY8nkVvja/ImriGjYTv6oHbdphpgnewx6D275gwOHLMRDjKWd1ln5k4aZ/Xq/nsWYAo4X/
+	+fDKl2bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTzEN-000000053tn-2lM1;
-	Tue, 24 Jun 2025 08:42:15 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uTzGo-000000054Ju-1mxh;
+	Tue, 24 Jun 2025 08:44:46 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyzA-000000050mt-2Jey
+	id 1uTyzA-000000050mv-2Jkk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 08:26:33 +0000
+	Tue, 24 Jun 2025 08:26:34 +0000
 Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QSPV1731128;
-	Tue, 24 Jun 2025 03:26:28 -0500
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55O8QMfQ1108940;
+	Tue, 24 Jun 2025 03:26:22 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750753588;
-	bh=cdT6uLvt7v0OlGBZcXbpnLNPp3K3v9W/E3AD3dZIWto=;
+	s=ti-com-17Q1; t=1750753582;
+	bh=ARenIHQDE4fGP/l8dHN4HTvBydXiczlX76prE7G/63o=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=dWEatX0JsXjRtUeWFuRxaWKkwhdwQzU8Ez2OQMUrnfi8NN5tzBvhgit80P6CU4HS2
-	 fkhZY1Jk5C74s/hWiYIvgJC6jyIRAPAE/oAux7MJHk8lU7SmFLu9qr3bpeolgcA1cx
-	 nRbVxfsYh0ku5XkzT+cTlr07ydKEFMC30rnhlZR4=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QS8j1551294
+	b=luz111WHsBLS7m2xm3GyeD1CxhVR7JEdmpm+nK9N5+gY/8GafP3gXmd9/gTjHi5ny
+	 oGYSQCmYX2nMGdhKOgoVjUHmcfOhkPfyCC1nlJt51yUZFhiRMmCJA1/M2+yGxEapyd
+	 ehOBG8k+UkUri9/KhuCMMQyc8ne47NCPprveLzuM=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55O8QMPZ1551240
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 24 Jun 2025 03:26:28 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 24 Jun 2025 03:26:22 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 24
- Jun 2025 03:26:28 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 03:26:22 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 24 Jun 2025 03:26:27 -0500
+ Frontend Transport; Tue, 24 Jun 2025 03:26:22 -0500
 Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.214])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QR7A1183643;
-	Tue, 24 Jun 2025 03:26:27 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55O8QLTk1183544;
+	Tue, 24 Jun 2025 03:26:22 -0500
 From: Jayesh Choudhary <j-choudhary@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>,
         <j-choudhary@ti.com>
-Subject: [PATCH v2 4/7] arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
-Date: Tue, 24 Jun 2025 13:56:16 +0530
-Message-ID: <20250624082619.324851-5-j-choudhary@ti.com>
+Subject: [PATCH v2 1/7] arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
+Date: Tue, 24 Jun 2025 13:56:13 +0530
+Message-ID: <20250624082619.324851-2-j-choudhary@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250624082619.324851-1-j-choudhary@ti.com>
 References: <20250624082619.324851-1-j-choudhary@ti.com>
@@ -69,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_012632_685950_952C5D2B 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20250624_012632_686214_D6296EE3 
+X-CRM114-Status: UNSURE (   9.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,56 +86,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add dt node for main_i2c4 instance along with required pinmuxing.
-Also add the gpio expander 'exp4' required by display connector.
+Add DT nodes for DPI to DSI Bridge and DSI Phy.
+The DSI bridge is Cadence DSI and the PHY is a
+Cadence DPHY with TI wrapper.
 
 Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 ---
- .../dts/ti/k3-j721s2-common-proc-board.dts    | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-index e2fc1288ed07..793d50344fad 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-@@ -148,6 +148,13 @@ J721S2_IOPAD(0x060, PIN_INPUT_PULLUP, 13) /* (AC27) MCASP2_AXR1.I2C3_SDA */
- 		>;
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+index 363d68fec387..2413c4913a8b 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+@@ -2517,6 +2517,43 @@ watchdog18: watchdog@2550000 {
+ 		status = "reserved";
  	};
  
-+	main_i2c4_pins_default: main-i2c4-default-pins {
-+		pinctrl-single,pins = <
-+			J721S2_IOPAD(0x014, PIN_INPUT_PULLUP, 8) /* (AD25) I2C4_SCL */
-+			J721S2_IOPAD(0x010, PIN_INPUT_PULLUP, 8) /* (AF28) I2C4_SDA */
-+		>;
++	dphy_tx0: phy@4480000 {
++		compatible = "ti,j721e-dphy";
++		reg = <0x0 0x04480000 0x0 0x1000>;
++		clocks = <&k3_clks 402 20>, <&k3_clks 402 3>;
++		clock-names = "psm", "pll_ref";
++		#phy-cells = <0>;
++		power-domains = <&k3_pds 402 TI_SCI_PD_EXCLUSIVE>;
++		assigned-clocks = <&k3_clks 402 3>;
++		assigned-clock-parents = <&k3_clks 402 4>;
++		assigned-clock-rates = <19200000>;
++		status = "disabled";
 +	};
 +
- 	main_i2c5_pins_default: main-i2c5-default-pins {
- 		pinctrl-single,pins = <
- 			J721S2_IOPAD(0x01c, PIN_INPUT, 8) /* (Y24) MCAN15_TX.I2C5_SCL */
-@@ -370,6 +377,23 @@ exp2: gpio@22 {
- 	};
- };
- 
-+&main_i2c4 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c4_pins_default>;
-+	clock-frequency = <400000>;
++	dsi0: dsi@4800000 {
++		compatible = "ti,j721e-dsi";
++		reg = <0x0 0x04800000 0x0 0x100000>, <0x0 0x04710000 0x0 0x100>;
++		clocks = <&k3_clks 215 2>, <&k3_clks 215 5>;
++		clock-names = "dsi_p_clk", "dsi_sys_clk";
++		power-domains = <&k3_pds 215 TI_SCI_PD_EXCLUSIVE>;
++		interrupt-parent = <&gic500>;
++		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
++		phys = <&dphy_tx0>;
++		phy-names = "dphy";
++		status = "disabled";
 +
-+	exp4: gpio@20 {
-+		compatible = "ti,tca6408";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names = "DP0_PWR_SW_EN", "DP1_PWR_SW_EN", "UB981_PDB",
-+				  "UB981_GPIO0", "UB981_GPIO1", "UB981_GPIO2",
-+				  "UB981_GPIO3", "PWR_SW_CNTL_DSI0#";
++		dsi0_ports: ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			port@0 {
++				reg = <0>;
++			};
++			port@1 {
++				reg = <1>;
++			};
++		};
 +	};
-+};
 +
- &main_i2c5 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c5_pins_default>;
+ 	mhdp: bridge@a000000 {
+ 		compatible = "ti,j721e-mhdp8546";
+ 		reg = <0x0 0xa000000 0x0 0x30a00>,
 -- 
 2.34.1
 
