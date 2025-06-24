@@ -4,70 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0926CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9EDC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 11:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJNZSdtlkmYSmYR194N6u/IIwvLnmZyLCW5wos6cefs=; b=27BGGZmbwXwU3SyFWgW0oNgI2b
-	pCz9I51XHsn1iYZEB/tcxsvwbPlLX33Acvgy4JSW19Fp6bioyrtLHg3oz6JEFBdlOnrucTNJrqofh
-	r4FyoiDWJT5GCmFO45uFFFVRSeRrer7eOXMzELIY28JU7iH9/zG4EH8+BqN/+VPjNpdDY1MKJ/Fmz
-	XRQR2XJHAItJhWPAp1LvJ+FpRfvnPb6r5u1aDl5pa/1O6LAIwkB2/Lf2vMJicIHPCCvfX8fy0tuAF
-	/ppO2YYUBRTfCM7Jx8xJyW63qI6Obad3PupAN7AyZGoSX4neS2pKno5Ow1vy1RwVAa8ddNu9YafER
-	EoFAzO2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LowxC1XeO1Q3ptnV100NCfbZE/+FCacaRTlFDEZ7nw4=; b=xEOZhk+Xi2PCq8W+1LSEme31ln
+	pQIPzB7uwkP1++5gcxbzsX3/wJ28q0lYQiGBL4b3gg7+pp0NGgbWaH498H1hsiLcBxoF8hEaynxoY
+	n5HlNgoK0vnurEWVgIO5aU/3Zbrn4vWqCaxycmhHgvqVJst1BMUtg5JZr1mYtwWGee87G3MkQLLqh
+	3ZnBSWdGhzjE0XC0mHpJwIM9iwgJjoavxO7wMhQIU0/Ds1DGu8QFnrwGmnOA7rWji1QMRZZE8ZR7W
+	wwBJ/4ZGJOmlqu5uIcW/X3qDjKIVv/tJoCgnTnTcBn15efP5v2Kh8UKnyVopeuItST2eIi3ag7TCf
+	zuoBFbcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU20O-00000005RwT-2Dyx;
-	Tue, 24 Jun 2025 11:40:00 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1uU22j-00000005S7u-1Wck;
+	Tue, 24 Jun 2025 11:42:25 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU15d-00000005KtW-3hgN
+	id 1uU1AA-00000005LYV-1T55
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 10:41:23 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E820C101E9287;
-	Tue, 24 Jun 2025 12:41:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1750761677; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=xJNZSdtlkmYSmYR194N6u/IIwvLnmZyLCW5wos6cefs=;
-	b=O81Rly9RWffD1vprGIl6wBGzUIqmAs4FKeptoBWaVbi98DKflcuKrXOi/+WfDxvIkCoNsq
-	B8YX5tAhGPNXO0jpbhC/kdKkicKFvyZVRlXm9SRLc3BF9elb7QkiVxNvlGVnWXvWaPZoQr
-	PKlhnwOnBPAzcW8V9ZXu2vSzAYs5KVeIol/jIMsxD80dsHyb5q7aZto5klDzlZzYDbl6el
-	etk/HqBCVUB8AWsw1JI81+euCWs6ThTGgEJzOSX7wi3rT9UDZx5mGPb4EitnFOo/i+khE7
-	adnF828od6mJWOIBxCGN7Tz1Cq/KZsqsvJCx9U/xUWgwpH7QtOHheeIaEAf45g==
-Date: Tue, 24 Jun 2025 12:41:08 +0200
-From: Pavel Machek <pavel@denx.de>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
-	patches@lists.linux.dev, linux-kernel@vger.kernel.org,
-	torvalds@linux-foundation.org, akpm@linux-foundation.org,
-	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
-	lkft-triage@lists.linaro.org, jonathanh@nvidia.com,
-	f.fainelli@gmail.com, sudipm.mukherjee@gmail.com,
-	srw@sladewatkins.net, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	Julien Thierry <jthierry@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: [PATCH 5.10 000/355] 5.10.239-rc1 review
-Message-ID: <aFqAxKT6C7idQY32@duo.ucw.cz>
-References: <20250623130626.716971725@linuxfoundation.org>
- <CA+G9fYt2e-ZGhU57oqWwC1_t2RPgxLCJFVC0Pa8-fYPkZcUvVQ@mail.gmail.com>
+	Tue, 24 Jun 2025 10:46:07 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55O89PlW018562;
+	Tue, 24 Jun 2025 12:45:45 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	LowxC1XeO1Q3ptnV100NCfbZE/+FCacaRTlFDEZ7nw4=; b=NW+9A/iYDBIYOudx
+	bupDVw7fFsOUiF1POCQhkWRdtrMnA2SQEgn3ffTStQz7psNYYvO1bykZpdgutoWy
+	1WzDPo1HfRDTujMzGceUmoFF9dI3csRqk+OrSjX2U1Q82AHPZk0yuR9GirUQWEuY
+	0uTXBDmqmhreOATOMkPOrAg+HFRtqZZO74LR/Kz8sUH5woYThZWMJktOCzrRuZP5
+	jloxRIqQkKw51725g6fIFcIyiDtijqkG3NSDKgTMgLLmmSM6OD0+OHlCDgC/T3aL
+	OBE2cZ+Obv2dvhAJpM9vhApHeFKzbOlpzSn/muvTc+F8R53Tnl46alaOILvOrx/r
+	WA2Mzw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dkmjm6bk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Jun 2025 12:45:45 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5B79640046;
+	Tue, 24 Jun 2025 12:44:24 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 974C5B51BAB;
+	Tue, 24 Jun 2025 12:43:10 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 24 Jun
+ 2025 12:43:09 +0200
+Message-ID: <5044c733-8836-43bd-85d7-0f552b000fb1@foss.st.com>
+Date: Tue, 24 Jun 2025 12:43:08 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="99H4i/IRjps6Yc2M"
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYt2e-ZGhU57oqWwC1_t2RPgxLCJFVC0Pa8-fYPkZcUvVQ@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
+        Mark
+ Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>
+References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
+ <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
+ <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-24_04,2025-06-23_07,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_034122_217316_86AB0F88 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20250624_034602_888547_B6C55FA8 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,145 +113,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/23/25 11:45, Krzysztof Kozlowski wrote:
+[...]
 
---99H4i/IRjps6Yc2M
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Krzysztof,
 
-Hi!
+Sorry I forgot to address comments below.
 
-> > This is the start of the stable review cycle for the 5.10.239 release.
-> > There are 355 patches in this series, all will be posted as a response
-> > to this one.  If anyone has any issues with these being applied, please
-> > let me know.
-> >
-> > Responses should be made by Wed, 25 Jun 2025 13:05:51 +0000.
-> > Anything received after that time might be too late.
-> >
-> > The whole patch series can be found in one patch at:
-> >         https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patc=
-h-5.10.239-rc1.gz
-> > or in the git tree and branch at:
-> >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stab=
-le-rc.git linux-5.10.y
-> > and the diffstat can be found below.
-> >
-> > thanks,
-> >
-> > greg k-h
->=20
-> Regressions on arm64 tinyconfig builds with gcc-12 and clang failed on
-> the Linux stable-rc 5.10.239-rc1.
+>> +
+>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
+>> +	.regs = &stm32_ddr_pmu_regspec_mp1,
+>> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
+>> +	.counters_nb = MP1_CNT_NB,
+>> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
+>> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
+>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
+>> +};
+>> +
+>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
+>> +	.regs = &stm32_ddr_pmu_regspec_mp2,
+>> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
+>> +	.counters_nb = MP2_CNT_NB,
+>> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
+>> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
+>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
+>> +};
+>> +
+>> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
+>> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
+>> +};
+>> +
+>> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
+>> +	{
+>> +		.compatible = "st,stm32mp131-ddr-pmu",
+>> +		.data = &stm32_ddr_pmu_cfg_mp1
+>> +	},
+>> +	{
+>> +		.compatible = "st,stm32mp151-ddr-pmu",
+>> +		.data = &stm32_ddr_pmu_cfg_mp1
+> 
+> So devices are compatible, thus express it correctly and drop this.
 
-Yeah, we see same problems:
+Ok so I assume this comes with your comment in the bindings and 
+basically don't get you point here.
+Can you please be more precise ?
 
+> 
+>> +	},
+>> +	{
+>> +		.compatible = "st,stm32mp251-ddr-pmu",
+>> +		.data = &stm32_ddr_pmu_cfg_mp2
+>> +	},
+>> +	{ },
+>> +};
+>> +MODULE_DEVICE_TABLE(of, stm32_ddr_pmu_of_match);
+>> +
+>> +static struct platform_driver stm32_ddr_pmu_driver = {
+>> +	.driver = {
+>> +		.name = DRIVER_NAME,
+>> +		.pm = &stm32_ddr_pmu_pm_ops,
+>> +		.of_match_table = of_match_ptr(stm32_ddr_pmu_of_match),
+> 
+> Drop of_match_ptr, you have here warnings.
 
-814
-  CC      arch/arm64/kernel/asm-offsets.s
-815
-In file included from ./arch/arm64/include/asm/alternative.h:6,
-816
-                 from ./arch/arm64/include/asm/sysreg.h:1050,
-817
-                 from ./arch/arm64/include/asm/cputype.h:194,
-818
-                 from ./arch/arm64/include/asm/cache.h:8,
-819
-                 from ./include/linux/cache.h:6,
-820
-                 from ./include/linux/printk.h:9,
-821
-                 from ./include/linux/kernel.h:17,
-822
-                 from ./include/linux/list.h:9,
-823
-                 from ./include/linux/kobject.h:19,
-824
-                 from ./include/linux/of.h:17,
-825
-                 from ./include/linux/irqdomain.h:35,
-826
-                 from ./include/linux/acpi.h:13,
-827
-                 from ./include/acpi/apei.h:9,
-828
-                 from ./include/acpi/ghes.h:5,
-829
-                 from ./include/linux/arm_sdei.h:8,
-830
-                 from arch/arm64/kernel/asm-offsets.c:10:
-831
-=2E/arch/arm64/include/asm/insn.h: In function 'aarch64_insn_gen_atomic_ld_=
-op':
-832
-=2E/arch/arm64/include/asm/insn.h:26:54: error: 'FAULT_BRK_IMM' undeclared =
-(first use in this function)
-833
-   26 | #define AARCH64_BREAK_FAULT    (AARCH64_BREAK_MON | (FAULT_BRK_IMM =
-<< 5))
-834
-      |                                                      ^~~~~~~~~~~~~
-835
-=2E/arch/arm64/include/asm/insn.h:573:9: note: in expansion of macro 'AARCH=
-64_BREAK_FAULT'
-836
-  573 |  return AARCH64_BREAK_FAULT;
-837
-      |         ^~~~~~~~~~~~~~~~~~~
-838
-=2E/arch/arm64/include/asm/insn.h:26:54: note: each undeclared identifier i=
-s reported only once for each function it appears in
-839
-   26 | #define AARCH64_BREAK_FAULT    (AARCH64_BREAK_MON | (FAULT_BRK_IMM =
-<< 5))
-840
-      |                                                      ^~~~~~~~~~~~~
-841
-=2E/arch/arm64/include/asm/insn.h:573:9: note: in expansion of macro 'AARCH=
-64_BREAK_FAULT'
-842
-  573 |  return AARCH64_BREAK_FAULT;
-843
-      |         ^~~~~~~~~~~~~~~~~~~
-844
-=2E/arch/arm64/include/asm/insn.h: In function 'aarch64_insn_gen_cas':
-845
-=2E/arch/arm64/include/asm/insn.h:26:54: error: 'FAULT_BRK_IMM' undeclared =
-(first use in this function)
-846
-   26 | #define AARCH64_BREAK_FAULT    (AARCH64_BREAK_MON | (FAULT_BRK_IMM =
-<< 5))
-847
-      |                                                      ^~~~~~~~~~~~~
-848
-=2E/arch/arm64/include/asm/insn.h:583:9: note: in expansion of macro 'AARCH=
-64_BREAK_FAULT'
-849
-  583 |  return AARCH64_BREAK_FAULT;
-850
-      |         ^~~~~~~~~~~~~~~~~~~
-851
-make[1]: *** [scripts/Makefile.build:117: arch/arm64/kernel/asm-offsets.s] =
-Error 1
-852
-make: *** [Makefile:1262: prepare0] Error 2
+Yes Indeed.
+I'll also fix the pm pointer by using "pm_sleep_ptr".
 
-BR,
-										Pavel
---=20
-DENX Software Engineering GmbH,        Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Best regards,
+Clément
 
---99H4i/IRjps6Yc2M
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
 
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaFqAxAAKCRAw5/Bqldv6
-8oO2AJ0THdQP/jgUCOPQIWJxokWKjzBWXwCfbnHq/Z5PGgx+mwo8REY3xKum4EY=
-=7i9r
------END PGP SIGNATURE-----
-
---99H4i/IRjps6Yc2M--
 
