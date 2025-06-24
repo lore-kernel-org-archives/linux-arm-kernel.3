@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82DFC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8F6C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 07:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D1h19FTq5ebT06mzzKb7IR+xbMTEKCVQeDqX9WbWQV0=; b=JW69wcTnYcEqKG8rNMQKWLQKYM
-	AJ9LC0Df9iPBaCBotcpFH8D+0bHVo+5aYJ+bSf2ospxBaLLrSZ4BlXf+GaettnNwvIiMobbU+B8uD
-	xrVWFmDmJNl6MUpzpgpaR0ZG0lMI9zjWm6AIP04sWStSuERT4oZ1kvSFKlGqn0d4tXoJgh9NQfpST
-	c6dCaQP/9NUvGkr5UpkYYxqIcnhvckZERM6OU7f1JAO8kUysJ8LkLxG0w5y0Xw9uJCE0adRgckTN7
-	f5CyptilZsJQbSVbn6djx+GNDkW9Deo/kQBXh3Wn1TxHdKxL5f+P4U+wLsw83GW0wAgmJ2hG68eYk
-	4/XgjDhg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TqJp84yWYeulcISeQqiUxMtWtQO7eUcCTjPLw9CodVY=; b=y9hTESIhx6u18sdbPQK4GpUU0s
+	Km4D3WpHUSnKmenVR2j8lK1EndBQozFT+kDRmSaoPZqVc0zaUHqUu4WajpvTu/MgfPj3yZQ37dspr
+	eLp6N3BEX2sGqST2BM1/MseUg52hjuApqL77FD1T0TJND0RRMwYxL9AX3I4KbDG+VZdTOuUwy/LQf
+	PqPe8VrVZ+H/Epe2om6MtFS/69/0rxI+NbWMcpTSB4HbiVPa1ZMym9HiB9C1qUxG3O4arOpOPAkld
+	Rsf0GGxSy64eDZUWMiOjU9AsPO9dZD1AJYaNK6FuwqRzSL0/Fa8r7Ik6DKGWnGE/VwQAXqDaojei9
+	N1vhv/NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyWh-00000004x5d-05f5;
-	Tue, 24 Jun 2025 07:57:07 +0000
+	id 1uTyYy-00000004xFM-3Amu;
+	Tue, 24 Jun 2025 07:59:28 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyC9-00000004t9W-0PwJ;
-	Tue, 24 Jun 2025 07:35:54 +0000
+	id 1uTyC9-00000004t9p-3PH7;
+	Tue, 24 Jun 2025 07:35:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750750551;
-	bh=AJm7iN7QM5LvHEOPH4aFZbCKjCzl3v2qwVkGz4aFbsw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Gvf3bEjO3ynv6r+xT0eRc20GzgYMJyCxYzXLVC+Gc2TCJR/EqO8v4ubL67OXLwnlz
-	 hgcHSEV8Uh/T8uqDqZJyjrWeVZeHLp8PPSMr2C25tYgXknxsdIanICe4iNnH4x40Tu
-	 wMvJOF/Du9wkcG6jHT6RKDg5GWIBDzeqmQ/uKPyWsFQZmWyNUlmK/WaNiJ/f0HSPnC
-	 pQ0H03wDlWgpDk0WEHMv2j2hYubcEeMnjcHbNJN3OQZ86jq3wOVGNphyGFivgAi1Q9
-	 KBEglAiZyXvrgsV9XkdAvAaZsFDLcccvX0ArJKZEteySF+S4QHBo/nicP1pfbdzTZC
-	 d+AmjDmwfXOHw==
+	s=mail; t=1750750552;
+	bh=KQDMK2HRMwF1uUdXsBchy166izNLsZ/Y2d5yxmXnG8Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=A0Rx66q5vICHiTowXM1NpS087RJ5dRFdWmB6bwEMwyimM3FDY/GoPVBYFKT2aK5QQ
+	 82nXqKx2mrdUfU6k3O0P+wg6+H0ReZ1DOM/GfqJI8RbPOfOmX8zWuEmHU/RvqsFAw0
+	 fGeY42AThHUVAE76iFpDqdLM2YXcWg4QDnJWXsbPc8kpEQjNuwujmH9VfS2/+/V34+
+	 Rp+scPXTKqEFXVKb/D6rof06ws2nQy3kgLgRWtrDam6lmvnAOXMIHSYVd6Q8VB1ral
+	 vNBUYRi7uEWv25Y85O54zRYxgDZYjrEnpfjm3d+ta28yrbo5yoM4FHRVQ463zMgxjJ
+	 PqGY4jNbnIrDA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 800DD17E0FDB;
-	Tue, 24 Jun 2025 09:35:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B62B17E1090;
+	Tue, 24 Jun 2025 09:35:51 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: broonie@kernel.org
 Cc: lgirdwood@gmail.com,
@@ -56,16 +56,17 @@ Cc: lgirdwood@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 0/6] regulator: Add support for MediaTek MT6316/6363/6373 PMICs
-Date: Tue, 24 Jun 2025 09:35:42 +0200
-Message-ID: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 1/6] dt-bindings: regulator: Document MediaTek MT6316 PMIC Regulators
+Date: Tue, 24 Jun 2025 09:35:43 +0200
+Message-ID: <20250624073548.29732-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
+References: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_003553_324479_661527AA 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250624_003554_015451_5C60D66E 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +81,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v2:
- - Fixed issues in mt6316-regulator.c and tested again
+Add bindings for the regulators found in the MediaTek MT6316 PMIC,
+usually found in board designs using the MT6991 Dimensity 9400 and
+on MT8196 Kompanio SoC for Chromebooks.
 
-This series adds support for three new MediaTek PMICs: MT6316, MT6363
-and MT6373 and their variants - used in board designs featuring the
-MediaTek MT8196 Chromebook SoC, or the MT6991 Dimensity 9400 Smartphone
-SoC.
+This chip is fully controlled by SPMI and has multiple variants
+providing different phase configurations.
 
-AngeloGioacchino Del Regno (6):
-  dt-bindings: regulator: Document MediaTek MT6316 PMIC Regulators
-  regulator: Add support for MediaTek MT6316 SPMI PMIC Regulators
-  dt-bindings: regulator: Document MediaTek MT6363 PMIC Regulators
-  regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
-  dt-bindings: regulator: Document MediaTek MT6373 PMIC Regulators
-  regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
-
- .../regulator/mediatek,mt6316-regulator.yaml  |   81 ++
- .../regulator/mediatek,mt6363-regulator.yaml  |  123 ++
- .../regulator/mediatek,mt6373-regulator.yaml  |  119 ++
- drivers/regulator/Kconfig                     |   27 +
- drivers/regulator/Makefile                    |    3 +
- drivers/regulator/mt6316-regulator.c          |  345 ++++++
- drivers/regulator/mt6363-regulator.c          | 1060 +++++++++++++++++
- drivers/regulator/mt6373-regulator.c          |  729 ++++++++++++
- include/linux/regulator/mt6363-regulator.h    |  326 +++++
- include/linux/regulator/mt6373-regulator.h    |  154 +++
- 10 files changed, 2967 insertions(+)
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../regulator/mediatek,mt6316-regulator.yaml  | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
- create mode 100644 drivers/regulator/mt6316-regulator.c
- create mode 100644 drivers/regulator/mt6363-regulator.c
- create mode 100644 drivers/regulator/mt6373-regulator.c
- create mode 100644 include/linux/regulator/mt6363-regulator.h
- create mode 100644 include/linux/regulator/mt6373-regulator.h
 
+diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
+new file mode 100644
+index 000000000000..019c3c36997c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/regulator/mediatek,mt6316-regulator.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6316 SPMI PMIC Regulators
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description: |
++  The MediaTek MT6316 PMIC is fully controlled by SPMI interface; it features
++  four step-down DC/DC (buck) converters and has multiple variants, providing
++  different phase configurations. In particular:
++  MT6316BP/VP:    2+2 Phase (buck 1+2, buck 3+4)
++  MT6316CP/HP/KP: 3+1 Phase (buck 1+2+4, buck 3)
++  MT6316DP/TP:    4+0 Phase (buck 1+2+3+4)
++
++properties:
++  compatible:
++    enum:
++      - mediatek,mt6316b-regulator
++      - mediatek,mt6316c-regulator
++      - mediatek,mt6316d-regulator
++
++  vbuck1234:
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++
++additionalProperties: false
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: mediatek,mt6316b-regulator
++    then:
++      patternProperties:
++        "^vbuck(12|34)$":
++          type: object
++          $ref: regulator.yaml#
++          unevaluatedProperties: false
++
++  - if:
++      properties:
++        compatible:
++          const: mediatek,mt6316c-regulator
++    then:
++      patternProperties:
++        "^vbuck(124|3)$":
++          type: object
++          $ref: regulator.yaml#
++          unevaluatedProperties: false
++
++  - if:
++      properties:
++        compatible:
++          const: mediatek,mt6316d-regulator
++    then:
++      properties:
++        vbuck1234: true
++    else:
++      properties:
++        vbuck1234: false
++
++examples:
++  - |
++    pmic {
++      regulators {
++        compatible = "mediatek,mt6316d-regulator";
++
++        vbuck1234 {
++          regulator-min-microvolt = <400000>;
++          regulator-max-microvolt = <1277500>;
++          regulator-always-on;
++        };
++      };
++    };
++...
 -- 
 2.49.0
 
