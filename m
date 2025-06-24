@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E567CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE86C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLX+vkQrETtNyOQ4ZsInMSK9f7xVFIJKfGkO1l/6I0w=; b=wZnBxStTFLG0btxb8Ww0rhKqnf
-	nBBKsPkpMHrDPYycVkAiQzpenXBuPpeBNhS7yx3p2AAkgZwY0Qv7LmQcgLJ79XySqlc8inTAJ/OK5
-	CdDVterq4lBrqzsVZlZau51OayRuO0u1qr+trNm4teyNGpiBz2v39ux2jcuMp3I4oBz1Uf9c+hAyE
-	BqFP4ejNzDHmWXBvTiDvIFSAlHyKuxItUo+FQ9NMkQW7/KDmoPH9T/rrTqjz/Ba4kLNfApNTSs9st
-	FxS2nONcZ6t8dol80LFLUKTOkpI9QeudB2iGlhtQuu/Sx8T3TKhNKvKQ6nx0fI3fz6yRjJVzkEbTe
-	E9HIBbWQ==;
+	bh=GaNgwEUZugLjq93ZAwVLHZ6D11IgA48Ev9vc639wRME=; b=u2eUQN0fz/kEODFVkjO7QaGUPY
+	kyq9GRbsf4EuK2SG/WMCjVGkNZExMO5z/rmULJm6GSsl2X8hQxHf2+K1zlBFNOzKJjokb7ax+w+pO
+	STltXIKSDotpZh0M3+widq+N07Z+K1lMveMtxpVtl8oh08JkfKBhLxQC3D0SkbnQVb2g7oVwPXN8d
+	gRu98EUIm4DH+/reSlyOFj7nL/h7mTor/EohoLYqgyhVvhYo49gPxNJBJnQCiKziafYIG0Kd1i8Yn
+	n0RkOwd5eMl7bMj9pL36EGXIcOvxTxGcC0brLvlxanYSce2d1lDTvzNp9ehZMM7oRYtMoAG3OkvrJ
+	7sN7PtWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6LG-00000006FsE-0mVU;
-	Tue, 24 Jun 2025 16:17:50 +0000
+	id 1uU6NW-00000006G81-175y;
+	Tue, 24 Jun 2025 16:20:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iW-00000005vZk-2dQK;
-	Tue, 24 Jun 2025 14:33:44 +0000
+	id 1uU4iX-00000005vaG-3Yfo;
+	Tue, 24 Jun 2025 14:33:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=hLX+vkQrETtNyOQ4ZsInMSK9f7xVFIJKfGkO1l/6I0w=; b=lznI6YcrFtI5yng45iInRGkkOm
-	Xtwlu4MStCXkkiwMgsNj2xUp5bDywEFF3UclncHQliu4PKbrKu91ah7n7RqeT53DQE3uXmLJ1mYTz
-	DWwoFYwj4BbGFhSzgilyd/ufReO1J8tTHtfJLQ/aJ1DNJGLmN3QWW/piBsptB3tzXMm/6J+GVGDHh
-	DJM3/SoPCO2xT5fI3P+U2xeBV3w/B6fBbzFyZQl37uOQ8PQycQC5o6bRng266UYRf3qI4v8hVLlBy
-	BMSWsS5zYJbECsndOLBasXbIVsEGM/Zg0f+Nmx12zeUZLGiCKCgzP1XMr3MLuN1GsuVE8WUXOh4Ks
-	JL/xkRQA==;
+	bh=GaNgwEUZugLjq93ZAwVLHZ6D11IgA48Ev9vc639wRME=; b=Hq2Vuu9igr4QZQHOwmnSKWjRjD
+	2KhwkZtox+qkZefVI3o++j8klQIbSX5MzPsaFG2INCccY3fkodMOz1fbxq4DwtYeG00MHw573afiB
+	DNzHJTwCRvHkMcNtAOPlMA27zOgU6O4nfrSIsAiUeIdy4zedL0/9H0d3akwNOIWs1Jthq299u0NRl
+	0VZsVC+fGLLlVZCrqWfCNjmIAMB+4WlchbGhDtuhsbTIHEXbsAbvY9D5FlroaWDUqebQCpF5aitiu
+	7p70T4ESqs7xpOwFJ0v9pD637umTYvubfXEggupaJZw4okZ48dfwt2c8S7Fepr2PwBzRdDGaV+l2X
+	/dNMty9w==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4iT-00000005Sqz-0hIX;
-	Tue, 24 Jun 2025 14:33:43 +0000
+	id 1uU4iU-00000005Srb-49l4;
+	Tue, 24 Jun 2025 14:33:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775619;
-	bh=klP6Z1aV1eyxlTcl3AKzPnOACsLqgTD3I16ktsRtqv4=;
+	s=mail; t=1750775621;
+	bh=r5c5hsCWKX10tYNXoxH3x5wqBhztaL6jU+1Ll1bHld4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R7CgJfUWV1SGdMfq+tI+tK3LmI0W+6vKN2T81rBSq9j5kDV0Jy+RIylAolIHE/D+A
-	 jw1WVY4albHhDA3Tq0GNFBGmgMs9ieMvmP5WNxcJzlgR2+U9QGABUd9M+Uczgunotj
-	 QEszEOCFfObucTJvngaPtxS4aTskxRWQB9apZpahAn3ySe0osgU6FNAyHUsvNbA4Hf
-	 Jx0UtKGGABgbKLiRunSkixrB+BWaBdWBgb8KizIvoA2dvPK8bC4b40J0iKZWRPWQI1
-	 HywX03FTIlv8PVylAP/hnbLqiubl/KUCYpH0khkilWYdyI7uNO/2D19Sy88HxycUsx
-	 37nKJTNrrm6/w==
+	b=LGM6ze92hhNZTJRTWWdp/J+3r6PDly4J4ML2T9hv/jDfuo8v2hH1aTF2H91C69boE
+	 8XO4kNLZDK1DJT5mNNCIq2W0eOBFTiu8xwD1lfU2TseDPG6mYtgCQ4pVvVmHijSzxY
+	 U/toFgFDgkeyVFnuovcBfS7v0p+49hy4GKm8svj7aSSEMK/gnclqu5RLsh+4hmZXoC
+	 kD/XkOY0YCo5IeMQU8DHOP0L7oNcCZXkB7pOEhMoBgrstTfLAAvbQlho0M1lD7+HU2
+	 vmI4PmnJGa5n31XqtAYhTKsfExw6TgolEs3a2TxjLilF6vcaNBF0z6Dgm7sFqleMx0
+	 syETI1Rtwn/VA==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0172117E0EA4;
-	Tue, 24 Jun 2025 16:33:37 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F2DC17E1560;
+	Tue, 24 Jun 2025 16:33:40 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -77,17 +77,18 @@ Cc: guangjie.song@mediatek.com,
 	netdev@vger.kernel.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 06/29] clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use mtk_gate struct
-Date: Tue, 24 Jun 2025 16:31:57 +0200
-Message-Id: <20250624143220.244549-7-laura.nao@collabora.com>
+Subject: [PATCH v2 08/29] clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
+Date: Tue, 24 Jun 2025 16:31:59 +0200
+Message-Id: <20250624143220.244549-9-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
 References: <20250624143220.244549-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_153341_304113_796C2EA8 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250624_153343_166433_F43732A1 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,80 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196 uses a HW voter for gate enable/disable control, with
-set/clr/sta registers located in a separate regmap. Refactor
-mtk_clk_register_gate() to take a struct mtk_gate instead of individual
-parameters, avoiding the need to add three extra arguments to support
-HW voter register offsets.
+On MT8196, some clocks use one register for parent selection and
+gating, and a separate register for frequency division. Since composite
+clocks can combine a mux, divider, and gate in a single entity, add a
+macro to simplify registration of such clocks by combining parent
+selection, frequency scaling, and enable control into one definition.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/clk/mediatek/clk-gate.c | 35 ++++++++++++---------------------
- 1 file changed, 13 insertions(+), 22 deletions(-)
+ drivers/clk/mediatek/clk-mtk.h | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/clk-gate.c
-index 67d9e741c5e7..0375ccad4be3 100644
---- a/drivers/clk/mediatek/clk-gate.c
-+++ b/drivers/clk/mediatek/clk-gate.c
-@@ -152,12 +152,9 @@ const struct clk_ops mtk_clk_gate_ops_no_setclr_inv = {
- };
- EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_no_setclr_inv);
+diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
+index e2cefd9bc5b8..3498505b616e 100644
+--- a/drivers/clk/mediatek/clk-mtk.h
++++ b/drivers/clk/mediatek/clk-mtk.h
+@@ -176,6 +176,25 @@ struct mtk_composite {
+ 		.flags = 0,						\
+ 	}
  
--static struct clk_hw *mtk_clk_register_gate(struct device *dev, const char *name,
--					 const char *parent_name,
--					 struct regmap *regmap, int set_ofs,
--					 int clr_ofs, int sta_ofs, u8 bit,
--					 const struct clk_ops *ops,
--					 unsigned long flags)
-+static struct clk_hw *mtk_clk_register_gate(struct device *dev,
-+						const struct mtk_gate *gate,
-+						struct regmap *regmap)
- {
- 	struct mtk_clk_gate *cg;
- 	int ret;
-@@ -167,17 +164,17 @@ static struct clk_hw *mtk_clk_register_gate(struct device *dev, const char *name
- 	if (!cg)
- 		return ERR_PTR(-ENOMEM);
- 
--	init.name = name;
--	init.flags = flags | CLK_SET_RATE_PARENT;
--	init.parent_names = parent_name ? &parent_name : NULL;
--	init.num_parents = parent_name ? 1 : 0;
--	init.ops = ops;
-+	init.name = gate->name;
-+	init.flags = gate->flags | CLK_SET_RATE_PARENT;
-+	init.parent_names = gate->parent_name ? &gate->parent_name : NULL;
-+	init.num_parents = gate->parent_name ? 1 : 0;
-+	init.ops = gate->ops;
- 
- 	cg->regmap = regmap;
--	cg->set_ofs = set_ofs;
--	cg->clr_ofs = clr_ofs;
--	cg->sta_ofs = sta_ofs;
--	cg->bit = bit;
-+	cg->set_ofs = gate->regs->set_ofs;
-+	cg->clr_ofs = gate->regs->clr_ofs;
-+	cg->sta_ofs = gate->regs->sta_ofs;
-+	cg->bit = gate->shift;
- 
- 	cg->hw.init = &init;
- 
-@@ -228,13 +225,7 @@ int mtk_clk_register_gates(struct device *dev, struct device_node *node,
- 			continue;
- 		}
- 
--		hw = mtk_clk_register_gate(dev, gate->name, gate->parent_name,
--					    regmap,
--					    gate->regs->set_ofs,
--					    gate->regs->clr_ofs,
--					    gate->regs->sta_ofs,
--					    gate->shift, gate->ops,
--					    gate->flags);
-+		hw = mtk_clk_register_gate(dev, gate, regmap);
- 
- 		if (IS_ERR(hw)) {
- 			pr_err("Failed to register clk %s: %pe\n", gate->name,
++#define MUX_DIV_GATE(_id, _name, _parents,		\
++		_mux_reg, _mux_shift, _mux_width,	\
++		_div_reg, _div_shift, _div_width,	\
++		_gate_reg, _gate_shift) {		\
++		.id            = _id,			\
++		.name          = _name,			\
++		.parent_names  = _parents,		\
++		.num_parents   = ARRAY_SIZE(_parents),	\
++		.mux_reg       = _mux_reg,		\
++		.mux_shift     = _mux_shift,		\
++		.mux_width     = _mux_width,		\
++		.divider_reg   = _div_reg,		\
++		.divider_shift = _div_shift,		\
++		.divider_width = _div_width,		\
++		.gate_reg      = _gate_reg,		\
++		.gate_shift    = _gate_shift,		\
++		.flags         = CLK_SET_RATE_PARENT,	\
++	}
++
+ int mtk_clk_register_composites(struct device *dev,
+ 				const struct mtk_composite *mcs, int num,
+ 				void __iomem *base, spinlock_t *lock,
 -- 
 2.39.5
 
