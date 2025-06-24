@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D95C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6BAC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 16:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLjqLphAdLL/qMeAUH7hIMwqho89LGe5jAHok415/eQ=; b=ATWejV6ktQSnMrhlsEhbmxmG0p
-	k7o9fahfVowC7ZveUKZ5nKTuy2kliV6V+8xXmgX6qHr2TLSKVV33s0Cqul2F9meM3O/AZwqKJ2ilv
-	tKw9oIOtr7QJU6c9FtS3Tvf1qwwGLYJvvZAXIN3505I45Yem+wYvulubySsMWeZklisfP00QLz9G5
-	sSMYMdtIjU8aCxbKULRSYIBJD0w1qQD+EFBFRurpGnwsDSletDIu4yGe8A9i4K/fYVJlkESNPo0Xb
-	UnnMEsd85XzWHTiYMCsL/W/fSDeOTOiUtpPIJ8s8oNJo2FM/Fg2aCqO7IB0wLZTjYjBHsDtiRJKj1
-	WA4aJ2+A==;
+	bh=uRnmyLPjLyE5Ri5Q3ZAO+K4c+yqTYKSMexA0IW2AZUs=; b=DyQXlCwD5I5q1VaDadyTgYRfb0
+	//LLTfhICUG/yftzDR5mRgtZTIvjhDklUpCX9b1UmyLnZG62s5r7l4J/yMYt5OCKy2ZsKIkN8rVh9
+	UW7a/PvJu8A9OcHbddyjCGmP+WAEBGfOP8kzXw8m7ochDZVKo44WJyQ3k2YKTss4NNXojvzkL2NFh
+	P5gpQ05Uhkz9p851ywYfEW/M/CFK69JNcRSavk0dyv4R7J5H47EConqXG9r7QPjqsrc05PU43wP/y
+	XO+9ssCXll4KFD7+6XWZHQgBh9hMeHYaBduxHzADxlM5kSMtvr5oo+grUk1duOUZD1PAF6YvdrYNc
+	fYTwD/Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU6dN-00000006HPF-1zwv;
-	Tue, 24 Jun 2025 16:36:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4ig-00000005vdN-2Jxo;
-	Tue, 24 Jun 2025 14:33:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=CLjqLphAdLL/qMeAUH7hIMwqho89LGe5jAHok415/eQ=; b=rgTVmyHsplZGnIlx8rwos3TtJd
-	QkCfxGJl8BZUoQNdnO20PrS8MJSlyz67QfDfU7Lnz2ofmt0OVDw5X0ljEXhzjR9n9CRK8+pwg8rfO
-	8ogNXtvI6RI6hGPaPUcugUEaExSCslEErObuO5j73M8n/tYjgLgB6eEiog7vG2GN5s2gzxEtvSioY
-	LfflwaPECzmtk7VeIA58A69HOCV542AeJtCWLV2y/Vm6dRVDm8/VkAwBV8Ol9expIuFKWnxOoR/hW
-	sPDPyK3/+shw1nyi++X+Il7HLu/rJUSXaqa6WeefnK7yYLnxaMchwLYA17bIpG0Zk7Ryjs6Sv0uPk
-	HF2H6uyg==;
+	id 1uU6fc-00000006HhF-26IG;
+	Tue, 24 Jun 2025 16:38:52 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4ie-00000005Su1-06xX;
-	Tue, 24 Jun 2025 14:33:53 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU4ig-00000005vdM-2tx7;
+	Tue, 24 Jun 2025 14:33:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750775630;
-	bh=P6M6yWGPDzBKE0p9NBP71fAigoSPZ6KJVhSz2fNNiX0=;
+	s=mail; t=1750775633;
+	bh=nyR5VyhMuNOwWKSPu+LLEofj4OD2ENDa0YXGZ4ogCuY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AWelhVjc7T5+z2m2h+dZOI+oL2sJ1m021W9ZsV+JKYZ6ZaGd+BfYzSx73caNwkcbH
-	 f5RSw+ndbdSBD8vmwEZz4kihcpWXQTgVIRZIuiJy6fEnx9UXsIzY2mC4yGEoAHoBOL
-	 ooio5DUfHGtxfrr+daa9YvbjSsKfbLOCpFabdtLAfXEi1mji1fKSetK/vHxGb6YTiH
-	 JvO1hFGceafvxgESeg/aSvuemYmK5At2FTN6VvsFcCu7gSPj33PxIVqD0PbVGAF2wA
-	 TDMzn+rXDSDTWkQhgHYmrSFeEDx60+jCo3YUVxzoqYJUsGuN8spb89l/G9jTd5SBe9
-	 1MMR4/ZtfiNKw==
+	b=Lv47xwVkTSp37YaT1++qqCbQWItzYzVz73UNE3Z+Tr+GuagUJh92fk9XyTIZBpRQc
+	 WZ+GTJNaroLxANgOJmMEdfGhYidrpHHDyxJA2rDeHsDQ7RG7gRqtNcacL9QSlXgzcN
+	 wDZgKSOIZX51A5urfb019iBX8e4TuozC64YLMvTZFTgZy9yQiTEv42iy40nB7aA8wy
+	 WmgXvDTmL2Har1eKl68Tw7wCcALKNVbzP/L9aOy9+/n3uG2nIgPPcwpGrmLQnzBXrJ
+	 7aZykq2BGi/tAqFNnqTnOa+3WHesiaWMbpbwSYJMVL3Qh4dirV2zajSBQLuJkbWGT1
+	 mgicYAkzLonHQ==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:d2c7:2075:2c3c:38e5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8385817E1560;
-	Tue, 24 Jun 2025 16:33:49 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 21DB617E1067;
+	Tue, 24 Jun 2025 16:33:52 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -77,17 +63,17 @@ Cc: guangjie.song@mediatek.com,
 	netdev@vger.kernel.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 15/29] clk: mediatek: Add MT8196 peripheral clock support
-Date: Tue, 24 Jun 2025 16:32:06 +0200
-Message-Id: <20250624143220.244549-16-laura.nao@collabora.com>
+Subject: [PATCH v2 17/29] clk: mediatek: Add MT8196 pextpsys clock support
+Date: Tue, 24 Jun 2025 16:32:08 +0200
+Message-Id: <20250624143220.244549-18-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250624143220.244549-1-laura.nao@collabora.com>
 References: <20250624143220.244549-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_153352_249624_24283888 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250624_073354_912295_AAE91626 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +88,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 peripheral clock controller, which provides
-clock gate control for dma/flashif/msdc/pwm/spi/uart.
+Add support for the MT8196 pextpsys clock controller, which provides
+clock gate control for PCIe.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/clk/mediatek/Makefile             |   3 +-
- drivers/clk/mediatek/clk-mt8196-peri_ao.c | 144 ++++++++++++++++++++++
- 2 files changed, 146 insertions(+), 1 deletion(-)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
+ drivers/clk/mediatek/Kconfig            |   7 ++
+ drivers/clk/mediatek/Makefile           |   1 +
+ drivers/clk/mediatek/clk-mt8196-pextp.c | 131 ++++++++++++++++++++++++
+ 3 files changed, 139 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
 
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index 848624792a23..cd12e7ff3e12 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -1068,6 +1068,13 @@ config COMMON_CLK_MT8196
+ 	help
+ 	  This driver supports MediaTek MT8196 basic clocks.
+ 
++config COMMON_CLK_MT8196_PEXTPSYS
++	tristate "Clock driver for MediaTek MT8196 pextpsys"
++	depends on COMMON_CLK_MT8196
++	default COMMON_CLK_MT8196
++	help
++	  This driver supports MediaTek MT8196 pextpsys clocks.
++
+ config COMMON_CLK_MT8196_UFSSYS
+ 	tristate "Clock driver for MediaTek MT8196 ufssys"
+ 	depends on COMMON_CLK_MT8196
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 24683dd51783..fc941b5baf04 100644
+index ee6a1bb5ce38..21e768f67283 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -161,7 +161,8 @@ obj-$(CONFIG_COMMON_CLK_MT8195_VENCSYS) += clk-mt8195-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8195_VPPSYS) += clk-mt8195-vpp0.o clk-mt8195-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
+@@ -163,6 +163,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
  obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o \
--				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o
-+				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
-+				   clk-mt8196-peri_ao.o
+ 				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
+ 				   clk-mt8196-peri_ao.o
++obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
  obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
  obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-peri_ao.c b/drivers/clk/mediatek/clk-mt8196-peri_ao.c
+diff --git a/drivers/clk/mediatek/clk-mt8196-pextp.c b/drivers/clk/mediatek/clk-mt8196-pextp.c
 new file mode 100644
-index 000000000000..fac93e0d8e20
+index 000000000000..9a7623bf2b1c
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-peri_ao.c
-@@ -0,0 +1,144 @@
++++ b/drivers/clk/mediatek/clk-mt8196-pextp.c
+@@ -0,0 +1,131 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) 2025 MediaTek Inc.
@@ -141,6 +145,7 @@ index 000000000000..fac93e0d8e20
 + *                    Laura Nao <laura.nao@collabora.com>
 + */
 +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
++#include <dt-bindings/reset/mediatek,mt8196-resets.h>
 +#include <linux/clk-provider.h>
 +#include <linux/module.h>
 +#include <linux/of_device.h>
@@ -148,134 +153,120 @@ index 000000000000..fac93e0d8e20
 +
 +#include "clk-gate.h"
 +#include "clk-mtk.h"
++#include "reset.h"
 +
-+static const struct mtk_gate_regs peri_ao0_cg_regs = {
-+	.set_ofs = 0x24,
-+	.clr_ofs = 0x28,
-+	.sta_ofs = 0x10,
-+};
++#define MT8196_PEXTP_RST0_SET_OFFSET	0x8
 +
-+static const struct mtk_gate_regs peri_ao1_cg_regs = {
-+	.set_ofs = 0x2c,
-+	.clr_ofs = 0x30,
++static const struct mtk_gate_regs pext_cg_regs = {
++	.set_ofs = 0x18,
++	.clr_ofs = 0x1c,
 +	.sta_ofs = 0x14,
 +};
 +
-+static const struct mtk_gate_regs peri_ao1_hwv_regs = {
-+	.set_ofs = 0x0008,
-+	.clr_ofs = 0x000c,
-+	.sta_ofs = 0x2c04,
-+};
-+
-+static const struct mtk_gate_regs peri_ao2_cg_regs = {
-+	.set_ofs = 0x34,
-+	.clr_ofs = 0x38,
-+	.sta_ofs = 0x18,
-+};
-+
-+#define GATE_PERI_AO0(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &peri_ao0_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
++#define GATE_PEXT(_id, _name, _parent, _shift) {\
++		.id = _id,			\
++		.name = _name,			\
++		.parent_name = _parent,		\
++		.regs = &pext_cg_regs,		\
++		.shift = _shift,		\
++		.flags = CLK_OPS_PARENT_ENABLE,	\
++		.ops = &mtk_clk_gate_ops_setclr,\
 +	}
 +
-+#define GATE_PERI_AO1(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &peri_ao1_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+#define GATE_HWV_PERI_AO1(_id, _name, _parent, _shift) {\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &peri_ao1_cg_regs,		\
-+		.hwv_regs = &peri_ao1_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_PERI_AO2(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &peri_ao2_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
-+	}
-+
-+static const struct mtk_gate peri_ao_clks[] = {
-+	/* PERI_AO0 */
-+	GATE_PERI_AO0(CLK_PERI_AO_UART0_BCLK, "peri_ao_uart0_bclk", "uart", 0),
-+	GATE_PERI_AO0(CLK_PERI_AO_UART1_BCLK, "peri_ao_uart1_bclk", "uart", 1),
-+	GATE_PERI_AO0(CLK_PERI_AO_UART2_BCLK, "peri_ao_uart2_bclk", "uart", 2),
-+	GATE_PERI_AO0(CLK_PERI_AO_UART3_BCLK, "peri_ao_uart3_bclk", "uart", 3),
-+	GATE_PERI_AO0(CLK_PERI_AO_UART4_BCLK, "peri_ao_uart4_bclk", "uart", 4),
-+	GATE_PERI_AO0(CLK_PERI_AO_UART5_BCLK, "peri_ao_uart5_bclk", "uart", 5),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_X16W_HCLK, "peri_ao_pwm_x16w", "p_axi", 12),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_X16W_BCLK, "peri_ao_pwm_x16w_bclk", "pwm", 13),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_PWM_BCLK0, "peri_ao_pwm_pwm_bclk0", "pwm", 14),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_PWM_BCLK1, "peri_ao_pwm_pwm_bclk1", "pwm", 15),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_PWM_BCLK2, "peri_ao_pwm_pwm_bclk2", "pwm", 16),
-+	GATE_PERI_AO0(CLK_PERI_AO_PWM_PWM_BCLK3, "peri_ao_pwm_pwm_bclk3", "pwm", 17),
-+	/* PERI_AO1 */
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI0_BCLK, "peri_ao_spi0_bclk", "spi0_b", 0),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI1_BCLK, "peri_ao_spi1_bclk", "spi1_b", 2),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI2_BCLK, "peri_ao_spi2_bclk", "spi2_b", 3),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI3_BCLK, "peri_ao_spi3_bclk", "spi3_b", 4),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI4_BCLK, "peri_ao_spi4_bclk", "spi4_b", 5),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI5_BCLK, "peri_ao_spi5_bclk", "spi5_b", 6),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI6_BCLK, "peri_ao_spi6_bclk", "spi6_b", 7),
-+	GATE_HWV_PERI_AO1(CLK_PERI_AO_SPI7_BCLK, "peri_ao_spi7_bclk", "spi7_b", 8),
-+	GATE_PERI_AO1(CLK_PERI_AO_FLASHIF_FLASH, "peri_ao_flashif_flash", "peri_ao_flashif_27m", 18),
-+	GATE_PERI_AO1(CLK_PERI_AO_FLASHIF_27M, "peri_ao_flashif_27m", "sflash", 19),
-+	GATE_PERI_AO1(CLK_PERI_AO_FLASHIF_DRAM, "peri_ao_flashif_dram", "p_axi", 20),
-+	GATE_PERI_AO1(CLK_PERI_AO_FLASHIF_AXI, "peri_ao_flashif_axi", "peri_ao_flashif_dram", 21),
-+	GATE_PERI_AO1(CLK_PERI_AO_FLASHIF_BCLK, "peri_ao_flashif_bclk", "p_axi", 22),
-+	GATE_PERI_AO1(CLK_PERI_AO_AP_DMA_X32W_BCLK, "peri_ao_ap_dma_x32w_bclk", "p_axi", 26),
-+	/* PERI_AO2 */
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC1_MSDC_SRC, "peri_ao_msdc1_msdc_src", "msdc30_1", 1),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC1_HCLK, "peri_ao_msdc1", "peri_ao_msdc1_axi", 2),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC1_AXI, "peri_ao_msdc1_axi", "p_axi", 3),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC1_HCLK_WRAP, "peri_ao_msdc1_h_wrap", "peri_ao_msdc1", 4),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC2_MSDC_SRC, "peri_ao_msdc2_msdc_src", "msdc30_2", 10),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC2_HCLK, "peri_ao_msdc2", "peri_ao_msdc2_axi", 11),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC2_AXI, "peri_ao_msdc2_axi", "p_axi", 12),
-+	GATE_PERI_AO2(CLK_PERI_AO_MSDC2_HCLK_WRAP, "peri_ao_msdc2_h_wrap", "peri_ao_msdc2", 13),
++static const struct mtk_gate pext_clks[] = {
++	GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_TL, "pext_pm0_tl", "tl", 0),
++	GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_REF, "pext_pm0_ref", "clk26m", 1),
++	GATE_PEXT(CLK_PEXT_PEXTP_PHY_P0_MCU_BUS, "pext_pp0_mcu_bus", "clk26m", 6),
++	GATE_PEXT(CLK_PEXT_PEXTP_PHY_P0_PEXTP_REF, "pext_pp0_pextp_ref", "clk26m", 7),
++	GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_AXI_250, "pext_pm0_axi_250", "ufs_pexpt0_mem_sub", 12),
++	GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_AHB_APB, "pext_pm0_ahb_apb", "ufs_pextp0_axi", 13),
++	GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_PL_P, "pext_pm0_pl_p", "clk26m", 14),
++	GATE_PEXT(CLK_PEXT_PEXTP_VLP_AO_P0_LP, "pext_pextp_vlp_ao_p0_lp", "clk26m", 19),
 +};
 +
-+static const struct mtk_clk_desc peri_ao_mcd = {
-+	.clks = peri_ao_clks,
-+	.num_clks = ARRAY_SIZE(peri_ao_clks),
++static u16 pext_rst_ofs[] = { MT8196_PEXTP_RST0_SET_OFFSET };
++
++static u16 pext_rst_idx_map[] = {
++	[MT8196_PEXTP0_RST0_PCIE0_MAC] = 0,
++	[MT8196_PEXTP0_RST0_PCIE0_PHY] = 1,
 +};
 +
-+static const struct of_device_id of_match_clk_mt8196_peri_ao[] = {
-+	{ .compatible = "mediatek,mt8196-pericfg-ao", .data = &peri_ao_mcd },
++static const struct mtk_clk_rst_desc pext_rst_desc = {
++	.version = MTK_RST_SET_CLR,
++	.rst_bank_ofs = pext_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(pext_rst_ofs),
++	.rst_idx_map = pext_rst_idx_map,
++	.rst_idx_map_nr = ARRAY_SIZE(pext_rst_idx_map),
++};
++
++static const struct mtk_clk_desc pext_mcd = {
++	.clks = pext_clks,
++	.num_clks = ARRAY_SIZE(pext_clks),
++	.rst_desc = &pext_rst_desc,
++};
++
++static const struct mtk_gate pext1_clks[] = {
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_TL, "pext1_pm1_tl", "tl_p1", 0),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_REF, "pext1_pm1_ref", "clk26m", 1),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_TL, "pext1_pm2_tl", "tl_p2", 2),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_REF, "pext1_pm2_ref", "clk26m", 3),
++	GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P1_MCU_BUS, "pext1_pp1_mcu_bus", "clk26m", 8),
++	GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P1_PEXTP_REF, "pext1_pp1_pextp_ref", "clk26m", 9),
++	GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P2_MCU_BUS, "pext1_pp2_mcu_bus", "clk26m", 10),
++	GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P2_PEXTP_REF, "pext1_pp2_pextp_ref", "clk26m", 11),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_AXI_250, "pext1_pm1_axi_250",
++		   "pextp1_usb_axi", 16),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_AHB_APB, "pext1_pm1_ahb_apb",
++		   "pextp1_usb_mem_sub", 17),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_PL_P, "pext1_pm1_pl_p", "clk26m", 18),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_AXI_250, "pext1_pm2_axi_250",
++		   "pextp1_usb_axi", 19),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_AHB_APB, "pext1_pm2_ahb_apb",
++		   "pextp1_usb_mem_sub", 20),
++	GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_PL_P, "pext1_pm2_pl_p", "clk26m", 21),
++	GATE_PEXT(CLK_PEXT1_PEXTP_VLP_AO_P1_LP, "pext1_pextp_vlp_ao_p1_lp", "clk26m", 26),
++	GATE_PEXT(CLK_PEXT1_PEXTP_VLP_AO_P2_LP, "pext1_pextp_vlp_ao_p2_lp", "clk26m", 27),
++};
++
++static u16 pext1_rst_idx_map[] = {
++	[MT8196_PEXTP1_RST0_PCIE1_MAC] = 0,
++	[MT8196_PEXTP1_RST0_PCIE1_PHY] = 1,
++	[MT8196_PEXTP1_RST0_PCIE2_MAC] = 8,
++	[MT8196_PEXTP1_RST0_PCIE2_PHY] = 9,
++};
++
++static const struct mtk_clk_rst_desc pext1_rst_desc = {
++	.version = MTK_RST_SET_CLR,
++	.rst_bank_ofs = pext_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(pext_rst_ofs),
++	.rst_idx_map = pext1_rst_idx_map,
++	.rst_idx_map_nr = ARRAY_SIZE(pext1_rst_idx_map),
++};
++
++static const struct mtk_clk_desc pext1_mcd = {
++	.clks = pext1_clks,
++	.num_clks = ARRAY_SIZE(pext1_clks),
++	.rst_desc = &pext1_rst_desc,
++};
++
++static const struct of_device_id of_match_clk_mt8196_pextp[] = {
++	{ .compatible = "mediatek,mt8196-pextp0cfg-ao", .data = &pext_mcd },
++	{ .compatible = "mediatek,mt8196-pextp1cfg-ao", .data = &pext1_mcd },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_peri_ao);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_pextp);
 +
-+static struct platform_driver clk_mt8196_peri_ao_drv = {
++static struct platform_driver clk_mt8196_pextp_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8196-peri-ao",
-+		.of_match_table = of_match_clk_mt8196_peri_ao,
++		.name = "clk-mt8196-pextp",
++		.of_match_table = of_match_clk_mt8196_pextp,
 +	},
 +};
 +
-+MODULE_DESCRIPTION("MediaTek MT8196 pericfg_ao clock controller driver");
-+module_platform_driver(clk_mt8196_peri_ao_drv);
++module_platform_driver(clk_mt8196_pextp_drv);
++MODULE_DESCRIPTION("MediaTek MT8196 PCIe transmit phy clocks driver");
 +MODULE_LICENSE("GPL");
 -- 
 2.39.5
