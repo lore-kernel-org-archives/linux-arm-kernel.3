@@ -4,153 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57535C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197C0C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 22:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OnA27UNgLMuk8u78Gr+jPZjpwSy4n6ovLKfrdClEOpM=; b=lYR7n7ru3i62KytsDA79QFaElk
-	JRoxe5zhipQz0YmGqtxyVRomjnPL8NE6xRCCNwv1sy7bwai3T4Fev8hmlsI7n1x4m0H8d2NraHhBM
-	BHm5m3ti+MP0f8JRwS8ZfSPquaTNZ72ooZ77jK+uM2vPLxEGaarvQXlz90L6NwTx/Ombywzsbeu48
-	wJeTxetdWGxXC9QUM8Oj/FRaQVK1zZFF/XbP7GL41ArkDTTnb1OkqRD9rqTrMxR3+tVZrAZQFgajn
-	mvwLtlCfAlpJNwGvp3zU41IUJW2Z6W+uf6OpkBLTtfQddmcnJKoNHeCQ87duGE8QTbkFDE78x16jI
-	unSjmXAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=pP2HWMoMCKbdHfq9EmswNyKqb25oMjrzzlNWwJCxpig=; b=rOtBZq3GxL1kDa
+	PxSrprZR58bJYcGoxoIc6agDvDhxv2NC4bB2wsvSjukCFYJ13Z5NiGq6ASJ9T1x/2KBNmVO21GZf1
+	CTuf2T4ZqBxP5hfUjzq2n/o+WIhV8pvSAyvwSfjzYjxz3JLbELKHRvbkUTlMLVJa6IxyFf129Gzj0
+	MGidADeViDnw8h37GmuhJ5BIs0pTJmu9PyD98x6c2je4DSjgaM0QTmDQvkooHiZzdxykRdxRUiHKL
+	9mQsojIt3+ayN6kjdyt1p1X7c2Tz+noyyXdTUNWcYRV5YsAM6jl2bKR8MbXY0AsYAZX5X2+H3jmuZ
+	IvkTSzXGDzjOWg46rKlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUBio-00000006wAM-3vfp;
-	Tue, 24 Jun 2025 22:02:30 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uUBl5-00000006wOh-05FC;
+	Tue, 24 Jun 2025 22:04:51 +0000
+Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9t3-00000006jAF-0WO6
+	id 1uU9t9-00000006jB0-0iFG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 20:04:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eQG9L0B3hqGmW4rSw9gssAC6a5Hl/SFnmQVpMzfgn1Xhy4xGQZPhiqceLsw/BOJdW9rsJ5BIpE4D9pQ48/Ndcl2hAc+rD86k7d298URvc3ygGI0mAJ7nKuDHjhdagV4l9H886hJ6dCD6qBDU1N1gz97DYX77HpgvmFs5wczqgaFy9zAvgaIwqx+6R/w4DE0KvyGtP+DylFUy8JnsAW/lLnSqTFxu2UiMWyNToYiJw6ZCn7C+afus6oBpGHYO2LmW867oGW0q4OdZ8va97Bqs1U+jEwpq+gWT/cytky0pb5Cr6wpyjlrwlrkg2/5DzcIRCENh1OeuXvsGQSqU7NRUfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OnA27UNgLMuk8u78Gr+jPZjpwSy4n6ovLKfrdClEOpM=;
- b=ACZ2tuL9wtsoAmA9Byu0mDoOyWMVhAqBvcKvMnqekkfmG1rlz0+vTR5MdMOM2cuBDT4sd9J4uS5EEcK9msBgCi/VScfDivma1q1mv/a7GkLNrJLi1cPiFqtFDwmk8D/9IsQzMAjPy/+ZoJiUh3bAOZKdXAKkzMapztH3Ih9xGdavUbFi94CDYH/tgpdy+FaoqJaSANrNXuwCZ3UPxTI9GfB47k+NIBrqr0lblcpwYLXjCHs/qG00QIMQWxtzQ8/yDUCjr280UM46uJdtaeveSGSkKwLyvdzk/piLnYIC+perpbqOykj6ILX+PNJljm5IaeLkTBWxK/fhu+5hifABJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OnA27UNgLMuk8u78Gr+jPZjpwSy4n6ovLKfrdClEOpM=;
- b=FiIcaa9dmwiAb0pcWcJ6fCEU0LA/fxBDpL3G1+5FeLVfHghks7Zm6zClHorjK8PuihlWCv1h0zmfaA9xaUdvGz2NdVQFlFiyxKVoNiefmDGqRmwtmZjMkA8ytVrG2DyYoOSTb9U2caV4VRuk6yR5f80Up/GqZlEHFCv5DPBBFa/zEFS6vefGt832T3DvtlGO40xq7Qpk4uKn/F016WwMWA1zvlZdjqhXSvnNWNn0DFKHW8VXKY5Qc2p7+iZhA8vVFPDZI5bDh9aXCx8YyAHo2haJThLqczWKTnrBkxnJ+dDLLhQ+Q5Cq0PjsY1xBl26nEz7LKNM7rMMa/saAWZlubw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7899.eurprd04.prod.outlook.com (2603:10a6:10:1e1::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Tue, 24 Jun
- 2025 20:04:54 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Tue, 24 Jun 2025
- 20:04:54 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Animesh Agarwal <animeshagarwal28@gmail.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
-	linux-i2c@vger.kernel.org (open list:I2C SUBSYSTEM HOST DRIVERS),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: i2c: nxp,pnx-i2c: allow clocks property
-Date: Tue, 24 Jun 2025 16:04:43 -0400
-Message-Id: <20250624200444.2514331-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P190CA0005.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:5de::17) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7899:EE_
-X-MS-Office365-Filtering-Correlation-Id: f620c42a-7d89-4f2a-8b8b-08ddb35a62ce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7/nWQbGoqY1anR6SasCfByWyhDonMMhivbT6ZuaeUAPcKeNpJqK154WrFKzT?=
- =?us-ascii?Q?PXpo4sSrWyE6qENqtXjSmbS8ntGcQ0rX2y8s1e/W3tLIq05+YTjEdBqw/Xv2?=
- =?us-ascii?Q?/9CfZ7RASuXTmwvXtY5J2OIoSjULg18FcMneS6CmMmpNkMs8zrr/QBayClkG?=
- =?us-ascii?Q?s+6A+0X47mE6pS90fRUbC9yrM9QmUswh3ZjdNj1R2MeEcQdy+H7ogdBKrM+i?=
- =?us-ascii?Q?b9s8EVZILAg7jh6LyePJju6BaRM4n+koBJ8tQWtZJkCFqoHACe9JiYX67zo3?=
- =?us-ascii?Q?QBa2UTpP3dwYUpWtkqvl+/G8OAv3MChACETGvCMNifxCI/CcTbdy4yfXmngU?=
- =?us-ascii?Q?a1Mscc4i+b7GWqVR9eDYJw6Mee0zbo1x8LVs46xIOTmHG/l9rPzD9X4NxEX8?=
- =?us-ascii?Q?YP6NTmHrjp/rmlB4B3+tCiw954jJFnTJmZmAhhokzmGijzHwBpkGsfKTu65q?=
- =?us-ascii?Q?W/MJib+d1gBuvOZPgz4muGXY4w7I2MRI/pqqx3ftGFyQubfgBd4/HrDm9Hcs?=
- =?us-ascii?Q?y9YzU3IYITgg664HuAAcRJ02VJN3QmoZZwEun0ViwMzKz2PS3CqmzVQNWQIQ?=
- =?us-ascii?Q?aBvj+V9vMqjWpMhuwB52qSmWPpQM2WfgtXwh7YOpSEuhT1ydalrK6DwxDRwm?=
- =?us-ascii?Q?qv6C+/BvF8y+cYouqEsY5D0S6tJ4Zud6Qt8c2ohhteXZQLYmhPi3Jcj9E6gQ?=
- =?us-ascii?Q?wV2WEzXKYORvCNGv2DZgWlWZZNnopKvx0o30RN+Mui5QXT8fMAR+kvM56eXi?=
- =?us-ascii?Q?Bt09rPFyeupJ1eoa17HEN892rmRalMLVM2qKYL9bUmXihlvTsDQafIT9VuJb?=
- =?us-ascii?Q?42at5VXl0v24KDzhHzENhtebQpfdGa9i1pZAFO8KGQ2ASTXnV0rZIpKG2uqi?=
- =?us-ascii?Q?iAj6/cB5+lfBVFnMQCIDHlWIcOEHXg6YVsi9vPyBmp6KKe+Y3Zmj0f/ef246?=
- =?us-ascii?Q?pyK7nUctxP+9gIc+fnz28NmoRr5vOf3SznJJR3PwDUbm12reG/oMTHiqhmaI?=
- =?us-ascii?Q?6qPQqDlESYybkZrk+AWK+cQ6hKie4YWvHpJMM+2pSOXt8qSR7dLKpd+GFUkM?=
- =?us-ascii?Q?Efs6e4Z91U51KHj+MiCHNMprfJvMQirzBiIRPTWPN0nUdIV7oV3ZikpL02Tl?=
- =?us-ascii?Q?0DIg/pUO8R24XcAAadKDPi1US657hoxm3GZ4rsaoixncSBX5ev7pRiCW2A2R?=
- =?us-ascii?Q?RRAFdlE1QCvEvbHcqFlwnbpmmqJFcf+u+t4B1Lt+hvzhU+cbwrsbnGjS29w3?=
- =?us-ascii?Q?1ftUa2ccI4idlzjz60D12q/zz2SwrfGtOR6wMcc8yAkAkBOTpOSeNPH84KeH?=
- =?us-ascii?Q?M0rdKEuvcoW3J4egJ5RbwTFRHp271MUbuR4ithNZQfTZUyfuhKJRtAmWmvTz?=
- =?us-ascii?Q?TV5VZ1Iuo1TdUJh8J0ZO1NSwrTrmIFU2eODlVFHToReaXME5GWZN9W+qriRQ?=
- =?us-ascii?Q?b6D3OkkBKBRWBmmixbtk2dNkh0GEFhP4BPFyZRpLk+nKM9dsU1M7w9T8e1Bo?=
- =?us-ascii?Q?CqLnF6+rQb2BKYY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uC0o+JewlfGCn9wEAqW6i9y729gEZyAl7n66UJzvQ6vlbq+0sfQzuBXL5857?=
- =?us-ascii?Q?yTQ1jhAUkNK2zbTKbgWXDKrLaQzsbsIzU5gMZVPzjlcaR8yFhm1X72pr7h3e?=
- =?us-ascii?Q?HZYyf1X4LHhvGUG+D4Agn7naNKDf4scOnxKxSXdCy8b1IJFJqfcUPeCfR9R/?=
- =?us-ascii?Q?QlnEEtdJtnHMiMZvZyigYZnTYvdL6VapFHh/AhIspg78y+iu+oat3eDwr9bY?=
- =?us-ascii?Q?tBl31BinlbJuNi9UAjhn7PVBR9fz3u/hYMOwIME+0g4MC4fRgrHB2hYW0JRv?=
- =?us-ascii?Q?QjVYy9Y06Wn7RlgH7638pzcjrfxo9Hi+f+ImSrvaXeapGwjU0hIj48gFVQpw?=
- =?us-ascii?Q?G2kmnjFpzVru7cOgO4Eq2Z2wI4xKxJBCwJgmgfsdehFI49XJ/u/t2nh0C3LI?=
- =?us-ascii?Q?t5dsf4T+p50LwQhJqJBhzQbtSErQHFuoKhdNjWbNXNi3+4m8d5BkO/fckGP3?=
- =?us-ascii?Q?a0XLPKuALDT4ubmTYtMaYIoL2JIbbxPXwVyXZpfirTx58uPaOh6LIAZpYbHC?=
- =?us-ascii?Q?G9wUBKAqugkBGdKFqo9zzoDu1d7aHXwTvfkIynjoPVY36mEEUd1YkykhwdcX?=
- =?us-ascii?Q?DY8RQzvfOD6W5lkSTYXfkMTOKS5ZfH8EzHr9sOucfbxEkLr2IOJlGHcTWPbV?=
- =?us-ascii?Q?H07M/mbddl5TDDLx9gD2viywpFfhyYoQsCmOrXEC1OSdYSP9NSx9oBjbZlE1?=
- =?us-ascii?Q?EEcwsCqCjDESU3Hhq7qqFGHu7MVM0jI/x9IgXxxT5QmPyeSKBPCWbh8Y4Udm?=
- =?us-ascii?Q?tFv2yL+ltHx3DxbSzKUSyQPgNBEd/GmBlJG+NVRNEpWW5gJAdUM7BINkNBNP?=
- =?us-ascii?Q?+KJp8K8zzVmiwSS8SdLmzerTIjqt25+gszj7/ObTBicYkaZqO3zx0xLv2suu?=
- =?us-ascii?Q?FExLog2f2mdSkh7VX6mETNHjbfiSs9i4QouqDghklGRnyG/fOSHksByCyOJa?=
- =?us-ascii?Q?FEIchy3h2Od3Gni7GinX0KhDp7mvWNcm1sLLfGyzsPwJrhBtyx5gBtEJbJFy?=
- =?us-ascii?Q?o9kQWaYxUGXOiucMPRU857O6Gi6tIRRQExMKThmX8J54B/2IMnOszPj39aAD?=
- =?us-ascii?Q?krkg7IP4S2FXF0bQ97KM6WRlieu8OCIDsm4BkJPuxk1eLqX8AL/IVI8gTH6c?=
- =?us-ascii?Q?G3AtB6RoNXyT3NKIdQAEqUUM4Jf7umtj47ad7cNY44iX+kCBHSw4JeZiv6I3?=
- =?us-ascii?Q?pV23fozxqX90EQA7l9W8AOBnkFGnXCBgfkpFb8pWfmnsq7Q1EuTP6lY3/5wm?=
- =?us-ascii?Q?xdahszCuo3ylsod3oUFfds3U6hKrM14Ukbx+XCRIMGcuiwCCJUSzqgZBxSLC?=
- =?us-ascii?Q?eCuiPjQIO7yUhVGulz08AkvTV/BWnWrNn1JtTs9nqBL5lyfxndODzm5lGWtV?=
- =?us-ascii?Q?8hzvEuyajHDueZejpIRNrBLcTsEonzk9UlZZECqNW5BobJWNpc1rEwPmYlYQ?=
- =?us-ascii?Q?2nytqlzh0JHQPtAF2sz3ZjNzWmQM+3yh9KriUWnUxjCJr/1CBKfdNptat8lT?=
- =?us-ascii?Q?e3KJQM5ioPEreUVJJt8imMVrW7+R1tUj5y1E79O+j52G1M5SBnoPtgN9iigM?=
- =?us-ascii?Q?TBQvbDrKQjrLp5WObncsqqbyRQ+M04GXeWQWoLex?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f620c42a-7d89-4f2a-8b8b-08ddb35a62ce
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 20:04:54.5564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DGGkJ3x7ihhy7gAvKx5O5Ew4U2fBVEbP5BLpBNEgd171xNeZx3ZDdo8Uq9tVRosTAV7SYGiTpGy77zX7rAeWEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7899
+	Tue, 24 Jun 2025 20:05:04 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3ddbd339f3dso9876295ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 13:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750795501; x=1751400301; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pP2HWMoMCKbdHfq9EmswNyKqb25oMjrzzlNWwJCxpig=;
+        b=s7SYKrCo68JegEZ3pl3iaX2C67Wlglhq/7OtC8UH0ddDReUmbhwBpqfqdFXbCMGILg
+         oQjpLRAw08S6LEbCqSqM4Gtb5BtibrMRbM5nrIzLgcA3/aTs3d5Ov86Ppu07nFSsZa/N
+         K323vrahLFNxpVtcFYUvMiKPaZyWjZVXxSU7JM8mTzpf6A21IB4HUwxUroAwHU+TGKwo
+         Z7vV7rO8EiX/Q0DwhD2t/G0D4mVpZJksuJmLOQaJVsAj2BEicSgD2Wwt81vuQl6vc818
+         i0lB8o98l350M1YaJNIgSGDKuA3DlextCO9QN/dxMhda9qfe4MdQetXhuT7WDkH4IAdX
+         LfdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750795501; x=1751400301;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pP2HWMoMCKbdHfq9EmswNyKqb25oMjrzzlNWwJCxpig=;
+        b=awq9WdQ3nhHoD8nzOPq0LZRO8TGdtVmQVr2F82TkSWD61giz3LK4PRW+ITHqu1+Ivo
+         6qE8RkYri83SMWNl2lR9PhCHWX/RLMr//zXf9Xgm4Fbc5h6IiuzJ2dqenCbD9GEjll5f
+         bifu6QVkYtEmJZIKhJfyfzk5/ZHAFZkuozaFjAYJgaDwccV4251xs7Kk/Cx3dgO38LsA
+         wEez3Mm4m5tOjxjZ5SJ9WwVYtfxK8ZArSHF2ejxUSTJR/j16JfK2zEBcSWW6YZi4vHFd
+         S4Ntpu+GLq/1Ot2qcFdMpS6kSXbK2XIFxMRW9TPNiGV5lusrntjSu0AnJmUSxjbn0agn
+         6Qow==
+X-Forwarded-Encrypted: i=1; AJvYcCXOqcxYDWmH+eknO/lnmSxiO2NDKrqzSninmQFrs1AdapcaJqwgihQ+h2bZwlHOqa2cj2gkPs4leTY0BTXTOJCF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSeWmoVh6H316ggzZxmUFx4yNh6PsW5SCR0S/Zl29SaeOMdzZM
+	wXMwLgaIbL7ipFJm8bOIHdwNamhHgTzHaD6e3ZRkfovgem56f2nnhJKePzUy2SNQuuL82c2ThGU
+	ldCs+QZB1DRSILgxoyKBItIlttw==
+X-Google-Smtp-Source: AGHT+IEpwXEjWcAkbmXUn25NbkOypFqMgOZS4LSaytEWOm4lY0osguKw8gnkLrqXfYVp9g/tkoRSIDkKJowW6gl+SA==
+X-Received: from ilff3.prod.google.com ([2002:a05:6e02:5e03:b0:3dd:a3df:9d57])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6e02:190a:b0:3dd:d90a:af30 with SMTP id e9e14a558f8ab-3df329364f2mr5932045ab.10.1750795501770;
+ Tue, 24 Jun 2025 13:05:01 -0700 (PDT)
+Date: Tue, 24 Jun 2025 20:05:00 +0000
+In-Reply-To: <aFpOI7cWTOAIjNjV@linux.dev> (message from Oliver Upton on Tue,
+ 24 Jun 2025 00:05:07 -0700)
+Mime-Version: 1.0
+Message-ID: <gsntecv8aosz.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v2 07/23] perf: arm_pmuv3: Introduce method to partition
+ the PMU
+From: Colton Lewis <coltonlewis@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_130457_168032_E50E98AE 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250624_130503_223139_3B4AD06F 
+X-CRM114-Status: GOOD (  42.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,29 +94,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow clocks property to fix below CHECK_DTB warnings:
-  arch/arm/boot/dts/nxp/lpc/lpc3250-ea3250.dtb: i2c@300 (nxp,pnx-i2c): Unevaluated properties are not allowed ('clocks' was unexpected)
+Oliver Upton <oliver.upton@linux.dev> writes:
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- Documentation/devicetree/bindings/i2c/nxp,pnx-i2c.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+> On Mon, Jun 23, 2025 at 06:26:42PM +0000, Colton Lewis wrote:
+>> Oliver Upton <oliver.upton@linux.dev> writes:
 
-diff --git a/Documentation/devicetree/bindings/i2c/nxp,pnx-i2c.yaml b/Documentation/devicetree/bindings/i2c/nxp,pnx-i2c.yaml
-index 798a6939b8948..e645784b77d3a 100644
---- a/Documentation/devicetree/bindings/i2c/nxp,pnx-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/nxp,pnx-i2c.yaml
-@@ -22,6 +22,9 @@ properties:
-   interrupts:
-     maxItems: 1
- 
-+  clocks:
-+    maxItems: 1
-+
-   clock-frequency:
-     default: 100000
- 
--- 
-2.34.1
+>> > On Fri, Jun 20, 2025 at 10:13:07PM +0000, Colton Lewis wrote:
+>> > > For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
+>> > > counters into two ranges where counters 0..HPMN-1 are accessible by
+>> > > EL1 and, if allowed, EL0 while counters HPMN..N are only accessible  
+>> by
+>> > > EL2.
 
+>> > > Create module parameters partition_pmu and reserved_guest_counters to
+>> > > reserve a number of counters for the guest. These numbers are set at
+>> > > boot because the perf subsystem assumes the number of counters will
+>> > > not change after the PMU is probed.
+
+>> > > Introduce the function armv8pmu_partition() to modify the PMU  
+>> driver's
+>> > > cntr_mask of available counters to exclude the counters being  
+>> reserved
+>> > > for the guest and record reserved_guest_counters as the maximum
+>> > > allowable value for HPMN.
+
+>> > > Due to the difficulty this feature would create for the driver  
+>> running
+>> > > at EL1 on the host, partitioning is only allowed in VHE mode. Working
+>> > > on nVHE mode would require a hypercall for every counter access in  
+>> the
+>> > > driver because the counters reserved for the host by HPMN are only
+>> > > accessible to EL2.
+
+>> > > Signed-off-by: Colton Lewis <coltonlewis@google.com>
+>> > > ---
+>> > >   arch/arm/include/asm/arm_pmuv3.h   | 10 ++++
+>> > >   arch/arm64/include/asm/arm_pmuv3.h |  5 ++
+>> > >   drivers/perf/arm_pmuv3.c           | 95  
+>> +++++++++++++++++++++++++++++-
+>> > >   include/linux/perf/arm_pmu.h       |  1 +
+>> > >   4 files changed, 109 insertions(+), 2 deletions(-)
+
+>> > > diff --git a/arch/arm/include/asm/arm_pmuv3.h
+>> > > b/arch/arm/include/asm/arm_pmuv3.h
+>> > > index 2ec0e5e83fc9..9dc43242538c 100644
+>> > > --- a/arch/arm/include/asm/arm_pmuv3.h
+>> > > +++ b/arch/arm/include/asm/arm_pmuv3.h
+>> > > @@ -228,6 +228,11 @@ static inline bool kvm_set_pmuserenr(u64 val)
+
+>> > >   static inline void kvm_vcpu_pmu_resync_el0(void) {}
+
+>> > > +static inline bool has_vhe(void)
+>> > > +{
+>> > > +	return false;
+>> > > +}
+>> > > +
+
+>> > This has nothing to do with PMUv3, I'm a bit surprised to see you're
+>> > touching 32-bit ARM. Can you just gate the whole partitioning thing on
+>> > arm64?
+
+>> The PMUv3 driver also has to compile on 32-bit ARM.
+
+> Quite aware.
+
+>> My first series had the partitioning code in arch/arm64 but you asked me
+>> to move it to the PMUv3 driver.
+
+>> How are you suggesting I square those two requirements?
+
+> You should try to structure your predicates in such a way that the
+> partitioning stuff all resolves to false for 32 bit arm, generally. That
+> way we can avoid stubbing out silly things like has_vhe() which doesn't
+> make sense in the context of 32 bit.
+
+Okay. I will do that. When I was reworking it I thought it looked weird
+to have the predicates live in a different location than the main
+partitioning function.
+
+>> > > +static bool partition_pmu __read_mostly;
+>> > > +static u8 reserved_guest_counters __read_mostly;
+>> > > +
+>> > > +module_param(partition_pmu, bool, 0);
+>> > > +MODULE_PARM_DESC(partition_pmu,
+>> > > +		 "Partition the PMU into host and guest VM counters [y/n]");
+>> > > +
+>> > > +module_param(reserved_guest_counters, byte, 0);
+>> > > +MODULE_PARM_DESC(reserved_guest_counters,
+>> > > +		 "How many counters to reserve for guest VMs [0-$NR_COUNTERS]");
+>> > > +
+
+>> > This is confusing and not what we discussed offline.
+
+>> > Please use a single parameter that describes the number of counters  
+>> used
+>> > by the *host*. This affects the *host* PMU driver, KVM can discover  
+>> (and
+>> > use) the leftovers.
+
+>> > If the single module parameter goes unspecified the user did not ask  
+>> for
+>> > PMU partitioning.
+
+>> I understand what we discussed offline, but I had a dilemma.
+
+>> If we do a single module parameter for number of counters used by the
+>> host, then it defaults to 0 if unset and there is no way to distinguish
+>> between no partitioning and a request for partitioning reserving 0
+>> counters to the host which I also thought you requested. Would you be
+>> happy leaving no way to specify that?
+
+> You can make the command line use a signed integer for storage and a
+> reset value of -1.
+
+> -1 would imply default behavior (no partitioning) and a non-negative
+> value would imply partitioning.
+
+Good idea. I thought of that solution myself for the first time after I
+logged off yesterday. Slightly embarrassed I didn't see it sooner :(
+
+>> In any case, I think the usage is more self explainatory if
+>> partitition=[y/n] is a separate bit.
+
+> What would be the user's intent of "partition_pmu=n  
+> reserved_guest_counters=$X"?
+
+That doesn't make sense, which is a decent argument for using just one
+parameter. I'm now fine with going back to just reserved_host_counters.
 
