@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209ADC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1818AC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 14:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tuqNjj3Hrcl2yyU+FL+6qANKForVVnD2uKAumsicuo=; b=m/x1f67If1Awd1sgBI7syMU7d6
-	c4hPZ8ISKqRwFDoitPBFrw0SFGQ4jDfmYsNyGVkkIXPc0G7d3W738JCTyVVXOZS0AOE0D2RA6Sz92
-	rUEFJS7WzaZEocvJkVnMTZeVSxtA3gS7yWZmhEc9F3WBr4Ht3Ws+X0mGN30Iih8xkVf2ZT9dziBm9
-	lf/wamZdXg4qklEL/dhg4Yde/EuF0P23DulsGuMSmUKpapP8erZWFMsgLL8O3CimpVWzBWsqew2/I
-	pQb/Vg2lTy8ti5ZgSu5V3zEU4JWxE9co6Nhj12zYlw5fufa3RRHSSoUkqGv/wMS690nyqqaMTApXQ
-	goZkYTAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gsa/afuzkL/muRZEKJaSmP1G9IRaDNhW+p7U3bAdGsU=; b=FgpcRZaQ/xq9Rg
+	BDLKfUmctX9aI0Xvk4RuJZSi9minFPuzXzRLdGT3Rw2B1Am4AkNle/8iMuiOKia8o8K94IQBp/48V
+	0DZSuWVHwkyR26sslY5JiMu9Jwfzu8Pb+uyB57jRuDY9+Q/rWVbvI5INzs8+Ke7QtzOgxB/VYbYLz
+	fPV5Ifct0b/ZlYsdqwEj7EV/5TybHDA4acjSG0wxe2pA66jB3FbwPR3fw0dw/NElqJu16sEsubhy7
+	rY5BAkvlZBUoaXjR+D2Yb8JHv2i0sdnxEIf1JD5+bZIboAD0Ds8DsfqO7eWl0M0z7I78SqmEJOvlp
+	857UBdmlxMR3Gg7gyUJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU4Yg-00000005tRW-47C3;
-	Tue, 24 Jun 2025 14:23:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU42q-00000005mQV-0ppa;
-	Tue, 24 Jun 2025 13:50:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E123113E;
-	Tue, 24 Jun 2025 06:50:21 -0700 (PDT)
-Received: from [10.57.29.71] (unknown [10.57.29.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99E523F58B;
-	Tue, 24 Jun 2025 06:50:32 -0700 (PDT)
-Message-ID: <fcb3ca23-7ebd-4f48-92d2-969b24936b9b@arm.com>
-Date: Tue, 24 Jun 2025 14:50:30 +0100
+	id 1uU4Yi-00000005tSu-3WYr;
+	Tue, 24 Jun 2025 14:23:37 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uU3Ya-00000005h2n-1LSr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 13:19:25 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-442fda876a6so48016825e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:19:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750771162; x=1751375962; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gsa/afuzkL/muRZEKJaSmP1G9IRaDNhW+p7U3bAdGsU=;
+        b=AqvOY0aLWOXWTppXaHHclS6q3aHc99LqXhbx3joQqkbqgxLj1dUc+FXk/zAu8Az+Cz
+         b4QwJ5Gdds+46nw4tvg0BAXH4UOW2EAAcn45/5CT9YT5+5j/KbNvF5FRIwDN8YbaZ/gh
+         WA4nKzgCDtajXxHe+H2Cwl39H8cYH4Gx/dO27d6ZWz2tsG3nnl3jWkHDOG0/MFKfhYmW
+         721xUhrcHD3mzWSMGd+9JcxigthEqD2XA2fyzHcYwFjBlWf63GW8ikaWmUUNJC8+dfi9
+         H0DrKgY9Ay8QjW5UZ8ukkTKYfJs7dI198l1I4VabBRf7B4frJis8FWIFEAc7gY+OAxKa
+         ujDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750771162; x=1751375962;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gsa/afuzkL/muRZEKJaSmP1G9IRaDNhW+p7U3bAdGsU=;
+        b=MiAUPk42bf+pHN5GZCFs7J91OH6t8xO7N3Q0ZMYPrZaO8sYKhqlp2627FJsfsED2sQ
+         1/N8PuvfdfpHZIhD2HfMBftuRq20zMP6S9YTFRHQQC6/48tLEYD1yQpQYt7urnXZIs5u
+         f2F9ltQTwbmjb/0DmUDX22jYIv6GZCMBrd8qTX4X3aqFqZxP51Sg2Qa2r1PwTwntw5dZ
+         7j9aqmOPq2UkCmoYXRVjlzMhCY12+wIvrsHcObP53nc3Oy7GlgZcMMw4uc2yLxCwmKG0
+         zdlSNYOwf8jUK5XdqQdOoffGrXiyUxC6vYmnUDZmtZAmyBIxIeGW8UTeyc9u9ZmQyKKs
+         FH0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWX9VdaDIKylGYS4PwF3JUogUBnhFqZzKMlyh4FqHpM++/nA/ZYSuewa5T08F/i+syMNPda32VnEIWvMgLJX4Qy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmGPVhwur6VQQ+5u8wZq3zFkvq+7mtl2rAyrNUqr0VWCIKUHq7
+	D6naFusRviEtnSst2ascNcFrRpF2PwTmbt1ZSSTqfrupsBnMfmYfE8tENEtf173p/mQ=
+X-Gm-Gg: ASbGncu6Ak8bnezvv+bdYdPp4B32c9OhIH2008cDcb0ikVqJLAYoCykhWn7xjaXCjBS
+	5lFOhXZznKMqBRlf1GhgWnnPaWuke5AtUvcdHKVB2uUiFUBJMuZ8Ihj8j4szYWtYfT8+A4PYMKo
+	dz01+CLmsdRtKnRzuGeCnqa6ZO7g5Yq0W926Oej30A0qxPCIPXCIUGsjTjcRSOJVXhjG3FMqp6B
+	D4oWaNcXMA/0Cj+hTtl1F3/FuwJ7BQI4G9u3y9nKdj5R97Q12wYvV1H6+xYMWwyXwUP4xIB4DRr
+	n6w9Rpxyg6XP5rqRV1GMSYLlFTcjs+4y2RHzXleikzbrGtiomONybEGB9TAK6Bd05w==
+X-Google-Smtp-Source: AGHT+IEhufAimrhHUzQr0xQtqQC2Hgx0D1VrIPHbO4Qbkas268U0OlP1XXIhz9Fe5pfneFNyUPhByA==
+X-Received: by 2002:a05:600c:3513:b0:450:cde3:f266 with SMTP id 5b1f17b1804b1-453659cb94bmr143802515e9.22.1750771161882;
+        Tue, 24 Jun 2025 06:19:21 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:34d2:109c:3293:19e9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646fd74asm141302195e9.22.2025.06.24.06.19.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Jun 2025 06:19:21 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH RFT 0/6] gpio: mmio: remove struct bgpio_pdata
+Date: Tue, 24 Jun 2025 15:19:11 +0200
+Message-Id: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 04/10] accel/rocket: Add job submission IOCTL
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, Daniel Stone <daniel@fooishbar.org>,
- Da Xue <da@libre.computer>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
- <20250606-6-10-rocket-v7-4-dc16cfe6fe4e@tomeuvizoso.net>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250606-6-10-rocket-v7-4-dc16cfe6fe4e@tomeuvizoso.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM+lWmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDMyNj3fSCzHzd3FwgUZCSWJKom2hhbJhkaZZqkZJipATUVVCUmpZZATY
+ xWinILUQptrYWAD6NQxlmAAAA
+X-Change-ID: 20250623-gpio-mmio-pdata-a831b96e8dd2
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Lee Jones <lee@kernel.org>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+ Russell King <linux@armlinux.org.uk>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+ patches@opensource.cirrus.com, linux-samsung-soc@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1805;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=RBJgsZUC1nqNrB3wsNH3awWX5gMKJEfJFb9c9F8tuQg=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoWqXTX/fNaYZzZKf3DgFDCitzH9bRN6VhuKlO+
+ tLHKsv3sa+JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFql0wAKCRARpy6gFHHX
+ ckkBEAC3x6MUKlDkZ40OSpS/a57sn/SpQw1u6hapoGkV4PIgEA2b0WNC/5vJVsMsJOE7bEo4415
+ d830z2CMbbRl7AA+Q69vBRvmtexOFGW8Zf+5YD9qe2VxlQ+ZhDIdQjF8vG3BBPVfgAAFQLcDvGc
+ 7eqG8XUAQISuMRzX8jx3aCfaSXu89LnAFmfsLWVO2PFZ1lOMNLyC+FBvxMjBtKf9NjbGjX6g9Lt
+ WSs3ihAWqXpsQrMA5j+Sk9pDAAskgyVdnMVP0R1vWn97KCF/aKeXuX3PTKxLgAwkfTtDblPkuAY
+ V59ViJhzoB7/+ecRrLUeW7bXb8iJVSVLxRyqakya85TgiL8a0iAFueJ3mbFURtB3V0dk5bcyhZj
+ j+t7vqzDcp/lOveEU7abAQm6LW4o3s6jbSEGJqmt4zZLlSuoUdnbTQkwh6O22LbvSsPjt9vfwTu
+ ZhWPf8Ul7BSRtjDSrv0G+1pJGMwxzot5HDI0jJKeg0oEd5Mjky6Q8DV6KxWsBQgVKFwB7PE0uE3
+ HMkjg9Zqh1+h6aMeFgiEFlkIL5Fa2g+z5SxKXPOiXBP8ZisOEORPZWaBKGx8H1kOTcrlKz6Yi+s
+ HRSE9OFs+vg4bWEVBmI4/Yxm4hb4THlDk0eY14SpBmXtl8Qdm279L0/AapoAzTPYOAddTSPgtmG
+ kylguGrG3el0upw==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_065040_336497_82C3D074 
-X-CRM114-Status: GOOD (  45.71  )
+X-CRM114-CacheID: sfid-20250624_061924_601190_A409B6F9 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,380 +125,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-06 7:28 am, Tomeu Vizoso wrote:
-[...]
-> diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
-> index 10acfe8534f00a7985d40a93f4b2f7f69d43caee..50e46f0516bd1615b5f826c5002a6c0ecbf9aed4 100644
-> --- a/drivers/accel/rocket/rocket_device.h
-> +++ b/drivers/accel/rocket/rocket_device.h
-> @@ -13,6 +13,8 @@
->   struct rocket_device {
->   	struct drm_device ddev;
->   
-> +	struct mutex sched_lock;
-> +
->   	struct mutex iommu_lock;
+I'm working on removing the fields relevant only to gpio-mmio from
+struct gpio_chip. One of the bits that need addressing before we can do
+this is the removal of struct bgpio_pdata from the kernel. Fortunately
+there are only 3 users left treewide.
 
-Just realised I missed this in the last patch, but iommu_lock appears to 
-be completely unnecessary now.
+This series adds support for parsing of generic device properties to
+gpio-mmio, converts all users to setting up software nodes containing
+relevant values in their property sets and removes struct bgpio_pdata.
 
->   	struct rocket_core *cores;
-[...]
-> +static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *job)
-> +{
-> +	struct rocket_task *task;
-> +	bool task_pp_en = 1;
-> +	bool task_count = 1;
-> +
-> +	/* GO ! */
-> +
-> +	/* Don't queue the job if a reset is in progress */
-> +	if (atomic_read(&core->reset.pending))
-> +		return;
-> +
-> +	task = &job->tasks[job->next_task_idx];
-> +	job->next_task_idx++;
-> +
-> +	rocket_pc_writel(core, BASE_ADDRESS, 0x1);
-> +
-> +	rocket_cna_writel(core, S_POINTER, 0xe + 0x10000000 * core->index);
-> +	rocket_core_writel(core, S_POINTER, 0xe + 0x10000000 * core->index);
+As for merging: it would be best for MFD/OMAP/s3c maintainers to ack the
+changes and let me route them through the GPIO tree. I can provide an
+immutable tag if needed.
 
-Those really look like bitfield operations rather than actual arithmetic 
-to me.
+Obviously I was only able to build-test the changes so any actual
+verification is appreciated.
 
-> +
-> +	rocket_pc_writel(core, BASE_ADDRESS, task->regcmd);
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Bartosz Golaszewski (6):
+      gpio: mmio: drop the big-endian platform device variant
+      gpio: mmio: get chip label and GPIO base from device properties
+      mfd: vexpress-sysreg: set-up software nodes for gpio-mmio
+      ARM: omap1: ams-delta: use generic device properties for gpio-mmio
+      ARM: s3c: crag6410: use generic device properties for gpio-mmio
+      gpio: mmio: remove struct bgpio_pdata
 
-I don't see how regcmd is created (I guess that's in userspace?), but 
-given that it's explicitly u64 all the way through - and especially 
-since you claim to support 40-bit DMA addresses - it definitely seems 
-suspicious that the upper 32 bits never seem to be consumed anywhere :/
+ arch/arm/mach-omap1/board-ams-delta.c | 42 ++++++++++++--------------
+ arch/arm/mach-s3c/mach-crag6410.c     | 17 ++++++-----
+ drivers/gpio/gpio-mmio.c              | 57 +++++++++--------------------------
+ drivers/mfd/vexpress-sysreg.c         | 46 +++++++++++++++++-----------
+ include/linux/gpio/driver.h           |  6 ----
+ 5 files changed, 73 insertions(+), 95 deletions(-)
+---
+base-commit: f817b6dd2b62d921a6cdc0a3ac599cd1851f343c
+change-id: 20250623-gpio-mmio-pdata-a831b96e8dd2
 
-> +	rocket_pc_writel(core, REGISTER_AMOUNTS, (task->regcmd_count + 1) / 2 - 1);
-> +
-> +	rocket_pc_writel(core, INTERRUPT_MASK, PC_INTERRUPT_MASK_DPU_0 | PC_INTERRUPT_MASK_DPU_1);
-> +	rocket_pc_writel(core, INTERRUPT_CLEAR, PC_INTERRUPT_CLEAR_DPU_0 | PC_INTERRUPT_CLEAR_DPU_1);
-> +
-> +	rocket_pc_writel(core, TASK_CON, ((0x6 | task_pp_en) << 12) | task_count);
-> +
-> +	rocket_pc_writel(core, TASK_DMA_BASE_ADDR, 0x0);
-> +
-> +	rocket_pc_writel(core, OPERATION_ENABLE, 0x1);
-> +
-> +	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcmd, core->index);
-> +}
-[...]
-> +static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
-> +{
-> +	struct rocket_job *job = to_rocket_job(sched_job);
-> +	struct rocket_device *rdev = job->rdev;
-> +	struct rocket_core *core = sched_to_core(rdev, sched_job->sched);
-> +	struct dma_fence *fence = NULL;
-> +	int ret;
-> +
-> +	if (unlikely(job->base.s_fence->finished.error))
-> +		return NULL;
-> +
-> +	/*
-> +	 * Nothing to execute: can happen if the job has finished while
-> +	 * we were resetting the GPU.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-GPU? (Similarly in various other comments/prints)
-
-> +	 */
-> +	if (job->next_task_idx == job->task_count)
-> +		return NULL;
-> +
-> +	fence = rocket_fence_create(core);
-> +	if (IS_ERR(fence))
-> +		return fence;
-> +
-> +	if (job->done_fence)
-> +		dma_fence_put(job->done_fence);
-> +	job->done_fence = dma_fence_get(fence);
-> +
-> +	ret = pm_runtime_get_sync(core->dev);
-> +	if (ret < 0)
-> +		return fence;
-> +
-> +	ret = iommu_attach_group(job->domain, iommu_group_get(core->dev));
-
-I don't see iommu_group_put() anywhere, so you're leaking refcounts all 
-over.
-
-> +	if (ret < 0)
-> +		return fence;
-> +
-> +	scoped_guard(spinlock, &core->job_lock) {
-> +		core->in_flight_job = job;
-> +		rocket_job_hw_submit(core, job);
-> +	}
-> +
-> +	return fence;
-> +}
-[...]
-> +static void rocket_job_handle_irq(struct rocket_core *core)
-> +{
-> +	u32 status, raw_status;
-> +
-> +	pm_runtime_mark_last_busy(core->dev);
-> +
-> +	status = rocket_pc_readl(core, INTERRUPT_STATUS);
-> +	raw_status = rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
-> +
-> +	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
-> +	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
-
-What was the point of reading the status registers if we're just going 
-to blindly clear every possible condition anyway?
-
-> +	scoped_guard(spinlock, &core->job_lock)
-> +		if (core->in_flight_job)
-> +			rocket_job_handle_done(core, core->in_flight_job);
-
-But then is it really OK to just start the next task regardless of 
-whether the current task was reporting successful completion or an error?
-
-> +}
-> +
-> +static void
-> +rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
-> +{
-> +	bool cookie;
-> +
-> +	if (!atomic_read(&core->reset.pending))
-> +		return;
-> +
-> +	/*
-> +	 * Stop the scheduler.
-> +	 *
-> +	 * FIXME: We temporarily get out of the dma_fence_signalling section
-> +	 * because the cleanup path generate lockdep splats when taking locks
-> +	 * to release job resources. We should rework the code to follow this
-> +	 * pattern:
-> +	 *
-> +	 *	try_lock
-> +	 *	if (locked)
-> +	 *		release
-> +	 *	else
-> +	 *		schedule_work_to_release_later
-> +	 */
-> +	drm_sched_stop(&core->sched, bad);
-> +
-> +	cookie = dma_fence_begin_signalling();
-> +
-> +	if (bad)
-> +		drm_sched_increase_karma(bad);
-> +
-> +	/*
-> +	 * Mask job interrupts and synchronize to make sure we won't be
-> +	 * interrupted during our reset.
-> +	 */
-> +	rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
-> +	synchronize_irq(core->irq);
-
-...except it's a shared IRQ, so it can still merrily fire at any time.
-
-> +
-> +	/* Handle the remaining interrupts before we reset. */
-> +	rocket_job_handle_irq(core);
-> +
-> +	/*
-> +	 * Remaining interrupts have been handled, but we might still have
-> +	 * stuck jobs. Let's make sure the PM counters stay balanced by
-> +	 * manually calling pm_runtime_put_noidle() and
-> +	 * rocket_devfreq_record_idle() for each stuck job.
-> +	 * Let's also make sure the cycle counting register's refcnt is
-> +	 * kept balanced to prevent it from running forever
-
-Comments that don't match the code are more confusing than helpful :/
-
-> +	 */
-> +	scoped_guard(spinlock, &core->job_lock) {
-> +		if (core->in_flight_job)
-> +			pm_runtime_put_noidle(core->dev);
-> +
-> +		core->in_flight_job = NULL;
-> +	}
-> +
-> +	/* Proceed with reset now. */
-> +	pm_runtime_force_suspend(core->dev);
-> +	pm_runtime_force_resume(core->dev);
-
-Can you guarantee that actually resets the hardware if something else is 
-holding the power domain open or RPM is disabled? I'm not familiar with 
-the details of drm_sched, but if there are other jobs queued behind the 
-stuck one would it even pass the rocket_job_is_idle() check for suspend 
-to succeed anyway?
-
-Not to mention that you have an actual reset control in the DT binding, 
-which isn't even optional... :/
-
-> +	/* GPU has been reset, we can clear the reset pending bit. */
-> +	atomic_set(&core->reset.pending, 0);
-> +
-> +	/*
-> +	 * Now resubmit jobs that were previously queued but didn't have a
-> +	 * chance to finish.
-> +	 * FIXME: We temporarily get out of the DMA fence signalling section
-> +	 * while resubmitting jobs because the job submission logic will
-> +	 * allocate memory with the GFP_KERNEL flag which can trigger memory
-> +	 * reclaim and exposes a lock ordering issue.
-> +	 */
-> +	dma_fence_end_signalling(cookie);
-> +	drm_sched_resubmit_jobs(&core->sched);
-
-Since I happened to look, this says it's deprecated?
-
-> +	cookie = dma_fence_begin_signalling();
-> +
-> +	/* Restart the scheduler */
-> +	drm_sched_start(&core->sched, 0);
-> +
-> +	dma_fence_end_signalling(cookie);
-> +}
-> +
-> +static enum drm_gpu_sched_stat rocket_job_timedout(struct drm_sched_job *sched_job)
-> +{
-> +	struct rocket_job *job = to_rocket_job(sched_job);
-> +	struct rocket_device *rdev = job->rdev;
-> +	struct rocket_core *core = sched_to_core(rdev, sched_job->sched);
-> +
-> +	/*
-> +	 * If the GPU managed to complete this jobs fence, the timeout is
-> +	 * spurious. Bail out.
-> +	 */
-> +	if (dma_fence_is_signaled(job->done_fence))
-> +		return DRM_GPU_SCHED_STAT_NOMINAL;
-
-Do we really need the same return condition twice? What if the IRQ fires 
-immediately after we've made this check, and is handled without delay 
-such that sychronize_irq() effectively still does nothing? Either way 
-we've taken longer than the timeout value to observe the job completing 
-successfully, and either that's significant and worth warning about or 
-it's not - I don't see any point in trying to (inaccurately) nitpick 
-*why* it might have happened.
-
-> +	/*
-> +	 * Rocket IRQ handler may take a long time to process an interrupt
-> +	 * if there is another IRQ handler hogging the processing.
-> +	 * For example, the HDMI encoder driver might be stuck in the IRQ
-> +	 * handler for a significant time in a case of bad cable connection.
-
-What have HDMI cables got to do with anything here? Yes, in general IRQ 
-latency can be high, since CPUs can have IRQs masked and/or be taking 
-higher-priority interrupts for any number of reasons. I don't see how an 
-oddly-specific example (of apparently poor driver design, to boot) is 
-useful.
-
-> +	 * In order to catch such cases and not report spurious rocket
-> +	 * job timeouts, synchronize the IRQ handler and re-check the fence
-> +	 * status.
-> +	 */
-> +	synchronize_irq(core->irq);
-> +
-> +	if (dma_fence_is_signaled(job->done_fence)) {
-> +		dev_warn(core->dev, "unexpectedly high interrupt latency\n");
-> +		return DRM_GPU_SCHED_STAT_NOMINAL;
-> +	}
-> +
-> +	dev_err(core->dev, "gpu sched timeout");
-> +
-> +	atomic_set(&core->reset.pending, 1);
-> +	rocket_reset(core, sched_job);
-> +	iommu_detach_group(NULL, iommu_group_get(core->dev));
-> +
-> +	return DRM_GPU_SCHED_STAT_NOMINAL;
-> +}
-> +
-> +static void rocket_reset_work(struct work_struct *work)
-> +{
-> +	struct rocket_core *core;
-> +
-> +	core = container_of(work, struct rocket_core, reset.work);
-> +	rocket_reset(core, NULL);
-> +}
-> +
-> +static const struct drm_sched_backend_ops rocket_sched_ops = {
-> +	.run_job = rocket_job_run,
-> +	.timedout_job = rocket_job_timedout,
-> +	.free_job = rocket_job_free
-> +};
-> +
-> +static irqreturn_t rocket_job_irq_handler_thread(int irq, void *data)
-> +{
-> +	struct rocket_core *core = data;
-> +
-> +	rocket_job_handle_irq(core);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static irqreturn_t rocket_job_irq_handler(int irq, void *data)
-> +{
-> +	struct rocket_core *core = data;
-> +	u32 raw_status = rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
-
-Given that this can be a shared IRQ as above, it would be a good idea to 
-take care to avoid register accesses while suspended. Especially if 
-you're trying to utilise suspend to reset a failing job that may well be 
-throwing IOMMU faults.
-
-> +
-> +	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_READ_ERROR);
-> +	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_READ_ERROR);
-> +
-> +	if (!(raw_status & PC_INTERRUPT_RAW_STATUS_DPU_0 ||
-> +	      raw_status & PC_INTERRUPT_RAW_STATUS_DPU_1))
-> +		return IRQ_NONE;
-> +
-> +	rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
-> +
-> +	return IRQ_WAKE_THREAD;
-> +}
-> +
-> +int rocket_job_init(struct rocket_core *core)
-> +{
-> +	struct drm_sched_init_args args = {
-> +		.ops = &rocket_sched_ops,
-> +		.num_rqs = DRM_SCHED_PRIORITY_COUNT,
-> +		.credit_limit = 1,
-
-Ah, does this mean that all the stuff about queued jobs was in fact all 
-nonsense anyway?
-
-> +		.timeout = msecs_to_jiffies(JOB_TIMEOUT_MS),
-> +		.name = dev_name(core->dev),
-> +		.dev = core->dev,
-> +	};
-> +	int ret;
-> +
-> +	INIT_WORK(&core->reset.work, rocket_reset_work);
-> +	spin_lock_init(&core->job_lock);
-> +
-> +	core->irq = platform_get_irq(to_platform_device(core->dev), 0);
-> +	if (core->irq < 0)
-> +		return core->irq;
-> +
-> +	ret = devm_request_threaded_irq(core->dev, core->irq,
-> +					rocket_job_irq_handler,
-> +					rocket_job_irq_handler_thread,
-> +					IRQF_SHARED, KBUILD_MODNAME "-job",
-
-Is it really a "job" interrupt though? The binding and the register 
-definitions suggest it's just a general status interrupt for the core. 
-Furthermore since we expect to have multiple cores, being able to more 
-easily identify and attribute per-core IRQ activity seems more useful 
-for debugging than copy-pasting from something really rather different 
-which also expects to be the only one of its kind on the system.
-
-Thanks,
-Robin.
-
-> +					core);
-> +	if (ret) {
-> +		dev_err(core->dev, "failed to request job irq");
-> +		return ret;
-> +	}
 
