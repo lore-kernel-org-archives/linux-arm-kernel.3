@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E7CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B462C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gunWgAvza6C8N8LdfVqC9cgAoEehC/tiUfvXZIBWAjw=; b=NQwj9vERUAABNkUS3RLl7u00mi
-	kzfZXFCT/o6SH85SvoE1DrDyEhE/jru9XTClml3cPkrGe4SOR5MiBiY2vpYl3AKSqK2G4JBMICpu+
-	Oi5GYE7KkaowarbOk4NlKzL3uxXLjYtr1/K950K7yrkLcz0bRkIifBQmhhiuy9elFojkOCXC6L9xl
-	BPmrVpy1HqL4eilyvNhG8RQ6zMAeBO5qdwVCtdZSk8j/CJsfkwzkk9GnCNK3Y7qUA30Krho8AWQQU
-	meXKlVWR2kJEb/Ws3PQH8ivcyCl/MFoIg4BW3kYM9jLThOG5XSVS4Zubi9R78j5L9PXouppfMwd6R
-	ZqlVhCDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nqHVGMxhDg52YSCi1jgl7ccHJpCWVWC3C9YGgQGOt9A=; b=ivRWXMVsA2apfmceZxhgSnvQSS
+	r3N4siFasP+b3wvvo6C3fFxx+TDqgUmTVROfPeOoPOHmat1AFUUQPimM++jhpfhmJcnJKSdgmfEKI
+	E/Dhq0aD5iOnze3qQZQZlRch4n2JFGJY4JqW7R0sSeF4yQbFKr5zfzNcCgm4HYCmwRxnfK1reuBpF
+	pjWTKxr/lPryEWpJ+V1bElEcHxaMuHLhDS84SyWyYZy68Ev+8dlKJZ9TucX0JNe/3pr5kHRdTf04Y
+	ip6m0WSQrlmrNXwDBNZYdq3eytCVDyRTR7GmX5L3gTEyQOUmWGM5iFIxg7XnJP80r1TQsmHFuxEsC
+	y4lrgfyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU2ZS-00000005Wmi-3Sr5;
-	Tue, 24 Jun 2025 12:16:15 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1uU2bp-00000005XOA-2o2c;
+	Tue, 24 Jun 2025 12:18:41 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU1qq-00000005QyP-1eIo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 11:30:10 +0000
-Message-ID: <68f46d06-c2ba-461b-9d88-8d76f9f84a8f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750764603;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gunWgAvza6C8N8LdfVqC9cgAoEehC/tiUfvXZIBWAjw=;
-	b=KAVooy1tbew0xMFv+5lb1ZuUEa7hpmUrmKfJLVmNibqkdCFAfr+Jau8uT2vMErv4yUoRZm
-	mH0lLBI90qDMUkGZsxhx5UIFHnUHRhgToxHcvW/inw98xGfA2uOniD7T8twRmW0D0w2SNJ
-	rov6AcmyxbvEdFLYGMNTFA5UYvRAE5E=
-Date: Tue, 24 Jun 2025 12:29:55 +0100
+	id 1uU1tA-00000005RGq-1n9r;
+	Tue, 24 Jun 2025 11:32:33 +0000
+X-UUID: e7e1f0b450ee11f09eb0dd999d3936bf-20250624
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=nqHVGMxhDg52YSCi1jgl7ccHJpCWVWC3C9YGgQGOt9A=;
+	b=Gq40pf+SfwLUvv9DiX3g+fwWPt6caPt6bBMiwRseDJBIzc9jWlOz9bZtaP3qfSwo/HlYOLrfzOdc9sfppRN4Y7dC40//bhrcjaosr0sFgNYlKQnY9O+BPRFPTOz+RW6Rg3uPU3gUYV47caj8iH7V9wIRffY53MTAeAmmL4mTA9k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:cc951a3e-07fc-45d6-ae9f-190012713afc,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-30
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:42e82582-cc21-4267-87cf-e75829fa6365,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:2,IP:nil
+	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
+	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e7e1f0b450ee11f09eb0dd999d3936bf-20250624
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1066440267; Tue, 24 Jun 2025 04:32:27 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 24 Jun 2025 19:32:23 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Tue, 24 Jun 2025 19:32:23 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, David Airlie <airlied@gmail.com>
+CC: Philipp Zabel <p.zabel@pengutronix.de>, Daniel Vetter <daniel@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
+	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+	<singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>,
+	Yongqiang Niu <yongqiang.niu@mediatek.com>, Zhenxing Qin
+	<zhenxing.qin@mediatek.com>, Xiandong Wang <xiandong.wang@mediatek.com>,
+	Sirius Wang <sirius.wang@mediatek.com>, Xavier Chang
+	<xavier.chang@mediatek.com>, Jarried Lin <jarried.lin@mediatek.com>, Fei Shao
+	<fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v2] drm/mediatek: Add wait_event_timeout when disabling plane
+Date: Tue, 24 Jun 2025 19:31:41 +0800
+Message-ID: <20250624113223.443274-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v9 11/11] net: ti: prueth: Adds PTP OC Support
- for AM335x and AM437x
-To: Parvathi Pudi <parvathi@couthit.com>, danishanwar@ti.com,
- rogerq@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ssantosh@kernel.org,
- richardcochran@gmail.com, s.hauer@pengutronix.de, m-karicheri2@ti.com,
- glaroque@baylibre.com, afd@ti.com, saikrishnag@marvell.com,
- m-malladi@ti.com, jacob.e.keller@intel.com, diogo.ivo@siemens.com,
- javier.carrasco.cruz@gmail.com, horms@kernel.org, s-anna@ti.com,
- basharath@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, pratheesh@ti.com,
- prajith@ti.com, vigneshr@ti.com, praneeth@ti.com, srk@ti.com, rogerq@ti.com,
- krishna@couthit.com, pmohan@couthit.com, mohan@couthit.com
-References: <20250623135949.254674-1-parvathi@couthit.com>
- <20250623164236.255083-12-parvathi@couthit.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20250623164236.255083-12-parvathi@couthit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_043008_878630_4B3F1D10 
-X-CRM114-Status: GOOD (  36.52  )
+X-CRM114-CacheID: sfid-20250624_043232_484044_4FC1A314 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,501 +94,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2025 17:42, Parvathi Pudi wrote:
-> From: Roger Quadros <rogerq@ti.com>
-> 
-> PRU-ICSS IEP module, which is capable of timestamping RX and
-> TX packets at HW level, is used for time synchronization by PTP4L.
-> 
-> This change includes interaction between firmware/driver and user
-> application (ptp4l) with required packet timestamps.
-> 
-> RX SOF timestamp comes along with packet and firmware will rise
-> interrupt with TX SOF timestamp after pushing the packet on to the wire.
-> 
-> IEP driver available in upstream linux as part of ICSSG assumes 64-bit
-> timestamp value from firmware.
-> 
-> Enhanced the IEP driver to support the legacy 32-bit timestamp
-> conversion to 64-bit timestamp by using 2 fields as below:
-> - 32-bit HW timestamp from SOF event in ns
-> - Seconds value maintained in driver.
-> 
-> Currently ordinary clock (OC) configuration has been validated with
-> Linux ptp4l.
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-> ---
->   drivers/net/ethernet/ti/icssg/icss_iep.c     | 155 ++++++++++++++++++-
->   drivers/net/ethernet/ti/icssg/icss_iep.h     |  12 ++
->   drivers/net/ethernet/ti/icssm/icssm_prueth.c |  56 ++++++-
->   drivers/net/ethernet/ti/icssm/icssm_prueth.h |  11 ++
->   4 files changed, 230 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> index d0850722814e..85e27cc77a3b 100644
-> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> @@ -14,12 +14,15 @@
->   #include <linux/of.h>
->   #include <linux/of_platform.h>
->   #include <linux/platform_device.h>
-> +#include <linux/timecounter.h>
-> +#include <linux/clocksource.h>
->   #include <linux/timekeeping.h>
->   #include <linux/interrupt.h>
->   #include <linux/of_irq.h>
->   #include <linux/workqueue.h>
->   
->   #include "icss_iep.h"
-> +#include "../icssm/icssm_prueth_ptp.h"
->   
->   #define IEP_MAX_DEF_INC		0xf
->   #define IEP_MAX_COMPEN_INC		0xfff
-> @@ -53,6 +56,14 @@
->   #define IEP_CAP_CFG_CAPNR_1ST_EVENT_EN(n)	BIT(LATCH_INDEX(n))
->   #define IEP_CAP_CFG_CAP_ASYNC_EN(n)		BIT(LATCH_INDEX(n) + 10)
->   
-> +#define IEP_TC_DEFAULT_SHIFT         28
-> +#define IEP_TC_INCR5_MULT            BIT(28)
-> +
-> +/* Polling period - how often iep_overflow_check() is called */
-> +#define IEP_OVERFLOW_CHECK_PERIOD_MS   50
-> +
-> +#define TIMESYNC_SECONDS_COUNT_SIZE    6
-> +
->   /**
->    * icss_iep_get_count_hi() - Get the upper 32 bit IEP counter
->    * @iep: Pointer to structure representing IEP.
-> @@ -87,6 +98,28 @@ int icss_iep_get_count_low(struct icss_iep *iep)
->   }
->   EXPORT_SYMBOL_GPL(icss_iep_get_count_low);
->   
-> +static u64 icss_iep_get_count32(struct icss_iep *iep)
-> +{
-> +	void __iomem *sram = iep->sram;
-> +	u64 v_sec = 0;
-> +	u32 v_ns = 0;
-> +	u64 v = 0;
-> +
-> +	v_ns = icss_iep_get_count_low(iep);
-> +	memcpy_fromio(&v_sec, sram + TIMESYNC_SECONDS_COUNT_OFFSET,
-> +		      TIMESYNC_SECONDS_COUNT_SIZE);
-> +	v = (v_sec * NSEC_PER_SEC) + v_ns;
+Our hardware registers are set through GCE, not by the CPU.
+DRM might assume the hardware is disabled immediately after calling
+atomic_disable() of drm_plane, but it is only truly disabled after the
+GCE IRQ is triggered.
 
-How can you be sure that the nanoseconds part does belong to the second
-which was read afterwards? In other words, what is the protection for
-the sutiation when an overflow happened right after you read ns but
-before reading of seconds?
-And another question - you copy 6 bytes of seconds counter directly into
-the memory. How will it deal with different endianess?
+Additionally, the cursor plane in DRM uses async_commit, so DRM will
+not wait for vblank and will free the buffer immediately after calling
+atomic_disable().
 
-> +
-> +	return v;
-> +}
-> +
-> +static u64 icss_iep_cc_read(const struct cyclecounter *cc)
-> +{
-> +	struct icss_iep *iep = container_of(cc, struct icss_iep, cc);
-> +
-> +	return icss_iep_get_count32(iep);
-> +}
-> +
->   /**
->    * icss_iep_get_ptp_clock_idx() - Get PTP clock index using IEP driver
->    * @iep: Pointer to structure representing IEP.
-> @@ -280,6 +313,78 @@ static void icss_iep_set_slow_compensation_count(struct icss_iep *iep,
->   	regmap_write(iep->map, ICSS_IEP_SLOW_COMPEN_REG, compen_count);
->   }
->   
-> +/* PTP PHC operations */
-> +static int icss_iep_ptp_adjfine_v1(struct ptp_clock_info *ptp, long scaled_ppm)
-> +{
-> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-> +	s32 ppb = scaled_ppm_to_ppb(scaled_ppm);
-> +	struct timespec64 ts;
-> +	int neg_adj = 0;
-> +	u32 diff, mult;
-> +	u64 adj;
-> +
-> +	mutex_lock(&iep->ptp_clk_mutex);
-> +
-> +	if (ppb < 0) {
-> +		neg_adj = 1;
-> +		ppb = -ppb;
-> +	}
-> +	mult = iep->cc_mult;
-> +	adj = mult;
-> +	adj *= ppb;
-> +	diff = div_u64(adj, 1000000000ULL);
-> +
-> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
-> +	pr_debug("iep ptp adjfine check at %lld.%09lu\n", ts.tv_sec,
-> +		 ts.tv_nsec);
-> +
-> +	iep->cc.mult = neg_adj ? mult - diff : mult + diff;
-> +
-> +	mutex_unlock(&iep->ptp_clk_mutex);
-> +
-> +	return 0;
-> +}
-> +
-> +static int icss_iep_ptp_adjtime_v1(struct ptp_clock_info *ptp, s64 delta)
-> +{
-> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-> +
-> +	mutex_lock(&iep->ptp_clk_mutex);
-> +	timecounter_adjtime(&iep->tc, delta);
-> +	mutex_unlock(&iep->ptp_clk_mutex);
-> +
-> +	return 0;
-> +}
-> +
-> +static int icss_iep_ptp_gettimeex_v1(struct ptp_clock_info *ptp,
-> +				     struct timespec64 *ts,
-> +				     struct ptp_system_timestamp *sts)
-> +{
-> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-> +	u64 ns;
-> +
-> +	mutex_lock(&iep->ptp_clk_mutex);
-> +	ns = timecounter_read(&iep->tc);
-> +	*ts = ns_to_timespec64(ns);
-> +	mutex_unlock(&iep->ptp_clk_mutex);
-> +
-> +	return 0;
-> +}
-> +
-> +static int icss_iep_ptp_settime_v1(struct ptp_clock_info *ptp,
-> +				   const struct timespec64 *ts)
-> +{
-> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-> +	u64 ns;
-> +
-> +	mutex_lock(&iep->ptp_clk_mutex);
-> +	ns = timespec64_to_ns(ts);
-> +	timecounter_init(&iep->tc, &iep->cc, ns);
-> +	mutex_unlock(&iep->ptp_clk_mutex);
-> +
-> +	return 0;
-> +}
-> +
->   /* PTP PHC operations */
->   static int icss_iep_ptp_adjfine(struct ptp_clock_info *ptp, long scaled_ppm)
->   {
-> @@ -669,6 +774,17 @@ static int icss_iep_ptp_enable(struct ptp_clock_info *ptp,
->   	return -EOPNOTSUPP;
->   }
->   
-> +static long icss_iep_overflow_check(struct ptp_clock_info *ptp)
-> +{
-> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-> +	unsigned long delay = iep->ovfl_check_period;
-> +	struct timespec64 ts;
-> +
-> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
-> +
-> +	pr_debug("iep overflow check at %lld.%09lu\n", ts.tv_sec, ts.tv_nsec);
-> +	return (long)delay;
-> +}
->   static struct ptp_clock_info icss_iep_ptp_info = {
->   	.owner		= THIS_MODULE,
->   	.name		= "ICSS IEP timer",
-> @@ -680,6 +796,18 @@ static struct ptp_clock_info icss_iep_ptp_info = {
->   	.enable		= icss_iep_ptp_enable,
->   };
->   
-> +static struct ptp_clock_info icss_iep_ptp_info_v1 = {
-> +	.owner		= THIS_MODULE,
-> +	.name		= "ICSS IEP timer",
-> +	.max_adj	= 10000000,
-> +	.adjfine	= icss_iep_ptp_adjfine_v1,
-> +	.adjtime	= icss_iep_ptp_adjtime_v1,
-> +	.gettimex64	= icss_iep_ptp_gettimeex_v1,
-> +	.settime64	= icss_iep_ptp_settime_v1,
-> +	.enable		= icss_iep_ptp_enable,
-> +	.do_aux_work	= icss_iep_overflow_check,
-> +};
-> +
->   struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
->   {
->   	struct platform_device *pdev;
-> @@ -701,6 +829,18 @@ struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
->   	if (!iep)
->   		return ERR_PTR(-EPROBE_DEFER);
->   
-> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0) {
-> +		iep->cc.shift = IEP_TC_DEFAULT_SHIFT;
-> +		iep->cc.mult = IEP_TC_INCR5_MULT;
-> +
-> +		iep->cc.read = icss_iep_cc_read;
-> +		iep->cc.mask = CLOCKSOURCE_MASK(64);
-> +
-> +		iep->ovfl_check_period =
-> +			msecs_to_jiffies(IEP_OVERFLOW_CHECK_PERIOD_MS);
-> +		iep->cc_mult = iep->cc.mult;
-> +	}
-> +
->   	device_lock(iep->dev);
->   	if (iep->client_np) {
->   		device_unlock(iep->dev);
-> @@ -795,6 +935,10 @@ int icss_iep_init(struct icss_iep *iep, const struct icss_iep_clockops *clkops,
->   		icss_iep_enable(iep);
->   	icss_iep_settime(iep, ktime_get_real_ns());
->   
-> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-> +		timecounter_init(&iep->tc, &iep->cc,
-> +				 ktime_to_ns(ktime_get_real()));
-> +
->   	iep->ptp_clock = ptp_clock_register(&iep->ptp_info, iep->dev);
->   	if (IS_ERR(iep->ptp_clock)) {
->   		ret = PTR_ERR(iep->ptp_clock);
-> @@ -802,6 +946,9 @@ int icss_iep_init(struct icss_iep *iep, const struct icss_iep_clockops *clkops,
->   		dev_err(iep->dev, "Failed to register ptp clk %d\n", ret);
->   	}
->   
-> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-> +		ptp_schedule_worker(iep->ptp_clock, iep->ovfl_check_period);
-> +
->   	return ret;
->   }
->   EXPORT_SYMBOL_GPL(icss_iep_init);
-> @@ -879,7 +1026,11 @@ static int icss_iep_probe(struct platform_device *pdev)
->   		return PTR_ERR(iep->map);
->   	}
->   
-> -	iep->ptp_info = icss_iep_ptp_info;
-> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-> +		iep->ptp_info = icss_iep_ptp_info_v1;
-> +	else
-> +		iep->ptp_info = icss_iep_ptp_info;
-> +
->   	mutex_init(&iep->ptp_clk_mutex);
->   	dev_set_drvdata(dev, iep);
->   	icss_iep_disable(iep);
-> @@ -1004,6 +1155,7 @@ static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
->   		[ICSS_IEP_SYNC_START_REG] = 0x19c,
->   	},
->   	.config = &am654_icss_iep_regmap_config,
-> +	.iep_rev = IEP_REV_V2_1,
->   };
->   
->   static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
-> @@ -1057,6 +1209,7 @@ static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
->   		[ICSS_IEP_SYNC_START_REG] = 0x11C,
->   	},
->   	.config = &am335x_icss_iep_regmap_config,
-> +	.iep_rev = IEP_REV_V1_0,
->   };
->   
->   static const struct of_device_id icss_iep_of_match[] = {
-> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.h b/drivers/net/ethernet/ti/icssg/icss_iep.h
-> index 0bdca0155abd..f72f1ea9f3c9 100644
-> --- a/drivers/net/ethernet/ti/icssg/icss_iep.h
-> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.h
-> @@ -47,21 +47,29 @@ enum {
->   	ICSS_IEP_MAX_REGS,
->   };
->   
-> +enum iep_revision {
-> +	IEP_REV_V1_0 = 0,
-> +	IEP_REV_V2_1
-> +};
-> +
->   /**
->    * struct icss_iep_plat_data - Plat data to handle SoC variants
->    * @config: Regmap configuration data
->    * @reg_offs: register offsets to capture offset differences across SoCs
->    * @flags: Flags to represent IEP properties
-> + * @iep_rev: IEP revision identifier.
->    */
->   struct icss_iep_plat_data {
->   	const struct regmap_config *config;
->   	u32 reg_offs[ICSS_IEP_MAX_REGS];
->   	u32 flags;
-> +	enum iep_revision iep_rev;
->   };
->   
->   struct icss_iep {
->   	struct device *dev;
->   	void __iomem *base;
-> +	void __iomem *sram;
->   	const struct icss_iep_plat_data *plat_data;
->   	struct regmap *map;
->   	struct device_node *client_np;
-> @@ -70,6 +78,10 @@ struct icss_iep {
->   	struct ptp_clock_info ptp_info;
->   	struct ptp_clock *ptp_clock;
->   	struct mutex ptp_clk_mutex;	/* PHC access serializer */
-> +	u32 cc_mult; /* for the nominal frequency */
-> +	struct cyclecounter cc;
-> +	struct timecounter tc;
-> +	unsigned long ovfl_check_period;
->   	u32 def_inc;
->   	s16 slow_cmp_inc;
->   	u32 slow_cmp_count;
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> index 67ee4c72d3d6..7e90f9e71921 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> @@ -39,6 +39,8 @@
->   #define TX_START_DELAY		0x40
->   #define TX_CLK_DELAY_100M	0x6
->   
-> +#define TIMESYNC_SECONDS_BIT_MASK   0x0000ffffffffffff
-> +
->   static struct prueth_fw_offsets fw_offsets_v2_1;
->   
->   static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
-> @@ -642,13 +644,49 @@ irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev)
->   	return IRQ_HANDLED;
->   }
->   
-> +/**
-> + * icssm_iep_get_timestamp_cycles - IEP get timestamp
-> + * @iep: icss_iep structure
-> + * @mem: io memory address
-> + *
-> + * To convert the 10 byte timestamp from firmware
-> + * i.e., nanoseconds part from 32-bit IEP counter(4 bytes)
-> + * seconds part updated by firmware(rev FW_REV1_0) in SRAM
-> + * (6 bytes) into 64-bit timestamp in ns
-> + *
-> + * Return: 64-bit converted timestamp
-> + */
-> +u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
-> +				   void __iomem *mem)
-> +{
-> +	u64 cycles, cycles_sec = 0;
-> +	u32 cycles_ns;
-> +
-> +	memcpy_fromio(&cycles_ns, mem, sizeof(cycles_ns));
-> +	memcpy_fromio(&cycles_sec, mem + 4, sizeof(cycles_sec));
+To prevent the framebuffer from being freed before the layer disable
+settings are configured into the hardware, which can cause an IOMMU
+fault error, a wait_event_timeout has been added to wait for the
+ddp_cmdq_cb() callback,indicating that the GCE IRQ has been triggered.
 
-the same question is here - there is a possibility of overflow
-between these 2 reads...
+Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT8173.")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_crtc.c  | 31 ++++++++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_crtc.h  |  1 +
+ drivers/gpu/drm/mediatek/mtk_plane.c |  5 +++++
+ 3 files changed, 37 insertions(+)
 
-> +
-> +	/*To get the 6 bytes seconds part*/
-> +	cycles_sec = (cycles_sec & TIMESYNC_SECONDS_BIT_MASK);
-> +	cycles = cycles_ns + (cycles_sec * NSEC_PER_SEC);
-> +	cycles = timecounter_cyc2time(&iep->tc, cycles);
-> +
-> +	return cycles;
-> +}
-> +
->   static u64 icssm_prueth_ptp_ts_get(struct prueth_emac *emac, u32 ts_offs)
->   {
->   	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
->   	u64 cycles;
->   
-> -	memcpy_fromio(&cycles, sram + ts_offs, sizeof(cycles));
-> -	memset_io(sram + ts_offs, 0, sizeof(cycles));
-> +	if (emac->prueth->fw_data->fw_rev == FW_REV_V1_0) {
-> +		cycles = icssm_iep_get_timestamp_cycles(emac->prueth->iep,
-> +							sram + ts_offs);
-> +		/* 4 bytes of timestamp + 6 bytes of seconds counter */
-> +		memset_io(sram + ts_offs, 0, 10);
-> +	} else {
-> +		memcpy_fromio(&cycles, sram + ts_offs, sizeof(cycles));
-> +		memset_io(sram + ts_offs, 0, sizeof(cycles));
-> +	}
->   
->   	return cycles;
->   }
-> @@ -985,7 +1023,13 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
->   		    pkt_info->timestamp) {
->   			src_addr = (void *)PTR_ALIGN((uintptr_t)src_addr,
->   						     ICSS_BLOCK_SIZE);
-> -			memcpy(&ts, src_addr, sizeof(ts));
-> +			if (emac->prueth->fw_data->fw_rev == FW_REV_V1_0) {
-> +				ts = icssm_iep_get_timestamp_cycles
-> +					(emac->prueth->iep,
-> +					 (void __iomem *)src_addr);
-> +			} else {
-> +				memcpy(&ts, src_addr, sizeof(ts));
-> +			}
->   			ssh = skb_hwtstamps(skb);
->   			memset(ssh, 0, sizeof(*ssh));
->   			ssh->hwtstamp = ns_to_ktime(ts);
-> @@ -2189,6 +2233,9 @@ static int icssm_prueth_probe(struct platform_device *pdev)
->   		goto netdev_exit;
->   	}
->   
-> +	if (prueth->fw_data->fw_rev == FW_REV_V1_0)
-> +		prueth->iep->sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-> +
->   	/* Make rx interrupt pacing optional so that users can use ECAP for
->   	 * other use cases if needed
->   	 */
-> @@ -2396,6 +2443,7 @@ static struct prueth_private_data am335x_prueth_pdata = {
->   		.fw_name[PRUSS_ETHTYPE_EMAC] =
->   			"ti-pruss/am335x-pru1-prueth-fw.elf",
->   	},
-> +	.fw_rev = FW_REV_V1_0,
->   };
->   
->   /* AM437x SoC-specific firmware data */
-> @@ -2409,6 +2457,7 @@ static struct prueth_private_data am437x_prueth_pdata = {
->   		.fw_name[PRUSS_ETHTYPE_EMAC] =
->   			"ti-pruss/am437x-pru1-prueth-fw.elf",
->   	},
-> +	.fw_rev = FW_REV_V1_0,
->   };
->   
->   /* AM57xx SoC-specific firmware data */
-> @@ -2422,6 +2471,7 @@ static struct prueth_private_data am57xx_prueth_pdata = {
->   		.fw_name[PRUSS_ETHTYPE_EMAC] =
->   			"ti-pruss/am57xx-pru1-prueth-fw.elf",
->   	},
-> +	.fw_rev = FW_REV_V2_1,
->   };
->   
->   static const struct of_device_id prueth_dt_match[] = {
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> index 07c29c560cb9..c409b9a87bdc 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> @@ -302,6 +302,12 @@ enum prueth_mem {
->   	PRUETH_MEM_MAX,
->   };
->   
-> +/* PRU firmware revision*/
-> +enum fw_revision {
-> +	FW_REV_V1_0 = 0,
-> +	FW_REV_V2_1
-> +};
-> +
->   /* Firmware offsets/size information */
->   struct prueth_fw_offsets {
->   	u32 index_array_offset;
-> @@ -336,12 +342,14 @@ enum pruss_device {
->    * struct prueth_private_data - PRU Ethernet private data
->    * @driver_data: PRU Ethernet device name
->    * @fw_pru: firmware names to be used for PRUSS ethernet usecases
-> + * @fw_rev: Firmware revision identifier
->    * @support_lre: boolean to indicate if lre is enabled
->    * @support_switch: boolean to indicate if switch is enabled
->    */
->   struct prueth_private_data {
->   	enum pruss_device driver_data;
->   	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
-> +	enum fw_revision fw_rev;
->   	bool support_lre;
->   	bool support_switch;
->   };
-> @@ -441,6 +449,9 @@ int icssm_emac_add_del_vid(struct prueth_emac *emac,
->   irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev);
->   irqreturn_t icssm_prueth_ptp_tx_irq_work(int irq, void *dev);
->   
-> +u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
-> +				   void __iomem *mem);
-> +
->   void icssm_emac_mc_filter_bin_allow(struct prueth_emac *emac, u8 hash);
->   void icssm_emac_mc_filter_bin_disallow(struct prueth_emac *emac, u8 hash);
->   u8 icssm_emac_get_mc_hash(u8 *mac, u8 *mask);
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 8f6fba4217ec..0c856cc679de 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -719,6 +719,37 @@ int mtk_crtc_plane_check(struct drm_crtc *crtc, struct drm_plane *plane,
+ 	return 0;
+ }
+ 
++void mtk_crtc_plane_disable(struct drm_crtc *crtc, struct drm_plane *plane)
++{
++	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
++	struct mtk_plane_state *plane_state = to_mtk_plane_state(plane->state);
++	int i;
++
++	/* no need to wait for disabling the plane by CPU */
++	if (!mtk_crtc->cmdq_client.chan)
++		return;
++
++	if (!mtk_crtc->enabled)
++		return;
++
++	/* set pending plane state to disabled */
++	for (i = 0; i < mtk_crtc->layer_nr; i++) {
++		struct drm_plane *mtk_plane = &mtk_crtc->planes[i];
++		struct mtk_plane_state *mtk_plane_state = to_mtk_plane_state(mtk_plane->state);
++
++		if (mtk_plane->index == plane->index) {
++			memcpy(mtk_plane_state, plane_state, sizeof(*plane_state));
++			break;
++		}
++	}
++	mtk_crtc_update_config(mtk_crtc, false);
++
++	/* wait for planes to be disabled by CMDQ */
++	wait_event_timeout(mtk_crtc->cb_blocking_queue,
++			   mtk_crtc->cmdq_vblank_cnt == 0,
++			   msecs_to_jiffies(500));
++}
++
+ void mtk_crtc_async_update(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			   struct drm_atomic_state *state)
+ {
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.h b/drivers/gpu/drm/mediatek/mtk_crtc.h
+index 388e900b6f4d..828f109b83e7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.h
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.h
+@@ -21,6 +21,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+ 		    unsigned int num_conn_routes);
+ int mtk_crtc_plane_check(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			 struct mtk_plane_state *state);
++void mtk_crtc_plane_disable(struct drm_crtc *crtc, struct drm_plane *plane);
+ void mtk_crtc_async_update(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			   struct drm_atomic_state *plane_state);
+ struct device *mtk_crtc_dma_dev_get(struct drm_crtc *crtc);
+diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
+index 655106bbb76d..59edbe26f01e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_plane.c
++++ b/drivers/gpu/drm/mediatek/mtk_plane.c
+@@ -285,9 +285,14 @@ static void mtk_plane_atomic_disable(struct drm_plane *plane,
+ 	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state,
+ 									   plane);
+ 	struct mtk_plane_state *mtk_plane_state = to_mtk_plane_state(new_state);
++	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state,
++									   plane);
++
+ 	mtk_plane_state->pending.enable = false;
+ 	wmb(); /* Make sure the above parameter is set before update */
+ 	mtk_plane_state->pending.dirty = true;
++
++	mtk_crtc_plane_disable(old_state->crtc, plane);
+ }
+ 
+ static void mtk_plane_atomic_update(struct drm_plane *plane,
+-- 
+2.43.0
 
 
