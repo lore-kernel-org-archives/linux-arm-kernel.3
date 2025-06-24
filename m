@@ -4,105 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0D2C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 20:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08113C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 21:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjxr0DWMFDYRX+nr+frdmAXuPqrd6N6eH3MNM9mRgUs=; b=GpwNKRLUvGs0tcs/PaOwonhNWa
-	u1A3vKrcUxuJw/nVVZyaczeKwKpw+Hk4vD0oLH/zZn1IIv0LE/kCRmpVG3141ijiQ9KW6l9/HTPjn
-	lxNGZuI9RnNsqK469IaI9c+Iq+1JZwQhnMX+m9248695RpVTWQpQhlgqrShNJMUgwjKgoLrwmvZya
-	6cVpXiaADdzZYXFIIC0v0DOEKCvjNNawAQLWupi2NjgcPN6idK1s0ljaEna3Q7fL97FL8KGhHcIdu
-	r9ubREohxj+28ZRrCHWm+BXTKm1PLt0LUsWOYBAcJr6oAlmdUQmxDsMOIckOjJHKL3ZqPxg+s+7aM
-	DwEvPcwQ==;
+	bh=2SrNXo2ESqlATdXiyxJflcz/Nhh28pM/T5zEr3tvbxg=; b=l2Owfje6KjoPEP/tHitl0hf1Kn
+	wJr2o+lM5A7PBTMQ6g0Bqlg7sdW3+WFTAMS8c+AsA6kBpwrNz4KkFv2BVdtyzt+G2EB1jurTjcYs+
+	Gb85I7lEN7YcqkJECTqenJDx4+aRZzwEGX5AbdMW46ay579IDuJS7kb13YhkO+C+ZO4mxTRk0dBUz
+	1hcJWbPG3DecdXqQIBQ/5WhLFkoFAUgnIQeh9WIKku/T1DDzyBLN9pmidV6w4hKcMC+ZmuHlhhskJ
+	SVbDdF/afW3CIXpRZFd0TUnoG/tD5JYhpSxe+aMi7I1vPOhlSkHOko5lA3nzUNvhbzfcbMRZxa2NU
+	7csLty2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUAjY-00000006pCs-1yty;
-	Tue, 24 Jun 2025 20:59:12 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1uUAlp-00000006pON-1I6g;
+	Tue, 24 Jun 2025 21:01:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5fv-000000068Xq-2bXR
+	id 1uU5kW-000000069aa-13e4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:35:08 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6099d89a19cso11496093a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 08:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750779306; x=1751384106; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gjxr0DWMFDYRX+nr+frdmAXuPqrd6N6eH3MNM9mRgUs=;
-        b=bveV8ItkF0cR7H7sRJAQPF/vRTT8mXU0YhampTFL5BPgHRBzil3sxxjg+uBU7mR5J7
-         lDUdxA3nrFAjLJYuPpP4aO19bPvTguIws2am418zgIGt3wCnXrLF+BRWJvBdaUpWzEnA
-         TJb89p+7p/861DeMz+qSVC3PTveUed25JrxeLUxkoneAlLpAEazUBZ5F3OlZ6EAUJgzk
-         YLGFRGIKA1XUousKQq6rOujS6pUSQXi4spjG+Q2Lj4rh5kIdNWYSmvQJ6spd2Z0l6r1b
-         cVMJ/MHCz2HHooiV1jlcuf4rj5non8d2XWVCtGwiEtwxotlDn4BxIs80AFngV3GYSOHu
-         yl4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750779306; x=1751384106;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gjxr0DWMFDYRX+nr+frdmAXuPqrd6N6eH3MNM9mRgUs=;
-        b=qJktuV8D1EG9SNh8V+IlrukK+NBOldw+NsG2rN578btpglutQfkpjFV5cfv5qcb3M7
-         a0R/V45ha3mKStgKyuw2GAg45KVlvJo2mqc/wrJOxTAs2fVdIMni21lsgrgR/HPZp8PQ
-         qRfqop0F0z+H8NmJo/1u0IHgE5CMzCfNps0zrAnzl3iZUMkAP9XvivPQbJ6yeY8hgjD6
-         GhYi15tEgxXII12msXHNfVbvzGPBTWLmp8ED+bnr0kE/zI5y6cscxQKcX7B0zF2mkQgc
-         LtmMJvFHHAPjAMJT5nrQr3yuyuhL0CYDbNmdA73TQiveDMuyMZKeOUIxkCUOMBkU4LIJ
-         eg0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUDu/aXj4SIMwv0wH7wtuTltv0drIzRkupMs7ogyIh6FzgeXpEXjafGVa+Df7uT+5hqKaXMItvql6zQbg+5BAN0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs1U0D+9nQhryBnbNpSOW5O4ZZhGDI8eaMekRxhQ3XImb/bf/9
-	eb44nylkfCnrng3jywUpwsbhyP47HUjLtYiOxDD3/PLKu8hx/MjI55mA4oqL0w==
-X-Gm-Gg: ASbGnctmDGpsO50vJc22WGcM51x22pBSVfh4tybci5+U091E2x7+/0nekKQ3NuIlzlT
-	7iwYvNnuhW8Ec2SgkYXckWstSr0aqlvvvgAsuEtEfDr9HwfVgbQgH79/8h8eAdGevI3SiPEZuX2
-	uQBgGaPLVDdytaH3cAoHuaihVKkri3k6BveTctHDV6OEhKgAmhLaUk/HYxtPGpvmJRA/v1zRHxC
-	oL5a+rar+lGT2lglsuPOwaI6V/yN1GADWkSm3qD11/px8lQdCicU+hTBmQPmE96KMOtLnUHPmjp
-	RpUVVRO8zqca5m/JMDYtMPBjjsOoGsdfEYHbEKMfj3UqH4ho04CaC8q+QyaI8KcmIewF
-X-Google-Smtp-Source: AGHT+IFMf6c08eRNogrQBTupf94hSj3WK35oGshLvdYZh9ALEZnOXrZJBqFGAgxlC8Ri8V449wZhGA==
-X-Received: by 2002:a17:907:7f1f:b0:ae0:ba6f:35b9 with SMTP id a640c23a62f3a-ae0ba6f393dmr79982366b.28.1750779305215;
-        Tue, 24 Jun 2025 08:35:05 -0700 (PDT)
-Received: from [192.168.0.100] ([188.27.131.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0540833fasm902150766b.103.2025.06.24.08.35.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Jun 2025 08:35:04 -0700 (PDT)
-Message-ID: <42fdeee8-a23e-4499-83c6-77d50418cff2@gmail.com>
-Date: Tue, 24 Jun 2025 18:34:58 +0300
+	Tue, 24 Jun 2025 15:39:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C30C149B6C;
+	Tue, 24 Jun 2025 15:39:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 380ADC4CEEE;
+	Tue, 24 Jun 2025 15:39:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750779591;
+	bh=dmEE+XlX7MPX1MaplH5TaaxjlywZ7+g+ztlTKgl/PSc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lXj8JQoDJ77eKebr0UULU4Uwf+0yRuAYZI1bgvbGKIbloD2Bie/gnKkYonQzFFCB7
+	 OEz4R64z/jbCqx5I29ARz07Dvs2mTHXm1a882O1zqyHfVQN3GAW42D9rKRGBPuWh4w
+	 jn1scrjj7m11tZWJEYJ55j0caGJbkqMD7375SvW1l4X8p6Ti494d0p86gF8Qs7eI5u
+	 9EcAyk+TPOz2CpYaAqUC9p5JRYB4gNOrVlGkYlNVYQzNo+BwvPmX5HHqKWOPR965Vg
+	 UkIxpmnHjyJCir2j/GO+Ptl0Egr0K3a/PsobMPOkmHUy6JItsx7aaPFzylUuoShj9+
+	 HVpgm3LusS5Vw==
+Message-ID: <e32c3a47-e32e-4f93-becb-ebad31065b73@kernel.org>
+Date: Tue, 24 Jun 2025 17:39:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/19] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Julien Massot <julien.massot@collabora.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- "open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS"
- <linux-media@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
- open "list:GPIO"
- "SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)"
- <linux-gpio@vger.kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>
-References: <20250618095858.2145209-1-demonsingur@gmail.com>
- <20250618095858.2145209-16-demonsingur@gmail.com>
- <aFpnU8EHGt14UMHC@kekkonen.localdomain>
-From: Cosmin Tanislav <demonsingur@gmail.com>
+Subject: Re: [PATCH v6 2/9] dt-bindings: soc: imx-blk-ctrl: add i.MX91
+ blk-ctrl compatible
+To: Frank Li <Frank.li@nxp.com>
+Cc: Joy Zou <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ catalin.marinas@arm.com, will@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ ulf.hansson@linaro.org, richardcochran@gmail.com, kernel@pengutronix.de,
+ festevam@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-pm@vger.kernel.or,
+ ye.li@nxp.com, ping.bai@nxp.com, aisheng.dong@nxp.com
+References: <20250623095732.2139853-1-joy.zou@nxp.com>
+ <20250623095732.2139853-3-joy.zou@nxp.com>
+ <urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26>
+ <aFq7WJ3Fqe9p0EhA@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <aFpnU8EHGt14UMHC@kekkonen.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aFq7WJ3Fqe9p0EhA@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_083507_681128_18881A52 
-X-CRM114-Status: GOOD (  41.31  )
+X-CRM114-CacheID: sfid-20250624_083952_334284_C77FF418 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,295 +129,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 24/06/2025 16:51, Frank Li wrote:
+>>
+>> Why imx91 now has 10 clocks?
+>>
+>> v6 and this has basic issues. The quality of NXP patches decreases :/
+>>
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: apb
+>>> +            - const: axi
+>>> +            - const: nic
+>>> +            - const: disp
+>>> +            - const: cam
+>>> +            - const: lcdif
+>>> +            - const: isi
+>>> +            - const: csi
+>>
+>> No, look at other bindings how they share clock lists.
+> 
+> Sorry, this method is what I suggested. becuase there are pxp between cam
+> and lcdif, can't use simple minItems/maxItems to limit list.
 
-On 6/24/25 11:52 AM, Sakari Ailus wrote:
- > Hi Cosmin,
- >
- > Thanks for the set.
- >
- > This patch is pretty massive. Could you split it into the serialiser and
- > deserialiser frameworks and then invididual drivers using it (six-ish
- > patches in total)?
- >
+The point is to put new items, so pxp, at the end.
 
-I'll try to split it up for easier review, thanks.
-
-I'll strip some of the context so I can answer easier.
-
-The comments I stripped out are things I'll do without discussion.
-
-...
-
- >> +struct max9296a_chip_info {
- >> +	unsigned int max_register;
- >> +	unsigned int versions;
- >> +	unsigned int modes;
- >> +	unsigned int num_pipes;
- >> +	unsigned int pipe_hw_ids[MAX9296A_PIPES_NUM];
- >> +	unsigned int phy_hw_ids[MAX9296A_PHYS_NUM];
- >> +	unsigned int num_phys;
- >> +	unsigned int num_links;
- >> +	struct max_phys_configs phys_configs;
- >> +	bool use_atr;
- >> +	bool has_per_link_reset;
- >> +	bool phy0_lanes_0_1_on_second_phy;
- >> +	bool polarity_on_physical_lanes;
- >> +	bool needs_single_link_version;
- >> +	bool needs_unique_stream_id;
- >> +	bool supports_cphy;
- >> +	bool supports_phy_log;
- >> +	bool adjust_rlms;
- >> +	bool fix_tx_ids;
- >> +
- >> +	enum max_gmsl_mode tpg_mode;
- >> +
- >> +	int (*set_pipe_stream_id)(struct max_des *des, struct max_des_pipe 
-*pipe,
- >> +				  unsigned int stream_id);
- >> +	int (*set_pipe_enable)(struct max_des *des, struct max_des_pipe *pipe,
- >> +			       bool enable);
- >> +	int (*set_pipe_link)(struct max_des *des, struct max_des_pipe *pipe,
- >> +			     struct max_des_link *link);
- >> +	int (*set_pipe_tunnel_phy)(struct max_des *des, struct 
-max_des_pipe *pipe,
- >> +				   struct max_des_phy *phy);
- >> +	int (*set_pipe_tunnel_enable)(struct max_des *des, struct 
-max_des_pipe *pipe,
- >> +				      bool enable);
- >
- > Given this many callbacks, having an operations struct for them seems
- > appropriate.
- >
-
-Are you proposing adding another struct just to put these ops inside?
-
-What I could do is use the existing struct max_des_ops and assign the
-appropriate members in it, and then put whatever is left that's not
-needed for the common framework in struct max9296a_chip_info, and add
-a pointer to the struct max_des_ops instance it struct
-max9296a_chip_info.
-
-...
-
- >> +static int max9296a_log_phy_status(struct max_des *des,
- >> +				   struct max_des_phy *phy, const char *name)
- >> +{
- >> +	struct max9296a_priv *priv = des_to_priv(des);
- >> +	unsigned int index = phy->index;
- >> +	unsigned int val;
- >> +	int ret;
- >> +
- >> +	if (!priv->info->supports_phy_log)
- >> +		return 0;
- >> +
- >> +	ret = regmap_read(priv->regmap, MAX9296A_MIPI_PHY18, &val);
- >> +	if (ret)
- >> +		return ret;
- >> +
- >> +	pr_info("%s: \tcsi2_pkt_cnt: %lu\n", name,
- >> +		field_get(MAX9296A_MIPI_PHY18_CSI2_TX_PKT_CNT(index), val));
- >> +
- >> +	ret = regmap_read(priv->regmap, MAX9296A_MIPI_PHY20(index), &val);
- >> +	if (ret)
- >> +		return ret;
- >> +
- >> +	pr_info("%s: \tphy_pkt_cnt: %u\n", name, val);
- >
- > dev_info()?
- >
-
-I initially used pr_info() with the subdev name passed from core
-framwork to be consistent with the rest of the prints which use
-v4l2_info().
-
-I'll see how using dev_info() looks like, it would be nice if it would
-match the v4l2_info() format, even though v4l2-ctl --log-status doesn't
-care since all it looks for is `START STATUS`.
-
- >> +
- >> +	return 0;
- >> +}
- >> +
- >> +static int max9296a_set_enable(struct max_des *des, bool enable)
- >> +{
- >> +	struct max9296a_priv *priv = des_to_priv(des);
- >> +
- >> +	return regmap_assign_bits(priv->regmap, MAX9296A_BACKTOP12,
- >> +				  MAX9296A_BACKTOP12_CSI_OUT_EN, enable);
- >> +}
- >> +
- >> +static int max9296a_init_phy(struct max_des *des, struct 
-max_des_phy *phy)
- >> +{
- >> +	struct max9296a_priv *priv = des_to_priv(des);
- >> +	bool is_cphy = phy->bus_type == V4L2_MBUS_CSI2_CPHY;
- >> +	unsigned int num_data_lanes = phy->mipi.num_data_lanes;
- >> +	unsigned int dpll_freq = phy->link_frequency * 2;
- >> +	unsigned int num_hw_data_lanes;
- >> +	unsigned int hw_index = max9296a_phy_id(priv, phy);
- >> +	unsigned int index = phy->index;
- >> +	unsigned int used_data_lanes = 0;
- >> +	unsigned int val;
- >
- > For register values, please use a type that explicitly specifies the 
-number
- > of bits, e.g. u32.
- >
-
-I used the type of the argument received by the regmap methods.
-
-...
-
- >> +static int max9296a_reset_link(struct max9296a_priv *priv, unsigned 
-int index)
- >> +{
- >> +	unsigned int reg, mask;
- >> +
- >> +	if (index == 0) {
- >> +		reg = MAX9296A_CTRL0;
- >> +		mask = MAX9296A_CTRL0_RESET_ONESHOT;
- >> +	} else {
- >> +		reg = MAX9296A_CTRL2;
- >> +		mask = MAX9296A_CTRL2_RESET_ONESHOT_B;
- >> +	}
- >
- > I might use an array for this.
- >
- > Is index guaranteed to be 0 or 1?
- >
-
-Should be, yes, but using an array for just two indices would cause a
-bit of indirection when looking at the code. If it was more I would have
-used one.
-
- >> +
- >> +	return regmap_set_bits(priv->regmap, reg, mask);
- >> +}
- >> +
- >> +static int max9296a_init_link_rlms(struct max9296a_priv *priv,
- >> +				   struct max_des_link *link)
- >> +{
- >> +	unsigned int index = link->index;
- >> +	int ret;
- >> +
- >> +	/*
- >> +	 * These settings are described as required on datasheet page 53
- >> +	 * for MAX96714.
- >> +	 */
- >> +
- >> +	ret = regmap_write(priv->regmap, MAX9296A_RLMS3E(index), 0xfd);
- >> +	if (ret)
- >> +		return ret;
- >
- > You could also do:
- >
- > 	if (!ret)
- > 		ret = ...;
- >
- > And return ret at the end. It's one line less per call. Up to you.
- >
- >> +
- >> +	ret = regmap_write(priv->regmap, MAX9296A_RLMS3F(index), 0x3d);
- >
- > What are these magic numbers? Could we have human-readable names for 
-them?
- >
- > The register names seem pretty opaque, too. Some explanation here would
- > seem reasonable.
- >
-
-They're extracted from the datasheet of MAX96714, the values are
-undocumented, but they're necessary to "optimize performance" of the
-GMSL link. I'll add a comment stating the datasheet page and section.
-
-...
-
- >> diff --git a/drivers/media/i2c/maxim-serdes/max_des.c 
-b/drivers/media/i2c/maxim-serdes/max_des.c
- >> new file mode 100644
- >> index 000000000000..6a45f42fe033
- >> --- /dev/null
- >> +++ b/drivers/media/i2c/maxim-serdes/max_des.c
- >> @@ -0,0 +1,3108 @@
- >> +// SPDX-License-Identifier: GPL-2.0
- >> +/*
- >> + * Maxim GMSL2 Deserializer Driver
- >
- > How about naming the file maxim-deserialiser? I'd use e.g. "maxim_des"
- > prefix for the functions. Just "max" is quite generic.
- >
-
-max_des seems explicit enough. The max naming comes from the common
-prefix in the name of the chips, eg: MAX96724, MAX96717, not from Maxim.
-
-If I intended it to come from maxim, I would have obviously used maxim_,
-since that's what vendor-prefixes.yaml specifies.
-
-Although they were initially made by Maxim, Analog Devices bought Maxim,
-so using maxim_ would make as much sense as using adi_.
-
-Switching to maxim_ would only lengthen the name of the functions,
-types, symbols, macros, etc, and at least register/masks macros are
-already extremely long.
-
-...
-
- >> +static int max_des_parse_src_dt_endpoint(struct max_des_priv *priv,
- >> +					 struct max_des_phy *phy,
- >> +					 struct fwnode_handle *fwnode)
- >> +{
- >> +	struct max_des *des = priv->des;
- >> +	u32 pad = max_des_phy_to_pad(des, phy);
- >> +	struct v4l2_fwnode_endpoint v4l2_ep = { .bus_type = 
-V4L2_MBUS_UNKNOWN };
- >> +	struct v4l2_mbus_config_mipi_csi2 *mipi = &v4l2_ep.bus.mipi_csi2;
- >> +	enum v4l2_mbus_type bus_type;
- >> +	struct fwnode_handle *ep;
- >> +	u64 link_frequency;
- >> +	unsigned int i;
- >> +	int ret;
- >> +
- >> +	ep = fwnode_graph_get_endpoint_by_id(fwnode, pad, 0, 0);
- >> +	if (!ep)
- >> +		return 0;
- >> +
- >> +	ret = v4l2_fwnode_endpoint_alloc_parse(ep, &v4l2_ep);
- >> +	fwnode_handle_put(ep);
- >> +	if (ret) {
- >> +		dev_err(priv->dev, "Could not parse endpoint on port %u\n", pad);
- >> +		return ret;
- >> +	}
- >> +
- >> +	bus_type = v4l2_ep.bus_type;
- >> +	if (bus_type != V4L2_MBUS_CSI2_DPHY &&
- >> +	    bus_type != V4L2_MBUS_CSI2_CPHY) {
- >> +		v4l2_fwnode_endpoint_free(&v4l2_ep);
- >> +		dev_err(priv->dev, "Unsupported bus-type %u on port %u\n",
- >> +			pad, bus_type);
- >> +		return -EINVAL;
- >> +	}
- >> +
- >> +	ret = 0;
- >
- > ret is already 0 here.
- >
- >> +	if (v4l2_ep.nr_of_link_frequencies == 0)
- >> +		link_frequency = MAX_DES_LINK_FREQUENCY_DEFAULT;
- >
- > Isn't this required in DT?
- >
-
-Required from a schema standpoint or a code standpoint?
-
-Code:
-
-rval = fwnode_property_count_u64(fwnode, "link-frequencies");
-if (rval > 0) {
-}
-
-No rval <= 0 case.
-
-And I don't think I made it required in the schema.
-
-...
+> 
+> If put two lists at top, clock-names list have to dupliate at both top and
+> if-else branch.
+> 
+> If there are better solution, please point me which file have good method
+> to share two totally difference list.
+> 
+Best regards,
+Krzysztof
 
