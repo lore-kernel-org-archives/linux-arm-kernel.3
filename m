@@ -4,87 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BCEC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 01:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEF7C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 02:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=; b=2SS8jEwS4kQLxvl9R62IXynuDo
-	EKLehHAgNK89s9rM8vLSwyho+rBHA8ySO+y9lBKvv6fcGuHm2SzBKvNprPGKg//hi9JKwodxJSYtq
-	DsqndiBMgVq17zEBUsE4cA1Qqqvx8h3OGRJMGAXQwNT5Z7eZvF/TI9trSK3Vn/q9TCcJ19rkHhwg5
-	LSXUJMQPAikSlZpdAIEd8KiJeHIPMEw+7oJp48KwXsisazLMEKnuV00ABGotX82MJj0D/2cE67fKV
-	o5uRgw7VDeWKBHFziZKHDOEfOUTriLUOwmVfe37A0DTpy34wws4vPxK5kW11pfqiEo2S5U6TSaM39
-	0acHtSFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUSqS/ozSQiA5pIwF6lY3g9ZUSGabaHGtU6rgAk+mtU=; b=UVn9yBAkveaSW8Iu8v+t0EsuQ9
+	hlgL70tmL0sv60hBT9X+zQqghljV8HPlcTLu39MDPYP5sZWgiZXcy110YAK08+0Acw23KzrJgwxZ3
+	w1gtOz8HT6Wl8iZCOI3lGhNojX/rVmhS7AA8Pmxw/uYusj+ln8lTYGSYiA6R3ILVs4jxTJ8vaU6Zc
+	dk/qqDqwkBdwuE8IBfCzX9ovd5/bm+nnu1v+8gnyXClV6QpFTzr4FOklajzG+cExLClr0T0MMLPS4
+	cfkpeIj166XKdKmhXMCu/p6rTurtxzJzwyMKiRB/rdQFnz1HEfTisPLCgiHetlOjNB0bZjScq98bR
+	3qWWsLTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTscm-00000004ORV-0QPN;
-	Tue, 24 Jun 2025 01:39:00 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1uTt33-00000004Rvp-0eia;
+	Tue, 24 Jun 2025 02:06:09 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTqW1-00000004AP4-3tV5
+	id 1uTt0T-00000004RfY-3sB7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Jun 2025 23:23:55 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7390d21bb1cso3714749b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Jun 2025 16:23:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1750721033; x=1751325833; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=;
-        b=RQ1ZkJgfMEJEIsqFP8ve6alwqzGTvIyGHYawO0sALguAGLhXnUwMhbzifL85wdqjiG
-         M+uT+fbBxLQzrv3/9TuszstCYEmKNmBfuOxkN7yGIIilfgl7gMOAlwzRRA9V7I9xaINQ
-         weouhegeLyJaXKTMfpU32TeMA26IRSFc/2Pffr6p9NSKUmpMp1+itMNg1EuRiu4/nOCA
-         GnSfmeTjiD+aHm7W/56kdgKgxIf4DKXBlXFg5b9bh90hcwuGnhVSDxSja2Sgn5cSJfBF
-         JRyAiDlBQdcFfvHLz/xT9FOTTb5uGipxO80w29yB7zOsVWoFHTXrAYu6Rfo8Muuemea/
-         O6BQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750721033; x=1751325833;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IgHNU976VfrOwOD3ulvb2vI7O/PDlbsrK2gzKqrmtPs=;
-        b=XEzO2p+Jk1yGL4f8HudeS0E7dz3TuC14fsbBGrI7TJLO0sTv6q+wAprM+MRXa4isK0
-         k7/5Qf4gkyw8iYhM47aK3E9+q/U3yk6MvdBgGYjyu+t+4ieZFRzxwTX3VsBpwt8yaEuW
-         m5qfXmbDe6F2ybXQpdYGlJAA+EdrKJnWLUF2+r/rYlLnv2q7XwBP5OK8RmCBzU3zk+ah
-         TzUvVO6LrWB5n+8whb7aFRUClikGZpRjcv4+pKXMeaRBP7oGbA5pqLY9gi1v6od7Cpsz
-         bmNKjelSIEO2MfqCL6pnwYH3B/uBNoZz+43a3KawKibVLfNVEd8+gJri0RmGam4YbzH0
-         fltg==
-X-Forwarded-Encrypted: i=1; AJvYcCULph1562E8ef+WzLwm4vz3Hy7wSW4AkAwTWzMS6niXXMYrOglSw45sD+QW80ImEkZsak4bT4v3xZ5G/dsuA76d@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoLUrd4uiWqMjHUr2aKoLD9+zeAVRcFUC61iyV9d1sxeSqHAXJ
-	Fn8tJChIODvbx7rb/iwriBMkHEqVtGcbrekRvEBb8DQFbv4WVAsqTm8n6a4an1gNDx8=
-X-Gm-Gg: ASbGnctFtp3EAWbw2JUuQNnGPSfJCHRuNRJyXFNBWsOQlM7QJjUbftlfQBA6DrJXRr+
-	VswzVrcx/5tJTONLOU72ARxfII1YOXewe5YwuUnyTmobVzte/9KFJrhJAPGM7EuRQAZG+sLE7jL
-	+inMaNX58o6M3XuyNn9aZlWxF22zQZx61e4VbwKDcgxSg4Pmf0tWwyQD15ka1qajNPujhKQoGXN
-	GR9yfivApdqSx9jGTAFNmyEWt0oYmUqer5izgyIv/OH9gl9JxCl7I7ubNb6GEH8kWS53GVMxHpN
-	/wOwEBVWVpmDwy9QrS2gVI7xdmY+0cOuf+1noIGgOzjAK9XO/dCHR3eeZp7W
-X-Google-Smtp-Source: AGHT+IGv2SJju6xgRevma8Cx/i6GeIJiS1WAChIRaAqec6j+z8o+1u/uy+Lb1YfHwJThHoUvyYrxYQ==
-X-Received: by 2002:a05:6a00:3cd4:b0:748:e38d:fecc with SMTP id d2e1a72fcca58-7490d71c76amr16954440b3a.22.1750721033150;
-        Mon, 23 Jun 2025 16:23:53 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::4:8d10])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-749b5e211d1sm243166b3a.44.2025.06.23.16.23.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Jun 2025 16:23:52 -0700 (PDT)
-Date: Mon, 23 Jun 2025 16:23:52 -0700 (PDT)
-X-Google-Original-Date: Mon, 23 Jun 2025 16:23:50 PDT (-0700)
-Subject: Re: [PATCH v2 5/9] lib/crypto: riscv: move arch/riscv/lib/crypto/ into lib/crypto/
-In-Reply-To: <20250619191908.134235-6-ebiggers@kernel.org>
-CC: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Jason@zx2c4.com,
-  Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-  sparclinux@vger.kernel.org, x86@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ebiggers@kernel.org
-Message-ID: <mhng-8FC37478-859D-40EA-A0E9-3EA86429DC53@palmerdabbelt-mac>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Tue, 24 Jun 2025 02:03:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=McbIorFcW5iQr/glPVn8+74SUxGt4ibxA/VHI0Xl/TCWfsd6QnYt1ftv6FEN9qmX4t9RrYxMaKr4cY8jRa37sZ+d3AnyUh2QEQIFxzNMAv+0kLlDQiXDlU79LPLuNM1pEqUWwx1762d2zA0DSmzOpLEQZYCTmckyoHhCzzplEt18s+oKLzlrAjSGkbd2zO30fzA0EHv6J1FMuiK7l0yBB5cd+9QDIkgfyECh3K87hNTjEpkTUhCssx14bgSWNUojEfPfoCh9renov0yW1OjcPqIsYeSSBHYOBJIVStn9GR9VXX/Ghj+QrSmkk6Zk8qLOGsNTd4B5l/m5qINeLUpUHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HUSqS/ozSQiA5pIwF6lY3g9ZUSGabaHGtU6rgAk+mtU=;
+ b=N7u5g5R3wIqKCiS1wrVv0I7kawUfoZlirwL/wEgstHUhYD+G2BJzm9PByHRu4H8PHAwDBjn0098Iino+2Xhz/TruhreDTPZ5Y70GpqwExH6A6vMqw4SyPttei1PoSuc6yLDzwBzaibT6/husnUray5z7O8+HTdGe1j70rEH2ltMo5bfpBXn2xss04l/p5D49tTqrQKsi7iHZkb0g9qXCHA6tsbsIcPcUwohQdQXkaS+/fChqP8mcOjziVmZqEUiCC4ooswNhegz01BVbYwDGahXmLKcEbH5olpy0P57Gaibu9hF6p/Kg1k8PyjciEzxwTProOpKW+8aMyBEOTIc0mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HUSqS/ozSQiA5pIwF6lY3g9ZUSGabaHGtU6rgAk+mtU=;
+ b=THEEGh7Xs1cXm1Hdu2rdB/9jSZd6rc0AJwyQOA5yKeQ9OW40LvLL6zyFPc4bM4W9BE9+kJ+NWQVsTCzElJs8Kv2IpRHtyXBs2Fh01XQN7ZJPoKzD0cK5cC/DWZs8wKC8eENU4/dyWj90FXSWKqGlBe3j9L193+fY9Qsqfsgu0DZMWicfFLrMd6d2TrZhQYGu1l41mKg5iXSUDWYq8w2w2iWzdAxk/g9pK4XeBnd5TQ5gqk4kSJ++nnEPSlX8/09pG4Xs1B/g+ml5o7JYHTuG3EcVT+mlkFk0/Qd6HmLm21jP8qtVeOKQFKVNWrp706B+0M5/+f8xIv+nn6mipFsvRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB10173.eurprd04.prod.outlook.com (2603:10a6:800:245::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Tue, 24 Jun
+ 2025 02:03:23 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8857.026; Tue, 24 Jun 2025
+ 02:03:23 +0000
+Date: Tue, 24 Jun 2025 11:13:51 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com
+Subject: Re: [RFC PATCH 1/7] firmware: arm_scmi: Define a common
+ SCMI_MAX_PROTOCOLS value
+Message-ID: <20250624031351.GC10415@nxa18884-linux>
+References: <20250620192813.2463367-1-cristian.marussi@arm.com>
+ <20250620192813.2463367-2-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620192813.2463367-2-cristian.marussi@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI1PR02CA0016.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB10173:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3218b75c-0999-4fd9-10ad-08ddb2c34c90
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?O4czjrV01sf70n6w7WVcpUcYxlNDCo6vbP0nEvGODSOa29P7673Vp4lVPLM4?=
+ =?us-ascii?Q?gyzmkHb2qdGGbmgyI6iI7uBLLBFoujOXPM8lLq2QeQG/8u36zbJKaTtE7BIr?=
+ =?us-ascii?Q?5JIhsiv4kGQZ6bsJoPAQQuUGDKZzqlHY+UQLIzVu70mBgD3x220Wlgs5dMUD?=
+ =?us-ascii?Q?6pAsXNUGcUFL2YKNGj1SM2Cm3SoEVlkjNtL5kMMItI4/wvi0hq0mRBYWjP5v?=
+ =?us-ascii?Q?S/3VK2AoYWC1a+Axrj7NeDgbKdry+Xft80fqoiRMB2HBNP7PvvqyvYqZgbZR?=
+ =?us-ascii?Q?rKDuFkdilmBs5dqNA9DAZFh8aVrpzXl+pra+LF5md4BF1ueDNd6gM7cagNjC?=
+ =?us-ascii?Q?TQamXtd5s0veLTItQoWUEh6BoVNmz+Ifaqsar94F7vQr2kLiv0XAbqkJ0ToM?=
+ =?us-ascii?Q?U+jt57VEtXlce+n3O5QyF39l0Q9VKM+Yy9n/iX9MY5Kh6LQ+lkJ0frTovDPW?=
+ =?us-ascii?Q?PQG2nnEkWOIPF7QSP2rHu90631DCUcl+NaHoPN4ScHfR1teVzJxs68wpdGqh?=
+ =?us-ascii?Q?+Ruv35Q34DfcFFDmsjuUeT4iFLs7BGe2FPOB0M6It2IEIHd8HOEoo6xK5KAb?=
+ =?us-ascii?Q?uW3jMkzJcA7lxVD+aSIzlBRjUS3l4KfPfV009bOnpsDVfzL5dPstfvdjGKOU?=
+ =?us-ascii?Q?HdxXMeSYVy7e1Azzu6kZQCpFORQyhCi0tl8+njiNH6iKkcKHWP917CQ1c3G6?=
+ =?us-ascii?Q?IussESOd/2lIGviINto/Eo5DtI4Ix8gVuw4eHgw7EktwGaeNgHkGHkK6sV28?=
+ =?us-ascii?Q?1aUZwiSqNp5J4BtnQcU26iRuo8LQfal4CNAXeBEnBeA4svobeR1XUfeIDhZN?=
+ =?us-ascii?Q?AWq/Ymqc+RBoqgoTLAL28xAhtmB+97FQheZ2SX7zsjxW516o4K0aHg9Deh2X?=
+ =?us-ascii?Q?oYvdTUKjdpGNoeFkiBUsJ8PosDWRAoiqJ8t+uynxTUjL3h3PCfXasUOR8oVj?=
+ =?us-ascii?Q?1hzppP+tzuYKRpN8TZiURovd4xyzjEQbfoWmqZHO0yFWVkSq/+cv4D4I6noQ?=
+ =?us-ascii?Q?lE3LGzJVYz2FaEzYxu64dHweiyP4mOzTg2ijqeYLHy4H1FNtjprZanE3PBrf?=
+ =?us-ascii?Q?PYV53/7A9uQB+FEhgrmDjY4fki4c01Ih6ox7iXyWNwXCZPGE13piKiskE12H?=
+ =?us-ascii?Q?3yeVPgZ/EoblE3o35lXSbqBF77JoN/Y0kacGp40KSKIK9dhdGH7d8/Zaum1t?=
+ =?us-ascii?Q?XbO1btTtsX9pS0dCycdLs/yQ1pE0ON+t2pGTqdzVM/zpJKfcsOduTHF3rqZf?=
+ =?us-ascii?Q?rp09mvhiPKnMQpAEom9oyEfVnigBT4zb6HvbbMsgMUe8rYP22t09zvT0/No/?=
+ =?us-ascii?Q?T/sRrZmTqHCZImhIW1Si9H7ImXt0ylW2yOMapcn/3OMf/GIp7/iiMiV964DO?=
+ =?us-ascii?Q?eMAgV/FtLKJnB2VOcL7by48arnpp3MSVFyiIxCZOKWXhHJoi8/W83upQudMD?=
+ =?us-ascii?Q?yT62d0KeH+e3yvhjTZQiIOvNnAFLvsgmfFMKn44HoMcFGmtdqTXPCg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XAEr7Sk7WNh5cBnX6SKFInkZlhQ+DLNx8H0QJZ26grE2bhfXbG2aIoXi+Szc?=
+ =?us-ascii?Q?TC25oT9SxYm5cInwpsDZG8W9gWDOuwRDZuZbhsx/NcY5yOP8A0nAEO1wrD8L?=
+ =?us-ascii?Q?kBowt3MC3EmW71uLvQ19h75suRJwH5rzRf9hhTG8357UETY32gbzGuE5Y85g?=
+ =?us-ascii?Q?6OlaRZAgFHEVCSvwpdkgKYnVyRh+JvdsMyksFbJP0Flg6nc12FGhexlxbc//?=
+ =?us-ascii?Q?VbSoHKrC7X2myt13XilS8qKob516oda84ti97A7PXUYChoCuSIQfWmsqK5o4?=
+ =?us-ascii?Q?Vz+tEpGu+AhvT2p8o1YtHvwC5ysEDjpaae81vrOg15O0fzOlEEvXKSG60BWi?=
+ =?us-ascii?Q?W13dc4i5Dn90SaGc6RUkmzNw/wvG7X4MQHgNmnfIIJX0EPPN9j9hdt3T61mn?=
+ =?us-ascii?Q?3FPz/oM2hudwArEbA6/rrq08wbT7M4s3x3wuxzIcySguSGI7pYVyxYdWZ6U8?=
+ =?us-ascii?Q?qs1/VdNOgm6RGpyJPJhqulWshKaMvwY5WIKtTqpOlf4DzBScovsaPOWuwc8R?=
+ =?us-ascii?Q?I/Dcz1DU/h3NgDBrycEA15FkOpz/VZ4yNEdeY6VgBk1EfgiyK8YoqGX8hye2?=
+ =?us-ascii?Q?rqPtXimqeu194WvYC1Mor1a7ULCwGZpVndjnobsuWY6mqzJgYUaj09h//LHd?=
+ =?us-ascii?Q?nTk/NBYbjMao2sUz/6GVEUFDaJgZ30wjeU+8EmxVe10P8AFb7NFW3Crefp8O?=
+ =?us-ascii?Q?Ln/Bh2oeUCEo6BqSZAA6I+AYr2VNa2lTy+SyAx+6X0AfoMerXCGHG7O+/S2s?=
+ =?us-ascii?Q?0pBMphcQVtLqx0fCZFuvG9L7xVYiFL1jf4W0azl/GjrsuDoL2q8EkmXldyct?=
+ =?us-ascii?Q?KJzqjDJBzk0rc37HQ2UOcwmBKrJUb9KwvdiqBvc0Fn6mx2ofr7Q7wIijt30H?=
+ =?us-ascii?Q?/nkEuzPD/bNBJazVCaRpgP63okak88ycowMdgpyVUsR4H+i30mcw4R+097aL?=
+ =?us-ascii?Q?bf05EV9XGIBjFfPiFcKNTDmdR8y/W44S9NtnkinOJsy16uZzIXn5a58wjUSC?=
+ =?us-ascii?Q?iLG9uGJ+NxGzP9uzhmRdQqClWNRPFsSNA5kGAGDy2vYQ509VYmuZ21lV9QXX?=
+ =?us-ascii?Q?Y46wXF9TyJuIWfI9CB95Gc97O2/uHYlBjmkrzRPms+QxhmxLb5p30TWIgM1c?=
+ =?us-ascii?Q?16OpjWwFo8kAawpvyp/q7I2uMy5TbmHUgLZ16xEFULwnvzs9H98GdbghrGUN?=
+ =?us-ascii?Q?zJoMz4JdNA2woKlIT7nhbOWxgx5dAsnxnTdQ480W6vBFZaVHK0Iu+wnYJ3NR?=
+ =?us-ascii?Q?bLDUsYVhsrbGjiBI/G2iMJMDnbgbgMPGVNl2zzJa3Na3cyRHsoivkVmPXknV?=
+ =?us-ascii?Q?LcicqbmbcU7oxHPG91OJc72WkWhwkfRWrfsoizJVdgrxOcJjEUy7La0L0H3T?=
+ =?us-ascii?Q?AVKCqRXQc2ynPby8tOvWl9sTjlqAHaUJJVgnKqr4LgIZZ55AHNpBvPe0tva7?=
+ =?us-ascii?Q?o60Ux0g9s1vUA94S0UYSoJ5LJKaPin6y8xU6LumrOQSpjX0GEfJZBP2cpLOI?=
+ =?us-ascii?Q?LBhNPfVv7MwvRYCRuJhYflO8KEMNyZOpehOZxhlswsBB892AW3DchFRuVvs/?=
+ =?us-ascii?Q?ckDxpNfqZci5eCQB9APd3Ogdm7GQ/LHd1rFhh+ee?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3218b75c-0999-4fd9-10ad-08ddb2c34c90
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2025 02:03:23.0508
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u7uxdvhf3wgT3711hdpM9QbwjObzWuApE7ia7/VrYeJ04LornWcDTRV0FZ8gUyGdaieBrCBnKGKvb6dIwD2YZQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10173
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_162353_969017_BE0F408E 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20250623_190329_972631_9C9A18D8 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,47 +165,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Jun 2025 12:19:04 PDT (-0700), ebiggers@kernel.org wrote:
-> From: Eric Biggers <ebiggers@google.com>
+On Fri, Jun 20, 2025 at 08:28:07PM +0100, Cristian Marussi wrote:
+>Add a common definition of SCMI_MAX_PROTOCOLS and use it all over the
+>SCMI stack.
 >
-> Move the contents of arch/riscv/lib/crypto/ into lib/crypto/riscv/.
+>Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+>---
+> drivers/firmware/arm_scmi/notify.c | 4 +---
+> include/linux/scmi_protocol.h      | 3 +++
+> 2 files changed, 4 insertions(+), 3 deletions(-)
 >
-> The new code organization makes a lot more sense for how this code
-> actually works and is developed.  In particular, it makes it possible to
-> build each algorithm as a single module, with better inlining and dead
-> code elimination.  For a more detailed explanation, see the patchset
-> which did this for the CRC library code:
-> https://lore.kernel.org/r/20250607200454.73587-1-ebiggers@kernel.org/.
-> Also see the patchset which did this for SHA-512:
-> https://lore.kernel.org/linux-crypto/20250616014019.415791-1-ebiggers@kernel.org/
->
-> This is just a preparatory commit, which does the move to get the files
-> into their new location but keeps them building the same way as before.
-> Later commits will make the actual improvements to the way the
-> arch-optimized code is integrated for each algorithm.
->
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  arch/riscv/lib/Makefile                                         | 1 -
->  lib/crypto/Kconfig                                              | 2 +-
->  lib/crypto/Makefile                                             | 1 +
->  {arch/riscv/lib/crypto => lib/crypto/riscv}/Kconfig             | 0
->  {arch/riscv/lib/crypto => lib/crypto/riscv}/Makefile            | 0
->  .../riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-glue.c | 0
->  .../riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-zvkb.S | 0
->  .../crypto/riscv}/sha256-riscv64-zvknha_or_zvknhb-zvkb.S        | 0
->  {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256.c            | 0
->  9 files changed, 2 insertions(+), 2 deletions(-)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Kconfig (100%)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/Makefile (100%)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-glue.c (100%)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/chacha-riscv64-zvkb.S (100%)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (100%)
->  rename {arch/riscv/lib/crypto => lib/crypto/riscv}/sha256.c (100%)
+>diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+>index e160ecb22948..27a53a6729dd 100644
+>--- a/drivers/firmware/arm_scmi/notify.c
+>+++ b/drivers/firmware/arm_scmi/notify.c
+>@@ -94,8 +94,6 @@
+> #include "common.h"
+> #include "notify.h"
+> 
+>-#define SCMI_MAX_PROTO		256
+>-
+> #define PROTO_ID_MASK		GENMASK(31, 24)
+> #define EVT_ID_MASK		GENMASK(23, 16)
+> #define SRC_ID_MASK		GENMASK(15, 0)
+>@@ -1652,7 +1650,7 @@ int scmi_notification_init(struct scmi_handle *handle)
+> 	ni->gid = gid;
+> 	ni->handle = handle;
+> 
+>-	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTO,
+>+	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTOCOLS,
+> 						sizeof(char *), GFP_KERNEL);
+> 	if (!ni->registered_protocols)
+> 		goto err;
+>diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+>index 688466a0e816..6f8d36e1f8fc 100644
+>--- a/include/linux/scmi_protocol.h
+>+++ b/include/linux/scmi_protocol.h
+>@@ -926,8 +926,11 @@ enum scmi_std_protocol {
+> 	SCMI_PROTOCOL_VOLTAGE = 0x17,
+> 	SCMI_PROTOCOL_POWERCAP = 0x18,
+> 	SCMI_PROTOCOL_PINCTRL = 0x19,
+>+	SCMI_PROTOCOL_LAST = 0xff,
 
-I'm assuming you want to keep these all together.
+The enum says this is std protocol, but 0x80~0xff is for vendor extension.
+It might confuse others to keep "SCMI_PROTOCOL_LAST" here.
 
-Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
+> };
+> 
+>+#define SCMI_MAX_PROTOCOLS	(SCMI_PROTOCOL_LAST + 1)
 
-Thanks!
+How about "#define SCMI_MAX_PROTOCOLS 256" as the line you removed in notify.c.
+
+Regards
+Peng
+
+>+
+> enum scmi_system_events {
+> 	SCMI_SYSTEM_SHUTDOWN,
+> 	SCMI_SYSTEM_COLDRESET,
+>-- 
+>2.47.0
+>
 
