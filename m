@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1355BC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 18:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEF3C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 18:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELxOZPN1hbzhHy7YA0JDKA56OLuDAaqWr+N64DO8/Hc=; b=UPSmusLsOeGNMUhgrd9kfDpsx6
-	xSWLGWH4DLGPvclG95Pa1t7KQtkmVqXwXKfC76lv51oa+RVHhYD+y/BzPUKt6Vg5dfC1PIWz6YYtn
-	ESGgd4BSXkt+1g2aIv5rvFgckTTotndUYCkFhdhzE/j/EtDG4JJJTMk2ACWy+zmMHlKLKTumVKTow
-	rsl42I4vt1rH3dOAyjmWUJP6CnvyqTDF8V4TCNIdoMMgvuoKsmdLofzPmXzHbo/40nrcz99QN5G1R
-	rgBewalCNQfAYZs+FhJEV7b4lV8JcKdr/U9/KDI4PiSrQUQwFfZklcM/GqeRoobKNHzmVOntx05ru
-	Dct1RV8Q==;
+	bh=58JMKUAiVVEeOMDThWrK1Mrh73mV0rOPif/Q2r53i4Y=; b=vUE2p5DJf0D9rAy9ywaeBGQnO1
+	yeAMPmVemjTbxLaSF+VzXlNbwmtsSKBoQuXKa4lEDT3jOKAQeM/acaGfZ3E2GwCBwaE9rv9h8HPYP
+	CPatmqhAfGqvBSq8w0TbvXadkTIDARbNA5BU7bw5O2RqqcDuxelLTjt29OgIPQoPnphgCj83QOIQo
+	hIZPCMYC3gyi0PeOxt0l7hSZIZAU+6Qiop0fh4Y/7UweRPQInoZjYqDm1lmmPiQ6MFMj7SjzRxuIJ
+	TyPZtFLsikOt6igG/CrwN+8IsleftR8Rkn3LPJvdKPI2tNAZ5/u/9zQt3IItbjhMpFrYR1Mt8ovuX
+	9BKrFOvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU7wR-00000006RZS-3pRU;
-	Tue, 24 Jun 2025 18:00:19 +0000
+	id 1uU7yh-00000006RxN-34EL;
+	Tue, 24 Jun 2025 18:02:39 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5Gu-000000062eN-2yts
+	id 1uU5Gv-000000062ei-2Blx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:09:17 +0000
+	Tue, 24 Jun 2025 15:09:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750777756; x=1782313756;
+  t=1750777757; x=1782313757;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=p8hKSAxPTGypFQ4ukRy4fkUp3r3iUW8ues0RYFqVcIo=;
-  b=MVYVftdj84JIqjRVWJqBWntdIj3CgjVxbP/6zuUgmO85uM/ouBpD0Xua
-   unoECKWH2XH5tAelL45nhmM8kW1dITFDtEcG+Xa41zx5pBKRiBP/n0XMs
-   1pgWg33w5iBVLWT2XZUfR20FgysDgUURPyssoYJ8D4PzqsZr4FWSv6DKx
-   FWfJB3ZAI498SIGarO7f3cQ21s5Y9sI+GqcfDYQ4ra8n4zqMehSSEIQKW
-   vkMq6IoPnCLOsMGp7WbGNtIqtLqHJlBuqRImxl+sYB0DM1T5sZ7qyvNzf
-   gjKZndHsOyXREp74b3GbSxa+L8ebQ4MP33t0NIPQx+iF0VJVEuDNCEbSW
-   A==;
+  bh=Lq3ejPHh/1kZivQehV7HtGomJvKoYkbHzTKnAbhG0IQ=;
+  b=x1IwGCBS2w17Tst+5GcViTji2thcmFxPY7Nny85pjAtEE3puA+S3ImdI
+   qMAPi1BnfumsvCfq70XN9jn7cKnSsdE4sPRa+GqTjRUkcp4NcE3Zrn0ar
+   8htLIitWm1CO8Xi2PVKyJ1Dn7V2JTIkpjJHonMvHA+528iL7gP8ohDtp4
+   9UI6tqAS48p8J0M+9wCJ+BPAsvDYV/jVMEXueXkyAlWjTg/QcDEn38zt4
+   zFHhDQP4w5/MWr0knN1NpJjpAhHRV3ElRoTL9VuLiHvlmlfNFcmhCfcZy
+   vAZc5Kk+Dws+dW1Dj0DqtSN2okFp8obenEK04hTtmw6GjgR0hb+s9PYmW
+   g==;
 X-CSE-ConnectionGUID: ticneE1VRpCt6c5L3blMOw==
-X-CSE-MsgGUID: o7aRdA0LRuObY6L1IPtmtA==
+X-CSE-MsgGUID: mCaPvkNXRU+OPC+zyXMjlg==
 X-IronPort-AV: E=Sophos;i="6.16,262,1744095600"; 
-   d="scan'208";a="210641583"
+   d="scan'208";a="210641584"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 08:09:15 -0700
@@ -61,9 +61,9 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<varshini.rajendran@microchip.com>
-Subject: [PATCH v2 16/32] clk: at91: clk-i2s-mux: add support for parent_hw
-Date: Tue, 24 Jun 2025 08:08:13 -0700
-Message-ID: <d94b3c0c9958469ca1c5c34961ad27d0d0b7160b.1750182562.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 17/32] clk: at91: clk-smd: add support for clk_parent_data
+Date: Tue, 24 Jun 2025 08:08:14 -0700
+Message-ID: <eb2e47406ea37adeb119aa1e3702b1c175c472f5.1750182562.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1750182562.git.Ryan.Wanner@microchip.com>
 References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_080916_813828_E7669AC6 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250624_080917_623228_583F6316 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,11 +89,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Add support for parent_hw in i2s mux clock driver.
+Add support for parent_hw in smd clock drivers.
 With this parent-child relation is described with pointers rather
 than strings making registration a bit faster.
 
-All the SoC based drivers that rely on clk-i2s-mux were adapted
+All the SoC based drivers that rely on clk-smd were adapted
 to the new API change. The switch itself for SoCs will be done
 in subsequent patches.
 
@@ -102,60 +102,69 @@ Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 going to be coalesced into one SoC specific commit.]
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/at91/clk-i2s-mux.c | 6 +++++-
- drivers/clk/at91/dt-compat.c   | 2 +-
- drivers/clk/at91/pmc.h         | 1 +
- 3 files changed, 7 insertions(+), 2 deletions(-)
+ drivers/clk/at91/clk-smd.c   | 10 +++++++---
+ drivers/clk/at91/dt-compat.c |  2 +-
+ drivers/clk/at91/pmc.h       |  3 ++-
+ 3 files changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/clk/at91/clk-i2s-mux.c b/drivers/clk/at91/clk-i2s-mux.c
-index fe6ce172b8b0..04d9fcf940fb 100644
---- a/drivers/clk/at91/clk-i2s-mux.c
-+++ b/drivers/clk/at91/clk-i2s-mux.c
-@@ -51,6 +51,7 @@ static const struct clk_ops clk_i2s_mux_ops = {
+diff --git a/drivers/clk/at91/clk-smd.c b/drivers/clk/at91/clk-smd.c
+index 09c649c8598e..d53dc32b36be 100644
+--- a/drivers/clk/at91/clk-smd.c
++++ b/drivers/clk/at91/clk-smd.c
+@@ -111,11 +111,12 @@ static const struct clk_ops at91sam9x5_smd_ops = {
+ 
  struct clk_hw * __init
- at91_clk_i2s_mux_register(struct regmap *regmap, const char *name,
- 			  const char * const *parent_names,
-+			  struct clk_parent_data *parent_data,
- 			  unsigned int num_parents, u8 bus_id)
+ at91sam9x5_clk_register_smd(struct regmap *regmap, const char *name,
+-			    const char **parent_names, u8 num_parents)
++			    const char **parent_names, struct clk_parent_data *parent_data,
++			    u8 num_parents)
  {
- 	struct clk_init_data init = {};
-@@ -63,7 +64,10 @@ at91_clk_i2s_mux_register(struct regmap *regmap, const char *name,
+ 	struct at91sam9x5_clk_smd *smd;
+ 	struct clk_hw *hw;
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	int ret;
+ 
+ 	smd = kzalloc(sizeof(*smd), GFP_KERNEL);
+@@ -124,7 +125,10 @@ at91sam9x5_clk_register_smd(struct regmap *regmap, const char *name,
  
  	init.name = name;
- 	init.ops = &clk_i2s_mux_ops;
+ 	init.ops = &at91sam9x5_smd_ops;
 -	init.parent_names = parent_names;
 +	if (parent_data)
 +		init.parent_data = (const struct clk_parent_data *)parent_data;
 +	else
 +		init.parent_names = parent_names;
  	init.num_parents = num_parents;
+ 	init.flags = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE;
  
- 	i2s_ck->hw.init = &init;
 diff --git a/drivers/clk/at91/dt-compat.c b/drivers/clk/at91/dt-compat.c
-index ccdeba3a1130..2b1aa834f111 100644
+index 2b1aa834f111..5afd7c9f53fd 100644
 --- a/drivers/clk/at91/dt-compat.c
 +++ b/drivers/clk/at91/dt-compat.c
-@@ -239,7 +239,7 @@ static void __init of_sama5d2_clk_i2s_mux_setup(struct device_node *np)
- 			continue;
+@@ -859,7 +859,7 @@ static void __init of_at91sam9x5_clk_smd_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
+ 		return;
  
- 		hw = at91_clk_i2s_mux_register(regmap_sfr, i2s_mux_np->name,
--					       parent_names, 2, bus_id);
-+					       parent_names, NULL, 2, bus_id);
- 		if (IS_ERR(hw))
- 			continue;
- 
+-	hw = at91sam9x5_clk_register_smd(regmap, name, parent_names,
++	hw = at91sam9x5_clk_register_smd(regmap, name, parent_names, NULL,
+ 					 num_parents);
+ 	if (IS_ERR(hw))
+ 		return;
 diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index fe42700df6db..a380054d580d 100644
+index a380054d580d..e5ab2fb3bc89 100644
 --- a/drivers/clk/at91/pmc.h
 +++ b/drivers/clk/at91/pmc.h
-@@ -182,6 +182,7 @@ at91_clk_register_h32mx(struct regmap *regmap, const char *name,
- struct clk_hw * __init
- at91_clk_i2s_mux_register(struct regmap *regmap, const char *name,
- 			  const char * const *parent_names,
-+			  struct clk_parent_data *parent_data,
- 			  unsigned int num_parents, u8 bus_id);
+@@ -277,7 +277,8 @@ at91_clk_register_sam9260_slow(struct regmap *regmap,
  
  struct clk_hw * __init
+ at91sam9x5_clk_register_smd(struct regmap *regmap, const char *name,
+-			    const char **parent_names, u8 num_parents);
++			    const char **parent_names, struct clk_parent_data *parent_data,
++			    u8 num_parents);
+ 
+ struct clk_hw * __init
+ at91_clk_register_system(struct regmap *regmap, const char *name,
 -- 
 2.43.0
 
