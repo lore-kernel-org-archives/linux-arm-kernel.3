@@ -4,108 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641CBC8300F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A250C8300E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXVkZvyl2iCu06wewF9pzvY2+zd2lj+jtZhOikL8maQ=; b=aTREJ69OeaOjbAUOUjhF0QzMAn
-	T6S2SbsD44knWU+2iuvQRvXxUaSdmV8r+B+7JErRczAqoN31UJ8lByJpLSLHPw++94CigdUaen226
-	dDS5CaOxpGFy8IDNQM5rfsf1uaM8yK4KJXI8jGF3qfppzGCcG/SJPvf4538UFEwJlX0GKYnh0OIRd
-	+IEd1GPJJDB9avA3tDeDBsqV5qiCeQVhrvK+1aMxJ03sBGa/118RmbAPiY+iOd5dPKHP8+FgWSvXF
-	ZtOHdzNTpx+Ag3JsxMP5RFN3f0C3YelFJ+1740QsgoOPUzv1MpwOOQJKZuhvJ50mMH8WeOoIXlhTp
-	I3KPDIcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KfotAOU39Rv7nkPnea4vDHbOBjqYmi2ORyBZj06DqvQ=; b=CQmy+oGNN7vt2+ck/I5Dn+3zI4
+	bqGUl3yda3pMsVODze6UFOqKo3aiOp6PoQLTFJAMmwdSBA/PUqQ5eVqKJI9ymthhDdK9UzopSzhPm
+	saqFNOBZ/exsRSLkqhYflHyn6eKr07IRAe1ooExZi9G1jZVcixJkyWB7Oq0EnonwGOu9FCfZbJ03P
+	xbMrGrGLSOqNcYi52YC+fFiW2ZVEN0NbuGG1qNgdZdzsQJRLl0px6Nyn6bnt3mW/aSOuMj/wJcd2c
+	xLkN5Ed8Mw7rKLEhw46Too50CdyJ4gt1gE5aAcJy5xbQ0gYTygD5MOB5LaPSGke1B32DbGx2iKizT
+	nQ5YlSgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9j8-00000006fJN-31Oi;
-	Tue, 24 Jun 2025 19:54:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uU9j3-00000006fEF-2I1P;
+	Tue, 24 Jun 2025 19:54:37 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU66g-00000006EIu-2yvg;
-	Tue, 24 Jun 2025 16:02:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 25B1361142;
-	Tue, 24 Jun 2025 16:02:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7930C4CEF0;
-	Tue, 24 Jun 2025 16:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750780966;
-	bh=59vKwFQx3AuIQaKLpbI7Gr6S80FF6YFWqpzvUTNuNHg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nJMAcTEV70blxKnFZgvWFj2LWgEVDASymi4c29tCl8hSzWuVeXZJ+ZOAWzmqqNBEq
-	 tPocBU8eX+0uR3/rbfFZegavpbkY3zAZ6sAu9buNCWGpUJtKZhK00L8oDiOiU6Y5+G
-	 E7aU9GyptmKYvXYd5cJYn9E5suctfkYAPXm1GqgGzPHPXeqcF3c4jdb5nD0ilJ9Fx5
-	 lLB6E0dhf143xbWxlb5bbBT6omnPqtA22VPwk5sbOmQKDCmKwsSSdGUsBbJ2BYZ7j9
-	 mopvFhMlqc5LeLvkAriVtSKZNSjjFZHcW5PYT5/p+Gd8T3Rm/lanedzZbrBP7EUxxx
-	 fDaycEvRxhqIQ==
-Message-ID: <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
-Date: Tue, 24 Jun 2025 18:02:39 +0200
+	id 1uU5u2-00000006Bjr-2fd4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Jun 2025 15:49:44 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bRTrm5tC7z6GDr7;
+	Tue, 24 Jun 2025 23:48:56 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 309091400E3;
+	Tue, 24 Jun 2025 23:49:41 +0800 (CST)
+Received: from SecurePC-101-06.china.huawei.com (10.122.19.247) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 24 Jun 2025 17:49:40 +0200
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
+	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
+	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
+	<dave@stgolabs.net>
+CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
+	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
+	<peterz@infradead.org>
+Subject: [PATCH v2 3/8] cache: coherency core registration and instance handling.
+Date: Tue, 24 Jun 2025 16:47:59 +0100
+Message-ID: <20250624154805.66985-4-Jonathan.Cameron@huawei.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
- peripheral clock controllers
-To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250624143220.244549-1-laura.nao@collabora.com>
- <20250624143220.244549-10-laura.nao@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250624143220.244549-10-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ frapeml500008.china.huawei.com (7.182.85.71)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_084942_960368_44BE9845 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,26 +80,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 16:32, Laura Nao wrote:
-> +  '#reset-cells':
-> +    const: 1
-> +    description:
-> +      Reset lines for PEXTP0/1 and UFS blocks.
-> +
-> +  mediatek,hardware-voter:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
-> +      MCU manages clock and power domain control across the AP and other
-> +      remote processors. By aggregating their votes, it ensures clocks are
-> +      safely enabled/disabled and power domains are active before register
-> +      access.
+Some systems contain devices that are capable of issuing certain cache
+invalidation messages to all components in the system. A typical use
+is when the memory backing a physical address is being changed, such
+as when a region is configured for CXL or a dynamic capacity event
+occurs.
 
-Resource voting is not via any phandle, but either interconnects or
-required opps for power domain.
+These perform a similar action to the WBINVALL instruction on x86 but
+may provide finer granularity and/or a richer set of actions.
 
-I already commented on this, so don't send v3 with the same.
+Add a tiny registration framework to which drivers may register. Each
+driver provides an ops structure and the first op is Write Back and
+Invalidate by PA Range. The driver may over invalidate.
 
-Best regards,
-Krzysztof
+An optional completion check is also provided. If present that should
+be called to ensure that the action has finished.
+
+If multiple agents are present in the system each should register
+with this framework and the core code will issue the invalidate to all
+of them before checking for completion on each.  This is done
+to avoid need for filtering in the core code which can become complex
+when interleave, potentially across different cache coherency hardware
+is going on, so it is easier to tell everyone and let those who don't
+care do nothing.
+
+Currently a mutex is used to protect against add or remove of caching
+agents. There are nearby sleeping locks or similar in all the existing
+callpaths, so this should be fine.
+
+Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+---
+v2: Drop the device class for now.  We can easily bring it back once
+    the shape of any user space interface is clearer.
+
+Open question remains on how we establish that all flushing agents
+have arrived and registered correctly.
+---
+ drivers/cache/Kconfig           |   9 +++
+ drivers/cache/Makefile          |   2 +
+ drivers/cache/coherency_core.c  | 116 ++++++++++++++++++++++++++++++++
+ include/linux/cache_coherency.h |  40 +++++++++++
+ 4 files changed, 167 insertions(+)
+
+diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
+index db51386c663a..bedc51bea1d1 100644
+--- a/drivers/cache/Kconfig
++++ b/drivers/cache/Kconfig
+@@ -1,6 +1,15 @@
+ # SPDX-License-Identifier: GPL-2.0
+ menu "Cache Drivers"
+ 
++config CACHE_COHERENCY_SUBSYSTEM
++	bool "Cache coherency control subsystem"
++	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
++	depends on GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
++	help
++	  Framework to which coherency control drivers register allowing core
++	  kernel subsystems to issue invalidations and similar coherency
++	  operations.
++
+ config AX45MP_L2_CACHE
+ 	bool "Andes Technology AX45MP L2 Cache controller"
+ 	depends on RISCV
+diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+index 55c5e851034d..b193c3d1a06e 100644
+--- a/drivers/cache/Makefile
++++ b/drivers/cache/Makefile
+@@ -3,3 +3,5 @@
+ obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
+ obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
+ obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
++
++obj-$(CONFIG_CACHE_COHERENCY_SUBSYSTEM)	+= coherency_core.o
+diff --git a/drivers/cache/coherency_core.c b/drivers/cache/coherency_core.c
+new file mode 100644
+index 000000000000..25a9792dd16e
+--- /dev/null
++++ b/drivers/cache/coherency_core.c
+@@ -0,0 +1,116 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Class to manage OS controlled coherency agents within the system.
++ * Specifically to enable operations such as write back and invalidate.
++ *
++ * Copyright: Huawei 2025
++ */
++
++#include <linux/cache_coherency.h>
++#include <linux/cleanup.h>
++#include <linux/container_of.h>
++#include <linux/export.h>
++#include <linux/module.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++
++#include <asm/cacheflush.h>
++static LIST_HEAD(cache_device_list);
++static DEFINE_MUTEX(cache_device_list_lock);
++
++void cache_coherency_device_free(struct cache_coherency_device *ccd)
++{
++	kfree(ccd);
++}
++EXPORT_SYMBOL_GPL(cache_coherency_device_free);
++
++static int cache_inval_one(struct cache_coherency_device *ccd, void *data)
++{
++	if (!ccd->ops)
++		return -EINVAL;
++
++	return ccd->ops->wbinv(ccd, data);
++}
++
++static int cache_inval_done_one(struct cache_coherency_device *ccd, void *data)
++{
++	if (!ccd->ops)
++		return -EINVAL;
++
++	if (!ccd->ops->done)
++		return 0;
++
++	return ccd->ops->done(ccd);
++}
++
++static int cache_invalidate_memregion(int res_desc,
++				      phys_addr_t addr, size_t size)
++{
++	int ret;
++	struct cache_coherency_device *ccd;
++	struct cc_inval_params params = {
++		.addr = addr,
++		.size = size,
++	};
++	guard(mutex)(&cache_device_list_lock);
++	list_for_each_entry(ccd, &cache_device_list, node) {
++		ret = cache_inval_one(ccd, &params);
++		if (ret)
++			return ret;
++	}
++	list_for_each_entry(ccd, &cache_device_list, node) {
++		ret = cache_inval_done_one(ccd, &params);
++		if (ret)
++			return ret;
++	}
++	return 0;
++}
++
++static const struct system_cache_flush_method cache_flush_method = {
++	.invalidate_memregion = cache_invalidate_memregion,
++};
++
++struct cache_coherency_device *
++cache_coherency_alloc_device(struct device *parent,
++			const struct coherency_ops *ops, size_t size)
++{
++
++	if (!ops || !ops->wbinv)
++		return NULL;
++
++	struct cache_coherency_device *ccd __free(kfree) = kzalloc(size, GFP_KERNEL);
++
++	if (!ccd)
++		return NULL;
++
++	ccd->parent = parent;
++	ccd->ops = ops;
++	INIT_LIST_HEAD(&ccd->node);
++
++	return_ptr(ccd);
++}
++EXPORT_SYMBOL_NS_GPL(cache_coherency_alloc_device, "CACHE_COHERENCY");
++
++int cache_coherency_device_register(struct cache_coherency_device *ccd)
++{
++	guard(mutex)(&cache_device_list_lock);
++	list_add(&ccd->node, &cache_device_list);
++
++	return 0;
++}
++EXPORT_SYMBOL_NS_GPL(cache_coherency_device_register, "CACHE_COHERENCY");
++
++void cache_coherency_device_unregister(struct cache_coherency_device *ccd)
++{
++	guard(mutex)(&cache_device_list_lock);
++	list_del(&ccd->node);
++}
++EXPORT_SYMBOL_NS_GPL(cache_coherency_device_unregister, "CACHE_COHERENCY");
++
++static int __init cache_coherency_init(void)
++{
++	generic_set_sys_cache_flush_method(&cache_flush_method);
++
++	return 0;
++}
++subsys_initcall(cache_coherency_init);
+diff --git a/include/linux/cache_coherency.h b/include/linux/cache_coherency.h
+new file mode 100644
+index 000000000000..2e90e513821a
+--- /dev/null
++++ b/include/linux/cache_coherency.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Cache coherency device drivers
++ *
++ * Copyright Huawei 2025
++ */
++#ifndef _LINUX_CACHE_COHERENCY_H_
++#define _LINUX_CACHE_COHERENCY_H_
++
++#include <linux/list.h>
++#include <linux/types.h>
++
++struct cc_inval_params {
++	phys_addr_t addr;
++	size_t size;
++};
++
++struct cache_coherency_device;
++
++struct coherency_ops {
++	int (*wbinv)(struct cache_coherency_device *ccd, struct cc_inval_params *invp);
++	int (*done)(struct cache_coherency_device *ccd);
++};
++
++struct device;
++struct cache_coherency_device {
++	struct list_head node;
++	struct device *parent;
++	const struct coherency_ops *ops;
++};
++
++int cache_coherency_device_register(struct cache_coherency_device *ccd);
++void cache_coherency_device_unregister(struct cache_coherency_device *ccd);
++
++struct cache_coherency_device *
++cache_coherency_alloc_device(struct device *parent,
++			      const struct coherency_ops *ops, size_t size);
++void cache_coherency_device_free(struct cache_coherency_device *ccd);
++
++#endif
+-- 
+2.48.1
+
 
