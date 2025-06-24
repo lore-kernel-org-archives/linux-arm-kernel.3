@@ -4,109 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E75C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86328C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 12:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cYR0mvGjbB1t9PwMrSYQystitWjrVQqAGcccPxG+GgU=; b=QNg3R2Qt4uCjLXGh+ufESPHHOO
-	Dp4if5bD11LocTkpH4MLBsBhDXCnv84lZ4pwHWlwvzRL+NoPQukZoufPos9ywoadpBCUQ7BSxJF4k
-	HETkJHWSW2mfaQxTb6s/JBlsSKitP0GA87B9Mi7H76oGUz6HoOV4pPLrs5WDqu9HOwTYHn5pb4ye3
-	n7u5ScjGK1CcGDqEssMc9B765IwUUPXW7q6J/07XnMAZJrNe82cs3Ye5yVTxVmSXKWfP4Yv2ehqw4
-	tEJRyZI2YJfMHi9VUJ32J902k9XA1TKOoiPZUkY1vLJC2Lx5iRVZlXkAhqGTD3B4FiMLH0EotbZth
-	Dzugk5pw==;
+	bh=cpbvBFRgVNiOR52WtcQgFji4Ck6KdtyZCENW2J3nYUw=; b=u6VrQ5fs34M8eLXLVn+uk4Mgpa
+	yQ4u7155mPo0Strsa2z1J3wdlOTfjsmOrYoRGxmVnabxNqYcXPTnueWfUBGf6BMomETeL+cnBuJo2
+	4tyWnucyrfMoHRu0LGUpY9DKYz4CXaR+nCGQ4rn6Fmdn5Utrzfq+Y4ga+v5q/8W8RBU4kkEtYoZxe
+	35ODJ22uoFC88kIAFHCrtIQ8JJLPqZnfJ37ro3Nz8tAOwPDqE7Kks5VdWa7Ny2P0TR/Ncu5s12wH6
+	ha5Z1PN+06gGsQgFQqwB64K6efAq76ypU+xoidPuXFBDUpwwXUWrIabwocOtQqXj7wo1Bzt7rLoys
+	kD6D8RJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU2zL-00000005cAB-3Yih;
-	Tue, 24 Jun 2025 12:42:59 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uU31g-00000005cMO-2xKn;
+	Tue, 24 Jun 2025 12:45:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU2fn-00000005YkT-0DZo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 12:22:49 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ae0b2ead3c6so5162966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 05:22:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750767765; x=1751372565; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cYR0mvGjbB1t9PwMrSYQystitWjrVQqAGcccPxG+GgU=;
-        b=UVKLBThi4BjoK70yMT9HB3/xjMqD9smGbpDZg8fpYIDVBNyxlIhZ0GNIScG4z/qOsl
-         qschdX17U5y1m/H+Gu89Dkx+G2cS7EPpO3ijxUH1bvyIlmJvrSzakVcPfi5Q61IcD75d
-         HYCY6A/y2Ff5+7XokPX6nHRm20LNcY5U8m+X8HvgU4lGy8HEND7ARrC0gmqhZeq43YS6
-         i0i/abH3BqfJhi8AOizQCRj6bnuYge4htD+6PE52YW/bbLV0MB6/ViZ9/HyFMpZ/R+l6
-         SUBXhPMRea7AePakoQBEGtxPqvb/wnpoPVuu0KpQ8iA6je+xDvwSPla9yMieY3AsaxjE
-         LGNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750767765; x=1751372565;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cYR0mvGjbB1t9PwMrSYQystitWjrVQqAGcccPxG+GgU=;
-        b=P4q4aHkE8JCHMsKrcKhMNi9v+ZguBcETND5e3klRYmywQn6zF5lyK1sQzxE4/JcV/1
-         +nMsGyPRGeHQDf7GyyhciEhDj3bIo13UnZmu9gYWkTwaqa7e5AK+5+/K48ynoMn1RDAB
-         YPVhgYiNZ461+omzQYQZWQ20YJD2fo1XF8sJre426dG47Wk0/qjRDUtdCQS16Z4LlUv5
-         ZfmKJVaZW6lsdnkAHwAJL1ooWa4I0qRp64rmCg5P0/IKjfu/c6GNJtPaErlBfS/YxDX/
-         hSa01Ghsvd8uDitp6UO5Gg7KDwKLAth67uWSzBfipApXD3MYYZ8+JTjoNK5WiG1qjd+k
-         ZWAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRV4qPvJ6Ap095zEdL46skBr2ucFk5rTaUdYXcC5Gmkd1dJz77kQ42lR2CRSd797DmPhMjjxZV6CG56VHcVJrx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVz7+BlSUEi2gmlrG8LFu4+BFAm6CUEVLxaPQMJ7wz1zj+/2uu
-	BCTbtw5SY2AnJacdQt5VoJh62CMYdDH+04HTwjVg3axiBM/GWYYHO9MO/GLKhxJWbbs=
-X-Gm-Gg: ASbGnctqUvBCC9dFLIWD57FXdQ4Z5FBV4C862JGSl5TkVA9WimTTBow9x7VQTsicLKC
-	LeZL7NeGqnRwJ1IWFlsSIIX4ndCW7gRA90ccwQWCtBaznU3MJc579BmrVAX6z6BAzjND9McPcgn
-	gyX0+MhCY+/cS9CadpPol1XS1TA4/UUGnlv3deBI32c8IYzAk2p2DIcNuYtvUdmFW43rNxcf669
-	KyYnQDC8gL6m941e6c74cMC6dHYD5WhI9rk2O+v9ztso+uVVDdQ08MS7GR/Lbb1V7sQR4qsrLOL
-	IaRVjbdg3Ffdfjq8CsOx8CFTy0e4cHQTQAmaFMCK/pbHPq07tioFaZWVnXN0JDakvG/y0NgSS4S
-	VTQrKnQ==
-X-Google-Smtp-Source: AGHT+IEsZ//+E0/Q5JRbtMOjfmMwrd6ZqBEhvEMcASAfMvO4Z78K40GvJpneVMJGYeJGXSRojLvxIw==
-X-Received: by 2002:a17:906:9fc8:b0:ad8:8200:ecfc with SMTP id a640c23a62f3a-ae0578e005amr526516566b.5.1750767765372;
-        Tue, 24 Jun 2025 05:22:45 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0b3448efbsm56794966b.177.2025.06.24.05.22.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 05:22:44 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Tue, 24 Jun 2025 14:22:32 +0200
-Subject: [PATCH v3 3/3] iommu: mtk_iommu_v1: Simplify by dropping local
- 'mtk_mapping' variable
+	id 1uU2oB-00000005aZY-2K9x;
+	Tue, 24 Jun 2025 12:31:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 808ED6116F;
+	Tue, 24 Jun 2025 12:31:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26A5CC4AF0B;
+	Tue, 24 Jun 2025 12:31:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750768286;
+	bh=A1vlO/L1VKH8WOeSv/ouj3ncracjwzpEiurRYiS/ALg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=eu9htEvBiVbL44j/hDA/XL5IHMVRkTjREoK+yoJofVs3i2H7zYeWM4nuOEa8lvA1q
+	 draOJBWRmasaODlA4846qtfnrHoWcfrlpN7SdkOAt9CRDuKgz+Jijdfb0hME3v4zjT
+	 vySbdesGJCidQHCf0M229vamBtjKXpnwatmAh49jUKp+nVNq+/QlhEUFGI/3hC6dpM
+	 MBpiZpEieyvMUEHttV5HVCNFcwOz97BYbHpUnESxPT0XUV2ac4VY/kC4HNi3iT2U1C
+	 nndDqpkUc6Rj2nldXF12iLWnmS6e5StbWpsEaS9jarXC/+el4cuLLpnkbs9yytEYsC
+	 jjsFUJ19nZmUg==
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-607cf70b00aso768502a12.2;
+        Tue, 24 Jun 2025 05:31:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW5LAcMmOEo0V2tr9rvzDH9L8gsX8Bn8QXfvVq41ML1ISix1HmrExTsfvEnkajkAq8vaVYNnvAKonRR2SFTSWfA@lists.infradead.org, AJvYcCWcbsnvWXclN9ibRngFvvKQSi06Hr1IjiJ+DArroO8ybdlolS+tjZrsjFpmYd/HTOMNDUWKAu9dzUSkw14=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2MQgxj7gCbAdT49Y0tRysr1ybScjP9xZqqGRnmaHOttZ5fuEh
+	ojQ5EnSpp0EG6DmbxThUPaTIRUU2nbhRfRsqpMSqqftkN8SLq6aaw75Wd7RcIw1lb1V6am0T7ec
+	Zo8J4E7soHUhh12awf0WyAorMYbD6GKo=
+X-Google-Smtp-Source: AGHT+IG78TOJtNBgPo6KUbppTtQyUVPXosqjkC+mjKzFM6GuMzZpIE/4mn6DMDsxVG8gc/mo29CZZDSg4K3moyGLako=
+X-Received: by 2002:a50:9e07:0:b0:607:5987:5ba1 with SMTP id
+ 4fb4d7f45d1cf-60a1d1676eamr10402408a12.20.1750768284578; Tue, 24 Jun 2025
+ 05:31:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250624-syscon-phandle-args-iommu-v3-3-1a36487d69b8@linaro.org>
-References: <20250624-syscon-phandle-args-iommu-v3-0-1a36487d69b8@linaro.org>
-In-Reply-To: <20250624-syscon-phandle-args-iommu-v3-0-1a36487d69b8@linaro.org>
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Yong Wu <yong.wu@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1470;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=ueipJTTN4GIT99VDYZR+nAvHf+JWom0KrWneDnWo3sI=;
- b=kA0DAAoBwTdm5oaLg9cByyZiAGhamI7Iw+ClTaksgGzVRNZBqEwhCMHErWdDPgl3KBLt2cw5H
- IkCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJoWpiOAAoJEME3ZuaGi4PXrSMQAJis
- 3J5R/L2EfwRPOX20YInJ3r9Rj4cm59Hk4gwBb6sJBPC42WJRFUfriJKoBwOrXG4/wGCneYOvHGn
- F5h1zJLrIknW/Rr3eQU2JmiXfvfG05b4wEn2q59T4z98TmmqESvXISsSy8InCeK/ui4qCEormFm
- WCluiPBO7+kmKT471cc0V8LUPwBidaXYQy0bvjwLALYhsZSyss5hTi0lqvTpmEOIPjJQPZ8S44U
- y8hpaLmPwJZaSNbSxVJ7jgDmEG0OCU2Lp5Hfk8m76ijVsRAjp7vbifVJJcmzAwVnLwz/Mhp9zqR
- 701ZiWueSdJOpFBr9dnum4uzJtbfmdAOcAaZrtr9fZ6/8ODcEjp7a1R4JPWaqzdwTcMrjXDcDSp
- 5ucG899MrwqT2WEahy5IreqJFG9SGntaDTDewpOcO1+l+iqe/4TFw1rrvC+vK9qOdHK9DnBc3T2
- 6cDBQMuhRGre8ruUf6h1li4CfqdYwi1szocZJHVAsr2PQZvMjWtWLBToNtCdJbPXEhD5loEEwpO
- Fck8zxNaq4AlXafOpg2uWSWvYs13l4VTCztSq9QCYclHzDZhCXukRHSJtPuCdNnQjAO4JtF4LQP
- BdA7mfHdmewfVjvi6I+fwWRhECj2Z5cyuRBK9DFSYqceUX0/iMGPS6nRoDGeG9QYu1NFWb5FYv+
- /WU5W
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_052247_163779_3D7A4989 
-X-CRM114-Status: GOOD (  13.18  )
+References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-10-kees@kernel.org>
+ <CAAhV-H4WxAwXTYVFOnphgHN80-_6jt77YZ_rw-sOBoBjjiN-yQ@mail.gmail.com>
+In-Reply-To: <CAAhV-H4WxAwXTYVFOnphgHN80-_6jt77YZ_rw-sOBoBjjiN-yQ@mail.gmail.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Tue, 24 Jun 2025 20:31:12 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H5oHPG+etNawAmVwyDtg80iKUrAM_m3Vj57bBO0scHqvQ@mail.gmail.com>
+X-Gm-Features: AX0GCFsgXJm0uAqj4ZcBCmgCp5XFBS8cfA5fjKZVFWrLP2ySZYpAIUKeGDxIJgs
+Message-ID: <CAAhV-H5oHPG+etNawAmVwyDtg80iKUrAM_m3Vj57bBO0scHqvQ@mail.gmail.com>
+Subject: Re: [PATCH v2 10/14] loongarch: Handle KCOV __init vs inline mismatches
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tianyang Zhang <zhangtianyang@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Jiaxun Yang <jiaxun.yang@flygoat.com>, loongarch@lists.linux.dev, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, x86@kernel.org, 
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,50 +94,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Storing 'data->mapping' in local variable in
-mtk_iommu_v1_probe_finalize() does not make the code easier to read.
-Use the 'data->mapping' directly.
+Hi, Kees,
 
-ARM64 W=1 builds also complain with:
+On Thu, Jun 19, 2025 at 4:55=E2=80=AFPM Huacai Chen <chenhuacai@kernel.org>=
+ wrote:
+>
+> Hi, Kees,
+>
+> On Fri, May 23, 2025 at 12:39=E2=80=AFPM Kees Cook <kees@kernel.org> wrot=
+e:
+> >
+> > When KCOV is enabled all functions get instrumented, unless
+> > the __no_sanitize_coverage attribute is used. To prepare for
+> > __no_sanitize_coverage being applied to __init functions, we have to
+> > handle differences in how GCC's inline optimizations get resolved. For
+> > loongarch this exposed several places where __init annotations were
+> > missing but ended up being "accidentally correct". Fix these cases and
+> > force one function to be inline with __always_inline.
+> >
+> > Signed-off-by: Kees Cook <kees@kernel.org>
+> > ---
+> > Cc: Huacai Chen <chenhuacai@kernel.org>
+> > Cc: WANG Xuerui <kernel@xen0n.name>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Tianyang Zhang <zhangtianyang@loongson.cn>
+> > Cc: Bibo Mao <maobibo@loongson.cn>
+> > Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>
+> > Cc: <loongarch@lists.linux.dev>
+> > ---
+> >  arch/loongarch/include/asm/smp.h | 2 +-
+> >  arch/loongarch/kernel/time.c     | 2 +-
+> >  arch/loongarch/mm/ioremap.c      | 4 ++--
+> >  3 files changed, 4 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/arch/loongarch/include/asm/smp.h b/arch/loongarch/include/=
+asm/smp.h
+> > index ad0bd234a0f1..88e19d8a11f4 100644
+> > --- a/arch/loongarch/include/asm/smp.h
+> > +++ b/arch/loongarch/include/asm/smp.h
+> > @@ -39,7 +39,7 @@ int loongson_cpu_disable(void);
+> >  void loongson_cpu_die(unsigned int cpu);
+> >  #endif
+> >
+> > -static inline void plat_smp_setup(void)
+> > +static __always_inline void plat_smp_setup(void)
+> Similar to x86 and arm, I prefer to mark it as __init rather than
+> __always_inline.
+If you have no objections, I will apply this patch with the above modificat=
+ion.
 
-  mtk_iommu_v1.c:512:28: error: variable 'mtk_mapping' set but not used [-Werror,-Wunused-but-set-variable]
 
-but this is not being fixed here and 'data' still won't be used in such
-compile test.
+Huacai
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
----
-
-Old warning is changed now to:
-
-  error: variable 'data' set but not used [-Werror,-Wunused-but-set-variable]
----
- drivers/iommu/mtk_iommu_v1.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index 66824982e05fbfdda224276ad41b90f9d5f9ca4e..bbe3e9d901c69ac6405d9549a4481fc80f1adb80 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -509,14 +509,12 @@ static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
- 
- static void mtk_iommu_v1_probe_finalize(struct device *dev)
- {
--	struct dma_iommu_mapping *mtk_mapping;
- 	struct mtk_iommu_v1_data *data;
- 	int err;
- 
- 	data        = dev_iommu_priv_get(dev);
--	mtk_mapping = data->mapping;
- 
--	err = arm_iommu_attach_device(dev, mtk_mapping);
-+	err = arm_iommu_attach_device(dev, data->mapping);
- 	if (err)
- 		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
- }
-
--- 
-2.48.1
-
+>
+> Huacai
+>
+> >  {
+> >         loongson_smp_setup();
+> >  }
+> > diff --git a/arch/loongarch/kernel/time.c b/arch/loongarch/kernel/time.=
+c
+> > index bc75a3a69fc8..367906b10f81 100644
+> > --- a/arch/loongarch/kernel/time.c
+> > +++ b/arch/loongarch/kernel/time.c
+> > @@ -102,7 +102,7 @@ static int constant_timer_next_event(unsigned long =
+delta, struct clock_event_dev
+> >         return 0;
+> >  }
+> >
+> > -static unsigned long __init get_loops_per_jiffy(void)
+> > +static unsigned long get_loops_per_jiffy(void)
+> >  {
+> >         unsigned long lpj =3D (unsigned long)const_clock_freq;
+> >
+> > diff --git a/arch/loongarch/mm/ioremap.c b/arch/loongarch/mm/ioremap.c
+> > index 70ca73019811..df949a3d0f34 100644
+> > --- a/arch/loongarch/mm/ioremap.c
+> > +++ b/arch/loongarch/mm/ioremap.c
+> > @@ -16,12 +16,12 @@ void __init early_iounmap(void __iomem *addr, unsig=
+ned long size)
+> >
+> >  }
+> >
+> > -void *early_memremap_ro(resource_size_t phys_addr, unsigned long size)
+> > +void * __init early_memremap_ro(resource_size_t phys_addr, unsigned lo=
+ng size)
+> >  {
+> >         return early_memremap(phys_addr, size);
+> >  }
+> >
+> > -void *early_memremap_prot(resource_size_t phys_addr, unsigned long siz=
+e,
+> > +void * __init early_memremap_prot(resource_size_t phys_addr, unsigned =
+long size,
+> >                     unsigned long prot_val)
+> >  {
+> >         return early_memremap(phys_addr, size);
+> > --
+> > 2.34.1
+> >
 
