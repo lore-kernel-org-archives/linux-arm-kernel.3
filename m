@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A44EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7C1C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 08:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g4ZpB9QYe/vHW5TrF/e0KNkeZL99BYPtMSLAvAw4mI4=; b=U1XdDvrnPW6ipyPUIwrzP/X59q
-	Ng50b3v9tmYfTGZZid5Pe7mFjSHuEgxaJBPb+E4NJUwJqxrWdmr78aniCHTvwMor5L2ptaD19yTIC
-	K2xFiqvBP6hYmmACXPQkcFQlMkSkSB9ebvzj9CQ3ubgPQ7JLXctUk6CDJEFzEyj8ThSR822AA3JlN
-	uQWY0NMj4tDTSBBTJMGMuNoiGIOb04iu7BH4bPhPSpOyxXk657pLMhZOfO9HLPrhpYYSE0uD5l2WV
-	h4vWwJRIklJ7/vQrLcCvhtESyXRXasZkxDtcxJjjw48gTgk8o8dMN10jcsXKnPPRNdR8Iubgo7g4g
-	q7ipp7Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y4ezkbR7PDS9TMoPTn+QPbo+C1HfywmnDzGxcCIVA1E=; b=AGa9w94s/6eyWbZ5YM9ZfuQy9l
+	QHydqt2fkA/EcISjuaMBRelGw7TGdl89WdFsxyR7RXjEl1OPmZJsHVoiFvCf4MySI/mWbX8tqeiQE
+	1Cig9OCGzVfG2aU4Iog1qC8DwoW7EpZ3pMt/WbaGv1SRMtzq1uzST/Qp+gK5y7TKDZLZEN6URFlx3
+	nSqLdlM5qIMrJNSXLEyt0OD8nennRM9aEa4PbRWmPtMz5FkcRzw94eiwyf7By9wEhyvxn2Yz59W91
+	pbrn2TlkckHwsBNQbAmEI454vNQ9uvm2QSXGsse3cbzaUXS9aVNYX5w9KyywbY5WxR8Go8wFXDWnb
+	Oj36X/Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTyxG-000000050Re-1K7P;
-	Tue, 24 Jun 2025 08:24:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uTyzi-000000050v3-2fGC;
+	Tue, 24 Jun 2025 08:27:06 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTy5H-00000004rth-0QAp
+	id 1uTyYQ-00000004xAg-41pf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 07:28:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5A23CA4F508;
-	Tue, 24 Jun 2025 07:28:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532B9C4CEE3;
-	Tue, 24 Jun 2025 07:28:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750750126;
-	bh=g0pXc/fIN30kvH2Virs4nkVnamuyy0huOlw1+j0TCiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gukn8GYs+wpCJs8dwZyrg7QtHcLeHxgvHUf5Q6yYFg2C9BOEmDGLZizI6sGEa26dd
-	 AXs2VFgQ42jn313Jggk4V0ILiINJVwDGLMci1cSQWA/Wnat7vTWZPJqUqLwIF40C2w
-	 DB5SetH/wVRGB4WLiqemm7k1keA5ZvZmhtE6Frd6ifdr8+9XFWkT36y+r7uY0iPWVK
-	 7wqVd1s0PcAv5xA2AqsBduQdkOjE/CGEwb+m9pvBvE3rpcfh+prPNg4r7+X/NZWbZj
-	 vz5KuBRA5M7nLhYwD3ZCbZbORFWCzuMpELU5hnh9Hkq8OxdNOzUNWWy2+/pxZnl9TL
-	 tv2j3pfN4Gt8w==
-Date: Tue, 24 Jun 2025 09:28:43 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Joy Zou <joy.zou@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, catalin.marinas@arm.com, will@kernel.org, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
-	ulf.hansson@linaro.org, richardcochran@gmail.com, kernel@pengutronix.de, 
-	festevam@gmail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-pm@vger.kernel.or, frank.li@nxp.com, ye.li@nxp.com, 
-	ping.bai@nxp.com, aisheng.dong@nxp.com
-Subject: Re: [PATCH v6 2/9] dt-bindings: soc: imx-blk-ctrl: add i.MX91
- blk-ctrl compatible
-Message-ID: <urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26>
-References: <20250623095732.2139853-1-joy.zou@nxp.com>
- <20250623095732.2139853-3-joy.zou@nxp.com>
+	Tue, 24 Jun 2025 07:58:56 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250624075848euoutp02daf5238265d5fae5a7445e3d9f151931~L65pKtVDE1300113001euoutp029
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 07:58:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250624075848euoutp02daf5238265d5fae5a7445e3d9f151931~L65pKtVDE1300113001euoutp029
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750751928;
+	bh=y4ezkbR7PDS9TMoPTn+QPbo+C1HfywmnDzGxcCIVA1E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mT9p1Sp26cUx6K5nplYYZmYGB4FMcPPl9u6+VCsHOSD196slnMS++HLW6/APXECS3
+	 uYWjwxM+pSAZkzvdE+gn5/wjh3B1gjez6DbbvwQiR8GcVCH+48ohaVop6myXW8PyAE
+	 IJr7kKiHthRX2OzQXtw8HPZjQ+MTE76ft5VvWIvI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af~L65oyHT-r0882308823eucas1p2N;
+	Tue, 24 Jun 2025 07:58:47 +0000 (GMT)
+Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250624075846eusmtip15b3b3e53371028a9ef3fb5ed7461df69~L65n2jQHD0986509865eusmtip1Y;
+	Tue, 24 Jun 2025 07:58:46 +0000 (GMT)
+From: Mateusz Majewski <m.majewski2@samsung.com>
+To: linux.amoon@gmail.com
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com,
+	m.majewski2@samsung.com, rafael@kernel.org, rui.zhang@intel.com
+Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature
+ threshold interrupts and clear corresponding IRQs
+Date: Tue, 24 Jun 2025 09:58:15 +0200
+Message-ID: <20250624075815.132207-1-m.majewski2@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <CANAwSgQ=G1yJXOg1LdeEf-J56epyNiohCSdNYUvs2AHNv90Hkg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250623095732.2139853-3-joy.zou@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af
+X-EPHeader: CA
+X-CMS-RootMailID: 20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af
+References: <CANAwSgQ=G1yJXOg1LdeEf-J56epyNiohCSdNYUvs2AHNv90Hkg@mail.gmail.com>
+	<CGME20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_002847_267029_B4C8597A 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250624_005855_588255_4064BBC4 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,117 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 05:57:25PM +0800, Joy Zou wrote:
-> Add new compatible string "fsl,imx91-media-blk-ctrl" for i.MX91,
-> which has different input clocks compared to i.MX93. Update the
-> clock-names list and handle it in the if-else branch accordingly.
-> 
-> Keep the same restriction for the existed compatible strings.
-> 
-> Signed-off-by: Joy Zou <joy.zou@nxp.com>
-> ---
-> Changes for v5:
-> 1. modify the imx93-blk-ctrl binding for imx91 support.
+> I tried to configure this, referring to the comment in the driver
+>         /*
+>          * Clear the interrupts.  Please note that the documentation for
+>          * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
+>          * states that INTCLEAR register has a different placing of bits
+>          * responsible for FALL IRQs than INTSTAT register.  Exynos5420
+>          * and Exynos5440 documentation is correct (Exynos4210 doesn't
+>          * support FALL IRQs at all).
+>          */
+>
+> By the way, I don't see Exynos5433 and Exynos7 support
+> INTSTAT and INTCLEAR registers. We are using TMU_REG_INTPEND
+>  to read and update the same register.
+>
+>         if (data->soc == SOC_ARCH_EXYNOS5260) {
+>                 tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
+>                 tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
+>         } else if (data->soc == SOC_ARCH_EXYNOS7) {
+>                 tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
+>                 tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
+>         } else if (data->soc == SOC_ARCH_EXYNOS5433) {
+>                 tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
+>                 tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
+>         } else {
+>                 tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
+>                 tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
+>         }
 
-This is just vague. Anything can be "modify". Why are you doing this?
-What are you doing here?
+My understanding of this comment and the situation in general is like
+this:
 
-> ---
->  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 55 +++++++++++++++----
->  1 file changed, 43 insertions(+), 12 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> index b3554e7f9e76..db5ee65f8eb8 100644
-> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> @@ -18,7 +18,9 @@ description:
->  properties:
->    compatible:
->      items:
-> -      - const: fsl,imx93-media-blk-ctrl
-> +      - enum:
-> +          - fsl,imx91-media-blk-ctrl
-> +          - fsl,imx93-media-blk-ctrl
->        - const: syscon
->  
->    reg:
-> @@ -31,21 +33,50 @@ properties:
->      maxItems: 1
->  
->    clocks:
-> +    minItems: 8
->      maxItems: 10
->  
->    clock-names:
-> -    items:
-> -      - const: apb
-> -      - const: axi
-> -      - const: nic
-> -      - const: disp
-> -      - const: cam
-> -      - const: pxp
-> -      - const: lcdif
-> -      - const: isi
-> -      - const: csi
-> -      - const: dsi
-> +    minItems: 8
-> +    maxItems: 10
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: fsl,imx93-media-blk-ctrl
-> +    then:
-> +      properties:
+1. On 5420, whenever there is edge interrupt, no matter if rise or fall,
+   a bit gets set to 1 inside INTSTAT, and we clear it by setting the
+   same bit to 1 inside INTCLEAR. The current code does not rely on the
+   concrete bit index, it will just check the temperature after the
+   interrupt.
+2. On 4210, there is no falling edge interrupts (so
+   exynos4210_tmu_set_low_temp is empty, we enable polling in DT etc).
+   This is what the "Exynos4210 doesn't support FALL IRQs at all" means.
+   However, rising edge interrupts work exactly the same as on 5420:
+   a bit gets set to 1 inside INTSTAT, and we clear it by setting the
+   same bit to 1 inside INTCLEAR.
+3. On 3250, 4412, 5250, 5260, it again works the same way as 5420.
+   However, somebody had a copy of documentation that was incorrect: it
+   said that bit indices does not match somehow, which is not true.
+4. On 5433 and 7, it one more time works the same way as 5420, with a
+   single change: a bit gets set to 1 inside INTPEND, and we clear it
+   by setting it to 1 inside the same INTPEND.
 
-Missing constraints for clocks
+So, all we need to do to support existing SoCs is to read the 1 bit from
+one register, and set the bit with the same index in another register
+(which on some SoCs is the same register). We could interpret the index
+to see what kind of interrupt is this, but we read the temperature to
+get similar information.
 
-> +        clock-names:
-> +          items:
-> +            - const: apb
-> +            - const: axi
-> +            - const: nic
-> +            - const: disp
-> +            - const: cam
-> +            - const: pxp
-> +            - const: lcdif
-> +            - const: isi
-> +            - const: csi
-> +            - const: dsi
+So in the end, is it helpful to interpret the INTSTAT bit index, only to
+reset the exact same index inside INTCLEAR? I guess it could be valuable
+if we also used the information about which interrupt it is and somehow
+used it elsewhere (which could actually help with some issues), but that
+is another thing to do.
 
-Keep list in comon part.
+> If you have details on how INTSTAT and INTCLEAR are used
+> particularly regarding the update bits, please share them.
+> Specifically, I'm interested in how bits [7:0] correspond to rising edge
+> interrupts and bits [23:16] to falling edge interrupts
+> I feel it's the same as Exynos54222.
 
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: fsl,imx91-media-blk-ctrl
+Regarding concrete indices on 5433:
+- the 0th bit corresponds to RISE0,
+- the 1st bit corresponds to RISE1,
+- ...
+- the 7th bit corresponds to RISE7,
+- the 16th bit corresponds to FALL0,
+- the 17th bit corresponds to FALL1,
+- ...
+- the 23th bit corresponds to FALL7.
 
-This should be before if: for imx93. 91 < 93
+That is probably because this SoC supports more interrupts than others.
+Though do note that currently, we only use part of them (one RISE, one
+FALL if supported, and another RISE for critical temperature (one
+supporting hardware thermal tripping if possible)). Also note that the
+indices in INTSTAT/INTCLEAR/INTPEND match the ones in INTEN, though I
+have not checked thoroughly if that is true for all the SoCs.
 
-> +    then:
-> +      properties:
-
-Why imx91 now has 10 clocks?
-
-v6 and this has basic issues. The quality of NXP patches decreases :/
-
-> +        clock-names:
-> +          items:
-> +            - const: apb
-> +            - const: axi
-> +            - const: nic
-> +            - const: disp
-> +            - const: cam
-> +            - const: lcdif
-> +            - const: isi
-> +            - const: csi
-
-No, look at other bindings how they share clock lists.
-
-Best regards,
-Krzysztof
-
+Thank you,
+Mateusz Majewski
 
