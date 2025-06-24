@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A250C8300E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 615ECC7EE3A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfotAOU39Rv7nkPnea4vDHbOBjqYmi2ORyBZj06DqvQ=; b=CQmy+oGNN7vt2+ck/I5Dn+3zI4
-	bqGUl3yda3pMsVODze6UFOqKo3aiOp6PoQLTFJAMmwdSBA/PUqQ5eVqKJI9ymthhDdK9UzopSzhPm
-	saqFNOBZ/exsRSLkqhYflHyn6eKr07IRAe1ooExZi9G1jZVcixJkyWB7Oq0EnonwGOu9FCfZbJ03P
-	xbMrGrGLSOqNcYi52YC+fFiW2ZVEN0NbuGG1qNgdZdzsQJRLl0px6Nyn6bnt3mW/aSOuMj/wJcd2c
-	xLkN5Ed8Mw7rKLEhw46Too50CdyJ4gt1gE5aAcJy5xbQ0gYTygD5MOB5LaPSGke1B32DbGx2iKizT
-	nQ5YlSgA==;
+	bh=Idml5fJ4A2/YF53oxD5PVExkb/KhlNWhIcLUgTblqn4=; b=mW66d+LxKugTtRZj0G/RO8uujv
+	CkGucigigKCBFLYQRfySzOMxEAAAEMJo082MdWtTUatTFGUbbqVwxG1I08lsU0FU0y0XfRb80zLFH
+	swpLQO4jl3E/BvZOhLIu+jiBVHKvlVNYA0uy5QJkHNWOLTC/Xzv9WV5+Oi8u1Qkx/Nl7aCyGzCapn
+	Qw4c5C+78SPUHP4MVuNWMXoHXOtaNq6UAIPk/TOAJI4JYHpBf8igLTQmpSiuLqh8rdXnT6ADtP59f
+	N/XGtcxi28s+/7aPTvdbfKoRz7le60yJbi1jM45L62E7U/TEtGJvodCqqnYisdY5JIGhg6ofekYIt
+	epqvmxWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9j3-00000006fEF-2I1P;
-	Tue, 24 Jun 2025 19:54:37 +0000
+	id 1uU9j6-00000006fGs-04mw;
+	Tue, 24 Jun 2025 19:54:40 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5u2-00000006Bjr-2fd4
+	id 1uU5w5-00000006C9k-1dRj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:49:44 +0000
+	Tue, 24 Jun 2025 15:51:51 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bRTrm5tC7z6GDr7;
-	Tue, 24 Jun 2025 23:48:56 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bRTvB4BR1z6GDsx;
+	Tue, 24 Jun 2025 23:51:02 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 309091400E3;
-	Tue, 24 Jun 2025 23:49:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id EBFF51400E3;
+	Tue, 24 Jun 2025 23:51:46 +0800 (CST)
 Received: from SecurePC-101-06.china.huawei.com (10.122.19.247) by
  frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 24 Jun 2025 17:49:40 +0200
+ 15.1.2507.39; Tue, 24 Jun 2025 17:51:46 +0200
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
 	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -51,9 +51,9 @@ CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
 	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
 	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
 	<peterz@infradead.org>
-Subject: [PATCH v2 3/8] cache: coherency core registration and instance handling.
-Date: Tue, 24 Jun 2025 16:47:59 +0100
-Message-ID: <20250624154805.66985-4-Jonathan.Cameron@huawei.com>
+Subject: [RFC v2 7/8] acpi: PoC of Cache control via ACPI0019 and _DSM
+Date: Tue, 24 Jun 2025 16:48:03 +0100
+Message-ID: <20250624154805.66985-8-Jonathan.Cameron@huawei.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
 References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
@@ -64,8 +64,8 @@ X-Originating-IP: [10.122.19.247]
 X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_084942_960368_44BE9845 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20250624_085149_722362_F9543BA8 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,247 +80,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some systems contain devices that are capable of issuing certain cache
-invalidation messages to all components in the system. A typical use
-is when the memory backing a physical address is being changed, such
-as when a region is configured for CXL or a dynamic capacity event
-occurs.
+Do not merge. This is the bare outline of what may become an ACPI
+code first specification proposal. For that reason it remains an RFC
+and is mainly here to show that the framework is flexible enough to
+be useful by providing a second driver.
 
-These perform a similar action to the WBINVALL instruction on x86 but
-may provide finer granularity and/or a richer set of actions.
+From various discussions, it has become clear that there is some desire not
+to end up needing a cache flushing driver for every host that supports the
+flush by PA range functionality that is needed for CXL and similar
+disagregated memory pools where the host PA mapping to actual memory may
+change over time and where various races can occur with prefetchers making
+it hard to use CPU instructions to flush all stale data out.
 
-Add a tiny registration framework to which drivers may register. Each
-driver provides an ops structure and the first op is Write Back and
-Invalidate by PA Range. The driver may over invalidate.
+There was once an ARM PSCI specification [1] that defined a firmware
+interface to solve this problem.  However that meant dropping into
+a more privileged mode, or chatting to an external firmware. That was
+overkill for those systems that provide a simple MMIO register interface
+for these operations. That specification never made it beyond alpha level.
 
-An optional completion check is also provided. If present that should
-be called to ensure that the action has finished.
+For the typical class of machine that actually uses these disaggregated
+pools, ACPI can potentially provide the same benefits with a great deal more
+flexibility.  A _DSM in DSDT via operation regions, may be used to do any of:
+1) Make firmware calls
+2) Operate a register based state machine.
+3) Most other things you might dream of.
 
-If multiple agents are present in the system each should register
-with this framework and the core code will issue the invalidate to all
-of them before checking for completion on each.  This is done
-to avoid need for filtering in the core code which can become complex
-when interleave, potentially across different cache coherency hardware
-is going on, so it is easier to tell everyone and let those who don't
-care do nothing.
+This was prototyped against an implementation of the ARM specification
+in [1] wrapped up in _DSM magic. That was chosen to give a second
+(be it abandoned) example of how this cache control class can be used.
 
-Currently a mutex is used to protect against add or remove of caching
-agents. There are nearby sleeping locks or similar in all the existing
-callpaths, so this should be fine.
-
+Link: https://developer.arm.com/documentation/den0022/falp1/?lang=en [1]
 Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
 ---
-v2: Drop the device class for now.  We can easily bring it back once
-    the shape of any user space interface is clearer.
-
-Open question remains on how we establish that all flushing agents
-have arrived and registered correctly.
----
- drivers/cache/Kconfig           |   9 +++
- drivers/cache/Makefile          |   2 +
- drivers/cache/coherency_core.c  | 116 ++++++++++++++++++++++++++++++++
- include/linux/cache_coherency.h |  40 +++++++++++
- 4 files changed, 167 insertions(+)
+ drivers/cache/Kconfig              |   7 ++
+ drivers/cache/Makefile             |   1 +
+ drivers/cache/acpi_cache_control.c | 152 +++++++++++++++++++++++++++++
+ 3 files changed, 160 insertions(+)
 
 diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index db51386c663a..bedc51bea1d1 100644
+index 0ed87f25bd69..e4c4ebb01135 100644
 --- a/drivers/cache/Kconfig
 +++ b/drivers/cache/Kconfig
-@@ -1,6 +1,15 @@
- # SPDX-License-Identifier: GPL-2.0
- menu "Cache Drivers"
+@@ -12,6 +12,13 @@ config CACHE_COHERENCY_SUBSYSTEM
  
-+config CACHE_COHERENCY_SUBSYSTEM
-+	bool "Cache coherency control subsystem"
-+	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-+	depends on GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-+	help
-+	  Framework to which coherency control drivers register allowing core
-+	  kernel subsystems to issue invalidations and similar coherency
-+	  operations.
+ if CACHE_COHERENCY_SUBSYSTEM
+ 
++config ACPI_CACHE_CONTROL
++       tristate "ACPI cache maintenance"
++       depends on ARM64 && ACPI
++       help
++         ACPI0019 device ID in DSDT identifies an interface that may be used
++	 to carry out certain forms of cache flush operation.
 +
- config AX45MP_L2_CACHE
- 	bool "Andes Technology AX45MP L2 Cache controller"
- 	depends on RISCV
+ config HISI_SOC_HHA
+ 	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
+ 	depends on (ARM64 && ACPI) || COMPILE_TEST
 diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-index 55c5e851034d..b193c3d1a06e 100644
+index dfc98273ff09..f770bb1f314f 100644
 --- a/drivers/cache/Makefile
 +++ b/drivers/cache/Makefile
-@@ -3,3 +3,5 @@
- obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
- obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
+@@ -5,4 +5,5 @@ obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
  obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
-+
-+obj-$(CONFIG_CACHE_COHERENCY_SUBSYSTEM)	+= coherency_core.o
-diff --git a/drivers/cache/coherency_core.c b/drivers/cache/coherency_core.c
+ 
+ obj-$(CONFIG_CACHE_COHERENCY_SUBSYSTEM)	+= coherency_core.o
++obj-$(CONFIG_ACPI_CACHE_CONTROL)   	+= acpi_cache_control.o
+ obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
+diff --git a/drivers/cache/acpi_cache_control.c b/drivers/cache/acpi_cache_control.c
 new file mode 100644
-index 000000000000..25a9792dd16e
+index 000000000000..563afff37df0
 --- /dev/null
-+++ b/drivers/cache/coherency_core.c
-@@ -0,0 +1,116 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Class to manage OS controlled coherency agents within the system.
-+ * Specifically to enable operations such as write back and invalidate.
-+ *
-+ * Copyright: Huawei 2025
-+ */
++++ b/drivers/cache/acpi_cache_control.c
+@@ -0,0 +1,152 @@
 +
++#include <linux/acpi.h>
 +#include <linux/cache_coherency.h>
-+#include <linux/cleanup.h>
-+#include <linux/container_of.h>
-+#include <linux/export.h>
-+#include <linux/module.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
 +#include <asm/cacheflush.h>
-+static LIST_HEAD(cache_device_list);
-+static DEFINE_MUTEX(cache_device_list_lock);
 +
-+void cache_coherency_device_free(struct cache_coherency_device *ccd)
-+{
-+	kfree(ccd);
-+}
-+EXPORT_SYMBOL_GPL(cache_coherency_device_free);
++struct acpi_cache_control {
++	struct cache_coherency_device ccd;
++	/* Stuff */
++};
 +
-+static int cache_inval_one(struct cache_coherency_device *ccd, void *data)
++static const guid_t testguid =
++	GUID_INIT(0x61FDC7D5, 0x1468, 0x4807,
++		0xB5, 0x65, 0x51, 0x5B, 0xF6, 0xB7, 0x53, 0x19);
++
++static int acpi_cache_control_query(struct acpi_device *device)
 +{
-+	if (!ccd->ops)
++	union acpi_object *out_obj;
++
++	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 1, NULL);//&in_obj);
++	if (out_obj->package.count < 4) {
++		printk("Only partial capabilities received\n");
 +		return -EINVAL;
++	}
++	for (int i = 0; i < out_obj->package.count; i++)
++		if (out_obj->package.elements[i].type != 1) {
++			printk("Element %d not integer\n", i);
++			return -EINVAL;
++		}
++	switch (out_obj->package.elements[0].integer.value) {
++	case 0:
++		printk("Supports range\n");
++		break;
++	case 1:
++		printk("Full flush only\n");
++		break;
++	default:
++		printk("unknown op type %llx\n",
++			out_obj->package.elements[0].integer.value);
++		break;
++	}
 +
-+	return ccd->ops->wbinv(ccd, data);
++	printk("Latency is %lld msecs\n",
++		out_obj->package.elements[1].integer.value);
++	printk("Min delay between calls is %lld msecs\n",
++		out_obj->package.elements[2].integer.value);
++
++	if (out_obj->package.elements[3].integer.value & BIT(0))
++		printk("CLEAN_INVALIDATE\n");
++	if (out_obj->package.elements[3].integer.value & BIT(1))
++		printk("CLEAN\n");
++	if (out_obj->package.elements[3].integer.value & BIT(2))
++		printk("INVALIDATE\n");
++	ACPI_FREE(out_obj);
++	return 0;
 +}
 +
-+static int cache_inval_done_one(struct cache_coherency_device *ccd, void *data)
++static int acpi_cache_control_inval(struct acpi_device *device, u64 base, u64 size)
 +{
-+	if (!ccd->ops)
-+		return -EINVAL;
-+
-+	if (!ccd->ops->done)
-+		return 0;
-+
-+	return ccd->ops->done(ccd);
-+}
-+
-+static int cache_invalidate_memregion(int res_desc,
-+				      phys_addr_t addr, size_t size)
-+{
-+	int ret;
-+	struct cache_coherency_device *ccd;
-+	struct cc_inval_params params = {
-+		.addr = addr,
-+		.size = size,
++	union acpi_object *out_obj;
++	union acpi_object in_array[] = {
++		[0].integer = { ACPI_TYPE_INTEGER, base },
++		[1].integer = { ACPI_TYPE_INTEGER, size },
++		[2].integer = { ACPI_TYPE_INTEGER, 0 }, // Clean invalidate
 +	};
-+	guard(mutex)(&cache_device_list_lock);
-+	list_for_each_entry(ccd, &cache_device_list, node) {
-+		ret = cache_inval_one(ccd, &params);
-+		if (ret)
-+			return ret;
++	union acpi_object in_obj = {
++		.package = {
++			.type = ACPI_TYPE_PACKAGE,
++			.count = ARRAY_SIZE(in_array),
++			.elements = in_array,
++		},
++	};
++
++	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 2, &in_obj);
++	ACPI_FREE(out_obj);
++	return 0;
++}
++
++static int acpi_cc_wbinv(struct cache_coherency_device *ccd,
++			 struct cc_inval_params *invp)
++{
++	struct acpi_device *acpi_dev =
++		container_of(ccd->parent, struct acpi_device, dev);
++
++	return acpi_cache_control_inval(acpi_dev, invp->addr, invp->size);
++}
++
++static int acpi_cc_done(struct cache_coherency_device *ccd)
++{
++	/* Todo */
++	return 0;
++}
++
++static const struct coherency_ops acpi_cc_ops = {
++	.wbinv = acpi_cc_wbinv,
++	.done = acpi_cc_done,
++};
++
++static int acpi_cache_control_add(struct acpi_device *device)
++{
++	struct acpi_cache_control *acpi_cc;
++	int ret;
++
++	ret = acpi_cache_control_query(device);
++	if (ret)
++		return ret;
++
++	acpi_cc = (struct acpi_cache_control *)
++		cache_coherency_alloc_device(&device->dev, &acpi_cc_ops,
++					     sizeof(*acpi_cc));
++	if (!acpi_cc)
++		return -ENOMEM;
++
++	ret = cache_coherency_device_register(&acpi_cc->ccd);
++	if (ret) {
++		cache_coherency_device_free(&acpi_cc->ccd);
++		return ret;
 +	}
-+	list_for_each_entry(ccd, &cache_device_list, node) {
-+		ret = cache_inval_done_one(ccd, &params);
-+		if (ret)
-+			return ret;
-+	}
++
++	dev_set_drvdata(&device->dev, acpi_cc);
 +	return 0;
 +}
 +
-+static const struct system_cache_flush_method cache_flush_method = {
-+	.invalidate_memregion = cache_invalidate_memregion,
++static void acpi_cache_control_del(struct acpi_device *device)
++{
++	struct acpi_cache_control *acpi_cc = dev_get_drvdata(&device->dev);
++
++	cache_coherency_device_unregister(&acpi_cc->ccd);
++	cache_coherency_device_free(&acpi_cc->ccd);
++}
++
++static const struct acpi_device_id acpi_cache_control_ids[] = {
++	{ "ACPI0019" },
++	{ }
 +};
 +
-+struct cache_coherency_device *
-+cache_coherency_alloc_device(struct device *parent,
-+			const struct coherency_ops *ops, size_t size)
-+{
++MODULE_DEVICE_TABLE(acpi, acpi_cache_control_ids);
 +
-+	if (!ops || !ops->wbinv)
-+		return NULL;
-+
-+	struct cache_coherency_device *ccd __free(kfree) = kzalloc(size, GFP_KERNEL);
-+
-+	if (!ccd)
-+		return NULL;
-+
-+	ccd->parent = parent;
-+	ccd->ops = ops;
-+	INIT_LIST_HEAD(&ccd->node);
-+
-+	return_ptr(ccd);
-+}
-+EXPORT_SYMBOL_NS_GPL(cache_coherency_alloc_device, "CACHE_COHERENCY");
-+
-+int cache_coherency_device_register(struct cache_coherency_device *ccd)
-+{
-+	guard(mutex)(&cache_device_list_lock);
-+	list_add(&ccd->node, &cache_device_list);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(cache_coherency_device_register, "CACHE_COHERENCY");
-+
-+void cache_coherency_device_unregister(struct cache_coherency_device *ccd)
-+{
-+	guard(mutex)(&cache_device_list_lock);
-+	list_del(&ccd->node);
-+}
-+EXPORT_SYMBOL_NS_GPL(cache_coherency_device_unregister, "CACHE_COHERENCY");
-+
-+static int __init cache_coherency_init(void)
-+{
-+	generic_set_sys_cache_flush_method(&cache_flush_method);
-+
-+	return 0;
-+}
-+subsys_initcall(cache_coherency_init);
-diff --git a/include/linux/cache_coherency.h b/include/linux/cache_coherency.h
-new file mode 100644
-index 000000000000..2e90e513821a
---- /dev/null
-+++ b/include/linux/cache_coherency.h
-@@ -0,0 +1,40 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Cache coherency device drivers
-+ *
-+ * Copyright Huawei 2025
-+ */
-+#ifndef _LINUX_CACHE_COHERENCY_H_
-+#define _LINUX_CACHE_COHERENCY_H_
-+
-+#include <linux/list.h>
-+#include <linux/types.h>
-+
-+struct cc_inval_params {
-+	phys_addr_t addr;
-+	size_t size;
++static struct acpi_driver acpi_cache_control_driver = {
++	.name = "acpi_cache_control",
++	.ids = acpi_cache_control_ids,
++	.ops = {
++		.add = acpi_cache_control_add,
++		.remove = acpi_cache_control_del,
++	},
 +};
 +
-+struct cache_coherency_device;
++module_acpi_driver(acpi_cache_control_driver);
 +
-+struct coherency_ops {
-+	int (*wbinv)(struct cache_coherency_device *ccd, struct cc_inval_params *invp);
-+	int (*done)(struct cache_coherency_device *ccd);
-+};
-+
-+struct device;
-+struct cache_coherency_device {
-+	struct list_head node;
-+	struct device *parent;
-+	const struct coherency_ops *ops;
-+};
-+
-+int cache_coherency_device_register(struct cache_coherency_device *ccd);
-+void cache_coherency_device_unregister(struct cache_coherency_device *ccd);
-+
-+struct cache_coherency_device *
-+cache_coherency_alloc_device(struct device *parent,
-+			      const struct coherency_ops *ops, size_t size);
-+void cache_coherency_device_free(struct cache_coherency_device *ccd);
-+
-+#endif
++MODULE_IMPORT_NS("CACHE_COHERENCY");
++MODULE_AUTHOR("Jonathan Cameron <Jonathan.Cameron@huawei.com>");
++MODULE_DESCRIPTION("HACKS HACKS HACKS");
++MODULE_LICENSE("GPL");
 -- 
 2.48.1
 
