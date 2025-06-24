@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79523C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 03:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0689C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 04:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2s2T9FBq0PkVeveB8un+nM12JI6im71Uplh3ykpnzG0=; b=Hh2ecagMoj22Z73neNLoM7q3qU
-	fTDrp3B45C8L+XJ/a8Qod8kezSjdvDeHBxztsp7LbW5cGuJGRiPdlHwhx6NXOq/PoQxWlXh79owdu
-	F5dfQS3eEdJpt2IUNtAlC9eFGmq9K0Gj2M+wjP56SzM4PZ8K27zMQ37bY9JiCOhWq1ElljCG9/SYA
-	liDb/WkecwRWez4SCxDWc1Sn3ROehA9nVLz3JtygQnrOF6ycCVC9A1B7xQiEiqLe5/rs3m6zPdQOS
-	c/KGlYNDq4HxegnUS5irv2pfnjQRriKanI9Isk+rGdFxjfQDb8O8EFSD/7lV7p4c+ZKTdieZyfCcS
-	XtYzdEwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eEY0+4y3gdNHlGFTzn9MLgiD1FrJm+HM+oTRXBGFjmU=; b=XJ9kVU86TJosFSeJE+JXKxt9gt
+	S1cVwaBViZKQN9PXrfIG3hWlyeUSZnKKubwsP15uFfCI47ip0lGpKWiMqczpW6aeE0VyBXeWs8t5k
+	fNHu5pUt3XJAmO185hGV4NLTKjh3nDiYJgLor43UlJIT8B3oLQ/nE3wUB9urD9LhSBcykuOv/Bn3O
+	re0OhjhcGmLwyol4Ix06k5x90N7XtlCh/t73LNXhbuk6p34kbc8yDiL1mrGjG8yebQyfw1yHYWMWG
+	rgYzFpiH3W1ZubZ9y72w9BJT9ZLHjSzjUruPpRBEB7B7Uy37lkTKVemr38s0ib0kBqLAUledJh5ey
+	WWM7CQlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTulX-00000004aJi-38Lz;
-	Tue, 24 Jun 2025 03:56:11 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uTupK-00000004aeG-3a0X;
+	Tue, 24 Jun 2025 04:00:06 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uTuVn-00000004YyK-0fQq;
-	Tue, 24 Jun 2025 03:39:56 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id E0D6625A24;
-	Tue, 24 Jun 2025 05:39:53 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id uTZH90UD7F9r; Tue, 24 Jun 2025 05:39:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750736393; bh=Cn577oWTiuD78zUlriRAp/KCdUeL45UyKPT3ZBfVSNg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MvpY/fp/GC/4at6lGtQowOZO/8toL+OLqjdCqhMbcnsa8/RujJ1XHBCvyx83zh3UQ
-	 SPdXvB0xdxZ1NHDQaw0jB6H0bnGJfzavbFAQD/mndyAc9kISM1JNzxngKPd2Ex1rZF
-	 IG9PPmDHiSpId/9jZGyudx10QjTUp5tBZrG2Oytvwv/3dyc7RQ8LoQGgDPMGg6UOtX
-	 h0GgTcqm1z43zl3We7QRRkbR4V4shR1RrrJtfR6PlpUfAB8fh9aygUgsjuHA6mO20P
-	 XcSuczhntnHFm65KZQbJsZsSwdl+U0cAxsj3sjgW1omWilsy7FUvS/bXVB26snkmQr
-	 aD4PaKFyEKcOw==
-From: Yao Zi <ziyao@disroot.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1uTumn-00000004aOt-3VVr;
+	Tue, 24 Jun 2025 03:57:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750737449; x=1782273449;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KMEHcEq0X+pga2fcQQgj1lL/UKHHxkGD3F5FhJ7ooD8=;
+  b=hai3S5MzFYLhhdkLe7aut2e3FV/XSshACCtMO0ezKa4vpcjDkuJ20GUD
+   2MQ9GMYzSbtgWSNcZHDOob+UNA61dV8DaHdNpdKviSUcIxqB93PTzfA3x
+   0gp+S06HuVuEU8xP/YFFJvbh6W2i0ihJZn3B7TUJTngfFmgQpNxwTrqtE
+   BS2W9c56f//cVa/XYCVGyumWOcV1yTTJZ0ehwCvochQl1EPOifXeZqaEa
+   hjTxdMfbvgyMYP84tqhlhjo71c135sXFbg30yG3xMQ+uj17s1s97Fdy4u
+   bM2IJ2iOIgI2Cdm1F2gB9KCEu7LcU5vhPpqNpDTpLF2M8DM5a23bOmqzU
+   A==;
+X-CSE-ConnectionGUID: bL28e3K1R+e45y+fJUMTgQ==
+X-CSE-MsgGUID: ftDO3DnwT3yDpYw2lU+rVg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11473"; a="52900006"
+X-IronPort-AV: E=Sophos;i="6.16,260,1744095600"; 
+   d="scan'208";a="52900006"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2025 20:57:25 -0700
+X-CSE-ConnectionGUID: VRKdCaRxSG6B/sLih1UGgA==
+X-CSE-MsgGUID: UwxYRyrQQxy2q7hZRfl5dw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,260,1744095600"; 
+   d="scan'208";a="157282862"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 23 Jun 2025 20:57:22 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uTume-000RhR-2W;
+	Tue, 24 Jun 2025 03:57:20 +0000
+Date: Tue, 24 Jun 2025 11:56:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	broonie@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 6/6] arm64: dts: rockchip: Add naneng-combphy for RK3528
-Date: Tue, 24 Jun 2025 03:37:33 +0000
-Message-ID: <20250624033733.50197-7-ziyao@disroot.org>
-In-Reply-To: <20250624033733.50197-1-ziyao@disroot.org>
-References: <20250624033733.50197-1-ziyao@disroot.org>
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 2/6] regulator: Add support for MediaTek MT6316 SPMI
+ PMIC Regulators
+Message-ID: <202506241156.TWxCzjh3-lkp@intel.com>
+References: <20250623120016.108732-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250623120016.108732-3-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250623_203955_357281_0EBF5B4A 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250623_205729_941682_6178477B 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +93,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 ships a naneng-combphy that is shared by PCIe and USB
-3.0 controllers. Describe it and the pipe-phy grf which it depends on.
+Hi AngeloGioacchino,
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index a22db9d4b518..31b27096566a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -417,6 +417,11 @@ vpu_grf: syscon@ff340000 {
- 			reg = <0x0 0xff340000 0x0 0x8000>;
- 		};
- 
-+		pipe_phy_grf: syscon@ff348000 {
-+			compatible = "rockchip,rk3528-pipe-phy-grf", "syscon";
-+			reg = <0x0 0xff348000 0x0 0x8000>;
-+		};
-+
- 		vo_grf: syscon@ff360000 {
- 			compatible = "rockchip,rk3528-vo-grf", "syscon";
- 			reg = <0x0 0xff360000 0x0 0x10000>;
-@@ -1085,6 +1090,25 @@ dmac: dma-controller@ffd60000 {
- 			#dma-cells = <1>;
- 			arm,pl330-periph-burst;
- 		};
-+
-+		combphy: phy@ffdc0000 {
-+			compatible = "rockchip,rk3528-naneng-combphy";
-+			reg = <0x0 0xffdc0000 0x0 0x10000>;
-+			assigned-clocks = <&cru CLK_REF_PCIE_INNER_PHY>;
-+			assigned-clock-rates = <100000000>;
-+			clocks = <&cru CLK_REF_PCIE_INNER_PHY>,
-+				 <&cru PCLK_PCIE_PHY>,
-+				 <&cru PCLK_PIPE_GRF>;
-+			clock-names = "ref", "apb", "pipe";
-+			power-domains = <&power RK3528_PD_VPU>;
-+			resets = <&cru SRST_PCIE_PIPE_PHY>,
-+				 <&cru SRST_P_PCIE_PHY>;
-+			reset-names = "phy", "apb";
-+			#phy-cells = <1>;
-+			rockchip,pipe-grf = <&vpu_grf>;
-+			rockchip,pipe-phy-grf = <&pipe_phy_grf>;
-+			status = "disabled";
-+		};
- 	};
- };
- 
+[auto build test WARNING on broonie-regulator/for-next]
+[also build test WARNING on linus/master v6.16-rc3 next-20250623]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-regulator-Document-MediaTek-MT6316-PMIC-Regulators/20250623-200316
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+patch link:    https://lore.kernel.org/r/20250623120016.108732-3-angelogioacchino.delregno%40collabora.com
+patch subject: [PATCH v1 2/6] regulator: Add support for MediaTek MT6316 SPMI PMIC Regulators
+config: i386-buildonly-randconfig-004-20250624 (https://download.01.org/0day-ci/archive/20250624/202506241156.TWxCzjh3-lkp@intel.com/config)
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250624/202506241156.TWxCzjh3-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506241156.TWxCzjh3-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/regulator/mt6316-regulator.c:205:14: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+     205 |                 } else if (cur_mode == REGULATOR_MODE_IDLE) {
+         |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/regulator/mt6316-regulator.c:218:6: note: uninitialized use occurs here
+     218 |         if (ret) {
+         |             ^~~
+   drivers/regulator/mt6316-regulator.c:205:10: note: remove the 'if' if its condition is always true
+     205 |                 } else if (cur_mode == REGULATOR_MODE_IDLE) {
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/regulator/mt6316-regulator.c:189:19: note: initialize the variable 'ret' to silence this warning
+     189 |         int cur_mode, ret;
+         |                          ^
+         |                           = 0
+>> drivers/regulator/mt6316-regulator.c:193:25: warning: variable 'regmap' is uninitialized when used here [-Wuninitialized]
+     193 |                 ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
+         |                                       ^~~~~~
+   drivers/regulator/mt6316-regulator.c:188:23: note: initialize the variable 'regmap' to silence this warning
+     188 |         struct regmap *regmap;
+         |                              ^
+         |                               = NULL
+   2 warnings generated.
+
+
+vim +205 drivers/regulator/mt6316-regulator.c
+
+   183	
+   184	static int mt6316_regulator_set_mode(struct regulator_dev *rdev,
+   185					     unsigned int mode)
+   186	{
+   187		struct mt6316_regulator_info *info = rdev_get_drvdata(rdev);
+   188		struct regmap *regmap;
+   189		int cur_mode, ret;
+   190	
+   191		switch (mode) {
+   192		case REGULATOR_MODE_FAST:
+ > 193			ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
+   194			break;
+   195		case REGULATOR_MODE_NORMAL:
+   196			cur_mode = mt6316_regulator_get_mode(rdev);
+   197			if (cur_mode < 0) {
+   198				ret = cur_mode;
+   199				break;
+   200			}
+   201	
+   202			if (cur_mode == REGULATOR_MODE_FAST) {
+   203				ret = regmap_clear_bits(regmap, info->modeset_reg, info->modeset_mask);
+   204				break;
+ > 205			} else if (cur_mode == REGULATOR_MODE_IDLE) {
+   206				ret = regmap_clear_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
+   207				if (ret == 0)
+   208					usleep_range(100, 200);
+   209			}
+   210			break;
+   211		case REGULATOR_MODE_IDLE:
+   212			ret = regmap_set_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
+   213			break;
+   214		default:
+   215			ret = -EINVAL;
+   216		}
+   217	
+   218		if (ret) {
+   219			dev_err(&rdev->dev, "Failed to set mode %u: %d\n", mode, ret);
+   220			return ret;
+   221		}
+   222	
+   223		return 0;
+   224	}
+   225	
+
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
