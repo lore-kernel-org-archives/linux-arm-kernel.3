@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829A5C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6764C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 19:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UddDk769ZKsmK2aQWqIF88uQfyivetng7RpNIF5HC8U=; b=etTLKzhxyCy4yu1GubpssiLJDS
-	Wc/WuV0D13mVGhK238jurEluHZYz2i1jF/hAZllh4MglPAzJsWuJW4NJpAnjR3WAuiZF3AEM3BbSK
-	s0P9iZDeYnXSJq4wUUuGT6N0guA+F4kKS4mM2u7wsJekkvSlSi/Rp04hld2Jj1sCrCHVTPh+j4yzj
-	xkekcskep+6jiJCVCjjn12BsArlSxBS5n3YRuRQNkJimFP3GrmOsWmkq/wOdrVhoXYTb0xFHPzGgm
-	RTjtMWsAucZ9FmepviaSvFxpkkWsdlyKN9UlG9LcDuhxCF6rNAsFVdsBqoJZnlU9CLAiETkWToNS9
-	fy6nt0qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sj9TWiPMsagwmtAEU+UqMAQLzr3x+ci2skqbvIgOikg=; b=YDMVM6Qen1u71tQCPsUYiAQyTA
+	RVcGJCjhHm3J3kzNS0gYs84P2moIub34lmdHsVQp8KAsspdWp6UugY+CbHXbU45RF9ChxVBnE6FyY
+	019DiGtEp1upYvvzn6vQ/b3rf0/62c84Dj2F0mEQbyYwnBBxqf30GfoEJuB2vFViI4OXD4E+ENe0i
+	yoSFXoLIEA0ZiDqoKL+0r/7udBXhV6S7fff5xRhvxR+A0tWy8VUHFtSg9/KQ7qFgJhJfol1o76sSo
+	tG1Zjapti5AAENovRiBb2AO2lK5XBeCSBjs18k2JcpZw5upYocvZW5tDPFzrtTtq28qhXsqD0BaCz
+	vG+qfTag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU9j7-00000006fHz-1IPz;
-	Tue, 24 Jun 2025 19:54:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uU9j9-00000006fKc-3YT2;
+	Tue, 24 Jun 2025 19:54:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU5y0-00000006CRN-1q8l
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 15:53:49 +0000
+	id 1uU672-00000006ELg-1Upi;
+	Tue, 24 Jun 2025 16:03:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5F6EDA51E94;
-	Tue, 24 Jun 2025 15:53:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FCA4C4CEE3;
-	Tue, 24 Jun 2025 15:53:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BA9BE43656;
+	Tue, 24 Jun 2025 16:03:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D339C4CEE3;
+	Tue, 24 Jun 2025 16:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750780427;
-	bh=5gIuZaIyM0SgNtIvnnpKjpM1YltAyHByEE6D09stErU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uMzZ2gJG0TMEGpMVxiZHeLdfiXSAJ+T3/T4x4bgZPBc9wtt2C3vBJZPx7RUO7pzV7
-	 lD1VDfRASF6KaK7Ww3fKSeaTkws+AN8Mzz8FMLUOawupf+ELUiRAimpcF0vDk8mbXP
-	 IT2Dpmqp/nyuQzLRfPWyJoODLt0LUIFydHyeIgh7EQz3onJNCtYU1NVsLwBA+lMiIC
-	 3I1D6u/4aXIIzafWyePJlp1uBqE6C21sn79PgMfrG5DZtfAQVTAYUfx1EwPkUWAb9J
-	 0lYpVqNzO1TQycN+lcjutyS5WcGz8+JUjiIwEzBUNzXdOGud8oNexRNPY5l/c6a9mC
-	 IdwDZTxK4Twug==
-Date: Tue, 24 Jun 2025 16:53:40 +0100
-From: Lee Jones <lee@kernel.org>
-To: Sven Peter <sven@kernel.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Sebastian Reichel <sre@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v7 05/10] mfd: Add Apple Silicon System Management
- Controller
-Message-ID: <20250624155340.GL795775@google.com>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-5-556cafd771d3@kernel.org>
- <20250619114958.GJ587864@google.com>
- <f30406ae-90ed-4f81-9519-e6ae2dcc9e03@kernel.org>
+	s=k20201202; t=1750780987;
+	bh=r+kbtBtkvupSYbQKKEAYAqkAxHTnFoIv9mvGzVb2VcA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pcZP2bot0uc8aYUXNM4TyNuFCofFDE58lIfoi0mW9SKYZ2/rHUyxdCVkLTr+i1cYF
+	 +6WKRQ2spIeriCw3mYuR9tc8rNqNboI9yFCVhBMwDbiHfWBLWFsj5vGQKn+LnGRutQ
+	 S1Ro7vqfCbUjhOZ821nYpGwbjtFu7y75YgMgOa2OXik8hOmLNsz1qfdafB7v+oI0UM
+	 7eaL+qL1U5lo+xRxFUJepr/SKA4cZ5Gqmk/nFNhoVYCYqbejxYMwRy1oGJhqFguso6
+	 4WL0hHg0ky1Yfc4QDHO1Jwy0v6UhsEhSta08gtLpxDVt635iTmwj15uAlc+VSTL1sa
+	 mSOGm/bLL6LEw==
+Message-ID: <ae13aeea-bf44-49e5-82c6-5e369ea96d84@kernel.org>
+Date: Tue, 24 Jun 2025 18:03:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f30406ae-90ed-4f81-9519-e6ae2dcc9e03@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/29] dt-bindings: reset: Add MediaTek MT8196 Reset
+ Controller binding
+To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250624143220.244549-1-laura.nao@collabora.com>
+ <20250624143220.244549-11-laura.nao@collabora.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250624143220.244549-11-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_085348_610327_A9BA6D6B 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250624_090308_446083_ED6059E5 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 21 Jun 2025, Sven Peter wrote:
-
-> On 19.06.25 13:49, Lee Jones wrote:
-> > On Tue, 10 Jun 2025, Sven Peter wrote:
-> > 
-> > > The System Management Controller (SMC) on Apple Silicon machines is a
-> > > piece of hardware that exposes various functionalities such as
-> > > temperature sensors, voltage/power meters, shutdown/reboot handling,
-> > > GPIOs and more.
-> > > 
-> > > Communication happens via a shared mailbox using the RTKit protocol
-> > > which is also used for other co-processors. The SMC protocol then allows
-> > > reading and writing many different keys which implement the various
-> > > features. The MFD core device handles this protocol and exposes it
-> > > to the sub-devices.
-> > > 
-> > > Some of the sub-devices are potentially also useful on pre-M1 Apple
-> > > machines and support for SMCs on these machines can be added at a later
-> > > time.
-> > > 
-> > > Co-developed-by: Hector Martin <marcan@marcan.st>
-> > > Signed-off-by: Hector Martin <marcan@marcan.st>
-> > > Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> > > Reviewed-by: Neal Gompa <neal@gompa.dev>
-> > > Signed-off-by: Sven Peter <sven@kernel.org>
-> > > ---
-> > >   MAINTAINERS                |   2 +
-> > >   drivers/mfd/Kconfig        |  18 ++
-> > >   drivers/mfd/Makefile       |   1 +
-> > >   drivers/mfd/macsmc.c       | 498 +++++++++++++++++++++++++++++++++++++++++++++
-> > >   include/linux/mfd/macsmc.h | 279 +++++++++++++++++++++++++
-> > >   5 files changed, 798 insertions(+)
-> > 
-> > This is ready.  Let me know when you have all of the other driver/* Acks.
-> > 
+On 24/06/2025 16:32, Laura Nao wrote:
+> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > 
-> They've all been reviewed by the respective maintainers.
+> Add a binding for the PEXTP0/1 and UFS reset controllers found in
+> the MediaTek MT8196 Chromebook SoC.
 > 
-> I assume you want to take this all through the mfd tree and we'll need acks
-> from Sebastian for power/reset and either Linus or Bartosz for gpio then.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>  .../reset/mediatek,mt8196-resets.h            | 26 +++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
 
-That's right.
+No improvements.
 
-> The one line change inside drivers/soc/apple would usually go through my
-> tree and I'm fine with taking that through mfd instead.
+<form letter>
+This is a friendly reminder during the review process.
 
-If there are no build-time dependencies on it, you can take it.
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
 
-I'm happy to take only the inter-dep ones or all (except the arch/ ones).
+Thank you.
+</form letter>
 
--- 
-Lee Jones [李琼斯]
+Best regards,
+Krzysztof
 
