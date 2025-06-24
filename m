@@ -4,128 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438C9C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 13:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871D5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Jun 2025 13:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4XWDrcCR7OT510Ct+OwfzYOyuZ8GrtVgHNMqiJtKBDc=; b=S3hh3Ui3mmlzNlCBA77oNGyGIE
-	6Nlp5hhp6K/m9f7XruNk8rlYzbIeNTcuIdwbzkMDiU2lAs0VQlkbX1u5SQ5DWnYA9Q+GqxiMTTyBg
-	C+BG7IvbOFEa9CzHn1dRw1luQRigMd+YqAFkEKZv8gW1W7WDR9jNy8JCBtWMeZwNAOHnNREODkdmD
-	59S5rWZASfRWxTnxgPb5sd4R63S3EgBDJ/oMe8foeiiFsbT54whqA6kTdPUjmHlozlAkQwE30jr9r
-	xn0aDlHtKFcqmr61Mu+3ItuwLr8J9f892w7jLz4uET3v1N/X8i3HUlqZSmJrA5Sep1pcHyCW+QF3m
-	fdARrolQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qRMSLkuE2eUd/JTqEQFPTKEE5Lezk/EsRWxuxZY3QmM=; b=AAGWEgoEvD9DB6OdHtdC4o7xc5
+	Ayp/OIPk4SPibJoLwEuZ2KVILV2PUvFMKylnoLCcJ+28uMt8HxGrpPINW1qmlaENUUTB6O1CpdYm3
+	s1bRE1tRVTF/BuiKzvg/fuWGabjAZIIfCANxq/jXhzXru3/0TWd5cLpHhc7ngRK3m02r1VTFDP+g2
+	17ywPZU4JJsl4xfSBmU2D9er+/QVQQBhyZhhk7MogeacxOZMz7WCrHqWZ3irfV97+7JUQhzzvIhX7
+	iMaNpxcB9EQ2v+pVhloQBwoBZm7Y9KqNI5xBs7vVLgvkjnFqFj0yWHlrVPpMwGvff6RJo3jwfYHVy
+	g/gYDVhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3oN-00000005jOn-1Tmh;
-	Tue, 24 Jun 2025 13:35:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uU3qd-00000005jhh-0l6U;
+	Tue, 24 Jun 2025 13:38:03 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3Yj-00000005h6A-3U8I
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Jun 2025 13:19:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4XWDrcCR7OT510Ct+OwfzYOyuZ8GrtVgHNMqiJtKBDc=; b=CKFmLF+NjX+j3hOe6ffYBy/Xj6
-	HbmjqZP9+5zM4THwqX3pphFzQRoqVlDW5AQmwuNK12E90L2ceH1X3/w0ifrieuJDUTukaHCm5z5W+
-	0/4WsNvV7BegexSwfUrWjswmBIBGAndy3jpwVbuZSaoRKJ49gMiOu5z8P3gq89HpTd57dPMN3VRaW
-	KLXgMPIZE/jCSzlubJyO8gUFWfjkF6nn5RYJp5GhoGhLi5ofYV0QVn47gPplW1gSfR6NKiPuMMaft
-	iCh9xRg6Yubri0utbmm57cv/xSJtIE1aVuGFHlb7Ubf+Ghdl1gFm3vmLEAF2a49O3U7wbp/WirpQ8
-	GvQtInqg==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uU3Yh-00000005Rbp-1Usc
+	id 1uU3b6-00000005hJL-14D3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Jun 2025 13:19:33 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45348bff79fso58755715e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 06:19:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750771169; x=1751375969; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4XWDrcCR7OT510Ct+OwfzYOyuZ8GrtVgHNMqiJtKBDc=;
-        b=mYTSbycnfL0PZUT878mmewUSwChHTcvWlon/pWYQBuFsK1m/Oj9YvcVRP8MkAched5
-         NEshYofXSZXicTJMqVdcVs3nts7jiqB2Q3PKUDOPHrYZTnvAyGhKO4rqbDS6FNGyTtLG
-         9DiOn1kc3NbTnDd1+oJ2qgiuoHx6LkVFmGayREojHi3IlbbzD59k/BDoEk/AJuo9/Vjb
-         h1UxevI3pBrLXkXVgjz53mMpYSBktAos7OY0XXhEBiPXlPOx3ZtioCW1IkL0u8XOAT+r
-         hcjMnwrvCGGR1zgoxOJ7h4Kw8OXpSI2FmoP2Qu0+Dp4KtOb6WrdGcpqds0I8MXITyXxB
-         4ASg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750771169; x=1751375969;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4XWDrcCR7OT510Ct+OwfzYOyuZ8GrtVgHNMqiJtKBDc=;
-        b=Me2Uan+D7IrApm5hKHFS+RZLyZLAyAasuK2QUxgiJsGJtol3OdP9obexwXnNEXgRMR
-         ns72zqFXStL7+3/Ywrr1ajyNezp+F6LR230J8B63WlceRI0V/gd6iQLtMuQME0oYo+e0
-         PnsVM50lQm8skHR9p9aY+RkTQK0BCPIprxXpMpvP8Gjqp42oHq7OYKUxOfeqzfYYxUg2
-         cM3w81PWJ0+YjQ3rW/fjTAHeKH3ewMPFQWdvAlaKHqVnZ5wjsIIVGJy0U7SLJDuZ1ZQt
-         aiBZudlqhLn98/7cta0lQwqIrQBUd8Df4MccF0gbH+w+6HD2L6/6ory9IskcOcCcL5s9
-         qZIg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBSeRLAOKIK0ZoPM3V+L/nRkLa8FQ1TD83fAHhiETo/15hL95of1oh4wl9w//qAsrqnIu2yW2cCbs8Dv5HshpL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWFurFXk9KQ5ua96+Y/I9HuFZ6B8ZABai1ncbAq4lns465ZrgP
-	iCv8ZRfifjIuWp0UOzpQpC40f+FASUZk7T7i7YdYombWRkanbodFRkbURIM2O1NtVj4=
-X-Gm-Gg: ASbGnctIamTPb5NG1/5Qq9LIgn0BxkjfODhfVj1XahezLljgKc/Kcv5vGVflh29l3Y6
-	m/S3C/VJHYixzGnISP2vVZ8xLUsnBK+UnNHJlzpxHkzSJWQ2aNzedsm4yFi1fyBE+f0YxpuTwDb
-	S5rI+vf/EI47MsQza+BDkPemFGrHtRAM2B1hBsic0AQJQ932asouby+RsrsbGB3wicwSHpYjXPI
-	jXFEJd8eXrnZjCve9w6e59/E3Cx9ziwWRBc1pdiVf33GGtEkwUR0zZ3fpmVwn2Ztahftj6iEAuX
-	DSpSy/9E/xNPpdOcjK8SFqyv+5xHHbXf+r2eF+UVzhJkdzLmcV4XxGZSMYV10qmDlQ==
-X-Google-Smtp-Source: AGHT+IHock10RuoGmx9RjV0wcweNeUWiSlaHQv7qydV2y+gLq8elzq2R6RpRHGxEHqwYFF+B8DlZkQ==
-X-Received: by 2002:a05:600c:474b:b0:43c:f63c:babb with SMTP id 5b1f17b1804b1-453659b87a8mr141107155e9.1.1750771169216;
-        Tue, 24 Jun 2025 06:19:29 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:34d2:109c:3293:19e9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453646fd74asm141302195e9.22.2025.06.24.06.19.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 06:19:28 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 24 Jun 2025 15:19:16 +0200
-Subject: [PATCH RFT 5/6] ARM: s3c: crag6410: use generic device properties
- for gpio-mmio
+	Tue, 24 Jun 2025 13:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1750771301; x=1751376101; i=markus.elfring@web.de;
+	bh=qRMSLkuE2eUd/JTqEQFPTKEE5Lezk/EsRWxuxZY3QmM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ARkii1EcnA+16PPab+S5fmRyuyL0yXZqcVPE8NFv16pEzB0pIZ4vFZSxMlCj0R19
+	 O1Y1XK7VoU9KVskQ857IXUF5AsxDU46Tnbpay7d9cg8g7T7ChMdqPhr4yJBRELUxs
+	 NRPEpyZ9ih9s/cuCIw4I+OR0pUgKkAMYpYaPxi4DN4c64AWYMBPaDi6MSBqOYGei9
+	 C29UYDiogpra13M0Rl/nZ/ticzAQ8PAHgP/o6pmTtxhjsh8gUm4XEQ8hRWZ4ZlPyR
+	 MF5IUECNomUSnAJtyO52+FJB244YgxSgj+2ss/JxTRoXUDPQ4KZQU4NhM5O2Y8FZB
+	 yv2b/iNPP7c6GOcmNA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.200]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MHmqC-1uYz0F0u5W-008WsL; Tue, 24
+ Jun 2025 15:21:41 +0200
+Message-ID: <f4981e10-a56a-4197-827f-13d43d0c03c8@web.de>
+Date: Tue, 24 Jun 2025 15:21:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250624-gpio-mmio-pdata-v1-5-a58c72eb556a@linaro.org>
-References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
-In-Reply-To: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Lee Jones <lee@kernel.org>, 
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
- Russell King <linux@armlinux.org.uk>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- patches@opensource.cirrus.com, linux-samsung-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2325;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=M6ivCbrYHPALir/oej/d6m+XWZnB9b1K2kuZYU64O7E=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoWqXYHuWIS08dfkwBSN+97xWMlPd21eWVTsrnJ
- aCZTr2sEbCJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFql2AAKCRARpy6gFHHX
- cmJ5EADEZBGMrsssERYb0hbYHuDO71o5tJOkBGjtxDQMWd69JSv/peQj3COKiIsNF/Gr0nRibnI
- JQR9DYoPrU/zYNClACJIwUcBQhO90OGl3SJnCHw0+/oZJLkV9GODi/eWfP0pXJBMODhif0lmI6D
- by2gxddx5gLTJPdH3LgPzeCIqBdaZZVUcBczeKAUohCXubLUdGsNGjW6LBVv2551UT42GHRe/58
- HIDSQcnOkMs349hfYnJJ46B4Y0eVCIPKxn0O0vazcX1A4zZ8YoNyxalJFZePDAXceYixgodB5Ff
- FaGqb4GynaMX555Xm6gb3Q8qoTUk7Z3j8nneJGWVdsx4tn7CzRG6LAfB5nNr+ZPE8vt202uM6Jj
- ZLPw4u0x8y8vu0KY+mmao24DKhvsno+w60UcBwkWHMurz7eJYaC5mHdw2InYeVIYIAMdVNmLWXj
- f6nHsMpw4Y8Hq/W8nLSlRVr+tRyNoiXqPo5w23E0L+EXR90LFd/kB/KDYpe7DDfz6sIhy5+mR9k
- xAzi97fZ0kryw/CQ2Kl1sifpiX6jzvl2Z1xJkG2cB+O52G6RcPyzaPhSMssPiC/KLo5V4+dNdMy
- JlQYJJe1Bzv5/pPnYskdrYLZRWgkzswDLWNshjznUqRHVoRGjhrhKUTH7Gi7ksoj2i3xUmesxGU
- M7UJ/5rPUB2CDPw==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+User-Agent: Mozilla Thunderbird
+To: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Cristian Birsan <cristian.birsan@microchip.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Chen Ni <nichen@iscas.ac.cn>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] usb: gadget: udc: atmel: Use usb_endpoint_num() rather than
+ duplicating its implementation
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Ygupd27R5j3lu4oMHRpR/dvmACwj91rlGfFyCBHJjvWRbsYWUSV
+ BFuVL87O+rHe/BiC/ePHZiyilBbT40jBoWArsd7IB1RLFYbPJ8jElsbXNiUBxBQk2rLgtg2
+ LTz46kDimXOf28N+Y3m0T0+C9gG29P5McbGkqRR5zqPeT9BDiDH2J1aqEaw1NtgQDFbMk9k
+ wA4kk79BIlPV2scwzJ1Gg==
+UI-OutboundReport: notjunk:1;M01:P0:vfBSgLlAv6c=;PkQqSc29Ls7pBjMJBSDoed/R/ly
+ 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
+ Ewlq2oAiAVPSPUck4oJg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_141931_506782_9EF0F54E 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250624_062200_668309_6C86B83D 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,67 +133,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Tue, 24 Jun 2025 15:08:46 +0200
+Subject: [PATCH] usb: gadget: udc: atmel: Use usb_endpoint_num() rather th=
+an duplicating its implementation
 
-The GPIO device in crag6410 is registered with struct bgpio_pdata passed
-as platform_data to the gpio-mmio driver. We want to remove the
-bgpio_pdata from the kernel and the gpio-mmio driver is now also able to
-get the relevant values from the software node. Set up device properties
-and switch to using platform_device_info to register the device as
-platform_add_devices() doesn't allow us to pass device properties to the
-driver model.
+Reuse existing functionality from usb_endpoint_num() instead of keeping
+duplicate source code.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- arch/arm/mach-s3c/mach-crag6410.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+The source code was transformed by using the Coccinelle software.
 
-diff --git a/arch/arm/mach-s3c/mach-crag6410.c b/arch/arm/mach-s3c/mach-crag6410.c
-index e5df2cb51ab27896d9dd80571f421e959db1fd1e..028169c7debf325ab6f51475d3595b92b1307189 100644
---- a/arch/arm/mach-s3c/mach-crag6410.c
-+++ b/arch/arm/mach-s3c/mach-crag6410.c
-@@ -252,14 +252,17 @@ static struct resource crag6410_mmgpio_resource[] = {
- 	[0] = DEFINE_RES_MEM_NAMED(S3C64XX_PA_XM0CSN4, 1, "dat"),
- };
- 
--static struct platform_device crag6410_mmgpio = {
-+static const struct property_entry crag6410_mmgpio_props[] = {
-+	PROPERTY_ENTRY_U32("gpio-mmio,base", MMGPIO_GPIO_BASE),
-+	{ }
-+};
-+
-+static struct platform_device_info crag6410_mmgpio_devinfo = {
- 	.name		= "basic-mmio-gpio",
- 	.id		= -1,
--	.resource	= crag6410_mmgpio_resource,
--	.num_resources	= ARRAY_SIZE(crag6410_mmgpio_resource),
--	.dev.platform_data = &(struct bgpio_pdata) {
--		.base	= MMGPIO_GPIO_BASE,
--	},
-+	.res		= crag6410_mmgpio_resource,
-+	.num_res	= ARRAY_SIZE(crag6410_mmgpio_resource),
-+	.properties	= crag6410_mmgpio_props,
- };
- 
- static struct platform_device speyside_device = {
-@@ -373,7 +376,6 @@ static struct platform_device *crag6410_devices[] __initdata = {
- 	&crag6410_gpio_keydev,
- 	&crag6410_dm9k_device,
- 	&s3c64xx_device_spi0,
--	&crag6410_mmgpio,
- 	&crag6410_lcd_powerdev,
- 	&crag6410_backlight_device,
- 	&speyside_device,
-@@ -871,6 +873,7 @@ static void __init crag6410_machine_init(void)
- 
- 	pwm_add_table(crag6410_pwm_lookup, ARRAY_SIZE(crag6410_pwm_lookup));
- 	platform_add_devices(crag6410_devices, ARRAY_SIZE(crag6410_devices));
-+	platform_device_register_full(&crag6410_mmgpio_devinfo);
- 
- 	gpio_led_register_device(-1, &gpio_leds_pdata);
- 
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/usb/gadget/udc/atmel_usba_udc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
--- 
-2.48.1
+diff --git a/drivers/usb/gadget/udc/atmel_usba_udc.c b/drivers/usb/gadget/=
+udc/atmel_usba_udc.c
+index 0c6f2ad81d37..35d0909ab812 100644
+=2D-- a/drivers/usb/gadget/udc/atmel_usba_udc.c
++++ b/drivers/usb/gadget/udc/atmel_usba_udc.c
+@@ -580,7 +580,7 @@ usba_ep_enable(struct usb_ep *_ep, const struct usb_en=
+dpoint_descriptor *desc)
+=20
+ 	maxpacket =3D usb_endpoint_maxp(desc);
+=20
+-	if (((desc->bEndpointAddress & USB_ENDPOINT_NUMBER_MASK) !=3D ep->index)
++	if (usb_endpoint_num(desc) !=3D ep->index
+ 			|| ep->index =3D=3D 0
+ 			|| desc->bDescriptorType !=3D USB_DT_ENDPOINT
+ 			|| maxpacket =3D=3D 0
+=2D-=20
+2.50.0
 
 
