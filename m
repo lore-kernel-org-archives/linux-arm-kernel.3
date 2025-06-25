@@ -4,191 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB58C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D943C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yKHINoz0dTYVGL3Z0AVDcICInEqbHBazU/BmNHaemQo=; b=DYYK8lY1rmihAskluF9XWeXEZD
-	WXMea9YdnlokpheGM8kthCaIgVIEVd36QwJqEkbhR9EXZxCoBRzr1l40nWLWLHVMi5oZvut+mszPb
-	5QVQfLhqYHNVbc0gfy+jiUW3h1NzBv0T0f0laY/yLuHFfkgcFsrkZo22nlKMqjygEuO89YysmFMDp
-	9ljtksFOxvSb617lbk1jK50oAr+edZgRejofsdFIIycjuk7VjIw7QOp4tOBBGq0TgohvlDse5i4CY
-	0T8+eBozc0Udxe5QpZDN33lbOOxLtDGWgK5lH6HqhCt3JoXaHIlYe4HnugIoMQ0d97wygec7esFZr
-	wVh6U4tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=; b=oARKplntQyUfZT9KbgIY8q36o2
+	J5CfPEH/6tM541F+xlCj7531cIi5ukyGowEEe9uhM/8RJ+23YAC8fWYPm7y/AeghGenOGKpw8qvzj
+	oK1PJekICYtQOGxNtqqkx1y2GTXjYq0c8yzuZP5Td24qtgtyApIdwTMUDFMPyRN73/ihH1Scno+Ao
+	o9Xg8B0eFTLttFEvdPMtOMGoBYrsO606XlHl3i8mUxRGImEVg1sjGmRqgVE55+wUaBiki/j8YheVN
+	b889RKR3hOVhJFYjTQY7l22Byua15WOPOnfFHTQI8wiUBQa1F+w9pRUf4v0ZtdfZkpUX9Fq/lHukW
+	DHCkAeJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNrs-00000008Oye-0G1G;
-	Wed, 25 Jun 2025 11:00:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUNu7-00000008PHO-2sJL;
+	Wed, 25 Jun 2025 11:02:59 +0000
+Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMZD-000000089Pk-1YWP;
-	Wed, 25 Jun 2025 09:37:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:To:Subject:Cc:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yKHINoz0dTYVGL3Z0AVDcICInEqbHBazU/BmNHaemQo=; b=XUCpXwJuvLnEcfInxGzksq7MrM
-	yt6D/CYjhWN2FLcsOwxyfHxOl/iUSI1GPjM2sSD7AYjExbngzhhZBqnRYfAq5EKWO8ISnENSzGmBs
-	7eDfVmyoCZgoLhzikICC7sRIeduuCVO+JDXo7wa/l9aGmEF/OwhXUE7IoOEj6Y59S7U0Xg5yITr4e
-	zRuTK46lyAfDknEW1/Cm+/XNzJlSfmrsAGPtebfJnFhqDgzNhHcXiGF8QW7Qk66CJzFD82ZS1mFER
-	KYS5aGfqHdLLWGL1hANEfBjIyvncF5kfhcDpD6COGqioIlHNnfva0LFU/jOPkYkiDKtdgsKyQCCfs
-	GF2I6LYw==;
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMZ7-00000005kCS-3Dz3;
-	Wed, 25 Jun 2025 09:37:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LLm15d3NAKxEYeCB9B7ajh8Lq+CuimLC5xE72w1edRbX3n2Kpow1QO+ZQUU3C3DMj8rzfVPiX5TTB1yjY/99rbBU21PjfdIzZ7EUP8fxBan87EJWbWcwbOuZFy4wmipr4rsS6c6HhOUPxYq0adTXvaGXox2PZ6lGCW7o2cFMOXD6FSuU8sHUVW9jDHCKdjtdUxqvT3TE9DCucpu8BE3wWKrAcuDlBs2FQnlCCWM3Gb8ewb0j0QUh7JOHmRPkzJuuendFvPJZ+Xyz136yGQlgtBw1xZZljuu7xooT+ooM9AK19kSY5RH/kJ3hukrvQHw3ro0EMeNn9bja6HPLBtzqHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yKHINoz0dTYVGL3Z0AVDcICInEqbHBazU/BmNHaemQo=;
- b=vZv+6xpTVW4OKZ1Ty8LR/R10/Tf9JNsm+wQc/d+Mibm/nwKUmrlzodzxofcBg6hCsDxD9ST2simRMF2qjpYNe4/zRl/OyvthiZ1s/+B8wKLl2vGTIZTmzoyMkLcYi0Y4CEPkP6RSByC9MYuH2/qPchG+Lgefo36Z+YCgpdH6zRxr0ToM8Ju8H/M49t7LshQHageabIfjNLwBWLlg4sHXket1X16Imcg9/qseEsDT0gCT7Eyf5IJOFrn0h4verkapytB0CZjHIwkGZW2cy+IAlarLoyb0CcHMWrhTVqSmYllvp9fXEGOogpjdpUzWyRNYaggJjflE1U8L4AM08i3dLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=linumiz.com; dmarc=pass action=none header.from=linumiz.com;
- dkim=pass header.d=linumiz.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=linumiz.com;
-Received: from TYZPR06MB6935.apcprd06.prod.outlook.com (2603:1096:405:3c::9)
- by KL1PR0601MB5776.apcprd06.prod.outlook.com (2603:1096:820:b4::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Wed, 25 Jun
- 2025 09:36:50 +0000
-Received: from TYZPR06MB6935.apcprd06.prod.outlook.com
- ([fe80::9e42:3253:9a2e:b565]) by TYZPR06MB6935.apcprd06.prod.outlook.com
- ([fe80::9e42:3253:9a2e:b565%7]) with mapi id 15.20.8857.026; Wed, 25 Jun 2025
- 09:36:49 +0000
-Message-ID: <9c3ea5fb-a045-46bd-9753-26ffa67fe1bc@linumiz.com>
-Date: Wed, 25 Jun 2025 15:06:43 +0530
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH 10/22] pinctrl: sunxi: add missed lvds pins for a100/a133
-To: Paul Kocialkowski <paulk@sys-base.io>
-References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
- <20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
- <aFu3fAMa8KPwjPbX@shepard>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <aFu3fAMa8KPwjPbX@shepard>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0088.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ae::13) To TYZPR06MB6935.apcprd06.prod.outlook.com
- (2603:1096:405:3c::9)
+	id 1uUMaR-000000089YO-1GC8;
+	Wed, 25 Jun 2025 09:38:36 +0000
+Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-531a1d5519aso2000580e0c.3;
+        Wed, 25 Jun 2025 02:38:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750844313; x=1751449113; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=;
+        b=MMX98M6KrLDYxVOm/3wJw5p0TdecayDsSi9b6ta9q1xH0wW+YwRth1hOgcdYVNDcUS
+         /cal/+WWrHcUguP402cHxJxRspO1wXWAsomnF5rYuL1s9ddshx2dIJrvKpscqk14/sjV
+         ftH/e7MpHiCPcYfXUUuHZGVCKL4dIT4ihZealBZowq8ayvMF2nGs4N9YFB/t0N+Irp2b
+         uviKPuqoK6ygTqJ9IvG+h2dmIOLkT3FD7tqT7c2qAL3NbJ+LmBxp9uOjEoQMY2ozSszj
+         v5nznMplERzYnP/h/sX+R1EkU2AQsGTlk3BdWMMlsiXqv4/MyxTOSPCL5ztwLlRyma11
+         v3ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750844313; x=1751449113;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=;
+        b=GGTz2IbHTZapmnTJnijbHdIGtzHQq9b/jziEFQDCczCaQLY2MWLCSGZJWlpmG2cvUI
+         h3qvRZSHff+1fx/Eoy2LkxEubXC67icB77xvStxkIQUdsaoEkQxAKafd1ZWNYlqF1hX9
+         1MME8amYzcLijWlmqgyA8Rru4aZswEIGKXG+xdG8N6VHRaSrVTDiA2HAoFGBFJGV+QW2
+         NgF38tCeqF4ri7mz8CJJELSI3FlVbnjNNRMYKnokFuLcmibEDQFvuUf6Sgguxd2h/xLE
+         ktyFDoQoA3HuUyeUeV7ZQ2Hmg05p6aRCJfYH0MvHU5fVa38gdZDH3l+54nd7eGrwGLe0
+         JSUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUofGWUICViCTzNA6GEm+c2+vG1mlojz1EV+65VA+CHdk6LR4gShTeIhpQTPTA4crsU1XiUevPUD6rDEb0=@lists.infradead.org, AJvYcCWAoUlZtvr+DSm7/CY/fAO0267aWkYat+Ahe1ZsMmNdPj+VNQ/+DoJ/pPTo23+pnBuAn5o+ultUN5ybl/3GRqVv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrM56BAfZyW4QimlU/oqvYxVtrU+niE+SLSjtFFQkdZ8Ac7Q6+
+	37cF+c4dYxxegwwQt6gNln7I8+yXW1uSCCZ0zq56Mu2ZJ2EIYQuFenRphUK9GGIdzTg1gLFo3/v
+	64knnat5E3t0pYG98SVJXVQbScw64hmM=
+X-Gm-Gg: ASbGncuB3IVXyxHXQTG28ZGt08Xe2TiNu2x1JxGVXUEPuvTTq/qLtaOvMSFjiGxtD2S
+	O3iH5DhUmF3dxCEZzygDnnnSPYNyiCszYDwrt/M74gz2jHqC/+kRPubEiTb7SfstL25/R+pO/I1
+	pmYeyVeY7UT3rwNBefSnAaVxN2EdUPs9ax4ASdB5eRHS0=
+X-Google-Smtp-Source: AGHT+IHFsEjf8mVqrGJlOglZXBqK+LXUAHLKDnHRegX9xwHltPGn1BuflQtnpCujXSYlVduWzyct2ogezPY53n9zi2Q=
+X-Received: by 2002:a05:6122:2516:b0:530:81ac:51be with SMTP id
+ 71dfb90a1353d-532ef6cc1e4mr985532e0c.8.1750844313457; Wed, 25 Jun 2025
+ 02:38:33 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR06MB6935:EE_|KL1PR0601MB5776:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8dcbf53e-6409-413b-3e5e-08ddb3cbcf0a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bnRZaUNBMm1hVnRwMVdmMkduaDRBSE5SYUVDN3VIWnAraUd3LzBTZThLMHdm?=
- =?utf-8?B?VlJHc21NN0VIdzZtMXNTTUNqaU9MNEREaUREbFRORWhsUVd4MXNLcHhkcHlm?=
- =?utf-8?B?T0xWL3hIS2hCZkI3ZmRVYXR5cTFsTzVFMGRoaWh2Wm5wdzMwb2MvREt3UDdm?=
- =?utf-8?B?R0kzcTZKNjFlLzBRMkpaZ2ZMMlFjR0doRkNXbTlRMlN5WU9oV3VjSm1MTTUy?=
- =?utf-8?B?UGpyMjNHSnlNN0pKMlRvZ3dYWFllSzBQR3JyUlI4R3JXaFlqdGJobHd5UzZp?=
- =?utf-8?B?UmhISU1OWHYvTUsxaVcxbUNMOHJqazdXckNzY0phTDIveXFaYlFUa0FHek1L?=
- =?utf-8?B?SWhXT0JtZ0tNTFhPN3dleDZOTnJZZTBVMCtPSXN0TzZ3bzJnSkcxeGhlQndR?=
- =?utf-8?B?Unc0dHNWYk13RTRaL1oxZXFBWnJXWEh6VkVYZlkzTFQ0TXZVcWgwWUxzb3NG?=
- =?utf-8?B?eVhGNWxZcWo2czhpYkZWdmpNU3U5MDZINFZXNjh5NEdkMnNsZTVmbHhKUHdN?=
- =?utf-8?B?anlxdjAzdXlUTlYvbTVuL1FtYTkxYTJ2ZjNSQVp0ZVFDcXNXb09NYUIvZEp3?=
- =?utf-8?B?eFpCandycHpwYW1UWEVqUk1MNUpWQm5rdmE3WncxWWcySkFYdFg2VUdJNU9y?=
- =?utf-8?B?TVEzOWtIeFJsSE5BTEpYYXhBOXQxUURNcjljMVZaeFlhQzUvN2U2bHFwSVU1?=
- =?utf-8?B?cXJnODY1MlUvc2RRMTdpZERRa0NGaVdNRW1kNEpqMklMZVVBMG1nUnpQbjEv?=
- =?utf-8?B?N1FtV0U3K2xOWS8rSmUyWFpUU29Ya2lkMHV2VWdSdHhJVzk1UFp2c252Yisz?=
- =?utf-8?B?TTZzTzVSRjd0MEdSYnRBUllqOFVzeEUvNy80V0hBTk5yNVk3czRIMzc4V0Y1?=
- =?utf-8?B?UnQrck5BMXZwYVhsMWJGQnpoMmF1dFlvdjcrTUpRVTk0ZGtUcVgwa2tUV1FQ?=
- =?utf-8?B?M2dHQ1dycG1mLzVuSkw5MGVNUVZ2aUpQbkEybms3eUQ5MzFMSHNzamlqUGJZ?=
- =?utf-8?B?a21VZVhSNnRXa2JyWEEzMUZDSXIyNk5UcENPeXVpSnJHZzhUYTZxRFhlUnla?=
- =?utf-8?B?K3dDV2xtbFJuRTYvNHAyUXVZRXVxb1pudnRKNWJsdStERVRCUW9maUU1YS9u?=
- =?utf-8?B?c3lBQlJUYXp6a2tpclNiUktqdDZuVDQ2bVA3cUlsUzVGdk16OU9VaVc1d1pW?=
- =?utf-8?B?V3c5TE1UNHN5ZnpKV0Mrb216Yi9Qb1RHRHdXM1hFVWpjdFpPK0t1QzF5Tjcr?=
- =?utf-8?B?MUF0WGtkRVZGbUdFM2UvaUFyNXFqSkRPaHQ2NS91OEpzYTY4QTduNXVSUmY0?=
- =?utf-8?B?c0x5QlBScEh4ZDZwYXlBbEtXS0plYWxGV0NZVmhmcWo2Z2Z1TFo0Qys3Y3lz?=
- =?utf-8?B?YzVQK3F5dGFKdzhNUTRobURNdk0rRytQbXJyZVRRK0RkcHRBbkIydE9WUmdU?=
- =?utf-8?B?UmpNV0ZObVdKbER4azBmUXZaSjcvNlZnaWZJNnIyREJFZ3BnT0s0UlZhTU4z?=
- =?utf-8?B?VEo1aVlPUlRvc1A4Vi9aQ0IxSVZMaGJQWEx3b2p1ZmxMaitYYlBENEhXTFlp?=
- =?utf-8?B?TzF4am5IalZYM21PN0NrelRUMk4xRVdFKzVYMHMxVXprRXVjOGRaMGlHbVk5?=
- =?utf-8?B?TFBzZUVaeFVoWS9lS245K1FmNDNzdERjdGlhUFRSTk94L2NSRTVGdnhMNHp0?=
- =?utf-8?B?WnV6eUR2RzlGdlNKcFhDSWhLMjRwRHlWa09NeVRES0I4Tm9tNTRTTHIvM1Az?=
- =?utf-8?B?ZkIzRHVWdFc3L2ZreDdYSXkyaEp2QU5DRTFpT3dodlFLbTdPRXFWb0tjZ2c2?=
- =?utf-8?B?eGVZY0ZHZ0FJcXJaVitDR1AyS1EyQy93UUNWdnBWWFprUElzaTlDRXdDcEti?=
- =?utf-8?B?UW01eGdWcnJnVjRRWUlYNmNkTWRESHJ3RTZINGFZNzdVZFVza2ViM0dlZk81?=
- =?utf-8?Q?iks0Xe8ap04=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6935.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWQ1cjRRS0FkU1hPY1haREx1U2tnWEt6S2RaMGdyaUk3dW5CVnd1cHYyYmVX?=
- =?utf-8?B?NURxZU0vSnJnQ0FyRXR4dGxpZk4rRHhBdndvUWFySWZoMFc1MnBDTmNVdkpL?=
- =?utf-8?B?bGllMnpMS216dXl6MVRGLzhhTy9CRmo3b2Qyc0tqNGRUMk5pbjhwQmJ5TUR0?=
- =?utf-8?B?ajdqQnVnUDVqQTNiZHpya1ZTL0EvVDZkcmlFdWhUR0NBRm1pZVl6RThlNVBB?=
- =?utf-8?B?MXR5bE1GRVZXcTg0NTVrSDcxNThCclMvVUY0ZG1nVEpxT1hYQkF0TC9OOW5N?=
- =?utf-8?B?eXNQZDRNamduZjg4dkl3UXJjT2ZsemhKbXFIb3FXeGFMRXhzTWhmcllDVXB4?=
- =?utf-8?B?bWFQL3NnTE1lMUlNcGxpZloxYnVEZ2pEVnBsUno4RnJQUmY2OGJqUUpvb2kx?=
- =?utf-8?B?ZTJINXVQKzF2c2wwLzBoWDJ6akEwV2JlVlNjeG1ubDN5UlhNSWMvYUhYbE9P?=
- =?utf-8?B?MTY2WGhTOFdoQjdBc0RkYVdsaHcyZUVqNkFqNmwvS2M2cU41Ync1MHlnS0JF?=
- =?utf-8?B?dUNTKzVDZTFMMjVUbHFpajFBQy8rMmZnU1dvYXBYSmNXK05FZnljbnVVYS91?=
- =?utf-8?B?L0pCRVg1ai9CTGVvWVRYay9EZjFqNnZldnpQN085c1lQcU1VaDlvdExSL1pX?=
- =?utf-8?B?K21Ec2Job3Z5S1JEMXVBeEtidTZuMzhZNm9NOURMU09PT3kyZkhOUTBGZThy?=
- =?utf-8?B?MDZqYittUlZIR1F3dnBXMkRuZDBPRlM0Y2lLYkhPT3VBU2ExKzk0ZlRjSVhE?=
- =?utf-8?B?SHgraVdqNDU0UFp3c2NuR2FjSzhmODlxS2dOT3U5Y0FWQkxTeWNJTzNHb21i?=
- =?utf-8?B?OXVoNXFEcEthUTg0WWpzWG1kMzBIVUs2L2JmOXo5RkVzZUd6NnNCcHQvSm1k?=
- =?utf-8?B?Qzc4YlJUajU0cmEyck5XSlpJbTUxZGFHOE85WURaRmFUeTBTUXkxcis1bzNM?=
- =?utf-8?B?UU9OS2F1WGJjSG10OEdQcUpPY0dLSFIxc2l5alZmZ0dETEFpL0Z1QzJkSTln?=
- =?utf-8?B?T3MyMFJwcnVDTGQ5RUhEaGU3OXBmcnQ2QlBQVWpHOUQ3NjVJTFoxTHQxNnkx?=
- =?utf-8?B?c2hDNUxlRXdjTkhIM3FRYk84Wi85RG1VMC9HTXNJSGFUR3VyYURsZnVyWUYx?=
- =?utf-8?B?UHVxVHBiZGc4TER4S3dPaCsrT1h5UTBwTFgyTWdoTkRKalIxVXVMemJCV1Bi?=
- =?utf-8?B?Rll0YWluaWJHRzFBWVdzZ1FQT1d1S0JUb2Q4Zkx3NEJ0Vis4YnVPMUZJTjdk?=
- =?utf-8?B?OW5kWWlaYUhvd1ZwNStsSERBUUI5QUovaWZCb3FORHI4djBWKzdTR1MrMFZJ?=
- =?utf-8?B?R09NMzBnWlp3bk1aejRnLy9Kcng4M1N0MXVRL0swdVIreUJ3c0J6Zi9PK0gw?=
- =?utf-8?B?NXJCbmRBT2pEMCtrTnczY25zRmswTVB6USs2TExBbkgyeElxQWc1SE1OSng4?=
- =?utf-8?B?bWlZa1FUbWNxTzNmUkU1L095aFM5cXY2bUZ4VXJob2pMVFBGMU9Nbm5mM3Rv?=
- =?utf-8?B?bXZ0b2djK0l3WkpmQmtlRE5tYmoyK09wM1c4eU1aMm95YU5CcXg4Mk5rcEt6?=
- =?utf-8?B?YTltQ3kwbkN2empzQmFxYjBib3ZlTzBrZjN4MEo4NnRvQmZHdUZGT1lqVzFW?=
- =?utf-8?B?UFdjY0gxTXdHS1MrWUxIVGZnbEtvSXFNdXNUb2VFREdtdGVJaVdPNGV1YXk0?=
- =?utf-8?B?bUt3M3VhVkdLdHpPdHRnZlR1c00vZ0tJZzlrZ2EvZlRvS1B1ajRYSVFmVTRq?=
- =?utf-8?B?czhza1BjR2xjUTNGVzVyYWNxaEM0VzB0Uis2dzl2emxDWlFIM3ZaZHowQ3hB?=
- =?utf-8?B?V0FkTDZIN1pCWTBvSno1Yjk5Q3pYeVdXeTNqelJPU0tqbjlVbFVMeVRGUzR3?=
- =?utf-8?B?ZUo3a3FKdmp5b1ZYK0s3bHNKbE9yOGE0OGM2eDRMbVI0NWtEZ3krYnB0a3Vj?=
- =?utf-8?B?K1ozamhHQnhJWndqZ25MWU53Yzl1L1hPQ1h1MUo3UG9wL3pwOXRBUml0cHU5?=
- =?utf-8?B?UHZGdmJWbHA2MTM4aklnZHlaak1veUpKTzE0OU80R3dCOWFReXZ0M3g3Z3Vh?=
- =?utf-8?B?YmFFOVJQMnN4WUlaZVdOQXZObDlzdEM4QWtZemtVWnBPYkN4RDZFRVBvekk5?=
- =?utf-8?B?QjI2c1J3Q3NSZ1pZY25QZ2taMnhHQUdIWDcveVN6RTFCMlk0Q21wbHdkTmxn?=
- =?utf-8?B?dWc9PQ==?=
-X-OriginatorOrg: linumiz.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8dcbf53e-6409-413b-3e5e-08ddb3cbcf0a
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6935.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 09:36:49.1684
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 808466aa-232a-41f4-ac23-289e3a6840d4
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BnWhQiwWilaFuSIpSve9W77XZyGtlxf0o6rvvsW6Zb+megMg7I8ISlZHD/AKvufkUO+Hw5qkf6emyabWHduNPg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0601MB5776
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com> <20250624162503.78957-1-ioworker0@gmail.com>
+In-Reply-To: <20250624162503.78957-1-ioworker0@gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 25 Jun 2025 21:38:21 +1200
+X-Gm-Features: Ac12FXwzgBA5qA6Bu1rSIUYx-JEmY2u59OAGcqCQlCXMv4jDK2aouZ9-YNF9zfQ
+Message-ID: <CAGsJ_4x+YaF3bVjMuNv2iJtdoD2-GgGsbJA__cpxb7U5YtK9ig@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+To: Lance Yang <ioworker0@gmail.com>
+Cc: david@redhat.com, akpm@linux-foundation.org, baolin.wang@linux.alibaba.com, 
+	chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com, 
+	ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org, 
+	ying.huang@intel.com, zhengtangquan@oppo.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_103714_044099_880EB17A 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_023835_360789_885B60E8 
+X-CRM114-Status: GOOD (  33.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,41 +98,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 25, 2025 at 4:27=E2=80=AFAM Lance Yang <ioworker0@gmail.com> wr=
+ote:
+>
+> On 2025/6/24 23:34, David Hildenbrand wrote:
+> > On 24.06.25 17:26, Lance Yang wrote:
+> >> On 2025/6/24 20:55, David Hildenbrand wrote:
+> >>> On 14.02.25 10:30, Barry Song wrote:
+> >>>> From: Barry Song <v-songbaohua@oppo.com>
+> >> [...]
+> >>>> diff --git a/mm/rmap.c b/mm/rmap.c
+> >>>> index 89e51a7a9509..8786704bd466 100644
+> >>>> --- a/mm/rmap.c
+> >>>> +++ b/mm/rmap.c
+> >>>> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *foli=
+o,
+> >>>> struct page *page,
+> >>>>    #endif
+> >>>>    }
+> >>>> +/* We support batch unmapping of PTEs for lazyfree large folios */
+> >>>> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+> >>>> +            struct folio *folio, pte_t *ptep)
+> >>>> +{
+> >>>> +    const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DI=
+RTY;
+> >>>> +    int max_nr =3D folio_nr_pages(folio);
+> >>>
+> >>> Let's assume we have the first page of a folio mapped at the last pag=
+e
+> >>> table entry in our page table.
+> >>
+> >> Good point. I'm curious if it is something we've seen in practice ;)
+> >
+> > I challenge you to write a reproducer :P I assume it might be doable
+> > through simple mremap().
+> >
+> >>
+> >>>
+> >>> What prevents folio_pte_batch() from reading outside the page table?
+> >>
+> >> Assuming such a scenario is possible, to prevent any chance of an
+> >> out-of-bounds read, how about this change:
+> >>
+> >> diff --git a/mm/rmap.c b/mm/rmap.c
+> >> index fb63d9256f09..9aeae811a38b 100644
+> >> --- a/mm/rmap.c
+> >> +++ b/mm/rmap.c
+> >> @@ -1852,6 +1852,25 @@ static inline bool
+> >> can_batch_unmap_folio_ptes(unsigned long addr,
+> >>       const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIR=
+TY;
+> >>       int max_nr =3D folio_nr_pages(folio);
+> >>       pte_t pte =3D ptep_get(ptep);
+> >> +    unsigned long end_addr;
+> >> +
+> >> +    /*
+> >> +     * To batch unmap, the entire folio's PTEs must be contiguous
+> >> +     * and mapped within the same PTE page table, which corresponds t=
+o
+> >> +     * a single PMD entry. Before calling folio_pte_batch(), which do=
+es
+> >> +     * not perform boundary checks itself, we must verify that the
+> >> +     * address range covered by the folio does not cross a PMD bounda=
+ry.
+> >> +     */
+> >> +    end_addr =3D addr + (max_nr * PAGE_SIZE) - 1;
+> >> +
+> >> +    /*
+> >> +     * A fast way to check for a PMD boundary cross is to align both
+> >> +     * the start and end addresses to the PMD boundary and see if the=
+y
+> >> +     * are different. If they are, the range spans across at least tw=
+o
+> >> +     * different PMD-managed regions.
+> >> +     */
+> >> +    if ((addr & PMD_MASK) !=3D (end_addr & PMD_MASK))
+> >> +        return false;
+> >
+> > You should not be messing with max_nr =3D folio_nr_pages(folio) here at
+> > all. folio_pte_batch() takes care of that.
+> >
+> > Also, way too many comments ;)
+> >
+> > You may only batch within a single VMA and within a single page table.
+> >
+> > So simply align the addr up to the next PMD, and make sure it does not
+> > exceed the vma end.
+> >
+> > ALIGN and friends can help avoiding excessive comments.
+>
+> Thanks! How about this updated version based on your suggestion:
+>
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index fb63d9256f09..241d55a92a47 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1847,12 +1847,25 @@ void folio_remove_rmap_pud(struct folio *folio, s=
+truct page *page,
+>
+>  /* We support batch unmapping of PTEs for lazyfree large folios */
+>  static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+> -                       struct folio *folio, pte_t *ptep)
+> +                                             struct folio *folio, pte_t =
+*ptep,
+> +                                             struct vm_area_struct *vma)
+>  {
+>         const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRT=
+Y;
+> +       unsigned long next_pmd, vma_end, end_addr;
+>         int max_nr =3D folio_nr_pages(folio);
+>         pte_t pte =3D ptep_get(ptep);
+>
+> +       /*
+> +        * Limit the batch scan within a single VMA and within a single
+> +        * page table.
+> +        */
+> +       vma_end =3D vma->vm_end;
+> +       next_pmd =3D ALIGN(addr + 1, PMD_SIZE);
+> +       end_addr =3D addr + (unsigned long)max_nr * PAGE_SIZE;
+> +
+> +       if (end_addr > min(next_pmd, vma_end))
+> +               return false;
+> +
 
-On 6/25/25 2:16 PM, Paul Kocialkowski wrote:
-> Hi and thanks for your work!
-> 
-> On Fri 27 Dec 24, 16:37, Parthiban Nallathambi wrote:
->> lvds, lcd, dsi all shares the same GPIO D bank and lvds0
->> data 3 lines and lvds1 pins are missed, add them.
-> Would it also make sense to submit device-tree pin definitions here?
+I had a similar check in do_swap_page() for both forward and backward
+out-of-bounds page tables, but I forgot to add it for this unmap path.
 
-this patch is already merged. 
-git show --stat cef4f1b5ba99a964cd6dd248bb373520573c972f
-commit cef4f1b5ba99a964cd6dd248bb373520573c972f
-Author: Parthiban Nallathambi <parthiban@linumiz.com>
-Date:   Fri Dec 27 16:37:57 2024 +0530
+this is do_swap_page():
 
-    pinctrl: sunxi: add missed lvds pins for a100/a133
-    
-    lvds, lcd, dsi all shares the same GPIO D bank and lvds0
-    data 3 lines and lvds1 pins are missed, add them.
-    
-    Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
-    Link: https://lore.kernel.org/20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com
-    Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+        if (folio_test_large(folio) && folio_test_swapcache(folio)) {
+                int nr =3D folio_nr_pages(folio);
+                unsigned long idx =3D folio_page_idx(folio, page);
+                unsigned long folio_start =3D address - idx * PAGE_SIZE;
+                unsigned long folio_end =3D folio_start + nr * PAGE_SIZE;
 
- drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+                pte_t *folio_ptep;
+                pte_t folio_pte;
 
-Do you mean the consumer/board devicetree changes?
+                if (unlikely(folio_start < max(address & PMD_MASK,
+vma->vm_start)))
+                        goto check_folio;
+                if (unlikely(folio_end > pmd_addr_end(address, vma->vm_end)=
+))
+                        goto check_folio;
+       }
 
-Thanks,
-Parthiban
+So maybe something like folio_end > pmd_addr_end(address, vma->vm_end)?
 
-> 
-> Thanks!
-> 
-> Paul
-
+Thanks
+Barry
 
