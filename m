@@ -4,110 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FAAC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 01:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B7AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 01:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIgm1QtUCU2wyvXa8zdT8WVlkmrM9+pCBwzR8JWrCFk=; b=M08W9S20cM74Q1HcL0EpMeLSG3
-	zMLoUWt1grk9coL86mHZI8B5bxtoJoD52aLSunLGMOg49lF9tHxQqukBCYzHoUi/ML4KsuVHPsD2j
-	/yqQgoC2cOfvpJROa1+k/P+WZMfkarJkE4wDpE+t1i4o4whzGZp9EmZBbCuly1YTXWddOyNVbn4wt
-	qafI+bco39xOOMJZeMI3Cdg4rYp4P9hRyuqGEHyMZBvh/VbUl2XZQQlvCk8lIy7ArNxVYbBpKmnmy
-	iV0/QGbfrdxoBZsAvF1wVlb14On/Y0JGya3Pk/Zg0d+qSCA6wZUaihPeRcNqaPdP0li6aecacfgF7
-	oREjptLg==;
+	bh=HFw2kmBOCe8dAlOebCiebY1IUKv0rnJ+4n3KRhV6q3w=; b=wUoGnJC4jQqHxSg3UqWAtq0m2G
+	jjLj70JrGZQBGyhOsQmg8jOMKqiiGuDIXqp2+aPkvH4GG0ZBAojlzyIuQwQdc6ekkaMFEFz/77qye
+	c/bbhWkLz42ZJmUZ7x/ECVd8rym28tlkEUpKPwCmKdsBAkMmrc7Yj4++TEI078rnL1gyu4SiZQfbt
+	nvHwFN7sXwdfW8P860TYTmWPQnr1nMuMJu1iUoKkr4/T7SRuzratQdiX+xD1+C9xl2czwAwf/rMLp
+	sgvb80cuf9TDen6MnmSXtCLSAvDmb8SxTmo7nd556JRcfy6JoG4Cq2lxkwY33j47RTNehCCBYZvea
+	ih39mbhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUEWt-00000007E06-0oFM;
-	Wed, 25 Jun 2025 01:02:23 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uUEft-00000007Ee2-0VrI;
+	Wed, 25 Jun 2025 01:11:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUEUY-00000007Dqs-1qZh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 01:00:00 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ODw3iT021706;
-	Wed, 25 Jun 2025 00:59:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fIgm1QtUCU2wyvXa8zdT8WVlkmrM9+pCBwzR8JWrCFk=; b=dT4n9tkxtIrW8EeJ
-	CInA2yfCEx1eYt6dALiyrRP4Jqhx4hOxPzBKTqe52A4wyIx+RmT9Lv6IQVZ87kdo
-	ER6R3IKnYDubDF8PyCNejDBHP67v/E3UK8tEUtww7nP70OhJZCtMCdySwnl5C4NZ
-	YaP1ElaRIGLLLg3dR7TaqFyR9vz8voZ0tUcw7lB5WbjHiwc8mMJVLEt6EhRxUMBv
-	2D23iVP+hhf72x+JrDxYbxahzkpwurdn70iH1ROgTwSSLTwhQvnwDGi29I1tbg9R
-	WboTjbfSsGD5W8o+19jusPliW2ZCDuOosW4hb278ZqiqaGHtlhj6DaWKq/dmAN80
-	7cZltA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47f2rpx9wc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 00:59:50 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55P0xnI3024939
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 00:59:49 GMT
-Received: from [10.133.33.49] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 24 Jun
- 2025 17:59:46 -0700
-Message-ID: <338a9ee1-10aa-4bd2-9b0a-5006ed571bb9@quicinc.com>
-Date: Wed, 25 Jun 2025 08:59:43 +0800
+	id 1uUEdZ-00000007EOc-30ea;
+	Wed, 25 Jun 2025 01:09:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C914360051;
+	Wed, 25 Jun 2025 01:09:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F5E3C4CEE3;
+	Wed, 25 Jun 2025 01:09:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750813756;
+	bh=ar+M7uOS6NGMBXnGsSfhmdY2/NIrFzzFwB2vQ2UdzzU=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=si3Mv9bYY/8kBwTkVAcQqZoJK6oPCfQbERzoeHQNnnjouaaju9cDPj5M/XH+LGCGf
+	 sutZ2TLPTDRMtEiUcTLAfcucjlB1tBOK027s1ZYe+qpQm8YtBXVVCggwf2H8yIixe+
+	 IDVtaRLnE7OYk8omFmO1wVvMArdpG+qU6ghcCXqwDH3eSeR/zt8PJr47crwpodU4K/
+	 +SdYth5GpIqN7Rkz05vHh/vtCMrcnD2wmTD+63kR8qXgeUEYggdfeNmyLdKPgxxZY0
+	 Z7hF7LuReE6Xw0PlrdhJ4M022p1QhH6fci9WuRh8Uql2D6xK1hPUmyC7uoJ+Q8UvXd
+	 gbu4rtou3gcJw==
+Date: Tue, 24 Jun 2025 18:09:18 -0700
+From: Kees Cook <kees@kernel.org>
+To: Huacai Chen <chenhuacai@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Tianyang Zhang <zhangtianyang@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, loongarch@lists.linux.dev,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nicolas.schier@linux.dev>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-kernel@vger.kernel.org, x86@kernel.org, kasan-dev@googlegroups.com,
+ linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ sparclinux@vger.kernel.org, llvm@lists.linux.dev
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_10/14=5D_loongarch=3A_Han?=
+ =?US-ASCII?Q?dle_KCOV_=5F=5Finit_vs_inline_mismatches?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <CAAhV-H5oHPG+etNawAmVwyDtg80iKUrAM_m3Vj57bBO0scHqvQ@mail.gmail.com>
+References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-10-kees@kernel.org> <CAAhV-H4WxAwXTYVFOnphgHN80-_6jt77YZ_rw-sOBoBjjiN-yQ@mail.gmail.com> <CAAhV-H5oHPG+etNawAmVwyDtg80iKUrAM_m3Vj57bBO0scHqvQ@mail.gmail.com>
+Message-ID: <B5A11282-CB0E-46E0-A5D7-EF4D8BFC23B4@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark
-	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <quic_jiegan@quicinc.com>
-In-Reply-To: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=NdDm13D4 c=1 sm=1 tr=0 ts=685b4a07 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=ETpKHP0l2JGKE01atXsA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDAwNiBTYWx0ZWRfX3pX0M/DIpz3O
- BrslRjXHs3RbuJ2M6+q3Aqr72gNqVz5SEE51pGGEqW+FwZuchAUvJjzRmHQM4xy+Kv+rdCGCfYh
- jLwXHirFa0WRCPySaKq8LaLIfAR24S+7wGvX2gFTTd1Q14vN8CSx/H1CsaNbfMTte39fdiZqlVE
- UWPWxGaHXtQrc1B9fAKjauRDZLtZgXCndey4n0k46+GR/zCRztviHX5yp5sriK5+k+cM+wP9U8V
- QGmXhYdOJXQcNx7CeYDKCqMlGJwY1ka3q1xkORU9qLzqBQtjnXDHy61Prab8eJKPPTkyTG00TjJ
- t4YKO2skiPL96se5OgYfkIU8DrKXAyzmzkcHCjFwj/Gb/ZdGsZn/7uBMVWKmFzkf4yRogx/VTiD
- EsBCQul4GpHCiHBOZmmMWzX5OjGMMf7iRm85uhvqiPjBdCYHx1xWoi2NhfZkQA3F8xNXjNPA
-X-Proofpoint-ORIG-GUID: pmLDGFZaYvRs2Hu_YyCu8FnXxentW5R5
-X-Proofpoint-GUID: pmLDGFZaYvRs2Hu_YyCu8FnXxentW5R5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-24_06,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
- phishscore=0 priorityscore=1501 suspectscore=0 mlxlogscore=999 adultscore=0
- clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250006
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_175958_629330_6D9C8144 
-X-CRM114-Status: GOOD (  14.53  )
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,55 +90,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 6/24/2025 5:59 PM, Jie Gan wrote:
-> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in binding to utilize
-> the compitable of the SA8775p platform becuase the CTCU for QCS8300 shares same
-> configurations as SA8775p platform.
+On June 24, 2025 5:31:12 AM PDT, Huacai Chen <chenhuacai@kernel=2Eorg> wro=
+te:
+>Hi, Kees,
+>
+>On Thu, Jun 19, 2025 at 4:55=E2=80=AFPM Huacai Chen <chenhuacai@kernel=2E=
+org> wrote:
+>>
+>> Hi, Kees,
+>>
+>> On Fri, May 23, 2025 at 12:39=E2=80=AFPM Kees Cook <kees@kernel=2Eorg> =
+wrote:
+>> >
+>> > When KCOV is enabled all functions get instrumented, unless
+>> > the __no_sanitize_coverage attribute is used=2E To prepare for
+>> > __no_sanitize_coverage being applied to __init functions, we have to
+>> > handle differences in how GCC's inline optimizations get resolved=2E =
+For
+>> > loongarch this exposed several places where __init annotations were
+>> > missing but ended up being "accidentally correct"=2E Fix these cases =
+and
+>> > force one function to be inline with __always_inline=2E
+>> >
+>> > Signed-off-by: Kees Cook <kees@kernel=2Eorg>
+>> > ---
+>> > Cc: Huacai Chen <chenhuacai@kernel=2Eorg>
+>> > Cc: WANG Xuerui <kernel@xen0n=2Ename>
+>> > Cc: Thomas Gleixner <tglx@linutronix=2Ede>
+>> > Cc: Tianyang Zhang <zhangtianyang@loongson=2Ecn>
+>> > Cc: Bibo Mao <maobibo@loongson=2Ecn>
+>> > Cc: Jiaxun Yang <jiaxun=2Eyang@flygoat=2Ecom>
+>> > Cc: <loongarch@lists=2Elinux=2Edev>
+>> > ---
+>> >  arch/loongarch/include/asm/smp=2Eh | 2 +-
+>> >  arch/loongarch/kernel/time=2Ec     | 2 +-
+>> >  arch/loongarch/mm/ioremap=2Ec      | 4 ++--
+>> >  3 files changed, 4 insertions(+), 4 deletions(-)
+>> >
+>> > diff --git a/arch/loongarch/include/asm/smp=2Eh b/arch/loongarch/incl=
+ude/asm/smp=2Eh
+>> > index ad0bd234a0f1=2E=2E88e19d8a11f4 100644
+>> > --- a/arch/loongarch/include/asm/smp=2Eh
+>> > +++ b/arch/loongarch/include/asm/smp=2Eh
+>> > @@ -39,7 +39,7 @@ int loongson_cpu_disable(void);
+>> >  void loongson_cpu_die(unsigned int cpu);
+>> >  #endif
+>> >
+>> > -static inline void plat_smp_setup(void)
+>> > +static __always_inline void plat_smp_setup(void)
+>> Similar to x86 and arm, I prefer to mark it as __init rather than
+>> __always_inline=2E
+>If you have no objections, I will apply this patch with the above modific=
+ation=2E
 
-Hi dear maintainers,
+That's fine by me; thank you! I didn't have a chance yet to verify that it=
+ actually fixes the mismatches I saw, but if it looks good to you, yes plea=
+se=2E :)
 
-I just realized it would be more efficient to introduce a common 
-compatible string for SoCs that include two TMC ETR devices.
+-Kees
 
-Most of these SoCs share the same CTCU data configuration, such as the 
-offsets for the ATID and IRQ registers, because they integrate the same 
-version of the CTCU hardware.
+>
+>
+>Huacai
+>
+>>
+>> Huacai
+>>
+>> >  {
+>> >         loongson_smp_setup();
+>> >  }
+>> > diff --git a/arch/loongarch/kernel/time=2Ec b/arch/loongarch/kernel/t=
+ime=2Ec
+>> > index bc75a3a69fc8=2E=2E367906b10f81 100644
+>> > --- a/arch/loongarch/kernel/time=2Ec
+>> > +++ b/arch/loongarch/kernel/time=2Ec
+>> > @@ -102,7 +102,7 @@ static int constant_timer_next_event(unsigned lon=
+g delta, struct clock_event_dev
+>> >         return 0;
+>> >  }
+>> >
+>> > -static unsigned long __init get_loops_per_jiffy(void)
+>> > +static unsigned long get_loops_per_jiffy(void)
+>> >  {
+>> >         unsigned long lpj =3D (unsigned long)const_clock_freq;
+>> >
+>> > diff --git a/arch/loongarch/mm/ioremap=2Ec b/arch/loongarch/mm/iorema=
+p=2Ec
+>> > index 70ca73019811=2E=2Edf949a3d0f34 100644
+>> > --- a/arch/loongarch/mm/ioremap=2Ec
+>> > +++ b/arch/loongarch/mm/ioremap=2Ec
+>> > @@ -16,12 +16,12 @@ void __init early_iounmap(void __iomem *addr, uns=
+igned long size)
+>> >
+>> >  }
+>> >
+>> > -void *early_memremap_ro(resource_size_t phys_addr, unsigned long siz=
+e)
+>> > +void * __init early_memremap_ro(resource_size_t phys_addr, unsigned =
+long size)
+>> >  {
+>> >         return early_memremap(phys_addr, size);
+>> >  }
+>> >
+>> > -void *early_memremap_prot(resource_size_t phys_addr, unsigned long s=
+ize,
+>> > +void * __init early_memremap_prot(resource_size_t phys_addr, unsigne=
+d long size,
+>> >                     unsigned long prot_val)
+>> >  {
+>> >         return early_memremap(phys_addr, size);
+>> > --
+>> > 2=2E34=2E1
+>> >
 
-So I propose introducing a common compatible string, 
-"coresight-ctcu-v2", to simplify the device tree configuration for these 
-platforms.
-
-Here is the new dt-binding format:
-
-properties:
-   compatible:
-     oneOf:
-       - items:
-           - enum:
-               - qcom,sa8775p-ctcu
-               - qcom,qcs8300-ctcu
-           - const: qcom,coresight-ctcu-v2
-       - enum:
-           - qcom,coresight-ctcu-v2
-
-Thanks,
-Jie
-
-> 
-> Changes in V2:
-> 1. Add Krzysztof's R-B tag for dt-binding patch.
-> 2. Add Konrad's Acked-by tag for dt patch.
-> 3. Rebased on tag next-20250623.
-> 4. Missed email addresses for coresight's maintainers in V1, loop them.
-> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-jie.gan@oss.qualcomm.com/
-> 
-> Jie Gan (2):
->    dt-bindings: arm: add CTCU device for QCS8300
->    arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
-> 
->   .../bindings/arm/qcom,coresight-ctcu.yaml     |   9 +-
->   arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 153 ++++++++++++++++++
->   2 files changed, 160 insertions(+), 2 deletions(-)
-> 
-
+--=20
+Kees Cook
 
