@@ -4,98 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA6FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3A4C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0uGGjTwvQMXqwA8bHmeHWGWvFDAhSVWPCqT+UWRp/M=; b=q5GbIpPv3pkl32I6/PE0BaH384
-	sDWaQ/TdN7SVKMDlSPYoj5mYZm0TtTZ6VBdqXncAi+C/W1hTya47Ou0TnORBwS9y6j8/VGlLYWe6J
-	+wHXJwjE8nthWDmJ8AxI7uM0gEPVz6LosWcbBQ75dsPQA/MgKzhvvNWlxi3AerYrvTB1l19xOTXov
-	8JUgEe6xJbKEgCIucTS5STmIW/0br9EBeAICFgeuDhRkTUM8NZtGOgkjezwlrPApSXn7fvaPxpKLj
-	VWyqr8mQlM+KBTGBDe7MZ8/jx84INnl9DffaAl6ZpJEHNjcsPY9N0YYDiqsjrYzDpQmVg35p4N0jH
-	MOcWIWjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IZ9DC8Iy452rkfQggaH7jLVjtmkxK1Xh/h8NP/FNHe0=; b=w3k2dBVAahsrTxWCG2CfAzK3bl
+	SryzZqKcYnc4Cf99VKgLuufybSXvAgIKFQKNS3oQMR9IicTcxH8ciBOMSzBfcJLqIm6O+nsIwwkjz
+	1DIqMZzhP2QuC4cNjAKW+aR+4qqOE3eINE1hSu4XhmbZzr8/tsWayqzwREc0EYlFsbeVJbk3g3bkT
+	8dW5oTdeGdqsn3Br9JAth28ayXTMKUcVdf4UqtS1dvSqDtGv+w1FC1C9xcRxf5P0q8BDjYCKtLc5m
+	vNKixau8R/3kweget5JccJcm+CMmnAaWYXrDFQ2yv4152anfARVGnzloSVQJy2fB1j557pZw2km1Z
+	WrTQbWSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJzu-00000007jKD-1Yne;
-	Wed, 25 Jun 2025 06:52:42 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uUK2B-00000007jr9-2kcM;
+	Wed, 25 Jun 2025 06:55:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJna-00000007gku-0B0x;
-	Wed, 25 Jun 2025 06:39:59 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P6KIFC027197;
-	Wed, 25 Jun 2025 06:39:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=y0uGGjTwvQMXqwA8b
-	HmeHWGWvFDAhSVWPCqT+UWRp/M=; b=ZVTsY4iuseNAEkMz5aUAtf20YjK87OvHJ
-	pgiY16o8tHB6B3VQm34YNet81excWdAZN0ARDY9xDvouCYKksesrqL995PempcPG
-	vMZCS2AFNTNt26GaHOxjsWsd4Jfu0bsZftDu5NR4FsuDeTareXKit3lSU7Hl9QsL
-	eiRZEjHwBn8IvJXAPOxGiUYg6DYAPeW3YMnpwTJLx0213bzh44e53EpHrdLz0X5J
-	zZq5oGQQ3nr4VO6znGbhwWYqOWM9dPaB62lEsSGkKH/M6hfJ+f9mhunL3YTDD0aB
-	L7xO0S71Cq91L++yG2hhM2Ko7Z2Pp2ZMtwBD7B0qSoZPZID7d5VWw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47dj5twg89-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 06:39:49 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55P65rBf006329;
-	Wed, 25 Jun 2025 06:39:48 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 47e82p8012-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 06:39:48 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55P6dlxV47251908
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Jun 2025 06:39:47 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6A9A058932;
-	Wed, 25 Jun 2025 06:39:40 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F152558913;
-	Wed, 25 Jun 2025 06:39:24 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.18.35])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 25 Jun 2025 06:39:24 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, pasha.tatashin@soleen.com,
-        akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-mm@kvack.org, sweettea-kernel@dorminy.me,
-        christophe.leroy@csgroup.eu, mingo@kernel.org
-Subject: [PATCH v15 11/13] powerpc: mm: Implement *_user_accessible_page() for ptes
-Date: Wed, 25 Jun 2025 16:37:51 +1000
-Message-ID: <20250625063753.77511-12-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250625063753.77511-1-ajd@linux.ibm.com>
-References: <20250625063753.77511-1-ajd@linux.ibm.com>
+	id 1uUJxL-00000007ie3-0FBa
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 06:50:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750834203; x=1782370203;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=R5rzPg0wfSfqPhNBHCdCHLzVY3mQVHFGvqdhIG839og=;
+  b=YzcZei3i9bMIA4j6uRogRt7N8Ig/mdF4zEaXqtP9kRGRwI5LiAWNvOuH
+   7pVVQsJEXtWy3c/XCn1HvGaBu4QF7JDyyGIp4ZMYGXG0tfhKFMNkj9yb/
+   q0Bx2dMqJeiWuUcPfH++J/9gLntERRA/XTDM9t3xrt1XsKf3TmsvuxD5+
+   4X5mPEqbHnlePgIkGBQvj/QIzXVGL6Satj3n7PNkcCs1+xW7Y+63SHMIA
+   MnNT4n50SvuQMMsUhi0pCtuwZ70pb34PqRbKq4MCZxXDWlTnoSnRzQkUx
+   /ZGzz0DJuV6Escq0xh+aHQ2+waUSbeQY7/2koe9o0zlx9+7xqzKcGCA1V
+   w==;
+X-CSE-ConnectionGUID: 4z1r6s7rR4GWDP9QOY3lYA==
+X-CSE-MsgGUID: 93f+6zGoRKaRypgVE7vjKg==
+X-IronPort-AV: E=Sophos;i="6.16,264,1744095600"; 
+   d="scan'208";a="48271088"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Jun 2025 23:50:00 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 24 Jun 2025 23:49:50 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 24 Jun 2025 23:49:48 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH 1/3] ARM: dts: microchip: sama5d2: Update the cache configuration for CPU
+Date: Wed, 25 Jun 2025 09:49:32 +0300
+Message-ID: <20250625064934.4828-2-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250625064934.4828-1-mihai.sain@microchip.com>
+References: <20250625064934.4828-1-mihai.sain@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: o8pwN8EwYal227quZlaJ3Sf4w3pndpWK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA0NSBTYWx0ZWRfX/r2U2Vc/ajCp bxsk6+xpiyEKaboTL+EmY/t/cFJaZuaZichgUtjlkdAvasA29qP2hCPbFcI1lbO577y3aQem6KE 71z4G3FuhONrOr5KROK5VkunB2NBAYb5WBzFTfnTbJ2uUcwNpgAsFWz++yrgbPc4eSfantOty6e
- hTXJcsG2W4MBNRzZuGXgYWgiLit9rIPiuPccmbSQ/7Ppwb/7bPqvj9gXNyit86BC7NZLK/39yGW y1YO2Hky4EwTzlhpnMeMj6eISDXZdZZu1z+l3jKiMbu/cr0m8UrOQ2vQ8+I/+C2bev6ppY6EILf HlJ8LYFyUh0nkS3mXBAecPKECm3FPacnmng+Q/j52GBoYS3AK8DdkMMevf/0TKjw1D0TLNf0WA3
- JFp/KHCimzIj1NX/oSzyY9gfxMfUUJAU5wbgcEBFp84EeJbtrhGdEaC25cegM3OTd5Mutnpl
-X-Authority-Analysis: v=2.4 cv=MshS63ae c=1 sm=1 tr=0 ts=685b99b5 cx=c_pps a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=7ipKWUHlAAAA:8 a=a65a1E2n8xkc5m_RgcEA:9 a=gpc5p9EgBqZVLdJeV_V1:22
-X-Proofpoint-GUID: o8pwN8EwYal227quZlaJ3Sf4w3pndpWK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_01,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 bulkscore=0
- lowpriorityscore=0 spamscore=0 mlxlogscore=673 impostorscore=0
- clxscore=1011 phishscore=0 malwarescore=0 suspectscore=0 adultscore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250045
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_233958_203960_53FB5B7B 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250624_235003_187710_3BBE4805 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,121 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+Add the memory size properties for L1 and L2 according with block
+diagram from datasheet:
 
-Page table checking depends on architectures providing an
-implementation of p{te,md,ud}_user_accessible_page. With
-refactorisations made on powerpc/mm, the pte_access_permitted() and
-similar methods verify whether a userland page is accessible with the
-required permissions.
+- L1 cache configuration with 32 KB for both data and instruction cache.
+- L2 cache configuration with 128 KB unified cache.
 
-Since page table checking is the only user of
-p{te,md,ud}_user_accessible_page(), implement these for all platforms,
-using some of the same preliminary checks taken by pte_access_permitted()
-on that platform.
+[root@sama5d2 ~]$ lscpu
+Architecture:             armv7l
+  Byte Order:             Little Endian
+CPU(s):                   1
+  On-line CPU(s) list:    0
+Vendor ID:                ARM
+  Model name:             Cortex-A5
+Caches (sum of all):
+  L1d:                    32 KiB (1 instance)
+  L1i:                    32 KiB (1 instance)
+  L2:                     128 KiB (1 instance)
 
-Since commit 8e9bd41e4ce1 ("powerpc/nohash: Replace pte_user() by pte_read()")
-pte_user() is no longer required to be present on all platforms as it
-may be equivalent to or implied by pte_read(). Hence implementations of
-pte_user_accessible_page() are specialised.
-
-[ajd@linux.ibm.com: rebase and fix commit message]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
 ---
- arch/powerpc/include/asm/book3s/32/pgtable.h |  5 +++++
- arch/powerpc/include/asm/book3s/64/pgtable.h | 17 +++++++++++++++++
- arch/powerpc/include/asm/nohash/pgtable.h    |  5 +++++
- arch/powerpc/include/asm/pgtable.h           |  8 ++++++++
- 4 files changed, 35 insertions(+)
+ arch/arm/boot/dts/microchip/sama5d2.dtsi | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index 92d21c6faf1e..b225967f85ea 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -437,6 +437,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
+diff --git a/arch/arm/boot/dts/microchip/sama5d2.dtsi b/arch/arm/boot/dts/microchip/sama5d2.dtsi
+index dc22fb679333..17430d7f2055 100644
+--- a/arch/arm/boot/dts/microchip/sama5d2.dtsi
++++ b/arch/arm/boot/dts/microchip/sama5d2.dtsi
+@@ -32,6 +32,8 @@ cpu@0 {
+ 			device_type = "cpu";
+ 			compatible = "arm,cortex-a5";
+ 			reg = <0>;
++			d-cache-size = <0x8000>;	// L1, 32 KB
++			i-cache-size = <0x8000>;	// L1, 32 KB
+ 			next-level-cache = <&L2>;
+ 		};
+ 	};
+@@ -160,6 +162,7 @@ L2: cache-controller@a00000 {
+ 			interrupts = <63 IRQ_TYPE_LEVEL_HIGH 4>;
+ 			cache-unified;
+ 			cache-level = <2>;
++			cache-size = <0x20000>;		// L2, 128 KB
+ 		};
  
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && !is_kernel_addr(addr);
-+}
-+
- /* Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-  *
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index a2ddcbb3fcb9..5de04302c6f4 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -540,6 +540,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return arch_pte_access_permitted(pte_val(pte), write, 0);
- }
- 
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && pte_user(pte);
-+}
-+
- /*
-  * Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-@@ -1430,5 +1435,17 @@ static inline bool is_pte_rw_upgrade(unsigned long old_val, unsigned long new_va
- 	return false;
- }
- 
-+#define pmd_user_accessible_page pmd_user_accessible_page
-+static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+{
-+	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
-+}
-+
-+#define pud_user_accessible_page pud_user_accessible_page
-+static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+{
-+	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
-+}
-+
- #endif /* __ASSEMBLY__ */
- #endif /* _ASM_POWERPC_BOOK3S_64_PGTABLE_H_ */
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index 7d6b9e5b286e..a8bc4f24beb1 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -243,6 +243,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
- 
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && !is_kernel_addr(addr);
-+}
-+
- /* Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-  *
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index 0f73a9ade0ed..d0938e9c33fb 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -223,6 +223,14 @@ static inline int pud_pfn(pud_t pud)
- }
- #endif
- 
-+#ifndef pmd_user_accessible_page
-+#define pmd_user_accessible_page(pmd, addr)	false
-+#endif
-+
-+#ifndef pud_user_accessible_page
-+#define pud_user_accessible_page(pud, addr)	false
-+#endif
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_POWERPC_PGTABLE_H */
+ 		ebi: ebi@10000000 {
 -- 
-2.49.0
+2.50.0
 
 
