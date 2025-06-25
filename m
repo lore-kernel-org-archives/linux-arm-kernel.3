@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABCDC7EE30
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2EBC7115C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmk1ZYv8Vqnkp3j2taSYxgOhWaWsh5xUu3yydRBxIZ8=; b=a+HB4sjZIsESKeXIa6fKeTKg+f
-	7qQ8V5TdlThpQiBQGvIbESI6fsvZ+Bgk36tJtsLI3gxLkJJ6rhVAkh9Sug6HSDi1ZF3z0PCoas8ta
-	1OeBAec6I0ZkoE7eZFSKPkGHvqvL9i7U0g05ojPZceiqqKUB+SpRW/WweiZX3YW9RRCzRZxz1qVkr
-	VNWopoG6/skWesZEfK2KXkMp/idKIvZA4tIf22yM2mdnPYSt0zeHItl7OAM4lXWFKsDwrCpMVolcO
-	W7a/PK/wpZ/pzPsSCvZO+uKQpuFjgd+N1QxD0U8LBRstyexw//FErkw7+sTHKRgyGDwViQZEENSy3
-	MHxBA6Kg==;
+	bh=o4LWu6KozvZoQiXKZGQ6FjQNodQE/1qMGQqfJH1lrUg=; b=1yuwabwUVJs3yk0S8MbYaLXtGw
+	lD2JYTDq4XqLv3l+MywCL6lfbcD57lPhyyYahWae3LftZ4VjDkznY1k0CA9JCDb/fjFXfI8s5FCTi
+	f2hD/IUfIAdHOPUBbIGgAJGnzxYC+FHdmEY+ImtXJ9n2xsonnAW7U8HZCFM71rZuAzyUSYlggX7uB
+	ngTnnqHX2mYYTKd/cy6Zly0MTraTXP1bbwXPN7FxOW5qvS+egyz4oQebL9ueU4b2M82HmEgo6xgyi
+	q4iVOiQkP+pJwregqTK6cNm97TA+QwTm4+fmG4YutED1kzzFAAm0XK8iS2MLp6fbUyEIPreHpwxRU
+	A9nTlIag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMp5-00000008D4Z-01yR;
+	id 1uUMp5-00000008D4s-2O5w;
 	Wed, 25 Jun 2025 09:53:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHF-00000007lPp-11CW;
+	id 1uUKHF-00000007lPt-1sAj;
 	Wed, 25 Jun 2025 07:10:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=jmk1ZYv8Vqnkp3j2taSYxgOhWaWsh5xUu3yydRBxIZ8=; b=g0Y1OunpDTunZHd8OWZQ+qNerW
-	swQJsFe6Fsn1u+0X2e+kE9dFTKH5Gv/QTdeCAHHw7KNzqjgwSTUJx0i2uQrD/K0yu/KBnM4O8NKbW
-	V/wRjDmztSkXqepluktC79SDWcLvpI4/9feIz70Qnvfetty0O9x7ZFm5ctRjQqQ/Dg4ZWgMXQVB98
-	EhofZXCfnQK+FBQd3IqokQwPJtJ0OV4Z6WNxhtyTHtBqJ3PrU5C+JrMuP32Np7H3O5UAH4caNxR7x
-	tX9o4E4xvCq/jF9cyGjtZlDkP5wg3PMnJL8nsH//pnLHC4ZMCmBRm+AHWqVAzBIqc2GXI0S4mRlVU
-	MnNBSwnA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=o4LWu6KozvZoQiXKZGQ6FjQNodQE/1qMGQqfJH1lrUg=; b=ocbaU3k91kA634sk5Gsd1nv8/x
+	7eWeBVjyHPv3LxjZ41Ri3mA/IOTOsmLQe7Z7RVU9CRQytAS3FeNbMNLqNBzV3HHx9Ck0MKgInDzv8
+	9Ts4HRu9dNo6SoyQA7OBEPK6ZPozw7ftuFBMFVIKVF114ZB1SVbfyj3iy9JOTTduxHr6ELMZEu3M2
+	x90QijplZQ5C3jtctUqzwgWw//PDl+g7xpaOr/DV/defY4sY5Yt++xMaF/q+cstyk30rNHA76FdS7
+	/1dRtrJIAZ9tnhL+oJsHx02JihmKmPlfXTiFrpYqqG43EFdY3KNO6Pi1EnbXUMYj9A4Ji5oAl07BT
+	7SJWlwCA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHB-00000005ddH-0SzM;
+	id 1uUKHB-00000005ddI-0SKG;
 	Wed, 25 Jun 2025 07:10:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DDE755C64E2;
-	Wed, 25 Jun 2025 07:08:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB70C4CEF7;
-	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 949124AFF0;
+	Wed, 25 Jun 2025 07:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2662DC116B1;
+	Wed, 25 Jun 2025 07:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835429;
-	bh=wPEV3rkHpzYVStrK7S+qOEmN99dY6Jna9uLe/dZKuSY=;
+	s=k20201202; t=1750835431;
+	bh=Zeed4/7J1MAgm4uZ7/OtehAGBMIbM4x8fqn9JGGd45g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bHR0hOQpGCME4HCeGmCX904RXEPw/TVTjCShb++7vtpvuct9mHCrY3zmjEN3EOY1V
-	 oc+LTrVLqyi0cKlotcCmSMOB8FKkw8Dd3Fy/b+uePu/qdN6BNQBAULp46mdxxZtTj3
-	 mdwTUDBLqYDpifbNeaaeQ5Y0kDbuqjpG5o21k3CGocmTX9Rt78RohLYMG8qkf7vOYp
-	 zusgIsPmXgmfMQwmrJPjaMjLTcMADjv8xcxlZYNroQzTFFD97pk5zBP3xV6LX1woWw
-	 Qh1iNmOM11c5oKDqBHtp99vPiRBuJPm7QlmTpXX//ENMsdxfQKSS7wycNxJQTFVEuC
-	 E+nYupYb1ivkQ==
+	b=MieT5Uj1Ihmp2UzLvUIECVvfhjk3XRQ+K6PX9V8lIBOWFnkgYKRzwd0E+mvcxKkHj
+	 19idi9jXV7eRt+u/ctsOrGBbUX0KEZPV4Yqlr/wUuRLD5RXeNVnd3ztGGL0yDg4VZ3
+	 NWARw2GjVQOG9URFFYU3D1CSUx3UZqvkFB6oXi8nQbOruRj4I+CF2PIa4gmuuYIh2s
+	 IBYHZ6Sq2S4J951FOW9I20ct1vHE6hNGWiYGsYgHVhfhGBtBde6iuHOBFNAko+e3pO
+	 sj2/YhXEbYitj7xuTJe6Pss/9dxrb6Sr79+OPLcr+Nz3u4AmjUc8Lgta+bpUxsbEVt
+	 gYFnuHNLcMl4w==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -68,17 +68,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 04/18] lib/crypto: sha512: Reorder some code in sha512.c
-Date: Wed, 25 Jun 2025 00:08:05 -0700
-Message-ID: <20250625070819.1496119-5-ebiggers@kernel.org>
+Subject: [PATCH 09/18] lib/crypto: sha256: Add sha224() and sha224_update()
+Date: Wed, 25 Jun 2025 00:08:10 -0700
+Message-ID: <20250625070819.1496119-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081033_455410_FE459517 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250625_081033_484898_B91F0982 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,138 +93,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put the IVs before the round constants, since the IVs are used first.
+Add a one-shot SHA-224 computation function sha224(), for consistency
+with sha256(), sha384(), and sha512() which all already exist.
 
-Put __sha512_final() just above sha384_final() and sha512_final(), which
-are the functions that call it.
-
-No code changes other than reordering.
+Similarly, add sha224_update().  While for now it's identical to
+sha256_update(), omitting it makes the API harder to use since users
+have to "know" which functions are the same between SHA-224 and SHA-256.
+Also, this is a prerequisite for using different context types for each.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/sha512.c | 72 ++++++++++++++++++++++-----------------------
- 1 file changed, 36 insertions(+), 36 deletions(-)
+ include/crypto/sha2.h           | 10 ++++++++--
+ lib/crypto/sha256.c             | 10 ++++++++++
+ lib/crypto/tests/sha224_kunit.c | 13 +------------
+ 3 files changed, 19 insertions(+), 14 deletions(-)
 
-diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
-index e650e2c3317b1..fe9d98b9b7db9 100644
---- a/lib/crypto/sha512.c
-+++ b/lib/crypto/sha512.c
-@@ -14,10 +14,24 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/overflow.h>
- #include <linux/wordpart.h>
- 
-+static const struct sha512_block_state sha384_iv = {
-+	.h = {
-+		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
-+		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
-+	},
-+};
-+
-+static const struct sha512_block_state sha512_iv = {
-+	.h = {
-+		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
-+		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
-+	},
-+};
-+
- static const u64 sha512_K[80] = {
- 	0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL,
- 	0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
- 	0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL,
- 	0x12835b0145706fbeULL, 0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL,
-@@ -44,24 +58,10 @@ static const u64 sha512_K[80] = {
- 	0x28db77f523047d84ULL, 0x32caab7b40c72493ULL, 0x3c9ebe0a15c9bebcULL,
- 	0x431d67c49c100d4cULL, 0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
- 	0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL,
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index bb181b7996cdc..e31da0743a522 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -112,22 +112,28 @@ struct sha512_state {
+ 	u64 state[SHA512_DIGEST_SIZE / 8];
+ 	u64 count[2];
+ 	u8 buf[SHA512_BLOCK_SIZE];
  };
  
--static const struct sha512_block_state sha384_iv = {
--	.h = {
--		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
--		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
--	},
--};
--
--static const struct sha512_block_state sha512_iv = {
--	.h = {
--		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
--		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
--	},
--};
--
- #define Ch(x, y, z) ((z) ^ ((x) & ((y) ^ (z))))
- #define Maj(x, y, z) (((x) & (y)) | ((z) & ((x) | (y))))
- #define e0(x) (ror64((x), 28) ^ ror64((x), 34) ^ ror64((x), 39))
- #define e1(x) (ror64((x), 14) ^ ror64((x), 18) ^ ror64((x), 41))
- #define s0(x) (ror64((x), 1) ^ ror64((x), 8) ^ ((x) >> 7))
-@@ -134,32 +134,10 @@ sha512_blocks_generic(struct sha512_block_state *state,
- #include "sha512.h" /* $(SRCARCH)/sha512.h */
- #else
- #define sha512_blocks sha512_blocks_generic
- #endif
++void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
++
+ static inline void sha224_init(struct sha256_state *sctx)
+ {
+ 	sha224_block_init(&sctx->ctx);
+ }
+-/* Simply use sha256_update as it is equivalent to sha224_update. */
++static inline void sha224_update(struct sha256_state *sctx,
++				 const u8 *data, size_t len)
++{
++	sha256_update(sctx, data, len);
++}
+ void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
++void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE]);
  
--static void __sha512_final(struct __sha512_ctx *ctx,
--			   u8 *out, size_t digest_size)
+ static inline void sha256_init(struct sha256_state *sctx)
+ {
+ 	sha256_block_init(&sctx->ctx);
+ }
+-void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
+ void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE]);
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ 
+ /* State for the SHA-512 (and SHA-384) compression function */
+ struct sha512_block_state {
+diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
+index 573ccecbf48bf..ccaae70880166 100644
+--- a/lib/crypto/sha256.c
++++ b/lib/crypto/sha256.c
+@@ -68,10 +68,20 @@ void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE])
+ {
+ 	__sha256_final(sctx, out, SHA256_DIGEST_SIZE);
+ }
+ EXPORT_SYMBOL(sha256_final);
+ 
++void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE])
++{
++	struct sha256_state sctx;
++
++	sha224_init(&sctx);
++	sha224_update(&sctx, data, len);
++	sha224_final(&sctx, out);
++}
++EXPORT_SYMBOL(sha224);
++
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE])
+ {
+ 	struct sha256_state sctx;
+ 
+ 	sha256_init(&sctx);
+diff --git a/lib/crypto/tests/sha224_kunit.c b/lib/crypto/tests/sha224_kunit.c
+index 5015861a55112..c484c1d4a2a5e 100644
+--- a/lib/crypto/tests/sha224_kunit.c
++++ b/lib/crypto/tests/sha224_kunit.c
+@@ -3,26 +3,15 @@
+  * Copyright 2025 Google LLC
+  */
+ #include <crypto/sha2.h>
+ #include "sha224-testvecs.h"
+ 
+-/* TODO: add sha224() to the library itself */
+-static inline void sha224(const u8 *data, size_t len,
+-			  u8 out[SHA224_DIGEST_SIZE])
 -{
--	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
--	u64 bitcount_lo = ctx->bytecount_lo << 3;
--	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
+-	struct sha256_state state;
 -
--	ctx->buf[partial++] = 0x80;
--	if (partial > SHA512_BLOCK_SIZE - 16) {
--		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
--		sha512_blocks(&ctx->state, ctx->buf, 1);
--		partial = 0;
--	}
--	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
--	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
--	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
--	sha512_blocks(&ctx->state, ctx->buf, 1);
--
--	for (size_t i = 0; i < digest_size; i += 8)
--		put_unaligned_be64(ctx->state.h[i / 8], out + i);
+-	sha224_init(&state);
+-	sha256_update(&state, data, len);
+-	sha224_final(&state, out);
 -}
 -
- static void __sha512_init(struct __sha512_ctx *ctx,
- 			  const struct sha512_block_state *iv,
- 			  u64 initial_bytecount)
- {
- 	ctx->state = *iv;
-@@ -211,10 +189,32 @@ void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len)
- 	if (len)
- 		memcpy(&ctx->buf[partial], data, len);
- }
- EXPORT_SYMBOL_GPL(__sha512_update);
+ #define HASH sha224
+ #define HASH_CTX sha256_state
+ #define HASH_SIZE SHA224_DIGEST_SIZE
+ #define HASH_INIT sha224_init
+-#define HASH_UPDATE sha256_update
++#define HASH_UPDATE sha224_update
+ #define HASH_FINAL sha224_final
+ #define HASH_TESTVECS sha224_testvecs
+ /* TODO: add HMAC-SHA224 support to the library, then enable the tests for it */
+ #include "hash-test-template.h"
  
-+static void __sha512_final(struct __sha512_ctx *ctx,
-+			   u8 *out, size_t digest_size)
-+{
-+	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
-+	u64 bitcount_lo = ctx->bytecount_lo << 3;
-+	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
-+
-+	ctx->buf[partial++] = 0x80;
-+	if (partial > SHA512_BLOCK_SIZE - 16) {
-+		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
-+		sha512_blocks(&ctx->state, ctx->buf, 1);
-+		partial = 0;
-+	}
-+	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
-+	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
-+	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
-+	sha512_blocks(&ctx->state, ctx->buf, 1);
-+
-+	for (size_t i = 0; i < digest_size; i += 8)
-+		put_unaligned_be64(ctx->state.h[i / 8], out + i);
-+}
-+
- void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE])
- {
- 	__sha512_final(&ctx->ctx, out, SHA384_DIGEST_SIZE);
- 	memzero_explicit(ctx, sizeof(*ctx));
- }
 -- 
 2.50.0
 
