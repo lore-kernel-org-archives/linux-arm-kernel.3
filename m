@@ -4,109 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08127C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81786C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZV+n0h3is6GH2jFIEJv+uFQD5Y8e2lvt0JYS8TX30U=; b=bkdZ74bMIF+U523LpHfj3SPRiB
-	jP6YrrP9EVv+W4uJvjJ+UdZL7Vr23pk9pIYiYbV4dfMw1QA95vgQ58w6c1lw2IcufuF9mBEvWqud8
-	ORygpZj4ALe0+UnPL0/E0K3zKi5YQLGTltcyKSZb3Yy7YomwqM1/uSmmrbNOxM+Ki7odsQEhRdkkM
-	lTtUp9gPYRvtXclqxxMMC23Lg/Tcj/72RUm2ZFn5sLfWSBqkc/QoD+DPkXYARx7tT9zKBVCzmRsLZ
-	jH6RA4WimJNCPU4FFcjxhOyPbmMBO7sNYzqpkUvk6/ZKvpO1ZUMZ3yBtTEU5SK+TCNtm9DH/hJ41G
-	/LkWuvGA==;
+	bh=nlprjCXzNhYiu8119hAJidFX3Tj0Nj5OLp/Tir9pgMI=; b=oXvPiO4gOra2aMuyAIoJmcp7YW
+	HmBZjD1qWfTKQM9WGgD00rO1L+hriqx84DkgixJobyIkf74B1EaAZPDQaFZrbo8t2bq7eZZmogsQT
+	VKAWVJ45qwoJYJVSXf+ry/y3RYOmOiI7ytXeVGL8vARLsMkKW8GYNk6AQ9GXXCwscOdvTY8mMy/mf
+	fOwjdqKgvDwj9Cvd9YJAQLivt300awQzHJ2qIwBSiWtz1AYpb6osM8r2uhECHk4GqIcFgSPMDgPXY
+	hylD+KdJ+u7GnE04TfY23yVYPBjuWrUj6QHTc/XA88bsE5uam9mtG3ykxnMlc64tpAlg5lnjMoYL/
+	EPduyF0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPcU-00000008gns-0u1S;
-	Wed, 25 Jun 2025 12:52:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uUPdN-00000008h26-1OEy;
+	Wed, 25 Jun 2025 12:53:49 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMhn-00000008AzQ-41iS
+	id 1uUMLj-000000087Ps-1SfK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:46:13 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9F9296F3;
-	Wed, 25 Jun 2025 11:45:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750844750;
-	bh=iC7tw8rqjOwT7CRcW6Mq+d/a7tYQ72tc28+vmbMXUEU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pdS7kaLKH8wuE7VR4Nom6WdhA8tK1gPpxd43yiQ0BTFckQrHxfzqMqqYKW1tgujCU
-	 QRkw8zYI4o/sARMPzGlvP9WkPWnD1EuEFwnXEDspHmgrtMIDlFWUxn3UUfB2jIGf10
-	 5qIQPh5sqUC9liJ8b9nNOC4ATpnIN1pGTNWKfamc=
-Message-ID: <78e03817-5a9a-4d5c-b765-cfe56650a93d@ideasonboard.com>
-Date: Wed, 25 Jun 2025 10:46:04 +0100
+	Wed, 25 Jun 2025 09:23:24 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6084dfb4cd5so1235098a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 02:23:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1750843402; x=1751448202; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nlprjCXzNhYiu8119hAJidFX3Tj0Nj5OLp/Tir9pgMI=;
+        b=heC8eUJmCVczV4xKbqz/6tcCPM/sV4pd5OTvtCqxJqURJ6yt5/wnD4sW7uH6FfbnHQ
+         356oaTpl+ckeMUljI7fYAFCBRLu34owmsfQrgOj2RjKergEKpMXo8dPBqz+i4bnP2Sur
+         H7Em2upjIklUL9A/UBL20N4PJvAWb9238MgV3g6J60xh/rNMsz6t+okS4JBqroGC25yq
+         zwGlV8Pem071FHolnMKniPtBhoriRAnl4vdVCc+hsqxkC9EZcEO01VX4APPnRPmkFlnJ
+         qkS2aQiAz10t7YFDtAF9pIs79pRTqZhnWLcHkQLPPI/hQHK9RNyp3dXofXPAz0h3XF0U
+         Fl0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750843402; x=1751448202;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nlprjCXzNhYiu8119hAJidFX3Tj0Nj5OLp/Tir9pgMI=;
+        b=TOd3S2j8a/zfUIp9I0j5Wy5DjF/meDGN92ODBxfFrX3QqojdBXElQVQeAiXDayvq53
+         9C1NRvDD0dHd8vKD+G+DJoffhfpSZiEXRo9g7z8HoQLZ19r3tjvix82BSheOkjE+c+of
+         +4C8rA9IQWDhYbZz7eu8HMuX4x2jbTATzFibdTVmn//9BTDxyFQwoeumCJEaf6Sj51AS
+         pfPnC/3gsCWwBe3f3yOkCDT7InIgs1garMPwbb76e6megXbVqfPoEPjhJu/PqSMKVO9i
+         8Ywx73pW9ccZ+tnWqSAGhMBtPgiWjIBvBszklI5GTPngmcRCWZJ47eG6oSID/Uz5vnsv
+         AtCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXw/JT2wl22+3Y28K8DQVIQVKcA9SRkM41qtWE4zkPmCa4eKIefqy4LoTxmeUH+W5goK0KYm25G75HSGTlBfcXQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeNBNfmC6BEY4TerFx7T1pxIfa4uWHYy6jSek698dqw9yiS5HF
+	BcXoQ91y1OJOSCE2YhSrBY95KDf//rjBRRsL0TEtMR8h+zfqSDDnfRDAcMo85jbZtSA=
+X-Gm-Gg: ASbGnct+viTOqQzUskJgSETwJTUYQK02SoHkvuAMaqgX7kjEOADn52HUwaHnvYbJj+I
+	KDHW8d2cmORyjNT22poJ9hZB+qpgu0nYLhhE1KDyqr3hd6etZj3+pferiS+oOJ2fgjXgBKyzjvx
+	RifBRfC6tEo5sqDg+rKbRuXq1kgnArb0nxwGHHxW9E+j9FPUaKC8pjdUBFM90eFEHTSKv40s+PE
+	4hf+5GMPR49JdpJYc6Ua+YOJYJcDMt1PT7aB9EymXFmRy2SeB0H+YABQ9K3c8Rn27gPCLoupsiS
+	XZv3wH4O7HviSCvMd4TIKx6cDoSUc/xHTjClcTBm1nmJ/a8GLRS2QBFouHAXlSDAL780VnAsqi7
+	3Nt0Q8MPx9RDY/PjIVGejw0urxp1aeVtq
+X-Google-Smtp-Source: AGHT+IFMjj0Y3e5vRaQHZvxh7fHnevj/9XdkbDfc1cM5LOi08SBv192uCl1KLf+bmxAA3PmbEJU5qQ==
+X-Received: by 2002:a17:907:608e:b0:ad8:91e4:a92b with SMTP id a640c23a62f3a-ae0c08724d9mr179615566b.30.1750843401578;
+        Wed, 25 Jun 2025 02:23:21 -0700 (PDT)
+Received: from otso.local (144-178-202-138.static.ef-service.nl. [144.178.202.138])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0aaa0a854sm270277766b.68.2025.06.25.02.23.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 02:23:21 -0700 (PDT)
+From: Luca Weiss <luca.weiss@fairphone.com>
+Date: Wed, 25 Jun 2025 11:23:07 +0200
+Subject: [PATCH 12/14] dt-bindings: arm: qcom: Add SM7635 and The Fairphone
+ (Gen. 6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
- nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
- laurent.pinchart@ideasonboard.com,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
- <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
- <2b32b8ed-c841-4862-afab-c583da644217@linaro.org>
- <8438a336-94d3-44e1-9e92-1fac0b2a602d@linaro.org>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
- 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
-In-Reply-To: <8438a336-94d3-44e1-9e92-1fac0b2a602d@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250625-sm7635-fp6-initial-v1-12-d9cd322eac1b@fairphone.com>
+References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
+In-Reply-To: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Robert Marko <robimarko@gmail.com>, 
+ Das Srinagesh <quic_gurus@quicinc.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Amit Kucheria <amitk@kernel.org>, Thara Gopinath <thara.gopinath@gmail.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, Luca Weiss <luca.weiss@fairphone.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750843387; l=996;
+ i=luca.weiss@fairphone.com; s=20250611; h=from:subject:message-id;
+ bh=lSbZQMNS3mZ2Qhlodk3BCi0I8+R0Xssr2JSReaIqHv4=;
+ b=yilPxLb4+1BOE1rCFDSywXfKUexVB1szD3ZMpoPtxgrPy4d6BGvUtVW9enhV9rLTafFlsiUdc
+ CU20Ge/ADStBELDiO8FCnFwU5QmqC34bwJqV2yiobXy45sPeekuAPH0
+X-Developer-Key: i=luca.weiss@fairphone.com; a=ed25519;
+ pk=O1aw+AAust5lEmgrNJ1Bs7PTY0fEsJm+mdkjExA69q8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_024612_145196_048487E3 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20250625_022323_393788_04292DC7 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,38 +126,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Morning Krzysztof
+Document the SM7635-based The Fairphone (Gen. 6) smartphone.
 
-On 25/06/2025 10:08, Krzysztof Kozlowski wrote:
-> On 25/06/2025 11:05, Krzysztof Kozlowski wrote:
->> On 24/06/2025 12:21, Daniel Scally wrote:
->>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
->>>
->>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> You changed the binding significantly - adding new properties (which do
->> not even follow DTS coding style).
->>
->> This invalidates the review. You cannot just keep growing it after you
->> received a review.
->>
-> Although if it is conflicting with my earlier message that some earlier
-> changes - reset properties - were trivial and review should be kept,
-> then apologies. Adding new, custom, vendor properties is not trivial.
-> Adding obvious existing properties usually is, although I understand why
-> it could also be a reason to drop review. In any case sorry for
-> confusion, but this needs re-review.
+Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+---
+ Documentation/devicetree/bindings/arm/qcom.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-No problem; I was a bit unsure about that indeed - in last version I sent an email to bring 
-attention to the fact that I'd added the property whilst keeping the tags, should have done the same 
-again.
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index 56f78f0f3803fedcb6422efd6adec3bbc81c2e03..bb89f81437d4ae12ac9fa447377d6b48e3bfa581 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -93,6 +93,7 @@ description: |
+         sm7150
+         sm7225
+         sm7325
++        sm7635
+         sm8150
+         sm8250
+         sm8350
+@@ -1056,6 +1057,11 @@ properties:
+               - nothing,spacewar
+           - const: qcom,sm7325
+ 
++      - items:
++          - enum:
++              - fairphone,fp6
++          - const: qcom,sm7635
++
+       - items:
+           - enum:
+               - microsoft,surface-duo
 
+-- 
+2.50.0
 
-Thanks
-
-Dan
-
->
-> Best regards,
-> Krzysztof
 
