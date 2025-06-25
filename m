@@ -4,64 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2086AC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 04:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5B2C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 04:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFLeyFg8qvhA+CoVyWobyqZmkhTRasnUPNKk8+PwL8Q=; b=p4pF8Z9462i6Ysa1yn8Dso/KwP
-	ZY97qjYtKVydAjFdMj/BFlxGFeNPFn1ocAIMXTyEOagNfZo/WRnbtJHrT21FFWmsfg6Mo6eCj2T5l
-	CPZxBmsQVtzJLeJg78GJCwRyMhrfNx0lZIqV4a8G8YEk6vMaVb213P7fwiDA5xuMfSwLdF1y7gZM8
-	JgQ0KbyITQs1U2HUdB3dGDKydkgyEQ6ytd6q48mv4bIpRF4J4UA28e2zZ3RN0BIKnzzqGTzMG8JI6
-	BTWTPMi6wokpaDVy6hi73QZdrEJg1w1fmZfA1m0y1cDAji+dG13noJWu2Ef/OgPqpSX+KGRCxINDH
-	idbBGWdQ==;
+	bh=/mR6dhMCAE/SfQ1BXR6tW42y0wFv+7n0w3qtBS/LRoc=; b=yeFh5hWd2Xp5mkw/6hmsrI20Px
+	o+YY27g6PMorRo0R7iknzVS+Y99tFVffaKZFOj6lPnHqi48QkQJzEfeJVbqkCLYZIOJYb53jU/dcL
+	grwv+tWqUQBSSllan0SSUrohIDcbssDLf+2pjS4G5N4pN8oPcZClDwqLRUNKjQoF2N0wo8BvrgaF+
+	VdVQ0CG/MAxf1Pu0mfh0ABtXq/GE2iURPSW5IwJKe9GA+poxlnbf9SlFtMVIEsGivy8B56eTjqwj4
+	FXfJRXoIcF2XjSK5apVr/7kli4q+KNyFRNSz3HRzn3uphnsKbgtajvAmf7mmI9v+zeqLFUVHy9/s4
+	X5krEzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUHLj-00000007Rtj-2LQG;
-	Wed, 25 Jun 2025 04:03:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUHPp-00000007S6r-3F3w;
+	Wed, 25 Jun 2025 04:07:17 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUHJT-00000007RlL-3jgl
+	id 1uUHNY-00000007S18-2y3T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 04:00:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6C836116E;
-	Wed, 25 Jun 2025 04:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C19BCC4CEEA;
-	Wed, 25 Jun 2025 04:00:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750824042;
-	bh=3knVkmzjeB1aYkBJciYzDKyPEWCxuge1R6dKhWJvBcQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sBr5dcepNEQgPiRg3aaI/tOgzPBOPr6ZvrJJamIx77DLo+9nA/3P0YctklKIDpPgk
-	 GVgjcQZPPDQo8k/1JJWkLGuYvOHk2Ec3sWXraK+bXtoLMKw/NBYJnrE5XgpNoBXNRM
-	 +SA1hpeV+Cv/l0SzOmGGHtFioAgWm9GbHdatVZtm1IYur/9FCnDMr50my/rQ8JPTzk
-	 VOXoKAkPCtBWdsfe+Yld1NzyP7dmRUN+R1+h5q6keBuzDwQUMCfnhCEkWtS2aYrRpu
-	 emtMVAvw6xPvsun4VXM0pkq19W9i4LIX8GqygUiSuq5BVoS5Vz72U9+9zVLN/DeiMH
-	 H2UjHxxWO23CQ==
-Date: Tue, 24 Jun 2025 22:00:31 -0600
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, p.zabel@pengutronix.de, 
-	johan+linaro@kernel.org, cassel@kernel.org, shradha.t@samsung.com, 
-	thippeswamy.havalige@amd.com, quic_schintav@quicinc.com, 
-	Christian Bruel <christian.bruel@foss.st.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v12 0/9] Add STM32MP25 PCIe drivers
-Message-ID: <3bmw76gzqjq2nmjvj7tb6gi5x233zzfrhv44uyjopl2lxyzbkh@zg5skeu62nbh>
-References: <175068078778.15794.15418191733712827693.b4-ty@kernel.org>
- <20250624222206.GA1537968@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 25 Jun 2025 04:04:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T4juAh/bd8wY24xFBcYB21nF8uzLeQD99MlDeVxsYFBzayvlywoVjwzR6sXhnvhnluLE5cUuMtC9hGDQriTgYCC7s80Arm9vxoy5dmkg9KrwVV4yd1XPtV8z7nr6aTfhK83YQxsLqHZvN14qj4wlRM5OFveNn4c7os8ypkjn8SUH+nyOICoggzeOx0ICbIPIxEUmB6iHCPpJg8jyDbWB458pooiGKkVXoH82btX8wqdUXIsVuQbDLzfVyR1DTTZ6eW2s2LLEZh9GMti+K0VTOsOfoi6GSV9XeyQOVYKc2syuOP5UvPy45c3tDr1SBUAwzUYPJJ795VawP7/EIbbcsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/mR6dhMCAE/SfQ1BXR6tW42y0wFv+7n0w3qtBS/LRoc=;
+ b=QJbhUjnah6fOqN67BeWX4IlP8M9GXso3Gv2L7EJBl/8uYE25u/+c+Pwbfr7byurgmB80L8ao41R/SbEAD07n1Lxb3OvqgIVP5Ml8EORgzZgSl8bxsss0pwnLMOUGrBMKwX0ZK8C9EN0s+b9jJPEzk5DE1fkrBVPy7QfIaJ6gsIXkCZDMxi9C+m5NwtXlThTYMtStHYqjyvTJDIOcoSfVV/sE6rjBkji8q9fYb4v54sicr0vDTDpmV7v8c015dqOVY7WchS4wMcFzYm1hlDWD9VOPTL05AWgB2IBllzKxUDJfD8+pNsvSNl0FGqga8N0HxP/KdR1Z5o4bF9CuggeVaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/mR6dhMCAE/SfQ1BXR6tW42y0wFv+7n0w3qtBS/LRoc=;
+ b=WVR4Amzb9/Y2kTPF5JyfshCDS4OoHCRUheN94lgVV95zCWlnfhOPCnUhJf2ikLgZOwM9OnUoNGfVbi2PxpIkqd6TUA2yCVYXyIbO053wd9zYVNrxpud54yCRaGXs4nGeAVzb8KTaEfGoUbumS33huR7Rs9UaPteC/EaQp5Uk0hLoAsN9TyY6Dy/BoQL9KrmxuSrslqigYbFlA9DegfBq6JOc4hDktNfSccUB1ZLolSPLs66SjxC682ulJHYkxOqGBGEm4eg1FWAoou9CBEsjgq5cwQtesuxef8YJK+zHx1jUp8aoBduI5Qv1ZfQ+w21D7kEqPC1yNvuwl5bIpw6x6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8889.eurprd04.prod.outlook.com (2603:10a6:20b:408::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Wed, 25 Jun
+ 2025 04:04:52 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Wed, 25 Jun 2025
+ 04:04:52 +0000
+Date: Wed, 25 Jun 2025 00:04:47 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [PATCH 1/1] dt-bindings: pwm: convert lpc32xx-pwm.txt to yaml
+ format
+Message-ID: <aFt1Xy0s8rF/CHz4@lizhi-Precision-Tower-5810>
+References: <20250624200955.2514896-1-Frank.Li@nxp.com>
+ <94e42d9b-fae3-4e3a-a72f-dc284d0b4abc@mleia.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250624222206.GA1537968@bhelgaas>
+In-Reply-To: <94e42d9b-fae3-4e3a-a72f-dc284d0b4abc@mleia.com>
+X-ClientProxiedBy: AS4P189CA0006.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d7::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8889:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84d877dc-110a-44e4-a8ed-08ddb39d6f82
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ixXcY6JDNqAdAnSnzqj9YrcsPt7YjW0W03rvHY+nHbWUtyCBy1awm4PxjI74?=
+ =?us-ascii?Q?rTj51i2otk2Pnco9V5JuqZwxmePNbt1My4VWRaSfciGwC/Pbxr7aaskcaJLN?=
+ =?us-ascii?Q?EY6KhvEoOUT0TYEeRlFSJGOOeta/aeNnLSLhbDreKJ56p7KrGPKaJ5MsF722?=
+ =?us-ascii?Q?uezP2fCQ5Ah1WoqFi6BFEJYTXjTJPQ83+vir1xJ0bU8zOrkqJttQTio7Ivsv?=
+ =?us-ascii?Q?Ttp4oCBwM2TR3YoHzKGZZD0uvLDgbXJqYmANs+Q1VFIKiemi0CxFjVpcC9XZ?=
+ =?us-ascii?Q?mXoVARGprto+k2RyuFpJUzosnZXbpEKUq3E6KiIa0ynaCSTvih0uy7l5n8MG?=
+ =?us-ascii?Q?gz2yJFR5i7iBEVLCSZ8Zi6uuWiFTa7Bt+qgnmXZW0bstFzlYp2zVoivXiuO+?=
+ =?us-ascii?Q?NWswLrgMO3Bter3qkV3YwEgB+x8E9M+i28e8j0Ag0zM1VCM2oXrjPJ65Si5x?=
+ =?us-ascii?Q?kaekGPayUo3t2cSwSbxGc/8rwQMUXX3EwFF7RFXRzpRCSUEW/PVlcyQ9Ma2V?=
+ =?us-ascii?Q?SYwsM9dkMEb7KXWBDZemUglMYG9EJsdN3bysWdYUjqhDjdHIGWcE9PASMvss?=
+ =?us-ascii?Q?GZJzw2oaUY/iiwRt9iu7FcttiKKGy/SxqPyrNjep4hoZVdqY3gr/N6JMRxwy?=
+ =?us-ascii?Q?gprtS6CNr6Cm3z6wHFzDgB+Axw8DPL+krJqpwbJgBTWtvqtKxhj+EFhHE801?=
+ =?us-ascii?Q?SoieLZt0X/1NaZeEYNhiIXpvSof92cnZSIBl60hN0ZYIQh09lMfbrwdrCZRc?=
+ =?us-ascii?Q?uu/Ss8lZExiOx44L+Vt53luTT8VPSO5FJk4KmIHHrKUHvOh27GpO2jUQIZ4y?=
+ =?us-ascii?Q?W76IG3h0eor01S0E5nWx2oI1Jlao7RxnCCn3Tf1VEnc0/imym/LhSXhhF4Mz?=
+ =?us-ascii?Q?uEI+OXTKTcOoKo7GSQOJ32kRgbIN14gdjdI4OF6Cr/V1VKqPOs32WmotgOsl?=
+ =?us-ascii?Q?nRW+SBQG3p4AH5P9k9BMAMQpm7N/V/2I2DMHiS22p+YJ5d0mvco+KvvyyHc5?=
+ =?us-ascii?Q?4BEEOJJxAhto2N4PJUdCO0xQMoPK6z5mLOBV0VCA4G+axPfuWB4TUth69DjL?=
+ =?us-ascii?Q?M/B4UvDe3yWqmPeS2p4OppAaqnjna1+kHFtsPX2cU5FVeNENiWrbfDV79k0T?=
+ =?us-ascii?Q?lom9Dl8Klm1LrtWw0q+YL0X1Ivhca39FO0eciw7J2BQxGJa1ifuYFHDLudMm?=
+ =?us-ascii?Q?Nwop8sOlVpY7OpFaWQjQxkR/bjAQ+oOiEBgauUyRY3XBmAoZAXKBiOHxt3l6?=
+ =?us-ascii?Q?IMp+/3yHYRHWaIwgk0tRcvgf4McMXljqVU14mE+7ZGnlXE0DTtxLMjHvJi/c?=
+ =?us-ascii?Q?AE9yftHRPsdE2AOWjzuGHPoer7wB+4cRzaPcU99JZH0BWjMe2Csd9rupWROc?=
+ =?us-ascii?Q?cqTiGR2s3LXb1K30k+V/IJmD7o9DdKmHJ1MeVVw5LLi0OJQ+CRgS7oMDKYRi?=
+ =?us-ascii?Q?JlA+PmxwfA0siEbwntbQDDr4MBLNQNAs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cim9khwZVvg4rXsPTI3Y+nK4v6MnZfGEPB45da6zuNqVaOzIwYdM5Yvs8dOh?=
+ =?us-ascii?Q?Z/dmV5w9D5lr/gdHcErKaxbzAZz1fXl/lpo+ALxTRB4hS6hPmDR+4xbgUnOk?=
+ =?us-ascii?Q?gWWIQc6v72t2rzP2l4A/60gw3dycRryNWs7sKL1qMGJ/UJDW2Z+dtErpo6h6?=
+ =?us-ascii?Q?KbhOIVJhaAWcdGgeo0ZWYLJT0Nn4f/SoRYPumEtpK0NKF/PagNk58jVmcDiP?=
+ =?us-ascii?Q?9pc69mMCmpsgtPzbbnLOfn1CMisDIOEB21X+kaagZ33wNhwUoZwMKu1tcHzz?=
+ =?us-ascii?Q?QDlJs6/qCWpfZbvAEF0YCPN2lo1O1bv+8/JWhb3YmIDYVf55uYHn/Uuvtp5v?=
+ =?us-ascii?Q?jZw5ai1aqRCYQfU3YE1yA+XIqp6UgVzlv9+7P7BUSYWgTCo7VIvTJuMhRTL8?=
+ =?us-ascii?Q?CffsbFugCn0lUEEsHKKKaozRbBSLawdeZpjJxOrytwtlPKIKYkyZsm60dG1s?=
+ =?us-ascii?Q?9/huSmrrljxz+e4q+Av4SbSpeCwUQrZ8XS8gi0TUzNO1mRHoDPQHmp1rTN2/?=
+ =?us-ascii?Q?hzabtgS4gRPq2+j/SqW/TLAyDEIDkE+3fW+UIYUDVbq9hZJWCBEWw2xKyuMj?=
+ =?us-ascii?Q?BadYf5KGxfcE0eJMGuVgu+PGc047e5F1le9ReM4bMuwgNyIGg/lyLAvECQi0?=
+ =?us-ascii?Q?xYlbm5vtt7W8LtX5rmTOflpkVPtLkCJXuvLEmUD/CVPXral5zYRaQd6tOm19?=
+ =?us-ascii?Q?Gk1SikU1U9Ww1J5f+f6hBA+FyWlCUxY1OkgzuP7S4567YOuxBvT518mIfqSG?=
+ =?us-ascii?Q?/OscibUEBP17248Bg9nvcw4MYTAN5tuIe1h9ng1MvKan7R9tHFeB0i1T8TCC?=
+ =?us-ascii?Q?xzdTUI6geSwPwywOWO4e+Dw7SMACdCbO3eNwmMWfZ4THH8CRiStz5v4BEZN8?=
+ =?us-ascii?Q?IND/xPbt1xTNJ8g343QGbUgN0FE7xyAHeLn0IhneLvwPVoPoeVVwBFDEtFHv?=
+ =?us-ascii?Q?t+HZbGYFBf/qqzR8/F3M/fKuEk+MfNxLe15LuScq/GCJT6FhGc3clWNNeyas?=
+ =?us-ascii?Q?MWaqxd7ooYWYJHIWNFQZVyuhnScwH8GQgqO9J7iWSVeCn8CHtUsr4IXigAqT?=
+ =?us-ascii?Q?dQG/79m5njGAHLnse9bgF3+glODJq5kk8PjjTyaTR00azIZ/6ExbULN4rT5R?=
+ =?us-ascii?Q?V0/a2D/+aT7UhgkQUGdGZQ3Kd15H7sM/GabruUgD2QIkK6HgXven75QqyAzx?=
+ =?us-ascii?Q?9W1QxWaos+A0fX9qa2d8/KtLdiBmfx+WUPbxRs/iWqED4xhTRJ49zkppDxfC?=
+ =?us-ascii?Q?CwC0cRgygFLORSDh/I/huFZKoIoIhZCk9Qc8WMSNRrKrCguCap9uyKGuPqdh?=
+ =?us-ascii?Q?t0AgwZkCrOySwAsUyja7IY/s0Sazn+llI+cXr4NisimIzXxyJ2FX80Mu4T0J?=
+ =?us-ascii?Q?5PEj5BdbD0PBvu0oD3Og4duys7K/eIFDBx3eeVE2ehNX2TPr/BTOOPLPcjDu?=
+ =?us-ascii?Q?v6V5VpwH6Z0RBJWRvYMFvaYQAaUe076vUODB1tPoy9LMGEyjZAgucify0jxt?=
+ =?us-ascii?Q?Zi9GOZoVCo/HNTWzER+Tf9+UBg7TCw29Pbz26tpWEfYr3H5u3QQB64RzavsK?=
+ =?us-ascii?Q?tEJYe7A2z1AVa6yA5Z0+vanjilggOrxUECA7nd4B?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84d877dc-110a-44e4-a8ed-08ddb39d6f82
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 04:04:52.0757
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uOddZlEIDsA0kIfj/jCG6J3tUFsPW9lY/a7A+VPKOcrIbdmQKYSJnA163jMM/3Sm8DvA1u5pxyIB6PDulz5GAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8889
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250624_210456_769842_854D7330 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,78 +164,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 24, 2025 at 05:22:06PM -0500, Bjorn Helgaas wrote:
-> On Mon, Jun 23, 2025 at 06:13:07AM -0600, Manivannan Sadhasivam wrote:
-> > On Tue, 10 Jun 2025 11:07:05 +0200, Christian Bruel wrote:
-> > > Changes in v12;
-> > >    Fix warning reported by kernel test robot <lkp@intel.com>
-> > > 
-> > > Changes in v11;
-> > >    Address comments from Manivanna:
-> > >    - RC driver: Do not call pm_runtime_get_noresume in probe
-> > >                 More uses of dev_err_probe
-> > >    - EP driver: Use level triggered PERST# irq
-> > > 
-> > > [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-> >       commit: 41d5cfbdda7a61c5d646a54035b697205cff1cf0
-> > [2/9] PCI: stm32: Add PCIe host support for STM32MP25
-> >       commit: f6111bc2d8fe6ffc741661126a2174523124dc11
-> > [3/9] dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
-> >       commit: 203cfc4a23506ffb9c48d1300348c290dbf9368e
-> > [4/9] PCI: stm32: Add PCIe Endpoint support for STM32MP25
-> >       commit: 8869fb36a107a9ff18dab8c224de6afff1e81dec
-> > [5/9] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-> >       commit: 003902ed7778d62083120253cd282a9112674986
-> 
-> This doesn't build for me with the attached config:
-> 
->   $ make drivers/pci/controller/dwc/pcie-stm32.o
->     CALL    scripts/checksyscalls.sh
->     DESCEND objtool
->     INSTALL libsubcmd_headers
->     CC      drivers/pci/controller/dwc/pcie-stm32.o
->   drivers/pci/controller/dwc/pcie-stm32.c: In function ‘stm32_pcie_suspend_noirq’:
->   drivers/pci/controller/dwc/pcie-stm32.c:83:16: error: implicit declaration of function ‘pinctrl_pm_select_sleep_state’ [-Werror=implicit-function-declaration]
->      83 |         return pinctrl_pm_select_sleep_state(dev);
-> 	|                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   drivers/pci/controller/dwc/pcie-stm32.c: In function ‘stm32_pcie_resume_noirq’:
->   drivers/pci/controller/dwc/pcie-stm32.c:96:24: error: ‘struct device’ has no member named ‘pins’
->      96 |         if (!IS_ERR(dev->pins->init_state))
-> 	|                        ^~
->   drivers/pci/controller/dwc/pcie-stm32.c:97:23: error: implicit declaration of function ‘pinctrl_select_state’ [-Werror=implicit-function-declaration]
->      97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> 	|                       ^~~~~~~~~~~~~~~~~~~~
->   drivers/pci/controller/dwc/pcie-stm32.c:97:47: error: ‘struct device’ has no member named ‘pins’
->      97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> 	|                                               ^~
->   drivers/pci/controller/dwc/pcie-stm32.c:97:61: error: ‘struct device’ has no member named ‘pins’
->      97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> 	|                                                             ^~
->   drivers/pci/controller/dwc/pcie-stm32.c:99:23: error: implicit declaration of function ‘pinctrl_pm_select_default_state’ [-Werror=implicit-function-declaration]
->      99 |                 ret = pinctrl_pm_select_default_state(dev);
-> 	|                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> 
+On Wed, Jun 25, 2025 at 03:37:49AM +0300, Vladimir Zapolskiy wrote:
+> On 6/24/25 23:09, Frank Li wrote:
+> > Convert pc32xx-pwm.txt to yaml format.
+> >
+> > Additional changes:
+> > - add ref to pwm.yaml
+> > - restrict #pwm-cells to 3
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >   .../devicetree/bindings/pwm/lpc32xx-pwm.txt   | 17 --------
+> >   .../bindings/pwm/nxp,lpc3220-pwm.yaml         | 41 +++++++++++++++++++
+> >   2 files changed, 41 insertions(+), 17 deletions(-)
+> >   delete mode 100644 Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
+> >   create mode 100644 Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
+> > deleted file mode 100644
+> > index 74b5bc5dd19ac..0000000000000
+> > --- a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
+> > +++ /dev/null
+> > @@ -1,17 +0,0 @@
+> > -LPC32XX PWM controller
+> > -
+> > -Required properties:
+> > -- compatible: should be "nxp,lpc3220-pwm"
+> > -- reg: physical base address and length of the controller's registers
+> > -
+> > -Examples:
+> > -
+> > -pwm@4005c000 {
+> > -	compatible = "nxp,lpc3220-pwm";
+> > -	reg = <0x4005c000 0x4>;
+> > -};
+> > -
+> > -pwm@4005c004 {
+> > -	compatible = "nxp,lpc3220-pwm";
+> > -	reg = <0x4005c004 0x4>;
+> > -};
+> > diff --git a/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> > new file mode 100644
+> > index 0000000000000..b82d52f583df8
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> > @@ -0,0 +1,41 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pwm/nxp,lpc3220-pwm.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP LPC32XX PWM controller
+> > +
+> > +maintainers:
+> > +  - Frank Li <Frank.Li@nxp.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - nxp,lpc3220-pwm
+> > +      - nxp,lpc3220-motor-pwm
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  '#pwm-cells':
+> > +    const: 3
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - '#pwm-cells'
+> > +
+> > +allOf:
+> > +  - $ref: pwm.yaml#
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    pwm@4005c000 {
+> > +        compatible = "nxp,lpc3220-pwm";
+> > +        reg = <0x4005c000 0x4>;
+> > +        #pwm-cells = <3>;
+> > +    };
+> > +
+>
+> "clocks" and "assigned-clock-parents" properties are required.
+>
+> Please fix the old .txt scheme, or the new one.
+>
+> I will have to NAK any converted yaml file, if there is a clear
+> difference between the actual and proper description of controllers
+> from lpc32xx.dtsi and new proposed schemes.
 
-Hmm... I see two issues here. First is, wrong pinctrl header used. The correct
-one is:
+Sorry, I missed squash local patch. In my local branch, lpc dtb check
+warning already reduce to 0.
 
-#include <linux/pinctrl/consumer.h>
-
-Second issue is the driver accessing "struct device::pins" directly. The "pins"
-member won't be available if CONFIG_PINCTRL is not set (which is what your
-.config has). So either the member should not be accessed directly or the
-driver has to depend on CONFIG_PINCTRL. The latter one is not acceptable. It
-also looks weird that only this driver is accessing the "pins" member directly
-apart from the pinctrl core. So I think this part needs a revisit.
-
-Christian?
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Frank
+>
+> --
+> Best wishes,
+> Vladimir
 
