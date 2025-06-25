@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037FAC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC48FC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=; b=UO2o2VuP239JkRHDG2jlNy3I8Z
-	BouucKHNgzl4HtLYQhrb4Ftv0NlhQR/AA/33QjOSqHpnDiof9jToIzOwacNqW/QNUV4EDmdmaSrgW
-	rR43v4cnKxsGqUAOyodHER1wcl9oicxGM3A0ejimGt7lMo9fb7QJI2c7+TwCwmm1nxcnm749JWWkR
-	ZNY4E4lSSi8/VD2IwfrE+lzc4sIhCQI10lmYxKhBfRpNyTDv/bGW/SqOTIiMxQPhE66R3qQsQJgPf
-	8ewPe7na5gMQHGLcHLub0HR3m4c+fB7iVTSiEUrv4fT9jcRgWHxo+F+GB2AuKgsYVOZcbbhUf1hRF
-	Etca+U5Q==;
+	bh=PR3WtOEmgGKtIrjLIS2UibKQrHGyGFvNwu1McqQ6db0=; b=iXpXEXkkvsx57n9ih5nT2WDM6A
+	TIe+kpT9tvzPV2rHns1z0iUkuf9JldG2RRgCxjhDOKhFQcry88eSN4HElJN/MQACOk4yf3Qlo93lX
+	qVuGN9zqkrB6h/0jRdHn3Nz3Mnw5f0WsmHsVoJOxbO53XGD13gy4l8OYlLONthex3AiTwjXheii/T
+	EAx4TGfBDjAkHNt3Aeomp1sntj88eg3xay5FBJPaYUBndXiRL3VayVONrTtb6M/wsYUfwPgNuk4T6
+	6J3XsH9EvpwbRwlV8xSyxLkqgKV3t8NVPphS+XIiHrhNaetd2QmUcT9Z+b0GIv/vJ4fqLMi9iXjc6
+	5LiEPdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSoh-00000009Fom-35IG;
-	Wed, 25 Jun 2025 16:17:43 +0000
+	id 1uUSr9-00000009GBV-2Lcf;
+	Wed, 25 Jun 2025 16:20:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUONb-00000008USM-3pLg
+	id 1uUOOy-00000008UnS-1ySS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Jun 2025 11:33:28 +0000
+	Wed, 25 Jun 2025 11:34:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=; b=Q0gM0hbSSW09PTvVopQ9NHUjPc
-	sWRRqL1c5lYa9jG3rMDUChbrZRuFJDzeEYGpS7tbGGtPYttdT3/3eoHgqjWaAc+eYK0M0kZVt57jY
-	obMIapfjy9fOZzAbcM6adzSA+eaOfrq5o4zNh801ONYGf9t9NceB18+6dNm8Ow8DVbIW/nFDI0HC6
-	+uCaqZfKWHUY7xcQ/z5nog3U7qhuu3m6As2uoOddMaDyXptSZwfiRVybXQC+/d8GBKxTHuVNEm9LD
-	CibGLvpWySkVTIGbyD5dbMFjQ8UnlS4Wmcu1xssyW3lzTyYi2rb4tbC5bUGah2SSIlP1nXyw80p9A
-	s3nc97Fw==;
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUONZ-00000005pYM-0q8d
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=PR3WtOEmgGKtIrjLIS2UibKQrHGyGFvNwu1McqQ6db0=; b=jVbyZjTejF9T2L6LzmJUe+zL5K
+	SbihPfoHHHHFbAOwSpUZ9RBOqs/xPAvFsVRFNmtlcxAeunSwObw7TYbsNo+/A6WZuJzloFq2/3zrF
+	ooyfwDCcomB92mMdDrHxZ6N+CJ7OdHIPoHcXAMvdDJg43QvUX6zKfjkME2iVA+cERC71IhIZUF8YL
+	IlCqj0pYW4Lg+Eab/Wf53cy8ZSwEasEg6ak0oFqq7N9LNpKvqZaxzpIvR7TSvJqy22DlZPmdq9Uwy
+	+DKK0K892IWIV1ZBFkiROwU4LtGJg7eJe4IHP5Z1zJmAGvSOjWl7/oyUbB6pEt3XuezzfAhAO5LYX
+	JR1JE+2g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUOOv-00000005pez-0kGS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:33:26 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4532ff43376so52013865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 04:33:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750851202; x=1751456002; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=;
-        b=HhWdYPaR1X0UrFcw+UTiJ94d7IcpFxdKm++dpkcLPdRC7pfR3ykV4jWaHOv1rFKjRY
-         tNyz0SsYVFkzIoHvbjOcVoK2OLL+nZ5Q/xADKtEkoiEevfdAEuVS3JVU/xYMD70RMTo+
-         Cqy04gymH+6dLp8ogZBYImtglExPfB44k1rDORCWs/ZGxfKbT4U647/EpJjqStm6bhHh
-         CsNsTv3Ya2YtPoBtqBgkS5UZ7Ihnz/E8omuOH/Cdd4MImbyUCLtwXdjejSCx1UeiM6Y3
-         s5/4ADgqJn6o4fym4YEUzJYnsbB0Bz+LXQyKUbT2lqsrnj+XKZ6Y6wafSj1992O2hQJk
-         zIlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750851202; x=1751456002;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=;
-        b=Bh+9b0q0YGhPnUN4sA8S5lOa3u7SXoa18OHbQB4QIXJi6e4Jt44n6NGFv2lQf8Z+ne
-         AjJPR3VcRZthF0EKB22TaVthsP2dSPbf3ojT5wops2pCcp8kdoWrSycbPUNh41t9fKGy
-         HvrdVshSTlNRac1Yj4cn+5mApfOoRJoozfzS9SCeGsgSE0qownvNYtZutRVKP6bcs12t
-         WAUVt0AoGCmKgD8ACzk5qb+qCNVbptofvsxyPpAstetjUT8nb/w/YwpaagnTbr6V+wqJ
-         wwrJVwerPXNRGMZuSUqrDPqb7jRMZ9prMrrHoh7xghg1uZeToquxjO9XyZQxRoh+E/1T
-         2Nyg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9GjcCahQcgE9RWonUn2OPHNCMiCz6MKfMxlu6es/GtjZeTWp4VjDe9g8Nyy+8A4GNsSfL2K0PyZZiOCzVgjGD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYgAP9TvKxPq+Fjw3+qtJgIRvltA0/r9K2+X0Ar7zgAw1S5M1T
-	WgKmXmIDbWKGFLVbQSTpYExeROJpswQ+6W4ekx1rJebaCZYe/TsKFPISVp91o8smSNcSsfO6zZD
-	B0cTw/W0NlLNuwg==
-X-Google-Smtp-Source: AGHT+IFOs0Gi4knoSxkuw3WEzWTeg5pmNz2XOZ2P1IvG2UaOypTfCATZEtKucsPAekJhdqLV//IPLmdoJn1rpQ==
-X-Received: from wmbfs5.prod.google.com ([2002:a05:600c:3f85:b0:450:cfda:ece7])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:674a:b0:441:b076:fce8 with SMTP id 5b1f17b1804b1-45381ab25e9mr28886085e9.14.1750851201981;
- Wed, 25 Jun 2025 04:33:21 -0700 (PDT)
-Date: Wed, 25 Jun 2025 11:33:01 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
-Message-ID: <20250625113301.580253-1-smostafa@google.com>
-Subject: [PATCH] KVM: arm64: Fix error path in init_hyp_mode()
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, qperret@google.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 25 Jun 2025 11:34:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7239B113E;
+	Wed, 25 Jun 2025 04:34:28 -0700 (PDT)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C784B3F58B;
+	Wed, 25 Jun 2025 04:34:42 -0700 (PDT)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	yang@os.amperecomputing.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	jean-philippe@linaro.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	james.morse@arm.com,
+	broonie@kernel.org,
+	ardb@kernel.org,
+	baohua@kernel.org,
+	suzuki.poulose@arm.com,
+	david@redhat.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	jsnitsel@redhat.com,
+	mshavit@google.com,
+	kevin.tian@intel.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+Subject: [PATCH v8 0/4] Initial BBML2 support for contpte_convert()
+Date: Wed, 25 Jun 2025 11:34:31 +0000
+Message-ID: <20250625113435.26849-1-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_123325_386159_0D342E9C 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250625_123449_664210_899F4EE1 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,79 +98,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the unlikely case pKVM failed to allocate carveout, the error path
-tries to access NULL ptr when it de-reference the SVE state from the
-uninitialized nVHE per-cpu base.
+Hi All,
 
-[    1.575420] pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-[    1.576010] pc : teardown_hyp_mode+0xe4/0x180
-[    1.576920] lr : teardown_hyp_mode+0xd0/0x180
-[    1.577308] sp : ffff8000826fb9d0
-[    1.577600] x29: ffff8000826fb9d0 x28: 0000000000000000 x27: ffff80008209b000
-[    1.578383] x26: ffff800081dde000 x25: ffff8000820493c0 x24: ffff80008209eb00
-[    1.579180] x23: 0000000000000040 x22: 0000000000000001 x21: 0000000000000000
-[    1.579881] x20: 0000000000000002 x19: ffff800081d540b8 x18: 0000000000000000
-[    1.580544] x17: ffff800081205230 x16: 0000000000000152 x15: 00000000fffffff8
-[    1.581183] x14: 0000000000000008 x13: fff00000ff7f6880 x12: 000000000000003e
-[    1.581813] x11: 0000000000000002 x10: 00000000000000ff x9 : 0000000000000000
-[    1.582503] x8 : 0000000000000000 x7 : 7f7f7f7f7f7f7f7f x6 : 43485e525851ff30
-[    1.583140] x5 : fff00000ff6e9030 x4 : fff00000ff6e8f80 x3 : 0000000000000000
-[    1.583780] x2 : 0000000000000000 x1 : 0000000000000002 x0 : 0000000000000000
-[    1.584526] Call trace:
-[    1.584945]  teardown_hyp_mode+0xe4/0x180 (P)
-[    1.585578]  init_hyp_mode+0x920/0x994
-[    1.586005]  kvm_arm_init+0xb4/0x25c
-[    1.586387]  do_one_initcall+0xe0/0x258
-[    1.586819]  do_initcall_level+0xa0/0xd4
-[    1.587224]  do_initcalls+0x54/0x94
-[    1.587606]  do_basic_setup+0x1c/0x28
-[    1.587998]  kernel_init_freeable+0xc8/0x130
-[    1.588409]  kernel_init+0x20/0x1a4
-[    1.588768]  ret_from_fork+0x10/0x20
-[    1.589568] Code: f875db48 8b1c0109 f100011f 9a8903e8 (f9463100)
-[    1.590332] ---[ end trace 0000000000000000 ]---
+This patch series extends the cpufeature framework to add support for
+easily matching against all early cpus, and builds on this to add initial
+support for eliding Break-Before-Make requirements on systems that support
+BBML2 and additionally guarantee to never raise a conflict abort.
 
-It seems also in other cases, it can try to free NULL ptrs, so add the
-proper NULL checks in teardown_hyp_mode(), we can skip the loop early
-if any of the ptrs is NULL as the order of free matches the order of
-initialization.
+This support conceptually reorders and then elides both a TLB invalidation
+and a DSB in contpte_convert(), when BBML2 is supported. This leads to
+a 12% improvement when executing a microbenchmark designed to force the
+pathological path where contpte_convert() gets called. This represents
+an 80% reduction in the cost of calling contpte_convert().
 
-I initially observed this on 6.12, but I could also repro in master.
+We clarify both the correctness and performance benefits of this elision
+with respect to the relevant Arm ARM passages, via substantial comments
+in the contpte_convert() source.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/kvm/arm.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+This series is based on v6.16-rc3 (86731a2a651e).
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 38a91bb5d4c7..5bb36c3b06b5 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2344,15 +2344,22 @@ static void __init teardown_hyp_mode(void)
- 	int cpu;
- 
- 	free_hyp_pgds();
-+	/* Order matches the order of initialization init_hyp_mode() */
- 	for_each_possible_cpu(cpu) {
-+		if (!per_cpu(kvm_arm_hyp_stack_base, cpu))
-+			continue;
- 		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
-+
-+		if (!kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu])
-+			continue;
- 		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
- 
- 		if (free_sve) {
- 			struct cpu_sve_state *sve_state;
- 
- 			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
--			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
-+			if (sve_state)
-+				free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
- 		}
- 	}
- }
+Notes
+======
+
+Patch 1 extends the cpufeature framework machinery as discussed in [1],
+to allows checking for the presence of a feature on all early boot cpus
+(and on all late cpus when they are brought online).
+
+Patch 2 implements an allow-list of cpus that support BBML2, but with
+the additional constraint of never causing TLB conflict aborts. We
+settled on this constraint because we will use the feature for kernel
+mappings in the future, for which we cannot handle conflict aborts
+safely.
+
+Patch 2 implements a MIDR check but does not implement an
+ID_AA64MMFR2_EL1 check, as the BBML2_NOABORT MIDR check is stricter (the
+idreg check would allow conflict aborts, the MIDR check does not).
+
+Yang Shi has a series at [2] that aims to use BBML2 to enable splitting
+the linear map at runtime. This series partially overlaps with it to add
+the cpu feature. We believe this series is fully compatible with Yang's
+requirements and could go first.
+
+[1]:
+  https://lore.kernel.org/all/aCSHESk1DzShD4vt@arm.com/
+
+[2]:
+  https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-yang@os.amperecomputing.com/
+
+Changelog
+=========
+
+v8:
+  - restore missing cpucap description
+  - fix misspelled documentation
+  - rebase onto v6.16-rc3
+
+v7:
+  - https://lore.kernel.org/all/20250617095104.6772-1-miko.lenczewski@arm.com/
+  - fix up some minor spelling and formatting nits
+  - integrate cpufeature framework patch to each bbml2 detection
+  - avoid making feature register check, rely on MIDR check
+  - rebase onto v6.16-rc2
+
+v6:
+  - https://lore.kernel.org/all/20250428153514.55772-2-miko.lenczewski@arm.com/
+  - clarify correctness and performance of elision of __tlb_flush_range()
+  - rebase onto v6.15-rc3
+
+v5:
+  - https://lore.kernel.org/all/20250325093625.55184-1-miko.lenczewski@arm.com/
+  - fixup coding style nits
+  - document motivation for kernel commandline parameter
+
+v4:
+  - https://lore.kernel.org/all/20250319150533.37440-2-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc5
+  - switch from arm64 sw feature override to hw feature override
+  - reintroduce has_cpuid_feature() check in addition to MIDR check
+
+v3:
+  - https://lore.kernel.org/all/20250313104111.24196-2-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc4
+  - add arm64.nobbml2 commandline override
+  - squash "delay tlbi" and "elide tlbi" patches
+
+v2:
+  - https://lore.kernel.org/all/20250228182403.6269-2-miko.lenczewski@arm.com/
+  - fix buggy MIDR check to properly account for all boot+late cpus
+  - add smmu bbml2 feature check
+
+v1:
+  - https://lore.kernel.org/all/20250219143837.44277-3-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc3
+  - remove kvm bugfix patches from series
+  - strip out conflict abort handler code
+  - switch from blocklist to allowlist of bmml2+noabort implementations
+  - remove has_cpuid_feature() in favour of MIDR check
+
+rfc-v1:
+  - https://lore.kernel.org/all/20241211154611.40395-1-miko.lenczewski@arm.com/
+  - https://lore.kernel.org/all/20241211160218.41404-1-miko.lenczewski@arm.com/
+
+Catalin Marinas (1):
+  arm64: cpufeature: Introduce MATCH_ALL_EARLY_CPUS capability type
+
+Mikołaj Lenczewski (3):
+  arm64: Add BBM Level 2 cpu feature
+  iommu/arm: Add BBM Level 2 smmu feature
+  arm64/mm: Elide tlbi in contpte_convert() under BBML2
+
+ arch/arm64/include/asm/cpufeature.h           |  28 ++++
+ arch/arm64/kernel/cpufeature.c                |  98 ++++++++++--
+ arch/arm64/mm/contpte.c                       | 139 +++++++++++++++++-
+ arch/arm64/tools/cpucaps                      |   1 +
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |   3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   2 +
+ 7 files changed, 262 insertions(+), 12 deletions(-)
+
 -- 
-2.50.0.714.g196bf9f422-goog
+2.49.0
 
 
