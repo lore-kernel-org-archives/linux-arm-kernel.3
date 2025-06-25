@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442C2C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF2BC7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/ZgnHfrvb1ohAxqWBg7xDt3QN8B0f9Jh9ZGClguGU7k=; b=4BYCZSBW0Q9NQ1/L9r3uyTRsuw
-	OUi8xRGvylWIfKn5dPUbZd/qcv7QYFLsTA9s/RKD+TYAa66bxCVG4W1gDWN6WEksO+K7nkBB1Vix9
-	iWxh10BNWh7gzMHU/C+IJyLWb5X1k9ditMYe68Ax38lgdc20i7CR4YHBpS+ug6jZ3bEslpkwt/1bs
-	Cz5SgZFzqyvX2Vt6+X8Vu6PXDGjCBMx5UOm9n8lB8EOIqUx2JFzJyzZu0W9blyjs2SoCc99WuF4HN
-	xMcSM2gSEAwFklJknY903khQAh4ECZpXF1+5IxhhOXsbyEhus+/2kytJNJo7yirQlduULOdNB7/QS
-	lrDEjgOQ==;
+	bh=nrf5whORkfSt+oMoV6M/vem4ZwKyQ3gZRdKv2OMWRrA=; b=rNHWp3noOd7thmM2Xw5KCKgxwn
+	bzJoYCrNcnxzPhjnOExGHVgy0R/sX1V//s46SCL97krEQkTCgiaZv+/0KR/84zdPuwy1pfxsr7bJt
+	48+csYWx+1wAy6hGxCKcHnxQDUglm3jKJ16DMifHoYbkWZKVV3iz+U0XfI/oD7LD0sj+6yv4edp4E
+	Gp/srOmbdzlmuBbAgRJftVZS65xd3XEOZVsQFto+eHykn2Hof08sErcbcK1+kUo8VxAzMl9BpfERa
+	Y08siTOfBgLOgO9WxrXAQaFvnfT9B5icpZjPz4lI1ftfuAjWRzADYeXn9auSsDDoJlTICcqGi3yrn
+	noq2Cfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMll-00000008BdN-46Ts;
-	Wed, 25 Jun 2025 09:50:18 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1uUMls-00000008Blg-0UCA;
+	Wed, 25 Jun 2025 09:50:24 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULkr-000000080hS-1Ofo
+	id 1uULui-000000082Wj-3PNv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 08:45:18 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso1617575a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 01:45:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=csie.ntu.edu.tw; s=google; t=1750841112; x=1751445912; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/ZgnHfrvb1ohAxqWBg7xDt3QN8B0f9Jh9ZGClguGU7k=;
-        b=TXn+r1gsSdF/JQQ2O71rQ3uhXWOMncb8w4DYH1BcqrlSLhbXQkR2XpoP8Pj+h15H3O
-         mHYTL4BvP6u3mMLKJhZoy9RukDG9lPpeiwtCGYSGdiK377JSToW73kK0UrMBPlFSUfot
-         zm2TSlxJDqABmDhRgpUrMaM97BIowG2upvjiq29OwUrM0crBsUna0D29hlkquO2SDJr1
-         fz5POmZT4zXoZLjvPnCte2enuq+lkfqLOsIaNx5T2TsKAIBLnf/yidAyM12Wmc559lPL
-         enTuPPNnIi5WtYY3B3KZ7MjVGDUbFIuFeZ/Kl1Kc8XGlTCvoxcFroH1HG36aDwcgg1yt
-         HnoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750841112; x=1751445912;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/ZgnHfrvb1ohAxqWBg7xDt3QN8B0f9Jh9ZGClguGU7k=;
-        b=Vo0qA0cFqjHaPxIxE/9fQ5ZxRHMwP7gzwTBVOGHNQLWQhrDw3gjAqjah9dyGyeh0fW
-         W8UJhrLT4J8uh4Qhyy0ULEWGONHnT9t12uX4ca1O6iiXT25ov2Y5ECTXZjg7UuFuej1Q
-         acJqMIXIjP9Uveu4bqP6d9tpGjLPvzU9F5Tlk+HMT50t1Uq0fmRGRUQqMNpLEOFGNBbr
-         LnbHHxf82BnQBex3yIm/4dwsiG3hroDgHBgNEoIzIvMEYHANG4sMa7QMmLTGyJ6P4uEz
-         RtyoQeZeELvN8YHhLrew0UG95C+PV35Wge1bwAleSCKnxRqrN+FYk5wDbPFCV7meCYMw
-         N3hQ==
-X-Gm-Message-State: AOJu0YxI2yvhJ/JvNp8y1RxQW4rkoc6IVu018jMQp/4IM+/QfJ69GcIU
-	c5HTi0Fqth6Of0zDUji9h7oT0yRcDYlWhtd81VxixzpsgVmu+GmZcsJu26EylKtuudZK6/741QW
-	Xarj5BzgWC15nk+ppMmhQvOuDODVWz+E/5mclADVcaIVfuW0zBsE4SWVx8QXXZw0b2bWLyrhkQv
-	z71DRbd/0nDA==
-X-Gm-Gg: ASbGnct3+zlm1VAkmnUrRbkRD3cKuVz4LK+GUzJ3UQvX4WwAPm6/bUfMhPmbu7gehVa
-	CnUe8uyoFdt2pD1CKR7t1ER/wYb5IQmL0NKO/82FgfI8gUszGR61AEMyAwXYMP9Oh2+7NpjNoEg
-	sy/nJF+u842Di0vzCZEUdELQwCAKVxzwPSLmjGwBK+uuweEXFCfbnXhQHG0XonZJmg+Ebujvrv1
-	grglttsQgxjuEsl987mtdKwFWOCT4xUWfoS7AS3U8AuCbr5QpikvlHcuuTnb4YHCtmxTihyX9UD
-	3rWpp3vJCTpg4t371YWZNWR2zhADF9/2lX1EfrbW74TX2Q70QBNzNRryQBeGeLUJMV4zz5J6B7W
-	9Sk3/Gh/oDotuKsP4iN86QrnU+c3SrwDZwpzoX08B32fTJX00Qqk=
-X-Google-Smtp-Source: AGHT+IGyy6YLwss+HffP5SUP+oihK3m9EHxjRmtYMYfXhWdxLxeKPaeGlxm77RQZMQ31nRdwQyAxaQ==
-X-Received: by 2002:a17:90b:1a88:b0:311:c970:c9ce with SMTP id 98e67ed59e1d1-315f268a5f6mr3098742a91.28.1750841112061;
-        Wed, 25 Jun 2025 01:45:12 -0700 (PDT)
-Received: from localhost.localdomain (36-228-0-244.dynamic-ip.hinet.net. [36.228.0.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f5441770sm1264154a91.48.2025.06.25.01.45.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 01:45:11 -0700 (PDT)
-From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Will Deacon <will@kernel.org>,
-	Jintack Lim <jintack@cs.columbia.edu>,
-	Christoffer Dall <christoffer.dall@arm.com>
-Subject: [PATCH] KVM: arm64: nv: Fix MI line level calculation in vgic_v3_nested_update_mi()
-Date: Wed, 25 Jun 2025 16:47:09 +0800
-Message-ID: <20250625084709.3968844-1-r09922117@csie.ntu.edu.tw>
-X-Mailer: git-send-email 2.49.0
+	Wed, 25 Jun 2025 08:55:30 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id D7A1EA06EB;
+	Wed, 25 Jun 2025 10:55:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=nrf5whORkfSt+oMoV6M/vem4ZwKyQ3gZRdKv2OMWRrA=; b=
+	UCI6yD0e8NDJ52qaFvJN4jMML1kfxrIrv6EOUQuzgmUwf2G+2S4GoNagDaS9AnqZ
+	2GCPFlayL0D8KLXvQLh4C7cZY6YCo248Oo2w5l12EU4tfMCNF8JG28t6flinEwCb
+	wX6l7f1r4CO65L6Mk9jNNnYAG6K1lWol3ls2xpKuUgkA/JH/aX23coa4dLIjmSvJ
+	Dhgs6KGm8veQUWQVx9dppvh4RYzrbHTvbHDtJtUp3uyTUdpK7rItblxw+0bIreey
+	3z8jcCHqUtJ9P1+otblp+eCqBmJMSvBiZ7Xpcktqag4/IBPGAsvIMWnsqUuYyDiK
+	Od6h2rcOqMLH+AXLfQFjFmoLLHHMev5Qy96ZSV+AVErsjsDl2XX0gFD5z28MP3YJ
+	yrJ0Q6l+AeyMoUu/zTyYeYVXJK3gTA64DyrfPLWJ+7v/Cv4kdVqHi/ygBnxxRAPn
+	nqeT1diYy/Syfr0DF7epuAMQWwsJIjo/hZvUx/PTtXHUNBQr7XOFMuwNdkuAqqXY
+	aM5LyO2VItY2ZYNuFP/Oy54cKHgCogw+x6gZnn+O4c1gme+QJLPc6AYD+sFpz1w1
+	/+/ndixXvIfHDWL1qdrJiKaGDGxmQp1adgdf3EHanISzvoKRHuv0Zkb/9T9/8N7N
+	iqlV+F1kSPWqvelTAutEkzg63t8z99FqspI5XCjR3LY=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Chen-Yu
+ Tsai" <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Chen-Yu
+ Tsai" <wens@csie.org>, Julian Calaby <julian.calaby@gmail.com>, Vinod Koul
+	<vkoul@kernel.org>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v11] dma-engine: sun4i: Simplify error handling in probe()
+Date: Wed, 25 Jun 2025 10:54:50 +0200
+Message-ID: <20250625085450.154280-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Gm-Spam: 0
-X-Gm-Phishy: 0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1750841717;VERSION=7993;MC=222044062;ID=219731;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A296767155D6D7C62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_014517_656086_9DA649BB 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250625_015529_317683_BFFF6DC0 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +80,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The state of the vcpu's MI line should be asserted when its
-ICH_HCR_EL2.En is set and ICH_MISR_EL2 is non-zero. Using bitwise AND
-(&=) directly for this calculation will not give us the correct result
-when the LSB of the vcpu's ICH_MISR_EL2 isn't set. Correct this by first
-adjusting the return value of vgic_v3_get_misr() into 1 if it is
-non-zero.
+Clean up error handling by using devm functions and dev_err_probe(). This
+should make it easier to add new code, as we can eliminate the "goto
+ladder" in sun4i_dma_probe().
 
-Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Chen-Yu Tsai <wens@csie.org>
+Reviewed-by: Julian Calaby <julian.calaby@gmail.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm64/kvm/vgic/vgic-v3-nested.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-index 4f6954c30674..ebffad632fd2 100644
---- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-@@ -400,7 +400,7 @@ void vgic_v3_nested_update_mi(struct kvm_vcpu *vcpu)
+Notes:
+    Changes in v2:
+    * rebase on current next
+    Changes in v3:
+    * rebase on current next
+    * collect Jernej's tag
+    Changes in v4:
+    * rebase on current next
+    * collect Chen-Yu's tag
+    Changes in v5:
+    * reformat msg to 75 cols
+    * keep `\n`s in error messages
+    Changes in v6:
+    * remove redundant braces
+    * break lines to stay under 85 cols
+    * reword subject and message
+    Changes in v7:
+    * rebase onto current next
+    * collect Julian's tag
+    Changes in v8:
+    * rebase onto current next
+    Changes in v9:
+    * rebase onto current next
+    Changes in v10:
+    * rebase onto current next
+    Changes in v11:
+    * rebase onto current next
+
+ drivers/dma/sun4i-dma.c | 46 ++++++++++++-----------------------------
+ 1 file changed, 13 insertions(+), 33 deletions(-)
+
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 24796aaaddfa..00d2fd38d17f 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -1249,11 +1249,10 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (priv->irq < 0)
+ 		return priv->irq;
  
- 	level  = __vcpu_sys_reg(vcpu, ICH_HCR_EL2) & ICH_HCR_EL2_En;
- 	if (level)
--		level &= vgic_v3_get_misr(vcpu);
-+		level &= !!vgic_v3_get_misr(vcpu);
- 	kvm_vgic_inject_irq(vcpu->kvm, vcpu,
- 			    vcpu->kvm->arch.vgic.mi_intid, level, vcpu);
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
+-	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "No clock specified\n");
+-		return PTR_ERR(priv->clk);
+-	}
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(priv->clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
++				     "Couldn't start the clock\n");
+ 
+ 	if (priv->cfg->has_reset) {
+ 		priv->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
+@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 		vchan_init(&vchan->vc, &priv->slave);
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/*
+ 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+ 	 * likes to leave these dirty
+@@ -1343,33 +1336,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+ 			       0, dev_name(&pdev->dev), priv);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Cannot request IRQ\n");
+-		goto err_clk_disable;
+-	}
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ\n");
+ 
+-	ret = dma_async_device_register(&priv->slave);
+-	if (ret) {
+-		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+-		goto err_clk_disable;
+-	}
++	ret = dmaenginem_async_device_register(&priv->slave);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register DMA engine device\n");
+ 
+ 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+ 					 priv);
+-	if (ret) {
+-		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+-		goto err_dma_unregister;
+-	}
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Failed to register translation function\n");
+ 
+ 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+ 
+ 	return 0;
+-
+-err_dma_unregister:
+-	dma_async_device_unregister(&priv->slave);
+-err_clk_disable:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
  }
+ 
+ static void sun4i_dma_remove(struct platform_device *pdev)
+@@ -1380,9 +1363,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	disable_irq(priv->irq);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&priv->slave);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+
+base-commit: de266931dd996fc2cb8ee8b5d12e39ea463e3f36
 -- 
-2.49.0
+2.43.0
+
 
 
