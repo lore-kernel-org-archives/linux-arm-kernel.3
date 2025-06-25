@@ -4,117 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32ACC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74B9C83000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnOzQi08jAEiwY9awZL79NKkRrHw27xmzgDmDid1kBE=; b=layeb1TByF5/M2kidFSE7eLK9W
-	F8q6q1HwHNwh1H5v5Eq6IafrAxSC5tLeyZd27eZPHpwLv1JaOXwkcPffa8sIouQ/o0i9UlOeghgGg
-	EGolBvfLuiIXEHmN1xAAiLUfuVVGd7K6WwUAjOHbeL9BOBPTU6duu+5ihbaTJLFW9Y2MQkaRNBdCN
-	VFdnGcPsZSPnpcioX0616E3F7XuR+laUdk7Jp4Bq/Qc8znkXNzagPsdl6l8/mR9EKDrH7FzV0frro
-	o5A0tYuR0dYXO2D/lJCjt8ztnECs+2ILV5ICYP2lHUCt5BKzLzd7Y0YtfcsNNAGbdXQEtbNS/Ur1I
-	4O/8GD/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kuB6DJokf+kOHeXrbarpBOCXQ2R6TXTfr6dB5Ad6/3o=; b=v1xxBQCNS/XxlsMpZyP8Fieqjo
+	CyH5vjoYm3W7mXBsghFMfhBqpJg1jckZEr4icn70FGitoLHS+RW58hy6RxRnFZfQeJawfSucwwQFy
+	uwP6kVMJevtIyj8dFCrxPHgah/xWJSI699eCGHgfGD6zI1bP8zPfNt7Vtld6aD5jhFxUUzWhQg03e
+	qWudTK59yU8G62UM3xFk+Jig0oAOoVoB/MWHJYsqBwWpd7EiEmt00Uy1H75EXLi+jSMAsDALADIEJ
+	/k9J1abiMrGq18P9YSea2iTlSioFil8fORCCzU3tc3J1Bw1l6L4bX+8nwiRC0raWtFB1D2ULH8WHd
+	K0wz+onA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOrs-00000008ZlY-3b5T;
-	Wed, 25 Jun 2025 12:04:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uUOvo-00000008a3e-3nIw;
+	Wed, 25 Jun 2025 12:08:48 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNco-00000008LpJ-1LRu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 10:45:07 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P53TZj017607;
-	Wed, 25 Jun 2025 10:45:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XnOzQi08jAEiwY9awZL79NKkRrHw27xmzgDmDid1kBE=; b=kgsqPaMql0fPWkCu
-	m0sHiyAnzVmz96TxG+M+V7KApW0xFbP7toL9QngSD5S+sHBMFl4cgVIbJSDdrz4i
-	cuDierYjwRDBDJxBvsZHYMO96AkE/y6Bbdui/sxHNHQoC89VfdA/SJKeXalj4H+c
-	eTbMtuyWgiwxApWI0ufCUiC5jnb/CqpF6YycbvexVl/FiDZPAXLRVIweOQLvnas8
-	K/ElLNIoJ3MVpf4jinA9bgAnaWkADqgSeqazA8SUaowJfKQ3nQ18HFwmo/KGPTg6
-	SWT3Vam33D9YENPzqNRyziKzp5tEYuFFqZmCT9/QXKVvxqN3F/Swo8/Yvt3jk3NO
-	YOqRFw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47evc5rmma-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:44:59 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55PAixS2013671
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:44:59 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 25 Jun 2025 03:44:53 -0700
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Wed, 25 Jun 2025 16:13:31 +0530
-Subject: [PATCH v10 06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics
- clock controller
+	id 1uULrU-0000000826t-3gAT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 08:52:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kuB6DJokf+kOHeXrbarpBOCXQ2R6TXTfr6dB5Ad6/3o=; b=qdhhzZ/loUJj4/x5n1ZsfY53Nz
+	Fntzcq+G7Y/WZyznoGpiZ7N4mKDED4CDh/WdAgmi3O+iNUt7rgLHT3tHo5gFYzOj9lYVZpAm+ZnrP
+	G05fPGu8gkCAHZvkBTPR4I0oA+PUFsXB3oApC0I2V0hRhpNPY/5aMfB5xm29ewdmMfBHjM4tJbnLw
+	QxfeCT0jEuuQkqMrvyWdmXRe5fVFGCMyj45ECw6qFjSmQaMeCSy45iIgODWENrFchbf8SeEcFryJY
+	JJw69p01O0rNbx5o/QkCzhrKPISMe+xwHd1X/oTD9eXtsti2Bp90yL3XCAYmh7O5IOyLtZ1+D0yLZ
+	oBU97CHw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uULrR-00000008vs3-11Ci;
+	Wed, 25 Jun 2025 08:52:05 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C97B3308983; Wed, 25 Jun 2025 10:52:04 +0200 (CEST)
+Date: Wed, 25 Jun 2025 10:52:04 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, gregkh@linuxfoundation.org,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, H Peter Anvin <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+Message-ID: <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250625-qcs615-mm-v10-clock-controllers-v10-6-ec48255f90d8@quicinc.com>
-References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
-In-Reply-To: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: udFWN-HmJ4iJy9tKamyy137h6gnP6g1W
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA4MCBTYWx0ZWRfX1pDH/m8O3s+l
- TltzrNbK4QV1iUJvUprhVkUqbAgMpHh4IZw9RMibckMNYZjnwaq7PimGr+V20vPwbM4exKf7yeg
- Q+8Qpy/LCANLQOl7VBxOkwKUbBDqg24ErH44UrMjjMIXOcuIMocvDXSZs5sYRSL2Kwx1fQSDXtN
- LSQBTywLrrBrNbWyL51tMzmwtblh/iZ5UFp08FRL3fqD5TpBTqAblb7Odb4jJXUxyIABrDCjidk
- IRy7Yli3HVVCak+tg6Gifi+4v+DWfLIior3ikmyU6cjuuG80BhOKImn7zrJ2OGaCW8x1bFdq5rF
- PjPCOCL5PtEtJm664/LLi08ahm+dpMg/60gZurdn/83SbnCyktSJqe75MRXuGNzZ+9bPYrhdbE9
- h9iSb/YcpOLlTxgWGzcW046cix4Nt2bVNYmBjMuHhz6XgO9uSjiHZ1SfNy8n5YtrGAn8cbF5
-X-Authority-Analysis: v=2.4 cv=caHSrmDM c=1 sm=1 tr=0 ts=685bd32b cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=gEfo2CItAAAA:8
- a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=Fd_aqQ4HFp4EpFgKmb0A:9 a=QEXdDO2ut3YA:10
- a=sptkURWiP4Gy88Gu7hUp:22 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: udFWN-HmJ4iJy9tKamyy137h6gnP6g1W
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_03,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 mlxlogscore=999 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 adultscore=0 mlxscore=0 spamscore=0
- malwarescore=0 phishscore=0 clxscore=1015 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506250080
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_034506_381965_2DBE35D7 
-X-CRM114-Status: GOOD (  14.47  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,118 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for the Graphics clock on QCS615 platforms. Add the
-relevant DT include definitions as well.
+On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
----
- .../bindings/clock/qcom,qcs615-gpucc.yaml          | 49 ++++++++++++++++++++++
- include/dt-bindings/clock/qcom,qcs615-gpucc.h      | 39 +++++++++++++++++
- 2 files changed, 88 insertions(+)
+> On x86 there is the much loved WBINVD instruction that causes a write back
+> and invalidate of all caches in the system. It is expensive but it is
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5f7d83d1a7be301dd38709f69167d7cb9319f076
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/qcom,qcs615-gpucc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm Graphics Clock & Reset Controller on QCS615
-+
-+maintainers:
-+  - Taniya Das <quic_tdas@quicinc.com>
-+
-+description: |
-+  Qualcomm graphics clock control module provides clocks, resets and power
-+  domains on QCS615 Qualcomm SoCs.
-+
-+  See also: include/dt-bindings/clock/qcom,qcs615-gpucc.h
-+
-+properties:
-+  compatible:
-+    const: qcom,qcs615-gpucc
-+
-+  clocks:
-+    items:
-+      - description: Board XO source
-+      - description: GPLL0 main branch source
-+      - description: GPLL0 GPUCC div branch source
-+
-+allOf:
-+  - $ref: qcom,gcc.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/qcom,rpmh.h>
-+    #include <dt-bindings/clock/qcom,qcs615-gcc.h>
-+
-+    clock-controller@5090000 {
-+      compatible = "qcom,qcs615-gpucc";
-+      reg = <0x5090000 0x9000>;
-+      clocks = <&rpmhcc RPMH_CXO_CLK>,
-+               <&gcc GPLL0>,
-+               <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
-+
-+      #clock-cells = <1>;
-+      #reset-cells = <1>;
-+      #power-domain-cells = <1>;
-+    };
-+...
-diff --git a/include/dt-bindings/clock/qcom,qcs615-gpucc.h b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..6d8394b90d59074b93a26a9c027407a14b050b27
---- /dev/null
-+++ b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
-@@ -0,0 +1,39 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
-+#define _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
-+
-+/* GPU_CC clocks */
-+#define CRC_DIV_PLL0						0
-+#define CRC_DIV_PLL1						1
-+#define GPU_CC_PLL0						2
-+#define GPU_CC_PLL1						3
-+#define GPU_CC_CRC_AHB_CLK					4
-+#define GPU_CC_CX_GFX3D_CLK					5
-+#define GPU_CC_CX_GFX3D_SLV_CLK					6
-+#define GPU_CC_CX_GMU_CLK					7
-+#define GPU_CC_CX_SNOC_DVM_CLK					8
-+#define GPU_CC_CXO_AON_CLK					9
-+#define GPU_CC_CXO_CLK						10
-+#define GPU_CC_GMU_CLK_SRC					11
-+#define GPU_CC_GX_GFX3D_CLK					12
-+#define GPU_CC_GX_GFX3D_CLK_SRC					13
-+#define GPU_CC_GX_GMU_CLK					14
-+#define GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK				15
-+#define GPU_CC_SLEEP_CLK					16
-+
-+/* GPU_CC power domains */
-+#define CX_GDSC							0
-+#define GX_GDSC							1
-+
-+/* GPU_CC resets */
-+#define GPU_CC_CX_BCR						0
-+#define GPU_CC_GFX3D_AON_BCR					1
-+#define GPU_CC_GMU_BCR						2
-+#define GPU_CC_GX_BCR						3
-+#define GPU_CC_XO_BCR						4
-+
-+#endif
+Expensive is not the only problem. It actively interferes with things
+like Cache-Allocation-Technology (RDT-CAT for the intel folks). Doing
+WBINVD utterly destroys the cache subsystem for everybody on the
+machine.
 
--- 
-2.34.1
+> necessary in a few corner cases. 
+
+Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
+avoid doing dumb things like WBINVD ?!?
+
+> These are cases where the contents of
+> Physical Memory may change without any writes from the host. Whilst there
+> are a few reasons this might happen, the one I care about here is when
+> we are adding or removing mappings on CXL. So typically going from
+> there being actual memory at a host Physical Address to nothing there
+> (reads as zero, writes dropped) or visa-versa. 
+
+> The
+> thing that makes it very hard to handle with CPU flushes is that the
+> instructions are normally VA based and not guaranteed to reach beyond
+> the Point of Coherence or similar. You might be able to (ab)use
+> various flush operations intended to ensure persistence memory but
+> in general they don't work either.
+
+Urgh so this. Dan, Dave, are we getting new instructions to deal with
+this? I'm really not keen on having WBINVD in active use.
 
 
