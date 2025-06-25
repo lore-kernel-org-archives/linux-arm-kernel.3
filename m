@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04DEC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02BDC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ABoENGo5e6xeRDfJzO9G38fWVmc8C9R3OnQfE8uSZw=; b=JozLp6G7wW5UUzEhnvvIiNBZHc
-	gVy4XShJdauEz5mbhUurmI5X7YzVYAe7eMS9NK736UtEpg0QjbWJaVQbtmxx7/rbDdfgTIiMg4KzP
-	M6KXdPqInOAHI+PzkPwaY0MeDUP6FSUCscWiwmgWAfZuM1muoKhC3Dd2pOwtnXUIX5QIGIetp0/KC
-	89qn1CKeMLNT/8kArwyF3/2Rf9wo8mURBEkFCq1YcKL7HmiWxXCqrjvfoV2ZYmheOLr6jD5kJk/Lu
-	vwLGn4hCcjb/tPfoPQHHmceXJytYznnBArvcyhlCRCFfhgFM6e1tpU5HSL19DT5aBr597yeLEDAmF
-	OK5cdqog==;
+	bh=plL/PHAwCHQbsADpaABmz38bc+onWwPJFwxaZeaMVjw=; b=2S35W5M8rybmhZ1VF4yidZvumm
+	DaId1hqyklXlDgnQzUdwggJIxrN3cCD+G24t5wOoXKKPK/lPMwo3bFc98vkXs4N43jPfjwHrniuC+
+	ijb7mvod1qmRcphQ4lJSdkDzet1XPmO7OyifS/u7aNInqs0lkueIP8dvsa0NOgx+5wecvhO01n2sN
+	fnEUFeIfIi34QHKMXHJuEYQapDGlHoo97fn3SRbCou9XDWq9SDXcoQRzQVmbAl5qTi/7CA+s6a56l
+	RXR9C/BOR4tsPepp4J+jhQR6YuEhrVKRNHOP6mFfWt0fMXzPnmmnLAf2dZt7xVsTYBGBzH5Sl+T9i
+	6jsGzp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSvu-00000009Gyx-0fjD;
-	Wed, 25 Jun 2025 16:25:10 +0000
+	id 1uUSy9-00000009HP1-45Rd;
+	Wed, 25 Jun 2025 16:27:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOP1-00000008Up3-40Nw
+	id 1uUOP6-00000008UqQ-0JGs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:34:57 +0000
+	Wed, 25 Jun 2025 11:35:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FAD62050;
-	Wed, 25 Jun 2025 04:34:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F8D120E3;
+	Wed, 25 Jun 2025 04:34:41 -0700 (PDT)
 Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75D6C3F58B;
-	Wed, 25 Jun 2025 04:34:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B490D3F58B;
+	Wed, 25 Jun 2025 04:34:55 -0700 (PDT)
 From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
 To: ryan.roberts@arm.com,
 	yang@os.amperecomputing.com,
@@ -59,9 +59,9 @@ To: ryan.roberts@arm.com,
 	linux-kernel@vger.kernel.org,
 	iommu@lists.linux.dev
 Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v8 2/4] arm64: Add BBM Level 2 cpu feature
-Date: Wed, 25 Jun 2025 11:34:33 +0000
-Message-ID: <20250625113435.26849-3-miko.lenczewski@arm.com>
+Subject: [PATCH v8 3/4] iommu/arm: Add BBM Level 2 smmu feature
+Date: Wed, 25 Jun 2025 11:34:34 +0000
+Message-ID: <20250625113435.26849-4-miko.lenczewski@arm.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250625113435.26849-1-miko.lenczewski@arm.com>
 References: <20250625113435.26849-1-miko.lenczewski@arm.com>
@@ -69,8 +69,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_043456_070930_ADB5224E 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20250625_043500_226386_FB633BFB 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +85,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-and this commit adds a dedicated BBML2 cpufeature to test against
-support for.
+For supporting BBM Level 2 for userspace mappings, we want to ensure
+that the smmu also supports its own version of BBM Level 2. Luckily, the
+smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+0487K.a D8.16.2), so already guarantees that no aborts are raised when
+BBM level 2 is claimed.
 
-To support BBML2 in as wide a range of contexts as we can, we want not
-only the architectural guarantees that BBML2 makes, but additionally
-want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-us having to prove that no recursive faults can be induced in any path
-that uses BBML2, allowing its use for arbitrary kernel mappings.
-
-This feature builds on the previous ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-as all early cpus must support BBML2 for us to enable it (and any later
-cpus must also support it to be onlined).
-
-Not onlining late cpus that do not support BBML2 is unavoidable, as we
-might currently be using BBML2 semantics for kernel memory regions. This
-could cause faults in the late cpus, and would be difficult to unwind,
-so let us avoid the case altogether.
+Add the feature and testing for it under arm_smmu_sva_supported().
 
 Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/cpufeature.h |  5 ++++
- arch/arm64/kernel/cpufeature.c      | 38 +++++++++++++++++++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- 3 files changed, 44 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 2 ++
+ 3 files changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 155ebd040c55..bf13d676aae2 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -871,6 +871,11 @@ static inline bool system_supports_pmuv3(void)
- 	return cpus_have_final_cap(ARM64_HAS_PMUV3);
- }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 0601dece0a0d..59a480974d80 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -220,6 +220,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+ 		feat_mask |= ARM_SMMU_FEAT_VAX;
+ 	}
  
-+static inline bool system_supports_bbml2_noabort(void)
-+{
-+	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-+}
++	if (system_supports_bbml2_noabort())
++		feat_mask |= ARM_SMMU_FEAT_BBML2;
 +
- int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
- bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+ 	if ((smmu->features & feat_mask) != feat_mask)
+ 		return false;
  
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index f9c947166322..7a3c404288d5 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2213,6 +2213,38 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
- }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 10cc6dc26b7b..39e933086f8f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4457,6 +4457,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 	if (FIELD_GET(IDR3_FWB, reg))
+ 		smmu->features |= ARM_SMMU_FEAT_S2FWB;
  
-+static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-+{
-+	/*
-+	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
-+	 * as possible. This list is therefore an allow-list of known-good
-+	 * implementations that both support BBML2 and additionally, fulfill the
-+	 * extra constraint of never generating TLB conflict aborts when using
-+	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
-+	 * kernel contexts difficult to prove safe against recursive aborts).
-+	 *
-+	 * Note that implementations can only be considered "known-good" if their
-+	 * implementors attest to the fact that the implementation never raises
-+	 * TLB conflict aborts for BBML2 mapping granularity changes.
-+	 */
-+	static const struct midr_range supports_bbml2_noabort_list[] = {
-+		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-+		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-+		{}
-+	};
++	if (FIELD_GET(IDR3_BBM, reg) == 2)
++		smmu->features |= ARM_SMMU_FEAT_BBML2;
 +
-+	/* Does our cpu guarantee to never raise TLB conflict aborts? */
-+	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
-+		return false;
-+
-+	/*
-+	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
-+	 * about whether the MIDR check passes.
-+	 */
-+
-+	return true;
-+}
-+
- #ifdef CONFIG_ARM64_PAN
- static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
- {
-@@ -2980,6 +3012,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
- 	},
-+	{
-+		.desc = "BBM Level 2 without conflict abort",
-+		.capability = ARM64_HAS_BBML2_NOABORT,
-+		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-+		.matches = has_bbml2_noabort,
-+	},
- 	{
- 		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
- 		.capability = ARM64_HAS_LPA2,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 10effd4cff6b..2bd2bfaeddcd 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -45,6 +45,7 @@ HAS_LPA2
- HAS_LSE_ATOMICS
- HAS_MOPS
- HAS_NESTED_VIRT
-+HAS_BBML2_NOABORT
- HAS_PAN
- HAS_PMUV3
- HAS_S1PIE
+ 	/* IDR5 */
+ 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index ea41d790463e..a33bf520ba97 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -60,6 +60,7 @@ struct arm_smmu_device;
+ #define ARM_SMMU_IDR3			0xc
+ #define IDR3_FWB			(1 << 8)
+ #define IDR3_RIL			(1 << 10)
++#define IDR3_BBM			GENMASK(12, 11)
+ 
+ #define ARM_SMMU_IDR5			0x14
+ #define IDR5_STALL_MAX			GENMASK(31, 16)
+@@ -755,6 +756,7 @@ struct arm_smmu_device {
+ #define ARM_SMMU_FEAT_HA		(1 << 21)
+ #define ARM_SMMU_FEAT_HD		(1 << 22)
+ #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
++#define ARM_SMMU_FEAT_BBML2		(1 << 24)
+ 	u32				features;
+ 
+ #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
 -- 
 2.49.0
 
