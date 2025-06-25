@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D762AC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA02C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zCwVhyi7LrS0Mr9IkZPeUKS3dkG/nZ+Hto/3dQfFA64=; b=jvpug666XvptQ6Bk+clisYpC2O
-	QVFSJ2G1naJMS8vSFjHzQyuZxHKi/q014lym6/GVRoMG/D2TdPfreJAIgWGDB1wegKXbN41oAff5U
-	IQJFMboN7RMORv6ZHstq4s3JxpeNRqkAcBhGtx4TidHhKF+/bumBtzOeSclC80Si9Y1PT+hjHuF2m
-	4NyBzgzMO/4YZsEEvU6NjjCc4kRU7+ZPcIvXHQ31lJvfhHYO/o0RPrapncNTfTSL5PA+Q68OdRYYD
-	ZuLo2sTW6aIqY2xGb3FMSbpEPOzjg7dLXYnKYh6Kk+ftnESvrN2/EEG3iSM+baBEcVt6U0fHK6EuY
-	1wB1EcYQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=46IGkncAnF1FVMbibmfrXck0mFyRWTUpklQbc5wHC5A=; b=elb5s2p5+9GoRWcat+F9br+I8J
+	0fmPvI6X7MkwFivvOqpahwXiolviDPe9sDL6Lw7ILkC2JxS/rZhR4C/MDAJkoq2NNW9++UMv7D+6b
+	vBSlIOXzv/Bq3cWfgpQ/8AA7zrWN06+ded9iRsfhsde2FqtYWKHbhHsis7CRzmN4eAJzJJ8Z5k6oo
+	O77VZoUy6lUuaLSWR1hjDKVJJhr/XlFvOOWkrdO3UqwLEr5lwah8LEKFSKfvnVxvM8y0TgcegaEyg
+	GnKcvLa5cT87Ih9xXOuzUBGEN2iSH99gxPqWGAymsYXVfTk9Phc6Nmf9mu8Jt15TddvkYYhjn9v3b
+	rmlK5VJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWBY-00000009n2l-0Pkv;
-	Wed, 25 Jun 2025 19:53:32 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uUWBr-00000009n59-2sKl;
+	Wed, 25 Jun 2025 19:53:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSHz-000000099dT-0nL5
+	id 1uUPfq-00000008hxD-2ELD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 15:43:56 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2363616a1a6so100255ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 08:43:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750866234; x=1751471034; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zCwVhyi7LrS0Mr9IkZPeUKS3dkG/nZ+Hto/3dQfFA64=;
-        b=A68TAsLWOv/B5Xikiz/qFka8ADYmmFcuOn5Je6iFgaD/aYzorbf87tnDgb2XOyHg4d
-         W82EEjLZSucefxgjR7n4GgBcQMI2wdnmDyLS55+HB9LFod4XHa3W1EtZXeYEYhBe5fLR
-         0v0y3GwJNUnUbcF1lmS8AVRlAffxGg6Uj+MeQadXXbP8QWGcg5DhNuXFHtm5H3anETjs
-         6VZhrtcl2xOFAh05VCRtkqiR817c+R187tDMBvijM11rC+tBXL/ne8rN79ufC4qlYgbn
-         GA756WMWQSuSAfjkGwkfhj8ps333+zf8mRLom/n1ivOmEnSGrTx0d9gX9oGxhu4Rqpeu
-         quyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750866234; x=1751471034;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zCwVhyi7LrS0Mr9IkZPeUKS3dkG/nZ+Hto/3dQfFA64=;
-        b=jcJrD4UADai9w6LDY07cQeRslc5sECdUoBv3ib7ko/ag2tgQkA1qaS+UwX/KApyGcz
-         fI5DSAeDa8dy5LmqFR4+A5KpKcflYZYnxUAUs+88X5kHUj2j4glj5IngY44rsrqWCX7E
-         +hZXQEfk9iqS+ljzkKJM9SusQxMuxXrswrVtOujj5WP2xO5s70BOUpUNh5e4GHME4NA4
-         zBhhhuaM+PXSVEIwYPm0J55Ys/LVK0kYr+t4hRz+jZuvw/m1S+JQ+iAqDdCjad71/QUm
-         0EeHcGi9BvKNe44xp1aaMfCIdKy4qrZVygaHC2lWA5GHzIrP/m2ccDIPYvYAdPC4ofqD
-         R2mg==
-X-Gm-Message-State: AOJu0YzDaXgzVsbeWobVQY2Cc9ZZI//ofWXhSzJNpmimnlEkZ7sNPuH4
-	EvDW9vpFor0Y/QeqBUVUeNHm6/gFR+7cBHb3hZcepStprTbdi30ET8uK
-X-Gm-Gg: ASbGncuPg8n8eLx2yQ1dkDXsnZ+hu7s+Po7ehBgtXJmNt5IrunAG3e48zLkGmWKZNgt
-	18u82+mFH5SuwlTCXZkVXfae9zfNrJa1hdkV1pcbCDT1ekRWvAHuyNx3t/ObZ+QuZKH8vJ5XF++
-	I19jItp57YRF2+0gPCyfOm83syhs9RDNER6u/JNnJ7pUHTSmuNOKgTXHJ+7Rh/0I0Ht9iS0tXan
-	amIXL1mpx9UNNXWpGqgVzOUWUQCM1h7UFGOFqHzOWlpBpCY5yf4Cod+VsMku8KDALJ02ieA3KVS
-	5rwmQ3yQxm7nTNgCyFMpfyABYDu4vsV36BtoMliSdTcBGD27q/zx9RohQnSvXNHRAQ==
-X-Google-Smtp-Source: AGHT+IHN92Qo+dvAQ+28gXK4ziIoW7+YAMLhjXmIJg8gQMeMAzSdi5uWrQ0PalJRetFQ24Rbp1Pf8A==
-X-Received: by 2002:a17:902:e881:b0:234:909b:3dba with SMTP id d9443c01a7336-23823fe1503mr62865065ad.20.1750866234331;
-        Wed, 25 Jun 2025 08:43:54 -0700 (PDT)
-Received: from ubu24.. ([2400:2410:dfca:c200:951d:3a1e:f612:1525])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86628ffsm134229795ad.156.2025.06.25.08.43.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 08:43:51 -0700 (PDT)
-From: Taishi Shimizu <s.taishi14142@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	Rafal Milecki <zajec5@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Taishi Shimizu <s.taishi14142@gmail.com>
-Subject: [PATCH 2/2] ARM: dts: BCM5301X: Add support for Buffalo WXR-1750DHP
-Date: Thu, 26 Jun 2025 00:43:15 +0900
-Message-ID: <20250625154315.114139-2-s.taishi14142@gmail.com>
+	Wed, 25 Jun 2025 12:56:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 308C4A52561;
+	Wed, 25 Jun 2025 12:56:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55A8EC4CEEA;
+	Wed, 25 Jun 2025 12:56:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750856180;
+	bh=Dz5Oh6ZQApBF4VZkqH2TbMEO+1URjB0qZPeXpOaSAyM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qWE2qnaB6AEFnYieEk5vJ+/s0gLddEoVYyPp9W6NmjrIKr/i1PiqNv/EhEdoyy/kq
+	 8GHpQsDUspx3bxFYvs5Hk3AlqEFmRV6g7FqmBpGHqA1oYVdn66vnxrDWDFD9H8ER+O
+	 HmndyumTt2kdePikwRvQOBbItSTHZzDLvSENDTgy3n5qL0J4X+V3wCfJV8OSx9iB3a
+	 ZT+zlhoIWBfCUOzV7MdCVR+vhAxxVO+ppng7Od5zaIIUlB/IrdXLHAO25qok0mgZBN
+	 UspZvgH1d67IYcnY1RxxXEBHknoQvebrYG3CgG9nKvSx9vBlL3OhO7dH00GpZ5zJeg
+	 zAH+oRAaoFtBw==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-kbuild@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: fix unnecessary rebuilding when CONFIG_DEBUG_EFI=y
+Date: Wed, 25 Jun 2025 21:55:20 +0900
+Message-ID: <20250625125555.2504734-1-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250625154315.114139-1-s.taishi14142@gmail.com>
-References: <20250625154315.114139-1-s.taishi14142@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_084355_229580_FEF051AE 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250625_055622_702168_34B43FA2 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,177 +74,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree support for the Buffalo WXR-1750DHP, a consumer Wi-Fi
-router based on the Broadcom BCM4708A0 SoC.
+When CONFIG_DEBUG_EFI is enabled, some objects are needlessly rebuilt.
 
-Hardware specifications:
-* Processor: Broadcom BCM4708A0 dual-core @ 800 MHz
-* RAM: DDR3 256 MB
-* Ethernet Switch: Broadcom BCM53011 integrated via SRAB
-* NAND Flash: 128 MB (8-bit ECC)
-* SPI Flash: None
-* Ports: 4 LAN Ports, 1 WAN Port
-* USB: 1x USB 3.0 Type-A port
+[Steps to reproduce]
 
-Signed-off-by: Taishi Shimizu <s.taishi14142@gmail.com>
+  Enable CONFIG_DEBUG_EFI and run 'make' twice in a clean source tree.
+  On the second run, arch/arm64/kernel/head.o is rebuilt even though
+  no files have changed.
+
+  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- clean
+  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+     [ snip ]
+  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+    CALL    scripts/checksyscalls.sh
+    AS      arch/arm64/kernel/head.o
+    AR      arch/arm64/kernel/built-in.a
+    AR      arch/arm64/built-in.a
+    AR      built-in.a
+     [ snip ]
+
+The issue is caused by the use of the $(realpath ...) function.
+
+At the time arch/arm64/kernel/Makefile is parsed on the first run,
+$(objtree)/vmlinux does not exist. As a result,
+$(realpath $(objtree)/vmlinux) expands to an empty string.
+
+On the second run of Make, $(objtree)/vmlinux already exists, so
+$(realpath $(objtree)/vmlinux) expands to the absolute path of vmlinux.
+However, this change in the command line causes arch/arm64/kernel/head.o
+to be rebuilt.
+
+To address this issue, use $(abspath ...) instead, which does not require
+the file to exist. While $(abspath ...) does not resolve symlinks, this
+should be fine from a debugging perspective.
+
+The GNU Make manual [1] clearly explains the difference between the two:
+
+  $(realpath names...)
+    For each file name in names return the canonical absolute name.
+    A canonical name does not contain any . or .. components, nor any
+    repeated path separators (/) or symlinks. In case of a failure the
+    empty string is returned. Consult the realpath(3) documentation for
+    a list of possible failure causes.
+
+  $(abspath namees...)
+    For each file name in names return an absolute name that does not
+    contain any . or .. components, nor any repeated path separators (/).
+    Note that, in contrast to realpath function, abspath does not resolve
+    symlinks and does not require the file names to refer to an existing
+    file or directory. Use the wildcard function to test for existence.
+
+The same problem exists in drivers/firmware/efi/libstub/Makefile.zboot.
+On the first run of Make, $(obj)/vmlinuz.efi.elf does not exist when the
+Makefile is parsed, so -DZBOOT_EFI_PATH is set to an empty string.
+Replace $(realpath ...) with $(abspath ...) there as well.
+
+[1]: https://www.gnu.org/software/make/manual/make.html#File-Name-Functions
+
+Fixes: 757b435aaabe ("efi: arm64: Add vmlinux debug link to the Image binary")
+Fixes: a050910972bb ("efi/libstub: implement generic EFI zboot")
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
- arch/arm/boot/dts/broadcom/Makefile           |   1 +
- .../broadcom/bcm4708-buffalo-wxr-1750dhp.dts  | 134 ++++++++++++++++++
- 2 files changed, 135 insertions(+)
- create mode 100644 arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dts
 
-diff --git a/arch/arm/boot/dts/broadcom/Makefile b/arch/arm/boot/dts/broadcom/Makefile
-index 71062ff9adbe..2552e11b5e31 100644
---- a/arch/arm/boot/dts/broadcom/Makefile
-+++ b/arch/arm/boot/dts/broadcom/Makefile
-@@ -51,6 +51,7 @@ dtb-$(CONFIG_ARCH_BCMBCA) += \
- dtb-$(CONFIG_ARCH_BCM_5301X) += \
- 	bcm4708-asus-rt-ac56u.dtb \
- 	bcm4708-asus-rt-ac68u.dtb \
-+	bcm4708-buffalo-wxr-1750dhp.dtb \
- 	bcm4708-buffalo-wzr-1750dhp.dtb \
- 	bcm4708-buffalo-wzr-1166dhp.dtb \
- 	bcm4708-buffalo-wzr-1166dhp2.dtb \
-diff --git a/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dts b/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dts
-new file mode 100644
-index 000000000000..43a4a8e58b40
---- /dev/null
-+++ b/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dts
-@@ -0,0 +1,134 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Author: Taishi Shimizu <s.taishi14142@gmail.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "bcm4708.dtsi"
-+#include "bcm5301x-nand-cs0-bch8.dtsi"
-+
-+/ {
-+	compatible = "buffalo,wxr-1750dhp", "brcm,bcm4708";
-+	model = "Buffalo WXR-1750DHP";
-+
-+	chosen {
-+		bootargs = "console=ttyS0,115200";
-+	};
-+
-+	memory@0 {
-+		reg = <0x00000000 0x08000000>,
-+		      <0x88000000 0x08000000>;
-+		device_type = "memory";
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-aoss {
-+			label = "AOSS";
-+			linux,code = <KEY_WPS_BUTTON>;
-+			gpios = <&chipcommon 2 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		/* GPIO 8 and 9 are a tri-state switch button with
-+		 * ROUTER / AP / WB.
-+		 */
-+		button-bridge {
-+			label = "WB";
-+			linux,code = <BTN_2>;
-+			linux,input-type = <EV_SW>;
-+			gpios = <&chipcommon 8 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* GPIO 3 is a switch button with AUTO / MANUAL. */
-+		button-manual {
-+			label = "MANUAL";
-+			linux,code = <BTN_0>;
-+			linux,input-type = <EV_SW>;
-+			gpios = <&chipcommon 3 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		button-restart {
-+			label = "Reset";
-+			linux,code = <KEY_RESTART>;
-+			gpios = <&chipcommon 11 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-router {
-+			label = "ROUTER";
-+			linux,code = <BTN_1>;
-+			linux,input-type = <EV_SW>;
-+			gpios = <&chipcommon 9 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-power0 {
-+			label = "bcm53xx:white:power";
-+			linux,default-trigger = "default-on";
-+			gpios = <&chipcommon 5 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-power1 {
-+			label = "bcm53xx:amber:power";
-+			gpios = <&chipcommon 6 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-router0 {
-+			label = "bcm53xx:amber:router";
-+			gpios = <&chipcommon 14 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-router1 {
-+			label = "bcm53xx:white:router";
-+			gpios = <&chipcommon 15 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-usb {
-+			label = "bcm53xx:green:usb";
-+			gpios = <&chipcommon 4 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-wan {
-+			label = "bcm53xx:white:wan";
-+			gpios = <&chipcommon 7 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+};
-+
-+&srab {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			label = "wan";
-+		};
-+
-+		port@1 {
-+			label = "lan4";
-+		};
-+
-+		port@2 {
-+			label = "lan3";
-+		};
-+
-+		port@3 {
-+			label = "lan2";
-+		};
-+
-+		port@4 {
-+			label = "lan1";
-+		};
-+	};
-+};
-+
-+&usb3 {
-+	vcc-gpio = <&chipcommon 10 GPIO_ACTIVE_HIGH>;
-+};
-+
-+&usb3_phy {
-+	status = "okay";
-+};
+ arch/arm64/kernel/Makefile                  | 2 +-
+ drivers/firmware/efi/libstub/Makefile.zboot | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index 2920b0a51403..a2604c33f35c 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -81,7 +81,7 @@ obj-y					+= head.o
+ always-$(KBUILD_BUILTIN)		+= vmlinux.lds
+ 
+ ifeq ($(CONFIG_DEBUG_EFI),y)
+-AFLAGS_head.o += -DVMLINUX_PATH="\"$(realpath $(objtree)/vmlinux)\""
++AFLAGS_head.o += -DVMLINUX_PATH="\"$(abspath vmlinux)\""
+ endif
+ 
+ # for cleaning
+diff --git a/drivers/firmware/efi/libstub/Makefile.zboot b/drivers/firmware/efi/libstub/Makefile.zboot
+index 92e3c73502ba..832deee36e48 100644
+--- a/drivers/firmware/efi/libstub/Makefile.zboot
++++ b/drivers/firmware/efi/libstub/Makefile.zboot
+@@ -36,7 +36,7 @@ aflags-zboot-header-$(EFI_ZBOOT_FORWARD_CFI) := \
+ 		-DPE_DLL_CHAR_EX=IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT
+ 
+ AFLAGS_zboot-header.o += -DMACHINE_TYPE=IMAGE_FILE_MACHINE_$(EFI_ZBOOT_MACH_TYPE) \
+-			 -DZBOOT_EFI_PATH="\"$(realpath $(obj)/vmlinuz.efi.elf)\"" \
++			 -DZBOOT_EFI_PATH="\"$(abspath $(obj)/vmlinuz.efi.elf)\"" \
+ 			 -DZBOOT_SIZE_LEN=$(zboot-size-len-y) \
+ 			 -DCOMP_TYPE="\"$(comp-type-y)\"" \
+ 			 $(aflags-zboot-header-y)
 -- 
 2.43.0
 
