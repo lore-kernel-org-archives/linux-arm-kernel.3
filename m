@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43F8C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09586C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+hfwvWC996r2MUYJpb8A4wnft6Q/V6aycecydJia7U=; b=zpRenBSp1hBJrYGOZqAa9qqvqC
-	NXnA3YzmsIoHy3JUSviD134j0RIJDQil73pFzIEaQFdvXtV7dCxwsAXmgjAvcVQjCGt9s2DGAPwjx
-	Y0NV3Umw2NHqaIQ4WCxDNbMHiN3JKCAqDYQfh5rhabzZW1Zjtk1guUBr1VcFeNnPWUr5sjcisNMZg
-	M5ER5Dktkl4Gr9SABWIzriMfnkrtkdYpkL9HccYguNKNVdaEJozswiumA1kdjSGXSbAi5JESAAmGJ
-	TRpkHTopkyGrhvb+cAdzFd/yzGi1yaS6TyhcPzInGdczSzkh8o6C0v0ennXmkowDMjnKuO+RwHwy6
-	jqhor7XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=51MXSIz01v2zZUYglT8WCA+VxWNWBxG8GinukyiOxuM=; b=BhOp4nZJKCtMGqiQU1TvlXSv/x
+	HhOs5NvgWB55FG5los3nZ2/0Ba6W8kheviu+qcgiZHj4zlr4JK9cph9JdZZiqUVLPQtqCxfjO1qaz
+	vujDfGYH8uWIDcLHoPX0Ddj46529Sp4+7+FIHTJaeEabXtWHLxa5M80ocboDcPONE22ztDpHHtbYS
+	MQ/qzUUfQJ17Syw1Cmzg1qNSx75g+o4SWYCvQ4GMOKlLBS6edawpvnihWpztyFQVDlf6DEp/AnhEg
+	Di7ZPN0Cem0Uie3zfcozONY0CwxiMHsd+rS0BnFd+tuWpmF/ZSGNHrhUvbWD6P6IQaLaZEMY1GeMj
+	6CPsaawA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNnK-00000008OAP-3ZNU;
-	Wed, 25 Jun 2025 10:55:58 +0000
+	id 1uUNpa-00000008Ofi-2UmL;
+	Wed, 25 Jun 2025 10:58:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMRu-000000088IR-0Rmr
+	id 1uUMU6-000000088Z9-16Qe
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Jun 2025 09:29:46 +0000
+	Wed, 25 Jun 2025 09:32:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5+hfwvWC996r2MUYJpb8A4wnft6Q/V6aycecydJia7U=; b=oVJly/v0L4p7JiFbz87gX/hAz7
-	KUbB22HeZgcjBaqeplmSWDTUeW1Xub6Dg1Urd0N128i5kZBWlP+YcK8C5SiXTHc2E110D2w9f7l/Z
-	pYzWg2E1RAzwK/xReggEjQDC0YwLUdo/qdq69zB3enmmHRPI8FzXre3WvaxyW3w2bUCX7oJwKm4Mv
-	4446aB7Ih5dAZp2dwsbjr6+f4t1tretxjF/Y1FBinMfVdAoycZimWHd4MjQmMmwrms5ENgB4nAkeP
-	EcpMbDz3gkb2UOIo9i+EUTvclADL3QihO1A0eF3mEIJL82+b4REa/BnofLpFwYQeCutL0HaThi0AI
-	giiJzyFw==;
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMRq-00000005jiL-2vAX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:29:45 +0000
-Message-ID: <87f7a9fa-d66e-47ba-b511-a8ffb7e5e057@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750843769;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5+hfwvWC996r2MUYJpb8A4wnft6Q/V6aycecydJia7U=;
-	b=QfWaEPgLZqoluDZbnVOQJdlxb4l2AandwHyP8Yk+Wte6nX7+dMyPVvU1BClhpV3r9u2Sc0
-	DlxnnH3UZzTG8Vfv/zt1HhMMHicBQEj++Pi1SPk+EZyWL7x9PfMYuYwO+urQViqTihPKqk
-	g+4Fksb2sqRasmtmBRhkskN9SiZZiMk=
-Date: Wed, 25 Jun 2025 17:29:12 +0800
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=51MXSIz01v2zZUYglT8WCA+VxWNWBxG8GinukyiOxuM=; b=T0hKL8t6mooi63qc6S+et8AjEC
+	NVwOjCyKJ0NVeoGkxhfxlkPSOEAwqvdXxiNgnbDwJcu527SaM1mxQWC/cKtInWKKMKBvmZpCmV2EA
+	eAUPbUBIq1el0HbcRgXOzWAFWBzG8vI9Mzv9p70J/3QX1dfYCIT+6sPBPTEarR3OOXBuazAbLLQFy
+	xDBGoQ/8cJO91/xRVEMwE5PZCMfGvIkC8yKJoLjx4Ml8zhQfEQ8SV4LMlS7voq7Xcs8iUG8+wrEP0
+	qJ0amzUljiPfMKhQGnEVcPhAbjynpeywC4kz46mj82jGmUDPssxzsKj3oXfYGWCn4oTEj0ccQHFyj
+	97KGRIwg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUMTy-00000005joy-1YGc;
+	Wed, 25 Jun 2025 09:31:54 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C64AD308983; Wed, 25 Jun 2025 11:31:52 +0200 (CEST)
+Date: Wed, 25 Jun 2025 11:31:52 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, gregkh@linuxfoundation.org,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+Message-ID: <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+ <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+ <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-To: David Hildenbrand <david@redhat.com>
-Cc: 21cnbao@gmail.com, akpm@linux-foundation.org,
- baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com,
- Lance Yang <ioworker0@gmail.com>
-References: <a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com>
- <20250624152654.38145-1-ioworker0@gmail.com>
- <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
- <bf9e4e2b-0c85-437a-880a-8ca6659c74e1@linux.dev>
-In-Reply-To: <bf9e4e2b-0c85-437a-880a-8ca6659c74e1@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_102943_416796_A056E297 
-X-CRM114-Status: GOOD (  31.86  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,346 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 25, 2025 at 02:12:39AM -0700, H. Peter Anvin wrote:
+> On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead.org> wrote:
+> >On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
+> >
+> >> On x86 there is the much loved WBINVD instruction that causes a write back
+> >> and invalidate of all caches in the system. It is expensive but it is
+> >
+> >Expensive is not the only problem. It actively interferes with things
+> >like Cache-Allocation-Technology (RDT-CAT for the intel folks). Doing
+> >WBINVD utterly destroys the cache subsystem for everybody on the
+> >machine.
+> >
+> >> necessary in a few corner cases. 
+> >
+> >Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
+> >avoid doing dumb things like WBINVD ?!?
+> >
+> >> These are cases where the contents of
+> >> Physical Memory may change without any writes from the host. Whilst there
+> >> are a few reasons this might happen, the one I care about here is when
+> >> we are adding or removing mappings on CXL. So typically going from
+> >> there being actual memory at a host Physical Address to nothing there
+> >> (reads as zero, writes dropped) or visa-versa. 
+> >
+> >> The
+> >> thing that makes it very hard to handle with CPU flushes is that the
+> >> instructions are normally VA based and not guaranteed to reach beyond
+> >> the Point of Coherence or similar. You might be able to (ab)use
+> >> various flush operations intended to ensure persistence memory but
+> >> in general they don't work either.
+> >
+> >Urgh so this. Dan, Dave, are we getting new instructions to deal with
+> >this? I'm really not keen on having WBINVD in active use.
+> >
+> 
+> WBINVD is the nuclear weapon to use when you have lost all notion of
+> where the problematic data can be, and amounts to a full reset of the
+> cache system. 
+> 
+> WBINVD can block interrupts for many *milliseconds*, system wide, and
+> so is really only useful for once-per-boot type events, like MTRR
+> initialization.
 
-
-On 2025/6/25 16:44, Lance Yang wrote:
-> 
-> 
-> On 2025/6/24 23:34, David Hildenbrand wrote:
->> On 24.06.25 17:26, Lance Yang wrote:
->>> On 2025/6/24 20:55, David Hildenbrand wrote:
->>>> On 14.02.25 10:30, Barry Song wrote:
->>>>> From: Barry Song <v-songbaohua@oppo.com>
->>> [...]
->>>>> diff --git a/mm/rmap.c b/mm/rmap.c
->>>>> index 89e51a7a9509..8786704bd466 100644
->>>>> --- a/mm/rmap.c
->>>>> +++ b/mm/rmap.c
->>>>> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *folio,
->>>>> struct page *page,
->>>>>    #endif
->>>>>    }
->>>>> +/* We support batch unmapping of PTEs for lazyfree large folios */
->>>>> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
->>>>> +            struct folio *folio, pte_t *ptep)
->>>>> +{
->>>>> +    const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>>>> +    int max_nr = folio_nr_pages(folio);
->>>>
->>>> Let's assume we have the first page of a folio mapped at the last page
->>>> table entry in our page table.
->>>
->>> Good point. I'm curious if it is something we've seen in practice ;)
->>
->> I challenge you to write a reproducer :P I assume it might be doable 
->> through simple mremap().
-> 
-> Yes! The scenario is indeed reproducible from userspace ;p
-> 
-> First, I get a 64KB folio by allocating a large anonymous mapping and
-> advising the kernel with madvise(MADV_HUGEPAGE). After faulting in the
-> pages, /proc/self/pagemap confirms the PFNs are contiguous.
-> 
-> Then, the key is to use mremap() with MREMAP_FIXED to move the folio to
-> a virtual address that crosses a PMD boundary. Doing so ensures the
-> physically contiguous folio is mapped by PTEs from two different page
-> tables.
-
-Forgot to add:
-
-The mTHP split counters didn't change during the mremap, which confirms
-the large folio was only remapped, not split.
-
-Thanks,
-Lance
-
-> 
-> The C reproducer is attached. It was tested on a system with 64KB mTHP
-> enabled (in madvise mode). Please correct me if I'm wrong ;)
-> 
-> 
-> ```
-> #define _GNU_SOURCE
-> #include <stdio.h>
-> #include <stdlib.h>
-> #include <string.h>
-> #include <stdint.h>
-> #include <unistd.h>
-> #include <fcntl.h>
-> #include <errno.h>
-> #include <sys/mman.h>
-> #include <stdbool.h>
-> 
-> #define PAGE_SIZE ((size_t)sysconf(_SC_PAGESIZE))
-> #define FOLIO_SIZE (64 * 1024)
-> #define NUM_PAGES_IN_FOLIO (FOLIO_SIZE / PAGE_SIZE)
-> #define PMD_SIZE (2 * 1024 * 1024)
-> 
-> int get_pagemap_entry(uint64_t *entry, int pagemap_fd, uintptr_t vaddr) {
->      size_t offset = (vaddr / PAGE_SIZE) * sizeof(uint64_t);
->      if (pread(pagemap_fd, entry, sizeof(uint64_t), offset) != 
-> sizeof(uint64_t)) {
->          perror("pread pagemap");
->          return -1;
->      }
->      return 0;
-> }
-> 
-> int is_page_present(uint64_t entry) { return (entry >> 63) & 1; }
-> uint64_t get_pfn(uint64_t entry) { return entry & ((1ULL << 55) - 1); }
-> 
-> bool verify_contiguity(int pagemap_fd, uintptr_t vaddr, size_t size, 
-> const char *label) {
->      printf("\n--- Verifying Contiguity for: %s at 0x%lx ---\n", label, 
-> vaddr);
->      printf("Page |      Virtual Address      | Present |   PFN 
-> (Physical)   | Contiguous?\n");
-> 
-> printf("-----+---------------------------+---------+-------------------- 
-> +-------------\n");
-> 
->      uint64_t first_pfn = 0;
->      bool is_contiguous = true;
->      int num_pages = size / PAGE_SIZE;
-> 
->      for (int i = 0; i < num_pages; ++i) {
->          uintptr_t current_vaddr = vaddr + i * PAGE_SIZE;
->          uint64_t pagemap_entry;
-> 
->          if (get_pagemap_entry(&pagemap_entry, pagemap_fd, 
-> current_vaddr) != 0) {
->              is_contiguous = false;
->              break;
->          }
-> 
->          if (!is_page_present(pagemap_entry)) {
->              printf(" %2d  | 0x%016lx |    No   |        N/A         | 
-> Error\n", i, current_vaddr);
->              is_contiguous = false;
->              continue;
->          }
-> 
->          uint64_t pfn = get_pfn(pagemap_entry);
->          char contiguous_str[4] = "Yes";
-> 
->          if (i == 0) {
->              first_pfn = pfn;
->          } else {
->              if (pfn != first_pfn + i) {
->                  strcpy(contiguous_str, "No!");
->                  is_contiguous = false;
->              }
->          }
-> 
->          printf(" %2d  | 0x%016lx |   Yes   | 0x%-16lx |     %s\n", i, 
-> current_vaddr, pfn, contiguous_str);
->      }
-> 
->      if (is_contiguous) {
->          printf("Verification PASSED: PFNs are contiguous for %s.\n", 
-> label);
->      } else {
->          printf("Verification FAILED: PFNs are NOT contiguous for %s. 
-> \n", label);
->      }
->      return is_contiguous;
-> }
-> 
-> 
-> int main(void) {
->      printf("--- Folio-across-PMD-boundary reproducer ---\n");
->      printf("Page size: %zu KB, Folio size: %zu KB, PMD coverage: %zu 
-> MB\n",
->             PAGE_SIZE / 1024, FOLIO_SIZE / 1024, PMD_SIZE / (1024 * 1024));
-> 
->      size_t source_size = 4 * 1024 * 1024;
->      void *source_addr = mmap(NULL, source_size, PROT_READ | PROT_WRITE,
->                               MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
->      if (source_addr == MAP_FAILED) {
->          perror("mmap source"); exit(EXIT_FAILURE);
->      }
->      printf("\n1. Source memory mapped at: %p\n", source_addr);
-> 
->      if (madvise(source_addr, source_size, MADV_HUGEPAGE) != 0) {
->          perror("madvise MADV_HUGEPAGE");
->      }
->      printf("2. Advised kernel to use large folios (MADV_HUGEPAGE).\n");
-> 
->      memset(source_addr, 'A', source_size);
->      printf("3. Faulted in source pages.\n");
-> 
->      int pagemap_fd = open("/proc/self/pagemap", O_RDONLY);
->      if (pagemap_fd < 0) {
->          perror("open /proc/self/pagemap");
->          exit(EXIT_FAILURE);
->      }
-> 
->      if (!verify_contiguity(pagemap_fd, (uintptr_t)source_addr, 
-> FOLIO_SIZE, "Source Address (pre-mremap)")) {
->          fprintf(stderr, "\nInitial folio allocation failed. Cannot 
-> proceed.\n");
->          close(pagemap_fd);
->          munmap(source_addr, source_size);
->          exit(EXIT_FAILURE);
->      }
-> 
->      uintptr_t search_base = 0x10000000000UL;
->      uintptr_t pmd_boundary = (search_base + PMD_SIZE) & ~(PMD_SIZE - 1);
->      uintptr_t target_vaddr = pmd_boundary - PAGE_SIZE;
->      printf("\n5. Calculated target address to be 0x%lx\n", target_vaddr);
-> 
->      munmap((void *)target_vaddr, FOLIO_SIZE);
->      void *new_addr = mremap(source_addr, FOLIO_SIZE, FOLIO_SIZE, 
-> MREMAP_MAYMOVE | MREMAP_FIXED, (void *)target_vaddr);
->      if (new_addr == MAP_FAILED) {
->          perror("mremap");
->          close(pagemap_fd);
->          exit(EXIT_FAILURE);
->      }
->      printf("6. Successfully mremap'd %zu KB to 0x%lx.\n", FOLIO_SIZE / 
-> 1024, (uintptr_t)new_addr);
-> 
->      bool final_success = verify_contiguity(pagemap_fd, 
-> (uintptr_t)new_addr, FOLIO_SIZE, "Target Address (post-mremap)");
-> 
->      printf("\n--- Final Conclusion ---\n");
->      if (final_success) {
->          printf("✅ SUCCESS: The folio's pages remained physically 
-> contiguous after remapping to a PMD-crossing virtual address.\n");
->          printf("   The reproducer successfully created the desired 
-> edge-case memory layout.\n");
->      } else {
->          printf("❌ UNEXPECTED FAILURE: The pages were not contiguous 
-> after mremap.\n");
->      }
-> 
->      close(pagemap_fd);
->      munmap(new_addr, FOLIO_SIZE);
-> 
->      return 0;
-> }
-> ```
-> 
-> $ a.out
-> 
-> ```
-> --- Folio-across-PMD-boundary reproducer ---
-> Page size: 4 KB, Folio size: 64 KB, PMD coverage: 2 MB
-> 
-> 1. Source memory mapped at: 0x7f2e41200000
-> 2. Advised kernel to use large folios (MADV_HUGEPAGE).
-> 3. Faulted in source pages.
-> 
-> --- Verifying Contiguity for: Source Address (pre-mremap) at 
-> 0x7f2e41200000 ---
-> Page |      Virtual Address      | Present |   PFN (Physical)   | 
-> Contiguous?
-> -----+---------------------------+---------+-------------------- 
-> +-------------
->    0  | 0x00007f2e41200000 |   Yes   | 0x113aa0           |     Yes
->    1  | 0x00007f2e41201000 |   Yes   | 0x113aa1           |     Yes
->    2  | 0x00007f2e41202000 |   Yes   | 0x113aa2           |     Yes
->    3  | 0x00007f2e41203000 |   Yes   | 0x113aa3           |     Yes
->    4  | 0x00007f2e41204000 |   Yes   | 0x113aa4           |     Yes
->    5  | 0x00007f2e41205000 |   Yes   | 0x113aa5           |     Yes
->    6  | 0x00007f2e41206000 |   Yes   | 0x113aa6           |     Yes
->    7  | 0x00007f2e41207000 |   Yes   | 0x113aa7           |     Yes
->    8  | 0x00007f2e41208000 |   Yes   | 0x113aa8           |     Yes
->    9  | 0x00007f2e41209000 |   Yes   | 0x113aa9           |     Yes
->   10  | 0x00007f2e4120a000 |   Yes   | 0x113aaa           |     Yes
->   11  | 0x00007f2e4120b000 |   Yes   | 0x113aab           |     Yes
->   12  | 0x00007f2e4120c000 |   Yes   | 0x113aac           |     Yes
->   13  | 0x00007f2e4120d000 |   Yes   | 0x113aad           |     Yes
->   14  | 0x00007f2e4120e000 |   Yes   | 0x113aae           |     Yes
->   15  | 0x00007f2e4120f000 |   Yes   | 0x113aaf           |     Yes
-> Verification PASSED: PFNs are contiguous for Source Address (pre-mremap).
-> 
-> 5. Calculated target address to be 0x100001ff000
-> 6. Successfully mremap'd 64 KB to 0x100001ff000.
-> 
-> --- Verifying Contiguity for: Target Address (post-mremap) at 
-> 0x100001ff000 ---
-> Page |      Virtual Address      | Present |   PFN (Physical)   | 
-> Contiguous?
-> -----+---------------------------+---------+-------------------- 
-> +-------------
->    0  | 0x00000100001ff000 |   Yes   | 0x113aa0           |     Yes
->    1  | 0x0000010000200000 |   Yes   | 0x113aa1           |     Yes
->    2  | 0x0000010000201000 |   Yes   | 0x113aa2           |     Yes
->    3  | 0x0000010000202000 |   Yes   | 0x113aa3           |     Yes
->    4  | 0x0000010000203000 |   Yes   | 0x113aa4           |     Yes
->    5  | 0x0000010000204000 |   Yes   | 0x113aa5           |     Yes
->    6  | 0x0000010000205000 |   Yes   | 0x113aa6           |     Yes
->    7  | 0x0000010000206000 |   Yes   | 0x113aa7           |     Yes
->    8  | 0x0000010000207000 |   Yes   | 0x113aa8           |     Yes
->    9  | 0x0000010000208000 |   Yes   | 0x113aa9           |     Yes
->   10  | 0x0000010000209000 |   Yes   | 0x113aaa           |     Yes
->   11  | 0x000001000020a000 |   Yes   | 0x113aab           |     Yes
->   12  | 0x000001000020b000 |   Yes   | 0x113aac           |     Yes
->   13  | 0x000001000020c000 |   Yes   | 0x113aad           |     Yes
->   14  | 0x000001000020d000 |   Yes   | 0x113aae           |     Yes
->   15  | 0x000001000020e000 |   Yes   | 0x113aaf           |     Yes
-> Verification PASSED: PFNs are contiguous for Target Address (post-mremap).
-> 
-> --- Final Conclusion ---
-> ✅ SUCCESS: The folio's pages remained physically contiguous after 
-> remapping to a PMD-crossing virtual address.
->     The reproducer successfully created the desired edge-case memory 
-> layout.
-> ```
-> Thanks,
-> Lance
-> 
->>
->>>
->>>>
->>>> What prevents folio_pte_batch() from reading outside the page table?
->>>
->>> Assuming such a scenario is possible, to prevent any chance of an
->>> out-of-bounds read, how about this change:
->>>
->>> diff --git a/mm/rmap.c b/mm/rmap.c
->>> index fb63d9256f09..9aeae811a38b 100644
->>> --- a/mm/rmap.c
->>> +++ b/mm/rmap.c
->>> @@ -1852,6 +1852,25 @@ static inline bool 
->>> can_batch_unmap_folio_ptes(unsigned long addr,
->>>       const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>>       int max_nr = folio_nr_pages(folio);
->>>       pte_t pte = ptep_get(ptep);
->>> +    unsigned long end_addr;
->>> +
->>> +    /*
->>> +     * To batch unmap, the entire folio's PTEs must be contiguous
->>> +     * and mapped within the same PTE page table, which corresponds to
->>> +     * a single PMD entry. Before calling folio_pte_batch(), which does
->>> +     * not perform boundary checks itself, we must verify that the
->>> +     * address range covered by the folio does not cross a PMD 
->>> boundary.
->>> +     */
->>> +    end_addr = addr + (max_nr * PAGE_SIZE) - 1;
->>> +
->>> +    /*
->>> +     * A fast way to check for a PMD boundary cross is to align both
->>> +     * the start and end addresses to the PMD boundary and see if they
->>> +     * are different. If they are, the range spans across at least two
->>> +     * different PMD-managed regions.
->>> +     */
->>> +    if ((addr & PMD_MASK) != (end_addr & PMD_MASK))
->>> +        return false;
->>
->> You should not be messing with max_nr = folio_nr_pages(folio) here at 
->> all. folio_pte_batch() takes care of that.
->>
->> Also, way too many comments ;)
->>
->> You may only batch within a single VMA and within a single page table.
->>
->> So simply align the addr up to the next PMD, and make sure it does not 
->> exceed the vma end.
->>
->> ALIGN and friends can help avoiding excessive comments.
->>
-> 
-
+Right this... But that CXL thing sounds like that's semi 'regular' to
+the point that providing some infrastructure around it makes sense. This
+should not be.
 
