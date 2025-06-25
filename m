@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC428C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E290C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5G/XrJPOa3jtF6P+lrfSOEFcVocWUEiY6CM9D1rbFR8=; b=AYETUreFlpTo75zaf9Ix4+zuYE
-	XCffiQSewpgVrZ3NnCezG2f1QtM6czVVM/zqs/2pS41pbiVXlzyS2ROhnQwxC947RKjNPAXvdFjoz
-	xvfYnbfma+BmDDiKXzJx1tt2zUSGRacFqDdGRRRCB50X+1f2PKx6c5ktyqer0F0rW6I3wVfg/k/Hk
-	0QD1FDsRMeOq75obSrlqpUPePgEYscCtrn90YtBlkp3HEOHqF3TNo1ruT1EfolBnFcHczBu5Fpcrg
-	sBoZb/Zp6XWVJCgTUSxUJIfwkIWYhsb4FrCkS3EZS2wwLCnhwwta98roXL2UyboDsEm4XqoB55qqP
-	GycZ4WXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMgLsepUrUiT/59nmglA4EXX6Av+rORUCNHuUnPPOLw=; b=c91SHFAyU1Q8xYyYY7EPY00H/Z
+	JjmaG6GekLk0+1lJK603ePp9CNybhMvBmeeODjmndaErIR/ptUStNNMJNbYhbgB6GsbuuaGkUJSor
+	XXW23Er3jkTCSFNgHEzwxYwWgC0gNRLfaiGfjOxi7LT9CNLGiCDU3yN6qrEAM5Ycsh3PPjun/cgcp
+	kR5X5IaZ6rUurbEV92N5XHLg2dE9WZ+z/xcV7hKu17YmIos/wukAF7SKJhdgCH7xOnUFmBYd4ZvEs
+	xDw2pGG+xYeSYrnu2hXCV/83RsbiC3GaW42Qm6I7o+YjGxjNZbUfXiauE/jcL4weoTN9ou3xNi72z
+	0CvmEgEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWPI-00000009oEj-1fyU;
-	Wed, 25 Jun 2025 20:07:44 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uUWpL-00000009qqr-20st;
+	Wed, 25 Jun 2025 20:34:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSsw-00000009GSb-2TVr
+	id 1uUPzw-00000008lip-1HFC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 16:22:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750868527; x=1782404527;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Ou8QHMFdgetDzK5dLd56qGIJObazJQu5Eap283Iz/b8=;
-  b=FtsCiTKiYt020/+qnyXRPX2JoG/mheA4Q2wr+Y6uy6iAwZzo1kmU77g1
-   WXrJZEL7hEWrRsEZ/3Z7zWPc7G65PPUZVNW7kMWvGS+pms/6Yp2atf6sb
-   fycGG0HRqxch5e6S+IZQezy7kHn0hdFcJxeE/7Ati3rOUFhrmXwdpro4H
-   /REVvD8I85npUxSg+KRDQKG7GVKpjHTBjnCrWkRs2wBVUALeV1T8dVFFo
-   hF7/2nl4vW0DFwNRNa/02jyLP24MCuH3QWsL3f7h/QrbBkfILlB5YuxXj
-   SNPYMS4xekMvlOxrjDnErPBBA1GRU7O/nBqyzMgyJPoMxw+JTlI7QeoaJ
-   Q==;
-X-CSE-ConnectionGUID: wT4/KHPNTjuQ+1rXLoSaGw==
-X-CSE-MsgGUID: NzTEYkL9S5SzsopFbrQ7xw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="53013155"
-X-IronPort-AV: E=Sophos;i="6.16,265,1744095600"; 
-   d="scan'208";a="53013155"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 09:22:05 -0700
-X-CSE-ConnectionGUID: HE36SdgBRouSxKN5A3ZuUA==
-X-CSE-MsgGUID: VNv6kMPsT8Gfurry55xSsg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,265,1744095600"; 
-   d="scan'208";a="175913297"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 25 Jun 2025 09:21:59 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uUSsm-000TIU-3C;
-	Wed, 25 Jun 2025 16:21:56 +0000
-Date: Thu, 26 Jun 2025 00:21:23 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
-	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, gregkh@linuxfoundation.org,
-	Will Deacon <will@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Davidlohr Bueso <dave@stgolabs.net>
-Cc: oe-kbuild-all@lists.linux.dev, Yicong Yang <yangyicong@huawei.com>,
-	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, H Peter Anvin <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH v2 5/8] arm64: Select
- GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <202506260055.YivRG9iE-lkp@intel.com>
-References: <20250624154805.66985-6-Jonathan.Cameron@huawei.com>
+	Wed, 25 Jun 2025 13:17:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A771661784;
+	Wed, 25 Jun 2025 13:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F877C4CEEA;
+	Wed, 25 Jun 2025 13:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750857427;
+	bh=GQCtV65tnQSYaczAMpaz5abbjbW1c9WMqIxzwn0KYr4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pBJwVyJ5ILFW2wIUW1Ms5dl8Af3Ir1xWOfDgTS97UtVEZT3uC6vo4AAOEnXpBwruQ
+	 EujFxoRE3LsYWvuK0DlP48m/pPWi4aiK6dgydPzfKPejs59D1L83a17xWV3LK19a/P
+	 cNVyAtD6qB82QYig3G5MDo6w7YAiTO2CWJ9f93czKZT13rnJRvxiQnvWxmYioMJNRT
+	 ueO2fP6aE1PsMqssJUNf6j3H7si+yFx21J0jCxBrp4hoIuBc0yjbTrLMNy/MPtBnVW
+	 Y8/WauWdiA3USwBRp/NqX2fGAymGfEmIG6RWL9EpM+Iqn6bK25Uv4s6hOo3gZPhtbc
+	 0CUqYN7zfSEcg==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 7F9B85FFBC; Wed, 25 Jun 2025 21:17:02 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v2 5/5] arm64: dts: allwinner: t527: Add OrangePi 4A board
+Date: Wed, 25 Jun 2025 21:16:52 +0800
+Message-Id: <20250625131652.1667345-6-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250625131652.1667345-1-wens@kernel.org>
+References: <20250625131652.1667345-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250624154805.66985-6-Jonathan.Cameron@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_092206_704960_09E9FA30 
-X-CRM114-Status: GOOD (  12.52  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +78,445 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+From: Chen-Yu Tsai <wens@csie.org>
 
-kernel test robot noticed the following build warnings:
+The OrangePi 4A is a typical Raspberry Pi model B sized development
+board from Xunlong designed around an Allwinner T527 SoC.
 
-[auto build test WARNING on driver-core/driver-core-testing]
-[also build test WARNING on driver-core/driver-core-next driver-core/driver-core-linus arm64/for-next/core linus/master nvdimm/libnvdimm-for-next v6.16-rc3]
-[cannot apply to nvdimm/dax-misc next-20250625]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+The board has the following features:
+- Allwinner T527 SoC
+- AXP717B + AXP323 PMICs
+- Up to 4GB LPDDR4 DRAM
+- micro SD slot
+- optional eMMC module
+- M.2 slot for PCIe 2.0 x1
+- 16 MB SPI-NOR flash
+- 4x USB 2.0 type-A ports (one can be used in gadget mode)
+- 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMAC200)
+- 3.5mm audio jack via internal audio codec
+- HDMI 2.0 output
+- eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
+- USB type-C port purely for power
+- AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
+- unsoldered headers for ADC and an additional USB 2.0 host port
+- 40-pin GPIO header
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jonathan-Cameron/memregion-Support-fine-grained-invalidate-by-cpu_cache_invalidate_memregion/20250624-235402
-base:   driver-core/driver-core-testing
-patch link:    https://lore.kernel.org/r/20250624154805.66985-6-Jonathan.Cameron%40huawei.com
-patch subject: [PATCH v2 5/8] arm64: Select GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20250626/202506260055.YivRG9iE-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250626/202506260055.YivRG9iE-lkp@intel.com/reproduce)
+Add a device tree for it, enabling all peripherals currently supported.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506260055.YivRG9iE-lkp@intel.com/
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+Changes since v1:
+- Fixed regulator names for bldo3 and bldo4
+- Dropped labels for aldo1, bldo3, and bldo4, which are not really used
+- Added voltage constraints to aldo2, based on specifications from
+  schematic
+- Appended "-usb-0v9" to cpusldo's regulator name
+- Added comments to explain how axp323 aldo1 and dldo1 are tied together
 
-All warnings (new ones prefixed by >>):
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 383 ++++++++++++++++++
+ 2 files changed, 384 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
 
->> drivers/base/cache.c:31:5: warning: no previous prototype for 'cpu_cache_invalidate_memregion' [-Wmissing-prototypes]
-      31 | int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-         |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/base/cache.c:41:6: warning: no previous prototype for 'cpu_cache_has_invalidate_memregion' [-Wmissing-prototypes]
-      41 | bool cpu_cache_has_invalidate_memregion(void)
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/cpu_cache_invalidate_memregion +31 drivers/base/cache.c
-
-b51d47491c68ae Yicong Yang 2025-06-24  30  
-b51d47491c68ae Yicong Yang 2025-06-24 @31  int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-b51d47491c68ae Yicong Yang 2025-06-24  32  {
-b51d47491c68ae Yicong Yang 2025-06-24  33  	guard(spinlock_irqsave)(&scfm_lock);
-b51d47491c68ae Yicong Yang 2025-06-24  34  	if (!scfm_data)
-b51d47491c68ae Yicong Yang 2025-06-24  35  		return -EOPNOTSUPP;
-b51d47491c68ae Yicong Yang 2025-06-24  36  
-b51d47491c68ae Yicong Yang 2025-06-24  37  	return scfm_data->invalidate_memregion(res_desc, start, len);
-b51d47491c68ae Yicong Yang 2025-06-24  38  }
-b51d47491c68ae Yicong Yang 2025-06-24  39  EXPORT_SYMBOL_NS_GPL(cpu_cache_invalidate_memregion, "DEVMEM");
-b51d47491c68ae Yicong Yang 2025-06-24  40  
-b51d47491c68ae Yicong Yang 2025-06-24 @41  bool cpu_cache_has_invalidate_memregion(void)
-
+diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+index 773cc02a13d0..780aeba0f3a4 100644
+--- a/arch/arm64/boot/dts/allwinner/Makefile
++++ b/arch/arm64/boot/dts/allwinner/Makefile
+@@ -57,3 +57,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+new file mode 100644
+index 000000000000..ff2fd8e71e03
+--- /dev/null
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -0,0 +1,383 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
++/*
++ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
++ */
++
++/dts-v1/;
++
++#include "sun55i-a523.dtsi"
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++
++/ {
++	model = "OrangePi 4A";
++	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	ext_osc32k: ext-osc32k-clk {
++		#clock-cells = <0>;
++		compatible = "fixed-clock";
++		clock-frequency = <32768>;
++		clock-output-names = "ext_osc32k";
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		/* PWM capable pin, but PWM isn't supported yet. */
++		led {
++			function = LED_FUNCTION_STATUS;
++			color = <LED_COLOR_ID_GREEN>;
++			gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
++		};
++	};
++
++	wifi_pwrseq: pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&r_pio 1 1 GPIO_ACTIVE_LOW>; /* PM1 */
++		clocks = <&rtc CLK_OSC32K_FANOUT>;
++		clock-names = "ext_clock";
++	};
++
++	reg_otg_vbus: regulator-otg-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "otg-vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&reg_vcc5v>;
++		gpio = <&r_pio 0 4 GPIO_ACTIVE_HIGH>;	/* PL4 */
++		enable-active-high;
++	};
++
++	reg_pcie_vcc3v3: regulator-pcie-vcc3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc-pcie-3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&reg_vcc5v>;
++		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
++		enable-active-high;
++	};
++
++	reg_usb_vbus: regulator-usb-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "usb-vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&reg_vcc5v>;
++		gpio = <&r_pio 0 12 GPIO_ACTIVE_HIGH>;	/* PL12 */
++		enable-active-high;
++	};
++
++	reg_vcc5v: regulator-vcc5v {
++		/* board wide 5V supply from USB type-C port */
++		compatible = "regulator-fixed";
++		regulator-name = "vcc-5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++	};
++};
++
++&ehci0 {
++	status = "okay";
++};
++
++&ehci1 {
++	status = "okay";
++};
++
++&mmc0 {
++	vmmc-supply = <&reg_cldo3>;
++	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
++	bus-width = <4>;
++	status = "okay";
++};
++
++&mmc1 {
++	bus-width = <4>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	non-removable;
++	vmmc-supply = <&reg_dldo1_323>;
++	vqmmc-supply = <&reg_bldo1>;
++	status = "okay";
++
++	brcmf: wifi@1 {
++		compatible = "brcm,bcm4329-fmac";
++		reg = <1>;
++		interrupt-parent = <&r_pio>;
++		interrupts = <1 0 IRQ_TYPE_LEVEL_LOW>; /* PM0 */
++		interrupt-names = "host-wake";
++	};
++};
++
++&mmc2 {
++	bus-width = <8>;
++	cap-mmc-hw-reset;
++	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
++	non-removable;
++	vmmc-supply = <&reg_cldo3>;
++	vqmmc-supply = <&reg_cldo1>;
++	status = "okay";
++};
++
++&ohci0 {
++	status = "okay";
++};
++
++&ohci1 {
++	status = "okay";
++};
++
++&pio {
++	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
++	vcc-pc-supply = <&reg_cldo1>;
++	vcc-pd-supply = <&reg_cldo3>;
++	vcc-pe-supply = <&reg_aldo2>;
++	vcc-pf-supply = <&reg_cldo3>;	/* VCC-IO for 3.3v; VCC-MCSI for 1.8v */
++	vcc-pg-supply = <&reg_bldo1>;
++	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
++	vcc-pi-supply = <&reg_cldo3>;
++	vcc-pj-supply = <&reg_cldo1>;
++	vcc-pk-supply = <&reg_cldo1>;
++};
++
++&r_i2c0 {
++	status = "okay";
++
++	axp717: pmic@35 {
++		compatible = "x-powers,axp717";
++		reg = <0x35>;
++		interrupt-controller;
++		#interrupt-cells = <1>;
++		interrupts-extended = <&nmi_intc 0 IRQ_TYPE_LEVEL_LOW>;
++
++		vin1-supply = <&reg_vcc5v>;
++		vin2-supply = <&reg_vcc5v>;
++		vin3-supply = <&reg_vcc5v>;
++		vin4-supply = <&reg_vcc5v>;
++		aldoin-supply = <&reg_vcc5v>;
++		bldoin-supply = <&reg_vcc5v>;
++		cldoin-supply = <&reg_vcc5v>;
++
++		regulators {
++			/* Supplies the "little" cluster (1.4 GHz cores) */
++			reg_dcdc1: dcdc1 {
++				regulator-always-on;
++				regulator-min-microvolt = <900000>;
++				regulator-max-microvolt = <1160000>;
++				regulator-name = "vdd-cpul";
++			};
++
++			reg_dcdc2: dcdc2 {
++				regulator-always-on;
++				regulator-min-microvolt = <920000>;
++				regulator-max-microvolt = <920000>;
++				regulator-name = "vdd-gpu-sys";
++			};
++
++			reg_dcdc3: dcdc3 {
++				regulator-always-on;
++				regulator-min-microvolt = <1160000>;
++				regulator-max-microvolt = <1160000>;
++				regulator-name = "vcc-dram";
++			};
++
++			reg_dcdc4: dcdc4 {
++				/* feeds 3.3V pin on GPIO header */
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vdd-io";
++			};
++
++			aldo1 {
++				/* not actually connected */
++				regulator-name = "avdd-csi";
++			};
++
++			reg_aldo2: aldo2 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc-pe";
++			};
++
++			reg_aldo3: aldo3 {
++				/* supplies the I2C pins for this PMIC */
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-pl-usb";
++			};
++
++			reg_aldo4: aldo4 {
++				regulator-always-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc-pll-dxco-avcc";
++			};
++
++			reg_bldo1: bldo1 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc-pg-wifi";
++			};
++
++			reg_bldo2: bldo2 {
++				regulator-always-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc-pm-lpddr";
++			};
++
++			bldo3 {
++				/* not actually connected */
++				regulator-name = "afvcc-csi";
++			};
++
++			bldo4 {
++				/* not actually connected */
++				regulator-name = "dvdd-csi";
++			};
++
++			reg_cldo1: cldo1 {
++				regulator-always-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc-cvp-pc-lvds-mcsi-pk-efuse-pcie-edp-1v8";
++			};
++
++			reg_cldo2: cldo2 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc3v3-csi";
++			};
++
++			reg_cldo3: cldo3 {
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-io-mmc-nand-pd-pi-usb";
++			};
++
++			reg_cldo4: cldo4 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-3v3-phy1-lcd";
++			};
++
++			reg_cpusldo: cpusldo {
++				/* supplies the management core */
++				regulator-always-on;
++				regulator-min-microvolt = <900000>;
++				regulator-max-microvolt = <900000>;
++				regulator-name = "vdd-cpus";
++			};
++		};
++	};
++
++	axp323: pmic@36 {
++		compatible = "x-powers,axp323";
++		reg = <0x36>;
++		#interrupt-cells = <1>;
++		interrupt-controller;
++		status = "okay";
++
++		vin1-supply = <&reg_vcc5v>;
++		vin2-supply = <&reg_vcc5v>;
++		vin3-supply = <&reg_vcc5v>;
++
++		regulators {
++			reg_aldo1_323: aldo1 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-wifi";
++			};
++
++			reg_dldo1_323: dldo1 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc-wifi2";
++			};
++
++			/* Supplies the "big" cluster (1.8 GHz cores) */
++			reg_dcdc1_323: dcdc1 {
++				regulator-always-on;
++				regulator-min-microvolt = <900000>;
++				regulator-max-microvolt = <1150000>;
++				regulator-name = "vdd-cpub";
++			};
++
++			/* DCDC2 is polyphased with DCDC1 */
++
++			/* Some RISC-V management core related voltage */
++			reg_dcdc3_323: dcdc3 {
++				regulator-always-on;
++				regulator-min-microvolt = <900000>;
++				regulator-max-microvolt = <900000>;
++				regulator-name = "vdd-dnr";
++			};
++		};
++	};
++};
++
++&r_pio {
++/*
++ * Specifying the supply would create a circular dependency.
++ *
++ *	vcc-pl-supply = <&reg_aldo3>;
++ */
++	vcc-pm-supply = <&reg_bldo2>;
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pb_pins>;
++	status = "okay";
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		clocks = <&rtc CLK_OSC32K_FANOUT>;
++		clock-names = "lpo";
++		vbat-supply = <&reg_aldo1_323>;
++		vddio-supply = <&reg_bldo1>;
++		device-wakeup-gpios = <&r_pio 1 3 GPIO_ACTIVE_HIGH>; /* PM3 */
++		host-wakeup-gpios = <&r_pio 1 4 GPIO_ACTIVE_HIGH>; /* PM4 */
++		shutdown-gpios = <&r_pio 1 2 GPIO_ACTIVE_HIGH>; /* PM2 */
++	};
++};
++
++&usb_otg {
++	 /*
++	  * The OTG controller is connected to one of the type-A ports.
++	  * There is a regulator, controlled by a GPIO, to provide VBUS power
++	  * to the port, and a VBUSDET GPIO, to detect externally provided
++	  * power. But without ID or CC pins there is no real way to do a
++	  * runtime role detection.
++	  */
++	dr_mode = "host";
++	status = "okay";
++};
++
++&usbphy {
++	usb0_vbus-supply = <&reg_otg_vbus>;
++	usb0_vbus_det-gpios = <&r_pio 0 7 GPIO_ACTIVE_HIGH>; /* PL7 */
++	usb1_vbus-supply = <&reg_usb_vbus>;
++	status = "okay";
++};
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.5
+
 
