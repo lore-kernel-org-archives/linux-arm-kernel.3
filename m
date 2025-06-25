@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89972C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397CAC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzS2TVF0KTqdm7w3+IvzHczTzwQfADP8TeCIQv8e5jU=; b=fNrFQaQwGxrwlwAMQPfEHyifJk
-	heJ22MIHSnMb8loYn7xwEFLa5DqIzEPaXFEuSA3JW1S6EgjSQcoqCzq6kDNTVJf/gi56f+vcwqIuR
-	NPZlNLXn9JT/0FR8nK3x6ddTg5zdt+Xq84YNGkoFbC9p1wDk87r1Q593K/kUMwreAy/zcpF8xSAck
-	8RPJt1L42eJ8Z5enStwFtL+EpawNh7ZOC9/jyQUAMTbmxsDqm6miWLRE5G3cG6JNArwrKuqkU4uft
-	SpimcgILxDwYBNZK1Ki7OOb/rvCLnqNJJI3y8/p5+jXJrPIWh0IG765NWDLZZjhO3nCcuGSnBIbuT
-	5WjKUIqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QJdvpVITRwF2XMxNNMeLPGgw5FgCEDZPTublYeuAlVY=; b=XdgVOrE4W/W8E2HoLV0wLsvbzS
+	tMAtYbpyxqJma7ahGy7VpD2UG4n8kX4QXz2j+NO7UjMxZ/mFM5YnXofjqktf08FF6ErhYFmCfAQA6
+	WslJsq234S3pOPIaVUSZC+IhQH4ok/Dh4cYD5xS1EQ2yB2biRDe3y9dcPc00BFpLKUGAiFlUENPhT
+	rTGzdgpD4G4oyYUNshfdYhPmiqRgtldx93hMUS/7XUI7yG5orK+cULWjSeypjwn1rmkM8Rd86hAG5
+	d7c/5yRQNki8N5XCxVkxI0U5CW1sZHBYiQ+5tlt/EttiX0Tr8F/NRlv8fcVCIfhhWWWDtivq86RBx
+	65KKWFnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUO1Y-00000008QxP-1hGM;
-	Wed, 25 Jun 2025 11:10:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUO3o-00000008RCZ-2aUU;
+	Wed, 25 Jun 2025 11:13:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNIg-00000008Ikm-1thf;
-	Wed, 25 Jun 2025 10:24:18 +0000
+	id 1uUNJA-00000008IsT-3TS4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 10:24:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QJdvpVITRwF2XMxNNMeLPGgw5FgCEDZPTublYeuAlVY=; b=AZsBDd6DK9VIw44F0bPBNpObtd
+	mdl6E1Hwy7CYTblBoAT5vSdU1S9Fe8SUihkYuGPhb41UBTkJlSubqAiikxUxSux9ZMvUZXPKzlUIy
+	BvyaMxP3yiqGTFfPSs1fKTWw+sOam0OPnH3XpcMA9O8SuSLvj4iEzCHrGkw2Bwb/j2QjfqtSyFaTi
+	03GgcfE4TGULIiaC1aOjk15WrcmoyYWYg1JfbZEFP0shWl8Q1XbKhZzujhFDoS4SpCXJ7SjyZVT0e
+	FOKO0gOu58D3PMBYnI132fjyznhogcCx5GtDilZMCUSsdzvkoY5q71/98hWo8t5+zzo/Dgv0HHzdP
+	Od9WtzeQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUNJ8-00000005mVa-0TdE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 10:24:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CAD4615F1;
-	Wed, 25 Jun 2025 10:24:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A5B7C4CEEA;
-	Wed, 25 Jun 2025 10:24:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E98A49E2C;
+	Wed, 25 Jun 2025 10:24:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B991EC4CEEA;
+	Wed, 25 Jun 2025 10:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750847057;
-	bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FTmem3FjeByuxN3AFYV8SvH4Jp6ywYl31k89fVhpLW0EPgAJobotpohjk3GlPLd4n
-	 kYL+YDqYfjlr2I+bDaZsZrX+0aNmH+nwsWLJQX0RTi9SJavPkIpVBh9ynnx8X7xzM5
-	 Wr02Lcg35Kf5y/KHFQaafbduDZXvAti/mGA+EkP7OX8XDuza7FwICuYcYDwpDsOGkM
-	 St503jNuj7piVGM/T8kWrTbG6tu78LPdizjK8caC6p8228zgJT9z3a7eyxPKkI6AqT
-	 G1VuSR6Q63E7CtSZsASdxtKAcmWbf3S9WYPuZS1NGELPdfUrHN3VvavxwR7qdV4VmU
-	 Kij7n8/qUJjzA==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Simon Xue <xxm@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v4 3/7] PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
-Date: Wed, 25 Jun 2025 12:23:49 +0200
-Message-ID: <20250625102347.1205584-12-cassel@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250625102347.1205584-9-cassel@kernel.org>
-References: <20250625102347.1205584-9-cassel@kernel.org>
+	s=k20201202; t=1750847075;
+	bh=jQKiZvyPyPPSuFSDfrH9+KNEHhw/SGeXba4D7QcIO88=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E7kfdUAKilCSEJO33iTRF0Hck5tE46oWeICVFdeY6HhZK7AvRWfxk/Rw0Cl6uq0xa
+	 0qOMYkw/ERvrz62II+mdfKWdJwni0MYFmlw/WGBKOe5KxowTLiYbV+0eYPT1QCiuFJ
+	 N5LVaOM5AjPiCjYJMvv0UJ+82xMperwZlaYojEZjyB/URlhNK3vtC6AtR5Ig0WSR7O
+	 lpo3oS0q06uKDvaGJPcA0JZe4TC30uYtqxuDxgCxl+qGt3iWMxc7l4Bw9kTYO4/lhs
+	 32YZwf0in6VpXfY5MavxnvauIzv0FtEV1NSqtvZNpUxibd0o4e0PMwjaYGLjsiepMw
+	 YuKiIopgtpWFg==
+Date: Wed, 25 Jun 2025 11:24:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] selftests/arm64: Prevent build warnings from
+ -Wmaybe-uninitialized
+Message-ID: <dd3dee5a-b030-4658-8cef-c777928368d4@sirena.org.uk>
+References: <20250625020138.3777454-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1789; i=cassel@kernel.org; h=from:subject; bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDKiz1nwc+3rkXhsPM2b29DQoijz7hTWMn2x4j+3OHgjf N9u/9zTUcrCIMbFICumyOL7w2V/cbf7lOOKd2xg5rAygQxh4OIUgIlMXMnI8Jp9W+It7TOTv29s yVplsObnXT4H5oaga5PfF1/T8dmbXsnwV1ztVuf106+WH1BsnbLryO0pvcp8/pvylvMu2dN14nn bFQ4A
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uTSVuHLcUzAyoEkz"
+Content-Disposition: inline
+In-Reply-To: <20250625020138.3777454-1-anshuman.khandual@arm.com>
+X-Cookie: He who hates vices hates mankind.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_112446_382384_DF36A7A7 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per PCIe r6.0, sec 6.6.1, software must generally wait a minimum of
-100ms (PCIE_RESET_CONFIG_WAIT_MS) after Link training completes before
-sending a Configuration Request.
 
-Prior to ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since
-we can detect Link Up"), dw-rockchip used dw_pcie_wait_for_link(),
-which waited between 0 and 90ms after the link came up before we
-enumerate the bus, and this was apparently enough for most devices.
+--uTSVuHLcUzAyoEkz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-After ec9fd499b9c6, rockchip_pcie_rc_sys_irq_thread() started
-enumeration immediately when handling the link-up IRQ, and devices
-(e.g., Laszlo Fiat's PLEXTOR PX-256M8PeGN NVMe SSD) may not be ready
-to handle config requests yet.
+On Wed, Jun 25, 2025 at 03:01:38AM +0100, Anshuman Khandual wrote:
 
-Delay PCIE_RESET_CONFIG_WAIT_MS after the link-up IRQ before starting
-enumeration.
+> @@ -96,7 +96,7 @@ static int write_sleep_read(void)
+>  static int write_fork_read(void)
+>  {
+>  	pid_t newpid, waiting, oldpid;
+> -	int status;
+> +	int status =3D 0;
+> =20
+>  	set_tpidr2(getpid());
+> =20
 
-Cc: Laszlo Fiat <laszlo.fiat@proton.me>
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
-Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
- 1 file changed, 1 insertion(+)
+This will shut the warnings up, but it's a bit of a heavy hammer that
+means that the warning can never trigger warnings for that variable
+being unused.  Is it possible to fix this by updating the control flow
+such that the compiler can tell that the initialisation follows the use?
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 93171a392879..108d30637920 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -458,6 +458,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
- 
- 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
- 		if (rockchip_pcie_link_up(pci)) {
-+			msleep(PCIE_RESET_CONFIG_WAIT_MS);
- 			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
- 			/* Rescan the bus to enumerate endpoint devices */
- 			pci_lock_rescan_remove();
--- 
-2.49.0
+--uTSVuHLcUzAyoEkz
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhbzl0ACgkQJNaLcl1U
+h9Bc5Qf/W9ejrLs4QXMHndtRwtXhav2EyIBFrqlAGpdfTSQIyTff+wqdpaLDyMmR
+ZmeGDrmoynYVNNalZNSICMSbUkLZFXSoO7J02n9wXXZTsHUaq+AOSatlg4cTRRQK
+QavCYs4U6IrW3sz+31z8jLXv9RnGOCsZdLCLo7rpigfCgtVOEYdX4CyGDAkD5rus
+x94lBlvq4OBAUw50U/UYZOaYMr25Ish02IHxQa1egeIS+mZE+ygBAB8mqcKa7hfs
+z2Ub9sLvk/7JwfJy8wp8ADaMhpDHjbxVSx6kDOU3lsSVvL2drEQBUKee750BWDvj
+2sX+mYH15Tg9qEnY64cdqqQ4WEPqhQ==
+=lo/L
+-----END PGP SIGNATURE-----
+
+--uTSVuHLcUzAyoEkz--
 
