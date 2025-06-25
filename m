@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F805C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 01:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF94C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 01:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/uVpQ7PLCRSxcig0My3AaP+Q3ZbgcGzY9VErjsdtEE=; b=OWT/azeCqj2eRybObC+JUnrWez
-	+Q1BgJKy4doVJsiNoV/HKJZXQGtRv3Z8IiOsPlf+FoLVCxESxbAAD1/VjwZE9cfwbN97Bn4UAo4t3
-	NZLOl6Wi8KZnpIYfGDQ7rRXb6HinnUUJW0OZMQx3wyI53oEBokPs88REfcyB8Ft0IVYPxV1aO/rF9
-	8692wBQix7/RDJahjKy+c4XoC7HmX35oN9z0K/Xo6nbFaF2fXK5dFLUBiys/oqjiQ67zRbYB6tDVY
-	SYgiFopCWzXeY33phv5IC2q1rJjBRg1uieNz1S51VXQqylt0lmkBWKAuJ5iNBuQZE0SL7yn3geFTx
-	tKf7OROw==;
+	bh=dqqXtvz4DGOvWCpKBme8+JTNyTNkM/rvX9pTimfD8GY=; b=OrZndg/jOt2xrYG77M9OYpmnDk
+	Sn+EYmLiIb4xcFdo37uD+gv5Vl4oL3x0Q/EXRh5bLKAYZne5PjFx0+KRZ3SIUh3JMq+YqeJC3VEJi
+	w3k7W42HQVIb4DEFR6yNW0prPAG4VKsyu7juW5aUv+GMl35ht+XY30fm9rNW2mj4BtGfs9vhxU8H4
+	HsLlVX0ezdRgSIy7brcr0USRF0OOtzIQPYAiufAbiyWDMLdtRbELaP5pr+Jgl6c4ZJGBoo1cf0mLI
+	FIDT7w4NN0ziT3xzYm58vixPyD6cmx1/C5v9DCgJKqewAy1Ni2Fc+XXczRcKg0AjAgaXKHFZ3MGcp
+	csBtBdDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUEly-00000007FI2-0SFj;
-	Wed, 25 Jun 2025 01:17:58 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uUEwt-00000007GHq-3A8I;
+	Wed, 25 Jun 2025 01:29:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUEjf-00000007F2p-3aDO;
-	Wed, 25 Jun 2025 01:15:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750814136; x=1782350136;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kS3ORGHMAm1WSArCy9GZIu9x7Ni3+9c8myn5vEq4Uaw=;
-  b=LO5T5lPQV36qnSHrl70rNUE2C3zkVzUn+sO5rYes5EWJHda/RTo+vCHr
-   cR0BKEcSjoGqm/oi1wPKjO2j28br5eTgieX9SGWO5KDTV7mWPuOD2A8Ta
-   t4x9hTIKVFDcf/BpOOk7+mkFggbo/3dgDtAvqxv4FZW4+QqIABNXFAkg5
-   319s2ubimR0xP7U+ymBMgu3dTSFbsTi9x50YpC2Giq25WAKgF7uNurf7v
-   oZgMGmWa+gyoXD5BbhzEH9v1FmwQKtrkdvOkCBu/l6mD4y+5UYtqLYcSZ
-   /HwPrXKwcGcAnmyu2ID2g6y0IyHiGhzUZfbE8aW10jikgdm5Dixanc7gd
-   A==;
-X-CSE-ConnectionGUID: EzaGs50eQPKwEsDFYNhD+g==
-X-CSE-MsgGUID: 3L4bm2vXTz+GWPJ6g04rWA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11474"; a="52186033"
-X-IronPort-AV: E=Sophos;i="6.16,263,1744095600"; 
-   d="scan'208";a="52186033"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 18:15:32 -0700
-X-CSE-ConnectionGUID: K0CGdRIhRn2u+rZKk+0HDQ==
-X-CSE-MsgGUID: uOrbc5G/QPGzRZU3elknYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,263,1744095600"; 
-   d="scan'208";a="151816874"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 24 Jun 2025 18:15:27 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uUEjV-000SeM-12;
-	Wed, 25 Jun 2025 01:15:25 +0000
-Date: Wed, 25 Jun 2025 09:14:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yao Zi <ziyao@disroot.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1uUEub-00000007G9g-3E9O;
+	Wed, 25 Jun 2025 01:26:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750814804; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CY915g0J9dwjK/VuSxR3Ffb2t1N38ldg0Jy+2nyRBgZNhBed6yO5jhUrmOXr/QaA5NvXAItDUu/Cj80vNjRC2OiC4I5rSHa1vyZC0898ca22VdJC7pkWPV7Iuc9/efdnUIZFKykJ3hV9wL6elXVUTkT7q/CzgEcmF7SlZkYsg6c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750814804; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=dqqXtvz4DGOvWCpKBme8+JTNyTNkM/rvX9pTimfD8GY=; 
+	b=lzp4Uqo4vMKzwljxxWSslksGnaQBzYt2u7eNQ6QY5jPXFdz4KcueMKnI7PRJShbhBG7LOXzQ022afliCV+oaodps0kewlIqW3oItZauEnMenl0TbubjrYtbmz9hgxM+4p2xXZ/CMYsPLrrJnfekxu8ZJ8KAQlAFKGnH5jwxSqek=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750814804;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=dqqXtvz4DGOvWCpKBme8+JTNyTNkM/rvX9pTimfD8GY=;
+	b=LahF0Ho6qrRFiBpniTx85Y2OsPAc3ydS7skuSodBj2tnsf/Kdb/3KOauk3+N+R6+
+	D5FwuUYG/IkZdjbKbT3m7rHIpShXP2NnEAGkj4ephBMxNPvqiGD7w8356EQpLjDJ8y9
+	x/sj4IxY7JVNo/95Kynr3zAi8Wb6BTfA16HmjWPQ=
+Received: by mx.zohomail.com with SMTPS id 1750814803177217.20995854983448;
+	Tue, 24 Jun 2025 18:26:43 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 118841809B8; Wed, 25 Jun 2025 03:26:38 +0200 (CEST)
+Date: Wed, 25 Jun 2025 03:26:37 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Quentin Schulz <foss+kernel@0leil.net>, Lee Jones <lee@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, Daniel Semkowicz <dse@thaumatec.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 6/6] arm64: dts: rockchip: Add naneng-combphy for
- RK3528
-Message-ID: <202506250816.aR1dRh1e-lkp@intel.com>
-References: <20250624033733.50197-7-ziyao@disroot.org>
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
+ constants
+Message-ID: <nja7c4ikyoxpoque62c52eboa22gt4zt72vaseaoo5bbzyrlor@gte3jm2sbecv>
+References: <20250618-rk8xx-rst-fun-v3-0-081f02d3d348@cherry.de>
+ <20250618-rk8xx-rst-fun-v3-3-081f02d3d348@cherry.de>
+ <t3wbjpbw7phqvip4yvxm5kux6hor5pehzamrw6hjv3hq2b3j3n@zuf2vuhgpdpp>
+ <7149b6a8-7715-4920-829d-5b416d40fc16@cherry.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lor23qymgpuiul5d"
 Content-Disposition: inline
-In-Reply-To: <20250624033733.50197-7-ziyao@disroot.org>
+In-Reply-To: <7149b6a8-7715-4920-829d-5b416d40fc16@cherry.de>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/250.326.2
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_181535_916331_BA76A75A 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250624_182653_885578_859CB880 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +90,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao,
 
-kernel test robot noticed the following build errors:
+--lor23qymgpuiul5d
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: add header for RK8XX PMIC
+ constants
+MIME-Version: 1.0
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on rockchip/for-next linus/master v6.16-rc3 next-20250624]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Hi,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yao-Zi/dt-bindings-soc-rockchip-Add-RK3528-pipe-phy-GRF-syscon/20250624-114238
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250624033733.50197-7-ziyao%40disroot.org
-patch subject: [PATCH v4 6/6] arm64: dts: rockchip: Add naneng-combphy for RK3528
-config: arm64-randconfig-001-20250624 (https://download.01.org/0day-ci/archive/20250625/202506250816.aR1dRh1e-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project e04c938cc08a90ae60440ce22d072ebc69d67ee8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250625/202506250816.aR1dRh1e-lkp@intel.com/reproduce)
+On Mon, Jun 23, 2025 at 11:48:27AM +0200, Quentin Schulz wrote:
+> On 6/19/25 5:51 PM, Sebastian Reichel wrote:
+> > On Wed, Jun 18, 2025 at 12:32:42PM +0200, Quentin Schulz wrote:
+> > > From: Quentin Schulz <quentin.schulz@cherry.de>
+> > >=20
+> > > To make it easier to read the device tree, let's add constants for the
+> > > rockchip,reset-mode property values that are currently only applicable
+> > > to RK806 PMIC.
+> > >=20
+> > > Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> > > ---
+> > >   arch/arm64/boot/dts/rockchip/rk8xx.h | 18 ++++++++++++++++++
+> >=20
+> > I think this header should be in include/dt-bindings/, otherwise the
+>=20
+> v2 did that and the feedback from dt-binding people was they didn't want =
+(as
+> far as I understood) unused constants as ABI[1][2].
+>=20
+> [1]
+> https://lore.kernel.org/all/704d75df-a484-4da3-9bcb-85b480e2ecf0@kernel.o=
+rg/
+> [2]
+> https://lore.kernel.org/all/a9baf6b0-b668-4d10-b9de-b63eb3fd8f23@kernel.o=
+rg/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506250816.aR1dRh1e-lkp@intel.com/
+I wonder if it would be considered an ABI, if the drivers would use
+the values like this:
 
-All errors (new ones prefixed by >>):
+switch (value_from_dt) {
+case RK806_RESTART:
+case RK806_RESET:
+case RK806_RESET_NOTIFY:
+    program_register(...);
+    break;
+default:
+    return dev_err_probe(dev, -EINVAL, "invalid restart setting");
+}
 
->> Error: arch/arm64/boot/dts/rockchip/rk3528.dtsi:952.28-29 syntax error
-   FATAL ERROR: Unable to parse input tree
+IMHO register values not being an ABI is kind of weird, as this is a
+very strong ABI from my POV - it's just not defined by us. But I don't
+intent to fight for this, so ignore my comment :)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Greetings,
+
+-- Sebastian
+
+--lor23qymgpuiul5d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhbUEoACgkQ2O7X88g7
++prfGRAAhMwSZGvBSU4k92HD+ibNltYMwuzkm2IBNQ3+JJq/HlqKZcpbwMSWr/+y
+sjFgtalHlfR40P0lGMaXHuYW/cxy95VVa4Qmh+PQHgiijyWwdxFoHtHmvm+OHBCQ
+pV3ifwm6n6GdzEE3CbnAWlk8FnidWYjLTOwsQYkFPhX/4YL/A+cmkn/2HcBhK24v
+EI1n09NHzS9Q3pHXrNDuhkVYLWME8mdTDeje3rp9lJ8w5MA5a1aYU5AjDw6nobNf
+Didji/DO+WsQPX2TQ4PogSft9RPMx8HeXA0KO0kFguGfdKMcRoOfE6R9dvd4Xe9+
+JEOj6XQI0fl2Ql1eBIdh5uEzcTmnzbWgq15BXFpHOWYeg62eCM3QVOQDh3bkkDFE
+lXITizn3MmrsQ0w+xHKskAekDtIArt2gKB+HVrwXmd6eFPniH1WNbD6ZUsDq3sjX
+7DmXoN34UE1Sj9H7vheZGBS7bzNyxk/CGUnoZ6GQTGAVJ99E9WwqCGsK9GNwx57w
+k7uqOmIVt4dzbj9c47i80FQc7Ipp1OiZyhsBMlGjMSzEgg1q62O4GtAl4UI5qACh
+UEjAGubnqSOgfES9lhZ3sG1pnqV/KOGA9lZA78POC0oqFENuH5krigAazYNZ55tN
+9KZbpmolU2/lakgWt49Zcq8yPohbfgJYeOtM9Bz3ByUq6FvLmds=
+=ovhb
+-----END PGP SIGNATURE-----
+
+--lor23qymgpuiul5d--
 
