@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22FBC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCC8C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTp0vKqj7VpMXAfHxRYqXVkfyzmgLQ4uxRgPuEKZ2ik=; b=fRMorNbajtFHCvr49BJc+iBQHV
-	Wwy2088VWpIzfDDXz+hXsD45/L2Kmrb0dBrK41J2oAUmIM7/vZcqbfHv/hSQZ1Ifh2GS+3a41yo5b
-	QFSs9QxuBmpSfFfJriduIfh8Zld1LlxIl0lYj1MZqTOVcjdwgNQMeSZLtvn6/JUHBT5j3TN/qEA/h
-	lV8IXV6dKo+GaPQm/50NwSvBq9r52L3zd07hPTF/no6vgIuyyWyg70L/vQYMpHQ+9fDm4+POz6Z/s
-	pX5im6uSJMOJs659fR83BXzBdKx/THq1L70HYSfSj0hDLjTr3W1lOn7VoFDd9UDRGZ/b263yQqR/4
-	g/D4FA8g==;
+	bh=5aZYTCsI2LLcnoizVqryagLIbAzvLHyI+qkJE33hosM=; b=ujXrq+s5DJTqb4bGqDnex9ruZt
+	8BJS7gPSYftDLf9c3nbodlGTab9cDFIMT+nYttBnl5NKbUKhnJfi+AoL4l/a/H+GtdMhMfWSAFSm5
+	rNrbn1pW/W46Iuwat8t482yvv0Ek/9o8ee7pj41Vv75zPtTyDE31D1+ZhkrmqvcA/2QR5JPi7x6pD
+	nGLETf+1zRb4GeCNdZilRZ5raFztBgjFcAiwMw/QnBnxldVpEI8gAOF1Tp62/YlxsoZ8IXRHseR4j
+	v582CgAhHHcnWzqrs2DVnoFXNII+VP18iWr6mOjUTO4lw2ZYEy/yRRp5w1zaC4jN0SUULG8LqUFWF
+	UaEGqOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUXdU-00000009xsl-2ogE;
-	Wed, 25 Jun 2025 21:26:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uUXfk-00000009y1S-1ZcD;
+	Wed, 25 Jun 2025 21:28:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVC5-00000009eSi-16wI;
-	Wed, 25 Jun 2025 18:50:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750877396; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JiSk+zhM7F5ibFdpsLxBXZOw5FFL0tY//URjMrwoUWAq7glbxS7xfKaWw/P7FzPngt1ttrP/xODIuZHGhynCWNh6/uo/Nqnr7+Y+XqhF8eqaEPXQHuKgSqaF1z+oII5asBw/PEfqmIQy+MFikTkl8XrgM+o9BXtq3E0uWJN0jXE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750877396; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oTp0vKqj7VpMXAfHxRYqXVkfyzmgLQ4uxRgPuEKZ2ik=; 
-	b=lagqQquSjRWq+Baquzdtczl4KH08gSFGXjYKK281lnFU2//2NPEHgFY5Yqq+NfJaA2lEBw+jk+hu+7kptZ7lG9oimLsGWNX59hLg8yL9sR+xCwkdRzTvsxUu80g0R8qSt5DftD7OuqxKs/gTz2YFm0kABSMTUWstbCwFSBXgApY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750877396;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=oTp0vKqj7VpMXAfHxRYqXVkfyzmgLQ4uxRgPuEKZ2ik=;
-	b=EMlpcbeT0igJJzPZrOc217CB++Rox3jgRaBjALv6UKPus8MBz09Z8RmKf+ceOwzC
-	yokK2o2kkhT2yu2M5ziR5UIB01/5dqHDj5+IrKwFW3s8INUVJMYQj7218knl1s2uqLh
-	3GGryVtWH9dd2Y4mmfsFLuwnEbFw2OfcLYpeuYAo=
-Received: by mx.zohomail.com with SMTPS id 17508773949391017.7029644182626;
-	Wed, 25 Jun 2025 11:49:54 -0700 (PDT)
-Message-ID: <f3135961b2fe2c2b5cb3c29d76eb3d818d7a766a.camel@collabora.com>
-Subject: Re: [PATCH v4 1/1] drm/mediatek: Adjust bandwidth limit for DP
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: Liankun Yang <liankun.yang@mediatek.com>, chunkuang.hu@kernel.org, 
- p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
- matthias.bgg@gmail.com,  angelogioacchino.delregno@collabora.com,
- mac.shen@mediatek.com,  peng.liu@mediatek.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 25 Jun 2025 14:49:53 -0400
-In-Reply-To: <20250625095446.31726-1-liankun.yang@mediatek.com>
-References: <20250625095446.31726-1-liankun.yang@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
-MIME-Version: 1.0
-X-ZohoMailClient: External
+	id 1uUVFh-00000009f1c-2PL1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 18:53:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 41555A52D74;
+	Wed, 25 Jun 2025 18:53:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB210C4CEEA;
+	Wed, 25 Jun 2025 18:53:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750877623;
+	bh=8MrvaYOz4FiqCxr7LmGqB3MEhbBqse7v9vTKMvsiFOM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ppeUKjipB2yJbHdKKPlRyVDqbUX77oJxRhZL7ud1YUoWYEEc27uWBBlAZLBezVolW
+	 ChewIFEAAclm7IdOJPUUGDjVZ3/MC0WzysEt8xqtZhMGJw4yJc6tZeINByuTKz+boE
+	 mhJR9E962ubHGzH0zDyasotU1RFr2cXiBV6mV/yQvTWXA5gDQ2BcKdR56Y3+jPDvJq
+	 wZvA5EjnucM0MTLaIkoACEQuaQo7rhBTC4CQ+sYZkwrsTT2uurEexbd/VVyqEs9Z3h
+	 9paYrB25VlQFRZ1OhgEbXOFw+pJLk1BlNon+BKDU+oehoL3sbV4KqlXl1PUIgVhP2Y
+	 vtjkp9a0WbjMw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uUVFd-00A04o-Gz;
+	Wed, 25 Jun 2025 19:53:41 +0100
+Date: Wed, 25 Jun 2025 19:53:41 +0100
+Message-ID: <861pr7d556.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH v5 18/27] arm64: smp: Support non-SGIs for IPIs
+In-Reply-To: <20250618-gicv5-host-v5-18-d9e622ac5539@kernel.org>
+References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
+	<20250618-gicv5-host-v5-18-d9e622ac5539@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, Jonathan.Cameron@huawei.com, timothy.hayes@arm.com, bhelgaas@google.com, Liam.Howlett@oracle.com, peter.maydell@linaro.org, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_115001_376542_E676B36C 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250625_115345_757042_7D2464C6 
+X-CRM114-Status: GOOD (  37.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +101,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-06-25 at 17:54 +0800, Liankun Yang wrote:
-> By adjusting the order of link training and relocating it to HPD,
-> link training can identify the usability of each lane in the current
-> link.
->=20
-> It also supports handling signal instability and weakness due to
-> environmental issues, enabling the acquisition of a stable bandwidth
-> for the current link. Subsequently, DP work can proceed based on
-> the actual maximum bandwidth.
->=20
-> It should training in the hpd event thread.
-> Check the mode with lane count and link rate of training.
->=20
-> If we're eDP and capabilities were already parsed we can skip
-> reading again because eDP panels aren't hotpluggable hence the
-> caps and training information won't ever change in a boot life
->=20
-> Therefore, bridge typec judgment is required for edp training in
-> atomic_enable function.
->=20
-> Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
+On Wed, 18 Jun 2025 11:17:33 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> From: Marc Zyngier <maz@kernel.org>
+> 
+> The arm64 arch has relied so far on GIC architectural software
+> generated interrupt (SGIs) to handle IPIs. Those are per-cpu
+> software generated interrupts.
+> 
+> arm64 architecture code that allocates the IPIs virtual IRQs and
+> IRQ descriptors was written accordingly.
+> 
+> On GICv5 systems, IPIs are implemented using LPIs that are not
+> per-cpu interrupts - they are just normal routable IRQs.
+> 
+> Add arch code to set-up IPIs on systems where they are handled
+> using normal routable IRQs.
+> 
+> For those systems, force the IRQ affinity (and make it immutable)
+> to the cpu a given IRQ was assigned to.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> [timothy.hayes@arm.com: fixed ipi/irq conversion, irq flags]
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> [lpieralisi: changed affinity set-up, log]
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
 > ---
-> Change in V4:
-> - Tested the internal eDP display on MT8195 Tomato and it is fine.
-> Per suggestion from the previous thread:
-> https://patchwork.kernel.org/project/linux-mediatek/patch/20250318140236.=
-13650-2-liankun.yang@mediatek.com/
+>  arch/arm64/include/asm/smp.h |   7 ++-
+>  arch/arm64/kernel/smp.c      | 142 ++++++++++++++++++++++++++++++++-----------
+>  2 files changed, 114 insertions(+), 35 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+> index 2510eec026f7..d6fd6efb66a6 100644
+> --- a/arch/arm64/include/asm/smp.h
+> +++ b/arch/arm64/include/asm/smp.h
+> @@ -53,7 +53,12 @@ extern void smp_init_cpus(void);
+>  /*
+>   * Register IPI interrupts with the arch SMP code
+>   */
+> -extern void set_smp_ipi_range(int ipi_base, int nr_ipi);
+> +extern void set_smp_ipi_range_percpu(int ipi_base, int nr_ipi, int ncpus);
+> +
+> +static inline void set_smp_ipi_range(int ipi_base, int n)
+> +{
+> +	set_smp_ipi_range_percpu(ipi_base, n, 0);
+> +}
+>  
+>  /*
+>   * Called from the secondary holding pen, this is the secondary CPU entry point.
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 3b3f6b56e733..7fd6bec80750 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -83,7 +83,31 @@ enum ipi_msg_type {
+>  
+>  static int ipi_irq_base __ro_after_init;
+>  static int nr_ipi __ro_after_init = NR_IPI;
+> -static struct irq_desc *ipi_desc[MAX_IPI] __ro_after_init;
+> +
+> +struct ipi_descs {
+> +	struct irq_desc *descs[MAX_IPI];
+> +};
+> +
+> +static DEFINE_PER_CPU(struct ipi_descs, pcpu_ipi_desc);
 
-Hi,
+I wish we would make this __ro_after_init, but it doesn't see to be
+possible to do that. At least make it read_mostly, which may help a
+bit.
 
-I tested this patch on MT8195 Tomato, on top of next-20250625. Indeed
-the internal eDP display is unaffected by this commit: it still works
-fine.
+> +
+> +#define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
+> +
+> +static bool percpu_ipi_descs __ro_after_init;
+> +
+> +static int ipi_to_irq_percpu(int ipi, int cpu)
+> +{
+> +	return ipi_irq_base + (cpu * nr_ipi) + ipi;
+> +}
+> +
+> +static int ipi_to_irq(int ipi)
+> +{
+> +	return ipi_to_irq_percpu(ipi, 0);
+> +}
+> +
+> +static int irq_to_ipi(int irq)
+> +{
+> +	return (irq - ipi_irq_base) % nr_ipi;
+> +}
 
-The external displays though not so much. I tested 3 different
-displays, using 2 different USBC-to-HDMI adapters, and in all cases the
-behavior was the same:
-- Before the patch, the image on the display is completely corrupted
-and unusable. The only discernible element on the display is the mouse
-cursor, which shows perfectly fine. Occasionally no image will be shown
-at all, but most of the times, the behavior is as described.
-- After the patch, nothing ever shows at all on the display. It is
-always black.
+Most of these helpers are used only once, and they are so similar that
+I get cross-eyed. Consider expanding them in their calling spot.
 
-So while the external display support on Tomato is basically broken as
-of the latest next, this patch seems to regress the support even
-further.
+>  
+>  static bool crash_stop;
+>  
+> @@ -844,7 +868,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+>  		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
+>  			   prec >= 4 ? " " : "");
+>  		for_each_online_cpu(cpu)
+> -			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
+> +			seq_printf(p, "%10u ", irq_desc_kstat_cpu(get_ipi_desc(cpu, i), cpu));
+>  		seq_printf(p, "      %s\n", ipi_types[i]);
+>  	}
+>  
+> @@ -919,7 +943,13 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+>  
+>  static void arm64_backtrace_ipi(cpumask_t *mask)
+>  {
+> -	__ipi_send_mask(ipi_desc[IPI_CPU_BACKTRACE], mask);
+> +	unsigned int cpu;
+> +
+> +	if (!percpu_ipi_descs)
+> +		__ipi_send_mask(get_ipi_desc(0, IPI_CPU_BACKTRACE), mask);
+> +	else
+> +		for_each_cpu(cpu, mask)
+> +			__ipi_send_single(get_ipi_desc(cpu, IPI_CPU_BACKTRACE), cpu);
+>  }
+>  
+>  void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
+> @@ -944,7 +974,7 @@ void kgdb_roundup_cpus(void)
+>  		if (cpu == this_cpu)
+>  			continue;
+>  
+> -		__ipi_send_single(ipi_desc[IPI_KGDB_ROUNDUP], cpu);
+> +		__ipi_send_single(get_ipi_desc(cpu, IPI_KGDB_ROUNDUP), cpu);
+>  	}
+>  }
+>  #endif
+> @@ -1013,14 +1043,21 @@ static void do_handle_IPI(int ipinr)
+>  
+>  static irqreturn_t ipi_handler(int irq, void *data)
+>  {
+> -	do_handle_IPI(irq - ipi_irq_base);
+> +	do_handle_IPI(irq_to_ipi(irq));
+>  	return IRQ_HANDLED;
+>  }
+>  
+>  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+>  {
+> +	unsigned int cpu;
+> +
+>  	trace_ipi_raise(target, ipi_types[ipinr]);
+> -	__ipi_send_mask(ipi_desc[ipinr], target);
+> +
+> +	if (!percpu_ipi_descs)
+> +		__ipi_send_mask(get_ipi_desc(0, ipinr), target);
+> +	else
+> +		for_each_cpu(cpu, target)
+> +			__ipi_send_single(get_ipi_desc(cpu, ipinr), cpu);
 
---=20
+Having a helper for this construct would definitely be a good thing:
+
+@@ -924,15 +919,20 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+ #endif
+ }
+ 
+-static void arm64_backtrace_ipi(cpumask_t *mask)
++static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+ {
+ 	unsigned int cpu;
+ 
+ 	if (!percpu_ipi_descs)
+-		__ipi_send_mask(get_ipi_desc(0, IPI_CPU_BACKTRACE), mask);
++		__ipi_send_mask(get_ipi_desc(0, nr), mask);
+ 	else
+ 		for_each_cpu(cpu, mask)
+-			__ipi_send_single(get_ipi_desc(cpu, IPI_CPU_BACKTRACE), cpu);
++			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
++}
++
++static void arm64_backtrace_ipi(cpumask_t *mask)
++{
++	arm64_send_ipi(mask, IPI_CPU_BACKTRACE);
+ }
+ 
+and similarly for smp_cross_call().
+
+>  }
+>  
+>  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+> @@ -1046,11 +1083,15 @@ static void ipi_setup(int cpu)
+>  		return;
+>  
+>  	for (i = 0; i < nr_ipi; i++) {
+> -		if (ipi_should_be_nmi(i)) {
+> -			prepare_percpu_nmi(ipi_irq_base + i);
+> -			enable_percpu_nmi(ipi_irq_base + i, 0);
+> +		if (!percpu_ipi_descs) {
+> +			if (ipi_should_be_nmi(i)) {
+> +				prepare_percpu_nmi(ipi_irq_base + i);
+> +				enable_percpu_nmi(ipi_irq_base + i, 0);
+> +			} else {
+> +				enable_percpu_irq(ipi_irq_base + i, 0);
+> +			}
+>  		} else {
+> -			enable_percpu_irq(ipi_irq_base + i, 0);
+> +			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+>  		}
+>  	}
+>  }
+> @@ -1064,44 +1105,77 @@ static void ipi_teardown(int cpu)
+>  		return;
+>  
+>  	for (i = 0; i < nr_ipi; i++) {
+> -		if (ipi_should_be_nmi(i)) {
+> -			disable_percpu_nmi(ipi_irq_base + i);
+> -			teardown_percpu_nmi(ipi_irq_base + i);
+> +		if (!percpu_ipi_descs) {
+> +			if (ipi_should_be_nmi(i)) {
+> +				disable_percpu_nmi(ipi_irq_base + i);
+> +				teardown_percpu_nmi(ipi_irq_base + i);
+> +			} else {
+> +				disable_percpu_irq(ipi_irq_base + i);
+> +			}
+>  		} else {
+> -			disable_percpu_irq(ipi_irq_base + i);
+> +			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+>  		}
+>  	}
+>  }
+>  #endif
+>  
+> -void __init set_smp_ipi_range(int ipi_base, int n)
+> +static void ipi_setup_ppi(int ipi)
+
+This sets up SGIs, not PPIs. They are indeed Per Processor Interrupts,
+but given that you use "lpi" for GICv5, consider naming it
+consistently.
+
 Thanks,
 
-N=C3=ADcolas
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
