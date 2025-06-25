@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDF0C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFAAC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkzlE3LL5VtAhZ2K4bSjc64Jo7aLgn8tKfCKiZYHOwQ=; b=jgv03wXezCfyBXnJuI2uPTgm3F
-	8YbbAFMpBG0fVj4JDggk/JoZx9WmGUlDnIyHbEwtAEH/t/IabPZZRWNkfOiOTgjL8/w1+uTF2oWVP
-	ajavDf401tuzDxfVfvqsfXpx/JgIiCgAhkZ2ETzjfWdcAZEYP389ZgjtN6lGawApbxIVgCFVOokrB
-	/pX5SWPlWbwbRGQQ9/6I2JNN2DIIgWfnPswLH6HWh8w+3QtNPAV2tjl6XcmKVrW4iGsikXHg5l6nR
-	UXXjNtO40WmR5v8wbWU6MFr0+T6RjgHRTdr1em79hFvN/guEDL3Kx4VA+MoCWhLX4Vgy1Ss7J+NP7
-	0itp45Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lY4C+H8rjCf0tB+LlRLUjdQXLKGrHdCeK+5aYVx8K34=; b=XkutpV5OTqYO/u22E42q2oexHN
+	nUDO1q17+hhyCyCZRzCcf41kazszRkYmaHpfcVYPkkPD5pDbnJXOf7uCxNjDfRcW592l5cezlpd16
+	OEhio9RVMHrMVeLiucJcfCVLyCQQE7OuPjPc+27jUd16InetE0WRGRC9PqQ2hoEMOszwkCTZwyNzL
+	XdHhF+XuUxlnODLwAF/MNkEr1coSLYdLrL+EP4mGfxKRlOIV+dYbGkZPLPE8wwrSFKvcU0CoCXQan
+	KnnuRW/x90UL6bE+D+9BzudyAdUgU7tNDVdQAChyOq9xCMSb/Kv8bSw07VAfOW/Vea4dGML4I2ZzS
+	rtAfUL2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUV0s-00000009cvU-2U3g;
-	Wed, 25 Jun 2025 18:38:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uUV5Q-00000009ddM-2qhG;
+	Wed, 25 Jun 2025 18:43:08 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOo3-00000008ZKl-3lXU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:00:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1363149BCF;
-	Wed, 25 Jun 2025 12:00:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0BFC4CEEA;
-	Wed, 25 Jun 2025 12:00:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750852846;
-	bh=7cF0aqI5PDJFuNWM4kmz3p/XUvk+A7U3EDN3Y5STsVY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ffIejZJvgDJCbY6NXCizv6KCYNqTbc5XfpHc4XFmq6oncQ8xrOF+FWLhOg3vbH95E
-	 ohksqaGPq2celn26sKIzAe3f8YSUuESEsDAF75BqQCiPxczkSBoSQmEAnj+EtkLkgi
-	 st4laob1MWmC3vbYiYdhzf5KjI/0i/nVRX9ewqAhTVjmnd4oXkzHQtB+SBaYizNWEI
-	 0Q9uVvK8bHbsDlBQEAgsjoPetP/C78nXX8qsZaddANBVKc0G9WK/9yMJfeHVAY7Lcq
-	 xcT+TgIK9yDcTHKTyUX9ejefk6Wk/bWYjoElTqGJjkyHnEXn8Yt42Zwz0Qqq67g0oH
-	 GTBamnvEE4bTg==
-Date: Wed, 25 Jun 2025 15:00:43 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>, linux-integrity@vger.kernel.org,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Nicholas Piggin <npiggin@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: Re: [PATCH v6 1/4] tpm: add bufsiz parameter in the .send callback
-Message-ID: <aFvk67ZGNFezJ8Vr@kernel.org>
-References: <20250620130810.99069-1-sgarzare@redhat.com>
- <20250620130810.99069-2-sgarzare@redhat.com>
+	id 1uUPhy-00000008iRd-0n6v;
+	Wed, 25 Jun 2025 12:58:35 +0000
+Message-ID: <f1ee8679-88b4-4712-b2ed-c3eec179b430@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750856311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lY4C+H8rjCf0tB+LlRLUjdQXLKGrHdCeK+5aYVx8K34=;
+	b=H0RQVztbREsh2CeBNzfiHRG3ArsNptNh9e4vAD7piCsogyawFZAZ0h7oX5wxSxKudfeOx8
+	zmgi8lKBBJDJyX+yA3Bd/pjb8f4zMM6qXYyQr+ccBk4iLesagodds3gfB2bKoUezfMEyH5
+	9KebcsTF3oF2ez4v96G72qSVlbShipA=
+Date: Wed, 25 Jun 2025 20:58:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620130810.99069-2-sgarzare@redhat.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+Content-Language: en-US
+To: David Hildenbrand <david@redhat.com>, Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, baolin.wang@linux.alibaba.com,
+ chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
+ ying.huang@intel.com, zhengtangquan@oppo.com,
+ Lance Yang <ioworker0@gmail.com>
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+ <20250624162503.78957-1-ioworker0@gmail.com>
+ <27d174e0-c209-4851-825a-0baeb56df86f@redhat.com>
+ <938c4726-b93e-46df-bceb-65c7574714a6@linux.dev>
+ <CAGsJ_4y1GObH-C7R=FQL=UWe3kF6qhKoRqPxNPYx0k7uwocc+g@mail.gmail.com>
+ <5ba95609-302b-456a-a863-2bd5df51baf2@redhat.com>
+ <CAGsJ_4zSGT05GjxM1H6JwSa5MhgtxaiYVa1Wtvm8+SmYkm=jmQ@mail.gmail.com>
+ <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com>
+ <CAGsJ_4yTH5ngM++e=c+P7g0fXs-QQsOk2oxd1RWa3Qww97Knrw@mail.gmail.com>
+ <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_050047_983220_81909381 
-X-CRM114-Status: GOOD (  35.22  )
+X-CRM114-CacheID: sfid-20250625_055834_681578_4EFA53C6 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,322 +83,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 03:08:07PM +0200, Stefano Garzarella wrote:
-> From: Stefano Garzarella <sgarzare@redhat.com>
+
+
+On 2025/6/25 20:09, David Hildenbrand wrote:
+> On 25.06.25 13:42, Barry Song wrote:
+>> On Wed, Jun 25, 2025 at 11:27 PM David Hildenbrand <david@redhat.com> 
+>> wrote:
+>>>
+>>> On 25.06.25 13:15, Barry Song wrote:
+>>>> On Wed, Jun 25, 2025 at 11:01 PM David Hildenbrand 
+>>>> <david@redhat.com> wrote:
+>>>>>
+>>>>> On 25.06.25 12:57, Barry Song wrote:
+>>>>>>>>
+>>>>>>>> Note that I don't quite understand why we have to batch the 
+>>>>>>>> whole thing
+>>>>>>>> or fallback to
+>>>>>>>> individual pages. Why can't we perform other batches that span 
+>>>>>>>> only some
+>>>>>>>> PTEs? What's special
+>>>>>>>> about 1 PTE vs. 2 PTEs vs. all PTEs?
+>>>>>>>
+>>>>>>> That's a good point about the "all-or-nothing" batching logic ;)
+>>>>>>>
+>>>>>>> It seems the "all-or-nothing" approach is specific to the 
+>>>>>>> lazyfree use
+>>>>>>> case, which needs to unmap the entire folio for reclamation. If 
+>>>>>>> that's
+>>>>>>> not possible, it falls back to the single-page slow path.
+>>>>>>
+>>>>>> Other cases advance the PTE themselves, while try_to_unmap_one() 
+>>>>>> relies
+>>>>>> on page_vma_mapped_walk() to advance the PTE. Unless we want to 
+>>>>>> manually
+>>>>>> modify pvmw.pte and pvmw.address outside of 
+>>>>>> page_vma_mapped_walk(), which
+>>>>>> to me seems like a violation of layers. :-)
+>>>>>
+>>>>> Please explain to me why the following is not clearer and better:
+>>>>
+>>>> This part is much clearer, but that doesn’t necessarily improve the 
+>>>> overall
+>>>> picture. The main challenge is how to exit the iteration of
+>>>> while (page_vma_mapped_walk(&pvmw)).
+>>>
+>>> Okay, I get what you mean now.
+>>>
+>>>>
+>>>> Right now, we have it laid out quite straightforwardly:
+>>>>                   /* We have already batched the entire folio */
+>>>>                   if (nr_pages > 1)
+>>>>                           goto walk_done;
+>>>
+>>>
+>>> Given that the comment is completely confusing whens seeing the 
+>>> check ... :)
+>>>
+>>> /*
+>>>    * If we are sure that we batched the entire folio and cleared all 
+>>> PTEs,
+>>>    * we can just optimize and stop right here.
+>>>    */
+>>> if (nr_pages == folio_nr_pages(folio))
+>>>          goto walk_done;
+>>>
+>>> would make the comment match.
+>>
+>> Yes, that clarifies it.
+>>
+>>>
+>>>>
+>>>> with any nr between 1 and folio_nr_pages(), we have to consider two 
+>>>> issues:
+>>>> 1. How to skip PTE checks inside page_vma_mapped_walk for entries that
+>>>> were already handled in the previous batch;
+>>>
+>>> They are cleared if we reach that point. So the pte_none() checks will
+>>> simply skip them?
+>>>
+>>>> 2. How to break the iteration when this batch has arrived at the end.
+>>>
+>>> page_vma_mapped_walk() should be doing that?
+>>
+>> It seems you might have missed the part in my reply that says:
+>> "Of course, we could avoid both, but that would mean performing 
+>> unnecessary
+>> checks inside page_vma_mapped_walk()."
+>  > > That’s true for both. But I’m wondering why we’re still doing the 
+> check,
+>> even when we’re fairly sure they’ve already been cleared or we’ve reached
+>> the end :-)
 > 
-> Add a new `bufsiz` parameter to the `.send` callback in `tpm_class_ops`.
-> This parameter will allow drivers to differentiate between the actual
-> command length to send and the total buffer size. Currently `bufsiz` is
-> not used, but it will be used to implement devices with synchronous send()
-> to send the command and receive the response on the same buffer.
+> :)
 > 
-> Also rename the previous parameter `len` to `cmd_len` in the declaration
-> to make it clear that it contains the length in bytes of the command
-> stored in the buffer. The semantics don't change and it can be used as
-> before by drivers. This is an optimization since the drivers could get it
-> from the header, but let's avoid duplicating code.
+>>
+>> Somehow, I feel we could combine your cleanup code—which handles a batch
+>> size of "nr" between 1 and nr_pages—with the
+>> "if (nr_pages == folio_nr_pages(folio)) goto walk_done" check.
 > 
-> While we are here, resolve a checkpatch warning:
->   WARNING: Unnecessary space before function pointer arguments
->   #66: FILE: include/linux/tpm.h:90:
->   +	int (*send) (struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> Yeah, that's what I was suggesting. It would have to be part of the 
+> cleanup I think.
 > 
-> Suggested-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-> ---
-> v5:
-> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
-> v4:
-> - rework the commit description [Jarkko]
-> ---
->  include/linux/tpm.h                  | 3 ++-
->  drivers/char/tpm/st33zp24/st33zp24.c | 2 +-
->  drivers/char/tpm/tpm-interface.c     | 2 +-
->  drivers/char/tpm/tpm_atmel.c         | 3 ++-
->  drivers/char/tpm/tpm_crb.c           | 2 +-
->  drivers/char/tpm/tpm_ftpm_tee.c      | 4 +++-
->  drivers/char/tpm/tpm_i2c_atmel.c     | 3 ++-
->  drivers/char/tpm/tpm_i2c_infineon.c  | 3 ++-
->  drivers/char/tpm/tpm_i2c_nuvoton.c   | 3 ++-
->  drivers/char/tpm/tpm_ibmvtpm.c       | 6 ++++--
->  drivers/char/tpm/tpm_infineon.c      | 3 ++-
->  drivers/char/tpm/tpm_nsc.c           | 3 ++-
->  drivers/char/tpm/tpm_svsm.c          | 3 ++-
->  drivers/char/tpm/tpm_tis_core.c      | 3 ++-
->  drivers/char/tpm/tpm_tis_i2c_cr50.c  | 6 ++++--
->  drivers/char/tpm/tpm_vtpm_proxy.c    | 4 +++-
->  drivers/char/tpm/xen-tpmfront.c      | 3 ++-
->  17 files changed, 37 insertions(+), 19 deletions(-)
+> I'm still wondering if there is a case where
 > 
-> diff --git a/include/linux/tpm.h b/include/linux/tpm.h
-> index a3d8305e88a5..cafe8c283e88 100644
-> --- a/include/linux/tpm.h
-> +++ b/include/linux/tpm.h
-> @@ -87,7 +87,8 @@ struct tpm_class_ops {
->  	const u8 req_complete_val;
->  	bool (*req_canceled)(struct tpm_chip *chip, u8 status);
->  	int (*recv) (struct tpm_chip *chip, u8 *buf, size_t len);
-> -	int (*send) (struct tpm_chip *chip, u8 *buf, size_t len);
-> +	int (*send)(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +		    size_t cmd_len);
->  	void (*cancel) (struct tpm_chip *chip);
->  	u8 (*status) (struct tpm_chip *chip);
->  	void (*update_timeouts)(struct tpm_chip *chip,
-> diff --git a/drivers/char/tpm/st33zp24/st33zp24.c b/drivers/char/tpm/st33zp24/st33zp24.c
-> index c0771980bc2f..2ed7815e4899 100644
-> --- a/drivers/char/tpm/st33zp24/st33zp24.c
-> +++ b/drivers/char/tpm/st33zp24/st33zp24.c
-> @@ -300,7 +300,7 @@ static irqreturn_t tpm_ioserirq_handler(int irq, void *dev_id)
->   * send TPM commands through the I2C bus.
->   */
->  static int st33zp24_send(struct tpm_chip *chip, unsigned char *buf,
-> -			 size_t len)
-> +			 size_t bufsiz, size_t len)
->  {
->  	struct st33zp24_dev *tpm_dev = dev_get_drvdata(&chip->dev);
->  	u32 status, i, size, ordinal;
-> diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
-> index 8d7e4da6ed53..816b7c690bc9 100644
-> --- a/drivers/char/tpm/tpm-interface.c
-> +++ b/drivers/char/tpm/tpm-interface.c
-> @@ -106,7 +106,7 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
->  		return -E2BIG;
->  	}
->  
-> -	rc = chip->ops->send(chip, buf, count);
-> +	rc = chip->ops->send(chip, buf, bufsiz, count);
->  	if (rc < 0) {
->  		if (rc != -EPIPE)
->  			dev_err(&chip->dev,
-> diff --git a/drivers/char/tpm/tpm_atmel.c b/drivers/char/tpm/tpm_atmel.c
-> index 54a0360a3c95..f25faf468bba 100644
-> --- a/drivers/char/tpm/tpm_atmel.c
-> +++ b/drivers/char/tpm/tpm_atmel.c
-> @@ -148,7 +148,8 @@ static int tpm_atml_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->  	return size;
->  }
->  
-> -static int tpm_atml_send(struct tpm_chip *chip, u8 *buf, size_t count)
-> +static int tpm_atml_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			 size_t count)
->  {
->  	struct tpm_atmel_priv *priv = dev_get_drvdata(&chip->dev);
->  	int i;
-> diff --git a/drivers/char/tpm/tpm_crb.c b/drivers/char/tpm/tpm_crb.c
-> index 876edf2705ab..ed97344f2324 100644
-> --- a/drivers/char/tpm/tpm_crb.c
-> +++ b/drivers/char/tpm/tpm_crb.c
-> @@ -426,7 +426,7 @@ static int tpm_crb_smc_start(struct device *dev, unsigned long func_id)
->  }
->  #endif
->  
-> -static int crb_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int crb_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz, size_t len)
->  {
->  	struct crb_priv *priv = dev_get_drvdata(&chip->dev);
->  	int rc = 0;
-> diff --git a/drivers/char/tpm/tpm_ftpm_tee.c b/drivers/char/tpm/tpm_ftpm_tee.c
-> index 53ba28ccd5d3..dbad83bf798e 100644
-> --- a/drivers/char/tpm/tpm_ftpm_tee.c
-> +++ b/drivers/char/tpm/tpm_ftpm_tee.c
-> @@ -63,13 +63,15 @@ static int ftpm_tee_tpm_op_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->   * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory.
->   * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h
->   * @buf:	the buffer to send.
-> + * @bufsiz:	the size of the buffer.
->   * @len:	the number of bytes to send.
->   *
->   * Return:
->   *	In case of success, returns 0.
->   *	On failure, -errno
->   */
-> -static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +				size_t len)
->  {
->  	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
->  	size_t resp_len;
-> diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-> index d1d27fdfe523..4f229656a8e2 100644
-> --- a/drivers/char/tpm/tpm_i2c_atmel.c
-> +++ b/drivers/char/tpm/tpm_i2c_atmel.c
-> @@ -37,7 +37,8 @@ struct priv_data {
->  	u8 buffer[sizeof(struct tpm_header) + 25];
->  };
->  
-> -static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			  size_t len)
->  {
->  	struct priv_data *priv = dev_get_drvdata(&chip->dev);
->  	struct i2c_client *client = to_i2c_client(chip->dev.parent);
-> diff --git a/drivers/char/tpm/tpm_i2c_infineon.c b/drivers/char/tpm/tpm_i2c_infineon.c
-> index 81d8a78dc655..bdf1f329a679 100644
-> --- a/drivers/char/tpm/tpm_i2c_infineon.c
-> +++ b/drivers/char/tpm/tpm_i2c_infineon.c
-> @@ -514,7 +514,8 @@ static int tpm_tis_i2c_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->  	return size;
->  }
->  
-> -static int tpm_tis_i2c_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int tpm_tis_i2c_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			    size_t len)
->  {
->  	int rc, status;
->  	ssize_t burstcnt;
-> diff --git a/drivers/char/tpm/tpm_i2c_nuvoton.c b/drivers/char/tpm/tpm_i2c_nuvoton.c
-> index 3c3ee5f551db..d44903b29929 100644
-> --- a/drivers/char/tpm/tpm_i2c_nuvoton.c
-> +++ b/drivers/char/tpm/tpm_i2c_nuvoton.c
-> @@ -350,7 +350,8 @@ static int i2c_nuvoton_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->   * tpm.c can skip polling for the data to be available as the interrupt is
->   * waited for here
->   */
-> -static int i2c_nuvoton_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int i2c_nuvoton_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			    size_t len)
->  {
->  	struct priv_data *priv = dev_get_drvdata(&chip->dev);
->  	struct device *dev = chip->dev.parent;
-> diff --git a/drivers/char/tpm/tpm_ibmvtpm.c b/drivers/char/tpm/tpm_ibmvtpm.c
-> index 76d048f63d55..4734a69406ce 100644
-> --- a/drivers/char/tpm/tpm_ibmvtpm.c
-> +++ b/drivers/char/tpm/tpm_ibmvtpm.c
-> @@ -191,13 +191,15 @@ static int tpm_ibmvtpm_resume(struct device *dev)
->   * tpm_ibmvtpm_send() - Send a TPM command
->   * @chip:	tpm chip struct
->   * @buf:	buffer contains data to send
-> - * @count:	size of buffer
-> + * @bufsiz:	size of the buffer
-> + * @count:	length of the command
->   *
->   * Return:
->   *   0 on success,
->   *   -errno on error
->   */
-> -static int tpm_ibmvtpm_send(struct tpm_chip *chip, u8 *buf, size_t count)
-> +static int tpm_ibmvtpm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			    size_t count)
->  {
->  	struct ibmvtpm_dev *ibmvtpm = dev_get_drvdata(&chip->dev);
->  	bool retry = true;
-> diff --git a/drivers/char/tpm/tpm_infineon.c b/drivers/char/tpm/tpm_infineon.c
-> index 2d2ae37153ba..7638b65b851b 100644
-> --- a/drivers/char/tpm/tpm_infineon.c
-> +++ b/drivers/char/tpm/tpm_infineon.c
-> @@ -312,7 +312,8 @@ static int tpm_inf_recv(struct tpm_chip *chip, u8 * buf, size_t count)
->  	return -EIO;
->  }
->  
-> -static int tpm_inf_send(struct tpm_chip *chip, u8 * buf, size_t count)
-> +static int tpm_inf_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			size_t count)
->  {
->  	int i;
->  	int ret;
-> diff --git a/drivers/char/tpm/tpm_nsc.c b/drivers/char/tpm/tpm_nsc.c
-> index 0f62bbc940da..879ac88f5783 100644
-> --- a/drivers/char/tpm/tpm_nsc.c
-> +++ b/drivers/char/tpm/tpm_nsc.c
-> @@ -178,7 +178,8 @@ static int tpm_nsc_recv(struct tpm_chip *chip, u8 * buf, size_t count)
->  	return size;
->  }
->  
-> -static int tpm_nsc_send(struct tpm_chip *chip, u8 * buf, size_t count)
-> +static int tpm_nsc_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			size_t count)
->  {
->  	struct tpm_nsc_priv *priv = dev_get_drvdata(&chip->dev);
->  	u8 data;
-> diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
-> index 4280edf427d6..0847cbf450b4 100644
-> --- a/drivers/char/tpm/tpm_svsm.c
-> +++ b/drivers/char/tpm/tpm_svsm.c
-> @@ -25,7 +25,8 @@ struct tpm_svsm_priv {
->  	void *buffer;
->  };
->  
-> -static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			 size_t len)
->  {
->  	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
->  	int ret;
-> diff --git a/drivers/char/tpm/tpm_tis_core.c b/drivers/char/tpm/tpm_tis_core.c
-> index ed0d3d8449b3..4b12c4b9da8b 100644
-> --- a/drivers/char/tpm/tpm_tis_core.c
-> +++ b/drivers/char/tpm/tpm_tis_core.c
-> @@ -580,7 +580,8 @@ static int tpm_tis_send_main(struct tpm_chip *chip, const u8 *buf, size_t len)
->  	return rc;
->  }
->  
-> -static int tpm_tis_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int tpm_tis_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +			size_t len)
->  {
->  	int rc, irq;
->  	struct tpm_tis_data *priv = dev_get_drvdata(&chip->dev);
-> diff --git a/drivers/char/tpm/tpm_tis_i2c_cr50.c b/drivers/char/tpm/tpm_tis_i2c_cr50.c
-> index 3b55a7b05c46..fc6891a0b693 100644
-> --- a/drivers/char/tpm/tpm_tis_i2c_cr50.c
-> +++ b/drivers/char/tpm/tpm_tis_i2c_cr50.c
-> @@ -546,13 +546,15 @@ static int tpm_cr50_i2c_tis_recv(struct tpm_chip *chip, u8 *buf, size_t buf_len)
->   * tpm_cr50_i2c_tis_send() - TPM transmission callback.
->   * @chip:	A TPM chip.
->   * @buf:	Buffer to send.
-> - * @len:	Buffer length.
-> + * @bufsiz:	Buffer size.
-> + * @len:	Command length.
->   *
->   * Return:
->   * - 0:		Success.
->   * - -errno:	A POSIX error code.
->   */
-> -static int tpm_cr50_i2c_tis_send(struct tpm_chip *chip, u8 *buf, size_t len)
-> +static int tpm_cr50_i2c_tis_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +				 size_t len)
->  {
->  	size_t burstcnt, limit, sent = 0;
->  	u8 tpm_go[4] = { TPM_STS_GO };
-> diff --git a/drivers/char/tpm/tpm_vtpm_proxy.c b/drivers/char/tpm/tpm_vtpm_proxy.c
-> index 8fe4a01eea12..0818bb517805 100644
-> --- a/drivers/char/tpm/tpm_vtpm_proxy.c
-> +++ b/drivers/char/tpm/tpm_vtpm_proxy.c
-> @@ -321,12 +321,14 @@ static int vtpm_proxy_is_driver_command(struct tpm_chip *chip,
->   *
->   * @chip: tpm chip to use
->   * @buf: send buffer
-> + * @bufsiz: size of the buffer
->   * @count: bytes to send
->   *
->   * Return:
->   *      0 in case of success, negative error value otherwise.
->   */
-> -static int vtpm_proxy_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t count)
-> +static int vtpm_proxy_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +				  size_t count)
->  {
->  	struct proxy_dev *proxy_dev = dev_get_drvdata(&chip->dev);
->  
-> diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-tpmfront.c
-> index 80cca3b83b22..556bf2256716 100644
-> --- a/drivers/char/tpm/xen-tpmfront.c
-> +++ b/drivers/char/tpm/xen-tpmfront.c
-> @@ -131,7 +131,8 @@ static size_t shr_data_offset(struct vtpm_shared_page *shr)
->  	return struct_size(shr, extra_pages, shr->nr_extra_pages);
->  }
->  
-> -static int vtpm_send(struct tpm_chip *chip, u8 *buf, size_t count)
-> +static int vtpm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> +		     size_t count)
->  {
->  	struct tpm_private *priv = dev_get_drvdata(&chip->dev);
->  	struct vtpm_shared_page *shr = priv->shr;
-> -- 
-> 2.49.0
+> if (nr_pages == folio_nr_pages(folio))
+>      goto walk_done;
+> 
+> would be wrong when dealing with small folios.
+
+We can make the check more explicit to avoid any future trouble ;)
+
+if (nr_pages > 1 && nr_pages == folio_nr_pages(folio))
+     goto walk_done;
+
+It should be safe for small folios.
+
+Thanks,
+Lance
+
+> 
+>> In practice, this would let us skip almost all unnecessary checks,
+>> except for a few rare corner cases.
+>>
+>> For those corner cases where "nr" truly falls between 1 and nr_pages,
+>> we can just leave them as-is—performing the redundant check inside
+>> page_vma_mapped_walk().
+> 
+> I mean, batching mapcount+refcount updates etc. is always a win. If we 
+> end up doing some unnecessary pte_none() checks, that might be 
+> suboptimal but mostly noise in contrast to the other stuff we will 
+> optimize out :)
+> 
+> Agreed that if we can easily avoid these pte_none() checks, we should do 
+> that. Optimizing that for "nr_pages == folio_nr_pages(folio)" makes sense.
 > 
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-
-BR, Jarkko
 
