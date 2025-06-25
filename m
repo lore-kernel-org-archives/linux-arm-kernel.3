@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCE6C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E565C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BTUrZfp2RsdgZdGoGeKWpIo05ACzlb+iC+JSJ0rB/NA=; b=IIIpyxqjo6L+up/V+gfCujVTEX
-	MzZB4fPOTWp32wyeezx2onxr4BPJhIYXp6e/mH5Z3PiR6g4XvJVGwZMOCViuzPJBtuLJ1UdoFWAGW
-	il1GzdRXKkuLbq3zaC9S2E4qAg3WFZxz3MmTOHSiZIz5Hnoja2yDHJbCp0FGqrflSkZ4hCWW8g1Et
-	58cmg8v19v4kpW/PBSRJodvahJU1tQ+9qtD+BiyWTHkGGuumfOd8ZxTStuzMeOfF9ojhM+VpvEgPI
-	ZYuGtUQSI7whV7fWeHXXgAV1cSunfPP+KhktmAfpqP2JKSR7tPdFKjIR3a1QLdrzoR/Bjf6HE1/Xy
-	S80hZ8wQ==;
+	bh=C+GjW9qPR8w+uhFtLa9Ahy4f43SUG50SJG4xr3KEJ7g=; b=XZBjkziniTUX3oAON2j/RLbJZr
+	i3rtVksacJBwAUL6o0kqBKXxO2wVf06Mb15KZ1YQ8rVzlEonSJDjN1HeUiiVstMJOrqaieKCX8J2h
+	sToFPv4rZtqGC2lSUFgaLbp/9vgv2G9RX0rNicbilByIvdRy1DAKFNqgIRtGQ5dkAVPXTzT9Mhe4Q
+	otbBLqVc0qghydW6di9f9a9B2J4Ri7V0KWFAdQ/AcaCWBlWGoxGhAhFvqJjh6zgB3xanQyKcMpBuM
+	TrzF1tLLqdvN539k9oZHjx/wl9QnWq4x1X4+fY8yp5IzjDdxNi/9oCnnwpDZICnWbV2ZSyFzvj6B9
+	UV1ybgGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUC5-00000009Vv1-25kc;
-	Wed, 25 Jun 2025 17:45:57 +0000
+	id 1uUUEL-00000009WHm-11xl;
+	Wed, 25 Jun 2025 17:48:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQhx-00000008tVT-0ug2
+	id 1uUQjP-00000008tlS-0ecl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 14:02:38 +0000
+	Wed, 25 Jun 2025 14:04:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 567D8106F;
-	Wed, 25 Jun 2025 07:02:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53FE7106F;
+	Wed, 25 Jun 2025 07:03:48 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BDB7D3F66E;
-	Wed, 25 Jun 2025 07:02:33 -0700 (PDT)
-Date: Wed, 25 Jun 2025 15:02:30 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4E893F66E;
+	Wed, 25 Jun 2025 07:04:03 -0700 (PDT)
+Date: Wed, 25 Jun 2025 15:04:00 +0100
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: Dan Carpenter <dan.carpenter@linaro.org>
 Cc: Cristian Marussi <cristian.marussi@arm.com>,
@@ -45,7 +45,7 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	d-gole@ti.com, souvik.chakravarty@arm.com
 Subject: Re: [RFC PATCH 3/7] firmware: arm_scmi: Add Telemetry protocol
  support
-Message-ID: <aFwBdjWQv6urIgq1@pluto>
+Message-ID: <aFwB0Ok90aoSxPe5@pluto>
 References: <20250620192813.2463367-1-cristian.marussi@arm.com>
  <20250620192813.2463367-4-cristian.marussi@arm.com>
  <0c71e182-9aac-426d-b58b-41f118b9a8f2@suswa.mountain>
@@ -54,8 +54,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <0c71e182-9aac-426d-b58b-41f118b9a8f2@suswa.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_070237_292261_280D62D1 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250625_070407_268676_89933297 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,9 +77,7 @@ On Fri, Jun 20, 2025 at 11:46:15PM +0300, Dan Carpenter wrote:
 > > +				       struct telemetry_info *ti)
 > > +{
 
-Hi Dan,
-
-thanks for having a look.
+... and also...
 
 > > +	int ret;
 > > +	struct scmi_xfer *t;
@@ -126,14 +124,51 @@ thanks for having a look.
 > > +			ti->info.des_groups[i].id = i;
 > 
 > otherwise it leads to a NULL dereference.
->
+> 
+> > +	}
+> > +
+> > +	ph->xops->xfer_put(ph, t);
+> > +
+> > +	return ret;
+> > +}
+> 
+> [ snip ]
+> 
+> > +static int iter_shmti_process_response(const struct scmi_protocol_handle *ph,
+> > +				       const void *response,
+> > +				       struct scmi_iterator_state *st,
+> > +				       void *priv)
+> > +{
+> > +	const struct scmi_msg_resp_telemetry_shmti_list *r = response;
+> > +	struct telemetry_info *ti = priv;
+> > +	struct telemetry_shmti *shmti;
+> > +	const struct scmi_shmti_desc *desc;
+> > +	void __iomem *addr;
+> > +	u64 phys_addr;
+> > +	u32 len;
+> > +
+> > +	desc = &r->desc[st->loop_idx];
+> > +	shmti = &ti->shmti[st->desc_index + st->loop_idx];
+> > +
+> > +	shmti->id = le32_to_cpu(desc->id);
+> > +	phys_addr = le32_to_cpu(desc->addr_low);
+> > +	phys_addr |= (u64)le32_to_cpu(desc->addr_high) << 32;
+> > +
+> > +	len = le32_to_cpu(desc->length);
+> > +	addr = devm_ioremap(ph->dev, phys_addr, len);
+> > +	if (!addr)
+> > +		return -EADDRNOTAVAIL;
+> > +
+> > +	shmti->base = addr;
+> > +	shmti->len = len;
+> 
+> There is some code later which assumes ->len is at least
+> TDCF_EPLG_SZ and de->data_sz.  This is probably where we should
+> check if (len < TDCF_EPLG_SZ) return -EINVAL; and the de->data_sz
+> would be checked later.
 
-Indeed...I will fix.
-
-There are a few more of this bugs around probably being an RFC...bots also are
-complaining a lot at this series indeed :D
+I will add proper checks
 
 Thanks,
 Cristian
-
 
