@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B4EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906ABC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbSifWasdA8Lr1V7BJ5flJdfB31gk5DG3a5h3H59748=; b=eYcML1ztpICLdZ2rxl3uMb/3YW
-	zwOWC+az8HqRRmsoHt59/KXHD1wkO+6IRsiA2pUyi2bchJaiU9UgCxWxOu0rGImXNV5CN4LkPyNy7
-	zDfb7/XyiN5B9PKBmDoZrIUaoR0rzqnIN2oHmzQKOhLkNUmggYGkjxAajFeJVixRvLNNcujOoB2O6
-	8YwNVZVQhiw76TG809EyVVqiqgTuKA5K2lHp8IEOW4F/eYklWfbhLCN7PE32eMmzpsrUnSwHtHO7n
-	OC7J/WGgupRqaYQbYcmGoFbl08GFJ6X7sRnJL5Ojpoob+SJ+dySWV6mi72RtVmbjbY3/jJRIgG0sw
-	EAUwYXVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vs/BpRvqo3RSUOfPZTsHUBa9sgSnrh22rc/am0XRDfE=; b=lZuRTDJyBF7+JGDx3Y8Bt8WWIO
+	tvs9fw+P49ADbqhc1NF+QDEseEMvRY/sJ4g2TLjPsJtkHYu2XnGzN2o/UgNqAW8QbH0bVMVctmCGi
+	HWfWA8cWv4qN98MNr2IsZa56dEKSeFMj558BBLxguL9EVho3KU2V9nRbBcJHf6GULf6GnyShbCNrC
+	xesfbtIfgcD4v50SccoQVQRTG3x7KHODztoPpycoe6zvdwqHJsHUcMLsVAETQhJbcztWrSUBYaG7I
+	pwdtrzwl/Pvil04cOtrxwLAKu9aBfRSB86eAVf0o1M7SvzGZQtH+Bij6mVVAtMwv/Ee5kW7LmoRYH
+	LZKXGRcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWpi-00000009r8s-3A8p;
-	Wed, 25 Jun 2025 20:35:02 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uUWrp-00000009tCm-29Lk;
+	Wed, 25 Jun 2025 20:37:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUTGr-00000009MQ5-40OU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 16:46:51 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bS74s1KL9z67M9n;
-	Thu, 26 Jun 2025 00:46:37 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id D74631402EC;
-	Thu, 26 Jun 2025 00:46:40 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 25 Jun
- 2025 18:46:39 +0200
-Date: Wed, 25 Jun 2025 17:46:37 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
-	<dave@stgolabs.net>, <linuxarm@huawei.com>
-CC: Yicong Yang <yangyicong@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>
-Subject: Re: [PATCH v2 2/8] generic: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20250625174637.0000732b@huawei.com>
-In-Reply-To: <20250624154805.66985-3-Jonathan.Cameron@huawei.com>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
-	<20250624154805.66985-3-Jonathan.Cameron@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1uUWUw-00000009oms-0DyL;
+	Wed, 25 Jun 2025 20:13:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 06EFB61424;
+	Wed, 25 Jun 2025 20:13:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 973C9C4CEEA;
+	Wed, 25 Jun 2025 20:13:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750882412;
+	bh=vTsBed0/2n4hgLLsMZJbBT7tPunlaecDCOUWKSB9iKc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nMWvYaVQPQyDYChTBCCtpkl2eJ1Y0z1/MwmTrHjVb4rGwihuNQoL74YUppu391Gxa
+	 NYHED/Whl6jW+MdrNSkfFrN7M+k0swslAPnJzGPQKYsopX3SDhOBqEXJXqOJ4nptuh
+	 GdZu5s/sefBWOZo1oYBlmzB6K1Ye9veNHSIJJzhsXyRG2cGTk45obyrvLL8Vqls+XT
+	 siiXLstk1eP6kYUk9t1EFs+z1yNAkL/6mFncVYrzACwMO+nwqvDhpb9D5eed6O+t0g
+	 3IVPM18af1RzFtGWr3jMUncGIneZ3CRsTVYxGIKZH9/OLppVixB74ZiOjvMCx42NSB
+	 hwt1vQ1+WB79w==
+Date: Wed, 25 Jun 2025 15:13:31 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-i2c@vger.kernel.org,
+	matthias.bgg@gmail.com, daniel.lezcano@linaro.org,
+	linux-mediatek@lists.infradead.org, qii.wang@mediatek.com,
+	kernel@collabora.com, linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	jirislaby@kernel.org, gregkh@linuxfoundation.org,
+	andi.shyti@kernel.org, linux-kernel@vger.kernel.org,
+	tglx@linutronix.de
+Subject: Re: [PATCH 2/3] dt-bindings: serial: mediatek,uart: Add compatible
+ for MT8196
+Message-ID: <175088241131.2135556.8017034319394467736.robh@kernel.org>
+References: <20250611110800.458164-1-angelogioacchino.delregno@collabora.com>
+ <20250611110800.458164-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_094650_163146_109085A1 
-X-CRM114-Status: GOOD (  16.41  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250611110800.458164-3-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Jun 2025 16:47:58 +0100
-Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Wed, 11 Jun 2025 13:07:59 +0200, AngeloGioacchino Del Regno wrote:
+> Add a compatible string for the MediaTek MT8196 Chromebook SoC,
+> which UART IPs are fully compatible with MT6577.
 > 
-> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION provides the mechanism for
-> invalidate certain memory regions in a cache-incoherent manner.
-> Currently is used by NVIDMM adn CXL memory. This is mainly done
-> by the system component and is implementation define per spec.
-> Provides a method for the platforms register their own invalidate
-> method and implement ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Architectures can opt in for this support via
-> CONFIG_GENERIC_CPU_CACHE_INVALIDATE_MEMREGION.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> diff --git a/drivers/base/cache.c b/drivers/base/cache.c
-> new file mode 100644
-> index 000000000000..8d351657bbef
-> --- /dev/null
-> +++ b/drivers/base/cache.c
-> @@ -0,0 +1,46 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Generic support for CPU Cache Invalidate Memregion
-> + */
-> +
-> +#include <linux/spinlock.h>
 
-I got carried away dropping some unused headers. This needs
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-linux/memregion.h
-
-
-> +#include <linux/export.h>
-> +#include <asm/cacheflush.h>
-> +
-
-So that the following have 'previous' prototypes.
-
-> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-> +{
-> +	guard(spinlock_irqsave)(&scfm_lock);
-> +	if (!scfm_data)
-> +		return -EOPNOTSUPP;
-> +
-> +	return scfm_data->invalidate_memregion(res_desc, start, len);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cpu_cache_invalidate_memregion, "DEVMEM");
-> +
-> +bool cpu_cache_has_invalidate_memregion(void)
-> +{
-> +	guard(spinlock_irqsave)(&scfm_lock);
-> +	return !!scfm_data;
-> +}
-> +EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
 
