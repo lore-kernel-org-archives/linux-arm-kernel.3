@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCC8C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077EDC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5aZYTCsI2LLcnoizVqryagLIbAzvLHyI+qkJE33hosM=; b=ujXrq+s5DJTqb4bGqDnex9ruZt
-	8BJS7gPSYftDLf9c3nbodlGTab9cDFIMT+nYttBnl5NKbUKhnJfi+AoL4l/a/H+GtdMhMfWSAFSm5
-	rNrbn1pW/W46Iuwat8t482yvv0Ek/9o8ee7pj41Vv75zPtTyDE31D1+ZhkrmqvcA/2QR5JPi7x6pD
-	nGLETf+1zRb4GeCNdZilRZ5raFztBgjFcAiwMw/QnBnxldVpEI8gAOF1Tp62/YlxsoZ8IXRHseR4j
-	v582CgAhHHcnWzqrs2DVnoFXNII+VP18iWr6mOjUTO4lw2ZYEy/yRRp5w1zaC4jN0SUULG8LqUFWF
-	UaEGqOlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ohYtH3FomwlmwUhzkgDcJoJeCwH+yQx5UkmmfIYOTVA=; b=Qljv0kSMq/JWaxPOUCTJAnd3y4
+	Kwj+wV2nkw9mvu6VHYWhIrZD0gfApQfbojHHERupktyENuNE6LmEH+gF5nbt9iAyFa8W8z50W+q3j
+	o+5eUVtochL4eqM6DtmA4u+ukNWneWGWH5/lDkF+gsP/r/Dgxvy9KRQQm5J/CizpsN4pK1ertopQi
+	wQOV/wdiMJgskwdD5qd8FSkBBb1sWh3eVL00DCqWJNn72JyDv+fTdPaGSw3lgPTHjwlGKZ4DgXB4C
+	+ZA9gTDLOFaXYz6BmElAGXyTiqvXrHCAOrdw5jvsMGVsSGnFRkp0IOkgy6ChMsY45xteve4LsN7Vb
+	praNBg8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUXfk-00000009y1S-1ZcD;
-	Wed, 25 Jun 2025 21:28:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUXi2-00000009yBl-0mfi;
+	Wed, 25 Jun 2025 21:31:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVFh-00000009f1c-2PL1
+	id 1uUVKL-00000009fZV-3qIe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 18:58:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=ohYtH3FomwlmwUhzkgDcJoJeCwH+yQx5UkmmfIYOTVA=; b=NcXTpOEZSJgicmKnDPrw5a0KYZ
+	ZjYOQU9HLdE3+cF0yEnPPLVRZ8U0s9SjAyPIpJ2LMsRDDyw+u9AGEblV5VKMgyS9ghbY6l3E4WVgE
+	+LsucUUWBYEXeNUD43b5rY+fmUh1lTPPnucdpuT8HfhjMVbCaBaa83SGA2FYVUUqKKqtP70+eDKbJ
+	/SOgbEXTI90gFUWdW/zpUkjPAmtx/GIXDWK2pKAA3ngm0YD5k0Ep0hnx9aB/7mpKAO0MpNdOLWc0T
+	AJPIlYf1YIGgunw0nzUUbK4Srufve/EAw/71VrVzg6Koxjo0wy6QuoJrbGRcdFg9cWsJc3zgvT5Us
+	gCP6ojMA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUVKJ-00000005wUE-1FlG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 18:53:47 +0000
+	Wed, 25 Jun 2025 18:58:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 41555A52D74;
-	Wed, 25 Jun 2025 18:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB210C4CEEA;
-	Wed, 25 Jun 2025 18:53:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4326F4A3FE;
+	Wed, 25 Jun 2025 18:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26621C4CEF0;
+	Wed, 25 Jun 2025 18:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750877623;
-	bh=8MrvaYOz4FiqCxr7LmGqB3MEhbBqse7v9vTKMvsiFOM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ppeUKjipB2yJbHdKKPlRyVDqbUX77oJxRhZL7ud1YUoWYEEc27uWBBlAZLBezVolW
-	 ChewIFEAAclm7IdOJPUUGDjVZ3/MC0WzysEt8xqtZhMGJw4yJc6tZeINByuTKz+boE
-	 mhJR9E962ubHGzH0zDyasotU1RFr2cXiBV6mV/yQvTWXA5gDQ2BcKdR56Y3+jPDvJq
-	 wZvA5EjnucM0MTLaIkoACEQuaQo7rhBTC4CQ+sYZkwrsTT2uurEexbd/VVyqEs9Z3h
-	 9paYrB25VlQFRZ1OhgEbXOFw+pJLk1BlNon+BKDU+oehoL3sbV4KqlXl1PUIgVhP2Y
-	 vtjkp9a0WbjMw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uUVFd-00A04o-Gz;
-	Wed, 25 Jun 2025 19:53:41 +0100
-Date: Wed, 25 Jun 2025 19:53:41 +0100
-Message-ID: <861pr7d556.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v5 18/27] arm64: smp: Support non-SGIs for IPIs
-In-Reply-To: <20250618-gicv5-host-v5-18-d9e622ac5539@kernel.org>
-References: <20250618-gicv5-host-v5-0-d9e622ac5539@kernel.org>
-	<20250618-gicv5-host-v5-18-d9e622ac5539@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, Jonathan.Cameron@huawei.com, timothy.hayes@arm.com, bhelgaas@google.com, Liam.Howlett@oracle.com, peter.maydell@linaro.org, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1750877909;
+	bh=RjlGb7w/AnhlwxzMhXI+xVDeW3FXUUnZ+ueqKPPcNeQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=qDmKZ1SP9+00sFr8CcP0qy9BUZzeazvNkHopWl1nYQIasIjEgqQ6kkYeNucUIP0cf
+	 BR7t5fMsCokWi/6Yv2G7djfPU0dzcihUv/dbVF1YwLpAG686S1/sDW2WW5wXhrvJej
+	 gUbdQ08O7oCZBQ4jMCUOCdRQ2/6+/UR+P1C9OBJXul2a1t7Vq1DfAIkLCa6h03fFva
+	 4uuKlMSxTvTtz4zwO2avrO1opuF8BUSTesRdfP9gss2oKRlXOEI3R30ONd9uJMyiQO
+	 5R7tVFEVIw2Qw4mDBYdx/7ybzqP9fLTLOGfIX2LItxcAozEr+A8lBHgZoBWdVgabvm
+	 3eLTz5sMFjIHA==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 25 Jun 2025 19:56:34 +0100
+Subject: [PATCH] arm64/gcs: Don't call gcs_free() when releasing
+ task_struct
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250625-arm64-gcs-release-task-v1-1-54cbdc2db416@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAGFGXGgC/x3MTQqDQAxA4atI1gYyVqfgVcRF1Kih/pGUUhDv7
+ uDyW7x3goupONTZCSY/dd23hJBn0M+8TYI6JENBRUUxELKtscSpdzRZhF3wy/7BF72HLtLIoSs
+ hxYfJqP9n3LTXdQNLq9FmaAAAAA==
+X-Change-ID: 20250610-arm64-gcs-release-task-307db60fa1b4
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-08c49
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1260; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=RjlGb7w/AnhlwxzMhXI+xVDeW3FXUUnZ+ueqKPPcNeQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoXEbTeUN5t/UlNloC7DPsJVvz95VmKcMJhv+lG
+ Sqh4xj8YY+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaFxG0wAKCRAk1otyXVSH
+ 0G+9B/9D8IUxvntv3DBKBNH2U8vBc2ndFy/Axie0znjeibUqabV9UqqSVUvDdfOBT2GrL2IWC6j
+ m7rd08BkjcCWu5XiquQP9lR4nLE77Q0PQHOre5TEPuYpEEDZQgTw9CMRYzZl/Y1h8Jp7CzIqGnn
+ kOqu0KjExJpzH1PDmJdYtQRkP4l3A2lQ40RwkwxNIgYHBiLTtP1DHfnUdk0LdJ/arTCLqkeqUC7
+ dy3DzLknQw2gPL0PGEhPGJ+ZHcNJt2JXAyFDeaFhnbG5T10QuNSJgNxYGyjhWYjr0dfpg8kHf8d
+ 1J8nSxrIwBHVUEimywPCeQ382SjQLGMjVurkweXkXuCCjKTE
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_115345_757042_7D2464C6 
-X-CRM114-Status: GOOD (  37.11  )
+X-CRM114-CacheID: sfid-20250625_195831_591150_959147B1 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,241 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Jun 2025 11:17:33 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> From: Marc Zyngier <maz@kernel.org>
-> 
-> The arm64 arch has relied so far on GIC architectural software
-> generated interrupt (SGIs) to handle IPIs. Those are per-cpu
-> software generated interrupts.
-> 
-> arm64 architecture code that allocates the IPIs virtual IRQs and
-> IRQ descriptors was written accordingly.
-> 
-> On GICv5 systems, IPIs are implemented using LPIs that are not
-> per-cpu interrupts - they are just normal routable IRQs.
-> 
-> Add arch code to set-up IPIs on systems where they are handled
-> using normal routable IRQs.
-> 
-> For those systems, force the IRQ affinity (and make it immutable)
-> to the cpu a given IRQ was assigned to.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> [timothy.hayes@arm.com: fixed ipi/irq conversion, irq flags]
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> [lpieralisi: changed affinity set-up, log]
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> ---
->  arch/arm64/include/asm/smp.h |   7 ++-
->  arch/arm64/kernel/smp.c      | 142 ++++++++++++++++++++++++++++++++-----------
->  2 files changed, 114 insertions(+), 35 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-> index 2510eec026f7..d6fd6efb66a6 100644
-> --- a/arch/arm64/include/asm/smp.h
-> +++ b/arch/arm64/include/asm/smp.h
-> @@ -53,7 +53,12 @@ extern void smp_init_cpus(void);
->  /*
->   * Register IPI interrupts with the arch SMP code
->   */
-> -extern void set_smp_ipi_range(int ipi_base, int nr_ipi);
-> +extern void set_smp_ipi_range_percpu(int ipi_base, int nr_ipi, int ncpus);
-> +
-> +static inline void set_smp_ipi_range(int ipi_base, int n)
-> +{
-> +	set_smp_ipi_range_percpu(ipi_base, n, 0);
-> +}
->  
->  /*
->   * Called from the secondary holding pen, this is the secondary CPU entry point.
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 3b3f6b56e733..7fd6bec80750 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -83,7 +83,31 @@ enum ipi_msg_type {
->  
->  static int ipi_irq_base __ro_after_init;
->  static int nr_ipi __ro_after_init = NR_IPI;
-> -static struct irq_desc *ipi_desc[MAX_IPI] __ro_after_init;
-> +
-> +struct ipi_descs {
-> +	struct irq_desc *descs[MAX_IPI];
-> +};
-> +
-> +static DEFINE_PER_CPU(struct ipi_descs, pcpu_ipi_desc);
+Currently we call gcs_free() when releasing task_struct but this is
+redundant, it attempts to deallocate any kernel managed userspace GCS
+which should no longer be relevant and resets values in the struct we're
+in the process of freeing.
 
-I wish we would make this __ro_after_init, but it doesn't see to be
-possible to do that. At least make it read_mostly, which may help a
-bit.
+By the time arch_release_task_struct() is called the mm will have been
+disassociated from the task so the check for a mm in gcs_free() will
+always be false, for threads that are exiting leaving the mm active
+deactivate_mm() will have been called previously and freed any kernel
+managed GCS.
 
-> +
-> +#define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
-> +
-> +static bool percpu_ipi_descs __ro_after_init;
-> +
-> +static int ipi_to_irq_percpu(int ipi, int cpu)
-> +{
-> +	return ipi_irq_base + (cpu * nr_ipi) + ipi;
-> +}
-> +
-> +static int ipi_to_irq(int ipi)
-> +{
-> +	return ipi_to_irq_percpu(ipi, 0);
-> +}
-> +
-> +static int irq_to_ipi(int irq)
-> +{
-> +	return (irq - ipi_irq_base) % nr_ipi;
-> +}
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kernel/process.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Most of these helpers are used only once, and they are so similar that
-I get cross-eyed. Consider expanding them in their calling spot.
-
->  
->  static bool crash_stop;
->  
-> @@ -844,7 +868,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
->  		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
->  			   prec >= 4 ? " " : "");
->  		for_each_online_cpu(cpu)
-> -			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
-> +			seq_printf(p, "%10u ", irq_desc_kstat_cpu(get_ipi_desc(cpu, i), cpu));
->  		seq_printf(p, "      %s\n", ipi_types[i]);
->  	}
->  
-> @@ -919,7 +943,13 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
->  
->  static void arm64_backtrace_ipi(cpumask_t *mask)
->  {
-> -	__ipi_send_mask(ipi_desc[IPI_CPU_BACKTRACE], mask);
-> +	unsigned int cpu;
-> +
-> +	if (!percpu_ipi_descs)
-> +		__ipi_send_mask(get_ipi_desc(0, IPI_CPU_BACKTRACE), mask);
-> +	else
-> +		for_each_cpu(cpu, mask)
-> +			__ipi_send_single(get_ipi_desc(cpu, IPI_CPU_BACKTRACE), cpu);
->  }
->  
->  void arch_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
-> @@ -944,7 +974,7 @@ void kgdb_roundup_cpus(void)
->  		if (cpu == this_cpu)
->  			continue;
->  
-> -		__ipi_send_single(ipi_desc[IPI_KGDB_ROUNDUP], cpu);
-> +		__ipi_send_single(get_ipi_desc(cpu, IPI_KGDB_ROUNDUP), cpu);
->  	}
->  }
->  #endif
-> @@ -1013,14 +1043,21 @@ static void do_handle_IPI(int ipinr)
->  
->  static irqreturn_t ipi_handler(int irq, void *data)
->  {
-> -	do_handle_IPI(irq - ipi_irq_base);
-> +	do_handle_IPI(irq_to_ipi(irq));
->  	return IRQ_HANDLED;
->  }
->  
->  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
->  {
-> +	unsigned int cpu;
-> +
->  	trace_ipi_raise(target, ipi_types[ipinr]);
-> -	__ipi_send_mask(ipi_desc[ipinr], target);
-> +
-> +	if (!percpu_ipi_descs)
-> +		__ipi_send_mask(get_ipi_desc(0, ipinr), target);
-> +	else
-> +		for_each_cpu(cpu, target)
-> +			__ipi_send_single(get_ipi_desc(cpu, ipinr), cpu);
-
-Having a helper for this construct would definitely be a good thing:
-
-@@ -924,15 +919,20 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
- #endif
- }
- 
--static void arm64_backtrace_ipi(cpumask_t *mask)
-+static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 5954cec19660..5dcfab9ce012 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -341,7 +341,6 @@ void flush_thread(void)
+ void arch_release_task_struct(struct task_struct *tsk)
  {
- 	unsigned int cpu;
- 
- 	if (!percpu_ipi_descs)
--		__ipi_send_mask(get_ipi_desc(0, IPI_CPU_BACKTRACE), mask);
-+		__ipi_send_mask(get_ipi_desc(0, nr), mask);
- 	else
- 		for_each_cpu(cpu, mask)
--			__ipi_send_single(get_ipi_desc(cpu, IPI_CPU_BACKTRACE), cpu);
-+			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
-+}
-+
-+static void arm64_backtrace_ipi(cpumask_t *mask)
-+{
-+	arm64_send_ipi(mask, IPI_CPU_BACKTRACE);
+ 	fpsimd_release_task(tsk);
+-	gcs_free(tsk);
  }
  
-and similarly for smp_cross_call().
+ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
 
->  }
->  
->  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
-> @@ -1046,11 +1083,15 @@ static void ipi_setup(int cpu)
->  		return;
->  
->  	for (i = 0; i < nr_ipi; i++) {
-> -		if (ipi_should_be_nmi(i)) {
-> -			prepare_percpu_nmi(ipi_irq_base + i);
-> -			enable_percpu_nmi(ipi_irq_base + i, 0);
-> +		if (!percpu_ipi_descs) {
-> +			if (ipi_should_be_nmi(i)) {
-> +				prepare_percpu_nmi(ipi_irq_base + i);
-> +				enable_percpu_nmi(ipi_irq_base + i, 0);
-> +			} else {
-> +				enable_percpu_irq(ipi_irq_base + i, 0);
-> +			}
->  		} else {
-> -			enable_percpu_irq(ipi_irq_base + i, 0);
-> +			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->  		}
->  	}
->  }
-> @@ -1064,44 +1105,77 @@ static void ipi_teardown(int cpu)
->  		return;
->  
->  	for (i = 0; i < nr_ipi; i++) {
-> -		if (ipi_should_be_nmi(i)) {
-> -			disable_percpu_nmi(ipi_irq_base + i);
-> -			teardown_percpu_nmi(ipi_irq_base + i);
-> +		if (!percpu_ipi_descs) {
-> +			if (ipi_should_be_nmi(i)) {
-> +				disable_percpu_nmi(ipi_irq_base + i);
-> +				teardown_percpu_nmi(ipi_irq_base + i);
-> +			} else {
-> +				disable_percpu_irq(ipi_irq_base + i);
-> +			}
->  		} else {
-> -			disable_percpu_irq(ipi_irq_base + i);
-> +			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->  		}
->  	}
->  }
->  #endif
->  
-> -void __init set_smp_ipi_range(int ipi_base, int n)
-> +static void ipi_setup_ppi(int ipi)
+---
+base-commit: 86731a2a651e58953fc949573895f2fa6d456841
+change-id: 20250610-arm64-gcs-release-task-307db60fa1b4
 
-This sets up SGIs, not PPIs. They are indeed Per Processor Interrupts,
-but given that you use "lpi" for GICv5, consider naming it
-consistently.
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
