@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EA0C83026
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4417C83027
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aeUHbst5u6uAyR1ycfeU07wkwThxzbqj2XsMrc/HWnM=; b=JqLeecoi8IaX6Ht8ugK5/vKdlA
-	DHjVmHMOzjAPChwZ6UMZWR0xkm5Q+jZPyFTvhz0dS72VAeb/+J4ySfwG6tzWj/KCkPPqu1wtXSwRA
-	FpJFSEZB99UHvxebjKSfFDIg9LkJrVqOPQAb7Ayv+QRLmVbrJVE/OXfUGXcdBzmZe98kgiQmJ4jQ0
-	NHrxZVuktf2I4EzXBOntGMJ+f83OnLtybZDU1oNQQYJnoM3svvlv97tj2J4RHh9VgchNveqQKOYRw
-	NpnPBGH1DgA/U9LZcpXFHSRU1dIQJmcYyQO/6/FpOjLq3JcVXYBFBsHzkO4z7tmq0Ekgv15CLPlLk
-	9HyKc+rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGhop14EiVjcpxENyD9i8nqUNGx3vgLwf8Ea7kiAqD0=; b=eH5k+jJU7hR1IbveBg90RvIFz/
+	pu6KjLJ2PlwIbeIP06lhwrFGtOhZd5fygXP4pJRuc0j6DBsqn3oRrlHPbGeI85cOOhVzAH4syEFEX
+	327+Uanb97JxOlE6+19kGi/lZtahVmKI61kW9CFVvZKkMI3E0pI2F9LP5scn/1zuzX/0+oYDW2TNN
+	TYW/OOtRK0u2dyh7vPK0fq3gmoj7DTsAY4b52fxTw3ApVlXfe1KlVZvSauIyiXSkp48UVBvlV7uBK
+	QysbegHugs/L1qSfAC7ElcHesH2Y8eXJS9zZ3WFnrecjT49T8uI4AbsgUWyn4BIB+oNNKBWuTjcuz
+	ctyzsnKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUU34-00000009T3n-0QuD;
-	Wed, 25 Jun 2025 17:36:38 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uUU33-00000009T33-298j;
+	Wed, 25 Jun 2025 17:36:37 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPVh-00000008fQQ-44GK;
-	Wed, 25 Jun 2025 12:45:55 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553dceb342aso5263170e87.1;
-        Wed, 25 Jun 2025 05:45:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750855552; x=1751460352; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aeUHbst5u6uAyR1ycfeU07wkwThxzbqj2XsMrc/HWnM=;
-        b=iHMMLKKkZbyMNf0uO943QLtDqhfni6OdXDGA+2UtJHbaDvwVgFL5ois+rQPhQY3B2c
-         xSLfnteipooZgx0Kdsr+oOetIe/BU+CeCvA0BqWBJZQFeeLbUs/tca8qrANWioQXODVH
-         jL5alhoMAycX9ryzdZKQzs+5Pz+6mVQS/yQXDh+cEfyyYoz5mRjThPr8krp3hneVO/M2
-         sjdICbMkVN6NMp1aU5UQLmekUINe24mYYLDzMzrVT9x44HVCD+qyD99xNC4/oNj6w/QF
-         bedoL889dNFIEUnm3H5OgV0mNZvZU7t+Qf7BfAR8MB/RkEv3saXJDrGnQmTr2S9nNf3L
-         Ttng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750855552; x=1751460352;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aeUHbst5u6uAyR1ycfeU07wkwThxzbqj2XsMrc/HWnM=;
-        b=unIZxBTe3pEQ0t8DyI3JBgia4MjZ/gJzbCRcqMhBU4ovfHDh3QujRE1V/R5OPpUFXO
-         aw/ktkHWSDqBxi67TjAbdecQswKS7hfHpS5pX6HJoGQ1+WHC5NpQ9kSjPFaHMYphMGMs
-         32EMuZga6GjNpMWCS+ti6YRrzgoTAaw34fSASmVLvodLZesuvNBAJF5y6wpt1l13ePzO
-         qruIHjDbYY5ZHU8ALstgV9sYtOcZ2n4nRM+wKZEvedusgeqQlBHqLRWhlfN0MgedN8OI
-         EKFBRMp772aBFWsNg4w1krVNZ//LARjmLdIfd/vxHF8RBQ33JacZ6eJ21mMX+rqPZYO0
-         Y5zA==
-X-Forwarded-Encrypted: i=1; AJvYcCWozvNBE+QmWJIuTXrLUsyq2/2xbSegscEbYfEvZmhAUDtu71G69ClzsWDJit9XXrgfzLBT2rnwpw0=@lists.infradead.org, AJvYcCWrvqh9W5RWiOWLHZBZAMKErItYkQ/yn0qxyPK619l4kr9lCT5vtALK26DkuBsnUFa0VXWmG+C/GIQYDFfWVfFI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmfjWeQWaSVXtX/igegDTF2R1BdZjiGp95rDJxxGbMqspcMW/S
-	XkHPTarHb/sNaP81P4g8v5mcTYprMFdQNNOLR8Oaagp0ADgkG31QXyQ08e8FQJtXXd91Alq+OWi
-	F3cSAUoiUVbvkYwIzj6obYhQwr6rfBXA=
-X-Gm-Gg: ASbGncu4gRKU1dc6zoywqC9Jbf9QhYETL5BAmTkfjLOsBRysbrTfNWjxAO+MFrkFEyF
-	FOPtf238/YMV35G6r8BHFx/IgJgLF3fDNluTVR47tWemvdwEBhiVKn5waQ0/TxjdCSNPL5S/ZqY
-	m03sbUAMBZ56BnKMUlkwtC54pMtmkULfdZ9TwmNrtr6Q==
-X-Google-Smtp-Source: AGHT+IGd+VQCTiJwy9G1ykD/0Nzx0GAzsfPqUCVqghBLVmwOBzPwEbsyyeyH2J2LllM1nMa0CK079KR9Ekpv1ITEkm8=
-X-Received: by 2002:a05:6512:1591:b0:553:abe6:e3e7 with SMTP id
- 2adb3069b0e04-554fdf5cefbmr869898e87.47.1750855551832; Wed, 25 Jun 2025
- 05:45:51 -0700 (PDT)
+	id 1uUPVX-00000008fNn-3nNJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 12:45:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750855544; x=1782391544;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u7KhYtYFfF8hIrEkFmomLpCGUnnfCnEiIwSY+/XufMM=;
+  b=XRA7B5eQ+jHdYY16CVQDGt/W2gphoeXlSJHyVwJcziNubmVcDF8RJEOY
+   bkbNp8zdVpimNOzZLJKWG5acAcpN6Cg4ubjMFNKASEvvdy1Euxr0wpqgd
+   DfeM0joGQwPukGINjG4qRbv5dYqanrjacPyGIaLoAsofJQ77eyQ2C0RoB
+   gMYXCRJ7gVgAY0gxdT6x4Hw8pwMhK67R//8zPCcpfQf2vNCzKU6/oKnDI
+   xxCEBqeKAk9aERMpsQwllTf6020x8VJxOo2zR1ExO0Lr32ZrURrCoLow9
+   EyDPLkWEwTyUe7+tKqDqjXLFVnGH9/fJ3f23jZiDYwjEqdkH7EMTDXI/s
+   w==;
+X-CSE-ConnectionGUID: jMLCVQmKT0mNT5n8qlFWHQ==
+X-CSE-MsgGUID: rEOf2Cu+TqC0+WExla5csg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11474"; a="70556306"
+X-IronPort-AV: E=Sophos;i="6.16,264,1744095600"; 
+   d="scan'208";a="70556306"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 05:45:41 -0700
+X-CSE-ConnectionGUID: NMZhsQVgQSaZDfVpbvOZBA==
+X-CSE-MsgGUID: H2UvHpQ4SsKlNtvwARVPYw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,264,1744095600"; 
+   d="scan'208";a="189380904"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 05:45:37 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uUPVN-00000009lll-1PDb;
+	Wed, 25 Jun 2025 15:45:33 +0300
+Date: Wed, 25 Jun 2025 15:45:32 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Thorsten Scherer <t.scherer@eckelmann.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 03/12] gpio: sch: use new GPIO line value setter callbacks
+Message-ID: <aFvvbH9nJkgWqj_t@smile.fi.intel.com>
+References: <20250625-gpiochip-set-rv-gpio-round2-v1-0-bc110a3b52ff@linaro.org>
+ <20250625-gpiochip-set-rv-gpio-round2-v1-3-bc110a3b52ff@linaro.org>
 MIME-Version: 1.0
-References: <20250625095224.118679-1-snovitoll@gmail.com> <20250625095224.118679-10-snovitoll@gmail.com>
- <4d568111-9615-4fba-884a-f2ae629776fe@csgroup.eu>
-In-Reply-To: <4d568111-9615-4fba-884a-f2ae629776fe@csgroup.eu>
-From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Date: Wed, 25 Jun 2025 17:45:34 +0500
-X-Gm-Features: Ac12FXyn774raFC9M0P_m_Yp5o7tYNYYaJPlJbUzpj4u5O7z5JIOhc_ux4m2QSg
-Message-ID: <CACzwLxgVj3YD5faPj=09Z9e4WSEe-sD7Sqn4jhaT7eiePaUUMw@mail.gmail.com>
-Subject: Re: [PATCH 9/9] kasan/powerpc: call kasan_init_generic in kasan_init
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, 
-	dvyukov@google.com, vincenzo.frascino@arm.com, catalin.marinas@arm.com, 
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, hca@linux.ibm.com, 
-	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, dave.hansen@linux.intel.com, luto@kernel.org, 
-	peterz@infradead.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	x86@kernel.org, hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, 
-	akpm@linux-foundation.org, guoweikang.kernel@gmail.com, geert@linux-m68k.org, 
-	rppt@kernel.org, tiwei.btw@antgroup.com, richard.weiyang@gmail.com, 
-	benjamin.berg@intel.com, kevin.brodsky@arm.com, kasan-dev@googlegroups.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250625-gpiochip-set-rv-gpio-round2-v1-3-bc110a3b52ff@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_054554_008975_9EB1A494 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20250625_054543_979262_36EFC604 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,27 +103,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 3:33=E2=80=AFPM Christophe Leroy
-<christophe.leroy@csgroup.eu> wrote:
->
->
->
-> Le 25/06/2025 =C3=A0 11:52, Sabyrzhan Tasbolatov a =C3=A9crit :
-> > Call kasan_init_generic() which enables the static flag
-> > to mark generic KASAN initialized, otherwise it's an inline stub.
-> > Also prints the banner from the single place.
->
-> What about:
->
-> arch/powerpc/mm/kasan/init_32.c:void __init kasan_init(void)
-> arch/powerpc/mm/kasan/init_book3e_64.c:void __init kasan_init(void)
+On Wed, Jun 25, 2025 at 12:33:26PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
 
-Thanks, I've missed them. Will add in v2.
-I've also found out that I've missed:
-arch/arm/mm/kasan_init.c
-arch/riscv/mm/kasan_init.c
+Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
->
-> Christophe
->
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
