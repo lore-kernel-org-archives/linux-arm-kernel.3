@@ -4,56 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AD4C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDBFBC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N0tLEPLxHmg3zqDp21+/ni/sClIuCi/LkZOEiMOcP+g=; b=SHswqpNULAiwKCTTGL1Cj+E3Us
-	GZOC4mdzZPaHMWIJEDH9HHjEiukKGQOjlKGy74vN4TGMzofO9hfnJ19IInSIuB7LQnfRepH7fiNoF
-	VM8NT/qpHnfBSv71nWsus4/v6cYWRL9cgKrWiGe3iiJf5TViviq7RmM03K6uR/IySQRX3Uz9vnlgl
-	5LJ8v1OAKGDQ5DwBV9Q+hk7IMbI7sVW6V1Veb25IP0zAouLp7hb8zBfCuUP7UzZ1rgzCniJzk/6WY
-	pYSHOOoNE40i7OBy2yqwLdwag0l5BGZHds+ASIO2JVgQ0XJ9k68tyFNMRy2eTV0So7eGv48ffV4Gm
-	pY3bU6jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w1E0eHLYsSqj8V6/6/0gwkH/3TSH/eRM7xqdNUicbSQ=; b=rz4KVCjYUxSgCBI9Cx4CHs7NkH
+	pOS9Zrub5YAizTFbWxC5XlQvnNeweSvOc61rvLqrMtH2DfpkcrJ+JLnDlGcAR47nH3ivYTJt6KIrX
+	ecwQkEaYFlJde9NCnfoCDMEVvXCLNZ+SRCdIX5r0MVJ0ohEabou69eySRde6W+TPi9AABo+nJo6VW
+	d7G3E9EcDUJwiLiDQBA0oKfoN4TfiUWQt9bMMnI6qW7NDBaNd0gEDnzyCLabm1zRds+1TwNEn/PE9
+	GwFcdThaiVZwv2NQgdHGbb0I2hdm80odiPB09oxuppLbL/Fjx1nQFdsCIdo8OpDyDcCzeWfheqrfa
+	UeweYUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUs5-00000009Zqw-27h5;
-	Wed, 25 Jun 2025 18:29:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURV9-0000000926f-3Zmo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 14:53:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C070D106F;
-	Wed, 25 Jun 2025 07:53:08 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F42D3F58B;
-	Wed, 25 Jun 2025 07:53:24 -0700 (PDT)
-Date: Wed, 25 Jun 2025 15:53:21 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, souvik.chakravarty@arm.com
-Subject: Re: [RFC PATCH 0/7] Introduce SCMI Telemetry support
-Message-ID: <aFwNYf2T8USGW2au@pluto>
-References: <20250620192813.2463367-1-cristian.marussi@arm.com>
- <20250624102233.mdvffjvilozfz25f@lcpd911>
+	id 1uUUu3-00000009bwo-0r7D;
+	Wed, 25 Jun 2025 18:31:23 +0000
+Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUOWf-00000008WOh-2hiY;
+	Wed, 25 Jun 2025 11:42:50 +0000
+Received: by mail-vs1-xe31.google.com with SMTP id ada2fe7eead31-4e9b26a5e45so558561137.1;
+        Wed, 25 Jun 2025 04:42:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750851768; x=1751456568; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w1E0eHLYsSqj8V6/6/0gwkH/3TSH/eRM7xqdNUicbSQ=;
+        b=ONe2dgdRwmcYs4Ymsv32eHhUyPK7wGwR5Layadpc29UY6ie8VF18a/qcQmRPW4ZuqA
+         0SWyyN0EnmRKwxz3Ns+J2ayQgkZHm6GMNAIAAsVpL9LNRTTKe2u+1ecyjrsin6Q29fi6
+         ZEA1yeDdOlPyf7ck9FBluHr0TWK8Fcud8rVgT8MuwamW/qv6iUiIWZTpsa29kddc7/no
+         P2optVizKcoDOOYhSGqENVwYY/YJNX1Bk6tTBHvJgarbqkdIx0iWif407rdXor8Hm4+v
+         qsa5oyKPkY0APEa5XaoG8SWQmIALyk+BAaqzxqwbObOkmgUKccNbuZWHSTBqfdTdO94J
+         fMxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750851768; x=1751456568;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=w1E0eHLYsSqj8V6/6/0gwkH/3TSH/eRM7xqdNUicbSQ=;
+        b=TLfwc8oxVCQKpnfSZgNNP9D2qornNssko8P6cP6Uo4Ig8Un8M4vZlvupwSi7IPFsjX
+         gcLcH1tv6UbzzmOctGLI03d5vJvZ1lM4PtK8KBmVtmq9Il8A8Vj2gvlAvO21IT7SpCUH
+         RFqmU89BIRurv4pYriIaVEPMOyz/ot9hnKourP+0Lg8YeW/hKQrtEB/YWouKCXrWlCra
+         qEhwh4HAig/MObZzDNra+UNLZXPWUbseUYNszLQ03Cgpz+IKgQeSonKySPoVdgiSzJhg
+         QUpCi6tzJg4lCsq8qgvj+B/hUqmikcg42GCV0JT4JU3a2vOwxxDXOpZH3mroZse3bnDQ
+         TCrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVI85u4JKsWXuYqGtzoBTCAEDhAJXGDx+PE0bF1MqcO+EU8aXcZt7dVX+xMZQbfQdwU29c2qtOQ9w6xkNE=@lists.infradead.org, AJvYcCXmzCY2TQbuavL9bAGw4Xc8xsp/PQZtYoVwoky3Bimz4lfGM9dLWwwbv23zs6i/P0HcjG3jy4kM7qGK+foggF+o@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUR8s6dpgWh2fh/hov8MP2sBjXrPlNPvz5OpV0MTjJ4TapUnoH
+	RhDKj5lrHw2m6Z18R4CVhk7AI1qLSjik8FesSk26RsdJJxkestTdkpUUFs870Y0/EJ8AQwe1rqT
+	aHBLAwqGIygKnlMHqJRtGIU1mkWTDfas=
+X-Gm-Gg: ASbGncttmpiF7VLXLa92mzWhR8rT5WQrlqidQu8R8Wt6C1BakMRazw/imgmM0SeZNLd
+	H1nar+qWgmHx5yqvCyNJInEohHrbnjCy5aJFEp7TXGgFs8oQYKvDNPHhYqjtxFcEwK5iWznghfT
+	rtpDV7/y2UftMc0lSb3XD2ikECakiYLouJ1oQWrePEq7Ng/EyogyRG3Q==
+X-Google-Smtp-Source: AGHT+IGsSxCfiBHYZxf4zTJngUXVXeIOT0PdP8VNFGZYgDUlzbW2AoPZQk3j5HWq3IA1WM6a9fvGa9ZMm28LZKzgbU4=
+X-Received: by 2002:a05:6102:689a:b0:4e6:a33d:9925 with SMTP id
+ ada2fe7eead31-4ecc6a67b6emr1171422137.5.1750851768456; Wed, 25 Jun 2025
+ 04:42:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250624102233.mdvffjvilozfz25f@lcpd911>
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+ <20250624162503.78957-1-ioworker0@gmail.com> <27d174e0-c209-4851-825a-0baeb56df86f@redhat.com>
+ <938c4726-b93e-46df-bceb-65c7574714a6@linux.dev> <CAGsJ_4y1GObH-C7R=FQL=UWe3kF6qhKoRqPxNPYx0k7uwocc+g@mail.gmail.com>
+ <5ba95609-302b-456a-a863-2bd5df51baf2@redhat.com> <CAGsJ_4zSGT05GjxM1H6JwSa5MhgtxaiYVa1Wtvm8+SmYkm=jmQ@mail.gmail.com>
+ <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com>
+In-Reply-To: <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 25 Jun 2025 23:42:36 +1200
+X-Gm-Features: Ac12FXwHQ4LRq0KMwLDA3cdKc56s07Bk3-vMKyiAdfGW1BevfTrz5ebfq42hUs0
+Message-ID: <CAGsJ_4yTH5ngM++e=c+P7g0fXs-QQsOk2oxd1RWa3Qww97Knrw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+To: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org, 
+	baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com, 
+	Lance Yang <ioworker0@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_075327_973887_DBDE98FD 
-X-CRM114-Status: GOOD (  48.75  )
+X-CRM114-CacheID: sfid-20250625_044249_701325_46AFCBEB 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,192 +103,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 24, 2025 at 03:52:33PM +0530, Dhruva Gole wrote:
-> Hey Cristian,
-> 
-
-Hi Dhruva,
-
-thanks for leaving your feedback.
-
-> On Jun 20, 2025 at 20:28:06 +0100, Cristian Marussi wrote:
-> > Hi all,
-> > 
-
-[snip]
-
-> > 
-> >  2. an alternative and surely more performant API based on chardev file_ops
-> >    and IOCTLs as described fully in:
-> > 
-> > 	include/uapi/linux/scmi.h
-> > 
-> >    This, in a nutshell, creates one char-device /dec/scmi_tlm_0 for-each
-> >    SCMI Telemetry instance found on the system and then:
-> > 
-> >    - uses some IOCTLs to configure a set of properties equivalent to the
-> >      ones above in SysFS
-> >    - uses some other IOCTLs for direct access to data in binary format
-> >    - uses a .read file_operations to read back a human readable buffer
-> >      containing all the enabled DEs using the same format as above
-> > 	<DE_ID> <TIMESTAMP> <DATA_VALUE>
-> >    - (TBD) uses .mmap file_operation to allow for the raw unfiltered access
-> >      to the SCMI Telemetry binary data as provided by the platform
-> > 
-> > This initial RFC aims at first to explore and experiment to find the best
-> > possible userspace API (or mix of APIs) that can provide simplicity of use
-> > while also ensuring high performance from the user-space point of view.
-> 
-> I think the IOCTL based API and then a userspace tool that can use these
-> sounds good for now.
+On Wed, Jun 25, 2025 at 11:27=E2=80=AFPM David Hildenbrand <david@redhat.co=
+m> wrote:
 >
-
-Definitely better for performance...
-
-> > 
-> > IOW, nothing is set in stone as of now (clearly) some of the alternative
-> > options going ahead are:
-> > 
-> >  A. shrinking the gigantic SysFS above to keep only a few of those knobs
-> >     while keeping and extending the chardev API
-> > 
-> >  B. keeping the gigantic FS for readability, but moving to a real
-> >     standalone Telemetry-FS to overcome the limitations/constraints of
-> >     SysFS, while keeping the chardev/IOCTL API for performance
-> >     (not sure anyway the gigantic FS would be acceptable or makes sense
-> >     anyway)
-> > 
-> >  C. keeping the gigantic FS but move it to debugfs so as to provide it
-> >     only for test/debug/devel, while keeping only the chardev/IOCTLs as
-> >     the production interface
-> 
-> 
-> As for this series, I would support the motion to move this to debugFS.
-> Similar to how we have /sys/kernel/debug/scmi/0/raw ...
-> I think grouping telemetry too under the same debug/ interface makes more
-> sense to me.
-> 
-
-... indeed all of this was initially prototyped under debugfs in
-
-	/sys/kernel/debug/scmi/0/telemetry
-
-The thing is, of course, anything there is doomed to be axed in a
-production system....so you would loose the human-readable and easily
-scriptable API...while moving to sysfs is probably less of acceptable
-for a number of reasons (like multi value files...)
-
-... so for these reasons I would also be tempted by a variation of B:
-
- - a standlone full-fledged filesystem to overcome sysfs limitations,
-   but stripped down a bit to avoid the full-depth of the above sysfs
-   tree (say dropping the DEs dedicated subdirectories), and augmented
-   with some dedicated file and related IOCTL/file_operations based binary
-   interface as described in the current uapi, so as to avoid additional
-   dedicated char-devices to cope with
-
-> > 
-> > ... moreover we could also additionally:
-> > 
-> >  D. generalize enough one of the above choices to make it abstract enough
-> >     that other non-SCMI based telemetry can plug into some sort of geenric
-> >     Telemetry subsystem
-> 
-> To my knowledge, I don't see that many users of firmware based telemetry similar to how
-> SCMI telemetry is being proposed. So maybe at the moment a whole new
-> telemetry subsystem might be an overkill.
+> On 25.06.25 13:15, Barry Song wrote:
+> > On Wed, Jun 25, 2025 at 11:01=E2=80=AFPM David Hildenbrand <david@redha=
+t.com> wrote:
+> >>
+> >> On 25.06.25 12:57, Barry Song wrote:
+> >>>>>
+> >>>>> Note that I don't quite understand why we have to batch the whole t=
+hing
+> >>>>> or fallback to
+> >>>>> individual pages. Why can't we perform other batches that span only=
+ some
+> >>>>> PTEs? What's special
+> >>>>> about 1 PTE vs. 2 PTEs vs. all PTEs?
+> >>>>
+> >>>> That's a good point about the "all-or-nothing" batching logic ;)
+> >>>>
+> >>>> It seems the "all-or-nothing" approach is specific to the lazyfree u=
+se
+> >>>> case, which needs to unmap the entire folio for reclamation. If that=
+'s
+> >>>> not possible, it falls back to the single-page slow path.
+> >>>
+> >>> Other cases advance the PTE themselves, while try_to_unmap_one() reli=
+es
+> >>> on page_vma_mapped_walk() to advance the PTE. Unless we want to manua=
+lly
+> >>> modify pvmw.pte and pvmw.address outside of page_vma_mapped_walk(), w=
+hich
+> >>> to me seems like a violation of layers. :-)
+> >>
+> >> Please explain to me why the following is not clearer and better:
+> >
+> > This part is much clearer, but that doesn=E2=80=99t necessarily improve=
+ the overall
+> > picture. The main challenge is how to exit the iteration of
+> > while (page_vma_mapped_walk(&pvmw)).
 >
+> Okay, I get what you mean now.
+>
+> >
+> > Right now, we have it laid out quite straightforwardly:
+> >                  /* We have already batched the entire folio */
+> >                  if (nr_pages > 1)
+> >                          goto walk_done;
+>
+>
+> Given that the comment is completely confusing whens seeing the check ...=
+ :)
+>
+> /*
+>   * If we are sure that we batched the entire folio and cleared all PTEs,
+>   * we can just optimize and stop right here.
+>   */
+> if (nr_pages =3D=3D folio_nr_pages(folio))
+>         goto walk_done;
+>
+> would make the comment match.
 
-Yes...and  indee  this would be a nice to have, BUT at the moment being SCMI
-the one and only user of this new subsystem, I would NOT even have
-enough non-SCMI use-cases to look at in order to generalize and abstract
-some common features...
- 
-> > 
-> >  E. explore completely different APIs to userspace (netlink ?)
-> > 
-> >  F. additionally serve some of the DEs in some existent Kernel subsystem
-> >     (like HWMON/IIO/PERF...) under the constraint discussed above (i.e.
-> >     userspace has to tell me which DEs can fit into which subsys)
-> 
-> Perhaps in the future...
-> 
-> As a user, having used hwmon in the past, and also looking at the SCMI spec example
-> of capturing the output of a sensor which measures the temperature of a PE
-> 
-> Here's some points that support that:
-> 
-> * HWMON is a well-established interface for exposing sensor data (temperature,
-> voltage, current, power, etc.) to userspace via sysfs.
-> 
-> * Many userspace tools (e.g., lm-sensors, monitoring dashboards) already 
-> understand HWMON.
-> 
+Yes, that clarifies it.
 
-Absolutely, but, just to be clear, here I am talking about adding some of
-the discovered Telemetry DEs also as additional sensor devices to HWMON,
-BUT any existing sensor discovered via the SCMI Sensor protocol (0x15)
-which is currently fed into HWMON or IIO will STILL be handled by those
-subsystems....
+>
+> >
+> > with any nr between 1 and folio_nr_pages(), we have to consider two iss=
+ues:
+> > 1. How to skip PTE checks inside page_vma_mapped_walk for entries that
+> > were already handled in the previous batch;
+>
+> They are cleared if we reach that point. So the pte_none() checks will
+> simply skip them?
+>
+> > 2. How to break the iteration when this batch has arrived at the end.
+>
+> page_vma_mapped_walk() should be doing that?
 
-> * Well-known/architected SCMI DEs (like temperature, voltage, power)
-> directly map to HWMON sensor types.
-> 
+It seems you might have missed the part in my reply that says:
+"Of course, we could avoid both, but that would mean performing unnecessary
+checks inside page_vma_mapped_walk()."
 
-...well the thing is, while you can be sure that a DE is a temperature
-you cannot automatically be sure of WHAT it is really measuring (name is
-also optional) OR if it fits (or you want it to fit) into HWMON or IIO
-subsystems...IOW there are NO well-known/architected DE beside a few
-general events in the 0xA000-0xA013 range...
+That=E2=80=99s true for both. But I=E2=80=99m wondering why we=E2=80=99re s=
+till doing the check,
+even when we=E2=80=99re fairly sure they=E2=80=99ve already been cleared or=
+ we=E2=80=99ve reached
+the end :-)
 
-> However I can see that we may hit a limitation with that with the amount
-> of flexibility in SCMI telemetry, it may not always fit well in hwmon.
-> 
-> But, I think we can still leverage hwmon for telemetry related to power/
-> sensor related info.
-> 
+Somehow, I feel we could combine your cleanup code=E2=80=94which handles a =
+batch
+size of "nr" between 1 and nr_pages=E2=80=94with the
+"if (nr_pages =3D=3D folio_nr_pages(folio)) goto walk_done" check.
+In practice, this would let us skip almost all unnecessary checks,
+except for a few rare corner cases.
 
-Absolutely, but as of now I think Kernel needs some sort of feedback/config
-info from userspace to identify WHAT is fine to be registered with HWMON/IIO/PERF
-etc etc...since userspace is where the precise semantic decription of what-the-hell
-0x1234 ID represents on the specific platform...
-(so that is the reason for still NOT having this mechanism in this series...)
+For those corner cases where "nr" truly falls between 1 and nr_pages,
+we can just leave them as-is=E2=80=94performing the redundant check inside
+page_vma_mapped_walk().
 
-> The question about how do we differentiate between the above subsystems
-> is still open. Do we expect telemetry to purely come from the firmware
-> once the kernel is booted up already and is limited in the scope of what
-> it knows about the system its running on?
-> Or, can we somehow use DT to specify the subsystem we are interested in
-> based on the telemetry "number" and some compatible?
-> 
-
-I dont think DT is a viable option for this kind of descriptions...I was
-more thinking about an extension of (whatever we choose as) API which
-a userspace app can use to select which DEs is approriate for a specific
-kernel subsystem (f anything)
-
-> > 
-> >     NOTE THAT, this latter solution CANNOT be the only solution, because
-> >     all of the above subsystem (beside PERF) expose a SysFS-based userspace
-> >     interface (AFAIK), so, using their standard well-known interfaces WON'T
-> >     solve the performance and scalability problem we have in our SysFS.
-> > 
-> > Beside all of the above, the specification is still in ALPHA_0 and some
-> > features are still NOT supported by this series...
-> > 
-> > ...and of course any form of documentation is still missing :D
-> > 
-> > Based on V6.16-rc2.
-> > 
-> > Any feedback welcome,
-> > 
-> > For whoever had the gut to read till here :P ...
-> 
-> Hehe.. somehow managed to read it all :P
-> 
-
-...congratulations ! (I have no prizes to distribute, though :P)
+>
+> --
+> Cheers,
+>
+> David / dhildenb
+>
 
 Thanks
-Cristian,
+Barry
 
