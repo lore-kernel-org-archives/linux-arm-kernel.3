@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC25EC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F263AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IR49cgHCHvAIMDPRcpZ3k1pfOWri0vhzv9RlzrLDcHQ=; b=PRhFI9JnqMhsUpCGFKEZqtdZtk
-	xnOZsfFgwpHz8RXzYQqJTxcY46Kq2GjJ+Z4x+bKPciccYcU5Sn/7QhmqZLlRqSRrRy2rL07erOhXi
-	xBpx3A5wQBCCsGm4wjbWPNmfCurwywJAY8K+8AbUxEiFHyCEn5WTh3pI/6JVzMnoJatRNGxM5poZW
-	pGi7qOjkTzgM0StavdSEyx91j2o+1it6vy3y397/00uwE1BbVdXIFhKoIHAIsVjxyahK72yZ/pJvd
-	zMCQ7bd991XRxF3ydy2YrQsp9qOBO+IwZIe2BmtaqG247VaP45GMa+rukOfOpEUS/vABXQERq91VV
-	hsA1xBeA==;
+	bh=QH7sRZ0QqcxU8fkl81fUXDK4UIVoNz+qEBI6pfPcxS0=; b=MLioDX0q21PDi3uF+Jv+beozBy
+	3ENXCpxcTj9Y/S7Yr7NneSr3YNh0GioUihyy1Wtm47adfKiVj6GB6vjlZ/Eli3PROk7tIeOrydVBW
+	tsGKANHcNKzveiU0SZ1ELCxgm5mx27QHXojV+SxkPNPMhsEke8L/V7C+yL9SFRvrznzFVDZHP45pk
+	CHT+wXGPyg99RmrBgzbpAIDidmsuGKYdo+5bH/s41dP66i6Zc/BEGKrcs4BPkJg9GrWX+6bg49nR2
+	nyPBlePKbIlcoepRO8mcLZCb+Mok935D4cWde9EHs8JeEzcbQ4UQZZvu8q/eeBqNxl+SiTqwjhnki
+	py3hKsmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJNm-00000007dQ7-2iLa;
-	Wed, 25 Jun 2025 06:13:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uUJNo-00000007dR5-1Wiv;
+	Wed, 25 Jun 2025 06:13:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJHX-00000007cpI-44JB
+	id 1uUJKo-00000007dAY-0vXt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 06:06:53 +0000
+	Wed, 25 Jun 2025 06:10:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7101C4488C;
-	Wed, 25 Jun 2025 06:06:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D42E6C4CEEA;
-	Wed, 25 Jun 2025 06:06:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 666BA615F1;
+	Wed, 25 Jun 2025 06:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 889EAC4CEEA;
+	Wed, 25 Jun 2025 06:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750831611;
-	bh=5Q+7+Op3gsbZEqApPIdeBKD5P5akCCrtXGnS9a+5VXs=;
+	s=k20201202; t=1750831813;
+	bh=TEf+0zBo4DYSNOvhVuH60cDQ+vbZMzygF71dL+Jh798=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GYg/lktlw61cmx0Z+GPSyMOC8zIesl62vOmdkfcmaGhFXR/Ao6yfJ9ObaCSUOa2Nn
-	 bziIprPvtefzF1RtmGIm51+pnvwzNIlMrK97euitf6gJzea0o1tBFPSWd68/U9Ky6M
-	 6ju6d1K46OkMRWzQlLulCT/p6QAX2fHooBKh8A52kaB5+tJwx7KezW7NCP4LAiP1dm
-	 m59EdteMaEN9TyoKVeRBhhPWQ30AQxYXsdgTQQrePP6Lyfy9JVdjl4bW12+ZpsTwF4
-	 i5uDYNKvpUf6lW1qclTjyF866+HIBIkmknJamHusFw42vdxZ8p5vSiX+y0FbuDjAk0
-	 +uiO9nssSjRmA==
-Message-ID: <4cac3350-3e96-40f8-97c5-07388703264e@kernel.org>
-Date: Wed, 25 Jun 2025 08:06:46 +0200
+	b=YHt7DH9HLA5kBMzdtXsLfXrnOhUdtHDP4wZC/HNvVcwcIAn+kqlRrPXMZk/Trh2QJ
+	 oQ/YvsxqF8mGocksilcrPtZgaEmeXWDo7lrvXCG1dJ9OjyOo1BgEhZ9gIt3E5y7ZP1
+	 YI8Z+06o7onSqrN9VUIuQ1PAR1HdvZU/I4LLULSx991gQ8ZlSNfxMJCUBueVY+v+4m
+	 ldMMqaTZnEKxw8T0pQllV7ZrLNEoPfWHWlMINdGN2lUe7qUMn/qFkZ1zVKmVT7bLVh
+	 lsJOmzEFc2CGOSO8AjAiduJRTDDwuUOSMPiUm6aAH2PNjwaheLw/d7xxLlZDJu1/4o
+	 3lPOZV/1BQYEA==
+Message-ID: <22d911a2-3bf1-45ee-9037-c6d8cbd686fa@kernel.org>
+Date: Wed, 25 Jun 2025 08:10:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/7] MAINTAINERS: Add entry for Axiado
-To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jan Kotas <jank@cadence.com>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>
-References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
- <085d5ebd-515c-4608-825b-b3319bc3bf7d@kernel.org>
- <73e7df5e-14d8-4d8d-8e26-55d2ef262f1d@axiado.com>
+Subject: Re: [PATCH v6 2/9] dt-bindings: soc: imx-blk-ctrl: add i.MX91
+ blk-ctrl compatible
+To: Frank Li <Frank.li@nxp.com>
+Cc: Joy Zou <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ catalin.marinas@arm.com, will@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ ulf.hansson@linaro.org, richardcochran@gmail.com, kernel@pengutronix.de,
+ festevam@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-pm@vger.kernel.or,
+ ye.li@nxp.com, ping.bai@nxp.com, aisheng.dong@nxp.com
+References: <20250623095732.2139853-1-joy.zou@nxp.com>
+ <20250623095732.2139853-3-joy.zou@nxp.com>
+ <urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26>
+ <aFq7WJ3Fqe9p0EhA@lizhi-Precision-Tower-5810>
+ <e32c3a47-e32e-4f93-becb-ebad31065b73@kernel.org>
+ <aFr3yExb6vObn5W4@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +111,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <73e7df5e-14d8-4d8d-8e26-55d2ef262f1d@axiado.com>
+In-Reply-To: <aFr3yExb6vObn5W4@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_230652_056485_8D3DF7F8 
-X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,26 +128,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 01:33, Harshit Shah wrote:
-> On 6/23/2025 11:45 PM, Krzysztof Kozlowski wrote:
->> On 23/06/2025 19:28, Harshit Shah wrote:
->>> Add entry for Axiado maintainer and related files
+On 24/06/2025 21:08, Frank Li wrote:
+>>>>> +        clock-names:
+>>>>> +          items:
+>>>>> +            - const: apb
+>>>>> +            - const: axi
+>>>>> +            - const: nic
+>>>>> +            - const: disp
+>>>>> +            - const: cam
+>>>>> +            - const: lcdif
+>>>>> +            - const: isi
+>>>>> +            - const: csi
+>>>>
+>>>> No, look at other bindings how they share clock lists.
 >>>
->>> Signed-off-by: Harshit Shah <hshah@axiado.com>
->>> ---
->>>   MAINTAINERS | 8 ++++++++
->>>   1 file changed, 8 insertions(+)
->>>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>> Sorry, this method is what I suggested. becuase there are pxp between cam
+>>> and lcdif, can't use simple minItems/maxItems to limit list.
+>>
+>> The point is to put new items, so pxp, at the end.
 > 
-> Thank you Krzysztof. I was not aware of this before, apologies for the 
-> same. I will add this line of this from next patchset as per your 
-> suggestion.
-
-I don't understand why you are replying to my reviews and what you
-wanted to say.
-
-Please read submitting patches, which I linked in one of responses.
+> There are already a list for imx93. If change list order, it will break
+> ABI. This was rejected at other binding doc review.
+I see, I mixed the SoCs. It is a pity you upstream that way and do not
+try to make the list common. Anyway names indeed need to be constrained
+per variant, but the rest of the comments stay.
 
 Best regards,
 Krzysztof
