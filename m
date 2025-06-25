@@ -4,159 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D6CC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58ECC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FRdDfW53Pgtbfa+hoVwW0XlohWae4tQ9e4EtEpfn1g=; b=TTw+KSqwvEc7kg8tdoOJ22RXlX
-	TxwDnTcvXNfe/temNLr9aH/yy3CjJdKBL/gJT9nxvD3NzrklQwnYBpojrcGBko1Yv1qfkXwiUTLf/
-	9CZkO2mPaBhHLUB5kCUGDR2rgLjQGJedsFskiDxZ6HehmWlPxrwukFjb0bjXlh3UoWlUrZM9gjXXG
-	4TCWc5nDEjxgLH8L2hO4h6dzOfXdXpubKyiZwdKjWm6TII7ZDUPJto8CyolrHRytri0Uc7cBOTpdf
-	yDtzh4vqnN/Lrh24WgDn+r5Kxl9wal/MlEiaBLgM7k/cy9Aufbs2Pv89YjSgOe3K3iyQRIb9dK7HS
-	6lZKyVEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MO1G+VfoWaA5Lpkx4zXr0I7Bq0kqRKDgrhrFFwxt/54=; b=sZEcs8CHB9ymG+
+	hbJh5hyH/pjQefnpFwspMj/vEfK1aWFXSDRR6sxmciybn0ayHDheOaJNzeN5mJtz+7RKO5JO40TQZ
+	IpfYX3aCTlYHAwGI99rux8BbY+bCQ2HpG9lteo9w4Z5pCfXdfmWFmhtKZhPquewSA61f2oTpi4sTa
+	sMBbaqyWauvpLfmhomKZinLTY2iMJz/nK9Wiut323ym6KliT/KwfsvnYgoTyg8TMJ6CLIlKE6+p7s
+	3fcbjVCgw2/oibpWcQdneTHc98VkBho/pBm2AYDcgB6Od/MoSVZU99Zjd81U+mVRwSSBExKYenRuu
+	3+fS4KG+UO1bzWc9oPqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWpT-00000009qvg-2fNX;
-	Wed, 25 Jun 2025 20:34:47 +0000
-Received: from mail-dm6nam10on20609.outbound.protection.outlook.com ([2a01:111:f403:2413::609] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uUWpM-00000009qr3-094r;
+	Wed, 25 Jun 2025 20:34:40 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUT86-00000009KUj-2Xo7
+	id 1uUQEm-00000008ou6-2qrB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 16:37:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TKsYDRCO9bLzG2z5QeZIw3QrrDrkyWGDtYiY37bbToZP9fybdhcP3vxk/uaYXxvQl2Vv6o94j7yNBa/DfTH/GoWJQtQj67wfR9J1akulYuha91THc7SvC6hugzs80KR/uvI7urG6PXgYE23U0Lc1Z6Tye7srUUMCvm3vkEK1X1L0ARg1OJpWPVi4/LW1F9aO8/r3Qfuj1SHZN8WeCV654IquzI9Eh5HBHDk9iUIo8Jvjb+vxA7scrrqOSqQ+ognadHmpJ2Yzti9tliKdTcWfvuxsxPqT/cgKyr9nGmRtujYcZClzwMtTu4CdFN2U1anDU/NnNdtlBdes+Et8cwU1/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2FRdDfW53Pgtbfa+hoVwW0XlohWae4tQ9e4EtEpfn1g=;
- b=QNSp4ZKuWUdOVbY3k4p6qrsNMAocewgstX6Gla2Hfna2oVrie71vuz2+32tyK3YnjijhBNFGwJZdap8YpN9dkmjsykwmb3chktYFm9KaHPksnLz+y7oPR3lciQ210tqXmtk5Jmv4zadt9ugeXQbs+wTcG+mNdM11sy71i+DVxm5jD4ERu320l1ivkOEtEapmG6pVHF+V9AtI0L1tie26yKQJjUvFhS2VK2/RkFw9ra1XV8r85iP1jmFtOtfzg1SsZVegldPdRq8VDpfZ/Xl4cQqBX+Dpys1aOivVtHdcuXPHowpR7fLUlFYXxlHE91w7HAoLGpEIHDvTqgS59zLV1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2FRdDfW53Pgtbfa+hoVwW0XlohWae4tQ9e4EtEpfn1g=;
- b=aKZhS38Xs2i7TB5xikyrmYnSJ4YK3B5/KhWLz81GQZ7gTo0j1lkH1OdI35TOHKqP1vcPpW94XRqH93N/pL8IeTrvL0ot9F1UKTTr3QnMFStiNhrg185/Vlb4eQYpd7Zjq02rmQzeWsDfaA2xknhU01sC//J7UYodJEOfHoZPOumwbyC9kmYNy7Qa1pMh2TyKubq7YTY/xz518wkvO8J4NWqi1N+1tdQYBPcqYNJMyrvZ0W2Moa+e8/zWiDxsUHnYUy48rI1+ebSHDuu3vPHqP4zmuzrBuxv9edMmDpsqjBFuBRMh832YDTbffycsVaErPfyB39rrUmdItRbcSC6E4Q==
-Received: from BN1PR14CA0020.namprd14.prod.outlook.com (2603:10b6:408:e3::25)
- by MW6PR12MB8734.namprd12.prod.outlook.com (2603:10b6:303:249::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.22; Wed, 25 Jun
- 2025 16:37:42 +0000
-Received: from BN1PEPF00006003.namprd05.prod.outlook.com
- (2603:10b6:408:e3:cafe::d) by BN1PR14CA0020.outlook.office365.com
- (2603:10b6:408:e3::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8857.29 via Frontend Transport; Wed,
- 25 Jun 2025 16:37:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN1PEPF00006003.mail.protection.outlook.com (10.167.243.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8880.14 via Frontend Transport; Wed, 25 Jun 2025 16:37:40 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 25 Jun
- 2025 09:37:18 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 25 Jun
- 2025 09:37:18 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Wed, 25 Jun 2025 09:37:16 -0700
-Date: Wed, 25 Jun 2025 09:37:15 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
-	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
-	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
-	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
-	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
-	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
-	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
-	<vasant.hegde@amd.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v6 06/25] iommufd/access: Allow access->ops to be NULL
- for internal use
-Message-ID: <aFwlu7FlfIP85gko@Asurada-Nvidia>
-References: <cover.1749884998.git.nicolinc@nvidia.com>
- <e6a989c4dd9cb94aa4a98d46ed56a2afcb41b70d.1749884998.git.nicolinc@nvidia.com>
- <BN9PR11MB52766D0C0B12F1F10A6BE7548C7BA@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Wed, 25 Jun 2025 13:32:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MO1G+VfoWaA5Lpkx4zXr0I7Bq0kqRKDgrhrFFwxt/54=; b=lqnYTu6bcHN+l7CFQlxLnuSAQD
+	j7S0rDLWQ2VSZtAZebVg2xNlC3c6M3EOS0I7GNrsNEGA4CJECY/wxnsev17aR0gNbQc70W2hkikUY
+	3bcWmewshAVU03IoYxoQDBfwiKUua4qPe5z46aJ+KtyKN5fhSQSbtFmEZ5QxwsdlEcgTgQIQD+Lox
+	OvMknEDFWLXQmvrJvOHw7MZwL30U1y7j2U7wQ3yWr+8mqRmBUvjcfi/xtplg0QVnHKBBc8W3qtmHW
+	Q0adC5zfNwKnREvaJraCkSP8e8/ySRyj1syLk+mL1MpilOqHMaDy9DjdTwWMYK2cd23nN94Q+e5hA
+	K6qDsW8g==;
+Received: from [122.175.9.182] (port=60840 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uUQEh-00000008O3i-2rWy;
+	Wed, 25 Jun 2025 09:32:24 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id D2F2B1782036;
+	Wed, 25 Jun 2025 19:02:15 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id A7F81178171F;
+	Wed, 25 Jun 2025 19:02:15 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 5M6jJ8by_iVD; Wed, 25 Jun 2025 19:02:15 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 60A781782036;
+	Wed, 25 Jun 2025 19:02:15 +0530 (IST)
+Date: Wed, 25 Jun 2025 19:02:15 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Message-ID: <1528407284.1597726.1750858335213.JavaMail.zimbra@couthit.local>
+In-Reply-To: <68f46d06-c2ba-461b-9d88-8d76f9f84a8f@linux.dev>
+References: <20250623135949.254674-1-parvathi@couthit.com> <20250623164236.255083-12-parvathi@couthit.com> <68f46d06-c2ba-461b-9d88-8d76f9f84a8f@linux.dev>
+Subject: Re: [PATCH net-next v9 11/11] net: ti: prueth: Adds PTP OC Support
+ for AM335x and AM437x
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52766D0C0B12F1F10A6BE7548C7BA@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00006003:EE_|MW6PR12MB8734:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4eefc242-9aff-4b28-deec-08ddb40699fa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zBMI1Yx5F8fjJKh8M2EynXwgt9uMyjR9J03J5MlRJX7doRRRownlvueoXFDm?=
- =?us-ascii?Q?doANt+Qn4VabCqt7kBwBjFhFtM2cJ6qZ5BjwLzYJwmoeywanXf1uNRpGWS9+?=
- =?us-ascii?Q?fjyEyTO8b3k/rPwtRqyQXG3Qrvtk0oDn/HGMSYO5kdFIIRYlH9yhwvWWHLRX?=
- =?us-ascii?Q?2MFgi+jZMovnIItx960h9cPnOm/qXyrX52A91WWtNuljUNjA7kX8uHNrHCPp?=
- =?us-ascii?Q?bmxGuqpUaCOQ80geMlHeVM7cIkD1GQkY2AT1PnsRolhFWnhPCHEjBa8fnKgx?=
- =?us-ascii?Q?zJD+HSN9idjS+MmCTAus5zy7VUVDl5x+7kHSVWQKE+wAM0At7YyhzLhYYwpG?=
- =?us-ascii?Q?Fl8LCvmwk29w/5Efe+bjuJu9g3Z6HnIoJjFquyYFZWq72PML/3NZdmybeaLh?=
- =?us-ascii?Q?pzn3gv8bSYQqnjwbilPcRO0098c9B6Z685h6go6hGSYnlisILk0lo1LQRaJ6?=
- =?us-ascii?Q?Wf7CiR9x3y8wqEpGOVpbFuAKGY2MvPuMQaC1o4pDXXQ+tHqlPGnIr8waMqpp?=
- =?us-ascii?Q?ndWwE3r4itxWVoZitWVzYS2rL/sZ6XJZ45aAp4nHm/Iqky60RdzhB6qKxul+?=
- =?us-ascii?Q?+1inMxecXRrAzDOsOf230oDsCqyIP72ViBamEBY4OGcmscLasqRVni4tMULJ?=
- =?us-ascii?Q?Hqqu+jkQDQfH5T7GjN442W/4hFVLIsDOdGlFjOw3poz/+FOq9ir+4hz/xU7n?=
- =?us-ascii?Q?yd/vcAgb/dEAuKeRiW6TXyPBNCbr155UBOL1vDf6lXGnmJ8ssML+DJt+CDiD?=
- =?us-ascii?Q?CR+wMnqtbuX1lzZyYKZGpp9w5EeLP3cz1pJBytOCoZ3wS2L3dYFeXwlS3UmY?=
- =?us-ascii?Q?NwqjZciCW0OJF4oMxvsq2AxKuiaJUkysv9hBCdeAWdD5GAtvMuJewqZ3YITJ?=
- =?us-ascii?Q?kVsPZ8OkIvq6uUA+4Kt4vbojS9ureLHmdIvTKQJ+iwZvmdbBbH9lcrmqFU88?=
- =?us-ascii?Q?nW9kwmulFn+HWFdm2ppN4NQ4X4HTeAM6pxggffOUajlGkVt7BtriKwx6ZY/B?=
- =?us-ascii?Q?+vpAV6hNeX8eeFh45K/mYF80sGkbQovWLWqQ6sJaOSW78PRsOL3n+WnzU3a5?=
- =?us-ascii?Q?I4tBFhiZ7oEhG9MxrJXJg6W+5dTVjLQ5o7jfIcEbkFZTN7z9F2DzFzU/5xlb?=
- =?us-ascii?Q?+9woYA8AORUCa+5DlwW0knBXBUsy3AbC0iArft7fJzhbLQPWVKENORhJsnXI?=
- =?us-ascii?Q?AicKerpDKMEbg4gf7sW0DQ1jWHUat5/RsoMafIAJiszPwEZq5RggxCjtPYsw?=
- =?us-ascii?Q?2MvsuNFMEbMfesqHx/SPjlhi1dlIps3QhvTfv3cHcoOfwCOYQXhe5/hcnEyz?=
- =?us-ascii?Q?U24kftwRueap/ft3HAHf47eUxfZ/XudT1wwk2/s1ZdR9djksaXJVHlMnek5r?=
- =?us-ascii?Q?AWBuS+m6EJER2zQh4+bBkVwjkf4C7HkwsRherBlKeL9K6qiPmEe/qan1r6Hi?=
- =?us-ascii?Q?5Uf/yMt147HziCdbeS56ZlU1TVBlNmPCkq/UsHM8M9I8iwKqzHOAapjEwAmN?=
- =?us-ascii?Q?3R8jWW4v0B5NHbbiSkiPN+MOA6YF2hDyWyCr?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 16:37:40.0726
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4eefc242-9aff-4b28-deec-08ddb40699fa
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006003.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8734
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: prueth: Adds PTP OC Support for AM335x and AM437x
+Thread-Index: gttxIigjDUoI0uhJByj5kfnS0rDDyw==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_093746_651069_F1F9F308 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250625_063228_778329_31983CE7 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,62 +96,408 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 03:38:19AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Saturday, June 14, 2025 3:15 PM
-> > 
-> > +int iommufd_access_notify_unmap(struct io_pagetable *iopt, unsigned long
-> > iova,
-> > +				unsigned long length)
-> >  {
-> >  	struct iommufd_ioas *ioas =
-> >  		container_of(iopt, struct iommufd_ioas, iopt);
-> >  	struct iommufd_access *access;
-> >  	unsigned long index;
-> > +	int ret = 0;
-> > 
-> >  	xa_lock(&ioas->iopt.access_list);
-> >  	xa_for_each(&ioas->iopt.access_list, index, access) {
-> > +		if (!access->ops || !access->ops->unmap) {
-> > +			ret = -EBUSY;
-> > +			goto unlock;
-> > +		}
+Hi,
+
+> On 23/06/2025 17:42, Parvathi Pudi wrote:
+>> From: Roger Quadros <rogerq@ti.com>
+>> 
+>> PRU-ICSS IEP module, which is capable of timestamping RX and
+>> TX packets at HW level, is used for time synchronization by PTP4L.
+>> 
+>> This change includes interaction between firmware/driver and user
+>> application (ptp4l) with required packet timestamps.
+>> 
+>> RX SOF timestamp comes along with packet and firmware will rise
+>> interrupt with TX SOF timestamp after pushing the packet on to the wire.
+>> 
+>> IEP driver available in upstream linux as part of ICSSG assumes 64-bit
+>> timestamp value from firmware.
+>> 
+>> Enhanced the IEP driver to support the legacy 32-bit timestamp
+>> conversion to 64-bit timestamp by using 2 fields as below:
+>> - 32-bit HW timestamp from SOF event in ns
+>> - Seconds value maintained in driver.
+>> 
+>> Currently ordinary clock (OC) configuration has been validated with
+>> Linux ptp4l.
+>> 
+>> Signed-off-by: Roger Quadros <rogerq@ti.com>
+>> Signed-off-by: Andrew F. Davis <afd@ti.com>
+>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+>> ---
+>>   drivers/net/ethernet/ti/icssg/icss_iep.c     | 155 ++++++++++++++++++-
+>>   drivers/net/ethernet/ti/icssg/icss_iep.h     |  12 ++
+>>   drivers/net/ethernet/ti/icssm/icssm_prueth.c |  56 ++++++-
+>>   drivers/net/ethernet/ti/icssm/icssm_prueth.h |  11 ++
+>>   4 files changed, 230 insertions(+), 4 deletions(-)
+>> 
+>> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c
+>> b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>> index d0850722814e..85e27cc77a3b 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>> @@ -14,12 +14,15 @@
+>>   #include <linux/of.h>
+>>   #include <linux/of_platform.h>
+>>   #include <linux/platform_device.h>
+>> +#include <linux/timecounter.h>
+>> +#include <linux/clocksource.h>
+>>   #include <linux/timekeeping.h>
+>>   #include <linux/interrupt.h>
+>>   #include <linux/of_irq.h>
+>>   #include <linux/workqueue.h>
+>>   
+>>   #include "icss_iep.h"
+>> +#include "../icssm/icssm_prueth_ptp.h"
+>>   
+>>   #define IEP_MAX_DEF_INC		0xf
+>>   #define IEP_MAX_COMPEN_INC		0xfff
+>> @@ -53,6 +56,14 @@
+>>   #define IEP_CAP_CFG_CAPNR_1ST_EVENT_EN(n)	BIT(LATCH_INDEX(n))
+>>   #define IEP_CAP_CFG_CAP_ASYNC_EN(n)		BIT(LATCH_INDEX(n) + 10)
+>>   
+>> +#define IEP_TC_DEFAULT_SHIFT         28
+>> +#define IEP_TC_INCR5_MULT            BIT(28)
+>> +
+>> +/* Polling period - how often iep_overflow_check() is called */
+>> +#define IEP_OVERFLOW_CHECK_PERIOD_MS   50
+>> +
+>> +#define TIMESYNC_SECONDS_COUNT_SIZE    6
+>> +
+>>   /**
+>>    * icss_iep_get_count_hi() - Get the upper 32 bit IEP counter
+>>    * @iep: Pointer to structure representing IEP.
+>> @@ -87,6 +98,28 @@ int icss_iep_get_count_low(struct icss_iep *iep)
+>>   }
+>>   EXPORT_SYMBOL_GPL(icss_iep_get_count_low);
+>>   
+>> +static u64 icss_iep_get_count32(struct icss_iep *iep)
+>> +{
+>> +	void __iomem *sram = iep->sram;
+>> +	u64 v_sec = 0;
+>> +	u32 v_ns = 0;
+>> +	u64 v = 0;
+>> +
+>> +	v_ns = icss_iep_get_count_low(iep);
+>> +	memcpy_fromio(&v_sec, sram + TIMESYNC_SECONDS_COUNT_OFFSET,
+>> +		      TIMESYNC_SECONDS_COUNT_SIZE);
+>> +	v = (v_sec * NSEC_PER_SEC) + v_ns;
 > 
-> then accesses before this one have been notified to unpin the area
-> while accesses afterwards are left unnotified.
+> How can you be sure that the nanoseconds part does belong to the second
+> which was read afterwards? In other words, what is the protection for
+> the sutiation when an overflow happened right after you read ns but
+> before reading of seconds?
+> And another question - you copy 6 bytes of seconds counter directly into
+> the memory. How will it deal with different endianess?
 > 
-> in the end the unmap fails but with some side-effect incurred.
+
+We are analyzing further to check the possibility of the race condition.
+We will review and address this in next version.
+
+>> +
+>> +	return v;
+>> +}
+>> +
+>> +static u64 icss_iep_cc_read(const struct cyclecounter *cc)
+>> +{
+>> +	struct icss_iep *iep = container_of(cc, struct icss_iep, cc);
+>> +
+>> +	return icss_iep_get_count32(iep);
+>> +}
+>> +
+>>   /**
+>>    * icss_iep_get_ptp_clock_idx() - Get PTP clock index using IEP driver
+>>    * @iep: Pointer to structure representing IEP.
+>> @@ -280,6 +313,78 @@ static void icss_iep_set_slow_compensation_count(struct
+>> icss_iep *iep,
+>>   	regmap_write(iep->map, ICSS_IEP_SLOW_COMPEN_REG, compen_count);
+>>   }
+>>   
+>> +/* PTP PHC operations */
+>> +static int icss_iep_ptp_adjfine_v1(struct ptp_clock_info *ptp, long scaled_ppm)
+>> +{
+>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>> +	s32 ppb = scaled_ppm_to_ppb(scaled_ppm);
+>> +	struct timespec64 ts;
+>> +	int neg_adj = 0;
+>> +	u32 diff, mult;
+>> +	u64 adj;
+>> +
+>> +	mutex_lock(&iep->ptp_clk_mutex);
+>> +
+>> +	if (ppb < 0) {
+>> +		neg_adj = 1;
+>> +		ppb = -ppb;
+>> +	}
+>> +	mult = iep->cc_mult;
+>> +	adj = mult;
+>> +	adj *= ppb;
+>> +	diff = div_u64(adj, 1000000000ULL);
+>> +
+>> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
+>> +	pr_debug("iep ptp adjfine check at %lld.%09lu\n", ts.tv_sec,
+>> +		 ts.tv_nsec);
+>> +
+>> +	iep->cc.mult = neg_adj ? mult - diff : mult + diff;
+>> +
+>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int icss_iep_ptp_adjtime_v1(struct ptp_clock_info *ptp, s64 delta)
+>> +{
+>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>> +
+>> +	mutex_lock(&iep->ptp_clk_mutex);
+>> +	timecounter_adjtime(&iep->tc, delta);
+>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int icss_iep_ptp_gettimeex_v1(struct ptp_clock_info *ptp,
+>> +				     struct timespec64 *ts,
+>> +				     struct ptp_system_timestamp *sts)
+>> +{
+>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>> +	u64 ns;
+>> +
+>> +	mutex_lock(&iep->ptp_clk_mutex);
+>> +	ns = timecounter_read(&iep->tc);
+>> +	*ts = ns_to_timespec64(ns);
+>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int icss_iep_ptp_settime_v1(struct ptp_clock_info *ptp,
+>> +				   const struct timespec64 *ts)
+>> +{
+>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>> +	u64 ns;
+>> +
+>> +	mutex_lock(&iep->ptp_clk_mutex);
+>> +	ns = timespec64_to_ns(ts);
+>> +	timecounter_init(&iep->tc, &iep->cc, ns);
+>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   /* PTP PHC operations */
+>>   static int icss_iep_ptp_adjfine(struct ptp_clock_info *ptp, long scaled_ppm)
+>>   {
+>> @@ -669,6 +774,17 @@ static int icss_iep_ptp_enable(struct ptp_clock_info *ptp,
+>>   	return -EOPNOTSUPP;
+>>   }
+>>   
+>> +static long icss_iep_overflow_check(struct ptp_clock_info *ptp)
+>> +{
+>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>> +	unsigned long delay = iep->ovfl_check_period;
+>> +	struct timespec64 ts;
+>> +
+>> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
+>> +
+>> +	pr_debug("iep overflow check at %lld.%09lu\n", ts.tv_sec, ts.tv_nsec);
+>> +	return (long)delay;
+>> +}
+>>   static struct ptp_clock_info icss_iep_ptp_info = {
+>>   	.owner		= THIS_MODULE,
+>>   	.name		= "ICSS IEP timer",
+>> @@ -680,6 +796,18 @@ static struct ptp_clock_info icss_iep_ptp_info = {
+>>   	.enable		= icss_iep_ptp_enable,
+>>   };
+>>   
+>> +static struct ptp_clock_info icss_iep_ptp_info_v1 = {
+>> +	.owner		= THIS_MODULE,
+>> +	.name		= "ICSS IEP timer",
+>> +	.max_adj	= 10000000,
+>> +	.adjfine	= icss_iep_ptp_adjfine_v1,
+>> +	.adjtime	= icss_iep_ptp_adjtime_v1,
+>> +	.gettimex64	= icss_iep_ptp_gettimeex_v1,
+>> +	.settime64	= icss_iep_ptp_settime_v1,
+>> +	.enable		= icss_iep_ptp_enable,
+>> +	.do_aux_work	= icss_iep_overflow_check,
+>> +};
+>> +
+>>   struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
+>>   {
+>>   	struct platform_device *pdev;
+>> @@ -701,6 +829,18 @@ struct icss_iep *icss_iep_get_idx(struct device_node *np,
+>> int idx)
+>>   	if (!iep)
+>>   		return ERR_PTR(-EPROBE_DEFER);
+>>   
+>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0) {
+>> +		iep->cc.shift = IEP_TC_DEFAULT_SHIFT;
+>> +		iep->cc.mult = IEP_TC_INCR5_MULT;
+>> +
+>> +		iep->cc.read = icss_iep_cc_read;
+>> +		iep->cc.mask = CLOCKSOURCE_MASK(64);
+>> +
+>> +		iep->ovfl_check_period =
+>> +			msecs_to_jiffies(IEP_OVERFLOW_CHECK_PERIOD_MS);
+>> +		iep->cc_mult = iep->cc.mult;
+>> +	}
+>> +
+>>   	device_lock(iep->dev);
+>>   	if (iep->client_np) {
+>>   		device_unlock(iep->dev);
+>> @@ -795,6 +935,10 @@ int icss_iep_init(struct icss_iep *iep, const struct
+>> icss_iep_clockops *clkops,
+>>   		icss_iep_enable(iep);
+>>   	icss_iep_settime(iep, ktime_get_real_ns());
+>>   
+>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>> +		timecounter_init(&iep->tc, &iep->cc,
+>> +				 ktime_to_ns(ktime_get_real()));
+>> +
+>>   	iep->ptp_clock = ptp_clock_register(&iep->ptp_info, iep->dev);
+>>   	if (IS_ERR(iep->ptp_clock)) {
+>>   		ret = PTR_ERR(iep->ptp_clock);
+>> @@ -802,6 +946,9 @@ int icss_iep_init(struct icss_iep *iep, const struct
+>> icss_iep_clockops *clkops,
+>>   		dev_err(iep->dev, "Failed to register ptp clk %d\n", ret);
+>>   	}
+>>   
+>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>> +		ptp_schedule_worker(iep->ptp_clock, iep->ovfl_check_period);
+>> +
+>>   	return ret;
+>>   }
+>>   EXPORT_SYMBOL_GPL(icss_iep_init);
+>> @@ -879,7 +1026,11 @@ static int icss_iep_probe(struct platform_device *pdev)
+>>   		return PTR_ERR(iep->map);
+>>   	}
+>>   
+>> -	iep->ptp_info = icss_iep_ptp_info;
+>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>> +		iep->ptp_info = icss_iep_ptp_info_v1;
+>> +	else
+>> +		iep->ptp_info = icss_iep_ptp_info;
+>> +
+>>   	mutex_init(&iep->ptp_clk_mutex);
+>>   	dev_set_drvdata(dev, iep);
+>>   	icss_iep_disable(iep);
+>> @@ -1004,6 +1155,7 @@ static const struct icss_iep_plat_data
+>> am57xx_icss_iep_plat_data = {
+>>   		[ICSS_IEP_SYNC_START_REG] = 0x19c,
+>>   	},
+>>   	.config = &am654_icss_iep_regmap_config,
+>> +	.iep_rev = IEP_REV_V2_1,
+>>   };
+>>   
+>>   static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
+>> @@ -1057,6 +1209,7 @@ static const struct icss_iep_plat_data
+>> am335x_icss_iep_plat_data = {
+>>   		[ICSS_IEP_SYNC_START_REG] = 0x11C,
+>>   	},
+>>   	.config = &am335x_icss_iep_regmap_config,
+>> +	.iep_rev = IEP_REV_V1_0,
+>>   };
+>>   
+>>   static const struct of_device_id icss_iep_of_match[] = {
+>> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.h
+>> b/drivers/net/ethernet/ti/icssg/icss_iep.h
+>> index 0bdca0155abd..f72f1ea9f3c9 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icss_iep.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.h
+>> @@ -47,21 +47,29 @@ enum {
+>>   	ICSS_IEP_MAX_REGS,
+>>   };
+>>   
+>> +enum iep_revision {
+>> +	IEP_REV_V1_0 = 0,
+>> +	IEP_REV_V2_1
+>> +};
+>> +
+>>   /**
+>>    * struct icss_iep_plat_data - Plat data to handle SoC variants
+>>    * @config: Regmap configuration data
+>>    * @reg_offs: register offsets to capture offset differences across SoCs
+>>    * @flags: Flags to represent IEP properties
+>> + * @iep_rev: IEP revision identifier.
+>>    */
+>>   struct icss_iep_plat_data {
+>>   	const struct regmap_config *config;
+>>   	u32 reg_offs[ICSS_IEP_MAX_REGS];
+>>   	u32 flags;
+>> +	enum iep_revision iep_rev;
+>>   };
+>>   
+>>   struct icss_iep {
+>>   	struct device *dev;
+>>   	void __iomem *base;
+>> +	void __iomem *sram;
+>>   	const struct icss_iep_plat_data *plat_data;
+>>   	struct regmap *map;
+>>   	struct device_node *client_np;
+>> @@ -70,6 +78,10 @@ struct icss_iep {
+>>   	struct ptp_clock_info ptp_info;
+>>   	struct ptp_clock *ptp_clock;
+>>   	struct mutex ptp_clk_mutex;	/* PHC access serializer */
+>> +	u32 cc_mult; /* for the nominal frequency */
+>> +	struct cyclecounter cc;
+>> +	struct timecounter tc;
+>> +	unsigned long ovfl_check_period;
+>>   	u32 def_inc;
+>>   	s16 slow_cmp_inc;
+>>   	u32 slow_cmp_count;
+>> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>> index 67ee4c72d3d6..7e90f9e71921 100644
+>> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>> @@ -39,6 +39,8 @@
+>>   #define TX_START_DELAY		0x40
+>>   #define TX_CLK_DELAY_100M	0x6
+>>   
+>> +#define TIMESYNC_SECONDS_BIT_MASK   0x0000ffffffffffff
+>> +
+>>   static struct prueth_fw_offsets fw_offsets_v2_1;
+>>   
+>>   static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
+>> @@ -642,13 +644,49 @@ irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void
+>> *dev)
+>>   	return IRQ_HANDLED;
+>>   }
+>>   
+>> +/**
+>> + * icssm_iep_get_timestamp_cycles - IEP get timestamp
+>> + * @iep: icss_iep structure
+>> + * @mem: io memory address
+>> + *
+>> + * To convert the 10 byte timestamp from firmware
+>> + * i.e., nanoseconds part from 32-bit IEP counter(4 bytes)
+>> + * seconds part updated by firmware(rev FW_REV1_0) in SRAM
+>> + * (6 bytes) into 64-bit timestamp in ns
+>> + *
+>> + * Return: 64-bit converted timestamp
+>> + */
+>> +u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
+>> +				   void __iomem *mem)
+>> +{
+>> +	u64 cycles, cycles_sec = 0;
+>> +	u32 cycles_ns;
+>> +
+>> +	memcpy_fromio(&cycles_ns, mem, sizeof(cycles_ns));
+>> +	memcpy_fromio(&cycles_sec, mem + 4, sizeof(cycles_sec));
 > 
-> I'm not sure whether this intermediate state may lead to any undesired
-> effect later. Just raise it in case you or Jason already thought about it.
-
-That's a good point. When an access blocks the unmap, there is no
-unmap happening so no point in notifying devices for ops->unmap.
-
-And, when the function is re-entered, there could be a duplicated
-ops->unmap call for those devices that are already notified once?
-
-So, if we play safe, there can be a standalone xa_for_each to dig
-for !access->ops->unmap. And it could be a bit cleaner to add an
-iommufd_access_has_internal_use() to be called under those rwsems.
-
-> >  			/* Something is not responding to unmap requests.
-> > */
-> >  			tries++;
-> > -			if (WARN_ON(tries > 100))
-> > -				return -EDEADLOCK;
-> > +			if (WARN_ON(tries > 100)) {
-> > +				rc = -EDEADLOCK;
-> > +				goto out_unmapped;
-> > +			}
+> the same question is here - there is a possibility of overflow
+> between these 2 reads...
 > 
-> this looks an unrelated fix?
 
-Yea.. let me separate it out.
+We are analyzing further to check the possibility of the race condition.
+We will review and address this in next version.
 
-Thanks
-Nicolin
+
+Thanks and Regards,
+Parvathi.
 
