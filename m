@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58032C7EE3A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1108C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZnBAu8jYfIh7mzx45795/R+Wht7pA4IEUQRmMp0A5Y8=; b=Lo3vmq68FXziXvedXa1qgLtVcc
-	1z14cNj+hznmD18zodKxr0mHpzFOz5D7dR09u4Y27U4VPvlP+oYHvOUwJRS0YVxdTjuqVcydpabAX
-	D+l+detJr+vnVG8SsiWKPlyOvqEu0GT9zcpo7T/sJP5o2J8TjMT1u++llql5pTjTGrE+iXPtg9kHb
-	+viPx8LXuvzA+8gw4YT+Hw/UibZHEgoPoKOK1zKlq5ueHn05yvaLX67S12V97oJQ0iBxdRCce9YGQ
-	aXeHaR1nZ5tlBieraXak7Z34i0tBc0JUIfzshbsIeDszlW3DGx8FnAZZF8Od1HLlQKx8xoMBtEkW4
-	xI2IFPkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+QvC8vYW+AfbB/VDXT7aW0XL4OlqMpYtfCw/7F5yAwA=; b=arsN40yvTgTsBElYPM9cno9pP8
+	5Mj0C6+WOFb9rYZFuNDVC1kL98ApCZ7yqMjC3uRaCLqW0FF6vdgb1QwxyFnxqVdgPwTxJC4D2Em3+
+	YaR2+Nbi2uAv+AYUJzdLurF3NLp+hlJsbTh5CoyH67zwUp4A7QIePJsdn/eiFuEsqF+2+5hddUF1Q
+	voqXU6hs5AJmnMfGmZgif505aSecwuMsCyeooA6XBjsw9dHR399DqzYT9tzhavDp6fZzi+rXGdSqC
+	h3DxCRZ4IYlGvUN7YpZIzcCOj/eFcK0+8VGVoaV73nm1YjumAuAfFpdfuF8TN/lWjSTCSbHf6G121
+	owtS6FIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUre-00000009ZG4-1yHW;
-	Wed, 25 Jun 2025 18:28:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQqy-00000008uwR-3ptp
+	id 1uUUrn-00000009ZMG-3nFB;
+	Wed, 25 Jun 2025 18:29:03 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUR0R-00000008whD-2U0S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 14:11:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C47A1106F;
-	Wed, 25 Jun 2025 07:11:37 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 358D23F66E;
-	Wed, 25 Jun 2025 07:11:53 -0700 (PDT)
-Date: Wed, 25 Jun 2025 15:11:50 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	d-gole@ti.com, souvik.chakravarty@arm.com
-Subject: Re: [RFC PATCH 4/7] firmware: arm_scmi: Add System Telemetry driver
-Message-ID: <aFwDprdWI0mtglwe@pluto>
-References: <20250620192813.2463367-1-cristian.marussi@arm.com>
- <20250620192813.2463367-5-cristian.marussi@arm.com>
- <f2c0a0d9-6a1b-42c7-a180-e04e357dbbb5@suswa.mountain>
+	Wed, 25 Jun 2025 14:21:45 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-606a269d440so1436401a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 07:21:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750861301; x=1751466101; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+QvC8vYW+AfbB/VDXT7aW0XL4OlqMpYtfCw/7F5yAwA=;
+        b=Cljgw842qVdU6C+T/D/kiWHx2tAfghyzWNYTOC4jSZIgnfq9LbhqksHt0XxTZZnPbu
+         71I1dEH8epO2lBJmBM5Us1RG2bsYncXUV9bTPp73eI4itD3Y1kZZmXyCRxp7uxQ7+VYg
+         lTRDvkiRU6+wG/QL4+nDDl7fHuMZ4Ws03smns8rts73Cy3WNshnWHxCwulUb6HOEG2DX
+         Sz8K+ar5IzI4xyCuM5GtlWXHgccS3RejClEHJVb+l3AhCGF1TPenIIZ7dhov/U3n5Qg/
+         nre2UyK16vr2KhVgmzEttr0BYsFngB6IJiSFwq5J3zq0z6wIARVn2jqnKYC1NlQlsALI
+         0N6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750861301; x=1751466101;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+QvC8vYW+AfbB/VDXT7aW0XL4OlqMpYtfCw/7F5yAwA=;
+        b=N2HL8nD83hf4A5AZw3iQ7G5nAmHuDMYLhsoagkawYQ2zWl8wkjE+syqllRtRSV6/Zh
+         pj6Vv91joBW6j7MR+KZRJeuQp6gUnCTU4DCIyPnJusahPbAMCwdT3i59B2iLu40nHgkB
+         ElOT97TrvmhOH+Y6VrT5lSlLOTygBlrStHgtjZhSUnp0yTezOQPUg70PyTYfa+mTf0Z3
+         velzVVGVC96DdMMqlwbg0RICMybbpOx18PqCkUeyfzYU+5/gYbmq8nMV95FL6ZL8xhw2
+         AUYve+skJ8piV21PMhg7/wAnGSfKiLChXtNIAYsvdpqIWdmTqhkbqfYSS5wxos6A0m2q
+         Is/w==
+X-Gm-Message-State: AOJu0Yxc6JYJuARUlir3tAg3oqfJet8xBOC4rM+l+1wV+0k00sGEVvX0
+	STjMlUt2JKHDo5ahoflytJRln5wDkST7zWNLMAnDXFedSPjWzWMtYthN5WpwcHxf5Vo=
+X-Gm-Gg: ASbGnctyIgVRusL/tj+KkXj3CZLhjsRO3o1hKbVm/wu0sH5tLtUbbns3vIZ0ZCiac/x
+	MoIPhqDCTlOLz6xuJRK5WXSmGCS6k71P2jFH7U19l9BZmbFHVfOFfVMOpvO+qmDsEA6IldVLZlL
+	aAFCCpblcm+am9GcDeyAkaP+uOegL9tbvY2bqTrvx02jPYlpkHtMjeGmgN6whI61zh79mfp8rkM
+	QocBx0Ib9ZADA2v6w0WzgdMDtnJvnt/I9Rg/Z9SFMtp1UqbcpnDHnSYuomr69ZduZINnKN+BZMi
+	GiuXdQzmHkOCvSBJb2mkAqOOjgrOalrjItolwmkEeD1LtdnU8SgwrJuWrX+/gTwOwgXgTQcmpl7
+	npcQxhvWGhq+7kZAU
+X-Google-Smtp-Source: AGHT+IFYm10YxIFhCnCipzjlfWjOLtuMr1BPt2912OnJxUKbMSfRM1bD7rOZCEZPooC75oZ3Fx2Jaw==
+X-Received: by 2002:a05:6402:4003:b0:608:c773:8b3 with SMTP id 4fb4d7f45d1cf-60c4dde8f1cmr950949a12.7.1750861301433;
+        Wed, 25 Jun 2025 07:21:41 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.222.89])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c2f1ae8cbsm2584006a12.21.2025.06.25.07.21.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 07:21:40 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, William Mcvicker <willmcvicker@google.com>
+In-Reply-To: <20250619-gs101-eint-mask-v1-0-89438cfd7499@linaro.org>
+References: <20250619-gs101-eint-mask-v1-0-89438cfd7499@linaro.org>
+Subject: Re: [PATCH 0/2] Add support for programming gs101 EINT_WAKEUP_MASK
+ registers
+Message-Id: <175086130008.117696.12548441312202680982.b4-ty@linaro.org>
+Date: Wed, 25 Jun 2025 16:21:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f2c0a0d9-6a1b-42c7-a180-e04e357dbbb5@suswa.mountain>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_071157_113208_A074CA55 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250625_072143_639661_F60F0832 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,136 +106,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 21, 2025 at 12:27:03AM +0300, Dan Carpenter wrote:
-> On Fri, Jun 20, 2025 at 08:28:10PM +0100, Cristian Marussi wrote:
-> > +//TODO Review available interval show
-> > +#define BUF_SZ	1024
-> > +static inline ssize_t
-> > +__available_update_show(char *buf,
-> > +			const struct scmi_telemetry_update_interval *intervals)
-> > +{
-> > +	int len = 0, num_intervals = intervals->num;
-> > +	char available[BUF_SZ];
-> > +
-> > +	for (int i = 0; i < num_intervals; i++) {
-> > +		len += scnprintf(available + len, BUF_SZ - len, "%u ",
-> > +				 intervals->update_intervals[i]);
-> > +	}
-> > +
-> > +	available[len - 1] = '\0';
-> 
-> No need.  scnprintf() will already have put a NUL terminator there.
-> Unless num_intervals <= 0 in which case this will corrupt memory.
-> 
 
-Yes, all of this routine has to be really reworked to avoid on the stack
-allocation too...
-
-> > +
-> > +	return sysfs_emit(buf, "%s\n", available);
-> > +}
+On Thu, 19 Jun 2025 12:18:14 +0100, Peter Griffin wrote:
+> The following series adds support for programming the gs101
+> EINT_WAKEUP_MASK registers for the 67 external wakeup interrupts on gpa0 to
+> gpa11 (alive and far_alive). gs101 differs to previous SoCs in that it has
+> 3 EINT_WAKEUP_MASK registers
 > 
-> [ snip ]
+> EINT_WAKEUP_MASK  0x3A80 EINT[31:0]
+> EINT_WAKEUP_MASK2 0x3A84 EINT[63:32]
+> EINT_WAKEUP_MASK3 0x3A88 EINT[66:64]
 > 
-> > +static int scmi_telemetry_groups_initialize(struct device *dev,
-> > +					    struct scmi_tlm_instance *ti)
-> > +{
-> > +	int ret;
-> > +
-> > +	if (ti->info->num_groups == 0)
-> > +		return 0;
-> > +
-> > +	ret = scmi_telemetry_dev_register(&ti->groups_dev, &ti->dev, "groups");
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	for (int i = 0; i < ti->info->num_groups; i++) {
-> > +		const struct scmi_telemetry_group *grp = &ti->info->des_groups[i];
-> > +		struct scmi_tlm_grp_dev *gdev;
-> > +		char name[16];
-> > +
-> > +		gdev = devm_kzalloc(dev, sizeof(*gdev), GFP_KERNEL);
-> > +		if (!gdev) {
-> > +			ret = -ENOMEM;
-> > +			goto err;
-> > +		}
-> > +
-> > +		gdev->tsp = ti->tsp;
-> > +		gdev->grp = grp;
-> > +		gdev->dev.groups = scmi_grp_groups;
-> > +
-> > +		snprintf(name, 8, "%d", grp->id);
-> 
-> s/8/sizeof(name)/?
+> [...]
 
-indeed...
+Applied, thanks!
 
-> 
-> > +		ret = scmi_telemetry_dev_register(&gdev->dev,
-> > +						  &ti->groups_dev, name);
-> > +		if (ret)
-> > +			goto err;
-> > +
-> > +		if (ti->info->per_group_config_support) {
-> > +			sysfs_add_file_to_group(&gdev->dev.kobj,
-> > +						&dev_attr_grp_current_update.attr,
-> > +						NULL);
-> > +			sysfs_add_file_to_group(&gdev->dev.kobj,
-> > +						&dev_attr_grp_intervals_discrete.attr,
-> > +						NULL);
-> > +			sysfs_add_file_to_group(&gdev->dev.kobj,
-> > +						&dev_attr_grp_available_intervals.attr,
-> > +						NULL);
-> > +		}
-> > +	}
-> > +
-> > +	dev_info(dev, "Found %d Telemetry GROUPS resources.\n",
-> > +		 ti->info->num_groups);
-> > +
-> > +	return 0;
-> > +
-> > +err:
-> > +	scmi_telemetry_dev_unregister(&ti->groups_dev);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static int scmi_telemetry_des_initialize(struct device *dev,
-> > +					 struct scmi_tlm_instance *ti)
-> > +{
-> > +	int ret;
-> > +
-> > +	ret = scmi_telemetry_dev_register(&ti->des_dev, &ti->dev, "des");
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	for (int i = 0; i < ti->info->num_de; i++) {
-> > +		const struct scmi_telemetry_de *de = ti->info->des[i];
-> > +		struct scmi_tlm_de_dev *tdev;
-> > +		char name[16];
-> > +
-> > +		tdev = devm_kzalloc(dev, sizeof(*tdev), GFP_KERNEL);
-> > +		if (!tdev) {
-> > +			ret = -ENOMEM;
-> > +			goto err;
-> > +		}
-> > +
-> > +		tdev->tsp = ti->tsp;
-> > +		tdev->de = de;
-> > +		tdev->dev.groups = scmi_des_groups;
-> > +
-> > +		/*XXX What about of ID/name digits-length used ? */
-> > +		snprintf(name, 8, "0x%04X", de->id);
-> 
-> s/8/sizeof(name)/?
-> 
+[1/2] pinctrl: samsung: rename exynosautov920_retention_data to no_retention_data
+      https://git.kernel.org/pinctrl/samsung/c/c8edb80494407f65a253ea63ffbae3fb831f397a
+[2/2] pinctrl: samsung: add support for gs101 wakeup mask programming
+      https://git.kernel.org/pinctrl/samsung/c/2642f55d44ce563f227dd9c620eda0dec8d882be
 
-yes.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> regards,
-> dan carpenter
->
-
-Thanks,
-Cristian
 
