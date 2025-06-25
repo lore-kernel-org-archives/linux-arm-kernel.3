@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB99C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D05E8C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiG8sr1KaclHSbf6egC7naRu8LsxzyFDngHY6EqehU8=; b=V+j3WDDQqqgiA8yvfBssrGpZhO
-	NKQbMoSjVbLe+MSNilNFS2+HYL+kiW7vN+Cnp4L41ao0uVs6CFFsp2ttiSYRJYGyRquJgZ/JkwW4/
-	RjAGLA5Eo8TNy4VBdLnKXSFP/lP77m9AZiuY0G14sYtnfyZa+x1YDxEqKLfurFLyaLXgo88/RqBlJ
-	Grr9k6ks1WZs6eI9WNXX+Er0i4PNaF9q4oqcRFQkZXpoWC1zLHC4wZ7BrtC9aSN5FjcKKw2IQoNyg
-	zVs2jVm9cKec75XaYbxPd4gdHY9yxWM9QYBOyzLzsWHJOcVSCSHIKgny3DEm/xIigqpwjjVoKP4dZ
-	jEXjXHzA==;
+	bh=SJ5NkjC+cOiMPwKXMdsR+3xgXJFhGnL3/wL1U2zUcWg=; b=vMfAjPeCWqU0+uTXqkKNGkWy5F
+	LyMhSKcQwI+MGkf5pdxuPr9CgBCZJ0KUAUy0QZm1WvrzoHa9tVuytWgOt7g2YreDEwY0YcjipSA/k
+	kOY+HP4JsEKGch0USTDGTyRa2hDDOST81FDbMrLn/nVnA2z8TNWoMxdz8PfXXCzTyQYf2MoVUlJGW
+	N8STNnfZ8o9EWwELFKtOnAC9rvBoqbFRzUMVqSOx4TEhiAvYxHMgG/+wYsV9q2mluzS0/EHhL6nMh
+	buiByKXzQ6YOAk+o/tFfiTrl8JhmWBgryCJFiYd51HgA+kGeiHL0vJ/7w2m2ft+cT8Y7ijm4rOu7q
+	8gbmDfvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUTMQ-00000009Nri-0jcA;
-	Wed, 25 Jun 2025 16:52:34 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uUTOh-00000009OGP-3tH9;
+	Wed, 25 Jun 2025 16:54:55 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUP9U-00000008bw8-0vds
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:22:58 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-604bff84741so3155093a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 05:22:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750854174; x=1751458974; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OiG8sr1KaclHSbf6egC7naRu8LsxzyFDngHY6EqehU8=;
-        b=VHR7x3cZsOtxAdyQnax+SZQwSO5wtUIkKPTajSamo+6ZE/2u0F/TcNXzRpIiI5PTWy
-         gG4tW2FPzL3Fr8EZW/Gz+6CnfShfuiCu6vYFIAolsZulLR24sls4wLnq34otHgKzTKiU
-         nISrrO0sM5dwvRvUmVJlgsUUD0QipNkWiM4RzsBhvbOCGrzfwT8EU0UuoW+p06XXpARy
-         YcoKcnouErePZfyt3rH97xNY4YliHnELo5yYk9b7AJsUo+7zVVadWO+m82likQ4AKr9J
-         Ubyuq0PRUngSVTYM5mLv8X5KPf57wz6TKTF15+1cRvZb5HsDzGDLehEjyWrVvQdUqWXi
-         WPCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750854174; x=1751458974;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OiG8sr1KaclHSbf6egC7naRu8LsxzyFDngHY6EqehU8=;
-        b=B2nhtAE6FaB0eMaRpvxZR1tFnQN01mwQyjYVGQJIZfQuoQPe0GipCz+Xauzix4g3O4
-         LQ5uWEoQQpt/1ibBw68LNWpKKI4G7UVK26r7fUT9G8TS+ZVQlNLgnfIrYHlQUJUwj/Gs
-         Aw1qV/xDD573xPAHyCtXepUrqoxPKRBviHKXDFE25jWWJL5gNtILSfg3y9VX3cI6HGfY
-         8MFzJaKE8lBqZIUl1XGVQmCWkjWO/sU9PtP5KhWu3V5lf2Z43L0Bhuk+C7JXXGzIO0Qs
-         GHWTxV+w054OrDefNCYbtfpN7heBbOqfQgqnPsSGschMt9ofZa9eTF9AffTkQhAmbBBK
-         5NtA==
-X-Forwarded-Encrypted: i=1; AJvYcCWfT7mtp5k5fuSHn0JjbSaslT4dHxz3zffe+aMr+2MUa7hoIYAmzo6wTrjm2U1ZPxwbQZnz/rHkajeVe6Yz2D1p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVbI4T954Y/UeBlVV99gac/gqnzsED2n6Kd78m+318CyrxHIq5
-	1nU+rLRG876MT2ue4YHhnNwhuHzXt+W3FCN9ZTFJdR+T58OAgastTMeJESSYCX839raXpJUl2br
-	/9p1UNS4a
-X-Gm-Gg: ASbGncviYfL23vGKjuqrroQXFoNrDOK+vu2w+id5OfFXZZvX6Sx73YJVLWtPd7ZIdTH
-	anRoj111dqStweZ5q3SNuyamnSioR9bkGfFN0mNqL0xY4ZWOKc65J7hiP5MHsHlg7V1+VvhNzxD
-	fl1+S8Q0GJe5xZk1ci+DDOfU/Ryj0jNcqE8a22gIoxq5XrtdL2+R7OyX1/7nXjkE8DscDtg96wH
-	XY5RMjYIkmno8d1aer+84kJSEL96OBG81MxiFISAu6POKFjk8mqVuO7LUKTNg2zFITH7UAbcjNy
-	OKww+6UIsVqf8+fBA9n38AUiXvJpiojP4n4+oMEtHl9mTGcVHdW+5gQfdlXKHS2wSMHKuMtVNWM
-	IOO25/Wfg2LMh63fYJ4Op
-X-Google-Smtp-Source: AGHT+IGcp1aoFc2EzYV/tl3RR8TA0Ug87fzOHVR52rNGNEdbDQoI9r/5HqWjJE0hOyK5C5jflubayA==
-X-Received: by 2002:a05:6402:27d2:b0:607:ea0c:65b2 with SMTP id 4fb4d7f45d1cf-60c4de78e8amr1953498a12.31.1750854173425;
-        Wed, 25 Jun 2025 05:22:53 -0700 (PDT)
-Received: from google.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c2f4681a8sm2391073a12.38.2025.06.25.05.22.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 05:22:51 -0700 (PDT)
-Date: Wed, 25 Jun 2025 12:22:45 +0000
-From: Quentin Perret <qperret@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix error path in init_hyp_mode()
-Message-ID: <aFvqFdwNYI0-3zWY@google.com>
-References: <20250625113301.580253-1-smostafa@google.com>
+	id 1uUPAi-00000008c8B-3lHy;
+	Wed, 25 Jun 2025 12:24:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=SJ5NkjC+cOiMPwKXMdsR+3xgXJFhGnL3/wL1U2zUcWg=;
+	t=1750854252; x=1752063852; b=MN9Gy31nmfmEakoke2YfP1A50ZTyuhlKb0Cx3lelfP0Zaxj
+	eL387tzqooQXuA+ffQ6CcAZcqgvCO6RweS7nRhXLG/hvHvnTZDUj4TQTGtgG7TMVUQkQzG0eJ2dN/
+	I2SkU68+kAaLpV9WS3zHXFAD64mfHWgjJLj+zWadbnAKmPBmA9zevr6cgvTsCnBKaJUAj3qVuDSZc
+	p3kahB09gue0YfuYh8fgeacKssMXV9XIfLqjoP6vMts+AbklvnX3a0Kv/hR3MickkqqL1LQ06j/g+
+	I6j9qFGulQSD73OGIT9g7KhEOfim5wK/HWAGDSQ4l4QyUypCyw7fakG4YZJsJuSA==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1uUPAV-00000009xvR-1M4X;
+	Wed, 25 Jun 2025 14:23:59 +0200
+Message-ID: <81a8b60be5b99ecd9b322d188738016376aff4aa.camel@sipsolutions.net>
+Subject: Re: [PATCH 2/9] kasan: replace kasan_arch_is_ready with
+ kasan_enabled
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, Sabyrzhan Tasbolatov	
+ <snovitoll@gmail.com>, ryabinin.a.a@gmail.com, glider@google.com, 
+	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com, 
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, 	maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, hca@linux.ibm.com, 	gor@linux.ibm.com,
+ agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 	svens@linux.ibm.com,
+ richard@nod.at, anton.ivanov@cambridgegreys.com, 
+	dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
+ hpa@zytor.com, 	chris@zankel.net, jcmvbkbc@gmail.com,
+ akpm@linux-foundation.org
+Cc: guoweikang.kernel@gmail.com, geert@linux-m68k.org, rppt@kernel.org, 
+	tiwei.btw@antgroup.com, richard.weiyang@gmail.com, benjamin.berg@intel.com,
+ 	kevin.brodsky@arm.com, kasan-dev@googlegroups.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
+Date: Wed, 25 Jun 2025 14:23:57 +0200
+In-Reply-To: <750b6617-7abf-4adc-b3e6-6194ff10c547@csgroup.eu>
+References: <20250625095224.118679-1-snovitoll@gmail.com>
+	 <20250625095224.118679-3-snovitoll@gmail.com>
+	 <750b6617-7abf-4adc-b3e6-6194ff10c547@csgroup.eu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250625113301.580253-1-smostafa@google.com>
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_052256_276246_D6C5A795 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250625_052412_932909_ABCD4889 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +91,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday 25 Jun 2025 at 11:33:01 (+0000), Mostafa Saleh wrote:
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 38a91bb5d4c7..5bb36c3b06b5 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2344,15 +2344,22 @@ static void __init teardown_hyp_mode(void)
->  	int cpu;
->  
->  	free_hyp_pgds();
-> +	/* Order matches the order of initialization init_hyp_mode() */
->  	for_each_possible_cpu(cpu) {
-> +		if (!per_cpu(kvm_arm_hyp_stack_base, cpu))
-> +			continue;
->  		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
-> +
-> +		if (!kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu])
-> +			continue;
->  		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
->  
->  		if (free_sve) {
->  			struct cpu_sve_state *sve_state;
->  
->  			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
-> -			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
-> +			if (sve_state)
-> +				free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
+On Wed, 2025-06-25 at 12:27 +0200, Christophe Leroy wrote:
+>=20
+> Le 25/06/2025 =C3=A0 11:52, Sabyrzhan Tasbolatov a =C3=A9crit=C2=A0:
+> > Replace the existing kasan_arch_is_ready() calls with kasan_enabled().
+> > Drop checks where the caller is already under kasan_enabled() condition=
+.
+>=20
+> If I understand correctly, it means that KASAN won't work anymore=20
+> between patch 2 and 9, because until the arch calls kasan_init_generic()=
+=20
+> kasan_enabled() will return false.
+>=20
+> The transition should be smooth and your series should remain bisectable.
+>=20
+> Or am I missing something ?
+>=20
 
-I'm a bit confused by these extra checks -- free_pages() should be safe
-to call on NULL?
+Seems right to me, it won't work for architectures that define
+kasan_arch_is_ready themselves I think?
 
-IIUC correctly, the actual issue is that per_cpu_ptr_nvhe_sym() will
-dereference the per-cpu pages to find the sve state, which is entirely
-bogus if the per-cpu pages have not been allocated. Now, looking at
-this, it looks like the bigger problem is that we literally free the
-per-cpu pages right before the sve state...
+But since they have to literally #define it, could #ifdef on that
+temporarily?
 
-Should we at least change the freeing order here?
-
-Thanks,
-Quentin
+johannes
 
