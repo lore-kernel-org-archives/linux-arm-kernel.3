@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4E6C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981ADC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/4tlr0h9hEyrtmdl97i2hXmMDYc5ZwvfzaLPb+KoGg=; b=qkX6wxD4TrndmqChFMCtQuKrtf
-	VAzDbbHP12e0dpVhJdEkDsMmL9dFhJroWziMa2WexRjSpm4/ZiT6aMZIfUAfFNxpZ2x2O2dEHxT2R
-	1F96KMLncGRg0G/Mf9n0stcfFBrex/f9igQEQVzM7VsG1t8d0UG7Bs1jeJ+OYd82onw+BaNWzswFp
-	rPau4l5T45+8HN2WsetlZjZIn/3+R7QkNhuCbQUMyKvJMQdpjVRfKv3ezSsW4F0cH7pvFffDO9rHk
-	gBNug/pXsmsLvh7ueDpgy8kV8YjraWSI8wSuN/QPX0y3YhrP8wroFTMUVpIhi4EpM5nKnGas1EBqe
-	Snrazh8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O4nu8mefJbyYB9Pt62QRGWGhat2XpUcP+oPL1CGj9B4=; b=XwD1U5hfo80KJVnMgdVLx6W80z
+	xLYKA69uALnQ/5XSmnueOOA4uq2m7kOMJteZZA5XITR5Mz6DfW2F+eLfwnfAJLXCrY5G+qxQiDwga
+	NaZS2xdrt16X2eH3a6VY/A7ffvEr0JPKCfUuzyIm1F7s8Bp20RPelsMuBMKq/mqtKgmobfUVRsguN
+	bw5CJOVYJ34O8T6MDhGJj4QmlImvF4e1T/OwENy9erjVeSwwyjgJR3GqWLZMn0g9ncO3TuJw+bVyY
+	S5xuxq/pFBb/XG+eLI22e+0rtsiwvEMfEQWNSoez6MVQuEdccs5D2dBn2KzYjvLchJXzJwRXTLA2e
+	nUdyYHag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVxw-00000009lb0-2nOb;
-	Wed, 25 Jun 2025 19:39:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uUW0D-00000009lkv-1gXg;
+	Wed, 25 Jun 2025 19:41:50 +0000
+Received: from mailrelay-egress4.pub.mailoutpod2-cph3.one.com ([2a02:2350:5:403::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURr7-000000095PS-1b0L;
-	Wed, 25 Jun 2025 15:16:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 525E05C55F6;
-	Wed, 25 Jun 2025 15:13:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73492C4CEEA;
-	Wed, 25 Jun 2025 15:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750864568;
-	bh=9uiCx//aBaD0yGFQdVerDfD2PgBCP5+9oifVTXlFXYI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TkY2tMZ3PpuUyBYnhjn4aUhRen6PKOzLvqdf9sEQ2MwIeSuY+OeWjpUz2PKtzLDcz
-	 B84x5fB6r7hubY0bv9YGtCoqxtdkIEWLmfxvtkr4mJFWPNCgpBEawz4PePI9B2rsew
-	 Y/TVEsbzNYX88CF76bS+1UQtqUL7rhtZ95IrAMBDlOamfYc1LxzY1/K46E3gkcDhTM
-	 agcKiFkTGBV/YYJVbNCFH9UiYh0Mem0GuCe0I+QL/I7wp0sPdyM7B1gT1p9MMKQu+h
-	 5ct8o2FcCLTqx3nT4+VhEK6gcP/VA1NuCOu3nzYDSEc5w2pAi6w4YnSsaTBqcj3b3H
-	 LGmbVz2tI4yIQ==
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3137c20213cso6905133a91.3;
-        Wed, 25 Jun 2025 08:16:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXV2jtMLze5HHcmCY/BHPMpBxMfb1dNYLEmmO5VsRJ/1Ytkwjc0lpAzKFQcwhndcvVFKzC+8e3jIxlkr1x1A8o=@lists.infradead.org, AJvYcCXkTnuPSbbfgzDFJyUJ/dJ4mB4dVpnsQ5Lyi4mdl1vvIWFp9OMHPVqPWXAglSKd6Tankgt1D1bv2ItXAo9+vdjX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/v/D5zOF9qUw4md++A4pTE80fg3UgDSVck3yGzhq6wk724Xeu
-	Dilc0n0JDOMsWnO4v8w1n/rhmkpQBLIt6/cStcIWceR4lIzcvx9XZDZggVM5+85krq2cPILI4lH
-	W8+rwClUfleA6RdI+Qqii21wmzCDvyw==
-X-Google-Smtp-Source: AGHT+IHtRKCKayH+Lzht6QxsgoVvjQ6oWe0lLgYe2Cl+JRUJ/z1lS3uwRu/T5Q4f9oAnyB42TUycr2B2CpGFTJDpP5w=
-X-Received: by 2002:a17:90b:2b47:b0:313:f83a:e473 with SMTP id
- 98e67ed59e1d1-315f25ed7e8mr5611684a91.15.1750864568023; Wed, 25 Jun 2025
- 08:16:08 -0700 (PDT)
+	id 1uURvV-000000095zn-4Aaa
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 15:20:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1750864835; x=1751469635;
+	d=ravnborg.org; s=rsa1;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=O4nu8mefJbyYB9Pt62QRGWGhat2XpUcP+oPL1CGj9B4=;
+	b=a1X3H2yL8v7P4SnvtjpcYSzYCDLMsRmv/8xxRbhh0VWKm1M+OM2Q2RBGLsZgXmCEzDEi7vEiLriV6
+	 sGSExYqKFH5YT+1nyGFYLTrXMVBODPYk6WBFPvjtYJ09djFErOtpncj+qw+7nEaIBeDUBmqE1jMzDd
+	 dx1v7v1JCv1MwqJibYHvCzGJyyvQkVfbgUzxwfVOa+uuuxczKKx/uuUxTr3dm1m7vjVTq9d7cCqxKm
+	 72qfB6lKxOL4vW+ChH3J4WsitteUF52qUWyMOEY0VB9m7t8xQsq6mjG6mwVDLbv+F82wBUXqnEOMS8
+	 L1GAn6TJt9eqNJoEp6Nguj0TnDPmNTQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1750864835; x=1751469635;
+	d=ravnborg.org; s=ed1;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=O4nu8mefJbyYB9Pt62QRGWGhat2XpUcP+oPL1CGj9B4=;
+	b=an/A7ULkJGe/vIKIMyryjrdRMnV19OwHwIWB1Fkwk2Rz76GeXX5uaPCxZUoLqCMtdTqgHtUnW2uIc
+	 81Zh8GgDQ==
+X-HalOne-ID: ef3a532b-51d7-11f0-8665-f78b1f841584
+Received: from ravnborg.org (2-105-16-150-cable.dk.customer.tdc.net [2.105.16.150])
+	by mailrelay1.pub.mailoutpod2-cph3.one.com (Halon) with ESMTPSA
+	id ef3a532b-51d7-11f0-8665-f78b1f841584;
+	Wed, 25 Jun 2025 15:20:34 +0000 (UTC)
+Date: Wed, 25 Jun 2025 17:20:33 +0200
+From: Sam Ravnborg <sam@ravnborg.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>,
+	Arnd Bergmann <arnd@arndb.de>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 1/2] fbdev: remove fb_notify support
+Message-ID: <20250625152033.GA183878@ravnborg.org>
+References: <20250625131511.3366522-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20250606-mtk_dpi-mt8195-fix-wrong-color-v1-1-47988101b798@collabora.com>
-In-Reply-To: <20250606-mtk_dpi-mt8195-fix-wrong-color-v1-1-47988101b798@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 25 Jun 2025 23:17:13 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__=3Pb2Tsr87b5FWG_DrQNdfeDC5yAE2XFo+TiP7hO6BA@mail.gmail.com>
-X-Gm-Features: AX0GCFsC1n-RCC-W67WMTwPw4kHzfcK5gDHEnXA5e3PZAISJh-AfZvkzSrkcFBc
-Message-ID: <CAAOTY__=3Pb2Tsr87b5FWG_DrQNdfeDC5yAE2XFo+TiP7hO6BA@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: mtk_dpi: Reorder output formats on MT8195/88
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250625131511.3366522-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081609_496450_CA9D5298 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250625_082043_221584_AB12503E 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +84,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Louis:
+Hi Arnd.
 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> =E6=96=BC 2025=E5=B9=
-=B46=E6=9C=886=E6=97=A5 =E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=888:52=E5=AF=AB=
-=E9=81=93=EF=BC=9A
->
-> Reorder output format arrays in both MT8195 DPI and DP_INTF block
-> configuration by decreasing preference order instead of alphanumeric
-> one, as expected by the atomic_get_output_bus_fmts callback function
-> of drm_bridge controls, so the RGB ones are used first during the
-> bus format negotiation process.
+I remember I stared at this code before, good to see it gone.
+There is a bit more tidiying up you can do.
 
-Applied to mediatek-drm-fixes [1], thanks.
+Also, I suggest to split it in two patches, it itches me to see the
+driver specific part mixed up with the fb_notify removal.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+	Sam
 
-Regards,
-Chun-Kuang.
 
->
-> Fixes: 20fa6a8fc588 ("drm/mediatek: mtk_dpi: Allow additional output form=
-ats on MT8195/88")
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+On Wed, Jun 25, 2025 at 03:12:22PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Commit dc2139c0aa32 ("leds: backlight trigger: Replace fb events with a
+> dedicated function call") removed the FB_EVENT_BLANK notifier, and now
+> the only remaining user of the FB notifier is the metronomefb driver on
+> the PXA/AM200EPD board.
+> 
+> This was introduced in commit 922613436ae5 ("[ARM] 5200/1: am200epd: use
+> fb notifiers and gpio api"), which converted it from an earlier version,
+> but as far as I can tell this can never have worked because the notifier
+> is called after the data it passes down is accessed.
+> 
+> Commit 867187821e5e ("fbdev/metronomefb: Use struct fb_info.screen_buffer")
+> broke this further, and there are likely other parts of the driver that
+> no longer work.
+> 
+> The am200epd board support itself should have also been removed long ago,
+> as there are no users and it was never converted to devicetree format.
+> 
+> Mark the board as broken to prevent build failures and remove the now
+> unused notifiers.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  drivers/gpu/drm/mediatek/mtk_dpi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediate=
-k/mtk_dpi.c
-> index 6fb85bc6487a019cdcdb3770dc06a1deab8d5bda..a2fdceadf209f6d2166e7523b=
-82ca18c82c7d435 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-> @@ -1095,7 +1095,6 @@ static const u32 mt8183_output_fmts[] =3D {
+>  arch/arm/mach-pxa/Kconfig            |  1 +
+This is mixing things up a bit. I suggest
+splitting the "depends on BROKEN" out in a dedicated patch.
+
+>  drivers/video/fbdev/core/Makefile    |  1 -
+>  drivers/video/fbdev/core/fb_notify.c | 54 ----------------------------
+>  drivers/video/fbdev/core/fbmem.c     | 15 --------
+>  include/linux/fb.h                   | 21 -----------
+>  5 files changed, 1 insertion(+), 91 deletions(-)
+>  delete mode 100644 drivers/video/fbdev/core/fb_notify.c
+> 
+> diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
+> index 10e472f4fa43..edefc953e4f9 100644
+> --- a/arch/arm/mach-pxa/Kconfig
+> +++ b/arch/arm/mach-pxa/Kconfig
+> @@ -69,6 +69,7 @@ choice
+>  
+>  config GUMSTIX_AM200EPD
+>  	bool "Enable AM200EPD board support"
+> +	depends on BROKEN
+>  
+>  config GUMSTIX_AM300EPD
+>  	bool "Enable AM300EPD board support"
+> diff --git a/drivers/video/fbdev/core/Makefile b/drivers/video/fbdev/core/Makefile
+> index d15974759086..ac8036209501 100644
+> --- a/drivers/video/fbdev/core/Makefile
+> +++ b/drivers/video/fbdev/core/Makefile
+> @@ -1,5 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -obj-$(CONFIG_FB_NOTIFY)           += fb_notify.o
+>  obj-$(CONFIG_FB_CORE)             += fb.o
+>  fb-y                              := fb_info.o \
+>                                       fbmem.o fbcmap.o \
+> diff --git a/drivers/video/fbdev/core/fb_notify.c b/drivers/video/fbdev/core/fb_notify.c
+> deleted file mode 100644
+> index 10e3b9a74adc..000000000000
+> --- a/drivers/video/fbdev/core/fb_notify.c
+> +++ /dev/null
+> @@ -1,54 +0,0 @@
+> -/*
+> - *  linux/drivers/video/fb_notify.c
+> - *
+> - *  Copyright (C) 2006 Antonino Daplas <adaplas@pol.net>
+> - *
+> - *	2001 - Documented with DocBook
+> - *	- Brad Douglas <brad@neruo.com>
+> - *
+> - * This file is subject to the terms and conditions of the GNU General Public
+> - * License.  See the file COPYING in the main directory of this archive
+> - * for more details.
+> - */
+> -#include <linux/fb.h>
+> -#include <linux/notifier.h>
+> -#include <linux/export.h>
+> -
+> -static BLOCKING_NOTIFIER_HEAD(fb_notifier_list);
+> -
+> -/**
+> - *	fb_register_client - register a client notifier
+> - *	@nb: notifier block to callback on events
+> - *
+> - *	Return: 0 on success, negative error code on failure.
+> - */
+> -int fb_register_client(struct notifier_block *nb)
+> -{
+> -	return blocking_notifier_chain_register(&fb_notifier_list, nb);
+> -}
+> -EXPORT_SYMBOL(fb_register_client);
+> -
+> -/**
+> - *	fb_unregister_client - unregister a client notifier
+> - *	@nb: notifier block to callback on events
+> - *
+> - *	Return: 0 on success, negative error code on failure.
+> - */
+> -int fb_unregister_client(struct notifier_block *nb)
+> -{
+> -	return blocking_notifier_chain_unregister(&fb_notifier_list, nb);
+> -}
+> -EXPORT_SYMBOL(fb_unregister_client);
+> -
+> -/**
+> - * fb_notifier_call_chain - notify clients of fb_events
+> - * @val: value passed to callback
+> - * @v: pointer passed to callback
+> - *
+> - * Return: The return value of the last notifier function
+> - */
+> -int fb_notifier_call_chain(unsigned long val, void *v)
+> -{
+> -	return blocking_notifier_call_chain(&fb_notifier_list, val, v);
+> -}
+> -EXPORT_SYMBOL_GPL(fb_notifier_call_chain);
+> diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
+> index dfcf5e4d1d4c..82ec7351e7da 100644
+> --- a/drivers/video/fbdev/core/fbmem.c
+> +++ b/drivers/video/fbdev/core/fbmem.c
+> @@ -498,14 +498,6 @@ static int do_register_framebuffer(struct fb_info *fb_info)
+>  	num_registered_fb++;
+>  	registered_fb[i] = fb_info;
+>  
+> -#ifdef CONFIG_GUMSTIX_AM200EPD
+> -	{
+> -		struct fb_event event;
+Drop the fb_event definition, it is no longer used.
+
+> -		event.info = fb_info;
+> -		fb_notifier_call_chain(FB_EVENT_FB_REGISTERED, &event);
+Drop the define for FB_EVENT_FB_REGISTERED
+
+> -	}
+> -#endif
+> -
+>  	return fbcon_fb_registered(fb_info);
+>  }
+>  
+> @@ -544,13 +536,6 @@ static void do_unregister_framebuffer(struct fb_info *fb_info)
+>  	fb_destroy_modelist(&fb_info->modelist);
+>  	registered_fb[fb_info->node] = NULL;
+>  	num_registered_fb--;
+> -#ifdef CONFIG_GUMSTIX_AM200EPD
+> -	{
+> -		struct fb_event event;
+> -		event.info = fb_info;
+> -		fb_notifier_call_chain(FB_EVENT_FB_UNREGISTERED, &event);
+Drop the define for FB_EVENT_FB_UNREGISTERED
+
+> -	}
+> -#endif
+>  	fbcon_fb_unregistered(fb_info);
+>  
+>  	/* this may free fb info */
+> diff --git a/include/linux/fb.h b/include/linux/fb.h
+> index 05cc251035da..520ad870b8b2 100644
+> --- a/include/linux/fb.h
+> +++ b/include/linux/fb.h
+> @@ -151,27 +151,6 @@ struct fb_blit_caps {
+>  	u32 flags;
 >  };
->
->  static const u32 mt8195_dpi_output_fmts[] =3D {
-> -       MEDIA_BUS_FMT_BGR888_1X24,
->         MEDIA_BUS_FMT_RGB888_1X24,
->         MEDIA_BUS_FMT_RGB888_2X12_LE,
->         MEDIA_BUS_FMT_RGB888_2X12_BE,
-> @@ -1103,18 +1102,19 @@ static const u32 mt8195_dpi_output_fmts[] =3D {
->         MEDIA_BUS_FMT_YUYV8_1X16,
->         MEDIA_BUS_FMT_YUYV10_1X20,
->         MEDIA_BUS_FMT_YUYV12_1X24,
-> +       MEDIA_BUS_FMT_BGR888_1X24,
->         MEDIA_BUS_FMT_YUV8_1X24,
->         MEDIA_BUS_FMT_YUV10_1X30,
->  };
->
->  static const u32 mt8195_dp_intf_output_fmts[] =3D {
-> -       MEDIA_BUS_FMT_BGR888_1X24,
->         MEDIA_BUS_FMT_RGB888_1X24,
->         MEDIA_BUS_FMT_RGB888_2X12_LE,
->         MEDIA_BUS_FMT_RGB888_2X12_BE,
->         MEDIA_BUS_FMT_RGB101010_1X30,
->         MEDIA_BUS_FMT_YUYV8_1X16,
->         MEDIA_BUS_FMT_YUYV10_1X20,
-> +       MEDIA_BUS_FMT_BGR888_1X24,
->         MEDIA_BUS_FMT_YUV8_1X24,
->         MEDIA_BUS_FMT_YUV10_1X30,
->  };
->
-> ---
-> base-commit: b3bded85d838336326ce78e394e7818445e11f20
-> change-id: 20250606-mtk_dpi-mt8195-fix-wrong-color-5aab0f6d2d27
->
-> Best regards,
-> --
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
->
+>  
+> -#ifdef CONFIG_FB_NOTIFY
+
+The Kconfig symbol FB_NOTIFY should be dropped as well.
+
+
+> -extern int fb_register_client(struct notifier_block *nb);
+Drop forward for notifier_block, last user in the file is gone.
+
+> -extern int fb_unregister_client(struct notifier_block *nb);
+> -extern int fb_notifier_call_chain(unsigned long val, void *v);
+> -#else
+> -static inline int fb_register_client(struct notifier_block *nb)
+> -{
+> -	return 0;
+> -};
+> -
+> -static inline int fb_unregister_client(struct notifier_block *nb)
+> -{
+> -	return 0;
+> -};
+> -
+> -static inline int fb_notifier_call_chain(unsigned long val, void *v)
+> -{
+> -	return 0;
+> -};
+> -#endif
+> -
+>  /*
+>   * Pixmap structure definition
+>   *
+> -- 
+> 2.39.5
 
