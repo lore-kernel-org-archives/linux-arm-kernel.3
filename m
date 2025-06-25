@@ -4,155 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88E5C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D20C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zy4ocNL1GlQf8FyLJCHMeLIj7oIsiZi6AQp8n0Mo2XU=; b=QwI2fb1EhR2VRCFZv5+qRecUrG
-	x8Z0XeRZVZN1E5Zv0BOvTyv3rf4X/uJrLk0MppDAt0MwNfqd1eb9HWw3gS5Ib9ipL6pehKEo4+wjz
-	DB9zLwXjl5Pg4azJDUp3DXIwewrlZs/T5Hlafsyb2QnGyFhe0vS/JzsuoH1+sVxjlp2t1qcpJxURE
-	GGuOeIToyY4UlslH+ZZjSjmKEy+4pci0ArQrXNs98R6Vjfp5CsqxAaWzzQYtHxWBIpF+DieSuXKxF
-	GnxXqyXkZV6aVsUMaNbOSOIGKCFS56R/grFf6cwedJe7X1OtEAUZJdpGVi6tdiHXh2xSWfdYSZDJP
-	qr6FBwgw==;
+	bh=o6YCRkZ7c71yqaNVRPRY9md/LoMAC76FaEwt8H/+H/w=; b=FibGpGqI/jIqyGgKRLgVj2Kj6f
+	9F4zjkdBsCdzZ/3L64g8nk/9AvdgoTmMZrYAbjVRRgzO6JqqHpzSi+ewTNLbusjVRE9VjNBToXlNi
+	MhZv9im0aIWHcKVdsdK2baApiQz0l8CMvt6n8Bnrt0bSSOkE7r3zj5D9352m2filBhUeNdz0JTf8S
+	VG0KxHihiXbUpILYI9yXRpJHSAbfbc2jWJTTWPMK8F6iUpNC5vGejNz0aij+oRqlosqn7E9rzfunf
+	uX+l9h3kPg6Uacdee4nk4Nskq9ftlL15qcT4kxkH0yH2TgN6Do08RLOnIGAvhW2M0Cu9ubPY6pTje
+	4CEAStcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUW4k-00000009mDu-3Wkj;
-	Wed, 25 Jun 2025 19:46:30 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uUW70-00000009meu-2PgM;
+	Wed, 25 Jun 2025 19:48:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUS2S-000000097Fp-2bK7
+	id 1uUSCX-000000098z0-3TnO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 15:27:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G99sKStNRZuQ9/ODS3sw5IfwNw+VYMK5nBka/0zuaXv+1qZHbH7FEkBTMsi2twwj1nBEhQb3ZBopHiMPbkSxY+0Q6KtqREY14CeuIEcPIhCfdYI36qql4g+kIMklmUSuAu/m5EYdy4r5l1nvuEE8V6ZxKdb47HwSdKvywJ0I1WbaYON6x1pcrNhYLtrMHuRQcj4SiUcam3l3DC2+QqWePxJG6wIB2vsck6oiZbAZgojLxJl4GvwNueG5RxqQ5ZWFq2DET3bhie9TjiFEQCvUyMx8Bb4yF2KQeKI0HsdSl6JHYkDrC8q7eZ6xjqY2k+nnbmuM9cUN6chRO6iqyqIdug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Zy4ocNL1GlQf8FyLJCHMeLIj7oIsiZi6AQp8n0Mo2XU=;
- b=RQvajBQcfiG6tOuuMj9sSvBuSxRiR0s4rtsB3oOJyoR7HMGzBL0V4Ln94CEOIzBX3oCYASOKoBU4LoMgUJNIhL5XzeUudNNhD8Cb44GK+8IGzi11jDviozWOvWVFCwDdLYvS4XZJvx+2jczW1gfen5aldLIFJebrhx90anbMvh4TVZhNuL2WUwrplgy+VNOSNxkiPKFy3m9LOvJwhO+VXvHWayPfIoxixNK12aJ1QQRl+ErBBxdXuWCNQKEf9WvulYvj9hMk1uH75ySHm0T3kEesp5rDViY0K8OJXDyJKj0N6RmqXe0tgyF+wxJgwnG1O/Duvcab7VhM1XC3oZjrqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Zy4ocNL1GlQf8FyLJCHMeLIj7oIsiZi6AQp8n0Mo2XU=;
- b=VF/q2oVFgSS/fMVG1eqc/iMPQwuwXPnr/euSZFlbYDLucSlPXL4dgW89fWU0O627HISbYIEndhP6MjZ/cxmwImX6VemKckbTDHr/mhzAtsUNI3nvhDwvR2JrvmGbDq9UGD680duRyYXQTRFDfdIkM9WAPUlNs6YYEYkQrqSCZ90XGosi6shUB20A4kPIHo0kRfdZfmHbi3d0JYkcZfprE3b31BuZyRDu87UJHmW/7DSdtg0vM12KYyM5nsFd4gy89yvDo6HEGYeKTKKz3bjcLGbpHrY2SlYEwfMChQEwDoyUIQQpGHp/PSqCT4TWj6Z+259uA+WkZAdYo0SBbLP8cg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GVXPR04MB10327.eurprd04.prod.outlook.com (2603:10a6:150:1e2::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Wed, 25 Jun
- 2025 15:27:48 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Wed, 25 Jun 2025
- 15:27:48 +0000
-Date: Wed, 25 Jun 2025 11:27:41 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] media: imx8mq-mipi-csi2: Fix error code in
- imx8mq_mipi_csi_parse_dt()
-Message-ID: <aFwVbfrUE4tZdRPa@lizhi-Precision-Tower-5810>
-References: <9b6c7925-c9c4-44bd-acd5-1ef0e698eb87@sabinyo.mountain>
+	Wed, 25 Jun 2025 15:38:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8AF9AA523A0;
+	Wed, 25 Jun 2025 15:38:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CC2C4CEEA;
+	Wed, 25 Jun 2025 15:38:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750865895;
+	bh=DdxS8fK+k+4jJXT/e+VE5Z7hLWA+bNaknSmckFwX8wo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dv2z/It31S17vagV0qD/YG5Cs2xuaGCisG/MbnWq93zzaUaUrXfiITmuJmPyJHwj2
+	 nuYNJ9rGhpx/rmwcVlVvK8JVPDARGPgUOiSjlIwptVSwOUXYz20nLXVgoGzjl4GnvY
+	 LPtfY5IWEoNiJ/TJy+BqTqea3mtmXtFONVvBzy5/xqT4jDN2G40iQOremK7E9wCqTi
+	 DBbEfJsTzL8nVPUCssNUtOU8I2AXv63MDwg9llG0CBQd5uCbM7k5iAmGPdjPLhACi3
+	 r9Pk4sC1SWmvJqzefP6200Jp81E1uqxJnpuzPsYH+VL/KdRMihIBWKc8gyvuQ25wFq
+	 alh8oPqaYSR9w==
+Date: Wed, 25 Jun 2025 20:58:16 +0530
+From: Naveen N Rao <naveen@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
+	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
+	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
+	David Matlack <dmatlack@google.com>
+Subject: Re: [PATCH v3 20/62] KVM: SVM: Add a comment to explain why
+ avic_vcpu_blocking() ignores IRQ blocking
+Message-ID: <ha3rq3ybk4c63bov2ix6yyajggep6zdulsd2e44vqw4ctufeiq@env4pl5m3wz6>
+References: <20250611224604.313496-2-seanjc@google.com>
+ <20250611224604.313496-22-seanjc@google.com>
+ <pxtvegopzsyhn7lelksclxiiee7tumppu76553rax7octqpy7i@giclgo667htf>
+ <aFl-ZYyf9guxSkHE@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9b6c7925-c9c4-44bd-acd5-1ef0e698eb87@sabinyo.mountain>
-X-ClientProxiedBy: AS4P190CA0035.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d1::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10327:EE_
-X-MS-Office365-Filtering-Correlation-Id: f72c8bd4-eb70-4ecb-0c26-08ddb3fcd71b
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|366016|376014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?viH5AHM6QWhOyq44klwJG7YnlmTCGwLuf1ZycpQQmO14bxWkTJk9UNKPrruN?=
- =?us-ascii?Q?bpukX8Al2upkFe6BLwsyAJy51oqVvKc+H8S3IbKdSOd2qjmyiPjOpQ9WLzhC?=
- =?us-ascii?Q?7M8aIOTJ7dqesETkGBsMa2WFChQfEN+RMWBvrnn1nwYvVi96DT5Ae6BxmJlX?=
- =?us-ascii?Q?A9o75H61LBNtuSTOG5g7E5AjzwtTFCoLcYVL5sK1K8hrZ1A2knTLeuKDOVLm?=
- =?us-ascii?Q?oA7qcK/YAwTGhK1apw0CPO3QXc052pIBxrblolzlP+sC21BDi6D9CsDSvIck?=
- =?us-ascii?Q?4OE6xxMbltEMDKzqDtctV8FqlTY6rwZAmh2cvr8IRp9UgW0uws9ocqWx7h8Z?=
- =?us-ascii?Q?7lJNyY5LLm0fw0QmgEsOpYp5a7hfKdGLVn5MzeA/vfE51zIPjrsnOz3SVEof?=
- =?us-ascii?Q?SARsHSi3V4C6NLJek6sHSuMVKbVoGYyrPuOVq9cB5a5lgklsnjgPckp+gHWL?=
- =?us-ascii?Q?m8vJkF0o0atlxhz7ERsm9ipZe5W6V4lV+TJEc+FgWCOR1pa4ouzhDknBKZjT?=
- =?us-ascii?Q?YLaEzb0kOpbjvflYPGMqLyoeCHR+EYBVtTFapWMOp2OvNMTLomZpQ/s8sGPH?=
- =?us-ascii?Q?OQDMc7N/tyMJJb60dUjv+3fsQM4c6zu0L6FYgrEy0smg53vKcY8iJIPNPN/l?=
- =?us-ascii?Q?0EfROkEpmpmQEC54HBWM/d1TSES8nfVWnZdPmEcyEX+iedYH+20YLgl4DE6Z?=
- =?us-ascii?Q?WrEykr/lNMvD/IuEQ3aD4CzWSeKGN1J0KAk/lnudtqz2mJYv+cPxOXqO4Hmu?=
- =?us-ascii?Q?MZq2HZKEAxZf5NDwmZwQVnNLDoYyhr4o7mzUd1ez+arThfYn2DPwuWogCq2q?=
- =?us-ascii?Q?XoGVfF1bLFgbZ3Xcdjd/R9PRj4FuF1GA6Vlm2ze4xcRTjFsAo69r5hPgVP8k?=
- =?us-ascii?Q?CNk8uQAZZ0FE71QT7PHn5CTsTUbDjMAgDYhirLpzVFyAH1jribQAd0zpo1IS?=
- =?us-ascii?Q?mEzeI1WQ99ICP1HNiSpk4Pl0FZN0CE+kHcj7s2nNjFeLIc7PxM0UVplCvrF6?=
- =?us-ascii?Q?gnAAxoey4qpFDkwTnWgbo0/n8bgbl+7KFFjJ0Zwjafefd7eledxCZ/9/b+Dk?=
- =?us-ascii?Q?XVRa+TZI5M+2Z9WmiPMF5UI9hokZLL/iTJZHJFJIwkcp85PhDlKVhxyLIBCx?=
- =?us-ascii?Q?32BtiekJE9ZA3T2a03TCnTWIlYejdFQ7dUKDXsAZrcxzZxjCwPtzJQQ4waFi?=
- =?us-ascii?Q?AGxroSF5W8m9LKLjRlWkXYBmUv1dUevBK3nS9wf6OUsQKjv24/21D8jPTVzd?=
- =?us-ascii?Q?EfyRsf9oifIzV2qDXtNg2jqvE0Q3ikPt4hNN19yz4Rxp65CB1NDC6MkmUDK4?=
- =?us-ascii?Q?q1lMsruw2w5wHq9jA3bqrRTuGXpiSh6q1zPEJxLdNspW68W5ormiuSKfuYCg?=
- =?us-ascii?Q?SDs1anxvLxEkWnIb8pF+bco3SmcNs8Z/qLeOR+EgWzqGVXRnj9aYweDd569B?=
- =?us-ascii?Q?8BrW1a917YCFMWmyflk/+Qr2RpRvGVIcLfOkwmHV2Cx/eWZF7p9Slg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(366016)(376014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lyPPWopJPgx0a3umjYvkBulF+b/y3qAuc4sDLWeOzcklixtY1RGU/QeCvHzG?=
- =?us-ascii?Q?nkierfTStY+pFjKGwoAZ0yCC6cZbd0uEHBc/pueHM11++yJMq9ejXWjAJWf+?=
- =?us-ascii?Q?usEKH0afSeS79z8ThCtAAv56EZ1/RfJuLra32qFQVWOw1d/wFZyKmUI+pFdj?=
- =?us-ascii?Q?tR6yrZWoPz+AZBoiS17UYO64e2vBgl/Pz8xnZHBNePxrQNT566AOs7r00CF8?=
- =?us-ascii?Q?Ztet9f93628LB78rcfEK+BSHxisGzIbrKPgrGHr3xcBY/hyhyb+fpNyNWP5k?=
- =?us-ascii?Q?Ry+NqTgzhPuzmpNTLHRaeIjR3dngrO1s1AaYScvQsPC9ICluPterjPd7Rcer?=
- =?us-ascii?Q?nR4W0jkB+66IKMW0KAgKkPqmpon4UqONSRYOY43Lx4dagJZ8lxRDusfeXP01?=
- =?us-ascii?Q?8ffTKo8OZqoCNfmeNQkA5ZAYLvPMrat5klqkaIuCg/NdqWdtH6f8r34OgCRA?=
- =?us-ascii?Q?2NB4quey6Fw878bUgNlmip0GWkkU8FB9VfLjjKEhNtVgb0e1B16zjqCR6Ltb?=
- =?us-ascii?Q?ODGGGyWQULteQu/8H9Fctcr97rTd8qBOzUzfcH06BOYFEZfTK3ibbM2SGcW/?=
- =?us-ascii?Q?fFX0gI0MQ5OOciw/P0a54HLo2QUkq4Vgaj/yUi3db8rsgdBjr+4AG1iE4/HG?=
- =?us-ascii?Q?Mg8qy2SjifojwzVSI+MYV9AL0o7ELdrfzJRhzhf77PQkFhI56U5PUb+YOn1B?=
- =?us-ascii?Q?v0/Ar9i49rT/HEqTotDyAqjFMEVnLdCTQc7WZjHX1sPhtKTRXBQIiC8N6AP8?=
- =?us-ascii?Q?d7KMXO+T37EKZFbVaGVBZ2fqj2VUGhtCbKSzLIxno9Mww7hl/Qco222PpSba?=
- =?us-ascii?Q?3UJ7GJl9C3cxGHBXTeJEsi9zpihNrZyd2jHKOBnF48sen22EO2MUhU70Fc4O?=
- =?us-ascii?Q?4CkV2bXWe91V6A8/rwKwSqKCcUn35QPmeECv/zP6Wpk6xMhi+Q1UjOW/DmFy?=
- =?us-ascii?Q?/N5Y7UnO5NqoV8lqU1zisFbJLnPjgnECDBtztQjqOBRaE0Fpe08MgQJr6NF3?=
- =?us-ascii?Q?UdbXkG3PDcDiw7C/hDI7npL0Dvz3t0kPuJ+mDm2mDr4qC15UR/nEMSamkMfs?=
- =?us-ascii?Q?NHsAHKGLZLg/Fpwb8S5xJc/qopi1vxqSK5QbJFWv2wpiNG6VElN6UxBkPdUk?=
- =?us-ascii?Q?vzuxfPd9tVlUioJCi7NXIdNBjT4HHdt2QQKfXRNt1I03vqV9R2nSEtVQGlb/?=
- =?us-ascii?Q?+cX56d5gRuY9VQfMVgia3we+3Re8MpBhCMeNMjaZlW2mXdY6zHL8TfNbpvtF?=
- =?us-ascii?Q?Y4BUarnE9wceovQCRVY/JYdOlHW89W1/5NANtvXQZM/EfvamylgrEPbptRwO?=
- =?us-ascii?Q?tuQJ2wqnW7iNlSciyfIZzd97BaDWWQSZ1UUrDin1J5DWraeF+zKDu1J+p+Bh?=
- =?us-ascii?Q?r6Susoml1aizUrbzh3DLfZzrcCpCx3QSmKXHexBoBvTVQO6F//GJmxXEp5Om?=
- =?us-ascii?Q?kJks3l6uDpzeANylqrVfyh+hRGRdQ5gZ7+SiTIwALFseiFmaNxJP2HXhG5Zn?=
- =?us-ascii?Q?emDfKXvB2YOdJWQqhOA7x0zV7JVDuuxT3KIRPbg1vMS4y7QFq6HMtPaarG0O?=
- =?us-ascii?Q?XXb+GowmXd3LxVmntXDzLUoTxBoW+DEQOZzf4kd3?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f72c8bd4-eb70-4ecb-0c26-08ddb3fcd71b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 15:27:48.0806
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0ZqkFk3K1ZYKhiIiZnpqkcw6AaePJH5Dp++PAkzTnrPFxlAvJXq+nGNJ77M97jmRXUHgwdskuRgQG13kgaZ95Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10327
+In-Reply-To: <aFl-ZYyf9guxSkHE@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_082752_661223_CE07EAAA 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250625_083817_997469_0D1B176E 
+X-CRM114-Status: GOOD (  32.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,33 +81,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 10:22:32AM -0500, Dan Carpenter wrote:
-> This was returning IS_ERR() where PTR_ERR() was intended.
+On Mon, Jun 23, 2025 at 09:18:45AM -0700, Sean Christopherson wrote:
+> On Mon, Jun 23, 2025, Naveen N Rao wrote:
+> > On Wed, Jun 11, 2025 at 03:45:23PM -0700, Sean Christopherson wrote:
+> > > Add a comment to explain why KVM clears IsRunning when putting a vCPU,
+> > > even though leaving IsRunning=1 would be ok from a functional perspective.
+> > > Per Maxim's experiments, a misbehaving VM could spam the AVIC doorbell so
+> > > fast as to induce a 50%+ loss in performance.
+> > > 
+> > > Link: https://lore.kernel.org/all/8d7e0d0391df4efc7cb28557297eb2ec9904f1e5.camel@redhat.com
+> > > Cc: Maxim Levitsky <mlevitsk@redhat.com>
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> > >  arch/x86/kvm/svm/avic.c | 31 ++++++++++++++++++-------------
+> > >  1 file changed, 18 insertions(+), 13 deletions(-)
+> > > 
+> > > diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+> > > index bf8b59556373..3cf929ac117f 100644
+> > > --- a/arch/x86/kvm/svm/avic.c
+> > > +++ b/arch/x86/kvm/svm/avic.c
+> > > @@ -1121,19 +1121,24 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
+> > >  	if (!kvm_vcpu_apicv_active(vcpu))
+> > >  		return;
+> > >  
+> > > -       /*
+> > > -        * Unload the AVIC when the vCPU is about to block, _before_
+> > > -        * the vCPU actually blocks.
+> > > -        *
+> > > -        * Any IRQs that arrive before IsRunning=0 will not cause an
+> > > -        * incomplete IPI vmexit on the source, therefore vIRR will also
+> > > -        * be checked by kvm_vcpu_check_block() before blocking.  The
+> > > -        * memory barrier implicit in set_current_state orders writing
+> > > -        * IsRunning=0 before reading the vIRR.  The processor needs a
+> > > -        * matching memory barrier on interrupt delivery between writing
+> > > -        * IRR and reading IsRunning; the lack of this barrier might be
+> > > -        * the cause of errata #1235).
+> > > -        */
+> > > +	/*
+> > > +	 * Unload the AVIC when the vCPU is about to block, _before_ the vCPU
+> > > +	 * actually blocks.
+> > > +	 *
+> > > +	 * Note, any IRQs that arrive before IsRunning=0 will not cause an
+> > > +	 * incomplete IPI vmexit on the source; kvm_vcpu_check_block() handles
+> > > +	 * this by checking vIRR one last time before blocking.  The memory
+> > > +	 * barrier implicit in set_current_state orders writing IsRunning=0
+> > > +	 * before reading the vIRR.  The processor needs a matching memory
+> > > +	 * barrier on interrupt delivery between writing IRR and reading
+> > > +	 * IsRunning; the lack of this barrier might be the cause of errata #1235).
+> > > +	 *
+> > > +	 * Clear IsRunning=0 even if guest IRQs are disabled, i.e. even if KVM
+> > > +	 * doesn't need to detect events for scheduling purposes.  The doorbell
+> > 
+> > Nit: just IsRunning (you can drop the =0 part).
+> 
+> Hmm, not really.  It could be:
+> 
+> 	/* Note, any IRQs that arrive while IsRunning is set will not cause an
+> 
+> or
+> 
+> 	/* Note, any IRQs that arrive while IsRunning=1 will not cause an
+> 
+> but that's just regurgitating the spec.  The slightly more interesting scenario
+> that's being described here is what will happen if an IRQ arrives _just_ before
+> the below code toggle IsRunning from 1 => 0.
 
-Thank you fix this.
+Oh, you're right. I was referring to the last paragraph starting with 
+"Clear IsRunning=0 even if", which to me feels like a double negation. 
+It reads better if it is "Clear IsRunning even if ..."
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
->
-> Fixes: 642b70d526ab ("media: imx8mq-mipi-csi2: Add support for i.MX8QXP")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 6501843ae72d..3a4645f59a44 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -966,7 +966,7 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
->
->  		base = devm_platform_ioremap_resource(to_platform_device(dev), 1);
->  		if (IS_ERR(base))
-> -			return dev_err_probe(dev, IS_ERR(base), "Missing CSR register\n");
-> +			return dev_err_probe(dev, PTR_ERR(base), "Missing CSR register\n");
->
->  		state->phy_gpr = devm_regmap_init_mmio(dev, base, &regmap_config);
->  		if (IS_ERR(state->phy_gpr))
-> --
-> 2.47.2
->
+> 
+> > Trying to understand the significance of IRQs being disabled here. Is 
+> > that a path KVM tries to optimize?
+> 
+> Yep.  KVM doesn't need a notification for the undelivered (virtual) IRQ, because
+> it won't be handled by the vCPU until the vCPU enables IRQs, and thus it's not a
+> valid wake event for the vCPU.
+> 
+> So, *if* spurious doorbells didn't affect performance or functionality, then
+> ideally KVM would leave IsRunning=1, e.g. so that the IOMMU doesn't need to
+> generate GA log events, and so that other vCPUs aren't forced to VM-Exit when
+> sending an IPI.  Unfortunately, spurious doorbells are quite intrusive, and so
+> KVM "needs" to clear IsRunning.
+
+Ok, got that. kvm_arch_vcpu_blocking() looks like it exists precisely 
+for this reason.
+
+Thanks,
+Naveen
+
 
