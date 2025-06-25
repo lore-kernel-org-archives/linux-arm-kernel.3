@@ -4,105 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC97FC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173E4C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ONVBi6t27yoHOLom4q+9fNttcSqpjkl1fBEaeAnNkw=; b=scCuZ2/HWtZ2YbhH3CCBCvXfWN
-	aB9f7WVoXseWEXtw75W+6mU47ilkiY+kR8w8/FP3DtNBpyWoHEvfBe8HS7EdtpyLUT76/GCbL7xqw
-	eIp4YL4EQK/kH9QdcoW2R6K/DeIAtKglkWBnTijdWLJ09BuDsXKGyFVhHSoQXnaZ1dNI5dMZWZZ1n
-	QrP3RdTpBTFa2H9wTVisoOhxNHiwriARbtTW3h+Nc9BUt2vLOYZSa+cZ7xNkLdH77O82t/drqDXQl
-	z6YEKcbvbMpabszGin4qXXal53Apf7+7M6WAA3lq/EZtljCwsZRzb6z7e/d3sq6TCMw8t3MVXkFrZ
-	o19BOWhA==;
+	bh=DgqZI7oI1+Rtsh8AHih668v9LL7u8KNYlhdavj5r3Pw=; b=IJ/eF2/FhJ9CrsjarC6LVmB9mY
+	leQnzntUhvuru/SgT87Y7g4HCAgE6qMVA4jMbiv6NZGjqN/bls1gsCZgSlSuXidwgQUkqEL6yBQWm
+	2UuPEOzu/Y8DEvh1aQiApfcqVRqufJ98e3AqC9RUF35bZVFFoxm478Y2uv4e8CH4lzu6xSRFALPXh
+	5y5IUNDUjtCsqILUR7GwRovcaOd+aG5VHlJjh8J8diJQfLNeBRhR3J20o9our9FfMGqaJ46LT2r+o
+	6G/jufT6CZnSapRxrcqW2p33i9O7V4c8nQxwUXnLA6YTVzp6l3kvwQuYDKxlErlwotJft1shaGMns
+	op6YdoTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUN8V-00000008HQi-2Gf0;
-	Wed, 25 Jun 2025 10:13:47 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uUNFJ-00000008IH6-0t9I;
+	Wed, 25 Jun 2025 10:20:49 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMAz-000000085GE-1WlD
+	id 1uUMLX-000000087Lv-0jAa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:12:18 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P510l9032381;
-	Wed, 25 Jun 2025 11:12:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7ONVBi6t27yoHOLom4q+9fNttcSqpjkl1fBEaeAnNkw=; b=Vwf8UUn5XqH75K2i
-	fscZ6KsiCvCjx7WJPqQv23IzCGzpmhbdb1xkGE7uHQA9PyER1EFSCXUkQPBiHlW+
-	4uwmJYQWpOhdd6Xqb43cGBt89mdGyI4ppGLqD0yH1sy3yZx/kSdVbeJbpm7/B+03
-	Z9f1dnJinZdTX1NVip71mTOSvnuabKIaG0/CX1WLLaIsmVKwNQzNqUc9OI0pJPJR
-	+iV48oYu9RNwLmIxPb3rBTaniPK+oj3phiUfDazp0779JUqdQ6+GrWs/PsBHyMyh
-	9Jjsu1AigmntTDkS0pGejX+t7nZFk2GI47Nkl0M9/6Pv5QZ3GQ6LWYth0Mh1SWTm
-	kubHIA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47e6a6pxh5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 11:12:05 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B9BB140045;
-	Wed, 25 Jun 2025 11:10:18 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4176DB29C43;
-	Wed, 25 Jun 2025 11:09:07 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
- 2025 11:09:06 +0200
-Message-ID: <dabecbc6-967e-4912-8297-4d53fd2d9cc1@foss.st.com>
-Date: Wed, 25 Jun 2025 11:09:05 +0200
+	Wed, 25 Jun 2025 09:23:12 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ade30256175so1108024866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 02:23:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1750843389; x=1751448189; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DgqZI7oI1+Rtsh8AHih668v9LL7u8KNYlhdavj5r3Pw=;
+        b=dg+Ed4YtYQyCAo+iCOQcN0UJhxCZHck1pyI/GdsdRo8LV1p9vGSpXkZU7FxgrsQUma
+         piytFAbjwOpjSyIWbhhldU207vTSmPrPHCh3CDW7dEqFETfy9kFn94dycNe6++vNzVzt
+         uisS4KvOnhcnRpQG208DLZJpPqYQAXBimuLlZwUO/enQ8pMnckaXJCeslwgQL2HRStZk
+         2IxBDlerhP1NN380zn2f/n7u7loJe/29RmFaaAEzFCyJ5fThy5Y3Us3Wb6gvaO5vCV06
+         LpRTSVYkp1SF35K/yTYCpj/0SEXO+dMxpK4/K4Yg9eeIYsBko6AsbT8RFGppVxuIpCK/
+         ZtIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750843389; x=1751448189;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DgqZI7oI1+Rtsh8AHih668v9LL7u8KNYlhdavj5r3Pw=;
+        b=YwyaYpIduReEwnHoXEnNAZNu+sfbWwB+CCq4Ojh5sD4w+6zfSlmKJWq5Qlz10SCMn4
+         csAFgeR1p0m+r+eWtvnXWhO4hV3HWcDD6FSYzndUtaoUqcbYhFpmhIeVBM+QkvQOiOVv
+         TsxPm9LMRqjs3kGZ/xRD0PafrtxBHzMVR19f5WsOz21cPMYK6GmtvIekrf4w94sHtjYl
+         mME0z44sN9qiuijvp0ft8lj5CwkoWddEZmmgHkggRc1gFTusnDddKyTrjdbMyfmUGkXR
+         sbhQxvvg7VO0NSnuG4Nzl3KpuIn6R4wnW+eXK3TZDMhLPBrVPyU+PX1cX/25D+J8rJJU
+         TXgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ4WEpAf6yYIOMHt+GIVYG84NzxiSRUKLcsNxWnkb5VVT0+S2LBHVEdCErWOqSzvEFkmXvJVcqBwSuT76bkEod@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlhXV+/0ZabnX/WDaQich73LAobK1xksuuUijBLqqH8B+0dnKd
+	Q3X7xeZ6aip0lmSHL7TnO25W8RzJSgtUsYlLhI68WSAXGDD31ER+16vvyNl3fpfbpnA=
+X-Gm-Gg: ASbGnctO+jn0amLmD6+hcmmPG5HrIvNPgUh/j3/mgwbi4l8Rmj8bRyE3U3K99AWFETM
+	wAk6qKjXrpzsZAYO0W8mxehD7Y3tw+rGkJfX33ygSvRKCFK4kdcRhaFCOjGpBhd9ACbSu8FhOEC
+	pxW2n8HSScwxlfat2wFjhU8uMLRcAglKx7SF5IFzoFqouybl7s0ZZ6LUk/R0xbQYQpr/pWrcKO/
+	oshzwrc0KjN0ETKzlETbDsmGUPleYkdg6DfugZQF5GLzXGMnZmKkMDsBYx7UQPKUTsAJdrEhiN0
+	cHXoyQlKiKuwfGTZpx178QRyCx7SfSyKk6GLbRaJCB4P08opaNO09BuKrpTWucN7yDQVf+WJShD
+	1FcwaAXLs+XnR70XZJ1Oie8Y7YacHldFp
+X-Google-Smtp-Source: AGHT+IEbu2f/7cXyJsOb3QqXP0wh8TgrbA5ZDl76nci0eiAzw3s+R0MtL3pVIqORzpzq/cBkmMRAoQ==
+X-Received: by 2002:a17:907:6088:b0:ae0:a597:2959 with SMTP id a640c23a62f3a-ae0bed8e8acmr247450866b.32.1750843389413;
+        Wed, 25 Jun 2025 02:23:09 -0700 (PDT)
+Received: from otso.local (144-178-202-138.static.ef-service.nl. [144.178.202.138])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0aaa0a854sm270277766b.68.2025.06.25.02.23.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 02:23:09 -0700 (PDT)
+From: Luca Weiss <luca.weiss@fairphone.com>
+Date: Wed, 25 Jun 2025 11:22:56 +0200
+Subject: [PATCH 01/14] dt-bindings: arm-smmu: document the support on
+ SM7635
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark
- Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
- <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
- <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
- <5044c733-8836-43bd-85d7-0f552b000fb1@foss.st.com>
- <49483568-b287-45ca-a66c-1e0ad0490225@kernel.org>
- <e2400615-f21e-40bf-84f8-384242632193@foss.st.com>
- <a6440cbf-f7b5-4bce-8e2b-8aa3ec4d2342@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <a6440cbf-f7b5-4bce-8e2b-8aa3ec4d2342@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250625-sm7635-fp6-initial-v1-1-d9cd322eac1b@fairphone.com>
+References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
+In-Reply-To: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Robert Marko <robimarko@gmail.com>, 
+ Das Srinagesh <quic_gurus@quicinc.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Amit Kucheria <amitk@kernel.org>, Thara Gopinath <thara.gopinath@gmail.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, Luca Weiss <luca.weiss@fairphone.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750843387; l=1465;
+ i=luca.weiss@fairphone.com; s=20250611; h=from:subject:message-id;
+ bh=eQWT5rynZ1PMaMurlFu0xtL6k2P+7npo9dOzB+6rBOg=;
+ b=gDsmUgdZBFiEdwrYEbZ8pi64XslJKaJrZmQirkFpqMll05JV6aPCYeaepteR65EJtYCQZk9aa
+ 7x2FpL//Q9vClR/bmMVFhIADOJuoW9AUJVzbXxYdMo+K4lm7WiiCaKO
+X-Developer-Key: i=luca.weiss@fairphone.com; a=ed25519;
+ pk=O1aw+AAust5lEmgrNJ1Bs7PTY0fEsJm+mdkjExA69q8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_021217_693905_145EFBEB 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250625_022311_216519_7EBD4978 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,87 +125,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 10:48, Krzysztof Kozlowski wrote:
-> On 25/06/2025 10:33, Clement LE GOFFIC wrote:
->> On 6/25/25 08:35, Krzysztof Kozlowski wrote:
->>> On 24/06/2025 12:43, Clement LE GOFFIC wrote:
->>>> On 6/23/25 11:45, Krzysztof Kozlowski wrote:
->>>> [...]
->>>>
->>>> Hi Krzysztof,
->>>>
->>>> Sorry I forgot to address comments below.
->>>>
->>>>>> +
->>>>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
->>>>>> +	.regs = &stm32_ddr_pmu_regspec_mp1,
->>>>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
->>>>>> +	.counters_nb = MP1_CNT_NB,
->>>>>> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
->>>>>> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
->>>>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
->>>>>> +};
->>>>>> +
->>>>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
->>>>>> +	.regs = &stm32_ddr_pmu_regspec_mp2,
->>>>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
->>>>>> +	.counters_nb = MP2_CNT_NB,
->>>>>> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
->>>>>> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
->>>>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
->>>>>> +};
->>>>>> +
->>>>>> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
->>>>>> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
->>>>>> +};
->>>>>> +
->>>>>> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
->>>>>> +	{
->>>>>> +		.compatible = "st,stm32mp131-ddr-pmu",
->>>>>> +		.data = &stm32_ddr_pmu_cfg_mp1
->>>>>> +	},
->>>>>> +	{
->>>>>> +		.compatible = "st,stm32mp151-ddr-pmu",
->>>>>> +		.data = &stm32_ddr_pmu_cfg_mp1
->>>>>
->>>>> So devices are compatible, thus express it correctly and drop this.
->>>>
->>>> Ok so I assume this comes with your comment in the bindings and
->>>> basically don't get you point here.
->>>> Can you please be more precise ?
->>>
->>> Express compatibility in the bindings, like 90% of SoCs are doing, so
->>> with proper fallback and drop this entry in the table. My comment was
->>> pretty precise, because this is completely standard pattern, also used
->>> already in stm32.
->>>
->>
->> Ok I remember your discussion with Alex in my V1 of pinctrl-hdp :
->> https://lore.kernel.org/all/1de58672-5355-4b75-99f4-c48687017d2f@kernel.org/
->>
->> Does it suits you :
->> In the SoC DT:
->> MP13: compatible = "st,stm32mp131-ddr-pmu", "st,stm32mp1-ddr-pmu";
->> MP15: compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp1-ddr-pmu";
-> 
-> No, because I did not say to change other entry in the table. Please
-> read again what I asked: drop this. "This" means ONLY this entry. "Drop
-> this" does not mean "change something else". Do not change other entries
-> by introducing some generic compatible. That's not the pattern ever
-> endorsed by DT maintainers. Add front compatible and you are done,
-> smallest amount of changes, most obvious code.
->
+Add compatible for smmu representing support on SM7635.
 
-Ok so in the SoC DT I'll keep:
-MP13: compatible = "st,stm32mp131-ddr-pmu";
-MP15: compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
+Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+---
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Thanks for clarifying.
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index 7b9d5507d6ccd6b845a57eeae59fe80ba75cc652..8545dd8e886b265caa333188c031f19a44d7fa6b 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -55,6 +55,7 @@ properties:
+               - qcom,sm6125-smmu-500
+               - qcom,sm6350-smmu-500
+               - qcom,sm6375-smmu-500
++              - qcom,sm7635-smmu-500
+               - qcom,sm8150-smmu-500
+               - qcom,sm8250-smmu-500
+               - qcom,sm8350-smmu-500
+@@ -99,6 +100,7 @@ properties:
+               - qcom,sc8280xp-smmu-500
+               - qcom,sm6115-smmu-500
+               - qcom,sm6125-smmu-500
++              - qcom,sm7635-smmu-500
+               - qcom,sm8150-smmu-500
+               - qcom,sm8250-smmu-500
+               - qcom,sm8350-smmu-500
+@@ -535,6 +537,7 @@ allOf:
+           items:
+             - enum:
+                 - qcom,sar2130p-smmu-500
++                - qcom,sm7635-smmu-500
+                 - qcom,sm8550-smmu-500
+                 - qcom,sm8650-smmu-500
+                 - qcom,x1e80100-smmu-500
 
-Best regards,
-Clément
-
-> Best regards,
-> Krzysztof
+-- 
+2.50.0
 
 
