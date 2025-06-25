@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A359CC7EE30
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E94C7115C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ox2aO9Oz8YUG4xiGCpP2rMX08fRhy2wV6nIxc/v7S6s=; b=ev3WPvkNJX4y47oNS0KKpOVkwT
-	P25qpNOgtOA1+SDkOzHZ3CBQm63MJdcwzXVkPAyPSLSfvyMoeuDWawCngyd5NAHpDc7dkhB8uar5h
-	OTIT9lm2zirRTjOWkTkILz0SsgLIWcU+rX4LvtF+sTKzKpP9COmHmhdVZN+7n8moRFSiWFXoRCIMD
-	lOtlgzoJf/hSNq1YnJe7nrA1goI3e7gWOd9eFpm7tmz/AwXebgJ4D442lyFPXGz7mNuLH6UXfvk7o
-	7kMdTtBWNh+1ggeni2vhkwY4K6zZaFuQUcLFw5dLJ8FUbuPomNxjbTARkvgc3qNo3QzaeF+xrj6Qu
-	g/6Q+EHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c9eJXWiLkEHbzhuAnPgypPWcb3z11lz3Pujb6AiAmuc=; b=Et1J552ZZp0p3fo0ZpfVWv90ev
+	cI4yQmrX1/ZjL0HEhEGuvBii+0BvsRwztndk/WfQTaRAwc5jaCaZG1+m7/dlAGNfZ3vMX3UKSlBv5
+	2UzTQrvBgk3J4c/OP+EODp35JpyCteaYSu6g2G9A/G2qLjUtCgcxgnuhH5KBX5qeixBPl/vyEUgmS
+	lsxCRaLUKIkeTXKjqdLOzQPKvvV3dpkmc4ckgiEfmJgk9VXe5OTTICA1M2EBv1FE5CL9/Zes8BCoo
+	QSXiOrNvMi0MlZRxXh71a8W16+yvUGT7jOwkdMLa8w01kpshUE07GlI1by5wR5yGaVGMP452j5m5o
+	NnnzSmTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMlo-00000008Bfv-1oJK;
-	Wed, 25 Jun 2025 09:50:20 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uUMlm-00000008BeM-3qz6;
+	Wed, 25 Jun 2025 09:50:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULmb-0000000819M-2Xpp;
-	Wed, 25 Jun 2025 08:47:07 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 830E51F00053;
-	Wed, 25 Jun 2025 08:46:59 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 2153DAC7A5F; Wed, 25 Jun 2025 08:46:56 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id B42DBAC7A56;
-	Wed, 25 Jun 2025 08:46:54 +0000 (UTC)
-Date: Wed, 25 Jun 2025 10:46:52 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Parthiban Nallathambi <parthiban@linumiz.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH 10/22] pinctrl: sunxi: add missed lvds pins for a100/a133
-Message-ID: <aFu3fAMa8KPwjPbX@shepard>
-References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
- <20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
+	id 1uULkz-000000080kf-3aFp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 08:45:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=c9eJXWiLkEHbzhuAnPgypPWcb3z11lz3Pujb6AiAmuc=; b=ZG4tglZDosaNHNAqucjoarx37Z
+	9bHTOfYvgoYQg3bOrejPMd/rCgKegIj0854B8c7GbxBgFRzo5phW4Iz80oBmwDPHRWjmcYCoChXrj
+	hD5bwO5Q2VW5AH0mym2EyPO5JU5OAGUvXJz26Vf912+zV0jGUMYR1C04w3P3wHSubzEHKD5LPv2r5
+	ET8vqPwkjyVh83dQUehWYTsjjbAUurXeS+WfmAL1bQhP2VPWj/CeBANXix9LOYdpnGgo0W0B/tTRR
+	7quNa1hIryu1I7wNDR91THvTHhEr58VUA8JxHVeS3AiR5WR3IGHWCsJET7Zn3eGsq+is4nG4HI8HW
+	NoDOTTiw==;
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uULkw-00000005hPh-0TVy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 08:45:24 +0000
+Message-ID: <bf9e4e2b-0c85-437a-880a-8ca6659c74e1@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750841102;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c9eJXWiLkEHbzhuAnPgypPWcb3z11lz3Pujb6AiAmuc=;
+	b=G4CAHzSj6ghduZghtJvd0SSnHNyQgbjvNmbKL8+wxYzsjj++dTHT9bjPssGm42SDZYXT4m
+	fFuuOiQUmw9TdQ9A4K1i4Z1XZY1qhpB07s/HL0NajUB1FdmvfYUf1l9v0vG+M2F6U8Cvr0
+	LiDZ6A36AoDyGYUoU4WVXGpL1ELKOyI=
+Date: Wed, 25 Jun 2025 16:44:47 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eDJzuACllP3V3fib"
-Content-Disposition: inline
-In-Reply-To: <20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+Content-Language: en-US
+To: David Hildenbrand <david@redhat.com>
+Cc: 21cnbao@gmail.com, akpm@linux-foundation.org,
+ baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
+ x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com,
+ Lance Yang <ioworker0@gmail.com>
+References: <a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com>
+ <20250624152654.38145-1-ioworker0@gmail.com>
+ <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_014705_954039_8E383064 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250625_094522_595818_E0C99F9E 
+X-CRM114-Status: GOOD (  30.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,150 +93,326 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---eDJzuACllP3V3fib
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hi and thanks for your work!
+On 2025/6/24 23:34, David Hildenbrand wrote:
+> On 24.06.25 17:26, Lance Yang wrote:
+>> On 2025/6/24 20:55, David Hildenbrand wrote:
+>>> On 14.02.25 10:30, Barry Song wrote:
+>>>> From: Barry Song <v-songbaohua@oppo.com>
+>> [...]
+>>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>>> index 89e51a7a9509..8786704bd466 100644
+>>>> --- a/mm/rmap.c
+>>>> +++ b/mm/rmap.c
+>>>> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *folio,
+>>>> struct page *page,
+>>>>    #endif
+>>>>    }
+>>>> +/* We support batch unmapping of PTEs for lazyfree large folios */
+>>>> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+>>>> +            struct folio *folio, pte_t *ptep)
+>>>> +{
+>>>> +    const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>>> +    int max_nr = folio_nr_pages(folio);
+>>>
+>>> Let's assume we have the first page of a folio mapped at the last page
+>>> table entry in our page table.
+>>
+>> Good point. I'm curious if it is something we've seen in practice ;)
+> 
+> I challenge you to write a reproducer :P I assume it might be doable 
+> through simple mremap().
 
-On Fri 27 Dec 24, 16:37, Parthiban Nallathambi wrote:
-> lvds, lcd, dsi all shares the same GPIO D bank and lvds0
-> data 3 lines and lvds1 pins are missed, add them.
+Yes! The scenario is indeed reproducible from userspace ;p
 
-Would it also make sense to submit device-tree pin definitions here?
+First, I get a 64KB folio by allocating a large anonymous mapping and
+advising the kernel with madvise(MADV_HUGEPAGE). After faulting in the
+pages, /proc/self/pagemap confirms the PFNs are contiguous.
 
-Thanks!
+Then, the key is to use mremap() with MREMAP_FIXED to move the folio to
+a virtual address that crosses a PMD boundary. Doing so ensures the
+physically contiguous folio is mapped by PTEs from two different page
+tables.
 
-Paul
+The C reproducer is attached. It was tested on a system with 64KB mTHP
+enabled (in madvise mode). Please correct me if I'm wrong ;)
 
-> Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
-> ---
->  drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->=20
-> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c b/drivers/pinctr=
-l/sunxi/pinctrl-sun50i-a100.c
-> index df90c75fb3c5..b97de80ae2f3 100644
-> --- a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
-> +++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
-> @@ -256,72 +256,84 @@ static const struct sunxi_desc_pin a100_pins[] =3D {
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D12 */
-> +		  SUNXI_FUNCTION(0x3, "lvds0"),		/* D3P */
->  		  SUNXI_FUNCTION(0x4, "dsi0"),		/* DP3 */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 8)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 9),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D13 */
-> +		  SUNXI_FUNCTION(0x3, "lvds0"),		/* D3N */
->  		  SUNXI_FUNCTION(0x4, "dsi0"),		/* DM3 */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 9)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 10),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D14 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D0P */
->  		  SUNXI_FUNCTION(0x4, "spi1"),		/* CS */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 10)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 11),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D15 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D0N */
->  		  SUNXI_FUNCTION(0x4, "spi1"),		/* CLK */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 11)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 12),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D18 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D1P */
->  		  SUNXI_FUNCTION(0x4, "spi1"),		/* MOSI */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 12)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 13),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D19 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D1N */
->  		  SUNXI_FUNCTION(0x4, "spi1"),		/* MISO */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 13)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 14),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D20 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D2P */
->  		  SUNXI_FUNCTION(0x4, "uart3"),		/* TX */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 14)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 15),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D21 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D2N */
->  		  SUNXI_FUNCTION(0x4, "uart3"),		/* RX */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 15)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 16),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D22 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* CKP */
->  		  SUNXI_FUNCTION(0x4, "uart3"),		/* RTS */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 16)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 17),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D23 */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* CKN */
->  		  SUNXI_FUNCTION(0x4, "uart3"),		/* CTS */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 17)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 18),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* CLK */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D3P */
->  		  SUNXI_FUNCTION(0x4, "uart4"),		/* TX */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 18)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 19),
->  		  SUNXI_FUNCTION(0x0, "gpio_in"),
->  		  SUNXI_FUNCTION(0x1, "gpio_out"),
->  		  SUNXI_FUNCTION(0x2, "lcd0"),		/* DE */
-> +		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D3N */
->  		  SUNXI_FUNCTION(0x4, "uart4"),		/* RX */
->  		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 19)),
->  	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 20),
->=20
-> --=20
-> 2.39.5
->=20
 
---=20
-Paul Kocialkowski,
+```
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/mman.h>
+#include <stdbool.h>
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+#define PAGE_SIZE ((size_t)sysconf(_SC_PAGESIZE))
+#define FOLIO_SIZE (64 * 1024)
+#define NUM_PAGES_IN_FOLIO (FOLIO_SIZE / PAGE_SIZE)
+#define PMD_SIZE (2 * 1024 * 1024)
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
+int get_pagemap_entry(uint64_t *entry, int pagemap_fd, uintptr_t vaddr) {
+     size_t offset = (vaddr / PAGE_SIZE) * sizeof(uint64_t);
+     if (pread(pagemap_fd, entry, sizeof(uint64_t), offset) != 
+sizeof(uint64_t)) {
+         perror("pread pagemap");
+         return -1;
+     }
+     return 0;
+}
 
---eDJzuACllP3V3fib
-Content-Type: application/pgp-signature; name=signature.asc
+int is_page_present(uint64_t entry) { return (entry >> 63) & 1; }
+uint64_t get_pfn(uint64_t entry) { return entry & ((1ULL << 55) - 1); }
 
------BEGIN PGP SIGNATURE-----
+bool verify_contiguity(int pagemap_fd, uintptr_t vaddr, size_t size, 
+const char *label) {
+     printf("\n--- Verifying Contiguity for: %s at 0x%lx ---\n", label, 
+vaddr);
+     printf("Page |      Virtual Address      | Present |   PFN 
+(Physical)   | Contiguous?\n");
+  
+printf("-----+---------------------------+---------+--------------------+-------------\n");
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbt3wACgkQhP3B6o/u
-lQyEFg//TrQuoq7rBWw2GiGLkr841GKFMfwbOgCvkZ1O7uCpLuCvW5wITVjF4qW8
-flSBcs6qcLbz66ZXQS/86ukYfNUAvm1r4vfhJ3Ptf7m3ko5sCrkCNC3jtlukzG+k
-Eq4GzElnseT7TosPmjtImNkDjp3u/Vh/pxOdRnUHzi6N7+jGWLvU72LcF6LJKq4d
-ftamg9783Xb1QAjNnot6b+fLooAtozg34ftrIe2SE2KXt+U7qeiXtrxNerNAd6Br
-Ld34QB2oMk23sar7GQTPgvoJRCiLUNEV3hJexXf/FNHz9OviwE8irhf6BBjNz7eQ
-XwnsDeqkt5p2IF/ClwfrlsviI8HRAzqX1G7WDtuPqHTsDm67QJb8LztQ4hAUqpmS
-hUjh+BowsXfez8fVAqyp+onplRVK07SebprsBd026Uhb/cG5kBMtg3Z5H+ENCFXg
-TDLc46jsp32Mplo6wP3CVFHz0qurThqF6L8XyzIn6VoreU5uX/FRkN8jAuWtmXup
-rYNpDSE54yEL5c5P0bO1fLMtwBNKZlHEhgxHlZJCNvxgegJrtXT9hDJfYC0cnCoa
-mjeOwFuo2wZziH22TX/5QxhZzUZzOVR0CeMPn+TjJhX/qgTRXwS4DO8RexsKHHm2
-u2Fj8LAaR6bglReFWl4F+LKIeo2AswAzTyS6581R7n62JhNuXGk=
-=9BCo
------END PGP SIGNATURE-----
+     uint64_t first_pfn = 0;
+     bool is_contiguous = true;
+     int num_pages = size / PAGE_SIZE;
 
---eDJzuACllP3V3fib--
+     for (int i = 0; i < num_pages; ++i) {
+         uintptr_t current_vaddr = vaddr + i * PAGE_SIZE;
+         uint64_t pagemap_entry;
+
+         if (get_pagemap_entry(&pagemap_entry, pagemap_fd, 
+current_vaddr) != 0) {
+             is_contiguous = false;
+             break;
+         }
+
+         if (!is_page_present(pagemap_entry)) {
+             printf(" %2d  | 0x%016lx |    No   |        N/A         | 
+Error\n", i, current_vaddr);
+             is_contiguous = false;
+             continue;
+         }
+
+         uint64_t pfn = get_pfn(pagemap_entry);
+         char contiguous_str[4] = "Yes";
+
+         if (i == 0) {
+             first_pfn = pfn;
+         } else {
+             if (pfn != first_pfn + i) {
+                 strcpy(contiguous_str, "No!");
+                 is_contiguous = false;
+             }
+         }
+
+         printf(" %2d  | 0x%016lx |   Yes   | 0x%-16lx |     %s\n", i, 
+current_vaddr, pfn, contiguous_str);
+     }
+
+     if (is_contiguous) {
+         printf("Verification PASSED: PFNs are contiguous for %s.\n", 
+label);
+     } else {
+         printf("Verification FAILED: PFNs are NOT contiguous for 
+%s.\n", label);
+     }
+     return is_contiguous;
+}
+
+
+int main(void) {
+     printf("--- Folio-across-PMD-boundary reproducer ---\n");
+     printf("Page size: %zu KB, Folio size: %zu KB, PMD coverage: %zu MB\n",
+            PAGE_SIZE / 1024, FOLIO_SIZE / 1024, PMD_SIZE / (1024 * 1024));
+
+     size_t source_size = 4 * 1024 * 1024;
+     void *source_addr = mmap(NULL, source_size, PROT_READ | PROT_WRITE,
+                              MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+     if (source_addr == MAP_FAILED) {
+         perror("mmap source"); exit(EXIT_FAILURE);
+     }
+     printf("\n1. Source memory mapped at: %p\n", source_addr);
+
+     if (madvise(source_addr, source_size, MADV_HUGEPAGE) != 0) {
+         perror("madvise MADV_HUGEPAGE");
+     }
+     printf("2. Advised kernel to use large folios (MADV_HUGEPAGE).\n");
+
+     memset(source_addr, 'A', source_size);
+     printf("3. Faulted in source pages.\n");
+
+     int pagemap_fd = open("/proc/self/pagemap", O_RDONLY);
+     if (pagemap_fd < 0) {
+         perror("open /proc/self/pagemap");
+         exit(EXIT_FAILURE);
+     }
+
+     if (!verify_contiguity(pagemap_fd, (uintptr_t)source_addr, 
+FOLIO_SIZE, "Source Address (pre-mremap)")) {
+         fprintf(stderr, "\nInitial folio allocation failed. Cannot 
+proceed.\n");
+         close(pagemap_fd);
+         munmap(source_addr, source_size);
+         exit(EXIT_FAILURE);
+     }
+
+     uintptr_t search_base = 0x10000000000UL;
+     uintptr_t pmd_boundary = (search_base + PMD_SIZE) & ~(PMD_SIZE - 1);
+     uintptr_t target_vaddr = pmd_boundary - PAGE_SIZE;
+     printf("\n5. Calculated target address to be 0x%lx\n", target_vaddr);
+
+     munmap((void *)target_vaddr, FOLIO_SIZE);
+     void *new_addr = mremap(source_addr, FOLIO_SIZE, FOLIO_SIZE, 
+MREMAP_MAYMOVE | MREMAP_FIXED, (void *)target_vaddr);
+     if (new_addr == MAP_FAILED) {
+         perror("mremap");
+         close(pagemap_fd);
+         exit(EXIT_FAILURE);
+     }
+     printf("6. Successfully mremap'd %zu KB to 0x%lx.\n", FOLIO_SIZE / 
+1024, (uintptr_t)new_addr);
+
+     bool final_success = verify_contiguity(pagemap_fd, 
+(uintptr_t)new_addr, FOLIO_SIZE, "Target Address (post-mremap)");
+
+     printf("\n--- Final Conclusion ---\n");
+     if (final_success) {
+         printf("✅ SUCCESS: The folio's pages remained physically 
+contiguous after remapping to a PMD-crossing virtual address.\n");
+         printf("   The reproducer successfully created the desired 
+edge-case memory layout.\n");
+     } else {
+         printf("❌ UNEXPECTED FAILURE: The pages were not contiguous 
+after mremap.\n");
+     }
+
+     close(pagemap_fd);
+     munmap(new_addr, FOLIO_SIZE);
+
+     return 0;
+}
+```
+
+$ a.out
+
+```
+--- Folio-across-PMD-boundary reproducer ---
+Page size: 4 KB, Folio size: 64 KB, PMD coverage: 2 MB
+
+1. Source memory mapped at: 0x7f2e41200000
+2. Advised kernel to use large folios (MADV_HUGEPAGE).
+3. Faulted in source pages.
+
+--- Verifying Contiguity for: Source Address (pre-mremap) at 
+0x7f2e41200000 ---
+Page |      Virtual Address      | Present |   PFN (Physical)   | 
+Contiguous?
+-----+---------------------------+---------+--------------------+-------------
+   0  | 0x00007f2e41200000 |   Yes   | 0x113aa0           |     Yes
+   1  | 0x00007f2e41201000 |   Yes   | 0x113aa1           |     Yes
+   2  | 0x00007f2e41202000 |   Yes   | 0x113aa2           |     Yes
+   3  | 0x00007f2e41203000 |   Yes   | 0x113aa3           |     Yes
+   4  | 0x00007f2e41204000 |   Yes   | 0x113aa4           |     Yes
+   5  | 0x00007f2e41205000 |   Yes   | 0x113aa5           |     Yes
+   6  | 0x00007f2e41206000 |   Yes   | 0x113aa6           |     Yes
+   7  | 0x00007f2e41207000 |   Yes   | 0x113aa7           |     Yes
+   8  | 0x00007f2e41208000 |   Yes   | 0x113aa8           |     Yes
+   9  | 0x00007f2e41209000 |   Yes   | 0x113aa9           |     Yes
+  10  | 0x00007f2e4120a000 |   Yes   | 0x113aaa           |     Yes
+  11  | 0x00007f2e4120b000 |   Yes   | 0x113aab           |     Yes
+  12  | 0x00007f2e4120c000 |   Yes   | 0x113aac           |     Yes
+  13  | 0x00007f2e4120d000 |   Yes   | 0x113aad           |     Yes
+  14  | 0x00007f2e4120e000 |   Yes   | 0x113aae           |     Yes
+  15  | 0x00007f2e4120f000 |   Yes   | 0x113aaf           |     Yes
+Verification PASSED: PFNs are contiguous for Source Address (pre-mremap).
+
+5. Calculated target address to be 0x100001ff000
+6. Successfully mremap'd 64 KB to 0x100001ff000.
+
+--- Verifying Contiguity for: Target Address (post-mremap) at 
+0x100001ff000 ---
+Page |      Virtual Address      | Present |   PFN (Physical)   | 
+Contiguous?
+-----+---------------------------+---------+--------------------+-------------
+   0  | 0x00000100001ff000 |   Yes   | 0x113aa0           |     Yes
+   1  | 0x0000010000200000 |   Yes   | 0x113aa1           |     Yes
+   2  | 0x0000010000201000 |   Yes   | 0x113aa2           |     Yes
+   3  | 0x0000010000202000 |   Yes   | 0x113aa3           |     Yes
+   4  | 0x0000010000203000 |   Yes   | 0x113aa4           |     Yes
+   5  | 0x0000010000204000 |   Yes   | 0x113aa5           |     Yes
+   6  | 0x0000010000205000 |   Yes   | 0x113aa6           |     Yes
+   7  | 0x0000010000206000 |   Yes   | 0x113aa7           |     Yes
+   8  | 0x0000010000207000 |   Yes   | 0x113aa8           |     Yes
+   9  | 0x0000010000208000 |   Yes   | 0x113aa9           |     Yes
+  10  | 0x0000010000209000 |   Yes   | 0x113aaa           |     Yes
+  11  | 0x000001000020a000 |   Yes   | 0x113aab           |     Yes
+  12  | 0x000001000020b000 |   Yes   | 0x113aac           |     Yes
+  13  | 0x000001000020c000 |   Yes   | 0x113aad           |     Yes
+  14  | 0x000001000020d000 |   Yes   | 0x113aae           |     Yes
+  15  | 0x000001000020e000 |   Yes   | 0x113aaf           |     Yes
+Verification PASSED: PFNs are contiguous for Target Address (post-mremap).
+
+--- Final Conclusion ---
+✅ SUCCESS: The folio's pages remained physically contiguous after 
+remapping to a PMD-crossing virtual address.
+    The reproducer successfully created the desired edge-case memory layout.
+```
+Thanks,
+Lance
+
+> 
+>>
+>>>
+>>> What prevents folio_pte_batch() from reading outside the page table?
+>>
+>> Assuming such a scenario is possible, to prevent any chance of an
+>> out-of-bounds read, how about this change:
+>>
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index fb63d9256f09..9aeae811a38b 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1852,6 +1852,25 @@ static inline bool 
+>> can_batch_unmap_folio_ptes(unsigned long addr,
+>>       const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>       int max_nr = folio_nr_pages(folio);
+>>       pte_t pte = ptep_get(ptep);
+>> +    unsigned long end_addr;
+>> +
+>> +    /*
+>> +     * To batch unmap, the entire folio's PTEs must be contiguous
+>> +     * and mapped within the same PTE page table, which corresponds to
+>> +     * a single PMD entry. Before calling folio_pte_batch(), which does
+>> +     * not perform boundary checks itself, we must verify that the
+>> +     * address range covered by the folio does not cross a PMD boundary.
+>> +     */
+>> +    end_addr = addr + (max_nr * PAGE_SIZE) - 1;
+>> +
+>> +    /*
+>> +     * A fast way to check for a PMD boundary cross is to align both
+>> +     * the start and end addresses to the PMD boundary and see if they
+>> +     * are different. If they are, the range spans across at least two
+>> +     * different PMD-managed regions.
+>> +     */
+>> +    if ((addr & PMD_MASK) != (end_addr & PMD_MASK))
+>> +        return false;
+> 
+> You should not be messing with max_nr = folio_nr_pages(folio) here at 
+> all. folio_pte_batch() takes care of that.
+> 
+> Also, way too many comments ;)
+> 
+> You may only batch within a single VMA and within a single page table.
+> 
+> So simply align the addr up to the next PMD, and make sure it does not 
+> exceed the vma end.
+> 
+> ALIGN and friends can help avoiding excessive comments.
+> 
+
 
