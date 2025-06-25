@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B9CC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AB5C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GillNPWED+I7+g+LPn4LlQ45F2dOjncNPtfp8jyTpgU=; b=Kula6pmYbILw5aShdnVTwRHIOH
-	5NdEZgV1ClzF9o2l/8voT/rbL6ofkBc/Byd0yexsECIXAj06hPbsDOnDCFU4DQzhSFEekuKhFWfuM
-	DgoBIL03L/nA7klpG8CmFzU4OEmS9R+SfPug0tGWrN1fjRry0dmW6aUrE04WlehvE8lbN2GvBNdNy
-	9GYjZvf3SxS1EemQisbHSKnZ0povp3LNSQ971DbZp87EIDBma42O/JiffbudDaNXZ2kLAv/+0fOlq
-	YSWOClxG0jsBSq7a+KHN1DARldcyOnb5RptZcUr9dSHa/OkNRX6k008ogihsQIAOaThsreC6YGZ0l
-	Jz4qNuDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oRoK+To3ECSWyMsKvQou69OpviNdWWWWDeXdSq5d7yw=; b=VZbbjTuJfiOHfLOZO3CYMBcS6k
+	SQkFQpd424fZLsJAivqq0YrurUQv6cl+4aXM8ed77opP11/90xonD62vWBoFaQY4O01328/Xk1M1M
+	7SBpTBK5b0ig9WyVZc8c7MPH+8B0lU+rHBvpNYg6pd9QSTnzwdz7su4g9t3FeLK+PljjGdtTWedDh
+	5lPV0xJk8q3ryXEptofqxvgFFEKzGLEq2IniVS0rW+58zlzMilxYAISqkAZcrE/PG5WlBrykiB+e6
+	mJRni6zlQARMG+/ciEyotl2yvVSASww3rvKsURKP3YXKIdWO1DUZwAIcFx/sdMDAihFq1CkVdz4li
+	GbR0YJgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPHv-00000008dFT-0Zq9;
-	Wed, 25 Jun 2025 12:31:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUPKN-00000008diF-0IVO;
+	Wed, 25 Jun 2025 12:34:11 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNiK-00000008MxE-2SCO;
-	Wed, 25 Jun 2025 10:50:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GillNPWED+I7+g+LPn4LlQ45F2dOjncNPtfp8jyTpgU=; b=Nz5NJjMhG3vavCuC3/TUtUkpTB
-	ZVutTcxu5/Yn6kvbSxM273BO9/LLAr3pYFqMHQyAtF/BOCXCch/VP1MfEb/3RH9P3oR70Om6jqTrb
-	QXphVXEUVeswWh014XKErb0bwN1SOj+k148QdXKbJn3VKY4o3xYPMW0QtDtr9t614DyDpM2v1pCmW
-	MKIDBU3u4TO8qET64bDQMnOWhbv+5/q9GVCOhSgcgZtXhdhvSNM2bsRQ2C/VKAW8vzVaOfS8khbJC
-	2VXce6WiMn5Ww7d2tW4ghmAYs+4RHumLdsRL/ROkoWo3ZSRAob6re9urW2kqqrUA/44t51yRvO8YY
-	D85B8ghA==;
-Received: from pegase1.c-s.fr ([93.17.236.30])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNiI-00000005nkM-0i9V;
-	Wed, 25 Jun 2025 10:50:47 +0000
-Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4bRyfz3MTKz9vBt;
-	Wed, 25 Jun 2025 12:27:07 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id p2o-Y-FdKUAQ; Wed, 25 Jun 2025 12:27:07 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4bRyfz2RdKz9vBC;
-	Wed, 25 Jun 2025 12:27:07 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 435058B7B7;
-	Wed, 25 Jun 2025 12:27:07 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id vvosXbHhLt2e; Wed, 25 Jun 2025 12:27:07 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 0BC418B7A7;
-	Wed, 25 Jun 2025 12:27:04 +0200 (CEST)
-Message-ID: <750b6617-7abf-4adc-b3e6-6194ff10c547@csgroup.eu>
-Date: Wed, 25 Jun 2025 12:27:04 +0200
+	id 1uUMdy-00000008A5K-2ICI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 09:42:16 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P9d66Z002508;
+	Wed, 25 Jun 2025 11:42:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	oRoK+To3ECSWyMsKvQou69OpviNdWWWWDeXdSq5d7yw=; b=LoMOtRIfzKqfAGW5
+	lZH5rI4kT3gQJH4RP3zmHCqR7JvXRjJDEPDLq2RtVXOZTrCYimFIs1FBAe0wz4Q0
+	mRNSw2bUJIofhw/uDY8SxSWUfDBvpf2qzcDyq87aZ0GZxwRCeRPXufcD55vknxPj
+	LgBAxqd00U9x87e0toXc5gZRrKtQkvZut1dbbIrcQh0z5AVN0mNsHgyLnjeNEdcB
+	hDfCdJbRjVen8r3cgdUUbXBhODADRTTsuZ73S15FFt2Wx84Y5XSbInh7KZx9L6QG
+	BHW6bmSYo0ZwhLBrwSr0uabMwoJP1MXj2YbSaVY4O+4rAZDrzY0mhkMsUfFk6qnl
+	YTrRHA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47e7pped38-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Jun 2025 11:42:06 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C0C8B4004A;
+	Wed, 25 Jun 2025 11:41:01 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1D4DB472035;
+	Wed, 25 Jun 2025 11:40:45 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
+ 2025 11:40:44 +0200
+Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
+ 2025 11:40:44 +0200
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor Dooley" <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v19 5/6] remoteproc: stm32: Create sub-functions to request shutdown and release
+Date: Wed, 25 Jun 2025 11:40:27 +0200
+Message-ID: <20250625094028.758016-6-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH 2/9] kasan: replace kasan_arch_is_ready with kasan_enabled
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com,
- glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
- vincenzo.frascino@arm.com, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
- mpe@ellerman.id.au, npiggin@gmail.com, hca@linux.ibm.com, gor@linux.ibm.com,
- agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
- richard@nod.at, anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
- hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com,
- akpm@linux-foundation.org
-Cc: guoweikang.kernel@gmail.com, geert@linux-m68k.org, rppt@kernel.org,
- tiwei.btw@antgroup.com, richard.weiyang@gmail.com, benjamin.berg@intel.com,
- kevin.brodsky@arm.com, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-References: <20250625095224.118679-1-snovitoll@gmail.com>
- <20250625095224.118679-3-snovitoll@gmail.com>
-Content-Language: fr-FR
-In-Reply-To: <20250625095224.118679-3-snovitoll@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_115046_309710_71208581 
-X-CRM114-Status: UNSURE (   3.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_024215_096471_018D64F0 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,20 +103,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+To prepare for the support of TEE remoteproc, create sub-functions
+that can be used in both cases, with and without remoteproc TEE support.
 
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+---
+ drivers/remoteproc/stm32_rproc.c | 82 +++++++++++++++++++-------------
+ 1 file changed, 49 insertions(+), 33 deletions(-)
 
-Le 25/06/2025 à 11:52, Sabyrzhan Tasbolatov a écrit :
-> Replace the existing kasan_arch_is_ready() calls with kasan_enabled().
-> Drop checks where the caller is already under kasan_enabled() condition.
-
-If I understand correctly, it means that KASAN won't work anymore 
-between patch 2 and 9, because until the arch calls kasan_init_generic() 
-kasan_enabled() will return false.
-
-The transition should be smooth and your series should remain bisectable.
-
-Or am I missing something ?
-
-Christophe
+diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+index 431648607d53..db82d4308376 100644
+--- a/drivers/remoteproc/stm32_rproc.c
++++ b/drivers/remoteproc/stm32_rproc.c
+@@ -209,6 +209,52 @@ static int stm32_rproc_mbox_idx(struct rproc *rproc, const unsigned char *name)
+ 	return -EINVAL;
+ }
+ 
++static void stm32_rproc_request_shutdown(struct rproc *rproc)
++{
++	struct stm32_rproc *ddata = rproc->priv;
++	int err, idx;
++
++	/* Request shutdown of the remote processor */
++	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
++		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
++		if (idx >= 0 && ddata->mb[idx].chan) {
++			err = mbox_send_message(ddata->mb[idx].chan, "detach");
++			if (err < 0)
++				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
++		}
++	}
++}
++
++static int stm32_rproc_release(struct rproc *rproc)
++{
++	struct stm32_rproc *ddata = rproc->priv;
++	unsigned int err = 0;
++
++	/* To allow platform Standby power mode, set remote proc Deep Sleep */
++	if (ddata->pdds.map) {
++		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
++					 ddata->pdds.mask, 1);
++		if (err) {
++			dev_err(&rproc->dev, "failed to set pdds\n");
++			return err;
++		}
++	}
++
++	/* Update coprocessor state to OFF if available */
++	if (ddata->m4_state.map) {
++		err = regmap_update_bits(ddata->m4_state.map,
++					 ddata->m4_state.reg,
++					 ddata->m4_state.mask,
++					 M4_STATE_OFF);
++		if (err) {
++			dev_err(&rproc->dev, "failed to set copro state\n");
++			return err;
++		}
++	}
++
++	return 0;
++}
++
+ static int stm32_rproc_prepare(struct rproc *rproc)
+ {
+ 	struct device *dev = rproc->dev.parent;
+@@ -519,17 +565,9 @@ static int stm32_rproc_detach(struct rproc *rproc)
+ static int stm32_rproc_stop(struct rproc *rproc)
+ {
+ 	struct stm32_rproc *ddata = rproc->priv;
+-	int err, idx;
++	int err;
+ 
+-	/* request shutdown of the remote processor */
+-	if (rproc->state != RPROC_OFFLINE && rproc->state != RPROC_CRASHED) {
+-		idx = stm32_rproc_mbox_idx(rproc, STM32_MBX_SHUTDOWN);
+-		if (idx >= 0 && ddata->mb[idx].chan) {
+-			err = mbox_send_message(ddata->mb[idx].chan, "detach");
+-			if (err < 0)
+-				dev_warn(&rproc->dev, "warning: remote FW shutdown without ack\n");
+-		}
+-	}
++	stm32_rproc_request_shutdown(rproc);
+ 
+ 	err = stm32_rproc_set_hold_boot(rproc, true);
+ 	if (err)
+@@ -541,29 +579,7 @@ static int stm32_rproc_stop(struct rproc *rproc)
+ 		return err;
+ 	}
+ 
+-	/* to allow platform Standby power mode, set remote proc Deep Sleep */
+-	if (ddata->pdds.map) {
+-		err = regmap_update_bits(ddata->pdds.map, ddata->pdds.reg,
+-					 ddata->pdds.mask, 1);
+-		if (err) {
+-			dev_err(&rproc->dev, "failed to set pdds\n");
+-			return err;
+-		}
+-	}
+-
+-	/* update coprocessor state to OFF if available */
+-	if (ddata->m4_state.map) {
+-		err = regmap_update_bits(ddata->m4_state.map,
+-					 ddata->m4_state.reg,
+-					 ddata->m4_state.mask,
+-					 M4_STATE_OFF);
+-		if (err) {
+-			dev_err(&rproc->dev, "failed to set copro state\n");
+-			return err;
+-		}
+-	}
+-
+-	return 0;
++	return stm32_rproc_release(rproc);
+ }
+ 
+ static void stm32_rproc_kick(struct rproc *rproc, int vqid)
+-- 
+2.25.1
 
 
