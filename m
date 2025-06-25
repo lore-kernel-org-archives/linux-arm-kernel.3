@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C16C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7B7C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9lxAywOv5yt4LeQ6A3AxT624fpEB3GL4l9rgh6gKj8=; b=PILgsqyErvW/qC4cBnluRo8H5T
-	p2Lq82NsIydXp45lHfrS4Ah49iudwGmJ3ZLjU9R5paz0Tj4tqKDxeUjSSrHLzBKvUds5NxLv9NmUA
-	Kbx8dbcftQj2jFxGJCZK8F2OcHCUzLZGxf1xvXnDmKGO7lelifZvp6LIeWxk8tX+EjSHX77M0N+WN
-	p6SswhK04kGgNZkBl8/g9NvjaSCyJAN9rCzmxDb09St7PBva9DUv863G1GDpShsij0nQlr5n4Fmei
-	I46P8rpQxtsmlW9tD0R787Wr0bl8xMILgru4wdmAXHDZXIgxo8sBJXY/u1tPyHSRcNK1u4NJJgEvn
-	1hJ6Q22g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wqF4hhowZcujiHY+iHQl6x5APphUIOsbur9usB3fHMI=; b=1N0c814zPrAfU+vfapg7wjPegJ
+	1oX2zo3AJr5p0BU3E3CwCNn57Z71JMdCsmEibB6pFXhNF/zuGokdgwvbPdoWtMfOEZAYSWFSrNJFo
+	qjY1ee+EQ5xDjvQo8R+/1qS+XzBgnC1m2fSzfeZgRdQBXBXscmfDYeiXhSsp5mZfnfn2+o34Smrbr
+	1Lq+2sYno08S0fQ3tP5g+GHoYHodGhEQRZ4Db/fi7LDXli7bjjcld4z3yhpOgdDf4Eou4xWiMbHqy
+	CZG/SZ3MkjTXG3lpVyKZdEpwLXAQ/IdqoG5IJzlrRnUVbXX0y5FfJ3Pxp3piFmpmZ/njSesqDg5tX
+	Isfrmipw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUTHs-00000009Mkt-0ztP;
-	Wed, 25 Jun 2025 16:47:52 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1uUTK9-00000009NQL-0am5;
+	Wed, 25 Jun 2025 16:50:13 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUP7c-00000008bXk-3Lk7;
-	Wed, 25 Jun 2025 12:21:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=j9lxAywOv5yt4LeQ6A3AxT624fpEB3GL4l9rgh6gKj8=;
-	t=1750854058; x=1752063658; b=ihAz5zMX1AQj3zecYP4CMrTMRUafIXwy27LL6VgkajaA91g
-	ahF5ViGb2R0udi3fDn7ZR+CxEkIsIkTWNwgl3Sbie81YEF/QGXvyTa1HsKX3a3gsMTdB9eAKrL9o0
-	Bq9mS5iNBnlRlVqlfVTmQA5ew+jp5ZtWEDMZtgYJPdBU+cSxtGv8sRt6QxgvG6VqYG6emsF5LPcP6
-	aocpBw6aVuEYGbmZaudn5KU7+YnJXmqqCfJsKw1pxG/+ZHtzTNW5Ptz8h9FanGqhfIBjvCYC2VCbk
-	1MIDxdKD5IKQ5fpgbiBZkuKOCfTEgf6yt/Y5TprJ1FtWkFNuACI+J3BWyYeaE6LQ==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1uUP7I-00000009xkX-2M7X;
-	Wed, 25 Jun 2025 14:20:40 +0200
-Message-ID: <dd87fa28e596126536d79281e87e2e0f52d9dfd4.camel@sipsolutions.net>
-Subject: Re: [PATCH 6/9] kasan/um: call kasan_init_generic in kasan_init
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com, 
-	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, 
-	vincenzo.frascino@arm.com, catalin.marinas@arm.com, will@kernel.org, 
-	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
- mpe@ellerman.id.au, 	npiggin@gmail.com, christophe.leroy@csgroup.eu,
- hca@linux.ibm.com, 	gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, 	svens@linux.ibm.com, richard@nod.at,
- anton.ivanov@cambridgegreys.com, 	dave.hansen@linux.intel.com,
- luto@kernel.org, peterz@infradead.org, 	tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
-	chris@zankel.net, jcmvbkbc@gmail.com, akpm@linux-foundation.org
-Cc: guoweikang.kernel@gmail.com, geert@linux-m68k.org, rppt@kernel.org, 
-	tiwei.btw@antgroup.com, richard.weiyang@gmail.com, benjamin.berg@intel.com,
- 	kevin.brodsky@arm.com, kasan-dev@googlegroups.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-Date: Wed, 25 Jun 2025 14:20:38 +0200
-In-Reply-To: <20250625095224.118679-7-snovitoll@gmail.com> (sfid-20250625_115328_891177_CC2D325A)
-References: <20250625095224.118679-1-snovitoll@gmail.com>
-	 <20250625095224.118679-7-snovitoll@gmail.com>
-	 (sfid-20250625_115328_891177_CC2D325A)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1uUP7z-00000008bcx-48qi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 12:21:25 +0000
+Message-ID: <42f1d84f-2d17-43b7-8fa2-83322fcca44f@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750854071;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wqF4hhowZcujiHY+iHQl6x5APphUIOsbur9usB3fHMI=;
+	b=dbqPp1zP9dlPKWTDlI3t3zLN5/ONrptH3RYgCcrl9omGqZ7+bmrO3bJa0JRrkvhXraycoV
+	elWuByVDPJUxyjtr6uiYD7om3L3B+0RvEw5odBoxkKBn51UWDL3LIG2VCW5LCytZ2sryAb
+	zKos2fVOnRiQvX68sWQjMUop6cK7z4g=
+Date: Wed, 25 Jun 2025 20:20:59 +0800
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+Content-Language: en-US
+To: David Hildenbrand <david@redhat.com>
+Cc: akpm@linux-foundation.org, baolin.wang@linux.alibaba.com,
+ chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
+ ying.huang@intel.com, zhengtangquan@oppo.com,
+ Lance Yang <ioworker0@gmail.com>, Barry Song <21cnbao@gmail.com>
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+ <20250624162503.78957-1-ioworker0@gmail.com>
+ <27d174e0-c209-4851-825a-0baeb56df86f@redhat.com>
+ <938c4726-b93e-46df-bceb-65c7574714a6@linux.dev>
+ <CAGsJ_4y1GObH-C7R=FQL=UWe3kF6qhKoRqPxNPYx0k7uwocc+g@mail.gmail.com>
+ <5ba95609-302b-456a-a863-2bd5df51baf2@redhat.com>
+ <CAGsJ_4zSGT05GjxM1H6JwSa5MhgtxaiYVa1Wtvm8+SmYkm=jmQ@mail.gmail.com>
+ <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com>
+ <CAGsJ_4yTH5ngM++e=c+P7g0fXs-QQsOk2oxd1RWa3Qww97Knrw@mail.gmail.com>
+ <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_052100_841280_AFBA54C3 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_052124_170629_CC4ACE8C 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-06-25 at 14:52 +0500, Sabyrzhan Tasbolatov wrote:
-> Call kasan_init_generic() which enables the static flag
-> to mark generic KASAN initialized, otherwise it's an inline stub.
->=20
-> Delete the key `kasan_um_is_ready` in favor of the global static flag in
-> linux/kasan-enabled.h which is enabled with kasan_init_generic().
->=20
-> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=3D218315
-> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
 
-Looks fine, I guess. You can test/build it without qemu - on x86 - by
-using 'make ARCH=3Dum' or so.
 
-I'm assuming it'll go through some kasan tree since there are
-dependencies:
+On 2025/6/25 20:09, David Hildenbrand wrote:
+>>
+>> Somehow, I feel we could combine your cleanup code—which handles a batch
+>> size of "nr" between 1 and nr_pages—with the
+>> "if (nr_pages == folio_nr_pages(folio)) goto walk_done" check.
+> 
+> Yeah, that's what I was suggesting. It would have to be part of the 
+> cleanup I think.
+> 
+> I'm still wondering if there is a case where
+> 
+> if (nr_pages == folio_nr_pages(folio))
+>      goto walk_done;
+> 
+> would be wrong when dealing with small folios.
+> 
+>> In practice, this would let us skip almost all unnecessary checks,
+>> except for a few rare corner cases.
+>>
+>> For those corner cases where "nr" truly falls between 1 and nr_pages,
+>> we can just leave them as-is—performing the redundant check inside
+>> page_vma_mapped_walk().
+> 
+> I mean, batching mapcount+refcount updates etc. is always a win. If we 
+> end up doing some unnecessary pte_none() checks, that might be 
+> suboptimal but mostly noise in contrast to the other stuff we will 
+> optimize out 🙂
+> 
+> Agreed that if we can easily avoid these pte_none() checks, we should do 
+> that. Optimizing that for "nr_pages == folio_nr_pages(folio)" makes sense.
 
-Acked-by: Johannes Berg <johannes@sipsolutions.net>
+Hmm... I have a question about the reference counting here ...
 
-johannes
+		if (vma->vm_flags & VM_LOCKED)
+			mlock_drain_local();
+		folio_put(folio);
+		/* We have already batched the entire folio */
+
+Does anyone else still hold a reference to this folio after folio_put()?
+
+		if (nr_pages == folio_nr_pages(folio))
+			goto walk_done;
+		continue;
+walk_abort:
+		ret = false;
+walk_done:
+		page_vma_mapped_walk_done(&pvmw);
+		break;
+	}
+
+Thanks,
+Lance
+
 
