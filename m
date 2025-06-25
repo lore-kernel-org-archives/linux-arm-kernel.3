@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC562C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1605DC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tNxVqILGkshM2vIysQ5MS1iDIfaA77GddJCD/fmHPI=; b=rnk32+hZ9i9ZdfDjV+yw0SSLW0
-	l/1DodW6nX+hroUP/idUh8XFpgiwwgQOkPZxcs28hqfcKQEMuO6b+3OPGNK2rE6IATGIHEHtKK0HB
-	P6XcTFOpzkP+izW7nZs0MMaWFD9nKJdWu3g5HJnWXbnHvsPUmsZU+l3DCWTvEqALEBytVNvdr+MBr
-	J20F4w+pqw2zKU3q970dy6JFgZwTLsz3Cas/lR+4S2pWQg8/PfM16qUsnsgCqtXv/XkO3lIx77eOo
-	PVj80nErmrgjr+cehRE6mScQ2M9E00I2mlCTzOJHe3Xg4OTR7265bjKkK5pHnHJqWpo2/d6NrdIsO
-	t5IhA/bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q0/RM2kQyckW7LSQ3VeyfPEi1mattHTjXA79SYKL5MQ=; b=PnibfMOqmS3I4xkMHuz4sn4avE
+	/icCK2jOmctuwGR0D2/jbBr7b8TvD0EkaDd95es/nd3FhEwCesvCqTGPFBVl9JUr//1WBBd5rDfkL
+	336egQGljGgwDZ2d7X4cJM060BWW2ocD7AK3sQHs1YzfRWteMoazN/BUfDtpgXpUTj5MpPvJZd5/v
+	DdluVnFT+2JNMyQAGwBLwW7OTnYO8KZmvdjyzt/+DSWtbATeCmBQ5rsbYlPPPeyH3RPao978+FdSZ
+	j9rEXpxY1de+jD6fIP3gKxcJCZe0856y5LTRJUI31t2fyHvE3rv57soCq86DGhl7lQBVUM49FxX8J
+	MSjH2lwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOEF-00000008SOe-496h;
-	Wed, 25 Jun 2025 11:23:47 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uUOEI-00000008SQH-18Ul;
+	Wed, 25 Jun 2025 11:23:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULQW-00000007wl3-2bt9;
-	Wed, 25 Jun 2025 08:24:17 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 817561F0004F;
-	Wed, 25 Jun 2025 08:24:12 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 2A3FCAC7A17; Wed, 25 Jun 2025 08:24:11 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id CF3E5AC7A0B;
-	Wed, 25 Jun 2025 08:24:09 +0000 (UTC)
-Date: Wed, 25 Jun 2025 10:24:07 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 5/5] riscv: dts: allwinner: d1s-t113: Add LVDS0 pins
-Message-ID: <aFuyJ6AqTX_aOr_b@shepard>
-References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
- <20250221161751.1278049-6-kuba@szczodrzynski.pl>
+	id 1uUMCT-000000085Zy-0X8t
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 09:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Q0/RM2kQyckW7LSQ3VeyfPEi1mattHTjXA79SYKL5MQ=; b=EPwHsv5Sb1uNMTqhDKCF+oBBnp
+	FuvMld3w6r8a+y5GHC3aPIn4JLlZKSWHuXmI5SN73pWa34mF6C75jYcgl0pMbkTll84Yf6rqhmGVw
+	8173sYjeah7zBmEmXiMmda77UbqkL+8kp6PqMBogl2Ysnkufc6qprkWlZ+Fkhp1PQKLcgNTeXyPgW
+	44SYcyucd70Bzp2FfM7B2Ihr6SWwcUHOS2Oeo2pFbuBaNL+oInAsvDvOMee5yf/YoDgyXkl31EDcq
+	e1dt0m0fG/jHfIVZBkN256gCISWzzjb9XT6J/pHVQGiA2WSX6zjyavlfUljHi3lmPQUg2VClgPjH6
+	bgR47l3g==;
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUMCQ-00000005ipV-29Yg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 09:13:48 +0000
+Received: from [127.0.0.1] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 55P9CeH61706513
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Wed, 25 Jun 2025 02:12:40 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 55P9CeH61706513
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2025062101; t=1750842761;
+	bh=Q0/RM2kQyckW7LSQ3VeyfPEi1mattHTjXA79SYKL5MQ=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=W+B0I6fat7CBMT8xxv1mOc55VFltc/zjXsP3OwTMiTTZtyf3Fsi+bvE02lJgVO1F2
+	 IuAz3EgL52KsFKV+kBlMfDlHRSSqrMPwCg18mlwvplgdehXFaGUTw6a++Ax4KL2kKw
+	 FIQeeDSEq/A0BTqA1La3+DGCze68qT1gBK+gs79Vc2z5CkyhDqmHK7WUQlL7UsHmOp
+	 d4ytIvUBcHN0QkrMS5NBIkyc85ZqDXjDMGXTKEDF86V1yqYddYtivujm+OYCDZjVGc
+	 u0Wjl5yVuoFGi7OgzLoMZ20RQT2WTKH3AXcxbMIqftnevMQ06REiTtc4pqGPTXnfDk
+	 hVKVhJdC3xoFg==
+Date: Wed, 25 Jun 2025 02:12:39 -0700
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+        Jonathan Cameron <Jonathan.Cameron@huawei.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+        linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-mm@kvack.org, gregkh@linuxfoundation.org,
+        Will Deacon <will@kernel.org>, Dan Williams <dan.j.williams@intel.com>,
+        Davidlohr Bueso <dave@stgolabs.net>,
+        Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+        Yushan Wang <wangyushan12@huawei.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+        Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com> <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+Message-ID: <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kGlgOBmJpN53EYeN"
-Content-Disposition: inline
-In-Reply-To: <20250221161751.1278049-6-kuba@szczodrzynski.pl>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_012416_814529_23255C07 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20250625_101346_885338_1B89BE54 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,83 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead=2Eorg> wr=
+ote:
+>On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
+>
+>> On x86 there is the much loved WBINVD instruction that causes a write b=
+ack
+>> and invalidate of all caches in the system=2E It is expensive but it is
+>
+>Expensive is not the only problem=2E It actively interferes with things
+>like Cache-Allocation-Technology (RDT-CAT for the intel folks)=2E Doing
+>WBINVD utterly destroys the cache subsystem for everybody on the
+>machine=2E
+>
+>> necessary in a few corner cases=2E=20
+>
+>Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
+>avoid doing dumb things like WBINVD ?!?
+>
+>> These are cases where the contents of
+>> Physical Memory may change without any writes from the host=2E Whilst t=
+here
+>> are a few reasons this might happen, the one I care about here is when
+>> we are adding or removing mappings on CXL=2E So typically going from
+>> there being actual memory at a host Physical Address to nothing there
+>> (reads as zero, writes dropped) or visa-versa=2E=20
+>
+>> The
+>> thing that makes it very hard to handle with CPU flushes is that the
+>> instructions are normally VA based and not guaranteed to reach beyond
+>> the Point of Coherence or similar=2E You might be able to (ab)use
+>> various flush operations intended to ensure persistence memory but
+>> in general they don't work either=2E
+>
+>Urgh so this=2E Dan, Dave, are we getting new instructions to deal with
+>this? I'm really not keen on having WBINVD in active use=2E
+>
 
---kGlgOBmJpN53EYeN
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+WBINVD is the nuclear weapon to use when you have lost all notion of where=
+ the problematic data can be, and amounts to a full reset of the cache syst=
+em=2E=20
 
-Hi,
-
-On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
-> Add LVDS pins to the PIO since it's now supported on D1s/T113.
->=20
-> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
-> ---
->  arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/ris=
-cv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> index d241ba306..174b6d8f9 100644
-> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> @@ -78,6 +78,15 @@ dsi_4lane_pins: dsi-4lane-pins {
->  				function =3D "dsi";
->  			};
-> =20
-> +			/omit-if-no-ref/
-> +			lvds0_pins: lvds0-pins {
-
-This usually has a lcd_ prefix (see sun7i-a20.dtsi and sun8i-a83t.dtsi).
-It should also be sorted alphabetically.
-
-Thanks!
-
-Paul
-
-> +				pins =3D "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
-> +				       "PD6", "PD7", "PD8", "PD9";
-> +				function =3D "lvds0";
-> +				drive-strength =3D <30>;
-> +				bias-disable;
-> +			};
-> +
->  			/omit-if-no-ref/
->  			lcd_rgb666_pins: lcd-rgb666-pins {
->  				pins =3D "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
-> --=20
-> 2.25.1
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---kGlgOBmJpN53EYeN
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbsicACgkQhP3B6o/u
-lQz4gA//XMSaMwlEF955t7sMD+r2G+0gnvduzRuZ8ICdmPh5+wc5fdr8o8F4SZ9T
-lke1oY00cGYpQ8CbMd0kKJahUwHpFVZhrfBdWC/2o92/0SW9rYJk4fgrbupgOWkN
-S70jFWJ1UcPVEbNwTImFWr5DlgsJPZbmsS4d3EkzN1nMEe7WGW0syw1paZEaW7IN
-Usr7dtl5UVoFqzlKOy0foPf3pG/7Qv9UrnL6mJv4llPysXDeFHvK9X86j4ev3n6/
-5py1bS/nTLtl9a4p4iIzuOPzYQXnQ3vUOZmYDWF+7vyMrgnNX16S/lgkyWhbJdHB
-rHDelmgVbxUzPBVyLFgdKtCO6QRpUyS8cblkci/NwcSF8geQAM9Mr7N336jYDI7j
-FdZ05N5CTtwvUAmFzX6v7cPE55b0qVVusc7/f5QPEcDDuGlQaRjyjUndlT11/qOh
-wRePXbpOiaJQxrzvOMr6BSW9ir6RsF+rfvs3js2mMaiBYV3VzE2C2Blx8/ri6x90
-FfYv5GzCVcZjWU7rctdgtc1xR5mQbLHhNVbTHPDgk7yiCVFQYDGKwbnOlCLrmYI1
-JEjvbYHcQL7lV6HNzW91tTSgHrl2tiu/1v9aEirMwJDgxzNdXDXOlXEEHaPF0FTU
-1elYSGp3JdKyEbFfhXPLysq8ryn9/9/pVvwm0NKv6i9gN3KemD8=
-=S9I0
------END PGP SIGNATURE-----
-
---kGlgOBmJpN53EYeN--
+WBINVD can block interrupts for many *milliseconds*, system wide, and so i=
+s really only useful for once-per-boot type events, like MTRR initializatio=
+n=2E
 
