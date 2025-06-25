@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A86C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72445C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jI3TC+ytQK7wb5FzGmyYvvaetqrg8PjBZ5grgtsldCU=; b=ZMP5GN0H2XntUKntpvnieGcDP+
-	cDiQCoALA1EAS1BnwevcDerkhvBPUin6evLCiwOlNNEsMwFA3MsgA1vEtEem3gM7m0+Fp+C32s/6/
-	VieGAAlX+4oIlprDWsRVe0mwIcWesgaIxxNeLyMoiKelsuB+m3VT3gkO3qTaZMooK17QLO8tp4UZC
-	b6yJGEzhmG1v+Ny0OPDB+qCBeIsuPVyZv0S33yV4cHTp3A9jDjb8Gblzhb7HPIpf7f3xdvmNfA3pq
-	nAJsWmcP6MZcJFDQrnVRYDc+u/00OD9G1eTvKQFBdbimMa2oyM4uGkI/Z088fMpBtKZRr49rkIL1o
-	dsBkEtmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8dqgP4LV8c4NLpBPDYGi8Zm3iZeMy9dNLyMC8hkw3Mc=; b=WWJMcW88cf0UDQuiSSqYqW7R7y
+	xXGEyGmwshx83gtucLc8W9NCMMRTzuUDHkJWOJbFNAyAbcFaWrMzng0tSzBrVxVtw0IdX8BhpYZaF
+	ZFpAGYnf6isVfn3Ge1UCWKkuimwbqJeWvOY2qgRTW9Hk5cIAlUW4pLg0Q7zh1vXDUtvg7rBeejB8T
+	iR/3/HmnuNU91IhcH/kf7Xnp7ntTXHkT7fTIVcs792c1YhqjmkipGLhigtYxqfcx+Ba4Q8kHC8tQc
+	3WUrg7ThY4ZaO1+n0Yf00SqVSDDjOT0LcxlJJNWknhfTDGQjxGsNW5Y4EQ8YwtPE5I5kYCSdCvgIJ
+	LHr7X14g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUrt-00000009ZUT-1Goe;
-	Wed, 25 Jun 2025 18:29:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uUUru-00000009ZXi-3ZYi;
+	Wed, 25 Jun 2025 18:29:11 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURDH-00000008z0J-3QZO;
-	Wed, 25 Jun 2025 14:35:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 74817A52063;
-	Wed, 25 Jun 2025 14:34:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 918EBC4CEEA;
-	Wed, 25 Jun 2025 14:34:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750862098;
-	bh=z3DlrwGS2dulcUFskpXwOZRGYXJoYMk2ic/qJ7NGQ98=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZFIqdS12pTHVGBcdnEP8Mhwbq8Vn1QSVptDV8QSj9OzKInmqJJlubSE0Rcic8OqV4
-	 FeQEaSu4ab1LNWXUe9qIiFlo04j9zzeCeUbRb/cK32ZPel6jnJ+gRL6lwXoBcVqJsI
-	 bxxyLcZ91QyiWLVmMUrT4a+7Y0fZW1oP7bgStgZ6pIJqYujkCU+n3LiLV9bIKPKl7G
-	 JhOO1Z//ElDB/3t9iR8B3cgnf6F69y2hIl9fVMflxTpeEx3bNLm4dGpDZlLxUYsaDg
-	 AhQT94SqA19zhZZTVryynJbE+77vBQyjheGKvGaIFhivXut/xhCvtIQYk7MxxcznAV
-	 0qZ4uj9UwOGOQ==
-Date: Wed, 25 Jun 2025 16:34:55 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, john@phrozen.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v1 0/3] pwm-mediatek: Add support for MT6991/MT8196 SoCs
-Message-ID: <z3jombms3o6466wsxx66xkuppyjdzeiwphke343llinhsl3vmj@t35gj3dc2fxm>
-References: <20250623120118.109170-1-angelogioacchino.delregno@collabora.com>
+	id 1uURGg-00000008zWU-3sa5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 14:38:33 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250625143825euoutp02c550fc4b7d6a25fe3486f13d656ff1f0~MT-2kh68Y2906929069euoutp027
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 14:38:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250625143825euoutp02c550fc4b7d6a25fe3486f13d656ff1f0~MT-2kh68Y2906929069euoutp027
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750862305;
+	bh=8dqgP4LV8c4NLpBPDYGi8Zm3iZeMy9dNLyMC8hkw3Mc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pFfPPfbCvaLUthbd5ueG3UuOnIkNWM5+nnYQbrgJy/zkV7x6wH018ApoC5WRPVXVk
+	 DNqXV4XI3CTYG+bVZ6qbnlZv6X+lp5OeMpEOXB3KglVE0okmNNYHB7rZpHqlY1ijEy
+	 yKimBKL8bgumawwX1dKSSa4STJzAtrApaZ8K0Eek=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250625143825eucas1p2e95ba80552cd289b6e05db33f32ec14a~MT-2K9-ln3066230662eucas1p23;
+	Wed, 25 Jun 2025 14:38:25 +0000 (GMT)
+Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250625143824eusmtip2d3f64e540b8e66266a364f9237f7259e~MT-1hnkPv1779917799eusmtip2T;
+	Wed, 25 Jun 2025 14:38:24 +0000 (GMT)
+From: Mateusz Majewski <m.majewski2@samsung.com>
+To: linux.amoon@gmail.com
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com,
+	m.majewski2@samsung.com, rafael@kernel.org, rui.zhang@intel.com
+Subject: Re: [RRC v1 1/3] thermal/drivers/exynos: Remove unused base_second
+ mapping and references
+Date: Wed, 25 Jun 2025 16:38:16 +0200
+Message-ID: <20250625143816.1146123-1-m.majewski2@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <CANAwSgTBzpL+XMJGhG=38A7GOzeayZaG_2LTvsaE2=mF-pn5mg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p5zmvddaeyo4hoae"
-Content-Disposition: inline
-In-Reply-To: <20250623120118.109170-1-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250625143825eucas1p2e95ba80552cd289b6e05db33f32ec14a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250625143825eucas1p2e95ba80552cd289b6e05db33f32ec14a
+X-EPHeader: CA
+X-CMS-RootMailID: 20250625143825eucas1p2e95ba80552cd289b6e05db33f32ec14a
+References: <CANAwSgTBzpL+XMJGhG=38A7GOzeayZaG_2LTvsaE2=mF-pn5mg@mail.gmail.com>
+	<CGME20250625143825eucas1p2e95ba80552cd289b6e05db33f32ec14a@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_073459_919360_3B7DE100 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250625_073831_542980_5E1E0563 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Can you check with with following changes
+> 
+> diff --git a/drivers/thermal/samsung/exynos_tmu.c
+> b/drivers/thermal/samsung/exynos_tmu.c
+> index 9fc085f4ea1a..0776801fafea 100644
+> --- a/drivers/thermal/samsung/exynos_tmu.c
+> +++ b/drivers/thermal/samsung/exynos_tmu.c
+> @@ -469,14 +469,11 @@ static void exynos4412_tmu_initialize(struct
+> platform_device *pdev)
+>         ctrl = readl(data->base + EXYNOS_TMU_TRIMINFO_CON2);
+>         ctrl = EXYNOS_TRIMINFO_RELOAD_ENABLE;
+>         writel(ctrl, data->base + EXYNOS_TMU_TRIMINFO_CON2);
+> +       return;
+>     }
+> 
+> -   /* On exynos5420 the triminfo register is in the shared space */
+> -   if (data->soc == SOC_ARCH_EXYNOS5420
+> -           data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO) {
+> -       trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
+> -       sanitize_temp_error(data, trim_info);
+> -   }
+> +   trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
+> +   sanitize_temp_error(data, trim_info);
+> }
 
---p5zmvddaeyo4hoae
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v1 0/3] pwm-mediatek: Add support for MT6991/MT8196 SoCs
-MIME-Version: 1.0
+This does seem to work (tested on 3250 and on 5420) in the sense that I
+can read the temperatures, when they increase the state of the cooling
+device gets increased, and the values look reasonable and stay in a
+reasonable range. Hard to say if the trim and the temperature values are
+correct, though.
 
-Hello,
+(FYI I will probably have a harder time regarding the drivers from
+GitHub you linked in 2/3, so no promises on testing them.)
 
-On Mon, Jun 23, 2025 at 02:01:15PM +0200, AngeloGioacchino Del Regno wrote:
-> This series adds support for the PWM IP, version 3.002, found in the
-> MT6991 Dimensity 9400 Smartphone SoC and in the MT8196 Chromebook SoC.
+> As per my Exynos5422 user manual and DTS mapping
+> thermal-sensor tmu@10060000 is mapped to CPU0 with tmu_apbif clock
+> thermal-sensor tmu@10064000 is mapped to CPU1 with tmu_apbif clock
+> thermal-sensor tmu@10068000 is mapped to CPU2 with tmu_apbif clock
+> thermal-sensor tmu@1006c000 is mapped to CPU3 with tmu_apbif clock
+> thermal-sensor tmu@100a0000 is mapped to GPU with tmu_triminfo_apbif clock.
 
-applied all three patches to
+Hmm, I might be missing something, but I think the DTS does link to two
+adresses and two clocks, for instance for GPU (in
+arch/arm/boot/dts/samsung/exynos5420.dtsi):
 
-	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-next
+		tmu_gpu: tmu@100a0000 {
+			compatible = "samsung,exynos5420-tmu-ext-triminfo";
+			reg = <0x100a0000 0x100>, <0x10068000 0x4>;
+			interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+			clocks = <&clock CLK_TMU_GPU>, <&clock CLK_TMU>;
+			clock-names = "tmu_apbif", "tmu_triminfo_apbif";
+			#thermal-sensor-cells = <0>;
+		};
 
-as material for the next merge window.
+The manual does indeed not say anything about this, but I feel like the
+current code in essence states that the manual is not correct. We
+probably should have some evidence that the current code is wrong and
+the manual was correct all along?
 
-Best regards
-Uwe
-
---p5zmvddaeyo4hoae
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhcCQ0ACgkQj4D7WH0S
-/k797ggAh4/X9IUMj216zP9Qt66t/ivkC1Z+SDL2dpjzRMEwFuAhDo1EsHRRymfS
-L98tEHQ00vOfPPg2qxs8I2zFRKgNieSef2xgEGSt/eGH1KxPxg05pgTUjEV5l88V
-spN1/cKXf7ndw+iHibA4tYXOeciigNN8WrcAont+mk9mvEw0o1Rg7ma4OW26qrCm
-g0CVqVsNvAxoqQ7AJrsXk67N/y5LLdcpwOvfKK/2aEehL2A5Jaz2Txa/RBX2Fv58
-akRrqrLZ3mKDXL3GD/ZOY+Rpr3J4/qwMCn14ZbL4t5/Lu1f2shk+aeOS9KJK/QJc
-rkTCrfOsoNcuAvkNliKqtl/H+g7UJg==
-=Agi6
------END PGP SIGNATURE-----
-
---p5zmvddaeyo4hoae--
+Thank you,
+Mateusz Majewski
 
