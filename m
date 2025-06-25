@@ -4,73 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF6EC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E51C7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UL17aYyn5+UccDyypoxuqj9prMwex4xiowlMHFf3R2U=; b=XZ8PoA2PgPmwVgYqpLbEQ9qg1w
-	+2dljuoHBRoF0p8n437Vi3bWZOleiKUgfV/oYYmIKABVH3Sb/vx8XB+fqCy8LOSwwdIvpmZvBGs7Z
-	K5y+5D6FQbHo+MYGaE4Hc2qHUmpogmaNRiwAHNTGa+vePdLvZWOGmBRxrdOg4Gg1+gyNZKI6/fMP+
-	wCqiKcfudjMS0D45elKIa0GKSpqjIDEPg+K+/5OVDBpTT+oJOyHTca7ku/T6+I0OKq2KG7lRR4XGV
-	mSbpU/sNGRPxNzazezCQBVPaZcofNnsHwbxvEk8qdy33WQJs87pX39mfXNMHXNpRhSf0MMDAfHgmz
-	ifeoek8Q==;
+	bh=JFt/h3y08mHSkfpfZJ4kG76h7WNbkilOnR3CbFJs324=; b=usZTEfp4NEWfBgSd1jwkiqlwid
+	/BQa9iW4GaB1OKdNoeHo8HVdXtvQhfwIJB0F3i5kbCZeSZsdzPVLHWl8R1ONFLF+lggxoqmWtfPg2
+	lykeBlpLDhjtBKa8iBUvXUCJWg4g3noEw/PXvlKNK1v/heMSx8h8qP5bmWQnMSzTHrXeuiBiYYOB2
+	AY+yJXE1ylOmDRp0yecG84PGn5gLehoj/K+PWD4w7cnAKGcJDB+Kj2k8bg7INVP7UsU783o5zaz6g
+	jN6EZ2enX4NQ5qAYHLHMEfEq7Gm60H8Yo+mGk3EltZ+pw/BH86E9AYUkcnz85gSj2uKqUveF1kaHk
+	pelFSivw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMp8-00000008D7p-2QhO;
-	Wed, 25 Jun 2025 09:53:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUMpB-00000008DB6-1eaY;
+	Wed, 25 Jun 2025 09:53:49 +0000
+Received: from mail-japanwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c406::1] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKlt-00000007qpt-1iu4;
-	Wed, 25 Jun 2025 07:42:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D39CA615F1;
-	Wed, 25 Jun 2025 07:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 825FEC4CEEA;
-	Wed, 25 Jun 2025 07:42:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750837336;
-	bh=ee5KpT/bkyI5pdWN+/FTJfhNU5lp2kqGEPaGJ/4m8CI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QptVOFEzhdEF/NA7m5AHYEde2n+dfbMvp+8KFy1dXur2sGa2Tcjk1RmuP6iAvVKgM
-	 8x4c3JKrqlwCWZ6zzEJr5hwC2tOVr0FaKR3TdhqzbvT5iZmbfwvRobsJGMlQnUdNwC
-	 tFnifQXNaglfKS0iSseuGVAW5PEkdBcSk9IhnXYCCJLwTlJuDJGSwEBH8b0Piby14I
-	 BiyyjAgmXDmcqRPqNHTAq0eRqAR0QQwZY6WpNSbhcImoI8XQB23rAAyENA7E4tKvVt
-	 AP/rSsqc9K8yqPmDCyZo9x03Y3vou1mxA6tU83ojz7jgnUTWO9AFQOKP5nGVj8tCj3
-	 BK3df+3YaYFsA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uUKlq-009m7c-1v;
-	Wed, 25 Jun 2025 08:42:14 +0100
-Date: Wed, 25 Jun 2025 08:42:13 +0100
-Message-ID: <875xgkfesq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>, Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Rob Herring <robh@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5?=
- =?UTF-8?B?xYRza2k=?= <kwilczynski@kernel.org>,	Conor Dooley
- <conor.dooley@microchip.com>,	Daire McNamara
- <daire.mcnamara@microchip.com>,	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: host-generic: Set driver_data before calling gen_pci_init()
-In-Reply-To: <774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be>
-References: <774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: bhelgaas@google.com, geert+renesas@glider.be, alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org, will@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, conor.dooley@microchip.com, daire.mcnamara@microchip.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1uUL3G-00000007tOo-1B1y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 08:00:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PO/8yTm1hN/G76X7Scm6fgOdqjEdUakJz/LhdxUz+8sh+UtIe1bDCUfoRVgifW8Vs28ivhL3llU71tnYz0m/G5GxdZfyNWXdWBAddBxkZRG4YjtIOX6B1wr/hEFx5h8YOnF0Z4Sl3D2SCIOl12cQfFseHs6EeQ9GIb0EPfLuhbpPUtLrIbHOP/DPhkr3z2a15UNJ2SXtRESLjwg4BNSHTo3ZmPXOSt1c6Q7+rIbwmoMTmZWCbJ/eFiyQPpdZbafHhd9mP8MgO4KqJlvMK3ExnC3eIb04jOlTvz/yRKpMioBQhEiaQuUVbwVjaRp1vMDXE7yeoyP+RaCFwX342UHEWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JFt/h3y08mHSkfpfZJ4kG76h7WNbkilOnR3CbFJs324=;
+ b=SutUlcRy4es5foMjYRbsd579A/1BG73zrWr5/d1ZUZdhlUHdaHqN7QryJlF2R2I6fISExcCfJMolAm7grbYwf3gxRCo4S/ZgXKvm1B1hVqSu5NxdM8TN4V/ESu/bWPoO234SrUUVAXPteESr4JSULVB2+fdLQXclHGO2XglNC+L88mvx9Oh4lOUbbshEB2MfVbGvTvn75rAiQKzS6Gn+PPi4aiPEi2YPwobLzmFITuC7mMVNMPAqXwM9YCP3YghMEcqwrZwtVLUhhdwRsBQg/jJeUuXEOPsyuANEfN4gM+80p1M79pIZDr0dvb2aWXubvg6pAATTsVjDDB7U5YbUMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JFt/h3y08mHSkfpfZJ4kG76h7WNbkilOnR3CbFJs324=;
+ b=Rl9BgI+oA07DpN8R3sD/vgEe1XGFuaKFUxvLEr4tG16QQpSMYn/RA0m6CZpiAomTEi/wI7AGKehW3VTOshCpnH1Rm1dqTxrdydPuuypeBolPwV69Wja2N4zxGVvJeNp+8wUZp131xurlCiFvLyS2PY4BaKDqjF0RG1PCQz6IKaM=
+Received: from TYYPR01MB15132.jpnprd01.prod.outlook.com
+ (2603:1096:405:1a1::10) by TY4PR01MB15709.jpnprd01.prod.outlook.com
+ (2603:1096:405:2d2::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Wed, 25 Jun
+ 2025 07:59:54 +0000
+Received: from TYYPR01MB15132.jpnprd01.prod.outlook.com
+ ([fe80::3fd9:f47c:79c7:a6c6]) by TYYPR01MB15132.jpnprd01.prod.outlook.com
+ ([fe80::3fd9:f47c:79c7:a6c6%7]) with mapi id 15.20.8857.026; Wed, 25 Jun 2025
+ 07:59:54 +0000
+From: Chris Paterson <Chris.Paterson2@renesas.com>
+To: Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Fabrizio Castro
+	<fabrizio.castro.jz@renesas.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Arnd Bergmann
+	<arnd@arndb.de>, Nishanth Menon <nm@ti.com>, Prabhakar Mahadev Lad
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	=?Windows-1252?Q?N=EDcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>, Eric Biggers <ebiggers@google.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+Subject: RE: [PATCH 0/6] Add RSPI support for RZ/V2H
+Thread-Topic: [PATCH 0/6] Add RSPI support for RZ/V2H
+Thread-Index: AQHb5T2C40dZMNzzc0WKyn0WofRHq7QTgzvQ
+Date: Wed, 25 Jun 2025 07:59:54 +0000
+Message-ID: <TYYPR01MB15132652B441DEBC571798CFCB77BA@TYYPR01MB15132.jpnprd01.prod.outlook.com>
+References: <20250624192304.338979-1-fabrizio.castro.jz@renesas.com>
+In-Reply-To: <20250624192304.338979-1-fabrizio.castro.jz@renesas.com>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYYPR01MB15132:EE_|TY4PR01MB15709:EE_
+x-ms-office365-filtering-correlation-id: f5e55c7c-7de9-4cfa-ae29-08ddb3be451d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
+x-microsoft-antispam-message-info: =?Windows-1252?Q?x32EVYqSStk7FWPT3ihci9+GiC/McABEfHkXreLWoN7cce1d8XVrv2K6?=
+ =?Windows-1252?Q?jZ3lS5VbtsADFROCSuiPEegd+DlwCtagqYns33wxCgGQoXylNE7/i++4?=
+ =?Windows-1252?Q?NMDD8mdmwZpM9JBAkoklHC9P6excoHcqS5OvzvCar75WGVsUrswdKgoS?=
+ =?Windows-1252?Q?wtLwvA6PtX92WaePR7SAe6rZ8y2Taz7VgNMdW6CprG6bvnqeAHskIEq3?=
+ =?Windows-1252?Q?t6l/gD9eKD8YSbOPsBROa/gaepIXbfsXjNYP+JlGAf86oOU6MKIO9Mmx?=
+ =?Windows-1252?Q?ltwFwAZoNPdd9qx56UMmWRKUTTJknfaFq0cCi9rmVS0gMXvGxOOrJox1?=
+ =?Windows-1252?Q?BXFYJISN0rCb/Rf8v2oVCrKoHKSo0e2kBFCJ8iPi9YmfuON+R+YNYNuq?=
+ =?Windows-1252?Q?xO27DKxW2NL8Y15wXyjIy1NL4VQzOyKZ55ruwcRujgH+Ke6YY8VCvLon?=
+ =?Windows-1252?Q?cecgq/3RsMAGlt07AyfxfqyxOnZcpB3JkXmOJNOMNznnxuurtIl+KCl7?=
+ =?Windows-1252?Q?nOW8kVcAS6SpbVRQAntQScYZUhlQyMs1B+hU1zlLOmKxPjgVt5iJ3LCa?=
+ =?Windows-1252?Q?EghEs4w9mU6/aSG/htISx6MUjnJZpEBXN6cJnImlk/b8oMaYAZlZnoLH?=
+ =?Windows-1252?Q?Xl37bq4qktAftMS5JsD4XL0edSZv6GIQnoPdrBSg/d6sa4ho/W/6sHm5?=
+ =?Windows-1252?Q?umdlSYydO1XxR6Z29Q5nEV221IQLckhFUnrSP001bQtJjlW82yTDR8fp?=
+ =?Windows-1252?Q?t07EKNU2LSBS0XKilUInU3jAj2dOEylFwMNCnL0O8M4izWhIWIozgMf1?=
+ =?Windows-1252?Q?y11WCNMi3wZf9PszKNBouL8c38WSRZhG+T1Rf2Bao0FURhS5ZW8Ng1nV?=
+ =?Windows-1252?Q?C+2jA5L8v2uWIZ/d6zL82D1pMQ98M/RLwJsE+pEBrv8dnlD33H4S8+cR?=
+ =?Windows-1252?Q?9izqLkpbAAcTaZZxo8aT5aJvZ5Yl7quMf/ZLAA0PE6+S/vJBmgPNg7Sr?=
+ =?Windows-1252?Q?pCk1BJru0GrpVYD1T4e/WyoXjAc1RJiuVhdP0MiPAXDk9qnmjKpoqobU?=
+ =?Windows-1252?Q?IJnqNUGstdam6csGuDLUKqgHnXb8oz1tzCxNJyLkpkzLju00MmamO44v?=
+ =?Windows-1252?Q?nsygR8xjHAXWZMyndN5lvcIPqP7XabDaEolzighFGnOvypBHjBZni58R?=
+ =?Windows-1252?Q?9QhOGsB2qBAgjUXvtSqNS86v3KjcPRsEn5cKqHbnLSIom7lyigECK8ho?=
+ =?Windows-1252?Q?g/4Yvwxhm5gtEJUig4wwcelAXvu6eQvmWx/aEoqLxd4d/XyiLu76DtjP?=
+ =?Windows-1252?Q?j5pAFy8djY0XDQ6K5qDfcUKJuUNT7lRiV0ENoeukV1cQBVBFp0MfN9NO?=
+ =?Windows-1252?Q?Y/Rar2HPeJtLWmeq5MzaCU2sqVCXWkoKr7yGliw1pFwDuE1+sBUfhVX2?=
+ =?Windows-1252?Q?YZwC15txJ8FD6s7a8gOlTlvUX1KXtfDdABKXJdXMn5KhWgEUw10TJGYt?=
+ =?Windows-1252?Q?r85JGACOHH6NYM3vFnscGRYGE0wIG2EYjPw+IIe+XtDqGfFcPI4lsBx/?=
+ =?Windows-1252?Q?JHFYUCA3G0VMgoSimjwJ3gwM8+0vSVeOUnqPMTsYJSp+qJc1/fUThdT9?=
+ =?Windows-1252?Q?tsM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB15132.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?Xm1OAUrM2f4nHIt42hRigtQxJm1vR61YethlKlSY24DawSMYPQG18ipl?=
+ =?Windows-1252?Q?GWpSmRWnK+CYg+Xbr+K1RzFvMp46e6JThhPvyZdCf8a6+zyXZ77xcKb+?=
+ =?Windows-1252?Q?Cc2wBlh+2yNFTeQZQtVUhEuHc5lnClzLO4J5TgaRlD76bjr7KsMR0DUw?=
+ =?Windows-1252?Q?OAA44OCUioRD5Kx7i2J6YdlommHtCPlLGZGnI+b5aKnYP2mPnG/ZJIst?=
+ =?Windows-1252?Q?wpqUGc8rCvDlL1jMpWNF14WcF3xkc+KWYRvtbM0bGL/FlyJo5TpcYVqy?=
+ =?Windows-1252?Q?VQkYfB2QWXtOhGsMDad8bObtRfDZyVJU7witQlHhNtYAVPxOgbDe9J/a?=
+ =?Windows-1252?Q?gCEvgRJ+eS8LNe3WcrqZQLRmrWSZ+o+pM4EpAbsx/W//D3P/Q98Su4Te?=
+ =?Windows-1252?Q?QokwfaNvFknPBJwbX2nyyKLNB2RuqBI3mM2ZfZ+fOgrdYIPzVtYGc6km?=
+ =?Windows-1252?Q?/8Fqg1dVLoPkFFd6ka6vYYOdCWbfDJrQ2mc8eXU6GE1s3f16dgjPiSO7?=
+ =?Windows-1252?Q?Ib35bG20RKM6iZIy7eIF3uyX5IVYSrxZxybmTF4X2HLx6qQIljsjmpPw?=
+ =?Windows-1252?Q?lpe2KvfQxzlT8Hl1QevQiDXCSOOJWSgt+rv2zD+YPAg9vgYf0CwhF22O?=
+ =?Windows-1252?Q?7f4sJ9EUZ69vGeo8wSO+Gnp/kE2NxKUp7D32Twz/roW4K2LKnNRno5NT?=
+ =?Windows-1252?Q?J33WAGbnycf8cmCNfZuMFQMS7qDEcFpdbVQV//cyTQj7fouYEKtYHfJV?=
+ =?Windows-1252?Q?QialUEwwFnfpH0/VzYjwA/k/8GVVnCuvwNV4kh7IJqFveGbVcYCZZP6h?=
+ =?Windows-1252?Q?Z7pMLr0WzKmCRD92NZdvRtwFhIpiGNbVg5QkEgDvw33heoZ4x3LASC0S?=
+ =?Windows-1252?Q?yeEkFcSNUdMKsaR6vmQQLPQyP2BAQeT4zHcQoNWmCZdtrCVTHCW4k11F?=
+ =?Windows-1252?Q?dHciSsTDZ77jKVw0twlm00UXB9tZ7fJcLNUAT+fVIhp4PPfiLOuCgiQp?=
+ =?Windows-1252?Q?YJg8mqdLwapMs4iTIRjIU9/uzpCDPBrE2D+x7LEhOl82DH+opLWiE3N0?=
+ =?Windows-1252?Q?6zLocDoz5Bc017zesPdfunRdtEnf0JLouWYNFP4rWmC6QgqcEeDpvZQ1?=
+ =?Windows-1252?Q?0H1pTXBP8Wczo86xDSJ+pyLHtgkBuI5DAlYKFXu5EuoOZSkR2HzvatcV?=
+ =?Windows-1252?Q?1qyxFPesfgsr5S0VHOwLM9E30RdFsPMN7n2szc4OPcAkyxgCplSv/+oc?=
+ =?Windows-1252?Q?0TL3Gs8JHaFy+0EnG8vj1zodpiPOUj14KckC9rbBo64oUYXf4nOO4/4G?=
+ =?Windows-1252?Q?h5lCo7+i/xEPDZrzcp9dtlDXqrkJ7kbkprZbDuboUwKreJq1S2nBrF2J?=
+ =?Windows-1252?Q?uqCLbAlNLkiGc2VzLWVR/RTtqDNnFP+smwtv6KKZGQ9m67GBbk28JTW+?=
+ =?Windows-1252?Q?VUapoQUN20ln2obBuAsMW3CSnfRDnTO89oSEN6pvabXihBi/R/lSeRFF?=
+ =?Windows-1252?Q?dF17zlws/5XiDtAheSrJ3ha4+GYFBZftRvbgUoX969Gy+iXwJz/Kilce?=
+ =?Windows-1252?Q?digD7XlEBHxSOy2ZyLfsNHIVPVzWSro3q2L6rEFe2E7R4wINq8epf6uK?=
+ =?Windows-1252?Q?GYkaSpdubhqYzLB1mNNHQ2aTf0hQZm6ovLDup2zfkkIZ5hbhWrU+kyiE?=
+ =?Windows-1252?Q?ZJ0FSKxAIQ3kEWt2RHsoUvQGgaSAvySLpWrcKKcc+7kTo27V+q85xw?=
+ =?Windows-1252?Q?=3D=3D?=
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB15132.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5e55c7c-7de9-4cfa-ae29-08ddb3be451d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2025 07:59:54.0813
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ngCCBG55OwMQAQ0D6XHE4j1rZ2OudLJVLc78/cUL/a1q1EVM1/5PcDK8wqAS13uY0OSECVr6hj2v06AXUDNtznaW87+1v3RF47aLUOGi5j8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB15709
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_010014_320877_F661F782 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +183,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Jun 2025 18:50:10 +0100,
-Geert Uytterhoeven <geert+renesas@glider.be> wrote:
-> 
-> On MicroChip MPFS Icicle:
-> 
->     microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
->     microchip-pcie 2000000000.pcie: Parsing ranges property...
->     microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
->     Unable to handle kernel NULL pointer dereference at virtual address 0000000000000368
->     Current swapper/0 pgtable: 4K pagesize, 39-bit VAs, pgdp=0x00000000814f1000
->     [0000000000000368] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
->     Oops [#1]
->     Modules linked in:
->     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc1-icicle-00003-gafc0a570bb61 #232 NONE
->     Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
->     [...]
->     [<ffffffff803fb8a4>] plda_pcie_setup_iomems+0xe/0x78
->     [<ffffffff803fc246>] mc_platform_init+0x80/0x1d2
->     [<ffffffff803f9c88>] pci_ecam_create+0x104/0x1e2
->     [<ffffffff8000adbe>] pci_host_common_init+0x120/0x228
->     [<ffffffff8000af42>] pci_host_common_probe+0x7c/0x8a
-> 
-> The initialization of driver_data was moved after the call to
-> gen_pci_init(), while the pci_ecam_ops.init() callback
-> mc_platform_init() expects it has already been initialized.
-> 
-> Fix this by moving the initialization of driver_data up.
-> 
-> Fixes: afc0a570bb613871 ("PCI: host-generic: Extract an ECAM bridge creation helper from pci_host_common_probe()")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Notes:
->   1. Before, driver_data was initialized before calling
->      of_pci_check_probe_only(), but the latter doesn't rely on that,
->   2. drivers/pci/controller/plda/pcie-microchip-host.c seems to be the
->      only driver relying on driver_data being set.
-> ---
->  drivers/pci/controller/pci-host-common.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index b0992325dd65f0da..b37052863847162d 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -64,13 +64,13 @@ int pci_host_common_init(struct platform_device *pdev,
->  
->  	of_pci_check_probe_only();
->  
-> +	platform_set_drvdata(pdev, bridge);
-> +
->  	/* Parse and map our Configuration Space windows */
->  	cfg = gen_pci_init(dev, bridge, ops);
->  	if (IS_ERR(cfg))
->  		return PTR_ERR(cfg);
->  
-> -	platform_set_drvdata(pdev, bridge);
-> -
->  	bridge->sysdata = cfg;
->  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
->  	bridge->enable_device = ops->enable_device;
+Hi Fabrizio,
 
-This is going to break what was introduced in 4900454b4f819 ("PCI:
-ecam: Allow cfg->priv to be pre-populated from the root port device").
+> From: Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+> Sent: 24 June 2025 20:23
+>=20
+> From: SPL2 Bot <spl2-bot-eu@lm.renesas.com>
+From: Fabrizio Castro <fabrizio.castro.jz@renesas.com>
 
-The Apple PCIe driver uses drvdata to pass a pointer to its root port
-structure from its probe routine to the .init ECAM callback. If we
-overwrite drvdata with the bridge *before* calling pci_ecam_create(),
-this data is lost, and drama follows.
+Script fail?
+The patches in the series look okay.
 
-Obviously, multi-purpose private fields are not great...
+Kind regards, Chris
 
-If we are going down the road of going back to the previous situation,
-two things need to be done:
+>=20
+> Dear All,
+>=20
+> This series adds support for the Renesas RZ/V2H RSPI IP.
+>=20
+> Cheers,
+> Fab
+>=20
+> Fabrizio Castro (6):
+>   clk: renesas: r9a09g057: Add entries for the RSPIs
+>   spi: dt-bindings: Document the RZ/V2H(P) RSPI
+>   spi: Add driver for the RZ/V2H(P) RSPI IP
+>   MAINTAINERS: Add entries for the RZ/V2H(P) RSPI
+>   arm64: defconfig: Enable the RZ/V2H(P) RSPI driver
+>   arm64: dts: renesas: r9a09g057: Add RSPI nodes
+>=20
+>  .../bindings/spi/renesas,rzv2h-rspi.yaml      |  96 ++++
+>  MAINTAINERS                                   |   8 +
+>  arch/arm64/boot/dts/renesas/r9a09g057.dtsi    |  63 +++
+>  arch/arm64/configs/defconfig                  |   1 +
+>  drivers/clk/renesas/r9a09g057-cpg.c           |  24 +
+>  drivers/spi/Kconfig                           |   8 +
+>  drivers/spi/Makefile                          |   1 +
+>  drivers/spi/spi-rzv2h-rspi.c                  | 469 ++++++++++++++++++
+>  8 files changed, 670 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/spi/renesas,rzv2h-
+> rspi.yaml
+>  create mode 100644 drivers/spi/spi-rzv2h-rspi.c
+>=20
+> --
+> 2.34.1
+>=20
 
-- the Apple PCIe driver needs to grow some form of root port
-  registration in order to map a 'struct device' back to the pcie
-  tracking structure
-
-- 4900454b4f819 needs to be reverted, because it obviously doesn't
-  serve any purpose anymore.
-
-I'll look into the first point.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
