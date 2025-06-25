@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147C7C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFACEC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rl/X8BNjuQKErI+jOCJgRTCoqLvybfG5zlXzbd1fC88=; b=ndqTIfvSBAa/D+EHvw00MNd2L4
-	b2TMVCsJrOf0jM45H+2elL6FPg1FA3KlM5rAFGwEE2jpxWuEkccTc20xVoq/WPtexvLBD4waDBjD2
-	qoQfyXFh4Vv8pOxJ4WCjvwwvcN58unSwn/S9mT9Dc5Ts6SL9UuZe/cVwDvG2WMkiBZL15z8flBETi
-	0v4FcaJ0wIrJX7Yckfjg5lqusz6k7+vxMPUUqvI/o7SxiME0zjT7Ie4xqqN2IfqM66fGp8A7C3nTB
-	PDK2mTS/h/j3jO7TKruJYajA5Taz1Le6pA0v4urT9m+ilIxxizYutyWlU/itXRkwpd5YMALyVokXV
-	NMIpcCyQ==;
+	bh=of6wCNXS5Ss8rOtX027YOzmJzT22LfAjPavKHPx9nZU=; b=oePhPxxzxQRQJPWQwi1vrYlvhW
+	NylKhqhLfIaSCk3yHt5UkjnksgZz7UagbuUmbDQ3QtgLR2FXlTQE+sVKqi8IKd5xIvXnhl+Yfe7on
+	bpuWdAUBXDY/CnCm0/w9KJZA2w5F6sKYqI8c03wsjIRlbgCJ6sCZ5ndIdA/E3VjqmKgkp0Oftqxrf
+	K9Ukp6kjXB3PFj6RBWbSseAzOcUutXqlBQSAGVydxgTejrjXqMG3YQdElhpj2FNWD0wd7SnykIXyd
+	5SjNYzwrhlxPPiv/SKIFvGsucbmhgtfT2ErpxDl9M/Jmma/qGo74FPhnC2l5J0dvuANcaKwSTK3ys
+	aMNfVVBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKNz-00000007n5s-2SqA;
-	Wed, 25 Jun 2025 07:17:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uUKQH-00000007nRZ-06hN;
+	Wed, 25 Jun 2025 07:19:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKH7-00000007lJe-1pTu;
-	Wed, 25 Jun 2025 07:10:30 +0000
+	id 1uUKH8-00000007lKS-2thX;
+	Wed, 25 Jun 2025 07:10:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32D384AA30;
-	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4181C4CEF4;
-	Wed, 25 Jun 2025 07:10:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 22DE24AFFA;
+	Wed, 25 Jun 2025 07:10:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A66DCC4CEF2;
+	Wed, 25 Jun 2025 07:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835428;
-	bh=UROoErFHCYCaDPqAxDhc4AhSGoASaVjnImGlpaYhSWw=;
+	s=k20201202; t=1750835430;
+	bh=2LrGs37CGEadHzUgE3udzC7iJiB7yoZqC5JHegQK+WQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AFyVXiVibPF18EO8gj6Jg8HFt9D0dAKEtmgBllL6vS9puXEkLps5gGp8IKQOMYoEU
-	 5cIMp+c+4Lw+Md2qvcSaljt6xufjhViD2eHp77C7AyQs1BQx07SSUxJHjp1R0N/16N
-	 C9qn8pZxEt5b6NDQUrlVxIrbOHtSyYVwN3KGx7y0MOmYsCFQU2MsU02kMD0HmvZdME
-	 yIShdZk23UOa1raxW1EGKtqSRe/5QtI3T6rhPGDi9zx6HVJpqsBfLq3VyQx3ChC4Nn
-	 p2b5qocKN78Ox6UeR+WxFAOugP5RqbJOBsLqASFPiHO8G/b6w8RjDlMzNOJo72ptLm
-	 N8Lwk1i6vX/Nw==
+	b=UyXquyVZWgisY6zFwDG5d4ZzxprCHqDlisQ41lEvQ5IHurjnN/m8NqcWJG2vqieps
+	 QNFaI0iSMcmJ46Ug61uPBEtuUygIKDzSDjAxynb4e32/Bzo9ew8IRX1nVeNa3fkzqN
+	 syi5JxOKQKXDORFsRNuQUSvE2MTtpLQan5nDKmPDEZTdAAdaOORBOzhXfhVgW++ZhS
+	 8aQcYq36vJoEcgEO11QoLWRlxYpBu5iW/xpJLuTKV0vQsT609fAI+9N0MKxz1aEcLo
+	 feCNVsiIJhz/3Gd10BL2tMvEMtB3M5eyiDmrObThqsEaq+JwDKnQHAVQO+KU2HI6MX
+	 nTvdfxLoh5QYA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 02/18] cxl/test: Simplify fw_buf_checksum_show()
-Date: Wed, 25 Jun 2025 00:08:03 -0700
-Message-ID: <20250625070819.1496119-3-ebiggers@kernel.org>
+Subject: [PATCH 06/18] lib/crypto: sha512: Fix a grammatical error in kerneldoc comments
+Date: Wed, 25 Jun 2025 00:08:07 -0700
+Message-ID: <20250625070819.1496119-7-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_001029_494604_D33EF7E4 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250625_001030_774762_B11D049F 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-First, just use sha256() instead of a sequence of sha256_init(),
-sha256_update(), and sha256_final().  The result is the same.
-
-Second, use *phN instead of open-coding the conversion of bytes to hex.
+"An HMAC", not "A HMAC".
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- tools/testing/cxl/test/mem.c | 21 ++-------------------
- 1 file changed, 2 insertions(+), 19 deletions(-)
+ include/crypto/sha2.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/tools/testing/cxl/test/mem.c b/tools/testing/cxl/test/mem.c
-index 0f1d91f57ba34..d533481672b78 100644
---- a/tools/testing/cxl/test/mem.c
-+++ b/tools/testing/cxl/test/mem.c
-@@ -1826,31 +1826,14 @@ static DEVICE_ATTR_RW(security_lock);
- static ssize_t fw_buf_checksum_show(struct device *dev,
- 				    struct device_attribute *attr, char *buf)
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index 36a9dab805be7..296ce9d468bfc 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -247,11 +247,11 @@ struct hmac_sha384_ctx {
+  */
+ void hmac_sha384_preparekey(struct hmac_sha384_key *key,
+ 			    const u8 *raw_key, size_t raw_key_len);
+ 
+ /**
+- * hmac_sha384_init() - Initialize a HMAC-SHA384 context for a new message
++ * hmac_sha384_init() - Initialize an HMAC-SHA384 context for a new message
+  * @ctx: (output) the HMAC context to initialize
+  * @key: the prepared HMAC key
+  *
+  * If you don't need incremental computation, consider hmac_sha384() instead.
+  *
+@@ -262,11 +262,11 @@ static inline void hmac_sha384_init(struct hmac_sha384_ctx *ctx,
  {
- 	struct cxl_mockmem_data *mdata = dev_get_drvdata(dev);
- 	u8 hash[SHA256_DIGEST_SIZE];
--	unsigned char *hstr, *hptr;
--	struct sha256_state sctx;
--	ssize_t written = 0;
--	int i;
--
--	sha256_init(&sctx);
--	sha256_update(&sctx, mdata->fw, mdata->fw_size);
--	sha256_final(&sctx, hash);
--
--	hstr = kzalloc((SHA256_DIGEST_SIZE * 2) + 1, GFP_KERNEL);
--	if (!hstr)
--		return -ENOMEM;
--
--	hptr = hstr;
--	for (i = 0; i < SHA256_DIGEST_SIZE; i++)
--		hptr += sprintf(hptr, "%02x", hash[i]);
- 
--	written = sysfs_emit(buf, "%s\n", hstr);
-+	sha256(mdata->fw, mdata->fw_size, hash);
- 
--	kfree(hstr);
--	return written;
-+	return sysfs_emit(buf, "%*phN\n", SHA256_DIGEST_SIZE, hash);
+ 	__hmac_sha512_init(&ctx->ctx, &key->key);
  }
  
- static DEVICE_ATTR_RO(fw_buf_checksum);
+ /**
+- * hmac_sha384_update() - Update a HMAC-SHA384 context with message data
++ * hmac_sha384_update() - Update an HMAC-SHA384 context with message data
+  * @ctx: the HMAC context to update; must have been initialized
+  * @data: the message data
+  * @data_len: the data length in bytes
+  *
+  * This can be called any number of times.
+@@ -278,11 +278,11 @@ static inline void hmac_sha384_update(struct hmac_sha384_ctx *ctx,
+ {
+ 	__sha512_update(&ctx->ctx.sha_ctx, data, data_len);
+ }
  
- static ssize_t sanitize_timeout_show(struct device *dev,
+ /**
+- * hmac_sha384_final() - Finish computing a HMAC-SHA384 value
++ * hmac_sha384_final() - Finish computing an HMAC-SHA384 value
+  * @ctx: the HMAC context to finalize; must have been initialized
+  * @out: (output) the resulting HMAC-SHA384 value
+  *
+  * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
+  *
+@@ -405,11 +405,11 @@ struct hmac_sha512_ctx {
+  */
+ void hmac_sha512_preparekey(struct hmac_sha512_key *key,
+ 			    const u8 *raw_key, size_t raw_key_len);
+ 
+ /**
+- * hmac_sha512_init() - Initialize a HMAC-SHA512 context for a new message
++ * hmac_sha512_init() - Initialize an HMAC-SHA512 context for a new message
+  * @ctx: (output) the HMAC context to initialize
+  * @key: the prepared HMAC key
+  *
+  * If you don't need incremental computation, consider hmac_sha512() instead.
+  *
+@@ -420,11 +420,11 @@ static inline void hmac_sha512_init(struct hmac_sha512_ctx *ctx,
+ {
+ 	__hmac_sha512_init(&ctx->ctx, &key->key);
+ }
+ 
+ /**
+- * hmac_sha512_update() - Update a HMAC-SHA512 context with message data
++ * hmac_sha512_update() - Update an HMAC-SHA512 context with message data
+  * @ctx: the HMAC context to update; must have been initialized
+  * @data: the message data
+  * @data_len: the data length in bytes
+  *
+  * This can be called any number of times.
+@@ -436,11 +436,11 @@ static inline void hmac_sha512_update(struct hmac_sha512_ctx *ctx,
+ {
+ 	__sha512_update(&ctx->ctx.sha_ctx, data, data_len);
+ }
+ 
+ /**
+- * hmac_sha512_final() - Finish computing a HMAC-SHA512 value
++ * hmac_sha512_final() - Finish computing an HMAC-SHA512 value
+  * @ctx: the HMAC context to finalize; must have been initialized
+  * @out: (output) the resulting HMAC-SHA512 value
+  *
+  * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
+  *
 -- 
 2.50.0
 
