@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E917DC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3824DC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTbzB/za1UQnn+kUpU46lafISnmXanpGM3OuDgiL6Vw=; b=Z/ISbUxMMvg0aL5ttVtyg4AhOE
-	ZJ4h0sVGmCeu01NldpYjdaRf+F7qehw3JkVSaNvXarUOMWdfa1ZTKSB8Yq7BoF0fssCkGt7oUGUwe
-	BRwvPWZ6YyAH+g44vgd8jJYJ3B4+3gVW12xFCcLaX9eR0mkZ8sMAHNIvT+1duYXG1u7bALM/j4QcK
-	C2TOJOiIRC+6ypHlmAAS3zMlrOiLbtPJhtbYVNh6fs0M+/0P0dMQshsNexmwE3ds1t57IA1oQ/bx+
-	WRniXL0+SVsVQ7gXSy8PboWVwvUw8ISKDpz+FWIuN3hAh21dPfF0nKuu3ZnRi33EopFKgIN1IAM1Q
-	Mc4xOA3w==;
+	bh=IJhtaUGyscplD3YdgVLEORd5yL9VDpFqXTWoDBgg5v0=; b=sSxi4gFqVbfg029lwOCylpuzlE
+	14H1WvKFmovN7Qd2BYsc1iVoP4hkzckOc68NohYpfh4I38Wf6hTOEfBkijtwpy1hx3R40rrp7gb9Y
+	9TnEEl0H8J8phDzbKgUML3UQ65/xOQjARfeV6cfCU4P41EC/6LiKfEpkfiOQYfQu8pkw8g0L2xpBK
+	XBHzEiXE2EVwZzbFwA4HrH1mWz0AI6mlJTun1bkoET9xxswY/OCtHuwJr/gfDZVQwxnzbYr37G8rO
+	JPxYmpMzcn0au05PGizoTTJA3yM+YFUstWRk7j0PhDwjy5LTj2AiP9vvikKn0E1wC0NYTZkmjzwLC
+	Klqif7kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUXNc-00000009wSW-2MVh;
-	Wed, 25 Jun 2025 21:10:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uUXPt-00000009wfP-1JGe;
+	Wed, 25 Jun 2025 21:12:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUV1I-00000009d30-37Or
+	id 1uUV2E-00000009dEx-2BKg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 18:38:53 +0000
+	Wed, 25 Jun 2025 18:39:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0497043F99;
-	Wed, 25 Jun 2025 18:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC205C4CEEE;
-	Wed, 25 Jun 2025 18:38:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 943A3A52B38;
+	Wed, 25 Jun 2025 18:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D290C4CEEA;
+	Wed, 25 Jun 2025 18:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750876731;
-	bh=V4icwH68waoexuc0mmtBEz2gMdcHNXDMILpxUOfQ1O0=;
+	s=k20201202; t=1750876789;
+	bh=Ne3gQDGNR+fc9eT5DJJdL5V8H/ySv24dUclSgAsgI3I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o6Et6eypzNZPnzqhVij1b0Z1l7+8UhfT5ltLp664B5495JFelSrdHNreqHhXgyvK4
-	 MX7zuLek+Ls02TdkUNwZhWIeQrxayIKaEDSsmb3OwxWW9jxRY3Fy2LYCJK8QRkg4mX
-	 V8Uei6BeKd/PmoKalV7A0TrUmubbeAdmC+shE1QcxVsYxG6IIsqG09jWebwup2eHFf
-	 pxFRXqFxW+KyHZWedGETo8hLk3N76tGfVRr2gQcLcOi7nZ78yTHYzXTN7QG2fpdYXD
-	 Gn4GIzll2wMegj7jxfUkHhVKT7Ev3jhdkDAjruD+hBITaz+XAHGGfVBODt3FxcBait
-	 yMl+s+nwRAfkQ==
-Date: Wed, 25 Jun 2025 13:38:51 -0500
+	b=G8RXNkr5OwQEpMXK4RtS9V68i1Qvq4HEAJav6fuIAKALQUxJMU6tKWh8NO6ushrn5
+	 zCRTdqWH7DdODZySzkau7PCNaDBXcOw9jmstHn4bOYi5csSpCSFM4zvV+iOBhFjTI7
+	 iMocPlkq/T3MltzRWEZw4xMK9+ux8p79GjOx0pjCXPFruteFC7LB3WkubdO19Wvcy7
+	 deizZzbng8niI2ibvLX4zNp4sY3BOftfvri48XQNigiT5B5Q6xmer8ILjjschjt08f
+	 hxvb5jJlH6iJGfUuCIqFXOG8f1LMqC/ntianHDZzsH+pIK3Ea7XfCx/NA7a5G4oyRL
+	 /P0ol9R0EwZJw==
+Date: Wed, 25 Jun 2025 13:39:48 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Pascal Paillet <p.paillet@foss.st.com>,
+	Mark Brown <broonie@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	bjorn.andersson@oss.qualcomm.com
-Subject: Re: [PATCH 1/3] dt-bindings: usb: add missed compatible string for
- arm64 layerscape
-Message-ID: <175087673034.1996309.6332672675034782029.robh@kernel.org>
-References: <20250602-ls_dma_coherence-v1-0-c67484d6ab64@nxp.com>
- <20250602-ls_dma_coherence-v1-1-c67484d6ab64@nxp.com>
+	Etienne Carriere <etienne.carriere@foss.st.com>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/7] dt-bindings: regulator: Add STM32MP15 SCMI
+ regulator identifiers
+Message-ID: <175087678758.1997493.17415728035364820579.robh@kernel.org>
+References: <20250603-stm32mp157f-dk2-v2-0-5be0854a9299@foss.st.com>
+ <20250603-stm32mp157f-dk2-v2-3-5be0854a9299@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250602-ls_dma_coherence-v1-1-c67484d6ab64@nxp.com>
+In-Reply-To: <20250603-stm32mp157f-dk2-v2-3-5be0854a9299@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_113852_809625_B5514319 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250625_113950_635884_901856C5 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +85,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 02 Jun 2025 18:01:01 -0400, Frank Li wrote:
-> Add missed compatible string for arm64 layerscape platform. Allow these
-> fallback to fsl,ls1028a-dwc3.
+On Tue, 03 Jun 2025 11:02:09 +0200, Amelie Delaunay wrote:
+> From: Etienne Carriere <etienne.carriere@foss.st.com>
 > 
-> Remove fallback snps,dwc3 because layerscape dwc3 is not full compatible
-> with common snps,dwc3 device, a special value gsburstcfg0 need be set when
-> dma coherence enabled.
+> These bindings will be used for the SCMI voltage domain.
 > 
-> Allow iommus property.
+> Signed-off-by: Etienne Carriere <etienne.carriere@foss.st.com>
+> Signed-off-by: Pascal Paillet <p.paillet@foss.st.com>
+> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 > 
-> Change ref to snps,dwc3-common.yaml to use dwc3 flatten library.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../devicetree/bindings/usb/fsl,ls1028a.yaml       | 33 ++++++++++++----------
->  1 file changed, 18 insertions(+), 15 deletions(-)
+> Changes in v2:
+> - Add external regulators and Pascal's SoB
+> ---
+>  .../dt-bindings/regulator/st,stm32mp15-regulator.h | 40 ++++++++++++++++++++++
+>  1 file changed, 40 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
