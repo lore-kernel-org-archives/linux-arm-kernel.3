@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72D1C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4DCC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ORz82HmG8MePjwyhjUnw+YyKg1bZgQsmMoLl2/yzhQE=; b=tCl3QqYqtxrOla7ao6nXul7DOe
-	5vJz6ZPfQ16aLxYGQ3WEcVNMNvNw8487I+eUcHFLVP57BLa+0Mo/IXYuY62hvveTEvaHPDb6p5rMS
-	REg7jffTwwAS/A/Qakjr4l2N6sX4PcOTVCjFHGUuRWVjAJ8Ve96EFKcfVfbVRTUR3g4MBGyNb88I+
-	2SB014pZHDPBEhIY1Y+euwSFkFZWzplygJVBZo2+TykvXxFX+XeE4SaOHIya86dd+ndMXWKMKdhEo
-	xynoRGo82sL5HgGTsPz4xZpxVOD3TaHnT/gGNMJsKjZDUMTST8bmQbAwkwYP4Afqd1gE+YY6nHNKA
-	08kni1Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iRi13urPf1s8iS1Y5TOXOPMfOOng2yoJIcbPobf34Z4=; b=j5zcy5yrSJj1a9KDHzOPxYqJKW
+	OVBSttYFAHeS/P+PULsUFnxhxHDAW1GKOWIx5+wMi96pG4o087DZW73cAcUHXjdpnkJ5ABRu+ZqtM
+	AX7ZG4Oihr18PrtJSd4DG/pHhIWC1bKlO9O7uzUCGs7b27AB4GumW3fXE2iNUJyEOXn3W192B7/Fk
+	CSg4313NPsoDWCQzdmSZQXVZhv2mwb+In6mOZdznSS34QYyK1RL14TGp0l4UnGcGTpGKGVDBbNvEX
+	Bb91e2sRPnUSC+DyWCH49HZgYJFZWapY8xopKo1wX3xSxe2z+mwVZtMHCz21ue74jJIdLSCSvqjSW
+	sfCOEIug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUTTF-00000009P6s-2FPY;
-	Wed, 25 Jun 2025 16:59:37 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uUTVX-00000009Pa9-0yxY;
+	Wed, 25 Jun 2025 17:01:59 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPCL-00000008cR2-2Q9f
+	id 1uUPHO-00000008dAM-34Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:25:55 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-453663b7bf1so76325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 05:25:52 -0700 (PDT)
+	Wed, 25 Jun 2025 12:31:07 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4532ff43376so52439635e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 05:31:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750854351; x=1751459151; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ORz82HmG8MePjwyhjUnw+YyKg1bZgQsmMoLl2/yzhQE=;
-        b=TFaWYT7yQ3LIKlREfVTRUbzwzE2XgmyKBDzjAnaQBWrA2mTcpeRQAjzYJhFt6lawbO
-         cWeVZNgI8TJbS1DRk0yeChqxQNpiM7MgMeBfRlkKBdo5FccBKnebDZP7fPWprG5bjE43
-         vXKWhcO5hgTejsanWxgsYFO9S0SN7zFM7tG/4Nh4BVDQ+zgnQvMCzE+P9aimDeqMaI/K
-         Jk2EZxDFA2Rbuql0u8cIZHYX0349UvSYp6EgsbtaNRLO7p+L1W51uipPXThCkSmXNXqe
-         rvybmj673EgvlYDsyyo81CuyMDEegsPiD0+uBOKk1zu/kCaYABv8V/QlSDwiO7m91DJa
-         Bmig==
+        d=google.com; s=20230601; t=1750854664; x=1751459464; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iRi13urPf1s8iS1Y5TOXOPMfOOng2yoJIcbPobf34Z4=;
+        b=mBoN/HRyMltsZg1Oz9DpVt5AS2wAacEvqkjWqCFeWVYC5NExevKZWk3gv6ZStRCvkH
+         g3hjgktbRsAzwzvFVoNUaMz+HnwkoLJS2onQMMtpIOwW/YfUm9ggA+Bk8gqQRCE+Z764
+         xDpNBjgMzD+KRBPqT0yz42faGHUMitQ0iIpbQnQGzDJye1Qvq2v0aQ3oEiMI+urP9dVi
+         zJ+b5PbkTsD8dZzZSoBqUqEJdXpY1PTLJoLKxT8rL+W8w9jELKUJrjg1CTqH8Z/CqY//
+         SjI7M9k66+T3g/gySANhNGvc36lVFawPNcEH7ikL/X8CPZP958+zSDCdvqoPnGIs99ST
+         euaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750854351; x=1751459151;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ORz82HmG8MePjwyhjUnw+YyKg1bZgQsmMoLl2/yzhQE=;
-        b=qE26dtCYDLVwEu/jgTlfNd5KDOmP5EBK5LdLj+fwJW99THgyRY9YvJRuL7j6KeEa1T
-         t2J+l88vHNmSR7WGfvl3uWCFJW0BDRJ09tXOJF3zv813nFhXMqUUrJ2fsHatW4vh7J0X
-         t0gIndlEdyvFX4mns5SiIm3gYmo+cFYoMD2t/l2eakW+URtW9uukq8/EjZ4OiOLM6jXV
-         OcPDaDdE1sExTYAhwiiM34/aSlXE6egcWIB96ut0QI+Y0EylZRtKTqDwd8xBPzEhcPDo
-         d6OB4AlVG1KqnR2jmCGrD6LvcVhJ1Z5UHPQDeU0y4ZdmV7IU2JFy2UCNyqFUL4WRouLY
-         pASg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXcw/3rGyAmjFxwq0ddJNj/2G+wsDEjnNYmq2IoDCl4BOiWvFn9oyIVunUoNX+1M+yDcLzuJnVY94ijdVfTsZM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPO/sEvlJ+RGUa73BZ9Cs7fn4Dses3PdjdLK8a48hZ/eK58a6Q
-	ZhFQFzDyCtxeNwiwf4zn6i341Q9ypDpA4pxXcr3GfeiMOugaJO44FJlHurOTPJSYhw==
-X-Gm-Gg: ASbGncuCRV5MWQFtOytI6Ui73eac0Z7T1Bs5jLdan5R+Ym0p4+po/AzKXZtA6LsRG0r
-	59fvWAI74mr7wFvG5/q2vY8A7qY7xznbmVypLHkHKRV4yzttC3paafaECvACQbVTaooLEzPpXp+
-	+jS0v66guV7ZtoxQao4YJERd0ya58TKxLcLlSjRiqwTKlZYzUDh58GMQJd1DKZ6MIZovloEAl1I
-	u2DoVtuL1yD9vXvy6rphZNvW1CAaK4RSbPzkXyX8No9M+cqYOYyx4+M2Key0uk+pkbywQt3V9E5
-	NCRAoXS1HsSN0wX2W9uoGBe4Y07imP+ZfChaZOCl2LKeomNOF4HNlvX8g79+wg0y/54GsHyc53I
-	3+Jigi83tifbK8CPAfsrnRpS0X5rXnShazew=
-X-Google-Smtp-Source: AGHT+IHPyu4K7DFqX3gLjlWDl8SuaCVRLnWxYtuvRdiGcRhqnltdTavombWZNicSNu6nwKbmjbZ0JQ==
-X-Received: by 2002:a05:600c:c04f:b0:453:65f4:f4c8 with SMTP id 5b1f17b1804b1-45383195f5emr555595e9.3.1750854350879;
-        Wed, 25 Jun 2025 05:25:50 -0700 (PDT)
-Received: from google.com (206.39.187.35.bc.googleusercontent.com. [35.187.39.206])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e8069467sm4409880f8f.42.2025.06.25.05.25.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 05:25:50 -0700 (PDT)
-Date: Wed, 25 Jun 2025 12:25:46 +0000
+        d=1e100.net; s=20230601; t=1750854664; x=1751459464;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iRi13urPf1s8iS1Y5TOXOPMfOOng2yoJIcbPobf34Z4=;
+        b=DRcqMbJYEaTGWM5bWuFwSonqFKFXOEN4TukryqhBNM5sZkSSB/+bhdvQckLV0XpKRg
+         CGl6DFoaSNRc8XfEC++FotDTHfCgRLzLyqDTmE2KMBVxmNX7f0pJhEwdg40ypk34iUyd
+         SbClkifC2ZHlgY5Y2AgFR6cR8H9bId05HeBl4OboR0cHs3LwtlbS9YmM21mALX1F5eCN
+         Yo12XX1JIr6nEMCy3PtYZ7iBKoVYvsWszwq0PLOtrgANtjJU4RFtSs31zqr3dswBwIi6
+         /MZTt3HzcKRb8ZSNi7xEKdeVflFjSVkMjI3T/iRJ2vsj7l851Qfs8dLiPzjdm9oWdNzQ
+         jhPg==
+X-Forwarded-Encrypted: i=1; AJvYcCVoqZ2M/HKESv7rumWi6XjlHoYhn/2XdJs65VCkWDNSr2wuKdxjcFK8MQLdt67z49FLKJa6ReO8vC69d2NJJnXX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAKz0GxfOUK7UnVHin3byTCmF19Bw5TzVTdVL+N4GVn69xgcNx
+	Agir+ZhoHVs+4ZnUPqjUtfbqzUadIONM/U0kwtMPB/XJJB1sST5wmsRQLmQqzptk8Ll4VFMOuva
+	Dfk3nafYenuB96w==
+X-Google-Smtp-Source: AGHT+IEwANlGVnDCXGN7hg9uNGMVTxicEuUKtoVCQA9kfAk4equFrtEicPN5MHaP2YqeylAONmjqdnnDHvce6g==
+X-Received: from wmqe9.prod.google.com ([2002:a05:600c:4e49:b0:44a:ebc5:9921])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:34d5:b0:43c:fdbe:4398 with SMTP id 5b1f17b1804b1-45381a9f52bmr26163945e9.6.1750854664293;
+ Wed, 25 Jun 2025 05:31:04 -0700 (PDT)
+Date: Wed, 25 Jun 2025 12:30:58 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
+Message-ID: <20250625123058.875179-1-smostafa@google.com>
+Subject: [PATCH v2] KVM: arm64: Fix error path in init_hyp_mode()
 From: Mostafa Saleh <smostafa@google.com>
-To: Quentin Perret <qperret@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix error path in init_hyp_mode()
-Message-ID: <aFvqyl-Xquuoyvh1@google.com>
-References: <20250625113301.580253-1-smostafa@google.com>
- <aFvqFdwNYI0-3zWY@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFvqFdwNYI0-3zWY@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, qperret@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_052553_615306_A740A118 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20250625_053106_772739_0E08D8C8 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 12:22:45PM +0000, Quentin Perret wrote:
-> On Wednesday 25 Jun 2025 at 11:33:01 (+0000), Mostafa Saleh wrote:
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 38a91bb5d4c7..5bb36c3b06b5 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -2344,15 +2344,22 @@ static void __init teardown_hyp_mode(void)
-> >  	int cpu;
-> >  
-> >  	free_hyp_pgds();
-> > +	/* Order matches the order of initialization init_hyp_mode() */
-> >  	for_each_possible_cpu(cpu) {
-> > +		if (!per_cpu(kvm_arm_hyp_stack_base, cpu))
-> > +			continue;
-> >  		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
-> > +
-> > +		if (!kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu])
-> > +			continue;
-> >  		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
-> >  
-> >  		if (free_sve) {
-> >  			struct cpu_sve_state *sve_state;
-> >  
-> >  			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
-> > -			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
-> > +			if (sve_state)
-> > +				free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
-> 
-> I'm a bit confused by these extra checks -- free_pages() should be safe
-> to call on NULL?
+In the unlikely case pKVM failed to allocate carveout, the error path
+tries to access NULL ptr when it de-reference the SVE state from the
+uninitialized nVHE per-cpu base.
 
-Yes, I surprised in my testing I didn't see an issue with freeing NULL, I
-though it might be config related, but I should have looked more.
+[    1.575420] pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[    1.576010] pc : teardown_hyp_mode+0xe4/0x180
+[    1.576920] lr : teardown_hyp_mode+0xd0/0x180
+[    1.577308] sp : ffff8000826fb9d0
+[    1.577600] x29: ffff8000826fb9d0 x28: 0000000000000000 x27: ffff80008209b000
+[    1.578383] x26: ffff800081dde000 x25: ffff8000820493c0 x24: ffff80008209eb00
+[    1.579180] x23: 0000000000000040 x22: 0000000000000001 x21: 0000000000000000
+[    1.579881] x20: 0000000000000002 x19: ffff800081d540b8 x18: 0000000000000000
+[    1.580544] x17: ffff800081205230 x16: 0000000000000152 x15: 00000000fffffff8
+[    1.581183] x14: 0000000000000008 x13: fff00000ff7f6880 x12: 000000000000003e
+[    1.581813] x11: 0000000000000002 x10: 00000000000000ff x9 : 0000000000000000
+[    1.582503] x8 : 0000000000000000 x7 : 7f7f7f7f7f7f7f7f x6 : 43485e525851ff30
+[    1.583140] x5 : fff00000ff6e9030 x4 : fff00000ff6e8f80 x3 : 0000000000000000
+[    1.583780] x2 : 0000000000000000 x1 : 0000000000000002 x0 : 0000000000000000
+[    1.584526] Call trace:
+[    1.584945]  teardown_hyp_mode+0xe4/0x180 (P)
+[    1.585578]  init_hyp_mode+0x920/0x994
+[    1.586005]  kvm_arm_init+0xb4/0x25c
+[    1.586387]  do_one_initcall+0xe0/0x258
+[    1.586819]  do_initcall_level+0xa0/0xd4
+[    1.587224]  do_initcalls+0x54/0x94
+[    1.587606]  do_basic_setup+0x1c/0x28
+[    1.587998]  kernel_init_freeable+0xc8/0x130
+[    1.588409]  kernel_init+0x20/0x1a4
+[    1.588768]  ret_from_fork+0x10/0x20
+[    1.589568] Code: f875db48 8b1c0109 f100011f 9a8903e8 (f9463100)
+[    1.590332] ---[ end trace 0000000000000000 ]---
 
-> 
-> IIUC correctly, the actual issue is that per_cpu_ptr_nvhe_sym() will
-> dereference the per-cpu pages to find the sve state, which is entirely
-> bogus if the per-cpu pages have not been allocated. Now, looking at
-> this, it looks like the bigger problem is that we literally free the
-> per-cpu pages right before the sve state...
-> 
-> Should we at least change the freeing order here?
+As Quentin pointed, the order of free is also wrong, we need to free
+SVE state first before freeing the per CPU ptrs.
 
-Make sense, I will fix that in v2.
+I initially observed this on 6.12, but I could also repro in master.
 
-Thanks,
-Mostafa
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-> 
-> Thanks,
-> Quentin
+---
+v2:
+- Address Quentin comments.
+---
+ arch/arm64/kvm/arm.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 38a91bb5d4c7..6bdf79bc5d95 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2346,7 +2346,9 @@ static void __init teardown_hyp_mode(void)
+ 	free_hyp_pgds();
+ 	for_each_possible_cpu(cpu) {
+ 		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
+-		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
++
++		if (!kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu])
++			continue;
+ 
+ 		if (free_sve) {
+ 			struct cpu_sve_state *sve_state;
+@@ -2354,6 +2356,9 @@ static void __init teardown_hyp_mode(void)
+ 			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
+ 			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
+ 		}
++
++		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
++
+ 	}
+ }
+ 
+-- 
+2.50.0.714.g196bf9f422-goog
+
 
