@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8962EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DE4C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X+5+9SRCmujO2T9CtdWgkk6IySKFq1qnByIJm2uIdhQ=; b=oysTP/YFZitUW1Jmk6iwI1P4hm
-	+Z/CosGsnut6B5WRVWVAIKW9IR9jrS7m/lTlTMQpjVHSmPA10pJ9XotR3dCxDsbj95znyjqwV4Lro
-	NW4jOPBaU2bVbiQaFAWYy4Nfgz+VamgBMsSDiUzG+bqcRb0wQnfWnQDrpffGjSSlb6jox193jnZ4/
-	keb0RnFdCNSTZeS5gDj/25xULRZIq9dwsd65BK6xfpWZGdykSX6EEW9lfZDVgQqqtLgD0UPk+0G6H
-	AgnHiISgfDawksOKV+2kvEG4uePFakFiHMxZIBCy84yhO+4RRi1Zrubs1YrxgxYBs4tYF+1z7uAuZ
-	AXbJO9bQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=meSVgdj+UAKUSguxGuiTGcrfA+VdhouFn9WCbbVm/Ns=; b=H2MH61vHMH/DIabYhosL8W+ts/
+	OguQ9xE0HuTAOSr4v2PYVbRkcdvXjqfweS+MNgLn6rFV+KD/67KrPlckmo7DuruUpNdTC1tWIxBkv
+	i6v3cLgoQkVbFAtGiuiv3/ptt1t15ulzJoUNoRZPkXqkrEAMr5dhSfAodhazlivfxcDqaYwbAJF15
+	G0QOAFJEf+gd2JdakQ+VwvEnNSci7E16n1UXcK9CK8nGobveb13cJ/3O2fUD7FQJKTO5HCbJXL+fZ
+	7aYCHvqNSpjENHaeRAxY2Gddnby8/DCBQ5gtdsCCBAU+pcMO8mX36ksujOJIuIJP5DNeB+76lCS4E
+	Fx4VlYeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVJ3-00000009fLF-0ZQM;
-	Wed, 25 Jun 2025 18:57:13 +0000
+	id 1uUVLJ-00000009foq-3lNz;
+	Wed, 25 Jun 2025 18:59:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPyB-00000008lMq-1P2N
+	id 1uUPzt-00000008lhW-3Rcf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 13:15:19 +0000
+	Wed, 25 Jun 2025 13:17:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C013F61142;
-	Wed, 25 Jun 2025 13:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6A7C4CEEA;
-	Wed, 25 Jun 2025 13:15:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E7226135E;
+	Wed, 25 Jun 2025 13:17:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4105C4CEEE;
+	Wed, 25 Jun 2025 13:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750857318;
-	bh=2piF3483Pz4JDdFUQw6HgD2GVTOG3rmk2pWQMFIJEqU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=nZirtRzj9JTpn1p5W94ReFTFR8aiBBfnf1QCvvu4lEv274VM0D2/phl5Ou5XseR+k
-	 6ayvzpOmRu5x7dPOlIfYOeCSFhDai8CKV7QfGqjZR2bgSNNwT0jFGt8scFtK3EY9Y7
-	 esGxANr+IuEqqxkT9FpNyUMpHb65MguGH6gjM/0qGYOf3SHUp4jLk6wvLZja4TIisT
-	 KAqt5XAKYEec/ZZU4q0C0odSWg5spOHD2+NaKvSw8Wr2ppJ9OF3wQqimXZ7Ffl6WGX
-	 HJSZ8h8nZIGnIlmK5IbNwKlCVet60O1ihKcqhE0Em3qzZJSDwE2619PPFx9Xl4eBVs
-	 DjnGZr7rErhyg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>,
-	Simona Vetter <simona@ffwll.ch>,
-	Helge Deller <deller@gmx.de>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Javier Martinez Canillas <javierm@redhat.com>,
+	s=k20201202; t=1750857424;
+	bh=2wjz3+JKr8b/GuKvZURR2QiYdmWce02dMigkYvBt0Gk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=F3AopbvJ164+Etui5cLAx3/wbfJEr+coRlX2u6OyEm1akxuq0i/AL7fUXVMBTjiLv
+	 LLjT9xl8src5NZV1o1yIMp4eh/9b3evLl2JUGSyNIWStmk/jPDDgT3Dz9XQTQJJgPt
+	 zN0zX6f4dp+DGSrZ6Dun2F8eNQAiu0fkFrAN4H0HR0BhP4BjUACuf3pgjS1fzcvORZ
+	 eM/2PRlGQaASki9zmJmbSRbsO4qU8zRsyX38v9xy7KruT8eZtgAdiMnkbTdZQTtHba
+	 ZvCo1AFMvM3IoKuTr1AdyHdp2Mpw0cF9hym7nj2PrZZZOmsP7J0hhvgTijm9Cy2OIe
+	 hm1ciZ94ZlrVQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 794825FF4F; Wed, 25 Jun 2025 21:17:02 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH 1/2] fbdev: remove fb_notify support
-Date: Wed, 25 Jun 2025 15:12:22 +0200
-Message-Id: <20250625131511.3366522-1-arnd@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v2 4/5] arm64: dts: allwinner: a523: Add UART1 pins
+Date: Wed, 25 Jun 2025 21:16:51 +0800
+Message-Id: <20250625131652.1667345-5-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250625131652.1667345-1-wens@kernel.org>
+References: <20250625131652.1667345-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -75,185 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+From: Chen-Yu Tsai <wens@csie.org>
 
-Commit dc2139c0aa32 ("leds: backlight trigger: Replace fb events with a
-dedicated function call") removed the FB_EVENT_BLANK notifier, and now
-the only remaining user of the FB notifier is the metronomefb driver on
-the PXA/AM200EPD board.
+UART1 is normally used to connect to the Bluetooth side of a Broadcom
+WiFi+BT combo chip. The connection uses 4 pins.
 
-This was introduced in commit 922613436ae5 ("[ARM] 5200/1: am200epd: use
-fb notifiers and gpio api"), which converted it from an earlier version,
-but as far as I can tell this can never have worked because the notifier
-is called after the data it passes down is accessed.
+Add pinmux nodes for UART1, one for the RX/TX pins, and one for the
+RTS/CTS pins.
 
-Commit 867187821e5e ("fbdev/metronomefb: Use struct fb_info.screen_buffer")
-broke this further, and there are likely other parts of the driver that
-no longer work.
-
-The am200epd board support itself should have also been removed long ago,
-as there are no users and it was never converted to devicetree format.
-
-Mark the board as broken to prevent build failures and remove the now
-unused notifiers.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm/mach-pxa/Kconfig            |  1 +
- drivers/video/fbdev/core/Makefile    |  1 -
- drivers/video/fbdev/core/fb_notify.c | 54 ----------------------------
- drivers/video/fbdev/core/fbmem.c     | 15 --------
- include/linux/fb.h                   | 21 -----------
- 5 files changed, 1 insertion(+), 91 deletions(-)
- delete mode 100644 drivers/video/fbdev/core/fb_notify.c
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
-index 10e472f4fa43..edefc953e4f9 100644
---- a/arch/arm/mach-pxa/Kconfig
-+++ b/arch/arm/mach-pxa/Kconfig
-@@ -69,6 +69,7 @@ choice
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 30613a0b1124..6f62201fd739 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -168,6 +168,20 @@ uart0_pb_pins: uart0-pb-pins {
+ 				allwinner,pinmux = <2>;
+ 				function = "uart0";
+ 			};
++
++			/omit-if-no-ref/
++			uart1_pins: uart1-pins {
++				pins = "PG6", "PG7";
++				function = "uart1";
++				allwinner,pinmux = <2>;
++			};
++
++			/omit-if-no-ref/
++			uart1_rts_cts_pins: uart1-rts-cts-pins {
++				pins = "PG8", "PG9";
++				function = "uart1";
++				allwinner,pinmux = <2>;
++			};
+ 		};
  
- config GUMSTIX_AM200EPD
- 	bool "Enable AM200EPD board support"
-+	depends on BROKEN
- 
- config GUMSTIX_AM300EPD
- 	bool "Enable AM300EPD board support"
-diff --git a/drivers/video/fbdev/core/Makefile b/drivers/video/fbdev/core/Makefile
-index d15974759086..ac8036209501 100644
---- a/drivers/video/fbdev/core/Makefile
-+++ b/drivers/video/fbdev/core/Makefile
-@@ -1,5 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_FB_NOTIFY)           += fb_notify.o
- obj-$(CONFIG_FB_CORE)             += fb.o
- fb-y                              := fb_info.o \
-                                      fbmem.o fbcmap.o \
-diff --git a/drivers/video/fbdev/core/fb_notify.c b/drivers/video/fbdev/core/fb_notify.c
-deleted file mode 100644
-index 10e3b9a74adc..000000000000
---- a/drivers/video/fbdev/core/fb_notify.c
-+++ /dev/null
-@@ -1,54 +0,0 @@
--/*
-- *  linux/drivers/video/fb_notify.c
-- *
-- *  Copyright (C) 2006 Antonino Daplas <adaplas@pol.net>
-- *
-- *	2001 - Documented with DocBook
-- *	- Brad Douglas <brad@neruo.com>
-- *
-- * This file is subject to the terms and conditions of the GNU General Public
-- * License.  See the file COPYING in the main directory of this archive
-- * for more details.
-- */
--#include <linux/fb.h>
--#include <linux/notifier.h>
--#include <linux/export.h>
--
--static BLOCKING_NOTIFIER_HEAD(fb_notifier_list);
--
--/**
-- *	fb_register_client - register a client notifier
-- *	@nb: notifier block to callback on events
-- *
-- *	Return: 0 on success, negative error code on failure.
-- */
--int fb_register_client(struct notifier_block *nb)
--{
--	return blocking_notifier_chain_register(&fb_notifier_list, nb);
--}
--EXPORT_SYMBOL(fb_register_client);
--
--/**
-- *	fb_unregister_client - unregister a client notifier
-- *	@nb: notifier block to callback on events
-- *
-- *	Return: 0 on success, negative error code on failure.
-- */
--int fb_unregister_client(struct notifier_block *nb)
--{
--	return blocking_notifier_chain_unregister(&fb_notifier_list, nb);
--}
--EXPORT_SYMBOL(fb_unregister_client);
--
--/**
-- * fb_notifier_call_chain - notify clients of fb_events
-- * @val: value passed to callback
-- * @v: pointer passed to callback
-- *
-- * Return: The return value of the last notifier function
-- */
--int fb_notifier_call_chain(unsigned long val, void *v)
--{
--	return blocking_notifier_call_chain(&fb_notifier_list, val, v);
--}
--EXPORT_SYMBOL_GPL(fb_notifier_call_chain);
-diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
-index dfcf5e4d1d4c..82ec7351e7da 100644
---- a/drivers/video/fbdev/core/fbmem.c
-+++ b/drivers/video/fbdev/core/fbmem.c
-@@ -498,14 +498,6 @@ static int do_register_framebuffer(struct fb_info *fb_info)
- 	num_registered_fb++;
- 	registered_fb[i] = fb_info;
- 
--#ifdef CONFIG_GUMSTIX_AM200EPD
--	{
--		struct fb_event event;
--		event.info = fb_info;
--		fb_notifier_call_chain(FB_EVENT_FB_REGISTERED, &event);
--	}
--#endif
--
- 	return fbcon_fb_registered(fb_info);
- }
- 
-@@ -544,13 +536,6 @@ static void do_unregister_framebuffer(struct fb_info *fb_info)
- 	fb_destroy_modelist(&fb_info->modelist);
- 	registered_fb[fb_info->node] = NULL;
- 	num_registered_fb--;
--#ifdef CONFIG_GUMSTIX_AM200EPD
--	{
--		struct fb_event event;
--		event.info = fb_info;
--		fb_notifier_call_chain(FB_EVENT_FB_UNREGISTERED, &event);
--	}
--#endif
- 	fbcon_fb_unregistered(fb_info);
- 
- 	/* this may free fb info */
-diff --git a/include/linux/fb.h b/include/linux/fb.h
-index 05cc251035da..520ad870b8b2 100644
---- a/include/linux/fb.h
-+++ b/include/linux/fb.h
-@@ -151,27 +151,6 @@ struct fb_blit_caps {
- 	u32 flags;
- };
- 
--#ifdef CONFIG_FB_NOTIFY
--extern int fb_register_client(struct notifier_block *nb);
--extern int fb_unregister_client(struct notifier_block *nb);
--extern int fb_notifier_call_chain(unsigned long val, void *v);
--#else
--static inline int fb_register_client(struct notifier_block *nb)
--{
--	return 0;
--};
--
--static inline int fb_unregister_client(struct notifier_block *nb)
--{
--	return 0;
--};
--
--static inline int fb_notifier_call_chain(unsigned long val, void *v)
--{
--	return 0;
--};
--#endif
--
- /*
-  * Pixmap structure definition
-  *
+ 		ccu: clock-controller@2001000 {
 -- 
 2.39.5
 
