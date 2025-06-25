@@ -4,146 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D7CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDF0C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtf2LIek4hpLZ54vWooJjQr0lr5Bw40aXqP1yVThXvQ=; b=UoGnZCpoBHln/86S+EhI9pKf+G
-	JctBcEoimQAbS1CDy+AzuNThlqgUEi7D0PqHlYOk/I+54F8K6XmH83aiXNOr/G8DfUgBPOd+URO5u
-	GuxSdxe8OifqppuFWoUxbevf+iCFcGc6f8vTEKpa/5u1vKGrQbFuKcasKeHdRHiyXYsnkAvkT8gYY
-	ppuEsyWgig6QELJAxKzea79K1VvXI+H7uqcQ+hApwEeIEr7/UCNH7gqZkBkG6hMJhpdLjRYUBZ+aG
-	Sn586GYlUEQ/kdofHqvq8KEwtdBBJ7ltT/yrLC0szNyAIqhei4DnZtnTfV2JdUVDH8QLBnBPlB0s9
-	7RD39W0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tkzlE3LL5VtAhZ2K4bSjc64Jo7aLgn8tKfCKiZYHOwQ=; b=jgv03wXezCfyBXnJuI2uPTgm3F
+	8YbbAFMpBG0fVj4JDggk/JoZx9WmGUlDnIyHbEwtAEH/t/IabPZZRWNkfOiOTgjL8/w1+uTF2oWVP
+	ajavDf401tuzDxfVfvqsfXpx/JgIiCgAhkZ2ETzjfWdcAZEYP389ZgjtN6lGawApbxIVgCFVOokrB
+	/pX5SWPlWbwbRGQQ9/6I2JNN2DIIgWfnPswLH6HWh8w+3QtNPAV2tjl6XcmKVrW4iGsikXHg5l6nR
+	UXXjNtO40WmR5v8wbWU6MFr0+T6RjgHRTdr1em79hFvN/guEDL3Kx4VA+MoCWhLX4Vgy1Ss7J+NP7
+	0itp45Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUyb-00000009cie-3O49;
-	Wed, 25 Jun 2025 18:36:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uUV0s-00000009cvU-2U3g;
+	Wed, 25 Jun 2025 18:38:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOkH-00000008Yf4-3s35
+	id 1uUOo3-00000008ZKl-3lXU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:56:55 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55PAb82F021793
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 11:56:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qtf2LIek4hpLZ54vWooJjQr0lr5Bw40aXqP1yVThXvQ=; b=gcAy36CWTbjZXPo4
-	LTSwKhbDedrFZlz2r+vLYTqGQbV/ntVaxiyCSbTWhGgbB4wiL4cFf4RcpxTeukyW
-	Z0lUSg7KCMvc5YZyB20FRHLHELnUuDX76MW+Ff5cAnAtskiBNIMufa1fhKxduvjW
-	gHpIWW9JY4YOBptfCCSpG9K90osox1ZM/Rb66n+jwJ+O8q2kAZwvwE0hdKiM8oL/
-	VGI6Ao8ka2NnGxon+VNonHGnDYpVqFSwKr68tZ6/5EK1kwAgXj8RxJdBKOJdo+gt
-	OfsE4gxhBaJrm38QaywRixi3s9AUIk36u4Y/mgV3Q8tLahgjHdQcgtNZuTHthVAz
-	pnNLrQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47f2rpyyqm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 11:56:52 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7d09b74dc4bso158829785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 04:56:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750852612; x=1751457412;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qtf2LIek4hpLZ54vWooJjQr0lr5Bw40aXqP1yVThXvQ=;
-        b=vyQazx6KHdlqsmrwhNJXkrpaRmlHhwXh2fHOgORESuM9r2nPKisM/dtMmyZVv0G83W
-         IzEFD07590z5I+pTmIZ4SJOPL0hUUtdO2aRN/4M0ZI55yKvFf4nVsn7sa6uvUvuuqTQB
-         zLx+tZX1o1LHLl5wqzZY4mfkURSvdCPWFZyDEdyQgwioHeMrQ09k+t8OS44kVZA4RF1n
-         N8KhJxMcshoDeSFDK7j7aq/nRc7J+nZ8Tl2gLiQ658baReQ14r9tIA6dAvO0NLmoxZPG
-         6QqWM0zuyu/RAIzMTKrbl/ES4QzV5q7cxNzf15sYVhwns/EWC3Nf95XUnswYcgPtoO13
-         XPlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/CDUvkFkxNAD72A5sW+aP4CR4caqpPPxVEEYf/U0e7tq56DEhfva5yfAzmd8l0y8w2LUPbFIhIgph4G8w/3oO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZgnLkW4WTAEZxBsDBs424cfKsNysgX/GbgZOQKzNZDVl/SDAB
-	TwQEExMVqQcEL0I7Qm3WjbkHtbjqeJkzFR+pHkzwC6M2KeEw0VJLASG8q49GYrg+wIMORDR3CCk
-	Zdyl+ePI3x3/Kau2YhVAUQqzwTs0iu9IGjDM5RiaFyA/SFIhPq5R+9wcjDaFr6oFMRqJcfMOm64
-	wvOw==
-X-Gm-Gg: ASbGnctT+8xmcN19qeD4v6LHislERYKezvA4kIWfrr+g2VLw8qR5PFcwlVHRw4GEnHk
-	m7OiKTvMdzgJM/91/vH41a6eZTI0ujjt/P1LOT2sRzWG4NI5D/KzNnRwlL5dJjOBT8OuQsWnGmg
-	d+8X4Kc6CqzKTCZSWzySkKIF95hwkykwlqAEn5IGSHWwse1sHtnJ2sfC4h8VcmeKtfBi2T8MNET
-	AXtCW+B21enOjAg7eaWzFvVttVLeGJVikzTga9TrS4raeAl6b+Icn+lexk+hE4u2dW3qCZOpshs
-	Tb/p6aScLpOq6AayGtt5pcDpBKfTX8yFZPDSqNXm5hH4T3PvAyK6dsqvDdY+vAwG9oHPhStkmp0
-	s12U=
-X-Received: by 2002:a05:620a:2949:b0:7cd:4bd2:6d5a with SMTP id af79cd13be357-7d4296db1e0mr156158185a.5.1750852611668;
-        Wed, 25 Jun 2025 04:56:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFbNAdmHcL/ohxdpxrFhw+P+cQf12Kd+1+opwn8szOOQKrMRERAl3ZBXjt2J5pp3lvClg9lMA==
-X-Received: by 2002:a05:620a:2949:b0:7cd:4bd2:6d5a with SMTP id af79cd13be357-7d4296db1e0mr156154785a.5.1750852611039;
-        Wed, 25 Jun 2025 04:56:51 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c2f4842e9sm2431839a12.61.2025.06.25.04.56.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Jun 2025 04:56:50 -0700 (PDT)
-Message-ID: <b98d305b-247f-415b-8675-50d073452feb@oss.qualcomm.com>
-Date: Wed, 25 Jun 2025 13:56:46 +0200
+	Wed, 25 Jun 2025 12:00:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1363149BCF;
+	Wed, 25 Jun 2025 12:00:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0BFC4CEEA;
+	Wed, 25 Jun 2025 12:00:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750852846;
+	bh=7cF0aqI5PDJFuNWM4kmz3p/XUvk+A7U3EDN3Y5STsVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ffIejZJvgDJCbY6NXCizv6KCYNqTbc5XfpHc4XFmq6oncQ8xrOF+FWLhOg3vbH95E
+	 ohksqaGPq2celn26sKIzAe3f8YSUuESEsDAF75BqQCiPxczkSBoSQmEAnj+EtkLkgi
+	 st4laob1MWmC3vbYiYdhzf5KjI/0i/nVRX9ewqAhTVjmnd4oXkzHQtB+SBaYizNWEI
+	 0Q9uVvK8bHbsDlBQEAgsjoPetP/C78nXX8qsZaddANBVKc0G9WK/9yMJfeHVAY7Lcq
+	 xcT+TgIK9yDcTHKTyUX9ejefk6Wk/bWYjoElTqGJjkyHnEXn8Yt42Zwz0Qqq67g0oH
+	 GTBamnvEE4bTg==
+Date: Wed, 25 Jun 2025 15:00:43 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>, linux-integrity@vger.kernel.org,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Nicholas Piggin <npiggin@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>
+Subject: Re: [PATCH v6 1/4] tpm: add bufsiz parameter in the .send callback
+Message-ID: <aFvk67ZGNFezJ8Vr@kernel.org>
+References: <20250620130810.99069-1-sgarzare@redhat.com>
+ <20250620130810.99069-2-sgarzare@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/14] Various dt-bindings for SM7635 and The Fairphone
- (Gen. 6) addition
-To: Luca Weiss <luca.weiss@fairphone.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Robert Marko <robimarko@gmail.com>,
-        Das Srinagesh <quic_gurus@quicinc.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>,
-        Jassi Brar <jassisinghbrar@gmail.com>,
-        Amit Kucheria <amitk@kernel.org>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-mmc@vger.kernel.org
-References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=NdDm13D4 c=1 sm=1 tr=0 ts=685be404 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=6H0WHjuAAAAA:8 a=PtzdWR5wS_Xl21Jse7IA:9
- a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10 a=zZCYzV9kfG8A:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=Soq9LBFxuPC4vsCAQt-j:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA4OCBTYWx0ZWRfX/5Fu0K7ZXZJP
- zpb79QXxpqpJo/48BOujKbMlHRRoTUEbR/HOq6eqDL6Nx9xp1wHSQuCZshaTlabbH+Ce0XfseRh
- 7nrothsWSlIo7o1cwJKZQY7M66R1tiCQYmdZGNND6je2iPqEU4QJDbUm8Qd/AkWN/f3X1PqRE++
- Vtn/LzCYtAYc50xLOvHOQPuYzmQCZC+Kk63I0TecCCZvooht4nKgsAWBCPOFaIJ04lwnPCYVka5
- D4o3C5gCov3zYiF2BKtPNwD///eCzM297tUq7/XZ01w2xB/4D+CYPbggMmAPpTN40cWZ1xmsli3
- qZK2cttyOuawGKVJZ5cKnrAcx/ejNcF3MhI1z3uUBFQaQerrbhAkghFjsvsKrS1c/0YAUN/T2NA
- x7OKx2F3LAkUiFWV1U3kx+IOKrJQLMXUlBOuf0MIiKA/NkBRO14j6xbBtwomCSW3JwVE/kbl
-X-Proofpoint-ORIG-GUID: KKS3oAOcfoJ1AiApBhd-mYyfN5G4Q2G7
-X-Proofpoint-GUID: KKS3oAOcfoJ1AiApBhd-mYyfN5G4Q2G7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_03,2025-06-25_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
- phishscore=0 priorityscore=1501 suspectscore=0 mlxlogscore=999 adultscore=0
- clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250088
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620130810.99069-2-sgarzare@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_045654_084313_312CA131 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20250625_050047_983220_81909381 
+X-CRM114-Status: GOOD (  35.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,25 +84,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 11:22 AM, Luca Weiss wrote:
-> Document various bits of the SM7635 SoC in the dt-bindings, which don't
-> really need any other changes.
+On Fri, Jun 20, 2025 at 03:08:07PM +0200, Stefano Garzarella wrote:
+> From: Stefano Garzarella <sgarzare@redhat.com>
 > 
-> Then we can add the dtsi for the SM7635 SoC and finally add a dts for
-> the newly announced The Fairphone (Gen. 6) smartphone.
+> Add a new `bufsiz` parameter to the `.send` callback in `tpm_class_ops`.
+> This parameter will allow drivers to differentiate between the actual
+> command length to send and the total buffer size. Currently `bufsiz` is
+> not used, but it will be used to implement devices with synchronous send()
+> to send the command and receive the response on the same buffer.
 > 
-> Dependencies:
-> * The dt-bindings should not have any dependencies on any other patches.
-> * The qcom dts bits depend on most other SM7635 patchsets I have sent in
->   conjuction with this one. The exact ones are specified in the b4 deps.
+> Also rename the previous parameter `len` to `cmd_len` in the declaration
+> to make it clear that it contains the length in bytes of the command
+> stored in the buffer. The semantics don't change and it can be used as
+> before by drivers. This is an optimization since the drivers could get it
+> from the header, but let's avoid duplicating code.
 > 
-> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+> While we are here, resolve a checkpatch warning:
+>   WARNING: Unnecessary space before function pointer arguments
+>   #66: FILE: include/linux/tpm.h:90:
+>   +	int (*send) (struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> 
+> Suggested-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
 > ---
+> v5:
+> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> v4:
+> - rework the commit description [Jarkko]
+> ---
+>  include/linux/tpm.h                  | 3 ++-
+>  drivers/char/tpm/st33zp24/st33zp24.c | 2 +-
+>  drivers/char/tpm/tpm-interface.c     | 2 +-
+>  drivers/char/tpm/tpm_atmel.c         | 3 ++-
+>  drivers/char/tpm/tpm_crb.c           | 2 +-
+>  drivers/char/tpm/tpm_ftpm_tee.c      | 4 +++-
+>  drivers/char/tpm/tpm_i2c_atmel.c     | 3 ++-
+>  drivers/char/tpm/tpm_i2c_infineon.c  | 3 ++-
+>  drivers/char/tpm/tpm_i2c_nuvoton.c   | 3 ++-
+>  drivers/char/tpm/tpm_ibmvtpm.c       | 6 ++++--
+>  drivers/char/tpm/tpm_infineon.c      | 3 ++-
+>  drivers/char/tpm/tpm_nsc.c           | 3 ++-
+>  drivers/char/tpm/tpm_svsm.c          | 3 ++-
+>  drivers/char/tpm/tpm_tis_core.c      | 3 ++-
+>  drivers/char/tpm/tpm_tis_i2c_cr50.c  | 6 ++++--
+>  drivers/char/tpm/tpm_vtpm_proxy.c    | 4 +++-
+>  drivers/char/tpm/xen-tpmfront.c      | 3 ++-
+>  17 files changed, 37 insertions(+), 19 deletions(-)
+> 
+> diff --git a/include/linux/tpm.h b/include/linux/tpm.h
+> index a3d8305e88a5..cafe8c283e88 100644
+> --- a/include/linux/tpm.h
+> +++ b/include/linux/tpm.h
+> @@ -87,7 +87,8 @@ struct tpm_class_ops {
+>  	const u8 req_complete_val;
+>  	bool (*req_canceled)(struct tpm_chip *chip, u8 status);
+>  	int (*recv) (struct tpm_chip *chip, u8 *buf, size_t len);
+> -	int (*send) (struct tpm_chip *chip, u8 *buf, size_t len);
+> +	int (*send)(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +		    size_t cmd_len);
+>  	void (*cancel) (struct tpm_chip *chip);
+>  	u8 (*status) (struct tpm_chip *chip);
+>  	void (*update_timeouts)(struct tpm_chip *chip,
+> diff --git a/drivers/char/tpm/st33zp24/st33zp24.c b/drivers/char/tpm/st33zp24/st33zp24.c
+> index c0771980bc2f..2ed7815e4899 100644
+> --- a/drivers/char/tpm/st33zp24/st33zp24.c
+> +++ b/drivers/char/tpm/st33zp24/st33zp24.c
+> @@ -300,7 +300,7 @@ static irqreturn_t tpm_ioserirq_handler(int irq, void *dev_id)
+>   * send TPM commands through the I2C bus.
+>   */
+>  static int st33zp24_send(struct tpm_chip *chip, unsigned char *buf,
+> -			 size_t len)
+> +			 size_t bufsiz, size_t len)
+>  {
+>  	struct st33zp24_dev *tpm_dev = dev_get_drvdata(&chip->dev);
+>  	u32 status, i, size, ordinal;
+> diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
+> index 8d7e4da6ed53..816b7c690bc9 100644
+> --- a/drivers/char/tpm/tpm-interface.c
+> +++ b/drivers/char/tpm/tpm-interface.c
+> @@ -106,7 +106,7 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
+>  		return -E2BIG;
+>  	}
+>  
+> -	rc = chip->ops->send(chip, buf, count);
+> +	rc = chip->ops->send(chip, buf, bufsiz, count);
+>  	if (rc < 0) {
+>  		if (rc != -EPIPE)
+>  			dev_err(&chip->dev,
+> diff --git a/drivers/char/tpm/tpm_atmel.c b/drivers/char/tpm/tpm_atmel.c
+> index 54a0360a3c95..f25faf468bba 100644
+> --- a/drivers/char/tpm/tpm_atmel.c
+> +++ b/drivers/char/tpm/tpm_atmel.c
+> @@ -148,7 +148,8 @@ static int tpm_atml_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>  	return size;
+>  }
+>  
+> -static int tpm_atml_send(struct tpm_chip *chip, u8 *buf, size_t count)
+> +static int tpm_atml_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			 size_t count)
+>  {
+>  	struct tpm_atmel_priv *priv = dev_get_drvdata(&chip->dev);
+>  	int i;
+> diff --git a/drivers/char/tpm/tpm_crb.c b/drivers/char/tpm/tpm_crb.c
+> index 876edf2705ab..ed97344f2324 100644
+> --- a/drivers/char/tpm/tpm_crb.c
+> +++ b/drivers/char/tpm/tpm_crb.c
+> @@ -426,7 +426,7 @@ static int tpm_crb_smc_start(struct device *dev, unsigned long func_id)
+>  }
+>  #endif
+>  
+> -static int crb_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int crb_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz, size_t len)
+>  {
+>  	struct crb_priv *priv = dev_get_drvdata(&chip->dev);
+>  	int rc = 0;
+> diff --git a/drivers/char/tpm/tpm_ftpm_tee.c b/drivers/char/tpm/tpm_ftpm_tee.c
+> index 53ba28ccd5d3..dbad83bf798e 100644
+> --- a/drivers/char/tpm/tpm_ftpm_tee.c
+> +++ b/drivers/char/tpm/tpm_ftpm_tee.c
+> @@ -63,13 +63,15 @@ static int ftpm_tee_tpm_op_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>   * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory.
+>   * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h
+>   * @buf:	the buffer to send.
+> + * @bufsiz:	the size of the buffer.
+>   * @len:	the number of bytes to send.
+>   *
+>   * Return:
+>   *	In case of success, returns 0.
+>   *	On failure, -errno
+>   */
+> -static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +				size_t len)
+>  {
+>  	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+>  	size_t resp_len;
+> diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
+> index d1d27fdfe523..4f229656a8e2 100644
+> --- a/drivers/char/tpm/tpm_i2c_atmel.c
+> +++ b/drivers/char/tpm/tpm_i2c_atmel.c
+> @@ -37,7 +37,8 @@ struct priv_data {
+>  	u8 buffer[sizeof(struct tpm_header) + 25];
+>  };
+>  
+> -static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			  size_t len)
+>  {
+>  	struct priv_data *priv = dev_get_drvdata(&chip->dev);
+>  	struct i2c_client *client = to_i2c_client(chip->dev.parent);
+> diff --git a/drivers/char/tpm/tpm_i2c_infineon.c b/drivers/char/tpm/tpm_i2c_infineon.c
+> index 81d8a78dc655..bdf1f329a679 100644
+> --- a/drivers/char/tpm/tpm_i2c_infineon.c
+> +++ b/drivers/char/tpm/tpm_i2c_infineon.c
+> @@ -514,7 +514,8 @@ static int tpm_tis_i2c_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>  	return size;
+>  }
+>  
+> -static int tpm_tis_i2c_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int tpm_tis_i2c_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			    size_t len)
+>  {
+>  	int rc, status;
+>  	ssize_t burstcnt;
+> diff --git a/drivers/char/tpm/tpm_i2c_nuvoton.c b/drivers/char/tpm/tpm_i2c_nuvoton.c
+> index 3c3ee5f551db..d44903b29929 100644
+> --- a/drivers/char/tpm/tpm_i2c_nuvoton.c
+> +++ b/drivers/char/tpm/tpm_i2c_nuvoton.c
+> @@ -350,7 +350,8 @@ static int i2c_nuvoton_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>   * tpm.c can skip polling for the data to be available as the interrupt is
+>   * waited for here
+>   */
+> -static int i2c_nuvoton_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int i2c_nuvoton_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			    size_t len)
+>  {
+>  	struct priv_data *priv = dev_get_drvdata(&chip->dev);
+>  	struct device *dev = chip->dev.parent;
+> diff --git a/drivers/char/tpm/tpm_ibmvtpm.c b/drivers/char/tpm/tpm_ibmvtpm.c
+> index 76d048f63d55..4734a69406ce 100644
+> --- a/drivers/char/tpm/tpm_ibmvtpm.c
+> +++ b/drivers/char/tpm/tpm_ibmvtpm.c
+> @@ -191,13 +191,15 @@ static int tpm_ibmvtpm_resume(struct device *dev)
+>   * tpm_ibmvtpm_send() - Send a TPM command
+>   * @chip:	tpm chip struct
+>   * @buf:	buffer contains data to send
+> - * @count:	size of buffer
+> + * @bufsiz:	size of the buffer
+> + * @count:	length of the command
+>   *
+>   * Return:
+>   *   0 on success,
+>   *   -errno on error
+>   */
+> -static int tpm_ibmvtpm_send(struct tpm_chip *chip, u8 *buf, size_t count)
+> +static int tpm_ibmvtpm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			    size_t count)
+>  {
+>  	struct ibmvtpm_dev *ibmvtpm = dev_get_drvdata(&chip->dev);
+>  	bool retry = true;
+> diff --git a/drivers/char/tpm/tpm_infineon.c b/drivers/char/tpm/tpm_infineon.c
+> index 2d2ae37153ba..7638b65b851b 100644
+> --- a/drivers/char/tpm/tpm_infineon.c
+> +++ b/drivers/char/tpm/tpm_infineon.c
+> @@ -312,7 +312,8 @@ static int tpm_inf_recv(struct tpm_chip *chip, u8 * buf, size_t count)
+>  	return -EIO;
+>  }
+>  
+> -static int tpm_inf_send(struct tpm_chip *chip, u8 * buf, size_t count)
+> +static int tpm_inf_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			size_t count)
+>  {
+>  	int i;
+>  	int ret;
+> diff --git a/drivers/char/tpm/tpm_nsc.c b/drivers/char/tpm/tpm_nsc.c
+> index 0f62bbc940da..879ac88f5783 100644
+> --- a/drivers/char/tpm/tpm_nsc.c
+> +++ b/drivers/char/tpm/tpm_nsc.c
+> @@ -178,7 +178,8 @@ static int tpm_nsc_recv(struct tpm_chip *chip, u8 * buf, size_t count)
+>  	return size;
+>  }
+>  
+> -static int tpm_nsc_send(struct tpm_chip *chip, u8 * buf, size_t count)
+> +static int tpm_nsc_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			size_t count)
+>  {
+>  	struct tpm_nsc_priv *priv = dev_get_drvdata(&chip->dev);
+>  	u8 data;
+> diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
+> index 4280edf427d6..0847cbf450b4 100644
+> --- a/drivers/char/tpm/tpm_svsm.c
+> +++ b/drivers/char/tpm/tpm_svsm.c
+> @@ -25,7 +25,8 @@ struct tpm_svsm_priv {
+>  	void *buffer;
+>  };
+>  
+> -static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			 size_t len)
+>  {
+>  	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+>  	int ret;
+> diff --git a/drivers/char/tpm/tpm_tis_core.c b/drivers/char/tpm/tpm_tis_core.c
+> index ed0d3d8449b3..4b12c4b9da8b 100644
+> --- a/drivers/char/tpm/tpm_tis_core.c
+> +++ b/drivers/char/tpm/tpm_tis_core.c
+> @@ -580,7 +580,8 @@ static int tpm_tis_send_main(struct tpm_chip *chip, const u8 *buf, size_t len)
+>  	return rc;
+>  }
+>  
+> -static int tpm_tis_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int tpm_tis_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +			size_t len)
+>  {
+>  	int rc, irq;
+>  	struct tpm_tis_data *priv = dev_get_drvdata(&chip->dev);
+> diff --git a/drivers/char/tpm/tpm_tis_i2c_cr50.c b/drivers/char/tpm/tpm_tis_i2c_cr50.c
+> index 3b55a7b05c46..fc6891a0b693 100644
+> --- a/drivers/char/tpm/tpm_tis_i2c_cr50.c
+> +++ b/drivers/char/tpm/tpm_tis_i2c_cr50.c
+> @@ -546,13 +546,15 @@ static int tpm_cr50_i2c_tis_recv(struct tpm_chip *chip, u8 *buf, size_t buf_len)
+>   * tpm_cr50_i2c_tis_send() - TPM transmission callback.
+>   * @chip:	A TPM chip.
+>   * @buf:	Buffer to send.
+> - * @len:	Buffer length.
+> + * @bufsiz:	Buffer size.
+> + * @len:	Command length.
+>   *
+>   * Return:
+>   * - 0:		Success.
+>   * - -errno:	A POSIX error code.
+>   */
+> -static int tpm_cr50_i2c_tis_send(struct tpm_chip *chip, u8 *buf, size_t len)
+> +static int tpm_cr50_i2c_tis_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +				 size_t len)
+>  {
+>  	size_t burstcnt, limit, sent = 0;
+>  	u8 tpm_go[4] = { TPM_STS_GO };
+> diff --git a/drivers/char/tpm/tpm_vtpm_proxy.c b/drivers/char/tpm/tpm_vtpm_proxy.c
+> index 8fe4a01eea12..0818bb517805 100644
+> --- a/drivers/char/tpm/tpm_vtpm_proxy.c
+> +++ b/drivers/char/tpm/tpm_vtpm_proxy.c
+> @@ -321,12 +321,14 @@ static int vtpm_proxy_is_driver_command(struct tpm_chip *chip,
+>   *
+>   * @chip: tpm chip to use
+>   * @buf: send buffer
+> + * @bufsiz: size of the buffer
+>   * @count: bytes to send
+>   *
+>   * Return:
+>   *      0 in case of success, negative error value otherwise.
+>   */
+> -static int vtpm_proxy_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t count)
+> +static int vtpm_proxy_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +				  size_t count)
+>  {
+>  	struct proxy_dev *proxy_dev = dev_get_drvdata(&chip->dev);
+>  
+> diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-tpmfront.c
+> index 80cca3b83b22..556bf2256716 100644
+> --- a/drivers/char/tpm/xen-tpmfront.c
+> +++ b/drivers/char/tpm/xen-tpmfront.c
+> @@ -131,7 +131,8 @@ static size_t shr_data_offset(struct vtpm_shared_page *shr)
+>  	return struct_size(shr, extra_pages, shr->nr_extra_pages);
+>  }
+>  
+> -static int vtpm_send(struct tpm_chip *chip, u8 *buf, size_t count)
+> +static int vtpm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> +		     size_t count)
+>  {
+>  	struct tpm_private *priv = dev_get_drvdata(&chip->dev);
+>  	struct vtpm_shared_page *shr = priv->shr;
+> -- 
+> 2.49.0
+> 
 
-DT/subsystem maintainers, please hold off a day or two with picking up
-these dt-bindings oneliners, we're having some internal naming discussions
-and want to avoid potential big revert-redo patch sprees, I'll try to
-post a decision whether we're good to go with these ASAP
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-Konrad
+BR, Jarkko
 
