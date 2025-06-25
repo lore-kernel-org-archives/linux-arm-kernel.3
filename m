@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D842C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 22:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13093C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 22:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7KttJ/jn5AKwRGLKmA8xF614ylH0++/GeEzslR2B4k=; b=QqBTpqitwVzK8LkVWlTxLZaew9
-	DeP/5lGgUQtnlZTz4vRHrnMvDnoR4zcm1pZU+/nLBpHzAY9XeZ7tcYMIMKl2swAPQCDqm6kCYbnYw
-	OXzvp3bhGvqcyVXbj9uxRiWTZrhL/5S0fJ8MdyxkAxjzzaF9SgHVHsqna7+lVVTpJfUFi8UF4RCYm
-	lJrcnEk6AW76JkCKoCB1TBU12+J4BIaMyXe67QtupDzAQTuGxHG0QkzCW3fu57/BCZ5A35NAQxF5X
-	pAtl+BVA9v5wANRuR7CJtiBadPV7d8iHXgectR1S9qATgu9zgTb1cA73l7Zgv0SJ1m81DgOrWwNpr
-	N5BdoC0g==;
+	bh=mLQEk9nf4M+xfxN9yU2UZz0oobzrPxuu3GxjJlT/J5Q=; b=eycIew0Ij5qBz/RgRVuISzsK7y
+	GwNhITcSVnedXh4juWSPDTedxtLId3gaz1Yc3fKIQLFAD0qm0VXHdo5NaWaz69TgHQJ3Cgd8x6plz
+	85Z2JVlHRMS0FYCvZo/U11RmL5fspCR/5K9QKo4YsKqXhzbU3Cgi+E1y2mJgXqfGpuSn+NP7fpFOE
+	1vEyAMGS2DJVWkKo1xIrJMUT8aSTZYgDhi3yBVhvPl6mjIHTZGXP9YlFsFI7FBPZDILIAvuoQP+Xj
+	wkznRK7yCvcpeBF0+caZWDnRSUHUlR59b9JN2SNoM9wolV8uD8RqaBKRb8a2OPeNWU21tn7l/hyxx
+	tQnU/pPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUYEV-0000000A23S-3Bta;
-	Wed, 25 Jun 2025 22:04:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUYGn-0000000A2Bi-2ILS;
+	Wed, 25 Jun 2025 22:07:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUXxi-00000009zri-1MSH
+	id 1uUY0Z-0000000A0KI-3nvK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 21:47:26 +0000
+	Wed, 25 Jun 2025 21:50:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3A20AA52E8B;
-	Wed, 25 Jun 2025 21:47:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83176C4CEEA;
-	Wed, 25 Jun 2025 21:47:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E3659A52E8E;
+	Wed, 25 Jun 2025 21:50:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42AD3C4CEEA;
+	Wed, 25 Jun 2025 21:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750888040;
-	bh=BmOzlOcWjjWYXOhk7oZaBIG/2AcVuM+tgXECnt/pDwI=;
+	s=k20201202; t=1750888218;
+	bh=dmiwvHrq20K4u2vHveigUjMypKXxfJB0t/PI8qx1mlo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pvtLsJPczkfTvI+ONrxnTt4krdlCwteKTmKK5QiCfn194xPML/Pmhl745tnqu4+7S
-	 F5uBeZS+yBYhwIUfuB37Bt2Sbt44zh0fW41stK6LHLSG8/cyKZndigRP+L/iKuVzkx
-	 7qvTfwhRWAwbFhHJIt4h38ZZ+ttARPymubS36qwgjEpBd5ZnypJt+NzsZ+Y3p+KHAW
-	 jFWV2VPM0VthGTWSLrc/P3Z1nT+l02gzedl82jfg793epTw/JfsYdGmmAbj2KTB7tg
-	 BP1Vpmmz8owtG/CPrhcymH3x9pnik+p79AiL/EDd9xIkOCQY71Jx2JdY+FyNaLBAqc
-	 cNMImaOreT4kA==
-Date: Thu, 26 Jun 2025 00:47:17 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using
- CRB over FF-A
-Message-ID: <aFxuZV3lwd2Uc90g@kernel.org>
-References: <20250618102302.2379029-1-yeoreum.yun@arm.com>
- <aFs0of3uZdoMEJXc@kernel.org>
- <aFvRI5OwSLLKz300@e129823.arm.com>
- <aFwrBU4H0w9AXyQM@kernel.org>
- <aFwrf1HnsilrASzX@kernel.org>
- <20250625-chital-of-infinite-proficiency-fee4dc@sudeepholla>
+	b=oYk5T0MhHnnsC8r5IcS9ZzR+lUEedaC7Nl19Hci1qtGjyjRwkD8VQ7fApeK8aRPxx
+	 +o65L0dBxH5la4KE7SDYnr2p+OsrOWkQeZZ4x525W2ku+lWQpN6PtiGq/Yd1wvlGjG
+	 N7xbv5Hh70vE1caNvbfthO4nY/z39U8uaCstEIorIzTBixpLI6OeQ72FewVKPP/a0Z
+	 0DeDw/drEUQtnR9huigRtrEB2Hew7rDJ53DRYa1/57mlkOCanb0hk1wU7d0JPTEzXb
+	 qQ+rbzsCNKbQ3MpW84vy9qc0PLYWkH/7WSI9VX5CxhA22LeIC9l3KpL36VjPdOkuOo
+	 2xqfAjV6Gv/6Q==
+Date: Wed, 25 Jun 2025 15:50:12 -0600
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Mike Looijmans <mike.looijmans@topic.nl>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, linux-pci@vger.kernel.org, 
+	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] PCI: xilinx: Wait for link-up status during
+ initialization
+Message-ID: <cto6st65jsa36vbyrnazwrdu6m4f7rocmtz6ez25qoija73s74@fkpw6wla5cma>
+References: <20250610185734.GA819344@bhelgaas>
+ <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.bd37b5e5-7e20-4db7-b2f4-b11b97bc1326@emailsignatures365.codetwo.com>
+ <9f8a7c43-4862-45aa-951c-bf3e3c1f5513@topic.nl>
+ <vwipw5opvx42e6l7ofphg47rlsoebbts7dwzq5knaf4iz4hmhw@gk6lo4b6plxh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250625-chital-of-infinite-proficiency-fee4dc@sudeepholla>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <vwipw5opvx42e6l7ofphg47rlsoebbts7dwzq5knaf4iz4hmhw@gk6lo4b6plxh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_144722_489659_28A21B30 
-X-CRM114-Status: GOOD (  33.18  )
+X-CRM114-CacheID: sfid-20250625_145020_090890_E2C1BE02 
+X-CRM114-Status: GOOD (  39.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +79,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 08:35:33PM +0100, Sudeep Holla wrote:
-> On Wed, Jun 25, 2025 at 08:01:51PM +0300, Jarkko Sakkinen wrote:
-> > On Wed, Jun 25, 2025 at 07:59:53PM +0300, Jarkko Sakkinen wrote:
-> > > On Wed, Jun 25, 2025 at 11:36:19AM +0100, Yeoreum Yun wrote:
-> > > > Hi Jarkko,
-> > > > 
-> > > > > On Wed, Jun 18, 2025 at 11:23:00AM +0100, Yeoreum Yun wrote:
-> > > > > > To ensure the TPM device operating over the FF-A protocol with
-> > > > > > the CRB interface is probed before IMA initialization,
-> > > > > > the following conditions must be met:
-> > > > > >
-> > > > > >    1. The corresponding ffa_device must be registered,
-> > > > > >       which is done via ffa_init().
-> > > > > >
-> > > > > >    2. The tpm_crb_driver must successfully probe this device via
-> > > > > >       tpm_crb_ffa_init().
-> > > > > >
-> > > > > >    3. The tpm_crb driver using CRB over FF-A can then
-> > > > > >       be probed successfully. (See crb_acpi_add() and
-> > > > > >       tpm_crb_ffa_init() for reference.)
-> > > > > >
-> > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-> > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
-> > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-> > > > >
-> > > > > I get the ffa_init() part i.e, moving it earlier. However for
-> > > > > tpm_crb_ffa_init() and crb_acpi_driver_init(), modules.dep
-> > > > > takes care that they are loaded in order.
-> > > > > For IMA you will need the driver as built-in but that should
-> > > > > be handled via kernel config, not via code changes.
-> > > > 
-> > > > In the case of "module" built, it's true.
-> > > > However what I tell here is when "tpm_crb" and "tpm_crb_ffa" is built
-> > > > as "built-in" in this case, it couldn't make a "dependency" between
-> > > > the same initcall level: here is the case of this.
-> > > > 
-> > > > 0000000000000888 l       .initcall6.init>-------0000000000000000 crb_acpi_driver_init
-> > > > 000000000000088c l       .initcall6.init>-------0000000000000000 tpm_crb_ffa_driver_init
-> > > > 
-> > > > in this case, wihtout code change, the crb_acpi_driver_init()
-> > > > is failed since tpm_crb_ffa_driver_init() is called later.
-> > > > 
-> > > > and this couldn't be solved with kconfig --
-> > > > ARM_FFA_TRANSPORT=y && CONFIG_TCG_CRB=y && CONFIG_TCG_CRB_FFA=y.
-> > > > 
-> > > > The Patch #2 is to proing the tpm_crb_ffa as part of
-> > > > crb_acpi_driver_init() when TPM uses method ARM-FFA.
-> > > > 
-> > > > If there's another suggestion, let me know please.
-> > > 
-> > > Hmm.. I actually got what you mean now. I was looking this from
-> > > wrong angle. I think we can pick these patches!
-> > > 
-> > > Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> > > 
-> > > > 
-> > > > Thanks
-> > > > 
-> > > > --
-> > > > Sincerely,
-> > > > Yeoreum Yun
-> > > 
-> > > BR, Jarkko
+On Wed, Jun 25, 2025 at 03:46:56PM -0600, Manivannan Sadhasivam wrote:
+> On Wed, Jun 11, 2025 at 08:48:51AM +0200, Mike Looijmans wrote:
 > > 
-> > Applied.
+> > Met vriendelijke groet / kind regards,
+> > 
+> > Mike Looijmans
+> > System Expert
+> > 
+> > 
+> > TOPIC Embedded Products B.V.
+> > Materiaalweg 4, 5681 RJ Best
+> > The Netherlands
+> > 
+> > T: +31 (0) 499 33 69 69
+> > E: mike.looijmans@topic.nl
+> > W: www.topic.nl
+> > 
+> > Please consider the environment before printing this e-mail
+> > On 10-06-2025 20:57, Bjorn Helgaas wrote:
+> > > On Tue, Jun 10, 2025 at 04:39:03PM +0200, Mike Looijmans wrote:
+> > > > When the driver loads, the transceiver and endpoint may still be setting
+> > > > up a link. Wait for that to complete before continuing. This fixes that
+> > > > the PCIe core does not work when loading the PL bitstream from
+> > > > userspace. Existing reference designs worked because the endpoint and
+> > > > PL were initialized by a bootloader. If the endpoint power and/or reset
+> > > > is supplied by the kernel, or if the PL is programmed from within the
+> > > > kernel, the link won't be up yet and the driver just has to wait for
+> > > > link training to finish.
+> > > > 
+> > > > As the PCIe spec allows up to 100 ms time to establish a link, we'll
+> > > > allow up to 200ms before giving up.
+> > > > +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
+> > > > +{
+> > > > +	u32 val;
+> > > > +
+> > > > +	/*
+> > > > +	 * PCIe r6.0, sec 6.6.1 provides 100ms timeout. Since this is FPGA
+> > > > +	 * fabric, we're more lenient and allow 200 ms for link training.
+> > > > +	 */
+> > > > +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
+> > > > +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2 * USEC_PER_MSEC,
+> > > > +			2 * PCIE_T_RRS_READY_MS * USEC_PER_MSEC);
+> > > > +}
+> > > I don't think this is what PCIE_T_RRS_READY_MS is for.  Sec 6.6.1
+> > > requires 100ms *after* the link is up before sending config requests:
+> > > 
+> > >    For cases where system software cannot determine that DRS is
+> > >    supported by the attached device, or by the Downstream Port above
+> > >    the attached device:
+> > > 
+> > >      ◦ With a Downstream Port that does not support Link speeds greater
+> > >        than 5.0 GT/s, software must wait a minimum of 100 ms following
+> > >        exit from a Conventional Reset before sending a Configuration
+> > >        Request to the device immediately below that Port.
+> > > 
+> > >      ◦ With a Downstream Port that supports Link speeds greater than
+> > >        5.0 GT/s, software must wait a minimum of 100 ms after Link
+> > >        training completes before sending a Configuration Request to the
+> > >        device immediately below that Port. Software can determine when
+> > >        Link training completes by polling the Data Link Layer Link
+> > >        Active bit or by setting up an associated interrupt (see §
+> > >        Section 6.7.3.3).  It is strongly recommended for software to
+> > >        use this mechanism whenever the Downstream Port supports it.
+> > > 
+> > Yeah, true, I misread the comment in pci.h. I cannot find any #define to
+> > match the "how long to wait for link training". Each driver appears to use
+> > its own timeout. So I should just create my own?
+> > 
 > 
-> If you are applying 1/2 too, feel free to add
+> We recently merged a series that moved the timing definitions to
+> drivers/pci/pci.h:
+> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/linkup-fix&id=470f10f18b482b3d46429c9e6723ff0f7854d049
 > 
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> So if you base your series on top this branch, you could reuse the definitions.
 > 
-> I was initially thinking of taking it separately as there is no strict
-> build dependency. But I am fine if you can take them together.
 
-Hmm.. Yeah, if you insist to take them, that's fine for me too.
+You could also introduce a new macro if all you need is 1s:
 
-That said, I'm also happy to take care of them :-)
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 9d20f0222fb1..f03bb882bf2e 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -64,6 +64,7 @@ struct pcie_tlp_log;
+  */
+ #define PCIE_LINK_WAIT_MAX_RETRIES     100
+ #define PCIE_LINK_WAIT_SLEEP_MS                10
++#define PCIE_LINK_WAIT_MS              PCIE_LINK_WAIT_MAX_RETRIES * PCIE_LINK_WAIT_SLEEP_MS
+ 
+ /* Message Routing (r[2:0]); PCIe r6.0, sec 2.2.8 */
+ #define PCIE_MSG_TYPE_R_RC     0
 
-I'll append your review.
+- Mani
 
-> 
-> -- 
-> Regards,
-> Sudeep
-
-BR, Jarkko
+-- 
+மணிவண்ணன் சதாசிவம்
 
