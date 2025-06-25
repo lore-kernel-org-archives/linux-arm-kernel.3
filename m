@@ -4,121 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10392C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC562C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqNfxhiVgtp6+b+dgaD2EKdBvt2O27n714u9pvQagvI=; b=tpQZO/4IHtwWvEKb+kuaT2OP8f
-	Q9pyby7MAt35gKw5VhMXg0+rNIVPm8hYcEWj6ENrpWq2afj3F+wzyrebFVOmWUpGMpZuZY2n0mDa5
-	xph/m5Xa/P/JyeSwQ1xHYBV2ifwJ9aK4ahFpTbM+MHqK8CscwPy2bDZ3+Wrg/TkTch+zTNi1QEdwy
-	9gBwMEq64nDsBkYjs3Zd3B7DDZ5Um89oWbTTjApSEpOGcBwzfmBoNi8EQd4b97bPhGht6hgCoHSG5
-	qxWtW68Fbh2iQKiL4146WQ6wbzI0jCr38+0Hy69mgPHrmvBMBjT+6EpkEr5Qpwc2b+N/WLi3VRcWS
-	I4r+T2GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8tNxVqILGkshM2vIysQ5MS1iDIfaA77GddJCD/fmHPI=; b=rnk32+hZ9i9ZdfDjV+yw0SSLW0
+	l/1DodW6nX+hroUP/idUh8XFpgiwwgQOkPZxcs28hqfcKQEMuO6b+3OPGNK2rE6IATGIHEHtKK0HB
+	P6XcTFOpzkP+izW7nZs0MMaWFD9nKJdWu3g5HJnWXbnHvsPUmsZU+l3DCWTvEqALEBytVNvdr+MBr
+	J20F4w+pqw2zKU3q970dy6JFgZwTLsz3Cas/lR+4S2pWQg8/PfM16qUsnsgCqtXv/XkO3lIx77eOo
+	PVj80nErmrgjr+cehRE6mScQ2M9E00I2mlCTzOJHe3Xg4OTR7265bjKkK5pHnHJqWpo2/d6NrdIsO
+	t5IhA/bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOCr-00000008SFk-2bPD;
-	Wed, 25 Jun 2025 11:22:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uUOEF-00000008SOe-496h;
+	Wed, 25 Jun 2025 11:23:47 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNQ5-00000008JnS-49BA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 10:31:59 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P5Uaie014612;
-	Wed, 25 Jun 2025 10:31:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bqNfxhiVgtp6+b+dgaD2EKdBvt2O27n714u9pvQagvI=; b=XzToSTZ0KsbbIJtH
-	RpNbVkpTzIIIb1YzfKdUbgPnLWnMBaLCaaVtDyUl+GnP2rx29vzWXTyGHLnS2h5Q
-	vexLBZGPXICymQWLnnPPLU7GRHi7vFIcn6dmXSDsQ7U8SQKMlKHQbjrWz6YJhMsv
-	RT9wcWroniGIrkgomUmbc/T6fRrH81Fc/OKVQHifYL4ITNrx05vKEEXKkmO27uxb
-	H4ZoAucXMoo8k03wj8RcbIoH29Q9tNP+NQYXaJHwzZFgjQONRkLyF+ACrlbyg1HQ
-	T+and0y93ENwubsYz3+mv2T3Ome4lsF9KsdGQBIl0lTi7cjiF85F07+3J705Bl+c
-	tp08Lw==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47f2rpys08-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:31:51 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55PAVo2x005987
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:31:50 GMT
-Received: from [10.217.217.109] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Jun
- 2025 03:31:44 -0700
-Message-ID: <d2821ffe-32c4-4153-84fd-df4bc7d2b3e5@quicinc.com>
-Date: Wed, 25 Jun 2025 16:01:41 +0530
+	id 1uULQW-00000007wl3-2bt9;
+	Wed, 25 Jun 2025 08:24:17 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 817561F0004F;
+	Wed, 25 Jun 2025 08:24:12 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 2A3FCAC7A17; Wed, 25 Jun 2025 08:24:11 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id CF3E5AC7A0B;
+	Wed, 25 Jun 2025 08:24:09 +0000 (UTC)
+Date: Wed, 25 Jun 2025 10:24:07 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 5/5] riscv: dts: allwinner: d1s-t113: Add LVDS0 pins
+Message-ID: <aFuyJ6AqTX_aOr_b@shepard>
+References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
+ <20250221161751.1278049-6-kuba@szczodrzynski.pl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 03/10] clk: qcom: camcc-qcs615: Add QCS615 camera clock
- controller driver
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Bryan O'Donoghue
-	<bryan.odonoghue@linaro.org>
-References: <20250612-qcs615-mm-v9-clock-controllers-v9-0-b34dc78d6e1b@quicinc.com>
- <20250612-qcs615-mm-v9-clock-controllers-v9-3-b34dc78d6e1b@quicinc.com>
- <b89c5809-38c3-4b62-b26f-073869674b95@oss.qualcomm.com>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <b89c5809-38c3-4b62-b26f-073869674b95@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=NdDm13D4 c=1 sm=1 tr=0 ts=685bd017 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=KKAkSRfTAAAA:8
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=G33nDIIeno827tu5fgsA:9 a=QEXdDO2ut3YA:10
- a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA3OCBTYWx0ZWRfX+tZcl40zosdR
- ECvQ8R20nwv+WOy7ENtVN5lr/KaamnN6XC8t5gYQMBGk3Pzk8HZ6JBY0lBhvvfND3Xcg+DlnwB8
- n+FrAqhNQ+iB7PLOzk6/fkhe46A3rnO0LcOABsa0noQD3XUt9VGJukQrh9YqYUpCVYK2DAI8WyS
- rsPknSaUifiRcv32P/8sbuNogv85GG9d+ZRt1rMAysLysjmcwEpWuloGIFpA5hvfWltKHIiMoC6
- 9MnSXK+8Fg9GSugoikOme82jOhZEdUEnSOH2CvWPkxcR/xjp04WJ6RkkV8IYhvmxDcmF/T/BsJf
- 4qUE31Qc5BjGCrEe8a3n9LaHf/xdNgMbs/F1TCfTy7RsuggRJ44xtJxz2qpK5CJbRwU25YPLqfm
- suvMPeRqedn/t0NUdzQEnJhFN/KToufJb0nszJzXeLLqvLwClLb1RR24l0X0hhsOk+W2RBVU
-X-Proofpoint-ORIG-GUID: aVU9lOVhjQEr9x5G9R3MQaOsCUQ8-jFN
-X-Proofpoint-GUID: aVU9lOVhjQEr9x5G9R3MQaOsCUQ8-jFN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
- phishscore=0 priorityscore=1501 suspectscore=0 mlxlogscore=999 adultscore=0
- clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250078
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kGlgOBmJpN53EYeN"
+Content-Disposition: inline
+In-Reply-To: <20250221161751.1278049-6-kuba@szczodrzynski.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_033158_150752_E76B7A0E 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250625_012416_814529_23255C07 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,41 +77,82 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--kGlgOBmJpN53EYeN
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 6/15/2025 12:37 AM, Konrad Dybcio wrote:
-> On 6/12/25 11:55 AM, Taniya Das wrote:
->> Add support for the camera clock controller for camera clients to
->> be able to request for camcc clocks on QCS615 platform.
->>
->> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->> ---
-> 
-> [...]
-> 
->> +static int cam_cc_qcs615_probe(struct platform_device *pdev)
->> +{
->> +	struct regmap *regmap;
->> +
->> +	regmap = qcom_cc_map(pdev, &cam_cc_qcs615_desc);
->> +	if (IS_ERR(regmap))
->> +		return PTR_ERR(regmap);
->> +
->> +	clk_alpha_pll_configure(&cam_cc_pll0, regmap, &cam_cc_pll0_config);
->> +	clk_alpha_pll_configure(&cam_cc_pll1, regmap, &cam_cc_pll1_config);
->> +	clk_alpha_pll_configure(&cam_cc_pll2, regmap, &cam_cc_pll2_config);
->> +	clk_alpha_pll_configure(&cam_cc_pll3, regmap, &cam_cc_pll3_config);
-> 
-> Please convert to use Jagadeesh's recent helpers
-> 
+Hi,
 
-Yes, will update in the next patch.
+On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
+> Add LVDS pins to the PIO since it's now supported on D1s/T113.
+>=20
+> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
+> ---
+>  arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/ris=
+cv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> index d241ba306..174b6d8f9 100644
+> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> @@ -78,6 +78,15 @@ dsi_4lane_pins: dsi-4lane-pins {
+>  				function =3D "dsi";
+>  			};
+> =20
+> +			/omit-if-no-ref/
+> +			lvds0_pins: lvds0-pins {
 
-> with that:
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> 
-> Konrad
-> 
+This usually has a lcd_ prefix (see sun7i-a20.dtsi and sun8i-a83t.dtsi).
+It should also be sorted alphabetically.
 
+Thanks!
+
+Paul
+
+> +				pins =3D "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
+> +				       "PD6", "PD7", "PD8", "PD9";
+> +				function =3D "lvds0";
+> +				drive-strength =3D <30>;
+> +				bias-disable;
+> +			};
+> +
+>  			/omit-if-no-ref/
+>  			lcd_rgb666_pins: lcd-rgb666-pins {
+>  				pins =3D "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
+> --=20
+> 2.25.1
+>=20
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--kGlgOBmJpN53EYeN
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbsicACgkQhP3B6o/u
+lQz4gA//XMSaMwlEF955t7sMD+r2G+0gnvduzRuZ8ICdmPh5+wc5fdr8o8F4SZ9T
+lke1oY00cGYpQ8CbMd0kKJahUwHpFVZhrfBdWC/2o92/0SW9rYJk4fgrbupgOWkN
+S70jFWJ1UcPVEbNwTImFWr5DlgsJPZbmsS4d3EkzN1nMEe7WGW0syw1paZEaW7IN
+Usr7dtl5UVoFqzlKOy0foPf3pG/7Qv9UrnL6mJv4llPysXDeFHvK9X86j4ev3n6/
+5py1bS/nTLtl9a4p4iIzuOPzYQXnQ3vUOZmYDWF+7vyMrgnNX16S/lgkyWhbJdHB
+rHDelmgVbxUzPBVyLFgdKtCO6QRpUyS8cblkci/NwcSF8geQAM9Mr7N336jYDI7j
+FdZ05N5CTtwvUAmFzX6v7cPE55b0qVVusc7/f5QPEcDDuGlQaRjyjUndlT11/qOh
+wRePXbpOiaJQxrzvOMr6BSW9ir6RsF+rfvs3js2mMaiBYV3VzE2C2Blx8/ri6x90
+FfYv5GzCVcZjWU7rctdgtc1xR5mQbLHhNVbTHPDgk7yiCVFQYDGKwbnOlCLrmYI1
+JEjvbYHcQL7lV6HNzW91tTSgHrl2tiu/1v9aEirMwJDgxzNdXDXOlXEEHaPF0FTU
+1elYSGp3JdKyEbFfhXPLysq8ryn9/9/pVvwm0NKv6i9gN3KemD8=
+=S9I0
+-----END PGP SIGNATURE-----
+
+--kGlgOBmJpN53EYeN--
 
