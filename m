@@ -4,114 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3EEC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E502FC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VWUiJJjRPw6HGWUg/XBl52lGHpdjt2Da3mfoNUZtank=; b=n45J1xT1ZDLBW9
-	lRwBUbNaUUVwvWpnT5sgr+Mw6EVib4KCicFWCHAVA0jaWYiDf7vQ17B5KpBe7MQHbKPzpluqjq3Hc
-	pWZpBUfUXFclTsFVRzMzSawnWW2+4X19I/K06a5ncW7lyHGiks1czRI08eJoVEzwEt7eus0Yhas7F
-	32xD6M1mkn0GE5kX07LUGBJlIMOq0AGhp7V3+X5o0gAnd+TL2aa++yeYt0Qg4FWk9/s8Uhqu8mQR6
-	FXcORkJCQQogmVinguUKtnVmtyiI4aQkIbX49u/U2CNEbwq8VL+9AxvCaGB9NbblFs9QbQ/DTcYyB
-	RNGBbutmzT4rev1IpraQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qukd4stYOCYEBe2KGcf2tpYpRWJZmwskg2vfqUfUsKY=; b=IQFg2Gywae9s6/jRuePsu+rwYJ
+	uXTzJF6W3rsqUo54ZUN8W4HtczAfip/AT9in1n3E9y6ZqdeV/xXEX6Fz7TWMVWiyb2EU6spXJ6kPZ
+	yE8IeH0++AeQutK7UYso7XoPzyESDI768VfV0qPtJqjhH8ZTgt6VEeBd8RePM3nzbsMos6sP3e4T9
+	tQJjloF8Y8LDEPKnNHggv6S38FoLmOXki49NJcZZyG8Lfku66xnoXxvMD8muGEfHRaRjt7a3LtH9c
+	tSpdFT+6ZGabhHILMKk0cNAHZkTYZPxxZX+i/7Eruj4+Jga3o8U//h7uwmRQv5ca7c2V6vswlCAXi
+	FjsJiYoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPOv-00000008eBn-04nQ;
-	Wed, 25 Jun 2025 12:38:53 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uUPOw-00000008eDJ-2IHk;
+	Wed, 25 Jun 2025 12:38:54 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNRj-00000008K3W-30Af
+	id 1uUMeN-00000008A9c-00fr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 10:33:40 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-453749af004so8297915e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 03:33:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750847618; x=1751452418; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VWUiJJjRPw6HGWUg/XBl52lGHpdjt2Da3mfoNUZtank=;
-        b=ZVJoqfP3yWcr5QefW/gv10EurRqmyiMIumG9hqkTjLwuEWM3PUp62CbNzg786LILMo
-         /EEYSRhdHn31iOSx80b/OARvcfs7uLfVqrsMdnK8nCNN2VYTxi32QbkSqLs9lqZjJKKt
-         McgV+wXwLGqVzci/15sdcO0yD0a0M5stALvhZXA7f7uhS2a3LGS/8fy8KCwGqyMPRlq9
-         w6oZ8H81Sb5Xaqgv88+K/nxgAkmVsuEER58x0KuQmAUgI+00vX1VZJJSbIJpazSxilgR
-         RScskJoVg98avyyKxXGReJOflr7vqPQcPjiU0Hoe/fhnejRPiofxU9Im47NlIchpu/7v
-         wHXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750847618; x=1751452418;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VWUiJJjRPw6HGWUg/XBl52lGHpdjt2Da3mfoNUZtank=;
-        b=vgcO2s3duIRcsS261Ijfo7MQ8KWcVSPuIqfWH16hKtFqspecBdbBkgHUSQWifwnMM8
-         EXwr7B406FETm2Du+JEUcks01YvoPHbqUEwS7s2lfiBae8yqKAdU0Li1dU3OWbfS/aHJ
-         iPzUQuY5pN9fqByobS3a7hKZpgxX+46AvjtNeiaSKRHx6PB0+iBmqenLyddG0OfKsfut
-         w2RrsipnFHKGNcaZZ+lRV0yLTr+I4bNjPAzUtwrl2Fq6nzyVubHPMLuW0Zoag0RblYdL
-         hF0jcJzfZtKreXJ6aQIKrQEUVuKSOGlgzAYoB2eykIOX4PM411O+rB9a6+tNsSsuvbYD
-         huzg==
-X-Gm-Message-State: AOJu0Yxgl7+5ESXpIrn8SBW+EzDGAt+XlbxoevL3EJtV/KPtTWbunnKm
-	tzQ2iIZLR8qSCoanf/RX0HReuojUnkMvi60qA3WjhxCqEL9mV4E+YYu0nRuJ0ZQzWtc=
-X-Gm-Gg: ASbGncspOBNpi5bEfhEi2OqkWroleLTCi8NEGjt69lui5p9hVDBCvCJx/QqGp00x9KA
-	8GDE2JWLK/kB0VRjDKnSnwOxckxm1f5QkmqRqMxEH2VQ+/AZxPq6KtiEnk/Fl+889gJhPl9EKwF
-	dflni+y3aaaoDLDyz1l19uddCYP8eWxPmMJnz225kio4z1YehxVrV7bADtkq3UDkIkDzUMPVXmj
-	PLNc0fP4JKGMMbFTsHioMc/y4F0JWeQQLYW9GTibAB38NVFdErfherBJGxf8Ehx27Ch5hjWC1uJ
-	GA39bxJZgMgnZXJzc2dmL4HYGGqua9q7ApE8aSZI9wcPKNUec7D+3qk4iUNul6aDfTU=
-X-Google-Smtp-Source: AGHT+IFotUTj5zcp7ShZ6IoB9WHymxHO7Rq5Lsk8ESCqSS7UfKL93wxzqyd9QmnDn3AYs6nJhvFulA==
-X-Received: by 2002:a05:600c:a45:b0:450:cff7:62f9 with SMTP id 5b1f17b1804b1-45381b0f48dmr20255625e9.22.1750847617865;
-        Wed, 25 Jun 2025 03:33:37 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:d216:42f3:1e7e:472e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45382373c86sm16133195e9.33.2025.06.25.03.33.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 03:33:37 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: [PATCH 00/12] gpio: use new GPIO line value setter callbacks
-Date: Wed, 25 Jun 2025 12:33:23 +0200
-Message-Id: <20250625-gpiochip-set-rv-gpio-round2-v1-0-bc110a3b52ff@linaro.org>
+	Wed, 25 Jun 2025 09:42:40 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P5xZ6p001836;
+	Wed, 25 Jun 2025 11:42:34 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	Qukd4stYOCYEBe2KGcf2tpYpRWJZmwskg2vfqUfUsKY=; b=4kBe6+wLuPNsuRTX
+	bCHsIQw9fZdAYzAbHZAF15wjuuHqcjF80d4oy5kfubbq0rGJFRR+PRMLgAbRO4S1
+	6RMR3OjIETsN3A+neEq+GHUA8te/kz8fM9suPESv0hy2BC763EDtCnHfSaEJRXnf
+	qfYAQCuFqwX6sC4UX3smGlM2zqymWLXmN5Zk9uhl3R5MS8mhfXhRUXH0mEN/Pb4u
+	1xFojKNHbiF6b9I+TqjPhfxlF/rEyUT4PgWIFbnSkIKD72p94zyrpyRBecz9okf/
+	SA+Rn/0fdCJZJYi0e9ImlJ4c46reGGYowf2sy2dXZX8vek5+2zp1sAmPXWdd1+3h
+	Ij2VUw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dhvbs042-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Jun 2025 11:42:33 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 788EE4002D;
+	Wed, 25 Jun 2025 11:41:30 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3A35D6F5FFC;
+	Wed, 25 Jun 2025 11:40:42 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
+ 2025 11:40:42 +0200
+Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
+ 2025 11:40:41 +0200
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor Dooley" <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v19 1/6] remoteproc: core: Introduce rproc_pa_to_va helper
+Date: Wed, 25 Jun 2025 11:40:23 +0200
+Message-ID: <20250625094028.758016-2-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHPQW2gC/x3MMQqAMAwAwK9IZgM1aBW/Ig5io2ZpS6oiFP9uc
- bzlMiRW4QRjlUH5liTBFzR1Beux+J1RXDGQoc5Y6nCPEtZDIiY+Ue/fqOHyjtAMgyV21LdND2W
- Iyps8/z7N7/sBvsgfCm0AAAA=
-X-Change-ID: 20250625-gpiochip-set-rv-gpio-round2-08862ed27417
-To: Ludovic Desroches <ludovic.desroches@microchip.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, 
- Thorsten Scherer <t.scherer@eckelmann.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2037;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=42Gx7MVqg9RLVZZL0nQGlW/DfixSJ60vSIokymr97mo=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoW9B6XbDc1lIy1VT9BCDCPgIvuXS+r0NgLXwjx
- 3/PIGOmGaKJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFvQegAKCRARpy6gFHHX
- cgTSEACFaucbwtdUwbgQWlc6On2PxsVQjx1y4B4b4AdaA4k1pQv3Mnkwj5zwmymAtY7xsbo1u5E
- 7IExozMIQbhO3mBHTgvqM2xttAWFJoNEe38l/HvCFGOWAokGWyEnJl2XrzrsqKzTtxvd6oOEn8H
- wOhHqs6ZcnnWZiR8YV2uofWZbqn7Hkt/eZPRBzIlz4pwUbP2o2J+dhh5s6glon2J7+CYt+unvFL
- gORIlOItofYQPbdl2rFqKKeTLjyfKeLSIMAUAdXGcUuduoypT2gnYxru40kJEDN4vW+8rFhKFcE
- f0UYhwxnFqaDCdy2RTTB77JOdYKXSSTEYtFaYZj8xQSTTw/ciMwRiiucffXqNk71ASkMiC6cZUy
- cowudu4dzmh3ntG3AoC4HtYdmZ+mJFJRQLdA9O2k8PCh1djKhGJlUr85g3OMkJLe6OjCtOgQejm
- SDZcQ/8bTpwNkDz9w2//nWDSJ9GEdpxjv6xDe6JmFkFgw0xdlFFzw18MXwPIU/aKYWVDTvNoCqv
- uKbFZJUbUX7WrvVFGm5OVRPj1scmPBIJ+BwTdbu9ANkqYCb0T4usSWzvUPNaWH5UhrLlYBv3t9I
- Y8xJBm0XUvvEmU/RxOdrHzvSL0shP9QjkOVLCU/ozuc7IMBna+xP/0StXa4JPC4s9eQ+RlX/9/1
- 5yU3ObdZpXw9csA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_033339_756731_5F9A13A7 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_024239_308105_83DF66F2 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,46 +103,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
-values") added new line setter callbacks to struct gpio_chip. They allow
-to indicate failures to callers. We're in the process of converting all
-GPIO controllers to using them before removing the old ones. This series
-converts another round of GPIO drivers.
+When a resource table is loaded by an external entity such as U-boot or
+OP-TEE, we do not necessarily get the device address(da) but the physical
+address(pa).
+This helper performs similar translation than the rproc_da_to_va()
+but based on a physical address.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 ---
-Bartosz Golaszewski (12):
-      gpio: sama5d2-piobu: use new GPIO line value setter callbacks
-      gpio: sch311x: use new GPIO line value setter callbacks
-      gpio: sch: use new GPIO line value setter callbacks
-      gpio: siox: use new GPIO line value setter callbacks
-      gpio: spear-spics: remove unneeded callbacks
-      gpio: spear-spics: use new GPIO line value setter callbacks
-      gpio: sprd: use new GPIO line value setter callbacks
-      gpio: stmpe: use new GPIO line value setter callbacks
-      gpio: stp-xway: use new GPIO line value setter callbacks
-      gpio: syscon: use new GPIO line value setter callbacks
-      gpio: tangier: use new GPIO line value setter callbacks
-      gpio: tc3589x: use new GPIO line value setter callbacks
+ drivers/remoteproc/remoteproc_core.c | 46 ++++++++++++++++++++++++++++
+ include/linux/remoteproc.h           |  1 +
+ 2 files changed, 47 insertions(+)
 
- drivers/gpio/gpio-sama5d2-piobu.c |  8 ++++----
- drivers/gpio/gpio-sch.c           |  9 +++++----
- drivers/gpio/gpio-sch311x.c       |  8 +++++---
- drivers/gpio/gpio-siox.c          | 11 ++++++-----
- drivers/gpio/gpio-spear-spics.c   | 21 +++++----------------
- drivers/gpio/gpio-sprd.c          |  8 +++++---
- drivers/gpio/gpio-stmpe.c         | 15 +++++++++------
- drivers/gpio/gpio-stp-xway.c      | 10 +++++-----
- drivers/gpio/gpio-syscon.c        | 33 ++++++++++++++++++---------------
- drivers/gpio/gpio-tangier.c       |  6 ++++--
- drivers/gpio/gpio-tc3589x.c       | 11 +++++++----
- 11 files changed, 73 insertions(+), 67 deletions(-)
----
-base-commit: 1b152eeca84a02bdb648f16b82ef3394007a9dcf
-change-id: 20250625-gpiochip-set-rv-gpio-round2-08862ed27417
-
-Best regards,
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index 81b2ccf988e8..d06eef1fa424 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -230,6 +230,52 @@ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
+ }
+ EXPORT_SYMBOL(rproc_da_to_va);
+ 
++/**
++ * rproc_pa_to_va() - lookup the kernel virtual address for a physical address of a remoteproc
++ * memory
++ *
++ * @rproc: handle of a remote processor
++ * @pa: remoteproc physical address
++ * @len: length of the memory region @pa is pointing to
++ * @is_iomem: optional pointer filled in to indicate if @da is iomapped memory
++ *
++ * This function is a helper function similar to rproc_da_to_va() but it deals with physical
++ * addresses instead of device addresses.
++ *
++ * Return: a valid kernel address on success or NULL on failure
++ */
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem)
++{
++	struct rproc_mem_entry *carveout;
++	void *ptr = NULL;
++
++	list_for_each_entry(carveout, &rproc->carveouts, node) {
++		int offset = pa - carveout->dma;
++
++		/*  Verify that carveout is allocated */
++		if (!carveout->va)
++			continue;
++
++		/* try next carveout if da is too small */
++		if (offset < 0)
++			continue;
++
++		/* try next carveout if da is too large */
++		if (offset + len > carveout->len)
++			continue;
++
++		ptr = carveout->va + offset;
++
++		if (is_iomem)
++			*is_iomem = carveout->is_iomem;
++
++		break;
++	}
++
++	return ptr;
++}
++EXPORT_SYMBOL(rproc_pa_to_va);
++
+ /**
+  * rproc_find_carveout_by_name() - lookup the carveout region by a name
+  * @rproc: handle of a remote processor
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index b4795698d8c2..8fd0d7f63c8e 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -690,6 +690,7 @@ int rproc_detach(struct rproc *rproc);
+ int rproc_set_firmware(struct rproc *rproc, const char *fw_name);
+ void rproc_report_crash(struct rproc *rproc, enum rproc_crash_type type);
+ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem);
+ 
+ /* from remoteproc_coredump.c */
+ void rproc_coredump_cleanup(struct rproc *rproc);
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.25.1
 
 
