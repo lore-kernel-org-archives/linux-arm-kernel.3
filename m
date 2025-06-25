@@ -4,66 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E290C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC191C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 20:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMgLsepUrUiT/59nmglA4EXX6Av+rORUCNHuUnPPOLw=; b=c91SHFAyU1Q8xYyYY7EPY00H/Z
-	JjmaG6GekLk0+1lJK603ePp9CNybhMvBmeeODjmndaErIR/ptUStNNMJNbYhbgB6GsbuuaGkUJSor
-	XXW23Er3jkTCSFNgHEzwxYwWgC0gNRLfaiGfjOxi7LT9CNLGiCDU3yN6qrEAM5Ycsh3PPjun/cgcp
-	kR5X5IaZ6rUurbEV92N5XHLg2dE9WZ+z/xcV7hKu17YmIos/wukAF7SKJhdgCH7xOnUFmBYd4ZvEs
-	xDw2pGG+xYeSYrnu2hXCV/83RsbiC3GaW42Qm6I7o+YjGxjNZbUfXiauE/jcL4weoTN9ou3xNi72z
-	0CvmEgEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/2ky4PcCJa3ZDeDS7ugGnHG12FPATlRJwSWTuvcUYV4=; b=xVorhO+WvIV274CO0UhnGON7l/
+	t0VkqgawTsuFETWrSr9Fk1OcozEL0J3JhsfO/lfJ60kW/5uPLZKjWpwelervtn2WEhlW4ffzKBslr
+	ES8pykNWA6PtoynKs1/mhx8TBktfbYPj5eWTBtYtujDGMxp0UOVgsKjQl0Jc5HH0P0BWkf6BYLXd/
+	YPa53tV6gIu9Ho1xpJI+jzBAOYs4w1Cii7UFoLeQXPpUc1qGcmEUQAedQkPWuNm9ig8lRDR8vW/29
+	cNi8yc996AvU/MLyKKWK55VsrBWUP3sySbsRdPPWJ70uahWtjCkKBrmsQxccqYSARBztrE8L1Wfk0
+	6WiU2aEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWpL-00000009qqr-20st;
-	Wed, 25 Jun 2025 20:34:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUWpT-00000009qv3-09t4;
+	Wed, 25 Jun 2025 20:34:47 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPzw-00000008lip-1HFC
+	id 1uUT5D-00000009JzK-3BDq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 13:17:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A771661784;
-	Wed, 25 Jun 2025 13:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F877C4CEEA;
-	Wed, 25 Jun 2025 13:17:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750857427;
-	bh=GQCtV65tnQSYaczAMpaz5abbjbW1c9WMqIxzwn0KYr4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pBJwVyJ5ILFW2wIUW1Ms5dl8Af3Ir1xWOfDgTS97UtVEZT3uC6vo4AAOEnXpBwruQ
-	 EujFxoRE3LsYWvuK0DlP48m/pPWi4aiK6dgydPzfKPejs59D1L83a17xWV3LK19a/P
-	 cNVyAtD6qB82QYig3G5MDo6w7YAiTO2CWJ9f93czKZT13rnJRvxiQnvWxmYioMJNRT
-	 ueO2fP6aE1PsMqssJUNf6j3H7si+yFx21J0jCxBrp4hoIuBc0yjbTrLMNy/MPtBnVW
-	 Y8/WauWdiA3USwBRp/NqX2fGAymGfEmIG6RWL9EpM+Iqn6bK25Uv4s6hOo3gZPhtbc
-	 0CUqYN7zfSEcg==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 7F9B85FFBC; Wed, 25 Jun 2025 21:17:02 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Rob Herring <robh@kernel.org>,
+	Wed, 25 Jun 2025 16:34:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qBocD2roPLtH6lmR37LNu+VIk1dRNHvhSfOHknX7yE1E7wjIkZ1zGLG5OWVNXa8E/dVkZLkzxbZcZe6eV8mYOE4yMRkU3l1OARgYVzgQv8mIaj8YMWbDu9+kOS6WqH06WY9RIv0ar0mkAUWjUvjHxzFf0OjJ6N4Jwbzlyu4O7mYiiQOQYDrkwI74gwaduxhrHqndTSbBwZThH8BIyjobSo0rks0vJkO3b2RW8FcSk+136s3KgywiEvMQz7iux8J27QeJ+Toy4uoqQPrBsvE7SjMbIHdk/eMViei4tpQpEFsJRzzhmShO3tiXAe6LkYzqrZlYaRA/YNQK7Bw2d9QuhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/2ky4PcCJa3ZDeDS7ugGnHG12FPATlRJwSWTuvcUYV4=;
+ b=mW3Gn13/d6xIXOEP8yWydSZmB730S5VmDrINxWZG9WBpwpQC9FkxrvP9g40V3V3oRcAS8R/B/OJowJm+CoiabLYoJsV1CikcpLyirKPbbC/c4aVF5bE0FgCy0VbF9RrHaPRkv6JCEYAwaxQaqea2p3uJEo3tWe/VEyC22/uwAvMQJbGQ6P9Thi0ZW59UwGIlgnTk6ZVV2F4n3ltLBZADJfWqaU+t3eD7DZqVIQypf0hT1gdU949F1l9Vlnn9pQUDDFa1WoTPT2ZUkXv1gBvLr+M3dG1mIibbDfwm6Bg7qy/+gi2TSvrHzPDqnF21xOrOnUt5gYpFrfNndNTIylR4GQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/2ky4PcCJa3ZDeDS7ugGnHG12FPATlRJwSWTuvcUYV4=;
+ b=D7RtyE6fS8P+orHKylk2kJzjc/wqwMFotcTiIw7y0+epf3LXW1IBeDsLQLSbldJfAaPFE0oqyO8gKvyOKkBHTRV7iFuKl5Ae1T1ufUxvcG80dRZhpHMweJTQJVh/CAOg25FBb9Y/tfGjCKnYdpwCZfx4VxITwcwKP5FMB4PjVgEku9lv7A3CXc5N3Nu1+Q/lUj8dosLJqS6D4vIQhLpHyy33tjL4Kki5m/maaYfqr5rQKO5LdzGJ04RUG2k0m87UWqGp4NHLpEdteuT63M485pGVo3Ow16jix0qGPda5yrVmq3ktdoo+TZXgFOUuSHjw9MG/lL+Q31kPR0WwkpF1Rg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAWPR04MB10007.eurprd04.prod.outlook.com (2603:10a6:102:387::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Wed, 25 Jun
+ 2025 16:34:44 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Wed, 25 Jun 2025
+ 16:34:44 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v2 5/5] arm64: dts: allwinner: t527: Add OrangePi 4A board
-Date: Wed, 25 Jun 2025 21:16:52 +0800
-Message-Id: <20250625131652.1667345-6-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250625131652.1667345-1-wens@kernel.org>
-References: <20250625131652.1667345-1-wens@kernel.org>
-MIME-Version: 1.0
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-input@vger.kernel.org (open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)...),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] dt-bindings: input: touchscreen: convert lpc32xx-tsc.txt to yaml format
+Date: Wed, 25 Jun 2025 12:34:28 -0400
+Message-Id: <20250625163431.2543597-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM8P190CA0012.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:219::17) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAWPR04MB10007:EE_
+X-MS-Office365-Filtering-Correlation-Id: 042bccbf-9c7a-4c0c-642c-08ddb40630cf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mMNp3GOgC5Gxf4FkkyKo6ggHO1Qn+BKYCe5PjLjv5Nm+H4PUlgM1w9mObCqB?=
+ =?us-ascii?Q?gLyiMI39BIRIzGBmnpNPrrzVx/3wEYxoCRejG82n8t+ulLsDt+8T5aCyXSCY?=
+ =?us-ascii?Q?rbPt4xDwCPB6k9mKLumtfUGEYqaGD76qQrQqAXdnNAsSS8Ui6QR076F2uZUw?=
+ =?us-ascii?Q?XGmBBCV1+uE7HvDrgb0/3SPkkHLPjYf/5pobQZwNQPYdiKtOfwNqcXX90ra6?=
+ =?us-ascii?Q?gQuds+PHN09OwlBSkcV1iQJw8Y6Ijiaxdl3N0h+6l5ZQztz0Ok187WxPAAnw?=
+ =?us-ascii?Q?2gOwGRs1BuJNWyZIpfyNLz1YOwNca0D8VA/ebK6pFdMtglJCzzokz98fLpJM?=
+ =?us-ascii?Q?Wlf6rL7CWOe9jZu6FI0s9R7YLL+XPyyMcGpAvNmRyWr/+wz4g39CI1X4mjQq?=
+ =?us-ascii?Q?5mD8mVoEmeL0C0B3MpkFTMWad+Z2fYWV2oh9zyXHeBW9BSb+Bqp8A7L+6yHp?=
+ =?us-ascii?Q?oj04yg/a1VSoOKjTxitS0UHokhhIz0JAmfpSaXyA/hzWkpblz3rCz+sH8s75?=
+ =?us-ascii?Q?bS1XMm1zg/vDz6SEcNLlKuELiVWlap3m63zLVhP8/faF8W51XhcobXfhTR+M?=
+ =?us-ascii?Q?cFiq1RH2IozliRdj/fPoM0Mt27cgq5AltdPFM7o9VlxkLjpRXXPWy4RUpH3c?=
+ =?us-ascii?Q?lF05EjWHTAlxdIXaymd3T82GZHaksIE6m645IoQ8heizVaCKci3kmzCVqMIn?=
+ =?us-ascii?Q?uoR3q5dUqnc6SeGN5js6aJJWdQy8Xf5duOKSYMxS/sR1Vrxzx/9H+cVgGP6j?=
+ =?us-ascii?Q?wA+Zct6w6XacZEQE7cYYl9s4g3+mRxRX+HaNntcO/L+c+D1iyq2em4KVKnZo?=
+ =?us-ascii?Q?vj4TSRbXr8tkD7ey1pmFSqGjBfzTJpgS1i/1x8zKNPJVL1BwwgJyP0itJvaj?=
+ =?us-ascii?Q?ZeB0qFkrH9cuJolQvYho6FCXE3+10X0JlMWWKTgbh/j2PjyMHKWBHfUEMiPc?=
+ =?us-ascii?Q?XO5BRsXVoIm1IZUsyC17tK+oOGdD0RYLBUuUYJokrtumPEXG2Yz7z9OqD6Ci?=
+ =?us-ascii?Q?I03jwz9Fse56OJAEhnRybXpybKFjliNAM3tjwOM6sfFcyHiQ9y5jFWpb5XnI?=
+ =?us-ascii?Q?WreeX0kI/1tEghL2t/lZopHn/ZxTZ3f0wKEjnDAFwbj8QqkR9ohBTBhy6Dcb?=
+ =?us-ascii?Q?5jNaZu0H9vv2G9bipejVoIJMUlX30lA9GNnpEJbcF6oC4ciGIQPt29AZi/kg?=
+ =?us-ascii?Q?LxyTqxcj9e4gb2Tjt7PI3XsYg5KhtMeLfh2i1iTjMeubpkNUpf28jmK1xRP+?=
+ =?us-ascii?Q?4D521kmHxPqBlWGQSlY3BqjWf42HXHcCDXaIbmWrANEox/IwVbKx4YJJepVK?=
+ =?us-ascii?Q?MQipedXNpgcX3IogsvyRQiRPlMr+/Tc9ICbgZvPSypXTYaW2zP2QWYPq/fdy?=
+ =?us-ascii?Q?1OG/8MgIuXgU5yXLOZHSxSOUZEl5n11UAWKQeiFtbpX9QGa0HI+OnepbFp2e?=
+ =?us-ascii?Q?F9yOI1psgx4Oz+pVBZ0dch9VSFuaLhOt?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/Rpj8oRIf7W6rzGKo3YykdT59QNmg9jGdQl8I48wpEcykK5mTPOBUMIyKQqe?=
+ =?us-ascii?Q?q5OzG0OUhc2C9Aol4TRB7rnd2gCwMKrzGRgMzwDBa+u89g43z7pYA7Y+3qpB?=
+ =?us-ascii?Q?4LCr6UepMEr95Ftjhh7WH2C7nD20j6n9wxNGRMo0vIBYK9MMkvZw5vFLDzid?=
+ =?us-ascii?Q?gfDlj9aH8go1OOXrjasx+rP2BOLRUL6TvwEZMe2TsLegx7TWI8lzzNJNNFaJ?=
+ =?us-ascii?Q?SZ5+HIgOA5K8NQXgYbAleKUl4Ol45PlqZ/ZfhJCBxW++wPN85PjWZDkeQH41?=
+ =?us-ascii?Q?7Q/3I6ZebX9VRtAYro69J30B6dA7AN98wTVtXTxFuYeaDSa1xzeOYyl8JeAd?=
+ =?us-ascii?Q?tNnLMNV36546+EjQg7ZfI5mv2pg03sg/Co3+TGnpOsabWxeeIKBMbGJEUv/2?=
+ =?us-ascii?Q?2R8r+YHdQQjHYSNovPdmJ8iWt/h+CyCyJ67O5qe9MqNVl48S1Ix8L1Ih9bS7?=
+ =?us-ascii?Q?CRrLLDxRVHC/kTpLkLWVMoVCi5rIqoKBa8LtrV8xH/9SJ0byRU+8TE9ALvjv?=
+ =?us-ascii?Q?86YCc2RBHgOZMsb9N2knkfXYgrIQ/AZ/HVNIDbIVTNqrzV8pwFS7lxohQwFq?=
+ =?us-ascii?Q?AyXFy1P3XcN7b1uO82LK4+NfjEydbBGJu4hTT38ayia0649CLqzsP6SMhF4s?=
+ =?us-ascii?Q?t87+T1gfbqc9vDJfmq1lVyOYFJOJH+swPq2fYqisCoPW2b7iU7rfKAIS13x8?=
+ =?us-ascii?Q?NG5ej8Z+h38HFdG1vs3+CdUOAn2vzIv7ADqlhr0TSBURzZFgJ2WGmA0rIPn4?=
+ =?us-ascii?Q?dN5jkLfP1uBUn/zqSqsi6A5yNTU+8D2Wf7kHZEHW0kIDASLDSTYpl8HXFei2?=
+ =?us-ascii?Q?zmSuIDbzQmqHfs8cSMzhgCOZuzskL8XGNoa80Is2Z8B9fxESPiLk/PN+dYpu?=
+ =?us-ascii?Q?nKwzlwR/QqkbuZ24AT6VN3GbHo+3sA5fVNjpjAtVsGgP8FMhqaRVHZIeIRnd?=
+ =?us-ascii?Q?WM3oI/xhA2ogAjP0OsoaujjpsU7fm7Q+4Lp9PoU5FYsuZOP/8LaLIv9B0Xtq?=
+ =?us-ascii?Q?HqWDvEFKGDpJmyjIXxneumhmDLa1XRL8RDZhwUDyub6GqkwPx4wqozP1iUxY?=
+ =?us-ascii?Q?RBHIH4mVjYrv3nXmuCGuDq4AwJ2wAX+vlPZJEgVRO5gYlBIqc2MDEfzJa6ev?=
+ =?us-ascii?Q?zUUxEVgge0suV/YMV2m+LuAG2DvSpFZBI9D+mEywO3mi0kFVL8wiS5RticaB?=
+ =?us-ascii?Q?bNZx7Xup8FwtiBussH7AL563fbV55lrolJ9svlKIalkRJEg2m20PJfRUxbUI?=
+ =?us-ascii?Q?42V0MlhpMiI+hndcnRI4NJqR4ysIdozH0RL8bGwPiZaF4JoXoRepI50IlnaS?=
+ =?us-ascii?Q?u29jItajOYgPG+G7tr+31v6EUQMCZ8fPJxwGxeIC+EAHwpBGDQCg4Y/KrAJx?=
+ =?us-ascii?Q?HqFzxc8PYd3cLN8nupN7jAZrtYlWWlPC37gjM3XiYlPYpHUCVhTOXCwrsik1?=
+ =?us-ascii?Q?W6rPSOIBd2eEqPGlylcm3nXTHupaj6r7X3VyliTmc3Q3hvI/mYrbk7mmnix9?=
+ =?us-ascii?Q?WbCm24a0GEU7E+k6XEJs/9v0D19DnYf1OM01ca1jINgXArdk2DmSiLdKqR9H?=
+ =?us-ascii?Q?vlHJWZBJFmYjn+SM4g4PN4UT7OBoTFazEXOf1/oX?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 042bccbf-9c7a-4c0c-642c-08ddb40630cf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 16:34:44.0916
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qypsxX3oSjPNjg6USsCqx4GgqSQbNDJ9D266bV+U1D6WpE8Ge4KS0/weSqt/zT+YNcThIFRwwO68w+/UUv7SQg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10007
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_093447_799962_DBE41190 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,445 +162,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+Convert lpc32xx-tsc.txt to yaml format.
 
-The OrangePi 4A is a typical Raspberry Pi model B sized development
-board from Xunlong designed around an Allwinner T527 SoC.
+Additional changes:
+- add clocks and put it into required list to match existed lpc32xx.dtsi.
 
-The board has the following features:
-- Allwinner T527 SoC
-- AXP717B + AXP323 PMICs
-- Up to 4GB LPDDR4 DRAM
-- micro SD slot
-- optional eMMC module
-- M.2 slot for PCIe 2.0 x1
-- 16 MB SPI-NOR flash
-- 4x USB 2.0 type-A ports (one can be used in gadget mode)
-- 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMAC200)
-- 3.5mm audio jack via internal audio codec
-- HDMI 2.0 output
-- eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
-- USB type-C port purely for power
-- AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
-- unsoldered headers for ADC and an additional USB 2.0 host port
-- 40-pin GPIO header
-
-Add a device tree for it, enabling all peripherals currently supported.
-
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Changes since v1:
-- Fixed regulator names for bldo3 and bldo4
-- Dropped labels for aldo1, bldo3, and bldo4, which are not really used
-- Added voltage constraints to aldo2, based on specifications from
-  schematic
-- Appended "-usb-0v9" to cpusldo's regulator name
-- Added comments to explain how axp323 aldo1 and dldo1 are tied together
+changes in v2
+- add clocks and put it into required list to match existed lpc32xx.dtsi.
+---
+ .../input/touchscreen/lpc32xx-tsc.txt         | 16 -------
+ .../input/touchscreen/nxp,lpc3220-tsc.yaml    | 43 +++++++++++++++++++
+ 2 files changed, 43 insertions(+), 16 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/lpc32xx-tsc.txt
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/nxp,lpc3220-tsc.yaml
 
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 383 ++++++++++++++++++
- 2 files changed, 384 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 773cc02a13d0..780aeba0f3a4 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -57,3 +57,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/lpc32xx-tsc.txt b/Documentation/devicetree/bindings/input/touchscreen/lpc32xx-tsc.txt
+deleted file mode 100644
+index 41cbf4b7a670d..0000000000000
+--- a/Documentation/devicetree/bindings/input/touchscreen/lpc32xx-tsc.txt
++++ /dev/null
+@@ -1,16 +0,0 @@
+-* NXP LPC32xx SoC Touchscreen Controller (TSC)
+-
+-Required properties:
+-- compatible: must be "nxp,lpc3220-tsc"
+-- reg: physical base address of the controller and length of memory mapped
+-  region.
+-- interrupts: The TSC/ADC interrupt
+-
+-Example:
+-
+-	tsc@40048000 {
+-		compatible = "nxp,lpc3220-tsc";
+-		reg = <0x40048000 0x1000>;
+-		interrupt-parent = <&mic>;
+-		interrupts = <39 0>;
+-	};
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/nxp,lpc3220-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/nxp,lpc3220-tsc.yaml
 new file mode 100644
-index 000000000000..ff2fd8e71e03
+index 0000000000000..b6feda127c7b5
 --- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-@@ -0,0 +1,383 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+/*
-+ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
-+ */
++++ b/Documentation/devicetree/bindings/input/touchscreen/nxp,lpc3220-tsc.yaml
+@@ -0,0 +1,43 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/nxp,lpc3220-tsc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+/dts-v1/;
++title: NXP LPC32xx SoC Touchscreen Controller (TSC)
 +
-+#include "sun55i-a523.dtsi"
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
++properties:
++  compatible:
++    const: nxp,lpc3220-tsc
 +
-+/ {
-+	model = "OrangePi 4A";
-+	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
++  reg:
++    maxItems: 1
 +
-+	aliases {
-+		serial0 = &uart0;
-+	};
++  clocks:
++    maxItems: 1
 +
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
++  interrupts:
++    maxItems: 1
 +
-+	ext_osc32k: ext-osc32k-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		clock-output-names = "ext_osc32k";
-+	};
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
 +
-+	leds {
-+		compatible = "gpio-leds";
++additionalProperties: false
 +
-+		/* PWM capable pin, but PWM isn't supported yet. */
-+		led {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
-+		};
-+	};
++examples:
++  - |
++    #include <dt-bindings/clock/lpc32xx-clock.h>
 +
-+	wifi_pwrseq: pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&r_pio 1 1 GPIO_ACTIVE_LOW>; /* PM1 */
-+		clocks = <&rtc CLK_OSC32K_FANOUT>;
-+		clock-names = "ext_clock";
-+	};
-+
-+	reg_otg_vbus: regulator-otg-vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "otg-vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&reg_vcc5v>;
-+		gpio = <&r_pio 0 4 GPIO_ACTIVE_HIGH>;	/* PL4 */
-+		enable-active-high;
-+	};
-+
-+	reg_pcie_vcc3v3: regulator-pcie-vcc3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-pcie-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v>;
-+		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
-+		enable-active-high;
-+	};
-+
-+	reg_usb_vbus: regulator-usb-vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usb-vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&reg_vcc5v>;
-+		gpio = <&r_pio 0 12 GPIO_ACTIVE_HIGH>;	/* PL12 */
-+		enable-active-high;
-+	};
-+
-+	reg_vcc5v: regulator-vcc5v {
-+		/* board wide 5V supply from USB type-C port */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_cldo3>;
-+	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	bus-width = <4>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	non-removable;
-+	vmmc-supply = <&reg_dldo1_323>;
-+	vqmmc-supply = <&reg_bldo1>;
-+	status = "okay";
-+
-+	brcmf: wifi@1 {
-+		compatible = "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		interrupt-parent = <&r_pio>;
-+		interrupts = <1 0 IRQ_TYPE_LEVEL_LOW>; /* PM0 */
-+		interrupt-names = "host-wake";
-+	};
-+};
-+
-+&mmc2 {
-+	bus-width = <8>;
-+	cap-mmc-hw-reset;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	vmmc-supply = <&reg_cldo3>;
-+	vqmmc-supply = <&reg_cldo1>;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pc-supply = <&reg_cldo1>;
-+	vcc-pd-supply = <&reg_cldo3>;
-+	vcc-pe-supply = <&reg_aldo2>;
-+	vcc-pf-supply = <&reg_cldo3>;	/* VCC-IO for 3.3v; VCC-MCSI for 1.8v */
-+	vcc-pg-supply = <&reg_bldo1>;
-+	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pi-supply = <&reg_cldo3>;
-+	vcc-pj-supply = <&reg_cldo1>;
-+	vcc-pk-supply = <&reg_cldo1>;
-+};
-+
-+&r_i2c0 {
-+	status = "okay";
-+
-+	axp717: pmic@35 {
-+		compatible = "x-powers,axp717";
-+		reg = <0x35>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+		interrupts-extended = <&nmi_intc 0 IRQ_TYPE_LEVEL_LOW>;
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+		vin4-supply = <&reg_vcc5v>;
-+		aldoin-supply = <&reg_vcc5v>;
-+		bldoin-supply = <&reg_vcc5v>;
-+		cldoin-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			/* Supplies the "little" cluster (1.4 GHz cores) */
-+			reg_dcdc1: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpul";
-+			};
-+
-+			reg_dcdc2: dcdc2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <920000>;
-+				regulator-max-microvolt = <920000>;
-+				regulator-name = "vdd-gpu-sys";
-+			};
-+
-+			reg_dcdc3: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1160000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vcc-dram";
-+			};
-+
-+			reg_dcdc4: dcdc4 {
-+				/* feeds 3.3V pin on GPIO header */
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vdd-io";
-+			};
-+
-+			aldo1 {
-+				/* not actually connected */
-+				regulator-name = "avdd-csi";
-+			};
-+
-+			reg_aldo2: aldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pe";
-+			};
-+
-+			reg_aldo3: aldo3 {
-+				/* supplies the I2C pins for this PMIC */
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-pl-usb";
-+			};
-+
-+			reg_aldo4: aldo4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pll-dxco-avcc";
-+			};
-+
-+			reg_bldo1: bldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pg-wifi";
-+			};
-+
-+			reg_bldo2: bldo2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pm-lpddr";
-+			};
-+
-+			bldo3 {
-+				/* not actually connected */
-+				regulator-name = "afvcc-csi";
-+			};
-+
-+			bldo4 {
-+				/* not actually connected */
-+				regulator-name = "dvdd-csi";
-+			};
-+
-+			reg_cldo1: cldo1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-cvp-pc-lvds-mcsi-pk-efuse-pcie-edp-1v8";
-+			};
-+
-+			reg_cldo2: cldo2 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc3v3-csi";
-+			};
-+
-+			reg_cldo3: cldo3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-io-mmc-nand-pd-pi-usb";
-+			};
-+
-+			reg_cldo4: cldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-3v3-phy1-lcd";
-+			};
-+
-+			reg_cpusldo: cpusldo {
-+				/* supplies the management core */
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-cpus";
-+			};
-+		};
-+	};
-+
-+	axp323: pmic@36 {
-+		compatible = "x-powers,axp323";
-+		reg = <0x36>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		status = "okay";
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			reg_aldo1_323: aldo1 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-wifi";
-+			};
-+
-+			reg_dldo1_323: dldo1 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-wifi2";
-+			};
-+
-+			/* Supplies the "big" cluster (1.8 GHz cores) */
-+			reg_dcdc1_323: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1150000>;
-+				regulator-name = "vdd-cpub";
-+			};
-+
-+			/* DCDC2 is polyphased with DCDC1 */
-+
-+			/* Some RISC-V management core related voltage */
-+			reg_dcdc3_323: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-dnr";
-+			};
-+		};
-+	};
-+};
-+
-+&r_pio {
-+/*
-+ * Specifying the supply would create a circular dependency.
-+ *
-+ *	vcc-pl-supply = <&reg_aldo3>;
-+ */
-+	vcc-pm-supply = <&reg_bldo2>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&rtc CLK_OSC32K_FANOUT>;
-+		clock-names = "lpo";
-+		vbat-supply = <&reg_aldo1_323>;
-+		vddio-supply = <&reg_bldo1>;
-+		device-wakeup-gpios = <&r_pio 1 3 GPIO_ACTIVE_HIGH>; /* PM3 */
-+		host-wakeup-gpios = <&r_pio 1 4 GPIO_ACTIVE_HIGH>; /* PM4 */
-+		shutdown-gpios = <&r_pio 1 2 GPIO_ACTIVE_HIGH>; /* PM2 */
-+	};
-+};
-+
-+&usb_otg {
-+	 /*
-+	  * The OTG controller is connected to one of the type-A ports.
-+	  * There is a regulator, controlled by a GPIO, to provide VBUS power
-+	  * to the port, and a VBUSDET GPIO, to detect externally provided
-+	  * power. But without ID or CC pins there is no real way to do a
-+	  * runtime role detection.
-+	  */
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_vbus-supply = <&reg_otg_vbus>;
-+	usb0_vbus_det-gpios = <&r_pio 0 7 GPIO_ACTIVE_HIGH>; /* PL7 */
-+	usb1_vbus-supply = <&reg_usb_vbus>;
-+	status = "okay";
-+};
++    touchscreen@40048000 {
++        compatible = "nxp,lpc3220-tsc";
++        reg = <0x40048000 0x1000>;
++        interrupt-parent = <&mic>;
++        interrupts = <39 0>;
++        clocks = <&clk LPC32XX_CLK_ADC>;
++    };
 -- 
-2.39.5
+2.34.1
 
 
