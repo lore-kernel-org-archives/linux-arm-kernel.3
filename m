@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEA7C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 14:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5EAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 14:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQ5fOSvzxaL+bGOnzMkvb9uvp9/gX29vSEKbsoQM5Ro=; b=h1vto7s7xj9aiFNV+8u0QsZNlR
-	tyCkcVFdiJ4FTixjHRy8WmMq3Qv2igVUOxUQYsEXR7G5WyHscQsAl/dQ83Tr8Y2PAZdxE4643RJ4R
-	amUZcLq4HuKX21shDGj8eSAD8kMuAlbZGMyDvQUfiMbaQxroUcn9P5Mh4YJbAsjekiaUOuDABnETx
-	l6hmKQHPvx2CKr+/cI7UB0cpSHyqIHABDadQi/siqrx6/+YKpfrAO3PTyhqAlGnCagLXrDJj2kXvI
-	OGGqrCD4PBtc8eVEF2ADZgZvPDYYJJtlRsym5/k9dl9DOw9Rv1/R5z7MOmhtnpA/Kb6ibnMknklka
-	o4lHcQcQ==;
+	bh=nzrcHeeI0vyHtikZnoF2zxUYMZ5i72Uyxy835+Y382g=; b=mX68DAm6pbFTp2CUO/53A4u4fF
+	gMqo32Nluq0h60bmZBBZA/nzaBZrcAtdGo1S5myevfO81EWC9HgYFiG1yegZCvocZBOIhQIN0AFlX
+	vEMl4RtkF7uNf9TjL6tTvDtX8CLAeYavOEh3N33mobjpHGiyEjnu47s9xKGAw4yI9DJafuOa/4fB9
+	PUq60aZ12XaDGJpBDznLyXp30ql1RUrvXoU2FT8wuncnQujEZN3b6hArNF5nNcbQsJpz1roCGDJ1+
+	mS7jVf/VccsINNiFspu6QmRwwwcjog/UFO8in5AeWp76i+7bFJHnu1bTWZ4YyjbbDARdKwOBugEvT
+	QTqKAajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURBy-00000008yiG-2qoI;
-	Wed, 25 Jun 2025 14:33:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUREF-00000008z6g-04fd;
+	Wed, 25 Jun 2025 14:35:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNwy-00000008Pj1-1wdV;
-	Wed, 25 Jun 2025 11:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KQ5fOSvzxaL+bGOnzMkvb9uvp9/gX29vSEKbsoQM5Ro=; b=f2yt0AcZID1Y6SlYqcvEEgM+v0
-	dDy62lPhnrfU6m74rQltkPXNMqy1ZhYkcYtHVx1TD+YP3UIpad4XLlBtxCzlZ1wBwhwwcs6zmCi/R
-	R0GMQWVmYNspz9YQJcn5ALErghdf0knOG+gCkvZqsx4QkAWpFDfvO46OWWwVSTvJ92IGzXD50rhMx
-	2Ylc+m1yFQhX1B+NKEKjWbkHeJn8RKdvGaY2SdgITNW9AUTtgj74/lw57iAKF5OpXnfrUKDWpswoy
-	G8AOOHtaFbUicvBW4z377YkTMbTJKUfK+h6N5aeRcg/O0sNA38LbT5PC5FH65fjPC1CJyIieMGpKI
-	j2kbukew==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNwv-00000005oID-2KrI;
-	Wed, 25 Jun 2025 11:05:55 +0000
+	id 1uUNy5-00000008Q0K-12CG;
+	Wed, 25 Jun 2025 11:07:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F042A522D2;
-	Wed, 25 Jun 2025 11:05:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8E92C4CEEA;
-	Wed, 25 Jun 2025 11:05:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EA6461547;
+	Wed, 25 Jun 2025 11:07:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84DF0C4CEF3;
+	Wed, 25 Jun 2025 11:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750849551;
-	bh=4lPd6KAvzXLpR40aJR9oTpfeEv7nnPZ/tTvk3e0XF4M=;
+	s=k20201202; t=1750849624;
+	bh=Du5M54IwYdOnXf3aWRLYEWi5vYiuJM7fkemw9YzMmhI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tulmo0CJdcLK2dbqrKEF7umDt2un0BQ5K2ElGgLeR6Hc7GH9nI2x5boFteE3GRRb7
-	 rDUBDDQnyglthoIHmG3QAESsvF9sROfEAA5ssM4NRAKUQtfJIDJ/XahkqkNu0dmuMR
-	 WLcffsAoUvm7a+floCkuu2aDhxSHhLIvL9w8Ng7yeZvsFKlT8sKHI7Kcqs65qbHIQJ
-	 +1ZYLSc676lj+IqY7w0OeNG7paY4Pa7GBQjwJqrIhMBCTbdmVlH0Sn0uJgVYh5HMAi
-	 Sf63AA98YQcmTPw5Snf/6SrQ/3w434pcaaVKsTOubklkd5o/53lpUaAVDHDIQzwSTD
-	 7ruDKt5dHClrg==
-Message-ID: <29eeae4f-59ed-4781-88b1-4fd76714ecb6@kernel.org>
-Date: Wed, 25 Jun 2025 13:05:45 +0200
+	b=V2npjSuGkDaZbAiIfvwChljQPGkoIx25/DuLkqurOMb68Mtv9JxFZ9Xs2DqbAfwwt
+	 MOZB5Fli4sKbXoWq8PcHKAgoDvnYVIQ67YSYn7p5ElRJyPTq2TcUp1LN+USkozNjOm
+	 XLPf4KDOSKBe0UqsLPnYrAP4p3crqE2MnWuCGHfaMWgrR0rVct+2BS6yAXClZvom/j
+	 sa5iXgml/zyhDooN2wJFS3TULsVcXX27FGAxjLEIoS7H8AvrjgKeMjYSbhm7h1Y/4a
+	 oh8EgY9Lr4/5+X/H/Wunb9WehB8mer9EsWFowRkPCsRI1+i6ODYnjOSHl+KoDApXv2
+	 mquTNGLIgOpiA==
+Message-ID: <86654ad1-a2ab-4add-b9de-4d56c67f377b@kernel.org>
+Date: Wed, 25 Jun 2025 13:06:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
@@ -124,9 +110,6 @@ Autocrypt: addr=krzk@kernel.org; keydata=
 In-Reply-To: <9fc32523-5009-4f48-8d82-6c3fd285801d@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_120554_025986_526B95BE 
-X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,39 +183,15 @@ On 25/06/2025 11:45, AngeloGioacchino Del Regno wrote:
 > ....but the hardware voter cannot be represented as a clock, because you use it
 > for clocks *or* power domains (but at the same time, and of course in different
 > drivers, and in different *intertwined* registers).
-> 
-> So the hardware voter itself (and/or bits inside of its registers) cannot be
-> represented as a clock :\
-> 
-> In the context of clocks, it's used for clocks, (and not touching power domains at
-> all), but in the context of power domains it's used for power domains (and not
-> touching clocks at all).
 
-I don't understand this. Earlier you mentioned "MUX-GATE and GATE
-clocks", so these are clocks, right? How these clocks are used in other
-places as power domains? If they are, this either has to be fixed or
-apparently this is a power domain and use it as power domain also here.
+BTW:
 
-Really, something called as hardware voter is not that uncommon and it
-does fit existing bindings.
+git grep mediatek,hardware-voter
+0 results
 
-> 
-> I'm not sure what qcom does - your reply makes me think that they did it such that
-> the clocks part is in a MMIO and the power domains part is in a different MMIO,
-> without having clock/pd intertwined voting registers...
-
-No, you just never have direct access to hardware. You place votes and
-votes go to the firmware. Now depending on person submitting it or
-writing internal docs, they call it differently, but eventually it is
-the same. You want to vote for some specific signal to be active or
-running at some performance level.
-
-> 
-> Still not sure what to do here, then...
-> 
-> Cheers,
-> Angelo
-
+so I do not accept explanation that you use it in different drivers. Now
+is the first time this is being upstream, so now is the time when this
+is shaped.
 
 Best regards,
 Krzysztof
