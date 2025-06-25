@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D2DC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13F5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 21:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=misENF5z7hXRu4pyLJE5erm74j5CmbImUlp+T1d0VlE=; b=NE4AjanxJ7FU9naXdNjsEslG2h
-	o4d2WRrBTxOQnIhZjtTWLdyqBW9VFzYSftvYGseDsnp/FAQ2nOaOlAtLdhDx1VK3594Ms49f0Dl9t
-	0Dt07OCrz+R06Rphn3pr6sK2+ggevRWVXyIOucCFKxpO7giIXqAXvX/oeHsk17rp/G0OwfDi9E7eF
-	4bxm14jO5FG6mJFN97bCylHvh2V55KAy8b+rO43Vk3rvoCd1Z5nbFPMY4pcj+xg7Y3qXufIcjL/O6
-	cUZzixP82djQkeD0LJH1TvIaKS/207fQb3hvk5GY91Mqqsx4UH0o1bAxiVI1wb499nyCT2Xs7/Q2k
-	CMazmySQ==;
+	bh=bJ6+ws8iYsoAo+/f7/kzG74KYl+qg22HEqZKduhQRd4=; b=LLFQQZb6tY2lB6cdm2WocSASfw
+	NkopZbnM1Sir+3gPMpAstaPOrrjm5uWOULav5zXRMVgaXENzDAxziM3gC0KrsaM96MBK6stNQhC8E
+	M/dUqE9I20GuNvjYDi1iQlpW6qte1zaT07ysCNS9nSYxquC+SQ1kEX/5TgHktD7te7n8vOB7+ag5W
+	WoIJPJYyhq1bds7K0tPGnhS/jy+fH74tG1yOgtEubqQXsWk+AGaTaGY25CBiiJaP85W2YnJ/q9zAE
+	R1kzgECFyxK5+aKKxJwtbh8zyHy24KfDNVBlCbHlISHrRHYd/PSkQKbjeQTjsW5N3Pluw/wZRC72j
+	bj1bTzIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUY0B-0000000A0Gz-3MJm;
-	Wed, 25 Jun 2025 21:49:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uUY7U-0000000A1FT-272p;
+	Wed, 25 Jun 2025 21:57:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVtQ-00000009l83-0vLn
+	id 1uUXUF-00000009x1p-24Xa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 19:34:49 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4EE886F3;
-	Wed, 25 Jun 2025 21:34:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750880062;
-	bh=KX8ESLOsVI5lykUMCHvwiR4DNef+po6luXp0o93XLls=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZldvsvGL7NWob8nF/x4LAYjano2AsMONQ28+SbO3taxdV/7eKtyo/Ab5G/FSeWkS5
-	 WN4HTy9KnQLleqbdxPrDOroEHBwi6uY9DthYK+D3bMSg/ehFWT22YcCnms4E2Cw31Y
-	 FTQQge526MV+/DVxrguvJJMh6p2tYYSr3DV092kg=
-Date: Wed, 25 Jun 2025 22:34:18 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Adam Ford <aford173@gmail.com>,
-	Frank Li <Frank.li@nxp.com>,
-	Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Purism Kernel Team <kernel@puri.sm>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 6/8] dt-bindings: media: nxp,imx-mipi-csi2: Add
- fsl,num-channels property
-Message-ID: <20250625193418.GA32071@pendragon.ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-7-laurent.pinchart@ideasonboard.com>
- <aEb+iTlDh0H/bRMY@lizhi-Precision-Tower-5810>
- <CAHCN7xJjR1zZXeJAvkXmdNYroP6Jm6TLjHjnPUOF4z7yaL7EFw@mail.gmail.com>
- <20250609182033.GA11428@pendragon.ideasonboard.com>
- <aEcxN7xClLfp0STx@lizhi-Precision-Tower-5810>
- <20250610081829.GC11428@pendragon.ideasonboard.com>
- <20250619210237.GA21935@pendragon.ideasonboard.com>
- <20250625192728.GA2072001-robh@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Wed, 25 Jun 2025 21:16:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A18F615F0;
+	Wed, 25 Jun 2025 21:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A947C4CEEA;
+	Wed, 25 Jun 2025 21:16:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750886214;
+	bh=4prugb93ZC+OeAoNZx1cEeiLG8KuCXkhRSGGMhghjJA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=QPWmotoN6Pr3ty6QhJmEQgUMG5YfGeAEEOQn7LC7Z7cZDOKx91RJlaLsvaPGR0rXv
+	 IC60ujHJyn7RboNytYtA1jiZNinAFcw6L8FJBst5hFcJFmLamq3mdJKTHR9/7Y42cC
+	 pWJwSiR1PbEkdqKtcy85s1MqZc/X4XuWlxiSiXDEvhJTLhUREsrDnhNsFkdvXP04GJ
+	 aTaL3+VOuBZyIH6fypOyWoYPbaRlgtfJ0xFnKp+Eshkgy3pNnYxTl77CkM3M5npCYI
+	 sePXc+qVfF6lFbJIQwnah57Pq1pjnvUryjvjZqnXYe9jk338LFpejeTYzlvkrKZd1C
+	 Z9QhLgBPnhu+A==
+Date: Wed, 25 Jun 2025 16:16:53 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250625192728.GA2072001-robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_123448_391745_114EC9F3 
-X-CRM114-Status: GOOD (  39.50  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Rafal Milecki <zajec5@gmail.com>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Stefan Wahren <wahrenst@gmx.net>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Hauke Mehrtens <hauke@hauke-m.de>, linux-arm-kernel@lists.infradead.org, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org
+To: Taishi Shimizu <s.taishi14142@gmail.com>
+In-Reply-To: <20250625154315.114139-1-s.taishi14142@gmail.com>
+References: <20250625154315.114139-1-s.taishi14142@gmail.com>
+Message-Id: <175088617875.2239084.4449036167098088262.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: bcm: Add support for Buffalo
+ WXR-1750DHP
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 02:27:28PM -0500, Rob Herring wrote:
-> On Fri, Jun 20, 2025 at 12:02:37AM +0300, Laurent Pinchart wrote:
-> > On Tue, Jun 10, 2025 at 11:18:29AM +0300, Laurent Pinchart wrote:
-> > > On Mon, Jun 09, 2025 at 03:08:39PM -0400, Frank Li wrote:
-> > > > On Mon, Jun 09, 2025 at 09:20:33PM +0300, Laurent Pinchart wrote:
-> > > > > On Mon, Jun 09, 2025 at 12:53:48PM -0500, Adam Ford wrote:
-> > > > > > On Mon, Jun 9, 2025 at 10:32 AM Frank Li wrote:
-> > > > > > > On Mon, Jun 09, 2025 at 02:58:38AM +0300, Laurent Pinchart wrote:
-> > > > > > > > The CSI-2 receiver can be instantiated with up to four output channels.
-> > > > > > > > This is an integration-specific property, specify the number of
-> > > > > > > > instantiated channels through a new fsl,num-channels property. The
-> > > > > > > > property is optional, and defaults to 1 as only one channel is currently
-> > > > > > > > supported by drivers.
-> > > > > > > >
-> > > > > > > > The only known SoC to have more than one channel is the i.MX8MP. As the
-> > > > > > > > binding examples do not cover that SoC, don't update them.
-> > > > > > > >
-> > > > > > > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > > > > > > ---
-> > > > > > > >  .../devicetree/bindings/media/nxp,imx-mipi-csi2.yaml       | 7 +++++++
-> > > > > > > >  1 file changed, 7 insertions(+)
-> > > > > > > >
-> > > > > > > > diff --git a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > > > > > > index db4889bf881e..41ad5b84eaeb 100644
-> > > > > > > > --- a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > > > > > > +++ b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > > > > > > @@ -68,6 +68,13 @@ properties:
-> > > > > > > >      default: 166000000
-> > > > > > > >      deprecated: true
-> > > > > > > >
-> > > > > > > > +  fsl,num-channels:
-> > > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > > > > > +    description: Number of output channels
-> > > > > > > > +    minimum: 1
-> > > > > > > > +    maximum: 4
-> > > > > > > > +    default: 1
-> > > > > > > > +
-> > > > > > >
-> > > > > > > Look like it is fixed value for each compabiable string, So it is not
-> > > > > > > suitable for adding new property. It should be in driver data of each
-> > > > > > > compatible strings.
-> > > > > > >
-> > > > > > > I met similar case before. DT team generally don't agree on add such
-> > > > > > > property, unless there are two instances in the same chip, which have
-> > > > > > > difference channel number.
-> > > > > >
-> > > > > > If the DT changes are rejected, can the number of channels be added to
-> > > > > > the data structure inside mipi_csis_of_match?  We have compatibles for
-> > > > > > 8mm and imx7.  If we add an imx8mp compatible we could add a reference
-> > > > > > to the number of channels.
-> > > > >
-> > > > > I thought about it, and decided to add a new property because the number
-> > > > > of channels is really a synthesis time configuration parameter, and
-> > > > > could differ between different CSIS instances in the same SoC.
-> > > > 
-> > > > Need add such information at binding doc's commit message,
-> > > 
-> > > I'll update the commit message.
-> > 
-> > The commit message in v2 will state
-> > 
-> >     dt-bindings: media: nxp,imx-mipi-csi2: Add fsl,num-channels property
-> > 
-> >     The CSI-2 receiver can be instantiated with up to four output channels.
-> >     This is an integration-specific property, specify the number of
-> >     instantiated channels through a new fsl,num-channels property. The
-> >     property is optional, and defaults to 1 as only one channel is currently
-> >     supported by drivers.
-> > 
-> >     Using the compatible string to infer the number of channels has been
-> >     considered, but multiple instances of the same CSIS in the same SoC
-> >     could conceptually be synthesized with a different number of channels.
-> >     An explicit property is therefore more appropriate.
-> > 
-> >     The only known SoC to have more than one channel is the i.MX8MP. As the
-> >     binding examples do not cover that SoC, don't update them.
+
+On Thu, 26 Jun 2025 00:43:14 +0900, Taishi Shimizu wrote:
+> Add Buffalo WXR-1750DHP under BCM4708 based boards.
 > 
-> So how many channels does i.MX8MP have in a DT without this property? 
-> It's either 1 or the driver overrides it to 2.
-
-Only 1. I only realized a few weeks ago that the CSIS has multiple
-output channels on i.MX8MP. This wasn't documented anywhere, and
-understanding how all of this works took lots of trial-and-error.
-
-> > Rob, Krzysztof, Conor, are you fine with adding this property ?
+> Signed-off-by: Taishi Shimizu <s.taishi14142@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Yes, but seems a little late.
 
-It is, I wish I had known about this hardware feature years ago. Now I
-need to figure out how to properly support it in the driver and expose
-it to userspace through V4L2 without breaking backward compatibility
-with existing applications. The DT binding is the easy part :-)
 
--- 
-Regards,
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Laurent Pinchart
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250625 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/broadcom/' for 20250625154315.114139-1-s.taishi14142@gmail.com:
+
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: /axi@18000000: failed to match any schema with compatible: ['brcm,bus-axi']
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@12000: 'device_type' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@12000: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@13000: 'device_type' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@13000: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@14000: 'device_type' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@14000: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@5: 'phy-mode' is a required property
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@5: 'oneOf' conditional failed, one must be fixed:
+	'fixed-link' is a required property
+	'phy-handle' is a required property
+	'managed' is a required property
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@7: 'phy-mode' is a required property
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@7: 'oneOf' conditional failed, one must be fixed:
+	'fixed-link' is a required property
+	'phy-handle' is a required property
+	'managed' is a required property
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@8: 'phy-mode' is a required property
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): Unevaluated properties are not allowed ('ports' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
+
+
+
+
+
 
