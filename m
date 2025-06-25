@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D96C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E39CC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ErPyd7an14yCl0+kH7+xShDnNFRVdUpt63D6DRuGz4=; b=I2WnrnnvKQp4OIEIf/q7U07p/7
-	EJK8miHev+8AYfx3Dti23ZWrhrVgH9T5jqZK8pDEqAXJtufI8ZumV49eWq/JmXRWl9sRXG/ziqx6Z
-	Gf+2oytKZTMh66EIyLDHFVdwOwpvO6/CYrMZV5y1nbYPJNTNgvvjjuPa+qsQL666Yq+6VvQVTxSrs
-	0nWBibcmiFhsRe0yUijaLMN0deAXFUD6O5BXMtoNXhGZnOlvjo8723BB35jNtXOZ4YsqjXJ+KOGyb
-	apU7h9FneAjHbFm9GUsInM50L4kliyzLBy81Vd72Xy7L3xSsg6wBfnkeOtnI8g0H0gB061HFxmlV7
-	erm6bU6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zTVi9eLGvwvzNaP8yl+nsFwlrw1BF+IPA5X1VEV65UQ=; b=T/dcZqQP4z8iUF88Q+JI0ITq8S
+	PxckxbzUfH3fQV+SAU9s8BUqrTgY7N99Jd/5zFjC8GN5FPLv1H4yVM4M97nrOri1bPiOc4yAUOAKx
+	aEvWnWFDmPFqzxrDiSyeLWkgIivDX1xJrcefW+2+l7j6rjJdKWYgjn6IT1GooUDOxFH6WG/GK6Jaz
+	zYcvNdn55V1vu5FHc9i5W2QqUuhV9yQ/Z+fb7a+dP4xWWq3p1ysQySEw/T+7KPj6mwVWj6ZfueKL0
+	Gy7C3r4RBmtw5m8Nknhw7kz8uNeT0y6ffc4iJ0Iqz/hpf6ZFbgZAF8M68+AQBlSfSoeTnrkTLxOQJ
+	VFSVwYFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUT8l-00000009Kdb-3x5X;
-	Wed, 25 Jun 2025 16:38:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUTB2-00000009Kqn-2kAo;
+	Wed, 25 Jun 2025 16:40:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOq6-00000008ZZt-2rc1
+	id 1uUOvs-00000008a5I-2GrY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:02:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2160F611BD;
-	Wed, 25 Jun 2025 12:02:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A936C4CEEA;
-	Wed, 25 Jun 2025 12:02:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750852973;
-	bh=mlZPeHhKRfK4QPugHv3jcEFJFQvdWnNs9NsJQp8STP8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ej94voEoj0IPEuwI8HfFWhG6IxvQc28nyxODnTWBqR5Piq4D+Cpi15LUKzLWStBO8
-	 zjV4FMbheJC5F198UnVnPP98CyeSWC3MId1nxkjZ7PcssbcLhEicNqlBSXShcGUG5x
-	 CQAAU1Uc0QFaWNsMXvikE4gs4WydmFTQOpOXlJyRqiS/3C75FnEBn/uzXCIl/hvJDT
-	 pyNhvIFdWCS23sXWOFQqnEudEsFlDiNcwrvsg3FQvP5/G0kak91NUFq3hmHxIP8btu
-	 R6UMG6d+Xplq3rfzWYPMEL+uZpLl2TtSrC1lHWXB1WQDKxbZIlriv5gp/S2ad2dZ83
-	 qtvlOcnajiMYQ==
-Date: Wed, 25 Jun 2025 15:02:49 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>, linux-integrity@vger.kernel.org,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Nicholas Piggin <npiggin@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>
-Subject: Re: [PATCH v6 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-Message-ID: <aFvlaY0BNjaGxU1D@kernel.org>
-References: <20250620130810.99069-1-sgarzare@redhat.com>
- <20250620130810.99069-5-sgarzare@redhat.com>
+	Wed, 25 Jun 2025 12:08:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750853331;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zTVi9eLGvwvzNaP8yl+nsFwlrw1BF+IPA5X1VEV65UQ=;
+	b=AnAZeIl7y/Eec5nKLhsF83vaZ+BCyQ+DakuZa2Qrq3iYK+XmjsyKAiXh8DOig2wV334+MB
+	6uBt59YbruwyvHs4oZlDxoclLjKCocc+CIFbNwn277WukpNuVnOVK79qOvRA6J/nS+JXkL
+	VM9Z8pRq9YFgvMf2ZzjC4KaXxW3h7Jw=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-QJVepUZHO4aAnGEtYhWywA-1; Wed,
+ 25 Jun 2025 08:08:47 -0400
+X-MC-Unique: QJVepUZHO4aAnGEtYhWywA-1
+X-Mimecast-MFC-AGG-ID: QJVepUZHO4aAnGEtYhWywA_1750853326
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B12EA19560AF;
+	Wed, 25 Jun 2025 12:08:45 +0000 (UTC)
+Received: from gmonaco-thinkpadt14gen3.rmtit.com (unknown [10.45.225.149])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B49D71956096;
+	Wed, 25 Jun 2025 12:08:39 +0000 (UTC)
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org
+Cc: Gabriele Monaco <gmonaco@redhat.com>
+Subject: [PATCH v2] tracing: Fix inconsistency in irq tracking on NMIs
+Date: Wed, 25 Jun 2025 14:08:22 +0200
+Message-ID: <20250625120823.60600-1-gmonaco@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620130810.99069-5-sgarzare@redhat.com>
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_050852_662741_30F4A25C 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,95 +89,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 03:08:10PM +0200, Stefano Garzarella wrote:
-> From: Stefano Garzarella <sgarzare@redhat.com>
-> 
-> This driver does not support interrupts, and receiving the response is
-> synchronous with sending the command.
-> 
-> Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
-> ->send() already fills the provided buffer with a response, and ->recv()
-> is not implemented.
-> 
-> Keep using the same pre-allocated buffer to avoid having to allocate
-> it for each command. We need the buffer to have the header required by
-> the SVSM protocol and the command contiguous in memory.
-> 
-> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-> ---
-> v5:
-> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
-> v4:
-> - reworked commit description [Jarkko]
-> ---
->  drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
->  1 file changed, 11 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
-> index 0847cbf450b4..f5ba0f64850b 100644
-> --- a/drivers/char/tpm/tpm_svsm.c
-> +++ b/drivers/char/tpm/tpm_svsm.c
-> @@ -26,37 +26,31 @@ struct tpm_svsm_priv {
->  };
->  
->  static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> -			 size_t len)
-> +			 size_t cmd_len)
->  {
->  	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
->  	int ret;
->  
-> -	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
-> +	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
->  	if (ret)
->  		return ret;
->  
->  	/*
->  	 * The SVSM call uses the same buffer for the command and for the
-> -	 * response, so after this call, the buffer will contain the response
-> -	 * that can be used by .recv() op.
-> +	 * response, so after this call, the buffer will contain the response.
-> +	 *
-> +	 * Note: we have to use an internal buffer because the device in SVSM
-> +	 * expects the svsm_vtpm header + data to be physically contiguous.
->  	 */
-> -	return snp_svsm_vtpm_send_command(priv->buffer);
-> -}
-> -
-> -static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
-> -{
-> -	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
-> +	ret = snp_svsm_vtpm_send_command(priv->buffer);
-> +	if (ret)
-> +		return ret;
->  
-> -	/*
-> -	 * The internal buffer contains the response after we send the command
-> -	 * to SVSM.
-> -	 */
-> -	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
-> +	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, bufsiz);
->  }
->  
->  static struct tpm_class_ops tpm_chip_ops = {
->  	.flags = TPM_OPS_AUTO_STARTUP,
-> -	.recv = tpm_svsm_recv,
->  	.send = tpm_svsm_send,
->  };
->  
-> @@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
->  
->  	dev_set_drvdata(&chip->dev, priv);
->  
-> +	chip->flags |= TPM_CHIP_FLAG_SYNC;
->  	err = tpm2_probe(chip);
->  	if (err)
->  		return err;
-> -- 
-> 2.49.0
-> 
+The irq_enable/irq_disable tracepoints fire only when there's an actual
+transition (enabled->disabled and vice versa), this needs special care
+in NMIs, as they can potentially start with interrupts already disabled.
+The current implementation takes care of this by tracking the lockdep
+state on nmi_entry as well as using the variable tracing_irq_cpu to
+synchronise with other calls (e.g. local_irq_disable/enable).
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+This can be racy in case of NMIs when lockdep is enabled, and can lead
+to missing events when lockdep is disabled.
 
-BR, Jarkko
+Remove dependency on the lockdep status in the NMI common entry/exit
+code and adapt the tracing code to make sure that:
+
+- The first call disabling interrupts fires the tracepoint
+- The first non-NMI call enabling interrupts fires the tracepoint
+- The last NMI call enabling interrupts fires the tracepoint unless
+  interrupts were disabled before the NMI
+- All other calls don't fire
+
+Fixes: ba1f2b2eaa2a ("x86/entry: Fix NMI vs IRQ state tracking")
+Fixes: f0cd5ac1e4c5 ("arm64: entry: fix NMI {user, kernel}->kernel transitions")
+Signed-off-by: Gabriele Monaco <gmonaco@redhat.com>
+---
+
+The inconsistency is visible with the sncid RV monitor and particularly
+likely on machines with the following setup:
+- x86 bare-metal with 40+ CPUs
+- tuned throughput-performance (activating regular perf NMIs)
+- workload: stress-ng --cpu-sched 21 --timer 11 --signal 11
+
+The presence of the RV monitor is useful to see the error but it is not
+necessary to trigger it.
+
+Changes since V1:
+* Reworded confusing changelog
+* Remove dependency on lockdep counters for tracepoints
+* Ensure we don't drop valid tracepoints
+* Extend change to arm64 code
+
+ arch/arm64/kernel/entry-common.c |  5 ++---
+ kernel/entry/common.c            |  5 ++---
+ kernel/trace/trace_preemptirq.c  | 12 +++++++-----
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 7c1970b341b8c..7f1844123642e 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -213,10 +213,9 @@ static void noinstr arm64_exit_nmi(struct pt_regs *regs)
+ 	bool restore = regs->lockdep_hardirqs;
+ 
+ 	ftrace_nmi_exit();
+-	if (restore) {
+-		trace_hardirqs_on_prepare();
++	trace_hardirqs_on_prepare();
++	if (restore)
+ 		lockdep_hardirqs_on_prepare();
+-	}
+ 
+ 	ct_nmi_exit();
+ 	lockdep_hardirq_exit();
+diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+index a8dd1f27417cf..e234f264fb495 100644
+--- a/kernel/entry/common.c
++++ b/kernel/entry/common.c
+@@ -343,10 +343,9 @@ void noinstr irqentry_nmi_exit(struct pt_regs *regs, irqentry_state_t irq_state)
+ {
+ 	instrumentation_begin();
+ 	ftrace_nmi_exit();
+-	if (irq_state.lockdep) {
+-		trace_hardirqs_on_prepare();
++	trace_hardirqs_on_prepare();
++	if (irq_state.lockdep)
+ 		lockdep_hardirqs_on_prepare();
+-	}
+ 	instrumentation_end();
+ 
+ 	ct_nmi_exit();
+diff --git a/kernel/trace/trace_preemptirq.c b/kernel/trace/trace_preemptirq.c
+index 0c42b15c38004..fa45474fc54f1 100644
+--- a/kernel/trace/trace_preemptirq.c
++++ b/kernel/trace/trace_preemptirq.c
+@@ -58,7 +58,11 @@ static DEFINE_PER_CPU(int, tracing_irq_cpu);
+  */
+ void trace_hardirqs_on_prepare(void)
+ {
+-	if (this_cpu_read(tracing_irq_cpu)) {
++	int tracing_count = this_cpu_read(tracing_irq_cpu);
++
++	if (in_nmi() && tracing_count > 1)
++		this_cpu_dec(tracing_irq_cpu);
++	else if (tracing_count) {
+ 		trace(irq_enable, TP_ARGS(CALLER_ADDR0, CALLER_ADDR1));
+ 		tracer_hardirqs_on(CALLER_ADDR0, CALLER_ADDR1);
+ 		this_cpu_write(tracing_irq_cpu, 0);
+@@ -89,8 +93,7 @@ NOKPROBE_SYMBOL(trace_hardirqs_on);
+  */
+ void trace_hardirqs_off_finish(void)
+ {
+-	if (!this_cpu_read(tracing_irq_cpu)) {
+-		this_cpu_write(tracing_irq_cpu, 1);
++	if (this_cpu_inc_return(tracing_irq_cpu) == 1) {
+ 		tracer_hardirqs_off(CALLER_ADDR0, CALLER_ADDR1);
+ 		trace(irq_disable, TP_ARGS(CALLER_ADDR0, CALLER_ADDR1));
+ 	}
+@@ -103,8 +106,7 @@ void trace_hardirqs_off(void)
+ {
+ 	lockdep_hardirqs_off(CALLER_ADDR0);
+ 
+-	if (!this_cpu_read(tracing_irq_cpu)) {
+-		this_cpu_write(tracing_irq_cpu, 1);
++	if (this_cpu_inc_return(tracing_irq_cpu) == 1) {
+ 		tracer_hardirqs_off(CALLER_ADDR0, CALLER_ADDR1);
+ 		trace(irq_disable, TP_ARGS(CALLER_ADDR0, CALLER_ADDR1));
+ 	}
+
+base-commit: 78f4e737a53e1163ded2687a922fce138aee73f5
+-- 
+2.49.0
+
 
