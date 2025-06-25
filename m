@@ -4,103 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B11C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F618C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5iWKPTMFpX+lonpPcbekR/V8/MBsHrjUivVDN79opdU=; b=Jj2CjOLQJ1Duuid6vQY2eBw4ye
-	XY7RNOFtjc8bHyIQs5FWt6OFNZn70gIHHDQr6xTo+UJLlQX3IamvGrPm/ciuaP7HxjBexkg3pJLLv
-	au09kXQF4P7ZaBmkgzXZl51uACvrScju5ac0c4CyY3sBJBzMtiUveJUPxc5fyLdBfBaa5TQHZRKg+
-	zhH+FCZde0v9XUtM39yjQRaJrvngqmZYszQyh5dSHqEK1hOBisd4EzN5EfICy8QCBV2+7uRvWmPtP
-	0Qu495zMhnagAzPX2mxkwtqEdiZQ0Gcf76Sx0Yt4nhJUhp6x7UBhKOMkO0fFhi57UO40zXMFdL8nk
-	kkPHbw+Q==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=; b=3iw9+iEw4V0mQxhU6FY0m8SVUq
+	zpPjmp2xZHt1bRiJyqo/vq09AU3XkGrRUitaoTyHK91KOONJKZvUmA4VhMPtluNiyp9tdplQ0BNIq
+	aENIsqDCDldlm5/YVy/Nh7uB96J4KnVaHWhoZqBHovixr8LobR0CEwma3iPtKaIfY5X4BM03KJXh8
+	1loPMdiO5xiR2EjhzxwhZg8pdebGnyzkw0QJaZaiL0dWG3VMWWGB5gEFcyfD1ntngJFrxBQoQp+Qh
+	3Q07xyZsR6jMgrlxmk+rQkU3tHyE2xGM11FNa9kLIeOcsODMWTh9PYCQDV/Bz2c4UlYfjW0Grr2i3
+	vWogHCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMKM-0000000875s-3tlF;
-	Wed, 25 Jun 2025 09:21:58 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uUMli-00000008Bax-2SIs;
+	Wed, 25 Jun 2025 09:50:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULcS-00000007yXa-3eqN
+	id 1uUKif-00000007qPB-3xvb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 07:38:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=; b=jnNgYvrr+G5C1+vok7cNv7B+v/
+	BWtQc+F+a52EqWKiW76pPOiLo3kb6tcnEwtidXbbyZSBaywBDD+LaEQI6jPAxe/kfkV4X2zt7ub30
+	vsdYxLNLX0i/xtao8jD5INo3OYcJVoS+0LO7az8z1Am9s5qMRoEoDlDXOYiwpTGnqg95FFmL6mrPF
+	skK8cRc79PxSQLMEHIsUhdyKjbktPZcmvcpxXA8Np8qZX0GsLVfNiKdoLeIAL13edmrouBuyOi1kt
+	rH37yVRbdeSVYw5mIKtZcZV5QhL902QXlcaLrE3T5NNPabayGBTNi+2WILDPoubSg9Bwxm+2JVR02
+	64hhz+qA==;
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKid-00000005eOh-1K0g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 08:36:38 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P6nksJ008379;
-	Wed, 25 Jun 2025 10:36:23 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	5iWKPTMFpX+lonpPcbekR/V8/MBsHrjUivVDN79opdU=; b=SqHnV/GqxnozxlFn
-	ObEanHvfEI2F+FZtdB/7rtcovax1mQOyY1mVLlQ1BSYzN3yIdeS4b9QiEoUlf22n
-	cTk3tMwbAYEgr0NzY+C6Hu4ePlqFtc4ohf3c5cI1MVAtveM2SqSkuPOgaXVJl9t2
-	lNCnLxNPGVWfXjSSFjGP4wGMV2SqlxyIdFceC6pGRDWYwmmr/huHgqdJtS0AtyK8
-	zzxhKbVp4Gp7CwnIsip3EpIf8VWMfTaCJeNLMvIY5aPom3oUeQlg0pEMpwG3qDpL
-	WCHhLTWw5LXNeUKngpRNl/Swhe1B9upvwpikOj5INAqO+91z2RN6R3qE/iQ39qUX
-	HZIp/w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dkmjrekf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:36:23 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A845540047;
-	Wed, 25 Jun 2025 10:35:03 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 36FE8B0C401;
-	Wed, 25 Jun 2025 10:33:50 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
- 2025 10:33:49 +0200
-Message-ID: <e2400615-f21e-40bf-84f8-384242632193@foss.st.com>
-Date: Wed, 25 Jun 2025 10:33:48 +0200
+	Wed, 25 Jun 2025 07:38:57 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-235ea292956so66950565ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 00:38:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750837132; x=1751441932; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=;
+        b=PADvYbTbEb/xkV8BPZbH/85av0Dd1V248VgWeDeKc4O25KQDmvDIt/4LLcVvqTguPH
+         BQuRJXP5vECgl27pykHZ7f18cMQwOZvSpPOv13QE3sEuI14RF9YRANtdtRpoDUFUmo7Z
+         16+2nSFZY5T1Mq4qGEZkW9ANIGrxfs9mzk/QSso3z+ie3m0bJrp0jENyvn4g02PMXh67
+         GUHBGlIsRyDknln2cYkdQetYNFevJuKZy4YdVR4/fewOJBCc9KV0Ti+CD/nREGEIONx0
+         9UcKojDLTw1GPoK9EOcSoGYnawjVA2ShLq3fFflp41W0zevlG5TKvRCvD3wwYvaOT9QU
+         CDtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750837132; x=1751441932;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=;
+        b=IfS/WHdMUcjFh2HsbZkZBZ2SvCd6JRT0AxurTh/b3V22HTYpvHeUln7n2joLpBgMOu
+         /GRjGDqy2vF1WVcS4i2Jv2HRoc5KxUqUPCXrudHSKVOIsZk77T7PMZk1sbmvnLbl9iVE
+         ZlM8QkItiBp5XqTGWKe1KTrsri9RK+Ltu8Yo2DK0UDsmhQTdBR/Xb03/7PtQfjuqkfJc
+         Wov3QYhx7wfBZVwWdHoAIGCF+vElzU+yMKYGhuF2ZjxeWtcaMlrvqpSsHTfBUSmKHuPm
+         SRDbaMZOOlsEXffDTNYBIa/VWfy/9C6fNLDMlKyyvG+TxsQ2WMnSv3OoLbxiT4aASOeh
+         YsVw==
+X-Forwarded-Encrypted: i=1; AJvYcCUHMQzTzHJMpthDAe1SLZNFlxMg6HMGtSM/wpGefeXEWyVRKYbYBh8L3iO2v1ZfCwRYXBhdamsTvxFdCLSUFrST@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm22NLnBhh18Gb7VqU0yWVrl2gqa8xScHNIklIRT+5mj1raMKj
+	X4V15NK5JzyIEmbHGXCFfPsbjFL3nIfy22SsDKIuAIKfby1IuisgSrmw
+X-Gm-Gg: ASbGncuteSsWjpfvtzxvDjsN5Q8lmhRR9FlUOLILzKbVUDfneCCM8YeiRJeiPVQwig1
+	R/U25fvyziDERNK8qqhVvTcTdeHS2KiAPOETQw3HovG+FVLSPPDKlnx2Flb/rLhpcnhtqxTjeIU
+	Caa8P9jEVGeN4Dl+a90atIVQKEg+Lwvennx9ZhQsoTqkWbOkj5CPUO6ekPpM9EGo5Fx67izZLvw
+	dRbWlbgJgUrPHwXxnuBWpZoDPpjDMpuvr5o0V9wAbbS1ZwfI78NlSa9EJp5wm6zkqNlcat2XYjo
+	D58TcJlvDR0qGihMFWWqa4TvUdp5fPiqd6FxqZRDi8WeeThix2tNy1U43qQzS7Dna1Y40vMBG4Q
+	wDhY+hoYEvxu00uc8LOEomWnAwTRT6IR8K3uhMM97FRDEO0T8JMT++VVxl2HccnggQ1QhbqpYEZ
+	jXSidUn5uxSkg0ow==
+X-Google-Smtp-Source: AGHT+IEAYJ2SDUHupwKAlisVD3ai/2xripja2VDUoY9Ul4K/z1BlfG/iLbXNiETNKFpAqA+j53TumQ==
+X-Received: by 2002:a17:902:dace:b0:234:eadc:c0b4 with SMTP id d9443c01a7336-23824079303mr47397585ad.44.1750837131671;
+        Wed, 25 Jun 2025 00:38:51 -0700 (PDT)
+Received: from fred-System-Product-Name.. (2001-b400-e389-b6b2-29b2-bfd3-aa15-d345.emome-ip6.hinet.net. [2001:b400:e389:b6b2:29b2:bfd3:aa15:d345])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86a3083sm125374285ad.195.2025.06.25.00.38.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 00:38:51 -0700 (PDT)
+From: Fred Chen <fredchen.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] Add Meta (Facebook) Santabarbara BMC (AST2600)
+Date: Wed, 25 Jun 2025 15:38:36 +0800
+Message-ID: <20250625073847.4054971-1-fredchen.openbmc@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark
- Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
- <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
- <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
- <5044c733-8836-43bd-85d7-0f552b000fb1@foss.st.com>
- <49483568-b287-45ca-a66c-1e0ad0490225@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <49483568-b287-45ca-a66c-1e0ad0490225@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_01,2025-06-23_07,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_013637_496769_942E931B 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250625_083855_431174_8B2C1C06 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,94 +117,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 08:35, Krzysztof Kozlowski wrote:
-> On 24/06/2025 12:43, Clement LE GOFFIC wrote:
->> On 6/23/25 11:45, Krzysztof Kozlowski wrote:
->> [...]
->>
->> Hi Krzysztof,
->>
->> Sorry I forgot to address comments below.
->>
->>>> +
->>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
->>>> +	.regs = &stm32_ddr_pmu_regspec_mp1,
->>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
->>>> +	.counters_nb = MP1_CNT_NB,
->>>> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
->>>> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
->>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
->>>> +};
->>>> +
->>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
->>>> +	.regs = &stm32_ddr_pmu_regspec_mp2,
->>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
->>>> +	.counters_nb = MP2_CNT_NB,
->>>> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
->>>> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
->>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
->>>> +};
->>>> +
->>>> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
->>>> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
->>>> +};
->>>> +
->>>> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
->>>> +	{
->>>> +		.compatible = "st,stm32mp131-ddr-pmu",
->>>> +		.data = &stm32_ddr_pmu_cfg_mp1
->>>> +	},
->>>> +	{
->>>> +		.compatible = "st,stm32mp151-ddr-pmu",
->>>> +		.data = &stm32_ddr_pmu_cfg_mp1
->>>
->>> So devices are compatible, thus express it correctly and drop this.
->>
->> Ok so I assume this comes with your comment in the bindings and
->> basically don't get you point here.
->> Can you please be more precise ?
-> 
-> Express compatibility in the bindings, like 90% of SoCs are doing, so
-> with proper fallback and drop this entry in the table. My comment was
-> pretty precise, because this is completely standard pattern, also used
-> already in stm32.
-> 
+Summary:
+Add linux device tree entry related to Meta (Facebook) Santabarbara
+specific devices connected to BMC (AST2600) SoC.
 
-Ok I remember your discussion with Alex in my V1 of pinctrl-hdp :
-https://lore.kernel.org/all/1de58672-5355-4b75-99f4-c48687017d2f@kernel.org/
+Change log
+v1 -> v2:
+  - Enable mac3 node
+  - Add GPIO line-name FM_MUX1_SEL_R
+  - Remove 'pinctrl-names' from gpio0 node
+  - Reorder top-level nodes alphabetically
+  - Reorder device node properties per style
+v1:
+  - Create santabarbara dts file.
 
-Does it suits you :
-In the SoC DT:
-MP13: compatible = "st,stm32mp131-ddr-pmu", "st,stm32mp1-ddr-pmu";
-MP15: compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp1-ddr-pmu";
-MP25: compatible = "st,stm32mp251-ddr-pmu";
+Fred Chen (2):
+  dt-bindings: arm: aspeed: add Meta Santabarbara board
+  ARM: dts: aspeed: santabarbara: Add Meta Santabarbara BMC
 
-In the bindings:
-properties:
-   compatible:
-     enum:
-       - st,stm32mp1-ddr-pmu
-       - st,stm32mp131-ddr-pmu
-       - st,stm32mp151-ddr-pmu
-       - st,stm32mp251-ddr-pmu
+ .../bindings/arm/aspeed/aspeed.yaml           |   1 +
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../aspeed-bmc-facebook-santabarbara.dts      | 982 ++++++++++++++++++
+ 3 files changed, 984 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
 
-In the driver:
-static const struct of_device_id stm32_ddr_pmu_of_match[] = {
-	{
-		.compatible = "st,stm32mp1-ddr-pmu",
-		.data = &stm32_ddr_pmu_cfg_mp1
-	},
-	{
-		.compatible = "st,stm32mp251-ddr-pmu",
-		.data = &stm32_ddr_pmu_cfg_mp2
-	},
-	{ },
-};
-
-Best regards,
-Clément
-
-> Best regards,
-> Krzysztof
+-- 
+2.49.0
 
 
