@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C4CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 22:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0446C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 22:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dmWZkGdHDb8WsCleOeVpvIzVY56MZxlaPPp0H7uJoY=; b=V0ZQQ5te03XQ0qBi0GNcUCF0eH
-	nzeil8tArMCL82pVHY3F4alCapdkKOMPh7ETcsD0TCPzMsyiDaiSe8KUpSkgU5N2oqy/J+Ur79XsL
-	UMS7urXnepxGgr2BJAJW5u+CqSYWBE6PCOrl8ZhJ5BSzJBwKn123WTXPl/D0pDRZhilSF3xFBc0uS
-	dN3Cow2GzKQcqU6abdk/DO4dHxXXvtVhc6xbsCRMPKWDfB2n4P/Jgveuya6UpSxwHm/thWmkwyq5y
-	8UhRaIAF72iQcnxfYTWfAVfvkY4masnwVZVKHf7zhWVrPyZfSkHLKsEYDK+wE6piD1qb3XQudrIN/
-	jRuzBqsA==;
+	bh=hmkRmugLPeEiNCztgb9Mu9nY17HCj4W91WE+Tsea3D4=; b=Lr9kkcz5s70PENb1FBxVzX9qnL
+	hVZOYsejgRS75oPSSbHwCLyezff8bp/8xwmQrT9nBHp4o0CgrS7wIv0pqk6fWI/gMoVWWvMhW/6iQ
+	BNQ0ii9Prlg7v/2bvEJaVsxzlwE8xheXeFH7TdQv5Yt4y03VfsrHXh+53WpaOhU38Uz4Eumdmk6Z7
+	xS5JdPMqvcLwBPB+i6w+pJviH8g4XUAqdT+M4VjCh3JgNdCiKsJGMFlYPgikIig73q0rucqLv5N2h
+	3Cf/WXdFbP3DOWg8skRVTBoQRITPEGL6IRT+rqH3W1wJJINDdcfkkPeIQDEzVqV/qeSTzgTwy3GAa
+	kCrDfq2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUYJ2-0000000A2PB-43Qa;
-	Wed, 25 Jun 2025 22:09:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVuH-00000009lEQ-44Ut
+	id 1uUYLK-0000000A2fo-0qtH;
+	Wed, 25 Jun 2025 22:11:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUVxz-00000009lbb-1tIO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 19:35:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6D9B106F;
-	Wed, 25 Jun 2025 12:35:22 -0700 (PDT)
-Received: from bogus (unknown [10.57.49.191])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0404C3F58B;
-	Wed, 25 Jun 2025 12:35:38 -0700 (PDT)
-Date: Wed, 25 Jun 2025 20:35:33 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using
- CRB over FF-A
-Message-ID: <20250625-chital-of-infinite-proficiency-fee4dc@sudeepholla>
-References: <20250618102302.2379029-1-yeoreum.yun@arm.com>
- <aFs0of3uZdoMEJXc@kernel.org>
- <aFvRI5OwSLLKz300@e129823.arm.com>
- <aFwrBU4H0w9AXyQM@kernel.org>
- <aFwrf1HnsilrASzX@kernel.org>
+	Wed, 25 Jun 2025 19:39:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 24D9A5C5B90;
+	Wed, 25 Jun 2025 19:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287D9C4CEEE;
+	Wed, 25 Jun 2025 19:39:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750880370;
+	bh=6DlABh1XUb+M1JsVeT5pGkKPi41UFB4YwPIf08LrXVw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qI74I42ll82+zvFWcVZyXaVmuxMf7u+kk02cQ8TLcVhrTL52wWJdtmN+SJVzBNDT4
+	 xs0pmAXDwyLZ0FvAsy2Xs0y3ThFiOEh4sXze8nMvTzBRKSechWnTFLeilUvYMFRSXT
+	 aUEF8Ey9epIZRubAvMu8N0lkFuzszQ8OTC3AVLjz9YUPn3McrsNc0O/tngf6jUbO3E
+	 Jvx5rYw2OJK19QznYDnJa1K4oLCZ9tnPjmRa8Z4ctR6f7nWpcVMHlcT8KPxUdMIBOL
+	 1KGLmSIPtfLMB/UMGDoiuVyBokOCX22JABMKmZhSa7SSidbZvPWQ2rrDNO5V83FC75
+	 VpOeZBsZzwpXg==
+Date: Wed, 25 Jun 2025 14:39:29 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: asahi@lists.linux.dev, Stephen Boyd <sboyd@kernel.org>,
+	Sven Peter <sven@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sasha Finkelstein <fnkl.kernel@gmail.com>,
+	devicetree@vger.kernel.org, Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Subject: Re: [PATCH 1/3] dt-bindings: spmi: Add Apple A11 and T2 compatible
+Message-ID: <175088036858.2092918.12040107423396326625.robh@kernel.org>
+References: <20250609-t8015-spmi-v1-0-b3c55ad01491@gmail.com>
+ <20250609-t8015-spmi-v1-1-b3c55ad01491@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aFwrf1HnsilrASzX@kernel.org>
+In-Reply-To: <20250609-t8015-spmi-v1-1-b3c55ad01491@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_123542_085566_EC5E37D2 
-X-CRM114-Status: GOOD (  31.52  )
+X-CRM114-CacheID: sfid-20250625_123931_534100_32B4C743 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,79 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 08:01:51PM +0300, Jarkko Sakkinen wrote:
-> On Wed, Jun 25, 2025 at 07:59:53PM +0300, Jarkko Sakkinen wrote:
-> > On Wed, Jun 25, 2025 at 11:36:19AM +0100, Yeoreum Yun wrote:
-> > > Hi Jarkko,
-> > > 
-> > > > On Wed, Jun 18, 2025 at 11:23:00AM +0100, Yeoreum Yun wrote:
-> > > > > To ensure the TPM device operating over the FF-A protocol with
-> > > > > the CRB interface is probed before IMA initialization,
-> > > > > the following conditions must be met:
-> > > > >
-> > > > >    1. The corresponding ffa_device must be registered,
-> > > > >       which is done via ffa_init().
-> > > > >
-> > > > >    2. The tpm_crb_driver must successfully probe this device via
-> > > > >       tpm_crb_ffa_init().
-> > > > >
-> > > > >    3. The tpm_crb driver using CRB over FF-A can then
-> > > > >       be probed successfully. (See crb_acpi_add() and
-> > > > >       tpm_crb_ffa_init() for reference.)
-> > > > >
-> > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-> > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
-> > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-> > > >
-> > > > I get the ffa_init() part i.e, moving it earlier. However for
-> > > > tpm_crb_ffa_init() and crb_acpi_driver_init(), modules.dep
-> > > > takes care that they are loaded in order.
-> > > > For IMA you will need the driver as built-in but that should
-> > > > be handled via kernel config, not via code changes.
-> > > 
-> > > In the case of "module" built, it's true.
-> > > However what I tell here is when "tpm_crb" and "tpm_crb_ffa" is built
-> > > as "built-in" in this case, it couldn't make a "dependency" between
-> > > the same initcall level: here is the case of this.
-> > > 
-> > > 0000000000000888 l       .initcall6.init>-------0000000000000000 crb_acpi_driver_init
-> > > 000000000000088c l       .initcall6.init>-------0000000000000000 tpm_crb_ffa_driver_init
-> > > 
-> > > in this case, wihtout code change, the crb_acpi_driver_init()
-> > > is failed since tpm_crb_ffa_driver_init() is called later.
-> > > 
-> > > and this couldn't be solved with kconfig --
-> > > ARM_FFA_TRANSPORT=y && CONFIG_TCG_CRB=y && CONFIG_TCG_CRB_FFA=y.
-> > > 
-> > > The Patch #2 is to proing the tpm_crb_ffa as part of
-> > > crb_acpi_driver_init() when TPM uses method ARM-FFA.
-> > > 
-> > > If there's another suggestion, let me know please.
-> > 
-> > Hmm.. I actually got what you mean now. I was looking this from
-> > wrong angle. I think we can pick these patches!
-> > 
-> > Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> > 
-> > > 
-> > > Thanks
-> > > 
-> > > --
-> > > Sincerely,
-> > > Yeoreum Yun
-> > 
-> > BR, Jarkko
+
+On Mon, 09 Jun 2025 22:59:40 +0800, Nick Chan wrote:
+> The SPMI bus found on Apple A11 and T2 SoCs are compatible with the
+> existing driver so add their compatibles.
 > 
-> Applied.
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
 
-If you are applying 1/2 too, feel free to add
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-
-I was initially thinking of taking it separately as there is no strict
-build dependency. But I am fine if you can take them together.
-
--- 
-Regards,
-Sudeep
 
