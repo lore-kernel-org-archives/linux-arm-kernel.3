@@ -4,108 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121DEC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC97FC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4W3xPXqs6+ufzmCwgrOS1eHnJ2oWCPjo50UZjcGiaNQ=; b=druk48ghygImT526zpfQJx+YvO
-	Z8C7+xQDztdYKWAnLubYVdeGiJ6nQquwTb/0CEDSwTGzT1TTFoIK7IKoCSeyxUOlvP3LGv79vDq9t
-	5J/1ATCbXlxBQ/0vFWGvaHUk6zMCkdcmNYdVAnv1QAvo7u6/8Lk8cgenpyBasfEYdT+cJ7Uft3wg+
-	TXFQ9/UnjLUa/wfqC83jRgrBchTKU7Y6SLroGHCjeNhhVAoy837a+Ai3zozQdFpdwXwM+PnDHjxL7
-	o0bpOe7KdGOkh4OCkZZ97jvNHxA3i6DxnG6xqy44AaAFohPdy/m7GdIOPnJpFwON2T+ofaEFa/Wuv
-	qQ1l45CQ==;
+	bh=7ONVBi6t27yoHOLom4q+9fNttcSqpjkl1fBEaeAnNkw=; b=scCuZ2/HWtZ2YbhH3CCBCvXfWN
+	aB9f7WVoXseWEXtw75W+6mU47ilkiY+kR8w8/FP3DtNBpyWoHEvfBe8HS7EdtpyLUT76/GCbL7xqw
+	eIp4YL4EQK/kH9QdcoW2R6K/DeIAtKglkWBnTijdWLJ09BuDsXKGyFVhHSoQXnaZ1dNI5dMZWZZ1n
+	QrP3RdTpBTFa2H9wTVisoOhxNHiwriARbtTW3h+Nc9BUt2vLOYZSa+cZ7xNkLdH77O82t/drqDXQl
+	z6YEKcbvbMpabszGin4qXXal53Apf7+7M6WAA3lq/EZtljCwsZRzb6z7e/d3sq6TCMw8t3MVXkFrZ
+	o19BOWhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUN6E-00000008H2o-3YO8;
-	Wed, 25 Jun 2025 10:11:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUM8b-000000084wC-0S0T
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Jun 2025 09:09:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4W3xPXqs6+ufzmCwgrOS1eHnJ2oWCPjo50UZjcGiaNQ=; b=MhJOb4VVy9W+FdCMC+rym1cgOP
-	TMMUKWvB3PwqvUqXyP86j1Pydf5cEM3G1QjLTFPFrLedYEsJTQp7FNnzhOAoZTy8+kt34HNMBmSnG
-	4zy8PCKdMPvb4r+TEO5gYw/9xuiNw2SVjBZlPm3iGYEX3arGFBuVnXMbvmSr25BOx8o8d3/jNdySe
-	Oz6sL6C8nbF59CyQ/SyRB1Z0zFXGOXprsfUg74KgPUWKeZVqBcmS5qczs0oYL7IAEoreb3MSA1xy3
-	DG5ubBkq8U72Tkw4uTvEQSv39pPDBSKD77+WF36tR0Ekm4jUmzUnrDvG6LVifDtN9v+VDeqdjXyJE
-	Lvaq8igQ==;
+	id 1uUN8V-00000008HQi-2Gf0;
+	Wed, 25 Jun 2025 10:13:47 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUM8X-00000005ifA-1UNg
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUMAz-000000085GE-1WlD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:09:48 +0000
+	Wed, 25 Jun 2025 09:12:18 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P38uns002890;
-	Wed, 25 Jun 2025 11:09:36 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P510l9032381;
+	Wed, 25 Jun 2025 11:12:05 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	4W3xPXqs6+ufzmCwgrOS1eHnJ2oWCPjo50UZjcGiaNQ=; b=e3dm9dnAmTuYI1Sd
-	xnWwqm6eI+6gQW/x/0lAUYzREGd8Ps2ExfMRypUM1QhP3qIYyGiGzReqt7PJObHA
-	g9eOp/qu0plJDJQjFGA9fXfD90vTBGZfYtK4//pbpd4L5c1ElvViHLDQsShZwj3Q
-	IOChFTR8fPZdCxenareG7fvDZDevQOX3ZXfP3SJZIcIweQUIQV43fGaYrO3hmups
-	uqCtZDVPwxWJ0Kvk7TX66TOHR5hbsqcI7cRlZ/Zopa2CeXlHHjjnenKZj7j07p9B
-	5DiK4+nYrdd6JyClxCfdEsFvv7pACS2MhZCLYcndflrYDwzmDAI09ZypAx7gDQAm
-	XMUk6g==
+	7ONVBi6t27yoHOLom4q+9fNttcSqpjkl1fBEaeAnNkw=; b=Vwf8UUn5XqH75K2i
+	fscZ6KsiCvCjx7WJPqQv23IzCGzpmhbdb1xkGE7uHQA9PyER1EFSCXUkQPBiHlW+
+	4uwmJYQWpOhdd6Xqb43cGBt89mdGyI4ppGLqD0yH1sy3yZx/kSdVbeJbpm7/B+03
+	Z9f1dnJinZdTX1NVip71mTOSvnuabKIaG0/CX1WLLaIsmVKwNQzNqUc9OI0pJPJR
+	+iV48oYu9RNwLmIxPb3rBTaniPK+oj3phiUfDazp0779JUqdQ6+GrWs/PsBHyMyh
+	9Jjsu1AigmntTDkS0pGejX+t7nZFk2GI47Nkl0M9/6Pv5QZ3GQ6LWYth0Mh1SWTm
+	kubHIA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47e6a6pwyj-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47e6a6pxh5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 11:09:35 +0200 (MEST)
+	Wed, 25 Jun 2025 11:12:05 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 76D8B4004C;
-	Wed, 25 Jun 2025 11:08:24 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 978CEB288B3;
-	Wed, 25 Jun 2025 11:07:33 +0200 (CEST)
-Received: from localhost (10.48.87.144) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B9BB140045;
+	Wed, 25 Jun 2025 11:10:18 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4176DB29C43;
+	Wed, 25 Jun 2025 11:09:07 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
- 2025 11:07:33 +0200
-From: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Date: Wed, 25 Jun 2025 11:07:24 +0200
-Subject: [PATCH RESEND v4 1/3] dt-bindings: stm32: add STM32MP21 clocks and
- reset bindings
+ 2025 11:09:06 +0200
+Message-ID: <dabecbc6-967e-4912-8297-4d53fd2d9cc1@foss.st.com>
+Date: Wed, 25 Jun 2025 11:09:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250625-upstream_rcc_mp21-v4-1-9368a86c8515@foss.st.com>
-References: <20250625-upstream_rcc_mp21-v4-0-9368a86c8515@foss.st.com>
-In-Reply-To: <20250625-upstream_rcc_mp21-v4-0-9368a86c8515@foss.st.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
-	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
+        Mark
+ Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-        Nicolas Le Bayon
-	<nicolas.le.bayon@foss.st.com>,
-        Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.144]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>
+References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
+ <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
+ <9cb1575e-ae27-4a78-adb7-8a9e7072375e@kernel.org>
+ <5044c733-8836-43bd-85d7-0f552b000fb1@foss.st.com>
+ <49483568-b287-45ca-a66c-1e0ad0490225@kernel.org>
+ <e2400615-f21e-40bf-84f8-384242632193@foss.st.com>
+ <a6440cbf-f7b5-4bce-8e2b-8aa3ec4d2342@kernel.org>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <a6440cbf-f7b5-4bce-8e2b-8aa3ec4d2342@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_100945_652907_A185087D 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250625_021217_693905_145EFBEB 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,800 +117,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds clock and reset binding entries for STM32MP21 SoC family.
+On 6/25/25 10:48, Krzysztof Kozlowski wrote:
+> On 25/06/2025 10:33, Clement LE GOFFIC wrote:
+>> On 6/25/25 08:35, Krzysztof Kozlowski wrote:
+>>> On 24/06/2025 12:43, Clement LE GOFFIC wrote:
+>>>> On 6/23/25 11:45, Krzysztof Kozlowski wrote:
+>>>> [...]
+>>>>
+>>>> Hi Krzysztof,
+>>>>
+>>>> Sorry I forgot to address comments below.
+>>>>
+>>>>>> +
+>>>>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp1 = {
+>>>>>> +	.regs = &stm32_ddr_pmu_regspec_mp1,
+>>>>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp1,
+>>>>>> +	.counters_nb = MP1_CNT_NB,
+>>>>>> +	.evt_counters_nb = MP1_CNT_NB - 1, /* Time counter is not an event counter */
+>>>>>> +	.time_cnt_idx = MP1_TIME_CNT_IDX,
+>>>>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp1,
+>>>>>> +};
+>>>>>> +
+>>>>>> +static const struct stm32_ddr_pmu_cfg stm32_ddr_pmu_cfg_mp2 = {
+>>>>>> +	.regs = &stm32_ddr_pmu_regspec_mp2,
+>>>>>> +	.attribute = stm32_ddr_pmu_attr_groups_mp2,
+>>>>>> +	.counters_nb = MP2_CNT_NB,
+>>>>>> +	.evt_counters_nb = MP2_CNT_NB - 1, /* Time counter is an event counter */
+>>>>>> +	.time_cnt_idx = MP2_TIME_CNT_IDX,
+>>>>>> +	.get_counter = stm32_ddr_pmu_get_event_counter_mp2,
+>>>>>> +};
+>>>>>> +
+>>>>>> +static const struct dev_pm_ops stm32_ddr_pmu_pm_ops = {
+>>>>>> +	SET_SYSTEM_SLEEP_PM_OPS(NULL, stm32_ddr_pmu_device_resume)
+>>>>>> +};
+>>>>>> +
+>>>>>> +static const struct of_device_id stm32_ddr_pmu_of_match[] = {
+>>>>>> +	{
+>>>>>> +		.compatible = "st,stm32mp131-ddr-pmu",
+>>>>>> +		.data = &stm32_ddr_pmu_cfg_mp1
+>>>>>> +	},
+>>>>>> +	{
+>>>>>> +		.compatible = "st,stm32mp151-ddr-pmu",
+>>>>>> +		.data = &stm32_ddr_pmu_cfg_mp1
+>>>>>
+>>>>> So devices are compatible, thus express it correctly and drop this.
+>>>>
+>>>> Ok so I assume this comes with your comment in the bindings and
+>>>> basically don't get you point here.
+>>>> Can you please be more precise ?
+>>>
+>>> Express compatibility in the bindings, like 90% of SoCs are doing, so
+>>> with proper fallback and drop this entry in the table. My comment was
+>>> pretty precise, because this is completely standard pattern, also used
+>>> already in stm32.
+>>>
+>>
+>> Ok I remember your discussion with Alex in my V1 of pinctrl-hdp :
+>> https://lore.kernel.org/all/1de58672-5355-4b75-99f4-c48687017d2f@kernel.org/
+>>
+>> Does it suits you :
+>> In the SoC DT:
+>> MP13: compatible = "st,stm32mp131-ddr-pmu", "st,stm32mp1-ddr-pmu";
+>> MP15: compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp1-ddr-pmu";
+> 
+> No, because I did not say to change other entry in the table. Please
+> read again what I asked: drop this. "This" means ONLY this entry. "Drop
+> this" does not mean "change something else". Do not change other entries
+> by introducing some generic compatible. That's not the pattern ever
+> endorsed by DT maintainers. Add front compatible and you are done,
+> smallest amount of changes, most obvious code.
+>
 
-Signed-off-by: Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
----
- .../bindings/clock/st,stm32mp21-rcc.yaml           | 199 ++++++++++
- include/dt-bindings/clock/st,stm32mp21-rcc.h       | 426 +++++++++++++++++++++
- include/dt-bindings/reset/st,stm32mp21-rcc.h       | 138 +++++++
- 3 files changed, 763 insertions(+)
+Ok so in the SoC DT I'll keep:
+MP13: compatible = "st,stm32mp131-ddr-pmu";
+MP15: compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..4368063c67091cb22b6d0573523d631d78579973
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
-@@ -0,0 +1,199 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/st,stm32mp21-rcc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STM32MP21 Reset Clock Controller
-+
-+maintainers:
-+  - Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-+
-+description: |
-+  The RCC hardware block is both a reset and a clock controller.
-+  RCC makes also power management (resume/suspend).
-+
-+  See also:
-+    include/dt-bindings/clock/st,stm32mp21-rcc.h
-+    include/dt-bindings/reset/st,stm32mp21-rcc.h
-+
-+properties:
-+  compatible:
-+    enum:
-+      - st,stm32mp21-rcc
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+  clocks:
-+    items:
-+      - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
-+      - description: CK_SCMI_HSI High Speed Internal oscillator (~ 64 MHz)
-+      - description: CK_SCMI_MSI Low Power Internal oscillator (~ 4 MHz or ~ 16 MHz)
-+      - description: CK_SCMI_LSE Low Speed External oscillator (32 KHz)
-+      - description: CK_SCMI_LSI Low Speed Internal oscillator (~ 32 KHz)
-+      - description: CK_SCMI_HSE_DIV2 CK_SCMI_HSE divided by 2 (could be gated)
-+      - description: CK_SCMI_ICN_HS_MCU High Speed interconnect bus clock
-+      - description: CK_SCMI_ICN_LS_MCU Low Speed interconnect bus clock
-+      - description: CK_SCMI_ICN_SDMMC SDMMC interconnect bus clock
-+      - description: CK_SCMI_ICN_DDR DDR interconnect bus clock
-+      - description: CK_SCMI_ICN_DISPLAY Display interconnect bus clock
-+      - description: CK_SCMI_ICN_HSL HSL interconnect bus clock
-+      - description: CK_SCMI_ICN_NIC NIC interconnect bus clock
-+      - description: CK_SCMI_FLEXGEN_07 flexgen clock 7
-+      - description: CK_SCMI_FLEXGEN_08 flexgen clock 8
-+      - description: CK_SCMI_FLEXGEN_09 flexgen clock 9
-+      - description: CK_SCMI_FLEXGEN_10 flexgen clock 10
-+      - description: CK_SCMI_FLEXGEN_11 flexgen clock 11
-+      - description: CK_SCMI_FLEXGEN_12 flexgen clock 12
-+      - description: CK_SCMI_FLEXGEN_13 flexgen clock 13
-+      - description: CK_SCMI_FLEXGEN_14 flexgen clock 14
-+      - description: CK_SCMI_FLEXGEN_16 flexgen clock 16
-+      - description: CK_SCMI_FLEXGEN_17 flexgen clock 17
-+      - description: CK_SCMI_FLEXGEN_18 flexgen clock 18
-+      - description: CK_SCMI_FLEXGEN_19 flexgen clock 19
-+      - description: CK_SCMI_FLEXGEN_20 flexgen clock 20
-+      - description: CK_SCMI_FLEXGEN_21 flexgen clock 21
-+      - description: CK_SCMI_FLEXGEN_22 flexgen clock 22
-+      - description: CK_SCMI_FLEXGEN_23 flexgen clock 23
-+      - description: CK_SCMI_FLEXGEN_24 flexgen clock 24
-+      - description: CK_SCMI_FLEXGEN_25 flexgen clock 25
-+      - description: CK_SCMI_FLEXGEN_26 flexgen clock 26
-+      - description: CK_SCMI_FLEXGEN_27 flexgen clock 27
-+      - description: CK_SCMI_FLEXGEN_29 flexgen clock 29
-+      - description: CK_SCMI_FLEXGEN_30 flexgen clock 30
-+      - description: CK_SCMI_FLEXGEN_31 flexgen clock 31
-+      - description: CK_SCMI_FLEXGEN_33 flexgen clock 33
-+      - description: CK_SCMI_FLEXGEN_36 flexgen clock 36
-+      - description: CK_SCMI_FLEXGEN_37 flexgen clock 37
-+      - description: CK_SCMI_FLEXGEN_38 flexgen clock 38
-+      - description: CK_SCMI_FLEXGEN_39 flexgen clock 39
-+      - description: CK_SCMI_FLEXGEN_40 flexgen clock 40
-+      - description: CK_SCMI_FLEXGEN_41 flexgen clock 41
-+      - description: CK_SCMI_FLEXGEN_42 flexgen clock 42
-+      - description: CK_SCMI_FLEXGEN_43 flexgen clock 43
-+      - description: CK_SCMI_FLEXGEN_44 flexgen clock 44
-+      - description: CK_SCMI_FLEXGEN_45 flexgen clock 45
-+      - description: CK_SCMI_FLEXGEN_46 flexgen clock 46
-+      - description: CK_SCMI_FLEXGEN_47 flexgen clock 47
-+      - description: CK_SCMI_FLEXGEN_48 flexgen clock 48
-+      - description: CK_SCMI_FLEXGEN_50 flexgen clock 50
-+      - description: CK_SCMI_FLEXGEN_51 flexgen clock 51
-+      - description: CK_SCMI_FLEXGEN_52 flexgen clock 52
-+      - description: CK_SCMI_FLEXGEN_53 flexgen clock 53
-+      - description: CK_SCMI_FLEXGEN_54 flexgen clock 54
-+      - description: CK_SCMI_FLEXGEN_55 flexgen clock 55
-+      - description: CK_SCMI_FLEXGEN_56 flexgen clock 56
-+      - description: CK_SCMI_FLEXGEN_57 flexgen clock 57
-+      - description: CK_SCMI_FLEXGEN_58 flexgen clock 58
-+      - description: CK_SCMI_FLEXGEN_61 flexgen clock 61
-+      - description: CK_SCMI_FLEXGEN_62 flexgen clock 62
-+      - description: CK_SCMI_FLEXGEN_63 flexgen clock 63
-+      - description: CK_SCMI_ICN_APB1 Peripheral bridge 1
-+      - description: CK_SCMI_ICN_APB2 Peripheral bridge 2
-+      - description: CK_SCMI_ICN_APB3 Peripheral bridge 3
-+      - description: CK_SCMI_ICN_APB4 Peripheral bridge 4
-+      - description: CK_SCMI_ICN_APB5 Peripheral bridge 5
-+      - description: CK_SCMI_ICN_APBDBG Peripheral bridge for debug
-+      - description: CK_SCMI_TIMG1 Peripheral bridge for timer1
-+      - description: CK_SCMI_TIMG2 Peripheral bridge for timer2
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#clock-cells'
-+  - '#reset-cells'
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp21-rcc.h>
-+
-+    clock-controller@44200000 {
-+        compatible = "st,stm32mp21-rcc";
-+        reg = <0x44200000 0x10000>;
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+        clocks =  <&scmi_clk CK_SCMI_HSE>,
-+                  <&scmi_clk CK_SCMI_HSI>,
-+                  <&scmi_clk CK_SCMI_MSI>,
-+                  <&scmi_clk CK_SCMI_LSE>,
-+                  <&scmi_clk CK_SCMI_LSI>,
-+                  <&scmi_clk CK_SCMI_HSE_DIV2>,
-+                  <&scmi_clk CK_SCMI_ICN_HS_MCU>,
-+                  <&scmi_clk CK_SCMI_ICN_LS_MCU>,
-+                  <&scmi_clk CK_SCMI_ICN_SDMMC>,
-+                  <&scmi_clk CK_SCMI_ICN_DDR>,
-+                  <&scmi_clk CK_SCMI_ICN_DISPLAY>,
-+                  <&scmi_clk CK_SCMI_ICN_HSL>,
-+                  <&scmi_clk CK_SCMI_ICN_NIC>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_07>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_08>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_09>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_10>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_11>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_12>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_13>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_14>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_16>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_17>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_18>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_19>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_20>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_21>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_22>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_23>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_24>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_25>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_26>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_27>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_29>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_30>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_31>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_33>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_36>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_37>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_38>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_39>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_40>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_41>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_42>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_43>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_44>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_45>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_46>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_47>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_48>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_50>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_51>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_52>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_53>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_54>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_55>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_56>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_57>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_58>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_61>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_62>,
-+                  <&scmi_clk CK_SCMI_FLEXGEN_63>,
-+                  <&scmi_clk CK_SCMI_ICN_APB1>,
-+                  <&scmi_clk CK_SCMI_ICN_APB2>,
-+                  <&scmi_clk CK_SCMI_ICN_APB3>,
-+                  <&scmi_clk CK_SCMI_ICN_APB4>,
-+                  <&scmi_clk CK_SCMI_ICN_APB5>,
-+                  <&scmi_clk CK_SCMI_ICN_APBDBG>,
-+                  <&scmi_clk CK_SCMI_TIMG1>,
-+                  <&scmi_clk CK_SCMI_TIMG2>;
-+    };
-+...
-diff --git a/include/dt-bindings/clock/st,stm32mp21-rcc.h b/include/dt-bindings/clock/st,stm32mp21-rcc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..054b785f2796a8f774e445f7340a6759c067c460
---- /dev/null
-+++ b/include/dt-bindings/clock/st,stm32mp21-rcc.h
-@@ -0,0 +1,426 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-+ * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_STM32MP21_CLKS_H_
-+#define _DT_BINDINGS_STM32MP21_CLKS_H_
-+
-+/* INTERNAL/EXTERNAL OSCILLATORS */
-+#define HSI_CK			0
-+#define HSE_CK			1
-+#define MSI_CK			2
-+#define LSI_CK			3
-+#define LSE_CK			4
-+#define I2S_CK			5
-+#define RTC_CK			6
-+#define SPDIF_CK_SYMB		7
-+
-+/* PLL CLOCKS */
-+#define PLL1_CK			8
-+#define PLL2_CK			9
-+#define PLL4_CK			10
-+#define PLL5_CK			11
-+#define PLL6_CK			12
-+#define PLL7_CK			13
-+#define PLL8_CK			14
-+
-+#define CK_CPU1			15
-+
-+/* APB DIV CLOCKS */
-+#define CK_ICN_APB1		16
-+#define CK_ICN_APB2		17
-+#define CK_ICN_APB3		18
-+#define CK_ICN_APB4		19
-+#define CK_ICN_APB5		20
-+#define CK_ICN_APBDBG		21
-+
-+/* GLOBAL TIMER */
-+#define TIMG1_CK		22
-+#define TIMG2_CK		23
-+
-+/* FLEXGEN CLOCKS */
-+#define CK_ICN_HS_MCU		24
-+#define CK_ICN_SDMMC		25
-+#define CK_ICN_DDR		26
-+#define CK_ICN_DISPLAY		27
-+#define CK_ICN_HSL		28
-+#define CK_ICN_NIC		29
-+#define CK_ICN_VID		30
-+#define CK_FLEXGEN_07		31
-+#define CK_FLEXGEN_08		32
-+#define CK_FLEXGEN_09		33
-+#define CK_FLEXGEN_10		34
-+#define CK_FLEXGEN_11		35
-+#define CK_FLEXGEN_12		36
-+#define CK_FLEXGEN_13		37
-+#define CK_FLEXGEN_14		38
-+#define CK_FLEXGEN_15		39
-+#define CK_FLEXGEN_16		40
-+#define CK_FLEXGEN_17		41
-+#define CK_FLEXGEN_18		42
-+#define CK_FLEXGEN_19		43
-+#define CK_FLEXGEN_20		44
-+#define CK_FLEXGEN_21		45
-+#define CK_FLEXGEN_22		46
-+#define CK_FLEXGEN_23		47
-+#define CK_FLEXGEN_24		48
-+#define CK_FLEXGEN_25		49
-+#define CK_FLEXGEN_26		50
-+#define CK_FLEXGEN_27		51
-+#define CK_FLEXGEN_28		52
-+#define CK_FLEXGEN_29		53
-+#define CK_FLEXGEN_30		54
-+#define CK_FLEXGEN_31		55
-+#define CK_FLEXGEN_32		56
-+#define CK_FLEXGEN_33		57
-+#define CK_FLEXGEN_34		58
-+#define CK_FLEXGEN_35		59
-+#define CK_FLEXGEN_36		60
-+#define CK_FLEXGEN_37		61
-+#define CK_FLEXGEN_38		62
-+#define CK_FLEXGEN_39		63
-+#define CK_FLEXGEN_40		64
-+#define CK_FLEXGEN_41		65
-+#define CK_FLEXGEN_42		66
-+#define CK_FLEXGEN_43		67
-+#define CK_FLEXGEN_44		68
-+#define CK_FLEXGEN_45		69
-+#define CK_FLEXGEN_46		70
-+#define CK_FLEXGEN_47		71
-+#define CK_FLEXGEN_48		72
-+#define CK_FLEXGEN_49		73
-+#define CK_FLEXGEN_50		74
-+#define CK_FLEXGEN_51		75
-+#define CK_FLEXGEN_52		76
-+#define CK_FLEXGEN_53		77
-+#define CK_FLEXGEN_54		78
-+#define CK_FLEXGEN_55		79
-+#define CK_FLEXGEN_56		80
-+#define CK_FLEXGEN_57		81
-+#define CK_FLEXGEN_58		82
-+#define CK_FLEXGEN_59		83
-+#define CK_FLEXGEN_60		84
-+#define CK_FLEXGEN_61		85
-+#define CK_FLEXGEN_62		86
-+#define CK_FLEXGEN_63		87
-+
-+/* LOW SPEED MCU CLOCK */
-+#define CK_ICN_LS_MCU		88
-+
-+#define CK_BUS_STM		89
-+#define CK_BUS_FMC		90
-+#define CK_BUS_ETH1		91
-+#define CK_BUS_ETH2		92
-+#define CK_BUS_DDRPHYC		93
-+#define CK_BUS_SYSCPU1		94
-+#define CK_BUS_HPDMA1		95
-+#define CK_BUS_HPDMA2		96
-+#define CK_BUS_HPDMA3		97
-+#define CK_BUS_ADC1		98
-+#define CK_BUS_ADC2		99
-+#define CK_BUS_IPCC1		100
-+#define CK_BUS_DCMIPSSI		101
-+#define CK_BUS_CRC		102
-+#define CK_BUS_MDF1		103
-+#define CK_BUS_BKPSRAM		104
-+#define CK_BUS_HASH1		105
-+#define CK_BUS_HASH2		106
-+#define CK_BUS_RNG1		107
-+#define CK_BUS_RNG2		108
-+#define CK_BUS_CRYP1		109
-+#define CK_BUS_CRYP2		110
-+#define CK_BUS_SAES		111
-+#define CK_BUS_PKA		112
-+#define CK_BUS_GPIOA		113
-+#define CK_BUS_GPIOB		114
-+#define CK_BUS_GPIOC		115
-+#define CK_BUS_GPIOD		116
-+#define CK_BUS_GPIOE		117
-+#define CK_BUS_GPIOF		118
-+#define CK_BUS_GPIOG		119
-+#define CK_BUS_GPIOH		120
-+#define CK_BUS_GPIOI		121
-+#define CK_BUS_GPIOZ		122
-+#define CK_BUS_RTC		124
-+#define CK_BUS_LPUART1		125
-+#define CK_BUS_LPTIM3		126
-+#define CK_BUS_LPTIM4		127
-+#define CK_BUS_LPTIM5		128
-+#define CK_BUS_TIM2		129
-+#define CK_BUS_TIM3		130
-+#define CK_BUS_TIM4		131
-+#define CK_BUS_TIM5		132
-+#define CK_BUS_TIM6		133
-+#define CK_BUS_TIM7		134
-+#define CK_BUS_TIM10		135
-+#define CK_BUS_TIM11		136
-+#define CK_BUS_TIM12		137
-+#define CK_BUS_TIM13		138
-+#define CK_BUS_TIM14		139
-+#define CK_BUS_LPTIM1		140
-+#define CK_BUS_LPTIM2		141
-+#define CK_BUS_SPI2		142
-+#define CK_BUS_SPI3		143
-+#define CK_BUS_SPDIFRX		144
-+#define CK_BUS_USART2		145
-+#define CK_BUS_USART3		146
-+#define CK_BUS_UART4		147
-+#define CK_BUS_UART5		148
-+#define CK_BUS_I2C1		149
-+#define CK_BUS_I2C2		150
-+#define CK_BUS_I2C3		151
-+#define CK_BUS_I3C1		152
-+#define CK_BUS_I3C2		153
-+#define CK_BUS_I3C3		154
-+#define CK_BUS_TIM1		155
-+#define CK_BUS_TIM8		156
-+#define CK_BUS_TIM15		157
-+#define CK_BUS_TIM16		158
-+#define CK_BUS_TIM17		159
-+#define CK_BUS_SAI1		160
-+#define CK_BUS_SAI2		161
-+#define CK_BUS_SAI3		162
-+#define CK_BUS_SAI4		163
-+#define CK_BUS_USART1		164
-+#define CK_BUS_USART6		165
-+#define CK_BUS_UART7		166
-+#define CK_BUS_FDCAN		167
-+#define CK_BUS_SPI1		168
-+#define CK_BUS_SPI4		169
-+#define CK_BUS_SPI5		170
-+#define CK_BUS_SPI6		171
-+#define CK_BUS_BSEC		172
-+#define CK_BUS_IWDG1		173
-+#define CK_BUS_IWDG2		174
-+#define CK_BUS_IWDG3		175
-+#define CK_BUS_IWDG4		176
-+#define CK_BUS_WWDG1		177
-+#define CK_BUS_VREF		178
-+#define CK_BUS_DTS		179
-+#define CK_BUS_SERC		180
-+#define CK_BUS_HDP		181
-+#define CK_BUS_DDRPERFM		182
-+#define CK_BUS_OTG		183
-+#define CK_BUS_LTDC		184
-+#define CK_BUS_CSI		185
-+#define CK_BUS_DCMIPP		186
-+#define CK_BUS_DDRC		187
-+#define CK_BUS_DDRCFG		188
-+#define CK_BUS_STGEN		189
-+#define CK_SYSDBG		190
-+#define CK_KER_TIM2		191
-+#define CK_KER_TIM3		192
-+#define CK_KER_TIM4		193
-+#define CK_KER_TIM5		194
-+#define CK_KER_TIM6		195
-+#define CK_KER_TIM7		196
-+#define CK_KER_TIM10		197
-+#define CK_KER_TIM11		198
-+#define CK_KER_TIM12		199
-+#define CK_KER_TIM13		200
-+#define CK_KER_TIM14		201
-+#define CK_KER_TIM1		202
-+#define CK_KER_TIM8		203
-+#define CK_KER_TIM15		204
-+#define CK_KER_TIM16		205
-+#define CK_KER_TIM17		206
-+#define CK_BUS_SYSRAM		207
-+#define CK_BUS_RETRAM		208
-+#define CK_BUS_OSPI1		209
-+#define CK_BUS_OTFD1		210
-+#define CK_BUS_SRAM1		211
-+#define CK_BUS_SDMMC1		212
-+#define CK_BUS_SDMMC2		213
-+#define CK_BUS_SDMMC3		214
-+#define CK_BUS_DDR		215
-+#define CK_BUS_RISAF4		216
-+#define CK_BUS_USBHOHCI		217
-+#define CK_BUS_USBHEHCI		218
-+#define CK_KER_LPTIM1		219
-+#define CK_KER_LPTIM2		220
-+#define CK_KER_USART2		221
-+#define CK_KER_UART4		222
-+#define CK_KER_USART3		223
-+#define CK_KER_UART5		224
-+#define CK_KER_SPI2		225
-+#define CK_KER_SPI3		226
-+#define CK_KER_SPDIFRX		227
-+#define CK_KER_I2C1		228
-+#define CK_KER_I2C2		229
-+#define CK_KER_I3C1		230
-+#define CK_KER_I3C2		231
-+#define CK_KER_I2C3		232
-+#define CK_KER_I3C3		233
-+#define CK_KER_SPI1		234
-+#define CK_KER_SPI4		235
-+#define CK_KER_SPI5		236
-+#define CK_KER_SPI6		237
-+#define CK_KER_USART1		238
-+#define CK_KER_USART6		239
-+#define CK_KER_UART7		240
-+#define CK_KER_MDF1		241
-+#define CK_KER_SAI1		242
-+#define CK_KER_SAI2		243
-+#define CK_KER_SAI3		244
-+#define CK_KER_SAI4		245
-+#define CK_KER_FDCAN		246
-+#define CK_KER_CSI		247
-+#define CK_KER_CSITXESC		248
-+#define CK_KER_CSIPHY		249
-+#define CK_KER_STGEN		250
-+#define CK_KER_USB2PHY2EN	251
-+#define CK_KER_LPUART1		252
-+#define CK_KER_LPTIM3		253
-+#define CK_KER_LPTIM4		254
-+#define CK_KER_LPTIM5		255
-+#define CK_KER_TSDBG		256
-+#define CK_KER_TPIU		257
-+#define CK_BUS_ETR		258
-+#define CK_BUS_SYSATB		259
-+#define CK_KER_ADC1		260
-+#define CK_KER_ADC2		261
-+#define CK_KER_OSPI1		262
-+#define CK_KER_FMC		263
-+#define CK_KER_SDMMC1		264
-+#define CK_KER_SDMMC2		265
-+#define CK_KER_SDMMC3		266
-+#define CK_KER_ETH1		267
-+#define CK_KER_ETH2		268
-+#define CK_KER_ETH1PTP		269
-+#define CK_KER_ETH2PTP		270
-+#define CK_KER_USB2PHY1		271
-+#define CK_KER_USB2PHY2		272
-+#define CK_MCO1			273
-+#define CK_MCO2			274
-+#define CK_KER_DTS		275
-+#define CK_ETH1_RX		276
-+#define CK_ETH1_TX		277
-+#define CK_ETH1_MAC		278
-+#define CK_ETH2_RX		279
-+#define CK_ETH2_TX		280
-+#define CK_ETH2_MAC		281
-+#define CK_ETH1_STP		282
-+#define CK_ETH2_STP		283
-+#define CK_KER_LTDC		284
-+#define HSE_DIV2_CK		285
-+#define CK_DBGMCU		286
-+#define CK_DAP			287
-+#define CK_KER_ETR		288
-+#define CK_KER_STM		289
-+
-+#define CK_SCMI_ICN_HS_MCU	0
-+#define CK_SCMI_ICN_SDMMC	1
-+#define CK_SCMI_ICN_DDR		2
-+#define CK_SCMI_ICN_DISPLAY	3
-+#define CK_SCMI_ICN_HSL		4
-+#define CK_SCMI_ICN_NIC		5
-+#define CK_SCMI_FLEXGEN_07	7
-+#define CK_SCMI_FLEXGEN_08	8
-+#define CK_SCMI_FLEXGEN_09	9
-+#define CK_SCMI_FLEXGEN_10	10
-+#define CK_SCMI_FLEXGEN_11	11
-+#define CK_SCMI_FLEXGEN_12	12
-+#define CK_SCMI_FLEXGEN_13	13
-+#define CK_SCMI_FLEXGEN_14	14
-+#define CK_SCMI_FLEXGEN_15	15
-+#define CK_SCMI_FLEXGEN_16	16
-+#define CK_SCMI_FLEXGEN_17	17
-+#define CK_SCMI_FLEXGEN_18	18
-+#define CK_SCMI_FLEXGEN_19	19
-+#define CK_SCMI_FLEXGEN_20	20
-+#define CK_SCMI_FLEXGEN_21	21
-+#define CK_SCMI_FLEXGEN_22	22
-+#define CK_SCMI_FLEXGEN_23	23
-+#define CK_SCMI_FLEXGEN_24	24
-+#define CK_SCMI_FLEXGEN_25	25
-+#define CK_SCMI_FLEXGEN_26	26
-+#define CK_SCMI_FLEXGEN_27	27
-+#define CK_SCMI_FLEXGEN_28	28
-+#define CK_SCMI_FLEXGEN_29	29
-+#define CK_SCMI_FLEXGEN_30	30
-+#define CK_SCMI_FLEXGEN_31	31
-+#define CK_SCMI_FLEXGEN_32	32
-+#define CK_SCMI_FLEXGEN_33	33
-+#define CK_SCMI_FLEXGEN_34	34
-+#define CK_SCMI_FLEXGEN_35	35
-+#define CK_SCMI_FLEXGEN_36	36
-+#define CK_SCMI_FLEXGEN_37	37
-+#define CK_SCMI_FLEXGEN_38	38
-+#define CK_SCMI_FLEXGEN_39	39
-+#define CK_SCMI_FLEXGEN_40	40
-+#define CK_SCMI_FLEXGEN_41	41
-+#define CK_SCMI_FLEXGEN_42	42
-+#define CK_SCMI_FLEXGEN_43	43
-+#define CK_SCMI_FLEXGEN_44	44
-+#define CK_SCMI_FLEXGEN_45	45
-+#define CK_SCMI_FLEXGEN_46	46
-+#define CK_SCMI_FLEXGEN_47	47
-+#define CK_SCMI_FLEXGEN_48	48
-+#define CK_SCMI_FLEXGEN_49	49
-+#define CK_SCMI_FLEXGEN_50	50
-+#define CK_SCMI_FLEXGEN_51	51
-+#define CK_SCMI_FLEXGEN_52	52
-+#define CK_SCMI_FLEXGEN_53	53
-+#define CK_SCMI_FLEXGEN_54	54
-+#define CK_SCMI_FLEXGEN_55	55
-+#define CK_SCMI_FLEXGEN_56	56
-+#define CK_SCMI_FLEXGEN_57	57
-+#define CK_SCMI_FLEXGEN_58	58
-+#define CK_SCMI_FLEXGEN_59	59
-+#define CK_SCMI_FLEXGEN_60	60
-+#define CK_SCMI_FLEXGEN_61	61
-+#define CK_SCMI_FLEXGEN_62	62
-+#define CK_SCMI_FLEXGEN_63	63
-+#define CK_SCMI_ICN_LS_MCU	64
-+#define CK_SCMI_HSE		65
-+#define CK_SCMI_LSE		66
-+#define CK_SCMI_HSI		67
-+#define CK_SCMI_LSI		68
-+#define CK_SCMI_MSI		69
-+#define CK_SCMI_HSE_DIV2	70
-+#define CK_SCMI_CPU1		71
-+#define CK_SCMI_SYSCPU1		72
-+#define CK_SCMI_PLL2		73
-+#define CK_SCMI_RTC		74
-+#define CK_SCMI_RTCCK		75
-+#define CK_SCMI_ICN_APB1	76
-+#define CK_SCMI_ICN_APB2	77
-+#define CK_SCMI_ICN_APB3	78
-+#define CK_SCMI_ICN_APB4	79
-+#define CK_SCMI_ICN_APB5	80
-+#define CK_SCMI_ICN_APBDBG	81
-+#define CK_SCMI_TIMG1		82
-+#define CK_SCMI_TIMG2		83
-+#define CK_SCMI_BKPSRAM		84
-+#define CK_SCMI_BSEC		85
-+#define CK_SCMI_BUS_ETR		86
-+#define CK_SCMI_FMC		87
-+#define CK_SCMI_GPIOA		88
-+#define CK_SCMI_GPIOB		89
-+#define CK_SCMI_GPIOC		90
-+#define CK_SCMI_GPIOD		91
-+#define CK_SCMI_GPIOE		92
-+#define CK_SCMI_GPIOF		93
-+#define CK_SCMI_GPIOG		94
-+#define CK_SCMI_GPIOH		95
-+#define CK_SCMI_GPIOI		96
-+#define CK_SCMI_GPIOZ		97
-+#define CK_SCMI_HPDMA1		98
-+#define CK_SCMI_HPDMA2		99
-+#define CK_SCMI_HPDMA3		100
-+#define CK_SCMI_IPCC1		101
-+#define CK_SCMI_RETRAM		102
-+#define CK_SCMI_SRAM1		103
-+#define CK_SCMI_SYSRAM		104
-+#define CK_SCMI_OSPI1		105
-+#define CK_SCMI_TPIU		106
-+#define CK_SCMI_SYSDBG		107
-+#define CK_SCMI_SYSATB		108
-+#define CK_SCMI_TSDBG		109
-+#define CK_SCMI_BUS_STM		110
-+#define CK_SCMI_KER_STM		111
-+#define CK_SCMI_KER_ETR		112
-+
-+#endif /* _DT_BINDINGS_STM32MP21_CLKS_H_ */
-diff --git a/include/dt-bindings/reset/st,stm32mp21-rcc.h b/include/dt-bindings/reset/st,stm32mp21-rcc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..6463bd73d02540474c35a956ffb4872ab2c08ae0
---- /dev/null
-+++ b/include/dt-bindings/reset/st,stm32mp21-rcc.h
-@@ -0,0 +1,138 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-+ * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_STM32MP21_RESET_H_
-+#define _DT_BINDINGS_STM32MP21_RESET_H_
-+
-+#define TIM1_R		0
-+#define TIM2_R		1
-+#define TIM3_R		2
-+#define TIM4_R		3
-+#define TIM5_R		4
-+#define TIM6_R		5
-+#define TIM7_R		6
-+#define TIM8_R		7
-+#define TIM10_R		8
-+#define TIM11_R		9
-+#define TIM12_R		10
-+#define TIM13_R		11
-+#define TIM14_R		12
-+#define TIM15_R		13
-+#define TIM16_R		14
-+#define TIM17_R		15
-+#define LPTIM1_R	16
-+#define LPTIM2_R	17
-+#define LPTIM3_R	18
-+#define LPTIM4_R	19
-+#define LPTIM5_R	20
-+#define SPI1_R		21
-+#define SPI2_R		22
-+#define SPI3_R		23
-+#define SPI4_R		24
-+#define SPI5_R		25
-+#define SPI6_R		26
-+#define SPDIFRX_R	27
-+#define USART1_R	28
-+#define USART2_R	29
-+#define USART3_R	30
-+#define UART4_R		31
-+#define UART5_R		32
-+#define USART6_R	33
-+#define UART7_R		34
-+#define LPUART1_R	35
-+#define I2C1_R		36
-+#define I2C2_R		37
-+#define I2C3_R		38
-+#define SAI1_R		39
-+#define SAI2_R		40
-+#define SAI3_R		41
-+#define SAI4_R		42
-+#define MDF1_R		43
-+#define FDCAN_R		44
-+#define HDP_R		45
-+#define ADC1_R		46
-+#define ADC2_R		47
-+#define ETH1_R		48
-+#define ETH2_R		49
-+#define USBH_R		50
-+#define USB2PHY1_R	51
-+#define USB2PHY2_R	52
-+#define SDMMC1_R	53
-+#define SDMMC1DLL_R	54
-+#define SDMMC2_R	55
-+#define SDMMC2DLL_R	56
-+#define SDMMC3_R	57
-+#define SDMMC3DLL_R	58
-+#define LTDC_R		59
-+#define CSI_R		60
-+#define DCMIPP_R	61
-+#define DCMIPSSI_R	62
-+#define WWDG1_R		63
-+#define VREF_R		64
-+#define DTS_R		65
-+#define CRC_R		66
-+#define SERC_R		67
-+#define I3C1_R		68
-+#define I3C2_R		69
-+#define I3C3_R		70
-+#define IWDG2_KER_R	71
-+#define IWDG4_KER_R	72
-+#define RNG1_R		73
-+#define RNG2_R		74
-+#define PKA_R		75
-+#define SAES_R		76
-+#define HASH1_R		77
-+#define HASH2_R		78
-+#define CRYP1_R		79
-+#define CRYP2_R		80
-+#define OSPI1_R		81
-+#define OSPI1DLL_R	82
-+#define OTG_R		83
-+#define FMC_R		84
-+#define DBG_R		85
-+#define GPIOA_R		86
-+#define GPIOB_R		87
-+#define GPIOC_R		88
-+#define GPIOD_R		89
-+#define GPIOE_R		90
-+#define GPIOF_R		91
-+#define GPIOG_R		92
-+#define GPIOH_R		93
-+#define GPIOI_R		94
-+#define GPIOZ_R		95
-+#define HPDMA1_R	96
-+#define HPDMA2_R	97
-+#define HPDMA3_R	98
-+#define IPCC1_R		99
-+#define C2_HOLDBOOT_R	100
-+#define C1_HOLDBOOT_R	101
-+#define C1_R		102
-+#define C1P1POR_R	103
-+#define C1P1_R		104
-+#define C2_R		105
-+#define SYS_R		106
-+#define VSW_R		107
-+#define C1MS_R		108
-+#define DDRCP_R		109
-+#define DDRCAPB_R	110
-+#define DDRPHYCAPB_R	111
-+#define DDRCFG_R	112
-+#define DDR_R		113
-+#define DDRPERFM_R	114
-+#define IWDG1_SYS_R	116
-+#define IWDG2_SYS_R	117
-+#define IWDG3_SYS_R	118
-+#define IWDG4_SYS_R	119
-+
-+#define RST_SCMI_C1_R		0
-+#define RST_SCMI_C2_R		1
-+#define RST_SCMI_C1_HOLDBOOT_R	2
-+#define RST_SCMI_C2_HOLDBOOT_R	3
-+#define RST_SCMI_FMC		4
-+#define RST_SCMI_OSPI1		5
-+#define RST_SCMI_OSPI1DLL	6
-+
-+#endif /* _DT_BINDINGS_STM32MP21_RESET_H_ */
+Thanks for clarifying.
 
--- 
-2.25.1
+Best regards,
+Clément
+
+> Best regards,
+> Krzysztof
 
 
