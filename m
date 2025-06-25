@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598A5C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08127C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FkI6wheyoM7qp04MAt7wghDDstcSeE9ta3Zpr2NHOjw=; b=Gwb2sa+eFmdwoVeRV4UQRsHd61
-	WulPwDcRp/afly8Yb19RrQCMkXQBwjywXXoO8h2orpKIRborHPYb4llO35uaH4jcxRxmwZVe3cyeN
-	oel+23RAszlOglg45hHuszFEWCVMMymVzbGyqHf2Ef3hXwj1HgsiRALkLwuz8ExAy7TGeaYuRyzBd
-	pA/3RzaD+kpONvWIp7uWbTb/hYNswcJagMrIhFmiMUBxTHxFwuM5rGC4ujGBn0/GH5toyIaOhx9O5
-	OsVRQF1IWSFnGyND4m1P4ZpeBf8P/xTY2Awp+FQPwPxveh5rv0+tNuC6IOH/g9kGgrXvX2ilIb6Ff
-	+lQLy85g==;
+	bh=tZV+n0h3is6GH2jFIEJv+uFQD5Y8e2lvt0JYS8TX30U=; b=bkdZ74bMIF+U523LpHfj3SPRiB
+	jP6YrrP9EVv+W4uJvjJ+UdZL7Vr23pk9pIYiYbV4dfMw1QA95vgQ58w6c1lw2IcufuF9mBEvWqud8
+	ORygpZj4ALe0+UnPL0/E0K3zKi5YQLGTltcyKSZb3Yy7YomwqM1/uSmmrbNOxM+Ki7odsQEhRdkkM
+	lTtUp9gPYRvtXclqxxMMC23Lg/Tcj/72RUm2ZFn5sLfWSBqkc/QoD+DPkXYARx7tT9zKBVCzmRsLZ
+	jH6RA4WimJNCPU4FFcjxhOyPbmMBO7sNYzqpkUvk6/ZKvpO1ZUMZ3yBtTEU5SK+TCNtm9DH/hJ41G
+	/LkWuvGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPaC-00000008g4B-1ZfX;
-	Wed, 25 Jun 2025 12:50:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uUPcU-00000008gns-0u1S;
+	Wed, 25 Jun 2025 12:52:54 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMhJ-00000008Apl-3Id0;
-	Wed, 25 Jun 2025 09:45:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750844739;
-	bh=WGq9BnLFRlvgaj6JRyQGZWMVZ81/AYyKEllbs2pFfUQ=;
+	id 1uUMhn-00000008AzQ-41iS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 09:46:13 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9F9296F3;
+	Wed, 25 Jun 2025 11:45:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1750844750;
+	bh=iC7tw8rqjOwT7CRcW6Mq+d/a7tYQ72tc28+vmbMXUEU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GBU4AKGca8KnCekeyVnEecyJmPoVJ7wlpqhQnR8iWTyHHoOmXtft89FJs/f+zClQV
-	 hbB+VfZY7un9VwtAeD07AeKh1UjGVKVG0FXBySpj02ixuj48s0NNREvPRmj0d9EPD7
-	 hSIJOAuxT7B8J5+oGL74kB+VAGj6Ot/Aizw8daZNKJV66x8egWZH/vgxHYgxIcSZaa
-	 WmI79YohY/fz4whCsSj0MdwFqEGHo978IvhMhR13I0Nov+bqXurBJuTpdWIgcPj42X
-	 3v82NQL/5x4kqHRLDpAuyf0qYvJ43Ib9grHcg+NmAWGMum2+fmyXCcLkwX19utj+VX
-	 As/O7jLCKPSbg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9EBB17E0CE3;
-	Wed, 25 Jun 2025 11:45:38 +0200 (CEST)
-Message-ID: <9fc32523-5009-4f48-8d82-6c3fd285801d@collabora.com>
-Date: Wed, 25 Jun 2025 11:45:38 +0200
+	b=pdS7kaLKH8wuE7VR4Nom6WdhA8tK1gPpxd43yiQ0BTFckQrHxfzqMqqYKW1tgujCU
+	 QRkw8zYI4o/sARMPzGlvP9WkPWnD1EuEFwnXEDspHmgrtMIDlFWUxn3UUfB2jIGf10
+	 5qIQPh5sqUC9liJ8b9nNOC4ATpnIN1pGTNWKfamc=
+Message-ID: <78e03817-5a9a-4d5c-b765-cfe56650a93d@ideasonboard.com>
+Date: Wed, 25 Jun 2025 10:46:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
- peripheral clock controllers
-To: Krzysztof Kozlowski <krzk@kernel.org>, Laura Nao
- <laura.nao@collabora.com>, mturquette@baylibre.com, sboyd@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250624143220.244549-1-laura.nao@collabora.com>
- <20250624143220.244549-10-laura.nao@collabora.com>
- <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
- <284a4ee5-806b-45f9-8d57-d02ec291e389@collabora.com>
- <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v10 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+ <2b32b8ed-c841-4862-afab-c583da644217@linaro.org>
+ <8438a336-94d3-44e1-9e92-1fac0b2a602d@linaro.org>
 Content-Language: en-US
-In-Reply-To: <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <8438a336-94d3-44e1-9e92-1fac0b2a602d@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_024541_998127_C156D67F 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20250625_024612_145196_048487E3 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,78 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/06/25 10:57, Krzysztof Kozlowski ha scritto:
-> On 25/06/2025 10:20, AngeloGioacchino Del Regno wrote:
->> Il 24/06/25 18:02, Krzysztof Kozlowski ha scritto:
->>> On 24/06/2025 16:32, Laura Nao wrote:
->>>> +  '#reset-cells':
->>>> +    const: 1
->>>> +    description:
->>>> +      Reset lines for PEXTP0/1 and UFS blocks.
->>>> +
->>>> +  mediatek,hardware-voter:
->>>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>>> +    description:
->>>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
->>>> +      MCU manages clock and power domain control across the AP and other
->>>> +      remote processors. By aggregating their votes, it ensures clocks are
->>>> +      safely enabled/disabled and power domains are active before register
->>>> +      access.
+Morning Krzysztof
+
+On 25/06/2025 10:08, Krzysztof Kozlowski wrote:
+> On 25/06/2025 11:05, Krzysztof Kozlowski wrote:
+>> On 24/06/2025 12:21, Daniel Scally wrote:
+>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
 >>>
->>> Resource voting is not via any phandle, but either interconnects or
->>> required opps for power domain.
+>>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> You changed the binding significantly - adding new properties (which do
+>> not even follow DTS coding style).
 >>
->> Sorry, I'm not sure who is actually misunderstanding what, here... let me try to
->> explain the situation:
+>> This invalidates the review. You cannot just keep growing it after you
+>> received a review.
 >>
->> This is effectively used as a syscon - as in, the clock controllers need to perform
->> MMIO R/W on both the clock controller itself *and* has to place a vote to the clock
->> controller specific HWV register.
-> 
-> syscon is not the interface to place a vote for clocks. "clocks"
-> property is.
-> 
->>
->> This is done for MUX-GATE and GATE clocks, other than for power domains.
->>
->> Note that the HWV system is inside of the power domains controller, and it's split
->> on a per hardware macro-block basis (as per usual MediaTek hardware layout...).
->>
->> The HWV, therefore, does *not* vote for clock *rates* (so, modeling OPPs would be
->> a software quirk, I think?), does *not* manage bandwidth (and interconnect is for
->> voting BW only?), and is just a "switch to flip".
-> 
-> That's still clocks. Gate is a clock.
-> 
->>
->> Is this happening because the description has to be improved and creating some
->> misunderstanding, or is it because we are underestimating and/or ignoring something
->> here?
->>
-> 
-> Other vendors, at least qcom, represent it properly - clocks. Sometimes
-> they mix up and represent it as power domains, but that's because
-> downstream is a mess and because we actually (at upstream) don't really
-> know what is inside there - is it a clock or power domain.
-> 
+> Although if it is conflicting with my earlier message that some earlier
+> changes - reset properties - were trivial and review should be kept,
+> then apologies. Adding new, custom, vendor properties is not trivial.
+> Adding obvious existing properties usually is, although I understand why
+> it could also be a reason to drop review. In any case sorry for
+> confusion, but this needs re-review.
 
-....but the hardware voter cannot be represented as a clock, because you use it
-for clocks *or* power domains (but at the same time, and of course in different
-drivers, and in different *intertwined* registers).
+No problem; I was a bit unsure about that indeed - in last version I sent an email to bring 
+attention to the fact that I'd added the property whilst keeping the tags, should have done the same 
+again.
 
-So the hardware voter itself (and/or bits inside of its registers) cannot be
-represented as a clock :\
 
-In the context of clocks, it's used for clocks, (and not touching power domains at
-all), but in the context of power domains it's used for power domains (and not
-touching clocks at all).
+Thanks
 
-I'm not sure what qcom does - your reply makes me think that they did it such that
-the clocks part is in a MMIO and the power domains part is in a different MMIO,
-without having clock/pd intertwined voting registers...
+Dan
 
-Still not sure what to do here, then...
-
-Cheers,
-Angelo
+>
+> Best regards,
+> Krzysztof
 
