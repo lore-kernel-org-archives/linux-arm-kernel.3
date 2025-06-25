@@ -4,81 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0897EC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03684C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4r/5eYwnMVljkJxGQobUrcRcq5woCuF/HfLyLTxTmko=; b=je0uYdoFqIUOSQjkJTFF+PVlzw
-	9fS2jvkrfxKdbydOkcbR1YmxBTjZLohvbbXBtJ1aa1p+6rqrrtCvgUmNSn6Pn32OBuY7gvN7qbJEc
-	rgaeOPEekxx16T0SqhkN4HIBDg7tmwQxCR13Uba+PV9HDkjWF/7XqmrJJJrzr448SuAW1tUEre4V0
-	uFWGsKFOdyHtt3+HKT5ylVGwKcznmqD1dliY9IWD+dcuV7ENMmdX7QzPi7a3oMsj+AfgnJYYe0lDb
-	LLCyT33uYk0oSgePRk75zDXY8WM8zfxs6F2H2OgUOwvNkR0cyt5oUkQ9TPpgj9DR9KArgtjPQYDIm
-	Y+Yv7ysw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=etDFN6wtvcavr2f8yVWmXNqZFsdQ0B/RvviXTfGgdHI=; b=gMyKw+H8TzC7ZhlOGOvjpvvPM3
+	D0snXm955szsY166WjZaW6U1ldCK2iFiBz9F2tTbznW1MlrQ3q8183o0a865nvg8ci4nrV2Xs1/jR
+	mdWjdGPczudilLLDHxFvmF6joR2a0RQtNGn2INA5zTymXkdZNYEf+ky3bvR6FP025RPZB0YoCkwyh
+	1QQMv0renukOVefQ1RBKfWvWl1+05KhDuZwn+Ht6yxOkP9qjPF78r1D9SiOvUnhf1+YLqyEHiGGgT
+	Ag0Za1nOr/d6mW2q/JCpE+KF3H8BbwdVbgdmgVoFyuUgVycMOakAOvJrO0origoe3W6twAzDfKkRe
+	MpJ+XYgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMqJ-00000008Dt4-1bXP;
-	Wed, 25 Jun 2025 09:54:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUMsa-00000008EKM-3RoP;
+	Wed, 25 Jun 2025 09:57:20 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULzk-000000083QN-3yWe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Jun 2025 09:00:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4r/5eYwnMVljkJxGQobUrcRcq5woCuF/HfLyLTxTmko=; b=qOJRim+bOuweCyookUbdIoY5+B
-	/RFImjaOooezM7lDsUw8CApz/PZOdbg+wXjVHNSFEe5v00OqA06GSl6uEogBv6vI1nbjfdn3Kibmz
-	wRQyLCAZH8rtrVxxoFJ7fq7cu4WEm6dPyiZi74Byl/RrfTv9fmI2xejsD9ige42prLKrIRemxKxF7
-	Iufb2cN1f+T1Etfrc1K1mauADH3js55kxdvHTjMuXHtfFuGkZuqj5vyK7OCFNfBQ2z41Stf+Kg+u3
-	f6uOfgNkCj2MKijglK95wKNuVMHBFiAmnMbnYI5GfE5C2UVEgy1slh9NvGlpz9T80CkDltvXvz1fv
-	rJXrlYTQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULzh-00000005iEy-1wnT
+	id 1uUM4A-000000084Mv-1saI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:00:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D96F7106F;
-	Wed, 25 Jun 2025 02:00:15 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1E343F58B;
-	Wed, 25 Jun 2025 02:00:30 -0700 (PDT)
-Date: Wed, 25 Jun 2025 10:00:28 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>
-Subject: Re: [PATCH v9 11/43] arm64: RME: Allocate/free RECs to match vCPUs
-Message-ID: <20250625090028.GC111675@e124191.cambridge.arm.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-12-steven.price@arm.com>
+	Wed, 25 Jun 2025 09:05:15 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-450828af36aso1977295e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 02:05:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750842313; x=1751447113; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=etDFN6wtvcavr2f8yVWmXNqZFsdQ0B/RvviXTfGgdHI=;
+        b=cpNHuYftC0O2FmLJcKGEoPy9R4DTk+vXNCzffz2HqeYW+AkZ6vq4+EcJ9yta7WcSAR
+         Q+zr5zABqpZIqvRTuGen8uqYZrCU4+VnelNq83aSrvuvg2stGFWx5L4r8HZK+TkG1Bo9
+         ttW9o8gFGQu4UAXB7ki0MD0FTX14dxK7QN70ENAHt8Ap7dfDb9y3yCZ4xwki9tiqlE9S
+         wmVV2K4yRUNnpdwgT8EFI9JvNEZQTrmIZqCtJ3ReTiVAV9wEqzplOPI06R8C6zfuSkjb
+         Swfd9D33ROR15NfXcPVz6bQkVVXMh686EhnuaAiMhaBMaeXfZDwx5jl+AoJpxuAjTL4s
+         DqQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750842313; x=1751447113;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=etDFN6wtvcavr2f8yVWmXNqZFsdQ0B/RvviXTfGgdHI=;
+        b=Vpv8dcJRRK+2Rqn9zbArrqK966nfYDn7zbiT2aAyZgbdUFhx8vKzeOqLj5Xc5fuqT+
+         tb+9R7TxnH+b9ZGXtv9gRPosVehqVpQC1jI3WR4nUCIf1dH2Ydvuh9xf0yfxOvbeUwnl
+         tTnEMb57BuVA79TGrGxyMERJWMUG+Th4nWaQI/4KHEIr1ABFsq8/6cKXEu8NU1qohEXy
+         UVFope4cvQVWDH1fva0Wnbwyh4d2Ir91otelzYGiURh6TusXKsKSWRZmmiOI7DoCwLrc
+         rAXom+uSp5tt3bSAuT223ha/OPG85jZB4vMehKi2t8zO9Xa4ODaviqLyYCBbQ3/hPjlp
+         p9sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWIrL+xlVOb+Bs/CpQ5hoyouvpfCU5hHpa5DAPPgJ3p2QqfNB3E4iIZve/AiC4LyovXbZahglRjyazXm4oJe1/n@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZblzG6tGjHSgYLUhqkA75nk0jTiVa/5ltWyBiHj2jQbRONKJL
+	CrTUWq5xW8aIGi5OmlcP0YJYegnojBs5gRzV9es7GzB/ubGEHccPPcEDUILvjgxMbb4=
+X-Gm-Gg: ASbGncuQJO7vEkf8/WDuDz+CwZTFVY9hL6M5W8n3ZpWRxxfM9HVmiBCiAww7aOIuYpK
+	BZMPro5rQQLMlSKMkJ8HSiFdoeyIGymrb5qAgjkThcbJ40hcGyYfpjyMEzfWoDZ6A0WVGXU6ba7
+	BvIha5QNN0ncB6YsWR5BejlH+qruVm6iDRrZQubc4VrgRGJuzb8BhHn6vxx16B3ev6nsEKiSsMX
+	Exsau9tls2itVrdXUYB0ZeZROqTKrAnFb8LwwSOA9iygZhSmKtJ06DWENZf8HCOZGWIagod5bei
+	VllqgbF4PIOQSZUTmNdgo0E43EpPy+SZM7xyoM9LTd7Ogp/nM91JmJHCIw591YF6i3KuWCanOXd
+	CIUlhIQ==
+X-Google-Smtp-Source: AGHT+IF8op0IxbzSI3ROl+ecmGm2SzX7vVGkRXnPCuboGaPdO95czrLIN3iOd0fglW0Ut9sjEj5wgg==
+X-Received: by 2002:a05:600c:8b85:b0:453:7011:fce3 with SMTP id 5b1f17b1804b1-45381af8609mr7565455e9.5.1750842312540;
+        Wed, 25 Jun 2025 02:05:12 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.222.89])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a6e80fed75sm4116645f8f.66.2025.06.25.02.05.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Jun 2025 02:05:11 -0700 (PDT)
+Message-ID: <2b32b8ed-c841-4862-afab-c583da644217@linaro.org>
+Date: Wed, 25 Jun 2025 11:05:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611104844.245235-12-steven.price@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+To: Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_100038_011541_0F1F781E 
-X-CRM114-Status: GOOD (  45.32  )
+X-CRM114-CacheID: sfid-20250625_020514_495700_9D78D538 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,429 +153,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
+On 24/06/2025 12:21, Daniel Scally wrote:
+> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-On Wed, Jun 11, 2025 at 11:48:08AM +0100, Steven Price wrote:
-> The RMM maintains a data structure known as the Realm Execution Context
-> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
-> virtual CPUs. KVM must delegate memory and request the structures are
-> created when vCPUs are created, and suitably tear down on destruction.
-> 
-> RECs must also be supplied with addition pages - auxiliary (or AUX)
-> granules - for storing the larger registers state (e.g. for SVE). The
-> number of AUX granules for a REC depends on the parameters with which
-> the Realm was created - the RMM makes this information available via the
-> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor (RD).
-> 
-> Note that only some of register state for the REC can be set by KVM, the
-> rest is defined by the RMM (zeroed). The register state then cannot be
-> changed by KVM after the REC is created (except when the guest
-> explicitly requests this e.g. by performing a PSCI call). The RMM also
-> requires that the VMM creates RECs in ascending order of the MPIDR.
-> 
-> See Realm Management Monitor specification (DEN0137) for more information:
-> https://developer.arm.com/documentation/den0137/
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v7:
->  * Add comment explaining the aux_pages array.
->  * Rename "undeleted_failed" variable to "should_free" to avoid a
->    confusing double negative.
-> Changes since v6:
->  * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
->    realm guest.
->  * Support host page size being larger than RMM's granule size when
->    allocating/freeing aux granules.
-> Changes since v5:
->  * Separate the concept of vcpu_is_rec() and
->    kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->    the indication that the VCPU is a REC.
-> Changes since v2:
->  * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
-> ---
->  arch/arm64/include/asm/kvm_emulate.h |   7 ++
->  arch/arm64/include/asm/kvm_host.h    |   3 +
->  arch/arm64/include/asm/kvm_rme.h     |  27 ++++
->  arch/arm64/kvm/arm.c                 |  13 +-
->  arch/arm64/kvm/reset.c               |  11 ++
->  arch/arm64/kvm/rme.c                 | 180 +++++++++++++++++++++++++++
->  6 files changed, 239 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index a640bb7dffbc..302a691b3723 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -711,7 +711,14 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
->  
->  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->  {
-> +	if (static_branch_unlikely(&kvm_rme_is_available))
-> +		return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
->  	return false;
->  }
->  
-> +static inline bool kvm_arm_rec_finalized(struct kvm_vcpu *vcpu)
-> +{
-> +	return vcpu->arch.rec.mpidr != INVALID_HWID;
-> +}
-> +
->  #endif /* __ARM64_KVM_EMULATE_H__ */
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 18e6d72dabe9..58fe7b216126 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -883,6 +883,9 @@ struct kvm_vcpu_arch {
->  
->  	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
->  	struct vncr_tlb	*vncr_tlb;
-> +
-> +	/* Realm meta data */
-> +	struct realm_rec rec;
->  };
->  
->  /*
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 5f0de9a6d339..f716b890e484 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -6,6 +6,7 @@
->  #ifndef __ASM_KVM_RME_H
->  #define __ASM_KVM_RME_H
->  
-> +#include <asm/rmi_smc.h>
->  #include <uapi/linux/kvm.h>
->  
->  /**
-> @@ -65,6 +66,30 @@ struct realm {
->  	unsigned int ia_bits;
->  };
->  
-> +/**
-> + * struct realm_rec - Additional per VCPU data for a Realm
-> + *
-> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
-> + * @rec_page: Kernel VA of the RMM's private page for this REC
-> + * @aux_pages: Additional pages private to the RMM for this REC
-> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
-> + */
-> +struct realm_rec {
-> +	unsigned long mpidr;
-> +	void *rec_page;
-> +	/*
-> +	 * REC_PARAMS_AUX_GRANULES is the maximum number of granules that the
-> +	 * RMM can require. By using that to size the array we know that it
-> +	 * will be big enough as the page size is always at least as large as
-> +	 * the granule size. In the case of a larger page size than 4k (or an
-> +	 * RMM which requires fewer auxiliary granules), the array will be
-> +	 * bigger than needed however the extra memory required is small and
-> +	 * this keeps the code cleaner.
-> +	 */
-> +	struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
+You changed the binding significantly - adding new properties (which do
+not even follow DTS coding style).
 
-I think that something like this may work, and use the right amount of pages:
+This invalidates the review. You cannot just keep growing it after you
+received a review.
 
-	struct page *aux_pages[(REC_PARAMS_AUX_GRANULES * RMM_PAGE_SIZE) >> PAGE_SHIFT];
-
-Thanks,
-Joey
-
-> +	struct rec_run *run;
-> +};
-> +
->  void kvm_init_rme(void);
->  u32 kvm_realm_ipa_limit(void);
->  
-> @@ -72,6 +97,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
->  int kvm_init_realm_vm(struct kvm *kvm);
->  void kvm_destroy_realm(struct kvm *kvm);
->  void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
-> +int kvm_create_rec(struct kvm_vcpu *vcpu);
-> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->  
->  static inline bool kvm_realm_is_private_address(struct realm *realm,
->  						unsigned long addr)
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index b3e3323573c6..7be1bdfc5f0b 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -495,6 +495,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->  	/* Force users to call KVM_ARM_VCPU_INIT */
->  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
->  
-> +	vcpu->arch.rec.mpidr = INVALID_HWID;
-> +
->  	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
->  
->  	/* Set up the timer */
-> @@ -1457,7 +1459,7 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
->  	return -EINVAL;
->  }
->  
-> -static unsigned long system_supported_vcpu_features(void)
-> +static unsigned long system_supported_vcpu_features(struct kvm *kvm)
->  {
->  	unsigned long features = KVM_VCPU_VALID_FEATURES;
->  
-> @@ -1478,6 +1480,9 @@ static unsigned long system_supported_vcpu_features(void)
->  	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
->  		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
->  
-> +	if (!kvm_is_realm(kvm))
-> +		clear_bit(KVM_ARM_VCPU_REC, &features);
-> +
->  	return features;
->  }
->  
-> @@ -1495,7 +1500,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->  			return -ENOENT;
->  	}
->  
-> -	if (features & ~system_supported_vcpu_features())
-> +	if (features & ~system_supported_vcpu_features(vcpu->kvm))
->  		return -EINVAL;
->  
->  	/*
-> @@ -1517,6 +1522,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->  	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
->  		return -EINVAL;
->  
-> +	/* RME is incompatible with AArch32 */
-> +	if (test_bit(KVM_ARM_VCPU_REC, &features))
-> +		return -EINVAL;
-> +
->  	return 0;
->  }
->  
-> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-> index 959532422d3a..2e9e855581d4 100644
-> --- a/arch/arm64/kvm/reset.c
-> +++ b/arch/arm64/kvm/reset.c
-> @@ -137,6 +137,11 @@ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
->  			return -EPERM;
->  
->  		return kvm_vcpu_finalize_sve(vcpu);
-> +	case KVM_ARM_VCPU_REC:
-> +		if (!kvm_is_realm(vcpu->kvm) || !vcpu_is_rec(vcpu))
-> +			return -EINVAL;
-> +
-> +		return kvm_create_rec(vcpu);
->  	}
->  
->  	return -EINVAL;
-> @@ -147,6 +152,11 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
->  	if (vcpu_has_sve(vcpu) && !kvm_arm_vcpu_sve_finalized(vcpu))
->  		return false;
->  
-> +	if (kvm_is_realm(vcpu->kvm) &&
-> +	    !(vcpu_is_rec(vcpu) && kvm_arm_rec_finalized(vcpu) &&
-> +	      READ_ONCE(vcpu->kvm->arch.realm.state) == REALM_STATE_ACTIVE))
-> +		return false;
-> +
->  	return true;
->  }
->  
-> @@ -161,6 +171,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
->  	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
->  	kfree(vcpu->arch.vncr_tlb);
->  	kfree(vcpu->arch.ccsidr);
-> +	kvm_destroy_rec(vcpu);
->  }
->  
->  static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index 0f89295fa59c..f094544592b5 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -484,6 +484,186 @@ void kvm_destroy_realm(struct kvm *kvm)
->  	kvm_free_stage2_pgd(&kvm->arch.mmu);
->  }
->  
-> +static void free_rec_aux(struct page **aux_pages,
-> +			 unsigned int num_aux)
-> +{
-> +	unsigned int i, j;
-> +	unsigned int page_count = 0;
-> +
-> +	for (i = 0; i < num_aux;) {
-> +		struct page *aux_page = aux_pages[page_count++];
-> +		phys_addr_t aux_page_phys = page_to_phys(aux_page);
-> +		bool should_free = true;
-> +
-> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
-> +			if (WARN_ON(rmi_granule_undelegate(aux_page_phys)))
-> +				should_free = false;
-> +			aux_page_phys += RMM_PAGE_SIZE;
-> +			i++;
-> +		}
-> +		/* Only free if all the undelegate calls were successful */
-> +		if (should_free)
-> +			__free_page(aux_page);
-> +	}
-> +}
-> +
-> +static int alloc_rec_aux(struct page **aux_pages,
-> +			 u64 *aux_phys_pages,
-> +			 unsigned int num_aux)
-> +{
-> +	struct page *aux_page;
-> +	int page_count = 0;
-> +	unsigned int i, j;
-> +	int ret;
-> +
-> +	for (i = 0; i < num_aux;) {
-> +		phys_addr_t aux_page_phys;
-> +
-> +		aux_page = alloc_page(GFP_KERNEL);
-> +		if (!aux_page) {
-> +			ret = -ENOMEM;
-> +			goto out_err;
-> +		}
-> +
-> +		aux_page_phys = page_to_phys(aux_page);
-> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
-> +			if (rmi_granule_delegate(aux_page_phys)) {
-> +				ret = -ENXIO;
-> +				goto err_undelegate;
-> +			}
-> +			aux_phys_pages[i++] = aux_page_phys;
-> +			aux_page_phys += RMM_PAGE_SIZE;
-> +		}
-> +		aux_pages[page_count++] = aux_page;
-> +	}
-> +
-> +	return 0;
-> +err_undelegate:
-> +	while (j > 0) {
-> +		j -= RMM_PAGE_SIZE;
-> +		i--;
-> +		if (WARN_ON(rmi_granule_undelegate(aux_phys_pages[i]))) {
-> +			/* Leak the page if the undelegate fails */
-> +			goto out_err;
-> +		}
-> +	}
-> +	__free_page(aux_page);
-> +out_err:
-> +	free_rec_aux(aux_pages, i);
-> +	return ret;
-> +}
-> +
-> +int kvm_create_rec(struct kvm_vcpu *vcpu)
-> +{
-> +	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
-> +	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
-> +	struct realm *realm = &vcpu->kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long rec_page_phys;
-> +	struct rec_params *params;
-> +	int r, i;
-> +
-> +	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_NEW)
-> +		return -ENOENT;
-> +
-> +	if (rec->run)
-> +		return -EBUSY;
-> +
-> +	/*
-> +	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
-> +	 * flag covers v0.2 and onwards.
-> +	 */
-> +	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
-> +		return -EINVAL;
-> +
-> +	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
-> +	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
-> +
-> +	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
-> +	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
-> +	rec->run = (void *)get_zeroed_page(GFP_KERNEL);
-> +	if (!params || !rec->rec_page || !rec->run) {
-> +		r = -ENOMEM;
-> +		goto out_free_pages;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
-> +		params->gprs[i] = vcpu_regs->regs[i];
-> +
-> +	params->pc = vcpu_regs->pc;
-> +
-> +	if (vcpu->vcpu_id == 0)
-> +		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
-> +
-> +	rec_page_phys = virt_to_phys(rec->rec_page);
-> +
-> +	if (rmi_granule_delegate(rec_page_phys)) {
-> +		r = -ENXIO;
-> +		goto out_free_pages;
-> +	}
-> +
-> +	r = alloc_rec_aux(rec->aux_pages, params->aux, realm->num_aux);
-> +	if (r)
-> +		goto out_undelegate_rmm_rec;
-> +
-> +	params->num_rec_aux = realm->num_aux;
-> +	params->mpidr = mpidr;
-> +
-> +	if (rmi_rec_create(virt_to_phys(realm->rd),
-> +			   rec_page_phys,
-> +			   virt_to_phys(params))) {
-> +		r = -ENXIO;
-> +		goto out_free_rec_aux;
-> +	}
-> +
-> +	rec->mpidr = mpidr;
-> +
-> +	free_page((unsigned long)params);
-> +	return 0;
-> +
-> +out_free_rec_aux:
-> +	free_rec_aux(rec->aux_pages, realm->num_aux);
-> +out_undelegate_rmm_rec:
-> +	if (WARN_ON(rmi_granule_undelegate(rec_page_phys)))
-> +		rec->rec_page = NULL;
-> +out_free_pages:
-> +	free_page((unsigned long)rec->run);
-> +	free_page((unsigned long)rec->rec_page);
-> +	free_page((unsigned long)params);
-> +	return r;
-> +}
-> +
-> +void kvm_destroy_rec(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm *realm = &vcpu->kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long rec_page_phys;
-> +
-> +	if (!vcpu_is_rec(vcpu))
-> +		return;
-> +
-> +	if (!rec->run) {
-> +		/* Nothing to do if the VCPU hasn't been finalized */
-> +		return;
-> +	}
-> +
-> +	free_page((unsigned long)rec->run);
-> +
-> +	rec_page_phys = virt_to_phys(rec->rec_page);
-> +
-> +	/*
-> +	 * The REC and any AUX pages cannot be reclaimed until the REC is
-> +	 * destroyed. So if the REC destroy fails then the REC page and any AUX
-> +	 * pages will be leaked.
-> +	 */
-> +	if (WARN_ON(rmi_rec_destroy(rec_page_phys)))
-> +		return;
-> +
-> +	free_rec_aux(rec->aux_pages, realm->num_aux);
-> +
-> +	free_delegated_granule(rec_page_phys);
-> +}
-> +
->  int kvm_init_realm_vm(struct kvm *kvm)
->  {
->  	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
-> -- 
-> 2.43.0
-> 
+Best regards,
+Krzysztof
 
