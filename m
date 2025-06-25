@@ -4,57 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E0CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:36:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412E9C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RHtYeLfcxPt6tkSx5THYp4Q4BiufLUsgip9qC/sOP2s=; b=hhF3q1SaTAamwRCvw+L2B6pJAq
-	8PUV1kT0qcJkeZlXzhNrGBUJcrUETl20St0gpCZRxn8/TyOUu5mEA+wykZ498ZcRFKS3HiBmGv/lR
-	dU1Xh0G7+TIO1NnM372G+QK9wSjSRb+DsDU+CDB32VAkmdzmVYVo6hJ88fNuJ2MF5zDX0TuFrGDAN
-	udyKwfwjL6y/A29is6N+iVAlXQYjmmJVEKVeDKoU1ngl4E9Q7RyqZGKuzNSg93ydTtnNQYlWt8XpL
-	jHNY3GJyycLCYn8+T/BJ/BEGxiPnYydyT8uV2H8EsbsNNfCnTWLjWuQ1PoC0T/Oo8dBXVkXm8Qz9c
-	YEBHg/tg==;
+	bh=RgNrCjq6lsOkp6g05Z5E9V8l08rRXcQ6exdzrdyOjWk=; b=c19lneb53wbs2CWqffplQhLiTw
+	m+BzI8dx1t+FX9Jcy/sveRwwhjdPZ7Yc9y920WPoxjKhOONs5KCXA16R0t6agmuTfQPdSp3yyl5Cm
+	IpjcKqbcV1OulTunQnjKWwem4iOehBB5KkXeMw9zrocoWyWehccTWv1s3sqXfh99po4rcRuwBwECi
+	PRCY6Rc58R/fAnnSbR5dR9jFglUPezb8yjkXAV3KTByUPrZUVJynnFHDxLgKNyfiXcRSfhIxfU9zf
+	ZyTa8byklVKki8x/AnSGafMtyuAiAB84btILYvXR1qdNCg7MAYUdQg5I0ffL1gfv5lWzi4ov0aAXv
+	n+lZZyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKgE-00000007ptl-0G7s;
-	Wed, 25 Jun 2025 07:36:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHD-00000007lOa-2bvB;
-	Wed, 25 Jun 2025 07:10:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=RHtYeLfcxPt6tkSx5THYp4Q4BiufLUsgip9qC/sOP2s=; b=j1rM+5VsQ28CaGlzBJGokU3t2T
-	XoU5tyadUB51gE4ogSzR3lx8oGXqqMsjqGTO7MsyZ+9t56DOY0DfF3w/qqrsrYcNRi+ZjGKLJ37uv
-	tK4tC6b24zlH826KgT+/r1YJoD+1wl/Uz6YI5NkWGQ2ETcnYqFBDweCGd7AVkaN7WcaQaWTomvwPv
-	UNcOxTI2ovrgxmO6QD+mAgDx7bfMQJexABFC9SfSXlZlVCe2r2iJBSgqsrTd7+Gc/alq6P3jqcXSu
-	QoXpJ+zzPK977nNkIcoRauKxb55C1YU/Em5+qyb13u0Bj+Yi+5S3R7KaiiV6nXdOiS99EBkJIEy5N
-	c1AqCdfw==;
+	id 1uUKiV-00000007qM8-093z;
+	Wed, 25 Jun 2025 07:38:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHB-00000005ddC-03nE;
-	Wed, 25 Jun 2025 07:10:34 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKHE-00000007lLi-0LUS;
+	Wed, 25 Jun 2025 07:10:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEEA34AFE0;
-	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A21C4CEF8;
-	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 053204AFEE;
+	Wed, 25 Jun 2025 07:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 850B0C4CEF1;
+	Wed, 25 Jun 2025 07:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835428;
-	bh=MVpW9jOYl5nfA5iSMc4oN4R/qeu/fhMbVZxtFi5zdFA=;
+	s=k20201202; t=1750835435;
+	bh=pkoFPfsdz5mUfc5I4FK+MnyFLsCjGsnnD9jc5ME9fN4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eaWrFSUhcCI7riLUfFOXOKpU7RRqzyayHnNsr0WqvQSAzXanOJBDrb0E5xCtJtois
-	 8LShoehuDb1UkTBdzvjnDGljGp3yrYnOf2GxQfhGzZJE6b/KqYJikZ8wgjHjdNfNPi
-	 mSTR1FAb33fdLl/btE0meQ09o5r4K6cPrIg9STvdmgXdU1T4r2tm+MQ235u9xHlGPe
-	 cdGa0cns8ZIr3XYa0cJBGr4rbTwGYLKfBa7QGwMZwnJsPNjVGxQI3of78cc5JJiyZm
-	 wU21Gged0J0nqc1T/laJis8r+d0qh5/kKhXdRXWILByu9uENEwQX2fTTLyncyq9hrE
-	 LX8wskdgDHsZg==
+	b=eZmKP/fIDXW6rkeKR6Thsj7qhzrxUo7+anqcEdA8gXs47TnZN6DL2kX7bOmniF+Af
+	 +piPAyua5mV1/j2iaeJwcTEQSZit4PSpaEuHxsuX3Gh7qbJL1/S6+cmg48nAkVE0dN
+	 ZyGYkK4KNRVoHZ8kRyXFP+D5WRT1bmxJwqycb3x7/rHw4Si1XjQgAf3mJF4Ppbc3st
+	 vVZqoNdVE/MzcDZ1B21vwKhKKnzwJYGxof7gMCU3EX3I9Jd+xgPmhyMAFfRtKRsS7F
+	 8ucsuq7Ii9jB5dRSQBWrDMV+5Y5BLLHL58mBqSOsHYMJPjSbhmNrrHgtHdtCEEmFJL
+	 s0DeneNL1I14g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -68,17 +54,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 03/18] crypto: sha512 - Use the correct legacy export format
-Date: Wed, 25 Jun 2025 00:08:04 -0700
-Message-ID: <20250625070819.1496119-4-ebiggers@kernel.org>
+Subject: [PATCH 18/18] lib/crypto: sha256: Document the SHA-224 and SHA-256 API
+Date: Wed, 25 Jun 2025 00:08:19 -0700
+Message-ID: <20250625070819.1496119-19-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081033_271717_ED56299C 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250625_001036_158322_DDEE5C43 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +79,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It appears the legacy export format is intended to have the value of the
-bytecount field be block-aligned, so update __crypto_sha512_export() and
-__crypto_sha512_import() to match.
+Add kerneldoc comments, consistent with the kerneldoc comments of the
+SHA-384 and SHA-512 API.
 
-Fixes: e62c2fe56418 ("crypto: sha512 - Use same state format as legacy drivers")
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/sha512.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ include/crypto/sha2.h | 76 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-diff --git a/crypto/sha512.c b/crypto/sha512.c
-index 0eed801346018..5bda259dd22fe 100644
---- a/crypto/sha512.c
-+++ b/crypto/sha512.c
-@@ -13,30 +13,42 @@
- #include <linux/module.h>
- 
- /*
-  * Export and import functions.  crypto_shash wants a particular format that
-  * matches that used by some legacy drivers.  It currently is the same as the
-- * library SHA context but with the partial block length as a u8 appended to it.
-+ * library SHA context, except the value in bytecount_lo must be block-aligned
-+ * and the remainder must be stored in an extra u8 appended to the struct.
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index 2e3fc2cf4aa0d..e0a08f6addd00 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -153,17 +153,55 @@ void __hmac_sha256_init(struct __hmac_sha256_ctx *ctx,
   */
+ struct sha224_ctx {
+ 	struct __sha256_ctx ctx;
+ };
  
- #define SHA512_SHASH_STATE_SIZE 209
- static_assert(offsetof(struct __sha512_ctx, state) == 0);
- static_assert(offsetof(struct __sha512_ctx, bytecount_lo) == 64);
- static_assert(offsetof(struct __sha512_ctx, bytecount_hi) == 72);
- static_assert(offsetof(struct __sha512_ctx, buf) == 80);
- static_assert(sizeof(struct __sha512_ctx) + 1 == SHA512_SHASH_STATE_SIZE);
- 
--static int __crypto_sha512_export(const struct __sha512_ctx *ctx, void *out)
-+static int __crypto_sha512_export(const struct __sha512_ctx *ctx0, void *out)
- {
--	memcpy(out, ctx, sizeof(*ctx));
--	*((u8 *)out + sizeof(*ctx)) = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
-+	struct __sha512_ctx ctx = *ctx0;
-+	unsigned int partial;
-+	u8 *p = out;
++/**
++ * sha224_init() - Initialize a SHA-224 context for a new message
++ * @ctx: the context to initialize
++ *
++ * If you don't need incremental computation, consider sha224() instead.
++ *
++ * Context: Any context.
++ */
+ void sha224_init(struct sha224_ctx *ctx);
 +
-+	partial = ctx.bytecount_lo % SHA512_BLOCK_SIZE;
-+	ctx.bytecount_lo -= partial;
-+	memcpy(p, &ctx, sizeof(ctx));
-+	p += sizeof(ctx);
-+	*p = partial;
- 	return 0;
- }
- 
- static int __crypto_sha512_import(struct __sha512_ctx *ctx, const void *in)
++/**
++ * sha224_update() - Update a SHA-224 context with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
+ static inline void sha224_update(struct sha224_ctx *ctx,
+ 				 const u8 *data, size_t len)
  {
--	memcpy(ctx, in, sizeof(*ctx));
-+	const u8 *p = in;
-+
-+	memcpy(ctx, p, sizeof(*ctx));
-+	p += sizeof(*ctx);
-+	ctx->bytecount_lo += *p;
- 	return 0;
+ 	__sha256_update(&ctx->ctx, data, len);
  }
++
++/**
++ * sha224_final() - Finish computing a SHA-224 message digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: (output) the resulting SHA-224 message digest
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
+ void sha224_final(struct sha224_ctx *ctx, u8 out[SHA224_DIGEST_SIZE]);
++
++/**
++ * sha224() - Compute SHA-224 message digest in one shot
++ * @data: the message data
++ * @len: the data length in bytes
++ * @out: (output) the resulting SHA-224 message digest
++ *
++ * Context: Any context.
++ */
+ void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE]);
  
- /* SHA-384 */
+ /**
+  * struct hmac_sha224_key - Prepared key for HMAC-SHA224
+  * @key: private
+@@ -273,17 +311,55 @@ void hmac_sha224_usingrawkey(const u8 *raw_key, size_t raw_key_len,
+  */
+ struct sha256_ctx {
+ 	struct __sha256_ctx ctx;
+ };
  
++/**
++ * sha256_init() - Initialize a SHA-256 context for a new message
++ * @ctx: the context to initialize
++ *
++ * If you don't need incremental computation, consider sha256() instead.
++ *
++ * Context: Any context.
++ */
+ void sha256_init(struct sha256_ctx *ctx);
++
++/**
++ * sha256_update() - Update a SHA-256 context with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
+ static inline void sha256_update(struct sha256_ctx *ctx,
+ 				 const u8 *data, size_t len)
+ {
+ 	__sha256_update(&ctx->ctx, data, len);
+ }
++
++/**
++ * sha256_final() - Finish computing a SHA-256 message digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: (output) the resulting SHA-256 message digest
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
+ void sha256_final(struct sha256_ctx *ctx, u8 out[SHA256_DIGEST_SIZE]);
++
++/**
++ * sha256() - Compute SHA-256 message digest in one shot
++ * @data: the message data
++ * @len: the data length in bytes
++ * @out: (output) the resulting SHA-256 message digest
++ *
++ * Context: Any context.
++ */
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ 
+ /**
+  * struct hmac_sha256_key - Prepared key for HMAC-SHA256
+  * @key: private
 -- 
 2.50.0
 
