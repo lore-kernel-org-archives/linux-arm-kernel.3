@@ -4,97 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10470C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 23:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9EAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 23:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyR0FYZGAu+xAAQgW5Lj3KzVHDYOKQScbDJUXmm3HlY=; b=tAcPLWiKUjTNApXyD+qWCF4YTi
-	rin5NIvvjguD/r5zc8TxdH+2jLW6ixeNQwQBXz/Q+RS7P/gGYSnL/m0E5tdIDaROXj30VMHFw1+IR
-	DLRocbuse6Hvuqhwx32buFq6ss492fU/rrGP5LvCcnL5oHI6p0L+yXr6T8MSVETLjqDW4Dg+xyq/M
-	QhADqNw7hom8cytPzMV9RbplgHaxa537mWacPDvPuZoIIQmWmfxTcGAqQYocB73grbkxLGePNnkgk
-	gJA8r38dXV15q9pKjskEINaDGXdBf+yIlOCgrJLpbyu6Tf81z7FFo3/1wPgR5Vwq/r4/P6sRJJx8C
-	wDEeqTVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=phh4OKodGMYsUpPWJQe7GkTpUyN1Fr6QxceJrdgSRY4=; b=pmfENCMmYRppHJXAH4bdBxcbG7
+	F2FUMsN7lAXqXY/BF3FZPc6fC51u8xMbfptAJ/1Bj6JMhnpvLO1V/KugCCptYHq+BTGm+A6gZGOYG
+	bRkJaePcW+ksdLeemQp77Pd8AxvN5QXr5sNofpynfV7asbdWN8v/e1WinJ/Ot4cRwu6/W0kwqlwpb
+	XQoslCOD9EDoxrjsnTEQja0xyZI6bqae3Zo9bhlPUXF3Ix/RndrOx98pfLLLtedg+dBP9KMKumCBM
+	Rms6kqv2gpr1CGvKWuL5IJ/VN5qls9bDmlP9dubjRi40acDfWpUHTUjN1+wiHRdYKa9yXmKEHGxFr
+	EjzwkPMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUZ7Q-0000000A9KB-0IMq;
-	Wed, 25 Jun 2025 23:01:28 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1uUZF3-0000000A9zT-1DHh;
+	Wed, 25 Jun 2025 23:09:21 +0000
+Received: from mail-bn7nam10on20621.outbound.protection.outlook.com ([2a01:111:f403:2009::621] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUZ09-0000000A7pW-2yF8
+	id 1uUZCk-0000000A9kR-3ipv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 22:53:58 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-60780d74c85so488206a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 15:53:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750892035; x=1751496835; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RyR0FYZGAu+xAAQgW5Lj3KzVHDYOKQScbDJUXmm3HlY=;
-        b=P0XQaQWWC0CC2aMGx89WqpB/YbELycGE/XdKIbg5gGnwGaX1uK9nHp4lwfa0Lsi8Aa
-         jgyiG4ApwMjaXPVIrsQgcQyF/RU+4QORqumbBKz2xwsZHtMb+mxW34LxQSdWCb8uXnwy
-         yAn/aQ10jArIRlvllyDl7GykEAF5M0vJEyYl8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750892035; x=1751496835;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RyR0FYZGAu+xAAQgW5Lj3KzVHDYOKQScbDJUXmm3HlY=;
-        b=mknz+BL/+8szi/4eMVJyAp38+BwVTzbShoF5v/mDCc8tsJ7CVrGsr0SR55zPAjuz/E
-         Eij5YBF+zD8VoLf+bSw4ux+BEYqO2cU6anCc/REo0JeEx/m/MThLKALDIBLkZtv2tt+6
-         +jBnXnVish5cQ49iBNrE6RQt3oKYKNyd79ZZuFP8fQTBzMr2a3kQ4jcwZVExwAfUKW6z
-         xtRkU5NbJ1t0iTv5hHXRYNCapvx5366JJ6c/ysMiQzzZayh1dShIS6fIj4/4gQimi6k5
-         4WCSLxPDZAOAyMBs4IReKf3nEW4+I5lXT4fNmcNzvxkuGcCnhciJqs8YcayOc78l2Gv+
-         Fquw==
-X-Forwarded-Encrypted: i=1; AJvYcCVgPvHkx98eFmP18eHZaX3toqjduUxDvltNaqT0ri39KfC2TpAPdwL/YnGcnRiuW/J43VEXGQ8Nb6lYS8We8KzB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAgMk5EnCWFS3MKql+eGQ4316Q8P8hAgQwemD1AFZapuDD1KHs
-	Nqd0WiNYNWj4Ti2BYI0O//3IAeYD3VXcrv9lb4nHcHUFgWPAXPmH/M7lvP/gYnE3O3VP9fxuBWB
-	ks8xn4cdI
-X-Gm-Gg: ASbGncvFQYKaq/xrS3+y1K3pT8WoUp6ZRIYPnxyzt5MBiw6WbFo7yGbzc9/AecyOvnJ
-	xQ9ffHOtuyXNh8m9znFuRJk8Mid88O61kW3r6U1vMi4kB8cAqPRmZ7b5x1Sa8bQwyiBlGJP3y0W
-	diJQvvFW+uwVVdaxcXS3mcgCG2NM3GvC8JHK1bki5end5zfeHw30Ilwbylpshu4qBLb9Z9TX5bs
-	woHpgZiVilph1+f/l6K20qhtanzDbkK/HnxLytNNjjx+LmQ4LYLJYLdG88rojzCLb6GDSqZrjQR
-	9at/FaWMQaUEYODLnovSKl/+tTiwvEtDSqUnZg26dTdEBaorIeyvyczMOVz9vAJbGPxa4gvDpmq
-	Ew6p+nyhQVgfo4R8HrDXbHkiaxOQDjLDPjp1Z
-X-Google-Smtp-Source: AGHT+IFCSIiSt+DVvHsYBaHmni6WvyaMuHu673YlTyqG9YMcMBhZoIcAyE9+aTQB+S+qpAvgeSHNFw==
-X-Received: by 2002:a05:6402:42d0:b0:60c:4bc0:453e with SMTP id 4fb4d7f45d1cf-60c4dc5250cmr3816687a12.2.1750892035195;
-        Wed, 25 Jun 2025 15:53:55 -0700 (PDT)
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com. [209.85.221.45])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c2f1b1ffbsm2987735a12.19.2025.06.25.15.53.53
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Jun 2025 15:53:53 -0700 (PDT)
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-3a6cd1a6fecso291274f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 15:53:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXCEFvOP02Sbbuc0na39eOQ6GspXnPb3PcsXwi4f3q3M7Iafw6gfY8nXMlL3vLFoUadNzxNcPb1Au+2YFOo0a9C@lists.infradead.org
-X-Received: by 2002:a17:906:4fc5:b0:ad8:85df:865b with SMTP id
- a640c23a62f3a-ae0bee4f81bmr465882166b.33.1750891606630; Wed, 25 Jun 2025
- 15:46:46 -0700 (PDT)
+	Wed, 25 Jun 2025 23:07:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gdfneLGnE/ZIAURwg9G75sraJtRIPhnMmrv3xIVYtxqURGptP5KAQZJl2aVLBOTQrhaqm+hX3nKy6R66egOVn8OG73Vwj+gYwj4iUpuFn+PnltM2tsRFbG0EMCu7ipcPs6vryJ8Vg3pnimD7vjqE0fXMK7AqgysbhG0m7qmEtmmKU84c/8FtPteSgJOwvxq/8Dznr1ysd2IeteGPIxd1ybZOon9x3fb6+fIirlZoT4VnzeR7P4q7g3mNY9hzVfrdLOpQv/CD+vFeG4P/T8cNNqz/wq/k0WkRADUUqZWyYNvH8jkzclAqp5tBMy+gRzv/5wY6tM7YbPWUBNRla+06ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=phh4OKodGMYsUpPWJQe7GkTpUyN1Fr6QxceJrdgSRY4=;
+ b=Px7RgKqjF3mFK+rdFbtvZwPBw8wOIL6QceDudz/RhK12w517+gCMMdlK7JWYE8dLqcr7fwh1E8AMZrwXUdTiCqmoOd8tGy2h92MYy/tpi7WCayj+qlBk4UpcLfIZjVtkxo28I0ssPgpgbecaOrfOS+a+3m9X5hII3R5D6laadPXUpWIocIKD3e+yog4q1oNq/odQnG1Impo9OpTDaqIHIYNzbRitWUCkaBKz0f+zreGWZ0URy4Of4bT6Ikl0bUIRiVXcz19vCp/RChsxUiUAgNP5pgxy17At4lM/xNvgADol/geKb3eSebMHdLBoqkNVxBkoCdBm/9i0YqI8Mxl3Gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=phh4OKodGMYsUpPWJQe7GkTpUyN1Fr6QxceJrdgSRY4=;
+ b=eusxB6KrZvg1s5XMKSPvVM1iDfuY2gdjXmrktxAKex+F8YnpWcoVYFw8dL3fTv88PCgoNAFXO3lr4Z8ib7p+C89GQHenzUTWspw9bPF/mJ1BI0nltfAfbbnrNahQctVz1pR/8eYbK/RlQjavTm3zKO9DgaQkSKsvjr2Jwa+1Wv8B0DkLYHoiTpOjuRmGjwg0Ma3R13bYWuxCEvKFPp+iLm2ePyFlOCjMbu9BZs4Byy4MN6YyVLzbgkqp3OD8EhGIzkrJPvfsfjXsH0XQiykTYpHVYWVgwEFSqi8tTOH88yuLQ6sf8SNWM2RgNBTLArNbNSTI5KHH5y8uKr/hpMNHcA==
+Received: from BL0PR05CA0013.namprd05.prod.outlook.com (2603:10b6:208:91::23)
+ by SA5PPF9BB0D8619.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8d8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Wed, 25 Jun
+ 2025 23:06:49 +0000
+Received: from BN1PEPF0000468C.namprd05.prod.outlook.com
+ (2603:10b6:208:91:cafe::13) by BL0PR05CA0013.outlook.office365.com
+ (2603:10b6:208:91::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.18 via Frontend Transport; Wed,
+ 25 Jun 2025 23:06:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN1PEPF0000468C.mail.protection.outlook.com (10.167.243.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8880.14 via Frontend Transport; Wed, 25 Jun 2025 23:06:49 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 25 Jun
+ 2025 16:06:32 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 25 Jun
+ 2025 16:06:30 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 25 Jun 2025 16:06:29 -0700
+Date: Wed, 25 Jun 2025 16:06:27 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
+	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
+	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
+	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v6 10/25] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
+ ioctl
+Message-ID: <aFyA881sUUjxHCFh@Asurada-Nvidia>
+References: <cover.1749884998.git.nicolinc@nvidia.com>
+ <7dfb002613f224f57a069d27e7bf2b306b0a5ba0.1749884998.git.nicolinc@nvidia.com>
+ <BN9PR11MB52763496C4A0066A77FED5B48C7BA@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <20250619114805.16968-1-yangyicong@huawei.com> <20250619114805.16968-2-yangyicong@huawei.com>
-In-Reply-To: <20250619114805.16968-2-yangyicong@huawei.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 25 Jun 2025 15:46:31 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=UQd5EdSgTb4Lu6wkGYFYudmeaoPgAvpjbSnG19xLj+dg@mail.gmail.com>
-X-Gm-Features: Ac12FXzwMfrDuJBkf-A63dUtZVuZncvA5PWl27qreB9HtJeESXtbkwvo-HXMsB0
-Message-ID: <CAD=FV=UQd5EdSgTb4Lu6wkGYFYudmeaoPgAvpjbSnG19xLj+dg@mail.gmail.com>
-Subject: Re: [RESEND PATCH v2 1/2] watchdog/perf: Provide function for
- adjusting the event period
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
-	sumit.garg@linaro.org, kernelfans@gmail.com, lecopzer.chen@mediatek.com, 
-	tglx@linutronix.de, song@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	jonathan.cameron@huawei.com, zhanjie9@hisilicon.com, prime.zeng@hisilicon.com, 
-	yangyicong@hisilicon.com, linuxarm@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB52763496C4A0066A77FED5B48C7BA@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468C:EE_|SA5PPF9BB0D8619:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb8a59f8-8666-4583-07f8-08ddb43cf73e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|82310400026|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8auYxNS8Bpirza8fm/OjFSPFNimFwtKg3TdooQhsPgbV4iE+/SiHu5c29Qvg?=
+ =?us-ascii?Q?JBK3o1tBkoUptpRIoeVaEI/OciGqjiz124VwkRetgLeJQmz8UN6aO6e0KYLb?=
+ =?us-ascii?Q?XvHliY6RjpqlUx4zgRA9ETF9c0InFCyCvEoOcT9SLYInAAD91q9uaxsBa8tk?=
+ =?us-ascii?Q?sSPYj0YyW/6YuREzRt2z9K7qMGCskvMd6Z1NDqJVKxSuA9rXu+VA0kPdVkGU?=
+ =?us-ascii?Q?JEeYldJv92LoGuY9dCsx1xnhbm0jEcgKdfF7nFcevuH5ECcwCdVNENpcmzEC?=
+ =?us-ascii?Q?qu8YzRsmRxOyD9nSJRwXRPZ4hFVUqxZMQwT7CwEoM/2q8cOZ0/VJONTsKQWV?=
+ =?us-ascii?Q?g0TDEHHQJY+AiI+C94LxL4C62BGwTaB81/hWVALLrPaTCHC0cPHWj0av/Dgv?=
+ =?us-ascii?Q?/q85NzGsUCEtJpmz+GnQ2WxLs7UcKv85ia4Ou7x7nBcPLbK2HSI/vAte2LZt?=
+ =?us-ascii?Q?HDNXSxuFKcUOHNbd5idvkgoTJsABDSzS96QCaPURqMwgEn1Bt6NSl6eAj7r7?=
+ =?us-ascii?Q?1rly3JsuG4EwMj9elpYeLHoC2/3P7HOhmtU+37BuvW0Q+EjQuy/O7+Nw3Obo?=
+ =?us-ascii?Q?EhLaP5erf/3vDQf42xy+PcWBboXMDsiC5k4vBCCEptDfPAMR87EmuWRxNdob?=
+ =?us-ascii?Q?HYzkHulJjqlw526NeBwHxht+GUspzRYOKCQ9Ezh2q6Z62M0srZgHYqa2CAbU?=
+ =?us-ascii?Q?y+7MezcSGj2pjsVZH/6XK+XqCxcQtgpTcjuye/Gi76aH2JWSi3DEzglYkB+A?=
+ =?us-ascii?Q?HUj29h95gr3BDPcVpRTZF25sDoSB0Y5hmazvdnTpniPMLO4eqAxvh5zmrrsr?=
+ =?us-ascii?Q?zvEgBVx3v68Nih1qiNhRpfjK70llRjHwXqyI//s6fZklo6PeAblzpGSZVL4/?=
+ =?us-ascii?Q?qQ7aNIwvUOwu3qauXfSLdHDIJMzeFlvvPEu15nUGgAMmN7tzVlHSKpwQTznd?=
+ =?us-ascii?Q?IYY3WPQbD4Nh7g6hkmrte5QAaAhd5aKBXND7AO75DPKfVZTTJrhaJSdmIvy6?=
+ =?us-ascii?Q?APhOYXpVHI1sbeim1FJhqLHVefCy/VUgJkR0rOpbtumDnBwliL+bjXyArpTC?=
+ =?us-ascii?Q?NlNh15YkMJhQyrXtMNuSRw22thsyxY32qQ4ZyoymjJr3GwjQcff2sBHv91Oe?=
+ =?us-ascii?Q?rMI3MxZYL5maxAX7oNPjKFvp30bPjvbWshOW4TzhByhjBhWcFS48whPNfVWM?=
+ =?us-ascii?Q?7PzdcbrTcH5B+d/+POu6zIUylsOzpGdd8fBGlfQHOpBXmvoby8FCWCkIY+0X?=
+ =?us-ascii?Q?lfaVDZruPMsMjoZ2Q9izeHJVKS0Pn8PkyouICkwI3evPNSDaH9xseZ0UvP6F?=
+ =?us-ascii?Q?FrzshiARub6PeMBaXu35n0pzLWkUipgly+Ki//dRdADi0IebZrNldliAjHLX?=
+ =?us-ascii?Q?yd9aXB7ml05pII2DPvXBUIfJtHqW+Cg35B5/2e4otF6gEJTAiFfDOxdgKRbr?=
+ =?us-ascii?Q?UsVQ+gUL9SV58h0bCr2/ZvEZ27HK3yRv38zMjqxlnlcUObMsg/S7HkQKvjy6?=
+ =?us-ascii?Q?4/Yow/ew9urUICCzG7ljWReb+L92z1osAD9C?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 23:06:49.3675
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb8a59f8-8666-4583-07f8-08ddb43cf73e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468C.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPF9BB0D8619
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_155357_765205_89613BCC 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250625_160658_923700_CDC6EE3D 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +171,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jun 25, 2025 at 03:45:08AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Saturday, June 14, 2025 3:15 PM
+> > +
+> > +	offset =
+> > +		cmd->nesting_parent_iova - PAGE_ALIGN(cmd-
+> > >nesting_parent_iova);
+> > +	max_npages = DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE);
+> > +
+> > +	/*
+> > +	 * FIXME allocation may fail when sizeof(*pages) * max_npages is
+> > +	 * larger than PAGE_SIZE. This might need a new API returning a
+> > +	 * bio_vec or something more efficient.
+> > +	 */
+> > +	pages = kcalloc(max_npages, sizeof(*pages), GFP_KERNEL);
+> > +	if (!pages)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> 
+> any allocation may fail... can you elaborate more here? How does
+> PAGE_SIZE become a boundary?
 
-On Thu, Jun 19, 2025 at 4:48=E2=80=AFAM Yicong Yang <yangyicong@huawei.com>=
- wrote:
->
-> From: Yicong Yang <yangyicong@hisilicon.com>
->
-> Architecture's using perf events for hard lockup detection needs to
-> convert the watchdog_thresh to the event's period, some architecture
-> for example arm64 perform this conversion using the CPU's maximum
-> frequency which will be acquired by cpufreq. However by the time
-> the lockup detector's initialized the cpufreq driver may not be
-> initialized, thus launch a watchdog with inaccurate period. Provide
-> a function hardlockup_detector_perf_adjust_period() to allowing
-> adjust the event period. Then architecture can update with more
-> accurate period if cpufreq is initialized.
->
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
->  include/linux/nmi.h    |  2 ++
->  kernel/watchdog_perf.c | 23 +++++++++++++++++++++++
->  2 files changed, 25 insertions(+)
+Memory fragmentation can be the reason. It's easy to get one page
+but not for contiguous pages.
 
-I looked at v1 a long time ago and my nit has been fixed, so:
+Jason suggested to use kvcalloc, so I am adding this:
+@@ -249,11 +249,10 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
+        max_npages = DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE);
 
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
+        /*
+-        * FIXME allocation may fail when sizeof(*pages) * max_npages is
+-        * larger than PAGE_SIZE. This might need a new API returning a
+-        * bio_vec or something more efficient.
++        * Use kvcalloc() to avoid memory fragmentation for a large page array.
++        * Set __GFP_NOWARN to avoid syzkaller blowups
+         */
+-       pages = kcalloc(max_npages, sizeof(*pages), GFP_KERNEL);
++       pages = kvcalloc(max_npages, sizeof(*pages), GFP_KERNEL | __GFP_NOWARN);
+        if (!pages)
+                return ERR_PTR(-ENOMEM);
+
+Thanks
+Nicolin
 
