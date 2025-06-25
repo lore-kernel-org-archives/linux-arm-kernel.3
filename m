@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F236FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6C7C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4Q3XUg6mnWivyzUnSGdcZM/aknf6tlaSlyzdrGZxGw=; b=O/B3u6YsE4GtWx0T2ym7GwvrAZ
-	YqcgB3d2JGCEBqsZlsNFNh1p6BZZtCs/6hZYctsaPZylCLBzOwQ9IKHqO6fDa3m89YznPpSiirnJo
-	YRLI+FlE/fup0Ef1+FXXmPUivt8HCj744EvtuQ38m2xnNRKfub3WjQ8qXnT4wj8jd02kF1Vv3N4SQ
-	zqfdX7BzOM9Tl0CoiTHbl7sSQ+UpQ5YvsTp8mOyzM4dU6UtjbxbLLrsdra2HPLGOvpvIGZD2LaxSA
-	5YTvjoGYinjD6Tl0zSDMvXPj4rdaiD7jWKoElOh+3/k/IrxV/34Mg4THcQlYdoFFZ+j6jGmbt1Mhb
-	8Pfa1HTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9xGXQ19jz5gBhAI7zA5nQj//6n0DPmJeqF13kJfmQqo=; b=Kn1Acj2P2wXTgMJlHvjXVB0Wq6
+	mB3oif2Vhk04IdpyC2Oiha/1Uv9Hxk3lRunFSXIjt5ss82aeMSrzsUIHtB5A1Pzso0UgjgJFiZx/L
+	Tibul5faEvIQFCD/0Yu3/LLghhKqHnz2Z6oZfMXfrRr5KqxtnZ9VE8Er+05FANlu38IbxmcCkKHrM
+	NwuRqnsBNHLLfnFHhn3sDHbnXHwW0XoB9ZCQuBuK0M6RPIUgxKcSs0ViA6srjdqzAEqcF+uIIOIZx
+	0ezwph9EXP/e7s0uYoEt6zoYhepPPqypyUbKSNVL6QuES3Hqq4N3FhywZ04xIznE2pCDDpIXhqMED
+	oNiXQXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVor-00000009kku-2FWZ;
-	Wed, 25 Jun 2025 19:30:05 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uUVr9-00000009kwH-1OMy;
+	Wed, 25 Jun 2025 19:32:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQOi-00000008qTI-0AP9;
-	Wed, 25 Jun 2025 13:42:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750858962;
-	bh=9Qc6KYO7RtqwQsPT7/J6J3b4FamcfNGBV+14cCp2izs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XpckavdawoX1DCh43/Am0LH/gsqEKUZj73AImthw2dp6FK0lU4hvB9PXTBn5usVvQ
-	 YdodQs+fr4Vjhjj6SvrvcKUOr5aJWu7qpugh6iLTl93WQD1xvnNhUV+DecA6QlDIde
-	 hezEBgKbPxlLgSLzOOI5rZLz75+ZzqFD45culiYggww+8HBLhZqFK5l/PB0CdXcj6N
-	 ePPtPmEHR66MW5jxy+hWm7O+ITy4JCHGoXJeAeK2ZdFtiCIMu6AST8NJJRPKSFRw1Y
-	 CQyopfFIwQe4Gsn1Ywf4WQs6tgIs9YGG8mJZhykiKn4YNzP8p+2vp5G2kTXLDKJkxT
-	 LGomKnW8T0tRA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9D7C017E0CE3;
-	Wed, 25 Jun 2025 15:42:41 +0200 (CEST)
-Message-ID: <4fc2d5d5-61a5-49f1-b381-4ada37cf3c20@collabora.com>
-Date: Wed, 25 Jun 2025 15:42:40 +0200
+	id 1uURjQ-000000094L9-1Q4b
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 15:08:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7CAC9A52B62;
+	Wed, 25 Jun 2025 15:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D85C4CEEA;
+	Wed, 25 Jun 2025 15:08:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750864091;
+	bh=2gBptdzqxqqhgORGmH4ar6orPA4C1xLI0BROKOAbAXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J1rWhMDmtU7pLN+ccNfJuhEK6e5nNYS1fqurneQ5iWjVcl7LJp8AhWo1AbsSBYP/Z
+	 alaPl520BQs1yqudvJdaANJeTJlJEoA8VhUE9OLs0irB1mhcbkxDt8O53vJNrVUa6t
+	 3VRVyIKCiQyrovz7ApexspI1f3uLTFGYF6fd/p0GaQE/F3Tjm31tzma3OA0uAk0iG1
+	 09TOSfa7jDn1DhSt/CrIPICqXqiP02PXTRjanePiTxpMiV2Br7FYAyBRpLJxIfOHaz
+	 qAViaEpgY8YGy+I5iQjFyrONfOw7qeZVWzGC8if1BwUyvEAGcR587AC9/7jrDgolhV
+	 pHe+0hwHNuz3Q==
+Date: Wed, 25 Jun 2025 18:08:07 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>, linux-integrity@vger.kernel.org,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Nicholas Piggin <npiggin@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>
+Subject: Re: [PATCH v6 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aFwQ129i_HYzG3aY@kernel.org>
+References: <20250620130810.99069-1-sgarzare@redhat.com>
+ <20250620130810.99069-5-sgarzare@redhat.com>
+ <aFvlaY0BNjaGxU1D@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] wifi: mt76: mt7925: Fix null-ptr-deref in
- mt7925_thermal_init()
-To: Henry Martin <bsdhenrymartin@gmail.com>, huntazhang@tencent.com,
- jitxie@tencent.com, landonsun@tencent.com, nbd@nbd.name, lorenzo@kernel.org,
- ryder.lee@mediatek.com, shayne.chen@mediatek.com, sean.wang@mediatek.com,
- matthias.bgg@gmail.com
-Cc: linux-wireless@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Henry Martin <bsdhenryma@tencent.com>
-References: <20250625124901.1839832-1-bsdhenryma@tencent.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250625124901.1839832-1-bsdhenryma@tencent.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aFvlaY0BNjaGxU1D@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_064244_234251_91CF4C95 
-X-CRM114-Status: UNSURE (   6.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_080812_516297_2929DCAA 
+X-CRM114-Status: GOOD (  32.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/06/25 14:49, Henry Martin ha scritto:
-> devm_kasprintf() returns NULL on error. Currently, mt7925_thermal_init()
-> does not check for this case, which results in a NULL pointer
-> dereference.
+On Wed, Jun 25, 2025 at 03:02:54PM +0300, Jarkko Sakkinen wrote:
+> On Fri, Jun 20, 2025 at 03:08:10PM +0200, Stefano Garzarella wrote:
+> > From: Stefano Garzarella <sgarzare@redhat.com>
+> > 
+> > This driver does not support interrupts, and receiving the response is
+> > synchronous with sending the command.
+> > 
+> > Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+> > ->send() already fills the provided buffer with a response, and ->recv()
+> > is not implemented.
+> > 
+> > Keep using the same pre-allocated buffer to avoid having to allocate
+> > it for each command. We need the buffer to have the header required by
+> > the SVSM protocol and the command contiguous in memory.
+> > 
+> > Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> > ---
+> > v5:
+> > - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> > v4:
+> > - reworked commit description [Jarkko]
+> > ---
+> >  drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
+> >  1 file changed, 11 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
+> > index 0847cbf450b4..f5ba0f64850b 100644
+> > --- a/drivers/char/tpm/tpm_svsm.c
+> > +++ b/drivers/char/tpm/tpm_svsm.c
+> > @@ -26,37 +26,31 @@ struct tpm_svsm_priv {
+> >  };
+> >  
+> >  static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> > -			 size_t len)
+> > +			 size_t cmd_len)
+> >  {
+> >  	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+> >  	int ret;
+> >  
+> > -	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
+> > +	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
+> >  	if (ret)
+> >  		return ret;
+> >  
+> >  	/*
+> >  	 * The SVSM call uses the same buffer for the command and for the
+> > -	 * response, so after this call, the buffer will contain the response
+> > -	 * that can be used by .recv() op.
+> > +	 * response, so after this call, the buffer will contain the response.
+> > +	 *
+> > +	 * Note: we have to use an internal buffer because the device in SVSM
+> > +	 * expects the svsm_vtpm header + data to be physically contiguous.
+> >  	 */
+> > -	return snp_svsm_vtpm_send_command(priv->buffer);
+> > -}
+> > -
+> > -static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
+> > -{
+> > -	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
+> > +	ret = snp_svsm_vtpm_send_command(priv->buffer);
+> > +	if (ret)
+> > +		return ret;
+> >  
+> > -	/*
+> > -	 * The internal buffer contains the response after we send the command
+> > -	 * to SVSM.
+> > -	 */
+> > -	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
+> > +	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, bufsiz);
+> >  }
+> >  
+> >  static struct tpm_class_ops tpm_chip_ops = {
+> >  	.flags = TPM_OPS_AUTO_STARTUP,
+> > -	.recv = tpm_svsm_recv,
+> >  	.send = tpm_svsm_send,
+> >  };
+> >  
+> > @@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
+> >  
+> >  	dev_set_drvdata(&chip->dev, priv);
+> >  
+> > +	chip->flags |= TPM_CHIP_FLAG_SYNC;
+> >  	err = tpm2_probe(chip);
+> >  	if (err)
+> >  		return err;
+> > -- 
+> > 2.49.0
+> > 
 > 
-> Add NULL check after devm_kasprintf() to prevent this issue.
-> 
-> Fixes: 396e41a74a88 ("wifi: mt76: mt7925: support temperature sensor")
-> Signed-off-by: Henry Martin <bsdhenryma@tencent.com>
+> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Applied.
 
-
+BR, Jarkko
 
