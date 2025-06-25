@@ -4,172 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6623C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C16C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCkCv5bH3L+Nz8/iiLF/0bpRHI0Sl0NhSmISL/9+jYI=; b=FqGQ7HPKhau2hMtQ6xpt35U/um
-	O4coxtARs3gbxtClU+cekWcFciaOoMR/UQcnTsfMvfqhEspzqnfPckKRp63CURLUjmjWHFYnSxb2g
-	/8jheqDASFUhea+S3Jxxc7OnlYi7D4+hy3ww3t66f1THZha4AOeQ9clp0Th3+5Xx3J2xGeePxvZU8
-	aqIv4Nb4YqfRlUhu1x5e46pLjWs2Dm0y86RZw/1njS7OHomsbhF14t/a+sTlpDevgQ6vkUJwSJgZK
-	D1hnGsvyaRoAqwp85CRts2W5ED5AtpcRmGnoqZgaAp8d1gy+OCCdpCatc+Nv+0c6rhQzQ8o7EQNyl
-	RKzBA6yA==;
+	bh=j9lxAywOv5yt4LeQ6A3AxT624fpEB3GL4l9rgh6gKj8=; b=PILgsqyErvW/qC4cBnluRo8H5T
+	p2Lq82NsIydXp45lHfrS4Ah49iudwGmJ3ZLjU9R5paz0Tj4tqKDxeUjSSrHLzBKvUds5NxLv9NmUA
+	Kbx8dbcftQj2jFxGJCZK8F2OcHCUzLZGxf1xvXnDmKGO7lelifZvp6LIeWxk8tX+EjSHX77M0N+WN
+	p6SswhK04kGgNZkBl8/g9NvjaSCyJAN9rCzmxDb09St7PBva9DUv863G1GDpShsij0nQlr5n4Fmei
+	I46P8rpQxtsmlW9tD0R787Wr0bl8xMILgru4wdmAXHDZXIgxo8sBJXY/u1tPyHSRcNK1u4NJJgEvn
+	1hJ6Q22g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUTFa-00000009Lqk-0uBT;
-	Wed, 25 Jun 2025 16:45:30 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uUTHs-00000009Mkt-0ztP;
+	Wed, 25 Jun 2025 16:47:52 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOyQ-00000008aUW-3wFg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:11:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tF/OFdTU0A2Fsz8nPGRf5uC4Oj0v9Z7WOlZgrC7ebsV4v8RIbZK3jtYreCJ275dsaLBaIauDaMpDbzUsrOXGINpBOzd7GA7RKVa/gKTaz1WjMUHF4GpQaw9I5VDZ+PfTdvL5MisyyzYTsKsfdh4O+v7Uo8vn8QfvQ2ofKULyVowAH2PNJZIsrKUniJPcm0wA+qz9LY9Q9TviPrnnqs0kUdRofNGb+D2odk5wm9OC/LPUTYKrTuQFk0PzJpb51lNMGlMh5kHYr51/6/brrlEyOyQDvPUvEQNn+74ArFQDBMNrSJFVLeNAvbv/x2DGSfhF8OA2eIJBeR396kwaC2uYhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UCkCv5bH3L+Nz8/iiLF/0bpRHI0Sl0NhSmISL/9+jYI=;
- b=HR0M2BOtvJGwgjOKNLLuhtGlw3HHmQPsrsc8ehy+Nqj7v9ph4+vnCHoMyVV6ioEsW82l8iDDCLuSfxYiVoxahi3jLWxvPwYO7h4IEFylRpx+CTpwY9dU61WNtD5X7/wf6Pt7LZqLOOUTOnDLBrY4l4vor8PzBThTGZW4KeicLru6STFMWCCJrCf9ai9Q3yS3bSJQRuRh0vKZAwNfO7SoL+b5YMRFxiWoxrT9f7q6sBpn3gqxcTwIRwLZFSvK5L/CEB6YPRIl1Nj1P2QqUQUvh4lay8jiujjpkZq5HelvTbLdFrcansXCFrHQMfbB8F9+g0wGv20mm+bKetBr/pPryg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
- dkim=pass header.d=uclouvain.be; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UCkCv5bH3L+Nz8/iiLF/0bpRHI0Sl0NhSmISL/9+jYI=;
- b=OlF9Ijr6NRXkljmeEQtJVtIYc3Q0qiLKUHVcyMR6m9+6PNayyuAnpp+a1nvnuzAeE9UF2MGC1MNv0ybCrKQtDqT2c+PpIBZiO+kiPMDEvzd07f4VT1SjRRs2eqdBvupD4DHVn15a2EdJgPToQv6AcmjZ7/lWViUsINldD2mU4sltyNIivlMrIbD8IPpzQb+37Q1Le4GW+SCxOLsaKqW8lk83tOxfrjY2js1qicSvYeH7ka8kx/JdeilzGA/crrCeFCOD40h4xFcb5QCq9ic8tewE/4c4u9TCxGk9mxr+p4upwqWcV2cKdB0XsyszbismJld9ZsIw6WPPuFri9zYD7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=uclouvain.be;
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
- by DU0PR03MB8853.eurprd03.prod.outlook.com (2603:10a6:10:40f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Wed, 25 Jun
- 2025 12:11:17 +0000
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c%4]) with mapi id 15.20.8835.027; Wed, 25 Jun 2025
- 12:11:17 +0000
-Message-ID: <793c02e4-fa7a-4c13-bfc3-bb058e211b5f@uclouvain.be>
-Date: Wed, 25 Jun 2025 14:12:21 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
- <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
- <4cahu6dog7ly4ww6xyjmjigjfxs4m55mrnym2bjmzskscfvk34@guazy6wxbzfh>
-Content-Language: en-US
-From: Thomas Antoine <t.antoine@uclouvain.be>
-In-Reply-To: <4cahu6dog7ly4ww6xyjmjigjfxs4m55mrnym2bjmzskscfvk34@guazy6wxbzfh>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR04CA0086.eurprd04.prod.outlook.com
- (2603:10a6:208:be::27) To AS8PR03MB9047.eurprd03.prod.outlook.com
- (2603:10a6:20b:5b6::13)
+	id 1uUP7c-00000008bXk-3Lk7;
+	Wed, 25 Jun 2025 12:21:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=j9lxAywOv5yt4LeQ6A3AxT624fpEB3GL4l9rgh6gKj8=;
+	t=1750854058; x=1752063658; b=ihAz5zMX1AQj3zecYP4CMrTMRUafIXwy27LL6VgkajaA91g
+	ahF5ViGb2R0udi3fDn7ZR+CxEkIsIkTWNwgl3Sbie81YEF/QGXvyTa1HsKX3a3gsMTdB9eAKrL9o0
+	Bq9mS5iNBnlRlVqlfVTmQA5ew+jp5ZtWEDMZtgYJPdBU+cSxtGv8sRt6QxgvG6VqYG6emsF5LPcP6
+	aocpBw6aVuEYGbmZaudn5KU7+YnJXmqqCfJsKw1pxG/+ZHtzTNW5Ptz8h9FanGqhfIBjvCYC2VCbk
+	1MIDxdKD5IKQ5fpgbiBZkuKOCfTEgf6yt/Y5TprJ1FtWkFNuACI+J3BWyYeaE6LQ==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1uUP7I-00000009xkX-2M7X;
+	Wed, 25 Jun 2025 14:20:40 +0200
+Message-ID: <dd87fa28e596126536d79281e87e2e0f52d9dfd4.camel@sipsolutions.net>
+Subject: Re: [PATCH 6/9] kasan/um: call kasan_init_generic in kasan_init
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com, 
+	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, 
+	vincenzo.frascino@arm.com, catalin.marinas@arm.com, will@kernel.org, 
+	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, 	npiggin@gmail.com, christophe.leroy@csgroup.eu,
+ hca@linux.ibm.com, 	gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, 	svens@linux.ibm.com, richard@nod.at,
+ anton.ivanov@cambridgegreys.com, 	dave.hansen@linux.intel.com,
+ luto@kernel.org, peterz@infradead.org, 	tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
+	chris@zankel.net, jcmvbkbc@gmail.com, akpm@linux-foundation.org
+Cc: guoweikang.kernel@gmail.com, geert@linux-m68k.org, rppt@kernel.org, 
+	tiwei.btw@antgroup.com, richard.weiyang@gmail.com, benjamin.berg@intel.com,
+ 	kevin.brodsky@arm.com, kasan-dev@googlegroups.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
+Date: Wed, 25 Jun 2025 14:20:38 +0200
+In-Reply-To: <20250625095224.118679-7-snovitoll@gmail.com> (sfid-20250625_115328_891177_CC2D325A)
+References: <20250625095224.118679-1-snovitoll@gmail.com>
+	 <20250625095224.118679-7-snovitoll@gmail.com>
+	 (sfid-20250625_115328_891177_CC2D325A)
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|DU0PR03MB8853:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08d06885-7c90-4801-e3f1-08ddb3e16339
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dWFNQWhBblAwcVExcnFtZ25MSUc5V2NoTU1RbDd5bzYwZHIzb2dZOWJETFlB?=
- =?utf-8?B?M3c4dm5DZVA0aU5Uc3lPM21ZOVp6b21lNEZsRU9UWEtyejNjOW1kS1RuK09m?=
- =?utf-8?B?WmR1NGlhOERzU0k1cWZsN3FLSUhuQUs5RkFPYXhxT2txUzREK256MHpSNUFq?=
- =?utf-8?B?Szd6b2dWRjh2TW52c0tabWFtNm9QQWhyU2xheVM4NzgrSC9rZEJ4emYwNUpM?=
- =?utf-8?B?ZWZud2M0UWM1ZzdWUVNzai9ZSWN4ZFBMMnhWZE5PekVrck1udktIUCtYdlZB?=
- =?utf-8?B?aTBpdzZUak04RHFIek95RzVtd0JRNXVnSjJsTTA5cmZ0YkNjVng3c2VUS2c2?=
- =?utf-8?B?dTJaL1J2Y0FrQzh3SXFPd01zRmN5SVVuVnRZaTZhRE1tSThjMXBUUWwxREpP?=
- =?utf-8?B?UkkrWVpVQ21Ycng3eGVFblF3eE5IYWd6TmNYZmdRemo0SDNhTlIwWmduZmRQ?=
- =?utf-8?B?bm9OMHE3aWpzR1JycVQvVnN5eUEvSmw1endKa2VvTjY1SkVpVU9JUlRvdlpL?=
- =?utf-8?B?bFkyZ3h1eHlaRlRNcXQzOFhlb2ZYWENydFRJWUtGS2VTNnpzdkdKNmdza091?=
- =?utf-8?B?bTZYb2VaTGtJM3cxVlQ0T3NiZFVkRXlMd3YvRE85TG91TGNCcjBTUVF6Vlhq?=
- =?utf-8?B?N0UzZGJpWmhiZ0d3VHJ6NUlNNVZybzR5OEdrRElibTlEckV5Mk5heHNSNzVB?=
- =?utf-8?B?bmMwSWVzdGdRTTNRdDJuaUp0dUozb1crM1ZQaUQrQy9mZUY0WlRCQXlRZ1J6?=
- =?utf-8?B?QjdVTVFZMU5HaHhRVDM4dDFPWTNiUmtHclhhVGdiVVdnOEdsN1k0WVRoYkpw?=
- =?utf-8?B?U0xyRWFxSGNLTmtUcVgwaDlGOUlKR3BpZzZiMnkrMitKWi81ZG9LQWZIcmE2?=
- =?utf-8?B?b3RkYjZHYjdQaEhMZXUxMmJCeU1SVjlSWG43WEg0S0h1dWNkTU9YckZtWGtK?=
- =?utf-8?B?STlIWmRUYzlreWhhN1puOWo4THNHbTBHUHRSYzV1ZGVJdEVITVdBbGh0N3JN?=
- =?utf-8?B?YS9JTXZRRStUdGtpQm9sVnM2QW5zRHZvYkhHUXNHMTdGYWM1a3Awb2p3aW8x?=
- =?utf-8?B?WFoxTDNzbDNuRUpXQVg0OCtHbDVIVVBWem9QMTAycDVRbGlnay9ydXlwdWF5?=
- =?utf-8?B?aXJqc01wRUxNQXN6WjRjQkFqV2RwSSswUnpRYW1McmQzR0s4V1BUb0RNS0dK?=
- =?utf-8?B?WllWSW9GQnluUk44Q3pxM21Kb3dGaDlLYkIxcVNTdkxNZk1QZ1EyOFpyWWpU?=
- =?utf-8?B?NHhHTmVxemlLL2dZZVc2cGJSYlo2RXA1UTU1RUVQUTNVbkVZbEs2bU1NU3Rk?=
- =?utf-8?B?SHMrVFFGMlY4aGsrUld1Uy9zK1Z2VnJ3M0NZSlRadWJQaFdydGtvT0N1NlFu?=
- =?utf-8?B?bndtZ0FKNXJvWXhNL01NSlVMWXE5ZzBYczgrSkNBVEdORVh5YUgvTDhHSEpC?=
- =?utf-8?B?bFRKT1RFVnlYbHJHejFQSmtHMXE1QmZEM1FlOThhSmduWXJMT2lwaTlkZHFm?=
- =?utf-8?B?V1VLelNKUHJQcUNkaTBpdTRJVkJURUY2bG9KR3ZRVTdhWjBDRVFJU1FRK2pG?=
- =?utf-8?B?NUVQUjVHR29xcGZPN0RPM291R3Q1ZXQ4WDBiN2pwRDQ3OGk2VkhPOTMzeFpC?=
- =?utf-8?B?VjdHYWc2WFhzVTBkL3lDd0NvdWdSWWhaRTRuK3hpTU0xbm1oRkg5azcyd1Rk?=
- =?utf-8?B?cGR4S0MvY1B0OXAyZkljVjV4S0hEVlFPZXpiWEhlVGdOaGtrc01QdzM2STU3?=
- =?utf-8?B?QThxaldQU2tKMzlyaFk2VkkxVkpNczMyM2hrZTBQRmdaSzFaMmRCVm56aGU0?=
- =?utf-8?Q?XRx6tfcF5i16iLDPIIaUcTEo06FtqOK5oYsTM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OEEwZ0VyWCtZdG1tMXlNdDE0OTN2aDFYTWU5M0gySnJyTkRjSkFrR2tweGlL?=
- =?utf-8?B?djZ1MkxCbWptUWJ3eE5ab1ByZm8xV05zYVZMVWtQUUQ5YS9GcmI0bzdmeWJV?=
- =?utf-8?B?a0xOSi9OZTlmblpIQ2RuOStaOFNWZFNxeGdIOU4wUFhzQmFEWFB0Y3hVa010?=
- =?utf-8?B?M0VFKy9IOWlHallLMXpIdjI0eURBdnFrdGVDemwwT3JNdlI3SGFkdks5SW5W?=
- =?utf-8?B?Qi92MUtSSm9wYVZxS0VmV21xbldxTG14bkdWZFlZdG1DS1JRTW9Rdm5ObHRB?=
- =?utf-8?B?ZVpNYUlGMEVyZGFyZDlaL0sxMHFXRE9DM051SFpvYWc2WXp2MklVeHc2cTBj?=
- =?utf-8?B?eTEwd3pXUEovVEVsRTF6RUNGeXBPaGtrZEV4VGhSVFlMSC9YRndaWXV2QUFh?=
- =?utf-8?B?V3pCbGg0VlIwcWQrbHlCcDVRSG9HK01iOFZzTHJaUXVSWEg5YWJVcStWMkEv?=
- =?utf-8?B?Q2U1R1JueVdQN0x4NnVROWlRYm81TEN1UlJBVHdNMEpoSE1RekltZko2aWF0?=
- =?utf-8?B?OFFaeUNYcXhiRHZESC9YRmMyekNWc0dxaDhNRXRmY2FKRHR0Qy80QU1Gc3VG?=
- =?utf-8?B?eDhEanZaT2pTRjYrU0ZtQ2dxSVkyQ2ZYb2t0UFNkN2JCbEZwcThUaExKd296?=
- =?utf-8?B?QjJQR3JZVDBlMmFhenVPUTNkdStZQ1BPQnFvbFk0akZ2ek9wQm43NDFBNTlQ?=
- =?utf-8?B?Q3haSzVmK3JDa1Mrckl6U3ZBV0V5ZisreFdXYUQ4aGNzQlY5S1AwWkpTSzNN?=
- =?utf-8?B?bHVIbzZsY0FDMEYxMXdjV1ZPS1VKUWkyVzVVQStRTG9QalFjeUFyRy94Y0JU?=
- =?utf-8?B?MXFNN21yeHJHcFpIT0RxZTgyOGpRNzBsd3RXQkpydXVhODlVQk9tZzNyTlJQ?=
- =?utf-8?B?Nlg4TWJmKzFPcld0c2NpN09PYVF4R2JPdSt4ekdvRW9ucDBCbjVZNVhaaGFF?=
- =?utf-8?B?djA5QWJjdGIrYys5NWd1eHpFcGdkODBnZHFyL0pyNm9PMkxUMFNjbCtTa09k?=
- =?utf-8?B?cGJkOVFwL0l5OFFudjRPYjFjZTdENzlWcFdQWVBHTXRDOGluN2RvRk5yaVhB?=
- =?utf-8?B?cE05bnd5UnFFcDlWb0tkVVBzU2g5dkVNc01xbWxXTXlsQnU2YVNaRFVMak9I?=
- =?utf-8?B?VTh4VEFKZkYyNUhoU3Y2Si9RUWFIdlBnM0NmNFovOWFxamNqcUVlNkRza2Qr?=
- =?utf-8?B?Y0RBNzUyd3h2NjJEaS8yZ01KalNIMkpLd1VtdDdxempIK1lmb0VMSFFYYlJG?=
- =?utf-8?B?OGJOREg0SHBraW1aa3dGUkxqLzA3MGFDb2Qrc2NtTmdFQ2JMdVZ0c1FxbDJV?=
- =?utf-8?B?OWZpOUs0d1BRWWx2cVJ1M3N5V0hoc205ZnZrUkZBMG1JRG1STlFDT2FQeXVo?=
- =?utf-8?B?N3FlT1BaTTJQd08wd0NoUEVTVC9XUmtnUk5lYmJRZndMMUp0cVpXV2NsMHA5?=
- =?utf-8?B?T0hCT0JWMlhRQm1uU1g3Zjhrb3ROTExvbGJOckNnak4wSjU0YVFrYUxDVFE0?=
- =?utf-8?B?d0hmT293R1ZwT3FkU2thL1FzcE1ZWlZObkx1K3R6d1NLbTJDcWRZMnRUZ2tR?=
- =?utf-8?B?am10TUNlcThPTjdKcWxtb2t0bDQrMVlTcy9CaU5mWjN4QkdIcWtUYXluaGNr?=
- =?utf-8?B?VDBHNWNjRnNGc3BVdzVkRFdYNmhTbDB1QTJISko2bzhIU1lsd0hGMG9pSkl0?=
- =?utf-8?B?MlhiTWFhaG9PMkxRSWhYK1BLWVVjbUZ4bEREcnRXaEJ6dVVibW54cHNrL3hN?=
- =?utf-8?B?dXBHYW0rR2M5QU05NGVOYk5HUXFFelJZZzMwbVFTSkFVeVRzZ2ZWNFFLckNN?=
- =?utf-8?B?bDYwVmEvYk9sWG9HaXZpL1lXcXdFaUMvL0RaQ2hKQWpmWGVtVXhJeTFKc2FM?=
- =?utf-8?B?QWFFNVlHS2JpZDZ6eDkzV21kT3RFR2lRaFg0SXF1dk5pNjRraE1kdTFkZU1K?=
- =?utf-8?B?Qi9ET1Z6USszRmdTbWZiK1dJUVJKSTIzUHJ4cWk1M0NiTUNPVndHYmlsY1Jz?=
- =?utf-8?B?Q0s5aU1uRGR2MTRFc01hZFZ6R3BIQ0tFSWRybjZZMEdEbUpCdXpIWDN6a1NX?=
- =?utf-8?B?Uk9kUTdGczlRZ0hkTlNvY1pWSjFOWDFjcnpaY0hWYUpqZllWd05IcTdOUm4w?=
- =?utf-8?B?MzNDMmFaeXVpNUpSUkFCL1BoYmltNE80LzI4WjBkWGh1bk5EUkd4dHk5ZHk4?=
- =?utf-8?B?NEpTYWcxRllSNmgrY0hkVlNxbkdOUFgwZ3UxRVFHSG1abVMzcy9sM01Sd04v?=
- =?utf-8?B?UHBDQWt5NVdRcHJMOTFrQnlvQ1pBPT0=?=
-X-OriginatorOrg: uclouvain.be
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08d06885-7c90-4801-e3f1-08ddb3e16339
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2025 12:11:17.2142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ukYP/x7JwgDsgLUQNlzQxVWxjdhF2MsIh/Ko6FhZenfPqYQ/V95sFKJZBo5sgho3tI+Z0hlgvP5BYb0o4CyUpA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR03MB8853
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_051131_004679_5B192AF3 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20250625_052100_841280_AFBA54C3 
+X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,93 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 2025-06-25 at 14:52 +0500, Sabyrzhan Tasbolatov wrote:
+> Call kasan_init_generic() which enables the static flag
+> to mark generic KASAN initialized, otherwise it's an inline stub.
+>=20
+> Delete the key `kasan_um_is_ready` in favor of the global static flag in
+> linux/kasan-enabled.h which is enabled with kasan_init_generic().
+>=20
+> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=3D218315
+> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
 
-On 6/22/25 11:26 PM, Sebastian Reichel wrote:
-> Hi,
-> 
-> On Fri, May 23, 2025 at 02:51:45PM +0200, Thomas Antoine via B4 Relay wrote:
->> From: Thomas Antoine <t.antoine@uclouvain.be>
->>
->> The interface of the Maxim MAX77759 fuel gauge has a lot of common with the
->> Maxim MAX1720x. A major difference is the lack of non-volatile memory
->> slave address. No slave is available at address 0xb of the i2c bus, which
->> is coherent with the following driver from google: line 5836 disables
->> non-volatile memory for m5 gauge.
->>
->> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
->>
->> Other differences include the lack of V_BATT register to read the battery
->> level. The voltage must instead be read from V_CELL, the lowest voltage of
->> all cells. The mask to identify the chip is different. The computation of
->> the charge must also be changed to take into account TASKPERIOD, which
->> can add a factor 2 to the result.
->>
->> Add support for the MAX77759 by taking into account all of those
->> differences based on chip type.
->>
->> Do not advertise temp probes using the non-volatile memory as those are
->> not available.
->>
->> The regmap was proposed by André Draszik in
->>
->> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org/
->>
->> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
->> ---
->>  drivers/power/supply/max1720x_battery.c | 265 ++++++++++++++++++++++++++++----
->>  1 file changed, 238 insertions(+), 27 deletions(-)
->>
->> diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supply/max1720x_battery.c
->> index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37d04fd8c3260be522405 100644
->> --- a/drivers/power/supply/max1720x_battery.c
->> +++ b/drivers/power/supply/max1720x_battery.c
->> @@ -37,6 +37,7 @@
->>  #define MAX172XX_REPCAP			0x05	/* Average capacity */
->>  #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
->>  #define MAX172XX_TEMP			0x08	/* Temperature */
->> +#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
-> [...]
->>  	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> [...]
->> +			ret = regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
->> +			val->intval = max172xx_cell_voltage_to_ps(reg_val);
-> 
-> I haven't reviewed this fully due to all the feedback you already
-> got from Peter Griffin and the DT binding being broken, but something
-> that catched my eye:
-> 
-> POWER_SUPPLY_PROP_VOLTAGE_NOW provides the voltage of the whole
-> battery and not of a single cell. E.g. a typical Li-Ion battery
-> with two serial cells has a nominal voltage of roughly 7.4V while
-> each cell has just 3.7V.
-> 
-> Greetings,
-> 
-> -- Sebastian
+Looks fine, I guess. You can test/build it without qemu - on x86 - by
+using 'make ARCH=3Dum' or so.
 
-Downstream just reports this value which is usually a bit over 4V when I
-record it.
+I'm assuming it'll go through some kasan tree since there are
+dependencies:
 
-Also from what I saw online, it seems that the battery does output
-voltages around 3.86V as it is written on the battery:
-https://cdn.shopify.com/s/files/1/0092/8133/9443/files/QeqxTLOL6eAp6OpZ.jpg?v=1728588266&width=2048
+Acked-by: Johannes Berg <johannes@sipsolutions.net>
 
-So I guess that there could only be a single cell in the battery? Which
-would explain why they only report the lowest one.
-
-It thus should be ok if we consider only the Google Pixel 6 (Pro). If we
-need to take into account the possibility that the chip would be
-used with other batteries, we could take from the devicetree the number
-of cells and only provide the voltage if the number of cells is 1. Would
-this be a good solution?
-
-There is also a VSYS register (0xb1) but I couldn't find anything about it.
-Taking a LSB of 156uV (twice the one of VCell), I see a clear correlation
-with VCell, except for it being very slightly lower.
-As it is mostly guesswork, I don't think it would be a good idea to use this
-without any confirmation it is correct.
-
-Best regards,
-Thomas
+johannes
 
