@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E57C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8489C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 10:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67RuKsDoHU4bF9YLAwVwaqZWtzhqzw+H4si2iRlubqM=; b=ZV+ro0DkbPqhGkyoWdpWzTS2wK
-	kt6K9hG07GDjt4+qh5YQ7prjXuY22Q0rKUX67jH4jVaLyN0AqpVwm3wyVsfPBA9C8z1nZLRw7ldwf
-	G95oPviv1MDXq0KCVcBqQvRwUxSQMC2kCKSWxiodfrgoil8x9JB8GdPESWbuc3vZpyjMuI86WXudS
-	vw6E3x2H35HhIvStvPKnhvpr57On3tUvx3nmZIArRBBH9m1NIuMnhD02JDCLu3LK8kuMKlFWzxjvJ
-	rPIwVvt4CXnUPvCuW+eSY38VamdiiwKqdsACu7/ARLoBiodJK6e8AwUxadljaScoo4H4MnT8TEBFC
-	17UIKWIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o7vwLCGJAT+HR9wS7KqDq3zChQmQOqN725uqMPRJGs4=; b=O9ggD6pYXIm50yee7s2AIshLed
+	gnkJEIhCCLqQMaGcmS4VaKLcHMUnRea3IG5UGDHy44JGlqpU7J0TjtyleNfEjSy1Ep1+0g9rY8bga
+	cJJFBpOpJV4vbAcsH5C9OJZedkFUktm99ryn6loPToFIxo8X650B1pHePsAtF4zgpk0iP9XVXvSXR
+	nn2AWSv5ccm7y9UAaCGXXmXxjfPU2GW9/X8O0luGEVrqKGNeDYR6r06NqNYLgmnrbiu6ZBE46q5rA
+	36TgQa20ftfsJftnRpiwPujdxcyAjzRD9xF4gltdHInN0mfOevS0IcXuqi/l6GPYBINPfKA+ByRrv
+	P7+HgDqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUN3c-00000008FzB-39Qa;
-	Wed, 25 Jun 2025 10:08:45 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uUN3f-00000008G0u-1OTo;
+	Wed, 25 Jun 2025 10:08:47 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKbo-00000007oxJ-3Tql;
-	Wed, 25 Jun 2025 07:31:54 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P1QaWL028583;
-	Wed, 25 Jun 2025 07:31:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=67RuKsDoHU4bF9YLA
-	wVwaqZWtzhqzw+H4si2iRlubqM=; b=MkLez6zpqV88ghT7ADUE6i82IpOBNMwWI
-	eFhR4PA8k3ZPpNbGXB8hOFL1YHwTYAmHCHbu48pNM+/8Y5evRscZ2s55oCiRCCrm
-	DGUY7snzcO1g2/CTPt4uakgbVBlU4OOQZaU8JwdyGBr4VnxGn5Q4Us1xvEH1vd4S
-	5Eu+f2ZbOm1i0sCT1Vl0xvaY9sxAULlF7kJgljosGy7jIeFtAYjvwfJWe4k42iZi
-	tuACTxdVxqOPICt76agG+G1EAr66cnhDr1DWFc1308Y7m8qf/OAAQh3alvDdnAp1
-	KE+18njnN3rHV32+yl+p5Z8LJL/dDVv0MHgjDe1sJKp5XLC4jdxSg==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47dmf35e57-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 07:31:43 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55P4uDSk015028;
-	Wed, 25 Jun 2025 07:31:43 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 47e72trbks-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 07:31:43 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55P7Vflu19989036
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Jun 2025 07:31:41 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 89E3E588F9;
-	Wed, 25 Jun 2025 06:39:07 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 770E2588F5;
-	Wed, 25 Jun 2025 06:39:02 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.18.35])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 25 Jun 2025 06:39:02 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, pasha.tatashin@soleen.com,
-        akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-mm@kvack.org, sweettea-kernel@dorminy.me,
-        christophe.leroy@csgroup.eu, mingo@kernel.org
-Subject: [PATCH v15 07/13] mm/page_table_check: Reinstate address parameter in [__]page_table_check_pmd_clear()
-Date: Wed, 25 Jun 2025 16:37:47 +1000
-Message-ID: <20250625063753.77511-8-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250625063753.77511-1-ajd@linux.ibm.com>
-References: <20250625063753.77511-1-ajd@linux.ibm.com>
+	id 1uUL9X-00000007uBA-2ZNj;
+	Wed, 25 Jun 2025 08:06:45 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id EE1301F00050;
+	Wed, 25 Jun 2025 08:06:39 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 7B867AC7A00; Wed, 25 Jun 2025 08:06:38 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id C2E29AC79F3;
+	Wed, 25 Jun 2025 08:06:36 +0000 (UTC)
+Date: Wed, 25 Jun 2025 10:06:19 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 3/5] drm/sun4i: Enable LVDS output on sun20i D1s/T113
+Message-ID: <aFut-yuJS2lfWaE8@shepard>
+References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
+ <20250221161751.1278049-4-kuba@szczodrzynski.pl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=M5FNKzws c=1 sm=1 tr=0 ts=685ba5df cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=7ipKWUHlAAAA:8 a=VwQbUJbxAAAA:8 a=wZhGIaPSpsofiGV4ShsA:9 a=gpc5p9EgBqZVLdJeV_V1:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA1MyBTYWx0ZWRfXxI3h0BiyqFPF akyzedQy2SSQEEqR/bdHgasZ5/ItJbn2Mgt0+zsmi8uZ5YZ0Qht07S4WHpAxDgFJtPJUfZhaFwZ norVdG+AUP5KbWP8EU7PrYE6gNX0K0giFEzbjZlg8nu0GlnGh1Z/U0hY8fhbh9gf9i3STdgxHkL
- j4zfNQg1M5JlPJ+H1RH2A3XfQU+lVkK6NR6QzpfqIKM4rMvuQzg7S5Pa33ztoHu1u1ECfQj3x9S ANv0V1nojSHHHzIm1JDkUcVecTGolp5fmpKBB9XWQu5mN6DTMkZa56HJ75m5G+n8v/AYKjuXPhz bP0/ew4PsYQ//DypZJ+/KPyYx8VnfiYuX39aa+2gToo0rPnwoCQoTzuKLjYGxtDU02dxphBU+gn
- IJqWuMaFWyNFvrokGIKEq0N7Zav1L0GqeJ5RVtYI4FJB9CthQNEcqWAMAMI4LEce7UfYpRGR
-X-Proofpoint-GUID: JYn0_p9CspIMKYm4b1iN8C3x4X-ByCJU
-X-Proofpoint-ORIG-GUID: JYn0_p9CspIMKYm4b1iN8C3x4X-ByCJU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_01,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 malwarescore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 phishscore=0 spamscore=0 clxscore=1015 adultscore=0
- mlxscore=0 mlxlogscore=830 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250053
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Zc2DNXh9m8XgbscL"
+Content-Disposition: inline
+In-Reply-To: <20250221161751.1278049-4-kuba@szczodrzynski.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_003152_990270_A9F558C0 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250625_010643_962592_756A3078 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,147 +76,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
 
-This reverts commit 1831414cd729 ("mm/page_table_check: remove unused
-parameter in [__]page_table_check_pmd_clear").
+--Zc2DNXh9m8XgbscL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reinstate previously unused parameters for the purpose of supporting
-powerpc platforms, as many do not encode user/kernel ownership of the
-page in the pte, but instead in the address of the access.
+Hi,
 
-[ajd@linux.ibm.com: rebase on arm64 changes]
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Acked-by: Ingo Molnar <mingo@kernel.org>  # x86
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
----
-v15: rebase
----
- arch/arm64/include/asm/pgtable.h |  2 +-
- arch/riscv/include/asm/pgtable.h |  2 +-
- arch/x86/include/asm/pgtable.h   |  2 +-
- include/linux/page_table_check.h | 11 +++++++----
- include/linux/pgtable.h          |  2 +-
- mm/page_table_check.c            |  5 +++--
- 6 files changed, 14 insertions(+), 10 deletions(-)
+Some comments below.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 72ccbd810b13..db8bab350a2d 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1394,7 +1394,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
- 		page_table_check_pte_clear(mm, pte);
- 		break;
- 	case PMD_SIZE:
--		page_table_check_pmd_clear(mm, pte_pmd(pte));
-+		page_table_check_pmd_clear(mm, address, pte_pmd(pte));
- 		break;
- #ifndef __PAGETABLE_PMD_FOLDED
- 	case PUD_SIZE:
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7b292af35f4b..cc3c690f6c93 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -877,7 +877,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- {
- 	pmd_t pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, 0));
- 
--	page_table_check_pmd_clear(mm, pmd);
-+	page_table_check_pmd_clear(mm, address, pmd);
- 
- 	return pmd;
- }
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index 4d6da32e77a6..50d76a38ab9f 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1365,7 +1365,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm, unsigned long
- {
- 	pmd_t pmd = native_pmdp_get_and_clear(pmdp);
- 
--	page_table_check_pmd_clear(mm, pmd);
-+	page_table_check_pmd_clear(mm, addr, pmd);
- 
- 	return pmd;
- }
-diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
-index 808cc3a48c28..3973b69ae294 100644
---- a/include/linux/page_table_check.h
-+++ b/include/linux/page_table_check.h
-@@ -15,7 +15,8 @@ extern struct page_ext_operations page_table_check_ops;
- 
- void __page_table_check_zero(struct page *page, unsigned int order);
- void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte);
--void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
-+void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
-+				  pmd_t pmd);
- void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
- 				  pud_t pud);
- void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
-@@ -52,12 +53,13 @@ static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
- 	__page_table_check_pte_clear(mm, pte);
- }
- 
--static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
-+static inline void page_table_check_pmd_clear(struct mm_struct *mm,
-+					      unsigned long addr, pmd_t pmd)
- {
- 	if (static_branch_likely(&page_table_check_disabled))
- 		return;
- 
--	__page_table_check_pmd_clear(mm, pmd);
-+	__page_table_check_pmd_clear(mm, addr, pmd);
- }
- 
- static inline void page_table_check_pud_clear(struct mm_struct *mm,
-@@ -121,7 +123,8 @@ static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
- {
- }
- 
--static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
-+static inline void page_table_check_pmd_clear(struct mm_struct *mm,
-+					      unsigned long addr, pmd_t pmd)
- {
- }
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 765451864de3..13e9336bf20e 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -637,7 +637,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 	pmd_t pmd = *pmdp;
- 
- 	pmd_clear(pmdp);
--	page_table_check_pmd_clear(mm, pmd);
-+	page_table_check_pmd_clear(mm, address, pmd);
- 
- 	return pmd;
- }
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index bd1242087a35..e8c26b616aed 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -156,7 +156,8 @@ void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
- }
- EXPORT_SYMBOL(__page_table_check_pte_clear);
- 
--void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
-+void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
-+				  pmd_t pmd)
- {
- 	if (&init_mm == mm)
- 		return;
-@@ -231,7 +232,7 @@ void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
- 	page_table_check_pmd_flags(pmd);
- 
- 	for (i = 0; i < nr; i++)
--		__page_table_check_pmd_clear(mm, *(pmdp + i));
-+		__page_table_check_pmd_clear(mm, addr + PMD_SIZE * i, *(pmdp + i));
- 	if (pmd_user_accessible_page(pmd))
- 		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
- }
--- 
-2.49.0
+On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
+> The Allwinner D1s/T113 needs to use the combo D-PHY to enable LVDS
+> output.
+>=20
+> Enable LVDS support in the TCON and configure it using the PHY.
+>=20
+> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
+> ---
+>  drivers/gpu/drm/sun4i/sun4i_tcon.c | 28 ++++++++++++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
+un4i_tcon.c
+> index ccf335a61..58230a552 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> @@ -171,6 +171,30 @@ static void sun6i_tcon_setup_lvds_phy(struct sun4i_t=
+con *tcon,
+>  			  SUN6I_TCON0_LVDS_ANA0_EN_DRVD(val));
+>  }
+> =20
+> +static void sun20i_tcon_setup_lvds_dphy(struct sun4i_tcon *tcon,
+> +					const struct drm_encoder *encoder)
+> +{
+> +	union phy_configure_opts opts =3D { };
+> +
+> +	if (!tcon->quirks->has_combo_dphy || !tcon->dphy)
+> +		return;
+> +
+> +	phy_init(tcon->dphy);
+> +	phy_set_mode(tcon->dphy, PHY_MODE_LVDS);
+> +	phy_configure(tcon->dphy, &opts);
+> +	phy_power_on(tcon->dphy);
 
+While the callback doesn't have any return code (and it probably should, fe=
+el
+free to fix that), the return codes for the phy_ calls should be checked and
+the function aborted early in case of error.
+
+> +}
+> +
+> +static void sun20i_tcon_disable_lvds_dphy(struct sun4i_tcon *tcon,
+> +					  const struct drm_encoder *encoder)
+> +{
+> +	if (!tcon->quirks->has_combo_dphy || !tcon->dphy)
+> +		return;
+> +
+> +	phy_power_off(tcon->dphy);
+> +	phy_exit(tcon->dphy);
+
+Same comment here.
+
+> +}
+> +
+>  static void sun4i_tcon_lvds_set_status(struct sun4i_tcon *tcon,
+>  				       const struct drm_encoder *encoder,
+>  				       bool enabled)
+> @@ -1550,8 +1574,12 @@ static const struct sun4i_tcon_quirks sun9i_a80_tc=
+on_tv_quirks =3D {
+> =20
+>  static const struct sun4i_tcon_quirks sun20i_d1_lcd_quirks =3D {
+>  	.has_channel_0		=3D true,
+> +	.has_combo_dphy		=3D true,
+> +	.supports_lvds		=3D true,
+>  	.dclk_min_div		=3D 1,
+>  	.set_mux		=3D sun8i_r40_tcon_tv_set_mux,
+> +	.setup_lvds_phy		=3D sun20i_tcon_setup_lvds_dphy,
+> +	.disable_lvds_phy	=3D sun20i_tcon_disable_lvds_dphy,
+>  };
+> =20
+>  /* sun4i_drv uses this list to check if a device node is a TCON */
+> --=20
+> 2.25.1
+>=20
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--Zc2DNXh9m8XgbscL
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbrfsACgkQhP3B6o/u
+lQwpAQ//ejWbFNBH4z9VJ16EP4vlDwIeCKa/jCLxdPV14o7aRNZfyfLW+MU5LoZb
+583jqZAEAzyLgyElFfWOmpTVzZgoPzfZArozcWQKfzfTpvcn2y0/DSVXrh8XWVRW
+v9xC8/hIeMXflvorPgeJKJw2UagKbgwHTipQ1dq49by/uIz0UpidtfyfUI5Gc5Qz
++wxS9jIEyYX2Hq5hmQhDsVYjnL2MrCC6ITlCeE1Sq+ifiBA+bZ1UqQQKswh2IO2O
+BVzOseWscsfG1BazmVGLPOba0PyS/qRMuesCE1hDTmFMvvLKN6TDYw/fYAC4gE64
+xJm72Ou4GtoIz+7YSKZNDeVkap1ulDNxim4FpOFgTwssha1vNIM2YK1HoFAo5YhD
+H9mDqrpol1+ti4L4R9UjDtt7RAg97hxwXfvWhQzt6gMRDWsfkiMqAz2gB9Tn4SDP
+DzQZJYhL+k1AkxxIoQtw89+eQ6Ipcss4EBHu5LjB340x4CruXUrFXNXRPdDQyFUi
+qV6cV9fvMev1lDvQAmH8z2U45ezhLm0kdkgzXyHXGfXfV24UmuST3TcbBIhdrBcL
+2L0SJqcj87i4YLrrmp05O/oen1QseIlxyn6Y3l2HWq/35Q8iSA63iOnw+NySZnb6
+RUqGYYj48OX2EZHaCLWaiDRUh41yCSwbWQmyXPEfmgfu6K+YKGQ=
+=1Zjq
+-----END PGP SIGNATURE-----
+
+--Zc2DNXh9m8XgbscL--
 
