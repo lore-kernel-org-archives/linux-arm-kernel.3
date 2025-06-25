@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272FCC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A93C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwhgF9cR1MLxOtcZKFGVid2BCUYYZX8CzO2N226LXDo=; b=ZvLE9VM95SC6xRsl9RrjkZ/XxD
-	i0HEy/2mS4ajsnljb8Mcpv3PKK4c+4lUAhUrHDyDgK4NDqOFBD5CA7MG+Y2hyLbhcAGlBDbbcEzuB
-	NcSShgUEOvDGmDTlImhlHyb0cPvjwGx81y20PgpAbkn3YDZbtfdxYH2divtqP/nU3vNgduTZIQnnR
-	5SxNnPaWpjt/hfbjWoGKMdk/Rxdyyomh8kJMbo7XBdX/GwZAxUJqktyjoF7oRSGh4s3kVJpRjxhmH
-	xOd1mA1ULa07fuqw4bGay3k/Vp6OWTKGX2fU9bbanyjKy4mBQK+0a+p7KFG4NfNDOBLLPwrNj5JQr
-	wwmnCIUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJAHC65N3NmwEpZPepKmUhmIemjWL2S4onH5DcmQcg4=; b=taSLW5jObsFC5/zcNcmt+dmXEX
+	mDcRIzjWkHrJHKgD0BQElJuSjYTPBRls3HZ2fmCVSKA7w8wdGpsXAaEOyn68h/sDkJLs6VimUNUyT
+	Om9ZJ+N4USKtBGvpDMbbvnyfu+I5fYI6YQmxHt1LJ8hXsNxwPFWqZGgif5dJoh5xsZbFz4n4rizEb
+	+hiB+HmtH5tSwPevtWsg2gbHjsaHp+PY200obE0pEocSzittLjFvCa/zMnQRUFgcflW5bgWrrvIu1
+	K/sR0eDsO6j6PpndekSb8Lpm8mQkEkY0JbTEZ0Cf0S5GLOeKGjvOyDNTOzs+t/h6mj43EBANTxwau
+	K7FqWYyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUT0Q-00000009Hhn-37R7;
-	Wed, 25 Jun 2025 16:29:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOPA-00000008UsL-1NIL
+	id 1uUT6W-00000009KBX-0mIj;
+	Wed, 25 Jun 2025 16:36:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUOp5-00000008ZSd-1r4g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:35:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DB692103;
-	Wed, 25 Jun 2025 04:34:45 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3F5C3F58B;
-	Wed, 25 Jun 2025 04:34:59 -0700 (PDT)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	yang@os.amperecomputing.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	ardb@kernel.org,
-	baohua@kernel.org,
-	suzuki.poulose@arm.com,
-	david@redhat.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	jsnitsel@redhat.com,
-	mshavit@google.com,
-	kevin.tian@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v8 4/4] arm64/mm: Elide tlbi in contpte_convert() under BBML2
-Date: Wed, 25 Jun 2025 11:34:35 +0000
-Message-ID: <20250625113435.26849-5-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250625113435.26849-1-miko.lenczewski@arm.com>
-References: <20250625113435.26849-1-miko.lenczewski@arm.com>
+	Wed, 25 Jun 2025 12:01:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76539611BD;
+	Wed, 25 Jun 2025 12:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C823CC4CEEA;
+	Wed, 25 Jun 2025 12:01:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750852910;
+	bh=YuVPG6sgd2zbeT6W9S8Is5S4byHin6+2b/fHWf5TrGc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bsYcyYefVKaIkeUGQO2ZN933uQdVB4wX8jUEUPzJvxhcRwedmyLrZHiabY4OrAi9h
+	 gekz7dmf/pMfHD790VfTNYU/H4UoLxctIywSk5ERIxa58ih9BWpkxV0x0rE1wPLOEr
+	 uNyJTvJdq+S50gIk8GTPrz56vX7F6bS049AcNbgCY8HNRxRTUugmPpHlStZ3aOQxQH
+	 BPTI7e2xP6jKmYkebaGsbxuhrcZjJYpfKHmRRPU2F1/bqVHNsquv8nLrIETfRhy3pX
+	 2zKzLeO6dRu3IGWY8wo1Sx2qGWRV9BNK11xRW6AM9Z/NvK6Y/89cLyRuHI4DbOLvbK
+	 JxpILeeyP2pDQ==
+Date: Wed, 25 Jun 2025 15:01:46 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>, linux-integrity@vger.kernel.org,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Nicholas Piggin <npiggin@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Subject: Re: [PATCH v6 3/4] tpm/tpm_ftpm_tee: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aFvlKs4Mhtw1AZET@kernel.org>
+References: <20250620130810.99069-1-sgarzare@redhat.com>
+ <20250620130810.99069-4-sgarzare@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_043504_446848_71CD3FFF 
-X-CRM114-Status: GOOD (  23.96  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620130810.99069-4-sgarzare@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,195 +82,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When converting a region via contpte_convert() to use mTHP, we have two
-different goals. We have to mark each entry as contiguous, and we would
-like to smear the dirty and young (access) bits across all entries in
-the contiguous block. Currently, we do this by first accumulating the
-dirty and young bits in the block, using an atomic
-__ptep_get_and_clear() and the relevant pte_{dirty,young}() calls,
-performing a tlbi, and finally smearing the correct bits across the
-block using __set_ptes().
+On Fri, Jun 20, 2025 at 03:08:09PM +0200, Stefano Garzarella wrote:
+> From: Stefano Garzarella <sgarzare@redhat.com>
+> 
+> This driver does not support interrupts, and receiving the response is
+> synchronous with sending the command.
+> 
+> Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+> ->send() already fills the provided buffer with a response, and ->recv()
+> is not implemented.
+> 
+> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> ---
+> v5:
+> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> v4:
+> - added Sumit's R-b
+> - reworked commit description [Jarkko]
+> v2:
+> - set TPM_CHIP_FLAG_SYNC and support it in the new send()
+> - removed Jens' T-b
+> v1:
+> - added Jens' T-b
+> ---
+>  drivers/char/tpm/tpm_ftpm_tee.h |  4 ---
+>  drivers/char/tpm/tpm_ftpm_tee.c | 64 ++++++++++-----------------------
+>  2 files changed, 19 insertions(+), 49 deletions(-)
+> 
+> diff --git a/drivers/char/tpm/tpm_ftpm_tee.h b/drivers/char/tpm/tpm_ftpm_tee.h
+> index e39903b7ea07..8d5c3f0d2879 100644
+> --- a/drivers/char/tpm/tpm_ftpm_tee.h
+> +++ b/drivers/char/tpm/tpm_ftpm_tee.h
+> @@ -22,16 +22,12 @@
+>   * struct ftpm_tee_private - fTPM's private data
+>   * @chip:     struct tpm_chip instance registered with tpm framework.
+>   * @session:  fTPM TA session identifier.
+> - * @resp_len: cached response buffer length.
+> - * @resp_buf: cached response buffer.
+>   * @ctx:      TEE context handler.
+>   * @shm:      Memory pool shared with fTPM TA in TEE.
+>   */
+>  struct ftpm_tee_private {
+>  	struct tpm_chip *chip;
+>  	u32 session;
+> -	size_t resp_len;
+> -	u8 resp_buf[MAX_RESPONSE_SIZE];
+>  	struct tee_context *ctx;
+>  	struct tee_shm *shm;
+>  };
+> diff --git a/drivers/char/tpm/tpm_ftpm_tee.c b/drivers/char/tpm/tpm_ftpm_tee.c
+> index dbad83bf798e..4e63c30aeaf1 100644
+> --- a/drivers/char/tpm/tpm_ftpm_tee.c
+> +++ b/drivers/char/tpm/tpm_ftpm_tee.c
+> @@ -31,47 +31,19 @@ static const uuid_t ftpm_ta_uuid =
+>  		  0x82, 0xCB, 0x34, 0x3F, 0xB7, 0xF3, 0x78, 0x96);
+>  
+>  /**
+> - * ftpm_tee_tpm_op_recv() - retrieve fTPM response.
+> - * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h.
+> - * @buf:	the buffer to store data.
+> - * @count:	the number of bytes to read.
+> - *
+> - * Return:
+> - *	In case of success the number of bytes received.
+> - *	On failure, -errno.
+> - */
+> -static int ftpm_tee_tpm_op_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+> -{
+> -	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+> -	size_t len;
+> -
+> -	len = pvt_data->resp_len;
+> -	if (count < len) {
+> -		dev_err(&chip->dev,
+> -			"%s: Invalid size in recv: count=%zd, resp_len=%zd\n",
+> -			__func__, count, len);
+> -		return -EIO;
+> -	}
+> -
+> -	memcpy(buf, pvt_data->resp_buf, len);
+> -	pvt_data->resp_len = 0;
+> -
+> -	return len;
+> -}
+> -
+> -/**
+> - * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory.
+> + * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory
+> + * and retrieve the response.
+>   * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h
+> - * @buf:	the buffer to send.
+> + * @buf:	the buffer to send and to store the response.
+>   * @bufsiz:	the size of the buffer.
+> - * @len:	the number of bytes to send.
+> + * @cmd_len:	the number of bytes to send.
+>   *
+>   * Return:
+> - *	In case of success, returns 0.
+> + *	In case of success, returns the number of bytes received.
+>   *	On failure, -errno
+>   */
+>  static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> -				size_t len)
+> +				size_t cmd_len)
+>  {
+>  	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+>  	size_t resp_len;
+> @@ -82,16 +54,15 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>  	struct tee_param command_params[4];
+>  	struct tee_shm *shm = pvt_data->shm;
+>  
+> -	if (len > MAX_COMMAND_SIZE) {
+> +	if (cmd_len > MAX_COMMAND_SIZE) {
+>  		dev_err(&chip->dev,
+>  			"%s: len=%zd exceeds MAX_COMMAND_SIZE supported by fTPM TA\n",
+> -			__func__, len);
+> +			__func__, cmd_len);
+>  		return -EIO;
+>  	}
+>  
+>  	memset(&transceive_args, 0, sizeof(transceive_args));
+>  	memset(command_params, 0, sizeof(command_params));
+> -	pvt_data->resp_len = 0;
+>  
+>  	/* Invoke FTPM_OPTEE_TA_SUBMIT_COMMAND function of fTPM TA */
+>  	transceive_args = (struct tee_ioctl_invoke_arg) {
+> @@ -105,7 +76,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>  		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT,
+>  		.u.memref = {
+>  			.shm = shm,
+> -			.size = len,
+> +			.size = cmd_len,
+>  			.shm_offs = 0,
+>  		},
+>  	};
+> @@ -117,7 +88,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>  		return PTR_ERR(temp_buf);
+>  	}
+>  	memset(temp_buf, 0, (MAX_COMMAND_SIZE + MAX_RESPONSE_SIZE));
+> -	memcpy(temp_buf, buf, len);
+> +	memcpy(temp_buf, buf, cmd_len);
+>  
+>  	command_params[1] = (struct tee_param) {
+>  		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT,
+> @@ -158,17 +129,20 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>  			__func__, resp_len);
+>  		return -EIO;
+>  	}
+> +	if (resp_len > bufsiz) {
+> +		dev_err(&chip->dev,
+> +			"%s: resp_len=%zd exceeds bufsiz=%zd\n",
+> +			__func__, resp_len, bufsiz);
+> +		return -EIO;
+> +	}
+>  
+> -	/* sanity checks look good, cache the response */
+> -	memcpy(pvt_data->resp_buf, temp_buf, resp_len);
+> -	pvt_data->resp_len = resp_len;
+> +	memcpy(buf, temp_buf, resp_len);
+>  
+> -	return 0;
+> +	return resp_len;
+>  }
+>  
+>  static const struct tpm_class_ops ftpm_tee_tpm_ops = {
+>  	.flags = TPM_OPS_AUTO_STARTUP,
+> -	.recv = ftpm_tee_tpm_op_recv,
+>  	.send = ftpm_tee_tpm_op_send,
+>  };
+>  
+> @@ -253,7 +227,7 @@ static int ftpm_tee_probe(struct device *dev)
+>  	}
+>  
+>  	pvt_data->chip = chip;
+> -	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2;
+> +	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2 | TPM_CHIP_FLAG_SYNC;
+>  
+>  	/* Create a character device for the fTPM */
+>  	rc = tpm_chip_register(pvt_data->chip);
+> -- 
+> 2.49.0
+> 
 
-This approach works fine for BBM level 0, but with support for BBM level
-2 we are allowed to reorder the tlbi to after setting the pagetable
-entries. We expect the time cost of a tlbi to be much greater than the
-cost of clearing and resetting the PTEs. As such, this reordering of the
-tlbi outside the window where our PTEs are invalid greatly reduces the
-duration the PTE are visibly invalid for other threads. This reduces the
-likelyhood of a concurrent page walk finding an invalid PTE, reducing
-the likelyhood of a fault in other threads, and improving performance
-(more so when there are more threads).
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-Because we support via allowlist only bbml2 implementations that never
-raise conflict aborts and instead invalidate the tlb entries
-automatically in hardware, we can avoid the final flush altogether.
-
-However, avoiding the intermediate tlbi+dsb must be carefully considered
-to ensure that we remain both correct and performant. We document our
-reasoning and the expected interactions further in the contpte_convert()
-source. To do so we rely on the aarch64 spec (DDI 0487L.a D8.7.1.1)
-requirements RNGLXZ and RJQQTC to provide guarantees that the elision is
-correct.
-
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
- arch/arm64/mm/contpte.c | 139 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 138 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index bcac4f55f9c1..203357061d0a 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
- 			pte = pte_mkyoung(pte);
- 	}
- 
--	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
-+	/*
-+	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-+	 *
-+	 * NOTE: Instead of using N=16 as the contiguous block length, we use
-+	 *       N=4 for clarity.
-+	 *
-+	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
-+	 *       unset and set, respectively.
-+	 *
-+	 * We worry about two cases where contiguous bit is used:
-+	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
-+	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
-+	 *
-+	 * Currently, the BBML0 folding case looks as follows:
-+	 *
-+	 *  0) Initial page-table layout:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
-+	 *   +----+----+----+----+
-+	 *
-+	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |  0 |  0 |  0 |  0 |
-+	 *   +----+----+----+----+
-+	 *
-+	 *  2) __flush_tlb_range():
-+	 *
-+	 *   |____ tlbi + dsb ____|
-+	 *
-+	 *  3) __set_ptes() to repaint contiguous block:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RO,c|RO,c|RO,c|RO,c|
-+	 *   +----+----+----+----+
-+	 *
-+	 *  4) The kernel will eventually __flush_tlb() for changed page:
-+	 *
-+	 *                  |____| <--- tlbi + dsb
-+	 *
-+	 * As expected, the intermediate tlbi+dsb ensures that other PEs
-+	 * only ever see an invalid (0) entry, or the new contiguous TLB entry.
-+	 * The final tlbi+dsb will always throw away the newly installed
-+	 * contiguous TLB entry, which is a micro-optimisation opportunity,
-+	 * but does not affect correctness.
-+	 *
-+	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
-+	 * This means a few things, but notably other PEs will still "see" any
-+	 * stale cached TLB entries. This could lead to a "contiguous bit
-+	 * misprogramming" issue until the final tlbi+dsb of the changed page,
-+	 * which would clear out both the stale (RW,n) entry and the new (RO,c)
-+	 * contiguous entry installed in its place.
-+	 *
-+	 * What this is saying, is the following:
-+	 *
-+	 *  +----+----+----+----+
-+	 *  |RO,n|RO,n|RO,n|RW,n| <--- old page tables, all non-contiguous
-+	 *  +----+----+----+----+
-+	 *
-+	 *  +----+----+----+----+
-+	 *  |RO,c|RO,c|RO,c|RO,c| <--- new page tables, all contiguous
-+	 *  +----+----+----+----+
-+	 *   /\
-+	 *   ||
-+	 *
-+	 *  If both the old single (RW,n) and new contiguous (RO,c) TLB entries
-+	 *  are present, and a write is made to this address, do we fault or
-+	 *  is the write permitted (via amalgamation)?
-+	 *
-+	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
-+	 * and together state that when BBML1 or BBML2 are implemented, either
-+	 * a TLB conflict abort is raised (which we expressly forbid), or will
-+	 * "produce an OA, access permissions, and memory attributes that are
-+	 * consistent with any of the programmed translation table values".
-+	 *
-+	 * That is to say, will either raise a TLB conflict, or produce one of
-+	 * the cached TLB entries, but never amalgamate.
-+	 *
-+	 * Thus, as the page tables are only considered "consistent" after
-+	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
-+	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
-+	 * initial tlbi+dsb is correct.
-+	 *
-+	 * It is also important to note that at the end of the BBML2 folding
-+	 * case, we are still left with potentially all N TLB entries still
-+	 * cached (the N-1 non-contiguous ptes, and the single contiguous
-+	 * block). However, over time, natural TLB pressure will cause the
-+	 * non-contiguous pte TLB entries to be flushed, leaving only the
-+	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
-+	 * not only correct, but also keeps our eventual performance benefits.
-+	 *
-+	 * For the unfolding case, BBML0 looks as follows:
-+	 *
-+	 *  0) Initial page-table layout:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,c|RW,c|RW,c|RW,c| <--- last page being set as RO
-+	 *   +----+----+----+----+
-+	 *
-+	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |  0 |  0 |  0 |  0 |
-+	 *   +----+----+----+----+
-+	 *
-+	 *  2) __flush_tlb_range():
-+	 *
-+	 *   |____ tlbi + dsb ____|
-+	 *
-+	 *  3) __set_ptes() to repaint as non-contiguous:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,n|RW,n|RW,n|RW,n|
-+	 *   +----+----+----+----+
-+	 *
-+	 *  4) Update changed page permissions:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,n|RW,n|RW,n|RO,n| <--- last page permissions set
-+	 *   +----+----+----+----+
-+	 *
-+	 *  5) The kernel will eventually __flush_tlb() for changed page:
-+	 *
-+	 *                  |____| <--- tlbi + dsb
-+	 *
-+	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
-+	 * are no issues, as the final tlbi+dsb covering the changed page is
-+	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
-+	 * as well as the intermediate (RW,n) TLB entry; the next access will
-+	 * install the new (RO,n) TLB entry and the page tables are only
-+	 * considered "consistent" after the final tlbi+dsb, so software must
-+	 * be prepared for this inconsistency prior to finishing the mm dance
-+	 * regardless.
-+	 */
-+
-+	if (!system_supports_bbml2_noabort())
-+		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
- 
- 	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
- }
--- 
-2.49.0
-
+BR, Jarkko
 
