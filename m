@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED827C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 14:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D5ECC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 15:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JxqIfYSJy51z051VmanBTI/Z9ysqRy/axNvecKaSog=; b=tfo1YhdL526d3Wr2gQZ2KWvz2y
-	YeawMCMIxOpY35qSzjoV7OMGVITpUDRD9rplTecadbFvLA2KRk+V/mran/KtdxyZ1dnISPkDfABkf
-	JZKkECWioEKSvQ0x8/G2++ZoDIfYiie+y6WtP8+yFtTa5MeS7v/fr9sX0iFnPwyXQsnFoA3qcSNQY
-	Ln9YbNMdtiUvuOi0zt8INgmeL4WaLQuhpEs61PXD4RWqFLwUjhEvLg7f9QwrFu4WZeiQ2/n8RVNSE
-	oTSO0SqlnPPEayBeGFBLh18PdoZ2dLpR0MvKStJXHFqyXW/6eMz4VKCvNP/jMmjuD3OjwPOZUMHS7
-	KLmyH6lQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PfQ9Y/yZBKWehaivUAeq6p4J43rt7RwHvbCxfH782cc=; b=FnyhJl2MLyY3ja
+	/x3VDwk/TwV1rAbC2C6iRLUGNsNikPzal7QH97cQblqSTJJcZP7ECteUIRyNlXf2N3PDa8SWYucxg
+	NnVjysl8+ct+PMdrZ1+a2BeWRPmCkJMI+6W57OA9CugUA7crMu2s8TFWxoLJd41khn850MDadqVt5
+	zF8XLyiZ35V6jLYX+j0spspI8jmlw2clCjuTNVgbEv6pbmWKS4nGAeKbf3Z3x5yg3uaGRNSPeS+qk
+	Q7YyvcYN1Ob9iJVFwLaF6jdH9hNMb8FbFK626heuC5LfLx5SbzwB8OnZOVMTtTAnASE/925XbWGVA
+	G5wLc5vsIjAiosTpygJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uURav-000000093Hv-0neY;
-	Wed, 25 Jun 2025 14:59:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOAr-00000008S1E-2GiX
+	id 1uURdC-000000093WE-0YKl;
+	Wed, 25 Jun 2025 15:01:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUOFE-00000008Se4-0IbU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:20:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A82C5106F;
-	Wed, 25 Jun 2025 04:19:58 -0700 (PDT)
-Received: from [10.57.84.221] (unknown [10.57.84.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6DE03F58B;
-	Wed, 25 Jun 2025 04:20:13 -0700 (PDT)
-Message-ID: <16959652-d9cf-4365-892a-a4b5825d0f02@arm.com>
-Date: Wed, 25 Jun 2025 12:20:11 +0100
+	Wed, 25 Jun 2025 11:24:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 65B6061787;
+	Wed, 25 Jun 2025 11:24:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8F5C4CEEA;
+	Wed, 25 Jun 2025 11:24:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750850687;
+	bh=WyjPlzEckQK2AsiUXQqAYWbsE3Q3tZ56mU/lgBXCQu8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=j/xSwY+/YguU+QdpVUl4ep3qM71MYwW+MswIyvFRaP9pl6v3rE/97dhMN8ChqZTF1
+	 j0fJ53I5aD9SBnZJb1fPfDpv0uMT1+F3qI9sZ+m6IccKD2leXyM3a/wV+yXn9jZZH2
+	 UNxZHBuqPl2KVqjHLVKBxaqCIpMtCuCpNWTOzhDOSoUi9XwhJ5YKkBS3+jPfPBuadU
+	 /m6riUXP3s1KKI0bdsINpD22XrWGgGyOlO+qcCInX7AZotukZPYSoVAEZyvlJqMj3N
+	 L9j3gp6e9SJBj/i6BhSmJl2QvtjSrrtB5Yw8bdXY0xvpm1F6QgqKn4MvZ0XYEhPKsU
+	 oCoiLwRG3071w==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v6 00/28] KVM: arm64: Implement support for SME
+Date: Wed, 25 Jun 2025 11:47:51 +0100
+Message-Id: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: pageattr: Use pagewalk API to change memory
- permissions
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
- catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
- gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
- yang@os.amperecomputing.com, anshuman.khandual@arm.com
-References: <20250613134352.65994-1-dev.jain@arm.com>
- <20250613134352.65994-2-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250613134352.65994-2-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_042017_668459_9F7C334D 
-X-CRM114-Status: GOOD (  37.41  )
+X-B4-Tracking: v=1; b=H4sIANjTW2gC/2XRS26DMBAG4Ksgr+vIM34AWfUeVRd+BisFEkNRq
+ yh3rx2UVoXljPzNyP/cyORT9BM5VjeS/BKnOA65UC8VsZ0eTp5Gl2uCDDnjDOh56alOvRJ06j1
+ lSgMK5bjiimRj9OSpSXqwXVFzfyndS/Ihfj22vL3nuovTPKbvx9IFSned3yJu5i9AGQ0BGlcLg
+ 613r2efBv9xGNOJlFEL/nLAPcfMnUZU1kDDjNlx/uQic7blPHMmDYPGQgh+z8WTS4YgtlyU7Up
+ o1YB21uKOyz8uoN5yWf4uVKvRySBr8Y/f11yTv37mo81ruGv+duz7OB+rRR1A0WR5fn3/AejH/
+ n3qAQAA
+X-Change-ID: 20230301-kvm-arm64-sme-06a1246d3636
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-08c49
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9496; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=WyjPlzEckQK2AsiUXQqAYWbsE3Q3tZ56mU/lgBXCQu8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoW9xkzQxYIgAGrougDvfgpfufkhPrD66hFs/CK
+ 35t3+AA226JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaFvcZAAKCRAk1otyXVSH
+ 0FgeB/sHUc9EaNlDwvkIdk29jGlqiCtgeTHwGoEtYAgZhS/2bMZFl+uXH4kiQElWjdJ4AkrqFWW
+ Hwm1Sj4FtDFn+ovlrn+jb5oYfTCk6YO9lMLJkuSgOn5PshFGnj0/CV3LeeC8UMZAGNxesYJsQw5
+ 1+NitCaZgnQ8ZzsGFPtxsFyw3JSn5OPdkOsDBYaK54/uKb+d/NrkZ7BShM5h41by/4mGo5DxgQL
+ Ce59pXCjjsSkWDFzxSFltyuA5H1yYg1PrJb1Jch6nbZvX+ldXFKy9ErD+odWS1W3qsCmDMMnJ5Y
+ yW2Vf3MQIJfL+W/oDvxNpIjDJS7Atjy5R0syNHu4E+7E+Jle
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,320 +92,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 14:43, Dev Jain wrote:
-> arm64 currently changes permissions on vmalloc objects locklessly, via
-> apply_to_page_range, whose limitation is to deny changing permissions for
-> block mappings. Therefore, we move away to use the generic pagewalk API,
-> thus paving the path for enabling huge mappings by default on kernel space
-> mappings, thus leading to more efficient TLB usage. However, the API
-> currently enforces the init_mm.mmap_lock to be held. To avoid the
-> unnecessary bottleneck of the mmap_lock for our usecase, this patch
-> extends this generic API to be used locklessly, so as to retain the
-> existing behaviour for changing permissions. Apart from this reason, it is
-> noted at [1] that KFENCE can manipulate kernel pgtable entries during
-> softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
-> This being a non-sleepable context, we cannot take the init_mm mmap lock.
-> 
-> Add comments to highlight the conditions under which we can use the
-> lockless variant - no underlying VMA, and the user having exclusive control
-> over the range, thus guaranteeing no concurrent access.
-> 
-> Since arm64 cannot handle kernel live mapping splitting without BBML2,
-> we require that the start and end of a given range lie on block mapping
-> boundaries. Return -EINVAL in case a partial block mapping is detected;
-> add a corresponding comment in ___change_memory_common() to warn that
-> eliminating such a condition is the responsibility of the caller.
-> 
-> apply_to_page_range() currently performs all pte level callbacks while in
-> lazy mmu mode. Since arm64 can optimize performance by batching barriers
-> when modifying kernel pgtables in lazy mmu mode, we would like to continue
-> to benefit from this optimisation. Unfortunately walk_kernel_page_table_range()
-> does not use lazy mmu mode. However, since the pagewalk framework is not
-> allocating any memory, we can safely bracket the whole operation inside
-> lazy mmu mode ourselves. Therefore, wrap the call to
-> walk_kernel_page_table_range() with the lazy MMU helpers.
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-ae8a-7c48d26a927e@arm.com/
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+I've removed the RFC tag from this version of the series, but the items
+that I'm looking for feedback on remains the same:
 
-LGTM; with the nits raised by other folks addressed:
+ - The userspace ABI, in particular:
+  - The vector length used for the SVE registers, access to the SVE
+    registers and access to ZA and (if available) ZT0 depending on
+    the current state of PSTATE.{SM,ZA}.
+  - The use of a single finalisation for both SVE and SME.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+ - The addition of control for enabling fine grained traps in a similar
+   manner to FGU but without the UNDEF, I'm not clear if this is desired
+   at all and at present this requires symmetric read and write traps like
+   FGU. That seemed like it might be desired from an implementation
+   point of view but we already have one case where we enable an
+   asymmetric trap (for ARM64_WORKAROUND_AMPERE_AC03_CPU_38) and it
+   seems generally useful to enable asymmetrically.
 
+This series implements support for SME use in non-protected KVM guests.
+Much of this is very similar to SVE, the main additional challenge that
+SME presents is that it introduces a new vector length similar to the
+SVE vector length and two new controls which change the registers seen
+by guests:
 
-> ---
->  arch/arm64/mm/pageattr.c | 157 +++++++++++++++++++++++++++++++--------
->  include/linux/pagewalk.h |   3 +
->  mm/pagewalk.c            |  26 +++++++
->  3 files changed, 154 insertions(+), 32 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 04d4a8f676db..cfc5279f27a2 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -8,6 +8,7 @@
->  #include <linux/mem_encrypt.h>
->  #include <linux/sched.h>
->  #include <linux/vmalloc.h>
-> +#include <linux/pagewalk.h>
->  
->  #include <asm/cacheflush.h>
->  #include <asm/pgtable-prot.h>
-> @@ -20,6 +21,99 @@ struct page_change_data {
->  	pgprot_t clear_mask;
->  };
->  
-> +static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
-> +{
-> +	struct page_change_data *masks = walk->private;
-> +
-> +	val &= ~(pgprot_val(masks->clear_mask));
-> +	val |= (pgprot_val(masks->set_mask));
-> +
-> +	return val;
-> +}
-> +
-> +static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
-> +			      unsigned long next, struct mm_walk *walk)
-> +{
-> +	pgd_t val = pgdp_get(pgd);
-> +
-> +	if (pgd_leaf(val)) {
-> +		if (WARN_ON_ONCE((next - addr) != PGDIR_SIZE))
-> +			return -EINVAL;
-> +		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
-> +		set_pgd(pgd, val);
-> +		walk->action = ACTION_CONTINUE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
-> +			      unsigned long next, struct mm_walk *walk)
-> +{
-> +	p4d_t val = p4dp_get(p4d);
-> +
-> +	if (p4d_leaf(val)) {
-> +		if (WARN_ON_ONCE((next - addr) != P4D_SIZE))
-> +			return -EINVAL;
-> +		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
-> +		set_p4d(p4d, val);
-> +		walk->action = ACTION_CONTINUE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
-> +			      unsigned long next, struct mm_walk *walk)
-> +{
-> +	pud_t val = pudp_get(pud);
-> +
-> +	if (pud_leaf(val)) {
-> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
-> +			return -EINVAL;
-> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
-> +		set_pud(pud, val);
-> +		walk->action = ACTION_CONTINUE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
-> +			      unsigned long next, struct mm_walk *walk)
-> +{
-> +	pmd_t val = pmdp_get(pmd);
-> +
-> +	if (pmd_leaf(val)) {
-> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
-> +			return -EINVAL;
-> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
-> +		set_pmd(pmd, val);
-> +		walk->action = ACTION_CONTINUE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
-> +			      unsigned long next, struct mm_walk *walk)
-> +{
-> +	pte_t val = __ptep_get(pte);
-> +
-> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
-> +	__set_pte(pte, val);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct mm_walk_ops pageattr_ops = {
-> +	.pgd_entry	= pageattr_pgd_entry,
-> +	.p4d_entry	= pageattr_p4d_entry,
-> +	.pud_entry	= pageattr_pud_entry,
-> +	.pmd_entry	= pageattr_pmd_entry,
-> +	.pte_entry	= pageattr_pte_entry,
-> +};
-> +
->  bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
->  
->  bool can_set_direct_map(void)
-> @@ -37,22 +131,7 @@ bool can_set_direct_map(void)
->  		arm64_kfence_can_set_direct_map() || is_realm_world();
->  }
->  
-> -static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
-> -{
-> -	struct page_change_data *cdata = data;
-> -	pte_t pte = __ptep_get(ptep);
-> -
-> -	pte = clear_pte_bit(pte, cdata->clear_mask);
-> -	pte = set_pte_bit(pte, cdata->set_mask);
-> -
-> -	__set_pte(ptep, pte);
-> -	return 0;
-> -}
-> -
-> -/*
-> - * This function assumes that the range is mapped with PAGE_SIZE pages.
-> - */
-> -static int __change_memory_common(unsigned long start, unsigned long size,
-> +static int ___change_memory_common(unsigned long start, unsigned long size,
->  				pgprot_t set_mask, pgprot_t clear_mask)
->  {
->  	struct page_change_data data;
-> @@ -61,9 +140,28 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->  	data.set_mask = set_mask;
->  	data.clear_mask = clear_mask;
->  
-> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
-> -					&data);
-> +	arch_enter_lazy_mmu_mode();
-> +
-> +	/*
-> +	 * The caller must ensure that the range we are operating on does not
-> +	 * partially overlap a block mapping. Any such case should either not
-> +	 * exist, or must be eliminated by splitting the mapping - which for
-> +	 * kernel mappings can be done only on BBML2 systems.
-> +	 *
-> +	 */
-> +	ret = walk_kernel_page_table_range_lockless(start, start + size,
-> +						    &pageattr_ops, NULL, &data);
-> +	arch_leave_lazy_mmu_mode();
-> +
-> +	return ret;
-> +}
->  
-> +static int __change_memory_common(unsigned long start, unsigned long size,
-> +				  pgprot_t set_mask, pgprot_t clear_mask)
-> +{
-> +	int ret;
-> +
-> +	ret = ___change_memory_common(start, size, set_mask, clear_mask);
->  	/*
->  	 * If the memory is being made valid without changing any other bits
->  	 * then a TLBI isn't required as a non-valid entry cannot be cached in
-> @@ -71,6 +169,7 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->  	 */
->  	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
->  		flush_tlb_kernel_range(start, start + size);
-> +
->  	return ret;
->  }
->  
-> @@ -174,32 +273,26 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
->  
->  int set_direct_map_invalid_noflush(struct page *page)
->  {
-> -	struct page_change_data data = {
-> -		.set_mask = __pgprot(0),
-> -		.clear_mask = __pgprot(PTE_VALID),
-> -	};
-> +	pgprot_t clear_mask = __pgprot(PTE_VALID);
-> +	pgprot_t set_mask = __pgprot(0);
->  
->  	if (!can_set_direct_map())
->  		return 0;
->  
-> -	return apply_to_page_range(&init_mm,
-> -				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +	return ___change_memory_common((unsigned long)page_address(page),
-> +					PAGE_SIZE, set_mask, clear_mask);
->  }
->  
->  int set_direct_map_default_noflush(struct page *page)
->  {
-> -	struct page_change_data data = {
-> -		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
-> -		.clear_mask = __pgprot(PTE_RDONLY),
-> -	};
-> +	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
-> +	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
->  
->  	if (!can_set_direct_map())
->  		return 0;
->  
-> -	return apply_to_page_range(&init_mm,
-> -				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +	return ___change_memory_common((unsigned long)page_address(page),
-> +					PAGE_SIZE, set_mask, clear_mask);
->  }
->  
->  static int __set_memory_enc_dec(unsigned long addr,
-> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
-> index 8ac2f6d6d2a3..79ab8c754dff 100644
-> --- a/include/linux/pagewalk.h
-> +++ b/include/linux/pagewalk.h
-> @@ -132,6 +132,9 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
->  int walk_kernel_page_table_range(unsigned long start,
->  		unsigned long end, const struct mm_walk_ops *ops,
->  		pgd_t *pgd, void *private);
-> +int walk_kernel_page_table_range_lockless(unsigned long start,
-> +		unsigned long end, const struct mm_walk_ops *ops,
-> +		pgd_t *pgd, void *private);
->  int walk_page_range_vma(struct vm_area_struct *vma, unsigned long start,
->  			unsigned long end, const struct mm_walk_ops *ops,
->  			void *private);
-> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> index ff5299eca687..7446984b2154 100644
-> --- a/mm/pagewalk.c
-> +++ b/mm/pagewalk.c
-> @@ -632,6 +632,32 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
->  	return walk_pgd_range(start, end, &walk);
->  }
->  
-> +/*
-> + * Use this function to walk the kernel page tables locklessly. It should be
-> + * guaranteed that the caller has exclusive access over the range they are
-> + * operating on - that there should be no concurrent access, for example,
-> + * changing permissions for vmalloc objects.
-> + */
-> +int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
-> +		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
-> +{
-> +	struct mm_struct *mm = &init_mm;
-> +	struct mm_walk walk = {
-> +		.ops		= ops,
-> +		.mm		= mm,
-> +		.pgd		= pgd,
-> +		.private	= private,
-> +		.no_vma		= true
-> +	};
-> +
-> +	if (start >= end)
-> +		return -EINVAL;
-> +	if (!check_ops_valid(ops))
-> +		return -EINVAL;
-> +
-> +	return walk_pgd_range(start, end, &walk);
-> +}
-> +
->  /**
->   * walk_page_range_debug - walk a range of pagetables not backed by a vma
->   * @mm:		mm_struct representing the target process of page table walk
+ - PSTATE.ZA enables the ZA matrix register and, if SME2 is supported,
+   the ZT0 LUT register.
+ - PSTATE.SM enables streaming mode, a new floating point mode which
+   uses the SVE register set with the separately configured SME vector
+   length.  In streaming mode implementation of the FFR register is
+   optional.
+
+It is also permitted to build systems which support SME without SVE, in
+this case when not in streaming mode no SVE registers or instructions
+are available.  Further, there is no requirement that there be any
+overlap in the set of vector lengths supported by SVE and SME in a
+system, this is expected to be a common situation in practical systems.
+
+Since there is a new vector length to configure we introduce a new
+feature parallel to the existing SVE one with a new pseudo register for
+the streaming mode vector length.  Due to the overlap with SVE caused by
+streaming mode rather than finalising SME as a separate feature we use
+the existing SVE finalisation to also finalise SME, a new define
+KVM_ARM_VCPU_VEC is provided to help make user code clearer.  Finalising
+SVE and SME separately would introduce complication with register access
+since finalising SVE makes the SVE registers writeable by userspace and
+doing multiple finalisations results in an error being reported.
+Dealing with a state where the SVE registers are writeable due to one of
+SVE or SME being finalised but may have their VL changed by the other
+being finalised seems like needless complexity with minimal practical
+utility, it seems clearer to just express directly that only one
+finalisation can be done in the ABI.
+
+Access to the floating point registers follows the architecture:
+
+ - When both SVE and SME are present:
+   - If PSTATE.SM == 0 the vector length used for the Z and P registers
+     is the SVE vector length.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+     is the SME vector length.
+ - If only SME is present:
+   - If PSTATE.SM == 0 the Z and P registers are inaccessible and the
+     floating point state accessed via the encodings for the V registers.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+ - The SME specific ZA and ZT0 registers are only accessible if SVCR.ZA is 1.
+
+The VMM must understand this, in particular when loading state SVCR
+should be configured before other state.  It should be noted that while
+the architecture refers to PSTATE.SM and PSTATE.ZA these PSTATE bits are
+not preserved in SPSR_ELx, they are only accessible via SVCR.
+
+There are a large number of subfeatures for SME, most of which only
+offer additional instructions but some of which (SME2 and FA64) add
+architectural state. These are configured via the ID registers as per
+usual.
+
+Protected KVM supported, with the implementation maintaining the
+existing restriction that the hypervisor will refuse to run if streaming
+mode or ZA is enabled.  This both simplfies the code and avoids the need
+to allocate storage for host ZA and ZT0 state, there seems to be little
+practical use case for supporting this and the memory usage would be
+non-trivial.
+
+The new KVM_ARM_VCPU_VEC feature and ZA and ZT0 registers have not been
+added to the get-reg-list selftest, the idea of supporting additional
+features there without restructuring the program to generate all
+possible feature combinations has been rejected.  I will post a separate
+series which does that restructuring.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v6:
+- Rebase onto v6.16-rc3.
+- Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org
+
+Changes in v5:
+- Rebase onto v6.15-rc2.
+- Add pKVM guest support.
+- Always restore SVCR.
+- Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org
+
+Changes in v4:
+- Rebase onto v6.14-rc2 and Mark Rutland's fixes.
+- Expose SME to nested guests.
+- Additional cleanups and test fixes following on from the rebase.
+- Flush register state on VMM PSTATE.{SM,ZA}.
+- Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org
+
+Changes in v3:
+- Rebase onto v6.12-rc2.
+- Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226cb180bb@kernel.org
+
+Changes in v2:
+- Rebase onto v6.7-rc3.
+- Configure subfeatures based on host system only.
+- Complete nVHE support.
+- There was some snafu with sending v1 out, it didn't make it to the
+  lists but in case it hit people's inboxes I'm sending as v2.
+
+---
+Mark Brown (28):
+      arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
+      arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
+      arm64/fpsimd: Check enable bit for FA64 when saving EFI state
+      arm64/fpsimd: Determine maximum virtualisable SME vector length
+      KVM: arm64: Introduce non-UNDEF FGT control
+      KVM: arm64: Pay attention to FFR parameter in SVE save and load
+      KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
+      KVM: arm64: Move SVE state access macros after feature test macros
+      KVM: arm64: Rename SVE finalization constants to be more general
+      KVM: arm64: Document the KVM ABI for SME
+      KVM: arm64: Define internal features for SME
+      KVM: arm64: Rename sve_state_reg_region
+      KVM: arm64: Store vector lengths in an array
+      KVM: arm64: Implement SME vector length configuration
+      KVM: arm64: Support SME control registers
+      KVM: arm64: Support TPIDR2_EL0
+      KVM: arm64: Support SME identification registers for guests
+      KVM: arm64: Support SME priority registers
+      KVM: arm64: Provide assembly for SME register access
+      KVM: arm64: Support userspace access to streaming mode Z and P registers
+      KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
+      KVM: arm64: Expose SME specific state to userspace
+      KVM: arm64: Context switch SME state for guests
+      KVM: arm64: Handle SME exceptions
+      KVM: arm64: Expose SME to nested guests
+      KVM: arm64: Provide interface for configuring and enabling SME for guests
+      KVM: arm64: selftests: Add SME system registers to get-reg-list
+      KVM: arm64: selftests: Add SME to set_id_regs test
+
+ Documentation/virt/kvm/api.rst                   | 117 +++++++----
+ arch/arm64/include/asm/fpsimd.h                  |  26 +++
+ arch/arm64/include/asm/kvm_emulate.h             |   6 +
+ arch/arm64/include/asm/kvm_host.h                | 168 ++++++++++++---
+ arch/arm64/include/asm/kvm_hyp.h                 |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
+ arch/arm64/include/asm/vncr_mapping.h            |   2 +
+ arch/arm64/include/uapi/asm/kvm.h                |  33 +++
+ arch/arm64/kernel/cpufeature.c                   |   2 -
+ arch/arm64/kernel/fpsimd.c                       |  89 ++++----
+ arch/arm64/kvm/arm.c                             |  10 +
+ arch/arm64/kvm/fpsimd.c                          |  28 ++-
+ arch/arm64/kvm/guest.c                           | 252 ++++++++++++++++++++---
+ arch/arm64/kvm/handle_exit.c                     |  14 ++
+ arch/arm64/kvm/hyp/fpsimd.S                      |  28 ++-
+ arch/arm64/kvm/hyp/include/hyp/switch.h          | 175 ++++++++++++++--
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       |  97 +++++----
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c               |  86 ++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  81 ++++++--
+ arch/arm64/kvm/hyp/nvhe/switch.c                 |   4 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
+ arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
+ arch/arm64/kvm/nested.c                          |   3 +-
+ arch/arm64/kvm/reset.c                           | 156 ++++++++++----
+ arch/arm64/kvm/sys_regs.c                        | 140 ++++++++++++-
+ include/uapi/linux/kvm.h                         |   1 +
+ tools/testing/selftests/kvm/arm64/get-reg-list.c |  32 ++-
+ tools/testing/selftests/kvm/arm64/set_id_regs.c  |  29 ++-
+ 28 files changed, 1315 insertions(+), 294 deletions(-)
+---
+base-commit: 7204503c922cfdb4fcfce4a4ab61f4558a01a73b
+change-id: 20230301-kvm-arm64-sme-06a1246d3636
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
