@@ -4,86 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D943C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C45C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 11:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=; b=oARKplntQyUfZT9KbgIY8q36o2
-	J5CfPEH/6tM541F+xlCj7531cIi5ukyGowEEe9uhM/8RJ+23YAC8fWYPm7y/AeghGenOGKpw8qvzj
-	oK1PJekICYtQOGxNtqqkx1y2GTXjYq0c8yzuZP5Td24qtgtyApIdwTMUDFMPyRN73/ihH1Scno+Ao
-	o9Xg8B0eFTLttFEvdPMtOMGoBYrsO606XlHl3i8mUxRGImEVg1sjGmRqgVE55+wUaBiki/j8YheVN
-	b889RKR3hOVhJFYjTQY7l22Byua15WOPOnfFHTQI8wiUBQa1F+w9pRUf4v0ZtdfZkpUX9Fq/lHukW
-	DHCkAeJg==;
+	bh=K4YFkttBOfdkPL3gGKS/49o6M91DhM3gW4Sii1oRBm4=; b=UW7pCXJpieHDVQlSdA/8KQNJc4
+	EyuxJPPmNoI6/devuJUIdAjMjgmcVjwjt++WK+OVPv1VwyhiLvHdzn2fhmXWUmsc8lVu3RUZorE5k
+	5+ZoVxlrAWEdjc/F/PjVI9zUAMy1wnRhuhtHLR16GTAIVswEZ4HIuxf6Etsg1cNIauKzgYi8AH1RO
+	3w2dK3RmnqnHRttcf1no0zR5f8Zh4DdXfE5m/rk7HZ/6YJLbJu3JikAfy4pkXodSthcPCJq6+eOlC
+	u7OqWC+81WChvzVjmFJxbCicWyms9uPKn1pTkwbfbMPe75H+rhPE1ckd8aklpZB7uI9eUbzr81gg8
+	pV+0Us5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNu7-00000008PHO-2sJL;
-	Wed, 25 Jun 2025 11:02:59 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1uUNzj-00000008QhY-358C;
+	Wed, 25 Jun 2025 11:08:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMaR-000000089YO-1GC8;
-	Wed, 25 Jun 2025 09:38:36 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-531a1d5519aso2000580e0c.3;
-        Wed, 25 Jun 2025 02:38:34 -0700 (PDT)
+	id 1uUM7r-000000084or-0SKJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 09:09:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=K4YFkttBOfdkPL3gGKS/49o6M91DhM3gW4Sii1oRBm4=; b=Xt6CngV2SGlcHluW+yeJb9Rr2n
+	YwoFMh8uWiQGFWNYIza8cNDQrIZQEmq5E/eUucn0ZOKSoEfKNQHCYZflZCE2GHyK9ZRnXa8BF/qe2
+	0ewSkkaJUMeQbSMt+zN0rqne5LsW2+glvChL42dcW8gQix77v012bw88I98EQ64NiXgtb0zSHJADM
+	uc+nM36rGclnD+L3ACN6HUU3u7CW7pzn0sRCbcIbfocWv9eCnMzsFgtGNiecTPqrDjT1gN6fZaypl
+	GvDDmBn2MQDRdo3QawnJa+PG0fpKCOoxgcdqSr0YZnL7G0MLT5wWwMEiz5aXjBjIm0S/UN7C1RNj2
+	O7Dm4IzA==;
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUM7o-00000005idR-12Wl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 09:09:02 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ad89dc2d8b4so94959066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 02:08:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750844313; x=1751449113; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=;
-        b=MMX98M6KrLDYxVOm/3wJw5p0TdecayDsSi9b6ta9q1xH0wW+YwRth1hOgcdYVNDcUS
-         /cal/+WWrHcUguP402cHxJxRspO1wXWAsomnF5rYuL1s9ddshx2dIJrvKpscqk14/sjV
-         ftH/e7MpHiCPcYfXUUuHZGVCKL4dIT4ihZealBZowq8ayvMF2nGs4N9YFB/t0N+Irp2b
-         uviKPuqoK6ygTqJ9IvG+h2dmIOLkT3FD7tqT7c2qAL3NbJ+LmBxp9uOjEoQMY2ozSszj
-         v5nznMplERzYnP/h/sX+R1EkU2AQsGTlk3BdWMMlsiXqv4/MyxTOSPCL5ztwLlRyma11
-         v3ZQ==
+        d=linaro.org; s=google; t=1750842537; x=1751447337; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=K4YFkttBOfdkPL3gGKS/49o6M91DhM3gW4Sii1oRBm4=;
+        b=s6Ria9T72s2QPlFk+FlrfVKm3m/mPf3PPE2eXeGE40HlOooPMCDn6AQqcbw0E1co9O
+         VgUe/1syTyO+Ke7RUo/OFenDNUk+xDJ0yi0mWWf0a4gdFxDbS9lxrbPeUn47JsupastR
+         GYXC9m0tgEXLw2+Ak6YXj2s2jd7sDZeWkplcyT5leZICymfdwgKZ9nP3WKuJiTsMj3Y1
+         RW914I4+v5+lIfCHNRh2XXj8a9RHtfUVkKRPcPwH5Fvg8qIgMt1Cc41vNfJ9qd6lEvZe
+         e9CIB3LVWEi2nYzz3/nxyMr8IhNcs3qY4/Ob7hmH6u44ZBY1jt5i76heHC18aMxpkkM9
+         hqRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750844313; x=1751449113;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ik/O3lKW8D4PX3b9RKMi5Pl8dRCbo+JtmwcqMh8DqL4=;
-        b=GGTz2IbHTZapmnTJnijbHdIGtzHQq9b/jziEFQDCczCaQLY2MWLCSGZJWlpmG2cvUI
-         h3qvRZSHff+1fx/Eoy2LkxEubXC67icB77xvStxkIQUdsaoEkQxAKafd1ZWNYlqF1hX9
-         1MME8amYzcLijWlmqgyA8Rru4aZswEIGKXG+xdG8N6VHRaSrVTDiA2HAoFGBFJGV+QW2
-         NgF38tCeqF4ri7mz8CJJELSI3FlVbnjNNRMYKnokFuLcmibEDQFvuUf6Sgguxd2h/xLE
-         ktyFDoQoA3HuUyeUeV7ZQ2Hmg05p6aRCJfYH0MvHU5fVa38gdZDH3l+54nd7eGrwGLe0
-         JSUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUofGWUICViCTzNA6GEm+c2+vG1mlojz1EV+65VA+CHdk6LR4gShTeIhpQTPTA4crsU1XiUevPUD6rDEb0=@lists.infradead.org, AJvYcCWAoUlZtvr+DSm7/CY/fAO0267aWkYat+Ahe1ZsMmNdPj+VNQ/+DoJ/pPTo23+pnBuAn5o+ultUN5ybl/3GRqVv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrM56BAfZyW4QimlU/oqvYxVtrU+niE+SLSjtFFQkdZ8Ac7Q6+
-	37cF+c4dYxxegwwQt6gNln7I8+yXW1uSCCZ0zq56Mu2ZJ2EIYQuFenRphUK9GGIdzTg1gLFo3/v
-	64knnat5E3t0pYG98SVJXVQbScw64hmM=
-X-Gm-Gg: ASbGncuB3IVXyxHXQTG28ZGt08Xe2TiNu2x1JxGVXUEPuvTTq/qLtaOvMSFjiGxtD2S
-	O3iH5DhUmF3dxCEZzygDnnnSPYNyiCszYDwrt/M74gz2jHqC/+kRPubEiTb7SfstL25/R+pO/I1
-	pmYeyVeY7UT3rwNBefSnAaVxN2EdUPs9ax4ASdB5eRHS0=
-X-Google-Smtp-Source: AGHT+IHFsEjf8mVqrGJlOglZXBqK+LXUAHLKDnHRegX9xwHltPGn1BuflQtnpCujXSYlVduWzyct2ogezPY53n9zi2Q=
-X-Received: by 2002:a05:6122:2516:b0:530:81ac:51be with SMTP id
- 71dfb90a1353d-532ef6cc1e4mr985532e0c.8.1750844313457; Wed, 25 Jun 2025
- 02:38:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750842537; x=1751447337;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K4YFkttBOfdkPL3gGKS/49o6M91DhM3gW4Sii1oRBm4=;
+        b=jSkh02EkbaqlrFWxADEjmrhm/dx/tAg0e054TlK9EBI48kNdBldfZjCD7qwOOztD27
+         zHHRfAKjbwny89MOJ5l6xAQMr/+OMtD3vf96Chuh7xHtvx9x49/yMbfDPR+58ZY3AFhy
+         wBC/rwVK7edc/58+Y6JrIKeYSo0FPflDYMEydbJlRtSzmsqrdV8KWYGxvsrBx5ST8t7y
+         xDMKqL9VSwZLNp4E2RBr9FL2mmwY/OlIYHV98o+XeeenOCvT5p+TaB/LSqD68TpKd70K
+         cASy5NPGS+xEZ8AMU+xKJK3+hstKSU6FvcHYMOWTX1FbJiZsDKscFhkFxPOftLFJo6Ja
+         ondw==
+X-Forwarded-Encrypted: i=1; AJvYcCVXRK607X0PJXKdqBaW+mabp7Lvz6bXlCvj9KgKzC1ZyZ0smR2m8Zv99pvEVeD5mn9JDeGFASv+aSxudbttz717@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE51JJuBWWFKZfxmdpIqLGfxoxnZF81b5Q3slQpJUERkcsQNNt
+	ZCFhzixe51F9pkSBQHByPFhWReT3rePQE9Iw6ojm2f/qz9KYL2m7DwcA7NoItYjbx7w=
+X-Gm-Gg: ASbGnct+BHOpdBoumNJBXk96yfNEH8lBZktoIFerd++Gn6AuQtTjgpIkL5XobHt3Vf+
+	KiUudowrHhFDE80Z3gjUNNcYnA5VAzg3V4d8izIAc/9XC/p2coebl+icRLU8n7aKsfTWySd5Xzj
+	nRxmfOFp7wCY8Tfw4lDxkEcV9nohcuZsJ/IgfcAUN9WtfpV8aDqqAP4MNmgWw48i/71ath3rInV
+	eAi3/wGklkyYTznGpAZe9Ley72b8fV6TnTejsVeNEkLda9h14XOEydwW7wLyCxTi5Qen+bhQiGY
+	edPW4hT6qIj/EFPACB7hV2/esGaeQhpRAVLsqGbi3klvf6LYCFoGMW4uwthHlXauomydSYeFJen
+	ovVnUrw==
+X-Google-Smtp-Source: AGHT+IHq4OLHwef19JUx4B3qBHj59T7kHFZYiQRPXfkNBv4goVa8y63ULfzDUAYvAqURYTsCkeQqEQ==
+X-Received: by 2002:a17:907:97cc:b0:ade:40ed:9f3e with SMTP id a640c23a62f3a-ae0be531812mr74085166b.0.1750842537468;
+        Wed, 25 Jun 2025 02:08:57 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.222.89])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae0ae6ff383sm246172566b.172.2025.06.25.02.08.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Jun 2025 02:08:56 -0700 (PDT)
+Message-ID: <8438a336-94d3-44e1-9e92-1fac0b2a602d@linaro.org>
+Date: Wed, 25 Jun 2025 11:08:55 +0200
 MIME-Version: 1.0
-References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com> <20250624162503.78957-1-ioworker0@gmail.com>
-In-Reply-To: <20250624162503.78957-1-ioworker0@gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 25 Jun 2025 21:38:21 +1200
-X-Gm-Features: Ac12FXwzgBA5qA6Bu1rSIUYx-JEmY2u59OAGcqCQlCXMv4jDK2aouZ9-YNF9zfQ
-Message-ID: <CAGsJ_4x+YaF3bVjMuNv2iJtdoD2-GgGsbJA__cpxb7U5YtK9ig@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
-To: Lance Yang <ioworker0@gmail.com>
-Cc: david@redhat.com, akpm@linux-foundation.org, baolin.wang@linux.alibaba.com, 
-	chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com, 
-	ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org, 
-	ying.huang@intel.com, zhengtangquan@oppo.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+ <2b32b8ed-c841-4862-afab-c583da644217@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <2b32b8ed-c841-4862-afab-c583da644217@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_023835_360789_885B60E8 
-X-CRM114-Status: GOOD (  33.93  )
+X-CRM114-CacheID: sfid-20250625_100900_378879_D6D19D95 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,153 +168,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 4:27=E2=80=AFAM Lance Yang <ioworker0@gmail.com> wr=
-ote:
->
-> On 2025/6/24 23:34, David Hildenbrand wrote:
-> > On 24.06.25 17:26, Lance Yang wrote:
-> >> On 2025/6/24 20:55, David Hildenbrand wrote:
-> >>> On 14.02.25 10:30, Barry Song wrote:
-> >>>> From: Barry Song <v-songbaohua@oppo.com>
-> >> [...]
-> >>>> diff --git a/mm/rmap.c b/mm/rmap.c
-> >>>> index 89e51a7a9509..8786704bd466 100644
-> >>>> --- a/mm/rmap.c
-> >>>> +++ b/mm/rmap.c
-> >>>> @@ -1781,6 +1781,25 @@ void folio_remove_rmap_pud(struct folio *foli=
-o,
-> >>>> struct page *page,
-> >>>>    #endif
-> >>>>    }
-> >>>> +/* We support batch unmapping of PTEs for lazyfree large folios */
-> >>>> +static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
-> >>>> +            struct folio *folio, pte_t *ptep)
-> >>>> +{
-> >>>> +    const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DI=
-RTY;
-> >>>> +    int max_nr =3D folio_nr_pages(folio);
-> >>>
-> >>> Let's assume we have the first page of a folio mapped at the last pag=
-e
-> >>> table entry in our page table.
-> >>
-> >> Good point. I'm curious if it is something we've seen in practice ;)
-> >
-> > I challenge you to write a reproducer :P I assume it might be doable
-> > through simple mremap().
-> >
-> >>
-> >>>
-> >>> What prevents folio_pte_batch() from reading outside the page table?
-> >>
-> >> Assuming such a scenario is possible, to prevent any chance of an
-> >> out-of-bounds read, how about this change:
-> >>
-> >> diff --git a/mm/rmap.c b/mm/rmap.c
-> >> index fb63d9256f09..9aeae811a38b 100644
-> >> --- a/mm/rmap.c
-> >> +++ b/mm/rmap.c
-> >> @@ -1852,6 +1852,25 @@ static inline bool
-> >> can_batch_unmap_folio_ptes(unsigned long addr,
-> >>       const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIR=
-TY;
-> >>       int max_nr =3D folio_nr_pages(folio);
-> >>       pte_t pte =3D ptep_get(ptep);
-> >> +    unsigned long end_addr;
-> >> +
-> >> +    /*
-> >> +     * To batch unmap, the entire folio's PTEs must be contiguous
-> >> +     * and mapped within the same PTE page table, which corresponds t=
-o
-> >> +     * a single PMD entry. Before calling folio_pte_batch(), which do=
-es
-> >> +     * not perform boundary checks itself, we must verify that the
-> >> +     * address range covered by the folio does not cross a PMD bounda=
-ry.
-> >> +     */
-> >> +    end_addr =3D addr + (max_nr * PAGE_SIZE) - 1;
-> >> +
-> >> +    /*
-> >> +     * A fast way to check for a PMD boundary cross is to align both
-> >> +     * the start and end addresses to the PMD boundary and see if the=
-y
-> >> +     * are different. If they are, the range spans across at least tw=
-o
-> >> +     * different PMD-managed regions.
-> >> +     */
-> >> +    if ((addr & PMD_MASK) !=3D (end_addr & PMD_MASK))
-> >> +        return false;
-> >
-> > You should not be messing with max_nr =3D folio_nr_pages(folio) here at
-> > all. folio_pte_batch() takes care of that.
-> >
-> > Also, way too many comments ;)
-> >
-> > You may only batch within a single VMA and within a single page table.
-> >
-> > So simply align the addr up to the next PMD, and make sure it does not
-> > exceed the vma end.
-> >
-> > ALIGN and friends can help avoiding excessive comments.
->
-> Thanks! How about this updated version based on your suggestion:
->
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index fb63d9256f09..241d55a92a47 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1847,12 +1847,25 @@ void folio_remove_rmap_pud(struct folio *folio, s=
-truct page *page,
->
->  /* We support batch unmapping of PTEs for lazyfree large folios */
->  static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
-> -                       struct folio *folio, pte_t *ptep)
-> +                                             struct folio *folio, pte_t =
-*ptep,
-> +                                             struct vm_area_struct *vma)
->  {
->         const fpb_t fpb_flags =3D FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRT=
-Y;
-> +       unsigned long next_pmd, vma_end, end_addr;
->         int max_nr =3D folio_nr_pages(folio);
->         pte_t pte =3D ptep_get(ptep);
->
-> +       /*
-> +        * Limit the batch scan within a single VMA and within a single
-> +        * page table.
-> +        */
-> +       vma_end =3D vma->vm_end;
-> +       next_pmd =3D ALIGN(addr + 1, PMD_SIZE);
-> +       end_addr =3D addr + (unsigned long)max_nr * PAGE_SIZE;
-> +
-> +       if (end_addr > min(next_pmd, vma_end))
-> +               return false;
-> +
+On 25/06/2025 11:05, Krzysztof Kozlowski wrote:
+> On 24/06/2025 12:21, Daniel Scally wrote:
+>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>
+>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> You changed the binding significantly - adding new properties (which do
+> not even follow DTS coding style).
+> 
+> This invalidates the review. You cannot just keep growing it after you
+> received a review.
+> 
+Although if it is conflicting with my earlier message that some earlier
+changes - reset properties - were trivial and review should be kept,
+then apologies. Adding new, custom, vendor properties is not trivial.
+Adding obvious existing properties usually is, although I understand why
+it could also be a reason to drop review. In any case sorry for
+confusion, but this needs re-review.
 
-I had a similar check in do_swap_page() for both forward and backward
-out-of-bounds page tables, but I forgot to add it for this unmap path.
-
-this is do_swap_page():
-
-        if (folio_test_large(folio) && folio_test_swapcache(folio)) {
-                int nr =3D folio_nr_pages(folio);
-                unsigned long idx =3D folio_page_idx(folio, page);
-                unsigned long folio_start =3D address - idx * PAGE_SIZE;
-                unsigned long folio_end =3D folio_start + nr * PAGE_SIZE;
-
-                pte_t *folio_ptep;
-                pte_t folio_pte;
-
-                if (unlikely(folio_start < max(address & PMD_MASK,
-vma->vm_start)))
-                        goto check_folio;
-                if (unlikely(folio_end > pmd_addr_end(address, vma->vm_end)=
-))
-                        goto check_folio;
-       }
-
-So maybe something like folio_end > pmd_addr_end(address, vma->vm_end)?
-
-Thanks
-Barry
+Best regards,
+Krzysztof
 
