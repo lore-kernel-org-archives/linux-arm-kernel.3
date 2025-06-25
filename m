@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20621C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 13:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DD1C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 13:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMubMqt0B41uAlKb5aE5NWQ2OgKtj3U7wBtBPllI5xE=; b=ytAlnIGIeg27jq21magWcTEZpv
-	CNvi7yIduuvjYsSw0siELdgXEOwO7BLpKnD1t9mw84ylKWwOtwzBgOdxjZiExaaltNhAyxEEb8Hjo
-	v75niipmXvg51/IFnGr2RMaCmk8J47G1zzY7cOupdbWM1DmKOrz45FtHbDeABk3pys3lKOwout+J+
-	SbIDl1/b7yEwpWqFO5PdXhvXu686LYNlo6Swn6N92KuUCeN4SCPCRnGSJFPUpXpEIfjS9VKbKTM3l
-	FFCPZ71bo7m8/dRq9580jkRNSmts+9djZzi13RGP8KlBuXJovJiCx2Hs1MorNrMPDEeIedESO+SJ3
-	0NqNw9tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vJ3mwn0o0bNWIsKKV9EgOQNug5ExZy+GsquJ5hq125c=; b=dz99FY5o797fW2X/ZHeml/AYh0
+	9lzY0OO+JYkmoZpoaUztCKx2auKNDLVtxR1WZbf5/8q5xYFxa3LFDMjn0kdj+62trBJCSMTHlWzij
+	fZNu1sZl6QUCICtpSDK/axlZlcJ01EUmbXgomvVUcs2N63Xwajc9X2tlTm0dTb1e7t5cMRnuPTLRl
+	we0d3gykI9sBZ4nNmRCmD+omrUOXFf7MSUwSLwdF1jAgrClJgU5sk39v8Tv2T8GEVPOkjVipQRdgS
+	5VVYn8SrzyaYg5XvaSdtbMriOEg6VRWBFOh7EfJ9IZZZfftj09bWJX3Wu5hECbcJFKLdUG2mihUqY
+	hv0jbD7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQAW-00000008o56-0Bns;
-	Wed, 25 Jun 2025 13:28:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUQCl-00000008oX8-3bX0;
+	Wed, 25 Jun 2025 13:30:24 +0000
+Received: from nbd.name ([46.4.11.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUN6L-00000008H4t-29mz;
-	Wed, 25 Jun 2025 10:11:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pMubMqt0B41uAlKb5aE5NWQ2OgKtj3U7wBtBPllI5xE=; b=iyzEXZ1fynHPYUJ3w+5Xxl5R+K
-	XESQsOmXXEN8WQur1e1fxnpoymdMVjOa32PY8fjUsVZvMU3zDU0T4RZHzg0C1WB82PiuKHAx3mCwh
-	y0S31QNoJyCAn7/sI66H07lU2JDFJ9YCqHZ1PH3EyxzbGsmV6WBGiQ1ASOk9a5rDltrrXddU7I/YR
-	fpLkYzoWSibNtGfOyVeyPMEQmM1gOTYVecsE88rHsrLzy7kgKGh9LXwmSDe2Cj9omm9WQqflSdwzF
-	dPpAJCNX3nibmsT3bCMrLwGtvP2JlPkiS4sUsAzd900GoUKmpeKUwnFBtPQoOSgd6EGC3WC0/Q/46
-	6KrlZw2g==;
-Received: from leonov.paulk.fr ([185.233.101.22])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUN6I-00000005m4s-1TRF;
-	Wed, 25 Jun 2025 10:11:32 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 5AA431F0003D;
-	Wed, 25 Jun 2025 10:11:14 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 34ED4AC7B27; Wed, 25 Jun 2025 10:11:12 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id DA68DAC7B19;
-	Wed, 25 Jun 2025 10:11:09 +0000 (UTC)
-Date: Wed, 25 Jun 2025 12:11:07 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Parthiban <parthiban@linumiz.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH 10/22] pinctrl: sunxi: add missed lvds pins for a100/a133
-Message-ID: <aFvLO6GUY6NezkcF@shepard>
-References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
- <20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
- <aFu3fAMa8KPwjPbX@shepard>
- <9c3ea5fb-a045-46bd-9753-26ffa67fe1bc@linumiz.com>
+	id 1uUNDE-00000008I73-1wfz;
+	Wed, 25 Jun 2025 10:18:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=nbd.name;
+	s=20160729; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vJ3mwn0o0bNWIsKKV9EgOQNug5ExZy+GsquJ5hq125c=; b=uoFUjwJ8Jh3yc0ecE27bc1VUee
+	1EonnoamVyY+y7eJXmxmzochQ/PjP8cTbux05fhoXcdUGc3FgWxQTynwWLJTMVZR4ZbilwvmXcwrS
+	N/tibEuTq4/LbUL9TYdQ01QGR1IHfEPmi2wKF6sSsnUuHP8GX3Zmf1CVOI4eEtdYP8UI=;
+Received: from p54ae9243.dip0.t-ipconnect.de ([84.174.146.67] helo=nf.local)
+	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <nbd@nbd.name>)
+	id 1uUNCi-003Twy-0A;
+	Wed, 25 Jun 2025 12:18:08 +0200
+Message-ID: <26e6c7f7-a35f-4ebb-a55b-ade2ac7c20bb@nbd.name>
+Date: Wed, 25 Jun 2025 12:18:07 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hh+oSgryr9OFE2vD"
-Content-Disposition: inline
-In-Reply-To: <9c3ea5fb-a045-46bd-9753-26ffa67fe1bc@linumiz.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 RESEND] wifi: mt76: mt7915: add wds support when wed
+ is enabled
+To: Shengyu Qu <wiagn233@outlook.com>, pkshih@realtek.com,
+ lorenzo@kernel.org, ryder.lee@mediatek.com, shayne.chen@mediatek.com,
+ sean.wang@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, johannes.berg@intel.com,
+ miriam.rachel.korenblit@intel.com, christophe.jaillet@wanadoo.fr,
+ greearb@candelatech.com, howard-yh.hsu@mediatek.com,
+ StanleyYP.Wang@mediatek.com, deren.wu@mediatek.com,
+ chui-hao.chiu@mediatek.com, quic_adisi@quicinc.com, gustavoars@kernel.org,
+ razvan.grigore@vampirebyte.ro, linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Sujuan Chen <sujuan.chen@mediatek.com>, Bo Jiao <bo.jiao@mediatek.com>
+References: <OSZPR01MB84342A0E21AAD111ED7AF6B198B82@OSZPR01MB8434.jpnprd01.prod.outlook.com>
+ <TY4PR01MB1443294C4D36DF73852B4E79B9878A@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+From: Felix Fietkau <nbd@nbd.name>
+Content-Language: en-US
+Autocrypt: addr=nbd@nbd.name; keydata=
+ xsDiBEah5CcRBADIY7pu4LIv3jBlyQ/2u87iIZGe6f0f8pyB4UjzfJNXhJb8JylYYRzIOSxh
+ ExKsdLCnJqsG1PY1mqTtoG8sONpwsHr2oJ4itjcGHfn5NJSUGTbtbbxLro13tHkGFCoCr4Z5
+ Pv+XRgiANSpYlIigiMbOkide6wbggQK32tC20QxUIwCg4k6dtV/4kwEeiOUfErq00TVqIiEE
+ AKcUi4taOuh/PQWx/Ujjl/P1LfJXqLKRPa8PwD4j2yjoc9l+7LptSxJThL9KSu6gtXQjcoR2
+ vCK0OeYJhgO4kYMI78h1TSaxmtImEAnjFPYJYVsxrhay92jisYc7z5R/76AaELfF6RCjjGeP
+ wdalulG+erWju710Bif7E1yjYVWeA/9Wd1lsOmx6uwwYgNqoFtcAunDaMKi9xVQW18FsUusM
+ TdRvTZLBpoUAy+MajAL+R73TwLq3LnKpIcCwftyQXK5pEDKq57OhxJVv1Q8XkA9Dn1SBOjNB
+ l25vJDFAT9ntp9THeDD2fv15yk4EKpWhu4H00/YX8KkhFsrtUs69+vZQwc0cRmVsaXggRmll
+ dGthdSA8bmJkQG5iZC5uYW1lPsJgBBMRAgAgBQJGoeQnAhsjBgsJCAcDAgQVAggDBBYCAwEC
+ HgECF4AACgkQ130UHQKnbvXsvgCgjsAIIOsY7xZ8VcSm7NABpi91yTMAniMMmH7FRenEAYMa
+ VrwYTIThkTlQzsFNBEah5FQQCACMIep/hTzgPZ9HbCTKm9xN4bZX0JjrqjFem1Nxf3MBM5vN
+ CYGBn8F4sGIzPmLhl4xFeq3k5irVg/YvxSDbQN6NJv8o+tP6zsMeWX2JjtV0P4aDIN1pK2/w
+ VxcicArw0VYdv2ZCarccFBgH2a6GjswqlCqVM3gNIMI8ikzenKcso8YErGGiKYeMEZLwHaxE
+ Y7mTPuOTrWL8uWWRL5mVjhZEVvDez6em/OYvzBwbkhImrryF29e3Po2cfY2n7EKjjr3/141K
+ DHBBdgXlPNfDwROnA5ugjjEBjwkwBQqPpDA7AYPvpHh5vLbZnVGu5CwG7NAsrb2isRmjYoqk
+ wu++3117AAMFB/9S0Sj7qFFQcD4laADVsabTpNNpaV4wAgVTRHKV/kC9luItzwDnUcsZUPdQ
+ f3MueRJ3jIHU0UmRBG3uQftqbZJj3ikhnfvyLmkCNe+/hXhPu9sGvXyi2D4vszICvc1KL4RD
+ aLSrOsROx22eZ26KqcW4ny7+va2FnvjsZgI8h4sDmaLzKczVRIiLITiMpLFEU/VoSv0m1F4B
+ FtRgoiyjFzigWG0MsTdAN6FJzGh4mWWGIlE7o5JraNhnTd+yTUIPtw3ym6l8P+gbvfoZida0
+ TspgwBWLnXQvP5EDvlZnNaKa/3oBes6z0QdaSOwZCRA3QSLHBwtgUsrT6RxRSweLrcabwkkE
+ GBECAAkFAkah5FQCGwwACgkQ130UHQKnbvW2GgCeMncXpbbWNT2AtoAYICrKyX5R3iMAoMhw
+ cL98efvrjdstUfTCP2pfetyN
+In-Reply-To: <TY4PR01MB1443294C4D36DF73852B4E79B9878A@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_111130_661504_58D55B12 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20250625_031840_582743_A24A68A7 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,79 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 24.06.25 16:11, Shengyu Qu wrote:
+> Hi Felix,
+> 
+> Please, tell me if this patch needs any polishing. I really don't know
+> why this patch still not get merged after such a long time(and 2x
+> resend), especially it already got a Reviewed-by and is a bugfix.
 
---hh+oSgryr9OFE2vD
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Shengyu,
 
-On Wed 25 Jun 25, 15:06, Parthiban wrote:
->=20
-> On 6/25/25 2:16 PM, Paul Kocialkowski wrote:
-> > Hi and thanks for your work!
-> >=20
-> > On Fri 27 Dec 24, 16:37, Parthiban Nallathambi wrote:
-> >> lvds, lcd, dsi all shares the same GPIO D bank and lvds0
-> >> data 3 lines and lvds1 pins are missed, add them.
-> > Would it also make sense to submit device-tree pin definitions here?
->=20
-> this patch is already merged.=20
-> git show --stat cef4f1b5ba99a964cd6dd248bb373520573c972f
-> commit cef4f1b5ba99a964cd6dd248bb373520573c972f
-> Author: Parthiban Nallathambi <parthiban@linumiz.com>
-> Date:   Fri Dec 27 16:37:57 2024 +0530
->=20
->     pinctrl: sunxi: add missed lvds pins for a100/a133
->    =20
->     lvds, lcd, dsi all shares the same GPIO D bank and lvds0
->     data 3 lines and lvds1 pins are missed, add them.
->    =20
->     Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
->     Link: https://lore.kernel.org/20241227-a133-display-support-v1-10-13b=
-52f71fb14@linumiz.com
->     Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
->=20
->  drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->=20
-> Do you mean the consumer/board devicetree changes?
+sorry it took such a long time for me to take a look at this patch.
+I don't see how it can even work properly in its current form, because 
+of at least one bug:
 
-I mean the pin definitions for lvds in the sun50i-a100.dtsi device-tree.
+When switching from non-wds to wds mode, the code calls 
+mt7915_mac_sta_add in order to create the new sta. However, after 
+changes that I made a while back, this function does not actually upload 
+the station to the MCU anymore, since it is called on the NOTEXIST->NONE 
+transition before assoc. Without corresponding ASSOC/AUTHORIZE events 
+(handled by mt7915_mac_sta_event), the firmware doesn't get any data for 
+the new wcid.
 
-But maybe you wanted to submit those after the bindings/driver changes are
-merged?
+That said, I finally got around to starting to rework your patch myself. 
+I will let you know when I have something ready for testing, hopefully 
+later today.
 
-Cheers,
-
-Paul
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---hh+oSgryr9OFE2vD
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbyzsACgkQhP3B6o/u
-lQyMGQ//f2vAQYHKFknpEFa9G97bwQAoBFvWmQSD1wmDY326lLbX+9Y05O/nICdQ
-datMQbAA6GBDyn///enJBKK2AURU+BrqhBgKbsbBFFSRcfxgqOrBRts1XgjbAA4J
-jdl51KH2mhO3rL83JU/DhlwedeW2q/JeZrlFxVV/DL94tc3WRVFHINq3XipGHfk/
-l2VdJ9XHwzIz1it4ZG/ypB5reTIvdskJQCjGqqEwpLy2BkYsVvVIW4ASYCWR76A4
-CJfYGi3RTEZxDTmiLpLrUiezKLT2y0sZybhIDlFYZG8aVAoMvmDYZafpsotsRD+E
-jv9Et5dsl/In0DiCJLdmNGgwdmVgQcn/Ln7D5Ad5hqUqHx5tteJ5Vc+XWVVXTVEh
-ngvtcEvY3PornqJ/yAmYqz8UZ0+ZPMjLUM5cBrO0kiVYU6//99FOZRLba7VpDrqt
-PpwHreipKusGGSgKjwNU0JBszR61dT9eEBF4CnyTJmsnH/CYgXk3ToqbwYrWInUD
-rmClxHtOUwQ+BUAz3GL7YszrAzifLjqmKTFtIydFEIi/xWI/7LDeImEjAjHtk0Vk
-eGDxBau9WCqk8IUf7kneF6UcCD2M+9rs8k+2p8rvO6gQOv6I7Ioq1sPfqmWSyA5v
-uVQSDI7Amj0SKgFZmKuXry4Qw/EWu+BNGf3Xii0csbO0ZAuxVos=
-=Yy5s
------END PGP SIGNATURE-----
-
---hh+oSgryr9OFE2vD--
+- Felix
 
