@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7290C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8962EC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pl8zpPt5asdToAtlRZ7Ocjv1fz/H2BkjY8pdM2JjlpU=; b=RIh4oAsFNcxuyJWeSAmUwstuTF
-	nyEFLhzxXNq71wPrPFmchgTDIt54WJzHPPaBtenKITOubPBbHnp0hF4UCywY587t+fU0sq4b3czIV
-	QfEf6x71L/Um8NhQ1lTvnGK+ZzIOYJcjDz3N9t9rqXwx4uICKO+0rEqEP43FLTTTNruWePcghm9Bj
-	C2a3TwJGI5vxlj6Pe1vFDNMa5WGQEi2iuSDAjV3HwGPrNCdjjZTkDGIfaAnRifz/v5WboMMiQ7OI6
-	mMq1SxB5ohrnbvW6LbMIuG4rSe2ZJgU9xeHxESSpworpimqZRR0O6ltHPYX8xdnzlnIKPMcFCZq5Q
-	xk5sWe2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X+5+9SRCmujO2T9CtdWgkk6IySKFq1qnByIJm2uIdhQ=; b=oysTP/YFZitUW1Jmk6iwI1P4hm
+	+Z/CosGsnut6B5WRVWVAIKW9IR9jrS7m/lTlTMQpjVHSmPA10pJ9XotR3dCxDsbj95znyjqwV4Lro
+	NW4jOPBaU2bVbiQaFAWYy4Nfgz+VamgBMsSDiUzG+bqcRb0wQnfWnQDrpffGjSSlb6jox193jnZ4/
+	keb0RnFdCNSTZeS5gDj/25xULRZIq9dwsd65BK6xfpWZGdykSX6EEW9lfZDVgQqqtLgD0UPk+0G6H
+	AgnHiISgfDawksOKV+2kvEG4uePFakFiHMxZIBCy84yhO+4RRi1Zrubs1YrxgxYBs4tYF+1z7uAuZ
+	AXbJO9bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUVGm-00000009f7y-0R4Q;
-	Wed, 25 Jun 2025 18:54:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uUVJ3-00000009fLF-0ZQM;
+	Wed, 25 Jun 2025 18:57:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPsw-00000008kL1-20oE
+	id 1uUPyB-00000008lMq-1P2N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 13:09:55 +0000
+	Wed, 25 Jun 2025 13:15:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E141A5255C;
-	Wed, 25 Jun 2025 13:09:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2ABCC4CEEE;
-	Wed, 25 Jun 2025 13:09:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C013F61142;
+	Wed, 25 Jun 2025 13:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6A7C4CEEA;
+	Wed, 25 Jun 2025 13:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750856993;
-	bh=T9ZXwJirupaKaXo4ecAOelspdWpyR5VZVpCl4hYbx3c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BP67WiGnasC0Vt6bloul/aKmhoNifBCSM8pWwrvq07m5W/NrxA5Is8Jk0xU5rXvl3
-	 k34sCBKYmNhH+BKq3Dz7jz1NZIamMubN/ojAwL9j+ZwqdhT6smK7YfV9ublG/xcH7M
-	 1xTG8MEYfG9mkNkmI3eXi6cl2FAof5xOgH4pfI8/5GUf/MmsQOb1NRRA53pv1HRgqN
-	 wjA2aK1lttJMfmW5TW4UNQMTbgU9wt7zIf468QG7yNcHvEIVDK5sBhX0xoyAqH91p6
-	 4F/Wo8ARnZk18CcjSNRM+bdo9oOmiIH0HiVSWvPk4uRDAoAGKtmu/FzeFGzzaABapE
-	 GaIq3TrPVpOXw==
-Date: Wed, 25 Jun 2025 07:09:49 -0600
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, p.zabel@pengutronix.de, 
-	johan+linaro@kernel.org, cassel@kernel.org, shradha.t@samsung.com, 
-	thippeswamy.havalige@amd.com, quic_schintav@quicinc.com, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v12 0/9] Add STM32MP25 PCIe drivers
-Message-ID: <bybl3ss5z6jgbhjqny5qwh25a5khhcvixoknrzqsnmennzcfdv@46j4grd35mx5>
-References: <175068078778.15794.15418191733712827693.b4-ty@kernel.org>
- <20250624222206.GA1537968@bhelgaas>
- <3bmw76gzqjq2nmjvj7tb6gi5x233zzfrhv44uyjopl2lxyzbkh@zg5skeu62nbh>
- <01dbb6cf-3ab4-4922-b301-661464c9e56d@foss.st.com>
+	s=k20201202; t=1750857318;
+	bh=2piF3483Pz4JDdFUQw6HgD2GVTOG3rmk2pWQMFIJEqU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nZirtRzj9JTpn1p5W94ReFTFR8aiBBfnf1QCvvu4lEv274VM0D2/phl5Ou5XseR+k
+	 6ayvzpOmRu5x7dPOlIfYOeCSFhDai8CKV7QfGqjZR2bgSNNwT0jFGt8scFtK3EY9Y7
+	 esGxANr+IuEqqxkT9FpNyUMpHb65MguGH6gjM/0qGYOf3SHUp4jLk6wvLZja4TIisT
+	 KAqt5XAKYEec/ZZU4q0C0odSWg5spOHD2+NaKvSw8Wr2ppJ9OF3wQqimXZ7Ffl6WGX
+	 HJSZ8h8nZIGnIlmK5IbNwKlCVet60O1ihKcqhE0Em3qzZJSDwE2619PPFx9Xl4eBVs
+	 DjnGZr7rErhyg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>,
+	Helge Deller <deller@gmx.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH 1/2] fbdev: remove fb_notify support
+Date: Wed, 25 Jun 2025 15:12:22 +0200
+Message-Id: <20250625131511.3366522-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <01dbb6cf-3ab4-4922-b301-661464c9e56d@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_060954_673379_33A4DB4F 
-X-CRM114-Status: GOOD (  29.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +75,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 12:18:16PM +0200, Christian Bruel wrote:
-> 
-> 
-> On 6/25/25 06:00, Manivannan Sadhasivam wrote:
-> > On Tue, Jun 24, 2025 at 05:22:06PM -0500, Bjorn Helgaas wrote:
-> > > On Mon, Jun 23, 2025 at 06:13:07AM -0600, Manivannan Sadhasivam wrote:
-> > > > On Tue, 10 Jun 2025 11:07:05 +0200, Christian Bruel wrote:
-> > > > > Changes in v12;
-> > > > >     Fix warning reported by kernel test robot <lkp@intel.com>
-> > > > > 
-> > > > > Changes in v11;
-> > > > >     Address comments from Manivanna:
-> > > > >     - RC driver: Do not call pm_runtime_get_noresume in probe
-> > > > >                  More uses of dev_err_probe
-> > > > >     - EP driver: Use level triggered PERST# irq
-> > > > > 
-> > > > > [...]
-> > > > 
-> > > > Applied, thanks!
-> > > > 
-> > > > [1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-> > > >        commit: 41d5cfbdda7a61c5d646a54035b697205cff1cf0
-> > > > [2/9] PCI: stm32: Add PCIe host support for STM32MP25
-> > > >        commit: f6111bc2d8fe6ffc741661126a2174523124dc11
-> > > > [3/9] dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
-> > > >        commit: 203cfc4a23506ffb9c48d1300348c290dbf9368e
-> > > > [4/9] PCI: stm32: Add PCIe Endpoint support for STM32MP25
-> > > >        commit: 8869fb36a107a9ff18dab8c224de6afff1e81dec
-> > > > [5/9] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-> > > >        commit: 003902ed7778d62083120253cd282a9112674986
-> > > 
-> > > This doesn't build for me with the attached config:
-> > > 
-> > >    $ make drivers/pci/controller/dwc/pcie-stm32.o
-> > >      CALL    scripts/checksyscalls.sh
-> > >      DESCEND objtool
-> > >      INSTALL libsubcmd_headers
-> > >      CC      drivers/pci/controller/dwc/pcie-stm32.o
-> > >    drivers/pci/controller/dwc/pcie-stm32.c: In function ‘stm32_pcie_suspend_noirq’:
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:83:16: error: implicit declaration of function ‘pinctrl_pm_select_sleep_state’ [-Werror=implicit-function-declaration]
-> > >       83 |         return pinctrl_pm_select_sleep_state(dev);
-> > > 	|                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > >    drivers/pci/controller/dwc/pcie-stm32.c: In function ‘stm32_pcie_resume_noirq’:
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:96:24: error: ‘structdevice’ has no member named ‘pins’
-> > >       96 |         if (!IS_ERR(dev->pins->init_state))
-> > > 	|                        ^~
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:97:23: error: implicit declaration of function ‘pinctrl_select_state’ [-Werror=implicit-function-declaration]
-> > >       97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> > > 	|                       ^~~~~~~~~~~~~~~~~~~~
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:97:47: error: ‘structdevice’ has no member named ‘pins’
-> > >       97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> > > 	|                                               ^~
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:97:61: error: ‘structdevice’ has no member named ‘pins’
-> > >       97 |                 ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> > > 	|                                                             ^~
-> > >    drivers/pci/controller/dwc/pcie-stm32.c:99:23: error: implicit declaration of function ‘pinctrl_pm_select_default_state’ [-Werror=implicit-function-declaration]
-> > >       99 |                 ret = pinctrl_pm_select_default_state(dev);
-> > > 	|                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > > 
-> > 
-> > Hmm... I see two issues here. First is, wrong pinctrl header used. The correct
-> > one is:
-> > 
-> > #include <linux/pinctrl/consumer.h>
-> 
-> ah yes, the missing pinctrl_pm_select_default_state() should indeed be fixed
-> by using the correct header.
-> 
+From: Arnd Bergmann <arnd@arndb.de>
 
-I've fixed it in the branch.
+Commit dc2139c0aa32 ("leds: backlight trigger: Replace fb events with a
+dedicated function call") removed the FB_EVENT_BLANK notifier, and now
+the only remaining user of the FB notifier is the metronomefb driver on
+the PXA/AM200EPD board.
 
-> > 
-> > Second issue is the driver accessing "struct device::pins" directly. The "pins"
-> > member won't be available if CONFIG_PINCTRL is not set (which is what your
-> > .config has). So either the member should not be accessed directly or the
-> > driver has to depend on CONFIG_PINCTRL. The latter one is not acceptable.It
-> > also looks weird that only this driver is accessing the "pins" member directly
-> > apart from the pinctrl core. So I think this part needs a revisit.
-> > 
-> > Christian?
-> The pinctrl "init" and "default" configurations are managed effectively by
-> the probing code. The same approach is required in
-> stm32_pcie_resume_noirq().
-> 
-> In this case, would introducing a new helper function,
-> pinctrl_pm_select_init_state(), be preferable, even if we are the only
-> consumer?
-> 
+This was introduced in commit 922613436ae5 ("[ARM] 5200/1: am200epd: use
+fb notifiers and gpio api"), which converted it from an earlier version,
+but as far as I can tell this can never have worked because the notifier
+is called after the data it passes down is accessed.
 
-Sounds reasonable. If you end up creating an API, get it acked by the pinctrl
-maintainer so that I can merge it (and the use of it in this driver) through
-the PCI tree to avoid cross tree dependency.
+Commit 867187821e5e ("fbdev/metronomefb: Use struct fb_info.screen_buffer")
+broke this further, and there are likely other parts of the driver that
+no longer work.
 
-- Mani
+The am200epd board support itself should have also been removed long ago,
+as there are no users and it was never converted to devicetree format.
 
+Mark the board as broken to prevent build failures and remove the now
+unused notifiers.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/mach-pxa/Kconfig            |  1 +
+ drivers/video/fbdev/core/Makefile    |  1 -
+ drivers/video/fbdev/core/fb_notify.c | 54 ----------------------------
+ drivers/video/fbdev/core/fbmem.c     | 15 --------
+ include/linux/fb.h                   | 21 -----------
+ 5 files changed, 1 insertion(+), 91 deletions(-)
+ delete mode 100644 drivers/video/fbdev/core/fb_notify.c
+
+diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
+index 10e472f4fa43..edefc953e4f9 100644
+--- a/arch/arm/mach-pxa/Kconfig
++++ b/arch/arm/mach-pxa/Kconfig
+@@ -69,6 +69,7 @@ choice
+ 
+ config GUMSTIX_AM200EPD
+ 	bool "Enable AM200EPD board support"
++	depends on BROKEN
+ 
+ config GUMSTIX_AM300EPD
+ 	bool "Enable AM300EPD board support"
+diff --git a/drivers/video/fbdev/core/Makefile b/drivers/video/fbdev/core/Makefile
+index d15974759086..ac8036209501 100644
+--- a/drivers/video/fbdev/core/Makefile
++++ b/drivers/video/fbdev/core/Makefile
+@@ -1,5 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+-obj-$(CONFIG_FB_NOTIFY)           += fb_notify.o
+ obj-$(CONFIG_FB_CORE)             += fb.o
+ fb-y                              := fb_info.o \
+                                      fbmem.o fbcmap.o \
+diff --git a/drivers/video/fbdev/core/fb_notify.c b/drivers/video/fbdev/core/fb_notify.c
+deleted file mode 100644
+index 10e3b9a74adc..000000000000
+--- a/drivers/video/fbdev/core/fb_notify.c
++++ /dev/null
+@@ -1,54 +0,0 @@
+-/*
+- *  linux/drivers/video/fb_notify.c
+- *
+- *  Copyright (C) 2006 Antonino Daplas <adaplas@pol.net>
+- *
+- *	2001 - Documented with DocBook
+- *	- Brad Douglas <brad@neruo.com>
+- *
+- * This file is subject to the terms and conditions of the GNU General Public
+- * License.  See the file COPYING in the main directory of this archive
+- * for more details.
+- */
+-#include <linux/fb.h>
+-#include <linux/notifier.h>
+-#include <linux/export.h>
+-
+-static BLOCKING_NOTIFIER_HEAD(fb_notifier_list);
+-
+-/**
+- *	fb_register_client - register a client notifier
+- *	@nb: notifier block to callback on events
+- *
+- *	Return: 0 on success, negative error code on failure.
+- */
+-int fb_register_client(struct notifier_block *nb)
+-{
+-	return blocking_notifier_chain_register(&fb_notifier_list, nb);
+-}
+-EXPORT_SYMBOL(fb_register_client);
+-
+-/**
+- *	fb_unregister_client - unregister a client notifier
+- *	@nb: notifier block to callback on events
+- *
+- *	Return: 0 on success, negative error code on failure.
+- */
+-int fb_unregister_client(struct notifier_block *nb)
+-{
+-	return blocking_notifier_chain_unregister(&fb_notifier_list, nb);
+-}
+-EXPORT_SYMBOL(fb_unregister_client);
+-
+-/**
+- * fb_notifier_call_chain - notify clients of fb_events
+- * @val: value passed to callback
+- * @v: pointer passed to callback
+- *
+- * Return: The return value of the last notifier function
+- */
+-int fb_notifier_call_chain(unsigned long val, void *v)
+-{
+-	return blocking_notifier_call_chain(&fb_notifier_list, val, v);
+-}
+-EXPORT_SYMBOL_GPL(fb_notifier_call_chain);
+diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
+index dfcf5e4d1d4c..82ec7351e7da 100644
+--- a/drivers/video/fbdev/core/fbmem.c
++++ b/drivers/video/fbdev/core/fbmem.c
+@@ -498,14 +498,6 @@ static int do_register_framebuffer(struct fb_info *fb_info)
+ 	num_registered_fb++;
+ 	registered_fb[i] = fb_info;
+ 
+-#ifdef CONFIG_GUMSTIX_AM200EPD
+-	{
+-		struct fb_event event;
+-		event.info = fb_info;
+-		fb_notifier_call_chain(FB_EVENT_FB_REGISTERED, &event);
+-	}
+-#endif
+-
+ 	return fbcon_fb_registered(fb_info);
+ }
+ 
+@@ -544,13 +536,6 @@ static void do_unregister_framebuffer(struct fb_info *fb_info)
+ 	fb_destroy_modelist(&fb_info->modelist);
+ 	registered_fb[fb_info->node] = NULL;
+ 	num_registered_fb--;
+-#ifdef CONFIG_GUMSTIX_AM200EPD
+-	{
+-		struct fb_event event;
+-		event.info = fb_info;
+-		fb_notifier_call_chain(FB_EVENT_FB_UNREGISTERED, &event);
+-	}
+-#endif
+ 	fbcon_fb_unregistered(fb_info);
+ 
+ 	/* this may free fb info */
+diff --git a/include/linux/fb.h b/include/linux/fb.h
+index 05cc251035da..520ad870b8b2 100644
+--- a/include/linux/fb.h
++++ b/include/linux/fb.h
+@@ -151,27 +151,6 @@ struct fb_blit_caps {
+ 	u32 flags;
+ };
+ 
+-#ifdef CONFIG_FB_NOTIFY
+-extern int fb_register_client(struct notifier_block *nb);
+-extern int fb_unregister_client(struct notifier_block *nb);
+-extern int fb_notifier_call_chain(unsigned long val, void *v);
+-#else
+-static inline int fb_register_client(struct notifier_block *nb)
+-{
+-	return 0;
+-};
+-
+-static inline int fb_unregister_client(struct notifier_block *nb)
+-{
+-	return 0;
+-};
+-
+-static inline int fb_notifier_call_chain(unsigned long val, void *v)
+-{
+-	return 0;
+-};
+-#endif
+-
+ /*
+  * Pixmap structure definition
+  *
 -- 
-மணிவண்ணன் சதாசிவம்
+2.39.5
+
 
