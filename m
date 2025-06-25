@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5357BC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 08:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B5EC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 08:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1gNKEcLEPiaqY2uONOkUMKMnnKDh/RCLIi+xzcp7dCI=; b=T57qoOdv3HjW6Y
-	dUEiA6tXvty5lcq9uqHRl+U2cFpuFmOFVOFK06yck1ng4GZ0ALn7rii3HCtBiA2Cg8IPjWk+sYN8p
-	cZqAivb1NK/csEdYajVpjglGYmjrI/E/S42cbJKx9TlYPNbydBXs9SloHVDBCSnePa0ZbnWECiEZL
-	rmVatl3UrgM8ctIwcDlrXw3fWK0vhq9qs79iQJ0kbR1/9zWwVuxV2uotjpFEo+LlyjBU3qm7PhC1A
-	lUUeSbWyIeF6c9DR2oRbE0Z2GhoHE9/3NYkRprr5hVSrSwZV35uDo13zh3rwgzq1sbBVcE8WUTKP/
-	/BLeA0Yrnmm6uIxBMJSA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yW6s4keKbBLjOwhm0BL1XXENQ9fEuVApdBAs7be8o/w=; b=D9Xclk+vHv0ZhRrI3xAT3RdDyY
+	SGp7U9TJrPowugMaRmzrMFO8WYqW1LuWAlxN1TYJjRGgNWPYvJUHEbUdMC7VrsI3wWGlMIccRBQIc
+	OeCdRO2BH3rpGy/m2Go0cEMWWoYcib3Rh9Buy0tMNDByTHIP9HI38G+3jQKU88x2totbFmviY+fHw
+	F/1AheA2dDxvMKgvEFKHOfsjeT2LvAYz4I4AJKJBEBIFUsRF5AC+omP6HlR7l3nyjRo8vHfJJFUYw
+	o1bYKldfe1MI6L9c9OHunWUM3AIJPB+H6F5j4lrIpg/4OEovmTvEu8GmtqCBw9hwpoi2R4eZpQFaU
+	N3GkIcCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULON-00000007wWp-1aeo;
-	Wed, 25 Jun 2025 08:22:03 +0000
+	id 1uULQk-00000007wn0-0SQ1;
+	Wed, 25 Jun 2025 08:24:30 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKeK-00000007pYZ-37ZD
+	id 1uUKeM-00000007pYZ-3Rpe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 07:34:30 +0000
+	Wed, 25 Jun 2025 07:34:32 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 25 Jun
  2025 15:34:18 +0800
 Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 25 Jun 2025 15:34:17 +0800
+ Transport; Wed, 25 Jun 2025 15:34:18 +0800
 From: Jammy Huang <jammy_huang@aspeedtech.com>
 To: <jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>
-Subject: [PATCH v5 0/2] ASPEED: Add mailbox driver for AST2700 series
-Date: Wed, 25 Jun 2025 15:34:15 +0800
-Message-ID: <20250625073417.2395037-1-jammy_huang@aspeedtech.com>
+Subject: [PATCH v5 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series SoC
+Date: Wed, 25 Jun 2025 15:34:16 +0800
+Message-ID: <20250625073417.2395037-2-jammy_huang@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250625073417.2395037-1-jammy_huang@aspeedtech.com>
+References: <20250625073417.2395037-1-jammy_huang@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_003428_786953_45CBC2A8 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_003430_865620_07640C52 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,49 +65,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add mailbox controller driver for AST27XX SoCs, which provides
-independent tx/rx mailbox between different processors. There are 4
-channels for each tx/rx mailbox and each channel has an 32-byte FIFO.
+Introduce the mailbox module for AST27XX series SoC, which is responsible
+for interchanging messages between asymmetric processors.
 
- v5 changes:
-  - Update document
-     1. Separate reg from 1 to 2. 1st is tx controller; 2nd is rx.
-     2. Remove 'Reviewed-by' since the patch has changed.
-  - Update driver, no functional changes.
-     1. Update since there is 2 reg base now.
-     2. Refine reg definitions
-     3. Add spinlock to protect registers
-     4. Use bool as return value for ast2700_mbox_tx_done
-     5. Rename variable from drv_data to dev_data.
-
- v4 changes:
-  - Update driver, no functional changes.
-     1. Remove unused variable, rx_buff, in struct ast2700_mbox.
-     2. Remove unneeded cast on device_get_match_data.
-     3. Remove the usage of writel/readl_relaxed.
-     4. Improve readability.
- v3 changes:
-  - Correct document
-     1. Use 32-bit addressing in dts example property, reg.
- v2 changes:
-  - Update document
-     1. Correct error in dts example.
-     2. Drop description for mbox-cell per suggestion previously.
-
-Jammy Huang (2):
-  dt-bindings: mailbox: Add ASPEED AST2700 series SoC
-  mailbox: aspeed: add mailbox driver for AST27XX series SoC
-
- .../mailbox/aspeed,ast2700-mailbox.yaml       |  60 +++++
- drivers/mailbox/Kconfig                       |   8 +
- drivers/mailbox/Makefile                      |   2 +
- drivers/mailbox/ast2700-mailbox.c             | 240 ++++++++++++++++++
- 4 files changed, 310 insertions(+)
+Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+---
+ .../mailbox/aspeed,ast2700-mailbox.yaml       | 60 +++++++++++++++++++
+ 1 file changed, 60 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
- create mode 100644 drivers/mailbox/ast2700-mailbox.c
 
-
-base-commit: ec7714e4947909190ffb3041a03311a975350fe0
+diff --git a/Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
+new file mode 100644
+index 000000000000..0a5f43de5f28
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/aspeed,ast2700-mailbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED AST2700 mailbox controller
++
++maintainers:
++  - Jammy Huang <jammy_huang@aspeedtech.com>
++
++description:
++  ASPEED AST2700 has multiple processors that need to communicate with each
++  other. The mailbox controller provides a way for these processors to send
++  messages to each other. It is a hardware-based inter-processor communication
++  mechanism that allows processors to send and receive messages through
++  dedicated channels.
++  The mailbox's tx/rx are independent, meaning that one processor can send a
++  message while another processor is receiving a message simultaneously.
++  There are 4 channels available for both tx and rx operations. Each channel
++  has a FIFO buffer that can hold messages of a fixed size (32 bytes in this
++  case).
++  The mailbox controller also supports interrupt generation, allowing
++  processors to notify each other when a message is available or when an event
++  occurs.
++
++properties:
++  compatible:
++    const: aspeed,ast2700-mailbox
++
++  reg:
++    maxItems: 2
++    description:
++      Contains the base addresses and sizes of the mailbox controller. 1st one
++      is for TX control register; 2nd one is for RX control register.
++
++  interrupts:
++    maxItems: 1
++
++  "#mbox-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#mbox-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    mailbox@12c1c200 {
++        compatible = "aspeed,ast2700-mailbox";
++        reg = <0x12c1c200 0x100>, <0x12c1c300 0x100>;
++        interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
++        #mbox-cells = <1>;
++    };
 -- 
 2.25.1
 
