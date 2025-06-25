@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00F6C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E63BC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GSnkLBR97oORHoaoqEUxERK+3g4zPwSGibsuCsJhIM=; b=EZjbRANxmdqdBd6W9fUaAthq0d
-	O859EeyU+KtGirkbE9QYbgh8XRWAnTqR2/MPyjG/jlMes7NQ2cpckiLrMAcacAlF1nywx16vMG+9h
-	wl+wFTLQZ10W0LTKZEACZpxRzTUD6qUIZlvTj2+4XilDjdt4P599ZtfrFSd/206QLUcwRit87+Xcx
-	0b9enezCrtDbE+7heCOMQxxwxShHlVfb7HKygL3LKwIc9IMsSzRzNb7BDNEj1PrKJqwjHyzrwi+yf
-	gDtPyoktJdukkRO6CW0vpVB/nzkBgj8sqpXTvpm3ErVKXwl8glS1p4ZMv/QqKkVeBEUulwNvVPuKd
-	aMr/iE5A==;
+	bh=KtKVbSUz1VOi/283k7utQcqq9R04NwSx8lEXZVhq1RI=; b=pHMYg7WLL+QQ/4Zz9emDVN5sPk
+	DGKPhsDJzZ8VlAiDNfHQ/AT+dswXb4aJk5QpD9zb2unJdY+oeC7nl8UGXSflgogOKD0yKq71n8dNj
+	i8MwD8XpgURmNltCAJTVxSpdTQHG9c170TSryBL64DkdDmZQlddvqGfLp2Hjmfd1YLsHkb/9bBREh
+	/sCsNscSCjZpOeXhbZsNgF6ddBucJ5/u2d6LPY1uAcKVJetciJqIKyrL1PK5NHe1k7Cy9aDLWu3og
+	glsd28uKhzJOOwcysPSU8o3HoqlUCPTXI3w6gvxXtiF0xPXk7eqXo812pbw/Y0ZQZLGjRPyn3+LJr
+	WdKTT1oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUM4T-000000084Q5-0BRu;
-	Wed, 25 Jun 2025 09:05:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUMBG-000000085K1-368Q;
+	Wed, 25 Jun 2025 09:12:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULPJ-00000007wdr-2Wm6;
-	Wed, 25 Jun 2025 08:23:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B153C61126;
-	Wed, 25 Jun 2025 08:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CB5C4CEEA;
-	Wed, 25 Jun 2025 08:22:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750839779;
-	bh=VeZL0T5SuaIibrGFk1LXnvbTdunYAmG3W+kPplU0veI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ESRW2xlt9O0+HzOhPdTdieAtEx/EA7iERTdIRSPeiLHQXOmchfHoYmMXhIedTKd3P
-	 UtNqMDKH9W9S2a89E1z0zZGT+T4vIEnxF63XXs094R3YMlyAlUMYtNYvm3zmuxRJMS
-	 c1aovPMRwogf4KXp7HqSy9xSF+UTBzvE2/azuNR8J50Jp/C4+Vm84eGZ9Dd4TEK1l3
-	 33NVZ8vANgqBc0GsxCEXQWYMNwVeYx707m689MAAN/OYsXiSC6A2NdcVd51isPwhVO
-	 9H+n0oBhnbNKXuIpBMUEHkRUZr9Gbycvtj5XNS5XiaWg+yYmH5SIMVW6UEWhbuz/mY
-	 w3ZGQgaHW1bJA==
-Date: Wed, 25 Jun 2025 17:22:56 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Tomasz Figa <tfiga@chromium.org>,
- linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] mtk-sd: reset host->mrq on prepare_data() error
-Message-Id: <20250625172256.d1b4948e018fac55e575a49a@kernel.org>
-In-Reply-To: <20250625052106.584905-1-senozhatsky@chromium.org>
-References: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
-	<20250625052106.584905-1-senozhatsky@chromium.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	id 1uULWp-00000007xjh-0lCY;
+	Wed, 25 Jun 2025 08:30:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750840245;
+	bh=GoLMTJ5NvhpYjJ7hIqjrAw3zcslSPMdRspKOkp5l6d8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G+acDOmu1pxZ24nxZJNj+sUs6llxBi8KdD/86tnqBI8for3Sjrio00+50/56aEAbH
+	 EL5Z6lROPfzgq8sayOgsaJJcjE1PIbi7M7kjxfatHPdhdStTXIit/aWlub/jQXI5/e
+	 /mWxbU90o2DkznZ2OcNdmC8gB8s2w4L1m8mb5gP1QZUFTQcFfKsx0/n8tqnp94Mg2u
+	 8130KW+GT8DrTHkmHm9v+QipXb9aqLAUFrkadDcQB0OkMpSsf3LN6S64n+xzLuphnc
+	 ydkIJ69GyiYUkn/AvhSB8caNAurghLHDI99hWaKhogjHE7oSse4jpLnGo9kqGg/9yE
+	 ZooY3qML1Y2rw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E609917E017D;
+	Wed, 25 Jun 2025 10:30:44 +0200 (CEST)
+Message-ID: <40f07604-f4eb-4a7d-88b4-ed29e9242d6e@collabora.com>
+Date: Wed, 25 Jun 2025 10:30:44 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: mfd: Add binding for MediaTek MT6363
+ series SPMI PMIC
+To: Rob Herring <robh@kernel.org>
+Cc: lee@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com
+References: <20250623120038.108891-1-angelogioacchino.delregno@collabora.com>
+ <20250623120038.108891-2-angelogioacchino.delregno@collabora.com>
+ <20250625005130.GA2106374-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250625005130.GA2106374-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_013047_384122_73E3F755 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +79,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Jun 2025 14:20:37 +0900
-Sergey Senozhatsky <senozhatsky@chromium.org> wrote:
-
-> Do not leave host with dangling ->mrq pointer if we hit
-> the msdc_prepare_data() error out path.
+Il 25/06/25 02:51, Rob Herring ha scritto:
+> On Mon, Jun 23, 2025 at 02:00:37PM +0200, AngeloGioacchino Del Regno wrote:
+>> Add a binding for the MediaTek MT6363/6373 (and similar) multi
+>> function PMICs connected over SPMI.
+>>
+>> These PMICs are found on board designs using newer MediaTek SoCs,
+>> such as the Dimensity 9400 Smartphone chip, or the Chromebook
+>> MT8196 chip.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   .../bindings/mfd/mediatek,mt6363.yaml         | 98 +++++++++++++++++++
+>>   1 file changed, 98 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+>> new file mode 100644
+>> index 000000000000..2ce57e659d12
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+>> @@ -0,0 +1,98 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek MT6363 series SPMI PMICs multi-function device
+>> +
+>> +maintainers:
+>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> +
+>> +description: |
+>> +  Some MediaTek Power Management ICs (PMICs) found in board designs with
+>> +  the Helio, Dimensity and/or Kompanio series of SoCs are interfaced to
+>> +  the chip via the System Power Management Interface (SPMI) bus.
+>> +
+>> +  These PMICs are multi-function devices with various sub modules.
+>> +  For example, those may include one, or more of the following:
+>> +  - Auxiliary ADC Controller
+>> +  - Clock Controller
+>> +  - eFuses
+>> +  - GPIO Controller
+>> +  - Interrupt Controller
+>> +  - Keys
+>> +  - LEDs Controller
+>> +  - Regulators
+>> +  - RTC
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +          - mediatek,mt6363
+>> +          - mediatek,mt6373
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  '#address-cells':
+>> +    const: 0
+>> +
+>> +  '#size-cells':
+>> +    const: 0
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  interrupt-controller: true
+>> +
+>> +  "#interrupt-cells":
+>> +    const: 3
+>> +
+>> +  adc:
+>> +    type: object
+>> +    $ref: /schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
+>> +    unevaluatedProperties: false
+>> +
+>> +  regulators:
+>> +    type: object
+>> +    oneOf:
+>> +      - $ref: /schemas/regulator/mediatek,mt6363-regulator.yaml#
+>> +      - $ref: /schemas/regulator/mediatek,mt6373-regulator.yaml#
 > 
-> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-Thanks for fixing it.
-
-> ---
->  drivers/mmc/host/mtk-sd.c | 1 +
->  1 file changed, 1 insertion(+)
+> This causes the schemas to be applied 4 times (2 each). Better if you
+> do:
 > 
-> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-> index b12cfb9a5e5f..d7020e06dd55 100644
-> --- a/drivers/mmc/host/mtk-sd.c
-> +++ b/drivers/mmc/host/mtk-sd.c
-> @@ -1492,6 +1492,7 @@ static void msdc_ops_request(struct mmc_host *mmc, struct mmc_request *mrq)
->  	if (mrq->data) {
->  		msdc_prepare_data(host, mrq->data);
->  		if (!msdc_data_prepared(mrq->data)) {
-> +			host->mrq = NULL;
->  			/*
->  			 * Failed to prepare DMA area, fail fast before
->  			 * starting any commands.
-> -- 
-> 2.50.0.714.g196bf9f422-goog
+> properties:
+>    compatible:
+>      contains:
+>        enum: [ the compatibles in those schemas ]
+> 
 > 
 
+Noted, thanks!
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+>> +    additionalProperties: true
+>> +
+>> +  keys:
+>> +    type: object
+>> +    $ref: /schemas/input/mediatek,pmic-keys.yaml
+>> +    unevaluatedProperties: false
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - '#address-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +    #include <dt-bindings/spmi/spmi.h>
+>> +
+>> +    spmi {
+>> +      #address-cells = <2>;
+>> +      #size-cells = <0>;
+>> +
+>> +      pmic@4 {
+>> +        compatible = "mediatek,mt6363";
+>> +        reg = <0x4 SPMI_USID>;
+>> +        interrupts = <4 64 IRQ_TYPE_LEVEL_HIGH>;
+>> +        interrupt-controller;
+>> +        #address-cells = <0>;
+>> +        #interrupt-cells = <3>;
+>> +
+>> +        regulators {
+>> +            compatible = "mediatek,mt6363-regulator";
+>> +        };
+> 
+> Make the example complete. with adc and keys nodes.
+> 
+
+You mean just adding a
+
+adc {
+   compatible = xyz;
+};
+
+keys {
+   compatible = xyz;
+};
+
+right?
+
+I will add the full example in the next version :-)
+
+Thank you!
+Angelo
+
+>> +      };
+>> +    };
+>> -- 
+>> 2.49.0
+>>
+
+
 
