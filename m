@@ -4,115 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3367C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A144FC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ssm0aUepJ0GVszCPiHptjQ9gNY3vxM9Q7AzdBfFJgnQ=; b=Ppcivk5vqCjo404/Hno/B3MW8h
-	DhdMIDmnEDcDtoCqV4TNQ4SutoVqP0C7L5wCc6fJzHhtCzgDsUDI0aLVpa5YHUELEZXDwwlmfktLN
-	qoXSvINYVIOucmtNxQGq3yYwTGDDAm/4haQM+ul8yfCdEbofJSFvFdd80g5ZAMKSLNfjl4MoPGRwY
-	7x2ivvQULhWg9camJtpjvfHXIj55VbNKQgfOGdEjISsdpKgUXZw4gSgOMVYAhfP4aWOssqeN5V01j
-	tKzsYZIb4O+WJG5vDTwxAwO+Qr+87S/p/Uk9GiveRY7Rbf55MHO5O47LlUQESZihkLeLfudzuLNG1
-	GzGDteQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7imy3yTxK1noZpQDmXpRegf9/Y5dUmZKs6ukLVxlc1E=; b=MattoNSO0T1Iy+6KcYlLz109UW
+	WMFsqO2fClyAYINzZ4YQ5g9tkLL9tVs8lVGZBaKIUTQscI7tHom4T5N0Oz6eTVQRH8DE2VQDg/mIc
+	Elxz4WsVn1SqR/J9SsNTyfXCd9DsYjyu3dbg1dcW3co07/A/ik34ebcmhEW2NEnb9xfhToBz6fPIo
+	OGOcIDek1BQ/hCphg9QnD+E9hKGyFTjM/veSttYbp1RIeGZhSH2kvgYipKT6oiYDrC3M3GAM3Qv5B
+	l7FAbdSKcYr1sESYfJRQEMUUrHcsGpv+a1jchgdK/UnIzfhXgIaxX6SL8hud6JMqpV3ubzkA2rW1X
+	KU1dpMHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPdR-00000008h61-0FcS;
-	Wed, 25 Jun 2025 12:53:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uUPel-00000008heI-0r2x;
+	Wed, 25 Jun 2025 12:55:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNcO-00000008Lkr-2HZm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 10:44:41 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55PAVXeF005493;
-	Wed, 25 Jun 2025 10:44:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ssm0aUepJ0GVszCPiHptjQ9gNY3vxM9Q7AzdBfFJgnQ=; b=VTcO2/PnKZEjlqgj
-	WNnBlOWO6Vn+JyPya+qF4qLijUPXfvwQFKrNIWRin8J/XCSA/Scr2msPmDLk4E4I
-	z6n9LTMMuDMKRFTLwjC7g3AIWCNGWUWPwXACDCfSjaFnDcnDtA63YWIk0idNv7a3
-	Q9oQBFAnX4sP9W4WMLhwgZYhgktYgznwjr0z4xUEG/nqsp+U5UxTjRk346xEbeVa
-	cdA59v27DeitynC6NxphMjbzXoN086YcVcC5L6JhArnw31UmR87HdRjGwRCbgpEA
-	fCUXqoUeuZZlqWnCJEVoaN6VKaYrYucQ9EkYXugJ5kIrr819sNa/VpN+ndS616v6
-	w0Qgxw==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47g7td9d28-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:44:32 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55PAiWvD027877
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 10:44:32 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 25 Jun 2025 03:44:27 -0700
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Wed, 25 Jun 2025 16:13:26 +0530
-Subject: [PATCH v10 01/10] clk: qcom: clk-alpha-pll: Add support for
- dynamic update for slewing PLLs
+	id 1uUMoC-00000008Clk-41gO;
+	Wed, 25 Jun 2025 09:52:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=7imy3yTxK1noZpQDmXpRegf9/Y5dUmZKs6ukLVxlc1E=; b=eIGitfsPe+d9McJQJGyc8D1MKt
+	TB1o8gpaLfIBnjhbUmdd5C3q5sXGuZMKjsYkVf0sf+nHb3dmKdk0cf1MvIsKB/RhDKlNCBKeHxvq6
+	lMx9XgySY+MErfHqEi3PzoO6fkO3de023iad8HqOJp91aXUGXJ9vPddoOy6a10RQqQalPj0y4ocTg
+	GV7gCdS+MVu9lySbd+iA90U+vM/Po/RsL+o3gfKN078v5xnuEKPLuPs35wR3kR+QJduERS9ZjrBi/
+	HzQVnQXyZwRqqO2eLlSKWf5mshJ4lleG3lf8iHamXZ/ItL9WKr9if1WMzTl8mU/BoQUoX1AGsC3tE
+	evlM4Waw==;
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUMo9-00000005l8S-1mLZ;
+	Wed, 25 Jun 2025 09:52:48 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-32ade3723adso74264711fa.0;
+        Wed, 25 Jun 2025 02:52:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750845162; x=1751449962; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7imy3yTxK1noZpQDmXpRegf9/Y5dUmZKs6ukLVxlc1E=;
+        b=IqSF83ogCKsdBsJvnY+ltPbAX3pBy+mUUHM4/BNxa8Tf1giSG/xBASHx9+nWPdEIUy
+         QnCfY8KXzitecUQi46dijrSEHItpU/VSbT+h42yJOjfQRdBriw2E1GIS3ukGurZeXtJe
+         nn1+FFhyZMpmXI7WlPfxHibBvP1vRPJbyB+IEnOWlEJcSWtvMDjagAW5KuoL9bk1um9I
+         o5XjkjZV/fpiiapXQG9H3+yIHFR/61tf/XhrffJAaFIpH+X0Pe3Ita8B4EvnPun78HA6
+         Y6BeYoS7Oj3rA7cIsvsU9KugqPY76blbs/N1OQmbW3s8hXViQhFmVySWeclrzW7/iaDr
+         hflw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750845162; x=1751449962;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7imy3yTxK1noZpQDmXpRegf9/Y5dUmZKs6ukLVxlc1E=;
+        b=t6ePQDIIf1l+9nWIUpjz/ak/qigs8WnVkOU1bFOXYGh3uojmJxbIswzl68WYa/KEWs
+         MZUcJwUwjcCKTgybJTwYHG2KFTuZBycA9CtIcxHpbE9Lgwg3bcojlwj11/0H6X+w/0iM
+         EeZUi/86iGEoNoA3rYKm9CvF3RxThNa8IH5pGFxvSdlYywFs5iclThySGLXy/wHXRFif
+         iaxnxU4VpYwKu2ae6UFb04XaHvWiAFAnuCzU61fEpWRXlnxr5e2BnnLrgbtHvkSVBKS8
+         EpdEU78AKvxtJwslHcYvpTvrljYJJtEH+6MOjEBcat2/8AEnaNaAvMU/O1khWZtuhJtM
+         zHuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUnoCjI9iDRT+8LoaZrhtbyF7mhtf8Dh8e6xhG87pgb2QtsikO5yS8Kgyr3dEAYSF0CIGA+gkdWJ+Q=@lists.infradead.org, AJvYcCW9EBhLRQJSM7qIs2Y4wcCR/e9RUIdIk+CB0C0fKLmPg9vRQqLc1YnE1h6E4A0YGngR4IG9apktgwnAYDIbM3V/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyvMSRyz0eAak9Bdx4pOorMicL8ovQhDvvgT6uoUU4/Hdqlc38
+	15SHHzj/93n8fyQcjS6c1vfFvPg1tkW/prWtseMTqMIhMTWf5gA8RBdA
+X-Gm-Gg: ASbGncvjGr9+IfcNyVHxY5QfhXGqwtota2uHVqCrdo5Rj1m/ieUDvuoz1lumuieRBkU
+	u86hGh8mszVxTSCiJCfDYkCP0P+ErFBbEie0CoFIOckuAlN847mmHj6s7BUEMlaxNt3O6Iavspg
+	xmXEBhqeTgzNVxWzhd5Tak15vxG0rTVtzfdVoJUDnKDN7x/DvO4naWZJ5CX1hEBWuHYzKUa7UZK
+	iqVtAKdh1NcPvS3/CRx+3rDCFV5WxRuKw07k2j5PV6A41kWNbyuQpddxavMWyNyqmv2JbEHrvp0
+	M6e/kIxzW6CKEKrIGUgdiVw59Vj1M8vWAB4C6dNPnVKh3sOIeGw6LMU6z52FZcrlKRwmqkUSSTD
+	vq+cv3ECyFmLpzuonyD9zWvdBYRvYiA==
+X-Google-Smtp-Source: AGHT+IH5ApOZ+lbBvE2ggWIBLKt7ZlvSOrm/LIiyhhxX4cx6KdoLX4TpLfXvTX3dCD4pGEuZuPz4ow==
+X-Received: by 2002:a2e:be03:0:b0:32b:3879:ce7f with SMTP id 38308e7fff4ca-32cc63451f0mr7075061fa.0.1750845161589;
+        Wed, 25 Jun 2025 02:52:41 -0700 (PDT)
+Received: from localhost.localdomain (2.135.54.165.dynamic.telecom.kz. [2.135.54.165])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32b980a36c0sm19311851fa.62.2025.06.25.02.52.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 02:52:41 -0700 (PDT)
+From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+To: ryabinin.a.a@gmail.com,
+	glider@google.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	christophe.leroy@csgroup.eu,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com,
+	svens@linux.ibm.com,
+	richard@nod.at,
+	anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	x86@kernel.org,
+	hpa@zytor.com,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com,
+	akpm@linux-foundation.org
+Cc: guoweikang.kernel@gmail.com,
+	geert@linux-m68k.org,
+	rppt@kernel.org,
+	tiwei.btw@antgroup.com,
+	richard.weiyang@gmail.com,
+	benjamin.berg@intel.com,
+	kevin.brodsky@arm.com,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-mm@kvack.org,
+	snovitoll@gmail.com
+Subject: [PATCH 0/9] kasan: unify kasan_arch_is_ready with kasan_enabled
+Date: Wed, 25 Jun 2025 14:52:15 +0500
+Message-Id: <20250625095224.118679-1-snovitoll@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250625-qcs615-mm-v10-clock-controllers-v10-1-ec48255f90d8@quicinc.com>
-References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
-In-Reply-To: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=CPYqXQrD c=1 sm=1 tr=0 ts=685bd311 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=mqrKFzemJvgpN0bEk_AA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI1MDA4MCBTYWx0ZWRfXyM4pnAcpfgum
- qHfJ1FiX3ETvZUvx4KW/4vxwXPI5+aevY6/YmmDzAh4KqmSwYn0urviud7Q1daFU+xYZRMBuXvZ
- VDPwiID5zMjKbgnKx8csQjBe3GHplm8KY1Pv2M7BzcVnnptue2xnt1WZY1pW6AIsm0yMilwSYW2
- GpZaRj22gRe/Za3tAVbowt3Rig4maNUGIXFCnAKuUYI660Xo1tHxBAf3D0l8B41iQqppNdqls/Z
- 7tZK66D/y1+zm/V/EnXCcwSFk7ElY2B1MPfFnp2WNSJuM9dDw9UuBHVPOjLzSarL34zv2VkKz0H
- 0vR4de7YmYKnBl32UAxiOUQvM6BcBrHN4OuvVo06AOJ1NTzXwz4E2V/aOk6lQBkI6VoTf+F2/sL
- /1xdGBJyZ+b5IzTJpp/1Alwxwyh76QbLHrh1oQ+rt0WxuQ047mA2jbeM3njIsZ/bIyJR0AeR
-X-Proofpoint-GUID: bLQ7ZtmuIaf74eVjO0BlvUkiYe2SZg8J
-X-Proofpoint-ORIG-GUID: bLQ7ZtmuIaf74eVjO0BlvUkiYe2SZg8J
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_03,2025-06-23_07,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 mlxlogscore=999 lowpriorityscore=0 malwarescore=0
- impostorscore=0 suspectscore=0 clxscore=1015 spamscore=0 priorityscore=1501
- adultscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506250080
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_034440_594005_1C3AE1E6 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250625_105245_513013_030918D6 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,206 +153,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The alpha PLLs which slew to a new frequency at runtime would require
-the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
-which can support the slewing of the PLL to a new frequency.
+This patch series unifies the kasan_arch_is_ready() and kasan_enabled()
+interfaces by extending the existing kasan_enabled() infrastructure to
+work consistently across all KASAN modes (Generic, SW_TAGS, HW_TAGS).
 
-Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
----
- drivers/clk/qcom/clk-alpha-pll.c | 169 +++++++++++++++++++++++++++++++++++++++
- drivers/clk/qcom/clk-alpha-pll.h |   1 +
- 2 files changed, 170 insertions(+)
+Currently, kasan_enabled() only works for HW_TAGS mode using a static key,
+while other modes either return IS_ENABLED(CONFIG_KASAN) (compile-time
+constant) or rely on architecture-specific kasan_arch_is_ready()
+implementations with custom static keys and global variables.
 
-diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
-index d8e1cd1263317814da2d0414600988de4b87c56f..354ebf48435f1ef7f76ead05e9ca882085dcc46d 100644
---- a/drivers/clk/qcom/clk-alpha-pll.c
-+++ b/drivers/clk/qcom/clk-alpha-pll.c
-@@ -3017,3 +3017,172 @@ void qcom_clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regm
- 	}
- }
- EXPORT_SYMBOL_GPL(qcom_clk_alpha_pll_configure);
-+
-+static int clk_alpha_pll_slew_update(struct clk_alpha_pll *pll)
-+{
-+	u32 val;
-+	int ret;
-+
-+	regmap_set_bits(pll->clkr.regmap, PLL_MODE(pll), PLL_UPDATE);
-+	regmap_read(pll->clkr.regmap, PLL_MODE(pll), &val);
-+
-+	ret = wait_for_pll_update(pll);
-+	if (ret)
-+		return ret;
-+	/*
-+	 * Hardware programming mandates a wait of at least 570ns before polling the LOCK
-+	 * detect bit. Have a delay of 1us just to be safe.
-+	 */
-+	udelay(1);
-+
-+	return wait_for_pll_enable_lock(pll);
-+}
-+
-+static int clk_alpha_pll_slew_set_rate(struct clk_hw *hw, unsigned long rate,
-+					unsigned long parent_rate)
-+{
-+	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
-+	const struct pll_vco *curr_vco, *vco;
-+	unsigned long freq_hz;
-+	u64 a;
-+	u32 l;
-+
-+	freq_hz = alpha_pll_round_rate(rate, parent_rate, &l, &a, ALPHA_REG_BITWIDTH);
-+	if (freq_hz != rate) {
-+		pr_err("alpha_pll: Call clk_set_rate with rounded rates!\n");
-+		return -EINVAL;
-+	}
-+
-+	curr_vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
-+	if (!curr_vco) {
-+		pr_err("alpha pll: not in a valid vco range\n");
-+		return -EINVAL;
-+	}
-+
-+	vco = alpha_pll_find_vco(pll, freq_hz);
-+	if (!vco) {
-+		pr_err("alpha pll: not in a valid vco range\n");
-+		return -EINVAL;
-+	}
-+
-+	/*
-+	 * Dynamic pll update will not support switching frequencies across
-+	 * vco ranges. In those cases fall back to normal alpha set rate.
-+	 */
-+	if (curr_vco->val != vco->val)
-+		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
-+
-+	a <<= ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH;
-+
-+	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-+
-+	/* Ensure that the write above goes before slewing the PLL */
-+	mb();
-+
-+	if (clk_hw_is_enabled(hw))
-+		return clk_alpha_pll_slew_update(pll);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Slewing plls should be bought up at frequency which is in the middle of the
-+ * desired VCO range. So after bringing up the pll at calibration freq, set it
-+ * back to desired frequency(that was set by previous clk_set_rate).
-+ */
-+static int clk_alpha_pll_calibrate(struct clk_hw *hw)
-+{
-+	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
-+	struct clk_hw *parent;
-+	const struct pll_vco *vco;
-+	unsigned long calibration_freq, freq_hz;
-+	u64 a;
-+	u32 l;
-+	int rc;
-+
-+	parent = clk_hw_get_parent(hw);
-+	if (!parent) {
-+		pr_err("alpha pll: no valid parent found\n");
-+		return -EINVAL;
-+	}
-+
-+	vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
-+	if (!vco) {
-+		pr_err("alpha pll: not in a valid vco range\n");
-+		return -EINVAL;
-+	}
-+
-+	/*
-+	 * As during slewing plls vco_sel won't be allowed to change, vco table
-+	 * should have only one entry table, i.e. index = 0, find the
-+	 * calibration frequency.
-+	 */
-+	calibration_freq = (pll->vco_table[0].min_freq + pll->vco_table[0].max_freq) / 2;
-+
-+	freq_hz = alpha_pll_round_rate(calibration_freq, clk_hw_get_rate(parent),
-+					&l, &a, ALPHA_REG_BITWIDTH);
-+	if (freq_hz != calibration_freq) {
-+		pr_err("alpha_pll: call clk_set_rate with rounded rates!\n");
-+		return -EINVAL;
-+	}
-+
-+	/* Setup PLL for calibration frequency */
-+	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
-+
-+	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-+
-+	regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_VCO_MASK << PLL_VCO_SHIFT,
-+				vco->val << PLL_VCO_SHIFT);
-+
-+	/* Bringup the pll at calibration frequency */
-+	rc = clk_alpha_pll_enable(hw);
-+	if (rc) {
-+		pr_err("alpha pll calibration failed\n");
-+		return rc;
-+	}
-+
-+	/*
-+	 * PLL is already running at calibration frequency.
-+	 * So slew pll to the previously set frequency.
-+	 */
-+	freq_hz = alpha_pll_round_rate(clk_hw_get_rate(hw),
-+			clk_hw_get_rate(parent), &l, &a, ALPHA_REG_BITWIDTH);
-+
-+	pr_debug("pll %s: setting back to required rate %lu, freq_hz %ld\n",
-+		clk_hw_get_name(hw), clk_hw_get_rate(hw), freq_hz);
-+
-+	/* Setup the PLL for the new frequency */
-+	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
-+
-+	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
-+	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-+
-+	regmap_set_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN);
-+
-+	return clk_alpha_pll_slew_update(pll);
-+}
-+
-+static int clk_alpha_pll_slew_enable(struct clk_hw *hw)
-+{
-+	int rc;
-+
-+	rc = clk_alpha_pll_calibrate(hw);
-+	if (rc)
-+		return rc;
-+
-+	return clk_alpha_pll_enable(hw);
-+}
-+
-+const struct clk_ops clk_alpha_pll_slew_ops = {
-+	.enable = clk_alpha_pll_slew_enable,
-+	.disable = clk_alpha_pll_disable,
-+	.recalc_rate = clk_alpha_pll_recalc_rate,
-+	.round_rate = clk_alpha_pll_round_rate,
-+	.set_rate = clk_alpha_pll_slew_set_rate,
-+};
-+EXPORT_SYMBOL(clk_alpha_pll_slew_ops);
-diff --git a/drivers/clk/qcom/clk-alpha-pll.h b/drivers/clk/qcom/clk-alpha-pll.h
-index 7f35aaa7a35d88411beb11fd2be5d5dd5bfbe066..ff41aeab0ab9844cd4e43c9b8e1ba0b50205e48e 100644
---- a/drivers/clk/qcom/clk-alpha-pll.h
-+++ b/drivers/clk/qcom/clk-alpha-pll.h
-@@ -206,6 +206,7 @@ extern const struct clk_ops clk_alpha_pll_rivian_evo_ops;
- #define clk_alpha_pll_postdiv_rivian_evo_ops clk_alpha_pll_postdiv_fabia_ops
- 
- extern const struct clk_ops clk_alpha_pll_regera_ops;
-+extern const struct clk_ops clk_alpha_pll_slew_ops;
- 
- void clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regmap,
- 			     const struct alpha_pll_config *config);
+This leads to:
+- Code duplication across architectures  
+- Inconsistent runtime behavior between KASAN modes
+- Architecture-specific readiness tracking
+
+After this series:
+- All KASAN modes use the same kasan_flag_enabled static key
+- Consistent runtime enable/disable behavior across modes
+- Simplified architecture code with unified kasan_init_generic() calls
+- Elimination of arch specific kasan_arch_is_ready() implementations
+- Unified vmalloc integration using kasan_enabled() checks
+
+This addresses the bugzilla issue [1] about making
+kasan_flag_enabled and kasan_enabled() work for Generic mode,
+and extends it to provide true unification across all modes.
+
+[1] https://bugzilla.kernel.org/show_bug.cgi?id=217049
+
+=== Current mainline KUnit status
+
+To see if there is any regression, I've tested first on the following
+commit 739a6c93cc75 ("Merge tag 'nfsd-6.16-1' of
+git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux").
+
+Tested via compiling a kernel with CONFIG_KASAN_KUNIT_TEST and running
+QEMU VM. There are failing tests in SW_TAGS and GENERIC modes in arm64:
+
+arm64 CONFIG_KASAN_HW_TAGS:
+	# kasan: pass:62 fail:0 skip:13 total:75
+	# Totals: pass:62 fail:0 skip:13 total:75
+	ok 1 kasan
+
+arm64 CONFIG_KASAN_SW_TAGS=y:
+	# kasan: pass:65 fail:1 skip:9 total:75
+	# Totals: pass:65 fail:1 skip:9 total:75
+	not ok 1 kasan
+	# kasan_strings: EXPECTATION FAILED at mm/kasan/kasan_test_c.c:1598
+	KASAN failure expected in "strscpy(ptr, src + KASAN_GRANULE_SIZE, KASAN_GRANULE_SIZE)", but none occurred
+
+arm64 CONFIG_KASAN_GENERIC=y, CONFIG_KASAN_OUTLINE=y:
+	# kasan: pass:61 fail:1 skip:13 total:75
+	# Totals: pass:61 fail:1 skip:13 total:75
+	not ok 1 kasan
+	# same failure as above
+
+x86_64 CONFIG_KASAN_GENERIC=y:
+	# kasan: pass:58 fail:0 skip:17 total:75
+	# Totals: pass:58 fail:0 skip:17 total:75
+	ok 1 kasan
+
+=== Testing with the patches:
+
+* arm64  (GENERIC, HW_TAGS, SW_TAGS): no regression, same above results.
+* x86_64 (GENERIC): no regression, no errors
+
+=== NB
+
+I haven't tested on the following arch. due to the absence of qemu-system-
+support on those arch on my machine. So I defer this to relevant arch
+people to test KASAN initialization:
+- loongarch
+- s390
+- um
+- xtensa
+- powerpc
+
+Sabyrzhan Tasbolatov (9):
+  kasan: unify static kasan_flag_enabled across modes
+  kasan: replace kasan_arch_is_ready with kasan_enabled
+  kasan/arm64: call kasan_init_generic in kasan_init
+  kasan/xtensa: call kasan_init_generic in kasan_init
+  kasan/loongarch: call kasan_init_generic in kasan_init
+  kasan/um: call kasan_init_generic in kasan_init
+  kasan/x86: call kasan_init_generic in kasan_init
+  kasan/s390: call kasan_init_generic in kasan_init
+  kasan/powerpc: call kasan_init_generic in kasan_init
+
+ arch/arm64/mm/kasan_init.c             |  4 +---
+ arch/loongarch/include/asm/kasan.h     |  7 -------
+ arch/loongarch/mm/kasan_init.c         |  7 ++-----
+ arch/powerpc/include/asm/kasan.h       | 14 --------------
+ arch/powerpc/mm/kasan/init_book3s_64.c |  6 +-----
+ arch/s390/kernel/early.c               |  2 +-
+ arch/um/include/asm/kasan.h            |  5 -----
+ arch/um/kernel/mem.c                   |  4 ++--
+ arch/x86/mm/kasan_init_64.c            |  2 +-
+ arch/xtensa/mm/kasan_init.c            |  2 +-
+ include/linux/kasan-enabled.h          | 22 ++++++++++++++++------
+ include/linux/kasan.h                  |  6 ++++++
+ mm/kasan/common.c                      | 15 +++++++++++----
+ mm/kasan/generic.c                     | 17 ++++++++++++++---
+ mm/kasan/hw_tags.c                     |  7 -------
+ mm/kasan/kasan.h                       |  6 ------
+ mm/kasan/shadow.c                      | 15 +++------------
+ mm/kasan/sw_tags.c                     |  2 ++
+ 18 files changed, 61 insertions(+), 82 deletions(-)
 
 -- 
 2.34.1
