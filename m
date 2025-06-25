@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79190C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0897EC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4aDfR2wwU9GB1exO6RRkJ2gHlm9559Rmxm4l9Hdxdo=; b=kleDMmAKpFAmUc567zPxfJXFVA
-	KMyhYS9804WMPDdMH8oyp+yzLbTm1hfwzAQ0uTTTRWu64wCcp2OYEghGZRkul0mh3Xk5VOSbxgFBN
-	zcDZxy3MCWLEllRKZtsHVuNcSdtU1pWNNSILv/cZojQw/z+fCJPtSy9M5RGgPhuqBx28VyaIZrKY3
-	sUtI9P4PcPow3FueMQv0zApFeOdS9Uqp155cHZgl4AyoNNzOIuOEfVh7SuFDj/JDzKtISDRHlyGb8
-	6tV+UWHSRhn4d1LqZW8c7TEfMzm0oy5CLqpLIj/7fRnSM93ry/AH6Gx1+TSReZkRhXNRVUnMl2nuy
-	i3JeBLtQ==;
+	bh=4r/5eYwnMVljkJxGQobUrcRcq5woCuF/HfLyLTxTmko=; b=je0uYdoFqIUOSQjkJTFF+PVlzw
+	9fS2jvkrfxKdbydOkcbR1YmxBTjZLohvbbXBtJ1aa1p+6rqrrtCvgUmNSn6Pn32OBuY7gvN7qbJEc
+	rgaeOPEekxx16T0SqhkN4HIBDg7tmwQxCR13Uba+PV9HDkjWF/7XqmrJJJrzr448SuAW1tUEre4V0
+	uFWGsKFOdyHtt3+HKT5ylVGwKcznmqD1dliY9IWD+dcuV7ENMmdX7QzPi7a3oMsj+AfgnJYYe0lDb
+	LLCyT33uYk0oSgePRk75zDXY8WM8zfxs6F2H2OgUOwvNkR0cyt5oUkQ9TPpgj9DR9KArgtjPQYDIm
+	Y+Yv7ysw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMpC-00000008DC9-1Z32;
-	Wed, 25 Jun 2025 09:53:50 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uUMqJ-00000008Dt4-1bXP;
+	Wed, 25 Jun 2025 09:54:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUL6g-00000007tvi-2sAg;
-	Wed, 25 Jun 2025 08:03:48 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id D28F71F00050;
-	Wed, 25 Jun 2025 08:03:41 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 53CE6AC79F9; Wed, 25 Jun 2025 08:03:40 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 14C8CAC7957;
-	Wed, 25 Jun 2025 08:03:39 +0000 (UTC)
-Date: Wed, 25 Jun 2025 10:03:36 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Kuba =?utf-8?Q?Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 2/5] drm/sun4i: Support LVDS using MIPI DSI combo D-PHY
-Message-ID: <aFutWCScsMNgXUAu@shepard>
-References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
- <20250221161751.1278049-3-kuba@szczodrzynski.pl>
+	id 1uULzk-000000083QN-3yWe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 09:00:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4r/5eYwnMVljkJxGQobUrcRcq5woCuF/HfLyLTxTmko=; b=qOJRim+bOuweCyookUbdIoY5+B
+	/RFImjaOooezM7lDsUw8CApz/PZOdbg+wXjVHNSFEe5v00OqA06GSl6uEogBv6vI1nbjfdn3Kibmz
+	wRQyLCAZH8rtrVxxoFJ7fq7cu4WEm6dPyiZi74Byl/RrfTv9fmI2xejsD9ige42prLKrIRemxKxF7
+	Iufb2cN1f+T1Etfrc1K1mauADH3js55kxdvHTjMuXHtfFuGkZuqj5vyK7OCFNfBQ2z41Stf+Kg+u3
+	f6uOfgNkCj2MKijglK95wKNuVMHBFiAmnMbnYI5GfE5C2UVEgy1slh9NvGlpz9T80CkDltvXvz1fv
+	rJXrlYTQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uULzh-00000005iEy-1wnT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 09:00:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D96F7106F;
+	Wed, 25 Jun 2025 02:00:15 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1E343F58B;
+	Wed, 25 Jun 2025 02:00:30 -0700 (PDT)
+Date: Wed, 25 Jun 2025 10:00:28 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>
+Subject: Re: [PATCH v9 11/43] arm64: RME: Allocate/free RECs to match vCPUs
+Message-ID: <20250625090028.GC111675@e124191.cambridge.arm.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-12-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2x3bFr3NhO0jjsdL"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250221161751.1278049-3-kuba@szczodrzynski.pl>
+In-Reply-To: <20250611104844.245235-12-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_010346_885630_5865DB5F 
-X-CRM114-Status: GOOD (  32.77  )
+X-CRM114-CacheID: sfid-20250625_100038_011541_0F1F781E 
+X-CRM114-Status: GOOD (  45.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,153 +93,429 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Steven,
 
---2x3bFr3NhO0jjsdL
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Some comments below.
-
-On Fri 21 Feb 25, 17:17, Kuba Szczodrzy=C5=84ski wrote:
-> On Allwinner chips with a combo D-PHY, the TCON LCD0 should fetch it
-> from device tree, in order to enable LVDS. Since the PHY also needs to
-> be powered off to disable LVDS, add a function to the quirks.
->=20
-> Signed-off-by: Kuba Szczodrzy=C5=84ski <kuba@szczodrzynski.pl>
+On Wed, Jun 11, 2025 at 11:48:08AM +0100, Steven Price wrote:
+> The RMM maintains a data structure known as the Realm Execution Context
+> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
+> virtual CPUs. KVM must delegate memory and request the structures are
+> created when vCPUs are created, and suitably tear down on destruction.
+> 
+> RECs must also be supplied with addition pages - auxiliary (or AUX)
+> granules - for storing the larger registers state (e.g. for SVE). The
+> number of AUX granules for a REC depends on the parameters with which
+> the Realm was created - the RMM makes this information available via the
+> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor (RD).
+> 
+> Note that only some of register state for the REC can be set by KVM, the
+> rest is defined by the RMM (zeroed). The register state then cannot be
+> changed by KVM after the REC is created (except when the guest
+> explicitly requests this e.g. by performing a PSCI call). The RMM also
+> requires that the VMM creates RECs in ascending order of the MPIDR.
+> 
+> See Realm Management Monitor specification (DEN0137) for more information:
+> https://developer.arm.com/documentation/den0137/
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > ---
->  drivers/gpu/drm/sun4i/sun4i_tcon.c | 12 ++++++++++++
->  drivers/gpu/drm/sun4i/sun4i_tcon.h |  6 ++++++
->  2 files changed, 18 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
-un4i_tcon.c
-> index 960e83c82..ccf335a61 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> @@ -12,6 +12,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_platform.h>
-> +#include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
->  #include <linux/reset.h>
-> @@ -183,6 +184,8 @@ static void sun4i_tcon_lvds_set_status(struct sun4i_t=
-con *tcon,
->  	} else {
->  		regmap_update_bits(tcon->regs, SUN4I_TCON0_LVDS_IF_REG,
->  				   SUN4I_TCON0_LVDS_IF_EN, 0);
-
-Does the T113-S3/D1 also have LVDS support in TCON regsiters?
-My understanding is that it only has the combo-phy, so this register write
-should not take place.
-
-I think it would be easier to just move this to a common callback for users=
- of
-the tcon0 lvds phy and always call=20
-
-> +		if (tcon->quirks->disable_lvds_phy)
-> +			tcon->quirks->disable_lvds_phy(tcon, encoder);
-
-Also "disable" is often used as opposite of "enable", so I would suggest us=
-ing
-"teardown" as opposite of "setup" instead.
-
->  	}
+> Changes since v7:
+>  * Add comment explaining the aux_pages array.
+>  * Rename "undeleted_failed" variable to "should_free" to avoid a
+>    confusing double negative.
+> Changes since v6:
+>  * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
+>    realm guest.
+>  * Support host page size being larger than RMM's granule size when
+>    allocating/freeing aux granules.
+> Changes since v5:
+>  * Separate the concept of vcpu_is_rec() and
+>    kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
+>    the indication that the VCPU is a REC.
+> Changes since v2:
+>  * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h |   7 ++
+>  arch/arm64/include/asm/kvm_host.h    |   3 +
+>  arch/arm64/include/asm/kvm_rme.h     |  27 ++++
+>  arch/arm64/kvm/arm.c                 |  13 +-
+>  arch/arm64/kvm/reset.c               |  11 ++
+>  arch/arm64/kvm/rme.c                 | 180 +++++++++++++++++++++++++++
+>  6 files changed, 239 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index a640bb7dffbc..302a691b3723 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -711,7 +711,14 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
+>  
+>  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>  {
+> +	if (static_branch_unlikely(&kvm_rme_is_available))
+> +		return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
+>  	return false;
 >  }
-> =20
-> @@ -1245,6 +1248,15 @@ static int sun4i_tcon_bind(struct device *dev, str=
-uct device *master,
->  		goto err_free_dclk;
+>  
+> +static inline bool kvm_arm_rec_finalized(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.rec.mpidr != INVALID_HWID;
+> +}
+> +
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 18e6d72dabe9..58fe7b216126 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -883,6 +883,9 @@ struct kvm_vcpu_arch {
+>  
+>  	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
+>  	struct vncr_tlb	*vncr_tlb;
+> +
+> +	/* Realm meta data */
+> +	struct realm_rec rec;
+>  };
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> index 5f0de9a6d339..f716b890e484 100644
+> --- a/arch/arm64/include/asm/kvm_rme.h
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -6,6 +6,7 @@
+>  #ifndef __ASM_KVM_RME_H
+>  #define __ASM_KVM_RME_H
+>  
+> +#include <asm/rmi_smc.h>
+>  #include <uapi/linux/kvm.h>
+>  
+>  /**
+> @@ -65,6 +66,30 @@ struct realm {
+>  	unsigned int ia_bits;
+>  };
+>  
+> +/**
+> + * struct realm_rec - Additional per VCPU data for a Realm
+> + *
+> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
+> + * @rec_page: Kernel VA of the RMM's private page for this REC
+> + * @aux_pages: Additional pages private to the RMM for this REC
+> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+> + */
+> +struct realm_rec {
+> +	unsigned long mpidr;
+> +	void *rec_page;
+> +	/*
+> +	 * REC_PARAMS_AUX_GRANULES is the maximum number of granules that the
+> +	 * RMM can require. By using that to size the array we know that it
+> +	 * will be big enough as the page size is always at least as large as
+> +	 * the granule size. In the case of a larger page size than 4k (or an
+> +	 * RMM which requires fewer auxiliary granules), the array will be
+> +	 * bigger than needed however the extra memory required is small and
+> +	 * this keeps the code cleaner.
+> +	 */
+> +	struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
+
+I think that something like this may work, and use the right amount of pages:
+
+	struct page *aux_pages[(REC_PARAMS_AUX_GRANULES * RMM_PAGE_SIZE) >> PAGE_SHIFT];
+
+Thanks,
+Joey
+
+> +	struct rec_run *run;
+> +};
+> +
+>  void kvm_init_rme(void);
+>  u32 kvm_realm_ipa_limit(void);
+>  
+> @@ -72,6 +97,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+>  int kvm_init_realm_vm(struct kvm *kvm);
+>  void kvm_destroy_realm(struct kvm *kvm);
+>  void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
+> +int kvm_create_rec(struct kvm_vcpu *vcpu);
+> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>  
+>  static inline bool kvm_realm_is_private_address(struct realm *realm,
+>  						unsigned long addr)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index b3e3323573c6..7be1bdfc5f0b 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -495,6 +495,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>  	/* Force users to call KVM_ARM_VCPU_INIT */
+>  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>  
+> +	vcpu->arch.rec.mpidr = INVALID_HWID;
+> +
+>  	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>  
+>  	/* Set up the timer */
+> @@ -1457,7 +1459,7 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
+>  	return -EINVAL;
+>  }
+>  
+> -static unsigned long system_supported_vcpu_features(void)
+> +static unsigned long system_supported_vcpu_features(struct kvm *kvm)
+>  {
+>  	unsigned long features = KVM_VCPU_VALID_FEATURES;
+>  
+> @@ -1478,6 +1480,9 @@ static unsigned long system_supported_vcpu_features(void)
+>  	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+>  		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+>  
+> +	if (!kvm_is_realm(kvm))
+> +		clear_bit(KVM_ARM_VCPU_REC, &features);
+> +
+>  	return features;
+>  }
+>  
+> @@ -1495,7 +1500,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>  			return -ENOENT;
 >  	}
-> =20
-> +	if (tcon->quirks->has_combo_dphy) {
-> +		tcon->dphy =3D devm_phy_get(dev, "dphy");
-
-I don't think it makes sense to call this dphy since it's used in LVDS mode
-and not in D-PHY mode. I would suggest using "combo" as phy name instead.
-
-It would have made more sense to also have the compatible reflect this
-(by calling it combo-phy instead of mipi-dphy) but it's too late now.
-
-> +		if (IS_ERR(tcon->dphy)) {
-> +			dev_err(dev, "Couldn't get the combo D-PHY\n");
-> +			ret =3D PTR_ERR(tcon->dphy);
-> +			goto err_free_dclk;
+>  
+> -	if (features & ~system_supported_vcpu_features())
+> +	if (features & ~system_supported_vcpu_features(vcpu->kvm))
+>  		return -EINVAL;
+>  
+>  	/*
+> @@ -1517,6 +1522,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
+>  		return -EINVAL;
+>  
+> +	/* RME is incompatible with AArch32 */
+> +	if (test_bit(KVM_ARM_VCPU_REC, &features))
+> +		return -EINVAL;
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index 959532422d3a..2e9e855581d4 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -137,6 +137,11 @@ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
+>  			return -EPERM;
+>  
+>  		return kvm_vcpu_finalize_sve(vcpu);
+> +	case KVM_ARM_VCPU_REC:
+> +		if (!kvm_is_realm(vcpu->kvm) || !vcpu_is_rec(vcpu))
+> +			return -EINVAL;
+> +
+> +		return kvm_create_rec(vcpu);
+>  	}
+>  
+>  	return -EINVAL;
+> @@ -147,6 +152,11 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
+>  	if (vcpu_has_sve(vcpu) && !kvm_arm_vcpu_sve_finalized(vcpu))
+>  		return false;
+>  
+> +	if (kvm_is_realm(vcpu->kvm) &&
+> +	    !(vcpu_is_rec(vcpu) && kvm_arm_rec_finalized(vcpu) &&
+> +	      READ_ONCE(vcpu->kvm->arch.realm.state) == REALM_STATE_ACTIVE))
+> +		return false;
+> +
+>  	return true;
+>  }
+>  
+> @@ -161,6 +171,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+>  	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+>  	kfree(vcpu->arch.vncr_tlb);
+>  	kfree(vcpu->arch.ccsidr);
+> +	kvm_destroy_rec(vcpu);
+>  }
+>  
+>  static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index 0f89295fa59c..f094544592b5 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -484,6 +484,186 @@ void kvm_destroy_realm(struct kvm *kvm)
+>  	kvm_free_stage2_pgd(&kvm->arch.mmu);
+>  }
+>  
+> +static void free_rec_aux(struct page **aux_pages,
+> +			 unsigned int num_aux)
+> +{
+> +	unsigned int i, j;
+> +	unsigned int page_count = 0;
+> +
+> +	for (i = 0; i < num_aux;) {
+> +		struct page *aux_page = aux_pages[page_count++];
+> +		phys_addr_t aux_page_phys = page_to_phys(aux_page);
+> +		bool should_free = true;
+> +
+> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
+> +			if (WARN_ON(rmi_granule_undelegate(aux_page_phys)))
+> +				should_free = false;
+> +			aux_page_phys += RMM_PAGE_SIZE;
+> +			i++;
 > +		}
+> +		/* Only free if all the undelegate calls were successful */
+> +		if (should_free)
+> +			__free_page(aux_page);
+> +	}
+> +}
+> +
+> +static int alloc_rec_aux(struct page **aux_pages,
+> +			 u64 *aux_phys_pages,
+> +			 unsigned int num_aux)
+> +{
+> +	struct page *aux_page;
+> +	int page_count = 0;
+> +	unsigned int i, j;
+> +	int ret;
+> +
+> +	for (i = 0; i < num_aux;) {
+> +		phys_addr_t aux_page_phys;
+> +
+> +		aux_page = alloc_page(GFP_KERNEL);
+> +		if (!aux_page) {
+> +			ret = -ENOMEM;
+> +			goto out_err;
+> +		}
+> +
+> +		aux_page_phys = page_to_phys(aux_page);
+> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
+> +			if (rmi_granule_delegate(aux_page_phys)) {
+> +				ret = -ENXIO;
+> +				goto err_undelegate;
+> +			}
+> +			aux_phys_pages[i++] = aux_page_phys;
+> +			aux_page_phys += RMM_PAGE_SIZE;
+> +		}
+> +		aux_pages[page_count++] = aux_page;
 > +	}
 > +
->  	if (tcon->quirks->has_channel_0) {
->  		/*
->  		 * If we have an LVDS panel connected to the TCON, we should
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.h b/drivers/gpu/drm/sun4i/s=
-un4i_tcon.h
-> index fa23aa23f..b270d1a13 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.h
-> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.h
-> @@ -239,6 +239,7 @@ struct sun4i_tcon_quirks {
->  	bool	has_channel_0;	/* a83t does not have channel 0 on second TCON */
->  	bool	has_channel_1;	/* a33 does not have channel 1 */
->  	bool	has_lvds_alt;	/* Does the LVDS clock have a parent other than the =
-TCON clock? */
-> +	bool	has_combo_dphy; /* Is the D-PHY used for LVDS output? */
->  	bool	needs_de_be_mux; /* sun6i needs mux to select backend */
->  	bool    needs_edp_reset; /* a80 edp reset needed for tcon0 access */
->  	bool	supports_lvds;   /* Does the TCON support an LVDS output? */
-> @@ -250,6 +251,8 @@ struct sun4i_tcon_quirks {
->  	/* handler for LVDS setup routine */
->  	void	(*setup_lvds_phy)(struct sun4i_tcon *tcon,
->  				  const struct drm_encoder *encoder);
-> +	void	(*disable_lvds_phy)(struct sun4i_tcon *tcon,
-> +				    const struct drm_encoder *encoder);
->  };
-> =20
->  struct sun4i_tcon {
-> @@ -282,6 +285,9 @@ struct sun4i_tcon {
->  	/* Associated crtc */
->  	struct sun4i_crtc		*crtc;
-> =20
-> +	/* Associated D-PHY */
-> +	struct phy			*dphy;
+> +	return 0;
+> +err_undelegate:
+> +	while (j > 0) {
+> +		j -= RMM_PAGE_SIZE;
+> +		i--;
+> +		if (WARN_ON(rmi_granule_undelegate(aux_phys_pages[i]))) {
+> +			/* Leak the page if the undelegate fails */
+> +			goto out_err;
+> +		}
+> +	}
+> +	__free_page(aux_page);
+> +out_err:
+> +	free_rec_aux(aux_pages, i);
+> +	return ret;
+> +}
 > +
->  	int				id;
-> =20
->  	/* TCON list management */
-> --=20
-> 2.25.1
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---2x3bFr3NhO0jjsdL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhbrVgACgkQhP3B6o/u
-lQxnIhAAhxvpGk5iu3GYSCq8EbYxLP0XgYfTkaAH54Zet2LTYk7P4AuzXmopcX4e
-N/4ZElElUqgy80ScsSc9cXgkVzESvITZct1RbbJrhMNsNnaJXiG2thBwlf+K/HDn
-2mzyKSLPkgIzEbrhkLchwpnahcplsnRoTeDwuKjGVGRpHdgCjirSy2oyDjjWIPx8
-yxRd6Lh3QnWef8Rp+2Ad/mzF/RwPsPf0j1Cd9sVa29ICvejakCdBPgP2r0/zLBiO
-lixWOi6P/8896L+mXNGwtbitd7KGEMSHMGfMnuggyzQufD7kEIlVvujJf62j96JN
-eGkeexJTO9ZBruyBM6HF72uPDe+UL57URKMPb0ZQEEu4s/XLKeqzy+am+JXj2lnI
-lYjwceLHCmAeIuCEbqPWAxJDjJA5J3J9K4YRA8DKtBqbOn8hSZp21n1e3cKsVRL9
-LPAxyJQ8HkbGrlldSEDTbw3vR5yrBins3OEVqt8/VH6NimfOjsfXnZxqXC8pTZ0A
-kc27/8mojPQ8MMpf9ms2lBIcGh5dPZjAicy/Iahl/l1w5xEc7CJGiSUf4FEK29MJ
-sIuHsVGsVDgzt39z6itWeGLGzYX8tT0SThStwa4h/DMb97Bj7XbWZfZNrfnZTWjS
-pJzD1zflVjGaQWnsIzX5S+mAS44sCdV/5zZjzvFdOB65MaDEkOs=
-=p+Op
------END PGP SIGNATURE-----
-
---2x3bFr3NhO0jjsdL--
+> +int kvm_create_rec(struct kvm_vcpu *vcpu)
+> +{
+> +	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
+> +	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+> +	struct realm *realm = &vcpu->kvm->arch.realm;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long rec_page_phys;
+> +	struct rec_params *params;
+> +	int r, i;
+> +
+> +	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_NEW)
+> +		return -ENOENT;
+> +
+> +	if (rec->run)
+> +		return -EBUSY;
+> +
+> +	/*
+> +	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
+> +	 * flag covers v0.2 and onwards.
+> +	 */
+> +	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
+> +		return -EINVAL;
+> +
+> +	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
+> +	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
+> +
+> +	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
+> +	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
+> +	rec->run = (void *)get_zeroed_page(GFP_KERNEL);
+> +	if (!params || !rec->rec_page || !rec->run) {
+> +		r = -ENOMEM;
+> +		goto out_free_pages;
+> +	}
+> +
+> +	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
+> +		params->gprs[i] = vcpu_regs->regs[i];
+> +
+> +	params->pc = vcpu_regs->pc;
+> +
+> +	if (vcpu->vcpu_id == 0)
+> +		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
+> +
+> +	rec_page_phys = virt_to_phys(rec->rec_page);
+> +
+> +	if (rmi_granule_delegate(rec_page_phys)) {
+> +		r = -ENXIO;
+> +		goto out_free_pages;
+> +	}
+> +
+> +	r = alloc_rec_aux(rec->aux_pages, params->aux, realm->num_aux);
+> +	if (r)
+> +		goto out_undelegate_rmm_rec;
+> +
+> +	params->num_rec_aux = realm->num_aux;
+> +	params->mpidr = mpidr;
+> +
+> +	if (rmi_rec_create(virt_to_phys(realm->rd),
+> +			   rec_page_phys,
+> +			   virt_to_phys(params))) {
+> +		r = -ENXIO;
+> +		goto out_free_rec_aux;
+> +	}
+> +
+> +	rec->mpidr = mpidr;
+> +
+> +	free_page((unsigned long)params);
+> +	return 0;
+> +
+> +out_free_rec_aux:
+> +	free_rec_aux(rec->aux_pages, realm->num_aux);
+> +out_undelegate_rmm_rec:
+> +	if (WARN_ON(rmi_granule_undelegate(rec_page_phys)))
+> +		rec->rec_page = NULL;
+> +out_free_pages:
+> +	free_page((unsigned long)rec->run);
+> +	free_page((unsigned long)rec->rec_page);
+> +	free_page((unsigned long)params);
+> +	return r;
+> +}
+> +
+> +void kvm_destroy_rec(struct kvm_vcpu *vcpu)
+> +{
+> +	struct realm *realm = &vcpu->kvm->arch.realm;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long rec_page_phys;
+> +
+> +	if (!vcpu_is_rec(vcpu))
+> +		return;
+> +
+> +	if (!rec->run) {
+> +		/* Nothing to do if the VCPU hasn't been finalized */
+> +		return;
+> +	}
+> +
+> +	free_page((unsigned long)rec->run);
+> +
+> +	rec_page_phys = virt_to_phys(rec->rec_page);
+> +
+> +	/*
+> +	 * The REC and any AUX pages cannot be reclaimed until the REC is
+> +	 * destroyed. So if the REC destroy fails then the REC page and any AUX
+> +	 * pages will be leaked.
+> +	 */
+> +	if (WARN_ON(rmi_rec_destroy(rec_page_phys)))
+> +		return;
+> +
+> +	free_rec_aux(rec->aux_pages, realm->num_aux);
+> +
+> +	free_delegated_granule(rec_page_phys);
+> +}
+> +
+>  int kvm_init_realm_vm(struct kvm *kvm)
+>  {
+>  	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
+> -- 
+> 2.43.0
+> 
 
