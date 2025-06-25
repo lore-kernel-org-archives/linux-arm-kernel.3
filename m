@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD80CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C650C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 07:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGW101pc6nDtTvTYZEPyz6G4ceHENe58HRLxCGUQN3c=; b=a0bab/NpV6Xt2HkLkH0cA3zQYk
-	K9te6gQywBd1zO3jlrEJArR5c1yZJdYrOBw9EehOHcTga8o61cBYoFVk/duv2xApuy97ArSjdock7
-	i1d5lnSCFC2AGrn5/VXHICAsLb2Cp7kpzxlY7H1yUgeRzZZ0WsTo/i98Wj/K4xuZFMNZtqjJPh4xs
-	cZeQKMPeWagXZhiV+ILj+2W/LmDe2/qIu2en5wFEgiiDs2zDBGXratf0aUreMNeeqokg9LlLZoliV
-	HoAwnRALd3Hz4jq+ql6wl5jbe4Oz6zSrPYZVNF9aEdEM6raon5tJyd25iAyCU2nmdpGy3gTu09xRS
-	NVTlLNog==;
+	bh=n8jXU1q6B0KX6KZxSGCS7rIxrQ9U7LY3BptCiu+mNFE=; b=CPI8mroSAe0CFazQWgRzspOt62
+	sJTtftlVOG+VmpW3eGzEhWEu5tutz1lBDlYY55Pz1XkUK+dYmVrxCIpgSxlI+IO1Iv6ob1WRnSdR/
+	7tuFXXZ0Uejjepf5N+dHzgfj2qHQVvbtmZsyLbouGU7HPp0galu5kTQ0j2Pw72K/UHyxuD4qpaHUM
+	eP7cBc9xxMNTAntcQfyRM2kmzWrgd2YAE2PIIm15YlMTMXz1Ol9bRWBK2VAPYZfy5InsXe9envx6M
+	BN4YUvpcvtWIRq01VHeP0Zh2SDUorWhN7Lcj8bPsoxs5CyVBFrs7vVnMix7F/U4K3a5e/EuBH8Sdl
+	lsCer5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKts-00000007ruX-2SNa;
-	Wed, 25 Jun 2025 07:50:32 +0000
+	id 1uUKw8-00000007sB1-3xwJ;
+	Wed, 25 Jun 2025 07:52:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHH-00000007lQp-1ZGv;
-	Wed, 25 Jun 2025 07:10:39 +0000
+	id 1uUKHI-00000007lRa-29pX;
+	Wed, 25 Jun 2025 07:10:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ZGW101pc6nDtTvTYZEPyz6G4ceHENe58HRLxCGUQN3c=; b=HwILwnJPmoGPBWh6CAo6dnWp5H
-	o0TlPrUJswNtpnW/un38o8XMJ4P4XNdbkbsgpveOeh31dh4cKz4FwbLY0wexCll72B6sklCm7vPA4
-	obbCYXEX7puhIwX2OAOE85EWh90GEigMdtn0Q8uyRWr0eOaeFIooeoEhtFfFgtMawEPSL9dHx9tgt
-	A69/bvHUsoyy0aZG/5RXFDTMvrB5AtpJ7F4nv9Zw0hOi/Uj7UZwXUGh+gkrfmtnoctsjLeTfXBSNS
-	4hzkZbxKlKpRXY7AXsheVjxi4gvQErwenGYuhm5sc9EHE2+B/WLwF+Gr9j/1yzVfGhSIQmMvntFPG
-	YaauDaRA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=n8jXU1q6B0KX6KZxSGCS7rIxrQ9U7LY3BptCiu+mNFE=; b=Iw12Wgp7V7DgSfDaBvVQxTVkXh
+	OW0FHZ9+XYOAvR1DuTh4tlVFQFOHAWMjbcCeVj+mnW14YEqumSg/9UMk2X0OWaG5XyV4hCJdRnv/L
+	jzfgRZwTe2IQRCiiNxP5H+QlhSmRzmL6Ih6sB34sPb2WGLd+D9M3MPUsGyaTOD1quG1tW8IB2TZKE
+	Jk9W1S9LUPHOyx1ENoUoKDuJgPwSF5Ebkgg5mGDtwu5jVLzrZqgvpPU9oO6vZLLrvcK3ifZf1Fy4K
+	KPvL5/MXXswKsG8FVICI6RztKrb/p2LBL41ZRX4b/sOhhOFQlOu0eVX8bsOwE7RFj0ysio7+r7JWz
+	WJhrI6hQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHD-00000005deh-2jok;
-	Wed, 25 Jun 2025 07:10:38 +0000
+	id 1uUKHF-00000005dfP-0uvM;
+	Wed, 25 Jun 2025 07:10:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C45DCA51209;
-	Wed, 25 Jun 2025 07:10:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18A8AC4CEF2;
-	Wed, 25 Jun 2025 07:10:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3E6B85C61E3;
+	Wed, 25 Jun 2025 07:08:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EFCAC4CEF2;
+	Wed, 25 Jun 2025 07:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835433;
-	bh=sCHERaTxMMEUVGvqsW2R5+cc6BxvVMNaraj7BT1Upjk=;
+	s=k20201202; t=1750835435;
+	bh=Y+OM4xhFGnbbVJB2/pk7w3PVA+sL8KWZ8Ahn07y2y1A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ip1C0Zujy+3rYPyuUJNLV/DeMRYonEAZjpTSUGpf/ukCS/amd/zb+GEamwZaastwU
-	 vHJsWkZ1ZhxfyNNtmdTe5T6OwDX1/qE6Wbm7NIcBPZYvdEmJbS3FkwTOPIiTeZNpv7
-	 VaoMfroBttxuMOghaObIaUSOP+u/w25NQCFWUjrJ6k709y/RwzPjmuJdt3nUKk1fln
-	 ChqhJn3t9V2tnfXBfEenoN/GCh1Z7OhOwx1NFNAS+KV4GxvlfDZVMKwm3DjTjqb9ST
-	 MMah4mWSbtlkSJBqBjMlwPvAPinBUmf89F7XRUkvIe3nda1x2voNwvM1IQPgAjv1mM
-	 yxBt9X6CQBzgg==
+	b=bH9JuMjcvx3J7GtUczSjT11nGI4YWbo07MYlZLzC2HhSWEMCp2w/3F76EUQDdl9aH
+	 x3U0E8JYWVjle7diqxhGtq75vEUoC36KAdmOt5ehtup8q9m0RB23nlpgatFdW+xPro
+	 JnvpTRlkc04oJMwRgnosZlVo8rkhPtz1xEyaez2xP71hb1UjwpZwEHoEgz9hwvZZ8w
+	 Xg73giZDP2UVojmC6ER8rObGC/udaKqdU8qwkmAQlqBDk2z567b670tXgzD5vy92Bv
+	 LTPxk9gDYjyHb92F+u8ONsV4Eu9yHAg8GfgBAM3Y1PeC6Az6HX0fnNqfEvvqWnzfdm
+	 PfOgccGBMYwtA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -68,17 +68,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 13/18] crypto: sha256 - Wrap library and add HMAC support
-Date: Wed, 25 Jun 2025 00:08:14 -0700
-Message-ID: <20250625070819.1496119-14-ebiggers@kernel.org>
+Subject: [PATCH 17/18] lib/crypto: sha256: Sync sha256_update() with sha512_update()
+Date: Wed, 25 Jun 2025 00:08:18 -0700
+Message-ID: <20250625070819.1496119-18-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
 References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081036_498358_23686277 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20250625_081037_455608_ADBE4074 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,662 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like I did for crypto/sha512.c, rework crypto/sha256.c to simply wrap
-the normal library functions instead of accessing the low-level arch-
-optimized and generic block functions directly.  Also add support for
-HMAC-SHA224 and HMAC-SHA256, again just wrapping the library functions.
-
-Since the replacement crypto_shash algorithms are implemented using the
-(potentially arch-optimized) library functions, give them driver names
-ending with "-lib" rather than "-generic".  Update crypto/testmgr.c and
-a couple odd drivers to take this change in driver name into account.
-
-Besides the above cases which are accounted for, there are no known
-cases where the driver names were being depended on.  There is
-potential for confusion for people manually checking /proc/crypto (e.g.
-https://lore.kernel.org/r/9e33c893-2466-4d4e-afb1-966334e451a2@linux.ibm.com/),
-but really people just need to get used to the driver name not being
-meaningful for the software algorithms.  Historically, the optimized
-code was disabled by default, so there was some purpose to checking
-whether it was enabled or not.  However, this is now fixed for all SHA-2
-algorithms, and the library code just always does the right thing.  E.g.
-if the CPU supports SHA-256 instructions, they are used.
-
-This change does also mean that the generic partial block handling code
-in crypto/shash.c, which got added in 6.16, no longer gets used.  But
-that's fine; the library has to implement the partial block handling
-anyway, and it's better to do it in the library since the block size and
-other properties of the algorithm are all fixed at compile time there,
-resulting in more streamlined code.
+The BLOCK_HASH_UPDATE_BLOCKS macro is difficult to read.  For now, let's
+just write the update explicitly in the straightforward way, mirroring
+sha512_update().  It's possible that we'll bring back a macro for this
+later, but it needs to be properly justified and hopefully a bit more
+readable.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/Kconfig                        |   4 +-
- crypto/sha256.c                       | 286 ++++++++++++--------------
- crypto/testmgr.c                      |  12 ++
- drivers/crypto/img-hash.c             |   4 +-
- drivers/crypto/starfive/jh7110-hash.c |   8 +-
- 5 files changed, 148 insertions(+), 166 deletions(-)
+ lib/crypto/sha256.c | 28 +++++++++++++++++++++++++---
+ 1 file changed, 25 insertions(+), 3 deletions(-)
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index cb40a9b469722..3ea1397214e02 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -990,13 +990,13 @@ config CRYPTO_SHA1
- 
- config CRYPTO_SHA256
- 	tristate "SHA-224 and SHA-256"
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SHA256
--	select CRYPTO_LIB_SHA256_GENERIC
- 	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180, ISO/IEC 10118-3)
-+	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180, ISO/IEC
-+	  10118-3), including HMAC support.
- 
- 	  This is required for IPsec AH (XFRM_AH) and IPsec ESP (XFRM_ESP).
- 	  Used by the btrfs filesystem, Ceph, NFS, and SMB.
- 
- config CRYPTO_SHA512
-diff --git a/crypto/sha256.c b/crypto/sha256.c
-index 15c57fba256b7..d81166cbba953 100644
---- a/crypto/sha256.c
-+++ b/crypto/sha256.c
-@@ -1,283 +1,253 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Crypto API wrapper for the SHA-256 and SHA-224 library functions
-+ * Crypto API support for SHA-224, SHA-256, HMAC-SHA224, and HMAC-SHA256
-  *
-  * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-  * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
-  * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
-+ * Copyright 2025 Google LLC
+diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
+index 0de49bf8e8b8b..c93bf4699160c 100644
+--- a/lib/crypto/sha256.c
++++ b/lib/crypto/sha256.c
+@@ -8,11 +8,10 @@
+  * Copyright (c) 2014 Red Hat Inc.
+  * Copyright 2025 Google LLC
   */
- #include <crypto/internal/hash.h>
--#include <crypto/internal/sha2.h>
-+#include <crypto/sha2.h>
+ 
+ #include <crypto/hmac.h>
+-#include <crypto/internal/blockhash.h>
+ #include <crypto/sha2.h>
+ #include <linux/export.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
+ #include <linux/unaligned.h>
+@@ -177,12 +176,35 @@ EXPORT_SYMBOL_GPL(sha256_init);
+ void __sha256_update(struct __sha256_ctx *ctx, const u8 *data, size_t len)
+ {
+ 	size_t partial = ctx->bytecount % SHA256_BLOCK_SIZE;
  
-+/* SHA-224 */
+ 	ctx->bytecount += len;
+-	BLOCK_HASH_UPDATE_BLOCKS(sha256_blocks, &ctx->state, data, len,
+-				 SHA256_BLOCK_SIZE, ctx->buf, partial);
 +
- const u8 sha224_zero_message_hash[SHA224_DIGEST_SIZE] = {
- 	0xd1, 0x4a, 0x02, 0x8c, 0x2a, 0x3a, 0x2b, 0xc9, 0x47,
- 	0x61, 0x02, 0xbb, 0x28, 0x82, 0x34, 0xc4, 0x15, 0xa2,
- 	0xb0, 0x1f, 0x82, 0x8e, 0xa6, 0x2a, 0xc5, 0xb3, 0xe4,
- 	0x2f
- };
- EXPORT_SYMBOL_GPL(sha224_zero_message_hash);
- 
-+#define SHA224_CTX(desc) ((struct sha224_ctx *)shash_desc_ctx(desc))
++	if (partial + len >= SHA256_BLOCK_SIZE) {
++		size_t nblocks;
 +
-+static int crypto_sha224_init(struct shash_desc *desc)
-+{
-+	sha224_init(SHA224_CTX(desc));
-+	return 0;
-+}
++		if (partial) {
++			size_t l = SHA256_BLOCK_SIZE - partial;
 +
-+static int crypto_sha224_update(struct shash_desc *desc,
-+				const u8 *data, unsigned int len)
-+{
-+	sha224_update(SHA224_CTX(desc), data, len);
-+	return 0;
-+}
++			memcpy(&ctx->buf[partial], data, l);
++			data += l;
++			len -= l;
 +
-+static int crypto_sha224_final(struct shash_desc *desc, u8 *out)
-+{
-+	sha224_final(SHA224_CTX(desc), out);
-+	return 0;
-+}
++			sha256_blocks(&ctx->state, ctx->buf, 1);
++		}
 +
-+static int crypto_sha224_digest(struct shash_desc *desc,
-+				const u8 *data, unsigned int len, u8 *out)
-+{
-+	sha224(data, len, out);
-+	return 0;
-+}
++		nblocks = len / SHA256_BLOCK_SIZE;
++		len %= SHA256_BLOCK_SIZE;
 +
-+/* SHA-256 */
-+
- const u8 sha256_zero_message_hash[SHA256_DIGEST_SIZE] = {
- 	0xe3, 0xb0, 0xc4, 0x42, 0x98, 0xfc, 0x1c, 0x14,
- 	0x9a, 0xfb, 0xf4, 0xc8, 0x99, 0x6f, 0xb9, 0x24,
- 	0x27, 0xae, 0x41, 0xe4, 0x64, 0x9b, 0x93, 0x4c,
- 	0xa4, 0x95, 0x99, 0x1b, 0x78, 0x52, 0xb8, 0x55
- };
- EXPORT_SYMBOL_GPL(sha256_zero_message_hash);
- 
-+#define SHA256_CTX(desc) ((struct sha256_ctx *)shash_desc_ctx(desc))
-+
- static int crypto_sha256_init(struct shash_desc *desc)
- {
--	sha256_block_init(shash_desc_ctx(desc));
-+	sha256_init(SHA256_CTX(desc));
- 	return 0;
++		if (nblocks) {
++			sha256_blocks(&ctx->state, data, nblocks);
++			data += nblocks * SHA256_BLOCK_SIZE;
++		}
++		partial = 0;
++	}
++	if (len)
++		memcpy(&ctx->buf[partial], data, len);
  }
+ EXPORT_SYMBOL(__sha256_update);
  
--static inline int crypto_sha256_update(struct shash_desc *desc, const u8 *data,
--				       unsigned int len, bool force_generic)
-+static int crypto_sha256_update(struct shash_desc *desc,
-+				const u8 *data, unsigned int len)
- {
--	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
--	int remain = len % SHA256_BLOCK_SIZE;
--
--	sctx->count += len - remain;
--	sha256_choose_blocks(sctx->state, data, len / SHA256_BLOCK_SIZE,
--			     force_generic, !force_generic);
--	return remain;
-+	sha256_update(SHA256_CTX(desc), data, len);
-+	return 0;
- }
- 
--static int crypto_sha256_update_generic(struct shash_desc *desc, const u8 *data,
--					unsigned int len)
-+static int crypto_sha256_final(struct shash_desc *desc, u8 *out)
- {
--	return crypto_sha256_update(desc, data, len, true);
-+	sha256_final(SHA256_CTX(desc), out);
-+	return 0;
- }
- 
--static int crypto_sha256_update_lib(struct shash_desc *desc, const u8 *data,
--				    unsigned int len)
-+static int crypto_sha256_digest(struct shash_desc *desc,
-+				const u8 *data, unsigned int len, u8 *out)
- {
--	sha256_update(shash_desc_ctx(desc), data, len);
-+	sha256(data, len, out);
- 	return 0;
- }
- 
--static int crypto_sha256_update_arch(struct shash_desc *desc, const u8 *data,
--				     unsigned int len)
--{
--	return crypto_sha256_update(desc, data, len, false);
--}
-+/* HMAC-SHA224 */
- 
--static int crypto_sha256_final_lib(struct shash_desc *desc, u8 *out)
--{
--	sha256_final(shash_desc_ctx(desc), out);
--	return 0;
--}
-+#define HMAC_SHA224_KEY(tfm) ((struct hmac_sha224_key *)crypto_shash_ctx(tfm))
-+#define HMAC_SHA224_CTX(desc) ((struct hmac_sha224_ctx *)shash_desc_ctx(desc))
- 
--static __always_inline int crypto_sha256_finup(struct shash_desc *desc,
--					       const u8 *data,
--					       unsigned int len, u8 *out,
--					       bool force_generic)
-+static int crypto_hmac_sha224_setkey(struct crypto_shash *tfm,
-+				     const u8 *raw_key, unsigned int keylen)
- {
--	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
--	unsigned int remain = len;
--	u8 *buf;
--
--	if (len >= SHA256_BLOCK_SIZE)
--		remain = crypto_sha256_update(desc, data, len, force_generic);
--	sctx->count += remain;
--	buf = memcpy(sctx + 1, data + len - remain, remain);
--	sha256_finup(sctx, buf, remain, out,
--		     crypto_shash_digestsize(desc->tfm), force_generic,
--		     !force_generic);
-+	hmac_sha224_preparekey(HMAC_SHA224_KEY(tfm), raw_key, keylen);
- 	return 0;
- }
- 
--static int crypto_sha256_finup_generic(struct shash_desc *desc, const u8 *data,
--				       unsigned int len, u8 *out)
-+static int crypto_hmac_sha224_init(struct shash_desc *desc)
- {
--	return crypto_sha256_finup(desc, data, len, out, true);
-+	hmac_sha224_init(HMAC_SHA224_CTX(desc), HMAC_SHA224_KEY(desc->tfm));
-+	return 0;
- }
- 
--static int crypto_sha256_finup_arch(struct shash_desc *desc, const u8 *data,
--				    unsigned int len, u8 *out)
-+static int crypto_hmac_sha224_update(struct shash_desc *desc,
-+				     const u8 *data, unsigned int len)
- {
--	return crypto_sha256_finup(desc, data, len, out, false);
-+	hmac_sha224_update(HMAC_SHA224_CTX(desc), data, len);
-+	return 0;
- }
- 
--static int crypto_sha256_digest_generic(struct shash_desc *desc, const u8 *data,
--					unsigned int len, u8 *out)
-+static int crypto_hmac_sha224_final(struct shash_desc *desc, u8 *out)
- {
--	crypto_sha256_init(desc);
--	return crypto_sha256_finup_generic(desc, data, len, out);
-+	hmac_sha224_final(HMAC_SHA224_CTX(desc), out);
-+	return 0;
- }
- 
--static int crypto_sha256_digest_lib(struct shash_desc *desc, const u8 *data,
--				    unsigned int len, u8 *out)
-+static int crypto_hmac_sha224_digest(struct shash_desc *desc,
-+				     const u8 *data, unsigned int len,
-+				     u8 *out)
- {
--	sha256(data, len, out);
-+	hmac_sha224(HMAC_SHA224_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
- 
--static int crypto_sha256_digest_arch(struct shash_desc *desc, const u8 *data,
--				     unsigned int len, u8 *out)
-+/* HMAC-SHA256 */
-+
-+#define HMAC_SHA256_KEY(tfm) ((struct hmac_sha256_key *)crypto_shash_ctx(tfm))
-+#define HMAC_SHA256_CTX(desc) ((struct hmac_sha256_ctx *)shash_desc_ctx(desc))
-+
-+static int crypto_hmac_sha256_setkey(struct crypto_shash *tfm,
-+				     const u8 *raw_key, unsigned int keylen)
- {
--	crypto_sha256_init(desc);
--	return crypto_sha256_finup_arch(desc, data, len, out);
-+	hmac_sha256_preparekey(HMAC_SHA256_KEY(tfm), raw_key, keylen);
-+	return 0;
- }
- 
--static int crypto_sha224_init(struct shash_desc *desc)
-+static int crypto_hmac_sha256_init(struct shash_desc *desc)
- {
--	sha224_block_init(shash_desc_ctx(desc));
-+	hmac_sha256_init(HMAC_SHA256_CTX(desc), HMAC_SHA256_KEY(desc->tfm));
- 	return 0;
- }
- 
--static int crypto_sha224_final_lib(struct shash_desc *desc, u8 *out)
-+static int crypto_hmac_sha256_update(struct shash_desc *desc,
-+				     const u8 *data, unsigned int len)
- {
--	sha224_final(shash_desc_ctx(desc), out);
-+	hmac_sha256_update(HMAC_SHA256_CTX(desc), data, len);
- 	return 0;
- }
- 
--static int crypto_sha256_import_lib(struct shash_desc *desc, const void *in)
-+static int crypto_hmac_sha256_final(struct shash_desc *desc, u8 *out)
- {
--	struct __sha256_ctx *sctx = shash_desc_ctx(desc);
--	const u8 *p = in;
--
--	memcpy(sctx, p, sizeof(*sctx));
--	p += sizeof(*sctx);
--	sctx->bytecount += *p;
-+	hmac_sha256_final(HMAC_SHA256_CTX(desc), out);
- 	return 0;
- }
- 
--static int crypto_sha256_export_lib(struct shash_desc *desc, void *out)
-+static int crypto_hmac_sha256_digest(struct shash_desc *desc,
-+				     const u8 *data, unsigned int len,
-+				     u8 *out)
- {
--	struct __sha256_ctx *sctx0 = shash_desc_ctx(desc);
--	struct __sha256_ctx sctx = *sctx0;
--	unsigned int partial;
--	u8 *p = out;
--
--	partial = sctx.bytecount % SHA256_BLOCK_SIZE;
--	sctx.bytecount -= partial;
--	memcpy(p, &sctx, sizeof(sctx));
--	p += sizeof(sctx);
--	*p = partial;
-+	hmac_sha256(HMAC_SHA256_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
- 
-+/* Algorithm definitions */
-+
- static struct shash_alg algs[] = {
--	{
--		.base.cra_name		= "sha256",
--		.base.cra_driver_name	= "sha256-generic",
--		.base.cra_priority	= 100,
--		.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.base.cra_blocksize	= SHA256_BLOCK_SIZE,
--		.base.cra_module	= THIS_MODULE,
--		.digestsize		= SHA256_DIGEST_SIZE,
--		.init			= crypto_sha256_init,
--		.update			= crypto_sha256_update_generic,
--		.finup			= crypto_sha256_finup_generic,
--		.digest			= crypto_sha256_digest_generic,
--		.descsize		= sizeof(struct crypto_sha256_state),
--	},
- 	{
- 		.base.cra_name		= "sha224",
--		.base.cra_driver_name	= "sha224-generic",
--		.base.cra_priority	= 100,
--		.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
-+		.base.cra_driver_name	= "sha224-lib",
-+		.base.cra_priority	= 300,
- 		.base.cra_blocksize	= SHA224_BLOCK_SIZE,
- 		.base.cra_module	= THIS_MODULE,
- 		.digestsize		= SHA224_DIGEST_SIZE,
- 		.init			= crypto_sha224_init,
--		.update			= crypto_sha256_update_generic,
--		.finup			= crypto_sha256_finup_generic,
--		.descsize		= sizeof(struct crypto_sha256_state),
-+		.update			= crypto_sha224_update,
-+		.final			= crypto_sha224_final,
-+		.digest			= crypto_sha224_digest,
-+		.descsize		= sizeof(struct sha224_ctx),
- 	},
- 	{
- 		.base.cra_name		= "sha256",
- 		.base.cra_driver_name	= "sha256-lib",
-+		.base.cra_priority	= 300,
- 		.base.cra_blocksize	= SHA256_BLOCK_SIZE,
- 		.base.cra_module	= THIS_MODULE,
- 		.digestsize		= SHA256_DIGEST_SIZE,
- 		.init			= crypto_sha256_init,
--		.update			= crypto_sha256_update_lib,
--		.final			= crypto_sha256_final_lib,
--		.digest			= crypto_sha256_digest_lib,
-+		.update			= crypto_sha256_update,
-+		.final			= crypto_sha256_final,
-+		.digest			= crypto_sha256_digest,
- 		.descsize		= sizeof(struct sha256_ctx),
--		.statesize		= sizeof(struct crypto_sha256_state) +
--					  SHA256_BLOCK_SIZE + 1,
--		.import			= crypto_sha256_import_lib,
--		.export			= crypto_sha256_export_lib,
- 	},
- 	{
--		.base.cra_name		= "sha224",
--		.base.cra_driver_name	= "sha224-lib",
-+		.base.cra_name		= "hmac(sha224)",
-+		.base.cra_driver_name	= "hmac-sha224-lib",
-+		.base.cra_priority	= 300,
- 		.base.cra_blocksize	= SHA224_BLOCK_SIZE,
-+		.base.cra_ctxsize	= sizeof(struct hmac_sha224_key),
- 		.base.cra_module	= THIS_MODULE,
- 		.digestsize		= SHA224_DIGEST_SIZE,
--		.init			= crypto_sha224_init,
--		.update			= crypto_sha256_update_lib,
--		.final			= crypto_sha224_final_lib,
--		.descsize		= sizeof(struct sha224_ctx),
--		.statesize		= sizeof(struct crypto_sha256_state) +
--					  SHA256_BLOCK_SIZE + 1,
--		.import			= crypto_sha256_import_lib,
--		.export			= crypto_sha256_export_lib,
-+		.setkey			= crypto_hmac_sha224_setkey,
-+		.init			= crypto_hmac_sha224_init,
-+		.update			= crypto_hmac_sha224_update,
-+		.final			= crypto_hmac_sha224_final,
-+		.digest			= crypto_hmac_sha224_digest,
-+		.descsize		= sizeof(struct hmac_sha224_ctx),
- 	},
- 	{
--		.base.cra_name		= "sha256",
--		.base.cra_driver_name	= "sha256-" __stringify(ARCH),
-+		.base.cra_name		= "hmac(sha256)",
-+		.base.cra_driver_name	= "hmac-sha256-lib",
- 		.base.cra_priority	= 300,
--		.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
- 		.base.cra_blocksize	= SHA256_BLOCK_SIZE,
-+		.base.cra_ctxsize	= sizeof(struct hmac_sha256_key),
- 		.base.cra_module	= THIS_MODULE,
- 		.digestsize		= SHA256_DIGEST_SIZE,
--		.init			= crypto_sha256_init,
--		.update			= crypto_sha256_update_arch,
--		.finup			= crypto_sha256_finup_arch,
--		.digest			= crypto_sha256_digest_arch,
--		.descsize		= sizeof(struct crypto_sha256_state),
--	},
--	{
--		.base.cra_name		= "sha224",
--		.base.cra_driver_name	= "sha224-" __stringify(ARCH),
--		.base.cra_priority	= 300,
--		.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.base.cra_blocksize	= SHA224_BLOCK_SIZE,
--		.base.cra_module	= THIS_MODULE,
--		.digestsize		= SHA224_DIGEST_SIZE,
--		.init			= crypto_sha224_init,
--		.update			= crypto_sha256_update_arch,
--		.finup			= crypto_sha256_finup_arch,
--		.descsize		= sizeof(struct crypto_sha256_state),
-+		.setkey			= crypto_hmac_sha256_setkey,
-+		.init			= crypto_hmac_sha256_init,
-+		.update			= crypto_hmac_sha256_update,
-+		.final			= crypto_hmac_sha256_final,
-+		.digest			= crypto_hmac_sha256_digest,
-+		.descsize		= sizeof(struct hmac_sha256_ctx),
- 	},
- };
- 
--static unsigned int num_algs;
--
- static int __init crypto_sha256_mod_init(void)
- {
--	/* register the arch flavours only if they differ from generic */
--	num_algs = ARRAY_SIZE(algs);
--	BUILD_BUG_ON(ARRAY_SIZE(algs) <= 2);
--	if (!sha256_is_arch_optimized())
--		num_algs -= 2;
- 	return crypto_register_shashes(algs, ARRAY_SIZE(algs));
- }
- module_init(crypto_sha256_mod_init);
- 
- static void __exit crypto_sha256_mod_exit(void)
- {
--	crypto_unregister_shashes(algs, num_algs);
-+	crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
- }
- module_exit(crypto_sha256_mod_exit);
- 
- MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("Crypto API wrapper for the SHA-256 and SHA-224 library functions");
-+MODULE_DESCRIPTION("Crypto API support for SHA-224, SHA-256, HMAC-SHA224, and HMAC-SHA256");
- 
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha256-generic");
--MODULE_ALIAS_CRYPTO("sha256-" __stringify(ARCH));
- MODULE_ALIAS_CRYPTO("sha224");
--MODULE_ALIAS_CRYPTO("sha224-generic");
--MODULE_ALIAS_CRYPTO("sha224-" __stringify(ARCH));
-+MODULE_ALIAS_CRYPTO("sha224-lib");
-+MODULE_ALIAS_CRYPTO("sha256");
-+MODULE_ALIAS_CRYPTO("sha256-lib");
-+MODULE_ALIAS_CRYPTO("hmac(sha224)");
-+MODULE_ALIAS_CRYPTO("hmac-sha224-lib");
-+MODULE_ALIAS_CRYPTO("hmac(sha256)");
-+MODULE_ALIAS_CRYPTO("hmac-sha256-lib");
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 9d8b11ea4af7f..4e95567f7ed17 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -4268,45 +4268,51 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.alg = "authenc(hmac(sha1),rfc3686(ctr(aes)))",
- 		.test = alg_test_null,
- 		.fips_allowed = 1,
- 	}, {
- 		.alg = "authenc(hmac(sha224),cbc(des))",
-+		.generic_driver = "authenc(hmac-sha224-lib,cbc(des-generic))",
- 		.test = alg_test_aead,
- 		.suite = {
- 			.aead = __VECS(hmac_sha224_des_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "authenc(hmac(sha224),cbc(des3_ede))",
-+		.generic_driver = "authenc(hmac-sha224-lib,cbc(des3_ede-generic))",
- 		.test = alg_test_aead,
- 		.suite = {
- 			.aead = __VECS(hmac_sha224_des3_ede_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "authenc(hmac(sha256),cbc(aes))",
-+		.generic_driver = "authenc(hmac-sha256-lib,cbc(aes-generic))",
- 		.test = alg_test_aead,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.aead = __VECS(hmac_sha256_aes_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "authenc(hmac(sha256),cbc(des))",
-+		.generic_driver = "authenc(hmac-sha256-lib,cbc(des-generic))",
- 		.test = alg_test_aead,
- 		.suite = {
- 			.aead = __VECS(hmac_sha256_des_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "authenc(hmac(sha256),cbc(des3_ede))",
-+		.generic_driver = "authenc(hmac-sha256-lib,cbc(des3_ede-generic))",
- 		.test = alg_test_aead,
- 		.suite = {
- 			.aead = __VECS(hmac_sha256_des3_ede_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "authenc(hmac(sha256),ctr(aes))",
- 		.test = alg_test_null,
- 		.fips_allowed = 1,
- 	}, {
- 		.alg = "authenc(hmac(sha256),cts(cbc(aes)))",
-+		.generic_driver = "authenc(hmac-sha256-lib,cts(cbc(aes-generic)))",
- 		.test = alg_test_aead,
- 		.suite = {
- 			.aead = __VECS(krb5_test_aes128_cts_hmac_sha256_128)
- 		}
- 	}, {
-@@ -5013,17 +5019,19 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.sig = __VECS(ecrdsa_tv_template)
- 		}
- 	}, {
- 		.alg = "essiv(authenc(hmac(sha256),cbc(aes)),sha256)",
-+		.generic_driver = "essiv(authenc(hmac-sha256-lib,cbc(aes-generic)),sha256-lib)",
- 		.test = alg_test_aead,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.aead = __VECS(essiv_hmac_sha256_aes_cbc_tv_temp)
- 		}
- 	}, {
- 		.alg = "essiv(cbc(aes),sha256)",
-+		.generic_driver = "essiv(cbc(aes-generic),sha256-lib)",
- 		.test = alg_test_skcipher,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.cipher = __VECS(essiv_aes_cbc_tv_template)
- 		}
-@@ -5119,17 +5127,19 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.hash = __VECS(hmac_sha1_tv_template)
- 		}
- 	}, {
- 		.alg = "hmac(sha224)",
-+		.generic_driver = "hmac-sha224-lib",
- 		.test = alg_test_hash,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.hash = __VECS(hmac_sha224_tv_template)
- 		}
- 	}, {
- 		.alg = "hmac(sha256)",
-+		.generic_driver = "hmac-sha256-lib",
- 		.test = alg_test_hash,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.hash = __VECS(hmac_sha256_tv_template)
- 		}
-@@ -5457,17 +5467,19 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.hash = __VECS(sha1_tv_template)
- 		}
- 	}, {
- 		.alg = "sha224",
-+		.generic_driver = "sha224-lib",
- 		.test = alg_test_hash,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.hash = __VECS(sha224_tv_template)
- 		}
- 	}, {
- 		.alg = "sha256",
-+		.generic_driver = "sha256-lib",
- 		.test = alg_test_hash,
- 		.fips_allowed = 1,
- 		.suite = {
- 			.hash = __VECS(sha256_tv_template)
- 		}
-diff --git a/drivers/crypto/img-hash.c b/drivers/crypto/img-hash.c
-index e050f5ff5efb6..f312eb075feca 100644
---- a/drivers/crypto/img-hash.c
-+++ b/drivers/crypto/img-hash.c
-@@ -708,16 +708,16 @@ static int img_hash_cra_sha1_init(struct crypto_tfm *tfm)
- 	return img_hash_cra_init(tfm, "sha1-generic");
- }
- 
- static int img_hash_cra_sha224_init(struct crypto_tfm *tfm)
- {
--	return img_hash_cra_init(tfm, "sha224-generic");
-+	return img_hash_cra_init(tfm, "sha224-lib");
- }
- 
- static int img_hash_cra_sha256_init(struct crypto_tfm *tfm)
- {
--	return img_hash_cra_init(tfm, "sha256-generic");
-+	return img_hash_cra_init(tfm, "sha256-lib");
- }
- 
- static void img_hash_cra_exit(struct crypto_tfm *tfm)
- {
- 	struct img_hash_ctx *tctx = crypto_tfm_ctx(tfm);
-diff --git a/drivers/crypto/starfive/jh7110-hash.c b/drivers/crypto/starfive/jh7110-hash.c
-index 4abbff07412ff..6cfe0238f615f 100644
---- a/drivers/crypto/starfive/jh7110-hash.c
-+++ b/drivers/crypto/starfive/jh7110-hash.c
-@@ -491,17 +491,17 @@ static int starfive_hash_setkey(struct crypto_ahash *hash,
- 	return starfive_hash_long_setkey(ctx, key, keylen, alg_name);
- }
- 
- static int starfive_sha224_init_tfm(struct crypto_ahash *hash)
- {
--	return starfive_hash_init_tfm(hash, "sha224-generic",
-+	return starfive_hash_init_tfm(hash, "sha224-lib",
- 				      STARFIVE_HASH_SHA224, 0);
- }
- 
- static int starfive_sha256_init_tfm(struct crypto_ahash *hash)
- {
--	return starfive_hash_init_tfm(hash, "sha256-generic",
-+	return starfive_hash_init_tfm(hash, "sha256-lib",
- 				      STARFIVE_HASH_SHA256, 0);
- }
- 
- static int starfive_sha384_init_tfm(struct crypto_ahash *hash)
- {
-@@ -521,17 +521,17 @@ static int starfive_sm3_init_tfm(struct crypto_ahash *hash)
- 				      STARFIVE_HASH_SM3, 0);
- }
- 
- static int starfive_hmac_sha224_init_tfm(struct crypto_ahash *hash)
- {
--	return starfive_hash_init_tfm(hash, "hmac(sha224-generic)",
-+	return starfive_hash_init_tfm(hash, "hmac-sha224-lib",
- 				      STARFIVE_HASH_SHA224, 1);
- }
- 
- static int starfive_hmac_sha256_init_tfm(struct crypto_ahash *hash)
- {
--	return starfive_hash_init_tfm(hash, "hmac(sha256-generic)",
-+	return starfive_hash_init_tfm(hash, "hmac-sha256-lib",
- 				      STARFIVE_HASH_SHA256, 1);
- }
- 
- static int starfive_hmac_sha384_init_tfm(struct crypto_ahash *hash)
- {
+ static void __sha256_final(struct __sha256_ctx *ctx,
+ 			   u8 *out, size_t digest_size)
 -- 
 2.50.0
 
