@@ -4,67 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572C6C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 03:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F69C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 03:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1p84M9OEblyTnUDp7nOVwe418QLUEnyQ8pLOmNmdsw=; b=oI847i5XRkZbw3Uls4WdYHU92l
-	QDW9SOIx/FfWMsMo4eLaY4rEUlHiq7EPewprChEwceHjZt3o45InrNT20u5iKXdCrCbtBpuizAB0i
-	5o+YqkRtFbrEoUAdWHBEFDUPS0idnPxQnfy61DaTv5sLky7gJUijCQ61/x1CvAzwUJhZjonl3PDPl
-	dFpUP8GVigeOo+j2JAUZPuIC9IeyrHBJo3n4JyrshYcv8EEOuZ4WQiwIWa7JbMf/rtdA+hJvF+v5j
-	bd3vwaIaMo39kPXwu565SJPV7E/CaHOeT4RW29mGa0Rcornu8PEhpsjPu6rKcEPkUTX4wDyyI9/TK
-	Ndboxe0A==;
+	bh=Srxi0TipO385XutJ9tfWuNzkqOFqEXaAfx+Q1zgbabY=; b=28viSHc+0nx1eC/vEh0vMCPqqi
+	Phn5HmOjzHgA+Q3E6WUQ/f3NmAkMQxtSfcgXhwvnO203dlihiW2cI492mzWb5sX7XNZ3M96qE1+Vc
+	2Ko0+SDhhOUQQAmrBmJfw5UVWingWJwqw5LR6oEl/Qu7P8MHo2np5GGoexXCO0ilunEAEbFB37QXe
+	y3WSc6p24lZEj6cbshpb8PWFgqjxI64nJqZBNmNlX34aNFg78c+zaMJ25tk0O0wcEBVJG5fqe1ztp
+	hllZ1bjgPqixUpPt316eCRRC31czNBYC/v0E3GW4dl5HlTTYF1FPOH64vGLb2B2/EVC0mOtHyI8r1
+	5yFy4c4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUGqL-00000007P5i-0Dlx;
-	Wed, 25 Jun 2025 03:30:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uUH0I-00000007Pfb-1ao8;
+	Wed, 25 Jun 2025 03:40:54 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUGmx-00000007OvP-2GE5
+	id 1uUGxu-00000007PRz-1Fk1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 03:27:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 89EEB5C025F;
-	Wed, 25 Jun 2025 03:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E88EC4CEE3;
-	Wed, 25 Jun 2025 03:27:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750822025;
-	bh=g8yJbDRU3cigldhY2jqAOJeXToTfsEDC/4DEmKLPWWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o2daXyu1mjcbU+WNa1Hiu8jmZ3UJdwfSQU96P8Zd2FSxQnnGPdN0LjmXFDnswdIb9
-	 S04xiCXepWjrXqkU4SlgUejuciGOrrFoAe6lKClL+DqaVUOvgtwuHmEDuiVITGc95U
-	 R4dUheblRKk172WbPW4bbuNXSABw7yWyf6Mqyo+MFHDK3npR0gPHmclnWxO3lYlg/m
-	 2ANBAWl4y+dCe/rbzM0xxwDt/NIikHQbdwaDtqOUadQGVWuHah+btzObG55/Wl1fp/
-	 jcIyp0wcD70eLgmlyiF9jHmV98kumRqBdzRrLEUtpamzvf/h9212ex4grqMwT7MBxh
-	 uR9Il1AAbY0Pw==
-Date: Tue, 24 Jun 2025 22:27:04 -0500
-From: Rob Herring <robh@kernel.org>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, jerome.forissier@linaro.org,
-	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v10 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <20250625032704.GA2501351-robh@kernel.org>
-References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
- <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+	Wed, 25 Jun 2025 03:38:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750822706; x=1782358706;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=buzBB0kmo2qqa40fXyYLdtejoRUC1bmmNlqQPCwb8Po=;
+  b=ChVnbI3FmvsJ2e+HV1yc1SDYL9BZVNMh2MhaHg/OA12hJjwtf2U8TLLr
+   Qu/z0lxg57ewgVRZufcKvTq6ouVZOuEklYTvkylyUsxZUe5LuBGvfHVhF
+   HAaCVEPMhPnsArWWniMrvzNe4mTFwbGIpYpORxZEZ1K2uzbFs2g4PlmqG
+   xZmWSm7SDWE5+O0x7Yglxrio92st/XP9T+WMz0Yww3MEBCOqBIfG39GJa
+   42uR1ToeK+FSMQh1heUmSi+lLBba85+rTrw1g5gwdYDfNMB5iG/ugiJZz
+   /Ll+1kuXoxptt5l0rMSNW6VO814gMVKLCAtPvZSDHuNwMDWwwxTCfSLHI
+   A==;
+X-CSE-ConnectionGUID: TzfHP8TjRhKGr3t9DOukRA==
+X-CSE-MsgGUID: HVUjx8akT0+qjjGFY6Ye5A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11474"; a="63768527"
+X-IronPort-AV: E=Sophos;i="6.16,263,1744095600"; 
+   d="scan'208";a="63768527"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 20:38:24 -0700
+X-CSE-ConnectionGUID: /DySXAkRTO+uI6ANcPwIIw==
+X-CSE-MsgGUID: c5EGQ8w6SGuO6UGtwOdsnA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,263,1744095600"; 
+   d="scan'208";a="156127361"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2025 20:38:23 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Tue, 24 Jun 2025 20:38:22 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Tue, 24 Jun 2025 20:38:22 -0700
+Received: from NAM04-DM6-obe.outbound.protection.outlook.com (40.107.102.68)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Tue, 24 Jun 2025 20:38:21 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K7nckiSwBn1K6MCe7r8tVBdWJ94bWCXqVWL+2WEO9SmqJRz5PA+DdeSQcxVmnh+8pCi2hLbUCOFmdjIWb/6B6b1vcNb2b4IaldUgiinkkmvZHZjhK/VESl4sOU4N2ssoZQucahVLjfKEr1LvzgxBPQ9/INvN2taqBLv5jDRLJI80oDz119OfZEh1h4SXGArj5B8IGBrdETtqTdmGU8gudZ0DCCKVOg89/K98zoXlcV38svTeIXRX881a3S0QVJiAi87cQ/B0rfaTJennVOVlP7ah7H3UC79EYEIMYnpCuIGlqLpBfzjdWx8t6HS+TF2sAqyKPNc22r85TqffiRJukQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Srxi0TipO385XutJ9tfWuNzkqOFqEXaAfx+Q1zgbabY=;
+ b=upz2EeXnJCHue9zYAhjhGg46GbDkMngZPVhnGnUAHTipCu5OcBLkSH6xR5DvS4QTYZ3wrOroUOEDaobExXx4Jghg/rF/onGa2issNyXxxLLId42MXYHmqRPWyXYKnTf72SmmE3GPMBl7kSYvrrWjXDtHwDiOncnFobW4hJSVEKgbG1c3y1pf6qmPEECYM0fYr29gW+0H3kYyB1XOLq/4+CC8z+ORI6R5HJQpnTWE4KBu1t4q8kCYBf5NEi/N9n8L40jQKn4TbjU+hacf9VLHJHyivMMorormXdK4vKcszE2373CamZZqMdf65GNm5XgcHgZzwdOObaN6YpIezfCF+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SJ1PR11MB6154.namprd11.prod.outlook.com (2603:10b6:a03:45f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Wed, 25 Jun
+ 2025 03:38:19 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8857.026; Wed, 25 Jun 2025
+ 03:38:19 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
+CC: "bagasdotme@gmail.com" <bagasdotme@gmail.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
+	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "jsnitsel@redhat.com"
+	<jsnitsel@redhat.com>, "nathan@kernel.org" <nathan@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "mshavit@google.com" <mshavit@google.com>,
+	"praan@google.com" <praan@google.com>, "zhangzekun11@huawei.com"
+	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
+Subject: RE: [PATCH v6 06/25] iommufd/access: Allow access->ops to be NULL for
+ internal use
+Thread-Topic: [PATCH v6 06/25] iommufd/access: Allow access->ops to be NULL
+ for internal use
+Thread-Index: AQHb3PwixsSBKEY500a4tk8lffzYrrQTSPmw
+Date: Wed, 25 Jun 2025 03:38:19 +0000
+Message-ID: <BN9PR11MB52766D0C0B12F1F10A6BE7548C7BA@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1749884998.git.nicolinc@nvidia.com>
+ <e6a989c4dd9cb94aa4a98d46ed56a2afcb41b70d.1749884998.git.nicolinc@nvidia.com>
+In-Reply-To: <e6a989c4dd9cb94aa4a98d46ed56a2afcb41b70d.1749884998.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SJ1PR11MB6154:EE_
+x-ms-office365-filtering-correlation-id: e56d750f-417a-4501-30e3-08ddb399ba56
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?bEDIcy4SJnCVM04j+pp58SQtpRxa8MF5Dqg0hq7ix1ROGbDnSdOUJTWAX6f7?=
+ =?us-ascii?Q?IcDHm5/dOpRESkwHZbKdMiaTnxbUWDE4cER5HIc5FYG4FnbtTG8gh06eAlAZ?=
+ =?us-ascii?Q?e8wcs3/bZgo9BpY2+klB8aWTyGIr3M4mesSG4JELhydiR4WYUUCB5v/i2H09?=
+ =?us-ascii?Q?IReBvHdSeyz2KY0CYp25LtIkK8QoV5X123ahfZOgpATZ3Pdd/VXP31HMTVaE?=
+ =?us-ascii?Q?HFR90NJP3lMmcSmGZZoqYNS1T7fYB0mBNDADmFOkXul5kuV1c8VIA5hglwfO?=
+ =?us-ascii?Q?fQ9Jsdia/R19DnlN8rtnr7WOel4aSwse8mRoA468oCN/del9cE+xBoSQEyv/?=
+ =?us-ascii?Q?XGGRxDZ569cvT2jNO439puMuQ8L3BeCVeE10dwpE/9g9eUgEmJ59i+Ierk16?=
+ =?us-ascii?Q?DrpGIQ92YO+PxzT4a1a2Fa30wj7umiPMlYLTf6v9OPEC4oJGHq3DIYTTixx8?=
+ =?us-ascii?Q?LOFKBfBTZNYbfWCHVadumUyZCm5Dt8PywTf6uj9LFYINvvvzsx1RU9p0N4XW?=
+ =?us-ascii?Q?0XIQb2HN3IEj0S8UkZrTismVd8PGcp3nxS1sDTsl0rVfnVOrfiEJK5MpHNCh?=
+ =?us-ascii?Q?gVaUUnCZbAt6dQWghhql8aDKoYYB8lbz9DKwYF1SIrycnsYPMjkn89jCLTGE?=
+ =?us-ascii?Q?wvQvMmcXw92SAXKwnck6X3gc3VXv48ePo0BsuhSq4Fe3ewnYIozc1QnC86UG?=
+ =?us-ascii?Q?eo3ZIypfy+px87cZfHsaBpapnMbdCIXMbGIIKdpHyZ4UwBHGe4xMdJXys4g/?=
+ =?us-ascii?Q?22HsUiu/Wwzlk20o+qvrCS8Dx4uRQhMEdv5ANQEglg8ZiOgFIBqb7ltKNBgy?=
+ =?us-ascii?Q?nxm7vXuB2nkb7cxNlfzPsBUVi/dsZ3T16twGr0YviczEdeCSq+GuJDCYWJ9G?=
+ =?us-ascii?Q?Qbt4REK2gz2CSH+R4N2+/ONU1Bazjzd/vx+16ArqkJIAcTiPI0iN5pDJ85Sp?=
+ =?us-ascii?Q?SxzFsBtN7GpsEgWAa73hFioYa0X4J1HTB7B+ygUBm9j1DgfWVMaCD/kZjUy0?=
+ =?us-ascii?Q?wxDb08AJqvpbW7z1yo7UPI+EKKVitkW2YgDsPk/YGGDpDcK2CLFEjxKD9oSt?=
+ =?us-ascii?Q?XUr8s1psAoDXv+pBwD00f6jEqJezq2br87ltt25HOUf5mAauSjBwICg1iQHc?=
+ =?us-ascii?Q?hntGnrctbsUx5+Gi/89k/6we1PXQ2wOUJoaZAk5NmeZzR4uujERzNyvQdfJV?=
+ =?us-ascii?Q?y+cUbqc8zZlFyRntn86d9OGqg6bXyVcK6hnTPuPjPl0BVkoiFiD0zUbGjLVy?=
+ =?us-ascii?Q?FkJeHMQ+YkA9f5RVbHZsc8BTLSeNdY/3jH95Jt+PvdjsF2xXWoWn9pbXu4ar?=
+ =?us-ascii?Q?1FCxZe+lMjawgLNZ4K1G3IHcfvS5twOt83y8jbq6VQ7YHWy9sQjhdizRYeK7?=
+ =?us-ascii?Q?7pB7ZDPRwJTl1XtTlq4oq2+F8xhElJWv35eMSuLKmuwgyOMOZ+uC/DeiIz3L?=
+ =?us-ascii?Q?mQ/Avu3mlZpqPkZZ545Mof4cUjoTLXjUfG5okS8pD4H28ND07pIc5wrlxB8K?=
+ =?us-ascii?Q?g1MzR1hHb7J5SYM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UhdHqQTsLEZtzs9dB6jTO9xr+NfNaMhkq5dWzjxZbqCUond4xR5XKEnhp4jl?=
+ =?us-ascii?Q?3+6a54frtvugQ9wH8uvYaQ13MQa098oOKEsfpi//Ob1YEaJeUNoFjQVy027D?=
+ =?us-ascii?Q?WSiMR3hv6mEImF3YVASa4Y+mBv2SwIQl4ppckSAj3V2iLYrLLkDgtHfKbycb?=
+ =?us-ascii?Q?9lEI7zicyzSwsgWncWxRN+Dr60pX2Z+2Mt//2o3v/4h/URgbMlTYB5AOn8U9?=
+ =?us-ascii?Q?h76RHwHa9GnifVk1WY1IjUglKUBy6yz+BfoIO/5UWLn9knMVGZQbgXIFMPq4?=
+ =?us-ascii?Q?1lUc0MExAStFnxgP0k5kvS6qradEM2bGeshjqPDwYGcPGuwIvg9xgqmX8W9h?=
+ =?us-ascii?Q?qfW5Ilo1UvIse91EqY5Ka87UOztN2TQn6IFg5blwiM1QukF+bIlZWkWre/tP?=
+ =?us-ascii?Q?SWLsvxQvrXUYbSZog2RUeqAFCUZ9aLe3bYQFCQVuYLpls1OSx1JnIfsMWjM7?=
+ =?us-ascii?Q?vPh/qoJWNrMU19REJ08uzIvZD+nB3b+kflmalIh3Hw62FLYdYCrVnTAzE+BX?=
+ =?us-ascii?Q?YPsKhd8+VrXMR6BB7obTfa61+zgiLXbZf6uSz4YfAc3WS6u4WxIyhjTFSQVL?=
+ =?us-ascii?Q?bLKX7sL4sETlRAXfdH4brbZrWGLKqN+xSOMb2UPAxo43YlCWB3k9Evv3LZ6p?=
+ =?us-ascii?Q?G6h5h+I9UZNt83r6hMeQ49+AmGdj8lZzR+aw2c3ntUFK6JjnvOm4mlzNE5Zx?=
+ =?us-ascii?Q?QOUPvcZg7w4JXXpKfdtuz6oENBWwmfV/T2rW1+YzOkPA8ry19srGPuueEkDF?=
+ =?us-ascii?Q?mAy6hVxSqeXGpS/1ACakG03cYX0Kzaw3LDGcZxXDlrgmxbxFNz9b9p65/XZ3?=
+ =?us-ascii?Q?CDM+g4nbFaRcyS2EcRDx6aDhnfoGy9kJ8RF9JkvkFREBmOywg6tcJTiM32y7?=
+ =?us-ascii?Q?4vvJvs8FLYhQRfsK1lDMPKruFVQXGLGlPRFinKQTOtkxtb0v1kOciPGJSbiY?=
+ =?us-ascii?Q?4fXhH9d0Qjl6Ih/yMMAl5vLnvc6uU9Id0CEe/GcLZJsK0/Cg3yl0yjxO+mbc?=
+ =?us-ascii?Q?NwutPhUGoBmW2E3Bi/Le8hgv6rGzRZWsyDEHfQd1HJLhRBQUIQ5/zwjBXdIg?=
+ =?us-ascii?Q?ABxeBGMWZmDkjD08y6sOj0LE9UiButMWoFgajIFcd5iCW2+KJclpfgih5rP0?=
+ =?us-ascii?Q?Wec9a6qg0orzPVacv0qfzZTJRYuB9Ar51JNQUa7LiO9ElXguPPqqxIG1g92t?=
+ =?us-ascii?Q?6H2Kz4tV0gukRRRwEkUbjPDwXGwzPgLpMgU25WdMl2rJwmKGLfxL0fP0ETwC?=
+ =?us-ascii?Q?IGFNPOltBnY4s8hoWV5H5GsEuH2W1QaWaSBgmJe7/oix5jywwiUZMZynQnFK?=
+ =?us-ascii?Q?qqcBcHyCGVk0P18g6AbbMYQuLEf2x+CMX6maeWe8oHxNy9gAV0YbF8qDdOtm?=
+ =?us-ascii?Q?sRuXiH+un/HgvaPt3juJL3dg9+E2b/M+7iC+DJL4dta336t4rU0qqOw+LeC5?=
+ =?us-ascii?Q?TBuR47Q77z9pB8NJ8CJTwOcalioRvVZb2IiTnxnf5jn3zMCEjqvTw57Vnn3W?=
+ =?us-ascii?Q?T1pYU9nBFjkE2dCu8qpxZs/2WynjM8g7a/zFScN032Bq2NPUosHepTxwRRUV?=
+ =?us-ascii?Q?tjGqfLTULYffo9k7nNX6SPqNqpfUw9NwRGFpFl/+?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250624-c55-v10-5-54f3d4196990@ideasonboard.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e56d750f-417a-4501-30e3-08ddb399ba56
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2025 03:38:19.3540
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: a1MeZyRl5rVtWjqK8H1R2rHB8pgb/pwG4NnBFtLIZHA+85OvfYmo45wiCtsFnuVgu4/D8L8lEidzt2UlS6UIaQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6154
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_202707_659603_A8A4A30C 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20250624_203826_360781_57072D7D 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,166 +216,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 24, 2025 at 11:21:18AM +0100, Daniel Scally wrote:
-> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> Changes in v10:
-> 
-> 	- None
-> 
-> Changes in v9:
-> 
-> 	- Added the arm,inline_mode property to differentiate between inline and
-> 	  memory input configurations
-> 
-> Changes in v8:
-> 
-> 	- Added the video clock back in. Now that we have actual hardware it's
-> 	  clear that it's necessary.
-> 	- Added reset lines
-> 	- Dropped R-bs
-> 
-> Changes in v7:
-> 
-> 	- None
-> 
-> Changes in v6:
-> 
-> 	- None
-> 
-> Changes in v5:
-> 
-> 	- None
-> 
-> Changes in v4:
-> 
-> 	- Switched to port instead of ports
-> 
-> Changes in v3:
-> 
-> 	- Dropped the video clock as suggested by Laurent. I didn't retain it
-> 	for the purposes of the refcount since this driver will call .s_stream()
-> 	for the sensor driver which will refcount the clock anyway.
-> 	- Clarified that the port is a parallel input port rather (Sakari)
-> 
-> Changes in v2:
-> 
-> 	- Added clocks information
-> 	- Fixed the warnings raised by Rob
-> ---
->  .../devicetree/bindings/media/arm,mali-c55.yaml    | 89 ++++++++++++++++++++++
->  1 file changed, 89 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..539fa8163bd07cf8a80c361012400cbcc7d073eb
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali-C55 Image Signal Processor
-> +
-> +maintainers:
-> +  - Daniel Scally <dan.scally@ideasonboard.com>
-> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,mali-c55
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: ISP Video Clock
-> +      - description: ISP AXI clock
-> +      - description: ISP AHB-lite clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vclk
-> +      - const: aclk
-> +      - const: hclk
-> +
-> +  resets:
-> +    items:
-> +      - description: vclk domain reset
-> +      - description: aclk domain reset
-> +      - description: hclk domain reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: vresetn
-> +      - const: aresetn
-> +      - const: hresetn
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Input parallel video bus
-> +
-> +    properties:
-> +      endpoint:
-> +        $ref: /schemas/graph.yaml#/properties/endpoint
-> +
-> +  arm,inline_mode:
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, June 14, 2025 3:15 PM
+>=20
+> +int iommufd_access_notify_unmap(struct io_pagetable *iopt, unsigned long
+> iova,
+> +				unsigned long length)
+>  {
+>  	struct iommufd_ioas *ioas =3D
+>  		container_of(iopt, struct iommufd_ioas, iopt);
+>  	struct iommufd_access *access;
+>  	unsigned long index;
+> +	int ret =3D 0;
+>=20
+>  	xa_lock(&ioas->iopt.access_list);
+>  	xa_for_each(&ioas->iopt.access_list, index, access) {
+> +		if (!access->ops || !access->ops->unmap) {
+> +			ret =3D -EBUSY;
+> +			goto unlock;
+> +		}
 
-arm,inline-mode
+then accesses before this one have been notified to unpin the area
+while accesses afterwards are left unnotified.
 
-> +    description:
-> +      The ISP can be either electrically connected to sensor and CSI-2 receiver
-> +      or driven through a DMA input device. This property declares the ISP as
-> +      being electrically connected to the source of image data.
-> +    type: boolean
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - port
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    mali_c55: isp@400000 {
+in the end the unmap fails but with some side-effect incurred.
 
-Drop unused labels.
+I'm not sure whether this intermediate state may lead to any undesired
+effect later. Just raise it in case you or Jason already thought about it.
 
-> +      compatible = "arm,mali-c55";
-> +      reg = <0x400000 0x200000>;
-> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
-> +      clock-names = "vclk", "aclk", "hclk";
-> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
-> +      reset-names = "vresetn", "aresetn", "hresetn";
-> +      interrupts = <0>;
-> +
-> +      port {
-> +        isp_in: endpoint {
-> +            remote-endpoint = <&csi2_rx_out>;
-> +        };
-> +      };
-> +    };
-> +...
-> 
-> -- 
-> 2.34.1
-> 
+
+>  			/* Something is not responding to unmap requests.
+> */
+>  			tries++;
+> -			if (WARN_ON(tries > 100))
+> -				return -EDEADLOCK;
+> +			if (WARN_ON(tries > 100)) {
+> +				rc =3D -EDEADLOCK;
+> +				goto out_unmapped;
+> +			}
+
+this looks an unrelated fix?
 
