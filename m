@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C30C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598A5C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 12:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ojmhJAy4kOZ99ywAmMVFOdSAyDd/xKvGbLo9PtJ+AI0=; b=PgpvdjC+oFaz9ho1dk9Wf46M7Z
-	f2uBtcg/Ff5Gz0olSh4vM/h6e0PeH/+YWb8HsQfkLKCilsHxMw+W+zyuRJxvQ1LumXf7gNXpOsAi4
-	k+KYpO2CgyFX3noDWDN4eYEdfmsQeR5Gku/AC/GGbjfZ6qIO4AXHARMc1F4PNiEYgwj1wP6inZcr9
-	y04AModMxsydqOhL1uKfrucpVAEIWvgOueKLdN3Kc1h5GmP/Lhuu5oHoKb7EE6PK5RJOTkL0pEM1f
-	ms1oaIM8JHOTOsnb6NXALcxq/DeXPj3QPWhh//9n/wUYO16IIC6NMxm3UcIfvgHxxQbvbiKkcSe57
-	eKTV4PrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FkI6wheyoM7qp04MAt7wghDDstcSeE9ta3Zpr2NHOjw=; b=Gwb2sa+eFmdwoVeRV4UQRsHd61
+	WulPwDcRp/afly8Yb19RrQCMkXQBwjywXXoO8h2orpKIRborHPYb4llO35uaH4jcxRxmwZVe3cyeN
+	oel+23RAszlOglg45hHuszFEWCVMMymVzbGyqHf2Ef3hXwj1HgsiRALkLwuz8ExAy7TGeaYuRyzBd
+	pA/3RzaD+kpONvWIp7uWbTb/hYNswcJagMrIhFmiMUBxTHxFwuM5rGC4ujGBn0/GH5toyIaOhx9O5
+	OsVRQF1IWSFnGyND4m1P4ZpeBf8P/xTY2Awp+FQPwPxveh5rv0+tNuC6IOH/g9kGgrXvX2ilIb6Ff
+	+lQLy85g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPXw-00000008fo9-2wbf;
-	Wed, 25 Jun 2025 12:48:12 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uUPaC-00000008g4B-1ZfX;
+	Wed, 25 Jun 2025 12:50:32 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMeS-00000008AAv-01xi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 09:42:45 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55P9Km6S003331;
-	Wed, 25 Jun 2025 11:42:39 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	ojmhJAy4kOZ99ywAmMVFOdSAyDd/xKvGbLo9PtJ+AI0=; b=MUtoyXLVTty64s82
-	6Z802vYSt/VhKKhT0dyRmpdc7G+/x6ELrqzQoMclRL+iHHJrrFAhBroDqyMGbgW4
-	jGJrFYMD2CdUgbNFoCvWtEjf2Tct9/pvRDm58GGdrYizYn7TdyqpDyJ9n6PSN9xx
-	3S2JerluaMB2arnVk29q4TSyYKsgtkhDT+6lxw0hnfd9GwQ8Oc2av11HkzfH8qCn
-	L76sjPKVRM1p5Uq4iIFKwStOpnuhtn89ktUTuIbAColKeNPaT4WDl9zr3lQnOYr4
-	S+ZAU4XW8laizrar6NbpEqBJqkbA9AtZbTAuXzB7Ns1lYpZymiTiYREph/Xr0nrk
-	N5Mgdw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dkmjrswd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Jun 2025 11:42:38 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CEA814004B;
-	Wed, 25 Jun 2025 11:41:30 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B07294838C9;
-	Wed, 25 Jun 2025 11:40:43 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
- 2025 11:40:43 +0200
-Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 25 Jun
- 2025 11:40:43 +0200
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>,
-        "Rob Herring" <robh+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor Dooley" <conor+dt@kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
-        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v19 3/6] remoteproc: Introduce optional release_fw operation
-Date: Wed, 25 Jun 2025 11:40:25 +0200
-Message-ID: <20250625094028.758016-4-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
-References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+	id 1uUMhJ-00000008Apl-3Id0;
+	Wed, 25 Jun 2025 09:45:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750844739;
+	bh=WGq9BnLFRlvgaj6JRyQGZWMVZ81/AYyKEllbs2pFfUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GBU4AKGca8KnCekeyVnEecyJmPoVJ7wlpqhQnR8iWTyHHoOmXtft89FJs/f+zClQV
+	 hbB+VfZY7un9VwtAeD07AeKh1UjGVKVG0FXBySpj02ixuj48s0NNREvPRmj0d9EPD7
+	 hSIJOAuxT7B8J5+oGL74kB+VAGj6Ot/Aizw8daZNKJV66x8egWZH/vgxHYgxIcSZaa
+	 WmI79YohY/fz4whCsSj0MdwFqEGHo978IvhMhR13I0Nov+bqXurBJuTpdWIgcPj42X
+	 3v82NQL/5x4kqHRLDpAuyf0qYvJ43Ib9grHcg+NmAWGMum2+fmyXCcLkwX19utj+VX
+	 As/O7jLCKPSbg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9EBB17E0CE3;
+	Wed, 25 Jun 2025 11:45:38 +0200 (CEST)
+Message-ID: <9fc32523-5009-4f48-8d82-6c3fd285801d@collabora.com>
+Date: Wed, 25 Jun 2025 11:45:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.121]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-25_02,2025-06-23_07,2025-03-28_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
+ peripheral clock controllers
+To: Krzysztof Kozlowski <krzk@kernel.org>, Laura Nao
+ <laura.nao@collabora.com>, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ kernel@collabora.com
+References: <20250624143220.244549-1-laura.nao@collabora.com>
+ <20250624143220.244549-10-laura.nao@collabora.com>
+ <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
+ <284a4ee5-806b-45f9-8d57-d02ec291e389@collabora.com>
+ <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_024244_319433_BEAC3526 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250625_024541_998127_C156D67F 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,108 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The release_fw operation allows releasing remote processor resources
-configured during rproc_parse_fw() and rproc_load_segments().
-For example, it can release carveouts mapped during these operations.
+Il 25/06/25 10:57, Krzysztof Kozlowski ha scritto:
+> On 25/06/2025 10:20, AngeloGioacchino Del Regno wrote:
+>> Il 24/06/25 18:02, Krzysztof Kozlowski ha scritto:
+>>> On 24/06/2025 16:32, Laura Nao wrote:
+>>>> +  '#reset-cells':
+>>>> +    const: 1
+>>>> +    description:
+>>>> +      Reset lines for PEXTP0/1 and UFS blocks.
+>>>> +
+>>>> +  mediatek,hardware-voter:
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>>> +    description:
+>>>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
+>>>> +      MCU manages clock and power domain control across the AP and other
+>>>> +      remote processors. By aggregating their votes, it ensures clocks are
+>>>> +      safely enabled/disabled and power domains are active before register
+>>>> +      access.
+>>>
+>>> Resource voting is not via any phandle, but either interconnects or
+>>> required opps for power domain.
+>>
+>> Sorry, I'm not sure who is actually misunderstanding what, here... let me try to
+>> explain the situation:
+>>
+>> This is effectively used as a syscon - as in, the clock controllers need to perform
+>> MMIO R/W on both the clock controller itself *and* has to place a vote to the clock
+>> controller specific HWV register.
+> 
+> syscon is not the interface to place a vote for clocks. "clocks"
+> property is.
+> 
+>>
+>> This is done for MUX-GATE and GATE clocks, other than for power domains.
+>>
+>> Note that the HWV system is inside of the power domains controller, and it's split
+>> on a per hardware macro-block basis (as per usual MediaTek hardware layout...).
+>>
+>> The HWV, therefore, does *not* vote for clock *rates* (so, modeling OPPs would be
+>> a software quirk, I think?), does *not* manage bandwidth (and interconnect is for
+>> voting BW only?), and is just a "switch to flip".
+> 
+> That's still clocks. Gate is a clock.
+> 
+>>
+>> Is this happening because the description has to be improved and creating some
+>> misunderstanding, or is it because we are underestimating and/or ignoring something
+>> here?
+>>
+> 
+> Other vendors, at least qcom, represent it properly - clocks. Sometimes
+> they mix up and represent it as power domains, but that's because
+> downstream is a mess and because we actually (at upstream) don't really
+> know what is inside there - is it a clock or power domain.
+> 
 
-This operation is invoked in the following cases:
- - When an error occurs during remote processor boot.
- - When an error occurs during remote processor recovery start.
- - After stopping the remote processor.
+....but the hardware voter cannot be represented as a clock, because you use it
+for clocks *or* power domains (but at the same time, and of course in different
+drivers, and in different *intertwined* registers).
 
-This operation is required for the remoteproc_tee implementation following
-a stop or upon encountering an error. Since the remoteproc image is loaded
-during resource table parsing, multiple failure scenarios may occur prior
-to remote processor startup, including issues with resource handling and
-carveout allocation.
+So the hardware voter itself (and/or bits inside of its registers) cannot be
+represented as a clock :\
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+In the context of clocks, it's used for clocks, (and not touching power domains at
+all), but in the context of power domains it's used for power domains (and not
+touching clocks at all).
 
----
+I'm not sure what qcom does - your reply makes me think that they did it such that
+the clocks part is in a MMIO and the power domains part is in a different MMIO,
+without having clock/pd intertwined voting registers...
 
-Updates from version 18:
-- Rewrite rproc_ops::release_fw documentation
-- Improve commit message
+Still not sure what to do here, then...
 
-Updates from version 16:
-- Removed the rproc:load_fw() ops introduced in previous version.
-- Removed duplicate calls to rproc_release_fw in rproc_fw_boot and rproc_boot.
----
- drivers/remoteproc/remoteproc_core.c     | 6 ++++++
- drivers/remoteproc/remoteproc_internal.h | 6 ++++++
- include/linux/remoteproc.h               | 5 +++++
- 3 files changed, 17 insertions(+)
-
-diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-index d06eef1fa424..4c1a4bc9e7b7 100644
---- a/drivers/remoteproc/remoteproc_core.c
-+++ b/drivers/remoteproc/remoteproc_core.c
-@@ -1857,6 +1857,8 @@ static int rproc_boot_recovery(struct rproc *rproc)
- 
- 	/* boot the remote processor up again */
- 	ret = rproc_start(rproc, firmware_p);
-+	if (ret)
-+		rproc_release_fw(rproc);
- 
- 	release_firmware(firmware_p);
- 
-@@ -1998,6 +2000,8 @@ int rproc_boot(struct rproc *rproc)
- 		}
- 
- 		ret = rproc_fw_boot(rproc, firmware_p);
-+		if (ret)
-+			rproc_release_fw(rproc);
- 
- 		release_firmware(firmware_p);
- 	}
-@@ -2067,6 +2071,8 @@ int rproc_shutdown(struct rproc *rproc)
- 
- 	rproc_disable_iommu(rproc);
- 
-+	rproc_release_fw(rproc);
-+
- 	/* Free the copy of the resource table */
- 	kfree(rproc->cached_table);
- 	rproc->cached_table = NULL;
-diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/remoteproc_internal.h
-index 0cd09e67ac14..c7fb908f8652 100644
---- a/drivers/remoteproc/remoteproc_internal.h
-+++ b/drivers/remoteproc/remoteproc_internal.h
-@@ -221,4 +221,10 @@ bool rproc_u64_fit_in_size_t(u64 val)
- 	return (val <= (size_t) -1);
- }
- 
-+static inline void rproc_release_fw(struct rproc *rproc)
-+{
-+	if (rproc->ops->release_fw)
-+		rproc->ops->release_fw(rproc);
-+}
-+
- #endif /* REMOTEPROC_INTERNAL_H */
-diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
-index 8fd0d7f63c8e..a2bb51a113b1 100644
---- a/include/linux/remoteproc.h
-+++ b/include/linux/remoteproc.h
-@@ -381,6 +381,10 @@ enum rsc_handling_status {
-  * @panic:	optional callback to react to system panic, core will delay
-  *		panic at least the returned number of milliseconds
-  * @coredump:	  collect firmware dump after the subsystem is shutdown
-+ * @release_fw:	Optional function to release resources allocated during
-+ *		parse_fw() or load() operations. This function is called after
-+ *		stopping the remote processor or in case of an error during the
-+ *		boot or recovery sequence.
-  */
- struct rproc_ops {
- 	int (*prepare)(struct rproc *rproc);
-@@ -403,6 +407,7 @@ struct rproc_ops {
- 	u64 (*get_boot_addr)(struct rproc *rproc, const struct firmware *fw);
- 	unsigned long (*panic)(struct rproc *rproc);
- 	void (*coredump)(struct rproc *rproc);
-+	void (*release_fw)(struct rproc *rproc);
- };
- 
- /**
--- 
-2.25.1
-
+Cheers,
+Angelo
 
