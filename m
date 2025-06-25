@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58395C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABCDC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFeHlWXHJuKfzVUJIZ5CBHG1fXAsjK2QctEDw3uQ3F8=; b=4V4kr9hySpc8Ofs6nbg6bGs/Nj
-	9nPx7RQHQmoST76Rr1YXtYc8P/6wOUUUzkQ4mwhLgBmfqb8xdRtlGEfv7hN6mlUXoTlc+8/hlleV8
-	zuxrZ3x8jhJPpdtu6jAyZkHptpG6zbQ0xJlxOyKbHY+xZdb1KEkHM/YnBquaWn8NsCkOj2JUlC/oK
-	pJkeon3F+NcT5GxtMsfgB0CcCR+FwdEddfW7Qm+S5fQqo0eZQcnwvQWV03yaVtOFp+LkQKFlPUFmZ
-	VPK2q95DmPrsO5u/Be8tA2oyycE9BEioq2QN0W6RH+OyX5QJjFmw7qlEE666pplYZePj1yk5U2Qh4
-	8fa7OZjA==;
+	bh=jmk1ZYv8Vqnkp3j2taSYxgOhWaWsh5xUu3yydRBxIZ8=; b=a+HB4sjZIsESKeXIa6fKeTKg+f
+	7qQ8V5TdlThpQiBQGvIbESI6fsvZ+Bgk36tJtsLI3gxLkJJ6rhVAkh9Sug6HSDi1ZF3z0PCoas8ta
+	1OeBAec6I0ZkoE7eZFSKPkGHvqvL9i7U0g05ojPZceiqqKUB+SpRW/WweiZX3YW9RRCzRZxz1qVkr
+	VNWopoG6/skWesZEfK2KXkMp/idKIvZA4tIf22yM2mdnPYSt0zeHItl7OAM4lXWFKsDwrCpMVolcO
+	W7a/PK/wpZ/pzPsSCvZO+uKQpuFjgd+N1QxD0U8LBRstyexw//FErkw7+sTHKRgyGDwViQZEENSy3
+	MHxBA6Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMo1-00000008CgD-1aLe;
-	Wed, 25 Jun 2025 09:52:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUMp5-00000008D4Z-01yR;
+	Wed, 25 Jun 2025 09:53:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULwn-000000082qf-2b1z;
-	Wed, 25 Jun 2025 08:57:37 +0000
+	id 1uUKHF-00000007lPp-11CW;
+	Wed, 25 Jun 2025 07:10:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=jmk1ZYv8Vqnkp3j2taSYxgOhWaWsh5xUu3yydRBxIZ8=; b=g0Y1OunpDTunZHd8OWZQ+qNerW
+	swQJsFe6Fsn1u+0X2e+kE9dFTKH5Gv/QTdeCAHHw7KNzqjgwSTUJx0i2uQrD/K0yu/KBnM4O8NKbW
+	V/wRjDmztSkXqepluktC79SDWcLvpI4/9feIz70Qnvfetty0O9x7ZFm5ctRjQqQ/Dg4ZWgMXQVB98
+	EhofZXCfnQK+FBQd3IqokQwPJtJ0OV4Z6WNxhtyTHtBqJ3PrU5C+JrMuP32Np7H3O5UAH4caNxR7x
+	tX9o4E4xvCq/jF9cyGjtZlDkP5wg3PMnJL8nsH//pnLHC4ZMCmBRm+AHWqVAzBIqc2GXI0S4mRlVU
+	MnNBSwnA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUKHB-00000005ddH-0SzM;
+	Wed, 25 Jun 2025 07:10:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C187E61126;
-	Wed, 25 Jun 2025 08:57:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C0FFC4CEEA;
-	Wed, 25 Jun 2025 08:57:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DDE755C64E2;
+	Wed, 25 Jun 2025 07:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB70C4CEF7;
+	Wed, 25 Jun 2025 07:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750841856;
-	bh=0QgB6O4O/sYU4iRucJ8iotwxezNS2MkmRTc3/U3q/9w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DW1bIPn8+wO1CO4ERNB9TZT6bfg+jmleh0swnm693vd3NvFbpG/OZSMRc56gGicV5
-	 ZtF7p9vu8eh+rQYXLenH3rs2RhhmlE9o0vVCOz+uayDuNHhm5pY7OMLtBen1qooAdO
-	 swoHx7Fsv/3l93q4QM3UpIHr5oMR8YjS2SZiaOWfWBz+5DGG14NuG0sKv85YiG7/ij
-	 vGVG+davd9Q+wMxOEA5GnRmH3+7VbFNZxjoH7cJD02Och3vEOKe9Mb26Kz9twdi5FF
-	 SbbQBlLN9MJ8GnBrTroEgtrrLQsM8HbBaIDLDQM3JE8sWH4tYrjmraF36T9AnpVF+L
-	 bps/xM9fsAw2w==
-Message-ID: <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
-Date: Wed, 25 Jun 2025 10:57:30 +0200
+	s=k20201202; t=1750835429;
+	bh=wPEV3rkHpzYVStrK7S+qOEmN99dY6Jna9uLe/dZKuSY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bHR0hOQpGCME4HCeGmCX904RXEPw/TVTjCShb++7vtpvuct9mHCrY3zmjEN3EOY1V
+	 oc+LTrVLqyi0cKlotcCmSMOB8FKkw8Dd3Fy/b+uePu/qdN6BNQBAULp46mdxxZtTj3
+	 mdwTUDBLqYDpifbNeaaeQ5Y0kDbuqjpG5o21k3CGocmTX9Rt78RohLYMG8qkf7vOYp
+	 zusgIsPmXgmfMQwmrJPjaMjLTcMADjv8xcxlZYNroQzTFFD97pk5zBP3xV6LX1woWw
+	 Qh1iNmOM11c5oKDqBHtp99vPiRBuJPm7QlmTpXX//ENMsdxfQKSS7wycNxJQTFVEuC
+	 E+nYupYb1ivkQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 04/18] lib/crypto: sha512: Reorder some code in sha512.c
+Date: Wed, 25 Jun 2025 00:08:05 -0700
+Message-ID: <20250625070819.1496119-5-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
+References: <20250625070819.1496119-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
- peripheral clock controllers
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250624143220.244549-1-laura.nao@collabora.com>
- <20250624143220.244549-10-laura.nao@collabora.com>
- <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
- <284a4ee5-806b-45f9-8d57-d02ec291e389@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <284a4ee5-806b-45f9-8d57-d02ec291e389@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_081033_455410_FE459517 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,60 +93,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 10:20, AngeloGioacchino Del Regno wrote:
-> Il 24/06/25 18:02, Krzysztof Kozlowski ha scritto:
->> On 24/06/2025 16:32, Laura Nao wrote:
->>> +  '#reset-cells':
->>> +    const: 1
->>> +    description:
->>> +      Reset lines for PEXTP0/1 and UFS blocks.
->>> +
->>> +  mediatek,hardware-voter:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description:
->>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
->>> +      MCU manages clock and power domain control across the AP and other
->>> +      remote processors. By aggregating their votes, it ensures clocks are
->>> +      safely enabled/disabled and power domains are active before register
->>> +      access.
->>
->> Resource voting is not via any phandle, but either interconnects or
->> required opps for power domain.
-> 
-> Sorry, I'm not sure who is actually misunderstanding what, here... let me try to
-> explain the situation:
-> 
-> This is effectively used as a syscon - as in, the clock controllers need to perform
-> MMIO R/W on both the clock controller itself *and* has to place a vote to the clock
-> controller specific HWV register.
+Put the IVs before the round constants, since the IVs are used first.
 
-syscon is not the interface to place a vote for clocks. "clocks"
-property is.
+Put __sha512_final() just above sha384_final() and sha512_final(), which
+are the functions that call it.
 
-> 
-> This is done for MUX-GATE and GATE clocks, other than for power domains.
-> 
-> Note that the HWV system is inside of the power domains controller, and it's split
-> on a per hardware macro-block basis (as per usual MediaTek hardware layout...).
-> 
-> The HWV, therefore, does *not* vote for clock *rates* (so, modeling OPPs would be
-> a software quirk, I think?), does *not* manage bandwidth (and interconnect is for
-> voting BW only?), and is just a "switch to flip".
+No code changes other than reordering.
 
-That's still clocks. Gate is a clock.
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ lib/crypto/sha512.c | 72 ++++++++++++++++++++++-----------------------
+ 1 file changed, 36 insertions(+), 36 deletions(-)
 
-> 
-> Is this happening because the description has to be improved and creating some
-> misunderstanding, or is it because we are underestimating and/or ignoring something
-> here?
-> 
+diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
+index e650e2c3317b1..fe9d98b9b7db9 100644
+--- a/lib/crypto/sha512.c
++++ b/lib/crypto/sha512.c
+@@ -14,10 +14,24 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/overflow.h>
+ #include <linux/wordpart.h>
+ 
++static const struct sha512_block_state sha384_iv = {
++	.h = {
++		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
++		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
++	},
++};
++
++static const struct sha512_block_state sha512_iv = {
++	.h = {
++		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
++		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
++	},
++};
++
+ static const u64 sha512_K[80] = {
+ 	0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL,
+ 	0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
+ 	0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL,
+ 	0x12835b0145706fbeULL, 0x243185be4ee4b28cULL, 0x550c7dc3d5ffb4e2ULL,
+@@ -44,24 +58,10 @@ static const u64 sha512_K[80] = {
+ 	0x28db77f523047d84ULL, 0x32caab7b40c72493ULL, 0x3c9ebe0a15c9bebcULL,
+ 	0x431d67c49c100d4cULL, 0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
+ 	0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL,
+ };
+ 
+-static const struct sha512_block_state sha384_iv = {
+-	.h = {
+-		SHA384_H0, SHA384_H1, SHA384_H2, SHA384_H3,
+-		SHA384_H4, SHA384_H5, SHA384_H6, SHA384_H7,
+-	},
+-};
+-
+-static const struct sha512_block_state sha512_iv = {
+-	.h = {
+-		SHA512_H0, SHA512_H1, SHA512_H2, SHA512_H3,
+-		SHA512_H4, SHA512_H5, SHA512_H6, SHA512_H7,
+-	},
+-};
+-
+ #define Ch(x, y, z) ((z) ^ ((x) & ((y) ^ (z))))
+ #define Maj(x, y, z) (((x) & (y)) | ((z) & ((x) | (y))))
+ #define e0(x) (ror64((x), 28) ^ ror64((x), 34) ^ ror64((x), 39))
+ #define e1(x) (ror64((x), 14) ^ ror64((x), 18) ^ ror64((x), 41))
+ #define s0(x) (ror64((x), 1) ^ ror64((x), 8) ^ ((x) >> 7))
+@@ -134,32 +134,10 @@ sha512_blocks_generic(struct sha512_block_state *state,
+ #include "sha512.h" /* $(SRCARCH)/sha512.h */
+ #else
+ #define sha512_blocks sha512_blocks_generic
+ #endif
+ 
+-static void __sha512_final(struct __sha512_ctx *ctx,
+-			   u8 *out, size_t digest_size)
+-{
+-	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
+-	u64 bitcount_lo = ctx->bytecount_lo << 3;
+-	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
+-
+-	ctx->buf[partial++] = 0x80;
+-	if (partial > SHA512_BLOCK_SIZE - 16) {
+-		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
+-		sha512_blocks(&ctx->state, ctx->buf, 1);
+-		partial = 0;
+-	}
+-	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
+-	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
+-	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
+-	sha512_blocks(&ctx->state, ctx->buf, 1);
+-
+-	for (size_t i = 0; i < digest_size; i += 8)
+-		put_unaligned_be64(ctx->state.h[i / 8], out + i);
+-}
+-
+ static void __sha512_init(struct __sha512_ctx *ctx,
+ 			  const struct sha512_block_state *iv,
+ 			  u64 initial_bytecount)
+ {
+ 	ctx->state = *iv;
+@@ -211,10 +189,32 @@ void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len)
+ 	if (len)
+ 		memcpy(&ctx->buf[partial], data, len);
+ }
+ EXPORT_SYMBOL_GPL(__sha512_update);
+ 
++static void __sha512_final(struct __sha512_ctx *ctx,
++			   u8 *out, size_t digest_size)
++{
++	u64 bitcount_hi = (ctx->bytecount_hi << 3) | (ctx->bytecount_lo >> 61);
++	u64 bitcount_lo = ctx->bytecount_lo << 3;
++	size_t partial = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
++
++	ctx->buf[partial++] = 0x80;
++	if (partial > SHA512_BLOCK_SIZE - 16) {
++		memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - partial);
++		sha512_blocks(&ctx->state, ctx->buf, 1);
++		partial = 0;
++	}
++	memset(&ctx->buf[partial], 0, SHA512_BLOCK_SIZE - 16 - partial);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 16] = cpu_to_be64(bitcount_hi);
++	*(__be64 *)&ctx->buf[SHA512_BLOCK_SIZE - 8] = cpu_to_be64(bitcount_lo);
++	sha512_blocks(&ctx->state, ctx->buf, 1);
++
++	for (size_t i = 0; i < digest_size; i += 8)
++		put_unaligned_be64(ctx->state.h[i / 8], out + i);
++}
++
+ void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE])
+ {
+ 	__sha512_final(&ctx->ctx, out, SHA384_DIGEST_SIZE);
+ 	memzero_explicit(ctx, sizeof(*ctx));
+ }
+-- 
+2.50.0
 
-Other vendors, at least qcom, represent it properly - clocks. Sometimes
-they mix up and represent it as power domains, but that's because
-downstream is a mess and because we actually (at upstream) don't really
-know what is inside there - is it a clock or power domain.
-
-
-Best regards,
-Krzysztof
 
