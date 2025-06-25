@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC016C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 02:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552BCC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 02:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZyDp82KCRlSHuCEPLpsxX1AlbNKLH6w0nwFm++2Pqzg=; b=zSKpSI1CLpqij1fz3584I8ephI
-	aqoD0QWsbHb5PIdtlkznRr+/uArdb3PwJ9mPtxL39N68dQA2/2tbKyv+Q1dOI6RuPNjLtYDoD4N/l
-	H1JMMmLfEgE2tB+XIT2RzdDysr1jh9Uv1lknWApbM5r0OaCKhbSxfkDBjBgD+dSngkgM+tQxXBIQz
-	DMVemyJhTp/mssPtMdgLQw6M2LPrmecWp8VJf7hiw0HhY2p12rJyitI+DIRJy6odhU5sdvGlCNwLy
-	dO+GbF+OJ5/XQYkGVWuTsSFIBuNP+t2v271XXZCfR87Btcztv1wC4rhPKQ6yF9jTDi+h2znazHww6
-	ntUtu+Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=uDMB1Z9AjVBe8c2zXxGE4Co7kt+hAiHK3QF5M3qdFBQ=; b=b+Gw5THMtloGsHgzXBrBTOSXl8
+	vXjBsXi1/ZZs+11V5Pk3gthEflyBXE1p3d2F9y9yPpp+YaJtHpUkRfMkZticTd8Uhz5EFKVT4vErr
+	VORR7QDy2zE5K8HTGbvtG7xv0P7HmQk7WL6nSCUx77aG6U9N7HJBCQKincDVP6uQOs0vC0mTUUpzc
+	3gMvFSwoN4JAjMGX9GQOaJo6oMWI+WiIraVaPMEaYwnZ7XGKBa1cE2TzyKP/XPuO64lDwztk03vLq
+	BJXCvRyvxG6tt3BuSrw40X2iK+yjqnIgjxOkAK+hW6rYMthUYEX9pQH8wKHCTyPmZ+esKkfmCerv+
+	l5dysOzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUcJD-0000000ARqb-2J2B;
-	Thu, 26 Jun 2025 02:25:51 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uUcWR-0000000ASvu-3MlE;
+	Thu, 26 Jun 2025 02:39:31 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUcGv-0000000ARiU-1ic5;
-	Thu, 26 Jun 2025 02:23:30 +0000
-X-UUID: 878d167a523411f09eb0dd999d3936bf-20250625
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=ZyDp82KCRlSHuCEPLpsxX1AlbNKLH6w0nwFm++2Pqzg=;
-	b=ldvoke6y4aLhExvCAcLJZTVNh5E9UVdOKUhdxXdz2QGvZvXDfl2nh0klGLHObobnCjChtzGknDw0vmMWSnpp3Re2kdfnJYHAO3yxtVvc1GFqsvlAdCgSYLJ8Ni05Bv/c/KwYCoHBcWuwC9O9HwQ3/b7fzFHdD84LD3wwCjlnQ+U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:021440de-e106-4653-9068-9ed25d863c77,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:beee3582-cc21-4267-87cf-e75829fa6365,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 878d167a523411f09eb0dd999d3936bf-20250625
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 57364837; Wed, 25 Jun 2025 19:23:21 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 26 Jun 2025 10:23:18 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Thu, 26 Jun 2025 10:23:18 +0800
-Message-ID: <78d351cf981255e48cdf7f5da79ba1eb54dcb42e.camel@mediatek.com>
-Subject: Re: [SPAM]Re: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
- Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
- Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Date: Thu, 26 Jun 2025 10:23:18 +0800
-In-Reply-To: <20250606082834.GM30486@noisy.programming.kicks-ass.net>
-References: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
-	 <20250605100009.GO39944@noisy.programming.kicks-ass.net>
-	 <8e1018116ad7c5c325eced2cb17b65c73ca2ceca.camel@mediatek.com>
-	 <20250606082834.GM30486@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uUcU6-0000000ASGb-1bM2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 02:37:09 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250626023658epoutp04514d4ded9f58ecedda301c21c046f272~MdzN_vvm12446924469epoutp04s
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 02:36:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250626023658epoutp04514d4ded9f58ecedda301c21c046f272~MdzN_vvm12446924469epoutp04s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1750905418;
+	bh=uDMB1Z9AjVBe8c2zXxGE4Co7kt+hAiHK3QF5M3qdFBQ=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=LFbSOWBdPiv/5Afw4wRBYQ5xMdOgj7HY4Kd2lrrBUIQLvbHXm8DgL8SUU19H7OvDv
+	 S4Z+ZWdfxahT7zGXF8uhFrdphvPuEmYY5mtkKCOuCG07z16Y4WpWAv4hv/mGY+QXFI
+	 i9YcQhaqMfrzMbDHU/uOvsAcZki2a8dwoIXL9NRY=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250626023657epcas5p4a4a1cf57a1aa0c4c264120eec35ec18a~MdzNWH9ju2563825638epcas5p4e;
+	Thu, 26 Jun 2025 02:36:57 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.183]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4bSN9z4Sl6z6B9mC; Thu, 26 Jun
+	2025 02:36:55 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250625165241epcas5p471ca039a776513c4da7ee2a0955de5c2~MV1EnqnFE0913509135epcas5p4d;
+	Wed, 25 Jun 2025 16:52:41 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250625165238epsmtip2a96f05e6c212ccb6164b2e3fc64e727e~MV1B4OmR01741117411epsmtip2L;
+	Wed, 25 Jun 2025 16:52:38 +0000 (GMT)
+From: Shradha Todi <shradha.t@samsung.com>
+To: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-fsd@tesla.com
+Cc: manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com,
+	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
+	m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com,
+	Shradha Todi <shradha.t@samsung.com>
+Subject: [PATCH v2 00/10] Add PCIe support for Tesla FSD SoC
+Date: Wed, 25 Jun 2025 22:22:19 +0530
+Message-ID: <20250625165229.3458-1-shradha.t@samsung.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250625165241epcas5p471ca039a776513c4da7ee2a0955de5c2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250625165241epcas5p471ca039a776513c4da7ee2a0955de5c2
+References: <CGME20250625165241epcas5p471ca039a776513c4da7ee2a0955de5c2@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_192329_456754_BB14A21E 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250625_193707_054442_716D0046 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,62 +96,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-06-06 at 10:28 +0200, Peter Zijlstra wrote:
->=20
-> External email : Please do not click links or open attachments until
-> you have verified the sender or the content.
->=20
->=20
-> On Fri, Jun 06, 2025 at 11:46:57AM +0800, Kuyo Chang wrote:
->=20
-> > Thank you for your patch.
-> > I believe this patch also effectively addresses this race
-> > condition.
-> > I will queue it in our test pool for testing.
->=20
-> Thank you; I shall await the results!
->=20
->=20
-Gentle ping if forgotten.
+FSD platform has three instances of DesignWare based PCIe IP,
+one is in FSYS0 block and other two in FSYS1 block.
+This patch series add required DT binding, DT file modifications,
+Controller driver support and PHY driver support for the same.
 
-It works well during both regular and hotplug tests(more than two
-week).
+To keep single PCIe controller driver for all Samsung
+manufactured SoC, we have made changes to Exynos file to extend
+support for FSD platform and other Samsung manufactured SoCs which
+shall be upstreamed soon.
 
-May I know if this patch can be merged into the mainline?
+First a version was posted as a separate driver file:
+https://lore.kernel.org/lkml/20221121105210.68596-1-shradha.t@samsung.com/
+This was rejected and request was made to add the support in exynos file
+itself.
 
-Thanks!
+Then another patchset was posted to refactor existing exynos file:
+https://lore.kernel.org/lkml/649a8d88-0504-5aa9-d167-d25d394f3f26@linaro.org/T/
+This requested some major changes
 
-> > > @@ -101,12 +98,12 @@ static bool cpu_stop_queue_work(unsigned int
-> > > cpu, struct cpu_stop_work *work)
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_lock_irqsave(&sto=
-pper->lock, flags);
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enabled =3D stopper->enabl=
-ed;
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (enabled)
-> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 __cpu_stop_queue_work(stopper, work, &wakeq);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 __cpu_stop_queue_work(stopper, work);
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else if (work->done)
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 cpu_stop_signal_done(work->done);
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_unlock_irqrestore=
-(&stopper->lock, flags);
-> > >=20
-> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wake_up_q(&wakeq);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wake_up_process(stopper->thread=
-);
-> >=20
-> > BTW, should we add enabled check here?
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (enabled)
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 wake_up_process(stopper->thread);
->=20
-> Ah yes. Spuriously waking the stopper thread is harmless, but
-> wasteful.
->=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 preempt_enable();
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return enabled;
+Taking both these reviews into consideration, I have posted a fresh
+patchset where both changes to exynos framework and addition of new FSD
+support is present.
+
+v2:
+ - Reordered patches for removing unused MACROs and renaming them
+ - Fixed all incomplete DT bindings
+ - Modified PHY driver code to adopt better design
+ - Removed patch to add alignment data in PCI endpoint test driver
+ - Added dts changes in the patchset itself
+
+v1: https://lore.kernel.org/lkml/20250518193152.63476-1-shradha.t@samsung.com/ 
+
+Shradha Todi (10):
+  PCI: exynos: Remove unused MACROs in exynos PCI file
+  PCI: exynos: Change macro names to exynos specific
+  PCI: exynos: Reorder MACROs to maintain consistency
+  PCI: exynos: Add platform device private data
+  PCI: exynos: Add structure to hold resource operations
+  dt-bindings: PCI: Add bindings support for Tesla FSD SoC
+  dt-bindings: phy: Add PHY bindings support for FSD SoC
+  phy: exynos: Add PCIe PHY support for FSD SoC
+  PCI: exynos: Add support for Tesla FSD SoC
+  arm64: dts: fsd: Add PCIe support for Tesla FSD SoC
+
+ .../bindings/pci/samsung,exynos-pcie.yaml     | 121 ++--
+ .../bindings/pci/tesla,fsd-pcie-ep.yaml       |  91 +++
+ .../bindings/phy/samsung,exynos-pcie-phy.yaml |  25 +-
+ arch/arm64/boot/dts/tesla/fsd-evb.dts         |  36 ++
+ arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi    |  65 ++
+ arch/arm64/boot/dts/tesla/fsd.dtsi            | 147 +++++
+ drivers/pci/controller/dwc/pci-exynos.c       | 568 +++++++++++++++---
+ drivers/phy/samsung/phy-exynos-pcie.c         | 317 +++++++++-
+ 8 files changed, 1240 insertions(+), 130 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/tesla,fsd-pcie-ep.yaml
+
+-- 
+2.49.0
 
 
