@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA8AC7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF6EC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GI+baXLMItSjgcBMZ7twd6x6pbRFh6QmlEtpG5t/zdQ=; b=m91K0iJmYKl9k6Du6qw1vWY2V0
-	E827jmzqd/B3vGT3IFdvMltpFxMxc47wgPTmMQ4GHPxDK6CXgdFbxTbqFzpCqKpQ6DZtEZT8yNSOz
-	7spEFCdu9+ZVjkyT1nxfxh+tbBZ1WPSe0e6VpZsC4zHEbBuiTpzWcysPtKQTEKLP/qxufrk6F3C1X
-	TbpViixGzfgU1q9ZmGMnbcS/jpOoGN9o0eSl4oSnZxvKXsBn+MVlDVK3arwumOvcL8bz7nIWRgQnv
-	zUYWl/qov6PKQu+Lcos1qM2KgwSGCAtejIA6Uk+EjmyAl6j3v4/o0udjgQufdbvPbzqrAAU6DWC5F
-	WHK7/YsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UL17aYyn5+UccDyypoxuqj9prMwex4xiowlMHFf3R2U=; b=XZ8PoA2PgPmwVgYqpLbEQ9qg1w
+	+2dljuoHBRoF0p8n437Vi3bWZOleiKUgfV/oYYmIKABVH3Sb/vx8XB+fqCy8LOSwwdIvpmZvBGs7Z
+	K5y+5D6FQbHo+MYGaE4Hc2qHUmpogmaNRiwAHNTGa+vePdLvZWOGmBRxrdOg4Gg1+gyNZKI6/fMP+
+	wCqiKcfudjMS0D45elKIa0GKSpqjIDEPg+K+/5OVDBpTT+oJOyHTca7ku/T6+I0OKq2KG7lRR4XGV
+	mSbpU/sNGRPxNzazezCQBVPaZcofNnsHwbxvEk8qdy33WQJs87pX39mfXNMHXNpRhSf0MMDAfHgmz
+	ifeoek8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMp7-00000008D75-30AT;
-	Wed, 25 Jun 2025 09:53:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUMp8-00000008D7p-2QhO;
+	Wed, 25 Jun 2025 09:53:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHH-00000007lQl-09my;
-	Wed, 25 Jun 2025 07:10:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=GI+baXLMItSjgcBMZ7twd6x6pbRFh6QmlEtpG5t/zdQ=; b=PaBBGvpmoTyNNgPYeU6GZGaNcG
-	lRToE+iN7YA43x4qgNJSwzQjTCWfxN+jo6ZxWaQcYqtYj/J116ieFay6ddpRhLSjdGVsf/Sf3EWms
-	mrqyfc+UTxq8KQEjzMXtWV7lvsv/9kDFqAL7G8FnDi6xviOAi0//73WjJMLCLYU7auop6JYvNZG91
-	GdukDcuKeHKfnRr12rmq7X2UWnkAzp+zPMMe6P1hQgdXviST6prrHYywnn9OWnWAH4fXR10s3p84/
-	9wzPaYWqPQTixLIRuSgKKwS5TP1fixpWtbCWiPDCitN2lFk9aPvwsLzUVsMJUDNN/RibrlwJ1mF4p
-	sMMPD8Fg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKHD-00000005deg-2Rnj;
-	Wed, 25 Jun 2025 07:10:38 +0000
+	id 1uUKlt-00000007qpt-1iu4;
+	Wed, 25 Jun 2025 07:42:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EC944AA30;
-	Wed, 25 Jun 2025 07:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9507DC4CEF3;
-	Wed, 25 Jun 2025 07:10:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D39CA615F1;
+	Wed, 25 Jun 2025 07:42:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 825FEC4CEEA;
+	Wed, 25 Jun 2025 07:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750835433;
-	bh=IkX8c809Bkwa5YKNS0n0XaW5ZPy/jAKfSUJXB4aJ5O4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WxdR8L6aeMZxRKJr8FD2AsRFrBKpUzk1K4lUjaxONdjsjrofU9tvADZLCp7CkzrlK
-	 m0K7EkyB+j5p5vLFZt6YAEpKOvT0LVBlHYDPmc3fOUaIicfbg2NYypwvKJ45xTvdGK
-	 WDLnxSIouflaXT1XNx17bdfFWsUAHXRg2Ak7p6epGMBwfJGCdOvWmgBbH/JLeo/+bd
-	 +6uAIVeAU7zJw/K/Pygyx77H3LapMXvu0bWMAOf5L/L0okQKFfIP2Q83geBPW7cVfI
-	 CYF0Du6S/hnBtCKQ/96pidTDm63RqkmUO71j3+3VNjhpIYFQkdWzSe4ss0z4MJZf2H
-	 pR0iU1NIwFyPA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 14/18] crypto: sha256 - Use same state format as legacy drivers
-Date: Wed, 25 Jun 2025 00:08:15 -0700
-Message-ID: <20250625070819.1496119-15-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250625070819.1496119-1-ebiggers@kernel.org>
-References: <20250625070819.1496119-1-ebiggers@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_081036_512787_921E344A 
-X-CRM114-Status: GOOD (  12.64  )
+	s=k20201202; t=1750837336;
+	bh=ee5KpT/bkyI5pdWN+/FTJfhNU5lp2kqGEPaGJ/4m8CI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QptVOFEzhdEF/NA7m5AHYEde2n+dfbMvp+8KFy1dXur2sGa2Tcjk1RmuP6iAvVKgM
+	 8x4c3JKrqlwCWZ6zzEJr5hwC2tOVr0FaKR3TdhqzbvT5iZmbfwvRobsJGMlQnUdNwC
+	 tFnifQXNaglfKS0iSseuGVAW5PEkdBcSk9IhnXYCCJLwTlJuDJGSwEBH8b0Piby14I
+	 BiyyjAgmXDmcqRPqNHTAq0eRqAR0QQwZY6WpNSbhcImoI8XQB23rAAyENA7E4tKvVt
+	 AP/rSsqc9K8yqPmDCyZo9x03Y3vou1mxA6tU83ojz7jgnUTWO9AFQOKP5nGVj8tCj3
+	 BK3df+3YaYFsA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uUKlq-009m7c-1v;
+	Wed, 25 Jun 2025 08:42:14 +0100
+Date: Wed, 25 Jun 2025 08:42:13 +0100
+Message-ID: <875xgkfesq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Bjorn Helgaas <bhelgaas@google.com>, Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Rob Herring <robh@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,	Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5?=
+ =?UTF-8?B?xYRza2k=?= <kwilczynski@kernel.org>,	Conor Dooley
+ <conor.dooley@microchip.com>,	Daire McNamara
+ <daire.mcnamara@microchip.com>,	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: host-generic: Set driver_data before calling gen_pci_init()
+In-Reply-To: <774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be>
+References: <774290708a6f0f683711914fda110742c18a7fb2.1750787223.git.geert+renesas@glider.be>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: bhelgaas@google.com, geert+renesas@glider.be, alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org, will@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, conor.dooley@microchip.com, daire.mcnamara@microchip.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,218 +85,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the export and import functions for the sha224, sha256,
-hmac(sha224), and hmac(sha256) shash algorithms use the same format as
-the padlock-sha and nx-sha256 drivers, as required by Herbert.
+On Tue, 24 Jun 2025 18:50:10 +0100,
+Geert Uytterhoeven <geert+renesas@glider.be> wrote:
+> 
+> On MicroChip MPFS Icicle:
+> 
+>     microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
+>     microchip-pcie 2000000000.pcie: Parsing ranges property...
+>     microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
+>     Unable to handle kernel NULL pointer dereference at virtual address 0000000000000368
+>     Current swapper/0 pgtable: 4K pagesize, 39-bit VAs, pgdp=0x00000000814f1000
+>     [0000000000000368] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+>     Oops [#1]
+>     Modules linked in:
+>     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc1-icicle-00003-gafc0a570bb61 #232 NONE
+>     Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+>     [...]
+>     [<ffffffff803fb8a4>] plda_pcie_setup_iomems+0xe/0x78
+>     [<ffffffff803fc246>] mc_platform_init+0x80/0x1d2
+>     [<ffffffff803f9c88>] pci_ecam_create+0x104/0x1e2
+>     [<ffffffff8000adbe>] pci_host_common_init+0x120/0x228
+>     [<ffffffff8000af42>] pci_host_common_probe+0x7c/0x8a
+> 
+> The initialization of driver_data was moved after the call to
+> gen_pci_init(), while the pci_ecam_ops.init() callback
+> mc_platform_init() expects it has already been initialized.
+> 
+> Fix this by moving the initialization of driver_data up.
+> 
+> Fixes: afc0a570bb613871 ("PCI: host-generic: Extract an ECAM bridge creation helper from pci_host_common_probe()")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> Notes:
+>   1. Before, driver_data was initialized before calling
+>      of_pci_check_probe_only(), but the latter doesn't rely on that,
+>   2. drivers/pci/controller/plda/pcie-microchip-host.c seems to be the
+>      only driver relying on driver_data being set.
+> ---
+>  drivers/pci/controller/pci-host-common.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index b0992325dd65f0da..b37052863847162d 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -64,13 +64,13 @@ int pci_host_common_init(struct platform_device *pdev,
+>  
+>  	of_pci_check_probe_only();
+>  
+> +	platform_set_drvdata(pdev, bridge);
+> +
+>  	/* Parse and map our Configuration Space windows */
+>  	cfg = gen_pci_init(dev, bridge, ops);
+>  	if (IS_ERR(cfg))
+>  		return PTR_ERR(cfg);
+>  
+> -	platform_set_drvdata(pdev, bridge);
+> -
+>  	bridge->sysdata = cfg;
+>  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+>  	bridge->enable_device = ops->enable_device;
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- crypto/sha256.c | 95 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 95 insertions(+)
+This is going to break what was introduced in 4900454b4f819 ("PCI:
+ecam: Allow cfg->priv to be pre-populated from the root port device").
 
-diff --git a/crypto/sha256.c b/crypto/sha256.c
-index d81166cbba953..052806559f06c 100644
---- a/crypto/sha256.c
-+++ b/crypto/sha256.c
-@@ -11,10 +11,47 @@
- #include <crypto/internal/hash.h>
- #include <crypto/sha2.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
-+/*
-+ * Export and import functions.  crypto_shash wants a particular format that
-+ * matches that used by some legacy drivers.  It currently is the same as the
-+ * library SHA context, except the value in bytecount must be block-aligned and
-+ * the remainder must be stored in an extra u8 appended to the struct.
-+ */
-+
-+#define SHA256_SHASH_STATE_SIZE 105
-+static_assert(offsetof(struct __sha256_ctx, state) == 0);
-+static_assert(offsetof(struct __sha256_ctx, bytecount) == 32);
-+static_assert(offsetof(struct __sha256_ctx, buf) == 40);
-+static_assert(sizeof(struct __sha256_ctx) + 1 == SHA256_SHASH_STATE_SIZE);
-+
-+static int __crypto_sha256_export(const struct __sha256_ctx *ctx0, void *out)
-+{
-+	struct __sha256_ctx ctx = *ctx0;
-+	unsigned int partial;
-+	u8 *p = out;
-+
-+	partial = ctx.bytecount % SHA256_BLOCK_SIZE;
-+	ctx.bytecount -= partial;
-+	memcpy(p, &ctx, sizeof(ctx));
-+	p += sizeof(ctx);
-+	*p = partial;
-+	return 0;
-+}
-+
-+static int __crypto_sha256_import(struct __sha256_ctx *ctx, const void *in)
-+{
-+	const u8 *p = in;
-+
-+	memcpy(ctx, p, sizeof(*ctx));
-+	p += sizeof(*ctx);
-+	ctx->bytecount += *p;
-+	return 0;
-+}
-+
- /* SHA-224 */
- 
- const u8 sha224_zero_message_hash[SHA224_DIGEST_SIZE] = {
- 	0xd1, 0x4a, 0x02, 0x8c, 0x2a, 0x3a, 0x2b, 0xc9, 0x47,
- 	0x61, 0x02, 0xbb, 0x28, 0x82, 0x34, 0xc4, 0x15, 0xa2,
-@@ -49,10 +86,20 @@ static int crypto_sha224_digest(struct shash_desc *desc,
- {
- 	sha224(data, len, out);
- 	return 0;
- }
- 
-+static int crypto_sha224_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&SHA224_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha224_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha256_import(&SHA224_CTX(desc)->ctx, in);
-+}
-+
- /* SHA-256 */
- 
- const u8 sha256_zero_message_hash[SHA256_DIGEST_SIZE] = {
- 	0xe3, 0xb0, 0xc4, 0x42, 0x98, 0xfc, 0x1c, 0x14,
- 	0x9a, 0xfb, 0xf4, 0xc8, 0x99, 0x6f, 0xb9, 0x24,
-@@ -87,10 +134,20 @@ static int crypto_sha256_digest(struct shash_desc *desc,
- {
- 	sha256(data, len, out);
- 	return 0;
- }
- 
-+static int crypto_sha256_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&SHA256_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha256_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha256_import(&SHA256_CTX(desc)->ctx, in);
-+}
-+
- /* HMAC-SHA224 */
- 
- #define HMAC_SHA224_KEY(tfm) ((struct hmac_sha224_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA224_CTX(desc) ((struct hmac_sha224_ctx *)shash_desc_ctx(desc))
- 
-@@ -126,10 +183,23 @@ static int crypto_hmac_sha224_digest(struct shash_desc *desc,
- {
- 	hmac_sha224(HMAC_SHA224_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
- 
-+static int crypto_hmac_sha224_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&HMAC_SHA224_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha224_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha224_ctx *ctx = HMAC_SHA224_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA224_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* HMAC-SHA256 */
- 
- #define HMAC_SHA256_KEY(tfm) ((struct hmac_sha256_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA256_CTX(desc) ((struct hmac_sha256_ctx *)shash_desc_ctx(desc))
- 
-@@ -165,10 +235,23 @@ static int crypto_hmac_sha256_digest(struct shash_desc *desc,
- {
- 	hmac_sha256(HMAC_SHA256_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
- 
-+static int crypto_hmac_sha256_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&HMAC_SHA256_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha256_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha256_ctx *ctx = HMAC_SHA256_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA256_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* Algorithm definitions */
- 
- static struct shash_alg algs[] = {
- 	{
- 		.base.cra_name		= "sha224",
-@@ -179,11 +262,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA224_DIGEST_SIZE,
- 		.init			= crypto_sha224_init,
- 		.update			= crypto_sha224_update,
- 		.final			= crypto_sha224_final,
- 		.digest			= crypto_sha224_digest,
-+		.export			= crypto_sha224_export,
-+		.import			= crypto_sha224_import,
- 		.descsize		= sizeof(struct sha224_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "sha256",
- 		.base.cra_driver_name	= "sha256-lib",
- 		.base.cra_priority	= 300,
-@@ -192,11 +278,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA256_DIGEST_SIZE,
- 		.init			= crypto_sha256_init,
- 		.update			= crypto_sha256_update,
- 		.final			= crypto_sha256_final,
- 		.digest			= crypto_sha256_digest,
-+		.export			= crypto_sha256_export,
-+		.import			= crypto_sha256_import,
- 		.descsize		= sizeof(struct sha256_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha224)",
- 		.base.cra_driver_name	= "hmac-sha224-lib",
- 		.base.cra_priority	= 300,
-@@ -207,11 +296,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha224_setkey,
- 		.init			= crypto_hmac_sha224_init,
- 		.update			= crypto_hmac_sha224_update,
- 		.final			= crypto_hmac_sha224_final,
- 		.digest			= crypto_hmac_sha224_digest,
-+		.export			= crypto_hmac_sha224_export,
-+		.import			= crypto_hmac_sha224_import,
- 		.descsize		= sizeof(struct hmac_sha224_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha256)",
- 		.base.cra_driver_name	= "hmac-sha256-lib",
- 		.base.cra_priority	= 300,
-@@ -222,11 +314,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha256_setkey,
- 		.init			= crypto_hmac_sha256_init,
- 		.update			= crypto_hmac_sha256_update,
- 		.final			= crypto_hmac_sha256_final,
- 		.digest			= crypto_hmac_sha256_digest,
-+		.export			= crypto_hmac_sha256_export,
-+		.import			= crypto_hmac_sha256_import,
- 		.descsize		= sizeof(struct hmac_sha256_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- };
- 
- static int __init crypto_sha256_mod_init(void)
- {
+The Apple PCIe driver uses drvdata to pass a pointer to its root port
+structure from its probe routine to the .init ECAM callback. If we
+overwrite drvdata with the bridge *before* calling pci_ecam_create(),
+this data is lost, and drama follows.
+
+Obviously, multi-purpose private fields are not great...
+
+If we are going down the road of going back to the previous situation,
+two things need to be done:
+
+- the Apple PCIe driver needs to grow some form of root port
+  registration in order to map a 'struct device' back to the pcie
+  tracking structure
+
+- 4900454b4f819 needs to be reverted, because it obviously doesn't
+  serve any purpose anymore.
+
+I'll look into the first point.
+
+Thanks,
+
+	M.
+
 -- 
-2.50.0
-
+Jazz isn't dead. It just smells funny.
 
