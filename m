@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884F0C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A856CC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2QISmFyzBGtwdC4qBbw8EaH3ARP6S4Dx8iEEmYy6dPM=; b=hdkUmPgfUVTj/ACpmXCQgyJ/Wv
-	ttb4Tn6yrwEXugfPEmskw1Y92UQAc2gu7X2myAUXDv+pr1ft9cC1xmMYmm868GVthc476xznKQCeo
-	w8afuJiHTb/p+6WYyZjqo7cX4qwRwdniIOVrkONFsJ8A6bajFa6x+fgZHEm6BA1+IMzPMFNVCxf8t
-	c4RwTdgJxM866lDZZ/I5vZMFoPX7tXWlMNTAiUb1l4WouIEJJfBPo7Bt6I4t8e/FBwxfRkQy2/y6K
-	54lCwpWhzYJp9pqHKVCa/wiKA23UF0J41ffR94v6APlWmsdd3ttYivDnlbdZNvwU8tDgo1ffDt0Wc
-	iS6KDfmg==;
+	bh=DcjKnmYkv3TNrvvWx7X6pghX7Z9EIPaXLXFo1FFXovM=; b=Xa9FZbJcN22v3HMcfKnyDYEf1m
+	F5F3vcvWA4758Pf8zWdjsXabglyLYr6IirCHYEvYCOM3+EUfkSlK8fccUo1Zptluk5YEKWjBPP+bB
+	4sybHAssGjTMeHHTDqdsNAhU+ifmlh/3u00Z5wDT1SZ0b6gn2bitsL648BUM+qoB4TMldasM1xjY6
+	TL5GOO8WD79C/vc6hrstb75qsY8GTT3Ca0CH64HqgMpw8bxOWmJ6KtHKwARLt6VxJ+s3K57utDFo7
+	f0pVC9o3VXVzwjpvcOZa2d3kWvnCXeD5RhtCVqiDEnsQQ50uoWeW0ZqvJPHqnpqxEfkMqxOOqC38e
+	/3T4pbXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSf2-00000009DzB-0WEg;
-	Wed, 25 Jun 2025 16:07:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUShT-00000009EJS-09Qj;
+	Wed, 25 Jun 2025 16:10:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOGo-00000008T3A-43ZB
+	id 1uUOGw-00000008T44-0Rhf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 11:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=DcjKnmYkv3TNrvvWx7X6pghX7Z9EIPaXLXFo1FFXovM=; b=abRAsgJomMWXBk2Rhl48ldLMUb
+	JxlwSo4AfZr4vFXLbSCxUFWXaLOnK7Eyv4Z4CGWb1i0UHZquKXYUo03aNVb+sV3znzWAAXkTrpsGM
+	1WiOGDNaEaaHcWVYkc/eyDNClDbEE7arbqG1xi0vU6SYV57jrr63ZzlXQtz8kCwfpQpki1ObP/iOL
+	tF9HMIKPD0mdcoP6EbBqjbMFgac31lJWMBFiZ2oRbd9Arl0T+UbBH36r/+TaxAlKtzhvaskm8SbLc
+	KDE+bOk64me1IYCR+4lM7BN3UGfDWFKpoBJHQNQROWjnt4O12F8dseMaW1w1neUJvVhRqgWIffmob
+	RJ078NUA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUOGt-00000005p7Q-2B70
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:26:27 +0000
+	Wed, 25 Jun 2025 11:26:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B27E61784;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23F40A52303;
+	Wed, 25 Jun 2025 11:26:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87511C4CEEA;
 	Wed, 25 Jun 2025 11:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDD2FC4CEEA;
-	Wed, 25 Jun 2025 11:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750850786;
-	bh=8wKbF7ujl1hlDs76hV4PzHiP9Uo97M2NjFijaiGNkbY=;
+	s=k20201202; t=1750850789;
+	bh=/AEnPXo1dA8qwf5CIu0xk7I0CHglYXCtZ9CYRjry6l8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CjmAbHl+bPNg8RlC8ZCfaqwwPd4NQ+EShcFjK33qIo3ksxA/dnMU+CE3jQ24ik899
-	 YWnRA/WGf1zBFIVMdCKnE7P6FVNVIST7MOSYxOLW/a6WBK9MXSq/maWeSY3mKOr2mj
-	 Qgcm7OXgDeSY9bAHR3yYJDW6HNGwYNXegmcteCLDKNaDMWmaFpKqdVOUrGL2EL97EA
-	 W87DH7E98NsKnZxteere4ZjPy7DsaVtSM2y1IIUoEaQl4b6CAyiTkqg1rQ81P+rWuN
-	 VqoHvI1zgB9cOanaOB03joBfdFYwqFsgKR2V0LGQyU6XvNqfwLx9tYt3RYyF7Re8eq
-	 VRZCH3WmJ5DVg==
+	b=S1VhB4oCwFp56rekUgYKd6f+8Wpmbr1vhPQmFkmjzZWBo9cfOlamDTba3WcN1HzF8
+	 KyIrkF3AdsMCAFP0CeMnAAeR4YtgqgAS8be615FtRpYgL4if3hzsfIySkCvAi6jQDB
+	 p5JhLn9bMlCuAz1kbk+DrJSgfvlaZrY3QMlmFFI/81Go2iJ5/O+VRES/Zo85m54t5a
+	 exDhD/l/CHYWuofJTk20OFqeRyuqrOF2nQzhFCsIlOye0erW6/vLyHrWjB2NCIWrwW
+	 oODvwyoRBIG818bZKoFEeet6vU25aCj7Nw0GFaw0H+IRy3jYxh0WLbqqFbJSwW+CBS
+	 Rfh3xkZuV2VNA==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 25 Jun 2025 11:48:18 +0100
-Subject: [PATCH v6 27/28] KVM: arm64: selftests: Add SME system registers
- to get-reg-list
+Date: Wed, 25 Jun 2025 11:48:19 +0100
+Subject: [PATCH v6 28/28] KVM: arm64: selftests: Add SME to set_id_regs
+ test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250625-kvm-arm64-sme-v6-27-114cff4ffe04@kernel.org>
+Message-Id: <20250625-kvm-arm64-sme-v6-28-114cff4ffe04@kernel.org>
 References: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
 In-Reply-To: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -63,17 +78,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-08c49
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1636; i=broonie@kernel.org;
- h=from:subject:message-id; bh=8wKbF7ujl1hlDs76hV4PzHiP9Uo97M2NjFijaiGNkbY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoW9x6jP9Kbaqa1gjraF/WFiCP4Z0JheFJ8M16d
- OY99NwBbDCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaFvcegAKCRAk1otyXVSH
- 0AyDB/9GynBfXm9+yas6Ol1uzb4YLnaWl8KeuXK1eHNlqwJ0WNkCFv2l+OJcWl9IPZPaVqnegKu
- tnmssq6PGaBdn4uXKhW9UZR01maR1tnfdo/l8uHc0dGt86lgzOK6upw6dMjSqREQyeb6qgIudDB
- pEQwOuCrcQuDODOYmL9LuLqbx0wVwozh9kU05f9Mpj6hiU4sX68iGhoVf66QyhBao+nDJ7REjuJ
- Tqfq7eGVNHAKDPWwNxojIepthauKSX5slcikAGp+Dper/jN7ZFhxbPR3LHjQeqaKLVEGnoaGEjP
- DvdA0Su08HOinXbrJI9TLNdrOV7IvQ0oqPpWjkX9N6yx3lI4
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3742; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/AEnPXo1dA8qwf5CIu0xk7I0CHglYXCtZ9CYRjry6l8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoW9x6rNqzz5sGrNiRrIXrOWy+bwyOVKM58C21N
+ 8UQF1abh0qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaFvcegAKCRAk1otyXVSH
+ 0N0DB/9C9EuLoP1QX+nQpinl3+RPQkVA/LC6ibKQ/ADrljxkUPGGGzPd1i6TvLlJknrU6Vc4Nax
+ WDtdGQKNgnTPy3sCEyI4C3+FgSGlHdBbbkgADugt9SKjXOL10CHbhQf+JMHP21/CLhiM70rXc1k
+ zcC+isN7mi3oeWRgEXnU3koSXtr0NEPvmPdvraSFOd0YEvH9BdMPw5ucfSK+PBIXLcIGPng/i4A
+ 5eWSFYfsbv8Dgk61y2B/4VJqJPcuIvTihfFprFmrQovxnackxM2n4xpiD64Ufm59EZEYbJBIzuO
+ jVunrH2tpAizaubCJdtSHop4CQE7fKYbG96ae0Xij6ouEAoH
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_122631_807206_0E4373A2 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +106,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME adds a number of new system registers, update get-reg-list to check for
-them based on the visibility of SME.
+Add coverage of the SME ID registers to set_id_regs, ID_AA64PFR1_EL1.SME
+becomes writable and we add ID_AA64SMFR_EL1 and it's subfields.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/get-reg-list.c | 32 +++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 29 +++++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-index d01798b6b3b4..920784aa2838 100644
---- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-@@ -23,6 +23,18 @@ struct feature_id_reg {
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 8f422bfdfcb9..f41c4e7da3e8 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -140,6 +140,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+ 
+ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SME, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
+ 	REG_FTR_END,
+@@ -187,6 +188,28 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr2_el1[] = {
+ 	REG_FTR_END,
  };
  
- static struct feature_id_reg feat_id_regs[] = {
-+	{
-+		ARM64_SYS_REG(3, 0, 1, 2, 4),	/* SMPRI_EL1 */
-+		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
-+		24,
-+		1
-+	},
-+	{
-+		ARM64_SYS_REG(3, 0, 1, 2, 6),	/* SMCR_EL1 */
-+		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
-+		24,
-+		1
-+	},
- 	{
- 		ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
- 		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-@@ -52,7 +64,25 @@ static struct feature_id_reg feat_id_regs[] = {
- 		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
- 		16,
- 		1
--	}
-+	},
-+	{
-+		ARM64_SYS_REG(3, 1, 0, 0, 6),	/* SMIDR_EL1 */
-+		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
-+		24,
-+		1
-+	},
-+	{
-+		ARM64_SYS_REG(3, 3, 4, 2, 2),	/* SVCR */
-+		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
-+		24,
-+		1
-+	},
-+	{
-+		ARM64_SYS_REG(3, 3, 13, 0, 5),	/* TPIDR2_EL0 */
-+		ARM64_SYS_REG(3, 0, 0, 4, 1),	/* ID_AA64PFR1_EL1 */
-+		24,
-+		1
-+	},
++static const struct reg_ftr_bits ftr_id_aa64smfr0_el1[] = {
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, FA64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, LUTv2, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SMEver, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F64F64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16B16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I8I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, BI32I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F32F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8FMA, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP4, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP2, 0),
++	REG_FTR_END,
++};
++
+ static const struct reg_ftr_bits ftr_id_aa64zfr0_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F64MM, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F32MM, 0),
+@@ -217,6 +240,7 @@ static struct test_feature_reg test_regs[] = {
+ 	TEST_REG(SYS_ID_AA64MMFR0_EL1, ftr_id_aa64mmfr0_el1),
+ 	TEST_REG(SYS_ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
+ 	TEST_REG(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
++	TEST_REG(SYS_ID_AA64SMFR0_EL1, ftr_id_aa64smfr0_el1),
+ 	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
  };
  
- bool filter_reg(__u64 reg)
+@@ -233,6 +257,7 @@ static void guest_code(void)
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
++	GUEST_REG_SYNC(SYS_ID_AA64SMFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_CTR_EL0);
+ 	GUEST_REG_SYNC(SYS_MIDR_EL1);
+@@ -774,8 +799,8 @@ int main(void)
+ 		   ARRAY_SIZE(ftr_id_aa64isar2_el1) + ARRAY_SIZE(ftr_id_aa64pfr0_el1) +
+ 		   ARRAY_SIZE(ftr_id_aa64pfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr0_el1) +
+ 		   ARRAY_SIZE(ftr_id_aa64mmfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr2_el1) +
+-		   ARRAY_SIZE(ftr_id_aa64zfr0_el1) - ARRAY_SIZE(test_regs) + 3 +
+-		   MPAM_IDREG_TEST + MTE_IDREG_TEST;
++		   ARRAY_SIZE(ftr_id_aa64zfr0_el1) + ARRAY_SIZE(ftr_id_aa64smfr0_el1) -
++		   ARRAY_SIZE(test_regs) + 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
+ 
+ 	ksft_set_plan(test_cnt);
+ 
 
 -- 
 2.39.5
