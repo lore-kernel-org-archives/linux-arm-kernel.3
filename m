@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C911DC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC25EC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvxA9wzwRB94bhFfeEwV8XE65NcZPwMYbJUqpqHweJw=; b=jG4QgswQCUWKbRgejCfEF6S/9A
-	CTmCIIle2NPSBFG5lVoJEB2rsB5xmwFIhgXtB5noyg1soKHvLZ3bkZMuRsMlX6yg/9I+gWrB2xZ3M
-	di3gYew2PmjlwizeBaSsKVBpA/lUhdYm6DtZy3mSW9UmcMsDqhHepiI7Fc1xyu3VIwbRnxE8TPklF
-	shS/+LJJy9ZYXIygFAuH4qRe6enwVdkYZjOugofE39AiqGmwoGNLuIKibGg7YmsD+gLUr0k7YUDpy
-	tHoIP9MgiBXIRImkDZ17sZ3xpkJrLzg7l6dYb0r0AynSiQKi/Iuje6S4ZrGm+8z5XxAtyJDPGfkyn
-	Csj0gZ7Q==;
+	bh=IR49cgHCHvAIMDPRcpZ3k1pfOWri0vhzv9RlzrLDcHQ=; b=PRhFI9JnqMhsUpCGFKEZqtdZtk
+	xnOZsfFgwpHz8RXzYQqJTxcY46Kq2GjJ+Z4x+bKPciccYcU5Sn/7QhmqZLlRqSRrRy2rL07erOhXi
+	xBpx3A5wQBCCsGm4wjbWPNmfCurwywJAY8K+8AbUxEiFHyCEn5WTh3pI/6JVzMnoJatRNGxM5poZW
+	pGi7qOjkTzgM0StavdSEyx91j2o+1it6vy3y397/00uwE1BbVdXIFhKoIHAIsVjxyahK72yZ/pJvd
+	zMCQ7bd991XRxF3ydy2YrQsp9qOBO+IwZIe2BmtaqG247VaP45GMa+rukOfOpEUS/vABXQERq91VV
+	hsA1xBeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJJ1-00000007cwo-1twl;
-	Wed, 25 Jun 2025 06:08:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uUJNm-00000007dQ7-2iLa;
+	Wed, 25 Jun 2025 06:13:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUJGi-00000007cgc-0rKu
+	id 1uUJHX-00000007cpI-44JB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 06:06:01 +0000
+	Wed, 25 Jun 2025 06:06:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0BC605C62AF;
-	Wed, 25 Jun 2025 06:03:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C814BC4CEEA;
-	Wed, 25 Jun 2025 06:05:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7101C4488C;
+	Wed, 25 Jun 2025 06:06:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D42E6C4CEEA;
+	Wed, 25 Jun 2025 06:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750831557;
-	bh=mlSg9lIHtnrO/DSwiOZdc8wwacrIJ2lGTmmKvsPErCo=;
+	s=k20201202; t=1750831611;
+	bh=5Q+7+Op3gsbZEqApPIdeBKD5P5akCCrtXGnS9a+5VXs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PxPFDjWocxmsoIWWpzgyx3AmmB7LtjHB8cOR3tTUYprPGkheEEY3xPbyTCvyvqlsj
-	 VXYCM6uzQ60no5DzAL/c6jKu3dW8/SsFc0lIJ+kYXfN1TIOKELqESNNsTkpHZS1hqs
-	 6UNLEXKo6EUjiAIKzAwH1HUP9eJWaIvVr/jp559ag7T3fi8LeO4p/6bur6WuVYLFOu
-	 EQ4Kt11jPO3BkO5qiKKqcmsQV3FbwgtWbGsajfMDcYOHcCaT4yhPzZTcXLIlLwSrKg
-	 XD1s9aZpEpcI1lYU7N4C+8Ynua0qB0cNRPbyn3wxtYXHLca2DXwP04/yshsRPqFTOX
-	 0EQovDgK+ovMA==
-Message-ID: <a0feb67f-3a73-4247-8383-7255616cb22b@kernel.org>
-Date: Wed, 25 Jun 2025 08:05:52 +0200
+	b=GYg/lktlw61cmx0Z+GPSyMOC8zIesl62vOmdkfcmaGhFXR/Ao6yfJ9ObaCSUOa2Nn
+	 bziIprPvtefzF1RtmGIm51+pnvwzNIlMrK97euitf6gJzea0o1tBFPSWd68/U9Ky6M
+	 6ju6d1K46OkMRWzQlLulCT/p6QAX2fHooBKh8A52kaB5+tJwx7KezW7NCP4LAiP1dm
+	 m59EdteMaEN9TyoKVeRBhhPWQ30AQxYXsdgTQQrePP6Lyfy9JVdjl4bW12+ZpsTwF4
+	 i5uDYNKvpUf6lW1qclTjyF866+HIBIkmknJamHusFw42vdxZ8p5vSiX+y0FbuDjAk0
+	 +uiO9nssSjRmA==
+Message-ID: <4cac3350-3e96-40f8-97c5-07388703264e@kernel.org>
+Date: Wed, 25 Jun 2025 08:06:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/7] arm64: dts: axiado: Add initial support for AX3000
- SoC and eval board
+Subject: Re: [PATCH v3 7/7] MAINTAINERS: Add entry for Axiado
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -61,9 +60,9 @@ Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
  "soc@lists.linux.dev" <soc@lists.linux.dev>
 References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-5-b3e66a7491f5@axiado.com>
- <0709a0a6-1313-452c-85e7-2926a6a03741@kernel.org>
- <19d78e69-4a38-420b-b9f8-d0eb90cdcaf6@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-7-b3e66a7491f5@axiado.com>
+ <085d5ebd-515c-4608-825b-b3319bc3bf7d@kernel.org>
+ <73e7df5e-14d8-4d8d-8e26-55d2ef262f1d@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <19d78e69-4a38-420b-b9f8-d0eb90cdcaf6@axiado.com>
+In-Reply-To: <73e7df5e-14d8-4d8d-8e26-55d2ef262f1d@axiado.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_230600_325979_7A24E187 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20250624_230652_056485_8D3DF7F8 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,133 +128,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 04:16, Harshit Shah wrote:
-> Thank you for the reviews. I have some questions/feedback to clarify 
-> before I fix some of them.
-> 
+On 25/06/2025 01:33, Harshit Shah wrote:
 > On 6/23/2025 11:45 PM, Krzysztof Kozlowski wrote:
->>
 >> On 23/06/2025 19:28, Harshit Shah wrote:
->>> +                     clocks = <&refclk>;
->>> +                     interrupt-parent = <&gic500>;
->>> +                     interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
->>> +                     gpio-controller;
->>> +                     #gpio-cells = <2>;
->>> +                     interrupt-controller;
->>> +                     #interrupt-cells = <2>;
->>> +                     status = "disabled";
->>> +             };
->> Please follow DTS coding style.
+>>> Add entry for Axiado maintainer and related files
+>>>
+>>> Signed-off-by: Harshit Shah <hshah@axiado.com>
+>>> ---
+>>>   MAINTAINERS | 8 ++++++++
+>>>   1 file changed, 8 insertions(+)
+>>>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> Sorry, I didn't got this comment. Is this for the spaces between the 
-> nodes or something else?
-> 
-> The current GPIO node is as follows:
+> Thank you Krzysztof. I was not aware of this before, apologies for the 
+> same. I will add this line of this from next patchset as per your 
+> suggestion.
 
-There is always, always line break between nodes.
+I don't understand why you are replying to my reviews and what you
+wanted to say.
 
-> 
-> gpio0: gpio-controller@80500000 {
->                          compatible = "cdns,gpio-r1p02";
->                          reg = <0x00 0x80500000 0x00 0x400>;
->                          clocks = <&refclk>;
->                          interrupt-parent = <&gic500>;
->                          interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
->                          gpio-controller;
->                          #gpio-cells = <2>;
->                          interrupt-controller;
->                          #interrupt-cells = <2>;
->                          status = "disabled";
->                  };
-> 
-> I checked the document: 
-> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/dts-coding-style.rst#L112.
-> 
->>
->>> +             gpio1: gpio-controller@80580000 {
->>> +                     compatible = "cdns,gpio-r1p02";
->> This should not be accepted without specific compatible, but that's some
->> old binding so maybe matters less. Anyway, if you ever need quirk or
->> custom properties they I will reject them based on what you claim here.
-> 
-> Yes, we are not changing anything on this driver. Is it okay?
-
-I meant for future. I would expect to follow writing bindings now, so
-have front specific compatible, but if you do not then whatever issues
-you have in the future with this driver, they should be rejected, right?
-
-> 
-> 
->>
->>
->>> +             i3c16: i3c@80620400 {
->>> +                     compatible = "cdns,i3c-master";
->>> +                     reg = <0x00 0x80620400 0x00 0x400>;
->>> +                     clocks = <&refclk &clk_xin>;
->>> +                     clock-names = "pclk", "sysclk";
->>> +                     interrupt-parent = <&gic500>;
->>> +                     interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
->>> +                     i2c-scl-hz = <100000>;
->>> +                     i3c-scl-hz = <400000>;
->>> +                     #address-cells = <3>;
->>> +                     #size-cells = <0>;
->>> +                     status = "disabled";
->>> +             };
->>> +             uart0: serial@80520000 {
->> Looks like not ordered by unit address. What is the ordering rule you
->> are going to adopt for entire arch?
-> 
-> Apologies for the confusion. I should have updated in last patch-set 
-> comments.
-> 
-> We are following alphabetical ordering rule. In those we are grouping 
-> some nodes together based on the numbers.
-> 
-> cpus
-> 
-> clocks
-> 
-> soc {
-> 
->     gic500 { }
-> 
->     gpio0-7 { }
-> 
->     i3c0-16 { }
-> 
->     uart0-3 { }
-> 
-> }
-> 
-> timer
-> 
-> 
-> Is this okay?
-
-alphabetical ordering is not mentioned in dts coding style. Maybe it
-should, but I think the only user of second style with grouping nodes -
-Renesas - still uses ordering by unit address in general.
-
-The trouble with your approach is that if you ever need to change the
-name, you will need to re-order and move entire node.
-
-Anyway, not a problem for me.
-
-> 
->>
->>> +                     compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
->> NAK, you do not have xlnx here. Look at your SoC: name of vendor is
->> axiado. Not xlnx. How is your SoC called? Also zynqmp? You cannot just
->> randomly pick any compatibles and stuff them around.
->>
->> Please carefully read writing bindings from DT directory.
-> 
-> 
-> We are using the "cdns,uart-r1p12" for the UART. However, that alone 
-> can't be added alone in the compatible as per the DT bindings doc.
-
-Exactly. See writing bindings... or any guides/talks.
-
+Please read submitting patches, which I linked in one of responses.
 
 Best regards,
 Krzysztof
