@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D20C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4BAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o6YCRkZ7c71yqaNVRPRY9md/LoMAC76FaEwt8H/+H/w=; b=FibGpGqI/jIqyGgKRLgVj2Kj6f
-	9F4zjkdBsCdzZ/3L64g8nk/9AvdgoTmMZrYAbjVRRgzO6JqqHpzSi+ewTNLbusjVRE9VjNBToXlNi
-	MhZv9im0aIWHcKVdsdK2baApiQz0l8CMvt6n8Bnrt0bSSOkE7r3zj5D9352m2filBhUeNdz0JTf8S
-	VG0KxHihiXbUpILYI9yXRpJHSAbfbc2jWJTTWPMK8F6iUpNC5vGejNz0aij+oRqlosqn7E9rzfunf
-	uX+l9h3kPg6Uacdee4nk4Nskq9ftlL15qcT4kxkH0yH2TgN6Do08RLOnIGAvhW2M0Cu9ubPY6pTje
-	4CEAStcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YtI8ysHDGF8GpZRGmovRBTlbGiNf5VjMID2yRTeQRTU=; b=IcAP5O0d8b/hCtP547XjpTlZr9
+	IZZrSZ+Wn+p2rINFLCJjRUP3hOaxfTJKYMa/oun++8DY/xuqc95QnCfQsR+SP/nyCIu1khQqJ6HUf
+	oEkoxkoISK0YAMClVg286bpTKDzQUU/3OZWtxNoMDSrcLuj9kdx/MZlsJL0QFeCvWqH9fV0ZML7Fj
+	PwVtHts80t8IgZg1hmxmCKCwGS16464EiTggYQoGHcD4HQJLprMCJWiPGdxD51wGOzp1bnvTxPZox
+	h8tRwMD9wCeFtMuHw4SxBss0rw0sSmWj4RshIb5EVaNfF1gGDF041df5M95u6bVPAivexPTdTvZV1
+	Zi65MT8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUW70-00000009meu-2PgM;
-	Wed, 25 Jun 2025 19:48:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUW9H-00000009mru-1iTH;
+	Wed, 25 Jun 2025 19:51:11 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSCX-000000098z0-3TnO
+	id 1uUSHj-000000099bG-1z4C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 15:38:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8AF9AA523A0;
-	Wed, 25 Jun 2025 15:38:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CC2C4CEEA;
-	Wed, 25 Jun 2025 15:38:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750865895;
-	bh=DdxS8fK+k+4jJXT/e+VE5Z7hLWA+bNaknSmckFwX8wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dv2z/It31S17vagV0qD/YG5Cs2xuaGCisG/MbnWq93zzaUaUrXfiITmuJmPyJHwj2
-	 nuYNJ9rGhpx/rmwcVlVvK8JVPDARGPgUOiSjlIwptVSwOUXYz20nLXVgoGzjl4GnvY
-	 LPtfY5IWEoNiJ/TJy+BqTqea3mtmXtFONVvBzy5/xqT4jDN2G40iQOremK7E9wCqTi
-	 DBbEfJsTzL8nVPUCssNUtOU8I2AXv63MDwg9llG0CBQd5uCbM7k5iAmGPdjPLhACi3
-	 r9Pk4sC1SWmvJqzefP6200Jp81E1uqxJnpuzPsYH+VL/KdRMihIBWKc8gyvuQ25wFq
-	 alh8oPqaYSR9w==
-Date: Wed, 25 Jun 2025 20:58:16 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
-	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
-	David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 20/62] KVM: SVM: Add a comment to explain why
- avic_vcpu_blocking() ignores IRQ blocking
-Message-ID: <ha3rq3ybk4c63bov2ix6yyajggep6zdulsd2e44vqw4ctufeiq@env4pl5m3wz6>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-22-seanjc@google.com>
- <pxtvegopzsyhn7lelksclxiiee7tumppu76553rax7octqpy7i@giclgo667htf>
- <aFl-ZYyf9guxSkHE@google.com>
+	Wed, 25 Jun 2025 15:43:40 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-234fcadde3eso918045ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 08:43:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750866217; x=1751471017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YtI8ysHDGF8GpZRGmovRBTlbGiNf5VjMID2yRTeQRTU=;
+        b=lq/wIi9TAm8aXlFjm918LOU+y79Y0G8SVAr2EQP6typT9sXUHzZp6qFGanAJcaHiZF
+         bMOaXQc+WV2mDIt50oQb1JjxrlmiGMeN+8iqV3R58haORg2ippw3eujCr4e5wgp9BXHq
+         Q5qhK8BNYOyxSGP6J90EqjYLkjMYyRN3VUcex6bkLj6XpwDGAige3L8ygMKLpz/SFg/w
+         8gfu9A0xJpjQbnxp67qkKtPQjRbEOK2xRsu//Ps2q41jA0CgtKTwHVM6uRjQ/kWxnrJJ
+         qGcsWdHfyykzzuQA//0i7lo1trt59F4RHYr/etyoEZGFflN2F2ziq4r94Ebm5qQKtCGU
+         XPfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750866217; x=1751471017;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YtI8ysHDGF8GpZRGmovRBTlbGiNf5VjMID2yRTeQRTU=;
+        b=MC18zxiy9dbDDQA12qa4S3F1aZOwNGWbnBY+IUmsGYqJOWiniKcz+EDhFKj5lIj7wN
+         oJgiL5L4yJ8mDcBcoyU6WBNYkMruJ4KZ/PAADdbJGVSL4KhZo7AZSNgKaQgYzuYajtOX
+         XDvWabYQ/XPZPwKD+4n6ZF5yLPEF6+MuQvazrhgmJ0Al6GaRPF8XWFsUbH88zOurbHHd
+         kGGNmlvNIWTiBaw+TF/A7/k3gtY4obu4PVkelicozIXPeGFXPT8b891JQj37bcxX7BNU
+         qOu9jgcBk0UA2XdVS++2yVxw87EJx7LjC4cWB2VVX/4CP6Ok3USHZpYtNU80KnSDJiCJ
+         ljRw==
+X-Gm-Message-State: AOJu0Yy/T6KMdSjNEPX2Xk8l0WMn98TeLWXRbivR82MvXwjp5c03ExMK
+	lQmf0rz7sOSeKwaCfjTU6Ar5nUQ9EUyZ3uG4JL/s8DwOUNcjAjv7BtgL
+X-Gm-Gg: ASbGncsfWWWotFQ5z0hgHA+fUJO0uxKkSazUJUpfnN6OS1O8Fdx9NSn83b72+Ljo8W+
+	BvNtjMRnoQhVq2Y60H0L59P9+s415NvfOCNFYmTozthkb5tZj7TaL6mLSCbmc3NhHrwcqIYUI4V
+	HJXFJPXnOYg3PaPek69v2uV7y7vr9JCgk0UEiP+AAgqcTVj26DW4ZdGKjXssIMJglr7cwdbunow
+	U5tZj7Ob8aUybJV3urruUro9OLwM85SxMzWC8HrY8b71i19k5+yzWwayP5MmRQ1SDh5K/hviu8M
+	awtfUcmANW4E+0M3quzk4rB9De0fhsuIt/DAU7Y5pr2QmdoCEseVPueubGM7S16OWVa3nM4h7t0
+	x
+X-Google-Smtp-Source: AGHT+IEojHuDEfhv+Il/aCDRUeJzWgS8kwDdwg7ziLognMyZb9CPBYDF5z+fFQk+f8Y8ClCOfvDCmQ==
+X-Received: by 2002:a17:902:f541:b0:235:129a:175f with SMTP id d9443c01a7336-2382404b2d6mr68604945ad.34.1750866217108;
+        Wed, 25 Jun 2025 08:43:37 -0700 (PDT)
+Received: from ubu24.. ([2400:2410:dfca:c200:951d:3a1e:f612:1525])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86628ffsm134229795ad.156.2025.06.25.08.43.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 08:43:32 -0700 (PDT)
+From: Taishi Shimizu <s.taishi14142@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	Rafal Milecki <zajec5@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Taishi Shimizu <s.taishi14142@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: arm: bcm: Add support for Buffalo WXR-1750DHP
+Date: Thu, 26 Jun 2025 00:43:14 +0900
+Message-ID: <20250625154315.114139-1-s.taishi14142@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFl-ZYyf9guxSkHE@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_083817_997469_0D1B176E 
-X-CRM114-Status: GOOD (  32.56  )
+X-CRM114-CacheID: sfid-20250625_084339_508893_A5FC8830 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +105,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 09:18:45AM -0700, Sean Christopherson wrote:
-> On Mon, Jun 23, 2025, Naveen N Rao wrote:
-> > On Wed, Jun 11, 2025 at 03:45:23PM -0700, Sean Christopherson wrote:
-> > > Add a comment to explain why KVM clears IsRunning when putting a vCPU,
-> > > even though leaving IsRunning=1 would be ok from a functional perspective.
-> > > Per Maxim's experiments, a misbehaving VM could spam the AVIC doorbell so
-> > > fast as to induce a 50%+ loss in performance.
-> > > 
-> > > Link: https://lore.kernel.org/all/8d7e0d0391df4efc7cb28557297eb2ec9904f1e5.camel@redhat.com
-> > > Cc: Maxim Levitsky <mlevitsk@redhat.com>
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > ---
-> > >  arch/x86/kvm/svm/avic.c | 31 ++++++++++++++++++-------------
-> > >  1 file changed, 18 insertions(+), 13 deletions(-)
-> > > 
-> > > diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> > > index bf8b59556373..3cf929ac117f 100644
-> > > --- a/arch/x86/kvm/svm/avic.c
-> > > +++ b/arch/x86/kvm/svm/avic.c
-> > > @@ -1121,19 +1121,24 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
-> > >  	if (!kvm_vcpu_apicv_active(vcpu))
-> > >  		return;
-> > >  
-> > > -       /*
-> > > -        * Unload the AVIC when the vCPU is about to block, _before_
-> > > -        * the vCPU actually blocks.
-> > > -        *
-> > > -        * Any IRQs that arrive before IsRunning=0 will not cause an
-> > > -        * incomplete IPI vmexit on the source, therefore vIRR will also
-> > > -        * be checked by kvm_vcpu_check_block() before blocking.  The
-> > > -        * memory barrier implicit in set_current_state orders writing
-> > > -        * IsRunning=0 before reading the vIRR.  The processor needs a
-> > > -        * matching memory barrier on interrupt delivery between writing
-> > > -        * IRR and reading IsRunning; the lack of this barrier might be
-> > > -        * the cause of errata #1235).
-> > > -        */
-> > > +	/*
-> > > +	 * Unload the AVIC when the vCPU is about to block, _before_ the vCPU
-> > > +	 * actually blocks.
-> > > +	 *
-> > > +	 * Note, any IRQs that arrive before IsRunning=0 will not cause an
-> > > +	 * incomplete IPI vmexit on the source; kvm_vcpu_check_block() handles
-> > > +	 * this by checking vIRR one last time before blocking.  The memory
-> > > +	 * barrier implicit in set_current_state orders writing IsRunning=0
-> > > +	 * before reading the vIRR.  The processor needs a matching memory
-> > > +	 * barrier on interrupt delivery between writing IRR and reading
-> > > +	 * IsRunning; the lack of this barrier might be the cause of errata #1235).
-> > > +	 *
-> > > +	 * Clear IsRunning=0 even if guest IRQs are disabled, i.e. even if KVM
-> > > +	 * doesn't need to detect events for scheduling purposes.  The doorbell
-> > 
-> > Nit: just IsRunning (you can drop the =0 part).
-> 
-> Hmm, not really.  It could be:
-> 
-> 	/* Note, any IRQs that arrive while IsRunning is set will not cause an
-> 
-> or
-> 
-> 	/* Note, any IRQs that arrive while IsRunning=1 will not cause an
-> 
-> but that's just regurgitating the spec.  The slightly more interesting scenario
-> that's being described here is what will happen if an IRQ arrives _just_ before
-> the below code toggle IsRunning from 1 => 0.
+Add Buffalo WXR-1750DHP under BCM4708 based boards.
 
-Oh, you're right. I was referring to the last paragraph starting with 
-"Clear IsRunning=0 even if", which to me feels like a double negation. 
-It reads better if it is "Clear IsRunning even if ..."
+Signed-off-by: Taishi Shimizu <s.taishi14142@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> > Trying to understand the significance of IRQs being disabled here. Is 
-> > that a path KVM tries to optimize?
-> 
-> Yep.  KVM doesn't need a notification for the undelivered (virtual) IRQ, because
-> it won't be handled by the vCPU until the vCPU enables IRQs, and thus it's not a
-> valid wake event for the vCPU.
-> 
-> So, *if* spurious doorbells didn't affect performance or functionality, then
-> ideally KVM would leave IsRunning=1, e.g. so that the IOMMU doesn't need to
-> generate GA log events, and so that other vCPUs aren't forced to VM-Exit when
-> sending an IPI.  Unfortunately, spurious doorbells are quite intrusive, and so
-> KVM "needs" to clear IsRunning.
-
-Ok, got that. kvm_arch_vcpu_blocking() looks like it exists precisely 
-for this reason.
-
-Thanks,
-Naveen
+diff --git a/Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml b/Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml
+index d925e7a3b5ef..f47d74a5b0b6 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml
+@@ -25,6 +25,7 @@ properties:
+           - enum:
+               - asus,rt-ac56u
+               - asus,rt-ac68u
++              - buffalo,wxr-1750dhp
+               - buffalo,wzr-1166dhp
+               - buffalo,wzr-1166dhp2
+               - buffalo,wzr-1750dhp
+-- 
+2.43.0
 
 
