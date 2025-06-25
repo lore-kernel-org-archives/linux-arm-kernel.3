@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B86BC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 17:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766B0C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEP2HDyJ3eN7/1m77SdcDj5XaWZQ0CXEG8ZZWs4ZwFg=; b=o/0GjaTuyLbEYUxjD0Dog8jlOV
-	5WSRza1ZnbPVUXw1eU5TTqWtzn0ItE1FYFtHuJj1nQA6HhscVJIOzA89DE1Al6sI9dRAlvIHQXmV+
-	c4lkKSlL5AB8AcQfv6Ox5ht4apNEyyQGpyBNf2oRkqmmxSh5+x17D25mwyNy8m6xTkvdhUtGJ3b+b
-	4Z9ltavsId8BvnRqSDl0mENFYvxHs7Aql+ZlUQmvwF9/NfNwmRrxK8FMs94wKrbeKYF8Ed+fuEsVT
-	hb3AVHU5fAve5nyAluK/0MefINifJVX/Jhp/FbZr81JNIjVmLKA2JoYh8XJ46NZtrwGAWGrOQxZ2e
-	iBpiXgMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5O850wT7+IYIkTEbUgW7tn6mAfprA2H1mkZ9W7g4Wkk=; b=bm8oJkuqC3B76s0072GSeyC4s7
+	4fOgi4xbgYokLfvaPLcHn17gHtAtfmZ6hk+GksYVd9t1lpD5AU93cwOeCwG3gH+KowEGV8CMzTRV9
+	LQquzYfNj+v0mU2IbyNfFmJqMFEy8NVHjQYxSPfEHooTbpcfLO5nhKOB9DuMOF2ICqW0MbU8PzP03
+	aohBBykc3iPqV0gB4DyJos7WI6VyrokGwYSNNHH2jKyeUoej9ytZF+2CK8zKzsYzuU2UcrL9xdp8m
+	3DTvDJ7/dEw35i0cZIkFrhudBSPY5dIsFYb7vBG8+PCOkjq21O9fYie7+fNDA75qOiGFu3SZM7ryJ
+	SmAf07Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUGc-00000009WVl-011S;
-	Wed, 25 Jun 2025 17:50:38 +0000
+	id 1uUUrg-00000009ZGI-03lk;
+	Wed, 25 Jun 2025 18:28:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUQkO-00000008tuH-0Ntt
+	id 1uUQvf-00000008vbr-3fDy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 14:05:09 +0000
+	Wed, 25 Jun 2025 14:16:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FC9B106F;
-	Wed, 25 Jun 2025 07:04:47 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 982683F66E;
-	Wed, 25 Jun 2025 07:05:02 -0700 (PDT)
-Date: Wed, 25 Jun 2025 15:04:59 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	d-gole@ti.com, souvik.chakravarty@arm.com
-Subject: Re: [RFC PATCH 3/7] firmware: arm_scmi: Add Telemetry protocol
- support
-Message-ID: <aFwCCw6K2NWuz5XZ@pluto>
-References: <20250620192813.2463367-1-cristian.marussi@arm.com>
- <20250620192813.2463367-4-cristian.marussi@arm.com>
- <b33a0c18-2850-453f-8ee6-5574330b3670@suswa.mountain>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C842B106F;
+	Wed, 25 Jun 2025 07:16:28 -0700 (PDT)
+Received: from [10.57.84.221] (unknown [10.57.84.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7E9B3F66E;
+	Wed, 25 Jun 2025 07:16:42 -0700 (PDT)
+Message-ID: <40c6e847-3be1-4d12-ab23-6ac5e0f1bd4a@arm.com>
+Date: Wed, 25 Jun 2025 15:16:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b33a0c18-2850-453f-8ee6-5574330b3670@suswa.mountain>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
+ BBML2
+Content-Language: en-GB
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ yang@os.amperecomputing.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+ broonie@kernel.org, ardb@kernel.org, baohua@kernel.org,
+ suzuki.poulose@arm.com, david@redhat.com, nicolinc@nvidia.com,
+ jsnitsel@redhat.com, mshavit@google.com, kevin.tian@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+ <20250617095104.6772-5-miko.lenczewski@arm.com> <aFRlDSZ2PPnHixjc@arm.com>
+ <7105112f-b0bb-4191-b3c9-93522162319c@arm.com>
+ <636c8901-6e05-479f-ae06-ee391d4d36e8@arm.com>
+ <20250625133735.GB213144@ziepe.ca>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250625133735.GB213144@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_070508_168358_F5839866 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250625_071647_995944_37240B41 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,26 +77,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 21, 2025 at 12:01:23AM +0300, Dan Carpenter wrote:
-> On Fri, Jun 20, 2025 at 08:28:09PM +0100, Cristian Marussi wrote:
-> > +	/* Build compsing DES string */
-> > +	for (int i = 0; i < ti->info.num_groups; i++) {
-> > +		struct scmi_telemetry_group *grp = &ti->info.des_groups[i];
-> > +		char *buf = grp->des_str;
-> > +		size_t bufsize = grp->des_str_sz;
-> > +
-> > +		for (int j = 0; j < grp->num_de; j++) {
-> > +			char term = j != (grp->num_de - 1) ? ' ' : '\0';
-> > +			int len;
-> > +
-> > +			len = snprintf(buf, bufsize, "0x%04X%c",
-> > +				       ti->info.des[grp->des[j]]->id, term);
+On 25/06/2025 14:37, Jason Gunthorpe wrote:
+> On Wed, Jun 25, 2025 at 02:07:23PM +0100, Ryan Roberts wrote:
+>> I think what you are saying is that despite going via invalid, the HW may see
+>> this direct transition:
+>>
+>> +----+----+----+----+
+>> |RO,n|RO,n|RO,n|RW,n|
+>> +----+----+----+----+
+>> to:
+>> +----+----+----+----+
+>> |RO,c|RO,c|RO,c|RO,c|
+>> +----+----+----+----+
+>>
+>> There are 2 logical operations here. The first is changing the permissions of
+>> the last entry. The second is changing the size of the entry.
+>>
+>> As I understand it, it's permissible in the architecture to update the
+>> permissions of the a PTE without break-before-make and without issuing a tlbi
+>> afterwards; in that case the HW may apply either the old permissions or the new
+>> permissions up until a future tlbi (after which the new permissions are
+>> guarranteed). That's the first logical operation.
+>>
+>> The second logical operation is permitted by FEAT_BBM level 2.
+>>
+>> So both logical operations are permitted and the Arm ARM doesn't mention any
+>> requirement to "separate" these operations with a tlbi or anything else, as far
+>> as I can see.
+>>
+>> So I would interpret that combining these 2 in the way we have should be safe.
+>> RNGLXZ and RJQQTC give further insight into the spirit of the spec. But I agree
+>> this isn't spelled out super clearly.
+>>
+>> Perhaps we can move forwards based on this understanding, and I will seek some
+>> clarifying words to be added to the Arm ARM?
 > 
-> Please use scnprintf() btw.  Otherwise if there is an overflow the
-> next iteration will complain that bufsize is negative.
+> FWIW this matches my understanding as well.
+> 
+> AFAIK the actual physical issue for BBM < 2 is the TLB lookup HW
+> cannot tolerate having two entries that overlap in address because of
+> different sizes. Every lookup must return exactly one result. If more
+> results are returned the HW fails in some way.
+> 
+> For BBM 2 if the HW lookup gets more than one result the HW selects
+> one unpredictably and uses that.
+> 
+> Permissions shouldn't have any impact because they do not effect how
+> the lookup is performed, they are the result of the lookup.
 
-Yes, I will review all of this.
+Totally agree with all of this! But ideally we want the Arm ARM to be
+unambiguous so that we can implement against that rather than against our
+understanding of the HW issues and what the Arm ARM "almost certainly intended".
 
-Thanks,
-Cristian
+> 
+> I've been looking at implementing BBM 2 support on the iommu side and
+> I didn't see anything that said we cannot do arbitary transformations
+> under BBM 2? For instance when degrading from a contiguous range of
+> block descriptors down to single page descriptors I'm expecting to go
+> like:
+>     16x2M -> 2M -> 4k -> FLUSH
+
+If this is just changing sizes, it's definitely, explcitly safe in the Arm ARM
+(I haven't read the equivalent SMMU text). And there isn't a requirement to
+flush at the end. You only need to flush the (sub-)ranges where permissions or
+whatever have changed.
+
+> 
+> Jason
+
 
