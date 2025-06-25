@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7F2C7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 05:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C911DC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 06:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdewN+OqwPnfjHa4kNqJuR+GOLJuDMWb9fhOCDaUpO4=; b=QbLdCXmO8S5+reBVm3euo/bc6+
-	ZgdhsdTBI5qpK0FXL+WWksDGxRdl9DT06vwpSzSeE8TyOICu8bfPG0wOhn1F2u0/2VH2Zhffy7gWT
-	YMgyCFwg+x3R0bRnNjEM6juuvh+fiRgupnWb13TEZB7mh/ISnaXhc9eO0Ji7FTeWMdveoIanG/ost
-	XI4gmizrHAOq1e9mKWfS8FG3LyMuhNFcM0FAj/hDRwhrxk1Od1s6hf+o8tsbJ7CcjjbYC7MQy5NkR
-	mj1k0xyZsuSjQlWMdpDZGVBGFnvZM7g0Vkek4J+XWBsZ7cXUrNmIchrwTnm9WGivLSD03VxIMT6Lg
-	n1xzh4ag==;
+	bh=lvxA9wzwRB94bhFfeEwV8XE65NcZPwMYbJUqpqHweJw=; b=jG4QgswQCUWKbRgejCfEF6S/9A
+	CTmCIIle2NPSBFG5lVoJEB2rsB5xmwFIhgXtB5noyg1soKHvLZ3bkZMuRsMlX6yg/9I+gWrB2xZ3M
+	di3gYew2PmjlwizeBaSsKVBpA/lUhdYm6DtZy3mSW9UmcMsDqhHepiI7Fc1xyu3VIwbRnxE8TPklF
+	shS/+LJJy9ZYXIygFAuH4qRe6enwVdkYZjOugofE39AiqGmwoGNLuIKibGg7YmsD+gLUr0k7YUDpy
+	tHoIP9MgiBXIRImkDZ17sZ3xpkJrLzg7l6dYb0r0AynSiQKi/Iuje6S4ZrGm+8z5XxAtyJDPGfkyn
+	Csj0gZ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUIbr-00000007a2n-0pxB;
-	Wed, 25 Jun 2025 05:23:47 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uUJJ1-00000007cwo-1twl;
+	Wed, 25 Jun 2025 06:08:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUIZZ-00000007ZxW-05UP
+	id 1uUJGi-00000007cgc-0rKu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 05:21:26 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-747fba9f962so407699b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Jun 2025 22:21:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750828884; x=1751433684; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EdewN+OqwPnfjHa4kNqJuR+GOLJuDMWb9fhOCDaUpO4=;
-        b=Pt6yF+AzgftcS/zkGOs85Fk9aza0TVi6Y6Xo0EMIU/iKfhNiffDfuGek7/VmQbiUWq
-         nuDSafGlnpd+YdB3xTFFHT8fvdYHUiKD93aVcr8Ijf09EjndsOzdOABAQOdtHgnfAj9N
-         PfUBGHV1aJvQQ4qTe1eRIs+kAbikRNkLEE8nU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750828884; x=1751433684;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EdewN+OqwPnfjHa4kNqJuR+GOLJuDMWb9fhOCDaUpO4=;
-        b=urENSEhRt7O5WFAFnSnYr959xJvnV+zIymTUHfQ2TzHeSKz9/MerktZ48mgeNyt0C2
-         ZUfOpGbmz4ohF8Enph6HC+BMvG7utViJBHTHpLhDcFtJW4cGcDA3YpUkUIuQZBlVeRL7
-         /BIq3tW2W9lCSBHJXY+xA3zeymQuxEHuPCanAAEv1xzAAdRvzsdav6AjR5+7Ez40j9m/
-         WetGRS3LdIxfTU6idqKNdnWTTFpcl9WYixhcyQzYPdh8W/kaOJk4xIGgMjsIY08B4gzK
-         6XvGL7iEa+aJKGcdO0D41hLpoVy/l6Lqgg5SBr7D2n5ATqt4Q+St0Ubs8zwenOVsxPZV
-         BdbA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXl6JNxRRYJqrFlzIzdIU1noLoMGvEja5jKGNW3LfjVzlVvR/YpWBqKyPTq0U/TnXKbT7b9/ieRxq4xVM7tgPW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqkmQyaj+jSpJBS/obU5700gwPSIi8dYa33EaZ1e8BFRjqjHNa
-	DFo1hmcVcVQQGoV6IvWPAE6A7TIDdBE5S6Lfe8831X8pkwnEJ2gn2fenVQpXD5b8bg==
-X-Gm-Gg: ASbGncug9AEbV7wuKqW0KcWngVRyqCSWCk91bk6MPfMwwU12BnyV3y7UuUA1w9av6OV
-	vvjH3jI6+TaoKusJ3PyXgwLa/OOFyaGefQcpNj2BzUCH9RlXycAVHYzc1x7/xKWk7SUJw/N+Aza
-	6csx8YsJOSlYBeiUmhlPIJoPNi5V4/Ie7XQ6edJZLUQ//1KO6RM+4kyBXs2HCx6Xq3yPN5vu7Md
-	bG4LthlDY09xovhOU/9+t+UlT/qCSEwlu/yD8wtij9qAcRu9ccF0QfOmfjhFmfdwRfAmeai/OTY
-	cOb6sWxwOLKOn30dv8BwSs5yhbTkkY/fGU8DC2kAc1c2KcY7NktYuzTm4e7yS3CiSBMRamQQP0F
-	0SFb9zo506C6Z
-X-Google-Smtp-Source: AGHT+IHtRUvI4BFjONg8E4iCJF2EoVUYaYsRjRtF6W4pN3FGjeweBp2iZqpmntUDbugSl88Vu2pCtA==
-X-Received: by 2002:a05:6a00:464f:b0:749:1e60:bdd with SMTP id d2e1a72fcca58-74ad4ad593emr2674902b3a.2.1750828884013;
-        Tue, 24 Jun 2025 22:21:24 -0700 (PDT)
-Received: from tigerii.tok.corp.google.com ([2401:fa00:8f:203:301e:ee9a:3fb5:c761])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-749c882cda6sm3536393b3a.96.2025.06.24.22.21.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Jun 2025 22:21:23 -0700 (PDT)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Chaotian Jing <chaotian.jing@mediatek.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Tomasz Figa <tfiga@chromium.org>,
-	linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: [PATCH] mtk-sd: reset host->mrq on prepare_data() error
-Date: Wed, 25 Jun 2025 14:20:37 +0900
-Message-ID: <20250625052106.584905-1-senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
-In-Reply-To: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
-References: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
+	Wed, 25 Jun 2025 06:06:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0BC605C62AF;
+	Wed, 25 Jun 2025 06:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C814BC4CEEA;
+	Wed, 25 Jun 2025 06:05:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750831557;
+	bh=mlSg9lIHtnrO/DSwiOZdc8wwacrIJ2lGTmmKvsPErCo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PxPFDjWocxmsoIWWpzgyx3AmmB7LtjHB8cOR3tTUYprPGkheEEY3xPbyTCvyvqlsj
+	 VXYCM6uzQ60no5DzAL/c6jKu3dW8/SsFc0lIJ+kYXfN1TIOKELqESNNsTkpHZS1hqs
+	 6UNLEXKo6EUjiAIKzAwH1HUP9eJWaIvVr/jp559ag7T3fi8LeO4p/6bur6WuVYLFOu
+	 EQ4Kt11jPO3BkO5qiKKqcmsQV3FbwgtWbGsajfMDcYOHcCaT4yhPzZTcXLIlLwSrKg
+	 XD1s9aZpEpcI1lYU7N4C+8Ynua0qB0cNRPbyn3wxtYXHLca2DXwP04/yshsRPqFTOX
+	 0EQovDgK+ovMA==
+Message-ID: <a0feb67f-3a73-4247-8383-7255616cb22b@kernel.org>
+Date: Wed, 25 Jun 2025 08:05:52 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/7] arm64: dts: axiado: Add initial support for AX3000
+ SoC and eval board
+To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jan Kotas <jank@cadence.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>
+References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-5-b3e66a7491f5@axiado.com>
+ <0709a0a6-1313-452c-85e7-2926a6a03741@kernel.org>
+ <19d78e69-4a38-420b-b9f8-d0eb90cdcaf6@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <19d78e69-4a38-420b-b9f8-d0eb90cdcaf6@axiado.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250624_222125_080401_8FC6C656 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250624_230600_325979_7A24E187 
+X-CRM114-Status: GOOD (  25.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +129,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not leave host with dangling ->mrq pointer if we hit
-the msdc_prepare_data() error out path.
+On 25/06/2025 04:16, Harshit Shah wrote:
+> Thank you for the reviews. I have some questions/feedback to clarify 
+> before I fix some of them.
+> 
+> On 6/23/2025 11:45 PM, Krzysztof Kozlowski wrote:
+>>
+>> On 23/06/2025 19:28, Harshit Shah wrote:
+>>> +                     clocks = <&refclk>;
+>>> +                     interrupt-parent = <&gic500>;
+>>> +                     interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
+>>> +                     gpio-controller;
+>>> +                     #gpio-cells = <2>;
+>>> +                     interrupt-controller;
+>>> +                     #interrupt-cells = <2>;
+>>> +                     status = "disabled";
+>>> +             };
+>> Please follow DTS coding style.
+> 
+> Sorry, I didn't got this comment. Is this for the spaces between the 
+> nodes or something else?
+> 
+> The current GPIO node is as follows:
 
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/mmc/host/mtk-sd.c | 1 +
- 1 file changed, 1 insertion(+)
+There is always, always line break between nodes.
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index b12cfb9a5e5f..d7020e06dd55 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -1492,6 +1492,7 @@ static void msdc_ops_request(struct mmc_host *mmc, struct mmc_request *mrq)
- 	if (mrq->data) {
- 		msdc_prepare_data(host, mrq->data);
- 		if (!msdc_data_prepared(mrq->data)) {
-+			host->mrq = NULL;
- 			/*
- 			 * Failed to prepare DMA area, fail fast before
- 			 * starting any commands.
--- 
-2.50.0.714.g196bf9f422-goog
+> 
+> gpio0: gpio-controller@80500000 {
+>                          compatible = "cdns,gpio-r1p02";
+>                          reg = <0x00 0x80500000 0x00 0x400>;
+>                          clocks = <&refclk>;
+>                          interrupt-parent = <&gic500>;
+>                          interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
+>                          gpio-controller;
+>                          #gpio-cells = <2>;
+>                          interrupt-controller;
+>                          #interrupt-cells = <2>;
+>                          status = "disabled";
+>                  };
+> 
+> I checked the document: 
+> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/dts-coding-style.rst#L112.
+> 
+>>
+>>> +             gpio1: gpio-controller@80580000 {
+>>> +                     compatible = "cdns,gpio-r1p02";
+>> This should not be accepted without specific compatible, but that's some
+>> old binding so maybe matters less. Anyway, if you ever need quirk or
+>> custom properties they I will reject them based on what you claim here.
+> 
+> Yes, we are not changing anything on this driver. Is it okay?
 
+I meant for future. I would expect to follow writing bindings now, so
+have front specific compatible, but if you do not then whatever issues
+you have in the future with this driver, they should be rejected, right?
+
+> 
+> 
+>>
+>>
+>>> +             i3c16: i3c@80620400 {
+>>> +                     compatible = "cdns,i3c-master";
+>>> +                     reg = <0x00 0x80620400 0x00 0x400>;
+>>> +                     clocks = <&refclk &clk_xin>;
+>>> +                     clock-names = "pclk", "sysclk";
+>>> +                     interrupt-parent = <&gic500>;
+>>> +                     interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+>>> +                     i2c-scl-hz = <100000>;
+>>> +                     i3c-scl-hz = <400000>;
+>>> +                     #address-cells = <3>;
+>>> +                     #size-cells = <0>;
+>>> +                     status = "disabled";
+>>> +             };
+>>> +             uart0: serial@80520000 {
+>> Looks like not ordered by unit address. What is the ordering rule you
+>> are going to adopt for entire arch?
+> 
+> Apologies for the confusion. I should have updated in last patch-set 
+> comments.
+> 
+> We are following alphabetical ordering rule. In those we are grouping 
+> some nodes together based on the numbers.
+> 
+> cpus
+> 
+> clocks
+> 
+> soc {
+> 
+>     gic500 { }
+> 
+>     gpio0-7 { }
+> 
+>     i3c0-16 { }
+> 
+>     uart0-3 { }
+> 
+> }
+> 
+> timer
+> 
+> 
+> Is this okay?
+
+alphabetical ordering is not mentioned in dts coding style. Maybe it
+should, but I think the only user of second style with grouping nodes -
+Renesas - still uses ordering by unit address in general.
+
+The trouble with your approach is that if you ever need to change the
+name, you will need to re-order and move entire node.
+
+Anyway, not a problem for me.
+
+> 
+>>
+>>> +                     compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
+>> NAK, you do not have xlnx here. Look at your SoC: name of vendor is
+>> axiado. Not xlnx. How is your SoC called? Also zynqmp? You cannot just
+>> randomly pick any compatibles and stuff them around.
+>>
+>> Please carefully read writing bindings from DT directory.
+> 
+> 
+> We are using the "cdns,uart-r1p12" for the UART. However, that alone 
+> can't be added alone in the compatible as per the DT bindings doc.
+
+Exactly. See writing bindings... or any guides/talks.
+
+
+Best regards,
+Krzysztof
 
