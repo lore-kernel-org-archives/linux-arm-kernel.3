@@ -4,105 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F618C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0C8C7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 09:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=; b=3iw9+iEw4V0mQxhU6FY0m8SVUq
-	zpPjmp2xZHt1bRiJyqo/vq09AU3XkGrRUitaoTyHK91KOONJKZvUmA4VhMPtluNiyp9tdplQ0BNIq
-	aENIsqDCDldlm5/YVy/Nh7uB96J4KnVaHWhoZqBHovixr8LobR0CEwma3iPtKaIfY5X4BM03KJXh8
-	1loPMdiO5xiR2EjhzxwhZg8pdebGnyzkw0QJaZaiL0dWG3VMWWGB5gEFcyfD1ntngJFrxBQoQp+Qh
-	3Q07xyZsR6jMgrlxmk+rQkU3tHyE2xGM11FNa9kLIeOcsODMWTh9PYCQDV/Bz2c4UlYfjW0Grr2i3
-	vWogHCVg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bpfCUZC+sC7bUz4RdLQi0WpER7o4+Bsl7PTtxB3Fbjw=; b=wPWd5WXR+sAEGIFbf9PTkFwwQF
+	mqkVMSJxUvnFkgtpzuGhdBWddbXEQ1pJU2DMZajpYEGOkkWnkx4JeIrUbs1MrfVUpQtBGzw33FZeG
+	yr2TE1sladQfqHdjzei434txqKiUq3C2+QJ/GGmcYfQsrrdBkyxjfsbQhIqEx8eJCJkATlKlhdT5r
+	vbufHQ4i/86amymhB0YiQh8SIi8OPejIEr44Hf68B7qQa5jE+4+E1rAHxDtzLtqBxtk2JApv3A8Wz
+	C8+FMqovgc69U83VWF9Kzh2qpfTJT4nFwdRZSSJHKSrX9lFeTRfRaUEUTa9TL13+q2pcDxdvX4vlV
+	q/kXsrcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUMli-00000008Bax-2SIs;
-	Wed, 25 Jun 2025 09:50:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUMlk-00000008Bbl-0tjw;
+	Wed, 25 Jun 2025 09:50:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKif-00000007qPB-3xvb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Jun 2025 07:38:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=; b=jnNgYvrr+G5C1+vok7cNv7B+v/
-	BWtQc+F+a52EqWKiW76pPOiLo3kb6tcnEwtidXbbyZSBaywBDD+LaEQI6jPAxe/kfkV4X2zt7ub30
-	vsdYxLNLX0i/xtao8jD5INo3OYcJVoS+0LO7az8z1Am9s5qMRoEoDlDXOYiwpTGnqg95FFmL6mrPF
-	skK8cRc79PxSQLMEHIsUhdyKjbktPZcmvcpxXA8Np8qZX0GsLVfNiKdoLeIAL13edmrouBuyOi1kt
-	rH37yVRbdeSVYw5mIKtZcZV5QhL902QXlcaLrE3T5NNPabayGBTNi+2WILDPoubSg9Bwxm+2JVR02
-	64hhz+qA==;
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKid-00000005eOh-1K0g
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 07:38:57 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-235ea292956so66950565ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 00:38:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750837132; x=1751441932; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=;
-        b=PADvYbTbEb/xkV8BPZbH/85av0Dd1V248VgWeDeKc4O25KQDmvDIt/4LLcVvqTguPH
-         BQuRJXP5vECgl27pykHZ7f18cMQwOZvSpPOv13QE3sEuI14RF9YRANtdtRpoDUFUmo7Z
-         16+2nSFZY5T1Mq4qGEZkW9ANIGrxfs9mzk/QSso3z+ie3m0bJrp0jENyvn4g02PMXh67
-         GUHBGlIsRyDknln2cYkdQetYNFevJuKZy4YdVR4/fewOJBCc9KV0Ti+CD/nREGEIONx0
-         9UcKojDLTw1GPoK9EOcSoGYnawjVA2ShLq3fFflp41W0zevlG5TKvRCvD3wwYvaOT9QU
-         CDtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750837132; x=1751441932;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kG1olUInn/LVZERQ5W1mrbwIx3yXWmY5X23lP+cvHI0=;
-        b=IfS/WHdMUcjFh2HsbZkZBZ2SvCd6JRT0AxurTh/b3V22HTYpvHeUln7n2joLpBgMOu
-         /GRjGDqy2vF1WVcS4i2Jv2HRoc5KxUqUPCXrudHSKVOIsZk77T7PMZk1sbmvnLbl9iVE
-         ZlM8QkItiBp5XqTGWKe1KTrsri9RK+Ltu8Yo2DK0UDsmhQTdBR/Xb03/7PtQfjuqkfJc
-         Wov3QYhx7wfBZVwWdHoAIGCF+vElzU+yMKYGhuF2ZjxeWtcaMlrvqpSsHTfBUSmKHuPm
-         SRDbaMZOOlsEXffDTNYBIa/VWfy/9C6fNLDMlKyyvG+TxsQ2WMnSv3OoLbxiT4aASOeh
-         YsVw==
-X-Forwarded-Encrypted: i=1; AJvYcCUHMQzTzHJMpthDAe1SLZNFlxMg6HMGtSM/wpGefeXEWyVRKYbYBh8L3iO2v1ZfCwRYXBhdamsTvxFdCLSUFrST@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm22NLnBhh18Gb7VqU0yWVrl2gqa8xScHNIklIRT+5mj1raMKj
-	X4V15NK5JzyIEmbHGXCFfPsbjFL3nIfy22SsDKIuAIKfby1IuisgSrmw
-X-Gm-Gg: ASbGncuteSsWjpfvtzxvDjsN5Q8lmhRR9FlUOLILzKbVUDfneCCM8YeiRJeiPVQwig1
-	R/U25fvyziDERNK8qqhVvTcTdeHS2KiAPOETQw3HovG+FVLSPPDKlnx2Flb/rLhpcnhtqxTjeIU
-	Caa8P9jEVGeN4Dl+a90atIVQKEg+Lwvennx9ZhQsoTqkWbOkj5CPUO6ekPpM9EGo5Fx67izZLvw
-	dRbWlbgJgUrPHwXxnuBWpZoDPpjDMpuvr5o0V9wAbbS1ZwfI78NlSa9EJp5wm6zkqNlcat2XYjo
-	D58TcJlvDR0qGihMFWWqa4TvUdp5fPiqd6FxqZRDi8WeeThix2tNy1U43qQzS7Dna1Y40vMBG4Q
-	wDhY+hoYEvxu00uc8LOEomWnAwTRT6IR8K3uhMM97FRDEO0T8JMT++VVxl2HccnggQ1QhbqpYEZ
-	jXSidUn5uxSkg0ow==
-X-Google-Smtp-Source: AGHT+IEAYJ2SDUHupwKAlisVD3ai/2xripja2VDUoY9Ul4K/z1BlfG/iLbXNiETNKFpAqA+j53TumQ==
-X-Received: by 2002:a17:902:dace:b0:234:eadc:c0b4 with SMTP id d9443c01a7336-23824079303mr47397585ad.44.1750837131671;
-        Wed, 25 Jun 2025 00:38:51 -0700 (PDT)
-Received: from fred-System-Product-Name.. (2001-b400-e389-b6b2-29b2-bfd3-aa15-d345.emome-ip6.hinet.net. [2001:b400:e389:b6b2:29b2:bfd3:aa15:d345])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86a3083sm125374285ad.195.2025.06.25.00.38.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 00:38:51 -0700 (PDT)
-From: Fred Chen <fredchen.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] Add Meta (Facebook) Santabarbara BMC (AST2600)
-Date: Wed, 25 Jun 2025 15:38:36 +0800
-Message-ID: <20250625073847.4054971-1-fredchen.openbmc@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	id 1uULii-000000080CO-1c5B;
+	Wed, 25 Jun 2025 08:43:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750840982;
+	bh=0zoH2zm7ExRdSksDt2tI+GQ6Me44WT6HxaN2iHgQOEk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=M4tI3YJ1zR0CIBrk4xCO27LYB0a1S85PFiArrIGEdmoaThHaif+flHR6MDENc76Ly
+	 D3J+8jCzJdExWzKl7wZ0MpfPUmE+QYwBk+gF7edhNkCl/wf82k1vc7mAhnXr8yM3Hw
+	 aLz/kmghHoan00qcz8/biKqYy57ARpTVAY5e2I4WZ5/nYMoTUklObdamW8MO4o8odp
+	 2+noA6Eti0HIUE+PGurK/zgIJLGEDO6jrn4r+tmWYIrZndG6POZyGiRENI2+lrYgGc
+	 ScIwgO8MK7kI59vV0kh2DpOf9gmjj6MOjOK0wsofUooOejijHACR15xCjxLufkq0BA
+	 7HceV/Y03GudQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0014F17E046C;
+	Wed, 25 Jun 2025 10:43:01 +0200 (CEST)
+Message-ID: <3e1f9105-4bfc-4e8b-bf18-08e7a5aaa486@collabora.com>
+Date: Wed, 25 Jun 2025 10:43:01 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/6] regulator: Add support for MediaTek MT6316 SPMI
+ PMIC Regulators
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: broonie@kernel.org, lgirdwood@gmail.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
+ <20250624073548.29732-3-angelogioacchino.delregno@collabora.com>
+ <CAGXv+5G-s6+sF-PS0iywC5uxMkrfH1FskWG_HcHAi_tfuHWtZA@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5G-s6+sF-PS0iywC5uxMkrfH1FskWG_HcHAi_tfuHWtZA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_083855_431174_8B2C1C06 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_014304_579637_BD95339E 
+X-CRM114-Status: GOOD (  39.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,31 +80,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Summary:
-Add linux device tree entry related to Meta (Facebook) Santabarbara
-specific devices connected to BMC (AST2600) SoC.
+Il 25/06/25 07:06, Chen-Yu Tsai ha scritto:
+> Hi,
+> 
+> On Tue, Jun 24, 2025 at 3:46 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Add a driver for the regulators found on all types of the MediaTek
+>> MT6316 SPMI PMIC, fully controlled by SPMI interface and featuring
+>> four step down DCDC (buck) converters.
+>>
+>> In particular, this includes support for:
+>>   - MT6316(BP/VP):    2+2 Phase (Phase 1: buck1+2, Phase 2: buck3+4)
+>>   - MT6316(CP/HP/KP): 3+1 Phase (Phase 1: buck1+2+4, Phase 2: buck3)
+>>   - MT6316(DP/TP):    4+0 Phase (Single phase, buck1+2+3+4)
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/regulator/Kconfig            |   9 +
+>>   drivers/regulator/Makefile           |   1 +
+>>   drivers/regulator/mt6316-regulator.c | 345 +++++++++++++++++++++++++++
+>>   3 files changed, 355 insertions(+)
+>>   create mode 100644 drivers/regulator/mt6316-regulator.c
+>>
+>> diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+>> index 6d8988387da4..bca2ebbd89b7 100644
+>> --- a/drivers/regulator/Kconfig
+>> +++ b/drivers/regulator/Kconfig
+>> @@ -864,6 +864,15 @@ config REGULATOR_MT6315
+>>            This driver supports the control of different power rails of device
+>>            through regulator interface.
+>>
+>> +config REGULATOR_MT6316
+>> +       tristate "MT6316 SPMI PMIC regulator driver"
+>> +       depends on SPMI || COMPILE_TEST
+>> +       help
+>> +          Say Y here to enable support for 2+2, 3+1 and 4 phase regulators
+>> +          found in the MediaTek MT6316 BP, CP, DP, HP, VP and TP SPMI PMICs.
+>> +         This driver supports the control of different power rails of device
+>> +         through regulator interface.
+>> +
+>>   config REGULATOR_MT6323
+>>          tristate "MediaTek MT6323 PMIC"
+>>          depends on MFD_MT6397
+>> diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
+>> index c0bc7a0f4e67..58643e35d2cc 100644
+>> --- a/drivers/regulator/Makefile
+>> +++ b/drivers/regulator/Makefile
+>> @@ -103,6 +103,7 @@ obj-$(CONFIG_REGULATOR_MP886X) += mp886x.o
+>>   obj-$(CONFIG_REGULATOR_MPQ7920) += mpq7920.o
+>>   obj-$(CONFIG_REGULATOR_MT6311) += mt6311-regulator.o
+>>   obj-$(CONFIG_REGULATOR_MT6315) += mt6315-regulator.o
+>> +obj-$(CONFIG_REGULATOR_MT6315)  += mt6316-regulator.o
+>>   obj-$(CONFIG_REGULATOR_MT6323) += mt6323-regulator.o
+>>   obj-$(CONFIG_REGULATOR_MT6331) += mt6331-regulator.o
+>>   obj-$(CONFIG_REGULATOR_MT6332) += mt6332-regulator.o
+>> diff --git a/drivers/regulator/mt6316-regulator.c b/drivers/regulator/mt6316-regulator.c
+>> new file mode 100644
+>> index 000000000000..952852bbe923
+>> --- /dev/null
+>> +++ b/drivers/regulator/mt6316-regulator.c
+>> @@ -0,0 +1,345 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +//
+>> +// Copyright (c) 2024 MediaTek Inc.
+>> +// Copyright (c) 2025 Collabora Ltd
+>> +//                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> +
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/regmap.h>
+>> +#include <linux/spmi.h>
+>> +
+>> +#include <linux/regulator/driver.h>
+>> +#include <linux/regulator/machine.h>
+>> +#include <linux/regulator/of_regulator.h>
+>> +
+>> +#define MT6316_BUCK_MODE_AUTO                  0
+>> +#define MT6316_BUCK_MODE_FORCE_PWM             1
+>> +#define MT6316_BUCK_MODE_LP                    2
+>> +
+>> +#define MT6316_CHIP_ID                         0x20b
+>> +#define MT6316_BUCK_TOP_CON0                   0x1440
+>> +#define EN_SET_OFFSET                          0x1
+>> +#define EN_CLR_OFFSET                          0x2
+>> +
+>> +#define MT6316_BUCK_TOP_CON1                   0x1443
+>> +
+>> +#define MT6316_BUCK_TOP_ELR0                   0x1448
+>> +#define MT6316_BUCK_TOP_ELR2                   0x144a
+>> +#define MT6316_BUCK_TOP_ELR4                   0x144c
+>> +#define MT6316_BUCK_TOP_ELR6                   0x144e
+>> +#define MT6316_VSEL_MASK                       GENMASK(8, 0)
+>> +
+>> +#define MT6316_VBUCK1_DBG                      0x14a8
+>> +#define MT6316_VBUCK2_DBG                      0x1528
+>> +#define MT6316_VBUCK3_DBG                      0x15a8
+>> +#define MT6316_VBUCK4_DBG                      0x1628
+>> +#define MT6316_BUCK_QI                         BIT(0)
+>> +
+>> +#define MT6316_BUCK_TOP_4PHASE_TOP_ANA_CON0    0x1688
+>> +#define MT6316_BUCK_TOP_4PHASE_TOP_ELR_0       0x1690
+>> +
+>> +enum mt6316_type {
+>> +       MT6316_TYPE_2PHASE,
+>> +       MT6316_TYPE_3PHASE,
+>> +       MT6316_TYPE_4PHASE
+>> +};
+>> +
+>> +/**
+>> + * struct mt6316_regulator_info - MT6316 regulators information
+>> + * @desc: Regulator description structure
+>> + * @debug_reg: Debug register for regulator status
+>> + * @lp_mode_reg: Low Power mode register (normal/idle)
+>> + * @lp_mode_mask: Low Power mode regulator mask
+>> + * @modeset_reg: AUTO/PWM mode register
+>> + * @modeset_mask: AUTO/PWM regulator mask
+>> + */
+>> +struct mt6316_regulator_info {
+>> +       struct regulator_desc desc;
+>> +       u16 debug_reg;
+>> +       u16 lp_mode_reg;
+>> +       u16 lp_mode_mask;
+>> +       u16 modeset_reg;
+>> +       u16 modeset_mask;
+>> +};
+>> +
+>> +#define MT6316_BUCK(match, vreg_id, min, max, step, vs_reg)            \
+>> +{                                                                      \
+>> +       .desc = {                                                       \
+>> +               .name = match,                                          \
+>> +               .of_match = of_match_ptr(match),                        \
+>> +               .ops = &mt6316_vreg_setclr_ops,                         \
+>> +               .type = REGULATOR_VOLTAGE,                              \
+>> +               .owner = THIS_MODULE,                                   \
+>> +               .n_voltages = (max - min) / step + 1,                   \
+>> +               .min_uV = min,                                          \
+>> +               .uV_step = step,                                        \
+>> +               .enable_reg = MT6316_BUCK_TOP_CON0,                     \
+>> +               .enable_mask = BIT(vreg_id - 1),                        \
+>> +               .vsel_reg = vs_reg,                                     \
+>> +               .vsel_mask = MT6316_VSEL_MASK,                          \
+>> +               .of_map_mode = mt6316_map_mode,                         \
+>> +       },                                                              \
+>> +       .lp_mode_reg = MT6316_BUCK_TOP_CON1,                            \
+>> +       .lp_mode_mask = BIT(vreg_id - 1),                               \
+>> +       .modeset_reg = MT6316_BUCK_TOP_4PHASE_TOP_ANA_CON0,             \
+>> +       .modeset_mask = BIT(vreg_id - 1),                               \
+>> +       .debug_reg = MT6316_VBUCK##vreg_id##_DBG,                       \
+>> +}
+> 
+> [...]
+> 
+>> +
+>> +/* MT6316BP/VP - 2+2 phase buck */
+>> +static struct mt6316_regulator_info mt6316bv_regulators[] = {
+>> +       MT6316_BUCK("vbuck12", 1, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR0),
+>> +       MT6316_BUCK("vbuck34", 3, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR4),
+> 
+>                                      ^
+> While this is technically correct as the selector does start from 0,
+> I don't think the regulator can actually go down to 0V. In the past
+> for the MT6311 / MT6315, MediaTek always added a standard minimum
+> voltage in the device tree.
 
-Change log
-v1 -> v2:
-  - Enable mac3 node
-  - Add GPIO line-name FM_MUX1_SEL_R
-  - Remove 'pinctrl-names' from gpio0 node
-  - Reorder top-level nodes alphabetically
-  - Reorder device node properties per style
-v1:
-  - Create santabarbara dts file.
+I believe the same, but I've done it as per what the datasheet says... so if
+a zero selector is valid, the driver shall be able to set a zero selector.
 
-Fred Chen (2):
-  dt-bindings: arm: aspeed: add Meta Santabarbara board
-  ARM: dts: aspeed: santabarbara: Add Meta Santabarbara BMC
+The datasheet is not clear about the behavior of setting 0V -  as in, if the
+buck gets its VIN and outputs nothing, or if it is the same as powering it off,
+as much as not being clear about some of the electrical characteristics.
 
- .../bindings/arm/aspeed/aspeed.yaml           |   1 +
- arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../aspeed-bmc-facebook-santabarbara.dts      | 982 ++++++++++++++++++
- 3 files changed, 984 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
+For me, there's no way to test what the 0V setting electrically does exactly,
+I was only able to test that when setting that selector to zero, the platform
+gets severely undervolted and crashes - but that undervolt crash happens at a
+broad (substantially low) voltages range - so this particular zero setting was
+.. again.. impossible to test.
 
--- 
-2.49.0
+> 
+> I believe a combination of setting .linear_min_sel and adjusting min_uV
+> and n_voltages is the correct solution.
+> 
+
+Could be, but again - if the datasheet says that this is a supported setting,
+we should declare it as a supported setting.
+
+Unless the datasheet is wrong (which is not impossible tbh) - but then what
+can you do if that's the case, apart from grabbing (very) expensive equipment,
+and go through that rabbit hole like that? :-(
+
+>> +};
+>> +
+>> +/* MT6316CP/HP/KP - 3+1 phase buck */
+>> +static struct mt6316_regulator_info mt6316chk_regulators[] = {
+>> +       MT6316_BUCK("vbuck124", 1, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR0),
+>> +       MT6316_BUCK("vbuck3", 3, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR4),
+>> +};
+>> +
+>> +/* MT6316DP/TP - 4 phase buck */
+>> +static struct mt6316_regulator_info mt6316dt_regulators[] = {
+>> +       MT6316_BUCK("vbuck1234", 1, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR0),
+>> +};
+>> +
+>> +static const struct regmap_config mt6316_spmi_regmap_config = {
+>> +       .reg_bits       = 16,
+>> +       .val_bits       = 8,
+>> +       .max_register   = 0x1700,
+>> +       .fast_io        = true,
+>> +};
+>> +
+>> +static int mt6316_regulator_probe(struct spmi_device *sdev)
+>> +{
+>> +       struct regulator_config config = {};
+>> +       struct mt6316_regulator_info *info;
+>> +       struct regulator_dev *rdev;
+>> +       enum mt6316_type type;
+>> +       int num_vregs, ret;
+>> +       unsigned int i;
+>> +       u32 chip_id;
+>> +
+>> +       config.regmap = devm_regmap_init_spmi_ext(sdev, &mt6316_spmi_regmap_config);
+>> +       if (IS_ERR(config.regmap))
+>> +               return PTR_ERR(config.regmap);
+>> +
+>> +       /*
+>> +        * The first read is expected to fail: this PMIC needs to be woken up
+>> +        * and that can be done with any activity over the SPMI bus.
+>> +        */
+>> +       regmap_read(config.regmap, MT6316_CHIP_ID, &chip_id);
+>> +
+>> +       /* The second read, instead, shall not fail! */
+>> +       ret = regmap_read(config.regmap, MT6316_CHIP_ID, &chip_id);
+>> +       if (ret) {
+>> +               dev_err(&sdev->dev, "Cannot read Chip ID!\n");
+>> +               return ret;
+>> +       }
+>> +       dev_dbg(&sdev->dev, "Chip ID: 0x%x\n", chip_id);
+>> +
+>> +       config.dev = &sdev->dev;
+>> +
+>> +       type = (uintptr_t)device_get_match_data(&sdev->dev);
+>> +       switch (type) {
+>> +       case MT6316_TYPE_2PHASE:
+> 
+> Instead of being tied to the compatible string / PMIC variant,
+> I wonder if this is something that can be read back from the
+> PMIC. You wouldn't need so many variant compatible strings if
+> that's the case.
+
+We think alike - always loved that.
+
+The answer is simple (and sad): the datasheet doesn't contain this information...
+and more...: some of what you see in this driver (and the other two) is done with
+a combination of cross-checking between various downstream kernels and some risky
+tinkering.
+
+Cheers,
+Angelo
+
+> 
+> FWIW we do that for some of the X-Powers AXP PMICs.
+> 
+> 
+> ChenYu
+
 
 
