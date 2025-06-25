@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919DBC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037FAC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 16:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=srWyM6hrZrKKA66o6ZmIcowA6ddRbd9LM5lpgsjiP/Q=; b=YcsgRlMwGyrxYrzbgVDqwk1+jT
-	gOFnAMlKylqnof+U6neHWhG9JWygaDp0rnpU+gjaE329b5D4N1GymRlcM8XSuN6zIajsEXGtTfFzr
-	ohqiFUNnZqM7bklA2p2UR1aj62gzGl/Go2Lv5iRuf98ExiQYOMX4lE7wiWv+eDy8nGUsGydNnCeS/
-	FLxeGWQc57lgLjdN2GrJfpt3wroU2Oam8qztrFTw3SmjIW/UVYURqpE/9BWGydxUsV59qqiD+vluC
-	pNGGq2TghMnFIkP/RrYZNqROXHV+7zPSMJLTakI6teXYlHNz3KYeKJVPsfMFza/FC3qTDctoT74UC
-	fZmKw9jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=; b=UO2o2VuP239JkRHDG2jlNy3I8Z
+	BouucKHNgzl4HtLYQhrb4Ftv0NlhQR/AA/33QjOSqHpnDiof9jToIzOwacNqW/QNUV4EDmdmaSrgW
+	rR43v4cnKxsGqUAOyodHER1wcl9oicxGM3A0ejimGt7lMo9fb7QJI2c7+TwCwmm1nxcnm749JWWkR
+	ZNY4E4lSSi8/VD2IwfrE+lzc4sIhCQI10lmYxKhBfRpNyTDv/bGW/SqOTIiMxQPhE66R3qQsQJgPf
+	8ewPe7na5gMQHGLcHLub0HR3m4c+fB7iVTSiEUrv4fT9jcRgWHxo+F+GB2AuKgsYVOZcbbhUf1hRF
+	Etca+U5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUSmI-00000009FIg-3lW4;
-	Wed, 25 Jun 2025 16:15:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uUSoh-00000009Fom-35IG;
+	Wed, 25 Jun 2025 16:17:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUOJf-00000008Tc3-20Cv
+	id 1uUONb-00000008USM-3pLg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 25 Jun 2025 11:33:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=; b=Q0gM0hbSSW09PTvVopQ9NHUjPc
+	sWRRqL1c5lYa9jG3rMDUChbrZRuFJDzeEYGpS7tbGGtPYttdT3/3eoHgqjWaAc+eYK0M0kZVt57jY
+	obMIapfjy9fOZzAbcM6adzSA+eaOfrq5o4zNh801ONYGf9t9NceB18+6dNm8Ow8DVbIW/nFDI0HC6
+	+uCaqZfKWHUY7xcQ/z5nog3U7qhuu3m6As2uoOddMaDyXptSZwfiRVybXQC+/d8GBKxTHuVNEm9LD
+	CibGLvpWySkVTIGbyD5dbMFjQ8UnlS4Wmcu1xssyW3lzTyYi2rb4tbC5bUGah2SSIlP1nXyw80p9A
+	s3nc97Fw==;
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUONZ-00000005pYM-0q8d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 11:29:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF16B4366A;
-	Wed, 25 Jun 2025 11:29:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCF3C4CEEA;
-	Wed, 25 Jun 2025 11:29:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750850962;
-	bh=CcWYS6fKwMpfwwV3JsNJq0FJ07VqNzGU5p6m3hA9+RA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oGkAowJzjZpzsbecACapkEVOBa2ryl01cMiiCPmJ5abjPtHSlnaRypjdKysZl32hz
-	 uRm4adx+N5JMZlQqJaFT0mCkNIoG7xOwXos0ZRnFxBFCx3bJhAcJC+0nmGGbEUCNwH
-	 SdjPlldScLx+wZ+OtjLjf/A17H+idis+alqkP10+YPep9EXI5TJ2ji/xd/G6LZQepx
-	 Q7qyMJSeyejpmrsT2l4FUhewIra1Mkn4QG3mm9ZuNDX/uzaJukFMDFh1n45UlWNz2F
-	 jgHk8ygJZoSPuYfcITambrQ+1chiIsyka5UDRZJp/Y8HkCp0PtBCUsww79JA+jetwK
-	 dkKxQXneYkMSA==
-Date: Wed, 25 Jun 2025 12:29:17 +0100
-From: Lee Jones <lee@kernel.org>
-To: Shubhi Garg <shgarg@nvidia.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v4 3/6] mfd: nvvrs: add NVVRS PSEQ MFD driver
-Message-ID: <20250625112917.GV795775@google.com>
-References: <20250619084427.3559207-1-shgarg@nvidia.com>
- <20250619084427.3559207-4-shgarg@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250619084427.3559207-4-shgarg@nvidia.com>
+	Wed, 25 Jun 2025 11:33:26 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4532ff43376so52013865e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 04:33:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750851202; x=1751456002; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=;
+        b=HhWdYPaR1X0UrFcw+UTiJ94d7IcpFxdKm++dpkcLPdRC7pfR3ykV4jWaHOv1rFKjRY
+         tNyz0SsYVFkzIoHvbjOcVoK2OLL+nZ5Q/xADKtEkoiEevfdAEuVS3JVU/xYMD70RMTo+
+         Cqy04gymH+6dLp8ogZBYImtglExPfB44k1rDORCWs/ZGxfKbT4U647/EpJjqStm6bhHh
+         CsNsTv3Ya2YtPoBtqBgkS5UZ7Ihnz/E8omuOH/Cdd4MImbyUCLtwXdjejSCx1UeiM6Y3
+         s5/4ADgqJn6o4fym4YEUzJYnsbB0Bz+LXQyKUbT2lqsrnj+XKZ6Y6wafSj1992O2hQJk
+         zIlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750851202; x=1751456002;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2NIlOMIrjnVsdM2AHEMlWacU0EQa3pY5nigk/W+dUCk=;
+        b=Bh+9b0q0YGhPnUN4sA8S5lOa3u7SXoa18OHbQB4QIXJi6e4Jt44n6NGFv2lQf8Z+ne
+         AjJPR3VcRZthF0EKB22TaVthsP2dSPbf3ojT5wops2pCcp8kdoWrSycbPUNh41t9fKGy
+         HvrdVshSTlNRac1Yj4cn+5mApfOoRJoozfzS9SCeGsgSE0qownvNYtZutRVKP6bcs12t
+         WAUVt0AoGCmKgD8ACzk5qb+qCNVbptofvsxyPpAstetjUT8nb/w/YwpaagnTbr6V+wqJ
+         wwrJVwerPXNRGMZuSUqrDPqb7jRMZ9prMrrHoh7xghg1uZeToquxjO9XyZQxRoh+E/1T
+         2Nyg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9GjcCahQcgE9RWonUn2OPHNCMiCz6MKfMxlu6es/GtjZeTWp4VjDe9g8Nyy+8A4GNsSfL2K0PyZZiOCzVgjGD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYgAP9TvKxPq+Fjw3+qtJgIRvltA0/r9K2+X0Ar7zgAw1S5M1T
+	WgKmXmIDbWKGFLVbQSTpYExeROJpswQ+6W4ekx1rJebaCZYe/TsKFPISVp91o8smSNcSsfO6zZD
+	B0cTw/W0NlLNuwg==
+X-Google-Smtp-Source: AGHT+IFOs0Gi4knoSxkuw3WEzWTeg5pmNz2XOZ2P1IvG2UaOypTfCATZEtKucsPAekJhdqLV//IPLmdoJn1rpQ==
+X-Received: from wmbfs5.prod.google.com ([2002:a05:600c:3f85:b0:450:cfda:ece7])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:674a:b0:441:b076:fce8 with SMTP id 5b1f17b1804b1-45381ab25e9mr28886085e9.14.1750851201981;
+ Wed, 25 Jun 2025 04:33:21 -0700 (PDT)
+Date: Wed, 25 Jun 2025 11:33:01 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.0.714.g196bf9f422-goog
+Message-ID: <20250625113301.580253-1-smostafa@google.com>
+Subject: [PATCH] KVM: arm64: Fix error path in init_hyp_mode()
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, qperret@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_042923_568757_5AD389F9 
-X-CRM114-Status: GOOD (  47.95  )
+X-CRM114-CacheID: sfid-20250625_123325_386159_0D342E9C 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,620 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With respect to the subject line, please remove "MFD driver".
-
-You can use "core driver" or replace it for whatever this is.
-
-> Add support for NVIDIA VRS (Voltage Regulator Specification) power
-> sequencer device driver. NVIDIA VRS PSEQ provides 32kHz RTC support with
-> backup battery for system timing. It controls ON/OFF and suspend/resume
-> power sequencing of system power rails on below NVIDIA platforms:
-> 
-> - NVIDIA Jetson AGX Orin Developer Kit
-> - NVIDIA IGX Orin Development Kit
-> - NVIDIA Jetson Orin NX Developer Kit
-> - NVIDIA Jetson Orin Nano Developer Kit
-> 
-> Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
-> ---
-> 
-> v4:
-> - no changes
-> 
-> v3:
-> - added rate limiting to interrupt clearing debug logs
-> - removed unnecessary braces in if blocks
-> - changed dependency from I2C=y to I2C in mfd Kconfig
-> 
-> v2:
-> - removed unnecessary error logs
-> - changed dev_info to dev_dbg
-> - changed dev_err to dev_err_probe
-> - fixed "of_match_table" assignment
-> 
->  drivers/mfd/Kconfig                 |  12 ++
->  drivers/mfd/Makefile                |   1 +
->  drivers/mfd/nvidia-vrs-pseq.c       | 267 ++++++++++++++++++++++++++++
->  include/linux/mfd/nvidia-vrs-pseq.h | 127 +++++++++++++
->  4 files changed, 407 insertions(+)
->  create mode 100644 drivers/mfd/nvidia-vrs-pseq.c
->  create mode 100644 include/linux/mfd/nvidia-vrs-pseq.h
-> 
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 6fb3768e3d71..9a3451eebd6e 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1437,6 +1437,18 @@ config MFD_SC27XX_PMIC
->  	  This driver provides common support for accessing the SC27xx PMICs,
->  	  and it also adds the irq_chip parts for handling the PMIC chip events.
->  
-> +config MFD_NVVRS_PSEQ
-
-Suggest separating the company from the product.
-
-If you want to use NV for this (I only see a single other instance of
-this), then use NV_VRS_PSEQ.
-
-> +	tristate "NVIDIA Voltage Regulator Specification Power Sequencer"
-
-"NVIDIA Voltage Regulator Specification (VRS) Power Sequencer"
-
-> +	depends on I2C
-> +	select MFD_CORE
-> +	select REGMAP_I2C
-> +	select REGMAP_IRQ
-> +	help
-> +	  Say Y here to add support for NVIDIA Voltage Regulator Specification
-
-(VRS) at the end.
-
-> +	  Power Sequencer. NVVRS_PSEQ supports ON/OFF, suspend/resume sequence of
-
-NVVRS_PSEQ seems like the wrong terminology for this paragraph.
-
-"The NVIDIA VRS PSEQ" perhaps.
-
-What does ON/OFF mean?
-
-> +	  system power rails. It provides 32kHz RTC clock support with backup
-
-This paragraph doesn't flow.  You only have a list of 2 items here and
-no connecting "and" anywhere.
-
-"a backup battery"
-
-> +	  battery for system timing.
-
-Is it a "backup battery" if it has a primary function?
-
->  config RZ_MTU3
->  	tristate "Renesas RZ/G2L MTU3a core driver"
->  	depends on (ARCH_RZG2L && OF) || COMPILE_TEST
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index 79495f9f3457..9b07289985b5 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -183,6 +183,7 @@ obj-$(CONFIG_MFD_MT6360)	+= mt6360-core.o
->  obj-$(CONFIG_MFD_MT6370)	+= mt6370.o
->  mt6397-objs			:= mt6397-core.o mt6397-irq.o mt6358-irq.o
->  obj-$(CONFIG_MFD_MT6397)	+= mt6397.o
-> +obj-$(CONFIG_MFD_NVVRS_PSEQ)    += nvidia-vrs-pseq.o
->  
->  obj-$(CONFIG_RZ_MTU3)		+= rz-mtu3.o
->  obj-$(CONFIG_ABX500_CORE)	+= abx500-core.o
-> diff --git a/drivers/mfd/nvidia-vrs-pseq.c b/drivers/mfd/nvidia-vrs-pseq.c
-> new file mode 100644
-> index 000000000000..cef7abac08b7
-> --- /dev/null
-> +++ b/drivers/mfd/nvidia-vrs-pseq.c
-> @@ -0,0 +1,267 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-> + * NVIDIA VRS Power Sequencer driver.
-
-Put this at the top followed by a line separator before the copyright
-line.
-
-Drop "driver".
-
-> + */
-> +
-> +#include <linux/i2c.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/mfd/nvidia-vrs-pseq.h>
-> +#include <linux/module.h>
-> +#include <linux/init.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/slab.h>
-> +#include <linux/err.h>
-
-Alphabetical.
-
-> +
-> +static const struct resource rtc_resources[] = {
-> +	DEFINE_RES_IRQ(NVVRS_PSEQ_INT_SRC1_RTC),
-> +};
-> +
-> +static const struct regmap_irq nvvrs_pseq_irqs[] = {
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_RSTIRQ, 0, NVVRS_PSEQ_INT_SRC1_RSTIRQ_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_OSC, 0, NVVRS_PSEQ_INT_SRC1_OSC_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_EN, 0, NVVRS_PSEQ_INT_SRC1_EN_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_RTC, 0, NVVRS_PSEQ_INT_SRC1_RTC_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_PEC, 0, NVVRS_PSEQ_INT_SRC1_PEC_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_WDT, 0, NVVRS_PSEQ_INT_SRC1_WDT_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_EM_PD, 0, NVVRS_PSEQ_INT_SRC1_EM_PD_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC1_INTERNAL, 0, NVVRS_PSEQ_INT_SRC1_INTERNAL_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_PBSP, 1, NVVRS_PSEQ_INT_SRC2_PBSP_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_ECC_DED, 1, NVVRS_PSEQ_INT_SRC2_ECC_DED_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_TSD, 1, NVVRS_PSEQ_INT_SRC2_TSD_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_LDO, 1, NVVRS_PSEQ_INT_SRC2_LDO_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_BIST, 1, NVVRS_PSEQ_INT_SRC2_BIST_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_RT_CRC, 1, NVVRS_PSEQ_INT_SRC2_RT_CRC_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_SRC2_VENDOR, 1, NVVRS_PSEQ_INT_SRC2_VENDOR_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR0, 2, NVVRS_PSEQ_INT_VENDOR0_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR1, 2, NVVRS_PSEQ_INT_VENDOR1_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR2, 2, NVVRS_PSEQ_INT_VENDOR2_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR3, 2, NVVRS_PSEQ_INT_VENDOR3_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR4, 2, NVVRS_PSEQ_INT_VENDOR4_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR5, 2, NVVRS_PSEQ_INT_VENDOR5_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR6, 2, NVVRS_PSEQ_INT_VENDOR6_MASK),
-> +	REGMAP_IRQ_REG(NVVRS_PSEQ_INT_VENDOR7, 2, NVVRS_PSEQ_INT_VENDOR7_MASK),
-> +};
-> +
-> +static const struct mfd_cell nvvrs_pseq_children[] = {
-> +	{
-> +		.name = "nvvrs-pseq-rtc",
-> +		.resources = rtc_resources,
-> +		.num_resources = ARRAY_SIZE(rtc_resources),
-> +	},
-> +};
-
-One device is not and MFD.  This is not allowed.
-
-> +static const struct regmap_range nvvrs_pseq_readable_ranges[] = {
-> +	regmap_reg_range(NVVRS_PSEQ_REG_VENDOR_ID, NVVRS_PSEQ_REG_MODEL_REV),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_INT_SRC1, NVVRS_PSEQ_REG_LAST_RST),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_EN_ALT_F, NVVRS_PSEQ_REG_IEN_VENDOR),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_RTC_T3, NVVRS_PSEQ_REG_RTC_A0),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_WDT_CFG, NVVRS_PSEQ_REG_WDTKEY),
-> +};
-> +
-> +static const struct regmap_access_table nvvrs_pseq_readable_table = {
-> +	.yes_ranges = nvvrs_pseq_readable_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(nvvrs_pseq_readable_ranges),
-> +};
-> +
-> +static const struct regmap_range nvvrs_pseq_writable_ranges[] = {
-> +	regmap_reg_range(NVVRS_PSEQ_REG_INT_SRC1, NVVRS_PSEQ_REG_INT_VENDOR),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_GP_OUT, NVVRS_PSEQ_REG_IEN_VENDOR),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_RTC_T3, NVVRS_PSEQ_REG_RTC_A0),
-> +	regmap_reg_range(NVVRS_PSEQ_REG_WDT_CFG, NVVRS_PSEQ_REG_WDTKEY),
-> +};
-> +
-> +static const struct regmap_access_table nvvrs_pseq_writable_table = {
-> +	.yes_ranges = nvvrs_pseq_writable_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(nvvrs_pseq_writable_ranges),
-> +};
-> +
-> +static const struct regmap_config nvvrs_pseq_regmap_config = {
-> +	.name = "nvvrs-pseq",
-> +	.reg_bits = 8,
-> +	.val_bits = 8,
-> +	.max_register = NVVRS_PSEQ_REG_WDTKEY + 1,
-> +	.cache_type = REGCACHE_RBTREE,
-> +	.rd_table = &nvvrs_pseq_readable_table,
-> +	.wr_table = &nvvrs_pseq_writable_table,
-> +};
-> +
-> +static int nvvrs_pseq_irq_clear(void *irq_drv_data)
-> +{
-> +	struct nvvrs_pseq_chip *chip = (struct nvvrs_pseq_chip *)irq_drv_data;
-
-This cast is superfluous.
-
-> +	struct i2c_client *client = chip->client;
-> +	u8 reg, val;
-
-This line on the bottom please.
-
-> +	unsigned int i;
-> +	int ret = 0;
-> +
-> +	/* Write 1 to clear the interrupt bit in the Interrupt
-
-Properly formatted multi-line comments please.
-
-Nit: The top line should be blank.
-
-> +	 * Source Register, writing 0 has no effect, writing 1 to a bit
-> +	 * which is already at 0 has no effect
-> +	 */
-> +
-> +	for (i = 0; i < chip->irq_chip->num_regs; i++) {
-> +		reg = (u8)(chip->irq_chip->status_base + i);
-> +		ret = i2c_smbus_read_byte_data(client, reg);
-> +		if (ret) {
-> +			val = (u8)ret;
-> +			dev_dbg_ratelimited(chip->dev,
-
-How useful is this now that it's ready for publishing?
-
-> +					    "Clear IRQ reg 0x%02x=0x%02x\n",
-> +					    reg, val);
-> +
-> +			ret = i2c_smbus_write_byte_data(client, reg, val);
-> +			if (ret < 0)
-> +				return ret;
-> +		}
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static struct regmap_irq_chip nvvrs_pseq_irq_chip = {
-> +	.name = "nvvrs-pseq-irq",
-> +	.irqs = nvvrs_pseq_irqs,
-> +	.num_irqs = ARRAY_SIZE(nvvrs_pseq_irqs),
-> +	.num_regs = 3,
-> +	.status_base = NVVRS_PSEQ_REG_INT_SRC1,
-> +	.handle_post_irq = nvvrs_pseq_irq_clear,
-> +};
-> +
-> +static int nvvrs_pseq_vendor_info(struct nvvrs_pseq_chip *chip)
-> +{
-> +	struct i2c_client *client = chip->client;
-> +	u8 vendor_id, model_rev;
-> +	int ret;
-> +
-> +	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_VENDOR_ID);
-> +	if (ret < 0)
-> +		return dev_err_probe(chip->dev, ret,
-> +				     "Failed to read Vendor ID\n");
-
-You use 100-chars above - why not use that everywhere to prevent these
-line-breaks?
-
-> +
-> +	vendor_id = (u8)ret;
-
-All vendor IDs are supported?
-
-Why does 'vendor_id' have to be u8?
-
-> +	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_MODEL_REV);
-> +	if (ret < 0)
-> +		return dev_err_probe(chip->dev, ret,
-> +				     "Failed to read Model Rev\n");
-> +
-> +	model_rev = (u8)ret;
-> +
-> +	if (model_rev < 0x40) {
-
-No magic numbers.  Please define them.
-
-What if the model_rev is some larger unsupported number?
-
-> +		dev_err(chip->dev, "Chip revision 0x%02x is not supported!\n",
-> +			model_rev);
-> +		return -ENODEV;
-> +	}
-> +
-> +	dev_dbg(chip->dev, "NVVRS Vendor ID: 0x%02x, Model Rev: 0x%02x\n",
-> +		vendor_id, model_rev);
-
-How useful is this now, really?
-
-> +	return 0;
-> +}
-> +
-> +static int nvvrs_pseq_probe(struct i2c_client *client)
-> +{
-> +	const struct regmap_config *rmap_config;
-
-"config"
-
-Why does this need to exist at all?
-
-> +	struct nvvrs_pseq_chip *nvvrs_chip;
-
-"ddata"
-
-> +	const struct mfd_cell *mfd_cells;
-> +	int n_mfd_cells;
-> +	int ret;
-> +
-> +	nvvrs_chip = devm_kzalloc(&client->dev, sizeof(*nvvrs_chip), GFP_KERNEL);
-> +	if (!nvvrs_chip)
-> +		return -ENOMEM;
-> +
-> +	/* Set PEC flag for SMBUS transfer with PEC enabled */
-> +	client->flags |= I2C_CLIENT_PEC;
-> +
-> +	i2c_set_clientdata(client, nvvrs_chip);
-> +	nvvrs_chip->client = client;
-> +	nvvrs_chip->dev = &client->dev;
-
-What are client and dev used for?
-
-I suggest you only need one of them.
-
-> +	nvvrs_chip->chip_irq = client->irq;
-
-Just "irq".
-
-> +	mfd_cells = nvvrs_pseq_children;
-> +	n_mfd_cells = ARRAY_SIZE(nvvrs_pseq_children);
-
-Why are you placing this into another variable?
-
-> +	rmap_config = &nvvrs_pseq_regmap_config;
-
-As above.  Why have we created another local variable for this?
-
-> +	nvvrs_chip->irq_chip = &nvvrs_pseq_irq_chip;
-
-Where is irq_chip used outside of this function?
-
-> +	nvvrs_chip->rmap = devm_regmap_init_i2c(client, rmap_config);
-
-"regmap"
-
-> +	if (IS_ERR(nvvrs_chip->rmap))
-> +		return dev_err_probe(nvvrs_chip->dev, PTR_ERR(nvvrs_chip->rmap),
-> +				     "Failed to initialise regmap\n");
-> +
-> +	ret = nvvrs_pseq_vendor_info(nvvrs_chip);
-> +	if (ret < 0)
-> +		return ret;
-
-dev_err_probe()
-
-> +	nvvrs_pseq_irq_chip.irq_drv_data = nvvrs_chip;
-> +	ret = devm_regmap_add_irq_chip(nvvrs_chip->dev, nvvrs_chip->rmap,
-> +				       client->irq, IRQF_ONESHOT | IRQF_SHARED,
-> +				       0, &nvvrs_pseq_irq_chip,
-> +				       &nvvrs_chip->irq_data);
-> +	if (ret < 0)
-> +		return dev_err_probe(nvvrs_chip->dev, ret,
-> +				     "Failed to add regmap irq\n");
-
-"IRQ Chip"
-
-> +	ret = devm_mfd_add_devices(nvvrs_chip->dev, PLATFORM_DEVID_NONE,
-> +				   mfd_cells, n_mfd_cells, NULL, 0,
-> +				   regmap_irq_get_domain(nvvrs_chip->irq_data));
-> +	if (ret < 0)
-> +		return dev_err_probe(nvvrs_chip->dev, ret,
-> +				     "Failed to add MFD children\n");
-
-Failed to add {children ,sub-}devices.
-
-> +	return 0;
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP
-
-Use the helper instead.
-
-git grep CONFIG_PM_SLEEP -- drivers/mfd
-<nothing>
-
-> +static int nvvrs_pseq_i2c_suspend(struct device *dev)
-> +{
-> +	struct i2c_client *client = to_i2c_client(dev);
-> +
-> +	/*
-> +	 * IRQ must be disabled during suspend because if it happens
-
-IRQs or The IRQ.
-
-> +	 * while suspended it will be handled before resuming I2C.
-> +	 *
-> +	 * When device is woken up from suspend (e.g. by RTC wake alarm),
-> +	 * an interrupt occurs before resuming I2C bus controller.
-> +	 * Interrupt handler tries to read registers but this read
-
-The interrupt ...
-
-> +	 * will fail because I2C is still suspended.
-> +	 */
-
-Most of this is pretty self explanatory and implied TBH.
-
-> +	disable_irq(client->irq);
-> +
-> +	return 0;
-> +}
-> +
-> +static int nvvrs_pseq_i2c_resume(struct device *dev)
-> +{
-> +	struct i2c_client *client = to_i2c_client(dev);
-> +
-> +	enable_irq(client->irq);
-
-'\n' here.
-
-> +	return 0;
-> +}
-> +#endif
-> +
-> +static const struct dev_pm_ops nvvrs_pseq_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(nvvrs_pseq_i2c_suspend, nvvrs_pseq_i2c_resume)
-> +};
-> +
-> +static const struct of_device_id nvvrs_dt_match[] = {
-> +	{ .compatible = "nvidia,vrs-pseq" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, nvvrs_dt_match);
-> +
-> +static struct i2c_driver nvvrs_pseq_driver = {
-> +	.driver = {
-> +		.name = "nvvrs_pseq",
-> +		.pm = &nvvrs_pseq_pm_ops,
-> +		.of_match_table = nvvrs_dt_match,
-> +	},
-> +	.probe = nvvrs_pseq_probe,
-> +};
-> +
-
-Remove this line.
-
-> +module_i2c_driver(nvvrs_pseq_driver);
-> +
-> +MODULE_AUTHOR("Shubhi Garg <shgarg@nvidia.com>");
-> +MODULE_DESCRIPTION("NVIDIA Voltage Regulator Specification Power Sequencer Driver");
-
-As above.
-
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/mfd/nvidia-vrs-pseq.h b/include/linux/mfd/nvidia-vrs-pseq.h
-> new file mode 100644
-> index 000000000000..7e6f3aa940e7
-> --- /dev/null
-> +++ b/include/linux/mfd/nvidia-vrs-pseq.h
-> @@ -0,0 +1,127 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +// SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved
-
-This should be part of the comment above.
-
-> +
-> +#ifndef _MFD_NVIDIA_VRS_PSEQ_H_
-> +#define _MFD_NVIDIA_VRS_PSEQ_H_
-> +
-> +#include <linux/types.h>
-> +
-> +/* Vendor ID */
-> +#define NVVRS_PSEQ_REG_VENDOR_ID		0x00
-> +#define NVVRS_PSEQ_REG_MODEL_REV		0x01
-> +
-> +/*  Interrupts and Status registers */
-> +#define NVVRS_PSEQ_REG_INT_SRC1			0x10
-> +#define NVVRS_PSEQ_REG_INT_SRC2			0x11
-> +#define NVVRS_PSEQ_REG_INT_VENDOR		0x12
-> +#define NVVRS_PSEQ_REG_CTL_STAT			0x13
-> +#define NVVRS_PSEQ_REG_EN_STDR1			0x14
-> +#define NVVRS_PSEQ_REG_EN_STDR2			0x15
-> +#define NVVRS_PSEQ_REG_EN_STRD1			0x16
-> +#define NVVRS_PSEQ_REG_EN_STRD2			0x17
-> +#define NVVRS_PSEQ_REG_WDT_STAT			0x18
-> +#define NVVRS_PSEQ_REG_TEST_STAT		0x19
-> +#define NVVRS_PSEQ_REG_LAST_RST			0x1A
-> +
-> +/* Configuration Registers */
-> +#define NVVRS_PSEQ_REG_EN_ALT_F			0x20
-> +#define NVVRS_PSEQ_REG_AF_IN_OUT		0x21
-> +#define NVVRS_PSEQ_REG_EN_CFG1			0x22
-> +#define NVVRS_PSEQ_REG_EN_CFG2			0x23
-> +#define NVVRS_PSEQ_REG_CLK_CFG			0x24
-> +#define NVVRS_PSEQ_REG_GP_OUT			0x25
-> +#define NVVRS_PSEQ_REG_DEB_IN			0x26
-> +#define NVVRS_PSEQ_REG_LP_TTSHLD		0x27
-> +#define NVVRS_PSEQ_REG_CTL_1			0x28
-> +#define NVVRS_PSEQ_REG_CTL_2			0x29
-> +#define NVVRS_PSEQ_REG_TEST_CFG			0x2A
-> +#define NVVRS_PSEQ_REG_IEN_VENDOR		0x2B
-> +
-> +/* RTC */
-> +#define NVVRS_PSEQ_REG_RTC_T3			0x70
-> +#define NVVRS_PSEQ_REG_RTC_T2			0x71
-> +#define NVVRS_PSEQ_REG_RTC_T1			0x72
-> +#define NVVRS_PSEQ_REG_RTC_T0			0x73
-> +#define NVVRS_PSEQ_REG_RTC_A3			0x74
-> +#define NVVRS_PSEQ_REG_RTC_A2			0x75
-> +#define NVVRS_PSEQ_REG_RTC_A1			0x76
-> +#define NVVRS_PSEQ_REG_RTC_A0			0x77
-> +
-> +/* WDT */
-> +#define NVVRS_PSEQ_REG_WDT_CFG			0x80
-> +#define NVVRS_PSEQ_REG_WDT_CLOSE		0x81
-> +#define NVVRS_PSEQ_REG_WDT_OPEN			0x82
-> +#define NVVRS_PSEQ_REG_WDTKEY			0x83
-> +
-> +/* Interrupt Mask */
-> +#define NVVRS_PSEQ_INT_SRC1_RSTIRQ_MASK		BIT(0)
-> +#define NVVRS_PSEQ_INT_SRC1_OSC_MASK		BIT(1)
-> +#define NVVRS_PSEQ_INT_SRC1_EN_MASK		BIT(2)
-> +#define NVVRS_PSEQ_INT_SRC1_RTC_MASK		BIT(3)
-> +#define NVVRS_PSEQ_INT_SRC1_PEC_MASK		BIT(4)
-> +#define NVVRS_PSEQ_INT_SRC1_WDT_MASK		BIT(5)
-> +#define NVVRS_PSEQ_INT_SRC1_EM_PD_MASK		BIT(6)
-> +#define NVVRS_PSEQ_INT_SRC1_INTERNAL_MASK	BIT(7)
-> +#define NVVRS_PSEQ_INT_SRC2_PBSP_MASK		BIT(0)
-> +#define NVVRS_PSEQ_INT_SRC2_ECC_DED_MASK	BIT(1)
-> +#define NVVRS_PSEQ_INT_SRC2_TSD_MASK		BIT(2)
-> +#define NVVRS_PSEQ_INT_SRC2_LDO_MASK		BIT(3)
-> +#define NVVRS_PSEQ_INT_SRC2_BIST_MASK		BIT(4)
-> +#define NVVRS_PSEQ_INT_SRC2_RT_CRC_MASK		BIT(5)
-> +#define NVVRS_PSEQ_INT_SRC2_VENDOR_MASK		BIT(7)
-> +#define NVVRS_PSEQ_INT_VENDOR0_MASK		BIT(0)
-> +#define NVVRS_PSEQ_INT_VENDOR1_MASK		BIT(1)
-> +#define NVVRS_PSEQ_INT_VENDOR2_MASK		BIT(2)
-> +#define NVVRS_PSEQ_INT_VENDOR3_MASK		BIT(3)
-> +#define NVVRS_PSEQ_INT_VENDOR4_MASK		BIT(4)
-> +#define NVVRS_PSEQ_INT_VENDOR5_MASK		BIT(5)
-> +#define NVVRS_PSEQ_INT_VENDOR6_MASK		BIT(6)
-> +#define NVVRS_PSEQ_INT_VENDOR7_MASK		BIT(7)
-> +
-> +/* Controller Register Mask */
-> +#define NVVRS_PSEQ_REG_CTL_1_FORCE_SHDN		(BIT(0) | BIT(1))
-> +#define NVVRS_PSEQ_REG_CTL_1_FORCE_ACT		BIT(2)
-> +#define NVVRS_PSEQ_REG_CTL_1_FORCE_INT		BIT(3)
-> +#define NVVRS_PSEQ_REG_CTL_2_EN_PEC		BIT(0)
-> +#define NVVRS_PSEQ_REG_CTL_2_REQ_PEC		BIT(1)
-> +#define NVVRS_PSEQ_REG_CTL_2_RTC_PU		BIT(2)
-> +#define NVVRS_PSEQ_REG_CTL_2_RTC_WAKE		BIT(3)
-> +#define NVVRS_PSEQ_REG_CTL_2_RST_DLY		0xF0
-> +
-> +enum {
-> +	NVVRS_PSEQ_INT_SRC1_RSTIRQ,		/* Reset or Interrupt Pin Fault */
-> +	NVVRS_PSEQ_INT_SRC1_OSC,		/* Crystal Oscillator Fault */
-> +	NVVRS_PSEQ_INT_SRC1_EN,			/* Enable Output Pin Fault */
-> +	NVVRS_PSEQ_INT_SRC1_RTC,		/* RTC Alarm */
-> +	NVVRS_PSEQ_INT_SRC1_PEC,		/* Packet Error Checking */
-> +	NVVRS_PSEQ_INT_SRC1_WDT,		/* Watchdog Violation */
-> +	NVVRS_PSEQ_INT_SRC1_EM_PD,		/* Emergency Power Down */
-> +	NVVRS_PSEQ_INT_SRC1_INTERNAL,		/* Internal Fault*/
-> +	NVVRS_PSEQ_INT_SRC2_PBSP,		/* PWR_BTN Short Pulse Detection */
-> +	NVVRS_PSEQ_INT_SRC2_ECC_DED,		/* ECC Double-Error Detection */
-> +	NVVRS_PSEQ_INT_SRC2_TSD,		/* Thermal Shutdown */
-> +	NVVRS_PSEQ_INT_SRC2_LDO,		/* LDO Fault */
-> +	NVVRS_PSEQ_INT_SRC2_BIST,		/* Built-In Self Test Fault */
-> +	NVVRS_PSEQ_INT_SRC2_RT_CRC,		/* Runtime Register CRC Fault */
-> +	NVVRS_PSEQ_INT_SRC2_VENDOR,		/* Vendor Specific Internal Fault */
-> +	NVVRS_PSEQ_INT_VENDOR0,			/* Vendor Internal Fault Bit 0 */
-> +	NVVRS_PSEQ_INT_VENDOR1,			/* Vendor Internal Fault Bit 1 */
-> +	NVVRS_PSEQ_INT_VENDOR2,			/* Vendor Internal Fault Bit 2 */
-> +	NVVRS_PSEQ_INT_VENDOR3,			/* Vendor Internal Fault Bit 3 */
-> +	NVVRS_PSEQ_INT_VENDOR4,			/* Vendor Internal Fault Bit 4 */
-> +	NVVRS_PSEQ_INT_VENDOR5,			/* Vendor Internal Fault Bit 5 */
-> +	NVVRS_PSEQ_INT_VENDOR6,			/* Vendor Internal Fault Bit 6 */
-> +	NVVRS_PSEQ_INT_VENDOR7,			/* Vendor Internal Fault Bit 7 */
-> +};
-> +
-> +struct nvvrs_pseq_chip {
-> +	struct device *dev;
-> +	struct regmap *rmap;
-> +	int chip_irq;
-> +	struct i2c_client *client;
-> +	struct regmap_irq_chip_data *irq_data;
-> +	const struct regmap_irq_chip *irq_chip;
-> +	void *irq_drv_data;
-
-Where is this used?
-
-> +};
-> +
-> +#endif /* _MFD_NVIDIA_VRS_PSEQ_H_ */
-> -- 
-> 2.43.0
-> 
-
+In the unlikely case pKVM failed to allocate carveout, the error path
+tries to access NULL ptr when it de-reference the SVE state from the
+uninitialized nVHE per-cpu base.
+
+[    1.575420] pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[    1.576010] pc : teardown_hyp_mode+0xe4/0x180
+[    1.576920] lr : teardown_hyp_mode+0xd0/0x180
+[    1.577308] sp : ffff8000826fb9d0
+[    1.577600] x29: ffff8000826fb9d0 x28: 0000000000000000 x27: ffff80008209b000
+[    1.578383] x26: ffff800081dde000 x25: ffff8000820493c0 x24: ffff80008209eb00
+[    1.579180] x23: 0000000000000040 x22: 0000000000000001 x21: 0000000000000000
+[    1.579881] x20: 0000000000000002 x19: ffff800081d540b8 x18: 0000000000000000
+[    1.580544] x17: ffff800081205230 x16: 0000000000000152 x15: 00000000fffffff8
+[    1.581183] x14: 0000000000000008 x13: fff00000ff7f6880 x12: 000000000000003e
+[    1.581813] x11: 0000000000000002 x10: 00000000000000ff x9 : 0000000000000000
+[    1.582503] x8 : 0000000000000000 x7 : 7f7f7f7f7f7f7f7f x6 : 43485e525851ff30
+[    1.583140] x5 : fff00000ff6e9030 x4 : fff00000ff6e8f80 x3 : 0000000000000000
+[    1.583780] x2 : 0000000000000000 x1 : 0000000000000002 x0 : 0000000000000000
+[    1.584526] Call trace:
+[    1.584945]  teardown_hyp_mode+0xe4/0x180 (P)
+[    1.585578]  init_hyp_mode+0x920/0x994
+[    1.586005]  kvm_arm_init+0xb4/0x25c
+[    1.586387]  do_one_initcall+0xe0/0x258
+[    1.586819]  do_initcall_level+0xa0/0xd4
+[    1.587224]  do_initcalls+0x54/0x94
+[    1.587606]  do_basic_setup+0x1c/0x28
+[    1.587998]  kernel_init_freeable+0xc8/0x130
+[    1.588409]  kernel_init+0x20/0x1a4
+[    1.588768]  ret_from_fork+0x10/0x20
+[    1.589568] Code: f875db48 8b1c0109 f100011f 9a8903e8 (f9463100)
+[    1.590332] ---[ end trace 0000000000000000 ]---
+
+It seems also in other cases, it can try to free NULL ptrs, so add the
+proper NULL checks in teardown_hyp_mode(), we can skip the loop early
+if any of the ptrs is NULL as the order of free matches the order of
+initialization.
+
+I initially observed this on 6.12, but I could also repro in master.
+
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ arch/arm64/kvm/arm.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 38a91bb5d4c7..5bb36c3b06b5 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2344,15 +2344,22 @@ static void __init teardown_hyp_mode(void)
+ 	int cpu;
+ 
+ 	free_hyp_pgds();
++	/* Order matches the order of initialization init_hyp_mode() */
+ 	for_each_possible_cpu(cpu) {
++		if (!per_cpu(kvm_arm_hyp_stack_base, cpu))
++			continue;
+ 		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
++
++		if (!kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu])
++			continue;
+ 		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
+ 
+ 		if (free_sve) {
+ 			struct cpu_sve_state *sve_state;
+ 
+ 			sve_state = per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)->sve_state;
+-			free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
++			if (sve_state)
++				free_pages((unsigned long) sve_state, pkvm_host_sve_state_order());
+ 		}
+ 	}
+ }
 -- 
-Lee Jones [李琼斯]
+2.50.0.714.g196bf9f422-goog
+
 
