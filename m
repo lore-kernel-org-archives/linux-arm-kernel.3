@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28DEC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BB6C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 18:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3GGOIs1M7qewnK0dbN/1VCKv2nwsADPB2kGIBYK9J4=; b=GcEq94zYUvXTs4xS0BH6tCjZSh
-	fNbdXhJ3cVOccItJeclG41HzdOF/U0L9NDxCMUwF4SiTemjZI8/9bmcmuMBRWnjeK/VTJs+fvtc3U
-	EAkgTbldjvgITXG8XSlHK/wwP2tpJapnOmkEkmUMXGXikrGpzVMCVDYc0CqK3jlgAOeMSa/oQL7rc
-	A14zaogEBB0fCk1k1MpeW1iiEltel1VSTVxf4amuB9f7x8v5Gx/bbNAYcOrvvnxSUPArkbzFMYluG
-	AK46VtSNw2YNG9HYyjhbp9eWjFBU4iry3SrqtuaWRzkrTxkOKWrTTwIvIq5R+KsY9jssJkETYeqos
-	ce56hDoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Veo/EkQfpGxbM3XVCxagCpuTTV1oNK7Wv3ZngYE5NJo=; b=M9b3YS/hyXE9g6dpQCC2SM4esY
+	KuUQcFpKwDMkWh619O5cY0TWqnIwj5tE3pDn2arVk5jVBwadJOXZSoB1LZr/bKqZbUFqmuz0HR8bj
+	bEMyPcFHrzMXZXks58ScFmi5lvupQ3hrE9GOgkw5uQDMyxZImYIyE6teJmYCcz9SQmh9Z26R2Gkkq
+	FEOpX4A2LAbhi/ie1904KeYPw4tBPPXiYWrJ6MEJtU1keOrbVT3+PZBid7P/eVfE9WmkTx2WCrfcI
+	NNC8axxqq9fOdJmNbWgTSIgXxtHNa9cikNGD92QKaqosub10vCVrTquU3q5CCPftmlm2lAqoTq+nv
+	C6szMzJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUUro-00000009ZN4-2ccH;
-	Wed, 25 Jun 2025 18:29:04 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uUUrp-00000009ZNt-19H1;
+	Wed, 25 Jun 2025 18:29:05 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUR0g-00000008wlc-2t4h
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 14:22:00 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-607247169c0so1259701a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 07:21:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750861317; x=1751466117; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M3GGOIs1M7qewnK0dbN/1VCKv2nwsADPB2kGIBYK9J4=;
-        b=tTnwwTZvpH/m3Kk9cFxIVFCYcFkmCkQFAqnAol+zu3EGqwi7OyCDAPY/ej8ThEFQvV
-         oUW6sQrPyftoHiGAKthGgOy7uyBu4kfXEWjPG/e4P6RTgyCS208P3I97s2CXBW0rJ6BF
-         q83UC/ylTrD6+UCkH4io8JFpBuZV/RX1DjhJZMG0vzmSPFtKplHaA7h/PCx1ZaSf/1O3
-         +a3QdUsyn88NXYv/bmXawCwdyKHo/bSGMhD4hX6iicsaKxBUWAxmG4tZKCPdTotzOViH
-         EJ+YOypwy4vzAakGt8g5X8oovn2izMKd1T/V7m7kEglfr7zkPXZNqGHwezleYcrHmrsl
-         oadg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750861317; x=1751466117;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M3GGOIs1M7qewnK0dbN/1VCKv2nwsADPB2kGIBYK9J4=;
-        b=jrv3BddDQ67uhx/nYhjiStlYR9EQ8QX9QTxC6nH1zQrHiGzh8oFDZnFK1tTdvHFcfH
-         c+eTao6BPYTsaDYnDrXySzyuVkcbxI/ZcglBgMlJd3bkzuJNeGFODBPaIfXM7be8AlUd
-         cOxdrHxbPtYbB9wRMceZKEB9BIwYHWXAjkXA2dJYvMdsvb7q3YoqpinGemYTwI19El+j
-         36HSbaReueERyuwaQQIs7B1KVl6mf4F7Uv2XuQWgpwVDKYH2U0w3KnKEEKgwOOuo3qw8
-         2H6NQT3g/oj7LlBlnoYYQH8Wdfk7GDBzdG6fDAcykYPpwt/Rw1bSP0A6Mfd5DezG1tE2
-         +OiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVm3ZWYpLAo1DrnulM0HIhhFWJeHXWQQfJvfNPAMXvCpGbbsCbPmhjWAWb7mLRgDqwYl+/rMXqgeASyIHo+F+3f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm6eIsPQF9NCBqQeO+AycyHWWY9kOmu7pv9YIQSwvpHg+NygFN
-	q7ex3zBurCUr0Cs+9uEjOiw53u6K5NYlMZKHPMuoQweo/eWd5N+TExyR3yumFG1x9H4xspSsgXM
-	yVoLV
-X-Gm-Gg: ASbGncuiQIPaXWGtXXWA1Q7CAgamtkkHBr/nG2Yh/e+vDsPdpxxQdPQW0pLDbYq2pGp
-	/7NX3gEP1SgmBb2BPwLWeYsFJP84c8u8wOzJ47Gi28TJOAriTIBxMZuxOZyCstfsm4Urt+mxM3n
-	fVl9gr2lXgNiJsnhk/Ut4jyWgDPPYwfOBRPQx151ZMzBucTZ20FBk+AaaSUEqiPlY1yO5Jsjug5
-	pz3pEgzdvZ/R7xq7U0E/D0z9nYIwJVdjRU+mKlJWjqQwSOafvySBmCplZkeNRIgqn06ewrDiWpp
-	wfEH0BdK1NWxei2s4mGQc887RniEiE/ARxXvT5wlOWvPs7zFGGi8dMyu2sUAsHKxddpl7cbZ6eX
-	VpFozhw==
-X-Google-Smtp-Source: AGHT+IG/VagrGt6bbb5MQZ1l2HyN6eoH3YHZ865LF4suVMe/z6ykxO6VmgeAkdlRkcs2VpPNynx8Og==
-X-Received: by 2002:a05:6402:2714:b0:609:d55e:8a88 with SMTP id 4fb4d7f45d1cf-60c4def71bdmr915957a12.10.1750861316962;
-        Wed, 25 Jun 2025 07:21:56 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c2f4682cfsm2588550a12.39.2025.06.25.07.21.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Jun 2025 07:21:56 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
-In-Reply-To: <20250612094807.62532-3-krzysztof.kozlowski@linaro.org>
-References: <20250612094807.62532-3-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 1/2] ARM: dts: exynos: Align i2c-gpio node names with
- dtschema
-Message-Id: <175086131563.117782.7215160413435880072.b4-ty@linaro.org>
-Date: Wed, 25 Jun 2025 16:21:55 +0200
+	id 1uUR62-00000008xzg-2uNB;
+	Wed, 25 Jun 2025 14:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750861651; x=1782397651;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aiCBfShnv6jIIgQ4bpuIfMp5r40wbfensHpHCEm3pBM=;
+  b=j4MyHNuwMag55iNOJZnf2Z7ZgtaqS5Nl0CvILkeSE+DjmdvFi7CPEaw0
+   55tlA6E25QR3k1zENwgXXO0OsthRt8Lbz2pOiC07po0rAu/xyc7UJl1dx
+   kYCBfAnGCvmjAsKaPAzsGOfk4sFahoZgfX16ODtFyNV8RoKK1QeE0fMan
+   4m/cFGycO3FopN0Oyfch/IR+sKy02crEmf6IonursNEtntk3syes6/wgU
+   JCy/dqaEIBj6fUAURKI9KHpUtIfBWFTxXQA+l2Pjasl60mMtUaSN3+Un1
+   g33p/WiwBneuqjsRHhLngY8EqU2ZA70dKoIMLZQbWO41ZoikE/Sw63gBB
+   g==;
+X-CSE-ConnectionGUID: Gsju0hZZTxmRW5mROlK/qg==
+X-CSE-MsgGUID: kTH6YPhXQD6RsHPVPvj6ew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="56920077"
+X-IronPort-AV: E=Sophos;i="6.16,264,1744095600"; 
+   d="scan'208";a="56920077"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 07:27:25 -0700
+X-CSE-ConnectionGUID: NYVNjaqgRd2C28PhusN2oA==
+X-CSE-MsgGUID: Vm3m4nwNToS9MwdDCSPhkw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,264,1744095600"; 
+   d="scan'208";a="175877583"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 07:27:21 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uUR5q-00000009nnt-1JQk;
+	Wed, 25 Jun 2025 17:27:18 +0300
+Date: Wed, 25 Jun 2025 17:27:18 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 4/5] iio: adc: mt6359: Add support for MediaTek MT6363
+ PMIC AUXADC
+Message-ID: <aFwHRigf95hPKTE7@smile.fi.intel.com>
+References: <20250623120028.108809-1-angelogioacchino.delregno@collabora.com>
+ <20250623120028.108809-5-angelogioacchino.delregno@collabora.com>
+ <aFlk-l5LhgO8dnXK@smile.fi.intel.com>
+ <1b173e16-f681-4256-8dd2-92db2e90ca73@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1b173e16-f681-4256-8dd2-92db2e90ca73@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_072158_757622_04778384 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_072730_769308_3E01F8EF 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 25, 2025 at 03:29:47PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 23/06/25 16:30, Andy Shevchenko ha scritto:
+> > On Mon, Jun 23, 2025 at 02:00:27PM +0200, AngeloGioacchino Del Regno wrote:
 
-On Thu, 12 Jun 2025 11:48:08 +0200, Krzysztof Kozlowski wrote:
-> New dtschema v2025.6 enforces different naming on I2C nodes thus new
-> dtbs_check warnings appeared for I2C GPIO nodes:
+...
+
+> > > +	if (MTK_AUXADC_HAS_FLAG(cinfo, IS_SPMI)) {
+> > > +		/* If the previous read succeeded, this can't fail */
+> > > +		regmap_read(regmap, reg - 1, &lval);
+> > 
+> > No error check? lval may contain garbage here, right?
 > 
->   exynos4212-tab3-lte8.dtb: i2c-gpio-3 (i2c-gpio):
->     $nodename:0: 'i2c-gpio-3' does not match '^i2c(@.+|-[a-z0-9]+)?$'
->   exynos4212-tab3-lte8.dtb: i2c-gpio-3 (i2c-gpio):
->     Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'magnetometer@2e' were unexpected)
+> No, because if the previous read succeeded, this can't fail, and also cannot ever
+> possibly contain garbage (and if it does, - but again, that can't happen - there is
+> no way to validate that because valid values are [0x00..0xff] anyway).
+
+Never say never. Any regmap_*() call that performs I/O might fail. You can't
+predict with 100% guarantee the HW behaviour in all possible scenarios.
+
+> > > +		val = (val << 8) | lval;
+> > 
+> > Is it guaranteed that lval is always less than 256 (if unsigned)?
 > 
-> [...]
+> Yes, with SPMI that is guaranteed.
+> 
+> > > +	}
 
-Applied, thanks!
+...
 
-[1/2] ARM: dts: exynos: Align i2c-gpio node names with dtschema
-      https://git.kernel.org/krzk/linux/c/a0c7a6b5f42b29dddfc359717d620e5b1badb9a1
-[2/2] ARM: dts: s5pv210: Align i2c-gpio node names with dtschema
-      https://git.kernel.org/krzk/linux/c/a24cd2f207efa73d7ce8089ce4848aea99f48f6e
-[3/3] arm64: dts: exynos5433: Align i2c-gpio node names with dtschema
-      https://git.kernel.org/krzk/linux/c/42873b118abf3e297e012e52ddcae2e5b1f42214
+> > > +		regmap_update_bits(regmap, cinfo->regs[desc->ext_sel_idx],
+> > > +				   MT6363_EXT_PURES_MASK, ext_sel);
+> > 
+> > No  error check?
+> 
+> No, because if the previous reads and/or writes succeeded, it is impossible for
+> this to fail :-)
 
-Best regards,
+Ditto.
+
+I.o.w. the failed regmap_*() call can be a signal that something on the
+communication channel with the HW went wrong, Depending on the severity of this
+call the device driver may decide what to do next.
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+With Best Regards,
+Andy Shevchenko
+
 
 
