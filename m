@@ -4,112 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5EAC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 14:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9C5C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 14:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzrcHeeI0vyHtikZnoF2zxUYMZ5i72Uyxy835+Y382g=; b=mX68DAm6pbFTp2CUO/53A4u4fF
-	gMqo32Nluq0h60bmZBBZA/nzaBZrcAtdGo1S5myevfO81EWC9HgYFiG1yegZCvocZBOIhQIN0AFlX
-	vEMl4RtkF7uNf9TjL6tTvDtX8CLAeYavOEh3N33mobjpHGiyEjnu47s9xKGAw4yI9DJafuOa/4fB9
-	PUq60aZ12XaDGJpBDznLyXp30ql1RUrvXoU2FT8wuncnQujEZN3b6hArNF5nNcbQsJpz1roCGDJ1+
-	mS7jVf/VccsINNiFspu6QmRwwwcjog/UFO8in5AeWp76i+7bFJHnu1bTWZ4YyjbbDARdKwOBugEvT
-	QTqKAajQ==;
+	bh=Gj51cTkdtVCvEEjOlkEXFEweDA+pGJwJ9Da0qmJyqZA=; b=nGWWzTyD6NQNsPJV3bySLCXHLw
+	Hb5GQmpGbDBazLYaP8rMgCbgIpnIrrzdrpYSIFGhUaePzSM9VSwn2vR5EZzMdmjWtnTOiWEmib6ZZ
+	JSgvZwRf1XFrnSPHrDKoXrtMofWo9uZNzEVo3DQl5abfUhMMOkjaam93zBes6MrYDwqHSBUjhY+zt
+	JbC+K0JKChdikfBMmQ1xMsOl40Fs6qBEYc2O5xASvNs/gubHpzboX+hguRGrgY/tkIgLQSBukpIhL
+	IhKTVPgOgUSf73cCzcWBGVRTOp0D4NdJz6NyJ8Bm1cg47fSS90AHdB2ncUb0Lx806wLI64T/hDvJz
+	VGbMrK9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUREF-00000008z6g-04fd;
-	Wed, 25 Jun 2025 14:35:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUNy5-00000008Q0K-12CG;
-	Wed, 25 Jun 2025 11:07:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EA6461547;
-	Wed, 25 Jun 2025 11:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84DF0C4CEF3;
-	Wed, 25 Jun 2025 11:06:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750849624;
-	bh=Du5M54IwYdOnXf3aWRLYEWi5vYiuJM7fkemw9YzMmhI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=V2npjSuGkDaZbAiIfvwChljQPGkoIx25/DuLkqurOMb68Mtv9JxFZ9Xs2DqbAfwwt
-	 MOZB5Fli4sKbXoWq8PcHKAgoDvnYVIQ67YSYn7p5ElRJyPTq2TcUp1LN+USkozNjOm
-	 XLPf4KDOSKBe0UqsLPnYrAP4p3crqE2MnWuCGHfaMWgrR0rVct+2BS6yAXClZvom/j
-	 sa5iXgml/zyhDooN2wJFS3TULsVcXX27FGAxjLEIoS7H8AvrjgKeMjYSbhm7h1Y/4a
-	 oh8EgY9Lr4/5+X/H/Wunb9WehB8mer9EsWFowRkPCsRI1+i6ODYnjOSHl+KoDApXv2
-	 mquTNGLIgOpiA==
-Message-ID: <86654ad1-a2ab-4add-b9de-4d56c67f377b@kernel.org>
-Date: Wed, 25 Jun 2025 13:06:57 +0200
+	id 1uURGW-00000008zVA-0hGK;
+	Wed, 25 Jun 2025 14:38:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUO0G-00000008QnY-0nj0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Jun 2025 11:09:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23FB8106F;
+	Wed, 25 Jun 2025 04:09:01 -0700 (PDT)
+Received: from [10.57.84.221] (unknown [10.57.84.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 043DD3F58B;
+	Wed, 25 Jun 2025 04:09:09 -0700 (PDT)
+Message-ID: <400b6d4e-bf10-4b89-bcbe-2375b1972220@arm.com>
+Date: Wed, 25 Jun 2025 12:08:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/29] dt-bindings: clock: mediatek: Describe MT8196
- peripheral clock controllers
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- kernel@collabora.com
-References: <20250624143220.244549-1-laura.nao@collabora.com>
- <20250624143220.244549-10-laura.nao@collabora.com>
- <7dfba01a-6ede-44c2-87e3-3ecb439b48e3@kernel.org>
- <284a4ee5-806b-45f9-8d57-d02ec291e389@collabora.com>
- <0870a2ba-936b-4eb2-a570-f2c9dea471b8@kernel.org>
- <9fc32523-5009-4f48-8d82-6c3fd285801d@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <9fc32523-5009-4f48-8d82-6c3fd285801d@collabora.com>
+Subject: Re: [PATCH v3 2/2] arm64: pageattr: Enable huge-vmalloc permission
+ change
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
+ yang@os.amperecomputing.com, anshuman.khandual@arm.com
+References: <20250613134352.65994-1-dev.jain@arm.com>
+ <20250613134352.65994-3-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250613134352.65994-3-dev.jain@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250625_040920_283270_F2A00C69 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,75 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 11:45, AngeloGioacchino Del Regno wrote:
-> Il 25/06/25 10:57, Krzysztof Kozlowski ha scritto:
->> On 25/06/2025 10:20, AngeloGioacchino Del Regno wrote:
->>> Il 24/06/25 18:02, Krzysztof Kozlowski ha scritto:
->>>> On 24/06/2025 16:32, Laura Nao wrote:
->>>>> +  '#reset-cells':
->>>>> +    const: 1
->>>>> +    description:
->>>>> +      Reset lines for PEXTP0/1 and UFS blocks.
->>>>> +
->>>>> +  mediatek,hardware-voter:
->>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>>>> +    description:
->>>>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
->>>>> +      MCU manages clock and power domain control across the AP and other
->>>>> +      remote processors. By aggregating their votes, it ensures clocks are
->>>>> +      safely enabled/disabled and power domains are active before register
->>>>> +      access.
->>>>
->>>> Resource voting is not via any phandle, but either interconnects or
->>>> required opps for power domain.
->>>
->>> Sorry, I'm not sure who is actually misunderstanding what, here... let me try to
->>> explain the situation:
->>>
->>> This is effectively used as a syscon - as in, the clock controllers need to perform
->>> MMIO R/W on both the clock controller itself *and* has to place a vote to the clock
->>> controller specific HWV register.
->>
->> syscon is not the interface to place a vote for clocks. "clocks"
->> property is.
->>
->>>
->>> This is done for MUX-GATE and GATE clocks, other than for power domains.
->>>
->>> Note that the HWV system is inside of the power domains controller, and it's split
->>> on a per hardware macro-block basis (as per usual MediaTek hardware layout...).
->>>
->>> The HWV, therefore, does *not* vote for clock *rates* (so, modeling OPPs would be
->>> a software quirk, I think?), does *not* manage bandwidth (and interconnect is for
->>> voting BW only?), and is just a "switch to flip".
->>
->> That's still clocks. Gate is a clock.
->>
->>>
->>> Is this happening because the description has to be improved and creating some
->>> misunderstanding, or is it because we are underestimating and/or ignoring something
->>> here?
->>>
->>
->> Other vendors, at least qcom, represent it properly - clocks. Sometimes
->> they mix up and represent it as power domains, but that's because
->> downstream is a mess and because we actually (at upstream) don't really
->> know what is inside there - is it a clock or power domain.
->>
+On 13/06/2025 14:43, Dev Jain wrote:
+> Commit fcf8dda8cc48 ("arm64: pageattr: Explicitly bail out when changing
+> permissions for vmalloc_huge mappings") disallowed changing permissions
+> for vmalloc-huge mappings. The motivation of this was to enforce an API
+> requirement and explicitly tell the caller that it is unsafe to change
+> permissions for block mappings since splitting may be required, which
+> cannot be handled safely on an arm64 system in absence of BBML2.
 > 
-> ....but the hardware voter cannot be represented as a clock, because you use it
-> for clocks *or* power domains (but at the same time, and of course in different
-> drivers, and in different *intertwined* registers).
+> This patch effectively partially reverts this commit, since patch 1
+> will now enable permission changes on kernel block mappings, thus,
+> through change_memory_common(), enable permission changes for vmalloc-huge
+> mappings. Any caller "misusing" the API, in the sense, calling it for
+> a partial block mapping, will receive an error code of -EINVAL via
+> the pagewalk callbacks, thus reverting to the behaviour of the API
+> itself returning -EINVAL, through apply_to_page_range returning -EINVAL
+> in case of block mappings, the difference now being, the -EINVAL is
+> restricted to playing permission games on partial block mappings
+> courtesy of patch 1.
+> 
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  arch/arm64/mm/pageattr.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index cfc5279f27a2..66676f7f432a 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -195,8 +195,6 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	 * we are operating on does not result in such splitting.
+>  	 *
+>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+> -	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+> -	 * mappings are updated and splitting is never needed.
+>  	 *
+>  	 * So check whether the [addr, addr + size) interval is entirely
+>  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
+> @@ -204,7 +202,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	area = find_vm_area((void *)addr);
+>  	if (!area ||
+>  	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+> -	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+> +	    !(area->flags & VM_ALLOC))
+>  		return -EINVAL;
+>  
+>  	if (!numpages)
 
-BTW:
-
-git grep mediatek,hardware-voter
-0 results
-
-so I do not accept explanation that you use it in different drivers. Now
-is the first time this is being upstream, so now is the time when this
-is shaped.
-
-Best regards,
-Krzysztof
+I'd be inclined to leave this restriction in place for now. It is not useful
+until we have context of the full vmalloc-huge-by-default series, I don't think?
 
