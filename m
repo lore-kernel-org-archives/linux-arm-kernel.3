@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA02C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B83C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 19:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=46IGkncAnF1FVMbibmfrXck0mFyRWTUpklQbc5wHC5A=; b=elb5s2p5+9GoRWcat+F9br+I8J
-	0fmPvI6X7MkwFivvOqpahwXiolviDPe9sDL6Lw7ILkC2JxS/rZhR4C/MDAJkoq2NNW9++UMv7D+6b
-	vBSlIOXzv/Bq3cWfgpQ/8AA7zrWN06+ded9iRsfhsde2FqtYWKHbhHsis7CRzmN4eAJzJJ8Z5k6oo
-	O77VZoUy6lUuaLSWR1hjDKVJJhr/XlFvOOWkrdO3UqwLEr5lwah8LEKFSKfvnVxvM8y0TgcegaEyg
-	GnKcvLa5cT87Ih9xXOuzUBGEN2iSH99gxPqWGAymsYXVfTk9Phc6Nmf9mu8Jt15TddvkYYhjn9v3b
-	rmlK5VJw==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2mcflxfBxIV/B48VQj7W/0lUBgUkzS4skiTvHWnqOo=; b=hkVcIgCyAsui3wxROxTr0TgSHB
+	jInpNX9r3JYWlqNw81On+RzgI/+4HQPfM4zlKq4WcJ99VWdfJb2w044tNT+PCDDmgV/23MhmEN2C+
+	/yPINEW2FiJqhij13fbWaHADQ7FvnSTO93ZYVkEmf4oqcb7a7Kt0TnlG/TabmdMdO1AYolwHrGrS4
+	/0gALjjRRN+IwenGa8qXzayCVHgM6juP/Z6+bNWNtPQ4wze/4PzCKXKucOcyLx+nBmPdqJqBux95i
+	Hw51TmJuhVPOrmHAf7QAQHyVeiZM5UN1w/GbOaqpR7ZDdN+TFt3ikOyVbCkKtwAhiQY0j84ft/ste
+	yuW8H1Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUWBr-00000009n59-2sKl;
-	Wed, 25 Jun 2025 19:53:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUPfq-00000008hxD-2ELD
+	id 1uUWBs-00000009n5S-0yDn;
+	Wed, 25 Jun 2025 19:53:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUPqc-00000008jog-31lr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 12:56:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 308C4A52561;
-	Wed, 25 Jun 2025 12:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55A8EC4CEEA;
-	Wed, 25 Jun 2025 12:56:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750856180;
-	bh=Dz5Oh6ZQApBF4VZkqH2TbMEO+1URjB0qZPeXpOaSAyM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qWE2qnaB6AEFnYieEk5vJ+/s0gLddEoVYyPp9W6NmjrIKr/i1PiqNv/EhEdoyy/kq
-	 8GHpQsDUspx3bxFYvs5Hk3AlqEFmRV6g7FqmBpGHqA1oYVdn66vnxrDWDFD9H8ER+O
-	 HmndyumTt2kdePikwRvQOBbItSTHZzDLvSENDTgy3n5qL0J4X+V3wCfJV8OSx9iB3a
-	 ZT+zlhoIWBfCUOzV7MdCVR+vhAxxVO+ppng7Od5zaIIUlB/IrdXLHAO25qok0mgZBN
-	 UspZvgH1d67IYcnY1RxxXEBHknoQvebrYG3CgG9nKvSx9vBlL3OhO7dH00GpZ5zJeg
-	 zAH+oRAaoFtBw==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-kbuild@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: fix unnecessary rebuilding when CONFIG_DEBUG_EFI=y
-Date: Wed, 25 Jun 2025 21:55:20 +0900
-Message-ID: <20250625125555.2504734-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Wed, 25 Jun 2025 13:07:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7BE26106F;
+	Wed, 25 Jun 2025 06:07:11 -0700 (PDT)
+Received: from [10.57.84.221] (unknown [10.57.84.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D1B03F58B;
+	Wed, 25 Jun 2025 06:07:25 -0700 (PDT)
+Message-ID: <636c8901-6e05-479f-ae06-ee391d4d36e8@arm.com>
+Date: Wed, 25 Jun 2025 14:07:23 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under
+ BBML2
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: yang@os.amperecomputing.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+ broonie@kernel.org, ardb@kernel.org, baohua@kernel.org,
+ suzuki.poulose@arm.com, david@redhat.com, jgg@ziepe.ca, nicolinc@nvidia.com,
+ jsnitsel@redhat.com, mshavit@google.com, kevin.tian@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+ <20250617095104.6772-5-miko.lenczewski@arm.com> <aFRlDSZ2PPnHixjc@arm.com>
+ <7105112f-b0bb-4191-b3c9-93522162319c@arm.com>
+In-Reply-To: <7105112f-b0bb-4191-b3c9-93522162319c@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_055622_702168_34B43FA2 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250625_060730_834161_E8138A16 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,99 +74,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_DEBUG_EFI is enabled, some objects are needlessly rebuilt.
+On 20/06/2025 17:10, Ryan Roberts wrote:
+> On 19/06/2025 20:29, Catalin Marinas wrote:
+>> On Tue, Jun 17, 2025 at 09:51:04AM +0000, Mikołaj Lenczewski wrote:
+>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>>> index bcac4f55f9c1..203357061d0a 100644
+>>> --- a/arch/arm64/mm/contpte.c
+>>> +++ b/arch/arm64/mm/contpte.c
+>>> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+>>>  			pte = pte_mkyoung(pte);
+>>>  	}
+>>>  
+>>> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+>>> +	/*
+>>> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
+>>> +	 *
+>>> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
+>>> +	 *       N=4 for clarity.
+>>> +	 *
+>>> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
+>>> +	 *       unset and set, respectively.
+>>> +	 *
+>>> +	 * We worry about two cases where contiguous bit is used:
+>>> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
+>>> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
+>>> +	 *
+>>> +	 * Currently, the BBML0 folding case looks as follows:
+>>> +	 *
+>>> +	 *  0) Initial page-table layout:
+>>> +	 *
+>>> +	 *   +----+----+----+----+
+>>> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
+>>> +	 *   +----+----+----+----+
+>>> +	 *
+>>> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
+>>> +	 *
+>>> +	 *   +----+----+----+----+
+>>> +	 *   |  0 |  0 |  0 |  0 |
+>>> +	 *   +----+----+----+----+
+>>> +	 *
+>>> +	 *  2) __flush_tlb_range():
+>>> +	 *
+>>> +	 *   |____ tlbi + dsb ____|
+>>> +	 *
+>>> +	 *  3) __set_ptes() to repaint contiguous block:
+>>> +	 *
+>>> +	 *   +----+----+----+----+
+>>> +	 *   |RO,c|RO,c|RO,c|RO,c|
+>>> +	 *   +----+----+----+----+
+>>
+>> From the initial layout to point (3), we are also changing the
+>> permission. Given the rules you mentioned in the Arm ARM, I think that's
+>> safe (hardware seeing either the old or the new attributes). The
+>> FEAT_BBM description, however, only talks about change between larger
+>> and smaller blocks but no mention of also changing the attributes at the
+>> same time. Hopefully the microarchitects claiming certain CPUs don't
+>> generate conflict aborts understood what Linux does.
 
-[Steps to reproduce]
+I think what you are saying is that despite going via invalid, the HW may see
+this direct transition:
 
-  Enable CONFIG_DEBUG_EFI and run 'make' twice in a clean source tree.
-  On the second run, arch/arm64/kernel/head.o is rebuilt even though
-  no files have changed.
++----+----+----+----+
+|RO,n|RO,n|RO,n|RW,n|
++----+----+----+----+
+to:
++----+----+----+----+
+|RO,c|RO,c|RO,c|RO,c|
++----+----+----+----+
 
-  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- clean
-  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-     [ snip ]
-  $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-    CALL    scripts/checksyscalls.sh
-    AS      arch/arm64/kernel/head.o
-    AR      arch/arm64/kernel/built-in.a
-    AR      arch/arm64/built-in.a
-    AR      built-in.a
-     [ snip ]
+There are 2 logical operations here. The first is changing the permissions of
+the last entry. The second is changing the size of the entry.
 
-The issue is caused by the use of the $(realpath ...) function.
+As I understand it, it's permissible in the architecture to update the
+permissions of the a PTE without break-before-make and without issuing a tlbi
+afterwards; in that case the HW may apply either the old permissions or the new
+permissions up until a future tlbi (after which the new permissions are
+guarranteed). That's the first logical operation.
 
-At the time arch/arm64/kernel/Makefile is parsed on the first run,
-$(objtree)/vmlinux does not exist. As a result,
-$(realpath $(objtree)/vmlinux) expands to an empty string.
+The second logical operation is permitted by FEAT_BBM level 2.
 
-On the second run of Make, $(objtree)/vmlinux already exists, so
-$(realpath $(objtree)/vmlinux) expands to the absolute path of vmlinux.
-However, this change in the command line causes arch/arm64/kernel/head.o
-to be rebuilt.
+So both logical operations are permitted and the Arm ARM doesn't mention any
+requirement to "separate" these operations with a tlbi or anything else, as far
+as I can see.
 
-To address this issue, use $(abspath ...) instead, which does not require
-the file to exist. While $(abspath ...) does not resolve symlinks, this
-should be fine from a debugging perspective.
+So I would interpret that combining these 2 in the way we have should be safe.
+RNGLXZ and RJQQTC give further insight into the spirit of the spec. But I agree
+this isn't spelled out super clearly.
 
-The GNU Make manual [1] clearly explains the difference between the two:
+Perhaps we can move forwards based on this understanding, and I will seek some
+clarifying words to be added to the Arm ARM?
 
-  $(realpath names...)
-    For each file name in names return the canonical absolute name.
-    A canonical name does not contain any . or .. components, nor any
-    repeated path separators (/) or symlinks. In case of a failure the
-    empty string is returned. Consult the realpath(3) documentation for
-    a list of possible failure causes.
-
-  $(abspath namees...)
-    For each file name in names return an absolute name that does not
-    contain any . or .. components, nor any repeated path separators (/).
-    Note that, in contrast to realpath function, abspath does not resolve
-    symlinks and does not require the file names to refer to an existing
-    file or directory. Use the wildcard function to test for existence.
-
-The same problem exists in drivers/firmware/efi/libstub/Makefile.zboot.
-On the first run of Make, $(obj)/vmlinuz.efi.elf does not exist when the
-Makefile is parsed, so -DZBOOT_EFI_PATH is set to an empty string.
-Replace $(realpath ...) with $(abspath ...) there as well.
-
-[1]: https://www.gnu.org/software/make/manual/make.html#File-Name-Functions
-
-Fixes: 757b435aaabe ("efi: arm64: Add vmlinux debug link to the Image binary")
-Fixes: a050910972bb ("efi/libstub: implement generic EFI zboot")
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- arch/arm64/kernel/Makefile                  | 2 +-
- drivers/firmware/efi/libstub/Makefile.zboot | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 2920b0a51403..a2604c33f35c 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -81,7 +81,7 @@ obj-y					+= head.o
- always-$(KBUILD_BUILTIN)		+= vmlinux.lds
- 
- ifeq ($(CONFIG_DEBUG_EFI),y)
--AFLAGS_head.o += -DVMLINUX_PATH="\"$(realpath $(objtree)/vmlinux)\""
-+AFLAGS_head.o += -DVMLINUX_PATH="\"$(abspath vmlinux)\""
- endif
- 
- # for cleaning
-diff --git a/drivers/firmware/efi/libstub/Makefile.zboot b/drivers/firmware/efi/libstub/Makefile.zboot
-index 92e3c73502ba..832deee36e48 100644
---- a/drivers/firmware/efi/libstub/Makefile.zboot
-+++ b/drivers/firmware/efi/libstub/Makefile.zboot
-@@ -36,7 +36,7 @@ aflags-zboot-header-$(EFI_ZBOOT_FORWARD_CFI) := \
- 		-DPE_DLL_CHAR_EX=IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT
- 
- AFLAGS_zboot-header.o += -DMACHINE_TYPE=IMAGE_FILE_MACHINE_$(EFI_ZBOOT_MACH_TYPE) \
--			 -DZBOOT_EFI_PATH="\"$(realpath $(obj)/vmlinuz.efi.elf)\"" \
-+			 -DZBOOT_EFI_PATH="\"$(abspath $(obj)/vmlinuz.efi.elf)\"" \
- 			 -DZBOOT_SIZE_LEN=$(zboot-size-len-y) \
- 			 -DCOMP_TYPE="\"$(comp-type-y)\"" \
- 			 $(aflags-zboot-header-y)
--- 
-2.43.0
+Thanks,
+Ryan
 
 
