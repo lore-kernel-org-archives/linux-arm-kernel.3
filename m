@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D827DC7115C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 08:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175DAC7115C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Jun 2025 08:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2DymnnvE184jkZ20uTvSiiI7+Y+QW2i9b6WEZQ2DOJs=; b=zEaPHSMKNqPUsDUTOEJtUexrXh
-	WGAFGb5+swuGnk0iTguPWk7iQhWOkDEPIF9nGQqFkw1cjyQnZEikJIPZxls0syUm6B93ErXkkxq9m
-	FNAgTOgClBFUk3UPJDFKCy0RhuMmsj5M7TWho8wKT9a62h8j5WkPTw2ENzecLO0B2c6mSZnC2HriC
-	DN1HkTyLTTahlOWr9n5mcK5DQ3SgCJ0GUQEFTnsXifploSo0chmBjeCWSQtOTtnrPAu4RcODN8w9n
-	ULh3YJBxs1zv+Qs4zPJyqJ8E+cMRJQ0BB+dqsybDwkLdQmyNVnPkon0gEecX3LhsyZ07psxtsn7sx
-	ZSPoyXPg==;
+	bh=f2k6QLhMs+Ybe7hFRFwIVvK0vEsmpmU+VkYws59KtZA=; b=tgJ4vEp2AKoeRkB+PsXAQgrcdl
+	h8l87uJYta4CVMAzayumcG1q/FdZimWJ+6XCeFw0GtYL7BO2RRmzlD0uT1eL8t1d8g5oqayONK+cK
+	NKLInO2ul/s2fosK/Vjbp9gUxrEV2kXvhJbIQSPNlMOx+aGkXI3m4mv4zO/cCkDtdK140VUD2F4Lm
+	nX5M16eUiJnU8g3zKjuMznQ7fDNxTisWKLEpjzaBIZ7guwFJApHpoVHl542ZpjMD0WXS/BnM+ftrJ
+	qGzttCmz4re5n/1lL/0lQykmxiIeuvE261BwLMGWo6MhI7C3NLST5bgzi1f1J2kAFzJSylCYTSz7o
+	+ptRCB0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uULVW-00000007xPw-04Lh;
-	Wed, 25 Jun 2025 08:29:26 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1uULaI-00000007yHR-3JV1;
+	Wed, 25 Jun 2025 08:34:22 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUKfA-00000007pkt-3NEM
+	id 1uUKif-00000007qP8-2oBm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Jun 2025 07:35:22 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ade58ef47c0so129570566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 00:35:19 -0700 (PDT)
+	Wed, 25 Jun 2025 07:38:58 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-234f17910d8so13812885ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 00:38:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750836918; x=1751441718; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2DymnnvE184jkZ20uTvSiiI7+Y+QW2i9b6WEZQ2DOJs=;
-        b=JN0gvHrK08EkVjO1eewpYyy7x2wcCgK3Ma1DwRlsZcrTAm7jMSbUzvFIl+xzXcX2MU
-         4Qk6MEWH21vPAuR52Pr/aqE7hXir7+F2/d59isB02/W/oKni/0o3nRkan5To/+YI5rHN
-         BOkarMXRyb28Sw1/qI8rxb8YZBteUcmu90Rsj1EnFw5IyCjEM34AQzskGpEGjz1/Juvb
-         xPwgzILWR4KM+UgCjHESnz9EDcSWdz6F77PSnuWBWiGiWXZxbsbFvq+FJAoYyOgfd+Or
-         6jgidqN1jg7jj9d96y0X/xg+QU5ZDqitMwwV92Fuq/WLNiGt/Z1Nves/4aH/EQkl/ZJV
-         G5ig==
+        d=gmail.com; s=20230601; t=1750837136; x=1751441936; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f2k6QLhMs+Ybe7hFRFwIVvK0vEsmpmU+VkYws59KtZA=;
+        b=nZZ3kworvbwHscY/wjSc+vodqvtDQKamECkstvmEwEzRRRr3vf10vkyeUQ1i8Pgi/j
+         evHCTckRshJROroSc1Mj6zJjsud30hHZ0l3Wl/ohYx8NCzQ6qYG7MjzFirHD580HNd6m
+         grrmN0Jhx1qP7GIxurGzwwOOqOFN8oNJBhpHfTR9W1+dFzm2LYMit+TrUE1HoFIxModU
+         gaS8l8HBlaXVbRyyeMXyOLWyCGosjhje5/hIcTYiEkHiGHCNWoKHhIOqXuoWdZuQ5uet
+         dDjcO4aO+Tx7aDVqnB291nCB9E1YMjLtMQQAnyQ1qK5Q42YWMVS0mDDbldPJBzXKsjRM
+         Z+bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750836918; x=1751441718;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1750837136; x=1751441936;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2DymnnvE184jkZ20uTvSiiI7+Y+QW2i9b6WEZQ2DOJs=;
-        b=floPmfPRChS9jLGlHHh+H7GdIohxItr9hA3JJ/lTJglJf33vqh/Fdq2K8MXUgdeqtN
-         avMEzm7btJ+1mSDnb9s3cQr9Em3nSgF1QNpKl+RWMtMhfE4oT1l288N7PJrCGhuujkvi
-         LD9mqu5I1OZstGOMdwUbZB6lRlL2zZQlfx1gd596iasUw2xqlbzhhZ/4J8u4h+Ucbive
-         purma8ocCjG+hYZHf5Ye9tCsGoV270+rQ2SixLElhp1RUmHI5QtdOKxZvsEgaFNszqzi
-         ssWelaBJx0hJ6G9UIaKMn9HdKLFITW01cQ/eCeWTPI6U9wz7dcsuSNUPlijaYqzCbBZ+
-         dyYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXg/ZGV+kgM7eguN6RDJH2kQVlSapjMTykzpxoenjZrTggqgZOLGguZTGg/xeC5wKqZMAIBfWhBqmJKMUCVksEy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMu8VfhvzmQER6lfoiZCrarbnzjn+FPeVgZu7cXX2mu7Sq+qMN
-	NMCkEeCeLqbw3fCbsQEZShUCkUA+n0XuQTQIa1m59g7njQBHGeGRFLyo4jgr5MME4zBfT5Q4YEi
-	EYkAI/n0NUmsg9+OehhCoprU/ICB8Wbwo+fn0jsh7QQ==
-X-Gm-Gg: ASbGnctkJOu+5nKygdjgR/+zQU1/G4TGVnE2bhBxAQRdPVmVdjW6bA/GnBuhKDTolVO
-	uez1ZhYuEJ3e5gwsyeOrwoITEVzECMCsS3+/Fl3Zsen7RSXatp8nRRPIuTI3aDIk843Rd8YRKue
-	yjXeQ9Vmd8zOatlutiLAaTbo4zinUDk1R+O9RNZLxFnWtVwhd3pHGqNfml+J04EMMF2SjfrJI1P
-	dY=
-X-Google-Smtp-Source: AGHT+IEyXKWCmKWZPw2kgX0twR9fcnM1z7nFPYHArFddxW4orcOtG+t3XPYgPsMNGRzQt/Onxf6tBPeKruUlJC8wqdE=
-X-Received: by 2002:a17:907:7215:b0:ad8:959c:c567 with SMTP id
- a640c23a62f3a-ae0c06af8f0mr172746266b.10.1750836918190; Wed, 25 Jun 2025
- 00:35:18 -0700 (PDT)
+        bh=f2k6QLhMs+Ybe7hFRFwIVvK0vEsmpmU+VkYws59KtZA=;
+        b=hyL1WMFfJEaMKe6RS+d2VUv7+JiANdJWvmnnRoPmckiKchf/XzwDwOHXKJbXAKguwb
+         NEksd54LYMcP1qAcz/uulzNe13yu/RMi4XyCjGXUoHuUTfTFIvyHwNemPh4m3FL6wufs
+         QImtAFxSVN5qFoLoU0iReGptSE0g0+RmpaTGdahaoIYedwi3rvvnB2gg1cpc00/2cPVx
+         z6btWJFK89GSkKGqLwxdr5NP4kwRY95KDZzuOMNTR2L+idavIu8J+TcyJWpGLjLdFTPg
+         tnFhQriESWHhbXWeQNNDKaCIUu9JVDIDqcw0nQCqogyjTsIZ0Au3ZuYT+bPNUkBGXboG
+         pfmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX6+aHRa7gKKDNM+Sfqj7sMXFIAfAcEPfPolVJ/Dir27MkJEAkXrdfGsrDM8xJj7CDqWGKr2P7NTsy28yejOpqG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQLoZZEmIdhbv8VlXMefYTyTStOx3U/jzzNzbzfdcNso2hSlmu
+	OaMW/ibtlX5FWgYMjv+/v1Ko+GaaM4le6leetRef3Bh3uJslnlhNwRwD
+X-Gm-Gg: ASbGncvSnbE5tZUDIPeSO93jZIX6b08drFAQdgtpzv7dQ4N+C42DablelYwqmQ+PqLM
+	X0x3aSRjGukSqXeELrfDlSzI+Zqz5GVCFkpw+ty/OfCxO7TP9DEu5mMeQ92tdd7F/bXEabMT5OA
+	4ECUH9DJEPKW3q1v7Zw5+rjd5aWWYB1LXs91HrP9SwPVTf9pR4CnqVKU3H6+ZN0AXtDHY7eGpnz
+	EXuEbnG1vJoHmT/rnLzx1Ch8hPOctGcg3mU9TZMt/P4POybiYzPvyPq2bxpLr72AwevEK3pmtxI
+	URF2LNd550PbLeBAGQn6nB6OT6voGhRIunNV/2j/dymsi1rfGUzqrZyEzPNt6s5JW5k8k7VuKe9
+	BrqxHZL5/EE0ltksDuHd8isg7/VTZVgOu5Svnpu+7LTDVM2b22KAQ6xpqvIhgS897NhdwCNXVMU
+	uvlEv23FOqlxnRIw==
+X-Google-Smtp-Source: AGHT+IFPhsOEHB0AtL92cnu1eg5DcAJ4zv8O/1nAazjCboc//yT2Vhmq+mZ1KELkj888CHOfjGO1KA==
+X-Received: by 2002:a17:903:2308:b0:237:d734:5642 with SMTP id d9443c01a7336-2382436220bmr37350915ad.41.1750837136289;
+        Wed, 25 Jun 2025 00:38:56 -0700 (PDT)
+Received: from fred-System-Product-Name.. (2001-b400-e389-b6b2-29b2-bfd3-aa15-d345.emome-ip6.hinet.net. [2001:b400:e389:b6b2:29b2:bfd3:aa15:d345])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-237d86a3083sm125374285ad.195.2025.06.25.00.38.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Jun 2025 00:38:55 -0700 (PDT)
+From: Fred Chen <fredchen.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] dt-bindings: arm: aspeed: add Meta Santabarbara board
+Date: Wed, 25 Jun 2025 15:38:37 +0800
+Message-ID: <20250625073847.4054971-2-fredchen.openbmc@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250625073847.4054971-1-fredchen.openbmc@gmail.com>
+References: <20250625073847.4054971-1-fredchen.openbmc@gmail.com>
 MIME-Version: 1.0
-References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
- <20250624-gpio-mmio-pdata-v1-2-a58c72eb556a@linaro.org> <CACRpkdavsQJTfiwn-F+ML5MK6ADtr-31bBxLA4gV7MTAYR0YGQ@mail.gmail.com>
-In-Reply-To: <CACRpkdavsQJTfiwn-F+ML5MK6ADtr-31bBxLA4gV7MTAYR0YGQ@mail.gmail.com>
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Date: Wed, 25 Jun 2025 09:35:07 +0200
-X-Gm-Features: AX0GCFtyVKN-DtXqrWSfe49kFtB1susJDcQJSJJYWx2PpacFz_0klmfgmBsfOl0
-Message-ID: <CACMJSestPPEvsUrWaqz7yZ8OxZTMEOBY7htE7c8BV-VBumj1Lw@mail.gmail.com>
-Subject: Re: [PATCH RFT 2/6] gpio: mmio: get chip label and GPIO base from
- device properties
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Lee Jones <lee@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_003520_857145_FE4042B6 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20250625_003857_711200_B69F1D70 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Jun 2025 at 21:44, Linus Walleij <linus.walleij@linaro.org> wrot=
-e:
->
-> On Tue, Jun 24, 2025 at 3:19=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.p=
-l> wrote:
->
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > Ahead of removing struct bgpio_pdata support from the gpio-mmio generic
-> > module, let's add support for getting the relevant values from generic
-> > device properties. "label" is a semi-standardized property in some GPIO
-> > drivers so let's go with it. There's no standard "base" property, so
-> > let's use the name "gpio-mmio,base" to tie it to this driver
-> > specifically. The number of GPIOs will be retrieved using
-> > gpiochip_get_ngpios() so there's no need to look it up in the software
-> > node.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> This works for me.
-> I wouldn't be stoked to see device trees abusing the "gpio-mmio,base"
-> property all of a sudden just because it now exists as a device
-> property though... I kind of wish we had a way to opt out of exposing
-> this to all the sub-property paths. But it seems tiresome, so:
->
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
->
-> Yours,
-> Linus Walleij
+Document the new compatibles used on Facebook Santabarbara.
 
-That's not a problem - this property is not in any DT bindings and as
-such is not an allowed property in DT sources. For out-of-tree DTs? We
-don't care about those.
+Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Bartosz
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 01333ac111fb..a965f1a03051 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -87,6 +87,7 @@ properties:
+               - facebook,greatlakes-bmc
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
++              - facebook,santabarbara-bmc
+               - facebook,yosemite4-bmc
+               - ibm,blueridge-bmc
+               - ibm,everest-bmc
+-- 
+2.49.0
+
 
