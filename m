@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14905C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 23:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1D5C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5gMr5+DTslOZVCDZsu46UT/fRe5DJWudyq04bxbQQ94=; b=uES7nI1yuo/DXtxVUUaHjr8H/A
-	ctp08NtqGYpnJ7CfIO+V7/r/Ff5V91/UpCNlKdNkJ+bksebhTH1GXRstOJYNzMvGHnmM2pOOC7dj7
-	4PUXlwM6+K40fVVq30P0Xf+3dCFjbZIpqixjmlrcKhVkFRME1gxzOKP9asSIQo6aEOUABp2vv9vd/
-	AeW14WnZTYDEMKDOnocGzGHzx/GigMuXVkHYnmkq9u8Evx2S+AW2m8qHJtTnrZm2Ufc1lPgsxcs9i
-	9dzIHNQgSq/L/yBeJW1VgorMvCv+4VQWUkPFjPfnqr7eWGrxsjHswSKq7We1lFyrROaJHBfFLmeHE
-	YTCfYLAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fWM8VJDmUOIHrp/C15adgUktxEx+lnhctNL4Eg/IoNI=; b=RmgeeREPJwLvgImHhszZMOaASu
+	Q1wfVXEufwmEbnXuEDZDMu4IRsbKtfrtblctCi2m6V3SNED0ZecizMeqKYg7+N8E8wPrtOG4Cga2d
+	brwo5tGpY5PKr80dOyTphGGkODIY93Cosfjufsx07UJVtNJvzdo4oiEcqSsRHHg4Bt/THhzJUDzu3
+	Q0JXkkSn9C+1rBa+Z/7PaNWcmqqyMtVSuubKWq+vojCRGk8r0Yr07e3IoFuAX3WBBu7He49aKieWg
+	b0xnn1zOzxgUDwrPdFiG1pUp0PD2TDfCxOXNAA3q2fTzqclq2Ko24Rkw/B7uQkf2Z91lNMYdEMfm8
+	95i14JXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwV0-0000000D896-1Ruk;
-	Thu, 26 Jun 2025 23:59:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uUwXK-0000000D8fr-0UmO;
+	Fri, 27 Jun 2025 00:01:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUurP-0000000CujS-0PbA
+	id 1uUux7-0000000CvKL-0cYm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 22:14:24 +0000
+	Thu, 26 Jun 2025 22:20:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 927765C66FE;
-	Thu, 26 Jun 2025 22:14:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DABFEC4CEEB;
-	Thu, 26 Jun 2025 22:14:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C9020437E4;
+	Thu, 26 Jun 2025 22:20:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E10AC4CEEB;
+	Thu, 26 Jun 2025 22:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750976060;
-	bh=NdFw2ADpTfpWgA0EQty53QwutKobBhj7JUQ3fk3v3jc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=tLYfMXdCW6YGCUJHyniUaCmkNb0lqs7cdAY65UBz4bkI5WMCtUqTCK4qqcdTnXtyw
-	 kpsW0gE81tmoVoxhxuCCDDE2oUQL6IFSUUFJM1nZI+QeEQrmkkGzoSeCvinzRrme7l
-	 4dT/KhxsSUkbqz7GWorCOGv3hSjPplJDbNF1V4cE09akN8IlG3jMaKE+ijUDziSRVa
-	 iJmGaEz4jZ7/wmgH/w263OrbDqTuSGQz5+p7BaP9dTvSm2C+HtfMM6ykN7wxoVOAIU
-	 99e9KHEAvHV9baLK1Ea39f0tuZ9oeChnjjFJXnVF+OqXBzQV6EBCxmwMpWIQm6xZCQ
-	 CIIlddlDGQ/EA==
+	s=k20201202; t=1750976416;
+	bh=ucsBH0oET7oAgyvEDa/a3datI+skfPNQCt62RZ9yLVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A4p020ppAY3ZUq9GxVphQHtmW7Nv2xB3Wlg/q5yrQXm3EkE4bNikZUjWa5OIG8tnY
+	 qtMYEw3dh73r/bTvkyn9L9gXBaKwOB4wvwcG7etPZo7YfoQzeQrJnM2fJmTcw7SUp9
+	 KmWoOf20XipOsGc1GkCMmgMDT6jjEM70DyFcnzkBLgas24Ko1EjFvkEpghCb0YZfVB
+	 bn4kGt9o7Ov8zt2bA+jqmXecRQJDiKeFJCiebQvy8IMVUKoksvX4xWLOwHccsA/+45
+	 Jtlbp/Fs/ev4/nB1b/m1NOqovgi6S4APtgI0cIT6LKyITOXVq+b1qCAn0TcVGABlqO
+	 tpqQ/llYEUv0Q==
+Date: Thu, 26 Jun 2025 15:20:15 -0700
 From: Vinod Koul <vkoul@kernel.org>
-To: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Cc: Mark Brown <broonie@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20250610082256.400492-1-csokas.bence@prolan.hu>
+To: Mark Brown <broonie@kernel.org>
+Cc: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v7 0/2] Add `devm_dma_request_chan()` to simplify probe
+ path in atmel-quadspi.c
+Message-ID: <aF3Hn_yWPMOXOb9f@vaman>
 References: <20250610082256.400492-1-csokas.bence@prolan.hu>
-Subject: Re: (subset) [PATCH v7 0/2] Add `devm_dma_request_chan()` to
- simplify probe path in atmel-quadspi.c
-Message-Id: <175097605979.58944.6982488308454095610.b4-ty@kernel.org>
-Date: Thu, 26 Jun 2025 15:14:19 -0700
+ <f21f9aa5-974a-4326-88e0-cd29fd24555f@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.13.0
+In-Reply-To: <f21f9aa5-974a-4326-88e0-cd29fd24555f@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_151423_177738_80C2D6CC 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_152017_209567_CC7D6776 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 10 Jun 2025 10:22:52 +0200, Bence CsÃ³kÃ¡s wrote:
-> The probe function of the atmel-quadspi driver got quite convoluted,
-> especially since the addition of SAMA7G5 support, that was forward-ported
-> from an older vendor kernel. To alleivate this - and similar problems in
-> the future - an effort was made to migrate as many functions as possible,
-> to their devm_ managed counterparts. Patch 1/2 adds the new
-> `devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
-> simplify the probe() function.
+On 10-06-25, 12:49, Mark Brown wrote:
+> On Tue, Jun 10, 2025 at 10:22:52AM +0200, Bence Csókás wrote:
 > 
-> [...]
+> > to their devm_ managed counterparts. Patch 1/2 adds the new
+> > `devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
+> > simplify the probe() function.
+> 
+> I'm not copied on patch 1, please let me know if/when there's some
+> progress there.
 
-Applied, thanks!
+You can pull in this tag for the dependency
 
-[1/2] dma: Add devm_dma_request_chan()
-      commit: 56137a53f8ebb400f4098ca26ef18934e9a4de45
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-Best regards,
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git tags/dmaengine_devm_api
+
+for you to fetch changes up to 08bf1663c21a3e815eda28fa242d84c945ca3b94:
+
+  dmaengine: Add devm_dma_request_chan() (2025-06-26 15:18:04 -0700)
+
+----------------------------------------------------------------
+dmaengine: tag for devm api
+
+----------------------------------------------------------------
+Bence Csókás (1):
+      dmaengine: Add devm_dma_request_chan()
+
+ drivers/dma/dmaengine.c   | 30 ++++++++++++++++++++++++++++++
+ include/linux/dmaengine.h |  7 +++++++
+ 2 files changed, 37 insertions(+)
+
+Thanks
 -- 
 ~Vinod
-
-
 
