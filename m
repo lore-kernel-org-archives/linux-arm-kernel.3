@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E1AC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423BAC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sXg7exD96U61m7u/1hCYmCTverlSKuuUujYmb505pE=; b=zGDVvQqjbQ9N//LDomaGtPG5dn
-	ydk2K8dJr35KzU69CsYD89OI1MAKoEePGWJjNjKU8jTncKovsmv1hgfeOZcm9rdU6IpHGVkfVKPkr
-	UAwisvcD98AOXhOpkhdnmYCGih5Nd8eSbv5i+tAcOULL+zuFzscbqPaQQONbEMttfMR+mOzM3Tgw9
-	W4XhVKG+dA9mfoDL/8qp12+oyoNOr7kfwH67Oc4OkKZm+RVv9pwxTK+VrXNaK7XXR/6Tq3cfU0co6
-	96FZRsuTL789c6+yr9h+TmUaxBMOKuG5BXM6t4b+WkIJ48wfEk9QoeKPnasw+GCqVRw3j2nWAYOHX
-	9rIBKIxQ==;
+	bh=1DVFERyKVYzGqRIwk1nNK8rInd+bsr9STtiP5gkT5Fs=; b=xQVcEabv/mVzuBS4H6ImiSfUHV
+	ckuMOk8Sr84etTE1vxZbVIIjEM3I8e1xuTInIVByPVWURzfZVZjqqAnMLfIUd4vQ0w8wZClfFLZwH
+	jya1746HDhXn7f0tnOVxWOzJLtJvj4zDurKgbwZj4q9PeSMh8SD1ugzCe8y8cGiR9kXrwd8VgdcaY
+	QIT3nMHJZBilP5yt1DoMxYSNjQgOvcPtvXk0sHW+Wos076arPDfYhsJgoeEge/K4rsr9V4s0fN+OU
+	6SA9Xoceq46DnB6guny80QucKmA/mYjxj7GIsX538AaEL4XVuTgdoQbDa1S9ElY44ecklGfUaiVDC
+	q4GKQVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwlD-0000000DBSf-0ArX;
-	Fri, 27 Jun 2025 00:16:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uUwnX-0000000DBco-3Hkv;
+	Fri, 27 Jun 2025 00:18:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUvO6-0000000Cyrg-2X29
+	id 1uUvO7-0000000Cys5-1NVT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 22:48:10 +0000
+	Thu, 26 Jun 2025 22:48:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 106646000A;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7D3E8A5202C;
 	Thu, 26 Jun 2025 22:48:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DACEC4CEEF;
-	Thu, 26 Jun 2025 22:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B8ECC4CEF3;
+	Thu, 26 Jun 2025 22:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750978089;
-	bh=fCvhvhbFhOlfeOSp3pz3JSwPF/zNpq8GnnnbKYprUD0=;
+	s=k20201202; t=1750978090;
+	bh=nUQQ+LnpVtcSiEKYNyLJQYQ3qpwW8j9at1ttj37bRoE=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=p8ro6kuHVP4rjmVN4MF+SX3pruihvHxk7qjD4XJHiiggv6p482O/uBd3JSRvtfTWx
-	 5oFtEgl9QnCM+fCcxIJgeVuQcMNF0Etva2SaPsL51fGw9dGqI8ueYPuuI4j+DUOVQD
-	 Plx45huqWvqeo2rp1+runItb0a5oUJFRk7pUTCufsNkIriFZ3pYpz2vgpO/uaRtIu4
-	 qrKW4LlNTM0xlldnf74et4wYXoIZYWBU+Xv+5Am5+B0CDG6HhtmOlXlHUZ5Y+l2CSe
-	 xoeOabeVqwCJ1ROiSvuE87brMa+aG24IYJ2oElOJ7UPEQI/5CggGyXp/qHoqI/yKLl
-	 0KNSAmkOvAhQw==
+	b=AZrsg3vdrJ0h/iRGea67V1Kjd16l35Zwmo76Qa+vj2q6zwKi6v1Ah9wl5WBNB2lWA
+	 462gKoTgs4izGfLnhp01Ost894ecgtMAompg3rOGHh9oemcMIwy0PMbxuwbusSQVKY
+	 fw6S23NxOWG9YyYiQzNL+cZtIgSPGh1ng98fu7XWyg8Lv2s/5/8WvWaCQsFMyrs57q
+	 u4h98kx8k8VqrMM4LWU1NznJl/nfN3t9HfmaPB7MUNbSpaSI78hvBQHfpx4j1oqp17
+	 Q1mIL9Fqi48UYRj4WZN9oDtSMDX/U6NaI3pfNJqSRaB2pESV6QiMM6OYGOb3NP/7/E
+	 oSYMevKyeDRGQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+To: =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Amelie Delaunay <amelie.delaunay@foss.st.com>
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250624-stm32_dma_dbm_fix-v1-1-337c40d6c93e@foss.st.com>
-References: <20250624-stm32_dma_dbm_fix-v1-1-337c40d6c93e@foss.st.com>
-Subject: Re: [PATCH RESEND] dmaengine: stm32-dma: configure next sg only if
- there are more than 2 sgs
-Message-Id: <175097808959.79884.12989914478900786264.b4-ty@kernel.org>
-Date: Thu, 26 Jun 2025 15:48:09 -0700
+In-Reply-To: <20250618-restricted-pointers-dma-v2-1-bc39dafc201d@linutronix.de>
+References: <20250618-restricted-pointers-dma-v2-1-bc39dafc201d@linutronix.de>
+Subject: Re: [PATCH v2] dmaengine: stm32: Don't use %pK through printk
+Message-Id: <175097809000.79884.3200943794194377896.b4-ty@kernel.org>
+Date: Thu, 26 Jun 2025 15:48:10 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250626_154811_428497_7798F1B3 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,26 +77,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Jun 2025 09:31:37 +0200, Amelie Delaunay wrote:
-> DMA operates in Double Buffer Mode (DBM) when the transfer is cyclic and
-> there are at least two periods.
-> When DBM is enabled, the DMA toggles between two memory targets (SxM0AR and
-> SxM1AR), indicated by the SxSCR.CT bit (Current Target).
-> There is no need to update the next memory address if two periods are
-> configured, as SxM0AR and SxM1AR are already properly set up before the
-> transfer begins in the stm32_dma_start_transfer() function.
-> This avoids unnecessary updates to SxM0AR/SxM1AR, thereby preventing
-> potential Transfer Errors. Specifically, when the channel is enabled,
-> SxM0AR and SxM1AR can only be written if SxSCR.CT=1 and SxSCR.CT=0,
-> respectively. Otherwise, a Transfer Error interrupt is triggered, and the
-> stream is automatically disabled.
+On Wed, 18 Jun 2025 09:43:34 +0200, Thomas Weißschuh wrote:
+> In the past %pK was preferable to %p as it would not leak raw pointer
+> values into the kernel log.
+> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+> the regular %p has been improved to avoid this issue.
+> Furthermore, restricted pointers ("%pK") were never meant to be used
+> through printk(). They can still unintentionally leak raw pointers or
+> acquire sleeping locks in atomic contexts.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dmaengine: stm32-dma: configure next sg only if there are more than 2 sgs
-      commit: e19bdbaa31082b43dab1d936e20efcebc30aa73d
+[1/1] dmaengine: stm32: Don't use %pK through printk
+      commit: 6e6d3c6f0ef235a95c25385b2dad98e8ad6223eb
 
 Best regards,
 -- 
