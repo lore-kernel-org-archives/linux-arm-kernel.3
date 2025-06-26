@@ -4,71 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B736C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 07:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0673C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 07:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgchbaVFzPJqQXOWToo7Y9qgw7vfs1kKJJmGUjLFVbU=; b=iyH9j94ajDOt+TOIdKI2IS1BtL
-	WB98DUo0ab/Q5V3Ga/rOQskbi/RL4qjEyuKgnZCwxZBENmVbJkogOK8BajsXl5xnHDwPGYHGU8xdD
-	Vl86oGs5e5pdr9M5HZZqBOkiB3PJauVUOca1wfUk7iUV8A+1JiYy2Aj72VnN8chKfNiO73w1bXjPS
-	vST6lu3pePPfdFhOSkcbPp+uWLb6JCBf8jF3bsmpBBd8BbChym59py94oG8j+awSQzmAsajUCrOn4
-	DBg/q7Vx/oonaL11c2bphfkWVE3I0LR+xdgOEQvNqn5TpGGXsiXyBtoPJZUcq+g4HXsbcVc7KdLCk
-	mqjb8l0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oH+AILj89rJ48qtPI2Yp3FzrirSbsImCWq9G1gT+xjM=; b=DyS4P6VJNzi7V61GQbGiLelzNY
+	1xnQY+GXh6Wwz7T0NoCqJ3Dhs5tlR8qbJtqDhN0HvqI3oTQRvwiXIDoahvUanWPlPzFntUW2xxEx3
+	94Hy29tZyTfrL+LTkSjHU6PDiTwNADplnbuXeOzlAIzHn6Y/em5W5607EcEcW5kLPZxlF5/NB1JZs
+	VNgIKy56uL9ppM3TYkdsPMDqfSTImbgtmYYOs3WWwVSZL605hRc0fcLgZN6ROxqINFRJcnwPIjGXL
+	4nMjVTLRKVKnBBkra+F8o9N9D7HyHTxBNdEawZwSkwYGo9J2WXqyNFWBtRCobi5tpphcyyKdRCln3
+	4dPfzYKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhFi-0000000Apf7-34fw;
-	Thu, 26 Jun 2025 07:42:34 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uUhHz-0000000AqJB-1XUv;
+	Thu, 26 Jun 2025 07:44:55 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUh6n-0000000AoRN-31rN
+	id 1uUhDW-0000000ApKD-2TQV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 07:33:22 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 728A025F96;
-	Thu, 26 Jun 2025 09:33:20 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id Ttrd3yj_m4ac; Thu, 26 Jun 2025 09:33:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750923199; bh=azo+dF0/vQXfWfiOeYfh4bE+wwsnpSA8HM+IBY43R8w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=BwryadrcGi3V9qOdtqjbsTAsNbxlGTkwycy6VP7YbAqFisQeViuW2pFckeIdxOWZS
-	 EJVu68Kuv7kcyr+1CLW/1NVwD6HcdfPYDzg5KvXc6ureq/9L5ErRwqPAA50wq2qPiF
-	 wAXTNPWuRANvl0uPJNVtqLJkiu43BVg9FySOoOFa5jImb0VP6NuEbe+5AFf7+FQzRl
-	 pBMCoC4q8Abw/B0CxDUlzkmgDFMiBBEKpLiwuhFAu+AXp3tmJOWunfs5zwlfgJ4RAJ
-	 lrW8UOejR/maiIYR9VZWzrA94h8lFia6EhIygqA0lFxSWuiF9lFAyZIPT/691wo2iC
-	 4a1aLdsfc0n6Q==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Thu, 26 Jun 2025 13:02:58 +0530
-Subject: [PATCH 3/3] arm64: dts: exynos7870-j6lte: reduce memory ranges to
- base amount
+	Thu, 26 Jun 2025 07:40:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O9IGPESHyOl0ClCfNXYxbx8ep82AqV7PUqcv4QhBBcnqWEfPdj0waIKd27AuCJXt0wcpGS/geeRhwG7k5tE7tJ7MA+LZ4mLGSVSfh76PnUojhON2CaASwvs8TxfufaxdspxfuNu80F/8IW9tn+f2WOsvcDHzfG4gtW886A9YFhHZVCqCxlIEGrME5XY+A4B8/QVM1yvcxXshZLAwvIlA2NKtkEFBpMsaPe9heNNxVzTfCLAhAxhZTeJUtVrWUJVjKlj0USFhO9gX5yUeFudz/o36QXOhI5FX2LcWt6DnWgHgtdIfI9zESEK3jQ+3oyWDXEsLwph4bAl9MkrawNLsEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oH+AILj89rJ48qtPI2Yp3FzrirSbsImCWq9G1gT+xjM=;
+ b=uZD4GAuzyr7VAOn+8mN0+yJpCPYGetF2ND8rnAyF21aXKiyMInDMqz03UmFb8mjQ70Wf6+GRFztfUrirw5x9pSC8W88x1TuW/g7geDCB/R2yCg6DSmOW1YlYh+RbDvKSTe5RBTMdudU+KyFBgi3dc+g4BWxvGXkMFEaHijQkwceqyfv0Wu5a3vPu8rKCzd2Yc05SCnlmGictAtgKzyq8+ws28iunb9OcgA+ZVxTjnpnLxDzOwXUujsaLhMm4vd92jTEb677NazIygvl+hTIevnKWeSogq3AXCkNBfVf+1ynR5lKquNPzSaZ3BV/AFbqyNI6WJG+BBLGfvw/d+f4qtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oH+AILj89rJ48qtPI2Yp3FzrirSbsImCWq9G1gT+xjM=;
+ b=V4mKktgrYjlXwQBBoHrKbgjcQBgNRWoDiYpOnG6HRAQp2Kdl229wifImcbX9xXfPyVp68DhbeCoQDiknXHtUsMPSsWM5n7BYayJDZDdqkAD2fuNPh52yiPbzQi56pyRkzgcjaPt0Doy41czrilea82134x38F26uiP9FacUoseims7noLjFLic2bkr4b9E8TowBqueYFpP1YxtOSKWXL6KiwS5AaUktRDk0LSTAIh6QsycJDLkLaVDUD2py2TSByaVyv5AkFTRRGO6zTfX/4QJmWNpGH4odiFSyfolleEg0wZG2YsY/d1KIXYT6XVQ2O9kkhpXb3qJGeEPDvuFoqFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by PAXPR04MB8425.eurprd04.prod.outlook.com (2603:10a6:102:1c7::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Thu, 26 Jun
+ 2025 07:40:13 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8857.026; Thu, 26 Jun 2025
+ 07:40:13 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/3] PCI: imx6: Add external reference clock mode support
+Date: Thu, 26 Jun 2025 15:38:01 +0800
+Message-Id: <20250626073804.3113757-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0035.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:81::6) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-exynos7870-dts-fixes-v1-3-349987874d9a@disroot.org>
-References: <20250626-exynos7870-dts-fixes-v1-0-349987874d9a@disroot.org>
-In-Reply-To: <20250626-exynos7870-dts-fixes-v1-0-349987874d9a@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>, stable@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750923181; l=1280;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=azo+dF0/vQXfWfiOeYfh4bE+wwsnpSA8HM+IBY43R8w=;
- b=6bBR/hVe24hlOvDEHg/XhfcMj1PPn1XlpC7I+O57R0KzlX7oAUaImRFbeywRHbBaGWTyQDu0/
- ca8fmbAZjOAAUkr648+JgB2wQrmbtfncfIOmIITPouAKGnb3Yl2I1GR
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PAXPR04MB8425:EE_
+X-MS-Office365-Filtering-Correlation-Id: d57e18fe-4b97-4865-db73-08ddb484afdb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?A3if0QX62iY2pwd0+h3kdpQNGb55qeiaiK+orUH8O2Ku2WxOPOAN+S9a478L?=
+ =?us-ascii?Q?CY1NJe2QwZ859WSQLlo8mfDVAehploCFWIspjd1OHwF4X6YNAzzr6oVkR+gr?=
+ =?us-ascii?Q?XKqfsQw1up0Up+ILFbWqKfrJUqcEHB4SVSD+Vpf4DdVjdQfdcGKMbPLZ25ze?=
+ =?us-ascii?Q?vzyW/OKN7zohSRdVeW3jHbhhyZYZ5FbK5Kv1M47+dOmL5Kkln+Sn7hKjW8a2?=
+ =?us-ascii?Q?oiVYDiSr8ty2bIlWxi/ODr4J76gmiUvZ9DUi8BK5VTX+/PMalIJTyZK7kgaZ?=
+ =?us-ascii?Q?F3a/cTtHoVPVyLHDm8VijoPz4Ewt2kFGOzN9SzN72+t2AUSmNca9lOhXwou3?=
+ =?us-ascii?Q?jpx3yS2ap8gb43GZgPSVCmVXVdHwArsEua1Ggjbp55USV2wzjAzTdpM8KBPc?=
+ =?us-ascii?Q?vUv5AHGMSD+RU9Cpb1l1IiNkVxZTb0EBkg+uwQxO3DQvzEYZXZihuSt/PxBv?=
+ =?us-ascii?Q?Wr2DnWE6CNsQBYqTZ18Q4zHk7IyzM3C8jc+Bk064NekZAVucAANYcYcHoIe8?=
+ =?us-ascii?Q?V20bREepcGdHd2+tKRQVPL7jlj6/uSvB2tqIRVn6EuojAgn41grAmuI4Y55L?=
+ =?us-ascii?Q?lY/57RyVT8VmHWFo8889HPGhIKI2uJiZVt4Hjk9UqazvhGFVpW5w0WbZrrIQ?=
+ =?us-ascii?Q?n+d6GemnJbebhhQgBE48K+neAGCacXU3uCYSIP6gI6OK8KXxas43iAc3BYtE?=
+ =?us-ascii?Q?ejG4klEJOoak50cLNr9n/ED+z0dp+CCi8TetlrYEs09pJAcCeVRiyzZqJ3Cq?=
+ =?us-ascii?Q?vyvbrWbEKQn0D+NzKV3o6CNb5BaXf4U3vwF4gwGkpizhU67ff1xPc6Y9+9PB?=
+ =?us-ascii?Q?PSND9YizMez3YK5kcdlwo93e2rymtop/XFFCbmZWRgJFN3xY6x7OCNQ18JFt?=
+ =?us-ascii?Q?KHIxrw4O4bJPKrk1zo7MzIKh5lZnBetbJw24Ys0VW4LPvbAktEjANGP0C8IP?=
+ =?us-ascii?Q?ZYJ1h2saf6CQG/Mb7v40uggZ6wRB8Jr7EhOLEYssk67Grr+T8Z31N5SHssDv?=
+ =?us-ascii?Q?EHqzDFwd4LBanolgmg+JynVBHyrIxknbfo0Bv1TMoTmdntDbzG3u+WkOTd+v?=
+ =?us-ascii?Q?fpMSza6kMO+8piDMP/PaTSHH5+ptzHE3HEtBoicLNMJf4rkRFp9kiurROwB/?=
+ =?us-ascii?Q?VD+BC3360JJaMPOMaLFVUPl6ZXJDtisUW1yARNKugrP4RfYHTi6nND8i9+yw?=
+ =?us-ascii?Q?I/s7pjq/7PHD2SgSRRH2Poi+f2J1AysOOKNRzU4UQa673lOJRFnG+Zdw3zdi?=
+ =?us-ascii?Q?MKE3owTtcQYQ0YyWxZO/2+U/eljuP0ygAAbKyr0D1S36etVq3OKY43flbojW?=
+ =?us-ascii?Q?bfbrNVBRcbLuCrc9LvjivpDEzWmdwD3PdjWlpwXDlRBIWSNuiunAva+mjK+4?=
+ =?us-ascii?Q?qpg1KvJSpdcD0h5QhWe29a9RUbCcgMJ5Fi8okSa4+rsn5xW/RdMTICKjvFXj?=
+ =?us-ascii?Q?feTctHt6RKQ+Sa6Z3XyX1rQ1dEl0RVeWofTQnsrOSDASf7UR9s9JMl8OW9b0?=
+ =?us-ascii?Q?q7h+djOkg6mtfyY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WBmxvZdjaVn53btH6bAoJWUhn0FDfFm832wNJkzBju4Vz0grAtjkJpByIlXU?=
+ =?us-ascii?Q?UWxrLg7jyMlV8mRzVbs0HhU7rMD1OXop3FHf87sZypD5pGj9x2bKvtdMbmTO?=
+ =?us-ascii?Q?ynqSK1IiQfeirQb65thQ+iNBdely5TerkNwSzgovOSvP7AcMA04Syet8Tw+l?=
+ =?us-ascii?Q?EZtaumn6kc3wdrUaJH5AglIXa7JmyJwKYdT/aibsAZMN96YNU3S2xTwa+fAI?=
+ =?us-ascii?Q?Y4lgP17yHefUtcbGgXe7QaZX6vzAx2oLnHH6PmOplCe3LH4UdXHsrFpDAc/n?=
+ =?us-ascii?Q?gxLXwxYPnruVLFw5Xkc02YPXkJ/4I83raFvp9eo0aCieDXZ8HFHvEY8yOZYf?=
+ =?us-ascii?Q?O+Rr7jf7tgeDj0Zpg9KtvgZlxLheiKecYlgWwEWa8Gm3euCPJXmkwr3bzpbv?=
+ =?us-ascii?Q?s8vxtLw821/7CztKIL5vHeOeFhcxnyZy7tQKKdwzB0yk2lEM0z2MFz/AjgUt?=
+ =?us-ascii?Q?96/G/wj757rV0Kx2k+l2afX4G6RBryxYcjjYmSK0J+B/SNtxZ4CzgBz3UrhF?=
+ =?us-ascii?Q?LiW/TRg5yS080TACKOBSHCI30kGJj7zOyrOYffS7ZFSQ7RU35TCujaAcFkTv?=
+ =?us-ascii?Q?S7qXJlPOiEft+Uz5Ux2+zw249Pas/mtOyDyuUZ/QBQ20AofPfABpRD6S84SI?=
+ =?us-ascii?Q?GCiiujzfqjpW/O/qb1DWRS5yFomKITnx8s4ZSaZHKlPwgFXvchAxA05oz/yW?=
+ =?us-ascii?Q?gUsO3qj6Z3OVprWHQRq6BaRZ09nYe8qL2LRNTTqtI2zyIHvHveHXHhMzTHya?=
+ =?us-ascii?Q?syVkiI5Cme5yoJ0cQWOmjdP6ujkw4ZUkn5HGX15VmiBKaPfeQHmzTP/Qagkl?=
+ =?us-ascii?Q?ZRhc2pFtQ1PDnuUT+swPquDDAQ586nIP0DRMrB83o8g+nBB3Cbpgy7L/2A3G?=
+ =?us-ascii?Q?LCEjVEyXsJkMR8vQVbMQP2VUM4SVRTVsbhLPGMooQFNqM8GXs63lNgC94WnC?=
+ =?us-ascii?Q?BT3C5/aEChH8y7mzfbgSlFf+3GRP1LjtLr/veWH2YvYX7T2Om+N5TxpAqVuV?=
+ =?us-ascii?Q?BYb82dAUSgCA3xgPp0v/ZpryGgfgFzHgICSwzWbeUU1grplv4Z6yFhcFS3iR?=
+ =?us-ascii?Q?0OV5Lbo0Z0iYlCVeAJ3a5JJSj3MNT68fjCjSm/y75sopsVlyylgzr8wf9hYg?=
+ =?us-ascii?Q?3hmaoGH9azs7Hjn1TZY3dSqIMMEGnFrHO70Q3Zln/J7k3MuO5a1ZW8Sz9/sc?=
+ =?us-ascii?Q?TY17CoX+PxwwSIm9aJHodu69YI7w7VRgnKcdeBf1KcWYrwhJbg3qCvlKmapy?=
+ =?us-ascii?Q?+QMAT7Eb2IYIWk800GH2bnED0GAJKWS2ye/f0mZXb7Is5itdr5Quw5qa9XIe?=
+ =?us-ascii?Q?TLeG2eY1ew2o6YJoYjLRex71gFcPJvA3m6qIiCE4octbWqxL1z4g5Z9blyne?=
+ =?us-ascii?Q?blTVvufZC5GqthjjdvfFKUEgLaoxPDHUTw6hS5MVZrRiXC0L5FLnoGFAJ5iW?=
+ =?us-ascii?Q?BIsuD0cw6EdAtJX/fbQWM4Tdfyzi4Bv3Y10X1+Q1wzhVdxUZDeA4cEaRa85E?=
+ =?us-ascii?Q?QWH3py9FL/dlynFFk4zjVlv3dkR5YDVlCIsTgb/7YmGERbc6JlMeERXrpLpq?=
+ =?us-ascii?Q?x0WMofBEW5U2WRxDV2nT1c952EXy/0p/srYF5NB1?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d57e18fe-4b97-4865-db73-08ddb484afdb
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 07:40:13.8381
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xNYmZtjksi9QJVfgnhyMJHB3L6FOa8RFAsmWgmHeLc3n9Sv/Adj2+NmmSzRXewKAw1voYba6W6OR1xX1Qs+Mjg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8425
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_003321_895350_B0CCA5E0 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250626_004018_648181_2A043E10 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +171,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device is available in multiple variants with differing RAM
-capacities. The memory range defined in the 0x80000000 bank exceeds the
-address range of the memory controller, which eventually leads to ARM
-SError crashes. Reduce the bank size to a value which is available to
-all devices.
+On i.MX, the PCIe reference clock might come from either internal system
+PLL or external clock source. Add the external reference clock source
+for reference clock.
 
-The bootloader must be responsible for identifying the RAM capacity and
-editing the memory node accordingly.
+Main change in v4:
+- Add one more reference clock "extref" to be onhalf the reference clock
+  that comes from external crystal oscillator.
 
-Fixes: d6f3a7f91fdb ("arm64: dts: exynos: add initial devicetree support for exynos7870")
-Cc: stable@vger.kernel.org # v6.16
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Main change in v3:
+- Update the logic check external reference clock mode is enabled or
+  not in the driver codes.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-index 61eec1aff32ef397c69ee3f0cba8050755f74fc6..b8ce433b93b1b488da31bbe4846f8092243611ad 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-@@ -89,7 +89,7 @@ key-volup {
- 	memory@40000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x40000000 0x3d800000>,
--		      <0x0 0x80000000 0x7d800000>;
-+		      <0x0 0x80000000 0x40000000>;
- 	};
- 
- 	pwrseq_mmc1: pwrseq-mmc1 {
+Main change in v2:
+- Fix yamllint warning.
+- Refine the driver codes.
 
--- 
-2.49.0
+[PATCH v4 1/3] dt-bindings: PCI: dwc: Add one more reference clock
+[PATCH v4 2/3] dt-binding: pci-imx6: Add external reference clock
+[PATCH v4 3/3] PCI: imx6: Add external reference clock mode support
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml      |  7 ++++++-
+Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml |  6 ++++++
+drivers/pci/controller/dwc/pci-imx6.c                          | 20 +++++++++++++-------
+3 files changed, 25 insertions(+), 8 deletions(-)
 
 
