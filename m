@@ -4,68 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF07C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95F5C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JtsXPN/EbRnRkfVDVnd5VwLOIbO3iMF7jQ9dJCcE/5o=; b=Jf+EU3FCMymibe2cLcNY9j7nyb
-	WIZzra2uvlfpY6YbUgU5JlyNzUKT7eWkR5N1x7o16EvUU3d4I7WxQaxqTAhg6t6vTolWRJpui3KTD
-	9Vnb9KhUQBKg7YtXQjDAff9iMWD1b18i1WHzPFBUeLABKfQvuW5RAlnqU4zzZ/Y1FMxkHPDyw3DJy
-	QkJEubxfUJv7xpkyPpgVj/3xIEPa0Cb0DBFmSLsHYkCyAqI+9Y91DXCZ62JKgOAGJBXKX1gQC9Uei
-	QK8JCmXGwqIwngaQe4m+nh0sVb1Qu2kZ4jQDXcOOf1Vh2yA1YxpanzOueWeFUtgVgHdKwv3jFaKkY
-	/0vSFfUQ==;
+	bh=uBgfTZipCQlDQwuSPxUPi4TPHf23nA4QBxGdC19BXAk=; b=vE70Zj3GCPHv+caBx44jLEm5oL
+	wJgtB+C/NzhpG2g3DAsjdMjNRTKMJ6wkeFYGQzmQd+viRhSB7ferGfIkStQBiM4riyiHlZFg41LmD
+	WP/1Y7gkoz0tcJNhiXi7wzqa+nl8zkgCW/JCax6ZzPVranBIdakypOWhiAnjyJBwa0egZ/mOHsMNZ
+	RtMzBd/HS0KSsib3TSGN0zMUY0H2Og3+D9bc1YOyHD//UblbhslSsmpwKw+mcG/y1bmnIEr1Z1pDp
+	vI5p3pttPxW3go6vPJTOzLBqYOEyGoYu65SgyQ4Zb66Vnb2gs/GEVyBsWdtdE/Wr1bdHuLJ+3AMTX
+	CHEdCO9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUm9Z-0000000Bawr-0caU;
-	Thu, 26 Jun 2025 12:56:33 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uUmDn-0000000Bbge-0Mi5;
+	Thu, 26 Jun 2025 13:00:55 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUm6b-0000000BakV-0fwt;
-	Thu, 26 Jun 2025 12:53:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JtsXPN/EbRnRkfVDVnd5VwLOIbO3iMF7jQ9dJCcE/5o=; b=H+NmZjA1tEsnemrw7hUwwDUwOi
-	tiQFQW6fUGUtMPGKy55K10q7oKvJRHrYmja6F+Bc71MYDwFDS1tofC+CcDeQrPjYplfVTrEZJcf/c
-	8rPzdI/Ig+bFUT0HfULp3Ym6RRejJuVo3HGcdmuQ/hd/hwKV6EK6Cf82g7vtPblvymIiETFOru9wl
-	2FjKEe/IoTIVkRLgTAeLxKqZQUcrTPlPkGtTlkdtvR21vCkLJkCXy2yf2NAYt0kFaNfUkhtiC9z3C
-	kswjA/yIXwkUz3fUDB4qlHDMAkgVhWW6+zWJctw271vJyzq72V9HafqVdDsx1UqZdomeihH0Gxhem
-	N0Fcla7w==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUm6X-0000000BfW9-0YYx;
-	Thu, 26 Jun 2025 12:53:25 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id CFF5030BDA9; Thu, 26 Jun 2025 14:53:23 +0200 (CEST)
-Date: Thu, 26 Jun 2025 14:53:23 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kuyo Chang <kuyo.chang@mediatek.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
-Message-ID: <20250626125323.GG1613376@noisy.programming.kicks-ass.net>
-References: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
- <20250605100009.GO39944@noisy.programming.kicks-ass.net>
- <8e1018116ad7c5c325eced2cb17b65c73ca2ceca.camel@mediatek.com>
- <20250606082834.GM30486@noisy.programming.kicks-ass.net>
- <c32fcf451dad1cac40ad827e53ac6c027403b07e.camel@mediatek.com>
+	id 1uUmBU-0000000BbKq-1D59
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 12:58:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gCe/9WY/DsVUweuttvskY0sDKnDqPZjj+Ankn990manpv1BsTrx6m8Jdk33xYx4BU4qg1eV91Xx0EBW6fvwH63wIS02nNS6OFAToI2PPYXPa+z4iin73N+TzPVF9/C6ZMg3KtU0BErDFHsB+ZnQThydR68DMS0ctrMeMeZFkzAZqOSCp8LxAO/pTMJw5DyjW5RcuRJksQJ9FLiKHcpr3DyzUWszyokXKI0jFLN6pVvs6Ga82Ya75r5aySpigBHkJRZG1sNs0BX9IWbetzLXXN3B9EHxwhqxVpUgINFXunOa+TKWeR4krzU9D9273tLI+OUZ23AZGbg2TUSf/zkTQyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uBgfTZipCQlDQwuSPxUPi4TPHf23nA4QBxGdC19BXAk=;
+ b=TO/67VK015R1b5ou/af5cQZpgHDuQFmIHxpTMUPpPOE2Mim7rPrMsfBtIifj5r4Rju0I0GJTpBOZw62OhhH+71qSYkWuIWaW/0+3HrFFLTw4820XRyws4lTIMbnKA8+UruDjugGGQvlxjbL/K8XdUEl08fRQJHwmpDkIZN06S+L6S3anhYL94EYy5JN8nlCqC/EVz0Uhfijil1+uAxDf3P1o2B3e6VOS6LwIaZGgoevkXkwGhZ2Cu0dKjTg+ZlhxWxy1+8AiTPivF7BtEtn06UmV3xAJ2uBv6y86T9mNfR8e3g+grOIXrWLI0/gLxQZ6vqSsv0GY76xynxqzBKBTNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uBgfTZipCQlDQwuSPxUPi4TPHf23nA4QBxGdC19BXAk=;
+ b=j7K4A/jMV+M1j29GQ1pXjjayLaHsPHRzBceL0w/uF75qHsfxMrZ0Vxzo/IqzZO6cBlYKFq0JxN+5hdg6KmsBDDasZQY3OKs5pBL86jEdYT+tZ9LIVkxXc/BNV1jlAxWIwa8tgZnpk1DGTG2RBEmqxSmo5A8MRJeIHEzr7Ow57copQK2CSYKBqKM06kbZlsP61ZtZb1yZWIpJ/2EqoKuIVQx8m+je87e32UjwK7KfWOnBTBY/hy5h930QJ+C5B2WARWwcJ3tid/6eTZjO7zOxL/MviCTiEHs4IFXueI8bmLQc2ydkmJGVUa3oKo5/GxsQr0LdjtmxU3fz6NEOfBPZxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by AS8PR03MB9935.eurprd03.prod.outlook.com (2603:10a6:20b:628::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.27; Thu, 26 Jun
+ 2025 12:58:23 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%4]) with mapi id 15.20.8835.027; Thu, 26 Jun 2025
+ 12:58:22 +0000
+Message-ID: <db13cc70-0bf4-4c4e-8002-b1aeffd3dfbb@uclouvain.be>
+Date: Thu, 26 Jun 2025 14:59:28 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/5] arm64: dts: exynos: gs101-oriole: enable Maxim
+ max77759 fuel gauge
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
+ <20250523-b4-gs101_max77759_fg-v4-5-b49904e35a34@uclouvain.be>
+ <CADrjBPr4QNQPBddcFBe8V4u7G9YW0vs=8jyxEuQ1gVDt1zcfiA@mail.gmail.com>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <CADrjBPr4QNQPBddcFBe8V4u7G9YW0vs=8jyxEuQ1gVDt1zcfiA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4PR09CA0022.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5d4::14) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c32fcf451dad1cac40ad827e53ac6c027403b07e.camel@mediatek.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|AS8PR03MB9935:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebbcfe8c-7147-454a-aedb-08ddb4b12196
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Um1xeU52eUFxZzkxTVhCbWMvekZJV091R01CMjVLWlNacDJoWGduNnN4SGEw?=
+ =?utf-8?B?ODdnRXlkRXN5TXJVeEl4TG1mTW1tc3daT2RpVkk0QndDd1NMMDVVVW9QYjN0?=
+ =?utf-8?B?S0QzMGJ4cXRKNTI5UWNsSUlrRThmK3F1VDVDTHBLMWNOa2FyR0pYQTJQY2tU?=
+ =?utf-8?B?dkZERmxzbWNKU015Wmw0amF1Z2NUTmVjWGZ0dkpmb3Q0Vk5RKy9rL0luZXR5?=
+ =?utf-8?B?RXRFSlcwcWdHOE5UQW1JOWhxV2tkZC8yb2Nkcy9iRlIzR21FTmY1dGw4bUJt?=
+ =?utf-8?B?SFpzMEhXaTVVQ3U5TkZKMHFLWFZvL3dnMDhrZEk4Zk1uR2JkVXpmbjcyTCts?=
+ =?utf-8?B?dnNrTzZVaExoNVNMWUxyQ3BzT0ZjZFlwK05LQVQzK0VocExHenl4WlZEMno1?=
+ =?utf-8?B?TGgwQmUraGNJSG1BK2J4bVU5K1RqK0dUZjc2UTVYRTMyTDdsbndDV0ptRzBY?=
+ =?utf-8?B?SVFzNGR3aHB0elB1TU94K3FpRnRDd0lGT0kwdnM2VnJEekJEQmtkZS9EcHZ4?=
+ =?utf-8?B?Nk4vTzR3THBiNFhwbmE4ekd1NW5qRWFzbk1wdGdwZG5ZbHVHNTBqK3RIVGtS?=
+ =?utf-8?B?cWt6alhicEdvM2JCcjR2ZWN4SE5vazFiN1NXTUpLMFc3Y1k5SlVJemlsbmNx?=
+ =?utf-8?B?TUJXSUJOMm5HelVuZjdaT1RNSHErcTVhTThWTWVRUk52NDBjakJ6MlZtdGND?=
+ =?utf-8?B?Y3lBRW93TGsweGpNNU5mZnFEazZhZUM2VXQrWHgxbGJRMlZvc29uU0hRSGl5?=
+ =?utf-8?B?WTlGVFZmMkluKzc1RWs1eXU4QSt6WjhUQnIwRGpqczMwRjFYOWhSRUFQcE53?=
+ =?utf-8?B?ZlRRVU5hdUhLeS9IcHVoT3F1dW9ualk5aVRVYWZBZG0wWUw3Ulg4V1RxKzVj?=
+ =?utf-8?B?dXd4dERNeFp6bFhTaG0xNnBSZHV0LzBLc2x4TTZvTTFSbDlSTG94TWV6em1v?=
+ =?utf-8?B?UjQwVE1mSTUxQlF2aktQV2hZcSt1U2lBS2F3WmZNcEpFQmcvM1VWeTY2cG4x?=
+ =?utf-8?B?WkZ5bm4wcVBqSVIwdmlQaDFrWnhyK3c2ZlJjS3dJaDB6anM4azZ0Q3BhSkhI?=
+ =?utf-8?B?L2UyaFY3dW1QTkVEZ0FveEhWRnZHZ3VzSVNHWVBCZ3lDbmtiMHFyZHczVUo4?=
+ =?utf-8?B?KzJIUlp4R1p1c2RHYnNiVDZkK3FTcmNJM085OVhDTTJqQm9CdWdIRTlzL0hs?=
+ =?utf-8?B?d1lyeVRJNFlqbUFaOFVnYmNwQTZKckZFOVp6WGNzN1lJNUlCNmkzSlRMUG1O?=
+ =?utf-8?B?WU1DRXRKYW40RHN5Q0JneVlpSmNUNE1qMWh3eEU5U050ZGdSb0N3bFFaMzNl?=
+ =?utf-8?B?TGpEeVluU0FieFcwRmYrcFk4cy9JemZhMisrMFZQaFlDMS9BZkcwQ2w1M05Y?=
+ =?utf-8?B?UmgxYjVkQjdGZzlYcXQxanU3SXo0QjZVTkJpbzBOOWNubHZmcUFYVVZUcW1V?=
+ =?utf-8?B?MStxNlFwZVd1QnYxS1JtL3drSjkzQnR6blNNc3VleENGMWtWWDNObXR4a1A0?=
+ =?utf-8?B?QmpBMS9WM2d0VnBKS2ErSDRQMHcyNWhvbm05K3R4K2hxS09FMDJZVzBNTm4x?=
+ =?utf-8?B?QU1CaHpuLzBXa0N5RTRRV1p5LzN1TU1zMHFha2FDNWRaYkg4QWhMbE1haWxW?=
+ =?utf-8?B?eEdnNzhsTHQwTzJNc2ppQ280ZUNYM05tNkpOQ3lMUjVqMS90aU9lM3BlMU9C?=
+ =?utf-8?B?cnhEdTllWTAzamt0VDBLajVYNXczN2NidXFlTlU2TDhKYk9JU014ZDZHVnhX?=
+ =?utf-8?B?WWp0TlZ6cmEzU1FFWlczMlNDSTBVekpaY2tSZjBWNGNLV3VUMDBBUEgzN1da?=
+ =?utf-8?B?L2tXd1N1TmQ5WEZMd2JVc2k1NE5BZ2UxWXgrRzBrSWdxc0JiQVlBMDRvMGRP?=
+ =?utf-8?B?T2RiOG53Q2hPSW0yYmRQUnpzZFVHWCtKUEZoTjFHayt2a0RHVGZYencxb1Jj?=
+ =?utf-8?Q?isWlwUUCVA0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(10070799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THEyeWY1OERzdVZVMjNobWNQQ2kxUG9hYWVMekJGekFBUC9nb09ZNVpQWG05?=
+ =?utf-8?B?YmErSkdXdVVNTHFxVjRKc0FxQ0Q2UVdjQ08zeW5tdU0rbk1hdHEvTUVyeThE?=
+ =?utf-8?B?NXV6bXZBUjRQZGtwWmRxbEJaVW5xWVFoMXR5VGdmcFN6b2kvaHR5TmVPa0V3?=
+ =?utf-8?B?UXZkN0ZUOUlTRWk3RGFhV0VaZFRVQjdqb2lIMklmTGRCODlzdGhYYTFKOW1m?=
+ =?utf-8?B?ZythMDNDbTlFUUJ1a3hoUERvZ1RFVldlcGJ6RlZ4eDN4V01GbkxEMHg2MjRk?=
+ =?utf-8?B?VjdzYjJ0Tmd1ZTczT0dsOGpTRVJqR2hyS29yVGJaTmhITHg4MXZqZVJTM3NW?=
+ =?utf-8?B?K3Bhd3R3cFhaU0R3TG9aVFkvRldsaWhxTWNsSTdYSFZteW1kaDRudWNYZ2x4?=
+ =?utf-8?B?RUFEdUxza1ptSjIyUS91WGtuTVg2dDRlWVUrNUVhSlQ3SmpGVDcwaUpxSmJV?=
+ =?utf-8?B?d3JrNDFMYmtOeHRYdzBmK1V6Vm51ZFlVckl0QlJtanZvRVB1OVBaZkc3Rmly?=
+ =?utf-8?B?R28za1Zrc2lWM0pPMkFoRWVBK1ZxaUlYTmVlYmUxUm5BWVExNWFQcmNmK0dr?=
+ =?utf-8?B?bmxqWnNuUnpzeEttS0U2Ujhiczloa0VnVkx0bVlHVGY5SHUwTWpaWVB0a3JG?=
+ =?utf-8?B?WXdocFVVWUNONUw1blVGQ2lJZ1N5aUN3NWtCSDE0QXRTT3NaUERKWmdZaXRa?=
+ =?utf-8?B?S2hEdU00dUNMT0t6ZjZFUEY1cUdRcFFvR1hZaTBuYmRHVlp0MzNNbE0zSU9R?=
+ =?utf-8?B?di9acEE5ZGZ1VFFBdGE5RG1xRkRJNGFiZlBBSHB5bmdOdXJ1aVJCU3d6bU5x?=
+ =?utf-8?B?dldWR004SW5QRTFNVks3N3ZsT24vL1k4Ykczd0JOSU1lNXhRNStaUG5wZGlO?=
+ =?utf-8?B?bHdEZEE3dlRwQlN4Y3czazkrMW84VnBvRjQrSS94U2hUNFpwVU95dzhOeVR4?=
+ =?utf-8?B?aDhFM20yVU51NDN6Sm41akpWYStOQVJKS3ZxUXQ2dURZMi9DNGJyZlNCVDEv?=
+ =?utf-8?B?aE9GRGl4SWZQOHV4a0kvamRvazRURGlRMWhEbkRRLzRqTVJBU3RVUzZqSmZq?=
+ =?utf-8?B?ZHpuV1BJZmd1TFI0bm5WU1dxY0dleENEWkcxL1M3WjZPWGVRcmIyeU10azBJ?=
+ =?utf-8?B?ekFqR2JRdDllbjRJMGkxRDF3NjYwN2dHb3Evb09LT3p4ODlHbzc0eWVTUEZn?=
+ =?utf-8?B?WWQxTTBkSmhnM3dpZFdNcjVaYlJxUDBnVkxDejkxRTlweHJ0NEZBS0N2OHNq?=
+ =?utf-8?B?eEZVRGorbVF3Y29xTzV6UG5vRTl1NHZQdWFvN1IwTDlnQTY3cGdhNE8vUndl?=
+ =?utf-8?B?WWVUSG1acEl3bHkwbi9LVlNNb0E4TUlLVWNYVS9BQS9NMGVJSXlxR2hCRkdP?=
+ =?utf-8?B?Vk42ZlVCVmVQbkhPZkFsZkwwS0R4bjRHd0YrU3IxMkdBQ2h0U3BXSzg5b3dE?=
+ =?utf-8?B?a0J6SnB0NGVrOXFqa3J3d3Q2V2VBdnNVS2hJVGNEcG5nd3krbWhpZTZhNE5B?=
+ =?utf-8?B?WjhwUWpSclJqUE0wbFVKb0tTaEdjSFJnS0xONWRYRkpta1VjZUJ1V0xnamFq?=
+ =?utf-8?B?Wjh6S3BFWUZ5MmJoMHZQdHFCWDZENkdFNUxRMFVGcHYwNlc3c0lvcGVEK0hy?=
+ =?utf-8?B?Um9lejZDYnNiT012VmdDbDhuaEtvbDZTSHBPb1hTRnNqRFpvTXZ0QXFCejEx?=
+ =?utf-8?B?Q25iUVVkSkZ3SjM1YkFlNkJkSk9IMHcxbkRyczgwWjhvZ3BQZkJsc2E1VkdO?=
+ =?utf-8?B?RXBNL09rVllyNklSS01Ec3ZJd1VHOCtCajRVcU1TalIzdHgwU21CZitEL05y?=
+ =?utf-8?B?NW5LMHYwL0dnL3l3L0pwY08wMUo4MVR4K3ZyT1piS3JJR1FXbEJHWkR5RE95?=
+ =?utf-8?B?Zjc1bmx4ajFXaVFEQjR1bnB1ZnV0NTNSRDBJYld1WHA3N2lrTkxqT2lmcVFi?=
+ =?utf-8?B?NUlyOGZZdTlXS1ZIYlVkRjY1K1RlcHg0R3ZINXB4ZDNHQVluMTZLOTB4Zzhi?=
+ =?utf-8?B?MGNKRGVaeU4yZk1YNTNtYkZrQWxnTDlTbVV3Q1owL1Mrb1A5SDlzdWdIMFR3?=
+ =?utf-8?B?S0x2eFVZa0kxNVNGTkJnMDdEYTRzV2NxcTB0cnM5cVR3U0dNR3czaVB5T3Vz?=
+ =?utf-8?B?OEM0N1BqNGxpZEsrU0I4TC9JYzFJQnF3eDlhc3luc0p1Rms4THdIUEtKNjBY?=
+ =?utf-8?B?QWtmeHppMEJJSUJTV2NnNE1kYW5hNkJIWktGSHpxSWNyUXNQWTdzazJHNzly?=
+ =?utf-8?B?NkhjMkdobVdKNGZmNFFwVlRYWFFnPT0=?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebbcfe8c-7147-454a-aedb-08ddb4b12196
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 12:58:22.6123
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: auQZAjfuU51VzgxOCJNG99MK21ItyI0l8KjSKfWMyd0V43PCh8gXjaMvA0ZLTSJqoWuOimekvsNTg6bjG/nAFw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR03MB9935
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250626_055832_341410_3461E6AA 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,198 +187,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 03:47:47PM +0800, Kuyo Chang wrote:
-> On Fri, 2025-06-06 at 10:28 +0200, Peter Zijlstra wrote:
-> > 
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> > 
-> > 
-> > On Fri, Jun 06, 2025 at 11:46:57AM +0800, Kuyo Chang wrote:
-> > 
-> > > Thank you for your patch.
-> > > I believe this patch also effectively addresses this race
-> > > condition.
-> > > I will queue it in our test pool for testing.
-> > 
-> > Thank you; I shall await the results!
-> > 
-> It works well during both regular and hotplug tests(one week).
-> I believe the patch is workable.
+Hi,
 
-Thanks!, I'll queue the below in tip/sched/urgent
+On 6/5/25 3:00 PM, Peter Griffin wrote:
+> Hi Thomas,
+> 
+> Thanks for your patch and work to enable fuel gauge on Pixel 6!
+> 
+> On Fri, 23 May 2025 at 13:52, Thomas Antoine via B4 Relay
+> <devnull+t.antoine.uclouvain.be@kernel.org> wrote:
+>>
+>> From: Thomas Antoine <t.antoine@uclouvain.be>
+>>
+>> Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
+>>
+>> The TODO is still applicable given there are other slaves on the
+>> bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
+>>
+>> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+>> ---
+>>  arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 10 ++++++++++
+>>  1 file changed, 10 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> index b25230495c64dce60916b7cd5dcb9a7cce5d0e4e..84fc10c3562958ab1621f24644709e85a9433b9b 100644
+>> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+>> @@ -10,6 +10,7 @@
+>>
+>>  #include <dt-bindings/gpio/gpio.h>
+>>  #include <dt-bindings/input/input.h>
+>> +#include <dt-bindings/interrupt-controller/irq.h>
+>>  #include <dt-bindings/usb/pd.h>
+>>  #include "gs101-pinctrl.h"
+>>  #include "gs101.dtsi"
+>> @@ -188,6 +189,15 @@ usbc0_role_sw: endpoint {
+>>                         };
+>>                 };
+>>         };
+>> +
+>> +       fuel-gauge@36 {
+>> +               compatible = "maxim,max77759-fg";
+>> +               reg = <0x36>;
+>> +               reg-names = "m5";
+>> +               interrupt-parent = <&gpa9>;
+>> +               interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+>> +               shunt-resistor-micro-ohms = <5000>;
+>> +       };
+>>  };
+>>
+> 
+> If gpa-9-3 is being used for the interrupt I think we should also add
+> the pinctrl configuration for it. Taking a look at downstream the pin
+> is defined as
+> 
+> &pinctrl_0 {
+> /* [MAX77759: FG_INTB] > FG_INT_L > [XEINT_23 : SC59845XWE] */
+>         if_pmic_fg_irq: if-pmic-fg-irq {
+>                 samsung,pins = "gpa9-3"; /* XEINT_23 */
+>                 samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
+>                 samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
+>                 samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
+>         };
+> };
+> 
+> and then the fuel-gauge node declares
+> 
+> /* FG_INT_L -> XEINT_23 */
+> pinctrl-names = "default";
+> pinctrl-0 = <&if_pmic_fg_irq>;
+> 
+> regards,
+> 
+> Peter
 
----
-Subject: sched/core: Fix migrate_swap() vs. hotplug
-From: Peter Zijlstra <peterz@infradead.org>
-Date: Thu, 5 Jun 2025 12:00:09 +0200
 
-On Mon, Jun 02, 2025 at 03:22:13PM +0800, Kuyo Chang wrote:
+I will add this to the next version, thanks for the
+catch.
 
-> So, the potential race scenario is:
->
-> 	CPU0							CPU1
-> 	// doing migrate_swap(cpu0/cpu1)
-> 	stop_two_cpus()
-> 							  ...
-> 							 // doing _cpu_down()
-> 							      sched_cpu_deactivate()
-> 								set_cpu_active(cpu, false);
-> 								balance_push_set(cpu, true);
-> 	cpu_stop_queue_two_works
-> 	    __cpu_stop_queue_work(stopper1,...);
-> 	    __cpu_stop_queue_work(stopper2,..);
-> 	stop_cpus_in_progress -> true
-> 		preempt_enable();
-> 								...
-> 							1st balance_push
-> 							stop_one_cpu_nowait
-> 							cpu_stop_queue_work
-> 							__cpu_stop_queue_work
-> 							list_add_tail  -> 1st add push_work
-> 							wake_up_q(&wakeq);  -> "wakeq is empty.
-> 										This implies that the stopper is at wakeq@migrate_swap."
-> 	preempt_disable
-> 	wake_up_q(&wakeq);
-> 	        wake_up_process // wakeup migrate/0
-> 		    try_to_wake_up
-> 		        ttwu_queue
-> 		            ttwu_queue_cond ->meet below case
-> 		                if (cpu == smp_processor_id())
-> 			         return false;
-> 			ttwu_do_activate
-> 			//migrate/0 wakeup done
-> 		wake_up_process // wakeup migrate/1
-> 	           try_to_wake_up
-> 		    ttwu_queue
-> 			ttwu_queue_cond
-> 		        ttwu_queue_wakelist
-> 			__ttwu_queue_wakelist
-> 			__smp_call_single_queue
-> 	preempt_enable();
->
-> 							2nd balance_push
-> 							stop_one_cpu_nowait
-> 							cpu_stop_queue_work
-> 							__cpu_stop_queue_work
-> 							list_add_tail  -> 2nd add push_work, so the double list add is detected
-> 							...
-> 							...
-> 							cpu1 get ipi, do sched_ttwu_pending, wakeup migrate/1
->
-
-So this balance_push() is part of schedule(), and schedule() is supposed
-to switch to stopper task, but because of this race condition, stopper
-task is stuck in WAKING state and not actually visible to be picked.
-
-Therefore CPU1 can do another schedule() and end up doing another
-balance_push() even though the last one hasn't been done yet.
-
-This is a confluence of fail, where both wake_q and ttwu_wakelist can
-cause crucial wakeups to be delayed, resulting in the malfunction of
-balance_push.
-
-Since there is only a single stopper thread to be woken, the wake_q
-doesn't really add anything here, and can be removed in favour of
-direct wakeups of the stopper thread.
-
-Then add a clause to ttwu_queue_cond() to ensure the stopper threads
-are never queued / delayed.
-
-Of all 3 moving parts, the last addition was the balance_push()
-machinery, so pick that as the point the bug was introduced.
-
-Fixes: 2558aacff858 ("sched/hotplug: Ensure only per-cpu kthreads run during hotplug")
-Reported-by: Kuyo Chang <kuyo.chang@mediatek.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Tested-by: Kuyo Chang <kuyo.chang@mediatek.com>
-Link: https://lkml.kernel.org/r/20250605100009.GO39944@noisy.programming.kicks-ass.net
----
- kernel/sched/core.c   |    5 +++++
- kernel/stop_machine.c |   20 ++++++++++----------
- 2 files changed, 15 insertions(+), 10 deletions(-)
-
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3943,6 +3943,11 @@ static inline bool ttwu_queue_cond(struc
- 	if (!scx_allow_ttwu_queue(p))
- 		return false;
- 
-+#ifdef CONFIG_SMP
-+	if (p->sched_class == &stop_sched_class)
-+		return false;
-+#endif
-+
- 	/*
- 	 * Do not complicate things with the async wake_list while the CPU is
- 	 * in hotplug state.
---- a/kernel/stop_machine.c
-+++ b/kernel/stop_machine.c
-@@ -82,18 +82,15 @@ static void cpu_stop_signal_done(struct
- }
- 
- static void __cpu_stop_queue_work(struct cpu_stopper *stopper,
--					struct cpu_stop_work *work,
--					struct wake_q_head *wakeq)
-+				  struct cpu_stop_work *work)
- {
- 	list_add_tail(&work->list, &stopper->works);
--	wake_q_add(wakeq, stopper->thread);
- }
- 
- /* queue @work to @stopper.  if offline, @work is completed immediately */
- static bool cpu_stop_queue_work(unsigned int cpu, struct cpu_stop_work *work)
- {
- 	struct cpu_stopper *stopper = &per_cpu(cpu_stopper, cpu);
--	DEFINE_WAKE_Q(wakeq);
- 	unsigned long flags;
- 	bool enabled;
- 
-@@ -101,12 +98,13 @@ static bool cpu_stop_queue_work(unsigned
- 	raw_spin_lock_irqsave(&stopper->lock, flags);
- 	enabled = stopper->enabled;
- 	if (enabled)
--		__cpu_stop_queue_work(stopper, work, &wakeq);
-+		__cpu_stop_queue_work(stopper, work);
- 	else if (work->done)
- 		cpu_stop_signal_done(work->done);
- 	raw_spin_unlock_irqrestore(&stopper->lock, flags);
- 
--	wake_up_q(&wakeq);
-+	if (enabled)
-+		wake_up_process(stopper->thread);
- 	preempt_enable();
- 
- 	return enabled;
-@@ -264,7 +262,6 @@ static int cpu_stop_queue_two_works(int
- {
- 	struct cpu_stopper *stopper1 = per_cpu_ptr(&cpu_stopper, cpu1);
- 	struct cpu_stopper *stopper2 = per_cpu_ptr(&cpu_stopper, cpu2);
--	DEFINE_WAKE_Q(wakeq);
- 	int err;
- 
- retry:
-@@ -300,8 +297,8 @@ static int cpu_stop_queue_two_works(int
- 	}
- 
- 	err = 0;
--	__cpu_stop_queue_work(stopper1, work1, &wakeq);
--	__cpu_stop_queue_work(stopper2, work2, &wakeq);
-+	__cpu_stop_queue_work(stopper1, work1);
-+	__cpu_stop_queue_work(stopper2, work2);
- 
- unlock:
- 	raw_spin_unlock(&stopper2->lock);
-@@ -316,7 +313,10 @@ static int cpu_stop_queue_two_works(int
- 		goto retry;
- 	}
- 
--	wake_up_q(&wakeq);
-+	if (!err) {
-+		wake_up_process(stopper1->thread);
-+		wake_up_process(stopper2->thread);
-+	}
- 	preempt_enable();
- 
- 	return err;
+Best regards,
+Thomas
 
