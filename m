@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487F8C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED801C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grmNXnY9hKOlpmWrpWjJbFEvt+bZ9t1f84bLIAjJSrM=; b=18pYD8GNrzYNWLmdZytn114NeA
-	dn5hN9CPPRbZPy6EnLsUPcecFSHLtzDk7w5vX3HJcxejQMwUwRJU0qr6Qs+ZgiJEqjPdCcmHc2+0U
-	c6YvH8/Ig6/4qnMMbZBnU/wF0VQGz9TzeOyG1XWCx6QrSeuYVVtmLX8GxV/4Ae5Y4w+LilqtQxwr8
-	AaYpFVgPIJF7UlAIoHWuJy8fM8mflo9MKIDBv1lAGJvZkic88D/9j+Pa3YDBTg6hOEGgTwEs32cBf
-	jAi6JlfSm9FcP3PLauo+a8JHQrFbq/l6IM/NCa3XG2tweBSjcqjRz7MHXc2mCvvNlacURCCUEwLha
-	ek610Exw==;
+	bh=TEN68Sq98ceDWKLbmmwr6QLiAT2Etx4msV2UZKpurUE=; b=jQET3j3FLtId0wr4ay05lNRrMI
+	Xur9UJ3ij4v+ekhMSSu7CIMIAe0lhH/cnwRFu8Q033feDPcVFkDD1JWZQqolOctoSZSHa+GMFnWnM
+	/H5j2IiZwuUuksHwQsAMI9mYkmo5SnF3KTMu9e1znoFSirb96TJ7rvdDFsc35LqiM6iZVC7AOMzE3
+	clNs6Dgbb9mdIOYuWHnaN/u9egfuh/BapIHzCUsFjMu3zCGED4HBdFOBlQTE+B3B66lrAEuKl3xWH
+	BqDjgOIiI5TH5nYEYbU/F0Ln7/sczX4jMDFXmSqTY6joaY3A3SawXmb6gSEHFhdKTw7e8xKP3hCUD
+	hK6xRQsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUxAE-0000000DE5S-127y;
-	Fri, 27 Jun 2025 00:41:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUxCT-0000000DEH2-49Uv;
+	Fri, 27 Jun 2025 00:44:17 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwMk-0000000D6Pr-0uBq
+	id 1uUwP7-0000000D6hW-10Cr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 23:50:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 615096111F;
-	Thu, 26 Jun 2025 23:50:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F38CBC4CEEB;
-	Thu, 26 Jun 2025 23:50:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750981849;
-	bh=Cux7d7o6s1reAw2y55484JgLSPWg5ReReLlow0n8JmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pfm5cde7edrH+jAJkui0gcpO/BUhE39G7FXZlqDhra38fSk9u/n+eRJ3054+20CSY
-	 JVTo0cSTz5UcBEl5HvAdST8Nh51rFlDOoGyaY89AWZK/5kYfA6YRnohPkAg8veWAWG
-	 TJP6SXH8M9zp7sxvf5r6bzO3ZRgiDZt3KmemtmhBBkY3Cr28gUi3lkdcAuewTXxYNh
-	 d3MYdd3/vrtpzNHkfK6dXqNIZ4B/eigYLcbvyD+Mg197vItlZHGKTvEHxL6nPexz6y
-	 kr89EW1wA4SL6zLps7WCR/8igpgDBZgISLgXjx1Cz66maEpVAX7kG5AUgHE2w2LU4m
-	 0JbeJyJWTPmeQ==
-Date: Thu, 26 Jun 2025 18:50:48 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Josua Mayer <josua@solid-run.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Mikhail Anikin <mikhail.anikin@solid-run.com>,
-	Jon Nettleton <jon@solid-run.com>, Shawn Guo <shawnguo@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 1/3] dt-bindings: arm: fsl: Add bindings for SolidRun
- i.MX8MP SoM and boards
-Message-ID: <175098184781.1426950.6408937893785063066.robh@kernel.org>
-References: <20250614-imx8mp-sr-som-v1-0-3ca3269883c4@solid-run.com>
- <20250614-imx8mp-sr-som-v1-1-3ca3269883c4@solid-run.com>
+	Thu, 26 Jun 2025 23:53:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750981997; x=1782517997;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=SN/NGzVIJgralBcDDuVPGj29WH5pdAz4U3HXHsEVx8s=;
+  b=goqhwdc/OE4m1I8qlZ+tPCclsafXQERmNjmNYcO11CDqJHucbUJ4u2XQ
+   wMf6V31267SYO8b2biaoH20bmb96cl6AR9eP9xqO8U1IwMh1oX9c7pw/X
+   50NlDz6mJuDNQKXq/JNECcXpaEHfkSMl/UfWQhxsq96eEh2KdshAozLYV
+   mH2NnG1a26jrmijjDp9WPNQsMQgA5lSiTVumEnjjVbGQV91FePKr1lfFR
+   oeh2U9bkwIjV2ACh0PK9PPRjKUBwNuyia4MewbIbgnIIdO/WMUQTf6mdv
+   C3tFyBSquZZDD/zS8J5wTozIU2zUyXMcO+j0HNQNjIL0VvhmEESm1K63d
+   A==;
+X-CSE-ConnectionGUID: UrJPPxKwQdmLsSKdhlFxaA==
+X-CSE-MsgGUID: AnXk0GfwT1i/ZwKi+0lxyA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11476"; a="53236099"
+X-IronPort-AV: E=Sophos;i="6.16,268,1744095600"; 
+   d="scan'208";a="53236099"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 16:53:16 -0700
+X-CSE-ConnectionGUID: gp+S1qc3Qt+VQ3YEWjmHMQ==
+X-CSE-MsgGUID: FWOuogMYQS6kHK1SwV6JTg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,268,1744095600"; 
+   d="scan'208";a="183554204"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 26 Jun 2025 16:53:12 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uUwOz-000VeA-2T;
+	Thu, 26 Jun 2025 23:53:09 +0000
+Date: Fri, 27 Jun 2025 07:52:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
+Message-ID: <202506270708.6w6phhmi-lkp@intel.com>
+References: <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250614-imx8mp-sr-som-v1-1-3ca3269883c4@solid-run.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250626_165317_292161_39F8FAE8 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Clément,
 
-On Sat, 14 Jun 2025 17:20:56 +0300, Josua Mayer wrote:
-> Add bindings for SolidRun i.MX8M Plus System on Module based boards:
-> 
-> - CuBox-M is a complete produc with enclosure including the SoM
-> - HummingBoard Mate/Pro/Pulse/Ripple are evaluation boards with common
->   design but different available interfaces.
-> 
-> Signed-off-by: Josua Mayer <josua@solid-run.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
+kernel test robot noticed the following build warnings:
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+[auto build test WARNING on 86731a2a651e58953fc949573895f2fa6d456841]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Cl-ment-Le-Goffic/bus-firewall-move-stm32_firewall-header-file-in-include-folder/20250623-173554
+base:   86731a2a651e58953fc949573895f2fa6d456841
+patch link:    https://lore.kernel.org/r/20250623-ddrperfm-upstream-v1-6-7dffff168090%40foss.st.com
+patch subject: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
+config: i386-buildonly-randconfig-004-20250627 (https://download.01.org/0day-ci/archive/20250627/202506270708.6w6phhmi-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250627/202506270708.6w6phhmi-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506270708.6w6phhmi-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/perf/stm32_ddr_pmu.c: In function 'stm32_ddr_start_counters':
+   drivers/perf/stm32_ddr_pmu.c:205:9: error: implicit declaration of function 'writel_relaxed' [-Werror=implicit-function-declaration]
+     205 |         writel_relaxed(r->start.mask, pmu->membase + r->start.reg);
+         |         ^~~~~~~~~~~~~~
+   drivers/perf/stm32_ddr_pmu.c: In function 'stm32_ddr_clear_counter':
+   drivers/perf/stm32_ddr_pmu.c:232:22: error: implicit declaration of function 'readl_relaxed' [-Werror=implicit-function-declaration]
+     232 |         u32 status = readl_relaxed(pmu->membase + r->status.reg);
+         |                      ^~~~~~~~~~~~~
+   drivers/perf/stm32_ddr_pmu.c: At top level:
+>> drivers/perf/stm32_ddr_pmu.c:862:34: warning: 'stm32_ddr_pmu_of_match' defined but not used [-Wunused-const-variable=]
+     862 | static const struct of_device_id stm32_ddr_pmu_of_match[] = {
+         |                                  ^~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +/stm32_ddr_pmu_of_match +862 drivers/perf/stm32_ddr_pmu.c
+
+   861	
+ > 862	static const struct of_device_id stm32_ddr_pmu_of_match[] = {
+   863		{
+   864			.compatible = "st,stm32mp131-ddr-pmu",
+   865			.data = &stm32_ddr_pmu_cfg_mp1
+   866		},
+   867		{
+   868			.compatible = "st,stm32mp151-ddr-pmu",
+   869			.data = &stm32_ddr_pmu_cfg_mp1
+   870		},
+   871		{
+   872			.compatible = "st,stm32mp251-ddr-pmu",
+   873			.data = &stm32_ddr_pmu_cfg_mp2
+   874		},
+   875		{ },
+   876	};
+   877	MODULE_DEVICE_TABLE(of, stm32_ddr_pmu_of_match);
+   878	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
