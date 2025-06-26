@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A91BC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB4DC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyKZDaDbf6pBxX1E1SGQbuztofgy7NyETlkRlM94mw0=; b=cPG1fD/rbYaHTCfNYTEMpIbh0/
-	I7aE4dB4/41HE3u8jb6akXNzXKh9oC623jypaljmhF1p6uAx00Tg7agy6UxINH9ubEpW2JArVBCEz
-	a8aUJkN2ldyBLTJCDbI0/HPkEgIOgc6Nkiy54eXixmFVdJnoqW8gYhbwoaWhP4kKbjB1Z2zsaeRXt
-	eso+dB5LMjeTKp8PDRgmJ4i3WcxvtgWQgk1Lrz/WDUfwcbhrpt7nfFdBkgQ7VoocoQvAdg2DLXXk9
-	kTDBEJHZ7pTRYC3Cl2BWs38FF/mUXfgfUcr0mapjhJ31kBqV8zJRqslNEjbgfNP6rAApaeONYDxXb
-	uqoB6AwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K/8rphai31mmYoRyCD400xJAFH6ptMGQEua1rgzBMko=; b=Kge34v+3uc22/sLp/czz37w+AY
+	pRN35h1KyqYmmXiniH0jjNXYLgDrj9oFeiG6gooUVBsax+TAo2eQad2cYqf3GKCz3CHqAksCoBkXV
+	j/8+DEjqxHVmauQXN4Us2P3mShzdmbk6uDPrDv9NeaPeCaiSWkunkfZgmM8vkGfxXEBCquWJ0fzKP
+	OK4bW1wB44vZPhzcICF35lPIn11EkAauZuNllku9F3e/9njc8oNMFIzbGF9L9ZGa4pxclspigJfQX
+	n3GP3H/et0a2AuTeQ/isvg+FiiqEU49dyTj/I2GTzh1+1G22myZl2DgGUYL/Vm7GXhdFT5Q99/wIB
+	ivuD/oWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUlVY-0000000BWRX-0R8o;
-	Thu, 26 Jun 2025 12:15:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uUlXt-0000000BWc5-3hHa;
+	Thu, 26 Jun 2025 12:17:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkkP-0000000BPzu-3H5i
+	id 1uUjpQ-0000000BHAN-21x3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 11:26:30 +0000
+	Thu, 26 Jun 2025 10:27:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25827445EA;
-	Thu, 26 Jun 2025 11:26:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00C5AC4CEEB;
-	Thu, 26 Jun 2025 11:26:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C5B6FA50C52;
+	Thu, 26 Jun 2025 10:27:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDB19C4CEF4;
+	Thu, 26 Jun 2025 10:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750937189;
-	bh=dQypl9dyKKw9crO92Tcl/v2GMju0CN2R0bSYOIYtRcw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NuRL+5z+Ye4uqQI6ye13Pv6+z4FoeqNJgLV6gOtgDdTPjv0l9G5Av1JPxfDoy7tBh
-	 AbKfaEvf176MJ9ED+xg6/HzhOMdv/cjBqI59J874t+37TC713qQotYZC9HR4bB7U11
-	 9Kbdiivxczwel6B9Q+9eQ5iEKMGh7Rq7ROOZHo8CC8a/dsd6qfOR0kDucLdwRCGXbw
-	 7YF/R8U4XsSSilWk6Kxwdjxt8TIEZPE1f7FNLVTz7XhKRROA05i+H+vvqqojVX5/cZ
-	 uFPnpmyVztEz+zW37Mi4kfxHvJMFepUl5M5jepnJWi1bDc3NklUi9LzdxPOlp9ZcVy
-	 WPXAObI1mUQDw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uUkkM-00ACiY-G9;
-	Thu, 26 Jun 2025 12:26:26 +0100
-Date: Thu, 26 Jun 2025 12:26:25 +0100
-Message-ID: <86y0tebv6m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Quentin Perret <qperret@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Don't free hyp pages with pKVM on GICv2
-In-Reply-To: <20250626101014.1519345-1-qperret@google.com>
-References: <20250626101014.1519345-1-qperret@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, smostafa@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1750933655;
+	bh=aIIn1sGnO2kMTD4PFFAtmvRuvCXnzwAbVE21VpeYyKg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dKO1/asppzbfxael3+LDzSdwVo9Tv0XJ4OaJ/X0DyG7PSTd4LHCwINEOKvGLXBBwO
+	 XZldwadOs2id0hZ4fOn9sAjWchsoM0g5+mRRyaZnjZ0ZmuTazbiQobVXHsGJNO8qmP
+	 quhnMfYeVEBiJh7oQ6XwG/jR6lXOZVt1J9fnrsAD/sNIFmaRt/lUfm/xgPWEAJ4mpj
+	 J59VORElMiExeqIJZOwoxnG9s9Wt7gLyngs/+J/bHKQIQNqdFP4z/xOPi09AWO4rZK
+	 Oyq7zlUvJUcAuE7Vfkm9De25jhpjfIPr+Fwj/0UdUoE8yp4EbJs8aMmXFpe26/vzuN
+	 Xp6IpTX2QdX9Q==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Date: Thu, 26 Jun 2025 12:26:04 +0200
+Subject: [PATCH v6 13/31] arm64/sysreg: Add ICH_HFGWTR_EL2
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250626-gicv5-host-v6-13-48e046af4642@kernel.org>
+References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+In-Reply-To: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+ Sascha Bischoff <sascha.bischoff@arm.com>, 
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+ Timothy Hayes <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Peter Maydell <peter.maydell@linaro.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.15-dev-6f78e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_042629_858778_2BCF1109 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250626_032736_592040_4B35BCD9 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 11:10:14 +0100,
-Quentin Perret <qperret@google.com> wrote:
-> 
-> Marc reported that enabling protected mode on a device with GICv2
-> doesn't fail gracefully as one would expect, and leads to a host
-> kernel crash.
-> 
-> As it turns out, the first half of pKVM init happens before the vgic
-> probe, and so by the time we find out we have a GICv2 we're already
-> committed to keeping the pKVM vectors installed at EL2 -- pKVM rejects
-> stub HVCs for obvious security reasons. However, the error path on KVM
-> init leads to teardown_hyp_mode() which unconditionally frees hypervisor
-> allocations (including the EL2 stacks and per-cpu pages) under the
-> assumption that a previous cpu_hyp_uninit() execution has reset the
-> vectors back to the stubs, which is false with pKVM.
-> 
-> Interestingly, host stage-2 protection is not enabled yet at this point,
-> so this use-after-free may go unnoticed for a while. The issue becomes
-> more obvious after the finalize_pkvm() call.
-> 
-> Fix this by keeping track of the CPUs on which pKVM is initialized in
-> the kvm_hyp_initialized per-cpu variable, and use it from
-> teardown_hyp_mode() to skip freeing pages that are in fact used.
-> 
-> Fixes: a770ee80e662 ("KVM: arm64: pkvm: Disable GICv2 support")
-> Reported-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Quentin Perret <qperret@google.com>
+Add ICH_HFGWTR_EL2 register description to sysreg.
 
-I just gave it a go on a Juno-r1, and it didn't die! Must be perfect!
-:) I'll stash it on top of Mostafa's patch.
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/tools/sysreg | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Thanks!
-
-	M.
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 0202b3bd3dda..9def240582dc 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4452,6 +4452,21 @@ Field	1	ICC_IDRn_EL1
+ Field	0	ICC_APR_EL1
+ EndSysreg
+ 
++Sysreg	ICH_HFGWTR_EL2	3	4	12	9	6
++Res0	63:21
++Field	20	ICC_PPI_ACTIVERn_EL1
++Field	19	ICC_PPI_PRIORITYRn_EL1
++Field	18	ICC_PPI_PENDRn_EL1
++Field	17	ICC_PPI_ENABLERn_EL1
++Res0	16:7
++Field	6	ICC_ICSR_EL1
++Field	5	ICC_PCR_EL1
++Res0    4:3
++Field	2	ICC_CR0_EL1
++Res0	1
++Field	0	ICC_APR_EL1
++EndSysreg
++
+ Sysreg	ICH_HCR_EL2	3	4	12	11	0
+ Res0	63:32
+ Field	31:27	EOIcount
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.48.0
+
 
