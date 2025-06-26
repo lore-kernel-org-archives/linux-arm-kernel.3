@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C352EC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1346C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/LQM2y0c1hypruTZ0kUlI64jy128/WyN5WOrBAa7oaU=; b=Z8ilP+pcfuZ82LVNsK8n0sV7p2
-	EWYHX2LMePDwgt9i1CIeSxXkrzLfmF23GFpEwuw9x/zJ2uZXagpFifsHcZjLxCcXUIPz/DSi/RHpm
-	Mw4wcUg312b9+B5BjBvIhUtn4JO2ExPvy50Rui0F3PdI6Usa2adHb9C9HKzB91raGg3pD5X/sIb0Y
-	67lWrHEKnsBlo5c+UmGUQ44lR4dCJ4wqwQmMZgIq5vcbqHl9H8Srt19cL+rNElCHYpZ+VHbtnyW6o
-	6Sm/FoBYnj2JCdf40+OS1zRm5DVbzsiXniQB9xs+C5/OtA0eHqAbaG0WQbsxIQfQagYdBOqPteoQB
-	sDkguikg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fsDymlg5JEDTudtIHNHr2Mmrq2EtsQQPwhJ0vbyNLCA=; b=EMd1WtRfZU6em6HwMcfGRNYcVU
+	Y/AopJrjzAiBkpbRhC1P5wf8CiygPgVMBsfNIKYNVUN6bj/eMt0Nrq+FsKUrkSVnnoaRLwMAj/LCD
+	HRsYeLwW5gbNasBZFizalONfuPR8QJHG8OzM3ecpDR+A5en3TMyL3EeYGzgAS8vU99kaBswjag3kt
+	XffS0JajtQ783mNhIDM+BiYxjJZWB7OFByNYsgtT+1S2hg3hqQ/AXZTStXhIQxYGpG7k82Xu40HGc
+	FS1CsqGP9ns4De9Si7BVT2plenNRL7aOE0Lff46hcb4cOqZ9xSzPox2HtjaDtwgqiKHM9OCIc9I8S
+	oKQkmWEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwyy-0000000DDJA-3fFc;
-	Fri, 27 Jun 2025 00:30:21 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uUx1D-0000000DDVF-3CF4;
+	Fri, 27 Jun 2025 00:32:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUvvl-0000000D36N-3yq7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 23:22:59 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55QNMJug2580697;
-	Thu, 26 Jun 2025 18:22:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750980139;
-	bh=/LQM2y0c1hypruTZ0kUlI64jy128/WyN5WOrBAa7oaU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Q9rqQSRhDPnDsODGwL4CGAzbDJ7RnHulNsnAq1BepY5QqUb7TQCGXWV+YFPW8OE8u
-	 SzweOksJp2+vpInqroBecKAIll/JhqJXSpt7OD49WPbqYQq9jT5/XljLK20TkdGi66
-	 n5+/eNLZSI2PFOguDirq5pGbntdao2ee5C5vsgI0=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55QNMIun2412991
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 26 Jun 2025 18:22:18 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
- Jun 2025 18:22:18 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 26 Jun 2025 18:22:18 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55QNMINR1805323;
-	Thu, 26 Jun 2025 18:22:18 -0500
-Message-ID: <e49a3fff-8a50-44aa-aa0c-1ba1bf478eb6@ti.com>
-Date: Thu, 26 Jun 2025 18:22:18 -0500
+	id 1uUvxI-0000000D3Gb-1zia;
+	Thu, 26 Jun 2025 23:24:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD2CA6111F;
+	Thu, 26 Jun 2025 23:24:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E3A3C4CEEB;
+	Thu, 26 Jun 2025 23:24:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750980271;
+	bh=3iYSIjl6d68LlL0ejDj5mcWaYaC3T+fv98YPCHJ3fTM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XgMvjXc4WdjDgwxyvHc2vg/f6VLnOix6GSsAs0057BSFLwx50Jak4odQh2wiqBlRM
+	 /DoEOpZ0xrOndlPf2BWV6ocn6lt7KNeq6pl5xFBmnmBSoo7Oyg47UZPtgnUFOsvlm6
+	 lATCkAR3de9ehf2tRs4vkSCeMwC831j/7XHkql/c3VQiEZgn5aTuQYmrmLNc8hUgf3
+	 r+nhGKXrRtIfVzKOU3/En+E/yTQZXTdldvQ7zXhx5ZXGWnn9OC87BEeFvd4zKkf9dP
+	 OUcSsMGTRxsTIdJkH5Nh2veJv/kRIDTvVrBwGFvMTt+jtqibnPgOS3E6BHlRtemQCo
+	 inTsjBqfaqC8Q==
+Date: Thu, 26 Jun 2025 18:24:30 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andy Yan <andyshrk@163.com>, David Airlie <airlied@gmail.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, stable@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	dri-devel@lists.freedesktop.org, Maxime Ripard <mripard@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>, kernel@collabora.com,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH 1/3] dt-bindings: display: vop2: Add optional PLL clock
+ property for rk3576
+Message-ID: <175098027014.1394278.11992805068398675511.robh@kernel.org>
+References: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
+ <20250612-rk3576-hdmitx-fix-v1-1-4b11007d8675@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/5] Add support for BeagleBone Green Eco board
-To: Kory Maincent <kory.maincent@bootlin.com>,
-        Tony Lindgren
-	<tony@atomide.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Aaro Koskinen
-	<aaro.koskinen@iki.fi>,
-        Andreas Kemnade <andreas@kemnade.info>,
-        Kevin Hilman
-	<khilman@baylibre.com>,
-        Roger Quadros <rogerq@kernel.org>,
-        Russell King
-	<linux@armlinux.org.uk>,
-        Paul Barker <paul.barker@sancloud.com>,
-        Marc Murphy
-	<marc.murphy@sancloud.com>
-CC: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>,
-        Bajjuri
- Praneeth <praneeth@ti.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
-	<broonie@kernel.org>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-        Romain Gantois
-	<romain.gantois@bootlin.com>,
-        Conor Dooley <conor.dooley@microchip.com>
-References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_162258_072561_A4878F2A 
-X-CRM114-Status: GOOD (  20.82  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250612-rk3576-hdmitx-fix-v1-1-4b11007d8675@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,78 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kory,
 
-On 6/20/25 3:15 AM, Kory Maincent wrote:
-> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
-> (BBG). It has minor differences from the BBG, such as a different PMIC,
-> a different Ethernet PHY, and a larger eMMC.
-
-Thanks for the patches.
-I was testing against next and noticed a kernel paging request error:
-https://gist.github.com/jmenti/d861528f98035b07259c29e76e5fae8b
-
-Did you see this by chance?
-
-I will double check that I tested correctly and come back, but was just
-curious to see if this is expected.
-
-~ Judith
-
+On Thu, 12 Jun 2025 00:47:47 +0300, Cristian Ciocaltea wrote:
+> As with the RK3588 SoC, RK3576 also allows the use of HDMI PHY PLL as an
+> alternative and more accurate pixel clock source for VOP2.
 > 
-> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> Document the optional PLL clock property.
+> 
+> Moreover, given that this is part of a series intended to address some
+> recent display problems, provide the appropriate tags to facilitate
+> backporting.
+> 
+> Fixes: c3b7c5a4d7c1 ("dt-bindings: display: vop2: Add rk3576 support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
-> Changes in v5:
-> - Split the patch series. As the cleaning process faced some pushback,
->    I prefer to first get this support accepted and separately work on the
->    devicetree and binding cleaning process.
-> - Link to v4: https://lore.kernel.org/r/20250617-bbg-v4-0-827cbd606db6@bootlin.com
+>  .../bindings/display/rockchip/rockchip-vop2.yaml   | 56 +++++++++++++++++-----
+>  1 file changed, 44 insertions(+), 12 deletions(-)
 > 
-> Changes in v4:
-> - Drop model value change to avoid conflict with script based on this
->    value like:
->    https://salsa.debian.org/installer-team/flash-kernel/-/blob/master/db/all.db?ref_type=heads
-> - Rename ti,am335x-shc to bosch,am335x-shc
-> - Forgot to change to "Seeed" in BeagleBone Green Eco model description.
-> - Link to v3: https://lore.kernel.org/r/20250613-bbg-v3-0-514cdc768448@bootlin.com
-> 
-> Changes in v3:
-> - Update multi_v7_defconfig with TPS65219 config.
-> - Remove extraneous compatible strings.
-> - Replace BeagleBone compatible board name vendor to use "beagle" instead
->    of "ti".
-> - Link to v2: https://lore.kernel.org/r/20250609-bbg-v2-0-5278026b7498@bootlin.com
-> 
-> Changes in v2:
-> - Add patch 1 to 3 to fix binding and devicetree inconsistencies.
-> - Rename tps node name to generic pmic node name in am335x-bone-common.
-> - Link to v1: https://lore.kernel.org/r/20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com
-> 
-> ---
-> Kory Maincent (5):
->        arm: dts: omap: am335x-bone-common: Rename tps to generic pmic node
->        dt-bindings: omap: Add Seeed BeagleBone Green Eco
->        arm: dts: omap: Add support for BeagleBone Green Eco board
->        arm: omap2plus_defconfig: Enable TPS65219 regulator
->        arm: multi_v7_defconfig: Enable TPS65219 regulator
-> 
->   Documentation/devicetree/bindings/arm/ti/omap.yaml |   1 +
->   arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
->   arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi  |   2 +-
->   arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 169 +++++++++++++++++++++
->   arch/arm/configs/multi_v7_defconfig                |   3 +
->   arch/arm/configs/omap2plus_defconfig               |   3 +
->   6 files changed, 178 insertions(+), 1 deletion(-)
-> ---
-> base-commit: e22b9ddaf3afd031abc350c303c7c07a51c569d8
-> change-id: 20250523-bbg-769018d1f2a7
-> 
-> Best regards,
-> --
-> Köry Maincent, Bootlin
-> Embedded Linux and kernel engineering
-> https://bootlin.com
-> 
-> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
