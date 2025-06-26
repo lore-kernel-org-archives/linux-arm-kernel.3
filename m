@@ -4,109 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694AFC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 23:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936D0C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 23:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gkj2mMHh0GxLUj/eKGxZgIwvH9Co0awqJJJrJZL4T18=; b=yOYfdlxO2D2oOR6TfyPtDUv5Ml
-	4we0xSsWCoClVtfK4PEFhiE5WPg0/G8UsURkKbhttCLZvS1h5ZY4EEEyukFUVhhATFtdi5MfXac6g
-	/41iO1H1TkkXRhQlbd4h0S7Zyc1jhSyvwV82mOIvIWC0Qqtg9dcJJSj/PJmPdcBJKm76lHYliuvfH
-	So8T4tlnbvPE6M7eVHItsSKq1mbBVNErsCd5RZYe5W4kouHhJoOu1VuWYEbO8XuwOI5kDO2QBZgM9
-	3jhkd2AWKV4BJGVbBORPZN1pP6W96eVTL3ibJm8cQzwdiOHOs0zEGEHfHZm1PsBUgaprDPs2yfqNS
-	dQHg/Bcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KWuNAXCk1fWueV9/KkSjE2Q70mMkCujHcS2z91+7Wzo=; b=Ch8XU9ytVV4gqAvOogf9oD1/dH
+	FCx6PMl3n67Z+PMnoFTn1g/GJ5OZ+aVXF9bi3XKcruNssOmC3Hg3zqurbtOBjUeCiVauyTcb9VxCP
+	BNN7uppcxSHn64WUn9SzikEoHZSkLPzOj8V9MAhOuvKQkGmkxxrM9+K1aK0W6xJy0UyKFEcTOTqvE
+	vFKtxCIQzrEJgqnPpX71OcYev/LEYLZesK8pC5Tqe1AA54bwUKFnN9oS1mHEZbs1QMvBZsge7v4F4
+	XO7eKu25+Yhfh1KOq045VZC56hFBRDXs7WdJCCN7CSE8ROaHwGGtirvKA31OEOlf5HtQ8/trlkOlZ
+	6LIc55sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwFC-0000000D5DI-0W9H;
-	Thu, 26 Jun 2025 23:43:02 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1uUwHS-0000000D5X1-2kYP;
+	Thu, 26 Jun 2025 23:45:22 +0000
+Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUuM2-0000000CrKK-2JkD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 21:42:00 +0000
-Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
-	by mailfout.stl.internal (Postfix) with ESMTP id A7DF21D00119;
-	Thu, 26 Jun 2025 17:41:54 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Thu, 26 Jun 2025 17:41:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1750974114;
-	 x=1751060514; bh=gkj2mMHh0GxLUj/eKGxZgIwvH9Co0awqJJJrJZL4T18=; b=
-	pxECusUjGGx3J3kjU40da8OIvnNP+kKo+jTZ+jlW/7QovnmEoQvgQlrM99A64P8I
-	UKEKKOsSXQ6/YHOYonAJwLr4oyZAGFTez7Senc1cH8hIPtZdAumfzaUPco9sTA/S
-	wKNgnGA2GKP1RdYX6pqgxK4fCD1A8WnndpzsxkgvgBnRdBHY7L028bLxYRzMV+0V
-	IlA/kQZ0sX7gMPrDnsh2xXd7uaHtkjOfiHtpTZo1haqChq1QB5LOHH10KqeLHLga
-	PbXIPvLGrj2W5XhI90+yIBjXQY0vT0tXX1Xr07DvJswmDCLPNtOwuceJw05qV+RS
-	E6vwy0LuBcSlg5kkDQj9jg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1750974114; x=
-	1751060514; bh=gkj2mMHh0GxLUj/eKGxZgIwvH9Co0awqJJJrJZL4T18=; b=d
-	Eu44YR/gGl1crkcj/CjBg8RWJBHU14zGSZeTsZXe7t17AFG/IrSgbLo7YdDkSAbo
-	ZICx4qve7xO3yvY3FQJWGTwfwz3eMmILr0XZ+X7UqAqEZA3vjn2tBeB4I+Fofu/P
-	Cvdt8hkG+4dvCD9WTAYvymbMmRAKwha1AHmFV5DPK+PqiG155ifT8HDYnj/mjQzt
-	QakdsiuFL/+U8Wy5C/gee15gjnojQxEYSGS2BftsqW3AWPT+wXlV95+tx+AlDTFN
-	TlLplfBbeMn5izaf3x46USvIaIK8uh6VOelrC0WPo7Umphzc4eRTY14b0tqUc7wZ
-	rT8TYx6zGG6Cpp+peUCRw==
-X-ME-Sender: <xms:ob5daPtpSYMHkpxuQZ6UNV19w74wRpigYUXsiblCTFZkPkJ3iWWkcQ>
-    <xme:ob5daAe-04Ao55PHg8CMLk-MnzHbLRUrY75D6eps23G7empv90QpTQ-PPxpIJ9Msq
-    EfDvGECK8Acsu5FItY>
-X-ME-Received: <xmr:ob5daCyLtk6S1-qetEFRMd8BCkYaY9gp7X6ikXEPTQlvJ-mp9y17WJ1YjpX78a4SbxdeY7QFLNaaBR7zYU6UHDQJFzvZgr01VQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduvdelucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpefpihhklhgrshcu
-    ufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrghtvg
-    gthhdrshgvqeenucggtffrrghtthgvrhhnpeevteegtddvvdfhtdekgefhfeefheetheek
-    keegfeejudeiudeuleegtdehkeekteenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshhouggvrhhluhhnugesrhgrghhnrght
-    vggthhdrshgvpdhnsggprhgtphhtthhopeelpdhmohguvgepshhmthhpohhuthdprhgtph
-    htthhopehmrghrvghkrdhvrghsuhhtodhrvghnvghsrghssehmrghilhgsohigrdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrh
-    gruggvrggurdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtg
-    hpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrghhn
-    uhhsrdgurghmmhesghhmrghilhdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghl
-    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrhgvnhgvshgrshdqshhotgesvhhgvghrrd
-    hkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:ob5daOM1Nj7wEN9jhX5fhm3KmEYhKsWOWNCAgRYixxWybykqeJq9Tw>
-    <xmx:ob5daP-nBvUVn5OZVoHy9SKv32G_OqTknl4WXCJis2n4vgnU_0BGgQ>
-    <xmx:ob5daOU9v9DiYVT9nPUHNCbYxLvTsDnjQy73Zv-5DFad2XBuhdEeTg>
-    <xmx:ob5daAeqwsrOLKLqY_UQ4_R7wQxRfdddXmPQAhKo04zs_pUZoAQLBQ>
-    <xmx:or5daGTQLtIwmqNSVqJVpCRY0YCh-AiXgZmWc7pxNK9CArwxuI52uouC>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 26 Jun 2025 17:41:53 -0400 (EDT)
-Date: Thu, 26 Jun 2025 23:41:52 +0200
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip
- points on V4H Sparrow Hawk
-Message-ID: <20250626214152.GA1817595@ragnatech.se>
-References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+	id 1uUuQj-0000000Crl4-2RY5;
+	Thu, 26 Jun 2025 21:46:50 +0000
+Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-532de49b7e2so453629e0c.0;
+        Thu, 26 Jun 2025 14:46:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750974408; x=1751579208; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KWuNAXCk1fWueV9/KkSjE2Q70mMkCujHcS2z91+7Wzo=;
+        b=MpbBhbXgx9vVqs8cgt8LWO1D/XhuTxFo26uVvE2fFFP7J9QOpQWl3thT39EQpCge/Y
+         EOVQNjM3H75d8HCljoAgo3KawgEUbHQlG0Gbf8dfCmNxWewArkyKDGRcF18ZWDSTZNV4
+         JWEAUrXxW9S0Qp+EFYFwRzCIo7djRFkRP3jkTIZF/YvGN6IsdxSfygFPSkLCs97rKTb/
+         vSPpJ8y5d6Izl0gmQbXTkpeQVsruZLWaIPqfrkHivkMJ6K2UVyg0l6hIu9dmgADRGOkJ
+         xp2E8S0t5vb56EaJLIeTwTiG5hgsMY/+K+As8ATp0Csp/vNPNpE5t4rOZY8R0QHESw33
+         SC7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750974408; x=1751579208;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KWuNAXCk1fWueV9/KkSjE2Q70mMkCujHcS2z91+7Wzo=;
+        b=NiiiWb1K5zuHn3BGzkCEI9VppTwmSpCRdfC2tH4hC5raYm4CKdeYq5+6HovLOm6N54
+         Gx6LB36ORX+8smxLQDXdIsJMDJl2cQqFUfyfihBnD5saAHeu0u2ZhhEE9Pn4NB+OfM2a
+         NqqAq68bbbbk0fdRYq6hvtx47m56HJX/wgFRgtu6JyuXd62xmIDduVDYuwCwz3qYcmeR
+         5D5xYPURz4a6oQNElz+uavJiHUg2V5/oy7q4sEzL4Q7zJ5YhUdZFrKLzLq+NY1LR+hWA
+         mBixhN+l/010ysLmcsYcgkwU0fqWPcqarGRxag8xwtOCYLm5ROxmq3K7qk2sySjlmye9
+         r0pg==
+X-Forwarded-Encrypted: i=1; AJvYcCUU5a5w1CrDEE0hWglCI0gTsO34IPbTyfhGyZNj7J/ekuAPuN89aAZffdBhERAYNihDQELjDuqsPkzWK/zFKjdJ@lists.infradead.org, AJvYcCXZx4dfIXS4sRsJJmT7W5fjoROQ58+alJdWxlIG6Ov1Dac5sWMsBecCHlEDKYf52ZjcuVAFm/kBV5UwGI8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+YEk/l6p40frhwa38cc+GuqmYyFnfUh3SEsQ32Bzdz2vj5B94
+	+1kZXx3YS/ZPxlujxBjMmLed2mJDB+P21tBbKpIX5LWRVhXGt9zx37u8CAwQiawW96sjytpZcPP
+	utxklH7L3FbKe8aODoMeeXBYdy0pAOq4=
+X-Gm-Gg: ASbGncvB1JvhldI7K+FJxW3Ul9U5PvR5GCFwdVlfQC72OJ5kFZ180UzyFAVbS8Y2VgP
+	HW/0pFfuUwRmn7sF9NjboG09ALKzJVnhw9W8pXxNrVgC9B7AyKQ2NAOX8C2tAt5wWWMV2tzWiK9
+	kbXWulb+caASGBp0WTlaCKnSVIVG0AR/iqW9ZlSYAjSlQ=
+X-Google-Smtp-Source: AGHT+IFqD6MeHf2dv8GNgWuXZnCWkBT5zbKZdT0Fqn22cE5696tU3bF1FiIJc/HEpUJx4mMUyCJENSCCX6BXL3RgS4w=
+X-Received: by 2002:a05:6122:501b:20b0:531:4708:3d45 with SMTP id
+ 71dfb90a1353d-5330c0bf774mr582169e0c.10.1750974408037; Thu, 26 Jun 2025
+ 14:46:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+References: <a5b5b0aa-21c4-4abf-b323-63af96aabcd5@redhat.com> <20250626092905.31305-1-ioworker0@gmail.com>
+In-Reply-To: <20250626092905.31305-1-ioworker0@gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Fri, 27 Jun 2025 09:46:37 +1200
+X-Gm-Features: Ac12FXylRE3hZva5QKBERz9CcinWRMXOAb6qrHlm_KOUdTJ8v1xSbRPfHA-4N7M
+Message-ID: <CAGsJ_4w5Obx9=P0wkrbLaDzKpG0e-7xs7jgHRa91KO7e92MO8g@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+To: Lance Yang <ioworker0@gmail.com>
+Cc: david@redhat.com, akpm@linux-foundation.org, baolin.wang@linux.alibaba.com, 
+	chrisl@kernel.org, kasong@tencent.com, lance.yang@linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_144159_069696_290B0BF4 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20250626_144649_619728_382E56BA 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,209 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Thu, Jun 26, 2025 at 9:29=E2=80=AFPM Lance Yang <ioworker0@gmail.com> wr=
+ote:
+>
+[...]
+> +
+> +               /*
+> +                * If we are sure that we batched the entire folio and cl=
+eared
+> +                * all PTEs, we can just optimize and stop right here.
+> +                */
+> +               if (nr_pages =3D=3D folio_nr_pages(folio))
 
-Thanks for your work.
+David also mentioned if (nr_pages > 1 && nr_pages =3D=3D folio_nr_pages(fol=
+io)).
+I assume it=E2=80=99s still fine when nr_pages =3D=3D 1 for small folios? N=
+o?
 
-On 2025-06-25 12:01:56 +0200, Marek Vasut wrote:
-> Since the Sparrow Hawk has a smaller PCB than the White Hawk, it tends
-> to generate more heat. To prevent potential damage to the board, adjust
-> the temperature trip points.
-> 
-> Add four "passive" trip points which increasingly throttle the CPU to
-> prevent overheating. The first trip point at 68°C disables the 1.8 GHz
-> and 1.7 GHz modes and limits the CPU to 1.5 GHz frequency. The second
-> trip point at 72°C disables the 1.5 GHz mode and limits the CPU to 1.0
-> GHz frequency. The third trip point at 76°C uses thermal-idle to start
-> inserting idle cycles into the CPU instruction stream to cool the CPU
-> cores down. The fourth and last trip point at 80°C disables the 1.0 GHz
-> mode and limits the CPU to 500 MHz frequency.
-> 
-> In case the SoC heats up further, in case either of the thermal sensors
-> readings passes the 100°C, a thermal shutdown is triggered to prevent
-> any damage to the hardware.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> Cc: "Niklas Söderlund" <niklas.soderlund@ragnatech.se>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  .../dts/renesas/r8a779g3-sparrow-hawk.dts     | 137 ++++++++++++++++++
->  1 file changed, 137 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> index 9ba23129e65e..ba81df3c779d 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> @@ -38,6 +38,7 @@
->  
->  /dts-v1/;
->  #include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/thermal/thermal.h>
->  
->  #include "r8a779g3.dtsi"
->  
-> @@ -797,3 +798,139 @@ &rwdt {
->  &scif_clk {	/* X12 */
->  	clock-frequency = <24000000>;
->  };
-> +
-> +/* thermal-idle cooling for all SoC cores */
-> +&a76_0 {
-> +	#cooling-cells = <2>;
-> +
-> +	a76_0_thermal_idle: thermal-idle {
-> +		#cooling-cells = <2>;
-> +		duration-us = <10000>;
-> +		exit-latency-us = <500>;
-> +	};
-> +};
-> +
-> +&a76_1 {
-> +	a76_1_thermal_idle: thermal-idle {
-> +		#cooling-cells = <2>;
-> +		duration-us = <10000>;
-> +		exit-latency-us = <500>;
-> +	};
-> +};
-> +
-> +&a76_2 {
-> +	a76_2_thermal_idle: thermal-idle {
-> +		#cooling-cells = <2>;
-> +		duration-us = <10000>;
-> +		exit-latency-us = <500>;
-> +	};
-> +};
-> +
-> +&a76_3 {
-> +	a76_3_thermal_idle: thermal-idle {
-> +		#cooling-cells = <2>;
-> +		duration-us = <10000>;
-> +		exit-latency-us = <500>;
-> +	};
-> +};
+>                         goto walk_done;
+>                 continue;
+>  walk_abort:
+> --
+>
 
-I did not know you could do this and use it as a cooling device, thanks 
-for teaching me something new!
-
-> +
-> +/* THS sensors in SoC, critical temperature trip point is 100C */
-> +&sensor1_crit {
-> +	temperature = <100000>;
-> +};
-> +
-> +&sensor2_crit {
-> +	temperature = <100000>;
-> +};
-> +
-> +&sensor3_crit {
-> +	temperature = <100000>;
-> +};
-> +
-> +&sensor4_crit {
-> +	temperature = <100000>;
-> +};
-> +
-> +&sensor_thermal_cr52 {
-> +	critical-action = "shutdown";
-> +};
-> +
-> +&sensor_thermal_cnn {
-> +	critical-action = "shutdown";
-> +};
-
-Is this not the default action for critical trip points? In my testing 
-in the past R-Car systems have always shutdown when the critical trip is 
-reached. If it's not I think we should move these to r8a779g0.dtsi. And 
-likely add them for all other SoCs too?
-
-> +
-> +/* THS sensor in SoC near CA76 cores does more progressive cooling. */
-> +&sensor_thermal_ca76 {
-> +	critical-action = "shutdown";
-> +
-> +	cooling-maps {
-> +		/*
-> +		 * The cooling-device minimum and maximum parameters inversely
-> +		 * match opp-table-0 {} node entries in r8a779g0.dtsi, in other
-> +		 * words, 0 refers to 1.8 GHz OPP and 4 refers to 500 MHz OPP.
-> +		 * This is because they refer to cooling levels, where maximum
-> +		 * cooling level happens at 500 MHz OPP, when the CPU core is
-> +		 * running slowly and therefore generates least heat.
-> +		 */
-> +		map0 {
-> +			/* At 68C, inhibit 1.7 GHz and 1.8 GHz modes */
-> +			trip = <&sensor3_passive_low>;
-> +			cooling-device = <&a76_0 2 4>;
-> +			contribution = <128>;
-> +		};
-> +
-> +		map1 {
-> +			/* At 72C, inhibit 1.5 GHz mode */
-> +			trip = <&sensor3_passive_mid>;
-> +			cooling-device = <&a76_0 3 4>;
-> +			contribution = <256>;
-> +		};
-> +
-> +		map2 {
-> +			/* At 76C, start injecting idle states */
-> +			trip = <&sensor3_passive_hi>;
-> +			cooling-device = <&a76_0_thermal_idle 0 80>,
-> +					 <&a76_1_thermal_idle 0 80>,
-> +					 <&a76_2_thermal_idle 0 80>,
-> +					 <&a76_3_thermal_idle 0 80>;
-> +			contribution = <512>;
-> +		};
-> +
-> +		map3 {
-> +			/* At 80C, inhibit 1.0 GHz mode */
-> +			trip = <&sensor3_passive_crit>;
-> +			cooling-device = <&a76_0 4 4>;
-> +			contribution = <1024>;
-> +		};
-> +	};
-> +
-> +	trips {
-> +		sensor3_passive_low: sensor3-passive-low {
-> +			temperature = <68000>;
-> +			hysteresis = <2000>;
-> +			type = "passive";
-> +		};
-> +
-> +		sensor3_passive_mid: sensor3-passive-mid {
-> +			temperature = <72000>;
-> +			hysteresis = <2000>;
-> +			type = "passive";
-> +		};
-> +
-> +		sensor3_passive_hi: sensor3-passive-hi {
-> +			temperature = <76000>;
-> +			hysteresis = <2000>;
-> +			type = "passive";
-> +		};
-> +
-> +		sensor3_passive_crit: sensor3-passive-crit {
-> +			temperature = <80000>;
-> +			hysteresis = <2000>;
-> +			type = "passive";
-> +		};
-> +	};
-> +};
-> +
-> +&sensor_thermal_ddr1 {
-> +	critical-action = "shutdown";
-> +};
-> -- 
-> 2.47.2
-> 
-
--- 
-Kind Regards,
-Niklas Söderlund
+Thanks,
+Lance
 
