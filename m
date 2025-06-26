@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71270C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17BEC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+G+8kTAehLt9GCBqgHcWeAA/rD9HmtXBRieN6TRmieQ=; b=MuDbt2JhEJOKDa7dxvBqQYSPwK
-	EGlrBOSZjb00/W7Uu9Fk4jA+ibxx651jNb0zUEC7xDT8RJzIdtezd8QiabT2WdsUMBtqs5GfNSaTu
-	C20t+NHooEStMBA57KaMrKXcYk/J8236tEXbSp2hWWtyFOjf6Ha/gLOxEXdK5HQcqpdPLGo5VmyWv
-	0HX75YQrK4hgRUNWYq2SoP67X61Vff4cm5KKAw9IKDwD7oWza8TBdFOmhBm1imhMw0DQHlWdz/xoG
-	xANbfDt5xxJS+eFWmSQFCSI8n4gxQp007FXyDqheCq9+TT0Zz7xXYqGyt8hwx1+yZyZFWlEEzLdIa
-	lcnMB/tA==;
+	bh=h9Gb+3nZA0Pi+emPupclIVTL0Q1POIROLU+/um65gPs=; b=0Iuc82JfPF+JP9lzO4H2MEsRq6
+	GQnypArq//sL2YRuqKDrDYx40WM+Uz49gMiyjqQUvkP7CYbdA7ah1mpZP/J3DZ2yLoS0bz8OQ1RDl
+	I3ysSVGq0b2Y0lbucc1YSjB0y+WGn7vD7Vs5qmldBu0FahvrjeucOnhQR/MLpwt5Ef0Y1uuxiPZde
+	FnUrfOPZvmnxO2PeS7KoEL6FmGZwdjoVOwAb8Z2/kY2LVrZDDvB0W5/9chSYFEQczIbKjjNTZ85lb
+	48mnzGSSm/o8dPAi5LBPyzAmEXSlmn5Z0N+AofRtXgUjvDFAfy2tLnpnTjPY91zPHO1lJartt0LQO
+	yU46Doog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkhb-0000000BP0q-18L6;
-	Thu, 26 Jun 2025 11:23:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uUko5-0000000BQGw-23B9;
+	Thu, 26 Jun 2025 11:30:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjpL-0000000BH9i-0Dro
+	id 1uUjq0-0000000BHJm-42uF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 10:27:32 +0000
+	Thu, 26 Jun 2025 10:28:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 20E735C66F3;
-	Thu, 26 Jun 2025 10:25:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83740C4CEEB;
-	Thu, 26 Jun 2025 10:27:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A278443D64;
+	Thu, 26 Jun 2025 10:28:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78091C4CEEF;
+	Thu, 26 Jun 2025 10:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750933650;
-	bh=OL8WrbmEb7QcfFjSfT9OR3hHDhu+Kp5/wSJK9kcz1CE=;
+	s=k20201202; t=1750933692;
+	bh=XbYiKzCOKqX14j6tnKEdxttuRnIC/2PjYERFPMgGB5E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Ilr4hTpM7KK5DD9bZ7Zp8D2DRkCUg1xPqBCraBeazX83M1dTgBFZhc4SgHFs5RTmS
-	 ARbpTBMDTLPwaMm5tHpA2JAmlXKXNnDdcizXFjumVZN057+VAgHigNfUD8YNgUrXJf
-	 6lfNMfULv1FlrTwx3lCgkaSTWmpUxYXvaKQv9MnW0jvZrPsXvn7CX22SqNF5hITaSZ
-	 qBZUiT9AZuHqSd2oghN+oDKnDD8a/bexeMpRrYTG0b8dnA5tstqgtndfzx6uGoD6J7
-	 4bruTgLqE6dgEdyOvqiLj6zVGiZ7NOF9Uqkfg0wcYwFmDDV3IQD4SFUjVpDltqVMAw
-	 9znopjhPl3kIg==
+	b=OF6JkGRS/B7zs7vNS4l//63FTeAlLTyaM2qGZnlyhiXBgL+ecPA2vI+o6VXzvBf3v
+	 f6f9gxbferukfe0LxAZ3l/SVh3WdccOnODTi2c7zHIefLBx8Zy9r/+e5jmrZaGxTil
+	 VLR/KutzjaA3fK9ZPStePFLT9ii81H712riPCMr4YdZk+0CmZUBfeuqGtE8zy3E96E
+	 nEO+LHpw98i+w8jOUIngwDWfgxGQxXaFzeAbbrAvi2POKoPpgucdfE0c4rR2wQLGsl
+	 6qifHg7urPd8Uz8xpQF3gD3VO0/5cBA3UXYOQc5Zw6vuR6PRQFqNrkKu6CvdrdOPMl
+	 MsaqHrEqFmDTg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 26 Jun 2025 12:26:03 +0200
-Subject: [PATCH v6 12/31] arm64/sysreg: Add ICH_HFGRTR_EL2
+Date: Thu, 26 Jun 2025 12:26:11 +0200
+Subject: [PATCH v6 20/31] irqchip/gic-v5: Add GICv5 PPI support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-gicv5-host-v6-12-48e046af4642@kernel.org>
+Message-Id: <20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
 References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
 In-Reply-To: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -67,9 +67,8 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.15-dev-6f78e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_032731_136573_77D29858 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_032813_053869_C4717004 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +83,609 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICH_HFGRTR_EL2 register description.
+The GICv5 CPU interface implements support for PE-Private Peripheral
+Interrupts (PPI), that are handled (enabled/prioritized/delivered)
+entirely within the CPU interface hardware.
 
+To enable PPI interrupts, implement the baseline GICv5 host kernel
+driver infrastructure required to handle interrupts on a GICv5 system.
+
+Add the exception handling code path and definitions for GICv5
+instructions.
+
+Add GICv5 PPI handling code as a specific IRQ domain to:
+
+- Set-up PPI priority
+- Manage PPI configuration and state
+- Manage IRQ flow handler
+- IRQs allocation/free
+- Hook-up a PPI specific IRQchip to provide the relevant methods
+
+PPI IRQ priority is chosen as the minimum allowed priority by the
+system design (after probing the number of priority bits implemented
+by the CPU interface).
+
+Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
+Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ MAINTAINERS                        |   2 +
+ arch/arm64/include/asm/sysreg.h    |  19 ++
+ drivers/irqchip/Kconfig            |   5 +
+ drivers/irqchip/Makefile           |   1 +
+ drivers/irqchip/irq-gic-v5.c       | 461 +++++++++++++++++++++++++++++++++++++
+ include/linux/irqchip/arm-gic-v5.h |  19 ++
+ 6 files changed, 507 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 8be5e4af4ad6..0202b3bd3dda 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4434,6 +4434,24 @@ Field	31:16	PhyPARTID29
- Field	15:0	PhyPARTID28
- EndSysreg
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f02a768adecb..222a668f3fb6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1971,6 +1971,8 @@ M:	Marc Zyngier <maz@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5*.yaml
++F:	drivers/irqchip/irq-gic-v5*.[ch]
++F:	include/linux/irqchip/arm-gic-v5.h
  
-+Sysreg	ICH_HFGRTR_EL2	3	4	12	9	4
-+Res0	63:21
-+Field	20	ICC_PPI_ACTIVERn_EL1
-+Field	19	ICC_PPI_PRIORITYRn_EL1
-+Field	18	ICC_PPI_PENDRn_EL1
-+Field	17	ICC_PPI_ENABLERn_EL1
-+Field	16	ICC_PPI_HMRn_EL1
-+Res0	15:8
-+Field	7	ICC_IAFFIDR_EL1
-+Field	6	ICC_ICSR_EL1
-+Field	5	ICC_PCR_EL1
-+Field	4	ICC_HPPIR_EL1
-+Field	3	ICC_HAPR_EL1
-+Field	2	ICC_CR0_EL1
-+Field	1	ICC_IDRn_EL1
-+Field	0	ICC_APR_EL1
-+EndSysreg
+ ARM HDLCD DRM DRIVER
+ M:	Liviu Dudau <liviu.dudau@arm.com>
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 9b5fc6389715..36b82d74db37 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -1082,6 +1082,25 @@
+ 
+ #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
+ 					       GCS_CAP_VALID_TOKEN)
++/*
++ * Definitions for GICv5 instructions
++ */
++#define GICV5_OP_GIC_CDDI		sys_insn(1, 0, 12, 2, 0)
++#define GICV5_OP_GIC_CDEOI		sys_insn(1, 0, 12, 1, 7)
++#define GICV5_OP_GICR_CDIA		sys_insn(1, 0, 12, 3, 0)
 +
- Sysreg	ICH_HCR_EL2	3	4	12	11	0
- Res0	63:32
- Field	31:27	EOIcount
++/* Definitions for GIC CDDI */
++#define GICV5_GIC_CDDI_TYPE_MASK	GENMASK_ULL(31, 29)
++#define GICV5_GIC_CDDI_ID_MASK		GENMASK_ULL(23, 0)
++
++/* Definitions for GICR CDIA */
++#define GICV5_GIC_CDIA_VALID_MASK	BIT_ULL(32)
++#define GICV5_GICR_CDIA_VALID(r)	FIELD_GET(GICV5_GIC_CDIA_VALID_MASK, r)
++#define GICV5_GIC_CDIA_TYPE_MASK	GENMASK_ULL(31, 29)
++#define GICV5_GIC_CDIA_ID_MASK		GENMASK_ULL(23, 0)
++
++#define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
++#define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+ 
+ #define ARM64_FEATURE_FIELD_BITS	4
+ 
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 0d196e447142..3e4fb08b7a4d 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -54,6 +54,11 @@ config ARM_GIC_V3_ITS_FSL_MC
+ 	depends on FSL_MC_BUS
+ 	default ARM_GIC_V3_ITS
+ 
++config ARM_GIC_V5
++	bool
++	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
++
+ config ARM_NVIC
+ 	bool
+ 	select IRQ_DOMAIN_HIERARCHY
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 23ca4959e6ce..3d75659d99eb 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -36,6 +36,7 @@ obj-$(CONFIG_ARM_GIC_V3)		+= irq-gic-v3.o irq-gic-v3-mbi.o irq-gic-common.o
+ obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o irq-gic-v3-its-msi-parent.o
+ obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
+ obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
++obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o
+ obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
+ obj-$(CONFIG_ARM_NVIC)			+= irq-nvic.o
+ obj-$(CONFIG_ARM_VIC)			+= irq-vic.o
+diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+new file mode 100644
+index 000000000000..a08daa562d21
+--- /dev/null
++++ b/drivers/irqchip/irq-gic-v5.c
+@@ -0,0 +1,461 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
++ */
++
++#define pr_fmt(fmt)	"GICv5: " fmt
++
++#include <linux/irqdomain.h>
++#include <linux/wordpart.h>
++
++#include <linux/irqchip.h>
++#include <linux/irqchip/arm-gic-v5.h>
++
++#include <asm/cpufeature.h>
++#include <asm/exception.h>
++
++static u8 pri_bits __ro_after_init = 5;
++
++#define GICV5_IRQ_PRI_MASK	0x1f
++#define GICV5_IRQ_PRI_MI	(GICV5_IRQ_PRI_MASK & GENMASK(4, 5 - pri_bits))
++
++#define PPI_NR	128
++
++static bool gicv5_cpuif_has_gcie(void)
++{
++	return this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF);
++}
++
++struct gicv5_chip_data {
++	struct fwnode_handle	*fwnode;
++	struct irq_domain	*ppi_domain;
++};
++
++static struct gicv5_chip_data gicv5_global_data __read_mostly;
++
++static void gicv5_ppi_priority_init(void)
++{
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR0_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR1_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR2_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR3_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR4_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR5_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR6_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR7_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR8_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR9_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR10_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR11_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR12_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR13_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR14_EL1);
++	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRI_MI), SYS_ICC_PPI_PRIORITYR15_EL1);
++
++	/*
++	 * Context syncronization required to make sure system register writes
++	 * effects are synchronised.
++	 */
++	isb();
++}
++
++static void gicv5_ppi_irq_mask(struct irq_data *d)
++{
++	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
++
++	if (d->hwirq < 64)
++		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER0_EL1, hwirq_id_bit, 0);
++	else
++		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER1_EL1, hwirq_id_bit, 0);
++
++	/*
++	 * We must ensure that the disable takes effect immediately to
++	 * guarantee that the lazy-disabled IRQ mechanism works.
++	 * A context synchronization event is required to guarantee it.
++	 * Reference: I_ZLTKB/R_YRGMH GICv5 specification - section 2.9.1.
++	 */
++	isb();
++}
++
++static void gicv5_ppi_irq_unmask(struct irq_data *d)
++{
++	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
++
++	if (d->hwirq < 64)
++		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER0_EL1, 0, hwirq_id_bit);
++	else
++		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER1_EL1, 0, hwirq_id_bit);
++	/*
++	 * We must ensure that the enable takes effect in finite time - a
++	 * context synchronization event is required to guarantee it, we
++	 * can not take for granted that would happen (eg a core going straight
++	 * into idle after enabling a PPI).
++	 * Reference: I_ZLTKB/R_YRGMH GICv5 specification - section 2.9.1.
++	 */
++	isb();
++}
++
++static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
++{
++	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
++
++	gic_insn(cddi, CDDI);
++
++	gic_insn(0, CDEOI);
++}
++
++static void gicv5_ppi_irq_eoi(struct irq_data *d)
++{
++	gicv5_hwirq_eoi(d->hwirq, GICV5_HWIRQ_TYPE_PPI);
++}
++
++enum ppi_reg {
++	PPI_PENDING,
++	PPI_ACTIVE,
++	PPI_HM
++};
++
++static __always_inline u64 read_ppi_sysreg_s(unsigned int irq,
++					     const enum ppi_reg which)
++{
++	switch (which) {
++	case PPI_PENDING:
++		return irq < 64	? read_sysreg_s(SYS_ICC_PPI_SPENDR0_EL1) :
++				  read_sysreg_s(SYS_ICC_PPI_SPENDR1_EL1);
++	case PPI_ACTIVE:
++		return irq < 64	? read_sysreg_s(SYS_ICC_PPI_SACTIVER0_EL1) :
++				  read_sysreg_s(SYS_ICC_PPI_SACTIVER1_EL1);
++	case PPI_HM:
++		return irq < 64	? read_sysreg_s(SYS_ICC_PPI_HMR0_EL1) :
++				  read_sysreg_s(SYS_ICC_PPI_HMR1_EL1);
++	default:
++		BUILD_BUG_ON(1);
++	}
++}
++
++static __always_inline void write_ppi_sysreg_s(unsigned int irq, bool set,
++					       const enum ppi_reg which)
++{
++	u64 bit = BIT_ULL(irq % 64);
++
++	switch (which) {
++	case PPI_PENDING:
++		if (set) {
++			if (irq < 64)
++				write_sysreg_s(bit, SYS_ICC_PPI_SPENDR0_EL1);
++			else
++				write_sysreg_s(bit, SYS_ICC_PPI_SPENDR1_EL1);
++		} else {
++			if (irq < 64)
++				write_sysreg_s(bit, SYS_ICC_PPI_CPENDR0_EL1);
++			else
++				write_sysreg_s(bit, SYS_ICC_PPI_CPENDR1_EL1);
++		}
++		return;
++	case PPI_ACTIVE:
++		if (set) {
++			if (irq < 64)
++				write_sysreg_s(bit, SYS_ICC_PPI_SACTIVER0_EL1);
++			else
++				write_sysreg_s(bit, SYS_ICC_PPI_SACTIVER1_EL1);
++		} else {
++			if (irq < 64)
++				write_sysreg_s(bit, SYS_ICC_PPI_CACTIVER0_EL1);
++			else
++				write_sysreg_s(bit, SYS_ICC_PPI_CACTIVER1_EL1);
++		}
++		return;
++	default:
++		BUILD_BUG_ON(1);
++	}
++}
++
++static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
++					   enum irqchip_irq_state which,
++					   bool *state)
++{
++	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
++
++	switch (which) {
++	case IRQCHIP_STATE_PENDING:
++		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_PENDING) & hwirq_id_bit);
++		return 0;
++	case IRQCHIP_STATE_ACTIVE:
++		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_ACTIVE) & hwirq_id_bit);
++		return 0;
++	default:
++		pr_debug("Unexpected PPI irqchip state\n");
++		return -EINVAL;
++	}
++}
++
++static int gicv5_ppi_irq_set_irqchip_state(struct irq_data *d,
++					   enum irqchip_irq_state which,
++					   bool state)
++{
++	switch (which) {
++	case IRQCHIP_STATE_PENDING:
++		write_ppi_sysreg_s(d->hwirq, state, PPI_PENDING);
++		return 0;
++	case IRQCHIP_STATE_ACTIVE:
++		write_ppi_sysreg_s(d->hwirq, state, PPI_ACTIVE);
++		return 0;
++	default:
++		pr_debug("Unexpected PPI irqchip state\n");
++		return -EINVAL;
++	}
++}
++
++static bool gicv5_ppi_irq_is_level(irq_hw_number_t hwirq)
++{
++	u64 bit = BIT_ULL(hwirq % 64);
++
++	return !!(read_ppi_sysreg_s(hwirq, PPI_HM) & bit);
++}
++
++static const struct irq_chip gicv5_ppi_irq_chip = {
++	.name			= "GICv5-PPI",
++	.irq_mask		= gicv5_ppi_irq_mask,
++	.irq_unmask		= gicv5_ppi_irq_unmask,
++	.irq_eoi		= gicv5_ppi_irq_eoi,
++	.irq_get_irqchip_state	= gicv5_ppi_irq_get_irqchip_state,
++	.irq_set_irqchip_state	= gicv5_ppi_irq_set_irqchip_state,
++	.flags			= IRQCHIP_SKIP_SET_WAKE	  |
++				  IRQCHIP_MASK_ON_SUSPEND,
++};
++
++static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
++					  struct irq_fwspec *fwspec,
++					  irq_hw_number_t *hwirq,
++					  unsigned int *type)
++{
++	if (!is_of_node(fwspec->fwnode))
++		return -EINVAL;
++
++	if (fwspec->param_count < 3)
++		return -EINVAL;
++
++	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
++		return -EINVAL;
++
++	*hwirq = fwspec->param[1];
++
++	/*
++	 * Handling mode is hardcoded for PPIs, set the type using
++	 * HW reported value.
++	 */
++	*type = gicv5_ppi_irq_is_level(*hwirq) ? IRQ_TYPE_LEVEL_LOW : IRQ_TYPE_EDGE_RISING;
++
++	return 0;
++}
++
++static int gicv5_irq_ppi_domain_alloc(struct irq_domain *domain, unsigned int virq,
++				      unsigned int nr_irqs, void *arg)
++{
++	unsigned int type = IRQ_TYPE_NONE;
++	struct irq_fwspec *fwspec = arg;
++	irq_hw_number_t hwirq;
++	int ret;
++
++	if (WARN_ON_ONCE(nr_irqs != 1))
++		return -EINVAL;
++
++	ret = gicv5_irq_ppi_domain_translate(domain, fwspec, &hwirq, &type);
++	if (ret)
++		return ret;
++
++	if (type & IRQ_TYPE_LEVEL_MASK)
++		irq_set_status_flags(virq, IRQ_LEVEL);
++
++	irq_set_percpu_devid(virq);
++	irq_domain_set_info(domain, virq, hwirq, &gicv5_ppi_irq_chip, NULL,
++			    handle_percpu_devid_irq, NULL, NULL);
++
++	return 0;
++}
++
++static void gicv5_irq_domain_free(struct irq_domain *domain, unsigned int virq,
++				  unsigned int nr_irqs)
++{
++	struct irq_data *d;
++
++	if (WARN_ON_ONCE(nr_irqs != 1))
++		return;
++
++	d = irq_domain_get_irq_data(domain, virq);
++
++	irq_set_handler(virq, NULL);
++	irq_domain_reset_irq_data(d);
++}
++
++static int gicv5_irq_ppi_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
++				       enum irq_domain_bus_token bus_token)
++{
++	if (fwspec->fwnode != d->fwnode)
++		return 0;
++
++	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
++		return 0;
++
++	return (d == gicv5_global_data.ppi_domain);
++}
++
++static const struct irq_domain_ops gicv5_irq_ppi_domain_ops = {
++	.translate	= gicv5_irq_ppi_domain_translate,
++	.alloc		= gicv5_irq_ppi_domain_alloc,
++	.free		= gicv5_irq_domain_free,
++	.select		= gicv5_irq_ppi_domain_select
++};
++
++static void handle_irq_per_domain(u32 hwirq)
++{
++	u8 hwirq_type = FIELD_GET(GICV5_HWIRQ_TYPE, hwirq);
++	u32 hwirq_id = FIELD_GET(GICV5_HWIRQ_ID, hwirq);
++	struct irq_domain *domain;
++
++	switch (hwirq_type) {
++	case GICV5_HWIRQ_TYPE_PPI:
++		domain = gicv5_global_data.ppi_domain;
++		break;
++	default:
++		pr_err_once("Unknown IRQ type, bail out\n");
++		return;
++	}
++
++	if (generic_handle_domain_irq(domain, hwirq_id)) {
++		pr_err_once("Could not handle, hwirq = 0x%x", hwirq_id);
++		gicv5_hwirq_eoi(hwirq_id, hwirq_type);
++	}
++}
++
++static void __exception_irq_entry gicv5_handle_irq(struct pt_regs *regs)
++{
++	bool valid;
++	u32 hwirq;
++	u64 ia;
++
++	ia = gicr_insn(CDIA);
++	valid = GICV5_GICR_CDIA_VALID(ia);
++
++	if (!valid)
++		return;
++
++	/*
++	 * Ensure that the CDIA instruction effects (ie IRQ activation) are
++	 * completed before handling the interrupt.
++	 */
++	gsb_ack();
++
++	/*
++	 * Ensure instruction ordering between an acknowledgment and subsequent
++	 * instructions in the IRQ handler using an ISB.
++	 */
++	isb();
++
++	hwirq = FIELD_GET(GICV5_HWIRQ_INTID, ia);
++
++	handle_irq_per_domain(hwirq);
++}
++
++static void gicv5_cpu_disable_interrupts(void)
++{
++	u64 cr0;
++
++	cr0 = FIELD_PREP(ICC_CR0_EL1_EN, 0);
++	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
++}
++
++static void gicv5_cpu_enable_interrupts(void)
++{
++	u64 cr0, pcr;
++
++	write_sysreg_s(0, SYS_ICC_PPI_ENABLER0_EL1);
++	write_sysreg_s(0, SYS_ICC_PPI_ENABLER1_EL1);
++
++	gicv5_ppi_priority_init();
++
++	pcr = FIELD_PREP(ICC_PCR_EL1_PRIORITY, GICV5_IRQ_PRI_MI);
++	write_sysreg_s(pcr, SYS_ICC_PCR_EL1);
++
++	cr0 = FIELD_PREP(ICC_CR0_EL1_EN, 1);
++	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
++}
++
++static int gicv5_starting_cpu(unsigned int cpu)
++{
++	if (WARN(!gicv5_cpuif_has_gcie(),
++		 "GICv5 system components present but CPU does not have FEAT_GCIE"))
++		return -ENODEV;
++
++	gicv5_cpu_enable_interrupts();
++
++	return 0;
++}
++
++static void __init gicv5_free_domains(void)
++{
++	if (gicv5_global_data.ppi_domain)
++		irq_domain_remove(gicv5_global_data.ppi_domain);
++
++	gicv5_global_data.ppi_domain = NULL;
++}
++
++static int __init gicv5_init_domains(struct fwnode_handle *handle)
++{
++	struct irq_domain *d;
++
++	d = irq_domain_create_linear(handle, PPI_NR, &gicv5_irq_ppi_domain_ops, NULL);
++	if (!d)
++		return -ENOMEM;
++
++	irq_domain_update_bus_token(d, DOMAIN_BUS_WIRED);
++	gicv5_global_data.ppi_domain = d;
++	gicv5_global_data.fwnode = handle;
++
++	return 0;
++}
++
++static void gicv5_set_cpuif_pribits(void)
++{
++	u64 icc_idr0 = read_sysreg_s(SYS_ICC_IDR0_EL1);
++
++	switch (FIELD_GET(ICC_IDR0_EL1_PRI_BITS, icc_idr0)) {
++	case ICC_IDR0_EL1_PRI_BITS_4BITS:
++		pri_bits = 4;
++		break;
++	case ICC_IDR0_EL1_PRI_BITS_5BITS:
++		pri_bits = 5;
++		break;
++	default:
++		pr_err("Unexpected ICC_IDR0_EL1_PRI_BITS value, default to 4");
++		pri_bits = 4;
++		break;
++	}
++}
++
++static int __init gicv5_of_init(struct device_node *node, struct device_node *parent)
++{
++	int ret = gicv5_init_domains(of_fwnode_handle(node));
++	if (ret)
++		return ret;
++
++	gicv5_set_cpuif_pribits();
++
++	ret = gicv5_starting_cpu(smp_processor_id());
++	if (ret)
++		goto out_dom;
++
++	ret = set_handle_irq(gicv5_handle_irq);
++	if (ret)
++		goto out_int;
++
++	return 0;
++
++out_int:
++	gicv5_cpu_disable_interrupts();
++out_dom:
++	gicv5_free_domains();
++
++	return ret;
++}
++IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+new file mode 100644
+index 000000000000..b08ec0308a9b
+--- /dev/null
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2025 ARM Limited, All Rights Reserved.
++ */
++#ifndef __LINUX_IRQCHIP_ARM_GIC_V5_H
++#define __LINUX_IRQCHIP_ARM_GIC_V5_H
++
++#include <asm/sysreg.h>
++
++/*
++ * INTID handling
++ */
++#define GICV5_HWIRQ_ID			GENMASK(23, 0)
++#define GICV5_HWIRQ_TYPE		GENMASK(31, 29)
++#define GICV5_HWIRQ_INTID		GENMASK_ULL(31, 0)
++
++#define GICV5_HWIRQ_TYPE_PPI		UL(0x1)
++
++#endif
 
 -- 
 2.48.0
