@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F59C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89639C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5o0zE2Ql23MwZK+6c1i+ITLVgBdNKn0CMalQ4FgHLcU=; b=Qnwa3XdDr3XbC555Tj1WeQTau1
-	6Vq5l9psuji6Kb9QxgRyIuhvXJZ5griHUbXRIW6BVr6/z1L4F0yw1Q6EDgppEnd0jVrMAFUKssBlp
-	sBAkxFbTZn8rJfXusd4lvi0UkJDbdBuGPVnYCMhwro9mtzJYQCu52BJb59qxuvAKP2qMOd9UFO7NG
-	2LJffJXYdYIAlT2PGQd0x1v85qykXFI6dBqNdzperR4qSsjzDw0TAYCaQbnEL9eJ5YnNlYeehqq4Q
-	Mg+UlN2A3U948SSBC9AFPfMdRWD4n7cLMjH8sVGlG0A5scd/JGG/B39ixUB9yxr0ESIfQoYYYD7/0
-	y/hmpEbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5kID09yMx0ifvKddY/rM1GsgRctBtPcwtYxnoEQ1SLc=; b=Go1OgPh0PYRlkrRwdzyDdAekit
+	5X8Db0jq1SSpCFe48G42XzENGrtUdS4fGmc/OwstoKVeWfEsz0lm9A/DudP438OkfNfKzEbjRKnEt
+	zPemCS3HhhwOTQwwubGYqP/uBEHCh7CukclqfryGHD2AQBL0dWRfvGGwJaJ2DnFP7Wvgz3TrSqB40
+	55KRH7yRINJGXzDAf/eKZWyBQvx1mr3gSNa/quon6etOWDoO0Zv6Kw79FNAzK8JbDq710SERc5u8d
+	xbGA1WTqX1Y0LakCjeZeCktwcTP3EpvLKlvK9mXi+3pDrZqDFMc2eQa2NVZadqcpsdoItzRCiMBc4
+	7dxgS02g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiB9-0000000B0b9-23O1;
-	Thu, 26 Jun 2025 08:41:55 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uUiDU-0000000B14c-08NI;
+	Thu, 26 Jun 2025 08:44:20 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhhk-0000000Aufu-05zx
+	id 1uUhi0-0000000AukF-2NSe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:11:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1750925492; x=1782461492;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=5o0zE2Ql23MwZK+6c1i+ITLVgBdNKn0CMalQ4FgHLcU=;
-  b=lWt6D9iNSPZVhfqLTH5VIgsuZASkCQhhWjw4Xznm8EWs9qvtfkmaM9Qx
-   2+Qa2Quu8SK5IUTeRU/W8szmWnMzXV8ezHDJ1+lDMl4m5XHV0RVhf5MsD
-   EgXaM0viaifhytPBt1xLYk5lJfPqi2pm4PDyc5iQVhhNe4ExOtYp/1MC4
-   sGn9pdwLs48IqBjuhPcPzIHJTiSBqSV9seAiRZzwnkAHj4dQvk5/2URab
-   GUzhrAPPKI+o/2ZhxVDvwkMvxN2kuKAjtr/XGpMYLyc6d7LE8gnheCBU4
-   DB0TclU0Ki6aauWC25BV/7ZH837qDfGXAEyDDqneTaQtlhYXaj7f8C/OO
-   Q==;
-X-CSE-ConnectionGUID: 8Mcq54x2RQq4JTkCC9tAQw==
-X-CSE-MsgGUID: dDrWJAs0SQuNM3nCxllHBg==
-X-IronPort-AV: E=Sophos;i="6.16,267,1744063200"; 
-   d="scan'208";a="44863704"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 26 Jun 2025 10:11:27 +0200
-X-CheckPoint: {685D00AF-2B-468F1319-EAD2FB43}
-X-MAIL-CPID: 71DAA6DCB64509743559210ADBB65D86_0
-X-Control-Analysis: str=0001.0A006368.685D00CB.0055,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C6DF4165D19;
-	Thu, 26 Jun 2025 10:11:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1750925483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5o0zE2Ql23MwZK+6c1i+ITLVgBdNKn0CMalQ4FgHLcU=;
-	b=qdyH+Vf8l2KyL61bCy0nIgFKLs+w3cbh2J4qbwl9+fDuZDZIMwHZRzwHvgezrKsZQcPApP
-	DrUXNNHyZNo42WJdllDwILcuqjY8JlJX+AnbhAjhyHF9ERITBMVvcI64rVBnGlrVTJeK9c
-	fShkgbqPLKgNH2+rj8woL1uptCA9QK4+aF5FJF73ijYjzzjQjz/T9d2YEH3A3mHYPyJXPl
-	tzoEgMASp7pbHfCRvisreMIj9zCtINDLE/ovN2ckD2HlR9nEfcGfibQNTenhNX+sywrZdN
-	kHePOizgXpT196B7sZZbQ1dI4tdkaB2yDRz3R3bQDFVh/ejgQhUytZRyq7xbeg==
-Message-ID: <f593ed6162e34aa354eff6cc286cb24294195ee1.camel@ew.tq-group.com>
-Subject: Re: [PATCH net-next v2 3/3] checkpatch: check for comment
- explaining rgmii(|-rxid|-txid) PHY modes
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
- <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Joe
- Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
- <nm@ti.com>,  Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
- <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, Tero Kristo
- <kristo@kernel.org>, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Date: Thu, 26 Jun 2025 10:11:20 +0200
-In-Reply-To: <c954eabf-aa75-4373-8144-19ef88e1e696@lunn.ch>
-References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
-	 <bc112b8aa510cf9df9ab33178d122f234d0aebf7.1750756583.git.matthias.schiffer@ew.tq-group.com>
-	 <c954eabf-aa75-4373-8144-19ef88e1e696@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	Thu, 26 Jun 2025 08:11:49 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4bSWZM5wmzz2TSNQ;
+	Thu, 26 Jun 2025 16:10:03 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 589061A016C;
+	Thu, 26 Jun 2025 16:11:42 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 16:11:42 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 16:11:41 +0800
+CC: <yangyicong@hisilicon.com>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <shuah@kernel.org>,
+	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<linuxarm@huawei.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>,
+	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
+Subject: Re: [PATCH v3 4/7] KVM: arm/arm64: Allow user injection of
+ unsupported exclusive/atomic DABT
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+References: <20250626080906.64230-1-yangyicong@huawei.com>
+ <20250626080906.64230-5-yangyicong@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <02bf0361-1728-607c-03db-c8f9beff7763@huawei.com>
+Date: Thu, 26 Jun 2025 16:11:40 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20250626080906.64230-5-yangyicong@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_011132_543768_7577FDE7 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250626_011148_931551_99331A4E 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,56 +83,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-06-26 at 10:02 +0200, Andrew Lunn wrote:
->=20
-> On Tue, Jun 24, 2025 at 12:53:34PM +0200, Matthias Schiffer wrote:
-> > Historically, the RGMII PHY modes specified in Device Trees have been
-> > used inconsistently, often referring to the usage of delays on the PHY
-> > side rather than describing the board; many drivers still implement thi=
-s
-> > incorrectly.
-> >=20
-> > Require a comment in Devices Trees using these modes (usually mentionin=
-g
-> > that the delay is realized on the PCB), so we can avoid adding more
-> > incorrect uses (or will at least notice which drivers still need to be
-> > fixed).
-> >=20
-> > Suggested-by: Andrew Lunn <andrew@lunn.ch>
-> > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
->=20
-> One question, how should this be merged? The two DT patches might want
-> to go via the TI DT Maintainer. And this patch via the checkpatch
-> Maintainer? Or do you plan to merge it some other way?
+On 2025/6/26 16:09, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> The unsupported exclusive/atomic DABT exception is hand to the
+> userspace. Provide a way for the userspace to inject this DABT
+> to the guest if they want to imitate how this is handled on the
+> host.
+> 
 
-The first two patches should go via net-next I think (the first is DT bindi=
-ngs
-only, the second one modifies the AM65-CPSW driver), although I would prefe=
-r to
-get a review/ack from a TI maintainer, too.
+Tested LS64 fault in VM using kvmtool with below patch, debug information added.
+The LS64 DABT injection works as expected.
 
-I don't know what tree checkpatch usually goes through, MAINTAINERS doesn't=
- list
-a specific repo. The whole series could be merged via net-next if that's fi=
-ne
-with the checkpatch maintainers.
+# Perform LS64 on emulated MMIO
+root@localhost:/mnt# lspci -tv
+-[0000:00]-+-00.0  Device 1af4:1049
+           \-01.0  Device 1af4:1041
+root@localhost:/mnt# ./ls64.o -d 0000:00:00.0 -b 2
+Start address of 0000:00:00.0 BAR2 is 0x0
+mappded va is 0xffff82d20000 addr is 0x4120e8
+  Info: esr_iss 93c09000 fault_ipa 50000000 // kvmtool debug information
+  Info: correct mapping but emulated MMIO // kvmtool debug information
+test FEAT_LS64
+Bus error
+# Perform LS64 on normal memory
+root@localhost:/mnt# ./ls64.o -a
+mappded va is 0xffffa5400000 addr is 0x4120e8
+test FEAT_LS64
+  Info: esr_iss 35 fault_ipa 83971000 // kvmtool debug information
+  Info: Injecting DABT since incorrect Guest memory attribute // kvmtool debug information
+Bus error
 
-Best,
-Matthias
+diff --git a/arm/aarch64/include/asm/kvm.h b/arm/aarch64/include/asm/kvm.h
+index 66736ff..d3cd866 100644
+--- a/arm/aarch64/include/asm/kvm.h
++++ b/arm/aarch64/include/asm/kvm.h
+@@ -186,8 +186,9 @@ struct kvm_vcpu_events {
+ 		__u8 serror_pending;
+ 		__u8 serror_has_esr;
+ 		__u8 ext_dabt_pending;
++		__u8 ext_dabt_excl_atom_pending;
+ 		/* Align it to 8 bytes */
+-		__u8 pad[5];
++		__u8 pad[4];
+ 		__u64 serror_esr;
+ 	} exception;
+ 	__u32 reserved[12];
+diff --git a/include/kvm/kvm.h b/include/kvm/kvm.h
+index eb23e2f..56b985d 100644
+--- a/include/kvm/kvm.h
++++ b/include/kvm/kvm.h
+@@ -129,6 +129,8 @@ bool kvm__emulate_mmio(struct kvm_cpu *vcpu, u64 phys_addr, u8 *data, u32 len, u
+ int kvm__destroy_mem(struct kvm *kvm, u64 guest_phys, u64 size, void *userspace_addr);
+ int kvm__register_mem(struct kvm *kvm, u64 guest_phys, u64 size, void *userspace_addr,
+ 		      enum kvm_mem_type type);
++bool kvm__valid_mmio(struct kvm_cpu *vcpu, u64 phys_addr, u32 len);
++
+ static inline int kvm__register_ram(struct kvm *kvm, u64 guest_phys, u64 size,
+ 				    void *userspace_addr)
+ {
+diff --git a/include/linux/kvm.h b/include/linux/kvm.h
+index 502ea63..fa01051 100644
+--- a/include/linux/kvm.h
++++ b/include/linux/kvm.h
+@@ -178,6 +178,7 @@ struct kvm_xen_exit {
+ #define KVM_EXIT_NOTIFY           37
+ #define KVM_EXIT_LOONGARCH_IOCSR  38
+ #define KVM_EXIT_MEMORY_FAULT     39
++#define KVM_EXIT_ARM_LDST64B      41
+
+ /* For KVM_EXIT_INTERNAL_ERROR */
+ /* Emulate instruction failed. */
+diff --git a/kvm-cpu.c b/kvm-cpu.c
+index 7362f2e..f544cf4 100644
+--- a/kvm-cpu.c
++++ b/kvm-cpu.c
+@@ -238,6 +238,42 @@ int kvm_cpu__start(struct kvm_cpu *cpu)
+ 				goto exit_kvm;
+ 			};
+ 			break;
++		case KVM_EXIT_ARM_LDST64B: {
++			struct kvm_run *kvm_run = cpu->kvm_run;
++			__u64 ipa = kvm_run->arm_nisv.fault_ipa;
++			int ret;
++
++			pr_info("esr_iss %llx fault_ipa %llx",
++				kvm_run->arm_nisv.esr_iss, ipa);
++
++			if (!kvm__valid_mmio(cpu, ipa, 64)) {
++				struct kvm_vcpu_events events = {
++					.exception.ext_dabt_excl_atom_pending = 1,
++				};
++
++				pr_info("Injecting DABT since incorrect Guest memory attribute");
++
++				ret = ioctl(cpu->vcpu_fd, KVM_SET_VCPU_EVENTS, &events);
++				if (ret) {
++					pr_err("err inject DABT");
++					goto panic_kvm;
++				}
++			} else {
++				struct kvm_vcpu_events events = {
++					.exception.ext_dabt_excl_atom_pending = 1,
++				};
++
++				pr_info("correct mapping but emulated MMIO");
++
++				ret = ioctl(cpu->vcpu_fd, KVM_SET_VCPU_EVENTS, &events);
++				if (ret) {
++					pr_err("err inject DABT");
++					goto panic_kvm;
++				}
++			}
++
++			break;
++		}
+ 		default: {
+ 			bool ret;
+
+diff --git a/mmio.c b/mmio.c
+index 231ce91..7071d3a 100644
+--- a/mmio.c
++++ b/mmio.c
+@@ -195,6 +195,11 @@ bool kvm__deregister_iotrap(struct kvm *kvm, u64 phys_addr, unsigned int flags)
+ 	return true;
+ }
+
++bool kvm__valid_mmio(struct kvm_cpu *vcpu, u64 phys_addr, u32 len)
++{
++	return !!mmio_get(&mmio_tree, phys_addr, len);
++}
++
+ bool kvm__emulate_mmio(struct kvm_cpu *vcpu, u64 phys_addr, u8 *data,
+ 		       u32 len, u8 is_write)
+ {
 
 
-
->=20
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->=20
->     Andrew
-
-
---=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-https://www.tq-group.com/
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h |  1 +
+>  arch/arm64/include/uapi/asm/kvm.h    |  3 ++-
+>  arch/arm64/kvm/guest.c               |  4 ++++
+>  arch/arm64/kvm/inject_fault.c        | 29 ++++++++++++++++++++++++++++
+>  4 files changed, 36 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 0720898f563e..df141ae77019 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -47,6 +47,7 @@ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+>  void kvm_inject_undefined(struct kvm_vcpu *vcpu);
+>  void kvm_inject_vabt(struct kvm_vcpu *vcpu);
+>  void kvm_inject_dabt(struct kvm_vcpu *vcpu, unsigned long addr);
+> +void kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, unsigned long addr);
+>  void kvm_inject_pabt(struct kvm_vcpu *vcpu, unsigned long addr);
+>  void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+>  
+> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+> index ed5f3892674c..69985acda668 100644
+> --- a/arch/arm64/include/uapi/asm/kvm.h
+> +++ b/arch/arm64/include/uapi/asm/kvm.h
+> @@ -184,8 +184,9 @@ struct kvm_vcpu_events {
+>  		__u8 serror_pending;
+>  		__u8 serror_has_esr;
+>  		__u8 ext_dabt_pending;
+> +		__u8 ext_dabt_excl_atom_pending;
+>  		/* Align it to 8 bytes */
+> -		__u8 pad[5];
+> +		__u8 pad[4];
+>  		__u64 serror_esr;
+>  	} exception;
+>  	__u32 reserved[12];
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 2196979a24a3..47bc09ea50c3 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -839,6 +839,7 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+>  	bool serror_pending = events->exception.serror_pending;
+>  	bool has_esr = events->exception.serror_has_esr;
+>  	bool ext_dabt_pending = events->exception.ext_dabt_pending;
+> +	bool ext_dabt_excl_atom_pending = events->exception.ext_dabt_excl_atom_pending;
+>  
+>  	if (serror_pending && has_esr) {
+>  		if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
+> @@ -855,6 +856,9 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+>  	if (ext_dabt_pending)
+>  		kvm_inject_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+>  
+> +	if (ext_dabt_excl_atom_pending)
+> +		kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+> index a640e839848e..d64650a1aefe 100644
+> --- a/arch/arm64/kvm/inject_fault.c
+> +++ b/arch/arm64/kvm/inject_fault.c
+> @@ -171,6 +171,35 @@ void kvm_inject_dabt(struct kvm_vcpu *vcpu, unsigned long addr)
+>  		inject_abt64(vcpu, false, addr);
+>  }
+>  
+> +/**
+> + * kvm_inject_dabt_excl_atomic - inject a data abort for unsupported exclusive
+> + *				 or atomic access
+> + * @vcpu: The VCPU to receive the data abort
+> + * @addr: The address to report in the DFAR
+> + *
+> + * It is assumed that this code is called from the VCPU thread and that the
+> + * VCPU therefore is not currently executing guest code.
+> + */
+> +void kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, unsigned long addr)
+> +{
+> +	u64 esr = 0;
+> +
+> +	/* Reuse the general DABT injection routine and modify the DFSC */
+> +	kvm_inject_dabt(vcpu, addr);
+> +
+> +	if (match_target_el(vcpu, unpack_vcpu_flag(EXCEPT_AA64_EL1_SYNC))) {
+> +		esr = vcpu_read_sys_reg(vcpu, ESR_EL1);
+> +		esr &= ~ESR_ELx_FSC;
+> +		esr |= ESR_ELx_FSC_EXCL_ATOMIC;
+> +		vcpu_write_sys_reg(vcpu, esr, ESR_EL1);
+> +	} else {
+> +		esr = vcpu_read_sys_reg(vcpu, ESR_EL2);
+> +		esr &= ~ESR_ELx_FSC;
+> +		esr |= ESR_ELx_FSC_EXCL_ATOMIC;
+> +		vcpu_write_sys_reg(vcpu, esr, ESR_EL2);
+> +	}
+> +}
+> +
+>  /**
+>   * kvm_inject_pabt - inject a prefetch abort into the guest
+>   * @vcpu: The VCPU to receive the prefetch abort
+> 
 
