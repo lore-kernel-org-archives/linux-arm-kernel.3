@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D14C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:25:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0D0C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ocidI6mSs4/fgUZV2bAXSL1w9m+IV2ZnqPOX1xgW0FA=; b=C1/OLCdwP+8G8JQPbDALr2HBJy
-	c+yI01uTaIt5KPlpp56G58EGTeGigiNa1Ayi7foIEwb23KH9nmnWBpeBMP7eoNykYmyaizlvannuq
-	n/Z135MUiB0I6JI3c6eUvP5adSjpmRjmpkBndcnTXE4JdCTNd/Y30RKilLHDafS0TDdKhmsFykXT5
-	+Tw2YeYuoYcKgFEI7yWBM35AFUslsGePm9JPPLWDAfo6lmA4tBeAmlQFdn+uC9nas0VHtsif7qskL
-	+C+V1niUDIErql84MEatEjiiaXr1cyPyWM0MzHt+KkDDXroT7gAlYWPpo4ec8wANGM+CD0Mmn1zne
-	PNey90bw==;
+	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=; b=QN3WC8r7tDn6R0hhzXvgBVoYx4
+	jGPC6QihItjcBzoAhwCdHXRg6UwtHTPe21RaYcHJ7cBhdRHUIu1SH7hDW8U133+DbygVXQokp7FqD
+	nodrx1oyO7kqn9BdLnMlCGwKFsdRUm6OdgHpgUb+3YqCqzSfMZzAJ1xlEGwDSUhgFj1ExduPv0UDG
+	TrtL6OWqwjb4LpElRNpHgEpC0D9PJpoYNvrKv3lNrJ86JUO0pHdim5fR47c/F73pGljgwiC/nj52P
+	qFd5zfAYEX2JWGwlDyTtMLZWbIkftHZdwt0ZbfFnlQ7ry4rzQZcqeGd4JU1T5yK/To6V5XMPPZBee
+	0JNJIIHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpPt-0000000CGlf-2tDs;
-	Thu, 26 Jun 2025 16:25:37 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uUpSG-0000000CH0j-2Dos;
+	Thu, 26 Jun 2025 16:28:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUp95-0000000CDt7-1Ut5;
-	Thu, 26 Jun 2025 16:08:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yb933NWPiFIlnrRcw79p0rSSZ3IlD6P4pe41nSlMLolJkAZp56fDArGQN2rI+kxqR/JK1ZXjBeafkfk0XVTguQVTr+VMRvCmISS5AJN1Jrxn5G5sgzXFvoCoXhr35xnpkYGDhbcTixvonD9mbrcMYg82U/ofppGZkRLkhHBQm0nOiGP0fD9FmuCT3uOeTIbOl0qhXoWOu07+SSvJmSJVTMGrFLFZRuhixk3H9lgYk2hMpmotSiiIlHrSDH+FDWulK+o9GNwcyG9hP0RqH07I2ObrZYb0T7EqCYGyAIyhOvpl8F54JxRbK5nLf6SJydslHtvvAQ+AvDjFnISUid4z2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ocidI6mSs4/fgUZV2bAXSL1w9m+IV2ZnqPOX1xgW0FA=;
- b=wUTDGVVZ5vbgr5lgqr1VeUWQozKpV9rhz9ngkXUslCtxZ/9W6aBwVTadnlPjvk3a3/JW2rOtfs2HNRzG2rFIyIDWbOBW2YVnWOMwmKgDua1x2XyOAmrsoVO0NQAk2jImwRenWR1JfzCJzzUPBHNwwIfRySGplzDXjr9t+LQIxLS3VsCPEuboK1DpgfGN0ZzQqWpPrDg8PbSx3jKjqGhcRybx2AfqKeoN5hzCBJklKj+4PhKaRw7o8R95bIFxAWo0Rzch2z+QY0UqTknGHDMkBmKui6iMwIw9dqPZYk7oCUicexatsLh//h9snq1O2iOehZGe7kY5CJ0zzwywIXQBoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ocidI6mSs4/fgUZV2bAXSL1w9m+IV2ZnqPOX1xgW0FA=;
- b=eFpTD6Rb2EUM99FW8sVNOISpaqlqy5DZGJG6vKqbr4PooM2QS8geAVBhxB4xXjqyel4k9/laBlpswhnf+keeP/1m0AzIXTe+lfJVPAl/CyBUKH9g3h3H7KxmnwEYLUVi2VRg1r26/8/NnYFy0JO0T+hS/HsEPhEcmf6rh3XwjpWGtNP/Og5X89JQZhq+Vmj5uODmmCfKdjbt8oyMC3h1adiJdW860/XV+urNQPoTOI4VuTPOA7RWDjNggJWVgZF11n+RG6slcNXgUFzbimq8bvc74/QCd8SYPjhH6xMKvOrm/NUoOe1hfUhATBvYcRuEgPxJu+Wyck0mpJHBXwUDyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8653.eurprd04.prod.outlook.com (2603:10a6:102:21c::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.21; Thu, 26 Jun
- 2025 16:08:11 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Thu, 26 Jun 2025
- 16:08:11 +0000
-Date: Thu, 26 Jun 2025 12:08:04 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	id 1uUpDI-0000000CET6-2PY0;
+	Thu, 26 Jun 2025 16:12:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=; b=WZUaYR4MGDcwA72Cd1oB7SIN0F
+	IFMAmPV7c00mJPk2CVhNVrN29w8KbLmEphp3RL4R63R4OUaUKxPZYcVSAN2tY/ZlU8l5OCWyQavDa
+	tligsFzmreVUsDgk34KMrgXyQSbPNUTLn4NU80KrGc2yXX2Zv0d+1KKvvkmphxig1Te66I9T+aiAJ
+	0ManUiJQs6f4Y/VgDFHI+DQ9mOkPERLaFTlvo2wrN3sLWMy6u6MSlfCO10MRmmqRH0iDoX1jNpwOd
+	3EXHrnWTg5FauhOwgr1ZcxKwpULUNMAo1hWX56jzidYQM3pzgPxPJuFnQgPTEoMWcAtTcCVEyDx1L
+	pVfwJKTQ==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUpDF-000000068og-3PWS;
+	Thu, 26 Jun 2025 16:12:35 +0000
+Date: Thu, 26 Jun 2025 18:12:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750954350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
+	b=0LYeaLtAJ5FAMG3LKAeKdLDltJhvOW1WHfMGoLPpHniE2OZI85uX1GQ2ey33i0w2d3okwY
+	y8RJdyrEW9ZY/cT+ZjwXRpUAjWJ0kCU+X2/JsCqHsZ9U3aZ2TChCv+CCVSJp+KV+L4Zxa2
+	z1/e8Cw6EEDWNScScFvdTo+JFjdypZBGw3uOzxDCwl0rK8PijcEKtHTsbEtaOJrOY79zE+
+	lyYrnQXacHleQNfDRVYS/oxCSupzyLsGdaUVpCsib+pW7FPXQCOPPYoVqYsGycNLqIR0Mq
+	0QXD62rY8oOCAC9hVds/VEowvpYLNn7GWPeodcQRkAMgY2ncXFVKyAVu6ZobjA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750954350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
+	b=rtm8MhjqrOGX+yu466ihurQqBVjxnH6Q7AddtO63t9athnBOj9mUFoMRtFMFVGiDMnsQtE
+	sk4IQPJV0R8iU4AQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Antoine Tenart <atenart@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
 	Gregory Clement <gregory.clement@bootlin.com>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
@@ -71,93 +78,19 @@ Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev, linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 04/12] irqchip/imx-mu-msi: Convert to
- msi_create_parent_irq_domain() helper
-Message-ID: <aF1wZJV6U9c7bnX6@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH 02/12] irqchip/bcm2712-mip: Switch to
+ msi_create_parent_irq_domain()
+Message-ID: <20250626161228.N6byQ97v@linutronix.de>
 References: <cover.1750860131.git.namcao@linutronix.de>
- <4f05fff99b6cc5875d2f4dadd31707e2dedaafc8.1750860131.git.namcao@linutronix.de>
+ <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4f05fff99b6cc5875d2f4dadd31707e2dedaafc8.1750860131.git.namcao@linutronix.de>
-X-ClientProxiedBy: AM9P193CA0025.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:20b:21e::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8653:EE_
-X-MS-Office365-Filtering-Correlation-Id: 225d9d10-6d50-4c1a-00f0-08ddb4cba606
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ehkxc60JgiScfZSNnqXMn1Rl7gk1UHzeThGmuAhwd8532LgOei/N6FqNVsFc?=
- =?us-ascii?Q?6qYaB2/iLzhVeown17vSF8K1f0W6Rc4OHSIBJggnq/ZjC+xObpda8Ar9cZYk?=
- =?us-ascii?Q?NKaamH6hExV5YUx0WZihMI52kIpR8TU5HACVP/9WfhnvCyspi1/IU8DafnVH?=
- =?us-ascii?Q?afiqXupUeVVpiRHGk3971LPmdqhrgMP07LyYcdC5Qomm4zJq6WLe27YNvqvs?=
- =?us-ascii?Q?XVjIzf+uwsoeBfGEccwaztgMVzXOOOlJJrUWWwtSNF3Sq1uA0Ce2b8Te9Um4?=
- =?us-ascii?Q?IdPyqgC65E5SIpX5mRAeDB6M83l+3jOiyqwbCzvtb2pWdyrJ3bqP/i/vRsn9?=
- =?us-ascii?Q?A8PmLSaW9C/ETx+cw+IuI8fuv1jrU1ZvJmbQvjEE28FN98ZGREQDdHsszkmU?=
- =?us-ascii?Q?LESMswSplIcKmai+N2TYnUN+dfx+s1EXiINKm5l85CS9nCXEVUUzZEwiGk8O?=
- =?us-ascii?Q?aTRsqjcFvffT6uZSELLR5yUDcoounrDrIRp8DmzmBdjTEaxjho7fiVFr+bGP?=
- =?us-ascii?Q?AnmRbIPWi6n1grSO3GeeOw40IgERKD/Pa43HDcqtqN5ZNE8HT7P1gePz9ilY?=
- =?us-ascii?Q?vTl+eYK3KR2mKt1uI1Fvs3YOq08OuerKgfjUhVsxKiRZY1JowYYmHd3QEaOV?=
- =?us-ascii?Q?VLi79K1W3ht0+MmTZx4UpniObmsDrFIPmVEo/hY5p5n2pk9FT5f6xwvMl2kk?=
- =?us-ascii?Q?Rj39BLqcLVuIkB2EKdawF8RAoI6VZCMwg2KvG5ZBoSHfHp3t1XhHKq/8Jf3a?=
- =?us-ascii?Q?P0izNA+ITmSgGy/k4p5Vh+LGopog7ZFnxh9V0Q3pOVdi1wKnPt4V6cut0X5N?=
- =?us-ascii?Q?KtD3A5NkIfH5eiS7n/M8MLbwtoQkVG0yHIir/KzXyW2LBCwHbW1XnOjpy6mY?=
- =?us-ascii?Q?3e+PSI6QWxQu6VBAWF8qsA0tFEagEobzSU9GolfpzGeT+W0plxGvUVDcak3X?=
- =?us-ascii?Q?QqGiEhkVwgHbwUHBLo+FxXhLChePJsLA4kOXzTsEUb+kcCXsTQSlqc98JiZu?=
- =?us-ascii?Q?uHfEShiMjR0ytJvL+5vNol8bLxpaJHKU6Iypv1C52OpFy8UhPSZO3pvy0tdc?=
- =?us-ascii?Q?9chko7cI3JZ2dpdPFEhRLcY6UcTCjQD4gpds8Mpd2hR+pVovP7w4nqK3Rn0M?=
- =?us-ascii?Q?gAXTgCZ0CcHIxdZAVw9/oFE2Ej/k2fbWBoKzb19BKxpF5gWmlTov6/2tsnzV?=
- =?us-ascii?Q?bLo4hBp6koAWBr3plCRxNFrZVGcgamyjQJdlUbatJZcHRFmRCkiSxAxsdbnH?=
- =?us-ascii?Q?+p7VGHDkx+hlflZThIualNLRKKC2qAg5VOwaww//XCS7XjfMD+xfHEv8QwnO?=
- =?us-ascii?Q?UYxLu1GQDvpg+N8nKWYlDCt7M1ePb5V9vwiN2+SPKWeuNvHwCRswAxsc4HO3?=
- =?us-ascii?Q?HoEgxczF7Wz2KDwM/+bVTxorFGdQ2J43CIitkAhHzWcv5rK0WAyA6s9rY70a?=
- =?us-ascii?Q?UYSNXL5IbLyFYUfbCWzru+Q/lsrjsu4xOa3XiSUo5Ikjx63r7Qrdnrqc/3Rd?=
- =?us-ascii?Q?FVD7BH0CiB8tFZg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CRDnPBzG4N42Oyfqda1V/w30Pkjh5VMUO+tVVc1kuZA69VUtLLncmBxPbZZ2?=
- =?us-ascii?Q?7PWJxYKf53J4eDbopOoJtEEBuxknBhl0jcNMhZAXsazrzIZO7Ybz362kjPyh?=
- =?us-ascii?Q?rp26N1m7Oh1AMZYA79jrWf+1xebVGMRdjzdt/RgYg9KKLbjuT1kCKdTe9aFt?=
- =?us-ascii?Q?9O0YBDQPvNS1FDIZ0vts6/gWIoAheN4VmmbprQzU3P0nr42nR4x2xzNxAbDF?=
- =?us-ascii?Q?ZweGlgoK6v1Axlhqi74RJiOND+NWf8FhWso2WIf5TofpTwrueOh9RtjKfG7b?=
- =?us-ascii?Q?/KXRZBWL33ohFUtd8l7dTUzHZ0TqgU3XAl6gkEjwaoJbqz7jdNzg0Z8RPqPk?=
- =?us-ascii?Q?O2jqjvxCVInbQfjN6JQ27rscJJ0WRz9pKVq3rwzz/+ipLRQvQhFtCrz1U95y?=
- =?us-ascii?Q?0KTJqi2GqzSbllDL+uNiO9Gamc7SC5glIf5YzqOOJyHI5V4BxMAFzJZwSx8S?=
- =?us-ascii?Q?XW7KPTgYyGeTzg/wJGbTgRD0F7bsuJbdKybeejxRJDkMPy3giWcUiU2IPPv8?=
- =?us-ascii?Q?G6AbaTbIEZYNYruLIQWcwM/Je68dtnS1A42Zktuz1GkeUhJgZszRI3P+aivu?=
- =?us-ascii?Q?zvIux8t6lwQGz9gn9d3vqbGZm7avie8BkTFe7FnDaOWS4v6pOF61H+5p95y2?=
- =?us-ascii?Q?AK8hmdWe03CNaU3CK3GvYUqVjLC+ykUgjX73YLmLXqMWXYPxZYUo5J53bHdv?=
- =?us-ascii?Q?5PIRWyz4873fhq2zMqlQnvS0CSxnrVAzaoIIT58BUxXRoz/spDL+lPdFcnKs?=
- =?us-ascii?Q?XSGKjp9+i56aGx5AiOcnBkoD9nDMxK0H5Adk9IqMSzd4OJXnArYSx1e0gLzx?=
- =?us-ascii?Q?pocc2sS0xyLT4C9Z1oXJ/Agk0jPFYbrSzEsVBypqeJJb1c3SfzSdhTCbtjMI?=
- =?us-ascii?Q?r2uuinEgtIz1N+BpEZU4cKdN4922aT+dRZGS58Rq31ScGpnRSUJj5GJsyiDB?=
- =?us-ascii?Q?K3O9QlCF2n6RAbBVFPER6/OUfai0Sopa53N3PRpgvIe8OeguYV5wGfqcdDaS?=
- =?us-ascii?Q?KmMseF2t0123nOL8WTiwh3z9fB9eh3EbNwAtBKutdRvFyL/HIf/A21lrBLnD?=
- =?us-ascii?Q?5GzTGe3gXyGGLAweXGOlCST9vpcjLycAVc2h17Bqrp1yURVLfjJ7nB/28AVk?=
- =?us-ascii?Q?p0M8R9Way24pcB/woXauz/321kQw0i8Rb0XldAWzj6t708Cvb9pKxJi8UJYO?=
- =?us-ascii?Q?1MLJ4T6bdr2LZK4juOlTZd3/Q3Ctg6tEDtdskDuOQR7Roa1njtUEqmqC9hCh?=
- =?us-ascii?Q?AHy2Tbq07eU6iXa2TbXVtc89vQ2CUx/ue9afv8nH69uxTOdr62XtpyQurqgz?=
- =?us-ascii?Q?3/848VkkCGIgGzppxsQ7Own5C9nTB5t2tGQhhLPch/9IT0hk2jq6HQXz4MAy?=
- =?us-ascii?Q?BxF+w3WsuC4SzJvuc6+T/+Iyb+Mmtnf0oMeciD5J+qQ4NiSvnAMTE/tvIkgL?=
- =?us-ascii?Q?mt3+REV84Ob1JI/wocrawyBkuF/D92RMbrvoS/+mcTDaveqKmFL3o+Kz2bwO?=
- =?us-ascii?Q?KPDgoicd7zi8ufVr7IEStnD5ZcXp5LWRGSOqIGtC8coF7RlfO7vLW57jtY5D?=
- =?us-ascii?Q?DmAkxXcg0Ua/O82MqT8K5X4Q53YDsqlXrvK505sx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 225d9d10-6d50-4c1a-00f0-08ddb4cba606
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 16:08:11.5017
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3zurhkKxoq+ZRbGWhIwYrmDkuWT0FyZSwvDgbUL/gYLoZOfxdsqo28DOvDVlUOeFu1qQcgFjIBjtHpE1kJN9GA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8653
+In-Reply-To: <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_090815_396437_9004C121 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20250626_171233_972171_AA77809E 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,63 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 04:49:01PM +0200, Nam Cao wrote:
-> From: Marc Zyngier <maz@kernel.org>
->
-> Now that we have a concise helper to create an MSI parent domain,
-> switch the IMX letter soup over to that.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+On Thu, Jun 26, 2025 at 04:48:59PM +0200, Nam Cao wrote:
+> From: Thomas Gleixner <tglx@linutronix.de>
+> 
+> Switch to use the concise helper to create an MSI parent domain.
+> 
 > Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Link: https://lore.kernel.org/all/20241204124549.607054-7-maz@kernel.org
+> Signed-off-by: Nam Cao <tglx@linutronix.de>
+                          ^ oops, that's not my email
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I will send v2, but let's wait for a few days if there is something else I
+should fix.
 
-> ---
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/irqchip/irq-imx-mu-msi.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
-> index 137da1927d144..d2a4e8a61a42b 100644
-> --- a/drivers/irqchip/irq-imx-mu-msi.c
-> +++ b/drivers/irqchip/irq-imx-mu-msi.c
-> @@ -223,21 +223,21 @@ static const struct msi_parent_ops imx_mu_msi_parent_ops = {
->
->  static int imx_mu_msi_domains_init(struct imx_mu_msi *msi_data, struct device *dev)
->  {
-> -	struct fwnode_handle *fwnodes = dev_fwnode(dev);
-> +	struct irq_domain_info info = {
-> +		.ops		= &imx_mu_msi_domain_ops,
-> +		.fwnode		= dev_fwnode(dev),
-> +		.size		= IMX_MU_CHANS,
-> +		.host_data	= msi_data,
-> +	};
->  	struct irq_domain *parent;
->
->  	/* Initialize MSI domain parent */
-> -	parent = irq_domain_create_linear(fwnodes, IMX_MU_CHANS,
-> -					  &imx_mu_msi_domain_ops, msi_data);
-> +	parent = msi_create_parent_irq_domain(&info, &imx_mu_msi_parent_ops);
->  	if (!parent) {
->  		dev_err(dev, "failed to create IRQ domain\n");
->  		return -ENOMEM;
->  	}
-> -
-> -	irq_domain_update_bus_token(parent, DOMAIN_BUS_NEXUS);
->  	parent->dev = parent->pm_dev = dev;
-> -	parent->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
-> -	parent->msi_parent_ops = &imx_mu_msi_parent_ops;
->  	return 0;
->  }
->
-> --
-> 2.39.5
->
+Nam
 
