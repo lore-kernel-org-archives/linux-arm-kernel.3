@@ -4,124 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870E3C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 06:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C723C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 06:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MpPYhArlXmWCgYgW4qeCuws8Mpxw0BvsnQQWeZhvzM0=; b=yYtXahPej2FvjoLLwwup8vFQBI
-	rXlhaKui4xi6XZCfa9Mjub02pJtsLrqMHFb0HI6hAIv3nZ0JmGGh063KC0Kt+61L+3BeRvaBjEpOC
-	FnSv6XyQfLpwMAIfRqAR7QrVVG+/Oos5aQxqdXo/cfofH5WELHQsHNkV53+U4cwCAyW/rHVWo7VJm
-	2+gNcIaoW2ZQGFR7wrCvnnNdMD2Dlnn+pwU32OXkdmdlheXTmGBHtM1DCioDdOCJGL65C0XjtvJkS
-	8K1YA3BDcDdR/yXzYdm/Qk7NUW98NflbqaeOrfg/e09fq383W+t8voOf62vPVXAhkyA/cLVIFyhBs
-	tfgcnQ3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BrnBb1u8+xN0axh7RXZF3RUvtezK1itX/RvwUC1NtH0=; b=Wla9Kw4gCeJ7UHk+p+HDHRjXJ2
+	zUwq0IRXvI8EoJQa0VPSLHMbm8KF9c/e0Y6Gzf74vVVj0tJdxssf0GXO+dtfJF614YhCQH2YxCys5
+	c3+Igr2c1SGD6JfSSUf/dMAjIGkVkCJaQ8pTM/ecF4/XIsMiAk1A1fT2vMG3QoK2fvjbfqmvRH/XM
+	x/M9CQP7l+hGB3wkH3sJG/1P3smaBKF7zsDObmew99YTsd1BS1Cr6kYra44s9a8fS/sHMaq0dxKIb
+	BZcLN2uzqgVzE8AtzZ9wbAbHBIrWzw4LTlhQt1hmdiLxAodBBE+I4m1E2Uiw6hLR0ICkcuypm3/Ri
+	6irP86oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUfjk-0000000Ah7D-0LoX;
-	Thu, 26 Jun 2025 06:05:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uUfvn-0000000AjEi-2HqW;
+	Thu, 26 Jun 2025 06:17:55 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUfhQ-0000000Ago0-3yvB
+	id 1uUftW-0000000Aj6E-0uED
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 06:03:06 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55Q4WonY010573;
-	Thu, 26 Jun 2025 06:02:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=MpPYhArlXmWCgYgW4qeCuw
-	s8Mpxw0BvsnQQWeZhvzM0=; b=UPbuRMVERhUxDEZzGrapMCXznkNIzr7w0yT8hW
-	svXcbwZ+1vjukeeO55jUVfUuJ3S3sZ5aJV5kIHMmUBNl7I44nKfeE8ksB2anT1pa
-	NCTO7jfz/So9qR72yn42knhuDxaNJcQ8xKKCmcGLqJsOnLFindpIrHCq+sLBNjuz
-	FxbISy0eI+60M7rR9JUdX3GhLc4mjgis/JtbeXkNqxJzL3NdJtqGdAPWLVfCZLOU
-	OrOtYzHpt8BjqVNRDmijQxhWSCM0JmV7kb67d91IxF/ZfTRi2QzOslZN6Cc+HCKP
-	T3vPIgAWjKLwxAh1fZNUbr7MsfTjBk5VG0dhuF7FS37H+IPQ==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47g88fbw4c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Jun 2025 06:02:36 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55Q62ZbK014364
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Jun 2025 06:02:35 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 25 Jun 2025 23:02:30 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 26 Jun 2025 14:02:20 +0800
-Subject: [PATCH v6] coccinelle: misc: Add field_modify script
+	Thu, 26 Jun 2025 06:15:35 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55Q6FU9O1658138;
+	Thu, 26 Jun 2025 01:15:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750918530;
+	bh=BrnBb1u8+xN0axh7RXZF3RUvtezK1itX/RvwUC1NtH0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=MmymMmnGVpx24An7rZMbUABpApdcdUpdAEwaML+iE+J6pD7A0v+z94gmACWgZ14ru
+	 /b8yCIO+YqaP694skNPA7oxeyieA/GGQU9717Qa+YJbXAggSjOc8hb7sqK9iDFlkck
+	 FGmDP88Mr680fn+E60tZtNqrVjGJA1WYcIbCLIsE=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55Q6FU5X1980491
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 26 Jun 2025 01:15:30 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
+ Jun 2025 01:15:29 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 26 Jun 2025 01:15:29 -0500
+Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55Q6FQpk506594;
+	Thu, 26 Jun 2025 01:15:26 -0500
+Message-ID: <0d81594f-ad1a-4c65-a00a-9c97c8b01a65@ti.com>
+Date: Thu, 26 Jun 2025 11:45:26 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/7] Add DSI display support for TI's Jacinto platforms
+To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>,
+        <devicetree@vger.kernel.org>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>
+References: <20250624082619.324851-1-j-choudhary@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20250624082619.324851-1-j-choudhary@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250626-field_modify-v6-1-200dffa38a07@quicinc.com>
-X-B4-Tracking: v=1; b=H4sIAGviXGgC/2XOSw6CMBSF4a2Qjq3pixYcuQ9jTO1DbiKgVBsJY
- e8WHCgyPDf5/twBBdeBC2iXDahzEQK0TRpykyFT6ebiMNi0ESMsJ5Iy7MFd7aluLfgeM0V56aX
- iRUFRIrfOeXjNucMx7QrCo+36uR7pdP2EBFXLUOSYYOlVWTKtvTmr/f0JBhqzNW2NplQUX776I
- 4rEtRNeCatFruWa5z+ciT+eY4qNlYoyRThxYsnHcXwDlLj04SgBAAA=
-To: Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        "Nicolas
- Palix" <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton
-	<oliver.upton@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <Markus.Elfring@web.de>, Luo Jie
-	<quic_luoj@quicinc.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750917750; l=3872;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=ux/mTJ8E+wX+kajs9XBKrd9beBovgB6YKCu98nQUhUo=;
- b=SeVIF7MxdkxmO2LE2JP0k/HUfsPK/T+wakKidgrx0NOm7aKMlpXxE9R7z5KxWkTvp24OxHmh6
- Qiyxud6avYeB9BngiBtHC1UwyTw3mxEhuf/qSKDCTlhD5eA/Iu23k0Q
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI2MDA0NiBTYWx0ZWRfX/msli3c7dzzA
- pQfUlU6zJZDj6mqYCP5F3geXzxrFBwq+d/e1m6IGN017415Pn2T+OywwLY/ZtXJ0a4hBFLqN63K
- uo2Q2erLY99EF8jwveTACksI+K+i3HwgaCjSPO5xCpaQ8MWVfRcwyKzvi7zFaC9ElTKO7A/sdmz
- WELOZfjuJucj6vnl73EyfTS7yN3SlwbLfcSpj8ycF/tkeRHRtsuJUeXBuN5Lu3FNg56rQbspAS6
- Vv85XUTy6TmuU5DdmK/o/8pUmyPap4/QGhPmzglIis6l8hfFIRyoJuHPYV3AlVDfduLA7dsgGJU
- lUX0wdZ0iQTK0odQSfDWIbsEI94OsSavOfGUbIzYyXAfbk4gUta/rdtW3HlSmstkWjnjT8H1qxa
- vG0mUe0pk5gJpE35ckH2YzOzBXfsMrYWxG/JwqVCnDr9/lXMT4muAtX2aZHupt/KbTbXKZuj
-X-Proofpoint-ORIG-GUID: zaYYXVueZahctmNJ9GD006cERxboO3-t
-X-Proofpoint-GUID: zaYYXVueZahctmNJ9GD006cERxboO3-t
-X-Authority-Analysis: v=2.4 cv=LNNmQIW9 c=1 sm=1 tr=0 ts=685ce27c cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=05oQ047nAAAA:8 a=S47agHus8KO1I0bcMDsA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=vNAg3JWiabyzeNEprMgK:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-26_03,2025-06-25_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 bulkscore=0 mlxlogscore=999
- impostorscore=0 mlxscore=0 clxscore=1015 adultscore=0 priorityscore=1501
- lowpriorityscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506260046
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_230305_128511_C0DF2EC0 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250625_231534_385918_272849C3 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,126 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Find and suggest conversions of opencoded field modify patterns with
-the wrapper FIELD_MODIFY() API defined in include/linux/bitfield.h
-for catching the possible parameter type error in the compile time.
 
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
-Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
-macros. It is functionally similar as xxx_replace_bits(), but adds
-the compile time checking to catch incorrect parameter type errors.
 
-This series also converts the four instances of opencoded FIELD_MODIFY()
-that are found in the core kernel files, to instead use the new
-FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
-the script field_modify.cocci.
+On 24/06/25 13:56, Jayesh Choudhary wrote:
+> Hello All,
+> 
+> This series adds the dts support to enable DSI on 3 platforms for TI SoCs:
+> - J784S4-EVM
+> - J721S2-EVM
+> - AM68-SK
+> 
+> Relevant driver fixes, CDNS-DSI fixes[0] and SN65DSI86 detect fix[1]
+> are Reviewed and Tested.
+> 
 
-The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
----
-Changes in v6:
-- Adopt the suggested code variant for the org mode.
-- Link to v5: https://lore.kernel.org/r/20250624-field_modify-v5-1-cd67127030e4@quicinc.com
+Are these merged?
 
-Changes in v5:
-- Remove ARM64 patches based on the discussion in v3 and v4 versions of
-  this series.
-- Simplify the condition selections in coccinelle script.
-- Link to v4: https://lore.kernel.org/r/20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com
+[...]
 
-Changes in v4:
-- Add org, report and context mode for coccinelle script.
-- Fix other comments on coccinelle script patch.
-- Remove the FIELD_MODIFY patch as it is merged.
-- Link to v3: https://lore.kernel.org/r/20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com
-
-Changes in v3:
-- Correct the order of header files included.
-- Add the Coccinelle script field_modify.cocci..
-- Convert the opencoded FIELD_MODIFY() variants inside arm64 directory,
-  identified by field_modify.cocci.
-- Link to v2: https://lore.kernel.org/all/20250410131048.2054791-1-quic_luoj@quicinc.com/
-
-Changes in v2:
-- Update the documented example for FIELD_MODIFY().
-- Improve the commit message to describe the need for the change.
-- Link to v1: https://lore.kernel.org/all/20250318071526.1836194-1-quic_luoj@quicinc.com/
----
- scripts/coccinelle/misc/field_modify.cocci | 59 ++++++++++++++++++++++++++++++
- 1 file changed, 59 insertions(+)
-
-diff --git a/scripts/coccinelle/misc/field_modify.cocci b/scripts/coccinelle/misc/field_modify.cocci
-new file mode 100644
-index 000000000000..bdc5a65a1b53
---- /dev/null
-+++ b/scripts/coccinelle/misc/field_modify.cocci
-@@ -0,0 +1,59 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/// Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-+/// - reg &= ~MASK;
-+/// - reg |= FIELD_PREP(MASK, val);
-+//
-+// Confidence: High
-+// Author: Luo Jie <quic_luoj@quicinc.com>
-+// Copyright: (C) 2025 Qualcomm Innovation Center, Inc.
-+// Keywords: FIELD_PREP, FIELD_MODIFY
-+// Options: --include-headers
-+
-+virtual context
-+virtual patch
-+virtual org
-+virtual report
-+
-+@depends on context@
-+identifier reg, val;
-+constant mask;
-+symbol FIELD_PREP;
-+@@
-+
-+*reg &= ~mask;
-+*reg |= FIELD_PREP(mask, val);
-+
-+@depends on patch@
-+identifier reg, val;
-+constant mask;
-+symbol FIELD_PREP, FIELD_MODIFY;
-+@@
-+
-+-reg &= ~mask;
-+-reg |= FIELD_PREP(mask, val);
-++FIELD_MODIFY(mask, &reg, val);
-+
-+@r depends on org || report@
-+identifier reg, val;
-+constant mask;
-+symbol FIELD_PREP;
-+position p;
-+@@
-+
-+reg &= ~mask;
-+reg |= FIELD_PREP@p(mask, val);
-+
-+@script:python depends on report@
-+p << r.p;
-+x << r.reg;
-+@@
-+
-+coccilib.report.print_report(p[0], "WARNING: Consider using FIELD_MODIFY helper on %s" % (x))
-+
-+@script:python depends on org@
-+p << r.p;
-+x << r.reg;
-+@@
-+
-+msg = f"WARNING: Consider using FIELD_MODIFY helper on {x}"
-+coccilib.org.print_todo(p[0], msg.replace("[","@(").replace("]",")"))
-
----
-base-commit: 0bb71d301869446810a0b13d3da290bd455d7c78
-change-id: 20250612-field_modify-27139f673881
-
-Best regards,
 -- 
-Luo Jie <quic_luoj@quicinc.com>
+Regards
+Vignesh
+https://ti.com/opensource
 
 
