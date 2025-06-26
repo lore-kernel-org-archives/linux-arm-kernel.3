@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7C2C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0034DC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=; b=wHSjs+Z8OvoxLR4vLbVlU4ukHA
-	q/VhOW+d2SvlTPWPIoPpcP8WTxCFXm0Psq93NgWD+eqafrZy0jLHl6VjMsffz/EaDMAIyiyJoE8s7
-	aIlWDxa1a+oqhsUwsaJw15DHfa9oaE9yBQAYD7QV2cYbywiJs0B/ynXteUinoYbaKZSyeQ80Rc9ep
-	p4i5y3ltBBMe5JBgmeP70dYODe94COsH/TbyFTRXJ7wICxRABUwGyaPwPYqjp7uNG63wy/pSdLWLs
-	b0cGWYNCaAd6IqMoI6z0hsgMRrf04a0Yx4AGhR167PjLCXQEOTueHXGJhD2uKR8TgOceNAgjvSeqe
-	96QGlJ8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JDOQzmKb8Anot5vObxJJtGMCXF8mbOSzPxiRK5ROuYQ=; b=MyAWOxBoDgPuPT85vGsCUNPp/+
+	cbkZ/4Wgrw4vVNgNBPDU7DjlBEGM0ssOGQCgfgXmCqV28wTL48/fPXgRpSEGVgFmRnbQ32iQ2c2ec
+	OmpVruTi7bqGyid/Th+7kwKDp6N/2GqGTpJX5Ls/KoaWS5v2SmIB1Jx/ZncbdZsAdEg6F8TvYOm4U
+	RYYMleYGHmTnC+g1GgOn46wxfrkfZr6j+83Z5654q++Th4X5ZYt68SFv6w4P+/2XoDiNEEr1A5In7
+	pBATJWuNt8eiujpq+XlCKtTttQR6nBKB0vA3oPfTaHBc2/TJylwDceMxMIy1VP78rx5U41nc3+MN2
+	B11Fl6qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUm3z-0000000BaMX-2zCU;
-	Thu, 26 Jun 2025 12:50:47 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uUm6E-0000000Bahw-48Hx;
+	Thu, 26 Jun 2025 12:53:06 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUlyI-0000000BZT5-18yj;
-	Thu, 26 Jun 2025 12:44:55 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-453643020bdso8184805e9.1;
-        Thu, 26 Jun 2025 05:44:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750941893; x=1751546693; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
-        b=CYrHo1xaH6jyaPUqtbEtfeonKV5YWamqOF8fep3waRbDL0xP6l8//2GU2Q83C6d1UF
-         d6mZxPOMrbkA6UH+Y2P/oFCqwu4DO/xRPMuSNfXNp+736n+T3uR4xevqHFfV7aRXasrG
-         9XvUWaTv0++HNV/PWvAJqwnbPiby7ZiX0db3J7rmyS7Qu9bUZxpCkbsStQTnOBNOE9Y1
-         x45ZO0HWLmc1600/XwhngCcWxWGNIWPlH8tRAV3jwPjO3ZR5NmM7OJG3P4rk9yyAh0y/
-         pss50eKyz4hdUKclKViAkQj6ya/scxpLvuMnOym5oudX3BTrlGeS53Wtx3JvpMHau/z2
-         8Qpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750941893; x=1751546693;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
-        b=vtCCKK06lAOeLwf060Bk355wDdzwqB5c3u1pz+FsEQJm6CQSoNDCHNBNAenwvczvse
-         ArSCFdRi1qu6LQRvLBQGs1fB7bX+v6o1kSIkQnAJoi4hPcjmAAlbdjAGzsUyGXsODIIl
-         oEHsBSgu5ay+oEolb/kFWLMwJBLX5fu3kyFhempoalXBfNGeblXgnxHzMcGjPjkolcaT
-         fo2JTMTH9t+gb2fA2UtjkL7fDNYV2GzT2Cd0S4ZfuKC3Qk0v5HcR6LHBTVnxtNeeFCzl
-         NTq7a0G7VfIYKES1mlixkHUWoGG3sZ8zxevXtG/ptPoabj06yLMeDNdyM7Z9zNupIOFB
-         ttaw==
-X-Forwarded-Encrypted: i=1; AJvYcCV1YPcTVMgmtapwa9zLzKeVHkPjaPRGuOYcP0ADsfhu/E8V3vXZBjhB9J01A/JmSD5tsQK8CheZUW/cdhsL7PYf@lists.infradead.org, AJvYcCXOG8++n3DnxuROYHHaZ6ig2L51sEGwM28XxKMasW2SoFiw2ZsrkRnSMh69van0BBb4H5yev5wgEl2X9ac=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrfmEF7VurjsVS7De+UURMq/1JWbwLqOGBojH09Y5MXmSqwGvX
-	NY4F7A410Qm0tZjbO80mMBLvh/TvL4FCUZsdcKcmS0ncAZUB9HTsJonw
-X-Gm-Gg: ASbGncvYm+F/Y+GfIrTHbsTOZahnr0vLXnDKsSdP7dUJrwkEN999mxUZLYwXtOLvxP2
-	UnH2awe2JgzVer3hRmXxkZuTG6TLsCTc4XX3YTcU+c6csR74PSlZXRn8KB2NJeUo8p1OFbyRCq/
-	yJHG1CKXfU0IeQ+5fxJhtzdLmiFYefON7tAyHjZa0KlD+89QWdY4DoV5Ur49WBxchSOhT2p7bEW
-	JPaP8NbVdJixrHoRuXnjjoEDQcpasoTrMnoupYnZQa5kR7Fx4WwY05+BQp67r083w4dmjFUalzk
-	zZki7PCl5xgJcOEEWLAlRFs+AKLQFz7XuhIKivTa+i3Uh48=
-X-Google-Smtp-Source: AGHT+IHK9z/BBG/9EKAw7EpO3uOD6zjU0SI80m4T9S7pG+NIa80Str49cvuzTLt7WfihJvvYhpI4ug==
-X-Received: by 2002:a5d:5847:0:b0:3a3:7593:818b with SMTP id ffacd0b85a97d-3a6ed62eb62mr6202221f8f.21.1750941892202;
-        Thu, 26 Jun 2025 05:44:52 -0700 (PDT)
-Received: from EBJ9932692.tcent.cn ([2a09:0:1:2::3086])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a831051c49sm161455f8f.30.2025.06.26.05.44.47
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Jun 2025 05:44:51 -0700 (PDT)
-From: Lance Yang <ioworker0@gmail.com>
-To: ioworker0@gmail.com
-Cc: 21cnbao@gmail.com,
-	akpm@linux-foundation.org,
-	baolin.wang@linux.alibaba.com,
-	chrisl@kernel.org,
-	david@redhat.com,
-	kasong@tencent.com,
-	lance.yang@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	v-songbaohua@oppo.com,
-	x86@kernel.org,
-	ying.huang@intel.com,
-	zhengtangquan@oppo.com
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
-Date: Thu, 26 Jun 2025 20:44:45 +0800
-Message-ID: <20250626124445.77865-1-ioworker0@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250626092905.31305-1-ioworker0@gmail.com>
-References: <20250626092905.31305-1-ioworker0@gmail.com>
+	id 1uUm29-0000000Ba8C-1z0u
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 12:48:55 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bSdn04XFxz27hvW;
+	Thu, 26 Jun 2025 20:49:40 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 47CD21A016C;
+	Thu, 26 Jun 2025 20:48:45 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 20:48:45 +0800
+Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
+ (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 26 Jun
+ 2025 20:48:44 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	"Will Deacon" <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>, <wangwudi@hisilicon.com>, Zhou Wang
+	<wangzhou1@hisilicon.com>
+Subject: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200803
+Date: Thu, 26 Jun 2025 20:41:42 +0800
+Message-ID: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_054454_309320_7B32D20B 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20250626_054853_821018_E1E0067E 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,141 +74,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+when multiple vPEs are sending vpe schedule/deschedule commands
+concurrently and repeatedly, some vPE schedule command may not be
+scheduled, and it will cause the command timeout.
 
-On 2025/6/26 17:29, Lance Yang wrote:
-> Before I send out the real patch, I'd like to get some quick feedback to
-> ensure I've understood the discussion correctly ;)
-> 
-> Does this look like the right direction?
-> 
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index fb63d9256f09..5ebffe2137e4 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
->   #endif
->   }
->   
-> -/* We support batch unmapping of PTEs for lazyfree large folios */
-> -static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
-> -			struct folio *folio, pte_t *ptep)
-> +static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
-> +			struct page_vma_mapped_walk *pvmw,
-> +			enum ttu_flags flags, pte_t pte)
->   {
->   	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-> -	int max_nr = folio_nr_pages(folio);
-> -	pte_t pte = ptep_get(ptep);
-> +	unsigned long end_addr, addr = pvmw->address;
-> +	struct vm_area_struct *vma = pvmw->vma;
-> +	unsigned int max_nr;
-> +
-> +	if (flags & TTU_HWPOISON)
-> +		return 1;
-> +	if (!folio_test_large(folio))
-> +		return 1;
->   
-> +	/* We may only batch within a single VMA and a single page table. */
-> +	end_addr = pmd_addr_end(addr, vma->vm_end);
-> +	max_nr = (end_addr - addr) >> PAGE_SHIFT;
-> +
-> +	/* We only support lazyfree batching for now ... */
->   	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
-> -		return false;
-> +		return 1;
->   	if (pte_unused(pte))
-> -		return false;
-> -	if (pte_pfn(pte) != folio_pfn(folio))
-> -		return false;
-> +		return 1;
-> +
-> +	/* ... where we must be able to batch the whole folio. */
-> +	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
-> +		return 1;
-> +	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
-> +				 NULL, NULL, NULL);
->   
-> -	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
-> -			       NULL, NULL) == max_nr;
-> +	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
->   }
->   
->   /*
-> @@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
->   			if (pte_dirty(pteval))
->   				folio_mark_dirty(folio);
->   		} else if (likely(pte_present(pteval))) {
-> -			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
-> -			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
-> -				nr_pages = folio_nr_pages(folio);
-> +			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
->   			end_addr = address + nr_pages * PAGE_SIZE;
->   			flush_cache_range(vma, address, end_addr);
->   
-> @@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
->   			hugetlb_remove_rmap(folio);
->   		} else {
->   			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
-> -			folio_ref_sub(folio, nr_pages - 1);
->   		}
->   		if (vma->vm_flags & VM_LOCKED)
->   			mlock_drain_local();
-> -		folio_put(folio);
-> -		/* We have already batched the entire folio */
-> -		if (nr_pages > 1)
-> +		folio_put_refs(folio, nr_pages);
-> +
-> +		/*
-> +		 * If we are sure that we batched the entire folio and cleared
-> +		 * all PTEs, we can just optimize and stop right here.
-> +		 */
-> +		if (nr_pages == folio_nr_pages(folio))
->   			goto walk_done;
->   		continue;
->   walk_abort:
-> --
+The hardware implementation is that there is one GIC hardware in one CPU die,
+which handles all vPE schedule operations one by one in all CPUs of this die.
+The bug is that if the number of queued vPE schedule operations is more
+than a certain value, the last vPE schedule operation will be lost.
 
-Oops ... Through testing on my machine, I found that the logic doesn't
-behave as expected because I messed up the meaning of max_nr (the available
-scan room in the page table) with folio_nr_pages(folio) :(
+One possible way to solve this problem is to limit the number of vLPIs, so
+the hardware could spend less time to scan virtual pending table when it
+handles the vPE schedule operations, so the queued vPE schedule operations
+will never be more than above certain value.
 
-With the following change:
+Given the number of CPUs of die, and imagine there is 100 vPE schedule
+operations per second one CPU, it can be calculated that we can limit
+the number of vLPI to 4096 for virtual machine to avoid the issue.
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 5ebffe2137e4..b1407348e14e 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1850,9 +1850,9 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
- 			enum ttu_flags flags, pte_t pte)
- {
- 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-+	unsigned int max_nr, nr_pages = folio_nr_pages(folio);
- 	unsigned long end_addr, addr = pvmw->address;
- 	struct vm_area_struct *vma = pvmw->vma;
--	unsigned int max_nr;
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 12 ++++++++++++
+ arch/arm64/include/asm/cputype.h            |  4 ++++
+ arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+ arch/arm64/tools/cpucaps                    |  1 +
+ include/linux/irqchip/arm-gic-v3.h          |  1 +
+ 7 files changed, 40 insertions(+)
+
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index b18ef4064bc0..e8baa04e3f8c 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -264,6 +264,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip{10,10C}     | #162200803      | HISILICON_ERRATUM_162200803 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 55fc331af337..d3df92c0fde7 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1268,6 +1268,18 @@ config HISILICON_ERRATUM_162100801
  
- 	if (flags & TTU_HWPOISON)
- 		return 1;
-@@ -1870,12 +1870,13 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
- 		return 1;
+ 	  If unsure, say Y.
  
- 	/* ... where we must be able to batch the whole folio. */
--	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
-+	if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
- 		return 1;
--	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
--				 NULL, NULL, NULL);
- 
--	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
-+	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
-+				 fpb_flags, NULL, NULL, NULL);
++config HISILICON_ERRATUM_162200803
++	bool "Hip{10, 10C} 162200803 erratum support"
++	default y
++	help
++	  For GICv4.0 of Hip10 and Hip10C, it has a soc bug with vPE schedule:
++	  when multiple vPEs are sending vpe schedule/deschedule commands
++	  concurrently and repeatly, some vPE schedule command may not be
++	  scheduled, and it will cause the command timeout. To avoid the
++	  issue, limit the number of vLPI to 4096 for virtual machine.
 +
-+	return (max_nr != nr_pages) ? 1 : max_nr;
- }
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 661735616787..c40328907433 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -134,6 +134,8 @@
  
- /*
---
+ #define HISI_CPU_PART_TSV110		0xD01
+ #define HISI_CPU_PART_HIP09			0xD02
++#define HISI_CPU_PART_HIP10		0xD03
++#define HISI_CPU_PART_HIP10C		0xD45
+ #define HISI_CPU_PART_HIP12		0xD06
+ 
+ #define APPLE_CPU_PART_M1_ICESTORM	0x022
+@@ -223,6 +225,8 @@
+ #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
+ #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
+ #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
++#define MIDR_HISI_HIP10 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP10)
++#define MIDR_HISI_HIP10C MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP10C)
+ #define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
+ #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
+ #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 59d723c9ab8f..693cf748396d 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -564,6 +564,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_HISILICON_ERRATUM_162200803
++static const struct midr_range erratum_hisi_162200803[] = {
++	MIDR_ALL_VERSIONS(MIDR_HISI_HIP10),
++	MIDR_ALL_VERSIONS(MIDR_HISI_HIP10C),
++	{},
++};
++#endif
++
+ const struct arm64_cpu_capabilities arm64_errata[] = {
+ #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+ 	{
+@@ -905,6 +913,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.matches = has_impdef_pmuv3,
+ 		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+ 	},
++#ifdef CONFIG_HISILICON_ERRATUM_162200803
++	{
++		.desc = "HiSilicon erratum 162200803",
++		.capability = ARM64_WORKAROUND_HISI_162200803,
++		ERRATA_MIDR_RANGE_LIST(erratum_hisi_162200803),
++	},
++#endif
+ 	{
+ 	}
+ };
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index ae4c0593d114..495a56e9dc4b 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+ 		if (vgic_has_its(vcpu->kvm)) {
+ 			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+ 			value |= GICD_TYPER_LPIS;
++			/* Limit the number of vlpis to 4096 */
++			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
++			    kvm_vgic_global_state.has_gicv4 &&
++			    !kvm_vgic_global_state.has_gicv4_1)
++				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+ 		} else {
+ 			value |= (INTERRUPT_ID_BITS_SPIS - 1) << 19;
+ 		}
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 10effd4cff6b..fda817f830f9 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -106,6 +106,7 @@ WORKAROUND_CAVIUM_TX2_219_PRFM
+ WORKAROUND_CAVIUM_TX2_219_TVM
+ WORKAROUND_CLEAN_CACHE
+ WORKAROUND_DEVICE_LOAD_ACQUIRE
++WORKAROUND_HISI_162200803
+ WORKAROUND_NVIDIA_CARMEL_CNP
+ WORKAROUND_PMUV3_IMPDEF_TRAPS
+ WORKAROUND_QCOM_FALKOR_E1003
+diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
+index 70c0948f978e..3118728671e5 100644
+--- a/include/linux/irqchip/arm-gic-v3.h
++++ b/include/linux/irqchip/arm-gic-v3.h
+@@ -89,6 +89,7 @@
+ #define GICD_TYPER_SPIS(typer)		((((typer) & 0x1f) + 1) * 32)
+ #define GICD_TYPER_ESPIS(typer)						\
+ 	(((typer) & GICD_TYPER_ESPI) ? GICD_TYPER_SPIS((typer) >> 27) : 0)
++#define GICD_TYPER_NUM_LPIS_SHIFT	11
+ 
+ #define GICD_TYPER2_nASSGIcap		(1U << 8)
+ #define GICD_TYPER2_VIL			(1U << 7)
+-- 
+2.33.0
 
-... then things work as expected for the lazyfree case, without any
-splitting.
 
