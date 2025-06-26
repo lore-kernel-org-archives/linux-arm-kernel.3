@@ -4,48 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6E2C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA106C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=; b=grP2IGTEWb5EdToIvmhVU1JN8f
-	LYExPcJ074BUL8iNmS2ayfwDjJ+KYwUguX8p1mgmZ3zPwqjNqcV0/iML+ji/nkuqDzPROFFlWd1Ms
-	37FbCUVlGSR/TeP6+QQGG00PPBX6BCGB/uk+Ej9IWM4BS49auzC+CN2z1vBqFZvOkDORjv1zaFs/D
-	nS/MA6nZ0HnaWNurni1u92WuWWFbDKVR3tBdVAurKb0xme+nChqj4hu4mOgHsjYi28eQrgb8EK0Uu
-	vJFiLLKVdwxIyU+qjhvpb6DXlJ6whYIBf/yL9OoN5gBr/d2vhBQ9FCOEUzUuEWNHtPMcYsVWzZm6l
-	1Hamq2jw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TkdF6/WXSmyR6CP6BJIFb/N9JSNeGtF+c34gsRTZKi8=; b=4nCSHgQfcI0ZgTUF+0vN0VgqJK
+	7ABpePHDZXoUUCw6B5DCHxhHv/zwmi1e2o2YQGICd9J7y1A5hhsM90UhwVioLKrM7ZztHyElrXLI/
+	bvS1W7ivWd0S2qlkNdl96bpy9Jyd2h6Xb0okc+qcrIK6fUG6TR1jGdRbWUBsE7wu7st3KRkFjgdcp
+	sAsedWWYItcQgEz/mwN8kOOzQCN1jE3O4BZyDBu7nHCromNomyxMKB3Mor4+8bhPIbFkZyK1uaB8v
+	YM1yAqYkeZWrdZgdhTzwKqcyrsa6Um9VRYcSK7c7vIMmJWh7fW+x64hReIdlXiQP2T6gjTspuicR7
+	+FKi0XNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnwX-0000000C0HA-1GcT;
-	Thu, 26 Jun 2025 14:51:13 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uUnyn-0000000C0gy-3KM2;
+	Thu, 26 Jun 2025 14:53:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnu0-0000000BzTU-2tML;
-	Thu, 26 Jun 2025 14:48:38 +0000
+	id 1uUnu1-0000000BzTm-42RX;
+	Thu, 26 Jun 2025 14:48:39 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949315;
+	s=2020; t=1750949316;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=;
-	b=gaz8seoxSEVBxG9MHSd/AdwK73Yt7mu+jsV0LollTAaxssib7A4849xAQcipwOrC0G9Uo6
-	tfcpM3NA0RSjqxu0umLrggdwkuZprE9ZwTlt2NmwRBzYiIZCm08nVH+UnkZ0EnbA6P62GY
-	EMXRpjYh17PCc/lq+dgoXu5/F1jNr1dlYdgHPUeTsmGcnf9w4zD+DE7HpX4cEjGptshy/p
-	w4PI4JWiylFe9B7TBc5EvKJT8Mtcd9gghG+JfYB2lLP/7I3Z8AFNN3FHXBd1vOClFpd9Jf
-	R/pJjIJu3RZtZRM+rgdUOc/gAlcAwUivOqN82fssj7UtXrwKa2IhcAQj3EH/0A==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TkdF6/WXSmyR6CP6BJIFb/N9JSNeGtF+c34gsRTZKi8=;
+	b=gnteCw5zFdeHMYffbKs77Zh69GwMGsOSTdZ3KTKu9bnHHvg+UI8TTjsm1bM0viMJiDShza
+	aHSj4YaO1m6v4p7i1grgwE7fBRLx4CCeQzmf6kbNyandbo4Zpgr9w3CjbswZG7THLUxxMU
+	tHn47VGd8jdzENxHRsPOTUapQa1MzSs2OhJ/iX+WNW0T/hIzVFzypEYSMn3KyF4s4d2J2J
+	9dzWuvnTDAxDp1AeJ0V8EdSG9guGrdSmpWYPNv+A7ZGvsMwlbntqFf4aYaYXiM1SpODFCB
+	yTAYrXae2mcm/lgTtdI/H+hpVSPFsMfE8s8QwVjy+2Kc6uAwGToVodrJOPTXWQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949315;
+	s=2020e; t=1750949316;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=;
-	b=2Fd2QlwCInXViIVIZOCcuzIq4mcR7BYBUaVg4a+xf1NiSgmL30ly5tfX4sxMHPRjXMMy7w
-	sdMGjflSZJvHVtAQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TkdF6/WXSmyR6CP6BJIFb/N9JSNeGtF+c34gsRTZKi8=;
+	b=D0ZICz2jEObaXwCZyRm2f01Xzfxg6p3k/Gbe8jfG6SpDkTSuNsxPtcOUYG5dc4prMVSEf6
+	Qh6SMuDMEIiXt6Dw==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -85,16 +87,18 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 00/16] PCI: MSI parent domain conversion
-Date: Thu, 26 Jun 2025 16:47:50 +0200
-Message-Id: <cover.1750858083.git.namcao@linutronix.de>
+Cc: Nam Cao <namcao@linutronix.de>,
+	Jingoo Han <jingoohan1@gmail.com>
+Subject: [PATCH 01/16] PCI: dwc: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:47:51 +0200
+Message-Id: <04d4a96046490e50139826c16423954e033cdf89.1750858083.git.namcao@linutronix.de>
+In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
+References: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074836_867868_C80E4DBB 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_074838_158107_FD701C13 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,56 +113,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initial implementation of PCI/MSI interrupt domains in the hierarchical
-interrupt domain model used a shortcut by providing a global PCI/MSI
-domain.
+Move away from the legacy MSI domain setup, switch to use
+msi_create_parent_irq_domain().
 
-This works because the PCI/MSI[X] hardware is standardized and uniform, but
-it violates the basic design principle of hierarchical interrupt domains:
-Each hardware block involved in the interrupt delivery chain should have a
-separate interrupt domain.
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+Cc: Jingoo Han <jingoohan1@gmail.com>
+---
+ drivers/pci/controller/dwc/Kconfig            |  1 +
+ .../pci/controller/dwc/pcie-designware-host.c | 68 +++++++------------
+ drivers/pci/controller/dwc/pcie-designware.h  |  1 -
+ 3 files changed, 25 insertions(+), 45 deletions(-)
 
-For PCI/MSI[X], the interrupt controller is per PCI device and not a global
-made-up entity.
-
-Unsurprisingly, the shortcut turned out to have downsides as it does not
-allow dynamic allocation of interrupt vectors after initialization and it
-prevents supporting IMS on PCI. For further details, see:
-
-https://lore.kernel.org/lkml/20221111120501.026511281@linutronix.de/
-
-The solution is implementing per device MSI domains, this means the
-entities which provide global PCI/MSI domain so far have to implement MSI
-parent domain functionality instead.
-
-This series converts the PCI controller drivers to implement MSI parent
-domain.
-
- drivers/pci/Kconfig                           |   1 +
- drivers/pci/controller/Kconfig                |  11 +
- drivers/pci/controller/dwc/Kconfig            |   1 +
- .../pci/controller/dwc/pcie-designware-host.c |  68 ++----
- drivers/pci/controller/dwc/pcie-designware.h  |   1 -
- drivers/pci/controller/mobiveil/Kconfig       |   1 +
- .../controller/mobiveil/pcie-mobiveil-host.c  |  42 ++--
- .../pci/controller/mobiveil/pcie-mobiveil.h   |   1 -
- drivers/pci/controller/pci-aardvark.c         |  59 ++---
- drivers/pci/controller/pci-hyperv.c           |  98 ++++++--
- drivers/pci/controller/pcie-altera-msi.c      |  44 ++--
- drivers/pci/controller/pcie-brcmstb.c         |  44 ++--
- drivers/pci/controller/pcie-iproc-msi.c       |  45 ++--
- drivers/pci/controller/pcie-mediatek-gen3.c   |  67 ++---
- drivers/pci/controller/pcie-mediatek.c        |  46 ++--
- drivers/pci/controller/pcie-rcar-host.c       |  69 ++----
- drivers/pci/controller/pcie-xilinx-dma-pl.c   |  48 ++--
- drivers/pci/controller/pcie-xilinx-nwl.c      |  45 ++--
- drivers/pci/controller/pcie-xilinx.c          |  55 +++--
- drivers/pci/controller/plda/Kconfig           |   1 +
- drivers/pci/controller/plda/pcie-plda-host.c  |  44 ++--
- drivers/pci/controller/plda/pcie-plda.h       |   1 -
- drivers/pci/controller/vmd.c                  | 229 +++++++++---------
- 23 files changed, 504 insertions(+), 517 deletions(-)
-
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dw=
+c/Kconfig
+index bb95877b2c6c4..8a63e9bc0c039 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -19,6 +19,7 @@ config PCIE_DW_DEBUGFS
+ config PCIE_DW_HOST
+ 	bool
+ 	select PCIE_DW
++	select IRQ_MSI_LIB
+=20
+ config PCIE_DW_EP
+ 	bool
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pc=
+i/controller/dwc/pcie-designware-host.c
+index 906277f9ffaf7..a953e07a68aff 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -10,6 +10,7 @@
+=20
+ #include <linux/iopoll.h>
+ #include <linux/irqchip/chained_irq.h>
++#include <linux/irqchip/irq-msi-lib.h>
+ #include <linux/irqdomain.h>
+ #include <linux/msi.h>
+ #include <linux/of_address.h>
+@@ -23,35 +24,21 @@
+ static struct pci_ops dw_pcie_ops;
+ static struct pci_ops dw_child_pcie_ops;
+=20
+-static void dw_msi_ack_irq(struct irq_data *d)
+-{
+-	irq_chip_ack_parent(d);
+-}
+-
+-static void dw_msi_mask_irq(struct irq_data *d)
+-{
+-	pci_msi_mask_irq(d);
+-	irq_chip_mask_parent(d);
+-}
+-
+-static void dw_msi_unmask_irq(struct irq_data *d)
+-{
+-	pci_msi_unmask_irq(d);
+-	irq_chip_unmask_parent(d);
+-}
+-
+-static struct irq_chip dw_pcie_msi_irq_chip =3D {
+-	.name =3D "PCI-MSI",
+-	.irq_ack =3D dw_msi_ack_irq,
+-	.irq_mask =3D dw_msi_mask_irq,
+-	.irq_unmask =3D dw_msi_unmask_irq,
+-};
+-
+-static struct msi_domain_info dw_pcie_msi_domain_info =3D {
+-	.flags	=3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
+-		  MSI_FLAG_NO_AFFINITY | MSI_FLAG_PCI_MSIX |
+-		  MSI_FLAG_MULTI_PCI_MSI,
+-	.chip	=3D &dw_pcie_msi_irq_chip,
++#define DW_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS		| \
++				    MSI_FLAG_USE_DEF_CHIP_OPS		| \
++				    MSI_FLAG_NO_AFFINITY		| \
++				    MSI_FLAG_PCI_MSI_MASK_PARENT)
++#define DW_PCIE_MSI_FLAGS_SUPPORTED (MSI_FLAG_MULTI_PCI_MSI		| \
++				     MSI_FLAG_PCI_MSIX			| \
++				     MSI_GENERIC_FLAGS_MASK)
++
++static const struct msi_parent_ops dw_pcie_msi_parent_ops =3D {
++	.required_flags		=3D DW_PCIE_MSI_FLAGS_REQUIRED,
++	.supported_flags	=3D DW_PCIE_MSI_FLAGS_SUPPORTED,
++	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
++	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
++	.prefix			=3D "DW-",
++	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
+ };
+=20
+ /* MSI int handler */
+@@ -228,25 +215,19 @@ int dw_pcie_allocate_domains(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci =3D to_dw_pcie_from_pp(pp);
+ 	struct fwnode_handle *fwnode =3D of_fwnode_handle(pci->dev->of_node);
+-
+-	pp->irq_domain =3D irq_domain_create_linear(fwnode, pp->num_vectors,
+-					       &dw_pcie_msi_domain_ops, pp);
++	struct irq_domain_info info =3D {
++		.fwnode		=3D fwnode,
++		.ops		=3D &dw_pcie_msi_domain_ops,
++		.size		=3D pp->num_vectors,
++		.host_data	=3D pp,
++	};
++
++	pp->irq_domain =3D msi_create_parent_irq_domain(&info, &dw_pcie_msi_paren=
+t_ops);
+ 	if (!pp->irq_domain) {
+ 		dev_err(pci->dev, "Failed to create IRQ domain\n");
+ 		return -ENOMEM;
+ 	}
+=20
+-	irq_domain_update_bus_token(pp->irq_domain, DOMAIN_BUS_NEXUS);
+-
+-	pp->msi_domain =3D pci_msi_create_irq_domain(fwnode,
+-						   &dw_pcie_msi_domain_info,
+-						   pp->irq_domain);
+-	if (!pp->msi_domain) {
+-		dev_err(pci->dev, "Failed to create MSI domain\n");
+-		irq_domain_remove(pp->irq_domain);
+-		return -ENOMEM;
+-	}
+-
+ 	return 0;
+ }
+=20
+@@ -260,7 +241,6 @@ static void dw_pcie_free_msi(struct dw_pcie_rp *pp)
+ 							 NULL, NULL);
+ 	}
+=20
+-	irq_domain_remove(pp->msi_domain);
+ 	irq_domain_remove(pp->irq_domain);
+ }
+=20
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/con=
+troller/dwc/pcie-designware.h
+index ce9e18554e426..d9daee4ce220d 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -417,7 +417,6 @@ struct dw_pcie_rp {
+ 	const struct dw_pcie_host_ops *ops;
+ 	int			msi_irq[MAX_MSI_CTRLS];
+ 	struct irq_domain	*irq_domain;
+-	struct irq_domain	*msi_domain;
+ 	dma_addr_t		msi_data;
+ 	struct irq_chip		*msi_irq_chip;
+ 	u32			num_vectors;
 --=20
 2.39.5
 
