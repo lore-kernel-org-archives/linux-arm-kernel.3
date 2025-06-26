@@ -4,101 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A1DC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E33C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=; b=gadhk1D0T9RdzywRtxCNnyVgP6
-	ymXX4qwlxRb/TFT1j59A3/rJf58pAo0W5nDeyXyz5rljEjKWvT53uIStMvI6K8Nw/8WRTJlmyujjX
-	9ClTx7w3YfQsLMX2PsGCOkhpzZZ4RcvRBDyYoXrrbCQk1EQeO+1pa75egzSADNV8mdz1SSa12Ik03
-	qvFHz09/YPWI99PE9ss+yr/aHPKhyiDE6HCL60mi01kpZg1w45BUORUVjvUojX37usBLyFrz2Bqja
-	LJY8z/YxmzmwMVfP2CKIt6dYSlIJsfc/XdyOudwWR68w3/aYg073MVp77T+XzsWFQIhQjT4YzN4VE
-	vwEfEjEQ==;
+	bh=pO64nb8Wo3rmY+NlSzYsAo8VOmgXYduHQkU+jiDicSY=; b=0rOVOQKC7G1yZWcB8MfiMr7B4D
+	lsPTQlX93SvO/EjBDJiiiwToOdsIRFe7d1GCBiUnmdxYDNOwnZRkj/VURn6kJQ+ATB91tRGvI7rgI
+	vehNFnFwFB7mdwQfYyh+asInufOar4niCWmG6VCupHQp9n6LVVlN9MF11dVH93+1Yo1nfQ1bO7C0f
+	u96jY5KDLsxSdTox2hGDz+N5IN5JwGz2Ci/B3N8q6wHnSMzgXNsBs0PzwZtAzFxZZT+G+2/SGXMJJ
+	+n3fapyfVAuqoPjZqMWGOZr5FYstiwDvOKdnYR+zwy1iv8jRFDkxMOepAQlX/wuls64ulhxBmTotY
+	/rUsCNLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUp8r-0000000CDoy-0u5v;
-	Thu, 26 Jun 2025 16:08:01 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uUpBE-0000000CEHD-18cv;
+	Thu, 26 Jun 2025 16:10:28 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUoKp-0000000C5Mf-3Pw0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 15:16:21 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45310223677so6857185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 08:16:19 -0700 (PDT)
+	id 1uUoLp-0000000C5YR-2Jp2;
+	Thu, 26 Jun 2025 15:17:22 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ae0a420431bso225444866b.2;
+        Thu, 26 Jun 2025 08:17:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750950978; x=1751555778; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=;
-        b=Vmz3Yz2HWHsi+z1CcInh6CWHAZICL9XICyQgVaeNBI8vg7mSHMsYDSCjmh4Nbqh3G+
-         WmyGAtcmpTmkTvXfT0sUpcANwGh9tbP2tT0tWGFiZrCiTIGV9JFA32NbZdws8RAyguGO
-         +a7qE1Bh+9iNVcnRFQ8nYUt2der5Zd5FlDJ4i1JyLPD+Tv6WbtRUIZj98Uqmvo1SnJ1i
-         RRXsHISpQOK2hcGfr4/+Nf7lAIvHFSw2cN4skvsC4C74ulWXrlaivTHHaaG/x3rBucUA
-         3oZygHS4Jq7YysK1j70PEnEUZfpEyDuvQIAM2fI1V8O583HhrcD2Zv6gjwQYGRKXZgmk
-         Hadg==
+        d=gmail.com; s=20230601; t=1750951040; x=1751555840; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pO64nb8Wo3rmY+NlSzYsAo8VOmgXYduHQkU+jiDicSY=;
+        b=YQhQkbfqsWuWZ3QMy9m852TmVawyTSvl3Eshhdu8DumWt9yJ0yB67ccBtnuhGbS9Au
+         DwEBmuQSVJESLFnskEXtholofGHD19UfUZkw+CsGCjaFgvE9fFM+Qywx0P7A/TSOI7ac
+         nOPkPJ7PvUw5Hd6XPD2uENJp+byf6Y8oxRGYlnQTNgDyKdKQgi3Gm5BGGsRKWaH9qAsR
+         asY+k/YbXc22gOFmUR5QuCi3aUF9PJTjNQKR8mJsbmVFFSmdttOk47r2mdJVLAkF3OJ0
+         3Lz88wFQSdbqpJVxlSFhL3RLq3Jo2II5nZUgptjQrLIUag9Sozc2lky6I4xYMUq/Y46P
+         6hDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750950978; x=1751555778;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=;
-        b=nYIjj4znuMvHp0/Xcb4ohys8hYNo4zC2CBGVMH+qHqAq7DsIaaEmNqG/uthmHhYIsP
-         30xCXghEf3o0doNgG0C1HZH7j0GcqMbSoFahUgOcZ+VSswspRybZb1Py+wpD0lC1FkBP
-         3YzBPKknXWd+V3C3+5jmman1zbT+6pjDEQisfRSeNv5YlNogg5lNdbqLUOVFNHVPksVy
-         jOzkfi2CcGtaEA6OoWOSJi+WBVTootgygMvDE63VIe2chQjdGdbxJTgu+00x460ZUmiE
-         5bkdW6h34U+uHXF70QOMvA8o3pBn/WF5TBRaEMT9ySluFSpJZgqPvBg2NAz7aTQz7vxp
-         Lb5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU3SgvwqQ20MlAKaG/VUxqkIeAjVDF4SsTK1AW8ox0/GMeAcBUSo1Y9ozz3xEvfkbmlz5Aug2IhWl2ZqinXxtJo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/QOzrKI0DCL1bCh+/u33aV9GFTPcsTuDvywpKBHT/oeiiE2G8
-	kWB7+n6g2EqlOKxKmaIid/B/OTHxruHx7hUUSarVeWl5H3GA+5+Eighn
-X-Gm-Gg: ASbGncsKoEAN4vD1B/i9KWh/MHIsYzCE0aCvz6ZhIvNWijX6SLqp/FTvxmBUkAtl3DY
-	DoIC7GJG8lmRV5TXU27N7McdUhylOa1SmbJ9TE4yAHk66Qzym8buLW7qEyAgEj+uqP4Xj865j9a
-	epHY+5Hp8gEgUz089ZXOTdaFoQQRh3TMjmrUNhio1V7ONmgi+OxU5kkmZNnXAIAw0MjedtCi0z5
-	ZMkMNBdlsv9SFrqAiD4bYXn15HQiGDCGqSW9z07oSwzUGd2A4U83XYy7/crNC2joWIhjFcNeRVN
-	OqXsjylzjqMROph6zEEzZaFK+ircRQ9P9B/USvlrJDSt+Xy6z7uLmHKrfPET9X2XD776NfXts/O
-	+c49Csc437UuyZMA7iDLwechGDkS+U6R0FTiVochVqtkd7yeqDlT/AuTRlXcR68VysVH2Rvtbq3
-	b9T31Yx6ODVdQJpb5V5oX92AcLvYeUnNS0JIyLXBa/P8kkFL4vQ3HL8I4i
-X-Google-Smtp-Source: AGHT+IHkN6kst/2U0cI5ffj5ZypcrsRm6UjSAT4J4Pq42ykGcoxP+OW0hFReQqb4pCc9CMehOs7PNw==
-X-Received: by 2002:a05:600c:5306:b0:441:d2d8:bd8b with SMTP id 5b1f17b1804b1-45381aaa03fmr73036515e9.8.1750950977009;
-        Thu, 26 Jun 2025 08:16:17 -0700 (PDT)
-Received: from ?IPV6:2a02:8388:e103:2700:ebc0:27a3:cde8:9846? (2a02-8388-e103-2700-ebc0-27a3-cde8-9846.cable.dynamic.v6.surfer.at. [2a02:8388:e103:2700:ebc0:27a3:cde8:9846])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a3a72dasm22725015e9.16.2025.06.26.08.16.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jun 2025 08:16:16 -0700 (PDT)
-Message-ID: <5f01c181-515e-4cff-bf8a-81c620886cd2@gmail.com>
-Date: Thu, 26 Jun 2025 17:16:15 +0200
+        d=1e100.net; s=20230601; t=1750951040; x=1751555840;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pO64nb8Wo3rmY+NlSzYsAo8VOmgXYduHQkU+jiDicSY=;
+        b=lniKVcbUhP9PAG3gC812D2aiWjlIrumr5eGhfclWSW7eaGANMfJZPK6aJIURSrpVjo
+         x56+BlUQADQu1EE1UaAZmokA2/ee0/AkcyOoCPRyN5TyCkIbMsziWtjQZ6tuqHeQkLfl
+         3aBDIWwFQ6j2UCOe+yRrVMU9+BxBb96b5yLIhhDlYFx5eWuR8/xwF2vE/4W5QNes84kZ
+         yVsMDIs0qQ4gcd6bLh9vFDM66nsKYqwCxXN3Fz3O1y2smiT6moI3CcCjakie0rPtvW2U
+         B+fAR3g6C9XeC5fv9ZfFzJn3vpV0HzyypNaO581mQbzxhNO4h5Jc4O6eXjcSDVIJfzB+
+         I5gA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+ZnOtYGFk/ImoPNhQX2Tcs8ytBtmon7gITgKH6+QRxzslKSOZUJBqHUxVIxFUJ/4sTtZMOPHCHGHSMea7yzk=@lists.infradead.org, AJvYcCVUuf3BITnagxfdgphi7aOAiP+sIC0+gksDD2nFkAC2FX93IVK+X1ihuEsyUpzbDzSF0R1mmZLLrqqz4AvBJCNC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHMeslZJRI57+QbUk7Ncf8LcyWse7Ci5RaKFSErRZw2ZT4kInx
+	MBKP7ri/kW8O8ZoI8WZ8ipRNjlzmIxQIoh8+iElCcXOVjWpKB1JQC1Kr
+X-Gm-Gg: ASbGncsnsqzrTi4vTq1MMXVpR9QLC/bAS9aMSuegu5eFcMEZ9gLFmod0Bj5lBn3EEdb
+	458d7WOTK3kBGwpC2HaPkzdF3y3v6eDcwepkNd2+J4c2fjYBD+VkN9PxiPCWqQGnp7Wn4QLk7dN
+	U7DJBO8PFW39RaZfBzUHOAYQ6YLJKp17uOuCw5GhLjH+1EitvH6iSceMMKfLUqg4Y6JzjAAsABe
+	Kz01GeSgpEADb7wtbSS3qzMyVshBLyL3SnSWaRPeyuSb/Qn0gHIqOKJkFILKYbkBP9NHVKd9lyn
+	HU+qIuGmRPGOFP69tf1nOZH2Pt9sGD94mGVJ6qbWUffxx5FSMtX2rwzBvqZCc6bRLS8sS2a6hFO
+	5YSy4KapJTCk=
+X-Google-Smtp-Source: AGHT+IEhwuVWaVOb65LLZ1reiG1RBr6tyPLd43WAJv5xjaBBth4FGvOOg73t206Gy+Qp2V32L7WCGQ==
+X-Received: by 2002:a17:906:7953:b0:ade:c102:dc9a with SMTP id a640c23a62f3a-ae0bef3fecbmr797730866b.40.1750951039401;
+        Thu, 26 Jun 2025 08:17:19 -0700 (PDT)
+Received: from localhost.localdomain ([176.227.88.86])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae21c023564sm12447266b.133.2025.06.26.08.17.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jun 2025 08:17:18 -0700 (PDT)
+From: Muhammed Efe Cetin <muhammed.efecetin.67@gmail.com>
+X-Google-Original-From: Muhammed Efe Cetin <efectn@protonmail.com>
+To: neil.armstrong@linaro.org
+Cc: daniel.lezcano@linaro.org,
+	devicetree@vger.kernel.org,
+	efectn@protonmail.com,
+	heiko@sntech.de,
+	krzysztof.kozlowski+dt@linaro.org,
+	lee@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	muhammed.efecetin.67@gmail.com,
+	rafael@kernel.org,
+	robh+dt@kernel.org
+Subject: Re: [PATCH 4/5] thermal: khadas_mcu_fan: add support for Khadas Edge 2
+Date: Thu, 26 Jun 2025 18:16:44 +0300
+Message-ID: <20250626151644.1492631-1-efectn@protonmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <b4fa3620-53d2-41c3-9b3a-27cc2c1d846a@linaro.org>
+References: <b4fa3620-53d2-41c3-9b3a-27cc2c1d846a@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
-To: Jocelyn Falempe <jfalempe@redhat.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Simona Vetter <simona@ffwll.ch>,
- Paolo Bonzini <pbonzini@redhat.com>, David Airlie <airlied@gmail.com>,
- Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- dri-devel@lists.freedesktop.org,
- rust-for-linux <rust-for-linux@vger.kernel.org>
-References: <20250418165059.560503-1-jfalempe@redhat.com>
- <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
- <cbaf2819-84b3-4482-8d91-7d3d24625e4f@redhat.com>
- <80d092a3-0210-48d8-97da-f9175260a5fc@redhat.com>
-Content-Language: en-US
-From: Andrei Lalaev <andrey.lalaev@gmail.com>
-In-Reply-To: <80d092a3-0210-48d8-97da-f9175260a5fc@redhat.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_081619_858090_3DB65F6C 
-X-CRM114-Status: GOOD (  32.38  )
+X-CRM114-CacheID: sfid-20250626_081721_593447_74ECE0EC 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,206 +108,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.06.25 16:19, Jocelyn Falempe wrote:
-> On 25/06/2025 00:18, Jocelyn Falempe wrote:
->> On 24/06/2025 20:55, Andrei Lalaev wrote:
->>> On 18.04.25 18:48, Jocelyn Falempe wrote:
->>>> On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
->>>> to use a simple fifo with decimal digits as u8 instead.
->>>> This is slower but should compile on all architecture.
+On 6/26/25 17:46, neil.armstrong@linaro.org wrote:
+> On 26/06/2025 16:36, muhammed.efecetin.67@gmail.com wrote:
+>> On 6/26/25 17:11, neil.armstrong@linaro.org wrote:
+>>> On 26/06/2025 16:04, muhammed.efecetin.67@gmail.com wrote:
+>>>> From: Muhammed Efe Cetin <efectn@protonmail.com>
 >>>>
->>>> Link: https://lore.kernel.org/dri-devel/ CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
->>>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>>>> Fan control on the Khadas Edge 2 is controlled with the 0x8A register,
+>>>> using percentage values from 0 to 100, whereas there are only 3 constant steps in previous Khadas boards.
+>>>> Therefore, i added a new cooling-levels property, similar to the one used in the pwm-fan driver.
+>>>> The original behavior can still be used when the cooling-levels property is not specified,
+>>>> ensuring that the new functionality does not break old boards. 
+>>>
+>>> Thanks for the explanation, but would would you like to change that ? The MCU can accept
+>>> any value between 0 and 99, so why change the levels from DT ?
+>>>
+>>> Neil 
+>>
+>> Thanks for the review. Therefore, you say just add values between 0-100 to cooling-device instead of remapping them using cooling-levels property?
+>>
+>> What would be the best practise of detecting whether the board is Khadas Edge 2? Adding new bool property, reading model propety from devicetree etc. 
+>
+> The register DEVICE_NO should be set at 0x12 for Edge V, 0x11 for Edge 1. I don't have the number for Edge 2, perhaps you can read it ?
+>
+> Neil
+
+The DEVICE_NO register is not available for Khadas Edge 2. Here are the registers [0].
+
+[0] https://dl.khadas.com/products/edge2/tools/mcu/edge2-mcu-register-description-en-v1.0-230520.pdf
+
+>
+>>
+>> Best regards.
+>>
+>>>
+>>>>
+>>>> Signed-off-by: Muhammed Efe Cetin <efectn@protonmail.com>
 >>>> ---
->>>>   drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
->>>>   1 file changed, 48 insertions(+), 23 deletions(-)
+>>>>    drivers/thermal/khadas_mcu_fan.c | 76 ++++++++++++++++++++++++++++++--
+>>>>    1 file changed, 72 insertions(+), 4 deletions(-)
 >>>>
->>>> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/ drm_panic_qr.rs
->>>> index 6025a705530e..dd55b1cb764d 100644
->>>> --- a/drivers/gpu/drm/drm_panic_qr.rs
->>>> +++ b/drivers/gpu/drm/drm_panic_qr.rs
->>>> @@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
->>>>           SegmentIterator {
->>>>               segment: self,
->>>>               offset: 0,
->>>> -            carry: 0,
->>>> -            carry_len: 0,
->>>> +            decfifo: Default::default(),
->>>> +        }
->>>> +    }
+>>>> diff --git a/drivers/thermal/khadas_mcu_fan.c b/drivers/thermal/khadas_mcu_fan.c
+>>>> index d35e5313b..504e7d254 100644
+>>>> --- a/drivers/thermal/khadas_mcu_fan.c
+>>>> +++ b/drivers/thermal/khadas_mcu_fan.c
+>>>> @@ -15,10 +15,16 @@
+>>>>    #include <linux/thermal.h>
+>>>>      #define MAX_LEVEL 3
+>>>> +#define MAX_SPEED 0x64
+>>>>      struct khadas_mcu_fan_ctx {
+>>>>        struct khadas_mcu *mcu;
+>>>>        unsigned int level;
+>>>> +
+>>>> +    unsigned int fan_max_level;
+>>>> +    unsigned int fan_register;
+>>>> +    unsigned int *fan_cooling_levels;
+>>>> +
+>>>>        struct thermal_cooling_device *cdev;
+>>>>    };
+>>>>    @@ -26,9 +32,21 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
+>>>>                        unsigned int level)
+>>>>    {
+>>>>        int ret;
+>>>> +    unsigned int write_level = level;
+>>>> +
+>>>> +    if (level > ctx->fan_max_level)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    if (ctx->fan_cooling_levels != NULL) {
+>>>> +        write_level = ctx->fan_cooling_levels[level];
+>>>> +
+>>>> +        if (write_level > MAX_SPEED)
+>>>> +            return -EINVAL;
+>>>> +    }
+>>>> +
+>>>> +    ret = regmap_write(ctx->mcu->regmap, ctx->fan_register,
+>>>> +               write_level);
+>>>>    -    ret = regmap_write(ctx->mcu->regmap, KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+>>>> -               level);
+>>>>        if (ret)
+>>>>            return ret;
+>>>>    @@ -40,7 +58,9 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
+>>>>    static int khadas_mcu_fan_get_max_state(struct thermal_cooling_device *cdev,
+>>>>                        unsigned long *state)
+>>>>    {
+>>>> -    *state = MAX_LEVEL;
+>>>> +    struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
+>>>> +
+>>>> +    *state = ctx->fan_max_level;
+>>>>          return 0;
+>>>>    }
+>>>> @@ -61,7 +81,7 @@ khadas_mcu_fan_set_cur_state(struct thermal_cooling_device *cdev,
+>>>>    {
+>>>>        struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
+>>>>    -    if (state > MAX_LEVEL)
+>>>> +    if (state > ctx->fan_max_level)
+>>>>            return -EINVAL;
+>>>>          if (state == ctx->level)
+>>>> @@ -76,6 +96,47 @@ static const struct thermal_cooling_device_ops khadas_mcu_fan_cooling_ops = {
+>>>>        .set_cur_state = khadas_mcu_fan_set_cur_state,
+>>>>    };
+>>>>    +static int khadas_mcu_fan_get_cooling_data_edge2(struct khadas_mcu_fan_ctx *ctx, struct device *dev)
+>>>> +{
+>>>> +    struct device_node *np = ctx->mcu->dev->of_node;
+>>>> +    int num, i, ret;
+>>>> +
+>>>> +    if (!of_property_present(np, "cooling-levels"))
+>>>> +        return 0;
+>>>> +
+>>>> +    ret = of_property_count_u32_elems(np, "cooling-levels");
+>>>> +    if (ret <= 0) {
+>>>> +        dev_err(dev, "Wrong data!\n");
+>>>> +        return ret ? : -EINVAL;
+>>>> +    }
+>>>> +
+>>>> +    num = ret;
+>>>> +    ctx->fan_cooling_levels = devm_kcalloc(dev, num, sizeof(u32),
+>>>> +                           GFP_KERNEL);
+>>>> +    if (!ctx->fan_cooling_levels)
+>>>> +        return -ENOMEM;
+>>>> +
+>>>> +    ret = of_property_read_u32_array(np, "cooling-levels",
+>>>> +                     ctx->fan_cooling_levels, num);
+>>>> +    if (ret) {
+>>>> +        dev_err(dev, "Property 'cooling-levels' cannot be read!\n");
+>>>> +        return ret;
+>>>> +    }
+>>>> +
+>>>> +    for (i = 0; i < num; i++) {
+>>>> +        if (ctx->fan_cooling_levels[i] > MAX_SPEED) {
+>>>> +            dev_err(dev, "MCU fan state[%d]:%d > %d\n", i,
+>>>> +                ctx->fan_cooling_levels[i], MAX_SPEED);
+>>>> +            return -EINVAL;
+>>>> +        }
+>>>> +    }
+>>>> +
+>>>> +    ctx->fan_max_level = num - 1;
+>>>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG_V2;
+>>>> +
+>>>> +    return 0;
 >>>> +}
 >>>> +
->>>> +/// Max fifo size is 17 (max push) + 2 (max remaining)
->>>> +const MAX_FIFO_SIZE: usize = 19;
+>>>>    static int khadas_mcu_fan_probe(struct platform_device *pdev)
+>>>>    {
+>>>>        struct khadas_mcu *mcu = dev_get_drvdata(pdev->dev.parent);
+>>>> @@ -90,6 +151,13 @@ static int khadas_mcu_fan_probe(struct platform_device *pdev)
+>>>>        ctx->mcu = mcu;
+>>>>        platform_set_drvdata(pdev, ctx);
+>>>>    +    ctx->fan_max_level = MAX_LEVEL;
+>>>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG;
 >>>> +
->>>> +/// A simple Decimal digit FIFO
->>>> +#[derive(Default)]
->>>> +struct DecFifo {
->>>> +    decimals: [u8; MAX_FIFO_SIZE],
->>>> +    len: usize,
->>>> +}
+>>>> +    ret = khadas_mcu_fan_get_cooling_data_edge2(ctx, dev);
+>>>> +    if (ret)
+>>>> +        return ret;
 >>>> +
->>>> +impl DecFifo {
->>>> +    fn push(&mut self, data: u64, len: usize) {
->>>> +        let mut chunk = data;
->>>> +        for i in (0..self.len).rev() {
->>>> +            self.decimals[i + len] = self.decimals[i];
->>>> +        }
->>>> +        for i in 0..len {
->>>> +            self.decimals[i] = (chunk % 10) as u8;
->>>> +            chunk /= 10;
->>>> +        }
->>>> +        self.len += len;
->>>> +    }
->>>> +
->>>> +    /// Pop 3 decimal digits from the FIFO
->>>> +    fn pop3(&mut self) -> Option<(u16, usize)> {
->>>> +        if self.len == 0 {
->>>> +            None
->>>> +        } else {
->>>> +            let poplen = 3.min(self.len);
->>>> +            self.len -= poplen;
->>>> +            let mut out = 0;
->>>> +            let mut exp = 1;
->>>> +            for i in 0..poplen {
->>>> +                out += self.decimals[self.len + i] as u16 * exp;
->>>> +                exp *= 10;
->>>> +            }
->>>> +            Some((out, NUM_CHARS_BITS[poplen]))
->>>>           }
->>>>       }
->>>>   }
->>>> @@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
->>>>   struct SegmentIterator<'a> {
->>>>       segment: &'a Segment<'a>,
->>>>       offset: usize,
->>>> -    carry: u64,
->>>> -    carry_len: usize,
->>>> +    decfifo: DecFifo,
->>>>   }
->>>>   impl Iterator for SegmentIterator<'_> {
->>>> @@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
->>>>                   }
->>>>               }
->>>>               Segment::Numeric(data) => {
->>>> -                if self.carry_len < 3 && self.offset < data.len() {
->>>> -                    // If there are less than 3 decimal digits in the carry,
->>>> -                    // take the next 7 bytes of input, and add them to the carry.
->>>> +                if self.decfifo.len < 3 && self.offset < data.len() {
->>>> +                    // If there are less than 3 decimal digits in the fifo,
->>>> +                    // take the next 7 bytes of input, and push them to the fifo.
->>>>                       let mut buf = [0u8; 8];
->>>>                       let len = 7.min(data.len() - self.offset);
->>>>                       buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
->>>>                       let chunk = u64::from_le_bytes(buf);
->>>> -                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
->>>> -                    self.carry = chunk + self.carry * pow;
->>>> +                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
->>>>                       self.offset += len;
->>>> -                    self.carry_len += BYTES_TO_DIGITS[len];
->>>> -                }
->>>> -                match self.carry_len {
->>>> -                    0 => None,
->>>> -                    len => {
->>>> -                        // take the next 3 decimal digits of the carry
->>>> -                        // and return 10bits of numeric data.
->>>> -                        let out_len = 3.min(len);
->>>> -                        self.carry_len -= out_len;
->>>> -                        let pow = u64::pow(10, self.carry_len as u32);
->>>> -                        let out = (self.carry / pow) as u16;
->>>> -                        self.carry %= pow;
->>>> -                        Some((out, NUM_CHARS_BITS[out_len]))
->>>> -                    }
->>>>                   }
->>>> +                self.decfifo.pop3()
->>>>               }
->>>>           }
->>>>       }
->>>>
->>>> base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
+>>>>        cdev = devm_thermal_of_cooling_device_register(dev->parent,
+>>>>                dev->parent->of_node, "khadas-mcu-fan", ctx,
+>>>>                &khadas_mcu_fan_cooling_ops); 
 >>>
->>> Hi Jocelyn,
->>>
->>> Apologies for reviving this old thread, but I'm still encountering
->>> the same issue with the latest master (78f4e737a53e).
->>>
->>> When compiling this module for ARM32 (multi_v7_defconfig),
->>> I get the following error:
->>>
->>>      ld.lld: error: undefined symbol: __aeabi_uldivmod
->>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
->>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
->>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
->>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
->>>      >>> referenced 14 more times
->>>      >>> did you mean: __aeabi_uidivmod
->>>      >>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
->>>
->>> Since no one else has reported this in two months, I’m wondering
->>> if this might be a configuration issue on my end.
 >>
->> Ok, that's surprising, the lines 391 and 392 are:
->>
->> self.decimals[i] = (chunk % 10) as u8;
->> chunk /= 10;
->>
->> So the compiler should be smart enough to do that without using a division.
->> I will try to reproduce, and see if I can fix that.
-> 
-> I reproduced the issues, it looks like clang doesn't do the optimization on ARM32:
-> 
-> https://github.com/llvm/llvm-project/issues/37280
-> 
-> So I've made a quick test with the following changes, and it builds:
-> 
-> 
-> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
-> index dd55b1cb764d..57bd3c6465bb 100644
-> --- a/drivers/gpu/drm/drm_panic_qr.rs
-> +++ b/drivers/gpu/drm/drm_panic_qr.rs
-> @@ -381,6 +381,20 @@ struct DecFifo {
->      len: usize,
->  }
-> 
-> +fn div10(val: u64) -> u64
-> +{
-> +    let val_h = val >> 32;
-> +    let val_l = val & 0xFFFFFFFF;
-> +    let b_h: u64 = 0x66666666;
-> +    let b_l: u64 = 0x66666667;
-> +
-> +    let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
-> +    let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
-> +    let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
-> +
-> +    tmp3 >> 2
-> +}
-> +
->  impl DecFifo {
->      fn push(&mut self, data: u64, len: usize) {
->          let mut chunk = data;
-> @@ -389,7 +403,7 @@ fn push(&mut self, data: u64, len: usize) {
->          }
->          for i in 0..len {
->              self.decimals[i] = (chunk % 10) as u8;
-> -            chunk /= 10;
-> +            chunk = div10(chunk);
->          }
->          self.len += len;
->      }
-> 
-> 
-> Best regards,
-> 
+>
 
-Compiles for me too on clang 20.1.6.
-
-Thanks a lot!
-
-
--- 
-Best regards,
-Andrei Lalaev
 
