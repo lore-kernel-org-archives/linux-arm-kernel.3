@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C13C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BD7C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=; b=lxDomBtSVQv8VkkE38UPFkdD+n
-	TN3c62Huk6I4Ww992fkqrnVguTlmRaGvbbKgcbWPhesiDSugrY3NSfJ08yXoSiieMHcC9cFkNMYbm
-	qIijtLLWgX657kgYxC1KLJFgsznmWTzxNCp7zoE2l44JdA661SMvFti7iIJQ9yfKuoRnU2LGEnls2
-	LNASRgO2YvVMiTLIuZV6IGz6hyzFDoK5j9t7LRJDMOy7ph0v5L7SGFQHCofssk7O8BmI1vDFKFuuU
-	ROFBZKe5gEwgR80K2oPo1+uy1F3l6jMCUktgiBLpPqXd5mf2yNTsZanK/Y5NFKS3Us8O3s5o4oSv3
-	PLMeg+NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iYLb1wvYbWbWJD/Vv9FBqA8nV99mryJWqws/r7n5kkc=; b=I80udKaJnolstGHYKHGcqAVsGM
+	7W0QMhAquifQ5105vwcssv+xD0//N+kZlb5HS07eyRuLW4swRMoufCBp9ykOVK1Z3mQLoZsgcTtye
+	dA5KeWcbG6ba7qv7We5fRDeORlF9b+oB3hC6RvWYnT0ReJZQBUJfXzCrbadydRvBas36v3LcczSVH
+	LnIR2r1N8TGyQyT+IRgjtFjB0d3+bifMQX1FvLiJfIlV8m/k5q6nD54/Ru7RKEoCshtuMsM2ajQa2
+	ch8Jx6Amlko0BbVuO4YhCVvjG3XuHq06uNtJDPxBAdOQDbsdMoYK1t8AoR4a3Gq6UdgXqFsuMdN/G
+	zb3BVDuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUmgd-0000000Bg6V-2aqt;
-	Thu, 26 Jun 2025 13:30:43 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1uUmit-0000000BgKh-1brR;
+	Thu, 26 Jun 2025 13:33:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUmbQ-0000000Bf5A-1gsb
+	id 1uUmdz-0000000Bfdd-09Y4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 13:25:21 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-553be4d2fbfso1150505e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 06:25:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750944318; x=1751549118; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=;
-        b=C401Z5zWFUczgdu+RBNEQAgm2MZb9fNACXR6guaFNGY8Kr51SdBIPlt0dFN/D5PEyG
-         dyoW8AFPTFbPc15NLO36ZbtW0HUcnMYMEu8hvfxB9sj87e5YQun3slMw40ygE7NLGKla
-         rZ20sHsVpJ6c72yIO1WoRTWazyz/yu+9kxtvuvU60S1BP3s9QW5MZ2491jvt/bEuYHD9
-         GIrEiR/6H3xe35GGuYlVgB5dS2pfBTvkrjSJMDuR45nojtMzIBsBTfB5I0zCBaWx2iKS
-         iF0nS13VfGJ2oQUuruhHErfe1BfBeU1eAH7VGxK+MCjRsVBGJWxoPGgcSYkIP3CSMXqr
-         ivBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750944318; x=1751549118;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=;
-        b=ScZ6OrfR/9znpNVFBVm9lyomxt3LgiMZqmQtPLLNOJ1jS8458jsvc3kX9ZqDnzBHmT
-         T/jtOTUxlAMskPLoqFsBwd2GQbL1ZLY9eCF192w/9ZZnNcjqtCSL4JQz394fDmb5pkHc
-         dP9P28uTZtNLOHQg36eXISvXR8Y/9S14tyBTtXjFi05SkodZ9nHr0wctWUJu+/Qt6jes
-         +HSVbzU6+Vh6kz7BKLUCelv5GTJiRIFHhZlH9jx/E9gb3FqTtWS0JvdHQlxCXWKwgTHW
-         nEagR+uh3Lq4m85ukXjkmpp/djfAzz27jsk2zmHiClNUNR2UveX/trhcktcppb5NFdl/
-         Mq/g==
-X-Forwarded-Encrypted: i=1; AJvYcCWhFD3+G+J4pq7FE8bkReHMK01Pl+uyflRDyPFWgSi3NN/tW08Sp8co2l69IbhP/zs67lAX769087ynAtriYcm/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYMBydZM4J76LPiDpFRSu7msoh9fPohPMypI25rVyY7QWj77Ie
-	iSUce/PgdNSu6p5k1yOYY9hkL6TjOby1PKli/ZTPfIgOFwMnOlCyRc3GbymaRPwJ2duaDba+PEH
-	gWBqmbnAbhpPfUcI8OAkCTfq9Zt21nBCFiBjH/649Xw==
-X-Gm-Gg: ASbGncsgmUge7se61H2yEwijMPV5FzNf0HVWc7bKk70VN7ehOQ4o2sPwsmpW5KJi0si
-	pttEHY/9r+HT9OqXmM9GjtRTOrbCrv4Ge4PlscbpjpTB3Edm/xxs+CUg042tFi9A5neCCGa+CJh
-	kN7QOISiezPV4+DTSxG4tv7MQY7S0X0wsi22BywZNeKv+1p0FJbEbMCUv5feMF4FAoyW2ppIf1s
-	w==
-X-Google-Smtp-Source: AGHT+IFZCHpg6dN8jQOP4LGMeE8N6TdaxL+CR37n8aEWMLkZ46xkrupRdz8U89iquKgLZ75BaGxTbVJfXxSWy4Rbayg=
-X-Received: by 2002:a05:6512:691:b0:553:aed7:9807 with SMTP id
- 2adb3069b0e04-554fdcc531fmr2571744e87.9.1750944317960; Thu, 26 Jun 2025
- 06:25:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
- <20250624-gpio-mmio-pdata-v1-3-a58c72eb556a@linaro.org> <20250626132257.GE10134@google.com>
-In-Reply-To: <20250626132257.GE10134@google.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 26 Jun 2025 15:25:06 +0200
-X-Gm-Features: Ac12FXw9b1Ua2nskF_gKsApdHRnQVgOC-Rscq226tK5vt_NGX_5zRRRras-l-hs
-Message-ID: <CAMRc=MdBipydUjEKXDufMAWNZjMA18RKj0XcNofrn1oR7bXTZA@mail.gmail.com>
-Subject: Re: [PATCH RFT 3/6] mfd: vexpress-sysreg: set-up software nodes for gpio-mmio
-To: Lee Jones <lee@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-samsung-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 26 Jun 2025 13:28:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39652A51834;
+	Thu, 26 Jun 2025 13:27:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D22C3C4CEEB;
+	Thu, 26 Jun 2025 13:27:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750944477;
+	bh=fBIEve8FP/YE7Iq/R715WvXVTfrpSD/qYWNCmxcUlmQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=p7bZdzrXMwycmZIXNjYpAAmP5+Cxx+FcQn1boX5m386Cr5YZQHoRelMG568JBe8Oj
+	 W2lfN0xWB1pkah06qvlTHjVPQ/oEjuNH1PgGNV5uHnp4wNOLSVf/h6Sad0E+JI7scv
+	 GcLjcAxhCwmZapf6kJ1yC6tppcSmMESdySBHKp163/9vJJawoH/bOKzyRhh6O+Zlpk
+	 +Ncor7OxWpaJGOTDRpsSOp4K/kdVzt/akMBngWVO48+bX0qvW+3+qYvLQjBISB2deh
+	 90i7/Ncz1ty81n/YXPvFfeeXzzOf4ymDqui9TWY1ag/mNcSFcMjYa5M1+UKXY4YsCl
+	 ztZLHcUde1LEw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uUmdv-00AEV3-Ll;
+	Thu, 26 Jun 2025 14:27:55 +0100
+Date: Thu, 26 Jun 2025 14:27:54 +0100
+Message-ID: <86wm8ybpk5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	"Will Deacon" <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>,
+	<wangwudi@hisilicon.com>
+Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200803
+In-Reply-To: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tangnianyao@huawei.com, wangwudi@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_062520_549999_28CF4B20 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250626_062759_215490_D5BC6756 
+X-CRM114-Status: GOOD (  28.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +88,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 3:23=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
->
-> On Tue, 24 Jun 2025, Bartosz Golaszewski wrote:
->
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > Replace struct bgpio_pdata - that we plan to remove - with software
-> > nodes containing properties encoding the same values thatr can now be
->
-> Spelling.
->
-> > parsed by gpio-mmio.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > ---
-> >  drivers/mfd/vexpress-sysreg.c | 46 ++++++++++++++++++++++++++---------=
---------
-> >  1 file changed, 28 insertions(+), 18 deletions(-)
->
-> Can this go in on its own, or does it have depend{encies,ants}?
+On Thu, 26 Jun 2025 13:41:42 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+> when multiple vPEs are sending vpe schedule/deschedule commands
+> concurrently and repeatedly, some vPE schedule command may not be
+> scheduled, and it will cause the command timeout.
+> 
+> The hardware implementation is that there is one GIC hardware in one CPU die,
+> which handles all vPE schedule operations one by one in all CPUs of this die.
+> The bug is that if the number of queued vPE schedule operations is more
+> than a certain value, the last vPE schedule operation will be lost.
+> 
+> One possible way to solve this problem is to limit the number of vLPIs, so
+> the hardware could spend less time to scan virtual pending table when it
+> handles the vPE schedule operations, so the queued vPE schedule operations
+> will never be more than above certain value.
+> 
+> Given the number of CPUs of die, and imagine there is 100 vPE schedule
+> operations per second one CPU, it can be calculated that we can limit
+> the number of vLPI to 4096 for virtual machine to avoid the issue.
+> 
+> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 12 ++++++++++++
+>  arch/arm64/include/asm/cputype.h            |  4 ++++
+>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  include/linux/irqchip/arm-gic-v3.h          |  1 +
+>  7 files changed, 40 insertions(+)
+> 
 
-It will break the MFD GPIO sub-driver without patch 1/6 from this
-series. It would be best if you could Ack it and I can set up an
-immutable branch for v6.17 if you need it.
+[...]
 
-Bartosz
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> index ae4c0593d114..495a56e9dc4b 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+>  		if (vgic_has_its(vcpu->kvm)) {
+>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+>  			value |= GICD_TYPER_LPIS;
+> +			/* Limit the number of vlpis to 4096 */
+> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
+> +			    kvm_vgic_global_state.has_gicv4 &&
+> +			    !kvm_vgic_global_state.has_gicv4_1)
+> +				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+
+This really doesn't solve your problem. Yes, the guest *may* honor
+this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
+if the guest asks -- there is no code enforcing this limit.
+
+And even if we did. What would we do on a MAPTI command that tries to
+map a vLPI outside of the allowed range? Do we need to tell the guest
+it has screwed up?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
