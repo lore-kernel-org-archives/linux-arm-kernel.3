@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC77C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8281C7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdfZ1fe1QrL0AX4KvbpOw9db3IDwzYKM5tBhWJp0zHc=; b=qWDe+QDfglRVHIHf163qsGnhPX
-	6Ehy1YtiXe8JHTRFKTCtIy/TDB12+z7EDJNNAMOWJjo3YoX4tPltULEk+3+vBQuE+G7ltYsdeKs9p
-	K4t13CjMcVAEhsSIH0fpjczUiqAeQbLmWqFMqrJoXtcPDjWT0N+hd5dlVasajB8zmitem9U4m7Eca
-	YxYXXyhKxBWAVsz2i6wWwD/EC2BAUDVQMbkJ9BM/rmedSTpI6GCLIH50LEKMvazQ15y+NYFUhRTCB
-	P7aKxFU35BEsQZlOJYBVQklwJ6azJY+VMtwKH6YMp3iHMlrVSc/rr7T8YqUJ8T/5xpZ79lr9NvYex
-	DS6EujWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yzHnsmLTewRsBfKjcqS7Ovd/FClDc2H6W6if0kL0/KE=; b=DjP0/UVwp1ME54keniFfjDErI3
+	bXVE+5axrg06rpmXOIOMLaV8QzchM8FBaoD058J5hIlv/yJMp1J4Cyek6+klAMHXf1LK8x1FQsOLE
+	HMHUH76KSffyRcOkb3qviwL4imcNEihzMi6MDIZ270/DrFCg3+ntRZXlv/1T9EcASUX2oEHdrUmHV
+	cRDMb9EMYUdN5pHgqmlK61f8yJQ1VEfINaJvMji2sBjpBkyLuC3YnsamKfYU4nI7ulQID1VySri8z
+	emYB7kBSHCh4ioJCgKfGs9QJcxA/8xn/Rwu988CIvpk8tLj6QNRt8NA48wGG+A5QWuUZ2CWpY3Rdf
+	y6ZxrSsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjCq-0000000BBS4-0DQY;
-	Thu, 26 Jun 2025 09:47:44 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1uUjF6-0000000BC45-0pvU;
+	Thu, 26 Jun 2025 09:50:04 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiRo-0000000B4GT-0gJO
+	id 1uUiZ1-0000000B5vt-354m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:59:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750928348; x=1782464348;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=vz8yrG7TsUr+PK7JlGaU9k8zdE+Zt3hQF4t9uML7Scs=;
-  b=iJhUcXn6nGwDWEBHZTIjWu0ece+aBVTNpIDw5Q5K0UTu0jxeWp6HEgtf
-   6I1iOY2xfsEvWLK/e40jTKz5Wgq5+Bm7sgza0uHlqBEpS828sgw1nciDc
-   mZXCnrFYT/omJRfIv10rpRIeLJ88QHQgiDCS0NmJtN8XvSRZb+zDkW0fh
-   E7UvPgrHoUC1SbH7/q18IiYi8wQgU9LbdJxU+O8CKxXeyAqYjMPx0tcz2
-   hHmAjyEwi/O4YdZbIjFNO9crcMREAtwFGWgOPhwnbIsnTWwf9OXCkhDUo
-   J9eYAlWQv4Rks6bLz6E5WdpwkMYIXEpcYfJ6hJVV6Vj60EyTTvC2VgOAd
-   A==;
-X-CSE-ConnectionGUID: yNRD2BSQSam3ZEEuglQe0w==
-X-CSE-MsgGUID: wRhyNthmR/mfUCxNntlHNg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="64649963"
-X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
-   d="scan'208";a="64649963"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:59:08 -0700
-X-CSE-ConnectionGUID: PSt5q9rgRv23Z+qWHnxY4g==
-X-CSE-MsgGUID: 1ZRIWUhETUuNPdnq4pMsGA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
-   d="scan'208";a="152632462"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.124.247.1]) ([10.124.247.1])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:59:05 -0700
-Message-ID: <bc7aea45-f254-4cbc-8dc0-5435417d8577@intel.com>
-Date: Thu, 26 Jun 2025 16:59:00 +0800
+	Thu, 26 Jun 2025 09:06:37 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55Q8TXu5002736;
+	Thu, 26 Jun 2025 11:06:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	yzHnsmLTewRsBfKjcqS7Ovd/FClDc2H6W6if0kL0/KE=; b=Ua/0wZizeUaayLiM
+	sXZv4jngLUekGFY86nIQFCWLKslebcuvBKzdPrea+yMDtXzzxzxfyhX5LMbZRH+P
+	oOGTBIo9bXUT/cp/J6+IO77mhvsWjHXC6ZKvqXwUB/ogCZj11EQ+kN2PE3dqc9gz
+	RE0nKR6sNtNgyQf/PLFfA092pxu9hfeHkvHwIpWynI8puTlTi/K5dbd9CuVUo06m
+	8TazMhhD/mLbcgaqPMYVdja6IEsIM4QVwslyBxSK1q000NUQgrfHLF260QvrwVeY
+	yue7Q5r14Mqgvx90T+BPa5zALMXGv0HEjMXtSHHCx4om84GLlhcC7lYmoqdntUZK
+	ZFoV2Q==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dhvbwk1y-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Jun 2025 11:06:24 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B3AA14002D;
+	Thu, 26 Jun 2025 11:03:57 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 241D0B2F98C;
+	Thu, 26 Jun 2025 11:03:03 +0200 (CEST)
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 26 Jun
+ 2025 11:03:02 +0200
+Date: Thu, 26 Jun 2025 11:03:01 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
+CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
+        Andi Shyti
+	<andi.shyti@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Sumit Semwal
+	<sumit.semwal@linaro.org>,
+        Christian =?iso-8859-1?Q?K=F6nig?=
+	<christian.koenig@amd.com>,
+        M'boumba Cedric Madianga
+	<cedric.madianga@gmail.com>,
+        Wolfram Sang <wsa@kernel.org>,
+        "Pierre-Yves
+ MORDRET" <pierre-yves.mordret@st.com>,
+        <linux-i2c@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linaro-mm-sig@lists.linaro.org>
+Subject: Re: [PATCH 2/3] i2c: stm32f7: unmap DMA mapped buffer
+Message-ID: <20250626090301.GC348766@gnbcxd0016.gnb.st.com>
+References: <20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com>
+ <20250616-i2c-upstream-v1-2-42d3d5374e65@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/5] KVM: x86: Provide a capability to disable
- APERF/MPERF read intercepts
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
- Jim Mattson <jmattson@google.com>
-References: <20250626001225.744268-1-seanjc@google.com>
- <20250626001225.744268-3-seanjc@google.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <20250626001225.744268-3-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250616-i2c-upstream-v1-2-42d3d5374e65@foss.st.com>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-26_04,2025-06-25_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_015908_252877_3C20F169 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20250626_020636_244382_2D1115AA 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,73 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/26/2025 8:12 AM, Sean Christopherson wrote:
-> From: Jim Mattson <jmattson@google.com>
+Hi Clément,
+
+thanks for the patch.
+
+On Mon, Jun 16, 2025 at 10:53:55AM +0200, Clément Le Goffic wrote:
+> Fix an issue where the mapped DMA buffer was not unmapped.
 > 
-> Allow a guest to read the physical IA32_APERF and IA32_MPERF MSRs
-> without interception.
-> 
-> The IA32_APERF and IA32_MPERF MSRs are not virtualized. Writes are not
-> handled at all. The MSR values are not zeroed on vCPU creation, saved
-> on suspend, or restored on resume. No accommodation is made for
-> processor migration or for sharing a logical processor with other
-> tasks. No adjustments are made for non-unit TSC multipliers. The MSRs
-> do not account for time the same way as the comparable PMU events,
-> whether the PMU is virtualized by the traditional emulation method or
-> the new mediated pass-through approach.
-> 
-> Nonetheless, in a properly constrained environment, this capability
-> can be combined with a guest CPUID table that advertises support for
-> CPUID.6:ECX.APERFMPERF[bit 0] to induce a Linux guest to report the
-> effective physical CPU frequency in /proc/cpuinfo. Moreover, there is
-> no performance cost for this capability.
-> 
-> Signed-off-by: Jim Mattson <jmattson@google.com>
-> Link: https://lore.kernel.org/r/20250530185239.2335185-3-jmattson@google.com
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 > ---
->   Documentation/virt/kvm/api.rst | 23 +++++++++++++++++++++++
->   arch/x86/kvm/svm/nested.c      |  4 +++-
->   arch/x86/kvm/svm/svm.c         |  5 +++++
->   arch/x86/kvm/vmx/nested.c      |  6 ++++++
->   arch/x86/kvm/vmx/vmx.c         |  4 ++++
->   arch/x86/kvm/x86.c             |  6 +++++-
->   arch/x86/kvm/x86.h             |  5 +++++
->   include/uapi/linux/kvm.h       |  1 +
->   tools/include/uapi/linux/kvm.h |  1 +
->   9 files changed, 53 insertions(+), 2 deletions(-)
+>  drivers/i2c/busses/i2c-stm32f7.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 43ed57e048a8..27ced3ee2b53 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -7844,6 +7844,7 @@ Valid bits in args[0] are::
->     #define KVM_X86_DISABLE_EXITS_HLT              (1 << 1)
->     #define KVM_X86_DISABLE_EXITS_PAUSE            (1 << 2)
->     #define KVM_X86_DISABLE_EXITS_CSTATE           (1 << 3)
-> +  #define KVM_X86_DISABLE_EXITS_APERFMPERF       (1 << 4)
->   
->   Enabling this capability on a VM provides userspace with a way to no
->   longer intercept some instructions for improved latency in some
-> @@ -7854,6 +7855,28 @@ all such vmexits.
->   
->   Do not enable KVM_FEATURE_PV_UNHALT if you disable HLT exits.
->   
-> +Virtualizing the ``IA32_APERF`` and ``IA32_MPERF`` MSRs requires more
-> +than just disabling APERF/MPERF exits. While both Intel and AMD
-> +document strict usage conditions for these MSRs--emphasizing that only
-> +the ratio of their deltas over a time interval (T0 to T1) is
-> +architecturally defined--simply passing through the MSRs can still
-> +produce an incorrect ratio.
-> +
-> +This erroneous ratio can occur if, between T0 and T1:
-> +
-> +1. The vCPU thread migrates between logical processors.
-> +2. Live migration or suspend/resume operations take place.
-> +3. Another task shares the vCPU's logical processor.
-> +4. C-states lower thean C0 are emulated (e.g., via HLT interception).
+> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
+> index 973a3a8c6d4a..a05cac5ee9db 100644
+> --- a/drivers/i2c/busses/i2c-stm32f7.c
+> +++ b/drivers/i2c/busses/i2c-stm32f7.c
+> @@ -1622,6 +1622,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>  		if (i2c_dev->use_dma) {
+>  			stm32f7_i2c_disable_dma_req(i2c_dev);
+>  			dmaengine_terminate_async(dma->chan_using);
+> +			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+> +					 dma->dma_data_dir);
+>  		}
+>  		f7_msg->result = -ENXIO;
+>  	}
+> @@ -1642,6 +1644,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>  				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
+>  				stm32f7_i2c_disable_dma_req(i2c_dev);
+>  				dmaengine_terminate_async(dma->chan_using);
+> +				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+> +						 dma->dma_data_dir);
+>  				f7_msg->result = -ETIMEDOUT;
+>  			}
+>  		}
+> 
 
-s/thean/than/
+Sounds good to me, however there might be an additional place to fix
+within the function stm32f7_i2c_handle_isr_errs:
+Could you also take care of the unmap in the error ITs handling ?
 
-Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
+Regards,
+Alain
+
+> -- 
+> 2.43.0
+> 
 
