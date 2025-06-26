@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E52CC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3608C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WC73ousqXm0tVgOMTkb2lrXyRETb5rpv9/DFOS0UCt4=; b=UROXqKiH1vD062KlmJ9KVQ5NYu
-	rttHywozd/ze0c+G8j94gMJYk16zD8kVThxgHW1+Dh5xRC2YhJ1BAN4tx7zGFFo81ma2mtZ12ikgV
-	z5UBwaGz/CxiI9wO3SfNYmunt/iuwutFWTnYhDLmB7aFXbxnyKDPr7n7J41Z2PzTEOpVG3qaDyFDC
-	6IfMxSgCRGyaLkSodsM2eIKZJSMWEfigyqQd7mnLfbGn1/moyLwur0dmcNFLVZfSkmc0xKedKWTuQ
-	JoNrPLKQos0OwqZ8jqxNC/bJErOe8TNpclta3wEHhlT75gbIW1u+3HTPODGMtkB4ZbYGwFIJ68Bsl
-	fjWbQrlg==;
+	bh=e2tG/E+OaNYCzvkkJRIbervB8pIvTFkGroCidIOBi7I=; b=GLlJRopnZ5CBcb42Z+ecoNiqk9
+	iTsR4DQ8Xaa0THSdgqcZUC6Mx85LVTnqH2zae6WgrqUYqBF8TfSz4LCqKOFsup7ZxMJILyW5cSHJm
+	tWQBjJjVCw/u2buMJC2Dr6m8gilaUl6nB+2XFGecfzg3PZwLrCFduopPDSLJzNACa6kRzeL97YUQs
+	RFLedSgOO7ALlheJuMuHTCa7zFrznUu1Xw4sL4kfRZsr2wZgRgEbVmV1bGfnYtV6AjmMu+Sf0hoOE
+	OOnsD/JCTbz6CZ49HaG9eBzJsOlEMUQPO9ujuMHqjn7Im0SGAi7uj1uqgiqZryWqfQn8PxwGA/FKP
+	RkCxBWLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhzV-0000000AyHg-47bD;
-	Thu, 26 Jun 2025 08:29:53 +0000
+	id 1uUi1o-0000000Ayah-3J4N;
+	Thu, 26 Jun 2025 08:32:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhfw-0000000Au6u-1Sa7
+	id 1uUhg1-0000000AuAU-0ygk
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Jun 2025 08:09:40 +0000
+	Thu, 26 Jun 2025 08:09:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WC73ousqXm0tVgOMTkb2lrXyRETb5rpv9/DFOS0UCt4=; b=HxDy+HDJp0Ro/ta0lQawvKSC08
-	nJwFhq+QbeuGU5qlq95NSatOGGMC2hO1mJ69aY1+H5vEQczhY4xaO83lbzro5cDQFDZiFzqMAyDOz
-	fkHeq6huTUSmi77Szx2rt23tnPjk19Xd5Co7svOxd1WimmPD1+6nBRrzAgVeOgyC2nYpLqBlapGbm
-	Pxjeqf+2scXm6HzfvpwzESn96XAJWKkn2qCjhOyel+s2NL6DeXmDP0id1cOipSeoZfbUYxNZQczZs
-	uT2nNlQy4BjiRVVNAkRouhvymSsGjqGJdUWQGejYADa4JGqS9GGyyxmaGr2YN5HB9zY5vIdY2pe1e
-	mwl3MHKQ==;
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	bh=e2tG/E+OaNYCzvkkJRIbervB8pIvTFkGroCidIOBi7I=; b=Ake9AJHW3TPScCyCEbwRuPOQMe
+	j4g0zYeew1J+qoQFHVkSxjOpZk2ux7ZJk+CcuVDsksPulSFiT76g+vxtCvYx/5YdKIwrNNQXu+cZx
+	C3mi+abt1Z52RvAAvTwo2hB7tJWpzM9vYVjofdxTVnxwj2aQJBHLz6UsIQWmJ3tY3x/r8acwGzOti
+	JEa1w4x3+AYnxoiDx3ZIsBdJWIRPAS8JW/lxhzsn3dMxZ92dKAipxAD+LgaVLMRTujdTRWKkGuuY+
+	X89UfoB5U4KmJIA4grlN+kiHOKUzJBPDS5ReDrGrYs44HS24OWHDJNPGpDU714+vFUnMbzY2/LT7q
+	9HjJDKDQ==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhfs-000000063UY-45wQ
+	id 1uUhfy-000000063W4-0YZB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:09:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bSWSy3GXDzdbj8;
-	Thu, 26 Jun 2025 16:05:22 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id A63BC180492;
-	Thu, 26 Jun 2025 16:09:20 +0800 (CST)
+	Thu, 26 Jun 2025 08:09:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bSWZd3pBtz27hmb;
+	Thu, 26 Jun 2025 16:10:17 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3939814027A;
+	Thu, 26 Jun 2025 16:09:22 +0800 (CST)
 Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Jun 2025 16:09:20 +0800
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:21 +0800
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Jun 2025 16:09:19 +0800
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:20 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <corbet@lwn.net>,
@@ -66,9 +66,9 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: [PATCH v3 3/7] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
-Date: Thu, 26 Jun 2025 16:09:02 +0800
-Message-ID: <20250626080906.64230-4-yangyicong@huawei.com>
+Subject: [PATCH v3 5/7] arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
+Date: Thu, 26 Jun 2025 16:09:04 +0800
+Message-ID: <20250626080906.64230-6-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20250626080906.64230-1-yangyicong@huawei.com>
 References: <20250626080906.64230-1-yangyicong@huawei.com>
@@ -79,8 +79,9 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_090937_872589_5EBE24FF 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20250626_090942_768023_32701E07 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +98,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-If FEAT_LS64WB not supported, FEAT_LS64* instructions only support
-to access Device/Uncacheable memory, otherwise a data abort for
-unsupported Exclusive or atomic access (0x35) is generated per spec.
-It's implementation defined whether the target exception level is
-routed and is possible to implemented as route to EL2 on a VHE VM
-according to DDI0487K.a Section C3.2.12.2 Single-copy atomic 64-byte
-load/store.
+Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
+HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
+at EL0/1.
 
-If it's implemented as generate the DABT to the final enabled stage
-(stage-2), since no valid ISV indicated in the ESR, it's better for
-the userspace to decide how to handle it. Reuse the
-NISV_IO_ABORT_TO_USER path with exit reason KVM_EXIT_ARM_LDST64B.
+This doesn't mean these instructions are always available in
+EL0/1 if provided. The hypervisor still have the control at
+runtime.
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/include/asm/esr.h |  8 ++++++++
- arch/arm64/kvm/mmu.c         | 21 ++++++++++++++++++++-
- 2 files changed, 28 insertions(+), 1 deletion(-)
+For note, Will raise the question HCRX setting here won't retain after a
+world switch. This is fine now after commit ffea7c73d181 ("KVM: arm64: Properly save/restore HCRX_EL2")
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index e1deed824464..63cd17f830da 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -124,6 +124,7 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
- #define ESR_ELx_FSC_ADDRSZ	(0x00)
+ arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ba5df0df02a4..9a0ab7dc9db1 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -57,9 +57,19 @@
+         /* Enable GCS if supported */
+ 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+ 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+-	cbz	x1, .Lset_hcrx_\@
++	cbz	x1, .Lskip_gcs_hcrx_\@
+ 	orr	x0, x0, #HCRX_EL2_GCSEn
  
- /*
-@@ -488,6 +489,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
- }
- 
-+static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
++.Lskip_gcs_hcrx_\@:
++	/* Enable LS64, LS64_V if supported */
++	mrs_s	x1, SYS_ID_AA64ISAR1_EL1
++	ubfx	x1, x1, #ID_AA64ISAR1_EL1_LS64_SHIFT, #4
++	cbz	x1, .Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_EnALS
++	cmp	x1, #ID_AA64ISAR1_EL1_LS64_LS64_V
++	b.lt	.Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_EnASR
 +
-+	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
-+}
-+
- static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
- {
- 	esr &= ESR_ELx_FSC;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 2942ec92c5a4..5f05d1c4b5a2 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1665,6 +1665,24 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (exec_fault && device)
- 		return -ENOEXEC;
- 
-+	/*
-+	 * Target address is normal memory on the Host. We come here
-+	 * because:
-+	 * 1) Guest map it as device memory and perform LS64 operations
-+	 * 2) VMM report it as device memory mistakenly
-+	 * Hand it to the userspace.
-+	 */
-+	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
-+		struct kvm_run *run = vcpu->run;
-+
-+		run->exit_reason = KVM_EXIT_ARM_LDST64B;
-+		run->arm_nisv.esr_iss = kvm_vcpu_dabt_iss_nisv_sanitized(vcpu);
-+		run->arm_nisv.fault_ipa = fault_ipa |
-+			(kvm_vcpu_get_hfar(vcpu) & (vma_pagesize - 1));
-+
-+		return -EAGAIN;
-+	}
-+
- 	/*
- 	 * Potentially reduce shadow S2 permissions to match the guest's own
- 	 * S2. For exec faults, we'd only reach this point if the guest
-@@ -1850,7 +1868,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 	/* Check the stage-2 fault is trans. fault or write fault */
- 	if (!esr_fsc_is_translation_fault(esr) &&
- 	    !esr_fsc_is_permission_fault(esr) &&
--	    !esr_fsc_is_access_flag_fault(esr)) {
-+	    !esr_fsc_is_access_flag_fault(esr) &&
-+	    !esr_fsc_is_excl_atomic_fault(esr)) {
- 		kvm_err("Unsupported FSC: EC=%#x xFSC=%#lx ESR_EL2=%#lx\n",
- 			kvm_vcpu_trap_get_class(vcpu),
- 			(unsigned long)kvm_vcpu_trap_get_fault(vcpu),
+ .Lset_hcrx_\@:
+ 	msr_s	SYS_HCRX_EL2, x0
+ .Lskip_hcrx_\@:
 -- 
 2.24.0
 
