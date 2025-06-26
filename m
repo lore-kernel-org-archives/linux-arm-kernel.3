@@ -4,112 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C62C7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40A9C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9bh0BdyixRnDd6O7y8OvWoe7BilB3MF8CQqhr1ip8jM=; b=HVLSffBXsqwmSdAYi0Ox1Mkh0A
-	OZYmeEf/njenA7Np49rz140ed2PmSlNkVBd9Npv0d17ZOvla2XWaYEIdVhGGQ4vSXxcG+derockJ6
-	o76d1Z6YnkI39EyA7bZ1qCWdzXn+fOLqUfJXeWLX/eahJTZgJA4yLTrVPorSLAl7WRfj1DmT3tQgY
-	ghR8avMU4LjnxbVkCmM0ODUiS/DRsbTyPKa0gSfq+uEKx2YrLMYP6aO6FjIyHOtrwCmkFI4MUeEDF
-	mvnXgMa0mv1wThNTsmlMpCZLP2XXmqs46DA2ZqJnbFK6KJf8FIiIh+jvSGM7P/PCQnDX1C8jeLpNh
-	M9+MNTCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PeIdN7Egeu/BChfd9I0s7EzDZUDC8uxRZdnOw7WSED0=; b=giCrd8SUhqrFyRajmJvzfjq1Q/
+	iZb/aNyUYO51PzeF0VBLp7LosckeHVNYZnVdaH1cRbHHu00C5foUsqqUcSkx3pti7nFp4Lptjk9/c
+	kAWojnStO1WpMnLYIREzc1tKfapwwp/DSrYVsI48mJJdDPGUIPfOrk9DlI3FMzPAnD63Y34idM0xz
+	ZbwxX3u2ZHgdVnSBMlPXQV1y4f2ncd65I/dbU2WxsgxhAf0fbBaEMQ4R251jji8hhBLU3sDAefNOS
+	cbZCFi7ilw86YQY7DlfELMd/cTtV7EvBEol0GfUsMyOgOjRFylRQ+EZrTeBbjNm4XE3Z0myG0+GTl
+	Td6/NoJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhjJ-0000000Av2C-3J1H;
-	Thu, 26 Jun 2025 08:13:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uUhld-0000000Avek-21an;
+	Thu, 26 Jun 2025 08:15:33 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhao-0000000Asxu-0tEw
+	id 1uUhfh-0000000Atw8-4777
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:04:23 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55Q0EXZa027655;
-	Thu, 26 Jun 2025 08:04:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9bh0BdyixRnDd6O7y8OvWoe7BilB3MF8CQqhr1ip8jM=; b=B47zkZ5P/f5rZs0C
-	sv+zpXXegSp5V8D03Yqf02SdiNEdjGQzExSCEYkckthqnlcdZpuananbDe9RDliW
-	yKJMC6P3CZ4l1KU3xgj3EGRfXaUXXhlJ++zbJ05eS5aO6/EOh6Xt3iZ1hOaI+/cV
-	38ihwf+qDFBbCerJgzDji4O4mEA7K/oPKX6qT4iiMwbNewYQfBJDx6ecaLjrU82R
-	WkXuN3/NVoY1PIvoHEcqb1Ha30sYrvIs5bWem8vgP3upWf3xie4h7o8IdAU6Z2iw
-	fU0hubREb791B34FjJoKuWgyAzljIzOh66TRY01tuk2Dzss39W78HrGJAREY6kcK
-	25hzsQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47evc5umfv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Jun 2025 08:04:12 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55Q84Brl031370
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Jun 2025 08:04:11 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 26 Jun
- 2025 01:04:07 -0700
-Message-ID: <3905c8ab-941a-4171-a1d9-7721059a7490@quicinc.com>
-Date: Thu, 26 Jun 2025 16:04:05 +0800
+	Thu, 26 Jun 2025 08:09:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bSWSw634FzdbjC;
+	Thu, 26 Jun 2025 16:05:20 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1255218006C;
+	Thu, 26 Jun 2025 16:09:19 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:18 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:17 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
+	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
+Subject: [PATCH v3 1/7] KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
+Date: Thu, 26 Jun 2025 16:09:00 +0800
+Message-ID: <20250626080906.64230-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250626080906.64230-1-yangyicong@huawei.com>
+References: <20250626080906.64230-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] dt-bindings: arm: Add qcom,qmi-id for remote etm
-To: Bjorn Andersson <andersson@kernel.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        Konrad Dybcio <konradybcio@kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
- <20250424115854.2328190-4-quic_jinlmao@quicinc.com>
- <ugxijerhh5yfgpvmuaatvenh7yrk5uoiracfp7xknsxrb73dcl@hwsatze4rjuq>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <ugxijerhh5yfgpvmuaatvenh7yrk5uoiracfp7xknsxrb73dcl@hwsatze4rjuq>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: lkzTFagtO3N3ZaAkJPjolOa-R_hAEndf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI2MDA2NSBTYWx0ZWRfXw+rmMdNYNj/b
- FDIWbb6LfSWXdLmOXQIs7bMkYQ0f1i3ekwh9XG7MX1ShPY9oED+xgAuVNs6oMUrvODR0rc1epUJ
- iZ+mn7P92bWZwsg1g88877kyAWKMK/M60Fe3yHA7sfXCK12opzP1kZ1r1x9HfmdguQgEYAdoqKA
- HQLpil9QA6btULs8U/DThickdN29S0FMHOmZx3HZvmZ6kJ4FzqOSxrk2zyABE1JnHilcm6j8xOL
- 1ktDVc/Q82+phCFlM+xz45jnOYmAL6VZddPc7e6mApngYgYt56K/kLFPauHTJ8g4jM4wrmj8tVC
- 3lj81PaXCxnQtAiqwwTs9Bv6r1gqDssLDdxPRZAg71n9RfYJpau8IvdeT8+NS6ffIL8aaujPbsH
- X1CICqoyBl8OhHBuRdMsrpAb4Wd7EpY3CWtP6FWM/R8KxQS+pmGmldbFoW1biPrGGjSrTwAI
-X-Authority-Analysis: v=2.4 cv=caHSrmDM c=1 sm=1 tr=0 ts=685cfefc cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=GsXIiSCn9My1Hi_4oy0A:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: lkzTFagtO3N3ZaAkJPjolOa-R_hAEndf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-26_03,2025-06-25_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 mlxlogscore=999 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 adultscore=0 mlxscore=0 spamscore=0
- malwarescore=0 phishscore=0 clxscore=1015 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506260065
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_010422_271946_1E9623A9 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20250626_010926_366670_3E57DFF2 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,83 +80,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Marc Zyngier <maz@kernel.org>
 
+The main use of {LD,ST}64B* is to talk to a device, which is hopefully
+directly assigned to the guest and requires no additional handling.
 
-On 2025/6/18 11:16, Bjorn Andersson wrote:
-> On Thu, Apr 24, 2025 at 04:58:52AM -0700, Mao Jinlong wrote:
->> qcom,qmi-id is required for remote etm driver to find the remote
->> subsystem connection. It is the instance id used by qmi API to
->> communicate with remote processor.
->>
->> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
->> ---
->>   .../bindings/arm/qcom,coresight-remote-etm.yaml        | 10 ++++++++++
->>   1 file changed, 10 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
->> index 4fd5752978cd..947fe33738a3 100644
->> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
->> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
->> @@ -20,6 +20,13 @@ properties:
->>     compatible:
->>       const: qcom,coresight-remote-etm
->>   
->> +  qcom,qmi-id:
-> 
-> Why isn't this "qcom,qmi-instance-id" if that's what it represents?
+However, this does not preclude a VMM from exposing a virtual device
+to the guest, and to allow 64 byte accesses as part of the programming
+interface. A direct consequence of this is that we need to be able
+to forward such access to userspace.
 
-ok.
+Given that such a contraption is very unlikely to ever exist, we choose
+to offer a limited service: userspace gets (as part of a new exit reason)
+the ESR, the IPA, and that's it. It is fully expected to handle the full
+semantics of the instructions, deal with ACCDATA, the return values and
+increment PC. Much fun.
 
-> 
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description:
->> +      This id is used by qmi API to communicate with remote processor for
->> +      enabling and disabling remote etm. Each processor has its unique instance
->> +      id.
-> 
-> DeviceTree describes the hardware and firmware interface, so don't
-> describe properties in terms of what Linux will do with this value, but
-> what it represents.
+A canonical implementation can also simply inject an abort and be done
+with it. Frankly, don't try to do anything else unless you have time
+to waste.
 
-Sure. I will update it.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/kvm/mmio.c    | 27 ++++++++++++++++++++++++++-
+ include/uapi/linux/kvm.h |  3 ++-
+ 2 files changed, 28 insertions(+), 2 deletions(-)
 
-> 
->> +
->>     out-ports:
->>       $ref: /schemas/graph.yaml#/properties/ports
->>       additionalProperties: false
->> @@ -32,6 +39,7 @@ properties:
->>   required:
->>     - compatible
->>     - out-ports
->> +  - qcom,qmi-id
-> 
-> How can this suddenly be required, did devices described by this binding
-> up until this point not work?
-
-Without this instance id, remote etm won't work.
-
-> 
-> If this is the case, make sure to clearly describe this in the commit
-> message.
-> 
-> Regards,
-> Bjorn
-> 
->>   
->>   additionalProperties: false
->>   
->> @@ -40,6 +48,8 @@ examples:
->>       etm {
->>           compatible = "qcom,coresight-remote-etm";
->>   
->> +        qcom,qmi-id = <2>;
->> +
->>           out-ports {
->>               port {
->>                   modem_etm0_out_funnel_modem: endpoint {
->> -- 
->> 2.25.1
->>
+diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+index ab365e839874..04520f2f6010 100644
+--- a/arch/arm64/kvm/mmio.c
++++ b/arch/arm64/kvm/mmio.c
+@@ -157,6 +157,9 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ 	bool is_write;
+ 	int len;
+ 	u8 data_buf[8];
++	u64 esr;
++
++	esr = kvm_vcpu_get_esr(vcpu);
+ 
+ 	/*
+ 	 * No valid syndrome? Ask userspace for help if it has
+@@ -166,7 +169,7 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ 	 * though, so directly deliver an exception to the guest.
+ 	 */
+ 	if (!kvm_vcpu_dabt_isvalid(vcpu)) {
+-		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
++		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), esr,
+ 				    kvm_vcpu_get_hfar(vcpu), fault_ipa);
+ 
+ 		if (vcpu_is_protected(vcpu)) {
+@@ -185,6 +188,28 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ 		return -ENOSYS;
+ 	}
+ 
++	/*
++	 * When (DFSC == 0b00xxxx || DFSC == 0b10101x) && DFSC != 0b0000xx
++	 * ESR_EL2[12:11] describe the Load/Store Type. This allows us to
++	 * punt the LD64B/ST64B/ST64BV/ST64BV0 instructions to luserspace,
++	 * which will have to provide a full emulation of these 4
++	 * instructions.  No, we don't expect this do be fast.
++	 *
++	 * We rely on traps being set if the corresponding features are not
++	 * enabled, so if we get here, userspace has promised us to handle
++	 * it already.
++	 */
++	switch (kvm_vcpu_trap_get_fault(vcpu)) {
++	case 0b000100 ... 0b001111:
++	case 0b101010 ... 0b101011:
++		if (FIELD_GET(GENMASK(12, 11), esr)) {
++			run->exit_reason = KVM_EXIT_ARM_LDST64B;
++			run->arm_nisv.esr_iss = esr & ~(u64)ESR_ELx_FSC;
++			run->arm_nisv.fault_ipa = fault_ipa;
++			return 0;
++		}
++	}
++
+ 	/*
+ 	 * Prepare MMIO operation. First decode the syndrome data we get
+ 	 * from the CPU. Then try if some in-kernel emulation feels
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 37891580d05d..bfebaf25e188 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -179,6 +179,7 @@ struct kvm_xen_exit {
+ #define KVM_EXIT_LOONGARCH_IOCSR  38
+ #define KVM_EXIT_MEMORY_FAULT     39
+ #define KVM_EXIT_TDX              40
++#define KVM_EXIT_ARM_LDST64B      41
+ 
+ /* For KVM_EXIT_INTERNAL_ERROR */
+ /* Emulate instruction failed. */
+@@ -401,7 +402,7 @@ struct kvm_run {
+ 		} eoi;
+ 		/* KVM_EXIT_HYPERV */
+ 		struct kvm_hyperv_exit hyperv;
+-		/* KVM_EXIT_ARM_NISV */
++		/* KVM_EXIT_ARM_NISV / KVM_EXIT_ARM_LDST64B */
+ 		struct {
+ 			__u64 esr_iss;
+ 			__u64 fault_ipa;
+-- 
+2.24.0
 
 
