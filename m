@@ -4,150 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE03C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 18:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB13C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 18:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6Vq9okYbpY4wuKmVVB5Jr6ywD/sCcKlIU9ZgIlhkc4=; b=JniACE3fIsga0Z69gFWyPO50JM
-	PSQ9FPf9AH7WQH7OUsc1be+o+AfuErc3G2EEXsN21D/ZauXlSUS+4FSm2btMJdpBqz2HIDpQO2o51
-	EiW3rsiRcHjcs4C8ilhcRT+JUJJrFNI5FYCB2lEUVRZJnma52FMChrUUA7herUfmYDjN8jADUCLGl
-	mxyvKF/O2fdAIG+2oS9HwIlHx0XrFscwl/6Z9DQcod8sLxyYK1rCc8+eGfWHWwDyPq8Axg6pQ1qic
-	i5nlDQ00bUj3vMjTN96TeGUQUphnzlNMfyAi3/EN9ziKCtRH+XJ7D6+xkJTh9aIzDXi2Uxjx1xuyG
-	GWfcydSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o3+DMoHHGIgy/vebIi3Jk4k7xIG+hyANlJEXNLYgE3w=; b=uc8P2tPuMoI6T4VW0gGc+yTNeS
+	86NTM0ewro3lcBN6BQRPx6ScTmCfbqC2iUpBOvwsuqEJcYXhhI4pZnstF3shabLSCycPZCdBLI9nU
+	VkmQ1xkgBiKfE/isWARPfC6rxm3f6jKUiPw6JrtMrERKzfw1V+YNeewZDqVeIntlH1Tjpb+YGiIiJ
+	yjwqhwjVqmSqhRPkFHjG15j4yb4syoyJjIJ/ClxqFjJqwIhIKGmhmBTNTY64xIo/nK8R/jNKZz6qL
+	C0rP96tX3n9pm5whhIQAX44NHyWdxdXY9avAw6l5BFKd9bd6MUOB1D2+fyxMJMCR76cm/41NspJ7E
+	6qlni9gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUrSH-0000000CT54-3OoN;
-	Thu, 26 Jun 2025 18:36:13 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uUrSF-0000000CT2a-194g;
+	Thu, 26 Jun 2025 18:36:11 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUrO6-0000000CSqH-0t7u
+	id 1uUrEU-0000000CRq3-2PLS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 18:31:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GIz4uExgJCzY7bZ2SezQKG4Lee73hR9HkbZlW4toW4R5W6OpiSeYYHqpEh3xinnW5RJZIGlWiS26oj1B7gwqWWPp7u8K9vrTyun3hF7wcL65LwdFGxK+8N+KmHohINDxBCHy4xjyWzZvOnocvsnTXOoIFkvwIQ28OfuX27aegNl66Z6cPr8m7e9X/ixahm/hN9+En4SuFty03R8NoMaPts7J12oJlENe2uA8vB8fnXXPhkoMKLshbIFpC3kOUyGZLJqMU3EX+b2AJQ3L/NUGAvUqWWih+l3R3xh9oiOyCWE+kQfYqtgOEeTPK2AV94VJIV1nPm8jngr9wa3wqVBHcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L6Vq9okYbpY4wuKmVVB5Jr6ywD/sCcKlIU9ZgIlhkc4=;
- b=jbqrtqS6DD3wwIeaYzpI5cn8I+CjwfeKNXj0mcXrxPauZh2P+oXinGyCq1bFxjKYW5gTvGXThdjJLf5HliGuXDsq4w0lhl18HYzrU2LaA1HU+2ZOi5ptWdPMyu2Y/GjLO4MwldVtk9VnkE1K/hlHje4NlhFfvKMJJsP/doqh5BahTKDFux/3KRDoH73lB5WjZXQHRRDfgS5CbgfNUBeorH4R2dfJXD7zXIcAQaqoRjdpdIu1+sFSCWzaussTzuVyMEZR3YUEATNuSgdf0Da9oIH1iTACzWu11lSCv/gUnBC1okqGLjDpOioDOmE1oVBU70HxGFbi6xZO7Gm4ugR+2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L6Vq9okYbpY4wuKmVVB5Jr6ywD/sCcKlIU9ZgIlhkc4=;
- b=Qjr/j6aIwb2ozT0MVWKvjfVq2Gm1w117Ii8iThf+uohe68MbSioHKLIKHxz55Mqc85I8aH/IlEjlToMkOl4bK6tMvzd3afZCeRfUhXeacVlb9fzJG+uBi0vq7xeFJXgAb1Ushw/klHV2gHMGbgOmcLPChJRO0R9JQP+ihGZcCd3SJo+F1Sm3DRjAckbwIWg5VU+efyiGcZniNiSmFYMkWGE4GCTeNVZ0A8j7luYcienzMv8eqLpqLaE7DFa1+obwDMYRiGhwdrQs1aBZHfdixKzvNPX6iek0/2VTCRkcp31W8oh8zmCToYn6jEHNAi6FM4fhodEriiszFi0/HMA7Cw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8370.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.18; Thu, 26 Jun
- 2025 18:31:47 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.015; Thu, 26 Jun 2025
- 18:31:47 +0000
-Date: Thu, 26 Jun 2025 14:31:41 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: PCI: dwc: Add one more reference
- clock
-Message-ID: <aF2SDX94hce6+AQD@lizhi-Precision-Tower-5810>
-References: <20250626073804.3113757-1-hongxing.zhu@nxp.com>
- <20250626073804.3113757-2-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250626073804.3113757-2-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: AM0PR08CA0023.eurprd08.prod.outlook.com
- (2603:10a6:208:d2::36) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 26 Jun 2025 18:22:00 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae0ccfd5ca5so218789666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 11:21:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750962116; x=1751566916; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o3+DMoHHGIgy/vebIi3Jk4k7xIG+hyANlJEXNLYgE3w=;
+        b=OrxpCycR95Tl6WhT92bmqy5I8JWbvV8ZlufpKv+TtYr9gpHHoZrTgwIVLwmaeJJ0Ik
+         f/nN2YRC8sfAggZhseH9aXpAnJKBmgdZk4N2dq6Iv2q1qTnWviYwtFZveIqJwD4xDuLo
+         Jjys9DS6TpLy0+M68mMXC1BsxNwlAX7JJNn+S6jXmlrEAPCsHpZO52kHirTwTiUdfS2V
+         JSSywtGTftkZVEihrw5dopSPsGBmHuvlLRr7K7fdkls5KONLhtl7h9NfWJYgGAUx2MMD
+         EFv1bb0YGouYfd4OagcAXUgrouLAt3ueqoXZANNFQcudaQPrDbYI0or1KWRq8AyU4Mqs
+         mXmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750962116; x=1751566916;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o3+DMoHHGIgy/vebIi3Jk4k7xIG+hyANlJEXNLYgE3w=;
+        b=igw6NXzgh/nJPiQ4A1R6M2SMl6LF3oBNd277EaC5rS4th7OyYYb9H4HsFnqR79i7V6
+         53MIEo9q/SCK0zHBkSkJIQklvvwYMvXlCDE9jYyZ1jngmy0tXhnusZjmuHWwS9E3rPKa
+         wutPSSW13KOxJii6GlJ2+3hA8JlOOF7e4M4us4GZ9fAxVLq3SOqt+YyWbI2EwMIPDt6c
+         EiBB9P4El4LyKUZ/+YX/pwTjKHkKtwJ6SfJOCO6q+KigeD0Oix3FTUCTXx/U4QzymbAk
+         oc13nMVyP8bW7uv27iEtuBe4D1ddZXfKxJZC/iZ0l4I2CmdSbQHBoTqNDbUwrXGTuXfZ
+         SnGg==
+X-Forwarded-Encrypted: i=1; AJvYcCVBnhb27xNULW2+gbhi4uY8ZRoG/dGJ34gpIAdAVzV8rOokps2OcIEUUCwjPbO/XeOkzMTY59AqomDsiY71Xfbt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqiMb5YZLJUARKFETRJMPMgT9vJy+k4vfKDcHjdsaC0I1miRgt
+	bii48nfzuK4bFbEfGrNXY9tZl0G+ml1P23Qai6CeyFtYR+cJ1LFv8w4GRmRls4Qk3w7FleCTbhD
+	m5n23lCdKw67RQgc+WL+vqyUg573sb2k=
+X-Gm-Gg: ASbGncuvs08TFAUV/XTsGlu7bIphIMVPCHSyqopFyH18uIB71BlwEs32mC2TnqB9CE9
+	jnmhOorKUp5okuoQifdj+hDni3/g6+Dcer+qR0ZPjg19jFkIVATckHI/oPcASvXTffbW8bJ29by
+	+H5JcQcPpfjPjzAbNVKl/Yrf1hZnkS54BowoiLkGSZ
+X-Google-Smtp-Source: AGHT+IEsqtj8v2bEovOjiG46CLJ7UL5bwYCV8gHZttkfNpv1pJvRdrPCilDlgYCTp69vYR0Wg+ubr4UgooPkLo5BW/k=
+X-Received: by 2002:a17:907:3da5:b0:ad8:9257:571b with SMTP id
+ a640c23a62f3a-ae34fd3c530mr13268566b.16.1750962116235; Thu, 26 Jun 2025
+ 11:21:56 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8370:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59107f15-20bd-4ddf-0339-08ddb4dfb548
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G2QYm/N4uw3yykYJCj0E/Npoh8uXDQnBe9cetHCEbRrUG31EtiSf+I/8EWYQ?=
- =?us-ascii?Q?+AoI2UB+NtvS/nkS0E6P350MREbcjWshE5OlrSYWCGq1teYYVNbuvqVQUvMF?=
- =?us-ascii?Q?REfJKswdHy5aGPriWdtR9Oy9P6ap7PNBGMRrgxmT8ugSZi1lY1frdhC1xZlX?=
- =?us-ascii?Q?HJYxMa+wdSCb0JgbpDu8aKoFeonlD/YDq4oW+KOyQlXgpWtxpbY2itShlmZt?=
- =?us-ascii?Q?h/Vuu2kV7QtyqEnK3u/+/6QLUa1Cs4vkmbikSYI1Mo2HKO5xGa5EBzqpVZ3D?=
- =?us-ascii?Q?hJzTLogXMF8YodvQDNOPqZt6aKmcBcA0YMiw45iQNRdisvVWj05nzt1UcNmm?=
- =?us-ascii?Q?WpaGbCbp8UW7v2LtfvzL20K0LpWsxd6k0yC5YDMW1uOmJwyltlVgS34jetSI?=
- =?us-ascii?Q?o6SO0POlHTMi8aZ6ySHWt8YmTis6+8HzK75HC7fwJNHWz857OSy2UfaCQP6o?=
- =?us-ascii?Q?YSVJ2LcJy0fUlx6B5/RBKugt6Bc1taJ6CGQ3OebjODzR+8b8K/PWTuKcdvin?=
- =?us-ascii?Q?xa17yJyYKxpHESeqHK3gCkgcPLGm4N2msQmjW378JARcofBpiDxXLoCmQj06?=
- =?us-ascii?Q?tT4GrBEbSStm68r/KT4BbZlVkm/oqrERQwUfIlu0r/rOuUaouWg0EhvGDmZd?=
- =?us-ascii?Q?8158O4vPnJ5+s4ecbjT+C9DWnNRSfV0ShJzD+aMWhrIRZThSxPkwMa2+I1Qo?=
- =?us-ascii?Q?JCs9Wy4EKgVeN6kHUyQflddUy9uCk/kKMBQIdZjxiQBNwnbwXE5Wf4YqKhjX?=
- =?us-ascii?Q?adfYcSq4aua77QLeZ6HJi95Ew1jvoGL97pIzDwLNQPGVVYJGT+FriPExK45H?=
- =?us-ascii?Q?U6yq4Ybc7SLzWNi2uz8reEoYJTof9jPgcTG+gGwTr5u2MxoCdyYsnUmJ62Gu?=
- =?us-ascii?Q?LRetbCAmdGeK4fEIdfGMZek9KdO7tIG2KYAjzjBUX7XnKX7X7yYsgNrzq0Kr?=
- =?us-ascii?Q?gSxA/vkerIL9fpYdIsHvnI9PlnJeQJ/jkTtT1C4L8OvJJ9mgpWd384Im2EkA?=
- =?us-ascii?Q?dU1Lze7mRQy/PZiMgXym79kYXf1ow5fk52ydN/uneajV5bRY1gzDvdTUkhko?=
- =?us-ascii?Q?PSH5Zflp4DRQvhcZ/T/zF3pHu1h2ms+SPVLY+CO1XfVvlJBAr6/Elvm+skSW?=
- =?us-ascii?Q?iUFoHYpM9eyA8g9RB1Ig7Hr4gD8/y4f/tsutGpos8RVvlS1UYRZxDAec9pUj?=
- =?us-ascii?Q?XLJpDj+BxCOwVubTmMXeVUdo5siJeUqobsP5NKvE0p/EdbNyzwP3VgViOcaB?=
- =?us-ascii?Q?Lp2I/Uem+4UHYD4tjIhz+Cu/mYYvzcZAZWHz64bIqVPwPIo40ceu41MUh7RI?=
- =?us-ascii?Q?f9VgMuS4HBkZgm47CFXFS7iLWACmjleIepENNg5KMV6aIexFpl0STaOJwJ09?=
- =?us-ascii?Q?CeeWEDx6HubZ7GyPbzHaUX8dogXUu/qyhql3O4Q7GwjA/aH6AfHJgg5vGgnT?=
- =?us-ascii?Q?43n0cTObYH6lgEzx5EdAWbpU0tQuhVbqyMaAd6crcepi3irBiU/M1Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BHObugFOdB3IGZcWdS/FSckGPUJBUHKr3YYuhpNFD/pND71N7qlxJyT75Vq7?=
- =?us-ascii?Q?jyd7jVaGnmjoWqsnagu53jUfXVSgumoWqPvbo+jHOy9N6Vlq3A1a2q86QYTh?=
- =?us-ascii?Q?kXq1OU/yAIVmiVn/ZCA2DJCJdXDGqKH9uQ5K2ip9bct9XyGgG6t15PUDEjoD?=
- =?us-ascii?Q?/hJHzPaPrJX6brXXxhAZiO8OYUR6Ya9wsoDtb67vOs2Z4hCiLHVCIuCDAw6h?=
- =?us-ascii?Q?s/vwcPRZKDMT4rXOG/SAxXsZI8WbMHWp166irTYvxNClzcciRwy+F0VSt+ZE?=
- =?us-ascii?Q?Y/Y4IazqAsdcDnaXjQsTKOi47uLCuM8sVYXqZgfdos5l6zGOoJ4bJd485pzS?=
- =?us-ascii?Q?AAzdE9977txrPSidfDSyvBPp4OcMh7jbXYhsnO8SLSJbvElXLrY5g4hseqpe?=
- =?us-ascii?Q?T0ySmE62yTKFlUMhv7i0IWNdm3s1elMguglvp5OcXE27jjPp6cLFWfLp34Cb?=
- =?us-ascii?Q?9vzimj8L6POSfA28MFYTdHJBmw1OXSLDEs28TZZaShnScSSIQZjNIFZIfMiQ?=
- =?us-ascii?Q?LESBFyC/tYLTvu6dClAOAoR3GVUQ7LF1OZ69M3IVIxkoY0JO1g5dVtmXCr7r?=
- =?us-ascii?Q?bvI3b7OL9QTjK7ZRtEO6q22cQQh5zoiBhC2KKZ8IXJDrcD3e9Tjc4Pn1i9ls?=
- =?us-ascii?Q?XWrDyznHePerLPbCY0uuLwPlkmmg/2frn7ddqA742YEyO02tNHx8Z0NtDCK6?=
- =?us-ascii?Q?vovIbYjuT3XPnX+wy23eyUAYb33yDGDyuOQLXSszRYWpkeoD1y6TjAa1YiZ+?=
- =?us-ascii?Q?hdURJdR7NrX5eR9MNM8qhjA8Th4wfP+pr2dWkU729EWaVVT/rM5WPwCvcZyt?=
- =?us-ascii?Q?E2kSS2MclpY2eldVesdnvRyltmlPRMol18wndVPaKfUbIXn2mUZzl4CPAP11?=
- =?us-ascii?Q?udgu5QfK0C+3Y3StcRl2aFKu+6l9X7ogKQ28McJW9LlK0k2uHBIlkY3/+m95?=
- =?us-ascii?Q?hiff8cetYI8/Ce13kQiVwYB9mA4RU1CPxwMuoJgm2Xx5v4oIjWMylZiN2UYk?=
- =?us-ascii?Q?5GRQfr5q7lV3qVEVsBWS8q6Hx2RupUSs8xwdTDHAOTZ//52EEF6A3zrDV5wL?=
- =?us-ascii?Q?fel7WhnyJ/9YF1JpUFRlwnKd+QrMS3qVgM6OKPQfbQyvyworCszHMCbfPdHX?=
- =?us-ascii?Q?8jkM4MPr26DsaA7BHoRZpbOeXFkMnxTROlEQ6WJOg6n+V7rDmU3mPa6EUuBC?=
- =?us-ascii?Q?El9skrkxQ4c5pJ8TqI2wUQ9PpY8PfQs+fDHBxEDDYv6JHk7zqKqcnTJ7hHXC?=
- =?us-ascii?Q?3xhHLEFhkVL4LG8eEecxctUCIdQW85JcfUC0LDRzcqlia2mfnGYTonuuW3l0?=
- =?us-ascii?Q?+dx7dW7I8BVSGWuRtf4sGEuXP4EOCghhOwASL2MAvtHz86Dbqnrik13dmHpz?=
- =?us-ascii?Q?BW1vK6gMlgBKqIbmpIirG7uIhQHGuqzju/BkRYyE9OXSXlFpTWImQfzFxLJa?=
- =?us-ascii?Q?5iOSW5DiFkuoQ3TnGfyBMGwmbXvRt5/0PiofL3EyVNnujULhoLboNpgAzVWX?=
- =?us-ascii?Q?xVZpbjeXZKr221ULxoLpZXgYp0Sqpx8ifYDK99RrbSzlhLZnZT+TCZWh8NPQ?=
- =?us-ascii?Q?eJah88mJwQm0fBN/RhJCk2GrarILDehss6mFt2GW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59107f15-20bd-4ddf-0339-08ddb4dfb548
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 18:31:47.0508
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Krmrusoptd/AIL3smW2X1CHfb/6Yxbef1nBmsHymtQmJ8CUL0+gM42KjLNET2yF4lIHq7uY+i+9cJDJeNZQgWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8370
+References: <CGME20250624075847eucas1p2db6e908f78aa603bdf6aec38b653e9af@eucas1p2.samsung.com>
+ <CANAwSgQ=G1yJXOg1LdeEf-J56epyNiohCSdNYUvs2AHNv90Hkg@mail.gmail.com> <20250624075815.132207-1-m.majewski2@samsung.com>
+In-Reply-To: <20250624075815.132207-1-m.majewski2@samsung.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Thu, 26 Jun 2025 23:51:38 +0530
+X-Gm-Features: Ac12FXwpXJBzgkh-OwnIhYXUzqm4zOFzScYoLTs9xrNJZHdZ2chXs_WiTmxz6v0
+Message-ID: <CANAwSgT2ROe77FVgk41s3xB-a+2SNwo5XWRZzrgxtC_SiooTXA@mail.gmail.com>
+Subject: Re: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature threshold
+ interrupts and clear corresponding IRQs
+To: Mateusz Majewski <m.majewski2@samsung.com>
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
+	rui.zhang@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_113154_276441_8DD1E06F 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250626_112158_628900_FE30B1B0 
+X-CRM114-Status: GOOD (  47.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,38 +99,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 03:38:02PM +0800, Richard Zhu wrote:
-> Add one more reference clock "extref" to be onhalf the reference clock
-> that comes from external crystal oscillator.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> index 34594972d8db..ee09e0d3bbab 100644
-> --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> @@ -105,6 +105,12 @@ properties:
->              define it with this name (for instance pipe, core and aux can
->              be connected to a single source of the periodic signal).
->            const: ref
-> +        - description:
-> +            Some dwc wrappers (like i.MX95 PCIes) have two reference clock
-> +            inputs, one from internal PLL, the other from off chip crystal
-> +            oscillator. Use extref clock name to be onhalf of the reference
-> +            clock comes form external crystal oscillator.
+Hi Mateusz
 
-typo form, should be 'from'
-
-Frank
-
-> +          const: extref
->          - description:
->              Clock for the PHY registers interface. Originally this is
->              a PHY-viewport-based interface, but some platform may have
-> --
-> 2.37.1
+On Tue, 24 Jun 2025 at 13:28, Mateusz Majewski <m.majewski2@samsung.com> wr=
+ote:
 >
+> > I tried to configure this, referring to the comment in the driver
+> >         /*
+> >          * Clear the interrupts.  Please note that the documentation fo=
+r
+> >          * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectl=
+y
+> >          * states that INTCLEAR register has a different placing of bit=
+s
+> >          * responsible for FALL IRQs than INTSTAT register.  Exynos5420
+> >          * and Exynos5440 documentation is correct (Exynos4210 doesn't
+> >          * support FALL IRQs at all).
+> >          */
+> >
+> > By the way, I don't see Exynos5433 and Exynos7 support
+> > INTSTAT and INTCLEAR registers. We are using TMU_REG_INTPEND
+> >  to read and update the same register.
+> >
+> >         if (data->soc =3D=3D SOC_ARCH_EXYNOS5260) {
+> >                 tmu_intstat =3D EXYNOS5260_TMU_REG_INTSTAT;
+> >                 tmu_intclear =3D EXYNOS5260_TMU_REG_INTCLEAR;
+> >         } else if (data->soc =3D=3D SOC_ARCH_EXYNOS7) {
+> >                 tmu_intstat =3D EXYNOS7_TMU_REG_INTPEND;
+> >                 tmu_intclear =3D EXYNOS7_TMU_REG_INTPEND;
+> >         } else if (data->soc =3D=3D SOC_ARCH_EXYNOS5433) {
+> >                 tmu_intstat =3D EXYNOS5433_TMU_REG_INTPEND;
+> >                 tmu_intclear =3D EXYNOS5433_TMU_REG_INTPEND;
+> >         } else {
+> >                 tmu_intstat =3D EXYNOS_TMU_REG_INTSTAT;
+> >                 tmu_intclear =3D EXYNOS_TMU_REG_INTCLEAR;
+> >         }
+>
+> My understanding of this comment and the situation in general is like
+> this:
+>
+Thanks for clarifying this in such detail.
+> 1. On 5420, whenever there is edge interrupt, no matter if rise or fall,
+>    a bit gets set to 1 inside INTSTAT, and we clear it by setting the
+>    same bit to 1 inside INTCLEAR. The current code does not rely on the
+>    concrete bit index, it will just check the temperature after the
+>    interrupt.
+Correct
+> 2. On 4210, there is no falling edge interrupts (so
+>    exynos4210_tmu_set_low_temp is empty, we enable polling in DT etc).
+>    This is what the "Exynos4210 doesn't support FALL IRQs at all" means.
+>    However, rising edge interrupts work exactly the same as on 5420:
+>    a bit gets set to 1 inside INTSTAT, and we clear it by setting the
+>    same bit to 1 inside INTCLEAR.
+For Exynos4210, I am skipping this in the next patch.
+> 3. On 3250, 4412, 5250, 5260, it again works the same way as 5420.
+>    However, somebody had a copy of documentation that was incorrect: it
+>    said that bit indices does not match somehow, which is not true.
+
+> 4. On 5433 and 7, it one more time works the same way as 5420, with a
+>    single change: a bit gets set to 1 inside INTPEND, and we clear it
+>    by setting it to 1 inside the same INTPEND.
+>
+> So, all we need to do to support existing SoCs is to read the 1 bit from
+> one register, and set the bit with the same index in another register
+> (which on some SoCs is the same register). We could interpret the index
+> to see what kind of interrupt is this, but we read the temperature to
+> get similar information.
+>
+> So in the end, is it helpful to interpret the INTSTAT bit index, only to
+> reset the exact same index inside INTCLEAR? I guess it could be valuable
+> if we also used the information about which interrupt it is and somehow
+> used it elsewhere (which could actually help with some issues), but that
+> is another thing to do.
+>
+correct.
+> > If you have details on how INTSTAT and INTCLEAR are used
+> > particularly regarding the update bits, please share them.
+> > Specifically, I'm interested in how bits [7:0] correspond to rising edg=
+e
+> > interrupts and bits [23:16] to falling edge interrupts
+> > I feel it's the same as Exynos54222.
+>
+> Regarding concrete indices on 5433:
+> - the 0th bit corresponds to RISE0,
+> - the 1st bit corresponds to RISE1,
+> - ...
+> - the 7th bit corresponds to RISE7,
+> - the 16th bit corresponds to FALL0,
+> - the 17th bit corresponds to FALL1,
+> - ...
+> - the 23th bit corresponds to FALL7.
+>
+Thanks, I will update this in the next version.
+
+> That is probably because this SoC supports more interrupts than others.
+> Though do note that currently, we only use part of them (one RISE, one
+> FALL if supported, and another RISE for critical temperature (one
+> supporting hardware thermal tripping if possible)). Also note that the
+> indices in INTSTAT/INTCLEAR/INTPEND match the ones in INTEN, though I
+> have not checked thoroughly if that is true for all the SoCs.
+>
+As per the manuals, we have to enable each corresponding bit for RISE and F=
+ALL
+
+INTEN          0x0070    Interrupt enable register
+INTSTAT      0x0074    Interrupt status register
+INTCLEAR   0x0078    Interrupt clear register
+
+When current temperature exceeds a threshold rise temperature, then
+it generates corresponding interrupt (INTREQ_RISE[2:0]).
+When current temperature goes below a threshold fall temperature, then
+it generates corresponding interrupt (INTREQ_FALL[2:0].
+
+If we correctly configure the mapping of the RISE and FALL bits along with
+INTEN, INTSTAT, and INTCLEAR, the interrupt behavior should function
+as expected.
+
+The following outlines the interrupt flow as described in the user manual
+
+[1} https://usermanual.wiki/Document/Exynos20441220SCPUsers20ManualVer01000=
+Preliminary0.167615881
+
+/* Read the measured data from e-fuse */
+Triminfo_25 =3D TRIMINFO[7:0]
+/* Calibrated threshold temperature is written into THRES_TEMP_RISE
+and THRES_TEMP_FALL */
+/* Refer to 1.6.1 */
+THRES_TEMP_RISE0 =3D 0x40;
+THRES_TEMP_RISE1 =3D 0x50;
+THRES_TEMP_RISE2 =3D 0x60;
+THRES_TEMP_RISE3 =3D 0x70;
+THRES_TEMP_FALL0 =3D 0x3A;
+THRES_TEMP_FALL1 =3D 0x4A;
+THRES_TEMP_FALL2 =3D 0x5A;
+/* Parameter for sampling interval is set */
+SAMPLING_INTERVAL =3D 0x1;
+/* Interrupt enable */
+INTEN[24] =3D0x1; // for INTEN_FALL2
+INTEN[20] =3D0x1; // for INTEN_FALL1
+INTEN[16] =3D0x1; // for INTEN_FALL0
+INTEN[8] =3D0x1; // for INTEN_RISE2
+INTEN[4] =3D0x1; // for INTEN_RISE1
+INTEN[0] =3D0x1; // for INTEN_RISE0
+/* Thermal tripping mode selection */
+THERM_TRIP_MODE =3D 0x4;
+/* Thermal tripping enable */
+THERM_TRIP_EN =3D 0x1;
+/* Check sensing operation is idle */
+tmu_idle =3D 0;
+while(tmu_idle&1) {
+    tmu_idle =3D TMU_STATUS[0];
+}
+/* Start sensing operation */
+TMU_CONTROL |=3D 1;
+
+ISR_INTREQ_TMU () {
+/* Read interrupt status register */
+int_status =3D INTSTAT;
+if(int_status[24]) {
+    ISR_INT_FALL2();
+}
+else if(int_status[20]) {
+    ISR_INT_FALL1();
+}
+else if(int_status[16]) {
+    ISR_INT_FALL0();
+}
+Else if(int_status[8]) {
+    ISR_INT_RISE2();
+}
+else if(int_status[4]) {
+    ISR_INT_RISE1();
+}
+else if(int_status[0]) {
+    ISR_INT_RISE0();
+}
+else {
+    $display("Some error occurred..!");
+}
+ISR_INT0 () {
+   /* Perform proper task for decrease temperature */
+    INTCLEAR[0] =3D 0x1;
+}
+
+Hey, if you=E2=80=99ve got a bit of time, could you take a look at these ch=
+anges?
+[2]  https://lore.kernel.org/all/20250430123306.15072-2-linux.amoon@gmail.c=
+om/
+
+
+> Thank you,
+> Mateusz Majewski
+Thanks
+-Anand
 
