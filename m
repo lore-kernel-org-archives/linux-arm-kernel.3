@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D75C7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB16C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wFsFiLH1AC8uaOEAXzwfhn+J6kmqxAKDCggsNNyWAkM=; b=ekUHF0M0570v4BrCNGHZI2t3c4
-	lj7JgUaFhzgwcH2uR/8Vi19zxN1wEfm4ztGbifU5gQh4SSNFegf4Vrbd3wECc3u6U73QWc57TB6AZ
-	WndGz5/QWd3Wa96CTpB3HhkXPOfQcFF4uoF6eDN1wyeks7wgMGlbR3YzejvynLOegsepe7WKpXtmd
-	IbpcgBWPkwtXmQGNUmbmT7Q0yZibNxWSnSCzBkBUcWHC5QIkDZgTSwHM2frxGrCuQke4epTCFDWUW
-	kn94m5lCDAil7drJv1O+jvXmyJEC+emlXgZcXdrL9FE9Fl7gbb9GC2prSqb/CTZRg2LF160OYKseM
-	nJEmwVAg==;
+	bh=CCV6bFUUfFxB0dupoRA2S4Wd06kQQS9OF6OfS/2EiHI=; b=R57rg1iZq4+D0AZBCAOMBD8TT0
+	hShp+WilW1S7fJJ7IUij38vC9MbRb6y7qkeEzqAw5Gp6ozJZtmEw1UTVqQ3vcUZQGGqS1Z9aP7Fex
+	8gYLtvmlBin0jQdohoTj8OCwaLho3inq+XOZJ2o8p1V7QhXzOghxtvb11mEXW4h2TNRxw5DrpW8hX
+	8E+F8dSw+XJZW/6iA9ktBgOgu/YeqLsUT5nNAOTbhTab/aE8eXZ2vUBC2GXAYubVjTp3xoT26fm4Y
+	mK3kQhiZcqluevwfRb59Y7bBW5hgNmc/swKdibgc6zFHNhplEYONHzkkimq/WNoY0/CyaRaz6IDFD
+	uPviSkog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUogm-0000000C9fC-0rs2;
-	Thu, 26 Jun 2025 15:39:00 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uUogr-0000000C9iU-0rXB;
+	Thu, 26 Jun 2025 15:39:05 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnSo-0000000BtP3-0W88
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 14:20:31 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55QEILMu2480443;
-	Thu, 26 Jun 2025 09:18:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750947501;
-	bh=wFsFiLH1AC8uaOEAXzwfhn+J6kmqxAKDCggsNNyWAkM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Um9jdZECWIV0e9EakqymbBQVn/y22bAgmlwIMh7BrwDp1eSY+Jw0Spcn38rvaRLgK
-	 e6pzZhrYMic51XSVuJrW1UJddRUkZmyKs2egFV+STbr+Uuh1h04GhqWKfgKLm/YDC5
-	 L9g0TCz9PAFbcJo6i3tjyRPFmt8JQae2OytW9GOs=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55QEILfC2053280
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 26 Jun 2025 09:18:21 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
- Jun 2025 09:18:20 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 26 Jun 2025 09:18:20 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55QEIKGq1132823;
-	Thu, 26 Jun 2025 09:18:20 -0500
-Message-ID: <44649612-ea42-43af-b07a-f2f504a199fa@ti.com>
-Date: Thu, 26 Jun 2025 09:18:20 -0500
+	id 1uUnuw-0000000Bzxe-02AJ;
+	Thu, 26 Jun 2025 14:49:35 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750949371;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CCV6bFUUfFxB0dupoRA2S4Wd06kQQS9OF6OfS/2EiHI=;
+	b=k6cTJKEHb4brrQG+gymKJzNH1BBvN4SJI81xlJS1r/FFDjmgyleaNSMFtZqIGoBm26e8z7
+	VjQzuu9WHfbyu6cXIJlSq66QsLl7l4U9l46T113HkmjWShQ1EwAjDXDpVr11NwCpvqwJ7q
+	R8a2d8tkccRtd5ZG2bmIr6dfC86Hijrndx1CsbROK/bC7qMgXrmMxv6eD5xkxfIhAGi1mk
+	xVz7dTRBmNzFnbvt0ER1s05EQKtfZXAFpd7ZiTa8WbfNHptOMJ8/dpwUeHyGu+OZ7bnKb3
+	9M9xkbRWqXxDD2htW826eHnbiN6+69z7Gvz2VlbAuZY6QB5ka2eD/6SWu9lMbg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750949371;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CCV6bFUUfFxB0dupoRA2S4Wd06kQQS9OF6OfS/2EiHI=;
+	b=kU8nVJGpjIPyZGszjEtsn7WcpYNC9r9///57gdt2gHQ6773b68/ZNF0LCSlkKermKJAZfZ
+	1Sr2D3sI0N58NBAA==
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Antoine Tenart <atenart@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 03/12] irqchip/riscv-imsic: Convert to msi_create_parent_irq_domain() helper
+Date: Thu, 26 Jun 2025 16:49:00 +0200
+Message-Id: <b906a38d443577de45923b335d80fc54c5638da0.1750860131.git.namcao@linutronix.de>
+In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
+References: <cover.1750860131.git.namcao@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: ti: k3-am62-main: Remove eMMC High Speed
- DDR support
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-        Ulf Hansson
-	<ulf.hansson@linaro.org>,
-        Adrian Hunter <adrian.hunter@intel.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
-References: <20250624221230.1952291-1-jm@ti.com>
- <20250624221230.1952291-3-jm@ti.com>
- <5428ecbd-8154-43b1-a77c-9eda550c47e7@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <5428ecbd-8154-43b1-a77c-9eda550c47e7@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_072030_216501_C6C2A972 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250626_074934_188058_8ED91658 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vignesh,
+From: Marc Zyngier <maz@kernel.org>
 
-On 6/25/25 10:58 PM, Vignesh Raghavendra wrote:
-> 
-> 
-> On 25/06/25 03:42, Judith Mendez wrote:
->> For eMMC, High Speed DDR mode is not supported [0], so remove
->> mmc-ddr-1_8v flag which adds the capability.
->>
-> 
-> Needs a Fixes tag.
+Now that we have a concise helper to create an MSI parent domain,
+switch the RISC-V letter soup over to that.
 
-Ok, will add fixes tag and send in a separate series.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Nam Cao <tglx@linutronix.de>
+Link: https://lore.kernel.org/all/20241204124549.607054-6-maz@kernel.org
+---
+Cc: Anup Patel <anup@brainfault.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-> 
->> [0] https://www.ti.com/lit/gpn/am625
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 1 -
->>   1 file changed, 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> index 9e0b6eee9ac7..120ba8f9dd0e 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> @@ -553,7 +553,6 @@ sdhci0: mmc@fa10000 {
->>   		clocks = <&k3_clks 57 5>, <&k3_clks 57 6>;
->>   		clock-names = "clk_ahb", "clk_xin";
->>   		bus-width = <8>;
->> -		mmc-ddr-1_8v;
->>   		mmc-hs200-1_8v;
->>   		ti,clkbuf-sel = <0x7>;
->>   		ti,otap-del-sel-legacy = <0x0>;
-> 
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/i=
+rq-riscv-imsic-platform.c
+index 1b9fbfce95816..74a2a28f94030 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -307,6 +307,11 @@ static const struct msi_parent_ops imsic_msi_parent_op=
+s =3D {
+=20
+ int imsic_irqdomain_init(void)
+ {
++	struct irq_domain_info info =3D {
++		.fwnode		=3D imsic->fwnode,
++		.ops		=3D &imsic_base_domain_ops,
++		.host_data	=3D imsic,
++	};
+ 	struct imsic_global_config *global;
+=20
+ 	if (!imsic || !imsic->fwnode) {
+@@ -320,16 +325,11 @@ int imsic_irqdomain_init(void)
+ 	}
+=20
+ 	/* Create Base IRQ domain */
+-	imsic->base_domain =3D irq_domain_create_tree(imsic->fwnode,
+-						    &imsic_base_domain_ops, imsic);
++	imsic->base_domain =3D msi_create_parent_irq_domain(&info, &imsic_msi_par=
+ent_ops);
+ 	if (!imsic->base_domain) {
+ 		pr_err("%pfwP: failed to create IMSIC base domain\n", imsic->fwnode);
+ 		return -ENOMEM;
+ 	}
+-	imsic->base_domain->flags |=3D IRQ_DOMAIN_FLAG_MSI_PARENT;
+-	imsic->base_domain->msi_parent_ops =3D &imsic_msi_parent_ops;
+-
+-	irq_domain_update_bus_token(imsic->base_domain, DOMAIN_BUS_NEXUS);
+=20
+ 	global =3D &imsic->global;
+ 	pr_info("%pfwP:  hart-index-bits: %d,  guest-index-bits: %d\n",
+--=20
+2.39.5
 
 
