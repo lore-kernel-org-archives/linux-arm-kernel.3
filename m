@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40A9C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1398C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PeIdN7Egeu/BChfd9I0s7EzDZUDC8uxRZdnOw7WSED0=; b=giCrd8SUhqrFyRajmJvzfjq1Q/
-	iZb/aNyUYO51PzeF0VBLp7LosckeHVNYZnVdaH1cRbHHu00C5foUsqqUcSkx3pti7nFp4Lptjk9/c
-	kAWojnStO1WpMnLYIREzc1tKfapwwp/DSrYVsI48mJJdDPGUIPfOrk9DlI3FMzPAnD63Y34idM0xz
-	ZbwxX3u2ZHgdVnSBMlPXQV1y4f2ncd65I/dbU2WxsgxhAf0fbBaEMQ4R251jji8hhBLU3sDAefNOS
-	cbZCFi7ilw86YQY7DlfELMd/cTtV7EvBEol0GfUsMyOgOjRFylRQ+EZrTeBbjNm4XE3Z0myG0+GTl
-	Td6/NoJQ==;
+	bh=u3kcZ0MNYRdUsVQ9lVup8JjDY8xlRBXI3ey5yT7/9Jk=; b=e5cgNJoTfys681h28z0DCT2mpL
+	MeXITKjn34dKSJ6OBwhthCg3Wcjsmf0UHamhelNVuV6zINolgl8kPliD5wCnb2yyawWGjFvjW10lC
+	ssnrmzHT9p/VTLA4GuWLPFligm7zG6n1ZJwGerItj9mPy7UqrZmkZ5FqDFaci6vTl2eDKK+RX8rY3
+	cTIpe9X18eyu+X25PRp+CqUKWrr/Xyk9TMUjG3KCDvYJkjlFGL0HT8fSRu5e8foAXTJWWxaaTxF81
+	ClY6ro3ZKV2ajO7Tjkx4FjbaLkhB5I6+9BFV3BrV3299Fbc3/2nyhGcKU4Y+pevBA0We/vrHu5Z+C
+	qD1n8Law==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhld-0000000Avek-21an;
-	Thu, 26 Jun 2025 08:15:33 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1uUhnz-0000000AwCQ-19po;
+	Thu, 26 Jun 2025 08:17:59 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhfh-0000000Atw8-4777
+	id 1uUhfh-0000000Atw9-3oIC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:09:27 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bSWSw634FzdbjC;
-	Thu, 26 Jun 2025 16:05:20 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1255218006C;
+	Thu, 26 Jun 2025 08:09:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bSWWc57XCz1QBqh;
+	Thu, 26 Jun 2025 16:07:40 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id DF0521402CD;
 	Thu, 26 Jun 2025 16:09:19 +0800 (CST)
 Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Jun 2025 16:09:18 +0800
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:19 +0800
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Jun 2025 16:09:17 +0800
+ 15.2.1544.11; Thu, 26 Jun 2025 16:09:18 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <corbet@lwn.net>,
@@ -51,9 +51,9 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: [PATCH v3 1/7] KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
-Date: Thu, 26 Jun 2025 16:09:00 +0800
-Message-ID: <20250626080906.64230-2-yangyicong@huawei.com>
+Subject: [PATCH v3 2/7] KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
+Date: Thu, 26 Jun 2025 16:09:01 +0800
+Message-ID: <20250626080906.64230-3-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20250626080906.64230-1-yangyicong@huawei.com>
 References: <20250626080906.64230-1-yangyicong@huawei.com>
@@ -64,8 +64,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_010926_366670_3E57DFF2 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250626_010926_328736_1834A59E 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +82,88 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Marc Zyngier <maz@kernel.org>
 
-The main use of {LD,ST}64B* is to talk to a device, which is hopefully
-directly assigned to the guest and requires no additional handling.
-
-However, this does not preclude a VMM from exposing a virtual device
-to the guest, and to allow 64 byte accesses as part of the programming
-interface. A direct consequence of this is that we need to be able
-to forward such access to userspace.
-
-Given that such a contraption is very unlikely to ever exist, we choose
-to offer a limited service: userspace gets (as part of a new exit reason)
-the ESR, the IPA, and that's it. It is fully expected to handle the full
-semantics of the instructions, deal with ACCDATA, the return values and
-increment PC. Much fun.
-
-A canonical implementation can also simply inject an abort and be done
-with it. Frankly, don't try to do anything else unless you have time
-to waste.
+Add a bit of documentation for KVM_EXIT_ARM_LDST64B so that userspace
+knows what to expect.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/kvm/mmio.c    | 27 ++++++++++++++++++++++++++-
- include/uapi/linux/kvm.h |  3 ++-
- 2 files changed, 28 insertions(+), 2 deletions(-)
+ Documentation/virt/kvm/api.rst | 43 ++++++++++++++++++++++++++++------
+ 1 file changed, 36 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-index ab365e839874..04520f2f6010 100644
---- a/arch/arm64/kvm/mmio.c
-+++ b/arch/arm64/kvm/mmio.c
-@@ -157,6 +157,9 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	bool is_write;
- 	int len;
- 	u8 data_buf[8];
-+	u64 esr;
-+
-+	esr = kvm_vcpu_get_esr(vcpu);
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 9abf93ee5f65..54799aafe357 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -1300,12 +1300,13 @@ userspace, for example because of missing instruction syndrome decode
+ information or because there is no device mapped at the accessed IPA, then
+ userspace can ask the kernel to inject an external abort using the address
+ from the exiting fault on the VCPU. It is a programming error to set
+-ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
+-KVM_EXIT_ARM_NISV. This feature is only available if the system supports
+-KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
+-how userspace reports accesses for the above cases to guests, across different
+-userspace implementations. Nevertheless, userspace can still emulate all Arm
+-exceptions by manipulating individual registers using the KVM_SET_ONE_REG API.
++ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO,
++KVM_EXIT_ARM_NISV, or KVM_EXIT_ARM_LDST64B. This feature is only available if
++the system supports KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which
++provides commonality in how userspace reports accesses for the above cases to
++guests, across different userspace implementations. Nevertheless, userspace
++can still emulate all Arm exceptions by manipulating individual registers
++using the KVM_SET_ONE_REG API.
  
- 	/*
- 	 * No valid syndrome? Ask userspace for help if it has
-@@ -166,7 +169,7 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	 * though, so directly deliver an exception to the guest.
- 	 */
- 	if (!kvm_vcpu_dabt_isvalid(vcpu)) {
--		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
-+		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), esr,
- 				    kvm_vcpu_get_hfar(vcpu), fault_ipa);
+ See KVM_GET_VCPU_EVENTS for the data structure.
  
- 		if (vcpu_is_protected(vcpu)) {
-@@ -185,6 +188,28 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 		return -ENOSYS;
- 	}
+@@ -7002,12 +7003,14 @@ in send_page or recv a buffer to recv_page).
  
-+	/*
-+	 * When (DFSC == 0b00xxxx || DFSC == 0b10101x) && DFSC != 0b0000xx
-+	 * ESR_EL2[12:11] describe the Load/Store Type. This allows us to
-+	 * punt the LD64B/ST64B/ST64BV/ST64BV0 instructions to luserspace,
-+	 * which will have to provide a full emulation of these 4
-+	 * instructions.  No, we don't expect this do be fast.
-+	 *
-+	 * We rely on traps being set if the corresponding features are not
-+	 * enabled, so if we get here, userspace has promised us to handle
-+	 * it already.
-+	 */
-+	switch (kvm_vcpu_trap_get_fault(vcpu)) {
-+	case 0b000100 ... 0b001111:
-+	case 0b101010 ... 0b101011:
-+		if (FIELD_GET(GENMASK(12, 11), esr)) {
-+			run->exit_reason = KVM_EXIT_ARM_LDST64B;
-+			run->arm_nisv.esr_iss = esr & ~(u64)ESR_ELx_FSC;
-+			run->arm_nisv.fault_ipa = fault_ipa;
-+			return 0;
-+		}
-+	}
-+
- 	/*
- 	 * Prepare MMIO operation. First decode the syndrome data we get
- 	 * from the CPU. Then try if some in-kernel emulation feels
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 37891580d05d..bfebaf25e188 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -179,6 +179,7 @@ struct kvm_xen_exit {
- #define KVM_EXIT_LOONGARCH_IOCSR  38
- #define KVM_EXIT_MEMORY_FAULT     39
- #define KVM_EXIT_TDX              40
-+#define KVM_EXIT_ARM_LDST64B      41
+ ::
  
- /* For KVM_EXIT_INTERNAL_ERROR */
- /* Emulate instruction failed. */
-@@ -401,7 +402,7 @@ struct kvm_run {
- 		} eoi;
- 		/* KVM_EXIT_HYPERV */
- 		struct kvm_hyperv_exit hyperv;
 -		/* KVM_EXIT_ARM_NISV */
 +		/* KVM_EXIT_ARM_NISV / KVM_EXIT_ARM_LDST64B */
  		struct {
  			__u64 esr_iss;
  			__u64 fault_ipa;
+ 		} arm_nisv;
+ 
++- KVM_EXIT_ARM_NISV:
++
+ Used on arm64 systems. If a guest accesses memory not in a memslot,
+ KVM will typically return to userspace and ask it to do MMIO emulation on its
+ behalf. However, for certain classes of instructions, no instruction decode
+@@ -7041,6 +7044,32 @@ Note that although KVM_CAP_ARM_NISV_TO_USER will be reported if
+ queried outside of a protected VM context, the feature will not be
+ exposed if queried on a protected VM file descriptor.
+ 
++- KVM_EXIT_ARM_LDST64B:
++
++Used on arm64 systems. When a guest using a LD64B, ST64B, ST64BV, ST64BV0,
++outside of a memslot, KVM will return to userspace with KVM_EXIT_ARM_LDST64B,
++exposing the relevant ESR_EL2 information and faulting IPA, similarly to
++KVM_EXIT_ARM_NISV.
++
++Userspace is supposed to fully emulate the instructions, which includes:
++
++	- fetch of the operands for a store, including ACCDATA_EL1 in the case
++	  of a ST64BV0 instruction
++	- deal with the endianness if the guest is big-endian
++	- emulate the access, including the delivery of an exception if the
++	  access didn't succeed
++	- provide a return value in the case of ST64BV/ST64BV0
++	- return the data in the case of a load
++	- increment PC if the instruction was successfully executed
++
++Note that there is no expectation of performance for this emulation, as it
++involves a large number of interaction with the guest state. It is, however,
++expected that the instruction's semantics are preserved, specially the
++single-copy atomicity property of the 64 byte access.
++
++This exit reason must be handled if userspace sets ID_AA64ISAR1_EL1.LS64 to a
++non-zero value, indicating that FEAT_LS64* is enabled.
++
+ ::
+ 
+ 		/* KVM_EXIT_X86_RDMSR / KVM_EXIT_X86_WRMSR */
 -- 
 2.24.0
 
