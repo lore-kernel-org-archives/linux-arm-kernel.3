@@ -4,114 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5EC0C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C515BC7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93CNbTrhAtLmO1jxM8k2fxAeudg7LJ2HJHZFkRyX+yc=; b=i9nsVGysRwKQn2M1IBbGdAVTv8
-	un5ZiiC3f8CigRjIPH5K3rwPG1MYkP9sI7swzEwV6wxv8i420+EDJBwkkAyXV6qdraD/Q0iMYJycR
-	wGY9NUwj3yoTW7HjA3CSLMkaUJNc+hLh+o4GJhIzJ1RHBEXaWStdHUI3woH9OD24Ykw2B+ad0ZNyz
-	WyP3YONh4LKCgjzEuUQR8z57IWz9SFttPliK6Cb4gFgg6jFzd9MbXz5dyvu1L8E4cGdFqrIxbpNWg
-	Yu3fcNsk4ugtV+nYqeToaNnmPU5yoctt1EQ2MoT/GKr9a11CQvyKHmf7G03D8enoipz1gLtd6xPvK
-	ewZbbqDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yrJYaXtqO1r2gwFAKi1gKDe+NsoEHbuBtIf1VyYdK0A=; b=vgZuUygsfeQXAxDEotYP+C9ruH
+	+hjKjjC3ekOIWPqjAM2tKCqod8NFIle3lHC/8Ne+y+Lqcofou267xCj/JvIxlj/N0W3JMniEfjg8C
+	T06gISiUKyfczaWN4busw2ohmdBq/K94vG9a18vowF96lFXPHHJ8IE3fn9VlVf8sWGJqot9WfmtDI
+	tgJg1J2yJouoPj1fNINEoMBANVqeJoaitPHS6N36YvNf9qy/hby7QfjAjQNmNdnmSNrizH/LJmzaN
+	6gAHWudZTOeoMtqJOx1jXm2swUW1Hp9CSOj33fRsuww8AYL5g+GuzwfCsio58qQoH5SJSYA/JMQqg
+	G3J0HKHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUu6p-0000000CpeV-1WP3;
-	Thu, 26 Jun 2025 21:26:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUu94-0000000Cq45-0f5m;
+	Thu, 26 Jun 2025 21:28:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsdh-0000000CeMV-09hD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:52:06 +0000
+	id 1uUsew-0000000CeWd-0Puv;
+	Thu, 26 Jun 2025 19:53:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3B598A50A89;
-	Thu, 26 Jun 2025 19:52:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 011EDC4CEEB;
-	Thu, 26 Jun 2025 19:51:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 08E995C5516;
+	Thu, 26 Jun 2025 19:53:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93113C4CEEB;
+	Thu, 26 Jun 2025 19:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750967523;
-	bh=e6KViXfQD5OG2cPkIRrqtZBedg8VPapSONDCN/qM0no=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QWVN1ZT/H8yzS5oVa4d5uU1Zp59HQC+ccS/bFBDlSViJGSwLPPXumxI+vp4ynlXMg
-	 fhDxk08cD9AYXEv5WPY3eV3RcgBpMMkwBlDrOJ9NgRAv9aTejZI3icqy+fZ/wFjun+
-	 6KpwAx9vi5/FThEFsQ7mRxDk+99ZzEy4UIQbEegppvP/Qo5+SH0D1rV0Fzto5EVziM
-	 ckChEAw6K0Rg0Z9bicheFNRknUkPoISDOIcUf/JfRkMaYh/LQnj6bHUfCLBf0CfiO/
-	 qA7bA38qdYwJmPBtaMXFdQG3IZbS2NkaV3JD8UPJ7vW/iJfHgf9qQnGnceshWTbsiV
-	 TUMkxJbActFJA==
-Message-ID: <ab02736e-4d4b-4f6a-840a-d24201038b6d@kernel.org>
-Date: Thu, 26 Jun 2025 21:51:55 +0200
+	s=k20201202; t=1750967600;
+	bh=gP/lLAielMQ0FzJZoQVZVvW32nn5aVh+e1xIp7tL+5Y=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=mdJgSNJlTCiBsgp1QvD08F4fcua2wPsC395F4cWUyYK5vhobW4WMrk+HNckMyVVnv
+	 SyBNxW8pmK1kHZyq62uSz+dqrTw1gWvGDX0uHKIZ95/VXLbqpGGbwJG74X91Vnjsi9
+	 +lQzSu24MxCmAgiA8BskBo3XspT8PnF1p1j3naF6V3QQpXBRto/8rg8B0pXSV1nxy/
+	 PS9dPFp7nBnSwxPAIaY4YnH4KsI93PilBkhbzyeokHcCVyvvCaYEyHKzk5JbxcnpQU
+	 w7YqCokzH58UfMS+MSYQhnF//W+DCn8cHiJPcbX/eUqFZ0koRzligdhE7BpIk9cWlA
+	 nEVqcKieCsypQ==
+Date: Thu, 26 Jun 2025 14:53:19 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFT 5/6] ARM: s3c: crag6410: use generic device properties
- for gpio-mmio
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>, Lee Jones <lee@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Russell King <linux@armlinux.org.uk>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- patches@opensource.cirrus.com, linux-samsung-soc@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
- <20250624-gpio-mmio-pdata-v1-5-a58c72eb556a@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250624-gpio-mmio-pdata-v1-5-a58c72eb556a@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-mediatek@lists.infradead.org, Guenter Roeck <linux@roeck-us.net>, 
+ linux-serial@vger.kernel.org, linux-watchdog@vger.kernel.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Russell King <linux@armlinux.org.uk>, Thomas Gleixner <tglx@linutronix.de>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>
+To: Max Shevchenko <wctrl@proton.me>
+In-Reply-To: <20250626-mt6572-v2-0-f7f842196986@proton.me>
+References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
+Message-Id: <175096753913.717927.14601371478727547482.robh@kernel.org>
+Subject: Re: [PATCH v2 00/11] ARM: Add support for MediaTek MT6572 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_125205_212750_D9485CAF 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250626_125322_215556_9F338D15 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,21 +81,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2025 15:19, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> The GPIO device in crag6410 is registered with struct bgpio_pdata passed
-> as platform_data to the gpio-mmio driver. We want to remove the
-> bgpio_pdata from the kernel and the gpio-mmio driver is now also able to
-> get the relevant values from the software node. Set up device properties
-> and switch to using platform_device_info to register the device as
-> platform_add_devices() doesn't allow us to pass device properties to the
-> driver model.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Thu, 26 Jun 2025 11:53:53 +0300, Max Shevchenko wrote:
+> This series of patches adds support for the MT6572 SoC and
+> the JTY D101 tablet and Lenovo A369i smartphone based on it.
+> 
+> Signed-off-by: Max Shevchenko <wctrl@proton.me>
+> ---
+> Changes in v2:
+> - Drop the status property for the board devicetrees
+> - Add an soc node for the MT6572 and reorder the nodes and properties
+> - Change the commit title to a more descriptive one
+> - Change the cover title to the correct one
+> - Link to v1: https://lore.kernel.org/r/20250620-mt6572-v1-0-e2d47820f042@proton.me
+> 
+> ---
+> Max Shevchenko (11):
+>       dt-bindings: serial: mediatek,uart: add MT6572
+>       dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: add MT6572
+>       dt-bindings: timer: mediatek: add MT6572
+>       dt-bindings: watchdog: mediatek,mtk-wdt: add MT6572
+>       dt-bindings: vendor-prefixes: add JTY
+>       dt-bindings: arm: mediatek: add boards based on the MT6572 SoC
+>       ARM: mediatek: add board_dt_compat entry for the MT6572 SoC
+>       ARM: mediatek: add MT6572 smp bring up code
+>       ARM: dts: mediatek: add basic support for MT6572 SoC
+>       ARM: dts: mediatek: add basic support for JTY D101 board
+>       ARM: dts: mediatek: add basic support for Lenovo A369i board
+> 
+>  .../devicetree/bindings/arm/mediatek.yaml          |   5 +
+>  .../mediatek,mt6577-sysirq.yaml                    |   1 +
+>  .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
+>  .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
+>  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+>  .../bindings/watchdog/mediatek,mtk-wdt.yaml        |   1 +
+>  arch/arm/boot/dts/mediatek/Makefile                |   2 +
+>  arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts     |  61 ++++++++++++
+>  arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts |  56 +++++++++++
+>  arch/arm/boot/dts/mediatek/mt6572.dtsi             | 109 +++++++++++++++++++++
+>  arch/arm/mach-mediatek/Kconfig                     |   4 +
+>  arch/arm/mach-mediatek/mediatek.c                  |   1 +
+>  arch/arm/mach-mediatek/platsmp.c                   |   7 ++
+>  13 files changed, 251 insertions(+)
+> ---
+> base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+> change-id: 20250619-mt6572-ef78a3d45168
+> 
+> Best regards,
+> --
+> Max Shevchenko <wctrl@proton.me>
+> 
+> 
+> 
 
-Best regards,
-Krzysztof
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/mediatek/' for 20250626-mt6572-v2-0-f7f842196986@proton.me:
+
+arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dtb: / (lenovo,a369i): memory: False schema does not allow {'device_type': ['memory'], 'reg': [[2147483648, 536870912]]}
+	from schema $id: http://devicetree.org/schemas/root-node.yaml#
+arch/arm/boot/dts/mediatek/mt6572-jty-d101.dtb: / (jty,d101): memory: False schema does not allow {'device_type': ['memory'], 'reg': [[2147483648, 1073741824]]}
+	from schema $id: http://devicetree.org/schemas/root-node.yaml#
+arch/arm/boot/dts/mediatek/mt7623a-rfb-nand.dtb: spi@1100a000 (mediatek,mt7623-spi): compatible: 'oneOf' conditional failed, one must be fixed:
+	['mediatek,mt7623-spi', 'mediatek,mt2701-spi'] is too long
+	'mediatek,mt7623-spi' is not one of ['mediatek,mt7629-spi', 'mediatek,mt8365-spi']
+	'mediatek,mt7623-spi' is not one of ['mediatek,mt8516-spi']
+	'mediatek,mt7623-spi' is not one of ['mediatek,mt6779-spi', 'mediatek,mt8186-spi', 'mediatek,mt8192-spi', 'mediatek,mt8195-spi']
+	'mediatek,mt7623-spi' is not one of ['mediatek,mt7981-spi-ipm', 'mediatek,mt7986-spi-ipm', 'mediatek,mt7988-spi-quad', 'mediatek,mt7988-spi-single', 'mediatek,mt8188-spi-ipm']
+	'mediatek,mt7623-spi' is not one of ['mediatek,mt2701-spi', 'mediatek,mt2712-spi', 'mediatek,mt6589-spi', 'mediatek,mt6765-spi', 'mediatek,mt6893-spi', 'mediatek,mt7622-spi', 'mediatek,mt8135-spi', 'mediatek,mt8173-spi', 'mediatek,mt8183-spi']
+	'mediatek,mt7622-spi' was expected
+	'mediatek,mt2712-spi' was expected
+	'mediatek,mt6765-spi' was expected
+	'mediatek,spi-ipm' was expected
+	from schema $id: http://devicetree.org/schemas/spi/mediatek,spi-mt65xx.yaml#
+
+
+
+
+
 
