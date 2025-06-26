@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1E8C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A4DC7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dG2TIEEaKmZFSNaPMqWSn2W4Lha/c5D15UklRz2nFIE=; b=casMdKFZMEq9s8+yQSLhFt2wZ/
-	SHzg++mhdFNh/GPGJC/p3TovwdURmigHkKH/RoS0VXAg69FD0FEJcELimUAcMMmWBO6KkNWZXZike
-	AMdkgFyWEBzD0h4q18QKhdwDmFdV2TvaMGEf8RFNJM/rOXJS1WAgPh8mkZ+IhZ8Atur97i7SGVcMm
-	qRqnb0B53lVYX0mNpoD8O6//R3MiE4w6K6yWznuhll5dI9+7lYz/fC8adwBWZ0IRinadT5PcNjXJP
-	AtuJW4hoIxn16FmukkKyHkeBoy6CufAlwVYOS9y0qxrrOPvRG+M7GbF2zXTAf5wK9EkWli94xgD/+
-	6fZDnpOA==;
+	bh=08Z68xkx47+Cab9Wsv9Dl1iA6fUQYYq/k1v3FyBchXU=; b=Oc7BHcOheavB/XcZmvBWMf7T1J
+	u0g+cJJ7Pev4m1mTS7tT58zqzz91L7EMv6QoxHoOx0vwVobcCZ4H1tGNQjgpe2uliSG2r3C8HNsqH
+	XU4bYVucHyl05j5s9v0xLMRfW1Sx4rXVISRhXujNaVr0keU+X99f234SnBJQAOpyst2lpn1kZkGZj
+	vmEiACgXJOyFAW9K3q6BkufjbvBBvNWN7/9pVa8EeZRkb5UpnNB153FXlnz7u20uP0mM3hLDrTb5m
+	UzHJDKmZqjaWHwxb12iTONkeJA1A4Mn6cXz38zySDbTi2pfJeCoZv/+wptwdqMLqwScWnCx4HnQRv
+	rum+ErjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiqB-0000000B894-1HnE;
-	Thu, 26 Jun 2025 09:24:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUisR-0000000B8US-2fTh;
+	Thu, 26 Jun 2025 09:26:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiMp-0000000B3At-20gw;
+	id 1uUiMo-0000000B39y-3ZMv;
 	Thu, 26 Jun 2025 08:53:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD331629C1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 493AD49F39;
 	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 75300C113D0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 25268C4CEFD;
 	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1750928038;
-	bh=MpQ2gtnaw7N9SW/uFQ+s6QcBME/V8/ZonAnCkD0MPhQ=;
+	bh=ztVkrHzbAl+RXpVAVDHbVLbQtF9O1PCrZdEojFxodpc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mwWYGiLAvwRE4MHKGGC0C35HIfVrPFyEdhfRamaDziFSUuimHsoBiC1sejkcSpFp7
-	 vRq0AiWpCr9mJNHgMOtR+hXvQoWSbk2q5nlT2lMFXRIzxDd/0RxEK1sCoRqLWqB8f8
-	 kl6w+IELDvLDmK8fPAPWq7Q89yoVwJs+cXpiqlCgBDvXpSMYDi+ZDc8vS6MigYhwGT
-	 0mlWL/Cb0syjZBdxphlBsVCNf4bQ4guVTCjR1YW79nHhYwanpn6Fe4zjHjQe7jxBH/
-	 lHO78U9FIrKCoFKjA8GvnKhsDhIWgmrs2xY/5s37CjhhV/OJd3cEazW9rAgAM1Quo6
-	 A8GSeF12P1o7g==
+	b=oi3wiuXqNbZ5dz/LL9XYJwSSRrqbAokMbuTXMOsFVQYCLdifxWBTr9rDpd4unikfg
+	 To0ilKpQT8IejPT+mC4onfJNSspcd7utbVpecyTsBTe84mKJ44EGGABwwHA9wwZlah
+	 dXzC6ldG5epk0aH6ers206Ptg2me2Sx+RUmo0NfhlxFSX1XLwKCxZLPxUap+fa035H
+	 sSG4e9zv9P4AC8BzUaEYJvrsIJ0YOd3qwUXq/saAX5rNlw7UCN9928qDOeTMtJsaXi
+	 EiBBYvb1mq8jBC/G63yKTu1d8lqNIz78WmwEF4RUVjTOP5mnA0C4UwIYLdO90JUCT7
+	 gsO+bBJJTN/ow==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B9C3C7EE33;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ECC1C7115B;
 	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Thu, 26 Jun 2025 11:54:03 +0300
-Subject: [PATCH v2 10/11] ARM: dts: mediatek: add basic support for JTY
- D101 board
+Date: Thu, 26 Jun 2025 11:53:58 +0300
+Subject: [PATCH v2 05/11] dt-bindings: vendor-prefixes: add JTY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-mt6572-v2-10-f7f842196986@proton.me>
+Message-Id: <20250626-mt6572-v2-5-f7f842196986@proton.me>
 References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
 In-Reply-To: <20250626-mt6572-v2-0-f7f842196986@proton.me>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -70,16 +69,20 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Max Shevchenko <wctrl@proton.me>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750928035; l=2336;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750928035; l=891;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=NU9J2QXI2zRB0vLkzxM/enp+SQ7Qa7xpupUaXf5gGMs=;
- b=u6y5VEQKcjrn0P+xyrIXWueepFAPfCFaCZ0d+P2Aeo1SL9grfE0Rv3LApZb3EfkIRfpVT9zi/
- NwnEYMpzT0HAuwnusq+v2MKwJ23YkZnkljXxYIbDE4/kkgK94skQvXT
+ bh=f6I5lpvscqwzHCTgXJqDcC9IxNIHsBHQxvSbgtRH4Jo=;
+ b=PzPH4fvxc+Q680V4FruDOeASw2yE6Gfs++tzHWhA5D0HUa9Fo+1x/5ZtV+xtxvPHxGczWHBDy
+ k+eKBMV+tAeAnSxtVe18b10bLGpGMxEwUp73Hi1cg/cZjLlRd/hzP7i
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250626_015358_928675_3818DFA9 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,95 +100,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Max Shevchenko <wctrl@proton.me>
 
-This tablet uses a MediaTek MT6572 system-on-chip with 1GB of RAM.
-It can currently boot into initramfs with a working UART and
-Simple Framebuffer using already initialized panel by the bootloader.
+JTY produced low-cost Android tablets based on various
+MediaTek MT65xx SoCs.
 
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- arch/arm/boot/dts/mediatek/Makefile            |  1 +
- arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts | 61 ++++++++++++++++++++++++++
- 2 files changed, 62 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
-index 1957947cb41ce86ed101466bf822d4e2dfdfbb61..cb869a1aaec21a1d99f7f2a829b84672a3f52726 100644
---- a/arch/arm/boot/dts/mediatek/Makefile
-+++ b/arch/arm/boot/dts/mediatek/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_MEDIATEK) += \
- 	mt2701-evb.dtb \
-+	mt6572-jty-d101.dtb \
- 	mt6580-evbp1.dtb \
- 	mt6582-prestigio-pmt5008-3g.dtb \
- 	mt6589-aquaris5.dtb \
-diff --git a/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..68c432cb38700939102b1186c8f5bca4c5140831
---- /dev/null
-+++ b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
-@@ -0,0 +1,61 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 Max Shevchenko <wctrl@proton.me>
-+ */
-+
-+/dts-v1/;
-+#include "mt6572.dtsi"
-+
-+/ {
-+	model = "JTY D101";
-+	compatible = "jty,d101", "mediatek,mt6572";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		stdout-path = "serial0:921600n8";
-+
-+		framebuffer: framebuffer@bf400000 {
-+			compatible = "simple-framebuffer";
-+			memory-region = <&framebuffer_reserved>;
-+			width = <1024>;
-+			height = <600>;
-+			stride = <(1024 * 2)>;
-+			format = "r5g6b5";
-+		};
-+	};
-+
-+	memory {
-+		device_type = "memory";
-+		reg = <0x80000000 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		connsys@80000000 {
-+			reg = <0x80000000 0x100000>;
-+			no-map;
-+		};
-+
-+		modem@be000000 {
-+			reg = <0xbe000000 0x1400000>;
-+			no-map;
-+		};
-+
-+		framebuffer_reserved: framebuffer@bf400000 {
-+			reg = <0xbf400000 0xc00000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b28ae217643bf7a63a471f74819d18238..517bd129288c96483ffe358127ce8e16f60d902b 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -782,6 +782,8 @@ patternProperties:
+     description: Jide Tech
+   "^joz,.*":
+     description: JOZ BV
++  "^jty,.*":
++    description: JTY
+   "^kam,.*":
+     description: Kamstrup A/S
+   "^karo,.*":
 
 -- 
 2.50.0
