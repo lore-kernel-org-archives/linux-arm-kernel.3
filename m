@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEFBC7EE32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF39C7EE33
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,26 +12,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lAvuAYfKpWElLEBOqzaPO52M88kYirjUKl/plxrEag=; b=0AKnZNVIvDUtROw5w3Vqfmc5HH
-	JDhqhrZ3kt00FEmDWtIFhZgtDSw+6YVQvQ1+1PXvs5UoEpbEu6EDdUEIBlwnMet3kZz6LDz8MMqAP
-	f6wf0Ali4pUVSn1f000KMrsRRKjMKfwyVXRn/hc3EYNXdnogufQyuYdMfpM0z1+SAHoyqq+a8tSJ0
-	Zz7IHZbheIc/cSPnuULyyvBuBF1gh6UM1eIOe9YW+/fiGJl0bwxjGuWlq4tm9GLq145UKRIDXZMeT
-	PKLsreafokyYIJk0MWc2XYDo+RqmE2SGOkxgMTZakYmTPIL9hXrzVd1Eg7v46XLykTkvCy5cd9ysU
-	VNoHMAwQ==;
+	bh=gu+/Bm5eeznbClyp+4jnLLYqEUhfAC6e/0CtxI35b0Q=; b=2yJCcZ7bMnnkw4wvLblvn3zyom
+	HCLfw+MsUw6VFG2WOf5Lf/72QX2uCS9ZvRTpEdWvYgIOPLnBtaDW/QmNOuQ/qftHpAoFr4tKFpZbx
+	D1OtTPIam4WvlXoY4RpQJdBlIqtBld7wgnftD8fsplnpvWblS0P1IgVyLOnf9E0XhjsD28F+wwEtT
+	seXGq924KMJT7dS2gashuIBOKSyJgcqJMN4Oa0MIR+LpZ9FPF6FrhWXlSpTjZeDYrFsrduamExmKK
+	hJCHpyRls1+90TD5IB40+HkGujY73nJoWiaj2DIhz/f+fwMFGy+Mngal+PlOj3Cj7pHAsRrD/fkia
+	YqQeel/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkgu-0000000BNvP-3N1C;
-	Thu, 26 Jun 2025 11:22:52 +0000
+	id 1uUkgv-0000000BNvV-1O47;
+	Thu, 26 Jun 2025 11:22:53 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjGn-0000000BCqR-2XDA
+	id 1uUjGp-0000000BCsQ-36bs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 09:51:50 +0000
+	Thu, 26 Jun 2025 09:51:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AFD2C5C07A1;
-	Thu, 26 Jun 2025 09:49:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE40AC4CEF2;
-	Thu, 26 Jun 2025 09:51:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CEE2A5C0780;
+	Thu, 26 Jun 2025 09:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461FFC4CEEB;
+	Thu, 26 Jun 2025 09:51:49 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Magnus Damm <magnus.damm@gmail.com>,
 	Rob Herring <robh@kernel.org>,
@@ -40,19 +40,18 @@ To: Magnus Damm <magnus.damm@gmail.com>,
 Cc: linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	Tam Nguyen <tam.nguyen.xa@renesas.com>,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 3/4] arm64: dts: renesas: Add Renesas R8A779H2 SoC support
-Date: Thu, 26 Jun 2025 11:51:34 +0200
-Message-ID: <294ca4211c5a73942dc2ca04ae6d3c384d534f2b.1750931027.git.geert+renesas@glider.be>
+Subject: [PATCH 4/4] arm64: dts: renesas: r8a779h2: Add Gray Hawk Single support
+Date: Thu, 26 Jun 2025 11:51:35 +0200
+Message-ID: <d2e0e7b746063368b83148100aa553cff55b8b60.1750931027.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1750931027.git.geert+renesas@glider.be>
 References: <cover.1750931027.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_025149_687602_35C7B430 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250626_025151_822848_F3B05B5B 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,35 +66,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tam Nguyen <tam.nguyen.xa@renesas.com>
+The Gray Hawk Single board with R-Car V4M-7 (R8A779H2) uses an updated
+version of the R-Car V4M (R8A779H0) SoC.
 
-Add support for the Renesas R-Car V4M-7 (R8A779H2) SoC, which is
-an updated version of the R-Car V4M (R8A779H0) SoC.
+For now, there are no visible differences compared to the variant
+equipped with an R-Car V4M (R8A779H0) SoC.
 
-Signed-off-by: Tam Nguyen <tam.nguyen.xa@renesas.com>
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- arch/arm64/boot/dts/renesas/r8a779h2.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779h2.dtsi
+ arch/arm64/boot/dts/renesas/Makefile            |  2 ++
+ .../dts/renesas/r8a779h2-gray-hawk-single.dts   | 17 +++++++++++++++++
+ 2 files changed, 19 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/renesas/r8a779h2-gray-hawk-single.dts
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779h2.dtsi b/arch/arm64/boot/dts/renesas/r8a779h2.dtsi
+diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
+index 677ba3aa8931788a..cbd0202c4a1744e9 100644
+--- a/arch/arm64/boot/dts/renesas/Makefile
++++ b/arch/arm64/boot/dts/renesas/Makefile
+@@ -105,6 +105,8 @@ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-white-hawk-single-ard-audio-da7212.dtb
+ 
+ dtb-$(CONFIG_ARCH_R8A779H0) += r8a779h0-gray-hawk-single.dtb
+ 
++dtb-$(CONFIG_ARCH_R8A779H0) += r8a779h2-gray-hawk-single.dtb
++
+ dtb-$(CONFIG_ARCH_R8A77951) += r8a779m1-salvator-xs.dtb
+ r8a779m1-salvator-xs-panel-aa104xd12-dtbs := r8a779m1-salvator-xs.dtb salvator-panel-aa104xd12.dtbo
+ dtb-$(CONFIG_ARCH_R8A77951) += r8a779m1-salvator-xs-panel-aa104xd12.dtb
+diff --git a/arch/arm64/boot/dts/renesas/r8a779h2-gray-hawk-single.dts b/arch/arm64/boot/dts/renesas/r8a779h2-gray-hawk-single.dts
 new file mode 100644
-index 0000000000000000..2707d2d367661994
+index 0000000000000000..aeb32c77099ea20f
 --- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779h2.dtsi
-@@ -0,0 +1,12 @@
++++ b/arch/arm64/boot/dts/renesas/r8a779h2-gray-hawk-single.dts
+@@ -0,0 +1,17 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +/*
-+ * Device Tree Source for the R-Car V4M-7 (R8A779H2) SoC
++ * Device Tree Source for the R-Car V4M-7 Gray Hawk Single board
 + *
-+ * Copyright (C) 2024 Renesas Electronics Corp.
++ * Copyright (C) 2025 Glider bv
 + */
 +
-+#include "r8a779h0.dtsi"
++/dts-v1/;
++
++#include "r8a779h2.dtsi"
++#include "gray-hawk-single.dtsi"
 +
 +/ {
-+	compatible = "renesas,r8a779h2", "renesas,r8a779h0";
++	model = "Renesas Gray Hawk Single board based on r8a779h2";
++	compatible = "renesas,gray-hawk-single", "renesas,r8a779h2",
++		     "renesas,r8a779h0";
 +};
 -- 
 2.43.0
