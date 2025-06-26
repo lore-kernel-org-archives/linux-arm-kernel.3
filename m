@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357D9C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F46C7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FM8P8pOWAsYhFp+gRmBwToR1B/PuwzpuWRqPGhfY/0=; b=fWw59uk0KhBXtPc42acwCrHtBw
-	uq11u8qKz6IZfipjIDfnJmmnKGtEx22WIMgm32/1P4EZKY/gAWweZxSzteRS7Nn3VangjAU+KE8Xt
-	Xi+2ZSS4BgBbBzewcHAlVEJjdBf2m6FkxhSX16CCy81vTdvZ0wk5tfsqj+EECY8R474Yy4l4NhMpV
-	lCmEK6c8Gjb+TcY2lc8eJdvreskGTAu7PUHHzTOKoiEMc4j/ffUZIsAaJJjeeG5DzLWObjJCTVSgq
-	7DRmUhQOmaRKqXEXcbKAcsAqoFrEHW1TnHFwReEsGiOnmqdl8DidFcDkQSWjQi9tlD2ZaaEUO9dol
-	JmY5VJFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=x2kSA4swe/lg6VGJyxz++5WQSZ3QniLrfwj6wBmltY0=; b=v6v6wm7ICjE//+
+	gZfJu4672HbrqGoFvS9LWYwBbLjE7cRAAJ9QuZAZdvzhD59PaOXR3mA/YnBWg8Ov5BAmjHQcKAuW1
+	Fs6bSlwuLSrMHjGPHQtSNwDUzemPKNH/TjG0DMDMfU1dzVArQl2ObAMdtjtF9BnMLaRb2HdDReFAS
+	FWFvjkCe3uGVuSehy6A76IfpoghUmPFzAGCRTAFeF8xSgj7Qs3swqJr09SS4I3JPs3N7h0+z6FryH
+	JxhOB2CALErFHSZUH5ZMlAPO5CJ5pkv5UB0rhtLnIQ6WnUWoM6Upv+lVHWiTUt3l3AalWUlUa8bIl
+	ezyM85dODHLrDOUTElTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUuBI-0000000CqHB-1DI2;
-	Thu, 26 Jun 2025 21:30:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsfO-0000000Ced8-0FXM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:53:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F3661692;
-	Thu, 26 Jun 2025 12:53:31 -0700 (PDT)
-Received: from bogus (unknown [10.57.50.223])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8DB83F66E;
-	Thu, 26 Jun 2025 12:53:46 -0700 (PDT)
-Date: Thu, 26 Jun 2025 20:53:39 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using
- CRB over FF-A
-Message-ID: <20250626-busy-hilarious-octopus-47c2fc@sudeepholla>
-References: <20250618102302.2379029-1-yeoreum.yun@arm.com>
- <aFs0of3uZdoMEJXc@kernel.org>
- <aFvRI5OwSLLKz300@e129823.arm.com>
- <aFwrBU4H0w9AXyQM@kernel.org>
- <aFwrf1HnsilrASzX@kernel.org>
- <20250625-chital-of-infinite-proficiency-fee4dc@sudeepholla>
- <aFxuZV3lwd2Uc90g@kernel.org>
+	id 1uUuDX-0000000CqgW-06G1;
+	Thu, 26 Jun 2025 21:33:11 +0000
+Received: from layka.disroot.org ([178.21.23.139])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUsnW-0000000Cg76-3MoI;
+	Thu, 26 Jun 2025 20:02:16 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 7239A25DB0;
+	Thu, 26 Jun 2025 22:02:13 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id lwtKvea1B_oe; Thu, 26 Jun 2025 22:02:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1750968132; bh=oLEQGcXfmwkTXW2635WHw9QtoP6OjHr6Fdq+O046/X0=;
+	h=From:Subject:Date:To:Cc;
+	b=QvPbf8YbZqK/yody6Z1qtcnZxwQlfA2RV3+DKL32vyJwah3Bf17Pl8q+iPF7Z53Rf
+	 vGg+fQVTJjmXffgBWM7zFDm7COawfFwQ4AeEpigJMZaOFWG3y/CevzfmaVw+nXUF2t
+	 4zSwCEJ4ZQCT0n31YKCCnrhJLpJfIHjak5XoxUQx2vaB5CGhpUASUeSMP71CZmMlp7
+	 occC0/HOJ5MvN3GmKZrrGoYT+DQjzSGY6AOjHL3SVIkxkiZmEjkj+oTq513ozQ4VPO
+	 o3yoDerMQka7mUGPqWs2R3s25GfyYNE9Kz9Huf8eXSb35jbiN3yEQob3MEbs9lem+2
+	 EgYS36pjHq3tw==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH 0/2] Fixes for Exynos7870 MIPI PHY support
+Date: Fri, 27 Jun 2025 01:31:53 +0530
+Message-Id: <20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aFxuZV3lwd2Uc90g@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADGnXWgC/x2MQQqAIBAAvxJ7bmEzzOor0SFyrT1kohBJ9Pek4
+ wzMPJA4CicYqwciX5Lk9AWauoJ1X/zGKLYwKFKaOqWR7+zPZHpDeEgQDHtGJzealkmz6wdLK5Q
+ 6RC76P0/z+36p8aziaQAAAA==
+X-Change-ID: 20250625-exynos7870-mipi-phy-fix-73e05ef89d0c
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750968126; l=853;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=oLEQGcXfmwkTXW2635WHw9QtoP6OjHr6Fdq+O046/X0=;
+ b=l22ARppv4FdNrrIxIPioB4sYgrfvPuIUVxz3PSz9MWQNbePyQ/HGHSZf9esAQAadMmMpw2lkz
+ hhA6aww7qUjD17J5bF2XGxVfjdolANncv2/o1ygEsRwSTYz71O0SV8J
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_125350_131271_ADF66327 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250626_130214_980924_F2749699 
+X-CRM114-Status: UNSURE (   4.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +86,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 12:47:17AM +0300, Jarkko Sakkinen wrote:
-> On Wed, Jun 25, 2025 at 08:35:33PM +0100, Sudeep Holla wrote:
-> > 
-> > If you are applying 1/2 too, feel free to add
-> > 
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > 
-> > I was initially thinking of taking it separately as there is no strict
-> > build dependency. But I am fine if you can take them together.
-> 
-> Hmm.. Yeah, if you insist to take them, that's fine for me too.
-> 
+A few issues have been realized after Exynos7870 MIPI PHY support got
+merged [1], this patch series aims to address them.
 
-Ignore me 😄
+More information about the fixes is provided in respective commit
+descriptions.
 
-> That said, I'm also happy to take care of them :-)
-> 
+[1] https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
 
-Yes, please take them via your tree.
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Kaustabh Chakraborty (2):
+      phy: exynos-mipi-video: correct cam0 sysreg compatible for exynos7870
+      phy: exynos-mipi-video: allow skipping absent PHYs
 
-> I'll append your review.
+ drivers/phy/samsung/phy-exynos-mipi-video.c | 102 ++++++++++++++++------------
+ 1 file changed, 58 insertions(+), 44 deletions(-)
+---
+base-commit: 1b152eeca84a02bdb648f16b82ef3394007a9dcf
+change-id: 20250625-exynos7870-mipi-phy-fix-73e05ef89d0c
 
-Thanks!
-
+Best regards,
 -- 
-Regards,
-Sudeep
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
