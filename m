@@ -4,206 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A9AC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 06:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746F0C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 07:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aR4C6yQECsWVisJKQMipZAirWurqIkTHv+BxqytxM/4=; b=wuBfuMQJ0+fm0pfsAPm9d7mSen
-	rMtz80iduzNJ895wb4qd8VSbUEozK23F2Pg/O6q+OWdO1C+FWgmy2avyjkkg6E//aPLArmQbY8CNr
-	sI9BqPMqhWRsvEp0H4LHBO2RcQz0mO4ePqAbzGLFoJJDA7vmCmpVta44CE94yON30poFVU8o1ZGiN
-	M5SIk/QDsBxSen318w84L17u/kqrlcwboV/njs/7sYi+Oxps2Dqi2FNv9Ki6Ki6lCawMBi4ZY2H1I
-	aAY+2/0cytNroHNSrcQMsF0YLSt1AyVSA9aujvyNJXtYO5OHiM5NPfcHWb0jzP3FlqDJxqqCX9NiB
-	i97BLKzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Op03+qucqVF+nZEGn/AJUKWrnarNtLlz6bXQbzmKHKo=; b=DS9s3G2lL8ZA6cddkaXeo1mutS
+	y16WRscnLb0ExUUSTkGtQ4oIbNiofEiamM4LfSFh2pdiCbZLz3q9AGFOQ4cI8n5vCKpCFkyBc+U6k
+	zZRTsIWHIGE+Nr3vvFj5GCuAmH1QCG05tA63VAuOPQBDFNOTfVAjVcW7mgLnCHDbtSyu0AlX/Qr+t
+	LnqEHc7hG2ADE1Cq8jNKJCpyoWNbYVxeWe1+4zsHpiw/ht3ewjhK4Pj1pmmpkxO7xNnRygGrzkR94
+	qlQubdTvj5K1/9EPCJpjslnNgpYhAhtZWp48UwJ/i7woaMrqsBA/GCe37IqCiMzvg3WUxFjFBC99Z
+	xmvMjEew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUgVC-0000000Am0d-0dVB;
-	Thu, 26 Jun 2025 06:54:30 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1uUgt5-0000000AnP6-0IS0;
+	Thu, 26 Jun 2025 07:19:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUgSt-0000000Alsd-3ANv
+	id 1uUgqp-0000000AnLj-0zGg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Jun 2025 07:16:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Op03+qucqVF+nZEGn/AJUKWrnarNtLlz6bXQbzmKHKo=; b=htGq4WysG+Z57EMyORyov5BGja
+	RnE1WHx54SMxxZ+svspJbznzEqXr/3hcBuA6s/ZZ7U3iG1fTlHkQmpYffPYtSeKDxI0amBjxfA0sV
+	ER/U6GGoAlAt7r5U92QKkapB0KHTOvXUZI7BZloTHHdHpAi7LaG+LKfKdLZNUAOHRHLSwB1CsveKa
+	npLwLwL8pgDuLSejMtKjHvtqpI1qOQ9tgUkB95D1fF8XW2k6BpjtNlvXMD8O9oATUR5K8yQ9UTUnm
+	NELp+4XJekeDV6JWCU2AElMbjjiLvYiiGFfMFRnY4UsiVLy1ksbIgtB6TaLjhG75F20K9QgiA8QcE
+	WFFuphXw==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUgql-000000063DD-20QT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 06:52:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750920728; x=1782456728;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=2PAdhgBdnGKCJD68gy4hwn2GvsDGyKVf6wNv08H6GYY=;
-  b=Dx3+QCyyBV0vbm35uJCdUxgouQYwhrgq5jArYrhdNQuL5umoHlilZJ6Y
-   T9n3WuYF5S3FwdeoVyMDe6JUEYiAr1MVCrfMINjAXOKdutgeRGc6cXXWU
-   fkSNSVuZGrBjZrq66I7YcUxJ0+XmEMpA7KuvYGIaWVMY2fAhpMKApofAB
-   sU79ksyqoKscYXmSeePLy6OvVSCbfqxsVPN6yj4wT6OKK2QJva6dW6PHo
-   LSmXZQKxCeX2+UQwimtK0ZbKGd79yVQd5FuklKOBrzA561vAJ+ZtsZcjE
-   twgNWwTPHkIeRa2ozU7Q2YMk0HDsPlnUpMLvFmigljMtNOCEqnKwct29o
-   A==;
-X-CSE-ConnectionGUID: TaTKNzJvTV6Ecil5z5alPA==
-X-CSE-MsgGUID: Osl6V6X9RpmJuxve4zjosg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="57011320"
-X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
-   d="scan'208";a="57011320"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 23:51:52 -0700
-X-CSE-ConnectionGUID: nbE3MnNcTxGQYtZ+SawHtA==
-X-CSE-MsgGUID: AL5WU9roRweIvzzMtmXV1A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
-   d="scan'208";a="151947805"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 23:51:52 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 25 Jun 2025 23:51:51 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Wed, 25 Jun 2025 23:51:51 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (40.107.237.56)
- by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 25 Jun 2025 23:51:51 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W5R3jDTIIGKiCvRYjlvkejsJpgbhX5s1gIukkhnZuYobtrXzYJsGm7cpKeDHHNVeFHpe5TXvfoYoACnCwFFK/CP0zicc16A6+NmtysvIwizi2BlHsn0eZ+/rEkwjK6X/3waDksDcYLCNpV11HEZLd4VeHzfqtp9P0L0p+VzZdnZrka7nd2K+H9/dI7h3O7AteEVpX7NWo1t8hqw2iSFJkGpWz3Rn0NGXoe3VM6My33iy1xOo62eB1zqX7zgs2AHGca9oDZxEmEfV5/gaBVWwEBVDnAoL6l0ywXgVXI1cTIXUJDbyP36BoDAIljV/INtLRpqb7b5+fAPPBPJkMfu6aw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aR4C6yQECsWVisJKQMipZAirWurqIkTHv+BxqytxM/4=;
- b=f2oZ9YOc/eWw3+eO/pzfTDjTRTn6ou2dWG/KjWwOvNvTwKGLqlxAMA+2hS/kzIBwz1HYxHzxEK9AgXNSHzEKYjvhqg8loul9YksD8j+UfVdEzb1y3Gsnjm51+d3NxR38tBR/KgT+QXaC4KEjYWeRJhiUci96cSFloPjIfQIPRsglGcx/XxTX8yruxA6i1YR5msPKkPlRt94FbwkXud4MaZw/jKQBmJYtYc3P+p4GjLehoOdul3mEH0nNNSfgiezGQHFMB+wSPpapn3MxdMtTjruNmw8vDJVUz+Bp+LgUBVmdfRYwVgzHe0Z3dDN09DgOtqvDmvQwopc/jDkuykHaNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from BN7PR11MB2708.namprd11.prod.outlook.com (2603:10b6:406:a9::11)
- by DS0PR11MB7577.namprd11.prod.outlook.com (2603:10b6:8:142::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.26; Thu, 26 Jun
- 2025 06:51:34 +0000
-Received: from BN7PR11MB2708.namprd11.prod.outlook.com
- ([fe80::6790:e12f:b391:837d]) by BN7PR11MB2708.namprd11.prod.outlook.com
- ([fe80::6790:e12f:b391:837d%5]) with mapi id 15.20.8857.026; Thu, 26 Jun 2025
- 06:51:34 +0000
-Message-ID: <b473517d-3a59-4554-9673-a49b9e3a84f7@intel.com>
-Date: Thu, 26 Jun 2025 09:51:28 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] mmc: sdhci_am654: Workaround for Errata i2312
-To: Judith Mendez <jm@ti.com>, Ulf Hansson <ulf.hansson@linaro.org>, "Vignesh
- Raghavendra" <vigneshr@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-References: <20250624221230.1952291-1-jm@ti.com>
- <20250624221230.1952291-2-jm@ti.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20250624221230.1952291-2-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0521.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:272::22) To BN7PR11MB2708.namprd11.prod.outlook.com
- (2603:10b6:406:a9::11)
+	Thu, 26 Jun 2025 07:16:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=Op03+qucqVF+nZEGn/AJUKWrnarNtLlz6bXQbzmKHKo=; b=WDgrXAck+b+Fb89P+1pfJvOa7o
+	hkmcyJOlDNvaik2y7zg4BIznyeoU9Q/YtKp2tiFkrZ4F4K5NjBZy/g35m4TcKR3yTQ1lncUjCc3Ht
+	8U44m50bQiR7evULsQRTR3QdY7cQJZcLTcFveMPQV7z9DqZTRxV6b6QDTd2t3O2UpHd96SplZ5jnM
+	gLM9oHvNOaat6fwSKMVV+tl0nj39o9WKEJ9nq3ZP52FekEmiRyY0ns5Vm0d82dJKI1guYi//iIuXh
+	hgyTd9n2oX5IfLy4I+SwCPtX8KCrhidrJbpKiD7TqIQs3SnA+jg/NYn7wYiqNrrDO1GQKbVKbTugO
+	PYucaynw==;
+Received: from [89.212.21.243] (port=34404 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uUgqU-00D1LJ-2V;
+	Thu, 26 Jun 2025 09:16:29 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v2] arm64: dts: freescale: imx93-phycore-som: Add watchdog ext-reset-output pin
+Date: Thu, 26 Jun 2025 09:16:29 +0200
+Message-Id: <20250626071629.3380656-1-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PR11MB2708:EE_|DS0PR11MB7577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3eb97752-88ba-4efa-11d6-08ddb47de33d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eForb3dCZEFaa2MwWWppZjR0OFRYUldVa01zT3BvK2tTUndqbGhReWZJMGVi?=
- =?utf-8?B?OG5FcTFuM25uZkdwWDRDaWpjKy83ZGNaZFdCRUp6RVo2MVErL1FUcUcyMHh1?=
- =?utf-8?B?dXJ5aUFGMDNPS3ZOdUQxZEFUTk1md1BTcjF4c25Xc1dzOEtNYTVGYkVlbXc2?=
- =?utf-8?B?NFNNbEtNSVQ2dHFHNk03UjJ1cFFKRnhVL0hjeWxxclI5TWM5VjFCYjg2eWVE?=
- =?utf-8?B?U1BDRUEzZ25saFRQVHlpN3NyM3ZIQ0JnZS91MlNtY2lXbFpzR0puLzlqY2lv?=
- =?utf-8?B?VFdhTzdZUHBCaDlEQUFGNU9OdjBjV0xMMnQ1MEdQUk5nU3RXODVRMlRlTEZR?=
- =?utf-8?B?amU3NVo0WFhEVmZsUTQ2L0xTZE45dGZwYnRzZFZhMFZLSXhMeVc3RDE4Z0hx?=
- =?utf-8?B?b2dSQitiUlV5ejk4MnR5RUQvM2pSWEF5Q2lnYWwrbkVNSzNaS3pKaDBRaTE0?=
- =?utf-8?B?QUptVjY3b1lBU2xWSloxanJ3SkkxRkplUzVwNEEvTy80L3RXSE44YU9NQ3Fh?=
- =?utf-8?B?YXEybklTek40YWRnd2F2Q25wK0gvZUZkcEtqU3NyOGlJM25LMVFHQUdyZWtJ?=
- =?utf-8?B?Q2ZCaWRhTnJhMWNpMXcyamxFWURkNEhJKzBQMW1XRlBXRHpsTVl4TW5HdnZr?=
- =?utf-8?B?UGZGaGxBdWluSTRKaDJHSzN0bU1CVEoxSHhKMEdnNHJQVm9hL2FnK2JIdG8v?=
- =?utf-8?B?WHMvN0ZoYmJRVU1hb1BBRWdhWGRibzMrUkNLbHJJUCtrbHVSWHE5QWFpYzgr?=
- =?utf-8?B?YndSR2NLRHJkWTdpQUtHeVpaTkIzSUk1WThXbm1oTXF6M0pXWEI4TC9aMVFZ?=
- =?utf-8?B?aW9RNlNKWHNmTFFrdG55VmVHRFN1bm5IOE52MzdnK25VNWVac3dtMmx4aDIz?=
- =?utf-8?B?Mi9pd1dXWUsyNmROV29Lbm0wbjJxcTJTNlNRQS9mK3A5SmVVenlWUzMwMGJY?=
- =?utf-8?B?MmlGQWZLUWN5ZVNLOHdsSFNsVGQ1UWlJRlZBckd6K0EzUmNtcmFmR2g3em9G?=
- =?utf-8?B?MCtURDNtaEgyVFovQ2NXQzJvSHR5V2I4N3ZGZW1WaE5DQ3hjZEo1Q1FmaW4r?=
- =?utf-8?B?MFZhVnV1dUxuMU9acTBPQ3YxRktNNGtNTUI2cmVpTDUvSlBHWWxhUnhXTFl2?=
- =?utf-8?B?d2pETDFydnRwYUdDcUg3andId2NFOUlweEUyVWRCYVBZT2FuWWdadjVubmVX?=
- =?utf-8?B?VUNDdHQ1Nk04Qzhib1RSYm9YTGdBbjNOcW5uZG4ram5hU1k2bXJmRCtVQUxv?=
- =?utf-8?B?U3ZwU2dGZGw0djhhcGNnRm1aVTlaOFcxY0hkQURBb0pHSm1HcXJSQi9rTnZE?=
- =?utf-8?B?c09QVHB0ZzJzakNicTluMkdYL25kcjIyRWc1QmNRYTNlNzk0bUFFaWxxeG1T?=
- =?utf-8?B?dDhSVFRVUGZZT3l6enByT3N0VjZFaXM3ZHVyQ1pDRkE4Q1QrQ2xYZzRXYVBC?=
- =?utf-8?B?UmZ1WjcvVS94b29vTW1xVmN4RmIvTTQ3c1F4RTI3QVI5dDdWNXNUbjY5UEJs?=
- =?utf-8?B?dGp1MFRnb1ZzaVl4Qnp3dk1NUUhrcWJFOENlRnk1S3B6SFJNcEtsQm91STZZ?=
- =?utf-8?B?ZmVsTVV0VU42bDNzOEsxcjJXNEhocy9jVW1JaDQxZW9wM2J0NVRXSHg0T2JQ?=
- =?utf-8?B?a0dPcmozWnloUXJPV3JwSTdtTG5TQzNYZ0xDWk1LdEVGVlhRQ0xvTHFWTW1O?=
- =?utf-8?B?N0cwYTZCTVFvU3RoYWtTZnk0MktUV0h6MFBHblVTNGNyc1FFcnp5akpOcm0r?=
- =?utf-8?B?SEZ5cTBvYUloV1JZY3E5ckFBVzkyN2dsNWJoY0tOc2M5YnQ4TThJOExSNWZa?=
- =?utf-8?B?OFdJd08veDVGWUQ4S0lIbU1JY3ptekZ0blVwVjY3bE5IVzNtYnplVEx6eXNx?=
- =?utf-8?B?QWpQYnMzY2pua0k4S3lKR20vNThMTWxOUHhiemZ3S2Y3RmU2T09pKzV2NnJ0?=
- =?utf-8?Q?NBZqxDlSFEI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN7PR11MB2708.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGFkUklVc25YSGRnL1FHNmErMC8rTVFPOHphVEJMeGZFNVJvdFdmWmxyTGhw?=
- =?utf-8?B?aWtYK0tVcFhXakROOUQ1SHYrWXpmTDlpTFVFRk1OSDI4Z2tFemd3Z0VXR1Nu?=
- =?utf-8?B?c1ZnSzMzNWZ2YW00SkRGbFNleUNlUmp1YnZwQnFDUUpxcFF6NjRhazVFc0Jw?=
- =?utf-8?B?Sm5YQU53bHhoeXdqSmxXeU1HMkJVa2VhMmZFMWJTbEZzQ1BQMHZ1TVlxR2lT?=
- =?utf-8?B?cW0xL2NjRFVHV3JBNW1qUHVpTXBpWllpYlhZcDF3bWJHeEFIdVZPK0lsd1M5?=
- =?utf-8?B?ekxWSW9qVXFZRWtQUHdsNWd5M3ZtTWNLTndRMk5Nb1M5ZGtXTHd0TzRvd2F3?=
- =?utf-8?B?SDh1bXdlQTVYVk82SlowMUJURzBHYnpsZURzb3dMWVVEV3ZXaHZXaXNKTUJs?=
- =?utf-8?B?VW1BZjlYN2NNQVZPaFFXanpFamhiVUVmTHBVRWRyK28zTUJxampUUktPRWly?=
- =?utf-8?B?bVd4M0xBUFg0NTBSdkF0RFhRVUQ5cW1GY0IxNGhaaEduSkVsbkJKN1RobVBo?=
- =?utf-8?B?OTdUVjc4SzdGREk3M1JoRyt1aEk4aDE3L2NZQUhWQUZrVTNCeDVtcERnS2NC?=
- =?utf-8?B?RGdkZC9uVHZJZHNmWmxjTVhDeEJWK2FnVysxL2ROd2tuK1BiN1J5VlppZ21Y?=
- =?utf-8?B?ZDVVS1FNakViSUJwMTN2ZVRhUWZrSHlTUlcrdkdxMGY2SXNDVWw4K3o5R0I1?=
- =?utf-8?B?SEM4T0k0RnBYRUpxbnA0UklpQmFEYmlhbHI5VzNnaEtZZmxJTEYwL1hxdG5m?=
- =?utf-8?B?dCs4NThBZU81TG9Oc0ZNMk9RSnpKdFRlSFM0WmQzWmh3MzVGYWF2Z0twc1JQ?=
- =?utf-8?B?Nk0xcFNaRXZCNFNENFhpVEw0K3NWMUIzMklUNkU0emRYdDh5MlJqNHFJdkpx?=
- =?utf-8?B?K0xYOXhrNkdQRnF2RDJVQy9oaEUxUmgrYVpnS0dmSFhtSEtlc1k1VHYrQUl0?=
- =?utf-8?B?QXJHRkd3SEpDQkROM01VeFFpUGJ4Vzl6TmZNbURCSlVaV1NmRXhwTi9kMUR2?=
- =?utf-8?B?SmlQWTNCbGNCVm82RzJYMzczbjh1bXVZcW80c0lhdlFjV25TbzFBSnhIRzgy?=
- =?utf-8?B?M0ZGUTEvdFJCQUFpSVB0RDVuL3pIaGRwQ3dCZTY2QjlHNTdYL2NsM3FsVTdX?=
- =?utf-8?B?UGxNcEtyNkRBMjVaTG40dHd5c2pmTW83NlVHMkUrMEIvSm5pRmh3MnFBZmFP?=
- =?utf-8?B?RnlvQ0R6YWNLQXZ1TTVIdXUwTDI1TFp5akpQQTJhS2s0bjQvSE8rZnRYdTAx?=
- =?utf-8?B?UElIdk1hS2hDRWFCMXlyQnptS2Exdi84MzQ5SUVOQUF6SXA1S2dzSDFSclNr?=
- =?utf-8?B?SE5namVlcy82dWJnU3dwMmlkSC9Pbms0SmpBSitNT3JlQlIybGQvcEY5enl0?=
- =?utf-8?B?V3Rma2tNcHMyM2M5Q2pjeVlTK1hQYUg4cW1ucE4zQ05ENkl0SUx4dzVETXdK?=
- =?utf-8?B?VmxSb3dmQWx1SjVmZzJ3T2k2S0k1MUV4RHQ3N3RGMkc1aGlSVzFHb3d5K05S?=
- =?utf-8?B?NEZESFF1Myt4cTRBbzRBOGpVNGpvZCtXMXU3Q2dqaTFUM0V1VExqemJxT3BX?=
- =?utf-8?B?d3lpWldrRFVESitPWmZsNTBmT1ZIWjhUZy9MWWMrbVRWdGx1YVNBenFHZVZV?=
- =?utf-8?B?bnB0SFJaMFNFbXJyUTVvTkJMNnlXc0dqT2UxWURPNm81TzlDL2JlMlhTdHcz?=
- =?utf-8?B?R0lFV0NnbllkcFNNcDBIVmY5WXBhMWRkUHdCWTUzd0h5VDIrNHZOd0o1SHly?=
- =?utf-8?B?dnN0dDI5VVdKN1p1THZRMXVjR3dhN01mVTJZd01VdnA4S3drak8vMEJxNFZs?=
- =?utf-8?B?dk0vR1VpbGZKRFBWbkVTTFBTMkcxK2lxSkVMS2FVNXlaTWZydFhBOW5CTE1I?=
- =?utf-8?B?VDdaQ2ZkczYrRUs5RUhEVkhkWmtENi9RNTVLYktXVjFzOTg0bGNSMHN2ZmVL?=
- =?utf-8?B?S2tJNGRqRUlFb2tYUDZ5SnpCVCtsSE42ZmpzckhNd21ycUNCa2xoN3hyaE1w?=
- =?utf-8?B?WGI3Nk1wNlR0RStUSXgvOUg4QVJhV2I4Sm5Rdm55bXRUMmVlWDRxOTI4WDE0?=
- =?utf-8?B?OXlEdTZ1Y29OMFJ5eXE5cXdGNXNTbXB6cXozUS9LZ2VQUDRxOVNLbEFBVjB6?=
- =?utf-8?B?RW1PMzZRdE1qdzNyUGVtRHNwTWZ6QTdsN2g2ejVzR0RjK2EvMGNnd0tJNkk2?=
- =?utf-8?B?V3c9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3eb97752-88ba-4efa-11d6-08ddb47de33d
-X-MS-Exchange-CrossTenant-AuthSource: BN7PR11MB2708.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 06:51:33.9938
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RjjZvUrlFrWegv9FiRz6JSUvwuriaW2KISwsgX0+y6Yp2VnGMuW4N1lMYDeYsFmCP6oxlUpTtiaFdtuTps0z2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7577
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_235207_814544_E1144A2B 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250626_081647_818489_09E70814 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,58 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 01:12, Judith Mendez wrote:
-> Errata i2312 [0] for K3 silicon mentions the maximum obtainable
-> timeout through MMC host controller is 700ms. And for commands taking
-> longer than 700ms, hardware timeout should be disabled and software
-> timeout should be used.
-> 
-> The workaround for Errata i2312 can be achieved by adding
-> SDHCI_QUIRK2_DISABLE_HW_TIMEOUT quirk in sdhci_am654.
-> 
-> [0] https://www.ti.com/lit/pdf/sprz487
-> 
-> Signed-off-by: Judith Mendez <jm@ti.com>
+On phyCORE-i.MX93 SoM, the SoC WDOG_ANY output line is connected to the
+external pca9451a PMIC WDOG_B input. Apply pinctrl and set the property
+"fsl,ext-reset-output" for watchdog to trigger board reset via PMIC on
+timeout/reset.
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+Changes in v2:
+- reword commit title as suggested by Frank Li in v1
 
-> ---
->  drivers/mmc/host/sdhci_am654.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
-> index ea14d56558c4..86d87d8e0675 100644
-> --- a/drivers/mmc/host/sdhci_am654.c
-> +++ b/drivers/mmc/host/sdhci_am654.c
-> @@ -613,7 +613,8 @@ static const struct sdhci_ops sdhci_am654_ops = {
->  static const struct sdhci_pltfm_data sdhci_am654_pdata = {
->  	.ops = &sdhci_am654_ops,
->  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
-> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
->  };
->  
->  static const struct sdhci_am654_driver_data sdhci_am654_sr1_drvdata = {
-> @@ -643,7 +644,8 @@ static const struct sdhci_ops sdhci_j721e_8bit_ops = {
->  static const struct sdhci_pltfm_data sdhci_j721e_8bit_pdata = {
->  	.ops = &sdhci_j721e_8bit_ops,
->  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
-> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
->  };
->  
->  static const struct sdhci_am654_driver_data sdhci_j721e_8bit_drvdata = {
-> @@ -667,7 +669,8 @@ static const struct sdhci_ops sdhci_j721e_4bit_ops = {
->  static const struct sdhci_pltfm_data sdhci_j721e_4bit_pdata = {
->  	.ops = &sdhci_j721e_4bit_ops,
->  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
-> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
->  };
->  
->  static const struct sdhci_am654_driver_data sdhci_j721e_4bit_drvdata = {
+Link to v1: https://lore.kernel.org/all/20250624061323.601550-1-primoz.fiser@norik.com/
+
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 5ee52774e7bf..729c26f9ac94 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -191,6 +191,9 @@ &usdhc1 {
+ 
+ /* Watchdog */
+ &wdog3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_wdog>;
++	fsl,ext-reset-output;
+ 	status = "okay";
+ };
+ 
+@@ -279,4 +282,10 @@ MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x400013be
+ 			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x179e
+ 		>;
+ 	};
++
++	pinctrl_wdog: wdoggrp {
++		fsl,pins = <
++			MX93_PAD_WDOG_ANY__WDOG1_WDOG_ANY	0x31e
++		>;
++	};
+ };
+-- 
+2.34.1
 
 
