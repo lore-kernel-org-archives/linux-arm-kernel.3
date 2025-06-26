@@ -4,76 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EACC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A63EC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRolmEIKli9p4hwGQbbTqvQScgVEcFqSWTOIe6ZE1zk=; b=oG1vEMrD/ct3+mLmWvIw1nmhdO
-	MJ+RnEvcmHvU9JexpfVSP8xyVt5GgbF7XcdWWRtFxcY+PZpy1m/CHlaLM0TxMrC7RlyLSgCVj5kWq
-	Eg6+pOqSlj5QcVVkzjAOe8erXn0RMdQOzp0Zv5My59RY7OIIogM9ZuDRNH6FPtKqzo/eNHg84pnd6
-	aJznRu8lb0hb0AtsimrHoxw3E38xMqu//0xHnqtdh0zp/VMOwfuhDKPLggyGSEMzE+/24rbKRcRaF
-	v4jtE6fm0w8GQ0alkFNuHbEu+ve/Fl6W/mpdz4TpcPpEO/T9lUJLvhB728HqdV9+SVed3CYNA+dL/
-	QZXwZ8Iw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CjO/ptLW3b4rtGhdm7irBfUpl4TyUoEIOLpVLAH9NO4=; b=NPFaf6icVBvsIrcgvV/z/i6SQF
+	qWpethpHSwhhVhqbcE4VFqxp28H2rlhLukcMzVYjKyAcdkcApEUkOJ2+v17CC91/FAXnt2zT4QjhQ
+	W6e4uwwXG1bfTLLDpiz2UnysLvdVlsTwSKFEx+a6kj9NdGnoOv6UCMVB2MFCaOiinR3w4fByMrvU6
+	BB2gdZqXwTiW4uQ6AChL/NKiXB+gVW6A+7zrPJ2pQVoNgSkO6bYtHETgiqSv94JdjRHv3Zgf1Dm/g
+	6L2G03TkS8ZmNv0I3KpLiuDykark17dXiMx1sIdAY/ZDYfDG3W5SjKLjf5H/oVzU8ACMDrgLfv4hG
+	FpSX3q+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkhC-0000000BOHX-0nQa;
-	Thu, 26 Jun 2025 11:23:10 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uUkgx-0000000BNwJ-0gMo;
+	Thu, 26 Jun 2025 11:22:55 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjoH-0000000BGuZ-0RVH
+	id 1uUjO3-0000000BDrf-1uCU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 10:26:26 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55QAQKgr1717299;
-	Thu, 26 Jun 2025 05:26:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750933580;
-	bh=kRolmEIKli9p4hwGQbbTqvQScgVEcFqSWTOIe6ZE1zk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Dqr/FcpZtcob14n36+suv1WrtLyCFM7my+SoTgaYneC/rWMNHD0nx4t74xxVlCBBG
-	 Yi4lAvl/CXg4E3v1FMPLCOJFlccduD9LdmFLkHm1td6mVCaZW9IhhPIo26z2QT6a2H
-	 h1TNPpXsYCyB+c5YjclgVOdMfaQZuzuSPjN3ckuw=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55QAQKaf1892556
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 26 Jun 2025 05:26:20 -0500
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
- Jun 2025 05:26:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 26 Jun 2025 05:26:19 -0500
-Received: from [172.24.31.248] (lt5cd2489kgj.dhcp.ti.com [172.24.31.248])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55QAQFXk1106020;
-	Thu, 26 Jun 2025 05:26:16 -0500
-Message-ID: <a5b61958-98fa-48a7-9499-b6e238c5945a@ti.com>
-Date: Thu, 26 Jun 2025 15:56:14 +0530
+	Thu, 26 Jun 2025 09:59:20 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ae0bc7aa21bso176233766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 02:59:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750931957; x=1751536757; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CjO/ptLW3b4rtGhdm7irBfUpl4TyUoEIOLpVLAH9NO4=;
+        b=YXhVYPjP4mAdd+3AtOaF+xaPatYrgoyruL1jMrDhltz8xyAOt74bh73fS61rAYsKcN
+         KN8RlYNpWlVmWySixVRV3TxIXd3QMbBJf9+Fxs1crUo47dymd/LN9w46GZQ9kFVllD8Q
+         u6AzVqvEbUouSYPbYT3UKX+JcTJI2NJcO+op53b+O4VaLhYrWWVMSyGp+HW8Now7HiLr
+         85zDVFaPJRo/pruERYcPFX9JrCviSPEaOkY9zNGLfVP9QbHpXKQhvjdDGxxaM6Y6Q7tt
+         mVJa8Nkn15AGMkHCG7djr10GxiKDEyvtDKBaR1dOSPVbCUcQkv//gvSLcBwBNj/aCLWZ
+         Uw0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750931957; x=1751536757;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CjO/ptLW3b4rtGhdm7irBfUpl4TyUoEIOLpVLAH9NO4=;
+        b=t+p0KnQampTQfJtPvJi+LzLVl4N3Zl/mdydmadExRASjfDpGrX9Oc1Sun9E2WBFgf3
+         ZULTCrw5sGioBCcamVQ3D9yj5NlN3TsStQJRSsBe0D6Cjpcx9ySycH5B1s2e3J8sZ7D8
+         bFmNP74x3HA0N0Mzjx/Rrk5SY6AM9lTI7w9YWUrjjHDTa9SaVKw3kR7HwhBRx8y9act7
+         ldsoZQslttOqwj5I3LxuBOXa+FmhKp6dp2fHgzEPOcahXWqhWsEomPagA3z1X/NtEUN1
+         mfbOi84bweaKR1AxyUxsNpPxzxQIZuoNpBb7GozQcDcwUfB8dmtA4/vnDcYiC8RzzpSc
+         +sxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUJKbItfZ9TUWYpJaJuJQZSwVmIRIzDkwidk/yeb8pc1lypvtOYaQpfBulUFiuQqlM+F2CtrY/yzxbbCQa7BBkN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuE4V1TtRiOb2ruvec3FA7RAmHfEfRXQXrJAm/NtNqHM88Qk5e
+	rEUljUph2VSxW1BFpLurPlghga5uO8EQ6A6Zq7lwrAQ104kEF0iZJlid
+X-Gm-Gg: ASbGncsXUcHAjdP1sWGWeS49Qtm3HuQowwNBanUwfm9+gWZfxqJUhN4KltajLeV+Bsx
+	apPhYIQLR/bhw2MfOZven2YvXmIglxetv+zBlkhx8B6XYdMyLBuFGUQ54HaBReBlsjOArvCR4xp
+	QnhnvJxFjwWhxFAVpW3I1hmYxyINk1n2fTocHDaR7mLy0Ml0DUOSJNE6DlvsmqPmfzz2YtTu3uu
+	nTFp2IDUrLx0p0zz5JEccJ43OICpmoix57CoWWOeO+h1JSAJvW0z6NadWiLA5yXoD7e3rd23OHQ
+	XeyKo6VFE1VcvOaCJjc75NYD4Y4t9jZanXPXZE9L3xxkqj2g7n8pYGCAW0f7zvr8UQ98awa1MTC
+	8tACYKvT5mRw2RSERA8prhTXr
+X-Google-Smtp-Source: AGHT+IFulE9JLwWYfiP6+EbStasn8y1TExIFDY+mxNKb98YrHL6j30fB+s7fixY8YLajpv4J85GFbg==
+X-Received: by 2002:a17:906:cada:b0:ae0:54b9:dc17 with SMTP id a640c23a62f3a-ae0bea9382amr639642666b.11.1750931957054;
+        Thu, 26 Jun 2025 02:59:17 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:2f0e:c51b:8900:a03f:12cb:72f7:9069])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae06aa5ff34sm1014106166b.40.2025.06.26.02.59.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jun 2025 02:59:16 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH v2 00/10] crypto: sun8i-ce - implement request batching
+Date: Thu, 26 Jun 2025 12:58:03 +0300
+Message-ID: <20250626095813.83963-1-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] arm64: dts: ti: k3-j721s2-common-proc-board: Add
- main_i2c4 instance
-To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <devicetree@vger.kernel.org>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>
-References: <20250624082619.324851-1-j-choudhary@ti.com>
- <20250624082619.324851-5-j-choudhary@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250624082619.324851-5-j-choudhary@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_032625_239444_114D73D9 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250626_025919_495888_935B218A 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Allwinner crypto engine can process multiple requests at a time,
+if they are chained together using the task descriptor's 'next' field.
+Having multiple requests processed in one go can reduce the number
+of interrupts generated and also improve throughput.
 
-On 6/24/2025 1:56 PM, Jayesh Choudhary wrote:
-> Add dt node for main_i2c4 instance along with required pinmuxing.
-> Also add the gpio expander 'exp4' required by display connector.
->
-> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
-> ---
->   .../dts/ti/k3-j721s2-common-proc-board.dts    | 24 +++++++++++++++++++
->   1 file changed, 24 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-> index e2fc1288ed07..793d50344fad 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-> @@ -148,6 +148,13 @@ J721S2_IOPAD(0x060, PIN_INPUT_PULLUP, 13) /* (AC27) MCASP2_AXR1.I2C3_SDA */
->   		>;
->   	};
->   
-> +	main_i2c4_pins_default: main-i2c4-default-pins {
-> +		pinctrl-single,pins = <
-> +			J721S2_IOPAD(0x014, PIN_INPUT_PULLUP, 8) /* (AD25) I2C4_SCL */
+When compared to the existing non-batching implementation, the tcrypt
+multibuffer benchmark shows an increase in throughput of ~85% for 16 byte
+AES blocks (when testing with 8 data streams on the OrangePi Zero2 board).
 
-Please check once for i2c clock, pin should be in input or output pull 
-up mode.
+Patches 1-9 perform refactoring work on the existing do_one_request()
+callbacks, to make them more modular and easier to integrate with the
+request batching workflow.
+
+Patch 10 implements the actual request batching.
+
+Changes in v2:
+   - fixed [-Wformat-truncation=] warning reported by kernel test robot
 
 
-> +			J721S2_IOPAD(0x010, PIN_INPUT_PULLUP, 8) /* (AF28) I2C4_SDA */
-> +		>;
-> +	};
-> +
->   	main_i2c5_pins_default: main-i2c5-default-pins {
->   		pinctrl-single,pins = <
->   			J721S2_IOPAD(0x01c, PIN_INPUT, 8) /* (Y24) MCAN15_TX.I2C5_SCL */
-> @@ -370,6 +377,23 @@ exp2: gpio@22 {
->   	};
->   };
->   
-> +&main_i2c4 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_i2c4_pins_default>;
-> +	clock-frequency = <400000>;
-> +
-> +	exp4: gpio@20 {
-> +		compatible = "ti,tca6408";
-> +		reg = <0x20>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		gpio-line-names = "DP0_PWR_SW_EN", "DP1_PWR_SW_EN", "UB981_PDB",
-> +				  "UB981_GPIO0", "UB981_GPIO1", "UB981_GPIO2",
-> +				  "UB981_GPIO3", "PWR_SW_CNTL_DSI0#";
-> +	};
-> +};
-> +
->   &main_i2c5 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_i2c5_pins_default>;
+Ovidiu Panait (10):
+  crypto: sun8i-ce - remove channel timeout field
+  crypto: sun8i-ce - remove boilerplate in sun8i_ce_hash_digest()
+  crypto: sun8i-ce - move bounce_iv and backup_iv to request context
+  crypto: sun8i-ce - save hash buffers and dma info to request context
+  crytpo: sun8i-ce - factor out prepare/unprepare code from ahash
+    do_one_request
+  crypto: sun8i-ce - fold sun8i_ce_cipher_run() into
+    sun8i_ce_cipher_do_one()
+  crypto: sun8i-ce - pass task descriptor to cipher prepare/unprepare
+  crypto: sun8i-ce - factor out public versions of finalize request
+  crypto: sun8i-ce - add a new function for dumping task descriptors
+  crypto: sun8i-ce - implement request batching
+
+ .../allwinner/sun8i-ce/sun8i-ce-cipher.c      |  90 +++++------
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-core.c | 152 ++++++++++++++----
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 140 +++++++++-------
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-prng.c |   1 -
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-trng.c |   1 -
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h  |  84 +++++++++-
+ 6 files changed, 327 insertions(+), 141 deletions(-)
+
+-- 
+2.49.0
+
 
