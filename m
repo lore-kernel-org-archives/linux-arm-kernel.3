@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB4CC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7203BC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxJ/+GIT8i2T2VJ1n6tfW4Ns7LsKzLgWRa8bu373EG0=; b=J4qMvkgVSzOJqfkoculgqXgWhF
-	X7iDAMhptpy7p4CCKYxKoTfU/Ftkcc2bBCvgYv2n8pmtAixIiIRdoUnOHwA04/6s8tg2i5kbYWBXH
-	OHqwlZe4NXPF78SCfU1XbtsQyA8brSHPgLE7qZ5r8o3XqGSt6La2x49Oa8N9fO4qGHgTPYQiJBGMg
-	lOqV29jEmcEYPK1HZhLKBQ7tQZgfJ+S2deiVJu9evaMWIL++LHh8g/bMTwaPpSqhunMC8lOWE4Uzw
-	ygzV9ZfQyUEEhuHhcCkuRlzioAic/5SYrJd0ERXS9bJVkuSNpbNMoyvHeEtQ8gt/V5CyYhuHbC2IY
-	2A85JSRA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7wrnpvlRo7ZrS4SCXZw5XRzZPMOW57pJM9b/u98SiOg=; b=kpxm+Xd6yqiNN84zUL4hej5l8Q
+	D7mx9p5HNGUYHwPlsKP5y4xbO+zZ1LYG5glUOLg0iXaMKHheV+bxTky2bTT1BZow9T0CchJzEFb5U
+	CRl6A95Ngcn4jhbeOcVO6kfwzM7vzgRzW0RIiC6nv2nB2HtoIqOvMj95V76uTHThNvCm53iJzM2l2
+	qyoD72MSdFgb0iN2wcAKWiM74NsHdL0LDbWEtCi3cKUffYGXldUV28eeP0bd7Pse0s3HJspJI9BId
+	5LKPPgIsIWhS9+S4papWJJ5DiLtGJbrBZXsAQlhE5OQ7/X4+Afh4wSPPSmp60HwvGwsW3XzKARCbe
+	LgbhLFGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUn71-0000000BpW0-1khb;
-	Thu, 26 Jun 2025 13:57:59 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1uUnFx-0000000BrQP-42Bi;
+	Thu, 26 Jun 2025 14:07:13 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUn2k-0000000Blio-1raY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 13:53:35 +0000
-Message-ID: <ce78181f-b8f0-4710-be22-eff123760a51@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750946001;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jxJ/+GIT8i2T2VJ1n6tfW4Ns7LsKzLgWRa8bu373EG0=;
-	b=q3Rv2EQwghbWQOo1XaSDbcFu49quE13kRIvVREM0PKjnsNVV1rc3AS10a0Mx3LudcEXvHs
-	sDaC2vuB+PvgI3l8Q1InsFKXX5w4xajOJHTVvZnsY2a+Aa4C7FzZrtH3nn7i95qwN2ot5Z
-	QHjYdgduBbJf/3HTfvAdwv0zsn5hlAM=
-Date: Thu, 26 Jun 2025 21:52:58 +0800
+	id 1uUnDf-0000000BqxK-2hsV;
+	Thu, 26 Jun 2025 14:04:52 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ae0df6f5758so70591666b.0;
+        Thu, 26 Jun 2025 07:04:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750946689; x=1751551489; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7wrnpvlRo7ZrS4SCXZw5XRzZPMOW57pJM9b/u98SiOg=;
+        b=SSYb2IIfL8eeYO6JVQ3NL2/g7PkwtwPFa20s67mDvHgL7usBLM/m41k2QzggxNfLNn
+         8yDr5jwMcNK631ptIxo3Hp5/RrZyOTmQmhOY/IhxmSDYU7yOoP78mFXrHDiAn5c1T40P
+         LAu3LiDijU/aLziIvuxWQuS7NAgDQlGo1ozVP1tDuhDQPwzIMi8nHWfbt+uNvJNdwD9Q
+         XqeCnzxNgQ4qRKG+K/D7WBvLFQky+nbxJMX4JuGINrJGm/U69+e0Z01yKYuuGw+wk8H5
+         +IXLoq80Rwj4SWlJWbc/McEnoK0BCSXy6XxCVqEMTOUuWYY3r0JCBRAmBnGHoEIWpyCw
+         x/nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750946689; x=1751551489;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7wrnpvlRo7ZrS4SCXZw5XRzZPMOW57pJM9b/u98SiOg=;
+        b=thWyZUwdxnOd4ZO9iVaX4IHey5hSPMegRzBLS/l/mqDKEC1dKHNDqgFCr87t0/pFjA
+         g10H8M9XqzbibKuYyrK0JZ8NhIKjfrGE1KIila2pVU7Ibd+ZXFXXXaIxjJhEyz1bngNU
+         vcoZKBGB2+tgK/syB4RKEWMDEoxKFrhdhIHnR8yJBQ0Ky9hZd1yPWWDahylNNukMZrrH
+         2STugkzDOet6QNEwJ5lUTFoXJ0Z6tzFKtxJyS990GHbVUMq7y0pMd9bsBoVlRCAQLKHZ
+         pZj3nzFEB7iY5QrFtSCJSt0spY+R/hUwBggmgNxQzvHLyNWCjxSQ1nLoqhsxCOhHQFA4
+         kpXw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+ToRfCTDQTnd8/cIwSsm+mMok8ZCp/zkmDksO+w9W9r9fxwHRvGzo3h8xsCCT11Tu6Hif9NBo0huLPzAWRizO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtgVca41JZ9PueV6EaZ8PJ0PNet/nMKIZUyNhv9Nj6zOU1l+wP
+	9gZ8LngUu44C1EGWsX0fbaxMKvR3vgbk3iQ9UMypNc7+6Ir6mG3mD4ePvwpt70rWbDVwYw==
+X-Gm-Gg: ASbGnctdkxuKFV4UWwQ2NRe7aMRnkG6R0m/P73TSYssn16K+uoZFAi6/zCmZaq9FemE
+	14k6bpQm2cJ++34gPP8HpTLv315tjqjo7Cbdz7p7iv1xQoXQkpPl5lTPZjHtz/dO72ofUIfOH9W
+	CG2kLmeNe+7JklVacsI5yLMSRLdl3yO+CrTI8YQRcxhS4SMAv582Qyqzr00fGksatC3HURlbsW+
+	xDLQYA/Yvh1XyncuJXmZtcyV5FNZqZOc33N5za5YkPBjW1L9RUJvzUE7CK6kGmpIxsuCLWhtDGt
+	deA6F+oShVSsQhlrbEFQe/GymmVUoSf0+gj0sKQSigADVlvASXBZNyLldcFwRDozZGj5d0IEjP/
+	f+BP5jVsEMt/E6YBqMgHdEA==
+X-Google-Smtp-Source: AGHT+IHgNpaXb9XxhY9t9BM84ENlKwWGN7WwcauV0meDMTnYk2b4LuOUVV7KJXeM9LLAWq4Jo/qbgA==
+X-Received: by 2002:a17:906:478d:b0:add:f0a2:d5d8 with SMTP id a640c23a62f3a-ae0be7fc1bemr729925366b.11.1750946688831;
+        Thu, 26 Jun 2025 07:04:48 -0700 (PDT)
+Received: from localhost.localdomain ([176.227.88.86])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae2143d928dsm3958266b.107.2025.06.26.07.04.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jun 2025 07:04:48 -0700 (PDT)
+From: muhammed.efecetin.67@gmail.com
+X-Google-Original-From: muhammed.efecetin67@gmail.com
+To: linux-rockchip@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	heiko@sntech.de,
+	neil.armstrong@linaro.org,
+	lee@kernel.org,
+	rafael@kernel.org,
+	efectn@protonmail.com,
+	daniel.lezcano@linaro.org
+Subject: [PATCH 0/5] Add Khadas MCU and fan control support for Khadas Edge 2
+Date: Thu, 26 Jun 2025 17:04:27 +0300
+Message-ID: <cover.1746518265.git.efectn@protonmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
-To: David Hildenbrand <david@redhat.com>
-Cc: 21cnbao@gmail.com, akpm@linux-foundation.org,
- baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com,
- Lance Yang <ioworker0@gmail.com>
-References: <20250626092905.31305-1-ioworker0@gmail.com>
- <20250626124445.77865-1-ioworker0@gmail.com>
- <1a55f9f3-f5b1-4761-97ba-423756c707fe@redhat.com>
-Content-Language: en-US
-In-Reply-To: <1a55f9f3-f5b1-4761-97ba-423756c707fe@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_065334_614500_97659AF2 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20250626_070451_681327_9ED8055D 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,158 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Muhammed Efe Cetin <efectn@protonmail.com>
 
+This patch series adds support for the Khadas MCU and fan control for Khadas Edge 2 board.
 
-On 2025/6/26 21:16, David Hildenbrand wrote:
-> On 26.06.25 14:44, Lance Yang wrote:
->>
->> On 2025/6/26 17:29, Lance Yang wrote:
->>> Before I send out the real patch, I'd like to get some quick feedback to
->>> ensure I've understood the discussion correctly ;)
->>>
->>> Does this look like the right direction?
->>>
->>> diff --git a/mm/rmap.c b/mm/rmap.c
->>> index fb63d9256f09..5ebffe2137e4 100644
->>> --- a/mm/rmap.c
->>> +++ b/mm/rmap.c
->>> @@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio 
->>> *folio, struct page *page,
->>>    #endif
->>>    }
->>> -/* We support batch unmapping of PTEs for lazyfree large folios */
->>> -static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
->>> -            struct folio *folio, pte_t *ptep)
->>> +static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
->>> +            struct page_vma_mapped_walk *pvmw,
->>> +            enum ttu_flags flags, pte_t pte)
->>>    {
->>>        const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>> -    int max_nr = folio_nr_pages(folio);
->>> -    pte_t pte = ptep_get(ptep);
->>> +    unsigned long end_addr, addr = pvmw->address;
->>> +    struct vm_area_struct *vma = pvmw->vma;
->>> +    unsigned int max_nr;
->>> +
->>> +    if (flags & TTU_HWPOISON)
->>> +        return 1;
->>> +    if (!folio_test_large(folio))
->>> +        return 1;
->>> +    /* We may only batch within a single VMA and a single page 
->>> table. */
->>> +    end_addr = pmd_addr_end(addr, vma->vm_end);
->>> +    max_nr = (end_addr - addr) >> PAGE_SHIFT;
->>> +
->>> +    /* We only support lazyfree batching for now ... */
->>>        if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
->>> -        return false;
->>> +        return 1;
->>>        if (pte_unused(pte))
->>> -        return false;
->>> -    if (pte_pfn(pte) != folio_pfn(folio))
->>> -        return false;
->>> +        return 1;
->>> +
->>> +    /* ... where we must be able to batch the whole folio. */
->>> +    if (pte_pfn(pte) != folio_pfn(folio) || max_nr != 
->>> folio_nr_pages(folio))
->>> +        return 1;
->>> +    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, 
->>> fpb_flags,
->>> +                 NULL, NULL, NULL);
->>> -    return folio_pte_batch(folio, addr, ptep, pte, max_nr, 
->>> fpb_flags, NULL,
->>> -                   NULL, NULL) == max_nr;
->>> +    return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
->>>    }
->>>    /*
->>> @@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio 
->>> *folio, struct vm_area_struct *vma,
->>>                if (pte_dirty(pteval))
->>>                    folio_mark_dirty(folio);
->>>            } else if (likely(pte_present(pteval))) {
->>> -            if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
->>> -                can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
->>> -                nr_pages = folio_nr_pages(folio);
->>> +            nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, 
->>> pteval);
->>>                end_addr = address + nr_pages * PAGE_SIZE;
->>>                flush_cache_range(vma, address, end_addr);
->>> @@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio 
->>> *folio, struct vm_area_struct *vma,
->>>                hugetlb_remove_rmap(folio);
->>>            } else {
->>>                folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
->>> -            folio_ref_sub(folio, nr_pages - 1);
->>>            }
->>>            if (vma->vm_flags & VM_LOCKED)
->>>                mlock_drain_local();
->>> -        folio_put(folio);
->>> -        /* We have already batched the entire folio */
->>> -        if (nr_pages > 1)
->>> +        folio_put_refs(folio, nr_pages);
->>> +
->>> +        /*
->>> +         * If we are sure that we batched the entire folio and cleared
->>> +         * all PTEs, we can just optimize and stop right here.
->>> +         */
->>> +        if (nr_pages == folio_nr_pages(folio))
->>>                goto walk_done;
->>>            continue;
->>>    walk_abort:
->>> -- 
->>
->> Oops ... Through testing on my machine, I found that the logic doesn't
->> behave as expected because I messed up the meaning of max_nr (the 
->> available
->> scan room in the page table) with folio_nr_pages(folio) :(
->>
->> With the following change:
->>
->> diff --git a/mm/rmap.c b/mm/rmap.c
->> index 5ebffe2137e4..b1407348e14e 100644
->> --- a/mm/rmap.c
->> +++ b/mm/rmap.c
->> @@ -1850,9 +1850,9 @@ static inline unsigned int 
->> folio_unmap_pte_batch(struct folio *folio,
->>               enum ttu_flags flags, pte_t pte)
->>   {
->>       const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->> +    unsigned int max_nr, nr_pages = folio_nr_pages(folio);
->>       unsigned long end_addr, addr = pvmw->address;
->>       struct vm_area_struct *vma = pvmw->vma;
->> -    unsigned int max_nr;
->>       if (flags & TTU_HWPOISON)
->>           return 1;
->> @@ -1870,12 +1870,13 @@ static inline unsigned int 
->> folio_unmap_pte_batch(struct folio *folio,
->>           return 1;
->>       /* ... where we must be able to batch the whole folio. */
-> 
-> Why is that still required? :)
+The first patch updates devicetree bindings for new cooling-levels property.
+The second mfd patch removes unused nvmem code.
+The third patch adds the Khadas Edge 2 registers to the mfd driver.
+The fourth patch adds support for Khadas Edge 2's new fan control registers to MCU thermal driver and the last one adds the Khadas Edge 2 device tree node for the MCU and fan control.
+And the final patch adds the Khadas Edge 2 device tree node for the MCU and fan control.
 
-Sorry ... I was still stuck in the "all-or-nothing" mindset ...
+Muhammed Efe Cetin (5):
+  dt-bindings: mfd: khadas-mcu: add cooling-levels property
+  mfd: khadas-mcu: drop unused nvmem code
+  mfd: khadas-mcu: add Khadas Edge 2 registers
+  thermal: khadas_mcu_fan: add support for Khadas Edge 2
+  arm64: dts: rockchip: add Khadas MCU and fan control nodes
 
-So, IIUC, you mean we should completely remove the "max_nr < nr_pages"
-check and just let folio_pte_batch handle whatever partial batch it
-safely can.
+ .../devicetree/bindings/mfd/khadas,mcu.yaml   |  9 ++-
+ .../dts/rockchip/rk3588s-khadas-edge2.dts     | 59 ++++++++++++++
+ drivers/mfd/khadas-mcu.c                      | 19 ++---
+ drivers/thermal/khadas_mcu_fan.c              | 76 ++++++++++++++++++-
+ include/linux/mfd/khadas-mcu.h                | 25 ++++++
+ 5 files changed, 170 insertions(+), 18 deletions(-)
 
-> 
->> -    if (pte_pfn(pte) != folio_pfn(folio) || max_nr != 
->> folio_nr_pages(folio))
->> +    if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
->>           return 1;
->> -    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, 
->> fpb_flags,
->> -                 NULL, NULL, NULL);
->> -    return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
->> +    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
->> +                 fpb_flags, NULL, NULL, NULL);
->> +
->> +    return (max_nr != nr_pages) ? 1 : max_nr;
-> 
-> Why is that still required? :)
+-- 
+2.49.0
 
-Then simply return the number of PTEs that consecutively map to the
-large folio. Right?
 
