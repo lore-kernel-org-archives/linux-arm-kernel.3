@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1D5C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E17C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWM8VJDmUOIHrp/C15adgUktxEx+lnhctNL4Eg/IoNI=; b=RmgeeREPJwLvgImHhszZMOaASu
-	Q1wfVXEufwmEbnXuEDZDMu4IRsbKtfrtblctCi2m6V3SNED0ZecizMeqKYg7+N8E8wPrtOG4Cga2d
-	brwo5tGpY5PKr80dOyTphGGkODIY93Cosfjufsx07UJVtNJvzdo4oiEcqSsRHHg4Bt/THhzJUDzu3
-	Q0JXkkSn9C+1rBa+Z/7PaNWcmqqyMtVSuubKWq+vojCRGk8r0Yr07e3IoFuAX3WBBu7He49aKieWg
-	b0xnn1zOzxgUDwrPdFiG1pUp0PD2TDfCxOXNAA3q2fTzqclq2Ko24Rkw/B7uQkf2Z91lNMYdEMfm8
-	95i14JXA==;
+	bh=QCP4h/2LIOFu84CMjY5+BVjwXFaEw7s+4dPs42APlHc=; b=YPB127pgyjdgkHXan5k9lMRUN+
+	NilDJoSR8sWw144Nj3Sf1pcUNP40+RvFZwAswoVBc29UPMRpC9ZCCItKaXcxASGMOJbAOLWDwVnIf
+	ekCYn0FJFbt155QVBCOV6RS1ZTQeF5bAHfqWtO7zoDl/9n/Ol/F+13QLX61/9VcRVwmFO6PmRE8M6
+	JuO4vVU/ZQz0vc58ReD2d4b4WXvOWHyIjqWkGHw5ilP0v0S+ZxwdmkMvuD+0rO4jLPknZ069faaND
+	7c2VkcnbIVrWhw7M71ECBYhW3hjKbRj3v2BHQpRLM/qNIfhTXzcJEicVH3FCPymWuec8L7Ileh6L6
+	TrxEKOUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwXK-0000000D8fr-0UmO;
-	Fri, 27 Jun 2025 00:01:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUux7-0000000CvKL-0cYm
+	id 1uUwZb-0000000D9KW-3kgy;
+	Fri, 27 Jun 2025 00:04:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUuxs-0000000CvO1-3Gpn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 22:20:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9020437E4;
-	Thu, 26 Jun 2025 22:20:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E10AC4CEEB;
-	Thu, 26 Jun 2025 22:20:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750976416;
-	bh=ucsBH0oET7oAgyvEDa/a3datI+skfPNQCt62RZ9yLVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A4p020ppAY3ZUq9GxVphQHtmW7Nv2xB3Wlg/q5yrQXm3EkE4bNikZUjWa5OIG8tnY
-	 qtMYEw3dh73r/bTvkyn9L9gXBaKwOB4wvwcG7etPZo7YfoQzeQrJnM2fJmTcw7SUp9
-	 KmWoOf20XipOsGc1GkCMmgMDT6jjEM70DyFcnzkBLgas24Ko1EjFvkEpghCb0YZfVB
-	 bn4kGt9o7Ov8zt2bA+jqmXecRQJDiKeFJCiebQvy8IMVUKoksvX4xWLOwHccsA/+45
-	 Jtlbp/Fs/ev4/nB1b/m1NOqovgi6S4APtgI0cIT6LKyITOXVq+b1qCAn0TcVGABlqO
-	 tpqQ/llYEUv0Q==
-Date: Thu, 26 Jun 2025 15:20:15 -0700
-From: Vinod Koul <vkoul@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: Re: [PATCH v7 0/2] Add `devm_dma_request_chan()` to simplify probe
- path in atmel-quadspi.c
-Message-ID: <aF3Hn_yWPMOXOb9f@vaman>
-References: <20250610082256.400492-1-csokas.bence@prolan.hu>
- <f21f9aa5-974a-4326-88e0-cd29fd24555f@sirena.org.uk>
+	Thu, 26 Jun 2025 22:21:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AF81339
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 15:20:44 -0700 (PDT)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A53723F66E
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 15:21:01 -0700 (PDT)
+Date: Thu, 26 Jun 2025 23:20:43 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Lee Jones <lee@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-samsung-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH RFT 3/6] mfd: vexpress-sysreg: set-up software nodes for
+ gpio-mmio
+Message-ID: <aF3Hu0bMVfkbXdFn@e110455-lin.cambridge.arm.com>
+References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
+ <20250624-gpio-mmio-pdata-v1-3-a58c72eb556a@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <f21f9aa5-974a-4326-88e0-cd29fd24555f@sirena.org.uk>
+In-Reply-To: <20250624-gpio-mmio-pdata-v1-3-a58c72eb556a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_152017_209567_CC7D6776 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250626_152104_897252_3BAA1582 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +76,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10-06-25, 12:49, Mark Brown wrote:
-> On Tue, Jun 10, 2025 at 10:22:52AM +0200, Bence Csókás wrote:
+On Tue, Jun 24, 2025 at 03:19:14PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> > to their devm_ managed counterparts. Patch 1/2 adds the new
-> > `devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
-> > simplify the probe() function.
+> Replace struct bgpio_pdata - that we plan to remove - with software
+> nodes containing properties encoding the same values thatr can now be
+> parsed by gpio-mmio.
 > 
-> I'm not copied on patch 1, please let me know if/when there's some
-> progress there.
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-You can pull in this tag for the dependency
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+I'm OK with this going through the GPIO tree.
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+Best regards,
+Liviu
 
-are available in the Git repository at:
+> ---
+>  drivers/mfd/vexpress-sysreg.c | 46 ++++++++++++++++++++++++++-----------------
+>  1 file changed, 28 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
+> index ef03d6cec9ff6927668d051ca459eb1d8ff7269e..fc2daffc4352cca763cefbf6e17bdd5242290198 100644
+> --- a/drivers/mfd/vexpress-sysreg.c
+> +++ b/drivers/mfd/vexpress-sysreg.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/property.h>
+>  #include <linux/slab.h>
+>  #include <linux/stat.h>
+>  
+> @@ -37,22 +38,34 @@
+>  
+>  /* The sysreg block is just a random collection of various functions... */
+>  
+> -static struct bgpio_pdata vexpress_sysreg_sys_led_pdata = {
+> -	.label = "sys_led",
+> -	.base = -1,
+> -	.ngpio = 8,
+> +static const struct property_entry vexpress_sysreg_sys_led_props[] = {
+> +	PROPERTY_ENTRY_STRING("label", "sys_led"),
+> +	PROPERTY_ENTRY_U32("ngpios", 8),
+> +	{ }
+>  };
+>  
+> -static struct bgpio_pdata vexpress_sysreg_sys_mci_pdata = {
+> -	.label = "sys_mci",
+> -	.base = -1,
+> -	.ngpio = 2,
+> +static const struct software_node vexpress_sysreg_sys_led_swnode = {
+> +	.properties = vexpress_sysreg_sys_led_props,
+>  };
+>  
+> -static struct bgpio_pdata vexpress_sysreg_sys_flash_pdata = {
+> -	.label = "sys_flash",
+> -	.base = -1,
+> -	.ngpio = 1,
+> +static const struct property_entry vexpress_sysreg_sys_mci_props[] = {
+> +	PROPERTY_ENTRY_STRING("label", "sys_mci"),
+> +	PROPERTY_ENTRY_U32("ngpios", 2),
+> +	{ }
+> +};
+> +
+> +static const struct software_node vexpress_sysreg_sys_mci_swnode = {
+> +	.properties = vexpress_sysreg_sys_mci_props,
+> +};
+> +
+> +static const struct property_entry vexpress_sysreg_sys_flash_props[] = {
+> +	PROPERTY_ENTRY_STRING("label", "sys_flash"),
+> +	PROPERTY_ENTRY_U32("ngpios", 1),
+> +	{ }
+> +};
+> +
+> +static const struct software_node vexpress_sysreg_sys_flash_swnode = {
+> +	.properties = vexpress_sysreg_sys_flash_props,
+>  };
+>  
+>  static struct mfd_cell vexpress_sysreg_cells[] = {
+> @@ -61,22 +74,19 @@ static struct mfd_cell vexpress_sysreg_cells[] = {
+>  		.of_compatible = "arm,vexpress-sysreg,sys_led",
+>  		.num_resources = 1,
+>  		.resources = &DEFINE_RES_MEM_NAMED(SYS_LED, 0x4, "dat"),
+> -		.platform_data = &vexpress_sysreg_sys_led_pdata,
+> -		.pdata_size = sizeof(vexpress_sysreg_sys_led_pdata),
+> +		.swnode = &vexpress_sysreg_sys_led_swnode,
+>  	}, {
+>  		.name = "basic-mmio-gpio",
+>  		.of_compatible = "arm,vexpress-sysreg,sys_mci",
+>  		.num_resources = 1,
+>  		.resources = &DEFINE_RES_MEM_NAMED(SYS_MCI, 0x4, "dat"),
+> -		.platform_data = &vexpress_sysreg_sys_mci_pdata,
+> -		.pdata_size = sizeof(vexpress_sysreg_sys_mci_pdata),
+> +		.swnode = &vexpress_sysreg_sys_mci_swnode,
+>  	}, {
+>  		.name = "basic-mmio-gpio",
+>  		.of_compatible = "arm,vexpress-sysreg,sys_flash",
+>  		.num_resources = 1,
+>  		.resources = &DEFINE_RES_MEM_NAMED(SYS_FLASH, 0x4, "dat"),
+> -		.platform_data = &vexpress_sysreg_sys_flash_pdata,
+> -		.pdata_size = sizeof(vexpress_sysreg_sys_flash_pdata),
+> +		.swnode = &vexpress_sysreg_sys_flash_swnode,
+>  	}, {
+>  		.name = "vexpress-syscfg",
+>  		.num_resources = 1,
+> 
+> -- 
+> 2.48.1
+> 
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git tags/dmaengine_devm_api
-
-for you to fetch changes up to 08bf1663c21a3e815eda28fa242d84c945ca3b94:
-
-  dmaengine: Add devm_dma_request_chan() (2025-06-26 15:18:04 -0700)
-
-----------------------------------------------------------------
-dmaengine: tag for devm api
-
-----------------------------------------------------------------
-Bence Csókás (1):
-      dmaengine: Add devm_dma_request_chan()
-
- drivers/dma/dmaengine.c   | 30 ++++++++++++++++++++++++++++++
- include/linux/dmaengine.h |  7 +++++++
- 2 files changed, 37 insertions(+)
-
-Thanks
 -- 
-~Vinod
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    Â¯\_(ãƒ„)_/Â¯
 
