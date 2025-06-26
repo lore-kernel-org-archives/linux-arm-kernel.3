@@ -4,180 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC72BC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 01:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4259C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 01:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L1HkfPIW48Dy7KMFGgK2SH2tXq8SP4Yn/vJ87N2eejI=; b=cVRdaJTrhLg5oPWHVQa9I7SHSj
-	vnvWdsltQu1ops4mejVMCm9QXut7QhVhQZNIjsHZ/REaGmVZ+uSKADQLTRgRYN3Nnx20mZPR6q7iC
-	Sq58cFwrgYlm6FXQXqFff2sOAWTBz5iLLDuXSigsh0lWcPFyIjg9voJKprXOcexSgDtlkOzrRPy7a
-	fihJSSyzG3gARLakNhRBW2Dq2aUsAbBf41U7V6Rx5+ShvFO4NSP3GdhDFKRo5ESfg5z8BWzeMkMYR
-	aGoHKzC3sYLtbUHIu3Geo1VQ5LHxvPOAAesNh/3p5Um1fPximmpJr1ShpAfwcXHf9tSVNwsvjkQ/0
-	p7qQszCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h2EwLg93SXSSQVXZxXCP07cbUPvvbYIPUncv9vbnwSI=; b=Ccjk6lT0QpUirtyktfLEgi2Gyz
+	quJ89c6J5S1ey8xxlvePAJ/58p+4brzqYBjtXik/SYrkKqcfml272+6bfkSRnHMXtuhorpg0hyorW
+	jhXTXbnh+AkcikTphKTT8qaJFsMk5/M3t98MI6bC5bo0Zu6itlSVl6iEUQyI+qts/imAz8ubC1JgV
+	wtV4WsW1qIf4MiCLM/yrgcJgn9k6/P+f9Ql7OiklGpTcoNJAwlfeC2wU5etXj1JgLexdyjQpgbgkX
+	G6kgRuX6lO4VgbcIdoUSFaeHtHMJ/KdrZgNe1LOknmI9r8Gv4u3rE7QO/DFll+LRESSR+y8dfNpmL
+	43Ta5ccg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUbVR-0000000AP8R-0XoY;
-	Thu, 26 Jun 2025 01:34:25 +0000
-Received: from mail-dm6nam10on20728.outbound.protection.outlook.com ([2a01:111:f403:2413::728] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uUbXg-0000000APIL-3Rw6;
+	Thu, 26 Jun 2025 01:36:44 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUbT8-0000000AOwR-2M89
+	id 1uUbTP-0000000AP04-02sR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 01:32:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=keuRQvJKgT2H2O+rdfPo6o4D2mWzgKLuI8PwelK0s8kUuWnmQU3/3oenLaagmMmMoQHFSyUMKCC/RCgcCwIfFhQrxFdoQE14/IwdqDkaVc1eN8kQ06mYJzxu3syyF692CjzODXOL689nFXLqkzOrmt3BX/buwKZNIfZRXz6UkBO6a8EPG/fSYj1rsizl+O6qcLM2fQmHTRdgDdCT727Fft0kZbwsBohZv3GXzqHfZRkTTN0+Oledj1z4fYlncoF/yZBZ5jbVWAS0/LZF8J6n0lem0oIUQs11kE0ADRCL15h9ovdMdTTT3coanYs7Z6XQO4NfEsl5pTLBKoJw9F2CrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L1HkfPIW48Dy7KMFGgK2SH2tXq8SP4Yn/vJ87N2eejI=;
- b=SwyTRZZCgbNZlULHu/eoqp8FXtwx9GFskJp7vkTX3g0CHfjHtwp+pTwVFca2w520pCFWYMDlaYBuW+YdRt/diCj9qwuL/HYRm4pu6lxyjiT28B5Voj3z7PIbOk43QI2fwXDm52kRt1MNI+gaag2eITBSpp29TazE3TdvJvSNw35wfUtHz2hqOnku83qCsl/DOI8nhkwZQeVTIKXoXia085gadxJibx1hP4iQYUHaqmc1Xr2KZ+lRpnlSDHeadVagh5XZqG7GHL74B7ZbfeuYalCO7n0yRq4pA8q2RKDYyXr4oIjHk8p9hh0QsExjEX+/yiVAN/fWSHXrHcJqKsswpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L1HkfPIW48Dy7KMFGgK2SH2tXq8SP4Yn/vJ87N2eejI=;
- b=Rdi8eXazNI1nEOrALgDM0eSqyUlBYVySCEYKwcl6cd2mHI35dOT1zOzyScbIFlSw43+TdK9/vV5e5ccexJIvyb24+VYCZxofY47jI8f8pKBFeGApP2xWxvbIn7g+SYBcudybaPDIwxBM4nDIPgn5WT68oiDL+amPtycbB4W9x2u87Qpje5CC5r1AzGvrBaYpJOlpbdv+JO7PO4NQvU87ZpPZZJJUqhSgag/+zMQNsmCUkpVwoHNeU81KPO9V76++YDgaQVjVkPxlmh5bq+h+mHSIZP5Jxj1eOO1ah82pAj20oRvQzHidKh2uqHk0sbEmT0sSlIXLYmBahPpJPM0kVw==
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- (2603:10b6:20f:fc04::c3d) by SJ4PPF797E39E53.namprd18.prod.outlook.com
- (2603:10b6:a0f:fc02::f27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.17; Thu, 26 Jun
- 2025 01:31:54 +0000
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d]) by IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d%5]) with mapi id 15.20.8769.031; Thu, 26 Jun 2025
- 01:31:48 +0000
-From: Harshit Shah <hshah@axiado.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
-	<brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jan Kotas
-	<jank@cadence.com>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>
-Subject: Re: [PATCH v3 5/7] arm64: dts: axiado: Add initial support for AX3000
- SoC and eval board
-Thread-Topic: [PATCH v3 5/7] arm64: dts: axiado: Add initial support for
- AX3000 SoC and eval board
-Thread-Index: AQHb5GREkMWleVUwnEujC+sUqBlKs7QR3j8AgAFHOACAAEApAIABRb8A
-Date: Thu, 26 Jun 2025 01:31:47 +0000
-Message-ID: <a6e27c0e-0703-4444-b6e7-d4db1340e802@axiado.com>
-References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
- <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-5-b3e66a7491f5@axiado.com>
- <0709a0a6-1313-452c-85e7-2926a6a03741@kernel.org>
- <19d78e69-4a38-420b-b9f8-d0eb90cdcaf6@axiado.com>
- <a0feb67f-3a73-4247-8383-7255616cb22b@kernel.org>
-In-Reply-To: <a0feb67f-3a73-4247-8383-7255616cb22b@kernel.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA0PPFBEC4B1F8E:EE_|SJ4PPF797E39E53:EE_
-x-ms-office365-filtering-correlation-id: bc88910c-febc-457e-92dc-08ddb45137e4
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?d1cydTVKbFpDWEIreXVXSUNlVWNVT0FTRUQxR1VSRXRnNU9YOHc1NjJpVDJw?=
- =?utf-8?B?Zm1iQ0xxbWl3My9UWFM2bTBpaGgyRG9sQ0Z4YXE2dEhkd0JFME42aGwvamlE?=
- =?utf-8?B?Y0grZldJYnY1YzZwdVRxNVFiU0Z0NkpUemJDRkRibUZoUVZDYVova1lTdDZO?=
- =?utf-8?B?ZWFrL2NmOW9SQk14ZjV4djROanBKVytMVVNKOTZQVHkyRFQwZjl1dHVianYx?=
- =?utf-8?B?VFl1VmFFKy9KYlpqOGZ1ZEM1WURJWis2Q0IrbE1MK0paYkQvOFlESUxlUnFv?=
- =?utf-8?B?Vkg0d1F5b2ZhOEZmT2FPQ0NpRHVmSmlaVWQrMkV3c2kxRXVIOWlGL3loVCtB?=
- =?utf-8?B?NitFY0F1NWRqTlFxVThKMnVkT1NYQTNiN0hNTnpsbU0xSUk1ZU93T2VEa1Np?=
- =?utf-8?B?WXdERlNPTDQ5SUtCcS8xbEdCdGlGcE1YS0VTcnk4eGFtRzgrTzRuM0NvbVgw?=
- =?utf-8?B?dEkyb2ZmLzN0bWhPMVh5dWNhcnJnOThibUowSGZTaTM2bjV1TnhOMUJLc3pp?=
- =?utf-8?B?eWpOSlJ6dlMwWXJlSkxkQ0VHalFVRGpTQitmVVBYQ05LaWllLzc3NTMxVXJr?=
- =?utf-8?B?OFc2eTdIbHZmY0RObjNjckJDblhiVEZwNSt2dTcvbVNyNytiZHFaUmJhL0h0?=
- =?utf-8?B?U0ZZZVl3amVaSnMwQnJoU1hEdGdUbmJrTTQzOHdBVUpDdGxaT29xdnFKSnZ5?=
- =?utf-8?B?U2dLMHVDaTRFN1lHNlhMWHkvelB3RlJrSUlsYjJ3cVpIUVZDL2xKN2h2SjdP?=
- =?utf-8?B?TzFxOEs2U2lwWGQ3Ny9Sa3NuR2NLS0M2Y3UyOFE1dTY5K3lodjlIUFByeUg4?=
- =?utf-8?B?aGY2dlByU1I3ZGE0NHhnUG1hTmphMTFCQUJPVG0rRGdRQ3p5M09scmtNZ3VS?=
- =?utf-8?B?VFg5aEVRQzVsbSsrc1BISEtmN3dmRVNvclpJVzFRaVlHL0t3ZkY1bDYwTHQv?=
- =?utf-8?B?dkdyUmk2ckg0SWRuZzhrZ2V2cW9icTVlaGpHUWtmOHlFOVZpUkVtUzdWenNB?=
- =?utf-8?B?MnFMSzBCUk5paVZDK1lWS2R2Ni8wNzFjcFBJOVc4bisrZHV2WVZiNHBCdDR6?=
- =?utf-8?B?eGNVNDZQMFcwT3N4ck9kQWtEL2wwcHJjc2x0eVMzd2RSekxVM1JmaEZza2Vh?=
- =?utf-8?B?R3EwdFl4UDVoM0V3cUxmNXNTVDRJa0VNZTZmNkNBcGs0d2FvS1IrL1FYNmhn?=
- =?utf-8?B?Uy9pRjNYS1ViUEZWUFJLWllBZVhDTnBtNWxNTk9GTWJ0L1VtMzhBVXRNOUFa?=
- =?utf-8?B?S1UrL2Rva3pFQWxUczNQMmZXM0w3TDhXRFRKSjBDYzdnTi9lK0NBWGdtcWRL?=
- =?utf-8?B?UzkxcFhIUUpjOTVIL3RMVDNldW9LK2FpRlNPekNmK254aFp4MUVWeTArRTZq?=
- =?utf-8?B?aWxSVkk2alo3SEtUOGs3R21kUzlvb3dTUnpFV2pYWng0QXRBaGIxQXpVOTNy?=
- =?utf-8?B?OUtWSUl2c241UTltSU81WStTbE5HZ1dMRUNrVVRVQXRIdnF4ZVJUTEp2aDVh?=
- =?utf-8?B?U3V2cUUrNGRuV2g4azNvaUJKVzUzUFNjYVA2VzgrRkNVYnd0dUUzQUI2OEUv?=
- =?utf-8?B?cGZWNEQ1dFFBZUI5aXBZYnQxamVxa0hreDUrUEpxSWdUZGdOcnRaRUVVU1NI?=
- =?utf-8?B?U0lGZmpiVzgzNGduYTUrcmdrUlk1bGdZblpqYXB4Q0RieXc1cGtiaVdWa3hG?=
- =?utf-8?B?WENRTlNiZGptNU9wblE0OHVyaFZ6VGg2bm02ZXlwcmNrMEF0azNKMFJ3Q091?=
- =?utf-8?B?KzVZV0JIMHRTMHNPRXJub2FHR2h5SkFvQ3BjV0RtUnZLT2dUN09xOVh1NnVj?=
- =?utf-8?B?dnRtM3B4NnFmMVQ3aStTanM3ZThXdlRhYkNwRThIRlduMThqQXFXS21IdzdL?=
- =?utf-8?B?VTlqT2N2YmQxRTlja012UTQ5Nm14bDIwYWtQZGREL293YkkwaEQzS3RoNys1?=
- =?utf-8?B?VEJ3ZEM1YTYxanltbVN3aGJXNXlJRGtiYWpBMnB4YlB1QVpMcWdkTHl5UVJS?=
- =?utf-8?Q?11zbKOyrZnV9OTg5qIXyroXXsCBO38=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PPFBEC4B1F8E.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Smg3cUtYR0pBV0NjZStBamhmNnh1aUZXV1g4MHRRS1pvWmwreGIrbnozbGhp?=
- =?utf-8?B?ZHdhMXkrUmQ0UWpmMTQxQUlKOTVuTHNNcXdUNlh1QzZlQ0QwMWlPQ2lNNnNz?=
- =?utf-8?B?TXUwaG92cHJxTWw1ckxqbkVpYTdHUnFiRUwrNTRQd2hsOFo4VWVMWWk4NTNz?=
- =?utf-8?B?NHpoclAxRHdJSStNRXczZDF1dy9ueHBCdXFnWlpkYmlEOTNodE0xcTVTY0Rt?=
- =?utf-8?B?OEg4a2RJQi9UTDFSc3l0dzZ5NkZrZThRdzBvYmJXU1dSUHl6QnppbjVYS2Jq?=
- =?utf-8?B?MEZ6WGxXQ0tvK3RZN1JidlU2bTI1TnBSZEJPWUVqMEloYnRHcDRXVDB2SjZZ?=
- =?utf-8?B?OUlIUWYxMlhmWG0wdzJkUDdCQmlUUlRraFJ6SjFCVjJCdmNDM1kvclJjbWVM?=
- =?utf-8?B?dEZhb0lhT3JCTG9qekpiRVNieEhmRUNkZlpGQlNYakRsb0VoeXZkUDV3TElU?=
- =?utf-8?B?Tit4Z01DVFpadkpZdlJ6dEVHcCtCaUN5KzUvWGlQbGNYaGp2UmpVYWIzQVV1?=
- =?utf-8?B?TkNrOUk2eURKMVR5M2ZPUnQwZWhPbFBocURHQkZHNFpNVXhkbkxmN2EzZWwy?=
- =?utf-8?B?LzUxcVJLdVgwbjU1aGMxdmdpeCtSWWM5YWFDckhsTWxrYVpkeXIxQXNzNmFr?=
- =?utf-8?B?TkdJVkhFZDFqSDVEVnhsT0VvNElUUmU1QmNlaWpBVUV3TGxLRmxvWkx1Qm9F?=
- =?utf-8?B?SnB4VVl0NXJRM3JnUFNLODBad285Q0JlalBaTzZPcENnMStnbHdjQ1BqVjR0?=
- =?utf-8?B?UjBiZmVsZkhLbms1MFhMRk5kL0RURERsYkxhTU4vRWpIMmdtenJTRkFFYlQr?=
- =?utf-8?B?aEFnV3JucW1NTWFmM21YbHhZdjVJNERIek9qTy9JSStITUZ2MlYxM2xXT3M5?=
- =?utf-8?B?dzJMQ05LVS9obk5FcHlQMVRkbEkvTm0rZVpRYzhwS0NlTC9UcDVjb0JlbXB6?=
- =?utf-8?B?N2x0RktkcExwQmVEUDVDUkcwODJuV0JsU3UvMDExd2I1VnZtZFNBYTFsc002?=
- =?utf-8?B?SEEyRnNJaTlCeW5EMlp6d2VyZEJVOThDRHNlYzFVVnRLTWZvLzBzMUYxZndN?=
- =?utf-8?B?SGpwRkpyWkVqOWJ4UlZta0cxWDBDVWx1OVNmbDJySHkyRmhHMXZ1VU1DdC90?=
- =?utf-8?B?L0Z3WGRaa2Q5VGd5VlJicUZFRWxKTWEvZU94MU13U1oyd1gzMkcxc0pWY0U2?=
- =?utf-8?B?M1Z2bFhTK0wySWwvcm5zT3ROV1pUVktaN045RnBESHJLeWduZHNOd3FzY296?=
- =?utf-8?B?UmtGZWJ6YnRXQkE1NHV0aFlpcGZiVnM3SDNCUEc5bEFmQVFkQlFidVBKT0Zo?=
- =?utf-8?B?K09KMk8rU083NkkxUjRGUFpyeU5hUFlHTmZnbVp4OEV1YitXNmxsZGp5NGNy?=
- =?utf-8?B?TXBoRW9RL0Zic051YXZRNlVGL3FsTjdlTjByKzNuaXo2eFgreXFvUWhsUFR5?=
- =?utf-8?B?NW5kOVBORWl3V0l6dlBUWUVENEhHbloxRU9oZmw1Z0tQcDM0M2YxQ1pQVWJt?=
- =?utf-8?B?cXlvUXJ3VE4xeklKWUJ0Uk8rZHcvRU9jRGFiTVNvSTB6NFd4ckV0Yi9HM0lC?=
- =?utf-8?B?MG9sVVN5ZStwVUJ3ZTNOTXZ3WFhRYUI4cnZYU1p5dllvSUxpZm1kQ1BKcFFp?=
- =?utf-8?B?TVFqOXR5RnA2eS9BNHIwd3RTV3Y4T3czcHNocGM2MExXeEl2clpNNlYyaUZ2?=
- =?utf-8?B?ZjIwMDQxUTl5MWJ5Q0NRdVM3RHFaa093djJCWDlnNUtkbFozRWkvWngrY2NX?=
- =?utf-8?B?ejJUMGp5d1dUYXY2eVZ4dUZBL1JUZHNlNUlCcnh1dHZQa1hsSldzYlFyakNQ?=
- =?utf-8?B?RlhRTVdGK1QyZHozTFZmbFNoZWVKVHBBVzJTa0QrQTc2V01hUlRITUJ4QmF1?=
- =?utf-8?B?MGlRSXI4QkR2QlRhMEZWWkg1M3dZQnl2UkRycGRtd0ZON21pd2xiV0RpanhM?=
- =?utf-8?B?MWNHQTBkM1pwWFFwSkU0bURTQ21ueDlTdndhWG90aTUrQkRiT3ZDS3hPcFNh?=
- =?utf-8?B?a2J2V1BGcGN4dThNdUFtQ2l0dUhDTlpKZXNudFFZVzRQS1Jva0NiaklkcGNk?=
- =?utf-8?B?SnIycU9RRGkrVDEvUU9vUGEvN0o5R0pJV1dZWW1nV3o2WXB5dnREK1ZIeWp1?=
- =?utf-8?Q?92hI=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <26D394620C25FF4CAF8C3A28E4788005@namprd18.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Thu, 26 Jun 2025 01:32:20 +0000
+Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3de1875bf9dso3993625ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Jun 2025 18:32:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750901538; x=1751506338; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h2EwLg93SXSSQVXZxXCP07cbUPvvbYIPUncv9vbnwSI=;
+        b=RonuWpKLhaUPHvNdsNzUraNW15octnurfOL4KjBJrHw9cdD/KiuHnGU0OVVoyqhCIu
+         5MzW9+Sd6gefWqvE6fQAy+z8NcZmGhV+8EjlNazUqA+8tuR+zO0eM131Pk2CPbllWRdC
+         LvO5ANh+uUdkHMGoZyAhuJr8bqTA1ZDtigkkixl5XCCrZ0DsoxEkJGWstXRQBaC4fdRC
+         y+8VuvOLVVVX/pNLpzZRapzE7GdyJD7QYQL4v9/bQUGAZxdA+iLkqKyxdoROKlXfdSHv
+         9zGEtJ2+Kj4iDkdQavrtN74F8pXtUCLtzi67AzqtlUCrWI+sLiEWG2pV+AlqT2ineOuZ
+         Tv3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750901538; x=1751506338;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h2EwLg93SXSSQVXZxXCP07cbUPvvbYIPUncv9vbnwSI=;
+        b=NQ6FQaFPErObuj7kRHIvW1YWjgy2Zmc4mxHrOjD11ZOBxtexKLfrADqHzbXd4S+TYd
+         LocNVRh+GWKIBCSsrvN1dioVZD9kFiVWkYEoSDxPUbVeInZJopc5nGPizEi0iBgXXBiB
+         h4pjAaeJ+V+5T6D/Povg5JPY89/URCtAuO4p7iqzvZ7PXcOgbttRj6SW10ZfbsonDinY
+         IGO7rWe6I0nLA9aeZH3Vus35kSbmE4fCC4XRLe0+/RklZRDEOGVpcMRjdoMat40GtZom
+         X0fcWCa/res5w4vK0tvew1eV/iNRZYl6LxWvQehsEMhSKx4ySBXu4Sh+54JicR2SI8wY
+         Egxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVxUuInbykVJZ+6kC87PYwLKifJewVnQdbp1d+xVfedQPBdSimwjKnf7w0wZjEGjd0oecQX9qD1R78Fa/6z6OZC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHXzm8EMQ519HHk8NNmQV107Z+VpAzfSKc9FVPg1ecLSfiDr97
+	eI/JeoUdy5U/J31Gg8H7RCEw2V/sc+YorliaKhtiNCn89pAdsArL8uN2pnaRgcgP3lPIlKqNhwY
+	Pj/a5O5eXOyTBhbnBz8Z2IN3QoDLLR90=
+X-Gm-Gg: ASbGncsMY3yPrrfv9L7VZFuJFtw7kQRsUZT9RlIjvf4pFcZEIOIf8uBwPtCcKirGiU/
+	TWJscXx+YMEaJrSmdF+WEvXEu8KJ/iSJbY9UEeIE37qYV8uxDcDB2Yo/r9H/J4K4q0RHEAa952r
+	Ap5Ol1ctBmrIcAYVxbN1F/uFi/EdWTNhXzxbJ4FJoZ8No=
+X-Google-Smtp-Source: AGHT+IHz+VsrRavqFHcBYE4ToM940Svxo+zF/Y7cUyGrx0/zEzml+SYXAqKOyb1f1Bo8G4+cR0SQBG/7tugWWFi/fUA=
+X-Received: by 2002:a05:6e02:250f:b0:3df:43d1:6a58 with SMTP id
+ e9e14a558f8ab-3df43d16cadmr1016265ab.20.1750901537921; Wed, 25 Jun 2025
+ 18:32:17 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc88910c-febc-457e-92dc-08ddb45137e4
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2025 01:31:47.9334
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vwelGIlb6vYcuyK5lPb+G1FmzDXMEu9WOcUUvx6Qxd+PZoN56bhReOuo/Q3pqeTmPN+CWgdgKSG06/8RZ8EAyQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ4PPF797E39E53
+References: <20250618062644.3895785-1-shengjiu.wang@nxp.com>
+ <20250618062644.3895785-2-shengjiu.wang@nxp.com> <aFltBpXuEXVZ5gKn@p14s>
+ <CAA+D8AP47xyftzPZki8MXEeWEfbocug6e134uaJgFH+tx7mH2Q@mail.gmail.com> <CANLsYkz2JMMMhBAXjt9YSzU4n-0Ld6EvJHC=7Ospsefoxc6BGA@mail.gmail.com>
+In-Reply-To: <CANLsYkz2JMMMhBAXjt9YSzU4n-0Ld6EvJHC=7Ospsefoxc6BGA@mail.gmail.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 26 Jun 2025 09:32:06 +0800
+X-Gm-Features: Ac12FXxhWHni_zYrB3Bk_G8eq5XhUuxIqHIxn2dIntxFypfP4zKffU6DWcZMA_E
+Message-ID: <CAA+D8AM47P7xw2Ppgcr9d=DB2eSkQg6uQ_F22Te_=HFuMCNXxw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] remoteproc: imx_dsp_rproc: Add support of recovery process
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andersson@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_183202_615969_3F45E5E3 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250625_183219_050921_3B548A0D 
+X-CRM114-Status: GOOD (  45.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,18 +98,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNi8yNC8yMDI1IDExOjA1IFBNLCBLcnp5c3p0b2YgS296bG93c2tpIHdyb3RlOg0KPj4NCj4+
-DQo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInhsbngsenlucW1wLXVh
-cnQiLCAiY2Rucyx1YXJ0LXIxcDEyIjsNCj4+PiBOQUssIHlvdSBkbyBub3QgaGF2ZSB4bG54IGhl
-cmUuIExvb2sgYXQgeW91ciBTb0M6IG5hbWUgb2YgdmVuZG9yIGlzDQo+Pj4gYXhpYWRvLiBOb3Qg
-eGxueC4gSG93IGlzIHlvdXIgU29DIGNhbGxlZD8gQWxzbyB6eW5xbXA/IFlvdSBjYW5ub3QganVz
-dA0KPj4+IHJhbmRvbWx5IHBpY2sgYW55IGNvbXBhdGlibGVzIGFuZCBzdHVmZiB0aGVtIGFyb3Vu
-ZC4NCj4+Pg0KPj4+IFBsZWFzZSBjYXJlZnVsbHkgcmVhZCB3cml0aW5nIGJpbmRpbmdzIGZyb20g
-RFQgZGlyZWN0b3J5Lg0KPj4NCj4+IFdlIGFyZSB1c2luZyB0aGUgImNkbnMsdWFydC1yMXAxMiIg
-Zm9yIHRoZSBVQVJULiBIb3dldmVyLCB0aGF0IGFsb25lDQo+PiBjYW4ndCBiZSBhZGRlZCBhbG9u
-ZSBpbiB0aGUgY29tcGF0aWJsZSBhcyBwZXIgdGhlIERUIGJpbmRpbmdzIGRvYy4NCj4gRXhhY3Rs
-eS4gU2VlIHdyaXRpbmcgYmluZGluZ3MuLi4gb3IgYW55IGd1aWRlcy90YWxrcy4NCg0KV2Ugd2ls
-bCBhZGQgdGhlICJjb21wYXRpYmxlID0gImF4aWFkbyxheC11YXJ0IiwgImNkbnMsdWFydC1yMXAx
-MiIuIFdlIA0Kd2lsbCBhcHBlbmQgaW4gdGhlIGR0LWJpbmRpbmdzIGRvYyBhbmQgZHJpdmVyLg0K
-DQpJcyB0aGlzIG5hbWUgbG9vayBnb29kPw0KDQo=
+On Wed, Jun 25, 2025 at 10:39=E2=80=AFPM Mathieu Poirier
+<mathieu.poirier@linaro.org> wrote:
+>
+> On Tue, 24 Jun 2025 at 21:25, Shengjiu Wang <shengjiu.wang@gmail.com> wro=
+te:
+> >
+> > On Mon, Jun 23, 2025 at 11:11=E2=80=AFPM Mathieu Poirier
+> > <mathieu.poirier@linaro.org> wrote:
+> > >
+> > > Good day,
+> > >
+> > > On Wed, Jun 18, 2025 at 02:26:43PM +0800, Shengjiu Wang wrote:
+> > > > when recovery is triggered, rproc_stop() is called first then
+> > > > rproc_start(), but there is no rproc_unprepare_device() and
+> > > > rproc_prepare_device() in the flow.
+> > > >
+> > > > So power enablement needs to be moved from prepare callback to star=
+t
+> > > > callback, power disablement needs to be moved from unprepare callba=
+ck
+> > > > to stop callback, loading elf function also needs to be moved to st=
+art
+> > > > callback, the load callback only store the firmware handler.
+> > > >
+> > > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > > ---
+> > > >  drivers/remoteproc/imx_dsp_rproc.c | 58 ++++++++++++++++++--------=
+----
+> > > >  1 file changed, 36 insertions(+), 22 deletions(-)
+> > > >
+> > > > diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remotepro=
+c/imx_dsp_rproc.c
+> > > > index 5ee622bf5352..9b9cddb224b0 100644
+> > > > --- a/drivers/remoteproc/imx_dsp_rproc.c
+> > > > +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> > > > @@ -122,6 +122,7 @@ enum imx_dsp_rp_mbox_messages {
+> > > >   * @ipc_handle: System Control Unit ipc handle
+> > > >   * @rproc_work: work for processing virtio interrupts
+> > > >   * @pm_comp: completion primitive to sync for suspend response
+> > > > + * @firmware: firmware handler
+> > > >   * @flags: control flags
+> > > >   */
+> > > >  struct imx_dsp_rproc {
+> > > > @@ -139,6 +140,7 @@ struct imx_dsp_rproc {
+> > > >       struct imx_sc_ipc                       *ipc_handle;
+> > > >       struct work_struct                      rproc_work;
+> > > >       struct completion                       pm_comp;
+> > > > +     const struct firmware                   *firmware;
+> > > >       u32                                     flags;
+> > > >  };
+> > > >
+> > > > @@ -211,6 +213,7 @@ static const struct imx_rproc_att imx_dsp_rproc=
+_att_imx8ulp[] =3D {
+> > > >
+> > > >  /* Initialize the mailboxes between cores, if exists */
+> > > >  static int (*imx_dsp_rproc_mbox_init)(struct imx_dsp_rproc *priv);
+> > > > +static int imx_dsp_rproc_elf_load_segments(struct rproc *rproc, co=
+nst struct firmware *fw);
+> > > >
+> > > >  /* Reset function for DSP on i.MX8MP */
+> > > >  static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
+> > > > @@ -402,8 +405,24 @@ static int imx_dsp_rproc_start(struct rproc *r=
+proc)
+> > > >       const struct imx_dsp_rproc_dcfg *dsp_dcfg =3D priv->dsp_dcfg;
+> > > >       const struct imx_rproc_dcfg *dcfg =3D dsp_dcfg->dcfg;
+> > > >       struct device *dev =3D rproc->dev.parent;
+> > > > +     struct rproc_mem_entry *carveout;
+> > > >       int ret;
+> > > >
+> > > > +     pm_runtime_get_sync(dev);
+> > > > +
+> > > > +     /*
+> > > > +      * Clear buffers after pm rumtime for internal ocram is not
+> > > > +      * accessible if power and clock are not enabled.
+> > > > +      */
+> > > > +     list_for_each_entry(carveout, &rproc->carveouts, node) {
+> > > > +             if (carveout->va)
+> > > > +                     memset(carveout->va, 0, carveout->len);
+> > > > +     }
+> > > > +
+> > > > +     ret =3D imx_dsp_rproc_elf_load_segments(rproc, priv->firmware=
+);
+> > > > +     if (ret)
+> > > > +             return ret;
+> > > > +
+> > > >       switch (dcfg->method) {
+> > > >       case IMX_RPROC_MMIO:
+> > > >               ret =3D regmap_update_bits(priv->regmap,
+> > > > @@ -446,6 +465,7 @@ static int imx_dsp_rproc_stop(struct rproc *rpr=
+oc)
+> > > >
+> > > >       if (rproc->state =3D=3D RPROC_CRASHED) {
+> > > >               priv->flags &=3D ~REMOTE_IS_READY;
+> > > > +             pm_runtime_put_sync(dev);
+> > >
+> > > From this patch I understand that for a recovery to be successful, th=
+e
+> > > remote processor _has_ to go through a hard reset.  But here the PM r=
+untime API
+> > > is used, meaning the remote processor won't be switched off if anothe=
+r device in
+> > > the same power domain still neeeds power.  If that is the case, the s=
+olution in
+> > > tihs patch won't work.
+> >
+> > Thanks for reviewing.
+> > With the case you mentioned, there is software reset to make the
+> > recovery process work.
+>
+>
+> Are you talking about a manual software reset of some other mechanism?
+>
+> If manual software reset, the recovery may or may not work and we
+> simply don't know when that might be.  If it's another mechanism, then
+> that mechanism should be used in all cases.  Either way, I don't see
+> how we can move forward with this patch.
+
+Not manual software reset,  in this driver we registered .reset() function.
+it has been called at imx_dsp_runtime_resume(),  I paste the function below=
+.
+
+And I have tested the case you mentioned, the recovery works.
+
+/* pm runtime functions */
+static int imx_dsp_runtime_resume(struct device *dev)
+{
+        struct rproc *rproc =3D dev_get_drvdata(dev);
+        struct imx_dsp_rproc *priv =3D rproc->priv;
+        const struct imx_dsp_rproc_dcfg *dsp_dcfg =3D priv->dsp_dcfg;
+        int ret;
+
+        /*
+         * There is power domain attached with mailbox, if setup mailbox
+         * in probe(), then the power of mailbox is always enabled,
+         * the power can't be saved.
+         * So move setup of mailbox to runtime resume.
+         */
+        ret =3D imx_dsp_rproc_mbox_init(priv);
+        if (ret) {
+                dev_err(dev, "failed on imx_dsp_rproc_mbox_init\n");
+                return ret;
+        }
+
+        ret =3D clk_bulk_prepare_enable(DSP_RPROC_CLK_MAX, priv->clks);
+        if (ret) {
+                dev_err(dev, "failed on clk_bulk_prepare_enable\n");
+                return ret;
+        }
+
+        /* Reset DSP if needed */
+        if (dsp_dcfg->reset)
+                dsp_dcfg->reset(priv);
+
+        return 0;
+}
+
+>
+> >
+> >
+> > best regards
+> > Shengjiu Wang
+> >
+> > >
+> > > Thanks,
+> > > Mathieu
+> > >
+> > > >               return 0;
+> > > >       }
+> > > >
+> > > > @@ -472,6 +492,8 @@ static int imx_dsp_rproc_stop(struct rproc *rpr=
+oc)
+> > > >       else
+> > > >               priv->flags &=3D ~REMOTE_IS_READY;
+> > > >
+> > > > +     pm_runtime_put_sync(dev);
+> > > > +
+> > > >       return ret;
+> > > >  }
+> > > >
+> > > > @@ -774,7 +796,6 @@ static int imx_dsp_rproc_prepare(struct rproc *=
+rproc)
+> > > >  {
+> > > >       struct imx_dsp_rproc *priv =3D rproc->priv;
+> > > >       struct device *dev =3D rproc->dev.parent;
+> > > > -     struct rproc_mem_entry *carveout;
+> > > >       int ret;
+> > > >
+> > > >       ret =3D imx_dsp_rproc_add_carveout(priv);
+> > > > @@ -783,25 +804,6 @@ static int imx_dsp_rproc_prepare(struct rproc =
+*rproc)
+> > > >               return ret;
+> > > >       }
+> > > >
+> > > > -     pm_runtime_get_sync(dev);
+> > > > -
+> > > > -     /*
+> > > > -      * Clear buffers after pm rumtime for internal ocram is not
+> > > > -      * accessible if power and clock are not enabled.
+> > > > -      */
+> > > > -     list_for_each_entry(carveout, &rproc->carveouts, node) {
+> > > > -             if (carveout->va)
+> > > > -                     memset(carveout->va, 0, carveout->len);
+> > > > -     }
+> > > > -
+> > > > -     return  0;
+> > > > -}
+> > > > -
+> > > > -/* Unprepare function for rproc_ops */
+> > > > -static int imx_dsp_rproc_unprepare(struct rproc *rproc)
+> > > > -{
+> > > > -     pm_runtime_put_sync(rproc->dev.parent);
+> > > > -
+> > > >       return  0;
+> > > >  }
+> > > >
+> > > > @@ -1022,13 +1024,25 @@ static int imx_dsp_rproc_parse_fw(struct rp=
+roc *rproc, const struct firmware *fw
+> > > >       return 0;
+> > > >  }
+> > > >
+> > > > +static int imx_dsp_rproc_load(struct rproc *rproc, const struct fi=
+rmware *fw)
+> > > > +{
+> > > > +     struct imx_dsp_rproc *priv =3D rproc->priv;
+> > > > +
+> > > > +     /*
+> > > > +      * Just save the fw handler, the firmware loading will be aft=
+er
+> > > > +      * power enabled
+> > > > +      */
+> > > > +     priv->firmware =3D fw;
+> > > > +
+> > > > +     return 0;
+> > > > +}
+> > > > +
+> > > >  static const struct rproc_ops imx_dsp_rproc_ops =3D {
+> > > >       .prepare        =3D imx_dsp_rproc_prepare,
+> > > > -     .unprepare      =3D imx_dsp_rproc_unprepare,
+> > > >       .start          =3D imx_dsp_rproc_start,
+> > > >       .stop           =3D imx_dsp_rproc_stop,
+> > > >       .kick           =3D imx_dsp_rproc_kick,
+> > > > -     .load           =3D imx_dsp_rproc_elf_load_segments,
+> > > > +     .load           =3D imx_dsp_rproc_load,
+> > > >       .parse_fw       =3D imx_dsp_rproc_parse_fw,
+> > > >       .handle_rsc     =3D imx_dsp_rproc_handle_rsc,
+> > > >       .find_loaded_rsc_table =3D rproc_elf_find_loaded_rsc_table,
+> > > > --
+> > > > 2.34.1
+> > > >
+> > >
 
