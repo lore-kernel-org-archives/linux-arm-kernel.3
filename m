@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920A0C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A91BC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNPRNVa0NXAIt/TPNv1Il9lD8lH58j3TXeT6bKfk/5M=; b=0tZ8at546lyiVkBkyxWZVIRr31
-	aOx5UdtD+lHmNKi6hEyeZuU7hyx9YHsj0Y1YuxFPdBLs2aJ297/RG5aL3LB0W2Gi0cwUiqGJrfYS8
-	yCs/svt83rf0oJvY5B0WAg5Z2PkFvKsIjWXsb3L7OBOsJrBfmdzfFMcSwFlT5x/G1KGJwkZAUHduA
-	It4v+A6D0fA4m+znPRVez2PqCiDS3WcY6Pq1mvkfr5bLhmfXrDiEGxtmGHkCxdNLBJ6wR7WBg2rT+
-	vurrvUKzYTx13HFqNdiTGTpKeoCRH+ru8wPts3kn0GwyXIEfVOzmYOdRVI+cn3ru7UKu7FDJyk03/
-	8ebIx1Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hyKZDaDbf6pBxX1E1SGQbuztofgy7NyETlkRlM94mw0=; b=cPG1fD/rbYaHTCfNYTEMpIbh0/
+	I7aE4dB4/41HE3u8jb6akXNzXKh9oC623jypaljmhF1p6uAx00Tg7agy6UxINH9ubEpW2JArVBCEz
+	a8aUJkN2ldyBLTJCDbI0/HPkEgIOgc6Nkiy54eXixmFVdJnoqW8gYhbwoaWhP4kKbjB1Z2zsaeRXt
+	eso+dB5LMjeTKp8PDRgmJ4i3WcxvtgWQgk1Lrz/WDUfwcbhrpt7nfFdBkgQ7VoocoQvAdg2DLXXk9
+	kTDBEJHZ7pTRYC3Cl2BWs38FF/mUXfgfUcr0mapjhJ31kBqV8zJRqslNEjbgfNP6rAApaeONYDxXb
+	uqoB6AwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUlTA-0000000BWA4-0ApD;
-	Thu, 26 Jun 2025 12:12:44 +0000
-Received: from pegase1.c-s.fr ([93.17.236.30])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkel-0000000BNeJ-3R55;
-	Thu, 26 Jun 2025 11:20:41 +0000
-Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4bSbB02K49z9vGJ;
-	Thu, 26 Jun 2025 12:52:40 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id uDQegORpF3hS; Thu, 26 Jun 2025 12:52:40 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4bSbB017ZFz9vGH;
-	Thu, 26 Jun 2025 12:52:40 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 1B36F8B7B7;
-	Thu, 26 Jun 2025 12:52:40 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id 1FFBuvr_5nqx; Thu, 26 Jun 2025 12:52:39 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 8F3C38B7A7;
-	Thu, 26 Jun 2025 12:52:37 +0200 (CEST)
-Message-ID: <3b6ff3a9-6b88-4a28-a0fd-31f31ae3e84b@csgroup.eu>
-Date: Thu, 26 Jun 2025 12:52:37 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 9/9] kasan/powerpc: call kasan_init_generic in kasan_init
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com,
- glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
- vincenzo.frascino@arm.com, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
- mpe@ellerman.id.au, npiggin@gmail.com, hca@linux.ibm.com, gor@linux.ibm.com,
- agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com,
- richard@nod.at, anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
- dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
- hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com,
- akpm@linux-foundation.org
-Cc: guoweikang.kernel@gmail.com, geert@linux-m68k.org, rppt@kernel.org,
- tiwei.btw@antgroup.com, richard.weiyang@gmail.com, benjamin.berg@intel.com,
- kevin.brodsky@arm.com, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-References: <20250625095224.118679-1-snovitoll@gmail.com>
- <20250625095224.118679-10-snovitoll@gmail.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20250625095224.118679-10-snovitoll@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1uUlVY-0000000BWRX-0R8o;
+	Thu, 26 Jun 2025 12:15:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUkkP-0000000BPzu-3H5i
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 11:26:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 25827445EA;
+	Thu, 26 Jun 2025 11:26:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00C5AC4CEEB;
+	Thu, 26 Jun 2025 11:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750937189;
+	bh=dQypl9dyKKw9crO92Tcl/v2GMju0CN2R0bSYOIYtRcw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NuRL+5z+Ye4uqQI6ye13Pv6+z4FoeqNJgLV6gOtgDdTPjv0l9G5Av1JPxfDoy7tBh
+	 AbKfaEvf176MJ9ED+xg6/HzhOMdv/cjBqI59J874t+37TC713qQotYZC9HR4bB7U11
+	 9Kbdiivxczwel6B9Q+9eQ5iEKMGh7Rq7ROOZHo8CC8a/dsd6qfOR0kDucLdwRCGXbw
+	 7YF/R8U4XsSSilWk6Kxwdjxt8TIEZPE1f7FNLVTz7XhKRROA05i+H+vvqqojVX5/cZ
+	 uFPnpmyVztEz+zW37Mi4kfxHvJMFepUl5M5jepnJWi1bDc3NklUi9LzdxPOlp9ZcVy
+	 WPXAObI1mUQDw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uUkkM-00ACiY-G9;
+	Thu, 26 Jun 2025 12:26:26 +0100
+Date: Thu, 26 Jun 2025 12:26:25 +0100
+Message-ID: <86y0tebv6m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mostafa Saleh <smostafa@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Don't free hyp pages with pKVM on GICv2
+In-Reply-To: <20250626101014.1519345-1-qperret@google.com>
+References: <20250626101014.1519345-1-qperret@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, smostafa@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_042040_016211_E20C9CF3 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250626_042629_858778_2BCF1109 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,104 +91,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 25/06/2025 à 11:52, Sabyrzhan Tasbolatov a écrit :
-> Call kasan_init_generic() which enables the static flag
-> to mark generic KASAN initialized, otherwise it's an inline stub.
-> Also prints the banner from the single place.
+On Thu, 26 Jun 2025 11:10:14 +0100,
+Quentin Perret <qperret@google.com> wrote:
 > 
-> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=218315
-> Fixes: 55d77bae7342 ("kasan: fix Oops due to missing calls to kasan_arch_is_ready()")
-> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-> ---
->   arch/powerpc/include/asm/kasan.h       | 14 --------------
->   arch/powerpc/mm/kasan/init_book3s_64.c |  6 +-----
->   2 files changed, 1 insertion(+), 19 deletions(-)
+> Marc reported that enabling protected mode on a device with GICv2
+> doesn't fail gracefully as one would expect, and leads to a host
+> kernel crash.
 > 
-> diff --git a/arch/powerpc/include/asm/kasan.h b/arch/powerpc/include/asm/kasan.h
-> index b5bbb94c51f..23a06fbec72 100644
-> --- a/arch/powerpc/include/asm/kasan.h
-> +++ b/arch/powerpc/include/asm/kasan.h
-> @@ -52,20 +52,6 @@
->   
->   #endif
->   
-> -#ifdef CONFIG_KASAN
+> As it turns out, the first half of pKVM init happens before the vgic
+> probe, and so by the time we find out we have a GICv2 we're already
+> committed to keeping the pKVM vectors installed at EL2 -- pKVM rejects
+> stub HVCs for obvious security reasons. However, the error path on KVM
+> init leads to teardown_hyp_mode() which unconditionally frees hypervisor
+> allocations (including the EL2 stacks and per-cpu pages) under the
+> assumption that a previous cpu_hyp_uninit() execution has reset the
+> vectors back to the stubs, which is false with pKVM.
+> 
+> Interestingly, host stage-2 protection is not enabled yet at this point,
+> so this use-after-free may go unnoticed for a while. The issue becomes
+> more obvious after the finalize_pkvm() call.
+> 
+> Fix this by keeping track of the CPUs on which pKVM is initialized in
+> the kvm_hyp_initialized per-cpu variable, and use it from
+> teardown_hyp_mode() to skip freeing pages that are in fact used.
+> 
+> Fixes: a770ee80e662 ("KVM: arm64: pkvm: Disable GICv2 support")
+> Reported-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Quentin Perret <qperret@google.com>
 
-The above #ifdef must remain, at the moment I get:
+I just gave it a go on a Juno-r1, and it didn't die! Must be perfect!
+:) I'll stash it on top of Mostafa's patch.
 
-   CC      arch/powerpc/kernel/asm-offsets.s
-In file included from ./arch/powerpc/include/asm/nohash/32/pgtable.h:65,
-                  from ./arch/powerpc/include/asm/nohash/pgtable.h:13,
-                  from ./arch/powerpc/include/asm/pgtable.h:20,
-                  from ./include/linux/pgtable.h:6,
-                  from ./arch/powerpc/include/asm/kup.h:43,
-                  from ./arch/powerpc/include/asm/uaccess.h:8,
-                  from ./include/linux/uaccess.h:12,
-                  from ./include/linux/sched/task.h:13,
-                  from ./include/linux/sched/signal.h:9,
-                  from ./include/linux/rcuwait.h:6,
-                  from ./include/linux/percpu-rwsem.h:7,
-                  from ./include/linux/fs.h:34,
-                  from ./include/linux/compat.h:17,
-                  from arch/powerpc/kernel/asm-offsets.c:12:
-./arch/powerpc/include/asm/kasan.h:70:2: error: #endif without #if
-  #endif
-   ^~~~~
-In file included from ./include/linux/kasan.h:21,
-                  from ./include/linux/slab.h:260,
-                  from ./include/linux/fs.h:46,
-                  from ./include/linux/compat.h:17,
-                  from arch/powerpc/kernel/asm-offsets.c:12:
-./arch/powerpc/include/asm/kasan.h:70:2: error: #endif without #if
-  #endif
-   ^~~~~
-make[2]: *** [scripts/Makefile.build:182: 
-arch/powerpc/kernel/asm-offsets.s] Error 1
+Thanks!
 
+	M.
 
-> -#ifdef CONFIG_PPC_BOOK3S_64
-> -DECLARE_STATIC_KEY_FALSE(powerpc_kasan_enabled_key);
-> -
-> -static __always_inline bool kasan_arch_is_ready(void)
-> -{
-> -	if (static_branch_likely(&powerpc_kasan_enabled_key))
-> -		return true;
-> -	return false;
-> -}
-> -
-> -#define kasan_arch_is_ready kasan_arch_is_ready
-> -#endif
-> -
->   void kasan_early_init(void);
->   void kasan_mmu_init(void);
->   void kasan_init(void);
-> diff --git a/arch/powerpc/mm/kasan/init_book3s_64.c b/arch/powerpc/mm/kasan/init_book3s_64.c
-> index 7d959544c07..dcafa641804 100644
-> --- a/arch/powerpc/mm/kasan/init_book3s_64.c
-> +++ b/arch/powerpc/mm/kasan/init_book3s_64.c
-> @@ -19,8 +19,6 @@
->   #include <linux/memblock.h>
->   #include <asm/pgalloc.h>
->   
-> -DEFINE_STATIC_KEY_FALSE(powerpc_kasan_enabled_key);
-> -
->   static void __init kasan_init_phys_region(void *start, void *end)
->   {
->   	unsigned long k_start, k_end, k_cur;
-> @@ -92,11 +90,9 @@ void __init kasan_init(void)
->   	 */
->   	memset(kasan_early_shadow_page, 0, PAGE_SIZE);
->   
-> -	static_branch_inc(&powerpc_kasan_enabled_key);
-> -
->   	/* Enable error messages */
->   	init_task.kasan_depth = 0;
-> -	pr_info("KASAN init done\n");
-> +	kasan_init_generic();
->   }
->   
->   void __init kasan_early_init(void) { }
-
+-- 
+Without deviation from the norm, progress is not possible.
 
