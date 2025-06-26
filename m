@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BF4C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D914C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 11:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtNhgbdi3SEyuvtvBdu/oeYBYlCMHIslrsU6XecduHU=; b=VLCn3npPAq/oL/GrJpBDdQd7s+
-	F2D2333xT64sx12SO38seNt6MogfXaZiF5U59NNXWQMWqjT7uKJ8AE9svgLC8gqnPjNkh5otL4ydp
-	FkCA59GgiUW+zOLaQVOXCBT/+Zk7BtR4gfjuFJlzwTMVNsQ6fYW3qZ5RGurKf4RwmugSWtnrtKaZd
-	fJKqxY1CFnIE3YaiD2mXoQLKohBAfAS3rmZBxnrYmvJlEPJIVMQCTd1L+j9z3H44HKEImDgk2ahnt
-	Q72LGXyGF/M4k2Ssep8z1WCcXBr43JjprvkQA9Yeu5SOB3fex1nqdOjUWyi45iYuADUUPhQPuOD5A
-	M41pRgkw==;
+	bh=dmdwoXbM4og158KSq6BfCoZjQO+urcqk4LYofB95Uck=; b=DppmkOmcZbvVhzy39SYDYZfe72
+	Tc3+sO9PSJV/6ctyXHW9QpyT68cgjP96mDfD3uPn5TDutMClySA5nRKuaKxdDpJLZwy/C9Ermr28U
+	tOfssa9dSd1yeMmlSihyE134L+tOMthmAqAOsZMZ6WABVWOdqA6PnnDWVGve8RHIAc+cfNxUt4/3m
+	QltEsfwnbSZSOvufjinBy37+LFMDAc1hzv3h6VM5ywFUa4ETcboVffFbHTepE42oJFdPT3wU8L/XP
+	+UbqANyUQFJPvHGSlAkP3IhjsoIaeEenyLz7t5rV2MNjUFYmNlF7EqGJmBozoeptXk/Lsl+iAZNH8
+	RsjirO/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkhH-0000000BORl-3xJh;
-	Thu, 26 Jun 2025 11:23:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uUkhK-0000000BOX5-3tep;
+	Thu, 26 Jun 2025 11:23:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjoU-0000000BGxH-08jk
+	id 1uUjoZ-0000000BGyA-3Aza
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 10:26:39 +0000
+	Thu, 26 Jun 2025 10:26:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1CBD447C5;
+	by dfw.source.kernel.org (Postfix) with ESMTP id CAC505C66EC;
+	Thu, 26 Jun 2025 10:24:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30419C4CEEB;
 	Thu, 26 Jun 2025 10:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD87CC4CEF4;
-	Thu, 26 Jun 2025 10:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750933597;
-	bh=QNHkLfR6Ay7P8R1eJuPcNkSPmq37GNIrESv5YU/xMD0=;
+	s=k20201202; t=1750933602;
+	bh=kVpdI0MdT6gB3194VWmiyspHGjH3wCjsgs0CRoyEIRo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QVwNLxNnhShbikBx2czV8ZnGv22dITUv4Lzzo8wqsD0qzVlRaLM76Wosqd9ttHQ0y
-	 SNreQlHOmgcpEXTYciVz4KCmSZg8GpLioEIP6hyGZpH0EuA9ERFJnC6Ipjx1+h6Faq
-	 cM2ReY9Kvy4anEtKJmVLrg5FMazHVjDFqtOdQrM4xjr0o3TwPA5w+qa30ZL/cV0+1S
-	 qgn4izM7esjgqy3vhWOll8c9fJ4JnuwMkhEBZuDLsarFQSnF6eOiV5Pqw2Ln31Woqo
-	 pkmWGRe/ffek7SAKNVRBIK8aWm1KhFeqZrjB67UIRmG3+fxQCit4l4cVNovusg4VLJ
-	 50EOU6ceCitYQ==
+	b=W8ftJwhnnNYfsf6aStnAdhfy7eC0/MBeoLc08wVhuTzHZUgtVeSB2PHQ9sIcjV51b
+	 gi84pP1ODvUijJ5JYDKq1AlobguLwvwhDJGUP8ONq4So9OrFZ04MXEjuApkIxqkBJZ
+	 0+sjmxBZX/nEXbI09iaOspupsZbS+Xy3T4qvBQLt5RRjbDCPbw/ISj8XhexK3n9Zwc
+	 VsfUNpGBrRVSx6l3ZHFSN0ksG8fS0rwF07IBAhqy0g+IicKLWmfFKd7CfIJHau5xRz
+	 FdayBx4BN9Su0RVgk5ZRcsS0rL1eWH1C6X8ZYBYDIRqSEVKCKsThudeSSHsJOnw+Og
+	 RFPPVTQbDe77w==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 26 Jun 2025 12:25:53 +0200
-Subject: [PATCH v6 02/31] arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+Date: Thu, 26 Jun 2025 12:25:54 +0200
+Subject: [PATCH v6 03/31] arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-gicv5-host-v6-2-48e046af4642@kernel.org>
+Message-Id: <20250626-gicv5-host-v6-3-48e046af4642@kernel.org>
 References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
 In-Reply-To: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -67,8 +67,8 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.15-dev-6f78e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_032638_094774_B7008D62 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20250626_032643_879993_BD36752E 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,7 +84,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add field reporting the GCIE feature to ID_AA64PFR2_EL1 sysreg.
+Add ICC_PPI_PRIORITY<n>_EL1 sysreg description.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
@@ -92,25 +92,103 @@ Cc: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/tools/sysreg | 83 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 83 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 8a8cf6874298..fb5bddc700b3 100644
+index fb5bddc700b3..fc17e19a738d 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1314,7 +1314,10 @@ UnsignedEnum	19:16	UINJ
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--Res0	15:12
-+UnsignedEnum	15:12	GCIE
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- UnsignedEnum	11:8	MTEFAR
- 	0b0000	NI
- 	0b0001	IMP
+@@ -3024,6 +3024,89 @@ Sysreg	PMIAR_EL1	3	0	9	14	7
+ Field	63:0	ADDRESS
+ EndSysreg
+ 
++SysregFields	ICC_PPI_PRIORITYRx_EL1
++Res0	63:61
++Field	60:56	Priority7
++Res0	55:53
++Field	52:48	Priority6
++Res0	47:45
++Field	44:40	Priority5
++Res0	39:37
++Field	36:32	Priority4
++Res0	31:29
++Field	28:24	Priority3
++Res0	23:21
++Field	20:16	Priority2
++Res0	15:13
++Field	12:8	Priority1
++Res0	7:5
++Field	4:0	Priority0
++EndSysregFields
++
++Sysreg	ICC_PPI_PRIORITYR0_EL1	3	0	12	14	0
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR1_EL1	3	0	12	14	1
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR2_EL1	3	0	12	14	2
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR3_EL1	3	0	12	14	3
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR4_EL1	3	0	12	14	4
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR5_EL1	3	0	12	14	5
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR6_EL1	3	0	12	14	6
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR7_EL1	3	0	12	14	7
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR8_EL1	3	0	12	15	0
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR9_EL1	3	0	12	15	1
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR10_EL1	3	0	12	15	2
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR11_EL1	3	0	12	15	3
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR12_EL1	3	0	12	15	4
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR13_EL1	3	0	12	15	5
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR14_EL1	3	0	12	15	6
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR15_EL1	3	0	12	15	7
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
+ Sysreg	PMSELR_EL0	3	3	9	12	5
+ Res0	63:5
+ Field	4:0	SEL
 
 -- 
 2.48.0
