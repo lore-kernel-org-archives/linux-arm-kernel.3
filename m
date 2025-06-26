@@ -4,76 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D74C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 06:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A9AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 06:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mth4wXANQfN7CfdhwyXVkM+yuM1L4hdreVBkMvSqM44=; b=A26gkuFArpfOE5A0WM2IsBtfxE
-	fpGhb0D1COcNc045COSA3Co+6L7gsuUPI/kHzgQvRVzqi1de7I4KvgX74i1CAPkQpcQNWWHx/QnSG
-	jJrUWTj45Z3UcUeJqIWksLYHuwZNlEs84ZMXZEWQYt+j6uuxmBTd0U1288jE+Iixv8a+oO+GnbM2r
-	yIljiFBPiEyWHNOeH2BfFfKIXerK6LOTVpF+DPPT+yy+QWsb4E/rQXxPlVvBsnwCGGAyTp62Pq/Nf
-	VfttpBFBbjiJjZfE4xwOit+ihMdF4qjdBi97pJmcSUTOSz7AI+cJImQ5l4wF2S882MUJYgwBde7kG
-	vUfy8jCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aR4C6yQECsWVisJKQMipZAirWurqIkTHv+BxqytxM/4=; b=wuBfuMQJ0+fm0pfsAPm9d7mSen
+	rMtz80iduzNJ895wb4qd8VSbUEozK23F2Pg/O6q+OWdO1C+FWgmy2avyjkkg6E//aPLArmQbY8CNr
+	sI9BqPMqhWRsvEp0H4LHBO2RcQz0mO4ePqAbzGLFoJJDA7vmCmpVta44CE94yON30poFVU8o1ZGiN
+	M5SIk/QDsBxSen318w84L17u/kqrlcwboV/njs/7sYi+Oxps2Dqi2FNv9Ki6Ki6lCawMBi4ZY2H1I
+	aAY+2/0cytNroHNSrcQMsF0YLSt1AyVSA9aujvyNJXtYO5OHiM5NPfcHWb0jzP3FlqDJxqqCX9NiB
+	i97BLKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUgDv-0000000AkmB-3T7c;
-	Thu, 26 Jun 2025 06:36:39 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uUgVC-0000000Am0d-0dVB;
+	Thu, 26 Jun 2025 06:54:30 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUgBc-0000000AkOH-3RxT
+	id 1uUgSt-0000000Alsd-3ANv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 06:34:18 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55Q6YDaV2376660;
-	Thu, 26 Jun 2025 01:34:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750919653;
-	bh=Mth4wXANQfN7CfdhwyXVkM+yuM1L4hdreVBkMvSqM44=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=RMnOvH2TNUGZKM7SreBG7TgsMpMfuS7BIFjsAB4qoTYO39QN9ReVI7WQsZNqYpCA4
-	 pn3K1j8TxF0f1NAJ7JyKfpsfeBw7gE/JgjfI60VkZ1iHdYUf3BaDjCBMCIaucDpxuu
-	 asEXwo8cPiv+EXq0DSiM35SWeM4MMDDrbF0uFccM=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55Q6YDNv1726431
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 26 Jun 2025 01:34:13 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
- Jun 2025 01:34:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 26 Jun 2025 01:34:13 -0500
-Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55Q6Y81i530502;
-	Thu, 26 Jun 2025 01:34:09 -0500
-Message-ID: <4765b426-e625-4563-a748-7edb40e3b260@ti.com>
-Date: Thu, 26 Jun 2025 12:04:09 +0530
-MIME-Version: 1.0
+	Thu, 26 Jun 2025 06:52:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750920728; x=1782456728;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=2PAdhgBdnGKCJD68gy4hwn2GvsDGyKVf6wNv08H6GYY=;
+  b=Dx3+QCyyBV0vbm35uJCdUxgouQYwhrgq5jArYrhdNQuL5umoHlilZJ6Y
+   T9n3WuYF5S3FwdeoVyMDe6JUEYiAr1MVCrfMINjAXOKdutgeRGc6cXXWU
+   fkSNSVuZGrBjZrq66I7YcUxJ0+XmEMpA7KuvYGIaWVMY2fAhpMKApofAB
+   sU79ksyqoKscYXmSeePLy6OvVSCbfqxsVPN6yj4wT6OKK2QJva6dW6PHo
+   LSmXZQKxCeX2+UQwimtK0ZbKGd79yVQd5FuklKOBrzA561vAJ+ZtsZcjE
+   twgNWwTPHkIeRa2ozU7Q2YMk0HDsPlnUpMLvFmigljMtNOCEqnKwct29o
+   A==;
+X-CSE-ConnectionGUID: TaTKNzJvTV6Ecil5z5alPA==
+X-CSE-MsgGUID: Osl6V6X9RpmJuxve4zjosg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="57011320"
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="57011320"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 23:51:52 -0700
+X-CSE-ConnectionGUID: nbE3MnNcTxGQYtZ+SawHtA==
+X-CSE-MsgGUID: AL5WU9roRweIvzzMtmXV1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="151947805"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2025 23:51:52 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 25 Jun 2025 23:51:51 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 25 Jun 2025 23:51:51 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (40.107.237.56)
+ by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 25 Jun 2025 23:51:51 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W5R3jDTIIGKiCvRYjlvkejsJpgbhX5s1gIukkhnZuYobtrXzYJsGm7cpKeDHHNVeFHpe5TXvfoYoACnCwFFK/CP0zicc16A6+NmtysvIwizi2BlHsn0eZ+/rEkwjK6X/3waDksDcYLCNpV11HEZLd4VeHzfqtp9P0L0p+VzZdnZrka7nd2K+H9/dI7h3O7AteEVpX7NWo1t8hqw2iSFJkGpWz3Rn0NGXoe3VM6My33iy1xOo62eB1zqX7zgs2AHGca9oDZxEmEfV5/gaBVWwEBVDnAoL6l0ywXgVXI1cTIXUJDbyP36BoDAIljV/INtLRpqb7b5+fAPPBPJkMfu6aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aR4C6yQECsWVisJKQMipZAirWurqIkTHv+BxqytxM/4=;
+ b=f2oZ9YOc/eWw3+eO/pzfTDjTRTn6ou2dWG/KjWwOvNvTwKGLqlxAMA+2hS/kzIBwz1HYxHzxEK9AgXNSHzEKYjvhqg8loul9YksD8j+UfVdEzb1y3Gsnjm51+d3NxR38tBR/KgT+QXaC4KEjYWeRJhiUci96cSFloPjIfQIPRsglGcx/XxTX8yruxA6i1YR5msPKkPlRt94FbwkXud4MaZw/jKQBmJYtYc3P+p4GjLehoOdul3mEH0nNNSfgiezGQHFMB+wSPpapn3MxdMtTjruNmw8vDJVUz+Bp+LgUBVmdfRYwVgzHe0Z3dDN09DgOtqvDmvQwopc/jDkuykHaNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from BN7PR11MB2708.namprd11.prod.outlook.com (2603:10b6:406:a9::11)
+ by DS0PR11MB7577.namprd11.prod.outlook.com (2603:10b6:8:142::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.26; Thu, 26 Jun
+ 2025 06:51:34 +0000
+Received: from BN7PR11MB2708.namprd11.prod.outlook.com
+ ([fe80::6790:e12f:b391:837d]) by BN7PR11MB2708.namprd11.prod.outlook.com
+ ([fe80::6790:e12f:b391:837d%5]) with mapi id 15.20.8857.026; Thu, 26 Jun 2025
+ 06:51:34 +0000
+Message-ID: <b473517d-3a59-4554-9673-a49b9e3a84f7@intel.com>
+Date: Thu, 26 Jun 2025 09:51:28 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/7] arm64: dts: ti: k3-am68-sk: Enable DSI on
- DisplayPort-0
-To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>,
-        <devicetree@vger.kernel.org>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>
-References: <20250624082619.324851-1-j-choudhary@ti.com>
- <20250624082619.324851-8-j-choudhary@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH 1/3] mmc: sdhci_am654: Workaround for Errata i2312
+To: Judith Mendez <jm@ti.com>, Ulf Hansson <ulf.hansson@linaro.org>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>
+References: <20250624221230.1952291-1-jm@ti.com>
+ <20250624221230.1952291-2-jm@ti.com>
 Content-Language: en-US
-In-Reply-To: <20250624082619.324851-8-j-choudhary@ti.com>
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20250624221230.1952291-2-jm@ti.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ClientProxiedBy: LO4P123CA0521.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:272::22) To BN7PR11MB2708.namprd11.prod.outlook.com
+ (2603:10b6:406:a9::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PR11MB2708:EE_|DS0PR11MB7577:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3eb97752-88ba-4efa-11d6-08ddb47de33d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eForb3dCZEFaa2MwWWppZjR0OFRYUldVa01zT3BvK2tTUndqbGhReWZJMGVi?=
+ =?utf-8?B?OG5FcTFuM25uZkdwWDRDaWpjKy83ZGNaZFdCRUp6RVo2MVErL1FUcUcyMHh1?=
+ =?utf-8?B?dXJ5aUFGMDNPS3ZOdUQxZEFUTk1md1BTcjF4c25Xc1dzOEtNYTVGYkVlbXc2?=
+ =?utf-8?B?NFNNbEtNSVQ2dHFHNk03UjJ1cFFKRnhVL0hjeWxxclI5TWM5VjFCYjg2eWVE?=
+ =?utf-8?B?U1BDRUEzZ25saFRQVHlpN3NyM3ZIQ0JnZS91MlNtY2lXbFpzR0puLzlqY2lv?=
+ =?utf-8?B?VFdhTzdZUHBCaDlEQUFGNU9OdjBjV0xMMnQ1MEdQUk5nU3RXODVRMlRlTEZR?=
+ =?utf-8?B?amU3NVo0WFhEVmZsUTQ2L0xTZE45dGZwYnRzZFZhMFZLSXhMeVc3RDE4Z0hx?=
+ =?utf-8?B?b2dSQitiUlV5ejk4MnR5RUQvM2pSWEF5Q2lnYWwrbkVNSzNaS3pKaDBRaTE0?=
+ =?utf-8?B?QUptVjY3b1lBU2xWSloxanJ3SkkxRkplUzVwNEEvTy80L3RXSE44YU9NQ3Fh?=
+ =?utf-8?B?YXEybklTek40YWRnd2F2Q25wK0gvZUZkcEtqU3NyOGlJM25LMVFHQUdyZWtJ?=
+ =?utf-8?B?Q2ZCaWRhTnJhMWNpMXcyamxFWURkNEhJKzBQMW1XRlBXRHpsTVl4TW5HdnZr?=
+ =?utf-8?B?UGZGaGxBdWluSTRKaDJHSzN0bU1CVEoxSHhKMEdnNHJQVm9hL2FnK2JIdG8v?=
+ =?utf-8?B?WHMvN0ZoYmJRVU1hb1BBRWdhWGRibzMrUkNLbHJJUCtrbHVSWHE5QWFpYzgr?=
+ =?utf-8?B?YndSR2NLRHJkWTdpQUtHeVpaTkIzSUk1WThXbm1oTXF6M0pXWEI4TC9aMVFZ?=
+ =?utf-8?B?aW9RNlNKWHNmTFFrdG55VmVHRFN1bm5IOE52MzdnK25VNWVac3dtMmx4aDIz?=
+ =?utf-8?B?Mi9pd1dXWUsyNmROV29Lbm0wbjJxcTJTNlNRQS9mK3A5SmVVenlWUzMwMGJY?=
+ =?utf-8?B?MmlGQWZLUWN5ZVNLOHdsSFNsVGQ1UWlJRlZBckd6K0EzUmNtcmFmR2g3em9G?=
+ =?utf-8?B?MCtURDNtaEgyVFovQ2NXQzJvSHR5V2I4N3ZGZW1WaE5DQ3hjZEo1Q1FmaW4r?=
+ =?utf-8?B?MFZhVnV1dUxuMU9acTBPQ3YxRktNNGtNTUI2cmVpTDUvSlBHWWxhUnhXTFl2?=
+ =?utf-8?B?d2pETDFydnRwYUdDcUg3andId2NFOUlweEUyVWRCYVBZT2FuWWdadjVubmVX?=
+ =?utf-8?B?VUNDdHQ1Nk04Qzhib1RSYm9YTGdBbjNOcW5uZG4ram5hU1k2bXJmRCtVQUxv?=
+ =?utf-8?B?U3ZwU2dGZGw0djhhcGNnRm1aVTlaOFcxY0hkQURBb0pHSm1HcXJSQi9rTnZE?=
+ =?utf-8?B?c09QVHB0ZzJzakNicTluMkdYL25kcjIyRWc1QmNRYTNlNzk0bUFFaWxxeG1T?=
+ =?utf-8?B?dDhSVFRVUGZZT3l6enByT3N0VjZFaXM3ZHVyQ1pDRkE4Q1QrQ2xYZzRXYVBC?=
+ =?utf-8?B?UmZ1WjcvVS94b29vTW1xVmN4RmIvTTQ3c1F4RTI3QVI5dDdWNXNUbjY5UEJs?=
+ =?utf-8?B?dGp1MFRnb1ZzaVl4Qnp3dk1NUUhrcWJFOENlRnk1S3B6SFJNcEtsQm91STZZ?=
+ =?utf-8?B?ZmVsTVV0VU42bDNzOEsxcjJXNEhocy9jVW1JaDQxZW9wM2J0NVRXSHg0T2JQ?=
+ =?utf-8?B?a0dPcmozWnloUXJPV3JwSTdtTG5TQzNYZ0xDWk1LdEVGVlhRQ0xvTHFWTW1O?=
+ =?utf-8?B?N0cwYTZCTVFvU3RoYWtTZnk0MktUV0h6MFBHblVTNGNyc1FFcnp5akpOcm0r?=
+ =?utf-8?B?SEZ5cTBvYUloV1JZY3E5ckFBVzkyN2dsNWJoY0tOc2M5YnQ4TThJOExSNWZa?=
+ =?utf-8?B?OFdJd08veDVGWUQ4S0lIbU1JY3ptekZ0blVwVjY3bE5IVzNtYnplVEx6eXNx?=
+ =?utf-8?B?QWpQYnMzY2pua0k4S3lKR20vNThMTWxOUHhiemZ3S2Y3RmU2T09pKzV2NnJ0?=
+ =?utf-8?Q?NBZqxDlSFEI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN7PR11MB2708.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGFkUklVc25YSGRnL1FHNmErMC8rTVFPOHphVEJMeGZFNVJvdFdmWmxyTGhw?=
+ =?utf-8?B?aWtYK0tVcFhXakROOUQ1SHYrWXpmTDlpTFVFRk1OSDI4Z2tFemd3Z0VXR1Nu?=
+ =?utf-8?B?c1ZnSzMzNWZ2YW00SkRGbFNleUNlUmp1YnZwQnFDUUpxcFF6NjRhazVFc0Jw?=
+ =?utf-8?B?Sm5YQU53bHhoeXdqSmxXeU1HMkJVa2VhMmZFMWJTbEZzQ1BQMHZ1TVlxR2lT?=
+ =?utf-8?B?cW0xL2NjRFVHV3JBNW1qUHVpTXBpWllpYlhZcDF3bWJHeEFIdVZPK0lsd1M5?=
+ =?utf-8?B?ekxWSW9qVXFZRWtQUHdsNWd5M3ZtTWNLTndRMk5Nb1M5ZGtXTHd0TzRvd2F3?=
+ =?utf-8?B?SDh1bXdlQTVYVk82SlowMUJURzBHYnpsZURzb3dMWVVEV3ZXaHZXaXNKTUJs?=
+ =?utf-8?B?VW1BZjlYN2NNQVZPaFFXanpFamhiVUVmTHBVRWRyK28zTUJxampUUktPRWly?=
+ =?utf-8?B?bVd4M0xBUFg0NTBSdkF0RFhRVUQ5cW1GY0IxNGhaaEduSkVsbkJKN1RobVBo?=
+ =?utf-8?B?OTdUVjc4SzdGREk3M1JoRyt1aEk4aDE3L2NZQUhWQUZrVTNCeDVtcERnS2NC?=
+ =?utf-8?B?RGdkZC9uVHZJZHNmWmxjTVhDeEJWK2FnVysxL2ROd2tuK1BiN1J5VlppZ21Y?=
+ =?utf-8?B?ZDVVS1FNakViSUJwMTN2ZVRhUWZrSHlTUlcrdkdxMGY2SXNDVWw4K3o5R0I1?=
+ =?utf-8?B?SEM4T0k0RnBYRUpxbnA0UklpQmFEYmlhbHI5VzNnaEtZZmxJTEYwL1hxdG5m?=
+ =?utf-8?B?dCs4NThBZU81TG9Oc0ZNMk9RSnpKdFRlSFM0WmQzWmh3MzVGYWF2Z0twc1JQ?=
+ =?utf-8?B?Nk0xcFNaRXZCNFNENFhpVEw0K3NWMUIzMklUNkU0emRYdDh5MlJqNHFJdkpx?=
+ =?utf-8?B?K0xYOXhrNkdQRnF2RDJVQy9oaEUxUmgrYVpnS0dmSFhtSEtlc1k1VHYrQUl0?=
+ =?utf-8?B?QXJHRkd3SEpDQkROM01VeFFpUGJ4Vzl6TmZNbURCSlVaV1NmRXhwTi9kMUR2?=
+ =?utf-8?B?SmlQWTNCbGNCVm82RzJYMzczbjh1bXVZcW80c0lhdlFjV25TbzFBSnhIRzgy?=
+ =?utf-8?B?M0ZGUTEvdFJCQUFpSVB0RDVuL3pIaGRwQ3dCZTY2QjlHNTdYL2NsM3FsVTdX?=
+ =?utf-8?B?UGxNcEtyNkRBMjVaTG40dHd5c2pmTW83NlVHMkUrMEIvSm5pRmh3MnFBZmFP?=
+ =?utf-8?B?RnlvQ0R6YWNLQXZ1TTVIdXUwTDI1TFp5akpQQTJhS2s0bjQvSE8rZnRYdTAx?=
+ =?utf-8?B?UElIdk1hS2hDRWFCMXlyQnptS2Exdi84MzQ5SUVOQUF6SXA1S2dzSDFSclNr?=
+ =?utf-8?B?SE5namVlcy82dWJnU3dwMmlkSC9Pbms0SmpBSitNT3JlQlIybGQvcEY5enl0?=
+ =?utf-8?B?V3Rma2tNcHMyM2M5Q2pjeVlTK1hQYUg4cW1ucE4zQ05ENkl0SUx4dzVETXdK?=
+ =?utf-8?B?VmxSb3dmQWx1SjVmZzJ3T2k2S0k1MUV4RHQ3N3RGMkc1aGlSVzFHb3d5K05S?=
+ =?utf-8?B?NEZESFF1Myt4cTRBbzRBOGpVNGpvZCtXMXU3Q2dqaTFUM0V1VExqemJxT3BX?=
+ =?utf-8?B?d3lpWldrRFVESitPWmZsNTBmT1ZIWjhUZy9MWWMrbVRWdGx1YVNBenFHZVZV?=
+ =?utf-8?B?bnB0SFJaMFNFbXJyUTVvTkJMNnlXc0dqT2UxWURPNm81TzlDL2JlMlhTdHcz?=
+ =?utf-8?B?R0lFV0NnbllkcFNNcDBIVmY5WXBhMWRkUHdCWTUzd0h5VDIrNHZOd0o1SHly?=
+ =?utf-8?B?dnN0dDI5VVdKN1p1THZRMXVjR3dhN01mVTJZd01VdnA4S3drak8vMEJxNFZs?=
+ =?utf-8?B?dk0vR1VpbGZKRFBWbkVTTFBTMkcxK2lxSkVMS2FVNXlaTWZydFhBOW5CTE1I?=
+ =?utf-8?B?VDdaQ2ZkczYrRUs5RUhEVkhkWmtENi9RNTVLYktXVjFzOTg0bGNSMHN2ZmVL?=
+ =?utf-8?B?S2tJNGRqRUlFb2tYUDZ5SnpCVCtsSE42ZmpzckhNd21ycUNCa2xoN3hyaE1w?=
+ =?utf-8?B?WGI3Nk1wNlR0RStUSXgvOUg4QVJhV2I4Sm5Rdm55bXRUMmVlWDRxOTI4WDE0?=
+ =?utf-8?B?OXlEdTZ1Y29OMFJ5eXE5cXdGNXNTbXB6cXozUS9LZ2VQUDRxOVNLbEFBVjB6?=
+ =?utf-8?B?RW1PMzZRdE1qdzNyUGVtRHNwTWZ6QTdsN2g2ejVzR0RjK2EvMGNnd0tJNkk2?=
+ =?utf-8?B?V3c9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3eb97752-88ba-4efa-11d6-08ddb47de33d
+X-MS-Exchange-CrossTenant-AuthSource: BN7PR11MB2708.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 06:51:33.9938
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RjjZvUrlFrWegv9FiRz6JSUvwuriaW2KISwsgX0+y6Yp2VnGMuW4N1lMYDeYsFmCP6oxlUpTtiaFdtuTps0z2g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7577
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_233416_950762_9F80C455 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250625_235207_814544_E1144A2B 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,156 +218,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25/06/2025 01:12, Judith Mendez wrote:
+> Errata i2312 [0] for K3 silicon mentions the maximum obtainable
+> timeout through MMC host controller is 700ms. And for commands taking
+> longer than 700ms, hardware timeout should be disabled and software
+> timeout should be used.
+> 
+> The workaround for Errata i2312 can be achieved by adding
+> SDHCI_QUIRK2_DISABLE_HW_TIMEOUT quirk in sdhci_am654.
+> 
+> [0] https://www.ti.com/lit/pdf/sprz487
+> 
+> Signed-off-by: Judith Mendez <jm@ti.com>
 
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 
-On 24/06/25 13:56, Jayesh Choudhary wrote:
-> Enable DSI support for AM68-SK platform.
-> 
-> Add DT node for DSI2eDP bridge. The DSI to eDP bridge is sn65dsi86
-> on the board.
-> 
-> Add the endpoint nodes to describe connection from:
-> DSS => DSI => SN65DSI86 bridge => DisplayPort-0
-> 
-> Set status for all required nodes for DisplayPort-0 as 'okay'.
-> 
-> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 > ---
->  .../boot/dts/ti/k3-am68-sk-base-board.dts     | 96 +++++++++++++++++++
->  1 file changed, 96 insertions(+)
+>  drivers/mmc/host/sdhci_am654.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> index 5fa70a874d7b..aef63ae2994c 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> @@ -135,6 +135,35 @@ transceiver4: can-phy3 {
->  		max-bitrate = <5000000>;
->  	};
->  
-> +	edp0_refclk: clock-edp0-refclk {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <19200000>;
-> +	};
-> +
-> +	dp0_pwr_3v3: fixedregulator-dp0-pwr {
-
-use std node name: regulator-...
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "dp0-pwr";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		gpio = <&exp2 2 GPIO_ACTIVE_HIGH>;     /*P0 - DP0_3V3 _EN */
-> +		enable-active-high;
-> +		regulator-always-on;
-> +	};
-> +
-> +	dp0: dp0-connector {
-> +		compatible = "dp-connector";
-> +		label = "DP0";
-> +		type = "full-size";
-> +		dp-pwr-supply = <&dp0_pwr_3v3>;
-> +
-> +		port {
-> +			dp0_connector_in: endpoint {
-> +				remote-endpoint = <&dp0_out>;
-> +			};
-> +		};
-> +	};
-> +
->  	connector-hdmi {
->  		compatible = "hdmi-connector";
->  		label = "hdmi";
-> @@ -605,6 +634,39 @@ exp2: gpio@20 {
->  		gpio-line-names = "HDMI_PDn","HDMI_LS_OE",
->  				  "DP0_3V3_EN","eDP_ENABLE";
->  	};
-> +
-> +	dsi_edp_bridge: dsi-edp-bridge@2c {
-> +		compatible = "ti,sn65dsi86";
-> +		reg = <0x2c>;
-> +		clock-names = "refclk";
-> +		clocks = <&edp0_refclk>;
-> +		enable-gpios = <&exp2 3 GPIO_ACTIVE_HIGH>;
-> +		vpll-supply = <&vsys_io_1v8>;
-> +		vccio-supply = <&vsys_io_1v8>;
-> +		vcca-supply = <&vsys_io_1v2>;
-> +		vcc-supply = <&vsys_io_1v2>;
-> +
-> +		dsi_edp_bridge_ports: ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +
-> +				dp0_in: endpoint {
-> +					remote-endpoint = <&dsi0_out>;
-> +				};
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +
-> +				dp0_out: endpoint {
-> +					remote-endpoint = <&dp0_connector_in>;
-> +				};
-> +			};
-> +		};
-> +	};
+> diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
+> index ea14d56558c4..86d87d8e0675 100644
+> --- a/drivers/mmc/host/sdhci_am654.c
+> +++ b/drivers/mmc/host/sdhci_am654.c
+> @@ -613,7 +613,8 @@ static const struct sdhci_ops sdhci_am654_ops = {
+>  static const struct sdhci_pltfm_data sdhci_am654_pdata = {
+>  	.ops = &sdhci_am654_ops,
+>  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
+> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
 >  };
 >  
->  &main_sdhci1 {
-> @@ -699,6 +761,15 @@ dpi_out0: endpoint {
->  			remote-endpoint = <&tfp410_in>;
->  		};
->  	};
-> +
-> +	/* DSI */
-> +	port@2 {
-> +		reg = <2>;
-> +
-> +		dpi0_out: endpoint {
-> +			remote-endpoint = <&dsi0_in>;
-> +		};
-> +	};
+>  static const struct sdhci_am654_driver_data sdhci_am654_sr1_drvdata = {
+> @@ -643,7 +644,8 @@ static const struct sdhci_ops sdhci_j721e_8bit_ops = {
+>  static const struct sdhci_pltfm_data sdhci_j721e_8bit_pdata = {
+>  	.ops = &sdhci_j721e_8bit_ops,
+>  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
+> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
 >  };
 >  
->  &serdes_ln_ctrl {
-> @@ -756,3 +827,28 @@ &usb0 {
->  	phys = <&serdes0_usb_link>;
->  	phy-names = "cdns3,usb3-phy";
+>  static const struct sdhci_am654_driver_data sdhci_j721e_8bit_drvdata = {
+> @@ -667,7 +669,8 @@ static const struct sdhci_ops sdhci_j721e_4bit_ops = {
+>  static const struct sdhci_pltfm_data sdhci_j721e_4bit_pdata = {
+>  	.ops = &sdhci_j721e_4bit_ops,
+>  	.quirks = SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+> -	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
+> +		   SDHCI_QUIRK2_DISABLE_HW_TIMEOUT,
 >  };
-> +
-> +&dphy_tx0 {
-> +	status = "okay";
-> +};
-> +
-> +&dsi0 {
-> +	status = "okay";
-> +};
-> +
-> +&dsi0_ports {
-> +
-> +	port@0 {
-> +		reg = <0>;
-> +		dsi0_out: endpoint {
-> +			remote-endpoint = <&dp0_in>;
-> +		};
-> +	};
-> +
-> +	port@1 {
-> +		reg = <1>;
-> +		dsi0_in: endpoint {
-> +			remote-endpoint = <&dpi0_out>;
-> +		};
-> +	};
-> +};
-
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+>  
+>  static const struct sdhci_am654_driver_data sdhci_j721e_4bit_drvdata = {
 
 
