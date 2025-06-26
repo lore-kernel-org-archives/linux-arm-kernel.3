@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4D9C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D614AC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PL2qDWi3pt7sgP22kM6CYykFBDUpgVDZeges0uU0BWA=; b=GOq02ZeYAlgpjLRRSBqr0e5k4Q
-	Qdm7o0b1YhqgLE9iu7dDKxsA/xie8cyqIA0tl1LHswZ/SNYQ/Q9AF3ptxGRjmd50NcQhbkilwgWw7
-	DPvnL3XUjvRnkqLxDVUAI/SnHSZ9dp2MsHwgNA6RPA2r1jJeqPOnaW+IMg4bxijeaFeg5TR5V45/C
-	JBfK7OVMkQxXmqF70IVHYKrBzXdZDtAYbhrbcuIWGU4MX6OgJneiXg1JWEiIuQKbKM50XJ8NGakLm
-	7n94vgtyYnGNpzO3TT4IAB7f7vePHaArDOIvcvVn/ssJNVgTt4/AeCUd5Ux4LcUDcJrj+Fdk2RodW
-	MLWW4xyA==;
+	bh=lX+GL/mG9RSpXIbAIV8/nBgAmDvnZs8ggahXv/ElRgQ=; b=p92zXUKhMapJXU1bakrdTBeafP
+	H0Q2ypQunAQdAEIWNQNOsOhZY/QkOhfIatelT7WSJPoZssZL01+cS9PSXqGaFnqHp1uUtSri/QE53
+	qXwqMGpKykrQuQg/oBWRNv6RRxYmCr77dUABRMQu5BDoHK9BB5VLZAGZxFtfOkjFU+U8kdsjiDuVV
+	sA84TxcKoXEo+xsQNzie25mLMzWRTJ7qf8mSxBH7GVQb/hNC6twe+tK3dLMNTLHLccdH5mXEaQY2W
+	+7f3VQf3vjWCfN9XdjaRSJwEbTYYZOrczZUzrWJjHH4bBlwalICPw14mrbSz5Gi8d2AEjZMfdrn7q
+	EU5KcWSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUoFB-0000000C45U-3PZ7;
-	Thu, 26 Jun 2025 15:10:29 +0000
+	id 1uUoHZ-0000000C4Xm-1d1i;
+	Thu, 26 Jun 2025 15:12:57 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnuA-0000000BzZR-0EAu;
-	Thu, 26 Jun 2025 14:48:47 +0000
+	id 1uUnuB-0000000Bza0-1Gre;
+	Thu, 26 Jun 2025 14:48:48 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949324;
+	s=2020; t=1750949326;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PL2qDWi3pt7sgP22kM6CYykFBDUpgVDZeges0uU0BWA=;
-	b=z/Jr2XO7BH0ySGAekOpV+Cf8qRhZAAawlGtbgTrrAiEou5jG0DZxpORVM92PSY3nSA2x7X
-	5qjS/Z/Az1R9A34yKlykCxNry/5U+biU6CCaE7z6d2Qa/t4/8XGRa5RYqd1pVnZzg7FJ38
-	En1TcwCIyakV1bTvGQw1CPdrAAX13vBRWMqPWlnLwMtqh6kgzAytcz9IvMODN7YgF5LTuq
-	gneWVOXk9FFUakQzpksCsCCHwXypevrIhJekA7pkTLS8XfHHZUTQTXNvcQbAbKfeD0pnLR
-	iDVOkIUngpMqjq99TyDMfB/Acc564mfiEWOK/274ghetLyXEMN8Q7LC4HcYeIg==
+	bh=lX+GL/mG9RSpXIbAIV8/nBgAmDvnZs8ggahXv/ElRgQ=;
+	b=OoYu8rv3JfM135IJX00YiZmy+0T1/QCYkjEqLxh4mhHsarXg6mIPDN1V/OQHzMcKpB+259
+	x6q5xQN7Xw5q0zQx9vPXpsc5QBAFBpyFSOxqsPROsHUb+tbE9I8AT/uN3DVQreli3DR1vm
+	WuMAlP6l4gf7c5nibi01KTyw7uJLo701yqQq2uODvmMRFE4bHQdfXDlYs1ppAlBe0T7BlV
+	aysnK516amS8t5ysVUH78LghGHDVptfGYHX487F41N8Giece8B2Xd5TqNwROXFQlISRy3U
+	ujJEwPk0GudVi40OwWjp5qlvt4Qn68SpbkREKsAqyJWJNjYy2ZTRTSKNnSGAWw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949324;
+	s=2020e; t=1750949326;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PL2qDWi3pt7sgP22kM6CYykFBDUpgVDZeges0uU0BWA=;
-	b=vAY4S6QhgCs+vVJiGpYBNhIKc1zpRX32BQp9RA/DpPxZ5vdCkp90MV7E+IwFf8eTkSsO5K
-	yKOfwPjryMkQQhAQ==
+	bh=lX+GL/mG9RSpXIbAIV8/nBgAmDvnZs8ggahXv/ElRgQ=;
+	b=qNEyVvI5FJd2MbE/+B7tQBrMp8qdz/32D0lZZbva4a0DiqZ6geSfBbVB3Tek06KFTV8G1o
+	omudrJp7AAjPUwDQ==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -87,17 +87,19 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 08/16] PCI: mediatek: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:47:58 +0200
-Message-Id: <76f6e6ce6021607cd0fdfd79fef7d2eb69d9f361.1750858083.git.namcao@linutronix.de>
+Cc: Nam Cao <namcao@linutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>
+Subject: [PATCH 09/16] PCI: rcar-host: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:47:59 +0200
+Message-Id: <ab4005db0a829549be1f348f6c27be50a2118b5e.1750858083.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
 References: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074846_231150_CC9CC545 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250626_074847_493936_EC212E22 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,132 +119,140 @@ msi_create_parent_irq_domain().
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
-Cc: Ryder Lee <ryder.lee@mediatek.com>
-Cc: Jianjun Wang <jianjun.wang@mediatek.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@gmail.com>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org
 ---
- drivers/pci/controller/Kconfig         |  1 +
- drivers/pci/controller/pcie-mediatek.c | 46 ++++++++++++--------------
- 2 files changed, 23 insertions(+), 24 deletions(-)
+ drivers/pci/controller/Kconfig          |  1 +
+ drivers/pci/controller/pcie-rcar-host.c | 69 +++++++++----------------
+ 2 files changed, 26 insertions(+), 44 deletions(-)
 
 diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index ec32c343a751d..65289a171333c 100644
+index 65289a171333c..8b9492e9ae693 100644
 --- a/drivers/pci/controller/Kconfig
 +++ b/drivers/pci/controller/Kconfig
-@@ -195,6 +195,7 @@ config PCIE_MEDIATEK
- 	depends on ARCH_AIROHA || ARCH_MEDIATEK || COMPILE_TEST
- 	depends on OF
+@@ -243,6 +243,7 @@ config PCIE_RCAR_HOST
+ 	bool "Renesas R-Car PCIe controller (host mode)"
+ 	depends on ARCH_RENESAS || COMPILE_TEST
  	depends on PCI_MSI
 +	select IRQ_MSI_LIB
  	help
- 	  Say Y here if you want to enable PCIe controller support on
- 	  MediaTek SoCs.
-diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controlle=
-r/pcie-mediatek.c
-index e1934aa06c8d5..3ac5d14dd543e 100644
---- a/drivers/pci/controller/pcie-mediatek.c
-+++ b/drivers/pci/controller/pcie-mediatek.c
-@@ -12,6 +12,7 @@
- #include <linux/iopoll.h>
+ 	  Say Y here if you want PCIe controller support on R-Car SoCs in host
+ 	  mode.
+diff --git a/drivers/pci/controller/pcie-rcar-host.c b/drivers/pci/controll=
+er/pcie-rcar-host.c
+index c32b803a47c7c..ad2bda635d47f 100644
+--- a/drivers/pci/controller/pcie-rcar-host.c
++++ b/drivers/pci/controller/pcie-rcar-host.c
+@@ -17,6 +17,7 @@
+ #include <linux/delay.h>
+ #include <linux/interrupt.h>
  #include <linux/irq.h>
- #include <linux/irqchip/chained_irq.h>
 +#include <linux/irqchip/irq-msi-lib.h>
  #include <linux/irqdomain.h>
  #include <linux/kernel.h>
- #include <linux/mfd/syscon.h>
-@@ -180,7 +181,6 @@ struct mtk_pcie_soc {
-  * @irq: GIC irq
-  * @irq_domain: legacy INTx IRQ domain
-  * @inner_domain: inner IRQ domain
-- * @msi_domain: MSI IRQ domain
-  * @lock: protect the msi_irq_in_use bitmap
-  * @msi_irq_in_use: bit map for assigned MSI IRQ
-  */
-@@ -200,7 +200,6 @@ struct mtk_pcie_port {
- 	int irq;
- 	struct irq_domain *irq_domain;
- 	struct irq_domain *inner_domain;
--	struct irq_domain *msi_domain;
- 	struct mutex lock;
- 	DECLARE_BITMAP(msi_irq_in_use, MTK_MSI_IRQS_NUM);
- };
-@@ -470,17 +469,20 @@ static const struct irq_domain_ops msi_domain_ops =3D=
- {
- 	.free	=3D mtk_pcie_irq_domain_free,
- };
+ #include <linux/init.h>
+@@ -597,30 +598,6 @@ static irqreturn_t rcar_pcie_msi_irq(int irq, void *da=
+ta)
+ 	return IRQ_HANDLED;
+ }
 =20
--static struct irq_chip mtk_msi_irq_chip =3D {
--	.name		=3D "MTK PCIe MSI",
--	.irq_ack	=3D irq_chip_ack_parent,
--	.irq_mask	=3D pci_msi_mask_irq,
--	.irq_unmask	=3D pci_msi_unmask_irq,
+-static void rcar_msi_top_irq_ack(struct irq_data *d)
+-{
+-	irq_chip_ack_parent(d);
+-}
+-
+-static void rcar_msi_top_irq_mask(struct irq_data *d)
+-{
+-	pci_msi_mask_irq(d);
+-	irq_chip_mask_parent(d);
+-}
+-
+-static void rcar_msi_top_irq_unmask(struct irq_data *d)
+-{
+-	pci_msi_unmask_irq(d);
+-	irq_chip_unmask_parent(d);
+-}
+-
+-static struct irq_chip rcar_msi_top_chip =3D {
+-	.name		=3D "PCIe MSI",
+-	.irq_ack	=3D rcar_msi_top_irq_ack,
+-	.irq_mask	=3D rcar_msi_top_irq_mask,
+-	.irq_unmask	=3D rcar_msi_top_irq_unmask,
 -};
-+#define MTK_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
-+				MSI_FLAG_USE_DEF_CHIP_OPS	| \
-+				MSI_FLAG_NO_AFFINITY)
-+
-+#define MTK_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK		| \
-+				 MSI_FLAG_PCI_MSIX)
+-
+ static void rcar_msi_irq_ack(struct irq_data *d)
+ {
+ 	struct rcar_msi *msi =3D irq_data_get_irq_chip_data(d);
+@@ -718,30 +695,37 @@ static const struct irq_domain_ops rcar_msi_domain_op=
+s =3D {
+ 	.free	=3D rcar_msi_domain_free,
+ };
 =20
--static struct msi_domain_info mtk_msi_domain_info =3D {
+-static struct msi_domain_info rcar_msi_info =3D {
 -	.flags	=3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		  MSI_FLAG_NO_AFFINITY | MSI_FLAG_PCI_MSIX,
--	.chip	=3D &mtk_msi_irq_chip,
-+static const struct msi_parent_ops mtk_msi_parent_ops =3D {
-+	.required_flags		=3D MTK_MSI_FLAGS_REQUIRED,
-+	.supported_flags	=3D MTK_MSI_FLAGS_SUPPORTED,
+-		  MSI_FLAG_NO_AFFINITY | MSI_FLAG_MULTI_PCI_MSI,
+-	.chip	=3D &rcar_msi_top_chip,
++#define RCAR_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
++				 MSI_FLAG_USE_DEF_CHIP_OPS	| \
++				 MSI_FLAG_PCI_MSI_MASK_PARENT	| \
++				 MSI_FLAG_NO_AFFINITY)
++
++#define RCAR_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK	| \
++				  MSI_FLAG_MULTI_PCI_MSI)
++
++static const struct msi_parent_ops rcar_msi_parent_ops =3D {
++	.required_flags		=3D RCAR_MSI_FLAGS_REQUIRED,
++	.supported_flags	=3D RCAR_MSI_FLAGS_SUPPORTED,
 +	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
 +	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
-+	.prefix			=3D "MTK-",
++	.prefix			=3D "RCAR-",
 +	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
  };
 =20
- static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
-@@ -489,21 +491,19 @@ static int mtk_pcie_allocate_msi_domains(struct mtk_p=
-cie_port *port)
-=20
- 	mutex_init(&port->lock);
-=20
--	port->inner_domain =3D irq_domain_create_linear(fwnode, MTK_MSI_IRQS_NUM,
--						      &msi_domain_ops, port);
+ static int rcar_allocate_domains(struct rcar_msi *msi)
+ {
+ 	struct rcar_pcie *pcie =3D &msi_to_host(msi)->pcie;
+ 	struct fwnode_handle *fwnode =3D dev_fwnode(pcie->dev);
+-	struct irq_domain *parent;
+-
+-	parent =3D irq_domain_create_linear(fwnode, INT_PCI_MSI_NR,
+-					  &rcar_msi_domain_ops, msi);
+-	if (!parent) {
+-		dev_err(pcie->dev, "failed to create IRQ domain\n");
+-		return -ENOMEM;
+-	}
+-	irq_domain_update_bus_token(parent, DOMAIN_BUS_NEXUS);
+-
+-	msi->domain =3D pci_msi_create_irq_domain(fwnode, &rcar_msi_info, parent);
 +	struct irq_domain_info info =3D {
 +		.fwnode		=3D fwnode,
-+		.ops		=3D &msi_domain_ops,
-+		.host_data	=3D port,
-+		.size		=3D MTK_MSI_IRQS_NUM,
++		.ops		=3D &rcar_msi_domain_ops,
++		.host_data	=3D msi,
++		.size		=3D INT_PCI_MSI_NR,
 +	};
 +
-+	port->inner_domain =3D msi_create_parent_irq_domain(&info, &mtk_msi_paren=
-t_ops);
- 	if (!port->inner_domain) {
- 		dev_err(port->pcie->dev, "failed to create IRQ domain\n");
++	msi->domain =3D msi_create_parent_irq_domain(&info, &rcar_msi_parent_ops);
+ 	if (!msi->domain) {
+-		dev_err(pcie->dev, "failed to create MSI domain\n");
+-		irq_domain_remove(parent);
++		dev_err(pcie->dev, "failed to create IRQ domain\n");
  		return -ENOMEM;
  	}
 =20
--	port->msi_domain =3D pci_msi_create_irq_domain(fwnode, &mtk_msi_domain_in=
-fo,
--						     port->inner_domain);
--	if (!port->msi_domain) {
--		dev_err(port->pcie->dev, "failed to create MSI domain\n");
--		irq_domain_remove(port->inner_domain);
--		return -ENOMEM;
--	}
+@@ -750,10 +734,7 @@ static int rcar_allocate_domains(struct rcar_msi *msi)
+=20
+ static void rcar_free_domains(struct rcar_msi *msi)
+ {
+-	struct irq_domain *parent =3D msi->domain->parent;
 -
- 	return 0;
+ 	irq_domain_remove(msi->domain);
+-	irq_domain_remove(parent);
  }
 =20
-@@ -532,8 +532,6 @@ static void mtk_pcie_irq_teardown(struct mtk_pcie *pcie)
- 			irq_domain_remove(port->irq_domain);
-=20
- 		if (IS_ENABLED(CONFIG_PCI_MSI)) {
--			if (port->msi_domain)
--				irq_domain_remove(port->msi_domain);
- 			if (port->inner_domain)
- 				irq_domain_remove(port->inner_domain);
- 		}
+ static int rcar_pcie_enable_msi(struct rcar_pcie_host *host)
 --=20
 2.39.5
 
