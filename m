@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B25C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 17:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3275EC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 18:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efayX2kB19e/5fOKxvWIg5Uzbqjfs8VRJ75B0fwk9Gc=; b=euSBjtihLjMGOVQqtfW6ZD3sAl
-	M8um80n747uRhXVeeDlZ26npQLaI0L4mGiaSJcVVfTF09VFoj/xQu4moRNLbEL9ZyL+1W7NAmx9+G
-	wHyoWT6FNQdS+Bw2RHfgVoVwlUt/jr6er7hlPL7En9nZZUCboOHmb8GmIIJW0NUp81aaJ8JN1lveC
-	rcwajMfAJcWVhqKcwlp9Ayfo/b5i6vtkrRyx/o7z6aCPTh2/FrCOuEPWM+MvTAe3ZE0x9QwKFKpQQ
-	5tRMjjc99TQbZ+DykzhgMHfvwpSUEGBVR9ySWxwtQRZ4UWoB44YPNSjBlpoSuRqt2IGlqWW+/+Nxf
-	qq1z3Vgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iwWYLVWIQhsieK1q3dXMnApygXnCasOaR3eXeKwwLbg=; b=KpnY49cRqTDd/HFORjWcTemCCZ
+	3la4n9MuoMAgFMwDDFQD4iQI4duOohdmvVXVJXj2Pq3X9E0BQOtQfp6JG2+/FBOOKvbOvqTQUYtn5
+	tmqZGj3nUS2Ac64wHSQ7EyZ0C+pCIT9XhIlm6olNuxlS53DAHe40sTS+EeKsi39XDCSYdUriV9UbD
+	NLdWS1nKwjFXyOgdtMpLNbFBMxOPwn2qgKLbmJhRgbTlce3KtTdyZLP/dvpBA/B56NQzm0mpUk5Zf
+	z9k0tyyNT6TWX37YJ4bm/IaIZuykhm3Ijd6BNQDiE29kIcSncoHWKwf1zTA2Xt3yDxwRoROY7cVHr
+	UgdNS4sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUqnP-0000000CPR1-2sdL;
-	Thu, 26 Jun 2025 17:53:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uUrEI-0000000CRp1-0j2S;
+	Thu, 26 Jun 2025 18:21:46 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnv1-0000000C00z-443R;
-	Thu, 26 Jun 2025 14:49:41 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949378;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=efayX2kB19e/5fOKxvWIg5Uzbqjfs8VRJ75B0fwk9Gc=;
-	b=CMq1Gxr5Pm9ZIdl+tCHNTj5Y8eDMa6aOMVaWCiah6HMWHVkoqypyaI4kBj2TVhLyHSJZJ8
-	rKbbdzqWUe7rZAp/7qUj+Jv/rLXVqIlsbVD6O6fHnDVWdnkzaHTSXkHx0HptmbhvX+UrSY
-	Eo4QmPYp0rwnRTMNenqkwXydEI2sAZIX6Jpn9BPXlgrQ9I/dY55qI/JI20zV9LYbDM/GPS
-	tYhU5DmSC0blfhgyHAnJ5ZqIHdkkSsRtVxOTf1tilTSj5RD9uvTWZJqTJifnR8tB/uyNPw
-	oSljTW5mHY1cR5EhI2gPmp5rSyGOMKpnSnlAfCuN2CxIN02tVhPHMsfhEXv0qg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949378;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=efayX2kB19e/5fOKxvWIg5Uzbqjfs8VRJ75B0fwk9Gc=;
-	b=VrtZi3tDzFyI/vKrmM8P7d4h4FoLDKNKc8U1MNdg/bMGAjgPWvWTnKevlK7Ag39wgLEQGj
-	lCAnFdnQjLWGZNBA==
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Antoine Tenart <atenart@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 10/12] irqchip/alpine-msi: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:49:07 +0200
-Message-Id: <ec08fea004e7c3aa18c3f5657a8cafeb1adfcc1d.1750860131.git.namcao@linutronix.de>
-In-Reply-To: <cover.1750860131.git.namcao@linutronix.de>
-References: <cover.1750860131.git.namcao@linutronix.de>
+	id 1uUrC0-0000000CRXr-1YFo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 18:19:26 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55QFGTks002802;
+	Thu, 26 Jun 2025 20:19:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	iwWYLVWIQhsieK1q3dXMnApygXnCasOaR3eXeKwwLbg=; b=EFxqX0paIInigNMC
+	Lult3CNQIgGNpz/CMYXvaf4nWki/zJeuf09OhvRyA7NgA6dfMGw/MCjzEBzNyZNd
+	K34MexBZqrODKVW8MyLhwqPRdz4zhf+nFqBsfQmBAjq3XdjoeBvCKScPsJNDw1MN
+	6Qj1wycRm2Yk7HchrzyVH5tmQ/j82bgILGKpYssIHRsS7FPOmz3Cb9/rm6fing8H
+	1MBgkbEalSNy5CR3eFUFZDEQWCNKwNkivxMFD7tf9/Zb4QB4kuB5cY1bJyv8OA3v
+	rxL7v21giBEqNuhFMmsWewZw04JqJo3a+LEOqNaOi2dskq9/gjgsPf7joT5Efy6V
+	L+BRsg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47e7ppn922-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Jun 2025 20:19:05 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F24B640059;
+	Thu, 26 Jun 2025 20:18:02 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0A408BAE270;
+	Thu, 26 Jun 2025 20:15:43 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 26 Jun
+ 2025 20:15:42 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>
+CC: <linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>
+Subject: [PATCH 1/2] pinctrl: Add pinctrl_pm_select_init_state helper function
+Date: Thu, 26 Jun 2025 20:15:36 +0200
+Message-ID: <20250626181537.1872159-2-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250626181537.1872159-1-christian.bruel@foss.st.com>
+References: <20250626181537.1872159-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-26_06,2025-06-26_05,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074940_151654_2B1AC1BB 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250626_111924_893021_879ECCC0 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,162 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+If a platform requires an initial state during probing, this helper function
+provides the client with access to the same initial state used to balance
+from a pinctrl_pm_select_sleep_state .
+eg:
 
-Move away from the legacy MSI domain setup, switch to use
-msi_create_parent_irq_domain().
+ xxx_suspend_noirq
+    pinctrl_pm_select_sleep_state
 
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
+ xxx resume_noirq
+    pinctrl_pm_select_init_state
+    ...
+    pinctrl_pm_select_default_state
+
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
-Cc: Antoine Tenart <atenart@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/irqchip/Kconfig          |  1 +
- drivers/irqchip/irq-alpine-msi.c | 69 +++++++++++++-------------------
- 2 files changed, 28 insertions(+), 42 deletions(-)
+ drivers/pinctrl/core.c           | 13 +++++++++++++
+ include/linux/pinctrl/consumer.h | 10 ++++++++++
+ 2 files changed, 23 insertions(+)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 0d196e4471426..dbdb988e4f7e0 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -85,6 +85,7 @@ config ALPINE_MSI
- 	bool
- 	depends on PCI
- 	select PCI_MSI
-+	select IRQ_MSI_LIB
- 	select GENERIC_IRQ_CHIP
-=20
- config AL_FIC
-diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpine-=
-msi.c
-index 43d6db290138a..159d9ec7c0ddc 100644
---- a/drivers/irqchip/irq-alpine-msi.c
-+++ b/drivers/irqchip/irq-alpine-msi.c
-@@ -14,6 +14,7 @@
-=20
- #include <linux/irqchip.h>
- #include <linux/irqchip/arm-gic.h>
-+#include <linux/irqchip/irq-msi-lib.h>
- #include <linux/msi.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -36,26 +37,6 @@ struct alpine_msix_data {
- 	unsigned long	*msi_map;
- };
-=20
--static void alpine_msix_mask_msi_irq(struct irq_data *d)
--{
--	pci_msi_mask_irq(d);
--	irq_chip_mask_parent(d);
--}
--
--static void alpine_msix_unmask_msi_irq(struct irq_data *d)
--{
--	pci_msi_unmask_irq(d);
--	irq_chip_unmask_parent(d);
--}
--
--static struct irq_chip alpine_msix_irq_chip =3D {
--	.name			=3D "MSIx",
--	.irq_mask		=3D alpine_msix_mask_msi_irq,
--	.irq_unmask		=3D alpine_msix_unmask_msi_irq,
--	.irq_eoi		=3D irq_chip_eoi_parent,
--	.irq_set_affinity	=3D irq_chip_set_affinity_parent,
--};
--
- static int alpine_msix_allocate_sgi(struct alpine_msix_data *priv, int num=
-_req)
- {
- 	int first;
-@@ -88,12 +69,6 @@ static void alpine_msix_compose_msi_msg(struct irq_data =
-*data, struct msi_msg *m
- 	msg->data =3D 0;
+diff --git a/drivers/pinctrl/core.c b/drivers/pinctrl/core.c
+index 9046292d1360..80cf9f20f626 100644
+--- a/drivers/pinctrl/core.c
++++ b/drivers/pinctrl/core.c
+@@ -1655,6 +1655,19 @@ int pinctrl_pm_select_default_state(struct device *dev)
  }
-=20
--static struct msi_domain_info alpine_msix_domain_info =3D {
--	.flags	=3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		  MSI_FLAG_PCI_MSIX,
--	.chip	=3D &alpine_msix_irq_chip,
--};
--
- static struct irq_chip middle_irq_chip =3D {
- 	.name			=3D "alpine_msix_middle",
- 	.irq_mask		=3D irq_chip_mask_parent,
-@@ -164,13 +139,35 @@ static void alpine_msix_middle_domain_free(struct irq=
-_domain *domain, unsigned i
- }
-=20
- static const struct irq_domain_ops alpine_msix_middle_domain_ops =3D {
-+	.select	=3D msi_lib_irq_domain_select,
- 	.alloc	=3D alpine_msix_middle_domain_alloc,
- 	.free	=3D alpine_msix_middle_domain_free,
- };
-=20
-+#define ALPINE_MSI_FLAGS_REQUIRED  (MSI_FLAG_USE_DEF_DOM_OPS |		\
-+				    MSI_FLAG_USE_DEF_CHIP_OPS |		\
-+				    MSI_FLAG_PCI_MSI_MASK_PARENT)
+ EXPORT_SYMBOL_GPL(pinctrl_pm_select_default_state);
+ 
++/**
++ * pinctrl_pm_select_init_state() - select init pinctrl state for PM
++ * @dev: device to select init state for
++ */
++int pinctrl_pm_select_init_state(struct device *dev)
++{
++	if (!dev->pins)
++		return 0;
 +
-+#define ALPINE_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK |		\
-+				    MSI_FLAG_PCI_MSIX)
++	return pinctrl_select_bound_state(dev, dev->pins->init_state);
++}
++EXPORT_SYMBOL_GPL(pinctrl_pm_select_init_state);
 +
-+static struct msi_parent_ops alpine_msi_parent_ops =3D {
-+	.supported_flags	=3D ALPINE_MSI_FLAGS_SUPPORTED,
-+	.required_flags		=3D ALPINE_MSI_FLAGS_REQUIRED,
-+	.chip_flags		=3D MSI_CHIP_FLAG_SET_EOI,
-+	.bus_select_token	=3D DOMAIN_BUS_NEXUS,
-+	.bus_select_mask	=3D MATCH_PCI_MSI,
-+	.prefix			=3D "ALPINE-",
-+	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
-+};
-+
- static int alpine_msix_init_domains(struct alpine_msix_data *priv, struct =
-device_node *node)
+ /**
+  * pinctrl_pm_select_sleep_state() - select sleep pinctrl state for PM
+  * @dev: device to select sleep state for
+diff --git a/include/linux/pinctrl/consumer.h b/include/linux/pinctrl/consumer.h
+index 73de70362b98..63ce16191eb9 100644
+--- a/include/linux/pinctrl/consumer.h
++++ b/include/linux/pinctrl/consumer.h
+@@ -48,6 +48,7 @@ int pinctrl_select_default_state(struct device *dev);
+ 
+ #ifdef CONFIG_PM
+ int pinctrl_pm_select_default_state(struct device *dev);
++int pinctrl_pm_select_init_state(struct device *dev);
+ int pinctrl_pm_select_sleep_state(struct device *dev);
+ int pinctrl_pm_select_idle_state(struct device *dev);
+ #else
+@@ -55,6 +56,10 @@ static inline int pinctrl_pm_select_default_state(struct device *dev)
  {
--	struct irq_domain *middle_domain, *msi_domain, *gic_domain;
-+	struct irq_domain_info info =3D {
-+		.fwnode		=3D of_fwnode_handle(node),
-+		.ops		=3D &alpine_msix_middle_domain_ops,
-+		.host_data	=3D priv,
-+	};
- 	struct device_node *gic_node;
-=20
- 	gic_node =3D of_irq_find_parent(node);
-@@ -179,29 +176,17 @@ static int alpine_msix_init_domains(struct alpine_msi=
-x_data *priv, struct device
- 		return -ENODEV;
- 	}
-=20
--	gic_domain =3D irq_find_host(gic_node);
-+	info.parent =3D irq_find_host(gic_node);
- 	of_node_put(gic_node);
--	if (!gic_domain) {
-+	if (!info.parent) {
- 		pr_err("Failed to find the GIC domain\n");
- 		return -ENXIO;
- 	}
-=20
--	middle_domain =3D irq_domain_create_hierarchy(gic_domain, 0, 0, NULL,
--						    &alpine_msix_middle_domain_ops, priv);
--	if (!middle_domain) {
--		pr_err("Failed to create the MSIX middle domain\n");
--		return -ENOMEM;
--	}
--
--	msi_domain =3D pci_msi_create_irq_domain(of_fwnode_handle(node),
--					       &alpine_msix_domain_info,
--					       middle_domain);
--	if (!msi_domain) {
-+	if (!msi_create_parent_irq_domain(&info, &alpine_msi_parent_ops)) {
- 		pr_err("Failed to create MSI domain\n");
--		irq_domain_remove(middle_domain);
- 		return -ENOMEM;
- 	}
--
  	return 0;
  }
-=20
---=20
-2.39.5
++static inline int pinctrl_pm_select_init_state(struct device *dev)
++{
++	return 0;
++}
+ static inline int pinctrl_pm_select_sleep_state(struct device *dev)
+ {
+ 	return 0;
+@@ -143,6 +148,11 @@ static inline int pinctrl_pm_select_default_state(struct device *dev)
+ 	return 0;
+ }
+ 
++static inline int pinctrl_pm_select_init_state(struct device *dev)
++{
++	return 0;
++}
++
+ static inline int pinctrl_pm_select_sleep_state(struct device *dev)
+ {
+ 	return 0;
+-- 
+2.34.1
 
 
