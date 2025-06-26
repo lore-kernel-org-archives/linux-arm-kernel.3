@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0D0C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65818C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 17:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=; b=QN3WC8r7tDn6R0hhzXvgBVoYx4
-	jGPC6QihItjcBzoAhwCdHXRg6UwtHTPe21RaYcHJ7cBhdRHUIu1SH7hDW8U133+DbygVXQokp7FqD
-	nodrx1oyO7kqn9BdLnMlCGwKFsdRUm6OdgHpgUb+3YqCqzSfMZzAJ1xlEGwDSUhgFj1ExduPv0UDG
-	TrtL6OWqwjb4LpElRNpHgEpC0D9PJpoYNvrKv3lNrJ86JUO0pHdim5fR47c/F73pGljgwiC/nj52P
-	qFd5zfAYEX2JWGwlDyTtMLZWbIkftHZdwt0ZbfFnlQ7ry4rzQZcqeGd4JU1T5yK/To6V5XMPPZBee
-	0JNJIIHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=skiy0t/2D1qmrP32rNpVRNd7pVJJPqrYexsHFwmhkqg=; b=jjjr4jnoRZZb90KZh60c5cuvtv
+	mY3n0oY0y0Yto8wSSyyvGyJGPLLA/E+i2cj9fatCWlLRkwlHnViWIjWYS6FfHym7w4CJ9bYSPj6dJ
+	sRmzHZ8A2u37tvHXTlsKmRdX+8rBQjz0D55mQlYmVbah16E1qFoxACm30ojW1945gGvih1j5aiR02
+	X/Z1QegC7LNU5bN83fe62JXXq5/iphcgOB4m45e2tINIeAkr0xeBdB0QpweKqn4MO62EFBIj7sQ3P
+	PGtufnrHLD/4/Em/X4RpodxjfxS0/C1w7aQtaL974oVWWBibTiRRKy/D4XmVk7+BA43FRfFIC+qte
+	braJQp9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpSG-0000000CH0j-2Dos;
-	Thu, 26 Jun 2025 16:28:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uUqda-0000000CONf-09jB;
+	Thu, 26 Jun 2025 17:43:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpDI-0000000CET6-2PY0;
-	Thu, 26 Jun 2025 16:12:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=; b=WZUaYR4MGDcwA72Cd1oB7SIN0F
-	IFMAmPV7c00mJPk2CVhNVrN29w8KbLmEphp3RL4R63R4OUaUKxPZYcVSAN2tY/ZlU8l5OCWyQavDa
-	tligsFzmreVUsDgk34KMrgXyQSbPNUTLn4NU80KrGc2yXX2Zv0d+1KKvvkmphxig1Te66I9T+aiAJ
-	0ManUiJQs6f4Y/VgDFHI+DQ9mOkPERLaFTlvo2wrN3sLWMy6u6MSlfCO10MRmmqRH0iDoX1jNpwOd
-	3EXHrnWTg5FauhOwgr1ZcxKwpULUNMAo1hWX56jzidYQM3pzgPxPJuFnQgPTEoMWcAtTcCVEyDx1L
-	pVfwJKTQ==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUpDF-000000068og-3PWS;
-	Thu, 26 Jun 2025 16:12:35 +0000
-Date: Thu, 26 Jun 2025 18:12:28 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750954350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
-	b=0LYeaLtAJ5FAMG3LKAeKdLDltJhvOW1WHfMGoLPpHniE2OZI85uX1GQ2ey33i0w2d3okwY
-	y8RJdyrEW9ZY/cT+ZjwXRpUAjWJ0kCU+X2/JsCqHsZ9U3aZ2TChCv+CCVSJp+KV+L4Zxa2
-	z1/e8Cw6EEDWNScScFvdTo+JFjdypZBGw3uOzxDCwl0rK8PijcEKtHTsbEtaOJrOY79zE+
-	lyYrnQXacHleQNfDRVYS/oxCSupzyLsGdaUVpCsib+pW7FPXQCOPPYoVqYsGycNLqIR0Mq
-	0QXD62rY8oOCAC9hVds/VEowvpYLNn7GWPeodcQRkAMgY2ncXFVKyAVu6ZobjA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750954350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eljFHNeyDYyRzp+O8F4KzsegQjKW9C3yujFh6Fsq1Qk=;
-	b=rtm8MhjqrOGX+yu466ihurQqBVjxnH6Q7AddtO63t9athnBOj9mUFoMRtFMFVGiDMnsQtE
-	sk4IQPJV0R8iU4AQ==
-From: Nam Cao <namcao@linutronix.de>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Antoine Tenart <atenart@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/12] irqchip/bcm2712-mip: Switch to
- msi_create_parent_irq_domain()
-Message-ID: <20250626161228.N6byQ97v@linutronix.de>
-References: <cover.1750860131.git.namcao@linutronix.de>
- <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
+	id 1uUqbH-0000000CO1E-0gBe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 17:41:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 50FE55C6583;
+	Thu, 26 Jun 2025 17:39:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11182C4CEEE;
+	Thu, 26 Jun 2025 17:41:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750959685;
+	bh=ahu7b8h0/NS1zVvXZWP+eDKOIDBXGlxQOOeuTnPcU5w=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ZAUVqbDUZD+a0kiN0Om7EaZvqcvUG8kOiE6BCVsV6rTd/pHhyhgEfih95vYm3zS7a
+	 /paQaeusn1W+w3mcMoLEqh3lRHmVMgKZVC3n2mtzO/2CjR/D36hUlTQ/CMep4B2w2p
+	 RQ7oZnpgfesHr1bqEG9O0ZU9S9GHrPM324Q6HcYjMkvuK+Sctn+VH6Fn9DAF5dnBW6
+	 fu6goiF6T3Eu322AplhVrjrfnKjqCT+z7pxGsNcsjBJW8lfx9SGrin4Grde/nrlvdv
+	 GQ3eovw7RFjTDpqhbWIIVBuK7ZlOTj9TOKNtcPv1UYXBnY88Wg5si3sUmaX1IOGLYS
+	 7pSleJtyTCh9Q==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, Nick Terrell <terrelln@fb.com>, 
+ David Sterba <dsterba@suse.com>, Collin Funk <collin.funk1@gmail.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ bpf@vger.kernel.org
+In-Reply-To: <20250623-james-perf-bash-tests-v1-1-f572f54d4559@linaro.org>
+References: <20250623-james-perf-bash-tests-v1-1-f572f54d4559@linaro.org>
+Subject: Re: [PATCH] perf test: Change all remaining #!/bin/sh to
+ #!/bin/bash
+Message-Id: <175095968503.2045399.16026333437061068793.b4-ty@kernel.org>
+Date: Thu, 26 Jun 2025 10:41:25 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <92a6d68db014e945337c10649a41605da05783da.1750860131.git.namcao@linutronix.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_171233_972171_AA77809E 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20250626_104127_248154_9D356D22 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,17 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 04:48:59PM +0200, Nam Cao wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
+On Mon, 23 Jun 2025 10:00:12 +0100, James Clark wrote:
+> There are 43 instances of posix shell tests and 35 instances of bash. To
+> give us a single consistent language for testing in, replace
+> all #!/bin/sh to #!/bin/bash. Common sources that are included in both
+> different shells will now work as expected. And we no longer have to fix
+> up bashisms that appear to work when someone's system has sh symlinked
+> to bash, but don't work on other systems that have both shells
+> installed.
 > 
-> Switch to use the concise helper to create an MSI parent domain.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Nam Cao <tglx@linutronix.de>
-                          ^ oops, that's not my email
+> [...]
+Applied to perf-tools-next, thanks!
 
-I will send v2, but let's wait for a few days if there is something else I
-should fix.
+Best regards,
+Namhyung
 
-Nam
+
 
