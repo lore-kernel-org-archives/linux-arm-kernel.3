@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1596AC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 07:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB97C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 07:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+FIo8PEfnOjOhKqO9fikm05U23xQ9nuy82+HVQTYkFQ=; b=Mad2t0J4ZrT+KOYpnv6MOvAOQ7
-	xKekhy9Y3wt1jaqdgbeVpY2PR5E1cEP2+QFg15zwGBWYeyve9BAKZz2FdfjmxaUTCBjUiTlLEXuVt
-	MqL8fUU5RXfj3NwpNjf/F29xme2J/WHcsTsQ9AeoLoukBUDqHgyfmyehj9oUE1H+R+ISfSxNWa1LY
-	5kNmScLIbQ6mGUS2IiV0Rh3c+MoSat5+e+z34N6XWpxtXEWuKwxwD/oqk1RNE9SfN2/XRRvF9ecKq
-	HfcGXTJfF6gMdY/uPvWLKl0nwhLb4iz5bVFjsbdvvU8ylQbOXL2mUihSzyTDQgu/7e7CfCSh0oCYZ
-	NXUn+Ecw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NgX2rbSl6nxCZ+ljksLm2VvnTJIQa/AKPDwm0hWPs9Y=; b=ADKmjEkyOojUIfcxC7e8kEwr4Q
+	I7pcKQdwlvXKKgKBBNMtIsnYFEuqpOiEuzIV78DyjzFocfBnVdUiOTdDyZjsym/PGttLgO1NLeF7V
+	AGRHftVG80rVkn8WLvcX0t6eHYMV5Q33x0smcuZdXc6YfRztmeZ3dgwap6Csy6tMcatv1z0FfEEib
+	wC3UjHs52cekj/gSL0ngik8/tG1afffEK0ge/TqEB7b5Uqmv3B7kkh6C8zWreJ2yr1kp05U0OSeu0
+	DBchPOvprmptMW/Ag1TRc/wlsFY+mewMuc6rQiYgH2iPLm3uWTOQwHT9yaG6xU/pyXwJTgc0X9bzc
+	UpTF+0DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhTI-0000000Artb-0v9n;
-	Thu, 26 Jun 2025 07:56:36 +0000
-Received: from mail.marketanalysis.pl ([51.68.198.42])
+	id 1uUhVX-0000000AsCj-2REB;
+	Thu, 26 Jun 2025 07:58:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhHD-0000000AqBI-2Ub2
+	id 1uUhPl-0000000ArVN-0vpt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 07:44:09 +0000
-Received: by mail.marketanalysis.pl (Postfix, from userid 1002)
-	id 34150A5E66; Thu, 26 Jun 2025 09:41:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marketanalysis.pl;
-	s=mail; t=1750923718;
-	bh=+FIo8PEfnOjOhKqO9fikm05U23xQ9nuy82+HVQTYkFQ=;
-	h=Date:From:To:Subject:From;
-	b=JQSnFGB1GUSOSJUxwZC/xvhj/rwgCSP5e1CCOYs+k0JJsRMMdivHrgsCqk2M64lJy
-	 gNcewmhIRH4mNW4rSBXQ3O5XhHe8BQrjiiCfqWDQG7sKoXfh+EvtvpAeU+z/EobCa9
-	 VyRVsfqhS5ZYWKrR+Lf2roc+LPr9fctL2+pSNUBNyry7OHTJ/LWVvDsV4RY9Q40G2e
-	 f+GbSkOnovlUy9ZHUm6aPHDW/u0I7JfAHvRJXZt19eqGXR2K5Uk6HLiH0EQrA0oLIz
-	 g94VsxDmXxzOnZzYlVdsujrPk1OhJj6mxyP/GpcnNXIdCope1bvUxmQodhQ7Zk5DZa
-	 rgumgt76TxGqw==
-Received: by mail.marketanalysis.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:40:55 GMT
-Message-ID: <20250626084500-0.1.pf.2de1o.0.y44p8mjz1g@marketanalysis.pl>
-Date: Thu, 26 Jun 2025 07:40:55 GMT
-From: =?UTF-8?Q?"Adam_Ka=C5=82u=C5=BAniak"?= <adam.kaluzniak@marketanalysis.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?W_sprawie_zam=C3=B3wie=C5=84?=
-X-Mailer: mail.marketanalysis.pl
+	Thu, 26 Jun 2025 07:52:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3D2C617EF;
+	Thu, 26 Jun 2025 07:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55B36C4CEEB;
+	Thu, 26 Jun 2025 07:52:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750924376;
+	bh=pJA1oEnHjl7M7Z9qrdqOkWhZGLir+8D6TagEYS/sYmc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g8tEl3zAcKnl8rBFQAKlUrnNDdx7tOq3djNZLVF8prU9kr9+VwIeqrOYRiDVqzdLa
+	 YZB2wxKAIHM7r77YFbVYdAXaCX6MLpabsUjwAatSY5cgmgsACdqSTJCgs9g2KU9RgU
+	 1jepk5Fns3rRgq/+AF2XlbWQCWAobPpDWCBOlAf1cDqOpdXQxfi+BOIY8n9GYhFiPd
+	 N6ONq7+M1DOL9BQQFwsLM3Rp+uIF1IEW/vfJfpMaIIbvYRvizTC2z0+H22Fvb8dcYZ
+	 wa83J0Uzo9ESjbuKrn7iatx0TOfXb3/Wa9iSvzSRfk/CQ9IpECvTrQgDlca7xjA4mh
+	 uBr09ZNzMfUpw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uUhPh-00A8gF-Rn;
+	Thu, 26 Jun 2025 08:52:53 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jintack Lim <jintack@cs.columbia.edu>,
+	Christoffer Dall <christoffer.dall@arm.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Fix MI line level calculation in vgic_v3_nested_update_mi()
+Date: Thu, 26 Jun 2025 08:52:50 +0100
+Message-Id: <175092436132.7925.6436811848886215951.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250625084709.3968844-1-r09922117@csie.ntu.edu.tw>
+References: <20250625084709.3968844-1-r09922117@csie.ntu.edu.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_004408_306814_7B44E9E2 
-X-CRM114-Status: UNSURE (   1.07  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, r09922117@csie.ntu.edu.tw, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, jintack@cs.columbia.edu, christoffer.dall@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,18 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+On Wed, 25 Jun 2025 16:47:09 +0800, Wei-Lin Chang wrote:
+> The state of the vcpu's MI line should be asserted when its
+> ICH_HCR_EL2.En is set and ICH_MISR_EL2 is non-zero. Using bitwise AND
+> (&=) directly for this calculation will not give us the correct result
+> when the LSB of the vcpu's ICH_MISR_EL2 isn't set. Correct this by first
+> adjusting the return value of vgic_v3_get_misr() into 1 if it is
+> non-zero.
+> 
+> [...]
 
-czy wiedz=C4=85 Pa=C5=84stwo, =C5=BCe macie mo=C5=BCliwo=C5=9B=C4=87 zap=C5=
-=82aty za towar w znacznie p=C3=B3=C5=BAniejszym terminie?
+Applied to fixes, thanks!
 
-Terminowo uregulujemy w Pa=C5=84stwa imieniu faktury u dostawc=C3=B3w, a =
-po zap=C5=82acie wystawiamy Pa=C5=84stwu faktur=C4=99 sprzeda=C5=BCy z od=
-roczonym terminem p=C5=82atno=C5=9Bci (30-90 dni).
+[1/1] KVM: arm64: nv: Fix MI line level calculation in vgic_v3_nested_update_mi()
+      commit: af040a9a296044fd4b748786c2516f172a7617f1
 
-S=C4=85 Pa=C5=84stwo zainteresowani takim rozwi=C4=85zaniem?
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
 
-Pozdrawiam
-Adam Ka=C5=82u=C5=BAniak
 
