@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623FFC7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC77C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8l1sqhvOS358KHBhSYMYV66VwE6jfqDj9d9WSZSjiVg=; b=wkKaCPvSN2IAbfUMEGbPWKt6BU
-	Ly8m5283s5GdiKjTPEhAcQguwjKO5q/NJ3AGTAZje2h9VgaHHKXJRbLI6Di3xb9DNHLH/fA6wojoP
-	sIvT0oyzTO5G2Hvc3EafEQ+1q5s+IuL1JKMVQDDx/G+cwc7PnY9Dphos2LMpd3QVTtToF4390/iDX
-	tUV4qW9iTrlMR6GJANngVJtyL/VrGArOZbYkAnXU2gVYeNiz0aXQayKWV9Qhk8Lbu6dJF9J7sJju1
-	P0Higws4LrYQbYZKjr6J3p4uY5qn9b7lmgtTTuMP8g01QrC+1ZNji+M4TrK/P9PRRsl4vg4x3XgUL
-	OJA3DuMA==;
+	bh=ZdfZ1fe1QrL0AX4KvbpOw9db3IDwzYKM5tBhWJp0zHc=; b=qWDe+QDfglRVHIHf163qsGnhPX
+	6Ehy1YtiXe8JHTRFKTCtIy/TDB12+z7EDJNNAMOWJjo3YoX4tPltULEk+3+vBQuE+G7ltYsdeKs9p
+	K4t13CjMcVAEhsSIH0fpjczUiqAeQbLmWqFMqrJoXtcPDjWT0N+hd5dlVasajB8zmitem9U4m7Eca
+	YxYXXyhKxBWAVsz2i6wWwD/EC2BAUDVQMbkJ9BM/rmedSTpI6GCLIH50LEKMvazQ15y+NYFUhRTCB
+	P7aKxFU35BEsQZlOJYBVQklwJ6azJY+VMtwKH6YMp3iHMlrVSc/rr7T8YqUJ8T/5xpZ79lr9NvYex
+	DS6EujWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjAZ-0000000BB7e-2rWY;
-	Thu, 26 Jun 2025 09:45:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uUjCq-0000000BBS4-0DQY;
+	Thu, 26 Jun 2025 09:47:44 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiMp-0000000B3As-1gyR;
-	Thu, 26 Jun 2025 08:54:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 510455C5B6B;
-	Thu, 26 Jun 2025 08:51:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8559CC4CEEF;
-	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750928038;
-	bh=AUPv/TDoKd6ieMqlLaY3QqCSEU6AU3dk77+aCznD0MM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bNf0qHuzlOTME1/ZyXjCOKVbVbEwW4ZIxWyH8XRH0GWib2bAXYlKHU+YBlLhbJl/y
-	 mCxaoHpN8Dc0D4V0LHXvD2WCQnZ3GTGsAsNQtOgOtpxw0fq/jXSvRdbe1KHGg7VNXL
-	 6O7UXVAKO5zqNgxzq1uzXG2V5S2v6vdIfA6IzWVSk3qlqWZH/5xd/9deWSBriK8/QP
-	 Kyp+F4Qqv2hHE/6i0YXZYX1V9HyTn8rQV/y30L+JsHkT6bWDkUJb+0K54qeQ+XRSYj
-	 208RgUMlWa9NovWKRI/6hCWm871a5uPO4CfQKqg45b/aH+fwm2Vto+jbDfxLYKaIcS
-	 5U7cle6hlq90g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B4B2C7EE32;
-	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
-From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Thu, 26 Jun 2025 11:54:04 +0300
-Subject: [PATCH v2 11/11] ARM: dts: mediatek: add basic support for Lenovo
- A369i board
+	id 1uUiRo-0000000B4GT-0gJO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 08:59:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750928348; x=1782464348;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=vz8yrG7TsUr+PK7JlGaU9k8zdE+Zt3hQF4t9uML7Scs=;
+  b=iJhUcXn6nGwDWEBHZTIjWu0ece+aBVTNpIDw5Q5K0UTu0jxeWp6HEgtf
+   6I1iOY2xfsEvWLK/e40jTKz5Wgq5+Bm7sgza0uHlqBEpS828sgw1nciDc
+   mZXCnrFYT/omJRfIv10rpRIeLJ88QHQgiDCS0NmJtN8XvSRZb+zDkW0fh
+   E7UvPgrHoUC1SbH7/q18IiYi8wQgU9LbdJxU+O8CKxXeyAqYjMPx0tcz2
+   hHmAjyEwi/O4YdZbIjFNO9crcMREAtwFGWgOPhwnbIsnTWwf9OXCkhDUo
+   J9eYAlWQv4Rks6bLz6E5WdpwkMYIXEpcYfJ6hJVV6Vj60EyTTvC2VgOAd
+   A==;
+X-CSE-ConnectionGUID: yNRD2BSQSam3ZEEuglQe0w==
+X-CSE-MsgGUID: wRhyNthmR/mfUCxNntlHNg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="64649963"
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="64649963"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:59:08 -0700
+X-CSE-ConnectionGUID: PSt5q9rgRv23Z+qWHnxY4g==
+X-CSE-MsgGUID: 1ZRIWUhETUuNPdnq4pMsGA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="152632462"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.124.247.1]) ([10.124.247.1])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:59:05 -0700
+Message-ID: <bc7aea45-f254-4cbc-8dc0-5435417d8577@intel.com>
+Date: Thu, 26 Jun 2025 16:59:00 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/5] KVM: x86: Provide a capability to disable
+ APERF/MPERF read intercepts
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Jim Mattson <jmattson@google.com>
+References: <20250626001225.744268-1-seanjc@google.com>
+ <20250626001225.744268-3-seanjc@google.com>
+Content-Language: en-US
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <20250626001225.744268-3-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-mt6572-v2-11-f7f842196986@proton.me>
-References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
-In-Reply-To: <20250626-mt6572-v2-0-f7f842196986@proton.me>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Sean Wang <sean.wang@mediatek.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Max Shevchenko <wctrl@proton.me>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750928035; l=2277;
- i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=4u8PvwUsCoKzaBq7UBptniJ7BDz8n6fIUr+Q5q3mwbA=;
- b=6BJCGc3Gmadj8FKTlSidHgR6LDm1JQJ/jIN9Jxg9QoZsRESehd/TP2FEDngEU+/DeEuAB1dAR
- Jo7d1iH5euHDHqA9HYXYhU+TtU9YnbApJ0MU+NUKwkWHPiiOyPDWo5A
-X-Developer-Key: i=wctrl@proton.me; a=ed25519;
- pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
-X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
- auth_id=421
-X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_015359_542519_182235C1 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250626_015908_252877_3C20F169 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +87,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wctrl@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Max Shevchenko <wctrl@proton.me>
+On 6/26/2025 8:12 AM, Sean Christopherson wrote:
+> From: Jim Mattson <jmattson@google.com>
+> 
+> Allow a guest to read the physical IA32_APERF and IA32_MPERF MSRs
+> without interception.
+> 
+> The IA32_APERF and IA32_MPERF MSRs are not virtualized. Writes are not
+> handled at all. The MSR values are not zeroed on vCPU creation, saved
+> on suspend, or restored on resume. No accommodation is made for
+> processor migration or for sharing a logical processor with other
+> tasks. No adjustments are made for non-unit TSC multipliers. The MSRs
+> do not account for time the same way as the comparable PMU events,
+> whether the PMU is virtualized by the traditional emulation method or
+> the new mediated pass-through approach.
+> 
+> Nonetheless, in a properly constrained environment, this capability
+> can be combined with a guest CPUID table that advertises support for
+> CPUID.6:ECX.APERFMPERF[bit 0] to induce a Linux guest to report the
+> effective physical CPU frequency in /proc/cpuinfo. Moreover, there is
+> no performance cost for this capability.
+> 
+> Signed-off-by: Jim Mattson <jmattson@google.com>
+> Link: https://lore.kernel.org/r/20250530185239.2335185-3-jmattson@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   Documentation/virt/kvm/api.rst | 23 +++++++++++++++++++++++
+>   arch/x86/kvm/svm/nested.c      |  4 +++-
+>   arch/x86/kvm/svm/svm.c         |  5 +++++
+>   arch/x86/kvm/vmx/nested.c      |  6 ++++++
+>   arch/x86/kvm/vmx/vmx.c         |  4 ++++
+>   arch/x86/kvm/x86.c             |  6 +++++-
+>   arch/x86/kvm/x86.h             |  5 +++++
+>   include/uapi/linux/kvm.h       |  1 +
+>   tools/include/uapi/linux/kvm.h |  1 +
+>   9 files changed, 53 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 43ed57e048a8..27ced3ee2b53 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -7844,6 +7844,7 @@ Valid bits in args[0] are::
+>     #define KVM_X86_DISABLE_EXITS_HLT              (1 << 1)
+>     #define KVM_X86_DISABLE_EXITS_PAUSE            (1 << 2)
+>     #define KVM_X86_DISABLE_EXITS_CSTATE           (1 << 3)
+> +  #define KVM_X86_DISABLE_EXITS_APERFMPERF       (1 << 4)
+>   
+>   Enabling this capability on a VM provides userspace with a way to no
+>   longer intercept some instructions for improved latency in some
+> @@ -7854,6 +7855,28 @@ all such vmexits.
+>   
+>   Do not enable KVM_FEATURE_PV_UNHALT if you disable HLT exits.
+>   
+> +Virtualizing the ``IA32_APERF`` and ``IA32_MPERF`` MSRs requires more
+> +than just disabling APERF/MPERF exits. While both Intel and AMD
+> +document strict usage conditions for these MSRs--emphasizing that only
+> +the ratio of their deltas over a time interval (T0 to T1) is
+> +architecturally defined--simply passing through the MSRs can still
+> +produce an incorrect ratio.
+> +
+> +This erroneous ratio can occur if, between T0 and T1:
+> +
+> +1. The vCPU thread migrates between logical processors.
+> +2. Live migration or suspend/resume operations take place.
+> +3. Another task shares the vCPU's logical processor.
+> +4. C-states lower thean C0 are emulated (e.g., via HLT interception).
 
-This smartphone uses a MediaTek MT6572 system-on-chip with 512MB of RAM.
-It can currently boot into initramfs with a working UART and
-Simple Framebuffer using already initialized panel by the bootloader.
+s/thean/than/
 
-Signed-off-by: Max Shevchenko <wctrl@proton.me>
----
- arch/arm/boot/dts/mediatek/Makefile                |  1 +
- arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts | 56 ++++++++++++++++++++++
- 2 files changed, 57 insertions(+)
-
-diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
-index cb869a1aaec21a1d99f7f2a829b84672a3f52726..e48de3efeb3b9ab00108cc28afa8da525d0ec14a 100644
---- a/arch/arm/boot/dts/mediatek/Makefile
-+++ b/arch/arm/boot/dts/mediatek/Makefile
-@@ -2,6 +2,7 @@
- dtb-$(CONFIG_ARCH_MEDIATEK) += \
- 	mt2701-evb.dtb \
- 	mt6572-jty-d101.dtb \
-+	mt6572-lenovo-a369i.dtb \
- 	mt6580-evbp1.dtb \
- 	mt6582-prestigio-pmt5008-3g.dtb \
- 	mt6589-aquaris5.dtb \
-diff --git a/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts b/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..523e93647fdcf564404b720abe35ec7322cffa1e
---- /dev/null
-+++ b/arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts
-@@ -0,0 +1,56 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 Max Shevchenko <wctrl@proton.me>
-+ */
-+
-+/dts-v1/;
-+#include "mt6572.dtsi"
-+
-+/ {
-+	model = "Lenovo A369i";
-+	compatible = "lenovo,a369i", "mediatek,mt6572";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		stdout-path = "serial0:921600n8";
-+
-+		framebuffer: framebuffer@9fa00000 {
-+			compatible = "simple-framebuffer";
-+			memory-region = <&framebuffer_reserved>;
-+			width = <480>;
-+			height = <800>;
-+			stride = <(480 * 2)>;
-+			format = "r5g6b5";
-+		};
-+	};
-+
-+	memory {
-+		device_type = "memory";
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		connsys@80000000 {
-+			reg = <0x80000000 0x100000>;
-+			no-map;
-+		};
-+
-+		framebuffer_reserved: framebuffer@9fa00000 {
-+			reg = <0x9fa00000 0x600000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-
--- 
-2.50.0
-
-
+Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
 
