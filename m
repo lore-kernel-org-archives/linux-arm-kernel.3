@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF31C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE81C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCOYlunvuVmrkjLyWGpHM3bnI5STDIPpJ9exNfUs0Sw=; b=QCz//b9ojZV1lL2Np0RVBcExRS
-	ZZVbMinfECSjiBIv3nN0v5/iX9x5vdRp9tGwXcAMyGwEjG4L4vprhA/Ltvd5aQxg7qmarIhHhF5do
-	hbE6ne4ueTk9gXktG/J+t946vdgY8tRD6hJr/JiU0+yFxRkoe5lyQUwbjPvTB5SFWkS8qwcueQEh+
-	bah8S5BSowlyE2QXGQHCRtv/c2rAHxOFQFvcsbvkuspl0VRggHAnIgOUF5dkJYe9HJgxDvoaoP9kG
-	74GhEE8di+TWMstI55CjDIhZscu08RiwdpmPJa0aXN73K25RrUjgziME4ZBCs1jKw0kdyUoMJuAWA
-	6Cgd+2xw==;
+	bh=VD2sPh7NhASrhwrHoc6BkZAF4tLyjdiTwxw7OnY08i0=; b=tu2POhC501wscPIJlVbcUubHEF
+	EqbkOMOSPoZe88RVsdfCPXGI+sNnVIZoeBbRejQUpTNZ5HfeeQ6TNwSd9TveiRx2Gf4+n6gqaQ2dN
+	4+Y7Mr71PKlHNyrjOmB9xF/StUXb4soxCx/1qwc0dI5wRYHuHkx1cvkDDww70SI8hWWuA6Fy0SR39
+	nV2YYBv7D8Um8nDfYHHmUuiGdyTDk5G/95afgSucbPnUQXpspVoY5aOT1e1uyOYWdDqycWyy55Jin
+	kS0Cq3RfAHSDJzd9HkOo8cSTsF2S2L5NrPta9WDWUfcauPsCkzuf1Z9A7Qi0L3JmSUs6+2YbhG6Jc
+	Xrr7/vag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUtoz-0000000CnkU-01T7;
-	Thu, 26 Jun 2025 21:07:49 +0000
+	id 1uUtrC-0000000Cnuf-43tp;
+	Thu, 26 Jun 2025 21:10:06 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsTI-0000000CcC0-2aoo
+	id 1uUsTU-0000000CcEQ-2i7P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:41:21 +0000
+	Thu, 26 Jun 2025 19:41:33 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 69B0425AFA;
-	Thu, 26 Jun 2025 21:41:19 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 63F4E25AFA;
+	Thu, 26 Jun 2025 21:41:31 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id vjfJXHmbRw_q; Thu, 26 Jun 2025 21:41:17 +0200 (CEST)
+ id LnEja1qB4Et0; Thu, 26 Jun 2025 21:41:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750966877; bh=P+oErjB5DqPKHfm6dCIyk7UHEQ3wliClUoFgadW5LlQ=;
+	t=1750966890; bh=H8pHmtJhKvCu7fZ5/7YHY1g192cqpSliEgZa4tl8geA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Y5SByB2TanllvQh0SSyIRACVY5SW0DkhjZK1sIijBnzEZkvJd9pOLUCM+wXYnViVK
-	 ufyO2/UURP4j0CTXRangKvY3uMxEZQTbn1HqKKSQWYJYDW1itzvmLa9+8l5S4khRaR
-	 iDve2WIqbgA+kniOeyqZBh6Mckmm9Pn8knrPqm7AeHyIdo6UZ8oIj9fPRtGgtbUjKc
-	 9ane0aP/dpCYuzd1Lv6dN1XeiTJUQVPVGTJzIpYXZ5LEsAvlppiWH20f/PvtyYxpkc
-	 nyRwVKCVX5RukVd3JPaoQhP1eWjE9xTRnxId/suYb5PS9j1MTAL83+s3/99lyYM3ki
-	 O9dP/JFcQkdQw==
+	b=e/5q7fki7A42uIFYthIewv9iyjE1RgWHJPmGukfftjco8fGxWl2Gd/a7XUnmi+HKb
+	 hBsX+za+yAO983nS2qHkS+m1cuq6aHn48OqnKshJ7UUDer39svADAKORK//+zrViXx
+	 pTn2z/A5y/nrY3LDaYpCeLx3+HvnpJ2YvoHiV5edQnJQvDSAPemJXz5R+mdt2gy+67
+	 bZEDp4k8O0EuwvFUjNDHHS+V238uwkYlfoVm0nXUlK6eJA01mg9Eitkyzkvq3vmsol
+	 kGq9qD6yvcjg93mEabJHkAurIFsxBF17BpX5Zg/9N6CDFiE1V6tc62ujDzkBbva6/Z
+	 thqZEsaeK1xQg==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 27 Jun 2025 01:08:59 +0530
-Subject: [PATCH v2 10/13] drm/bridge: samsung-dsim: add ability to define
- clock names for every variant
+Date: Fri, 27 Jun 2025 01:09:00 +0530
+Subject: [PATCH v2 11/13] dt-bindings: samsung,mipi-dsim: document
+ exynos7870 DSIM compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-exynos7870-dsim-v2-10-1433b67378d3@disroot.org>
+Message-Id: <20250627-exynos7870-dsim-v2-11-1433b67378d3@disroot.org>
 References: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 In-Reply-To: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 To: Inki Dae <inki.dae@samsung.com>, 
@@ -72,16 +72,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=8047;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=1737;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=P+oErjB5DqPKHfm6dCIyk7UHEQ3wliClUoFgadW5LlQ=;
- b=bSWbeHdKS1VOfTexjbgCF1GA8SKOp+N2PkBDiJTdbhJVj7PeZiKICSEFSURHh+BLgpKXwqcDM
- ncj7caPeI5lCbMFEMd9SGufW+3abdclE9fvMvlMXeKfbwfayohjinJc
+ bh=H8pHmtJhKvCu7fZ5/7YHY1g192cqpSliEgZa4tl8geA=;
+ b=OaXjaLdr1Bcq92HtOib5JAJE9K+vzrQX882KqIGdIm792/fzivVyPndNPR/JbHCYYnO5Fje70
+ qkgyw7uBIKfBXEBKgsUnxRLQ+6ZaD+d11QRtzNn/SEYPDutEaOBobxh
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_124120_927059_98804FC8 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250626_124132_820743_AA1D830C 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,239 +97,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Presently, all devices refer to clock names from a single array. The
-only controlling parameter is the number of clocks (num_clks field of
-samsung_dsim_driver_data) which uses the first n clocks of that array.
-As new devices are added, this approach turns out to be cumbersome.
+Add compatible string for Exynos7870 DSIM bridge controller. The
+device requires four clock sources, in schema they're named as "bus",
+"pll", "byte", and "esc".
 
-Separate the clock names in individual arrays required by each variant,
-in a struct clk_bulk_data. Add a pointer field to the driver data struct
-which points to their respective clock names, and rework the clock usage
-code to use the clk_bulk_* API instead.
-
+Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 88 +++++++++++++++++------------------
- include/drm/bridge/samsung-dsim.h     |  2 +-
- 2 files changed, 44 insertions(+), 46 deletions(-)
+ .../bindings/display/bridge/samsung,mipi-dsim.yaml | 27 ++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 5b96a5a1c78d212aca4e4fb057952927eb90f0d4..6eddaa7e3ee6cb733d005169f5573eeba2a70f0a 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -218,23 +218,31 @@
- #define DSI_XFER_TIMEOUT_MS		100
- #define DSI_RX_FIFO_EMPTY		0x30800002
+diff --git a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+index 1acad99f396527192b6853f0096cfb8ae5669e6b..ad279f0993fa108b312126b112174f10f2b8c3d0 100644
+--- a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+@@ -24,6 +24,7 @@ properties:
+           - samsung,exynos5410-mipi-dsi
+           - samsung,exynos5422-mipi-dsi
+           - samsung,exynos5433-mipi-dsi
++          - samsung,exynos7870-mipi-dsi
+           - fsl,imx8mm-mipi-dsim
+           - fsl,imx8mp-mipi-dsim
+       - items:
+@@ -144,6 +145,32 @@ required:
  
--#define OLD_SCLK_MIPI_CLK_NAME		"pll_clk"
--
- #define PS_TO_CYCLE(ps, hz) DIV64_U64_ROUND_CLOSEST(((ps) * (hz)), 1000000000000ULL)
- 
--static const char *const clk_names[5] = {
--	"bus_clk",
--	"sclk_mipi",
--	"phyclk_mipidphy0_bitclkdiv8",
--	"phyclk_mipidphy0_rxclkesc0",
--	"sclk_rgb_vclk_to_dsim0"
--};
--
- enum samsung_dsim_transfer_type {
- 	EXYNOS_DSI_TX,
- 	EXYNOS_DSI_RX,
- };
- 
-+static struct clk_bulk_data exynos3_clk_bulk_data[] = {
-+	{ .id = "bus_clk" },
-+	{ .id = "pll_clk" },
-+};
+ allOf:
+   - $ref: ../dsi-controller.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: samsung,exynos7870-mipi-dsi
 +
-+static struct clk_bulk_data exynos4_clk_bulk_data[] = {
-+	{ .id = "bus_clk" },
-+	{ .id = "sclk_mipi" },
-+};
++    then:
++      properties:
++        clocks:
++          minItems: 4
++          maxItems: 4
 +
-+static struct clk_bulk_data exynos5433_clk_bulk_data[] = {
-+	{ .id = "bus_clk" },
-+	{ .id = "sclk_mipi" },
-+	{ .id = "phyclk_mipidphy0_bitclkdiv8" },
-+	{ .id = "phyclk_mipidphy0_rxclkesc0" },
-+	{ .id = "sclk_rgb_vclk_to_dsim0" },
-+};
++        clock-names:
++          items:
++            - const: bus
++            - const: pll
++            - const: byte
++            - const: esc
 +
- enum reg_idx {
- 	DSIM_LINK_STATUS_REG,	/* Link status register */
- 	DSIM_DPHY_STATUS_REG,	/* D-PHY status register */
-@@ -407,7 +415,8 @@ static const struct samsung_dsim_driver_data exynos3_dsi_driver_data = {
- 	.plltmr_reg = 0x50,
- 	.has_freqband = 1,
- 	.has_clklane_stop = 1,
--	.num_clks = 2,
-+	.clk_data = exynos3_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos3_clk_bulk_data),
- 	.max_freq = 1000,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 1,
-@@ -437,7 +446,8 @@ static const struct samsung_dsim_driver_data exynos4_dsi_driver_data = {
- 	.plltmr_reg = 0x50,
- 	.has_freqband = 1,
- 	.has_clklane_stop = 1,
--	.num_clks = 2,
-+	.clk_data = exynos4_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos4_clk_bulk_data),
- 	.max_freq = 1000,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 1,
-@@ -465,7 +475,8 @@ static const struct samsung_dsim_driver_data exynos4_dsi_driver_data = {
- static const struct samsung_dsim_driver_data exynos5_dsi_driver_data = {
- 	.reg_ofs = exynos_reg_ofs,
- 	.plltmr_reg = 0x58,
--	.num_clks = 2,
-+	.clk_data = exynos3_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos3_clk_bulk_data),
- 	.max_freq = 1000,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 1,
-@@ -493,7 +504,8 @@ static const struct samsung_dsim_driver_data exynos5433_dsi_driver_data = {
- 	.reg_ofs = exynos5433_reg_ofs,
- 	.plltmr_reg = 0xa0,
- 	.has_clklane_stop = 1,
--	.num_clks = 5,
-+	.clk_data = exynos5433_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos5433_clk_bulk_data),
- 	.max_freq = 1500,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 0,
-@@ -521,7 +533,8 @@ static const struct samsung_dsim_driver_data exynos5422_dsi_driver_data = {
- 	.reg_ofs = exynos5433_reg_ofs,
- 	.plltmr_reg = 0xa0,
- 	.has_clklane_stop = 1,
--	.num_clks = 2,
-+	.clk_data = exynos3_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos3_clk_bulk_data),
- 	.max_freq = 1500,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 1,
-@@ -549,7 +562,8 @@ static const struct samsung_dsim_driver_data imx8mm_dsi_driver_data = {
- 	.reg_ofs = exynos5433_reg_ofs,
- 	.plltmr_reg = 0xa0,
- 	.has_clklane_stop = 1,
--	.num_clks = 2,
-+	.clk_data = exynos4_clk_bulk_data,
-+	.num_clks = ARRAY_SIZE(exynos4_clk_bulk_data),
- 	.max_freq = 2100,
- 	.wait_for_hdr_fifo = 1,
- 	.wait_for_reset = 0,
-@@ -2023,7 +2037,7 @@ int samsung_dsim_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct samsung_dsim *dsi;
--	int ret, i;
-+	int ret;
- 
- 	dsi = devm_drm_bridge_alloc(dev, struct samsung_dsim, bridge, &samsung_dsim_bridge_funcs);
- 	if (IS_ERR(dsi))
-@@ -2047,23 +2061,11 @@ int samsung_dsim_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "failed to get regulators\n");
- 
--	dsi->clks = devm_kcalloc(dev, dsi->driver_data->num_clks,
--				 sizeof(*dsi->clks), GFP_KERNEL);
--	if (!dsi->clks)
--		return -ENOMEM;
--
--	for (i = 0; i < dsi->driver_data->num_clks; i++) {
--		dsi->clks[i] = devm_clk_get(dev, clk_names[i]);
--		if (IS_ERR(dsi->clks[i])) {
--			if (strcmp(clk_names[i], "sclk_mipi") == 0) {
--				dsi->clks[i] = devm_clk_get(dev, OLD_SCLK_MIPI_CLK_NAME);
--				if (!IS_ERR(dsi->clks[i]))
--					continue;
--			}
--
--			dev_info(dev, "failed to get the clock: %s\n", clk_names[i]);
--			return PTR_ERR(dsi->clks[i]);
--		}
-+	ret = devm_clk_bulk_get(dev, dsi->driver_data->num_clks,
-+				dsi->driver_data->clk_data);
-+	if (ret) {
-+		dev_err(dev, "failed to get clocks in bulk (%d)\n", ret);
-+		return ret;
- 	}
- 
- 	dsi->reg_base = devm_platform_ioremap_resource(pdev, 0);
-@@ -2136,7 +2138,7 @@ static int samsung_dsim_suspend(struct device *dev)
- {
- 	struct samsung_dsim *dsi = dev_get_drvdata(dev);
- 	const struct samsung_dsim_driver_data *driver_data = dsi->driver_data;
--	int ret, i;
-+	int ret;
- 
- 	usleep_range(10000, 20000);
- 
-@@ -2152,8 +2154,7 @@ static int samsung_dsim_suspend(struct device *dev)
- 
- 	phy_power_off(dsi->phy);
- 
--	for (i = driver_data->num_clks - 1; i > -1; i--)
--		clk_disable_unprepare(dsi->clks[i]);
-+	clk_bulk_disable_unprepare(driver_data->num_clks, driver_data->clk_data);
- 
- 	ret = regulator_bulk_disable(ARRAY_SIZE(dsi->supplies), dsi->supplies);
- 	if (ret < 0)
-@@ -2166,7 +2167,7 @@ static int samsung_dsim_resume(struct device *dev)
- {
- 	struct samsung_dsim *dsi = dev_get_drvdata(dev);
- 	const struct samsung_dsim_driver_data *driver_data = dsi->driver_data;
--	int ret, i;
-+	int ret;
- 
- 	ret = regulator_bulk_enable(ARRAY_SIZE(dsi->supplies), dsi->supplies);
- 	if (ret < 0) {
-@@ -2174,11 +2175,9 @@ static int samsung_dsim_resume(struct device *dev)
- 		return ret;
- 	}
- 
--	for (i = 0; i < driver_data->num_clks; i++) {
--		ret = clk_prepare_enable(dsi->clks[i]);
--		if (ret < 0)
--			goto err_clk;
--	}
-+	ret = clk_bulk_prepare_enable(driver_data->num_clks, driver_data->clk_data);
-+	if (ret < 0)
-+		goto err_clk;
- 
- 	ret = phy_power_on(dsi->phy);
- 	if (ret < 0) {
-@@ -2189,8 +2188,7 @@ static int samsung_dsim_resume(struct device *dev)
- 	return 0;
- 
- err_clk:
--	while (--i > -1)
--		clk_disable_unprepare(dsi->clks[i]);
-+	clk_bulk_disable_unprepare(driver_data->num_clks, driver_data->clk_data);
- 	regulator_bulk_disable(ARRAY_SIZE(dsi->supplies), dsi->supplies);
- 
- 	return ret;
-diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
-index 2dd63032d83ab5df0e1780a692789c340c2126dc..ed05763b523ceab6956ed875baa9b460a3df5bbd 100644
---- a/include/drm/bridge/samsung-dsim.h
-+++ b/include/drm/bridge/samsung-dsim.h
-@@ -57,6 +57,7 @@ struct samsung_dsim_driver_data {
- 	unsigned int has_clklane_stop:1;
- 	unsigned int has_broken_fifoctrl_emptyhdr:1;
- 	unsigned int has_sfrctrl:1;
-+	struct clk_bulk_data *clk_data;
- 	unsigned int num_clks;
- 	unsigned int min_freq;
- 	unsigned int max_freq;
-@@ -103,7 +104,6 @@ struct samsung_dsim {
- 
- 	void __iomem *reg_base;
- 	struct phy *phy;
--	struct clk **clks;
- 	struct clk *pll_clk;
- 	struct regulator_bulk_data supplies[2];
- 	int irq;
++        ports:
++          required:
++            - port@0
++
++      required:
++        - ports
++
+   - if:
+       properties:
+         compatible:
 
 -- 
 2.49.0
