@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F718C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 01:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D43C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 01:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XkNAUQZsgTOYyEpp6DFNDFEm1Y8rPk4V1hWAnUJpQCA=; b=jXBnYgPjapysy/imP85rD9MIMx
-	S1S486l8EE9zYT6mNXSReqwONfDgQNPna8itze/vF9aKbcSUvkR8HrfRzW/ftafU/OilskQnmTnQ4
-	7shP0LP9/3JlFe33KPiPWrI64+wQkJtc1KSx0yViYK7YB4Q9jM7X/G3rDqQuyk9ew59QGgOezFGfa
-	T3xFB+f6DUuPNx8i26xt4Teh43yCKvQGQ6VIgO4jlrzgrtTa5IfBM6o4Swv5auAa+IpXXfr7RyqGq
-	/xAl6qCgPg6BlK7rBYzbw5dwpPA/sOlZsAqfeZKHmobt8VFm8KNNGGU4EFis8hUa8QgYS4dzzOebp
-	koaI5xFw==;
+	bh=+/mKaCqAOOiAqgd0HRwof3OK6yOq5hDWh6JBXZFbX3c=; b=osfadqco6hId9tg1efpRwvvIbo
+	T8EYnM2m//fjG+ZCn0/3hsfPiT97kVLkHS87Den+bFGudJ090SfTtK9nn1ydbtAIvdCcenHgMQZSk
+	CvAJi4w8oZMSL4nfWe1TKJ+RiYKGM5FeJp8fssAc89Yb/BmY2MMwkELCijPwCp9S9lQXBJCXpjjQw
+	7HS03U5Oyz++ZRRcMxXNUret1i7BvmnciALO5/riBTNbYoSjHm/mOojQBJkqKSj+7IPVxsq3FPPSc
+	eeQR4naUDPAFClP4QnEXU1DnFvOQqlnHx1hEwMx/hfQ17ue783qZU8g9ywuvNCxZNV4xISWcIi6Xq
+	ko3WbuOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUbCZ-0000000ANvx-3q6q;
-	Thu, 26 Jun 2025 01:14:55 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1uUbHp-0000000AONe-27s7;
+	Thu, 26 Jun 2025 01:20:21 +0000
+Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUbAG-0000000ANqw-1rCo
+	id 1uUbFW-0000000AO6P-3kij
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 01:12:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1750900345; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=XkNAUQZsgTOYyEpp6DFNDFEm1Y8rPk4V1hWAnUJpQCA=;
-	b=F5sU7ut8NP7JbI+EP7pqPtFuPzUMAEZ4dneKkv2Lr5nV5gKqflfIrfI3+MUwIBYJj5esW8lvWoGGduVqgJPoJKgcCIzJ6UGq4zWS41dBKJLWLjjY6+5grxwpchZUm7bcjcUGN+BLsRRUhUvsOYtOi/9th2uU9lIDEv91omPA20Q=
-Received: from 30.74.144.111(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wf4LWO5_1750900339 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Jun 2025 09:12:20 +0800
-Message-ID: <4a7606bc-8ab3-4026-8bf8-eb875bdcb00c@linux.alibaba.com>
-Date: Thu, 26 Jun 2025 09:12:18 +0800
+	Thu, 26 Jun 2025 01:18:00 +0000
+Message-ID: <42343413-7089-404e-8ce0-dd0025dca04c@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750900666;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+/mKaCqAOOiAqgd0HRwof3OK6yOq5hDWh6JBXZFbX3c=;
+	b=eQC/N5AQvanuC7OqZCZ2wPmyrZ0ioxCa9JUW83LYLMRJAjmHovEfQEFsrT0ybVpqok1KVf
+	W8sl6sksNaJU2UyrQqwdsCkZ9XZzcI0M91ODFaE5+ns5n8ksfSxI1liRF/El6i+kpXAUkV
+	hSNMrXxp+B00xFNqxmEmvAlnPyxAvY8=
+Date: Thu, 26 Jun 2025 09:17:33 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/12] gpio: sprd: use new GPIO line value setter
- callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>,
- Thorsten Scherer <t.scherer@eckelmann.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250625-gpiochip-set-rv-gpio-round2-v1-0-bc110a3b52ff@linaro.org>
- <20250625-gpiochip-set-rv-gpio-round2-v1-7-bc110a3b52ff@linaro.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20250625-gpiochip-set-rv-gpio-round2-v1-7-bc110a3b52ff@linaro.org>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+Content-Language: en-US
+To: Barry Song <21cnbao@gmail.com>, David Hildenbrand <david@redhat.com>
+Cc: akpm@linux-foundation.org, baolin.wang@linux.alibaba.com,
+ chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
+ ying.huang@intel.com, zhengtangquan@oppo.com,
+ Lance Yang <ioworker0@gmail.com>
+References: <2c19a6cf-0b42-477b-a672-ed8c1edd4267@redhat.com>
+ <20250624162503.78957-1-ioworker0@gmail.com>
+ <27d174e0-c209-4851-825a-0baeb56df86f@redhat.com>
+ <938c4726-b93e-46df-bceb-65c7574714a6@linux.dev>
+ <CAGsJ_4y1GObH-C7R=FQL=UWe3kF6qhKoRqPxNPYx0k7uwocc+g@mail.gmail.com>
+ <5ba95609-302b-456a-a863-2bd5df51baf2@redhat.com>
+ <CAGsJ_4zSGT05GjxM1H6JwSa5MhgtxaiYVa1Wtvm8+SmYkm=jmQ@mail.gmail.com>
+ <6179dd30-5351-4a79-b0d6-f0e85650a926@redhat.com>
+ <CAGsJ_4yTH5ngM++e=c+P7g0fXs-QQsOk2oxd1RWa3Qww97Knrw@mail.gmail.com>
+ <5db6fb4c-079d-4237-80b3-637565457f39@redhat.com>
+ <42f1d84f-2d17-43b7-8fa2-83322fcca44f@linux.dev>
+ <9bb1e917-891d-4e1b-915f-98cdd5fc578b@redhat.com>
+ <CAGsJ_4woYd_TmZU94nedH=x_+HTwLxz94ih1jFmxoj4CxuhqzQ@mail.gmail.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <CAGsJ_4woYd_TmZU94nedH=x_+HTwLxz94ih1jFmxoj4CxuhqzQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250625_181233_166255_AB0EAADC 
-X-CRM114-Status: UNSURE (   5.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250625_181759_066686_96C683E4 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +89,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2025/6/25 18:33, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 2025/6/26 05:03, Barry Song wrote:
+> On Thu, Jun 26, 2025 at 12:25 AM David Hildenbrand <david@redhat.com> wrote:
+>>
+>> On 25.06.25 14:20, Lance Yang wrote:
+> [...]
+>>> Hmm... I have a question about the reference counting here ...
+>>>
+>>>                if (vma->vm_flags & VM_LOCKED)
+>>>                        mlock_drain_local();
+>>>                folio_put(folio);
+>>>                /* We have already batched the entire folio */
+>>>
+>>> Does anyone else still hold a reference to this folio after folio_put()?
+>>
+>> The caller of the unmap operation should better hold a reference :)
+>>
+>> Also, I am not sure why we don't perform a
+>>
+>> folio_put_refs(folio, nr_pages);
 > 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
+> Because we've already called folio_ref_sub(folio, nr_pages - 1);
+> Looking back, it’s kind of ugly, huh.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> discard:
+>                  if (unlikely(folio_test_hugetlb(folio))) {
+>                          hugetlb_remove_rmap(folio);
+>                  } else {
+>                          folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
+>                          folio_ref_sub(folio, nr_pages - 1);
+>                  }
+> 
+> I assume Lance will send a patch? If so, remember to remove this
+> when switching to folio_put_refs(folio, nr_pages);
 
-Thanks.
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Ah, got it. Thanks for pointing that out!
+
 
