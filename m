@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FA5C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 20:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7742C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 20:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZA2xZpfTbHuLk3pa3e8TIvlB7B05mig+Dt+AtkPDlE4=; b=C6c4YVInTACKOaasArVffbusne
-	kdqZj5KinoYbcyLpfrjf3Vzw5G72Q5lTjN7+kdUOz0JJWx12N7PaYfcESuLYZhyTAvCJ9k2iWJnP3
-	f7bQESc3pUG9HjuRY4bml17SfchJwwVvuWtyOd1aJdrSJ2d4nU5aoDq2SgNP3PLnWGa6M28M1XvdI
-	eyDJH+DyjunZkxxWo+29zuDjK4fzr/oQYsGmkztMmNq/bFQMxim/vPa1A+boURvXkrH2T4kvq3niN
-	TaLi+SwvMyqv0cSKMMIYOXlWBsAkYFsSc3W8d4UWg5u5wwdC533T72aszw+HFvPzcu88D+vq7LX50
-	jaZUfGTQ==;
+	bh=+fSEP96I2oK+J9OdYltjLG1F6yO44oeh4VEHoMS/X/A=; b=vlByL3JldHpr05nk8DjEPt6aQM
+	bQZuYHXvUk96gXROXNvHwSINhD33HA9sF2rLORmN3TuWa47ajmkNj4SiQGc5e9AEAbK7EsGs3iXGB
+	Qkzil5CqfonQtXWofSzyrqcaSv6uyB2/teDl6ykkQ1Dwtor5PD76E7S96YcypLkw7SfPqO1g9DzsH
+	z5P+6DpFR3UpZFlh2f5X724PWVrngKQcSgpPeqax2sJ6e3rzT8j+UVg/k7ULQa5Lx70kHIaYP3/PV
+	nXNHzOIttf7Nq6ed4yF2oc2Qq4wpjl6hH1u+AZUOuRYrqkkhQJG072uFtDhUzt5aCtOUrFUxs50EO
+	MW15/4sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUtZO-0000000CmSI-1NAx;
-	Thu, 26 Jun 2025 20:51:42 +0000
+	id 1uUtbc-0000000Cmiu-0bsP;
+	Thu, 26 Jun 2025 20:54:00 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsRp-0000000CbdZ-1giY
+	id 1uUsS2-0000000Cbj8-2lMW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:39:50 +0000
+	Thu, 26 Jun 2025 19:40:04 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 135F025B9F;
-	Thu, 26 Jun 2025 21:39:48 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 79B8A25E97;
+	Thu, 26 Jun 2025 21:40:01 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 8OArNbdu2Lx8; Thu, 26 Jun 2025 21:39:47 +0200 (CEST)
+ id lr6zwaKAxDRo; Thu, 26 Jun 2025 21:39:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750966786; bh=wlVGQBMaNz6zTceF2YNMK+fgvVG3wMWLRik/PjF4UlI=;
+	t=1750966799; bh=GFz8GkKryTB6Xu0DxINoUES7zgptK83SPB4c1G1dUGw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kPRuSPDOvanJK/wQwkPmgrtN8Lra72ICEqTBV6nRskUzlCuyq4RnlRrgbtfflyxZC
-	 Oddp7EpYCL+Tq8/xPMmOpfg5BCrgKFZsy0knSn/5lcNDww+l6spCLa/djbDIXKjevU
-	 i+RW95EPrzSKBhfabk4BkXoD+B0TB6I7FIVCadjzKtZr5qUuFI8mPbxIi6PnoBuNFq
-	 ZeSriHDj5aKhTesK0m1gUuuAfcgTR5Y5y3oe3FoT+Tev8tIexj9Ss11Zl+XZzUf72t
-	 erwS8HBDiRcX0gMURdJKBk98nlC+HUNa5z56ZKo59sGmUF2adh3VjRZ9hS/9nEqlRq
-	 fo018fw9n2xtQ==
+	b=YkbX+B7NqB9bqO/BI/VoQpccYZxSmU3ohY20QM0pAoHBEPXqx+5+OiycnrS7Oxjdl
+	 OBeLqWLl/UuaEDlHbrP/jdTJt1+CzewGov+iMpj0lVRePneAGFyBPAMjXjMGePcFJd
+	 ZxFBox5h0pItnhJHYUghSuvS0Arq2RMARzpxK3h8qOuwK0OtQaldHFGk+7XDKMfewA
+	 5Ie9WcCvhNK6ulMR7Ue1U1FYpJiyD2SPtNquEY5AJ2IZwFQJ5/v6xnA9mHBQBb5LGU
+	 bb2yKj+XCCAlK5fvuRwi8yiELGj7Iy+QtnHeuW9TgFgAUJQ0lsqxxA/ga88PLO+YxV
+	 ne63s68I+/TnA==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 27 Jun 2025 01:08:52 +0530
-Subject: [PATCH v2 03/13] drm/bridge: samsung-dsim: add flag to control
- header FIFO wait
+Date: Fri, 27 Jun 2025 01:08:53 +0530
+Subject: [PATCH v2 04/13] drm/bridge: samsung-dsim: allow configuring bits
+ and offsets of CLKCTRL register
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-exynos7870-dsim-v2-3-1433b67378d3@disroot.org>
+Message-Id: <20250627-exynos7870-dsim-v2-4-1433b67378d3@disroot.org>
 References: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 In-Reply-To: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 To: Inki Dae <inki.dae@samsung.com>, 
@@ -72,16 +72,16 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=3612;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=7642;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=wlVGQBMaNz6zTceF2YNMK+fgvVG3wMWLRik/PjF4UlI=;
- b=dZNr8jWpFp0IUbelfuaBn8YmfCyKFG03gqkl7Cz9s+fKOS7knK7ApH+t6cQqu/FXq2nS5PTB0
- ySzzMZynJugAcV6/yaH83i78keW2BvL3duI5hF5MWMQ5k0KDXK59utO
+ bh=GFz8GkKryTB6Xu0DxINoUES7zgptK83SPB4c1G1dUGw=;
+ b=xvcZUCyqGrAXkr0gJlGqc14YPhPdr0VXs+NHSl6rX6F2tCNM7oVSTtarvc9ZU0pApwZDdestu
+ P6vQG6irOGLDpex4/saNyBDMQXvBdAOaiMP5jqjXXwzg8lS/onNiU10
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_123949_708410_75F1FE90 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250626_124002_969692_6121537E 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,103 +96,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos7870's DSIM device doesn't require waiting for the header FIFO
-during a MIPI DSI transfer. Add a flag in the driver data in order to
-control said behavior.
+DSIM_CLKCTRL bit and offset values hardcoded in the driver:
+
+name                      | bit/offset value
+--------------------------+-----------------
+DSIM_LANE_ESC_CLK_EN_CLK  | 19
+DSIM_LANE_ESC_CLK_EN_DATA | 20
+DSIM_BYTE_CLKEN           | 24
+DSIM_ESC_CLKEN            | 28
+DSIM_TX_REQUEST_HSCLK     | 31
+
+DSIM_CLKCTRL bit and offset values in Exynos7870 DSIM as per downstream
+kernel sources:
+
+name                      | bit/offset value
+--------------------------+-----------------
+DSIM_LANE_ESC_CLK_EN_CLK  | 8
+DSIM_LANE_ESC_CLK_EN_DATA | 9
+DSIM_BYTE_CLKEN           | 17
+DSIM_ESC_CLKEN            | 16
+DSIM_TX_REQUEST_HSCLK     | 20
+
+In order to support both, move all values to the driver data struct and
+define it for every driver compatible. Reference the values from there
+instead, in functions wherever required.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 15 ++++++++++++---
- include/drm/bridge/samsung-dsim.h     |  1 +
- 2 files changed, 13 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/samsung-dsim.c | 76 +++++++++++++++++++++++++----------
+ include/drm/bridge/samsung-dsim.h     |  5 +++
+ 2 files changed, 59 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 3c716334f1a21bf446ebe17f810d5258dd9a4c24..112d558579d8f987c695e1704a5772ebbadfd625 100644
+index 112d558579d8f987c695e1704a5772ebbadfd625..c85c7c3af74ebce9732f9531ba5c31d992a19a23 100644
 --- a/drivers/gpu/drm/bridge/samsung-dsim.c
 +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -417,6 +417,7 @@ static const struct samsung_dsim_driver_data exynos3_dsi_driver_data = {
- 	.has_clklane_stop = 1,
- 	.num_clks = 2,
- 	.max_freq = 1000,
-+	.wait_for_hdr_fifo = 1,
+@@ -45,17 +45,13 @@
+ #define DSIM_BTA_TIMEOUT(x)		((x) << 16)
+ 
+ /* DSIM_CLKCTRL */
+-#define DSIM_ESC_PRESCALER(x)		(((x) & 0xffff) << 0)
+-#define DSIM_ESC_PRESCALER_MASK		(0xffff << 0)
+-#define DSIM_LANE_ESC_CLK_EN_CLK	BIT(19)
+-#define DSIM_LANE_ESC_CLK_EN_DATA(x)	(((x) & 0xf) << 20)
+-#define DSIM_LANE_ESC_CLK_EN_DATA_MASK	(0xf << 20)
+-#define DSIM_BYTE_CLKEN			BIT(24)
+-#define DSIM_BYTE_CLK_SRC(x)		(((x) & 0x3) << 25)
+-#define DSIM_BYTE_CLK_SRC_MASK		(0x3 << 25)
+-#define DSIM_PLL_BYPASS			BIT(27)
+-#define DSIM_ESC_CLKEN			BIT(28)
+-#define DSIM_TX_REQUEST_HSCLK		BIT(31)
++#define DSIM_ESC_PRESCALER(x)			(((x) & 0xffff) << 0)
++#define DSIM_ESC_PRESCALER_MASK			(0xffff << 0)
++#define DSIM_LANE_ESC_CLK_EN_DATA(x, offset)	(((x) & 0xf) << offset)
++#define DSIM_LANE_ESC_CLK_EN_DATA_MASK(offset)	(0xf << offset)
++#define DSIM_BYTE_CLK_SRC(x)			(((x) & 0x3) << 25)
++#define DSIM_BYTE_CLK_SRC_MASK			(0x3 << 25)
++#define DSIM_PLL_BYPASS				BIT(27)
+ 
+ /* DSIM_CONFIG */
+ #define DSIM_LANE_EN_CLK		BIT(0)
+@@ -420,6 +416,11 @@ static const struct samsung_dsim_driver_data exynos3_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 1,
  	.num_bits_resol = 11,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	.pll_p_offset = 13,
-@@ -436,6 +437,7 @@ static const struct samsung_dsim_driver_data exynos4_dsi_driver_data = {
- 	.has_clklane_stop = 1,
- 	.num_clks = 2,
- 	.max_freq = 1000,
-+	.wait_for_hdr_fifo = 1,
+ 	.reg_values = reg_values,
+ 	.pll_fin_min = 6,
+@@ -440,6 +441,11 @@ static const struct samsung_dsim_driver_data exynos4_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 1,
  	.num_bits_resol = 11,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	.pll_p_offset = 13,
-@@ -453,6 +455,7 @@ static const struct samsung_dsim_driver_data exynos5_dsi_driver_data = {
- 	.plltmr_reg = 0x58,
- 	.num_clks = 2,
- 	.max_freq = 1000,
-+	.wait_for_hdr_fifo = 1,
+ 	.reg_values = reg_values,
+ 	.pll_fin_min = 6,
+@@ -458,6 +464,11 @@ static const struct samsung_dsim_driver_data exynos5_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 1,
  	.num_bits_resol = 11,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	.pll_p_offset = 13,
-@@ -470,6 +473,7 @@ static const struct samsung_dsim_driver_data exynos5433_dsi_driver_data = {
- 	.has_clklane_stop = 1,
- 	.num_clks = 5,
- 	.max_freq = 1500,
-+	.wait_for_hdr_fifo = 1,
+ 	.reg_values = reg_values,
+ 	.pll_fin_min = 6,
+@@ -476,6 +487,11 @@ static const struct samsung_dsim_driver_data exynos5433_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 0,
  	.num_bits_resol = 12,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	.pll_p_offset = 13,
-@@ -487,6 +491,7 @@ static const struct samsung_dsim_driver_data exynos5422_dsi_driver_data = {
- 	.has_clklane_stop = 1,
- 	.num_clks = 2,
- 	.max_freq = 1500,
-+	.wait_for_hdr_fifo = 1,
+ 	.reg_values = exynos5433_reg_values,
+ 	.pll_fin_min = 6,
+@@ -494,6 +510,11 @@ static const struct samsung_dsim_driver_data exynos5422_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 1,
  	.num_bits_resol = 12,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	.pll_p_offset = 13,
-@@ -504,6 +509,7 @@ static const struct samsung_dsim_driver_data imx8mm_dsi_driver_data = {
- 	.has_clklane_stop = 1,
- 	.num_clks = 2,
- 	.max_freq = 2100,
-+	.wait_for_hdr_fifo = 1,
+ 	.reg_values = exynos5422_reg_values,
+ 	.pll_fin_min = 6,
+@@ -512,6 +533,11 @@ static const struct samsung_dsim_driver_data imx8mm_dsi_driver_data = {
+ 	.wait_for_hdr_fifo = 1,
  	.wait_for_reset = 0,
  	.num_bits_resol = 12,
++	.esc_clken_bit = 28,
++	.byte_clken_bit = 24,
++	.tx_req_hsclk_bit = 31,
++	.lane_esc_clk_bit = 19,
++	.lane_esc_data_offset = 20,
  	/*
-@@ -1110,6 +1116,7 @@ static void samsung_dsim_send_to_fifo(struct samsung_dsim *dsi,
+ 	 * Unlike Exynos, PLL_P(PMS_P) offset 14 is used in i.MX8M Mini/Nano/Plus
+ 	 * downstream driver - drivers/gpu/drm/bridge/sec-dsim.c
+@@ -715,6 +741,7 @@ static unsigned long samsung_dsim_set_pll(struct samsung_dsim *dsi,
+ 
+ static int samsung_dsim_enable_clock(struct samsung_dsim *dsi)
  {
- 	struct device *dev = dsi->dev;
- 	struct mipi_dsi_packet *pkt = &xfer->packet;
 +	const struct samsung_dsim_driver_data *driver_data = dsi->driver_data;
- 	const u8 *payload = pkt->payload + xfer->tx_done;
- 	u16 length = pkt->payload_length - xfer->tx_done;
- 	bool first = !xfer->tx_done;
-@@ -1150,9 +1157,11 @@ static void samsung_dsim_send_to_fifo(struct samsung_dsim *dsi,
- 		return;
+ 	unsigned long hs_clk, byte_clk, esc_clk, pix_clk;
+ 	unsigned long esc_div;
+ 	u32 reg;
+@@ -748,15 +775,17 @@ static int samsung_dsim_enable_clock(struct samsung_dsim *dsi)
+ 		hs_clk, byte_clk, esc_clk);
  
- 	reg = get_unaligned_le32(pkt->header);
--	if (samsung_dsim_wait_for_hdr_fifo(dsi)) {
--		dev_err(dev, "waiting for header FIFO timed out\n");
--		return;
-+	if (driver_data->wait_for_hdr_fifo) {
-+		if (samsung_dsim_wait_for_hdr_fifo(dsi)) {
-+			dev_err(dev, "waiting for header FIFO timed out\n");
-+			return;
-+		}
- 	}
+ 	reg = samsung_dsim_read(dsi, DSIM_CLKCTRL_REG);
+-	reg &= ~(DSIM_ESC_PRESCALER_MASK | DSIM_LANE_ESC_CLK_EN_CLK
+-			| DSIM_LANE_ESC_CLK_EN_DATA_MASK | DSIM_PLL_BYPASS
+-			| DSIM_BYTE_CLK_SRC_MASK);
+-	reg |= DSIM_ESC_CLKEN | DSIM_BYTE_CLKEN
+-			| DSIM_ESC_PRESCALER(esc_div)
+-			| DSIM_LANE_ESC_CLK_EN_CLK
+-			| DSIM_LANE_ESC_CLK_EN_DATA(BIT(dsi->lanes) - 1)
+-			| DSIM_BYTE_CLK_SRC(0)
+-			| DSIM_TX_REQUEST_HSCLK;
++	reg &= ~(DSIM_ESC_PRESCALER_MASK | BIT(driver_data->lane_esc_clk_bit)
++		| DSIM_LANE_ESC_CLK_EN_DATA_MASK(driver_data->lane_esc_data_offset)
++		| DSIM_PLL_BYPASS
++		| DSIM_BYTE_CLK_SRC_MASK);
++	reg |= BIT(driver_data->esc_clken_bit) | BIT(driver_data->byte_clken_bit)
++		| DSIM_ESC_PRESCALER(esc_div)
++		| BIT(driver_data->lane_esc_clk_bit)
++		| DSIM_LANE_ESC_CLK_EN_DATA(BIT(dsi->lanes) - 1,
++					    driver_data->lane_esc_data_offset)
++		| DSIM_BYTE_CLK_SRC(0)
++		| BIT(driver_data->tx_req_hsclk_bit);
+ 	samsung_dsim_write(dsi, DSIM_CLKCTRL_REG, reg);
  
- 	if (NEQV(xfer->flags & MIPI_DSI_MSG_USE_LPM,
+ 	return 0;
+@@ -860,11 +889,14 @@ static void samsung_dsim_set_phy_ctrl(struct samsung_dsim *dsi)
+ 
+ static void samsung_dsim_disable_clock(struct samsung_dsim *dsi)
+ {
++	const struct samsung_dsim_driver_data *driver_data = dsi->driver_data;
+ 	u32 reg;
+ 
+ 	reg = samsung_dsim_read(dsi, DSIM_CLKCTRL_REG);
+-	reg &= ~(DSIM_LANE_ESC_CLK_EN_CLK | DSIM_LANE_ESC_CLK_EN_DATA_MASK
+-			| DSIM_ESC_CLKEN | DSIM_BYTE_CLKEN);
++	reg &= ~(BIT(driver_data->lane_esc_clk_bit)
++		| DSIM_LANE_ESC_CLK_EN_DATA_MASK(driver_data->lane_esc_data_offset)
++		| BIT(driver_data->esc_clken_bit)
++		| BIT(driver_data->byte_clken_bit));
+ 	samsung_dsim_write(dsi, DSIM_CLKCTRL_REG, reg);
+ 
+ 	reg = samsung_dsim_read(dsi, DSIM_PLLCTRL_REG);
 diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
-index a50e4f521b9d9561f6a3b9fe3e174c0e140849a2..3641c57557f42fd90cd2e8c0282f69dbe36ba2de 100644
+index 3641c57557f42fd90cd2e8c0282f69dbe36ba2de..8938eccf78730019e0404101c855dc2d7d225668 100644
 --- a/include/drm/bridge/samsung-dsim.h
 +++ b/include/drm/bridge/samsung-dsim.h
-@@ -60,6 +60,7 @@ struct samsung_dsim_driver_data {
- 	unsigned int num_clks;
- 	unsigned int min_freq;
- 	unsigned int max_freq;
-+	unsigned int wait_for_hdr_fifo;
+@@ -63,6 +63,11 @@ struct samsung_dsim_driver_data {
+ 	unsigned int wait_for_hdr_fifo;
  	unsigned int wait_for_reset;
  	unsigned int num_bits_resol;
++	unsigned int esc_clken_bit;
++	unsigned int byte_clken_bit;
++	unsigned int tx_req_hsclk_bit;
++	unsigned int lane_esc_clk_bit;
++	unsigned int lane_esc_data_offset;
  	unsigned int pll_p_offset;
+ 	const unsigned int *reg_values;
+ 	unsigned int pll_fin_min;
 
 -- 
 2.49.0
