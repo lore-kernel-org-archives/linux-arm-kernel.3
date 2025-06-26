@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E2DC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7C2C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8q5ed43rGmQnihxTQTBsvH8EfbT3GuiTb8x+Xb4Mdl0=; b=3x54cA3czDRcBYh7b/oaDaWXPn
-	aQdI9MgL2DAshohEBqrWFtWg35SSRxRegJQ+0ZUcLMtFpYQjuDJdeljsUaxhY+mh1HYjLD8InGflX
-	ZFPoSyroPzS4xdkL5/KGmJRskH2iF2OY9uZJLRfiYijeuKkjUksD7YCgRYAXtDtbASMhQM/lVgHJ1
-	sg0n9p4zX4tH+zZbB8ftDSkoj6ub7UP3SPo1eVRuwzS9ve7r4eke85GQn95a1cndxLYC9uhaUd2sS
-	RRuBsVynKzPShHQZNRacJT5ViXp1wLgC+1cZMDykLIqiq9q14Fg4ZHOL+d/CIFlot8zJJsv5kkcrD
-	ZdpAnQ1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=; b=wHSjs+Z8OvoxLR4vLbVlU4ukHA
+	q/VhOW+d2SvlTPWPIoPpcP8WTxCFXm0Psq93NgWD+eqafrZy0jLHl6VjMsffz/EaDMAIyiyJoE8s7
+	aIlWDxa1a+oqhsUwsaJw15DHfa9oaE9yBQAYD7QV2cYbywiJs0B/ynXteUinoYbaKZSyeQ80Rc9ep
+	p4i5y3ltBBMe5JBgmeP70dYODe94COsH/TbyFTRXJ7wICxRABUwGyaPwPYqjp7uNG63wy/pSdLWLs
+	b0cGWYNCaAd6IqMoI6z0hsgMRrf04a0Yx4AGhR167PjLCXQEOTueHXGJhD2uKR8TgOceNAgjvSeqe
+	96QGlJ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUm1j-0000000Ba3H-1Ve6;
-	Thu, 26 Jun 2025 12:48:27 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uUm3z-0000000BaMX-2zCU;
+	Thu, 26 Jun 2025 12:50:47 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUlI5-0000000BURa-0xSO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 12:01:18 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55QC0xLL1729730;
-	Thu, 26 Jun 2025 07:00:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1750939259;
-	bh=8q5ed43rGmQnihxTQTBsvH8EfbT3GuiTb8x+Xb4Mdl0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=WtJAt8ZVQ4M1Ncn++K+/pxnbtakt1hndCKZokghxuKvUh/3KzLXi4MN+khm7b5OX2
-	 HqnjM4pCkNm7NOiUapeNYvX3wughlqkY1VnJO/UsOMYUvxxZHwGi+TegJfN67V9IOH
-	 EDvvVwFpmWcBcMLRHYs9jawXXKP4+Vcq0wp8PCc4=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55QC0xXm3601113
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 26 Jun 2025 07:00:59 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
- Jun 2025 07:00:59 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 26 Jun 2025 07:00:59 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55QC0wxM961069;
-	Thu, 26 Jun 2025 07:00:58 -0500
-Date: Thu, 26 Jun 2025 17:30:58 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>,
-        Matthias Schiffer
-	<matthias.schiffer@ew.tq-group.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Andy Whitcroft <apw@canonical.com>,
-        Dwaipayan
- Ray <dwaipayanray1@gmail.com>,
-        Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-        Joe
- Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
-        Nishanth Menon
-	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
-        <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux@ew.tq-group.com>,
-        Maxime
- Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [PATCH net-next v2 2/3] net: ethernet: ti: am65-cpsw: fixup PHY
- mode for fixed RGMII TX delay
-Message-ID: <3928de74-2266-42db-91bc-354832a94518@ti.com>
-References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
- <9b3fb1fbf719bef30702192155c6413cd5de5dcf.1750756583.git.matthias.schiffer@ew.tq-group.com>
- <54d6cd05-65ef-4e1d-8041-3e4a2c50b443@ti.com>
- <8a99444a-a4e4-4c4f-8cec-225a10d5d418@lunn.ch>
+	id 1uUlyI-0000000BZT5-18yj;
+	Thu, 26 Jun 2025 12:44:55 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-453643020bdso8184805e9.1;
+        Thu, 26 Jun 2025 05:44:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750941893; x=1751546693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
+        b=CYrHo1xaH6jyaPUqtbEtfeonKV5YWamqOF8fep3waRbDL0xP6l8//2GU2Q83C6d1UF
+         d6mZxPOMrbkA6UH+Y2P/oFCqwu4DO/xRPMuSNfXNp+736n+T3uR4xevqHFfV7aRXasrG
+         9XvUWaTv0++HNV/PWvAJqwnbPiby7ZiX0db3J7rmyS7Qu9bUZxpCkbsStQTnOBNOE9Y1
+         x45ZO0HWLmc1600/XwhngCcWxWGNIWPlH8tRAV3jwPjO3ZR5NmM7OJG3P4rk9yyAh0y/
+         pss50eKyz4hdUKclKViAkQj6ya/scxpLvuMnOym5oudX3BTrlGeS53Wtx3JvpMHau/z2
+         8Qpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750941893; x=1751546693;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W9Q6vWQMAD+pyX5yU0mYRqo1CgBOlEkw6ZKpgSd/AcU=;
+        b=vtCCKK06lAOeLwf060Bk355wDdzwqB5c3u1pz+FsEQJm6CQSoNDCHNBNAenwvczvse
+         ArSCFdRi1qu6LQRvLBQGs1fB7bX+v6o1kSIkQnAJoi4hPcjmAAlbdjAGzsUyGXsODIIl
+         oEHsBSgu5ay+oEolb/kFWLMwJBLX5fu3kyFhempoalXBfNGeblXgnxHzMcGjPjkolcaT
+         fo2JTMTH9t+gb2fA2UtjkL7fDNYV2GzT2Cd0S4ZfuKC3Qk0v5HcR6LHBTVnxtNeeFCzl
+         NTq7a0G7VfIYKES1mlixkHUWoGG3sZ8zxevXtG/ptPoabj06yLMeDNdyM7Z9zNupIOFB
+         ttaw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1YPcTVMgmtapwa9zLzKeVHkPjaPRGuOYcP0ADsfhu/E8V3vXZBjhB9J01A/JmSD5tsQK8CheZUW/cdhsL7PYf@lists.infradead.org, AJvYcCXOG8++n3DnxuROYHHaZ6ig2L51sEGwM28XxKMasW2SoFiw2ZsrkRnSMh69van0BBb4H5yev5wgEl2X9ac=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrfmEF7VurjsVS7De+UURMq/1JWbwLqOGBojH09Y5MXmSqwGvX
+	NY4F7A410Qm0tZjbO80mMBLvh/TvL4FCUZsdcKcmS0ncAZUB9HTsJonw
+X-Gm-Gg: ASbGncvYm+F/Y+GfIrTHbsTOZahnr0vLXnDKsSdP7dUJrwkEN999mxUZLYwXtOLvxP2
+	UnH2awe2JgzVer3hRmXxkZuTG6TLsCTc4XX3YTcU+c6csR74PSlZXRn8KB2NJeUo8p1OFbyRCq/
+	yJHG1CKXfU0IeQ+5fxJhtzdLmiFYefON7tAyHjZa0KlD+89QWdY4DoV5Ur49WBxchSOhT2p7bEW
+	JPaP8NbVdJixrHoRuXnjjoEDQcpasoTrMnoupYnZQa5kR7Fx4WwY05+BQp67r083w4dmjFUalzk
+	zZki7PCl5xgJcOEEWLAlRFs+AKLQFz7XuhIKivTa+i3Uh48=
+X-Google-Smtp-Source: AGHT+IHK9z/BBG/9EKAw7EpO3uOD6zjU0SI80m4T9S7pG+NIa80Str49cvuzTLt7WfihJvvYhpI4ug==
+X-Received: by 2002:a5d:5847:0:b0:3a3:7593:818b with SMTP id ffacd0b85a97d-3a6ed62eb62mr6202221f8f.21.1750941892202;
+        Thu, 26 Jun 2025 05:44:52 -0700 (PDT)
+Received: from EBJ9932692.tcent.cn ([2a09:0:1:2::3086])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a831051c49sm161455f8f.30.2025.06.26.05.44.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Jun 2025 05:44:51 -0700 (PDT)
+From: Lance Yang <ioworker0@gmail.com>
+To: ioworker0@gmail.com
+Cc: 21cnbao@gmail.com,
+	akpm@linux-foundation.org,
+	baolin.wang@linux.alibaba.com,
+	chrisl@kernel.org,
+	david@redhat.com,
+	kasong@tencent.com,
+	lance.yang@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	v-songbaohua@oppo.com,
+	x86@kernel.org,
+	ying.huang@intel.com,
+	zhengtangquan@oppo.com
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
+Date: Thu, 26 Jun 2025 20:44:45 +0800
+Message-ID: <20250626124445.77865-1-ioworker0@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250626092905.31305-1-ioworker0@gmail.com>
+References: <20250626092905.31305-1-ioworker0@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <8a99444a-a4e4-4c4f-8cec-225a10d5d418@lunn.ch>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_050117_358677_769A6AC1 
-X-CRM114-Status: GOOD (  35.83  )
+X-CRM114-CacheID: sfid-20250626_054454_309320_7B32D20B 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +111,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 01:58:07PM +0200, Andrew Lunn wrote:
-> On Thu, Jun 26, 2025 at 03:10:50PM +0530, Siddharth Vadapalli wrote:
-> > On Tue, Jun 24, 2025 at 12:53:33PM +0200, Matthias Schiffer wrote:
-> > 
-> > Hello Matthias,
-> > 
-> > > All am65-cpsw controllers have a fixed TX delay, so the PHY interface
-> > > mode must be fixed up to account for this.
-> > > 
-> > > Modes that claim to a delay on the PCB can't actually work. Warn people
-> > > to update their Device Trees if one of the unsupported modes is specified.
-> > > 
-> > > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-> > > Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> > > ---
-> > >  drivers/net/ethernet/ti/am65-cpsw-nuss.c | 27 ++++++++++++++++++++++--
-> > >  1 file changed, 25 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> > > index f20d1ff192efe..519757e618ad0 100644
-> > > --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> > > +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> > > @@ -2602,6 +2602,7 @@ static int am65_cpsw_nuss_init_slave_ports(struct am65_cpsw_common *common)
-> > >  		return -ENOENT;
-> > >  
-> > >  	for_each_child_of_node(node, port_np) {
-> > > +		phy_interface_t phy_if;
-> > >  		struct am65_cpsw_port *port;
-> > >  		u32 port_id;
-> > >  
-> > > @@ -2667,14 +2668,36 @@ static int am65_cpsw_nuss_init_slave_ports(struct am65_cpsw_common *common)
-> > >  
-> > >  		/* get phy/link info */
-> > >  		port->slave.port_np = of_node_get(port_np);
-> > > -		ret = of_get_phy_mode(port_np, &port->slave.phy_if);
-> > > +		ret = of_get_phy_mode(port_np, &phy_if);
-> > >  		if (ret) {
-> > >  			dev_err(dev, "%pOF read phy-mode err %d\n",
-> > >  				port_np, ret);
-> > >  			goto of_node_put;
-> > >  		}
-> > >  
-> > > -		ret = phy_set_mode_ext(port->slave.ifphy, PHY_MODE_ETHERNET, port->slave.phy_if);
-> > > +		/* CPSW controllers supported by this driver have a fixed
-> > > +		 * internal TX delay in RGMII mode. Fix up PHY mode to account
-> > > +		 * for this and warn about Device Trees that claim to have a TX
-> > > +		 * delay on the PCB.
-> > > +		 */
-> > > +		switch (phy_if) {
-> > > +		case PHY_INTERFACE_MODE_RGMII_ID:
-> > > +			phy_if = PHY_INTERFACE_MODE_RGMII_RXID;
-> > > +			break;
-> > > +		case PHY_INTERFACE_MODE_RGMII_TXID:
-> > > +			phy_if = PHY_INTERFACE_MODE_RGMII;
-> > > +			break;
-> > > +		case PHY_INTERFACE_MODE_RGMII:
-> > > +		case PHY_INTERFACE_MODE_RGMII_RXID:
-> > > +			dev_warn(dev,
-> > > +				 "RGMII mode without internal TX delay unsupported; please fix your Device Tree\n");
-> > 
-> > Existing users designed boards and enabled Ethernet functionality using
-> > "rgmii-rxid" in the device-tree and implementing the PCB traces in a
-> > way that they interpret "rgmii-rxid". So their (mis)interpretation of
-> > it is being challenged by the series. While it is true that we are updating
-> > the bindings and driver to move towards the correct definition, I believe that
-> > the above message would cause confusion. Would it be alright to update it to
-> > something similar to:
-> > 
-> > "Interpretation of RGMII delays has been corrected; no functional impact; please fix your Device Tree"
+
+On 2025/6/26 17:29, Lance Yang wrote:
+> Before I send out the real patch, I'd like to get some quick feedback to
+> ensure I've understood the discussion correctly ;)
 > 
-> It is dev_warn() not dev_err(), so it should be read as a warning. And
-> the device will continue to probe and work. So I think the message is
-> O.K. What we don't want is DT developers thinking they can just ignore
-> it. So i would keep it reasonably strongly worded.
+> Does this look like the right direction?
+> 
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index fb63d9256f09..5ebffe2137e4 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
+>   #endif
+>   }
+>   
+> -/* We support batch unmapping of PTEs for lazyfree large folios */
+> -static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+> -			struct folio *folio, pte_t *ptep)
+> +static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+> +			struct page_vma_mapped_walk *pvmw,
+> +			enum ttu_flags flags, pte_t pte)
+>   {
+>   	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> -	int max_nr = folio_nr_pages(folio);
+> -	pte_t pte = ptep_get(ptep);
+> +	unsigned long end_addr, addr = pvmw->address;
+> +	struct vm_area_struct *vma = pvmw->vma;
+> +	unsigned int max_nr;
+> +
+> +	if (flags & TTU_HWPOISON)
+> +		return 1;
+> +	if (!folio_test_large(folio))
+> +		return 1;
+>   
+> +	/* We may only batch within a single VMA and a single page table. */
+> +	end_addr = pmd_addr_end(addr, vma->vm_end);
+> +	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+> +
+> +	/* We only support lazyfree batching for now ... */
+>   	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+> -		return false;
+> +		return 1;
+>   	if (pte_unused(pte))
+> -		return false;
+> -	if (pte_pfn(pte) != folio_pfn(folio))
+> -		return false;
+> +		return 1;
+> +
+> +	/* ... where we must be able to batch the whole folio. */
+> +	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
+> +		return 1;
+> +	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
+> +				 NULL, NULL, NULL);
+>   
+> -	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
+> -			       NULL, NULL) == max_nr;
+> +	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
+>   }
+>   
+>   /*
+> @@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   			if (pte_dirty(pteval))
+>   				folio_mark_dirty(folio);
+>   		} else if (likely(pte_present(pteval))) {
+> -			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
+> -			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
+> -				nr_pages = folio_nr_pages(folio);
+> +			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
+>   			end_addr = address + nr_pages * PAGE_SIZE;
+>   			flush_cache_range(vma, address, end_addr);
+>   
+> @@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   			hugetlb_remove_rmap(folio);
+>   		} else {
+>   			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
+> -			folio_ref_sub(folio, nr_pages - 1);
+>   		}
+>   		if (vma->vm_flags & VM_LOCKED)
+>   			mlock_drain_local();
+> -		folio_put(folio);
+> -		/* We have already batched the entire folio */
+> -		if (nr_pages > 1)
+> +		folio_put_refs(folio, nr_pages);
+> +
+> +		/*
+> +		 * If we are sure that we batched the entire folio and cleared
+> +		 * all PTEs, we can just optimize and stop right here.
+> +		 */
+> +		if (nr_pages == folio_nr_pages(folio))
+>   			goto walk_done;
+>   		continue;
+>   walk_abort:
+> --
 
-Thank you for the clarification. I have no further concerns and the
-patch looks good to me.
+Oops ... Through testing on my machine, I found that the logic doesn't
+behave as expected because I messed up the meaning of max_nr (the available
+scan room in the page table) with folio_nr_pages(folio) :(
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+With the following change:
 
-Regards,
-Siddharth.
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 5ebffe2137e4..b1407348e14e 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -1850,9 +1850,9 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 			enum ttu_flags flags, pte_t pte)
+ {
+ 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
++	unsigned int max_nr, nr_pages = folio_nr_pages(folio);
+ 	unsigned long end_addr, addr = pvmw->address;
+ 	struct vm_area_struct *vma = pvmw->vma;
+-	unsigned int max_nr;
+ 
+ 	if (flags & TTU_HWPOISON)
+ 		return 1;
+@@ -1870,12 +1870,13 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 		return 1;
+ 
+ 	/* ... where we must be able to batch the whole folio. */
+-	if (pte_pfn(pte) != folio_pfn(folio) || max_nr != folio_nr_pages(folio))
++	if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
+ 		return 1;
+-	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
+-				 NULL, NULL, NULL);
+ 
+-	return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
++	max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
++				 fpb_flags, NULL, NULL, NULL);
++
++	return (max_nr != nr_pages) ? 1 : max_nr;
+ }
+ 
+ /*
+--
+
+... then things work as expected for the lazyfree case, without any
+splitting.
 
