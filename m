@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E30DC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A1DC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 16:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBC/1zbAsFpTgrTOlWvqmN/0W6sOeRbe2I8GaEuZn+U=; b=t5BEZkXGOGqWGYaiz48BeCiSgM
-	FeyOiCllJKj7xMK+hHXOocsBTfI/FQBX25yhfEDVqwNMUBpzEvyosyUuAkGUajFRNgUPXc99zqGGC
-	mrCkDMr5wZmsMvB9+klenOIRC59Ghnd67awoOwqviqk+HTsKMygPAV3wvc/who2UvPTiW2cSQJpU0
-	zzR/yb3b6U9hlKhVEn/OKnVK4lZQ8OeGQzZjb6dsAGFFU9VyNdhowVBCwbMm50MiO9ER/fGmnBybp
-	40ZNJHuDYoc14ZiSpUPh7fCMKUpcQ+Jz5eCVPbc86z6JRzAMLQYAuXWuBhLsOfR3zLdRosEkO/iwh
-	aOeQnz5Q==;
+	bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=; b=gadhk1D0T9RdzywRtxCNnyVgP6
+	ymXX4qwlxRb/TFT1j59A3/rJf58pAo0W5nDeyXyz5rljEjKWvT53uIStMvI6K8Nw/8WRTJlmyujjX
+	9ClTx7w3YfQsLMX2PsGCOkhpzZZ4RcvRBDyYoXrrbCQk1EQeO+1pa75egzSADNV8mdz1SSa12Ik03
+	qvFHz09/YPWI99PE9ss+yr/aHPKhyiDE6HCL60mi01kpZg1w45BUORUVjvUojX37usBLyFrz2Bqja
+	LJY8z/YxmzmwMVfP2CKIt6dYSlIJsfc/XdyOudwWR68w3/aYg073MVp77T+XzsWFQIhQjT4YzN4VE
+	vwEfEjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUp6Y-0000000CDRZ-1CPJ;
-	Thu, 26 Jun 2025 16:05:38 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1uUp8r-0000000CDoy-0u5v;
+	Thu, 26 Jun 2025 16:08:01 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUoCI-0000000C3UO-3iZK
+	id 1uUoKp-0000000C5Mf-3Pw0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 15:07:32 +0000
-Message-ID: <424599d3-9bd0-4cd5-9ad7-37cebdc765e5@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750950438;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kBC/1zbAsFpTgrTOlWvqmN/0W6sOeRbe2I8GaEuZn+U=;
-	b=rwXJthZvAow/TQ7NghrfNCplJc1HKGgRLL2BT/VCLAVS9iExHzIvFe76KM5Ym+drnT9iNK
-	I7eq87HK3WMGi/9Y+aMJIQQOZ4EVrCIDZNQKaKIUbL0aGyMz4LGpRNYOOURq7W4o4CbUDK
-	om962XvRHAyMXkvg+foBGCsYMvV/vvI=
-Date: Thu, 26 Jun 2025 23:06:11 +0800
+	Thu, 26 Jun 2025 15:16:21 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45310223677so6857185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 08:16:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750950978; x=1751555778; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=;
+        b=Vmz3Yz2HWHsi+z1CcInh6CWHAZICL9XICyQgVaeNBI8vg7mSHMsYDSCjmh4Nbqh3G+
+         WmyGAtcmpTmkTvXfT0sUpcANwGh9tbP2tT0tWGFiZrCiTIGV9JFA32NbZdws8RAyguGO
+         +a7qE1Bh+9iNVcnRFQ8nYUt2der5Zd5FlDJ4i1JyLPD+Tv6WbtRUIZj98Uqmvo1SnJ1i
+         RRXsHISpQOK2hcGfr4/+Nf7lAIvHFSw2cN4skvsC4C74ulWXrlaivTHHaaG/x3rBucUA
+         3oZygHS4Jq7YysK1j70PEnEUZfpEyDuvQIAM2fI1V8O583HhrcD2Zv6gjwQYGRKXZgmk
+         Hadg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750950978; x=1751555778;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZYbv5E+bbRXfoXv2F6AaS7viJ98wzUfV0UPEECnLnoo=;
+        b=nYIjj4znuMvHp0/Xcb4ohys8hYNo4zC2CBGVMH+qHqAq7DsIaaEmNqG/uthmHhYIsP
+         30xCXghEf3o0doNgG0C1HZH7j0GcqMbSoFahUgOcZ+VSswspRybZb1Py+wpD0lC1FkBP
+         3YzBPKknXWd+V3C3+5jmman1zbT+6pjDEQisfRSeNv5YlNogg5lNdbqLUOVFNHVPksVy
+         jOzkfi2CcGtaEA6OoWOSJi+WBVTootgygMvDE63VIe2chQjdGdbxJTgu+00x460ZUmiE
+         5bkdW6h34U+uHXF70QOMvA8o3pBn/WF5TBRaEMT9ySluFSpJZgqPvBg2NAz7aTQz7vxp
+         Lb5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU3SgvwqQ20MlAKaG/VUxqkIeAjVDF4SsTK1AW8ox0/GMeAcBUSo1Y9ozz3xEvfkbmlz5Aug2IhWl2ZqinXxtJo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/QOzrKI0DCL1bCh+/u33aV9GFTPcsTuDvywpKBHT/oeiiE2G8
+	kWB7+n6g2EqlOKxKmaIid/B/OTHxruHx7hUUSarVeWl5H3GA+5+Eighn
+X-Gm-Gg: ASbGncsKoEAN4vD1B/i9KWh/MHIsYzCE0aCvz6ZhIvNWijX6SLqp/FTvxmBUkAtl3DY
+	DoIC7GJG8lmRV5TXU27N7McdUhylOa1SmbJ9TE4yAHk66Qzym8buLW7qEyAgEj+uqP4Xj865j9a
+	epHY+5Hp8gEgUz089ZXOTdaFoQQRh3TMjmrUNhio1V7ONmgi+OxU5kkmZNnXAIAw0MjedtCi0z5
+	ZMkMNBdlsv9SFrqAiD4bYXn15HQiGDCGqSW9z07oSwzUGd2A4U83XYy7/crNC2joWIhjFcNeRVN
+	OqXsjylzjqMROph6zEEzZaFK+ircRQ9P9B/USvlrJDSt+Xy6z7uLmHKrfPET9X2XD776NfXts/O
+	+c49Csc437UuyZMA7iDLwechGDkS+U6R0FTiVochVqtkd7yeqDlT/AuTRlXcR68VysVH2Rvtbq3
+	b9T31Yx6ODVdQJpb5V5oX92AcLvYeUnNS0JIyLXBa/P8kkFL4vQ3HL8I4i
+X-Google-Smtp-Source: AGHT+IHkN6kst/2U0cI5ffj5ZypcrsRm6UjSAT4J4Pq42ykGcoxP+OW0hFReQqb4pCc9CMehOs7PNw==
+X-Received: by 2002:a05:600c:5306:b0:441:d2d8:bd8b with SMTP id 5b1f17b1804b1-45381aaa03fmr73036515e9.8.1750950977009;
+        Thu, 26 Jun 2025 08:16:17 -0700 (PDT)
+Received: from ?IPV6:2a02:8388:e103:2700:ebc0:27a3:cde8:9846? (2a02-8388-e103-2700-ebc0-27a3-cde8-9846.cable.dynamic.v6.surfer.at. [2a02:8388:e103:2700:ebc0:27a3:cde8:9846])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a3a72dasm22725015e9.16.2025.06.26.08.16.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Jun 2025 08:16:16 -0700 (PDT)
+Message-ID: <5f01c181-515e-4cff-bf8a-81c620886cd2@gmail.com>
+Date: Thu, 26 Jun 2025 17:16:15 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
+To: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>,
+ Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Simona Vetter <simona@ffwll.ch>,
+ Paolo Bonzini <pbonzini@redhat.com>, David Airlie <airlied@gmail.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ dri-devel@lists.freedesktop.org,
+ rust-for-linux <rust-for-linux@vger.kernel.org>
+References: <20250418165059.560503-1-jfalempe@redhat.com>
+ <c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com>
+ <cbaf2819-84b3-4482-8d91-7d3d24625e4f@redhat.com>
+ <80d092a3-0210-48d8-97da-f9175260a5fc@redhat.com>
 Content-Language: en-US
-To: David Hildenbrand <david@redhat.com>
-Cc: 21cnbao@gmail.com, akpm@linux-foundation.org,
- baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com,
- Lance Yang <ioworker0@gmail.com>
-References: <20250626092905.31305-1-ioworker0@gmail.com>
- <20250626124445.77865-1-ioworker0@gmail.com>
- <1a55f9f3-f5b1-4761-97ba-423756c707fe@redhat.com>
- <ce78181f-b8f0-4710-be22-eff123760a51@linux.dev>
- <6fbcf806-eb3c-4bcd-8daf-8d87fd759d2b@redhat.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <6fbcf806-eb3c-4bcd-8daf-8d87fd759d2b@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Andrei Lalaev <andrey.lalaev@gmail.com>
+In-Reply-To: <80d092a3-0210-48d8-97da-f9175260a5fc@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_080731_060891_5D4D8FE4 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_081619_858090_3DB65F6C 
+X-CRM114-Status: GOOD (  32.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +113,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/6/26 22:39, David Hildenbrand wrote:
-[...]
->>>> @@ -1870,12 +1870,13 @@ static inline unsigned int
->>>> folio_unmap_pte_batch(struct folio *folio,
->>>>            return 1;
->>>>        /* ... where we must be able to batch the whole folio. */
->>>
->>> Why is that still required? :)
->>
->> Sorry ... I was still stuck in the "all-or-nothing" mindset ...
->>
->> So, IIUC, you mean we should completely remove the "max_nr < nr_pages"
->> check and just let folio_pte_batch handle whatever partial batch it
->> safely can.
->>
->>>
->>>> -    if (pte_pfn(pte) != folio_pfn(folio) || max_nr !=
->>>> folio_nr_pages(folio))
->>>> +    if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
->>>>            return 1;
->>>> -    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr,
->>>> fpb_flags,
->>>> -                 NULL, NULL, NULL);
->>>> -    return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
->>>> +    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
->>>> +                 fpb_flags, NULL, NULL, NULL);
+On 26.06.25 16:19, Jocelyn Falempe wrote:
+> On 25/06/2025 00:18, Jocelyn Falempe wrote:
+>> On 24/06/2025 20:55, Andrei Lalaev wrote:
+>>> On 18.04.25 18:48, Jocelyn Falempe wrote:
+>>>> On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
+>>>> to use a simple fifo with decimal digits as u8 instead.
+>>>> This is slower but should compile on all architecture.
+>>>>
+>>>> Link: https://lore.kernel.org/dri-devel/ CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
+>>>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>>>> ---
+>>>>   drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
+>>>>   1 file changed, 48 insertions(+), 23 deletions(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/ drm_panic_qr.rs
+>>>> index 6025a705530e..dd55b1cb764d 100644
+>>>> --- a/drivers/gpu/drm/drm_panic_qr.rs
+>>>> +++ b/drivers/gpu/drm/drm_panic_qr.rs
+>>>> @@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
+>>>>           SegmentIterator {
+>>>>               segment: self,
+>>>>               offset: 0,
+>>>> -            carry: 0,
+>>>> -            carry_len: 0,
+>>>> +            decfifo: Default::default(),
+>>>> +        }
+>>>> +    }
+>>>> +}
 >>>> +
->>>> +    return (max_nr != nr_pages) ? 1 : max_nr;
+>>>> +/// Max fifo size is 17 (max push) + 2 (max remaining)
+>>>> +const MAX_FIFO_SIZE: usize = 19;
+>>>> +
+>>>> +/// A simple Decimal digit FIFO
+>>>> +#[derive(Default)]
+>>>> +struct DecFifo {
+>>>> +    decimals: [u8; MAX_FIFO_SIZE],
+>>>> +    len: usize,
+>>>> +}
+>>>> +
+>>>> +impl DecFifo {
+>>>> +    fn push(&mut self, data: u64, len: usize) {
+>>>> +        let mut chunk = data;
+>>>> +        for i in (0..self.len).rev() {
+>>>> +            self.decimals[i + len] = self.decimals[i];
+>>>> +        }
+>>>> +        for i in 0..len {
+>>>> +            self.decimals[i] = (chunk % 10) as u8;
+>>>> +            chunk /= 10;
+>>>> +        }
+>>>> +        self.len += len;
+>>>> +    }
+>>>> +
+>>>> +    /// Pop 3 decimal digits from the FIFO
+>>>> +    fn pop3(&mut self) -> Option<(u16, usize)> {
+>>>> +        if self.len == 0 {
+>>>> +            None
+>>>> +        } else {
+>>>> +            let poplen = 3.min(self.len);
+>>>> +            self.len -= poplen;
+>>>> +            let mut out = 0;
+>>>> +            let mut exp = 1;
+>>>> +            for i in 0..poplen {
+>>>> +                out += self.decimals[self.len + i] as u16 * exp;
+>>>> +                exp *= 10;
+>>>> +            }
+>>>> +            Some((out, NUM_CHARS_BITS[poplen]))
+>>>>           }
+>>>>       }
+>>>>   }
+>>>> @@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
+>>>>   struct SegmentIterator<'a> {
+>>>>       segment: &'a Segment<'a>,
+>>>>       offset: usize,
+>>>> -    carry: u64,
+>>>> -    carry_len: usize,
+>>>> +    decfifo: DecFifo,
+>>>>   }
+>>>>   impl Iterator for SegmentIterator<'_> {
+>>>> @@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
+>>>>                   }
+>>>>               }
+>>>>               Segment::Numeric(data) => {
+>>>> -                if self.carry_len < 3 && self.offset < data.len() {
+>>>> -                    // If there are less than 3 decimal digits in the carry,
+>>>> -                    // take the next 7 bytes of input, and add them to the carry.
+>>>> +                if self.decfifo.len < 3 && self.offset < data.len() {
+>>>> +                    // If there are less than 3 decimal digits in the fifo,
+>>>> +                    // take the next 7 bytes of input, and push them to the fifo.
+>>>>                       let mut buf = [0u8; 8];
+>>>>                       let len = 7.min(data.len() - self.offset);
+>>>>                       buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
+>>>>                       let chunk = u64::from_le_bytes(buf);
+>>>> -                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
+>>>> -                    self.carry = chunk + self.carry * pow;
+>>>> +                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
+>>>>                       self.offset += len;
+>>>> -                    self.carry_len += BYTES_TO_DIGITS[len];
+>>>> -                }
+>>>> -                match self.carry_len {
+>>>> -                    0 => None,
+>>>> -                    len => {
+>>>> -                        // take the next 3 decimal digits of the carry
+>>>> -                        // and return 10bits of numeric data.
+>>>> -                        let out_len = 3.min(len);
+>>>> -                        self.carry_len -= out_len;
+>>>> -                        let pow = u64::pow(10, self.carry_len as u32);
+>>>> -                        let out = (self.carry / pow) as u16;
+>>>> -                        self.carry %= pow;
+>>>> -                        Some((out, NUM_CHARS_BITS[out_len]))
+>>>> -                    }
+>>>>                   }
+>>>> +                self.decfifo.pop3()
+>>>>               }
+>>>>           }
+>>>>       }
+>>>>
+>>>> base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
 >>>
->>> Why is that still required? :)
+>>> Hi Jocelyn,
+>>>
+>>> Apologies for reviving this old thread, but I'm still encountering
+>>> the same issue with the latest master (78f4e737a53e).
+>>>
+>>> When compiling this module for ARM32 (multi_v7_defconfig),
+>>> I get the following error:
+>>>
+>>>      ld.lld: error: undefined symbol: __aeabi_uldivmod
+>>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
+>>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
+>>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>>>      >>> referenced by drm_panic_qr.rs:392 (drivers/gpu/drm/ drm_panic_qr.rs:392)
+>>>      >>>               drivers/gpu/drm/drm_panic_qr.o: (<drm_panic_qr::SegmentIterator as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+>>>      >>> referenced 14 more times
+>>>      >>> did you mean: __aeabi_uidivmod
+>>>      >>> defined in: vmlinux.a(arch/arm/lib/lib1funcs.o)
+>>>
+>>> Since no one else has reported this in two months, I’m wondering
+>>> if this might be a configuration issue on my end.
 >>
->> Then simply return the number of PTEs that consecutively map to the
->> large folio. Right?
+>> Ok, that's surprising, the lines 391 and 392 are:
+>>
+>> self.decimals[i] = (chunk % 10) as u8;
+>> chunk /= 10;
+>>
+>> So the compiler should be smart enough to do that without using a division.
+>> I will try to reproduce, and see if I can fix that.
 > 
-> Yes. Any part of the large folio. Just return folio_pte_batch() ...
+> I reproduced the issues, it looks like clang doesn't do the optimization on ARM32:
+> 
+> https://github.com/llvm/llvm-project/issues/37280
+> 
+> So I've made a quick test with the following changes, and it builds:
+> 
+> 
+> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
+> index dd55b1cb764d..57bd3c6465bb 100644
+> --- a/drivers/gpu/drm/drm_panic_qr.rs
+> +++ b/drivers/gpu/drm/drm_panic_qr.rs
+> @@ -381,6 +381,20 @@ struct DecFifo {
+>      len: usize,
+>  }
+> 
+> +fn div10(val: u64) -> u64
+> +{
+> +    let val_h = val >> 32;
+> +    let val_l = val & 0xFFFFFFFF;
+> +    let b_h: u64 = 0x66666666;
+> +    let b_l: u64 = 0x66666667;
+> +
+> +    let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
+> +    let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
+> +    let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
+> +
+> +    tmp3 >> 2
+> +}
+> +
+>  impl DecFifo {
+>      fn push(&mut self, data: u64, len: usize) {
+>          let mut chunk = data;
+> @@ -389,7 +403,7 @@ fn push(&mut self, data: u64, len: usize) {
+>          }
+>          for i in 0..len {
+>              self.decimals[i] = (chunk % 10) as u8;
+> -            chunk /= 10;
+> +            chunk = div10(chunk);
+>          }
+>          self.len += len;
+>      }
+> 
+> 
+> Best regards,
 > 
 
-Ah, got it. Thanks!
+Compiles for me too on clang 20.1.6.
 
+Thanks a lot!
+
+
+-- 
+Best regards,
+Andrei Lalaev
 
