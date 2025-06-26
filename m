@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BDFC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F708C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ditblTcZWn/hLq3noPG8h3VqVahq3cequ10qfherkGM=; b=cZp1hfGWCmYfn99R2Yc7caFmBD
-	dvR7B271rnBoMKfa0KA5G+rGPmrdsl25RKbAizpZQ2NJFjG5aQqMs+m8U/q5jTz/6H3TnLmffXunu
-	xzgeKxoD7BWVqk95on61QciOko5dpWp4qTngXIKG2qVyF5e/PNlUd1e9x4coBMJhiI3fr0pf4sSBg
-	azD+2bnDpLIvn2s7Vri4qWrYoxjWam7qMhdsUqzHMnAR2AWFVx2lRuoKzPGX40RhaNiqXIjmtaqzl
-	NriGZ+x9jC4IB2+zIyUCMUEcuR7uuAqlzE7D0uvfsWsyW7aZFj/BqIkNNAURjcCGm3cmMcVo24kay
-	w5f9jbRw==;
+	bh=gjHYyX3StyvYFxHeeqv/LYhiKdcq0Fz4Fnl5MOMRvT4=; b=SnI2ztr823nLnKI8HWp2cZ2jBy
+	UnhtLyc1FXKYDvQZnh3LCFeZ7fpusfjuOJIsqy8Z2CaVggyalx4pnp7EOQnAaVwCPC6Mk8JqKfcCH
+	QNm/SHQvq/zguw9aQye9JJmKGkaJ/koViW4jWn+1PHo9JEPLnukrMEOsLJHVc3nCiuwnVdiKScXtg
+	7g3RajeDLv8JgcA6HzxDxNuqEqiU2WGFYVlJUJtc1FQHYGyFxbxEXkhm8b1hhe6/NpOawuGd+iuDp
+	4dzgkg1Z2ghzs3nusWiZm96gnDmHQaHsytgfUY1xltKXuJVcpEtLgc0e3uer9+i4GB3Fib405c0It
+	Lk5IRHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUo15-0000000C15V-1eeB;
-	Thu, 26 Jun 2025 14:55:55 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uUo3X-0000000C1cP-2z4I;
+	Thu, 26 Jun 2025 14:58:27 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnu3-0000000BzUd-0GVo;
-	Thu, 26 Jun 2025 14:48:40 +0000
+	id 1uUnu5-0000000BzWq-2B5k;
+	Thu, 26 Jun 2025 14:48:42 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949317;
+	s=2020; t=1750949320;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ditblTcZWn/hLq3noPG8h3VqVahq3cequ10qfherkGM=;
-	b=Ohoigcr0rb5pIx6qw0y2lxsaVeMYasJkG7wk+QvCsLxMRJfBAaWb3cAZ/7c8tDoK4SDkDS
-	8Je0WQcU77U+hwqrifMlEDpY9a2GOk/k9tlq8SImqU0h7Ml3Q3NKmW8M43v+X2X9NT1TL8
-	d9EyC+Knu01unLHE0weQED2TeRC/ayeUHFVbq3z4EcjwmRcfKzcVT4RpsjoYOtf/R0VKmC
-	Z2J2gwNf8f+nQpJkB1Zuj3kD6lasz12E7h+krIiHy9+ixJPWuJZwZywEteMCfkXBuWaMxR
-	iYTmiGtGDAVHiflhzfyD4/olxsD9Qw6OhfCgtZjagG570GLFnicUpokwd8+LSA==
+	bh=gjHYyX3StyvYFxHeeqv/LYhiKdcq0Fz4Fnl5MOMRvT4=;
+	b=m9B/zQqoyh5OBIBfLP767Uycgc3B4wnxtGmVa6xloyiaZ+mfrE6gby4HFL52ljwLh4tDWm
+	DuLAA2eczy5Far/kIBkR5EHqzsu8lj0MS76mWPOzmYu7rTfL3yunnYV2mckuK/3+luKPZt
+	F6eTk+CEdC9fIF0MU/Os7QyArf7sWT5O6V3EZcPQeD8KtQD4W4urK/+ID3i93Gs+G0zKeg
+	syVY60Q3PIK/N9DmWuvWiRtsoOlbEC0VELDvPmA7zWrIVfoQNJHjHP123T5K/SI0ILGT/f
+	3J8cYj3Ph4CEmR7FQFaY4cV5CDlgjtj651hqzYpGRAAXylALFbcVPoWRcK7UHg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949317;
+	s=2020e; t=1750949320;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ditblTcZWn/hLq3noPG8h3VqVahq3cequ10qfherkGM=;
-	b=nkf0SgABGViiBC0OgUJ6GiesPE6qRlOssUq/2xMsJRb5rWHbuFX2bGmaEXOFg0zU4ifu1j
-	tvPVEy1w3HxMyeBA==
+	bh=gjHYyX3StyvYFxHeeqv/LYhiKdcq0Fz4Fnl5MOMRvT4=;
+	b=hAk5Bat7znOJgAYspbl3b19fM6NZsoIgSKXAdTlOLzvTuSu67AxxQv37acwFp+sYwpfb2W
+	IfKyFmv+H5BVmLDw==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -88,16 +88,16 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 02/16] PCI: mobiveil: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:47:52 +0200
-Message-Id: <af46c15c47a7716f7e0c50d0f7391509c95b49c2.1750858083.git.namcao@linutronix.de>
+Subject: [PATCH 04/16] PCI: altera-msi: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:47:54 +0200
+Message-Id: <0a88da04bb82bd588828a7889e9d58c515ea5dbb.1750858083.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
 References: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074839_239417_6B11A269 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250626_074841_699419_D05192E7 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,115 +117,116 @@ msi_create_parent_irq_domain().
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
-Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>
-Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
+Cc: Joyce Ooi <joyce.ooi@intel.com>
 ---
- drivers/pci/controller/mobiveil/Kconfig       |  1 +
- .../controller/mobiveil/pcie-mobiveil-host.c  | 42 ++++++++++---------
- .../pci/controller/mobiveil/pcie-mobiveil.h   |  1 -
- 3 files changed, 23 insertions(+), 21 deletions(-)
+ drivers/pci/controller/Kconfig           |  1 +
+ drivers/pci/controller/pcie-altera-msi.c | 44 +++++++++++-------------
+ 2 files changed, 22 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/pci/controller/mobiveil/Kconfig b/drivers/pci/controll=
-er/mobiveil/Kconfig
-index 58ce034f701ab..c50c4625937f8 100644
---- a/drivers/pci/controller/mobiveil/Kconfig
-+++ b/drivers/pci/controller/mobiveil/Kconfig
-@@ -9,6 +9,7 @@ config PCIE_MOBIVEIL
- config PCIE_MOBIVEIL_HOST
- 	bool
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index 91a2d4ffc3ac4..012c18c67d9c6 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -30,6 +30,7 @@ config PCIE_ALTERA_MSI
+ 	tristate "Altera PCIe MSI feature"
+ 	depends on PCIE_ALTERA
  	depends on PCI_MSI
 +	select IRQ_MSI_LIB
- 	select PCIE_MOBIVEIL
+ 	help
+ 	  Say Y here if you want PCIe MSI support for the Altera FPGA.
+ 	  This MSI driver supports Altera MSI to GIC controller IP.
+diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/control=
+ler/pcie-altera-msi.c
+index a43f21eb8fbb9..2e48acd632c57 100644
+--- a/drivers/pci/controller/pcie-altera-msi.c
++++ b/drivers/pci/controller/pcie-altera-msi.c
+@@ -9,6 +9,7 @@
 =20
- config PCIE_LAYERSCAPE_GEN4
-diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c b/drivers=
-/pci/controller/mobiveil/pcie-mobiveil-host.c
-index cd44ddb698ea2..d17e887b6b61d 100644
---- a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-+++ b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-@@ -12,6 +12,7 @@
- #include <linux/init.h>
  #include <linux/interrupt.h>
- #include <linux/irq.h>
-+#include <linux/irqchip/irq-msi-lib.h>
  #include <linux/irqchip/chained_irq.h>
++#include <linux/irqchip/irq-msi-lib.h>
  #include <linux/irqdomain.h>
- #include <linux/kernel.h>
-@@ -353,16 +354,19 @@ static const struct irq_domain_ops intx_domain_ops =
-=3D {
- 	.map =3D mobiveil_pcie_intx_map,
- };
+ #include <linux/init.h>
+ #include <linux/module.h>
+@@ -29,7 +30,6 @@ struct altera_msi {
+ 	DECLARE_BITMAP(used, MAX_MSI_VECTORS);
+ 	struct mutex		lock;	/* protect "used" bitmap */
+ 	struct platform_device	*pdev;
+-	struct irq_domain	*msi_domain;
+ 	struct irq_domain	*inner_domain;
+ 	void __iomem		*csr_base;
+ 	void __iomem		*vector_base;
+@@ -74,18 +74,20 @@ static void altera_msi_isr(struct irq_desc *desc)
+ 	chained_irq_exit(chip, desc);
+ }
 =20
--static struct irq_chip mobiveil_msi_irq_chip =3D {
--	.name =3D "Mobiveil PCIe MSI",
+-static struct irq_chip altera_msi_irq_chip =3D {
+-	.name =3D "Altera PCIe MSI",
 -	.irq_mask =3D pci_msi_mask_irq,
 -	.irq_unmask =3D pci_msi_unmask_irq,
 -};
-+#define MOBIVEIL_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS		| \
-+				     MSI_FLAG_USE_DEF_CHIP_OPS		| \
-+				     MSI_FLAG_NO_AFFINITY)
-+
-+#define MOBIVEIL_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK		| \
-+				      MSI_FLAG_PCI_MSIX)
++#define ALTERA_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS		| \
++				   MSI_FLAG_USE_DEF_CHIP_OPS		| \
++				   MSI_FLAG_NO_AFFINITY)
 =20
--static struct msi_domain_info mobiveil_msi_domain_info =3D {
+-static struct msi_domain_info altera_msi_domain_info =3D {
 -	.flags	=3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
 -		  MSI_FLAG_NO_AFFINITY | MSI_FLAG_PCI_MSIX,
--	.chip	=3D &mobiveil_msi_irq_chip,
-+static const struct msi_parent_ops mobiveil_msi_parent_ops =3D {
-+	.required_flags		=3D MOBIVEIL_MSI_FLAGS_REQUIRED,
-+	.supported_flags	=3D MOBIVEIL_MSI_FLAGS_SUPPORTED,
+-	.chip	=3D &altera_msi_irq_chip,
+-};
++#define ALTERA_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK		| \
++				    MSI_FLAG_PCI_MSIX)
+=20
++static const struct msi_parent_ops altera_msi_parent_ops =3D {
++	.required_flags		=3D ALTERA_MSI_FLAGS_REQUIRED,
++	.supported_flags	=3D ALTERA_MSI_FLAGS_SUPPORTED,
 +	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
-+	.prefix			=3D "Mobiveil-",
++	.prefix			=3D "Altera-",
 +	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
- };
-=20
- static void mobiveil_compose_msi_msg(struct irq_data *data, struct msi_msg=
- *msg)
-@@ -439,19 +443,17 @@ static int mobiveil_allocate_msi_domains(struct mobiv=
-eil_pcie *pcie)
- 	struct mobiveil_msi *msi =3D &pcie->rp.msi;
-=20
- 	mutex_init(&msi->lock);
--	msi->dev_domain =3D irq_domain_create_linear(NULL, msi->num_of_vectors,
--						   &msi_domain_ops, pcie);
--	if (!msi->dev_domain) {
--		dev_err(dev, "failed to create IRQ domain\n");
--		return -ENOMEM;
--	}
-=20
--	msi->msi_domain =3D pci_msi_create_irq_domain(fwnode,
--						    &mobiveil_msi_domain_info,
--						    msi->dev_domain);
--	if (!msi->msi_domain) {
++};
+ static void altera_compose_msi_msg(struct irq_data *data, struct msi_msg *=
+msg)
+ {
+ 	struct altera_msi *msi =3D irq_data_get_irq_chip_data(data);
+@@ -165,19 +167,16 @@ static const struct irq_domain_ops msi_domain_ops =3D=
+ {
+ static int altera_allocate_domains(struct altera_msi *msi)
+ {
+ 	struct fwnode_handle *fwnode =3D of_fwnode_handle(msi->pdev->dev.of_node);
+-
+-	msi->inner_domain =3D irq_domain_create_linear(NULL, msi->num_of_vectors,
+-					     &msi_domain_ops, msi);
 +	struct irq_domain_info info =3D {
 +		.fwnode		=3D fwnode,
 +		.ops		=3D &msi_domain_ops,
-+		.host_data	=3D pcie,
++		.host_data	=3D msi,
 +		.size		=3D msi->num_of_vectors,
 +	};
 +
-+	msi->dev_domain =3D msi_create_parent_irq_domain(&info, &mobiveil_msi_par=
++	msi->inner_domain =3D msi_create_parent_irq_domain(&info, &altera_msi_par=
 ent_ops);
-+	if (!msi->dev_domain) {
- 		dev_err(dev, "failed to create MSI domain\n");
--		irq_domain_remove(msi->dev_domain);
+ 	if (!msi->inner_domain) {
+-		dev_err(&msi->pdev->dev, "failed to create IRQ domain\n");
+-		return -ENOMEM;
+-	}
+-
+-	msi->msi_domain =3D pci_msi_create_irq_domain(fwnode,
+-				&altera_msi_domain_info, msi->inner_domain);
+-	if (!msi->msi_domain) {
+ 		dev_err(&msi->pdev->dev, "failed to create MSI domain\n");
+-		irq_domain_remove(msi->inner_domain);
  		return -ENOMEM;
  	}
 =20
-diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil.h b/drivers/pci/=
-controller/mobiveil/pcie-mobiveil.h
-index 662f17f9bf65c..7246de6a71768 100644
---- a/drivers/pci/controller/mobiveil/pcie-mobiveil.h
-+++ b/drivers/pci/controller/mobiveil/pcie-mobiveil.h
-@@ -135,7 +135,6 @@
+@@ -186,7 +185,6 @@ static int altera_allocate_domains(struct altera_msi *m=
+si)
 =20
- struct mobiveil_msi {			/* MSI information */
- 	struct mutex lock;		/* protect bitmap variable */
--	struct irq_domain *msi_domain;
- 	struct irq_domain *dev_domain;
- 	phys_addr_t msi_pages_phys;
- 	int num_of_vectors;
+ static void altera_free_domains(struct altera_msi *msi)
+ {
+-	irq_domain_remove(msi->msi_domain);
+ 	irq_domain_remove(msi->inner_domain);
+ }
+=20
 --=20
 2.39.5
 
