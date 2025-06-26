@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AD5C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7DCC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5J43uewcFGBoVtyBEa3m35OXTbfd7plKTzZwQG/xMj8=; b=EtFSM+4udWQhGG6ve/BQIIgTTf
-	xF7uxhW/dmHdencmgmEjI26AwqfZOffU3flTe1cghxdtQDBdNU7TrEvtI2OZxsS0GiD9mFA7zQgHz
-	n6cK9h7Gf7J6t5/LDAFRN7H3fW56ip55Xbd9j8y+JAV98OOAqgJAeaCHZ1MKkOm21ZfV6xRIEr9JS
-	ULMBpxK5ICJjhdoyCvV2pf5eZi/DJ/bwqLMc3buanRRVcVq4pWWekIBuWKwYU3aVpuVYq1mjeg6fH
-	A/JvnjqIv6YVRgxxRfZYLXv2b0bZVDFk2DwEm1Sh+y4naKUXgsFV55jLXf9zG0i+bI+t6NJ5/uYKs
-	3sxcgG6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PoLv/xE1a/tHjRaNazZCgnyzwGl1CtFa3x/MPa5AoVE=; b=25lP1iWthA9fIGaa0RqhLMvSne
+	S7T0sX7xhogsuUd5UzG0gaQrObfUQSKdeOborDb0u2BzcpXvpWS8Z42wxmItNMqTMIvQgMVyx+ITw
+	Wf7QsfySfsQYv+DmtIDDhW0G9kf93AvEu+D5kMkb/W4xLbZ8Ap+LorksMJhhvj3LXQkl83mUk7a9d
+	lMIH2kfxneFuADclywfkV7x8ips64RCq1agWFnRWVa36s1Ru05c97hYc3aerQyYXy9lNgo3GOvTKH
+	qLdSUS56gz3272xWYFuNqJyBsdPHRmGlcYIRU4PzeJtHAWzlrbz03h6/Q9MxwyrEvhuGaGyQFuhZ6
+	b0XXK8CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUih9-0000000B6uL-2x4c;
-	Thu, 26 Jun 2025 09:14:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uUijP-0000000B7Ao-1ZLP;
+	Thu, 26 Jun 2025 09:17:19 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiKn-0000000B2ra-0Eeq
+	id 1uUiMX-0000000B36S-3MNX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:51:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D3F0617F1;
-	Thu, 26 Jun 2025 08:51:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEFBC4CEEB;
-	Thu, 26 Jun 2025 08:51:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750927912;
-	bh=pBNC6xuADDTG4z2aS7a2aYMm4dIJFtmyV4HDKTIYrVQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TLTfbXkYtLR2rhuZ/b/xG0aHxkpUEPmHzTt9eyqxYUL+wdNtdSryvIIXWPpZdKNph
-	 xdUgxy9CRkf/M1UCxEXI0Pb65nBI4jJ9m8DV14Vux95EZPIE9+sPdQS7msv1NltIqH
-	 os7lLdW5CXVsDiUw0kuL2RE28YdWbGH/sdjx8ZamLySZrSqItX8dbV8WND9FgMJry5
-	 WDO23fbsQdagmx0rPEhtW7UV9tdYiqS/HVsURQ2c3G/QeyIxubPDrs3mwrfH87a/sy
-	 dr5Xb7hXDZqe8RoXq0oX6XjpQRivBjGAolQZ6ggeu+DWJYs8xsLnG0jykANXg7Goly
-	 rHUfDq0OlbAYg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uUiKj-00AA6Z-Sa;
-	Thu, 26 Jun 2025 09:51:50 +0100
-Date: Thu, 26 Jun 2025 09:51:49 +0100
-Message-ID: <86zfduc2ca.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: <catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<oliver.upton@linux.dev>,
-	<corbet@lwn.net>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>,
-	<joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>,
-	<shuah@kernel.org>,
-	<jonathan.cameron@huawei.com>,
-	<shameerali.kolothum.thodi@huawei.com>,
-	<linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>,
-	<yangyicong@hisilicon.com>,
-	<tangchengchang@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: Re: [PATCH v3 3/7] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
-In-Reply-To: <20250626080906.64230-4-yangyicong@huawei.com>
-References: <20250626080906.64230-1-yangyicong@huawei.com>
-	<20250626080906.64230-4-yangyicong@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yangyicong@huawei.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, corbet@lwn.net, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, shuah@kernel.org, jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com, yangyicong@hisilicon.com, tangchengchang@huawei.com, wangzhou1@hisilicon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 26 Jun 2025 08:53:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750928022; x=1782464022;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=qjCW5fANYpBxZMos/0B9Lmzp0fOKP2cSn0Aj7JueaHQ=;
+  b=X8tMh360FF3aO2MrKv+kJcs7W5MLB/g6Y5Fb0DQwr4SUqEt7qCzGaDA+
+   ZExzSy2apBcZAsGBddlT3KnLmeNlXo0RkKGfKBXJo71CaIGfxTs/13NUM
+   zah7p7MuZ2dp97/FI7Ok8ckCLCnmsQtIjHAuPefRwAPeWTCxG4PV4BbMG
+   8xEKiFSYVR2Gj4hrw9SEPDJCvmVlHys71ohufC4raGn+3smRWrcyX/oa3
+   rsy3H31ceG16pgcB6+w1oNxypDSSnSoB9iLWNNTF/KmEojEZAH0nalaXb
+   kimZGinZ0z/D4F/0QuMUboVBvr2hWh06llyL2ElJtflW1G0281ZY3hADf
+   w==;
+X-CSE-ConnectionGUID: 13YiYvpiSpW0BnfjYWpgeQ==
+X-CSE-MsgGUID: 1RUAUUmYTnqLrLZJ6sHWBw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11475"; a="64649482"
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="64649482"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:53:36 -0700
+X-CSE-ConnectionGUID: MYHDrDs1T4GgRk7RUyBgsQ==
+X-CSE-MsgGUID: BuxoA7uNSmmxTflue01UJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,267,1744095600"; 
+   d="scan'208";a="151975111"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.124.247.1]) ([10.124.247.1])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2025 01:53:33 -0700
+Message-ID: <b8b3f43d-5e02-4072-8954-1f0c6f80eaae@intel.com>
+Date: Thu, 26 Jun 2025 16:53:28 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/5] KVM: x86: Replace growing set of *_in_guest bools
+ with a u64
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Jim Mattson <jmattson@google.com>
+References: <20250626001225.744268-1-seanjc@google.com>
+ <20250626001225.744268-2-seanjc@google.com>
+Content-Language: en-US
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <20250626001225.744268-2-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250626_015341_915613_0FEE0C36 
+X-CRM114-Status: UNSURE (   4.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +91,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 09:09:02 +0100,
-Yicong Yang <yangyicong@huawei.com> wrote:
+On 6/26/2025 8:12 AM, Sean Christopherson wrote:
+> From: Jim Mattson <jmattson@google.com>
 > 
-> From: Yicong Yang <yangyicong@hisilicon.com>
+> Store each "disabled exit" boolean in a single bit rather than a byte.
 > 
-> If FEAT_LS64WB not supported, FEAT_LS64* instructions only support
-> to access Device/Uncacheable memory, otherwise a data abort for
-> unsupported Exclusive or atomic access (0x35) is generated per spec.
-> It's implementation defined whether the target exception level is
-> routed and is possible to implemented as route to EL2 on a VHE VM
-> according to DDI0487K.a Section C3.2.12.2 Single-copy atomic 64-byte
-> load/store.
+> No functional change intended.
 
-Nit: in DDI0487L.b (the latest as I write), this is in C3.2.6.
+Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
 
-> 
-> If it's implemented as generate the DABT to the final enabled stage
-> (stage-2), since no valid ISV indicated in the ESR, it's better for
-> the userspace to decide how to handle it. Reuse the
-> NISV_IO_ABORT_TO_USER path with exit reason KVM_EXIT_ARM_LDST64B.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
->  arch/arm64/include/asm/esr.h |  8 ++++++++
->  arch/arm64/kvm/mmu.c         | 21 ++++++++++++++++++++-
->  2 files changed, 28 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> index e1deed824464..63cd17f830da 100644
-> --- a/arch/arm64/include/asm/esr.h
-> +++ b/arch/arm64/include/asm/esr.h
-> @@ -124,6 +124,7 @@
->  #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
->  #define ESR_ELx_FSC_SECC	(0x18)
->  #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-> +#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
->  #define ESR_ELx_FSC_ADDRSZ	(0x00)
->  
->  /*
-> @@ -488,6 +489,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
->  	       (esr == ESR_ELx_FSC_ACCESS_L(0));
->  }
->  
-> +static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
-> +{
-> +	esr = esr & ESR_ELx_FSC;
-> +
-> +	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
-> +}
-> +
->  static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
->  {
->  	esr &= ESR_ELx_FSC;
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 2942ec92c5a4..5f05d1c4b5a2 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1665,6 +1665,24 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	if (exec_fault && device)
->  		return -ENOEXEC;
->  
-> +	/*
-> +	 * Target address is normal memory on the Host. We come here
-> +	 * because:
-> +	 * 1) Guest map it as device memory and perform LS64 operations
-> +	 * 2) VMM report it as device memory mistakenly
-> +	 * Hand it to the userspace.
-> +	 */
-> +	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
-> +		struct kvm_run *run = vcpu->run;
-> +
-> +		run->exit_reason = KVM_EXIT_ARM_LDST64B;
-> +		run->arm_nisv.esr_iss = kvm_vcpu_dabt_iss_nisv_sanitized(vcpu);
-> +		run->arm_nisv.fault_ipa = fault_ipa |
-> +			(kvm_vcpu_get_hfar(vcpu) & (vma_pagesize - 1));
-> +
-> +		return -EAGAIN;
-> +	}
-
-I'm not sure that's the right thing to do.
-
-If:
-
-- the guest was told it doesn't have LS64WB,
-
-- it was told that some range is memory,
-
-- it uses that range as device,
-
-- thanks to FWB the resulting memory type is "Normal-Cacheable"
-
-- which results in an Unsupported Atomic exception
-
-why would we involve the VMM at all? The VMM clearly said it didn't
-want to be involved in this (we have a memslot).
-
-I think we should simply inject the corresponding S1 fault back into
-the guest.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
