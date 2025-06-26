@@ -4,120 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE5EC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6E2C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=; b=gFuXblgWcStNkjn2Esoj9w9sWu
-	dkiX95KZatGa7pd/e9PSFQl3DTtxKgqnKhbkuFYMMzLx32a4mQuJt5UelkLo3+4uJBD+9ev/bZlsw
-	bEa1R5dbglQ+frTQjjLXFuHaoY7SOMpv2jDEcGGoLyO+uCxbtT97NFoa8qtGkYpDF7YN0kS5GB4or
-	aJDmZ2dnDfO+DAdV3Ot6eLkJgYq6lgNq1UgL1a4ZUoa2Nz1eWVqB/2eMBpOWzgK90WbHh2iPKBLKk
-	rKFqnObIVLl9tvvzN53ZkXB+CPXTE5QW/yfe7i8ahE3pWsCiHeMB0avSPQypiHF8on87U47x4Lwzu
-	gF3wxJvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=; b=grP2IGTEWb5EdToIvmhVU1JN8f
+	LYExPcJ074BUL8iNmS2ayfwDjJ+KYwUguX8p1mgmZ3zPwqjNqcV0/iML+ji/nkuqDzPROFFlWd1Ms
+	37FbCUVlGSR/TeP6+QQGG00PPBX6BCGB/uk+Ej9IWM4BS49auzC+CN2z1vBqFZvOkDORjv1zaFs/D
+	nS/MA6nZ0HnaWNurni1u92WuWWFbDKVR3tBdVAurKb0xme+nChqj4hu4mOgHsjYi28eQrgb8EK0Uu
+	vJFiLLKVdwxIyU+qjhvpb6DXlJ6whYIBf/yL9OoN5gBr/d2vhBQ9FCOEUzUuEWNHtPMcYsVWzZm6l
+	1Hamq2jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnuB-0000000BzaG-11nA;
-	Thu, 26 Jun 2025 14:48:47 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uUnwX-0000000C0HA-1GcT;
+	Thu, 26 Jun 2025 14:51:13 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnrt-0000000ByuO-1hOj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 14:46:26 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-450cfb790f7so8705205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:46:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750949184; x=1751553984; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=;
-        b=U4cxF7vYLTyxXFzINKX1JOPuWyoGitMU7zyB1NhZoUOOe+QTrMZ7hG8WLoWqD0mxsK
-         qxfHTbYPVecd4AmqtbzXWjWi9WUXAZ5rfAZgZtE3K9LnuqfOOzrh6Rlb/0dea0cicO5i
-         Nu+PYokZuUllUlrGQXVvAiF9KoDeL8H2kwI0qn9A7InbfRErzJsywsKrslM3lpfUN2r1
-         UBcgsdgUTTya+rHR18SuJNyI6cSWQYoZuTNJ88Ox7YE7D9kNqEFlcF35KVAp+1QNTni7
-         mh/hi3TvKwEWzjYkOywIj1rtAix3g5kJG8hwtH4HEI2fMAYBqaPZZfj0UrwQ2Tj1Xaf4
-         9Nkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750949184; x=1751553984;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=;
-        b=CIA/OWiOzl5tT3M2axoUjnUI1DnBNmcQrLrQSut0y7i4hDP6/7WkTCQh3fFrLiqsyV
-         hP5P/Sq3iIjQLoDASgzgMFAtcWRKikmyiB3siW+IInQdT7pac2uM0S/N9q+ild1KYW3Y
-         JBLz7AEjoJI73tpX+hK/2r5vulNP1EPqt0yepyaECbU3oXaXD8aBQgxKfq3yvR1CKz3w
-         wtDOhVMrOpswytyhPS9Jk0LOboTK4mI0Q2/mWxF+CNIisb4ajaOJt14DuFOkaAlBhcVW
-         eOr0YdiYVQ8CpyN3lJHctd2zL5UJN9EwsAOD0AWip5sBgcoP+C7yAXvTkfR2TMEdhHUp
-         FWwg==
-X-Forwarded-Encrypted: i=1; AJvYcCVQRGtmv+qH/DAd59H0hIi+K/gfVeUPalTYlDIb6dYgYpFiAL15POxMTl79Ft0dF0Q250xR0v8E8r9PIKM/x6LI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yybm0CJS7MmMqWCwnyzcIY6OPgborkG763FHCo9urM4Y7IFHQ6p
-	OeR36qy6/v/qVkmlcoq6hem40q0AqBqsCEjGzCZSHh2n0QkwOxFsyV7q7P3ZCSrHw88=
-X-Gm-Gg: ASbGncuXctmq/Bhlz+z3f/iXGWMbhFz1crCsUlr8q+bKNkiviCVWxqKD+Y/jjUHlzd2
-	xkoezrWD1nO+Oj4LW5W8Vz4vuR0CeA9YyzVkh372syx98fg/ddOq/j5VgWKUXtenOlpwp27nqCz
-	7zgb7b+GQrXo620/x6SJOWtrcJwIeJJxf7xnr0XwKJBnioaHmWjGcWNIUrGdfRir8jGBt9P+AEd
-	coOahZCplGx0O0egBcoQhElNAjccIlKfDJHpsEGtc8095sGFfi1RkBdn6oDVTa8EdUbaPozHIGD
-	lqqDo0qyD9dNcHydhDRE4kZBYmrwvbP/6a9yCYbKp35/37wrhDcfSLpX9HDLNaj5Edr/CfR91mp
-	M2fA9B4Wj+KOOYXIdrDjKSpihq41jvee2rB3zNtQ=
-X-Google-Smtp-Source: AGHT+IHSIfxpDtvk3b/o/PTfPvJVJIuPEiExp0FjAt9JCuDCjQ/lxdskoiYS4v6Pweak4/OZQri5nw==
-X-Received: by 2002:a05:600c:4fc5:b0:441:a715:664a with SMTP id 5b1f17b1804b1-45381b0f414mr67611325e9.20.1750949183748;
-        Thu, 26 Jun 2025 07:46:23 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:fa6f:b132:4858:18cc? ([2a01:e0a:3d9:2080:fa6f:b132:4858:18cc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453823ad247sm54579635e9.26.2025.06.26.07.46.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jun 2025 07:46:23 -0700 (PDT)
-Message-ID: <b4fa3620-53d2-41c3-9b3a-27cc2c1d846a@linaro.org>
-Date: Thu, 26 Jun 2025 16:46:19 +0200
+	id 1uUnu0-0000000BzTU-2tML;
+	Thu, 26 Jun 2025 14:48:38 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1750949315;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=;
+	b=gaz8seoxSEVBxG9MHSd/AdwK73Yt7mu+jsV0LollTAaxssib7A4849xAQcipwOrC0G9Uo6
+	tfcpM3NA0RSjqxu0umLrggdwkuZprE9ZwTlt2NmwRBzYiIZCm08nVH+UnkZ0EnbA6P62GY
+	EMXRpjYh17PCc/lq+dgoXu5/F1jNr1dlYdgHPUeTsmGcnf9w4zD+DE7HpX4cEjGptshy/p
+	w4PI4JWiylFe9B7TBc5EvKJT8Mtcd9gghG+JfYB2lLP/7I3Z8AFNN3FHXBd1vOClFpd9Jf
+	R/pJjIJu3RZtZRM+rgdUOc/gAlcAwUivOqN82fssj7UtXrwKa2IhcAQj3EH/0A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1750949315;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=rjC7u1O4n6Y4m8ek4mHKb90DC8/HUd+eWzj/alvKcAs=;
+	b=2Fd2QlwCInXViIVIZOCcuzIq4mcR7BYBUaVg4a+xf1NiSgmL30ly5tfX4sxMHPRjXMMy7w
+	sdMGjflSZJvHVtAQ==
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	"K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Joyce Ooi <joyce.ooi@intel.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Nirmal Patel <nirmal.patel@linux.intel.com>,
+	Jonathan Derrick <jonathan.derrick@linux.dev>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>
+Subject: [PATCH 00/16] PCI: MSI parent domain conversion
+Date: Thu, 26 Jun 2025 16:47:50 +0200
+Message-Id: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 4/5] thermal: khadas_mcu_fan: add support for Khadas Edge
- 2
-To: muhammed.efecetin.67@gmail.com
-Cc: daniel.lezcano@linaro.org, devicetree@vger.kernel.org,
- efectn@protonmail.com, heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org,
- lee@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- rafael@kernel.org, robh+dt@kernel.org
-References: <09af27e2-34a7-4cda-b36c-5577829cc173@linaro.org>
- <20250626143607.1423954-1-muhammed.efecetin.67@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250626143607.1423954-1-muhammed.efecetin.67@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074625_451784_D47619A9 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20250626_074836_867868_C80E4DBB 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,162 +106,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2025 16:36, muhammed.efecetin.67@gmail.com wrote:
-> On 6/26/25 17:11, neil.armstrong@linaro.org wrote:
->> On 26/06/2025 16:04, muhammed.efecetin.67@gmail.com wrote:
->>> From: Muhammed Efe Cetin <efectn@protonmail.com>
->>>
->>> Fan control on the Khadas Edge 2 is controlled with the 0x8A register,
->>> using percentage values from 0 to 100, whereas there are only 3 constant steps in previous Khadas boards.
->>> Therefore, i added a new cooling-levels property, similar to the one used in the pwm-fan driver.
->>> The original behavior can still be used when the cooling-levels property is not specified,
->>> ensuring that the new functionality does not break old boards.
->>
->> Thanks for the explanation, but would would you like to change that ? The MCU can accept
->> any value between 0 and 99, so why change the levels from DT ?
->>
->> Neil
-> 
-> Thanks for the review. Therefore, you say just add values between 0-100 to cooling-device instead of remapping them using cooling-levels property?
-> 
-> What would be the best practise of detecting whether the board is Khadas Edge 2? Adding new bool property, reading model propety from devicetree etc.
+The initial implementation of PCI/MSI interrupt domains in the hierarchical
+interrupt domain model used a shortcut by providing a global PCI/MSI
+domain.
 
-The register DEVICE_NO should be set at 0x12 for Edge V, 0x11 for Edge 1. I don't have the number for Edge 2, perhaps you can read it ?
+This works because the PCI/MSI[X] hardware is standardized and uniform, but
+it violates the basic design principle of hierarchical interrupt domains:
+Each hardware block involved in the interrupt delivery chain should have a
+separate interrupt domain.
 
-Neil
+For PCI/MSI[X], the interrupt controller is per PCI device and not a global
+made-up entity.
 
-> 
-> Best regards.
-> 
->>
->>>
->>> Signed-off-by: Muhammed Efe Cetin <efectn@protonmail.com>
->>> ---
->>>    drivers/thermal/khadas_mcu_fan.c | 76 ++++++++++++++++++++++++++++++--
->>>    1 file changed, 72 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/drivers/thermal/khadas_mcu_fan.c b/drivers/thermal/khadas_mcu_fan.c
->>> index d35e5313b..504e7d254 100644
->>> --- a/drivers/thermal/khadas_mcu_fan.c
->>> +++ b/drivers/thermal/khadas_mcu_fan.c
->>> @@ -15,10 +15,16 @@
->>>    #include <linux/thermal.h>
->>>      #define MAX_LEVEL 3
->>> +#define MAX_SPEED 0x64
->>>      struct khadas_mcu_fan_ctx {
->>>        struct khadas_mcu *mcu;
->>>        unsigned int level;
->>> +
->>> +    unsigned int fan_max_level;
->>> +    unsigned int fan_register;
->>> +    unsigned int *fan_cooling_levels;
->>> +
->>>        struct thermal_cooling_device *cdev;
->>>    };
->>>    @@ -26,9 +32,21 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
->>>                        unsigned int level)
->>>    {
->>>        int ret;
->>> +    unsigned int write_level = level;
->>> +
->>> +    if (level > ctx->fan_max_level)
->>> +        return -EINVAL;
->>> +
->>> +    if (ctx->fan_cooling_levels != NULL) {
->>> +        write_level = ctx->fan_cooling_levels[level];
->>> +
->>> +        if (write_level > MAX_SPEED)
->>> +            return -EINVAL;
->>> +    }
->>> +
->>> +    ret = regmap_write(ctx->mcu->regmap, ctx->fan_register,
->>> +               write_level);
->>>    -    ret = regmap_write(ctx->mcu->regmap, KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
->>> -               level);
->>>        if (ret)
->>>            return ret;
->>>    @@ -40,7 +58,9 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
->>>    static int khadas_mcu_fan_get_max_state(struct thermal_cooling_device *cdev,
->>>                        unsigned long *state)
->>>    {
->>> -    *state = MAX_LEVEL;
->>> +    struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->>> +
->>> +    *state = ctx->fan_max_level;
->>>          return 0;
->>>    }
->>> @@ -61,7 +81,7 @@ khadas_mcu_fan_set_cur_state(struct thermal_cooling_device *cdev,
->>>    {
->>>        struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->>>    -    if (state > MAX_LEVEL)
->>> +    if (state > ctx->fan_max_level)
->>>            return -EINVAL;
->>>          if (state == ctx->level)
->>> @@ -76,6 +96,47 @@ static const struct thermal_cooling_device_ops khadas_mcu_fan_cooling_ops = {
->>>        .set_cur_state = khadas_mcu_fan_set_cur_state,
->>>    };
->>>    +static int khadas_mcu_fan_get_cooling_data_edge2(struct khadas_mcu_fan_ctx *ctx, struct device *dev)
->>> +{
->>> +    struct device_node *np = ctx->mcu->dev->of_node;
->>> +    int num, i, ret;
->>> +
->>> +    if (!of_property_present(np, "cooling-levels"))
->>> +        return 0;
->>> +
->>> +    ret = of_property_count_u32_elems(np, "cooling-levels");
->>> +    if (ret <= 0) {
->>> +        dev_err(dev, "Wrong data!\n");
->>> +        return ret ? : -EINVAL;
->>> +    }
->>> +
->>> +    num = ret;
->>> +    ctx->fan_cooling_levels = devm_kcalloc(dev, num, sizeof(u32),
->>> +                           GFP_KERNEL);
->>> +    if (!ctx->fan_cooling_levels)
->>> +        return -ENOMEM;
->>> +
->>> +    ret = of_property_read_u32_array(np, "cooling-levels",
->>> +                     ctx->fan_cooling_levels, num);
->>> +    if (ret) {
->>> +        dev_err(dev, "Property 'cooling-levels' cannot be read!\n");
->>> +        return ret;
->>> +    }
->>> +
->>> +    for (i = 0; i < num; i++) {
->>> +        if (ctx->fan_cooling_levels[i] > MAX_SPEED) {
->>> +            dev_err(dev, "MCU fan state[%d]:%d > %d\n", i,
->>> +                ctx->fan_cooling_levels[i], MAX_SPEED);
->>> +            return -EINVAL;
->>> +        }
->>> +    }
->>> +
->>> +    ctx->fan_max_level = num - 1;
->>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG_V2;
->>> +
->>> +    return 0;
->>> +}
->>> +
->>>    static int khadas_mcu_fan_probe(struct platform_device *pdev)
->>>    {
->>>        struct khadas_mcu *mcu = dev_get_drvdata(pdev->dev.parent);
->>> @@ -90,6 +151,13 @@ static int khadas_mcu_fan_probe(struct platform_device *pdev)
->>>        ctx->mcu = mcu;
->>>        platform_set_drvdata(pdev, ctx);
->>>    +    ctx->fan_max_level = MAX_LEVEL;
->>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG;
->>> +
->>> +    ret = khadas_mcu_fan_get_cooling_data_edge2(ctx, dev);
->>> +    if (ret)
->>> +        return ret;
->>> +
->>>        cdev = devm_thermal_of_cooling_device_register(dev->parent,
->>>                dev->parent->of_node, "khadas-mcu-fan", ctx,
->>>                &khadas_mcu_fan_cooling_ops);
->>
-> 
+Unsurprisingly, the shortcut turned out to have downsides as it does not
+allow dynamic allocation of interrupt vectors after initialization and it
+prevents supporting IMS on PCI. For further details, see:
+
+https://lore.kernel.org/lkml/20221111120501.026511281@linutronix.de/
+
+The solution is implementing per device MSI domains, this means the
+entities which provide global PCI/MSI domain so far have to implement MSI
+parent domain functionality instead.
+
+This series converts the PCI controller drivers to implement MSI parent
+domain.
+
+ drivers/pci/Kconfig                           |   1 +
+ drivers/pci/controller/Kconfig                |  11 +
+ drivers/pci/controller/dwc/Kconfig            |   1 +
+ .../pci/controller/dwc/pcie-designware-host.c |  68 ++----
+ drivers/pci/controller/dwc/pcie-designware.h  |   1 -
+ drivers/pci/controller/mobiveil/Kconfig       |   1 +
+ .../controller/mobiveil/pcie-mobiveil-host.c  |  42 ++--
+ .../pci/controller/mobiveil/pcie-mobiveil.h   |   1 -
+ drivers/pci/controller/pci-aardvark.c         |  59 ++---
+ drivers/pci/controller/pci-hyperv.c           |  98 ++++++--
+ drivers/pci/controller/pcie-altera-msi.c      |  44 ++--
+ drivers/pci/controller/pcie-brcmstb.c         |  44 ++--
+ drivers/pci/controller/pcie-iproc-msi.c       |  45 ++--
+ drivers/pci/controller/pcie-mediatek-gen3.c   |  67 ++---
+ drivers/pci/controller/pcie-mediatek.c        |  46 ++--
+ drivers/pci/controller/pcie-rcar-host.c       |  69 ++----
+ drivers/pci/controller/pcie-xilinx-dma-pl.c   |  48 ++--
+ drivers/pci/controller/pcie-xilinx-nwl.c      |  45 ++--
+ drivers/pci/controller/pcie-xilinx.c          |  55 +++--
+ drivers/pci/controller/plda/Kconfig           |   1 +
+ drivers/pci/controller/plda/pcie-plda-host.c  |  44 ++--
+ drivers/pci/controller/plda/pcie-plda.h       |   1 -
+ drivers/pci/controller/vmd.c                  | 229 +++++++++---------
+ 23 files changed, 504 insertions(+), 517 deletions(-)
+
+--=20
+2.39.5
 
 
