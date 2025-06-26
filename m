@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666DEC7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFA2C7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CUF5e7KcE3XiMfllKypGpHsZM9sN7VYFN27kMzcWq80=; b=uwu52xAPr0s16zTxOYqtnFyvVO
-	MxtMDhOmbIisKZwS5EKNhkO2UrzzbGAhfc6oXLsp19CdZbe/M/k6wwXofo4IHigyyiXQ4FZ9KOGgi
-	MNUHtxTYP0zsuQosC40OqekahtwnBWHKaSROALLZmLCFScmimXgK3zsGmy4UDMnreNTLtTdzsdvfV
-	NCkXtKLKJa+LF4O9pbI/S9ny0QaXLV+kkbmo94V1NGooST51BFDIqd3f5elhaAXVPN4+agxXJRMyR
-	tqwhyap7Hq01lIiQ4Z9yc73eDk3f+ISCzDy4fZMqV0H0hDFU1s/FSpFnvlC7mzvCVsDxNt7bvkMWe
-	1sUeoF+g==;
+	bh=5xLXEiPmIkFsOWq2iScRt7BhDQ5CLO6wEMeeYC9tPQw=; b=qekYFmXYNnJGm2LmUQWC+JtSXP
+	9bUW7r2DBDpslrtgveoZNyUjJ4/TteuajBNRdtHkFgJhHGvocihhfvDCQ+xVwSRCF/zmwFhfiQk7f
+	srrrsDVMf29fsxN6bA7E08N6slYQ1dqKEHMg7U/c65B92JZzibZ/XKVfn4X0r69x1EUZDgwPP8Jwb
+	uyFeMRfM4wWvnUdsjhEZF53SAG2g+qm2nM4yPKGMDbnkKZtarjt/a+AL27JHKOs1USet6e1noTAXe
+	mNoBKkA3lYixpo6kwHiIfw7kxy/M2SEg5bkkvczyApfmGKhTWHAeL4hrd0tUO5D9iX/TJ36X/JjXW
+	+FdCdrbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiVq-0000000B585-3oqF;
-	Thu, 26 Jun 2025 09:03:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uUiY8-0000000B5i3-0WjO;
+	Thu, 26 Jun 2025 09:05:40 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUi0M-0000000AyQL-0AA3
+	id 1uUiAA-0000000B0L3-0vpQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 08:30:47 +0000
-Received: from pendragon.ideasonboard.com (85-76-34-12-nat.elisa-mobile.fi [85.76.34.12])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 239736BE;
-	Thu, 26 Jun 2025 10:30:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750926622;
-	bh=RVnpBzh8Pk5p+vp6PHEE6etS4VhqUXMMyitmtLtuxXc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JnZNiqDIFGYXfGGL7aQWAxeqFgx9ZF9/ernbTltasxc6pNHH5rZWWn+9JbL7NaGuY
-	 5v5mc2tL3AKzjxAbtoVi+/CUOnZW3CMFstArDIP+baStQOkQHcXBpNGF36M0V/u5yC
-	 c21JZlXODDVrhJreiowp64kWXjd+/SQSo3huKuUw=
-Date: Thu, 26 Jun 2025 11:30:18 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] media: imx8mq-mipi-csi2: Fix error code in
- imx8mq_mipi_csi_parse_dt()
-Message-ID: <20250626083018.GB8738@pendragon.ideasonboard.com>
-References: <9b6c7925-c9c4-44bd-acd5-1ef0e698eb87@sabinyo.mountain>
- <20250626002053.GA12213@pendragon.ideasonboard.com>
- <473ad0ce-5180-40e9-b159-a6cfe77f792f@suswa.mountain>
+	Thu, 26 Jun 2025 08:40:55 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55Q8PD5s026846;
+	Thu, 26 Jun 2025 10:40:40 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	5xLXEiPmIkFsOWq2iScRt7BhDQ5CLO6wEMeeYC9tPQw=; b=yAcNns/eKTBEPfvF
+	brtge3KBWhvYe/uSk9spqaox79wdlAKfckfm1jprWhwvaHBI4BvhcuI2HlePQNDJ
+	MeoSMRdIO4uGXT1H04TjELdVKe6z6lpj9irdpw6upp7KzjGEC7pE6O9J8KhUty+R
+	VDPvYz/mRhaSOpyH4RJFCS3qLhPYvWusBwhhp03g92LtBsFkdLahsO25v9bnduVm
+	CDPbcT9Rvmrqj4R4DDu0ic4LkIRYqimc2G+M6gEGCstRZMM3+e0Uc1CQSA32di49
+	oADO1A0KfMQa2MMwO+jL1+SEHSY8ZSgI8ExKTt9rOqwj3CklBCDmGVq/xpNp5Y6x
+	5ERS9g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dhvbwe8f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Jun 2025 10:40:40 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 24FE640047;
+	Thu, 26 Jun 2025 10:39:11 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9EADBB22D16;
+	Thu, 26 Jun 2025 10:37:51 +0200 (CEST)
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 26 Jun
+ 2025 10:37:50 +0200
+Date: Thu, 26 Jun 2025 10:37:44 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
+CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
+        Andi Shyti
+	<andi.shyti@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Sumit Semwal
+	<sumit.semwal@linaro.org>,
+        Christian =?iso-8859-1?Q?K=F6nig?=
+	<christian.koenig@amd.com>,
+        M'boumba Cedric Madianga
+	<cedric.madianga@gmail.com>,
+        Wolfram Sang <wsa@kernel.org>,
+        "Pierre-Yves
+ MORDRET" <pierre-yves.mordret@st.com>,
+        <linux-i2c@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linaro-mm-sig@lists.linaro.org>
+Subject: Re: [PATCH 1/3] i2c: stm32: fix the device used for the DMA map
+Message-ID: <20250626083744.GA348766@gnbcxd0016.gnb.st.com>
+References: <20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com>
+ <20250616-i2c-upstream-v1-1-42d3d5374e65@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Disposition: inline
-In-Reply-To: <473ad0ce-5180-40e9-b159-a6cfe77f792f@suswa.mountain>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250616-i2c-upstream-v1-1-42d3d5374e65@foss.st.com>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-26_04,2025-06-25_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_013046_207497_0717FD6C 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250626_014054_536100_FDE3DE97 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 03:32:50AM +0300, Dan Carpenter wrote:
-> On Thu, Jun 26, 2025 at 03:20:53AM +0300, Laurent Pinchart wrote:
-> > On Wed, Jun 25, 2025 at 10:22:32AM -0500, Dan Carpenter wrote:
-> > > This was returning IS_ERR() where PTR_ERR() was intended.
-> > > 
-> > > Fixes: 642b70d526ab ("media: imx8mq-mipi-csi2: Add support for i.MX8QXP")
-> > 
-> > I'll add a
-> > 
-> > Cc: stable@vger.kernel.org
-> > 
-> > to obey the media subsystem CI rules.
+Hi Clément,
+
+On Mon, Jun 16, 2025 at 10:53:54AM +0200, Clément Le Goffic wrote:
+> If the DMA mapping failed, it produced an error log with the wrong
+> device name:
+> "stm32-dma3 40400000.dma-controller: rejecting DMA map of vmalloc memory"
+> Fix this issue by replacing the dev with the I2C dev.
+
+Indeed, nice catch ! Thanks a lot !
+
 > 
-> Wait, what?  The original commit hasn't hit Linus's tree and it's
-> not marked for stable either.
+> Fixes: bb8822cbbc53 ("i2c: i2c-stm32: Add generic DMA API")
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> ---
+>  drivers/i2c/busses/i2c-stm32.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-stm32.c b/drivers/i2c/busses/i2c-stm32.c
+> index 157c64e27d0b..5e0b31aed774 100644
+> --- a/drivers/i2c/busses/i2c-stm32.c
+> +++ b/drivers/i2c/busses/i2c-stm32.c
+> @@ -118,7 +118,7 @@ int stm32_i2c_prep_dma_xfer(struct device *dev, struct stm32_i2c_dma *dma,
+>  	dma->dma_len = len;
+>  	chan_dev = dma->chan_using->device->dev;
+>  
+> -	dma->dma_buf = dma_map_single(chan_dev, buf, dma->dma_len,
+> +	dma->dma_buf = dma_map_single(dev, buf, dma->dma_len,
+>  				      dma->dma_data_dir);
+>  	if (dma_mapping_error(chan_dev, dma->dma_buf)) {
+>  		dev_err(dev, "DMA mapping failed\n");
+> 
+> -- 
+> 2.43.0
+>
 
-I'm personally not in favour of adding Cc: stable on all patches that
-have a Fixes: line. I'll let Mauro defend the rule, and I'm happy to
-drop the Cc line and fix the CI.
+Acked-by: Alain Volmat <alain.volmat@foss.st.com>
 
--- 
 Regards,
-
-Laurent Pinchart
+Alain
 
