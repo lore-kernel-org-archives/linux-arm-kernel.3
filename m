@@ -4,152 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F36C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 23:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151E0C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 23:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sds+EnePYO1cZCHbAHOJn503ulI/pwm3RK5XFeMRA7A=; b=xEFBp+8I58zprV9ywhsXqIbUPK
-	NAFHs1HusjMt5MbNalVbe/HDLqUJ0N+yrqSavgSqvBy5VSVvdL59vVzsSgJf5ymOcmt1oou3q5kHf
-	O5ll+P20stW1okbVnvlq6hf57zBRlYel5ulDbZ+Kot+4Jy27aOKGrphnZeLxhQuBhdnvURb9wvxqs
-	2U8nOlwzbXXEF9d1POQnWzOTVQJ6wkPYpgSlqN56LIs8shSSFmUFDIWBU2k/UpZqGbW6XFkSRZy0N
-	qPud3NP8UCOoAQXVhRuYq/gYzaR6JhcxmXxABTpRiLEU78YwRvIMXGasYzkvsbhzS7Phz796/ArbP
-	ll7Tyyzg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BIo+4tv6e0tJvJwfvRUmdX7OEB2USSJerM3U4tjrK2w=; b=NSJjQN9uaacKDYyCwUGb838sAA
+	88MbPuo8miU+I4keAzUKK+KBVs5r+aflFHjBJ54mHOiFyjU1aLU8Oq8AV2LtumIsRjWdBYBB0fYr/
+	42yGPwSp5M+tDtPYFTg7OMYqOrzGBffFZ2Bkm6I4aLi1O5aMuw8UbSwsiLUegEsCdOdYy/g/nGFwe
+	20sq24PieWMN+8OCgpf//AhReY0SQDq95kQopw9DPo1wlwqXdRd1Z8XpoosF/2qdJhezrlUJEwHO/
+	imOH9vy7rw9TQglzmrLDgoenCKL1iDiGmW8swDGyINF2n/nIYPnrScTTi45Bqse8wrqdfOvtxNHef
+	3EIdLH7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwJi-0000000D5yG-48nj;
-	Thu, 26 Jun 2025 23:47:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uUwLy-0000000D6Hi-1HGY;
+	Thu, 26 Jun 2025 23:50:02 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUuWl-0000000CsPL-2sDH
+	id 1uUud3-0000000CtJx-2FPo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 21:53:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750974782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Sds+EnePYO1cZCHbAHOJn503ulI/pwm3RK5XFeMRA7A=;
-	b=A+oK8OwhDDjk1ZIpY/GmClNu+li9P7YpgJTIK/Df5CAC4LcrU+hJvt59PzojWGlR00fcla
-	NRkNDt4xyyc9MY+LuRT+MgXb1oRZVNJNkQX+EPa8VqWXFczx0SYcOBq0CXnC5efOVs+ssC
-	PskomFyGwh3z0gbCqC82vNBxK0t1RZo=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-510--C6FdKiaPwe90esugMXWWQ-1; Thu, 26 Jun 2025 17:52:54 -0400
-X-MC-Unique: -C6FdKiaPwe90esugMXWWQ-1
-X-Mimecast-MFC-AGG-ID: -C6FdKiaPwe90esugMXWWQ_1750974774
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a4f8fd1847so558611f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 14:52:54 -0700 (PDT)
+	Thu, 26 Jun 2025 21:59:34 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-23602481460so18352815ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 14:59:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750975172; x=1751579972; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BIo+4tv6e0tJvJwfvRUmdX7OEB2USSJerM3U4tjrK2w=;
+        b=MqslTIIOFPi3YHq6D4wgTRP50tCEaKnhJ5YoO1jRTeWti0w8cWXCs6518GLRmCqxiR
+         dUhFMxw83nrIY0jbl7MLkVX1pAWUuJ6Iuw+E8hxVow0pPt2EQRkVwgntbbrVXElvfgfI
+         IDfS1o5SOszak4IAXTDLYDSSi1c9JIaX/wWDiEXvHC4MjbPk13V2CV8k4fiHGlJz+xQO
+         xTZAA0NgoI260BDFCnPuHSkPBT6eIDcoTVr+86FJfiJEmJN3+huGhhOCfxfQ0wwBEwC6
+         No+ylUXxOl7qnPdISBbH8ZsLdNDmS+/iKixb/Tb465QrgGE/T1fXhL5hY+TKTfdtkFq6
+         MLbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750974773; x=1751579573;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Sds+EnePYO1cZCHbAHOJn503ulI/pwm3RK5XFeMRA7A=;
-        b=IS3etxc/fiatXVcjeO85IJCFEdpBb+aJJFvY4kE4mPpOzFRCVk+/gobS6uxMvZLB3C
-         bZG7iRvrIRJD9Brt3XXbvu9Yr7IaCYjNnexG5rRQTAD+d5/ZHHe/XpVOyGFNuXXZpe4U
-         dEgbbeRHbbTL3/ZH6g2tm89E0bRPPa6UCbg80mfwJlTbUlxdciHLGkJrzWoL7YNCLuc9
-         bezUmKLwNHyFLe1tRf/1xe2nJQIPXFUlwD10UcN/UKsrztJnRM0M0EVW4T1JObVsCdKc
-         LwPeWWpOgmDoa9+pSq0DvAPcUyH4+rjFiWK702no2GzY2BJEi77LCeP1yI2rcVzjcWJX
-         253A==
-X-Forwarded-Encrypted: i=1; AJvYcCWxlnpGRz/52Q+RiqKB/oIhZSknmtN7PwmrusDOKH+EqLYux5or92ZfbPIviHIW3rOyScu4y+Pupvk8qYCUeedv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPMpczkQoy9OsxsGYo1h5jJhlSATzvRUG2UTv+Ot4OheAaArIu
-	i+92GiZZtv77pa3FBG8kz6c8hMF/vny1Gi1VLOWWwKmACOUlUlzOsiI0uJO5tAModZna7t/HKw6
-	V7ATTN4rhKUZGuG/9LWUtcT4sWqofKa2GmYUjXzIpPOf75EZJb6E8wq/MSNhvey80qiF7YpvMZL
-	WF
-X-Gm-Gg: ASbGnct4bew3qn5OcJJHy5W9y1s8EUxNmjRkvXNrhAMLmr0a77cBJqni7rES/YWkdrI
-	La0voFQCUNxeVUGAeCNbjzk1fy557yG3ZXK9Fix4OIbxSJvNvwonhqUANoNF5lKNTX//cjA2tyx
-	gPXVDNPBXFQUfoOvnDkkz5lYa6Mrytpw14WnKk4DLEzDYeSDCoZT2aCa9IWPSbvJHP5bM4IvRJM
-	M7XrHDJ4Jdhym4nAA+8sW5l2w+Q8T2NPbAQJJotUox+Tn9lyhwMBNVcSOiqt3VnFmeR3DuBBLkj
-	XSsjM09IRXTHsWGByBT7rTxQRMSZrFY9LXD5wjidVs1cgnU+/SwzQRTxBoI2mUkePmLLkzEnGyY
-	7pagHwsSRbgf4FhVWWyE23n9Q74dSRWSu0eP8/X7kkUL5yZgn0Q==
-X-Received: by 2002:adf:b60f:0:b0:3a6:d296:feaf with SMTP id ffacd0b85a97d-3a8fe985feamr656658f8f.24.1750974773619;
-        Thu, 26 Jun 2025 14:52:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF91pFzkN010jPQk8nO4iHG/+bQ0g3gbQdu1CsS5nqxXRrx9a1rGPo2RPO9VipXGBPN3oatgg==
-X-Received: by 2002:adf:b60f:0:b0:3a6:d296:feaf with SMTP id ffacd0b85a97d-3a8fe985feamr656645f8f.24.1750974773213;
-        Thu, 26 Jun 2025 14:52:53 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f3c:2f00:8afc:23fe:3813:776c? (p200300d82f3c2f008afc23fe3813776c.dip0.t-ipconnect.de. [2003:d8:2f3c:2f00:8afc:23fe:3813:776c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c7fadf3sm958775f8f.34.2025.06.26.14.52.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jun 2025 14:52:52 -0700 (PDT)
-Message-ID: <4856517e-fb68-436f-8130-b7eb5749b7c0@redhat.com>
-Date: Thu, 26 Jun 2025 23:52:51 +0200
+        d=1e100.net; s=20230601; t=1750975172; x=1751579972;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BIo+4tv6e0tJvJwfvRUmdX7OEB2USSJerM3U4tjrK2w=;
+        b=u+L7EUQXr0/3U5+XjIHdnvzQIqzh2IzTn2wc4YQiqIYWBn0E6so5N7sFqGQB7JtgBy
+         0cVYcASPP52kpODoMbmQHq3Lx3wINmlcad9KLBNWPucn1zklYYqQuWubRZcKwH1SCYlA
+         S6fdI8Rd2r4bCLsop6xr+0GBgrFRkob3Bte51raLIxBYTZ/6t8MfAyqWXrZsep8x691F
+         yrIXobtgV5IKX3wHQdHx6VD9T9LdOFQbXlr0L04xv/R4iljPniaINmUvEwJHOh0DSdIT
+         f08ijXAP4efhHBzMI6+QSUs/ozEvzSgNskfRqzDkKHhHUUgqiMOyZWvRDyd0w8VSya33
+         2KsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVigwzIpQsvCB6q9AlAskVQ5xaJ2CEl55SsnLiVtkeoErHf4DQUJ37bjLTo2rle9qsEKSKVXg5KRPlLeXhL4PBM@lists.infradead.org
+X-Gm-Message-State: AOJu0YylfuuKaJiJvSfSlvZ8MadCe454zrICWi8TP6Tck9C0oTDi76Uc
+	8vNsWcQTJhbblzv7PBuvrjTPTfGzRmDHhgbQrIlWE/8BtuHZwzlQGMRa
+X-Gm-Gg: ASbGncvSS8Pr1aTZfSKUVx9rEpXcf3Np3KBicvwE7D+ZST7TdDup+u+6BgwoJTNA0bm
+	kT/pHTNl1lrdHB9FkFVSYuHC55R8x34zLrPkQhZAfmCkv63KT66j83MgDMVVEClcDLu4L9bUcLd
+	l/sFnGWPZqKBtMKmdzl/yIjabBWjlORhxmEPf8Q1hQij3R1JDgVDf6YwskAOIogEF10Z48X1VXG
+	t+J54zjuPdLCviPFO5xbOwMgC3r5WbUReCFX8bz2FZ4QKHzPuG4O6wkD0e+iXD5SRlThOVNSkMf
+	C9ws/04IxBxPXKIxBML7Pr7Nf+WUKTEpIGjQxqTzU7q1BxQjFYR4P72htINPlIemYxf5vTXwEk1
+	rh8E=
+X-Google-Smtp-Source: AGHT+IEWjshLgh07UmKjVXlymS2HdOEmftHmlKGMeQUGGSx7ixamCKXotE/1Lb9O5SdhP8Ay5EI28A==
+X-Received: by 2002:a17:902:ce85:b0:234:1163:ff99 with SMTP id d9443c01a7336-23ac4609a61mr14225035ad.43.1750975172151;
+        Thu, 26 Jun 2025 14:59:32 -0700 (PDT)
+Received: from localhost.localdomain ([2804:1b3:a7c3:c88d:6da3:af6d:a237:3289])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb39b8b9sm585275ad.118.2025.06.26.14.59.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jun 2025 14:59:31 -0700 (PDT)
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-pm@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	daniel.baluta@nxp.com,
+	iuliana.prodan@oss.nxp.com,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Subject: [PATCH v6 0/3] remoteproc: imx_rproc: allow attaching to running core kicked by the bootloader 
+Date: Thu, 26 Jun 2025 18:59:08 -0300
+Message-Id: <20250626215911.5992-1-hiagofranco@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
- folios during reclamation
-To: Barry Song <21cnbao@gmail.com>, Lance Yang <ioworker0@gmail.com>
-Cc: akpm@linux-foundation.org, baolin.wang@linux.alibaba.com,
- chrisl@kernel.org, kasong@tencent.com, lance.yang@linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
-References: <a5b5b0aa-21c4-4abf-b323-63af96aabcd5@redhat.com>
- <20250626092905.31305-1-ioworker0@gmail.com>
- <CAGsJ_4w5Obx9=P0wkrbLaDzKpG0e-7xs7jgHRa91KO7e92MO8g@mail.gmail.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <CAGsJ_4w5Obx9=P0wkrbLaDzKpG0e-7xs7jgHRa91KO7e92MO8g@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: RwiOwG_XTKDA5ZiBrRBy-zvYO4jMZ3XbkVp7DOaYOQs_1750974774
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_145303_794905_0C2B58E1 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250626_145933_576885_CC30F679 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,27 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.06.25 23:46, Barry Song wrote:
-> On Thu, Jun 26, 2025 at 9:29 PM Lance Yang <ioworker0@gmail.com> wrote:
->>
-> [...]
->> +
->> +               /*
->> +                * If we are sure that we batched the entire folio and cleared
->> +                * all PTEs, we can just optimize and stop right here.
->> +                */
->> +               if (nr_pages == folio_nr_pages(folio))
-> 
-> David also mentioned if (nr_pages > 1 && nr_pages == folio_nr_pages(folio)).
-> I assume it’s still fine when nr_pages == 1 for small folios? No?
+From: Hiago De Franco <hiago.franco@toradex.com>
 
-Yeah, as raised I think it is fine. We should never have any folio page 
-mapped multiple times into the same VMA in any case. (excluding KSM 
-pages, but they are handled differenty, using a specialized rmap walk)
+This patch series depends on Ulf's patches that are currently under
+review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
+Without them, this series is not going to work.
+
+For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
+started by the bootloader and the M core and A core are in the same
+partition, the driver is not capable to detect the remote core and
+report the correct state of it.
+
+This patch series implement a new function, dev_pm_genpd_is_on(), which
+returns the power status of a given power domain (M core power domains
+IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
+already powered on, the driver will attach to it.
+
+Finally, the imx_rproc_clk_enable() function was also changed to make it
+return before dev_clk_get() is called, as it currently generates an SCU
+fault reset if the remote core is already running and the kernel tries
+to enable the clock again. These changes are a follow up from a v1 sent
+to imx_rproc [2] and from a reported regression [3].
+
+[1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
+[2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
+[3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+
+v6:
+- Added "reviewed by" from Ulf and Bjorn.
+- Fixed and improved commit descriptions of patches 2 and 3.
+- Improved the comment inside imx_rproc.c file.
+v5:
+- https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
+v4:
+- https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
+v3:
+- https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
+v2:
+- https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
+v1:
+- https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
+
+Hiago De Franco (3):
+  pmdomain: core: introduce dev_pm_genpd_is_on()
+  remoteproc: imx_rproc: skip clock enable when M-core is managed by the
+    SCU
+  remoteproc: imx_rproc: detect and attach to pre-booted remote cores
+
+ drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
+ drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
+ include/linux/pm_domain.h      |  6 +++++
+ 3 files changed, 73 insertions(+), 7 deletions(-)
 
 -- 
-Cheers,
-
-David / dhildenb
+2.39.5
 
 
