@@ -4,83 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C67C7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC261C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmQK8XKnAKLwuCyVIKp6kezWM3/MBv31fAdBf/mvaXs=; b=tO0P4Z14SzxLLLOh2Jrpbq7k/j
-	4WZsIRB3+0MzucdOuq4KtjHd8ziFrU+DdL9KrlgN5YZFXdZqmUlP/Ky4nVhA/CgDsou9QEv09QdVp
-	QZjPuren+c4QM/YOu3hBfoMfI/RgPPAl7KyDxCkksQfkDtEseE7srxoCdyzjRWA/dzRPxvZtnN8ma
-	76D8UHhB7vcC9BgkHKjmmt//ZJviNyGKav46CMnJLKMthfogKIm2eLoF62Cd5OFegTTu+2LsTrUx0
-	AIOOGrlnIW04UMhpLBLCsbKXhW7hXf415lTSarHwG+S7dbZZ5BNxXN/b9EIMeLHvjt2HXrbkyoAZJ
-	ux/6meQA==;
+	bh=X2TOqt2HS6FpDzTO6plLpdK1doM8076e0YtdxQ/DF5E=; b=dQnwMoP5C1TY0ejq7LNdthKj30
+	7/tvy3XI7qMjfYdheyZNwptXEwF5WxmN9EqGApkWeJk5IZchkVcwyQFvBBuD7ejRDYLtP7YhK8/gA
+	24NRG493qGsARAIE4yCndWpvWFcLTBDjq5BTeLK2KPzo4s2kOCKgZPvkkzG7J65GGkLIvhWZFYumC
+	AraIE5E9zciyiAKpbLrfxGdGBBqt7dule7GLVvvwoyVtCEzXw+Y1uUPR8mlZvR6PlgRrR/OP/XY+1
+	00bOXdhUM5q0YrmlU59SK7N3a4Ou+eaQ8Ntejp0QsskjGD4duqv5GvfsbLnqeX2MdjEdSoObzt8Wu
+	AEgrIjKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUtvf-0000000CoHf-1tsL;
-	Thu, 26 Jun 2025 21:14:43 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uUtxu-0000000CoUl-0hQy;
+	Thu, 26 Jun 2025 21:17:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsTv-0000000CcNM-0uBg
+	id 1uUsbG-0000000CduD-2Esk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:42:00 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 0D27125B63;
-	Thu, 26 Jun 2025 21:41:58 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id OEHH2EbSFcj2; Thu, 26 Jun 2025 21:41:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750966917; bh=l4Nuu5usU3hvRSdSwV3bQf/gyHyhMjDbMhpD0WU6O88=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Ebgh8tF90SxYheUm/XdL3l3+tUf8vUBXPF3ErugG+gm18/zE2KxQL4wzegTl+SblX
-	 16F6td1BGUt0W1cV/unT2a54AdxrzXnnJnmGU8WrrS38bhLVw00F+md5LgHejUNfKF
-	 JVmz0jAM3LPscys4ZK9puADwfrM46LaS22h5KC/VZwo/wHmfQl0hW4sDqVjWLblWUF
-	 eHlKjCp9Gf5/rJetrUGHEI16VhATSxbbtj5VkGV+M5dOpI58CFOGpp882a0Us1f8NJ
-	 I0RmrQi26vVsJldm0CiGOY2kcpSumu2giASUHyZ/3ciWjsFv7Vqt3BMzI93YxZ1C1G
-	 f/e17oc0oY8LA==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 27 Jun 2025 01:09:02 +0530
-Subject: [PATCH v2 13/13] drm/exynos: dsi: add support for exynos7870
+	Thu, 26 Jun 2025 19:49:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AE214A515C8;
+	Thu, 26 Jun 2025 19:49:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B297C4CEEF;
+	Thu, 26 Jun 2025 19:49:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750967373;
+	bh=Ti0JtH7gWsysifUKFE7inIyTmQXeAlWF1XTy+gQ+yQ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tmZ/aCCXyEUlHiZIyKBZWtG/TH6yPgQdE3igtnR5vIKolArtQu9uaINtWeVayFooh
+	 CJMKgdOqQIA5G6clEOnO1l6KyxkygjSj+K1FP62E6xggmnepAE/s/S/M6RBotymNjC
+	 5eUocKXq0Xiuakcdagme6yJ7hfG+Ll7JsXyaOHzatRM7Ri+nDN995UZNM2/k64HDvb
+	 nvUZlpi08UuWlx0ry76O7Ou9CJC9Wt2VOKWSI5LUqZhB1tqJFKkUZLZTXNE+mNunaZ
+	 WO2sbdmbYDqW19x1zx6J3oqai8Qt0UOtsAKS4Lr99EUjXnI1UISDeO112w2Q7UX2V/
+	 bP26xtcNECRrQ==
+Message-ID: <2c491166-d8ae-4fb6-a4f7-74e823e1205d@kernel.org>
+Date: Thu, 26 Jun 2025 21:49:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-exynos7870-dsim-v2-13-1433b67378d3@disroot.org>
-References: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
-In-Reply-To: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
-To: Inki Dae <inki.dae@samsung.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=1284;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=l4Nuu5usU3hvRSdSwV3bQf/gyHyhMjDbMhpD0WU6O88=;
- b=cmuo+JuT3QMzZHDqDYnGiREXiuNl6V2a1LJCsYS2y5UQKcrN5wI1ZKfhiayYuBYF2UrypP+5V
- p9GshsYm9IyD7GMQtRWhReztr3kMfLpJ+dEqvdjF0sqybYP9335jEqI
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] arm64: dts: exynos: gs101-pixel-common: add Maxim
+ MAX77759 PMIC
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+ <20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_124159_387126_F4689F10 
-X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-CacheID: sfid-20250626_124934_711745_EC348828 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,42 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add glue layer support for Exynos7870's DSIM IP bridge driver.
+On 24/05/2025 07:21, André Draszik wrote:
+> +
+> +		gpio {
+> +			compatible = "maxim,max77759-gpio";
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			/*
+> +			 * "Human-readable name [SIGNAL_LABEL]" where the
+> +			 * latter comes from the schematic
+> +			 */
+> +			gpio-line-names = "OTG boost [OTG_BOOST_EN]",
+> +					  "max20339 IRQ [MW_OVP_INT_L]";
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +		};
+> +
+> +		nvmem-0 {
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- drivers/gpu/drm/exynos/exynos_drm_dsi.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Why is this called nvmem-0, not nvmem? Is there nvmem-1? I see binding
+does it, but why?
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dsi.c b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-index 896a03639e2d9b80971d43aff540fc7fb9f005bd..c4d098ab7863890b2111742c07953c148304e4ec 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-@@ -154,6 +154,11 @@ static const struct samsung_dsim_plat_data exynos5433_dsi_pdata = {
- 	.host_ops = &exynos_dsi_exynos_host_ops,
- };
- 
-+static const struct samsung_dsim_plat_data exynos7870_dsi_pdata = {
-+	.hw_type = DSIM_TYPE_EXYNOS7870,
-+	.host_ops = &exynos_dsi_exynos_host_ops,
-+};
-+
- static const struct of_device_id exynos_dsi_of_match[] = {
- 	{
- 		.compatible = "samsung,exynos3250-mipi-dsi",
-@@ -175,6 +180,10 @@ static const struct of_device_id exynos_dsi_of_match[] = {
- 		.compatible = "samsung,exynos5433-mipi-dsi",
- 		.data = &exynos5433_dsi_pdata,
- 	},
-+	{
-+		.compatible = "samsung,exynos7870-mipi-dsi",
-+		.data = &exynos7870_dsi_pdata,
-+	},
- 	{ /* sentinel. */ }
- };
- MODULE_DEVICE_TABLE(of, exynos_dsi_of_match);
-
--- 
-2.49.0
-
+Best regards,
+Krzysztof
 
