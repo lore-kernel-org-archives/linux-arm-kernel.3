@@ -4,95 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039F0C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 10:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E1CC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 10:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iuFmqpRengejqXGMt8z0krXQLsPU94kcoziX8PACH+I=; b=K3Po11y1Bj/EoN3l5m9LVfOlSp
-	vhHWg3UMOHk83vO4Z0jur/3gAX0BOpgAO/lBtF0QLULoKKkuKR07HWoRWQ1VTshWRQE20do6BDDSh
-	TJeIiQeWhc4vswroV9wD5wsb/HHExNYtwK/SMZbXt1TZF7xsKsPtDnNjaljh9GJpD/erXj/2AM2MD
-	6090LsdjPnFfx5kI4SVi12vq2W40RmztWx55UWVemV8RCSjx5hwbg7kbo0Y1I7bKIRvnlm2HO36+y
-	dKO7qglVbVbNDuE1ocyYo5GwJoDwVFFBjxE2erOnaVU1HOhfTuW7Ba0+i2Q42FoMsvEJHdJDhJDXK
-	naHiiHXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iA/8SO2mGfVZC7bo0ZFuR79S7HLwYm6xuSgZaGNdeiM=; b=mJDEc1/ZzwyoiXbu016xE1NmK7
+	KBuyf5r3AjmKKsuy1RTsp4g55vbyTu05zkLAwDyaAxwhY/y+Rrx+aI7huA5U4a+G0d5lRQTSOGjU4
+	/bHLg9WyWFQHpNcFLyB88tJTPUBxy7K1IADuxO21uWjREHdCq8erKqZee3iZvm0LYC4PbEZXjlOGo
+	h0b4OqbeXjCJeRQ76vSR7vPMR81BiaxGi3F4AN5eQtixAl7xdmTJePJ3k/qNMLORV5DWvuuL97AKm
+	bb88idxoqCgzKcsrk4u6gSls/OuauNX55Oh181Y0pKjeG4s4ltf5gnTuMXTm97R/bMo1H2eYrwGIh
+	Joadi8kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUjPr-0000000BEDs-3GWo;
-	Thu, 26 Jun 2025 10:01:11 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1uUjS7-0000000BEbI-2Lcu;
+	Thu, 26 Jun 2025 10:03:31 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUix2-0000000B90C-47a1;
-	Thu, 26 Jun 2025 09:31:26 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-553644b8f56so739418e87.1;
-        Thu, 26 Jun 2025 02:31:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750930283; x=1751535083; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iuFmqpRengejqXGMt8z0krXQLsPU94kcoziX8PACH+I=;
-        b=EqfQEEeRj4r4bAulrFQFJ8jL/OBLJWgaPxF9ukgjkkmr3hAXhMghw1oRxgVLCglxTQ
-         +BlOtn/w4lFBBQDwHfn0xRYK1iL1InBf5AtQfRCh5Qm1nT7AB4UNP/CPeOrcxj8eok9m
-         T3FnL1aMIOuET8CE+nov3915oxAeAJ0M0JGhUiYZIDBHGdvXHUlSUZ+2oREyu9Ey8pDz
-         4WiwvwgLaAgZDBPGQjj/aR63il25J0zPeuywqDnGZyUlps5Wo2csEgjvCIkabHQ/6AFD
-         4xXOfF3092KGcAh1sjyR1NOl1YQJbVp5Fqppo/3LT0luYECChcMBjGqzpBZrYZOXubyc
-         1/EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750930283; x=1751535083;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iuFmqpRengejqXGMt8z0krXQLsPU94kcoziX8PACH+I=;
-        b=FnbVz29GKpk9AZK6dnP6dHTOCjrYRHg/phjbqtaGLbEALSSROxYJaEksGzWNiuU+ki
-         IEaX3k/3LiqBMch79/pxibpuQO+XhYQ9IuOAKovosoeaIa/JQXfO7ov5gQBrG2+Xdhme
-         hqv/YB3Mb8Xh3PxLWEDrGkf7qr9gysIiMbFzAQ3uROV0DwkpZGLPDjsFXyMZtgv21VcO
-         Swp/HjhnqxVUhKdZu+JcASCrwnDz9cWRGVXN/qyko8+wRqkfxVosMYZlE+icFT1YOphF
-         SoMFHJgqsvQsnWL6gkWqMoGyzs+hPplYdOqL5mvOturorC+Ib7VpWM9IBY4lAWOp/Thl
-         4aNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2AQFBFDz0zLwfAvDvk0qv3QtYkJ8XCZT9HxSWrKSJNMJhGHq4xsKh/Jtbn00cLtAyTUcP+uk0qMg=@lists.infradead.org, AJvYcCXnuVorKr0u9gg/7ZPqzQCcVMrUlXqF3+yzWbv8+XYWINXx65vFRKA6LYFqZsMS9cz4Xn0q3ca2uy4yfEYbyzop@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3je+mu4SshZ482VChINX4vKVl8FORpVWm6uPnVAKscMpsQ6H4
-	gAmoylmVKEF8wy+f9b2g2w12dJcymi+rCHkaLi9YyMs9dXEK2beMN1sJKVQoh00qKYLoZs3yiY4
-	p+nBzz8DztVyU/vlRNwe7q6Z6xsSWcjk=
-X-Gm-Gg: ASbGncuHoNvAqCy9yVTszDRKWmrr0VnPX3QFUEz040NNbuKLogB3QuCdwvsKuMQgCyN
-	sQJQ13yiB2+VTgrJJIqtCnJjhdO14XbQ0lxZ95WcPfzBGIiRsTi3S5uQWv8NYHPCYmfG+0+c9B8
-	8DSccHFs/FsuChoR2UA3rB6dN5HStGst6NT7WAS7Lv72v5fSQpLsWY
-X-Google-Smtp-Source: AGHT+IHKD9vv7E6n80MsMeNjpJwBWGKsDmTjk3A0J3+cAywyuJ59mQfEiaL2YVTpTIc2tcdraTY+Dh5qWDg83RmXaIY=
-X-Received: by 2002:a05:6512:1150:b0:553:36b7:7b14 with SMTP id
- 2adb3069b0e04-554fdf96ec2mr2102615e87.37.1750930282937; Thu, 26 Jun 2025
- 02:31:22 -0700 (PDT)
+	id 1uUj6S-0000000BAcj-2x5y
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Jun 2025 09:41:12 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55Q9eqhl2115910;
+	Thu, 26 Jun 2025 04:40:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750930852;
+	bh=iA/8SO2mGfVZC7bo0ZFuR79S7HLwYm6xuSgZaGNdeiM=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=a83gXHvo1EAsgKkMTTOdCfZ7FG+dcLW6lnsxqrO3vv6KzDFjYYavD3BmGgdHuOFQ7
+	 T7dABv2Yn0kS8PgiswWFN+rRYN+cBZ2+ksB+v5dAJYKmZhdYNnf95CDeMXDOxQ9i+S
+	 gaiFno2pnCTsW33QChz7rI/BRsEsaS79G1cGgIM4=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55Q9eqxZ2128746
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 26 Jun 2025 04:40:52 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 26
+ Jun 2025 04:40:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 26 Jun 2025 04:40:51 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55Q9eodS789152;
+	Thu, 26 Jun 2025 04:40:51 -0500
+Date: Thu, 26 Jun 2025 15:10:50 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Andy Whitcroft <apw@canonical.com>,
+        Dwaipayan Ray
+	<dwaipayanray1@gmail.com>,
+        Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+        Joe
+ Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
+        Nishanth Menon
+	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux@ew.tq-group.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net-next v2 2/3] net: ethernet: ti: am65-cpsw: fixup PHY
+ mode for fixed RGMII TX delay
+Message-ID: <54d6cd05-65ef-4e1d-8041-3e4a2c50b443@ti.com>
+References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
+ <9b3fb1fbf719bef30702192155c6413cd5de5dcf.1750756583.git.matthias.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
-References: <20250625095224.118679-1-snovitoll@gmail.com> <20250625095224.118679-2-snovitoll@gmail.com>
- <db30beb6-a331-46b7-92a3-1ee7782e317a@csgroup.eu>
-In-Reply-To: <db30beb6-a331-46b7-92a3-1ee7782e317a@csgroup.eu>
-From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Date: Thu, 26 Jun 2025 14:31:05 +0500
-X-Gm-Features: Ac12FXyxTyp0b2hD3uhdVzbeUTYpXnyKRANJYa2mQoNch15i1MQX1xBLZECmC3k
-Message-ID: <CACzwLxj3KWdy-mBu-te1OFf2FZ8eTp5CieYswF5NVY4qPWD93Q@mail.gmail.com>
-Subject: Re: [PATCH 1/9] kasan: unify static kasan_flag_enabled across modes
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, 
-	dvyukov@google.com, vincenzo.frascino@arm.com, catalin.marinas@arm.com, 
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, hca@linux.ibm.com, 
-	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, dave.hansen@linux.intel.com, luto@kernel.org, 
-	peterz@infradead.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	x86@kernel.org, hpa@zytor.com, chris@zankel.net, jcmvbkbc@gmail.com, 
-	akpm@linux-foundation.org, guoweikang.kernel@gmail.com, geert@linux-m68k.org, 
-	rppt@kernel.org, tiwei.btw@antgroup.com, richard.weiyang@gmail.com, 
-	benjamin.berg@intel.com, kevin.brodsky@arm.com, kasan-dev@googlegroups.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <9b3fb1fbf719bef30702192155c6413cd5de5dcf.1750756583.git.matthias.schiffer@ew.tq-group.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_023125_019627_7C6630D8 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250626_024108_834659_507A0963 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,89 +109,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 3:35=E2=80=AFPM Christophe Leroy
-<christophe.leroy@csgroup.eu> wrote:
->
->
->
-> Le 25/06/2025 =C3=A0 11:52, Sabyrzhan Tasbolatov a =C3=A9crit :
-> > Historically the fast-path static key `kasan_flag_enabled` existed
-> > only for `CONFIG_KASAN_HW_TAGS`. Generic and SW_TAGS either relied on
-> > `kasan_arch_is_ready()` or evaluated KASAN checks unconditionally.
-> > As a result every architecture had to toggle a private flag
-> > in its `kasan_init()`.
-> >
-> > This patch turns the flag into a single global runtime predicate that
-> > is built for every `CONFIG_KASAN` mode and adds a helper that flips
-> > the key once KASAN is ready.
->
-> Shouldn't kasan_init_generic() also perform the following line to reduce
-> even more code duplication between architectures ?
->
->         init_task.kasan_depth =3D 0;
+On Tue, Jun 24, 2025 at 12:53:33PM +0200, Matthias Schiffer wrote:
 
-I've tried to introduce a new function kasan_mark_ready() to gather
-all arch duplicated code in one place:
+Hello Matthias,
 
-In mm/kasan/common.c:
+> All am65-cpsw controllers have a fixed TX delay, so the PHY interface
+> mode must be fixed up to account for this.
+> 
+> Modes that claim to a delay on the PCB can't actually work. Warn people
+> to update their Device Trees if one of the unsupported modes is specified.
+> 
+> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> ---
+>  drivers/net/ethernet/ti/am65-cpsw-nuss.c | 27 ++++++++++++++++++++++--
+>  1 file changed, 25 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> index f20d1ff192efe..519757e618ad0 100644
+> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> @@ -2602,6 +2602,7 @@ static int am65_cpsw_nuss_init_slave_ports(struct am65_cpsw_common *common)
+>  		return -ENOENT;
+>  
+>  	for_each_child_of_node(node, port_np) {
+> +		phy_interface_t phy_if;
+>  		struct am65_cpsw_port *port;
+>  		u32 port_id;
+>  
+> @@ -2667,14 +2668,36 @@ static int am65_cpsw_nuss_init_slave_ports(struct am65_cpsw_common *common)
+>  
+>  		/* get phy/link info */
+>  		port->slave.port_np = of_node_get(port_np);
+> -		ret = of_get_phy_mode(port_np, &port->slave.phy_if);
+> +		ret = of_get_phy_mode(port_np, &phy_if);
+>  		if (ret) {
+>  			dev_err(dev, "%pOF read phy-mode err %d\n",
+>  				port_np, ret);
+>  			goto of_node_put;
+>  		}
+>  
+> -		ret = phy_set_mode_ext(port->slave.ifphy, PHY_MODE_ETHERNET, port->slave.phy_if);
+> +		/* CPSW controllers supported by this driver have a fixed
+> +		 * internal TX delay in RGMII mode. Fix up PHY mode to account
+> +		 * for this and warn about Device Trees that claim to have a TX
+> +		 * delay on the PCB.
+> +		 */
+> +		switch (phy_if) {
+> +		case PHY_INTERFACE_MODE_RGMII_ID:
+> +			phy_if = PHY_INTERFACE_MODE_RGMII_RXID;
+> +			break;
+> +		case PHY_INTERFACE_MODE_RGMII_TXID:
+> +			phy_if = PHY_INTERFACE_MODE_RGMII;
+> +			break;
+> +		case PHY_INTERFACE_MODE_RGMII:
+> +		case PHY_INTERFACE_MODE_RGMII_RXID:
+> +			dev_warn(dev,
+> +				 "RGMII mode without internal TX delay unsupported; please fix your Device Tree\n");
 
-void __init kasan_mark_ready(void)
-{
-        /* Enable error reporting */
-        init_task.kasan_depth =3D 0;
-        /* Mark KASAN as ready */
-        static_branch_enable(&kasan_flag_enabled);
-}
+Existing users designed boards and enabled Ethernet functionality using
+"rgmii-rxid" in the device-tree and implementing the PCB traces in a
+way that they interpret "rgmii-rxid". So their (mis)interpretation of
+it is being challenged by the series. While it is true that we are updating
+the bindings and driver to move towards the correct definition, I believe that
+the above message would cause confusion. Would it be alright to update it to
+something similar to:
 
-So we could've called it
-in mm/kasan/generic.c:
-void __init kasan_init_generic(void)
-{
-        kasan_mark_ready();
-        pr_info("KernelAddressSanitizer initialized (generic)\n");
-}
+"Interpretation of RGMII delays has been corrected; no functional impact; please fix your Device Tree"
 
-in mm/kasan/sw_tags.c:
-void __init kasan_init_sw_tags(void)
-{
-...
-        kasan_mark_ready();
-        pr_info("KernelAddressSanitizer initialized ..");
-}
-
-in mm/kasan/hw_tags.c:
-void __init kasan_init_hw_tags(void)
-{
-...
-        kasan_mark_ready();
-        pr_info("KernelAddressSanitizer initialized ..");
-}
-
-But it works only for CONFIG_KASAN_GENERIC mode,
-when arch code calls kasan_init(), for example, arm64:
-
-void __init kasan_init(void)
-{
-        kasan_init_shadow();
-        kasan_init_generic();
-}
-
-And for HW_TAGS, SW_TAGS it won't work.
-Fails during compiling:
-mm/kasan/common.c:45:12: error: no member named 'kasan_depth' in
-'struct task_struct'
-   45 |         init_task.kasan_depth =3D 0;
-
-because kasan_init_sw_tags(), kasan_init_hw_tags() are called
-once on CPU boot. For arm64, where these KASAN modes are supported,
-both functions are called in smp_prepare_boot_cpu().
-
-So I guess, every arch kasan_init() has to set in kasan_init()
-       init_task.kasan_depth =3D 0;
-to enable error messages before switching KASAN readiness
-via enabling kasan_flag_enabled key.
-
->
-> Christophe
->
+Regards,
+Siddharth.
 
