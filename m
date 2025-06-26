@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE81C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01362C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 21:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VD2sPh7NhASrhwrHoc6BkZAF4tLyjdiTwxw7OnY08i0=; b=tu2POhC501wscPIJlVbcUubHEF
-	EqbkOMOSPoZe88RVsdfCPXGI+sNnVIZoeBbRejQUpTNZ5HfeeQ6TNwSd9TveiRx2Gf4+n6gqaQ2dN
-	4+Y7Mr71PKlHNyrjOmB9xF/StUXb4soxCx/1qwc0dI5wRYHuHkx1cvkDDww70SI8hWWuA6Fy0SR39
-	nV2YYBv7D8Um8nDfYHHmUuiGdyTDk5G/95afgSucbPnUQXpspVoY5aOT1e1uyOYWdDqycWyy55Jin
-	kS0Cq3RfAHSDJzd9HkOo8cSTsF2S2L5NrPta9WDWUfcauPsCkzuf1Z9A7Qi0L3JmSUs6+2YbhG6Jc
-	Xrr7/vag==;
+	bh=kmWcH4AXF5/VGMpBXxpoNR1tiSBDdKlvW+Nx6KXginA=; b=PLZxTCZAP4/KbBuCyARrm+Tnyy
+	g1fo+1TNSUPL2Z00rNQJMCaDjRyXmLK4SwOPe5bKZvgsxa8VSO5RlSGUCOQKr40BC3v0r2BMpbDld
+	CT2GesICz9pi1yz4brY5YexhGrTdIGMB0HHVBCe2FlrL7SkHH+b151GboR3JYons18nbDh1UJ1bR+
+	b2U860xMjAsyp0MQlwIbFDNoJGYiK5Ue9WcXG0PbWZhdmpybwXrYD6IQvKKFW0c7R54Urn9eEM8sP
+	7Gce1yP9jq+Zgh/+rcXJITeGKlQhrIo8Lc4wGQWFd9RD9ErxMj+t5zxvgBNFkJgYG21dC/zG8SxII
+	0sLsLq2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUtrC-0000000Cnuf-43tp;
-	Thu, 26 Jun 2025 21:10:06 +0000
+	id 1uUttQ-0000000Co2a-2nk9;
+	Thu, 26 Jun 2025 21:12:24 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsTU-0000000CcEQ-2i7P
+	id 1uUsTi-0000000CcJN-0bYQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:41:33 +0000
+	Thu, 26 Jun 2025 19:41:47 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 63F4E25AFA;
-	Thu, 26 Jun 2025 21:41:31 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id D884F25AFA;
+	Thu, 26 Jun 2025 21:41:44 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id LnEja1qB4Et0; Thu, 26 Jun 2025 21:41:30 +0200 (CEST)
+ id 5TbuA-v3Wox1; Thu, 26 Jun 2025 21:41:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750966890; bh=H8pHmtJhKvCu7fZ5/7YHY1g192cqpSliEgZa4tl8geA=;
+	t=1750966903; bh=Y50MhfAnihg9mLvQ0916AcUb839PID/sF+h4OSEcRb8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=e/5q7fki7A42uIFYthIewv9iyjE1RgWHJPmGukfftjco8fGxWl2Gd/a7XUnmi+HKb
-	 hBsX+za+yAO983nS2qHkS+m1cuq6aHn48OqnKshJ7UUDer39svADAKORK//+zrViXx
-	 pTn2z/A5y/nrY3LDaYpCeLx3+HvnpJ2YvoHiV5edQnJQvDSAPemJXz5R+mdt2gy+67
-	 bZEDp4k8O0EuwvFUjNDHHS+V238uwkYlfoVm0nXUlK6eJA01mg9Eitkyzkvq3vmsol
-	 kGq9qD6yvcjg93mEabJHkAurIFsxBF17BpX5Zg/9N6CDFiE1V6tc62ujDzkBbva6/Z
-	 thqZEsaeK1xQg==
+	b=cEizelDR7MTzUxyUjv3xtzhNrmkRCZYs3cdjW4r/seOkIyjQX7i7qHGvRqHeKQIrp
+	 HwQaBtrJThJzIk+ryGdID218T6wQtbsnh33o5nOOeRxpBE7TNzObT5Kdt0CdaHjzWz
+	 6k3tmiAy1cFha+hj5nGutaOa0HaXu2ok2c+3RA8re5e29QuvwlMAmolg0ua8feI5Js
+	 7vVQ+qOidjNqbvQ0UvuJX37+ALWUEFAjSib+OsP1rUB+JsWq5PoQ5m7VatB7xFgIBV
+	 I7c2I5ZF+R11s4bplvWKbirH3j3V7S+tgwbsUE1PYE3/UzUiEi8UIOyCocE8Juv03n
+	 FlxZpOi+GR/FA==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 27 Jun 2025 01:09:00 +0530
-Subject: [PATCH v2 11/13] dt-bindings: samsung,mipi-dsim: document
- exynos7870 DSIM compatible
+Date: Fri, 27 Jun 2025 01:09:01 +0530
+Subject: [PATCH v2 12/13] drm/bridge: samsung-dsim: add driver support for
+ exynos7870 DSIM bridge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-exynos7870-dsim-v2-11-1433b67378d3@disroot.org>
+Message-Id: <20250627-exynos7870-dsim-v2-12-1433b67378d3@disroot.org>
 References: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 In-Reply-To: <20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org>
 To: Inki Dae <inki.dae@samsung.com>, 
@@ -72,17 +72,16 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=1737;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750966738; l=4849;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=H8pHmtJhKvCu7fZ5/7YHY1g192cqpSliEgZa4tl8geA=;
- b=OaXjaLdr1Bcq92HtOib5JAJE9K+vzrQX882KqIGdIm792/fzivVyPndNPR/JbHCYYnO5Fje70
- qkgyw7uBIKfBXEBKgsUnxRLQ+6ZaD+d11QRtzNn/SEYPDutEaOBobxh
+ bh=Y50MhfAnihg9mLvQ0916AcUb839PID/sF+h4OSEcRb8=;
+ b=tWKhnOvaiokLOmF6CDZi+lXfPHv9pJ42Q76MkGiFyV7p3vbw5gcj8Dez5VrGQyZGFfFsOqEvx
+ /eYlxOmnabEBvsddWAFyJ0vqq2lNJwOXI+t+xiVzzy+WuyeNaVsjsK/
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_124132_820743_AA1D830C 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_124146_450284_E62A097D 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +96,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for Exynos7870 DSIM bridge controller. The
-device requires four clock sources, in schema they're named as "bus",
-"pll", "byte", and "esc".
+Add support for Exynos7870's DSIM IP block in the bridge driver.
 
-Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- .../bindings/display/bridge/samsung,mipi-dsim.yaml | 27 ++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ drivers/gpu/drm/bridge/samsung-dsim.c | 82 +++++++++++++++++++++++++++++++++++
+ include/drm/bridge/samsung-dsim.h     |  1 +
+ 2 files changed, 83 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
-index 1acad99f396527192b6853f0096cfb8ae5669e6b..ad279f0993fa108b312126b112174f10f2b8c3d0 100644
---- a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
-+++ b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
-@@ -24,6 +24,7 @@ properties:
-           - samsung,exynos5410-mipi-dsi
-           - samsung,exynos5422-mipi-dsi
-           - samsung,exynos5433-mipi-dsi
-+          - samsung,exynos7870-mipi-dsi
-           - fsl,imx8mm-mipi-dsim
-           - fsl,imx8mp-mipi-dsim
-       - items:
-@@ -144,6 +145,32 @@ required:
+diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
+index 6eddaa7e3ee6cb733d005169f5573eeba2a70f0a..d3708643121a5c1a20548b89aa37ffb2952bc484 100644
+--- a/drivers/gpu/drm/bridge/samsung-dsim.c
++++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+@@ -243,6 +243,13 @@ static struct clk_bulk_data exynos5433_clk_bulk_data[] = {
+ 	{ .id = "sclk_rgb_vclk_to_dsim0" },
+ };
  
- allOf:
-   - $ref: ../dsi-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos7870-mipi-dsi
++static struct clk_bulk_data exynos7870_clk_bulk_data[] = {
++	{ .id = "bus" },
++	{ .id = "pll" },
++	{ .id = "byte" },
++	{ .id = "esc" },
++};
 +
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 4
-+          maxItems: 4
+ enum reg_idx {
+ 	DSIM_LINK_STATUS_REG,	/* Link status register */
+ 	DSIM_DPHY_STATUS_REG,	/* D-PHY status register */
+@@ -320,6 +327,32 @@ static const unsigned int exynos5433_reg_ofs[] = {
+ 	[DSIM_PHYTIMING2_REG] = 0xBC,
+ };
+ 
++static const unsigned int exynos7870_reg_ofs[] = {
++	[DSIM_LINK_STATUS_REG] = 0x04,
++	[DSIM_DPHY_STATUS_REG] = 0x08,
++	[DSIM_SWRST_REG] = 0x0C,
++	[DSIM_CLKCTRL_REG] = 0x10,
++	[DSIM_TIMEOUT_REG] = 0x14,
++	[DSIM_ESCMODE_REG] = 0x1C,
++	[DSIM_MDRESOL_REG] = 0x20,
++	[DSIM_MVPORCH_REG] = 0x24,
++	[DSIM_MHPORCH_REG] = 0x28,
++	[DSIM_MSYNC_REG] = 0x2C,
++	[DSIM_CONFIG_REG] = 0x30,
++	[DSIM_INTSRC_REG] = 0x34,
++	[DSIM_INTMSK_REG] = 0x38,
++	[DSIM_PKTHDR_REG] = 0x3C,
++	[DSIM_PAYLOAD_REG] = 0x40,
++	[DSIM_RXFIFO_REG] = 0x44,
++	[DSIM_SFRCTRL_REG] = 0x48,
++	[DSIM_FIFOCTRL_REG] = 0x4C,
++	[DSIM_PLLCTRL_REG] = 0x94,
++	[DSIM_PHYCTRL_REG] = 0xA4,
++	[DSIM_PHYTIMING_REG] = 0xB4,
++	[DSIM_PHYTIMING1_REG] = 0xB8,
++	[DSIM_PHYTIMING2_REG] = 0xBC,
++};
 +
-+        clock-names:
-+          items:
-+            - const: bus
-+            - const: pll
-+            - const: byte
-+            - const: esc
+ enum reg_value_idx {
+ 	RESET_TYPE,
+ 	PLL_TIMER,
+@@ -392,6 +425,24 @@ static const unsigned int exynos5433_reg_values[] = {
+ 	[PHYTIMING_HS_TRAIL] = DSIM_PHYTIMING2_HS_TRAIL(0x0c),
+ };
+ 
++static const unsigned int exynos7870_reg_values[] = {
++	[RESET_TYPE] = DSIM_SWRST,
++	[PLL_TIMER] = 80000,
++	[STOP_STATE_CNT] = 0xa,
++	[PHYCTRL_ULPS_EXIT] = DSIM_PHYCTRL_ULPS_EXIT(0x177),
++	[PHYCTRL_VREG_LP] = 0,
++	[PHYCTRL_SLEW_UP] = 0,
++	[PHYTIMING_LPX] = DSIM_PHYTIMING_LPX(0x07),
++	[PHYTIMING_HS_EXIT] = DSIM_PHYTIMING_HS_EXIT(0x0c),
++	[PHYTIMING_CLK_PREPARE] = DSIM_PHYTIMING1_CLK_PREPARE(0x08),
++	[PHYTIMING_CLK_ZERO] = DSIM_PHYTIMING1_CLK_ZERO(0x2b),
++	[PHYTIMING_CLK_POST] = DSIM_PHYTIMING1_CLK_POST(0x0d),
++	[PHYTIMING_CLK_TRAIL] = DSIM_PHYTIMING1_CLK_TRAIL(0x09),
++	[PHYTIMING_HS_PREPARE] = DSIM_PHYTIMING2_HS_PREPARE(0x09),
++	[PHYTIMING_HS_ZERO] = DSIM_PHYTIMING2_HS_ZERO(0x0f),
++	[PHYTIMING_HS_TRAIL] = DSIM_PHYTIMING2_HS_TRAIL(0x0c),
++};
 +
-+        ports:
-+          required:
-+            - port@0
+ static const unsigned int imx8mm_dsim_reg_values[] = {
+ 	[RESET_TYPE] = DSIM_SWRST,
+ 	[PLL_TIMER] = 500,
+@@ -558,6 +609,36 @@ static const struct samsung_dsim_driver_data exynos5422_dsi_driver_data = {
+ 	.min_freq = 500,
+ };
+ 
++static const struct samsung_dsim_driver_data exynos7870_dsi_driver_data = {
++	.reg_ofs = exynos7870_reg_ofs,
++	.plltmr_reg = 0xa0,
++	.has_clklane_stop = 1,
++	.has_sfrctrl = 1,
++	.clk_data = exynos7870_clk_bulk_data,
++	.num_clks = ARRAY_SIZE(exynos7870_clk_bulk_data),
++	.max_freq = 1500,
++	.wait_for_hdr_fifo = 0,
++	.wait_for_reset = 1,
++	.num_bits_resol = 12,
++	.video_mode_bit = 18,
++	.pll_stable_bit = 24,
++	.esc_clken_bit = 16,
++	.byte_clken_bit = 17,
++	.tx_req_hsclk_bit = 20,
++	.lane_esc_clk_bit = 8,
++	.lane_esc_data_offset = 9,
++	.pll_p_offset = 13,
++	.pll_m_offset = 3,
++	.pll_s_offset = 0,
++	.main_vsa_offset = 16,
++	.reg_values = exynos7870_reg_values,
++	.pll_fin_min = 6,
++	.pll_fin_max = 12,
++	.m_min = 41,
++	.m_max = 125,
++	.min_freq = 500,
++};
 +
-+      required:
-+        - ports
-+
-   - if:
-       properties:
-         compatible:
+ static const struct samsung_dsim_driver_data imx8mm_dsi_driver_data = {
+ 	.reg_ofs = exynos5433_reg_ofs,
+ 	.plltmr_reg = 0xa0,
+@@ -598,6 +679,7 @@ samsung_dsim_types[DSIM_TYPE_COUNT] = {
+ 	[DSIM_TYPE_EXYNOS5410] = &exynos5_dsi_driver_data,
+ 	[DSIM_TYPE_EXYNOS5422] = &exynos5422_dsi_driver_data,
+ 	[DSIM_TYPE_EXYNOS5433] = &exynos5433_dsi_driver_data,
++	[DSIM_TYPE_EXYNOS7870] = &exynos7870_dsi_driver_data,
+ 	[DSIM_TYPE_IMX8MM] = &imx8mm_dsi_driver_data,
+ 	[DSIM_TYPE_IMX8MP] = &imx8mm_dsi_driver_data,
+ };
+diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
+index ed05763b523ceab6956ed875baa9b460a3df5bbd..db4c3d3aef58a7de9f6cf44f2122b1b7e00e173d 100644
+--- a/include/drm/bridge/samsung-dsim.h
++++ b/include/drm/bridge/samsung-dsim.h
+@@ -29,6 +29,7 @@ enum samsung_dsim_type {
+ 	DSIM_TYPE_EXYNOS5410,
+ 	DSIM_TYPE_EXYNOS5422,
+ 	DSIM_TYPE_EXYNOS5433,
++	DSIM_TYPE_EXYNOS7870,
+ 	DSIM_TYPE_IMX8MM,
+ 	DSIM_TYPE_IMX8MP,
+ 	DSIM_TYPE_COUNT,
 
 -- 
 2.49.0
