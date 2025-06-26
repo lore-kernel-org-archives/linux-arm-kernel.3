@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6BAC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF6AC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLhzwapi0AkxnvdyFSAFsl6i18Eotm3BGz3JPLqH/dE=; b=Xl9hj7QkFm7jXqqdkU/wIz85x9
-	+qodbUqD3abnCQCqS3UdrWGGZ8Vx8agFm8UtHY2oLdCEYK+drvI5FFmjsiK9n9Lf4jRVTtQkf2JYm
-	VY4msezIv8wLWX2H6DJ6yLS6uVBVgjqO0SH2OLcNUjk9UefByXWLJeCYn5Rjqusl8Ne4PwavcYJg5
-	GAm4Jz6x4jq4u3RamO8UuSmYaEhtFsXprB1MMEs6MXMhRkuUVdL70B9noHONF5DS3auOVMhvrc9hR
-	rcYnsOQfcWNOMoRhXWuK/ZGKSbpizVm2CAj2G6zlofj4b91biSwpRwUf1mXd2xE8h5DzeE2nj8Ytq
-	k8KGepDA==;
+	bh=UsAMv6GY24VZvKxwNnsWEVWIudvjJ/AUIwa3ND/YSIw=; b=fkB2DOMFRMXz4IOvUMbk5uNVmA
+	WskYO7G5LFrwSa1CnNggidOieypm06bawd86QIXdBWMuvctDEo102AsFjyNzbbif6d3Y4beqoA4LC
+	MtoBQJrkqgKLGxGpfogkz2a+LeT+D3mmkSvBT2NqNqoNEbO5jXxsXZ33a+4w6hxc7/2XR5wEdZ2B5
+	LLLuUrA/d92DHFqxEctHXpdWDgf4sAcRX3PaAxsm1pl2XdJsN/giVERPAnEe634mXGkHg18c4bpH1
+	IrUZMCWuVunIMRpEV2w42dcQsaHuqF5oYcfyFc6L1lVJwiZu1fq4CwHcBni07sgNJzpafQpHLqPoG
+	CJ+PD3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwga-0000000DB29-28Bg;
-	Fri, 27 Jun 2025 00:11:20 +0000
+	id 1uUwiu-0000000DBCp-17dD;
+	Fri, 27 Jun 2025 00:13:44 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUvO5-0000000CyrI-3Fdk
+	id 1uUvO6-0000000CyrZ-0omg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 22:48:09 +0000
+	Thu, 26 Jun 2025 22:48:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3228F6112E;
+	by tor.source.kernel.org (Postfix) with ESMTP id A078A613AB;
 	Thu, 26 Jun 2025 22:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C18CC4CEF3;
-	Thu, 26 Jun 2025 22:48:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18258C4CEF0;
+	Thu, 26 Jun 2025 22:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750978088;
-	bh=R8CLx3lBBBA7LvBgT58Sc9bRYzTVrORcyxFh0G7ROJ4=;
+	s=k20201202; t=1750978089;
+	bh=UOOZqUVVQFUoc7bZ295+uDKZCugXA5Wvp3MAd/fhdrM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Zk/V/Q9r0eFXhj7iEBCs7Oehj+R3cZd2JUeipOAReEk8S3l744NsU+t+jn2Bapkyo
-	 Rh+e4lSTKlouajX/NAqfhZOYEBZ4+AFtXeXLmtVyqain1uXjng7723WJ+HWcRxL2wO
-	 SzFKq2k8XNQ8VA8d6ZHYjyVeycTPMmnlxzmH1RR1zkws4WYUH2irgcG+iOCKqJEM0B
-	 lF/ZxKdmd2yC2df1oN44OIQBFzXSXWFz73G0d5MkHB7XG1ai7kHeYR5xlJiPX/QeEX
-	 QLj20bEkI4AW6Xw8VGgrWUvE/7FYh8PDgGbx8+Zuqu3gJs5aZ2NdlLLgJ5r2PzXo1z
-	 QHhC/+PglSnvg==
+	b=gUnQGwQEsJ9ge0VZgXMVu9Lv/49qvmNlKocha/kF6+BrmG2ufSjIXEmYLD/HB41cv
+	 nzvk52EAXwiC6JkuCNvDsnaf5iq7/iafMHo0AnCrkeJBopgzhsCkF8MkwlbWwgpKKE
+	 UYDEAYkODZT57+HuzQ+J64ivbHy1KdhKgIA9SeRJeu27BqyZlt7dDrub1653yzZfmu
+	 ASC2m1uhUTZlST2RooJ1KgL3VGqpX4K454reuLGnb8xx+Uw+5v0C4uejj0voJtqkDh
+	 trIBg73kgc7jgrdpy/ARO543hpPEUzc9CICIxNdlIp5YYdrcAGNEDinJNY3j9trKKx
+	 d+DS1yRWEZrWQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+To: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Cc: Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
- Julian Calaby <julian.calaby@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-In-Reply-To: <20250625085450.154280-2-csokas.bence@prolan.hu>
-References: <20250625085450.154280-2-csokas.bence@prolan.hu>
-Subject: Re: [PATCH v11] dma-engine: sun4i: Simplify error handling in
- probe()
-Message-Id: <175097808852.79884.3766453152059490417.b4-ty@kernel.org>
-Date: Thu, 26 Jun 2025 15:48:08 -0700
+Cc: Mark Brown <broonie@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250610082256.400492-1-csokas.bence@prolan.hu>
+References: <20250610082256.400492-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v7 0/2] Add `devm_dma_request_chan()` to simplify probe
+ path in atmel-quadspi.c
+Message-Id: <175097808905.79884.10352681234846740562.b4-ty@kernel.org>
+Date: Thu, 26 Jun 2025 15:48:09 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,17 +77,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 25 Jun 2025 10:54:50 +0200, Bence Csókás wrote:
-> Clean up error handling by using devm functions and dev_err_probe(). This
-> should make it easier to add new code, as we can eliminate the "goto
-> ladder" in sun4i_dma_probe().
+On Tue, 10 Jun 2025 10:22:52 +0200, Bence Csókás wrote:
+> The probe function of the atmel-quadspi driver got quite convoluted,
+> especially since the addition of SAMA7G5 support, that was forward-ported
+> from an older vendor kernel. To alleivate this - and similar problems in
+> the future - an effort was made to migrate as many functions as possible,
+> to their devm_ managed counterparts. Patch 1/2 adds the new
+> `devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
+> simplify the probe() function.
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] dma-engine: sun4i: Simplify error handling in probe()
-      commit: 814f047fc96d6631bb2c76557aad8e4aee8f532b
+[1/2] dma: Add devm_dma_request_chan()
+      commit: 08bf1663c21a3e815eda28fa242d84c945ca3b94
+[2/2] spi: atmel-quadspi: Use `devm_dma_request_chan()`
+      (no commit info)
 
 Best regards,
 -- 
