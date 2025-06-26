@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D036C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C13C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 13:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKlsnzeyutWBa5SuOikM5Hkf8/kU24bQmk+QO6G+eJ4=; b=RY7Cj1DcmJjb61aklU3LPiPtv7
-	9zKm8Qc4SZIw/iuALpy9dVF/QDKIG31h1puQ1254IrbFDHW/5iD+KLxec1MDilXdcq3EFE3aY1s9T
-	AaMfCi32ggIzyft/wDDk71BshegHiqlZmi3hl6TOb7lpTt8qHr+5rjHfwW2bDTJrdE95fTSVUbhy8
-	Sg2sfTwXO+iaeEsM45nCNqPyD+1uH2H8LFHeoifcPO0n3iK8lCpDE6ShbTTo1v9AgYpwpVyx8ulnL
-	qJDapOX/hKK0lHfouhxp+/VNLZn/nQ5otuXQxCxC25tA/AosYGlZa+koIthubtVMAQGDNqyJajGXm
-	fzMliKww==;
+	bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=; b=lxDomBtSVQv8VkkE38UPFkdD+n
+	TN3c62Huk6I4Ww992fkqrnVguTlmRaGvbbKgcbWPhesiDSugrY3NSfJ08yXoSiieMHcC9cFkNMYbm
+	qIijtLLWgX657kgYxC1KLJFgsznmWTzxNCp7zoE2l44JdA661SMvFti7iIJQ9yfKuoRnU2LGEnls2
+	LNASRgO2YvVMiTLIuZV6IGz6hyzFDoK5j9t7LRJDMOy7ph0v5L7SGFQHCofssk7O8BmI1vDFKFuuU
+	ROFBZKe5gEwgR80K2oPo1+uy1F3l6jMCUktgiBLpPqXd5mf2yNTsZanK/Y5NFKS3Us8O3s5o4oSv3
+	PLMeg+NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUmeN-0000000Bfj6-1fjZ;
-	Thu, 26 Jun 2025 13:28:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uUmgd-0000000Bg6V-2aqt;
+	Thu, 26 Jun 2025 13:30:43 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUmZZ-0000000BefX-31ut
+	id 1uUmbQ-0000000Bf5A-1gsb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 13:23:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 096BE4A15F;
-	Thu, 26 Jun 2025 13:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42506C4CEEB;
-	Thu, 26 Jun 2025 13:23:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750944204;
-	bh=LzwMvI0WtdgZVBFvOn34g2sO0CPljoYhy99ZfKmMNs0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tkkWc5QVE3tJMOd64AAvozxZIc4Gjy1OrXPUM8ChqPKMZQgE2z1LwVSaI7C9tX726
-	 UjhJGrPhlcuMzvX2KEXj6KBhdiF4RTMmZASp7mIlq2jCvBezqbVN6nZVchV1xOdXjS
-	 TLlCdh9fsehT8n7zEODyLTLDzTb24ouNEWLl/hZiQ/2FJHFE0DimvWQNXpRKzML+5D
-	 oQsKO5d75bYcRA65P/GlRibYfmKcFDJUdoPuHM9dOMfPAJfvZ2jtSqKEpaMFXnAhJA
-	 4+aytDxDUYXUpDNWvXaWJyArlUY0wFNJgJOVh+bomeL+e4yp/sETcqYbfhuWGDgWZU
-	 O5iqx3Db86DgQ==
-Message-ID: <3e863f9d-6659-4c76-9d82-74d63cfd6eb4@kernel.org>
-Date: Thu, 26 Jun 2025 15:23:17 +0200
+	Thu, 26 Jun 2025 13:25:21 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-553be4d2fbfso1150505e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 06:25:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750944318; x=1751549118; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=;
+        b=C401Z5zWFUczgdu+RBNEQAgm2MZb9fNACXR6guaFNGY8Kr51SdBIPlt0dFN/D5PEyG
+         dyoW8AFPTFbPc15NLO36ZbtW0HUcnMYMEu8hvfxB9sj87e5YQun3slMw40ygE7NLGKla
+         rZ20sHsVpJ6c72yIO1WoRTWazyz/yu+9kxtvuvU60S1BP3s9QW5MZ2491jvt/bEuYHD9
+         GIrEiR/6H3xe35GGuYlVgB5dS2pfBTvkrjSJMDuR45nojtMzIBsBTfB5I0zCBaWx2iKS
+         iF0nS13VfGJ2oQUuruhHErfe1BfBeU1eAH7VGxK+MCjRsVBGJWxoPGgcSYkIP3CSMXqr
+         ivBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750944318; x=1751549118;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mLwSjoUY7m1Ln7Qu4AWMnTKuJMVdB5FurphkXRXpBRw=;
+        b=ScZ6OrfR/9znpNVFBVm9lyomxt3LgiMZqmQtPLLNOJ1jS8458jsvc3kX9ZqDnzBHmT
+         T/jtOTUxlAMskPLoqFsBwd2GQbL1ZLY9eCF192w/9ZZnNcjqtCSL4JQz394fDmb5pkHc
+         dP9P28uTZtNLOHQg36eXISvXR8Y/9S14tyBTtXjFi05SkodZ9nHr0wctWUJu+/Qt6jes
+         +HSVbzU6+Vh6kz7BKLUCelv5GTJiRIFHhZlH9jx/E9gb3FqTtWS0JvdHQlxCXWKwgTHW
+         nEagR+uh3Lq4m85ukXjkmpp/djfAzz27jsk2zmHiClNUNR2UveX/trhcktcppb5NFdl/
+         Mq/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWhFD3+G+J4pq7FE8bkReHMK01Pl+uyflRDyPFWgSi3NN/tW08Sp8co2l69IbhP/zs67lAX769087ynAtriYcm/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYMBydZM4J76LPiDpFRSu7msoh9fPohPMypI25rVyY7QWj77Ie
+	iSUce/PgdNSu6p5k1yOYY9hkL6TjOby1PKli/ZTPfIgOFwMnOlCyRc3GbymaRPwJ2duaDba+PEH
+	gWBqmbnAbhpPfUcI8OAkCTfq9Zt21nBCFiBjH/649Xw==
+X-Gm-Gg: ASbGncsgmUge7se61H2yEwijMPV5FzNf0HVWc7bKk70VN7ehOQ4o2sPwsmpW5KJi0si
+	pttEHY/9r+HT9OqXmM9GjtRTOrbCrv4Ge4PlscbpjpTB3Edm/xxs+CUg042tFi9A5neCCGa+CJh
+	kN7QOISiezPV4+DTSxG4tv7MQY7S0X0wsi22BywZNeKv+1p0FJbEbMCUv5feMF4FAoyW2ppIf1s
+	w==
+X-Google-Smtp-Source: AGHT+IFZCHpg6dN8jQOP4LGMeE8N6TdaxL+CR37n8aEWMLkZ46xkrupRdz8U89iquKgLZ75BaGxTbVJfXxSWy4Rbayg=
+X-Received: by 2002:a05:6512:691:b0:553:aed7:9807 with SMTP id
+ 2adb3069b0e04-554fdcc531fmr2571744e87.9.1750944317960; Thu, 26 Jun 2025
+ 06:25:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] gs101 max77759 enablement (DT)
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
- <5113e57e0475a62f2f50006a7178377c508f9403.camel@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <5113e57e0475a62f2f50006a7178377c508f9403.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
+ <20250624-gpio-mmio-pdata-v1-3-a58c72eb556a@linaro.org> <20250626132257.GE10134@google.com>
+In-Reply-To: <20250626132257.GE10134@google.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 26 Jun 2025 15:25:06 +0200
+X-Gm-Features: Ac12FXw9b1Ua2nskF_gKsApdHRnQVgOC-Rscq226tK5vt_NGX_5zRRRras-l-hs
+Message-ID: <CAMRc=MdBipydUjEKXDufMAWNZjMA18RKj0XcNofrn1oR7bXTZA@mail.gmail.com>
+Subject: Re: [PATCH RFT 3/6] mfd: vexpress-sysreg: set-up software nodes for gpio-mmio
+To: Lee Jones <lee@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-omap@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-samsung-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_062325_798075_CE2C346D 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_062520_549999_28CF4B20 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,24 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2025 19:25, André Draszik wrote:
-> On Sat, 2025-05-24 at 06:21 +0100, André Draszik wrote:
->> Hi,
->>
->> This series enables the recently merged Maxim max77759 driver and
->> updates the DT for the Google Pixel 6 / Pro (oriole / raven) boards
->> accordingly.
->>
->> This gives us some extra GPIOs, and enables NVMEM which is used to
->> communicate the requested boot mode to the bootloader when doing a cold
->> reset.
-> 
-> Friendly ping.
+On Thu, Jun 26, 2025 at 3:23=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> On Tue, 24 Jun 2025, Bartosz Golaszewski wrote:
+>
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > Replace struct bgpio_pdata - that we plan to remove - with software
+> > nodes containing properties encoding the same values thatr can now be
+>
+> Spelling.
+>
+> > parsed by gpio-mmio.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > ---
+> >  drivers/mfd/vexpress-sysreg.c | 46 ++++++++++++++++++++++++++---------=
+--------
+> >  1 file changed, 28 insertions(+), 18 deletions(-)
+>
+> Can this go in on its own, or does it have depend{encies,ants}?
 
-Oh, I am really sorry, for some reason I thought it waits on
-dependencies. I'll look at this today and hopefully merge it. Apologies
-for delays.
+It will break the MFD GPIO sub-driver without patch 1/6 from this
+series. It would be best if you could Ack it and I can set up an
+immutable branch for v6.17 if you need it.
 
-Best regards,
-Krzysztof
+Bartosz
 
