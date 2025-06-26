@@ -4,86 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F13C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE5EC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxnJ+JMAeXEe0tFyoruENV/4pmqUfnDATYgkfRCTwwk=; b=qTTaPa7XzoERDxYrDlEKA8aMyH
-	rQB2VjdcyT6q+J3cUMI8hZUHvIQqXH3/Dk+mwAFlSuzzgJNAIsue3w12sGLHaAc5bLkfVCpH7KjrT
-	nd+SHKkTgZEj/9TZQb+K/QCxfO6uwYCdZbxw595aixdyRaVrpdK5gsy1oojFUOXGsb+HmzmtXTNSa
-	ICjXmoTCbNdRSyD426jlp0SBztx4raEowi+JIA+s6mjSBldAMZw28/Bt8GY8LOVHORv1gIZJhHKGc
-	iwlFPMgYMAvB/aut7pOk3XO3jrepgSDDMRp4f1aoY/UPoyEM5l9+5uWd8wMVwEDlXBanEFvdeiJA4
-	WBuGtG8w==;
+	bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=; b=gFuXblgWcStNkjn2Esoj9w9sWu
+	dkiX95KZatGa7pd/e9PSFQl3DTtxKgqnKhbkuFYMMzLx32a4mQuJt5UelkLo3+4uJBD+9ev/bZlsw
+	bEa1R5dbglQ+frTQjjLXFuHaoY7SOMpv2jDEcGGoLyO+uCxbtT97NFoa8qtGkYpDF7YN0kS5GB4or
+	aJDmZ2dnDfO+DAdV3Ot6eLkJgYq6lgNq1UgL1a4ZUoa2Nz1eWVqB/2eMBpOWzgK90WbHh2iPKBLKk
+	rKFqnObIVLl9tvvzN53ZkXB+CPXTE5QW/yfe7i8ahE3pWsCiHeMB0avSPQypiHF8on87U47x4Lwzu
+	gF3wxJvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnqP-0000000ByEu-3Thz;
-	Thu, 26 Jun 2025 14:44:53 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1uUnuB-0000000BzaG-11nA;
+	Thu, 26 Jun 2025 14:48:47 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnm9-0000000BxbK-1ykU
+	id 1uUnrt-0000000ByuO-1hOj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 14:40:30 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-408d7e2b040so680681b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:40:28 -0700 (PDT)
+	Thu, 26 Jun 2025 14:46:26 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-450cfb790f7so8705205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:46:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750948828; x=1751553628; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mxnJ+JMAeXEe0tFyoruENV/4pmqUfnDATYgkfRCTwwk=;
-        b=GZe2cRXmy1sD8IOTMyMagtYvuvb+5/QDRmtb9Yu9e/6mpy1W5AW8f0+ZHJOOLovrgY
-         /E+ta6q74So3xnRFHs41/izDbkRfbLPqIthX5fQCK7C8TrH82SMUXFaYlB7VGYY7hg1d
-         xL0C7pJnlx2YpOXAOFmhgCn27cLDNyv0k3x8UO8sXaJK8QipOitqZ1932iM76Fsr+rvT
-         H3H5oeMTchgpJKRhkU0HEodMb/doElwW24MHCaS6PT/Gd+zDvCSKaXrMjfBTcVU80ZaS
-         W/D3g6DTwO9eG4knXhqIkdEHK31r1qL862mE3mn77TF2N5H2MZ7KhiKg3sWV/ck89T/l
-         /bXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750948828; x=1751553628;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1750949184; x=1751553984; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mxnJ+JMAeXEe0tFyoruENV/4pmqUfnDATYgkfRCTwwk=;
-        b=b2G4G29hM+7DgyODNRR7XfWszKGurzszsySR1wLwJxP2QKZvsQcMZyR0G/pctWP6/T
-         r8iLpPm9PYkAYS7Hhvt0QtrT/FDjV6ekFnlPnwkMDUZGZF31zmBvBSkGYeOB1b4ngjtm
-         r0cgwQzrW9vxGasPdx0A4hnBtz8baz9H5xwS15U6i7H+sThwWBTS8INW+3JFXFEH1zgt
-         oXreGlCTFWdGuyOG9u8zXY4H8HqPh1zWUIjvWIzNdefZcjHb+3uae5kt+S+hUIojPsZD
-         DNII2uxKB4OZ7lTf6J1/9W85klGcAm0cYl3acBA9KcVqfaBXFKj8jp/etB+x8WkYrQis
-         pD2w==
-X-Forwarded-Encrypted: i=1; AJvYcCVNwOeo2k7PVaohIVfsx/FqPyULxE/JLfcvno/nLzFDy6RxwXl2yrOJYM3o/kHnrRyjtSYN0mHa5Xzf31q/d5ZK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGOFybRSJowH2NpSsxj9QyBlvMpp9W+n+zUICZ1VjGcqvB3+Qd
-	DsCosI9RMemMY9LCL31665FMN09HQ7mqfG5xTPXbUqpiibfrNt7Yu3Ez3iJIyxVUGvawgK6yzrP
-	FZKiOrSNgsSnM8PhfNWp5JFMuwlwPEHx/wPyyDU+5Pg==
-X-Gm-Gg: ASbGnctJWrtb0SikcuUuVjkDk0UDpqUuqq0e1BSBxYSRQJh3ZK2mWYkmLEaTYXtumsK
-	0+og/PRkkC1Ol24ClQMVNJaieJIGAuhV+mLOxNeQu0szLvAxQ9Mb7rPb63ThzU1a8Od/Xii+hIE
-	Gn9W5fvlwKlD9zdNOvr8rBAi0yWkGG8/VXKtSOPuYe8eo7
-X-Google-Smtp-Source: AGHT+IGHmBJjuI+jjZm5dEoJCIPgYdOyi9w4BnG28G9e5pmpEj5kPuV2QO71c3KUdTEVfpTi32Y/zFwNrd073ovM1Nk=
-X-Received: by 2002:a05:6808:4fe3:b0:401:e67c:b3be with SMTP id
- 5614622812f47-40b31c96519mr95767b6e.4.1750948827854; Thu, 26 Jun 2025
- 07:40:27 -0700 (PDT)
+        bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=;
+        b=U4cxF7vYLTyxXFzINKX1JOPuWyoGitMU7zyB1NhZoUOOe+QTrMZ7hG8WLoWqD0mxsK
+         qxfHTbYPVecd4AmqtbzXWjWi9WUXAZ5rfAZgZtE3K9LnuqfOOzrh6Rlb/0dea0cicO5i
+         Nu+PYokZuUllUlrGQXVvAiF9KoDeL8H2kwI0qn9A7InbfRErzJsywsKrslM3lpfUN2r1
+         UBcgsdgUTTya+rHR18SuJNyI6cSWQYoZuTNJ88Ox7YE7D9kNqEFlcF35KVAp+1QNTni7
+         mh/hi3TvKwEWzjYkOywIj1rtAix3g5kJG8hwtH4HEI2fMAYBqaPZZfj0UrwQ2Tj1Xaf4
+         9Nkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750949184; x=1751553984;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=y6UYLrhSUYbPMjdcWaSI5xPFmPT6JWIBNYaLngCWsVY=;
+        b=CIA/OWiOzl5tT3M2axoUjnUI1DnBNmcQrLrQSut0y7i4hDP6/7WkTCQh3fFrLiqsyV
+         hP5P/Sq3iIjQLoDASgzgMFAtcWRKikmyiB3siW+IInQdT7pac2uM0S/N9q+ild1KYW3Y
+         JBLz7AEjoJI73tpX+hK/2r5vulNP1EPqt0yepyaECbU3oXaXD8aBQgxKfq3yvR1CKz3w
+         wtDOhVMrOpswytyhPS9Jk0LOboTK4mI0Q2/mWxF+CNIisb4ajaOJt14DuFOkaAlBhcVW
+         eOr0YdiYVQ8CpyN3lJHctd2zL5UJN9EwsAOD0AWip5sBgcoP+C7yAXvTkfR2TMEdhHUp
+         FWwg==
+X-Forwarded-Encrypted: i=1; AJvYcCVQRGtmv+qH/DAd59H0hIi+K/gfVeUPalTYlDIb6dYgYpFiAL15POxMTl79Ft0dF0Q250xR0v8E8r9PIKM/x6LI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yybm0CJS7MmMqWCwnyzcIY6OPgborkG763FHCo9urM4Y7IFHQ6p
+	OeR36qy6/v/qVkmlcoq6hem40q0AqBqsCEjGzCZSHh2n0QkwOxFsyV7q7P3ZCSrHw88=
+X-Gm-Gg: ASbGncuXctmq/Bhlz+z3f/iXGWMbhFz1crCsUlr8q+bKNkiviCVWxqKD+Y/jjUHlzd2
+	xkoezrWD1nO+Oj4LW5W8Vz4vuR0CeA9YyzVkh372syx98fg/ddOq/j5VgWKUXtenOlpwp27nqCz
+	7zgb7b+GQrXo620/x6SJOWtrcJwIeJJxf7xnr0XwKJBnioaHmWjGcWNIUrGdfRir8jGBt9P+AEd
+	coOahZCplGx0O0egBcoQhElNAjccIlKfDJHpsEGtc8095sGFfi1RkBdn6oDVTa8EdUbaPozHIGD
+	lqqDo0qyD9dNcHydhDRE4kZBYmrwvbP/6a9yCYbKp35/37wrhDcfSLpX9HDLNaj5Edr/CfR91mp
+	M2fA9B4Wj+KOOYXIdrDjKSpihq41jvee2rB3zNtQ=
+X-Google-Smtp-Source: AGHT+IHSIfxpDtvk3b/o/PTfPvJVJIuPEiExp0FjAt9JCuDCjQ/lxdskoiYS4v6Pweak4/OZQri5nw==
+X-Received: by 2002:a05:600c:4fc5:b0:441:a715:664a with SMTP id 5b1f17b1804b1-45381b0f414mr67611325e9.20.1750949183748;
+        Thu, 26 Jun 2025 07:46:23 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:fa6f:b132:4858:18cc? ([2a01:e0a:3d9:2080:fa6f:b132:4858:18cc])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453823ad247sm54579635e9.26.2025.06.26.07.46.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Jun 2025 07:46:23 -0700 (PDT)
+Message-ID: <b4fa3620-53d2-41c3-9b3a-27cc2c1d846a@linaro.org>
+Date: Thu, 26 Jun 2025 16:46:19 +0200
 MIME-Version: 1.0
-References: <20250611-gs101-cpuidle-v2-0-4fa811ec404d@linaro.org>
- <20250611-gs101-cpuidle-v2-2-4fa811ec404d@linaro.org> <4e827037-1bde-4eb3-a6f2-6416dace10b5@kernel.org>
-In-Reply-To: <4e827037-1bde-4eb3-a6f2-6416dace10b5@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 26 Jun 2025 15:40:16 +0100
-X-Gm-Features: Ac12FXyqVtwDD2H_scgEAaexOZMihIpWC1bKrXvc2_bGE_Q9OwsMvGA0M86meco
-Message-ID: <CADrjBPrWZ4JkNJ-c9Qiw=5mmMKePqg6ZW=ATwi8g-1F8Qekn=Q@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, William Mcvicker <willmcvicker@google.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH 4/5] thermal: khadas_mcu_fan: add support for Khadas Edge
+ 2
+To: muhammed.efecetin.67@gmail.com
+Cc: daniel.lezcano@linaro.org, devicetree@vger.kernel.org,
+ efectn@protonmail.com, heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org,
+ lee@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ rafael@kernel.org, robh+dt@kernel.org
+References: <09af27e2-34a7-4cda-b36c-5577829cc173@linaro.org>
+ <20250626143607.1423954-1-muhammed.efecetin.67@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250626143607.1423954-1-muhammed.efecetin.67@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074029_518920_82B8E3BA 
-X-CRM114-Status: GOOD (  54.11  )
+X-CRM114-CacheID: sfid-20250626_074625_451784_D47619A9 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,349 +129,162 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 26/06/2025 16:36, muhammed.efecetin.67@gmail.com wrote:
+> On 6/26/25 17:11, neil.armstrong@linaro.org wrote:
+>> On 26/06/2025 16:04, muhammed.efecetin.67@gmail.com wrote:
+>>> From: Muhammed Efe Cetin <efectn@protonmail.com>
+>>>
+>>> Fan control on the Khadas Edge 2 is controlled with the 0x8A register,
+>>> using percentage values from 0 to 100, whereas there are only 3 constant steps in previous Khadas boards.
+>>> Therefore, i added a new cooling-levels property, similar to the one used in the pwm-fan driver.
+>>> The original behavior can still be used when the cooling-levels property is not specified,
+>>> ensuring that the new functionality does not break old boards.
+>>
+>> Thanks for the explanation, but would would you like to change that ? The MCU can accept
+>> any value between 0 and 99, so why change the levels from DT ?
+>>
+>> Neil
+> 
+> Thanks for the review. Therefore, you say just add values between 0-100 to cooling-device instead of remapping them using cooling-levels property?
+> 
+> What would be the best practise of detecting whether the board is Khadas Edge 2? Adding new bool property, reading model propety from devicetree etc.
 
-Thanks a lot for your review feedback!
+The register DEVICE_NO should be set at 0x12 for Edge V, 0x11 for Edge 1. I don't have the number for Edge 2, perhaps you can read it ?
 
-On Wed, 18 Jun 2025 at 11:22, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 11/06/2025 11:34, Peter Griffin wrote:
-> > Register cpu pm notifiers for gs101 which call the
-> > gs101_cpu_pmu_online/offline callbacks which in turn
-> > program the ACPM hint. This is required to actually
-> > enter the idle state.
-> >
-> > A couple of corner cases are handled, namely when the
-> > system is rebooting or suspending we ignore the request.
-> > Additionally the request is ignored if the CPU is in
-> > CPU hot plug.
-> >
-> > Note: this patch has a runtime dependency on adding
-> > 'local-timer-stop' dt property to the CPU nodes. This
-> > informs the time framework to switch to a broadcast timer
-> > as the local timer will be shutdown. Without that DT
-> > property specified the system hangs in early boot with
-> > this patch applied.
->
-> Please wrap commit message according to Linux coding style / submission
-> process (neither too early nor over the limit):
-> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+Neil
 
-Noted, will fix
+> 
+> Best regards.
+> 
+>>
+>>>
+>>> Signed-off-by: Muhammed Efe Cetin <efectn@protonmail.com>
+>>> ---
+>>>    drivers/thermal/khadas_mcu_fan.c | 76 ++++++++++++++++++++++++++++++--
+>>>    1 file changed, 72 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/drivers/thermal/khadas_mcu_fan.c b/drivers/thermal/khadas_mcu_fan.c
+>>> index d35e5313b..504e7d254 100644
+>>> --- a/drivers/thermal/khadas_mcu_fan.c
+>>> +++ b/drivers/thermal/khadas_mcu_fan.c
+>>> @@ -15,10 +15,16 @@
+>>>    #include <linux/thermal.h>
+>>>      #define MAX_LEVEL 3
+>>> +#define MAX_SPEED 0x64
+>>>      struct khadas_mcu_fan_ctx {
+>>>        struct khadas_mcu *mcu;
+>>>        unsigned int level;
+>>> +
+>>> +    unsigned int fan_max_level;
+>>> +    unsigned int fan_register;
+>>> +    unsigned int *fan_cooling_levels;
+>>> +
+>>>        struct thermal_cooling_device *cdev;
+>>>    };
+>>>    @@ -26,9 +32,21 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
+>>>                        unsigned int level)
+>>>    {
+>>>        int ret;
+>>> +    unsigned int write_level = level;
+>>> +
+>>> +    if (level > ctx->fan_max_level)
+>>> +        return -EINVAL;
+>>> +
+>>> +    if (ctx->fan_cooling_levels != NULL) {
+>>> +        write_level = ctx->fan_cooling_levels[level];
+>>> +
+>>> +        if (write_level > MAX_SPEED)
+>>> +            return -EINVAL;
+>>> +    }
+>>> +
+>>> +    ret = regmap_write(ctx->mcu->regmap, ctx->fan_register,
+>>> +               write_level);
+>>>    -    ret = regmap_write(ctx->mcu->regmap, KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+>>> -               level);
+>>>        if (ret)
+>>>            return ret;
+>>>    @@ -40,7 +58,9 @@ static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
+>>>    static int khadas_mcu_fan_get_max_state(struct thermal_cooling_device *cdev,
+>>>                        unsigned long *state)
+>>>    {
+>>> -    *state = MAX_LEVEL;
+>>> +    struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
+>>> +
+>>> +    *state = ctx->fan_max_level;
+>>>          return 0;
+>>>    }
+>>> @@ -61,7 +81,7 @@ khadas_mcu_fan_set_cur_state(struct thermal_cooling_device *cdev,
+>>>    {
+>>>        struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
+>>>    -    if (state > MAX_LEVEL)
+>>> +    if (state > ctx->fan_max_level)
+>>>            return -EINVAL;
+>>>          if (state == ctx->level)
+>>> @@ -76,6 +96,47 @@ static const struct thermal_cooling_device_ops khadas_mcu_fan_cooling_ops = {
+>>>        .set_cur_state = khadas_mcu_fan_set_cur_state,
+>>>    };
+>>>    +static int khadas_mcu_fan_get_cooling_data_edge2(struct khadas_mcu_fan_ctx *ctx, struct device *dev)
+>>> +{
+>>> +    struct device_node *np = ctx->mcu->dev->of_node;
+>>> +    int num, i, ret;
+>>> +
+>>> +    if (!of_property_present(np, "cooling-levels"))
+>>> +        return 0;
+>>> +
+>>> +    ret = of_property_count_u32_elems(np, "cooling-levels");
+>>> +    if (ret <= 0) {
+>>> +        dev_err(dev, "Wrong data!\n");
+>>> +        return ret ? : -EINVAL;
+>>> +    }
+>>> +
+>>> +    num = ret;
+>>> +    ctx->fan_cooling_levels = devm_kcalloc(dev, num, sizeof(u32),
+>>> +                           GFP_KERNEL);
+>>> +    if (!ctx->fan_cooling_levels)
+>>> +        return -ENOMEM;
+>>> +
+>>> +    ret = of_property_read_u32_array(np, "cooling-levels",
+>>> +                     ctx->fan_cooling_levels, num);
+>>> +    if (ret) {
+>>> +        dev_err(dev, "Property 'cooling-levels' cannot be read!\n");
+>>> +        return ret;
+>>> +    }
+>>> +
+>>> +    for (i = 0; i < num; i++) {
+>>> +        if (ctx->fan_cooling_levels[i] > MAX_SPEED) {
+>>> +            dev_err(dev, "MCU fan state[%d]:%d > %d\n", i,
+>>> +                ctx->fan_cooling_levels[i], MAX_SPEED);
+>>> +            return -EINVAL;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    ctx->fan_max_level = num - 1;
+>>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG_V2;
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>>    static int khadas_mcu_fan_probe(struct platform_device *pdev)
+>>>    {
+>>>        struct khadas_mcu *mcu = dev_get_drvdata(pdev->dev.parent);
+>>> @@ -90,6 +151,13 @@ static int khadas_mcu_fan_probe(struct platform_device *pdev)
+>>>        ctx->mcu = mcu;
+>>>        platform_set_drvdata(pdev, ctx);
+>>>    +    ctx->fan_max_level = MAX_LEVEL;
+>>> +    ctx->fan_register = KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG;
+>>> +
+>>> +    ret = khadas_mcu_fan_get_cooling_data_edge2(ctx, dev);
+>>> +    if (ret)
+>>> +        return ret;
+>>> +
+>>>        cdev = devm_thermal_of_cooling_device_register(dev->parent,
+>>>                dev->parent->of_node, "khadas-mcu-fan", ctx,
+>>>                &khadas_mcu_fan_cooling_ops);
+>>
+> 
 
->
-> >
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> > Changes in v2
-> >  * Add ifdef CONFIG_PM_SLEEP to avoid
-> >    Fix warning: unused variable 'cpupm_pm_ops' [-Wunused-const-variable] (0-day)
-> > ---
-> >  drivers/soc/samsung/exynos-pmu.c | 137 +++++++++++++++++++++++++++++++++++++--
-> >  1 file changed, 133 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-> > index a77288f49d249f890060c595556708334383c910..7f72ecd60994f18bb639dd8e09e1c6ff6158066b 100644
-> > --- a/drivers/soc/samsung/exynos-pmu.c
-> > +++ b/drivers/soc/samsung/exynos-pmu.c
-> > @@ -8,6 +8,7 @@
-> >  #include <linux/array_size.h>
-> >  #include <linux/arm-smccc.h>
-> >  #include <linux/cpuhotplug.h>
-> > +#include <linux/cpu_pm.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_address.h>
-> >  #include <linux/mfd/core.h>
-> > @@ -15,6 +16,7 @@
-> >  #include <linux/of_platform.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/delay.h>
-> > +#include <linux/reboot.h>
-> >  #include <linux/regmap.h>
-> >
-> >  #include <linux/soc/samsung/exynos-regs-pmu.h>
-> > @@ -35,6 +37,10 @@ struct exynos_pmu_context {
-> >       const struct exynos_pmu_data *pmu_data;
-> >       struct regmap *pmureg;
-> >       struct regmap *pmuintrgen;
-> > +     spinlock_t cpupm_lock;  /* serialization lock */
->
-> serialization of what? Or rather, can it be not a serialization lock? Is
-> it possible? It's as useful as saying "protection against concurrent
-> accesses lock". No, you need to be explicit which members and/or code
-> are protected.
-
-I can update the comment to be more verbose, but the lock is used to
-ensure the cpu online/offline sequence called from CPU hotplug
-callbacks and cpu pm notifiers are serialized.
-
->
-> > +     bool __percpu *hotplug_ing;
-> > +     atomic_t sys_suspended;
->
-> Why re-implementing own refcnt of pm suspend status?
-> pm_runtime_suspended() and others?
-
-sys_suspended is being used to detect whether a *system* wide sleep
-state is happening. I see a bunch of different drivers using a similar
-approach in the kernel to set a flag from their suspend/resume
-callback. Grep for things like system_suspending, is_suspending etc.
-An alternative approach could be to use register_pm_notifier() and set
-the flag from the callback there.
-
-pm_runtime_suspended() tells me the runtime pm status, which is not
-what I want here.
-
-> > +     atomic_t sys_rebooting;
-> >  };
-> >
-> >  void __iomem *pmu_base_addr;
-> > @@ -336,7 +342,7 @@ EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
-> >  #define CPU_INFORM_CLEAR     0
-> >  #define CPU_INFORM_C2                1
-> >
-> > -static int gs101_cpuhp_pmu_online(unsigned int cpu)
-> > +static int gs101_cpu_pmu_online(unsigned int cpu)
-> >  {
-> >       unsigned int cpuhint = smp_processor_id();
-> >       u32 reg, mask;
-> > @@ -358,10 +364,26 @@ static int gs101_cpuhp_pmu_online(unsigned int cpu)
-> >       return 0;
-> >  }
-> >
-> > -static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-> > +static int gs101_cpuhp_pmu_online(unsigned int cpu)
->
-> This needs either renaming or comments. One is cpu_pmu_online other is
-> cpuhp_pmu_online. Sounds the same to me.
-
-I can add some comments, but one function is specifically for CPU Hot
-Plug, which is what the 'cpuhp' part was trying to convey.
-
->
->
-> > +{
-> > +     gs101_cpu_pmu_online(cpu);
-> > +
-> > +     /*
-> > +      * Mark this CPU as having finished the hotplug.
-> > +      * This means this CPU can now enter C2 idle state.
-> > +      */
-> > +     *per_cpu_ptr(pmu_context->hotplug_ing, cpu) = false;
->
-> Quoting docs: "Per cpu data structures are designed to be used by one
-> cpu exclusively".
->
-> ... and further about write access. Adding standard driver code using
-> "highly discouraged" practice is not something expected.
-
-I'll update this to dynamically allocate based on num_possible_cpus()
-and then read/write the flag with cpupm lock held. I didn't realize
-the docs described the per_cpu remote writes as "highly discouraged
-unless absolutely necessary", so thanks for highlighting that. The
-per_cpu variables with remote writes seem quite widely used in the
-downstream exynos-cpupm driver, but then it takes all sorts of locks
-through all the different cal layers.
-
->
->
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int gs101_cpu_pmu_offline(unsigned int cpu)
-> >  {
-> >       u32 reg, mask;
-> > -     unsigned int cpuhint = smp_processor_id();
-> > +     unsigned int cpuhint;
-> > +
-> > +     spin_lock(&pmu_context->cpupm_lock);
->
-> This does not disable interrupts...
->
-> > +     cpuhint = smp_processor_id();
->
-> ... which is a requirement here, according to docs, no? Maybe the
-> original code had an issue, though.
-
-CPU notifiers are called with interrupts disabled. We do use a similar
-pattern in the CPU hot plug path which isn't called with IRQs disabled
-though, so I'll add some locking there in the next version.
-
-Thanks,
-
-Peter
-
-
-
->
-> >
-> >       /* set cpu inform hint */
-> >       regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
-> > @@ -379,16 +401,89 @@ static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-> >       regmap_read(pmu_context->pmuintrgen, GS101_GRP1_INTR_BID_UPEND, &reg);
-> >       regmap_write(pmu_context->pmuintrgen, GS101_GRP1_INTR_BID_CLEAR,
-> >                    reg & mask);
-> > +
-> > +     spin_unlock(&pmu_context->cpupm_lock);
-> >       return 0;
-> >  }
-> >
-> > +static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-> > +{
-> > +     /*
-> > +      * Mark this CPU as entering hotplug. So as not to confuse
-> > +      * ACPM the CPU entering hotplug should not enter C2 idle state.
-> > +      */
-> > +     *per_cpu_ptr(pmu_context->hotplug_ing, cpu) = true;
-> > +
-> > +     gs101_cpu_pmu_offline(cpu);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
-> > +                                     unsigned long action, void *v)
-> > +{
-> > +     int cpu = smp_processor_id();
-> > +
-> > +     switch (action) {
-> > +     case CPU_PM_ENTER:
-> > +             /*
-> > +              * Ignore CPU_PM_ENTER event in reboot or
-> > +              * suspend sequence.
-> > +              */
-> > +
-> > +             if (atomic_read(&pmu_context->sys_suspended) ||
-> > +                 atomic_read(&pmu_context->sys_rebooting))
-> > +                     return NOTIFY_OK;
-> > +
-> > +             if (*per_cpu_ptr(pmu_context->hotplug_ing, cpu))
-> > +                     return NOTIFY_BAD;
-> > +
-> > +             gs101_cpu_pmu_offline(cpu);
-> > +
-> > +             break;
-> > +     case CPU_PM_EXIT:
-> > +
-> > +             if (atomic_read(&pmu_context->sys_rebooting))
-> > +                     return NOTIFY_OK;
-> > +
-> > +             gs101_cpu_pmu_online(cpu);
-> > +
-> > +             break;
-> > +     }
-> > +
-> > +     return NOTIFY_OK;
-> > +}
-> > +
-> > +static struct notifier_block gs101_cpu_pm_notifier = {
-> > +     .notifier_call = gs101_cpu_pm_notify_callback,
-> > +     .priority = INT_MAX     /* we want to be called first */
->
-> You should say why. Everyone wants to be the first.
->
-> > +};
-> > +
-> > +static int exynos_cpupm_reboot_notifier(struct notifier_block *nb,
-> > +                                     unsigned long event, void *v)
-> > +{
-> > +     switch (event) {
-> > +     case SYS_POWER_OFF:
-> > +     case SYS_RESTART:
-> > +             atomic_set(&pmu_context->sys_rebooting, 1);
-> > +             break;
-> > +     }
-> > +
-> > +     return NOTIFY_OK;
-> > +}
-> > +
-> > +static struct notifier_block exynos_cpupm_reboot_nb = {
-> > +     .priority = INT_MAX,
-> > +     .notifier_call = exynos_cpupm_reboot_notifier,
-> > +};
-> > +
-> >  static int exynos_pmu_probe(struct platform_device *pdev)
-> >  {
-> >       struct device *dev = &pdev->dev;
-> >       struct regmap_config pmu_regmcfg;
-> >       struct regmap *regmap;
-> >       struct resource *res;
-> > -     int ret;
-> > +     int ret, cpu;
-> >
-> >       pmu_base_addr = devm_platform_ioremap_resource(pdev, 0);
-> >       if (IS_ERR(pmu_base_addr))
-> > @@ -444,6 +539,12 @@ static int exynos_pmu_probe(struct platform_device *pdev)
-> >                        */
-> >                       dev_warn(&pdev->dev, "pmu-intr-gen syscon unavailable\n");
-> >               } else {
-> > +                     pmu_context->hotplug_ing = alloc_percpu(bool);
-> > +
-> > +                     /* set PMU to power on */
-> > +                     for_each_online_cpu(cpu)
-> > +                             gs101_cpuhp_pmu_online(cpu);
-> > +
-> >                       cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,
-> >                                         "soc/exynos-pmu:prepare",
-> >                                         gs101_cpuhp_pmu_online, NULL);
-> > @@ -451,6 +552,12 @@ static int exynos_pmu_probe(struct platform_device *pdev)
-> >                       cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> >                                         "soc/exynos-pmu:online",
-> >                                         NULL, gs101_cpuhp_pmu_offline);
-> > +
-> > +                     cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
-> > +                     spin_lock_init(&pmu_context->cpupm_lock);
-> > +                     atomic_set(&pmu_context->sys_rebooting, 0);
-> > +                     atomic_set(&pmu_context->sys_suspended, 0);
-> > +                     register_reboot_notifier(&exynos_cpupm_reboot_nb);
-> >               }
-> >       }
-> >
-> > @@ -471,10 +578,32 @@ static int exynos_pmu_probe(struct platform_device *pdev)
-> >       return 0;
-> >  }
-> >
-> > +#ifdef CONFIG_PM_SLEEP
-> > +static int exynos_cpupm_suspend_noirq(struct device *dev)
-> > +{
-> > +     atomic_set(&pmu_context->sys_suspended, 1);
-> > +     return 0;
-> > +}
-> > +
-> > +static int exynos_cpupm_resume_noirq(struct device *dev)
-> > +{
-> > +     atomic_set(&pmu_context->sys_suspended, 0);
-> > +     return 0;
-> > +}
-> > +
-> > +static const struct dev_pm_ops cpupm_pm_ops = {
-> > +     .suspend_noirq = exynos_cpupm_suspend_noirq,
-> > +     .resume_noirq = exynos_cpupm_resume_noirq,
->
-> SET_LATE_SYSTEM_SLEEP_PM_OPS or one of other wrappers.
->
-> > +};
-> > +#endif
-> > +
-> >  static struct platform_driver exynos_pmu_driver = {
-> >       .driver  = {
-> >               .name   = "exynos-pmu",
-> >               .of_match_table = exynos_pmu_of_device_ids,
-> > +#ifdef CONFIG_PM_SLEEP
-> > +             .pm = &cpupm_pm_ops,
->
-> pm_ptr
-> > +#endif
-> >       },
-> >       .probe = exynos_pmu_probe,
-> >  };
-> >
->
->
-> Best regards,
-> Krzysztof
 
