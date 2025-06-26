@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7347BC7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE8E4C7EE33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 09:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98zlOFlTcCf8tZkUcKA/XRtZlQr5A9hWnT2rSd3LkgM=; b=ixKlWnCx4BOxQnvOIx9eTkqEWk
-	dqPlTG4vDGfW7oD8lY6b60OEVJ1kQlQM71E5VXunLYl0ffevX1N96DhrbNXOHLbCMhU70gIkG7/tJ
-	BkwuaLlSUyT4CZfKQhOvPcjxCQuIeW0ZwnEXoIcbmot4EWZVa3YC95G+R7vzZ/kpyg9cVDbMCujN1
-	f8+GFW1yRp2x2qnGuqwES0VNQnH7vmtztQN1y5ltvSdTIwXNA0E7KZAGUm5NNZzBT1dxYrWmt91fc
-	Vrc/RK1eOBLOUJx1b6/CmsHuX2Qb3izvmuseQBebM/jjLmd6IUpKR6nknuWoC4hed3IHyz/tBzsBV
-	tw+HfkUQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=doJflWt2Lss8goKJ0fU1m7J8ZDVREvHk2lUbQH1sbLE=; b=cZceX+9yr6iKKHYWqwiVhLg+CC
+	Z9k1LPzAIoQcwqxLelGEqDjb+Wjlgm+Jxcdugdt5ZnO9tzUdFhI9rzoqhXlXVIJT8koJWSMm8Zuow
+	qSHIxJ1ZHNOCd0XFhbs/wTsT/9xlUQ54nKFoq1ivI6fh526qMTehoVjdMk+oeywcgyv7hovLE3RwL
+	SUNW/kevgx1sgGTSv/wdanr0xuH0gA3/51xH8RCGhG7WyRcQl1HFNyyebiXxNkFEtRZ1te2OT3K20
+	MVTVTibYSXNJghbCJgsUG2YIsYVlClbAj9B3O0tfXrXwjJRAlWvg9NkIED/e0jj5QaG6OuEsC+GQx
+	OUo70LHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiwx-0000000B8y7-1us9;
-	Thu, 26 Jun 2025 09:31:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uUizC-0000000B9Mm-26yx;
+	Thu, 26 Jun 2025 09:33:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUiMp-0000000B3AN-0876;
+	id 1uUiMo-0000000B39w-44AV;
 	Thu, 26 Jun 2025 08:54:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B3A5439BA;
-	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5576AC4CEF5;
-	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A06175C411A;
+	Thu, 26 Jun 2025 08:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B0B46C4CEEB;
+	Thu, 26 Jun 2025 08:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750928038;
-	bh=yl69ujOKudAoxb7BsY6W6/j+nW0EaIsBsX9NLiSjkC4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=j6AJkPh6jiRpTTLHkdrcjcpUCnHAnerHejz5HU7KgF+u0IV/UlQXrGOm1WW/2IRnG
-	 wipTvep0j8F8O+nt0JzCLtacMLN3CgvWB28TfGhJTld7eiDSTKG532Z8ZA+a1+svft
-	 WJs5L4Atxy1wizvhoZk1RVDdpvK4di4qBKfBI5KpsBsDEIUODyWH++96KHn7C1AtEf
-	 wu9Sb6TvOFfQnekZjEWEOcznqxmukYdmZ9tI2cPUAHggeWru4A2frs+E8xUbjgvPpr
-	 17A1VqqYLCsylEHc/Q8zq3Ei0+/BR9lPuq80wgWp/EuXj+YrRXE18XwiSS2lNv0QG/
-	 e4TqG3es1YiJQ==
+	s=k20201202; t=1750928037;
+	bh=OwU7D8PADIgeGXWG37O9GOsus96bJ6yiGEjt9OCGGg4=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=DKMrfeFUOrzQ+q2EjnOdTN75U7ouLUQ/xGrr0CJQ1ZSQNT/f3MPL+kKaCiJMvSUaZ
+	 8VFZvHva0c1Wt48gaqJzxTgM2bccFrcvtdGSIXFBwUrk3P90kqm0GaaF7fWOKcyUP8
+	 /2yh0oiAQ+EXezl/oOzS2tydyd+/xn2kwJk1sPM3UUnRmgpIBFpWRjvk9+ctLt241K
+	 tLnselK0Og2mQVFgpfAMFLIUwW8zT0MI2QqFcbeXM/0jR7pZkd2f90zzvz4GO4bDXf
+	 55o0XKyqY4DSLizwSQK1mVMeaIE8NbrXxQzN9+JVmX4xK7c/GzEQR0PFZATLuT8ptb
+	 SX2JZ7sFv5bzw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B57BC7EE39;
-	Thu, 26 Jun 2025 08:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97CD3C7EE32;
+	Thu, 26 Jun 2025 08:53:57 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Thu, 26 Jun 2025 11:54:01 +0300
-Subject: [PATCH v2 08/11] ARM: mediatek: add MT6572 smp bring up code
+Subject: [PATCH v2 00/11] ARM: Add support for MediaTek MT6572 SoC
+Date: Thu, 26 Jun 2025 11:53:53 +0300
+Message-Id: <20250626-mt6572-v2-0-f7f842196986@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250626-mt6572-v2-8-f7f842196986@proton.me>
-References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
-In-Reply-To: <20250626-mt6572-v2-0-f7f842196986@proton.me>
+X-B4-Tracking: v=1; b=H4sIAKEKXWgC/zXMSw7CIBSF4a00dywGrrzsyH2YDhq5WAaFBhqia
+ bp3sdHhf3LybVAoByrQdxtkqqGEFFvgqYPHNMYnseBaA3JUXIsrm1etDDLyxo4XJ5XQFtp5yeT
+ D64DuQ+splDXl9+FW8V1/BPI/UQXjjNBJY5F7LvG25LSmeJ4Jhn3fP/dlbN+cAAAA
+X-Change-ID: 20250619-mt6572-ef78a3d45168
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,21 +69,22 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Max Shevchenko <wctrl@proton.me>
+ Max Shevchenko <wctrl@proton.me>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750928035; l=1940;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750928035; l=2226;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=PSE9MkQgZmOqgXgkbRv8mf/3whMKOtrk3zwWFrj3c7Q=;
- b=EtH/D6zXOkpxM6VpdFFNzxmHLCMnLjl/J04meIJmKoli+ginyiEvsHWGUM56wkjsplZXKRKY1
- ybaL0xOhzmzCYRKhO+2cnmkIiP2CB0TnxqD0q7lxRA3EGMAxlbtMbnY
+ bh=OwU7D8PADIgeGXWG37O9GOsus96bJ6yiGEjt9OCGGg4=;
+ b=baIgSdGhRpPQDRrIAAZqPHxm2ghrGJjBIImam6uwo0RV19u1bA8Bu0NK72e5cy9k8IIzWH1kz
+ Jy6jsC+ed2PBY0D7f7rUV2LakXFzOBxjLQCNTbuWlHUPAtXa2IdsUgK
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_015359_144361_3C119105 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250626_015359_160338_19496773 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,60 +100,53 @@ Reply-To: wctrl@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Max Shevchenko <wctrl@proton.me>
+This series of patches adds support for the MT6572 SoC and
+the JTY D101 tablet and Lenovo A369i smartphone based on it.
 
-Add support for booting the secondary CPU on the MT6572 SoC.
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- arch/arm/mach-mediatek/Kconfig   | 4 ++++
- arch/arm/mach-mediatek/platsmp.c | 7 +++++++
- 2 files changed, 11 insertions(+)
+Changes in v2:
+- Drop the status property for the board devicetrees
+- Add an soc node for the MT6572 and reorder the nodes and properties
+- Change the commit title to a more descriptive one
+- Change the cover title to the correct one
+- Link to v1: https://lore.kernel.org/r/20250620-mt6572-v1-0-e2d47820f042@proton.me
 
-diff --git a/arch/arm/mach-mediatek/Kconfig b/arch/arm/mach-mediatek/Kconfig
-index 35a3430c7942d897106bb32916df78347113798a..638eabad2dd37ee56244fc036cb76af135aee416 100644
---- a/arch/arm/mach-mediatek/Kconfig
-+++ b/arch/arm/mach-mediatek/Kconfig
-@@ -15,6 +15,10 @@ config MACH_MT2701
- 	bool "MediaTek MT2701 SoCs support"
- 	default ARCH_MEDIATEK
- 
-+config MACH_MT6572
-+	bool "MediaTek MT6572 SoCs support"
-+	default ARCH_MEDIATEK
-+
- config MACH_MT6589
- 	bool "MediaTek MT6589 SoCs support"
- 	default ARCH_MEDIATEK
-diff --git a/arch/arm/mach-mediatek/platsmp.c b/arch/arm/mach-mediatek/platsmp.c
-index 16a4ee6c959050474c5535ac6a65d92b29482d53..bbd26d423bdef23629ec5ca9d9c61903748988b7 100644
---- a/arch/arm/mach-mediatek/platsmp.c
-+++ b/arch/arm/mach-mediatek/platsmp.c
-@@ -29,6 +29,12 @@ static const struct mtk_smp_boot_info mtk_mt8135_tz_boot = {
- 	{ 0x3f8, 0x3f8, 0x3f8 },
- };
- 
-+static const struct mtk_smp_boot_info mtk_mt6572_boot = {
-+	0x10001400, 0x08,
-+	{ 0x534c4131 },
-+	{ 0x0c },
-+};
-+
- static const struct mtk_smp_boot_info mtk_mt6589_boot = {
- 	0x10002000, 0x34,
- 	{ 0x534c4131, 0x4c415332, 0x41534c33 },
-@@ -49,6 +55,7 @@ static const struct of_device_id mtk_tz_smp_boot_infos[] __initconst = {
- };
- 
- static const struct of_device_id mtk_smp_boot_infos[] __initconst = {
-+	{ .compatible   = "mediatek,mt6572", .data = &mtk_mt6572_boot },
- 	{ .compatible   = "mediatek,mt6589", .data = &mtk_mt6589_boot },
- 	{ .compatible   = "mediatek,mt7623", .data = &mtk_mt7623_boot },
- 	{ .compatible   = "mediatek,mt7629", .data = &mtk_mt7623_boot },
+---
+Max Shevchenko (11):
+      dt-bindings: serial: mediatek,uart: add MT6572
+      dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: add MT6572
+      dt-bindings: timer: mediatek: add MT6572
+      dt-bindings: watchdog: mediatek,mtk-wdt: add MT6572
+      dt-bindings: vendor-prefixes: add JTY
+      dt-bindings: arm: mediatek: add boards based on the MT6572 SoC
+      ARM: mediatek: add board_dt_compat entry for the MT6572 SoC
+      ARM: mediatek: add MT6572 smp bring up code
+      ARM: dts: mediatek: add basic support for MT6572 SoC
+      ARM: dts: mediatek: add basic support for JTY D101 board
+      ARM: dts: mediatek: add basic support for Lenovo A369i board
 
+ .../devicetree/bindings/arm/mediatek.yaml          |   5 +
+ .../mediatek,mt6577-sysirq.yaml                    |   1 +
+ .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
+ .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ .../bindings/watchdog/mediatek,mtk-wdt.yaml        |   1 +
+ arch/arm/boot/dts/mediatek/Makefile                |   2 +
+ arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts     |  61 ++++++++++++
+ arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts |  56 +++++++++++
+ arch/arm/boot/dts/mediatek/mt6572.dtsi             | 109 +++++++++++++++++++++
+ arch/arm/mach-mediatek/Kconfig                     |   4 +
+ arch/arm/mach-mediatek/mediatek.c                  |   1 +
+ arch/arm/mach-mediatek/platsmp.c                   |   7 ++
+ 13 files changed, 251 insertions(+)
+---
+base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+change-id: 20250619-mt6572-ef78a3d45168
+
+Best regards,
 -- 
-2.50.0
+Max Shevchenko <wctrl@proton.me>
 
 
 
