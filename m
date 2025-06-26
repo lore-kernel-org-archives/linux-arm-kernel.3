@@ -4,79 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255ACC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44ABC7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 08:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHU/rHaWAnHrQHTyQDKx7kPnbPYY+Sdsp8i6aehtSQI=; b=QvZFnBPj+kMylvCVOdfIjD26xB
-	qmo6X2oerXZzYc0ruLgcFxUGAjo6XcLQOdvPAv4Ri58zoJ2gmXlLMkzi7LBQVfk9E812Bi3o5uV+/
-	NNk4W6QGi11fb9hhACiKhhE7YR7IQbObZ8zymddAS7jF5ztSd4tnhpbp4AvzsWxVhVCHHkJ/7vaAm
-	4emGuMy/JCVrMiVOL1CAQ11bvLH4zGqVKRxGmoI5+H+A22ByY2JQYLrg6NyIz16iuthXgC07Qbg8F
-	7vXO4Lkay65rJAv/wtMuScD1HGbow+uCRbJkarpLw2Qi+e5tLlkd5dika7DLIoaHWyGpg/5QZEh6J
-	6ZUHXwLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZW9dsIGHFJfv/qmJCOV9v0AKtFxYQVqMlAE5Jk6BzJQ=; b=SU2ukUrnLcj4m1BYPqfNxEnzCO
+	8rPMftphaHERcdTg8N4Y+uDdC0BKIrOBHFIbl/coQS1aTblNv/NG8F6dldwWx3krH0PPQJ/IL+J8p
+	jhpHwfiu0vTi8wCT65tHytLX0RdvCnWadgmHmTJ+792ZSOBzB30xZP4A6PGmr7AfPFusL/PZFrtX8
+	ZtbXBavc6TXX/snvnL73hnJPbom/QNVfoT+j3wPPjIE93Ak+jzR/spADDGtHlTEbUTDo0KJngP6mS
+	hZMO6CMMyXS0iRDRfSA8ykeSf/1zaDW3l4xfH/ptAcUzOAqSdMZcNv6FD+XMs5aK5EAUW22q3CHQq
+	QwSk64mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUha8-0000000AsrJ-0FbA;
-	Thu, 26 Jun 2025 08:03:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uUhcR-0000000At6x-1d36;
+	Thu, 26 Jun 2025 08:06:03 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUhQL-0000000Aray-3D4c
+	id 1uUhU1-0000000As0f-4261
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 07:53:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 08D0EA4F05B;
-	Thu, 26 Jun 2025 07:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8940C4CEEB;
-	Thu, 26 Jun 2025 07:53:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750924412;
-	bh=Lt9OFHu6pgL3Xmje4MpYWTnla2Hs12OXB8URktFGWC8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vRQYzUlGmrZKYw+vT8bqUwSltgIAm5Ma1MAHXXJoWSNaZh8J69G6zYAI6IN4FEwc7
-	 aUSJiTKI3+lVhWPzOfKjg3knt1l+dJsVEGTAilByPXGsPP98XmcmrwMqlx7d1kmnYc
-	 CIAGEvr+S3GQ4CRc4Pmtz3rVxxlGMuKXUX2U5FeHQgv0/JjA68SFHnbQOMHV+VS5/7
-	 4YTDjYryN+mx6ycDO6uNfpbSmPk4xaL6mlQPaKjS9m0+wFHhhHo6q0q/mWM20lLWJK
-	 nQ/fCHwoMYYvyIIHkVnHnYvOP1D9o5en4Oi4zf9LqfuDmxDRAOkkhwbo1RiMQv9NtL
-	 9ZrLKj4XofnPw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uUhQI-00A8hT-Je;
-	Thu, 26 Jun 2025 08:53:30 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Mostafa Saleh <smostafa@google.com>
-Cc: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	qperret@google.com
-Subject: Re: [PATCH v2] KVM: arm64: Fix error path in init_hyp_mode()
-Date: Thu, 26 Jun 2025 08:53:27 +0100
-Message-Id: <175092440336.8068.17654803423983782262.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250625123058.875179-1-smostafa@google.com>
-References: <20250625123058.875179-1-smostafa@google.com>
+	Thu, 26 Jun 2025 07:57:24 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=OYyVt7BETviNrbFbG3jcl++B8hvusABxss/fFLQNJcO2n8QIrAJtvShU4Ec3+c5XAo8bZzYcXRBX7/2ZK5kixkgbrsc4XPtgEpj8Piz+KJFtGXleM6JZBBO0S/nRwkB0Ddo/x9Yf8+l50fTgOBoWvFJsyWSfdQ5m8fYtAd/RtwKHwx8Jkqg9axmG6i+gy56TuRhXC+Q0FVhN4//DzYtLDCpddeiM1+Uiii9lPgtcAONG76Eh0hflSIozX1BhnFvaPLGBgeGSf6f+x1WK58lTEnTryfBdSna3dI7RVWVA/MosxfOqXjb4d1qGVvV1BEkyhK58uhl80Sa7j3CI2EMBrw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZW9dsIGHFJfv/qmJCOV9v0AKtFxYQVqMlAE5Jk6BzJQ=;
+ b=Fl9U3XazA+oIcaa7PxrQW4juoDHm7PpkTIPgHVdhe78F5MRBF74x4uYKxmwp+N/Fg+wPTJncHEHjZq1qPLSUVpfYC94RTIwrWKXXWckj8S+gjZSN7s2uPnL8zmZhPs5OfJeBDQbXyDaiTF19Up9981wbYzS+2vVY3UPaX1IAgA3mVhQOMYQ5SVvrWfDNCVx5Cl/AJjtppF+ykhNlRzcScMk1MSRnmrVKOUbRP2QPCcsKifutzkoMXeclxQ0FMxZvMTLKC6zAdrSBuiGb0lEcOoS9Pf96isFrTRtL/xjNaZtThr4rU+yXrhxh/CbMtlMSoVkfbl31NXZzv71QJldNbw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZW9dsIGHFJfv/qmJCOV9v0AKtFxYQVqMlAE5Jk6BzJQ=;
+ b=dyEEMKj/nLfV4oGe5w76q6hytJLaEJCiEujmG3Fb1tYw07RzwlMfXEWeoqqYIjlRQoDhI95mysoEkNYsMfMBi1I59aLRtIaExhYmtOozhCDevvMJdK2+JUOZhOIHP/AJtNL5m2Jf7zVHKsYTKmoiD2xIkOObc0/n6JXuvWtR460=
+Received: from DUZPR01CA0275.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::6) by AS8PR08MB9742.eurprd08.prod.outlook.com
+ (2603:10a6:20b:616::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Thu, 26 Jun
+ 2025 07:57:18 +0000
+Received: from DB5PEPF00014B96.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::21) by DUZPR01CA0275.outlook.office365.com
+ (2603:10a6:10:4b9::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.21 via Frontend Transport; Thu,
+ 26 Jun 2025 07:57:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B96.mail.protection.outlook.com (10.167.8.234) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.14
+ via Frontend Transport; Thu, 26 Jun 2025 07:57:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QoesTulT5ul63owqE7WCwF9dMJJLKFdIGWJsviCWQAkXSyM/Hd8CgZzXLhbRl2oEmikmM/73hjfYWg7nwZvsaihJsoSAqUJKeJdemRdQHnWFefHAkeov6NsHkQbyH1RMz90PR2oDs+4B592yfz+Qc37iDRqVtnOh4xTL79CAMa5VM4KWSSudg1IFvR3qKbtaYKvc+3FYBs8cQtlJVh0GQ+nJ6IqRewRPlNz8S3Je2DMcv0MMUQt915vYSN1IhczaXmYvWPj5VYY43Un1etXDzz3iQU43of/XbEqGfq5ucp0c429MVC9ZWbCchU7vntJy5Ux/XfobDFpmg1E0VYdXEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZW9dsIGHFJfv/qmJCOV9v0AKtFxYQVqMlAE5Jk6BzJQ=;
+ b=l50z+eNs2fT3iL1aZMISO07enMdjOChZmGt/nALaMv+jW/7ruXuVFLoqa57npEUqxvy0cj5kQOKxveL198pKl9b5z29pl5ODY6l+I8RsnkU2bX27kQhi8oyycoEJ/jOKApP13qnPi2ecN/mYkyg6WT8WRa3HwZT4h9VS1vhP0eewCz52InJCCm86EJ2KqZE94KXFXYUdu1pxhAUlUbdQC3YcLDNsHF08VQOG2uQ1crj7mjYUssLfUJcxzUF5cqlMZXNZICnt37OGPULmUbBvT+Ids1m0U4eNjLO8Q1v4wFcQtl9kkOPhXehYFCtBGWcY3zKz1KTZtTVrN859pFRthQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZW9dsIGHFJfv/qmJCOV9v0AKtFxYQVqMlAE5Jk6BzJQ=;
+ b=dyEEMKj/nLfV4oGe5w76q6hytJLaEJCiEujmG3Fb1tYw07RzwlMfXEWeoqqYIjlRQoDhI95mysoEkNYsMfMBi1I59aLRtIaExhYmtOozhCDevvMJdK2+JUOZhOIHP/AJtNL5m2Jf7zVHKsYTKmoiD2xIkOObc0/n6JXuvWtR460=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by VI0PR08MB11041.eurprd08.prod.outlook.com
+ (2603:10a6:800:256::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.29; Thu, 26 Jun
+ 2025 07:56:43 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8857.026; Thu, 26 Jun 2025
+ 07:56:42 +0000
+Date: Thu, 26 Jun 2025 08:56:39 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, ardb@kernel.org, frederic@kernel.org,
+	james.morse@arm.com, joey.gouly@arm.com,
+	scott@os.amperecomputing.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/7] support FEAT_LSUI and apply it on futex atomic ops
+Message-ID: <aFz9N1Bs6Y5f1sCT@e129823.arm.com>
+References: <20250617183635.1266015-1-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617183635.1266015-1-yeoreum.yun@arm.com>
+X-ClientProxiedBy: LO4P123CA0109.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:192::6) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, smostafa@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|VI0PR08MB11041:EE_|DB5PEPF00014B96:EE_|AS8PR08MB9742:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2643da22-09d2-46f4-0de0-08ddb4871273
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?UhiluCxDysAmpoTjZ0nWs9CD/1WrIwwa+DFBt5NjgSyLn8auOJ6kry8GCir8?=
+ =?us-ascii?Q?IDuUuoOlOPfjBE3uJdhk3MGNEGJlJfCWLA56KEWLiYaiD27MYyqdKINMinJH?=
+ =?us-ascii?Q?312vm/hHZ2uAURBhNujFYf18FtTF1y4kBqcF1a9NAEeEb5zX+kS4NnZ7TG7L?=
+ =?us-ascii?Q?OX0KK6ErHKb+gCrylCRwi8mDkiHd/mOC6QipRjpwOi+HeKRAFORrFj67clSL?=
+ =?us-ascii?Q?OyG81xqvouhAY+RQ6rUvfJfTaLPKEBJp+m5Ffe0OURQV9/Ndu1Ik7Ql4oIdU?=
+ =?us-ascii?Q?w9SGF4RBcrDya/1IFsN23SFeaC/ElznkV+zREWY6xdepY7kn2WuSlprQNWDV?=
+ =?us-ascii?Q?pexHJ93IyGjcD8S30DRQ85/u3fDs3deCo8KQRu/Dn2eeubyG50BS8jcxV7TQ?=
+ =?us-ascii?Q?vPMbmmKugrBflNAZ0hTQ8TJWWQE/DkOYObB6MtefmYUwxkx1r9v6Iheqq3T2?=
+ =?us-ascii?Q?duiVzD8Ltg0IDx9nDfiS06ChVciFkm3uijzWzTWfi4DWEJ3qzerKr5kWlFFP?=
+ =?us-ascii?Q?yk8BsQRy2zSzU3smhr8Tg4i76J1cqPFRbvm3dmPW3W7IQhTskqLVEGaW5RyP?=
+ =?us-ascii?Q?uY/jYo2jdYWBcpvnGDgpyH9Su7ZfEWCQY7w0T29oqSprXJiLBsFcFHhLfLWh?=
+ =?us-ascii?Q?lqyjpTauklf8I/piKD9U4mz3GwE6DcaLfGwKUOC/nTdEBRp03hNQJV9moGio?=
+ =?us-ascii?Q?GILeq1QBEamQnC94xfCFtvLpHvLZZT1keqMn/DOZ+tCWJvdQA0WtE6/fLTtI?=
+ =?us-ascii?Q?KZ4PWbc/9LOEg/WhBsKxH47DlgzqeV3X9/6sttiig1/I0gcM8nq7QkMszeCH?=
+ =?us-ascii?Q?lnJ4U1sqEE41IFwd4czVWEb4l383dQTDKKLplWrFxs1JLtLsM1SzuPGoaPWI?=
+ =?us-ascii?Q?Eqy5heP+Tnfyr+LDAHyHUWW2DMNI9K8Es4R6wgdjNmo9QPQejPgygEBbWjb9?=
+ =?us-ascii?Q?ooO6pmQiSDTx5rrjIFtIyuSa5AHHT7VPyJJNQRpm03vsyNg8wKT5kaPsAbz8?=
+ =?us-ascii?Q?7fyxGwg/P4jJxnfzKIWprFKIn6Lwj5WxK3f96maPL4JhoaXYL4QOWHddI9pr?=
+ =?us-ascii?Q?vernmUfFVAVDecqJqQ50uwnhPJgMt+UpgI6rIXIyDjf9x8gvzuxNgtJetNEy?=
+ =?us-ascii?Q?ClHpGnP56uJ1Rl9TdcyWoNALeGfes3NE6HMf9DFLd23rREa+K4uYrdo40/Wp?=
+ =?us-ascii?Q?kz2bCubnZwu86Rstp+DzlbH9Awcq0uXt78HG19fC9kaUj3+GYA4JSBIp81yu?=
+ =?us-ascii?Q?EaCwAxs7vVBOz3uWNCx9PSyohtaF7I63oIXvPu4lDKD4kTqwQX4i5NQOn7QO?=
+ =?us-ascii?Q?7MTD37b4ijf3i4qe7K67DSJ1vXghnb7nscmJftRM0tuU36/VWRw0e6I7gXlb?=
+ =?us-ascii?Q?7EOcgYsgYiU67KeFbAtHsGqNHUv/PVuHJobHBrIwwMbZOW0HlyzhJeo6Aswk?=
+ =?us-ascii?Q?qKEQNSQI6lk=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11041
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B96.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b30e1ff7-3db7-41fc-2553-08ddb486fd3d
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|35042699022|14060799003|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?49EYZZv3J13CWct7GYAn4fzi6Wk7D63Dszi7O9wpHYxV4zNqdiNIH9UDwhvV?=
+ =?us-ascii?Q?ft6eYgIT1dmADnkh28NwSvH3nbkHGkhrDs2rYj7iqvZTiHExkB6TaljjDtnH?=
+ =?us-ascii?Q?n0qyMt4JaOuyKnT5D0z4wu2H+RKovvh1vZXp8D1KCz/BVjSrY8RRV4xS5Rds?=
+ =?us-ascii?Q?nmAoX3T+vfd45tLOPzxwLnEYJsGcS6X7isPOpkrf5F4nHKvB2HDQKK6Y6jfH?=
+ =?us-ascii?Q?S2piBFiN6XfTLOfceHgcfHAej0jUov9rb4tcKhbNLFvCprk9POh7qOyJHZGA?=
+ =?us-ascii?Q?rtCy4DQDQuHfz8FoLKtJ8K2dXmWi88OCI1hwDH2lrGMKq/BqVz3r6IKYsPJM?=
+ =?us-ascii?Q?DGwLW0byM5M54cX60drublkdzGUinzR343t5x7Asbzhy8ywJSw84Db9boJrC?=
+ =?us-ascii?Q?6M69w9H5Mz+P95oCXsUCEBurxasbu9NHZjF5eAjOCO8redfUkqPptmTEw4hA?=
+ =?us-ascii?Q?HFmGb4d5xgsZfo+g+HQDHq+a7CrzVmYtrZUXluWXheiXF1WuH5m/1kPJNbJi?=
+ =?us-ascii?Q?4+185gxYKh6vjwb3MCT7XyK+gqwTF8563ZeNjA6A2x2ZKikoAVhC/mBxkTMc?=
+ =?us-ascii?Q?9fMNvSEjadZEOqHvQHH87kRwk+WgYaLKD3TzU7PlfzF0bPIb/yX6lo4HeI6M?=
+ =?us-ascii?Q?9/16Z8Mg/yL7z0qXK30E5HtVJvO7fqo85hYtj5n820cdUhspDqaaI0UExplD?=
+ =?us-ascii?Q?5WowHuPiXVDGwQ/nXYQ78qLE3hhlWGs0Ce7lWhP8YTyXJUVvaID0DFvzStXb?=
+ =?us-ascii?Q?S5ofqfKh20BvXm2YyUUDY5977wkIOBuvSXDyv1Jd0h0htuhKBLBMgSUyEARI?=
+ =?us-ascii?Q?oWbIWIl+2nX4V5ksps52OjX5avCIjklthJSAaR++IiMDN6IvdwnUoSmFgjpz?=
+ =?us-ascii?Q?tcvxANaTM/yVl21UOSFavvaUXtmB/ghx4BJBQpuTlnBKA8dVkPvidwT+aZHK?=
+ =?us-ascii?Q?JZphehxbvSKV6Ar3w5P5f7lsloYDqnWMfzwosipsHhKB1uoCpwHFPKG2hU3y?=
+ =?us-ascii?Q?YvkZtm5xiBU0vg9PLQQn6svm74gS+hHXm+k0vP/gJLi+8lcrRk1XgQWKwYHl?=
+ =?us-ascii?Q?p0wlJPXN4hP1EbGPxEpRxkU3yd99UvmuJsBL3PmbpU8DRQ0sgs913RvT5Og6?=
+ =?us-ascii?Q?EtjjegxISLhDp5Uq0uHdgG+qTVH8qWKxTlb1+rOx8dXpfYpHQXAK+RG72dgP?=
+ =?us-ascii?Q?574gbiM4AU84N0YWdcBCZ+gnBm0vmNlHs1TmFsSU80lGAQQWYzrelrsvNRsM?=
+ =?us-ascii?Q?IEsnMDitC4vPH9Pc6HBnnwsGC6+CE5+haHWsqzhGKG4Yk08DjG6663v3mVdg?=
+ =?us-ascii?Q?0SgJ5aQV9ZvzkcGor4UN3qgJMud9aBEViIShwaxYC0782322PERjjP0ODrj5?=
+ =?us-ascii?Q?nOp4+o8oVJORClSgtTuqLtU+5DiYPlFktwMvreJeii9IRbHUOQh1ZLax3XW6?=
+ =?us-ascii?Q?ioOyMYeTEBcnRaF9ql3+ICgNsk+XoiBRRxZ9aD4Rrca7u35e3dBXajNUl6vp?=
+ =?us-ascii?Q?Awo6kUhQVOvEsOPDFzqixnh+dyudugELIOt73jFxAUHO6NeFnut7bzduaw?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(35042699022)(14060799003)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 07:57:17.8616
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2643da22-09d2-46f4-0de0-08ddb4871273
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B96.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9742
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_005333_926737_5E09C59D 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_005722_235276_4584AE77 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +200,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Jun 2025 12:30:58 +0000, Mostafa Saleh wrote:
-> In the unlikely case pKVM failed to allocate carveout, the error path
-> tries to access NULL ptr when it de-reference the SVE state from the
-> uninitialized nVHE per-cpu base.
-> 
-> [    1.575420] pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-> [    1.576010] pc : teardown_hyp_mode+0xe4/0x180
-> [    1.576920] lr : teardown_hyp_mode+0xd0/0x180
-> [    1.577308] sp : ffff8000826fb9d0
-> [    1.577600] x29: ffff8000826fb9d0 x28: 0000000000000000 x27: ffff80008209b000
-> [    1.578383] x26: ffff800081dde000 x25: ffff8000820493c0 x24: ffff80008209eb00
-> [    1.579180] x23: 0000000000000040 x22: 0000000000000001 x21: 0000000000000000
-> [    1.579881] x20: 0000000000000002 x19: ffff800081d540b8 x18: 0000000000000000
-> [    1.580544] x17: ffff800081205230 x16: 0000000000000152 x15: 00000000fffffff8
-> [    1.581183] x14: 0000000000000008 x13: fff00000ff7f6880 x12: 000000000000003e
-> [    1.581813] x11: 0000000000000002 x10: 00000000000000ff x9 : 0000000000000000
-> [    1.582503] x8 : 0000000000000000 x7 : 7f7f7f7f7f7f7f7f x6 : 43485e525851ff30
-> [    1.583140] x5 : fff00000ff6e9030 x4 : fff00000ff6e8f80 x3 : 0000000000000000
-> [    1.583780] x2 : 0000000000000000 x1 : 0000000000000002 x0 : 0000000000000000
-> [    1.584526] Call trace:
-> [    1.584945]  teardown_hyp_mode+0xe4/0x180 (P)
-> [    1.585578]  init_hyp_mode+0x920/0x994
-> [    1.586005]  kvm_arm_init+0xb4/0x25c
-> [    1.586387]  do_one_initcall+0xe0/0x258
-> [    1.586819]  do_initcall_level+0xa0/0xd4
-> [    1.587224]  do_initcalls+0x54/0x94
-> [    1.587606]  do_basic_setup+0x1c/0x28
-> [    1.587998]  kernel_init_freeable+0xc8/0x130
-> [    1.588409]  kernel_init+0x20/0x1a4
-> [    1.588768]  ret_from_fork+0x10/0x20
-> [    1.589568] Code: f875db48 8b1c0109 f100011f 9a8903e8 (f9463100)
-> [    1.590332] ---[ end trace 0000000000000000 ]---
-> 
-> [...]
+Gentle ping in case of forgotten.
 
-Applied to fixes, thanks!
+> Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+> previleged level to access to access user memory without clearing
+> PSTATE.PAN bit.
+>
+> This patchset support FEAT_LUSI and applies in futex atomic operation
+> where can replace from ldxr/stlxr pair implmentation with clearing
+> PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
+> without clearing PSTATE.PAN bit.
+>
+> Patch Sequences
+> ================
+>
+> Patch #1 adds cpufeature for FEAT_LUSI
+>
+> Patch #2 expose FEAT_LUSI to guest
+>
+> Patch #3 adds Kconfig for FEAT_LUSI
+>
+> Patch #4 separtes former futex atomic-op implmentation from futex.h
+> to futex_ll_sc_u.h
+>
+> Patch #5 implments futex atomic operation using lsui instruction.
+>
+> Patch #6 introduces lsui.h to apply runtime patch to use former
+> implmentation when FEAT_LUSI doesn't support.
+>
+> Patch #7 applies lsui.h into arch_futext_atomic_op().
+>
+> Patch History
+> ==============
+> from v2 to v3:
+>   - expose FEAT_LUSI to guest
+>   - add help section for LUSI Kconfig
+>   - https://lore.kernel.org/all/20250611151154.46362-1-yeoreum.yun@arm.com/
+>
+> from v1 to v2:
+>   - remove empty v9.6 menu entry
+>   - locate HAS_LUSI in cpucaps in order
+>   - https://lore.kernel.org/all/20250611104916.10636-1-yeoreum.yun@arm.com/
+>
+> Yeoreum Yun (7):
+>   arm64: cpufeature: add FEAT_LSUI
+>   arm64/kvm: expose FEAT_LSUI to guest
+>   arm64/Kconfig: add LSUI Kconfig
+>   arm64/futex: move futex atomic logic with clearing PAN bit
+>   arm64/futex: add futex atomic operation with FEAT_LSUI
+>   arm64/asm: introduce lsui.h
+>   arm64/futex: support futex with FEAT_LSUI
+>
+>  arch/arm64/Kconfig                     |   9 ++
+>  arch/arm64/include/asm/futex.h         |  99 ++++++-------------
+>  arch/arm64/include/asm/futex_ll_sc_u.h | 115 +++++++++++++++++++++
+>  arch/arm64/include/asm/futex_lsui.h    | 132 +++++++++++++++++++++++++
+>  arch/arm64/include/asm/lsui.h          |  37 +++++++
+>  arch/arm64/kernel/cpufeature.c         |   8 ++
+>  arch/arm64/kvm/sys_regs.c              |   5 +-
+>  arch/arm64/tools/cpucaps               |   1 +
+>  8 files changed, 336 insertions(+), 70 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/futex_ll_sc_u.h
+>  create mode 100644 arch/arm64/include/asm/futex_lsui.h
+>  create mode 100644 arch/arm64/include/asm/lsui.h
+>
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>
 
-[1/1] KVM: arm64: Fix error path in init_hyp_mode()
-      commit: 9a2b9416fd1d18d97ce1b737a11fcbc521140e5d
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+--
+Sincerely,
+Yeoreum Yun
 
