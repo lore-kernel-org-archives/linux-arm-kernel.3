@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE64C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D37C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1HFdhwqd5DC6x8p3yCFzDP+yibNrfGuiCrnn0yz6t0=; b=LcTLN3cwZXzSLqwMUIgepdV7BR
-	4ldRGXNqLKKj9e6vkL495fd/m4UkuQqymEP10kyDv6a4BzDsm0phVzYUkzdVBzneXOdWTqQIiAdxI
-	a9QSe/DAaM0zf2ws5jOYhL+hSqEYLnSyK8RMzZG3OrpIzFDs7jDy6tSP6Rf28b5hZs/cDBgAJhSBo
-	Hq+qtFx4900TvuVRtnnm7y+J42ooXFxxeMmYYGq5GCas+TGzcjAMaPiuWIvT85KLPwAifm2DIUhlB
-	mHUWTmQUFaaii3IfQNSLejDBP0CkCLYnwqVJyhhha9Kalnbgug3w1taqH+yog7HX4vuxc5spMpSEU
-	WlhLVMXw==;
+	bh=MwVxsIaDgcFb+O8/af0/YU761G/v/g4E9Y+QGYc/05U=; b=uZIIcuZ/bXtDEFmt/KS1uePwV5
+	ZcDPpjHqsDaDUKLIorjXdVgnPu0USI5dmj8vaJg6Lfx45Pez3FHHmzCSUi2/fcDWi8cj+m9GaITu3
+	ZqtArIZiqTWhi3mDTOuO8UqvzyRa72f6QbMEbB2vLXRB/iFSg9RyunVaHsgxCoPjkU3X1bmp+asiJ
+	TH0lUg/9jXUnPiuX7XVg+GXuu3XR/Zgh+Mdtg35w2rpm7oqtLbvqqoxLmg1WQIJK0/fs5YuqASEg/
+	KWmEIDQcnNdomvKMPl57bA/oxzKZHIuDNMZvkw0DGij1wMMpx13bYBuyILi+TBSPZPY2NkIbaJUY8
+	0SlWmxkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUo8F-0000000C2eT-1RsV;
-	Thu, 26 Jun 2025 15:03:19 +0000
+	id 1uUoAa-0000000C39g-2IPd;
+	Thu, 26 Jun 2025 15:05:44 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnu8-0000000BzYG-0FeO;
-	Thu, 26 Jun 2025 14:48:45 +0000
+	id 1uUnu8-0000000BzYT-3tEU;
+	Thu, 26 Jun 2025 14:48:46 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949322;
+	s=2020; t=1750949323;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C1HFdhwqd5DC6x8p3yCFzDP+yibNrfGuiCrnn0yz6t0=;
-	b=nAcwHyaSN7nhBtD3lVXi6SlAK9Z0rKWn5zhGfVT6S7Fh3m9j14eeUWihriCspaY4jFk61c
-	kn2ZAhYqva6qMParMQynIJrLB2fkyzHpeXgrxriK8hgkbK85MyZluRYhI35cnh8jrdwKVc
-	qKBzPkZTPzC+/hylZc6YzsCqO/3QzRfrotYTHjFvN/wkt0LyLIlwu9fBn+kkk/M670es88
-	z/ioGfJnxur6VKZie0ILYugjqvJwWjho3FvrVQl7eIR7m72HpnC8L7mjToCscML0VrfezZ
-	7EnDbFFvMCw44S649jKQzgxjvpQ0j0dJ934nzEUrCeA0BH41DCPMl859e+wwaw==
+	bh=MwVxsIaDgcFb+O8/af0/YU761G/v/g4E9Y+QGYc/05U=;
+	b=qb4mxWe3WWY08sLg1q5wCvmQqGknTCw6CVCGuomI60FtWYtsrD13i1SBsvhjDS+vdF70Iz
+	t4BEILq9XogEB8X6qnKiZ+oME6d0NPDqMm2JiHj1CbV12UYEPqhDCWxWDfHjwHH4VHIvmh
+	muimG5KiLq4qUj2r28VqdWFCdgASDnZ8ohbCAqdghuYNWm4AWnv0uu0KUXc5C7ssA1Gnup
+	ry3Bgg5zD73qv/oaNCVmUQd7omyHEtYfn+3S3Dd3atDNhnzezlS9mwS1y6Reit2xXjjIJI
+	2EzCJIhiAWzQ4K/XfkTOIeouSsyLnlmqZK69DAnA/ldV6R5C+Q5isfu0LRnZEA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949322;
+	s=2020e; t=1750949323;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C1HFdhwqd5DC6x8p3yCFzDP+yibNrfGuiCrnn0yz6t0=;
-	b=jTJGcSNKw/2f2IkZrgSgkpUrKrbs8MVtkmvUc2qvgUskXQRgX2dhgD0FYSNtv0hr+TOjO+
-	PkkQUPYCny+aD2Ag==
+	bh=MwVxsIaDgcFb+O8/af0/YU761G/v/g4E9Y+QGYc/05U=;
+	b=aGPLl3PxbrjaVlsRxncYQgHcAWiO2kv/pPWxTNJj/NXLkyLfMoDzOUoEdFGtiCiA9kmVOO
+	paVWXxmki0g6fuDA==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -88,16 +88,16 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 06/16] PCI: iproc: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:47:56 +0200
-Message-Id: <53946d74caf1fd134a1820eac82c3cf64d48779f.1750858083.git.namcao@linutronix.de>
+Subject: [PATCH 07/16] PCI: mediatek-gen3: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:47:57 +0200
+Message-Id: <bfbd2e375269071b69e1aa85e629ee4b7c99518f.1750858083.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
 References: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074844_238308_15DB4ED8 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250626_074845_125841_00ADA284 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,125 +117,157 @@ msi_create_parent_irq_domain().
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
-Cc: Ray Jui <rjui@broadcom.com>
-Cc: Scott Branden <sbranden@broadcom.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom=
-.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>
+Cc: Jianjun Wang <jianjun.wang@mediatek.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/pci/controller/Kconfig          |  1 +
- drivers/pci/controller/pcie-iproc-msi.c | 45 ++++++++++++-------------
- 2 files changed, 22 insertions(+), 24 deletions(-)
+ drivers/pci/controller/Kconfig              |  1 +
+ drivers/pci/controller/pcie-mediatek-gen3.c | 67 ++++++++-------------
+ 2 files changed, 26 insertions(+), 42 deletions(-)
 
 diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index 0f6cec244d4fa..375a019f35bd9 100644
+index 375a019f35bd9..ec32c343a751d 100644
 --- a/drivers/pci/controller/Kconfig
 +++ b/drivers/pci/controller/Kconfig
-@@ -101,6 +101,7 @@ config PCIE_IPROC_MSI
- 	bool "Broadcom iProc PCIe MSI support"
- 	depends on PCIE_IPROC_PLATFORM || PCIE_IPROC_BCMA
+@@ -203,6 +203,7 @@ config PCIE_MEDIATEK_GEN3
+ 	tristate "MediaTek Gen3 PCIe controller"
+ 	depends on ARCH_AIROHA || ARCH_MEDIATEK || COMPILE_TEST
  	depends on PCI_MSI
 +	select IRQ_MSI_LIB
- 	default ARCH_BCM_IPROC
  	help
- 	  Say Y here if you want to enable MSI support for Broadcom's iProc
-diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controll=
-er/pcie-iproc-msi.c
-index d2cb4c4f821af..d0c7f004217fb 100644
---- a/drivers/pci/controller/pcie-iproc-msi.c
-+++ b/drivers/pci/controller/pcie-iproc-msi.c
-@@ -5,6 +5,7 @@
-=20
- #include <linux/interrupt.h>
- #include <linux/irqchip/chained_irq.h>
+ 	  Adds support for PCIe Gen3 MAC controller for MediaTek SoCs.
+ 	  This PCIe controller is compatible with Gen3, Gen2 and Gen1 speed,
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/cont=
+roller/pcie-mediatek-gen3.c
+index 5464b4ae5c20c..97147f43e41c5 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -12,6 +12,7 @@
+ #include <linux/delay.h>
+ #include <linux/iopoll.h>
+ #include <linux/irq.h>
 +#include <linux/irqchip/irq-msi-lib.h>
+ #include <linux/irqchip/chained_irq.h>
  #include <linux/irqdomain.h>
- #include <linux/msi.h>
- #include <linux/of_irq.h>
-@@ -101,7 +102,6 @@ struct iproc_msi {
- 	struct mutex bitmap_lock;
- 	unsigned int nr_msi_vecs;
- 	struct irq_domain *inner_domain;
+ #include <linux/kernel.h>
+@@ -187,7 +188,6 @@ struct mtk_msi_set {
+  * @saved_irq_state: IRQ enable state saved at suspend time
+  * @irq_lock: lock protecting IRQ register access
+  * @intx_domain: legacy INTx IRQ domain
+- * @msi_domain: MSI IRQ domain
+  * @msi_bottom_domain: MSI IRQ bottom domain
+  * @msi_sets: MSI sets information
+  * @lock: lock protecting IRQ bit map
+@@ -210,7 +210,6 @@ struct mtk_gen3_pcie {
+ 	u32 saved_irq_state;
+ 	raw_spinlock_t irq_lock;
+ 	struct irq_domain *intx_domain;
 -	struct irq_domain *msi_domain;
- 	unsigned int nr_eq_region;
- 	unsigned int nr_msi_region;
- 	void *eq_cpu;
-@@ -165,16 +165,18 @@ static inline unsigned int iproc_msi_eq_offset(struct=
- iproc_msi *msi, u32 eq)
- 		return eq * EQ_LEN * sizeof(u32);
- }
-=20
--static struct irq_chip iproc_msi_irq_chip =3D {
--	.name =3D "iProc-MSI",
-+#define IPROC_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
-+				  MSI_FLAG_USE_DEF_CHIP_OPS)
-+#define IPROC_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK	| \
-+				   MSI_FLAG_PCI_MSIX)
-+
-+static struct msi_parent_ops iproc_msi_parent_ops =3D {
-+	.required_flags		=3D IPROC_MSI_FLAGS_REQUIRED,
-+	.supported_flags	=3D IPROC_MSI_FLAGS_SUPPORTED,
-+	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
-+	.prefix			=3D "iProc-",
-+	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
- };
--
--static struct msi_domain_info iproc_msi_domain_info =3D {
--	.flags =3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		MSI_FLAG_PCI_MSIX,
--	.chip =3D &iproc_msi_irq_chip,
--};
--
- /*
-  * In iProc PCIe core, each MSI group is serviced by a GIC interrupt and a
-  * dedicated event queue.  Each MSI group can support up to 64 MSI vectors.
-@@ -446,27 +448,22 @@ static void iproc_msi_disable(struct iproc_msi *msi)
- static int iproc_msi_alloc_domains(struct device_node *node,
- 				   struct iproc_msi *msi)
- {
--	msi->inner_domain =3D irq_domain_create_linear(NULL, msi->nr_msi_vecs,
--						     &msi_domain_ops, msi);
-+	struct irq_domain_info info =3D {
-+		.fwnode		=3D of_fwnode_handle(node),
-+		.ops		=3D &msi_domain_ops,
-+		.host_data	=3D msi,
-+		.size		=3D msi->nr_msi_vecs,
-+	};
-+
-+	msi->inner_domain =3D msi_create_parent_irq_domain(&info, &iproc_msi_pare=
-nt_ops);
- 	if (!msi->inner_domain)
- 		return -ENOMEM;
-=20
--	msi->msi_domain =3D pci_msi_create_irq_domain(of_fwnode_handle(node),
--						    &iproc_msi_domain_info,
--						    msi->inner_domain);
--	if (!msi->msi_domain) {
--		irq_domain_remove(msi->inner_domain);
--		return -ENOMEM;
--	}
--
+ 	struct irq_domain *msi_bottom_domain;
+ 	struct mtk_msi_set msi_sets[PCIE_MSI_SET_NUM];
+ 	struct mutex lock;
+@@ -526,30 +525,22 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie=
+ *pcie)
  	return 0;
  }
 =20
- static void iproc_msi_free_domains(struct iproc_msi *msi)
- {
--	if (msi->msi_domain)
--		irq_domain_remove(msi->msi_domain);
+-static void mtk_pcie_msi_irq_mask(struct irq_data *data)
+-{
+-	pci_msi_mask_irq(data);
+-	irq_chip_mask_parent(data);
+-}
 -
- 	if (msi->inner_domain)
- 		irq_domain_remove(msi->inner_domain);
- }
-@@ -542,7 +539,7 @@ int iproc_msi_init(struct iproc_pcie *pcie, struct devi=
-ce_node *node)
- 	msi->nr_cpus =3D num_possible_cpus();
+-static void mtk_pcie_msi_irq_unmask(struct irq_data *data)
+-{
+-	pci_msi_unmask_irq(data);
+-	irq_chip_unmask_parent(data);
+-}
+-
+-static struct irq_chip mtk_msi_irq_chip =3D {
+-	.irq_ack =3D irq_chip_ack_parent,
+-	.irq_mask =3D mtk_pcie_msi_irq_mask,
+-	.irq_unmask =3D mtk_pcie_msi_irq_unmask,
+-	.name =3D "MSI",
+-};
+-
+-static struct msi_domain_info mtk_msi_domain_info =3D {
+-	.flags	=3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
+-		  MSI_FLAG_NO_AFFINITY | MSI_FLAG_PCI_MSIX |
+-		  MSI_FLAG_MULTI_PCI_MSI,
+-	.chip	=3D &mtk_msi_irq_chip,
++#define MTK_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
++				MSI_FLAG_USE_DEF_CHIP_OPS	| \
++				MSI_FLAG_NO_AFFINITY		| \
++				MSI_FLAG_PCI_MSI_MASK_PARENT)
++
++#define MTK_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK		| \
++				 MSI_FLAG_PCI_MSIX		| \
++				 MSI_FLAG_MULTI_PCI_MSI)
++
++static const struct msi_parent_ops mtk_msi_parent_ops =3D {
++	.required_flags		=3D MTK_MSI_FLAGS_REQUIRED,
++	.supported_flags	=3D MTK_MSI_FLAGS_SUPPORTED,
++	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
++	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
++	.prefix			=3D "MTK3-",
++	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
+ };
 =20
- 	if (msi->nr_cpus =3D=3D 1)
--		iproc_msi_domain_info.flags |=3D  MSI_FLAG_MULTI_PCI_MSI;
-+		iproc_msi_parent_ops.supported_flags |=3D MSI_FLAG_MULTI_PCI_MSI;
+ static void mtk_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+@@ -756,28 +747,23 @@ static int mtk_pcie_init_irq_domains(struct mtk_gen3_=
+pcie *pcie)
+ 	/* Setup MSI */
+ 	mutex_init(&pcie->lock);
 =20
- 	msi->nr_irqs =3D of_irq_count(node);
- 	if (!msi->nr_irqs) {
+-	pcie->msi_bottom_domain =3D irq_domain_create_linear(dev_fwnode(dev), PCI=
+E_MSI_IRQS_NUM,
+-							   &mtk_msi_bottom_domain_ops, pcie);
++	struct irq_domain_info info =3D {
++		.fwnode		=3D dev_fwnode(dev),
++		.ops		=3D &mtk_msi_bottom_domain_ops,
++		.host_data	=3D pcie,
++		.size		=3D PCIE_MSI_IRQS_NUM,
++	};
++
++	pcie->msi_bottom_domain =3D msi_create_parent_irq_domain(&info, &mtk_msi_=
+parent_ops);
+ 	if (!pcie->msi_bottom_domain) {
+ 		dev_err(dev, "failed to create MSI bottom domain\n");
+ 		ret =3D -ENODEV;
+ 		goto err_msi_bottom_domain;
+ 	}
+=20
+-	pcie->msi_domain =3D pci_msi_create_irq_domain(dev->fwnode,
+-						     &mtk_msi_domain_info,
+-						     pcie->msi_bottom_domain);
+-	if (!pcie->msi_domain) {
+-		dev_err(dev, "failed to create MSI domain\n");
+-		ret =3D -ENODEV;
+-		goto err_msi_domain;
+-	}
+-
+ 	of_node_put(intc_node);
+ 	return 0;
+=20
+-err_msi_domain:
+-	irq_domain_remove(pcie->msi_bottom_domain);
+ err_msi_bottom_domain:
+ 	irq_domain_remove(pcie->intx_domain);
+ out_put_node:
+@@ -792,9 +778,6 @@ static void mtk_pcie_irq_teardown(struct mtk_gen3_pcie =
+*pcie)
+ 	if (pcie->intx_domain)
+ 		irq_domain_remove(pcie->intx_domain);
+=20
+-	if (pcie->msi_domain)
+-		irq_domain_remove(pcie->msi_domain);
+-
+ 	if (pcie->msi_bottom_domain)
+ 		irq_domain_remove(pcie->msi_bottom_domain);
+=20
 --=20
 2.39.5
 
