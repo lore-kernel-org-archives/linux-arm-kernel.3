@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BC5C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7435CC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 12:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCevst89phJc+rqfLYWl5aMv8PcsZci70NS+4NB9M9s=; b=ESJm8A7K8mEv3Pj83ClYgMZaN2
-	dihcdOcGb6N4rO8xPVDxuXroBvnTlUxh4tEbbFW+D9TEmwqunfBQnl5m68ZM7ezfeqNMz9WdmCo+x
-	kNebcLAamnW+bdWvD1JwdB0Xo+mCjp0AHh/tWIS9Gux2LE5ULzv+CkH+ezY9v6eZ49OtsgWxXU+CM
-	O+7MgzIuJStCMO1TKgt7EYZaz4XtejhWpf/bAttA976oLfO1z9tFw4tmaQLP+QBp6s0NFucQOQVmU
-	x3dTUtZuTHdV2vnCo20Cs7M3dVg65IWnycNOFN3LIH7eDfTBC5g0REpZD8S20xHW21RZMo9GbE9/w
-	eb1KpA0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwtxDTRrUKY8k6GUEk9c/+FavOCB8G+OUGX8S/qOf1Q=; b=wWDK1wGRQJ+XwZA08RlMBUAiGq
+	f4wsb4db6UTq/2LG136mLY+ND9ipDSY7QVMx2KX3fvAaE4o+qv9LjskizDg+UquhPkOflk58kvT/x
+	6ASNCIvymDouvirhYyjjJzEC6I0+r38Mw8VT2/2YE262A9AZBj2+UdIPWxIEEeht/0c96GJe+Y5G0
+	Oo3xPdNoSRyLIoXbzXYsNrn7pUfN+SwdpklHd4mgu0gM80YkCckd/rvdjBUuxXYWAaPIfUZoH754n
+	Bs+LaBXrwT17pVJyuRCPbyMnmsrWKDmm+si7oHUUlIclV1YaMptbLPvdxHA0n8MnFApakbRhQBcOY
+	a8fxwYNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUluz-0000000BZEL-0e42;
-	Thu, 26 Jun 2025 12:41:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUkvS-0000000BRAn-1GhT
+	id 1uUlxD-0000000BZNr-3clS;
+	Thu, 26 Jun 2025 12:43:47 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUkxI-0000000BRHp-3MHH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 11:37:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECAB01758;
-	Thu, 26 Jun 2025 04:37:35 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45B633F63F;
-	Thu, 26 Jun 2025 04:37:52 -0700 (PDT)
-Date: Thu, 26 Jun 2025 12:37:49 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Philip Radford <Philip.Radford@arm.com>
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	Sudeep Holla <Sudeep.Holla@arm.com>,
-	Cristian Marussi <Cristian.Marussi@arm.com>,
-	Luke Parkin <Luke.Parkin@arm.com>
-Subject: Re: [PATCH 0/4] firmware: arm_scmi: Add xfer inflight debug and trace
-Message-ID: <aF0xDdajKkoa4dXU@pluto>
-References: <20250619122004.3705976-1-philip.radford@arm.com>
- <20250620084634.GB27519@nxa18884-linux>
- <PAWPR08MB9966E79130C52CA8460AC4B7897CA@PAWPR08MB9966.eurprd08.prod.outlook.com>
+	Thu, 26 Jun 2025 11:39:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bSc7j1trPzdbk3;
+	Thu, 26 Jun 2025 19:35:45 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8703D180450;
+	Thu, 26 Jun 2025 19:39:43 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 19:39:43 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Jun 2025 19:39:42 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: Re: [PATCH v3 3/7] KVM: arm64: Handle DABT caused by LS64*
+ instructions on unsupported memory
+To: Marc Zyngier <maz@kernel.org>, <oliver.upton@linux.dev>
+References: <20250626080906.64230-1-yangyicong@huawei.com>
+ <20250626080906.64230-4-yangyicong@huawei.com> <86zfduc2ca.wl-maz@kernel.org>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <44993060-7eb1-400c-9887-3d438aeb8ee9@huawei.com>
+Date: Thu, 26 Jun 2025 19:39:41 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAWPR08MB9966E79130C52CA8460AC4B7897CA@PAWPR08MB9966.eurprd08.prod.outlook.com>
+In-Reply-To: <86zfduc2ca.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_043754_420788_EF57441A 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20250626_043949_148928_9FADC294 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:27:52AM +0100, Philip Radford wrote:
+On 2025/6/26 16:51, Marc Zyngier wrote:
+> On Thu, 26 Jun 2025 09:09:02 +0100,
+> Yicong Yang <yangyicong@huawei.com> wrote:
+>>
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> If FEAT_LS64WB not supported, FEAT_LS64* instructions only support
+>> to access Device/Uncacheable memory, otherwise a data abort for
+>> unsupported Exclusive or atomic access (0x35) is generated per spec.
+>> It's implementation defined whether the target exception level is
+>> routed and is possible to implemented as route to EL2 on a VHE VM
+>> according to DDI0487K.a Section C3.2.12.2 Single-copy atomic 64-byte
+>> load/store.
 > 
-> 
-> > -----Original Message-----
-> > From: Peng Fan <peng.fan@oss.nxp.com>
-> > Sent: Friday, June 20, 2025 9:47 AM
-> > To: Philip Radford <Philip.Radford@arm.com>
-> 
-> Hi,
-> Thanks for the review.
+> Nit: in DDI0487L.b (the latest as I write), this is in C3.2.6.
 > 
 
-Hi,
+will update the reference.
 
-> > Cc: linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; arm-
-> > scmi@vger.kernel.org; Sudeep Holla <Sudeep.Holla@arm.com>; Cristian
-> > Marussi <Cristian.Marussi@arm.com>; Luke Parkin <Luke.Parkin@arm.com>
-> > Subject: Re: [PATCH 0/4] firmware: arm_scmi: Add xfer inflight debug and
-> > trace
-> > 
-> > On Thu, Jun 19, 2025 at 12:20:00PM +0000, Philip Radford wrote:
-> > >Hi all,
-> > >
-> > >This series adds a new counter to the Arm SCMI firmware driver to track
-> > >the number of in-flight message transfers during debug and trace. This
-> > >will be useful for examining behaviour under a large load with regards
-> > >to concurrent messages being sent and received. As the counter only gives
-> > >a live value, printing the value in trace allows logging of the in-flight
-> > >xfers.
-> > 
-> > Just a general question, is this counter count in flight messages
-> > for a scmi instance or it is per transport? I ask because
-> > one scmi instance could have multiple mailboxes. If counting based
-> > on scmi instance, it may not be that accurate.
-> > 
+>>
+>> If it's implemented as generate the DABT to the final enabled stage
+>> (stage-2), since no valid ISV indicated in the ESR, it's better for
+>> the userspace to decide how to handle it. Reuse the
+>> NISV_IO_ABORT_TO_USER path with exit reason KVM_EXIT_ARM_LDST64B.
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  arch/arm64/include/asm/esr.h |  8 ++++++++
+>>  arch/arm64/kvm/mmu.c         | 21 ++++++++++++++++++++-
+>>  2 files changed, 28 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+>> index e1deed824464..63cd17f830da 100644
+>> --- a/arch/arm64/include/asm/esr.h
+>> +++ b/arch/arm64/include/asm/esr.h
+>> @@ -124,6 +124,7 @@
+>>  #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
+>>  #define ESR_ELx_FSC_SECC	(0x18)
+>>  #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
+>> +#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
+>>  #define ESR_ELx_FSC_ADDRSZ	(0x00)
+>>  
+>>  /*
+>> @@ -488,6 +489,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
+>>  	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+>>  }
+>>  
+>> +static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
+>> +{
+>> +	esr = esr & ESR_ELx_FSC;
+>> +
+>> +	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
+>> +}
+>> +
+>>  static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
+>>  {
+>>  	esr &= ESR_ELx_FSC;
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 2942ec92c5a4..5f05d1c4b5a2 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1665,6 +1665,24 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>>  	if (exec_fault && device)
+>>  		return -ENOEXEC;
+>>  
+>> +	/*
+>> +	 * Target address is normal memory on the Host. We come here
+>> +	 * because:
+>> +	 * 1) Guest map it as device memory and perform LS64 operations
+>> +	 * 2) VMM report it as device memory mistakenly
+>> +	 * Hand it to the userspace.
+>> +	 */
+>> +	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
+>> +		struct kvm_run *run = vcpu->run;
+>> +
+>> +		run->exit_reason = KVM_EXIT_ARM_LDST64B;
+>> +		run->arm_nisv.esr_iss = kvm_vcpu_dabt_iss_nisv_sanitized(vcpu);
+>> +		run->arm_nisv.fault_ipa = fault_ipa |
+>> +			(kvm_vcpu_get_hfar(vcpu) & (vma_pagesize - 1));
+>> +
+>> +		return -EAGAIN;
+>> +	}
+> 
+> I'm not sure that's the right thing to do.
+> 
+> If:
+> 
+> - the guest was told it doesn't have LS64WB,
+> 
+> - it was told that some range is memory,
+> 
+> - it uses that range as device,
+> 
+> - thanks to FWB the resulting memory type is "Normal-Cacheable"
+> 
+> - which results in an Unsupported Atomic exception
+> 
+> why would we involve the VMM at all? The VMM clearly said it didn't
+> want to be involved in this (we have a memslot).
+> 
 
-... so that is a good point ...
-...thanks Peng for pointing out this first of all...
+ok I thought we should make VMM do the decision in all the cases(both
+here and emulated MMIO) based on the last discussion[*], I may
+misunderstand it. If this is the case...
 
-So, in general all of these counters are per-instance, we don't have any
-finer per-channel granularity....we could in the future split them out
-to be per-channel counters, but I wonder if it would be worth the
-effort: because, as I see it, errors reported by these counters are more
-of a alarm-bell than a triage tool, in the sense that I would expect
-that seeing a lot of errors of some kind on an instance should just act
-as a warning that something is NOT right somewhere, so that you can
-investigate further by enabling the already existent and more comprehensive
-SCMI trace events to fully inveestigate the problem...since SCMI full event
-traces DO also include the used-channel beside a lot of other info about
-the xfer transactions.
+> I think we should simply inject the corresponding S1 fault back into
+> the guest.
+> 
 
-Moreover, in the specific case of tracking inflight xfers, note that
-the counter added in this series tracks the pool of xfers allocated in
-tx_minfo(A2P) free-lists (i.e. commands...P2A msgs hardly can be lost),
-BUT this structure is per-instance (NOT per-channel), so even if you had
-say a few more dedicated per-protocol channels defined on a system,
-all the A2P transactions will pick their xfers from the same per-instance
-pool... (..because the max_inflights is meant to cap the maximum number
-of outstanding transactions that the server has to cope with...)
+let's simply inject a corresponding DABT back here and only make the VMM
+handle the emulated MMIO case. will update if no further comment.
 
-Thanks,
-Cristian
+thanks.
+
+[*] https://lore.kernel.org/linux-arm-kernel/Z_NkHWStDJLo0cmY@linux.dev/
 
