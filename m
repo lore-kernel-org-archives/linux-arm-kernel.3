@@ -4,79 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AECC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 19:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2C1C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 19:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61C56Q6Ep76yYJPbdXUFIZ1GUL0CTZoCtZck0sPYqq4=; b=v7+/UET6COA2xjpfl2c78Y4MXf
-	HIVrAbZTE5aUOOJG1keCBkPCkg0yMy2zgvNNc9OLP59T9oF62u/Qc+JlnUpY+/LDhXUf4cjMzd4LW
-	W7u7A0iPRn0YLQ0Os6DASWlAkB4rbpczZbDNowFgMuBHoFMZxY6gQ7Vd4lpCtRT9ZvBY1rF08s05e
-	0NFa4zrcsKZ3xgBrTR5pIuFs5zL9ZgZ0V+HNuvZAxqwK0o8iNXCJIunio74zuNQt4dV8oJSH1PZh/
-	sSQ54LjYE2eFHJRKvbWLcP846zPu/O2aITqE36FHbiVru1Uazwf8PDgSfo/xYse5Akg+xPfQAhCKH
-	5XkgwGrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B2f8EYjthoS3VOx1IkRkVlfr42dHKFaCafW+xsZkPL8=; b=Cfkz6djiVHwm6vXsubyBeTUkDs
+	ViFgcUm+LZRk0U+PeX/qkRI7pJZDFvRnFwmNugvjYqYAtnviQr33QPEQAksElDa2qbZTg4+osfy4J
+	WPYSXowVdZV/y+NC6ajZg5ssiUMgFaJQb25DVzjCSVfYNHyv5oHrj8f52tDCN4l6mni6spi9EVUy+
+	AttNNAulrmBhYkFR4+L7XwHNdUF4ENfjcczsyGA+sS1NsAmzql3vLuE+Ur3BSr/LOrnGvpDNRVx7d
+	2AAFwXAWdu0uma4a0vexl5NPvV9kNgktZwYLLsqy5IgaIRTy+MJia+fefVgriQFTFwpsKkL0O/Ar6
+	iyN3XVLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUsIR-0000000CZiI-1BqC;
-	Thu, 26 Jun 2025 19:30:07 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uUsPq-0000000Cb1v-1vCP;
+	Thu, 26 Jun 2025 19:37:46 +0000
+Received: from mail-mw2nam10on20616.outbound.protection.outlook.com ([2a01:111:f403:2412::616] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUs9v-0000000CYk5-1zcP
+	id 1uUsNZ-0000000Ca70-0X2s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 19:21:20 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 3CA0825D64;
-	Thu, 26 Jun 2025 21:21:18 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id IstntXv3cZpE; Thu, 26 Jun 2025 21:21:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1750965677; bh=D8o5aKxiqPDfJaP/Wlra9wiusUGgyAqkKg4+LuSvXis=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Pn62ZQw+QE0tjCn0VDNyryMq5NiYYLWChHURVJLwXWY2Rtsz8kcRaMh+VeqrNGfPK
-	 QuawYtCEC5pwvYquUJF0BTaMYUdEP8mymD61+I3J8Xi2vCBuYj5GsovKtkj0QKWpcJ
-	 SWkHfNKqjS2N/+UHOsL9ZJKWbbnkBf5hR0OTTNwaIr4OY7IxzOxJETsWYDP7jQ8uFV
-	 5DEerlKJvRnt3vZ9+CT63xLNQXw5Jd/E3Tn9H3C4usiVQ7WnH/WkraBe41J2S/gY9A
-	 aPvN8jGDGw3u9oyx+EU+4ao2KrmF/gUBkSa5srdyrzqIdNeg7YFct6bsKZaG8tBtQ/
-	 dhC4GJ1vo/jxw==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 27 Jun 2025 00:50:30 +0530
-Subject: [PATCH v3 3/3] drm/exynos: exynos7_drm_decon: add vblank check in
- IRQ handling
+	Thu, 26 Jun 2025 19:35:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yt0OXnJd7pg7VkLwFgWTcwrzR4HhrTjR6hc1k2TsSYwlGE035WJhjb2t0Xm32bV/BwNgfA8/M20wHHNstMG2qGf1OQMHDelZRMO5yc6nhVuJMbSYwHrjfkSHK1LHUk/QJ1WPBWV5NHpuv2Yy2gsiogcS/gK+YE6j7x1ob6jXbxX0Nb6Q6cP1kwEUH8n3d7R29pgozs/zevvmlG7EemmQ3xWA0DhA9VJWolNLcFEtl1UdDR8h8MI3jGVBFtKmTIbPl2Mht0u8u0YvCT/6RE2QTtfN21DbNmOmV1aXT0qCqGBOiNvV78SYhgaatvDECTCAEiZk1x+gjWbfjBvmFE25bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B2f8EYjthoS3VOx1IkRkVlfr42dHKFaCafW+xsZkPL8=;
+ b=O162qqt31Ca8+kLERqVro6I++TMOX+cszTwnn7Dp6HPEa7HU+A2NAg6gMXzldmltZe73+cs+J4GF7DD740tId5X1BWCXlAEENr47MrzK/vPh4P4/A5KCddvz90vVShBO+GOZMNO4DZuXCGy52zj0zX7umByFSXVTohCg5VpgH64gkMW5cVmLJqY1cbbuH+eozc8IxQrJHf9YvSYKMW5yl+M0XRFGmGFtqJSqpT7kAF0MCHfOiQleh0Ri0jF/wPQUWg2uJdIy+9t/CZucEr82N4gR0cCfHOoQgPYNpwUZ84pZksMijL47dVapBLcqgOi5jjMkWF5gnQL1MYoyhnFvSQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B2f8EYjthoS3VOx1IkRkVlfr42dHKFaCafW+xsZkPL8=;
+ b=UKcY2KS69YOCIWEt38iuG0QvkB3YBrMNA7vGuaQzgwy193x2ts6v1QLg3q6SOGCe2Y0VDqw9sJfpkiXtRMG6MAJz5lXTIzaMktZiUXj08oeia6GGaa+9H9bxxY/h27OwWro1WKKL06XEgNJdOLpSNkZvX65ut76H9O+D6ckHaGdU3nhmE8dQSGalTr40CuINDerRnIuO2yuZUdja9FJ3S+Vrm0tzabOA6Gh3tqKd5uJW6yYeN3ncuPzSSqlUgguLzhRKAMb7hfe8ImAtsYfk/qjIU1N1b1dtzD22ouFNqQ9V6zFnDonu2XErogGjH4fRk3fz7lrtt7gdrEJmywCRQQ==
+Received: from MW4PR04CA0249.namprd04.prod.outlook.com (2603:10b6:303:88::14)
+ by PH7PR12MB7139.namprd12.prod.outlook.com (2603:10b6:510:1ef::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.25; Thu, 26 Jun
+ 2025 19:35:20 +0000
+Received: from SJ1PEPF00002311.namprd03.prod.outlook.com
+ (2603:10b6:303:88:cafe::51) by MW4PR04CA0249.outlook.office365.com
+ (2603:10b6:303:88::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.20 via Frontend Transport; Thu,
+ 26 Jun 2025 19:35:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF00002311.mail.protection.outlook.com (10.167.242.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8880.14 via Frontend Transport; Thu, 26 Jun 2025 19:35:19 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 26 Jun
+ 2025 12:35:07 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Thu, 26 Jun 2025 12:35:06 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Thu, 26 Jun 2025 12:35:05 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>
+CC: <bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
+Subject: [PATCH v7 01/28] iommufd: Report unmapped bytes in the error path of iopt_unmap_iova_range
+Date: Thu, 26 Jun 2025 12:34:32 -0700
+Message-ID: <102e38967b38c28abbe8ebe70b39dcc8e14450ba.1750966133.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1750966133.git.nicolinc@nvidia.com>
+References: <cover.1750966133.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-exynosdrm-decon-v3-3-5b456f88cfea@disroot.org>
-References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
-In-Reply-To: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
-To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
- Ajay Kumar <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>, 
- stable@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750965633; l=1467;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=D8o5aKxiqPDfJaP/Wlra9wiusUGgyAqkKg4+LuSvXis=;
- b=Zaidk2/MU65T4C2DakEpl1E0vJyg4XwWxX2szoui0qZZcrrbhIkFhB55oDTaWDS1w+QzFykVB
- dtvzv6gyjheBTohjdUEszCp2rVBomHkZYW6z6n3GgQhxqz5uqjV/bmL
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002311:EE_|PH7PR12MB7139:EE_
+X-MS-Office365-Filtering-Correlation-Id: d6bf07a4-8bef-494b-a07c-08ddb4e895d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TximNwzwD+OjZnBSAIVDW58gCA5iVWI/nHWpKetRYOIE5HTn2e+pxyfcKWpS?=
+ =?us-ascii?Q?dx2nwcKFIAyiepS15fHTedAfdO0TDxYr8pawm+9QSVs1UgeWbeG2g8ufJqSq?=
+ =?us-ascii?Q?qruXyn5yZe3P+KkHEd5Yxd9LRG/Dwm7veULi405OpC1tANS2UxHcvDGll6hR?=
+ =?us-ascii?Q?pWci4ccA2X/T6MZro10eDYAGfSsgGsJN0jyxTUTe10deB2PyyjRKgv5aYCBu?=
+ =?us-ascii?Q?f+L0X7HnHA3vpBRe0X4J8qxU1Q7rCZFK7PoiUFPb3SIZXx8RGP3b1bE4GOut?=
+ =?us-ascii?Q?0ZE4FUKlL+QdI2BVuEMT5D+EbsaTFjHExAPZI7Jhp+EkwF8w1jDvFgJiEhOR?=
+ =?us-ascii?Q?TJ7G6OnlVC0vHbikIxYaapAOmq4ixblIh0lNqiPolzTEdaubStjxjiY8i7Aq?=
+ =?us-ascii?Q?pYL4NmKyfIbazhcKa1KWOMQRtVino92DfvA+0Rnmq9D5X4MGzwBUaz48yJBN?=
+ =?us-ascii?Q?ljMlRDhyaXmgu0X88IoycwgJ/5/un7vM2FKh85FO4GqIyl/iFIPpR3+B0kUp?=
+ =?us-ascii?Q?swpuTgosduml/3fJaqMjXfGrUewJXiBz+Thdxij72VY8mVOiGpJOCdTP4Zn1?=
+ =?us-ascii?Q?ub7I0nv9jgFsEuRRl8VtR4iYileKAp1CS9mSx0NqIKwml/SKRJq1qZj0xIQH?=
+ =?us-ascii?Q?XUKLSlIIOP/QjTVEV9HPFJqqCCAa0QZxeXcRUaWjLRkZqiDbUHkwWC1eNVfQ?=
+ =?us-ascii?Q?j4OXIpE7PZQ+imJvZXla10yjOiQFlpL1K14Zmh3SsHsoitnW2EGp1LiekWbv?=
+ =?us-ascii?Q?qYh82WKEbsuVtyo4upYQJZI4u8U0dGVPF3mNjJrPpeo70H4sZK/szjBWYyzD?=
+ =?us-ascii?Q?3tIIMCIMm837Jvva2KYTP4YAH1YQfxZwXTJSQJNI1UT7R+aGSJ8bhxWTCDPR?=
+ =?us-ascii?Q?K6UxuROHWZvSJIN7ukUCgqSG2rdQU8/bvsGXNn+kpIWwEF+XwWgWhmW+Uam/?=
+ =?us-ascii?Q?Q+zrIcyBcslMplF1e7P2NjGNiKhjkQ1WpvK2WwbW0XwBlfj+WGPpMnX7Ri6p?=
+ =?us-ascii?Q?ad6UtlZkApT7wquxambQxwskp5BG/I3VKhueyh92b7bkonL+vV/v7YBRY9yP?=
+ =?us-ascii?Q?tLI1rYUAbVbrqs+mv1xbChUufbtPf4m6bITSJV4HCNop1hL86NUS/HOuEap/?=
+ =?us-ascii?Q?tCDsZFn8xMtpURMMv0aTJdDUrSHERRT/87vk9Y8XclBOCTHs1OsKV49na+TI?=
+ =?us-ascii?Q?w6erBdgZEBKZsnDAXrRBLABL9iy0Bdn4n8+JOCTMA5z3qOQTFwFYRNbQlipd?=
+ =?us-ascii?Q?d+Psu2zJvQ4Ys6V3wfGTBvR1ED6qyF82iwSpjmS0srikplcu+s+e0Nm3Iok/?=
+ =?us-ascii?Q?JtEYDY/MHl7qNjRL7OLuvEcA79oId2275zqBiHEEF40sxqRdERp6WnRlcCJM?=
+ =?us-ascii?Q?cX2pogJYDkkdxmUu7QcxFds/zIF+uJ2L4MDOxSJarsWv6EaOe/1YTcApNKtu?=
+ =?us-ascii?Q?Eh94ztOuK1d7MiBrOdyq7+coelQjCjxBe2BKTvUDptE51ZvW8VNnfpMiAx0y?=
+ =?us-ascii?Q?llRhrXkQz/3o9bY3a/tFE32LJHT/eweBnQZ6?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2025 19:35:19.5211
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6bf07a4-8bef-494b-a07c-08ddb4e895d8
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002311.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_122119_649534_4B4BFCF7 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250626_123525_166067_D21F5E84 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +158,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If there's support for another console device (such as a TTY serial),
-the kernel occasionally panics during boot. The panic message and a
-relevant snippet of the call stack is as follows:
+There are callers that read the unmapped bytes even when rc != 0. Thus, do
+not forget to report it in the error path too.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 000000000000000
-  Call trace:
-    drm_crtc_handle_vblank+0x10/0x30 (P)
-    decon_irq_handler+0x88/0xb4
-    [...]
-
-Otherwise, the panics don't happen. This indicates that it's some sort
-of race condition.
-
-Add a check to validate if the drm device can handle vblanks before
-calling drm_crtc_handle_vblank() to avoid this.
-
+Fixes: 8d40205f6093 ("iommufd: Add kAPI toward external drivers for kernel access")
 Cc: stable@vger.kernel.org
-Fixes: 96976c3d9aff ("drm/exynos: Add DECON driver")
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/gpu/drm/exynos/exynos7_drm_decon.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/iommu/iommufd/io_pagetable.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos7_drm_decon.c b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
-index 43bcbe2e2917df43d7c2d27a9771e892628dd682..c0c0f23169c993ac315fc8d7bcbd09ea6ec9966a 100644
---- a/drivers/gpu/drm/exynos/exynos7_drm_decon.c
-+++ b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
-@@ -636,6 +636,10 @@ static irqreturn_t decon_irq_handler(int irq, void *dev_id)
- 	if (!ctx->drm_dev)
- 		goto out;
+diff --git a/drivers/iommu/iommufd/io_pagetable.c b/drivers/iommu/iommufd/io_pagetable.c
+index 13d010f19ed1..22fc3a12109f 100644
+--- a/drivers/iommu/iommufd/io_pagetable.c
++++ b/drivers/iommu/iommufd/io_pagetable.c
+@@ -743,8 +743,10 @@ static int iopt_unmap_iova_range(struct io_pagetable *iopt, unsigned long start,
+ 			iommufd_access_notify_unmap(iopt, area_first, length);
+ 			/* Something is not responding to unmap requests. */
+ 			tries++;
+-			if (WARN_ON(tries > 100))
+-				return -EDEADLOCK;
++			if (WARN_ON(tries > 100)) {
++				rc = -EDEADLOCK;
++				goto out_unmapped;
++			}
+ 			goto again;
+ 		}
  
-+	/* check if crtc and vblank have been initialized properly */
-+	if (!drm_dev_has_vblank(ctx->drm_dev))
-+		goto out;
-+
- 	if (!ctx->i80_if) {
- 		drm_crtc_handle_vblank(&ctx->crtc->base);
- 
-
+@@ -766,6 +768,7 @@ static int iopt_unmap_iova_range(struct io_pagetable *iopt, unsigned long start,
+ out_unlock_iova:
+ 	up_write(&iopt->iova_rwsem);
+ 	up_read(&iopt->domains_rwsem);
++out_unmapped:
+ 	if (unmapped)
+ 		*unmapped = unmapped_bytes;
+ 	return rc;
 -- 
-2.49.0
+2.43.0
 
 
