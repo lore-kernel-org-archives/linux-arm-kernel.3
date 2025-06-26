@@ -4,119 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40730C7EE33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96636C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 14:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMJbxK+Vs0vHD/rLpXgatG28H8njeuPukA8Oh9Ztkak=; b=jnJ7Fs1ye3qPkDgf66Iin4qxQt
-	dmTlxTJYDZb0XC8s8U4B6d4Vh5a6jH/6cR5iSDkPr9RCXIeJo79FuCH5KtOgbXdEMLz5EKDmu9Gf2
-	YNAmdnfXWy9Zrqa5EBUZ1Z5sGCRmieY/TkcGfBQ4GnrMgGl3DRHrF4hahdoOn0kUXbo8UhpYgY5RU
-	Gu8jQ1aTLEIvDeWcaihGnWIBywODnQAqM4XKtYPkBlja3caMgY8ClDUEywPvc9NaG2AVcutiSRRtO
-	oW8i+wv3gFWh2I9a0i0+MOD/zmw5KU4Gu23rrbzPysn/dQK7RPdnDXYaCSipnllUS7L0S7G2pBavW
-	VZmVkNig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BY2E1jy/7MGPvO3Ll+Cvxe7OYf2h0jUrU+yFnWh2ZEg=; b=0Y2vh1tIsSN6RL7adz45oe5N7j
+	LzTY+h51vwZLCWs7fb3ClDj0PUdln6M/1bMRu5dF4lX3r5pyd8wp+FdV86rqSgV14J+tllsKNpqag
+	vwQ4TNxrX2H9kIFtbclq0Js9TqoPu6UyN+w44wrBZDXKGJkZB8g8slCSpGgjAxTbuh9E1I+/dEOlY
+	e3s3MnbnNO4UakxwehDn9RwDtk1Cg+IC+DCFyufgAQnN4TSHyKZwg0FJewz4E4H+uSLkkiKzuiY7X
+	SX/F5XRhRuO5kTFwVT9qfOoh0VsSmmJUz1CTDwFeSV7WVVdT9zjP1US32/27DQy0LkaODkxJhMQKU
+	zf2k4t3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUncp-0000000Bvdd-43jE;
-	Thu, 26 Jun 2025 14:30:51 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uUno8-0000000BxqT-3z7f;
+	Thu, 26 Jun 2025 14:42:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnMM-0000000BsbX-1bmo
+	id 1uUnl2-0000000BxPW-1HVr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Jun 2025 14:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BY2E1jy/7MGPvO3Ll+Cvxe7OYf2h0jUrU+yFnWh2ZEg=; b=qHbeqd/PHOUkSTYOviWh/AAQJq
+	kLZKkWWxPNn/Hojr/7owU4RjrlcGL0LBz/mvgrF+0cIA6YNplik0cyg+KRLcATrstY7TuljNwVb39
+	ApFdnPy+aByk+aWlJh5GW8DV9mWH4sG0bKUblUBKT68IbqJ4F1AGwC7Ooze3IVo9C83EIubJVm00r
+	7RqW3+AN4cTudJfvICzAPnaWC6IbxZG8c8ZK6SdGA2F2HoVEomK3anx3LrS2TicRs79PIzyo4npYc
+	BB++9mjo/1t78MS1pEIs+UnvK5yl91dS2il33sPkq3VFt7ATAd3CEIk9huWX0RDzEriQM40Iud8KC
+	kMKuNYvw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uUnkx-0000000674e-2Xzn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Jun 2025 14:13:52 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-451e2f0d9c2so7741195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:13:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750947229; x=1751552029; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NMJbxK+Vs0vHD/rLpXgatG28H8njeuPukA8Oh9Ztkak=;
-        b=R4JqiO+bHXYQaOoWtrRLzi7sT0sau/zdSK98IxaDjV8Nb5uymJU/LgzZVgjtULdBou
-         IKMw5gGO0nVA89W3RnYdCHBz7CZP99zSx3x5MGDu3DiTlUrtlGWwJJC3103kPtZAyeDW
-         FVA9D6PX9kAiuUheLdwTGNiK4GEkfJ/GHHbpR4oan+xV+ySlpKS9MgUUVvuhDYHGa+rl
-         KPtcQUxmR3eEf96+URNv8/HblUsHpkrCor2K3ibvOsbG5n8Ow/rQjEwwW4ID1tHODTzo
-         +bsIxLP4JPd96VAZG9jMbYkuVwGZbx2v8rM0qgIpw5M6idRmQa7YSLLhp/S4WGEhA7KY
-         2MjQ==
+	Thu, 26 Jun 2025 14:39:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750948751;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=BY2E1jy/7MGPvO3Ll+Cvxe7OYf2h0jUrU+yFnWh2ZEg=;
+	b=WgySH4VqBNO9OwL65JVpoCMUoFvWZTPUVcT70eqxczRksBJRDwx+/XYPffwNFcHRsiwwcC
+	2u3pUDB37KJ9eMpHMAdrrWjSJvKh9aYbrSD+UXTRnGrvUeJ0yV9+B0ftOTgP5FIe8Nroh2
+	aTIHpcDmMNqZyg1ghJVeSNPsxnRVcpA=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750948752;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=BY2E1jy/7MGPvO3Ll+Cvxe7OYf2h0jUrU+yFnWh2ZEg=;
+	b=GSWtg7StKmppwW4CW5u7H9M3RtccLvlyhXlk4fsnxi5OuvuOxBliPjvzUzbUNuslsAbOwm
+	57hHajOLY02K4BNsSBhpzy3H/EskhthY3jJdhtvorPaNcCeCXHVRlDf6iUU7PSxmLfSeRT
+	oFF4r9kuDqC+Lb2kaWW5TZX3X5Yu154=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-119-ZkEMQ1pwNy6VuKWqEsKDPA-1; Thu, 26 Jun 2025 10:39:08 -0400
+X-MC-Unique: ZkEMQ1pwNy6VuKWqEsKDPA-1
+X-Mimecast-MFC-AGG-ID: ZkEMQ1pwNy6VuKWqEsKDPA_1750948747
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-453817323afso6844625e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 07:39:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750947229; x=1751552029;
+        d=1e100.net; s=20230601; t=1750948747; x=1751553547;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=NMJbxK+Vs0vHD/rLpXgatG28H8njeuPukA8Oh9Ztkak=;
-        b=Lp1VmTdIJ5rn8oyXCTZEAK4h0s2ux1Whwrfzq3FyiJjsRNRfR1ublOCEDefsYzy8T8
-         pcJJ0zODi272+VQgMgMc0Mh1iPrWMGKRgWB7/SliYgxHKTdBpTMTO/kQyvdd06oe/Mty
-         k7SR0vmltpvFdIGz28ub/Sih5VwhZk23Rglpdp8JSEplMrPsPs+3SO1CukrJL2teWaIz
-         Mwdy4sK35w1cJCpJMUGVeiYLIwORAaJoXEAPfuXIK/cZz9maoIPDMvmqnca9gNq1yM+7
-         F2HUrarM2mNvIDO6hGvFI+RGGSRsPaL+sHSsu0QiXHokHAaJhCkzgAzc9TzeD+7243T0
-         4isQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWX83gBLx3POGxKi4UkS07AXLkcwVvyphMMy2MjNBI9YaGxbQpHYoalhoVe3yZAiPnUUU9Ku6Ih13U3BFzoGxb3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwTIJV1ZP6xVNZYmtqoKz465dHd71eIyDdsMDCPM2SKVPSFeqD
-	2vtBpBB/90MYNRJHhExTGf8jQUz3JxAZbPuFUp4jUqfZIQbBbAA1HrDkDj4y/rXQZyYhZ+BUQQR
-	XhZUqx8Q=
-X-Gm-Gg: ASbGncsgutrBVwMwRuZ7GRtlzazkbaTx+xUlEHAAiJgR50ICB8afQXdZtMuG8ZVvbi3
-	eOtM/n2WsbkjhOcEpHnWhRQLS47rplze1y66D1oyV1ToFB7LeDMk0EzXTUCPmqLb51kziRet7Ez
-	2qOPZvQqUwIGuecI9uirS3RVUu/zZHfB68iwGGkQcoIMzgGyn5+m4n22/F82x4XrfVvd3XnlzRV
-	S5KBbBHECkT5OCosuxXpzuH0POd1gbCSXhMx4x0oqH3eASnVl4do5w2vmw2RrtQ0lmRGkfH0EcB
-	Zw1NOB8M+7ffbXWAo98+RWsiijFUmS5sGS2xc5RuRu0x45A/EXPh97XOOfTSJElxJ+T3k/zmxGw
-	cUsIlEmRYt18n0EtgIxTkQkQRWpqIA+PpTPK3EiQ=
-X-Google-Smtp-Source: AGHT+IHAaJHtYzCJoYKM9gdvCp6tWkdRHXxVPebdwEL9y2imblqKnZ4SnYi7AI2VF2X9Y7HivIxDYA==
-X-Received: by 2002:a05:600c:a01:b0:451:df07:d8e0 with SMTP id 5b1f17b1804b1-453889d0d93mr40114195e9.11.1750947228759;
-        Thu, 26 Jun 2025 07:13:48 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:fa6f:b132:4858:18cc? ([2a01:e0a:3d9:2080:fa6f:b132:4858:18cc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a406ab6sm21614295e9.30.2025.06.26.07.13.48
+        bh=BY2E1jy/7MGPvO3Ll+Cvxe7OYf2h0jUrU+yFnWh2ZEg=;
+        b=mHMyedD2w0IUBrHErg4x0Rc3EyPax8YKFmUrBMQqAPb0B4dgNIcjVivEm67hwPoqdl
+         pNyiMX629T5aC0o6u9mO6AE/YOIYQ7d6qW7JZY7T/m/ENHIlMBVi8q13CqPlcKfSZAD/
+         vErM1xO6S7qaeGvzHkKnzil0RbQkwmKD7gOFa7GvU9g7DylsN2QUi2bJ+CdwYw3CPl8R
+         stnO+5pIATltZ5AZIg3YCXIk19ONYCwbIJSHAA0vwFW7wEEaPLs5SgwAp9mFfVDhfWaK
+         gycqJEju0Slnmvgs9OVH6llV5TiZayVnU16/KFlrGfO1f/ARmOaAHSQihgdsAmnQXy4u
+         gi3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUpqB2VYw9Gey+7acT+oDN6X3tNYifM6wqu3SRGJX+iHwE7bSOrTBVEEgx8UvmHGX23njAFWIwYUPVPBoaLDCzq@lists.infradead.org
+X-Gm-Message-State: AOJu0YySC6aXouiitS9pRfhwDnbibM9OvQi2crK6t2NPKFfD+e48zEhZ
+	nDtVG8PiYJlLxnaVPCmUPQr2k5tm1zlqu71226FzDnrDkBp2r6ZoDc0I2S2FbOVu4BpL/Ps8lTa
+	vR0Lsn3n+snaLrjHr9PNR7o9oR3140gGBaof3sqfRDT7mZ6EX4nX9SimwY0TkHFQ5hCJUR3RRhX
+	jW
+X-Gm-Gg: ASbGncv8q0EqgDj7A/ee56+yKZ/eW3fFi8u3ZR9B38jtkElc4ighifF7YqXuJzHCtE6
+	oJyAkfcKaBup0eznUQT+/KIJRPn47mfjfhjwJRSxb8zFKne7TthDA4KoVDnruhxTiXQhC4/ld7/
+	bNCZIQcS01V1XxF5msGH3FPNcvNBKhZv98U1ecN/34f/Pk3g6/8qXOj0M8iysPqYqwhvoiqspK/
+	Qxyc+Zo/eCYxDpIMB5WJIQRnDbXUd/EoUWoCTZCxOLoRx1nbyhv3/bt8r+e4v3aIcasdtas/Chf
+	jv54m5WXkN5nCVByoJOvZCqSlim5jYm9qZgg3t8hm6CqCbtmzCPuXYcooOIlXhAGDy/tw52TfKq
+	/BabUgQDDp33CHPJ0kaPJD+O0+ic0nFNT+upjrnRMsU3hmJbhhg==
+X-Received: by 2002:a05:600c:c491:b0:450:d37d:7c with SMTP id 5b1f17b1804b1-45389e486f7mr30363175e9.21.1750948746979;
+        Thu, 26 Jun 2025 07:39:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEy2qq2vLirOLZHC17Rj2lI4wcoy47uHLvz2KBNOe/SOzizf5s7I3AdBHz4Cd3zEi3bqVm/iQ==
+X-Received: by 2002:a05:600c:c491:b0:450:d37d:7c with SMTP id 5b1f17b1804b1-45389e486f7mr30362805e9.21.1750948746491;
+        Thu, 26 Jun 2025 07:39:06 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f3c:2f00:8afc:23fe:3813:776c? (p200300d82f3c2f008afc23fe3813776c.dip0.t-ipconnect.de. [2003:d8:2f3c:2f00:8afc:23fe:3813:776c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a3b2fd7sm22569255e9.17.2025.06.26.07.39.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Jun 2025 07:13:48 -0700 (PDT)
-Message-ID: <4da70304-96c6-4b2a-bd8c-0b53811089de@linaro.org>
-Date: Thu, 26 Jun 2025 16:13:47 +0200
+        Thu, 26 Jun 2025 07:39:06 -0700 (PDT)
+Message-ID: <6fbcf806-eb3c-4bcd-8daf-8d87fd759d2b@redhat.com>
+Date: Thu, 26 Jun 2025 16:39:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 3/5] mfd: khadas-mcu: add Khadas Edge 2 registers
-To: muhammed.efecetin.67@gmail.com, linux-rockchip@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, heiko@sntech.de, lee@kernel.org,
- rafael@kernel.org, efectn@protonmail.com, daniel.lezcano@linaro.org
-References: <cover.1746518265.git.efectn@protonmail.com>
- <16807e13e034f85adc91d131f6c5046ce7d98d9c.1746518265.git.efectn@protonmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <16807e13e034f85adc91d131f6c5046ce7d98d9c.1746518265.git.efectn@protonmail.com>
+Subject: Re: [PATCH v4 3/4] mm: Support batched unmap for lazyfree large
+ folios during reclamation
+To: Lance Yang <lance.yang@linux.dev>
+Cc: 21cnbao@gmail.com, akpm@linux-foundation.org,
+ baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
+ x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com,
+ Lance Yang <ioworker0@gmail.com>
+References: <20250626092905.31305-1-ioworker0@gmail.com>
+ <20250626124445.77865-1-ioworker0@gmail.com>
+ <1a55f9f3-f5b1-4761-97ba-423756c707fe@redhat.com>
+ <ce78181f-b8f0-4710-be22-eff123760a51@linux.dev>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <ce78181f-b8f0-4710-be22-eff123760a51@linux.dev>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 9CaMmgtj-zi4erBGMdl2WOBhKH7S9CW5kV8hzzUm5ZA_1750948747
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_071350_434378_C1E3E14C 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20250626_153915_903483_22294FB7 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,125 +188,170 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2025 16:04, muhammed.efecetin.67@gmail.com wrote:
-> From: Muhammed Efe Cetin <efectn@protonmail.com>
+On 26.06.25 15:52, Lance Yang wrote:
 > 
-> Add Khadas Edge 2 MCU registers to khadas-mcu.h and adjust some properties.
-> Also, i've added some registers with V2 suffix,
-> as same addresses were already exist for previous boards.
 > 
-> Signed-off-by: Muhammed Efe Cetin <efectn@protonmail.com>
-> ---
->   drivers/mfd/khadas-mcu.c       |  8 ++++++--
->   include/linux/mfd/khadas-mcu.h | 25 +++++++++++++++++++++++++
->   2 files changed, 31 insertions(+), 2 deletions(-)
+> On 2025/6/26 21:16, David Hildenbrand wrote:
+>> On 26.06.25 14:44, Lance Yang wrote:
+>>>
+>>> On 2025/6/26 17:29, Lance Yang wrote:
+>>>> Before I send out the real patch, I'd like to get some quick feedback to
+>>>> ensure I've understood the discussion correctly ;)
+>>>>
+>>>> Does this look like the right direction?
+>>>>
+>>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>>> index fb63d9256f09..5ebffe2137e4 100644
+>>>> --- a/mm/rmap.c
+>>>> +++ b/mm/rmap.c
+>>>> @@ -1845,23 +1845,37 @@ void folio_remove_rmap_pud(struct folio
+>>>> *folio, struct page *page,
+>>>>     #endif
+>>>>     }
+>>>> -/* We support batch unmapping of PTEs for lazyfree large folios */
+>>>> -static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
+>>>> -            struct folio *folio, pte_t *ptep)
+>>>> +static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+>>>> +            struct page_vma_mapped_walk *pvmw,
+>>>> +            enum ttu_flags flags, pte_t pte)
+>>>>     {
+>>>>         const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>>> -    int max_nr = folio_nr_pages(folio);
+>>>> -    pte_t pte = ptep_get(ptep);
+>>>> +    unsigned long end_addr, addr = pvmw->address;
+>>>> +    struct vm_area_struct *vma = pvmw->vma;
+>>>> +    unsigned int max_nr;
+>>>> +
+>>>> +    if (flags & TTU_HWPOISON)
+>>>> +        return 1;
+>>>> +    if (!folio_test_large(folio))
+>>>> +        return 1;
+>>>> +    /* We may only batch within a single VMA and a single page
+>>>> table. */
+>>>> +    end_addr = pmd_addr_end(addr, vma->vm_end);
+>>>> +    max_nr = (end_addr - addr) >> PAGE_SHIFT;
+>>>> +
+>>>> +    /* We only support lazyfree batching for now ... */
+>>>>         if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>>>> -        return false;
+>>>> +        return 1;
+>>>>         if (pte_unused(pte))
+>>>> -        return false;
+>>>> -    if (pte_pfn(pte) != folio_pfn(folio))
+>>>> -        return false;
+>>>> +        return 1;
+>>>> +
+>>>> +    /* ... where we must be able to batch the whole folio. */
+>>>> +    if (pte_pfn(pte) != folio_pfn(folio) || max_nr !=
+>>>> folio_nr_pages(folio))
+>>>> +        return 1;
+>>>> +    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr,
+>>>> fpb_flags,
+>>>> +                 NULL, NULL, NULL);
+>>>> -    return folio_pte_batch(folio, addr, ptep, pte, max_nr,
+>>>> fpb_flags, NULL,
+>>>> -                   NULL, NULL) == max_nr;
+>>>> +    return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
+>>>>     }
+>>>>     /*
+>>>> @@ -2024,9 +2038,7 @@ static bool try_to_unmap_one(struct folio
+>>>> *folio, struct vm_area_struct *vma,
+>>>>                 if (pte_dirty(pteval))
+>>>>                     folio_mark_dirty(folio);
+>>>>             } else if (likely(pte_present(pteval))) {
+>>>> -            if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
+>>>> -                can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
+>>>> -                nr_pages = folio_nr_pages(folio);
+>>>> +            nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags,
+>>>> pteval);
+>>>>                 end_addr = address + nr_pages * PAGE_SIZE;
+>>>>                 flush_cache_range(vma, address, end_addr);
+>>>> @@ -2206,13 +2218,16 @@ static bool try_to_unmap_one(struct folio
+>>>> *folio, struct vm_area_struct *vma,
+>>>>                 hugetlb_remove_rmap(folio);
+>>>>             } else {
+>>>>                 folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
+>>>> -            folio_ref_sub(folio, nr_pages - 1);
+>>>>             }
+>>>>             if (vma->vm_flags & VM_LOCKED)
+>>>>                 mlock_drain_local();
+>>>> -        folio_put(folio);
+>>>> -        /* We have already batched the entire folio */
+>>>> -        if (nr_pages > 1)
+>>>> +        folio_put_refs(folio, nr_pages);
+>>>> +
+>>>> +        /*
+>>>> +         * If we are sure that we batched the entire folio and cleared
+>>>> +         * all PTEs, we can just optimize and stop right here.
+>>>> +         */
+>>>> +        if (nr_pages == folio_nr_pages(folio))
+>>>>                 goto walk_done;
+>>>>             continue;
+>>>>     walk_abort:
+>>>> -- 
+>>>
+>>> Oops ... Through testing on my machine, I found that the logic doesn't
+>>> behave as expected because I messed up the meaning of max_nr (the
+>>> available
+>>> scan room in the page table) with folio_nr_pages(folio) :(
+>>>
+>>> With the following change:
+>>>
+>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>> index 5ebffe2137e4..b1407348e14e 100644
+>>> --- a/mm/rmap.c
+>>> +++ b/mm/rmap.c
+>>> @@ -1850,9 +1850,9 @@ static inline unsigned int
+>>> folio_unmap_pte_batch(struct folio *folio,
+>>>                enum ttu_flags flags, pte_t pte)
+>>>    {
+>>>        const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>>> +    unsigned int max_nr, nr_pages = folio_nr_pages(folio);
+>>>        unsigned long end_addr, addr = pvmw->address;
+>>>        struct vm_area_struct *vma = pvmw->vma;
+>>> -    unsigned int max_nr;
+>>>        if (flags & TTU_HWPOISON)
+>>>            return 1;
+>>> @@ -1870,12 +1870,13 @@ static inline unsigned int
+>>> folio_unmap_pte_batch(struct folio *folio,
+>>>            return 1;
+>>>        /* ... where we must be able to batch the whole folio. */
+>>
+>> Why is that still required? :)
 > 
-> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-> index ca4bd6cf5..199ed4925 100644
-> --- a/drivers/mfd/khadas-mcu.c
-> +++ b/drivers/mfd/khadas-mcu.c
-> @@ -26,6 +26,10 @@ static bool khadas_mcu_reg_volatile(struct device *dev, unsigned int reg)
->   	case KHADAS_MCU_CHECK_USER_PASSWD_REG:
->   	case KHADAS_MCU_WOL_INIT_START_REG:
->   	case KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG:
-> +	case KHADAS_MCU_LED_ON_RAM_REG:
-> +	case KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG_V2:
-> +	case KHADAS_MCU_WDT_EN_REG:
-> +	case KHADAS_MCU_SYS_RST_REG:
->   		return true;
->   	default:
->   		return false;
-> @@ -69,14 +73,14 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->   	.reg_bits	= 8,
->   	.reg_stride	= 1,
->   	.val_bits	= 8,
-> -	.max_register	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-> +	.max_register	= KHADAS_MCU_SYS_RST_REG,
->   	.volatile_reg	= khadas_mcu_reg_volatile,
->   	.writeable_reg	= khadas_mcu_reg_writeable,
->   	.cache_type	= REGCACHE_MAPLE,
->   };
->   
->   static struct mfd_cell khadas_mcu_fan_cells[] = {
-> -	/* VIM1/2 Rev13+ and VIM3 only */
-> +	/* VIM1/2 Rev13+, VIM3 and Edge2 only */
->   	{ .name = "khadas-mcu-fan-ctrl", },
->   };
->   
-> diff --git a/include/linux/mfd/khadas-mcu.h b/include/linux/mfd/khadas-mcu.h
-> index a99ba2ed0..de570e159 100644
-> --- a/include/linux/mfd/khadas-mcu.h
-> +++ b/include/linux/mfd/khadas-mcu.h
-> @@ -35,26 +35,45 @@
->   #define KHADAS_MCU_FACTORY_TEST_REG		0x16 /* R */
->   #define KHADAS_MCU_BOOT_MODE_REG		0x20 /* RW */
->   #define KHADAS_MCU_BOOT_EN_WOL_REG		0x21 /* RW */
-> +#define KHADAS_MCU_BOOT_EN_DCIN_REG_V2		0x21 /* RW */
->   #define KHADAS_MCU_BOOT_EN_RTC_REG		0x22 /* RW */
->   #define KHADAS_MCU_BOOT_EN_EXP_REG		0x23 /* RW */
-> +#define KHADAS_MCU_LED_MODE_ON_REG_V2		0x23 /* RW */
-> +#define KHADAS_MCU_LED_MODE_OFF_REG_V2		0x24 /* RW */
->   #define KHADAS_MCU_BOOT_EN_IR_REG		0x24 /* RW */
->   #define KHADAS_MCU_BOOT_EN_DCIN_REG		0x25 /* RW */
-> +#define KHADAS_MCU_RGB_ON_R_REG			0x25 /* RW */
-> +#define KHADAS_MCU_RGB_ON_G_REG			0x26 /* RW */
->   #define KHADAS_MCU_BOOT_EN_KEY_REG		0x26 /* RW */
-> +#define KHADAS_MCU_RGB_ON_B_REG			0x27 /* RW */
->   #define KHADAS_MCU_KEY_MODE_REG			0x27 /* RW */
-> +#define KHADAS_MCU_RGB_OFF_R_REG		0x28 /* RW */
->   #define KHADAS_MCU_LED_MODE_ON_REG		0x28 /* RW */
-> +#define KHADAS_MCU_RGB_OFF_G_REG		0x29 /* RW */
->   #define KHADAS_MCU_LED_MODE_OFF_REG		0x29 /* RW */
-> +#define KHADAS_MCU_RGB_OFF_B_REG		0x2a /* RW */
-> +#define KHADAS_MCU_REST_CONF_REG		0x2c /* WO */
->   #define KHADAS_MCU_SHUTDOWN_NORMAL_REG		0x2c /* RW */
->   #define KHADAS_MCU_MAC_SWITCH_REG		0x2d /* RW */
->   #define KHADAS_MCU_MCU_SLEEP_MODE_REG		0x2e /* RW */
-> +#define KHADAS_MCU_BOOT_EN_IR_REG_V2		0x2f /* RW */
->   #define KHADAS_MCU_IR_CODE1_0_REG		0x2f /* RW */
->   #define KHADAS_MCU_IR_CODE1_1_REG		0x30 /* RW */
-> +#define KHADAS_MCU_IR1_CUST1_REG		0x30 /* RW */
->   #define KHADAS_MCU_IR_CODE1_2_REG		0x31 /* RW */
-> +#define KHADAS_MCU_IR1_CUST2_REG		0x31 /* RW */
->   #define KHADAS_MCU_IR_CODE1_3_REG		0x32 /* RW */
-> +#define KHADAS_MCU_IR1_ORDER1_REG		0x32 /* RW */
->   #define KHADAS_MCU_USB_PCIE_SWITCH_REG		0x33 /* RW */
-> +#define KHADAS_MCU_IR1_ORDER2_REG		0x33 /* RW */
-> +#define KHADAS_MCU_IR2_CUST1_REG		0x34 /* RW */
->   #define KHADAS_MCU_IR_CODE2_0_REG		0x34 /* RW */
->   #define KHADAS_MCU_IR_CODE2_1_REG		0x35 /* RW */
-> +#define KHADAS_MCU_IR2_CUST2_REG		0x35 /* RW */
->   #define KHADAS_MCU_IR_CODE2_2_REG		0x36 /* RW */
-> +#define KHADAS_MCU_IR2_ORDER1_REG		0x36 /* RW */
->   #define KHADAS_MCU_IR_CODE2_3_REG		0x37 /* RW */
-> +#define KHADAS_MCU_IR2_ORDER2_REG		0x36 /* RW */
->   #define KHADAS_MCU_PASSWD_USER_0_REG		0x40 /* RW */
->   #define KHADAS_MCU_PASSWD_USER_1_REG		0x41 /* RW */
->   #define KHADAS_MCU_PASSWD_USER_2_REG		0x42 /* RW */
-> @@ -69,6 +88,11 @@
->   #define KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG	0x86 /* RO */
->   #define KHADAS_MCU_WOL_INIT_START_REG		0x87 /* WO */
->   #define KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG	0x88 /* WO */
-> +#define KHADAS_MCU_LED_ON_RAM_REG		0x89 /* WO */
-> +#define KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG_V2	0x8A /* WO */
-> +#define KHADAS_MCU_WDT_EN_REG			0x8B /* WO */
-> +#define KHADAS_MCU_SYS_RST_REG			0x91 /* WO */
-> +
->   
->   enum {
->   	KHADAS_BOARD_VIM1 = 0x1,
-> @@ -76,6 +100,7 @@ enum {
->   	KHADAS_BOARD_VIM3,
->   	KHADAS_BOARD_EDGE = 0x11,
->   	KHADAS_BOARD_EDGE_V,
-> +	KHADAS_BOARD_EDGE2,
->   };
->   
->   /**
+> Sorry ... I was still stuck in the "all-or-nothing" mindset ...
+> 
+> So, IIUC, you mean we should completely remove the "max_nr < nr_pages"
+> check and just let folio_pte_batch handle whatever partial batch it
+> safely can.
+> 
+>>
+>>> -    if (pte_pfn(pte) != folio_pfn(folio) || max_nr !=
+>>> folio_nr_pages(folio))
+>>> +    if (pte_pfn(pte) != folio_pfn(folio) || max_nr < nr_pages)
+>>>            return 1;
+>>> -    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr,
+>>> fpb_flags,
+>>> -                 NULL, NULL, NULL);
+>>> -    return (max_nr != folio_nr_pages(folio)) ? 1 : max_nr;
+>>> +    max_nr = folio_pte_batch(folio, addr, pvmw->pte, pte, nr_pages,
+>>> +                 fpb_flags, NULL, NULL, NULL);
+>>> +
+>>> +    return (max_nr != nr_pages) ? 1 : max_nr;
+>>
+>> Why is that still required? :)
+> 
+> Then simply return the number of PTEs that consecutively map to the
+> large folio. Right?
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Yes. Any part of the large folio. Just return folio_pte_batch() ...
+
+-- 
+Cheers,
+
+David / dhildenb
+
 
