@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA97C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE76C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Jun 2025 15:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuMVdg23Oax31eHAYNJWO0f1sJw7nfFbv3FXtJpw6XA=; b=lAH0yDVbzX8bZV5pMvWflJZH8e
-	OlUPcIk4/rYAVMP9Vby8DMuqJZQm+bf5EmvM//W/YgG7UA3u9p0SsQx1x9d3Xg+zonuQB16FeSJJ2
-	s87OcU+qt1JDxVUPkiXjLiOUlshO6RbEW847BOv549SJ/nctTIZEOZziS+LsnJ10Od30ZARu8IO04
-	/ay5G8mO6ZGmpKZCCRDhNMTuZJu6hYBLxVN0Ae1pWxeyBlfaf/kmLFN074pTL7OQ/TFbPXaDTFiCp
-	yjz+TlNKzQqBnYcdEg3RilAdWmcTbRxiMc67wxfr2tMdc+rVFLDLa6EqRGttg/Yqsf2f/EmZEMx3K
-	2hhhydDA==;
+	bh=af4jMPSbDsFEHwjALYDiqXkbkCSoSYM8oqrwc3Yb4UI=; b=PSuOCptcOImXvgxUmvn2VYPJ9k
+	S2O8wIo0lJSLT0T1GM59b1GyQEpn2JSBLcRQX+gju9NPi3cP1CLA2LYwyYRr2LdXw1es9QpoBpSAf
+	U374NbeSzaY9uR9A0d37QgGxy9qCaIxus852xKKSmRwXQfKXL+inJu6KzBDnzioZPzjdzBLAc0rqI
+	Vhq26FUYpQMYjh4t65CJuQHiFf/n5OPu8i3Qik4letTFUGNJK4qs6EiScfy5RRS4K74cpOnsxbyJs
+	EoPZbrzsd9LV4mCqd022tfw27uJrr9EO7EsAuWRTLK3Lo0UrrRCZEZ++v+YOQOM5Uf/cMev/PThJ5
+	TDkbo+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUoQw-0000000C6Ii-33GM;
-	Thu, 26 Jun 2025 15:22:38 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uUoTC-0000000C6ga-48fN;
+	Thu, 26 Jun 2025 15:24:58 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUnuG-0000000Bzea-2pbP;
-	Thu, 26 Jun 2025 14:48:54 +0000
+	id 1uUnuH-0000000Bzg9-3hSN;
+	Thu, 26 Jun 2025 14:48:55 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750949331;
+	s=2020; t=1750949332;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HuMVdg23Oax31eHAYNJWO0f1sJw7nfFbv3FXtJpw6XA=;
-	b=jS5Tbfifv93Qru5YKGT/U+gezPnJHb1x+nNDHqcQfHTx3E/Xs61fNnDux7/ZZvlY7RMI0w
-	uSo5MV5Kk0A3HCyKQYX1WCTKHGXa0h7wHSPkD3gTavvst3umEuyw1ni092MhQv+kgEC2jL
-	fJzng7LspGRbHG0/1suxZndjLQeQT+rqEnz3YDXjwfDoL9L1uauLkeobqTRmo8qUV7SJV+
-	K5TlYR111v8aRuzsyBUUUgmp0qXQaE6IEbdRgwRc4tRR8PQ+pqrfYDt9AwXMEZMxCeEktA
-	W5OmIJC31+aMKNDFXn56e10TjCREXKxQYgylCo7spE9BSemzEw22Nw/Hyv4ylg==
+	bh=af4jMPSbDsFEHwjALYDiqXkbkCSoSYM8oqrwc3Yb4UI=;
+	b=WeCmGG3U2DLxocSHfjcV4NZ2JJYBdtIv+oRB+MXVUFdnT66ZgjZ/k4CY9TwtH9f/WOHlTq
+	WnE6bIIgmNW79zVHnYRfHGn2PlpQA4fyzo/JRLT+D6OOnpLD9AdfmMgP/N6QADFOB1+nJ9
+	+QHHxej+KC+JgE5iHZJAyb+EHL6gKJkqabr/ySiX2HiVKCWgCwiEtwd0KQVPnY/JnYGGRB
+	HSL1c8XiECK7t4LQwPaGOJF3G9yEYysX0H0uGw3ATSnmAzjC2XIZ8FQd+/cNcZxM2rV8My
+	1CT1G5Z0q/5kiI3gFbH0Az+JPqi0tVIe4jYYZGcq7+fOxikm9bSVci6H+AjBtg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750949331;
+	s=2020e; t=1750949332;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HuMVdg23Oax31eHAYNJWO0f1sJw7nfFbv3FXtJpw6XA=;
-	b=J5+6Hx4DqMJtrLH7epLeuB/YrIrxmarnZbHXYwq68x+t+NWfBllEiTdEWkArCOxQZpkf2B
-	ft3Uj6iPbReoL6CA==
+	bh=af4jMPSbDsFEHwjALYDiqXkbkCSoSYM8oqrwc3Yb4UI=;
+	b=kVqC7t1pY9/9/KhXWAcXyalMa5FqUatWRMUY2OF9h47DoMwkImw8X+w85LmsD9CqGiJaE1
+	19k5BH0VgwqOKvDw==
 To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -88,16 +88,16 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 13/16] PCI: plda: Switch to msi_create_parent_irq_domain()
-Date: Thu, 26 Jun 2025 16:48:03 +0200
-Message-Id: <1279fe6500a1d8135d8f5feb2f055df008746c88.1750858083.git.namcao@linutronix.de>
+Subject: [PATCH 14/16] PCI: hv: Switch to msi_create_parent_irq_domain()
+Date: Thu, 26 Jun 2025 16:48:04 +0200
+Message-Id: <024f0122314198fe0a42fef01af53e8953a687ec.1750858083.git.namcao@linutronix.de>
 In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
 References: <cover.1750858083.git.namcao@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_074852_865785_DD237B29 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250626_074854_071250_B8BA1AA7 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,126 +117,202 @@ msi_create_parent_irq_domain().
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
-Cc: Daire McNamara <daire.mcnamara@microchip.com>
+Cc: K. Y. Srinivasan <kys@microsoft.com>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>
+Cc: Wei Liu <wei.liu@kernel.org>
+Cc: Dexuan Cui <decui@microsoft.com>
+Cc: linux-hyperv@vger.kernel.org
 ---
- drivers/pci/controller/plda/Kconfig          |  1 +
- drivers/pci/controller/plda/pcie-plda-host.c | 44 ++++++++++----------
- drivers/pci/controller/plda/pcie-plda.h      |  1 -
- 3 files changed, 23 insertions(+), 23 deletions(-)
+ drivers/pci/Kconfig                 |  1 +
+ drivers/pci/controller/pci-hyperv.c | 98 +++++++++++++++++++++++------
+ 2 files changed, 80 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/p=
-lda/Kconfig
-index c0e14146d7e45..62120101139cb 100644
---- a/drivers/pci/controller/plda/Kconfig
-+++ b/drivers/pci/controller/plda/Kconfig
-@@ -5,6 +5,7 @@ menu "PLDA-based PCIe controllers"
-=20
- config PCIE_PLDA_HOST
- 	bool
+diff --git a/drivers/pci/Kconfig b/drivers/pci/Kconfig
+index 9c0e4aaf4e8cb..9a249c65aedcd 100644
+--- a/drivers/pci/Kconfig
++++ b/drivers/pci/Kconfig
+@@ -223,6 +223,7 @@ config PCI_HYPERV
+ 	tristate "Hyper-V PCI Frontend"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI && SYSFS
+ 	select PCI_HYPERV_INTERFACE
 +	select IRQ_MSI_LIB
-=20
- config PCIE_MICROCHIP_HOST
- 	tristate "Microchip AXI PCIe controller"
-diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/con=
-troller/plda/pcie-plda-host.c
-index 3abedf723215c..92866840875e3 100644
---- a/drivers/pci/controller/plda/pcie-plda-host.c
-+++ b/drivers/pci/controller/plda/pcie-plda-host.c
-@@ -11,6 +11,7 @@
- #include <linux/align.h>
- #include <linux/bitfield.h>
- #include <linux/irqchip/chained_irq.h>
+ 	help
+ 	  The PCI device frontend driver allows the kernel to import arbitrary
+ 	  PCI devices from a PCI backend to support PCI driver domains.
+diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/p=
+ci-hyperv.c
+index ef5d655a0052c..3a24fadddb83b 100644
+--- a/drivers/pci/controller/pci-hyperv.c
++++ b/drivers/pci/controller/pci-hyperv.c
+@@ -44,6 +44,7 @@
+ #include <linux/delay.h>
+ #include <linux/semaphore.h>
+ #include <linux/irq.h>
 +#include <linux/irqchip/irq-msi-lib.h>
- #include <linux/irqdomain.h>
  #include <linux/msi.h>
- #include <linux/pci_regs.h>
-@@ -134,17 +135,19 @@ static const struct irq_domain_ops msi_domain_ops =3D=
+ #include <linux/hyperv.h>
+ #include <linux/refcount.h>
+@@ -508,7 +509,6 @@ struct hv_pcibus_device {
+ 	struct list_head children;
+ 	struct list_head dr_list;
+=20
+-	struct msi_domain_info msi_info;
+ 	struct irq_domain *irq_domain;
+=20
+ 	struct workqueue_struct *wq;
+@@ -1687,7 +1687,7 @@ static void hv_msi_free(struct irq_domain *domain, st=
+ruct msi_domain_info *info,
+ 	struct msi_desc *msi =3D irq_data_get_msi_desc(irq_data);
+=20
+ 	pdev =3D msi_desc_to_pci_dev(msi);
+-	hbus =3D info->data;
++	hbus =3D domain->host_data;
+ 	int_desc =3D irq_data_get_irq_chip_data(irq_data);
+ 	if (!int_desc)
+ 		return;
+@@ -1705,7 +1705,6 @@ static void hv_msi_free(struct irq_domain *domain, st=
+ruct msi_domain_info *info,
+=20
+ static void hv_irq_mask(struct irq_data *data)
  {
- 	.free	=3D plda_irq_msi_domain_free,
- };
+-	pci_msi_mask_irq(data);
+ 	if (data->parent_data->chip->irq_mask)
+ 		irq_chip_mask_parent(data);
+ }
+@@ -1716,7 +1715,6 @@ static void hv_irq_unmask(struct irq_data *data)
 =20
--static struct irq_chip plda_msi_irq_chip =3D {
--	.name =3D "PLDA PCIe MSI",
--	.irq_ack =3D irq_chip_ack_parent,
--	.irq_mask =3D pci_msi_mask_irq,
--	.irq_unmask =3D pci_msi_unmask_irq,
--};
--
--static struct msi_domain_info plda_msi_domain_info =3D {
--	.flags =3D MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		 MSI_FLAG_NO_AFFINITY | MSI_FLAG_PCI_MSIX,
--	.chip =3D &plda_msi_irq_chip,
-+#define PLDA_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
-+				 MSI_FLAG_USE_DEF_CHIP_OPS	| \
-+				 MSI_FLAG_NO_AFFINITY)
-+#define PLDA_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK	| \
-+				  MSI_FLAG_PCI_MSIX)
-+
-+static const struct msi_parent_ops plda_msi_parent_ops =3D {
-+	.required_flags		=3D PLDA_MSI_FLAGS_REQUIRED,
-+	.supported_flags	=3D PLDA_MSI_FLAGS_SUPPORTED,
-+	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
-+	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
-+	.prefix			=3D "PLDA-",
-+	.init_dev_msi_info	=3D msi_lib_init_dev_msi_info,
- };
-=20
- static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
-@@ -155,21 +158,19 @@ static int plda_allocate_msi_domains(struct plda_pcie=
-_rp *port)
-=20
- 	mutex_init(&port->msi.lock);
-=20
--	msi->dev_domain =3D irq_domain_create_linear(NULL, msi->num_vectors, &msi=
-_domain_ops, port);
-+	struct irq_domain_info info =3D {
-+		.fwnode		=3D fwnode,
-+		.ops		=3D &msi_domain_ops,
-+		.host_data	=3D port,
-+		.size		=3D msi->num_vectors,
-+	};
-+
-+	msi->dev_domain =3D msi_create_parent_irq_domain(&info, &plda_msi_parent_=
-ops);
- 	if (!msi->dev_domain) {
- 		dev_err(dev, "failed to create IRQ domain\n");
- 		return -ENOMEM;
- 	}
-=20
--	msi->msi_domain =3D pci_msi_create_irq_domain(fwnode,
--						    &plda_msi_domain_info,
--						    msi->dev_domain);
--	if (!msi->msi_domain) {
--		dev_err(dev, "failed to create MSI domain\n");
--		irq_domain_remove(msi->dev_domain);
--		return -ENOMEM;
--	}
--
- 	return 0;
+ 	if (data->parent_data->chip->irq_unmask)
+ 		irq_chip_unmask_parent(data);
+-	pci_msi_unmask_irq(data);
  }
 =20
-@@ -563,7 +564,6 @@ static void plda_pcie_irq_domain_deinit(struct plda_pci=
-e_rp *pcie)
- 	irq_set_chained_handler_and_data(pcie->msi_irq, NULL, NULL);
- 	irq_set_chained_handler_and_data(pcie->intx_irq, NULL, NULL);
+ struct compose_comp_ctxt {
+@@ -2101,6 +2099,44 @@ static void hv_compose_msi_msg(struct irq_data *data=
+, struct msi_msg *msg)
+ 	msg->data =3D 0;
+ }
 =20
--	irq_domain_remove(pcie->msi.msi_domain);
- 	irq_domain_remove(pcie->msi.dev_domain);
++static bool hv_pcie_init_dev_msi_info(struct device *dev, struct irq_domai=
+n *domain,
++				      struct irq_domain *real_parent, struct msi_domain_info *info)
++{
++	struct irq_chip *chip =3D info->chip;
++
++	if (!msi_lib_init_dev_msi_info(dev, domain, real_parent, info))
++		return false;
++
++	info->ops->msi_prepare =3D hv_msi_prepare;
++
++	chip->irq_set_affinity =3D irq_chip_set_affinity_parent;
++
++	if (IS_ENABLED(CONFIG_X86))
++		chip->flags |=3D IRQCHIP_MOVE_DEFERRED;
++
++	return true;
++}
++
++#define HV_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS		| \
++				    MSI_FLAG_USE_DEF_CHIP_OPS		| \
++				    MSI_FLAG_PCI_MSI_MASK_PARENT)
++#define HV_PCIE_MSI_FLAGS_SUPPORTED (MSI_FLAG_MULTI_PCI_MSI		| \
++				     MSI_FLAG_PCI_MSIX			| \
++				     MSI_GENERIC_FLAGS_MASK)
++
++static const struct msi_parent_ops hv_pcie_msi_parent_ops =3D {
++	.required_flags		=3D HV_PCIE_MSI_FLAGS_REQUIRED,
++	.supported_flags	=3D HV_PCIE_MSI_FLAGS_SUPPORTED,
++	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
++#ifdef CONFIG_X86
++	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
++#elif defined(CONFIG_ARM64)
++	.chip_flags		=3D MSI_CHIP_FLAG_SET_EOI,
++#endif
++	.prefix			=3D "HV-",
++	.init_dev_msi_info	=3D hv_pcie_init_dev_msi_info,
++};
++
+ /* HW Interrupt Chip Descriptor */
+ static struct irq_chip hv_msi_irq_chip =3D {
+ 	.name			=3D "Hyper-V PCIe MSI",
+@@ -2108,7 +2144,6 @@ static struct irq_chip hv_msi_irq_chip =3D {
+ 	.irq_set_affinity	=3D irq_chip_set_affinity_parent,
+ #ifdef CONFIG_X86
+ 	.irq_ack		=3D irq_chip_ack_parent,
+-	.flags			=3D IRQCHIP_MOVE_DEFERRED,
+ #elif defined(CONFIG_ARM64)
+ 	.irq_eoi		=3D irq_chip_eoi_parent,
+ #endif
+@@ -2116,9 +2151,37 @@ static struct irq_chip hv_msi_irq_chip =3D {
+ 	.irq_unmask		=3D hv_irq_unmask,
+ };
 =20
- 	irq_domain_remove(pcie->intx_domain);
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controll=
-er/plda/pcie-plda.h
-index 61ece26065ea0..6b8665df7bf0f 100644
---- a/drivers/pci/controller/plda/pcie-plda.h
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -164,7 +164,6 @@ struct plda_pcie_host_ops {
+-static struct msi_domain_ops hv_msi_ops =3D {
+-	.msi_prepare	=3D hv_msi_prepare,
+-	.msi_free	=3D hv_msi_free,
++static int hv_pcie_domain_alloc(struct irq_domain *d, unsigned int virq, u=
+nsigned int nr_irqs,
++			       void *arg)
++{
++	/* TODO: move the content of hv_compose_msi_msg() in here */
++	int ret;
++
++	ret =3D irq_domain_alloc_irqs_parent(d, virq, nr_irqs, arg);
++	if (ret < 0)
++		return ret;
++
++	for (int i =3D 0; i < nr_irqs; i++) {
++		irq_domain_set_info(d, virq + i, 0, &hv_msi_irq_chip, NULL, FLOW_HANDLER=
+, NULL,
++				    FLOW_NAME);
++	}
++
++	return 0;
++}
++
++static void hv_pcie_domain_free(struct irq_domain *d, unsigned int virq, u=
+nsigned int nr_irqs)
++{
++	struct msi_domain_info *info =3D d->host_data;
++
++	for (int i =3D 0; i < nr_irqs; i++)
++		hv_msi_free(d, info, virq + i);
++
++	irq_domain_free_irqs_top(d, virq, nr_irqs);
++}
++
++static const struct irq_domain_ops hv_pcie_domain_ops =3D {
++	.alloc	=3D hv_pcie_domain_alloc,
++	.free	=3D hv_pcie_domain_free,
+ };
 =20
- struct plda_msi {
- 	struct mutex lock;		/* Protect used bitmap */
--	struct irq_domain *msi_domain;
- 	struct irq_domain *dev_domain;
- 	u32 num_vectors;
- 	u64 vector_phy;
+ /**
+@@ -2136,17 +2199,14 @@ static struct msi_domain_ops hv_msi_ops =3D {
+  */
+ static int hv_pcie_init_irq_domain(struct hv_pcibus_device *hbus)
+ {
+-	hbus->msi_info.chip =3D &hv_msi_irq_chip;
+-	hbus->msi_info.ops =3D &hv_msi_ops;
+-	hbus->msi_info.flags =3D (MSI_FLAG_USE_DEF_DOM_OPS |
+-		MSI_FLAG_USE_DEF_CHIP_OPS | MSI_FLAG_MULTI_PCI_MSI |
+-		MSI_FLAG_PCI_MSIX);
+-	hbus->msi_info.handler =3D FLOW_HANDLER;
+-	hbus->msi_info.handler_name =3D FLOW_NAME;
+-	hbus->msi_info.data =3D hbus;
+-	hbus->irq_domain =3D pci_msi_create_irq_domain(hbus->fwnode,
+-						     &hbus->msi_info,
+-						     hv_pci_get_root_domain());
++	struct irq_domain_info info =3D {
++		.fwnode		=3D hbus->fwnode,
++		.ops		=3D &hv_pcie_domain_ops,
++		.host_data	=3D hbus,
++		.parent		=3D hv_pci_get_root_domain(),
++	};
++
++	hbus->irq_domain =3D msi_create_parent_irq_domain(&info, &hv_pcie_msi_par=
+ent_ops);
+ 	if (!hbus->irq_domain) {
+ 		dev_err(&hbus->hdev->device,
+ 			"Failed to build an MSI IRQ domain\n");
 --=20
 2.39.5
 
