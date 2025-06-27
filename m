@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91944C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F4DC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dm7KG+pj1Sld2ZoGBuMw21lsXZe536jJMt/EBqBjalo=; b=mG157Ed08531HAcMsIAkMNnaAj
-	7L8UCIuZYULg8yLOGkeOTotvGayRDLw8r8B09uWNqNusJgh6N0MBdfirS3kMrC3nYuIFHuZuledzM
-	JZN1RrbFYZ4fXQWZvZ8nu+bJp/5sk1IPdIXUAP66dMW2EPZbQWzBToj0+o82UUWZ56zh3DxsiCIBK
-	FQJtkJB9W3e5EX1FcNVpL2kdK/df35d6KJbhpYHawqar7Pj1+5trv4pkgoRVYIlSxAFP2eNglMk/8
-	g6XlDpSbU4y4XFqKNKwKFyt63stGcV3ryxgvzmfpO10Vh5GabPKrnE5SkJY7PfQs+8ZtPpXfPYuBm
-	lqZap0+w==;
+	bh=EIYBZpFE/+LMs+pWH0uAnrKxyIeaZH01dU6fR1X18xs=; b=J9MqThQA0XusosPyiuYZG537zb
+	F2m3NZHiNVqPhERyit6obK6EDa3l3Aa8u1TlJvV19t3AEixmMI+e8/pCNlg81D2OSXKyHPHU68p6H
+	NjuCcxk6FPz2u2oC87sX1ECuRoShWum9iuTAHgER8uD3annNWANXnMP+Rx5G9Gf0yCltbxjjZVCYe
+	RHp4KNz+vyzae5wN9UJrCUJM//rq0wnXbskeBrh82m9rpIKJLYSi/M08Bmlm4pppasDzagkwRfHJn
+	ItYUlDQX9HV4ZGKTS7zlZ/+CTxp/p4uC6/xE4mZJqrVeGrWBliEzqk6ZUyVLuI0Ksj5KqorL2Y6eW
+	7AYjP7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4GY-0000000DvuN-1gOx;
-	Fri, 27 Jun 2025 08:16:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uV4Iq-0000000DwAu-3hlX;
+	Fri, 27 Jun 2025 08:19:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4EF-0000000DvjD-20z0;
-	Fri, 27 Jun 2025 08:14:36 +0000
+	id 1uV4EM-0000000Dvk2-2tXb;
+	Fri, 27 Jun 2025 08:14:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A3FABA5242F;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 10398A52447;
+	Fri, 27 Jun 2025 08:14:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF1A5C4CEEB;
 	Fri, 27 Jun 2025 08:14:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78EEBC4CEE3;
-	Fri, 27 Jun 2025 08:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751012074;
-	bh=XAx0w0qIj6lxMzl756cOTRLfX5HxkURSvrdAy+8ZYYk=;
+	s=k20201202; t=1751012081;
+	bh=BnCh389PEx9bJtSanbtzmLueRukA8060w6pkKSdwnaI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sOKwoNkf0p1oYczXQDEbSoR5cCwXYcjKxj5uqiypqUeJgxFHoB9j+l9es2c1W07fi
-	 KrL/GGBR13cyDYTVc9rHmUs6Ih3x8rACYDf9Z7lkIjGGw5tHB50rwA9LKBj/1JNyEn
-	 Q1TxuB194jDejg3mlyQ4ptGn2V72G7F7rhH3Iu2u2euirICc8kW6XocaA9mP0u88mt
-	 s7YEYiKE6aeMReCsdu5Qxl2OCbbv/klStmQycUV9A61LbaRhaR9rl94VzxHLeLh76B
-	 tSGcF+HbuWxQe+1H+qeXMISyGc/wTClVJA+XoWLCrUjCcP42EtHaIGiUBpkKFowdbe
-	 WR5o/G2KWbJ9g==
-Message-ID: <e7c012c6-d5df-4247-b4c2-1b3e787d7576@kernel.org>
-Date: Fri, 27 Jun 2025 10:14:24 +0200
+	b=QjWrgtpICnL1hJ1fOUVDjH2KaBUAF/Ovk4eVAzbNsZlz14vb9OnG1vscI8l1+6bEA
+	 AR6amD9jWaKrXnm2PaRGtwlqs4rO1tXB93rLMgof+hDk5RYbY99Xc7MUuM+k9Y6lAN
+	 Ze1TNP9nWdDAhpucp1+R5n/KOLKiC9YeCsptoKSfzReY0yYRKZi6fc9+vqWQoNUjch
+	 zsP4xvZ/ieRCjNesH9O08gsZaZBtdg+ja76EoB/O10Y4TnPBQlTkcmb1kQJVd1Pu7N
+	 XU09jk5u53D1FAA/BNPK19JNfW1gSoUg6cYkbv1jIJ2JMKS+hP5jSaqmMM2kLotGXv
+	 SYBPMzGFC2q2g==
+Message-ID: <c697c9be-ba14-41b3-84e0-bc36580748bc@kernel.org>
+Date: Fri, 27 Jun 2025 10:14:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: leds: issi,is31fl319x: Drop 'db' suffix
+Subject: Re: [PATCH 2/2] dt-bindings: phy: fsl,imx8mq-usb: Drop 'db' suffix
  duplicating dtschema
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
@@ -60,7 +60,7 @@ Cc: linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 References: <20250627-dt-bindings-db-v1-0-d5c7072acbee@linaro.org>
- <20250627-dt-bindings-db-v1-1-d5c7072acbee@linaro.org>
+ <20250627-dt-bindings-db-v1-2-d5c7072acbee@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,11 +106,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250627-dt-bindings-db-v1-1-d5c7072acbee@linaro.org>
+In-Reply-To: <20250627-dt-bindings-db-v1-2-d5c7072acbee@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_011435_663963_8CF73036 
+X-CRM114-CacheID: sfid-20250627_011442_853330_0B2DAAB9 
 X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -138,6 +138,7 @@ On 27/06/2025 10:01, Krzysztof Kozlowski wrote:
 > RFC because this depends on dtschema changes and should be accepted
 > after new dtschema is released with this merged:
 > https://github.com/devicetree-org/dt-schema/pull/166
+> ---
 ... and I forgot `b4 prep --add-prefixes RFC`. Please treat as RFC.
 
 Best regards,
