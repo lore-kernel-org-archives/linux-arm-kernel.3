@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F51C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826ACC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PY79EKzRYcaTfBmkEn1plelmE3wgG6iSvl/aBwK6Y9E=; b=kEUxx5JDbMh3Xur67e2DK7aahk
-	8s//yd4XFo0qSh1InecnT/0jWVq/Y3sVybtu3JzzqOQ4KtLx5tB8qYonbtu16IRbcDAybzJdd3wlx
-	EMR9KblQ/H89dfo3qmgbIUiSWJTXUoh1CbnvhrdM/a4alg06tTMBQjYrbsu6pyfy1d8B/1bbBwIMG
-	NLS1KWfCDCDGOKS7bNDpybpW9DUpDZKa8O6U8eyt8Fnjzj0uhswCCzCBKcWZfVh1InL3Mbj/NDi43
-	9XB6H3E09oof9j9DjlGL2w4jVeAB2i/YVXVCpKdETJ3OYV7M5EAo3C21odQ8Izqm5Hc9pUT7jZtbd
-	O6wtZ7oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8o5xo7GeehPDbRd+X/7D8FpirwN/TZkXVzx9zL2sssc=; b=KJZSMkdlKlLm+EBvoHc29fL3Ca
+	AZRsWyY4yjJVS49J3sxODXx8tzx6IV2Ng+RgNy/ZwuL6gSq6s0KYrJNTe7w1skPtdf7cIMHSijRKp
+	dNRQFWOWLn6u2BiPreQcu2NS8Hf4Fqtfme4TJOk5aDHa4IRK9aeUgLCe/beqwYLuLTZQdaHiXG2jE
+	R+TTOVufEykoFCC60jRDCuPJPRQBvbfOHccraVS0v/5ZjWhAT2XsH3djw8fPGYdiaCmeMSahVK7dG
+	gVjp3fIv0z/JQPBMOb6/E24WotaSvxLdqn8RHu4s5IVohGj5OqQsUfYpRSs160karjg6ZGNdo2In8
+	hJ4+obcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAd8-0000000F0Ru-11sb;
-	Fri, 27 Jun 2025 15:04:42 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uVAfQ-0000000F0aZ-03sF;
+	Fri, 27 Jun 2025 15:07:04 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVA36-0000000Euik-0OM1
+	id 1uVA73-0000000Ev8I-2PrX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:27:29 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-60c5b7cae8bso3494613a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 07:27:27 -0700 (PDT)
+	Fri, 27 Jun 2025 14:31:34 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-607434e1821so3210997a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 07:31:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751034446; x=1751639246; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PY79EKzRYcaTfBmkEn1plelmE3wgG6iSvl/aBwK6Y9E=;
-        b=N202Cl7doJEHqqf8vHlK78QH2O4mEEFI3BRa6HRXfRgpAp3xA3aQqhihDGYJ73uvBD
-         3fYXQS9d1KoYJzlXtjq2ASwqZmCxBjMyGvbiU+x+Lz4G71jW+WvoEnQfeovm4MF4xdzf
-         adPwRK8mE/K0vec09kts0e/27Man5uKX+uPzfJogjO1qKHmmDpSxeSmWzj5Ot+ZMcmh2
-         7xxYI/OduOX+eClahTPzRqUZAtDxmBEggSex26Br/6sDPbzf726xxz6TqLgv5Y+zK9Mb
-         ZaXuA+W8hKE15342Va8bpPrK4yJyZ55UzAGVaWiGlhKEOJL/vlgZRN5OZaRcHNwZZF43
-         44pA==
+        d=linaro.org; s=google; t=1751034691; x=1751639491; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8o5xo7GeehPDbRd+X/7D8FpirwN/TZkXVzx9zL2sssc=;
+        b=KJlXp6wG0ws0ufKyWQMyF41XmvPV8gLzaPC1d+4wDzSjbfAKugUhIHEFDaIDXUGjl1
+         K4HvN8h+vF5TOO49MgkXHQqDr7PLhXjiJb1pNYUlSiU+4N4p4QUeQgMO3zDZtNnBoYe9
+         FYagR37qfvBoFtKH3x7hRmCw+q2Z9BNEb9hrjh/R4yLT940gkseVw3t4bKcr0qvvcOdI
+         iV6S+sRf+h9XD6uDGtG5UiJGkuWSkWJvh2qcAzjimwgsHTtnUhV3bNBwRfDFMfwGAMCA
+         sNfXen2EoYY5vwFs4xuC8ESgaii8WDRq0sV4G0qRGYURupK8n+hvMrvFkNFPCcpBrJsU
+         U8WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751034446; x=1751639246;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PY79EKzRYcaTfBmkEn1plelmE3wgG6iSvl/aBwK6Y9E=;
-        b=MkVIJmq6nrYPSEoW6f8b1WS4c7DHyvNWXU0BXeC8bT4hLFXoHT2y9oNO2YYayuqBUa
-         wroUN7b0hVH+jiPSYCoMuGgBXg84nRtI5Qg7FEYaFhYju1m3sBiC7sgJKNhPnJhwE7cd
-         2JABC3aAX2TS86OTZJ2IW5XjYrsbHH2mQUqKgW3H3vLObQVSAPFv0xSNCpHMY0GgOc3g
-         hZLZvtidPj4aHYxCuZQI+WFooXfB+yj3Yx4GlOe7U4jxZLNlXXJbhtpg+FwppyfMMwmq
-         EvfsCYDfMlozZiOjjUpqt1/s/SrDUCFRXUOM/qbwcOQ4h6Qp8Pw1T5ojsEqTeRwCPzKJ
-         GV3g==
-X-Forwarded-Encrypted: i=1; AJvYcCV+T33RCmJsGPTgkCWri9iJDXVssLt1DdizEAfR9Pgt2MzJgTCaCHQuEy2oBfgTbl58PDpSXa7GxQnPLiGud+ap@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeNe6Qjr+l8q5M1f32oOLpvBI9rBBTlpKQagJkM5e5m55t8ymP
-	Nf8SFVCR3HRGcS4XYXeXEKSADjCO9UAKxfx0pAlOUUwsEkcqDEziFVMC
-X-Gm-Gg: ASbGnctcQi/pMv8LaKOMtCv9jB8DraLGM5bNTTbGMu+xlzks7nVRg0gmUml1xIXbSOp
-	IGW6K+zMJpWVwI1n1fvVoxi5XjW9roDAmtVZIUvfuFQ6oQPeYEBJ7lsjrrBXZl3LT48byCOJxRK
-	ZzBlmqLPQKHDiC6Je5zcSiT6M8dGbct+ZFGx2j3dVIcUMHQXGo7jv8eg4zVShXvcjRQQJv3YinH
-	0h75Kbt8Ll41LDeIUJ/IQ+8ChR97FOIiaVaLIeEFPcVSDTG0Lh0MI9l7cYGZwe+sW4tIO6aGvpz
-	HhlpJKuQujFyhBNz3kiayJ5wHtX5XbL93SANpMzQ861Bk9oKt7SVikJAoUiH0nQM40EfK7nKg3I
-	+EagHf0jkFMyZ1CBiXFLC2kIarG0p6q2cnQ==
-X-Google-Smtp-Source: AGHT+IFnOD06HjYEqKm1S8KuPS4M3Ez8CyJAs1iLSJ2WT8T4Kt7o/r+8yNxZapY+lwfOAyqb7QEm3A==
-X-Received: by 2002:a17:907:961a:b0:ad8:9257:571c with SMTP id a640c23a62f3a-ae34fd6c852mr358792166b.20.1751034446217;
-        Fri, 27 Jun 2025 07:27:26 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.69])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35e2dafcbsm98925366b.116.2025.06.27.07.27.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 07:27:25 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: imx: add dts for the imx8ulp evk9 board
-Date: Fri, 27 Jun 2025 10:26:45 -0400
-Message-Id: <20250627142645.134256-3-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250627142645.134256-1-laurentiumihalcea111@gmail.com>
-References: <20250627142645.134256-1-laurentiumihalcea111@gmail.com>
+        d=1e100.net; s=20230601; t=1751034691; x=1751639491;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8o5xo7GeehPDbRd+X/7D8FpirwN/TZkXVzx9zL2sssc=;
+        b=WaZSRCStYkgHao1D5CHc6ZEgOP1gPEyONs2Euc9YnffEmQgrRGZgu18tsU2UeivIvB
+         XF40N4vqJD4Unhud8+UnJeBZk2viAl18413mMqJYG9upFAfElEjCHWqRboK7VbRvNTdF
+         I0H9Sbq/3l0Nw+slS3tBxjdRx8FfD5iIc/dtNBw/c4MgjXOzS8+FjqptYu7IeGBPWbti
+         bNOelgp68UUk65Q4xFol34ouynsoszl9oCNNDhgJloVd0ZbkQk1J+KHHn880rxdNl2Jj
+         DGLLH6fJ7B67sEXBk8In2vyBhOABEXjx/4QWRk5HB4/J+g11TL8egQbeWpT+zgxYu/jq
+         AlFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVLQyVFtdPcRZg7F5RYASKpT/rx/1FsjT3FdWBZDc6vx6S2uf3ofqIZ24AiOZjG/jkxPHaS9bUiY8eUD9NvArK1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVQFCBjNovXetp318btE4K/uJrDU463hm+/lIzJf6SHcYbAwOY
+	14zLera/eXg17Gn/xqxBhhuicwBCwQrTGYtmQ2GA3mCwmcq1t6/uT1tthoWJrI2bvOvqDVJhXJK
+	FB/1jzAuMEqxFbhrhzBVwF890JSozG9cGuldJtNQq5g==
+X-Gm-Gg: ASbGncthXma1XBCK9KUttvGUVnJ717DA7PLmDZp0UrXlgOtVzShdCtvjnb3/ldnfOLN
+	2v0+nAV8DBYWVhaK4AFu3WnrkB1h883W5PLovchMQxjp4q65jGEREo6fbXhzyUTcDW34nWSOtc0
+	7XYe652A5UAXqo+F8bT0KyIVuLl6Kj6cZDOC62jic0OsK8e8xXt18rg+pY5NvwAfP9QtmSg8R9N
+	q19aA==
+X-Google-Smtp-Source: AGHT+IEL785XIeur6WCbc2OIj5nk/sVLVVNkV3GZ+ObEePJ/qNpPBLIGoWwmBJBgA18YqNdBbv+6Y6RgOuBSpzWsw/4=
+X-Received: by 2002:a05:6402:5bc4:b0:607:eeb1:b18b with SMTP id
+ 4fb4d7f45d1cf-60c88d9c37dmr2283943a12.8.1751034691378; Fri, 27 Jun 2025
+ 07:31:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250626215911.5992-1-hiagofranco@gmail.com>
+In-Reply-To: <20250626215911.5992-1-hiagofranco@gmail.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Fri, 27 Jun 2025 08:31:20 -0600
+X-Gm-Features: Ac12FXyLrcISUGMKifq1LXY0djWn87ywvC4vhLqatRfOsnXR-16wTizuirmCxWY
+Message-ID: <CANLsYkzo32BHkxRzSLY1U_PcidMPOaz7xZjDs8HKtTCQ0ZpF=g@mail.gmail.com>
+Subject: Re: [PATCH v6 0/3] remoteproc: imx_rproc: allow attaching to running
+ core kicked by the bootloader
+To: Hiago De Franco <hiagofranco@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_072728_131405_C852FEA6 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250627_073133_624757_CA834BFD 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,105 +99,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Thu, 26 Jun 2025 at 15:59, Hiago De Franco <hiagofranco@gmail.com> wrote:
+>
+> From: Hiago De Franco <hiago.franco@toradex.com>
+>
+> This patch series depends on Ulf's patches that are currently under
+> review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
+> Without them, this series is not going to work.
+>
 
-Add DTS for the i.MX8ULP EVK9 board.
+I thought we agreed to repost when the feature referred to above and
+the work in drivers/pmdomain/core.c will be merge.  I'm not sure what
+to do with this patchset.
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  1 +
- .../boot/dts/freescale/imx8ulp-9x9-evk.dts    | 69 +++++++++++++++++++
- 2 files changed, 70 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 4da7501ece17..4b288b324d38 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -322,6 +322,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8ulp-9x9-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
- 
- imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-new file mode 100644
-index 000000000000..5497e3d78136
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-@@ -0,0 +1,69 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8ulp-evk.dts"
-+
-+/ {
-+	model = "NXP i.MX8ULP EVK9";
-+	compatible = "fsl,imx8ulp-9x9-evk", "fsl,imx8ulp";
-+};
-+
-+&btcpu {
-+	sound-dai = <&sai6>;
-+};
-+
-+&iomuxc1 {
-+	pinctrl_sai6: sai6grp {
-+		fsl,pins = <
-+			MX8ULP_PAD_PTE10__I2S6_TX_BCLK  0x43
-+			MX8ULP_PAD_PTE11__I2S6_TX_FS    0x43
-+			MX8ULP_PAD_PTE14__I2S6_TXD2     0x43
-+			MX8ULP_PAD_PTE6__I2S6_RXD0      0x43
-+		>;
-+	};
-+};
-+
-+&pinctrl_enet {
-+	fsl,pins = <
-+		MX8ULP_PAD_PTF9__ENET0_MDC		0x43
-+		MX8ULP_PAD_PTF8__ENET0_MDIO             0x43
-+		MX8ULP_PAD_PTF5__ENET0_RXER             0x43
-+		MX8ULP_PAD_PTF6__ENET0_CRS_DV           0x43
-+		MX8ULP_PAD_PTF1__ENET0_RXD0             0x43
-+		MX8ULP_PAD_PTF0__ENET0_RXD1             0x43
-+		MX8ULP_PAD_PTF4__ENET0_TXEN             0x43
-+		MX8ULP_PAD_PTF3__ENET0_TXD0             0x43
-+		MX8ULP_PAD_PTF2__ENET0_TXD1             0x43
-+		MX8ULP_PAD_PTF7__ENET0_REFCLK           0x43
-+		MX8ULP_PAD_PTF10__ENET0_1588_CLKIN      0x43
-+	>;
-+};
-+
-+&pinctrl_usb1 {
-+	fsl,pins = <
-+		MX8ULP_PAD_PTE16__USB0_ID		0x10003
-+		MX8ULP_PAD_PTE18__USB0_OC		0x10003
-+	>;
-+};
-+
-+&pinctrl_usb2 {
-+	fsl,pins = <
-+		MX8ULP_PAD_PTD23__USB1_ID		0x10003
-+		MX8ULP_PAD_PTE20__USB1_OC		0x10003
-+	>;
-+};
-+
-+&sai6 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_sai6>;
-+	pinctrl-1 = <&pinctrl_sai6>;
-+	assigned-clocks = <&cgc1 IMX8ULP_CLK_SPLL3_PFD1_DIV1>, <&cgc2 IMX8ULP_CLK_SAI6_SEL>;
-+	assigned-clock-parents = <0>, <&cgc1 IMX8ULP_CLK_SPLL3_PFD1_DIV1>;
-+	assigned-clock-rates = <12288000>;
-+	fsl,dataline = <1 0x01 0x04>;
-+	status = "okay";
-+};
--- 
-2.34.1
-
+> For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
+> started by the bootloader and the M core and A core are in the same
+> partition, the driver is not capable to detect the remote core and
+> report the correct state of it.
+>
+> This patch series implement a new function, dev_pm_genpd_is_on(), which
+> returns the power status of a given power domain (M core power domains
+> IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
+> already powered on, the driver will attach to it.
+>
+> Finally, the imx_rproc_clk_enable() function was also changed to make it
+> return before dev_clk_get() is called, as it currently generates an SCU
+> fault reset if the remote core is already running and the kernel tries
+> to enable the clock again. These changes are a follow up from a v1 sent
+> to imx_rproc [2] and from a reported regression [3].
+>
+> [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
+> [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
+> [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+>
+> v6:
+> - Added "reviewed by" from Ulf and Bjorn.
+> - Fixed and improved commit descriptions of patches 2 and 3.
+> - Improved the comment inside imx_rproc.c file.
+> v5:
+> - https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
+> v4:
+> - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
+> v3:
+> - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
+> v2:
+> - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
+> v1:
+> - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
+>
+> Hiago De Franco (3):
+>   pmdomain: core: introduce dev_pm_genpd_is_on()
+>   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
+>     SCU
+>   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
+>
+>  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
+>  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
+>  include/linux/pm_domain.h      |  6 +++++
+>  3 files changed, 73 insertions(+), 7 deletions(-)
+>
+> --
+> 2.39.5
+>
 
