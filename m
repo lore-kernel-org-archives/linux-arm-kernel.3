@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E288C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C422C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Q285Yr3y+87stzQw+zewu692BZK8q52Hv1ctiichRc=; b=GqMGDf+zO4N8h9FAze0nPw/K0h
-	/L5dK9KIaCI3VdWNPjevVe+K6FwfSLcz6WdbJAP8FlqmoVHuflmbIG/uY4BAxxIweffgp+O4spJ09
-	JhUf5a/5MBcJTDs8dWgTioIdVbeFTH46xpcrLolne+Dam47l1RvVLiGjl4ofRkdxYB2La934xuhJH
-	/Yc9YhPNNb+HhdbfOGmRtFTYRfr66jsVE0QhCl5gqOMERGEVFWJxiM0FoRN06ZZlsWZjolO+B9UZk
-	kItRujM10fCqHz+jNXiKypo2ytZJDiExdALf30/v2lfavQ3zTgel/bc4moH7HFvWgzNsx4E36LV6P
-	p/hVJPQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vN5KtyccyQR8NIxSTnswzlHl+ktrS9Gv+Tl8vpykvlc=; b=vcGjAd4p4HdU1smRyggZ4oYtGg
+	N0nveKUn8t8g6FacbVRj4wipOjzN9zG1QinmrBsmket2njZ+gRhC3A2RmJExIzwr24EKw+AIicaUE
+	cUNMUqPVEQyVxd7EKrBBWP/2EWECpSiPqkSrc2RCwNYWjon2hm4aY7zWtzhAAM7E4t485OED2zjBO
+	Z/4nqD+QbVvagcjsIk8i2XPEaqXXYLS1e5HvELdCYcACeY4IFKzMV2i699GiZU5TdCo79LvBKkuVH
+	m5j4CwqJK64EjvHuQ5IOS+Y0ctkc5GXlWkXdmeBtyz3O7dL5rvjd5l8lEA8Tu61l2ZRQdBuM1/ouu
+	ui3MGAxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV3sx-0000000Dt3b-3gaa;
-	Fri, 27 Jun 2025 07:52:35 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uV3vE-0000000DtMH-2P2J;
+	Fri, 27 Jun 2025 07:54:56 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV3aY-0000000DpuT-38Yz
+	id 1uV3dP-0000000DqBG-1Usj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 07:33:36 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R2c6Rv030383;
-	Fri, 27 Jun 2025 09:33:14 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	1Q285Yr3y+87stzQw+zewu692BZK8q52Hv1ctiichRc=; b=JciHfeKa47Iu6sv9
-	VamsVMjg7X+3xY77tw1LBPC1uO0q239nBfbj9K2yYucT7DBEvknjB4ki34TlgIQM
-	kT9l3BL9rSYIVPSOYQuuwFHPM8NLr0Sul81CP9YJTAxGEogTs5EQpBj/SeNjaoxn
-	0uikTuHhBtYBklAU2vdyVdbr+IO3IxqUdINDgEtk1pxPdad87hoI9LFPtfSjBfwE
-	uF4Yt94SE6OrzVJCx4Cn7OhQ/rcndL1sD1V79C0aCep5vlzfCb6dLLYyAsxutFaP
-	W6aiOrLrzFTkaXNSUxw0RaatwVKHUpU21YKkwrxYPXwC/bd5b73z7Eag1onrHItW
-	+GOw8A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dm33tthg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 09:33:14 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 282D540044;
-	Fri, 27 Jun 2025 09:31:50 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9DDC1BCF079;
-	Fri, 27 Jun 2025 09:30:47 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 27 Jun
- 2025 09:30:46 +0200
-Message-ID: <9bb4ab7d-afe2-4508-a18e-12cb1485a5a0@foss.st.com>
-Date: Fri, 27 Jun 2025 09:30:46 +0200
+	Fri, 27 Jun 2025 07:36:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751009792; x=1782545792;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=R7MFiZ9r/m2icBqFE8z942btjxdQ3uI5L9jjyYNHCUk=;
+  b=SngtEmegXuBEkY4VT25y9JMPKFNUeFsyWKqyTTaR7xAQeL3MwEzl73Ex
+   /mRfA6D7TQM5LeOsW/bbRNyZXEVSeICxyh/HV0ZiO6I2A+V0wsBac8Efy
+   ojSbWS8NFIS80sYih0a5tizG4PoN26Gx7kgKosFrBmAgwx8okEzy+lelv
+   eCB6GwYS8dOnfkZ9u22ALzxfw0yv0sbJC98PPYRFjWnziyo4W/VrVofbm
+   mrF/RJAJ4jOzfCO2KqZ3JF0wLN1J6QwAoGrESVkxAzLJMoxAgJRorEQMG
+   UCfIaFGPiEwcHnzKmBEofJAlRFoYxS6d/d4s8ICU1RnHKQHoo/5OS3wlL
+   w==;
+X-CSE-ConnectionGUID: 4o3ILNCIQYqNoOjPa5wY3g==
+X-CSE-MsgGUID: lJU5akCDT9CVqSZbxNwZTg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11476"; a="53190637"
+X-IronPort-AV: E=Sophos;i="6.16,269,1744095600"; 
+   d="scan'208";a="53190637"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jun 2025 00:36:31 -0700
+X-CSE-ConnectionGUID: Kh5t6bgAQ1+j0Xkx9PE3SA==
+X-CSE-MsgGUID: j0Uw8pEZQUqEGpTzy5l4rg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,269,1744095600"; 
+   d="scan'208";a="153256700"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 27 Jun 2025 00:36:26 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uV3dI-000VvV-0Y;
+	Fri, 27 Jun 2025 07:36:24 +0000
+Date: Fri, 27 Jun 2025 15:35:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Taniya Das <quic_tdas@quicinc.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Ajit Pandey <quic_ajipan@quicinc.com>,
+	Imran Shaik <quic_imrashai@quicinc.com>,
+	Jagadeesh Kona <quic_jkona@quicinc.com>,
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Dmitry Baryshkov <lumag@kernel.org>
+Subject: Re: [PATCH v10 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics
+ clock controller driver
+Message-ID: <202506271519.GYlfvTOB-lkp@intel.com>
+References: <20250625-qcs615-mm-v10-clock-controllers-v10-7-ec48255f90d8@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] i2c: stm32: fix the device used for the DMA map
-To: Alain Volmat <alain.volmat@foss.st.com>
-CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-        Andi Shyti
-	<andi.shyti@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Sumit Semwal
-	<sumit.semwal@linaro.org>,
-        =?UTF-8?Q?Christian_K=C3=B6nig?=
-	<christian.koenig@amd.com>,
-        M'boumba Cedric Madianga
-	<cedric.madianga@gmail.com>,
-        Wolfram Sang <wsa@kernel.org>,
-        "Pierre-Yves
- MORDRET" <pierre-yves.mordret@st.com>,
-        <linux-i2c@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <linaro-mm-sig@lists.linaro.org>
-References: <20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com>
- <20250616-i2c-upstream-v1-1-42d3d5374e65@foss.st.com>
- <20250626083744.GA348766@gnbcxd0016.gnb.st.com>
- <20250626084356.GB348766@gnbcxd0016.gnb.st.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250626084356.GB348766@gnbcxd0016.gnb.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-27_02,2025-06-26_05,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250625-qcs615-mm-v10-clock-controllers-v10-7-ec48255f90d8@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_003335_067897_200D45AE 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250627_003631_442332_C2DF5D6D 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,69 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/26/25 10:43, Alain Volmat wrote:
-> Hi Clément,
-> 
-> Oups, I was too fast.
-> 
-> there might be another place to correct in the driver, dma_unmap_single
-> within the error handling of the function stm32_i2c_prep_dma_xfer.
-> 
->     err:
->              dma_unmap_single(chan_dev, dma->dma_buf, dma->dma_len,
->                               dma->dma_data_dir);
-> 
-> Could you also correct this one as well ?
-> 
-> Alain
+Hi Taniya,
 
-Hi Alain,
+kernel test robot noticed the following build warnings:
 
-Oh yes you're right, I'll send a v2
+[auto build test WARNING on 2ae2aaafb21454f4781c30734959cf223ab486ef]
 
-Best regard,
-Clément
-> 
-> 
-> On Thu, Jun 26, 2025 at 10:37:51AM +0200, Alain Volmat wrote:
->> Hi Clément,
->>
->> On Mon, Jun 16, 2025 at 10:53:54AM +0200, Clément Le Goffic wrote:
->>> If the DMA mapping failed, it produced an error log with the wrong
->>> device name:
->>> "stm32-dma3 40400000.dma-controller: rejecting DMA map of vmalloc memory"
->>> Fix this issue by replacing the dev with the I2C dev.
->>
->> Indeed, nice catch ! Thanks a lot !
->>
->>>
->>> Fixes: bb8822cbbc53 ("i2c: i2c-stm32: Add generic DMA API")
->>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>> ---
->>>   drivers/i2c/busses/i2c-stm32.c | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/i2c/busses/i2c-stm32.c b/drivers/i2c/busses/i2c-stm32.c
->>> index 157c64e27d0b..5e0b31aed774 100644
->>> --- a/drivers/i2c/busses/i2c-stm32.c
->>> +++ b/drivers/i2c/busses/i2c-stm32.c
->>> @@ -118,7 +118,7 @@ int stm32_i2c_prep_dma_xfer(struct device *dev, struct stm32_i2c_dma *dma,
->>>   	dma->dma_len = len;
->>>   	chan_dev = dma->chan_using->device->dev;
->>>   
->>> -	dma->dma_buf = dma_map_single(chan_dev, buf, dma->dma_len,
->>> +	dma->dma_buf = dma_map_single(dev, buf, dma->dma_len,
->>>   				      dma->dma_data_dir);
->>>   	if (dma_mapping_error(chan_dev, dma->dma_buf)) {
->>>   		dev_err(dev, "DMA mapping failed\n");
->>>
->>> -- 
->>> 2.43.0
->>>
->>
->> Acked-by: Alain Volmat <alain.volmat@foss.st.com>
->>
->> Regards,
->> Alain
+url:    https://github.com/intel-lab-lkp/linux/commits/Taniya-Das/clk-qcom-clk-alpha-pll-Add-support-for-dynamic-update-for-slewing-PLLs/20250625-184903
+base:   2ae2aaafb21454f4781c30734959cf223ab486ef
+patch link:    https://lore.kernel.org/r/20250625-qcs615-mm-v10-clock-controllers-v10-7-ec48255f90d8%40quicinc.com
+patch subject: [PATCH v10 07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+config: arc-randconfig-r121-20250627 (https://download.01.org/0day-ci/archive/20250627/202506271519.GYlfvTOB-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 13.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20250627/202506271519.GYlfvTOB-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506271519.GYlfvTOB-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/clk/qcom/gpucc-qcs615.c:396:15: sparse: sparse: symbol 'gpu_cc_qcs615_hws' was not declared. Should it be static?
+
+vim +/gpu_cc_qcs615_hws +396 drivers/clk/qcom/gpucc-qcs615.c
+
+   395	
+ > 396	struct clk_hw *gpu_cc_qcs615_hws[] = {
+   397		[CRC_DIV_PLL0] = &crc_div_pll0.hw,
+   398		[CRC_DIV_PLL1] = &crc_div_pll1.hw,
+   399	};
+   400	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
