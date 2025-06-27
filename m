@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1999C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECED4C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVW7RiHIyGpA5ELa0F4ReHd6tyA1x4kpnFemQ/LfqdY=; b=X0rVON4lfl58/GSs9ImJEUCt9o
-	gf8KHVLqskoVe+YYCwW1tqNTua7y9u+rFmX322qF9NFvjzQlo+NkX/EM9qX3yR9eW9jazODipH00y
-	yhTanHcKNaHGNQDQ2CCRblFRHdSjkRyp5wZYiU4ROc1ZkmKwW6p8CrDmLhtYScPH6B6oziLVAdQHz
-	u8XpwjMu/90mohLG5XeTIrmAiueC0T8xfGzJkpudZ+MuTKJvjZoJJHsNffJ7EMbs6/a/3Ga3vLeEK
-	BHXMibUIBNimj7ugwT6+sWD3KbGyYry6Mnggp4Hk66VHbmjjnKeRi8nN1rJ2V/4A1b9m+vRctqGFJ
-	sLta2aNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=REICrhB/bJid0PPaN/rZiPA06su46y1/x8B9gUCA+yY=; b=eOQMvGTY4R72kEmxkrN+XL5Rf0
+	bjKB1bByGXygLHNFKd4IX38PAyXOK3sLNKkwImofYQ7/ejUULDl21Fbr8IS7UYSqRwJ/QNP+8Q0xT
+	aBiMJ6aJ9Z40z185UBV/x6eiep9Ek5gypOxSWf5KF9fbRpnk0WuMN8p349n21wLbdVDprwIKTQkDM
+	6c2LOu5o7vmJmdnebh2UXxsR6IR6wxB7GPE+cBsg2Aexiqiy8qNzsnIwhZRMm1m6aDYQ/vgxaUxPE
+	IrMvPYN5P+lbKyA4Mp/0lX4+WZlkhOdBm5IuSzpbr6c+pZq0G3Rlc/a92eNFFmdT+nOG8GiJm2EcP
+	uPM/cAOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9qw-0000000EsC3-3QEQ;
-	Fri, 27 Jun 2025 14:14:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uV9tE-0000000EsVJ-10xE;
+	Fri, 27 Jun 2025 14:17:16 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9FV-0000000EnOD-2Iiw
+	id 1uV9In-0000000EntM-3Bcg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 13:36:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 487EE45453;
-	Fri, 27 Jun 2025 13:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2F3C4CEE3;
-	Fri, 27 Jun 2025 13:36:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751031373;
-	bh=b+AqKL/t2Y57F7SFIeF2uOilMxYgh+4DSlllHo4mbfo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=AJDDw55MJlOCVvTFjNTI1frKXCVh8blcEuVXrNyCokvJAG1kOtlsiSCic2uxm/G58
-	 BrO+Bxxc3pu2lbtt/kDFxhoI3I/Jayc9I8UXOt/zVMasJmI7ZSMEvccLpRS3W2ftKz
-	 vMjX5+nOFC+dlKksOVew1jaDQGTANoYxW54i4uqYAtJAOpT/QPU8bkfmFRKyvO5Z82
-	 OBVExL/AQvGJPwrZmOfv/uLSLHjfEP9SnTogY6JSz7a6Mof3pQ1ypdnBiFhJl5xYqZ
-	 K5yUAUals6BoMVo6oBjiZj6o8Fd79QHkP4M1Nsw6w8w00SrbjZM77B1tghvy3iPl3S
-	 QddlGxg2/VoWg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uV9FS-00AZpT-Nm;
-	Fri, 27 Jun 2025 14:36:11 +0100
-Date: Fri, 27 Jun 2025 14:36:10 +0100
-Message-ID: <86qzz5b92t.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mingwei Zhang <mizhang@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 09/22] KVM: arm64: Correct kvm_arm_pmu_get_max_counters()
-In-Reply-To: <20250626200459.1153955-10-coltonlewis@google.com>
-References: <20250626200459.1153955-1-coltonlewis@google.com>
-	<20250626200459.1153955-10-coltonlewis@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, mizhang@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 27 Jun 2025 13:39:39 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 0C36E26091;
+	Fri, 27 Jun 2025 15:39:35 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id z_DBtCRPQosI; Fri, 27 Jun 2025 15:39:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1751031574; bh=TEJGRf1FlIgDbcSTQNxCwfvvmdMjzuRrveS8ic9DKO8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Gd611RXtDUZ0eMsj5UIbALHq5iK/naVa74b1YVOj7JFRHqo5mtjuCj6SVb4R7ZlF3
+	 E/RfVgUSG9gCG6F+kirZgVXVL9zb+soJQe6bl1bzc/g6ZKIGkJZDXd+DVbvBaTdB0k
+	 UnVLNZsgX+lWxlVHtv0hartInLi0BGjipjNH0S5tTd1EnWTIgyK8xhXMI4MHSkSfa4
+	 Q4HS5x5/4zSEQB+a59M6MQCtSUte1dl9XC3GotadKWwDod9EsyQswm32ejXt2+Koyh
+	 7UV5ld8aCL5fmXVsKpYs2lhrWdIlPUBlvO8v0jPUcphwmsqPY38Xan9OMyuLddf+NW
+	 sIF6VTF7uZIyg==
+MIME-Version: 1.0
+Date: Fri, 27 Jun 2025 13:39:33 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Inki Dae <daeinki@gmail.com>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park
+ <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor@kernel.org>, Ajay Kumar <ajaykumar.rs@samsung.com>,
+ Akshu Agrawal <akshua@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] drm/exynos: exynos7_drm_decon: fix call of
+ decon_commit()
+In-Reply-To: <CAAQKjZM+++P3ozLZZYEusYepamF0qdeuOe+thDb2BevLCsab_Q@mail.gmail.com>
+References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
+ <20250627-exynosdrm-decon-v3-2-5b456f88cfea@disroot.org>
+ <CAAQKjZM+++P3ozLZZYEusYepamF0qdeuOe+thDb2BevLCsab_Q@mail.gmail.com>
+Message-ID: <c4348867644c2e1d0a4fc47f3291855b@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_063613_630990_1225FA80 
-X-CRM114-Status: GOOD (  25.33  )
+X-CRM114-CacheID: sfid-20250627_063937_931501_31A45647 
+X-CRM114-Status: GOOD (  24.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,58 +87,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 21:04:45 +0100,
-Colton Lewis <coltonlewis@google.com> wrote:
+On 2025-06-27 04:06, Inki Dae wrote:
+> Hi,
 > 
-> Since cntr_mask is modified when the PMU is partitioned to remove some
-> bits, make sure the missing counters are added back to get the right
-> total.
+> 2025년 6월 27일 (금) 오전 4:21, Kaustabh Chakraborty 
+> <kauschluss@disroot.org>님이 작성:
+>> 
+>> decon_commit() has a condition guard at the beginning:
+>> 
+>>         if (ctx->suspended)
+>>                 return;
+>> 
+>> But, when it is being called from decon_atomic_enable(), 
+>> ctx->suspended
+>> is still set to true, which prevents its execution. decon_commit() is
+>> vital for setting up display timing values, without which the display
+>> pipeline fails to function properly. Call the function after
+>> ctx->suspended is set to false as a fix.
+> 
+> Good observation. However, I think a more generic solution is needed.
+> 
+>> 
+>> Cc: stable@vger.kernel.org
+>> Fixes: 96976c3d9aff ("drm/exynos: Add DECON driver")
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  drivers/gpu/drm/exynos/exynos7_drm_decon.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/drivers/gpu/drm/exynos/exynos7_drm_decon.c 
+>> b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
+>> index 
+>> f91daefa9d2bc5e314c279822047e60ee0d7ca99..43bcbe2e2917df43d7c2d27a9771e892628dd682 
+>> 100644
+>> --- a/drivers/gpu/drm/exynos/exynos7_drm_decon.c
+>> +++ b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
+>> @@ -583,9 +583,9 @@ static void decon_atomic_enable(struct 
+>> exynos_drm_crtc *crtc)
+>>         if (test_and_clear_bit(0, &ctx->irq_flags))
+>>                 decon_enable_vblank(ctx->crtc);
+>> 
+>> -       decon_commit(ctx->crtc);
+>> -
+>>         ctx->suspended = false;
+>> +
+>> +       decon_commit(ctx->crtc);
+> 
+> There seem to be three possible solutions:
+> 
+> 1. Remove all code related to ctx->suspended. If the pipeline flow is
+> properly managed as in the exynos5433_drm_decon.c module, checking the
+> ctx->suspended state may no longer be necessary.
+> 2. Remove the ctx->suspended check from decon_commit(). Since the
+> runtime PM resume is already called before decon_commit() in
+> decon_atomic_enable(), the DECON controller should already be enabled
+> at the hardware level, and decon_commit() should work correctly.
+> 3. Move the code that updates ctx->suspended from
+> decon_atomic_enable() and decon_atomic_disable() to
+> exynos7_decon_resume() and exynos7_decon_suspend(), respectively. The
+> decon_atomic_enable() function calls pm_runtime_resume_and_get(),
+> which ultimately triggers exynos7_decon_resume(). It would be more
+> appropriate to set ctx->suspended = false in the
+> exynos7_decon_resume() function, as this is the standard place to
+> handle hardware state changes and resume actions.
+> decon_atomic_enable() is responsible for requesting enablement of the
+> DECON controller, but actual hardware state transitions will be
+> handled within exynos7_decon_resume() and exynos7_decon_suspend().
+> 
+> 
+> Unfortunately, I do not have hardware to test this patch myself. Would
+> it be possible for you to try one of these approaches and verify the
+> behavior?
+> Option 1 would be the best solution if feasible.
 
-Please fix the subject of the patch to be more descriptive. It is
-worded like a bug fix, while it really is only a step in the patch
-series.
-
-Something like "Take partitioning into account for max number of
-counters" would go a long way.
+Yes, it works fine indeed. Thanks!
 
 > 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm64/kvm/pmu.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+> Thanks,
+> Inki Dae
 > 
-> diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
-> index 79b7ea037153..67216451b8ce 100644
-> --- a/arch/arm64/kvm/pmu.c
-> +++ b/arch/arm64/kvm/pmu.c
-> @@ -533,6 +533,8 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
->  u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
->  {
->  	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
-> +	u8 counters;
-> +
-
-nit: superfluous blank line.
->  
->  	/*
->  	 * PMUv3 requires that all event counters are capable of counting any
-> @@ -545,7 +547,12 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
->  	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
->  	 * Ignore those and return only the general-purpose counters.
->  	 */
-> -	return bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
-> +	counters = bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
-> +
-> +	if (kvm_pmu_is_partitioned(arm_pmu))
-> +		counters += arm_pmu->hpmn_max;
-
-Why the check? Why can't we rely on hpmn_max to always give us the
-correct value?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+>>  }
+>> 
+>>  static void decon_atomic_disable(struct exynos_drm_crtc *crtc)
+>> 
+>> --
+>> 2.49.0
+>> 
+>> 
 
