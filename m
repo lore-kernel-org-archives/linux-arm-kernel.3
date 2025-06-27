@@ -4,93 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23254C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1888BC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=; b=29SYeejgOgv//cW0GeVbvfD8RH
-	NXklp43XueLjpzL7wxt6hlVJB+16X0VQkjZE55YE+3BOUFcSKGjh7AyVRXJP4tlQUYtAkRhRHsOwd
-	hCKAsMkYVhdd5RKIBDMcJtXWnLm0wmAfqfPTesqG+k3zDDX/EIjkc3l/gHvjTJHkd/YmCKr5LxH7Y
-	8oHC2uQ9MMGtfAlar+t3jTRmfstYdubPVktg8VcojqmzDN0FTBO95+T9I/mSHhjmNCBAY2fXDDRTm
-	WZ/NDS3TEGlrMKawdoQNJ5MaDBNgdmPPGbzbI1qFgobGUc6CiqKy38rVcQvw/3ptA+7JI2HxZ8Z3P
-	IbGslb8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=gZTXepwSzwTR/5+AzyiWN3NcPfBWsCpkN2h1AetbNAc=; b=jFRS7lxa/cm36wJVMGNuXkOdqJ
+	V97g33ksqB8IysgFb/PhClB1rm0WZectEi/STNwPIgSDwSTL8T6tDkz9AK/0GCAysZDFuqp9QYvyu
+	ji28h+fpIk5XwKiRYEwISiD6wBxkvskNcuJESqnQXr9hGT9SjLMiRMcvT7CsayGCfq/bRFhGT8k5w
+	NNJa+ZjU79TbJOMYeKACJc1G9surmycPzizDdQfttHbK9dWV0jUhzVBb9qVP4mpPEUJ3SGOa5R/tK
+	+XheULw12wXPYLfAen3WwNSYqJUeITBfRgNms9WpxsSURzx97bYrBkkLrZyDv/uoWIjqhzcDq1DJc
+	AOzWJ7ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVB2C-0000000F6s7-3wBO;
-	Fri, 27 Jun 2025 15:30:36 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1uVB4T-0000000F7Ah-32I4;
+	Fri, 27 Jun 2025 15:32:57 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAOx-0000000Exom-2FKM
+	id 1uVAQK-0000000Ey4i-45gO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:50:04 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7d40874b399so212801585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 07:50:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751035802; x=1751640602; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=;
-        b=QmC6csAhBAMqvS/YSar29nb6CJmG3NPxSeo8ZV52og1ZlrMya64w5RbJX/jfAShgbj
-         WLVn6IiM4m+w5rXKpasHvq/uirP2/PbR0eLaOoErAaQv7PGOLfKyqtTEAfq8JplXTzYo
-         mhxZs2g4th9o+fx2hnxfL1UwBqPv+oCzeHPPWLOEwQXcaUmKlh+hyvQuCrmQ+4olEuwS
-         Q8rGzGxtQov2awja5Nyhd/S2lZhKaZFD+Up3KOYVLdtpipD2SjndNFoAxlCbiYktROEY
-         Y9s7TWilzCP7Y08rxAUxOc0TpaXgWe9i4EXTPPN5v891ofuNkmpLDMfscCfHFuLSisFj
-         MOIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751035802; x=1751640602;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=;
-        b=gx1Whl2iau4IfewgQDauHOijSBvsmJiFHjkNMv76hHmfGGacEVifT7m/QuCQ3rtIZV
-         qkqbB6UM9n9WlbSpTtayZerqrpl5e9+vE2OAcOYgt8QAB23iSanNjCsgwmZXplpyaWp0
-         af5BukJ8rVa1xmnuNknROLYDPhTjWFMSaMnKmsfx7YlNzgAhEmFbf7lnmcKcaJbKL3b1
-         Kr5nMfOJmBCymWwJrIyn3H7mQB9CeUSFQprzpLo4kLr98NNjTC5ud56/ubEcJU7sFjlN
-         2v2p7wZ6k3HYVsKeBEgP4XwnTzG+TzCet0NUfBrpe3EKy2NgLdYH3R3GwqzEjekBEyzN
-         Sljg==
-X-Forwarded-Encrypted: i=1; AJvYcCXHsdBXlthQnTzNArFtKfkCX8qXcwkhWaExbNetjDPhd0/9br79YECxblAh3/UpeHe5VRRladkbE1A84kiEaDc5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2vB5zHvw/7+8XH+WP1aRsZEev0FMRqPdf4ArU7JcelnCzoX8O
-	eFTSwNzVvXFpZSzyFhMfnk0lpT4b1xk8KjpUnZBOosFDBGVh+6uXAtPu
-X-Gm-Gg: ASbGnctPsBeKZoKNbjeysfKIBPjYfyvXjK6ZHjrt6uKxtLYflcqT9RiEteMCJG7QbO0
-	8Ir7iO4qJ/KdsMc9sHcGEkAjjvQqBRUXlDkCY/ppAzOZKrpxMI22oVn7qoxcfygr/Abpunvj9On
-	/61Ia6Zx3+XvehV4bXUgm40m9NgRTcYxSqWmOgvv6j5ienPB9DNDvUp8VAeGsF4O2NBnoY/rgwh
-	QzQHsztqjT7JIMTrMuBJAT+xP7iyUwnidrgVGn1wT4gK62kq8SlEylamXkQUZ2dk8HYG4cwaHE1
-	prwD9NDwYlVrgRJYs3JGI+FrX2zy6vP/RqmQUHp6glWRbIdSyTnOBNNfbtpv
-X-Google-Smtp-Source: AGHT+IFbou1xMk6JMnADPBUd4fd5n/7zRvglAq2fEyrggZQzPKVtz6a6tLxCnjDbX4s4r2fLBp1xBA==
-X-Received: by 2002:a05:620a:38e:b0:7d3:b5ff:fb22 with SMTP id af79cd13be357-7d443994d26mr429693385a.32.1751035802120;
-        Fri, 27 Jun 2025 07:50:02 -0700 (PDT)
-Received: from hiagonb ([2804:1b3:a7c3:c88d:6da3:af6d:a237:3289])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44321a706sm139134585a.81.2025.06.27.07.49.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 07:50:01 -0700 (PDT)
-Date: Fri, 27 Jun 2025 11:49:55 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v6 0/3] remoteproc: imx_rproc: allow attaching to running
- core kicked by the bootloader
-Message-ID: <20250627144955.tbmk6ako3rgv3djo@hiagonb>
-References: <20250626215911.5992-1-hiagofranco@gmail.com>
- <CANLsYkzo32BHkxRzSLY1U_PcidMPOaz7xZjDs8HKtTCQ0ZpF=g@mail.gmail.com>
+	Fri, 27 Jun 2025 14:51:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qvx5Vl2WDhAQxudoPAQablb2HP2O9O9BWrkBGu3iPqB8ZRmmIJD5Vox3aV42Sk18sdIZ4Li3s2BXISgTvIZKsxxMrt+jP4VYnDM9IbOc1/XjrtLZ9zmjtzOcgNihQ9pLHfA7zGbFTtKBKvNbREnIF5YXYE4EmEDkZFko3wHrAy72hyS3jcBAlZg5HA7ds2zW/6D93ZX4KHwzUoH1oZsvpq+Fp0L7sQ7MTcwhf+mcFoUS4cEyeYpLxjJifSghwN/SkzvedrTh6Co1bd8H3xnwIqoeJuSvQT/HQCbxn25/ETAqLhlnWTXAJ6yKv4p0fOu4635vfFuh0pOMl8/bIGyaOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gZTXepwSzwTR/5+AzyiWN3NcPfBWsCpkN2h1AetbNAc=;
+ b=JfHCoaKNXGQo+kVyUDVM1uq9icwt5vu7CRisMVhhPXXvfc5tHD+yl29+l38rTWz/i+xVvgmwqsbWghyLPR5n7gRT7MJ0nPcQZwsr9FQQZ7r3Xyb9BoqBMZ5haqVZ33Vwf2OgVjgIPyT8mRaYnJruWWbPseGqi1wvVp0nlTWKHoZM40JxVOC0b9NUgt8AsrsvOjScaxLuSOFUERIgq4CU5B7NCxQYud46exWAxNiVFEz5CbGXB0H6RFTLtnkXJ1/twHb66XOQlqLunA2wpVr/ctfGxHl/XzgS6Qk0HipUlB1GHfyx0hU7AsxV09dg3d56TO9IJuhKLrWslpVDUMfYlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=topic.nl;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=topic.nl; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gZTXepwSzwTR/5+AzyiWN3NcPfBWsCpkN2h1AetbNAc=;
+ b=CweWkL2Iy7x9QlmwtoiGt3fopzYFQ2TmWAgIcCFKEvQQRzydakFp/dFMKuae1AONFvxo/CAmWSwnnQ/4GFBkOVbiN/kAOEGawrSZmHHwgtyx1WeZSKcrG5l9i+8vzCP90uXSpOjL+c5DTDVcCDvt6TFLnlvrFA0oGG8EUwQYnwhZv9Av1mpmcnHv0K6it4tEHTh0KUdq5KsOGT6Nr+2t3DsPB6/24RamI2D2oXHIes5qLboRh0yQezOzoOBGjL+DE8UmDqR0m/4gTKK02RWxIeQlLEnV/9PX2vWbO56+nc+LggRorgXsuWLQce9h4AEnDIh3oqLPKewUlCoHxbWBEQ==
+Received: from DU2PR04CA0178.eurprd04.prod.outlook.com (2603:10a6:10:2b0::33)
+ by AM7PR04MB7189.eurprd04.prod.outlook.com (2603:10a6:20b:116::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Fri, 27 Jun
+ 2025 14:51:14 +0000
+Received: from DU6PEPF0000A7E0.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b0:cafe::9d) by DU2PR04CA0178.outlook.office365.com
+ (2603:10a6:10:2b0::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.23 via Frontend Transport; Fri,
+ 27 Jun 2025 14:51:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DU6PEPF0000A7E0.mail.protection.outlook.com (10.167.8.39) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8880.14 via Frontend Transport; Fri, 27 Jun 2025 14:51:12 +0000
+Received: from MRWPR03CU001.outbound.protection.outlook.com (40.93.69.26) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Fri, 27 Jun 2025 14:51:11 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by DU4PR04MB10744.eurprd04.prod.outlook.com (2603:10a6:10:590::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.28; Fri, 27 Jun
+ 2025 14:51:08 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%3]) with mapi id 15.20.8857.026; Fri, 27 Jun 2025
+ 14:51:08 +0000
+From: Mike Looijmans <mike.looijmans@topic.nl>
+To: dri-devel@lists.freedesktop.org
+CC: Mike Looijmans <mike.looijmans@topic.nl>,
+	David Airlie <airlied@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+Date: Fri, 27 Jun 2025 16:50:46 +0200
+Message-ID: <20250627145058.6880-1-mike.looijmans@topic.nl>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P189CA0039.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dd::16) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANLsYkzo32BHkxRzSLY1U_PcidMPOaz7xZjDs8HKtTCQ0ZpF=g@mail.gmail.com>
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DU4PR04MB10744:EE_|DU6PEPF0000A7E0:EE_|AM7PR04MB7189:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c6c5ea2-fe75-44ab-559c-08ddb58a0fa7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|366016|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?ZWK5HsjuB0MtWGy6Fh2SErgEaiMWr5ZaD1NuVwxM+CijIbZGGoXc2X1kP/5o?=
+ =?us-ascii?Q?UVOnJePqDbnuopYErGlMPBrKzmqIfirt0IfTUk10jAoL1/BzusGc2h+I3xb0?=
+ =?us-ascii?Q?kp7oy4Vjtf3DOXca7kg+UeooNAmiInrBqj9E+jixSzhVRMs3oF9TAeStVQSj?=
+ =?us-ascii?Q?ERYwRl/ZvFpBaOllSGG7bZLnkByGpnCGAeuLSnT4htsI5V+34NVT5BaYT84h?=
+ =?us-ascii?Q?YjKtHyfiT8oC/TfsFU6n/Mzb1PtxY5D04/+jJtDi/X4xKih6WP3rjG42m15l?=
+ =?us-ascii?Q?EXyBVE4hbGxLw9+alUq3ZcgR7RwxIedOYQCDJUrYZWAGG7u89E0C6+kbCcLk?=
+ =?us-ascii?Q?2hFuRTM3RtTc6XSMAjdsqxjF0ztmomIcfeaF0T1SzdGlYx6pD/kbe01emZTa?=
+ =?us-ascii?Q?esc07GvBKsPe+8k3hUl4om3JaHzq6o0ALFGruHOtBvjVJgkFIW5l+tOOM9Ye?=
+ =?us-ascii?Q?rSMDeEwNXKvw5cMp/do2jmAboYSyvKvcYKkeRTHCBCiflWYelbJSKtjisspN?=
+ =?us-ascii?Q?DUliWKx+GrF5WI0FFET4hvrOwIkjCAUnl/zj5QX21kQwuK3UBTEorYLR/qKX?=
+ =?us-ascii?Q?s3S9HJMKj+3C+2ndujqV59PZKSbF4U2DTCrAogc+usxzK1OE7khEKQTERFTD?=
+ =?us-ascii?Q?0PL4abg9FwrirZC0y9ngkUWCl+0+G83whsnEFEXJbPUrjwyS4mUUx0HPTeaT?=
+ =?us-ascii?Q?xUPA3FmuFOPsu8RkICW8Ic75vt56mQPnKuxmDuXqpyvguJW2xJ8iLG2XwUdI?=
+ =?us-ascii?Q?5T6p6CRtLg0cUNNBZhncd6APbZjNCNuOfKoQ8eB6kyAxZyeWH+KtipxkCjdU?=
+ =?us-ascii?Q?obQmlAzxSJx6q0WY0fgb1hKI8CI6dEK6hh0tF1/f45ErSQVOZ6Kd9OhTa/yU?=
+ =?us-ascii?Q?HP651M50fKj7iGOZ9rfWkjwfqAOf+D/ARZ8zo0XZsTFSds7AoGiP6T43Cxee?=
+ =?us-ascii?Q?HXUKtiiidBv6pADxqbLCCk53p0uw+IJuy8SKHzksPiN1YndKla8lQJ4TrFVX?=
+ =?us-ascii?Q?fHihkaIBxrV9xGsvYrAirosS4atPiAKhZW5A/aNcBcZkG39hmELqap4zGCuA?=
+ =?us-ascii?Q?15Osp9OsR6awGZP0Zp2WJq5i2VWX9f46VuysfnrKDYq9irIfkYF8nETBrNT4?=
+ =?us-ascii?Q?xnRhDvApDWaMUwdXQ900MtkDceBO84pl8f6PZT/pPKRTsh/rRJjBdzmfW5Y6?=
+ =?us-ascii?Q?HHLQ7ViGqbsWdn920rBBjtkBo/BMojb75J/7R+KSQ+KFHm1ve9Qc0a2/TDHC?=
+ =?us-ascii?Q?ojjKCJDLUFgbFiyRTqkrMGeLimj7dxhNsgeQv6N3zFbkVUFGAtr+M6xT4lKo?=
+ =?us-ascii?Q?5wWCC5+mb/z06HKyNbEemJ/iJBlA9EXoSk4/gD6tmy8zFrZMK3OYhwJJrlEV?=
+ =?us-ascii?Q?eY1kTAzkLSgpu3eiZbWbOWGLmR5DYLo5SBRkVWiYjqxnJkZuIWlY50xl1n6m?=
+ =?us-ascii?Q?bjFYi1YvaplnVHApo+AZGEfYo7zR/cHi6pERn6ttKlrmCJmTx8MmUA=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10744
+X-CodeTwo-MessageID: 9306aa3e-5fdc-4f61-9e7b-c1ff678c0019.20250627145111@westeu12-emailsignatures-cloud.codetwo.com
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E0.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: ed38b64f-ebf4-47f0-01a7-08ddb58a0ccb
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|82310400026|376014|7416014|1800799024|35042699022;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nxsskxYUmBQLSB2QN2AJLNFZ6QSEfu+7GWAFm5QDPgjIsF7GUPYlsfL+ftWc?=
+ =?us-ascii?Q?TuoGtHuAY+4Aw31Hnb+qeg07eh923jCSOn+JJXeNfVP1Wb2LRzyA/GDags8n?=
+ =?us-ascii?Q?4lhxy3LDIgCzHyNveXh3o8CUxysDFYw5dqVWE4zQMZJqzXSknET5oyW40LRE?=
+ =?us-ascii?Q?5ZudNnrglvaNaU0n2/HI8CKqMLH5lg8Ur7hQaFGjvHs/qle/tIxE0wCRUGPb?=
+ =?us-ascii?Q?ePUzgwuQen+pEpG5reT3fmBeOo7j1Tjnwaycv1M/FAteBwTgce5cJZzSgfC4?=
+ =?us-ascii?Q?mKuPugU+WLsmrHczfTiUlFYKALt8K6UtTrlzr+uuqjTxvR1ZtsjtA9AOH5N3?=
+ =?us-ascii?Q?KnHK1ETKVLthDdh0/pnBtj8nYPja49PpgqWrofPY1Kcbk2ASbew4EM0N2Ecp?=
+ =?us-ascii?Q?5I2xlos2RRcvB2ohCgH89i3AWZogUeFaVd1hcuCL6tBnlG8BOLsl7rnfGb/u?=
+ =?us-ascii?Q?OA83BGNfQhHY/ziO9ZEN0XQlIO0tZTe97PWEtHY+azd+JMPjRmiTt4A5IZ/X?=
+ =?us-ascii?Q?y18qxQgInseJOgkwAaqJMB6ps+GWFMTGT2ry/qzW2gQ4GZ38/DjrZsyHH8u9?=
+ =?us-ascii?Q?iLSYsqnbWo1YFtO2IKAy588Sbhu02+HU7/XtvmS6inXPD/8nw7PlaL/7QaLt?=
+ =?us-ascii?Q?E5POUWbG81Z7wPgmLQkxqRhqSx/vJ45GAY0sJ+h75MuBQHKiKGFsbFnCm2fL?=
+ =?us-ascii?Q?XVUrDkSx3Zzmj/2MSTSN6CfyoWyhGcImcCH2Gr2A15ZMhq43aLCNLA/vJbBT?=
+ =?us-ascii?Q?TqJLzZanpL6lk0+HDlR/N422jvqGoJvN7D2IU3NvUkIixdwjD4vLr43Yg4KL?=
+ =?us-ascii?Q?SB6Nh89pA0kbsQ2xrIEppUQ1Q8w9FYJg5DtVAXuPJYBzuao0h0RBIDVjIsrW?=
+ =?us-ascii?Q?tbUPG1ytz7MgBZ6NbxfZUCliZqRq1DR+cAcAaBaK6gLYtK09V7MMG4zW3m/T?=
+ =?us-ascii?Q?J8VSxYx60y6PpkBpNOwTPBA7pg9DDg1KzUbx+VQU/IZ0hnl0UVG8D9B7SBAY?=
+ =?us-ascii?Q?0oIH03rsfxOK53Up3DuoMWJnkTW7QF8OFCJE4dfMssV6EaV7+vcMK3dR7BI7?=
+ =?us-ascii?Q?2x2PSPfiBfojYBb3Akt3lZv/HGG8WWe26vqwvHUWs6DLf9SVhnY+3rS2+I6D?=
+ =?us-ascii?Q?YLlE8QRQxWHoVTmP+vAruWeBn1EFzOA5C4XtQ9yvg+GmHBbqg8/Ira9XCeYZ?=
+ =?us-ascii?Q?DJg+m0fFq8PnQ6jeg/OGnpmbnmyWkqhNaCPKC2jUFM3wnaSYNsMrGe2sIw18?=
+ =?us-ascii?Q?NkMQVggRRWq/g4zuQPMt3Zveypiq2+cHHklUE0+W0rokqR/uMP0hwbHWtBtQ?=
+ =?us-ascii?Q?7XMgoca2TyEPNJOwhsTaRt+BrP/ak3s7dycNHpFtaOMNkbJLPouGSpuh3e7Q?=
+ =?us-ascii?Q?foWRW5KLRtUn9r/F6rriYoNmsGEaSeSwLcbOAOKA6NdkLT/l787cUqT1TUeV?=
+ =?us-ascii?Q?CDvnbLq/F0kQREUjxpltVHDsefo/3PVIHKlu+dcjG7XYnNpYRVNOyg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(82310400026)(376014)(7416014)(1800799024)(35042699022);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 14:51:12.7350
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c6c5ea2-fe75-44ab-559c-08ddb58a0fa7
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E0.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_075003_575034_9504C69D 
-X-CRM114-Status: GOOD (  30.56  )
+X-CRM114-CacheID: sfid-20250627_075129_009621_057570D6 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,78 +190,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 08:31:20AM -0600, Mathieu Poirier wrote:
-> On Thu, 26 Jun 2025 at 15:59, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> >
-> > From: Hiago De Franco <hiago.franco@toradex.com>
-> >
-> > This patch series depends on Ulf's patches that are currently under
-> > review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
-> > Without them, this series is not going to work.
-> >
-> 
-> I thought we agreed to repost when the feature referred to above and
-> the work in drivers/pmdomain/core.c will be merge.  I'm not sure what
-> to do with this patchset.
+XRGB8888 is the default mode that Xorg will want to use. Add support
+for this to the Zynqmp DisplayPort driver, so that applications can use
+32-bit framebuffers. This solves that the X server would fail to start
+unless one provided an xorg.conf that sets DefaultDepth to 16.
 
-Sorry Mathieu, my goal was to update the whole patch series with your
-reviews from v5 so you could take a look and then I would resend
-everything again once the others have been merged.
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+---
 
-If you prefer I can wait for the other patches to be merged and then
-send the next v7 corrected.
+ drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Best regards,
-Hiago.
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynq=
+mp_disp.c
+index 80d1e499a18d..501428437000 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+@@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[=
+] =3D {
+ 		.buf_fmt	=3D ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+ 		.swap		=3D true,
+ 		.sf		=3D scaling_factors_888,
++	}, {
++		.drm_fmt	=3D DRM_FORMAT_XRGB8888,
++		.buf_fmt	=3D ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
++		.swap		=3D true,
++		.sf		=3D scaling_factors_888,
+ 	}, {
+ 		.drm_fmt	=3D DRM_FORMAT_RGBA8888,
+ 		.buf_fmt	=3D ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
+--=20
+2.43.0
 
-> 
-> > For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
-> > started by the bootloader and the M core and A core are in the same
-> > partition, the driver is not capable to detect the remote core and
-> > report the correct state of it.
-> >
-> > This patch series implement a new function, dev_pm_genpd_is_on(), which
-> > returns the power status of a given power domain (M core power domains
-> > IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
-> > already powered on, the driver will attach to it.
-> >
-> > Finally, the imx_rproc_clk_enable() function was also changed to make it
-> > return before dev_clk_get() is called, as it currently generates an SCU
-> > fault reset if the remote core is already running and the kernel tries
-> > to enable the clock again. These changes are a follow up from a v1 sent
-> > to imx_rproc [2] and from a reported regression [3].
-> >
-> > [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
-> > [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
-> > [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
-> >
-> > v6:
-> > - Added "reviewed by" from Ulf and Bjorn.
-> > - Fixed and improved commit descriptions of patches 2 and 3.
-> > - Improved the comment inside imx_rproc.c file.
-> > v5:
-> > - https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
-> > v4:
-> > - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
-> > v3:
-> > - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
-> > v2:
-> > - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
-> > v1:
-> > - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
-> >
-> > Hiago De Franco (3):
-> >   pmdomain: core: introduce dev_pm_genpd_is_on()
-> >   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
-> >     SCU
-> >   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
-> >
-> >  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
-> >  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
-> >  include/linux/pm_domain.h      |  6 +++++
-> >  3 files changed, 73 insertions(+), 7 deletions(-)
-> >
-> > --
-> > 2.39.5
-> >
+base-commit: 67a993863163cb88b1b68974c31b0d84ece4293e
+branch: linux-master-zynqmpdp-32bit
+
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
 
