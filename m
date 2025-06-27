@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1247FC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E46BC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 21:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7Gdp8Nk60ZfRYhbL7kV9nXUPDhA4CVDa+kStehV06k=; b=iWvEIKGZV+xIU+1+vKqyifW7GH
-	zegW7BE96H3k4xCXVoEYJXPKVKeJjvKTimU/n0kmECH/y2ji4+cEMZHkcnRKraomQSvmz5BMPVi9n
-	l0X9+jJCOS6fbZloXoHXa4ZY5D8lSD/ERot96ozEduKJIUgGxmPP35ypyednnwUmFpP7ISyn0CrHS
-	fRw2dpqYCbjyHOIIBAQG/9qDN4sPIRe/rslJnbpMgaa0GEsAkx0VShJdG6vgI/1fSs8XduGuAqBXH
-	kC6ZpBCJv/A3YnazNgKwDmh9ID6tHlgO93RMx1s13a9ACa/401DD5rUnHFgK90+ykAcasz0RrMmsm
-	3IGLY+sA==;
+	bh=1AMsankqQ7fXut//cwhaRHpcwwLLJJgqr0ZblnCJIz0=; b=UY8gGk0MQPJf2QT92TAXMMnKR7
+	cnjNa47wDy4MOyZGooJl6MGafUjE0UUiOw0e/G5wbHx1sZAMPuOP8xZGDNoZ4/qLyljL+eMSRCUn+
+	p9w1206QOf/psfKUeHPBMyUeehXgkblMkm0NfbRAEt5rrIAxzeyALaMKncCJXfzGiWSwRGxB/vDtB
+	URQ+gXmdhkRkv0/swRd3WniH9tSkPqBdB3M+UojzU9vyo5TRABNWVVSIl8xjoW0O3yS0adI3Twb7l
+	6B/E+zAsXgw3SkYVGDE8NCl4DgUa3o7YcHYXWCfqsn/2vdRWgq49lw97bzk+PZGhfP3h7Y4UtPaaU
+	9+/Ub2Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGAp-0000000FoMO-0ET8;
-	Fri, 27 Jun 2025 20:59:51 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uVGD6-0000000FoUk-3a8G;
+	Fri, 27 Jun 2025 21:02:12 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVG0M-0000000FnGN-2Iug
+	id 1uVG6l-0000000Fnth-3q5S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 20:49:03 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55RKmwlK2112130;
-	Fri, 27 Jun 2025 15:48:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751057338;
-	bh=l7Gdp8Nk60ZfRYhbL7kV9nXUPDhA4CVDa+kStehV06k=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=iwLKQmF/0Z4iRQaqC2FBfdg22yRU7fTYaVG+Vcqh4jYXONpgyQo5X6mHl15R/C+ao
-	 1np+r4hIv6he8nd5DXD0k8yy4GltBg/tcPhJceG70jPKq2Vwplmy5C0wrnTaKCJIIf
-	 X2Vkm0QxO9y6ii/0d54uM+0SBAAj5F0L+MX/wdY4=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55RKmw0T783155
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 27 Jun 2025 15:48:58 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 27
- Jun 2025 15:48:57 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 27 Jun 2025 15:48:57 -0500
-Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55RKmpWX3421525;
-	Fri, 27 Jun 2025 15:48:57 -0500
-From: Kendall Willis <k-willis@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
-        <ulf.hansson@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>
-CC: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
-        <msp@baylibre.com>, <khilman@baylibre.com>,
-        Kendall Willis <k-willis@ti.com>
-Subject: [PATCH 2/2] pmdomain: ti_sci: Add LPM abort sequence to suspend path
-Date: Fri, 27 Jun 2025 15:48:21 -0500
-Message-ID: <20250627204821.1150459-3-k-willis@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250627204821.1150459-1-k-willis@ti.com>
-References: <20250627204821.1150459-1-k-willis@ti.com>
+	Fri, 27 Jun 2025 20:55:41 +0000
+Date: Fri, 27 Jun 2025 13:55:25 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751057734;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1AMsankqQ7fXut//cwhaRHpcwwLLJJgqr0ZblnCJIz0=;
+	b=ryxq9xyOHz5HcEmHKXHWirB5Xpi7L1zTlBdjMXx/7++C8tCcdl/h+rYXtM3iVSXvEC7B7P
+	11j/UAoaFs0ZNl9IKeMbblgKhnCbvPA0ZkwN1k+IBnrMoa6O9wiT7rXXgf42CoURxWxwZk
+	pXvRVVgsa3Hiney2sAnFfkyylePCAqU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Ben Horgan <ben.horgan@arm.com>, kvm@vger.kernel.org,
+	pbonzini@redhat.com, corbet@lwn.net, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	mizhang@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 02/22] arm64: Generate sign macro for sysreg Enums
+Message-ID: <aF8FPTupC_VnAldN@linux.dev>
+References: <603eb4c7-5570-438c-b747-cdcc67b09ea6@arm.com>
+ <gsntecv49aml.fsf@coltonlewis-kvm.c.googlers.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <gsntecv49aml.fsf@coltonlewis-kvm.c.googlers.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_134902_680415_9EC2E473 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250627_135540_241795_B3E3B2D9 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create ->suspend_late() and ->suspend_noirq() hooks to add abort sequence
-to any driver within the PM domain with either of those hooks. If a driver
-fails to suspend with those hooks, add a call to the DM to abort entering
-the LPM. The suspend hooks of the PM domains driver inserts itself into
-the suspend path of all devices connected to the TI SCI PM domain. So if
-any device in the PM domain with either a ->suspend_late() or
-->suspend_noirq hook fails to suspend, the PM domain drivers suspend hook
-will send the abort call to the DM.
+On Fri, Jun 27, 2025 at 08:45:38PM +0000, Colton Lewis wrote:
+> Hi Ben. Thanks for the review.
+> 
+> Ben Horgan <ben.horgan@arm.com> writes:
+> 
+> > Hi Colton,
+> 
+> > On 6/26/25 21:04, Colton Lewis wrote:
+> > > There's no reason Enums shouldn't be equivalent to UnsignedEnums and
+> > > explicitly specify they are unsigned. This will avoid the annoyance I
+> > > had with HPMN0.
+> > An Enum can be annotated with the field's sign by updating it to
+> > UnsignedEnum or SignedEnum. This is explained in [1].
+> 
+> > With this change ID_AA64PFR1_EL1.MTE_frac would be marked as unsigned
+> > when it should really be considered signed.
+> 
+> > Enum	43:40	MTE_frac
+> > 	0b0000	ASYNC
+> > 	0b1111	NI
+> > EndEnum
+> 
+> Thanks for the explanation. I made this a separate commit because I
+> considered people might object and HPMN0 is already an UnsignedEnum in
+> my previous commit.
+> 
+> Do you think it would be a good idea to make plain Enums signed by
+> default or should I just remove this commit from the series?
 
-Adding an abort call in the ->suspend() hook is not necessary. TI SCI
-suspend sends the message to the DM to prepare to enter a low power mode.
-TI SCI suspend ALWAYS occurs after the ->suspend() hook for all TI SCI
-devices has been called.
+It is presumptive to associate a sign with an enumeration. Generally
+speaking, the only fields that can do signed / unsigned comparisons are
+the Feature ID register fields.
 
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
- drivers/pmdomain/ti/ti_sci_pm_domains.c | 46 ++++++++++++++++++++++++-
- 1 file changed, 45 insertions(+), 1 deletion(-)
+So please drop this and only keep the change for HPMN0.
 
-diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-index 82df7e44250bb..975defc16271d 100644
---- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-+++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-@@ -2,7 +2,7 @@
- /*
-  * TI SCI Generic Power Domain Driver
-  *
-- * Copyright (C) 2015-2017 Texas Instruments Incorporated - http://www.ti.com/
-+ * Copyright (C) 2015-2025 Texas Instruments Incorporated - http://www.ti.com/
-  *	J Keerthy <j-keerthy@ti.com>
-  *	Dave Gerlach <d-gerlach@ti.com>
-  */
-@@ -149,8 +149,47 @@ static int ti_sci_pd_suspend(struct device *dev)
- 
- 	return 0;
- }
-+
-+static int ti_sci_pd_suspend_late(struct device *dev)
-+{
-+	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-+	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
-+	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-+	int ret;
-+
-+	ret = pm_generic_suspend_late(dev);
-+	if (ret) {
-+		dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
-+		if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
-+			dev_err(dev, "%s: Failed to abort.\n", __func__);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int ti_sci_pd_suspend_noirq(struct device *dev)
-+{
-+	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-+	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
-+	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-+	int ret;
-+
-+	ret = pm_generic_suspend_noirq(dev);
-+	if (ret) {
-+		dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
-+		if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
-+			dev_err(dev, "%s: Failed to abort.\n", __func__);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
- #else
- #define ti_sci_pd_suspend		NULL
-+#define ti_sci_pd_suspend_late		NULL
-+#define ti_sci_pd_suspend_noirq		NULL
- #endif
- 
- /*
-@@ -264,6 +303,11 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
- 				    pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
- 					pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
- 
-+				if (pd_provider->ti_sci->ops.pm_ops.lpm_abort) {
-+					pd->pd.domain.ops.suspend_late = ti_sci_pd_suspend_late;
-+					pd->pd.domain.ops.suspend_noirq = ti_sci_pd_suspend_noirq;
-+				}
-+
- 				pm_genpd_init(&pd->pd, NULL, true);
- 
- 				list_add(&pd->node, &pd_provider->pd_list);
--- 
-2.34.1
+Thanks,
+Oliver
 
+> > > Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> > > ---
+> > >    arch/arm64/tools/gen-sysreg.awk | 1 +
+> > >    1 file changed, 1 insertion(+)
+> 
+> > > diff --git a/arch/arm64/tools/gen-sysreg.awk
+> > > b/arch/arm64/tools/gen-sysreg.awk
+> > > index f2a1732cb1f6..fa21a632d9b7 100755
+> > > --- a/arch/arm64/tools/gen-sysreg.awk
+> > > +++ b/arch/arm64/tools/gen-sysreg.awk
+> > > @@ -308,6 +308,7 @@ $1 == "Enum" && (block_current() == "Sysreg" ||
+> > > block_current() == "SysregFields
+> > >    	parse_bitdef(reg, field, $2)
+> 
+> > >    	define_field(reg, field, msb, lsb)
+> > > +	define_field_sign(reg, field, "false")
+> 
+> > >    	next
+> > >    }
+> 
+> > Thanks,
+> 
+> > Ben
+> 
+> > [1]
+> > https://lore.kernel.org/all/20221207-arm64-sysreg-helpers-v4-1-25b6b3fb9d18@kernel.org/
 
