@@ -4,73 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69ACC83000
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8164AC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tf5QNg51uN0nz7hXILxBBxSG24pHlKfzikD1/6accKA=; b=ir9QR8HrVtH6Cs097L8Qq5Gh9f
-	IqrkVGMsU2cH/6mj0QTfNixONywakOcmD0jvUPUoJkXF/m6E3avUl9udqwdxrUMgbsJhtogw/uLl+
-	HoJ5Jw73MaNJrIFGO30zVACXCvXx/S016z2C4bLbPJFT+4Epiz8fnGV0uGkEZfCes2Hby26yK31XX
-	c3c64Htm6tB2K0T1Z27eNLDZs4YKCMHgx4EfUbn+QtUULfyOcd6A948lAtPqwY36d2IZR8nivzP40
-	csILNt9JZlnsujaCbmFE1VhPo6wpC3RnOaLrhTKDGX7JLbiT5n/BBvy+fVedRMtywyfY5sYjQwBXD
-	Tzxr2zvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cFffsWSP9wE6BDzyHbT0IRZNUmIrPtpRMCeF7m6L65I=; b=nwmHviisXlxjJk
+	eYHtHvRYtCu0oSV8On9FfyriU8K3ERdpm7SG7ffQFVenNKOX63eq2vQFKgJ5TRIuZUi/8vRY1L2Qe
+	e28yodp/MOtTmoBzhzgTTWTG0Qd5JAGsQtXXayhmMfZdh+evD6AOGPpvXHo8GJPXWXAUauxHzk89r
+	IMVfprbeqpXdC3Xs/LlNGUX2LAZxjwrBGgFgr8LBRjwd/5ggc/iFEyKHQv12OJZcw78gnpxFiKSVI
+	Q36CIxhdLat3fA7lfnjeN9xOh8Wl+celgcjSP+PDfUVQfxvdXys3dGhbwDX4GKki7Cd9odSVcKp5y
+	cG8Aj3CyjG7/AEDZahyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVENP-0000000FYmC-1GTu;
-	Fri, 27 Jun 2025 19:04:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCp5-0000000FPDz-2atU
+	id 1uVENT-0000000FYuC-2tEG;
+	Fri, 27 Jun 2025 19:04:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uVCrJ-0000000FPVz-2x0t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 17:25:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1FCA6143C;
-	Fri, 27 Jun 2025 17:25:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C420BC4CEED;
-	Fri, 27 Jun 2025 17:25:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751045110;
-	bh=sHk5RpacHVScooaj/Y+sk96HDvaUhpAnndDJawkuV2o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tNe1ixy75qgwX291WZrclumD+DTCfGJHRD7MA81ngrUExqd0HMMufV2qTA644OQQ/
-	 Mr8M12tTVbZsaqQeQEBPcZGAm1/TFi1dmQjeqmMxJJWLdOKs8t6YL1KFJFrBSTLPdJ
-	 HV41SIObrf8IYJ2wp679bSpczKCzcR81RipLZiKWDeZF40IDdTCbS8nBy4m48JJLNp
-	 W7Uoq0C9QeXMsa5MpWeOX2dispoDKzgOaIPRdAZIKzatWqkkU/GWzzUddZsomumGUW
-	 r946f4GmWFSNV2I0NAFFnM8cCfPm4UDpNjVXul2JqW3RYejcvwR6Co04r7kUcATwzD
-	 aXRBdHFjc0OOw==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 27 Jun 2025 18:20:44 +0100
-Subject: [PATCH 1/3] arm64/hwcap: Add hwcap for FEAT_LSFE
+	Fri, 27 Jun 2025 17:27:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA0761A00;
+	Fri, 27 Jun 2025 10:27:11 -0700 (PDT)
+Received: from [10.57.30.218] (unknown [10.57.30.218])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3498F3F66E;
+	Fri, 27 Jun 2025 10:27:27 -0700 (PDT)
+Message-ID: <e73942ec-4c38-4c1d-a817-d8ef4d4c2c5c@arm.com>
+Date: Fri, 27 Jun 2025 18:27:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/13] arm64: debug: remove hook registration, split
+ exception entry
+To: Will Deacon <will@kernel.org>
+References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
+ <aF69RR36vD5U2q9z@willie-the-truck>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US
+Organization: Arm Ltd.
+In-Reply-To: <aF69RR36vD5U2q9z@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-arm64-lsfe-v1-1-68351c4bf741@kernel.org>
-References: <20250627-arm64-lsfe-v1-0-68351c4bf741@kernel.org>
-In-Reply-To: <20250627-arm64-lsfe-v1-0-68351c4bf741@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3594; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sHk5RpacHVScooaj/Y+sk96HDvaUhpAnndDJawkuV2o=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoXtPuXYjTexLVMi4SmHohaF0nZH+CHJyBlxP61
- XPZKn+1HG2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaF7T7gAKCRAk1otyXVSH
- 0ERaB/9dXvOm+cbmv7v9o3lOh1PeSQC0Rm37Zukor8cHGUsDkm+kz4Kr+7whChuBpJwL8Y3SCoo
- exNu35wyXEVD9bZYZT7OQiHKpxDVPukH1vb1jG2BAipmA2HoTT3zpviYY7PgudARwAdvb+hL2h3
- HvpJuDyMYLkzhKe8BrKUbZxFaBWOk566Qy/x22t0QWCsmZ5iDREAaaQa7VcGzmXNJ+mkGlLsDxj
- 1UYrzTrBXDdg2mOou/LJQt4TlCNS6E1A4r15Mwmrh8W/7P1y5rJ/G6RVg2Woyiu/DOh1xq4t926
- JsxvvdCBQ6wtvdPpgsg9xlgDqNcTGIpYuK3vMZ0JJCFjPy9P
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_102729_784411_46887EBA 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +62,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_LSFE (Large System Float Extension), providing atomic floating point
-memory operations, is optional from v9.5. This feature adds no new
-architectural stare and we have no immediate use for it in the kernel so
-simply provide a hwcap for it to support discovery by userspace.
+Hi Will,
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- Documentation/arch/arm64/elf_hwcaps.rst | 4 ++++
- arch/arm64/include/asm/hwcap.h          | 1 +
- arch/arm64/include/uapi/asm/hwcap.h     | 1 +
- arch/arm64/kernel/cpufeature.c          | 2 ++
- arch/arm64/kernel/cpuinfo.c             | 1 +
- 5 files changed, 9 insertions(+)
+On 27/06/2025 16:48, Will Deacon wrote:
+> Hi Ada,
+>
+> On Fri, Jun 20, 2025 at 10:11:54PM +0100, Ada Couprie Diaz wrote:
+>> This series simplifies the debug exception entry path by removing handler
+>> registration mechanisms for the debug exception handlers, a holdover from
+>> the arm kernel, as well as the break and stepping handlers.
+>> This moves much of the code related to debug exceptions outside of
+>> `mm/fault.c` where it didn't make much sense.
+>> This allows us to split the debug exception entries: going from one common
+>> path per EL for all debug exceptions to a unique one per exception and EL.
+>>
+>> The result is a much simpler and fully static exception entry path, which
+>> we tailor to the different exceptions and their constraints.
+> I think this looks great, thanks. I've left Reviewed-bys on everything
+> and a minor nit on the last patch.
+Thanks ! Added your tag and applied the nit, I raised the possibility 
+earlier
+so absolutely fine with it.
+> However, the linker is less
+> enthusiastic than me because it fails with this series and 'allnoconfig':
+>
+>    ld.lld: error: undefined symbol: do_breakpoint
+>    >>> referenced by entry-common.c
+>    >>>               arch/arm64/kernel/entry-common.o:(el1_breakpt) in archive vmlinux.a
+>    >>> referenced by entry-common.c
+>    >>>               arch/arm64/kernel/entry-common.o:(el0_breakpt) in archive vmlinux.a
+>
+>    ld.lld: error: undefined symbol: do_watchpoint
+>    >>> referenced by entry-common.c
+>    >>>               arch/arm64/kernel/entry-common.o:(el1_watchpt) in archive vmlinux.a
+>    >>> referenced by entry-common.c
+>    >>>               arch/arm64/kernel/entry-common.o:(el0_watchpt) in archive vmlinux.a
+>    make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
+>
+> Please can you take a look?
+Apologies, I knew exactly what that was : hardware breakpoints being 
+behind a config,
+which I failed to consider when exposing the handlers in 
+`include/asm/exception.h`.
 
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index 69d7afe56853..aafb969ca263 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -435,6 +435,10 @@ HWCAP2_SME_SF8DP4
- HWCAP2_POE
-     Functionality implied by ID_AA64MMFR3_EL1.S1POE == 0b0001.
- 
-+HWCAP3_LSFE
-+    Functionality implied by ID_AA64ISAR3_EL1.LSFE == 0b0001
-+
-+
- 4. Unused AT_HWCAP bits
- -----------------------
- 
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index 1c3f9617d54f..f8d02c14e5a2 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -176,6 +176,7 @@
- #define KERNEL_HWCAP_POE		__khwcap2_feature(POE)
- 
- #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
-+#define KERNEL_HWCAP_LSFE		__khwcap3_feature(LSFE)
- 
- /*
-  * This yields a mask that user programs can use to figure out what
-diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-index 705a7afa8e58..339b9dbf7cfc 100644
---- a/arch/arm64/include/uapi/asm/hwcap.h
-+++ b/arch/arm64/include/uapi/asm/hwcap.h
-@@ -143,5 +143,6 @@
- /*
-  * HWCAP3 flags - for AT_HWCAP3
-  */
-+#define HWCAP3_LSFE		(1 << 0)
- 
- #endif /* _UAPI__ASM_HWCAP_H */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index b34044e20128..726054ac8091 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -278,6 +278,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar2[] = {
- 
- static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FPRCVT_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_LSFE_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FAMINMAX_SHIFT, 4, 0),
- 	ARM64_FTR_END,
- };
-@@ -3175,6 +3176,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
- 	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
- 	HWCAP_CAP(ID_AA64ISAR3_EL1, FAMINMAX, IMP, CAP_HWCAP, KERNEL_HWCAP_FAMINMAX),
-+	HWCAP_CAP(ID_AA64ISAR3_EL1, LSFE, IMP, CAP_HWCAP, KERNEL_HWCAP_LSFE),
- 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
- #ifdef CONFIG_ARM64_SVE
- 	HWCAP_CAP(ID_AA64PFR0_EL1, SVE, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE),
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index c1f2b6b04b41..2a1efe8e1fdf 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -160,6 +160,7 @@ static const char *const hwcap_str[] = {
- 	[KERNEL_HWCAP_SME_SFEXPA]	= "smesfexpa",
- 	[KERNEL_HWCAP_SME_STMOP]	= "smestmop",
- 	[KERNEL_HWCAP_SME_SMOP4]	= "smesmop4",
-+	[KERNEL_HWCAP_LSFE]		= "lsfe",
- };
- 
- #ifdef CONFIG_COMPAT
+I added a static inline stub for this case for both and built 
+successfully with `allnoconfig`.
+> Will
 
--- 
-2.39.5
+I sent a v5 with the changes mentioned here and the fix for `allnoconfig`.
 
+Thanks,
+Ada
 
