@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D8AC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F75C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okBbflHhbz4wUNU0tbiRe6wQzQN9ITm4ZIZ0Gjariis=; b=Tw3iIZ1Vwygu0V4prA5hW/T98K
-	HRVMLF7zR+js3Vw94yKtp0Yq2yOoMBG+lzuzT2l2+sQSBXMPoWiqm1/pU2DMacLbBluwWZuaLGMyZ
-	NHuNV7Jxd97wbNLodrPv+sUEYSlJG6mJNVw16A2ctiuWNO3Hm4RBdWLuF1AEatgykvW9XjQkydHFc
-	4GJjtJ9DW1umaQ6H+3eb3jR9cU+6lhLl9VpfvkOXh5jXMAMeb4nwbWN2a/CR3XEHr+KWx7+o5i1uu
-	EevgVMJjBm/U9Wp7sOuPXsMENpW+/LPFuSukwqFMH/mQ3dzxjx6/xmVNVBagDLyaB9yOw0I+6UUFp
-	+Y2u8laA==;
+	bh=anT+MpcAETEZTFVNotlxJrIA1V52NxZb8yCs+oSUW7A=; b=nf9i8xQvw0MxvV3uWp9b5CuEql
+	0bFnVxRZjb39WT55RewCMK+4AWquS9bVCfwbDl5Qg24trsOKxB2aWsTxkmsSP/ibxV/ndJ/a2xwhF
+	pBKpxJd6h+YQ6Je6SxHZ6U9x8eesGvakbyRhpD69iDgsyhnETQBLx1LkRJD2SW48wFZTaCcLWEdj1
+	8qqEM4ZvdtM8bW+I/GhDIs3HJUlF5PEj5FBv5uiH5jvrcLwJXNkMoQgqrGdgzcc0o8+BiAMu42NSu
+	Z7TOCOtVTBLmBsigTw6fVTDIbDUoHztHNdhmvOqqhWXi3ppaUIc1Nh5fiIakW46Lpvf7IrGWPPx/r
+	9chp9OnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVFcP-0000000FkJt-135h;
-	Fri, 27 Jun 2025 20:24:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uVFeg-0000000FkXc-1bHe;
+	Fri, 27 Jun 2025 20:26:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVFSY-0000000FjMe-3hRx;
-	Fri, 27 Jun 2025 20:14:08 +0000
+	id 1uVFU9-0000000FjXT-28yu;
+	Fri, 27 Jun 2025 20:15:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10ACB4587C;
-	Fri, 27 Jun 2025 20:14:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE296C4CEE3;
-	Fri, 27 Jun 2025 20:14:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E113944CD4;
+	Fri, 27 Jun 2025 20:15:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5257C4CEE3;
+	Fri, 27 Jun 2025 20:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751055245;
-	bh=VYYXKd4DVhfkDjJTOWxBgy92/r8CsxVv0INxt3+97j4=;
+	s=k20201202; t=1751055344;
+	bh=A1HZdHwLlVd1wktKvcUvDiv1sLcJQsvaROUniDdEirI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z/h+ThulbxEHu/znIGjOtmBfK3QVP+9m7X7rsOhRBfipwgL6fy267ecQXtR6nHCIW
-	 ei7Z5DrFQx44UYPwalMOGhWVIG4TKI+2bXYZYYKBCou+ua3RmCMQgj4cRaGCMwHEbL
-	 g55YQfwq2jk6wuTm2CgadnwpR2YOOY9U60KRa+e6VUD51yWgMuXukMZm6C6VCnfYUX
-	 18vhQka3tjURh0/9ZNbxCHJVJlSkpSsSHNchQAJinehUZq+C9v1Vp4SL3fUY82HOcK
-	 a+VoYgRb1akhChMPxA3wf3yzWqHV1IFMlEbHCS9jcdPbboSq4Aoqq3Xc3FxTfIyfTO
-	 LYEsckce9Rftw==
-Date: Fri, 27 Jun 2025 15:14:04 -0500
+	b=qrHiXih+BZdymtaHzgqTsVDdu1FEBGcLRQgLhv1aG2fsboVDOZbVMbynjwTaX3sNA
+	 iWGag08iZ4mv30r/ci/yihUghINwgdiMVZhoZBh3bnyRsXN5OthTcrzdiFHQ41xlmk
+	 2woK0MPlzohsTuK9e63xEhfpn+73hPWvc9IN1IsA3hHrKBOYPv/FvVYXSbyu6VGn8c
+	 i19BkmMr0OojSpgJxRcDIwIPlwJ1tP+2svqvKBr7A8H3B8V5Gr3lGA8x91em23ot1z
+	 K/BMTKv86TfG4EaUgc3t9yudO3Bo4hTMV48TuVsbF7MWaeEADllTHH67D/o+viXmad
+	 hTLcRg4Fpphdw==
+Date: Fri, 27 Jun 2025 15:15:43 -0500
 From: Rob Herring <robh@kernel.org>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	sudeep.holla@arm.com, cristian.marussi@arm.com,
+Cc: linux-mediatek@lists.infradead.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com, ulf.hansson@linaro.org,
+	y.oudjana@protonmail.com, fshao@chromium.org, wenst@chromium.org,
+	lihongbo22@huawei.com, mandyjh.liu@mediatek.com, mbrugger@suse.com,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
 	kernel@collabora.com
-Subject: Re: [PATCH v1 1/2] dt-bindings: firmware: Add MediaTek TinySYS SCMI
- Extension protocol
-Message-ID: <20250627201404.GA4156149-robh@kernel.org>
-References: <20250623120136.109311-1-angelogioacchino.delregno@collabora.com>
- <20250623120136.109311-2-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v1 01/13] dt-bindings: power: mediatek: Document
+ mediatek,bus-protection
+Message-ID: <20250627201543.GA4171766-robh@kernel.org>
+References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
+ <20250623120154.109429-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250623120136.109311-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250623120154.109429-2-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_131406_937418_5D929FBF 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250627_131545_589834_4980580D 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +77,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 23, 2025 at 02:01:35PM +0200, AngeloGioacchino Del Regno wrote:
-> Add the MediaTek TinySYS SCMI Extension protocol as found on a
-> number of SoCs, including MT6895 and MT8196.
+On Mon, Jun 23, 2025 at 02:01:42PM +0200, AngeloGioacchino Del Regno wrote:
+> Add a new mediatek,bus-protection property in the main power
+> controller node and deprecate the old mediatek,infracfg,
+> mediatek,infracfg-nao and mediatek,smi properties located in
+> the children.
 > 
-> This includes controls and power state notifications for the GPU,
-> CPU Memory latency Manager (cm_mgr), SLBC, SSPM and others.
+> This is done in order to both simplify the power controller
+> nodes and in preparation for adding support for new generation
+> SoCs like MT8196/MT6991 and other variants, which will need
+> to set protection on new busses.
+
+Protection like access controls? We have the access-controller binding 
+for that.
+
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../firmware/mediatek,mt6895-scmi.yaml        | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6895-scmi.yaml
+>  .../power/mediatek,power-controller.yaml      | 40 +++++++++++++++++++
+>  1 file changed, 40 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/mediatek,mt6895-scmi.yaml b/Documentation/devicetree/bindings/firmware/mediatek,mt6895-scmi.yaml
-> new file mode 100644
-> index 000000000000..98a5b81983b1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/mediatek,mt6895-scmi.yaml
-> @@ -0,0 +1,22 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright 2025 Collabora Ltd
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/mediatek,mt6895-scmi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+> index 9c7cc632abee..2530c873bb3c 100644
+> --- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+> +++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+> @@ -44,6 +44,18 @@ properties:
+>    '#size-cells':
+>      const: 0
+>  
+> +  mediatek,bus-protection:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description:
+> +      A number of phandles to external blocks to set and clear the required
+> +      bits to enable or disable bus protection, necessary to avoid any bus
+> +      faults while enabling or disabling a power domain.
+> +      For example, this may hold phandles to INFRACFG and SMI.
+> +    minItems: 1
+> +    maxItems: 3
+> +    items:
+> +      maxItems: 1
 > +
-> +title: MediaTek System Control and Management Interface(SCMI) Vendor Protocols Extension
+>  patternProperties:
+>    "^power-domain@[0-9a-f]+$":
+>      $ref: "#/$defs/power-domain-node"
+> @@ -123,14 +135,17 @@ $defs:
+>        mediatek,infracfg:
+>          $ref: /schemas/types.yaml#/definitions/phandle
+>          description: phandle to the device containing the INFRACFG register range.
+> +        deprecated: true
+>  
+>        mediatek,infracfg-nao:
+>          $ref: /schemas/types.yaml#/definitions/phandle
+>          description: phandle to the device containing the INFRACFG-NAO register range.
+> +        deprecated: true
+>  
+>        mediatek,smi:
+>          $ref: /schemas/types.yaml#/definitions/phandle
+>          description: phandle to the device containing the SMI register range.
+> +        deprecated: true
+>  
+>      required:
+>        - reg
+> @@ -138,6 +153,31 @@ $defs:
+>  required:
+>    - compatible
+>  
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8183-power-controller
+> +    then:
+> +      properties:
+> +        mediatek,bus-protection:
+> +          minItems: 2
+> +          maxItems: 2
 > +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8365-power-controller
+> +    then:
+> +      properties:
+> +        mediatek,bus-protection:
+> +          minItems: 3
+> +          maxItems: 3
 > +
-
-This schema will never be applied.
-
-> +properties:
-> +  protocol@80:
-> +    $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
-> +    unevaluatedProperties: false
-> +
-> +    properties:
-> +      reg:
-> +        const: 0x80
-> +
-> +additionalProperties: true
+>  additionalProperties: false
+>  
+>  examples:
 > -- 
 > 2.49.0
 > 
