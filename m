@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388CCC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A4BC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MR0jhXrxJSGYYNDPFXw6wcHSU3nJPr+lxSlBTueeuLY=; b=M2rgE58QMohUVB5CBKVESmsrDN
-	oF9NJ9KM0vQREHcmiZ7jdjpen5gRRSxKwTMNtojSo9Tfk228WBt/S68GSbPTzBNnUqrrkYY6Ohnr5
-	zSScwCV96j0yLN41R4GQBUf2kG22PcqUbsn6+TaZoqiu9Q/kVm9hWIVU5McQ15m5LT5sKxPJGHiju
-	V1yYsp1GiUFyHegFJ2ApoirLVzdN91sD/COxxRu27u8Q+vXGDY61JSJ3SnzEIGNdn+3wAz7+X4a45
-	18bPvzV2ZFgPS0hGxxI8Tw9rQoStLunI4E+O5XCbZVblCVw8bOeKtCbKRS5WCEzrLTQ3E5kxvC0Ai
-	n45LwzHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LnY4u693r85NHiCyk1/hxNPBsrYOBWfolLs1TTp5yo=; b=2hDqjG28ESxqO7RW0ofMZb2du/
+	JKZaW+MyzL/+xaLv6Itcme3ogRh4yu0W+8Ft3ujlBVG1r563M6vY0qEzm+W61aKgyXNZjfar11w2C
+	hd+T9WUTZ5va+VKTVsvpVrF7srI8Jq+54SdNyaDkJC8Pc6KBtDw6nGTfn5kZNTELO4d1muzYKpkQG
+	I4vZNLWwyt/xepCBCudhLII1uI031q+ramRt3J7k4q0aaF+vP4TqOlORjeTdDJgMc9MoOz8SXMXmN
+	xBuJXi+ftNQoy0dt9qr7lqDl+FGr4ZWxtSFZAPsF7F1jY5g81DeGk4MBmfxwJ/4TJD9et0Zz/OviQ
+	N8lDmk4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBDb-0000000F8rz-0AZ7;
-	Fri, 27 Jun 2025 15:42:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uVBFr-0000000F9AH-3Dge;
+	Fri, 27 Jun 2025 15:44:44 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAaC-0000000Ezxv-0AAO
+	id 1uVAbm-0000000F0Hk-19qZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:01:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7A2D05C6CE9;
-	Fri, 27 Jun 2025 15:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 225C5C4CEE3;
-	Fri, 27 Jun 2025 15:01:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751036499;
-	bh=G83basSwJmom/UjEsv3A4K0YpUbhyHGDHOVGor+sYC8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GC8BTwZ5Zhns9//KZQl3at71K9DS6LTMDhoYTzHFzghg48sXazqO+X3knNNUE/Wkd
-	 DW0jneRafgrniYuJvtTSzpDyk/bUWDGVIoCikzZ9Tu664NlEwFbvFz6euiYSBRgTSG
-	 Wh5oJA3UEjrvGkaWL7cWhOianNhSnzRwMeYBknMl6D6ptHkOVH6VJHebxSbEMkKaG2
-	 8qPtskrpQbe4f8P0x5IV1Rt2MkEc0p0hfWa4k3KM7AJxj5sg8KQzl05iarRY+VVxJx
-	 d9ol4offvylbZFfhsdQFJzcZJQfPi/vB2ZXAhdCfnIch4/3oYUSO1h1A9/Eg/8uvSm
-	 cOo30SqgmoG9A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uVAa8-00Ab1s-Ur;
-	Fri, 27 Jun 2025 16:01:37 +0100
-Date: Fri, 27 Jun 2025 16:01:36 +0100
-Message-ID: <86plepb54f.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mingwei Zhang <mizhang@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 10/22] KVM: arm64: Set up FGT for Partitioned PMU
-In-Reply-To: <20250626200459.1153955-11-coltonlewis@google.com>
-References: <20250626200459.1153955-1-coltonlewis@google.com>
-	<20250626200459.1153955-11-coltonlewis@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, mizhang@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 27 Jun 2025 15:03:19 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 8D5D425B9B;
+	Fri, 27 Jun 2025 17:03:15 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id SKBRcaReXqhH; Fri, 27 Jun 2025 17:03:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1751036594; bh=vHgbqqxav7PLXVzwShebkckuGfsjD85hkjxnlgD60cs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UoRytafxH9QzkSuEhGQ2HepLO3UAu131e4BI//9c+8132UHkDbOtLQKy22yrR3Eu+
+	 wm6rc9/QwYtwaGKRMf+5wUb0VpG8Bd73pNEuw6KB53JRdiTiNT3nrdu/ocqSBQ/tdG
+	 z3XTI9zd5bfUhbHVlIA5qZi/k8I5pYTVMNTcEvyipk1EaMxDglwSEhw+Z8RMdXSsd9
+	 qnCfb7/xxNzFYjH6QYZZEqli6Ue6/NLlWgMPN6NPbM63P/9eE0rgh9ucZMJZYLBqnR
+	 UrmYwITZxYabuYlJfhV9Twg+Ya3D8l5T8Rk1xedsz4xyRS7Rw2j61VvjNruw+On4XG
+	 fuUX2QVvFmKzA==
+MIME-Version: 1.0
+Date: Fri, 27 Jun 2025 15:03:14 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+ <robh@kernel.org>, Conor Dooley <conor@kernel.org>, Ajay Kumar
+ <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: display: samsung,exynos7-decon: add
+ properties for iommus and ports
+In-Reply-To: <efa167d1-a5f3-47cd-855d-250f41a5e883@kernel.org>
+References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
+ <20250627-exynosdrm-decon-v3-1-5b456f88cfea@disroot.org>
+ <20250627-literate-talented-panda-cbac89@krzk-bin>
+ <85c3658fdfa90636caac3b3fce295915@disroot.org>
+ <efa167d1-a5f3-47cd-855d-250f41a5e883@kernel.org>
+Message-ID: <ab1a39df178b68e2f1d61a537e0d567c@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_080140_160675_BCE52A37 
-X-CRM114-Status: GOOD (  30.57  )
+X-CRM114-CacheID: sfid-20250627_080318_461169_45E6292C 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,162 +88,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 21:04:46 +0100,
-Colton Lewis <coltonlewis@google.com> wrote:
+On 2025-06-27 14:44, Krzysztof Kozlowski wrote:
+> On 27/06/2025 15:44, Kaustabh Chakraborty wrote:
+>>>> a/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+>>>> +++
+>>>> b/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+>>>> @@ -80,6 +80,14 @@ properties:
+>>>>        - const: vsync
+>>>>        - const: lcd_sys
+>>>> 
+>>>> +  iommus:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  ports:
+>>>> +    $ref: /schemas/graph.yaml#/properties/ports
+>>>> +    description:
+>>>> +      Contains a port which is connected to mic or dsim node.
+>>> 
+>>> You need to list and describe the ports.
+>> 
+>> -    description:
+>> -      Contains a port which is connected to mic or dsim node.
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +        description:
+>> +          Input port which is connected to either a Mobile Image
+>> +          Compressor (MIC) or a DSI Master device.
 > 
-> In order to gain the best performance benefit from partitioning the
-> PMU, utilize fine grain traps (FEAT_FGT and FEAT_FGT2) to avoid
-> trapping common PMU register accesses by the guest to remove that
-> overhead.
 > 
-> There should be no information leaks between guests as all these
-> registers are context swapped by a later patch in this series.
-> 
-> Untrapped:
-> * PMCR_EL0
-> * PMUSERENR_EL0
-> * PMSELR_EL0
-> * PMCCNTR_EL0
-> * PMINTEN_EL0
-> * PMEVCNTRn_EL0
-> 
-> Trapped:
-> * PMOVS_EL0
-> * PMEVTYPERn_EL0
-> * PMCCFILTR_EL0
-> * PMICNTR_EL0
-> * PMICFILTR_EL0
-> 
-> PMOVS remains trapped so KVM can track overflow IRQs that will need to
-> be injected into the guest.
-> 
-> PMICNTR remains trapped because KVM is not handling that yet.
-> 
-> PMEVTYPERn remains trapped so KVM can limit which events guests can
-> count, such as disallowing counting at EL2. PMCCFILTR and PMCIFILTR
-> are the same.
+> If this is only one port, then just 'port' property, but I have doubts
+> it should be one, because even you mentioned two - MIC could be the
+> input and MIPI DSIM would be the output.
 
-I'd rather you explain why it is safe not to trap the rest.
+DECON is the first device in the pipeline. So it should only have
+output.
+
+It's either:
+DECON -> DSIM -> panel
+or
+DECON -> MIC -> DSIM -> panel
+
+Exynos7870 doesn't have MIC, but other SoCs may have one.
 
 > 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm64/include/asm/kvm_pmu.h        | 23 ++++++++++
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 58 +++++++++++++++++++++++++
->  arch/arm64/kvm/pmu-part.c               | 32 ++++++++++++++
->  3 files changed, 113 insertions(+)
+> Maybe if the MIC is integral part, it would not have been an input, but
+> then only 'port'.
 > 
-> diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
-> index 6328e90952ba..73b7161e3f4e 100644
-> --- a/arch/arm64/include/asm/kvm_pmu.h
-> +++ b/arch/arm64/include/asm/kvm_pmu.h
-> @@ -94,6 +94,21 @@ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
->  void kvm_pmu_host_counters_enable(void);
->  void kvm_pmu_host_counters_disable(void);
->  
-> +#if !defined(__KVM_NVHE_HYPERVISOR__)
-> +bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
-> +bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu);
-> +#else
-> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +
-> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  /*
->   * Updates the vcpu's view of the pmu events for this cpu.
->   * Must be called before every vcpu run after disabling interrupts, to ensure
-> @@ -133,6 +148,14 @@ static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
->  {
->  	return 0;
->  }
-> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
->  static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
->  					     u64 select_idx, u64 val) {}
->  static inline void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu,
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index 825b81749972..47d2db8446df 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -191,6 +191,61 @@ static inline bool cpu_has_amu(void)
->                 ID_AA64PFR0_EL1_AMU_SHIFT);
->  }
->  
-> +/**
-> + * __activate_pmu_fgt() - Activate fine grain traps for partitioned PMU
-> + * @vcpu: Pointer to struct kvm_vcpu
-> + *
-> + * Clear the most commonly accessed registers for a partitioned
-> + * PMU. Trap the rest.
-> + */
-> +static inline void __activate_pmu_fgt(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
-> +	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
-> +	u64 set;
-> +	u64 clr;
-> +
-> +	set = HDFGRTR_EL2_PMOVS
-> +		| HDFGRTR_EL2_PMCCFILTR_EL0
-> +		| HDFGRTR_EL2_PMEVTYPERn_EL0;
-> +	clr = HDFGRTR_EL2_PMUSERENR_EL0
-> +		| HDFGRTR_EL2_PMSELR_EL0
-> +		| HDFGRTR_EL2_PMINTEN
-> +		| HDFGRTR_EL2_PMCNTEN
-> +		| HDFGRTR_EL2_PMCCNTR_EL0
-> +		| HDFGRTR_EL2_PMEVCNTRn_EL0;
-> +
-> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGRTR_EL2, clr, set);
-> +
-> +	set = HDFGWTR_EL2_PMOVS
-> +		| HDFGWTR_EL2_PMCCFILTR_EL0
-> +		| HDFGWTR_EL2_PMEVTYPERn_EL0;
-> +	clr = HDFGWTR_EL2_PMUSERENR_EL0
-> +		| HDFGWTR_EL2_PMCR_EL0
-> +		| HDFGWTR_EL2_PMSELR_EL0
-> +		| HDFGWTR_EL2_PMINTEN
-> +		| HDFGWTR_EL2_PMCNTEN
-> +		| HDFGWTR_EL2_PMCCNTR_EL0
-> +		| HDFGWTR_EL2_PMEVCNTRn_EL0;
-> +
-> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGWTR_EL2, clr, set);
-> +
-> +	if (!cpus_have_final_cap(ARM64_HAS_FGT2))
-> +		return;
-> +
-> +	set = HDFGRTR2_EL2_nPMICFILTR_EL0
-> +		| HDFGRTR2_EL2_nPMICNTR_EL0;
-> +	clr = 0;
-> +
-> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGRTR2_EL2, clr, set);
-> +
-> +	set = HDFGWTR2_EL2_nPMICFILTR_EL0
-> +		| HDFGWTR2_EL2_nPMICNTR_EL0;
-> +	clr = 0;
-> +
-> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGWTR2_EL2, clr, set);
+>> 
+>> I assume you want something like this?
+>> Is the formatting correct? Should there be a space between
+>> ports:$ref and ports:properties?
+> 
+> Look at toshiba,tc358768.yaml or the simple-bridge (except you should
+> name the input and output ports).
 
-This feels wrong. There should be one place to populate the FGTs that
-apply to a guest as set from the host, not two or more.
+Okay, thanks!
 
-There is such a construct in the SME series, and maybe you could have
-a look at it, specially if the trap configuration is this static.
+Therefore this:
 
-	M.
+-    description:
+-      Contains a port which is connected to mic or dsim node.
++
++    properties:
++      port:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Output port which is connected to either a Mobile Image
++          Compressor (MIC) or a DSI Master device.
 
--- 
-Without deviation from the norm, progress is not possible.
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
 
