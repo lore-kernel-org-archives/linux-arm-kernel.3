@@ -4,148 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA16C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA14C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=; b=sETPdj/J8Kh7DQiJ75vSJw7wpD
-	NLokLD+xAIrHKn/XaWD32xoIr2vc+gGbow6fmOhyIYBnGATMIP5aeiJW/3AMkHZ9w4osV5PLnSy7T
-	INy1Sgap63sUWdf2uorl5ImogtJOz5eoCSazcXaK5icv+v7XMvip1b8blWMBseE0A8/JT9SlVltLA
-	8pPjeEzbB2rHBSHfbZfNFSybJOtE16PbOvfgKSOyC3wtu6zblqVHPDp+n9j0HKQ7N46LqXwtCn8wr
-	P5C61sDh4edFcHHLtilqNnH0HSwBzrJ7TuRfo/D6RCz9tXhAiLkHPP8lWynKgBOOZJV6znKPyzxSG
-	DEr1Z2Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=R2+kVPbXgl9AEYRzLrPo/voZe4EiBFt74eCL+IFcKvA=; b=rVqkZrvMCuvxws
+	VB5vX0m+S0Tj13OhCJRt6hJfCc4ejAjkoukMo5sZjkOdo2+ymoRWCnmh9p6ZUfxlFO6T3DRamcg+J
+	ejD2NVi9HS529PbZSsQEnqlI+N4K5R5u4en4TE0hkUjToYFJ+s/JsnoOHkhh1qsUgJjb0HoY8+Atk
+	XTYOcH8AAW+4IDpHCFmUVwFTl0b9O2NIN7KeW+Q3vPpAjrPh3epPRExbcfZ8+UqMeTGkQeuaYHQJe
+	ty6+UuGFnC2d2lZ/E9Ds5anFPJaRnds8KNGN5+r5K7Fmwv9yi3F+sxiSF+/u/tQfoid5F+wnxhGju
+	EVbh8QNy9PauP1UWPoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEy9-0000000FfkD-00xy;
-	Fri, 27 Jun 2025 19:42:41 +0000
-Received: from mail-bn8nam11on20601.outbound.protection.outlook.com ([2a01:111:f403:2414::601] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uVF0P-0000000Fg8O-3nOR;
+	Fri, 27 Jun 2025 19:45:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEd0-0000000FcZx-1oaN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 19:20:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xv/5+C9GPaWjTN3X/BzS8zrCNn5Y0N7Y5hezJ3DDkNp4rEHDMt/KX6euGGP3HRbv1807E8qbGsK8099V2wc5WG7J9YZ4x4yPfd8vhDXtTZvOHhTEtRYtEwAX9kBdim6cKHbxyKvIwb5hS629GxxwSKQ+OH6AeZcDQLlA35hQywlyh4mrdWkflr7+XG6Vn6FHdaToZKeIkKctPgXq3+tzEMFWq+/e6HPOG8vewom2s1HVNegoYCxifSdlQ1beA88dRyagV7PyduRCjCJ0z4p1SR11vyIqW9B6tYR0rWNWdInJp+rgf0ZARctZKx8VF758w+XT76vpkCrpS3r9bWfFBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=;
- b=lrZSfuIzPdJ8rllPwan2vGtaSWSjVODZR9ZacMbpeR6DIwFdgGC9WrmV5BpJrMcOk2BtcN6lAzAI6DtY1Uj8w6zQhsRzlpd0k6F+IczthrDXTD3JgKqrT2I9SC8MWmMzmqLz6YZJlLn60Pz/urkNV4qNRGQ99HjAsVxq1rlYybxVwbuSMpjyfCDidq5PQtN6uJP46jtnj5bT1rjjzH9Bim3Tl2hj0UVEg/cTc8PZZt3agVKliW/6GaFdQ7RSDUvGc9gvQgu8nG3NwLY4iDZXG/LBGQ0yODL4YMlM6LKMYsiMlPw9U4wYjU/qB/rhUhP7mDug+NMTTLLGvmL0GspYBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=arm.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=;
- b=2/YiHW/k4KttDGgVP/hRYhcp9AM6L3Rpprqh/OE6HxqhS6w67t2Dc9dPcaNxDpxMd3PjeF6JkI0AooINmB2uMWSw0fVtzGPm+ZtyYwgODFJf1hRZybjAXWSlswvuSCyBXMFdsYsGeq52f72GmFlwm8Vo5NLrGlzQ+UNm/lwxzkU=
-Received: from BN1PR12CA0011.namprd12.prod.outlook.com (2603:10b6:408:e1::16)
- by IA1PR12MB6115.namprd12.prod.outlook.com (2603:10b6:208:3e9::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.23; Fri, 27 Jun
- 2025 19:20:44 +0000
-Received: from BN2PEPF000044A9.namprd04.prod.outlook.com
- (2603:10b6:408:e1:cafe::d0) by BN1PR12CA0011.outlook.office365.com
- (2603:10b6:408:e1::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.21 via Frontend Transport; Fri,
- 27 Jun 2025 19:20:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- BN2PEPF000044A9.mail.protection.outlook.com (10.167.243.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8880.14 via Frontend Transport; Fri, 27 Jun 2025 19:20:44 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 27 Jun
- 2025 14:20:42 -0500
-Received: from ubuntu-20.04.2-arm64.shared (10.180.168.240) by
- SATLEXMB03.amd.com (10.181.40.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Fri, 27 Jun 2025 14:20:42 -0500
-Date: Fri, 27 Jun 2025 12:20:37 -0700
-From: Stefano Stabellini <stefano.stabellini@amd.com>
-X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
-To: Robin Murphy <robin.murphy@arm.com>
-CC: Michal Simek <michal.simek@amd.com>, Will Deacon <will@kernel.org>,
-	"Stabellini, Stefano" <stefano.stabellini@amd.com>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>, "Linux
- Kernel Mailing List" <linux-kernel@vger.kernel.org>, "Sarangi, Anirudha"
-	<anirudha.sarangi@amd.com>
-Subject: Re: SMMUv3 interrupt handling via custom logic
-In-Reply-To: <43acfcd8-b359-448f-bbb6-da1b71a64f45@arm.com>
-Message-ID: <alpine.DEB.2.22.394.2506271219070.862517@ubuntu-linux-20-04-desktop>
-References: <0482d84e-871b-4522-b94b-29a97c87ff66@amd.com> <43acfcd8-b359-448f-bbb6-da1b71a64f45@arm.com>
-User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+	id 1uVEmf-0000000Fdk5-07Xi;
+	Fri, 27 Jun 2025 19:30:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 389A7A52FB8;
+	Fri, 27 Jun 2025 19:30:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A284EC4CEE3;
+	Fri, 27 Jun 2025 19:30:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751052647;
+	bh=Ewt6x+TyLrnKWB9bcFNXn39ClBlBLwSs9oVDUkhN+5s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=RPazJm95MCXTQsAh4h8EI9hYme1woTQj/7GHQ1aNwZf1LH+YtE91kNPlux6ZUBXs3
+	 tmn7wLtMkotusbLg+Ipj1PXvDzK+Ih5zJaBq89DdFZX2y+yNquxaS3TzCfVg+rKSE3
+	 cMh1XG5uXx3I+902Br+hvx+hOoBs5W1oSuav0bvOYvWquAGXVszjNqV0DMxIEZ9lXi
+	 SQQ7PRmO6QpvO9Ghk+62IjRV130WaRg+4TzLphnxY5Me5G6m0eD5LpBqLnRjcjUarm
+	 7YwJrjnxNeExgej4gvKNBhNgFbCi1cSRqguatqAJKpKOcGCFTA+mrrk3dp/kpQtqS6
+	 i5SNPirztErfA==
+Date: Fri, 27 Jun 2025 14:30:46 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-fsd@tesla.com,
+	manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org,
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org,
+	arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com,
+	pankaj.dubey@samsung.com
+Subject: Re: [PATCH v2 09/10] PCI: exynos: Add support for Tesla FSD SoC
+Message-ID: <20250627193046.GA1673824@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/mixed;
-	boundary="8323329-533866934-1751052034=:862517"
-Content-ID: <alpine.DEB.2.22.394.2506271220360.862517@ubuntu-linux-20-04-desktop>
-Received-SPF: None (SATLEXMB04.amd.com: stefano.stabellini@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A9:EE_|IA1PR12MB6115:EE_
-X-MS-Office365-Filtering-Correlation-Id: fff2ccaf-5178-4994-899a-08ddb5afb6ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UDN6ODBqOU1qMGNKOUEzRzZ4TWV6WHhXeDdMUHpwVk9CRnJJcHFFaXA4TnNm?=
- =?utf-8?B?bnA0ZTVzR0wwekpyOU5kWkZTMTZrUVU5dVdrbTUzMG9uMTJNajZjc25NTTZU?=
- =?utf-8?B?ZjBUZWFNUUhpLy85bllqM3NnbzMzT3ZncHJsY1k1eU53ZDNoSlRiS2M0SXM4?=
- =?utf-8?B?WWR0a3pCTHhuQUk2RGpBUXdUcld3bTBJTVFaTGlVVkZGWUlVQXk4Ry93ckdx?=
- =?utf-8?B?Q3ZBaU5vcSsvRXROa3kwckRzTEFzMFBsdEw4aXd6RkpybDBOWS9NSi93RWlF?=
- =?utf-8?B?dStRK25wZ1ZrS2d5c2FtV21ETCtxZmUzZXZlYzdsN1B1aFpvSk50VkNzTzE3?=
- =?utf-8?B?SFIveVZES3UxWUozUnFBaEpnSnhoeHpnVEt5OEowWVB0RDFlOGxNcnRWYWhV?=
- =?utf-8?B?M2s5Um9oeVd0TDdWcGJNSnZuZnlQd0xoU0YvN3hOZGFzQ1pYZDM2cVd2YlZJ?=
- =?utf-8?B?bktEQUdFV0UyYzZmWEtja2NBUnJubWp4ZUtsbjZZQnJPdHlIZWMwckd1WnB0?=
- =?utf-8?B?THI2L1JJTDQ5Z2tyTlBheUhSaHY0ZnV3aXMrV3Y3TkJrRWRWenQvaHVGSEF1?=
- =?utf-8?B?b2Q0UGUxaWRCcVFLc3FKeU9uWW9UejM0eXEzTFVISWNSazdoT2oxSGlsRkxt?=
- =?utf-8?B?S1ZCUWVCNzFmMkhUaUxQYk1XU2oyZVFmZXJQYi9VK0h4djJUdVFsR2RYYlk1?=
- =?utf-8?B?TktQRzRYZlB3NEFhVU1hUmR4TW1IcCtWTTloRVRQUFNyTjE0UE96YlBxYm9X?=
- =?utf-8?B?ZXhDemtYNmFkRWFhY2pZeHdpaW1XRHd4UDZMRXhHM1M1NWFBWHU2VmFDZlJC?=
- =?utf-8?B?elFVaXZGaC8wTFIvUldBamhEaElXNW9xN3J2M1hZdXM4YzJzU1pEa09EZUlq?=
- =?utf-8?B?Q2x3UFRZN2JSa1VITG4yMWRTMDl6MDl2N2FJc2tGWndDeG9SYUdMQ1daNzV6?=
- =?utf-8?B?SnoyVUNveDBId3FQamNtZndoQWFKdzZsQkVKZzQzTVRCbERFVzJzRGFjTmd4?=
- =?utf-8?B?UVVGOFA3TzRKMUllQjdSbS9qdzR5OWpHT05PdEwzUitFYW0waW9WU2gzTWdh?=
- =?utf-8?B?YzVmNFJSNUlnUHM0YUVDd0QzTlp3MlkweGlzM3B2NGpNQ0Q2VEdaaCsxcERR?=
- =?utf-8?B?L0QwTCt3ZDZpakxFdkRnT2FoSUtWZzk3eU9iU2x2QjBla05FcVZOaTMvOGs1?=
- =?utf-8?B?cGZ5em1vUFppZGJqWTFQc1c1bHozTHdhUDMreDBodkVRR2xkZnNhKzNqVXVL?=
- =?utf-8?B?L1VvRXVIY2xjU1ROMlFzSS9uWko2S1FqL3BDaUE4UU4za2dMOXllVmlZZVN1?=
- =?utf-8?B?Zk5BbEhoWlJ6K2ZYRGk2MTlNOUhtcVh6YmxQMDVsOHd2ak90dXBYNzVrMGZN?=
- =?utf-8?B?NlVGTjVhSTE2cThXMDdpMG1ITGxHSEN2ZjBueHpiMjdDbzZYUHFGSmEzSTgz?=
- =?utf-8?B?Uy84UDFkWTh1K2ZQQVllYWhYcEhaK3EzRW5JSmtzYnhReE1va2ZKZkd1b3py?=
- =?utf-8?B?d1o0V1dnSGRNZnlMUzl1ZFJ6dmI4K21hRk8wbFR4b05xcTl6Rk5wQ3pBQWNO?=
- =?utf-8?B?R0t6WkZYb2ZwZnZHSnkvU3VLQUZnRnN5TUMvRnNzMVE3VzA5RWt0VnJldkov?=
- =?utf-8?B?SWpSeDBoUElRNWlNd0MwRmx6ZUZqdEVHYkJzUXhOUHdseGFPSnkrZ0JWaG5O?=
- =?utf-8?B?U1BuWDl3dmxyMEVnV25BL0pCdlViaS9IODZXY0o5MU9XQkV3a211aFBMZ2Rz?=
- =?utf-8?B?dmF2alYvVGUrZCtJQUNORitZYUtmb0toaUtYYllFOUdFcDhkNmgwQmVod1U5?=
- =?utf-8?B?eXI5RVd3U3k5R1NWLzJvaVhnNU9VVHM0ZHdacmx5VWFUSTg0T0I3QVJVd29S?=
- =?utf-8?B?andsQ2preWpVeU1pYk5tOGhsczNLVWtETlpkZkovY2htWnZ4Y1h5YTVoMm9S?=
- =?utf-8?B?RExSbmxCek5jcnM0SHNOZEFUWk5YcHFWTzJTWjNEOU5ld3NFS2MrMXNUR01O?=
- =?utf-8?B?N0VibjA3TzI5QWtkZDZnNFdMSG9DMjhNWWR0Y284Szd0ZUR3V0hjS1ZIMC9k?=
- =?utf-8?Q?d7aHwa?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 19:20:44.4650
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fff2ccaf-5178-4994-899a-08ddb5afb6ab
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A9.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6115
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250625165229.3458-10-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_122050_473877_35D7527F 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20250627_123049_193577_88EDF5DF 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,85 +77,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---8323329-533866934-1751052034=:862517
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8BIT
-Content-ID: <alpine.DEB.2.22.394.2506271220361.862517@ubuntu-linux-20-04-desktop>
+On Wed, Jun 25, 2025 at 10:22:28PM +0530, Shradha Todi wrote:
+> Add host and endpoint controller driver support for FSD SoC.
 
-Hi Will, Robin,
+> +++ b/drivers/pci/controller/dwc/pci-exynos.c
+> @@ -20,6 +20,8 @@
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+> +#include <linux/regmap.h>
+> +#include <linux/mfd/syscon.h>
 
-Long time no see!
+The trend is to sort these alphabetically.  The last couple additions
+didn't observe this, but maybe these new ones could go a little
+farther up and make it more sorted rather than less?
 
-On Fri, 27 Jun 2025, Robin Murphy wrote:
-> On 2025-06-27 8:19 am, Michal Simek wrote:
-> > Hi Will and Robin, (+Stefano, Anirudha)
-> > 
-> > We are using smmu-v3 in our SOC and I would like to ask you for
-> > recommendation how to handle our interrupt cases.
-> > 
-> > here is description which we are using
-> > 
-> > smmu: iommu@ec000000 {
-> >      compatible = "arm,smmu-v3";
-> >      reg = <...>;
-> >      #iommu-cells = <1>;
-> >      interrupt-names = "combined";
-> >      interrupts = <0 169 4>;
-> > };
-> > 
-> > but it is missing one important detail which just arise that actually there
-> > is additional HW logic which deals with SMMU interrupts separately.
-> > There is a secure part (global, cmd, event - gerror, cmdq-sync, eventq in
-> > DT)
-> > and non secure part (pri, global, cmd, event - priq, gerror, cmdq-sync,
-> > eventq in DT).
-> > Based on my information all these interrupts should be acked once handled to
-> > be able to get another one.
-> > The driver itself is able to handle them separately but we didn't create any
-> > solution to reach custom HW to do it.
-> > 
-> > I looked at f935448acf46 ("iommu/arm-smmu-v3: Add workaround for Cavium
-> > ThunderX2 erratum #126") which introduced combined IRQs but it looks like
-> > that there is no need for additional ACK of that IRQs.
-> 
-> Per the architecture, SMMU interrupts are logically edge-triggered so there is
-> nothing to clear at the SMMU end (the "interrupt status" is implicit in
-> whatever condition caused an interrupt to be sent, e.g. the event queue
-> becoming non-empty, SMMU_GERROR becoming different from SMMU_GERRORN, etc.)
-> 
-> If this is an Arm SMMU IP (MMU-600/700/S3) then the physical interrupt outputs
-> are most definitely rising-edge. If somone's stuck some interrupt combiner in
-> between those and the main interrupt controller, then yes, that interrupt
-> combiner really should have its own driver.
-> 
-> > The HW logic itself is handling secure and non secure settings for SMMU
-> > that's why would be the best to avoid directly mapping it in Linux.
-> > 
-> > One way to go is to create secondary interrupt controller driver
-> > a) ioremap one with notice about secure part because we are using SMMU only
-> > with NS world
-> > b) firmware based to tunnel accesses via SMCs and allow only access to
-> > limited amount of registers
-> > 
-> > The second way is likely create any hooks in the driver to be able to
-> > provide additional SOC specific hooks.
-> 
-> If this thing is munging *all* the SMMU interrupt outputs as I suspect, then
-> the big problem with that idea is that "the driver" is at least two separate
-> drivers (SMMU and PMU), 3 if it has RAS and you ever want to entertain the
-> idea of kernel-first handling.
+> +#define FSD_PCIE_CXPL_DEBUG_00_31		0x2C8
 
-Yeah... I tend to favor simple solutions when possible and the secondary
-interrupt controller driver approach is looking increasingly complex.
+Existing #defines use lower-case hex; please follow suit.
 
-In addition to what Robin mentioned, I understand that this email is
-directed to linux-arm-kernel and the LKML, so the focus is naturally to
-solve the problem for Linux. However, let me point out that this issue
-also affects Xen, all hypervisors, and proprietary operating systems.
-The "big problem" is even bigger :-(  Complexity will multiply very
-quickly.
+> +/* to store different SoC variants of Samsung */
+> +enum samsung_pcie_variants {
+> +	FSD,
+> +	EXYNOS_5433,
+> +};
 
-Do you have any creative ideas for how this could be handled more
-simply?  Maybe with help from the firmware (e.g. TF-A)?
---8323329-533866934-1751052034=:862517--
+>  struct samsung_pcie_pdata {
+>  	struct pci_ops				*pci_ops;
+>  	const struct dw_pcie_ops		*dwc_ops;
+>  	const struct dw_pcie_host_ops		*host_ops;
+> +	const struct dw_pcie_ep_ops		*ep_ops;
+>  	const struct samsung_res_ops		*res_ops;
+> +	unsigned int				soc_variant;
+> +	enum dw_pcie_device_mode		device_mode;
+>  };
+
+> +static u32 fsd_pcie_read_dbi(struct dw_pcie *pci, void __iomem *base,
+> +				u32 reg, size_t size)
+> +{
+> +	void __iomem *addr;
+> +	u32 val;
+> +
+> +	addr = fsd_atu_setting(pci, base);
+> +
+> +	dw_pcie_read(addr + reg, size, &val);
+> +
+> +	return val;
+
+Remove blank lines to match style of fsd_pcie_write_dbi2().
+
+> +}
+> +
+> +static void fsd_pcie_write_dbi(struct dw_pcie *pci, void __iomem *base,
+> +				u32 reg, size_t size, u32 val)
+> +{
+> +	void __iomem *addr;
+> +
+> +	addr = fsd_atu_setting(pci, base);
+> +
+> +	dw_pcie_write(addr + reg, size, val);
+
+Ditto.
+
+> +}
+> +
+> +static void fsd_pcie_write_dbi2(struct dw_pcie *pci, void __iomem *base,
+> +				u32 reg, size_t size, u32 val)
+> +{
+> +	struct exynos_pcie *ep = to_exynos_pcie(pci);
+> +
+> +	fsd_atu_setting(pci, base);
+> +	dw_pcie_write(pci->dbi_base + reg, size, val);
+> +	regmap_write(ep->sysreg, ep->sysreg_offset, ADDR_TYPE_DBI);
+> +}
+
+> +static int fsd_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> +				 unsigned int type, u16 interrupt_num)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> +
+> +	switch (type) {
+> +	case PCI_IRQ_INTX:
+> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
+> +	case PCI_IRQ_MSIX:
+> +		dev_err(pci->dev, "EP does not support MSIX\n");
+
+s/MSIX/MSI-X/ to match spec usage.
+
+> @@ -373,13 +617,43 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+>  		return ret;
+>  
+>  	platform_set_drvdata(pdev, ep);
+> -	ret = samsung_irq_init(ep, pdev);
+> -	if (ret)
+> -		goto fail_regulator;
+> -	ep->pci.pp.ops = pdata->host_ops;
+> -	ret = dw_pcie_host_init(&ep->pci.pp);
+> -	if (ret < 0)
+> +
+> +	if (pdata->res_ops->set_device_mode)
+> +		pdata->res_ops->set_device_mode(ep);
+> +
+> +	switch (ep->pdata->device_mode) {
+> +	case DW_PCIE_RC_TYPE:
+> +		ret = samsung_irq_init(ep, pdev);
+> +		if (ret)
+> +			goto fail_regulator;
+> +
+> +		ep->pci.pp.ops = pdata->host_ops;
+> +
+> +		ret = dw_pcie_host_init(&ep->pci.pp);
+> +		if (ret < 0)
+> +			goto fail_phy_init;
+> +
+> +		break;
+> +	case DW_PCIE_EP_TYPE:
+> +		phy_init(ep->phy);
+> +
+> +		ep->pci.ep.ops = pdata->ep_ops;
+> +
+> +		ret = dw_pcie_ep_init(&ep->pci.ep);
+> +		if (ret < 0)
+> +			goto fail_phy_init;
+> +
+> +		ret = dw_pcie_ep_init_registers(&ep->pci.ep);
+> +		if (ret)
+> +			goto fail_phy_init;
+> +
+> +		pci_epc_init_notify(ep->pci.ep.epc);
+> +
+> +		break;
+> +	default:
+> +		dev_err(dev, "invalid device type\n");
+>  		goto fail_phy_init;
+> +	}
+
+This would be a little nicer if you added soc_variant and device_mode
+and the code that sets and tests them for exynos_5433 first in a
+separate patch.  Then it would be more obvious that the new FSD parts
+don't affect exynos_5433 since this patch would only be *adding*
+FSD-specific things.
+
+>  static const struct samsung_pcie_pdata exynos_5433_pcie_rc_pdata = {
+>  	.dwc_ops		= &exynos_dw_pcie_ops,
+>  	.pci_ops		= &exynos_pci_ops,
+>  	.host_ops		= &exynos_pcie_host_ops,
+>  	.res_ops		= &exynos_res_ops_data,
+> +	.soc_variant		= EXYNOS_5433,
+> +	.device_mode		= DW_PCIE_RC_TYPE,
+>  };
+
+>  static const struct of_device_id exynos_pcie_of_match[] = {
+> @@ -449,6 +756,14 @@ static const struct of_device_id exynos_pcie_of_match[] = {
+>  		.compatible = "samsung,exynos5433-pcie",
+>  		.data = (void *) &exynos_5433_pcie_rc_pdata,
+>  	},
 
