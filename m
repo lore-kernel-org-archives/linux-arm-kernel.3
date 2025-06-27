@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBF1C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06733C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GADAYPYH6XtwZCwZvDUpQ7sXCaWC25QDTPuEwyrGf8=; b=VSsb4k40VrLOdZYhOp7vLjyArr
-	nW1LafKr3yY3F7l81oIqqjMmC3Q/eoRxnxSHMKswFCRJ2Bu54meIOCtYyFm9gQsscwk8th+59Uf8e
-	cOLfJMzzQRY1FmJuYna6KpaUSHcQgUhg3goPtfDWMBhFvo34ucHOnlKhPzuhGH9aQWcefV3NN7LUy
-	qXde4p3AknkR8moIOxmIyZ9ED6/uWJptzf9S6EHRbq9zP/Nje4CdRNKh4WXdcaUtYcThpP0GWh3Ao
-	IXbW7NGMKmWI6NjvTyaQBrQRkr5ImuGP5i/dmmfi0xd9k5CK7GoRPMrUrq7IUPmDKB6z74+85ydw6
-	8LkoelpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pEK3TrmN6mfMIzQQCnzQAWWZ+QxJLbnrCj8nmqswDeg=; b=hBWFAw5gS6hDC91XXRD1hpnm/9
+	+NoZ/53JPjCZdJ0x6hwpemz5HvRALIWLFazwb0HqEAokI2RTxiyUksRWBteiW8Jn+DokLRpa9DN00
+	MQOk2t9XQ7K6U5Rxmq1inqKYBz+OEj6BasMO5ErOBVsVsWXjQvueu4jC6iY3D8e6tJSMePODZThSw
+	cSOdnd8qHjOxve0657HR6r8Lf11wHzcCNXqRm/nU2iwQvcpYKTd1EVAHlyfhfUYJFa7LGC46g7YV/
+	WsA6lh2vhEKUoq1gh7hvY1T+IhxnC6DVpG3ithimJrOnX3Y/eS5i6PC8Lo0h+xZTasgyk5t8cXTVH
+	8XErB62A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV7FJ-0000000EU05-1QIe;
-	Fri, 27 Jun 2025 11:27:53 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uV7Jy-0000000EUq0-15sD;
+	Fri, 27 Jun 2025 11:32:42 +0000
+Received: from mail-vs1-f49.google.com ([209.85.217.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV7B6-0000000ET1q-05a6
+	id 1uV7Fh-0000000EU79-3aJH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 11:23:33 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-453066fad06so12566805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 04:23:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751023410; x=1751628210; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/GADAYPYH6XtwZCwZvDUpQ7sXCaWC25QDTPuEwyrGf8=;
-        b=AYRYRxQ9nO72vw/fHiNLXwnPWw/qnfWCMDCsnP4ES8FjkKFAm7XHQxfwoQXaNTRevK
-         ZcgrtIT6fCwcJeTrZESO2GL3Fzy2FXZ2nbgWOxpw7Ok0pjEnpLyvSyb+xhoEwc40a4ih
-         C7EVmWxWQ4LaPLciPvEkIDtyg9X3ldXUTWWzn4PsZWLvz8zm6FH7m7BOX6SG0gHGkpm1
-         +ZLAh9fiL6+UUnwsGBHz7mFhCai/kCbk7XO/v4A4SBqoxrsbATTsAe8jUyKFxCYWOBhp
-         VZQf/Z6zJ+SxbEnr0fd7Co8FhptewoC5BDYU9Q0l53hLHLl+zQs2/EhRyjwxoeJtZ/zL
-         hzGA==
+	Fri, 27 Jun 2025 11:28:19 +0000
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-4e79dde8511so426187137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 04:28:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751023410; x=1751628210;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/GADAYPYH6XtwZCwZvDUpQ7sXCaWC25QDTPuEwyrGf8=;
-        b=XDf4DgW+2Gsmkm8iT89TaOAx7RwtLPGV6J7uagUoO47yKYpIx3jzPWxGvvUhApJm6E
-         L36nZmgfBcqVGLriumbAwfdt+pJukqnOWsOu7Xh0Eh4SQWyypdAApwULyTHwzX5HhdRI
-         /kN05I2kLYsBngN+pyq+6uA+NFNM+vULbpZFzsmLdWu6U0xx51H4yCEjjyl+Xc7dStPZ
-         +K+qX1+HstDCHTYMmkhEtAxUWkFnUBrs5LbgC4zUSx1RE3Ixj8DYbmqZguyqV6Pahqx1
-         C6YSYJJVX15ZF9KFqkqWr4PGaYgW4seBZ9JevRX78r97MEzcUMPF9ask2aU7xiUlOYWG
-         5AnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUcsXPHjp7mV386iY5auMgNKOTY4Zh8rBKhaCZwjGJGqgoVxvXxAii6O3yEAt5zFH7gkV6g4lkwTjewmRr0ayPc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDzMHHbhvF7X6NGWLQYy2MGzcjkicilgtfj8s8hlhjAv8VptF8
-	pQrrzr0NCPgt8CIOKd11lhWmqTcI8xgBb8mkxbhN5OSU+LG3KOoin3ij9GYOAJD2iJA=
-X-Gm-Gg: ASbGncttr1eX4bc+7Qk1FUF61vWyFbwOlrmmqLweXC5dOgNSpry/ny6G5Uh1PCALoZe
-	PpWZ3k8RSV58VgBQvCsa6h8GciDmu6oZxiNSv149WkTKsOVSXCDNN8d1MYrphGXfZ+ANoTukGZ6
-	mjMuVqKq/8vSMaqup7g/lTKExbwA4oIVDUAAVn9BcVHr7robipUqChFONW2O1ihfP97W6bIvwIh
-	oGYsv/Q+uUJgpjqVjY9sXNmSXQ2iOFS9DMTosncJSCy9HEjWeV8WIFEu8MZPoSoxOV7jms2nAqn
-	vXV5RxZKLTyEwJnNlB7qswl1c8pmm6DXbh7UtsYFqn6bxJEmvqbmqa85Kyl2j11NBO8=
-X-Google-Smtp-Source: AGHT+IHpjRR+lhjSBz+H5Y+FWjh/7wV/egv/qDnpzKkXfpV6p0HxBrpcsCDQ+17zG3AKUjPpxcqhvw==
-X-Received: by 2002:adf:b608:0:b0:3a4:cbc6:9db0 with SMTP id ffacd0b85a97d-3a902d88058mr2114575f8f.51.1751023410387;
-        Fri, 27 Jun 2025 04:23:30 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c7fa750sm2416679f8f.25.2025.06.27.04.23.29
+        d=1e100.net; s=20230601; t=1751023695; x=1751628495;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pEK3TrmN6mfMIzQQCnzQAWWZ+QxJLbnrCj8nmqswDeg=;
+        b=XzIP3e713V5XBCfo16K4N1Cc55M5aqfcxxfM1oJ3hU8k3v2gw9ZQi68TtxrWxowoPa
+         EGAGgVwPeab97CgZsHQtCfDBuwpxt2bgk0bqBBA/betCNzXfT6+dL6dVdddrzt2iuP9m
+         qyv5aUmX2cZXtnWbkqScFdNgTLiGj5vIcpSX04U9vJFMAcA44F2al9dOIwJPJwVr5xfQ
+         jAtfUWR4EzUqugkTopAaeQtbPxX9TVjDW9/vTUv7Jc1AgrzQA8ABp/rr3fKOnKZc0NGy
+         QL5Zu5aYPJUM23BKAWuU6jSmeXa25aUFrY28kBH5T2EoTgXn6t4WO3eTPqQ4RE5KCQhe
+         ThlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXtwE09QKLue8nYB9YxGnXSRrL3lgcJjZ8Pm0XKGKHEom8u6TvyY3q+aKJO7WMRZPrFulr20KT10LrRvF1gyP6p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRa2SlhGMkC+0mzyvPrRDBJi26UdgvO+hZ50LFsqvJ6Ti1/TPg
+	KN2YHtZ7qxOwKr1GKjCQPaPQD8ReyG4Fu3Ndlm/It6WVxPIinFrq7BWveS4Rc9WAd5M=
+X-Gm-Gg: ASbGncvHapxnR+xcHEwkdstHGrSvV1dofOldKqN9JtK77uuJGoafwp+0AUq/YDHFwVk
+	HdUABvyrIrq0liUtsihbHZDQV8aWfTbH6VPeMu57Di6oP5ps8wtmFSY8ZxTiUe7O1P5hqOoDnfv
+	XJfW3W14OKdKZhQoHzfftdZPiwEz51a0ehbsHknTVrHWT0ljyoFtIGzUqODhurjBpbt2rcOhU6p
+	CTyuKFClryOLO8WhM/657Y3wkUYlCFe/ZcGbN8+Qnn3SHJUsxMEXaBOgsMej7se+vGBL1EWVUZV
+	onNz0LVw/U9erPXcOPUGoasaryLDlN38NcMeVnjbWZLmEykqb0YJGsXAdXawf7ax8kwM+o2EalV
+	2wU8bULoHFMGpzMNljcOJc3Qc
+X-Google-Smtp-Source: AGHT+IFQPV3SO2cAXXvTpxtU0/g8/4cMjabzIewXXkRhRZ+bDnXuOqFbFtrLFQuFQDN8ndujtDzWgw==
+X-Received: by 2002:a05:6102:26c6:b0:4e7:b893:fec7 with SMTP id ada2fe7eead31-4ee4f489301mr2003366137.5.1751023694897;
+        Fri, 27 Jun 2025 04:28:14 -0700 (PDT)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-884d1da06ffsm547422241.26.2025.06.27.04.28.14
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 04:23:29 -0700 (PDT)
-Message-ID: <78f2179d-26c2-47f0-bc19-b72e5e51ad29@linaro.org>
-Date: Fri, 27 Jun 2025 12:23:29 +0100
+        Fri, 27 Jun 2025 04:28:14 -0700 (PDT)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-87ec6f5e7c9so569704241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 04:28:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU7sL3Xf6CsAi6cLiBop9s2JQhvw/O2xN3k327PdHNjcDJVr1C4WhXNj/PvjEvqiBsVVI9kezNcFpadaq7ye7Uk@lists.infradead.org
+X-Received: by 2002:a05:6102:41a4:b0:4ec:285:72e1 with SMTP id
+ ada2fe7eead31-4ee4f4e2bf1mr1843344137.6.1751023693796; Fri, 27 Jun 2025
+ 04:28:13 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight-tmc: Add configurable timeout for flush and
- tmcready
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Leo Yan <leo.yan@arm.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-References: <20250627-flush_timeout-v1-1-2f46a8e9f842@quicinc.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250627-flush_timeout-v1-1-2f46a8e9f842@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250609212356.2264244-1-florian.fainelli@broadcom.com> <20250609212356.2264244-2-florian.fainelli@broadcom.com>
+In-Reply-To: <20250609212356.2264244-2-florian.fainelli@broadcom.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 27 Jun 2025 13:28:01 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXjYJeS48jToVe9O8DsadyeT0q1CsBxQtx3k+X5h8LLTg@mail.gmail.com>
+X-Gm-Features: Ac12FXxx6AlZB9goS3Kuy-9PuglmpGj0_M6FTCRkX8gafLJyv4mGupPxoMZrHiA
+Message-ID: <CAMuHMdXjYJeS48jToVe9O8DsadyeT0q1CsBxQtx3k+X5h8LLTg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: memory-controller: Define fallback compatible
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_042332_071759_CDD44CF2 
-X-CRM114-Status: GOOD (  29.58  )
+X-CRM114-CacheID: sfid-20250627_042817_892914_DEF09865 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,137 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Florian,
 
+On Tue, 10 Jun 2025 at 16:32, Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+> All of the DDR controllers beyond revision b.2.1 have had a consistent
+> layout, therefore define a "brcm,brcmstb-memc-ddr-rev-b.2.1" fallback
+> compatible string to match them all rather than having to continuously
+> add to the list.
+>
+> Link: https://lore.kernel.org/all/20241217194439.929040-2-florian.fainelli@broadcom.com/
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-On 27/06/2025 12:10 pm, Yuanfang Zhang wrote:
-> The current implementation uses a fixed timeout via
-> coresight_timeout(), which may be insufficient when multiple
-> sources are enabled or under heavy load, leading to TMC
-> readiness or flush completion timeout.
-> 
-> This patch introduces a configurable timeout mechanism for
-> flush and tmcready.
-> 
+Thanks for your patch, which is now commit 501be7cecec9aaf9
+("dt-bindings: memory-controller: Define fallback compatible")
+in mem-ctrl/for-next
 
-What kind of values are you using? Is there a reason to not increase the 
-global one?
+>  .../brcm,brcmstb-memc-ddr.yaml                | 54 ++++++++++++-------
 
-I don't think it's important what value we choose because it's only to 
-stop hangs and make it terminate eventually. As far as I can see it 
-wouldn't matter if we set it to a huge value like 1 second. That would 
-only cause a big delay when something has actually gone wrong. Under 
-normal circumstances the timeout won't be hit so it doesn't really need 
-to be configurable.
+The oneline-summary really needs a "brcm" part, as this does
+not apply to all memory controllers.
 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->   drivers/hwtracing/coresight/coresight-tmc-core.c | 43 ++++++++++++++++++++++--
->   1 file changed, 41 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index 88afb16bb6bec395ba535155228d176250f38625..286d56ce88fe80fbfa022946dc798f0f4e72f961 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -8,6 +8,7 @@
->   #include <linux/kernel.h>
->   #include <linux/init.h>
->   #include <linux/types.h>
-> +#include <linux/delay.h>
->   #include <linux/device.h>
->   #include <linux/idr.h>
->   #include <linux/io.h>
-> @@ -35,13 +36,31 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
->   DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
->   DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
->   
-> +static u32 tmc_timeout;
-> +
-> +static void tmc_extend_timeout(struct csdev_access *csa, u32 offset, int pos, int val)
-> +{
-> +	int i;
-> +
-> +	for (i = tmc_timeout; i > 0; i--) {
-> +		if (i - 1)
+Gr{oetje,eeting}s,
 
-I didn't get what the if is for here? Removing it does basically the 
-same thing, but if you do want to keep it maybe if (i > 1) is more 
-explanatory.
+                        Geert
 
-> +			udelay(1);
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Can you not do udelay(tmc_timeout)?
-
-> +	}
-> +}
-> +
-> +static int tmc_wait_status(struct csdev_access *csa, u32 offset, int pos, int val)
-> +{
-> +	return coresight_timeout_action(csa, offset, pos, val,
-> +			tmc_extend_timeout);
-> +}
-> +
->   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
->   {
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct csdev_access *csa = &csdev->access;
->   
->   	/* Ensure formatter, unformatter and hardware fifo are empty */
-> -	if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
-> +	if (tmc_wait_status(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
->   		dev_err(&csdev->dev,
->   			"timeout while waiting for TMC to be Ready\n");
->   		return -EBUSY;
-> @@ -61,7 +80,7 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
->   	ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
->   	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
->   	/* Ensure flush completes */
-> -	if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
-> +	if (tmc_wait_status(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
->   		dev_err(&csdev->dev,
->   		"timeout while waiting for completion of Manual Flush\n");
->   	}
-> @@ -561,11 +580,31 @@ static ssize_t stop_on_flush_store(struct device *dev,
->   
->   static DEVICE_ATTR_RW(stop_on_flush);
->   
-> +static ssize_t timeout_cfg_show(struct device *dev,
-> +				struct device_attribute *attr, char *buf)
-> +{
-> +	return scnprintf(buf, PAGE_SIZE, "%d\n", tmc_timeout);
-> +}
-> +
-> +static ssize_t timeout_cfg_store(struct device *dev,
-> +				 struct device_attribute *attr,
-> +				 const char *buf, size_t size)
-> +{
-> +	unsigned long val;
-> +
-> +	if (kstrtoul(buf, 0, &val))
-> +		return -EINVAL;
-> +	tmc_timeout = val;
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(timeout_cfg);
->   
-
-Seeing as the existing timeout is global for all devices, if we do want 
-a configurable one shouldn't we make the global one configurable rather 
-than per-device? That seems too fine grained to me.
-
->   static struct attribute *coresight_tmc_attrs[] = {
->   	&dev_attr_trigger_cntr.attr,
->   	&dev_attr_buffer_size.attr,
->   	&dev_attr_stop_on_flush.attr,
-> +	&dev_attr_timeout_cfg.attr,
->   	NULL,
->   };
->   
-> 
-> ---
-> base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-> change-id: 20250627-flush_timeout-a598b4c0ce7b
-> 
-> Best regards,
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
