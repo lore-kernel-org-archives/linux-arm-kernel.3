@@ -4,46 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A719C7EE2A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C511EC77B7F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9GgqtVimBs71U4VZlIlQH9V6/2s9jqAhld3hOUkgpQ0=; b=PxuT9z2kEW9yXo
-	ckipizJ3oE3uyETLeWpAxtIC2D2aGDwNnMEnCplE9G1OZAZM16Jdth4JVoV+I2+1prxxD769cZ3U9
-	jLBcR+8u813IWyv4yad+x3rmAlfgP7A13FTLSuzbk3Pt1zXtfVmmUcs0ziDuKQAIOCda4F4Mz8CS6
-	Cp2YgKeqK1oZb68N1eeMMw8CVD4NOjW1yAEzY298miGlLlTPzoNDCF+qqzTDyhobzlFowCi+g2nlZ
-	o+ZJgtJ7VmkmcJKUwjo+Btd4IBNuMrgsbGE8t9rFj9lZXiksGccIXlWRdZ80HqYLfVO1GxK+fVwA6
-	r7QiM/9kc2nEQ6Bsmmwg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IQfomZH644ikLJLe72FF/tCWBUEOJLCdpxiNhdODKD0=; b=TLzEJWNFtWP5fg
+	vnAFXxIJr+PqjUsfXjNeqcH5i3Ox8HHj7FTU52j4AJWDb6AqrLQSfSck9kTgDJBKl/K7XeeP3XtPh
+	AsyoHbrDrCgzSNr677coFwSaFVJnoa0Vpphs75L8AJurGRKJA/d+8VX0RUmvfstTrwIthfCIwH3MR
+	9whdJ+jQJfphyi3u0ij7RIvDzxbreD+5FOlRK+6R2+rdC2ED2isComK8Hkp0lNvKa3GdlJkOhllZx
+	zm0MmkQQkqfIGA+qziqPtxZ6Ll0yByQujGyRLhyahGLDuvudgR0rY4MLYW/SnISW5k76+grC/olAq
+	f2jS0n6FDnUTj+GFSwsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEN3-0000000FYDI-1BeC;
-	Fri, 27 Jun 2025 19:04:21 +0000
+	id 1uVEN4-0000000FYEb-2cp5;
+	Fri, 27 Jun 2025 19:04:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCkt-0000000FOXH-39rB
+	id 1uVCky-0000000FOYi-1cYI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 17:20:53 +0000
+	Fri, 27 Jun 2025 17:20:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F05841007;
-	Fri, 27 Jun 2025 10:20:31 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4DEA1007;
+	Fri, 27 Jun 2025 10:20:38 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.30.218])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 52DE13F66E;
-	Fri, 27 Jun 2025 10:20:47 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 179D23F66E;
+	Fri, 27 Jun 2025 10:20:53 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 00/13] arm64: debug: remove hook registration, split exception entry
-Date: Fri, 27 Jun 2025 18:20:25 +0100
-Message-ID: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+Subject: [PATCH v5 03/13] arm64: debug: call software breakpoint handlers statically
+Date: Fri, 27 Jun 2025 18:20:28 +0100
+Message-ID: <20250627172038.633423-4-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_102051_875930_5AB9850B 
-X-CRM114-Status: GOOD (  33.49  )
+X-CRM114-CacheID: sfid-20250627_102056_505875_BC2CE061 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,289 +61,501 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@ar
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Software breakpoints pass an immediate value in ESR ("comment") that can
+be used to call a specialized handler (KGDB, KASAN...).
+We do so in two different ways :
+ - During early boot, `early_brk64` statically checks against known
+   immediates and calls the corresponding handler,
+ - During init, handlers are dynamically registered into a list. When
+   called, the generic software breakpoint handler will iterate over
+   the list to find the appropriate handler.
 
-This is a quick v5 fixing a build issue with `allnoconfig`,
-as the hardware breakpoints handlers are not defined
-if `HAVE_HW_BREAKPOINT` is not set, as raised by Will.
+The dynamic registration does not provide any benefit here as it is not
+exported and all its uses are within the arm64 tree. It also depends on an
+RCU list, whose safe access currently relies on the non-preemptible state
+of `do_debug_exception`.
 
-Original cover below.
+Replace the list iteration logic in `call_break_hooks` to call
+the breakpoint handlers statically if they are enabled, like in
+`early_brk64`.
+Expose the handlers in their respective headers to be reachable from
+`arch/arm64/kernel/debug-monitors.c` at link time.
 
----
+Unify the naming of the software breakpoint handlers to XXX_brk_handler(),
+making it clear they are related and to differentiate from the
+hardware breakpoints.
 
-This series simplifies the debug exception entry path by removing handler
-registration mechanisms for the debug exception handlers, a holdover from
-the arm kernel, as well as the break and stepping handlers.
-This moves much of the code related to debug exceptions outside of
-`mm/fault.c` where it didn't make much sense.
-This allows us to split the debug exception entries: going from one common
-path per EL for all debug exceptions to a unique one per exception and EL.
-
-The result is a much simpler and fully static exception entry path, which
-we tailor to the different exceptions and their constraints.
-
-The series is structured as such :
-1 : related clean-up in the signle step handler
-2 : related refactor of `aarch32_break_handler()`
-3-5 : software breakpoints and single step handlers registration removal
-6: preparatory function move that is made internal in patch 13
-8: preparatory refactor of `reinstall_suspended_bps()`
-7, 9-13 : debug exception splitting and handler registration removal
-
-* Patch 3 copies and extends the `early_brk64` break handling for the
-normal path, byassing the dynamic registration.
-* Patch 4 does something similar for the single stepping handlers.
-* Patches 7, and 9 through 13 split each individual debug exception from
-the unified path by creating specific handlers, adapting them to
-their constraints and calling into them, bypassing the dynamically
-registered handlers used before.
-* Patch 8 refactors `reinstall_suspended_bps()` in preparation for the
-single-step exception entry split, as it is moved out of the handler.
-This could be squashed in patch 9 (the single-step exception split), but
-I opted to separate it for clarity (and because the commit message
-for patch 9 is already 45 lines long !).
-* Patches 5 and 13 are clean-ups removing the code that has been replaced
-and made redundant by the preceding patches.
-
-PREEMPT_RT
-===
-
-Of note, this allows us to make the single exception handling mostly
-preemptible coming from EL0 in patch 9, fixing an issue with PREEMPT_RT[0].
-The commit message details the reasoning on why this should be safe.
-It is *definitely* not preemptible at EL1 in the current state, given
-that the EL1 software step exception is handled by KGDB.
-
-We can do the same for the software break exception coming from EL0,
-which works in a very similar way.
-
-However, the hardware breakpoint and watchpoint exceptions also have
-a sleeping while non-preemptible issue with PREEMPT_RT, but this is
-much trickier to fix, so this won't be fixed in this series.
-A bit more details in [1].
-
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-(I don't really know what is the best thing to do if a tag is added
-on the cover, so I added it here as well as for the whole series.)
+Reviewed-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/kgdb.h                 |  3 +
+ arch/arm64/include/asm/kprobes.h              |  8 +++
+ arch/arm64/include/asm/traps.h                |  6 ++
+ arch/arm64/include/asm/uprobes.h              |  2 +
+ arch/arm64/kernel/debug-monitors.c            | 54 +++++++++++++----
+ arch/arm64/kernel/kgdb.c                      | 22 ++-----
+ arch/arm64/kernel/probes/kprobes.c            | 31 ++--------
+ arch/arm64/kernel/probes/kprobes_trampoline.S |  2 +-
+ arch/arm64/kernel/probes/uprobes.c            |  9 +--
+ arch/arm64/kernel/traps.c                     | 59 ++++---------------
+ 10 files changed, 83 insertions(+), 113 deletions(-)
 
-As the EL0 and EL1 code paths are now split for the BRK64 and single-step
-handlers, I added a comment to the EL0 paths to highlight that they
-are preemptible with interrupts unmasked, and to be wary when changing them.
-Happy for it to be dropped if it is not considered relevant or useful !
-
-Testing
-===
-
-Testing EL1 debug exceptions can only be properly done with perf.
-A simple test of hardware breakpoints, watchpoints, and software stepping
-can be achieved by using `perf stat sleep 0.01` and adding hardware events
-for `jiffies` and `hrtimer_nanosleep`, which guarantees a
-hardware watchpoint and breakpoint.
-Inserting a `WARN()` at a convenient place will allow testing both early
-and late software breakpoints at EL1, or using KGDB to test without
-changing code.
-
-For EL0 debug exceptions, the easiest is to setup a basic program and use
-GDB with a list of pre-programmed commands setting hardware and software
-breakpoints as well as watchpoints. Setpping will occur naturally when
-encountering breakpoints.
-
-All tests maintained behaviour after the patches.
-
-I also tested with KASAN on, with no apparent impact.
-
-See below for some testing examples.
-
-Regarding [0], I tested a PREEMPT_RT kernel with the patches, running
-`ssdd` on loop as well as some spammy GDB stepping, and some
-hardware watchpoints on a tight loop without any issues.
-
-Note: `ssdd`[2], the test that highlighted the original bug, forks pairs
-of tracer/tracee children. The tracer has a timeout waiting
-for confirmation that its tracee process has been single stepped.
-Given that the single step is now mostly preemptible, the step can be
-delayed : possibly much more than what was usual previously.
-Under heavy system load and by requesting the test to fork much more
-children than its default, the test will start to fail unpredictably.
-On a 4-core AMD Seattle board, I was able to see some inconsistent
-failures with 32 (default 10) forks, becoming much more consistent
-when the system load was above 16 (one or two failures per run).
-Raising the timeout made the failures completely disappear, even with
-a system load above 40, confirming that it is indeed a timeout issue.
-Given that running `ssdd` with its default values does not seem to fail,
-even with a system load of 21, so I do not feel like something
-needs to be done to address this.
-
-
-Based on v6.16-rc3.
-Thanks,
-Ada
-
-v5 :
-- Add a static inline stub for the hardware breakpoint and watchpoint
-  handlers if `HAVE_HW_BREAKPOINT` is not set (Will).
-- Remove `trap_init()`, use the weak definition in `init/main.c` (Will).
-- Rebase on v6.16-rc3
-- Add Will's Reviewed-by.
-v4 : https://lore.kernel.org/linux-arm-kernel/20250620211207.773980-1-ada.coupriediaz@arm.com
-- Split `do_{softstep,brk}()` by EL : `do_el0_XX()` and `do_el1_XX()` (Mark)
-- Remove now unused arch_init_uprobes (Anshuman)
-- Reword patch 3 summary (Anshuman)
-- Rename `XX_singlestep_handler()` handlers to `XX_single_step_handler()`
-  (Anshuman, Mark)
-- Drop `NOKRPOBE_SYMBOL()` for EL0 paths where relevant (Mark)
-- Call `die()` directly in `do_el1_brk64()` instead of `pr_warn()`
-  and `arm64_notify_die()`. (Mark)
-- Add comments to `do_el0_{softstep,brk}()` handlers highlighting
-  that they are called with unmasked interrupts and preemption enabled,
-  in cases changes need to be made in the future.
-- Added tags from v3.
-- Rebased on v6.16-rc2
-v3 : https://lore.kernel.org/linux-arm-kernel/20250609173413.132168-1-ada.coupriediaz@arm.com
-- Refactor `aarch32_break_handler()` to be consistent with other
-  `el0_undef()` tentative handlers and the refactored
-  `reinstall_suspended_bps()` later in the series.
-- Drop the intermediate handlers for hardware breakpoint and watchpoint
-  exceptions, as they both only return 0 and never end up calling
-  `arm64_notify_die()`. Make the real handlers return void, rename them
-  `do_{break,watch}point()` so that they can be called directly from
-  `entry-common.c`. This is similar to what was done for the single-step
-  handler. 
-- Add static inline stand-ins for disabled stepping handlers. (Will)
-- Don't duplicate `debug_exception_enter()` and `debug_exception_exit()`
-  in patch 06 (Will)
-  - Move them to `kernel/entry-common.c` and make them externally visible
-    while `do_debug_exception()` in `mm/fault.c` needs them
-  - Make them static again when cleaning up in patch 11.
-- Refactor `reinstall_suspended_bps()` to make the logic cleaner and easier
-  to understand (Will, Mark).
-- Be more explicit in the commit messages about the goal and safety of
-  moving `arm64_apply_bp_hardening()` to `kernel/entry-common.c` and
-  calling it before `enter_from_user_mode` in patches 07 and 09 (Will)
-- Enable preemption and unmask interrupts early for the brk64 handler,
-  fixing a PREEMPT_RT sleeping while non-preemptible issue (Luis)
-- Mention in patch 13 commit message that `bug_brk_handler()` is
-  not called as a fall-through anymore in early boot, but that it doesn't
-  change the actual behaviour (Will)
-- Scope FAR_EL1 comment (Will)
-- Fix typos (Will)
-- Rebase on v6.16-rc1
-  - Update the UBSAN BRK ESR check to `esr_is_ubsan_brk(esr)`.
-v2 : https://lore.kernel.org/linux-arm-kernel/20250512174326.133905-1-ada.coupriediaz@arm.com
-- Move the BP hardening call outside of the handlers to `entry-common`,
-  as they are not needed coming from EL1.
-- Make the EL0 software stepping exception mostly preemptible
-  - Move `reinstall_hw_bps()` call to `entry-common`
-  - Don't disable preemption in `el0_softstp()`
-  - Unmask DAIF before `do_softstep()` in `el0_softstp()`
-  - Update comments to make sense with the changes
-- Simplify the single step handler, as it always returns 0 and could not
-  trigger the `arm64_notify_die()` call.
-- Fix some commit messages
-v1 : https://lore.kernel.org/linux-arm-kernel/20250425153647.438508-1-ada.coupriediaz@arm.com
-
-[0]: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
-[1]: https://lore.kernel.org/linux-arm-kernel/e86c5c3a-6666-46a7-b7ec-e803212a81a1@arm.com/
-[2]: https://man.archlinux.org/man/ssdd.8.en
-
-Testing examples
-===
-
-Perf (for EL1):
-~~~
-Assuming that `perf` is on your $PATH and building with `kallsyms`
-
-  #!/bin/bash
-  
-  watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
-  break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
-  
-  cmd="sleep 0.01"
-  
-  sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
-
-NB: This does /not/ test EL1 BRKs.
-
-
-GDB commands (for EL0):
-~~~
-The following C example, compiled with `-g -O0`
-
-  int main() {
-          int add = 0xAA;
-          int target = 0;
-
-          target += add;
-
-  #ifdef COMPAT
-      __asm__("BKPT");
-  #else
-      __asm__("BRK 1");
-  #endif
-  
-          return target;
-  }
-
-Combined with the following GDB command-list
-
-  start
-  hbreak 3
-  watch target
-  commands 2
-  continue
-  end
-  commands 3
-  continue
-  end
-  continue
-  jump 11
-  continue
-  quit
-
-Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
-should go through the whole program, return 0252/170/0xAA, and
-exercise all EL0 debug exception entries.
-By using a cross-compiler and passing and additional `-DCOMPAT` argument
-during compilation, the `BKPT32` path can also be tested.
-NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
-SIGINT to GDB will break the loop and the execution should complete.
-
-
-Ada Couprie Diaz (13):
-  arm64: debug: clean up single_step_handler logic
-  arm64: refactor aarch32_break_handler()
-  arm64: debug: call software breakpoint handlers statically
-  arm64: debug: call step handlers statically
-  arm64: debug: remove break/step handler registration infrastructure
-  arm64: entry: Add entry and exit functions for debug exceptions
-  arm64: debug: split hardware breakpoint exception entry
-  arm64: debug: refactor reinstall_suspended_bps()
-  arm64: debug: split single stepping exception entry
-  arm64: debug: split hardware watchpoint exception entry
-  arm64: debug: split brk64 exception entry
-  arm64: debug: split bkpt32 exception entry
-  arm64: debug: remove debug exception registration infrastructure
-
- arch/arm64/include/asm/debug-monitors.h       |  34 +--
- arch/arm64/include/asm/exception.h            |  14 +-
- arch/arm64/include/asm/kgdb.h                 |  12 +
- arch/arm64/include/asm/kprobes.h              |   8 +
- arch/arm64/include/asm/system_misc.h          |   4 -
- arch/arm64/include/asm/traps.h                |   6 +
- arch/arm64/include/asm/uprobes.h              |  11 +
- arch/arm64/kernel/debug-monitors.c            | 255 +++++++-----------
- arch/arm64/kernel/entry-common.c              | 146 +++++++++-
- arch/arm64/kernel/hw_breakpoint.c             |  60 ++---
- arch/arm64/kernel/kgdb.c                      |  39 +--
- arch/arm64/kernel/probes/kprobes.c            |  31 +--
- arch/arm64/kernel/probes/kprobes_trampoline.S |   2 +-
- arch/arm64/kernel/probes/uprobes.c            |  24 +-
- arch/arm64/kernel/traps.c                     |  80 +-----
- arch/arm64/mm/fault.c                         |  75 ------
- 16 files changed, 332 insertions(+), 469 deletions(-)
-
-
-base-commit: 86731a2a651e58953fc949573895f2fa6d456841
+diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
+index 21fc85e9d2be..82a76b2102fb 100644
+--- a/arch/arm64/include/asm/kgdb.h
++++ b/arch/arm64/include/asm/kgdb.h
+@@ -24,6 +24,9 @@ static inline void arch_kgdb_breakpoint(void)
+ extern void kgdb_handle_bus_error(void);
+ extern int kgdb_fault_expected;
+ 
++int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
++int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ #endif /* !__ASSEMBLY__ */
+ 
+ /*
+diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kprobes.h
+index be7a3680dadf..f2782560647b 100644
+--- a/arch/arm64/include/asm/kprobes.h
++++ b/arch/arm64/include/asm/kprobes.h
+@@ -41,4 +41,12 @@ void __kretprobe_trampoline(void);
+ void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+ 
+ #endif /* CONFIG_KPROBES */
++
++int __kprobes kprobe_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++int __kprobes kprobe_ss_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++int __kprobes kretprobe_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++
+ #endif /* _ARM_KPROBES_H */
+diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
+index 82cf1f879c61..e3e8944a71c3 100644
+--- a/arch/arm64/include/asm/traps.h
++++ b/arch/arm64/include/asm/traps.h
+@@ -29,6 +29,12 @@ void arm64_force_sig_fault_pkey(unsigned long far, const char *str, int pkey);
+ void arm64_force_sig_mceerr(int code, unsigned long far, short lsb, const char *str);
+ void arm64_force_sig_ptrace_errno_trap(int errno, unsigned long far, const char *str);
+ 
++int bug_brk_handler(struct pt_regs *regs, unsigned long esr);
++int cfi_brk_handler(struct pt_regs *regs, unsigned long esr);
++int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr);
++int kasan_brk_handler(struct pt_regs *regs, unsigned long esr);
++int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ int early_brk64(unsigned long addr, unsigned long esr, struct pt_regs *regs);
+ 
+ /*
+diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
+index 014b02897f8e..3659a79a9f32 100644
+--- a/arch/arm64/include/asm/uprobes.h
++++ b/arch/arm64/include/asm/uprobes.h
+@@ -28,4 +28,6 @@ struct arch_uprobe {
+ 	bool simulate;
+ };
+ 
++int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ #endif
+diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+index 9e69f2e915e8..15d7158a7548 100644
+--- a/arch/arm64/kernel/debug-monitors.c
++++ b/arch/arm64/kernel/debug-monitors.c
+@@ -21,8 +21,11 @@
+ #include <asm/cputype.h>
+ #include <asm/daifflags.h>
+ #include <asm/debug-monitors.h>
++#include <asm/kgdb.h>
++#include <asm/kprobes.h>
+ #include <asm/system_misc.h>
+ #include <asm/traps.h>
++#include <asm/uprobes.h>
+ 
+ /* Determine debug architecture. */
+ u8 debug_monitors_arch(void)
+@@ -299,20 +302,47 @@ void unregister_kernel_break_hook(struct break_hook *hook)
+ 
+ static int call_break_hook(struct pt_regs *regs, unsigned long esr)
+ {
+-	struct break_hook *hook;
+-	struct list_head *list;
+-
+-	list = user_mode(regs) ? &user_break_hook : &kernel_break_hook;
+-
+-	/*
+-	 * Since brk exception disables interrupt, this function is
+-	 * entirely not preemptible, and we can use rcu list safely here.
+-	 */
+-	list_for_each_entry_rcu(hook, list, node) {
+-		if ((esr_brk_comment(esr) & ~hook->mask) == hook->imm)
+-			return hook->fn(regs, esr);
++	if (user_mode(regs)) {
++		if (IS_ENABLED(CONFIG_UPROBES) &&
++			esr_brk_comment(esr) == UPROBES_BRK_IMM)
++			return uprobe_brk_handler(regs, esr);
++		return DBG_HOOK_ERROR;
+ 	}
+ 
++	if (esr_brk_comment(esr) == BUG_BRK_IMM)
++		return bug_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_CFI_CLANG) && esr_is_cfi_brk(esr))
++		return cfi_brk_handler(regs, esr);
++
++	if (esr_brk_comment(esr) == FAULT_BRK_IMM)
++		return reserved_fault_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
++		(esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
++		return kasan_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
++		return ubsan_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_KGDB)) {
++		if (esr_brk_comment(esr) == KGDB_DYN_DBG_BRK_IMM)
++			return kgdb_brk_handler(regs, esr);
++		if (esr_brk_comment(esr) == KGDB_COMPILED_DBG_BRK_IMM)
++			return kgdb_compiled_brk_handler(regs, esr);
++	}
++
++	if (IS_ENABLED(CONFIG_KPROBES)) {
++		if (esr_brk_comment(esr) == KPROBES_BRK_IMM)
++			return kprobe_brk_handler(regs, esr);
++		if (esr_brk_comment(esr) == KPROBES_BRK_SS_IMM)
++			return kprobe_ss_brk_handler(regs, esr);
++	}
++
++	if (IS_ENABLED(CONFIG_KRETPROBES) &&
++		esr_brk_comment(esr) == KRETPROBES_BRK_IMM)
++		return kretprobe_brk_handler(regs, esr);
++
+ 	return DBG_HOOK_ERROR;
+ }
+ NOKPROBE_SYMBOL(call_break_hook);
+diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+index f3c4d3a8a20f..b5a3b9c85a65 100644
+--- a/arch/arm64/kernel/kgdb.c
++++ b/arch/arm64/kernel/kgdb.c
+@@ -234,21 +234,21 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
+ 	return err;
+ }
+ 
+-static int kgdb_brk_fn(struct pt_regs *regs, unsigned long esr)
++int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	kgdb_handle_exception(1, SIGTRAP, 0, regs);
+ 	return DBG_HOOK_HANDLED;
+ }
+-NOKPROBE_SYMBOL(kgdb_brk_fn)
++NOKPROBE_SYMBOL(kgdb_brk_handler)
+ 
+-static int kgdb_compiled_brk_fn(struct pt_regs *regs, unsigned long esr)
++int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	compiled_break = 1;
+ 	kgdb_handle_exception(1, SIGTRAP, 0, regs);
+ 
+ 	return DBG_HOOK_HANDLED;
+ }
+-NOKPROBE_SYMBOL(kgdb_compiled_brk_fn);
++NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
+ 
+ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
+ {
+@@ -260,16 +260,6 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
+ }
+ NOKPROBE_SYMBOL(kgdb_step_brk_fn);
+ 
+-static struct break_hook kgdb_brkpt_hook = {
+-	.fn		= kgdb_brk_fn,
+-	.imm		= KGDB_DYN_DBG_BRK_IMM,
+-};
+-
+-static struct break_hook kgdb_compiled_brkpt_hook = {
+-	.fn		= kgdb_compiled_brk_fn,
+-	.imm		= KGDB_COMPILED_DBG_BRK_IMM,
+-};
+-
+ static struct step_hook kgdb_step_hook = {
+ 	.fn		= kgdb_step_brk_fn
+ };
+@@ -316,8 +306,6 @@ int kgdb_arch_init(void)
+ 	if (ret != 0)
+ 		return ret;
+ 
+-	register_kernel_break_hook(&kgdb_brkpt_hook);
+-	register_kernel_break_hook(&kgdb_compiled_brkpt_hook);
+ 	register_kernel_step_hook(&kgdb_step_hook);
+ 	return 0;
+ }
+@@ -329,8 +317,6 @@ int kgdb_arch_init(void)
+  */
+ void kgdb_arch_exit(void)
+ {
+-	unregister_kernel_break_hook(&kgdb_brkpt_hook);
+-	unregister_kernel_break_hook(&kgdb_compiled_brkpt_hook);
+ 	unregister_kernel_step_hook(&kgdb_step_hook);
+ 	unregister_die_notifier(&kgdb_notifier);
+ }
+diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+index d9e462eafb95..0c5d408afd95 100644
+--- a/arch/arm64/kernel/probes/kprobes.c
++++ b/arch/arm64/kernel/probes/kprobes.c
+@@ -292,8 +292,8 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+ 	return 0;
+ }
+ 
+-static int __kprobes
+-kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	struct kprobe *p, *cur_kprobe;
+ 	struct kprobe_ctlblk *kcb;
+@@ -336,13 +336,8 @@ kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook kprobes_break_hook = {
+-	.imm = KPROBES_BRK_IMM,
+-	.fn = kprobe_breakpoint_handler,
+-};
+-
+-static int __kprobes
+-kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+ 	unsigned long addr = instruction_pointer(regs);
+@@ -360,13 +355,8 @@ kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-static struct break_hook kprobes_break_ss_hook = {
+-	.imm = KPROBES_BRK_SS_IMM,
+-	.fn = kprobe_breakpoint_ss_handler,
+-};
+-
+-static int __kprobes
+-kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kretprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	if (regs->pc != (unsigned long)__kretprobe_trampoline)
+ 		return DBG_HOOK_ERROR;
+@@ -375,11 +365,6 @@ kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook kretprobes_break_hook = {
+-	.imm = KRETPROBES_BRK_IMM,
+-	.fn = kretprobe_breakpoint_handler,
+-};
+-
+ /*
+  * Provide a blacklist of symbols identifying ranges which cannot be kprobed.
+  * This blacklist is exposed to userspace via debugfs (kprobes/blacklist).
+@@ -422,9 +407,5 @@ int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+ 
+ int __init arch_init_kprobes(void)
+ {
+-	register_kernel_break_hook(&kprobes_break_hook);
+-	register_kernel_break_hook(&kprobes_break_ss_hook);
+-	register_kernel_break_hook(&kretprobes_break_hook);
+-
+ 	return 0;
+ }
+diff --git a/arch/arm64/kernel/probes/kprobes_trampoline.S b/arch/arm64/kernel/probes/kprobes_trampoline.S
+index a362f3dbb3d1..b60739d3983f 100644
+--- a/arch/arm64/kernel/probes/kprobes_trampoline.S
++++ b/arch/arm64/kernel/probes/kprobes_trampoline.S
+@@ -12,7 +12,7 @@
+ SYM_CODE_START(__kretprobe_trampoline)
+ 	/*
+ 	 * Trigger a breakpoint exception. The PC will be adjusted by
+-	 * kretprobe_breakpoint_handler(), and no subsequent instructions will
++	 * kretprobe_brk_handler(), and no subsequent instructions will
+ 	 * be executed from the trampoline.
+ 	 */
+ 	brk #KRETPROBES_BRK_IMM
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index cb3d05af36e3..ad68b4a5974d 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -173,7 +173,7 @@ int arch_uprobe_exception_notify(struct notifier_block *self,
+ 	return NOTIFY_DONE;
+ }
+ 
+-static int uprobe_breakpoint_handler(struct pt_regs *regs,
++int uprobe_brk_handler(struct pt_regs *regs,
+ 				     unsigned long esr)
+ {
+ 	if (uprobe_pre_sstep_notifier(regs))
+@@ -194,12 +194,6 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-/* uprobe breakpoint handler hook */
+-static struct break_hook uprobes_break_hook = {
+-	.imm = UPROBES_BRK_IMM,
+-	.fn = uprobe_breakpoint_handler,
+-};
+-
+ /* uprobe single step handler hook */
+ static struct step_hook uprobes_step_hook = {
+ 	.fn = uprobe_single_step_handler,
+@@ -207,7 +201,6 @@ static struct step_hook uprobes_step_hook = {
+ 
+ static int __init arch_init_uprobes(void)
+ {
+-	register_user_break_hook(&uprobes_break_hook);
+ 	register_user_step_hook(&uprobes_step_hook);
+ 
+ 	return 0;
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 685c11b2c553..654c8ea46ec6 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -987,7 +987,7 @@ void do_serror(struct pt_regs *regs, unsigned long esr)
+ int is_valid_bugaddr(unsigned long addr)
+ {
+ 	/*
+-	 * bug_handler() only called for BRK #BUG_BRK_IMM.
++	 * bug_brk_handler() only called for BRK #BUG_BRK_IMM.
+ 	 * So the answer is trivial -- any spurious instances with no
+ 	 * bug table entry will be rejected by report_bug() and passed
+ 	 * back to the debug-monitors code and handled as a fatal
+@@ -997,7 +997,7 @@ int is_valid_bugaddr(unsigned long addr)
+ }
+ #endif
+ 
+-static int bug_handler(struct pt_regs *regs, unsigned long esr)
++int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	switch (report_bug(regs->pc, regs)) {
+ 	case BUG_TRAP_TYPE_BUG:
+@@ -1017,13 +1017,8 @@ static int bug_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook bug_break_hook = {
+-	.fn = bug_handler,
+-	.imm = BUG_BRK_IMM,
+-};
+-
+ #ifdef CONFIG_CFI_CLANG
+-static int cfi_handler(struct pt_regs *regs, unsigned long esr)
++int cfi_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	unsigned long target;
+ 	u32 type;
+@@ -1046,15 +1041,9 @@ static int cfi_handler(struct pt_regs *regs, unsigned long esr)
+ 	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook cfi_break_hook = {
+-	.fn = cfi_handler,
+-	.imm = CFI_BRK_IMM_BASE,
+-	.mask = CFI_BRK_IMM_MASK,
+-};
+ #endif /* CONFIG_CFI_CLANG */
+ 
+-static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
++int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	pr_err("%s generated an invalid instruction at %pS!\n",
+ 		"Kernel text patching",
+@@ -1064,11 +1053,6 @@ static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-static struct break_hook fault_break_hook = {
+-	.fn = reserved_fault_handler,
+-	.imm = FAULT_BRK_IMM,
+-};
+-
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 
+ #define KASAN_ESR_RECOVER	0x20
+@@ -1076,7 +1060,7 @@ static struct break_hook fault_break_hook = {
+ #define KASAN_ESR_SIZE_MASK	0x0f
+ #define KASAN_ESR_SIZE(esr)	(1 << ((esr) & KASAN_ESR_SIZE_MASK))
+ 
+-static int kasan_handler(struct pt_regs *regs, unsigned long esr)
++int kasan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	bool recover = esr & KASAN_ESR_RECOVER;
+ 	bool write = esr & KASAN_ESR_WRITE;
+@@ -1107,26 +1091,14 @@ static int kasan_handler(struct pt_regs *regs, unsigned long esr)
+ 	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook kasan_break_hook = {
+-	.fn	= kasan_handler,
+-	.imm	= KASAN_BRK_IMM,
+-	.mask	= KASAN_BRK_MASK,
+-};
+ #endif
+ 
+ #ifdef CONFIG_UBSAN_TRAP
+-static int ubsan_handler(struct pt_regs *regs, unsigned long esr)
++int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	die(report_ubsan_failure(esr & UBSAN_BRK_MASK), regs, esr);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook ubsan_break_hook = {
+-	.fn	= ubsan_handler,
+-	.imm	= UBSAN_BRK_IMM,
+-	.mask	= UBSAN_BRK_MASK,
+-};
+ #endif
+ 
+ /*
+@@ -1138,31 +1110,20 @@ int __init early_brk64(unsigned long addr, unsigned long esr,
+ {
+ #ifdef CONFIG_CFI_CLANG
+ 	if (esr_is_cfi_brk(esr))
+-		return cfi_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+-		return kasan_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+ #ifdef CONFIG_UBSAN_TRAP
+ 	if (esr_is_ubsan_brk(esr))
+-		return ubsan_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+-	return bug_handler(regs, esr) != DBG_HOOK_HANDLED;
++	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ }
+ 
+ void __init trap_init(void)
+ {
+-	register_kernel_break_hook(&bug_break_hook);
+-#ifdef CONFIG_CFI_CLANG
+-	register_kernel_break_hook(&cfi_break_hook);
+-#endif
+-	register_kernel_break_hook(&fault_break_hook);
+-#ifdef CONFIG_KASAN_SW_TAGS
+-	register_kernel_break_hook(&kasan_break_hook);
+-#endif
+-#ifdef CONFIG_UBSAN_TRAP
+-	register_kernel_break_hook(&ubsan_break_hook);
+-#endif
+ 	debug_traps_init();
+ }
 -- 
 2.43.0
 
