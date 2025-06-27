@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3FB1C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B5C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fij0F7REbhBjOSux4ItPJsaKU8QY9MctiEHoW8yRhwA=; b=2GyNRYqFQnJvz4Wu46JpHur0dk
-	NC1UYH4m1R8B3Ac5PkCIyqWY8TKYygXUubpUnGwXHMlFrkp+fp6EWw2b+FXqrS25XgfMyjq6CzIhJ
-	id/HDn42Jc2IKWqL6TQW+jmiJGZt8nQpYADmYUnivstgNtT1ffpkAmlpCRTxhw0wSEN8kO0S6sRlt
-	0doIVGUEJcXKRF5BctA2RdcDc+DKbpwcAgwuk8sJwPmVWckYMEHnhns2Ps7aBSdeGfzGKhnc222Fz
-	aHhWOv/DWI+k2MtYB5jGnfDIbCTci19TTb9untI1vfqmBy8a3LuxYVOhnr6pbRTt90NM7v+21SZjl
-	CILS9ImA==;
+	bh=NTelofPdfpn9laIMDBEqoLr8eSJo6yh1HnD/qq3Uaes=; b=X859hq1r3X7ndS6/A6YSiUvmT7
+	niF+iYHv8IMzcO5FxgYCF6YtrrX1hENaLX2UFsuM6hvk1As+nOH7rt0jFrCtOMGVLaHq+QfJksrBP
+	dgaztF3uNP3zt5sIgmNwimnYrDXZu9baa4LCcVjhpz8YEJ7bK+PCWMAXdNJ/CPkCK7btNGFhIcB/J
+	uUfVsUJFHG11aa7uyGt61TTcM36OJC7ue0Ux8EvVqGtjFwE25wya0OhgmyrESXldF8ZS3PzYD/ATo
+	+ICJ/mY9JCRlWNoW0g/6IBUdVeNUESx4r9E0tbELK1hvVO+/hvuc9Ig67Chc7OhumG5bD6Ao9pFtA
+	ZnVI6Y2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVFgx-0000000FkrX-2no7;
-	Fri, 27 Jun 2025 20:28:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uVFjE-0000000Fl8i-3CYw;
+	Fri, 27 Jun 2025 20:31:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVFbv-0000000FkED-1NC4;
-	Fri, 27 Jun 2025 20:23:49 +0000
+	id 1uVFcG-0000000FkJ1-48L2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 20:24:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FFEF460CA;
-	Fri, 27 Jun 2025 20:23:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55852C4CEE3;
-	Fri, 27 Jun 2025 20:23:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A48DB43C29;
+	Fri, 27 Jun 2025 20:24:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BAEAC4CEE3;
+	Fri, 27 Jun 2025 20:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751055826;
-	bh=ZUs7oMicwFryr12OGl0ndU7qfjIlyTt3/e0DKs0MGVo=;
+	s=k20201202; t=1751055845;
+	bh=70/EbRKDWwo2aeRNCfM/60F6mNHA//ryIMx908BwwzU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XYvqsoLCo0czRGJb19eWtrW5bHpMhPlUhmy3uB8g/ehHEVFMs0cYqhFkC6s1buEte
-	 d3kuw4FX3ejzT8lKoG5vvM8t5pJLOpUD1C/l0ILPWGcpiDU+Pt2/zXqjzw6XZZJRBx
-	 R83HUQ0OLhZmEFVYHvgTO6kV8+se8wkpCRZs2hWif0nEVt8crYdNOBjVGT3vI6xTZ7
-	 ZQ+wk7leKA7qh/DwmmOEToGfD5FyMUa7slAWwXG4OB0WaIBO+P+ylzMZ7LwlLSB6lg
-	 1vGJEWgbMfOrt9o++UWhJ8niIFR4SlzkluUyq7SEqmWgr4faAJDig5UNL7OJQw5lTZ
-	 O8TFDLQHEogBg==
-Date: Fri, 27 Jun 2025 15:23:45 -0500
+	b=KmlTbSDvPR2NipM/ujZnPWtGoBIw/ilPGSJ6PfU/sR2J2393sPU8tcQgpIMINAGdt
+	 oYshfyKMhnD/rcbMsjA6E0OIDFR4hgLDiGXxRZIanRFAPOkcYlL3yG6vI7nv1fLkh4
+	 sNF81L5ochon2onMUdmQClX21/SjJk4TgLgbKAhERvcXpjWpGPqcDL9gQMLA8g+Ieb
+	 7zfUuXMsqw8s3g+zS+HVOhOuRtY8dq8/7YXuGMYFFFBFfLTsTpJjbTq7fXkwVKyDLR
+	 8m5PNHnqaxRTMdDF62EU6fB9BWROAjqk+8+RiIUK1z/84RRAqsvCV/WwqmS3s1Wgv6
+	 u5D7Mlg3bvv7Q==
+Date: Fri, 27 Jun 2025 15:24:04 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Alexey Charkov <alchark@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	linux-rockchip@lists.infradead.org,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
-	Hans de Goede <hansg@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	Yunke Cao <yunkec@google.com>, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/8] media: dt-bindings: rockchip: Add RK3576 Video
- Decoder bindings
-Message-ID: <175105582524.23618.936234591360412095.robh@kernel.org>
-References: <20250623160722.55938-1-detlev.casanova@collabora.com>
- <20250623160722.55938-3-detlev.casanova@collabora.com>
+To: Harshit Shah <hshah@axiado.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Jan Kotas <jank@cadence.com>, devicetree@vger.kernel.org,
+	soc@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 1/7] dt-bindings: vendor-prefixes: Add Axiado
+ Corporation
+Message-ID: <175105584420.24329.3649042034021574004.robh@kernel.org>
+References: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-0-b3e66a7491f5@axiado.com>
+ <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-1-b3e66a7491f5@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250623160722.55938-3-detlev.casanova@collabora.com>
+In-Reply-To: <20250623-axiado-ax3000-soc-and-evaluation-board-support-v3-1-b3e66a7491f5@axiado.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_132347_387227_D66846D6 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250627_132409_043276_BE1C4EB9 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,15 +81,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 23 Jun 2025 12:07:16 -0400, Detlev Casanova wrote:
-> The video decoder in RK3576 (vdpu383) is described the same way as the
-> one in RK3588 (vdpu381). A new compatible is added as the driver
-> implementation will be different.
-> 
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+On Mon, 23 Jun 2025 10:28:12 -0700, Harshit Shah wrote:
+> Link: https://axiado.com
+> Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
