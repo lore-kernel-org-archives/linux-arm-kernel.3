@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE50C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D8CC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vu6rdjzGYFWzv/HJ3WLJXjU9sii8p6hgsGJ6sN7yeZ8=; b=Hu1jhZwK9SagKXjgUDaHjfrg9c
-	6xJ2FTNG9ADJ/RV9v86vHKss0E7Ag1X0uEyhEcqRi/ek8dguNBule9F4zxG6KOutswZ7H7E8H+qFI
-	KxuDo9zYbLuuLPcgARidAc+68nTmmF5JPf3pEjSTwv4Fx3/Vk7aqUt8iWaHfYiK10dwA+aTjRle/9
-	F0J/b0ve3Ifq4NyTUGbQ0Ir2HUGQOw2xj4zVmsTu9siOP56KMvxiGxmqcp3K8uvCsxgIaGOcrUoqv
-	O4M6fNyDggqyGTg0limpXuQp2nL4eHBTcMZZnGdinkKHU5UFkOzjOmVIjG/csR5svB3lv90PFdECW
-	RHxskD2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azvwuzbKvGAfHYCvGIF6OHfRvYtMlh/x6stVIyHjtPA=; b=ewUFbbO0CVXNtbeQPSMEwkqNj6
+	9u/K/yB9HiMk0UfEJ/OBAKWyTR5Z2Nlj6DA1Ki6YvLXq0WvIxkwbulN2KccXo2vI+nqF6rZu7xoh9
+	HA93V0n1vMPFvMBP2/3QFvzjHpu+9lRUSsdTwgnHpHxGWAJ3+DyJeovylCuRPFykNN/vij9HapvV4
+	XOCs7vCCUAK6B0N9LFe0e0FdOcVavtzHCyZOPKQl+7MXcmtUqCCy/d045pApt34grc2eq3QD95lSf
+	91WFlIBoK9W0jnFUqq4urDrvILXY90hHezX/g8RAu5Hv4pA0ewFBSFUuv8MYOQIcKHA7WdcJj2LpQ
+	8ZHuiwNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV78S-0000000ESa4-25s4;
-	Fri, 27 Jun 2025 11:20:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uV7Ak-0000000ESvt-0Prq;
+	Fri, 27 Jun 2025 11:23:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6k7-0000000ENEy-0yI6
+	id 1uV6yV-0000000EQsK-2Pbt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Jun 2025 11:10:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=azvwuzbKvGAfHYCvGIF6OHfRvYtMlh/x6stVIyHjtPA=; b=ngcXP+F0EXXONIE/xHVA5edIJz
+	XMZMMgQLyYnKY2UKJAnB7/uojxWxCt+2lSUBMUEvJO8IlxQL+pdN7Cc4ZBbmtRkEf/8MP7F6iWeqv
+	5sZm11O8vsPQjJK9c0qqfjbMchkaUMSjmt0VpuSBbY+94Xc+sJ8GmpLdS3Zgz/K2VUL5izb5mehq8
+	spNuhiW1fvHypGDuRHvWvCZoXlFVSCh5jRkxn6obyWSCXwgxiZzKBWsbNXazB1cwO3V+2Mlj/cjzi
+	NzSLQL1mvAQrO0E4FxRWRQ4pmzF7jiwj2MnyCClU4gAnxxTSVO7IRZ6PqrVdVp4410z0OXS01UfHt
+	yS52KW0Q==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV6yS-00000006K7u-1p1x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 10:55:39 +0000
+	Fri, 27 Jun 2025 11:10:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A70A261120;
-	Fri, 27 Jun 2025 10:55:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB677C4CEE3;
-	Fri, 27 Jun 2025 10:55:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4DC4DA52D68;
+	Fri, 27 Jun 2025 11:10:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B02D5C4CEE3;
+	Fri, 27 Jun 2025 11:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751021738;
-	bh=w8uGM8V3BeOaxaupPf60FQSG2Cnb6F/+ZSO18HXNtkc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fj360n+blrE4iYL1vzNpEIzzok3rcXkLm2AN1scyQgysvlldpZEhZHz9kA9cud+rM
-	 AYJulATI+pF8PxE1Xce9WqZiS6v2SnyOrJ60B25q3bSU0iBQg5jfDiVQnRm1QdXZmM
-	 X7ibljFytuz/nrxp9j9HodGkOSUks8ovvY1kKYQ7jwBwugNuuzec9nGQkvgqeShwfz
-	 qQ0NcGnoeycpOX6wjlauz/8FFfxHk42dRhSua98b8+t4idIktSr9Wge6Twg8NQ0jjX
-	 ZpFOxChEOHm29VEUyu0GsfpupQtBL70UERgF8DxIyDCGPDWRPjeDdIt9F46tHoHqsD
-	 xxprjRGnLyAog==
-Date: Fri, 27 Jun 2025 11:55:34 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] selftests/arm64: Prevent build warnings from
- -Wmaybe-uninitialized
-Message-ID: <aF54phWq1IGlaphz@finisterre.sirena.org.uk>
-References: <20250625020138.3777454-1-anshuman.khandual@arm.com>
- <dd3dee5a-b030-4658-8cef-c777928368d4@sirena.org.uk>
- <af5cbd48-6312-481d-8e91-7739612493c1@arm.com>
+	s=k20201202; t=1751022625;
+	bh=mGMGfBohkZ1WPzOd7l0m/Nelbywkij2anI7hHz+8Wtg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IIMwd5afvL0J/BPxLK6qEbVvjUxRT5d3rknTaZM9WrdHd8lyYqOmr4faeVqoQbv9A
+	 zFLWXY6pifR+dc3jVcynzhPcSoqUw/bjuLO16NQMRL3IbMXoeQFD3wAc1unC/B2xRo
+	 fXZN/irWwTW4V69YlaOZCyDJrw75cGKi3a1hUee3+MvzPxU4BbBK8iN0F5j/6AW8QM
+	 Lzbli/VLSYDfFxzNXv0wsScHhUGDO7ytjshn+VJc+8XTqxPbf8rwhoyhBfSu2jT6qg
+	 Xaba5+y0sfXJINzM+ZuwAghARcnWnqWFCpAsRNf2aNw0spdKADrCkN4NJ+TcUlwM+X
+	 DHxNNlgHHTpHw==
+Message-ID: <7dd6cb50-78bc-4d44-afc1-9e0fb99a5e49@kernel.org>
+Date: Fri, 27 Jun 2025 06:10:22 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0uBnPjIGKotRgbPj"
-Content-Disposition: inline
-In-Reply-To: <af5cbd48-6312-481d-8e91-7739612493c1@arm.com>
-X-Cookie: Do not cut switchbacks.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] dt-bindings: net: Convert socfpga-dwmac bindings to
+ yaml
+To: Matthew Gerlach <matthew.gerlach@altera.com>,
+ Rob Herring <robh@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, richardcochran@gmail.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Mun Yew Tham <mun.yew.tham@altera.com>
+References: <20250613225844.43148-1-matthew.gerlach@altera.com>
+ <20250626234816.GB1398428-robh@kernel.org>
+ <fe705ffc-9a4c-462c-a1bf-e14c55cdb2cd@altera.com>
+Content-Language: en-US
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <fe705ffc-9a4c-462c-a1bf-e14c55cdb2cd@altera.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_121028_740851_562886A8 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +97,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/26/25 20:40, Matthew Gerlach wrote:
+> 
+> 
+> On 6/26/25 4:48 PM, Rob Herring wrote:
+>> On Fri, Jun 13, 2025 at 03:58:44PM -0700, Matthew Gerlach wrote:
+>> > Convert the bindings for socfpga-dwmac to yaml. Since the original
+>> > text contained descriptions for two separate nodes, two separate
+>> > yaml files were created.
+>>
+>> Sigh I just reviewed a conversion from Dinh:
+>>
+>> https://lore.kernel.org/all/20250624191549.474686-1-dinguyen@kernel.org/
+>>
+>> I prefer this one as it has altr,gmii-to-sgmii-2.0.yaml, but I see some
+>> issues compared to Dinh's.
 
---0uBnPjIGKotRgbPj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Apologies for the duplicate review. I was planning to convert the dwmac 
+first then add on to the gmii. We should continue with Matthew's version.
 
-On Fri, Jun 27, 2025 at 04:15:09PM +0530, Anshuman Khandual wrote:
-> On 25/06/25 3:54 PM, Mark Brown wrote:
+> I am sorry for my part in the duplicate review. I just rechecked the 
+> output of get_maintainers.pl, and Dinh was not listed, and I should have 
+> known better.
+> 
+> I am happy to do the work to resolve the differences and resubmit with 
+> Dinh as the maintainer.
+> 
 
-> >> -	int status;
-> >> +	int status =3D 0;
+I'm not the maintainer of this. Maxime Chevalier is. Please don't add me.
 
-> > This will shut the warnings up, but it's a bit of a heavy hammer that
-> > means that the warning can never trigger warnings for that variable
-> > being unused.  Is it possible to fix this by updating the control flow
-> > such that the compiler can tell that the initialisation follows the use?
-
-> The problem might not exist in reality. In the test function test_fork()
-> in the file tools/testing/selftests/arm64/gcs/basic-gcs.c there does not
-> seem to be a path where WIFEXITED(status) might get called when 'status'
-> has not been initialized as there is a preceding waitpid() which would
-> ensure 'status' gets set. Similar scenarios are present in fork_test_c()
-> and write_fork_read() as well.=20
-
-Yes, it's a fairly common false positive pattern (in this case it'll be
-that the compiler can't understand the constraints with pulling things
-out of the exit status).
-
-> But the compiler still throws these build warnings. Seems to be false
-> positives and this fix just works around that.
-
-Right, the problem is that it works around it with a big hammer that
-just shuts the warning up completely meaning that if we do cause issues
-in the future then the compiler won't be able to tell us about them.  It
-would be better to suppess it by changing the control flow such that the
-compiler can follow it.
-
---0uBnPjIGKotRgbPj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmheeKAACgkQJNaLcl1U
-h9BoAAf/cLJ4iO8ZRetLgVRyylvU3LbHGcwMSRactvuK8r9ThRrcNDQIDZWvFoVe
-+QensBvEaIO8IrQCbE0FpKQrE199O7hwkT3Lv56V2uMNlXCm8B+Usm+iPLdn8nRO
-8GgVuezQqAJxkjfUA1LBcmblqVikDLtnIGT863TEqd4Wexnliei+Xd/jL5WJJis6
-s1qr7wo83A2RIuMPNPzdEJMiwhkSNRQbenLCXeXiNt754TyQBTnw8BhGf4Uyy6E0
-0sNtuHLmxtxiFqSXJQPDotg04tyrJinM6GlHDjHmRlyDopBKRSaQTZwQHclas/oK
-0klJ3MGVJSlx89Bj/Wyfucqhm6ZEsQ==
-=/LTI
------END PGP SIGNATURE-----
-
---0uBnPjIGKotRgbPj--
+Dinh
 
