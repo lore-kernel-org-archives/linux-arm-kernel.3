@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AA1C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045EEC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=N2cruWPjz3gexVrRlJMt2yY2YOmBkTyGxfEJbYUktqI=; b=oQzUCsCX4o64tC
-	/QYn/d1gYVxS5Vjz+LyciraehnzR4N+tw7YffPT0SNgHWyylD5MF5KJQuOxavwDHpsVYv4jHCMm7C
-	G1l3hfnmeiR1EbTflC9dnxksdGgppGTWlkCaZtLkx1PjhCIGsdRrG8/aiwDtXL4Zz2+yxgboGh5OK
-	yi7fjIZpGmseKgeQ5vq9z+niesoB4BujtLbcDz6mLvW1mf5AerAoWZELaZGHkTyiYl/m7vBYaS6MX
-	Z7Smn/xP+q8zX0TF+V0X62uBRlRKFFGQVsstetCIymEkYCc5FQBYegdnwFtmho1CfunD9k3Uhx2bC
-	AZo6++PdQ9rWtYOISyug==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=totF/N0o3eF/DAQAGujOwbAUfvbVdfGY/Qpe6oziQJ0=; b=VGUAcKx+jpTRqL658i4OKvfois
+	TeHfVAq9JUjVkhqYDE0dDA47C2GxuK8C//NXTK3/p9/JeR1JR8tEPWgs47wDhvXauyy4snDTQTSNg
+	krH/5pw72GzUgfC+2BszqLTRdaxrF+7+uLixnRWQZsoIFy42wFsLap4ykvD8Cueu18ETaoJYpBx7k
+	ZxxqYQJDTPFI8ZISId/HBXHp5RJGkJyqcWw0rv3YTITLONYz7LRABWSOZ7f7QSjPPZbPgyMn5DDUp
+	pwFs0HOo/BpkVEMttxl5ZLSud+CK8UnyLBl0BBoVlVTIfTpIK3w9iA/BsEZxHZxqRiLuGWR/FjTxd
+	7LHIEs7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9fb-0000000Eqsx-079G;
-	Fri, 27 Jun 2025 14:03:11 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uV9hr-0000000ErCE-3Yjk;
+	Fri, 27 Jun 2025 14:05:31 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV993-0000000EmOC-0MHd
+	id 1uV993-0000000EmOW-3RCU
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 27 Jun 2025 13:29:34 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-60702d77c60so4023089a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 06:29:32 -0700 (PDT)
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-60c51860bf5so3357696a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 06:29:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751030971; x=1751635771; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=N2cruWPjz3gexVrRlJMt2yY2YOmBkTyGxfEJbYUktqI=;
-        b=d1oa7QIQll2qOapf4ieQcBfaHFiejROSYxeqF/wzWgghInHkEy48bzQxTE9vkSnk55
-         5QbPMvd/wsgyQSMmNx3wYAIKdlRR/i94RuojHyQ6gubJ6L/a0U+7Ot3sbF8WOIPWHExs
-         LKIN1xQaBrnEAFubp8863DyhhyGBshh9FVdpNwCupEJYysRecVptymNOwxm5PM/4ZaFa
-         Dn7j37NlgSJ+QPkVhX+GuYZkYzOP3I+F/Xa6PVOb+9Pxn9IsZy3sAvqVLNhONNrDHJeo
-         yxGYyHdVjWPYNLlkcCOdz7o4gGwEj+N08DuVcZyTg8Ym5FqKZwfvSHkbXltKFlg8bHSM
-         pFPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751030971; x=1751635771;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1751030972; x=1751635772; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=N2cruWPjz3gexVrRlJMt2yY2YOmBkTyGxfEJbYUktqI=;
-        b=R4AElplbDNXvIS94xvkAxerH/FFB/0ScHAU0SeKuVJxKItOu8bkB561GXntMhMy0MA
-         KNUHM36npgsukpFb1yhZKSQSjaGC3rZMBMSDvJHsfNamgxgdlZejP+B7X8GKqoVh9S3F
-         ss7UGrkB2IQ7xLwO3QGoQAo7JbWKNbPSzSL3Pu/fcG+f8vIx9Ns6SGEhpDybuulZwtf/
-         WiU9FjCMIzw7JZsprKgomiCAGEtfvlxsu1IpeNttuHuD/fpLmrbB88YLDgeGS0gjKbRu
-         Dabja/a4Gf5mvFAYP2NCYofeEPLp7kb/bxUPluBnmR4SxfJu/MXPq108ocAufySqlh23
-         nFqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWd6N+R4wC+P5UVX2deBOaVKBnlF/3yXSF2W9DaFhr7HBvlpsN1hX8nSrVG1xjE5jeUto1HFa2IuffqT4ZL+3HG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv8Msu9zOEPUEtJ5YfIAEmbu2DCSabc21njihPfBMlo8dIPBEd
-	qV9yW5IFWU0rLaQADJwcdSDwWmNIo2bTq7vqfNayaJGDdEQ5/BrzKr0XX4UPTPLFfEc=
-X-Gm-Gg: ASbGncta3Q1GA6c3emEYyIr9snDeD0SSZkxB71fS8WvnI27Qz3k6Jd29A7tnR5r4LzH
-	Ncz58KHUSpEFmNlJwu+4W3Yj3JXdkUeRrmgh8gKhe+u5G0O7KXqswE1H0xtrHU0+46GynWAPtm5
-	KvD/XfDj/jUUpMHQpesSwaOs+EByuCEGxl4ikq9n29P+z9KDB8L3eoyqZEolHkGlhgwaAX/2lSt
-	F68FBVxa1UlryeBEi8PYxr8k5IRxzlmQeXp1KcO+0KSTCcUmBWiHHjpVqK5AwSWZOsa5xcH7db7
-	jhhPDUOMuqvFjc4zWKO3+nM1nMHS4/MMxI6GpLuXWKgkSgl00KDTLecNq5QtL3B4Pxd3xCi46K5
-	Gu6o7+FUDN1CN4sCuYUXIGYu8u9vdyA2xB+pFxF0JhzjjFY0wnavedfeW
-X-Google-Smtp-Source: AGHT+IFZK5c46HhXnjcsG+iKu4lVg84Jm5gZqBHYsY+oJqop8E97nfkHet25Wa24z6oqjQJtzHQGZQ==
-X-Received: by 2002:a05:6402:40d0:b0:607:4625:98f5 with SMTP id 4fb4d7f45d1cf-60c88e58024mr2569375a12.23.1751030971492;
-        Fri, 27 Jun 2025 06:29:31 -0700 (PDT)
+        bh=totF/N0o3eF/DAQAGujOwbAUfvbVdfGY/Qpe6oziQJ0=;
+        b=UGip3iSS9urGwh1BSfu7KgO/1dmXRJ7PJ0q9TDuMrRvGBiGZ1OGNwklMGflDm5iqTm
+         SZDIfDZFAjrEz7kikUiaydJ3DfWCs9eNPcHBozFbvXroAE/ZPoLf+KOcMUHQRY2f7UZK
+         TStU0wiY1hG+n3/qOnZ7GmXNbBP67/EuRYvegUfLorxYahwiGV4/1hPm8THWu/k/qrHs
+         fCpqrg9UGGywW+eZNyVqYyWwH7jG+H5gAWQlqKcGcL1oTaVV56dcw+R5zdamC4/kkXSI
+         aAaEGEW/jqIUk30ybUHSUoIqdI+EZIyoXhT418wjgkrZjyL24Nay4RfDewlM62ROxppb
+         5pyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751030972; x=1751635772;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=totF/N0o3eF/DAQAGujOwbAUfvbVdfGY/Qpe6oziQJ0=;
+        b=M49h/JZ5rjw0TKmkTcvTcqvhwpoqJl9x6sDAY/YCaQ8d4LgXFrLyhCnMazDOrglibq
+         zDb9qtRlD0jhhVGNN07LGdPDY8YxgXZmJnIPsg+kjhHdgHo/wUARpwBkedJWXiQszRzc
+         UAOdJF/nkOY5W9WFohO7EC6Jp+ezpVVQi1YzNhl2GlBwSM/0leVkjoz8xjIB3a4OBnuz
+         6eCXfa5u7X7hSn18RI+14w3iqCLWCqhCoAVioOHmoEtkcCeo7nP+ly3pVya97TjSWWka
+         wF18OC0AGhHdUTHdjrrxnYAeqI1SBQ8PWWcC1tzHwacv27xm3jc+OjSbulVmwxp5Eb5l
+         Pm4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW2OS4nvATK0i9GCJjj6ouJAWifUyagE7B1xK76xrb78UumOom9n/PuYci3Uxf2Tq8C1hmlWwqassuxs1W6xVlX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5Q3YmccULvUVyt5g74myDSITMb/NZMd++59KPuZtpXHahfJaL
+	VixXSdTg7m0tGbMSOhQVAceUueqrOlatiPjeYLbrUbj209QztAoR0w7hFLwvYGm9Rcg=
+X-Gm-Gg: ASbGnct/02FTMzuCwCds3EPkc2/Ra1OUPio/RgcXglJNfdEv0xISsnh7sHpdEhqUiqF
+	0W2p78M9GKgE+4w7tClWT4b5ZNSKsw7pMsoW+UYo/Lhpj2cGpnQuCRlZHryDDMbxodxi5YY4eqf
+	8KWE9Wv31EtMZUgP7i2EpLN5VHfVfn/G01jtBrBbQsQHzOSjxSn89NVyZayCVhQ6y2olwVkh78Y
+	qaSpADRkwTC+IRIMZM4yJ9G4H0tf4aVXZ0RQaGBdUA0H3TgvlvaJ8ODWHg9vzpskRTj0ReaLZuv
+	FjiEQ9zscmBj8N1gUh5jS3CIULZzTMcoUaAVuvt6MSiLAzEoZW9+fJfKyzFk/iyVdXKm3gAt7lx
+	yKJtuP5AWA1gNTjJM+By3vYDAvrdRhRV/NG+l4r7bITOLLQ==
+X-Google-Smtp-Source: AGHT+IFqqEN1CabLkuRpa4qT0ns50eEJVky5F6nDsnGYV38k/xhyp5qqKgZNhwr44qSRdsoEwoz0Ew==
+X-Received: by 2002:a05:6402:3124:b0:60c:68bc:7fca with SMTP id 4fb4d7f45d1cf-60c88e72e9bmr2087602a12.27.1751030972308;
+        Fri, 27 Jun 2025 06:29:32 -0700 (PDT)
 Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c82908297sm1462702a12.26.2025.06.27.06.29.30
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c82908297sm1462702a12.26.2025.06.27.06.29.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 06:29:30 -0700 (PDT)
+        Fri, 27 Jun 2025 06:29:31 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Subject: [PATCH 0/3] gs101 s2mpg10 initial enablement & reboot update (DT)
-Date: Fri, 27 Jun 2025 14:29:29 +0100
-Message-Id: <20250627-gs101-reboot3-v1-0-c3ae49657b1f@linaro.org>
+Date: Fri, 27 Jun 2025 14:29:30 +0100
+Subject: [PATCH 1/3] arm64: defconfig: enable Samsung PMIC over ACPM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIALmcXmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDMyNz3fRiQwND3aLUpPz8EmNdC+M0i2QjE/NEg6QkJaCegqLUtMwKsHn
- RsbW1AGKIwG1fAAAA
-X-Change-ID: 20250627-gs101-reboot3-83f8c247a0bb
+Message-Id: <20250627-gs101-reboot3-v1-1-c3ae49657b1f@linaro.org>
+References: <20250627-gs101-reboot3-v1-0-c3ae49657b1f@linaro.org>
+In-Reply-To: <20250627-gs101-reboot3-v1-0-c3ae49657b1f@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -90,8 +89,9 @@ Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_062933_125275_D67B34A2 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20250627_062933_856144_241115F0 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +106,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series goes on top of krzk/for-next commit 62cd64f5b915 ("Merge
-branch 'next/dt64' into for-next") [1] for the reason outlined at the
-bottom of this cover letter.
+Enable the Samsung s2mpg1x driver as this is used by the gs101-oriole
+and gs101-raven (Google Pixel 6 and Pixel 6 Pro) boards.
 
-This series enables the s2mpg10 PMIC, updates the DT for Google Pixel 6
-and 6 Pro (oriole / raven) boards accordingly, and switches these
-boards to cold-reboot (instead of warm).
-
-A cold-reboot is a bit more secure than warm-reboot as e.g. RAM
-contents will be wiped, and the bootloader will not assume the HLOS has
-crashed (as it does with warm-reboot) and will therefore be ready a bit
-faster.
-
-For cold-reboot to fully work, the reboot mode (i.e. what to do after
-reboot) needs to have been stored in NVMEM for the bootloader.
-Therefore this series runtime-depends on the Maxim MAX77759 nvmem
-enablement from [2], which was applied to krzk/linux.git (for-next).
-
-Link: https://git.kernel.org/krzk/c/62cd64f5b915 [1]
-Link: https://lore.kernel.org/all/20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org/ [2]
+It communicates over ACPM instead of I2C, hence the additional
+defconfig item.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
-André Draszik (3):
-      arm64: defconfig: enable Samsung PMIC over ACPM
-      arm64: dts: exynos: gs101-pixel-common: add main PMIC node
-      arm64: dts: exynos: gs101: switch to gs101 specific reboot
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../boot/dts/exynos/google/gs101-pixel-common.dtsi   | 20 ++++++++++++++++++++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi         |  5 +----
- arch/arm64/configs/defconfig                         |  1 +
- 3 files changed, 22 insertions(+), 4 deletions(-)
----
-base-commit: 62cd64f5b915617ea7978205b336ff21f0801c95
-change-id: 20250627-gs101-reboot3-83f8c247a0bb
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index a86cab889eac60256b28619b2cd2703765b081ee..557b592821d5d1fe8a5fab0619967e4f98894bc1 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -775,6 +775,7 @@ CONFIG_MFD_MT6397=y
+ CONFIG_MFD_SPMI_PMIC=y
+ CONFIG_MFD_RK8XX_I2C=y
+ CONFIG_MFD_RK8XX_SPI=y
++CONFIG_MFD_SEC_ACPM=m
+ CONFIG_MFD_SEC_I2C=y
+ CONFIG_MFD_SL28CPLD=y
+ CONFIG_RZ_MTU3=y
 
-Best regards,
 -- 
-André Draszik <andre.draszik@linaro.org>
+2.50.0.727.gbf7dc18ff4-goog
 
 
