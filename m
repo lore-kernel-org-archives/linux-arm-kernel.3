@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74DDBC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13ED7C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlrE0erJ+soHw5jj+VujnDEwpvOXS6zY03LMDq5ZPE4=; b=nj0JFTnwiGxfvbS3PQrJBpAxKY
-	kVyHF0dJOcnij8PS0FABoC2wKaVx5JQbhZeHncEjxof5zeVRir4U0yq3UtTl/srOdcVdEch1oOHlj
-	USYTyCM2/zlIgJRbzqzCMKGvpxqqJ2AE1+1yU3ZUs63T7J+Pw1/CM05qFjKEng52Wwh+yJs7XO45c
-	ODGWwG/+Wf2glO3nh/oDpqq92MXtsmlAhWjTlpRW0/wc0wQNqKqswclgzAfMnMMnQjVtWsyNgBqUu
-	QYr3ifjRpSJ/W6YuQJYP8M7WLAh0TIkjcaxxAgpNQ46J2jkLSI6IikWJepI7kxQuJLphOgJN3nOfx
-	HAyKDKUA==;
+	bh=qYsoQqkfOPoG/OW8DL7yrsEwwXidtQVRSmT52yxz0fQ=; b=SLg880pU8QUttC+ORq79uzo6AQ
+	gr0bePbDSx96dxVbniSn/E3whQ22aRIUZFBfqOsr76GduiXlRyVDFQo6oiDogZs0XvN7SmDJqwt6D
+	j3diPELs/7nS+AWzJPDFHWXIPVI6GHQTQ3hL0HHPlhpA7xENuDojSB+l6OhYWgeIRCETUXJeFXFul
+	lWVxQrrLcu6fwGYaZhQFaitg8LWjeRuqRxOY9bMOLUPdDmEK4jEIVqeTVDOphQn2QWSyTKMjT2h0o
+	WoE11gVVgH0S8/txjmB48O1YD4FDP//NreIkuqcc6Ne7iikh2tFyQ2nUvMtqEA6bOu1kHWi9Njx8H
+	QpVe0Tpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAmK-0000000F2m5-1CFB;
-	Fri, 27 Jun 2025 15:14:12 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uVAob-0000000F3BG-04at;
+	Fri, 27 Jun 2025 15:16:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAK1-0000000EwiF-18c6
+	id 1uVALV-0000000Ex15-3qPM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:44:58 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae0e0271d82so307670666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 07:44:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1751035496; x=1751640296; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dlrE0erJ+soHw5jj+VujnDEwpvOXS6zY03LMDq5ZPE4=;
-        b=ljUSrs/VNRejc7mRMitn0cqGtnmEvXwnkXH1Kto7Rl3FCvU8fhNd/zRCgDR23zFH1G
-         dOli4VdwHqzQEZ1YLPn6tsa8WVKpGoUPUpujhUa1oHI38lhXTnNTJrJo8tFHbHkp27tZ
-         ++OA+EmPry3XoW81wdFBdETHgINIEKGoJ8aAbmC3Ni6Oy3DBCy6ij/744tYMtlAhkvWk
-         tP3mBsz4gWOvu7176dATPTAebAamIo3RDeI8phOo2hkCKtwQPkBL2tLlovQQr3dfR9P2
-         g3/VZMITsPkdnCd2Ql0RxUSnF2V7YMXNbrm5iA0keLLkn8mGcPUnyGbJhzma9sIGRR0N
-         1zwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751035496; x=1751640296;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=dlrE0erJ+soHw5jj+VujnDEwpvOXS6zY03LMDq5ZPE4=;
-        b=ej+XwJRqkCQ0ECJkgr66PQVSFto7srM1c0DlwpV3Ac67BoudW7r9xE0uGMPnI/IY6n
-         x5n+MRnyqDFzvGVD4u5G4VSRQfZmDDRpBUjHY56EfSRwKaudDUkreILuqe+gAoH000h9
-         aApuNY98WOv1B+3dO6HNlsO7oL9CaQl7NLBT5CwCZYtFPvAGDqmnn1Ew8iMCaJyt/TJW
-         vRTvbGBaknVs6kCgCA4mKjjs9BhNnaJQvcOuvVrq3Amro3W//5gqBiD8Wd/MpBg5BNts
-         4eeDtIXNh/Owi6HSaeb/nmw2CuDhWXpjwwXNU2RcypSF0UQhlsz3IaWP3h1uPxcLkdqs
-         TYTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVA/Z998lbUGIIraLIsoBuU3PG2TzGDVnsqQrglZ8t/wE5O4kDONGkRygCaMsomMEVSesefK3slIf0lx3SdfzVo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbfdzIH3K01ZkztW2A0yBZF7Vf/s0UlJH6WKxYW2sLw9d5hgTM
-	SxvKjCZ89sS70P5HJO+ENs2fnOoni7tSAHs0dUWL+4o4GWyyGrety09aixZe7vs9/PU=
-X-Gm-Gg: ASbGnctv3sjrLjrDHgRbiSMnrrFqowWlVkV4TdQgLys1yyDlHQ5fFw6MZHgjV+NM3OX
-	Iuf3lLbNsZ2Ar7nOdBM+8838S7nWMsXU/WHJXYLJrulVjeBemPTqtzpFpa44syZBHBPDNdu7cJh
-	pscYzpoaYKts8gNHiib8s1/U6DbpnsRVqHRbW9DAmzY2AYDurHRatfkV7h5HUACISmjdwU/KXsO
-	vHhl5fCCz6j1XHDbHqpQtN8xIonTEImBOMcxsvjmIfYjCMJeRko+106b6GJUBCzSfMNL8qqw9/W
-	BpaTmWdS77U8tYi+XbUiP5sJMQBHdyDDVUoZca15gI7D6nF1+77FejULro+NxjgCy2htK47ioqv
-	HaMd/znx6wz6KBfamURZKsXctXI6HhaI=
-X-Google-Smtp-Source: AGHT+IGA2mn71bXWbYFILa0TCGmj9njdVsOBKtFNFMdVa00gcI2whAz4/eBu0LzWjRNNEejwRdZugA==
-X-Received: by 2002:a17:907:8691:b0:ad8:9b5d:2c1c with SMTP id a640c23a62f3a-ae34fd8cb6cmr354056566b.19.1751035495488;
-        Fri, 27 Jun 2025 07:44:55 -0700 (PDT)
-Received: from localhost (144-178-202-138.static.ef-service.nl. [144.178.202.138])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35363b35dsm137152566b.13.2025.06.27.07.44.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 07:44:55 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Fri, 27 Jun 2025 14:46:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4244B4569F;
+	Fri, 27 Jun 2025 14:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843AEC4CEE3;
+	Fri, 27 Jun 2025 14:46:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751035589;
+	bh=W9t38McK4tyheidmbY2q/l9zvRrhx/u9kHLbNNljFuY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YVSoUfOJgV1Wm74sHuF8tmm6guVCkvdt8SaryW+pMtBRyYEuL1wc4Y2LN5iBLWS+I
+	 rOtkGWnc2tWx4IVq3S39kVlagKT8egpVTqOrdUKi/NX/nQMf2IenT2/9yKndA+kIcl
+	 Tfhoah2rR2Ay5Frm01P7IkE/u+WL12lyZQj9GsERXwEwiSt8n7vZ/IhUw7at/rdgSq
+	 mDXXeU2nf7Ll/aeKZ5dft9roUdAlW35av4FCU0M+ivtfSbeCrlN47quJh8LIiSoUbK
+	 uoXPzUFaVN15kH6mCfXGYoGTiwhgi8q5d1FkGvDFwQUnidob9YbzOkyQPMVVtUFYtw
+	 YAbnFkNwtByGA==
+Message-ID: <3019258f-8455-4faf-bc5c-4c03d2540bcf@kernel.org>
+Date: Fri, 27 Jun 2025 16:46:19 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
+To: Leo Wang <leo.jt.wang@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com,
+ Leo Wang <leo.jt.wang@fii-foxconn.com>
+References: <20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com>
+ <20250627-add-support-for-meta-clemente-bmc-v5-1-038ed6f1cb9f@fii-foxconn.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v5-1-038ed6f1cb9f@fii-foxconn.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Jun 2025 16:44:54 +0200
-Message-Id: <DAXEA131KUXZ.WTO7PST1F3X6@fairphone.com>
-Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
- <linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
- <linux-mmc@vger.kernel.org>
-Subject: Re: [PATCH 14/14] arm64: dts: qcom: Add The Fairphone (Gen. 6)
-From: "Luca Weiss" <luca.weiss@fairphone.com>
-To: "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, "Will Deacon"
- <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>, "Joerg Roedel"
- <joro@8bytes.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Herbert Xu"
- <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
- "Vinod Koul" <vkoul@kernel.org>, "Bjorn Andersson" <andersson@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>, "Robert Marko"
- <robimarko@gmail.com>, "Das Srinagesh" <quic_gurus@quicinc.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, "Jassi Brar" <jassisinghbrar@gmail.com>,
- "Amit Kucheria" <amitk@kernel.org>, "Thara Gopinath"
- <thara.gopinath@gmail.com>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
- "Ulf Hansson" <ulf.hansson@linaro.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
- <20250625-sm7635-fp6-initial-v1-14-d9cd322eac1b@fairphone.com>
- <4200b3b8-5669-4d5a-a509-d23f921b0449@oss.qualcomm.com>
- <DAXA7TKVM4GI.J6C7M3D1J1XF@fairphone.com>
- <6d4e77b3-0f92-44dd-b9b0-3129a5f3785b@oss.qualcomm.com>
-In-Reply-To: <6d4e77b3-0f92-44dd-b9b0-3129a5f3785b@oss.qualcomm.com>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_074457_335327_F2CAC2DD 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20250627_074630_005661_7F08BC37 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,160 +127,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jun 27, 2025 at 4:34 PM CEST, Konrad Dybcio wrote:
-> On 6/27/25 1:33 PM, Luca Weiss wrote:
->> On Wed Jun 25, 2025 at 4:38 PM CEST, Konrad Dybcio wrote:
->>> On 6/25/25 11:23 AM, Luca Weiss wrote:
->>>> Add a devicetree for The Fairphone (Gen. 6) smartphone, which is based
->>>> on the SM7635 SoC.
->>>
->>> [...]
->>>
->>>> +	/* Dummy panel for simple-framebuffer dimension info */
->>>> +	panel: panel {
->>>> +		compatible =3D "boe,bj631jhm-t71-d900";
->>>> +		width-mm =3D <65>;
->>>> +		height-mm =3D <146>;
->>>> +	};
->>>
->>> I haven't ran through all the prerequisite-xx-id, but have
->>> you submitted a binding for this?
->>=20
->> Actually not, kind of forgot about this. I believe I can create a
->> (mostly?) complete binding for the panel, but this simple description
->> for only width-mm & height-mm will differ from the final one, which will
->> have the DSI port, pinctrl, reset-gpios and various supplies.
->>=20
->> I think I'll just drop it from v2 and keep it locally only, to get the
->> simpledrm scaling right.
->
-> Yeah I think that'd be best in general
+On 27/06/2025 09:31, Leo Wang wrote:
+> From: Leo Wang <leo.jt.wang@gmail.com>
+> 
+> Document the new compatibles used on Meta Clemente.
+> 
+> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
+Don't send multiple versions per day. You just repeated the mistakes and
+sending next version hides review comments.
 
-Ack
+Implement the feedback you received. I provided that feedback BEFORE you
+send this v5, so basically you just ignored it.
 
->
->>=20
->>>
->>> [...]
->>>
->>>> +	reserved-memory {
->>>> +		/*
->>>> +		 * ABL is powering down display and controller if this node is
->>>> +		 * not named exactly "splash_region".
->>>> +		 */
->>>> +		splash_region@e3940000 {
->>>> +			reg =3D <0x0 0xe3940000 0x0 0x2b00000>;
->>>> +			no-map;
->>>> +		};
->>>> +	};
->>>
->>> :/ maybe we can convince ABL not to do it..
->>=20
->> Yes, we talked about that. I will look into getting "splash-region" and
->> "splash" also into the ABL (edk2) build for the phone. Still won't
->> resolve that for any other brand of devices.
->
-> Gotta start small! Maybe framebuffer@ would be more """idiomatic"""
-> but potayto/potahto
-
-I'll try and work on the edk2 patch early next week, so if you tell me
-soon, I can add some other name. I don't want to include 500 different
-names though. :)
-
->
->>=20
->>>
->>> [...]
->>>
->>>> +		vreg_l12b: ldo12 {
->>>> +			regulator-name =3D "vreg_l12b";
->>>> +			/*
->>>> +			 * Skip voltage voting for UFS VCC.
->>>> +			 */
->>>
->>> Why so?
->>=20
->> From downstream:
->>=20
->> 		/*
->> 		 * This is for UFS Peripheral,which supports 2 variants
->> 		 * UFS 3.1 ,and UFS 2.2 both require different voltages.
->> 		 * Hence preventing voltage voting as per previous targets.
->> 		 */
->>=20
->> I haven't (successfully) brought up UFS yet, so I haven't looked more
->> into that.
->>=20
->> The storage on FP6 is UFS 3.1 though fwiw.
->
-> Hm.. can you check what debugfs says about the voltage at runtime
-> (on downstream)? I'd assume you won't be shipping two kinds anyway
-
-This is very likely just from Qualcomm's baseline.
-
->
-> [...]
->
->>>> +&pm8550vs_d {
->>>> +	status =3D "disabled";
->>>> +};
->>>> +
->>>> +&pm8550vs_e {
->>>> +	status =3D "disabled";
->>>> +};
->>>> +
->>>> +&pm8550vs_g {
->>>> +	status =3D "disabled";
->>>> +};
->>>
->>> Hm... perhaps we should disable these by deafult
->>=20
->> Do you want me to do this in this patchset, or we clean this up later at
->> some point? I'd prefer not adding even more dependencies to my patch
->> collection right now.
->
-> I can totally hear that..
->
-> Let's include it in this patchset, right before SoC addition
-> I don't think there's any pm8550vs users trying to get merged in
-> parallel so it should be OK
-
-Okay, can do. Disable all of them (_c, _d, _e, _g), and re-enable them
-in current users? I assume there might also be boards that only have
-e.g. _d and no _c.
-
->
-> [...]
->
->>>> +&usb_1 {
->>>> +	dr_mode =3D "otg";
->>>> +
->>>> +	/* USB 2.0 only */
->>>
->>> Because there's no usb3phy description yet, or due to hw design?
->>=20
->> HW design. Funnily enough with clk_ignore_unused this property is not
->> needed, and USB(2.0) works fine then. Just when (I assume) the USB3
->> clock is turned off which the bootloader has enabled, USB stops working.
->
-> The USB controller has two possible clock sources: the PIPE_CLK that
-> the QMPPHY outputs, or the UTMI clock (qcom,select-utmi-as-pipe-clk).
-
-So okay like this for you, for a USB2.0-only HW?
-
->
-> Because you said there's no USB3, I'm assuming DP-over-Type-C won't
-> be a thing either? :(
-
-Yep. I'd have preferred USB3+DP as well since it's actually quite cool
-to have with proper Linux. On Android, at least on older versions it's
-barely usable imo. Can't even properly watch videos on the big screen
-with that SW stack.
-
-Regards
-Luca
-
->
-> Konrad
-
+Best regards,
+Krzysztof
 
