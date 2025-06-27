@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965D0C7EE3A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AECC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=; b=vLrc5yQzuawf7P1LftxEyld2F1
-	wdvdBg8zvg1Mn49iIdmvpTDxqWzYw7svDPqdMJF/y9CS8jIdu0RvbTsFHUvi1Oh7X+ZbEsybTR5zs
-	+aWv2FwBgZfgaC0ima4oRhz8ittcoa5+Cmyga+MswbUL8dpAmq2Ts4PYf113KUwGAiy4Fr7BqVAMU
-	3Uz/CrQvUEW3i8Ye+A1Y/poh7hJ4mOY5L6b++Qv4byeN2mCzRtIppuAkvcdrG1BSY3lzwCjNi7Lld
-	w2nz7V0kfxVl7lWRYBHUjEQ54OFPSK53wsaMDSx34/1b3g1onobje5XV/4c9OzVKxB5GiBRrXzp/s
-	hlQ+7jig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L/kboISUHVl7C5fi/y0/ImSh6YAy6f5eQsfdMQeLy6w=; b=T6jG7QSThD1UO2dEXcVJxDWFKG
+	tU7MpKWPlZxRz0fvLkBqK4+ICStFzXmI35IdDBoMlzAeTwXVvCmwsOZ5wCrTyW/XmB16dpEqpstYl
+	gw79FoHVWo0HwpMDtO78mguUIUzRrVoZ/9LdbgwM77ukefD1fa/pDIL0M85APIZP4OQQWYOJGZISq
+	YmiQn4GTDHr5In05hBQwJzxuf7nhJMhv6Vg9jSQiIhpe8Rr+Tz1VftHRBRFfNE3mqFlCsqSyR9owP
+	wqMf3XoFbiQnrJ7IkbH8QSP/iuGiZOcjJcDlWlvKz+b/e8jZEWs8gg6TjdlL01yP/WeOMOnVA5md+
+	PGLj/84w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8g4-0000000Ei6J-1E6Y;
-	Fri, 27 Jun 2025 12:59:36 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uV8iL-0000000EiPh-2Ewh;
+	Fri, 27 Jun 2025 13:01:57 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV7zq-0000000EcM8-0xiT
+	id 1uV84K-0000000Eczs-2pEV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:15:59 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4538a2fc7ffso13208525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:15:58 -0700 (PDT)
+	Fri, 27 Jun 2025 12:20:37 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-6113e68da82so834281eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:20:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751026557; x=1751631357; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=;
-        b=BtoY9CmKzOVW4Y/W/sFJfOl/ubsySf6scFulQkcANV4/2YDlFp378dEBQH2nA7/Xt1
-         plg7puXQiqq3p8W1annbri4FoujU5iBsIDIN1FEOUxnalmrTYPy/3fCOc3rf37f9V6P0
-         c4X/w/x4ZoLhQE2TUbVPYqMz1eiOjD6IQiwUU+afWj16wGZWZAx2dPXDolxY7q+pP9TN
-         CQoOoLva3RfwxJm15OKqJO5B5r6cSRUpeyZ/3ntzLYKyVPgFd0ApX8l+OAc7xX79TdB0
-         /ImmwNiKbKXo+NHtpc+V7PVEIbp9iYXHMXhwCwsdZtlXqK0kCd5HLE5zA+MOxokRwQR+
-         yBsQ==
+        d=chromium.org; s=google; t=1751026835; x=1751631635; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L/kboISUHVl7C5fi/y0/ImSh6YAy6f5eQsfdMQeLy6w=;
+        b=i970ruFXsYfqyOEk5LGsYUzcScroElXCDSSBJhsRUMHsQYVZRE3nv4d2yYZ1P1a2DI
+         XomeHEiz+kUrUHTG2zh8BiQrdKqVyOcqUpX9Wz7SMEQ4Ox+sLQhojsRoATqB4s+jpq4L
+         B0ddRLg1QPxaMa5yOuUq6aZ2ck7XM5/j++W6k=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751026557; x=1751631357;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=;
-        b=bY+8zBTG8d5vJeLJ2cPagaZXrn9YJG1G8r+f0mXwUc+6OWaUTSuDTkwTYYaPScBxLA
-         YPRqx6Vns24ASNZOxNK+SYNdALrTnfahPJvs2u5kt6fJ9uHrKithNvXgDFxq2Mmc8+ag
-         MQiouZbS08z6ryMyMG4vHPss296765K0DxqbPR2qBunYPy3Gfbl5ylc3UnLJQB5pC/ar
-         Sm19sl7QRVmgR8dvxSCnabN20O3zG48o4LdERMgpLGHfceououJm96U4d6F8hhjG51pO
-         Fpk2Yyuw2DiFLq5MGVdWGVeV+vYOYTybCZTUrx+ieDEnyBtlVo460hi3n5x9ZWjr2K0o
-         gNRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKwrx+9+oMbW2eOAB7ZhwrVzLg7CqiY1/eg+AYpU/KavmVXpnOCT09hbe/oTDvZPQxgbFIV4iHK5bFiTGTdBrm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYEIl+zK7Ho+GGaSytSoAuT9Bbrrl/4CHVrOb+BGI6PegknTmY
-	0WJbTRyFVZ6XtZWKMRM74i3bASZLm7+XCos8wE4rtT2ll1SmsK4CK/r5WXucMMux6pA=
-X-Gm-Gg: ASbGncsGOX0N3Gyxg3lMNWaq89Y4tTEgjO7KK2PMgfGcwj91J6NP278qOMiu7TfyqHW
-	XC6TG/lIsLKJHCouyNeGcLE6/586dJTgCsttF28vTj7yxKnbWOy46OWUy7k3ujSfFKYkQJacZfO
-	SInpOAGhXakTrn6al0nPBuG0AmEfC7O5DD4eHG02Btm8Ad0C14so37vS0y+HYVOQmoWpdn7GF17
-	65R1S3xKdfM6bMty1sn0x+605tT7Mf8jcsijKiXI33dBg1v/uycnNQGPVNRfjT50JgntRh4L4Ru
-	kD2r6z3FpCgH56KsewsvieN5dyIKojC14iUOlfBBz4gCOOMj9/ug52kuxqdeSTyvshw=
-X-Google-Smtp-Source: AGHT+IEQFM3pQCiRU5lNSKxbqFCgvUVf7e/LcmOK+L4hhlaL9cMKkmMb9g/3CGCF3L4wxugIwNImYA==
-X-Received: by 2002:a05:6000:40d9:b0:3a4:cec5:b59c with SMTP id ffacd0b85a97d-3a6f3162238mr7238080f8f.25.1751026556678;
-        Fri, 27 Jun 2025 05:15:56 -0700 (PDT)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a4076ebsm48177435e9.31.2025.06.27.05.15.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 05:15:56 -0700 (PDT)
-Message-ID: <ba42a719df8dfb74406336e8adb80b5286bd6fbc.camel@linaro.org>
-Subject: Re: [PATCH v4 02/32] dt-bindings: clock: samsung,s2mps11: add
- s2mpg10
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
- Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org
-Date: Fri, 27 Jun 2025 13:15:54 +0100
-In-Reply-To: <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
-References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
-	 <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
+        d=1e100.net; s=20230601; t=1751026835; x=1751631635;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L/kboISUHVl7C5fi/y0/ImSh6YAy6f5eQsfdMQeLy6w=;
+        b=uWIIJ0R8vfpLf1jhzG9uVcP0SJYrQ0kZIoC42CCzfqp6O0racoG+Z4g8fbwKLjXym+
+         D/06vyWMOE46Dh3HYZ9wvu1+PP3chvj6XawCO8WJGmpZXmAkXpoc9mvpT5Ve4XjiSGra
+         EKD5TBidbXiOjBsFW8z2MWNn3jdtkwcKDIMnOPiGpCQy63SD1hvpXramTli7FBA+4RLo
+         D2F7DlxYB5nUBe5wh4JSVNqPm3FRQ6kMaYKCQqftCcy5Em2dYitrsda7Qc8g4cmNCm2/
+         ziAlSarujDWrJqtaIZFTmU3kmiujPyr2tN5I2gI/+hXEoqIrR151dy1YxOotq+TWB4pz
+         FqqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUGjNFDEqpXLtgs0kcG+avFElzk8tSEwSTdgrH2eY0XvhBDQmkG5eO66K2TWXX5EHt42TTwq0InN3G3EC/Ymi0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYXruTSzTlzG8DcnUMvQebexUzwDxx98IPtdTtjrEpCDC6PNhx
+	w8B/gVHecx2TqP2QgYjIgcy06W1SiZVEsfvIT3JQLJ+3njLRWItcipd5gNeB3oFewsEd3fMZW+V
+	cjNQ=
+X-Gm-Gg: ASbGncvAs/pGnw9NjjzbbvH2psQTmc9h+Lkv0I5LuOES9ZhxOi7lomDsDoYYd37OYoy
+	kodAW4FM2BnYeUdFAsvvnlz7WsbFunb4hq5GiQitgXcNbHjbPbbcI+J5gmBexWyC5JNkxDR+Cxp
+	2fh44P4p+OsJx0hHJL2fpAcxrWScaaGAadfrW+IbN6OWuL9ypDJLJ6Q40seXAfTlR+26otUuflx
+	VT8LTEwwWsfvKQaewhNdpiOCsOhsAAWjfRqB8OdHJZW4woMo3bqMWTcakEStAEAj/MCSAaGV/X+
+	a9wrKRh7NwdTZXXuq3Mg5EmgCD2u3gDzPGoEs4fAO/gHORvzO70m8ievwi7aWLSsDeVFMpUPUDP
+	wtLybXH+zNaZE0he6z/aYFw==
+X-Google-Smtp-Source: AGHT+IEH5WOov3jWBlWCnlKau43yzyXXOH8S0wl2CV+MhDK9u5sCKYiwOPTLn1l0BHhdosD/N4HNww==
+X-Received: by 2002:a05:6870:a99c:b0:2cf:bc73:7bb2 with SMTP id 586e51a60fabf-2efed4bca6bmr2032036fac.14.1751026835417;
+        Fri, 27 Jun 2025 05:20:35 -0700 (PDT)
+Received: from mail-oa1-f48.google.com (mail-oa1-f48.google.com. [209.85.160.48])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2efd4eb261fsm848377fac.8.2025.06.27.05.20.34
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Jun 2025 05:20:35 -0700 (PDT)
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-2eb5cbe41e1so1512833fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:20:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXtTXeGj+WxMxnjJORfI/FJQybhDksB7SFEpONMHhcYoUmlsE6pipyQT9cJiJmNN2je8o1xPrLflh86TmRfCwi2@lists.infradead.org
+X-Received: by 2002:a05:6102:b10:b0:4e5:59ce:471b with SMTP id
+ ada2fe7eead31-4ee4f8fa5cbmr2358879137.23.1751026395186; Fri, 27 Jun 2025
+ 05:13:15 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com> <20250623120154.109429-3-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250623120154.109429-3-angelogioacchino.delregno@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Fri, 27 Jun 2025 20:12:39 +0800
+X-Gmail-Original-Message-ID: <CAC=S1njT6ygGuZDPU5KDW94Nu-TbM21DM-6HdR7Pio=WTD_eQA@mail.gmail.com>
+X-Gm-Features: Ac12FXwNi69jmRwGOUm8UJ7WfMt6niSy4CkLT9-9z1YDS1Mi3aHTobxjbgMPxFw
+Message-ID: <CAC=S1njT6ygGuZDPU5KDW94Nu-TbM21DM-6HdR7Pio=WTD_eQA@mail.gmail.com>
+Subject: Re: [PATCH v1 02/13] pmdomain: mediatek: Refactor bus protection
+ regmaps retrieval
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, ulf.hansson@linaro.org, 
+	y.oudjana@protonmail.com, wenst@chromium.org, lihongbo22@huawei.com, 
+	mandyjh.liu@mediatek.com, mbrugger@suse.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, kernel@collabora.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_051558_272720_EA48D250 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250627_052036_711585_F9B58962 
+X-CRM114-Status: GOOD (  36.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,17 +110,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-04-09 at 21:37 +0100, Andr=C3=A9 Draszik wrote:
-> The Samsung S2MPG10 clock controller is similar to the existing clock
-> controllers supported by this binding. Register offsets / layout are
-> slightly different, so it needs its own compatible.
->=20
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+On Mon, Jun 23, 2025 at 8:02=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> In preparation to add support for new generation SoCs like MT8196,
+> MT6991 and other variants, which require to set bus protection on
+> different busses than the ones found on legacy chips, and to also
+> simplify and reduce memory footprint of this driver, refactor the
+> mechanism to retrieve and use the bus protection regmaps.
+>
+> This is done by removing the three pointers to struct regmap from
+> struct scpsys_domain (allocated for each power domain) and moving
+> them to the main struct scpsys (allocated per driver instance) as
+> an array of pointers to regmap named **bus_prot.
+>
+> That deprecates the old devicetree properties to grab phandles to
+> the three predefined busses (infracfg, infracfg-nao and smi) and
+> replaces it with a new property "mediatek,bus-protection" that is
+> meant to be an array of phandles holding the same busses where
+> required (for now - for legacy SoCs).
+>
+> The new bus protection phandles are indexed by the bus_prot_index
+> member of struct scpsys, used to map "bus type" (ex.: infra, smi,
+> etc) to the specific *bus_prot[x] element.
+>
+> While the old per-power-domain regmap pointers were removed, the
+> support for old devicetree was retained by still checking if the
+> new property (in DT) and new-style declaration (in SoC specific
+> platform data) are both present at probe time.
+>
+> If those are not present, a lookup for the old properties will be
+> done in all of the children of the power controller, and pointers
+> to regmaps will be retrieved with the old properties, but then
+> will be internally remapped to follow the new style regmap anyway
+> as to let this driver benefit of the memory footprint reduction.
+>
+> Finally, it was necessary to change macros in mtk-pm-domains.h and
+> in mt8365-pm-domains.h to make use of the new style bus protection
+> declaration, as the actual HW block is now recognized not by flags
+> but by its own scpsys_bus_prot_block enumeration.
+>
+> The BUS_PROT_(STA)_COMPONENT_{INFRA,INFRA_NAO,SMI} flags were also
+> removed since they are now unused, and because that enumeration was
+> initially meant to vary the logic of bus protection and not the bus
+> where work is performed, anyway!
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
 
-Friendly ping.
+<snip>
 
-Cheers,
-Andre'
+>
+> +static int scpsys_get_bus_protection_legacy(struct device *dev, struct s=
+cpsys *scpsys)
+> +{
+> +       const u8 bp_blocks[3] =3D {
+> +               BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_SMI, BUS_PROT_BLOCK_=
+INFRA_NAO
+> +       };
+> +       struct device_node *np =3D dev->of_node;
+> +       struct device_node *node, *smi_np;
+> +       int num_regmaps =3D 0, i, j;
+> +       struct regmap *regmap[3];
+> +
+> +       /*
+> +        * Legacy code retrieves a maximum of three bus protection handle=
+s:
+> +        * some may be optional, or may not be, so the array of bp blocks
+> +        * that is normally passed in as platform data must be dynamicall=
+y
+> +        * built in this case.
+> +        *
+> +        * Here, try to retrieve all of the regmaps that the legacy code
+> +        * supported and then count the number of the ones that are prese=
+nt,
+> +        * this makes it then possible to allocate the array of bus_prot
+> +        * regmaps and convert all to the new style handling.
+> +        */
+> +       node =3D of_find_node_with_property(np, "mediatek,infracfg");
+> +       if (node) {
+> +               regmap[0] =3D syscon_regmap_lookup_by_phandle(node, "medi=
+atek,infracfg");
+> +               of_node_put(node);
+> +               num_regmaps++;
+> +               if (IS_ERR(regmap[0]))
+> +                       return dev_err_probe(dev, PTR_ERR(regmap[0]),
+> +                                            "%pOF: failed to get infracf=
+g regmap\n",
+> +                                            node);
+> +       } else {
+> +               regmap[0] =3D NULL;
+> +       }
+> +
+> +       node =3D of_find_node_with_property(np, "mediatek,smi");
+> +       if (node) {
+> +               smi_np =3D of_parse_phandle(node, "mediatek,smi", 0);
+> +               of_node_put(node);
+> +               if (!smi_np)
+> +                       return -ENODEV;
+> +
+> +               regmap[1] =3D device_node_to_regmap(smi_np);
+> +               num_regmaps++;
+> +               of_node_put(smi_np);
+> +               if (IS_ERR(regmap[1]))
+> +                       return dev_err_probe(dev, PTR_ERR(regmap[1]),
+> +                                            "%pOF: failed to get SMI reg=
+map\n",
+> +                                            node);
+> +       } else {
+> +               regmap[1] =3D NULL;
+> +       }
+> +
+> +       node =3D of_find_node_with_property(np, "mediatek,infracfg-nao");
+> +       if (node) {
+> +               regmap[2] =3D syscon_regmap_lookup_by_phandle(node, "medi=
+atek,infracfg-nao");
+> +               num_regmaps++;
+> +               of_node_put(node);
+> +               if (IS_ERR(regmap[2]))
+> +                       return dev_err_probe(dev, PTR_ERR(regmap[2]),
+> +                                            "%pOF: failed to get infracf=
+g regmap\n",
+> +                                            node);
+> +       } else {
+> +               regmap[2] =3D NULL;
+> +       }
+> +
+> +       scpsys->bus_prot =3D devm_kmalloc_array(dev, num_regmaps,
+> +                                             sizeof(*scpsys->bus_prot), =
+GFP_KERNEL);
+> +       if (!scpsys->bus_prot)
+> +               return -ENOMEM;
+> +
+> +       for (i =3D 0, j =3D 0; i < num_regmaps; i++) {
+
+Did you mean BUS_PROT_BLOCK_COUNT?
+Consider a case where only regmap[2] is configured.
+
+Regards,
+Fei
+
+> +               enum scpsys_bus_prot_block bp_type;
+> +
+> +               if (!regmap[i])
+> +                       continue;
+> +
+> +               bp_type =3D bp_blocks[i];
+> +               scpsys->bus_prot_index[bp_type] =3D j;
+> +               scpsys->bus_prot[j] =3D regmap[i];
+> +
+> +               j++;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+
+<snip>
 
