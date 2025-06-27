@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8775AC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDDAC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrzZ2cF1Io1dR7rxLZTZ2RNlPL2+psWqsHHUghsEwxE=; b=4Ce7bZxn2HFfy6dcZGXuVy1qBG
-	apyYGnNV623ADHZvyatVQ7JY087dyYMsObYUZ+zOjHzfvJCfLXUijXGFSbZvGMqjp5hJQvlU7oI9x
-	zpE1q9wN87ysYASJKBtMSfEIwjEx80EvfOYfP2uDQK0W7HKfiB5dqx0B7PBM9BmNOHh3Uj1TKcRON
-	SpcWR9WyzXHLTulb/NYdFgxWqhV4a86hXCxE6hBwVzoWcK3d5qyKMW64eL1gQ3R8Egr5VGAB8GYSv
-	Mpw1Vc03gdXWsjyCan4IHmF15+hX9bkHrtpKV72A+BEl+skhGESlCozPpwcWrPTpjzDyAf+lfJplB
-	cjLHedEw==;
+	bh=+V7ckF2m4/BIriwqb0AjVCF6OWt9xgPzTCDRup9l0es=; b=fVwb+eSz0XnXUPHB8HI/9h7H+7
+	/BHF9J/qKavKReVWEzSYLf4w71rKuztBft+hv4phVFSITW8Csq7oirKXfyezb01eC+567JCJq+2HX
+	kgGKw2r80/e0u3wWM51DFlas/XfbU4b5xuM8pKxXtpVByygUYkuQD1HC/SnpIR8WK8s6RHSfugp9d
+	AcyTrsR+pjmr1zP0ngI+wfFuUS/CdCHUeifBwnWoBTxcHoF+4l1KT6RgGlYG0DarhfPlFYS2Kl7Cj
+	dhUwV7qjE7eI1z4uFnMwrzIIIWHIXHpn5pgtOhDzK7GUomS16YtrA9aDhDxIQrYC706Zf/wuGsu95
+	hoQuQhrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV38u-0000000DmJo-1E0x;
-	Fri, 27 Jun 2025 07:05:00 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV34D-0000000DlKq-1KKC
+	id 1uV3CY-0000000DnHB-1jDt;
+	Fri, 27 Jun 2025 07:08:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV3AE-0000000Dmu6-3MbI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 07:00:10 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 382824EF92;
-	Fri, 27 Jun 2025 09:00:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1751007608;
-	bh=bDYAcTGKsVDb6IWccLRj1xVKwNT7RPiW70T7zFFjHYA=;
+	Fri, 27 Jun 2025 07:06:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 31E8C43CBF;
+	Fri, 27 Jun 2025 07:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 470CBC4CEE3;
+	Fri, 27 Jun 2025 07:06:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751007982;
+	bh=/EqmbAddrBe3sC3E4/NL8P/ElonLTvB2i50FUAlbfZc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Stm5HhYkUu3h6SLUQiusZ3SjfNQAz1CfbfJUUJZ2Oj0lu3dfUOi42iU3ElQW57su2
-	 SQnGE9nJsxg4OuuM0Tj1trCZ7J23KRbeipebbfLsdGQcHeV00lmUvs1eOuDCz0ff5X
-	 yKXJZkDuxx7+I9hJOBlDlaKVR6EH5WAAch7bvuTLJIcWWICusFh48YSqOFLgjtqy0k
-	 tmPO3UDurTb0UUOpN+m7w1TfNJvAA1zT4y9A8qeICYGzybB9nlSGMsnZ3W6xMWljwf
-	 dfyt3ELUTaiTvKOH1p8OzjzVvV2FLT3pnKhhgYmcEWBE4JczYMRuX/7GETCdX+PZ7E
-	 0vW4syJXZl9yg==
-Date: Fri, 27 Jun 2025 09:00:07 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Sven Peter <sven@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	iommu@lists.linux.dev, linux-input@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 07/11] iommu/apple-dart: Drop default ARCH_APPLE in
- Kconfig
-Message-ID: <aF5Bdx-vmQeufdpk@8bytes.org>
-References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
- <20250612-apple-kconfig-defconfig-v1-7-0e6f9cb512c1@kernel.org>
+	b=QlhhgT01QFwkK+tQ8E/QRH4IcSsZdRubxsCP2dZRJAySq3PluNhZIBqdISbYnAV1O
+	 KtEOj3fJ++oUiRh/Z6elHNO1LIR/Vog1nwTgItuFfrnsjnB1gPcosJGal/MX++h7p4
+	 Fin51fnxkHL1wDG36Iz7wt2kMmCGufkhRtx6aIJGuEXPH0qXEtgDFTiOacMpTw0XlE
+	 be9IoyfQLpd8wwRMQtsvM9HyLxtWKYi7eZWrRBoWgJTjN32Uy739khE0dlnGH0xAHU
+	 OceAXsyEsN+zMVuruFChe4FakDZgwMMBygplBSFx3fi4LAm+oBgnv8gOrTzJ5Eestl
+	 XNPm502aEcGmA==
+Date: Fri, 27 Jun 2025 09:06:18 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 1/5] dt-bindings: remoteproc: fsl,imx-rproc: Add
+ support for i.MX95
+Message-ID: <20250627-black-skua-of-admiration-f6ccbb@krzk-bin>
+References: <20250625-imx95-rproc-1-v3-0-699031f5926d@nxp.com>
+ <20250625-imx95-rproc-1-v3-1-699031f5926d@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250612-apple-kconfig-defconfig-v1-7-0e6f9cb512c1@kernel.org>
+In-Reply-To: <20250625-imx95-rproc-1-v3-1-699031f5926d@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_000009_497238_8360FD70 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20250627_000622_859934_291F3179 
+X-CRM114-Status: UNSURE (   9.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,9 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 09:11:31PM +0000, Sven Peter wrote:
->  drivers/iommu/Kconfig | 1 -
->  1 file changed, 1 deletion(-)
+On Wed, Jun 25, 2025 at 10:23:27AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Add compatible string for the Cortex-M7 core in i.MX95
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Applied, thanks Sven.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
