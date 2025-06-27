@@ -4,111 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A7EC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E15C83028
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIuOx1s5XzwaWIpE0qIKf0Ib4OIj5trRNQPE0WZD/P0=; b=D6AdpTw6egZ+5SNKcl4S1O2ryc
-	7iq3HI/9A4CSBWsnyeXFgiZc9Q5eKy1FwG9KeKYDGjKoCtFVZMskg4OguMJVsWd8ri284hLwlmmpy
-	ZuM/rBwkWg5TBZA+7DXaGpSMXbvmnMQF6jf6w3JfdlljCSWzBH3fOIVxEj/Yet4UJ17J6EpVnCjS1
-	LdnqgkNI1nEmRiPg5qXmWY8BDCsSKvfUF/qcrWYxIpLK1FHbimfBl/pPfr6CqmH/b15v3W2UWsOWL
-	nHz7nkKEMkCqDYT3sBC9O5tQYTCdtYYnpXdD7bTQY4vBuEKZTQ/uLlXg7XgnmEj6WxPJ7VdlTMNQO
-	Fskj+MGw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+Qc5jiBQI96Q1vkjxrTeiie4o/Bqp2odIBowBozZGiY=; b=Vg+AcHGgPw7leIId1Y4klCAy6H
+	aamZifv86BMzwkE6SZxZxNCi6HkTmsXBeYvH60OmHZ2Hy9XNTKvYt4vxtkNHDYPfo9CBdOTThRy2k
+	D6tWWwByxPvvgqgb+CScZHG9WKimvsx1HoTkGxaTPJW95zlh6VTY3iKXWfY8CnA92kbtDUoC0szpX
+	NW0JdZjTPPkfHZSB/T1jq61/m1NogdaNH/NhskFJ6TLfU6bfTrZj0jXCFXtAZV/U4kkCRzYH869U4
+	M+/wTQTTmL4+WMjoLSO/3b7RF4Z/49TkTb0XCmlHYmrW2+nPUb/VMNkFA/aK6guWB3BIgSjx2tnpo
+	BL4230ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAqr-0000000F3Te-37Xm;
-	Fri, 27 Jun 2025 15:18:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAMQ-0000000ExCQ-3Cyh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:47:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E13AE6111F;
-	Fri, 27 Jun 2025 14:47:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40526C4CEE3;
-	Fri, 27 Jun 2025 14:47:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751035645;
-	bh=zJy8DXqoG6CILsDNc8bv2NztRVduZLB9R1XokmiByWQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Y9csjxZpH2hosPAAFRJYXHijHz+wX46Xoke9TVNos6FXsV0RQXVqw1Om2hg68wMTl
-	 2H3Vsyl/idFNtQHRTuJbyX05u5aHXhxk4lBBPeC0X4X6TVX3jsEqrMyV1HG0RK6l49
-	 0z6IUaF2skpKNMjWbg7KVWBoQeK7m3f9id3CoEdwxzKZ3ZWlruj1MqqM++vH9VtnMG
-	 XImCYeqcqK3ZII+ZAj7rVjZ0k80ZbKoXWZfbaRY+Gid0yES7zzeJUcwvdZ/jj4vYew
-	 JrmIbGUEb4ognv81dc2CK4QaccxOq9CIW4KTRGUbKV4dYH8rc09vX6Qrdf1M2QXvX7
-	 ZysPukc7DN1MQ==
-Message-ID: <06178661-5665-4b9d-8652-de12c2a55f94@kernel.org>
-Date: Fri, 27 Jun 2025 16:47:16 +0200
+	id 1uVAv5-0000000F4CS-3nyX;
+	Fri, 27 Jun 2025 15:23:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uVAfj-0000000F0cy-0ah0;
+	Fri, 27 Jun 2025 15:07:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C92EF1A00;
+	Fri, 27 Jun 2025 08:07:04 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B9E403F66E;
+	Fri, 27 Jun 2025 08:07:20 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: joro@8bytes.org,
+	will@kernel.org
+Cc: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	yong.wu@mediatek.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] iommu/mediatek-v1: Tidy up probe_finalize
+Date: Fri, 27 Jun 2025 16:07:10 +0100
+Message-Id: <7c78149504900bc6c98a9c48f4418934b72d89ac.1751036478.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
-To: Leo Wang <leo.jt.wang@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com,
- Leo Wang <leo.jt.wang@fii-foxconn.com>
-References: <20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com>
- <20250627-add-support-for-meta-clemente-bmc-v5-2-038ed6f1cb9f@fii-foxconn.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v5-2-038ed6f1cb9f@fii-foxconn.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_080723_217503_BEECDE65 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,15 +63,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/06/2025 09:31, Leo Wang wrote:
-> From: Leo Wang <leo.jt.wang@gmail.com>
-> 
-> Add linux device tree entry for Meta Clemente compute-tray
-> BMC using AST2600 SoC.
-> 
-> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
-No, still checkpatch issues.
+Krzysztof points out that although the driver now supports COMPILE_TEST
+for other architectures, it does not build cleanly with W=1 where the
+stubbed-out ARM API can lead to an unused variable warning.
 
-Best regards,
-Krzysztof
+Since this is effectively the correct intent of the code in such cases,
+mark it as __maybe_unused, tidying up some cruft in the process.
+
+Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+
+Since I'd already got as far as thinking this through, I figure I may
+as well save Krzysztof the trouble of rewriting it :)
+ 
+ drivers/iommu/mtk_iommu_v1.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+index 66824982e05f..2fc18e194e19 100644
+--- a/drivers/iommu/mtk_iommu_v1.c
++++ b/drivers/iommu/mtk_iommu_v1.c
+@@ -509,14 +509,10 @@ static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
+ 
+ static void mtk_iommu_v1_probe_finalize(struct device *dev)
+ {
+-	struct dma_iommu_mapping *mtk_mapping;
+-	struct mtk_iommu_v1_data *data;
++	__maybe_unused struct mtk_iommu_v1_data *data = dev_iommu_priv_get(dev);
+ 	int err;
+ 
+-	data        = dev_iommu_priv_get(dev);
+-	mtk_mapping = data->mapping;
+-
+-	err = arm_iommu_attach_device(dev, mtk_mapping);
++	err = arm_iommu_attach_device(dev, data->mapping);
+ 	if (err)
+ 		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
+ }
+-- 
+2.39.2.101.g768bb238c484.dirty
+
 
