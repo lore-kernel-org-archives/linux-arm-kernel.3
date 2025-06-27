@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0380EC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A295C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+gbguBFKXfSpjf/gN8iCO7iVT7YM1v5J/bh+qAGVa0=; b=Po56V6v6YcyvO5/o5dWzEuWuFg
-	A0wMcuwRcfj84aPvKGPhTekXpjB8qK2bsiQ7Nmjx0fDIVWrfVdnLAppOxIjT0SN+VnI+EnUmwM4gw
-	bmBpDIaGJScj1JGcmv/el4CXCbFFs8qtIDunP7m64ToQnSy98SO0W3q+GnUGIV45Ob4Ft4oDING4N
-	+GvoBihbGhqcT9cOrrFA2DNVbD13ZXxbLR9U/KLxYVYGtdL3ZLbTuu/XisQ2t8BRRhkzQYwIcUFwL
-	9PnJ94DpnoNYmHt1nx3Pjk6uxO/HtNg7T2FrXf4ZxvRt9o4pDpJf4cZVKmZD0JpZAyPSEI0fRzhIV
-	FwvRMQ/A==;
+	bh=7Ir5i1Q9KyugghFm3rAKZGkZVcX4ql/Bgo7Ef1sec90=; b=iv8JqsO1thS3wxA2o3Uc+2O62C
+	CMkrwJpW7AlRR5z5+ozZwyFiF9cVLPQZODBkebxuB/kRjh62P8rN+eOVJhiDcW1uPiIpK9rbsh31k
+	dVNK4Kh57Q/p8irneFbbBYv8q7ikqgNzDLVqOO2UhD2fu9IWQH+VMHhKZ6aeM5eDSe2TL6cZn2hRp
+	YDMe/3gOpdiiHu/XZllf4exRjhUGMkaqOMhJLHhC4GuLnYvl0UWgeVPVO5SzTk9SYyMf6DgEaWHZ+
+	CGw2/zOrezfUdvmLujCBYlHPqy72gTcgntm/uGCqq+XNbTCBwXk2tmiLErGzAlI+tPyh2BQFl4HEL
+	nK0dopAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9C1-0000000Emrn-31D6;
-	Fri, 27 Jun 2025 13:32:37 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1uV9EJ-0000000EnHp-28TB;
+	Fri, 27 Jun 2025 13:34:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8ag-0000000EhMm-126t
+	id 1uV8cQ-0000000EhfR-12aq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:54:03 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4a58d95ea53so23143581cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:54:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751028841; x=1751633641; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0+gbguBFKXfSpjf/gN8iCO7iVT7YM1v5J/bh+qAGVa0=;
-        b=luR2nqEvtvAe9DZviRo62GQSkVkVSz5f3YAzCBy3LEKCCfodeECocCZ6vFK0u+mTdo
-         X2SBKgMYTr9V+/b2ax8YboIiCGMA2dC7Zy/UZ5UEFq3hoLPcz2LOLx0VOeAE0w1TsLVu
-         s7lD8eMPEPsjvIer/wJ3m3Z/fURiSSUHa0OzDMv3GoeFl2cioPXd+IDxHDsl8r4CkBKV
-         DBwbASltUetVrlOiVgAj4xR/AJJrUxp9qcRKd5N340XTNpT0MkSDaPLwQj2hzdldOZH0
-         W86AyTGs4Yv4lK+oB6Pv1z/FBAAwQGJBDbERG0ojfd1cw+ymHTyJG0KQkaaabH437hI4
-         B6Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751028841; x=1751633641;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0+gbguBFKXfSpjf/gN8iCO7iVT7YM1v5J/bh+qAGVa0=;
-        b=aE4N3lXQ7oqwi2UnDKKMVZhMOLygeVYFk0GaibJQQvlY4Gk6Aqq89E1wLqhE94eNGN
-         5CihUtxja1453U4RJI+EYLalmSE4QZ06x+4ucZovZZDHFN9z335szcss9AOUzJTQWPT8
-         5ZEoIfO6VQtcBi0DlJe39JpIDsTB7ChA85XCf5OOuNSnAc9pNw7/Fa/rabhqrTz7lwsi
-         huTC7xQgIVFh7+kzbYPtixQaBuNIX1JX4NP6WZ8LjR2pzrOCxqNu1HemXAVFq6Qpi5MV
-         bK+SyhbK7oFKN0rsp7/aUjOaoB7GxkIwzPPW0v/4nA5byetzwvoZRULhuEeKtRG6llcb
-         WbgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtn/VCvscDaoHdt5+avP3SALKGI4MUz8XuNu/KAJuH4o0Eoc4HRqNOsA3A7tkl/HF7wg71Facyo0urySCJwDig@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxahplg9P57WkZ+uYVaMeo3uM+q5ZzkMs8PxmIn3kjzQb9A6KAC
-	Ev4FP3AAov+DxCyfowJOiscB4WAwZfnvmMZ8xPWjEdestPRnK10QhHAE
-X-Gm-Gg: ASbGncsLW81MoNMyfvU2dP85IJ0GfDSoo+SqNVrl/JGzr28gDU7L9NQEn05nT0UMUmz
-	ThkitLWliLMiLE1QLQQKumjLEGxcYMN4i76wY3+8UFiPpKr2jbl/ObryHNU876Kw+hWN7zH+LtV
-	sRiWsXRtUk6eHgd7RbMpBg4WTtdb8odJ7ihpsYCx76mSpX1/fDGUWwlYNoTkyJInyvEzxQ0OEqM
-	7seu44MPjgRqpgpT9GBPw15z7KS0x3ptcucNoV6CWTwEQSuC0ZIy5j9b0NS+pxGY/O5Jqc/KhJN
-	uDNn1QdEkEzHLqdhJGIY5UJVwNZEbnbK0XjKAgiKU2s1lF9NZy5/YFAv0H9a
-X-Google-Smtp-Source: AGHT+IETveSWoXC/08GsXfLK3MH9fUuvjqdK0l7+CppsFqhkxU9gg79wiKfc6Glf1WTlwpf/BCm4jg==
-X-Received: by 2002:a05:622a:4112:b0:494:7043:8a2 with SMTP id d75a77b69052e-4a7f2e86617mr128632811cf.16.1751028840824;
-        Fri, 27 Jun 2025 05:54:00 -0700 (PDT)
-Received: from hiagonb ([2804:1b3:a7c3:c88d:6da3:af6d:a237:3289])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a7fc5a3b92sm11378121cf.76.2025.06.27.05.53.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Jun 2025 05:53:59 -0700 (PDT)
-Date: Fri, 27 Jun 2025 09:53:53 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v6 0/3] remoteproc: imx_rproc: allow attaching to running
- core kicked by the bootloader
-Message-ID: <20250627125353.2wuozc5in2ijnbi3@hiagonb>
-References: <20250626215911.5992-1-hiagofranco@gmail.com>
+	Fri, 27 Jun 2025 12:55:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 003324343F;
+	Fri, 27 Jun 2025 12:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E0C0C4CEED;
+	Fri, 27 Jun 2025 12:55:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751028949;
+	bh=6TA737hZFuJlNzhhKE0Cq46SUWvV+VYmzq+aO5tyEv8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=porQaOmnwR5TuC3LG3hKWfzV7oKCMKzcHnL8MoZHNVbVWu2fUkdSdgyxM2HjRDh24
+	 k2U49xL61YlTUDRdibPSAckpdVgTe+7sR70/39YxaighdvzEH+CmUzY1CEhh0rAf2O
+	 +I795pctolDcYsfGqp3woWLVg5LWHk2zAeyouLjOQuB+rPLzm40aN3Jo/ebIGQZQJA
+	 if3HYpzMjoUCBEUaHh68ynX4drDcjaWb4VfieE8+3EN6etAc3AiFAa1LdbzV+TXfR7
+	 EuK51yaJUnIjJfLd9ZWRSCm6kQEnpOfEKHYBuHH/JJoqEuHOITZiQnESj20jUrBi1Y
+	 N1dw2HwgF3qFw==
+Date: Fri, 27 Jun 2025 13:55:43 +0100
+From: Lee Jones <lee@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-samsung-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH RFT 3/6] mfd: vexpress-sysreg: set-up software nodes for
+ gpio-mmio
+Message-ID: <20250627125543.GG10134@google.com>
+References: <20250624-gpio-mmio-pdata-v1-0-a58c72eb556a@linaro.org>
+ <20250624-gpio-mmio-pdata-v1-3-a58c72eb556a@linaro.org>
+ <20250626132257.GE10134@google.com>
+ <CAMRc=MdBipydUjEKXDufMAWNZjMA18RKj0XcNofrn1oR7bXTZA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250626215911.5992-1-hiagofranco@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MdBipydUjEKXDufMAWNZjMA18RKj0XcNofrn1oR7bXTZA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_055402_285416_B13E416E 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250627_055550_305795_262150EC 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 06:59:08PM -0300, Hiago De Franco wrote:
-> From: Hiago De Franco <hiago.franco@toradex.com>
-> 
-> This patch series depends on Ulf's patches that are currently under
-> review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
-> Without them, this series is not going to work.
-> 
-> For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
-> started by the bootloader and the M core and A core are in the same
-> partition, the driver is not capable to detect the remote core and
-> report the correct state of it.
-> 
-> This patch series implement a new function, dev_pm_genpd_is_on(), which
-> returns the power status of a given power domain (M core power domains
-> IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
-> already powered on, the driver will attach to it.
-> 
-> Finally, the imx_rproc_clk_enable() function was also changed to make it
-> return before dev_clk_get() is called, as it currently generates an SCU
-> fault reset if the remote core is already running and the kernel tries
-> to enable the clock again. These changes are a follow up from a v1 sent
-> to imx_rproc [2] and from a reported regression [3].
-> 
-> [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
-> [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
-> [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+On Thu, 26 Jun 2025, Bartosz Golaszewski wrote:
 
-Sorry I missed the reviewed by from Peng, I will be fixing this in the
-next revision today.
+> On Thu, Jun 26, 2025 at 3:23 PM Lee Jones <lee@kernel.org> wrote:
+> >
+> > On Tue, 24 Jun 2025, Bartosz Golaszewski wrote:
+> >
+> > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > >
+> > > Replace struct bgpio_pdata - that we plan to remove - with software
+> > > nodes containing properties encoding the same values thatr can now be
+> >
+> > Spelling.
+> >
+> > > parsed by gpio-mmio.
+> > >
+> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > > ---
+> > >  drivers/mfd/vexpress-sysreg.c | 46 ++++++++++++++++++++++++++-----------------
+> > >  1 file changed, 28 insertions(+), 18 deletions(-)
+> >
+> > Can this go in on its own, or does it have depend{encies,ants}?
+> 
+> It will break the MFD GPIO sub-driver without patch 1/6 from this
+> series. It would be best if you could Ack it and I can set up an
+> immutable branch for v6.17 if you need it.
 
-Best regards,
-Hiago.
+Yes please.
 
-> 
-> v6:
-> - Added "reviewed by" from Ulf and Bjorn.
-> - Fixed and improved commit descriptions of patches 2 and 3.
-> - Improved the comment inside imx_rproc.c file.
-> v5:
-> - https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
-> v4:
-> - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
-> v3:
-> - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
-> v2:
-> - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
-> v1:
-> - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
-> 
-> Hiago De Franco (3):
->   pmdomain: core: introduce dev_pm_genpd_is_on()
->   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
->     SCU
->   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
-> 
->  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
->  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
->  include/linux/pm_domain.h      |  6 +++++
->  3 files changed, 73 insertions(+), 7 deletions(-)
-> 
-> -- 
-> 2.39.5
-> 
+Acked-by: Lee Jones <lee@kernel.org>
+
+-- 
+Lee Jones [李琼斯]
 
