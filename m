@@ -4,80 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AA5C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2364EC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uyGlLJdsrpOs/6Btu8IbtzbV/xEAGIn+2sLR12eDSg8=; b=xGYGE3bfn7iRJrhdYeSz5yhtfb
-	Ipo+L7NQuaSAFuQU1spaV42jvjID/WSEu37LXjHzmJqQB1p50X88TqoA0Hr+BCmpPB9SU4wrhXzAf
-	v5SqYd3/F/4cIRKTaE9HnR2OAau4iWO0YKytWK1lbvqbAMzbDwVgb+mPKwTcRmIUZ8PseuC3MEeL/
-	xMv5/Ird785eykRHkH1XsbPUWn9SIbx1Tyw+PHouyoodOAQny2xJ8xzt75ki+EwbufhT8qpPDOt9f
-	HDrmAXHgjHG47G/adk3vyaxQsc3S8guU93wUBuQnjv2IXpW3d0Jgm/WHX/vTOL5aEkdgco7N6dC2S
-	d60BSFsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=; b=Uv08Lf7fSLxvIXSCtk2nc6AxTO
+	pvRA+a0kU8xUxm6/z59ml9bmFM6/ZPcRhudVFZH8fmO21BKbul8fJFCkCf1Q1op5SgDVfetbiqv2k
+	YFlWgBCLXaoFJn011VT43Ex4AtDai8ozgG+rBO4bgiVqbt/Al7OGjFaskZpKsnQIxGs/nPBO0YG71
+	CGq5Xmc0MjkTVF4oMuuE0VulBaEYNeDbYQYbOmVWAKD+p/72wkn0m2ft54DPlSW5x2ApMSffh6p5b
+	UvTFJdv9LYVpwsg84N+dC5rhbGMw7ORk/5a686MZeta/4yGbTCV2hxEYTKYDL5yoZbjuwp3Vcqv66
+	m9dyXxfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8mx-0000000EjCj-1rqA;
-	Fri, 27 Jun 2025 13:06:43 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uV8pF-0000000EjaN-0gag;
+	Fri, 27 Jun 2025 13:09:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8Gy-0000000EePf-2Ck0;
-	Fri, 27 Jun 2025 12:33:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751027616; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=n0u3gQ+u4hMzUNZXXQjCKP3SqP5F8ouXUwuImCJNtZvInphx8eik+K8fJ1kM5w1JKFkVUzujLOKqL3cuTG7xHlGhsz/I7JU0CBSXu2B+FL1OW9lvHpKZtqRjURGTfXIIekm5VWN1CdU4Vmlg5nSR1m55n7TILI84Am31IMmImrI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751027616; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=uyGlLJdsrpOs/6Btu8IbtzbV/xEAGIn+2sLR12eDSg8=; 
-	b=kZGv/3cJp7bClypPYKjoB1yijMLBAUe6Q1JVfLu8BLHkKH4YKtr7UrUsJIl2HEcSrt2UhE78iDp/74e4BGs+fdg+SgkE0pw/MZH4RWIEf9gFciXkKqNxudlK6HwoT2Z4v63d32pWffOYg856JTbk7CX7utcjRHpnezz/4fHpIo8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751027616;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=uyGlLJdsrpOs/6Btu8IbtzbV/xEAGIn+2sLR12eDSg8=;
-	b=E3dXl/WeONf/z8ONGbf/KQ2C2ljVFtrhJ3u5b5nmIVUvXWp11UosU5iqquCLAw0Q
-	8lxvbE/rT5Pzx7mFcdQtJheVcU6jouIzZ8A/XRcMlO73XZWRu738olHwDg3x0aYe/93
-	CEGiNT3V+UgH5iyVO/AOyHyfj9IqMxe8j+DwZZiA=
-Received: by mx.zohomail.com with SMTPS id 1751027612875820.9172933784699;
-	Fri, 27 Jun 2025 05:33:32 -0700 (PDT)
-Message-ID: <a5a3a27882a8ea8a147bd56f8250f6dc9391377d.camel@collabora.com>
-Subject: Re: [PATCH v4 1/1] drm/mediatek: Adjust bandwidth limit for DP
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: CK Hu =?UTF-8?Q?=28=E8=83=A1=E4=BF=8A=E5=85=89=29?=
- <ck.hu@mediatek.com>,  Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,  "simona@ffwll.ch"
- <simona@ffwll.ch>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, "airlied@gmail.com"
- <airlied@gmail.com>, Mac Shen =?UTF-8?Q?=28=E6=B2=88=E4=BF=8A=29?=
- <Mac.Shen@mediatek.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-  "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, Peng Liu
- =?UTF-8?Q?=28=E5=88=98=E9=B9=8F=29?= <Peng.Liu@mediatek.com>, LIANKUN YANG
- =?UTF-8?Q?=28=E6=9D=A8=E8=BF=9E=E5=9D=A4=29?= <Liankun.Yang@mediatek.com>
-Cc: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Date: Fri, 27 Jun 2025 08:33:30 -0400
-In-Reply-To: <667a201e7893d6d4bf9ae0267a5afaf06faa5db8.camel@mediatek.com>
-References: <20250625095446.31726-1-liankun.yang@mediatek.com>
-	 <f3135961b2fe2c2b5cb3c29d76eb3d818d7a766a.camel@collabora.com>
-	 <667a201e7893d6d4bf9ae0267a5afaf06faa5db8.camel@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1uV8KM-0000000Eevn-2ZP9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 12:37:11 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55RC4ADG028843
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 12:37:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=; b=EM1YY02An5mDhU0+
+	NViwHpVc8NBW7ga7Au6K48EHg4vnqIuQK0bSLXfjvv4tmYU8+bAzrhq5hdUWRMLx
+	+JEwpC38U94p1yUCPUaxn2k30V4iqXSlN3MUwfjk/2rRCexYvX/D3OSjSdpcXGg6
+	u9kHSy382DEfp+NDV+MRUQwtdmIPLZkPeXiB6RAjHVSHt+FV9DlbPl3WxPaffEW3
+	pNDaTyWrP1hQoPm0xtnpMhcjZmDwnBdIbwKiZusM5X3FOue2Q86OQuHwPInWtcRe
+	YD4uvl+7DpjwA4q+4lnk2+G0J5TAkFogcCAPcPjsAXitQxk9N5zFItUp+lU+JdOa
+	/RxM0g==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47esa504mx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 12:37:08 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7d400a4d4f2so388421185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:37:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751027827; x=1751632627;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=;
+        b=R2Pg+PnFxATck0l6/eWA0YD6rgKph1uSQU24Mwiwy7n0BX+Y/WqpFTev49TJpJSoWZ
+         rjhidmHReXAX3++iQ41nSqbkWKk/mIspdORoGlQ0JSLwch4x1piPUrCudv63whPXwLGj
+         S6cMCD1rBdWZvDilbcHzDnSz+AmkX+DGI4WmuSLqlRSXOC9RgZHR2KIwhosUz3twEiN/
+         CE/MkmNDHUWhr3Hs2bMCr6BBRSWHgjQnnr8cpfNNRypM9+ehLQlNcW/8Ic4G8lAh7Ltp
+         Y9N0is1N0dz7dsaErFXHvCZudWsY/AJD7QitjSHsHCKwuMX/0jmGILv/S6rBFDhabV39
+         rEkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWC43SYheKQa3gNQKb+ZAGyGRMy7vWpegxJ4lREaTL0ksoJfSAaM88g+oZbTpv3qnGxWGfK+VMBejSxP+DAZwV4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM6fHDnO8//k7NuR72ig0Br0cOoMFfKwfhcfwr9q250JliaRdR
+	CEkJsTrqXj4BO9G/cDtzk/8ag44Pm5ornP5JuIHXP/rreWXClqdRo/QiwC4xf0hLNIK86LqcKn1
+	uKvCHzWCJKWTh6JixT6x85wK/VHtohMazOJUfiV/VyVp6e2tjTfW2vQpTseSVKoZBdcmnS7TEEN
+	0uuw==
+X-Gm-Gg: ASbGncslJoSEFEvgu8p9joKhKs0onTJZkhdYYrpdugLUfkhKpWWnWO9IKWNBYKFyN3o
+	MxtfsPzfGDze9YshwQEyOKW0OOn3mlHT+80vQV3PDUxX6cPAYtvJ1pH3w2FKCA1cN0VMkRZlwxI
+	51kpVo6khKh45SVbjt4mm/wzjNXqn6gJV64oZQdJMttvOfwqqb6YEmlnGhD0lOZts7F2Ziu8406
+	kiodYVGhvxcEGqZpCMxyC4BxQU2Gvd7drDu6os9UTNJE6meg+Ty/N3ulZIfd73dcJhXMF4Fs9IR
+	aw7uoz0ru7684P0goOFxOeYZyHv7o5dtqPAIqW6P1pLxlhidlKsJBb9btY63rmZdzCv/Orq9
+X-Received: by 2002:a05:620a:4009:b0:7ca:efbd:f4f4 with SMTP id af79cd13be357-7d4439a37e7mr465646585a.56.1751027827368;
+        Fri, 27 Jun 2025 05:37:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHCxBke75XiU4P29zUlVR89IlIUHFxI4koZUgqia/W7QYIrDc/FKS/y6TSYgHEYIi97FOYfMQ==
+X-Received: by 2002:a05:620a:4009:b0:7ca:efbd:f4f4 with SMTP id af79cd13be357-7d4439a37e7mr465640985a.56.1751027826895;
+        Fri, 27 Jun 2025 05:37:06 -0700 (PDT)
+Received: from [10.185.26.70] (37-33-181-83.bb.dnainternet.fi. [37.33.181.83])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2c4f24sm430368e87.143.2025.06.27.05.37.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Jun 2025 05:37:06 -0700 (PDT)
+Message-ID: <667ac51f-d19d-4832-9aa6-97d9a86e0068@oss.qualcomm.com>
+Date: Fri, 27 Jun 2025 15:37:09 +0300
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 01/10] clk: qcom: clk-alpha-pll: Add support for
+ dynamic update for slewing PLLs
+To: Taniya Das <quic_tdas@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik <quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
+        linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
+ <20250625-qcs615-mm-v10-clock-controllers-v10-1-ec48255f90d8@quicinc.com>
+ <trwdfk2oz2udtbiqxh3ybuqbvasfqywmqxgi4xyvsknz6svs2r@icpp7snpq6c5>
+ <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
+Content-Language: en-US
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+In-Reply-To: <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=eLYTjGp1 c=1 sm=1 tr=0 ts=685e9074 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=a09MB1VsJqAZHPW3esczKA==:17
+ a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8 a=-U2GbryNtLgmjeNmToIA:9
+ a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: EZro8XW_ygXGa1TI2QZvpQpMsI4W1P47
+X-Proofpoint-ORIG-GUID: EZro8XW_ygXGa1TI2QZvpQpMsI4W1P47
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEwNCBTYWx0ZWRfX09zLE1iIyPGf
+ YiIaMA6KA/KY23Q1TG35ISIRCax4a8vC6rMr20XreCjdzbEq9nSwl3namRDIbx+o2sB7yUh/Wqj
+ BaiIbQMy1XkTEr177QH70Q5MUzmK/J8dW9UTucY54Z5GRChgRQoeYS4Fzum4gtvVp6yQ+O9OCwg
+ 0NrL5HY8o4CfV5ZwqzfbLBa2RNGBicE0Xk19MN2ND9ydnA2Q6eVBIOU4J77EhKkcCfiJ4MvCQuc
+ VU9Io/FFcF31XnZIku+n2isDDUNnZ1OUUje3TXPlI8kVa9d13sFCME9jyo1+QxDN1Ljwn3qDXGB
+ 8CqEawRJ7mGwQveSECX3YVWVO7jqlQqoNxflTC4P+hodS4OFZx5yt7yDhBT/Mo+iM+NwPKvraMC
+ AkXg00vOnMHa8h3YFuaNXrEHJpCTNuPBIeE8ojB4KxT/n5Ny8hXSATOKhLwWglvdqz5c0F4f
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-27_04,2025-06-26_05,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 mlxscore=0 clxscore=1015 mlxlogscore=999
+ suspectscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ adultscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506270104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_053340_638462_EE85074B 
-X-CRM114-Status: GOOD (  34.06  )
+X-CRM114-CacheID: sfid-20250627_053710_661885_2E89BD60 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,97 +146,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-06-27 at 01:32 +0000, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) wrot=
-e:
-> On Wed, 2025-06-25 at 14:49 -0400, N=C3=ADcolas F. R. A. Prado wrote:
-> > External email : Please do not click links or open attachments
-> > until you have verified the sender or the content.
-> >=20
-> >=20
-> > On Wed, 2025-06-25 at 17:54 +0800, Liankun Yang wrote:
-> > > By adjusting the order of link training and relocating it to HPD,
-> > > link training can identify the usability of each lane in the
-> > > current
-> > > link.
-> > >=20
-> > > It also supports handling signal instability and weakness due to
-> > > environmental issues, enabling the acquisition of a stable
-> > > bandwidth
-> > > for the current link. Subsequently, DP work can proceed based on
-> > > the actual maximum bandwidth.
-> > >=20
-> > > It should training in the hpd event thread.
-> > > Check the mode with lane count and link rate of training.
-> > >=20
-> > > If we're eDP and capabilities were already parsed we can skip
-> > > reading again because eDP panels aren't hotpluggable hence the
-> > > caps and training information won't ever change in a boot life
-> > >=20
-> > > Therefore, bridge typec judgment is required for edp training in
-> > > atomic_enable function.
-> > >=20
-> > > Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
-> > > ---
-> > > Change in V4:
-> > > - Tested the internal eDP display on MT8195 Tomato and it is
-> > > fine.
-> > > Per suggestion from the previous thread:
-> > > https://urldefense.com/v3/__https://patchwork.kernel.org/project/linu=
-x-mediatek/patch/20250318140236.13650-2-liankun.yang@mediatek.com/__;!!CTRN=
-KA9wMg0ARbw!g0Ii2UaT9Wu1FktoGneG4gHV_zwIAwcqEihEA0W4XHKOW2vv7i5MLlekFB9AbbB=
-JvWKvbyaiQFkF-JpPcq0$
-> >=20
-> > Hi,
-> >=20
-> > I tested this patch on MT8195 Tomato, on top of next-20250625.
-> > Indeed
-> > the internal eDP display is unaffected by this commit: it still
-> > works
-> > fine.
-> >=20
-> > The external displays though not so much. I tested 3 different
-> > displays, using 2 different USBC-to-HDMI adapters, and in all cases
-> > the
-> > behavior was the same:
-> > - Before the patch, the image on the display is completely
-> > corrupted
-> > and unusable. The only discernible element on the display is the
-> > mouse
-> > cursor, which shows perfectly fine. Occasionally no image will be
-> > shown
-> > at all, but most of the times, the behavior is as described.
-> > - After the patch, nothing ever shows at all on the display. It is
-> > always black.
-> >=20
-> > So while the external display support on Tomato is basically broken
-> > as
-> > of the latest next, this patch seems to regress the support even
-> > further.
->=20
-> Hi, Nicolas:
->=20
-> Have external display worked normally in previous version?
-> If no, I think this patch just let external display change from one
-> bad state to another bad state.
-> If yes, I think we should fix this problem first, and then apply this
-> patch to test.
+On 27/06/2025 13:13, Taniya Das wrote:
+> 
+> 
+> On 6/25/2025 5:17 PM, Dmitry Baryshkov wrote:
+>> On Wed, Jun 25, 2025 at 04:13:26PM +0530, Taniya Das wrote:
+>>> The alpha PLLs which slew to a new frequency at runtime would require
+>>> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
+>>> which can support the slewing of the PLL to a new frequency.
+>>>
+>>> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
+>>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+>>> ---
+>>>   drivers/clk/qcom/clk-alpha-pll.c | 169 +++++++++++++++++++++++++++++++++++++++
+>>>   drivers/clk/qcom/clk-alpha-pll.h |   1 +
+>>>   2 files changed, 170 insertions(+)
+>>>
+> 
+>>> +	/*
+>>> +	 * Dynamic pll update will not support switching frequencies across
+>>> +	 * vco ranges. In those cases fall back to normal alpha set rate.
+>>> +	 */
+>>> +	if (curr_vco->val != vco->val)
+>>> +		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
+>>> +
+>>> +	a <<= ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH;
+>>> +
+>>> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
+>>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
+>>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
+>>
+>> We have code that does this in __clk_alpha_pll_set_rate() and now you
+>> are adding two more copies. Please extract PLL_L_VAL, PLL_ALPHA_VAL and
+>> PLL_USER_CTL / PLL_VCO_MASK into a helper function.
+>>
+> 
+> Dmitry, I was thinking of implementing the following as a reusable
+> helper since it can be leveraged by most of the functions. I'd
+> appreciate your suggestions or feedback.
 
-Hi,
+The code below looks good to me. Please use 'alpha' instead of 'a'.
 
-I do remember the external display working on Tomato before, but it's
-been a long time since I'd last tested.
-
-In any case, as I've described it is currently basically broken (just
-the mouse cursor renders fine), so indeed this patch is bringing the
-display from one bad state to another bad state. The bad state after
-the patch is even worse than before, since nothing even shows, so
-personally I think it'd make more sense to fix this issue before
-merging this patch, so we can actually make sure the patch works well,
-but I'll leave it for you to decide the best way forward.
+> 
+> static void clk_alpha_pll_update_configs(struct clk_alpha_pll *pll,
+> const struct pll_vco *vco, u32 l, u64 a, u32 alpha_width, bool alpha_en)
+> {
+> 	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
+> 
+> 	if (alpha_width > ALPHA_BITWIDTH)
+> 		a <<= alpha_width - ALPHA_BITWIDTH;
+> 
+> 	if (alpha_width > 32)
+> 		regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
+> 
+> 	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
+> 
+> 	if (vco) {
+> 		regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll),
+> 				   PLL_VCO_MASK << PLL_VCO_SHIFT,
+> 				   vco->val << PLL_VCO_SHIFT);
+> 	}
+> 
+> 	if (alpha_en)
+> 		regmap_set_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN);
+> }
+> 
+> 
+>>> +
+>>> +	/* Ensure that the write above goes before slewing the PLL */
+>>> +	mb();
+>>> +
+>>> +	if (clk_hw_is_enabled(hw))
+>>> +		return clk_alpha_pll_slew_update(pll);
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +/*
+>>> + * Slewing plls should be bought up at frequency which is in the middle of the
+>>> + * desired VCO range. So after bringing up the pll at calibration freq, set it
+>>> + * back to desired frequency(that was set by previous clk_set_rate).
+> 
+>>>
+>>
+> 
 
 
---=20
-Thanks,
-
-N=C3=ADcolas
+-- 
+With best wishes
+Dmitry
 
