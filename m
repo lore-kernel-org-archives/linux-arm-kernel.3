@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE05C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:00:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62C6C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 07:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AonkeL2UG9zbG1SpDxserAwv5MTYfIP9basgeC0vKE8=; b=GDK/F5Q9iI9CjPCIRfcphfhtJj
-	54ugYQL1BRfk7VLjccfXsVnYsRJiZ+3eqykmvJhkz3kYgo3HVFwc6F6ZGI3zSXYmGkCtEyJa++eFO
-	VaACqwB8CXQuRL347ISz0ygekqCnGvbSJcE2+bevYj9nXqLROhcBS9i/ZcL6AP3CuE6DQubMBDaYc
-	4yLjvlP8xkSNNmBVYpPBCGqtVZTeWS0dCrN7Q/xitDFRo4jLDAmm0FR0LXqHDNKR4QGYb7amYkE2u
-	Q8jmVVrtVlnn/3nxnRhFgINhNazuYTlioDTJd7lsBTF5YH/kkAD4hs9CHBO6weqluVYKjr7pPTgHD
-	+/7HeNaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fVPaUJqCY8ceVuswXPqSPTKh9rTcLJj6phtzFkBlZj4=; b=cqB7UAmLnG7h9+TuaxTCJAM8Ww
+	9KJ9A5acxPplT6F0L3WfB6TmUCPLAL2rJ3qrFbOPxeS8d/YMbPX/z3iYRh5flkk+Yc6XEeFAoJZkd
+	kLSd1/Y0TX82fJhwGEpilzxqtEj+m7gHydShJ+C/4AWqztjqRghlyP+2ZUoGY2tj/QNtJbudA6u9n
+	/VKEEElvMZDs7pwznoNVNLipUMbyDxMrolroc3ym1AurOwvEDy7JgS+2GKtZLPR+MvkHmRNXpNa7t
+	qoZjfbHLA7Pwlm5EICWVmEKc2xnUa6Prb+m2NXfbG+uvEb9SkqjNgiWsTnuH5oXWLfuE5iS57TP55
+	CQmRwC0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV345-0000000DlFO-3nSA;
-	Fri, 27 Jun 2025 07:00:01 +0000
-Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
+	id 1uV38u-0000000DmK7-3tkA;
+	Fri, 27 Jun 2025 07:05:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV2zz-0000000DkSs-17AL;
-	Fri, 27 Jun 2025 06:55:48 +0000
-Received: by mail-vs1-xe2d.google.com with SMTP id ada2fe7eead31-4e7ef5d6bffso482928137.3;
-        Thu, 26 Jun 2025 23:55:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751007346; x=1751612146; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AonkeL2UG9zbG1SpDxserAwv5MTYfIP9basgeC0vKE8=;
-        b=XaPdIEau78ELlYZLdMs8dScXws3W9cyS05+bfeI69ignyo1c3zPV8TwPBkWdCPpdHb
-         8CoKINq+RNI6gQAue8so9l8i9qI7f82/b6NlGZuDQS+zjFW51D2V6FO3jWApF0OMjYyx
-         LnwzhHHGvQuDLRkItaUpOiO4skdxCzxNz6S3GtJNoyAhuqE7RDAYp9VQ8B8vRiqmrXS3
-         pV5Ef+Z3Jy6VoA0KpWeWDeT3T+ZPCwed9XbY5N8wYA6ezFjRXI7DUftL4hRtJap94HCK
-         qxIjDjzpTjk3ToR1KjrUg+Ph82syVRRX1bcWwhCiAJxQ0XmWkNBfEpQKjeIcbZm6G1nD
-         YsmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751007346; x=1751612146;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AonkeL2UG9zbG1SpDxserAwv5MTYfIP9basgeC0vKE8=;
-        b=fMkfPLzbm/qb02Snn2WiPUugHs1IwLIIUhwBa7HoJh2hYHsdRHO7eSU/pY6RX9lu8c
-         kJUWmOND0g01z5kG2PZo9gqmQoocKTOIynW9DglOBsevZqx3qdlhN4MlKEJeD0t1gE1Y
-         DHia051g6Ml041xwGXr9iwCvnYQwPTBPufOTaB8asNRG8hMevvNftZ6kyBzk/957xY83
-         SlmiZgbh/8Zk6x6ZtlNlbLDUd0rqO16L1I72XTwgQQpqnF9C8AuLXS0EqIu8mMs6/eU8
-         M2x7qO1Pllzrk8Rdu0Ei0fUYJUDthwZpC1iAqs78T5IrqSCJqvRQysYhV7Xl6e+Be5h+
-         6Jyw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2tbaSC3yNMyXumXEPpzWumZbsKzFpDVjFbzn6i1FjzOWE31KP1aja1IPZi7n3RZuDfiJneB6KRusHPaw=@lists.infradead.org, AJvYcCVbszxCZFVBn4enTxuinF0Mf7zA+r68LJAesBY9m3NugKRhjYyTK0MJP/rxjcDZ2FJPe9mT/+Wnj7+mDpR4qyoz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUw0Jf2NIla5kSROD9/pIxqontVrih+9fpqLdYHhBZvTyudvwv
-	rvqNsY+pEnvLLpxZMt+8NKfCN7b8f5nuBto2wsGFZGiuzwrnzpjRG6SBaKxlHFP/AbvHUveF/zc
-	9XMHFtVUsAD5LQy3Z8Lv7DoXy3iQCUtI=
-X-Gm-Gg: ASbGnctMfelxvfoM2ixXAN+Do5zLVk+ZmtrDQrYit66YqxOSY/+0l/dGuyWX4KQgS6c
-	AXIz1yBrUFng+yfs0tv0MaJSapwSFcVEMXpZDvDG1DARHp0xMW5bhwlhW3qk2Nw515Vz2GiP4R0
-	rLS8S8VwRbNtH9+Q3eaT6bJU4rFMceOoCeA9kTWqWWmhg8xIP1SwLbpA==
-X-Google-Smtp-Source: AGHT+IHID72abIG7KO9tY0TMUT/7rvTScdoSDX7SF0tYvqk7dfZNu62uOYY7u8MoIAmAQhMkN3cJSxhZsgMz1pZQ9R4=
-X-Received: by 2002:a05:6102:919:b0:4e5:acea:2dec with SMTP id
- ada2fe7eead31-4ee4f6a6083mr1641746137.7.1751007346178; Thu, 26 Jun 2025
- 23:55:46 -0700 (PDT)
+	id 1uV34c-0000000DlXd-3QaL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 07:00:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0AF09A521EB;
+	Fri, 27 Jun 2025 07:00:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D4F5C4CEE3;
+	Fri, 27 Jun 2025 07:00:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751007633;
+	bh=2Uk6mPLluwOGTpyaSNA8mE4z75MK59plAzgVuBSAIJc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qPlmnBFlKtkL68K7UTMLDKSF2L3+BrpBxHEC/wc2OKDzTpGBqVXnSnK/TfYEHNsFL
+	 ovV7Jj2Me76edKk5EVcbp3YdUDhKxrmksObBMW6m+w8sFWO62FkHxQA6QCXHrtWEhY
+	 FR0CQZgCyzgMYXzjnhhuGoc3XsnRjwYZIna9+GDzLtmc13KExsjUldUTh4I4XXV/6d
+	 8kUfvWRCv8HpCh0xjXMEs+MqikvpEr58IavaEPEctgOexAckVTsfV0tUERIte3t4IV
+	 ZGK6AygZqDueGEwAJ0bZsxTqs3LG9RenKfWXKj13vL5haKXqAMI7RDrODv9ob70UpH
+	 rhQM+nWdK1M4Q==
+Date: Fri, 27 Jun 2025 09:00:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Leo Wang <leo.jt.wang@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
+	Leo Wang <leo.jt.wang@fii-foxconn.com>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
+Message-ID: <20250627-banana-falcon-of-jest-c0a8ec@krzk-bin>
+References: <20250627-add-support-for-meta-clemente-bmc-v4-0-ce7ff23460c4@fii-foxconn.com>
+ <20250627-add-support-for-meta-clemente-bmc-v4-2-ce7ff23460c4@fii-foxconn.com>
 MIME-Version: 1.0
-References: <20250627062319.84936-1-lance.yang@linux.dev> <CAGsJ_4xQW3O=-VoC7aTCiwU4NZnK0tNsG1faAUgLvf4aZSm8Eg@mail.gmail.com>
-In-Reply-To: <CAGsJ_4xQW3O=-VoC7aTCiwU4NZnK0tNsG1faAUgLvf4aZSm8Eg@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 27 Jun 2025 18:55:35 +1200
-X-Gm-Features: Ac12FXxvwUg1I8DIO0v6b56l2GT04XdFM5Ht5dpca7QYboGTabvmi5kE5vPkba0
-Message-ID: <CAGsJ_4z+DU-FhNk9vkS-epdxgUMjrCvh31ZBwoAs98uWnbTK-A@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] mm/rmap: fix potential out-of-bounds page table
- access during batched unmap
-To: Lance Yang <ioworker0@gmail.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, baolin.wang@linux.alibaba.com, 
-	chrisl@kernel.org, kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, lorenzo.stoakes@oracle.com, 
-	ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org, 
-	huang.ying.caritas@gmail.com, zhengtangquan@oppo.com, riel@surriel.com, 
-	Liam.Howlett@oracle.com, vbabka@suse.cz, harry.yoo@oracle.com, 
-	mingzhe.yang@ly.com, stable@vger.kernel.org, 
-	Lance Yang <lance.yang@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v4-2-ce7ff23460c4@fii-foxconn.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_235547_308582_C4650E99 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20250627_000034_919542_303F0DAC 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,59 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 6:52=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
-e:
->
-> On Fri, Jun 27, 2025 at 6:23=E2=80=AFPM Lance Yang <ioworker0@gmail.com> =
-wrote:
-> >
-> > From: Lance Yang <lance.yang@linux.dev>
-> >
-> > As pointed out by David[1], the batched unmap logic in try_to_unmap_one=
-()
-> > can read past the end of a PTE table if a large folio is mapped startin=
-g at
-> > the last entry of that table. It would be quite rare in practice, as
-> > MADV_FREE typically splits the large folio ;)
-> >
-> > So let's fix the potential out-of-bounds read by refactoring the logic =
-into
-> > a new helper, folio_unmap_pte_batch().
-> >
-> > The new helper now correctly calculates the safe number of pages to sca=
-n by
-> > limiting the operation to the boundaries of the current VMA and the PTE
-> > table.
-> >
-> > In addition, the "all-or-nothing" batching restriction is removed to
-> > support partial batches. The reference counting is also cleaned up to u=
-se
-> > folio_put_refs().
-> >
-> > [1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fc=
-be@redhat.com
-> >
->
-> What about ?
->
-> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-> may read past the end of a PTE table when a large folio spans across two =
-PMDs,
-> particularly after being remapped with mremap(). This patch fixes the
-> potential out-of-bounds access by capping the batch at vm_end and the PMD
-> boundary.
->
-> It also refactors the logic into a new helper, folio_unmap_pte_batch(),
-> which supports batching between 1 and folio_nr_pages. This improves code
-> clarity. Note that such cases are rare in practice, as MADV_FREE typicall=
-y
-> splits large folios.
+On Fri, Jun 27, 2025 at 10:59:03AM +0800, Leo Wang wrote:
+> From: Leo Wang <leo.jt.wang@gmail.com>
+> 
+> Add linux device tree entry for Meta Clemente compute-tray
+> BMC using AST2600 SoC.
+> 
+> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
 
-Sorry, I meant that MADV_FREE typically splits large folios if the specifie=
-d
-range doesn't cover the entire folio.
+Here as well
 
->
-> Thanks
-> Barry
+Best regards,
+Krzysztof
+
 
