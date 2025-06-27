@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A57C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2A9C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 00:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ck+DzOXAxdqOO+jxI+vUNr8Y2kNlJLXxkINzJ1YAIWw=; b=ZFzeNV/+AflH/BW3QQRxEe2oXm
-	lEiYlOhGbxcGq23eG0UU2saQFx4G7fs7OxUHTHplv+mvCv2KnDATY5RlxbROv4KEPxPD6WyOSERiQ
-	FYOg/oA5+D8ShMMQMu1egBHyamnMgzXyeRC2zvLr29jdOUMbfbcHj01N3jkwFphDgCM/LpC/yedtf
-	tdhx1KTdaI2OmTBDccq+8ZYQAH84lo+02r1udWWX8xje1SwPMSTpL/jSrJVA+96TozZEd+DyiqZhF
-	3WK6QMNzjITv/knoZak095fMCVDasmp0HSoP4wb81hRFBldg7YBOdED4Qt8y9jrgU8TmbgHpaI4hw
-	9lnuSSBg==;
+	bh=l/Lj2O3Fl3V+yFfxK6lI8xQpWZAZ5Dqiye7be9pLZEM=; b=l1YzZlYD8YCk5nF4Vjhx8PsRRM
+	XBAZQV0dv+TRE9KRAPa4jNVFMOsDpHsqadnhpBac/RjzfePljQDRzAfV/j5K4Amsh9K5uc9sduJoB
+	wqXbjsBxV4qXJaohCjNOhpm4x7rsCOBWUUJdeTdOgn1of866l2Adb2hYQx654MTYcyyzdJJeZb8Yy
+	UGiBGx1cNBXPYqSnowrxmRFuGlbrKQ3qHCpipGRTrkWYyHRyClRw337lyu+ebhsXw3bOnMMsJIOkT
+	soeDJSmFxxf4hYVCxIfMM997fwE0cPkSer2j4WxGVDtyo6ejEv9IS5kE6cGWYOOTOJ+OxBh4UP71w
+	UBZCxm6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUxGz-0000000DF1f-1oD6;
-	Fri, 27 Jun 2025 00:48:57 +0000
+	id 1uUxJF-0000000DFfh-3nj8;
+	Fri, 27 Jun 2025 00:51:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUwbC-0000000D9sg-2Wmu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 00:05:47 +0000
+	id 1uUwop-0000000DBmm-2B3k;
+	Fri, 27 Jun 2025 00:19:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB07D458E0;
-	Fri, 27 Jun 2025 00:05:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCEC7C4CEEB;
-	Fri, 27 Jun 2025 00:05:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DEFAC457C3;
+	Fri, 27 Jun 2025 00:19:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE18CC4CEEB;
+	Fri, 27 Jun 2025 00:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750982745;
-	bh=Ck+DzOXAxdqOO+jxI+vUNr8Y2kNlJLXxkINzJ1YAIWw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GXOOh3NA9gmywj39wIs+aigKeNMeViNksWSk/5y28zohFx5WMCY1eLtcSzpdzXU87
-	 VX3w9Xk1/v3Oyt/q4VsNpOGuxQYZYFkaBuDSV+pQcMu0oOwVZZAAl0H/Jx2/hp78+Q
-	 4G7cybaPKiRznAIICJW+8KA38s8MPCywWbABM/BgXMHHikQ0I8mg+H0p0RiRLuo2ch
-	 vm7SeUCxCVzi61OIuPKt7oBnydhcGEx7lDXQ7GsmwPy04yjNnlv2NWJZtgeUNFjqCo
-	 cPSSlOVHksN5Kiqwb/wa/AXUQPbIzka2jCmLDz48p7Nl4hz3cr5m2s4BWC7P3rbHV1
-	 4alWUEk09msug==
-Date: Thu, 26 Jun 2025 17:05:43 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, Matthew Gerlach
- <matthew.gerlach@altera.com>, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- richardcochran@gmail.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Mun Yew Tham
- <mun.yew.tham@altera.com>
-Subject: Re: [PATCH v6] dt-bindings: net: Convert socfpga-dwmac bindings to
- yaml
-Message-ID: <20250626170543.6696868d@kernel.org>
-In-Reply-To: <20250626234119.GA1398428-robh@kernel.org>
-References: <20250613225844.43148-1-matthew.gerlach@altera.com>
-	<20250623111913.1b387b90@kernel.org>
-	<20250626234119.GA1398428-robh@kernel.org>
+	s=k20201202; t=1750983590;
+	bh=A/GPq/k9Nay0IeBg/c26bLVz5zmhn+66UN35AjQ18KY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=GPHakjTEzBgJZYFQzPu07aArQupswCEtrO40OOgknyCfhs7wzAbukHHOCtiIik1ra
+	 anDHFJgX1j30s2e/PgCiC8BGB2i2C6gqwaeLyb7eDz3qb0ZnI+1i2VpG8BHruj2pvU
+	 MIC+VrIUbmaqtochAcwS5svxt6d8nsOnn2wPflOpzvGQsOp35J+zZKWEV/GRsex5ma
+	 lyJH0WM1TO837tJfisqPPN/HByu+mSvvs84Z5ef4b5nHB8sAbpRORG+VlF7UHiMcZt
+	 rJ9EsWc1G/sbPPM5W0biLBCkucVokm/BFg6kbknpJ0xVr4QZeNFSSngYMRmela7uvl
+	 0Unc7pcUINj/w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CE13A40FCB;
+	Fri, 27 Jun 2025 00:20:18 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: airoha: Get rid of dma_sync_single_for_device()
+ in airoha_qdma_fill_rx_queue()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175098361699.1380299.1821906889134866551.git-patchwork-notify@kernel.org>
+Date: Fri, 27 Jun 2025 00:20:16 +0000
+References: <20250625-airoha-sync-for-device-v1-1-923741deaabf@kernel.org>
+In-Reply-To: <20250625-airoha-sync-for-device-v1-1-923741deaabf@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_170546_658735_E8DB7B20 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250626_171951_581533_60153EB7 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 18:41:19 -0500 Rob Herring wrote:
-> No need to ping us. Like netdev, you can check the PW queue:
->=20
-> https://patchwork.ozlabs.org/project/devicetree-bindings/list/
+Hello:
 
-Thanks, noted!
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-> In any case, we're a bit behind ATM.
->=20
->=20
-> It looks like we have 2 competing conversions of this binding. This one=20
-> and this one which I reviewed:
->=20
-> https://lore.kernel.org/all/20250624191549.474686-1-dinguyen@kernel.org/
->=20
-> Looks like there are some differences which need resolving, so I revoke=20
-> my review. Will follow-up separately on both.
+On Wed, 25 Jun 2025 16:43:15 +0200 you wrote:
+> Since the page_pool for airoha_eth driver is created with
+> PP_FLAG_DMA_SYNC_DEV flag, we do not need to sync_for_device each page
+> received from the pool since it is already done by the page_pool codebase.
+> 
+> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-=F0=9F=91=8D=EF=B8=8F
+Here is the summary with links:
+  - [net] net: airoha: Get rid of dma_sync_single_for_device() in airoha_qdma_fill_rx_queue()
+    https://git.kernel.org/netdev/net-next/c/4cd9d227ab83
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
