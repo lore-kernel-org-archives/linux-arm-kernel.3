@@ -4,48 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BA0C83000
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC79C77B7F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TgDhRQymh1zEvOGkKojN4cWN6EGHnypqCUBlop1SBFo=; b=lWOg6QRbbxkpQU
-	G89UxPZwdiU3WgC6jAio/nqK25dWgLR/PtiRI6lcrJ4unY8O9qqCeK16cFmQN3gzvvXOBrs0kZwK7
-	2VJPhctecV+yyhRqohf+KxOKXnLkS3fCN1QcAvjNRg6wFiNULb7TW2HzQIX87edgUBcop4MZ6QwTs
-	fwUkvrUOEdOrI4DcH64sMrv/n7RxmMQNXVF65Y8XzZSZ/jWE7qkoVG8wCIO5dkbNApqpMZBBGleOA
-	K4hAVK09f0SG6UwsDOUILtifA9e3C4aX1TD+lAQv/x2+vFvUkoiUknQcJRtdHeXWEiy5eeF73Bn3k
-	aewowB1SWQFhHRQB3VFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aJQWI5I0MErBn9WTrv1JNB0C4UjjQpBVKY6GABk/040=; b=nS3i4ukRha95ye7/5X0fG96LTy
+	xrASy9XQ05zz+rPPo1ntvxXWicq5G9/wF5AnweG50LdUU4b8uWZ2Jm0fJXmERJ6MY/dBMTiw+fpS0
+	xaRCf0yBy4hfOny2FT4gC24fZ8bW2GzOSU/B/zjlvhDYTa6R7B19CJA3E7eXQWmXMr2Ctbk7dt1ND
+	c8ocJpZRPy+XSCm3J5kS3i1MhRa3iHLUANPbLD3yJC8I+ze9xzBXJJX0jJmp3CmhKWFO0WjJ4KDq6
+	CS6a+6ycMU2Ge9qkVZQT8Ox4V4rHrgVNuV8VUfC9xG/uzYE7B2vyNWBAGSZlfv4sqIN0zf7Jwj4xM
+	0E8PD7ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEN5-0000000FYGg-2ZrY;
-	Fri, 27 Jun 2025 19:04:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCl0-0000000FOZ4-2KE2
+	id 1uVEMu-0000000FY69-36w1;
+	Fri, 27 Jun 2025 19:04:12 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uVCBY-0000000FJh9-0Rpb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 17:20:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09C4A1A00;
-	Fri, 27 Jun 2025 10:20:41 -0700 (PDT)
-Received: from e137867.arm.com (unknown [10.57.30.218])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6EA713F66E;
-	Fri, 27 Jun 2025 10:20:56 -0700 (PDT)
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 04/13] arm64: debug: call step handlers statically
-Date: Fri, 27 Jun 2025 18:20:29 +0100
-Message-ID: <20250627172038.633423-5-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250627172038.633423-1-ada.coupriediaz@arm.com>
-References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+	Fri, 27 Jun 2025 16:44:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751042660; x=1782578660;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=TSgOQXH2cylh/c8/YzG1JlJ0nKvfIZhvP1Qcm1/EaFA=;
+  b=ClC/ugHmtQBnH2E/osUup/TVLKjXxusApFG1fhFxQbFP7Al9YiLONGFi
+   pZsWG9u6cw1zVBA3j9fcroXw3XsstgSBbuTwOsGWsG637F0y5RzKr1rbC
+   EZ29zUnFx4QP/2DvBrdnvpnTJad7chAS2mpchQfRlNrJvLsF0ieeIxYsi
+   IgBk6WImT/ndQ9lY446okPDxZN77FlbY9nj6FBouRU8c6j7/+ISERzLAl
+   bdAi4SxdoTxUpiz2v4xnrEC6KrdAvp+64TXX08G4PX3JPqAO9hbt766/E
+   kt4zGKFXKOUwgzPswNtu1bJ7uqG0WKzKkTRKoHaVpheQxeB5WGZzBFKzQ
+   Q==;
+X-CSE-ConnectionGUID: 7aonlo3gQQGp4YBHzA5OkA==
+X-CSE-MsgGUID: w9FHW9pISG+jiRzVvYcIWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11477"; a="57142558"
+X-IronPort-AV: E=Sophos;i="6.16,270,1744095600"; 
+   d="scan'208";a="57142558"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jun 2025 09:44:19 -0700
+X-CSE-ConnectionGUID: jQNau0O0Q+O1RMMTIlbW1g==
+X-CSE-MsgGUID: DBf9Q/T1RqKi6tq9M3cw5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,270,1744095600"; 
+   d="scan'208";a="152951937"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa006.fm.intel.com with ESMTP; 27 Jun 2025 09:44:17 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 11A3F2BA; Fri, 27 Jun 2025 19:44:15 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Lee Jones <lee@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: [PATCH v2 1/1] mfd: syscon: atmel-smc: Don't use "proxy" headers
+Date: Fri, 27 Jun 2025 19:43:58 +0300
+Message-ID: <20250627164414.1043434-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_102058_669163_9A0624B8 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20250627_094420_190030_F4823F4E 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,203 +85,66 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Software stepping checks for the correct handler by iterating over a list
-of dynamically registered handlers and calling all of them until one
-handles the exception.
+Update header inclusions to follow IWYU (Include What You Use)
+principle.
 
-This is the only generic way to handle software stepping handlers in arm64
-as the exception does not provide an immediate that could be checked,
-contrary to software breakpoints.
+Note that kernel.h is discouraged to be included as it's written
+at the top of that file.
 
-However, the registration mechanism is not exported and has only
-two current users : the KGDB stepping handler, and the uprobe single step
-handler.
-Given that one comes from user mode and the other from kernel mode, call
-the appropriate one by checking the source EL of the exception.
-Add a stand-in that returns DBG_HOOK_ERROR when the configuration
-options are not enabled.
-
-Remove `arch_init_uprobes()` as it is not useful anymore and is
-specific to arm64.
-
-Unify the naming of the handler to XXX_single_step_handler(), making it
-clear they are related.
-
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-Reviewed-by: Will Deacon <will@kernel.org>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- arch/arm64/include/asm/kgdb.h      |  9 +++++++++
- arch/arm64/include/asm/uprobes.h   |  9 +++++++++
- arch/arm64/kernel/debug-monitors.c | 25 ++++++-------------------
- arch/arm64/kernel/kgdb.c           | 17 +++--------------
- arch/arm64/kernel/probes/uprobes.c | 15 +--------------
- 5 files changed, 28 insertions(+), 47 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
-index 82a76b2102fb..3184f5d1e3ae 100644
---- a/arch/arm64/include/asm/kgdb.h
-+++ b/arch/arm64/include/asm/kgdb.h
-@@ -26,6 +26,15 @@ extern int kgdb_fault_expected;
- 
- int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
- int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
-+#ifdef CONFIG_KGDB
-+int kgdb_single_step_handler(struct pt_regs *regs, unsigned long esr);
-+#else
-+static inline int kgdb_single_step_handler(struct pt_regs *regs,
-+	unsigned long esr)
-+{
-+	return DBG_HOOK_ERROR;
-+}
-+#endif
- 
- #endif /* !__ASSEMBLY__ */
- 
-diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
-index 3659a79a9f32..89bfb0213a50 100644
---- a/arch/arm64/include/asm/uprobes.h
-+++ b/arch/arm64/include/asm/uprobes.h
-@@ -29,5 +29,14 @@ struct arch_uprobe {
- };
- 
- int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
-+#ifdef CONFIG_UPROBES
-+int uprobe_single_step_handler(struct pt_regs *regs, unsigned long esr);
-+#else
-+static inline int uprobe_single_step_handler(struct pt_regs *regs,
-+	unsigned long esr)
-+{
-+	return DBG_HOOK_ERROR;
-+}
-+#endif
- 
- #endif
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 15d7158a7548..26c71b7edc26 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -200,30 +200,17 @@ void unregister_kernel_step_hook(struct step_hook *hook)
- }
- 
- /*
-- * Call registered single step handlers
-+ * Call single step handlers
-  * There is no Syndrome info to check for determining the handler.
-- * So we call all the registered handlers, until the right handler is
-- * found which returns zero.
-+ * However, there is only one possible handler for user and kernel modes, so
-+ * check and call the appropriate one.
+v2: fixed multiple compilation errors (LKP)
+
+ drivers/mfd/atmel-smc.c              | 9 ++++++++-
+ include/linux/mfd/syscon/atmel-smc.h | 8 +++++---
+ 2 files changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/mfd/atmel-smc.c b/drivers/mfd/atmel-smc.c
+index 4628ca14e766..0a5b42c83f17 100644
+--- a/drivers/mfd/atmel-smc.c
++++ b/drivers/mfd/atmel-smc.c
+@@ -8,9 +8,16 @@
+  * Author: Boris Brezillon <boris.brezillon@free-electrons.com>
   */
- static int call_step_hook(struct pt_regs *regs, unsigned long esr)
- {
--	struct step_hook *hook;
--	struct list_head *list;
--	int retval = DBG_HOOK_ERROR;
-+	if (user_mode(regs))
-+		return uprobe_single_step_handler(regs, esr);
  
--	list = user_mode(regs) ? &user_step_hook : &kernel_step_hook;
--
--	/*
--	 * Since single-step exception disables interrupt, this function is
--	 * entirely not preemptible, and we can use rcu list safely here.
--	 */
--	list_for_each_entry_rcu(hook, list, node)	{
--		retval = hook->fn(regs, esr);
--		if (retval == DBG_HOOK_HANDLED)
--			break;
--	}
--
--	return retval;
-+	return kgdb_single_step_handler(regs, esr);
- }
- NOKPROBE_SYMBOL(call_step_hook);
+-#include <linux/mfd/syscon/atmel-smc.h>
++#include <linux/bits.h>
++#include <linux/err.h>
++#include <linux/export.h>
++#include <linux/mod_devicetable.h>
++#include <linux/of.h>
++#include <linux/regmap.h>
+ #include <linux/string.h>
  
-diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
-index b5a3b9c85a65..968324a79a89 100644
---- a/arch/arm64/kernel/kgdb.c
-+++ b/arch/arm64/kernel/kgdb.c
-@@ -250,7 +250,7 @@ int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
- }
- NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
++#include <linux/mfd/syscon/atmel-smc.h>
++
+ /**
+  * atmel_smc_cs_conf_init - initialize a SMC CS conf
+  * @conf: the SMC CS conf to initialize
+diff --git a/include/linux/mfd/syscon/atmel-smc.h b/include/linux/mfd/syscon/atmel-smc.h
+index e9e24f4c4578..9b9119c742a2 100644
+--- a/include/linux/mfd/syscon/atmel-smc.h
++++ b/include/linux/mfd/syscon/atmel-smc.h
+@@ -11,9 +11,11 @@
+ #ifndef _LINUX_MFD_SYSCON_ATMEL_SMC_H_
+ #define _LINUX_MFD_SYSCON_ATMEL_SMC_H_
  
--static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
-+int kgdb_single_step_handler(struct pt_regs *regs, unsigned long esr)
- {
- 	if (!kgdb_single_step)
- 		return DBG_HOOK_ERROR;
-@@ -258,11 +258,7 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
- 	kgdb_handle_exception(0, SIGTRAP, 0, regs);
- 	return DBG_HOOK_HANDLED;
- }
--NOKPROBE_SYMBOL(kgdb_step_brk_fn);
--
--static struct step_hook kgdb_step_hook = {
--	.fn		= kgdb_step_brk_fn
--};
-+NOKPROBE_SYMBOL(kgdb_single_step_handler);
+-#include <linux/kernel.h>
+-#include <linux/of.h>
+-#include <linux/regmap.h>
++#include <linux/bits.h>
++#include <linux/types.h>
++
++struct device_node;
++struct regmap;
  
- static int __kgdb_notify(struct die_args *args, unsigned long cmd)
- {
-@@ -301,13 +297,7 @@ static struct notifier_block kgdb_notifier = {
-  */
- int kgdb_arch_init(void)
- {
--	int ret = register_die_notifier(&kgdb_notifier);
--
--	if (ret != 0)
--		return ret;
--
--	register_kernel_step_hook(&kgdb_step_hook);
--	return 0;
-+	return register_die_notifier(&kgdb_notifier);
- }
- 
- /*
-@@ -317,7 +307,6 @@ int kgdb_arch_init(void)
-  */
- void kgdb_arch_exit(void)
- {
--	unregister_kernel_step_hook(&kgdb_step_hook);
- 	unregister_die_notifier(&kgdb_notifier);
- }
- 
-diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-index ad68b4a5974d..1f91fd2a8187 100644
---- a/arch/arm64/kernel/probes/uprobes.c
-+++ b/arch/arm64/kernel/probes/uprobes.c
-@@ -182,7 +182,7 @@ int uprobe_brk_handler(struct pt_regs *regs,
- 	return DBG_HOOK_ERROR;
- }
- 
--static int uprobe_single_step_handler(struct pt_regs *regs,
-+int uprobe_single_step_handler(struct pt_regs *regs,
- 				      unsigned long esr)
- {
- 	struct uprobe_task *utask = current->utask;
-@@ -194,16 +194,3 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
- 	return DBG_HOOK_ERROR;
- }
- 
--/* uprobe single step handler hook */
--static struct step_hook uprobes_step_hook = {
--	.fn = uprobe_single_step_handler,
--};
--
--static int __init arch_init_uprobes(void)
--{
--	register_user_step_hook(&uprobes_step_hook);
--
--	return 0;
--}
--
--device_initcall(arch_init_uprobes);
+ #define ATMEL_SMC_SETUP(cs)			(((cs) * 0x10))
+ #define ATMEL_HSMC_SETUP(layout, cs)		\
 -- 
-2.43.0
+2.47.2
 
 
