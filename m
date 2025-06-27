@@ -4,80 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67265C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 03:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B939C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 03:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OV4Vv1j62T0J9EDR2MBzhy7KvS/mL5uJgVrkoezDvk4=; b=jeN5OLlUFB6sGd01DXL6J25ODv
-	flK+EC2BDCgkO2H2x31eczZedhnOPwyAsPlhlp0jgbW0zNj6zWdHf2EEGszTMg/G7LxGg47fCNf4r
-	CD9vxQYuJfqZjBm/pfWP2na6limDrW0DNa02bz4FKVc7BRDn6mhk4m8jm3RijP/s14fZHYrAayTyW
-	UCmRBIUO9Hi0BcTv84vPL0rZGChJFr3blMTcMJ62l2fcIH5pmPMlP7pAPo4ZtoH+8qFzzxwloL6/F
-	qOzl4mqEC9SHQeLVLiLh5pp55pbuGJK2+X3OsOaUUpXl00/1y/NuOw5dyT/h7FbdGrca4JsVUORRQ
-	/ima+j7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Wf7itIToiV9SqbN9+ntxK9v+Il2Im5AzHDVU4hj5Hcg=; b=3kTOg+YXQOnGwU+NzTubbly09N
+	Vpn3Ny/jHy+32CukQYHcQpwwyHkrLFll/eSTNVvIqzXuac3S7hzSdOCWYVHywVs1Cs1V4XIfUYpw2
+	GzG7o85o5sen45GIy3Itou1So2EmtVeC0+wBCT7xm5lCq+9wCdkfgcczcsbkVTqGspVuiCNaAHeNY
+	HZr12ErqZoqG9L83LDr8esZhVYNrYJllhZbY3od/7py97PuCNSSlGvgBfiXi4HqbLEy3wTepDipUT
+	eojWUNigH20heEUL0cZNswUIjIoG4jh9WFgYbTSLqN6WKo/dLZrKN3zi+c+9ZlCLvjnSk8mJfPbk6
+	DMU0dF2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUzSq-0000000DPyW-0n03;
-	Fri, 27 Jun 2025 03:09:20 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uUzXF-0000000DQGR-0X1F;
+	Fri, 27 Jun 2025 03:13:53 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUzMV-0000000DPRm-1pGH;
-	Fri, 27 Jun 2025 03:02:49 +0000
-X-UUID: 30147a9e530311f09f706fa2197c6ceb-20250626
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=OV4Vv1j62T0J9EDR2MBzhy7KvS/mL5uJgVrkoezDvk4=;
-	b=o9dNvPwpSbmiE8l6zluijkcE2FcSLAqpk2KZ986d7dbSVWRceIGYj/DDeZWkDWaXV7npTioza0WO4GzIaebM+/plz3KBrBF56MUoUZe1UB4fdJJsN0IJm9h6eInhzXyAbYMi3U0fzmV8xVKiYBB2amTbsV7xHvi4R0C7MLSbiOE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:f79b41e1-fc8a-4f29-870a-f255fdf8d338,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:a43c9d14-6a0e-4a76-950f-481909c914a4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 30147a9e530311f09f706fa2197c6ceb-20250626
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 533628040; Thu, 26 Jun 2025 20:02:40 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 27 Jun 2025 11:02:36 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Fri, 27 Jun 2025 11:02:36 +0800
-Message-ID: <c057bbc383ab5525172b22a4f3480acbcac12045.camel@mediatek.com>
-Subject: Re: [PATCH v3 1/1] sched/deadline: Fix dl_server runtime
- calculation formula
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: John Stultz <jstultz@google.com>
-CC: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, "Mel
- Gorman" <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Date: Fri, 27 Jun 2025 11:02:37 +0800
-In-Reply-To: <CANDhNCpNZd+s9+ZXU=+4t3CyV=7weFsbWQEx2=M9yphx6szt8Q@mail.gmail.com>
-References: <20250626030746.2245365-1-kuyo.chang@mediatek.com>
-	 <CANDhNCpNZd+s9+ZXU=+4t3CyV=7weFsbWQEx2=M9yphx6szt8Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uUzUw-0000000DQB4-27MK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 03:11:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pRAiOAW/ogqmuQ5p2O6TCopo/pMFuPX29mubFD10ja8b+uPnIhiccsSE+cg5qSjelounYi61zk+PPoHo2Bykc1qIllx4CZyKmGYKlnN8ZaB664Rv6FWNHXAkWlMct5rsqLZk5Jrlhl0WUshqkpOVF5C4PXKplILB5vxDEasgMNK/WN4pRf5hT/JtCkYU6nX7F6LeUN2UnXPfQe2LdVlfQw62rrm4oqyQwbdghGGHZTkMJxyI78rOMszoYarF1GpAFHuqL+MGyLq4VZV+fAwDcUB9XDJBxtvxi4jPf3yIJ3pWVeaEMqYZUFTcCHK66SoGT9NOY2LEyR0l7sgdatoCSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Wf7itIToiV9SqbN9+ntxK9v+Il2Im5AzHDVU4hj5Hcg=;
+ b=FyhF96TMhfncUZKpMPUOEuUx7rHKI7xO6oe53/jisXbWAEcZT8oL16KWLrDbtEr++bB10rHt6HgriNc9fi3atUDYkP9Ca/1fz6LLUgW/N25CLR8+QB02BNUudUJxsBVsPlNTXmixrtKz3BtoNXNF3wnqM9MbLvwnVJTkFCk7B7paXHuJo0aQkCssUaOllFl6LmnjEW9L0/PJebmPJVdERXs4UbGHltw30FdZO1TowIg0KBhPqs7eyFsFtm4K5aFjYs0rcWb1JVoN28eyYGObJiPl5X7OEIihSxi8q/xkUXC6dG21bWFXtaD8wFtJ0yUjh30RXVU/1GGTK6ft2bRAcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Wf7itIToiV9SqbN9+ntxK9v+Il2Im5AzHDVU4hj5Hcg=;
+ b=dnJmUY4uNfdRA3gIWQcESAoRpWAbwMGc3Wr4OfySHgDk7piDrTi+xPFABi+gmc85eF/n2X8/GrzrAk+NbUjoWei4DKWs+ZFySzKZyYxGH8M0umu4zqCrtQ0hdL0HYdO5IPNgLZnXjI4lRj/NfkYji0ykS0wbBSdBLDEoJkNCP92GnnHoRQ8xmZ4/kxlgsPkR3S7LGTTc/bdRCDXsBT6DFegYV6hyw3+e5H3y/sxAeG5F6NgE7RHM17Sh3evZWlBeUZJZxTtx539HLHnyAl9zU8iUMkyRGwfYTDIyPbm7+XsKBWmOIVpjXkOD2HUnPmkyXUYe56RjvFxsPoT3sfOQFQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by PA4PR04MB7789.eurprd04.prod.outlook.com (2603:10a6:102:c3::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Fri, 27 Jun
+ 2025 03:11:20 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad%6]) with mapi id 15.20.8857.026; Fri, 27 Jun 2025
+ 03:11:20 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jun.li@nxp.com
+Subject: [PATCH] arm64: dts: imx95: add some USB3 PHY tuning properties
+Date: Fri, 27 Jun 2025 11:13:48 +0800
+Message-Id: <20250627031348.3455547-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0069.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::10) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|PA4PR04MB7789:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7873355-3e2e-4613-2c4c-08ddb52849f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aWFZP9REdzv38sAa1xdzyL9p6+TU/FWFK02OR2C0t5yIc+2YnbWVAzIxc01q?=
+ =?us-ascii?Q?dWE30Z5ms63utl33N/rdXGHf6L7vSG83IjwnbpP7ovYGtfHtO0pUOzpYJWxF?=
+ =?us-ascii?Q?n8RRX6UxytSgRWKzAqNb0MrOxdBvdvLDKcH8PgEUjJGgLc0ttK+Ul8XpZmvC?=
+ =?us-ascii?Q?eAc3XH8s475m2K1lgI8CyacpzG1ZiMrSl3TYj1OSVyPbhliE926BiwlsPvGR?=
+ =?us-ascii?Q?I1esO6U8Bfa+iX/oTalZXxWnXqOwUaARx/pxQevfKYaLrrE+sbt5bfyzl54H?=
+ =?us-ascii?Q?yxh1VX0GwDcZ3c0hUvoRjeizBnM8glfLoKsdWzoFrTP0TMC+TgRs/a4QWvMO?=
+ =?us-ascii?Q?qJhw3ZQLxprZkuthV9aRxdL/abM/JKQVT3AdK3FXGqxFChsNg53DkdKTPxqX?=
+ =?us-ascii?Q?QZE8GGDMLgw/X5vk1/iQXBVT2tyk7/BOUWGaFe47SE4u5KCLKjshFG8HwcAF?=
+ =?us-ascii?Q?rE/fzHjtERlWaND7T8yrOWHq+N48cgCIFpa0i8flM+pjHzfRblEEqkc/2ZYJ?=
+ =?us-ascii?Q?24WMhJf5dzXgVQOlD52yR+g+8XWohxjgGKJSXekf/XEmH9fkI2zsEgIyzAcX?=
+ =?us-ascii?Q?CgATeAr+n0HWwA1kBingnoOptjgikYmBiqmGRCjj0iOOB2p1dvyhHTQllEW9?=
+ =?us-ascii?Q?fVJmvxWGXLGpdejnhmPnXeSjCAOVH6u4cViT5lEqYqoYMVYIGxnuOU2DqcJ1?=
+ =?us-ascii?Q?cNvK/GwP2qUr1YXWTnan6NuHAUJPGIKA4u0i1XiCsUMLT3ZNzaZaXQthWw1L?=
+ =?us-ascii?Q?gzeUOwTdVNCbpApXpoySRBEVgQJppX+lq0mOfXkvBjd32wS5SdFwiSA5xHpJ?=
+ =?us-ascii?Q?pWqbzVuS53AnIDzgocjPpbfYKNM0ssMDe+by648nXpuP7B88waAVhAmnsv3m?=
+ =?us-ascii?Q?GH43A4/bJurjjDshLdbwQL0F3kH5o1+Ba35Bu6OI0LTjxd7I+P2q8tc9ufGo?=
+ =?us-ascii?Q?2UQZfd91JXMhlA/FnALnHDn7BXBh/DzupvGTRd4j9080+KhpQ/+midsvZo3h?=
+ =?us-ascii?Q?qE41Xqs+iD5T/7z+hrBB/jjitr6GWrImi7mq8IIIc8DASmq4s0asNwRXjxwv?=
+ =?us-ascii?Q?ItuTn0PlA0gxEOlY7U3na3DhLyBCIzZAJhpVbNL+FGCWCdd8aLXjPDengVti?=
+ =?us-ascii?Q?1hALpgcmVEzEptBwsSIK0pe2mKRXM7hGf9fHRSffZNDtcBou0K2gf2/FQhTm?=
+ =?us-ascii?Q?EoJev/r6x3mu3uJlVE30iIbDBsQLpqFzQ4/VULOqjLChPWv8aZHqw8l0jKDy?=
+ =?us-ascii?Q?t9+bl2QyWJUTGYolW7duuHuCjAUacUL5G0NTkQAgh3lCn3B9LzJQcD5vNM//?=
+ =?us-ascii?Q?3eSbp8XnyQdDsW+bN7m15uxyUbHyeCpGD3tUFiKaiKw920OK2Joaqcl86KB1?=
+ =?us-ascii?Q?uzCpwX9s0AXLzELrioTD8R6RWvZO3WoLmjYnsxM54u84GEubdmHaZUmXbpSq?=
+ =?us-ascii?Q?xjaii2qMVI87S2uQDRpYxKGlEr1Jur3osKb02wVeN/c9VItbjTtdFQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RwCm6Z04LbqzGDyX23nhFen+LTfRHCQeLhRbHGC0tV0367pzeNM+l9dcqzrm?=
+ =?us-ascii?Q?/CE9uhbaik4dg9rfMcsLot6Mjd/eJk4MfSwK0wg9+4GkeXru15sOcUpCNqrG?=
+ =?us-ascii?Q?HgaQ91ttHcuMFbh48xgIzUyV7m7P9Ljg3GW7fC0qdCmGT77JfcW7f9f4FZ/L?=
+ =?us-ascii?Q?kA1Zvfo/16gcZGHbvbwSveyI9ngJtAVuimbpEZLjojwLl9uEPeU5BSWX3Fwg?=
+ =?us-ascii?Q?z9QLLGQXmmtuVSJNbGVCS2jEZ/oa6Ex1+99rFdGwD275Kxo+70Z6UcvzXcNH?=
+ =?us-ascii?Q?I88/dZXj+ZRrJlN7xmsUQz1Zo/1zkktT+ndhJoP0o+GbvNanv+91A6r/vO58?=
+ =?us-ascii?Q?QMELFF0RKoCGEJUHVEFms0UHM41WK3F57sn645Emmz+lmEwwcLWC0UXjCwyP?=
+ =?us-ascii?Q?ym8Xa/tMrMrNAUWNDWVllmYN3K3gIqakfdlJfVjjcYFvE/rusvLcWacKsir9?=
+ =?us-ascii?Q?tp7Bt91rV88/kiVbDc2pDWcMNwHvtDURbhAhIBaLx4BIgb/V3+IvfZerMBwD?=
+ =?us-ascii?Q?iWabfFA2Hsp02xIAAQN3HUtDZaUOdnW7rfK6Giv0Ty7HHBrTTx8LZgoJLhpD?=
+ =?us-ascii?Q?QHpV6mee2f/HxaY/P8VqoPEQELfM5vy47spdCC3QsKuw1igwuTQomheMRT/D?=
+ =?us-ascii?Q?mkXstX6huZn/7xu5WqP/IKYikszW7Z3/Bn+DNIhdzagLUtDKAKOjrJZocN5g?=
+ =?us-ascii?Q?Q3s3Vh7M4wrLI9hO3ahCdUnGy9Qen1EMtvOmDDXHlkrdt81tTQzQ20aBgLFT?=
+ =?us-ascii?Q?gRDt+Bqn+rTg8KU4g1E34ruehxJyePvEdHfIVDW/Io+QrDj57nUQp5M/2zGd?=
+ =?us-ascii?Q?Zx3a3EBOWCIqqBWHu4CZoTRAGAlS5p4WVrlKOXOl2JkjZFYrv33zJ06cbqUK?=
+ =?us-ascii?Q?F5l51qjgT2fBLl1+zmn7+6miN36KG0uqp4cWGtgAmcY/wov5TYZ7njB/pinp?=
+ =?us-ascii?Q?YOe63pRfPQWnYlJvEWgf/SwtgVeh9+twuzUplTa6d9vqGVCG7iqqoqLaTCKq?=
+ =?us-ascii?Q?yEpWVKSW6zWwqt/0dqosr+vyiMAxKPkl8BTEg8W7zaVjO2k2WLCio9odwK8n?=
+ =?us-ascii?Q?WCT3GQHXpzoU3w22c6z8EEHqSIObJY1s86hlMnKi6VLBPXueNHWpbRYtZLHD?=
+ =?us-ascii?Q?eWeISaCYEcbaGxVWQWPgtA1anIsLWvuNOkSH9wRS/IDg+vbw6X/0zUkJcQlG?=
+ =?us-ascii?Q?PVCn2cfY5uge1AjiICcqs/6yGU+RWWCiPP+MWdtMfTNQcLie2TuD31/WEXec?=
+ =?us-ascii?Q?BuMBI6kZtpmNUVt7HuY/A6JKfEKV/gclDdU6TN8z/Dek9RG4/0Ech4PAxzL1?=
+ =?us-ascii?Q?Ddqrtw4Yb0LhtKkk/bRA7ScOrj8ykPq861IPhZ+StufSL9ND0GkvniRS+EFc?=
+ =?us-ascii?Q?s4m2HNGxSUedOVPL1hjh/u3FZToNYC80ZQfsemNJDjRpsFaxyDjGVask0RyH?=
+ =?us-ascii?Q?swg0KLZURFOO52tiAqOjIx+J94UzK37qfFlmDBkUU9pX8vSqVaLiaDxr+MsH?=
+ =?us-ascii?Q?B1+rtt275Od4aRPV3hEs+iPpE176MUt7louhKySX+UAGDlJfAcdiH8I0tlO/?=
+ =?us-ascii?Q?OzlPOUcWEP87m6wlrFpSHjaSu3Dgt1cbS9NZEP1F?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7873355-3e2e-4613-2c4c-08ddb52849f5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 03:11:20.3642
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7MdJlSSGTDcZugBJDPuRtUuUZg0xkUFtJLAdfVwZbaNZhfyeGvBA+qFObG8hNwK/fhFH8av6JTa21Zj44ZSPFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7789
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_200247_486702_ACB80604 
-X-CRM114-Status: GOOD (  39.25  )
+X-CRM114-CacheID: sfid-20250626_201130_574367_A8F94BD3 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,164 +162,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-06-25 at 22:25 -0700, John Stultz wrote:
->=20
->=20
->=20
-> On Wed, Jun 25, 2025 at 8:08=E2=80=AFPM Kuyo Chang <kuyo.chang@mediatek.c=
-om>
-> wrote:
-> > [Symptom]
-> > The calculation formula for dl_server runtime is based on
-> > Frequency/capacity scale-invariance.
-> > This will cause excessive RT latency (expect absolute time).
->=20
-> I appreciate your symptom/analysis/solution markers, but they are a
-> little unconventional for commit messages, so you might consider
-> dropping them.
->=20
-> Further, you're explaining the cause of the problem before you
-> describe what you were seeing.
->=20
-> I might suggest rewording as:
-> "In our testing with 6.12 based kernel on a big.LITTLE system, we
-> were
-> seeing instances of RT tasks being blocked from running on the LITTLE
-> cpus for multiple seconds of time, apparently by the dl_server. This
-> far exceeds the default configured 50ms per second runtime."
->=20
-> Then you can get into the analysis where you can state as you had
-> above:
-> "This is due to the fair dl_server runtime calculation being scaled
-> for frequency & capacity of the cpu"
->=20
-> > [Analysis]
-> > Consider the following case under a Big.LITTLE architecture:
-> >=20
-> > Assume the runtime is: 50,000,000 ns, and Frequency/capacity
-> > scale-invariance defined as below:
-> >=20
-> > Frequency scale-invariance: 100
-> > Capacity scale-invariance: 50
-> > First by Frequency scale-invariance,
-> > the runtime is scaled to 50,000,000 * 100 >> 10 =3D 4,882,812
-> > Then by capacity scale-invariance,
-> > it is further scaled to 4,882,812 * 50 >> 10 =3D 238,418.
-> >=20
-> > So it will scaled to 238,418 ns.
->=20
-> This part is all good, but you might want to make it more clear why
-> the smaller scaled "runtime" value here results in longer delays for
-> RT tasks.
-> ie:
->=20
-> This smaller "accounted runtime" value is what ends up being
-> subtracted against the fair-server's runtime for the current period.
-> Thus after 50ms of real time, we've only accounted ~238us against the
-> fair servers runtime. This 209:1 ratio in this example means that on
-> the smaller cpu the fair server is allowed to continue running,
-> blocking RT tasks, for over 10 seconds before it exhausts its
-> supposed
-> 50ms of runtime.=C2=A0 And on other hardware configurations it can be eve=
-n
-> worse.
->=20
-> > [Solution]
-> > The runtime for dl_server should be fixed time
-> > asis RT bandwidth control.
-> > Fix the runtime calculation formula for the dl_server.
->=20
-> I think this can be stated more simply as:
-> "For the fair deadline_server, to prevent realtime tasks from being
-> unexpectedly delayed, we really do want to use fixed time, and not
-> scaled time for smaller capacity/frequency cpus. So remove the
-> scaling
-> from the fair server's accounting to fix this."
->=20
-> > Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
-> > Acked-by: Juri Lelli <juri.lelli@redhat.com>
-> > Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> > Suggested-by: John Stultz <jstultz@google.com>
-> > Tested-by: John Stultz <jstultz@google.com>
-> >=20
-> > v1:
-> > https://lore.kernel.org/all/20250614020524.631521-1-kuyo.chang@mediatek=
-.com/
-> > v2:
-> > https://lore.kernel.org/all/20250617155355.1479777-1-kuyo.chang@mediate=
-k.com/
->=20
-> Please add a "---" line above the version data so it doesn't get
-> added
-> to the commit history.
->=20
-> > Change-Id: Iaaa1ec78f405586c22ba56230ef1143206daa2d0
->=20
-> Also no Change-Ids in upstream targeted commits.
-> ./scripts/checkpatch.pl should warn you about this, and its a good
-> idea in general to run that before submitting.
->=20
-> > ---
-> > =C2=A0kernel/sched/deadline.c | 8 ++++++--
-> > =C2=A01 file changed, 6 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> > index ad45a8fea245..96a21f38fcc3 100644
-> > --- a/kernel/sched/deadline.c
-> > +++ b/kernel/sched/deadline.c
-> > @@ -1504,7 +1504,9 @@ static void update_curr_dl_se(struct rq *rq,
-> > struct sched_dl_entity *dl_se, s64
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (dl_entity_is_special(dl_=
-se))
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return;
-> >=20
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled_d=
-elta_exec(rq, dl_se,
-> > delta_exec);
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D delta_exec;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!dl_server(dl_se))
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled_delta_exec(rq, dl_se,
-> > delta_exec);
-> >=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dl_se->runtime -=3D scaled_d=
-elta_exec;
-> >=20
-> > @@ -1624,7 +1626,9 @@ void dl_server_update_idle_time(struct rq
-> > *rq, struct task_struct *p)
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (delta_exec < 0)
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return;
-> >=20
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled_d=
-elta_exec(rq, &rq-
-> > >fair_server, delta_exec);
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D delta_exec;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!rq->fair_server.dl_server)
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled_delta_exec(rq, &rq-
-> > >fair_server, delta_exec);
->=20
-> I still feel like these lines don't make much sense, and it seems
-> like
-> they could be dropped.=C2=A0 When is (!rq->fair_server.dl_server) true?
->=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rq->fair_server.runtime -=3D=
- scaled_delta_exec;
-> >=20
-> > --
->=20
-> Thanks so much again for finding this issue and resubmitting this
-> patch! I really do want to see this land quickly as it addresses a
-> pretty big issue.
+Add some USB3 PHY tuning properties to imx95-15x15-evk and
+imx95-19x19-evk boards to improve USB signal quality.
 
-Thanks for your reminder and suggestion.
-Update to v4 as below link :)
+Reviewed-by: Jun Li <jun.li@nxp.com>
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 6 +++++-
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 4 ++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
-https://lore.kernel.org/all/20250627022837.3331827-1-kuyo.chang@mediatek.co=
-m/
-
-> -john
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+index 6c47f4b47356..b26e9db7832a 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+@@ -1069,8 +1069,12 @@ usb3_data_hs: endpoint {
+ };
+ 
+ &usb3_phy {
+-	orientation-switch;
++	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
++	fsl,phy-pcs-tx-swing-full-percent = <100>;
+ 	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
++	fsl,phy-tx-vboost-level-microvolt = <1156>;
++	fsl,phy-tx-vref-tune-percent = <100>;
++	orientation-switch;
+ 	status = "okay";
+ 
+ 	port {
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+index 6886ea766655..e212f12f869a 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+@@ -514,7 +514,11 @@ usb3_data_hs: endpoint {
+ };
+ 
+ &usb3_phy {
++	fsl,phy-pcs-tx-deemph-3p5db-attenuation-db = <17>;
++	fsl,phy-pcs-tx-swing-full-percent = <100>;
+ 	fsl,phy-tx-preemp-amp-tune-microamp = <600>;
++	fsl,phy-tx-vboost-level-microvolt = <1156>;
++	fsl,phy-tx-vref-tune-percent = <100>;
+ 	orientation-switch;
+ 	status = "okay";
+ 
+-- 
+2.34.1
 
 
