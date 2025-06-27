@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048F6C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 21:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67BC7C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 21:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0E6X8b5VsTlM/SscuJh6fDUouVQtARK1c/gejls4lSw=; b=oX1KrrIrwp7ot+IWCIt/GqcN7X
-	1w+woPBV5Q/XUbworAAvKns6n7ulByyTrUAdsF0SWRVPsinP0so5FYI0PThnmcB4HZ4OhOCuMche5
-	SQ66aAcwVEs+hLjPmhDUj6HkMTW0ylakIKuatdyZ2r/qSlgsu+gOiwOHPUxcNuL4knbWbDQj9+8kY
-	Lg79Y3n5hHfKPMPCU6BRXJjWP+Cju0wg10gfkCtEbBJgJTu1Hs2reCh3jQjiTC+eLoUbnfVa7WSRS
-	yTEXMn9cpOVIkptIR8k02uAEHhcSnuLW4JTlk7RoZWelKq8zJC8sFAz/xZ8WsdBHxOwcbqmS2nxLL
-	rFFlD63Q==;
+	bh=sUQc63ZSqLYqu5x+OVH4DZV+PY3biEigmwd9eR3q1gE=; b=26KbF6A7TVjE1Zs5KiMWUpNIz2
+	vhb2PG1HDi//tWH3tCfyE/HJzwZNjfNYMaCcOorIno6EeqsS3GvOssnVgAOHycxWM0ACbfy3MNz5G
+	JkUxes3lLmacJFwNK04YLoIS2ziRvZJx6AmA5VJoTgcEYxDjpKWtxOjYE2bcK4FSh7cbhzNWqAigc
+	nTUg30Or4T9QwdtcnfZkDI+qZ5olYRRxYfgxGselAYS29z6VB22t3Hj+iH+5PHbUn81NamDjEpG2Z
+	NBIUksHTi6omlAN3wa5xjrdzvASdUbqkbzELXMjvmIVOSIPCQPpWkl1ddDHuqmozdmLoPGHtb6Y0w
+	6V5NWyIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGay-0000000FqrQ-3JMQ;
-	Fri, 27 Jun 2025 21:26:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uVGdF-0000000FqyJ-2VHu;
+	Fri, 27 Jun 2025 21:29:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGVn-0000000Fq1p-2Zin
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 21:21:32 +0000
+	id 1uVGWz-0000000FqCe-1rK8;
+	Fri, 27 Jun 2025 21:22:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96BABA5308B;
-	Fri, 27 Jun 2025 21:21:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19C38C4CEE3;
-	Fri, 27 Jun 2025 21:21:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88B5961435;
+	Fri, 27 Jun 2025 21:22:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24855C4CEE3;
+	Fri, 27 Jun 2025 21:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751059290;
-	bh=eJ4JeujYEqEr8p7iiInQq4CDjHaLLtwxoaNgL3PVvp0=;
+	s=k20201202; t=1751059364;
+	bh=f/Hjt44z5eQtUir5T1oW77jFYNUvVS0e+aUkWqb1azU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=psLuxavvIHRpyHijNtJpBPYSZpd4z1Or+RCc530bVYrLFxdjtwPN17Codm1L/WOcn
-	 e+rbD54Bx3bwH7Uh+ZPJ2P42eQx9eN8u+e4GBoJN0agDLkSgZs3SSCQWGRjJdeRkl7
-	 DLgm6dfoUUcVxoIbeNS2wiE3I01fvhgLu5WXALbMwY76Vku508KckvxCi51oX1YF6v
-	 +4txAazDN069CRN7dbiyIZaxcUAejbfraSXeqTe0A1Xp4JN/aO/pWdZyyVZNniFGrC
-	 tELVeQJuBp3Ls8JgnsVFQJYN/HWtPxsAqoWDZYr4KXsXnQ8l7N3O5WQtUusBMfgOa+
-	 WAKb7Cxk9EG9g==
-Date: Fri, 27 Jun 2025 16:21:29 -0500
+	b=JcBllNNALh/S23+GMaSDwmJr3LC2G/WQrNYvN2TZ9DuEQ3WU3uGjD1MP5+GwVvhP9
+	 Qi0IK9xq81jM1WJoA+xKJQGG2gPJZzz7gfanv99rv7smAQzg3os9J3y/Ccaf7w+eKq
+	 vnKJWTf/nxT9R5g6va1mhj+8WdoqItsn2lUTIPjmiOTZkai2H7/bCFu9cEx2ah2QQh
+	 NEj0p+B3E/i41U4JQ6ihAAuDQ7w9S3kXo0vApRZxq8s/8+4+PBPtf6LCN+sD1XjgQA
+	 DSMx0jCwiPzWFM6ZukJbNYR8xygxZwSZixb8+VbqGbLfhRzrd9MqYOUnBwTZc+knc7
+	 eb0Vii0FyvAmg==
+Date: Fri, 27 Jun 2025 16:22:43 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@csie.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
+To: Max Shevchenko <wctrl@proton.me>
+Cc: Russell King <linux@armlinux.org.uk>, linux-serial@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-watchdog@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jiri Slaby <jirislaby@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH 3/5] dt-bindings: net: sun8i-emac: Add A100 EMAC
- compatible
-Message-ID: <175105928901.164047.15283634095632177281.robh@kernel.org>
-References: <20250626080923.632789-1-paulk@sys-base.io>
- <20250626080923.632789-4-paulk@sys-base.io>
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sean Wang <sean.wang@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v2 02/11] dt-bindings: interrupt-controller:
+ mediatek,mt6577-sysirq: add MT6572
+Message-ID: <175105936297.165672.12493055283897899399.robh@kernel.org>
+References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
+ <20250626-mt6572-v2-2-f7f842196986@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250626080923.632789-4-paulk@sys-base.io>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_142131_719968_C888C9D7 
-X-CRM114-Status: GOOD (  11.40  )
+In-Reply-To: <20250626-mt6572-v2-2-f7f842196986@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,14 +83,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 26 Jun 2025 10:09:21 +0200, Paul Kocialkowski wrote:
-> The Allwinner A100/A133 has an Ethernet MAC (EMAC) controller that is
-> compatible with the A64 one. It features the same syscon registers for
-> control of the top-level integration of the unit.
+On Thu, 26 Jun 2025 11:53:55 +0300, Max Shevchenko wrote:
+> Add a compatible string for sysirq on the MT6572 SoC.
 > 
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Max Shevchenko <wctrl@proton.me>
 > ---
->  .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml       | 1 +
+>  .../devicetree/bindings/interrupt-controller/mediatek,mt6577-sysirq.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 > 
 
