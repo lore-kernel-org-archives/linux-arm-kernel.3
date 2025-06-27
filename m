@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FF5C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE50C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AD3QbfEP8ddYRWBgYY8r4PrV7sypvygJP1xSmjVZCwk=; b=j4wUMQI1OhCzBcE0Q/ifpZ0gKR
-	A01k/1Dh+MF3r1y8Ztx5URd+0mgah/3WCrqun2WOPH5PYFHkGoVJUuW/M4exov4TJNluSVYRahx4P
-	sqNM+mJF5X9iTFSjHBDQxtJ1TlX5cqwxy0LMKmJHQLymECG0uYtCkZvnjrVyMgpdoSywpjd+HGMpv
-	umkF4qikxTZi260zVlbADOzEXs8YXoGWvnzVbXGcmT5oafOmfwUA36n9CXDiGAzkqWzEOuoqi0/au
-	lxopHjHu+uuT7sr1+joxnzyvm+nWQGZzSny+JJHwkDfPszzGhwiNnIPTGUbkHzoYiuDvkdgO5Wjcj
-	vpR8Vj/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vu6rdjzGYFWzv/HJ3WLJXjU9sii8p6hgsGJ6sN7yeZ8=; b=Hu1jhZwK9SagKXjgUDaHjfrg9c
+	6xJ2FTNG9ADJ/RV9v86vHKss0E7Ag1X0uEyhEcqRi/ek8dguNBule9F4zxG6KOutswZ7H7E8H+qFI
+	KxuDo9zYbLuuLPcgARidAc+68nTmmF5JPf3pEjSTwv4Fx3/Vk7aqUt8iWaHfYiK10dwA+aTjRle/9
+	F0J/b0ve3Ifq4NyTUGbQ0Ir2HUGQOw2xj4zVmsTu9siOP56KMvxiGxmqcp3K8uvCsxgIaGOcrUoqv
+	O4M6fNyDggqyGTg0limpXuQp2nL4eHBTcMZZnGdinkKHU5UFkOzjOmVIjG/csR5svB3lv90PFdECW
+	RHxskD2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV76A-0000000ESFn-2wDC;
-	Fri, 27 Jun 2025 11:18:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uV78S-0000000ESa4-25s4;
+	Fri, 27 Jun 2025 11:20:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6iu-0000000EMzY-1369
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Jun 2025 10:54:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=AD3QbfEP8ddYRWBgYY8r4PrV7sypvygJP1xSmjVZCwk=; b=R7N8LF1X7gK+sgWdVi2HwjJmyf
-	2P9FvwcTs88zYqhuajEdghkNtCZGAMeQ9cobm7OMUnxuztKWBhMJy6J4ZxlUPDRJUX3eGE7TIz+bU
-	VlZfIPg343wpgLRPStkNtjW8rmkbr9obnemb5da7bZyMRCxtDuJXKSncJP0274xa/5kPLT5jcXNuI
-	l9UCYrUdcXRd0MmmFgMwWhAZm+OcrZNJiW0g0WZqOucRhilQd7axS9LAdMQxNiSltDWMtC+ZPhJGo
-	eG/CSVglpFBSrFw3yNQT6z8fnyymfMqmSF8u8yVG5Q3LrdC7V8TINJdMv5u6zOmn9+zhLeK8RXpnt
-	R1h2JV/A==;
-Received: from smtp-190f.mail.infomaniak.ch ([185.125.25.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6iq-00000006J8S-1hm0
+	id 1uV6k7-0000000ENEy-0yI6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 10:54:23 +0000
-Received: from smtp-4-0001.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6c])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bTC9Q2slpzVtZ;
-	Fri, 27 Jun 2025 12:54:18 +0200 (CEST)
-Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4bTC9P25PgzxLs;
-	Fri, 27 Jun 2025 12:54:17 +0200 (CEST)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 27 Jun 2025 12:53:57 +0200
-Subject: [PATCH v4 5/5] arm64: dts: rockchip: force PMIC reset behavior to
- restart PMU on RK3588 Tiger
+	Fri, 27 Jun 2025 10:55:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A70A261120;
+	Fri, 27 Jun 2025 10:55:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB677C4CEE3;
+	Fri, 27 Jun 2025 10:55:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751021738;
+	bh=w8uGM8V3BeOaxaupPf60FQSG2Cnb6F/+ZSO18HXNtkc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fj360n+blrE4iYL1vzNpEIzzok3rcXkLm2AN1scyQgysvlldpZEhZHz9kA9cud+rM
+	 AYJulATI+pF8PxE1Xce9WqZiS6v2SnyOrJ60B25q3bSU0iBQg5jfDiVQnRm1QdXZmM
+	 X7ibljFytuz/nrxp9j9HodGkOSUks8ovvY1kKYQ7jwBwugNuuzec9nGQkvgqeShwfz
+	 qQ0NcGnoeycpOX6wjlauz/8FFfxHk42dRhSua98b8+t4idIktSr9Wge6Twg8NQ0jjX
+	 ZpFOxChEOHm29VEUyu0GsfpupQtBL70UERgF8DxIyDCGPDWRPjeDdIt9F46tHoHqsD
+	 xxprjRGnLyAog==
+Date: Fri, 27 Jun 2025 11:55:34 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] selftests/arm64: Prevent build warnings from
+ -Wmaybe-uninitialized
+Message-ID: <aF54phWq1IGlaphz@finisterre.sirena.org.uk>
+References: <20250625020138.3777454-1-anshuman.khandual@arm.com>
+ <dd3dee5a-b030-4658-8cef-c777928368d4@sirena.org.uk>
+ <af5cbd48-6312-481d-8e91-7739612493c1@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-rk8xx-rst-fun-v4-5-ce05d041b45f@cherry.de>
-References: <20250627-rk8xx-rst-fun-v4-0-ce05d041b45f@cherry.de>
-In-Reply-To: <20250627-rk8xx-rst-fun-v4-0-ce05d041b45f@cherry.de>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
- Daniel Semkowicz <dse@thaumatec.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_115420_556417_C148AC27 
-X-CRM114-Status: GOOD (  10.49  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0uBnPjIGKotRgbPj"
+Content-Disposition: inline
+In-Reply-To: <af5cbd48-6312-481d-8e91-7739612493c1@arm.com>
+X-Cookie: Do not cut switchbacks.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,47 +75,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The bootloader for RK3588 Tiger currently forces the PMIC reset behavior
-(stored in RST_FUN bitfield in register SYS_CFG3 of the PMIC) to 0b1X
-which is incorrect for our devices.
+--0uBnPjIGKotRgbPj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-It is required to restart the PMU as otherwise the companion
-microcontroller cannot detect the PMIC (and by extension the full
-product and main SoC) being rebooted which is an issue as that is used
-to reset a few things like the PWM beeper and watchdogs.
+On Fri, Jun 27, 2025 at 04:15:09PM +0530, Anshuman Khandual wrote:
+> On 25/06/25 3:54 PM, Mark Brown wrote:
 
-Let's add the new rockchip,reset-mode property to make sure the PMIC
-reset behavior is the expected one.
+> >> -	int status;
+> >> +	int status =3D 0;
 
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+> > This will shut the warnings up, but it's a bit of a heavy hammer that
+> > means that the warning can never trigger warnings for that variable
+> > being unused.  Is it possible to fix this by updating the control flow
+> > such that the compiler can tell that the initialisation follows the use?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-index c4933a08dd1e3c92f3e0747135faf97c5eeca906..b44e89e1bb1599ee70b921598c2eb6fd54614f55 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-@@ -6,6 +6,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
-+#include "rk8xx.h"
- #include "rk3588.dtsi"
- 
- / {
-@@ -440,6 +441,7 @@ pmic@0 {
- 		vcc13-supply = <&vcc_1v1_nldo_s3>;
- 		vcc14-supply = <&vcc_1v1_nldo_s3>;
- 		vcca-supply = <&vcc5v0_sys>;
-+		rockchip,reset-mode = <RK806_RESTART>;
- 
- 		rk806_dvs1_null: dvs1-null-pins {
- 			pins = "gpio_pwrctrl1";
+> The problem might not exist in reality. In the test function test_fork()
+> in the file tools/testing/selftests/arm64/gcs/basic-gcs.c there does not
+> seem to be a path where WIFEXITED(status) might get called when 'status'
+> has not been initialized as there is a preceding waitpid() which would
+> ensure 'status' gets set. Similar scenarios are present in fork_test_c()
+> and write_fork_read() as well.=20
 
--- 
-2.50.0
+Yes, it's a fairly common false positive pattern (in this case it'll be
+that the compiler can't understand the constraints with pulling things
+out of the exit status).
 
+> But the compiler still throws these build warnings. Seems to be false
+> positives and this fix just works around that.
+
+Right, the problem is that it works around it with a big hammer that
+just shuts the warning up completely meaning that if we do cause issues
+in the future then the compiler won't be able to tell us about them.  It
+would be better to suppess it by changing the control flow such that the
+compiler can follow it.
+
+--0uBnPjIGKotRgbPj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmheeKAACgkQJNaLcl1U
+h9BoAAf/cLJ4iO8ZRetLgVRyylvU3LbHGcwMSRactvuK8r9ThRrcNDQIDZWvFoVe
++QensBvEaIO8IrQCbE0FpKQrE199O7hwkT3Lv56V2uMNlXCm8B+Usm+iPLdn8nRO
+8GgVuezQqAJxkjfUA1LBcmblqVikDLtnIGT863TEqd4Wexnliei+Xd/jL5WJJis6
+s1qr7wo83A2RIuMPNPzdEJMiwhkSNRQbenLCXeXiNt754TyQBTnw8BhGf4Uyy6E0
+0sNtuHLmxtxiFqSXJQPDotg04tyrJinM6GlHDjHmRlyDopBKRSaQTZwQHclas/oK
+0klJ3MGVJSlx89Bj/Wyfucqhm6ZEsQ==
+=/LTI
+-----END PGP SIGNATURE-----
+
+--0uBnPjIGKotRgbPj--
 
