@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D8EC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 10:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2216C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 11:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5Pf8BL2tCnVPb3xDACb1a2370hbZXXKOHcE0CfoCrM=; b=wxNQ+DxyeraVR3zlzhSEiagX2V
-	upl7x7xhu8WqANNvzcRLQHcr4aiLWcoJtRoyipje+Anz7Nl/b5yl5DPq0glYU/J1jwEveLAw/y7LL
-	obJcQjziI9XQ87tHYxkgkV2XFFvLkfUcb7V1i7kXs5+kOmtFPB4q5aGyMhR1izXNvxSsZtnEE0Ydz
-	l+XuEX7gLCudotSZLVL1CkmI6h+iX5qS0R6/oz3e2799gP5TbaBGpycxemGNasH89jlewwr2Pt/EC
-	pT+QYpDH9agPYMg2hd7SwyAK1UTpInc5d+4ZZHrVzpyhZ1l1w9w0R+vmjqD6fIeBrioMlxywWbUBH
-	8jHxRnCA==;
+	bh=Wbdv/shzAwCBmXAlWsariaXJLsd3y1GE42bnEwCWFfY=; b=LWGRBt+tj+U798U53HdduAp6oz
+	KE+JmPTNGhlXhXPKwNopXmDp6DMMd+EtkS7jY2hjMG6S0hOeGayQjUmjENR+6h7C7wccV1foYiJpq
+	opV6ZAsqi8NBbZrRIHoMVyNw95+NoVcF9Vrm7M0EQQT5zjLCtPD2vjjc6V5f/vAziBjRuwhbEDOOz
+	wOYvbM8xY84Ixw64vom8+dDNGEnTAcAEO745KbLu4hv0xA/808nN30GdajnBmzx9VqWDmwOQKujZx
+	s87M6FqzV2G2ar0q38w3CzqbgsPdMuDshyybidcOgLzT1VusFlB9kXpWxapDtNwjfRNYCD9Ex0ul1
+	wga2GXMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6nq-0000000ENmT-0Z0q;
-	Fri, 27 Jun 2025 10:59:30 +0000
+	id 1uV6q8-0000000EOJx-3YBe;
+	Fri, 27 Jun 2025 11:01:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6aA-0000000EKgH-3yu1
+	id 1uV6eM-0000000ELn0-08wJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Jun 2025 10:45:22 +0000
+	Fri, 27 Jun 2025 10:49:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=y5Pf8BL2tCnVPb3xDACb1a2370hbZXXKOHcE0CfoCrM=; b=G5iW8y2p6kLPyNtBI8Pe9C2yvP
-	X5AmXmUS9kcNN3UYVnfLtutdCa431sZMNuxEcM+qT8J1kIFdoekrbefhsF/Znd1FIj42o71K5KzON
-	gBUfG4VE5BGiA/+ZzrdqTWmojaoU5YeXeuvZr1Tms3YyPK43l49AuSWPBr47aii2zkM4Q/VU/0KTI
-	H+U3DxxQyH7MUtdsDZfd+WpluS+UwsZF5NmxdS/qVcMdgc04PsBPh1aO/239kfNjiQwA8WaaSnvWq
-	wIQ+mC1/nayawEv2Ri87jP6ThB50IZqUki40W2AnW+U8fwi80wuwu35NBjCUE259syanqsoAPMbTx
-	05yXSr0A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6a7-00000006IST-3gUq
+	bh=Wbdv/shzAwCBmXAlWsariaXJLsd3y1GE42bnEwCWFfY=; b=gRyz9p+bGmCsZq68zMnKcppVfm
+	G6JNGtKIfTgQ3SzJ9/50VU0FxLRVJqmr7KloPNMxO6XdJijHk9H4NOLA/YP/bpz2PR501oP3m1/cB
+	1DaTK524qLpvBFNo5zzIkCC6DYqqfQ7qD8006Zbb9quC1JlKvihSF2wGuz4plJApSGjeewz3WBo4N
+	SszDamVOPvQ2BmCwP4vN93QyIgowLLnVnSBoLKko2zd8WHioMhxT4nSS2AwP+kvdlgZUND3B9b3xz
+	WCfCxIaeW6pJRs03/kN+P5omunMF+UkC9NABfL7JichdvfokpoOgNfKn4Rhdt8HWotvPKB+0yiyW1
+	b2TVbfEg==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV6eI-00000006IjP-4AKS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 10:45:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D31A1A00;
-	Fri, 27 Jun 2025 03:45:00 -0700 (PDT)
-Received: from [10.163.36.129] (unknown [10.163.36.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A64A3F58B;
-	Fri, 27 Jun 2025 03:45:14 -0700 (PDT)
-Message-ID: <af5cbd48-6312-481d-8e91-7739612493c1@arm.com>
-Date: Fri, 27 Jun 2025 16:15:09 +0530
+	Fri, 27 Jun 2025 10:49:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 309C3A52D48;
+	Fri, 27 Jun 2025 10:49:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E951C4CEE3;
+	Fri, 27 Jun 2025 10:49:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751021375;
+	bh=OrBU5eBwBcoKQHllVdPOQ7ABzGCI1+juFwHu/MwINgI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=jjT5UI7V0MN8cv7Kxou/19uR4bMLbukpmBDE6+Hvnj7C6DXS6KP8eb87VWD61mA/Y
+	 uF5D5Ct5K/Z/Mrf7cosGn/ZaRH55vKh9pgV0l27CFC1BjAimugSNJsYHaP6HKn38mj
+	 HcNcKd0L98nVNcQZyc43Vbx/6LTEUKSGNFfmkWyI3vay2c7yWc3aLakfmJD35TcU2H
+	 g5ZxBVSZ6JvEKZyRuGYVVLMhPvjBDALsYaTGrxu0d478gSF10PT/3nwtqyQQTzEOYl
+	 ieUPrTo4t1AujfFjdwRMS/egGfRxIozKJ30XKuvFCpr4zie36/nJDbhthJ8GcD5eN7
+	 3RnEyk3A+6UBA==
+From: Srinivas Kandagatla <srini@kernel.org>
+To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Joerg Roedel <joro@8bytes.org>, 
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
+ =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Sven Peter <sven@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, iommu@lists.linux.dev, 
+ linux-input@vger.kernel.org, dmaengine@vger.kernel.org, 
+ linux-sound@vger.kernel.org
+In-Reply-To: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+Subject: Re: (subset) [PATCH 00/11] Drop default ARCH_APPLE from Kconfig
+ and use defconfig instead
+Message-Id: <175102136780.6245.11489454367138517610.b4-ty@kernel.org>
+Date: Fri, 27 Jun 2025 11:49:27 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/arm64: Prevent build warnings from
- -Wmaybe-uninitialized
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250625020138.3777454-1-anshuman.khandual@arm.com>
- <dd3dee5a-b030-4658-8cef-c777928368d4@sirena.org.uk>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <dd3dee5a-b030-4658-8cef-c777928368d4@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_114520_283567_291567B2 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20250627_114939_344097_E7FB3A37 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +103,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 25/06/25 3:54 PM, Mark Brown wrote:
-> On Wed, Jun 25, 2025 at 03:01:38AM +0100, Anshuman Khandual wrote:
+On Thu, 12 Jun 2025 21:11:24 +0000, Sven Peter wrote:
+> When support for Apple Silicon was originally upstreamed we somehow
+> started using `default ARCH_APPLE` for most drivers. arm64 defconfig
+> also contains ARCH_APPLE=y such that this will turn into `default y`
+> there by default which is neither what we want nor how this is usually
+> done.
+> Let's fix all that by dropping the default everywhere and adding the
+> drivers to defconfig as modules instead of built-ins.
+> None of these patches depend on each other so we can just take them all
+> independently through the respective subsystem trees.
 > 
->> @@ -96,7 +96,7 @@ static int write_sleep_read(void)
->>  static int write_fork_read(void)
->>  {
->>  	pid_t newpid, waiting, oldpid;
->> -	int status;
->> +	int status = 0;
->>  
->>  	set_tpidr2(getpid());
->>  
-> 
-> This will shut the warnings up, but it's a bit of a heavy hammer that
-> means that the warning can never trigger warnings for that variable
-> being unused.  Is it possible to fix this by updating the control flow
-> such that the compiler can tell that the initialisation follows the use?
+> [...]
 
-The problem might not exist in reality. In the test function test_fork()
-in the file tools/testing/selftests/arm64/gcs/basic-gcs.c there does not
-seem to be a path where WIFEXITED(status) might get called when 'status'
-has not been initialized as there is a preceding waitpid() which would
-ensure 'status' gets set. Similar scenarios are present in fork_test_c()
-and write_fork_read() as well. 
+Applied, thanks!
 
-But the compiler still throws these build warnings. Seems to be false
-positives and this fix just works around that.
+[04/11] nvmem: apple: drop default ARCH_APPLE in Kconfig
+        commit: e426953c193a2b51c8adcd3922fb8eef15790219
+
+Best regards,
+-- 
+Srinivas Kandagatla <srini@kernel.org>
 
 
