@@ -4,51 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A521AC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1DAC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VQKYiWNdkrgcmJMuTCKwVjGXjLkDJ1/KdA4fUCCIL4o=; b=cpgMhkqpdkXKzqyISZ7vO+QihY
-	2BaJvuq+1xyn9/6X0HCcJXk/VMH1HkA7LDy/ntT3JDU1Geyy+pK7ddePCk56Ijsa/j54udpQP2eMV
-	6QmQ8tLawiW9NqUqsWo6cgPs0IMpSvTjsEh97it3kFIZwStZ98f/JSHw/qbzy+MdMKgowtOagan97
-	eXUQC4mhgdhuIr7/lRkvfPysarQBJ6oZJVRP8ZnwHaIAWvCuPjUPB7sjfz0onJNdGvLse3+FfIwcD
-	iO3D2KUaVxVVACUox6Deq3wygGvTHoTO4gS6UbtxOQhrnEWkKVUrQyKS29Hu0xvSHSBU6KfaFDsGx
-	58PwFQ9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GHlIoht654BHYI7ITwfSJSOjwMuDe0gRbI84Q1/Mu4s=; b=11428QV94yxCN+/3gm60u2w253
+	Zy+xzK9sPWdKDj7ZJdvxcTdxaGWl3uCcKNsJql/MztgPf0fvqe8kuqodknuM6Lj3fII4C0pH4/Bgx
+	d5NeAfNsRhESe46GkQu3EcpEXSECK9K/0j9P7cxCFKHJ192rvOEjwMpSgUnQCG/n71hZO21PdnNw/
+	PQ6hnjUBPQ3PxTkUiM+nxUyuDiH+ppKbmfakcwk/39pVtTzWquC6PG7Lsts1JEF2/92ZyxAODo77e
+	07C/HEtp3ShwMWbu7vFPHRxr1iZKmMq/6Yl5q8X1FSY7lY03bG8QZEDDmcyWsRtJk+U6TUZ+pg+o2
+	+dG6DUjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV92v-0000000ElKX-0Dsa;
-	Fri, 27 Jun 2025 13:23:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8Nb-0000000EfL6-2eij
+	id 1uV95C-0000000Elji-3JfU;
+	Fri, 27 Jun 2025 13:25:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV8T8-0000000EgEn-2SeI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:40:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2BE6A523A0;
-	Fri, 27 Jun 2025 12:40:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AD3AC4CEED;
-	Fri, 27 Jun 2025 12:40:29 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 4/4] Renesas DTS updates for v6.17
-Date: Fri, 27 Jun 2025 14:40:19 +0200
-Message-ID: <cover.1751026664.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1751026657.git.geert+renesas@glider.be>
-References: <cover.1751026657.git.geert+renesas@glider.be>
+	Fri, 27 Jun 2025 12:46:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80BC71A00;
+	Fri, 27 Jun 2025 05:45:56 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBE523F58B;
+	Fri, 27 Jun 2025 05:46:11 -0700 (PDT)
+Date: Fri, 27 Jun 2025 13:46:03 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/7] firmware: arm_scmi: imx: Add documentation for
+ MISC_BOARD_INFO
+Message-ID: <aF6Si846xCR5_z-z@pluto>
+References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
+ <20250627-sm-misc-api-v1-v1-1-2b99481fe825@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250627-sm-misc-api-v1-v1-1-2b99481fe825@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_054031_810175_4CFB07E0 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250627_054614_660485_ECB207AE 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,101 +70,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+On Fri, Jun 27, 2025 at 02:03:44PM +0800, Peng Fan wrote:
+> System Manager Firmware supports getting board information, add
+> documentation for this API
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/firmware/arm_scmi/vendors/imx/imx95.rst | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> index 4e246a78a042a79eb81be35632079c7626bbbe57..ac82da0d1e5ce5fa65a5771286aaebb748c8a4e6 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> @@ -1670,6 +1670,26 @@ protocol_id: 0x84
+>  |uint32 syslog[N]    |Log data array, N is defined in bits[11:0] of numLogflags|
+>  +--------------------+---------------------------------------------------------+
+>  
+> +MISC_BOARD_INFO
+> +~~~~~~~~~~~~~~~
+> +
+> +message_id: 0xE
+> +protocol_id: 0x84
+> +
+> ++--------------------+---------------------------------------------------------+
+> +|Return values                                                                 |
+> ++--------------------+---------------------------------------------------------+
+> +|Name                |Description                                              |
+> ++--------------------+---------------------------------------------------------+
+> +|int32 status        |SUCCESS: config name return                              |
+> +|                    |NOT_SUPPORTED: name not available                        |
+> ++--------------------+---------------------------------------------------------+
+> +|uint32 attributes   |Board specific attributes                                |
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+..what's in here ?
 
-are available in the Git repository at:
+> ++--------------------+---------------------------------------------------------+
+> +|uint8 boardname[16] |Board name. Null terminated ASCII string of up           |
+> +|                    |to 16 bytes in length                                    |
+> ++--------------------+---------------------------------------------------------+
+> +
+>  NEGOTIATE_PROTOCOL_VERSION
+>  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+>
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.17-tag1
+..other than this, LGTM.
+  
+Reviewed;by: Cristian Marussi <cristian.marussi@arm.com>
 
-for you to fetch changes up to 41ffbb1c42d30a173cc43e931bbaf7bf29e92d1f:
-
-  arm64: dts: renesas: r9a09g047: Add GBETH nodes (2025-06-26 16:37:21 +0200)
-
-----------------------------------------------------------------
-Renesas DTS updates for v6.17
-
-  - Add SPI FLASH, camera, and Ethernet support on the RZ/G3E SoC and/or
-    the RZ/G3E SoM and SMARC Carrier-II EVK development board,
-  - Add Ethernet, USB2, and PMIC support on the RZ/V2H and RZ/V2N SoCs
-    and EVK boards,
-  - Add timer, I2C, watchdog, and GPU support on the RZ/V2N SoC and the
-    RZ/V2N EVK board,
-  - Add debug LED support for the RZN1D-DB development board,
-  - Improve PCIe clock description on the Retronix Sparrow Hawk board,
-  - Miscellaneous fixes and improvements.
-
-----------------------------------------------------------------
-Biju Das (2):
-      arm64: dts: renesas: r9a09g047: Add XSPI node
-      arm64: dts: renesas: rzg3e-smarc-som: Enable serial NOR FLASH
-
-Geert Uytterhoeven (2):
-      arm64: dts: renesas: ebisu: Add CAN0 support
-      Merge branch 'pwrctrl' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci into renesas-dts-for-v6.17
-
-John Madieu (1):
-      arm64: dts: renesas: r9a09g047: Add GBETH nodes
-
-Lad Prabhakar (19):
-      arm64: dts: renesas: r9a09g057: Add GBETH nodes
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Enable GBETH
-      arm64: dts: renesas: r9a09g056: Add GBETH nodes
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable GBETH
-      arm64: dts: renesas: r9a09g056: Add OSTM0-OSTM7 nodes
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable OSTM timers on RZ/V2N EVK
-      arm64: dts: renesas: r9a09g056: Add RIIC controllers
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable RIIC controllers
-      arm64: dts: renesas: r9a09g056: Add WDT0-WDT3 nodes
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable WDT1
-      arm64: dts: renesas: r9a09g056: Add Mali-G31 GPU node
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable Mali-G31 GPU
-      arm64: dts: renesas: r9a09g057: Add USB2.0 support
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Enable USB2.0 support
-      arm64: dts: renesas: r9a09g056: Add USB2.0 support
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable USB2.0 support
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Add RAA215300 PMIC
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Add RAA215300 PMIC
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Rename fixed regulator node names
-
-Marek Vasut (5):
-      PCI/pwrctrl: Add optional slot clock for PCI slots
-      arm64: dts: renesas: r8a779g3-sparrow-hawk: Sort DTS
-      arm64: dts: renesas: r8a779g0: Describe PCIe root ports
-      arm64: dts: renesas: sparrow-hawk: Describe split PCIe clock
-      arm64: dts: renesas: rcar-gen3: Add bootph-all to sysinfo EEPROMs
-
-Tommaso Merciai (4):
-      arm64: dts: renesas: r9a09g047: Add CRU, CSI2 nodes
-      arm64: dts: renesas: r9a09g047e57-smarc: Add I2C0 pincontrol
-      arm64: dts: renesas: renesas-smarc2: Enable I2C0 node
-      arm64: dts: renesas: r9a09g047e57-smarc: Enable CRU, CSI support
-
-Wolfram Sang (2):
-      ARM: dts: renesas: r9a06g032-rzn1d400-db: Describe debug LEDs
-      ARM: dts: renesas: r9a06g032: Add second clock input to RTC
-
- .../arm/boot/dts/renesas/r9a06g032-rzn1d400-db.dts |  64 +++
- arch/arm/boot/dts/renesas/r9a06g032.dtsi           |   4 +-
- arch/arm64/boot/dts/renesas/Makefile               |   3 +
- arch/arm64/boot/dts/renesas/condor-common.dtsi     |   2 +
- arch/arm64/boot/dts/renesas/draak.dtsi             |   2 +
- arch/arm64/boot/dts/renesas/ebisu.dtsi             |  16 +
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi          |  20 +
- .../boot/dts/renesas/r8a779g3-sparrow-hawk.dts     |  57 +-
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi         | 299 ++++++++++
- .../renesas/r9a09g047e57-smarc-cru-csi-ov5645.dtso |  21 +
- arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts |  10 +
- arch/arm64/boot/dts/renesas/r9a09g056.dtsi         | 635 +++++++++++++++++++++
- .../boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts    | 262 +++++++++
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         | 322 +++++++++++
- .../boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts    | 150 ++++-
- arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi    |   6 +
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi   |  46 ++
- arch/arm64/boot/dts/renesas/salvator-common.dtsi   |   2 +
- arch/arm64/boot/dts/renesas/ulcb.dtsi              |   2 +
- drivers/pci/pwrctrl/slot.c                         |   8 +
- 20 files changed, 1912 insertions(+), 19 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/r9a09g047e57-smarc-cru-csi-ov5645.dtso
+Thanks,
+Cristian
 
