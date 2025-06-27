@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FA7C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F346C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NL8ZRffWu2aZLP4WJ8zTsOXgV6iJyI/q+WwmzBO4Dls=; b=w+L3n0opvp8pZZKt2UlswPJxe+
-	3biP2iYwAJeIVx//yCYOggrQYZRJ0nGwsM8pmllYkaJFLdZhWgrw7+BJVr8XlPWtyUT8l4znAfKdX
-	dLO1f2krepxXIOdqlaRvwxU9Nd23cAyJ9N6YXDNS+6Fjno4V8mk0HtOE5RvzrEtCKBDZgbpnIkMl3
-	zS4M+QF5CZyp7fWXWRILrGj92YEKVm1Jz5EcX3Ep8EykBUiMX3VsRmme/J5JJb5IaI/dRSBLd+QBc
-	bdzpmVTfNCV3SXimpa7/ubR5s1qtE+kSSyzZKYuPJb+2Kt7c5ZWCd4XLrvw/NKVPUrqMXUZjAnhZ8
-	FUJppxxA==;
+	bh=pJLsP3FGX+/FtggvbC9ctuA5MpseUu51ppjPRhxm1ME=; b=rKsXQ5c88Jf2X3tsbpDJR+ievZ
+	4XPU/DIEk/LtIywS1rJ9neQX8yO31JviJqResKBn7UX5GK7AVxcr1nD+GicGRPmiolWuNfoUsKKTW
+	FZ8Ic5d7ZcLuI7PL9jeHWLY8uxsW9bI244+sK5PXiJDSRc/3R+50vBHJhysCf2rOk/Fu4gXG1mnhF
+	LYAwoWskSnJcpAeKL2ts9NLWEPwI7kecOA7qw8sP3ukirgOsdP3/aHwUt3lVTXi1ZYdZId4gyEiWr
+	WfkOnt9nG/bIPmNnqkFaJJw7xFvb1WFEU4+m4nDkjxAg0vC7qxex8NY2w8v9464BvQFs/KL65JJwT
+	+7k09XpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCgw-0000000FNe0-3Zqa;
-	Fri, 27 Jun 2025 17:16:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uVCjF-0000000FOC8-0uHM;
+	Fri, 27 Jun 2025 17:19:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBMw-0000000FAqu-3UbV
+	id 1uVBTL-0000000FCAy-3PqC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:52:02 +0000
+	Fri, 27 Jun 2025 15:58:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 097A561434;
-	Fri, 27 Jun 2025 15:52:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B088C4CEED;
-	Fri, 27 Jun 2025 15:52:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E02636111F;
+	Fri, 27 Jun 2025 15:58:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D7B3C4CEE3;
+	Fri, 27 Jun 2025 15:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751039521;
-	bh=f0UYA/EuZoGSHsVhZD3Fus+HSK9WipcpF5RxkV+BP5o=;
+	s=k20201202; t=1751039918;
+	bh=tBv0zN4w3fBWkY/nFOn0k+IhVxh6OQEYPfuuw9vKCvk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pyPdnJ7Q7HuuIiKgrWaMDcrBwxGTZiscgxJc6vl+XrICm0G79l/w04xJOgIgSsiT4
-	 nyJKeqIT4LG/SdOrP9BThyVFe+sK/VvM3jidhmIf4FL5wNqqTU5vXGLNIqJcAXv1fB
-	 qKTpyLWg6gUYFK9zYNPKm3MeePbH4VzwGEN7jkKanOyl7pqQcVspMU/YR0KWDgEe+y
-	 Zv5XPVN4hnsL9/6Codf3WfenmJLS/Wop+OvwNF2usYFuIMsbN5lfU8nIT0Fa6ZEQ9G
-	 1eaaz5yVdyekzbuVGyJ58FdAsHP1VfbszTS+QL47CPNvx+4zmaedL/KBAtCkPkCxRv
-	 NsSgI1XvWhPIA==
-Date: Fri, 27 Jun 2025 10:52:00 -0500
+	b=b4tJ94JZTjGfbHmZDMM8bIuOky0BWZylZfr+Z7v8HXEL7evqfsEWw1BgYoEYnFfpX
+	 SdKj4hkTwOEnNMp6O4y/hMVwX+Tk/9SY3kG6RNby6zDETioc5MDSawDH9+LcaRgrsG
+	 Pz3RCeX3aRYkjYStdMtyjYME4zWrNpS+iykXmBun6VP+XXrF6ivxSzv5WeRN87gV/M
+	 HLSMkb13vj/LZuOP9gKQN4koUKfveUcJGZoe0jAWfkjC9sE+Y1rfFm+XLyHfVaaSV5
+	 SQAYvDPy3PQkLshJCnEyhDpwGRkyX80rd1xx5d7Iwju+Cm+YcCtjz9Kx4UzxQ1xIYx
+	 RCWGTryFzxJ0Q==
+Date: Fri, 27 Jun 2025 10:58:37 -0500
 From: Rob Herring <robh@kernel.org>
 To: Herve Codina <herve.codina@bootlin.com>
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -84,15 +84,13 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v3 05/28] bus: simple-pm-bus: Populate child nodes at
- probe
-Message-ID: <20250627155200.GB3234475-robh@kernel.org>
+Subject: Re: [PATCH v3 00/28] lan966x pci device: Add support for SFPs
+Message-ID: <20250627155837.GC3234475-robh@kernel.org>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
- <20250613134817.681832-6-herve.codina@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250613134817.681832-6-herve.codina@bootlin.com>
+In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +105,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 03:47:45PM +0200, Herve Codina wrote:
-> The simple-pm-bus driver handles several simple busses. When it is used
-> with busses other than a compatible "simple-pm-bus", it doesn't populate
-> its child devices during its probe.
+On Fri, Jun 13, 2025 at 03:47:40PM +0200, Herve Codina wrote:
+> Hi,
 > 
-> This confuses fw_devlink and results in wrong or missing devlinks.
+> This series add support for SFPs ports available on the LAN966x PCI
+> device. In order to have the SFPs supported, additional devices are
+> needed such as clock controller and I2C.
 > 
-> Once a driver is bound to a device and the probe() has been called,
-> device_links_driver_bound() is called.
+> As a reminder, the LAN966x PCI device driver use a device-tree overlay
+> to describe devices available on the PCI board. Adding support for SFPs
+> ports consists in adding more devices in the already existing
+> device-tree overlay.
 > 
-> This function performs operation based on the following assumption:
->     If a child firmware node of the bound device is not added as a
->     device, it will never be added.
+> With those devices added, the device-tree overlay is more complex and
+> some consumer/supplier relationship are needed in order to remove
+> devices in correct order when the LAN966x PCI driver is removed.
 > 
-> Among operations done on fw_devlinks of those "never be added" devices,
-> device_links_driver_bound() changes their supplier.
+> Those links are typically provided by fw_devlink and we faced some
+> issues with fw_devlink and overlays.
 > 
-> With devices attached to a simple-bus compatible device, this change
-> leads to wrong devlinks where supplier of devices points to the device
-> parent (i.e. simple-bus compatible device) instead of the device itself
-> (i.e. simple-bus child).
+> This series gives the big picture related to the SFPs support from
+> fixing issues to adding new devices. Of course, it can be split if
+> needed.
 > 
-> When the device attached to the simple-bus is removed, because devlinks
-> are not correct, its consumers are not removed first.
+> The first part of the series (patch 1, 2 and 3) fixes fw_devlink when it
+> is used with overlay. Patches 1 and 3 were previously sent by Saravana
+> [0]. I just rebased them on top of v6.15-rc1 and added patch 2 in order
+> to take into account feedback received on the series sent by Saravana.
 > 
-> In order to have correct devlinks created, make the simple-pm-bus driver
-> compliant with the devlink assumption and create its child devices
-> during its probe.
+> Those modification were not sufficient in our case and so, on top of
+> that, patch 4 and 5 fix some more issues related to fw_devlink.
+> 
+> Patches 6 to 12 introduce and use fw_devlink_set_device() in already
+> existing code.
+> 
+> Patches 13 and 14 are related also to fw_devlink but specific to PCI and
+> the device-tree nodes created during enumeration.
+> 
+> Patches 15, 15 and 17 are related fw_devlink too but specific to I2C
+> muxes. Patches purpose is to correctly set a link between an adapter
+> supplier and its consumer. Indeed, an i2c mux adapter's parent is not
+> the i2c mux supplier but the adapter the i2c mux is connected to. Adding
+> a new link between the adapter supplier involved when i2c muxes are used
+> avoid a freeze observed during device removal.
+> 
+> Patch 18 adds support for fw_delink on x86. fw_devlink is needed to have
+> the consumer/supplier relationship between devices in order to ensure a
+> correct device removal order. Adding fw_devlink support for x86 has been
+> tried in the past but was reverted [1] because it broke some systems.
+> Instead of enabling fw_devlink on *all* x86 system or on *all* x86
+> system except on those where it leads to issue, enable it only on system
+> where it is needed.
+> 
+> Patches 19 and 20 allow to build clock and i2c controller used by the
+> LAN966x PCI device when the LAN966x PCI device is enabled.
+> 
+> Patches 21 to 25 are specific to the LAN966x. They touch the current
+> dtso, split it in dtsi/dtso files, rename the dtso and improve the
+> driver to allow easier support for other boards.
+> 
+> The next patch (patch 26) update the LAN966x device-tree overlay itself
+> to have the SPF ports and devices they depends on described.
+> 
+> The last two patches (patches 27 and 28) sort the existing drivers in
+> the needed driver list available in the Kconfig help and add new drivers
+> in this list keep the list up to date with the devices described in the
+> device-tree overlay.
+> 
+> Once again, this series gives the big picture and can be split if
+> needed. Let me know.
 
-IIRC, skipping child nodes was because there were problems with 
-letting the driver handle 'simple-bus'. How does this avoid that now?
-
-The root of_platform_populate() that created the simple-bus device that 
-gets us to the probe here will continue descending into child nodes. 
-Meanwhile, the probe here is also descending into those same child 
-nodes. Best case, that's just redundant. Worst case, won't you still 
-have the same problem if the first of_platform_populate() creates the 
-devices first?
+Please suggest how you think this should get merged? There's 8 
+maintainer trees involved here. Some parts can be merged independently? 
+We need to spread over 2 cycles? Greg just takes it all?
 
 Rob
 
