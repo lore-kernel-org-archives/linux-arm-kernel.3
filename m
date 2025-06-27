@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0458DC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 02:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AE8C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 02:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8R5WEsKCA4x/amljqFYIReJbQ1OEdrAVuyORnERSO/U=; b=JrfK88ZLMgCAV0oGJN7GZF+SpR
-	/cJPo9fR/Ft2HN68ozn+6JO80EGi57VkzFq8Zzrc+2m80x4PBezTZcyUqpiCHynBMRHGeD4oQ6mJ7
-	Z1whqilxorzKE3HSXjR/Oq2aukM3dcbek/CY4w6VUNMJuSb2U0sd423rZrFPzEBz3of0AXR/SC+yj
-	dyz+iHr9LccXEtGgxOkM+kwJYMVnrWackkWKEHbePrGs2/101WvN0jP2deEViTzgOkHKK1Ff4WXXg
-	fPxQJ8hXt2VyEIYIECZQoUYVPdduKVCkisLUZSL1YVYgnXh5yqNoD3akmA751PPxOmNZpNeKKPmlA
-	Wv7FAl6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KSpGqoGHw4jdEeeuHnbaE8bdrNxce2rGRpAWn9ZiGh8=; b=tbadhdu26lYzIvZvOpoSKQh0J0
+	uFpOIUw4EHxnXHmG/3oRw3J4fBmVuWr2/1C2Zw2KfVVW8ZCAJq/XqYOQMXZxxaOrpowp+7pF2bNwF
+	8w2GuxChCwVOmUhCg7sUIWfwdAU89XVQrEQJcC62NYM417ulkeLTZv7mgTyk4r8YS0hXvcUN++aYC
+	59Emz2oin+DNZb9BtydSHfJLh+BK0QOgFJhnaYigSziGVjjexXbY/FbJcMy7rolfVZZP1oN8SvPN2
+	JS8sm3DI9bh9aztxbAx7OLdFVrC3vR3RQJjyEHvkXMNl8jn8X9ccVtJqOFMGEXD2wEiWR1iKvSSWD
+	9C31k7iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUys1-0000000DMMF-1hL7;
-	Fri, 27 Jun 2025 02:31:17 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uUz98-0000000DNuD-1B1y;
+	Fri, 27 Jun 2025 02:48:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uUypd-0000000DMDA-2PXI;
-	Fri, 27 Jun 2025 02:28:50 +0000
-X-UUID: 7164e94852fe11f09eb0dd999d3936bf-20250626
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=8R5WEsKCA4x/amljqFYIReJbQ1OEdrAVuyORnERSO/U=;
-	b=GhBMp9bp05Twb8wnvVUA5HvQRD1XfE/CVrQsw644vaIFTz+brOzTGQTvxlonPZ1bOCjxgU8TjL24my+ondJHzFSUDBpQh3mXUXYgpZ1mcEuSQU2b3XmeauqeoMLVz2TO9W3Q4MSB37PgSKaoIRhBb5NA8RDK/iSjVPt+S8nfE/s=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:300f40ae-817b-4912-91c6-b0b4c66c5061,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:18da9c14-6a0e-4a76-950f-481909c914a4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7164e94852fe11f09eb0dd999d3936bf-20250626
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 264809664; Thu, 26 Jun 2025 19:28:42 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 27 Jun 2025 10:28:22 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 27 Jun 2025 10:28:38 +0800
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, "Mel
- Gorman" <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: John Stultz <jstultz@google.com>, kuyo chang <kuyo.chang@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH V4 1/1] sched/deadline: Fix dl_server runtime calculation formula
-Date: Fri, 27 Jun 2025 10:28:05 +0800
-Message-ID: <20250627022837.3331827-1-kuyo.chang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uUz6q-0000000DNar-1okg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 02:46:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A45286111F;
+	Fri, 27 Jun 2025 02:46:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BF0CC4CEEE;
+	Fri, 27 Jun 2025 02:46:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750992394;
+	bh=LQms1tNsqpQ+nXQaH2KYlSJYLllazDGuxMMHkBk5CDs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FUmEdZKy5Pt85iIZINjlu6Rlw+WTOVjloMjWfOUMo1LHk6H53Te0c1wsyd8N4vhTL
+	 53kUWt5yc9a3iKDuavEg64TN6Q43K99IAq3pPC9PcKgpI2GIS6qBzQuYO1on5nVrYR
+	 s/RG/HdAzJaAfI7nPRGHfihNXYmCSy6JFzq/V+1VKJVbAVezkkf5RpbZ9e37qV1vuL
+	 2x0VbbiTZXMQQOMyud6dJRU217TdKsz5QbnJHwoljbfbZAha6cxt4d2MdAbgZaAfB2
+	 vYXACkfMBqv7cZhM2n833mbduEvSFugpShoskJ6/RhxH1RGxrtHdftTa4CBFseiqjV
+	 XaffibLNkkX2A==
+Date: Thu, 26 Jun 2025 21:46:33 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"open list:FREESCALE SOC DRIVERS" <linuxppc-dev@lists.ozlabs.org>,
+	"moderated list:FREESCALE SOC DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [PATCH v2 1/1] dt-bindings: soc: add vf610 reboot syscon
+ controller
+Message-ID: <20250627024633.GA1656962-robh@kernel.org>
+References: <20250617155231.2023977-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_192849_624214_F529F93F 
-X-CRM114-Status: GOOD (  15.75  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617155231.2023977-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +74,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: kuyo chang <kuyo.chang@mediatek.com>
+On Tue, Jun 17, 2025 at 11:52:30AM -0400, Frank Li wrote:
+> Add vf610 reboot controller, which used to reboot whole system. Fix below
+> CHECK_DTB warnings:
+> 
+> arch/arm/boot/dts/nxp/vf/vf610-bk4.dtb: /soc/bus@40000000/src@4006e000:
+>     failed to match any schema with compatible: ['fsl,vf610-src', 'syscon']
+> 
+> IC reference manual call it as system reset controller(SRC), but it is not
+> module as linux reset controller, which used to reset individual device.
+> SRC work as reboot controller, which reboot whole system. It provides a
+> syscon interface to syscon-reboot.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Change in v2
+> - change description to avoid confuse about reset controller.
+> - it is legacy device, more than 10 year. So try keep existed dts as it.
+> ---
+>  .../bindings/soc/fsl/fsl,vf610-src.yaml       | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> new file mode 100644
+> index 0000000000000..cb8aa510a21f7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas//soc/fsl/fsl,vf610-src.yaml#
 
-In our testing with 6.12 based kernel on a big.LITTLE system, we were
-seeing instances of RT tasks being blocked from running on the LITTLE
-cpus for multiple seconds of time, apparently by the dl_server. This
-far exceeds the default configured 50ms per second runtime.
+Double '/'
 
-This is due to the fair dl_server runtime calculation being scaled
-for frequency & capacity of the cpu.
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Freescale vf610 System Reset Controller (SRC)
+> +
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +
+> +description: |
 
-Consider the following case under a Big.LITTLE architecture:
-Assume the runtime is: 50,000,000 ns, and Frequency/capacity
-scale-invariance defined as below:
-Frequency scale-invariance: 100
-Capacity scale-invariance: 50
-First by Frequency scale-invariance,
-the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
-Then by capacity scale-invariance,
-it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
-So it will scaled to 238,418 ns.
+Don't need '|'
 
-This smaller "accounted runtime" value is what ends up being
-subtracted against the fair-server's runtime for the current period.
-Thus after 50ms of real time, we've only accounted ~238us against the
-fair servers runtime. This 209:1 ratio in this example means that on
-the smaller cpu the fair server is allowed to continue running,
-blocking RT tasks, for over 10 seconds before it exhausts its supposed
-50ms of runtime.  And on other hardware configurations it can be even
-worse.
-
-For the fair deadline_server, to prevent realtime tasks from being
-unexpectedly delayed, we really do want to use fixed time, and not
-scaled time for smaller capacity/frequency cpus. So remove the scaling
-from the fair server's accounting to fix this.
-
-Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
-Acked-by: Juri Lelli <juri.lelli@redhat.com>
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Suggested-by: John Stultz <jstultz@google.com>
-Tested-by: John Stultz <jstultz@google.com>
-
----
-v1: https://lore.kernel.org/all/20250614020524.631521-1-kuyo.chang@mediatek.com/
-v2: https://lore.kernel.org/all/20250617155355.1479777-1-kuyo.chang@mediatek.com/
-v3: https://lore.kernel.org/all/20250626030746.2245365-1-kuyo.chang@mediatek.com/
-
-v1->v2
-Use the dl_server flag to identify scaled or non-scaled suggested by Peter.
-v2->v3
-Use the dl_server(dl_se) helper function for the code refactor suggested by John.
-v3->v4
-Commit log cleaned up/simplified suggested by John.
-
----
- kernel/sched/deadline.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index ad45a8fea245..96a21f38fcc3 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -1504,7 +1504,9 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
- 	if (dl_entity_is_special(dl_se))
- 		return;
- 
--	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
-+	scaled_delta_exec = delta_exec;
-+	if (!dl_server(dl_se))
-+		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
- 
- 	dl_se->runtime -= scaled_delta_exec;
- 
-@@ -1624,7 +1626,9 @@ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
- 	if (delta_exec < 0)
- 		return;
- 
--	scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
-+	scaled_delta_exec = delta_exec;
-+	if (!rq->fair_server.dl_server)
-+		scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
- 
- 	rq->fair_server.runtime -= scaled_delta_exec;
- 
--- 
-2.45.2
-
+> +  IC reference manual call it as SRC, but it is not module as linux reset
+> +  controller, which used to reset individual device. SRC work as reboot
+> +  controller, which reboot whole system. It provide a syscon interface to
+> +  syscon-reboot.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,vf610-src
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    syscon@4006e000 {
+> +        compatible = "fsl,vf610-src", "syscon";
+> +        reg = <0x4006e000 0x1000>;
+> +        interrupts = <96 IRQ_TYPE_LEVEL_HIGH>;
+> +    };
+> +
+> -- 
+> 2.34.1
+> 
 
