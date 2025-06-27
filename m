@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F32C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1B1C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFHqkPt+uPKNzwWqyksfRVnj/S04rMf6NeRHwuaN8eQ=; b=rguiUMdSqLQLRP7JJLG3/dSgDQ
-	awNvFPFtvHFVKMDeMvkDEhDAnz4yr6wfDwL8mbOjIa1uTg9+jXdYZwUdYi2lhB3ZZHls1RoOGsgoe
-	vrjiAQGC3GWue1NDak2UUb24sGiCuZQHsqOdhomUxvkqWTZUA6YtKnmc1i/fKOOsvMBimaG0GZ93B
-	T+vFL9kg0xPukJi6B699FgRbznyp8SvlpRhDnzV4vpeWQZ5VSrZ62fhgoGdjLu7bTYJOq9wBf/xK1
-	eaV5rJHCsN79d5p7wkhznM77UOqtKtFAIA03IxKdpEEXaLS3wuSpEKoNGtekMCOnJRCzpLMZIqsj+
-	VlXuQD7A==;
+	bh=W5hBOAWgXWbs5YM2cQ5EdWooZcYMmnFjFR/k5PI2mnc=; b=4UzSV3jx2XXfHqzyxfEf52NEBS
+	7iWOza/udB47cSXThfPGSI32HoD2+8qLCNkVNK8/eaSUE4EybpFe8hlpcaYLOWxntlK2wkW0QER7q
+	xlebYDjjgm1DVthlDvuvIRHNVx8q8lM10KjzCJDtIIPezkDbzAXLd+0R04Xrrd5wXSqRgJLJvJvAM
+	s/basGcwHxFNm0NvjGQf+uYh9eScMEzoqcyBbcd0Fa6sUyXIdvIXwKtS/UgqlDwN3saZ40PBTN6FR
+	FJPoyWm/n4uz11M6SlbM8xaDcVHm3mlHx3btoHimvxHfjcg/BpSxbQUsIvXIeXtxH3dq4siARSBim
+	jufpq29A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVATz-0000000EyU3-0i72;
-	Fri, 27 Jun 2025 14:55:15 +0000
+	id 1uVAWE-0000000EydR-3qPM;
+	Fri, 27 Jun 2025 14:57:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9nI-0000000ErrK-3S2W
+	id 1uV9tl-0000000Esbc-0zt5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:11:10 +0000
+	Fri, 27 Jun 2025 14:17:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5BCE1A00;
-	Fri, 27 Jun 2025 07:10:50 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 111523F58B;
-	Fri, 27 Jun 2025 07:11:05 -0700 (PDT)
-Date: Fri, 27 Jun 2025 15:11:03 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/7] firmware: imx: sm-misc: Dump syslog and system info
-Message-ID: <aF6md8uMuD8EpXvd@pluto>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-7-2b99481fe825@nxp.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5571C1A00;
+	Fri, 27 Jun 2025 07:17:31 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 252213F58B;
+	Fri, 27 Jun 2025 07:17:48 -0700 (PDT)
+Date: Fri, 27 Jun 2025 15:17:45 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, kernel@oss.qualcomm.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Subject: Re: [PATCH] coresight-tmc: Add configurable timeout for flush and
+ tmcready
+Message-ID: <20250627141745.GS794930@e132581.arm.com>
+References: <20250627-flush_timeout-v1-1-2f46a8e9f842@quicinc.com>
+ <78f2179d-26c2-47f0-bc19-b72e5e51ad29@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250627-sm-misc-api-v1-v1-7-2b99481fe825@nxp.com>
+In-Reply-To: <78f2179d-26c2-47f0-bc19-b72e5e51ad29@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_071108_946212_7F2C2D73 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20250627_071749_319967_FE6F9D41 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,132 +68,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 02:03:50PM +0800, Peng Fan wrote:
-> Add sysfs interface to read System Manager syslog and system info
+On Fri, Jun 27, 2025 at 12:23:29PM +0100, James Clark wrote:
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/imx/sm-misc.c | 97 ++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 97 insertions(+)
 > 
-> diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
-> index fc3ee12c2be878e0285183e3381c9514a63d5142..55485a3c4a5c615102a377f41025a6911d746770 100644
-> --- a/drivers/firmware/imx/sm-misc.c
-> +++ b/drivers/firmware/imx/sm-misc.c
-> @@ -44,6 +44,100 @@ static int scmi_imx_misc_ctrl_notifier(struct notifier_block *nb,
->  	return 0;
->  }
->  
-> +static ssize_t syslog_show(struct device *device, struct device_attribute *attr,
-> +			   char *buf)
-> +{
-> +	struct scmi_imx_misc_sys_sleep_rec *rec;
-> +	struct scmi_imx_misc_syslog *syslog;
-> +	int ret;
-> +	size_t len = 0;
-> +
-> +	if (!ph)
-> +		return 0;
-> +
-> +	syslog = kmalloc(sizeof(*syslog), GFP_KERNEL);
-> +	if (!syslog)
-> +		return -ENOMEM;
-> +
-> +	ret = imx_misc_ctrl_ops->misc_syslog(ph, sizeof(*syslog), syslog);
+> On 27/06/2025 12:10 pm, Yuanfang Zhang wrote:
+> > The current implementation uses a fixed timeout via
+> > coresight_timeout(), which may be insufficient when multiple
+> > sources are enabled or under heavy load, leading to TMC
+> > readiness or flush completion timeout.
+> > 
+> > This patch introduces a configurable timeout mechanism for
+> > flush and tmcready.
+> > 
+> 
+> What kind of values are you using? Is there a reason to not increase the
+> global one?
 
-...ah...so you basically cast to void a structure of u32 words and then
-expect that the firmware perfectly aligned with how the struct is
-defined here....size checks assures no out-of-bounds BUT the meaning of
-he blob itself is entirely up to FW and kernel being aligned, since no
-type checking is done of any kind and fields are NOT reference by
-name...so may I ask why ? ..also because the scmi_imx_misc_syslog seems
-pretty tiny to need iterators to parse back the reply...do you have so
-tiny transpotr message size ?
+IIUC, this patch is related to patch [1].
 
-..anyway I would suggest at least to add some sort of version-field to
-the struct so that at least you can detect if the FW spits out something
-that is not what your driver expect or is ready to handle...especially
-if you plan to extend or modify the layout of the structs in the future.
+It seems to me that both patches aim to address the long latency when
+flushing the TMC, but take different approaches. In the earlier patch,
+both Mike and I questioned how the timeout occurred in hardware, but
+no information provided about the cause.
 
-
-> +	if (ret) {
-> +		kfree(syslog);
-> +		return ret;
-> +	}
-> +
-> +	rec = &syslog->syssleeprecord;
-> +
-> +	len += sysfs_emit_at(buf, len, "Wake Vector = %u\n", rec->wakesource);
-> +	len += sysfs_emit_at(buf, len, "Sys sleep mode = %u\n", rec->syssleepmode);
-> +	len += sysfs_emit_at(buf, len, "Sys sleep flags = 0x%08x\n", rec->syssleepflags);
-> +	len += sysfs_emit_at(buf, len, "MIX power status = 0x%08x\n", rec->mixpwrstat);
-> +	len += sysfs_emit_at(buf, len, "MEM power status = 0x%08x\n", rec->mempwrstat);
-> +	len += sysfs_emit_at(buf, len, "PLL power status = 0x%08x\n", rec->pllpwrstat);
-> +	len += sysfs_emit_at(buf, len, "Sleep latency = %u\n", rec->sleepentryusec);
-> +	len += sysfs_emit_at(buf, len, "Wake latency = %u\n", rec->sleepexitusec);
-> +	len += sysfs_emit_at(buf, len, "Sleep count = %u\n", rec->sleepcnt);
-> +
-
-... how wonder how much is still frowned upon to serve such big multiline
-structured information payloads from sysfs ... (asking for a friend :P)
-
-
-> +	kfree(syslog);
-> +
-> +	return len;
-> +}
-> +
-> +static DEVICE_ATTR_RO(syslog);
-> +
-> +static ssize_t system_info_show(struct device *device, struct device_attribute *attr,
-> +				char *buf)
-> +{
-> +	struct scmi_imx_misc_system_info *info;
-> +	int len = 0;
-> +	int ret;
-> +
-> +	if (!ph)
-> +		return 0;
-> +
-> +	info = kmalloc(sizeof(*info), GFP_KERNEL);
-> +	if (!info)
-> +		return -ENOMEM;
-> +
-> +	ret = imx_misc_ctrl_ops->misc_discover_build_info(ph, info);
-> +	if (ret)
-> +		goto err;
-> +
-> +	ret = imx_misc_ctrl_ops->misc_cfg_info(ph, info);
-> +	if (ret)
-> +		goto err;
-> +
-> +	ret = imx_misc_ctrl_ops->misc_silicon_info(ph, info);
-> +	if (ret)
-> +		goto err;
-> +
-> +	ret = imx_misc_ctrl_ops->misc_board_info(ph, info);
-> +	if (ret)
-> +		goto err;
-> +
-> +	len += sysfs_emit_at(buf, len, "SM Version    = Build %u, Commit 08%x\n",
-> +			     info->buildnum, info->buildcommit);
-> +	len += sysfs_emit_at(buf, len, "SM Config     = %s, mSel=%u\n",
-> +			     info->cfgname, info->msel);
-> +	len += sysfs_emit_at(buf, len, "Silicon       = %s\n", info->siname);
-> +	len += sysfs_emit_at(buf, len, "Board         = %s, attr=0x%08x\n",
-> +			     info->brdname, info->brd_attributes);
-
-...so some of this stuff Build/Silicon/BoaRD info has pretty much
-'forever' lifetime...are you sure you want to query them out of the FW
-each time you issue a sysfs show ?
-
-Cannot you simply dump this stuff once for all at probve time and
-instead query misc_cfg_info() upon each show to refresh only the data
-that will change ?
-
-(this also corroborates my idea that you should somehow partition this
-data into distinct structs by their lifetime...
+I would suggest that we first make clear if this is a hardware quirk or
+a common issue in Arm CoreSight.
 
 Thanks,
-Cristian
+Leo
+
+[1] https://lore.kernel.org/linux-arm-kernel/CAJ9a7Vgre_3mkXB_xeVx5N9BqPTa2Ai4_8E+daDZ-yAUv44A9g@mail.gmail.com/
 
