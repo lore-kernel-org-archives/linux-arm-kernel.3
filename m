@@ -4,168 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A52C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF188C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/iWQ0IUzMmAmnZqCF42sy3SPdl0255YmRxdRT+U19qA=; b=jMTkArbQsSfWTVcLKW/A4Ds/ro
-	aMYKmm46ke3CCs6QjsPxtQMOKnTWdAaFMz6d/rXioV/B7LrS+cXqMuHvv6XIOipZ4q1VXv4DJ3JEy
-	dmdjjMSAbY7GHCENAxENvjGJ8+ZzE9yczHCfDOj/4iJQu6Jcmc9vGk3n4PkxUOffV5uVeCGOiWRgO
-	NDf5Fo5PsaGPqfFMRG/r09e8wrJWF7Tak2EUB4q6FP0Q3hVxU/k/CCXhj96yQsLB/ZUS7voVaERbD
-	oS70tv+GK8FQavaD0bxtCI+oP1bjStXkW/qesvRrkIXFsD4iG+RBIa5LIvv2Vbwv8QI72JRwLXnrw
-	krszaJSg==;
+	bh=P4f/vHcRVZ3+4F8jGL4/itlgmH6zYwv+ow/NqC1RSEQ=; b=NZR/DZgY6NNeOdCuZAH746tfh9
+	ZApStMhdbZH8RFWJe1MDkTlmkPxYCmwwcYYDo8gWwa4eYVpBeSqMnIQbhRkxMfcMUqlGg6JH+5b/v
+	m2xWY/nU4Ti/QbAeCd3gp4dljaEJ4HsDs/Vz97UeQF9KoUx4RAOaNgf+AWgSzXOoBr6gQLWp1MU1R
+	p7XrAUSIzGz/lM6HeixaFV3rtTLgbeOxCvcF7UuuYKERB9G7C6S3CnNccpVhOZrX7hueOh0N3jV6t
+	iVVHkVlatbDx3jS6Zh1asYZxmT8VqGJMXg1XxA4FwWFWhSaadAF8WF7x3MoG6Zj0QAsfHq0XU6kgW
+	6pdvmRvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCnn-0000000FOpy-0XzK;
-	Fri, 27 Jun 2025 17:23:51 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uVCq5-0000000FPPu-3F3z;
+	Fri, 27 Jun 2025 17:26:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBfD-0000000FDkV-22n3;
-	Fri, 27 Jun 2025 16:10:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FML2eITx+gpAuu7VOeA0GhQe9u7t3hHQCVLQocLAhz4cbu9g4Udy3sSN8ZwB0+MMv+VfYiMP+jxYg/MWfzUJlaexgon1KBZwwNOqz7SYjQv+JSeEoEP3PtTKUFGOMOioAOv0aZk0lcJNTbbCbrhaJY+qOjKNWrFSbrPdP3LmPMh9zD0jK7AM3m6tWUyoF0zsi5pgo+wlAx+afQKMSPgBF+HEi2URs5+z10qLQr/yfusZgZqL2CsOBI1Qdr/18HtVkW1spUeW1CwJajRBlZs8H1IkNJYK7yaX9DdFXbahN+vCXWZ5XJcXYCHgavdnGVFWh6G4lJr0KIOAt2GmxEhYGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/iWQ0IUzMmAmnZqCF42sy3SPdl0255YmRxdRT+U19qA=;
- b=rVDaT0EpowJ2JzaAhS56wmQTY3DDw+dNECm51LkFE9Nh4luAOvU7IGp0XYdLaFuD50iRDOrGk0CVPK18AR8wieRRAtWk4Hnhtmgoak+h8JWepvCG08b5G9VLLbQO7YMpiYNhnRlo6ljIj3qCCBeVXQrFoO80JVLFY/D7VKIWS1+zdTQIAsAZKfiZPujyHzPL0zXv1pqI1urcmM/Zma+1nmatf7oFx7oaEQqSXX2qQudhr8J0j9SX61k+55W7OCPOLjf3NB0vxHJQ6v7p5n8op+Fu4P8OaC/dmfq94w+cQ8S/3onm4dplSUKSKmv+EBKfF5gUwdu+jON9l7Kh87GaJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/iWQ0IUzMmAmnZqCF42sy3SPdl0255YmRxdRT+U19qA=;
- b=I28HWF7G0MFi949c+KeiHujrdkR+6/1eKKSVRZpl3BYrccl/X+P8v5GyXmP9eNWz1+SALRtub7thoeZ0vSHlv5PYz5xQ4lMONMNe6Nv8Sn3ne6W85+TGz9j36AbCbUFUumgv9VNMfZLhpDsI6TOzOGuVVZWRT/5RxGRml7iW/JU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by AS8PR04MB7493.eurprd04.prod.outlook.com (2603:10a6:20b:293::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.18; Fri, 27 Jun
- 2025 16:10:33 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1%4]) with mapi id 15.20.8880.021; Fri, 27 Jun 2025
- 16:10:32 +0000
-Message-ID: <b1c789bf-1369-42ec-8bb3-d7a45c92abf0@cherry.de>
-Date: Fri, 27 Jun 2025 18:10:31 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399
- boards
-To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250627152645.740981-1-didi.debian@cknow.org>
- <20250627152645.740981-3-didi.debian@cknow.org>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250627152645.740981-3-didi.debian@cknow.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR0502CA0026.eurprd05.prod.outlook.com
- (2603:10a6:803:1::39) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1uVBqh-0000000FFHL-14af
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 16:22:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E6B261433;
+	Fri, 27 Jun 2025 16:22:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D3C2C4CEE3;
+	Fri, 27 Jun 2025 16:22:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751041366;
+	bh=S4rQXSxYy7l30Jex5dOyQNVkfrqjgNBFJChd03NJJd4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q9+kRI24E/sv8i/YQJ0N921DtCB+0kcRk3H1pQUMNQtT02K02PjfsySme4B8GniwI
+	 9dRRJgnIYjYIcYjcs5Tb6obHmqh8Twkaf0TCIOBrTfj53TmQdFrvAxOP+wruzM3Ril
+	 JCTW0cM7wsH4IW+Zw3XsSKRN7zxXgWdw8fzZVfaBSHnAOFcYr4+qCebHHiZca51pkr
+	 3BUYtnmUuDrHiFYPlicYhuFNogDvoLoyaU3CKheMqkHeHJarNuPc7Ks6Whuzf7UE8A
+	 TZW+lJ9Gtdsw5sd9/k4NKCLKh0F893QUDS6oOqMbIefzWUsXHa7lfFZkbD8l+/snV+
+	 iZPTmjg/hmAvQ==
+Date: Fri, 27 Jun 2025 11:22:45 -0500
+From: Rob Herring <robh@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 18/28] of: property: Allow fw_devlink device-tree on
+ x86 when PCI device-tree node creation is enabled
+Message-ID: <20250627162245.GA3513535-robh@kernel.org>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
+ <20250613134817.681832-19-herve.codina@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB7493:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05fbc504-b44e-4a10-a5a2-08ddb5952496
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MkR2UUNEQ1dwdDZ2enlHcFNYOUNPcWpJbjNvN2NQaUNMV09qTmNDVTc1djVP?=
- =?utf-8?B?K21HbVF0ak1FcGd6RnNVQ1N3TjZKYm9CZm0yK1NSWkpHMUMrczFtNlEyVVNl?=
- =?utf-8?B?RHQ0dlZkSmtKazBTRGJ0b1VORlQwYjNhZDVHdmNjTGdZdEF6eGJJWEJ6NDlw?=
- =?utf-8?B?QWlMVWNiTEQ5L2lGOE1YL3ZiaTNraERTVFFXY0hVN0ZaZmZIT2Q1QVhrUUVu?=
- =?utf-8?B?WFBlZ0FyQUxqR0V4NlF0SmhHdmorQ2dpc3pJczc0MHVZODNJeDN3UlowZ2h3?=
- =?utf-8?B?bGZtMzAzRGdYekU3T1hkWDRMUnk5QlNrMHYrS0xyZEJpTUNCdmNWSTduSGN2?=
- =?utf-8?B?aklvUnhGbi8vU3gxbi9DSnZQRmYydkphVTdHL3VLVEIvSU5sRzQyZC8rUDhK?=
- =?utf-8?B?RE1uOEdpVCtmUlhnaXhEQkVac0dNNEhBQ2pPTkxKU1Y1NzZzdWkrdXhPczVQ?=
- =?utf-8?B?VG9GT0Ewd3ArR214ZjJHSmgxeGRsSEF4cmxaRXY0aW51S3JVMFUzNjB3MDQw?=
- =?utf-8?B?cmRnR0JkNEk2OFVRVFpEZEQzY2llV1VTVUJqTmNZWFpXWVFSUDEybGVJMWpz?=
- =?utf-8?B?SVFlUmpUWUs4QXhRTlNGL1JnNmdZMW5Vc1B4V0E5eGZFZlJFTmU1K25ScUxM?=
- =?utf-8?B?OFAzZm4vd1pUY0NUVUdGUUxIT0ovQncvTDErSDZhSGJLT3hRY0VSQ2IrRmts?=
- =?utf-8?B?Wk5MYVNjWjhGQjl4czZuWU1FcVR4NFZiVXMxMDRMcW5OYUlXNnQ0dEhxTTkv?=
- =?utf-8?B?Tm5vYUVmTUVBeVdpelBoTmZKc0FuN0M5ZEgzTmgxUGtxMWZFV1phVjZtYWx0?=
- =?utf-8?B?SVhWTy8zRTVLMG1wVy9LcC94NFBhb09aWFJQRml0M1VUWkVvMWhUNjNNQ3VO?=
- =?utf-8?B?b1o1blRncHQrcjNsK2NHTHNMYVdqZ0VBbkI3ZXByWGJvUXJtU1kyODNqbG5N?=
- =?utf-8?B?NnI4Y2pLSlcyY3ZqNVk0VDFhaGpub0NENUR1S21VeC9vM0J1WmYrZEpuaU40?=
- =?utf-8?B?aEM3RFZQMTVKU01kUTFtNkprUVRnT3dkVGRsaktqTkpLOWlJeE1HNmNNaHN6?=
- =?utf-8?B?MklkL1JIK1RtQUYvam1rdXI3OUtVdTFxSUpIdFFHV1ZmaEhuL3Zrekdlejky?=
- =?utf-8?B?UUtuS0h1Wkw2Vmh5Q21aM05QNk52ZWloNWwzTWFNaHBQVTBJYTRCQmk2T1BS?=
- =?utf-8?B?R1IzSFVZdGtMdFFiYTA1NWJUdjRUcnRwdDBJYUYxdi9LNzl2Wi84bGw5RjIr?=
- =?utf-8?B?RnFkbGp1Y2o0SjlTV3ZwK3FrVGYrbG9GRWpEcUxGdXNnL3FOSHJ1MlkxUFli?=
- =?utf-8?B?Y2FJbzArMFQ2U0V5bUd5U0Zxbm52Q0syWG5pVm53TjB6R2tlbSttWGZzckQ4?=
- =?utf-8?B?K2pVbkhSZm5WdG5KVkVBU0l3N2lSeitoWHoxWklZM1VUdGFmV2o5SXR0Kyt2?=
- =?utf-8?B?SDNYeFpYTER1SUdqZjFUVVFMUE1RQkk2d3JsR3VaQ3BTSjg5UWYrZHIydXls?=
- =?utf-8?B?cGorOUplMDRWVWh0OW16cTNuRENSK3RTUUZKR0ZDRFJlZG5OTEdObXBmQUE5?=
- =?utf-8?B?cGJvenhaU0h0ZXR4VkM0T2JNTDBLM0NqQ0V4R1p5QkZrMEdiS3JsZEpiNXNT?=
- =?utf-8?B?VmZGUnNwMjk1Z1ZvNzNPMUFSSUhQeEZqTG9BL3FuRTRleFAzVnFRa1UxSHMx?=
- =?utf-8?B?aTdXVGVYVEY0b2R6dlBxYXNIdXJqV0taT3VBL1Z4Z0pVcUk1akIrWDhYbVFv?=
- =?utf-8?B?djE1cGVLMmxra3FVUHp6ejV2UlY0TTFnSnZTRTFtcFI0ZXJZdTBpdHA1NDdU?=
- =?utf-8?B?VWhrOWl2S3ZCL1FNMjVGMnV4Vnp2N1lpd2Q5b2J5MFZSaG9iWk1mc3B3a2F1?=
- =?utf-8?B?b0dSTURFNWlEU1NMRjBONXZvdFhGTlJlaEJKT2Z4aEh0eWY4dWpwWDdCK1B4?=
- =?utf-8?Q?kxrG9CFjV2E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmRYb05VS3VxSTZrSTJqNnR5Z2xub2FTQ2xYM2FHeVVQeWFQMVg2T3U0NmM5?=
- =?utf-8?B?OG5FUDN6MjdxRFhhMnpOMysxaC9VMFNhOG9IREtJbVI4cXdVS1E4dDAyL0VN?=
- =?utf-8?B?MVhwUG5BSUtFcStSSHRHYnlJK0Zpc0NNQmZzRDVINXVDVEVPMmR2UkEzbjFn?=
- =?utf-8?B?ZlVPdjl4bXJ0WGpKWldVSTUyeDdEakdVSjYvUmNncHpnRmZac3dabTNHcXZs?=
- =?utf-8?B?Z0dOSExmYUgxTDhBbTRKQjFoNm1QUDB3U0hJU0VPd21YVXNmSTZRR1ZPK0xr?=
- =?utf-8?B?TUpyNTVoSjBIWGxSRVRjNnpONjN3emZiYkYvUFJIeWhNbDFXWnRIUDBhbHRM?=
- =?utf-8?B?UEVhd1cwN2RvckF5TVliTGxZeTB5OHp0dFJsS29QanFLV3cyNHU4M3lMOXFt?=
- =?utf-8?B?dXpXS2RBZUJKRWVqYkFhWVRQbHl1RkFVOWVzTUpXa2Z6Njd1RE5ualZ0MFQw?=
- =?utf-8?B?d2ZnL2ZJd0FEQnN3RzhmK1p4SDROMUFMcjE4YlhLZXRnVm12Z0txblRTbTZC?=
- =?utf-8?B?c3VxdGttN0VyRXBLV3d6RDJWM2pKKzFtUjhOemZOWmNOK05QbE9uY3NEaUpQ?=
- =?utf-8?B?bWtDVTJocnlDZmJpVUNuKzh0bkF6aC9sYUtURjl4cHZEaWJsODU1aHZ4WHZW?=
- =?utf-8?B?UUl1TjU4Nys0cklRcmVZZVZLeW1nUFBrRExkd3JBbS9nTWNaRFc2eS9KdHpQ?=
- =?utf-8?B?N0JaSm5tYkpLODVrZ1FMMXdidG80djRBcG5iRjBoUjlIZHltbEN3ZkJvUVk2?=
- =?utf-8?B?U3NFdFJiejZpZFBMbnVwVFBRWmJrdGw2SnlzUVlFRnBINkpmaHlBb25pOVJF?=
- =?utf-8?B?aC9hNEJRVksyVU43YXdTaGhycklnUkdmZ3hMbGh6ZEJYRGg2dEZxVi9HQmJw?=
- =?utf-8?B?QUh2ei9MZzFoY21ZYlpHdXN4bzBUeHp0UUhMR3Q5Wk5LZEM2VHY5YksvOWhD?=
- =?utf-8?B?VFp6T3ZxSGRDQmFENVV4SkdhK09pazhrSXZNWkxLUHhOT0lSaCtzWUhFQ2R6?=
- =?utf-8?B?YmlweFlBN2M1T2xpYjVJT2Fjbys2UTErdVZ1d1pGaWJEcE90VFR6WDlicnNQ?=
- =?utf-8?B?QVFIc29IRnFoa3dvbWNuT1FvaUpJcEd5THRqSHVwWFlVWlJnODZmampoVWFZ?=
- =?utf-8?B?Wng2eDdlRXdxN3gzU1R6TVJPcDR2RVUvaExBZXdzclpoRDZPU2NrRGExRWRn?=
- =?utf-8?B?MEdBZi9QTlh2RkpnT2pwTEtUZzlYNmpoa1VmM0JiZ3FSVlN0SkI0cSs3MUN2?=
- =?utf-8?B?VGhORlgzZUx4U1NJOW1kSFpYSVRvLzNMZW4yZ3UzOVNYNkdsSjhHb1IvL0hB?=
- =?utf-8?B?Z3ZFZ2lXY2FlejRhN2FlZ05yb2JPUVdMMXlicUFWcDBHMnhrbzREUFRCWWNY?=
- =?utf-8?B?WWk0RUhiKzJ1SUFQRktFczMxQk10RWJzNVpjSW5JZ2dvODQ2a1ZXSTd3dStx?=
- =?utf-8?B?Z0FWOS9qM2R4NVkyc2pFTHlMV2hzLzlsZ2E1SUZxcVB4ZHh2N1d4dXJkL0pE?=
- =?utf-8?B?VFlpYlBTbDdNZE5HU0czQUlXRnJLTGNDQ044TjZXdnBjbEZWemU4SGJLcytp?=
- =?utf-8?B?K3hKSVQ5Zlh3VmpySVBCcmQ3WDVNRWRSUnh5S3NvTlAxOFgrZHdScEJ2NUFX?=
- =?utf-8?B?cGFxMkY2eE1vT2xGclF0L2ZndjJqdTkwZGY2SXNXV3VMcHZMdXhMNkZqSEJO?=
- =?utf-8?B?cEFWb2JKaFhtT1Z0L21uLzkrbzhMYVYzV3lOY3RZUWV4OEhtUzBuQkhKcUI1?=
- =?utf-8?B?RWloZXJrcEJWempITll3ZGowSFVRU3p0VlZXQVUweVludWxwcTV0ekpuWFRt?=
- =?utf-8?B?R3JtK0IwaUh5ZE9NMTBkTm0rQXNnVzQwZFlxQkJxN2VmcHVUOFUxS2Y5cTky?=
- =?utf-8?B?YngwZThJdWVORmlOek8vWGVpejNHNnZ6TnpPK2ZVOFJTVWVOSmtHZDQxREtI?=
- =?utf-8?B?K3FyTEpwQjhmdU9YaHNNclBNK0QzVVNhZDExTkpDbTZHUXN2MHZrQWgzZVRx?=
- =?utf-8?B?QUN5b1U5bUpmVHZuQjl1NE9FS2tvQkNHQjBiR2t0L2FYOWtUWnU3RkJGQkJ3?=
- =?utf-8?B?QkRWbVgrMWVPS2M1Y1RkL0p5WWNDVDQ5OU03cmJsaStQZjlCWTRYQWcyVEtO?=
- =?utf-8?B?b2Z3bk4wQWZJMWRSeC9PMXVvM0RLdXhIaXBLeGpUT29QRkE5UDFvS0YzbHBs?=
- =?utf-8?B?N3c9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05fbc504-b44e-4a10-a5a2-08ddb5952496
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 16:10:32.6588
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KmFayoARmmGnDCrzzg1RODNAFrptoXNZY7m4xsoG3tWMDLYK3GOuQX0378C6oHde4Jnfc4qLhrQhzqnz7Sq54tUQH8FZKHRetCnBq92L+Yc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7493
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_091055_534318_E634F0B9 
-X-CRM114-Status: GOOD (  13.69  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613134817.681832-19-herve.codina@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,42 +107,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
-
-On 6/27/25 5:16 PM, Diederik de Haas wrote:
-> The #address-cells and #size-cells properties are not useful on the DSI
-> controller nodes; they are only useful/required on ports and panel(s).
-> So remove them from the controller node and add them where actually
-> needed on the various rk3399 based boards.
+On Fri, Jun 13, 2025 at 03:47:58PM +0200, Herve Codina wrote:
+> PCI drivers can use a device-tree overlay to describe the hardware
+> available on the PCI board. This is the case, for instance, of the
+> LAN966x PCI device driver.
 > 
-> Next to that, there were several (exact) redefinitions of nodes which
-> are already present in rk3399-base.dtsi to add a mipi_out endpoint.
-> Simplify that by referencing the mipi_out phandle and add the endpoint
-> to that, which allows the removeal of the ports redefinition.
+> Adding some more nodes in the device-tree overlay adds some more
+> consumer/supplier relationship between devices instantiated from this
+> overlay.
 > 
-> And fix 1 instance where the mipi_out referenced node was not sorted
-> correctly.
+> Those fw_node consumer/supplier relationships are handled by fw_devlink
+> and are created based on the device-tree parsing done by the
+> of_fwnode_add_links() function.
 > 
-> This fixes the following DTB validation warnings:
+> Those consumer/supplier links are needed in order to ensure a correct PM
+> runtime management and a correct removal order between devices.
 > 
->    unnecessary #address-cells/#size-cells without "ranges",
->    "dma-ranges" or child "reg" property
+> For instance, without those links a supplier can be removed before its
+> consumers is removed leading to all kind of issue if this consumer still
+> want the use the already removed supplier.
 > 
+> The support for the usage of an overlay from a PCI driver has been added
+> on x86 systems in commit 1f340724419ed ("PCI: of: Create device tree PCI
+> host bridge node").
+> 
+> In the past, support for fw_devlink on x86 had been tried but this
+> support has been removed in commit 4a48b66b3f52 ("of: property: Disable
+> fw_devlink DT support for X86"). Indeed, this support was breaking some
+> x86 systems such as OLPC system and the regression was reported in [0].
+> 
+> Instead of disabling this support for all x86 system, a first approach
+> would be to use a finer grain and disable this support only for the
+> possible problematic subset of x86 systems (at least OLPC and CE4100).
+> 
+> This first approach could still leads to issues. Indeed, the list of
+> possible problematic system and the way to identify them using Kconfig
+> symbols is not well defined and so some system can be missed leading to
+> kernel regressions on those missing systems.
+> 
+> Use an other way and enable the support on x86 system only when this
+> support is needed by some specific feature. The usage of a device-tree
+> overlay by a PCI driver and thus the creation of PCI device-tree nodes
+> is a feature that needs it.
+> 
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> Link: https://lore.kernel.org/lkml/3c1f2473-92ad-bfc4-258e-a5a08ad73dd0@web.de/ [0]
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+>  drivers/of/property.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/of/property.c b/drivers/of/property.c
+> index c1feb631e383..8b5cfee696e2 100644
+> --- a/drivers/of/property.c
+> +++ b/drivers/of/property.c
+> @@ -1605,7 +1605,7 @@ static int of_fwnode_add_links(struct fwnode_handle *fwnode)
+>  	const struct property *p;
+>  	struct device_node *con_np = to_of_node(fwnode);
+>  
+> -	if (IS_ENABLED(CONFIG_X86))
+> +	if (IS_ENABLED(CONFIG_X86) && !IS_ENABLED(CONFIG_PCI_DYNAMIC_OF_NODES))
 
-Too many unrelated changes in this commit, please split into multiple 
-commits.
+I really want CONFIG_PCI_DYNAMIC_OF_NODES to go away at some point, not 
+add more users. 
 
-I could identify:
+I think this should instead check for specific platforms not with 
+kconfig symbols but DT properties. For ce4100, you can just check the 
+root compatible string. For OLPC, there isn't a root compatible (in the 
+DT I have). You could check for /architecture == OLPC instead. There's 
+some virtualization guests using DT now too. I would think their DT's 
+are simple enough to avoid any fw_devlink issues. 
 
-- moving address-cells/size-cells from SoC.dtsi to board dts(i)s,
-- reordering properties to better match DT coding style 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
-- use phandle to directly access ports,
-- reorder DT node to better match DT coding style 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-nodes
+Alternatively, we could perhaps make x86 fw_devlink default off and then 
+enable it only when you create nodes. Maybe it has to be restricted a 
+sub tree of the DT to avoid any later interactions if devices are 
+unbound and rebound. Not a fully fleshed out idea...
 
-The change for RK3399 Puma Haikou Video Demo DTSO is fine for me.
-
-Cheers,
-Quentin
+Rob
 
