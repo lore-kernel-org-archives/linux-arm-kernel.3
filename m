@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A56C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E60DC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=wB0dMS6hivqSSBXtNM1k+cKaoQQFtES7HJcP+2+HrP8=; b=h2MluZKDlWcIrq
-	sKQn5s72E8QGdMlxSc2ViSPf/Az+cv4+OmaZjYMXDbQZoOs5RLmWFIR19nYaCplf6TZ1ICt2JM0MA
-	p8zKww0hASuq5TAQboIOCvO3+6UNrrSfie7AI0YtHSkiPB8H2V2AReRrtvTwt0F+0fOq4xcfwmVzV
-	PeQPFJk3tqZyyoN9as4m8IiTIhqdIsEP22M1CvFtfQtWcrD8IWMSVUJwlFusoUUsiqgha5jyuPu0W
-	A1pw2SIEUaRsBX5tT4SfCH6w42z+gGaMI98FtzbRzldahcKr9DDkg0+kaIC+469sR9GNHFv64hPqr
-	kILWNF7mesf/LSa+HDuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rdkAZ3p6D6lBfUwva3t5elmKHumyy6ulOxZGeXH8/oU=; b=rMPl8lXMAlqSnA2rEGbgnlXBqT
+	xNPp9wtcC1Icg28P3TZWJsIYHhLNO8Od9zHXAFKGd+W+gB9Eqq2+LrR6xGcc4cxXVIZ6jbHYy1vgV
+	ME+SY5VggwQE927/PAzn9n+Txj63YyM0QsECFeW6LEuq/k/mvOjEOIhVVPu6/Bwh8MzgXwVWMNRa/
+	bMh/iHAWuSnuBGBZy9uyF9LRwVL0nJS0FSyfWZRm2Oq7zebvWzFkeBSwg4cKcdnLFKv5jO0k1ya1i
+	rRXsOnHhBmb/OMTPbanfBvRLHXRy+/+JWS5+eOBXEqtxR6bfmQc5dbUIwiBmng9Y9t7N4jendqOM7
+	Sv+RqQcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCzB-0000000FQDN-2Y8K;
-	Fri, 27 Jun 2025 17:35:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBxS-0000000FH0J-0Ulx;
-	Fri, 27 Jun 2025 16:29:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E62195C6A1C;
-	Fri, 27 Jun 2025 16:29:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E870C4CEE3;
-	Fri, 27 Jun 2025 16:29:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751041784;
-	bh=zGKvNo/acvnr6nPN7Y6LvVuEW7FCaqjPXAJFWM3JHYE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=VCOx8pfqLEBsRP84PkmQ7ME8WzQwuJ14UPKXVs03rIDyqqzmdYRWD2tC5c0WWUoJH
-	 tcmwzY9NtBtXGEOrix6+x3ZzPkjx4EszreKqaFyKrBcqakmcJMV5a10ECJG8HUFT5j
-	 rFYqwFHfV+qMZbhcfFz45LTUgND4uaC4l3tYjEZ+ZgOCqwnrguARfZUS5nKSg42F3M
-	 XIfUebBDXZz5nbGNVtzxE+9KGOlkBl2idjn9ttMnnMwMzPCNYBU/qMZec4M2TY8qSc
-	 yEY12JJ+C9snuifaU2uy0ia6yfFHVSFiJI6jKF5Fwbuc+jqx13GeuGYuX8DV1G6ldE
-	 uDg3dxdJWSh4A==
-Date: Fri, 27 Jun 2025 11:29:43 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	id 1uVD1S-0000000FQOX-2ViK;
+	Fri, 27 Jun 2025 17:37:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uVByQ-0000000FHFN-1qwy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 16:30:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B0A91A00;
+	Fri, 27 Jun 2025 09:30:28 -0700 (PDT)
+Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 207E03F58B;
+	Fri, 27 Jun 2025 09:30:43 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-fsd@tesla.com,
-	manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org,
-	arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com,
-	pankaj.dubey@samsung.com
-Subject: Re: [PATCH v2 06/10] dt-bindings: PCI: Add bindings support for
- Tesla FSD SoC
-Message-ID: <20250627162943.GA1672296@bhelgaas>
+	linux-perf-users@vger.kernel.org
+Cc: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v3] perf: arm_spe: Relax period restriction
+Date: Fri, 27 Jun 2025 17:30:28 +0100
+Message-Id: <20250627163028.3503122-1-leo.yan@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250625165229.3458-7-shradha.t@samsung.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_092946_197149_88752F11 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250627_093046_518507_D03C968C 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +64,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 10:22:25PM +0530, Shradha Todi wrote:
-> Document the PCIe controller device tree bindings for Tesla FSD
-> SoC for both RC and EP.
+The minimum interval specified the PMSIDR_EL1.Interval field is a
+hardware recommendation. However, this value is set by hardware designer
+before the production. It is not actual hardware limitation but tools
+currently have no way to test shorter periods.
 
-> +++ b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
+This change relaxes the limitation by allowing any non-zero periods,
+with simplifying code with clamp_t().
 
-> -  clocks:
-> -    items:
-> -      - description: PCIe bridge clock
-> -      - description: PCIe bus clock
+The downside is that small periods may increase the risk of AUX ring
+buffer overruns. When an overrun occurs, the perf core layer will
+trigger an irq work to disable the event and wake up the tool in user
+space to read the trace data. After the tool finishes reading, it will
+re-enable the AUX event.
 
-> -  vdd10-supply:
-> -    description:
-> -      Phandle to a regulator that provides 1.0V power to the PCIe block.
-> -
-> -  vdd18-supply:
-> -    description:
-> -      Phandle to a regulator that provides 1.8V power to the PCIe block.
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
 
-> +            - description: pcie bridge clock
-> +            - description: pcie bus clock
+Changes from v2:
+- Updated comment for the difference between minimum interval
+  recommendation and hardware limitation (Anshuman).
+- Refactored with clamp_t().
+- Removed review tag as the refactoring.
 
-Gratuitous "PCIe" capitalization changes here and in supplies below.
-This is just plain English text so we can use English conventions.
+ drivers/perf/arm_spe_pmu.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-> +        vdd10-supply:
-> +          description:
-> +            phandle to a regulator that provides 1.0v power to the pcie block.
-> +
-> +        vdd18-supply:
-> +          description:
-> +            phandle to a regulator that provides 1.8v power to the pcie block.
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 3efed8839a4e..369e77ad5f13 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -308,17 +308,21 @@ static u64 arm_spe_event_to_pmscr(struct perf_event *event)
+ 
+ static void arm_spe_event_sanitise_period(struct perf_event *event)
+ {
+-	struct arm_spe_pmu *spe_pmu = to_spe_pmu(event->pmu);
+ 	u64 period = event->hw.sample_period;
+ 	u64 max_period = PMSIRR_EL1_INTERVAL_MASK;
+ 
+-	if (period < spe_pmu->min_period)
+-		period = spe_pmu->min_period;
+-	else if (period > max_period)
+-		period = max_period;
+-	else
+-		period &= max_period;
++	/*
++	 * The PMSIDR_EL1.Interval field (stored in spe_pmu->min_period) is a
++	 * recommendation for the minimum interval, not a hardware limitation.
++	 *
++	 * According to the Arm ARM (DDI 0487 L.a), section D24.7.12 PMSIRR_EL1,
++	 * Sampling Interval Reload Register, the INTERVAL field (bits [31:8])
++	 * states: "Software must set this to a nonzero value". Use 1 as the
++	 * minimum value.
++	 */
++	u64 min_period = FIELD_PREP(PMSIRR_EL1_INTERVAL_MASK, 1);
+ 
++	period = clamp_t(u64, period, min_period, max_period) & max_period;
+ 	event->hw.sample_period = period;
+ }
+ 
+-- 
+2.34.1
 
-I *would* be OK if you dropped the periods at the end of these, which
-would make them match the other descriptions in this binding.
-
-> +++ b/Documentation/devicetree/bindings/pci/tesla,fsd-pcie-ep.yaml
-
-I'm not sure about the "tesla,fsd-pcie-ep.yaml" filename.  I see that
-it currently only describes a tesla endpoint, but it seems like maybe
-this should be parallel to the "samsung,exynos-pcie.yaml" host
-controller binding.
-
-Bjorn
 
