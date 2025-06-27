@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B467AC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965D0C7EE3A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TVvAK7b3Zpgjze3EOECMmyaomGUOJszYV73LMM3I2ns=; b=ZQMgmC5km72lfiNNqjg9t83W+D
-	UK5hoNwW7crJEKBysnTp+5xkEj7FUQ4PFzFqPDDrBz9dWmqyuAnzPXuRucQd3HBBY3awOZ5ByVHmD
-	kj8y8616FFEb9rf6/IhTwV5Ffaw94y1mbKaMBDLEUyhI3vWPEpuZ/ak1W/fafVIM7gRxYCi5CnIIU
-	OLo2fyMUzwr+4UpJ3WfW7+skEVc2+UIiyRMf+X0TQ9qT59ib9qNYZ3vrzkGT+m+f0GXPfUa54jvoc
-	aD47dYmrhn0za+7Z/808soNA88axYNDjxrRELkz/40k8Qhgdo78wDE0KoDG8nl0lsek/7aV1e7SUg
-	KmgJDKJw==;
+	bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=; b=vLrc5yQzuawf7P1LftxEyld2F1
+	wdvdBg8zvg1Mn49iIdmvpTDxqWzYw7svDPqdMJF/y9CS8jIdu0RvbTsFHUvi1Oh7X+ZbEsybTR5zs
+	+aWv2FwBgZfgaC0ima4oRhz8ittcoa5+Cmyga+MswbUL8dpAmq2Ts4PYf113KUwGAiy4Fr7BqVAMU
+	3Uz/CrQvUEW3i8Ye+A1Y/poh7hJ4mOY5L6b++Qv4byeN2mCzRtIppuAkvcdrG1BSY3lzwCjNi7Lld
+	w2nz7V0kfxVl7lWRYBHUjEQ54OFPSK53wsaMDSx34/1b3g1onobje5XV/4c9OzVKxB5GiBRrXzp/s
+	hlQ+7jig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8dl-0000000Ehkb-2LcK;
-	Fri, 27 Jun 2025 12:57:13 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uV8g4-0000000Ei6J-1E6Y;
+	Fri, 27 Jun 2025 12:59:36 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV7vQ-0000000EbX6-1z56;
-	Fri, 27 Jun 2025 12:11:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751026271; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cb17DRa+OxjLrwffY5Uj3xYEaiaGmne6sU848NVhVV1eQ3rhc537meq1Vmf6aIAVEs8nNK8x3A1ar3Hw3mvWcMTg25AROWNwkRtKrwkMSTtLzkf0NYz4C4bcsQ6p0iTYFhLxAOOH9LHep9vUB1XeWUPW7zCH9CsvkOEGNlDgUV8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751026271; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=TVvAK7b3Zpgjze3EOECMmyaomGUOJszYV73LMM3I2ns=; 
-	b=WA0HZvOONA5TpwnslXEz/Tkkc9MDxU6c2rMp/t+aX6OQWc9kMV25X+fdRg05rlxhvNGd8BHJ1ootFnV7okW034JUgGXTxOYiyuZLWDTgusN11QiY9FC+5Vtfgao88aS34shPiw5TKTH+blnhk0F3AOoAh4DW7B4dfpBFHtgT3eo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751026271;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=TVvAK7b3Zpgjze3EOECMmyaomGUOJszYV73LMM3I2ns=;
-	b=ctkqGwwlGpULEtLxxvVc8Kv7Mc/irU8SYUzepCakFCtCNMUKyZCUc1/g8YLkXn4j
-	R6RXe3YzTCP7wA8OKF1WFVZ2kNzFzNc9pzEPJHBynaIVMNJoiZHxNoGSBPYPx9ZJxb9
-	LRiqAZkXcSwurY/h1sJcEwPlW07qbKyZXG6gXr40=
-Received: by mx.zohomail.com with SMTPS id 1751026269193941.7172522916828;
-	Fri, 27 Jun 2025 05:11:09 -0700 (PDT)
-Message-ID: <903b8ec6ab8527e680b43dc7cb8aa7066a555247.camel@collabora.com>
-Subject: Re: [PATCH v2] arm64: defconfig: enable further Rockchip platform
- drivers
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Heiko Stuebner
-	 <heiko@sntech.de>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	 <will@kernel.org>
-Cc: kernel@collabora.com, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 27 Jun 2025 08:11:06 -0400
-In-Reply-To: <20250626-rk3588-defconfig-v2-1-ae6720964b01@collabora.com>
-References: <20250626-rk3588-defconfig-v2-1-ae6720964b01@collabora.com>
+	id 1uV7zq-0000000EcM8-0xiT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 12:15:59 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4538a2fc7ffso13208525e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:15:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751026557; x=1751631357; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=;
+        b=BtoY9CmKzOVW4Y/W/sFJfOl/ubsySf6scFulQkcANV4/2YDlFp378dEBQH2nA7/Xt1
+         plg7puXQiqq3p8W1annbri4FoujU5iBsIDIN1FEOUxnalmrTYPy/3fCOc3rf37f9V6P0
+         c4X/w/x4ZoLhQE2TUbVPYqMz1eiOjD6IQiwUU+afWj16wGZWZAx2dPXDolxY7q+pP9TN
+         CQoOoLva3RfwxJm15OKqJO5B5r6cSRUpeyZ/3ntzLYKyVPgFd0ApX8l+OAc7xX79TdB0
+         /ImmwNiKbKXo+NHtpc+V7PVEIbp9iYXHMXhwCwsdZtlXqK0kCd5HLE5zA+MOxokRwQR+
+         yBsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751026557; x=1751631357;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5bnO/bwKwvz0W9dml3PFN0tff+1CpXP9/A1In0KM8MU=;
+        b=bY+8zBTG8d5vJeLJ2cPagaZXrn9YJG1G8r+f0mXwUc+6OWaUTSuDTkwTYYaPScBxLA
+         YPRqx6Vns24ASNZOxNK+SYNdALrTnfahPJvs2u5kt6fJ9uHrKithNvXgDFxq2Mmc8+ag
+         MQiouZbS08z6ryMyMG4vHPss296765K0DxqbPR2qBunYPy3Gfbl5ylc3UnLJQB5pC/ar
+         Sm19sl7QRVmgR8dvxSCnabN20O3zG48o4LdERMgpLGHfceououJm96U4d6F8hhjG51pO
+         Fpk2Yyuw2DiFLq5MGVdWGVeV+vYOYTybCZTUrx+ieDEnyBtlVo460hi3n5x9ZWjr2K0o
+         gNRA==
+X-Forwarded-Encrypted: i=1; AJvYcCWKwrx+9+oMbW2eOAB7ZhwrVzLg7CqiY1/eg+AYpU/KavmVXpnOCT09hbe/oTDvZPQxgbFIV4iHK5bFiTGTdBrm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYEIl+zK7Ho+GGaSytSoAuT9Bbrrl/4CHVrOb+BGI6PegknTmY
+	0WJbTRyFVZ6XtZWKMRM74i3bASZLm7+XCos8wE4rtT2ll1SmsK4CK/r5WXucMMux6pA=
+X-Gm-Gg: ASbGncsGOX0N3Gyxg3lMNWaq89Y4tTEgjO7KK2PMgfGcwj91J6NP278qOMiu7TfyqHW
+	XC6TG/lIsLKJHCouyNeGcLE6/586dJTgCsttF28vTj7yxKnbWOy46OWUy7k3ujSfFKYkQJacZfO
+	SInpOAGhXakTrn6al0nPBuG0AmEfC7O5DD4eHG02Btm8Ad0C14so37vS0y+HYVOQmoWpdn7GF17
+	65R1S3xKdfM6bMty1sn0x+605tT7Mf8jcsijKiXI33dBg1v/uycnNQGPVNRfjT50JgntRh4L4Ru
+	kD2r6z3FpCgH56KsewsvieN5dyIKojC14iUOlfBBz4gCOOMj9/ug52kuxqdeSTyvshw=
+X-Google-Smtp-Source: AGHT+IEQFM3pQCiRU5lNSKxbqFCgvUVf7e/LcmOK+L4hhlaL9cMKkmMb9g/3CGCF3L4wxugIwNImYA==
+X-Received: by 2002:a05:6000:40d9:b0:3a4:cec5:b59c with SMTP id ffacd0b85a97d-3a6f3162238mr7238080f8f.25.1751026556678;
+        Fri, 27 Jun 2025 05:15:56 -0700 (PDT)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a4076ebsm48177435e9.31.2025.06.27.05.15.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jun 2025 05:15:56 -0700 (PDT)
+Message-ID: <ba42a719df8dfb74406336e8adb80b5286bd6fbc.camel@linaro.org>
+Subject: Re: [PATCH v4 02/32] dt-bindings: clock: samsung,s2mps11: add
+ s2mpg10
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
+ Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
+ Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org
+Date: Fri, 27 Jun 2025 13:15:54 +0100
+In-Reply-To: <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
+References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
+	 <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_051124_544937_405FDE14 
-X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-CacheID: sfid-20250627_051558_272720_EA48D250 
+X-CRM114-Status: UNSURE (   9.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,25 +111,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-06-26 at 22:41 +0200, Nicolas Frattaroli wrote:
-> Enable the rockchip-dfi driver as a module, which is used on RK3588
-> as
-> well as RK3568 and RK3399 to measure memory bandwidth. For this, we
-> also
-> enable PM_DEVFREQ_EVENT, which is a requirement for this driver.
+On Wed, 2025-04-09 at 21:37 +0100, Andr=C3=A9 Draszik wrote:
+> The Samsung S2MPG10 clock controller is similar to the existing clock
+> controllers supported by this binding. Register offsets / layout are
+> slightly different, so it needs its own compatible.
 >=20
-> Also enable the rockchip-rga driver as a module, which is used on
-> various Rockchip SoCs, including RK3588 and RK3399, to provide 2d
-> accelerated image transformations through a V4L2 interface.
->=20
-> Suggested-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Acked-by: Stephen Boyd <sboyd@kernel.org>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
-Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+Friendly ping.
 
-
---=20
-Thanks,
-
-N=C3=ADcolas
+Cheers,
+Andre'
 
