@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F346C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27003C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJLsP3FGX+/FtggvbC9ctuA5MpseUu51ppjPRhxm1ME=; b=rKsXQ5c88Jf2X3tsbpDJR+ievZ
-	4XPU/DIEk/LtIywS1rJ9neQX8yO31JviJqResKBn7UX5GK7AVxcr1nD+GicGRPmiolWuNfoUsKKTW
-	FZ8Ic5d7ZcLuI7PL9jeHWLY8uxsW9bI244+sK5PXiJDSRc/3R+50vBHJhysCf2rOk/Fu4gXG1mnhF
-	LYAwoWskSnJcpAeKL2ts9NLWEPwI7kecOA7qw8sP3ukirgOsdP3/aHwUt3lVTXi1ZYdZId4gyEiWr
-	WfkOnt9nG/bIPmNnqkFaJJw7xFvb1WFEU4+m4nDkjxAg0vC7qxex8NY2w8v9464BvQFs/KL65JJwT
-	+7k09XpQ==;
+	bh=peSnTAENBHncQdjmouksOfzyd8lcxOaAnXt51y7tTSc=; b=ZYs0LM7r9AXNhqEvtdTM/5oS4Y
+	Qgz/sbxLzCyw83d0dBgfSaMEsMQ7x1EK4rmOkTS/8GyWOp6zIuoYQglan3o0p/SrQx6MDLLgBqOYL
+	eebbJI9w2Qby74IoTawzP1c67qn1LV8WkNOwnNs7SRhe+JD5FovmKtC+zs8pu0SFZgNbdNEnFP34G
+	2d4HAEYmTXv9h2x3/Hcw/c/2bpOgNP4tDwDHwiI4HAjhMmPFDiX1yUqzuYNsc4BYS67QCsIXZA3Bq
+	bc0vfVv9JUT0XFyxq2nm8k8cx4ZeOb/Bzm11hqluDeojiI5UXYPnnul2nUHSz5Ry2DYVKd4p+RP4V
+	zmE5uROg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCjF-0000000FOC8-0uHM;
-	Fri, 27 Jun 2025 17:19:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uVClW-0000000FOcq-1pGx;
+	Fri, 27 Jun 2025 17:21:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBTL-0000000FCAy-3PqC
+	id 1uVBGF-0000000F9Na-0oiu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:58:39 +0000
+	Fri, 27 Jun 2025 15:45:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E02636111F;
-	Fri, 27 Jun 2025 15:58:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D7B3C4CEE3;
-	Fri, 27 Jun 2025 15:58:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7E1C0A52FAA;
+	Fri, 27 Jun 2025 15:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA65C4CEE3;
+	Fri, 27 Jun 2025 15:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751039918;
-	bh=tBv0zN4w3fBWkY/nFOn0k+IhVxh6OQEYPfuuw9vKCvk=;
+	s=k20201202; t=1751039106;
+	bh=pFu84L6q1kuh6bFLp7kCuJQ3lXRLskEyHTwuPUWFHdg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b4tJ94JZTjGfbHmZDMM8bIuOky0BWZylZfr+Z7v8HXEL7evqfsEWw1BgYoEYnFfpX
-	 SdKj4hkTwOEnNMp6O4y/hMVwX+Tk/9SY3kG6RNby6zDETioc5MDSawDH9+LcaRgrsG
-	 Pz3RCeX3aRYkjYStdMtyjYME4zWrNpS+iykXmBun6VP+XXrF6ivxSzv5WeRN87gV/M
-	 HLSMkb13vj/LZuOP9gKQN4koUKfveUcJGZoe0jAWfkjC9sE+Y1rfFm+XLyHfVaaSV5
-	 SQAYvDPy3PQkLshJCnEyhDpwGRkyX80rd1xx5d7Iwju+Cm+YcCtjz9Kx4UzxQ1xIYx
-	 RCWGTryFzxJ0Q==
-Date: Fri, 27 Jun 2025 10:58:37 -0500
-From: Rob Herring <robh@kernel.org>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v3 00/28] lan966x pci device: Add support for SFPs
-Message-ID: <20250627155837.GC3234475-robh@kernel.org>
-References: <20250613134817.681832-1-herve.codina@bootlin.com>
+	b=TPxNRJlr4p5zBjLmhIY+RtP2eV2qqlCOfXcgNTt8l/rZUvcBwz8mCguUQXnIxy3tx
+	 ghu2VNNdDPeWAGNhSQGpL3TsK9S35uvM5buS4IjqIfCI+hBgqgKaqSPvAm3JFcdNFe
+	 j0mqLfpk+tgmRTfJ39Py7g39n98ssaN1IQzy/5Y0FyqR6rRgPzZype4UKC23fiJqzT
+	 ASNczrkzR1YtptOdhIefAyqAo5lpx3BbcFaLg98aoF6wgxkSecfmWibXu8yLISs3Gt
+	 h06PQ3c0EKttL51eX5pY72YUVQcXI62JVUM42o0s/1s++ADvn5Mqw9Pa/vUe7MHo59
+	 lfoOGFqHksmTA==
+Date: Fri, 27 Jun 2025 16:45:02 +0100
+From: Will Deacon <will@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Luis Claudio R . Goncalves" <lgoncalv@redhat.com>
+Subject: Re: [PATCH v4 02/13] arm64: refactor aarch32_break_handler()
+Message-ID: <aF68fmViXqlrU0Eg@willie-the-truck>
+References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
+ <20250620211207.773980-3-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
+In-Reply-To: <20250620211207.773980-3-ada.coupriediaz@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_084507_307996_8F33B5BB 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 03:47:40PM +0200, Herve Codina wrote:
-> Hi,
+On Fri, Jun 20, 2025 at 10:11:56PM +0100, Ada Couprie Diaz wrote:
+> `aarch32_break_handler()` is called in `do_el0_undef()` when we
+> are trying to handle an exception whose Exception Syndrome is unknown.
+> It checks if the instruction hit might be a 32-bit arm break (be it
+> A32 or T2), and sends a SIGTRAP to userspace if it is so that it can
+> be handled.
 > 
-> This series add support for SFPs ports available on the LAN966x PCI
-> device. In order to have the SFPs supported, additional devices are
-> needed such as clock controller and I2C.
+> However, this is badly represented in the naming of the function, and
+> is not consistent with the other functions called with the same logic
+> in `do_el0_undef()`.
 > 
-> As a reminder, the LAN966x PCI device driver use a device-tree overlay
-> to describe devices available on the PCI board. Adding support for SFPs
-> ports consists in adding more devices in the already existing
-> device-tree overlay.
+> Rename it `try_handle_aarch32_break()` and change the return value to
+> a boolean to align with the logic of the other tentative handlers in
+> `do_el0_undef()`, the previous error code being ignored anyway.
 > 
-> With those devices added, the device-tree overlay is more complex and
-> some consumer/supplier relationship are needed in order to remove
-> devices in correct order when the LAN966x PCI driver is removed.
-> 
-> Those links are typically provided by fw_devlink and we faced some
-> issues with fw_devlink and overlays.
-> 
-> This series gives the big picture related to the SFPs support from
-> fixing issues to adding new devices. Of course, it can be split if
-> needed.
-> 
-> The first part of the series (patch 1, 2 and 3) fixes fw_devlink when it
-> is used with overlay. Patches 1 and 3 were previously sent by Saravana
-> [0]. I just rebased them on top of v6.15-rc1 and added patch 2 in order
-> to take into account feedback received on the series sent by Saravana.
-> 
-> Those modification were not sufficient in our case and so, on top of
-> that, patch 4 and 5 fix some more issues related to fw_devlink.
-> 
-> Patches 6 to 12 introduce and use fw_devlink_set_device() in already
-> existing code.
-> 
-> Patches 13 and 14 are related also to fw_devlink but specific to PCI and
-> the device-tree nodes created during enumeration.
-> 
-> Patches 15, 15 and 17 are related fw_devlink too but specific to I2C
-> muxes. Patches purpose is to correctly set a link between an adapter
-> supplier and its consumer. Indeed, an i2c mux adapter's parent is not
-> the i2c mux supplier but the adapter the i2c mux is connected to. Adding
-> a new link between the adapter supplier involved when i2c muxes are used
-> avoid a freeze observed during device removal.
-> 
-> Patch 18 adds support for fw_delink on x86. fw_devlink is needed to have
-> the consumer/supplier relationship between devices in order to ensure a
-> correct device removal order. Adding fw_devlink support for x86 has been
-> tried in the past but was reverted [1] because it broke some systems.
-> Instead of enabling fw_devlink on *all* x86 system or on *all* x86
-> system except on those where it leads to issue, enable it only on system
-> where it is needed.
-> 
-> Patches 19 and 20 allow to build clock and i2c controller used by the
-> LAN966x PCI device when the LAN966x PCI device is enabled.
-> 
-> Patches 21 to 25 are specific to the LAN966x. They touch the current
-> dtso, split it in dtsi/dtso files, rename the dtso and improve the
-> driver to allow easier support for other boards.
-> 
-> The next patch (patch 26) update the LAN966x device-tree overlay itself
-> to have the SPF ports and devices they depends on described.
-> 
-> The last two patches (patches 27 and 28) sort the existing drivers in
-> the needed driver list available in the Kconfig help and add new drivers
-> in this list keep the list up to date with the devices described in the
-> device-tree overlay.
-> 
-> Once again, this series gives the big picture and can be split if
-> needed. Let me know.
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> ---
+>  arch/arm64/include/asm/debug-monitors.h |  2 +-
+>  arch/arm64/kernel/debug-monitors.c      | 10 +++++-----
+>  arch/arm64/kernel/traps.c               |  2 +-
+>  3 files changed, 7 insertions(+), 7 deletions(-)
 
-Please suggest how you think this should get merged? There's 8 
-maintainer trees involved here. Some parts can be merged independently? 
-We need to spread over 2 cycles? Greg just takes it all?
+Reviewed-by: Will Deacon <will@kernel.org>
 
-Rob
+Will
 
