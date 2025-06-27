@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA14C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8740AC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=R2+kVPbXgl9AEYRzLrPo/voZe4EiBFt74eCL+IFcKvA=; b=rVqkZrvMCuvxws
-	VB5vX0m+S0Tj13OhCJRt6hJfCc4ejAjkoukMo5sZjkOdo2+ymoRWCnmh9p6ZUfxlFO6T3DRamcg+J
-	ejD2NVi9HS529PbZSsQEnqlI+N4K5R5u4en4TE0hkUjToYFJ+s/JsnoOHkhh1qsUgJjb0HoY8+Atk
-	XTYOcH8AAW+4IDpHCFmUVwFTl0b9O2NIN7KeW+Q3vPpAjrPh3epPRExbcfZ8+UqMeTGkQeuaYHQJe
-	ty6+UuGFnC2d2lZ/E9Ds5anFPJaRnds8KNGN5+r5K7Fmwv9yi3F+sxiSF+/u/tQfoid5F+wnxhGju
-	EVbh8QNy9PauP1UWPoUQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GMv8jC/Zuy3+/cScPG1XUX/zG6MHc436Qq/VxSEagdI=; b=tmT9ChDJ0BICmfF6XY4Ml4gA0l
+	MC0Dz0BeoaiEisYyK23x2KmIp7/SyoYSvzmEFAUjO3d2AXYoMBS/Wpx2XQoSV9NFctxFurnMlQh61
+	6OesM5/JpPuWJ/e0C/3zxiLPX8MLyxDZLxhUlEYsGuiRoqd856uN9MEMpNJIHg7R/vtSMDPyKZWX4
+	uenb/JA7Mx6hV6scD3vCuBMoot4RO1JOQ3b7ClMQDx/XoaVMAd+pyslowFSXYWzLbGRjP0G6UUahZ
+	vaakqDUGTVe03pCd8cQc+RjDpvjcGIY11mr0YKFMizrtXjyIatvbfGQtjHOovU0Krl4nz4V0G3Lwm
+	7+WjsgAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVF0P-0000000Fg8O-3nOR;
-	Fri, 27 Jun 2025 19:45:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uVF2h-0000000FgV9-0GX9;
+	Fri, 27 Jun 2025 19:47:23 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEmf-0000000Fdk5-07Xi;
-	Fri, 27 Jun 2025 19:30:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 389A7A52FB8;
-	Fri, 27 Jun 2025 19:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A284EC4CEE3;
-	Fri, 27 Jun 2025 19:30:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751052647;
-	bh=Ewt6x+TyLrnKWB9bcFNXn39ClBlBLwSs9oVDUkhN+5s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=RPazJm95MCXTQsAh4h8EI9hYme1woTQj/7GHQ1aNwZf1LH+YtE91kNPlux6ZUBXs3
-	 tmn7wLtMkotusbLg+Ipj1PXvDzK+Ih5zJaBq89DdFZX2y+yNquxaS3TzCfVg+rKSE3
-	 cMh1XG5uXx3I+902Br+hvx+hOoBs5W1oSuav0bvOYvWquAGXVszjNqV0DMxIEZ9lXi
-	 SQQ7PRmO6QpvO9Ghk+62IjRV130WaRg+4TzLphnxY5Me5G6m0eD5LpBqLnRjcjUarm
-	 7YwJrjnxNeExgej4gvKNBhNgFbCi1cSRqguatqAJKpKOcGCFTA+mrrk3dp/kpQtqS6
-	 i5SNPirztErfA==
-Date: Fri, 27 Jun 2025 14:30:46 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-fsd@tesla.com,
-	manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org,
-	arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com,
-	pankaj.dubey@samsung.com
-Subject: Re: [PATCH v2 09/10] PCI: exynos: Add support for Tesla FSD SoC
-Message-ID: <20250627193046.GA1673824@bhelgaas>
+	id 1uVEnk-0000000Fdyd-1cEM;
+	Fri, 27 Jun 2025 19:31:58 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uVEnR-000000003Fi-3XIT;
+	Fri, 27 Jun 2025 19:31:37 +0000
+Date: Fri, 27 Jun 2025 20:31:34 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [net-next PATCH 0/6] net: dsa: mt7530: modernize MIB handling +
+ fix
+Message-ID: <aF7xlqRLXlZu0DZr@makrotopia.org>
+References: <20250410163022.3695-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250625165229.3458-10-shradha.t@samsung.com>
+In-Reply-To: <20250410163022.3695-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_123049_193577_88EDF5DF 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20250627_123156_433675_ACC29017 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,159 +72,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 10:22:28PM +0530, Shradha Todi wrote:
-> Add host and endpoint controller driver support for FSD SoC.
+Hi Christian,
 
-> +++ b/drivers/pci/controller/dwc/pci-exynos.c
-> @@ -20,6 +20,8 @@
->  #include <linux/regulator/consumer.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/module.h>
-> +#include <linux/regmap.h>
-> +#include <linux/mfd/syscon.h>
+On Thu, Apr 10, 2025 at 06:30:08PM +0200, Christian Marangi wrote:
+> This small series modernize MIB handling for MT7530 and also
+> implement .get_stats64.
+> 
+> It was reported that kernel and Switch MIB desync in scenario where
+> a packet is forwarded from a port to another. In such case, the
+> forwarding is offloaded and the kernel is not aware of the
+> transmitted packet. To handle this, read the counter directly
+> from Switch registers.
+> 
+> Christian Marangi (6):
+>   net: dsa: mt7530: generalize read port stats logic
+>   net: dsa: mt7530: move pkt size and rx err MIB counter to rmon stats
+>     API
+>   net: dsa: mt7530: move pause MIB counter to eth_ctrl stats API
+>   net: dsa: mt7530: move pkt stats and err MIB counter to eth_mac stats
+>     API
+>   net: dsa: mt7530: move remaining MIB counter to define
+>   net: dsa: mt7530: implement .get_stats64
 
-The trend is to sort these alphabetically.  The last couple additions
-didn't observe this, but maybe these new ones could go a little
-farther up and make it more sorted rather than less?
+After this series being applied I see lockdep warnings every time
+the interface counters are being read on MT7531 connected via MDIO:
 
-> +#define FSD_PCIE_CXPL_DEBUG_00_31		0x2C8
+[  234.374708] BUG: sleeping function called from invalid context at kernel/locking/mutex.c:579
+[  234.383200] in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 3667, name: ifconfig
+[  234.391202] preempt_count: 1, expected: 0
+[  234.395226] INFO: lockdep is turned off.
+[  234.399150] CPU: 3 UID: 0 PID: 3667 Comm: ifconfig Tainted: G        W  O        6.16.0-rc1+ #0 NONE 
+[  234.399158] Tainted: [W]=WARN, [O]=OOT_MODULE
+[  234.399160] Hardware name: Bananapi BPI-R3 (DT)
+[  234.399162] Call trace:
+[  234.399165]  show_stack+0x28/0x78 (C)
+[  234.399179]  dump_stack_lvl+0x68/0x8c
+[  234.399184]  dump_stack+0x14/0x1c
+[  234.399188]  __might_resched+0x138/0x250
+[  234.399197]  __might_sleep+0x44/0x80
+[  234.399201]  __mutex_lock+0x4c/0x934
+[  234.399209]  mutex_lock_nested+0x20/0x28
+[  234.399215]  mt7530_get_stats64+0x40/0x2ac
+[  234.399222]  dsa_user_get_stats64+0x2c/0x40
+[  234.399229]  dev_get_stats+0x44/0x1e0
+[  234.399237]  dev_seq_printf_stats+0x24/0xe0
+[  234.399244]  dev_seq_show+0x14/0x40
+[  234.399248]  seq_read_iter+0x368/0x464
+[  234.399257]  seq_read+0xd0/0xfc
+[  234.399263]  proc_reg_read+0xa8/0xf0
+[  234.399268]  vfs_read+0x98/0x2b0
+[  234.399275]  ksys_read+0x54/0xdc
+[  234.399280]  __arm64_sys_read+0x18/0x20
+[  234.399286]  invoke_syscall.constprop.0+0x4c/0xd0
+[  234.399293]  do_el0_svc+0x3c/0xd0
+[  234.399298]  el0_svc+0x34/0xa0
+[  234.399303]  el0t_64_sync_handler+0x104/0x138
+[  234.399308]  el0t_64_sync+0x158/0x15c
 
-Existing #defines use lower-case hex; please follow suit.
+Note that this only shows with some lock debugging options being set
+and may not actually be a problem, but I believe it anyway should be
+fixed somehow.
 
-> +/* to store different SoC variants of Samsung */
-> +enum samsung_pcie_variants {
-> +	FSD,
-> +	EXYNOS_5433,
-> +};
+#
+# Lock Debugging (spinlocks, mutexes, etc...)
+#
+CONFIG_LOCK_DEBUGGING_SUPPORT=y
+CONFIG_PROVE_LOCKING=y
+CONFIG_PROVE_RAW_LOCK_NESTING=y
+# CONFIG_LOCK_STAT is not set
+CONFIG_DEBUG_RT_MUTEXES=y
+CONFIG_DEBUG_SPINLOCK=y
+CONFIG_DEBUG_MUTEXES=y
+CONFIG_DEBUG_WW_MUTEX_SLOWPATH=y
+CONFIG_DEBUG_RWSEMS=y
+CONFIG_DEBUG_LOCK_ALLOC=y
+CONFIG_LOCKDEP=y
+CONFIG_LOCKDEP_BITS=15
+CONFIG_LOCKDEP_CHAINS_BITS=16
+CONFIG_LOCKDEP_STACK_TRACE_BITS=19
+CONFIG_LOCKDEP_STACK_TRACE_HASH_BITS=14
+CONFIG_LOCKDEP_CIRCULAR_QUEUE_BITS=12
+# CONFIG_DEBUG_LOCKDEP is not set
+CONFIG_DEBUG_ATOMIC_SLEEP=y
+# CONFIG_DEBUG_LOCKING_API_SELFTESTS is not set
+# CONFIG_LOCK_TORTURE_TEST is not set
+# CONFIG_WW_MUTEX_SELFTEST is not set
+# CONFIG_SCF_TORTURE_TEST is not set
+# CONFIG_CSD_LOCK_WAIT_DEBUG is not set
+# end of Lock Debugging (spinlocks, mutexes, etc...)
 
->  struct samsung_pcie_pdata {
->  	struct pci_ops				*pci_ops;
->  	const struct dw_pcie_ops		*dwc_ops;
->  	const struct dw_pcie_host_ops		*host_ops;
-> +	const struct dw_pcie_ep_ops		*ep_ops;
->  	const struct samsung_res_ops		*res_ops;
-> +	unsigned int				soc_variant;
-> +	enum dw_pcie_device_mode		device_mode;
->  };
+CONFIG_TRACE_IRQFLAGS=y
+CONFIG_TRACE_IRQFLAGS_NMI=y
+# CONFIG_DEBUG_IRQFLAGS is not set
+CONFIG_STACKTRACE=y
+# CONFIG_WARN_ALL_UNSEEDED_RANDOM is not set
+# CONFIG_DEBUG_KOBJECT is not set
 
-> +static u32 fsd_pcie_read_dbi(struct dw_pcie *pci, void __iomem *base,
-> +				u32 reg, size_t size)
-> +{
-> +	void __iomem *addr;
-> +	u32 val;
-> +
-> +	addr = fsd_atu_setting(pci, base);
-> +
-> +	dw_pcie_read(addr + reg, size, &val);
-> +
-> +	return val;
 
-Remove blank lines to match style of fsd_pcie_write_dbi2().
+Cheers
 
-> +}
-> +
-> +static void fsd_pcie_write_dbi(struct dw_pcie *pci, void __iomem *base,
-> +				u32 reg, size_t size, u32 val)
-> +{
-> +	void __iomem *addr;
-> +
-> +	addr = fsd_atu_setting(pci, base);
-> +
-> +	dw_pcie_write(addr + reg, size, val);
 
-Ditto.
-
-> +}
-> +
-> +static void fsd_pcie_write_dbi2(struct dw_pcie *pci, void __iomem *base,
-> +				u32 reg, size_t size, u32 val)
-> +{
-> +	struct exynos_pcie *ep = to_exynos_pcie(pci);
-> +
-> +	fsd_atu_setting(pci, base);
-> +	dw_pcie_write(pci->dbi_base + reg, size, val);
-> +	regmap_write(ep->sysreg, ep->sysreg_offset, ADDR_TYPE_DBI);
-> +}
-
-> +static int fsd_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
-> +				 unsigned int type, u16 interrupt_num)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-> +
-> +	switch (type) {
-> +	case PCI_IRQ_INTX:
-> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
-> +	case PCI_IRQ_MSIX:
-> +		dev_err(pci->dev, "EP does not support MSIX\n");
-
-s/MSIX/MSI-X/ to match spec usage.
-
-> @@ -373,13 +617,43 @@ static int exynos_pcie_probe(struct platform_device *pdev)
->  		return ret;
->  
->  	platform_set_drvdata(pdev, ep);
-> -	ret = samsung_irq_init(ep, pdev);
-> -	if (ret)
-> -		goto fail_regulator;
-> -	ep->pci.pp.ops = pdata->host_ops;
-> -	ret = dw_pcie_host_init(&ep->pci.pp);
-> -	if (ret < 0)
-> +
-> +	if (pdata->res_ops->set_device_mode)
-> +		pdata->res_ops->set_device_mode(ep);
-> +
-> +	switch (ep->pdata->device_mode) {
-> +	case DW_PCIE_RC_TYPE:
-> +		ret = samsung_irq_init(ep, pdev);
-> +		if (ret)
-> +			goto fail_regulator;
-> +
-> +		ep->pci.pp.ops = pdata->host_ops;
-> +
-> +		ret = dw_pcie_host_init(&ep->pci.pp);
-> +		if (ret < 0)
-> +			goto fail_phy_init;
-> +
-> +		break;
-> +	case DW_PCIE_EP_TYPE:
-> +		phy_init(ep->phy);
-> +
-> +		ep->pci.ep.ops = pdata->ep_ops;
-> +
-> +		ret = dw_pcie_ep_init(&ep->pci.ep);
-> +		if (ret < 0)
-> +			goto fail_phy_init;
-> +
-> +		ret = dw_pcie_ep_init_registers(&ep->pci.ep);
-> +		if (ret)
-> +			goto fail_phy_init;
-> +
-> +		pci_epc_init_notify(ep->pci.ep.epc);
-> +
-> +		break;
-> +	default:
-> +		dev_err(dev, "invalid device type\n");
->  		goto fail_phy_init;
-> +	}
-
-This would be a little nicer if you added soc_variant and device_mode
-and the code that sets and tests them for exynos_5433 first in a
-separate patch.  Then it would be more obvious that the new FSD parts
-don't affect exynos_5433 since this patch would only be *adding*
-FSD-specific things.
-
->  static const struct samsung_pcie_pdata exynos_5433_pcie_rc_pdata = {
->  	.dwc_ops		= &exynos_dw_pcie_ops,
->  	.pci_ops		= &exynos_pci_ops,
->  	.host_ops		= &exynos_pcie_host_ops,
->  	.res_ops		= &exynos_res_ops_data,
-> +	.soc_variant		= EXYNOS_5433,
-> +	.device_mode		= DW_PCIE_RC_TYPE,
->  };
-
->  static const struct of_device_id exynos_pcie_of_match[] = {
-> @@ -449,6 +756,14 @@ static const struct of_device_id exynos_pcie_of_match[] = {
->  		.compatible = "samsung,exynos5433-pcie",
->  		.data = (void *) &exynos_5433_pcie_rc_pdata,
->  	},
+Daniel
 
