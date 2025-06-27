@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20877C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81660C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xak7x/UUYc67ZaQ3u0Ym00MBt+lJzOGsRvBX6FlL2fc=; b=jCgbadHufn7twa6UDyA/DqZnc4
-	PcXh/3/0a5cc8yXV1OT3Y+ihpzwhAi6a7RFxuKzNOuujRJaT77h1rxwdav9HChk3gzovMLV1ljBJl
-	c3ZfthBK0hQEe7aj55bo5Xap26Pcg1cVItyF1Ht1HSI5+8Jy7GZS+SNpWYkff3TrR78vw1seKjykN
-	Psq70ZZ/w2YhifZQCjoQUavpU0aaznkuVuvFvjH6ZyXASy0XPBd3MsoRx78AIK049JR/FdiWyD8iV
-	G0i3511GL8ohif6ISJnR128oXDRPDtIByyDg2LqtFZQSlRTIGVeOLjl2yW7V7bdM/j2D4yOy8ERcY
-	IfWfC1Xg==;
+	bh=fQS9pAbi0R1zZSxpnVhJy05NkOiQth/NVIsEq+XayXA=; b=hnB0ZtnAvIuxBeZsfNMVwet1H3
+	FCiGF4iZ/dKal0+r6bTjA+oPnS+TULrObHvjZoDMvAq+PaBNzONQZ4wx82ZdOSLnkL+p5pqpqujK7
+	mVZY3d5Uq9dxFE+gM5aQ6D20DNXj/rAxVo5KqOHgV7qwlDYXJyddHCLCVmY4MOoE+9kM2AA1A2mXv
+	TSg/s02AvQjGBH2ALNGPi9NpbHjXBlsBRWZL9K0qApAkFxJHkAW3mi/S5vbvZ97FO67xTX4QG2bdj
+	7QxM3sSf2QuvL2WdWplPBdE7IzaJgt65eDeNBSbg981bVBRhVCT4mrmswJBpItoFNx/Za0E4l36vQ
+	gVd5/2rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8Nm-0000000EfM9-0AEu;
-	Fri, 27 Jun 2025 12:40:42 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uV8Q3-0000000EfWp-3AFf;
+	Fri, 27 Jun 2025 12:43:03 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV7ua-0000000EbM6-2gk2
+	id 1uV7ug-0000000EbMr-3P7v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:10:33 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R4D6JL017705;
-	Fri, 27 Jun 2025 12:10:26 GMT
+	Fri, 27 Jun 2025 12:10:39 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R4DCsp027650;
+	Fri, 27 Jun 2025 12:10:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xak7x/UUYc67ZaQ3u0Ym00MBt+lJzOGsRvBX6FlL2fc=; b=FmUG26/Z6thG4IsD
-	olQ6sG5UH67cpDJjAEaYPBhCs1WfPIf7jKpMySOw8Ia++hF6msK1lkVUqBN4GVfV
-	gjJROj6fhqsukxkRuCNp5Dn8ZFhPAcvtKGPXnNvMs0tb1AQwQMUHypzjS5NrKkHW
-	zwq8wwxcNkCSMHcYAI6JqyeFFb5mSLlNiZtH8KdErBM7hL7Vd7XtaQpHe3mYSupE
-	frn1YAzRH+Y6qvNSpskIAtaDtE5slgb0xBpD4/Bpcn+zeBH2XooBP0sfC4n56fQa
-	KQw4gFIF5mLuy6+Z3MgCUuQG2b+bsueW2mAfnolLB/YiWrn6vlmOWuFjiRgJhQeK
-	fN52vg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47fdfx531e-1
+	fQS9pAbi0R1zZSxpnVhJy05NkOiQth/NVIsEq+XayXA=; b=NO9vvBeT7fVqwMwb
+	FZ07uBb135nVGpqdU8Ysc3a7PiX+Z82DXpZfIzkkldpGtWuEfpVPNI/SwIF0KFNK
+	IwRMvdr/mEod3XrobhZTVTewFBgXpZlhc6ewFS+eMdDCapy82MvU4dXTsUJua+3n
+	RauAYpmh5/8vY1T7YAmfKKZtY/qe9vv65DYAszvRVRaqiFb7TLM8DawuK02iq/Ap
+	EhwVY2N1TVSnt48u/tgesehLyt40DDlybrcfcwXc7fDqMGNoJcWf0snfmCG2bI7U
+	o52h3fDFhN9fKfB21ubLL0EFmBnB5Wzp/prM4ydLqW01bCdxTJgUOUEL2Uw2LbLH
+	UwsrVg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ec26h5m1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 12:10:25 +0000 (GMT)
+	Fri, 27 Jun 2025 12:10:30 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55RCAOiL001710
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55RCAU3V027952
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 12:10:24 GMT
+	Fri, 27 Jun 2025 12:10:30 GMT
 Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 27 Jun 2025 05:10:19 -0700
+ 15.2.1544.9; Fri, 27 Jun 2025 05:10:24 -0700
 From: Luo Jie <quic_luoj@quicinc.com>
-Date: Fri, 27 Jun 2025 20:09:18 +0800
-Subject: [PATCH v2 2/8] clk: qcom: ipq5424: Enable NSS NoC clocks to use
- icc-clk
+Date: Fri, 27 Jun 2025 20:09:19 +0800
+Subject: [PATCH v2 3/8] dt-bindings: clock: gcc-ipq5424: Add definition for
+ GPLL0_OUT_AUX
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250627-qcom_ipq5424_nsscc-v2-2-8d392f65102a@quicinc.com>
+Message-ID: <20250627-qcom_ipq5424_nsscc-v2-3-8d392f65102a@quicinc.com>
 References: <20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com>
 In-Reply-To: <20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -86,11 +86,11 @@ CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
         Luo Jie
 	<quic_luoj@quicinc.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751026208; l=1801;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751026208; l=1051;
  i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=Ub5UVQb+X+nSMLPBAXiQVVQL13pmLpfYGlHDOtuBCq8=;
- b=32BkPvHEMk8v8cOUbucgvazg9d5H+Clf0sbLTMEgc9w/GFe8mE+rah8pGY7u3Ng3/L3Rn78GP
- 5Po+ccSNa/nAl5sKhX2DhKq9XWSbtApRYrd8YSHZDoSYynKSwWQUxfG
+ bh=erJrWCYa4Jo64Iuc+N8zg/ohmf2MGD0jxskYDndjX8I=;
+ b=SqvXDmpFJFGHF+2BikJfTJlUkDDmP4x5G43toIZ4vaMOuviT/Ps23lgRjkZpGRbjq6d3JZL5R
+ 6Twi+hpWR71AvmRYARf3cRfVjdlH70Wg0bvwsUqGhoudJTsyUcOXehX
 X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
  pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
 X-Originating-IP: [10.80.80.8]
@@ -98,31 +98,31 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: cPeq4VWowgcoXM3Rs9ZY1xPLlIDozvqx
-X-Proofpoint-ORIG-GUID: cPeq4VWowgcoXM3Rs9ZY1xPLlIDozvqx
-X-Authority-Analysis: v=2.4 cv=MtZS63ae c=1 sm=1 tr=0 ts=685e8a31 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEwMSBTYWx0ZWRfXw4udTGGmH91b
+ xPhyKl4ytILaSbNT9VkrZY+EKxRPW4y3EHtr9NQo25iF16JhqDA0B8lxiNODXUTMfgPDXQPz8fc
+ U6LZsRimKrpNGQmTSO+CByJf8+HoP+wuRTJZcgNa5zXiSolznUDyeRxylIuLIqKP14Bkmz9eI42
+ 28+CZL7VB5PhAFX3ehUpBNFH4c02JN2Pv49g1uR2/b1XkOj+H1ym/nX6o+jLH4GbLVKDXGvcL3Y
+ bLPkADsiAN24iZCHFz2KhWSIJNCsroU/Z6SyiNMLWAWSrUUF+I1/oosqKjMl0NQ8yTdka1tkBsD
+ 4zsuOsNoEOI/wXT+kPlTqOxdysK3e3CrRnpKCyTuo2yU1J0l8asrdFbNlu/iZPjiZWaxa1NtEyY
+ FAdBtA9ZeCDN8ur73oaqtf2KFfs+IG3+/DCLJ/0Py1R2JW5aIijyQtuWY+hO2Ak/hliNH3em
+X-Authority-Analysis: v=2.4 cv=XPQwSRhE c=1 sm=1 tr=0 ts=685e8a36 cx=c_pps
  a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=Y335ZxkaApgOvvUokr4A:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEwMSBTYWx0ZWRfXxzAuCoIN++0E
- ro4IXnOT8xz8cQqB3fL6URRye9IddxRLxi4zD2vRXEL6K0dYHFIH98+DJxmSU4T3cM6ODSEdlS+
- DyAuRlax+ehPZ2ENQlVn9mloMenKe4qCtr3jiqSFR7IgAH/x+c6m6BtnPfML6P1290Cegfumci/
- 0gW/S3ApMVDFVXrZHrI57UZvwsfjrxfdkmuTj9MpndtRz5Z1qu4ONfyoj3MuGiebAH7AUwPEHo/
- uToUgRvOev3n21YL4y7X6aI6ElPtoDbmfL/b4U0HrYu2dtsMCJUHhBsbgB4rURnRvdVDW1YzJzb
- jsvxZdguH4ymNpR6qVgCCtHtMCuhT1pB8i5N3eli43CGw198H01r19He8hY06c4+GSD0pcIEg1w
- wRyQFUd5avpxd8EKhko8gZ45sg30K2Q5NQDogUUr2iw33/NMoj01sh1tWHS4WRpEBH/XfwCw
+ a=HyGcnaojGsed0H-j9tUA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: t5_Oh1N_Oz763506zQ9O9N5mr-HiKViT
+X-Proofpoint-ORIG-GUID: t5_Oh1N_Oz763506zQ9O9N5mr-HiKViT
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-06-27_04,2025-06-26_05,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 suspectscore=0 adultscore=0 phishscore=0
- mlxlogscore=965 spamscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 clxscore=1015 mlxscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ lowpriorityscore=0 impostorscore=0 clxscore=1015 suspectscore=0 mlxscore=0
+ spamscore=0 phishscore=0 malwarescore=0 mlxlogscore=999 bulkscore=0
+ priorityscore=1501 adultscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
  engine=8.19.0-2505280000 definitions=main-2506270101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_051032_805119_4C763803 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250627_051038_858618_0151C6F9 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,48 +137,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add NSS NoC clocks using the icc-clk framework to create interconnect
-paths. The network subsystem (NSS) can be connected to these NoCs.
-
-Also update to use the expected icc_first_node_id for registering the
-icc clocks.
+The GCC clock GPLL0_OUT_AUX is one of source clocks for IPQ5424 NSS clock
+controller.
 
 Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- drivers/clk/qcom/gcc-ipq5424.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ include/dt-bindings/clock/qcom,ipq5424-gcc.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
-index 3d42f3d85c7a..3a01cb277cac 100644
---- a/drivers/clk/qcom/gcc-ipq5424.c
-+++ b/drivers/clk/qcom/gcc-ipq5424.c
+diff --git a/include/dt-bindings/clock/qcom,ipq5424-gcc.h b/include/dt-bindings/clock/qcom,ipq5424-gcc.h
+index c15ad16923bd..ab23c6844a06 100644
+--- a/include/dt-bindings/clock/qcom,ipq5424-gcc.h
++++ b/include/dt-bindings/clock/qcom,ipq5424-gcc.h
 @@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
+ /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
  /*
   * Copyright (c) 2018,2020 The Linux Foundation. All rights reserved.
 - * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
   */
  
- #include <linux/clk-provider.h>
-@@ -3250,6 +3250,9 @@ static const struct qcom_icc_hws_data icc_ipq5424_hws[] = {
- 	{ MASTER_ANOC_PCIE3, SLAVE_ANOC_PCIE3, GCC_ANOC_PCIE3_2LANE_M_CLK },
- 	{ MASTER_CNOC_PCIE3, SLAVE_CNOC_PCIE3, GCC_CNOC_PCIE3_2LANE_S_CLK },
- 	{ MASTER_CNOC_USB, SLAVE_CNOC_USB, GCC_CNOC_USB_CLK },
-+	{ MASTER_NSSNOC_NSSCC, SLAVE_NSSNOC_NSSCC, GCC_NSSNOC_NSSCC_CLK },
-+	{ MASTER_NSSNOC_SNOC_0, SLAVE_NSSNOC_SNOC_0, GCC_NSSNOC_SNOC_CLK },
-+	{ MASTER_NSSNOC_SNOC_1, SLAVE_NSSNOC_SNOC_1, GCC_NSSNOC_SNOC_1_CLK },
- };
+ #ifndef _DT_BINDINGS_CLOCK_IPQ_GCC_IPQ5424_H
+@@ -152,5 +152,6 @@
+ #define GCC_PCIE3_RCHNG_CLK			143
+ #define GCC_IM_SLEEP_CLK			144
+ #define GCC_XO_CLK				145
++#define GPLL0_OUT_AUX				146
  
- static const struct of_device_id gcc_ipq5424_match_table[] = {
-@@ -3284,6 +3287,7 @@ static const struct qcom_cc_desc gcc_ipq5424_desc = {
- 	.num_clk_hws = ARRAY_SIZE(gcc_ipq5424_hws),
- 	.icc_hws = icc_ipq5424_hws,
- 	.num_icc_hws = ARRAY_SIZE(icc_ipq5424_hws),
-+	.icc_first_node_id = IPQ_APPS_ID,
- };
- 
- static int gcc_ipq5424_probe(struct platform_device *pdev)
+ #endif
 
 -- 
 2.34.1
