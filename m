@@ -4,62 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B94C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 09:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691D7C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 09:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8turYrjCSXg4FbCo0vThIVPweI/6eUWlQbp/66+vk5g=; b=CE6fNkO6xMD+8azCS7YRZqsPkP
-	gKKhmUORJ87fseMCWs9R87KSkZzopXFEdK4JoIIPokMSy5d3pwSSRchjk9BXs4huvKu0/WCEkfOzH
-	rQva2dp3Gjfog41fwpTEnOzcHROYPxsyrUOsIBQPFbwzfyPK0KA3oA4sw1z+iHyA5gheYk2CePMlQ
-	aGwAqcc4D5ge89lEXu/b9V3ZJs7SnvWPST3rV75wWhHhnTQPyXJMK2GSU3sNsEvOePQ+fOB4WpJ7O
-	0eEgDZfe7iAcZBJF9uuZIFgiUBNZsbjSqnHZqWMIo2kLj4zKdsapWYZX2MDxMUrbhy6znQmafpQMG
-	z3/Oid9Q==;
+	bh=lGtYJXdfVcMKIjgCE51wzyacz7R1Sy/LR4I9kxjPGAY=; b=Y+Kn9EEU+wdsWN/8LkvZbU15bg
+	MtHMupYOfCcEUYkwxdkXbfkrPdc4CeFPjvU6o72JmjzxzOUfHtbv/YbAlRTc4uZVmxgduW7V2gip7
+	D60woFaz3uf1nTsYpMObNju5U2kDCQQOSXYiv5UTv13TFOm4kGN0bxw2qayoMxWzgXMc5+oIg4vKU
+	lKopbYEAoBYiLZ2Efp7r/vwpZXPMvjBJa3h/apczT//tu9yqqc+6WrFLVYJukjLJcLAqBGMtG3Mfu
+	Inm6VsDeEh0L7fs+5UetyPqH6cGktCMLm+ti95V1F/9E+t4KrTOPZvxj2zKFUMacqAeUz5SZYc5st
+	t1MIi5uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV52r-0000000E2D5-0SIk;
-	Fri, 27 Jun 2025 09:06:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV50X-0000000E1ic-1sls
+	id 1uV5Af-0000000E4vF-14X2;
+	Fri, 27 Jun 2025 09:14:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV58K-0000000E4Tj-1z6h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 09:04:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FDAA1A00;
-	Fri, 27 Jun 2025 02:04:09 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F7633F762;
-	Fri, 27 Jun 2025 02:04:23 -0700 (PDT)
-Message-ID: <603eb4c7-5570-438c-b747-cdcc67b09ea6@arm.com>
-Date: Fri, 27 Jun 2025 10:04:21 +0100
+	Fri, 27 Jun 2025 09:12:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D80E95C6B94;
+	Fri, 27 Jun 2025 09:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE4AC4CEE3;
+	Fri, 27 Jun 2025 09:12:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751015551;
+	bh=pA/2XLoSO8QMzw/6J3xr5U+FO1FrMVD9L5FGTWj0y8I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jI2mMSNl88IYMGZga3wZMRWakIsMngxDMC9h+SLZ7LkImtXBAfsPUlqOaxNZQ+NaU
+	 uvAyupZzK+b0aVF4zCvqNqyxi7qSJfz9lq7MyucZouLrYBhXaoZ8GCl5D/OJa+7FoD
+	 H5IYHckUvyqoLgu5TYQ/ZA4uJPWmVJsyEsfRjQbKINsI7mjyZCzce1Myob53lWCmrS
+	 x4TE95ktDC2YE82AzYQ++bzgTw9i1E1LxirX2keL7AIggq0NdXoZ0wM/ynXjPVORvD
+	 Owh/GwmJ7o2xIEDRknrQ5BpaDT4aUjlYu1Sr9xOMZmu3IUh/pKdElwKq/2kN/k9ixP
+	 fJQJ8gu8W7bBg==
+Message-ID: <4cbc691e-c725-48eb-9932-4549381fa55b@kernel.org>
+Date: Fri, 27 Jun 2025 11:12:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/22] arm64: Generate sign macro for sysreg Enums
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>,
+Subject: Re: [PATCH v2 2/4] arm64: dts: exynos: gs101-pixel-common: add Maxim
+ MAX77759 PMIC
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20250626200459.1153955-1-coltonlewis@google.com>
- <20250626200459.1153955-3-coltonlewis@google.com>
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+ <20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org>
+ <2c491166-d8ae-4fb6-a4f7-74e823e1205d@kernel.org>
+ <b2c3b78d60f3dc3e4576e8b79298e22ea46567c6.camel@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250626200459.1153955-3-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <b2c3b78d60f3dc3e4576e8b79298e22ea46567c6.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_020429_536742_F72E9414 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250627_021232_587746_9D516C77 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +126,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
-
-On 6/26/25 21:04, Colton Lewis wrote:
-> There's no reason Enums shouldn't be equivalent to UnsignedEnums and
-> explicitly specify they are unsigned. This will avoid the annoyance I
-> had with HPMN0.
-An Enum can be annotated with the field's sign by updating it to 
-UnsignedEnum or SignedEnum. This is explained in [1].
-
-With this change ID_AA64PFR1_EL1.MTE_frac would be marked as unsigned 
-when it should really be considered signed.
-
-Enum	43:40	MTE_frac
-	0b0000	ASYNC
-	0b1111	NI
-EndEnum
-
-
+On 27/06/2025 10:54, André Draszik wrote:
+> Hi Krzysztof,
 > 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->   arch/arm64/tools/gen-sysreg.awk | 1 +
->   1 file changed, 1 insertion(+)
+> On Thu, 2025-06-26 at 21:49 +0200, Krzysztof Kozlowski wrote:
+>> On 24/05/2025 07:21, André Draszik wrote:
+>>> +
+>>> +		gpio {
+>>> +			compatible = "maxim,max77759-gpio";
+>>> +
+>>> +			gpio-controller;
+>>> +			#gpio-cells = <2>;
+>>> +			/*
+>>> +			 * "Human-readable name [SIGNAL_LABEL]" where the
+>>> +			 * latter comes from the schematic
+>>> +			 */
+>>> +			gpio-line-names = "OTG boost [OTG_BOOST_EN]",
+>>> +					  "max20339 IRQ [MW_OVP_INT_L]";
+>>> +
+>>> +			interrupt-controller;
+>>> +			#interrupt-cells = <2>;
+>>> +		};
+>>> +
+>>> +		nvmem-0 {
+>>
+>> Why is this called nvmem-0, not nvmem? Is there nvmem-1? I see binding
+>> does it, but why?
 > 
-> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-> index f2a1732cb1f6..fa21a632d9b7 100755
-> --- a/arch/arm64/tools/gen-sysreg.awk
-> +++ b/arch/arm64/tools/gen-sysreg.awk
-> @@ -308,6 +308,7 @@ $1 == "Enum" && (block_current() == "Sysreg" || block_current() == "SysregFields
->   	parse_bitdef(reg, field, $2)
->   
->   	define_field(reg, field, msb, lsb)
-> +	define_field_sign(reg, field, "false")
->   
->   	next
->   }
+> 'nvmem' is used/declared by nvmem-consumer.yaml as a phandle array
+> already so using just 'nvmem' fails validation:
+> 
+> Documentation/devicetree/bindings/mfd/maxim,max77759.example.dtb: pmic@66: nvmem: {'compatible': ['maxim,max77759-nvmem'], 'nvmem-
+> layout': {'compatible': ['fixed-layout'], '#address-cells': 1, '#size-cells': 1, 'reboot-mode@0': {'reg': [[0, 4]]}, 'boot-reason@4':
+> {'reg': [[4, 4]]}, 'shutdown-user-flag@8': {'reg': [[8, 1]]}, 'rsoc@10': {'reg': [[10, 2]]}}} is not of type 'array'
+> 	from schema $id: http://devicetree.org/schemas/nvmem/nvmem-consumer.yaml#
+> 
+> https://lore.kernel.org/all/20250226-max77759-mfd-v2-3-a65ebe2bc0a9@linaro.org/
+Heh, this should have been just folded into the parent as Rob suggested
+during v2. Well, let's just merge it.
 
-Thanks,
-
-Ben
-
-[1] 
-https://lore.kernel.org/all/20221207-arm64-sysreg-helpers-v4-1-25b6b3fb9d18@kernel.org/
-
+Best regards,
+Krzysztof
 
