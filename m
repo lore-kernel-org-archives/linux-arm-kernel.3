@@ -4,117 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F52C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 10:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC57C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 10:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9gExB8qngC32GYREHosqCK0Ok2ayEYAjcDkJDPTGGs=; b=DzE4tVD1aZPksOMgdJCslnXlIP
-	1jVLyq1/NAFtcO7bFcogc1y8EYy5uu156WV8ayYQW+IZ9z6SohNGNI+lZ6Nx5+IiTQ1MIY1ScO+Yw
-	PSB0ahgEEQGRAXX7yIXj1PJf2Z4manbac/7s2vw5U/xeNAzST/3rDTnRZT5f9bP5Z2kW8eYfcr09N
-	TItC9pBrkBZ2S5+5HXg5jdDIWmJl5e4ekfMgqEsdLk2YwsrF2pU3wISvlChmlX9YPrdT16LsszMEX
-	0U8/mLeOT6O/Szl4kDopt+L6Xcrcad38npYFj84GvRZKPe3Pts23DGvL1SUAzyl7MtuJpDvcwrkgB
-	2HyK9Ozw==;
+	bh=Zdo1eCOF4VOtCudJbd1E6new56U7OZpmLHyb1jyPiLQ=; b=Dnxt7ogyPhbfo6sB6srvd4WAT+
+	FbdgY+lG6shFUQqtffWcS+/F+AGcq2i/YHebj7iv0LPH2d4PdTduIx8IzcsJi66XqhUQXNWftZ4vz
+	mW/YbeL9EU6aTyn4pveavWWm/2WAYmo9cRX8+FhsxKHWz4JbJt0BZ5NJJ+FTW5+qXCT9+wAPC3/pP
+	MSDBa31ITYrnReO2IEm3pksM1Qrs9cn9OBEGmNFGMJB9yLnckV+0UUK90M6ccq5ERT9MHFhIevWn0
+	z4cRuaCqIyye9lD/eIO2xZKu3DtvUsFoHLSofvto/ca9GGP7SgIFSKdY7LH6+PXzZu1MoNoinRw8r
+	nmfyWkHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6Og-0000000EISq-0xAt;
-	Fri, 27 Jun 2025 10:33:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uV6Qy-0000000EIxB-07Cp;
+	Fri, 27 Jun 2025 10:35:52 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV65v-0000000EE3s-3uPc
+	id 1uV67F-0000000EELj-2Kcj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 10:14:09 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R4D2UE027381;
-	Fri, 27 Jun 2025 10:14:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	Fri, 27 Jun 2025 10:15:31 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R9RL6N000707;
+	Fri, 27 Jun 2025 12:15:12 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o9gExB8qngC32GYREHosqCK0Ok2ayEYAjcDkJDPTGGs=; b=IyM2L3Rw+7gMNeTt
-	qHyjo+jyAnNc6fn2mSYg+5bnLbUoKABJR3a8/pO9qjLTAr9pLYySYHPZZIi1TJlf
-	92bSO4df5TyRRhrF173AcscW5HcLSNyDXSbk3G2ua+GxQOj16drKfzPTuUJuSYof
-	S+B1yrfzuHqooGfZA6FRucdoefKO+anNGc32H1XgQKaaXKArhx3Z+yZ64ht7BzB3
-	G/RB+HvkTvw/SskE1klXcTHGdxZXCe97E6OoSFwa0odIry5IyBYJZheoyVs3fKOA
-	8GBPpYDBuNfCUOBK34NrJMFUPwYkOPIaF2pzMsVdhVd3PIJNiFjtxHseNSAMFCeY
-	6hfZ2Q==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ec26gu7a-1
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	Zdo1eCOF4VOtCudJbd1E6new56U7OZpmLHyb1jyPiLQ=; b=EInUqIPChS2tXgag
+	fN1JsGh7PmOZsYCv5wDkuBgNh+fF93d3i9XC9uV0Hh8jD4eVPtYoMaFIrTI47oaw
+	J5SxUg/LgzH0PLSn9lnuTDzJDN0lQ7Q16TdEItZ0OjAO5bnUiq7i5cGNKOF8cs55
+	0bOHLDKNiDaNQbBQXEkX386Fnx/IZlbEIVaH6UUd8w0KEoU+/TPGVdrEsVUsYXv0
+	TqtH7hoCIDwESXbQOoeYKSCHJwX6kapve7paMIZLtob/OHzaIJfMJIOhS4TA4iHn
+	0TWRn9fIgblDsyKWdFOaP2PhA3EIGdvaerWnNCD3s8jCmR2dIp/S/oq80ntUbrco
+	ViL2kA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47dm33uktv-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 10:14:00 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55RADxfB032595
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 10:13:59 GMT
-Received: from [10.217.217.109] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 27 Jun
- 2025 03:13:54 -0700
-Message-ID: <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
-Date: Fri, 27 Jun 2025 15:43:49 +0530
+	Fri, 27 Jun 2025 12:15:12 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4E8E840051;
+	Fri, 27 Jun 2025 12:13:52 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DE244B423A2;
+	Fri, 27 Jun 2025 12:12:58 +0200 (CEST)
+Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 27 Jun
+ 2025 12:12:58 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Fri, 27 Jun 2025 12:12:57 +0200
+Subject: [PATCH v2 2/3] i2c: stm32f7: unmap DMA mapped buffer
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 01/10] clk: qcom: clk-alpha-pll: Add support for
- dynamic update for slewing PLLs
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ajit
- Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik <quic_imrashai@quicinc.com>,
-        "Jagadeesh Kona" <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
- <20250625-qcs615-mm-v10-clock-controllers-v10-1-ec48255f90d8@quicinc.com>
- <trwdfk2oz2udtbiqxh3ybuqbvasfqywmqxgi4xyvsknz6svs2r@icpp7snpq6c5>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <trwdfk2oz2udtbiqxh3ybuqbvasfqywmqxgi4xyvsknz6svs2r@icpp7snpq6c5>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDA4MyBTYWx0ZWRfXxDbfDPh9Gw4w
- QQLNMYHi4qFHyxMn7xxfy4p1gRsc3ksdmHLT5Q9wZ9T1hskLSYVH3MQQyKjicJLi794AVtmBgLv
- hu/ne5ZPeHGv+1QANVvbly8f5+uvlWTNYL+bIle/9ch6cPyUZY914wgGL11HUgmSHLaxgtpHjDw
- xwb1QFSlU5BRY59jvoLjyky+I15UAIzNWSZgRqr8zDCn1d/0pKeH6QJv9/ZeKGdVw6Dqi92FvqY
- NGjd/XIA8HMFqxzEituAcf2jluLbQa5DnhGUhTugtIK6AVFQ6/t0hNCPBXL2KBh2Fp+5DI8AqHl
- 3jI5FuBvf/3+gXrYOI6wdU7CMiRTcP9ZRFvzLrD4g1Jp8jy6etiMCR4bnGhsWPtIrY/+a1K3BaV
- 2Hdm3S1PkHAYdumjSSVItsqsOWvc9u++niSgHvxNIfDtNJcI9YBubDPh6AZDL/ZuYFin6Ubf
-X-Authority-Analysis: v=2.4 cv=XPQwSRhE c=1 sm=1 tr=0 ts=685e6ee8 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=25x4RPGbu_Wr1P5MSWYA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 600Aztl8yIgBolypmsQcXWRCeJsUqr6X
-X-Proofpoint-ORIG-GUID: 600Aztl8yIgBolypmsQcXWRCeJsUqr6X
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250627-i2c-upstream-v2-2-8c14523481dc@foss.st.com>
+References: <20250627-i2c-upstream-v2-0-8c14523481dc@foss.st.com>
+In-Reply-To: <20250627-i2c-upstream-v2-0-8c14523481dc@foss.st.com>
+To: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
+        Alain Volmat
+	<alain.volmat@foss.st.com>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Sumit Semwal <sumit.semwal@linaro.org>,
+        =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+        "M'boumba Cedric
+ Madianga" <cedric.madianga@gmail.com>,
+        Wolfram Sang <wsa@kernel.org>
+CC: Pierre-Yves MORDRET <pierre-yves.mordret@st.com>,
+        <linux-i2c@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linaro-mm-sig@lists.linaro.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-07fe9
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-06-27_03,2025-06-26_05,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 clxscore=1015 suspectscore=0 mlxscore=0
- spamscore=0 phishscore=0 malwarescore=0 mlxlogscore=999 bulkscore=0
- priorityscore=1501 adultscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506270083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_031407_983462_506CD15B 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20250627_031530_231549_63234D0A 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,84 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Fix an issue where the mapped DMA buffer was not unmapped.
 
+Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+ drivers/i2c/busses/i2c-stm32f7.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-On 6/25/2025 5:17 PM, Dmitry Baryshkov wrote:
-> On Wed, Jun 25, 2025 at 04:13:26PM +0530, Taniya Das wrote:
->> The alpha PLLs which slew to a new frequency at runtime would require
->> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
->> which can support the slewing of the PLL to a new frequency.
->>
->> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
->> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->> ---
->>  drivers/clk/qcom/clk-alpha-pll.c | 169 +++++++++++++++++++++++++++++++++++++++
->>  drivers/clk/qcom/clk-alpha-pll.h |   1 +
->>  2 files changed, 170 insertions(+)
->>
+diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
+index e4aaeb2262d0..042386b4cabe 100644
+--- a/drivers/i2c/busses/i2c-stm32f7.c
++++ b/drivers/i2c/busses/i2c-stm32f7.c
+@@ -1554,6 +1554,8 @@ static irqreturn_t stm32f7_i2c_handle_isr_errs(struct stm32f7_i2c_dev *i2c_dev,
+ 	if (i2c_dev->use_dma) {
+ 		stm32f7_i2c_disable_dma_req(i2c_dev);
+ 		dmaengine_terminate_async(dma->chan_using);
++		dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
++				 dma->dma_data_dir);
+ 	}
+ 
+ 	i2c_dev->master_mode = false;
+@@ -1622,6 +1624,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+ 		if (i2c_dev->use_dma) {
+ 			stm32f7_i2c_disable_dma_req(i2c_dev);
+ 			dmaengine_terminate_async(dma->chan_using);
++			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
++					 dma->dma_data_dir);
+ 		}
+ 		f7_msg->result = -ENXIO;
+ 	}
+@@ -1642,6 +1646,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+ 				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
+ 				stm32f7_i2c_disable_dma_req(i2c_dev);
+ 				dmaengine_terminate_async(dma->chan_using);
++				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
++						 dma->dma_data_dir);
+ 				f7_msg->result = -ETIMEDOUT;
+ 			}
+ 		}
 
->> +	/*
->> +	 * Dynamic pll update will not support switching frequencies across
->> +	 * vco ranges. In those cases fall back to normal alpha set rate.
->> +	 */
->> +	if (curr_vco->val != vco->val)
->> +		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
->> +
->> +	a <<= ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH;
->> +
->> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
->> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-> 
-> We have code that does this in __clk_alpha_pll_set_rate() and now you
-> are adding two more copies. Please extract PLL_L_VAL, PLL_ALPHA_VAL and
-> PLL_USER_CTL / PLL_VCO_MASK into a helper function.
-> 
-
-Dmitry, I was thinking of implementing the following as a reusable
-helper since it can be leveraged by most of the functions. I'd
-appreciate your suggestions or feedback.
-
-static void clk_alpha_pll_update_configs(struct clk_alpha_pll *pll,
-const struct pll_vco *vco, u32 l, u64 a, u32 alpha_width, bool alpha_en)
-{
-	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
-
-	if (alpha_width > ALPHA_BITWIDTH)
-		a <<= alpha_width - ALPHA_BITWIDTH;
-
-	if (alpha_width > 32)
-		regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-
-	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
-
-	if (vco) {
-		regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll),
-				   PLL_VCO_MASK << PLL_VCO_SHIFT,
-				   vco->val << PLL_VCO_SHIFT);
-	}
-
-	if (alpha_en)
-		regmap_set_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN);
-}
-
-
->> +
->> +	/* Ensure that the write above goes before slewing the PLL */
->> +	mb();
->> +
->> +	if (clk_hw_is_enabled(hw))
->> +		return clk_alpha_pll_slew_update(pll);
->> +
->> +	return 0;
->> +}
->> +
->> +/*
->> + * Slewing plls should be bought up at frequency which is in the middle of the
->> + * desired VCO range. So after bringing up the pll at calibration freq, set it
->> + * back to desired frequency(that was set by previous clk_set_rate).
-
->>
-> 
+-- 
+2.43.0
 
 
