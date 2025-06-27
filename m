@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99735C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88629C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxNxUl8qtmJjnd536NhHQ5mAWftAV4RX19L2/5i7M78=; b=iK59+lyqbED7aPY+W87uoAhNG9
-	dYsYAqs5wp8DJdgbp2qPGzfYzxU7DUGNzSOD8YO/UP1YusXG2j6xQAu4sQ9HondV46Rgftco9HjRd
-	94t+s+HJtB7VYPToy2FZKLL4l/7HptKcM4zezpXChoTiqiLmFGkXLo2nALpRL3qh/wBlNcewn9bxz
-	/yMKJvYQl06jw2NrHQLjxEkfyWlZv9mqSpHWu0vt1e8+ecveQx45Pc3dAWseOCHvbICjn7TZ1axxQ
-	JBQYjZovyypGmQVerhCS/hvAKOzataVSjFiwYlxFc15bravNRckmr5V9lALIGUGcDqHkklx5pjPgY
-	wB3jaZxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Ael58yhaaQW6M4MXIPOGPMY+ESq3VcKGmud4NxxDtg=; b=eW4h00EbZlwiV7ppR9BOCyh3B2
+	I6PCiSISCjTnok3G9Up3C3WVdsN8Q9lCtubs7y4XLTOiLvAWuI1V+N3lh+rdRXw+Ju80CaDMMRh5v
+	yWsfilbirUc+MVjC0XakFISddykn3M1MP+0N99y4SFd9uYpaJ4t/Bmb5EqwnCUDGELwGC5YjlYwZh
+	mb490VRtys9axTKM153H1qRhGn/IVhzC5Jusp6dQwaWflvBvs3ILeLWap5lzY5+DBlT/geNA1Ms1L
+	oxmabKJ+AtmTyAlTNytr5wVLY25XtGFCJdVxh44/AVyOz0n6SX2X6S22yBdLuaBOcYEsM+RGRZ7td
+	z07K+w7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV97T-0000000Em19-2LhU;
-	Fri, 27 Jun 2025 13:27:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8Vk-0000000Egft-0JO4
+	id 1uV99l-0000000Emak-08O0;
+	Fri, 27 Jun 2025 13:30:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV8YM-0000000Eh3H-3QTe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:48:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 448F81A00;
-	Fri, 27 Jun 2025 05:48:38 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E0E03F58B;
-	Fri, 27 Jun 2025 05:48:53 -0700 (PDT)
-Date: Fri, 27 Jun 2025 13:48:50 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/7] firmware: arm_scmi: imx: Support discovering
- buildinfo of MISC protocol
-Message-ID: <aF6TMpXmIiiCkxWD@pluto>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-2-2b99481fe825@nxp.com>
+	Fri, 27 Jun 2025 12:51:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 03D2F450FD;
+	Fri, 27 Jun 2025 12:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72064C4CEE3;
+	Fri, 27 Jun 2025 12:51:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751028696;
+	bh=OV5rE1Egth+rX0x2sNvM7ePPH3s60fZPUkM/cp/VU/I=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=YnX5UCJ2VZODMIac638/iCrEzmTSFGezr7liVfqz3IiV8g8OggwHu0Ac1cjz64g81
+	 nb+G2u4YsJZmbI5/Ace3gDfDt3iKJQrcTJsLZbomxSuzTyD3/xaQCmcHTSVk7MDg4q
+	 uVDZUNOLqalhnvCYVCfwTL6val+O3k6ozOpl3lkOCSnb5DjRluwItHmccb8VANX0lm
+	 2dyws2QQfXXulbajDqZBZ2wcPmuedYcGaee84hFY4+r/BiVfzIgDYtgAD/ylNI9gnY
+	 eXi/FTvKZo3sQfF6VBiqBDcupY34u0tps19otPyWof7lvLcLtEMK17fWMQwn0rqp9Q
+	 0S9nu9hPGtI/A==
+From: Mark Brown <broonie@kernel.org>
+To: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250610082256.400492-1-csokas.bence@prolan.hu>
+References: <20250610082256.400492-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v7 0/2] Add `devm_dma_request_chan()` to simplify probe
+ path in atmel-quadspi.c
+Message-Id: <175102869373.390499.16488467994340140791.b4-ty@kernel.org>
+Date: Fri, 27 Jun 2025 13:51:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250627-sm-misc-api-v1-v1-2-2b99481fe825@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-07fe9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_054856_187147_60F518BC 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20250627_055138_874608_A0ADFBA8 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,117 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 02:03:45PM +0800, Peng Fan wrote:
-> MISC protocol supports discovering the System Manager(SM) build
-> information including build commit, build time and etc. Add the API
-> for user to retrieve the information from SM.
+On Tue, 10 Jun 2025 10:22:52 +0200, Bence Csókás wrote:
+> The probe function of the atmel-quadspi driver got quite convoluted,
+> especially since the addition of SAMA7G5 support, that was forward-ported
+> from an older vendor kernel. To alleivate this - and similar problems in
+> the future - an effort was made to migrate as many functions as possible,
+> to their devm_ managed counterparts. Patch 1/2 adds the new
+> `devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
+> simplify the probe() function.
 > 
+> [...]
 
-Hi,
+Applied to
 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 35 ++++++++++++++++++++++
->  include/linux/scmi_imx_protocol.h                  | 12 ++++++++
->  2 files changed, 47 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> index a8915d3b4df518719d56bfff38922625ad9b70f6..1b24d070c6f4856b92f515fcdba5836fd6498ce6 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> @@ -25,6 +25,7 @@
->  enum scmi_imx_misc_protocol_cmd {
->  	SCMI_IMX_MISC_CTRL_SET	= 0x3,
->  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
-> +	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
->  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
->  };
->  
-> @@ -65,6 +66,13 @@ struct scmi_imx_misc_ctrl_get_out {
->  	__le32 val[];
->  };
->  
-> +struct scmi_imx_misc_buildinfo_out {
-> +	__le32 buildnum;
-> +	__le32 buildcommit;
-> +	u8 builddate[MISC_MAX_BUILDDATE];
-> +	u8 buildtime[MISC_MAX_BUILDTIME];
-> +};
-> +
->  static int scmi_imx_misc_attributes_get(const struct scmi_protocol_handle *ph,
->  					struct scmi_imx_misc_info *mi)
->  {
-> @@ -272,10 +280,37 @@ static int scmi_imx_misc_ctrl_set(const struct scmi_protocol_handle *ph,
->  	return ret;
->  }
->  
-> +static int scmi_imx_discover_build_info(const struct scmi_protocol_handle *ph,
-> +					struct scmi_imx_misc_system_info *info)
-> +{
-> +	struct scmi_imx_misc_buildinfo_out *out;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_DISCOVER_BUILDINFO, 0,
-> +				      sizeof(*out), &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		out = t->rx.buf;
-> +		info->buildnum = le32_to_cpu(out->buildnum);
-> +		info->buildcommit = le32_to_cpu(out->buildcommit);
-> +		strscpy(info->date, out->builddate, MISC_MAX_BUILDDATE);
-> +		strscpy(info->time, out->buildtime, MISC_MAX_BUILDTIME);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
->  static const struct scmi_imx_misc_proto_ops scmi_imx_misc_proto_ops = {
->  	.misc_ctrl_set = scmi_imx_misc_ctrl_set,
->  	.misc_ctrl_get = scmi_imx_misc_ctrl_get,
->  	.misc_ctrl_req_notify = scmi_imx_misc_ctrl_notify,
-> +	.misc_discover_build_info = scmi_imx_discover_build_info,
->  };
->  
->  static int scmi_imx_misc_protocol_init(const struct scmi_protocol_handle *ph)
-> diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
-> index 27bd372cbfb142b6acb0b1cf4b82f061529d0d45..826402dfe6f4d3b9e6d2e93868d6699f989e9bcc 100644
-> --- a/include/linux/scmi_imx_protocol.h
-> +++ b/include/linux/scmi_imx_protocol.h
-> @@ -52,6 +52,16 @@ struct scmi_imx_misc_ctrl_notify_report {
->  	unsigned int		flags;
->  };
->  
-> +#define MISC_MAX_BUILDDATE	16
-> +#define MISC_MAX_BUILDTIME	16
-> +
-> +struct scmi_imx_misc_system_info {
-> +	u32 buildnum;
-> +	u32 buildcommit;
-> +	u8 date[MISC_MAX_BUILDDATE];
-> +	u8 time[MISC_MAX_BUILDTIME];
-> +};
-> +
->  struct scmi_imx_misc_proto_ops {
->  	int (*misc_ctrl_set)(const struct scmi_protocol_handle *ph, u32 id,
->  			     u32 num, u32 *val);
-> @@ -59,6 +69,8 @@ struct scmi_imx_misc_proto_ops {
->  			     u32 *num, u32 *val);
->  	int (*misc_ctrl_req_notify)(const struct scmi_protocol_handle *ph,
->  				    u32 ctrl_id, u32 evt_id, u32 flags);
-> +	int (*misc_discover_build_info)(const struct scmi_protocol_handle *ph,
-> +					struct scmi_imx_misc_system_info *info);
->  };
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-LGTM.
+Thanks!
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+[1/2] dma: Add devm_dma_request_chan()
+      (no commit info)
+[2/2] spi: atmel-quadspi: Use `devm_dma_request_chan()`
+      commit: 2555691165a0285a4617230fed859f20dcc51608
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Cristian
+Mark
+
 
