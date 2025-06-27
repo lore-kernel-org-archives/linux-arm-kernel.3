@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19042C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A71C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYY4zMFgh6P+NnchPez8cuqLoMV6YOtOfIsytlbBgik=; b=IEVPF+b+ljjQ5x15yMX53HnnrB
-	JIUuKUAfBnj139z8PhJth59rDqX6UOiNQRkjBQzsOv0FF6p6pk0w+k7rJg1RzTu95itneyk1RtQ3g
-	rAaSjN2LKayCM44Ro1Hdf/fGfEdipF8cCfZGJ0/Yk3up4OLGc1Y9CKtfNnfVWqtRnWsIK770m9hNn
-	+1MJrxyFudOgDSVDeBIiUGUDZHPRx81cKBdkLhZ0WPwwHSE8OC3nM3SX1hQj4EPYcGMkoxR8kRYs7
-	vPnsjioA+ttza/ZeqJBIou2EqGvZ55R9mJvDO55BbXEiJVz8AqsMvr7HBvVrwXQHq5NalhyNI3dkJ
-	6D7AqxXw==;
+	bh=0BS+6uy4su/8ABLs5cJdrouwkh2bvREAZhph1XMTpHE=; b=Zr5Y5oqvNYHz3Y5+r+tmupJA7d
+	OyBVLjBDAH3M4W9kC5W1Zbqh98RtB25RKSw4oCDsjdUGRPKhL1g5qFxl8jn/OZ+GoIxAWwFDDQIX7
+	Q2pxAsKWpdUWwpW3YvVfRpU2MbY6SBeqGan0mYQSI+qNp2WG+T6JgUyolxLO66teZ5jiJlfBV5QhE
+	SVEcWZo2Qmq0ex9Ei3biffdrUUaxiSPHncOFXnEA5cLdbP/ohxxzf7JnD59wx9dMrCwEe7Bx9Qt5I
+	ZoKNMLpkIA1+ILJm3718t3294DDHE+Wl2+INQiHClf8giF9agIzS3LN413JoF1aGswxdx+ri/HMDX
+	0OZryJ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4mE-0000000E04n-3OzO;
-	Fri, 27 Jun 2025 08:49:42 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uV4t2-0000000E0z0-3LtH;
+	Fri, 27 Jun 2025 08:56:44 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4ju-0000000Dzta-2yB8
+	id 1uV4qi-0000000E0ih-3Wsa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 08:47:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uV4ja-0003zL-Vq; Fri, 27 Jun 2025 10:46:58 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uV4jW-005aNg-0W;
-	Fri, 27 Jun 2025 10:46:54 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uV4jW-003X1G-02;
-	Fri, 27 Jun 2025 10:46:54 +0200
-Date: Fri, 27 Jun 2025 10:46:53 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-Message-ID: <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
-References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
- <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
- <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
- <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+	Fri, 27 Jun 2025 08:54:22 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-453643020bdso16658175e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 01:54:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751014459; x=1751619259; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=0BS+6uy4su/8ABLs5cJdrouwkh2bvREAZhph1XMTpHE=;
+        b=nE73/XJkyPH3EvzKKKSi+X3XrIlTSFsGwrGnQcSnluDTh+Whudci7fngsd1naVNs22
+         C/gf+OIdaULB/hNHHtBwxpvdcR34p0jBBHSazCfyBqxAWpLmuRo3wqP2XD4/Wi4UPuC/
+         mxFWRTopCG8dhEJZm/q7pZD+XoV+Zq6oisq2vxXWkVGjLRgsCcfdPF2E5IpH+Q5SScED
+         bIkc5JNAoCpqGjGX1Y0LV5MxBsux7I8DA+ozqjqKP2Wn0Rjx1zK9Jo6yL5FRQqxt6W6P
+         LclexCrdNWAqbby1GicAt1irZ4meYJjzbbR/b8NThOBgipM0N5qXC7K1MeddYYjLz3Dn
+         f4OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751014459; x=1751619259;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0BS+6uy4su/8ABLs5cJdrouwkh2bvREAZhph1XMTpHE=;
+        b=fvvDkbT3iJNTgp99Nsxt1dtQGeDV11YkCMAAKz6kmLKX9jtcEC6lqb5GCJHUlVAtVp
+         g9s04bv8SIgjtameB86k1J1D5hFsjcLEjOfBHq255MLSC6V4GtOJL53ZNJLu2xB8RvuE
+         M66m4Ju+WtxoK0oF0/5P0ER7B0SY3DDbN+IoglJBJ7fRVAE0aZZz6jBmrZsretmrF9jI
+         ryPfat6fyYmzH2k18CpPxbf9qsASXSHWVm88xSKbBgfnr1uPfCTMaL7C6sIkuvsoyWJb
+         /6Rln6UamtO3rsgul8BU6ErSr6uGjXI4fG4t15SylFpnM1iAQztIT5lWdrX/uWxB+/yN
+         JsqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWyVF7SklNEJgJSrKfOZksI5t3P4PW3GN4jQCmhjI9i4Mb1N0sNFUoOtX+nvzcnqVtb5FgF0x0iP2eDfeNDMue7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaYMv2oxfQzjjv3lYJPo+y/rkPdFm0Lk916VBueOax8yV2YT6i
+	S2UVAFkSLj1LMk4gry4W+Z8PhPto/KUFcH+rnC6Gk1PnlvI00eQWo79j+5BCorY3b/E=
+X-Gm-Gg: ASbGncs4NKdLjn+ftf9ZIpGI9Bs26g3so4O+7vshOr0OneZblGjVyasn8WBlsc2CBwG
+	t9UGuWhvYDiqzWOjCECqxBrII3Cu3ZfrecE09ZM10CZqdsYR6l80Hrc958qQQPxfWCssKEdaGr7
+	8OUgANg0fiB4NGEOGCks2+LJOzeP7H9kpKa61qtIH1dGBX6R2g7NYDwTsbLxhCnIaG5lCmgkFTg
+	D3ewwAjdJ5YiZgb3TgqO/pnYE3lydKtMJoJnl+OrDJ1af1RPk2kqEYiX9bA1PfSaVkeUMaB6gat
+	cHLo+g7IiXjZxDOm9LC34t/p5FQEaV+QdViqsqcrj/haPzwvXpCl1tRYDpMzNnzH39s=
+X-Google-Smtp-Source: AGHT+IE4X30M79feYa1B4IoJp+P/zoAnkDqF1pqfPyj589N4UXNvVInq2V7VnCmuiR3hct5W2E2d9A==
+X-Received: by 2002:a05:600c:1c87:b0:442:c993:6f94 with SMTP id 5b1f17b1804b1-4538ee59148mr23355875e9.12.1751014458664;
+        Fri, 27 Jun 2025 01:54:18 -0700 (PDT)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4537c6e2f64sm51190205e9.2.2025.06.27.01.54.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jun 2025 01:54:18 -0700 (PDT)
+Message-ID: <b2c3b78d60f3dc3e4576e8b79298e22ea46567c6.camel@linaro.org>
+Subject: Re: [PATCH v2 2/4] arm64: dts: exynos: gs101-pixel-common: add
+ Maxim MAX77759 PMIC
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Catalin Marinas	
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter Griffin	
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Date: Fri, 27 Jun 2025 09:54:16 +0100
+In-Reply-To: <2c491166-d8ae-4fb6-a4f7-74e823e1205d@kernel.org>
+References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+	 <20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org>
+	 <2c491166-d8ae-4fb6-a4f7-74e823e1205d@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_014718_751973_AEE60D6B 
-X-CRM114-Status: GOOD (  30.23  )
+X-CRM114-CacheID: sfid-20250627_015420_879226_41916BAA 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +106,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof,
 
-your e-mail configuration mixed my e-mail with your answer, which makes
-it hard to read. Can you please check the quoting next time :)
+On Thu, 2025-06-26 at 21:49 +0200, Krzysztof Kozlowski wrote:
+> On 24/05/2025 07:21, Andr=C3=A9 Draszik wrote:
+> > +
+> > +		gpio {
+> > +			compatible =3D "maxim,max77759-gpio";
+> > +
+> > +			gpio-controller;
+> > +			#gpio-cells =3D <2>;
+> > +			/*
+> > +			 * "Human-readable name [SIGNAL_LABEL]" where the
+> > +			 * latter comes from the schematic
+> > +			 */
+> > +			gpio-line-names =3D "OTG boost [OTG_BOOST_EN]",
+> > +					=C2=A0 "max20339 IRQ [MW_OVP_INT_L]";
+> > +
+> > +			interrupt-controller;
+> > +			#interrupt-cells =3D <2>;
+> > +		};
+> > +
+> > +		nvmem-0 {
+>=20
+> Why is this called nvmem-0, not nvmem? Is there nvmem-1? I see binding
+> does it, but why?
 
-On 25-06-27, Pankaj Gupta wrote:
-> >> Add driver for enabling MU based communication interface to
-> secure-enclave.
-> >>
-> >> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are 
-> >> embedded in the SoC to support the features like HSM, SHE & V2X, using 
-> >> message based communication interface.
-> >>
-> >> The secure enclave FW communicates with Linux over single or multiple 
-> >> dedicated messaging unit(MU) based interface(s).
-> >> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
-> 
-> > You write single or multiple MUs are possible. I'm aware that the i.MX93
-> > has two MUs one for the secure and one for the non-secure world. But I'm
-> > really concerned about the fact that both MUs can't be used at the same time
-> > from both world:
->
-> Yes, you are correct.
-> 
-> Fix is still work in progress.
+'nvmem' is used/declared by nvmem-consumer.yaml as a phandle array
+already so using just 'nvmem' fails validation:
 
-So after ~6 months no fix is available :(
+Documentation/devicetree/bindings/mfd/maxim,max77759.example.dtb: pmic@66: =
+nvmem: {'compatible': ['maxim,max77759-nvmem'], 'nvmem-
+layout': {'compatible': ['fixed-layout'], '#address-cells': 1, '#size-cells=
+': 1, 'reboot-mode@0': {'reg': [[0, 4]]}, 'boot-reason@4':
+{'reg': [[4, 4]]}, 'shutdown-user-flag@8': {'reg': [[8, 1]]}, 'rsoc@10': {'=
+reg': [[10, 2]]}}} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/nvmem/nvmem-consumer.yaml#
 
-> > Also how is the secure and non-secure world talking to the ELE if there is
-> > only one MU as you have written?
-> 
-> Till the fix is WIP, either Linux or OPTEE can use the ELE, at one point in
-> time.
+https://lore.kernel.org/all/20250226-max77759-mfd-v2-3-a65ebe2bc0a9@linaro.=
+org/
 
-That has nothing to do with the fix. The fix is for platforms/SoCs which
-do have 2-MUs, but you also have written that there are platforms with
-only 1-MU.
-
-This MU can't be shared between secure and non-secure world.
-
-> > IMHO it makes much more sense to put the complete ELE communication into
-> > (OP-)TEE and let the secure OS taking care of it. All non-secure world
-> > requests are passed via (OP-)TEE to the ELE. This involves:
-> > - eFuse access (done via OP-TEE i.MX specific PTA)
-> > - ELE 23h59m ping (kernel SMC WDG driver, requires OP-TEE watchdog driver)
-> > - HW-RNG (kernel OP-TEE HWRNG driver + OP-TEE HWRNG PTA)
-> 
-> There is a dedicated MU "trusted-MU" for OPTEE-OS. The idea to converge to a
-
-Yes for systems with 2-MUs there is a "trusted-MU" and a
-"non-trusted-MU". As of now, there is no fix available for using both
-MUs at the same time. Furhtermore there are platforms/SoCs with only
-1-MU, as you have written in your commit message. This 1-MU system can
-have the MU either trusted or non-trusted.
-
-> single path via OPTEE-OS, is good. But it will impact the performance of the
-> features at Linux side.
-
-Performance? We are talking about a ping every 23h59m (I still don't
-know if this is a feature or bug), eFuse write/read, and the HW-RNG
-which can seed the Linux PRNG.
-
-> Since the fix is still WIP. Let's wait till then.
-
-The fix is for the 2-MUs SoCs but not the 1-MU case.
-
-I would like to have a system design which doesn't differ too much
-between SoCs which are equipped with the ELE engine.
-
-Regards,
-  Marco
+Cheers,
+Andre'
 
