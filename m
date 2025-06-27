@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911B1C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F99CC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=264ijo0Gs6jvRmS9gC+Zvm92TUCzLLL1ymhuLrV/aIA=; b=pEINGPh2SFScLm
-	7XSY1TlIHd3JiiCFqBrImvgKpR0xze1klynRsw7c95Pv3Be14Bi2caAw3s82PQ1dfEJ9qQKNNCRNn
-	sDUPR186a/7uymFGrDPi97J2hEoMO/JyTd65Os2LNx3/m6c6jkLkZ7B02MVeALrljRq7lbUTvLCLf
-	PeiD/D9EKrXRN9Dp9LjhnPwQKl0DYzOcygt2E3v5ylClC81dWFvLtglrwf+ABhJsPDbS2SAkNJCvg
-	wUvgOqLr2Q1625o2T7+u51j7qy9hBxwwnPn5vWJFqk3+TeUKqfGRNuNbPUmhZHnpBhsSDv7kl9ISM
-	82h34ov1X0VKvvs2KYuQ==;
+	List-Owner; bh=M9ESIpdPsfOSW0c9OGV9y/mj+jYsaG7e1CTDKFQrKF4=; b=UkHpYkebnEeJrA
+	lJ/OtFscJaVkaWH3llYnshjj6plO/10G08sHrINrAC6Tvb9HafbZez2+4pkUzByhIW70es13EQF8W
+	G5z68G4YWrfBwnSPgTaC5cJOTEFrhKxo+aztLEc1S6Ny5uLT8dpwE4OAQO8IuF7JIxbFohp5wlDCl
+	Wlm50TOUrrzIEeDjXLCWj14oPWndZjujzPNwQFiqxxANOXBXsDFAG8haJHpLJx2jFamwjHtNEI8fd
+	d/ZlcjOJHW9hPFPy3taF3cEw6657SH7VgHZBNa+2IFSOMxHj+xzMfEfSF1HvyxTz5WOa0aMblkhnI
+	v3on6fFAp7N/n4NKhSbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEN9-0000000FYNx-3ATI;
-	Fri, 27 Jun 2025 19:04:27 +0000
+	id 1uVENB-0000000FYRl-3sUt;
+	Fri, 27 Jun 2025 19:04:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVClB-0000000FOar-0aue
+	id 1uVClF-0000000FObY-1VrF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 17:21:10 +0000
+	Fri, 27 Jun 2025 17:21:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C75F1007;
-	Fri, 27 Jun 2025 10:20:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFB1A1007;
+	Fri, 27 Jun 2025 10:20:55 -0700 (PDT)
 Received: from e137867.arm.com (unknown [10.57.30.218])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1903D3F66E;
-	Fri, 27 Jun 2025 10:21:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4964C3F66E;
+	Fri, 27 Jun 2025 10:21:11 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 09/13] arm64: debug: split single stepping exception entry
-Date: Fri, 27 Jun 2025 18:20:34 +0100
-Message-ID: <20250627172038.633423-10-ada.coupriediaz@arm.com>
+Subject: [PATCH v5 11/13] arm64: debug: split brk64 exception entry
+Date: Fri, 27 Jun 2025 18:20:36 +0100
+Message-ID: <20250627172038.633423-12-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250627172038.633423-1-ada.coupriediaz@arm.com>
 References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_102109_258042_A2A8E2FF 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250627_102113_476821_3D9B272E 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,280 +67,196 @@ handlers for each specific debug exception. This is unfortunate as
 different debug exceptions have different entry handling requirements,
 and it would be better to handle these distinct requirements earlier.
 
-The single stepping exception has the most constraints : it can be
-exploited to train branch predictors and it needs special handling at EL1
-for the Cortex-A76 erratum #1463225. We need to conserve all those
-mitigations.
-However, it does not write an address at FAR_EL1, as only hardware
-watchpoints do so.
+The BRK64 instruction can only be triggered by a BRK instruction. Thus,
+we know that the PC is a legitimate address and isn't being used to train
+a branch predictor with a bogus address : we don't need to call
+`arm64_apply_bp_hardening()`.
 
-The single-step handler does its own signaling if it needs to and only
-returns 0, so we can call it directly from `entry-common.c`.
+We do not need to handle the Cortex-A76 erratum #1463225 either, as it
+only relevant for single stepping at EL1.
+BRK64 does not write FAR_EL1 either, as only hardware watchpoints do so.
 
-Split the single stepping exception entry, adjust the function signature,
-keep the security mitigation and erratum handling.
+Split the BRK64 exception entry, adjust the function signature, and its
+behaviour to match the lack of needed mitigations.
 Further, as the EL0 and EL1 code paths are cleanly separated, we can split
-`do_softstep()` into `do_el0_softstep()` and `do_el1_softstep()` and
-call them directly from the relevant entry paths.
-We can also remove `NOKPROBE_SYMBOL` for the EL0 path, as it cannot
+`do_brk64()` into `do_el0_brk64()` and `do_el1_brk64()`, and call them
+directly from the relevant entry paths.
+Use `die()` directly for the EL1 error path, as in `do_el1_bti()` and
+`do_el1_undef()`.
+We can also remove `NOKRPOBE_SYMBOL` for the EL0 path, as it cannot
 lead to a kprobe recursion.
 
-Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` so that
-we can do it as early as possible, and only for the exceptions coming
-from EL0, where it is needed.
-This is safe to do as it is `noinstr`, as are all the functions it
-may call. `el0_ia()` and `el0_pc()` already call it this way.
+When taking a BRK64 exception from EL0, the exception handling is safely
+preemptible : the only possible handler is `uprobe_brk_handler()`.
+It only operates on task-local data and properly checks its validity,
+then raises a Thread Information Flag, processed before returning
+to userspace in `do_notify_resume()`, which is already preemptible.
+Thus we can safely unmask interrupts and enable preemption before
+handling the break itself, fixing a PREEMPT_RT issue where the handler
+could call a sleeping function with preemption disabled.
 
-When taking a soft-step exception from EL0, most of the single stepping
-handling is safely preemptible : the only possible handler is
-`uprobe_single_step_handler()`. It only operates on task-local data and
-properly checks its validity, then raises a Thread Information Flag,
-processed before returning to userspace in `do_notify_resume()`, which
-is already preemptible.
-However, the soft-step handler first calls `reinstall_suspended_bps()`
-to check if there is any hardware breakpoint or watchpoint pending
-or already stepped through.
-This cannot be preempted as it manipulates the hardware breakpoint and
-watchpoint registers.
+Given that the break hook registration is handled statically in
+`call_break_hook` since
+(arm64: debug: call software break handlers statically)
+and that we now bypass the exception handler registration, this change
+renders `early_brk64` redundant : its functionality is now handled through
+the post-init path.
 
-Move the call to `try_step_suspended_breakpoints()` to `entry-common.c`
-and adjust the relevant comments.
-We can now safely unmask interrupts before handling the step itself,
-fixing a PREEMPT_RT issue where the handler could call a sleeping function
-with preemption disabled.
+This also removes the last usage of `el1_dbg()`.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Closes: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
 Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
 Reviewed-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/exception.h |  2 +
- arch/arm64/kernel/debug-monitors.c | 77 +++++++++++-------------------
- arch/arm64/kernel/entry-common.c   | 43 +++++++++++++++++
- arch/arm64/kernel/hw_breakpoint.c  |  2 +-
- 4 files changed, 75 insertions(+), 49 deletions(-)
+ arch/arm64/include/asm/exception.h |  2 ++
+ arch/arm64/kernel/debug-monitors.c | 48 ++++++++++++++----------------
+ arch/arm64/kernel/entry-common.c   | 19 ++++++++----
+ 3 files changed, 38 insertions(+), 31 deletions(-)
 
 diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index 8ec4e0ff49b7..c8e7c61b8ac4 100644
+index 0362fecc5f69..ca556583b128 100644
 --- a/arch/arm64/include/asm/exception.h
 +++ b/arch/arm64/include/asm/exception.h
-@@ -66,6 +66,8 @@ void do_breakpoint(unsigned long esr, struct pt_regs *regs);
- #else
- static inline void do_breakpoint(unsigned long esr, struct pt_regs *regs) {}
+@@ -72,6 +72,8 @@ static inline void do_watchpoint(unsigned long addr, unsigned long esr,
  #endif /* CONFIG_HAVE_HW_BREAKPOINT */
-+void do_el0_softstep(unsigned long esr, struct pt_regs *regs);
-+void do_el1_softstep(unsigned long esr, struct pt_regs *regs);
+ void do_el0_softstep(unsigned long esr, struct pt_regs *regs);
+ void do_el1_softstep(unsigned long esr, struct pt_regs *regs);
++void do_el0_brk64(unsigned long esr, struct pt_regs *regs);
++void do_el1_brk64(unsigned long esr, struct pt_regs *regs);
  void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
  void do_sve_acc(unsigned long esr, struct pt_regs *regs);
  void do_sme_acc(unsigned long esr, struct pt_regs *regs);
 diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 89264d1a9d65..cb50d1f59798 100644
+index cb50d1f59798..7c1c89bb9ad1 100644
 --- a/arch/arm64/kernel/debug-monitors.c
 +++ b/arch/arm64/kernel/debug-monitors.c
-@@ -21,6 +21,7 @@
- #include <asm/cputype.h>
- #include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
-+#include <asm/exception.h>
- #include <asm/kgdb.h>
- #include <asm/kprobes.h>
- #include <asm/system_misc.h>
-@@ -159,21 +160,6 @@ NOKPROBE_SYMBOL(clear_user_regs_spsr_ss);
- #define set_regs_spsr_ss(r)	set_user_regs_spsr_ss(&(r)->user_regs)
- #define clear_regs_spsr_ss(r)	clear_user_regs_spsr_ss(&(r)->user_regs)
- 
--/*
-- * Call single step handlers
-- * There is no Syndrome info to check for determining the handler.
-- * However, there is only one possible handler for user and kernel modes, so
-- * check and call the appropriate one.
-- */
--static int call_step_hook(struct pt_regs *regs, unsigned long esr)
--{
--	if (user_mode(regs))
--		return uprobe_single_step_handler(regs, esr);
--
--	return kgdb_single_step_handler(regs, esr);
--}
--NOKPROBE_SYMBOL(call_step_hook);
--
- static void send_user_sigtrap(int si_code)
- {
- 	struct pt_regs *regs = current_pt_regs();
-@@ -188,41 +174,38 @@ static void send_user_sigtrap(int si_code)
- 			      "User debug trap");
+@@ -207,15 +207,8 @@ void do_el1_softstep(unsigned long esr, struct pt_regs *regs)
  }
+ NOKPROBE_SYMBOL(do_el1_softstep);
  
--static int single_step_handler(unsigned long unused, unsigned long esr,
--			       struct pt_regs *regs)
+-static int call_break_hook(struct pt_regs *regs, unsigned long esr)
++static int call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+ {
+-	if (user_mode(regs)) {
+-		if (IS_ENABLED(CONFIG_UPROBES) &&
+-			esr_brk_comment(esr) == UPROBES_BRK_IMM)
+-			return uprobe_brk_handler(regs, esr);
+-		return DBG_HOOK_ERROR;
+-	}
+-
+ 	if (esr_brk_comment(esr) == BUG_BRK_IMM)
+ 		return bug_brk_handler(regs, esr);
+ 
+@@ -252,24 +245,30 @@ static int call_break_hook(struct pt_regs *regs, unsigned long esr)
+ 
+ 	return DBG_HOOK_ERROR;
+ }
+-NOKPROBE_SYMBOL(call_break_hook);
++NOKPROBE_SYMBOL(call_el1_break_hook);
+ 
+-static int brk_handler(unsigned long unused, unsigned long esr,
+-		       struct pt_regs *regs)
 +/*
 + * We have already unmasked interrupts and enabled preemption
-+ * when calling do_el0_softstep() from entry-common.c.
++ * when calling do_el0_brk64() from entry-common.c.
 + */
-+void do_el0_softstep(unsigned long esr, struct pt_regs *regs)
++void do_el0_brk64(unsigned long esr, struct pt_regs *regs)
  {
-+	if (uprobe_single_step_handler(regs, esr) == DBG_HOOK_HANDLED)
+-	if (call_break_hook(regs, esr) == DBG_HOOK_HANDLED)
+-		return 0;
++	if (IS_ENABLED(CONFIG_UPROBES) &&
++		esr_brk_comment(esr) == UPROBES_BRK_IMM &&
++		uprobe_brk_handler(regs, esr) == DBG_HOOK_HANDLED)
 +		return;
-+
-+	send_user_sigtrap(TRAP_TRACE);
- 	/*
--	 * If we are stepping a pending breakpoint, call the hw_breakpoint
--	 * handler first.
-+	 * ptrace will disable single step unless explicitly
-+	 * asked to re-enable it. For other clients, it makes
-+	 * sense to leave it enabled (i.e. rewind the controls
-+	 * to the active-not-pending state).
- 	 */
--	if (try_step_suspended_breakpoints(regs))
--		return 0;
--
--	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
--		return 0;
--
+ 
 -	if (user_mode(regs)) {
--		send_user_sigtrap(TRAP_TRACE);
--
--		/*
--		 * ptrace will disable single step unless explicitly
--		 * asked to re-enable it. For other clients, it makes
--		 * sense to leave it enabled (i.e. rewind the controls
--		 * to the active-not-pending state).
--		 */
--		user_rewind_single_step(current);
+-		send_user_sigtrap(TRAP_BRKPT);
 -	} else {
--		pr_warn("Unexpected kernel single-step exception at EL1\n");
--		/*
--		 * Re-enable stepping since we know that we will be
--		 * returning to regs.
--		 */
--		set_regs_spsr_ss(regs);
+-		pr_warn("Unexpected kernel BRK exception at EL1\n");
+-		return -EFAULT;
 -	}
 -
 -	return 0;
-+	user_rewind_single_step(current);
++	send_user_sigtrap(TRAP_BRKPT);
  }
--NOKPROBE_SYMBOL(single_step_handler);
+-NOKPROBE_SYMBOL(brk_handler);
 +
-+void do_el1_softstep(unsigned long esr, struct pt_regs *regs)
++void do_el1_brk64(unsigned long esr, struct pt_regs *regs)
 +{
-+	if (kgdb_single_step_handler(regs, esr) == DBG_HOOK_HANDLED)
++	if (call_el1_break_hook(regs, esr) == DBG_HOOK_HANDLED)
 +		return;
 +
-+	pr_warn("Unexpected kernel single-step exception at EL1\n");
-+	/*
-+	 * Re-enable stepping since we know that we will be
-+	 * returning to regs.
-+	 */
-+	set_regs_spsr_ss(regs);
++	die("Oops - BRK", regs, esr);
 +}
-+NOKPROBE_SYMBOL(do_el1_softstep);
++NOKPROBE_SYMBOL(do_el1_brk64);
  
- static int call_break_hook(struct pt_regs *regs, unsigned long esr)
+ bool try_handle_aarch32_break(struct pt_regs *regs)
  {
-@@ -329,8 +312,6 @@ NOKPROBE_SYMBOL(try_handle_aarch32_break);
+@@ -311,10 +310,7 @@ bool try_handle_aarch32_break(struct pt_regs *regs)
+ NOKPROBE_SYMBOL(try_handle_aarch32_break);
  
  void __init debug_traps_init(void)
- {
--	hook_debug_fault_code(DBG_ESR_EVT_HWSS, single_step_handler, SIGTRAP,
--			      TRAP_TRACE, "single-step handler");
- 	hook_debug_fault_code(DBG_ESR_EVT_BRK, brk_handler, SIGTRAP,
- 			      TRAP_BRKPT, "BRK handler");
- }
+-{
+-	hook_debug_fault_code(DBG_ESR_EVT_BRK, brk_handler, SIGTRAP,
+-			      TRAP_BRKPT, "BRK handler");
+-}
++{}
+ 
+ /* Re-enable single step for syscall restarting. */
+ void user_rewind_single_step(struct task_struct *task)
 diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index be2add6b4ae3..7265bef96672 100644
+index c2ea1653dbb8..1e8306817056 100644
 --- a/arch/arm64/kernel/entry-common.c
 +++ b/arch/arm64/kernel/entry-common.c
-@@ -535,6 +535,24 @@ static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
+@@ -565,11 +565,12 @@ static void noinstr el1_watchpt(struct pt_regs *regs, unsigned long esr)
  	arm64_exit_el1_dbg(regs);
  }
  
-+static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
-+{
-+	arm64_enter_el1_dbg(regs);
-+	if (!cortex_a76_erratum_1463225_debug_handler(regs)) {
-+		debug_exception_enter(regs);
-+		/*
-+		 * After handling a breakpoint, we suspend the breakpoint
-+		 * and use single-step to move to the next instruction.
-+		 * If we are stepping a suspended breakpoint there's nothing more to do:
-+		 * the single-step is complete.
-+		 */
-+		if (!try_step_suspended_breakpoints(regs))
-+			do_el1_softstep(esr, regs);
-+		debug_exception_exit(regs);
-+	}
-+	arm64_exit_el1_dbg(regs);
-+}
-+
- static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+-static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
++static void noinstr el1_brk64(struct pt_regs *regs, unsigned long esr)
  {
- 	unsigned long far = read_sysreg(far_el1);
-@@ -587,6 +605,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- 		el1_breakpt(regs, esr);
+ 	arm64_enter_el1_dbg(regs);
+-	if (!cortex_a76_erratum_1463225_debug_handler(regs))
+-		do_debug_exception(far, esr, regs);
++	debug_exception_enter(regs);
++	do_el1_brk64(esr, regs);
++	debug_exception_exit(regs);
+ 	arm64_exit_el1_dbg(regs);
+ }
+ 
+@@ -621,7 +622,7 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+ 		el1_watchpt(regs, esr);
  		break;
- 	case ESR_ELx_EC_SOFTSTP_CUR:
-+		el1_softstp(regs, esr);
-+		break;
- 	case ESR_ELx_EC_WATCHPT_CUR:
  	case ESR_ELx_EC_BRK64:
- 		el1_dbg(regs, esr);
-@@ -793,6 +813,25 @@ static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
+-		el1_dbg(regs, esr);
++		el1_brk64(regs, esr);
+ 		break;
+ 	case ESR_ELx_EC_FPAC:
+ 		el1_fpac(regs, esr);
+@@ -857,6 +858,14 @@ static void noinstr el0_watchpt(struct pt_regs *regs, unsigned long esr)
  	exit_to_user_mode(regs);
  }
  
-+static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
++static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
 +{
-+	if (!is_ttbr0_addr(regs->pc))
-+		arm64_apply_bp_hardening();
-+
 +	enter_from_user_mode(regs);
-+	/*
-+	 * After handling a breakpoint, we suspend the breakpoint
-+	 * and use single-step to move to the next instruction.
-+	 * If we are stepping a suspended breakpoint there's nothing more to do:
-+	 * the single-step is complete.
-+	 */
-+	if (!try_step_suspended_breakpoints(regs)) {
-+		local_daif_restore(DAIF_PROCCTX);
-+		do_el0_softstep(esr, regs);
-+	}
++	local_daif_restore(DAIF_PROCCTX);
++	do_el0_brk64(esr, regs);
 +	exit_to_user_mode(regs);
 +}
 +
  static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
  {
  	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
-@@ -875,6 +914,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
- 		el0_breakpt(regs, esr);
+@@ -945,7 +954,7 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+ 		el0_watchpt(regs, esr);
  		break;
- 	case ESR_ELx_EC_SOFTSTP_LOW:
-+		el0_softstp(regs, esr);
-+		break;
- 	case ESR_ELx_EC_WATCHPT_LOW:
  	case ESR_ELx_EC_BRK64:
- 		el0_dbg(regs, esr);
-@@ -997,6 +1038,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
- 		el0_breakpt(regs, esr);
+-		el0_dbg(regs, esr);
++		el0_brk64(regs, esr);
  		break;
- 	case ESR_ELx_EC_SOFTSTP_LOW:
-+		el0_softstp(regs, esr);
-+		break;
- 	case ESR_ELx_EC_WATCHPT_LOW:
- 	case ESR_ELx_EC_BKPT32:
- 		el0_dbg(regs, esr);
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index 309ae24d4548..8a80e13347c8 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -854,7 +854,7 @@ bool try_step_suspended_breakpoints(struct pt_regs *regs)
- 	bool handled_exception = false;
- 
- 	/*
--	 * Called from single-step exception handler.
-+	 * Called from single-step exception entry.
- 	 * Return true if we stepped a breakpoint and can resume execution,
- 	 * false if we need to handle a single-step.
- 	 */
+ 	case ESR_ELx_EC_FPAC:
+ 		el0_fpac(regs, esr);
 -- 
 2.43.0
 
