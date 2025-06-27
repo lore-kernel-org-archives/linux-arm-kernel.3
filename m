@@ -4,84 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7F4C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A134C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8DYuVG3WR19JLL/U5qiVW2XDLvRqb0poGxi7BPvVraA=; b=lvslDV1zoIJy7G44T+RLvodjsI
-	VEaIDkCLXrx4RsNvtBbaVvjjY9NwFlisQcpc4SUs12nqEa2bUrBIG0tuXGLtopDrkFGkLZ7DmoHVc
-	d7WHRJcc768QNn8l0whYQhgs7ksQQgsJElHy8tzwRnQ2Bs4d3cEjlKu3lxkRKt2NPm/hSnlkfSmD6
-	MrgmjdbOSoGPR5zWFsl8MApk6/NBWkgdnyRwVhJimV28GNfnka1ACuypbReP5dxsDMgVNQuv/IY58
-	TCMS/B7aCvgnEzZt4YUkykZ2Bk/NXPp2DRqPf5UBqRJi/gvP00TxPftaHoiu8H2opV5m5v5fbxWll
-	2d7a8ppg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ujU17mPoSs0aAk2xXVdhVwgYD+BgoPNEw5fp/qvvTY0=; b=NiK5xHtYdy7lzdBWxQ/Y/D29YW
+	kKIsDY4fkF8XolK1Juis/tR1Dzm1494CnpOGSBdHRkhhqsQho8XncgLtOYHo/eU1B59beGPQ0R8Yq
+	1PLrxg5piYXz8CnAQ/1DzNShZeSKSc3ocFUCC1oiPnfvcO6z5Pkj6xuG3RZQhjosLc7RbE86H7EFx
+	4V93xq/F6DRGSpiNwQJPsZelGHLnyjunPQR+8s6aXHmb30WDgQJ0umtSBf1W2/So+DaLzRgkpcbh4
+	iA0xhH+hAsPcpeb35cKDsnIlNhrQi9Fv8R4TkweXAIwQ3IFWnBr6AkNOw+O4Y7XhhKdoN0KnMPF6w
+	4YwuvnIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8rW-0000000EjtX-3ukx;
-	Fri, 27 Jun 2025 13:11:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uV8to-0000000EkAw-0EHR;
+	Fri, 27 Jun 2025 13:13:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8MO-0000000EfAO-1yzU
+	id 1uV8NU-0000000EfJu-3zvm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:39:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751027955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8DYuVG3WR19JLL/U5qiVW2XDLvRqb0poGxi7BPvVraA=;
-	b=hUqpBZ+7ukHHqf/LovLqEabg0PRzafhDgv0Wy3D69gDtu94t+/gi5chf81Esi2zy/oY1+g
-	14g9opENRwUwG84Dv4/BIT85ZPcvQfv6oHk9mJV5Y062NUuEw+7rS5HmGhZVR/UOixYq2+
-	hCKVT2cPux58a5J8UqKcrFJqNammDgo=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-222-ETJ4gQI1P82S1oTDBeJ5Mw-1; Fri,
- 27 Jun 2025 08:39:10 -0400
-X-MC-Unique: ETJ4gQI1P82S1oTDBeJ5Mw-1
-X-Mimecast-MFC-AGG-ID: ETJ4gQI1P82S1oTDBeJ5Mw_1751027948
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BDC051801215;
-	Fri, 27 Jun 2025 12:39:07 +0000 (UTC)
-Received: from hydra.redhat.com (unknown [10.45.224.209])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 17C02180035C;
-	Fri, 27 Jun 2025 12:38:58 +0000 (UTC)
-From: Jocelyn Falempe <jfalempe@redhat.com>
-To: Andrei Lalaev <andrey.lalaev@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Christian Schrefl <chrisi.schrefl@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	rust-for-linux <rust-for-linux@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org
-Cc: Jocelyn Falempe <jfalempe@redhat.com>
-Subject: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
-Date: Fri, 27 Jun 2025 14:38:19 +0200
-Message-ID: <20250627123854.921704-1-jfalempe@redhat.com>
+	Fri, 27 Jun 2025 12:40:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A4BB45527;
+	Fri, 27 Jun 2025 12:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BE71C4CEED;
+	Fri, 27 Jun 2025 12:40:22 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL 0/4] Renesas SoC updates for v6.17
+Date: Fri, 27 Jun 2025 14:40:15 +0200
+Message-ID: <cover.1751026657.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Knf3iv9BYkEBycvFnRR48Q0QlXxDpelfmD8XkrKqGz8_1751027948
-X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_053916_585771_0613D2CB 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250627_054025_014411_D5B6750A 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +62,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 32bits ARM, u64 divided by a constant is not optimized to a
-multiply by inverse by the compiler [1].
-So do the multiply by inverse explicitly for this architecture.
+	Hi SoC folks,
 
-Link: https://github.com/llvm/llvm-project/issues/37280 [1]
-Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
-Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
-Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
-Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
----
- drivers/gpu/drm/drm_panic_qr.rs | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+This is my first pull request for the inclusion of Renesas SoC updates
+for v6.17.
 
-diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
-index dd55b1cb764d..774a17de4f2f 100644
---- a/drivers/gpu/drm/drm_panic_qr.rs
-+++ b/drivers/gpu/drm/drm_panic_qr.rs
-@@ -381,6 +381,26 @@ struct DecFifo {
-     len: usize,
- }
- 
-+// On arm32 architecture, dividing an `u64` by a constant will generate a call
-+// to `__aeabi_uldivmod` which is not present in the kernel.
-+// So use the multiply by inverse method for this architecture.
-+fn div10(val: u64) -> u64 {
-+    if cfg!(target_arch = "arm") {
-+        let val_h = val >> 32;
-+        let val_l = val & 0xFFFFFFFF;
-+        let b_h: u64 = 0x66666666;
-+        let b_l: u64 = 0x66666667;
-+
-+        let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
-+        let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
-+        let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
-+
-+        tmp3 >> 2
-+    } else {
-+        val / 10
-+    }
-+}
-+
- impl DecFifo {
-     fn push(&mut self, data: u64, len: usize) {
-         let mut chunk = data;
-@@ -389,7 +409,7 @@ fn push(&mut self, data: u64, len: usize) {
-         }
-         for i in 0..len {
-             self.decimals[i] = (chunk % 10) as u8;
--            chunk /= 10;
-+            chunk = div10(chunk);
-         }
-         self.len += len;
-     }
+It consists of 4 parts:
 
-base-commit: 3529cb5ab16b4f1f8bbc31dc39a1076a94bd1e38
--- 
-2.49.0
+  [GIT PULL 1/4] Renesas ARM defconfig updates for v6.17
 
+    - Enable modular support for Renesas RZ/V2H USB2PHY Port Reset Control
+      in the ARM64 defconfig,
+    - Refresh shmobile_defconfig for v6.16-rc2.
+
+  [GIT PULL 2/4] Renesas driver updates for v6.17
+
+    - Initial support for the Renesas RZ/T2H (R9A09G077) and RZ/N2H
+      (R9A09G087) SoCs,
+    - Convert the RZ/V2M External Power Sequence Controller (PWC) driver
+      to the new GPIO line value setter callbacks.
+
+  [GIT PULL 3/4] Renesas DT binding updates for v6.17
+
+    - Document more board part numbers.
+
+  [GIT PULL 4/4] Renesas DTS updates for v6.17
+
+    - Add SPI FLASH, camera, and Ethernet support on the RZ/G3E SoC and/or
+      the RZ/G3E SoM and SMARC Carrier-II EVK development board,
+    - Add Ethernet, USB2, and PMIC support on the RZ/V2H and RZ/V2N SoCs
+      and EVK boards,
+    - Add timer, I2C, watchdog, and GPU support on the RZ/V2N SoC and the
+      RZ/V2N EVK board,
+    - Add debug LED support for the RZN1D-DB development board,
+    - Improve PCIe clock description on the Retronix Sparrow Hawk board,
+    - Miscellaneous fixes and improvements.
+
+Notes:
+  - PR 4/4 includes an immutable branch in the PCI subsystem, as a
+    dependency for reworking the PCIe clock topology on the Retronix
+    Sparrow Hawk board.
+
+Thanks for pulling!
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
