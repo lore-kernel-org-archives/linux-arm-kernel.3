@@ -4,127 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D96BC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20877C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 12:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kliSDo9vvqdteYx7jg54XhQvy5IMVOpy3AdtlXAThtM=; b=Pj0voMnmFG/pornWBpKUaFly4d
-	+RiU12TCoZBypm7euzyVRJLRTgyRfJ/RQlbu8kmXabCZoOECevlnK6TAAe4wIZWhP/3v4atqOgcV4
-	dNOKcqvTBpuUyCPlpy22xJfVi0j0RYXYTDtPSKMffh3CXzwxnsfQoJS80TzPv6+s5UdOnKm1Ylt5z
-	UhcVB6EmPwXNVRjwOnHJxClpjzQJ2rgATjC4c9/um9AAakodZ+c7OvAVCPrQGle/qqyi1QD/qjpw+
-	RcenirEP96F244Pzuqf2si+qwr8Or3getuRGtCmfEzAxw4zdNqGAbNCFZLLYuja1GN+dQ3wc5mQUs
-	hO7NAUyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xak7x/UUYc67ZaQ3u0Ym00MBt+lJzOGsRvBX6FlL2fc=; b=jCgbadHufn7twa6UDyA/DqZnc4
+	PcXh/3/0a5cc8yXV1OT3Y+ihpzwhAi6a7RFxuKzNOuujRJaT77h1rxwdav9HChk3gzovMLV1ljBJl
+	c3ZfthBK0hQEe7aj55bo5Xap26Pcg1cVItyF1Ht1HSI5+8Jy7GZS+SNpWYkff3TrR78vw1seKjykN
+	Psq70ZZ/w2YhifZQCjoQUavpU0aaznkuVuvFvjH6ZyXASy0XPBd3MsoRx78AIK049JR/FdiWyD8iV
+	G0i3511GL8ohif6ISJnR128oXDRPDtIByyDg2LqtFZQSlRTIGVeOLjl2yW7V7bdM/j2D4yOy8ERcY
+	IfWfC1Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8ME-0000000Ef6l-41Ii;
-	Fri, 27 Jun 2025 12:39:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uV8Nm-0000000EfM9-0AEu;
+	Fri, 27 Jun 2025 12:40:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6zb-0000000ER9S-0Xfx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Jun 2025 11:11:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=kliSDo9vvqdteYx7jg54XhQvy5IMVOpy3AdtlXAThtM=; b=HLXvlq1KdCQBj8+PG+o8vj/VeY
-	DksA1WtAFPdrndGSjkvHC9RtjEixJ/sz8VMsuF/CryGH/LVvrBCZYHoalnf8l1l40B+foOPCkeflM
-	4kJ5jmeY4zbCKkNUPCwIW9YW2K/zHWgHUP3LKyK2gbbfKgeCRwUuk0oHghj2RW/n3sf20X1oc6txI
-	+yMuL3Byd0VwL0XVPhBV2WU8PkHhYQ9R0QHSrRWcHtMDlQ1Og97KFbAM+mp3RHcd+2v5wpu4Ex1Ko
-	lzU/cRFgeMZH5S7Qv2XLUJAoo91H9rJc5+e2nuUWwAPEtmqptmF9GdspwcrZzDqwea0WQruEqmgHy
-	4u3SsGcw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV6zX-00000006KBn-29nW
+	id 1uV7ua-0000000EbM6-2gk2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 11:11:38 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R4DCPT009537;
-	Fri, 27 Jun 2025 11:11:24 GMT
+	Fri, 27 Jun 2025 12:10:33 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55R4D6JL017705;
+	Fri, 27 Jun 2025 12:10:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=kliSDo9vvqdteYx7jg54Xh
-	Qvy5IMVOpy3AdtlXAThtM=; b=LP16SlegEJrj0nghcZ74XJoqUuwKF194peOGEN
-	5aYIJ9czGSB1tiZDDN+NIPoSGkJDzDVkkY7o/qLcbbE193FAI0OccDHXRqv3H6F5
-	w4pzlz8rVKGTGG+0Um62WN3k3Swu9A9KkrYIjuJ2kPokP7WJDEe5y2NyKVeO/MYe
-	TtZERRaFIrhFS71OEDAK+2YE+ajdo/bjIDtdPvKaPGDN84d4mQt731PEDsdqXnP7
-	10nJJxoNqm5An4yzl2o7qOdcru/1BloWBLGEfvGZG0us87hGyS+egMYeeN7fpnB8
-	BiRPsfZrWeALzUsofdRGjQFzJpLz/zVTvXfi//vrF129K+iQ==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47f4b46h3s-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xak7x/UUYc67ZaQ3u0Ym00MBt+lJzOGsRvBX6FlL2fc=; b=FmUG26/Z6thG4IsD
+	olQ6sG5UH67cpDJjAEaYPBhCs1WfPIf7jKpMySOw8Ia++hF6msK1lkVUqBN4GVfV
+	gjJROj6fhqsukxkRuCNp5Dn8ZFhPAcvtKGPXnNvMs0tb1AQwQMUHypzjS5NrKkHW
+	zwq8wwxcNkCSMHcYAI6JqyeFFb5mSLlNiZtH8KdErBM7hL7Vd7XtaQpHe3mYSupE
+	frn1YAzRH+Y6qvNSpskIAtaDtE5slgb0xBpD4/Bpcn+zeBH2XooBP0sfC4n56fQa
+	KQw4gFIF5mLuy6+Z3MgCUuQG2b+bsueW2mAfnolLB/YiWrn6vlmOWuFjiRgJhQeK
+	fN52vg==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47fdfx531e-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 11:11:24 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55RBBNvb002694
+	Fri, 27 Jun 2025 12:10:25 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55RCAOiL001710
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Jun 2025 11:11:23 GMT
-Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+	Fri, 27 Jun 2025 12:10:24 GMT
+Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 27 Jun 2025 04:11:20 -0700
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Date: Fri, 27 Jun 2025 19:10:52 +0800
-Subject: [PATCH] coresight-tmc: Add configurable timeout for flush and
- tmcready
+ 15.2.1544.9; Fri, 27 Jun 2025 05:10:19 -0700
+From: Luo Jie <quic_luoj@quicinc.com>
+Date: Fri, 27 Jun 2025 20:09:18 +0800
+Subject: [PATCH v2 2/8] clk: qcom: ipq5424: Enable NSS NoC clocks to use
+ icc-clk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250627-flush_timeout-v1-1-2f46a8e9f842@quicinc.com>
-X-B4-Tracking: v=1; b=H4sIADt8XmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDMyNz3bSc0uKM+JLM3NT80hLdRFNLiySTZIPkVPMkJaCegqLUtMwKsHn
- RsbW1AN/pTalfAAAA
-X-Change-ID: 20250627-flush_timeout-a598b4c0ce7b
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: <kernel@oss.qualcomm.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751022680; l=3431;
- i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=BUYvO1CC878o99f6joPL9/fGOdVBxzpFP5fc6NApHGk=;
- b=ZMbobRLqQIet6lV4HOAgbqz0EwWv+pjUNCKDDN8I1BbP5KqlJYmluu4McUUnFtwxKIdzfT6aN
- PhvY8rnUEeKDlCtpBSHPutOr6vo1VMbeNMlaM3d6s3e0/AzJtUnDpW2
-X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
- pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+Message-ID: <20250627-qcom_ipq5424_nsscc-v2-2-8d392f65102a@quicinc.com>
+References: <20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com>
+In-Reply-To: <20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Richard Cochran <richardcochran@gmail.com>,
+        "Konrad
+ Dybcio" <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Anusha Rao <quic_anusha@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        Luo Jie
+	<quic_luoj@quicinc.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751026208; l=1801;
+ i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
+ bh=Ub5UVQb+X+nSMLPBAXiQVVQL13pmLpfYGlHDOtuBCq8=;
+ b=32BkPvHEMk8v8cOUbucgvazg9d5H+Clf0sbLTMEgc9w/GFe8mE+rah8pGY7u3Ng3/L3Rn78GP
+ 5Po+ccSNa/nAl5sKhX2DhKq9XWSbtApRYrd8YSHZDoSYynKSwWQUxfG
+X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
+ pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
 X-Originating-IP: [10.80.80.8]
 X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
+ nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDA5MiBTYWx0ZWRfX/T9P1UOfd7CW
- Ew8ip9WeJKpnnXLDHVrRgCy1ZQOMbYwS3si/UvqmIUi8nVOFqa2vea2Ld+larMmZ9Z6hDkXpfjA
- rN642C2iQrYI57KRIEtJRK23WdmrFTwJgJ+UxgcueAsu8qE3fOSQm2TzlKWRmYUfdVQ+enYn6Ii
- +3DlC0Z2LGw9jfc4xkKJ5n02/mrQQVa5/fUSPoJhd6P9fAS8e8IymDmVY36l3K6bec0N108o00H
- f3phwANXwJMenUQUoQGEWMYZowpPfEp3vIlZS1FkbtJdCZjCXFx1xcoRcbWS7AGgHxBI0zgxnAg
- d7wT+huYx/70h4NrmKghMwRM3xPbfJKyncDvR2DQ1jwLYuFD+7hsdQ4VVg1liK+Fu5gJHYhppWk
- eYLbtvo5bAZkjtsyYX5vsEfZOcs1O7JSD8uKz9QaL/nwOX9BNVo1iQoV312M+PX0rhCSjkUH
-X-Proofpoint-ORIG-GUID: G72L2e7Nu-Ue6sPSnpwEAKQYFwWlNR24
-X-Proofpoint-GUID: G72L2e7Nu-Ue6sPSnpwEAKQYFwWlNR24
-X-Authority-Analysis: v=2.4 cv=A8BsP7WG c=1 sm=1 tr=0 ts=685e7c5c cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-GUID: cPeq4VWowgcoXM3Rs9ZY1xPLlIDozvqx
+X-Proofpoint-ORIG-GUID: cPeq4VWowgcoXM3Rs9ZY1xPLlIDozvqx
+X-Authority-Analysis: v=2.4 cv=MtZS63ae c=1 sm=1 tr=0 ts=685e8a31 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=VJN7ZjvJE1eYF0YsODwA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+ a=Y335ZxkaApgOvvUokr4A:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEwMSBTYWx0ZWRfXxzAuCoIN++0E
+ ro4IXnOT8xz8cQqB3fL6URRye9IddxRLxi4zD2vRXEL6K0dYHFIH98+DJxmSU4T3cM6ODSEdlS+
+ DyAuRlax+ehPZ2ENQlVn9mloMenKe4qCtr3jiqSFR7IgAH/x+c6m6BtnPfML6P1290Cegfumci/
+ 0gW/S3ApMVDFVXrZHrI57UZvwsfjrxfdkmuTj9MpndtRz5Z1qu4ONfyoj3MuGiebAH7AUwPEHo/
+ uToUgRvOev3n21YL4y7X6aI6ElPtoDbmfL/b4U0HrYu2dtsMCJUHhBsbgB4rURnRvdVDW1YzJzb
+ jsvxZdguH4ymNpR6qVgCCtHtMCuhT1pB8i5N3eli43CGw198H01r19He8hY06c4+GSD0pcIEg1w
+ wRyQFUd5avpxd8EKhko8gZ45sg30K2Q5NQDogUUr2iw33/NMoj01sh1tWHS4WRpEBH/XfwCw
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-06-27_04,2025-06-26_05,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 mlxlogscore=999 malwarescore=0 spamscore=0 bulkscore=0
- phishscore=0 adultscore=0 impostorscore=0 suspectscore=0 mlxscore=0
- clxscore=1015 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506270092
+ bulkscore=0 impostorscore=0 suspectscore=0 adultscore=0 phishscore=0
+ mlxlogscore=965 spamscore=0 malwarescore=0 priorityscore=1501
+ lowpriorityscore=0 clxscore=1015 mlxscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506270101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_121136_173856_BF914398 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250627_051032_805119_4C763803 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,112 +137,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current implementation uses a fixed timeout via
-coresight_timeout(), which may be insufficient when multiple
-sources are enabled or under heavy load, leading to TMC
-readiness or flush completion timeout.
+Add NSS NoC clocks using the icc-clk framework to create interconnect
+paths. The network subsystem (NSS) can be connected to these NoCs.
 
-This patch introduces a configurable timeout mechanism for
-flush and tmcready.
+Also update to use the expected icc_first_node_id for registering the
+icc clocks.
 
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- drivers/hwtracing/coresight/coresight-tmc-core.c | 43 ++++++++++++++++++++++--
- 1 file changed, 41 insertions(+), 2 deletions(-)
+ drivers/clk/qcom/gcc-ipq5424.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 88afb16bb6bec395ba535155228d176250f38625..286d56ce88fe80fbfa022946dc798f0f4e72f961 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -8,6 +8,7 @@
- #include <linux/kernel.h>
- #include <linux/init.h>
- #include <linux/types.h>
-+#include <linux/delay.h>
- #include <linux/device.h>
- #include <linux/idr.h>
- #include <linux/io.h>
-@@ -35,13 +36,31 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
- DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
- DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
+diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
+index 3d42f3d85c7a..3a01cb277cac 100644
+--- a/drivers/clk/qcom/gcc-ipq5424.c
++++ b/drivers/clk/qcom/gcc-ipq5424.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+  * Copyright (c) 2018,2020 The Linux Foundation. All rights reserved.
+- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
++ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+  */
  
-+static u32 tmc_timeout;
-+
-+static void tmc_extend_timeout(struct csdev_access *csa, u32 offset, int pos, int val)
-+{
-+	int i;
-+
-+	for (i = tmc_timeout; i > 0; i--) {
-+		if (i - 1)
-+			udelay(1);
-+	}
-+}
-+
-+static int tmc_wait_status(struct csdev_access *csa, u32 offset, int pos, int val)
-+{
-+	return coresight_timeout_action(csa, offset, pos, val,
-+			tmc_extend_timeout);
-+}
-+
- int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
- {
- 	struct coresight_device *csdev = drvdata->csdev;
- 	struct csdev_access *csa = &csdev->access;
- 
- 	/* Ensure formatter, unformatter and hardware fifo are empty */
--	if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
-+	if (tmc_wait_status(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
- 		dev_err(&csdev->dev,
- 			"timeout while waiting for TMC to be Ready\n");
- 		return -EBUSY;
-@@ -61,7 +80,7 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
- 	ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
- 	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
- 	/* Ensure flush completes */
--	if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
-+	if (tmc_wait_status(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
- 		dev_err(&csdev->dev,
- 		"timeout while waiting for completion of Manual Flush\n");
- 	}
-@@ -561,11 +580,31 @@ static ssize_t stop_on_flush_store(struct device *dev,
- 
- static DEVICE_ATTR_RW(stop_on_flush);
- 
-+static ssize_t timeout_cfg_show(struct device *dev,
-+				struct device_attribute *attr, char *buf)
-+{
-+	return scnprintf(buf, PAGE_SIZE, "%d\n", tmc_timeout);
-+}
-+
-+static ssize_t timeout_cfg_store(struct device *dev,
-+				 struct device_attribute *attr,
-+				 const char *buf, size_t size)
-+{
-+	unsigned long val;
-+
-+	if (kstrtoul(buf, 0, &val))
-+		return -EINVAL;
-+	tmc_timeout = val;
-+
-+	return size;
-+}
-+static DEVICE_ATTR_RW(timeout_cfg);
- 
- static struct attribute *coresight_tmc_attrs[] = {
- 	&dev_attr_trigger_cntr.attr,
- 	&dev_attr_buffer_size.attr,
- 	&dev_attr_stop_on_flush.attr,
-+	&dev_attr_timeout_cfg.attr,
- 	NULL,
+ #include <linux/clk-provider.h>
+@@ -3250,6 +3250,9 @@ static const struct qcom_icc_hws_data icc_ipq5424_hws[] = {
+ 	{ MASTER_ANOC_PCIE3, SLAVE_ANOC_PCIE3, GCC_ANOC_PCIE3_2LANE_M_CLK },
+ 	{ MASTER_CNOC_PCIE3, SLAVE_CNOC_PCIE3, GCC_CNOC_PCIE3_2LANE_S_CLK },
+ 	{ MASTER_CNOC_USB, SLAVE_CNOC_USB, GCC_CNOC_USB_CLK },
++	{ MASTER_NSSNOC_NSSCC, SLAVE_NSSNOC_NSSCC, GCC_NSSNOC_NSSCC_CLK },
++	{ MASTER_NSSNOC_SNOC_0, SLAVE_NSSNOC_SNOC_0, GCC_NSSNOC_SNOC_CLK },
++	{ MASTER_NSSNOC_SNOC_1, SLAVE_NSSNOC_SNOC_1, GCC_NSSNOC_SNOC_1_CLK },
  };
  
+ static const struct of_device_id gcc_ipq5424_match_table[] = {
+@@ -3284,6 +3287,7 @@ static const struct qcom_cc_desc gcc_ipq5424_desc = {
+ 	.num_clk_hws = ARRAY_SIZE(gcc_ipq5424_hws),
+ 	.icc_hws = icc_ipq5424_hws,
+ 	.num_icc_hws = ARRAY_SIZE(icc_ipq5424_hws),
++	.icc_first_node_id = IPQ_APPS_ID,
+ };
+ 
+ static int gcc_ipq5424_probe(struct platform_device *pdev)
 
----
-base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-change-id: 20250627-flush_timeout-a598b4c0ce7b
-
-Best regards,
 -- 
-Yuanfang Zhang <quic_yuanfang@quicinc.com>
+2.34.1
 
 
