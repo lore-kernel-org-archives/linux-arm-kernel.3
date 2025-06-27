@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF239C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023C1C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TiMVd2SjUu/LiFQyiiDpR3nm28z10xcosdE8cb/KZlU=; b=1dJeJ7qV4bM7APa9Siw9vXAgP+
-	Zo/NeG6hWalW9uXVXpeKeM1JiRvvEtUzwpEJZsoin1bMCjkrncPRHzmo63Gxq47P0qagw8fap0fZT
-	QB1EYrHfoA4PMbqxBi0eUWyeFVxkzGpQOsdNu9YZU5EvxBLlEUnM94GttSyKCd59j3Fg36cj/DRrw
-	ZgWCxWqKMGYhjrF5j1Uei6BlqO39JW4o+imgpdcR7qCMucW7amE1p4ndvf3LlBVnZIXBAZuAWqMi/
-	5pNZmckBGGz2ZvJFWoXq8PAdCtpBPaCguEiFhJxiJ6TPGAwoLthFJTWfckF4sHSPYZmYbiX0tJnGB
-	ibSyV3qQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yj3XMBNCtAxRXf3xdEbKn11k/ymHDdZg+9AzRzbtJkg=; b=UW+zOY6tuBnpC5WO5N375gW2TU
+	Ya6Eevd2DS12US0vkeRArV6EnCc6M/AdpMCaYqwdNeKeLxlvzbKZ96l1fZOTrXIfZzVF97YC3ztCZ
+	XG2JDfihRYNNOa7rF2vyGC4OArYOIs0CTRQ84czqSXqengz3IMpeFCeO2TVamN+UswPzAg7+gAI5w
+	FGxsKYbv7ysrFGya2+DIi54jld4HM16qeLRbZJQ//2n5hlFTnllqpOG/V6Hi/k0clI67OIM9D7sLT
+	cRFhyyqoHfFa+3+pbXPvsemnHu1GAh7kYQudbEK8ZHQwQdfJXy6RNmiQJqxm9P8HctKbpV24nlOIv
+	cb0cQUKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBli-0000000FEQP-3nEn;
-	Fri, 27 Jun 2025 16:17:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uVBo0-0000000FEhY-2cju;
+	Fri, 27 Jun 2025 16:20:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVB19-0000000F6di-0AoC
+	id 1uVB19-0000000F6dz-1VAm
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 27 Jun 2025 15:29:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5B133A52FAA;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 84B20A52FAE;
 	Fri, 27 Jun 2025 15:29:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA54CC4CEF2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3042C4CEF3;
 	Fri, 27 Jun 2025 15:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751038169;
-	bh=DLL0uv9BKZAXYGcaADgHmi1/DoHhNnMIhXQxNX93FQA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Bb027EaMRl72rIynik9ymtl6EoP6L6kbRgcXJT+28jIGaEwIsNgJXJm4DUDAV8p4b
-	 tpsORQqbFZo+D0XmZLvvEnCjcHnMaqLTzgVEjRhETSixFoxgTjoxqwIm+2y7Dh0x8M
-	 X5KLiwXZ1JDLrZ4+3ZRWmJViy8LLkcgUWyef+em4VHJXDsAxOTFrHqVA3Qz5z/1lAp
-	 D8sd0rnlkmPjF7VNOVJAxCWypAnpvv21Va8epte42g5j8YrptOG3lYnTKEQsjNmfkx
-	 SLpU52zKPd4iciVvE0+LS8Dq6a3IFvY/LVkW0Vc/ciiIhXsWf5Amf3P4/O94rqtF0x
-	 cqe7WJRcLp1MA==
+	s=k20201202; t=1751038170;
+	bh=LsM/oKAoyeVrerWCsGQ8qkJnLZGaVDxv1+0mdy8Bbow=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WenOP8PHK54BpguPCGqN18tbpif+eHEwWcahV5qmVT/6mzlrR/UYs8eZWUf0uLGtq
+	 ctzHnFY1AEgvkiJK9SH+iK7T9KOLa6BATLbG9HoNaJBpMNgf7gAoUjtKEdMEBc/BIH
+	 T1knLPaUKHZCXMfvmFEcLximJTRYKJQtJTm/IDxB3fIn1sKOt/4QMPnSWjQYH6jvec
+	 WaTHuq6PK8059ndMHc9Zvkp0gkP0dzAiM7D0Q9d+bYY4JGXAhJLO2NeImTPRjU1tJD
+	 tM0ug3rBiz9+ymzGK6y71ZPG8D9V+qkqInbENL3CrVZibO+YbGArB3Wd8nJsVvfUU0
+	 8dP1I/pq56IBg==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 172185FD85; Fri, 27 Jun 2025 23:29:27 +0800 (CST)
+	id 456665FFC8; Fri, 27 Jun 2025 23:29:27 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -58,15 +58,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH 0/4] allwinner: a523: Add power controllers
-Date: Fri, 27 Jun 2025 23:29:14 +0800
-Message-Id: <20250627152918.2606728-1-wens@kernel.org>
+Subject: [PATCH 4/4] arm64: dts: allwinner: a523: Add power controller device nodes
+Date: Fri, 27 Jun 2025 23:29:18 +0800
+Message-Id: <20250627152918.2606728-5-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250627152918.2606728-1-wens@kernel.org>
+References: <20250627152918.2606728-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_082931_144432_587C5D64 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250627_082931_466454_7BE7BDFD 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +85,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Hi folks,
+The A523 SoC family has two power controllers, one based on the existing
+PPU, and one newer one based on ARM's PCK-600.
 
-This series adds the power controllers found in the Allwinner A523
-family of SoCs. There are two power controllers. One is the same type
-as those found in the D1 SoC, just with a different number of valid
-power domains. The second is (I assume) a unit based on ARM's PCK-600
-power controller. Some of the registers and values match up, but there
-are extra registers for delay controls in the PCK-600's reserved
-register range.
+Add device nodes for both of them.
 
-Patch 1 adds new compatible string entries for both of these
-controllers.
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Patch 2 adds support for the A523 PPU to the existing D1 PPU driver.
-
-Patch 3 adds a new driver of the PCK-600 unit in the A523 SoC.
-
-Patch 4 adds device nodes for both of these controllers.
-
-
-Please have a look. The power controllers are critical for enabling more
-peripherals, such as display output, camera input, video codecs, the NPU,
-and a second DWMAC-compatible ethernet interface.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (4):
-  dt-bindings: power: Add A523 PPU and PCK600 power controllers
-  pmdomain: sunxi: sun20i-ppu: add A523 support
-  pmdomain: sunxi: add driver for Allwinner A523's PCK-600 power
-    controller
-  arm64: dts: allwinner: a523: Add power controller device nodes
-
- .../power/allwinner,sun20i-d1-ppu.yaml        |   2 +
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  18 ++
- drivers/pmdomain/sunxi/Kconfig                |   8 +
- drivers/pmdomain/sunxi/Makefile               |   1 +
- drivers/pmdomain/sunxi/sun20i-ppu.c           |  17 ++
- drivers/pmdomain/sunxi/sun55i-pck600.c        | 225 ++++++++++++++++++
- .../power/allwinner,sun55i-a523-pck600.h      |  15 ++
- .../power/allwinner,sun55i-a523-ppu.h         |  12 +
- 8 files changed, 298 insertions(+)
- create mode 100644 drivers/pmdomain/sunxi/sun55i-pck600.c
- create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-pck600.h
- create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
-
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 6f62201fd739..255e0ef98219 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -7,6 +7,8 @@
+ #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
++#include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
++#include <dt-bindings/power/allwinner,sun55i-a523-pck600.h>
+ 
+ / {
+ 	interrupt-parent = <&gic>;
+@@ -576,6 +578,14 @@ mdio0: mdio {
+ 			};
+ 		};
+ 
++		ppu: power-controller@7001400 {
++			compatible = "allwinner,sun55i-a523-ppu";
++			reg = <0x07001400 0x400>;
++			clocks = <&r_ccu CLK_BUS_R_PPU1>;
++			resets = <&r_ccu RST_BUS_R_PPU1>;
++			#power-domain-cells = <1>;
++		};
++
+ 		r_ccu: clock-controller@7010000 {
+ 			compatible = "allwinner,sun55i-a523-r-ccu";
+ 			reg = <0x7010000 0x250>;
+@@ -622,6 +632,14 @@ r_i2c_pins: r-i2c-pins {
+ 			};
+ 		};
+ 
++		pck600: power-controller@7060000 {
++			compatible = "allwinner,sun55i-a523-pck-600";
++			reg = <0x07060000 0x8000>;
++			clocks = <&r_ccu CLK_BUS_R_PPU0>;
++			resets = <&r_ccu RST_BUS_R_PPU0>;
++			#power-domain-cells = <1>;
++		};
++
+ 		r_i2c0: i2c@7081400 {
+ 			compatible = "allwinner,sun55i-a523-i2c",
+ 				     "allwinner,sun8i-v536-i2c",
 -- 
 2.39.5
 
