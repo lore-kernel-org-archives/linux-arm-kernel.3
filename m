@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2B4C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F32C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8wM3L8y3ZkfO69CrgimqDumLWjy+MuYPhG5qyC5xmk=; b=v9zClbPVK/R+c707f+iQp9HJvv
-	QOlRB4CMtrtemc68DVf0CFwxy8z9H1ATT+jKhOLUABlycScCvRjBjnmvXPWK7Dey5BZ70Z45bf/c3
-	413b/MsLVmJTVmZuzYZajSWJqZXKmRxQI29t8Li8VTlmBW4EGhwY6GYI4ibeDmU928ENu29MZabpv
-	zZjP5Nx3UATALNztay4o1biIgNhC/Aynxg3DLzsuoN56aMhGA28ul7FUruvHpthJZudd8WfccOh0k
-	9xRP9IrVuQIkVcwkWXhyX4ZKK1pEN37QXwPWoSsUzB5jbrJzZTf1VPCQ7byIUnwIqnKJ1jUzY1HkS
-	GnZ+CGtQ==;
+	bh=RFHqkPt+uPKNzwWqyksfRVnj/S04rMf6NeRHwuaN8eQ=; b=rguiUMdSqLQLRP7JJLG3/dSgDQ
+	awNvFPFtvHFVKMDeMvkDEhDAnz4yr6wfDwL8mbOjIa1uTg9+jXdYZwUdYi2lhB3ZZHls1RoOGsgoe
+	vrjiAQGC3GWue1NDak2UUb24sGiCuZQHsqOdhomUxvkqWTZUA6YtKnmc1i/fKOOsvMBimaG0GZ93B
+	T+vFL9kg0xPukJi6B699FgRbznyp8SvlpRhDnzV4vpeWQZ5VSrZ62fhgoGdjLu7bTYJOq9wBf/xK1
+	eaV5rJHCsN79d5p7wkhznM77UOqtKtFAIA03IxKdpEEXaLS3wuSpEKoNGtekMCOnJRCzpLMZIqsj+
+	VlXuQD7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVARh-0000000EyDL-1vDM;
-	Fri, 27 Jun 2025 14:52:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9ir-0000000ErKM-3i53
+	id 1uVATz-0000000EyU3-0i72;
+	Fri, 27 Jun 2025 14:55:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV9nI-0000000ErrK-3S2W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:06:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2C8FF5C6A53;
-	Fri, 27 Jun 2025 14:06:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D0DC4CEED;
-	Fri, 27 Jun 2025 14:06:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751033192;
-	bh=cx3cfDqYfml9hV1dbrF3BBDdYHzNauZUQLohSd44LWI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=eLwD4NyAv3OzHJZbC3TUTa9zbjGqUYr0wrSJ+Tz/zfIYnIhUNr6bpoWgADe+Q5ZZi
-	 DBBgztSpx3jYcQl9m0cUhMhB4be1aLgSYnortrqAS1rH++fKo8+bhlC5LySlZ9GsXt
-	 /WdozpPW85WUFjD26uWFt4J5m7IPe9qCjGN1MG79HYauafibsM1EFX4fkytxQEOUdy
-	 myFZaDqyVQwEfGFE2PzH+SIICzk9C9W7gAFMxtwv9idi0VyiOVaOSCz4Bo6Tv73iET
-	 H3xFuQv9yP35IuZxFDmtvR1x02xNcpfd4EcuOEW7MOmzK/x0LsXIP/VjZ9H9qSUni/
-	 j+hBeg+iFzE7g==
-Date: Fri, 27 Jun 2025 09:06:32 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 27 Jun 2025 14:11:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5BCE1A00;
+	Fri, 27 Jun 2025 07:10:50 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 111523F58B;
+	Fri, 27 Jun 2025 07:11:05 -0700 (PDT)
+Date: Fri, 27 Jun 2025 15:11:03 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 7/7] firmware: imx: sm-misc: Dump syslog and system info
+Message-ID: <aF6md8uMuD8EpXvd@pluto>
+References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
+ <20250627-sm-misc-api-v1-v1-7-2b99481fe825@nxp.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Alim Akhtar <alim.akhtar@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-In-Reply-To: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
-Message-Id: <175103315202.3220613.9523717145992109827.robh@kernel.org>
-Subject: Re: [PATCH v2 0/6] Support for Exynos7870's display stack (DECON,
- MIPIPHY, DSIM, etc.)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250627-sm-misc-api-v1-v1-7-2b99481fe825@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_070634_002394_8EEE970F 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20250627_071108_946212_7F2C2D73 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,109 +69,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 27 Jun 2025 01:43:23 +0530, Kaustabh Chakraborty wrote:
-> Exynos7870 has a IP subsystem in its architecture dedicated to display
-> management. Notably, this block includes the Display Enhancement
-> Controller (DECON), and the DSI Master (DSIM).
+On Fri, Jun 27, 2025 at 02:03:50PM +0800, Peng Fan wrote:
+> Add sysfs interface to read System Manager syslog and system info
 > 
-> The following series and its sub-series implement all components for a
-> functioning display pipeline. All vital information which helped shaping
-> up the patches have been retrieved from Exynos7870 vendor kernel sources
-> as provided by Samsung.
-> 
-> Testing has been done on all three devices available upstream, i.e.
-> Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
-> (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte). Regrettably,
-> I've only been able to test the functionality on video mode, as none of
-> the devices have panels working in command mode.
-> 
-> This series implements changes in the SoC subsystem, which includes
-> devicetree additions. It depends on all sub-series listed below:
-> (Legend: [R]eviewed, [A]ccepted)
-> 
-> exynosdrm-decon            - https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
-> exynos7870-mipi-phy        A https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
-> exynos7870-mipi-phy-fix    - https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
-> exynos7870-dsim            - https://lore.kernel.org/r/20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org
-> panel-samsung-s6e8aa5x01   - https://lore.kernel.org/r/20250625-panel-samsung-s6e8aa5x01-v3-0-9a1494fe6c50@disroot.org
-> panel-synaptics-tddi       - https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
-> Changes in v2:
-> - modified compatible hierarchy to use non-deprecated syntax (krzk)
-> - fixed subject prefixes of [v1 2/5], [v1 3/5], [v1 4/5], [v1 5/5] (krzk)
-> - removed simplefb nodes instead of disabling it (krzk)
-> - added dt-bindings patch to allow mipi-phy node under PMU
-> - changed clock names of dsim node
-> - Link to v1: https://lore.kernel.org/r/20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org
+>  drivers/firmware/imx/sm-misc.c | 97 ++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 97 insertions(+)
 > 
-> ---
-> Kaustabh Chakraborty (6):
->       dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
->       dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode
->       arm64: dts: exynos7870: add DSI support
->       arm64: dts: exynos7870-on7xelte: enable display panel support
->       arm64: dts: exynos7870-a2corelte: enable display panel support
->       arm64: dts: exynos7870-j6lte: enable display panel support
-> 
->  .../bindings/soc/samsung/exynos-pmu.yaml           |  1 +
->  .../soc/samsung/samsung,exynos-sysreg.yaml         |  2 +
->  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 52 +++++++++----
->  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 49 ++++++++----
->  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 51 ++++++++----
->  arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 90 ++++++++++++++++++++++
->  6 files changed, 206 insertions(+), 39 deletions(-)
-> ---
-> base-commit: 1b152eeca84a02bdb648f16b82ef3394007a9dcf
-> change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
-> 
-> Best regards,
-> --
-> Kaustabh Chakraborty <kauschluss@disroot.org>
-> 
-> 
-> 
+> diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
+> index fc3ee12c2be878e0285183e3381c9514a63d5142..55485a3c4a5c615102a377f41025a6911d746770 100644
+> --- a/drivers/firmware/imx/sm-misc.c
+> +++ b/drivers/firmware/imx/sm-misc.c
+> @@ -44,6 +44,100 @@ static int scmi_imx_misc_ctrl_notifier(struct notifier_block *nb,
+>  	return 0;
+>  }
+>  
+> +static ssize_t syslog_show(struct device *device, struct device_attribute *attr,
+> +			   char *buf)
+> +{
+> +	struct scmi_imx_misc_sys_sleep_rec *rec;
+> +	struct scmi_imx_misc_syslog *syslog;
+> +	int ret;
+> +	size_t len = 0;
+> +
+> +	if (!ph)
+> +		return 0;
+> +
+> +	syslog = kmalloc(sizeof(*syslog), GFP_KERNEL);
+> +	if (!syslog)
+> +		return -ENOMEM;
+> +
+> +	ret = imx_misc_ctrl_ops->misc_syslog(ph, sizeof(*syslog), syslog);
+
+...ah...so you basically cast to void a structure of u32 words and then
+expect that the firmware perfectly aligned with how the struct is
+defined here....size checks assures no out-of-bounds BUT the meaning of
+he blob itself is entirely up to FW and kernel being aligned, since no
+type checking is done of any kind and fields are NOT reference by
+name...so may I ask why ? ..also because the scmi_imx_misc_syslog seems
+pretty tiny to need iterators to parse back the reply...do you have so
+tiny transpotr message size ?
+
+..anyway I would suggest at least to add some sort of version-field to
+the struct so that at least you can detect if the FW spits out something
+that is not what your driver expect or is ready to handle...especially
+if you plan to extend or modify the layout of the structs in the future.
 
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> +	if (ret) {
+> +		kfree(syslog);
+> +		return ret;
+> +	}
+> +
+> +	rec = &syslog->syssleeprecord;
+> +
+> +	len += sysfs_emit_at(buf, len, "Wake Vector = %u\n", rec->wakesource);
+> +	len += sysfs_emit_at(buf, len, "Sys sleep mode = %u\n", rec->syssleepmode);
+> +	len += sysfs_emit_at(buf, len, "Sys sleep flags = 0x%08x\n", rec->syssleepflags);
+> +	len += sysfs_emit_at(buf, len, "MIX power status = 0x%08x\n", rec->mixpwrstat);
+> +	len += sysfs_emit_at(buf, len, "MEM power status = 0x%08x\n", rec->mempwrstat);
+> +	len += sysfs_emit_at(buf, len, "PLL power status = 0x%08x\n", rec->pllpwrstat);
+> +	len += sysfs_emit_at(buf, len, "Sleep latency = %u\n", rec->sleepentryusec);
+> +	len += sysfs_emit_at(buf, len, "Wake latency = %u\n", rec->sleepexitusec);
+> +	len += sysfs_emit_at(buf, len, "Sleep count = %u\n", rec->sleepcnt);
+> +
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 1b152eeca84a02bdb648f16b82ef3394007a9dcf
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org:
-
-arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
-arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4300-panel']
-arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
-arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
-arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4101-panel']
-arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
-arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
-arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['samsung,s6e8aa5x01']
-arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
+... how wonder how much is still frowned upon to serve such big multiline
+structured information payloads from sysfs ... (asking for a friend :P)
 
 
+> +	kfree(syslog);
+> +
+> +	return len;
+> +}
+> +
+> +static DEVICE_ATTR_RO(syslog);
+> +
+> +static ssize_t system_info_show(struct device *device, struct device_attribute *attr,
+> +				char *buf)
+> +{
+> +	struct scmi_imx_misc_system_info *info;
+> +	int len = 0;
+> +	int ret;
+> +
+> +	if (!ph)
+> +		return 0;
+> +
+> +	info = kmalloc(sizeof(*info), GFP_KERNEL);
+> +	if (!info)
+> +		return -ENOMEM;
+> +
+> +	ret = imx_misc_ctrl_ops->misc_discover_build_info(ph, info);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = imx_misc_ctrl_ops->misc_cfg_info(ph, info);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = imx_misc_ctrl_ops->misc_silicon_info(ph, info);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = imx_misc_ctrl_ops->misc_board_info(ph, info);
+> +	if (ret)
+> +		goto err;
+> +
+> +	len += sysfs_emit_at(buf, len, "SM Version    = Build %u, Commit 08%x\n",
+> +			     info->buildnum, info->buildcommit);
+> +	len += sysfs_emit_at(buf, len, "SM Config     = %s, mSel=%u\n",
+> +			     info->cfgname, info->msel);
+> +	len += sysfs_emit_at(buf, len, "Silicon       = %s\n", info->siname);
+> +	len += sysfs_emit_at(buf, len, "Board         = %s, attr=0x%08x\n",
+> +			     info->brdname, info->brd_attributes);
 
+...so some of this stuff Build/Silicon/BoaRD info has pretty much
+'forever' lifetime...are you sure you want to query them out of the FW
+each time you issue a sysfs show ?
 
+Cannot you simply dump this stuff once for all at probve time and
+instead query misc_cfg_info() upon each show to refresh only the data
+that will change ?
 
+(this also corroborates my idea that you should somehow partition this
+data into distinct structs by their lifetime...
+
+Thanks,
+Cristian
 
