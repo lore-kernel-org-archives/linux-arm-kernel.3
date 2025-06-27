@@ -4,64 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C3BC83027
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DD8C83000
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tGcjuL2slpWhzqeNUJrDqbaR1n+v8Pj6UenPCqATS+g=; b=cYf62k3kR4IinbSQ3fozYV9C2s
-	bBVKHykCNJdEkTpRnAj0w2kqShk3Ya6sWMk4cd/Ml2pFexmN39G0LFH80b7CDhDEs9RZ0N8lCMDiH
-	y0604fnof/gFjQ8RM5JAzgdR7ScaL2WoRxM3J4GLzOPcJJysJ+MMCRvBibhd5LrTfP9lTRTmTJdsR
-	gyUX3j/8k/7Ms9K/Ixc35QJ1whixNEcrljklyrU3r4Lg3gYhoYeNB5FhnF5s/gr816Cq2uyzr6JP5
-	vuZeykUOIHB00Uph6PzWbIDJq1BxeWsGUp7jSCdRj+ozwpdiZRWs6PNDthnQXrFpAd/3XC2cnGwV+
-	BUOnFF8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5S3/baHmc6V7XaPXb1waXdCnEiQO0tp/st+Cc9djIIU=; b=k4rlBFftVo/l+G
+	70TGOu6HNXnHc491SKFKf7Uv8nIuephcgs9zIS/+yezV5umFpboC6ie9HgFo7UwsMoj/jEVXJTO3I
+	zBjXipIIUXf0LpSVZG5YFXJzd1kd59Afw3X654/IE3pQT/BOm+YF9BhZPbpktmxLAq9DyeOzrtUWc
+	iiF7L8GRS7jvuYIHqwYQehVtDZzZfMtj+V2HRfFT0uGhte4YaEAMocZH+zL/c/l2riqBotkTnHgjO
+	PC0SPOKwnM7+WHu51R5Q35da08B3qGSqw9w/+Kh8+rURgJn/CyAeawdLQGUxn4Fm4m3XD5loUV5tR
+	0vJRudmeduPgHBfsBnFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEMw-0000000FY6V-0EpJ;
-	Fri, 27 Jun 2025 19:04:14 +0000
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCJS-0000000FKl2-2eUX
+	id 1uVENE-0000000FYWK-1ZRa;
+	Fri, 27 Jun 2025 19:04:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uVClJ-0000000FOcG-1Ysr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 16:52:32 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751043147;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tGcjuL2slpWhzqeNUJrDqbaR1n+v8Pj6UenPCqATS+g=;
-	b=kSjCkU4w5siXqHmivmcrSVGuVOGanuQatBxL5wL6DA7gbq3/cV4Iz+Lt3bjWGA0ajFitZH
-	ZRcTzfoYnXJ0J3gb2FPrM45P9fvqLHjTdZ/VimZ1zl+Q+SdJ5VO/nb6tSqEpcpZUsaMXye
-	U7Nt1zsLU/xbGHw+WBxhPQciMCe9RWu+1+OrLxi9/DSI/PTsOJkpuXuU5j6bqqD4jpq8Xg
-	rDN5lZNB/Di8qrpx5Q2LGyE6E4WLg9f7qhYJNyJnER2rRgoQWPR8wSfVKN/+svwCDu6JuR
-	xMCpyS+wRGTW8Dt9OA6SezudNoWmpTMbdgPKnT0TPs1QsBZQ8faG6pFn5ouD6g==
-Content-Type: multipart/signed;
- boundary=96f61c01bf8107678ee9012b3e19c12962b79f2f2124dfe2dc8bdea55bc2;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 27 Jun 2025 18:52:08 +0200
-Message-Id: <DAXGZG0DEKS2.7RLXKSDO0C9T@cknow.org>
-To: "Quentin Schulz" <quentin.schulz@cherry.de>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-Cc: "Dragan Simic" <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399
- boards
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-References: <20250627152645.740981-1-didi.debian@cknow.org>
- <20250627152645.740981-3-didi.debian@cknow.org>
- <b1c789bf-1369-42ec-8bb3-d7a45c92abf0@cherry.de>
-In-Reply-To: <b1c789bf-1369-42ec-8bb3-d7a45c92abf0@cherry.de>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 27 Jun 2025 17:21:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFDBE1A00;
+	Fri, 27 Jun 2025 10:20:59 -0700 (PDT)
+Received: from e137867.arm.com (unknown [10.57.30.218])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 71B503F66E;
+	Fri, 27 Jun 2025 10:21:15 -0700 (PDT)
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v5 13/13] arm64: debug: remove debug exception registration infrastructure
+Date: Fri, 27 Jun 2025 18:20:38 +0100
+Message-ID: <20250627172038.633423-14-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_095231_010039_CE8B21A6 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250627_102117_488339_056AEB6C 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +57,241 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---96f61c01bf8107678ee9012b3e19c12962b79f2f2124dfe2dc8bdea55bc2
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Now that debug exceptions are handled individually and without the need
+for dynamic registration, remove the unused registration infrastructure.
 
-Hi Quentin,
+This removes the external caller for `debug_exception_enter()` and
+`debug_exception_exit()`.
+Make them static again and remove them from the header.
 
-Thanks for taking a look.
+Remove `early_brk64()` as it has been made redundant by
+(arm64: debug: split brk64 exception entry) and is not used anymore.
+Note : in `early_brk64()` `bug_brk_handler()` is called unconditionally
+as a fall-through, but now `call_break_hook()` only calls it if the
+immediate matches.
+This does not change the behaviour in early boot, as if
+`bug_brk_handler()` was called on a non-BUG immediate it would return
+DBG_HOOK_ERROR anyway, which `call_break_hook()` will do if no immediate
+matches.
 
-On Fri Jun 27, 2025 at 6:10 PM CEST, Quentin Schulz wrote:
-> On 6/27/25 5:16 PM, Diederik de Haas wrote:
->> The #address-cells and #size-cells properties are not useful on the DSI
->> controller nodes; they are only useful/required on ports and panel(s).
->> So remove them from the controller node and add them where actually
->> needed on the various rk3399 based boards.
->>=20
->> Next to that, there were several (exact) redefinitions of nodes which
->> are already present in rk3399-base.dtsi to add a mipi_out endpoint.
->> Simplify that by referencing the mipi_out phandle and add the endpoint
->> to that, which allows the removeal of the ports redefinition.
->>=20
->> And fix 1 instance where the mipi_out referenced node was not sorted
->> correctly.
->>=20
->> This fixes the following DTB validation warnings:
->>=20
->>    unnecessary #address-cells/#size-cells without "ranges",
->>    "dma-ranges" or child "reg" property
->>=20
->
-> Too many unrelated changes in this commit, please split into multiple=20
-> commits.
->
-> I could identify:
->
-> - moving address-cells/size-cells from SoC.dtsi to board dts(i)s,
-> - reordering properties to better match DT coding style=20
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-sty=
-le.html#order-of-properties-in-device-node
-> - use phandle to directly access ports,
-> - reorder DT node to better match DT coding style=20
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-sty=
-le.html#order-of-nodes
+Remove `trap_init()`, as it would be empty and a weak definition already
+exists in `init/main.c`.
 
-I initially had it as several commits, but that resulted in (f.e.) 1
-issue being fixed, but 1 (or more) others would pop up.
-Those were then fixed in follow-up commits, but I assumed I'd get Rob's
-bot screaming at me for introducing new warnings (first).
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+Reviewed-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/debug-monitors.h |  2 -
+ arch/arm64/include/asm/exception.h      |  6 ---
+ arch/arm64/include/asm/system_misc.h    |  4 --
+ arch/arm64/kernel/debug-monitors.c      |  3 --
+ arch/arm64/kernel/entry-common.c        |  4 +-
+ arch/arm64/kernel/traps.c               | 27 -------------
+ arch/arm64/mm/fault.c                   | 53 -------------------------
+ 7 files changed, 2 insertions(+), 97 deletions(-)
 
-And as they all relate(d) to fixing the dsi node, I then choose to
-combine them (but still separated by SoC).
-IMO there are several ways to organize the commits and each would have
-their pros and cons, so I 'settled' for this arrangement.
+diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
+index 586290e95d87..4dfc37dd1d96 100644
+--- a/arch/arm64/include/asm/debug-monitors.h
++++ b/arch/arm64/include/asm/debug-monitors.h
+@@ -94,7 +94,5 @@ static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
+ 
+ bool try_handle_aarch32_break(struct pt_regs *regs);
+ 
+-void debug_traps_init(void);
+-
+ #endif	/* __ASSEMBLY */
+ #endif	/* __ASM_DEBUG_MONITORS_H */
+diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+index cdce3c713766..e3874c4fc399 100644
+--- a/arch/arm64/include/asm/exception.h
++++ b/arch/arm64/include/asm/exception.h
+@@ -59,8 +59,6 @@ void do_el0_bti(struct pt_regs *regs);
+ void do_el1_bti(struct pt_regs *regs, unsigned long esr);
+ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
+ void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
+-void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+-			struct pt_regs *regs);
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
+ void do_breakpoint(unsigned long esr, struct pt_regs *regs);
+ void do_watchpoint(unsigned long addr, unsigned long esr,
+@@ -94,8 +92,4 @@ void do_serror(struct pt_regs *regs, unsigned long esr);
+ void do_signal(struct pt_regs *regs);
+ 
+ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far);
+-
+-void debug_exception_enter(struct pt_regs *regs);
+-void debug_exception_exit(struct pt_regs *regs);
+-
+ #endif	/* __ASM_EXCEPTION_H */
+diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
+index c34344256762..344b1c1a4bbb 100644
+--- a/arch/arm64/include/asm/system_misc.h
++++ b/arch/arm64/include/asm/system_misc.h
+@@ -25,10 +25,6 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
+ 		      int signo, int sicode, unsigned long far,
+ 		      unsigned long err);
+ 
+-void hook_debug_fault_code(int nr, int (*fn)(unsigned long, unsigned long,
+-					     struct pt_regs *),
+-			   int sig, int code, const char *name);
+-
+ struct mm_struct;
+ extern void __show_regs(struct pt_regs *);
+ 
+diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+index 43a612eaa7d2..43f342a01fdf 100644
+--- a/arch/arm64/kernel/debug-monitors.c
++++ b/arch/arm64/kernel/debug-monitors.c
+@@ -316,9 +316,6 @@ bool try_handle_aarch32_break(struct pt_regs *regs)
+ }
+ NOKPROBE_SYMBOL(try_handle_aarch32_break);
+ 
+-void __init debug_traps_init(void)
+-{}
+-
+ /* Re-enable single step for syscall restarting. */
+ void user_rewind_single_step(struct task_struct *task)
+ {
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index bbf58fcab142..4b67312a88ad 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -448,7 +448,7 @@ static __always_inline void fpsimd_syscall_exit(void)
+  * accidentally schedule in exception context and it will force a warning
+  * if we somehow manage to schedule by accident.
+  */
+-void debug_exception_enter(struct pt_regs *regs)
++static void debug_exception_enter(struct pt_regs *regs)
+ {
+ 	preempt_disable();
+ 
+@@ -457,7 +457,7 @@ void debug_exception_enter(struct pt_regs *regs)
+ }
+ NOKPROBE_SYMBOL(debug_exception_enter);
+ 
+-void debug_exception_exit(struct pt_regs *regs)
++static void debug_exception_exit(struct pt_regs *regs)
+ {
+ 	preempt_enable_no_resched();
+ }
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 654c8ea46ec6..98b11da5a5ad 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -1100,30 +1100,3 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ #endif
+-
+-/*
+- * Initial handler for AArch64 BRK exceptions
+- * This handler only used until debug_traps_init().
+- */
+-int __init early_brk64(unsigned long addr, unsigned long esr,
+-		struct pt_regs *regs)
+-{
+-#ifdef CONFIG_CFI_CLANG
+-	if (esr_is_cfi_brk(esr))
+-		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-#ifdef CONFIG_KASAN_SW_TAGS
+-	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+-		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-#ifdef CONFIG_UBSAN_TRAP
+-	if (esr_is_ubsan_brk(esr))
+-		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-#endif
+-	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+-}
+-
+-void __init trap_init(void)
+-{
+-	debug_traps_init();
+-}
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index d451d7d834f1..bc7f554dea9f 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -53,18 +53,12 @@ struct fault_info {
+ };
+ 
+ static const struct fault_info fault_info[];
+-static struct fault_info debug_fault_info[];
+ 
+ static inline const struct fault_info *esr_to_fault_info(unsigned long esr)
+ {
+ 	return fault_info + (esr & ESR_ELx_FSC);
+ }
+ 
+-static inline const struct fault_info *esr_to_debug_fault_info(unsigned long esr)
+-{
+-	return debug_fault_info + DBG_ESR_EVT(esr);
+-}
+-
+ static void data_abort_decode(unsigned long esr)
+ {
+ 	unsigned long iss2 = ESR_ELx_ISS2(esr);
+@@ -938,53 +932,6 @@ void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs)
+ }
+ NOKPROBE_SYMBOL(do_sp_pc_abort);
+ 
+-/*
+- * __refdata because early_brk64 is __init, but the reference to it is
+- * clobbered at arch_initcall time.
+- * See traps.c and debug-monitors.c:debug_traps_init().
+- */
+-static struct fault_info __refdata debug_fault_info[] = {
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware breakpoint"	},
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware single-step"	},
+-	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware watchpoint"	},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 3"		},
+-	{ do_bad,	SIGTRAP,	TRAP_BRKPT,	"aarch32 BKPT"		},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"aarch32 vector catch"	},
+-	{ early_brk64,	SIGTRAP,	TRAP_BRKPT,	"aarch64 BRK"		},
+-	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 7"		},
+-};
+-
+-void __init hook_debug_fault_code(int nr,
+-				  int (*fn)(unsigned long, unsigned long, struct pt_regs *),
+-				  int sig, int code, const char *name)
+-{
+-	BUG_ON(nr < 0 || nr >= ARRAY_SIZE(debug_fault_info));
+-
+-	debug_fault_info[nr].fn		= fn;
+-	debug_fault_info[nr].sig	= sig;
+-	debug_fault_info[nr].code	= code;
+-	debug_fault_info[nr].name	= name;
+-}
+-
+-void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+-			struct pt_regs *regs)
+-{
+-	const struct fault_info *inf = esr_to_debug_fault_info(esr);
+-	unsigned long pc = instruction_pointer(regs);
+-
+-	debug_exception_enter(regs);
+-
+-	if (user_mode(regs) && !is_ttbr0_addr(pc))
+-		arm64_apply_bp_hardening();
+-
+-	if (inf->fn(addr_if_watchpoint, esr, regs)) {
+-		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+-	}
+-
+-	debug_exception_exit(regs);
+-}
+-NOKPROBE_SYMBOL(do_debug_exception);
+-
+ /*
+  * Used during anonymous page fault handling.
+  */
+-- 
+2.43.0
 
-So I prefer to wait for other people's opinion first before reorganizing
-the commits again (if there's a different consensus).
-
-> The change for RK3399 Puma Haikou Video Demo DTSO is fine for me.
-
-Thanks :)
-
-Cheers,
-  Diederik
-
---96f61c01bf8107678ee9012b3e19c12962b79f2f2124dfe2dc8bdea55bc2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaF7MRAAKCRDXblvOeH7b
-bvDfAP9WGhpdcQcQ06Wxrsu8JLAg+fmJPYyjmIUtlZTFnFqf1AEAx9/kmKAqTewV
-XzVG0YMlKfLnQS0bh46/FwKpZg/SlAc=
-=EA9N
------END PGP SIGNATURE-----
-
---96f61c01bf8107678ee9012b3e19c12962b79f2f2124dfe2dc8bdea55bc2--
 
