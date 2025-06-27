@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC748C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1247FC77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 20:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HluJQ8LptdTS6su8UuncXTZx769j4AJJg4ElkyPIcvo=; b=UQkkRXk+VioJdwLeD2PfYg3HxS
-	51g6MwqkgN13Z59HKSu+EWN8/MAEQAXqMqFLWzXB2jJ3qRpzWB5rCk16QDScBl/+Ea1tceKX0AGLr
-	jDoosqg6Yn9pyoJvevM1Kw3ZDFaWDmzUeSRuV1msoABnjayyjwzgARKxb23yzcLnsfC7lpPxGBli/
-	LeiCaikTPFkdPablns1zjtkTWXA45A50jq6Wdp0EJE4qYg9aiZLVN6b7lrEe/a9H56tSTJKh3LFVN
-	KOoi48RIsNNuHrvP1v/MuHX2erLgdKs+FFw8KBOSOahDNBN6ODi1QHcfQU9rKVAEH7/6PjL2qg70W
-	Vx4m1f2Q==;
+	bh=l7Gdp8Nk60ZfRYhbL7kV9nXUPDhA4CVDa+kStehV06k=; b=iWvEIKGZV+xIU+1+vKqyifW7GH
+	zegW7BE96H3k4xCXVoEYJXPKVKeJjvKTimU/n0kmECH/y2ji4+cEMZHkcnRKraomQSvmz5BMPVi9n
+	l0X9+jJCOS6fbZloXoHXa4ZY5D8lSD/ERot96ozEduKJIUgGxmPP35ypyednnwUmFpP7ISyn0CrHS
+	fRw2dpqYCbjyHOIIBAQG/9qDN4sPIRe/rslJnbpMgaa0GEsAkx0VShJdG6vgI/1fSs8XduGuAqBXH
+	kC6ZpBCJv/A3YnazNgKwDmh9ID6tHlgO93RMx1s13a9ACa/401DD5rUnHFgK90+ykAcasz0RrMmsm
+	3IGLY+sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVG8Y-0000000FoAC-1U4g;
-	Fri, 27 Jun 2025 20:57:30 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uVGAp-0000000FoMO-0ET8;
+	Fri, 27 Jun 2025 20:59:51 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVG0L-0000000FnFz-0FCh
+	id 1uVG0M-0000000FnGN-2Iug
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 20:49:02 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55RKmtqe2508631;
-	Fri, 27 Jun 2025 15:48:55 -0500
+	Fri, 27 Jun 2025 20:49:03 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55RKmwlK2112130;
+	Fri, 27 Jun 2025 15:48:58 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751057335;
-	bh=HluJQ8LptdTS6su8UuncXTZx769j4AJJg4ElkyPIcvo=;
+	s=ti-com-17Q1; t=1751057338;
+	bh=l7Gdp8Nk60ZfRYhbL7kV9nXUPDhA4CVDa+kStehV06k=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=OOk6C3ngM3CvLkx8ZjVG9iONNE2BRVfsrklBSqWReGrLGbBlIw0y4K2BipxuxRg3k
-	 NXAGSuASHbUI346BQp5r4y5xxA6H+YRJjXOLEIwUe24zRqbWcCWrMSFZBWE8B85MDf
-	 MGnVfdIueCpvMNsHkhyMAj3JFTBTrZgQ3GUZ8vgQ=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55RKmtsB3292478
+	b=iwLKQmF/0Z4iRQaqC2FBfdg22yRU7fTYaVG+Vcqh4jYXONpgyQo5X6mHl15R/C+ao
+	 1np+r4hIv6he8nd5DXD0k8yy4GltBg/tcPhJceG70jPKq2Vwplmy5C0wrnTaKCJIIf
+	 X2Vkm0QxO9y6ii/0d54uM+0SBAAj5F0L+MX/wdY4=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55RKmw0T783155
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 27 Jun 2025 15:48:55 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 27 Jun 2025 15:48:58 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 27
- Jun 2025 15:48:55 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 15:48:57 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 27 Jun 2025 15:48:55 -0500
+ Frontend Transport; Fri, 27 Jun 2025 15:48:57 -0500
 Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55RKmpWW3421525;
-	Fri, 27 Jun 2025 15:48:55 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55RKmpWX3421525;
+	Fri, 27 Jun 2025 15:48:57 -0500
 From: Kendall Willis <k-willis@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
         <ulf.hansson@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -59,9 +59,9 @@ To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
 CC: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
         <msp@baylibre.com>, <khilman@baylibre.com>,
         Kendall Willis <k-willis@ti.com>
-Subject: [PATCH 1/2] firmware: ti_sci: Enable abort handling of entry to LPM
-Date: Fri, 27 Jun 2025 15:48:20 -0500
-Message-ID: <20250627204821.1150459-2-k-willis@ti.com>
+Subject: [PATCH 2/2] pmdomain: ti_sci: Add LPM abort sequence to suspend path
+Date: Fri, 27 Jun 2025 15:48:21 -0500
+Message-ID: <20250627204821.1150459-3-k-willis@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250627204821.1150459-1-k-willis@ti.com>
 References: <20250627204821.1150459-1-k-willis@ti.com>
@@ -70,8 +70,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_134901_189216_E8200621 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250627_134902_680415_9EC2E473 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,170 +86,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce LPM abort call that enables the ti_sci driver to support
-aborting entry to a low power mode.
+Create ->suspend_late() and ->suspend_noirq() hooks to add abort sequence
+to any driver within the PM domain with either of those hooks. If a driver
+fails to suspend with those hooks, add a call to the DM to abort entering
+the LPM. The suspend hooks of the PM domains driver inserts itself into
+the suspend path of all devices connected to the TI SCI PM domain. So if
+any device in the PM domain with either a ->suspend_late() or
+->suspend_noirq hook fails to suspend, the PM domain drivers suspend hook
+will send the abort call to the DM.
 
-The following power management operation defined in the TISCI
-Low Power Mode API [1] is implemented to enable aborting entry to LPM:
-
-TISCI_MSG_LPM_ABORT
-Abort the current low power mode entry by clearing the current mode
-selection.
-
-Additionally, add LPM abort message in ti_sci_suspend and
-ti_sci_suspend_noirq if there is a failure.
-
-[1] https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html
+Adding an abort call in the ->suspend() hook is not necessary. TI SCI
+suspend sends the message to the DM to prepare to enter a low power mode.
+TI SCI suspend ALWAYS occurs after the ->suspend() hook for all TI SCI
+devices has been called.
 
 Signed-off-by: Kendall Willis <k-willis@ti.com>
 ---
- drivers/firmware/ti_sci.c              | 67 ++++++++++++++++++++++++--
- drivers/firmware/ti_sci.h              |  3 +-
- include/linux/soc/ti/ti_sci_protocol.h |  2 +
- 3 files changed, 68 insertions(+), 4 deletions(-)
+ drivers/pmdomain/ti/ti_sci_pm_domains.c | 46 ++++++++++++++++++++++++-
+ 1 file changed, 45 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index ae5fd1936ad32..d5139428498d4 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -2015,6 +2015,58 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
- 	return ret;
- }
+diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+index 82df7e44250bb..975defc16271d 100644
+--- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
++++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+@@ -2,7 +2,7 @@
+ /*
+  * TI SCI Generic Power Domain Driver
+  *
+- * Copyright (C) 2015-2017 Texas Instruments Incorporated - http://www.ti.com/
++ * Copyright (C) 2015-2025 Texas Instruments Incorporated - http://www.ti.com/
+  *	J Keerthy <j-keerthy@ti.com>
+  *	Dave Gerlach <d-gerlach@ti.com>
+  */
+@@ -149,8 +149,47 @@ static int ti_sci_pd_suspend(struct device *dev)
  
-+/**
-+ * ti_sci_cmd_lpm_abort() - Abort entry to LPM
-+ * @handle:     pointer to TI SCI handle
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_lpm_abort(const struct ti_sci_handle *handle)
-+{
-+	struct ti_sci_info *info;
-+	struct ti_sci_msg_hdr *req;
-+	struct ti_sci_msg_hdr *resp;
-+	struct ti_sci_xfer *xfer;
-+	struct device *dev;
-+	int ret = 0;
-+
-+	if (IS_ERR(handle))
-+		return PTR_ERR(handle);
-+	if (!handle)
-+		return -EINVAL;
-+
-+	info = handle_to_ti_sci_info(handle);
-+	dev = info->dev;
-+
-+	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_LPM_ABORT,
-+				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+				   sizeof(*req), sizeof(*resp));
-+	if (IS_ERR(xfer)) {
-+		ret = PTR_ERR(xfer);
-+		dev_err(dev, "Message alloc failed(%d)\n", ret);
-+		return ret;
-+	}
-+	req = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
-+
-+	ret = ti_sci_do_xfer(info, xfer);
-+	if (ret) {
-+		dev_err(dev, "Mbox send fail %d\n", ret);
-+		goto fail;
-+	}
-+
-+	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
-+
-+	if (!ti_sci_is_response_ack(resp))
-+		ret = -ENODEV;
-+	else
-+		ret = 0;
-+
-+fail:
-+	ti_sci_put_one_xfer(&info->minfo, xfer);
-+
-+	return ret;
-+}
-+
- static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
- {
- 	struct ti_sci_info *info;
-@@ -3202,6 +3254,7 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
- 		pmops->lpm_wake_reason = ti_sci_msg_cmd_lpm_wake_reason;
- 		pmops->set_device_constraint = ti_sci_cmd_set_device_constraint;
- 		pmops->set_latency_constraint = ti_sci_cmd_set_latency_constraint;
-+		pmops->lpm_abort = ti_sci_cmd_lpm_abort;
- 	}
- 
- 	rm_core_ops->get_range = ti_sci_cmd_get_resource_range;
-@@ -3699,9 +3752,13 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
- 	}
- 
- 	ret = ti_sci_prepare_system_suspend(info);
--	if (ret)
-+	if (ret) {
-+		dev_err(dev, "%s: Failed to prepare sleep. Abort entering low power mode.\n",
-+			__func__);
-+		if (ti_sci_cmd_lpm_abort(&info->handle))
-+			dev_err(dev, "%s: Failed to abort.\n", __func__);
- 		return ret;
--
-+	}
  	return 0;
  }
- 
-@@ -3711,8 +3768,12 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
- 	int ret = 0;
- 
- 	ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_ENABLE);
--	if (ret)
++
++static int ti_sci_pd_suspend_late(struct device *dev)
++{
++	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
++	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
++	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
++	int ret;
++
++	ret = pm_generic_suspend_late(dev);
 +	if (ret) {
 +		dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
-+		if (ti_sci_cmd_lpm_abort(&info->handle))
++		if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
 +			dev_err(dev, "%s: Failed to abort.\n", __func__);
- 		return ret;
++		return ret;
 +	}
++
++	return 0;
++}
++
++static int ti_sci_pd_suspend_noirq(struct device *dev)
++{
++	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
++	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
++	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
++	int ret;
++
++	ret = pm_generic_suspend_noirq(dev);
++	if (ret) {
++		dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
++		if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
++			dev_err(dev, "%s: Failed to abort.\n", __func__);
++		return ret;
++	}
++
++	return 0;
++}
++
+ #else
+ #define ti_sci_pd_suspend		NULL
++#define ti_sci_pd_suspend_late		NULL
++#define ti_sci_pd_suspend_noirq		NULL
+ #endif
  
- 	return 0;
- }
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 053387d7baa06..51d77f90a32cc 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -6,7 +6,7 @@
-  * The system works in a message response protocol
-  * See: https://software-dl.ti.com/tisci/esd/latest/index.html for details
-  *
-- * Copyright (C)  2015-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C)  2015-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
+ /*
+@@ -264,6 +303,11 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
+ 				    pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
+ 					pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
  
- #ifndef __TI_SCI_H
-@@ -42,6 +42,7 @@
- #define TI_SCI_MSG_SET_IO_ISOLATION	0x0307
- #define TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT	0x0309
- #define TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT	0x030A
-+#define TI_SCI_MSG_LPM_ABORT	0x0311
++				if (pd_provider->ti_sci->ops.pm_ops.lpm_abort) {
++					pd->pd.domain.ops.suspend_late = ti_sci_pd_suspend_late;
++					pd->pd.domain.ops.suspend_noirq = ti_sci_pd_suspend_noirq;
++				}
++
+ 				pm_genpd_init(&pd->pd, NULL, true);
  
- /* Resource Management Requests */
- #define TI_SCI_MSG_GET_RESOURCE_RANGE	0x1500
-diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
-index fd104b6668364..8c1815a9e8234 100644
---- a/include/linux/soc/ti/ti_sci_protocol.h
-+++ b/include/linux/soc/ti/ti_sci_protocol.h
-@@ -214,6 +214,7 @@ struct ti_sci_clk_ops {
-  * @set_latency_constraint: Set LPM resume latency constraint
-  *		- latency: maximum acceptable latency to wake up from low power mode
-  *		- state: The desired state of latency constraint: set or clear.
-+ * @lpm_abort: Abort entry to LPM by clearing the LPM selection
-  */
- struct ti_sci_pm_ops {
- 	int (*lpm_wake_reason)(const struct ti_sci_handle *handle,
-@@ -222,6 +223,7 @@ struct ti_sci_pm_ops {
- 				     u32 id, u8 state);
- 	int (*set_latency_constraint)(const struct ti_sci_handle *handle,
- 				      u16 latency, u8 state);
-+	int (*lpm_abort)(const struct ti_sci_handle *handle);
- };
- 
- /**
+ 				list_add(&pd->node, &pd_provider->pd_list);
 -- 
 2.34.1
 
