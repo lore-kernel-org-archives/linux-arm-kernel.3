@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1337FC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FCCC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVX7lo2mgR0AFr0MnFNPZxe+w9boY2xzTM+Mkj0c8rc=; b=eBF+rSNBxhDrxZ4fN8qAKit4kb
-	73g2zdJaqV0OxIzb2bL8MbrUHhXTuddnemjalDWjFLfPA1f42HLfSV9zzFaF26K2Dr0fHYf6Sc503
-	GCAz5UvmamaEQ4WwpXNRM8cAm2CozeXsxJPHZbCTyy+plOTsdS4boDFbAgaLU655Tkn/W1nLIbP9w
-	n7Yk6ggoPdo4bigV+qF8FnI9j+F9QaBbeJGvyP5bUas/Lw+Yl1nU44bbKZtqE+M/ndsw+qbEhg3p1
-	FqXdHiRN9q1LSZLSwb5sOFW1oHv5vQQMtt9rG2R4TCfo3e/4Ajq0DHHSwWXSKiT0Nbh3VqMQutruO
-	QWywSkPA==;
+	bh=QojGrqu5+O1RXRPJ0UNX3HD+ftEdKWWtkzHAn38zPIQ=; b=sjNf8PnwXPJJYIsrMFnu+G5/Ou
+	gkBpw0vNHdW9D1mTZeowEY9tErcnZgMnzrjvDH9bqnM4xwWE/q7Dq/LB0WDqJ4Wlhm6jzGEjThLER
+	no2hFSu5LiIZqhwfuZdVlLMp4UJFtsEtWttbj30QG9jPNwHl3XRgdWFFvwRjoK6vytH0q2EsutjjB
+	GqULTdaycQ1jUrGaICc7BsoPM0zzuWy06aCNYxOMWNRjmsQqMCe+1ofdrwVx4SQDMdgvtCe1pls6D
+	54X5HNTBXNCn06RSob1313WdabyfxCyY78bza6qFLHYSzW3R8ZIUl2YnhqilzFHMOANXiXFzXqIFT
+	vQ4U2Scg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVCHw-0000000FKZz-2m4W;
-	Fri, 27 Jun 2025 16:50:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uVCKD-0000000FKqO-1bz5;
+	Fri, 27 Jun 2025 16:53:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBHS-0000000F9eR-2idy
+	id 1uVBHd-0000000F9in-3nEg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:46:22 +0000
+	Fri, 27 Jun 2025 15:46:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17AF56111F;
-	Fri, 27 Jun 2025 15:46:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88186C4CEE3;
-	Fri, 27 Jun 2025 15:46:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3BA26A52FAA;
+	Fri, 27 Jun 2025 15:46:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA938C4CEE3;
+	Fri, 27 Jun 2025 15:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751039181;
-	bh=+sU81KHe8n8d04EFSXCcSYkBzKWoeE7L7E09uh61ogs=;
+	s=k20201202; t=1751039192;
+	bh=s4P6Ykw60KnUdx0bEELTGcw3WW4v/75nupSxKBFoSmg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FM3ksgO3WB4KcUiFvHzNoOuaUNiZDM1l7bNcQgbFX64oE9JswYJHToR49kvmIWWWw
-	 AtpHxeCV7jcbXO09wA2xj1iwQ8D8Gesmp1FKfp0VbR0lN914HJ41+y39gx/MWV4P2T
-	 p8ejIkfpdHcQ6xWgwziQcGiGLcBtz44d4Ql3/LgXYyAOg4xghf53hxLnOfGtK1l2qA
-	 zeTV+brRr9fe3TcUI/4Cpx4fPhSb4DjjeTA5qxqE77i/RBJlmaXt8FNuvynQaG2cMc
-	 sg+72Gng5IL7TW0i1oxVFDSUheHOUdHn5xaYxFUYBrFn26KB6gIC5M6lmpAosE257k
-	 jqhSp2IvQQPMA==
-Date: Fri, 27 Jun 2025 16:46:17 +0100
+	b=M2v+6ttRuaLwRuT/j5txbR8mHx/fYY/i6DWriYvG5STge9c5+CCqbmjrs4CyIeSur
+	 RpvG6iou0ZHHBBlAI9VemvQq4DMywZs/+nAAPm5lzaTlYiSnHj0Uf0ZxhJZ7gXxw62
+	 UW+nLNc9mwDrYz7Hdt3POTze5T1uoK10wSLemGNmZldZQyE4hMrme4+qacj4bRzlRw
+	 UdQmUJppqe40TAd3u7KHbiXDaPgG/2ZNE1jqNw+Konj2FzTCGCxp2Tuz/wQByNL4wQ
+	 LymCy1ybnck1mOvg9WPALIpXyuFQV4/HKwDiE1rU7lnq0A2FEOk1FrRa4gGM4Jt9TU
+	 sLDm9ciCgJx3g==
+Date: Fri, 27 Jun 2025 16:46:28 +0100
 From: Will Deacon <will@kernel.org>
 To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -50,15 +50,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	"Luis Claudio R . Goncalves" <lgoncalv@redhat.com>
-Subject: Re: [PATCH v4 07/13] arm64: debug: split hardware breakpoint
- exception entry
-Message-ID: <aF68yVXZPb-TXNl4@willie-the-truck>
+Subject: Re: [PATCH v4 08/13] arm64: debug: refactor reinstall_suspended_bps()
+Message-ID: <aF681FoBo8Bh-Pk6@willie-the-truck>
 References: <20250620211207.773980-1-ada.coupriediaz@arm.com>
- <20250620211207.773980-8-ada.coupriediaz@arm.com>
+ <20250620211207.773980-9-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250620211207.773980-8-ada.coupriediaz@arm.com>
+In-Reply-To: <20250620211207.773980-9-ada.coupriediaz@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_084634_005062_D3F53198 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 10:12:01PM +0100, Ada Couprie Diaz wrote:
-> Currently all debug exceptions share common entry code and are routed
-> to `do_debug_exception()`, which calls dynamically-registered
-> handlers for each specific debug exception. This is unfortunate as
-> different debug exceptions have different entry handling requirements,
-> and it would be better to handle these distinct requirements earlier.
+On Fri, Jun 20, 2025 at 10:12:02PM +0100, Ada Couprie Diaz wrote:
+> `reinstall_suspended_bps()` plays a key part in the stepping process
+> when we have hardware breakpoints and watchpoints enabled.
+> It checks if we need to step one, will re-enable it if it has
+> been handled and will return whether or not we need to proceed with
+> a single-step.
 > 
-> Hardware breakpoints exceptions are generated by the hardware after user
-> configuration. As such, they can be exploited when training branch
-> predictors outside of the userspace VA range: they still need to call
-> `arm64_apply_bp_hardening()` if needed to mitigate against this attack.
+> However, the current naming and return values make it harder to understand
+> the logic and goal of the function.
 > 
-> However, they do not need to handle the Cortex-A76 erratum #1463225 as
-> it only applies to single stepping exceptions.
-> It does not set an address in FAR_EL1 either, only the hardware
-> watchpoint does.
-> 
-> As the hardware breakpoint handler only returns 0 and never triggers
-> the call to `arm64_notify_die()`, we can call it directly from
-> `entry-common.c`.
-> Split the hardware breakpoint exception entry, adjust
-> the function signature, and handling of the Cortex-A76 erratum to fit
-> the behaviour of the exception.
-> 
-> Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` so that
-> we can do it as early as possible, and only for the exceptions coming
-> from EL0, where it is needed.
-> This is safe to do as it is `noinstr`, as are all the functions it
-> may call. `el0_ia()` and `el0_pc()` already call it this way.
+> Rename it `try_step_suspended_breakpoints()` and change the return value
+> to a boolean, aligning it with similar functions used in
+> `do_el0_undef()` like `try_emulate_mrs()`, and making its behaviour
+> more obvious.
 > 
 > Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  arch/arm64/include/asm/exception.h |  1 +
->  arch/arm64/kernel/entry-common.c   | 28 ++++++++++++++++++++++++++++
->  arch/arm64/kernel/hw_breakpoint.c  | 16 ++++++----------
->  3 files changed, 35 insertions(+), 10 deletions(-)
+>  arch/arm64/include/asm/debug-monitors.h |  6 +++---
+>  arch/arm64/kernel/debug-monitors.c      |  2 +-
+>  arch/arm64/kernel/hw_breakpoint.c       | 25 ++++++++++++-------------
+>  3 files changed, 16 insertions(+), 17 deletions(-)
 
 Reviewed-by: Will Deacon <will@kernel.org>
 
