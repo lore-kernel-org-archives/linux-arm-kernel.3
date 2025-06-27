@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668BDC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07B5C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 16:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TMKQA2Hff0W4zw/ZMVDybuR5/9kD8JNjNzdYjPOLJ3Y=; b=BvqlRb7TBYYpM73t0m+E9M1/EN
-	/Sdt3YWOCeGfLQsmz2Ct61C3N3/KcCsCMEX5U8Zm0MltkN40gZcjHfs2T2+LhZURJoV168FV7bRgp
-	y9j9yvdVCWzX/IPacXHveDiz4E1tLxiw/VGNyuU4Yz7Fxe5bCu/2ZpTdPnP8YjM3QaxnB8qBe7gZc
-	ylts9/5vPPR3p0zPpL5ZlT4Q/SiaAuYjCB41RZeykBh1yhFQXn6woV0kj+97o7JxlB9fQpqK/CrTo
-	/jCATAlyBMMTDMygVH3AOhLdqIliF20+/R1l0jC2Xf0o5yCg2/dhNl3pqGYJMEuEQxUw8YJ4Apqbr
-	+yIu9q4Q==;
+	bh=PfcmGYiLWWoDpHQnjhp3H8U3n4V3FFE8KVAaszA9K/8=; b=czJyQjBOg7wmlq7iUs3mFmiFZa
+	XU//kQKDVOO7i52RGAF/hZLAMgNN1R1ShXE4R25vNIeFxkYlQGAeNZCvFuBlIGIoT635LrLmSwycV
+	LFFplVCfEcBmpk59dRv1Fc5f/2URS98iZq1cG+3b1sjAwHrUW8gKHmmrngiChJt0ScV6qBrDawNYg
+	1DUT7P/YU8ANBSfK0ufrnV+5TnR+l88vY5OvVWLhLEbCQfp0mhdlnIo95Dtf/2TOXLdVgFRDDQf5p
+	tG8glp9TP7QhNNlMuO5sBRxuDUIWKs5Eg8kbQkkUSKJ70vU7QNyn6nc842khYM1WhpLOOmAzlhEav
+	vtd49/lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVBcc-0000000FDLp-3ZU2;
-	Fri, 27 Jun 2025 16:08:14 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1uVBeu-0000000FDhC-2TAI;
+	Fri, 27 Jun 2025 16:10:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAzH-0000000F6Fw-29wQ
+	id 1uVB18-0000000F6de-3iy9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:27:36 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751038053;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TMKQA2Hff0W4zw/ZMVDybuR5/9kD8JNjNzdYjPOLJ3Y=;
-	b=H0f14+DYd+SwlsGBPOL62TErrrtwA0SHuFNG59lnsFRuD/aZKiVcPh+0CbYd+5NgOKcM0/
-	mdndG4UFcbpf/TeZ/EkP5om5g7hIj4cTkIYjfV2IQl6c9K1mC96tgtrpQMbHcQe/hePBSP
-	jxxd80MQKPUvZZ5fIxWK3nA9hKPrMxQAAjDsjR3AR5vK/agW0fihZDdh8dkhAakx4k4vf1
-	d3olMJk9TKM6CbRVsiEtqPkKI9QX+LyxDwWMgeuY/p6PtTcmYXSKFhG5meCUDrsPWMuxVx
-	n1pODpYSvgEkgqNQthqihA/loB90k0U1o7xhSTFl2XHYkCnbLqAF6y9CEORbNQ==
-From: Diederik de Haas <didi.debian@cknow.org>
-To: Rob Herring <robh@kernel.org>,
+	Fri, 27 Jun 2025 15:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2850B5C6CBF;
+	Fri, 27 Jun 2025 15:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A848BC4CEF1;
+	Fri, 27 Jun 2025 15:29:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751038169;
+	bh=HqUKn0G06bLQgn9/7br5JqwZjyala+dj86Idxb210+E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Q4JdDqPNgf+N/qPpe13/rDdggJ7X82WQoNvBLavdF/iOvGPAzdTEXe0IhAKQMCmVA
+	 Ln3U/mI1h5dDSxMLGDaoMxOR6qv0X8JSUXPmXWY/0bVYSj8hL96ZBFf/ySh9hu8mSu
+	 XwOC6BPRQj2ZTVFU8TQ4lqTyc0QyOsUUZ7AL7Lv8pwqlLHseQX69T53OrFSSSitvlx
+	 HTHN+6ud0sjimLb+vYovqDfvn1dqHYC52gCGsyDkfTHfTaqUe1uRnuBjjXaoogoF9J
+	 yfstODLz/pwRxXt4iOBMpRYRmQIGadAYgZ/jS/G4I5DBJc8/g24KrZBqZq/xcWLMfI
+	 Ja1KkTT7T5l4A==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 32F395FF77; Fri, 27 Jun 2025 23:29:27 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Johan Jonker <jbx6244@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH 8/8] arm64: dts: rockchip: Drop regulator-compatible property on rk3399
-Date: Fri, 27 Jun 2025 17:16:27 +0200
-Message-ID: <20250627152645.740981-9-didi.debian@cknow.org>
-In-Reply-To: <20250627152645.740981-1-didi.debian@cknow.org>
-References: <20250627152645.740981-1-didi.debian@cknow.org>
+	linux-pm@vger.kernel.org
+Subject: [PATCH 2/4] pmdomain: sunxi: sun20i-ppu: add A523 support
+Date: Fri, 27 Jun 2025 23:29:16 +0800
+Message-Id: <20250627152918.2606728-3-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250627152918.2606728-1-wens@kernel.org>
+References: <20250627152918.2606728-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_082735_700095_34824EC4 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250627_082930_972991_C1EA4F33 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +83,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The regulator-compatible property has never existed in the
-regulator/fcs,fan53555.yaml binding, so drop it.
+From: Chen-Yu Tsai <wens@csie.org>
 
-Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+A523 has a PPU like the one in the Allwinner D1 SoC.
+
+Add a compatible entry and a list of power domain names for it.
+
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts   | 2 --
- arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts | 2 --
- 2 files changed, 4 deletions(-)
+ drivers/pmdomain/sunxi/sun20i-ppu.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-index 81c4fcb30f39..352c8efb37e0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-@@ -211,7 +211,6 @@ &i2c0 {
- 	vdd_cpu_b: syr827@40 {
- 		compatible = "silergy,syr827";
- 		reg = <0x40>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel1_pin>;
- 		regulator-name = "vdd_cpu_b";
- 		regulator-min-microvolt = <712500>;
-@@ -229,7 +228,6 @@ regulator-state-mem {
- 	vdd_gpu: syr828@41 {
- 		compatible = "silergy,syr828";
- 		reg = <0x41>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel2_pin>;
- 		regulator-name = "vdd_gpu";
- 		regulator-min-microvolt = <712500>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-index 15da5c80d25d..962b8b231c96 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-@@ -421,7 +421,6 @@ vdd_cpu_b: regulator@40 {
- 		compatible = "silergy,syr827";
- 		reg = <0x40>;
- 		fcs,suspend-voltage-selector = <1>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel1_gpio>;
- 		vsel-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
- 		regulator-name = "vdd_cpu_b";
-@@ -440,7 +439,6 @@ vdd_gpu: regulator@41 {
- 		compatible = "silergy,syr828";
- 		reg = <0x41>;
- 		fcs,suspend-voltage-selector = <1>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel2_gpio>;
- 		vsel-gpios = <&gpio1 RK_PB6 GPIO_ACTIVE_HIGH>;
- 		regulator-name = "vdd_gpu";
+diff --git a/drivers/pmdomain/sunxi/sun20i-ppu.c b/drivers/pmdomain/sunxi/sun20i-ppu.c
+index 9f002748d224..b65876a68cc1 100644
+--- a/drivers/pmdomain/sunxi/sun20i-ppu.c
++++ b/drivers/pmdomain/sunxi/sun20i-ppu.c
+@@ -193,6 +193,19 @@ static const struct sun20i_ppu_desc sun8i_v853_ppu_desc = {
+ 	.num_domains	= ARRAY_SIZE(sun8i_v853_ppu_pd_names),
+ };
+ 
++static const char *const sun55i_a523_ppu_pd_names[] = {
++	"DSP",
++	"NPU",
++	"AUDIO",
++	"SRAM",
++	"RISCV",
++};
++
++static const struct sun20i_ppu_desc sun55i_a523_ppu_desc = {
++	.names		= sun55i_a523_ppu_pd_names,
++	.num_domains	= ARRAY_SIZE(sun55i_a523_ppu_pd_names),
++};
++
+ static const struct of_device_id sun20i_ppu_of_match[] = {
+ 	{
+ 		.compatible	= "allwinner,sun20i-d1-ppu",
+@@ -202,6 +215,10 @@ static const struct of_device_id sun20i_ppu_of_match[] = {
+ 		.compatible	= "allwinner,sun8i-v853-ppu",
+ 		.data		= &sun8i_v853_ppu_desc,
+ 	},
++	{
++		.compatible	= "allwinner,sun55i-a523-ppu",
++		.data		= &sun55i_a523_ppu_desc,
++	},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, sun20i_ppu_of_match);
 -- 
-2.50.0
+2.39.5
 
 
