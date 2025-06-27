@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F3BC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB54C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPZ3O5Rwvq89lmi7xpDufo5YrwcKeIrsD6dbAjMTens=; b=mJKRb+g0pYoWDeu0wSs1hH5SRq
-	n421JvztOge3xo5LwG3LW0hluyXC16jEKZUAhZDzEV13KrxOrv3vcEF//5WFaQIIiTED20DCh0VlR
-	5pCZXgzi9qoFta92TQ1WWMWy7mqSLuGeZXaCyXUmv++yKe1sD4AWOp+vLe+7h7KotmHPH7QE7QCwV
-	ROHIf64KkQuQ/TwUMqchtIdZMPPeQI54ntp/lVdRtlnaIG2CKBlW3DmKoeKOiqZdKi9Bov0KasY/g
-	uxLW7WwBBPODcPOq+zhCXehkM1mo+9EKv1/J+3DViyZQO/8MAEVHo0lgIqepFhtVKZOf2X5BT68np
-	M4ZHe5dQ==;
+	bh=02U+0UgXCKtwughCdTi0Vy9YK+2ZInKkGl7PJpx0qps=; b=MnYQoENEQYmCVBo6UBKEMlDjrt
+	i8JNbp6Fkd5qjm4+8CmwD2gZSaQNwgHGSJX2CIvio2gXnpVZ2J4cjMUr+VwllrJq0+cFuvocW63xN
+	z97jRyBMgMwQZgLrN9yqKhmNaRV7VwPRPcLUpFxdBqTeZP/8TmL4IvYqb6bN6b8G7+GG2n2ty0PtT
+	3hI5uGB7y0FhKEZRSRJ4EpVb7BwF1JWJI8MmjzeHCC2IXJwZ6b4exA4yaU+AdNoCoN+iKIN9hgYyP
+	IPz28wOpnVivNSF5vsW6qBpoAZfY1hVYcSv4q2BFb0QTF5K6x3F3zDJdZ+fn7RnBHP6/uFEMdZfZs
+	90/rJj/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVA0N-0000000EuDQ-3MjT;
-	Fri, 27 Jun 2025 14:24:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9uj-0000000Esqj-05hB
+	id 1uVA2e-0000000Eueu-3tfz;
+	Fri, 27 Jun 2025 14:27:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uV9N8-0000000EoHU-1Rko
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:18:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23AFE6111F;
-	Fri, 27 Jun 2025 14:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA384C4CEE3;
-	Fri, 27 Jun 2025 14:18:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751033927;
-	bh=TaiQW3c+noRyzXQvsLousUbpwR3hV32c+YniAy5VZUU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JMFvBsxh25QJ2POJpnOoSHcIiORn+haen7v9wCSZAqbRWEWR8rp168/xP5JajxRet
-	 ABSMKTjuxgMOqYpqxHoeQAIY1ZO/1qnNPS1mZwEAmC6ZGJ+7oPy6aIr9chIwI3mMzx
-	 1LwQNtcBxXDKjAqya0P7p7/blBNf1PY42VO6WrZJIuY+dkKjUMVR2n25EtXJNAYBR9
-	 AXfHsrTv4FYdFOr/WwX1bKOOoWsBgt46qpWbERDFD3NLDjmQReTG1ZBzJlC2KUu2aT
-	 lgwUVSvQu451wB1EMcCCl1itmRUz/iFxcC0/eMTNQtR8zSTF1A1AGP4bgUwFaT/d6Y
-	 QSo2Oo2lIP7sA==
-Date: Fri, 27 Jun 2025 09:18:46 -0500
-From: Rob Herring <robh@kernel.org>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Fri, 27 Jun 2025 13:44:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71A3F1A00;
+	Fri, 27 Jun 2025 06:43:48 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B62A13F66E;
+	Fri, 27 Jun 2025 06:44:03 -0700 (PDT)
+Date: Fri, 27 Jun 2025 14:44:00 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v3 02/28] driver core: Rename get_dev_from_fwnode()
- wrapper to get_device_from_fwnode()
-Message-ID: <20250627141846.GA3234475-robh@kernel.org>
-References: <20250613134817.681832-1-herve.codina@bootlin.com>
- <20250613134817.681832-3-herve.codina@bootlin.com>
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] firmware: arm_scmi: imx: Support getting syslog of
+ MISC protocol
+Message-ID: <aF6gIOrY5ODBumkf@pluto>
+References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
+ <20250627-sm-misc-api-v1-v1-5-2b99481fe825@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250613134817.681832-3-herve.codina@bootlin.com>
+In-Reply-To: <20250627-sm-misc-api-v1-v1-5-2b99481fe825@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250627_064406_463900_66BD565C 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +70,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 03:47:42PM +0200, Herve Codina wrote:
-> get_dev_from_fwnode() calls get_device() and so it acquires a reference
-> on the device returned.
+On Fri, Jun 27, 2025 at 02:03:48PM +0800, Peng Fan wrote:
+> MISC protocol supports getting system log regarding system sleep latency
+> ,wakeup interrupt and etc. Add the API for user to retrieve the
+> information from SM.
 > 
-> In order to be more obvious that this wrapper is a get_device() variant,
-> rename it to get_device_from_fwnode().
-> 
-> Suggested-by: Mark Brown <broonie@kernel.org>
-> Link: https://lore.kernel.org/lkml/CAGETcx97QjnjVR8Z5g0ndLHpK96hLd4aYSV=iEkKPNbNOccYmA@mail.gmail.com/
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Saravana Kannan <saravanak@google.com>
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  drivers/base/core.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 78 ++++++++++++++++++++++
+>  include/linux/scmi_imx_protocol.h                  | 19 ++++++
+>  2 files changed, 97 insertions(+)
 > 
-> diff --git a/drivers/base/core.c b/drivers/base/core.c
-> index cbc0099d8ef2..36ccee91ba9a 100644
-> --- a/drivers/base/core.c
-> +++ b/drivers/base/core.c
-> @@ -1881,7 +1881,7 @@ static void fw_devlink_unblock_consumers(struct device *dev)
->  	device_links_write_unlock();
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> index d5b24bc4d4ca6c19f4cddfaea6e9d9b32a4c92f7..1a6d75357b76ce6bb7d06461999b368c27f1fa43 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> @@ -28,6 +28,7 @@ enum scmi_imx_misc_protocol_cmd {
+>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
+>  	SCMI_IMX_MISC_SI_INFO = 0xB,
+>  	SCMI_IMX_MISC_CFG_INFO = 0xC,
+> +	SCMI_IMX_MISC_SYSLOG = 0xD,
+>  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
+>  };
+>  
+> @@ -87,6 +88,19 @@ struct scmi_imx_misc_si_info_out {
+>  	u8 siname[MISC_MAX_SINAME];
+>  };
+>  
+> +struct scmi_imx_misc_syslog_in {
+> +	__le32 flags;
+> +	__le32 index;
+> +};
+> +
+> +#define REMAINING(x)	le32_get_bits((x), GENMASK(31, 20))
+> +#define RETURNED(x)	le32_get_bits((x), GENMASK(11, 0))
+> +
+> +struct scmi_imx_misc_syslog_out {
+> +	__le32 numlogflags;
+> +	__le32 syslog[];
+> +};
+> +
+>  static int scmi_imx_misc_attributes_get(const struct scmi_protocol_handle *ph,
+>  					struct scmi_imx_misc_info *mi)
+>  {
+> @@ -368,6 +382,69 @@ static int scmi_imx_misc_silicon_info(const struct scmi_protocol_handle *ph,
+>  	return ret;
 >  }
 >  
-> -#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
-> +#define get_device_from_fwnode(fwnode)	get_device((fwnode)->dev)
+> +struct scmi_imx_misc_syslog_ipriv {
+> +	u32 *array;
+> +};
+> +
+> +static void iter_misc_syslog_prepare_message(void *message, u32 desc_index,
+> +					     const void *priv)
+> +{
+> +	struct scmi_imx_misc_syslog_in *msg = message;
+> +
+> +	msg->flags = cpu_to_le32(0);
+> +	msg->index = cpu_to_le32(desc_index);
+> +}
+> +
+> +static int iter_misc_syslog_update_state(struct scmi_iterator_state *st,
+> +					 const void *response, void *priv)
+> +{
+> +	const struct scmi_imx_misc_syslog_out *r = response;
+> +
+> +	st->num_returned = RETURNED(r->numlogflags);
+> +	st->num_remaining = REMAINING(r->numlogflags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int
+> +iter_misc_syslog_process_response(const struct scmi_protocol_handle *ph,
+> +				  const void *response,
+> +				  struct scmi_iterator_state *st, void *priv)
+> +{
+> +	const struct scmi_imx_misc_syslog_out *r = response;
+> +	struct scmi_imx_misc_syslog_ipriv *p = priv;
+> +
+> +	p->array[st->desc_index + st->loop_idx] =
+> +		le32_to_cpu(r->syslog[st->loop_idx]);
+> +
+> +	return 0;
+> +}
+> +
+> +static int scmi_imx_misc_syslog(const struct scmi_protocol_handle *ph, u16 size,
+> +				void *array)
+> +{
 
-In patch 3, you add the same define. Is there some reason to not move it 
-to a header?
+...so this size...
 
-Rob
+> +	struct scmi_iterator_ops ops = {
+> +		.prepare_message = iter_misc_syslog_prepare_message,
+> +		.update_state = iter_misc_syslog_update_state,
+> +		.process_response = iter_misc_syslog_process_response,
+> +	};
+> +	struct scmi_imx_misc_syslog_ipriv ipriv = {
+> +		.array = array,
+> +	};
+> +	void *iter;
+> +
+> +	if (!array || !size)
+> +		return -EINVAL;
+> +
+
+...which cannot be zero and is passed down to the iterator as max_resources
+is meant to repreent also the length of tthe array passed here as an
+argument and filled-in by the iterators ?
+
+...and so basically array bounds-checking is enforced by the iterators
+core code, because no matter what, it is always enforced that
+
+	(returned + remaining <= max_resources (size)
+
+...I am fine with this, I am just trying to understand and see if I can
+find a mishap :D
+
+> +	iter = ph->hops->iter_response_init(ph, &ops, size, SCMI_IMX_MISC_SYSLOG,
+> +					    sizeof(struct scmi_imx_misc_syslog_in),
+> +					    &ipriv);
+> +	if (IS_ERR(iter))
+> +		return PTR_ERR(iter);
+> +
+> +	return ph->hops->iter_response_run(iter);
+> +}
+> +
+>  static const struct scmi_imx_misc_proto_ops scmi_imx_misc_proto_ops = {
+>  	.misc_cfg_info = scmi_imx_misc_cfg_info,
+>  	.misc_ctrl_set = scmi_imx_misc_ctrl_set,
+> @@ -375,6 +452,7 @@ static const struct scmi_imx_misc_proto_ops scmi_imx_misc_proto_ops = {
+>  	.misc_ctrl_req_notify = scmi_imx_misc_ctrl_notify,
+>  	.misc_discover_build_info = scmi_imx_discover_build_info,
+>  	.misc_silicon_info = scmi_imx_misc_silicon_info,
+> +	.misc_syslog = scmi_imx_misc_syslog,
+>  };
+>  
+>  static int scmi_imx_misc_protocol_init(const struct scmi_protocol_handle *ph)
+> diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
+> index 0e639dfb5d16e281e2ccf006a63694b316c431f4..ff34d974046aa982fa9f5d46fc673412e01a532d 100644
+> --- a/include/linux/scmi_imx_protocol.h
+> +++ b/include/linux/scmi_imx_protocol.h
+> @@ -71,6 +71,23 @@ struct scmi_imx_misc_system_info {
+>  	u8 siname[MISC_MAX_SINAME];
+>  };
+>  
+> +struct scmi_imx_misc_sys_sleep_rec {
+> +	u32 sleepentryusec;
+> +	u32 sleepexitusec;
+> +	u32 sleepcnt;
+> +	u32 wakesource;
+> +	u32 mixpwrstat;
+> +	u32 mempwrstat;
+> +	u32 pllpwrstat;
+> +	u32 syssleepmode;
+> +	u32 syssleepflags;
+> +};
+
+So where is this used ? later in the series ?
+> +
+> +struct scmi_imx_misc_syslog {
+> +	struct scmi_imx_misc_sys_sleep_rec syssleeprecord;
+> +	uint32_t deverrlog;
+> +};
+> +
+>  struct scmi_imx_misc_proto_ops {
+>  	int (*misc_cfg_info)(const struct scmi_protocol_handle *ph,
+>  			     struct scmi_imx_misc_system_info *info);
+> @@ -84,6 +101,8 @@ struct scmi_imx_misc_proto_ops {
+>  					struct scmi_imx_misc_system_info *info);
+>  	int (*misc_silicon_info)(const struct scmi_protocol_handle *ph,
+>  				 struct scmi_imx_misc_system_info *info);
+> +	int (*misc_syslog)(const struct scmi_protocol_handle *ph, u16 size,
+> +			  void *array);
+>  };
+> 
+
+Thanks,
+Cristian
 
