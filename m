@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA339C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 06:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE21C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 06:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14pd4QpWllGl8PV/mXJ+LzKhlaqqBqybi64T3zF9M/I=; b=BmjNSb6YIS3mUibZaUGHd3Zfdi
-	HxeZg6tp16VfgI8qpC6UskLSSj9/U1DR7LJ1X6ezc7L/CxwYHQyr8hl4COMyAwO1yO0mggFGEcShC
-	QgE6fnPWzctN35rbcxGRDHJlFynmB+kWZ1PjDJRO1b+P32FI/8aluhvC42ouGXQm5L6ccLVBhomlm
-	FdMrgl37Nc4dZU1DgwZIamoZUc0CoqynjLdhL60SKiORTFlsU4zJYz98aFqVXR7UPsUVWiYQarNUP
-	tkFhX45ptpWr85D4wGGrqPHrUXOAeQ0BjH/9X75YxVCllXLlKJ+7aLwrJTVmqq8MQeDsXC7udjJcH
-	JPv6VZgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z16CFT0X6xgp0nREGCa3KxiUGJB2mesoFi2mvUmMQZE=; b=eBiDmnbpWUHQzLkkl+UU48DKtk
+	zQHjZIToKaCBsLnV3ogcdByevNsALd6N/2ND4kHnTnUC2DSf6MSk4BYrmx28s7ytOirEMWYDW/EdJ
+	I5yQFRfDKbvibiM2TzM0GGtC1ezlhQKMzSM+awMBCdK77cMVU2kOhJ0BEo1ormhIlA4L7ZovA8DQP
+	tqD8tMMtRMmG5tLib9c8N+36MkG3grSuP89x+omTCARh5UBKsFmuGbjklsgSXZAr/YWWlRj9NJKsf
+	wE6mW8zUSnokVfqI6bvv/4w5HVmo5ljdubXqssM8315FgWRMTlgVV5Nzs7Pcr9rfUMzqXxnUQdyq2
+	7nh0HoCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV2Gh-0000000DfQ9-1vtG;
-	Fri, 27 Jun 2025 06:08:59 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uV2Ix-0000000Dfa8-2Gl0;
+	Fri, 27 Jun 2025 06:11:19 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV290-0000000DeUx-3ABX;
-	Fri, 27 Jun 2025 06:01:04 +0000
-X-UUID: 19a19922531c11f09f706fa2197c6ceb-20250626
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=14pd4QpWllGl8PV/mXJ+LzKhlaqqBqybi64T3zF9M/I=;
-	b=RM4ZEzkVjmykKbHFOUa1izmJsF1SgZAKYvND2Kk6zIX2AwbwcWLvfUPoaoylCDkvDwGFs49OzBubX1t6+3787vo+ABGxtV74IPEn3N2shnLHB7vKCpqfVI7APJvQQVM2zpxo+f83lV+GXhOwFjemse50uUNiEZLFVeCd4B77Db8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:e8ce89f8-6363-4e1e-97f1-7e247e13f887,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:9f7c4282-cc21-4267-87cf-e75829fa6365,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 19a19922531c11f09f706fa2197c6ceb-20250626
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <ot_zhangchao.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1913251534; Thu, 26 Jun 2025 23:01:00 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 27 Jun 2025 14:00:56 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 27 Jun 2025 14:00:55 +0800
-From: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-To: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk=dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>
-CC: Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
-	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, Hao Qin
-	<Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, linux-mediatek
-	<linux-mediatek@lists.infradead.org>, devicetree
-	<devicetree@vger.kernel.org>, Zhangchao Zhang
-	<ot_zhangchao.zhang@mediatek.com>
-Subject: [PATCH v5 2/2] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
-Date: Fri, 27 Jun 2025 13:59:24 +0800
-Message-ID: <20250627055924.7716-3-ot_zhangchao.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250627055924.7716-1-ot_zhangchao.zhang@mediatek.com>
-References: <20250627055924.7716-1-ot_zhangchao.zhang@mediatek.com>
+	id 1uV2A4-0000000Defz-2D1l
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 06:02:09 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-2ea2fee5471so1033736fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Jun 2025 23:02:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751004127; x=1751608927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z16CFT0X6xgp0nREGCa3KxiUGJB2mesoFi2mvUmMQZE=;
+        b=Y8ne71oX1FyI2Si9+k/E9R3144Zb3Lo8XRkdtk2nrAMTCl6/cLY31hhjG2Nn/TMc/l
+         euXrq9PkZXhCAM3AlgA2rtqoHJFN1xmYASfsb2lctgNUC4Z9NQpxWjB1JZVR+HTIycZ9
+         9Apt3++7d13BsvwdQdnTZVP61dGIcqwIILAdBPfZ7+J3tlJjgkyQrPVkM0+2/0H5iNif
+         vNAEC+gHdCQCtpTgwoR4QVvH5h2cpgArMl8bfjEkHGwPxdsaztZJ3TILjz+TwtSl8Qjo
+         lltBHB+ZIUZpOlDX84x3AqKVOPFPErpN7nCq187tSspslpXWSHf6qtEEaIBW24eYHYoh
+         IdvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751004127; x=1751608927;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z16CFT0X6xgp0nREGCa3KxiUGJB2mesoFi2mvUmMQZE=;
+        b=BTQDug66DrdwcA3vtOnqmji19a3M3Pg25liSD62yx5XftqpxacrqfK42zqhZYRe0n0
+         hgUsKluGcB8EvlIiFVQP6Y8h5zvX42p06mjCiwHsBd9mFSVDnxEkO7pJ0KnlkJmnfVLU
+         kxJGHvEziAPcMPrBEfDVOXjXPy5C2+OdqFJ2UEC2RFn4P6Kvxddu+Pu3Ymh0McjxMfOm
+         s1CAmt3blHDESy7bfMZtlY3DhJRM1Quev7rPuUbxJg8e1dqfuzdxNbCjosHhfwsGlmds
+         TC95tlzXUwFXlhbTBC+u9Dt8XU6pGiqd+tuQg0hnA2Ze9AqNU0tVDNujisrLpY5KXSC0
+         sk8w==
+X-Forwarded-Encrypted: i=1; AJvYcCXy9++ZeWIxydCxfO7r+c6bWjcJxqPiz56cC2iuF8bNuSLQdH+gj3zxln/ap0jvT4ANQpgBA2nh0iL5qUCksK2T@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcFzTOm8bO2i+1IQvc7/q4affykwuL2Sx3jiip31RHpW1+4yNk
+	97XEvxogd29O8BuYwbZ7xeSElWpS5iP+XWS/UmtXuc+FWrDf25ipS3ZW
+X-Gm-Gg: ASbGncu3jytt7vTsYWejXWPwqR51DdMeVgrnPO0S54B2cCGwFnpmo401+Up9Yauvjhd
+	emX/8flZxO7A6tvQ+0+NVND6tSskztIQV675w+wAKf5aHwsxwSz5F+lcBOYHVTN69S7Kg2RO/0W
+	NiLBL9WGsjclILJl4ZHXuh/PQhGe4C/+T3M7zrT2TtudAcEQT6zumO5RQC8sDJvR4JiABvFjBQb
+	ChzMGRUhodC8yLIzmv4c+RAn+7WPIW9qnBh7l1oI+bPDAoaSX87IjA7Lf1+LvbFWK7zRMGkK3tJ
+	0qJgOG3T0c1ikGEMDDbEUX2Yl8ZHHB52r/0PRRldZ7g3VSS8xZIskT+CSOOyLrk1
+X-Google-Smtp-Source: AGHT+IGDf5B3X19G7dGXS0IC17ZqTS+7dOnmBelH5PQyqTyVwxjOWGD+13q1TS3hyyCtPCJMgMSHxQ==
+X-Received: by 2002:a05:6871:5b20:b0:2ea:9932:f1ac with SMTP id 586e51a60fabf-2efcf0616famr4235808fac.12.1751004127129;
+        Thu, 26 Jun 2025 23:02:07 -0700 (PDT)
+Received: from s-machine2.. ([2806:2f0:5501:d07c:4b96:6387:264e:4984])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2efd4ea6b86sm748729fac.1.2025.06.26.23.02.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Jun 2025 23:02:06 -0700 (PDT)
+From: Sergio Perez Gonzalez <sperezglz@gmail.com>
+To: gregkh@linuxfoundation.org,
+	michal.simek@amd.com
+Cc: Sergio Perez Gonzalez <sperezglz@gmail.com>,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	shuah@kernel.org
+Subject: [PATCH] usb: gadget: udc-xilinx: validate ep number before indexing rambase[]
+Date: Fri, 27 Jun 2025 00:01:22 -0600
+Message-ID: <20250627060125.176663-1-sperezglz@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_230102_800472_6E4E41C2 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250626_230208_566384_841E0CF4 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,95 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add hardware pins and compatible strings.
+Issue flagged by coverity. The size of the rambase array is 8,
+usb_enpoint_num() can return 0 to 15, prevent out of bounds reads.
 
-As a binding file for the MTK Bluetooth driver code,
-it provides a set of compatible fields and hardware
-pins for the driver to use.
-
-Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+Link: https://scan7.scan.coverity.com/#/project-view/53936/11354?selectedIssue=1644635
+Signed-off-by: Sergio Perez Gonzalez <sperezglz@gmail.com>
 ---
- .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 57 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 58 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
+ drivers/usb/gadget/udc/udc-xilinx.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-new file mode 100644
-index 000000000000..230c24ada3b4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-@@ -0,0 +1,57 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/bluetooth/mediatek,mt7925-bluetooth.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
+index 8d803a612bb1..0c3714de2e3b 100644
+--- a/drivers/usb/gadget/udc/udc-xilinx.c
++++ b/drivers/usb/gadget/udc/udc-xilinx.c
+@@ -814,6 +814,12 @@ static int __xudc_ep_enable(struct xusb_ep *ep,
+ 	ep->is_in = ((desc->bEndpointAddress & USB_DIR_IN) != 0);
+ 	/* Bit 3...0:endpoint number */
+ 	ep->epnumber = usb_endpoint_num(desc);
++	if (ep->epnumber >= XUSB_MAX_ENDPOINTS) {
++		dev_dbg(udc->dev, "bad endpoint index %d: only 0 to %d supported\n",
++				ep->epnumber, (XUSB_MAX_ENDPOINTS - 1));
++		return -EINVAL;
++	}
 +
-+title: Bluetooth mediatek add gpio pin to reset bt
-+
-+maintainers:
-+  - Sean Wang <sean.wang@mediatek.com>
-+
-+description:
-+  7925 uses the USB bus to communicate with the host.
-+  Two methods are used to reset Bluetooth.
-+  Provide hardware pin, when an exception occurs,
-+  resetting Bluetooth by hardware pin is more stable
-+  than resetting Bluetooth by software.
-+  If the corresponding pin is not found in dts,
-+  bluetooth can also be reset successfully.
-+
-+allOf:
-+  - $ref: bluetooth-controller.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,usb-bluetooth
-+
-+  gpio-controller:
-+    description:
-+      Marks the device node as s GPIO controller.
-+
-+  "#gpio-cells":
-+    const: 2
-+
-+  reset-gpios:
-+    maxItems: 1
-+
-+    description:
-+      An active-high reset pin for the Bluetooth core; on typical M.2
-+      key E modules this is the W_DISABLE2# pin.
-+
-+required:
-+  - compatible
-+  - "#gpio-cells"
-+  - reset-gpios
-+
-+unevaluatedProperties: false
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+      bluetooth {
-+        compatible = "mediatek,usb-bluetooth";
-+        #gpio-cells = <2>;
-+        reset-gpios = <&pio 248 GPIO_ACTIVE_HIGH>;
-+      };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5959513a7359..d104a5821f20 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14676,6 +14676,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,bluetooth.txt
- F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7921s-bluetooth.yaml
-+F:	Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
- F:	drivers/bluetooth/btmtkuart.c
- 
- MEDIATEK BOARD LEVEL SHUTDOWN DRIVERS
+ 	ep->desc = desc;
+ 	ep->ep_usb.desc = desc;
+ 	tmp = usb_endpoint_type(desc);
 -- 
-2.46.0
+2.43.0
 
 
