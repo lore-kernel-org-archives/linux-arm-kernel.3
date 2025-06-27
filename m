@@ -4,115 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F4DC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE42BC7EE3A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 08:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIYBZpFE/+LMs+pWH0uAnrKxyIeaZH01dU6fR1X18xs=; b=J9MqThQA0XusosPyiuYZG537zb
-	F2m3NZHiNVqPhERyit6obK6EDa3l3Aa8u1TlJvV19t3AEixmMI+e8/pCNlg81D2OSXKyHPHU68p6H
-	NjuCcxk6FPz2u2oC87sX1ECuRoShWum9iuTAHgER8uD3annNWANXnMP+Rx5G9Gf0yCltbxjjZVCYe
-	RHp4KNz+vyzae5wN9UJrCUJM//rq0wnXbskeBrh82m9rpIKJLYSi/M08Bmlm4pppasDzagkwRfHJn
-	ItYUlDQX9HV4ZGKTS7zlZ/+CTxp/p4uC6/xE4mZJqrVeGrWBliEzqk6ZUyVLuI0Ksj5KqorL2Y6eW
-	7AYjP7dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DNSmynbN4CypUVCgPdo9K0JjhBHHrRUS4VUlnbwPz1g=; b=eqctX8Yn5uf2l2oXvXf9oFnwzx
+	xvjponUzUM4/OM8WDiNXTY4rV8uP22JJle6HrrHbjhcugJ3tbit8reUPAGZS7NELP9rDk4RtCATuB
+	zDrtKHwLgbJPZYiLQPAgC4Q/SPiv8Xym8ic3/HR4KX0qCG33RnELaJhxt8a2EyhYbKK1zsCNSvGIt
+	BAMbISfkSasKZ5QXGK56sMj1rZCyRtsg+kdJ2OBuegB0xYPr/BYNkWIPrr8zVHO9pPIZRzbYNUgAO
+	FyjxlA7X0wax8ZNsHZSG5z2aB5App0dG0z5C6/rWJT4RaExHr394nHFL/fWs7OfFZ5LQfgcV9lxMg
+	U5S/qdJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4Iq-0000000DwAu-3hlX;
-	Fri, 27 Jun 2025 08:19:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uV4L8-0000000DwUM-0W1r;
+	Fri, 27 Jun 2025 08:21:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV4EM-0000000Dvk2-2tXb;
-	Fri, 27 Jun 2025 08:14:44 +0000
+	id 1uV4GX-0000000Dvty-21IE;
+	Fri, 27 Jun 2025 08:16:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10398A52447;
-	Fri, 27 Jun 2025 08:14:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF1A5C4CEEB;
-	Fri, 27 Jun 2025 08:14:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A264D6143C;
+	Fri, 27 Jun 2025 08:16:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CEBFC4CEE3;
+	Fri, 27 Jun 2025 08:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751012081;
-	bh=BnCh389PEx9bJtSanbtzmLueRukA8060w6pkKSdwnaI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QjWrgtpICnL1hJ1fOUVDjH2KaBUAF/Ovk4eVAzbNsZlz14vb9OnG1vscI8l1+6bEA
-	 AR6amD9jWaKrXnm2PaRGtwlqs4rO1tXB93rLMgof+hDk5RYbY99Xc7MUuM+k9Y6lAN
-	 Ze1TNP9nWdDAhpucp1+R5n/KOLKiC9YeCsptoKSfzReY0yYRKZi6fc9+vqWQoNUjch
-	 zsP4xvZ/ieRCjNesH9O08gsZaZBtdg+ja76EoB/O10Y4TnPBQlTkcmb1kQJVd1Pu7N
-	 XU09jk5u53D1FAA/BNPK19JNfW1gSoUg6cYkbv1jIJ2JMKS+hP5jSaqmMM2kLotGXv
-	 SYBPMzGFC2q2g==
-Message-ID: <c697c9be-ba14-41b3-84e0-bc36580748bc@kernel.org>
-Date: Fri, 27 Jun 2025 10:14:33 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] dt-bindings: phy: fsl,imx8mq-usb: Drop 'db' suffix
- duplicating dtschema
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Vincent Knecht <vincent.knecht@mailoo.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>
-Cc: linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250627-dt-bindings-db-v1-0-d5c7072acbee@linaro.org>
- <20250627-dt-bindings-db-v1-2-d5c7072acbee@linaro.org>
+	s=k20201202; t=1751012216;
+	bh=U5s9iEMSbWh9IK7RltR780D3binhRP0cWZphzDzaaHk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PaRZCi9hyS1TFB/6tfgC0csFv4IxtOprlLG5DcPHHj16yXQENW0cUnsHdVsPv9cMx
+	 t3N17ORjeqvREbx+w2UYGGLJ96P8ozvDNAKGtXAuLme9otsRCyt8vXjGoeUO+xawHI
+	 7MTozUbELHLWy+ZIZeAXNyb+JSekvOdms4liIFvfEZoYo4cPrMqHLFfpUErfufmkso
+	 ZLE6fD1VE96JOgNTFQkC0qbeDSmVzunJuSf2YgykOONTB0p9dhtkQ5DQ1oKg/crkWZ
+	 yrI2mhw8Fb+5RqGfOVxjqOZqTutv2LzEX4aohTqxp434Wa4Ht0Mn9U14cht2jbrPQB
+	 iywRgC33cR8IQ==
+Date: Fri, 27 Jun 2025 10:16:52 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250627-dt-bindings-db-v1-2-d5c7072acbee@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_011442_853330_0B2DAAB9 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: broonie@kernel.org, lgirdwood@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 1/6] dt-bindings: regulator: Document MediaTek MT6316
+ PMIC Regulators
+Message-ID: <20250627-premium-clay-husky-9d32bc@krzk-bin>
+References: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
+ <20250624073548.29732-2-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250624073548.29732-2-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,20 +71,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/06/2025 10:01, Krzysztof Kozlowski wrote:
-> A common property unit suffix '-db' was added to dtschema, thus
-> in-kernel bindings should not reference the type.
+On Tue, Jun 24, 2025 at 09:35:43AM +0200, AngeloGioacchino Del Regno wrote:
+> Add bindings for the regulators found in the MediaTek MT6316 PMIC,
+> usually found in board designs using the MT6991 Dimensity 9400 and
+> on MT8196 Kompanio SoC for Chromebooks.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> This chip is fully controlled by SPMI and has multiple variants
+> providing different phase configurations.
 > 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
+>  .../regulator/mediatek,mt6316-regulator.yaml  | 81 +++++++++++++++++++
+>  1 file changed, 81 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
 > 
-> RFC because this depends on dtschema changes and should be accepted
-> after new dtschema is released with this merged:
-> https://github.com/devicetree-org/dt-schema/pull/166
-> ---
-... and I forgot `b4 prep --add-prefixes RFC`. Please treat as RFC.
+> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
+> new file mode 100644
+> index 000000000000..019c3c36997c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6316-regulator.yaml
+> @@ -0,0 +1,81 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6316-regulator.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT6316 SPMI PMIC Regulators
+> +
+> +maintainers:
+> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> +
+> +description: |
+> +  The MediaTek MT6316 PMIC is fully controlled by SPMI interface; it features
+> +  four step-down DC/DC (buck) converters and has multiple variants, providing
+> +  different phase configurations. In particular:
+> +  MT6316BP/VP:    2+2 Phase (buck 1+2, buck 3+4)
+> +  MT6316CP/HP/KP: 3+1 Phase (buck 1+2+4, buck 3)
+> +  MT6316DP/TP:    4+0 Phase (buck 1+2+3+4)
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt6316b-regulator
+> +      - mediatek,mt6316c-regulator
+> +      - mediatek,mt6316d-regulator
+> +
+> +  vbuck1234:
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+
+Here you define all regulators
+
+> +additionalProperties: false
+
+This goes to the end.
+
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: mediatek,mt6316b-regulator
+> +    then:
+> +      patternProperties:
+> +        "^vbuck(12|34)$":
+
+Every device has different regulators, so there is little benefit in
+keeping this in one schema file.
 
 Best regards,
 Krzysztof
+
 
