@@ -4,174 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C34C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 06:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA244C7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 06:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGMowWSfzmEwlGFrj4P9SsvwpZ0kx3A7cQbRwJOLHdg=; b=Y3HjVfMKgVOV9rW2VHe1anBr92
-	eudo3p8fmavFUT8W0jwheaTJpf/b+5HLfpYsOEVpPk2WfBICfAp6iGP1MVdkRmW0D0HXEKoupxSpG
-	Mwtn649rvmqBMdT5tDDI2DPhd7w2NuUpepN/CkMFH3B7TrCm6mYYgi5C6NNSjATctsL10zSwBOB/c
-	xSOZadJ0uGReDrZWmGv8alF1gg44nTT6iYYdoKNfNIz1xMyb1T7FU+5B0orR34XycBZMaheGffN4K
-	kLwrQ89qzdwC+Zb8XTfjKHUVdUXZ1ycmqnOlzZVzscZoAacHx2rPSKCOy23R/bQDux5zSvPBcPKhq
-	NbyoNmsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RIqr1G8w341JdjB67nlcBhtQ9EOdz3z9dERZmNVdkZk=; b=aR3Jto3Ti3zqdMxOcgKTxft1I3
+	ayWsUBs0oehzFihBW+0JXRKw8GenHo+I8VnMkSXpemqEOaDnAcXCt8Jk9Sc3lHapE2Do6GKLrfIpi
+	nmhpndpHul/q+q71X0gzfJ+vHX5nggRJ6T8P2KCpevk87JH3FefGmSk+TjlF+OAVSIVWGf8AuWzHB
+	1FWM0PhsGcZnQmxxrEkwdq6pgVs2k26EBEhnfa9xBM6W+f1rs3Fru+fumk0Wz11irs3Xw+kqHScMS
+	kyZcVfDr4ZNDaPOVvIRCI+b2NtfALtq3UEzLUHAtidE1WHhVSRXiFkf72xGG6BEzG8LV8xUtUVPJM
+	MZoCr/Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV2b9-0000000Di0Y-2Sdf;
-	Fri, 27 Jun 2025 06:30:07 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uV2dQ-0000000DiEC-1XKU;
+	Fri, 27 Jun 2025 06:32:28 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV2E0-0000000Df34-1ic2
+	id 1uV2MF-0000000Dg7n-02uo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 06:06:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hxNCSPMq/Ey7/rROkQBd3Qum7xqxEsTphZYnUePxc2McUF9z6uKtwoo7JYOJ/TzT//sKqvWGqfYtFEOW5LDnJYkiYJc05QvYlPpkmVwIDygKPDe1CQdsqUSPGphiwNVtbBT8ehaPKx+E14rbT7nOXB/Ut0Sbl8insoiu3gW7SXDkaY/Hwb3BFGHsXPmajigLOSeGbHVm3AM70VSxq0kTnlThhSOockBdk1NQI2FQ3KqyRqIY1OlUlnzZL/pKT5kFPeSXkmHj++zfhWchutp8IXEyx3gZdZD8umGsjonA+z0IvXvsA7b9QeO15/YlGoWSZDidFMAt5okPoMASRI9OMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MGMowWSfzmEwlGFrj4P9SsvwpZ0kx3A7cQbRwJOLHdg=;
- b=Rf2QELAULeJq1tmIvFL6t4D86Q9n7DnahpdE0ml4f+nYIXodTtiSscjV/wMGa1e7eOLXgBc3nPRCxPog1cxhgOh1fP/LKkd+DO/3weKwzXp8bo2kDs7vAzitSOnVUrSZ3ogKFSLUqKWUzbqzP3xVz3FjUtlcfO8w1Yb2mI5FjK4TEofYwyINIvHj/pUDUfKBFs74ob6ZZppbr2FDmX13DSNv17fP9dVhw2G/PSae3LNMowoYhDaFhnXXv460f1pR4php5EwcxlMLgta9N2Bz9GT1pOuqxDogWPc9bsHokW4U+ej2tEoVtlkUL+1cnIeMV670COXgG7f601kka60rNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MGMowWSfzmEwlGFrj4P9SsvwpZ0kx3A7cQbRwJOLHdg=;
- b=RHmcOkXPc6vX3vWUDscO0KNQv8Mqqe+LEyE1C7XJrDVSHBaBPPouavWlFOfEx/HSWJrOZw7ryiZkGmDEaRZWova4LSlPyeay3sQvMt3yPLb7gc+BvSalV06sE+xYkdJ5BqyQDCsnRtjNbki1jP6n2tzx22/L+nBwPDDUoxgOeWsP9S2rzaSIYkboc9dAR+vhUht/XW2Mt25zeVd3IperHOMq5KbSyILDGTF/j9LOF6HM2M2fD+L9docuS37vkz2zr6pbkz/Jj/eLEGJUzR84zCptDywYA6TgeWq+uNlCprDQcr44qQ7nvZWzmmp0nzsRMblYo9sYbR6rS9P7BxhYWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GV1PR04MB10943.eurprd04.prod.outlook.com (2603:10a6:150:20c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.27; Fri, 27 Jun
- 2025 06:06:09 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8880.021; Fri, 27 Jun 2025
- 06:06:09 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Fri, 27 Jun 2025 14:03:50 +0800
-Subject: [PATCH 7/7] firmware: imx: sm-misc: Dump syslog and system info
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250627-sm-misc-api-v1-v1-7-2b99481fe825@nxp.com>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
-In-Reply-To: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: arm-scmi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751004238; l=3687;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=vWxqoEygzt63mXBOpMnGLtsBu1rMzDKcUC2MsGl/Yo0=;
- b=QQGegho7+yKdsZgJPI0KceE6z/zwWmXXebyaQKTD5vHjlQMf07oXgU74e8yjUFAX1Vek8dFpi
- qmlGDG84T0sDYv5Drk1+rvzVw2v758sXKt8MUduxrJYWEgI2TP/PeK1
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: MAXPR01CA0109.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::27) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 27 Jun 2025 06:14:45 +0000
+Message-ID: <e33bbf93-ed78-4cbd-9ed7-1e36453549c0@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751004880;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RIqr1G8w341JdjB67nlcBhtQ9EOdz3z9dERZmNVdkZk=;
+	b=YfudznCYk3WoX9DBBDdaJTY5VlTsRNSRfpU+C/HCgg4VyCUC021HG0XVnTunKtN57mjv5I
+	P9Md7kHGGVfC0XgIc8DZFDdo/bVJqb8S9fohOQPbyv4PUceTJBy2Cwl1fATsK446rJr5f1
+	YBewEH6Gy68GWtDSCHkKRwOtL6+xozs=
+Date: Fri, 27 Jun 2025 14:14:32 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10943:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2340c917-9a7c-464c-25f7-08ddb540b5ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFpRQnZ2N3RRR3RUN1NzRVhsNjRaTlg4Q3QrUFhEbUV4d3FOVUhtcmdELy83?=
- =?utf-8?B?amN2VytXYnBXSlVPSXllY1liQ09wS2NyTDJOR3N2MGw3aHY0K3A1YkF2Sktx?=
- =?utf-8?B?T1ovUDlIQjRkTlpPcXc1KytZMm1pRVJpRWZZOXlaSXJ1N00vYU14SEdWdVVh?=
- =?utf-8?B?Z3lCbW40MG8yN3VyNXhHTkhVRWtOVzliVytZMXlheTluaGR0aGFkMlBDZElF?=
- =?utf-8?B?WW84YS8ycCtTa1JIcDg2VzlKaTlDeXFmNHRZUkJmRDZBRFRpRklOVWI5cFYv?=
- =?utf-8?B?MW9ISGh4V0NySEpsd3RvZGJMbzBrclRTckRTT1ZsbmJMbUYya1RSemNpS3Nz?=
- =?utf-8?B?a3pQb1lUTnFFM1V5OW1mVnBtcTcrT3B1eUdMUnl1STZDdGJadlBjWVRJbWNB?=
- =?utf-8?B?OVA1NjhiYVJiT3hDT2xEaW9WaVhhVUk0eE4zbW5CeFlNTGVlMitrKzFteXlR?=
- =?utf-8?B?RStQVUJLZUNmRGJDRmpkSm85RWRuVURqNU9KT2kwcTcvRlhyVU5NL1NGTk5t?=
- =?utf-8?B?aE5DTmZWZ3d3cU9pU3o3VDlrMWV5ZVNhZnNxaUhFVmlnNUFTbTdzcjFxUFA3?=
- =?utf-8?B?eDJPK2NWNExZZGl3S0RBNzB2N25qMU00WHN0QlU4cmk1Mmx6WHFZM2xRNXVw?=
- =?utf-8?B?WVBuTVNGb3lUUGpTOTk4ZUdGZGtqc3lKZTBEdzQzR2FudkJCbDYxTE9NL2o2?=
- =?utf-8?B?d2IvWEk3cUhOclNyMDgrZVIrbmR5TGZBYTBJK1dFQXZ2NVlvTkJxVjJuaENl?=
- =?utf-8?B?d1RsTU0xaTNtRktaei9NdUFUbktwOXppYnExWnZqcnlYeFFKMjh0RFRnQkdX?=
- =?utf-8?B?U1c3Y2o5TElIVmg2ZXh0ODJUZ0Z2NS94OEhnMUFEUFlGQmdGb2tpYzRpTkxr?=
- =?utf-8?B?Z0Y1a0VlL3Z1UXpSRCtRZWtqM1JNVGczZzZ0aWU3NjErQTcxc3B3Q3NVVlFK?=
- =?utf-8?B?Q0JpN1NaTHIzU25HRTJKSHBRRnk2NFlkS1FERFBGUjBEMUZjK0lybHlNVW5P?=
- =?utf-8?B?WmNxY1FWdDBXYjJITnBjOVhFbUw1S1htdldKaTlGQUU1MGZHMisvQUFkQzVi?=
- =?utf-8?B?ZW8wWTJ0ajZxZk4weDhOVjNJQUNENXRFQ0UzYjU0UU9DS1N5YlNQNnhkRENo?=
- =?utf-8?B?VVdPQlEzYk5INU80U2F2QXdGSnA1Rk5zYlladmJFd3ZkVGNrczl2MUsvU2RQ?=
- =?utf-8?B?cVRpU2R1QWJ3aEs1WnFTZk54V000TTNJRWE2WmIrQ3N6b21iZGVWOVAvK1NW?=
- =?utf-8?B?S0hLaWkrUVFRcGtrVGZFdnluODMzdVIzRXBFKzBGbk41K3I3Wi9uUXV2aytu?=
- =?utf-8?B?YTFMMk10b2JVeTRFTHlhRmdJa2hNWER4N1RSMUhFZlRSTStuOElOT3VzZkdv?=
- =?utf-8?B?aGNPaVZlc2NWeTNnd1c4cnh1dEtVNysvZDB0QWV3VnhCcTduMjhMdkVBODdS?=
- =?utf-8?B?Qk9XeHlKeklnNEJScmJIcHI2UjVWazRlbVcycGFCVjB4WC9NZFU1TUxBQ3Vn?=
- =?utf-8?B?NURyNjF6YW5JN1FncmZSaHRldnZ1NEt0NXJhRERGUnVpMGNHRGpqVnZaUkFS?=
- =?utf-8?B?VGtwd3ZJbnQybEJodHl3dS9kUWorWUUzUEpmdkx6ZTQrd0Zac2dDWEpJUWIv?=
- =?utf-8?B?ZnY3aXdUZ0ZTcmNYK0EvNFJob1dyQ04yYlMrMng3MzJmWEpzc1g4UGtQLzBJ?=
- =?utf-8?B?WmJGMmxTSTNBVDhiWm1uT0NGTkVkU2ZuNkZ1VzY5aVIzQWl2TTB1RGtDWE5q?=
- =?utf-8?B?VW40WDYwQnlLTTdaalY0UDdtV2hsNlN1YVQzMnJkMUZDR1V4dnpadkN3eWUw?=
- =?utf-8?B?em5uaEVzandmOU13UmowZC93L0NnWDdGYzcrUnFpcUZUZ3NWcHJ0MkY4L2dN?=
- =?utf-8?B?VURBdlpqdi9lZktrdGRTYkVOQzRRbmRCay85a2ZJNmlGY0orY3RiajU3R1BT?=
- =?utf-8?B?NUtEbFE5UEJuWHMwSWdUUURlZmFrWmNrQ09PK2RzZE56UUFTOWw2T3UzSXBy?=
- =?utf-8?B?ZDNKVlozNFBBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aENYbmpEQ1d6djQrdis4dStGMSt3RS8zL2NJa0V3ZkNpbmlnR1FmYzV4MVFm?=
- =?utf-8?B?Nk5vbVoyVG40dEg5dlJlS1VwWEVpblZPRndyM3hxSURrS2MyclVUSjFoNExm?=
- =?utf-8?B?VUg1NEEvdFhxWlQ4QmthMXNVZ1hkbkhwa2ZvdVIrSTY0VlBZSEhOa2YvdGRK?=
- =?utf-8?B?V0Z5ZHpHUjVMb1lVTEswaE4yODM0ckdsSmZNT1BlMG8yWWFqajNBUk04Sisv?=
- =?utf-8?B?Wk5qMjVvZjY0V0N6azltOVRPdHZ3Ny9FM1hFK0pTUHlraFkxckRHQkx6Q1pR?=
- =?utf-8?B?ZDZzaW1Hb0VjUzZhUUo0U1JXTUM3SnpNZFFrQ3h2MnljZVoyanRJR1VMODN0?=
- =?utf-8?B?NUlrVmtMNkFQWFcvOStQeTQzWUNYTUJDSzZRRUlabnEzM1hQbCtJT0tLYjk1?=
- =?utf-8?B?YzFFMS9lYmFYeU40NmgyNng0WmxyTW1zN0RjWm9uNS8waEwrTlpRNnhqTEwv?=
- =?utf-8?B?M3RPa2VhM2FJWnRCbkkzNEYwUjlhczdDendmSXR0cUo5eEQ0dkN6S1RtdnVW?=
- =?utf-8?B?WEx6Q0VHMWZjN2RRc0dYQzQveHRjZllPZFhsV0RwcTFpT09URFlOc1A2NTlY?=
- =?utf-8?B?N3NKRU9ydjd5d09oS3BraVA0dFJhSnVVYjJia2tjWDBybFBNUjNkRjdqemww?=
- =?utf-8?B?a0lScXlQd0dLTlozWkgvYWorc3FnV3I2SVBLUHBxelFXeC9nSlBDZjV4dWsr?=
- =?utf-8?B?NVdEZVNGdHB3ZHpJWFZuL1B6emNTay9ZbC9uaWtVU0JlTlpZM0hvQUZsUG14?=
- =?utf-8?B?Rk11RE5IOUEwWk1EblBOMENwaUtpQWFlbGlaUkxteDJ5TVVjYXRKZ1lXTHdB?=
- =?utf-8?B?dUJvYk53M0NtMklhZ2JSeWlkTjdtQng4VHJkME5MeHNQbVN2V3JLSlFjbUtH?=
- =?utf-8?B?M2VFZWVUNUpPODRDdkw4T1FBeUJJSkFyRnRBUzErNXFxK2ZwZ3VqVFU3YVI2?=
- =?utf-8?B?NHFEOXB4UEJRU0hpMnIveGJndEpsNmdRNmNiZW00NGYzN3VNczVYbkVjZEFz?=
- =?utf-8?B?czJXdGNaTnFBUTA0RWMxYjRmSlRBamJIclkxT2VJdDVvd2pPVXdtR04yNjFk?=
- =?utf-8?B?NW5ZdmVMUk5KU0RWZU5Sc1ZEemN0cU5EWDIwSzhOYlBhU1Q1YWZqMk5SUlQ3?=
- =?utf-8?B?VnZMQzQ5UnZJcnpJNW91WG5hZW1hV1NnUUZiQWJQUXNlWWVkZ3JJYVZnN3lR?=
- =?utf-8?B?SnBsWmxFTS9pWFViV2JqQTREU1IwTzgxSXdVYXZQb0pYN3VDcFp1c1piNFBI?=
- =?utf-8?B?alBUcVNwSUozUUJRQW1TeHUvOTh2dFhadUFVQS9RTmhaeVNYWXpMYXJIU1Zv?=
- =?utf-8?B?VXM4ajRRWlFxVE96OEp2a0prTGJsbzdxUFp0V2J0N1FOUEtxaHJ4VlpVVlJX?=
- =?utf-8?B?VFlZY3VvSkdzdjYzOHA4OWdhR2x1VTl4ZU1LT3JENG1SNm4zTFY2aE05M216?=
- =?utf-8?B?MTE0QUZCZ3gwZ3FSOW0vaC9ZRCszb2RxN3BmRXQ4cHh2SXYxUUt1K3RYNThq?=
- =?utf-8?B?eTFXRGxjL0NVUExIOFRDTTJDMmJ4NEJ4ZmJyYTVpSW1ZVllIOCt0RGFZMjNx?=
- =?utf-8?B?eUVoTGpGM2ZtdGs4Vkd4alhsNm1oWEFpVWdZQWxmR1VrRENBVTh3UTBnV2lU?=
- =?utf-8?B?Z1kwakxHY05UeTV6MEJqWGtMYnBuc1pKRFFhNXBxUkhSdW1ZS0pUbDlTSnZn?=
- =?utf-8?B?ZUtSZzBCc28zTG1wU3J1RE4rU0c2MWNnRkFFek84TVBBMm5uTlJWTXpWN0l6?=
- =?utf-8?B?bzZ4Snkzc2lJRHZFZzFPZ1NMbWxtTWdSRnpXektSVlRXMVh0Z2pBelJOYS8w?=
- =?utf-8?B?di8zU3N3ZTl0aDE3SEhHeXdZaktLWld2NWs5TXhVVS9OL1VvTzVUTCs3L1Vy?=
- =?utf-8?B?dXY2UEpLL2swcGJEczFqSXlzNFBSRGVCVDFxOTRpZi9rbmRlcmtUL0JHSGV1?=
- =?utf-8?B?M3A0NlZHY1NlbzNCd2wrVHkvQml4Q2R5cEVUbTlrZklkQlVUeHdIKzFQOGdo?=
- =?utf-8?B?QlhOb3lkeFdwQ2hCcS93NUVNUGkzNEdUZ0MzSC9oZ29KRXNiZ01iTlVRQkt4?=
- =?utf-8?B?Z3NtazRiNENEVkNETFhRaGltL0ZDYUFyQzVVR3dFOXNXYjdpSE1wbjVnUXkr?=
- =?utf-8?Q?eVaajq9u8vkKkbqUWxaqd1loQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2340c917-9a7c-464c-25f7-08ddb540b5ef
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 06:06:09.2353
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RtsTunVFxw9vhfkOrmtCtSlIYXgZHB/QBQM0YgQMFctP/iBwDLSx7xV5bJt4okcnao4XS2YZ+YHEmUg+eSfhcg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10943
+Subject: Re: [PATCH 1/1] mm/rmap: make folio unmap batching safe and support
+ partial batches
+Content-Language: en-US
+To: Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, david@redhat.com,
+ baolin.wang@linux.alibaba.com, chrisl@kernel.org, kasong@tencent.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com,
+ x86@kernel.org, huang.ying.caritas@gmail.com, zhengtangquan@oppo.com,
+ riel@surriel.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ harry.yoo@oracle.com, mingzhe.yang@ly.com, Lance Yang <ioworker0@gmail.com>
+References: <20250627025214.30887-1-lance.yang@linux.dev>
+ <CAGsJ_4yjvHzeUTDoALafLddTCTOSzYiFQNvAmSQORLJV1HPhPQ@mail.gmail.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <CAGsJ_4yjvHzeUTDoALafLddTCTOSzYiFQNvAmSQORLJV1HPhPQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250626_230612_456513_15E344E4 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20250626_231443_796849_F96C1613 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,130 +77,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add sysfs interface to read System Manager syslog and system info
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/firmware/imx/sm-misc.c | 97 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
 
-diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
-index fc3ee12c2be878e0285183e3381c9514a63d5142..55485a3c4a5c615102a377f41025a6911d746770 100644
---- a/drivers/firmware/imx/sm-misc.c
-+++ b/drivers/firmware/imx/sm-misc.c
-@@ -44,6 +44,100 @@ static int scmi_imx_misc_ctrl_notifier(struct notifier_block *nb,
- 	return 0;
- }
- 
-+static ssize_t syslog_show(struct device *device, struct device_attribute *attr,
-+			   char *buf)
-+{
-+	struct scmi_imx_misc_sys_sleep_rec *rec;
-+	struct scmi_imx_misc_syslog *syslog;
-+	int ret;
-+	size_t len = 0;
-+
-+	if (!ph)
-+		return 0;
-+
-+	syslog = kmalloc(sizeof(*syslog), GFP_KERNEL);
-+	if (!syslog)
-+		return -ENOMEM;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, sizeof(*syslog), syslog);
-+	if (ret) {
-+		kfree(syslog);
-+		return ret;
-+	}
-+
-+	rec = &syslog->syssleeprecord;
-+
-+	len += sysfs_emit_at(buf, len, "Wake Vector = %u\n", rec->wakesource);
-+	len += sysfs_emit_at(buf, len, "Sys sleep mode = %u\n", rec->syssleepmode);
-+	len += sysfs_emit_at(buf, len, "Sys sleep flags = 0x%08x\n", rec->syssleepflags);
-+	len += sysfs_emit_at(buf, len, "MIX power status = 0x%08x\n", rec->mixpwrstat);
-+	len += sysfs_emit_at(buf, len, "MEM power status = 0x%08x\n", rec->mempwrstat);
-+	len += sysfs_emit_at(buf, len, "PLL power status = 0x%08x\n", rec->pllpwrstat);
-+	len += sysfs_emit_at(buf, len, "Sleep latency = %u\n", rec->sleepentryusec);
-+	len += sysfs_emit_at(buf, len, "Wake latency = %u\n", rec->sleepexitusec);
-+	len += sysfs_emit_at(buf, len, "Sleep count = %u\n", rec->sleepcnt);
-+
-+	kfree(syslog);
-+
-+	return len;
-+}
-+
-+static DEVICE_ATTR_RO(syslog);
-+
-+static ssize_t system_info_show(struct device *device, struct device_attribute *attr,
-+				char *buf)
-+{
-+	struct scmi_imx_misc_system_info *info;
-+	int len = 0;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	info = kmalloc(sizeof(*info), GFP_KERNEL);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	ret = imx_misc_ctrl_ops->misc_discover_build_info(ph, info);
-+	if (ret)
-+		goto err;
-+
-+	ret = imx_misc_ctrl_ops->misc_cfg_info(ph, info);
-+	if (ret)
-+		goto err;
-+
-+	ret = imx_misc_ctrl_ops->misc_silicon_info(ph, info);
-+	if (ret)
-+		goto err;
-+
-+	ret = imx_misc_ctrl_ops->misc_board_info(ph, info);
-+	if (ret)
-+		goto err;
-+
-+	len += sysfs_emit_at(buf, len, "SM Version    = Build %u, Commit 08%x\n",
-+			     info->buildnum, info->buildcommit);
-+	len += sysfs_emit_at(buf, len, "SM Config     = %s, mSel=%u\n",
-+			     info->cfgname, info->msel);
-+	len += sysfs_emit_at(buf, len, "Silicon       = %s\n", info->siname);
-+	len += sysfs_emit_at(buf, len, "Board         = %s, attr=0x%08x\n",
-+			     info->brdname, info->brd_attributes);
-+
-+	ret = len;
-+err:
-+	kfree(info);
-+	return ret;
-+}
-+
-+static DEVICE_ATTR_RO(system_info);
-+
-+static struct attribute *sm_misc_attrs[] = {
-+	&dev_attr_syslog.attr,
-+	&dev_attr_system_info.attr,
-+	NULL,
-+};
-+
-+ATTRIBUTE_GROUPS(sm_misc);
-+
- static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)
- {
- 	const struct scmi_handle *handle = sdev->handle;
-@@ -108,6 +202,9 @@ static const struct scmi_device_id scmi_id_table[] = {
- MODULE_DEVICE_TABLE(scmi, scmi_id_table);
- 
- static struct scmi_driver scmi_imx_misc_ctrl_driver = {
-+	.driver = {
-+		.dev_groups = sm_misc_groups,
-+	},
- 	.name = "scmi-imx-misc-ctrl",
- 	.probe = scmi_imx_misc_ctrl_probe,
- 	.id_table = scmi_id_table,
+On 2025/6/27 13:02, Barry Song wrote:
+> On Fri, Jun 27, 2025 at 2:53 PM Lance Yang <ioworker0@gmail.com> wrote:
+>>
+>> From: Lance Yang <lance.yang@linux.dev>
+>>
+>> As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
+>> can read past the end of a PTE table if a large folio is mapped starting at
+>> the last entry of that table.
+>>
+>> So let's fix the out-of-bounds read by refactoring the logic into a new
+>> helper, folio_unmap_pte_batch().
+>>
+>> The new helper now correctly calculates the safe number of pages to scan by
+>> limiting the operation to the boundaries of the current VMA and the PTE
+>> table.
+>>
+>> In addition, the "all-or-nothing" batching restriction is removed to
+>> support partial batches. The reference counting is also cleaned up to use
+>> folio_put_refs().
+>>
+>> [1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
+>>
+>> Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large folios during reclamation")
+>> Suggested-by: David Hildenbrand <david@redhat.com>
+>> Suggested-by: Barry Song <baohua@kernel.org>
+>> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> 
+> I'd prefer changing the subject to something like
+> "Fix potential out-of-bounds page table access during batched unmap"
 
--- 
-2.37.1
+Yep, that's much better.
+
+> 
+> Supporting partial batching is a cleanup-related benefit of this fix.
+> It's worth mentioning that the affected cases are quite rare,
+> since MADV_FREE typically performs split_folio().
+
+Yeah, it would be quite rare in practice ;)
+
+> 
+> Also, we need to Cc stable.
+
+Thanks! Will do.
 
 
