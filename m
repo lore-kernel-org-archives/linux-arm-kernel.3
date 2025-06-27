@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECED4C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F3BC7EE31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REICrhB/bJid0PPaN/rZiPA06su46y1/x8B9gUCA+yY=; b=eOQMvGTY4R72kEmxkrN+XL5Rf0
-	bjKB1bByGXygLHNFKd4IX38PAyXOK3sLNKkwImofYQ7/ejUULDl21Fbr8IS7UYSqRwJ/QNP+8Q0xT
-	aBiMJ6aJ9Z40z185UBV/x6eiep9Ek5gypOxSWf5KF9fbRpnk0WuMN8p349n21wLbdVDprwIKTQkDM
-	6c2LOu5o7vmJmdnebh2UXxsR6IR6wxB7GPE+cBsg2Aexiqiy8qNzsnIwhZRMm1m6aDYQ/vgxaUxPE
-	IrMvPYN5P+lbKyA4Mp/0lX4+WZlkhOdBm5IuSzpbr6c+pZq0G3Rlc/a92eNFFmdT+nOG8GiJm2EcP
-	uPM/cAOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LPZ3O5Rwvq89lmi7xpDufo5YrwcKeIrsD6dbAjMTens=; b=mJKRb+g0pYoWDeu0wSs1hH5SRq
+	n421JvztOge3xo5LwG3LW0hluyXC16jEKZUAhZDzEV13KrxOrv3vcEF//5WFaQIIiTED20DCh0VlR
+	5pCZXgzi9qoFta92TQ1WWMWy7mqSLuGeZXaCyXUmv++yKe1sD4AWOp+vLe+7h7KotmHPH7QE7QCwV
+	ROHIf64KkQuQ/TwUMqchtIdZMPPeQI54ntp/lVdRtlnaIG2CKBlW3DmKoeKOiqZdKi9Bov0KasY/g
+	uxLW7WwBBPODcPOq+zhCXehkM1mo+9EKv1/J+3DViyZQO/8MAEVHo0lgIqepFhtVKZOf2X5BT68np
+	M4ZHe5dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9tE-0000000EsVJ-10xE;
-	Fri, 27 Jun 2025 14:17:16 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uVA0N-0000000EuDQ-3MjT;
+	Fri, 27 Jun 2025 14:24:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9In-0000000EntM-3Bcg
+	id 1uV9uj-0000000Esqj-05hB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 13:39:39 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 0C36E26091;
-	Fri, 27 Jun 2025 15:39:35 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id z_DBtCRPQosI; Fri, 27 Jun 2025 15:39:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1751031574; bh=TEJGRf1FlIgDbcSTQNxCwfvvmdMjzuRrveS8ic9DKO8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Gd611RXtDUZ0eMsj5UIbALHq5iK/naVa74b1YVOj7JFRHqo5mtjuCj6SVb4R7ZlF3
-	 E/RfVgUSG9gCG6F+kirZgVXVL9zb+soJQe6bl1bzc/g6ZKIGkJZDXd+DVbvBaTdB0k
-	 UnVLNZsgX+lWxlVHtv0hartInLi0BGjipjNH0S5tTd1EnWTIgyK8xhXMI4MHSkSfa4
-	 Q4HS5x5/4zSEQB+a59M6MQCtSUte1dl9XC3GotadKWwDod9EsyQswm32ejXt2+Koyh
-	 7UV5ld8aCL5fmXVsKpYs2lhrWdIlPUBlvO8v0jPUcphwmsqPY38Xan9OMyuLddf+NW
-	 sIF6VTF7uZIyg==
+	Fri, 27 Jun 2025 14:18:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23AFE6111F;
+	Fri, 27 Jun 2025 14:18:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA384C4CEE3;
+	Fri, 27 Jun 2025 14:18:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751033927;
+	bh=TaiQW3c+noRyzXQvsLousUbpwR3hV32c+YniAy5VZUU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JMFvBsxh25QJ2POJpnOoSHcIiORn+haen7v9wCSZAqbRWEWR8rp168/xP5JajxRet
+	 ABSMKTjuxgMOqYpqxHoeQAIY1ZO/1qnNPS1mZwEAmC6ZGJ+7oPy6aIr9chIwI3mMzx
+	 1LwQNtcBxXDKjAqya0P7p7/blBNf1PY42VO6WrZJIuY+dkKjUMVR2n25EtXJNAYBR9
+	 AXfHsrTv4FYdFOr/WwX1bKOOoWsBgt46qpWbERDFD3NLDjmQReTG1ZBzJlC2KUu2aT
+	 lgwUVSvQu451wB1EMcCCl1itmRUz/iFxcC0/eMTNQtR8zSTF1A1AGP4bgUwFaT/d6Y
+	 QSo2Oo2lIP7sA==
+Date: Fri, 27 Jun 2025 09:18:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 02/28] driver core: Rename get_dev_from_fwnode()
+ wrapper to get_device_from_fwnode()
+Message-ID: <20250627141846.GA3234475-robh@kernel.org>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
+ <20250613134817.681832-3-herve.codina@bootlin.com>
 MIME-Version: 1.0
-Date: Fri, 27 Jun 2025 13:39:33 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Inki Dae <daeinki@gmail.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park
- <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor@kernel.org>, Ajay Kumar <ajaykumar.rs@samsung.com>,
- Akshu Agrawal <akshua@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] drm/exynos: exynos7_drm_decon: fix call of
- decon_commit()
-In-Reply-To: <CAAQKjZM+++P3ozLZZYEusYepamF0qdeuOe+thDb2BevLCsab_Q@mail.gmail.com>
-References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
- <20250627-exynosdrm-decon-v3-2-5b456f88cfea@disroot.org>
- <CAAQKjZM+++P3ozLZZYEusYepamF0qdeuOe+thDb2BevLCsab_Q@mail.gmail.com>
-Message-ID: <c4348867644c2e1d0a4fc47f3291855b@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_063937_931501_31A45647 
-X-CRM114-Status: GOOD (  24.04  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613134817.681832-3-herve.codina@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-27 04:06, Inki Dae wrote:
-> Hi,
+On Fri, Jun 13, 2025 at 03:47:42PM +0200, Herve Codina wrote:
+> get_dev_from_fwnode() calls get_device() and so it acquires a reference
+> on the device returned.
 > 
-> 2025년 6월 27일 (금) 오전 4:21, Kaustabh Chakraborty 
-> <kauschluss@disroot.org>님이 작성:
->> 
->> decon_commit() has a condition guard at the beginning:
->> 
->>         if (ctx->suspended)
->>                 return;
->> 
->> But, when it is being called from decon_atomic_enable(), 
->> ctx->suspended
->> is still set to true, which prevents its execution. decon_commit() is
->> vital for setting up display timing values, without which the display
->> pipeline fails to function properly. Call the function after
->> ctx->suspended is set to false as a fix.
+> In order to be more obvious that this wrapper is a get_device() variant,
+> rename it to get_device_from_fwnode().
 > 
-> Good observation. However, I think a more generic solution is needed.
+> Suggested-by: Mark Brown <broonie@kernel.org>
+> Link: https://lore.kernel.org/lkml/CAGETcx97QjnjVR8Z5g0ndLHpK96hLd4aYSV=iEkKPNbNOccYmA@mail.gmail.com/
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Saravana Kannan <saravanak@google.com>
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+>  drivers/base/core.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 > 
->> 
->> Cc: stable@vger.kernel.org
->> Fixes: 96976c3d9aff ("drm/exynos: Add DECON driver")
->> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->> ---
->>  drivers/gpu/drm/exynos/exynos7_drm_decon.c | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->> 
->> diff --git a/drivers/gpu/drm/exynos/exynos7_drm_decon.c 
->> b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
->> index 
->> f91daefa9d2bc5e314c279822047e60ee0d7ca99..43bcbe2e2917df43d7c2d27a9771e892628dd682 
->> 100644
->> --- a/drivers/gpu/drm/exynos/exynos7_drm_decon.c
->> +++ b/drivers/gpu/drm/exynos/exynos7_drm_decon.c
->> @@ -583,9 +583,9 @@ static void decon_atomic_enable(struct 
->> exynos_drm_crtc *crtc)
->>         if (test_and_clear_bit(0, &ctx->irq_flags))
->>                 decon_enable_vblank(ctx->crtc);
->> 
->> -       decon_commit(ctx->crtc);
->> -
->>         ctx->suspended = false;
->> +
->> +       decon_commit(ctx->crtc);
-> 
-> There seem to be three possible solutions:
-> 
-> 1. Remove all code related to ctx->suspended. If the pipeline flow is
-> properly managed as in the exynos5433_drm_decon.c module, checking the
-> ctx->suspended state may no longer be necessary.
-> 2. Remove the ctx->suspended check from decon_commit(). Since the
-> runtime PM resume is already called before decon_commit() in
-> decon_atomic_enable(), the DECON controller should already be enabled
-> at the hardware level, and decon_commit() should work correctly.
-> 3. Move the code that updates ctx->suspended from
-> decon_atomic_enable() and decon_atomic_disable() to
-> exynos7_decon_resume() and exynos7_decon_suspend(), respectively. The
-> decon_atomic_enable() function calls pm_runtime_resume_and_get(),
-> which ultimately triggers exynos7_decon_resume(). It would be more
-> appropriate to set ctx->suspended = false in the
-> exynos7_decon_resume() function, as this is the standard place to
-> handle hardware state changes and resume actions.
-> decon_atomic_enable() is responsible for requesting enablement of the
-> DECON controller, but actual hardware state transitions will be
-> handled within exynos7_decon_resume() and exynos7_decon_suspend().
-> 
-> 
-> Unfortunately, I do not have hardware to test this patch myself. Would
-> it be possible for you to try one of these approaches and verify the
-> behavior?
-> Option 1 would be the best solution if feasible.
+> diff --git a/drivers/base/core.c b/drivers/base/core.c
+> index cbc0099d8ef2..36ccee91ba9a 100644
+> --- a/drivers/base/core.c
+> +++ b/drivers/base/core.c
+> @@ -1881,7 +1881,7 @@ static void fw_devlink_unblock_consumers(struct device *dev)
+>  	device_links_write_unlock();
+>  }
+>  
+> -#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
+> +#define get_device_from_fwnode(fwnode)	get_device((fwnode)->dev)
 
-Yes, it works fine indeed. Thanks!
+In patch 3, you add the same define. Is there some reason to not move it 
+to a header?
 
-> 
-> Thanks,
-> Inki Dae
-> 
->>  }
->> 
->>  static void decon_atomic_disable(struct exynos_drm_crtc *crtc)
->> 
->> --
->> 2.49.0
->> 
->> 
+Rob
 
