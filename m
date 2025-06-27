@@ -4,138 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B016C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23254C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1YBCAciV0G9IbPQVOOxG11W8/Y5KdV4jhdF9pPfUZc=; b=IHNXYYo3Zc4cFufAYF1mBA/yhd
-	yRnmVoqIKVNP0NpVThWhigVJVOOWSZx5Zs8UDTEninsbbl2CWB/uhgaKrGxU0vVXCp9WsaJlL5kG6
-	gXJ4SD3As3C5po20PhICgLh7fknNiRHhOkIS8I0WJOkA0d+lwVIXjyzETUhWS1kZzQDuXD05DbAwD
-	tnRGA267ILS8ZvKK7+cRKQtFbpbtxxSLoPebOKI0UydUPBhbzci4Um2IwJxCN5C5Wv9+LpeXiEk3c
-	9K0Q6jOCDRRE8DbmVNKve/eQJZvolv+jO85yFokmoIvEQ+oEcH5O7vcxG9h2gR4wouutDNAxXv/K3
-	yCBtUESA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=; b=29SYeejgOgv//cW0GeVbvfD8RH
+	NXklp43XueLjpzL7wxt6hlVJB+16X0VQkjZE55YE+3BOUFcSKGjh7AyVRXJP4tlQUYtAkRhRHsOwd
+	hCKAsMkYVhdd5RKIBDMcJtXWnLm0wmAfqfPTesqG+k3zDDX/EIjkc3l/gHvjTJHkd/YmCKr5LxH7Y
+	8oHC2uQ9MMGtfAlar+t3jTRmfstYdubPVktg8VcojqmzDN0FTBO95+T9I/mSHhjmNCBAY2fXDDRTm
+	WZ/NDS3TEGlrMKawdoQNJ5MaDBNgdmPPGbzbI1qFgobGUc6CiqKy38rVcQvw/3ptA+7JI2HxZ8Z3P
+	IbGslb8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAzv-0000000F6NV-0msk;
-	Fri, 27 Jun 2025 15:28:15 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1uVB2C-0000000F6s7-3wBO;
+	Fri, 27 Jun 2025 15:30:36 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAqx-0000000F3V8-2Ifs
+	id 1uVAOx-0000000Exom-2FKM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:19:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1751037519; x=1751642319; i=wahrenst@gmx.net;
-	bh=P1YBCAciV0G9IbPQVOOxG11W8/Y5KdV4jhdF9pPfUZc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=XjOApXszP/fsNqW8lkf/rHZRK1Ryyf+qkhM41T43qZDP1WlqWg/xc2sEEyLN7Ta4
-	 dxBTMDHFn533rSeJPtssSgIsWDfKdZkrS/Jgw882eRwB/3cfkHtnGAw4Fy0DZkMZj
-	 zqLdomZqaIV3gFfDKfc0+1b5dVpqUghaPodUBw08VjITIUoFgoTH9v/RTdWSCWmf7
-	 sL6AXKSWatt9yFSdbm6sDn3p3FK0WKXzvTvfRXZT0D7SL+T7iU3Y7tOjHIlCKlTpg
-	 6eIdXi5Y3Vfhp98gYOF5k3SXZlB/Ad12eOkfXOXt8PpHtysjGIbGZhK+79VXPAOfP
-	 NpMRVXU2pnyfZzlpPw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1M7b2T-1uNjnP49fh-00FEgW; Fri, 27
- Jun 2025 17:18:39 +0200
-Message-ID: <232c4fbd-5c5c-4211-831b-2b6d8c757f2d@gmx.net>
-Date: Fri, 27 Jun 2025 17:18:35 +0200
+	Fri, 27 Jun 2025 14:50:04 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7d40874b399so212801585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 07:50:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751035802; x=1751640602; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=;
+        b=QmC6csAhBAMqvS/YSar29nb6CJmG3NPxSeo8ZV52og1ZlrMya64w5RbJX/jfAShgbj
+         WLVn6IiM4m+w5rXKpasHvq/uirP2/PbR0eLaOoErAaQv7PGOLfKyqtTEAfq8JplXTzYo
+         mhxZs2g4th9o+fx2hnxfL1UwBqPv+oCzeHPPWLOEwQXcaUmKlh+hyvQuCrmQ+4olEuwS
+         Q8rGzGxtQov2awja5Nyhd/S2lZhKaZFD+Up3KOYVLdtpipD2SjndNFoAxlCbiYktROEY
+         Y9s7TWilzCP7Y08rxAUxOc0TpaXgWe9i4EXTPPN5v891ofuNkmpLDMfscCfHFuLSisFj
+         MOIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751035802; x=1751640602;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S6PoA3nqPOfL5m3FPUgvFlM9WYiufmmjsQSygs6h2ec=;
+        b=gx1Whl2iau4IfewgQDauHOijSBvsmJiFHjkNMv76hHmfGGacEVifT7m/QuCQ3rtIZV
+         qkqbB6UM9n9WlbSpTtayZerqrpl5e9+vE2OAcOYgt8QAB23iSanNjCsgwmZXplpyaWp0
+         af5BukJ8rVa1xmnuNknROLYDPhTjWFMSaMnKmsfx7YlNzgAhEmFbf7lnmcKcaJbKL3b1
+         Kr5nMfOJmBCymWwJrIyn3H7mQB9CeUSFQprzpLo4kLr98NNjTC5ud56/ubEcJU7sFjlN
+         2v2p7wZ6k3HYVsKeBEgP4XwnTzG+TzCet0NUfBrpe3EKy2NgLdYH3R3GwqzEjekBEyzN
+         Sljg==
+X-Forwarded-Encrypted: i=1; AJvYcCXHsdBXlthQnTzNArFtKfkCX8qXcwkhWaExbNetjDPhd0/9br79YECxblAh3/UpeHe5VRRladkbE1A84kiEaDc5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2vB5zHvw/7+8XH+WP1aRsZEev0FMRqPdf4ArU7JcelnCzoX8O
+	eFTSwNzVvXFpZSzyFhMfnk0lpT4b1xk8KjpUnZBOosFDBGVh+6uXAtPu
+X-Gm-Gg: ASbGnctPsBeKZoKNbjeysfKIBPjYfyvXjK6ZHjrt6uKxtLYflcqT9RiEteMCJG7QbO0
+	8Ir7iO4qJ/KdsMc9sHcGEkAjjvQqBRUXlDkCY/ppAzOZKrpxMI22oVn7qoxcfygr/Abpunvj9On
+	/61Ia6Zx3+XvehV4bXUgm40m9NgRTcYxSqWmOgvv6j5ienPB9DNDvUp8VAeGsF4O2NBnoY/rgwh
+	QzQHsztqjT7JIMTrMuBJAT+xP7iyUwnidrgVGn1wT4gK62kq8SlEylamXkQUZ2dk8HYG4cwaHE1
+	prwD9NDwYlVrgRJYs3JGI+FrX2zy6vP/RqmQUHp6glWRbIdSyTnOBNNfbtpv
+X-Google-Smtp-Source: AGHT+IFbou1xMk6JMnADPBUd4fd5n/7zRvglAq2fEyrggZQzPKVtz6a6tLxCnjDbX4s4r2fLBp1xBA==
+X-Received: by 2002:a05:620a:38e:b0:7d3:b5ff:fb22 with SMTP id af79cd13be357-7d443994d26mr429693385a.32.1751035802120;
+        Fri, 27 Jun 2025 07:50:02 -0700 (PDT)
+Received: from hiagonb ([2804:1b3:a7c3:c88d:6da3:af6d:a237:3289])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44321a706sm139134585a.81.2025.06.27.07.49.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Jun 2025 07:50:01 -0700 (PDT)
+Date: Fri, 27 Jun 2025 11:49:55 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
+	iuliana.prodan@oss.nxp.com,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH v6 0/3] remoteproc: imx_rproc: allow attaching to running
+ core kicked by the bootloader
+Message-ID: <20250627144955.tbmk6ako3rgv3djo@hiagonb>
+References: <20250626215911.5992-1-hiagofranco@gmail.com>
+ <CANLsYkzo32BHkxRzSLY1U_PcidMPOaz7xZjDs8HKtTCQ0ZpF=g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] staging: vchiq_arm: Create keep-alive thread during
- probe
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
-References: <20250309125014.37166-1-wahrenst@gmx.net>
- <20250309125014.37166-5-wahrenst@gmx.net>
- <ba35b960-a981-4671-9f7f-060da10feaa1@usp.br>
- <7314139e-93fb-4abb-acac-0a07454d8d26@gmx.net>
- <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:/s8mkVGe7aA30MuntEDbXGBs6Sqy6G5sAcB00cvo1HMvOCRc1D2
- jbNBtvED2tsETA/CZelGYvjqqERNpswzzGusaS7P0za4Iq5KhqgyUdYlOvSsMhY+B/0PFoH
- +whjke+fN1USk/gdDJ6dYl2MbM6yuzBASynZ/P+TtVj9ZV2xkixu2rMLvtKmt9ywjLJv3mr
- 8gv9YIluusu3KNki+yd1g==
-UI-OutboundReport: notjunk:1;M01:P0:g4KHjm2hw7k=;q1R/rYxp14tIsdXuhAEY4T8EZY8
- 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANLsYkzo32BHkxRzSLY1U_PcidMPOaz7xZjDs8HKtTCQ0ZpF=g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_081859_886133_6599E752 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250627_075003_575034_9504C69D 
+X-CRM114-Status: GOOD (  30.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,58 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ma=C3=ADra,
+On Fri, Jun 27, 2025 at 08:31:20AM -0600, Mathieu Poirier wrote:
+> On Thu, 26 Jun 2025 at 15:59, Hiago De Franco <hiagofranco@gmail.com> wrote:
+> >
+> > From: Hiago De Franco <hiago.franco@toradex.com>
+> >
+> > This patch series depends on Ulf's patches that are currently under
+> > review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
+> > Without them, this series is not going to work.
+> >
+> 
+> I thought we agreed to repost when the feature referred to above and
+> the work in drivers/pmdomain/core.c will be merge.  I'm not sure what
+> to do with this patchset.
 
-[drop bouncing address from Umang and Ojaswin]
+Sorry Mathieu, my goal was to update the whole patch series with your
+reviews from v5 so you could take a look and then I would resend
+everything again once the others have been merged.
 
-Am 26.06.25 um 22:30 schrieb Ma=C3=ADra Canal:
-> Hi Stefan,
->
-> On 26/06/25 17:14, Stefan Wahren wrote:
->> Hi Ma=C3=ADra,
->>
->> [add Arnd]
->>
->> Am 26.06.25 um 20:22 schrieb Ma=C3=ADra Canal:
->>> Hi Stefan,
->>>
->>> On 09/03/25 09:50, Stefan Wahren wrote:
->>>> Creating the keep-alive thread in vchiq_platform_init_state have
->>>> the following advantages:
->>>> - abort driver probe if kthread_create fails (more consistent=20
->>>> behavior)
->>>> - make resource release process easier
->>>>
->>>> Since vchiq_keepalive_thread_func is defined below
->>>> vchiq_platform_init_state, the latter must be moved.
->>>>
->>>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->>>> ---
->>>> =C2=A0 .../interface/vchiq_arm/vchiq_arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 69=20
->>>> +++++++++----------
->>>> =C2=A0 1 file changed, 34 insertions(+), 35 deletions(-)
->>>>
->>>
->>> After this patch landed on 6.12 stable, I started to observe the
->>> following warning in Mesa CI [1]:
->> Is this also reproducible with 6.15.x or mainline ?
->
-> I was able to reproduce it with 6.16.0-rc2 [2].
-Thanks, does these hangs occur without any Mesa test / are these test=20
-steps necessary to trigger the issue?
+If you prefer I can wait for the other patches to be merged and then
+send the next v7 corrected.
 
-Is this reproducible with a real Raspberry Pi 3 (Plus)?
+Best regards,
+Hiago.
 
-Do you use arm64/defconfig or a special kernel configuration?
-
-Could you please provide kernel logs from boot until the first hang warnin=
-g?
-
-Best regards
->
-> [2] https://gitlab.freedesktop.org/mairacanal/mesa/-/jobs/79092300
->
-> Best Regards,
-> - Ma=C3=ADra
+> 
+> > For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
+> > started by the bootloader and the M core and A core are in the same
+> > partition, the driver is not capable to detect the remote core and
+> > report the correct state of it.
+> >
+> > This patch series implement a new function, dev_pm_genpd_is_on(), which
+> > returns the power status of a given power domain (M core power domains
+> > IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
+> > already powered on, the driver will attach to it.
+> >
+> > Finally, the imx_rproc_clk_enable() function was also changed to make it
+> > return before dev_clk_get() is called, as it currently generates an SCU
+> > fault reset if the remote core is already running and the kernel tries
+> > to enable the clock again. These changes are a follow up from a v1 sent
+> > to imx_rproc [2] and from a reported regression [3].
+> >
+> > [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
+> > [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
+> > [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+> >
+> > v6:
+> > - Added "reviewed by" from Ulf and Bjorn.
+> > - Fixed and improved commit descriptions of patches 2 and 3.
+> > - Improved the comment inside imx_rproc.c file.
+> > v5:
+> > - https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
+> > v4:
+> > - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
+> > v3:
+> > - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
+> > v2:
+> > - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
+> > v1:
+> > - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
+> >
+> > Hiago De Franco (3):
+> >   pmdomain: core: introduce dev_pm_genpd_is_on()
+> >   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
+> >     SCU
+> >   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
+> >
+> >  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
+> >  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
+> >  include/linux/pm_domain.h      |  6 +++++
+> >  3 files changed, 73 insertions(+), 7 deletions(-)
+> >
+> > --
+> > 2.39.5
+> >
 
