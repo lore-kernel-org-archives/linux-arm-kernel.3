@@ -4,73 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3D3C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA16C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
+	MIME-Version:References:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzTGCDZx7ZCiGjb4OHFTRlbx+7jKqxAcyMiJqmiykbU=; b=SWJb0xyeBJvoKMN/U0arsGXDrY
-	d6nrLeqb4Il1/mrr6SN8ouMDWvYeZBFg9zLLW26IUc+xH7P7IhtHmlG1zXtvIW+nkQy/Y5FCIaYK8
-	Kvhp0t/8RomIvqnruUq3sV2RcwBd61DgE7+RZ36v3Dk/7qenACuViBCq93mA/0ME3hB7Ylo0v13tg
-	R1dy7A61HwWCo3I7fpnsY1mYa6iK6kTTXkVqLukU9KFhoVjVsGthnCFqWSz/bYhOkH02nyhzp8pRt
-	7XsewFFlmvjeSE8yZRjaKmUZGqJ5oC2Ymz5GDeEZg2MCeppRs0xgIQVMa4UoedwHPY89wpRfOvGOT
-	6ZfgzsTA==;
+	bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=; b=sETPdj/J8Kh7DQiJ75vSJw7wpD
+	NLokLD+xAIrHKn/XaWD32xoIr2vc+gGbow6fmOhyIYBnGATMIP5aeiJW/3AMkHZ9w4osV5PLnSy7T
+	INy1Sgap63sUWdf2uorl5ImogtJOz5eoCSazcXaK5icv+v7XMvip1b8blWMBseE0A8/JT9SlVltLA
+	8pPjeEzbB2rHBSHfbZfNFSybJOtE16PbOvfgKSOyC3wtu6zblqVHPDp+n9j0HKQ7N46LqXwtCn8wr
+	P5C61sDh4edFcHHLtilqNnH0HSwBzrJ7TuRfo/D6RCz9tXhAiLkHPP8lWynKgBOOZJV6znKPyzxSG
+	DEr1Z2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEvr-0000000FfQE-1SYC;
-	Fri, 27 Jun 2025 19:40:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uVEy9-0000000FfkD-00xy;
+	Fri, 27 Jun 2025 19:42:41 +0000
+Received: from mail-bn8nam11on20601.outbound.protection.outlook.com ([2a01:111:f403:2414::601] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVEZo-0000000FcHp-1lTs;
-	Fri, 27 Jun 2025 19:17:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEEB44520D;
-	Fri, 27 Jun 2025 19:17:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 891C0C4CEE3;
-	Fri, 27 Jun 2025 19:17:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751051851;
-	bh=4tIY5Xv1aq93hm2eYGyz9mdC6DOUVIOyHjZ+4y79CfQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MrokVCE/iHGDnWfI2S2bpRHqVDTYWrOZjsS0Notwml4J1ce0uUyE0NYLMuxXrF4lL
-	 Gv8LJBYbedx1LqCCpBGikDCZggPY3HiPXy/DFIDkU5pmH4TC3mD7if3RPMp98TUkPx
-	 eOh6yRKMGs3LvXWwt/R7PUQpnz4M50xkqBZGg9wqFmfpn3psUG7Y4Oq3430IkwNbuJ
-	 Ym9DWQ7ES8tkLTsb4ybKl/bsoDxb0/i1Ae8lFNy+RBRCDTqZij0bd3e7EPK30+atEl
-	 QZhPzW6UwC0SH6Zj6DBR3tOnr1tIHtauojq/XTNg9+HePZ38UAfwwgREf4uO+E0Orp
-	 1F1HqILr8Mhzg==
-Date: Fri, 27 Jun 2025 14:17:30 -0500
-From: Rob Herring <robh@kernel.org>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Diederik de Haas <didi.debian@cknow.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Kever Yang <kever.yang@rock-chips.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH 2/5] dt-bindings: phy: rockchip-inno-csi-dphy: add rk3588
- variant
-Message-ID: <20250627191730.GA4025458-robh@kernel.org>
-References: <20250616-rk3588-csi-dphy-v1-0-84eb3b2a736c@collabora.com>
- <20250616-rk3588-csi-dphy-v1-2-84eb3b2a736c@collabora.com>
- <DAOVBOKLXLS2.S9MXDD29X68J@cknow.org>
- <e9db11c2-b02d-4fd5-8927-7b5857089533@collabora.com>
+	id 1uVEd0-0000000FcZx-1oaN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 19:20:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xv/5+C9GPaWjTN3X/BzS8zrCNn5Y0N7Y5hezJ3DDkNp4rEHDMt/KX6euGGP3HRbv1807E8qbGsK8099V2wc5WG7J9YZ4x4yPfd8vhDXtTZvOHhTEtRYtEwAX9kBdim6cKHbxyKvIwb5hS629GxxwSKQ+OH6AeZcDQLlA35hQywlyh4mrdWkflr7+XG6Vn6FHdaToZKeIkKctPgXq3+tzEMFWq+/e6HPOG8vewom2s1HVNegoYCxifSdlQ1beA88dRyagV7PyduRCjCJ0z4p1SR11vyIqW9B6tYR0rWNWdInJp+rgf0ZARctZKx8VF758w+XT76vpkCrpS3r9bWfFBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=;
+ b=lrZSfuIzPdJ8rllPwan2vGtaSWSjVODZR9ZacMbpeR6DIwFdgGC9WrmV5BpJrMcOk2BtcN6lAzAI6DtY1Uj8w6zQhsRzlpd0k6F+IczthrDXTD3JgKqrT2I9SC8MWmMzmqLz6YZJlLn60Pz/urkNV4qNRGQ99HjAsVxq1rlYybxVwbuSMpjyfCDidq5PQtN6uJP46jtnj5bT1rjjzH9Bim3Tl2hj0UVEg/cTc8PZZt3agVKliW/6GaFdQ7RSDUvGc9gvQgu8nG3NwLY4iDZXG/LBGQ0yODL4YMlM6LKMYsiMlPw9U4wYjU/qB/rhUhP7mDug+NMTTLLGvmL0GspYBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=arm.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9R5EwGZp/YgmDHMTa+c0cAJrUCYj5y9yhBSGza6Sx80=;
+ b=2/YiHW/k4KttDGgVP/hRYhcp9AM6L3Rpprqh/OE6HxqhS6w67t2Dc9dPcaNxDpxMd3PjeF6JkI0AooINmB2uMWSw0fVtzGPm+ZtyYwgODFJf1hRZybjAXWSlswvuSCyBXMFdsYsGeq52f72GmFlwm8Vo5NLrGlzQ+UNm/lwxzkU=
+Received: from BN1PR12CA0011.namprd12.prod.outlook.com (2603:10b6:408:e1::16)
+ by IA1PR12MB6115.namprd12.prod.outlook.com (2603:10b6:208:3e9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.23; Fri, 27 Jun
+ 2025 19:20:44 +0000
+Received: from BN2PEPF000044A9.namprd04.prod.outlook.com
+ (2603:10b6:408:e1:cafe::d0) by BN1PR12CA0011.outlook.office365.com
+ (2603:10b6:408:e1::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.21 via Frontend Transport; Fri,
+ 27 Jun 2025 19:20:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ BN2PEPF000044A9.mail.protection.outlook.com (10.167.243.103) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8880.14 via Frontend Transport; Fri, 27 Jun 2025 19:20:44 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 27 Jun
+ 2025 14:20:42 -0500
+Received: from ubuntu-20.04.2-arm64.shared (10.180.168.240) by
+ SATLEXMB03.amd.com (10.181.40.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Fri, 27 Jun 2025 14:20:42 -0500
+Date: Fri, 27 Jun 2025 12:20:37 -0700
+From: Stefano Stabellini <stefano.stabellini@amd.com>
+X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
+To: Robin Murphy <robin.murphy@arm.com>
+CC: Michal Simek <michal.simek@amd.com>, Will Deacon <will@kernel.org>,
+	"Stabellini, Stefano" <stefano.stabellini@amd.com>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>, "Sarangi, Anirudha"
+	<anirudha.sarangi@amd.com>
+Subject: Re: SMMUv3 interrupt handling via custom logic
+In-Reply-To: <43acfcd8-b359-448f-bbb6-da1b71a64f45@arm.com>
+Message-ID: <alpine.DEB.2.22.394.2506271219070.862517@ubuntu-linux-20-04-desktop>
+References: <0482d84e-871b-4522-b94b-29a97c87ff66@amd.com> <43acfcd8-b359-448f-bbb6-da1b71a64f45@arm.com>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e9db11c2-b02d-4fd5-8927-7b5857089533@collabora.com>
+Content-Type: multipart/mixed;
+	boundary="8323329-533866934-1751052034=:862517"
+Content-ID: <alpine.DEB.2.22.394.2506271220360.862517@ubuntu-linux-20-04-desktop>
+Received-SPF: None (SATLEXMB04.amd.com: stefano.stabellini@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A9:EE_|IA1PR12MB6115:EE_
+X-MS-Office365-Filtering-Correlation-Id: fff2ccaf-5178-4994-899a-08ddb5afb6ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UDN6ODBqOU1qMGNKOUEzRzZ4TWV6WHhXeDdMUHpwVk9CRnJJcHFFaXA4TnNm?=
+ =?utf-8?B?bnA0ZTVzR0wwekpyOU5kWkZTMTZrUVU5dVdrbTUzMG9uMTJNajZjc25NTTZU?=
+ =?utf-8?B?ZjBUZWFNUUhpLy85bllqM3NnbzMzT3ZncHJsY1k1eU53ZDNoSlRiS2M0SXM4?=
+ =?utf-8?B?WWR0a3pCTHhuQUk2RGpBUXdUcld3bTBJTVFaTGlVVkZGWUlVQXk4Ry93ckdx?=
+ =?utf-8?B?Q3ZBaU5vcSsvRXROa3kwckRzTEFzMFBsdEw4aXd6RkpybDBOWS9NSi93RWlF?=
+ =?utf-8?B?dStRK25wZ1ZrS2d5c2FtV21ETCtxZmUzZXZlYzdsN1B1aFpvSk50VkNzTzE3?=
+ =?utf-8?B?SFIveVZES3UxWUozUnFBaEpnSnhoeHpnVEt5OEowWVB0RDFlOGxNcnRWYWhV?=
+ =?utf-8?B?M2s5Um9oeVd0TDdWcGJNSnZuZnlQd0xoU0YvN3hOZGFzQ1pYZDM2cVd2YlZJ?=
+ =?utf-8?B?bktEQUdFV0UyYzZmWEtja2NBUnJubWp4ZUtsbjZZQnJPdHlIZWMwckd1WnB0?=
+ =?utf-8?B?THI2L1JJTDQ5Z2tyTlBheUhSaHY0ZnV3aXMrV3Y3TkJrRWRWenQvaHVGSEF1?=
+ =?utf-8?B?b2Q0UGUxaWRCcVFLc3FKeU9uWW9UejM0eXEzTFVISWNSazdoT2oxSGlsRkxt?=
+ =?utf-8?B?S1ZCUWVCNzFmMkhUaUxQYk1XU2oyZVFmZXJQYi9VK0h4djJUdVFsR2RYYlk1?=
+ =?utf-8?B?TktQRzRYZlB3NEFhVU1hUmR4TW1IcCtWTTloRVRQUFNyTjE0UE96YlBxYm9X?=
+ =?utf-8?B?ZXhDemtYNmFkRWFhY2pZeHdpaW1XRHd4UDZMRXhHM1M1NWFBWHU2VmFDZlJC?=
+ =?utf-8?B?elFVaXZGaC8wTFIvUldBamhEaElXNW9xN3J2M1hZdXM4YzJzU1pEa09EZUlq?=
+ =?utf-8?B?Q2x3UFRZN2JSa1VITG4yMWRTMDl6MDl2N2FJc2tGWndDeG9SYUdMQ1daNzV6?=
+ =?utf-8?B?SnoyVUNveDBId3FQamNtZndoQWFKdzZsQkVKZzQzTVRCbERFVzJzRGFjTmd4?=
+ =?utf-8?B?UVVGOFA3TzRKMUllQjdSbS9qdzR5OWpHT05PdEwzUitFYW0waW9WU2gzTWdh?=
+ =?utf-8?B?YzVmNFJSNUlnUHM0YUVDd0QzTlp3MlkweGlzM3B2NGpNQ0Q2VEdaaCsxcERR?=
+ =?utf-8?B?L0QwTCt3ZDZpakxFdkRnT2FoSUtWZzk3eU9iU2x2QjBla05FcVZOaTMvOGs1?=
+ =?utf-8?B?cGZ5em1vUFppZGJqWTFQc1c1bHozTHdhUDMreDBodkVRR2xkZnNhKzNqVXVL?=
+ =?utf-8?B?L1VvRXVIY2xjU1ROMlFzSS9uWko2S1FqL3BDaUE4UU4za2dMOXllVmlZZVN1?=
+ =?utf-8?B?Zk5BbEhoWlJ6K2ZYRGk2MTlNOUhtcVh6YmxQMDVsOHd2ak90dXBYNzVrMGZN?=
+ =?utf-8?B?NlVGTjVhSTE2cThXMDdpMG1ITGxHSEN2ZjBueHpiMjdDbzZYUHFGSmEzSTgz?=
+ =?utf-8?B?Uy84UDFkWTh1K2ZQQVllYWhYcEhaK3EzRW5JSmtzYnhReE1va2ZKZkd1b3py?=
+ =?utf-8?B?d1o0V1dnSGRNZnlMUzl1ZFJ6dmI4K21hRk8wbFR4b05xcTl6Rk5wQ3pBQWNO?=
+ =?utf-8?B?R0t6WkZYb2ZwZnZHSnkvU3VLQUZnRnN5TUMvRnNzMVE3VzA5RWt0VnJldkov?=
+ =?utf-8?B?SWpSeDBoUElRNWlNd0MwRmx6ZUZqdEVHYkJzUXhOUHdseGFPSnkrZ0JWaG5O?=
+ =?utf-8?B?U1BuWDl3dmxyMEVnV25BL0pCdlViaS9IODZXY0o5MU9XQkV3a211aFBMZ2Rz?=
+ =?utf-8?B?dmF2alYvVGUrZCtJQUNORitZYUtmb0toaUtYYllFOUdFcDhkNmgwQmVod1U5?=
+ =?utf-8?B?eXI5RVd3U3k5R1NWLzJvaVhnNU9VVHM0ZHdacmx5VWFUSTg0T0I3QVJVd29S?=
+ =?utf-8?B?andsQ2preWpVeU1pYk5tOGhsczNLVWtETlpkZkovY2htWnZ4Y1h5YTVoMm9S?=
+ =?utf-8?B?RExSbmxCek5jcnM0SHNOZEFUWk5YcHFWTzJTWjNEOU5ld3NFS2MrMXNUR01O?=
+ =?utf-8?B?N0VibjA3TzI5QWtkZDZnNFdMSG9DMjhNWWR0Y284Szd0ZUR3V0hjS1ZIMC9k?=
+ =?utf-8?Q?d7aHwa?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2025 19:20:44.4650
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fff2ccaf-5178-4994-899a-08ddb5afb6ab
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A9.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_121732_500013_1143D382 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20250627_122050_473877_35D7527F 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,141 +160,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 09:45:32AM +0200, Michael Riesch wrote:
-> Hi Diederik,
-> 
-> Thanks for your comments!
-> 
-> On 6/17/25 16:12, Diederik de Haas wrote:
-> > Hi,
+--8323329-533866934-1751052034=:862517
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8BIT
+Content-ID: <alpine.DEB.2.22.394.2506271220361.862517@ubuntu-linux-20-04-desktop>
+
+Hi Will, Robin,
+
+Long time no see!
+
+On Fri, 27 Jun 2025, Robin Murphy wrote:
+> On 2025-06-27 8:19 am, Michal Simek wrote:
+> > Hi Will and Robin, (+Stefano, Anirudha)
 > > 
-> > I'm (unfortunately) not seeing any @rock-chips.com recipients ...
-> 
-> Oops, I meant to include at least Kever, but forgot to do it. Will do in v2.
-> 
-> Cc: Kever
-> 
+> > We are using smmu-v3 in our SOC and I would like to ask you for
+> > recommendation how to handle our interrupt cases.
 > > 
-> > On Tue Jun 17, 2025 at 10:54 AM CEST, Michael Riesch via B4 Relay wrote:
-> >> From: Michael Riesch <michael.riesch@collabora.com>
-> >>
-> >> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
-> >> Add the variant and allow for the additional reset.
-> >>
-> >> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> >> ---
-> >>  .../bindings/phy/rockchip-inno-csi-dphy.yaml       | 60 ++++++++++++++++++++--
-> >>  1 file changed, 55 insertions(+), 5 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> index 5ac994b3c0aa..6755738b13ee 100644
-> >> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> @@ -21,6 +21,7 @@ properties:
-> >>        - rockchip,rk3326-csi-dphy
-> >>        - rockchip,rk3368-csi-dphy
-> >>        - rockchip,rk3568-csi-dphy
-> >> +      - rockchip,rk3588-csi-dphy
-> >>  
-> >>    reg:
-> >>      maxItems: 1
-> >> @@ -39,18 +40,49 @@ properties:
-> >>      maxItems: 1
-> >>  
-> >>    resets:
-> >> -    items:
-> >> -      - description: exclusive PHY reset line
-> >> +    minItems: 1
-> >> +    maxItems: 2
-> >>  
-> >>    reset-names:
-> >> -    items:
-> >> -      - const: apb
-> >> +    minItems: 1
-> >> +    maxItems: 2
-> >>  
-> >>    rockchip,grf:
-> >>      $ref: /schemas/types.yaml#/definitions/phandle
-> >>      description:
-> >>        Some additional phy settings are access through GRF regs.
-> >>  
-> >> +allOf:
-> >> +  - if:
-> >> +      properties:
-> >> +        compatible:
-> >> +          contains:
-> >> +            enum:
-> >> +              - rockchip,px30-csi-dphy
-> >> +              - rockchip,rk1808-csi-dphy
-> >> +              - rockchip,rk3326-csi-dphy
-> >> +              - rockchip,rk3368-csi-dphy
-> >> +              - rockchip,rk3568-csi-dphy
-> >> +    then:
-> >> +      properties:
-> >> +        resets:
-> >> +          items:
-> >> +            - description: exclusive PHY reset line
-> >> +
-> >> +        reset-names:
-> >> +          items:
-> >> +            - const: apb
-> >> +
-> >> +      required:
-> >> +        - reset-names
-> >> +    else:
-> >> +      properties:
-> >> +        resets:
-> >> +          minItems: 2
-> >> +
-> >> +        reset-names:
-> >> +          minItems: 2
-
-You have to define the names. Ideally, at the top level and then keep 
-this part like this.
-
-> >> +
-> >>  required:
-> >>    - compatible
-> >>    - reg
-> >> @@ -59,7 +91,6 @@ required:
-> >>    - '#phy-cells'
-> >>    - power-domains
-> >>    - resets
-> >> -  - reset-names
-> >>    - rockchip,grf
-> >>  
-> >>  additionalProperties: false
-> >> @@ -78,3 +109,22 @@ examples:
-> >>          reset-names = "apb";
-> >>          rockchip,grf = <&grf>;
-> >>      };
-> >> +  - |
-> >> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> >> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> >> +
-> >> +    soc {
-> >> +        #address-cells = <2>;
-> >> +        #size-cells = <2>;
-> >> +
-> >> +        csi_dphy0: phy@fedc0000 {
-> >> +            compatible = "rockchip,rk3588-csi-dphy";
-> >> +            reg = <0x0 0xfedc0000 0x0 0x8000>;
-> >> +            clocks = <&cru PCLK_CSIPHY0>;
-> >> +            clock-names = "pclk";
-> >> +            #phy-cells = <0>;
-> >> +            resets = <&cru SRST_CSIPHY0>, <&cru SRST_P_CSIPHY0>;
-> >> +            rockchip,grf = <&csidphy0_grf>;
-> >> +            status = "disabled";
-> >> +        };
-> >> +    };
+> > here is description which we are using
 > > 
-> > ... which could hopefully tell us what the value is/should be for the
-> > *required* 'power-domains' property, which is missing in this example.
-> > IOW: the binding example is invalid according to its own binding.
+> > smmu: iommu@ec000000 {
+> >      compatible = "arm,smmu-v3";
+> >      reg = <...>;
+> >      #iommu-cells = <1>;
+> >      interrupt-names = "combined";
+> >      interrupts = <0 169 4>;
+> > };
+> > 
+> > but it is missing one important detail which just arise that actually there
+> > is additional HW logic which deals with SMMU interrupts separately.
+> > There is a secure part (global, cmd, event - gerror, cmdq-sync, eventq in
+> > DT)
+> > and non secure part (pri, global, cmd, event - priq, gerror, cmdq-sync,
+> > eventq in DT).
+> > Based on my information all these interrupts should be acked once handled to
+> > be able to get another one.
+> > The driver itself is able to handle them separately but we didn't create any
+> > solution to reach custom HW to do it.
+> > 
+> > I looked at f935448acf46 ("iommu/arm-smmu-v3: Add workaround for Cavium
+> > ThunderX2 erratum #126") which introduced combined IRQs but it looks like
+> > that there is no need for additional ACK of that IRQs.
 > 
-> Huh, indeed. Hm. Why didn't make dt_binding_check warn me about that?!
+> Per the architecture, SMMU interrupts are logically edge-triggered so there is
+> nothing to clear at the SMMU end (the "interrupt status" is implicit in
+> whatever condition caused an interrupt to be sent, e.g. the event queue
+> becoming non-empty, SMMU_GERROR becoming different from SMMU_GERRORN, etc.)
+> 
+> If this is an Arm SMMU IP (MMU-600/700/S3) then the physical interrupt outputs
+> are most definitely rising-edge. If somone's stuck some interrupt combiner in
+> between those and the main interrupt controller, then yes, that interrupt
+> combiner really should have its own driver.
+> 
+> > The HW logic itself is handling secure and non secure settings for SMMU
+> > that's why would be the best to avoid directly mapping it in Linux.
+> > 
+> > One way to go is to create secondary interrupt controller driver
+> > a) ioremap one with notice about secure part because we are using SMMU only
+> > with NS world
+> > b) firmware based to tunnel accesses via SMCs and allow only access to
+> > limited amount of registers
+> > 
+> > The second way is likely create any hooks in the driver to be able to
+> > provide additional SOC specific hooks.
+> 
+> If this thing is munging *all* the SMMU interrupt outputs as I suspect, then
+> the big problem with that idea is that "the driver" is at least two separate
+> drivers (SMMU and PMU), 3 if it has RAS and you ever want to entertain the
+> idea of kernel-first handling.
 
-You disabled the node, what do you want us to check?
+Yeah... I tend to favor simple solutions when possible and the secondary
+interrupt controller driver approach is looking increasingly complex.
 
-Rob
+In addition to what Robin mentioned, I understand that this email is
+directed to linux-arm-kernel and the LKML, so the focus is naturally to
+solve the problem for Linux. However, let me point out that this issue
+also affects Xen, all hypervisors, and proprietary operating systems.
+The "big problem" is even bigger :-(  Complexity will multiply very
+quickly.
+
+Do you have any creative ideas for how this could be handled more
+simply?  Maybe with help from the firmware (e.g. TF-A)?
+--8323329-533866934-1751052034=:862517--
 
