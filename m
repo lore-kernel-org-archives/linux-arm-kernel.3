@@ -4,135 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74113C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B016C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8MYuuA2G+3W/uvr0CyQxqIxAaENDczI3l8DDQQ0A/Hc=; b=uBYwByG/hmfckoydTRYihW7VDT
-	0wTlq8hVK6qiqsJshqVCqn9+AOHK1OXSauqZN6DBfzoPD1bIz4qHL4q5xpHsFASiAuDF1S4dPG+ax
-	s2O3rbysdSky0qjIdUCGq2a9qf30CSWtgM8SJuiFmFlYUiw3u0SLaXzyPhd8s1ucyOG+BzEsSe+ro
-	WoZHG1v44MeWoQBUmOOGCWJ0VJPm94sYiGGYWU+Di94GgjHYkznh1vbM0uLdSTU/ogr+DRU2DE2Cq
-	8NMiCD9gP3RjTkJTD3U6uLacmcZg5MFfvchVfY87zOYMGEMDuaqo428n2PZM8pg535r4GtG5VMpBc
-	saERKe3w==;
+	bh=P1YBCAciV0G9IbPQVOOxG11W8/Y5KdV4jhdF9pPfUZc=; b=IHNXYYo3Zc4cFufAYF1mBA/yhd
+	yRnmVoqIKVNP0NpVThWhigVJVOOWSZx5Zs8UDTEninsbbl2CWB/uhgaKrGxU0vVXCp9WsaJlL5kG6
+	gXJ4SD3As3C5po20PhICgLh7fknNiRHhOkIS8I0WJOkA0d+lwVIXjyzETUhWS1kZzQDuXD05DbAwD
+	tnRGA267ILS8ZvKK7+cRKQtFbpbtxxSLoPebOKI0UydUPBhbzci4Um2IwJxCN5C5Wv9+LpeXiEk3c
+	9K0Q6jOCDRRE8DbmVNKve/eQJZvolv+jO85yFokmoIvEQ+oEcH5O7vcxG9h2gR4wouutDNAxXv/K3
+	yCBtUESA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAxd-0000000F5kV-1bmc;
-	Fri, 27 Jun 2025 15:25:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uVAzv-0000000F6NV-0msk;
+	Fri, 27 Jun 2025 15:28:15 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAi2-0000000F1Jt-2i2P
+	id 1uVAqx-0000000F3V8-2Ifs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 15:09:48 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55RCGUsD014660
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 15:09:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8MYuuA2G+3W/uvr0CyQxqIxAaENDczI3l8DDQQ0A/Hc=; b=OnDg/9hdtmSvSmLL
-	ynNfsbbnIiwSr9BjDUizsy7NdocbsgLRPVZ1tZY6zI7W/Znhw5Q4VQmtZrZNnYkN
-	DrXQjKxWT0Vkmprkm49OW60kG8OGUUGZDnbQQm0RKrQDzN0YpkuG1As1fmIE0j9X
-	ppMNRr0jnxXFUULrFbUiGAwN1dYnVf9B+5BvNXfNKdjpKCbrqaqsp7uCiALDTNh8
-	48OotKF8Ohg6Tf/NX5ME2xK425160xlk4oyt9ZZUpMsyhIr5GO4VKadfXtgdFlD5
-	KQYz61rXfD7H/NAyGfYIBX+JulUwZApu4X5e5u6qr4TV368xP5cmi6MgLbKcPFoR
-	t5LcEQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47fbm25u6s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 15:09:45 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7d0979c176eso45757885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 08:09:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751036985; x=1751641785;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8MYuuA2G+3W/uvr0CyQxqIxAaENDczI3l8DDQQ0A/Hc=;
-        b=FqGchz5cKI4qHREEXYzYiREXF0K2jon+2CjBib+0xeA16ypCBLi1lvdWwvDiHRVHFk
-         ujNoMRrSDa+UgEZTItJHsmJK0qeaEZ/FVjcOM+CcBtdz0dZaR0fi5wNzfhNGVqufD7gU
-         gkAD+/GsU6G8N88C9hq/BPGGEvRrMpE7fbtbGzUNUcmvyEOiPFaknPS+tDHiY+u1QGxh
-         ekAjNobO074HSbOUOg702YHXfFKG6IaE/ASgBc1vo1eSqqgECA576l5ZwlSaiMQg+Lhi
-         iCufh74cJCc2YVdRXB3kz7V+p99SfHBDXduslA0FiCdmxyNv0lvPaoF21yZdHO3gmrpv
-         MX5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWS1rgvS+d7r/lJUWCi6cNgw6BItU1E9wKHfxuZI73YPkCJ4u6+nrvPXkuLgLDINEneu7i+HT8FsU88aQmoKnz+@lists.infradead.org
-X-Gm-Message-State: AOJu0YygC4LKi9XpJZUWAIx1yWyZtQx3MHGdDmiUpdzYsXYhyruV2+0d
-	q1R59CB+Mqni5eIcn4N86B7qTaU4dIPGhR/yCKo7VwHaBAvkRkTTchD3De28nUDN0cWPS57il0m
-	GXePj1L9fmO0i42XtrPdpaMXwawUIbo7y2fNNpIetnhlZ+TLoa4Rq3LwCvrQ+diaVB8xCIeTo93
-	r6RQ==
-X-Gm-Gg: ASbGncsyyyp5FzQFEX+/kZMma0+xfTnNgGiXp4X9pIJSLdOO9FK8csiT9OeHbB5X6lA
-	uqNQIrruy+XVhjRu6KxxwOMPPh8yYbN/H40J5iYrk1QnZuVn8YMTs99V5LsDjhcPHQAz0/5G2x7
-	NRtFMQA9eAReHlWfX1h1TEQqZ1M3/GFltw6EHbUAOft61tzv7/IPufknFeaqQ01nme+Qqb7B81F
-	3xyWhJxhHRXXxj9dAgqrdScS36DloQGkbN6UGGxRp/fwdDidp+YTEhcqWobn3GYbO0EA7xzZ1Np
-	wy9Xy/DR7lbmRsgGs7rmMsOhSDJFEsLDx+dvXgXAnQ3BObXatweW6nFNShXjbp8u75B7DqYCDyg
-	qgEg=
-X-Received: by 2002:a05:620a:6011:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d44393af52mr210730285a.8.1751036984743;
-        Fri, 27 Jun 2025 08:09:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFt0El1GcFRYFDLI+q1hURApBGF+0X3eNxXSn7/tVJPwdQii+67Yzh11WAEpAraqUYgdU6DMQ==
-X-Received: by 2002:a05:620a:6011:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d44393af52mr210728585a.8.1751036984230;
-        Fri, 27 Jun 2025 08:09:44 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c8292076csm1554764a12.32.2025.06.27.08.09.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 08:09:43 -0700 (PDT)
-Message-ID: <c37349c0-8ec0-4654-bc82-15190509ddeb@oss.qualcomm.com>
-Date: Fri, 27 Jun 2025 17:09:38 +0200
+	Fri, 27 Jun 2025 15:19:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1751037519; x=1751642319; i=wahrenst@gmx.net;
+	bh=P1YBCAciV0G9IbPQVOOxG11W8/Y5KdV4jhdF9pPfUZc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=XjOApXszP/fsNqW8lkf/rHZRK1Ryyf+qkhM41T43qZDP1WlqWg/xc2sEEyLN7Ta4
+	 dxBTMDHFn533rSeJPtssSgIsWDfKdZkrS/Jgw882eRwB/3cfkHtnGAw4Fy0DZkMZj
+	 zqLdomZqaIV3gFfDKfc0+1b5dVpqUghaPodUBw08VjITIUoFgoTH9v/RTdWSCWmf7
+	 sL6AXKSWatt9yFSdbm6sDn3p3FK0WKXzvTvfRXZT0D7SL+T7iU3Y7tOjHIlCKlTpg
+	 6eIdXi5Y3Vfhp98gYOF5k3SXZlB/Ad12eOkfXOXt8PpHtysjGIbGZhK+79VXPAOfP
+	 NpMRVXU2pnyfZzlpPw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M7b2T-1uNjnP49fh-00FEgW; Fri, 27
+ Jun 2025 17:18:39 +0200
+Message-ID: <232c4fbd-5c5c-4211-831b-2b6d8c757f2d@gmx.net>
+Date: Fri, 27 Jun 2025 17:18:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 01/10] clk: qcom: clk-alpha-pll: Add support for
- dynamic update for slewing PLLs
-To: Taniya Das <quic_tdas@quicinc.com>,
-        Bjorn Andersson
- <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik <quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250612-qcs615-mm-v9-clock-controllers-v9-0-b34dc78d6e1b@quicinc.com>
- <20250612-qcs615-mm-v9-clock-controllers-v9-1-b34dc78d6e1b@quicinc.com>
- <f0483597-45b9-49f8-b316-a9cde7b98d81@oss.qualcomm.com>
- <9a9d84e3-49de-4fbd-9c0d-180e3e498125@quicinc.com>
+Subject: Re: [PATCH 4/5] staging: vchiq_arm: Create keep-alive thread during
+ probe
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
+References: <20250309125014.37166-1-wahrenst@gmx.net>
+ <20250309125014.37166-5-wahrenst@gmx.net>
+ <ba35b960-a981-4671-9f7f-060da10feaa1@usp.br>
+ <7314139e-93fb-4abb-acac-0a07454d8d26@gmx.net>
+ <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <9a9d84e3-49de-4fbd-9c0d-180e3e498125@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=YYu95xRf c=1 sm=1 tr=0 ts=685eb439 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8 a=Wx9hSxQhFZ4lEN4NqugA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 1wy3FHNEioTWuH7n8Y03jBQCZmjURJyQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEyMyBTYWx0ZWRfX3VZKzOXvkiIw
- IZ5whgkZSbagQ0H/odjVgK3GPTd2VhDzoRJryCpJc3G5XalWUmq1QTDQkwEdMpt5JEK5UQpu7r3
- iwh2Lbq+AnjgDFpSwMPXYTw85ylaxb3ZziJZ4CNEuRXSxZ/29Jgrmrn2QCxo1l3tpnqoDOIntdC
- dL+DWfqPHGhjJmuobdYxnKdNvxlILj15oz5B+kqGnrvGi/W4t5v3QLF6zJZRYjqtZLQ5vtPnwN7
- PajlRj6xrIHPTmLoHOw0QiRFkdFZUqjSXu8cJDP+q79K69xkJynXY2gCbJdKx3F82Ll/YtaTt/m
- Bm+t9yC1T0PBRNn6lEYxzo89ADYA95n3+ryLJm+QUm5HrBGhKIJBDbGBUwT/N29//m7czpKQAww
- GFanaWwGhpJiFIeM4WoPDf5uMXCcyuLFE8zfEdBf1V5H6p8Kh2uFomez9xIHLTphNHDMW0g9
-X-Proofpoint-ORIG-GUID: 1wy3FHNEioTWuH7n8Y03jBQCZmjURJyQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-27_04,2025-06-26_05,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 spamscore=0 impostorscore=0 suspectscore=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 mlxlogscore=999
- clxscore=1015 mlxscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506270123
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:/s8mkVGe7aA30MuntEDbXGBs6Sqy6G5sAcB00cvo1HMvOCRc1D2
+ jbNBtvED2tsETA/CZelGYvjqqERNpswzzGusaS7P0za4Iq5KhqgyUdYlOvSsMhY+B/0PFoH
+ +whjke+fN1USk/gdDJ6dYl2MbM6yuzBASynZ/P+TtVj9ZV2xkixu2rMLvtKmt9ywjLJv3mr
+ 8gv9YIluusu3KNki+yd1g==
+UI-OutboundReport: notjunk:1;M01:P0:g4KHjm2hw7k=;q1R/rYxp14tIsdXuhAEY4T8EZY8
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_080946_888200_41E4FE92 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250627_081859_886133_6599E752 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,35 +150,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 12:31 PM, Taniya Das wrote:
-> 
-> 
-> On 6/15/2025 12:20 AM, Konrad Dybcio wrote:
->> On 6/12/25 11:55 AM, Taniya Das wrote:
->>> The alpha PLLs which slew to a new frequency at runtime would require
->>> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
->>> which can support the slewing of the PLL to a new frequency.
+Hi Ma=C3=ADra,
+
+[drop bouncing address from Umang and Ojaswin]
+
+Am 26.06.25 um 22:30 schrieb Ma=C3=ADra Canal:
+> Hi Stefan,
+>
+> On 26/06/25 17:14, Stefan Wahren wrote:
+>> Hi Ma=C3=ADra,
+>>
+>> [add Arnd]
+>>
+>> Am 26.06.25 um 20:22 schrieb Ma=C3=ADra Canal:
+>>> Hi Stefan,
 >>>
->>> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
->>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->>> ---
+>>> On 09/03/25 09:50, Stefan Wahren wrote:
+>>>> Creating the keep-alive thread in vchiq_platform_init_state have
+>>>> the following advantages:
+>>>> - abort driver probe if kthread_create fails (more consistent=20
+>>>> behavior)
+>>>> - make resource release process easier
+>>>>
+>>>> Since vchiq_keepalive_thread_func is defined below
+>>>> vchiq_platform_init_state, the latter must be moved.
+>>>>
+>>>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+>>>> ---
+>>>> =C2=A0 .../interface/vchiq_arm/vchiq_arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 69=20
+>>>> +++++++++----------
+>>>> =C2=A0 1 file changed, 34 insertions(+), 35 deletions(-)
+>>>>
+>>>
+>>> After this patch landed on 6.12 stable, I started to observe the
+>>> following warning in Mesa CI [1]:
+>> Is this also reproducible with 6.15.x or mainline ?
+>
+> I was able to reproduce it with 6.16.0-rc2 [2].
+Thanks, does these hangs occur without any Mesa test / are these test=20
+steps necessary to trigger the issue?
 
-[...]
+Is this reproducible with a real Raspberry Pi 3 (Plus)?
 
->>> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
->>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
->>> +
->>> +	/* Ensure that the write above goes before slewing the PLL */
->>> +	mb();
->>
->> Here however, the write may not arrive at the clock controller before you
->> proceed to slew_update()
->>
-> 
-> Yes, it is required here and will keep it.
+Do you use arm64/defconfig or a special kernel configuration?
 
-You should change it to a readback instead
+Could you please provide kernel logs from boot until the first hang warnin=
+g?
 
-Konrad
+Best regards
+>
+> [2] https://gitlab.freedesktop.org/mairacanal/mesa/-/jobs/79092300
+>
+> Best Regards,
+> - Ma=C3=ADra
 
