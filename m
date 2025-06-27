@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59D2C7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1999C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 14:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBG6h9TaP1D4HjHp4It6BYw4eK2WVhHK59f1Ot1eCw0=; b=x8M55kN7yFgkjbjaYejqXthV/0
-	EVkIs6e79YpS/SJCayMtP02Eau01F25fvJhGdAU15D+8e+qv4PpUxPvLot53Lft1lndiPsJXMvTMp
-	pBLOMFL9zGBrh4iHckyXmQkp5e5FQn+WfweH5bIkEQWhMNEdr5wAjTKkoS2XuvvIJatjszhUAHmTC
-	hv97ibS41w/Z0p+RPbGCCdhAiQMgnCTUxxu+aE5oyA7U3sbQlncD1s5FLLnFjoFF0hKQEjOH37kKf
-	eNTS+Z65+s58pTVh2doi4vYbiXkVEeYgyUlSSB1ffPctYiQRg3qBrUOKrHjtAnvjROooj874K1Jwe
-	kYdpS4hg==;
+	bh=jVW7RiHIyGpA5ELa0F4ReHd6tyA1x4kpnFemQ/LfqdY=; b=X0rVON4lfl58/GSs9ImJEUCt9o
+	gf8KHVLqskoVe+YYCwW1tqNTua7y9u+rFmX322qF9NFvjzQlo+NkX/EM9qX3yR9eW9jazODipH00y
+	yhTanHcKNaHGNQDQ2CCRblFRHdSjkRyp5wZYiU4ROc1ZkmKwW6p8CrDmLhtYScPH6B6oziLVAdQHz
+	u8XpwjMu/90mohLG5XeTIrmAiueC0T8xfGzJkpudZ+MuTKJvjZoJJHsNffJ7EMbs6/a/3Ga3vLeEK
+	BHXMibUIBNimj7ugwT6+sWD3KbGyYry6Mnggp4Hk66VHbmjjnKeRi8nN1rJ2V/4A1b9m+vRctqGFJ
+	sLta2aNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9og-0000000Es0f-0LHw;
-	Fri, 27 Jun 2025 14:12:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uV9qw-0000000EsC3-3QEQ;
+	Fri, 27 Jun 2025 14:14:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV9Ab-0000000EmiI-25cr
+	id 1uV9FV-0000000EnOD-2Iiw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 13:31:11 +0000
+	Fri, 27 Jun 2025 13:36:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A719E4564A;
-	Fri, 27 Jun 2025 13:31:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E37CC4CEE3;
-	Fri, 27 Jun 2025 13:31:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 487EE45453;
+	Fri, 27 Jun 2025 13:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2F3C4CEE3;
+	Fri, 27 Jun 2025 13:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751031068;
-	bh=kokEDiINvuUFaynPitaSpNI5LxY/Pe4ILkwR63ddPkc=;
+	s=k20201202; t=1751031373;
+	bh=b+AqKL/t2Y57F7SFIeF2uOilMxYgh+4DSlllHo4mbfo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BibA/YEh2AeqD4S8YXr5p4aivahoY4IJa7w1Dq7LOwJv1faJXHOEDMOmKIUtHSpln
-	 F0c+9MrHEIl68ZFm0enGhAsRI934nS+8NAvRFnkwSBWE0Djh2dlkWHuCgUhKEHut9U
-	 oYhGbcGS44hjE1NUgQ/sn8QEaR4j3ZEBLDxc/zibUNM42GAupJ+/woPaAzdw6gtea8
-	 78Y4+XMbmOBVVlVw9dEjUXTV3wBOmJJHgQardb9oMoT4l3jXIt1hBfe+qmnSwMuHLT
-	 5zWkSgJt20xGY08P08G1u7swBwJQlYHq8zIxdrDt7AMNMitTi23rC67bEac1Csswva
-	 XLgAnyBaJTkgg==
+	b=AJDDw55MJlOCVvTFjNTI1frKXCVh8blcEuVXrNyCokvJAG1kOtlsiSCic2uxm/G58
+	 BrO+Bxxc3pu2lbtt/kDFxhoI3I/Jayc9I8UXOt/zVMasJmI7ZSMEvccLpRS3W2ftKz
+	 vMjX5+nOFC+dlKksOVew1jaDQGTANoYxW54i4uqYAtJAOpT/QPU8bkfmFRKyvO5Z82
+	 OBVExL/AQvGJPwrZmOfv/uLSLHjfEP9SnTogY6JSz7a6Mof3pQ1ypdnBiFhJl5xYqZ
+	 K5yUAUals6BoMVo6oBjiZj6o8Fd79QHkP4M1Nsw6w8w00SrbjZM77B1tghvy3iPl3S
+	 QddlGxg2/VoWg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uV9AY-00AZkC-8u;
-	Fri, 27 Jun 2025 14:31:06 +0100
-Date: Fri, 27 Jun 2025 14:31:05 +0100
-Message-ID: <86sejlb9ba.wl-maz@kernel.org>
+	id 1uV9FS-00AZpT-Nm;
+	Fri, 27 Jun 2025 14:36:11 +0100
+Date: Fri, 27 Jun 2025 14:36:10 +0100
+Message-ID: <86qzz5b92t.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Colton Lewis <coltonlewis@google.com>
 Cc: kvm@vger.kernel.org,
@@ -71,10 +71,10 @@ Cc: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	linux-perf-users@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 03/22] KVM: arm64: Define PMI{CNTR,FILTR}_EL0 as undef_access
-In-Reply-To: <20250626200459.1153955-4-coltonlewis@google.com>
+Subject: Re: [PATCH v3 09/22] KVM: arm64: Correct kvm_arm_pmu_get_max_counters()
+In-Reply-To: <20250626200459.1153955-10-coltonlewis@google.com>
 References: <20250626200459.1153955-1-coltonlewis@google.com>
-	<20250626200459.1153955-4-coltonlewis@google.com>
+	<20250626200459.1153955-10-coltonlewis@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, pbonzini@redhat.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_063109_580847_9B831E68 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250627_063613_630990_1225FA80 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 21:04:39 +0100,
+On Thu, 26 Jun 2025 21:04:45 +0100,
 Colton Lewis <coltonlewis@google.com> wrote:
 > 
-> Because KVM isn't fully prepared to support these yet even though the
-> host PMUv3 driver does, define them as undef_access for now.
+> Since cntr_mask is modified when the PMU is partitioned to remove some
+> bits, make sure the missing counters are added back to get the right
+> total.
+
+Please fix the subject of the patch to be more descriptive. It is
+worded like a bug fix, while it really is only a step in the patch
+series.
+
+Something like "Take partitioning into account for max number of
+counters" would go a long way.
+
 > 
 > Signed-off-by: Colton Lewis <coltonlewis@google.com>
 > ---
->  arch/arm64/kvm/sys_regs.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/arm64/kvm/pmu.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 76c2f0da821f..99fdbe174202 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3092,6 +3092,9 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	{ SYS_DESC(SYS_SVCR), undef_access, reset_val, SVCR, 0, .visibility = sme_visibility  },
->  	{ SYS_DESC(SYS_FPMR), undef_access, reset_val, FPMR, 0, .visibility = fp8_visibility },
->  
-> +	{ SYS_DESC(SYS_PMICNTR_EL0), undef_access },
-
-$ jq -r --arg FEAT "FEAT_PMUv3_ICNTR" -f ./dumpfeat.jq Features.json
-(FEAT_PMUv3_ICNTR --> v8Ap8)
-(FEAT_PMUv3_ICNTR --> FEAT_PMUv3p9)
-((FEAT_PMUv3_ICNTR && FEAT_AA64EL2) --> FEAT_FGT2)
-
-If you have FEAT_PMUv3_ICNTR, then you have FEAT_FGT2. If you have
-FEAT_FGT2, then we already trap and UNDEF PMICNTR_EL0 without any
-further handling since 4bc0fe0898406 ("KVM: arm64: Add sanitisation
-for FEAT_FGT2 registers").
-
-> +	{ SYS_DESC(SYS_PMICFILTR_EL0), undef_access },
-
-Same thing.
+> diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
+> index 79b7ea037153..67216451b8ce 100644
+> --- a/arch/arm64/kvm/pmu.c
+> +++ b/arch/arm64/kvm/pmu.c
+> @@ -533,6 +533,8 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
+>  u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+>  {
+>  	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+> +	u8 counters;
 > +
->  	{ PMU_SYS_REG(PMCR_EL0), .access = access_pmcr, .reset = reset_pmcr,
->  	  .reg = PMCR_EL0, .get_user = get_pmcr, .set_user = set_pmcr },
->  	{ PMU_SYS_REG(PMCNTENSET_EL0),
 
-So none of this is actually required.
+nit: superfluous blank line.
+>  
+>  	/*
+>  	 * PMUv3 requires that all event counters are capable of counting any
+> @@ -545,7 +547,12 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+>  	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
+>  	 * Ignore those and return only the general-purpose counters.
+>  	 */
+> -	return bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
+> +	counters = bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
+> +
+> +	if (kvm_pmu_is_partitioned(arm_pmu))
+> +		counters += arm_pmu->hpmn_max;
+
+Why the check? Why can't we rely on hpmn_max to always give us the
+correct value?
+
+Thanks,
 
 	M.
 
