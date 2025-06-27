@@ -4,134 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2364EC7EE31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7F4C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 13:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=; b=Uv08Lf7fSLxvIXSCtk2nc6AxTO
-	pvRA+a0kU8xUxm6/z59ml9bmFM6/ZPcRhudVFZH8fmO21BKbul8fJFCkCf1Q1op5SgDVfetbiqv2k
-	YFlWgBCLXaoFJn011VT43Ex4AtDai8ozgG+rBO4bgiVqbt/Al7OGjFaskZpKsnQIxGs/nPBO0YG71
-	CGq5Xmc0MjkTVF4oMuuE0VulBaEYNeDbYQYbOmVWAKD+p/72wkn0m2ft54DPlSW5x2ApMSffh6p5b
-	UvTFJdv9LYVpwsg84N+dC5rhbGMw7ORk/5a686MZeta/4yGbTCV2hxEYTKYDL5yoZbjuwp3Vcqv66
-	m9dyXxfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8DYuVG3WR19JLL/U5qiVW2XDLvRqb0poGxi7BPvVraA=; b=lvslDV1zoIJy7G44T+RLvodjsI
+	VEaIDkCLXrx4RsNvtBbaVvjjY9NwFlisQcpc4SUs12nqEa2bUrBIG0tuXGLtopDrkFGkLZ7DmoHVc
+	d7WHRJcc768QNn8l0whYQhgs7ksQQgsJElHy8tzwRnQ2Bs4d3cEjlKu3lxkRKt2NPm/hSnlkfSmD6
+	MrgmjdbOSoGPR5zWFsl8MApk6/NBWkgdnyRwVhJimV28GNfnka1ACuypbReP5dxsDMgVNQuv/IY58
+	TCMS/B7aCvgnEzZt4YUkykZ2Bk/NXPp2DRqPf5UBqRJi/gvP00TxPftaHoiu8H2opV5m5v5fbxWll
+	2d7a8ppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8pF-0000000EjaN-0gag;
-	Fri, 27 Jun 2025 13:09:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uV8rW-0000000EjtX-3ukx;
+	Fri, 27 Jun 2025 13:11:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uV8KM-0000000Eevn-2ZP9
+	id 1uV8MO-0000000EfAO-1yzU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 12:37:11 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55RC4ADG028843
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 12:37:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=; b=EM1YY02An5mDhU0+
-	NViwHpVc8NBW7ga7Au6K48EHg4vnqIuQK0bSLXfjvv4tmYU8+bAzrhq5hdUWRMLx
-	+JEwpC38U94p1yUCPUaxn2k30V4iqXSlN3MUwfjk/2rRCexYvX/D3OSjSdpcXGg6
-	u9kHSy382DEfp+NDV+MRUQwtdmIPLZkPeXiB6RAjHVSHt+FV9DlbPl3WxPaffEW3
-	pNDaTyWrP1hQoPm0xtnpMhcjZmDwnBdIbwKiZusM5X3FOue2Q86OQuHwPInWtcRe
-	YD4uvl+7DpjwA4q+4lnk2+G0J5TAkFogcCAPcPjsAXitQxk9N5zFItUp+lU+JdOa
-	/RxM0g==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47esa504mx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 12:37:08 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7d400a4d4f2so388421185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 05:37:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751027827; x=1751632627;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wAz0TL7lcdUxA4iFRWSjq9TB9NAzt1Ff1a2cuJJOS2o=;
-        b=R2Pg+PnFxATck0l6/eWA0YD6rgKph1uSQU24Mwiwy7n0BX+Y/WqpFTev49TJpJSoWZ
-         rjhidmHReXAX3++iQ41nSqbkWKk/mIspdORoGlQ0JSLwch4x1piPUrCudv63whPXwLGj
-         S6cMCD1rBdWZvDilbcHzDnSz+AmkX+DGI4WmuSLqlRSXOC9RgZHR2KIwhosUz3twEiN/
-         CE/MkmNDHUWhr3Hs2bMCr6BBRSWHgjQnnr8cpfNNRypM9+ehLQlNcW/8Ic4G8lAh7Ltp
-         Y9N0is1N0dz7dsaErFXHvCZudWsY/AJD7QitjSHsHCKwuMX/0jmGILv/S6rBFDhabV39
-         rEkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWC43SYheKQa3gNQKb+ZAGyGRMy7vWpegxJ4lREaTL0ksoJfSAaM88g+oZbTpv3qnGxWGfK+VMBejSxP+DAZwV4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM6fHDnO8//k7NuR72ig0Br0cOoMFfKwfhcfwr9q250JliaRdR
-	CEkJsTrqXj4BO9G/cDtzk/8ag44Pm5ornP5JuIHXP/rreWXClqdRo/QiwC4xf0hLNIK86LqcKn1
-	uKvCHzWCJKWTh6JixT6x85wK/VHtohMazOJUfiV/VyVp6e2tjTfW2vQpTseSVKoZBdcmnS7TEEN
-	0uuw==
-X-Gm-Gg: ASbGncslJoSEFEvgu8p9joKhKs0onTJZkhdYYrpdugLUfkhKpWWnWO9IKWNBYKFyN3o
-	MxtfsPzfGDze9YshwQEyOKW0OOn3mlHT+80vQV3PDUxX6cPAYtvJ1pH3w2FKCA1cN0VMkRZlwxI
-	51kpVo6khKh45SVbjt4mm/wzjNXqn6gJV64oZQdJMttvOfwqqb6YEmlnGhD0lOZts7F2Ziu8406
-	kiodYVGhvxcEGqZpCMxyC4BxQU2Gvd7drDu6os9UTNJE6meg+Ty/N3ulZIfd73dcJhXMF4Fs9IR
-	aw7uoz0ru7684P0goOFxOeYZyHv7o5dtqPAIqW6P1pLxlhidlKsJBb9btY63rmZdzCv/Orq9
-X-Received: by 2002:a05:620a:4009:b0:7ca:efbd:f4f4 with SMTP id af79cd13be357-7d4439a37e7mr465646585a.56.1751027827368;
-        Fri, 27 Jun 2025 05:37:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHCxBke75XiU4P29zUlVR89IlIUHFxI4koZUgqia/W7QYIrDc/FKS/y6TSYgHEYIi97FOYfMQ==
-X-Received: by 2002:a05:620a:4009:b0:7ca:efbd:f4f4 with SMTP id af79cd13be357-7d4439a37e7mr465640985a.56.1751027826895;
-        Fri, 27 Jun 2025 05:37:06 -0700 (PDT)
-Received: from [10.185.26.70] (37-33-181-83.bb.dnainternet.fi. [37.33.181.83])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2c4f24sm430368e87.143.2025.06.27.05.37.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 05:37:06 -0700 (PDT)
-Message-ID: <667ac51f-d19d-4832-9aa6-97d9a86e0068@oss.qualcomm.com>
-Date: Fri, 27 Jun 2025 15:37:09 +0300
+	Fri, 27 Jun 2025 12:39:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1751027955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8DYuVG3WR19JLL/U5qiVW2XDLvRqb0poGxi7BPvVraA=;
+	b=hUqpBZ+7ukHHqf/LovLqEabg0PRzafhDgv0Wy3D69gDtu94t+/gi5chf81Esi2zy/oY1+g
+	14g9opENRwUwG84Dv4/BIT85ZPcvQfv6oHk9mJV5Y062NUuEw+7rS5HmGhZVR/UOixYq2+
+	hCKVT2cPux58a5J8UqKcrFJqNammDgo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-222-ETJ4gQI1P82S1oTDBeJ5Mw-1; Fri,
+ 27 Jun 2025 08:39:10 -0400
+X-MC-Unique: ETJ4gQI1P82S1oTDBeJ5Mw-1
+X-Mimecast-MFC-AGG-ID: ETJ4gQI1P82S1oTDBeJ5Mw_1751027948
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BDC051801215;
+	Fri, 27 Jun 2025 12:39:07 +0000 (UTC)
+Received: from hydra.redhat.com (unknown [10.45.224.209])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 17C02180035C;
+	Fri, 27 Jun 2025 12:38:58 +0000 (UTC)
+From: Jocelyn Falempe <jfalempe@redhat.com>
+To: Andrei Lalaev <andrey.lalaev@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Christian Schrefl <chrisi.schrefl@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	rust-for-linux <rust-for-linux@vger.kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org
+Cc: Jocelyn Falempe <jfalempe@redhat.com>
+Subject: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
+Date: Fri, 27 Jun 2025 14:38:19 +0200
+Message-ID: <20250627123854.921704-1-jfalempe@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 01/10] clk: qcom: clk-alpha-pll: Add support for
- dynamic update for slewing PLLs
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik <quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
- <20250625-qcs615-mm-v10-clock-controllers-v10-1-ec48255f90d8@quicinc.com>
- <trwdfk2oz2udtbiqxh3ybuqbvasfqywmqxgi4xyvsknz6svs2r@icpp7snpq6c5>
- <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
-Content-Language: en-US
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-In-Reply-To: <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=eLYTjGp1 c=1 sm=1 tr=0 ts=685e9074 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=a09MB1VsJqAZHPW3esczKA==:17
- a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8 a=-U2GbryNtLgmjeNmToIA:9
- a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: EZro8XW_ygXGa1TI2QZvpQpMsI4W1P47
-X-Proofpoint-ORIG-GUID: EZro8XW_ygXGa1TI2QZvpQpMsI4W1P47
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI3MDEwNCBTYWx0ZWRfX09zLE1iIyPGf
- YiIaMA6KA/KY23Q1TG35ISIRCax4a8vC6rMr20XreCjdzbEq9nSwl3namRDIbx+o2sB7yUh/Wqj
- BaiIbQMy1XkTEr177QH70Q5MUzmK/J8dW9UTucY54Z5GRChgRQoeYS4Fzum4gtvVp6yQ+O9OCwg
- 0NrL5HY8o4CfV5ZwqzfbLBa2RNGBicE0Xk19MN2ND9ydnA2Q6eVBIOU4J77EhKkcCfiJ4MvCQuc
- VU9Io/FFcF31XnZIku+n2isDDUNnZ1OUUje3TXPlI8kVa9d13sFCME9jyo1+QxDN1Ljwn3qDXGB
- 8CqEawRJ7mGwQveSECX3YVWVO7jqlQqoNxflTC4P+hodS4OFZx5yt7yDhBT/Mo+iM+NwPKvraMC
- AkXg00vOnMHa8h3YFuaNXrEHJpCTNuPBIeE8ojB4KxT/n5Ny8hXSATOKhLwWglvdqz5c0F4f
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-27_04,2025-06-26_05,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 mlxscore=0 clxscore=1015 mlxlogscore=999
- suspectscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
- adultscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506270104
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Knf3iv9BYkEBycvFnRR48Q0QlXxDpelfmD8XkrKqGz8_1751027948
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_053710_661885_2E89BD60 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20250627_053916_585771_0613D2CB 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,93 +96,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/06/2025 13:13, Taniya Das wrote:
-> 
-> 
-> On 6/25/2025 5:17 PM, Dmitry Baryshkov wrote:
->> On Wed, Jun 25, 2025 at 04:13:26PM +0530, Taniya Das wrote:
->>> The alpha PLLs which slew to a new frequency at runtime would require
->>> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
->>> which can support the slewing of the PLL to a new frequency.
->>>
->>> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
->>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->>> ---
->>>   drivers/clk/qcom/clk-alpha-pll.c | 169 +++++++++++++++++++++++++++++++++++++++
->>>   drivers/clk/qcom/clk-alpha-pll.h |   1 +
->>>   2 files changed, 170 insertions(+)
->>>
-> 
->>> +	/*
->>> +	 * Dynamic pll update will not support switching frequencies across
->>> +	 * vco ranges. In those cases fall back to normal alpha set rate.
->>> +	 */
->>> +	if (curr_vco->val != vco->val)
->>> +		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
->>> +
->>> +	a <<= ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH;
->>> +
->>> +	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
->>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
->>> +	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
->>
->> We have code that does this in __clk_alpha_pll_set_rate() and now you
->> are adding two more copies. Please extract PLL_L_VAL, PLL_ALPHA_VAL and
->> PLL_USER_CTL / PLL_VCO_MASK into a helper function.
->>
-> 
-> Dmitry, I was thinking of implementing the following as a reusable
-> helper since it can be leveraged by most of the functions. I'd
-> appreciate your suggestions or feedback.
+On 32bits ARM, u64 divided by a constant is not optimized to a
+multiply by inverse by the compiler [1].
+So do the multiply by inverse explicitly for this architecture.
 
-The code below looks good to me. Please use 'alpha' instead of 'a'.
+Link: https://github.com/llvm/llvm-project/issues/37280 [1]
+Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
+Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
+Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
+Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+---
+ drivers/gpu/drm/drm_panic_qr.rs | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-> 
-> static void clk_alpha_pll_update_configs(struct clk_alpha_pll *pll,
-> const struct pll_vco *vco, u32 l, u64 a, u32 alpha_width, bool alpha_en)
-> {
-> 	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
-> 
-> 	if (alpha_width > ALPHA_BITWIDTH)
-> 		a <<= alpha_width - ALPHA_BITWIDTH;
-> 
-> 	if (alpha_width > 32)
-> 		regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), upper_32_bits(a));
-> 
-> 	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), lower_32_bits(a));
-> 
-> 	if (vco) {
-> 		regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll),
-> 				   PLL_VCO_MASK << PLL_VCO_SHIFT,
-> 				   vco->val << PLL_VCO_SHIFT);
-> 	}
-> 
-> 	if (alpha_en)
-> 		regmap_set_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN);
-> }
-> 
-> 
->>> +
->>> +	/* Ensure that the write above goes before slewing the PLL */
->>> +	mb();
->>> +
->>> +	if (clk_hw_is_enabled(hw))
->>> +		return clk_alpha_pll_slew_update(pll);
->>> +
->>> +	return 0;
->>> +}
->>> +
->>> +/*
->>> + * Slewing plls should be bought up at frequency which is in the middle of the
->>> + * desired VCO range. So after bringing up the pll at calibration freq, set it
->>> + * back to desired frequency(that was set by previous clk_set_rate).
-> 
->>>
->>
-> 
+diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
+index dd55b1cb764d..774a17de4f2f 100644
+--- a/drivers/gpu/drm/drm_panic_qr.rs
++++ b/drivers/gpu/drm/drm_panic_qr.rs
+@@ -381,6 +381,26 @@ struct DecFifo {
+     len: usize,
+ }
+ 
++// On arm32 architecture, dividing an `u64` by a constant will generate a call
++// to `__aeabi_uldivmod` which is not present in the kernel.
++// So use the multiply by inverse method for this architecture.
++fn div10(val: u64) -> u64 {
++    if cfg!(target_arch = "arm") {
++        let val_h = val >> 32;
++        let val_l = val & 0xFFFFFFFF;
++        let b_h: u64 = 0x66666666;
++        let b_l: u64 = 0x66666667;
++
++        let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
++        let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
++        let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
++
++        tmp3 >> 2
++    } else {
++        val / 10
++    }
++}
++
+ impl DecFifo {
+     fn push(&mut self, data: u64, len: usize) {
+         let mut chunk = data;
+@@ -389,7 +409,7 @@ fn push(&mut self, data: u64, len: usize) {
+         }
+         for i in 0..len {
+             self.decimals[i] = (chunk % 10) as u8;
+-            chunk /= 10;
++            chunk = div10(chunk);
+         }
+         self.len += len;
+     }
 
-
+base-commit: 3529cb5ab16b4f1f8bbc31dc39a1076a94bd1e38
 -- 
-With best wishes
-Dmitry
+2.49.0
+
 
