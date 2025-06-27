@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13ED7C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A7EC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 15:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYsoQqkfOPoG/OW8DL7yrsEwwXidtQVRSmT52yxz0fQ=; b=SLg880pU8QUttC+ORq79uzo6AQ
-	gr0bePbDSx96dxVbniSn/E3whQ22aRIUZFBfqOsr76GduiXlRyVDFQo6oiDogZs0XvN7SmDJqwt6D
-	j3diPELs/7nS+AWzJPDFHWXIPVI6GHQTQ3hL0HHPlhpA7xENuDojSB+l6OhYWgeIRCETUXJeFXFul
-	lWVxQrrLcu6fwGYaZhQFaitg8LWjeRuqRxOY9bMOLUPdDmEK4jEIVqeTVDOphQn2QWSyTKMjT2h0o
-	WoE11gVVgH0S8/txjmB48O1YD4FDP//NreIkuqcc6Ne7iikh2tFyQ2nUvMtqEA6bOu1kHWi9Njx8H
-	QpVe0Tpg==;
+	bh=RIuOx1s5XzwaWIpE0qIKf0Ib4OIj5trRNQPE0WZD/P0=; b=D6AdpTw6egZ+5SNKcl4S1O2ryc
+	7iq3HI/9A4CSBWsnyeXFgiZc9Q5eKy1FwG9KeKYDGjKoCtFVZMskg4OguMJVsWd8ri284hLwlmmpy
+	ZuM/rBwkWg5TBZA+7DXaGpSMXbvmnMQF6jf6w3JfdlljCSWzBH3fOIVxEj/Yet4UJ17J6EpVnCjS1
+	LdnqgkNI1nEmRiPg5qXmWY8BDCsSKvfUF/qcrWYxIpLK1FHbimfBl/pPfr6CqmH/b15v3W2UWsOWL
+	nHz7nkKEMkCqDYT3sBC9O5tQYTCdtYYnpXdD7bTQY4vBuEKZTQ/uLlXg7XgnmEj6WxPJ7VdlTMNQO
+	Fskj+MGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVAob-0000000F3BG-04at;
-	Fri, 27 Jun 2025 15:16:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uVAqr-0000000F3Te-37Xm;
+	Fri, 27 Jun 2025 15:18:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVALV-0000000Ex15-3qPM
+	id 1uVAMQ-0000000ExCQ-3Cyh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 14:46:31 +0000
+	Fri, 27 Jun 2025 14:47:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4244B4569F;
-	Fri, 27 Jun 2025 14:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843AEC4CEE3;
-	Fri, 27 Jun 2025 14:46:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E13AE6111F;
+	Fri, 27 Jun 2025 14:47:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40526C4CEE3;
+	Fri, 27 Jun 2025 14:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751035589;
-	bh=W9t38McK4tyheidmbY2q/l9zvRrhx/u9kHLbNNljFuY=;
+	s=k20201202; t=1751035645;
+	bh=zJy8DXqoG6CILsDNc8bv2NztRVduZLB9R1XokmiByWQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YVSoUfOJgV1Wm74sHuF8tmm6guVCkvdt8SaryW+pMtBRyYEuL1wc4Y2LN5iBLWS+I
-	 rOtkGWnc2tWx4IVq3S39kVlagKT8egpVTqOrdUKi/NX/nQMf2IenT2/9yKndA+kIcl
-	 Tfhoah2rR2Ay5Frm01P7IkE/u+WL12lyZQj9GsERXwEwiSt8n7vZ/IhUw7at/rdgSq
-	 mDXXeU2nf7Ll/aeKZ5dft9roUdAlW35av4FCU0M+ivtfSbeCrlN47quJh8LIiSoUbK
-	 uoXPzUFaVN15kH6mCfXGYoGTiwhgi8q5d1FkGvDFwQUnidob9YbzOkyQPMVVtUFYtw
-	 YAbnFkNwtByGA==
-Message-ID: <3019258f-8455-4faf-bc5c-4c03d2540bcf@kernel.org>
-Date: Fri, 27 Jun 2025 16:46:19 +0200
+	b=Y9csjxZpH2hosPAAFRJYXHijHz+wX46Xoke9TVNos6FXsV0RQXVqw1Om2hg68wMTl
+	 2H3Vsyl/idFNtQHRTuJbyX05u5aHXhxk4lBBPeC0X4X6TVX3jsEqrMyV1HG0RK6l49
+	 0z6IUaF2skpKNMjWbg7KVWBoQeK7m3f9id3CoEdwxzKZ3ZWlruj1MqqM++vH9VtnMG
+	 XImCYeqcqK3ZII+ZAj7rVjZ0k80ZbKoXWZfbaRY+Gid0yES7zzeJUcwvdZ/jj4vYew
+	 JrmIbGUEb4ognv81dc2CK4QaccxOq9CIW4KTRGUbKV4dYH8rc09vX6Qrdf1M2QXvX7
+	 ZysPukc7DN1MQ==
+Message-ID: <06178661-5665-4b9d-8652-de12c2a55f94@kernel.org>
+Date: Fri, 27 Jun 2025 16:47:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
+Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
 To: Leo Wang <leo.jt.wang@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -60,7 +60,7 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com,
  Leo Wang <leo.jt.wang@fii-foxconn.com>
 References: <20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com>
- <20250627-add-support-for-meta-clemente-bmc-v5-1-038ed6f1cb9f@fii-foxconn.com>
+ <20250627-add-support-for-meta-clemente-bmc-v5-2-038ed6f1cb9f@fii-foxconn.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v5-1-038ed6f1cb9f@fii-foxconn.com>
+In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v5-2-038ed6f1cb9f@fii-foxconn.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_074630_005661_7F08BC37 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,14 +126,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/06/2025 09:31, Leo Wang wrote:
 > From: Leo Wang <leo.jt.wang@gmail.com>
 > 
-> Document the new compatibles used on Meta Clemente.
+> Add linux device tree entry for Meta Clemente compute-tray
+> BMC using AST2600 SoC.
 > 
 > Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
-Don't send multiple versions per day. You just repeated the mistakes and
-sending next version hides review comments.
-
-Implement the feedback you received. I provided that feedback BEFORE you
-send this v5, so basically you just ignored it.
+No, still checkpatch issues.
 
 Best regards,
 Krzysztof
