@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAFBC77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 17:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7A0C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 19:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U31Xbtndyw9wKdxoAQK5VnD6sVH1D2nZ+zp+rLJieFA=; b=p2V7JjqObq9GI02YrNNrXHfmdS
-	M85Qih3Dheeia7ABu1xpN/ltUGwwK+EECVtvUyHs5JJqnzLBohkx86udqLm+8gGi55FBHwOIqCZnE
-	ufurI0KdR04jynbxFthllvAn8Mc+YvlsU23qR/iPHKLuN31GhwtU84SsI4qo8v2h5v3cqxBHlkjZ0
-	bNT+4LXJm8hxWV0TrY1PZ50uAJE1CWkUqMG01o7g7WdtAomdTFIW+NWK3nQ188++rhuKgUsfBnQqa
-	8uOUbaFN7K2TmKX+l+dWzDmxnIveygahWRYOTn8uuBmfT8cwS16Nk7dCSeGZyL+7jcx2J3sHradsq
-	EmIgV/tw==;
+	bh=UrOsmcdvA/5wJCPrBaMjHgUh2GbSq1QH5NZgRqR6064=; b=uhuOoFItq0HZ6BTne4myayvBhV
+	FG7BS6vW9g+Dx8UAUrNSs7xl7CKKJNUCfVUDzB09lewGVD17dkIq3pSYLgktM4x7OOdI+QR8127fk
+	jxQGgBIl/DBdxBsQtLPtQVOZa3AQicLg7qGurXdXVD2/frKXjRzepM8TL2ktSwkQ9tBchYc6rV1a+
+	Ty487iCx6lpeJ6Xo8Kcb/Y8Xm8TtEptiplROfk4nLGLESIz3rTnmU7cGbU5VWMF6EgPPbOwKIv2dk
+	hNGXZjq7zEEYdZAR0Gqkw7NTogvDUEmtaovkQPsOb0opksmOWgM2B6YSr0SXlw4os039Y2+qJ7iYC
+	wco0DmtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVDHN-0000000FSAH-3Aih;
-	Fri, 27 Jun 2025 17:54:25 +0000
+	id 1uVEMu-0000000FY61-0mcF;
+	Fri, 27 Jun 2025 19:04:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVC6R-0000000FIzQ-2K8K
+	id 1uVC6b-0000000FJ3A-2U7J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Jun 2025 16:39:04 +0000
+	Fri, 27 Jun 2025 16:39:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F196328C7;
-	Fri, 27 Jun 2025 09:38:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDEF91A00;
+	Fri, 27 Jun 2025 09:38:55 -0700 (PDT)
 Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D764F3F58B;
-	Fri, 27 Jun 2025 09:39:01 -0700 (PDT)
-Message-ID: <77874f70-a6e9-4388-b7ba-71bf8b44455b@arm.com>
-Date: Fri, 27 Jun 2025 17:39:01 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B8D93F58B;
+	Fri, 27 Jun 2025 09:39:10 -0700 (PDT)
+Message-ID: <6b50806b-3b0e-442f-a056-166cba039c2d@arm.com>
+Date: Fri, 27 Jun 2025 17:39:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm64: cacheinfo: Provide helper to compress MPIDR
- value into u32
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com,
- Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250613130356.8080-1-james.morse@arm.com>
- <20250613130356.8080-4-james.morse@arm.com>
- <20250617171410.000004cf@huawei.com>
+Subject: Re: [PATCH 4/5] cacheinfo: Expose the code to generate a cache-id
+ from a device_node
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>,
+ 'Jonathan Cameron' <Jonathan.Cameron@huawei.com>
+Cc: "'linux-kernel@vger.kernel.org'" <linux-kernel@vger.kernel.org>,
+ "'linux-arm-kernel@lists.infradead.org'"
+ <linux-arm-kernel@lists.infradead.org>,
+ 'Greg Kroah-Hartman' <gregkh@linuxfoundation.org>,
+ "'Rafael J . Wysocki'" <rafael@kernel.org>,
+ "'sudeep.holla@arm.com'" <sudeep.holla@arm.com>,
+ 'Rob Herring' <robh@kernel.org>, 'Ben Horgan' <ben.horgan@arm.com>
+References: <20250617172132.00002844@huawei.com>
+ <OSZPR01MB8798CDE4E2ED8E1B1B40E6608B45A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250617171410.000004cf@huawei.com>
+In-Reply-To: <OSZPR01MB8798CDE4E2ED8E1B1B40E6608B45A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_093903_715412_EF2F3731 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20250627_093913_714959_61FC4CC7 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,122 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Shaopeng,
 
-On 17/06/2025 17:14, Jonathan Cameron wrote:
-> On Fri, 13 Jun 2025 13:03:54 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
->> Filesystems like resctrl use the cache-id exposed via sysfs to identify
->> groups of CPUs. The value is also used for PCIe cache steering tags. On
->> DT platforms cache-id is not something that is described in the
->> device-tree, but instead generated from the smallest MPIDR of the CPUs
->> associated with that cache. The cache-id exposed to user-space has
->> historically been 32 bits.
->>
->> MPIDR values may be larger than 32 bits.
->>
->> MPIDR only has 32 bits worth of affinity data, but the aff3 field lives
->> above 32bits. The corresponding lower bits are masked out by
->> MPIDR_HWID_BITMASK and contain an SMT flag and Uni-Processor flag.
->>
->> Swizzzle the aff3 field into the bottom 32 bits and using that.
->>
->> In case more affinity fields are added in the future, the upper RES0
->> area should be checked. Returning a value greater than 32 bits from
->> this helper will cause the caller to give up on allocating cache-ids.
+On 27/06/2025 06:54, Shaopeng Tan (Fujitsu) wrote:
+>> On Fri, 13 Jun 2025 13:03:55 +0000
+>> James Morse <james.morse@arm.com> wrote:
+>>> The MPAM driver identifies caches by id for use with resctrl. It needs
+>>> to know the cache-id when probe-ing, but the value isn't set in
+>>> cacheinfo until the corresponding CPU comes online.
+>>>
+>>> Expose the code that generates the cache-id. This allows the MPAM
+>>> driver to determine the properties of the caches without waiting for
+>>> all CPUs to come online.
 
-> I'd mention that in the code via a comment, not just the commit message.
+>>> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c index
+>>> d8e5b4c7156c..6316d80abab8 100644
+>>> --- a/drivers/base/cacheinfo.c
+>>> +++ b/drivers/base/cacheinfo.c
+>>> @@ -200,7 +200,7 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
+>> struct device_node *np)
+>>>  		id = arch_compact_of_hwid(id);
+>>>  		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
 
-Sure!
+> Since "id" was compressed into 32bits by the function arch_compact_of_hwid(),
+> is this required?
 
-
->> Signed-off-by: James Morse <james.morse@arm.com>
-> 
-> Seems a few unrelated tiny things snuck in here.
-> 
-> Otherwise seems fine to me.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-Thanks!
+The need for this is clearer in the patch that introduces it - arch_compact_of_hwid() may
+not be implemented by all architectures that use OF, and arch_compact_of_hwid() needs to
+be able to fail if it can't produce a 32bit version of the hwid. (on arm64 this would
+happen if an aff4 was allocated in the RES0 bits of MPIDR_EL1 - which is why the helper
+checks those bits are all zero).
+This check ensures that if any cache-id is greater than 32 bits, then the platform doesn't
+expose any cache-id to user-space, which will let use fix it up in some way without
+changing the values user-space saw for the 'other' caches.
 
 
->> diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
->> index 99cd6546e72e..f8798dc96364 100644
->> --- a/arch/arm64/include/asm/cache.h
->> +++ b/arch/arm64/include/asm/cache.h
->> @@ -42,6 +42,7 @@
->>  
->>  #include <asm/cputype.h>
->>  #include <asm/mte-def.h>
->> +#include <asm/suspend.h>
-
-> That seems a little random?  Why?
-
-That's a hangover from a much earlier version that tried to use the MPIDR 'hash' that
-cpu-suspend already creates. But the advice was to avoid that as if we find platforms with
-wildly sparse MPIDR values, we'd need to make that 'hash' smarter to save memory - and
-having an ABI hanging from it would be a hindrance.
-
-Hence the swizzle.
-
->>  #include <asm/sysreg.h>
->>  
->>  #ifdef CONFIG_KASAN_SW_TAGS
->> @@ -87,6 +88,19 @@ int cache_line_size(void);
->>  
->>  #define dma_get_cache_alignment	cache_line_size
->>  
->> +/* Compress a u64 MPIDR value into 32 bits. */
->> +static inline u64 arch_compact_of_hwid(u64 id)
->> +{
->> +	u64 aff3 = MPIDR_AFFINITY_LEVEL(id, 3);
->> +
->> +	/* These bits are expected to be RES0 */
->> +	if (FIELD_GET(GENMASK_ULL(63, 40), id))
->> +		return id;
-> 
-> I would add a comment that the way this fails is to ensure
-> there are bits in the upper bits.  It is a little unusual
-> as APIs go but matches the not defined variant so sort of
-> makes sense.
-
-Yup, subtle enough that its worth a comment!
-
-|	/*
-|	 * These bits are expected to be RES0. If not, return a value with
-|	 * the upper 32 bits set to force the caller to give up on 32 bit
-|	 * cache ids.
-|	 */
-
-
->> +
->> +	return (aff3 << 24) | FIELD_GET(GENMASK_ULL(23, 0), id);
->> +}
->> +#define arch_compact_of_hwid	arch_compact_of_hwid
->> +
->>  /*
->>   * Read the effective value of CTR_EL0.
->>   *
->> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
->> index f093cdf71be1..ebc23304d430 100644
->> --- a/arch/arm64/kernel/sleep.S
->> +++ b/arch/arm64/kernel/sleep.S
->> @@ -50,6 +50,7 @@
->>  	lsr	\mask ,\mask, \rs3
->>  	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
->>  	.endm
->> +
-> 
-> Stray change.
-
-This is a left over from trying to use the above 'hash' directly.
-
-All fixed,
-
-
-Thanks!
+Thanks,
 
 James
 
