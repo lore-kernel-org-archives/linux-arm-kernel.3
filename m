@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7182C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 21:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF94C77B7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Jun 2025 21:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7vU+UbaI0y1z7+rAUbjnlbUsrwqaWS4xVdk7Oxwpmak=; b=lS62gFLoam5gURlcfLUXIQrfqY
-	usRelQfZk9NERo/ITolkDvb10hWM8AM68vNIf1LcfzqJyufyC0SfuYUv/LBBm0dpXr4pVghB0ygtI
-	l6poihWRNjlpOpwmHrbfWsi3WWIn6Y42nT15h+4AvSfk7rm4yzvnidP46HpRoVwcFrLSyrmmB7uDr
-	n/zoVsfUlfei0p1dwAuRRyPrX5+JC25i8s40lc7mT59/yqWMKxjDl1iHFqy5o5hnb5HVaZA2PUhcB
-	xI3IYbkhOIkFXg6duVO7tJaeB9mq5Jo9lJS+Ndr4gv7XdKfGa7n36u0LvOIPv4QWDcseIsPR/qzMA
-	S5MZBXWA==;
+	bh=PSnK+tGLzOWeekjL5TeeYdJemxI7tjGh7Q37W3QHv34=; b=mhcfnb4GkdqCxpaewHX/PGG80p
+	ncTljmv6mNF+pr6L69rOy+q7UaEScDrO3gwvYRL/SVhMnWmLqEjoNhdT7y2RVc7LkAM+lH+47gSQL
+	VOuxuc0vB8UrjdLSF2GLTKNByuywP0yU4zBeFilJ3qfVtmQs0U02UXqVPKC2Bcl4sZZRDzHf29F1w
+	8g7eCHEj/eIh9uYNx5ewWT8x+4dR/FZN6ZGWTy+O+lxnsCPc8772kW7SEVj2DV1zQA6Vo+ekWI3be
+	isys/JCccWJijRccJiBvBCQg8ZkKKD0PNMNugYSSaKICTA5zw8jhbSU0LzGMqdGTXWr8P/e2CgOEw
+	PHqWqpnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGU7-0000000Fplr-3vb2;
-	Fri, 27 Jun 2025 21:19:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uVGWO-0000000Fq5Q-46yx;
+	Fri, 27 Jun 2025 21:22:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVGRn-0000000FpWZ-3bCX;
-	Fri, 27 Jun 2025 21:17:25 +0000
+	id 1uVGTY-0000000FpfH-0fg1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Jun 2025 21:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 12714A53025;
-	Fri, 27 Jun 2025 21:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51DC6C4CEE3;
-	Fri, 27 Jun 2025 21:17:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FC6345CA8;
+	Fri, 27 Jun 2025 21:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D82C4CEE3;
+	Fri, 27 Jun 2025 21:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751059042;
-	bh=+EQCIEgsXVvxKsrT0WsXUC8n/w8gjOICwEyTeNeHuEk=;
+	s=k20201202; t=1751059150;
+	bh=DJo/Xw/Bqco4vBD6Mqkh+C8Ix5OPOEQ1fzty/x4dnyk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hNaU10tMhAYo5UGed+PugNq2z2uaOfR4n1dTptlDOnYNO+dZPouJG4Yi7JMSza6/s
-	 5D2HmCiksnZI3k3NKS68X0f5iat0pazkWRJnz8gf1+Rcp7/UAm6I5KQTZOlSTS84xH
-	 OjVKx7cbnQkX6Pgb5ZUZ4iOIJHfR39ZGpkfpqHuRiUoNFcYcIQmZA9iXzolCFVimNF
-	 LGAuVl93HL2WhaFtdwepQfKOkkKVzCyrnCVBYlAlIaZfwwm0LHIpxcNaZHFw7iA0pG
-	 A3iY4sGQpWrYP1xzEFUo2NUEIOTmjxZNoa5tFG8DLBTiJCm+yipFuAXaxh4k2MRtrC
-	 iMob9UwH57Utg==
-Date: Fri, 27 Jun 2025 16:17:21 -0500
-From: Rob Herring <robh@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	b=gQD4SIMFHjE7kHEjfbyq8Bv9jRE3HgswR1vZshITIExP2INHjVXbvpQjvn/cMhU2k
+	 yTVaVahdRv/vWLPArfKV1XPJiIWWwt+HMY/k05nw4CuTX3XKYL5kepGomHutsXuOSF
+	 elS3CPQ9zaP+SnJZrxHBFwvojxvhvz1y4eZw9bthfI5YTUl0ib81mTB6fGG+1yfR2h
+	 6LSlcDATwYmPn5eJZItgVH3aUPfUqOSr9XCjhT2Z2QKNoE6gwEpcGSDm1cbKVpq5Aj
+	 +KWf5WXxSOW/Q5iPVmQU+dzLty/ZZGeXxaLryvfb9alyGhPZLGbeU69ho8KIbpozyc
+	 xsRljQdH2oBWg==
+Date: Fri, 27 Jun 2025 16:19:09 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-fsd@tesla.com,
-	manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org,
-	kw@linux.com, bhelgaas@google.com, jingoohan1@gmail.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
-	m.szyprowski@samsung.com, jh80.chung@samsung.com,
-	pankaj.dubey@samsung.com
-Subject: Re: [PATCH v2 07/10] dt-bindings: phy: Add PHY bindings support for
- FSD SoC
-Message-ID: <20250627211721.GA153863-robh@kernel.org>
-References: <20250625165229.3458-1-shradha.t@samsung.com>
- <CGME20250625165319epcas5p3721c19f6e6b482438c62dd1ef784de03@epcas5p3.samsung.com>
- <20250625165229.3458-8-shradha.t@samsung.com>
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Vladimir Zapolskiy <vz@mleia.com>
+Subject: Re: [PATCH v2 1/1] dt-bindings: usb: convert lpc32xx-udc.txt to yaml
+ format
+Message-ID: <175105914924.160757.6319015774337763114.robh@kernel.org>
+References: <20250625214357.2620682-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250625165229.3458-8-shradha.t@samsung.com>
+In-Reply-To: <20250625214357.2620682-1-Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_141724_025061_39356754 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20250627_141912_215823_6B4B54F9 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 10:22:26PM +0530, Shradha Todi wrote:
-> Document PHY device tree bindings for Tesla FSD SoCs.
+
+On Wed, 25 Jun 2025 17:43:53 -0400, Frank Li wrote:
+> Convert lpc32xx-udc.txt to yaml format.
 > 
-> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
+> Additional changes:
+> - add clocks and put it into required list to match existed lp32xx.dtsi.
+> - remove usb-transceiver@2c at examples.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/phy/samsung,exynos-pcie-phy.yaml | 25 +++++++++++++++++--
->  1 file changed, 23 insertions(+), 2 deletions(-)
+> changes in v2
+> - update commit message by add "additional changes"
+> - add clocks to required list
+> ---
+>  .../devicetree/bindings/usb/lpc32xx-udc.txt   | 28 ----------
+>  .../bindings/usb/nxp,lpc3220-udc.yaml         | 54 +++++++++++++++++++
+>  2 files changed, 54 insertions(+), 28 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/usb/lpc32xx-udc.txt
+>  create mode 100644 Documentation/devicetree/bindings/usb/nxp,lpc3220-udc.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-> index 41df8bb08ff7..4dc20156cdde 100644
-> --- a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-> @@ -15,10 +15,13 @@ properties:
->      const: 0
->  
->    compatible:
-> -    const: samsung,exynos5433-pcie-phy
-> +    enum:
-> +      - samsung,exynos5433-pcie-phy
-> +      - tesla,fsd-pcie-phy
->  
->    reg:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
->  
->    samsung,pmu-syscon:
->      $ref: /schemas/types.yaml#/definitions/phandle
-> @@ -30,6 +33,24 @@ properties:
->      description: phandle for FSYS sysreg interface, used to control
->                   sysreg registers bits for PCIe PHY
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - tesla,fsd-pcie-phy
-> +    then:
-> +      description:
-> +        The PHY controller nodes are represented in the aliases node
-> +        using the following format 'pciephy{n}'. Depending on whether
-> +        n is 0 or 1, the phy init sequence is chosen.
 
-What? Don't make up your own aliases.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-If the PHY instances are different, then maybe you need a different 
-compatible. If this is just selecting the PHY mode, you can do that in 
-PHY cells as the mode depends on the consumer.
-
-
-> +      properties:
-> +        reg:
-> +          items:
-> +            - description: PHY
-> +            - description: PCS
-
-else:
-  properties:
-    reg:
-      maxItems: 1
-
-> +
->  required:
->    - "#phy-cells"
->    - compatible
-> -- 
-> 2.49.0
-> 
 
