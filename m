@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FC2C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 01:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A680DC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 01:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HWIyjWNSWpNlWfpLukm4eSpkeQ66iNY95mwRdW4gk+A=; b=vOl4b+CQ5ez7wA2Y8g1mczGlOB
-	Nw0r3Zr/llAmDTPUw84SMozhCXDx0lh39nlxxiHn9b4YJVLYZ8LH1mErxVmqxlSPQ3mUsk1g3uSOl
-	0AzwKFOx/AWlf3SGTpkOxRp+rkDHR70J4JzWWPsvYBH9dhkrpKtcAFYUK2toyUbAMA4HX4qs3IWeh
-	g8SdNjZXp8Lic6MQupVku3XqXRKecQufeWcYrF8xg4sRderSmPQv7saEVjA8mk1E2o1xZLNelIlCB
-	Ym/RwG7v29HWA+GCSUBYe6X9ZiDe0t2AWYczF0YRf+a0eFIlqCGctBrwWTp72RakSTNJTai/1FvSg
-	2W4bUWIQ==;
+	bh=uxMYpyOM7XqQUozuyUuJHGk4groWbDIUWZBQKf3SOwU=; b=zwJ7qxdNVegkGY6fbuO0ngqS1Z
+	nLLYtdSH9DN9U76l/opJoiUX6byUDp2B0lI7DFJAw2wFoq5b7tu1zO/WJFMebjCLwkpc1DaAt6ueb
+	xVouW6pueJbLW4Wkky4ACA7gjE1ucCiaPBg3YmZwUr43lncFJ0xJyhZQslmVnDjWE0WGeXMVjrTmE
+	q1YJVI3elgbxvCd5a0S7MktlampQj+QJZLdHOdhh+7wCjKsO5VDr9v8gEyjL5NKVuN+XHvGXjAEbq
+	9sxqGIS1+cUz0XdffTVVgtLZyLZyL2QbL+baHK10JlF4uY/sHqPs2qbnXrcEbRMeDJr2Dn80tFfzP
+	I9Fxhfsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVK02-0000000G7NG-03WN;
-	Sat, 28 Jun 2025 01:04:58 +0000
+	id 1uVK2t-0000000G7Zl-3ODS;
+	Sat, 28 Jun 2025 01:07:55 +0000
 Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVJwG-0000000G77S-0OZr
+	id 1uVK0a-0000000G7QY-3PAO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 01:01:05 +0000
+	Sat, 28 Jun 2025 01:05:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1751072462; bh=gcBkyhi3zYGXarPBn7yBaq1CjaIcyEkwlZd3FoDqsn4=;
+	t=1751072731; bh=TpUWAVaLMF4ulXcMSeUq6hXbTlYEUlPjAt0Xg4D3NSU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lwMs/H8YH9a4VltY5rQ/Etn2tDX9d1srdnIGAwoM90Jh6LXhXLgkTchBb8J5xyG86
-	 Tdp8ja1zq6xLNIohp+JO1ZVztnVH8CxYvtnS/6QR6BZXULYmw6V7/cNeRYlxqnZs8p
-	 CdBRsKTUMloY5beHui1ARoRpt2GmeZh4znnIbIupTzGQOYW77XEzqdAFJzq0rN1L3u
-	 BWc4R8a+5RokDjkJRy9Jchtg1pr2TWiA2uDw3rV2wbK6EQCYMLTNZbewBlLEGY4TkV
-	 qrExMdTcLz4C2xVtq8Hc5JCr0lwVtBMuBwB0cLtvuUy5l+7WdTxloo11duOPXigC/N
-	 qo83zI9cXl57g==
+	b=o10c/Ov48oF4yT8PSHvLCTPLQ3p0vHQaG6xF7Ny9KxYrG6UGp66QfqDKDCa+zIJiG
+	 svDMaFxRCD14bVYn45m7F0tJmIoRKcE8H66ZKPQvsL8qLbuQ/EfELCrQVEZyaBmWEe
+	 WFyWedUjy+dciLN4sVgksReARWAjubasaVgyX1LckwCJnsf99G4mjotJB0HX1qq0Bb
+	 Ki5u/n6kuxoCfr/Tdgy0z3f/xxxiKAvADzt3eTkiI8dMDtx26NrfEB1ENnJQXL9QS/
+	 nEnbGlmZse6zmKNp1TP+lvRGZQ6gEESmi5g9OnvoulMhrd4cuQGp6v7MeX+R5rZuhX
+	 giuxQqRVc8Pww==
 Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id DC09F3C4FE4;
-	Sat, 28 Jun 2025 01:01:02 +0000 (UTC)
+	by mail.mleia.com (Postfix) with ESMTP id 5D0153C4FE4;
+	Sat, 28 Jun 2025 01:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1751072462; bh=gcBkyhi3zYGXarPBn7yBaq1CjaIcyEkwlZd3FoDqsn4=;
+	t=1751072731; bh=TpUWAVaLMF4ulXcMSeUq6hXbTlYEUlPjAt0Xg4D3NSU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lwMs/H8YH9a4VltY5rQ/Etn2tDX9d1srdnIGAwoM90Jh6LXhXLgkTchBb8J5xyG86
-	 Tdp8ja1zq6xLNIohp+JO1ZVztnVH8CxYvtnS/6QR6BZXULYmw6V7/cNeRYlxqnZs8p
-	 CdBRsKTUMloY5beHui1ARoRpt2GmeZh4znnIbIupTzGQOYW77XEzqdAFJzq0rN1L3u
-	 BWc4R8a+5RokDjkJRy9Jchtg1pr2TWiA2uDw3rV2wbK6EQCYMLTNZbewBlLEGY4TkV
-	 qrExMdTcLz4C2xVtq8Hc5JCr0lwVtBMuBwB0cLtvuUy5l+7WdTxloo11duOPXigC/N
-	 qo83zI9cXl57g==
-Message-ID: <01f8dcff-c614-4da9-8546-e3bb0e4cef61@mleia.com>
-Date: Sat, 28 Jun 2025 04:01:01 +0300
+	b=o10c/Ov48oF4yT8PSHvLCTPLQ3p0vHQaG6xF7Ny9KxYrG6UGp66QfqDKDCa+zIJiG
+	 svDMaFxRCD14bVYn45m7F0tJmIoRKcE8H66ZKPQvsL8qLbuQ/EfELCrQVEZyaBmWEe
+	 WFyWedUjy+dciLN4sVgksReARWAjubasaVgyX1LckwCJnsf99G4mjotJB0HX1qq0Bb
+	 Ki5u/n6kuxoCfr/Tdgy0z3f/xxxiKAvADzt3eTkiI8dMDtx26NrfEB1ENnJQXL9QS/
+	 nEnbGlmZse6zmKNp1TP+lvRGZQ6gEESmi5g9OnvoulMhrd4cuQGp6v7MeX+R5rZuhX
+	 giuxQqRVc8Pww==
+Message-ID: <dc0da3aa-f3b0-45c3-b3d0-bf365ab2faad@mleia.com>
+Date: Sat, 28 Jun 2025 04:05:30 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] dt-bindings: input: touchscreen: convert
- lpc32xx-tsc.txt to yaml format
+Subject: Re: [PATCH 1/1] dt-bindings: input: convert lpc32xx-key.txt to yaml
+ format
 To: Frank Li <Frank.Li@nxp.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -66,18 +66,18 @@ To: Frank Li <Frank.Li@nxp.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
  <linux-arm-kernel@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>
 Cc: imx@lists.linux.dev
-References: <20250625163431.2543597-1-Frank.Li@nxp.com>
+References: <20250624200659.2514584-1-Frank.Li@nxp.com>
 From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20250625163431.2543597-1-Frank.Li@nxp.com>
+In-Reply-To: <20250624200659.2514584-1-Frank.Li@nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20250628_010102_919351_A3DD3FC9 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20250628_010531_401950_92253A23 
+X-CRM114-Status: UNSURE (   5.62  )
 X-CRM114-Notice: Please train this message. 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_010102_919351_A3DD3FC9 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20250628_010531_401950_92253A23 
+X-CRM114-Status: UNSURE (   6.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,34 +93,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 19:34, Frank Li wrote:
-> Convert lpc32xx-tsc.txt to yaml format.
+On 6/24/25 23:06, Frank Li wrote:
+> Convert lpc32xx-key.txt to yaml format.
 > 
 > Additional changes:
-> - add clocks and put it into required list to match existed lpc32xx.dtsi.
+> - set maximum of key-row(column) to 4.
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
 <snip>
-
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/lpc32xx-clock.h>
-> +
-> +    touchscreen@40048000 {
-> +        compatible = "nxp,lpc3220-tsc";
-> +        reg = <0x40048000 0x1000>;
-> +        interrupt-parent = <&mic>;
-> +        interrupts = <39 0>;
-
-interrupt-parent = <&sic1>;
-interrupts = <7 4>;
-
-> +        clocks = <&clk LPC32XX_CLK_ADC>;
-> +    };
-
-With this minor asked correction, feel free to add my
 
 Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
 
