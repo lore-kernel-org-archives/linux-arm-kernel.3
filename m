@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C542CC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 01:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9D4C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 01:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UxflQDxp8ffTiy+4epOCXEzFRoZzgxTdEZEZTliSakg=; b=febUF/mGwrhV+1uzQEkvnvanBD
-	eGPZlPp/Hkh2yJ/vYv+riCK3WxL/1hhCi2zOBUiXTy9pFv906gYs/GWjZr3Ag49lslWqFpi4YNKHS
-	uZf849knTwBsCInFCGrbC32pQ/czanIv5doqtiyMGhtjik3QakvRAFclufnJCg5ugEBpr2To4WubK
-	UV7q4rrp6yqPy2Hj/dDaZ8Jd+NsyxIgoDbiT1UMEVpxi+BdPrsjwRDXTkpBZTtdxNtAv6PGzABvZO
-	fjDrklpME/Z6nAQ4Ib9AST1V6flXh8BSWg/V7qnAAlQIPZD9zE9NKREjp+EndOSZ4086fG4ZNrmZd
-	8pQh4Gqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mt9A+xuTs9eYeL3NQHc9hR9iXxEQskkMsaraL0ZfCHU=; b=0zSbE6a9PPObZ0/+IncgdeBpyj
+	95tyjhipd1uSulA5Fz0cOXN9rB63QzQXgPaoilINTzVqY8LNTrcDI0TmCWqOvB0V6g+NAj+cqowNv
+	FurTvKFPp3RCtCHkPVyVglSLHWSl1i9aW9EzQdrq7M8irSanazWlqySBiQyPXJtGgr7xBIsvf+jqL
+	q4ZJeYM17rG6covx8XBmmLlgouy3Su5QvKCZydLCrR+EeK6n1LLz1OU87tY4j9jH2MmKa42L3eEl5
+	mrdEpzD5TARhHOdS5BQGGp/Tz+uYrj4Ipw4BYAosmzvZO83jnNFzlM0k1Mo0sXYn49WWb9Tf7/WWV
+	qYFT21KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVK5B-0000000G7hg-265A;
-	Sat, 28 Jun 2025 01:10:17 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1uVKR8-0000000G907-242I;
+	Sat, 28 Jun 2025 01:32:58 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVK1o-0000000G7X0-3XQF
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 01:06:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1751072807; bh=lvtlGUKgYO9Y0TkSNn7kHB2Oi9ly8/3TM3G1bnzKTDg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gexp/rjxeePfASYz5Y/nva3HsYFzNl4QtMlUqPgeoPkp5WoD/uXFGQr84KlvGY/NS
-	 X1swoWZrG9UzpBiWx6CfGfuzID1QzOLo3Bon3+oXy1awluqUUjZgtf8bB32fr473zs
-	 L4YvExYQ15ifjtPFRPZq4GLBIya5BhD7PWg0ZBCfutjEw/pYWHFPcS7VKek2zCFhum
-	 xdn8snRHz6dfX/AMOeedRxwbvGdj03eLcuPP4/pLXinQNrvFu+t/4AQHYyhd7cAN0n
-	 YRIs9nOrmhPZRtNEaQLK03CBoh0f8ZjP2oZ0XLwiE+wFrhqGUXsTomx8s0c3HGtJzq
-	 KGdyCk8BJg8Ug==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 9648B3C4FE4;
-	Sat, 28 Jun 2025 01:06:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1751072807; bh=lvtlGUKgYO9Y0TkSNn7kHB2Oi9ly8/3TM3G1bnzKTDg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gexp/rjxeePfASYz5Y/nva3HsYFzNl4QtMlUqPgeoPkp5WoD/uXFGQr84KlvGY/NS
-	 X1swoWZrG9UzpBiWx6CfGfuzID1QzOLo3Bon3+oXy1awluqUUjZgtf8bB32fr473zs
-	 L4YvExYQ15ifjtPFRPZq4GLBIya5BhD7PWg0ZBCfutjEw/pYWHFPcS7VKek2zCFhum
-	 xdn8snRHz6dfX/AMOeedRxwbvGdj03eLcuPP4/pLXinQNrvFu+t/4AQHYyhd7cAN0n
-	 YRIs9nOrmhPZRtNEaQLK03CBoh0f8ZjP2oZ0XLwiE+wFrhqGUXsTomx8s0c3HGtJzq
-	 KGdyCk8BJg8Ug==
-Message-ID: <e541cbf6-7db5-4716-9658-1cac4184ee78@mleia.com>
-Date: Sat, 28 Jun 2025 04:06:46 +0300
+	id 1uVKOn-0000000G8Zf-1hSA;
+	Sat, 28 Jun 2025 01:30:34 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uVKOY-000000004QA-0bQ9;
+	Sat, 28 Jun 2025 01:30:18 +0000
+Date: Sat, 28 Jun 2025 02:30:14 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+	Sky Huang <skylake.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net/next 0/3] net: ethernet: mtk_eth_soc: improve device tree
+ handling
+Message-ID: <cover.1751072868.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] dt-bindings: pwm: convert lpc32xx-pwm.txt to yaml
- format
-To: Frank Li <Frank.Li@nxp.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- "open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/LPC32XX SOC SUPPORT"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: imx@lists.linux.dev
-References: <20250625161909.2541315-1-Frank.Li@nxp.com>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20250625161909.2541315-1-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20250628_010647_632564_704ED86B 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message. 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_010647_632564_704ED86B 
-X-CRM114-Status: UNSURE (   6.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250627_183033_441059_DAC9ECAA 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,19 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/25 19:19, Frank Li wrote:
-> Convert pc32xx-pwm.txt to yaml format.
-> 
-> Additional changes:
-> - add ref to pwm.yaml
-> - add clocks
-> - restrict #pwm-cells to 3
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+The series further improves the mtk_eth_soc driver in preparation to
+complete upstream support for the MT7988 SoC family.
 
-Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
+Frank Wunderlich's previous attempt to have the ethernet node included
+in mt7988a.dtsi and cover support for MT7988 in the device tree bindings
+was criticized for the way mtk_eth_soc references SRAM in device tree[1].
+
+Having a 2nd 'reg' property, like introduced by commit ebb1e4f9cf38
+("net: ethernet: mtk_eth_soc: add support for in-SoC SRAM") isn't acceptable
+and a dedicated "mmio-sram" node should be used instead.
+
+Support for the hard-coded offset and including the SRAM region as part of
+the Ethernet's "reg" MMIO space will still be required in order to support
+existing legacy device trees of the MT7981 and MT7986 SoC families.
+
+While at it also replace confusing error messages when using legacy device
+trees without "interrupt-names" with a warning informing users that they
+are using a legacy device tree.
+
+[1]: https://patchwork.ozlabs.org/comment/3533543/
+
+Daniel Golle (3):
+  net: ethernet: mtk_eth_soc: improve support for named interrupts
+  net: ethernet: mtk_eth_soc: fix kernel-doc comment
+  net: ethernet: mtk_eth_soc: use genpool allocator for SRAM
+
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 134 +++++++++++++-------
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h |   5 +-
+ 2 files changed, 94 insertions(+), 45 deletions(-)
 
 -- 
-Best wishes,
-Vladimir
+2.50.0
 
