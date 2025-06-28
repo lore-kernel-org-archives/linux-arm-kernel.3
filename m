@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E490CC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ACEC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R99PFLgv7EGPI4uV/VSEzfV0kYW/ZQPDNvpGbpm2GOY=; b=YxFzX+NaWcXwpXShAORw1msMVX
-	bs8/HNYZE+ufTGP4XLX1fV3aRiECyn7DndrP7R3MiOdo4Z1Va/0IJmw44KK6rI1dG0a6mwG8nZv4C
-	Hvt6ib0Bxx3porvzYVd1C2Iok6MHhVpt26oqmEXVGezN/Zg6JQT3L771uGcQU+zSWSreBwTx8r6Ge
-	UtSzqqkc1BO/zWBMfi2Q9XnagInAniQ8MaLIWfZT2yvC/zE6MfC3qObBA5kXrHcvAXcmh4mMz+A7T
-	OGFAuEtEJcKZokwuwVfEcqEvi047K8HCi13klwiEZS8tWkiy/TpQNLiuEPeLrUkBgxJXGzyefwgtp
-	yueCeL4Q==;
+	bh=hvtxU4D3ohmA54ipUVXLZQjWygAPvZxaNNALd63s61k=; b=D98CL4xoPzdd5XwYcEhkJaf+XH
+	6ocoYEzc1eWjSmu13SsfAyJfp71djwV13edWfepbKTPJjDwrEprMKr2uvTTMJWPEfMpmd/xcJNews
+	0z6IcGYz/j6p/7CeZTQUeLLOsoi3RXoiSB72Jb4fIeC/wnzJjCV9oHDU6QqHTZK/QdjPhS7+52NXD
+	xQOfJngk4fAVFe1HTyD9LLRkPx3TFKqMYJI9ZPDJ1QgmeFt/QixYCwMesTS+LAAAQBCntFkexQeMs
+	ki70jB4L0vpUavq7lWxEl5MV+hVYET3RFtMLPUqtYh6O+6wBqqHcCr9Rpc6Dbuhii9/T9RdtuwKUD
+	WKBeG2GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRqC-0000000Gd4K-00bk;
-	Sat, 28 Jun 2025 09:27:20 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uVRsT-0000000GdFc-1E9K;
+	Sat, 28 Jun 2025 09:29:41 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRaJ-0000000GbE0-2Yy4;
-	Sat, 28 Jun 2025 09:10:58 +0000
+	id 1uVRaJ-0000000GbE3-29cd;
+	Sat, 28 Jun 2025 09:10:59 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 039E141B98;
+	by mxout4.routing.net (Postfix) with ESMTP id 5CDB21012C4;
 	Sat, 28 Jun 2025 09:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=20200217; t=1751101852;
@@ -35,12 +35,12 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R99PFLgv7EGPI4uV/VSEzfV0kYW/ZQPDNvpGbpm2GOY=;
-	b=HhNXOnrxpy9EHODacj5PdX10JsTlN3CHjWtsocQwoAvlDUlfP8sPBXAoQgtCmo0RHN/g93
-	dNtIm1A5wvnvOaCIynf9mkqUXuCVHeWU+0Sx5VgbJEOR9CvFYYun3lztmV2VlzocyyLu9a
-	hUXB1b971w0HQ67OYToQsHj9zcPxc3Q=
+	bh=hvtxU4D3ohmA54ipUVXLZQjWygAPvZxaNNALd63s61k=;
+	b=qlxuqrTS5nFWaF2uTQ5fu9KBUin17+dYeGjY7EoJw0zgyAeOQRbnwt58j5fEXNmYHYhpgT
+	IAXK0/0UXS53bAE9ryANBFYUL+k8u6sMr0PyHXDzeCgur5+57eY3pCSpJaXbxtHlMkAolA
+	coqXajh4Ca3ZF4gKos5MYrfdK7P5rH0=
 Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 958321226F5;
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 0279512272D;
 	Sat, 28 Jun 2025 09:10:51 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
@@ -73,17 +73,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v6 04/15] dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for mt7988
-Date: Sat, 28 Jun 2025 11:10:28 +0200
-Message-ID: <20250628091043.57645-5-linux@fw-web.de>
+Subject: [PATCH v6 05/15] dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
+Date: Sat, 28 Jun 2025 11:10:29 +0200
+Message-ID: <20250628091043.57645-6-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250628091043.57645-1-linux@fw-web.de>
 References: <20250628091043.57645-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_021055_785771_14B451AB 
-X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-CacheID: sfid-20250628_021055_689578_4EED8933 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,48 +101,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add own dsa-port binding for SoC with internal switch where only phy-mode
-'internal' is valid.
+Mt7988 buildin switch has own mdio bus where ge-phys are connected.
+Add related property for this.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../bindings/net/dsa/mediatek,mt7530.yaml          | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+v2:
+- change from patternproperty to property
+- add unevaluatedProperties and mediatek,pio subproperty
+---
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml   | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-index 51205f9f2985..9b983fdbf3c7 100644
+index 9b983fdbf3c7..815a90808901 100644
 --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
 +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-@@ -190,6 +190,18 @@ required:
-   - reg
+@@ -136,6 +136,16 @@ properties:
+       See Documentation/devicetree/bindings/regulator/mt6323-regulator.txt for
+       details for the regulator setup on these boards.
  
- $defs:
-+  builtin-dsa-port:
-+    patternProperties:
-+      "^(ethernet-)?ports$":
-+        patternProperties:
-+          "^(ethernet-)?port@[0-6]$":
-+            if:
-+              required: [ ethernet ]
-+            then:
-+              properties:
-+                phy-mode:
-+                  const: internal
++  mdio:
++    $ref: /schemas/net/mdio.yaml#
++    unevaluatedProperties: false
 +
-   mt7530-dsa-port:
-     patternProperties:
-       "^(ethernet-)?ports$":
-@@ -297,7 +309,7 @@ allOf:
-             - airoha,en7581-switch
-             - airoha,an7583-switch
-     then:
--      $ref: "#/$defs/mt7530-dsa-port"
-+      $ref: "#/$defs/builtin-dsa-port"
-       properties:
-         gpio-controller: false
-         mediatek,mcm: false
++    properties:
++      mediatek,pio:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description:
++          Phandle pointing to the mediatek pinctrl node.
++
+   mediatek,mcm:
+     type: boolean
+     description:
 -- 
 2.43.0
 
