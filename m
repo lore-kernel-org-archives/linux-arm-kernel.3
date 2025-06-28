@@ -4,141 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBB2C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C2EC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFllL8DW6wGNuwAO8h6osw7s/s99sup23ibXJ1OyRPc=; b=brdpSclArMpEH3Aq6seWgUBwlq
-	Xvz3MckdgVqNntzAlz1UqKxrPa4qfGV2rGfn1PxxZG3Qo54zfu/BrDiJPsbcFPlB57o7mhLVL5LbR
-	utTXIuaXWGZlOxSDbfPS1XN7UOwpXjEF2sgJQD8keDoWmrzqzI/lXN7hjVwaBXoR6ywYPFQFRL99d
-	iikZ34Sz3NcOPhktbs0836uLK95rSaKT/Yn2tAnWY7jaq+hwC7+fvR4eWZYJeEdnq9Xf3e4jwKdbX
-	9uwzkI4KHRdXQnxsp0XltBcjcDZWarcXeuX+g7/9aAnvBpLfkqIKiBVlhkxwU0TC6ZKRo2PR8rX7d
-	gZcxGA8w==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1Kv/5FIXJr4w7f7JBuDHHoZ7UQF55jJFpe21AqRti80=; b=Ao9OEQ7IrKZS4mUdC9CopVVCtI
+	mxIdZggr/zK2aIQuQ/yEO3X3+JcTYmobViFE3pt958ct1THPVVebk5kVkuX44b9q2BlYCm/opeC4d
+	haCgq2gDfHwYlY8csJN7JWLl5oF1M1rqgXgZffcOrn69JLcBZTtpt7uSHlxOCDJP8eIesVTVdnds5
+	4RWrlglhcnuCmMUe2QeST+Ru/4FR3Wb9+w4st7BBbnHry5de8U+RMAu3pugEks9tx6hcInf+FdV/H
+	fYlRsgTqOFqgztdk55f4dA8dmUtDmMOm+U1SDvETKqwgDHWZRNnra9YZKXfgWFhoTk1g3B71wnfNs
+	nK6sRaPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVeAH-0000000HM9O-0LM1;
-	Sat, 28 Jun 2025 22:36:53 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uVeER-0000000HMTT-43cD;
+	Sat, 28 Jun 2025 22:41:11 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVe7y-0000000HM5Q-1102
+	id 1uVeC8-0000000HMGE-3tDN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 22:34:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1751150056; x=1751754856; i=wahrenst@gmx.net;
-	bh=iFllL8DW6wGNuwAO8h6osw7s/s99sup23ibXJ1OyRPc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=V9E8acdM3bCxvWgAhFJLYc7XuSy2U3lK3SmJqf6FH2WBaWXrVMLG760eGq0YRJSW
-	 NdfxfFCvfpZkilTqQqHk0ORzsozJTpr4Hn1u8JBzpAYE72WW1T9chjzircFMiUe43
-	 DLDvR5gR+uaL/D0XiXDYAPRhlHyvs+ZifmdkZdiFpVdVUKWZkly5UCx96NEQ3sEUK
-	 14Ds7yCwjaY3AI29y4OLWHgdx2BXztLfU3cau9MdSFpVfutNq3EGcpiyelsBrbEjz
-	 k5lCeMyEBXaSqrFbRwbL7k7zxJANyjQSe4DiOV/c14GAoDWlJ3azVoGU6jGNTpmTL
-	 2nIJw+FyIhyS/8fojg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N5GE1-1ufqft1rjp-00r9YS; Sun, 29
- Jun 2025 00:34:16 +0200
-Message-ID: <0c2840c2-241c-4f98-9518-6a3676286823@gmx.net>
-Date: Sun, 29 Jun 2025 00:34:14 +0200
+	Sat, 28 Jun 2025 22:38:50 +0000
+Received: (wp-smtpd smtp.wp.pl 29690 invoked from network); 29 Jun 2025 00:38:39 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1751150319; bh=1Kv/5FIXJr4w7f7JBuDHHoZ7UQF55jJFpe21AqRti80=;
+          h=From:To:Subject;
+          b=K/FNRWU7zM9HVqBDxaqZKuZqrcf8NBx4gZQKCR1NaMbM3e8LVAYyZcT8SbFdmVOAF
+           3MfJFhwI2Q6hQRIf43qP2SiZfhebNSe1BVjg8rW8v9NfsBmnnOK8MtoevrRM4Iff3E
+           WJNIPjumyEPJ26UbmwVhk9tjQBUw+OW6vbE3lXxwzWynH9wuygI7DelNq7lmTraXVI
+           HMJ4B0rwju5WHn41jls9oaPfv78qeVbfXokqCs85ufqLZkwcTZ7lxLQbE/2CT5lSa9
+           9OZvSEkdqvI3YMiFDMYn2CN7g9xkTCgOH4Xqw+nR0U6Jb7CYNOeb+sqtwarsWD1yky
+           3C9s35tSRffeg==
+Received: from 83.24.145.121.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.145.121])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <rafael@kernel.org>; 29 Jun 2025 00:38:39 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	jic23@kernel.org,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	olek2@wp.pl,
+	zhiyong.tao@mediatek.com,
+	linux-pm@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/3] Add thermal sensors support for MT7981
+Date: Sun, 29 Jun 2025 00:38:34 +0200
+Message-Id: <20250628223837.848244-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] staging: vchiq_arm: Create keep-alive thread during
- probe
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
-References: <20250309125014.37166-1-wahrenst@gmx.net>
- <20250309125014.37166-5-wahrenst@gmx.net>
- <ba35b960-a981-4671-9f7f-060da10feaa1@usp.br>
- <7314139e-93fb-4abb-acac-0a07454d8d26@gmx.net>
- <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
- <232c4fbd-5c5c-4211-831b-2b6d8c757f2d@gmx.net>
- <7b901778-94e6-430d-b409-823a503165e0@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <7b901778-94e6-430d-b409-823a503165e0@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Pl18EXZuot+zXt/qKt4L32mCR8ym5/G0+kkNdBoK/q7hF5fa0F1
- 3dkAXotU7L17QJCvEadWEuRdSHMYJK/3JyGAWQQYEi4ec5rUliCN0UyH71PFE9wrc1Tusp5
- erHIdwxPJI8/uTUWC1yVkGvUqV5Jc0TEl6KXINrsiuAjlcjUvDKP6UVK9WxRagC/uNrLKYa
- +fOcE7vL2JXRYc5wbrPXA==
-UI-OutboundReport: notjunk:1;M01:P0:hdo8gtg0g+E=;xCfJONjYgDEiTkVmAdrMKBauF+R
- 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
- jw==
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: b810258631e11cb24906138186427c35
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 000000A [4TMU]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_153430_654041_DA04BAE3 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250628_153849_427527_9F4F3602 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,36 +90,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 28.06.25 um 00:28 schrieb Ma=C3=ADra Canal:
-> Hi Stefan,
->
-> On 27/06/25 12:18, Stefan Wahren wrote:
->> Hi Ma=C3=ADra,
->>
->> Is this reproducible with a real Raspberry Pi 3 (Plus)?
->
-> Yes, it is. It's also reproducible in a RPi 4 with the downstream
-> kernel. As RPi OS loads all those media-related modules, to easily
-> reproduce the error in RPi OS (without dealing with systemd and such),
-> you can just add the following modules to the modprobe blacklist:
->
-> blacklist snd_bcm2835
-> blacklist bcm2835_v4l2
->
-> # only for rpi4
-> blacklist bcm2835_codec
-> blacklist bcm2835_isp
-> blacklist bcm2835_mmal_vchiq
->
-> Reboot the device, wait a couple of minutes (2-3 minutes), and you will
-> get the warning in the dmesg output.
->
->>
->> Do you use arm64/defconfig or a special kernel configuration?
->
-> defconfig
-Okay, after disabling all VCHIQ users including VCHIQ_CDEV and enabling=20
-DETECT_HUNG_TASK, i was able to reproduce it.
+This patch adds support for the temperature sensor in the MT7981 SoC.
+This sensor is exactly the same as the one in the MT7986.
 
-I will try to fix that.
+Aleksander Jan Bajkowski (3):
+  arm64: dts: mediatek: add thermal sensor support on mt7981
+  thermal/drivers/mediatek: Add support for MT7981 SoC
+  dt-bindings: iio: adc: Add support for MT7981
+
+ .../iio/adc/mediatek,mt2701-auxadc.yaml       |  1 +
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 29 ++++++++++++++++++-
+ drivers/thermal/mediatek/auxadc_thermal.c     |  4 +++
+ 3 files changed, 33 insertions(+), 1 deletion(-)
+
+-- 
+2.39.5
+
 
