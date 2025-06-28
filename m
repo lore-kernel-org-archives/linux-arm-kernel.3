@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387B5C77B7F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 12:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B27C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 12:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/COtCi/ygmrBQbM8PwGATnVi1scWNjAcJWhwEdlWfM=; b=cXJNXkXKeJhzpMb0bwfAsbvBlq
-	O//uC38AEtqkj819bIxwKFNrkzbIBevnR7zXv90oaYsyFgwTM0+LP1kuKFZv26xfPm98irfUM+tQi
-	SMgiITF0EsN+Q0QI37cmGKZD4o/JnF9FID1NgWfunp6Jdop7ZhelZeVQvmYWwU0hVDw2vE6dbK0V2
-	X55r5PkqrabmM065aFbrRUViPBUVVG50KJdnQhQobG0BFvc8unPGoeJ3Yit/zKqPy/lRLYZXlOr7e
-	jBquVQ/OuYuzNNUgiMj99HtIS4HCHshZxm5ZgEukf1NH9QJSvy9G8DtR4NcRGRfD4UyZnpL4qlzJG
-	tWa4W6Lg==;
+	bh=FOKxrsqb2oTs8K0Qs4yW3KUDYy/eQafrIAqX/JO7wOU=; b=zqtp5/sh960WtxYQwwYc5KyVcU
+	qOmnTE3Gv3Xw5dzG4sOvswpZ+jqsLOTf3iQme7s1g+T9NDxSfW8VTrnnwNyCS0sO9XdSn3tRR8n9q
+	YZ/4kGEfKBFgAatr45q+l77MF+he9owUPmUoEsgvzb6CrMeYOO2L15XaxLPlMhF+hM+dRJk10qShv
+	9ouaWzFQlyc9U7VH8uRG5WxwzWXDSwjR6WoPVeqkESK5Jn39WRT8Jfqz4T+u5zON4/Z5B/Xfjxe1a
+	gHerqIVF1Qc9TEhYjdb/nDco3rS27BlpsKiIzFHTQc95ImO+PGZqszp1rRvONS/Ound0Smn70lYGr
+	rVg1ieBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUM8-0000000GlXM-0vTt;
-	Sat, 28 Jun 2025 12:08:28 +0000
+	id 1uVUOP-0000000GljN-29ZG;
+	Sat, 28 Jun 2025 12:10:49 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUHm-0000000GlFr-0Dd7;
-	Sat, 28 Jun 2025 12:03:59 +0000
+	id 1uVUJM-0000000GlNx-2FxO
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 12:05:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 43E175C4B1D;
-	Sat, 28 Jun 2025 12:03:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10B26C4CEEA;
-	Sat, 28 Jun 2025 12:03:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 135A95C4A97;
+	Sat, 28 Jun 2025 12:05:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23FCC4CEEA;
+	Sat, 28 Jun 2025 12:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751112236;
-	bh=fnTY0f4SyP2i7YILQaJH30PaDnbGJFQ6OxX01r/0/MU=;
+	s=k20201202; t=1751112335;
+	bh=DttSR+loL/+XwutcRtElHNrAyAfQKYpKcvL9oh1brpk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cBMoTRFA6pPl0c6hPCTLjoXP2bT4O/iPyM656V2DrsOTIBoHcAYggBn2E/sMUgQB9
-	 xyEaZNWd1Lp2Oj/FmFUHPXSezukDjrKXZglA6jHvs8Ty9V35USUje0VIAlDRFkz4r8
-	 EoRMokoHYx+S/vEv12Ke58DQiNRFKqYLYKpT+f5tvWFfVXTKPQaw90z/Gb/cB8eGhE
-	 SReqzme1145OXv9x4MU4IxqjyvcKvSq/A2A51HkOid09SlOKvsPUW/G0a9GeGVtHX5
-	 4gJJIYScN0Ku9y7E7Oc1x+5DxhahGwJT7m3VosOOgLVf9+hX6VvY6CmlcwpSraAe1c
-	 2aJBbZU1OyoOg==
-Date: Sat, 28 Jun 2025 14:03:53 +0200
+	b=jlBSfVn4ePgI4Y+1FPzDgHJ46C9P1SILP9iSnzYGnpProm9sYoW/Yfz0dZEYBNbLG
+	 7xgr7rsmMVS1iP7E41jLMCefzSJ3nU5xYHvsMiVAIDmXlJ6IB9hwW22YNfTPHErpDP
+	 a32lkyHkTYoUfFxN8z8ahdTMvan7bAzFaCBh/CKxLsRX2kMdzQc22oBpkWFauji0SX
+	 Pk33L/NS4Euj4O3DueYOGBFQrudskK+xJEIFuu31f0F0J1pLc3x+o1KNtlEySNB2FN
+	 xyc6ouX96CcQfC+WsPLz3B4jZTht0jN6ZaEoZ0TLzlJkJ2T00KQGK+JNVPEgUUlfdt
+	 AJ/oKPUIY/nug==
+Date: Sat, 28 Jun 2025 14:05:31 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-Cc: Marcel Holtmann <marcel@holtmann.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, 
-	Jiande Lu <jiande.lu@mediatek.com>, Deren Wu <deren.Wu@mediatek.com>, 
-	Chris Lu <chris.lu@mediatek.com>, Hao Qin <Hao.qin@mediatek.com>, 
-	linux-bluetooth <linux-bluetooth@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-mediatek <linux-mediatek@lists.infradead.org>, 
-	devicetree <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
-Message-ID: <25t3jzrqcdko5z5udbbcctaqldcrbycryazumw6mfj2c4qihmr@jcubfbuhikvp>
-References: <20250627055924.7716-1-ot_zhangchao.zhang@mediatek.com>
- <20250627055924.7716-3-ot_zhangchao.zhang@mediatek.com>
+To: Leo Wang <leo.jt.wang@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
+	Leo Wang <leo.jt.wang@fii-foxconn.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
+Message-ID: <ojyrhi2stm7q6kcd7yl3je36cccbzypsepmc4fvl7venynyu5g@52rs6bntmnwl>
+References: <20250627-add-support-for-meta-clemente-bmc-v4-0-ce7ff23460c4@fii-foxconn.com>
+ <20250627-add-support-for-meta-clemente-bmc-v4-1-ce7ff23460c4@fii-foxconn.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250627055924.7716-3-ot_zhangchao.zhang@mediatek.com>
+In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v4-1-ce7ff23460c4@fii-foxconn.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_050358_177610_0A54D41F 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20250628_050536_618541_1991EE7A 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,139 +80,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-How did you manage to make mistake in my email is beyond my understand.
-Tools should generate address list, not humans.
-
-Where is the changelog?
-
-On Fri, Jun 27, 2025 at 01:59:24PM +0800, Zhangchao Zhang wrote:
-> Add hardware pins and compatible strings.
-
-I don't see any pins here.
-
- 
-> As a binding file for the MTK Bluetooth driver code,
-> it provides a set of compatible fields and hardware
-> pins for the driver to use.
-
-All this is not relevant. Describe the hardware here.
-
+On Fri, Jun 27, 2025 at 10:59:02AM +0800, Leo Wang wrote:
+> From: Leo Wang <leo.jt.wang@gmail.com>
 > 
-> Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-> ---
-
-
->  .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 57 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 58 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
+> Document the new compatibles used on Meta Clemente.
 > 
-> diff --git a/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-> new file mode 100644
-> index 000000000000..230c24ada3b4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-> @@ -0,0 +1,57 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/bluetooth/mediatek,mt7925-bluetooth.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Bluetooth mediatek add gpio pin to reset bt
+> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
 
-Not relevant. This is the title describing this specific hardware.
-
-> +
-> +maintainers:
-> +  - Sean Wang <sean.wang@mediatek.com>
-> +
-> +description:
-> +  7925 uses the USB bus to communicate with the host.
-
-Waht is 7925?
-
-> +  Two methods are used to reset Bluetooth.
-> +  Provide hardware pin, when an exception occurs,
-> +  resetting Bluetooth by hardware pin is more stable
-> +  than resetting Bluetooth by software.
-> +  If the corresponding pin is not found in dts,
-> +  bluetooth can also be reset successfully.
-
-Wrap this properly. The same commit msg.
-
-> +
-> +allOf:
-> +  - $ref: bluetooth-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,usb-bluetooth
-
-NAK, you cannot have such compatible. I already said at v1 or v2 that it
-will be rejected!
-
-Why are you pushing this all the time, without reading the feedback?
-
-You need SoC and device specific compatibles. There is no such hardware
-as "usb-bluetooth". If there is, point me to datasheet for it.
-
-
-> +
-> +  gpio-controller:
-> +    description:
-> +      Marks the device node as s GPIO controller.
-
-Irrelevant. Drop. See other schemas.
-
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  reset-gpios:
-> +    maxItems: 1
-> +
-
-Drop blank line. Look how other files are doing this.
-
-
-> +    description:
-> +      An active-high reset pin for the Bluetooth core; on typical M.2
-
-active-high? Really? I have doubts.
-
-> +      key E modules this is the W_DISABLE2# pin.
-> +
-> +required:
-> +  - compatible
-> +  - "#gpio-cells"
-> +  - reset-gpios
-> +
-> +unevaluatedProperties: false
-
-This is random style. Why doing something completely different than
-every other file? Missing blank line.
-
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +      bluetooth {
-
-Messed indentation.
-
-To summarize:
-Except writing something entirely different than every other binding
-(why?), this does not represent hardware. Your commit msg explains ZERO
-about the hardware. Binding description says nothing and is actually not
-correct.
-
-So again, if you send the same it will be rejected.
-
-I expect answers UNDER EACH OF MY COMMENTS, because you keep ignoring
-entire feedback given to you.
+Checkpatch warnings.
 
 Best regards,
 Krzysztof
