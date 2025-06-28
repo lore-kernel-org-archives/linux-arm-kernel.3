@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 029B4C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 20:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67166C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Mjv0Fv9u3TZrEyl5AH9cikD+LqgdLhmD6eGorACPAU=; b=0Itaia4+xdPc4HYVObFwhzO1r+
-	gNd87MSIeUyWp2BseveGATDsaAPNFuRZOwQw5qGearR1iqTWakfNH4DL5OIgT3ZuuiQYfRWCi8BWj
-	t/+yhHl5xHKQtrywUfoYaVKFXcoEelO7Fck0Iho7uBv7k0zi65X83Q1SKshYiuWHS1t9Jt4VAD9Mn
-	5amja+Hi42+ehAKi316lwF9jjjUddbCD7vpNrXlT+Lw2MfKu+mjQjyyl8/Wy7R5YpfTO/uT2e5bRt
-	59zUIgJOcL3jjNuK9l06sxEcamomhOrNgFnDcd9BsKEBRizYgeOyELRdYbRHjGZIhGcIhbs+B1m63
-	JeTC0TKg==;
+	bh=2UQtUEDTJSDEeLkJsq1ZrHW9YY3v+PbBh/DVd24iZ1Y=; b=Zpw4svY4NOutxrYZWtx+o+MKmf
+	Qr3wO5dNKTtkFRuNWfI42bJP9fM4kihG30wYk4vCW45Q98XBqbvkK3J2cJrBZUEkx5VrSqObq10CE
+	FcF+Tw5xp+EP8CVLAvgH12y/Ky186sLRx72GJnQD9RMfOsqYWKFNCyDQxLdkrVg9GC6ARBEUq/uy0
+	YP78p22NLmd5WLYoxzbNLn3XaATeLdo1n93EVg7orT+EFQ7d5L2CcqgJ07NDhfByl8TGpmfV9Mown
+	1w6Jdjy8nGQe5OFbpYfSz/iabFDyhGjsj7fquAIAar5fpY4LVEmJtG8oDa3JsRakDJD3QDZmii1rY
+	rnXgev1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVcEx-0000000HI91-0gre;
-	Sat, 28 Jun 2025 20:33:35 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1uVe1S-0000000HLrb-2Ix9;
+	Sat, 28 Jun 2025 22:27:46 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVcCd-0000000HI3z-2dvP;
-	Sat, 28 Jun 2025 20:31:13 +0000
+	id 1uVdz9-0000000HLmx-2G6A;
+	Sat, 28 Jun 2025 22:25:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751142671; x=1782678671;
+  t=1751149523; x=1782685523;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=jj3Wf8/p/EcjaNqLJXtMs6VmzdJXUP1vBHIwniCxulE=;
-  b=kMCHXuPkb53ACm4YvyUS3JTk2yGcnJEFkoBxWcmlKgczosGIvst9R9IQ
-   x0ujPR1uu5tecEf9J/dMh8REVEPFrFvvRwnnoYZ6ZVCbdXvs6fs4fV8AH
-   8rd3SOCHDbfhCfNBeCyzRQn3jLuY1D6IFdKRvllE2OSfvJbm0vKlvzP62
-   tFRDVUUW4CLhPNPXYXFwZIn96GIOtAT2ZYKV8U8MNgIK7zsJZ4OkNn9Bz
-   JMOyU/+vFCA0ZkwNajbhKTMssCc7DQDBr+THCK83jEVXeiit1Anj4zqoT
-   EztX5+8eprtemMKfrKyJCfDdZqmNsFQD6+V+l22VXrXOFlGHRZ08FbuHQ
-   g==;
-X-CSE-ConnectionGUID: MhyOkZIPQu21RMmi1110/A==
-X-CSE-MsgGUID: 8SfFTqxIQLOkNICyVR+0uQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11478"; a="64110349"
+  bh=NlE2HCBxhFmElmkcJijAmIgQDwbR3P7Sc58DdxZL8NQ=;
+  b=mBmYA0hauCHJEo+0rAmGkkHSWfWy+xztwqTd+Hq1UuJXzDSxLOo/qEa2
+   DeEnkWP4QIyMgTR5Th0aSGNRLm+UkXoJlY93UJ8EZQY3iMfQdujL8uoS/
+   yb89STp9t3NV0+WNL1FchHNcV8SgmAv/wTmGJxQ8SkmnsUVYn1eTD28wO
+   rF83eQMfvSvmrFHjRzIsEA0emOaqHf1VDVIP5tevd77MRt5vdSU8c8pRa
+   z9iLb5/qyfXb1tcSHIvsatAcYT4f7R8dSlOeCNJvRas9dThxDKhYwYT8Q
+   JlvX5ddScTbFsY6PTjICkNdhVLbZfIko1wEIpN2+iS4HFWQZjdFgM+sJ9
+   w==;
+X-CSE-ConnectionGUID: UPMISyfoTli6lO03rGaoQg==
+X-CSE-MsgGUID: e8YtXm5ISU6XfH+wm0N0UQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11478"; a="52650292"
 X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="64110349"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 13:31:09 -0700
-X-CSE-ConnectionGUID: 74A3WXuHTc+lcVO1G28YbQ==
-X-CSE-MsgGUID: rxJqBR8CQH2Fhq95SW+GlA==
+   d="scan'208";a="52650292"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 15:25:18 -0700
+X-CSE-ConnectionGUID: /EELPRmGSAWN3g5MCHDQvw==
+X-CSE-MsgGUID: NvdqI8dOQNC2hVqoWqivTw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="153265867"
+   d="scan'208";a="153647705"
 Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 28 Jun 2025 13:31:03 -0700
+  by fmviesa008.fm.intel.com with ESMTP; 28 Jun 2025 15:25:13 -0700
 Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1uVcCT-000XMc-1c;
-	Sat, 28 Jun 2025 20:31:01 +0000
-Date: Sun, 29 Jun 2025 04:30:38 +0800
+	id 1uVdyx-000XRO-1J;
+	Sat, 28 Jun 2025 22:25:11 +0000
+Date: Sun, 29 Jun 2025 06:24:53 +0800
 From: kernel test robot <lkp@intel.com>
 To: Daniel Golle <daniel@makrotopia.org>, Felix Fietkau <nbd@nbd.name>,
 	Frank Wunderlich <frank-w@public-files.de>,
@@ -77,15 +77,15 @@ To: Daniel Golle <daniel@makrotopia.org>, Felix Fietkau <nbd@nbd.name>,
 Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org
 Subject: Re: [PATCH net/next 3/3] net: ethernet: mtk_eth_soc: use genpool
  allocator for SRAM
-Message-ID: <202506290403.FwUOUzZq-lkp@intel.com>
+Message-ID: <202506290627.8dPD2PJ1-lkp@intel.com>
 References: <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_133111_688924_FD54CFFF 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250628_152523_592209_EF5D6505 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,10 +102,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Daniel,
 
-kernel test robot noticed the following build warnings:
+kernel test robot noticed the following build errors:
 
-[auto build test WARNING on net-next/main]
-[also build test WARNING on next-20250627]
+[auto build test ERROR on net-next/main]
+[also build test ERROR on next-20250627]
 [cannot apply to net/main linus/master v6.16-rc3]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
@@ -115,21 +115,21 @@ url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Golle/net-ethernet
 base:   net-next/main
 patch link:    https://lore.kernel.org/r/566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel%40makrotopia.org
 patch subject: [PATCH net/next 3/3] net: ethernet: mtk_eth_soc: use genpool allocator for SRAM
-config: arm-randconfig-003-20250629 (https://download.01.org/0day-ci/archive/20250629/202506290403.FwUOUzZq-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250629/202506290403.FwUOUzZq-lkp@intel.com/reproduce)
+config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20250629/202506290627.8dPD2PJ1-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250629/202506290627.8dPD2PJ1-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506290403.FwUOUzZq-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506290627.8dPD2PJ1-lkp@intel.com/
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
    drivers/net/ethernet/mediatek/mtk_eth_soc.c: In function 'mtk_dma_ring_alloc':
->> drivers/net/ethernet/mediatek/mtk_eth_soc.c:1282:10: warning: returning 'int' from a function with return type 'void *' makes pointer from integer without a cast [-Wint-conversion]
-      return -ENOMEM;
-             ^
+>> drivers/net/ethernet/mediatek/mtk_eth_soc.c:1282:24: error: returning 'int' from a function with return type 'void *' makes pointer from integer without a cast [-Wint-conversion]
+    1282 |                 return -ENOMEM;
+         |                        ^
 
 
 vim +1282 drivers/net/ethernet/mediatek/mtk_eth_soc.c
