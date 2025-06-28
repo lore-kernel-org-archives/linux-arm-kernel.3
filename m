@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C2EC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD77CC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1Kv/5FIXJr4w7f7JBuDHHoZ7UQF55jJFpe21AqRti80=; b=Ao9OEQ7IrKZS4mUdC9CopVVCtI
-	mxIdZggr/zK2aIQuQ/yEO3X3+JcTYmobViFE3pt958ct1THPVVebk5kVkuX44b9q2BlYCm/opeC4d
-	haCgq2gDfHwYlY8csJN7JWLl5oF1M1rqgXgZffcOrn69JLcBZTtpt7uSHlxOCDJP8eIesVTVdnds5
-	4RWrlglhcnuCmMUe2QeST+Ru/4FR3Wb9+w4st7BBbnHry5de8U+RMAu3pugEks9tx6hcInf+FdV/H
-	fYlRsgTqOFqgztdk55f4dA8dmUtDmMOm+U1SDvETKqwgDHWZRNnra9YZKXfgWFhoTk1g3B71wnfNs
-	nK6sRaPQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4x6ilKt5iJmJ+aTcOPfoqYo5nK7rJ62lmNxO5mvvtEE=; b=Q7J4p88U6YeDwKRTa40RJjBKPz
+	pYoZ/QNQG6r7GpZRgB7iXMK5BgK5FGlcbM4OznwaQ1xsgP0du2WOkT8c+0WXld6YMPnb7LNxdchK9
+	M9SunvAa5TnnQV9gnTuEOLmSI2XIlvj5VlLh7PCvlyW2Aq8F1Abbi1qvnn4SmKzpVkzzOL1+qRpNq
+	5y3YxtmPq/C27FIsmE7jYpjwNLyShigNfFyyZfl1t2VTiGIDoStRWQLooEpHJFA6auwM2ga+xPVtd
+	i1U6BoGS8C5lkF2h2lWzaa2726/zNjrQgBrYTwlUTMPG5AUmoVM+/X8CpqrnLCze5qR/tnv5kIrLT
+	YfcRlSmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVeER-0000000HMTT-43cD;
-	Sat, 28 Jun 2025 22:41:11 +0000
-Received: from mx3.wp.pl ([212.77.101.10])
+	id 1uVeGi-0000000HMdX-2iF9;
+	Sat, 28 Jun 2025 22:43:32 +0000
+Received: from mx4.wp.pl ([212.77.101.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVeC8-0000000HMGE-3tDN
+	id 1uVeC8-0000000HMGD-3rap
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 22:38:50 +0000
-Received: (wp-smtpd smtp.wp.pl 29690 invoked from network); 29 Jun 2025 00:38:39 +0200
+	Sat, 28 Jun 2025 22:38:51 +0000
+Received: (wp-smtpd smtp.wp.pl 30245 invoked from network); 29 Jun 2025 00:38:42 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1751150319; bh=1Kv/5FIXJr4w7f7JBuDHHoZ7UQF55jJFpe21AqRti80=;
+          t=1751150322; bh=4x6ilKt5iJmJ+aTcOPfoqYo5nK7rJ62lmNxO5mvvtEE=;
           h=From:To:Subject;
-          b=K/FNRWU7zM9HVqBDxaqZKuZqrcf8NBx4gZQKCR1NaMbM3e8LVAYyZcT8SbFdmVOAF
-           3MfJFhwI2Q6hQRIf43qP2SiZfhebNSe1BVjg8rW8v9NfsBmnnOK8MtoevrRM4Iff3E
-           WJNIPjumyEPJ26UbmwVhk9tjQBUw+OW6vbE3lXxwzWynH9wuygI7DelNq7lmTraXVI
-           HMJ4B0rwju5WHn41jls9oaPfv78qeVbfXokqCs85ufqLZkwcTZ7lxLQbE/2CT5lSa9
-           9OZvSEkdqvI3YMiFDMYn2CN7g9xkTCgOH4Xqw+nR0U6Jb7CYNOeb+sqtwarsWD1yky
-           3C9s35tSRffeg==
+          b=ho9MfSrpJm1Tq1q9xQG60cHTcoy0xqWNNQBRf6smEjqkmqmh03r+oaznAE3MCLXOR
+           1qmy0TMgKCuhybMqGIlXeZBQ4CASBq01cG3czT44FWA/Y6m35b76pXrSPaCwK1imE3
+           OPvx2SwKrJ+WM9bM1Q3Cozk6ODfGfqDVQKl/3PfXk6DxySRgmgG7zYToHcZi53QT1u
+           0bIB4CBBOmkeMREbzCB8MqpFwDs1Ze+ICiYHeMXSodAFjnS2uXrgkc3HQwfVP6eiPs
+           2mP4PQeF4JNRBiSiqfehwu4XYKC1FBZh3e8zowxC5xba1btCrdZ9qeZIz2VCew+37I
+           /QktqBuN1dCBw==
 Received: from 83.24.145.121.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.145.121])
           (envelope-sender <olek2@wp.pl>)
           by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <rafael@kernel.org>; 29 Jun 2025 00:38:39 +0200
+          for <rafael@kernel.org>; 29 Jun 2025 00:38:42 +0200
 From: Aleksander Jan Bajkowski <olek2@wp.pl>
 To: rafael@kernel.org,
 	daniel.lezcano@linaro.org,
@@ -63,18 +63,20 @@ To: rafael@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH 0/3] Add thermal sensors support for MT7981
-Date: Sun, 29 Jun 2025 00:38:34 +0200
-Message-Id: <20250628223837.848244-1-olek2@wp.pl>
+Subject: [PATCH 1/3] arm64: dts: mediatek: add thermal sensor support on mt7981
+Date: Sun, 29 Jun 2025 00:38:35 +0200
+Message-Id: <20250628223837.848244-2-olek2@wp.pl>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250628223837.848244-1-olek2@wp.pl>
+References: <20250628223837.848244-1-olek2@wp.pl>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: b810258631e11cb24906138186427c35
+X-WP-MailID: 83e3732595d5e7000e752de9e0de6415
 X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000A [4TMU]                               
+X-WP-SPAM: NO 0000000 [ceMx]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_153849_427527_9F4F3602 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20250628_153849_441409_60A11425 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,19 +92,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds support for the temperature sensor in the MT7981 SoC.
-This sensor is exactly the same as the one in the MT7986.
+The temperature sensor in the MT7981 is same as in the MT7986.
 
-Aleksander Jan Bajkowski (3):
-  arm64: dts: mediatek: add thermal sensor support on mt7981
-  thermal/drivers/mediatek: Add support for MT7981 SoC
-  dt-bindings: iio: adc: Add support for MT7981
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 29 ++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
 
- .../iio/adc/mediatek,mt2701-auxadc.yaml       |  1 +
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 29 ++++++++++++++++++-
- drivers/thermal/mediatek/auxadc_thermal.c     |  4 +++
- 3 files changed, 33 insertions(+), 1 deletion(-)
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 5cbea9cd411f..c2001a82722a 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -76,7 +76,7 @@ watchdog: watchdog@1001c000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
+-		clock-controller@1001e000 {
++		apmixedsys: clock-controller@1001e000 {
+ 			compatible = "mediatek,mt7981-apmixedsys";
+ 			reg = <0 0x1001e000 0 0x1000>;
+ 			#clock-cells = <1>;
+@@ -184,6 +184,29 @@ spi@1100b000 {
+ 			status = "disabled";
+ 		};
+ 
++		thermal@1100c800 {
++			compatible = "mediatek,mt7981-thermal";
++			reg = <0 0x1100c800 0 0x800>;
++			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&infracfg CLK_INFRA_THERM_CK>,
++				 <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "therm", "auxadc";
++			nvmem-cells = <&thermal_calibration>;
++			nvmem-cell-names = "calibration-data";
++			#thermal-sensor-cells = <1>;
++			mediatek,auxadc = <&auxadc>;
++			mediatek,apmixedsys = <&apmixedsys>;
++		};
++
++		auxadc: adc@1100d000 {
++			compatible = "mediatek,mt7981-auxadc";
++			reg = <0 0x1100d000 0 0x1000>;
++			clocks = <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "main";
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
++
+ 		pio: pinctrl@11d00000 {
+ 			compatible = "mediatek,mt7981-pinctrl";
+ 			reg = <0 0x11d00000 0 0x1000>,
+@@ -211,6 +234,10 @@ efuse@11f20000 {
+ 			reg = <0 0x11f20000 0 0x1000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
++
++			thermal_calibration: calib@274 {
++				reg = <0x274 0xc>;
++			};
+ 		};
+ 
+ 		clock-controller@15000000 {
 -- 
 2.39.5
 
