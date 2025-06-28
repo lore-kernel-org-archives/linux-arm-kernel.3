@@ -4,88 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67166C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBB2C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 22:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UQtUEDTJSDEeLkJsq1ZrHW9YY3v+PbBh/DVd24iZ1Y=; b=Zpw4svY4NOutxrYZWtx+o+MKmf
-	Qr3wO5dNKTtkFRuNWfI42bJP9fM4kihG30wYk4vCW45Q98XBqbvkK3J2cJrBZUEkx5VrSqObq10CE
-	FcF+Tw5xp+EP8CVLAvgH12y/Ky186sLRx72GJnQD9RMfOsqYWKFNCyDQxLdkrVg9GC6ARBEUq/uy0
-	YP78p22NLmd5WLYoxzbNLn3XaATeLdo1n93EVg7orT+EFQ7d5L2CcqgJ07NDhfByl8TGpmfV9Mown
-	1w6Jdjy8nGQe5OFbpYfSz/iabFDyhGjsj7fquAIAar5fpY4LVEmJtG8oDa3JsRakDJD3QDZmii1rY
-	rnXgev1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iFllL8DW6wGNuwAO8h6osw7s/s99sup23ibXJ1OyRPc=; b=brdpSclArMpEH3Aq6seWgUBwlq
+	Xvz3MckdgVqNntzAlz1UqKxrPa4qfGV2rGfn1PxxZG3Qo54zfu/BrDiJPsbcFPlB57o7mhLVL5LbR
+	utTXIuaXWGZlOxSDbfPS1XN7UOwpXjEF2sgJQD8keDoWmrzqzI/lXN7hjVwaBXoR6ywYPFQFRL99d
+	iikZ34Sz3NcOPhktbs0836uLK95rSaKT/Yn2tAnWY7jaq+hwC7+fvR4eWZYJeEdnq9Xf3e4jwKdbX
+	9uwzkI4KHRdXQnxsp0XltBcjcDZWarcXeuX+g7/9aAnvBpLfkqIKiBVlhkxwU0TC6ZKRo2PR8rX7d
+	gZcxGA8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVe1S-0000000HLrb-2Ix9;
-	Sat, 28 Jun 2025 22:27:46 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1uVeAH-0000000HM9O-0LM1;
+	Sat, 28 Jun 2025 22:36:53 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVdz9-0000000HLmx-2G6A;
-	Sat, 28 Jun 2025 22:25:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751149523; x=1782685523;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NlE2HCBxhFmElmkcJijAmIgQDwbR3P7Sc58DdxZL8NQ=;
-  b=mBmYA0hauCHJEo+0rAmGkkHSWfWy+xztwqTd+Hq1UuJXzDSxLOo/qEa2
-   DeEnkWP4QIyMgTR5Th0aSGNRLm+UkXoJlY93UJ8EZQY3iMfQdujL8uoS/
-   yb89STp9t3NV0+WNL1FchHNcV8SgmAv/wTmGJxQ8SkmnsUVYn1eTD28wO
-   rF83eQMfvSvmrFHjRzIsEA0emOaqHf1VDVIP5tevd77MRt5vdSU8c8pRa
-   z9iLb5/qyfXb1tcSHIvsatAcYT4f7R8dSlOeCNJvRas9dThxDKhYwYT8Q
-   JlvX5ddScTbFsY6PTjICkNdhVLbZfIko1wEIpN2+iS4HFWQZjdFgM+sJ9
-   w==;
-X-CSE-ConnectionGUID: UPMISyfoTli6lO03rGaoQg==
-X-CSE-MsgGUID: e8YtXm5ISU6XfH+wm0N0UQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11478"; a="52650292"
-X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="52650292"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 15:25:18 -0700
-X-CSE-ConnectionGUID: /EELPRmGSAWN3g5MCHDQvw==
-X-CSE-MsgGUID: NvdqI8dOQNC2hVqoWqivTw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="153647705"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 28 Jun 2025 15:25:13 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uVdyx-000XRO-1J;
-	Sat, 28 Jun 2025 22:25:11 +0000
-Date: Sun, 29 Jun 2025 06:24:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Daniel Golle <daniel@makrotopia.org>, Felix Fietkau <nbd@nbd.name>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
-	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
-	Sky Huang <skylake.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org
-Subject: Re: [PATCH net/next 3/3] net: ethernet: mtk_eth_soc: use genpool
- allocator for SRAM
-Message-ID: <202506290627.8dPD2PJ1-lkp@intel.com>
-References: <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
+	id 1uVe7y-0000000HM5Q-1102
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 22:34:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1751150056; x=1751754856; i=wahrenst@gmx.net;
+	bh=iFllL8DW6wGNuwAO8h6osw7s/s99sup23ibXJ1OyRPc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=V9E8acdM3bCxvWgAhFJLYc7XuSy2U3lK3SmJqf6FH2WBaWXrVMLG760eGq0YRJSW
+	 NdfxfFCvfpZkilTqQqHk0ORzsozJTpr4Hn1u8JBzpAYE72WW1T9chjzircFMiUe43
+	 DLDvR5gR+uaL/D0XiXDYAPRhlHyvs+ZifmdkZdiFpVdVUKWZkly5UCx96NEQ3sEUK
+	 14Ds7yCwjaY3AI29y4OLWHgdx2BXztLfU3cau9MdSFpVfutNq3EGcpiyelsBrbEjz
+	 k5lCeMyEBXaSqrFbRwbL7k7zxJANyjQSe4DiOV/c14GAoDWlJ3azVoGU6jGNTpmTL
+	 2nIJw+FyIhyS/8fojg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N5GE1-1ufqft1rjp-00r9YS; Sun, 29
+ Jun 2025 00:34:16 +0200
+Message-ID: <0c2840c2-241c-4f98-9518-6a3676286823@gmx.net>
+Date: Sun, 29 Jun 2025 00:34:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] staging: vchiq_arm: Create keep-alive thread during
+ probe
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
+References: <20250309125014.37166-1-wahrenst@gmx.net>
+ <20250309125014.37166-5-wahrenst@gmx.net>
+ <ba35b960-a981-4671-9f7f-060da10feaa1@usp.br>
+ <7314139e-93fb-4abb-acac-0a07454d8d26@gmx.net>
+ <1db32ad6-b699-4a28-abc2-56f8efae38df@igalia.com>
+ <232c4fbd-5c5c-4211-831b-2b6d8c757f2d@gmx.net>
+ <7b901778-94e6-430d-b409-823a503165e0@igalia.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <7b901778-94e6-430d-b409-823a503165e0@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Pl18EXZuot+zXt/qKt4L32mCR8ym5/G0+kkNdBoK/q7hF5fa0F1
+ 3dkAXotU7L17QJCvEadWEuRdSHMYJK/3JyGAWQQYEi4ec5rUliCN0UyH71PFE9wrc1Tusp5
+ erHIdwxPJI8/uTUWC1yVkGvUqV5Jc0TEl6KXINrsiuAjlcjUvDKP6UVK9WxRagC/uNrLKYa
+ +fOcE7vL2JXRYc5wbrPXA==
+UI-OutboundReport: notjunk:1;M01:P0:hdo8gtg0g+E=;xCfJONjYgDEiTkVmAdrMKBauF+R
+ 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
+ jw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_152523_592209_EF5D6505 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250628_153430_654041_DA04BAE3 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +153,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Am 28.06.25 um 00:28 schrieb Ma=C3=ADra Canal:
+> Hi Stefan,
+>
+> On 27/06/25 12:18, Stefan Wahren wrote:
+>> Hi Ma=C3=ADra,
+>>
+>> Is this reproducible with a real Raspberry Pi 3 (Plus)?
+>
+> Yes, it is. It's also reproducible in a RPi 4 with the downstream
+> kernel. As RPi OS loads all those media-related modules, to easily
+> reproduce the error in RPi OS (without dealing with systemd and such),
+> you can just add the following modules to the modprobe blacklist:
+>
+> blacklist snd_bcm2835
+> blacklist bcm2835_v4l2
+>
+> # only for rpi4
+> blacklist bcm2835_codec
+> blacklist bcm2835_isp
+> blacklist bcm2835_mmal_vchiq
+>
+> Reboot the device, wait a couple of minutes (2-3 minutes), and you will
+> get the warning in the dmesg output.
+>
+>>
+>> Do you use arm64/defconfig or a special kernel configuration?
+>
+> defconfig
+Okay, after disabling all VCHIQ users including VCHIQ_CDEV and enabling=20
+DETECT_HUNG_TASK, i was able to reproduce it.
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on net-next/main]
-[also build test ERROR on next-20250627]
-[cannot apply to net/main linus/master v6.16-rc3]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Golle/net-ethernet-mtk_eth_soc-improve-support-for-named-interrupts/20250628-093324
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel%40makrotopia.org
-patch subject: [PATCH net/next 3/3] net: ethernet: mtk_eth_soc: use genpool allocator for SRAM
-config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20250629/202506290627.8dPD2PJ1-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250629/202506290627.8dPD2PJ1-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506290627.8dPD2PJ1-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/net/ethernet/mediatek/mtk_eth_soc.c: In function 'mtk_dma_ring_alloc':
->> drivers/net/ethernet/mediatek/mtk_eth_soc.c:1282:24: error: returning 'int' from a function with return type 'void *' makes pointer from integer without a cast [-Wint-conversion]
-    1282 |                 return -ENOMEM;
-         |                        ^
-
-
-vim +1282 drivers/net/ethernet/mediatek/mtk_eth_soc.c
-
-  1275	
-  1276	static void *mtk_dma_ring_alloc(struct mtk_eth *eth, size_t size,
-  1277					dma_addr_t *dma_handle)
-  1278	{
-  1279		void *dma_ring;
-  1280	
-  1281		if (WARN_ON(mtk_use_legacy_sram(eth)))
-> 1282			return -ENOMEM;
-  1283	
-  1284		if (eth->sram_pool) {
-  1285			dma_ring = (void *)gen_pool_alloc(eth->sram_pool, size);
-  1286			if (!dma_ring)
-  1287				return dma_ring;
-  1288			*dma_handle = gen_pool_virt_to_phys(eth->sram_pool, (unsigned long)dma_ring);
-  1289		} else {
-  1290			dma_ring = dma_alloc_coherent(eth->dma_dev, size, dma_handle,
-  1291						      GFP_KERNEL);
-  1292		}
-  1293	
-  1294		return dma_ring;
-  1295	}
-  1296	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I will try to fix that.
 
