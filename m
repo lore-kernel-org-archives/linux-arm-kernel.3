@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51078C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 07:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D083C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 07:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KUeXxBgI+7h5XEjRKpIzjri6sBUGSDAMqhl1PZvOn60=; b=tMix8iJcKi1ZEkA1Uy5UMTeg7z
-	TdXlK6+57jUv16M+vtOf0o7MdHuYM+m0o8BwXbCAuHWFGJk9ZHJSHHydJTgxqn4prkL7CnskLzpP4
-	M8vE6EH2hlcGSe4De3M2qnfZSho5Gc96W2mHlZU87b+lhpxxy+kzsy9bO4nxqbrdNmWyIbvaQ/3R7
-	xsnuSE7TCYNWofrWEmVO9pb6+zC8r9aO9+czRSWPs+wqcSmixELYXo+O/3iFZGtKNpn24F9SM58gn
-	X+IEFK4DKx04MMFZREyGMhcFcHnWNwgJKsWKlOCpgx77+SqSAvrimdT47nsogN767HkG1RLMDKrdQ
-	EGo/jmLA==;
+	bh=DYB1vJmLe3Rdmr0/MzKqJ7D+Hn3xvbuTIwyJ1UMzVdU=; b=o69TwH07XHU8uvzzbXdOjUrorx
+	ej4IAh1onFqLMAt4JieqziftBBXUeyAOzEVCvQN3UcqKxv+gHl0olXHV61GbwdKE8zkAsLJUcnIbW
+	KOCwIIbxSqcIfmVO+bG6d0z4Mn8i3xCK6aY2DjSzA75fen84RPv31EQug9Np75cxRGIonwRy3SPhP
+	+AMU7DtXeNmQvRANDy0TILNLr2bClOcpZkgQquElJcdoA0HKtStjl1P5P4dG5tu8wSoYxtQ/jBwFP
+	SuixYCl0ty66SNz0SvQA1bYTSHvs7E7l6IQgZwUq9sHpvHN0jvPxqwZSQ0eXuwpPdaA14CZYa2uEd
+	BQMJMaUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVQB3-0000000GVzv-4APa;
-	Sat, 28 Jun 2025 07:40:45 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uVQEs-0000000GWVh-1GDR;
+	Sat, 28 Jun 2025 07:44:42 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVPqa-0000000GUcL-1kjX
+	id 1uVQCX-0000000GW5Z-3yDK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 07:19:38 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A586022FBD;
-	Sat, 28 Jun 2025 09:19:33 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 2MsP83fmh9-E; Sat, 28 Jun 2025 09:19:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1751095172; bh=pKfvDVcRcDhp3Z+v2Y4AKpYYPrwP+zM1RXX1clGD2PA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AHra/kG8lut6uMn824OiAVCfnpcGcfiwN1zUENBkuttxyKLbi17bOjzAFlRGysU/f
-	 GrdMxS4Wu80qL8PMjDpUYie6Ywj/GIL4cJ35JzMQRPPOJC3uphQdv9SROGbPYUIuvb
-	 TCaZalOFImycAldXu4ObbHJR4Lqrw5XzTiiPqHytVYfjEDQkgUuUNoJbk8JWgMjtYX
-	 wcQ4Zxv2FQ60w/5GNyp9sXm53vK1u1t+BSg05+0uXZv/ZoxUwa3Y6rPL/MSW8HVNEq
-	 yAV74Ar8TucIuJ4ouuTNi0VU7u0MyAzr8St595cFuzfax309WRIr0pvk80g695kZTQ
-	 nQHr+5NfHceqg==
+	Sat, 28 Jun 2025 07:42:19 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bTklm3rKCz10XKK;
+	Sat, 28 Jun 2025 15:37:24 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 30664180492;
+	Sat, 28 Jun 2025 15:42:03 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 28 Jun 2025 15:42:02 +0800
+Subject: Re: [PATCH v2 0/2] ACPI: Improve SPCR handling and messaging on
+ SPCR-less systems
+To: Li Chen <me@linux.beauty>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Liu Wei <liuwei09@cestc.cn>, Ryan Roberts
+	<ryan.roberts@arm.com>, Andrew Morton <akpm@linux-foundation.org>, Jonathan
+ Cameron <Jonathan.Cameron@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>
+References: <20250620131309.126555-1-me@linux.beauty>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <67983ddc-b8f8-43b5-209f-ca77c91fe56b@huawei.com>
+Date: Sat, 28 Jun 2025 15:42:01 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Date: Sat, 28 Jun 2025 07:19:32 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof
- Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/6] dt-bindings: soc: samsung: exynos-pmu: allow
- mipi-phy subnode
-In-Reply-To: <20250627214258.GA189284-robh@kernel.org>
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
- <20250627-exynos7870-drm-dts-v2-2-d4a59207390d@disroot.org>
- <20250627214258.GA189284-robh@kernel.org>
-Message-ID: <6151f833d5a06369cd3dce5d2b2aca9f@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+In-Reply-To: <20250620131309.126555-1-me@linux.beauty>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_001936_865103_619D9637 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250628_004218_260028_413520DF 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-27 21:42, Rob Herring wrote:
-> On Fri, Jun 27, 2025 at 01:43:25AM +0530, Kaustabh Chakraborty wrote:
->> Add Exynos7870's PMU compatible to the list of nodes which allow a 
->> MIPI
->> PHY driver.
->> 
->> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->> ---
->>  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
->>  1 file changed, 1 insertion(+)
->> 
->> diff --git 
->> a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml 
->> b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> index 
->> f0fb24156da9b8980dcfd5339ae75f12a71cf6d6..45acd6a03d761a833cec435302e5190fb50f7a23 
->> 100644
->> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> @@ -172,6 +172,7 @@ allOf:
->>                - samsung,exynos5250-pmu
->>                - samsung,exynos5420-pmu
->>                - samsung,exynos5433-pmu
->> +              - samsung,exynos7870-pmu
+On 2025/6/20 21:13, Li Chen wrote:
+> From: Li Chen <chenl311@chinatelecom.cn>
+> This small series improves the kernel behavior and output when the ACPI SPCR
+> table is not present or not supported.
 > 
-> Don't you need to add this to 'compatible' and under 'select'?
-
-compatible: [1]
-
-samsung,exynos7-pmu is under select. 7870 has a fallback on 7.
-Do you think samsung,exynos7-pmu should've been added in this patch
-instead?
-
-[1] 
-https://elixir.bootlin.com/linux/v6.16-rc3/source/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml#L56
-
+> Currently, even on systems that completely lack an SPCR table, the kernel prints:
+> "Use ACPI SPCR as default console: Yes"
 > 
->>      then:
->>        properties:
->>          mipi-phy: true
->> 
->> --
->> 2.49.0
->> 
+> This may mislead users into thinking an SPCR table exists
+> when in fact there is no such table at all. This series addresses this in two steps:
+> 
+> Patch 1 ensures that acpi_parse_spcr() returns -ENODEV if CONFIG_ACPI_SPCR_TABLE is disabled.
+> 
+> Patch 2 updates arm64 acpi_boot_table_init() to only print the Yes
+> if acpi_parse_spcr() succeeds.
+> 
+> This results in cleaner and more accurate boot logs on ARM64.
+> 
+> Tested on both SPCR-enabled and SPCR-less qemu-system arm64 virt platform. [1]
+> 
+> Changelog:
+> v2: refine the printk message logic as suggested by Hanjun Guo. [2]
+> 
+> [1]: https://patchew.org/QEMU/20250528105404.457729-1-me@linux.beauty/
+> [2]: https://www.spinics.net/lists/kernel/msg5730585.html
+> 
+> Li Chen (2):
+>    ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is
+>      disabled
+>    ACPI: Suppress misleading SPCR console message when SPCR table is
+>      absent
+> 
+>   arch/arm64/kernel/acpi.c | 10 +++++++---
+>   include/linux/acpi.h     |  2 +-
+>   2 files changed, 8 insertions(+), 4 deletions(-)
+
+This version looks good to me,
+
+Acked-by: Hanjun Guo <guohanjun@huawei.com>
+
+Thanks
+Hanjun
 
