@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CFCC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 17:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B446AC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 17:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Po3wYPbug5oitTRavuGEWn/QaJpRE4HKrgqN22L2B/4=; b=Xx94dCdk2Fvuf+mcdh8lHCxNLM
-	I7e/K9lFxiYKbKicY73elLGP9IIghIJ5Og+ftBIUjwKRxe8BcNuxl8/AKU8dSHy82cBY6UML6by03
-	A4f1VejdA3lYadGfkhtigPhxvDJXykMtEy4QcbZ/wHhNqwA0tLlSrJZysSNjacm9vQBq2xsZgZnlE
-	xaVG+qmnSdd2KcMl+9byhD5f6bF0FrliRlNBYNLb+bdwPQkZuCyZuM+dTKvysFv8BDdgFkthpChTY
-	1+HKULM20C7gqdiTLFRerVp+/ymAU+bPdGsc+PuSWrwx73p5zceGGXVYWe6iZtdEcgMM4cMf5M9Yn
-	anQsp+6w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wv90lVXE01aZG1IQChh3QUB3BEu6U6RJRBVMs8TgMQc=; b=J6btlB4ZGGO7VCvV4ZvkgUDask
+	h3L/2uSrIRtXf/39EsVm+OWnNQhSzPeHkyZLrjfLs2hFuMp/d97VxcH/O0TGl1nYmx9DiA6ZxZpR5
+	nXpyfblIzIKUi32qPACfkJioJkFzFc2tpIqdvqqdazVwDMzgGePwuvxadVowXFehTJ2RMwylXILvc
+	bYlSAf8N9sMOAroXhD9MRUhLMtVNKvILi041DKBTL8ku7O+dybHaqAmB6woaVHcsDPwh5kgbns50Z
+	DJeAg9LHlAW7iV7uHXT2LNKY8jxtbevuar94QbU0mHajnFVTFMs13ft6XkRb+livMEntVnhcJ1hHi
+	/gx5GU5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVZNs-0000000H7Xs-3Awl;
-	Sat, 28 Jun 2025 17:30:36 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uVZQA-0000000H8Ag-3b0z;
+	Sat, 28 Jun 2025 17:32:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVYpZ-0000000H3TR-3PwI;
-	Sat, 28 Jun 2025 16:55:11 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id B4279403EE;
-	Sat, 28 Jun 2025 16:55:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1751129707;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Po3wYPbug5oitTRavuGEWn/QaJpRE4HKrgqN22L2B/4=;
-	b=DUpJPhzMrOSPLgVdf1ACK+cqKOO2lsxeMwkRoM1hiATKw9hAAPs0Sor8b/Kf3Hvbp33K38
-	aBFfBztTF28auBb4xLLL2xibhDT7My7mAIcWNcsqUt/kwwGGQHCTYbCYjoaEMxc146XT0Z
-	EGCkE4DfxFL3e4xBUnEdGkU0EAxS+RU=
-Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 4AF8F1226DC;
-	Sat, 28 Jun 2025 16:55:07 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Georgi Djakov <djakov@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	Johnson Wang <johnson.wang@mediatek.com>,
-	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
+	id 1uVZNl-0000000H7Tc-0CUa
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 17:30:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C85161458;
+	Sat, 28 Jun 2025 17:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD10C4CEEF;
+	Sat, 28 Jun 2025 17:30:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751131827;
+	bh=7Tfu+k4kIYM3+mGdV3aDYku43jcInJ/3Gr78P/OtksU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GQVeRKAngXUahmHWE9Xnnvma9G05vv5+5TTjXXAHH62wBldayNswjO3l7MxkXUzqD
+	 5rMkcnV2sPgyDNHZmRBGeSkZMDRT4smYyqAwzM4Sz1JtldMQCqF1jhi+QZcAPvzDF4
+	 dAV19Cr9LUj1Rs3iOrP6GFf4X5hUes3jggleQ4H26iFMNMIRxsnqsx1ql+zBHrW+Q+
+	 ynTlqQG0SN1NK1u9tfSGJv2GrI0kILeSAkiS3NGB0sjTfB8+H4eAqrugKRZitmTjTT
+	 kyKonglJ0n0Mvk7Nf8H9lqHdSdwAFr3pJXOhRTOX7khAGJVLQqHOXRKiPmqpqJYu7+
+	 MN9dW0YwLC7iw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uVZNh-00AqZC-En;
+	Sat, 28 Jun 2025 18:30:25 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v7 13/14] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
-Date: Sat, 28 Jun 2025 18:54:48 +0200
-Message-ID: <20250628165451.85884-14-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250628165451.85884-1-linux@fw-web.de>
-References: <20250628165451.85884-1-linux@fw-web.de>
+	linux-kernel@vger.kernel.org
+Cc: Toan Le <toan@os.amperecomputing.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH 00/12] PCI: xgene: Fix and simplify the MSI driver
+Date: Sat, 28 Jun 2025 18:29:53 +0100
+Message-Id: <20250628173005.445013-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_095510_135052_57A2D9DE 
-X-CRM114-Status: GOOD (  10.41  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, toan@os.amperecomputing.com, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,114 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Having recently dipped into the xgene-msi driver to bring it to use
+the MSI-parent concept, I have realised that some of it was slightly
+sub-par (read: downright broken).
 
-Add SFP cages to Bananapi-R4 board. The 2.5g phy variant only contains the
-wan-SFP, so add this to common dtsi and the lan-sfp only to the dual-SFP
-variant.
+The driver is playing horrible tricks behind the core code, missing
+proper affinity management, is terribly over-designed for no good
+reason, and despite what MAINTAINERS says, completely unmaintained.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
-v4:
-- update 2g5-board (reorder and drop phy-connection-type)
-- order sfp properties
-v3:
-- enable mac with 2.5g phy on r4 phy variant because driver is now mainline
----
- .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  | 11 +++++++++++
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 19 +++++++++++++++++++
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 19 +++++++++++++++++++
- 3 files changed, 49 insertions(+)
+This series is an attempt to fix most of the issues, and effectively
+results more or less in a full rewrite of the driver, removing a lot
+of cruft and fixing the interactions with the PCI host driver in the
+process (there really isn't any reason to rely on initcall ordering
+anymore).
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-index 53de9c113f60..6f0c81e3fd94 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-@@ -9,3 +9,14 @@ / {
- 	model = "Banana Pi BPI-R4 (1x SFP+, 1x 2.5GbE)";
- 	chassis-type = "embedded";
- };
-+
-+&gmac1 {
-+	phy = <&int_2p5g_phy>;
-+	phy-mode = "internal";
-+	status = "okay";
-+};
-+
-+&int_2p5g_phy {
-+	pinctrl-0 = <&i2p5gbe_led0_pins>;
-+	pinctrl-names = "i2p5gbe-led";
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index 36bd1ef2efab..4b3796ba82e3 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-@@ -8,6 +8,25 @@ / {
- 	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
- 	model = "Banana Pi BPI-R4 (2x SFP+)";
- 	chassis-type = "embedded";
-+
-+	/* SFP2 cage (LAN) */
-+	sfp2: sfp2 {
-+		compatible = "sff,sfp";
-+		i2c-bus = <&i2c_sfp2>;
-+		maximum-power-milliwatt = <3000>;
-+
-+		los-gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
-+		mod-def0-gpios = <&pio 83 GPIO_ACTIVE_LOW>;
-+		rate-select0-gpios = <&pio 3 GPIO_ACTIVE_LOW>;
-+		tx-disable-gpios = <&pio 0 GPIO_ACTIVE_HIGH>;
-+		tx-fault-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&gmac1 {
-+	managed = "in-band-status";
-+	phy-mode = "usxgmii";
-+	sfp = <&sfp2>;
- };
- 
- &pca9545 {
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 20073eb4d1bd..4d709ee527df 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -63,6 +63,19 @@ reg_3p3v: regulator-3p3v {
- 		regulator-boot-on;
- 		regulator-always-on;
- 	};
-+
-+	/* SFP1 cage (WAN) */
-+	sfp1: sfp1 {
-+		compatible = "sff,sfp";
-+		i2c-bus = <&i2c_sfp1>;
-+		maximum-power-milliwatt = <3000>;
-+
-+		los-gpios = <&pio 54 GPIO_ACTIVE_HIGH>;
-+		mod-def0-gpios = <&pio 82 GPIO_ACTIVE_LOW>;
-+		rate-select0-gpios = <&pio 21 GPIO_ACTIVE_LOW>;
-+		tx-disable-gpios = <&pio 70 GPIO_ACTIVE_HIGH>;
-+		tx-fault-gpios = <&pio 69 GPIO_ACTIVE_HIGH>;
-+	};
- };
- 
- &cci {
-@@ -133,6 +146,12 @@ map-cpu-active-low {
- 	};
- };
- 
-+&gmac2 {
-+	managed = "in-band-status";
-+	phy-mode = "usxgmii";
-+	sfp = <&sfp1>;
-+};
-+
- &i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c0_pins>;
+I've stopped short of repainting the MAINTAINERS file, but given how
+reactive Toan Le has been, maybe that's on the cards. Patches on top
+of -rc3, tested on a Mustang board.
+
+Marc Zyngier (12):
+  genirq: Teach handle_simple_irq() to resend an in-progress interrupt
+  PCI: xgene: Defer probing if the MSI widget driver hasn't probed yet
+  PCI: xgene: Drop useless conditional compilation
+  PCI: xgene: Drop XGENE_PCIE_IP_VER_UNKN
+  PCI: xgene-msi: Make per-CPU interrupt setup robust
+  PCI: xgene-msi: Drop superfluous fields from xgene_msi structure
+  PCI: xgene-msi: Use device-managed memory allocations
+  PCI: xgene-msi: Get rid of intermediate tracking structure
+  PCI: xgene-msi: Sanitise MSI allocation and affinity setting
+  PCI: xgene-msi: Resend an MSI racing with itself on a different CPU
+  PCI: xgene-msi: Probe as a standard platform driver
+  PCI: xgene-msi: Restructure handler setup/teardown
+
+ drivers/pci/controller/pci-xgene-msi.c | 418 +++++++++----------------
+ drivers/pci/controller/pci-xgene.c     |  33 +-
+ kernel/irq/chip.c                      |   8 +-
+ 3 files changed, 176 insertions(+), 283 deletions(-)
+
 -- 
-2.43.0
+2.39.2
 
 
