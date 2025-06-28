@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2C7C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 16:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E214C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 17:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=; b=MygNKOe4HIkflgGQ3wCleZABNS
-	ySahxlBEbPG12gNAiG+zJtI+eVeLg821oxDvdSal1T3n5UOLYWvOfdYi8zpvGn6DxD+oxkhBRbXnX
-	Z/3cBv1xfH3n9Pw1szzH625HjsjT77tShVAt3qs5Uv8vBJbmcLbVUvHhxOnyhN4MQTn6onYd4mxKf
-	6jXvVWGAGZKkbjQjn5hAY/CGM+y5pG0pWW3HfnMtiQwrpWi0SYP7uSG3OY7eq/OjDMvbyr7t8Vzcl
-	X+6UUkwm/yvk5VR1PUapS4f5cYLwQiKtN4s6XBCq1RSj/JvYQIM+lYXVM0uQxLYle0CYaFp+fjnI7
-	MKBl613w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/qrs4NU45TpHYc/lAE+m7bMHY18sn9BLTRzdjskFMKI=; b=NCElZ0OFLnEeDq04SYL7yndieR
+	m6iwhj4mr5RE5Sei8WyfJfklWwoJtDzc0uiI0+eLFrWO/avblX0e7zyYG8l/5sNiNi3aiz4wkehQR
+	34+CkEyMAEO4RTJe+MvHGmMtbxbKvX+lbyfmwfDecvuz1kCZqXbKmHxYS8UdfmnuhaiB8tXF2H0B2
+	Iojk4F8JsMN9ZOEbNTIYEj44mMdbGs6L0QO7ZS0QORCjswvVVxnWouUSc1dOjad/6tLUY8duOlgpB
+	D5eQm+qKe5mw16IJ8KJZmSU+RE4qJsKeMTx/8O0PtP5DZas0WxtEjKrMgtvLuhGOHqZsF4UDo/0oL
+	y4WxKi0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVYu8-0000000H4EK-0uBa;
-	Sat, 28 Jun 2025 16:59:52 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uVYwP-0000000H4Zz-11YZ;
+	Sat, 28 Jun 2025 17:02:13 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVYpV-0000000H3Q3-0WFK;
-	Sat, 28 Jun 2025 16:55:06 +0000
+	id 1uVYpU-0000000H3Pb-3ysb;
+	Sat, 28 Jun 2025 16:55:07 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id 366475FDC5;
-	Sat, 28 Jun 2025 16:55:03 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id 65F156055B;
+	Sat, 28 Jun 2025 16:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1751129703;
+	s=20200217; t=1751129702;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=;
-	b=pLscnmh0v0elPDPcPoyB+6J4zYnwxrWZiigae0gGTYfaX8G5JIdSDzDtQl5a9ebKB6l+QM
-	3W5/q4ItuK3S1VttX5cF4JZDCX8M+5zIIVtNUyfr/JWEndymMEGZ9RhWAQm9yNBtb2nAIk
-	KESUuzDpTl0Jy1yDpe1HkaFrxlHsGqw=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=/qrs4NU45TpHYc/lAE+m7bMHY18sn9BLTRzdjskFMKI=;
+	b=VTwmEDavMhrkAycqFkfP4y4EVjDu36QcN3H51k2QeK1soVY3xADbtoZMPPFIttD6IzUqw3
+	7Gidid2Z201xQvaIYox/VurrARkJOAmOREl0Fu3Gz1tuPtncHm/+vpcf/6UJw07MN3vd2m
+	kGA42buLzGypAT+vDcF3q4DpNpZKqSI=
 Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id D0DC11226EC;
-	Sat, 28 Jun 2025 16:55:02 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 015011226EC;
+	Sat, 28 Jun 2025 16:55:01 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -73,17 +72,15 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v7 02/14] dt-bindings: net: mediatek,net: update for mt7988
-Date: Sat, 28 Jun 2025 18:54:37 +0200
-Message-ID: <20250628165451.85884-3-linux@fw-web.de>
+Subject: [PATCH v7 00/14] further mt7988 devicetree work
+Date: Sat, 28 Jun 2025 18:54:35 +0200
+Message-ID: <20250628165451.85884-1-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250628165451.85884-1-linux@fw-web.de>
-References: <20250628165451.85884-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_095505_445127_9A6A7657 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250628_095505_466152_6A73499F 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,76 +97,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Update binding for mt7988 which has 3 gmac and a sram for dma
-operations.
+Sorry messed up the rebase in v6 somehow.
 
-MT7988 has 4 FE IRQs (currently only 2 are used) and 4 IRQs for use
-with RSS/LRO later.
+This series continues mt7988 devicetree work
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
+- Extend cpu frequency scaling with CCI
+- GPIO leds
+- Basic network-support (ethernet controller + builtin switch + SFP Cages)
+
+depencies (i hope this list is complete and latest patches/series linked):
+
+support interrupt-names is optional again as i re-added the reserved IRQs
+(they are not unusable as i thought and can allow features in future)
+https://patchwork.kernel.org/project/netdevbpf/patch/20250619132125.78368-2-linux@fw-web.de/
+
+needs change in mtk ethernet driver for the sram to be read from separate node:
+https://patchwork.kernel.org/project/netdevbpf/patch/566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org/
+
+for SFP-Function (macs currently disabled):
+
+PCS clearance which is a 1.5 year discussion currently ongoing
+
+Daniel asked netdev for a way 2 go:
+https://lore.kernel.org/netdev/aEwfME3dYisQtdCj@pidgin.makrotopia.org/
+
+e.g. something like this (one of):
+* https://patchwork.kernel.org/project/netdevbpf/patch/20250610233134.3588011-4-sean.anderson@linux.dev/ (v6)
+* https://patchwork.kernel.org/project/netdevbpf/patch/20250511201250.3789083-4-ansuelsmth@gmail.com/ (v4)
+* https://patchwork.kernel.org/project/netdevbpf/patch/ba4e359584a6b3bc4b3470822c42186d5b0856f9.1721910728.git.daniel@makrotopia.org/
+
+full usxgmii driver:
+https://patchwork.kernel.org/project/netdevbpf/patch/07845ec900ba41ff992875dce12c622277592c32.1702352117.git.daniel@makrotopia.org/
+
+first PCS-discussion is here:
+https://patchwork.kernel.org/project/netdevbpf/patch/8aa905080bdb6760875d62cb3b2b41258837f80e.1702352117.git.daniel@makrotopia.org/
+some more here:
+https://lore.kernel.org/netdev/20250511201250.3789083-4-ansuelsmth@gmail.com/
+
+and then dts nodes for sgmiisys+usxgmii+2g5 firmware
+
+when above depencies are solved the mac1/2 can be enabled and 2.5G phy/SFP slots will work.
+
+changes:
+v7:
+- squashed first 2 v6 patches as they should to have interrupt-names and mt7988
+  parts separated
+
 v6:
+binding:
 - split out the interrupt-names into separate patch
 - update irq(name) min count to 4
+- move interrupt-names up
 - add sram-property
-- drop second reg entry and minitems as there is only 1 item left again
+- drop second reg entry and minitems as there is only 1 item left
+
+dts:
+- fix whitespace-errors for pdma irqs (spaces vs. tabs)
+- move sram from eth reg to own sram node (needs CONFIG_SRAM)
 
 v5:
-- fix v4 logmessage and change description a bit describing how i get
-  the irq count.
-- update binding for 8 irqs with different names (rx,tx => fe0..fe3)
-  including the 2 reserved irqs which can be used later
-- change rx-ringX to pdmaX to be closer to hardware documentation
+- add reserved irqs and change names
+- update binding for 8 irqs with different names (rx,tx => fe1+fe2, rx-ringX => pdmaX)
+(dropped Robs RB due to this change again, sorry)
 
 v4:
-- increase max interrupts to 6 because of adding RSS/LRO interrupts (4)
-  and dropping 2 reserved irqs (0+3) around rx+tx
-- dropped Robs RB due to this change
-- allow interrupt names
-- add interrupt-names without reserved IRQs on mt7988
-  this requires mtk driver patch:
-  https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
+net-binding:
+- allow interrupt names and increase max interrupts to 6 because of RSS/LRO interrupts
+  (dropped Robs RB due to this change)
+
+dts-patches:
+- add interrupts for RSS/LRO and interrupt-names for ethernet node
+- eth-reg and clock whitespace-fix
+- comment for fixed-link on gmac0
+- drop phy-mode properties as suggested by andrew
+- drop phy-connection-type on 2g5 board
+- reorder some properties
+- update 2g5 phy node
+- unit-name dec instead of hex to match reg property
+- move compatible before reg
+- drop phy-mode
+
+v3:
+- dropped patches already applied (SPI+thermal)
+- added soc specific cci compatible (new binding patch + changed dts)
+- enable 2g5 phy because driver is now merged
+- add patch for cleaning up unnecessary pins
+- add patch for gpio-leds
+- add patch for adding ethernet aliases
 
 v2:
-- change reg to list of items
----
- Documentation/devicetree/bindings/net/mediatek,net.yaml | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+- change reg to list of items in eth binding
+- changed mt7530 binding:
+- unevaluatedProperties=false
+- mediatek,pio subproperty
+- from patternProperty to property
+- board specific properties like led function and labels moved to bpi-r4 dtsi
 
-diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-index 6672db206b38..74a139000f60 100644
---- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
-+++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-@@ -28,7 +28,8 @@ properties:
-       - ralink,rt5350-eth
- 
-   reg:
--    maxItems: 1
-+    items:
-+      - description: Register for accessing the MACs.
- 
-   clocks:
-     minItems: 2
-@@ -66,6 +67,10 @@ properties:
-       - const: gmac
-       - const: ppe
- 
-+  sram:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to mmio SRAM
-+
-   mediatek,ethsys:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -418,7 +423,7 @@ allOf:
-             - const: xgp3
- 
- patternProperties:
--  "^mac@[0-1]$":
-+  "^mac@[0-2]$":
-     type: object
-     unevaluatedProperties: false
-     allOf:
+Frank Wunderlich (14):
+  dt-bindings: net: mediatek,net: allow irq names
+  dt-bindings: net: mediatek,net: update for mt7988
+  dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for
+    mt7988
+  dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
+  dt-bindings: interconnect: add mt7988-cci compatible
+  arm64: dts: mediatek: mt7988: add cci node
+  arm64: dts: mediatek: mt7988: add basic ethernet-nodes
+  arm64: dts: mediatek: mt7988: add switch node
+  arm64: dts: mediatek: mt7988a-bpi-r4: add proc-supply for cci
+  arm64: dts: mediatek: mt7988a-bpi-r4: drop unused pins
+  arm64: dts: mediatek: mt7988a-bpi-r4: add gpio leds
+  arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethernet
+  arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
+  arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phys and leds
+
+ .../bindings/interconnect/mediatek,cci.yaml   |  11 +-
+ .../bindings/net/dsa/mediatek,mt7530.yaml     |  24 +-
+ .../devicetree/bindings/net/mediatek,net.yaml |  47 ++-
+ .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |  11 +
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  19 ++
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 198 ++++++-----
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi     | 318 +++++++++++++++++-
+ 7 files changed, 529 insertions(+), 99 deletions(-)
+
 -- 
 2.43.0
 
