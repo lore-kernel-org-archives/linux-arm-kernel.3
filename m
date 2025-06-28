@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4E8C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 04:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31D1C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 05:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XjehE0byLT6LFQc5LPjjr+h2YCj0kTxyUsbUd1G/6bU=; b=DtNxLozmp7v8W3
-	G3lCarAgK0SBX7zZ6r73T+zBWHOfnvYxZ7h/JNQELFZYfMW6jImcoPQL5vv7uasXy2QjkGjnn8PAf
-	Rqicz5i+E3ury4pxDMFag3jj3G3odBV4AkLZ0muEJD5YoiBkA2n9hMMMA/CsdczS2aXio7761K6XV
-	EKRPei1UBx7gl9hY2UxdbhV4DMyigFGOSkTPlkAnQhEL5YbA7PV9uhJg/KoWKcETN+avcI0E72QFQ
-	WCvCJQtY+YVx0MWAl3vCj1iNq8cb8OhZ7O812RBdrD1B9869fbrZ3ve2I5RrlEJNjFIOjV8Pm/SwC
-	1ewQfzGITVauyceHCGBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rXVeCZZvp+A5NNYGs2s/dwTCkmQjG5Z78vkzsXIMdK0=; b=hDa5ggHJel7kP1C+YuMnAlcO84
+	maZ6TRPDEeWSjckvj9g2u9nx8YJmcgLTal93MawuFGpIxm5WlgsFjW+9R6Jaq5YYJMvOebdAB8lyr
+	LmxcdDDAE0RlqKJCJ2EokZ/xiTp/lJ6s6gh/+3XsqL48ZnnRDSaFfsPxwS6/l3WEZixfvzK35i2Vv
+	uWqBKzOpgNIm/AINRXfYwVdV18UuzvngXx3R5+ZcQqM77YuC/X7nP/Plw8IlVazUUFoyF8rhzxX27
+	r89rCDk3KDKa1xOBXc6B0XBIV3gC45V87K5AFN4MdOoFe3kH9cnhVJ7jU71qyKw4cfVfwonSojGPA
+	vpD0qGdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVNO2-0000000GMvH-3WnK;
-	Sat, 28 Jun 2025 04:41:58 +0000
-Received: from mail-lf1-f45.google.com ([209.85.167.45])
+	id 1uVOP9-0000000GQnc-3eb7;
+	Sat, 28 Jun 2025 05:47:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVNLk-0000000GMnd-1DSG
+	id 1uVOMq-0000000GQWy-3g0T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 04:39:37 +0000
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5550dca1241so444613e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 21:39:35 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751085572; x=1751690372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XjehE0byLT6LFQc5LPjjr+h2YCj0kTxyUsbUd1G/6bU=;
-        b=LtKixDLgcUXaPE8AOgnuaU95Azpm+ZYS6HPmK/5ZIJQXR/HVtIaSd7bRoBKj2ZtXbc
-         B6z3xl4MpMNUxEUH4BXxZymg92NjzLLSLg2SNtTAF7LwIW+U5ml0/oUz7m4SygHmLtTa
-         o2Vtb0XCNn8VYMEqi2hvwCzNEcRdVQjgD8uhPBhDLIKLC0anfyJ4E/TtsEyD4mnd+hmY
-         LzWFG9x+Nb4SPTKVDWLkhijCez6Z+xHcbDrppzT/G6HVGB5qEJVNtF9BTXoPNstSqDPe
-         sucLWWytlD2Jm69Je3ZEGI/jcYH116GquK/vm8/qs39pYntHyO3BpjmZpSqSeMVayLEh
-         Y2hA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJX4zgsmuXmAHwQz/jQaLUzOLDYKfk+oY2r8JtfHtZ6o3uGAFeDktUVpm6I2tijmjm/dGsiCjOnYE4R6HXYClk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyhztutyjr9WONwbdJJPgWehAlLCAvlzSArVGm9T8y9OgVIudPB
-	Y7GZXLkVMTQKYDz4i3BeHryY7ULozoMIXLuD0YxSMxjiU82Sjap3cIBwCLDQIDh8
-X-Gm-Gg: ASbGncuMWzG0BSHNByMwxbLOALXAftg8lDfx5/C7kfRnsromIPH3xyRb3of6Ue0UFZR
-	cDmQVJlCZWleiz/kIOXcMLMwZk3wtYLmgPYHHtuyct7O2j8q8eXprL1x4J5NiRPsGZ5eRVtYtw9
-	f/5hwA8UBJ1WLa2U6wjpYr9OBeoK52RmzkcqT9K7IdK4wd2ScFwzx79Weulhy5gS5LnXR/3qJL9
-	ZNHzlsG7S4RPwPTmNR4jzNtJ5l4NO83SyQyQ8nqVhF+kew0toJ33baUIl5ljpm8sO04S3EieUO+
-	VHAPcQOiWDk+IGStAlSwFIn4N6t/xgJ9Utk6Ykpj/X/SWxYA8XmjnTRhRrxFcWNFQP8vR00pvuR
-	Mty2OVyZcdPZJ11IDVBEB2bqVQX3kQg==
-X-Google-Smtp-Source: AGHT+IHEN+9ZsgJMA8cZW19EeZrXawpifQnLLzyWJLRSIUiuzKIVykK6zZo+0XeyVN4bZSviBHZ6Jg==
-X-Received: by 2002:a05:6512:3d10:b0:553:d884:7922 with SMTP id 2adb3069b0e04-5550ba1191bmr1551373e87.48.1751085572038;
-        Fri, 27 Jun 2025 21:39:32 -0700 (PDT)
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com. [209.85.208.172])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2b8efbsm669926e87.121.2025.06.27.21.39.30
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Jun 2025 21:39:31 -0700 (PDT)
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-32b7123edb9so4571551fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Jun 2025 21:39:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUTFzJ4GSadzkn4uZpsmXUixHUrLMjSdDGn1DZk1Ik8KL+olgpwLw/XbHJ2EkHZGE6U5L2l5sUROp4gPZF2xjEs@lists.infradead.org
-X-Received: by 2002:a05:651c:304f:b0:32a:6c63:935 with SMTP id
- 38308e7fff4ca-32cdc4480afmr15261101fa.4.1751085570044; Fri, 27 Jun 2025
- 21:39:30 -0700 (PDT)
+	Sat, 28 Jun 2025 05:44:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EC58360052;
+	Sat, 28 Jun 2025 05:44:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC7DC4CEEA;
+	Sat, 28 Jun 2025 05:44:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751089486;
+	bh=mYZq/vP+pCKa5Srrcf2wrhmjIPn3LNdwFBkoYlVxsJg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Vn1IiSQbeMP6wuA2F27dtSqdbp2ArbL00yPePouVZSblzDKNG8yXiOgK+nnkNuJaU
+	 RnLf+f1S3+2cm5EFSVwrYLxHVkJUnAHPMHb95uceI3iP8OsmV0CPFEWP0vKpb94jtY
+	 MM9eU+jbuPpIDvleBvdNxN6GQLh5Fq5mdutZKuXAdNnLyXAiR9tv4K+1MzQatOHG1R
+	 NANJ+P5LgkglaGAmnQKcbSIdkd0REHSyfETz6YqgPpmhciSz8BrFG+9HkmWeNAomdV
+	 2xHC+zSqtOic8OqyBGAv0nwayAAKBADruI0Ots7SIlBd3y1OSV8/Oj5ZPrQSiGwh8E
+	 aNO7paZO7eUSQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 469805FA91; Sat, 28 Jun 2025 13:44:44 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH net 1/2] dt-bindings: net: sun8i-emac: Rename A523 EMAC0 to GMAC0
+Date: Sat, 28 Jun 2025 13:44:37 +0800
+Message-Id: <20250628054438.2864220-2-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250628054438.2864220-1-wens@kernel.org>
+References: <20250628054438.2864220-1-wens@kernel.org>
 MIME-Version: 1.0
-References: <20250626080923.632789-1-paulk@sys-base.io> <20250626080923.632789-2-paulk@sys-base.io>
-In-Reply-To: <20250626080923.632789-2-paulk@sys-base.io>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Sat, 28 Jun 2025 12:39:17 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67VVc4ckvzy+w++wcEUPSvV9Uxju2H4qTRNhjwAgYpzXg@mail.gmail.com>
-X-Gm-Features: Ac12FXwd7he7qKrnxN9KLQmU6bishZKuh8vNiwYMugN6VxIMRflq-7o7dltAy1M
-Message-ID: <CAGb2v67VVc4ckvzy+w++wcEUPSvV9Uxju2H4qTRNhjwAgYpzXg@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pinctrl: sunxi: Fix a100 emac pin function name
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_213936_325866_38603B25 
-X-CRM114-Status: GOOD (  10.63  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,20 +80,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 4:10=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> The Allwinner A100/A133 only has a single emac instance, which is
-> referred to as "emac" everywhere. Fix the pin names to drop the
-> trailing "0" that has no reason to be.
->
-> Fixes: 473436e7647d ("pinctrl: sunxi: add support for the Allwinner A100 =
-pin controller")
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+From: Chen-Yu Tsai <wens@csie.org>
 
-Acked-by: Chen-Yu Tsai <wens@csie.org>
+The datasheets refer to the first Ethernet controller as GMAC0, not
+EMAC0.
+
+Rename the compatible string to align with the datasheets. A fix for
+the device trees will be sent separately.
+
+Fixes: 0454b9057e98 ("dt-bindings: net: sun8i-emac: Add A523 EMAC0 compatible")
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml      | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+index 7b6a2fde8175..19934d5c24e5 100644
+--- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
++++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+@@ -23,7 +23,7 @@ properties:
+               - allwinner,sun20i-d1-emac
+               - allwinner,sun50i-h6-emac
+               - allwinner,sun50i-h616-emac0
+-              - allwinner,sun55i-a523-emac0
++              - allwinner,sun55i-a523-gmac0
+           - const: allwinner,sun50i-a64-emac
+ 
+   reg:
+-- 
+2.39.5
+
 
