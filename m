@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B27C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 12:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46385C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 12:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FOKxrsqb2oTs8K0Qs4yW3KUDYy/eQafrIAqX/JO7wOU=; b=zqtp5/sh960WtxYQwwYc5KyVcU
-	qOmnTE3Gv3Xw5dzG4sOvswpZ+jqsLOTf3iQme7s1g+T9NDxSfW8VTrnnwNyCS0sO9XdSn3tRR8n9q
-	YZ/4kGEfKBFgAatr45q+l77MF+he9owUPmUoEsgvzb6CrMeYOO2L15XaxLPlMhF+hM+dRJk10qShv
-	9ouaWzFQlyc9U7VH8uRG5WxwzWXDSwjR6WoPVeqkESK5Jn39WRT8Jfqz4T+u5zON4/Z5B/Xfjxe1a
-	gHerqIVF1Qc9TEhYjdb/nDco3rS27BlpsKiIzFHTQc95ImO+PGZqszp1rRvONS/Ound0Smn70lYGr
-	rVg1ieBg==;
+	bh=sRmglBZRzUZs55lGdIaJZ5KS3KNiefOaKqKJbdkEc7c=; b=kNmvR9u/MzUiaEbrA1v2SgWIYC
+	9vP/HWH+Roe9jE+rAnhYPMCNVD0MLIkmkKsdg9Ks1Pje8j8fjO9XAV4ZmhCQPbI22zspkh/Httqne
+	lBJQoQJr4Ticqq99Mu+7pcOrxbUTPctqu4MIPl779JfVhq1sTSUntGQ0AaoWCVu8laKcB/+hgBG6L
+	jX5QKQSZzJ2V1tY0G1CqfiINdTovFC/4AqBEB4QM1LXy0RhUb9CWo2oI6SZbXVUyz/0AGj8VWFxpT
+	pfPIQWjmqAVti3IJp9qY7t5Pm2De5uKR+zggADdu+UuhKGgT7rOZZ2b//dR4PfEYZOHVFHaRK112A
+	8q5vGnwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUOP-0000000GljN-29ZG;
-	Sat, 28 Jun 2025 12:10:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uVUnQ-0000000Gmun-1nH2;
+	Sat, 28 Jun 2025 12:36:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUJM-0000000GlNx-2FxO
+	id 1uVUl7-0000000Gmgq-31aD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 12:05:37 +0000
+	Sat, 28 Jun 2025 12:34:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 135A95C4A97;
-	Sat, 28 Jun 2025 12:05:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23FCC4CEEA;
-	Sat, 28 Jun 2025 12:05:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3D5960052;
+	Sat, 28 Jun 2025 12:34:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8237EC4CEEA;
+	Sat, 28 Jun 2025 12:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751112335;
-	bh=DttSR+loL/+XwutcRtElHNrAyAfQKYpKcvL9oh1brpk=;
+	s=k20201202; t=1751114056;
+	bh=Gv8OZAS59VuowhMNvxr1kBxJNYmz6S/ffMO8w95ApdI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jlBSfVn4ePgI4Y+1FPzDgHJ46C9P1SILP9iSnzYGnpProm9sYoW/Yfz0dZEYBNbLG
-	 7xgr7rsmMVS1iP7E41jLMCefzSJ3nU5xYHvsMiVAIDmXlJ6IB9hwW22YNfTPHErpDP
-	 a32lkyHkTYoUfFxN8z8ahdTMvan7bAzFaCBh/CKxLsRX2kMdzQc22oBpkWFauji0SX
-	 Pk33L/NS4Euj4O3DueYOGBFQrudskK+xJEIFuu31f0F0J1pLc3x+o1KNtlEySNB2FN
-	 xyc6ouX96CcQfC+WsPLz3B4jZTht0jN6ZaEoZ0TLzlJkJ2T00KQGK+JNVPEgUUlfdt
-	 AJ/oKPUIY/nug==
-Date: Sat, 28 Jun 2025 14:05:31 +0200
+	b=twO55Ffo5tiT0qncLDcjcnipq7VcjU8Nm4Y9P5oTopNqmVT8EmBWZqJwkVAx0gmt6
+	 sePfRtnNb/GBnM2VBj8vrmWQ8Qm08zQ+ZIv/X1Bl5ASJEZPEESajBqhX1zJzThex+s
+	 oLmAgFK+4fIvX308YNdwKC63WEV1TyInmmKCst38scYijOyyOcZZiGK0fTihwqeHSh
+	 AiJQ6ZtEB/9wLHRRmMzyLWtPEMBjlyJUE0yr/xxRfJwsOruDQMYV9IZkMQM3Kk1pf+
+	 QMeFbaQeTnUY/obXXj6gH2GPFysCCZ0bXLTCfAjs73AeDZiMD3mCkWtz5AaJS3s/Kw
+	 cI6DI31LSqVPA==
+Date: Sat, 28 Jun 2025 14:34:12 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Leo Wang <leo.jt.wang@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, bruce.jy.hung@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
-	Leo Wang <leo.jt.wang@fii-foxconn.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
-Message-ID: <ojyrhi2stm7q6kcd7yl3je36cccbzypsepmc4fvl7venynyu5g@52rs6bntmnwl>
-References: <20250627-add-support-for-meta-clemente-bmc-v4-0-ce7ff23460c4@fii-foxconn.com>
- <20250627-add-support-for-meta-clemente-bmc-v4-1-ce7ff23460c4@fii-foxconn.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: PCI: dwc: Add one more reference
+ clock
+Message-ID: <20250628-vigorous-benevolent-crayfish-bcbae5@krzk-bin>
+References: <20250626073804.3113757-1-hongxing.zhu@nxp.com>
+ <20250626073804.3113757-2-hongxing.zhu@nxp.com>
+ <20250627-sensible-pigeon-of-reading-b021a3@krzk-bin>
+ <aF76jeV+8us82APv@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250627-add-support-for-meta-clemente-bmc-v4-1-ce7ff23460c4@fii-foxconn.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_050536_618541_1991EE7A 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <aF76jeV+8us82APv@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 10:59:02AM +0800, Leo Wang wrote:
-> From: Leo Wang <leo.jt.wang@gmail.com>
+On Fri, Jun 27, 2025 at 04:09:49PM -0400, Frank Li wrote:
+> On Fri, Jun 27, 2025 at 08:54:46AM +0200, Krzysztof Kozlowski wrote:
+> > On Thu, Jun 26, 2025 at 03:38:02PM +0800, Richard Zhu wrote:
+> > > Add one more reference clock "extref" to be onhalf the reference clock
+> > > that comes from external crystal oscillator.
+> > >
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > ---
+> > >  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> > > index 34594972d8db..ee09e0d3bbab 100644
+> > > --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> > > +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> > > @@ -105,6 +105,12 @@ properties:
+> > >              define it with this name (for instance pipe, core and aux can
+> > >              be connected to a single source of the periodic signal).
+> > >            const: ref
+> > > +        - description:
+> > > +            Some dwc wrappers (like i.MX95 PCIes) have two reference clock
+> > > +            inputs, one from internal PLL, the other from off chip crystal
+> > > +            oscillator. Use extref clock name to be onhalf of the reference
+> > > +            clock comes form external crystal oscillator.
+> >
+> > How internal PLL can be represented as 'ref' clock? Internal means it is
+> > not outside, so impossible to represent.
 > 
-> Document the new compatibles used on Meta Clemente.
-> 
-> Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
+> Internal means in side SoC, but outside PCIe controller.
 
-Checkpatch warnings.
+So external... It does not matter for PCIe controller whether clock is
+coming from SoC or from some crystal.  It is still input pin. Same input
+pin.
+
+> 
+> >
+> > Where is the DTS so we can look at big picture?
+> 
+> imx94 pci's upstream is still on going, which quite similar with imx95.
+> Just board design choose external crystal.
+> 
+> pcie_ref_clk: clock-pcie-ref {
+>                 compatible = "gpio-gate-clock";
+>                 clocks = <&xtal25m>;
+>                 #clock-cells = <0>;
+>                 enable-gpios = <&pca9670_i2c3 7 GPIO_ACTIVE_LOW>;
+> };
+> 
+> &pcie0 {
+>         pinctrl-0 = <&pinctrl_pcie0>;
+>         pinctrl-names = "default";
+>         clocks = <&scmi_clk IMX94_CLK_HSIO>,
+>                  <&scmi_clk IMX94_CLK_HSIOPLL>,
+>                  <&scmi_clk IMX94_CLK_HSIOPLL_VCO>,
+>                  <&scmi_clk IMX94_CLK_HSIOPCIEAUX>,
+>                  <&pcie_ref_clk>;
+>         clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ext-ref";
+
+So this is totally faked hardware property.
+
+No, it is the same clock signal, not different. You write bindings from
+this device point of view, not for your board.
 
 Best regards,
 Krzysztof
