@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EE5C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 19:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED6CC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 19:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SGMEO+zoz+HWzh78LZSGbqXTEh2nH1ekxGnO2eEguXI=; b=ymrjhl+KSvZc7vpfQzH8nwKxqF
-	0+KAkAkIqBznRzf97ZVmaY8BD2sk0eptG0ub4eAbBngvHRz2EmWxN3QQj/zJG6WBABV8Aw8pLvBRj
-	WXQSxlkgYkMHLCAEYpE203qamfGvfqvwSq4SMomSx+Fj/661cd8N1fwqd/1bEK8R9zcyL5fB0Pp/k
-	aPUVYhyRWq3uHgA/6tnW7xrXAnnItTtvYtA/AoexYQTVykMiYDq9GpnLUKhaUV5T4wSZI0MIdSuqr
-	Wec11wPLt2uGyIPH+gMZZcaWScMjLfs3cijC3K0ilol3RFPA1lRS5NRzJ3u1Mk59G71i5QaMhnmjE
-	OWjlISUg==;
+	bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=; b=j3saDu9//JXhgZrRUrk8MDVXu+
+	CZbZkFoLmEUzgickJ0ko15SVH/bDp118BluR45LBJxHMtwUXorD1Po7enAz7XzBQXH4no6JUBIwlj
+	aQnILVDXXzuJdlBclMUp6I0xNPRfAC2hoqRkGJApeW7oINOl/QtUfi/V2VggBRUPUjx8WHqjbU5kS
+	HZ4y66D9HuomZR4PkS/aEmVyOaHPCv3TxFO+AHyIxSF2pTmOTc/nhNrz9vzD8fkSBfjgSIordcVER
+	mWUdgdR7xf206aOZI5E56PkUrQgJPyrjQsLCFSe2QAIhjcm6SSSydodaEx3ONtai3uUPxAEdsCyTF
+	V3H97Vpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVbC2-0000000HFXr-0M4D;
-	Sat, 28 Jun 2025 19:26:30 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uVbeL-0000000HGmw-16Yy;
+	Sat, 28 Jun 2025 19:55:45 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVb9i-0000000HFPB-2e2C
+	id 1uVbc1-0000000HGiM-3BBP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 19:24:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751138646; x=1782674646;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Ro0FlmLrWinNnokFyHfNdQ0lgtJM4CNJNMoTbYRCWyU=;
-  b=UHyNhGvqIZzEM0cSjtBxvVATzn3TiV1x/J9yXCsmR+ptmLBRNe++Rwp3
-   uhcJrhC1TztaJ8NHApS+FNspLIJmM8Vm6E7lMb9QTr4NmXcA1Cos8MpVQ
-   JzJv2O3vo0tu8IVJmTtEGAGHWG0bTFSb0xKaCf2KZtyMJPYnlTpBn87OV
-   xDuPLGdLpCPdV6RUFkJdeBOARFHuuZZTTFwC1jH0tvzF85suvMwVTBWvd
-   4k9KdM9hgYlxqYbyGNFQyDKDqo57V4OOvNU9+R7gQZBQaDv60MeziOiyr
-   Hn2uMq81yy5JS4oeGzeqpdD2F/S18ehI8Cqcva/FMYwcoxaa+4QgDDnHk
-   Q==;
-X-CSE-ConnectionGUID: sBbg0UHHTQa0ZxwaghRu6A==
-X-CSE-MsgGUID: gHJPFEOzRgGvtXaSmiLHZQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11478"; a="64769811"
-X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="64769811"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 12:24:04 -0700
-X-CSE-ConnectionGUID: jXePO38bT0CHGprmdchIyw==
-X-CSE-MsgGUID: JQD1j8FrRjiEqykhhgA7CQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
-   d="scan'208";a="153792123"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.245.225])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 12:24:00 -0700
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by svinhufvud.fi.intel.com (Postfix) with ESMTP id 9683E4435F;
-	Sat, 28 Jun 2025 22:23:57 +0300 (EEST)
-Message-ID: <66fd382c-6c6f-4d45-ad36-6308cea3e47f@linux.intel.com>
-Date: Sat, 28 Jun 2025 21:10:47 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/19] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-Content-Language: en-US
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Julien Massot <julien.massot@collabora.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- "open list:MAXIM GMSL2 SERIALIZERS AND DESERIALIZERS"
- <linux-media@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:STAGING SUBSYSTEM" <linux-staging@lists.linux.dev>,
- open "list:GPIO"
- "SUBSYSTEM:Keyword:(devm_)?gpio_(request|free|direction|get|set)"
- <linux-gpio@vger.kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>
-References: <20250618095858.2145209-1-demonsingur@gmail.com>
- <20250618095858.2145209-16-demonsingur@gmail.com>
- <aFpnU8EHGt14UMHC@kekkonen.localdomain>
- <42fdeee8-a23e-4499-83c6-77d50418cff2@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-In-Reply-To: <42fdeee8-a23e-4499-83c6-77d50418cff2@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Sat, 28 Jun 2025 19:53:23 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4531e146a24so16872185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Jun 2025 12:53:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751140399; x=1751745199; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=;
+        b=oz/V2ZjMm0FMb+3byXNcrPAxQtsVIB5HalrAzxCx5d6Tb3aiTLTu+EJ1l7Hd46fp33
+         NsNcr/kHsaRP9G3y+7WFExx05N67lGFcZXwgVJ8ngyAb8u8EtWgGsipTiodG5/bBgPT7
+         xPjUQSQrJRqQ4src7jPvcMK86NqhZEKnPfOAhfQ3cseRvvf9J4bTMCS1afCtfcX33UAK
+         joZ3rxwe9p5kW8BUK1+o/DKHPvSD1dPPC56LAzRml0y026Ngexfbtr70hwsHC4lv1MpN
+         U5HTxtcWEla2BOD8ziGmv+oXBq7TECX1RvBq0yoQa8up+sdM1X7GV+3Qm3o30W5Vo6CJ
+         OILQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751140400; x=1751745200;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=;
+        b=V5qUi6BEX+MS9W3ESu7t78A/xsOB5BctvnLj7H2BMvOXzffpmgIjflvCSJ+KxiReQ0
+         N4GV8lxRiLMzLDS3WBB7fGMg2XdHmD4gve+nxBuXAdiDNmDACrh+Fi6r5wCnKMlh3IAb
+         eny6COIVyvkVUbNNwmsnHg1oKkw+4UBUCa9XvnmT1A8/RCtoxLedC04Qx1OefbHC06Mp
+         ZEIAJJxrTx+T6/BQP26haoM8oG+YgJYMOfOC0WUEiTanKz1FZrW3D7yz75eIebOU24Cq
+         n/uini2rVYO2i8FGMeZuMFP8jU+lt0jBW8mpmoZyukYGB+WWqwpVpBwNQwYs7qAhi21h
+         4Jww==
+X-Forwarded-Encrypted: i=1; AJvYcCVGeSWN4mN6N05erxt0oGCznD0TOw2ay8djBhNO/B/xTt17qIKqRohC5j7NJZOFkrpI/Lg0QR0QGWrQ79Z7BFmq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2G8inMjafn5SZ2s0hR2o/3UbQD7U2Z0pRsDqxfDcMZOcnkAb6
+	kcSO8QNubqSZd+DCwPcxgkXAzlNP4IXsF3Jy19+z+YpjHOoHoXobjrGkNxlsPYgOWiA=
+X-Gm-Gg: ASbGncu1JsbDx3Zib0JjiWbhwDaI8Ht24qy3LVRdTSr5hF/UuJuVc07qjX/XJR53ucX
+	GVM5lxzHEhR1ArpI6aVo1DK32/GlJhKYlI8AkbnCi7+/lpOmxkDQLwjq1DsxJGx5lmSoJjnCA/V
+	CQHwgth/9vXaoymIL+CAK10Wdixu+OjSwm/IF94obKzKZZybZ1rdMuN1dhTUkOz+moDcXFI2Ddu
+	P7v0vIqSZG5Kf8C0uTgliy8OblRkDBTl+2ks67twBUEZLPnuuSSnEcPk5cYz/AXaeqkFlc6t549
+	jtqi4dxm5GQq4+lGpTSo4wpHPdmTYXkVJkxA/6ErTVFvb4dP6wVd9xlm3J1O3i1gy705
+X-Google-Smtp-Source: AGHT+IFHukOoSyHfuwr6fdOhiMqwDh6w4eyGrcAqPmtqVI9++TGozuj4ALvF8dEZH78Qc3I+9tpD/w==
+X-Received: by 2002:a05:6000:144d:b0:3a4:fc37:70e4 with SMTP id ffacd0b85a97d-3a90c07daffmr7119112f8f.58.1751140399497;
+        Sat, 28 Jun 2025 12:53:19 -0700 (PDT)
+Received: from localhost ([2a02:c7c:7213:c700:e33b:a0ed:df4b:222c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c80b516sm5871948f8f.41.2025.06.28.12.53.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 28 Jun 2025 12:53:19 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 28 Jun 2025 20:53:18 +0100
+Message-Id: <DAYFGP9TBU3K.1TEQFWX2GF7OR@linaro.org>
+Cc: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
+ <andersson@kernel.org>, <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Add SM6115 MDSS compatible
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: <robin.clark@oss.qualcomm.com>, <will@kernel.org>,
+ <robin.murphy@arm.com>, <iommu@lists.linux.dev>
+X-Mailer: aerc 0.20.0
+References: <20250613173238.15061-1-alexey.klimov@linaro.org>
+In-Reply-To: <20250613173238.15061-1-alexey.klimov@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_122406_689753_B63AAA3A 
-X-CRM114-Status: GOOD (  47.61  )
+X-CRM114-CacheID: sfid-20250628_125321_800875_D2EC09A8 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,298 +100,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
+On Fri Jun 13, 2025 at 6:32 PM BST, Alexey Klimov wrote:
+> Add the SM6115 MDSS compatible to clients compatible list, as it also
+> needs that workaround.
+> Without this workaround, for example, QRB4210 RB2 which is based on
+> SM4250/SM6115 generates a lot of smmu unhandled context faults during
+> boot:
+>
+> arm_smmu_context_fault: 116854 callbacks suppressed
+> arm-smmu c600000.iommu: Unhandled context fault: fsr=3D0x402,
+> iova=3D0x5c0ec600, fsynr=3D0x320021, cbfrsynra=3D0x420, cb=3D5
+> arm-smmu c600000.iommu: FSR    =3D 00000402 [Format=3D2 TF], SID=3D0x420
+> arm-smmu c600000.iommu: FSYNR0 =3D 00320021 [S1CBNDX=3D50 PNU PLVL=3D1]
+> arm-smmu c600000.iommu: Unhandled context fault: fsr=3D0x402,
+> iova=3D0x5c0d7800, fsynr=3D0x320021, cbfrsynra=3D0x420, cb=3D5
+> arm-smmu c600000.iommu: FSR    =3D 00000402 [Format=3D2 TF], SID=3D0x420
+>
+> and also failed initialisation of lontium lt9611uxc, gpu and dpu is
+> observed:
+> (binding MDSS components triggered by lt9611uxc have failed)
+>
+>  ------------[ cut here ]------------
+>  !aspace
+>  WARNING: CPU: 6 PID: 324 at drivers/gpu/drm/msm/msm_gem_vma.c:130 msm_ge=
+m_vma_init+0x150/0x18c [msm]
+>  Modules linked in: ... (long list of modules)
+>  CPU: 6 UID: 0 PID: 324 Comm: (udev-worker) Not tainted 6.15.0-03037-gaac=
+c73ceeb8b #4 PREEMPT
+>  Hardware name: Qualcomm Technologies, Inc. QRB4210 RB2 (DT)
+>  pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+>  pc : msm_gem_vma_init+0x150/0x18c [msm]
+>  lr : msm_gem_vma_init+0x150/0x18c [msm]
+>  sp : ffff80008144b280
+>   		...
+>  Call trace:
+>   msm_gem_vma_init+0x150/0x18c [msm] (P)
+>   get_vma_locked+0xc0/0x194 [msm]
+>   msm_gem_get_and_pin_iova_range+0x4c/0xdc [msm]
+>   msm_gem_kernel_new+0x48/0x160 [msm]
+>   msm_gpu_init+0x34c/0x53c [msm]
+>   adreno_gpu_init+0x1b0/0x2d8 [msm]
+>   a6xx_gpu_init+0x1e8/0x9e0 [msm]
+>   adreno_bind+0x2b8/0x348 [msm]
+>   component_bind_all+0x100/0x230
+>   msm_drm_bind+0x13c/0x3d0 [msm]
+>   try_to_bring_up_aggregate_device+0x164/0x1d0
+>   __component_add+0xa4/0x174
+>   component_add+0x14/0x20
+>   dsi_dev_attach+0x20/0x34 [msm]
+>   dsi_host_attach+0x58/0x98 [msm]
+>   devm_mipi_dsi_attach+0x34/0x90
+>   lt9611uxc_attach_dsi.isra.0+0x94/0x124 [lontium_lt9611uxc]
+>   lt9611uxc_probe+0x540/0x5fc [lontium_lt9611uxc]
+>   i2c_device_probe+0x148/0x2a8
+>   really_probe+0xbc/0x2c0
+>   __driver_probe_device+0x78/0x120
+>   driver_probe_device+0x3c/0x154
+>   __driver_attach+0x90/0x1a0
+>   bus_for_each_dev+0x68/0xb8
+>   driver_attach+0x24/0x30
+>   bus_add_driver+0xe4/0x208
+>   driver_register+0x68/0x124
+>   i2c_register_driver+0x48/0xcc
+>   lt9611uxc_driver_init+0x20/0x1000 [lontium_lt9611uxc]
+>   do_one_initcall+0x60/0x1d4
+>   do_init_module+0x54/0x1fc
+>   load_module+0x1748/0x1c8c
+>   init_module_from_file+0x74/0xa0
+>   __arm64_sys_finit_module+0x130/0x2f8
+>   invoke_syscall+0x48/0x104
+>   el0_svc_common.constprop.0+0xc0/0xe0
+>   do_el0_svc+0x1c/0x28
+>   el0_svc+0x2c/0x80
+>   el0t_64_sync_handler+0x10c/0x138
+>   el0t_64_sync+0x198/0x19c
+>  ---[ end trace 0000000000000000 ]---
+>  msm_dpu 5e01000.display-controller: [drm:msm_gpu_init [msm]] *ERROR* cou=
+ld not allocate memptrs: -22
+>  msm_dpu 5e01000.display-controller: failed to load adreno gpu
+>  platform a400000.remoteproc:glink-edge:apr:service@7:dais: Adding to iom=
+mu group 19
+>  msm_dpu 5e01000.display-controller: failed to bind 5900000.gpu (ops a3xx=
+_ops [msm]): -22
+>  msm_dpu 5e01000.display-controller: adev bind failed: -22
+>  lt9611uxc 0-002b: failed to attach dsi to host
+>  lt9611uxc 0-002b: probe with driver lt9611uxc failed with error -22
+>
+> Suggested-by: Bjorn Andersson <andersson@kernel.org>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Fixes: 3581b7062cec ("drm/msm/disp/dpu1: add support for display on SM611=
+5")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
+>
+> v2:
+>  - added tags as suggested by Dmitry;
+>  - slightly updated text in the commit message.
+>
+> Previous version: https://lore.kernel.org/linux-arm-msm/20250528003118.21=
+4093-1-alexey.klimov@linaro.org/
+>
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/a=
+rm/arm-smmu/arm-smmu-qcom.c
+> index 62874b18f645..c75023718595 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -379,6 +379,7 @@ static const struct of_device_id qcom_smmu_client_of_=
+match[] __maybe_unused =3D {
+>  	{ .compatible =3D "qcom,sdm670-mdss" },
+>  	{ .compatible =3D "qcom,sdm845-mdss" },
+>  	{ .compatible =3D "qcom,sdm845-mss-pil" },
+> +	{ .compatible =3D "qcom,sm6115-mdss" },
+>  	{ .compatible =3D "qcom,sm6350-mdss" },
+>  	{ .compatible =3D "qcom,sm6375-mdss" },
+>  	{ .compatible =3D "qcom,sm8150-mdss" },
 
-On 6/24/25 18:34, Cosmin Tanislav wrote:
-> On 6/24/25 11:52 AM, Sakari Ailus wrote:
->  >> +struct max9296a_chip_info {
->  >> +    unsigned int max_register;
->  >> +    unsigned int versions;
->  >> +    unsigned int modes;
->  >> +    unsigned int num_pipes;
->  >> +    unsigned int pipe_hw_ids[MAX9296A_PIPES_NUM];
->  >> +    unsigned int phy_hw_ids[MAX9296A_PHYS_NUM];
->  >> +    unsigned int num_phys;
->  >> +    unsigned int num_links;
->  >> +    struct max_phys_configs phys_configs;
->  >> +    bool use_atr;
->  >> +    bool has_per_link_reset;
->  >> +    bool phy0_lanes_0_1_on_second_phy;
->  >> +    bool polarity_on_physical_lanes;
->  >> +    bool needs_single_link_version;
->  >> +    bool needs_unique_stream_id;
->  >> +    bool supports_cphy;
->  >> +    bool supports_phy_log;
->  >> +    bool adjust_rlms;
->  >> +    bool fix_tx_ids;
->  >> +
->  >> +    enum max_gmsl_mode tpg_mode;
->  >> +
->  >> +    int (*set_pipe_stream_id)(struct max_des *des, struct 
-> max_des_pipe *pipe,
->  >> +                  unsigned int stream_id);
->  >> +    int (*set_pipe_enable)(struct max_des *des, struct max_des_pipe 
-> *pipe,
->  >> +                   bool enable);
->  >> +    int (*set_pipe_link)(struct max_des *des, struct max_des_pipe 
-> *pipe,
->  >> +                 struct max_des_link *link);
->  >> +    int (*set_pipe_tunnel_phy)(struct max_des *des, struct 
-> max_des_pipe *pipe,
->  >> +                   struct max_des_phy *phy);
->  >> +    int (*set_pipe_tunnel_enable)(struct max_des *des, struct 
-> max_des_pipe *pipe,
->  >> +                      bool enable);
->  >
->  > Given this many callbacks, having an operations struct for them seems
->  > appropriate.
->  >
-> 
-> Are you proposing adding another struct just to put these ops inside?
-> 
-> What I could do is use the existing struct max_des_ops and assign the
-> appropriate members in it, and then put whatever is left that's not
-> needed for the common framework in struct max9296a_chip_info, and add
-> a pointer to the struct max_des_ops instance it struct
-> max9296a_chip_info.
-
-Ah, I missed this wasn't specific to a device. Please ignore the comment.
-
-...
-
->  >> +static int max9296a_log_phy_status(struct max_des *des,
->  >> +                   struct max_des_phy *phy, const char *name)
->  >> +{
->  >> +    struct max9296a_priv *priv = des_to_priv(des);
->  >> +    unsigned int index = phy->index;
->  >> +    unsigned int val;
->  >> +    int ret;
->  >> +
->  >> +    if (!priv->info->supports_phy_log)
->  >> +        return 0;
->  >> +
->  >> +    ret = regmap_read(priv->regmap, MAX9296A_MIPI_PHY18, &val);
->  >> +    if (ret)
->  >> +        return ret;
->  >> +
->  >> +    pr_info("%s: \tcsi2_pkt_cnt: %lu\n", name,
->  >> +        field_get(MAX9296A_MIPI_PHY18_CSI2_TX_PKT_CNT(index), val));
->  >> +
->  >> +    ret = regmap_read(priv->regmap, MAX9296A_MIPI_PHY20(index), &val);
->  >> +    if (ret)
->  >> +        return ret;
->  >> +
->  >> +    pr_info("%s: \tphy_pkt_cnt: %u\n", name, val);
->  >
->  > dev_info()?
->  >
-> 
-> I initially used pr_info() with the subdev name passed from core
-> framwork to be consistent with the rest of the prints which use
-> v4l2_info().
-> 
-> I'll see how using dev_info() looks like, it would be nice if it would
-> match the v4l2_info() format, even though v4l2-ctl --log-status doesn't
-> care since all it looks for is `START STATUS`.
-
-Ok. Up to you.
-
-...
-
->  >> +static int max9296a_init_phy(struct max_des *des, struct 
-> max_des_phy *phy)
->  >> +{
->  >> +    struct max9296a_priv *priv = des_to_priv(des);
->  >> +    bool is_cphy = phy->bus_type == V4L2_MBUS_CSI2_CPHY;
->  >> +    unsigned int num_data_lanes = phy->mipi.num_data_lanes;
->  >> +    unsigned int dpll_freq = phy->link_frequency * 2;
->  >> +    unsigned int num_hw_data_lanes;
->  >> +    unsigned int hw_index = max9296a_phy_id(priv, phy);
->  >> +    unsigned int index = phy->index;
->  >> +    unsigned int used_data_lanes = 0;
->  >> +    unsigned int val;
->  >
->  > For register values, please use a type that explicitly specifies the 
-> number
->  > of bits, e.g. u32.
->  >
-> 
-> I used the type of the argument received by the regmap methods.
-
-Ack.
-
-> 
-> ...
-> 
->  >> +static int max9296a_reset_link(struct max9296a_priv *priv, unsigned 
-> int index)
->  >> +{
->  >> +    unsigned int reg, mask;
->  >> +
->  >> +    if (index == 0) {
->  >> +        reg = MAX9296A_CTRL0;
->  >> +        mask = MAX9296A_CTRL0_RESET_ONESHOT;
->  >> +    } else {
->  >> +        reg = MAX9296A_CTRL2;
->  >> +        mask = MAX9296A_CTRL2_RESET_ONESHOT_B;
->  >> +    }
->  >
->  > I might use an array for this.
->  >
->  > Is index guaranteed to be 0 or 1?
->  >
-> 
-> Should be, yes, but using an array for just two indices would cause a
-> bit of indirection when looking at the code. If it was more I would have
-> used one.
-
-Ack.
-
-> 
->  >> +
->  >> +    return regmap_set_bits(priv->regmap, reg, mask);
->  >> +}
->  >> +
->  >> +static int max9296a_init_link_rlms(struct max9296a_priv *priv,
->  >> +                   struct max_des_link *link)
->  >> +{
->  >> +    unsigned int index = link->index;
->  >> +    int ret;
->  >> +
->  >> +    /*
->  >> +     * These settings are described as required on datasheet page 53
->  >> +     * for MAX96714.
->  >> +     */
->  >> +
->  >> +    ret = regmap_write(priv->regmap, MAX9296A_RLMS3E(index), 0xfd);
->  >> +    if (ret)
->  >> +        return ret;
->  >
->  > You could also do:
->  >
->  >     if (!ret)
->  >         ret = ...;
->  >
->  > And return ret at the end. It's one line less per call. Up to you.
->  >
->  >> +
->  >> +    ret = regmap_write(priv->regmap, MAX9296A_RLMS3F(index), 0x3d);
->  >
->  > What are these magic numbers? Could we have human-readable names for 
-> them?
->  >
->  > The register names seem pretty opaque, too. Some explanation here would
->  > seem reasonable.
->  >
-> 
-> They're extracted from the datasheet of MAX96714, the values are
-> undocumented, but they're necessary to "optimize performance" of the
-> GMSL link. I'll add a comment stating the datasheet page and section.
-
-Ack, sounds good.
-
-> 
-> ...
-> 
->  >> diff --git a/drivers/media/i2c/maxim-serdes/max_des.c b/drivers/ 
-> media/i2c/maxim-serdes/max_des.c
->  >> new file mode 100644
->  >> index 000000000000..6a45f42fe033
->  >> --- /dev/null
->  >> +++ b/drivers/media/i2c/maxim-serdes/max_des.c
->  >> @@ -0,0 +1,3108 @@
->  >> +// SPDX-License-Identifier: GPL-2.0
->  >> +/*
->  >> + * Maxim GMSL2 Deserializer Driver
->  >
->  > How about naming the file maxim-deserialiser? I'd use e.g. "maxim_des"
->  > prefix for the functions. Just "max" is quite generic.
->  >
-> 
-> max_des seems explicit enough. The max naming comes from the common
-> prefix in the name of the chips, eg: MAX96724, MAX96717, not from Maxim.
-
-Yeah, the prefix Maxim uses for their chips is a bit unfortunate in 
-naming context. I guess it's ok as it's not part of the UAPI.
-
-> 
-> If I intended it to come from maxim, I would have obviously used maxim_,
-> since that's what vendor-prefixes.yaml specifies.
-> 
-> Although they were initially made by Maxim, Analog Devices bought Maxim,
-> so using maxim_ would make as much sense as using adi_.
-> 
-> Switching to maxim_ would only lengthen the name of the functions,
-> types, symbols, macros, etc, and at least register/masks macros are
-> already extremely long.
-> 
-> ...
-> 
->  >> +static int max_des_parse_src_dt_endpoint(struct max_des_priv *priv,
->  >> +                     struct max_des_phy *phy,
->  >> +                     struct fwnode_handle *fwnode)
->  >> +{
->  >> +    struct max_des *des = priv->des;
->  >> +    u32 pad = max_des_phy_to_pad(des, phy);
->  >> +    struct v4l2_fwnode_endpoint v4l2_ep = { .bus_type = 
-> V4L2_MBUS_UNKNOWN };
->  >> +    struct v4l2_mbus_config_mipi_csi2 *mipi = &v4l2_ep.bus.mipi_csi2;
->  >> +    enum v4l2_mbus_type bus_type;
->  >> +    struct fwnode_handle *ep;
->  >> +    u64 link_frequency;
->  >> +    unsigned int i;
->  >> +    int ret;
->  >> +
->  >> +    ep = fwnode_graph_get_endpoint_by_id(fwnode, pad, 0, 0);
->  >> +    if (!ep)
->  >> +        return 0;
->  >> +
->  >> +    ret = v4l2_fwnode_endpoint_alloc_parse(ep, &v4l2_ep);
->  >> +    fwnode_handle_put(ep);
->  >> +    if (ret) {
->  >> +        dev_err(priv->dev, "Could not parse endpoint on port %u\n", 
-> pad);
->  >> +        return ret;
->  >> +    }
->  >> +
->  >> +    bus_type = v4l2_ep.bus_type;
->  >> +    if (bus_type != V4L2_MBUS_CSI2_DPHY &&
->  >> +        bus_type != V4L2_MBUS_CSI2_CPHY) {
->  >> +        v4l2_fwnode_endpoint_free(&v4l2_ep);
->  >> +        dev_err(priv->dev, "Unsupported bus-type %u on port %u\n",
->  >> +            pad, bus_type);
->  >> +        return -EINVAL;
->  >> +    }
->  >> +
->  >> +    ret = 0;
->  >
->  > ret is already 0 here.
->  >
->  >> +    if (v4l2_ep.nr_of_link_frequencies == 0)
->  >> +        link_frequency = MAX_DES_LINK_FREQUENCY_DEFAULT;
->  >
->  > Isn't this required in DT?
->  >
-> 
-> Required from a schema standpoint or a code standpoint?
-> 
-> Code:
-> 
-> rval = fwnode_property_count_u64(fwnode, "link-frequencies");
-> if (rval > 0) {
-> }
-> 
-> No rval <= 0 case.
-> 
-> And I don't think I made it required in the schema.
-
-I'd do that. The device requires this configuration to operate anyway. 
-Also the concern of EMI may be lesser in environments serdes devices are 
-used but I wouldn't say it's not there.
-
--- 
-Regards,
-
-Sakari Ailus
-
+Gentle ping.                                                               =
+                                                                =20
+                                                                           =
+                                                                =20
+This was sent over 2 weeks ago.                                            =
+                                                                =20
+                                                                           =
+                                                                =20
+Thanks,                                                                    =
+                                                                =20
+Alexey Klimov
 
