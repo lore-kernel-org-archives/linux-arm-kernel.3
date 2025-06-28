@@ -4,133 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F98C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 08:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F5DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rH9BlYUujAtn0szsEikQz+xplSeERMbYhhICLQkcGk=; b=uXAzPVqC503y4g8801vsoAcdV6
-	HZBmkFEg0bXiGs57p3IPnHoHsAIhX4HUMxWFaH7J38LXWsToGy0xUHQ5WU0cLn0mJRdk9PZ2Au8d3
-	iKDKnPp09czEmaqZg2OxE5OqJ6XKdRbas6FgVDfl3qDKxFVeqiJi4BxwJWZJPTfC1bPlwaeklkadi
-	v9DhW3l+Bm8fkD57GpUm/79WFyyKHHSbBHF2KmS65TyBU6TnwPHZ90KiYEiDnZh8S+y+Jfyaoqjl+
-	6VHiRRouki2itteb2facMszZ6aqDSbfFucaWsvsxGxnhuMjtJ8GZLkQvUMaDhvXgTBK/hAg3VWR5R
-	nwtxJ/7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ybqsyqEQtaTyGQvk+BFdCF7y271RgdQMonWszxYB88c=; b=QjNA8TekNtchkuVfQy2aZdjuRB
+	PoTyABZHOTvIW6EJK5MidKBP4tE3yosLBLLNMfjp8dL8QXGgFodSo0x5jXCsjPvcFVdjGI5L5rh7/
+	k6nZl3D1HMMBmiJ2x4ZYTYhhvy2lbmbIe1mutxjauFmSO+3NQ2/OTV9k2KdCJQqCy0IV86gidM2x5
+	pMpaDWgPRN7awklFhRPh+lBoCdK++NpMQ+9BUHqdey3gsRbJavLx23ovA2F7zWz0i7KgUjNE0Ki1E
+	/fd7jss+JH5gwLzCrfQ6P2AnLl2tfTQr2RQQU3fRcXZkja5PnzZDo9ObH9+CG21MNcv+MqIC/BqMz
+	f7AQwQKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVR56-0000000GZDG-1ZcV;
-	Sat, 28 Jun 2025 08:38:40 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1uVRQ8-0000000GaKD-1pkU;
+	Sat, 28 Jun 2025 09:00:24 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVR2k-0000000GZ1w-0Sek
+	id 1uVRNq-0000000GaD0-33pO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 08:36:15 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-606aadc1433so372753a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Jun 2025 01:36:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751099772; x=1751704572; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=2rH9BlYUujAtn0szsEikQz+xplSeERMbYhhICLQkcGk=;
-        b=rzK+R15agPSKnEKTihKYdojGQ99XmEBUT/+lgUB8eMOqY6GrkexvAsFW8h8n80SlgO
-         tR/DaPlGhjhIwvdm0h+UmqZ8jxtqmUQSlO/I5B8WF8oBjlTod9gPRncd5m6afKlYNv9q
-         tUCmAnLxeteNK4YwGsvWbQ8fhujpdo8CDgvSmAw8J934v8gVOYEPF8bw7+IO0p3ow4yx
-         Gflq6VcSmvGp6ajUrxHeIIBjVENNLL5AwVrLDr6ef2IpnKbLMTAy1N1q3Apbl6mQPQPM
-         LaLhCxGx+yzq04DdVoDBvlZH+03VNwrXm7vqpvFKr3b8nBp6oX4/0IpRHPLaL7/KBEzG
-         1zpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751099772; x=1751704572;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2rH9BlYUujAtn0szsEikQz+xplSeERMbYhhICLQkcGk=;
-        b=RFcgWWbw8MR+saOgikhZ4Mi5p4saERQe73qUfSlq7OE78DhAGIndNkSlNTrr2peeeQ
-         S7C0ZXPFvnXle+3IHoH1iOYrwRu9euWsdheLeRCRHAGBoVmdycofbah9JU42Qs8wsOZ8
-         +yKWYbRDO+l0clU+PLJnOrQJl8Ab2Mj9gGvUh4Eug25xO3Wixoqkt6/i2fEZ36fQhcC+
-         QWeQBMc9Vg5DEs40NT3wvDQGRJg66E0L1tFtfEemZlhWu1WaI7aAzswZeyoFHNWxOhTd
-         MevdBHPfrVp5t5bRk7eBm4AuLKChXPl9qP+qBz0M/I3OVu+Rqmo9BtXOFWzErd6vAejN
-         8/WQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU62VZjje2dd5wdCXmdGAKyJ0S1E/1iBs/6XgBEZNXvlZWCx8RKKvOovHeinXh9Uk4ZSwHcLltFN85mlxH2B852@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvVsBNwGIEQFB01cYlVKcF4w93pLzyFRfeD3ZSnQXGI78VID9M
-	tpBDsnK74FYGNGnZl0FQ12AoAawzXDtFQaZgAMtP1SmrWK8WmaHng52SHdaU6zVgfGw=
-X-Gm-Gg: ASbGncvn0mj2BOEM1a20PdHm93I3fWZ59kQqHZXdDtSc/20uLS0DcEhaWPaImytgGmE
-	U2wW8WnWemBHiJQib1m46XPcO1dkW2LaIDdH3JsdfXWJn7I7bQWKeTn4zxj8gJD0wD3DGlb3nai
-	2ItZfogxh6ZMT6Q3sZSy41VdFvhPDutoU5UHNHJ8gAQG3R+UAV1629v7HPuPZwIGG3pp/VNvDxa
-	xyyggNZanTGdPgawmLCn0OeVD4KSe3I6LOWexb8hOeWTbjj43uVF2y9XWo1RdMsyFJ01+HDnotj
-	LpxPrIYFYtL9WmLJ60y19DZf1D74K7h9JtpK2cjGpgUcafddqrj6quVxpfE4oLk2pcsEr1IaxC5
-	tmyHwIP4crDRhNrc=
-X-Google-Smtp-Source: AGHT+IEC95YGQTUZplG6mM1XnXrpcmt1FOskC/y/jwxAHjVTucahWCeAyjJhBLY/WgD8AnFYJNssQQ==
-X-Received: by 2002:a17:907:940c:b0:ade:328a:95d1 with SMTP id a640c23a62f3a-ae36aa096b6mr69794866b.10.1751099772128;
-        Sat, 28 Jun 2025 01:36:12 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35363aff6sm277044866b.19.2025.06.28.01.36.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Jun 2025 01:36:11 -0700 (PDT)
-Message-ID: <47937e98-c6b0-45f9-b610-cd2754f9e861@linaro.org>
-Date: Sat, 28 Jun 2025 10:36:09 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/mediatek-v1: Tidy up probe_finalize
-To: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org, will@kernel.org
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, yong.wu@mediatek.com
-References: <7c78149504900bc6c98a9c48f4418934b72d89ac.1751036478.git.robin.murphy@arm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <7c78149504900bc6c98a9c48f4418934b72d89ac.1751036478.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Sat, 28 Jun 2025 08:58:04 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1751101070;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ybqsyqEQtaTyGQvk+BFdCF7y271RgdQMonWszxYB88c=;
+	b=ROENJZTIjZyoCI9g2NPJUEtCzQMHCjP4pthou6YG3P6yiZ2a1ek19Xv1QSzBHZzkaWgQAm
+	3xmFVpxPyobZosVJygZtNI5iEPcIz/nFt5Mi1Gc0t8WkooJHZ4VZCjxfnlm2XBe0aAKk6J
+	4umnJnAB61UfIauxFGLuU7SsDfGL6YYM6ROHv/9Ge7Gvz1h2GptoLGsLO7TiXmULdPMdsC
+	d9ksbrHAIcJaOT53g1FN6EWXLzMCU+ziHi9IXhoOw7M1fBsJ33315yDrQI5J8nUc+uOQI0
+	2HVtYevIo0/JXHjMDXN9et/v3aON1lm6QZ90GzwsA4oYmvanj77wP183v7Bpkw==
+Content-Type: multipart/signed;
+ boundary=45ff3aaff99b43270ac8aa38352e1e585a3b95bead335ff4d3af9d1accaf;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Sat, 28 Jun 2025 10:57:29 +0200
+Message-Id: <DAY1IKPD6TB6.1JICGYYQTWEDR@cknow.org>
+Cc: "Dragan Simic" <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399
+ boards
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Quentin Schulz"
+ <quentin.schulz@cherry.de>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
+References: <20250627152645.740981-1-didi.debian@cknow.org>
+ <b1c789bf-1369-42ec-8bb3-d7a45c92abf0@cherry.de>
+ <DAXGZG0DEKS2.7RLXKSDO0C9T@cknow.org> <5121698.88bMQJbFj6@diego>
+In-Reply-To: <5121698.88bMQJbFj6@diego>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_013614_180203_9C48CE39 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250628_015803_044503_D1CCA809 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,25 +76,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/06/2025 17:07, Robin Murphy wrote:
-> Krzysztof points out that although the driver now supports COMPILE_TEST
-> for other architectures, it does not build cleanly with W=1 where the
-> stubbed-out ARM API can lead to an unused variable warning.
-> 
-> Since this is effectively the correct intent of the code in such cases,
-> mark it as __maybe_unused, tidying up some cruft in the process.
-> 
-> Reported-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
-> 
-> Since I'd already got as far as thinking this through, I figure I may
-> as well save Krzysztof the trouble of rewriting it :)
+--45ff3aaff99b43270ac8aa38352e1e585a3b95bead335ff4d3af9d1accaf
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Sure, thanks!
+Hi Heiko & Quentin,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Fri Jun 27, 2025 at 8:25 PM CEST, Heiko St=C3=BCbner wrote:
+> Am Freitag, 27. Juni 2025, 18:52:08 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Diederik de Haas:
+>> On Fri Jun 27, 2025 at 6:10 PM CEST, Quentin Schulz wrote:
+>> > On 6/27/25 5:16 PM, Diederik de Haas wrote:
+>> >> The #address-cells and #size-cells properties are not useful on the D=
+SI
+>> >> controller nodes; they are only useful/required on ports and panel(s)=
+.
+>> >> So remove them from the controller node and add them where actually
+>> >> needed on the various rk3399 based boards.
+>> >>=20
+>> >> Next to that, there were several (exact) redefinitions of nodes which
+>> >> are already present in rk3399-base.dtsi to add a mipi_out endpoint.
+>> >> Simplify that by referencing the mipi_out phandle and add the endpoin=
+t
+>> >> to that, which allows the removeal of the ports redefinition.
+>> >>=20
+>> >> And fix 1 instance where the mipi_out referenced node was not sorted
+>> >> correctly.
+>> >>=20
+>> >> This fixes the following DTB validation warnings:
+>> >>=20
+>> >>    unnecessary #address-cells/#size-cells without "ranges",
+>> >>    "dma-ranges" or child "reg" property
+>> >>=20
+>> >
+>> > Too many unrelated changes in this commit, please split into multiple=
+=20
+>> > commits.
+>> >
+>> > I could identify:
+>> >
+>> > - moving address-cells/size-cells from SoC.dtsi to board dts(i)s,
+>> > - reordering properties to better match DT coding style=20
+>> > https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-=
+style.html#order-of-properties-in-device-node
+>> > - use phandle to directly access ports,
+>> > - reorder DT node to better match DT coding style=20
+>> > https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-=
+style.html#order-of-nodes
+>>=20
+>> I initially had it as several commits, but that resulted in (f.e.) 1
+>> issue being fixed, but 1 (or more) others would pop up.
+>> Those were then fixed in follow-up commits, but I assumed I'd get Rob's
+>> bot screaming at me for introducing new warnings (first).
+>>=20
+>> And as they all relate(d) to fixing the dsi node, I then choose to
+>> combine them (but still separated by SoC).
+>> IMO there are several ways to organize the commits and each would have
+>> their pros and cons, so I 'settled' for this arrangement.
+>>=20
+>> So I prefer to wait for other people's opinion first before reorganizing
+>> the commits again (if there's a different consensus).
+>
+> personally, I can live with the current setup here, because as you said
+> it's all DSI related, and also not a functional change ;-) .
+>
+> I guess you _could_ move the clock-master + status moves into a separate
+> patch, as that should not trigger any warnings.
 
-Best regards,
-Krzysztof
+After having thought a bit more about it, I actually agree that the
+moving of address/size-cells from SoC to board dts[i] should be separate
+from extracting the ports/endpoints into a node with a phandle
+reference. This patch set is actually from 2 branches:
+- dtb-fixes-dsi
+- dtb-fixes-ports-endpoints (although I now use 'dtb-fixes-fruit')
+
+ports-endpoints is on top of dsi and came forth as it made sense to do
+the ports/endpoints extraction in more places.
+I'll then also put the DT node movement in a separate patch.
+
+I'm not a fan of putting clock-master + status property move into a
+separate patch as then the address/size patch would look weird (to me)
+as you'd see how those properties were inconsistently sorted ... just so
+that can be fixed in a separate patch.
+
+Cheers,
+  Diederik
+
+--45ff3aaff99b43270ac8aa38352e1e585a3b95bead335ff4d3af9d1accaf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaF+ufwAKCRDXblvOeH7b
+biZgAQCME6QUUiJaphH6VGnwcT9ww6WdV692xu7Owyds/SRnrQD/dSITCnYbGopt
+SHRh40ahmolnhZl8p4Azfb0upjxs9gs=
+=rbBp
+-----END PGP SIGNATURE-----
+
+--45ff3aaff99b43270ac8aa38352e1e585a3b95bead335ff4d3af9d1accaf--
 
