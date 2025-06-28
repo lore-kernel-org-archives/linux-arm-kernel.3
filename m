@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5277DC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 16:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F3CC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 16:18:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eY9HyLF58JDvfgudOa6M9Uq88oD9aGXjhMiTK7IK1wg=; b=LBEy0Q7TWohVKpiE9MCZbDB0uU
-	/xzlNh7mdMAKVIS0qvBoktLmI9dr0PfCdLLsH0DtzuoSlCID1eynNL8oOa1u1uwBo2nIf5YwGi+Jj
-	2fkaflsgvP7lWjTtbRzoYd5Rw4k9+KjX77ojYNc/4psRjjVrK7FXbgY1ti3wkOzNKxN3MW09mhJGL
-	wAcoG+SO+QqaVkCJ9ddBf6vDqTEbtJ+1RNSc6bTu3M709egY7EE6QFMa7GymgetNciz7BpWnYHmW2
-	QQvgpoo3fpkR3LWVMAMYbjCiJzA8TWUEZ+WidxkqbS9XyDJyh5FOH8Cdvg//8OgMvOuP5AHXb5dvc
-	EQCFjKxw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PT8ZTtr0kmtripMbDTNXo1GcIawffufDPAMZzsfFoOs=; b=V+AKDPscsM7vCBGqKQUiWD6CzU
+	rhVy9o5zB9BK/JcZtbErG0FkEhOw6xFWk8IwJl0JU6zUS8V+vXjvRzjueu/x6Q2TSBRYwDPdIaZkB
+	fk9H5Pm+jDY5AZXrgIZ5oJ/jt+nrPEfL9D9xsU8BSLMUGBp1ybF8DRU08diR7JNMp5jsuzJMmx7og
+	VxxNggpH3d8l8IuN3m90mu9rF+irsVZCBQ9nQB5t+mjFtwdL3yBovHgoVjssc8RdDTWFAk5KTj/uY
+	b5fFD5Q/VNnwhy2WPhI5CDsC2gvwMDlCpEvAPKXCwzw/luHqCb2NMSTs/2oX1C6KpgXNjjSNn0DLN
+	C2lpjOxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVY1x-0000000GzOB-320M;
-	Sat, 28 Jun 2025 16:03:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uVYGC-0000000H0TU-2Z3n;
+	Sat, 28 Jun 2025 16:18:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVXze-0000000GzHS-3p98;
-	Sat, 28 Jun 2025 16:01:32 +0000
+	id 1uVYDt-0000000H08Q-3OkF
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 16:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60B68446C5;
-	Sat, 28 Jun 2025 16:01:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F75EC4CEEA;
-	Sat, 28 Jun 2025 16:01:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D6AC56143E;
+	Sat, 28 Jun 2025 16:16:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF27CC4CEF0;
+	Sat, 28 Jun 2025 16:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751126489;
-	bh=QNuH3SHReMcWcui0DlPwcrn2+UCUB+hx5I5pQ/AKsOo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LphNWFErKGcTmeLC0pcxmr7LPO7iJdYMZVALgSVAKUC4jIMwCRTlNOhVZPEcEOTWh
-	 hHxe/mXdL1CbI9HfaPQLLW7TNYdfslTWrHG6xKRAelIJZPvZZOjckwx8TMk5LReg18
-	 mCvFae0T5KVUpAjX8r34Z5A6uL+jifRDxJTGr/+is2fx0jpljup9GJs1HSk5GUWZYy
-	 ioqUW2iTtlhRTp/P67+q1q3AsxNAM1cnZjvagDf7hGGhTM0lEIQprp+8pXoyd/kssC
-	 ci3VqVs6kcEMracx6v43N2LOyx3KJzwbRWs2sBl9F1/LvekY6VLFQIxkGvS54zErms
-	 3SjitU9iXgaFw==
-Date: Sat, 28 Jun 2025 17:01:18 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-Subject: Re: [PATCH v1 4/5] iio: adc: mt6359: Add support for MediaTek
- MT6363 PMIC AUXADC
-Message-ID: <20250628170118.2bd3e68b@jic23-huawei>
-In-Reply-To: <20250623120028.108809-5-angelogioacchino.delregno@collabora.com>
-References: <20250623120028.108809-1-angelogioacchino.delregno@collabora.com>
-	<20250623120028.108809-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1751127372;
+	bh=xwBJtYb4XftTQnUvPPzT8bBayvc42wCvVRgKR/Qg5G0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BN5ULZp8kAML7kYEpIYJykHXQhUWu6Q8XEiqfn+8HlvpEZKR4uJDUKkKnP07He1GJ
+	 /HlYMXKxXJaD3h2VYQr6lr+qSUlQfru7v4KKVZSD7hRmuhKDLaP6Il03wpebzxi+ra
+	 g16OKnUCUQjAER0olQLqCymhOZUowh/y3jWOOXVf/kbOYjM6P0ikTEGt/V9bCa8qK6
+	 jWbf4/Muqf0shyUe9b4T02BCfJoH2GO9WIY9ESry06apQrhLthY0/zAOVZFGBE6wXf
+	 JGsB0QLDzu6T3qFfg4VU1YsArBWOsIS9BvSl1A4uLcrtIpDmuJZLCRJZ6GbzI2QyKb
+	 OspL4fAsSs9lQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 2504A5FE35; Sun, 29 Jun 2025 00:16:09 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v3 0/5] arm64: allwinner: t527: Add OrangePi 4A board
+Date: Sun, 29 Jun 2025 00:16:03 +0800
+Message-Id: <20250628161608.3072968-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_090131_006063_4283BD61 
-X-CRM114-Status: GOOD (  46.16  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,252 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 14:00:27 +0200
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> wrote:
+From: Chen-Yu Tsai <wens@csie.org>
 
-> MediaTek MT6363 is a PMIC found on MT8196/MT6991 board designs
-> and communicates with the SoC over SPMI.
-> 
-> This PMIC integrates an Auxiliary ADC (AUXADC) which has a grand
-> total of 54 ADC channels: 49 PMIC-internal channels, 2 external
-> NTC thermistor channels and 2 generic ADC channels (mapped to 7
-> PMIC ADC external inputs).
-> 
-> To use a generic ADC channel it is necessary to enable one of
-> the PMIC ADC inputs at a time and only then start the reading,
-> so in this case it is possible to read only one external input
-> for each generic ADC channel.
-> 
-> Due to the lack of documentation, this implementation supports
-> using only one generic ADC channel, hence supports reading only
-> one external input at a time.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Hi,
+Hi everyone,
 
-A few comments that may or may not overlap with Andy's review.
+This is v3 of my OrangePi 4A series.
 
-thanks,
+Changes since v2:
+- Actually include cpusldo regulator name change and axp323 aldo1/dldo1
+  comments
+- Fix indentation of comment in usb_otg block
+- Link to v2:
+  https://lore.kernel.org/all/20250625131652.1667345-1-wens@kernel.org/
 
-Jonathan
+Changes since v1:
+- Fixed regulator names for bldo3 and bldo4
+- Dropped labels for aldo1, bldo3, and bldo4, which are not really used
+- Added voltage constraints to aldo2, based on specifications from
+  schematic
+- Appended "-usb-0v9" to cpusldo's regulator name
+- Added comments to explain how axp323 aldo1 and dldo1 are tied together
+- Link to v1:
+  https://lore.kernel.org/all/20250619173007.3367034-1-wens@kernel.org/
 
-> ---
->  drivers/iio/adc/mt6359-auxadc.c | 238 +++++++++++++++++++++++++++++---
->  1 file changed, 217 insertions(+), 21 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-> index ae7b65f5f551..f49b0b6e78da 100644
-> --- a/drivers/iio/adc/mt6359-auxadc.c
-> +++ b/drivers/iio/adc/mt6359-auxadc.c
+This series adds support for the OrangePi 4A board. This is a Raspberry
+Pi model B form factor development board based on the Allwinner T527
+SoC.
 
-> +enum mtk_pmic_auxadc_flags {
-> +	MTK_PMIC_AUXADC_IS_SPMI = BIT(0),
-> +	MTK_PMIC_AUXADC_NO_RESET = BIT(1),
-> +};
+The board has the following features:
+- Allwinner T527 SoC
+- AXP717B + AXP323 PMICs
+- Up to 4GB LPDDR4 DRAM
+- micro SD slot
+- optional eMMC module
+- M.2 slot for PCIe 2.0 x1
+- 16 MB SPI-NOR flash
+- 4x USB 2.0 type-A ports (one can be used in gadget mode)
+- 1x Gigabit ethernet w/ Motorcomm PHY (through yet to be supported GMAC200)
+- 3.5mm audio jack via internal audio codec
+- HDMI 2.0 output
+- eDP, MIPI CSI (2-lane and 4-lane) and MIPI DSI (4-lane) connectors
+- USB type-C port purely for power
+- AP6256 (Broadcom BCM4345) WiFi 5.0 + BT 5.0
+- unsoldered headers for ADC and an additional USB 2.0 host port
+- 40-pin GPIO header
 
-With just two bits I think flags obscures what is going on over
-a pair of separate booleans.
+Patch 1 adds a new entry to the list of board compatibles.
 
->  };
-> @@ -123,7 +155,9 @@ struct mtk_pmic_auxadc_chan {
->   * @desc:           PMIC AUXADC channel data
->   * @regs:           List of PMIC specific registers
->   * @sec_unlock_key: Security unlock key for HK_TOP writes
-> + * @vref_mv:        AUXADC Reference Voltage (VREF) in millivolts
->   * @imp_adc_num:    ADC channel for battery impedance readings
-> + * @flags:          Feature flags
->   * @read_imp:       Callback to read impedance channels
->   */
->  struct mtk_pmic_auxadc_info {
-> @@ -133,22 +167,33 @@ struct mtk_pmic_auxadc_info {
->  	const struct mtk_pmic_auxadc_chan *desc;
->  	const u16 *regs;
->  	u16 sec_unlock_key;
-> +	u16 vref_mv;
-I'd not worry about the space saving here and instead make this a u32 so that
-can avoid the casting when using this.
+Patch 2 and 3 are minor cleanups.
 
->  	u8 imp_adc_num;
-> +	u8 flags;
+Patch 4 adds pins for UART1, which is used for BT on the board.
 
-As above. Pair of bool preferred.
+Patch 5 adds a dts file for the new board.
 
->  	int (*read_imp)(struct mt6359_auxadc *adc_dev,
->  			const struct iio_chan_spec *chan, int *vbat, int *ibat);
->  };
 
->  static void mt6358_stop_imp_conv(struct mt6359_auxadc *adc_dev)
->  {
->  	const struct mtk_pmic_auxadc_info *cinfo = adc_dev->chip_info;
-> @@ -379,13 +488,13 @@ static int mt6359_read_imp(struct mt6359_auxadc *adc_dev,
->  	int ret;
->  
->  	/* Start conversion */
-> -	regmap_write(regmap, cinfo->regs[PMIC_AUXADC_IMP0], MT6359_IMP0_CONV_EN);
-> +	regmap_write(regmap, cinfo->regs[desc->req_idx], desc->req_mask);
+Please take a look. I will take all the patches through the sunxi tree.
 
-Given desc->req_idx is not introduced in this patch, why is this needed now
-but not previously?  Maybe this change belongs in a separate patch with
-a description to explain that.
 
->  	ret = regmap_read_poll_timeout(regmap, cinfo->regs[desc->rdy_idx],
->  				       val, val & desc->rdy_mask,
->  				       IMP_POLL_DELAY_US, AUXADC_TIMEOUT_US);
->  
->  	/* Stop conversion regardless of the result */
-> -	regmap_write(regmap, cinfo->regs[PMIC_AUXADC_IMP0], 0);
-> +	regmap_write(regmap, cinfo->regs[desc->req_idx], 0);
->  	if (ret)
->  		return ret;
->  
-> @@ -416,6 +525,7 @@ static const struct mtk_pmic_auxadc_info mt6357_chip_info = {
->  	.regs = mt6357_auxadc_regs,
->  	.imp_adc_num = MT6357_IMP_ADC_NUM,
->  	.read_imp = mt6358_read_imp,
-> +	.vref_mv = 1800,
->  };
->  
->  static const struct mtk_pmic_auxadc_info mt6358_chip_info = {
-> @@ -426,6 +536,7 @@ static const struct mtk_pmic_auxadc_info mt6358_chip_info = {
->  	.regs = mt6358_auxadc_regs,
->  	.imp_adc_num = MT6358_IMP_ADC_NUM,
->  	.read_imp = mt6358_read_imp,
-> +	.vref_mv = 1800,
->  };
->  
->  static const struct mtk_pmic_auxadc_info mt6359_chip_info = {
-> @@ -436,6 +547,17 @@ static const struct mtk_pmic_auxadc_info mt6359_chip_info = {
->  	.regs = mt6359_auxadc_regs,
->  	.sec_unlock_key = 0x6359,
->  	.read_imp = mt6359_read_imp,
-> +	.vref_mv = 1800,
+Thanks
+ChenYu
 
-Add vref_mv and code using it in a precursor patch.  Not a problem that all
-vref_mv will be 1800 at that point.  That way we can quickly see that it
-has no affect on existing parts, and simplify what is present in this patch.
 
-> +};
-> +
-> +static const struct mtk_pmic_auxadc_info mt6363_chip_info = {
-> +	.model_name = "MT6363",
-> +	.channels = mt6363_auxadc_channels,
-> +	.num_channels = ARRAY_SIZE(mt6363_auxadc_channels),
-> +	.desc = mt6363_auxadc_ch_desc,
-> +	.regs = mt6363_auxadc_regs,
-> +	.flags = MTK_PMIC_AUXADC_IS_SPMI | MTK_PMIC_AUXADC_NO_RESET,
-> +	.vref_mv = 1840,
->  };
->  
->  static void mt6359_auxadc_reset(struct mt6359_auxadc *adc_dev)
-> @@ -464,27 +586,74 @@ static int mt6359_auxadc_read_adc(struct mt6359_auxadc *adc_dev,
->  	const struct mtk_pmic_auxadc_info *cinfo = adc_dev->chip_info;
->  	const struct mtk_pmic_auxadc_chan *desc = &cinfo->desc[chan->scan_index];
->  	struct regmap *regmap = adc_dev->regmap;
-> -	u32 val;
-> +	u32 reg, rdy_mask, val, lval;
-> +	u8 ext_sel;
->  	int ret;
->  
-> +	if (desc->ext_sel_idx >= 0) {
-> +		ext_sel = FIELD_PREP(MT6363_EXT_PURES_MASK, desc->ext_sel_pu);
-> +		ext_sel |= FIELD_PREP(MT6363_EXT_CHAN_MASK, desc->ext_sel_ch);
-> +
-> +		ret = regmap_update_bits(regmap, cinfo->regs[desc->ext_sel_idx],
-> +					 MT6363_EXT_PURES_MASK | MT6363_EXT_CHAN_MASK,
-> +					 ext_sel);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	/* Request to start sampling for ADC channel */
->  	ret = regmap_write(regmap, cinfo->regs[desc->req_idx], desc->req_mask);
->  	if (ret)
-> -		return ret;
-> +		goto end;
->  
->  	/* Wait until all samples are averaged */
->  	fsleep(desc->num_samples * AUXADC_AVG_TIME_US);
->  
-> -	ret = regmap_read_poll_timeout(regmap,
-> -				       cinfo->regs[PMIC_AUXADC_ADC0] + (chan->address << 1),
-> -				       val, val & PMIC_AUXADC_RDY_BIT,
-> +	reg = cinfo->regs[PMIC_AUXADC_ADC0] + (chan->address << 1);
-> +	rdy_mask = PMIC_AUXADC_RDY_BIT;
-> +
-> +	/*
-> +	 * Even though for both PWRAP and SPMI cases the ADC HW signals that
-> +	 * the data is ready by setting AUXADC_RDY_BIT, for SPMI the register
-> +	 * read is only 8 bits long: for this case, the check has to be done
-> +	 * on the ADC(x)_H register (high bits) and the rdy_mask needs to be
-> +	 * shifted to the right by the same 8 bits.
-> +	 */
-> +	if (MTK_AUXADC_HAS_FLAG(cinfo, IS_SPMI)) {
+Chen-Yu Tsai (5):
+  dt-bindings: arm: sunxi: Add Xunlong OrangePi 4A board
+  arm64: dts: allwinner: a523: Move mmc nodes to correct position
+  arm64: dts: allwinner: a523: Move rgmii0 pins to correct location
+  arm64: dts: allwinner: a523: Add UART1 pins
+  arm64: dts: allwinner: t527: Add OrangePi 4A board
 
-This is getting close to the point where the complexity for the IS_SPMI case
-is compled enough you'd be better off just splitting the code.  I'd try that
-and see if it ends up neater than this.
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 160 ++++----
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 385 ++++++++++++++++++
+ 4 files changed, 478 insertions(+), 73 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
 
-> +		rdy_mask >>= 8;
-> +		reg += 1;
-> +	}
-> +
-> +	ret = regmap_read_poll_timeout(regmap, reg, val, val & rdy_mask,
->  				       AUXADC_POLL_DELAY_US, AUXADC_TIMEOUT_US);
-> -	if (ret)
-> -		return ret;
-> +	if (ret) {
-> +		dev_dbg(adc_dev->dev, "ADC read timeout for chan %lu\n", chan->address);
-> +		goto end;
-> +	}
-> +
-> +	if (MTK_AUXADC_HAS_FLAG(cinfo, IS_SPMI)) {
-> +		/* If the previous read succeeded, this can't fail */
-
-As per discussion with Andy, I don't think we can ever assume that.
-
-> +		regmap_read(regmap, reg - 1, &lval);
-> +		val = (val << 8) | lval;
-> +	}
->  
-> -	/* Stop sampling */
-
-If you have code that ends up with an internal goto for a specific
-block, that often suggests you should be factoring some code out to simplify
-the flow.
-
-I would take everything between the activiate ADC GPIO and deactivate out
-as another function.  That will still need a goto to get to the stop
-sampling but then we won't have the dance below where we do some
-stuff from the main code flow on error and then exit (with more after
-that not run).
-
-> +end:
-> +	/* Stop sampling unconditionally... */
->  	regmap_write(regmap, cinfo->regs[desc->req_idx], 0);
->  
-> +	/* ...and deactivate the ADC GPIO if previously done */
-> +	if (desc->ext_sel_idx >= 0) {
-> +		ext_sel = FIELD_PREP(MT6363_EXT_PURES_MASK, MT6363_PULLUP_RES_OPEN);
-> +
-> +		regmap_update_bits(regmap, cinfo->regs[desc->ext_sel_idx],
-> +				   MT6363_EXT_PURES_MASK, ext_sel);
-> +	}
-> +
-> +	/* Check if we reached this point because of an error or regular flow */
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Everything went fine, give back the ADC reading */
->  	*out = val & GENMASK(chan->scan_type.realbits - 1, 0);
->  	return 0;
->  }
-> @@ -505,7 +674,7 @@ static int mt6359_auxadc_read_raw(struct iio_dev *indio_dev,
->  	int ret;
->  
->  	if (mask == IIO_CHAN_INFO_SCALE) {
-> -		*val = desc->r_ratio.numerator * AUXADC_VOLT_FULL;
-> +		*val = desc->r_ratio.numerator * (u32)cinfo->vref_mv;
-
-As above.  If vref_mv was already a (u32) no need to cast here.
+-- 
+2.39.5
 
 
