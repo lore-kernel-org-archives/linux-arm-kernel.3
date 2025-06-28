@@ -4,112 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F16C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 12:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E2DC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 14:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CBHzcIEyIfrrp/jgt+bojLwE75XZOCrPg8dSqWu/dE=; b=W7CaISQh9jpFfButn35T7gngET
-	XNuj0R+WiW7KNrIXUDTSBISMbbAOIDS6bTymWQ3YrDjzgt/T+4LsrnkT/IyywRU8bL9Yeac7Mc0Xd
-	EfBpOsizX6Sp+v9Gd0zXQy7kFXa+wl6qdHNbk2eN5Vs89xlKuWA11R6wp/W0C7TvfplwLGktWg+YF
-	IS9o586x6bvINS5242OHFUncSFWwieyJlja3EV6xGoskuu0MfTMzdopkO1l8pZVuws4OhFXc0RjEN
-	Czypt2nfUVnQVe35nelFgd2HC+cR9N+Mcz6hwcCwV9KL49u8de/ONshFqtXjuKR/K8JRlAffGtAEW
-	r70eAxXw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cfDZ1inHOui4m5H5mXU1kp88kQ35TPyN/bSvxLYsfwA=; b=etaG5AwMDtC8a2tJV3WPbr+y5H
+	ggsbcVXSUSeBh+9D47pRp1YjsuZicmqF4oV2c3tjWaNJC46TgBKPKf/f9tkOizOjcCw9WCBj33Eej
+	3MHUjeyXa/Gh2QlLizler4JABcdRBbhA8dxXBf+vMAMXELEjcy1xVweMplpkuJ9PpR26q4YPuhjXm
+	YM07ZVO8PwlMVxMJUx/XsOCLl4e5UuIqR+fLDMMnRlPYqsOgUTfKF8B3JlZc+5anKN1RcgA84AGxm
+	wOo0nazm9w1P995jlotd6Vn+c8Ut8QQ2oPlD5yrE2lQzynoIQ+Bc5wU8JUIKFLyMe/aoWk2kYiLj2
+	4Opbp3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUzY-0000000Gnlq-2tSK;
-	Sat, 28 Jun 2025 12:49:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uVWaP-0000000GsDa-1EvW;
+	Sat, 28 Jun 2025 14:31:21 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVUxE-0000000GndO-1Wtr;
-	Sat, 28 Jun 2025 12:46:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B40BE5C474F;
-	Sat, 28 Jun 2025 12:46:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34DFC4CEEA;
-	Sat, 28 Jun 2025 12:46:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751114807;
-	bh=wUe+nVnTTOKVrNaON8elGY7mOedI9kTWmIJ+RKfs+y8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X9t5+Z1SJPG5x6zfns7+4hjoEr/8OvEfvqhcDtKjrSg5sec3j4r3OEhtrQVc8eEi7
-	 y7YNESG3hHz1UqvRY1lQ97U7rwalSWCqbwjrcKQr/IA/DIuTAzwdWHn6hN52QCmxXf
-	 K3M3djoWqHTaqONEYSk48LKMdJuT2ZiOhqMPh7jlQZCqR1dczdsJNkV1u3JsaJ3kxA
-	 PSQOJs3TyYEYpegJzIrH9VpVdy80WGh1lgLa6eFkgsDCmfJMeEtKoM2vLw6JjuJ+6G
-	 zqkriuqSkoeyHSH+EXtheVtmKCzluKvKauLf1+qg6bnTfZJcG0ecanZTTB8sirLVjv
-	 jx9Bx3BG5O/4w==
-Message-ID: <f2a5dc9b-4e3c-4b6c-8a6c-7a54f6af077e@kernel.org>
-Date: Sat, 28 Jun 2025 14:46:39 +0200
+	id 1uVWY4-0000000GryK-06sg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 14:28:58 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1751120932;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cfDZ1inHOui4m5H5mXU1kp88kQ35TPyN/bSvxLYsfwA=;
+	b=drzaFM0YVkZsqVrjLUvXn3A1tp93N4Rp0hgxvjIF/Zyf2+HaXHjSdNeQtnEQa12wR3Aczj
+	w+NpD19PqXPEWQHqjKTEzqYvSrKC1JArSEwyrDHaq3Epbh1iSWasW8E/3fwg9wVjXtwexe
+	UFHRziCozyLVNdHBbfbXzP2JPxZC6tlCxhnP6qWMKE2vlBp868vEGNQnTcWCYjeuOp8HFj
+	Tg8Rli9QtB7q1SplwJgl+QZ08H+tJ4TXikfz841Bdjwl8TVmG6exLJTroOaDFwMfxJx5GW
+	lTmKjQw63UB41KSc44tZhxGRTeEg2zyat8CejBpMrrp1vBPJhYPZtZ+KWLHKcA==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH] arm64: dts: rockchip: Add missing fan-supply to rk3566-quartz64-a
+Date: Sat, 28 Jun 2025 16:28:18 +0200
+Message-ID: <20250628142843.839150-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] ASoC: dt-bindings: mediatek,mt8189-afe-pcm: add
- audio afe document
-To: Cyril <Cyril.Chao@mediatek.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250628071442.31155-1-Cyril.Chao@mediatek.com>
- <20250628071442.31155-9-Cyril.Chao@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250628071442.31155-9-Cyril.Chao@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_054648_492427_278BF583 
-X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-CacheID: sfid-20250628_072856_565079_1CD5743E 
+X-CRM114-Status: UNSURE (   7.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,22 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/06/2025 09:14, Cyril wrote:
-> From: Cyril Chao <Cyril.Chao@mediatek.com>
-> 
-> Add mt8189 audio afe document.
-> 
-> Signed-off-by: Cyril Chao <Cyril.Chao@mediatek.com>
-> ---
->  .../sound/mediatek,mt8189-afe-pcm.yaml        | 162 ++++++++++++++++++
->  1 file changed, 162 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8189-afe-pcm.yaml
-> 
-All your properties should follow same order as DTS coding style, but...
- meh...
+The Quartz 64 Model-A Schematic from 20210427 on page 7 shows that the
+fan's power supply is provided by VCC12V_DCIN.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This fixes the following warning:
 
-Best regards,
-Krzysztof
+  gpio-fan gpio_fan: supply fan not found, using dummy regulator
+
+Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+---
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts b/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
+index 3c127c5c2607..a9021c524afb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts
+@@ -30,6 +30,7 @@ gmac1_clkin: external-gmac1-clock {
+ 
+ 	fan: gpio_fan {
+ 		compatible = "gpio-fan";
++		fan-supply = <&vcc12v_dcin>;
+ 		gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
+ 		gpio-fan,speed-map =
+ 				<   0 0>,
+-- 
+2.50.0
+
 
