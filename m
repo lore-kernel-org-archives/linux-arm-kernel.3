@@ -4,111 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E8AC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9670CC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 10:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZFCHDPa1BgC3pnecMWBxFqcKP9wTetzBqp6nR27xK0=; b=siZaXP1O805G/Ht/aYJa5P7t76
-	n9QJuQt4qAzXhF3uf5YU/WNxojVUw69MKtOmlrIoA6HDdtz2+KUOhJIZ6wZk9Kzl+1V/TY75IjgDs
-	l9O8DKvitTZAP5x8LunXjznleKw7Su+Jjp1Nh0QH3xqK/e3bbaai+fjz/73/x9/ulz9IxrZ8sQCBD
-	2pzqV/twU9o9YuXPvIospHjd8ChuSUgmE+1sCsnbEJ8+th5gc8KBE/ndUYYR866b9ezsNQ5B0XdBN
-	xuVbRmOVUzU+Q+eSxEfYgsTR3n4bd3jVABM0zqK2V8WkLiX44djZVOQQN7NoUWs22Mibg4GMTuNzB
-	lfVay+/w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ae72umgiYtiNIqSIpFA7MtGiQ10aNaJ+Z7V+1qQL1rM=; b=ScPmTdGm7PdwECg3JrcyLnRMDr
+	Cs9jEuPVtQ5WF5pj97VgQWewEVDS6ZkgvxlRUesae6gChoqbIP50nS05RYsVyOtWrSB1L8eNY8nB5
+	lNpcxPUes8SVLApTUsJJ+FzP4CmKNJGrh4XMnA5GkhNcUoptBP8ugeV5fXLMOlI4w2AmdUVGHk3RJ
+	A+mOOGB6BQTEmTYFJHfLElmor8mEuy+AsNz906ehHMVJlFJmCnWVcv0HtlbMwnpUzjChyowiMdYdg
+	XfjKonmfhasRx//Z5hK77w+pNkcPhIWSBX+SkA/FLZOJAuQ9wbDpZPuHlmkX2fAzMayoa87fnQPJM
+	kpCQBcbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVSJp-0000000GfX5-2hcs;
-	Sat, 28 Jun 2025 09:57:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uVSM6-0000000Gffv-1spP;
+	Sat, 28 Jun 2025 10:00:18 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRw3-0000000GdYc-3yF5
+	id 1uVSF2-0000000Gf9a-3Utb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 09:33:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 738B85C4784;
-	Sat, 28 Jun 2025 09:33:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F15C4CEEA;
-	Sat, 28 Jun 2025 09:33:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751103203;
-	bh=jclJuipHjDvfVIGGpyisxpakmoZzRKjyjxUFqC51V9c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B3ji4tzuRc2bvSAg5VhrExCAJfxd5lrCpxsXsPBgh6viZuMpUFNyzApFgam9C6MK5
-	 c3lCXQb0ft7W2u7zHgiXtvsfv65zQZciGI4OC+SO0RG0aOuD2PgDmjUwjiV+mKkagg
-	 820exUrQLRrNEKH/qHTrCrf0S0BPmJrqL4RlZ6WeuANfKXKPSv40p7eQro9Sh4ETNl
-	 B7eFm3cGA1ldcNnfzkgSzB5rGoCGATrBu1Ki6X74rV3nxl0hgGquDg6EIR822GiiX6
-	 ntJuEnF8PE6p6FC/P5cmuTZrgoEhuq/E5gK8OMvgSkKJTTy+RLRpGMOwB/lVC4yH3d
-	 u+dpoP2DDh8ew==
-Message-ID: <bfe59771-f35d-48b7-aed3-7b6f3ef1f1dd@kernel.org>
-Date: Sat, 28 Jun 2025 11:33:05 +0200
+	Sat, 28 Jun 2025 09:53:02 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55S5f6hg012201;
+	Sat, 28 Jun 2025 09:52:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=Ae72umgiYtiNIqSIpFA7MtGiQ10aN
+	aJ+Z7V+1qQL1rM=; b=cZwka4bpy0oVFlkVdr0I0snQlXojMCEJTqmskNX4np85u
+	EP7uLfVXgCqslQsdWEOMERkZexWMPOO9eDUv0gD9pxkC0NCR16WafurL/bxWs9+Q
+	yp4Y8phbqg5I5c0zTyhzkvZScUw7XJIjBXqhDsxSDzLIBVR6PpW6vNGRuE4usaj/
+	ueaq2L7tV+wNPcGDiA83BwMVqLTz9OqyUZcX1aX08dECFJUt0d4iiflZZ8QVtOpu
+	jozq8C2DHF9pGxtAOB26meYDQ3Zpc5khCjVzpcq2cmSGgZiAuiV7qiZZNHmqH+ww
+	YfwHaHlZVAPhk2v7K8CgLP8lczJViJ/uvvBRNAFJg==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j76687kc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 28 Jun 2025 09:52:54 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55S9LeYF014207;
+	Sat, 28 Jun 2025 09:52:53 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47j6u6r8f8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 28 Jun 2025 09:52:53 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 55S9qqR2009214;
+	Sat, 28 Jun 2025 09:52:52 GMT
+Received: from ca-dev110.us.oracle.com (ca-dev110.us.oracle.com [10.129.136.45])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 47j6u6r8er-1;
+	Sat, 28 Jun 2025 09:52:52 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        horms@kernel.org, netdev@vger.kernel.org
+Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH] net: thunderx: avoid direct MTU assignment after WRITE_ONCE()
+Date: Sat, 28 Jun 2025 02:52:19 -0700
+Message-ID: <20250628095221.461991-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] dt-bindings: soc: samsung: exynos-pmu: allow
- mipi-phy subnode
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
- <20250627-exynos7870-drm-dts-v2-2-d4a59207390d@disroot.org>
- <20250627214258.GA189284-robh@kernel.org>
- <6151f833d5a06369cd3dce5d2b2aca9f@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <6151f833d5a06369cd3dce5d2b2aca9f@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-27_05,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 suspectscore=0
+ phishscore=0 mlxlogscore=999 mlxscore=0 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
+ definitions=main-2506280080
+X-Proofpoint-GUID: 28NGkk0EG0roxnsCG4rY-kj-ROsDwQTD
+X-Proofpoint-ORIG-GUID: 28NGkk0EG0roxnsCG4rY-kj-ROsDwQTD
+X-Authority-Analysis: v=2.4 cv=b82y4sGx c=1 sm=1 tr=0 ts=685fbb76 b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=6IFa9wvqVegA:10 a=yPCof4ZbAAAA:8 a=6GJOchzy3z8SWhoumhsA:9 cc=ntf awl=host:14723
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI4MDA4MSBTYWx0ZWRfX7T9s0A92THvT DX3/F38hBL3wrkdQj1tm0eOzavSjF4r5NyyJKLZa80w+ITNTA159pJEtgZVOsuT/mBgyXuy5u92 h/Rk+1Z091eBZ8b+SbFdPkleE478Mrs4CxDXLTLxWRhrsFkOr+ceIUaQdlLZPao/UVaSZWwjQd1
+ 2qN9DFLlHJ5L9XoCHUo5xZs2hTuub29ak1kQoUdFAxu4F+R/LUIxtR2S4bNgZNSGH8OHtRJHKKZ f/+QmcEo9E7CrV+ueeQaalmwJa0yUcIDFJH2PU5r4EQ2xnsMFYW1JY+NeUCyilA8NS/umCi+CfT oHTqMUesPWoEFnNt5ZQ6rTLBrXr65yJ4ACkYKw9KDooEkHHiNYDvxPA+ASgmo+gkjDDjVHH0iFf
+ /rwyrLZNb1wYeCNAf9b8j9OG4BiayVy6YI/3vZpJMPmNF1lldcNc9r1kbPz3kBRcM5Num4GT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_023324_074996_0953E488 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250628_025301_351113_DD6BBB17 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,33 +98,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/06/2025 09:19, Kaustabh Chakraborty wrote:
->>> diff --git 
->>> a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml 
->>> b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->>> index 
->>> f0fb24156da9b8980dcfd5339ae75f12a71cf6d6..45acd6a03d761a833cec435302e5190fb50f7a23 
->>> 100644
->>> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->>> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->>> @@ -172,6 +172,7 @@ allOf:
->>>                - samsung,exynos5250-pmu
->>>                - samsung,exynos5420-pmu
->>>                - samsung,exynos5433-pmu
->>> +              - samsung,exynos7870-pmu
->>
->> Don't you need to add this to 'compatible' and under 'select'?
-> 
-> compatible: [1]
-> 
-> samsung,exynos7-pmu is under select. 7870 has a fallback on 7.
-> Do you think samsung,exynos7-pmu should've been added in this patch
-> instead?
-> 
-If this uses exynos7-pmu as fallback then it is fine. This should be in
-commit msg - that's the point of commit msg - explain the hardware and
-things not easily visible, instead of repeating what is visible in the diff.
+The current logic in nicvf_change_mtu() writes the new MTU to
+netdev->mtu using WRITE_ONCE() before verifying if the hardware
+update succeeds. However on hardware update failure, it attempts
+to revert to the original MTU using a direct assignment
+(netdev->mtu = orig_mtu)
+which violates the intended of WRITE_ONCE protection introduced in
+commit 1eb2cded45b3 ("net: annotate writes on dev->mtu from
+ndo_change_mtu()")
 
-Best regards,
-Krzysztof
+Additionally, WRITE_ONCE(netdev->mtu, new_mtu) is unnecessarily
+performed even when the device is not running.
+
+Fix this by:
+  Only writing netdev->mtu after successfully updating the hardware.
+  Skipping hardware update when the device is down, and setting MTU
+directly.
+
+This ensures that all writes to netdev->mtu are consistent with
+WRITE_ONCE expectations and avoids unintended state corruption
+on failure paths.
+
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+---
+Note: This change is not tested due to hardware availability.
+---
+ drivers/net/ethernet/cavium/thunder/nicvf_main.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_main.c b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+index aebb9fef3f6eb..ba26ba31a28bf 100644
+--- a/drivers/net/ethernet/cavium/thunder/nicvf_main.c
++++ b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+@@ -1589,16 +1589,18 @@ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
+ 		return -EINVAL;
+ 	}
+ 
+-	WRITE_ONCE(netdev->mtu, new_mtu);
+ 
+-	if (!netif_running(netdev))
++	if (!netif_running(netdev)) {
++		WRITE_ONCE(netdev->mtu, new_mtu);
+ 		return 0;
++	}
+ 
+ 	if (nicvf_update_hw_max_frs(nic, new_mtu)) {
+-		netdev->mtu = orig_mtu;
+ 		return -EINVAL;
+ 	}
+ 
++	WRITE_ONCE(netdev->mtu, new_mtu);
++
+ 	return 0;
+ }
+ 
+-- 
+2.46.0
+
 
