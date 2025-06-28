@@ -4,87 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2849C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E8AC7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zCArQQjnZOoBXdfm7YKc01KniAiMbD7wl2wyNkiAMyg=; b=JV8wYTrQwCpYkWcl14C8bONC9z
-	APkBP2pC3KqORNCRsC9pjt6+4Sm08NgVhzVrqk4eAm5cfJWa+Bzt0Qs/HEe9EkmGK/8HjzwX+UA2L
-	z5Lz9xxMeAUCYbzCY400FyL/Ql958y3I4djWHIV6AX7eLyDz1WtqlmKd9c09Ovoq67aFZGV1Qwl6g
-	c+kwvmWph9kK9792y2V6xmlIXAsirolq1I5DL9f+nSWivfWDH3ztdEXFxXcAZ+55VqH5PB/zDjGm7
-	qyk3lfL0kEvLnHsv1iE2IQRXjYeMs2DRjBJ3IWZt9W2Hi83oKyNVDftcMothRLpObcCBA0RYwKIWg
-	QGk5GakA==;
+	bh=zZFCHDPa1BgC3pnecMWBxFqcKP9wTetzBqp6nR27xK0=; b=siZaXP1O805G/Ht/aYJa5P7t76
+	n9QJuQt4qAzXhF3uf5YU/WNxojVUw69MKtOmlrIoA6HDdtz2+KUOhJIZ6wZk9Kzl+1V/TY75IjgDs
+	l9O8DKvitTZAP5x8LunXjznleKw7Su+Jjp1Nh0QH3xqK/e3bbaai+fjz/73/x9/ulz9IxrZ8sQCBD
+	2pzqV/twU9o9YuXPvIospHjd8ChuSUgmE+1sCsnbEJ8+th5gc8KBE/ndUYYR866b9ezsNQ5B0XdBN
+	xuVbRmOVUzU+Q+eSxEfYgsTR3n4bd3jVABM0zqK2V8WkLiX44djZVOQQN7NoUWs22Mibg4GMTuNzB
+	lfVay+/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVSHY-0000000GfLC-06XL;
-	Sat, 28 Jun 2025 09:55:36 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uVSJp-0000000GfX5-2hcs;
+	Sat, 28 Jun 2025 09:57:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRaP-0000000GbIQ-0XtF;
-	Sat, 28 Jun 2025 09:11:02 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id B2F2860276;
-	Sat, 28 Jun 2025 09:10:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1751101854;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zCArQQjnZOoBXdfm7YKc01KniAiMbD7wl2wyNkiAMyg=;
-	b=NA+1GxSSDuEqbCyzF2WJa3x7c+Oq77hshvVwamfGDOOsLiaffWi0pdETpcdH5yz+ztlFxs
-	/f2d7Tcy5sZqIHnFbi1cNYFXOp9YrGmpiTn9C9qWFOa2FrUZl7lVgn4mM2t/86dTexB/VD
-	vUhgt0WVFxupAoJgw832fJjt4dGA1D8=
-Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 5899212272D;
-	Sat, 28 Jun 2025 09:10:54 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Georgi Djakov <djakov@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	Johnson Wang <johnson.wang@mediatek.com>,
-	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v6 11/15] arm64: dts: mediatek: mt7988a-bpi-r4: drop unused pins
-Date: Sat, 28 Jun 2025 11:10:35 +0200
-Message-ID: <20250628091043.57645-12-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250628091043.57645-1-linux@fw-web.de>
-References: <20250628091043.57645-1-linux@fw-web.de>
+	id 1uVRw3-0000000GdYc-3yF5
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 09:33:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 738B85C4784;
+	Sat, 28 Jun 2025 09:33:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F15C4CEEA;
+	Sat, 28 Jun 2025 09:33:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751103203;
+	bh=jclJuipHjDvfVIGGpyisxpakmoZzRKjyjxUFqC51V9c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B3ji4tzuRc2bvSAg5VhrExCAJfxd5lrCpxsXsPBgh6viZuMpUFNyzApFgam9C6MK5
+	 c3lCXQb0ft7W2u7zHgiXtvsfv65zQZciGI4OC+SO0RG0aOuD2PgDmjUwjiV+mKkagg
+	 820exUrQLRrNEKH/qHTrCrf0S0BPmJrqL4RlZ6WeuANfKXKPSv40p7eQro9Sh4ETNl
+	 B7eFm3cGA1ldcNnfzkgSzB5rGoCGATrBu1Ki6X74rV3nxl0hgGquDg6EIR822GiiX6
+	 ntJuEnF8PE6p6FC/P5cmuTZrgoEhuq/E5gK8OMvgSkKJTTy+RLRpGMOwB/lVC4yH3d
+	 u+dpoP2DDh8ew==
+Message-ID: <bfe59771-f35d-48b7-aed3-7b6f3ef1f1dd@kernel.org>
+Date: Sat, 28 Jun 2025 11:33:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/6] dt-bindings: soc: samsung: exynos-pmu: allow
+ mipi-phy subnode
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
+ <20250627-exynos7870-drm-dts-v2-2-d4a59207390d@disroot.org>
+ <20250627214258.GA189284-robh@kernel.org>
+ <6151f833d5a06369cd3dce5d2b2aca9f@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <6151f833d5a06369cd3dce5d2b2aca9f@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_021101_325637_E7CA8F2E 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250628_023324_074996_0953E488 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,152 +123,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+On 28/06/2025 09:19, Kaustabh Chakraborty wrote:
+>>> diff --git 
+>>> a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml 
+>>> b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+>>> index 
+>>> f0fb24156da9b8980dcfd5339ae75f12a71cf6d6..45acd6a03d761a833cec435302e5190fb50f7a23 
+>>> 100644
+>>> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+>>> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+>>> @@ -172,6 +172,7 @@ allOf:
+>>>                - samsung,exynos5250-pmu
+>>>                - samsung,exynos5420-pmu
+>>>                - samsung,exynos5433-pmu
+>>> +              - samsung,exynos7870-pmu
+>>
+>> Don't you need to add this to 'compatible' and under 'select'?
+> 
+> compatible: [1]
+> 
+> samsung,exynos7-pmu is under select. 7870 has a fallback on 7.
+> Do you think samsung,exynos7-pmu should've been added in this patch
+> instead?
+> 
+If this uses exynos7-pmu as fallback then it is fine. This should be in
+commit msg - that's the point of commit msg - explain the hardware and
+things not easily visible, instead of repeating what is visible in the diff.
 
-Pins were moved from SoC dtsi to Board level dtsi without cleaning up
-to needed ones. Drop the unused pins now.
-
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 89 -------------------
- 1 file changed, 89 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index afa9e3b2b16a..30affedf84d4 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -223,18 +223,6 @@ &pcie3 {
- };
- 
- &pio {
--	mdio0_pins: mdio0-pins {
--		mux {
--			function = "eth";
--			groups = "mdc_mdio0";
--		};
--
--		conf {
--			pins = "SMI_0_MDC", "SMI_0_MDIO";
--			drive-strength = <8>;
--		};
--	};
--
- 	i2c0_pins: i2c0-g0-pins {
- 		mux {
- 			function = "i2c";
-@@ -249,20 +237,6 @@ mux {
- 		};
- 	};
- 
--	i2c1_sfp_pins: i2c1-sfp-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c1_sfp";
--		};
--	};
--
--	i2c2_0_pins: i2c2-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c2_0";
--		};
--	};
--
- 	i2c2_1_pins: i2c2-g1-pins {
- 		mux {
- 			function = "i2c";
-@@ -298,34 +272,6 @@ mux {
- 		};
- 	};
- 
--	gbe0_led1_pins: gbe0-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe0_led1";
--		};
--	};
--
--	gbe1_led1_pins: gbe1-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe1_led1";
--		};
--	};
--
--	gbe2_led1_pins: gbe2-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe2_led1";
--		};
--	};
--
--	gbe3_led1_pins: gbe3-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe3_led1";
--		};
--	};
--
- 	i2p5gbe_led0_pins: 2p5gbe-led0-pins {
- 		mux {
- 			function = "led";
-@@ -333,13 +279,6 @@ mux {
- 		};
- 	};
- 
--	i2p5gbe_led1_pins: 2p5gbe-led1-pins {
--		mux {
--			function = "led";
--			groups = "2p5gbe_led1";
--		};
--	};
--
- 	mmc0_pins_emmc_45: mmc0-emmc-45-pins {
- 		mux {
- 			function = "flash";
-@@ -361,40 +300,12 @@ mux {
- 		};
- 	};
- 
--	snfi_pins: snfi-pins {
--		mux {
--			function = "flash";
--			groups = "snfi";
--		};
--	};
--
--	spi0_pins: spi0-pins {
--		mux {
--			function = "spi";
--			groups = "spi0";
--		};
--	};
--
- 	spi0_flash_pins: spi0-flash-pins {
- 		mux {
- 			function = "spi";
- 			groups = "spi0", "spi0_wp_hold";
- 		};
- 	};
--
--	spi2_pins: spi2-pins {
--		mux {
--			function = "spi";
--			groups = "spi2";
--		};
--	};
--
--	spi2_flash_pins: spi2-flash-pins {
--		mux {
--			function = "spi";
--			groups = "spi2", "spi2_wp_hold";
--		};
--	};
- };
- 
- &pwm {
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
