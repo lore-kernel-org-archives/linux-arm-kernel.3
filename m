@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F26C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 05:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B62C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 07:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I11TGJ/34iVtBwVI5g4O/YYyP3TziDPB5aVFJFQ2HZ0=; b=W+VeV0qgJPwouHZ2099VsulSVs
-	q5DF6IIFxpB/x9MStY7pZGDjlRCx0StHSEqv0mBANWG7exEJO2cWb+/UUQMCpyHyWU3pZTEzGK+an
-	CJJIhQOOdwagtwTnvyhPQR/FepudaTbS8QDbXfh0nVQrU3IR9JvJpOx2rui24MV1EsfJxzACGrKpB
-	Z8Z/agWR5qN2e6HgDIUELygIOOFNcRxrwoOSiuFjoIlzwxe6iAMaDu85MSQoxmMNYEz32Hk9h54Un
-	umq6DnF/phvoAMdbi38rB29Wn/G4zV2JcUUfQWgduvPJoUxc+qsx3k0XJEB+8mCoFPIGi182FIYlV
-	bTlx1Nqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ioPUWgscyPWmod5/tzPfoDeL7ip2pIgc/ShXrvy8Bb0=; b=mLkWzxKjjHfLdt/JPTA1YAjnGy
+	IT6f3gRsFhNLu6DVOKVXsYwpQfGVKOsJxaaSZgGAGtO0CdZps36hU0ep8YEBOtzIgg3JMKZ5gTcDG
+	KyW1zk0fy7EsyVTiB90k90zxPMAjBIXnsEdFwQOjINz1wg+GboJ/h42lf3dA1xyDXmCYbzq6VEjln
+	HH9QLgIcFR2RNAijg1KWW9Jzy9jhHChZIxJJtuGrOD3UhW53Be903mfoV0tiIKaEj6RRSFIp4Ki0M
+	2otXqK2hPhLfEOuGpByjFJuElm/w1hZud2eDvHL9TKASDqRsvi/slmO4z9Ul6doZihMOdDqaVDNw+
+	nSKpyRcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVOTh-0000000GR2t-1fqR;
-	Sat, 28 Jun 2025 05:51:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uVPkE-0000000GTnt-2dE5;
+	Sat, 28 Jun 2025 07:13:02 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVOMq-0000000GQWr-3gWG
+	id 1uVPhw-0000000GTgy-10vG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 05:44:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03DC544DD2;
-	Sat, 28 Jun 2025 05:44:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5137C4CEEE;
-	Sat, 28 Jun 2025 05:44:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751089486;
-	bh=dpDcT0JGPHxnE3OT+sUCmMdAicGM1TQ8WJOYe+HFJCc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OKgaL/DfcCOo9Mdys6/xM4PvMcJg5uNhsLK8Em3NX9BYIVrO50PVaVUq4nSkpNmgf
-	 IbN8VfS2zqxDMebYiCUoeyC4kwWLCKx3MAIBL/trHaVOZh72ZIFfy324Hu2Bb0yCWV
-	 D6BGpNsUUQiElqG8Q8LGtAOei8ESIMeenJ9dgMzdaWAy2R76QnSLyc/0kLRMPf4L9J
-	 Hzh5puij23jq4SY4HwwhxsPVZhQEb7ak71eLoyO7AQeVtMePa7ClDw54FC1fGWmutL
-	 jj+vfpXAuvDErjEgWXGPtvmyiRSCcYG6McR7AgSMYxlllQ1QP0Tr6ZqkKiZgH1Yu9y
-	 aWiz36OusLR4A==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 4048C5FD53; Sat, 28 Jun 2025 13:44:44 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
-Date: Sat, 28 Jun 2025 13:44:36 +0800
-Message-Id: <20250628054438.2864220-1-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Sat, 28 Jun 2025 07:10:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751094640; x=1782630640;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2tVRa6wsMqTyE/oQPrMRT6Uokojksj6kxjX9glGnRB0=;
+  b=MoJoAffoS/tu+72qcR9XVVxFg8+gUguMGZtdJKmZwqMXTA4PpQAhwA3+
+   Vo4N3u1067RPTAjJCR/4loQtzazDxqvdnv91iMvWwU42o1FLcdoeI+t82
+   K10aO1ZSDv0Ovx92mL9pxRZ7y9Cg2e+fukK0xEh9VRBcttCK1Wgp0MC6d
+   b70ES4lhxZIV9KpYyeZnA5zcdVqn8LnWtnDcXk/c/Ve4540Te9G66VsO8
+   633ViniHFGHZAilqHysXJvrsd427xGiFzb1cXWn95f08rQLDqVnjpkr6R
+   N1OT/VrdTGJLdMyRUGdTaa/ZW2POI0uZz+eEyjrwWhULgxten3mcNXPNV
+   g==;
+X-CSE-ConnectionGUID: C/kRYSCBSRqLmnTOnAPPaA==
+X-CSE-MsgGUID: TYzKMGR8RFamM+pvtG2QwQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11477"; a="57080309"
+X-IronPort-AV: E=Sophos;i="6.16,272,1744095600"; 
+   d="scan'208";a="57080309"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 00:10:37 -0700
+X-CSE-ConnectionGUID: ohOsf+HWQWOFrhTjoH3+RA==
+X-CSE-MsgGUID: zP+1cSr+RoWpV9omkLPlxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,272,1744095600"; 
+   d="scan'208";a="158488584"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 28 Jun 2025 00:10:32 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uVPhm-000Wsw-0M;
+	Sat, 28 Jun 2025 07:10:30 +0000
+Date: Sat, 28 Jun 2025 15:10:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, gregkh@linuxfoundation.org,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Davidlohr Bueso <dave@stgolabs.net>
+Cc: oe-kbuild-all@lists.linux.dev, Yicong Yang <yangyicong@huawei.com>,
+	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, H Peter Anvin <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH v2 5/8] arm64: Select
+ GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
+Message-ID: <202506281452.zc1D1sSz-lkp@intel.com>
+References: <20250624154805.66985-6-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250624154805.66985-6-Jonathan.Cameron@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_224449_014314_73F5E066 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20250628_001040_363927_2645D2A0 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+Hi Jonathan,
 
-Hi folks,
+kernel test robot noticed the following build warnings:
 
-This small series aims to align the name of the first ethernet
-controller found on the Allwinner A523 SoC family with the name
-found in the datasheets. It renames the compatible string and
-any other references from "emac0" to "gmac0".
+[auto build test WARNING on driver-core/driver-core-testing]
+[also build test WARNING on driver-core/driver-core-next driver-core/driver-core-linus arm64/for-next/core linus/master nvdimm/libnvdimm-for-next v6.16-rc3]
+[cannot apply to nvdimm/dax-misc next-20250627]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-When support of the hardware was introduced, the name chosen was
-"EMAC", which followed previous generations. However the datasheets
-use the name "GMAC" instead, likely because there is another "GMAC"
-based on a newer DWMAC IP.
+url:    https://github.com/intel-lab-lkp/linux/commits/Jonathan-Cameron/memregion-Support-fine-grained-invalidate-by-cpu_cache_invalidate_memregion/20250624-235402
+base:   driver-core/driver-core-testing
+patch link:    https://lore.kernel.org/r/20250624154805.66985-6-Jonathan.Cameron%40huawei.com
+patch subject: [PATCH v2 5/8] arm64: Select GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
+config: arm64-randconfig-r111-20250628 (https://download.01.org/0day-ci/archive/20250628/202506281452.zc1D1sSz-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project e04c938cc08a90ae60440ce22d072ebc69d67ee8)
+reproduce: (https://download.01.org/0day-ci/archive/20250628/202506281452.zc1D1sSz-lkp@intel.com/reproduce)
 
-The first patch fixes the compatible string entry in the device tree
-binding.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506281452.zc1D1sSz-lkp@intel.com/
 
-The second patch fixes all references in the existing device trees.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/base/cache.c:12:1: sparse: sparse: symbol 'scfm_lock' was not declared. Should it be static?
+   drivers/base/cache.c:14:6: sparse: sparse: context imbalance in 'generic_set_sys_cache_flush_method' - wrong count at exit
+   drivers/base/cache.c:27:9: sparse: sparse: context imbalance in 'generic_clr_sys_cache_flush_method' - wrong count at exit
+   drivers/base/cache.c:31:5: sparse: sparse: context imbalance in 'cpu_cache_invalidate_memregion' - wrong count at exit
+   drivers/base/cache.c:41:6: sparse: sparse: context imbalance in 'cpu_cache_has_invalidate_memregion' - wrong count at exit
 
-Since this was introduced in v6.16-rc1, I hope to land this for v6.16
-as well.
+vim +/scfm_lock +12 drivers/base/cache.c
 
-There's a small conflict in patch one around the patch context with 
-
-    dt-bindings: net: sun8i-emac: Add A100 EMAC compatible
-
-that just landed in net-next today. I will leave this patch to the net
-mainainers to merge to avoid making a bigger mess. Once that is landed
-I will merge the second patch through the sunxi tree.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (2):
-  dt-bindings: net: sun8i-emac: Rename A523 EMAC0 to GMAC0
-  arm64: dts: allwinner: a523: Rename emac0 to gmac0
-
- .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml  | 2 +-
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi              | 6 +++---
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts     | 4 ++--
- arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts     | 4 ++--
- 4 files changed, 8 insertions(+), 8 deletions(-)
+b51d47491c68aef Yicong Yang 2025-06-24   9  
+b51d47491c68aef Yicong Yang 2025-06-24  10  
+b51d47491c68aef Yicong Yang 2025-06-24  11  static const struct system_cache_flush_method *scfm_data;
+b51d47491c68aef Yicong Yang 2025-06-24 @12  DEFINE_SPINLOCK(scfm_lock);
+b51d47491c68aef Yicong Yang 2025-06-24  13  
 
 -- 
-2.39.5
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
