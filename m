@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627DBC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 11:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EB5C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 11:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bcx6eh2TgC1wEDI0Mhdy2zUn2yNjD5RhnofME7NcmCM=; b=Xl8wOIELONGRoOxMO2AUP957W5
-	651v+kQUfdG+Ysi12TprHXnzEhSukBOwvMPYgDRdV7QJI4lfSG0C6clEUCKpju9vSlkJ9qkrRkoQr
-	OuRze6HYPn1dTZQkkR0kuSVHeLy8buCzcXtO8l1GRgbFrSuWETG+cW33fedUa/5aEeUqE0VMfOx8g
-	xZJ8PBFA18mNUZroHjvE96AiVVZS6yTfMNJYG/UG9bQw4+EpSxbt0lPM96bHaqT9oUPjkyo5+ct6O
-	AvaJaNrdzp/F5c52nIOobLGBOyddb5h9o6E/Xb+nhDQJIaOZTagrH3OjX4PcPuNG7OnfgoxSh9x4R
-	amo73PoA==;
+	bh=V4dn6eClqZku968XieTCYkQsYAcGmcWWR4z8tKm4Ym8=; b=WmOY2DzrYzGhdfZ3g154Uzjmo0
+	B6QD0fOGMrCUuWX3KbEzaPEz/wP+QA8IVtO4LoqSpBTrSiZ1ffsrwZ9TtmIoaWjyiZLxJLOtZZTuC
+	u4EFNIa2hvipw1mTr0WH8bL01DtBVGqIJRx111+CnxmJ8vP0+7oeAztmbzqKSJZi6foxCIbjjmUUE
+	k8SDUkwlMu5WVVTLLGGxewhuiTCtvBkKb7yR+UWFEhdRkzKfL75mZzGj33ifq3bDcrwuDcJ13METc
+	F/2r2+4IK6Wo0SiZ9zQRA7D+soHSnxKAqVJhVzJ5XVbr1nCQlbNTOvmcINwCNLt5BfdYu6p5LT4qz
+	NT3tGPrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVTz0-0000000Gjq0-0PfD;
-	Sat, 28 Jun 2025 11:44:34 +0000
+	id 1uVU1H-0000000Gk01-3T4E;
+	Sat, 28 Jun 2025 11:46:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVTqC-0000000GjHS-3LUe
+	id 1uVTqL-0000000GjK8-0L5g
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 11:35:29 +0000
+	Sat, 28 Jun 2025 11:35:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 914721BD0;
-	Sat, 28 Jun 2025 04:35:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF0401BD0;
+	Sat, 28 Jun 2025 04:35:19 -0700 (PDT)
 Received: from MacBook-Pro.blr.arm.com (MacBook-Pro.blr.arm.com [10.164.18.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AA6D23F762;
-	Sat, 28 Jun 2025 04:35:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F31033F762;
+	Sat, 28 Jun 2025 04:35:28 -0700 (PDT)
 From: Dev Jain <dev.jain@arm.com>
 To: akpm@linux-foundation.org
 Cc: ryan.roberts@arm.com,
@@ -60,17 +60,17 @@ Cc: ryan.roberts@arm.com,
 	yang@os.amperecomputing.com,
 	ziy@nvidia.com,
 	Dev Jain <dev.jain@arm.com>
-Subject: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Date: Sat, 28 Jun 2025 17:04:34 +0530
-Message-Id: <20250628113435.46678-4-dev.jain@arm.com>
+Subject: [PATCH v4 4/4] arm64: Add batched versions of ptep_modify_prot_start/commit
+Date: Sat, 28 Jun 2025 17:04:35 +0530
+Message-Id: <20250628113435.46678-5-dev.jain@arm.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20250628113435.46678-1-dev.jain@arm.com>
 References: <20250628113435.46678-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_043528_917211_51398E92 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20250628_043537_234669_20C4DDBB 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,245 +85,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use folio_pte_batch to batch process a large folio. Reuse the folio from
-prot_numa case if possible.
+Override the generic definition of modify_prot_start_ptes() to use
+get_and_clear_full_ptes(). This helper does a TLBI only for the starting
+and ending contpte block of the range, whereas the current implementation
+will call ptep_get_and_clear() for every contpte block, thus doing a
+TLBI on every contpte block. Therefore, we have a performance win.
 
-For all cases other than the PageAnonExclusive case, if the case holds true
-for one pte in the batch, one can confirm that that case will hold true for
-other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
-FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty
-and access bits across the batch, therefore batching across
-pte_dirty(): this is correct since the dirty bit on the PTE really is
-just an indication that the folio got written to, so even if the PTE is
-not actually dirty (but one of the PTEs in the batch is), the wp-fault
-optimization can be made.
+The arm64 definition of pte_accessible() allows us to batch in the
+errata specific case:
 
-The crux now is how to batch around the PageAnonExclusive case; we must
-check the corresponding condition for every single page. Therefore, from
-the large folio batch, we process sub batches of ptes mapping pages with
-the same PageAnonExclusive condition, and process that sub batch, then
-determine and process the next sub batch, and so on. Note that this does
-not cause any extra overhead; if suppose the size of the folio batch
-is 512, then the sub batch processing in total will take 512 iterations,
-which is the same as what we would have done before.
+#define pte_accessible(mm, pte)	\
+	(mm_tlb_flush_pending(mm) ? pte_present(pte) : pte_valid(pte))
+
+All ptes are obviously present in the folio batch, and they are also valid.
+
+Override the generic definition of modify_prot_commit_ptes() to simply
+use set_ptes() to map the new ptes into the pagetable.
 
 Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- mm/mprotect.c | 143 +++++++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 117 insertions(+), 26 deletions(-)
+ arch/arm64/include/asm/pgtable.h | 10 ++++++++++
+ arch/arm64/mm/mmu.c              | 28 +++++++++++++++++++++++-----
+ 2 files changed, 33 insertions(+), 5 deletions(-)
 
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 627b0d67cc4a..28c7ce7728ff 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -40,35 +40,47 @@
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index ba63c8736666..abd2dee416b3 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1643,6 +1643,16 @@ extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
+ 				    unsigned long addr, pte_t *ptep,
+ 				    pte_t old_pte, pte_t new_pte);
  
- #include "internal.h"
++#define modify_prot_start_ptes modify_prot_start_ptes
++extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
++				    unsigned long addr, pte_t *ptep,
++				    unsigned int nr);
++
++#define modify_prot_commit_ptes modify_prot_commit_ptes
++extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
++				    pte_t *ptep, pte_t old_pte, pte_t pte,
++				    unsigned int nr);
++
+ #ifdef CONFIG_ARM64_CONTPTE
  
--bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
--			     pte_t pte)
--{
--	struct page *page;
-+enum tristate {
-+	TRI_FALSE = 0,
-+	TRI_TRUE = 1,
-+	TRI_MAYBE = -1,
-+};
+ /*
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 3d5fb37424ab..38325616f467 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -26,6 +26,7 @@
+ #include <linux/set_memory.h>
+ #include <linux/kfence.h>
+ #include <linux/pkeys.h>
++#include <linux/mm_inline.h>
  
-+/*
-+ * Returns enum tristate indicating whether the pte can be changed to writable.
-+ * If TRI_MAYBE is returned, then the folio is anonymous and the user must
-+ * additionally check PageAnonExclusive() for every page in the desired range.
-+ */
-+static int maybe_change_pte_writable(struct vm_area_struct *vma,
-+				     unsigned long addr, pte_t pte,
-+				     struct folio *folio)
-+{
- 	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
--		return false;
-+		return TRI_FALSE;
+ #include <asm/barrier.h>
+ #include <asm/cputype.h>
+@@ -1524,24 +1525,41 @@ static int __init prevent_bootmem_remove_init(void)
+ early_initcall(prevent_bootmem_remove_init);
+ #endif
  
- 	/* Don't touch entries that are not even readable. */
- 	if (pte_protnone(pte))
--		return false;
-+		return TRI_FALSE;
- 
- 	/* Do we need write faults for softdirty tracking? */
- 	if (pte_needs_soft_dirty_wp(vma, pte))
--		return false;
-+		return TRI_FALSE;
- 
- 	/* Do we need write faults for uffd-wp tracking? */
- 	if (userfaultfd_pte_wp(vma, pte))
--		return false;
-+		return TRI_FALSE;
- 
- 	if (!(vma->vm_flags & VM_SHARED)) {
+-pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
++pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t *ptep, unsigned int nr)
+ {
++	pte_t pte = get_and_clear_full_ptes(vma->vm_mm, addr, ptep, nr, 0);
++
+ 	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
  		/*
- 		 * Writable MAP_PRIVATE mapping: We can only special-case on
- 		 * exclusive anonymous pages, because we know that our
- 		 * write-fault handler similarly would map them writable without
--		 * any additional checks while holding the PT lock.
-+		 * any additional checks while holding the PT lock. So if the
-+		 * folio is not anonymous, we know we cannot change pte to
-+		 * writable. If it is anonymous then the caller must further
-+		 * check that the page is AnonExclusive().
+ 		 * Break-before-make (BBM) is required for all user space mappings
+ 		 * when the permission changes from executable to non-executable
+ 		 * in cases where cpu is affected with errata #2645198.
  		 */
--		page = vm_normal_page(vma, addr, pte);
--		return page && PageAnon(page) && PageAnonExclusive(page);
-+		return (!folio || folio_test_anon(folio)) ? TRI_MAYBE : TRI_FALSE;
+-		if (pte_user_exec(ptep_get(ptep)))
+-			return ptep_clear_flush(vma, addr, ptep);
++		if (pte_accessible(vma->vm_mm, pte) && pte_user_exec(pte))
++			__flush_tlb_range(vma, addr, nr * PAGE_SIZE,
++					  PAGE_SIZE, true, 3);
  	}
- 
- 	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
-@@ -80,15 +92,61 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
- 	 * FS was already notified and we can simply mark the PTE writable
- 	 * just like the write-fault handler would do.
- 	 */
--	return pte_dirty(pte);
-+	return pte_dirty(pte) ? TRI_TRUE : TRI_FALSE;
+-	return ptep_get_and_clear(vma->vm_mm, addr, ptep);
++
++	return pte;
 +}
 +
-+/*
-+ * Returns the number of pages within the folio, starting from the page
-+ * indicated by pgidx and up to pgidx + max_nr, that have the same value of
-+ * PageAnonExclusive(). Must only be called for anonymous folios. Value of
-+ * PageAnonExclusive() is returned in *exclusive.
-+ */
-+static int anon_exclusive_batch(struct folio *folio, int pgidx, int max_nr,
-+				bool *exclusive)
++pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
 +{
-+	struct page *page;
-+	int nr = 1;
-+
-+	if (!folio) {
-+		*exclusive = false;
-+		return nr;
-+	}
-+
-+	page = folio_page(folio, pgidx++);
-+	*exclusive = PageAnonExclusive(page);
-+	while (nr < max_nr) {
-+		page = folio_page(folio, pgidx++);
-+		if ((*exclusive) != PageAnonExclusive(page))
-+			break;
-+		nr++;
-+	}
-+
-+	return nr;
++	return modify_prot_start_ptes(vma, addr, ptep, 1);
 +}
 +
-+bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
-+			     pte_t pte)
++void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t *ptep, pte_t old_pte, pte_t pte,
++			     unsigned int nr)
 +{
-+	struct page *page;
-+	int ret;
-+
-+	ret = maybe_change_pte_writable(vma, addr, pte, NULL);
-+	if (ret == TRI_MAYBE) {
-+		page = vm_normal_page(vma, addr, pte);
-+		ret = page && PageAnon(page) && PageAnonExclusive(page);
-+	}
-+
-+	return ret;
++	set_ptes(vma->vm_mm, addr, ptep, pte, nr);
  }
  
- static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
--		pte_t *ptep, pte_t pte, int max_nr_ptes)
-+		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
+ void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
+ 			     pte_t old_pte, pte_t pte)
  {
--	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-+	fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-+
-+	flags &= ~switch_off_flags;
+-	set_pte_at(vma->vm_mm, addr, ptep, pte);
++	modify_prot_commit_ptes(vma, addr, ptep, old_pte, pte, 1);
+ }
  
--	if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
-+	if (!folio || !folio_test_large(folio))
- 		return 1;
- 
- 	return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
-@@ -154,7 +212,8 @@ static int prot_numa_skip_ptes(struct folio **foliop, struct vm_area_struct *vma
- 	}
- 
- skip_batch:
--	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte, max_nr_ptes);
-+	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
-+					   max_nr_ptes, 0);
- out:
- 	*foliop = folio;
- 	return nr_ptes;
-@@ -191,7 +250,10 @@ static long change_pte_range(struct mmu_gather *tlb,
- 		if (pte_present(oldpte)) {
- 			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
- 			struct folio *folio = NULL;
--			pte_t ptent;
-+			int sub_nr_ptes, pgidx = 0;
-+			pte_t ptent, newpte;
-+			bool sub_set_write;
-+			int set_write;
- 
- 			/*
- 			 * Avoid trapping faults against the zero or KSM
-@@ -206,6 +268,11 @@ static long change_pte_range(struct mmu_gather *tlb,
- 					continue;
- 			}
- 
-+			if (!folio)
-+				folio = vm_normal_folio(vma, addr, oldpte);
-+
-+			nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
-+							   max_nr_ptes, FPB_IGNORE_SOFT_DIRTY);
- 			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
- 			ptent = pte_modify(oldpte, newprot);
- 
-@@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
- 			 * example, if a PTE is already dirty and no other
- 			 * COW or special handling is required.
- 			 */
--			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
--			    !pte_write(ptent) &&
--			    can_change_pte_writable(vma, addr, ptent))
--				ptent = pte_mkwrite(ptent, vma);
--
--			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
--			if (pte_needs_flush(oldpte, ptent))
--				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
--			pages++;
-+			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
-+				    !pte_write(ptent);
-+			if (set_write)
-+				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
-+
-+			while (nr_ptes) {
-+				if (set_write == TRI_MAYBE) {
-+					sub_nr_ptes = anon_exclusive_batch(folio,
-+						pgidx, nr_ptes, &sub_set_write);
-+				} else {
-+					sub_nr_ptes = nr_ptes;
-+					sub_set_write = (set_write == TRI_TRUE);
-+				}
-+
-+				if (sub_set_write)
-+					newpte = pte_mkwrite(ptent, vma);
-+				else
-+					newpte = ptent;
-+
-+				modify_prot_commit_ptes(vma, addr, pte, oldpte,
-+							newpte, sub_nr_ptes);
-+				if (pte_needs_flush(oldpte, newpte))
-+					tlb_flush_pte_range(tlb, addr,
-+						sub_nr_ptes * PAGE_SIZE);
-+
-+				addr += sub_nr_ptes * PAGE_SIZE;
-+				pte += sub_nr_ptes;
-+				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
-+				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
-+				nr_ptes -= sub_nr_ptes;
-+				pages += sub_nr_ptes;
-+				pgidx += sub_nr_ptes;
-+			}
- 		} else if (is_swap_pte(oldpte)) {
- 			swp_entry_t entry = pte_to_swp_entry(oldpte);
- 			pte_t newpte;
+ /*
 -- 
 2.30.2
 
