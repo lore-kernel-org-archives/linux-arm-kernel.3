@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED6CC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 19:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499F6C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 20:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=; b=j3saDu9//JXhgZrRUrk8MDVXu+
-	CZbZkFoLmEUzgickJ0ko15SVH/bDp118BluR45LBJxHMtwUXorD1Po7enAz7XzBQXH4no6JUBIwlj
-	aQnILVDXXzuJdlBclMUp6I0xNPRfAC2hoqRkGJApeW7oINOl/QtUfi/V2VggBRUPUjx8WHqjbU5kS
-	HZ4y66D9HuomZR4PkS/aEmVyOaHPCv3TxFO+AHyIxSF2pTmOTc/nhNrz9vzD8fkSBfjgSIordcVER
-	mWUdgdR7xf206aOZI5E56PkUrQgJPyrjQsLCFSe2QAIhjcm6SSSydodaEx3ONtai3uUPxAEdsCyTF
-	V3H97Vpg==;
+	bh=JiVOZNeOYNGEwK3uEHBX5b3xFGZcGXJ91T7bLk7ND4s=; b=E9RFd+tVg06Q83lgSrP7kGKwwa
+	axHsnqCAjjZG6Vx0BUbtQc43nxqZRX5gqECXiUlp8vKJyEA0XCpxna5M+8wiPUf8juKwlyD6RKVwe
+	IUz3ELmTafRTTLyqcYdW7DzFKHbYZB+XixIfOJyNHe9BrW3ue4RVcfVm3X+sfQw2t4uvGeOKRKgRz
+	+beslVmbCd4F+BPT0u7y0z9IR4caV24PAF/d7qg21ty0OwCN3azDGC7+35hzqDMxkAhg67bvRBHJk
+	LKnYxND00wzWsfxaC7PYOYzR2ZxcPIKNVYntw7KWIChe/nJ1Ww2avkFOdKbaYma6WM2FhXHyONHGt
+	5hWabrTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVbeL-0000000HGmw-16Yy;
-	Sat, 28 Jun 2025 19:55:45 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uVbtJ-0000000HHNJ-3tYa;
+	Sat, 28 Jun 2025 20:11:13 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVbc1-0000000HGiM-3BBP
+	id 1uVbqz-0000000HHGG-0gBG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 19:53:23 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4531e146a24so16872185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Jun 2025 12:53:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751140399; x=1751745199; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=;
-        b=oz/V2ZjMm0FMb+3byXNcrPAxQtsVIB5HalrAzxCx5d6Tb3aiTLTu+EJ1l7Hd46fp33
-         NsNcr/kHsaRP9G3y+7WFExx05N67lGFcZXwgVJ8ngyAb8u8EtWgGsipTiodG5/bBgPT7
-         xPjUQSQrJRqQ4src7jPvcMK86NqhZEKnPfOAhfQ3cseRvvf9J4bTMCS1afCtfcX33UAK
-         joZ3rxwe9p5kW8BUK1+o/DKHPvSD1dPPC56LAzRml0y026Ngexfbtr70hwsHC4lv1MpN
-         U5HTxtcWEla2BOD8ziGmv+oXBq7TECX1RvBq0yoQa8up+sdM1X7GV+3Qm3o30W5Vo6CJ
-         OILQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751140400; x=1751745200;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3QyHqQCf1rj8/jNTL5ig8eExEUuZ3Ia42+nYVYWkCr4=;
-        b=V5qUi6BEX+MS9W3ESu7t78A/xsOB5BctvnLj7H2BMvOXzffpmgIjflvCSJ+KxiReQ0
-         N4GV8lxRiLMzLDS3WBB7fGMg2XdHmD4gve+nxBuXAdiDNmDACrh+Fi6r5wCnKMlh3IAb
-         eny6COIVyvkVUbNNwmsnHg1oKkw+4UBUCa9XvnmT1A8/RCtoxLedC04Qx1OefbHC06Mp
-         ZEIAJJxrTx+T6/BQP26haoM8oG+YgJYMOfOC0WUEiTanKz1FZrW3D7yz75eIebOU24Cq
-         n/uini2rVYO2i8FGMeZuMFP8jU+lt0jBW8mpmoZyukYGB+WWqwpVpBwNQwYs7qAhi21h
-         4Jww==
-X-Forwarded-Encrypted: i=1; AJvYcCVGeSWN4mN6N05erxt0oGCznD0TOw2ay8djBhNO/B/xTt17qIKqRohC5j7NJZOFkrpI/Lg0QR0QGWrQ79Z7BFmq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2G8inMjafn5SZ2s0hR2o/3UbQD7U2Z0pRsDqxfDcMZOcnkAb6
-	kcSO8QNubqSZd+DCwPcxgkXAzlNP4IXsF3Jy19+z+YpjHOoHoXobjrGkNxlsPYgOWiA=
-X-Gm-Gg: ASbGncu1JsbDx3Zib0JjiWbhwDaI8Ht24qy3LVRdTSr5hF/UuJuVc07qjX/XJR53ucX
-	GVM5lxzHEhR1ArpI6aVo1DK32/GlJhKYlI8AkbnCi7+/lpOmxkDQLwjq1DsxJGx5lmSoJjnCA/V
-	CQHwgth/9vXaoymIL+CAK10Wdixu+OjSwm/IF94obKzKZZybZ1rdMuN1dhTUkOz+moDcXFI2Ddu
-	P7v0vIqSZG5Kf8C0uTgliy8OblRkDBTl+2ks67twBUEZLPnuuSSnEcPk5cYz/AXaeqkFlc6t549
-	jtqi4dxm5GQq4+lGpTSo4wpHPdmTYXkVJkxA/6ErTVFvb4dP6wVd9xlm3J1O3i1gy705
-X-Google-Smtp-Source: AGHT+IFHukOoSyHfuwr6fdOhiMqwDh6w4eyGrcAqPmtqVI9++TGozuj4ALvF8dEZH78Qc3I+9tpD/w==
-X-Received: by 2002:a05:6000:144d:b0:3a4:fc37:70e4 with SMTP id ffacd0b85a97d-3a90c07daffmr7119112f8f.58.1751140399497;
-        Sat, 28 Jun 2025 12:53:19 -0700 (PDT)
-Received: from localhost ([2a02:c7c:7213:c700:e33b:a0ed:df4b:222c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c80b516sm5871948f8f.41.2025.06.28.12.53.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Jun 2025 12:53:19 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 28 Jun 2025 20:53:18 +0100
-Message-Id: <DAYFGP9TBU3K.1TEQFWX2GF7OR@linaro.org>
-Cc: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
- <andersson@kernel.org>, <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Add SM6115 MDSS compatible
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: <robin.clark@oss.qualcomm.com>, <will@kernel.org>,
- <robin.murphy@arm.com>, <iommu@lists.linux.dev>
-X-Mailer: aerc 0.20.0
-References: <20250613173238.15061-1-alexey.klimov@linaro.org>
-In-Reply-To: <20250613173238.15061-1-alexey.klimov@linaro.org>
+	Sat, 28 Jun 2025 20:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751141330; x=1782677330;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=ZfgZmaAiWzFv3GNt+MGVb2OWQPwmzkXNENWhECrKFRE=;
+  b=niND4CVzH4DICHKX/3pTVCyJBuE5eslNTxYZECImhK7RPT50MpgJYLIW
+   dC+fshHmp3/Ycg4PJM0XlrzjAGlsNp1jEJoySD3KkoT/e3iG/WhvXV0HT
+   gPK7A1InCtAWPzRueIKkN/96GBvPaJcKMMkLewIIO2DI++yt8YYOgdUvL
+   Su+NVU0BYEIY0btall6s45Wdm64QHXxs5eo28r7TL3WpzvjGKNLlT1NYp
+   FVrTk2hxxHwGgzvj7dGGweqwJrHJpxaJ6eDdMJvrb0PEk6YUh7Na1qxnL
+   b1nJLPYSBhYL2a2eJI/KhxS0bNgqD6qMbjqbbI2sz9FrrRdismnfc1lZh
+   g==;
+X-CSE-ConnectionGUID: QzD4OUR5TkSsFzfFaZny0g==
+X-CSE-MsgGUID: rKLXUhQjRq2nd/XfJni1TA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11478"; a="53517501"
+X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
+   d="scan'208";a="53517501"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 13:08:48 -0700
+X-CSE-ConnectionGUID: NK4Puo7zQNCz9I9xl7ix7A==
+X-CSE-MsgGUID: hH+vhDI5QjCAuvb9OlWEzg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,273,1744095600"; 
+   d="scan'208";a="153184418"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.245.225])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2025 13:08:42 -0700
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by svinhufvud.fi.intel.com (Postfix) with ESMTP id B4BF44435F;
+	Sat, 28 Jun 2025 23:08:39 +0300 (EEST)
+Message-ID: <79e89e5a-c588-4e61-9400-80ac2fe707da@linux.intel.com>
+Date: Sat, 28 Jun 2025 22:29:56 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 06/17] media: uapi: Add controls for Mali-C55 ISP
+Content-Language: en-US
+To: Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-6-54f3d4196990@ideasonboard.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+In-Reply-To: <20250624-c55-v10-6-54f3d4196990@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_125321_800875_D2EC09A8 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20250628_130849_253271_A47AFF43 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,134 +94,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jun 13, 2025 at 6:32 PM BST, Alexey Klimov wrote:
-> Add the SM6115 MDSS compatible to clients compatible list, as it also
-> needs that workaround.
-> Without this workaround, for example, QRB4210 RB2 which is based on
-> SM4250/SM6115 generates a lot of smmu unhandled context faults during
-> boot:
->
-> arm_smmu_context_fault: 116854 callbacks suppressed
-> arm-smmu c600000.iommu: Unhandled context fault: fsr=3D0x402,
-> iova=3D0x5c0ec600, fsynr=3D0x320021, cbfrsynra=3D0x420, cb=3D5
-> arm-smmu c600000.iommu: FSR    =3D 00000402 [Format=3D2 TF], SID=3D0x420
-> arm-smmu c600000.iommu: FSYNR0 =3D 00320021 [S1CBNDX=3D50 PNU PLVL=3D1]
-> arm-smmu c600000.iommu: Unhandled context fault: fsr=3D0x402,
-> iova=3D0x5c0d7800, fsynr=3D0x320021, cbfrsynra=3D0x420, cb=3D5
-> arm-smmu c600000.iommu: FSR    =3D 00000402 [Format=3D2 TF], SID=3D0x420
->
-> and also failed initialisation of lontium lt9611uxc, gpu and dpu is
-> observed:
-> (binding MDSS components triggered by lt9611uxc have failed)
->
->  ------------[ cut here ]------------
->  !aspace
->  WARNING: CPU: 6 PID: 324 at drivers/gpu/drm/msm/msm_gem_vma.c:130 msm_ge=
-m_vma_init+0x150/0x18c [msm]
->  Modules linked in: ... (long list of modules)
->  CPU: 6 UID: 0 PID: 324 Comm: (udev-worker) Not tainted 6.15.0-03037-gaac=
-c73ceeb8b #4 PREEMPT
->  Hardware name: Qualcomm Technologies, Inc. QRB4210 RB2 (DT)
->  pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
->  pc : msm_gem_vma_init+0x150/0x18c [msm]
->  lr : msm_gem_vma_init+0x150/0x18c [msm]
->  sp : ffff80008144b280
->   		...
->  Call trace:
->   msm_gem_vma_init+0x150/0x18c [msm] (P)
->   get_vma_locked+0xc0/0x194 [msm]
->   msm_gem_get_and_pin_iova_range+0x4c/0xdc [msm]
->   msm_gem_kernel_new+0x48/0x160 [msm]
->   msm_gpu_init+0x34c/0x53c [msm]
->   adreno_gpu_init+0x1b0/0x2d8 [msm]
->   a6xx_gpu_init+0x1e8/0x9e0 [msm]
->   adreno_bind+0x2b8/0x348 [msm]
->   component_bind_all+0x100/0x230
->   msm_drm_bind+0x13c/0x3d0 [msm]
->   try_to_bring_up_aggregate_device+0x164/0x1d0
->   __component_add+0xa4/0x174
->   component_add+0x14/0x20
->   dsi_dev_attach+0x20/0x34 [msm]
->   dsi_host_attach+0x58/0x98 [msm]
->   devm_mipi_dsi_attach+0x34/0x90
->   lt9611uxc_attach_dsi.isra.0+0x94/0x124 [lontium_lt9611uxc]
->   lt9611uxc_probe+0x540/0x5fc [lontium_lt9611uxc]
->   i2c_device_probe+0x148/0x2a8
->   really_probe+0xbc/0x2c0
->   __driver_probe_device+0x78/0x120
->   driver_probe_device+0x3c/0x154
->   __driver_attach+0x90/0x1a0
->   bus_for_each_dev+0x68/0xb8
->   driver_attach+0x24/0x30
->   bus_add_driver+0xe4/0x208
->   driver_register+0x68/0x124
->   i2c_register_driver+0x48/0xcc
->   lt9611uxc_driver_init+0x20/0x1000 [lontium_lt9611uxc]
->   do_one_initcall+0x60/0x1d4
->   do_init_module+0x54/0x1fc
->   load_module+0x1748/0x1c8c
->   init_module_from_file+0x74/0xa0
->   __arm64_sys_finit_module+0x130/0x2f8
->   invoke_syscall+0x48/0x104
->   el0_svc_common.constprop.0+0xc0/0xe0
->   do_el0_svc+0x1c/0x28
->   el0_svc+0x2c/0x80
->   el0t_64_sync_handler+0x10c/0x138
->   el0t_64_sync+0x198/0x19c
->  ---[ end trace 0000000000000000 ]---
->  msm_dpu 5e01000.display-controller: [drm:msm_gpu_init [msm]] *ERROR* cou=
-ld not allocate memptrs: -22
->  msm_dpu 5e01000.display-controller: failed to load adreno gpu
->  platform a400000.remoteproc:glink-edge:apr:service@7:dais: Adding to iom=
-mu group 19
->  msm_dpu 5e01000.display-controller: failed to bind 5900000.gpu (ops a3xx=
-_ops [msm]): -22
->  msm_dpu 5e01000.display-controller: adev bind failed: -22
->  lt9611uxc 0-002b: failed to attach dsi to host
->  lt9611uxc 0-002b: probe with driver lt9611uxc failed with error -22
->
-> Suggested-by: Bjorn Andersson <andersson@kernel.org>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Fixes: 3581b7062cec ("drm/msm/disp/dpu1: add support for display on SM611=
-5")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->
-> v2:
->  - added tags as suggested by Dmitry;
->  - slightly updated text in the commit message.
->
-> Previous version: https://lore.kernel.org/linux-arm-msm/20250528003118.21=
-4093-1-alexey.klimov@linaro.org/
->
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/a=
-rm/arm-smmu/arm-smmu-qcom.c
-> index 62874b18f645..c75023718595 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -379,6 +379,7 @@ static const struct of_device_id qcom_smmu_client_of_=
-match[] __maybe_unused =3D {
->  	{ .compatible =3D "qcom,sdm670-mdss" },
->  	{ .compatible =3D "qcom,sdm845-mdss" },
->  	{ .compatible =3D "qcom,sdm845-mss-pil" },
-> +	{ .compatible =3D "qcom,sm6115-mdss" },
->  	{ .compatible =3D "qcom,sm6350-mdss" },
->  	{ .compatible =3D "qcom,sm6375-mdss" },
->  	{ .compatible =3D "qcom,sm8150-mdss" },
+Hi Daniel,
 
-Gentle ping.                                                               =
-                                                                =20
-                                                                           =
-                                                                =20
-This was sent over 2 weeks ago.                                            =
-                                                                =20
-                                                                           =
-                                                                =20
-Thanks,                                                                    =
-                                                                =20
-Alexey Klimov
+Thanks for the update.
+
+On 6/24/25 13:21, Daniel Scally wrote:
+> Add definitions and documentation for the custom control that will
+> be needed by the Mali-C55 ISP driver. This will be a read only
+> bitmask of the driver's capabilities, informing userspace of which
+> blocks are fitted and which are absent.
+> 
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> ---
+> Changes in v10:
+> 
+> 	- None
+> 
+> Changes in v9:
+> 
+> 	- New patch
+> ---
+>   .../userspace-api/media/drivers/index.rst          |  1 +
+>   .../userspace-api/media/drivers/mali-c55.rst       | 55 ++++++++++++++++++++++
+>   include/uapi/linux/media/arm/mali-c55-config.h     | 26 ++++++++++
+>   include/uapi/linux/v4l2-controls.h                 |  6 +++
+>   4 files changed, 88 insertions(+)
+> 
+> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
+> index d706cb47b1122b6e145a02ab826eb3ecc7997c2b..02967c9b18d6e90f414ccc1329c09bffee895e68 100644
+> --- a/Documentation/userspace-api/media/drivers/index.rst
+> +++ b/Documentation/userspace-api/media/drivers/index.rst
+> @@ -32,6 +32,7 @@ For more details see the file COPYING in the source distribution of Linux.
+>   	cx2341x-uapi
+>   	dw100
+>   	imx-uapi
+> +	mali-c55
+>   	max2175
+>   	npcm-video
+>   	omap3isp-uapi
+> diff --git a/Documentation/userspace-api/media/drivers/mali-c55.rst b/Documentation/userspace-api/media/drivers/mali-c55.rst
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..e8519da77d737b91a931bbe47920af707eebf110
+> --- /dev/null
+> +++ b/Documentation/userspace-api/media/drivers/mali-c55.rst
+> @@ -0,0 +1,55 @@
+> +.. SPDX-License-Identifier: GPL-2.0-only
+> +
+> +Arm Mali-C55 ISP driver
+> +=======================
+> +
+> +The Arm Mali-C55 ISP driver implements a single driver-specific control:
+> +
+> +``V4L2_CID_MALI_C55_CAPABILITIES``
+
+Add: (integer)
+
+?
+
+> +    Detail the capabilities of the ISP by giving detail about the fitted blocks.
+> +
+> +    .. flat-table:: Bitmask meaning definitions
+> +	:header-rows: 1
+> +	:widths: 2 4 8
+> +
+> +	* - Bit
+> +	  - Macro
+> +	  - Meaning
+> +        * - 0
+> +          - MALI_C55_GPS_PONG_FITTED
+
+How about a V4L2 prefix for these? Generally the controls have been 
+V4L2_CID_something and the macros for the possible values have been 
+named V4L2_something.
+
+> +          - Pong configuration space is fitted in the ISP
+> +        * - 1
+> +          - MALI_C55_GPS_WDR_FITTED
+> +          - WDR Framestitch, offset and gain is fitted in the ISP
+> +        * - 2
+> +          - MALI_C55_GPS_COMPRESSION_FITTED
+> +          - Temper compression is fitted in the ISP
+> +        * - 3
+> +          - MALI_C55_GPS_TEMPER_FITTED
+> +          - Temper is fitted in the ISP
+> +        * - 4
+> +          - MALI_C55_GPS_SINTER_LITE_FITTED
+> +          - Sinter Lite is fitted in the ISP instead of the full Sinter version
+> +        * - 5
+> +          - MALI_C55_GPS_SINTER_FITTED
+> +          - Sinter is fitted in the ISP
+> +        * - 6
+> +          - MALI_C55_GPS_IRIDIX_LTM_FITTED
+> +          - Iridix local tone mappine is fitted in the ISP
+> +        * - 7
+> +          - MALI_C55_GPS_IRIDIX_GTM_FITTED
+> +          - Iridix global tone mapping is fitted in the ISP
+> +        * - 8
+> +          - MALI_C55_GPS_CNR_FITTED
+> +          - Colour noise reduction is fitted in the ISP
+> +        * - 9
+> +          - MALI_C55_GPS_FRSCALER_FITTED
+> +          - The full resolution pipe scaler is fitted in the ISP
+> +        * - 10
+> +          - MALI_C55_GPS_DS_PIPE_FITTED
+> +          - The downscale pipe is fitted in the ISP
+> +
+> +    The Mali-C55 ISP can be configured in a number of ways to include or exclude
+> +    blocks which may not be necessary. This control provides a way for the
+> +    driver to communicate to userspace which of the blocks are fitted in the
+> +    design.
+> \ No newline at end of file
+
+Oops.
+
+> diff --git a/include/uapi/linux/media/arm/mali-c55-config.h b/include/uapi/linux/media/arm/mali-c55-config.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..2bd60a0d78786be368c2e51b1a0a63fd2a5f690b
+> --- /dev/null
+> +++ b/include/uapi/linux/media/arm/mali-c55-config.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+> +/*
+> + * ARM Mali-C55 ISP Driver - Userspace API
+> + *
+> + * Copyright (C) 2023 Ideas on Board Oy
+> + */
+> +
+> +#ifndef __UAPI_MALI_C55_CONFIG_H
+> +#define __UAPI_MALI_C55_CONFIG_H
+> +
+> +#include <linux/v4l2-controls.h>
+> +
+> +#define V4L2_CID_MALI_C55_CAPABILITIES		(V4L2_CID_USER_MALI_C55_BASE + 0x0)
+> +#define MALI_C55_GPS_PONG_FITTED		BIT(0)
+
+Since when has been BIT() defined for UAPI? (1U << x)?
+
+> +#define MALI_C55_GPS_WDR_FITTED			BIT(1)
+> +#define MALI_C55_GPS_COMPRESSION_FITTED		BIT(2)
+> +#define MALI_C55_GPS_TEMPER_FITTED		BIT(3)
+> +#define MALI_C55_GPS_SINTER_LITE_FITTED		BIT(4)
+> +#define MALI_C55_GPS_SINTER_FITTED		BIT(5)
+> +#define MALI_C55_GPS_IRIDIX_LTM_FITTED		BIT(6)
+> +#define MALI_C55_GPS_IRIDIX_GTM_FITTED		BIT(7)
+> +#define MALI_C55_GPS_CNR_FITTED			BIT(8)
+> +#define MALI_C55_GPS_FRSCALER_FITTED		BIT(9)
+> +#define MALI_C55_GPS_DS_PIPE_FITTED		BIT(10)
+> +
+> +#endif /* __UAPI_MALI_C55_CONFIG_H */
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+> index 72e32814ea83dee5f1202c1249eac7cf3b85a22a..a31105115410bd041a3ac492ce86becd93a62d87 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -222,6 +222,12 @@ enum v4l2_colorfx {
+>    */
+>   #define V4L2_CID_USER_UVC_BASE			(V4L2_CID_USER_BASE + 0x11e0)
+>   
+> +/*
+> + * The base for the Arm Mali-C55 ISP driver controls.
+> + * We reserve 8 controls for this driver
+> + */
+> +#define V4L2_CID_USER_MALI_C55_BASE		(V4L2_CID_USER_BASE + 0x1220)
+> +
+>   /* MPEG-class control IDs */
+>   /* The MPEG controls are applicable to all codec controls
+>    * and the 'MPEG' part of the define is historical */
+> 
+
+
+-- 
+Sakari Ailus
 
