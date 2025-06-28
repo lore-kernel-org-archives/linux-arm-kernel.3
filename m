@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD161C7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 05:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F26C7EE32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 05:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TK8Kh9IhM4RSrrc7LHqpFAC8NP6JZr2rel/I3xm4IqA=; b=iilJS7tsQPIV04WktD67hbrQyt
-	vqToSUdExrqoV/WlvMr6Jo7jbiqEBYYbq8GndUUoiOHZEwMkqbMbAToYRDs8plgHEiiPhlSdftLKJ
-	gl6P+76rIaN3pAxkrfOhfIttsfUPHOXHLCALFrNHXeZb4p9jbIzXw2iqlCFNOWpGEosFrCrpCzulu
-	/VZ6Eq1C/wSmHVTf/jHVkgKYt/83CStHuzw1lVa/yw4O+KOq/fIaXIAw5krFcvGBBq0++twwEljIK
-	KV8fII3xzltGuTsfPi+9ZALjFZHX3sWPV/pxSOkB9bX6DZJCu0cQ+/+LaqLxDbJr+M+ZXcBNK8Zlf
-	bUXDYrFQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I11TGJ/34iVtBwVI5g4O/YYyP3TziDPB5aVFJFQ2HZ0=; b=W+VeV0qgJPwouHZ2099VsulSVs
+	q5DF6IIFxpB/x9MStY7pZGDjlRCx0StHSEqv0mBANWG7exEJO2cWb+/UUQMCpyHyWU3pZTEzGK+an
+	CJJIhQOOdwagtwTnvyhPQR/FepudaTbS8QDbXfh0nVQrU3IR9JvJpOx2rui24MV1EsfJxzACGrKpB
+	Z8Z/agWR5qN2e6HgDIUELygIOOFNcRxrwoOSiuFjoIlzwxe6iAMaDu85MSQoxmMNYEz32Hk9h54Un
+	umq6DnF/phvoAMdbi38rB29Wn/G4zV2JcUUfQWgduvPJoUxc+qsx3k0XJEB+8mCoFPIGi182FIYlV
+	bTlx1Nqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVORQ-0000000GQtd-2tzu;
-	Sat, 28 Jun 2025 05:49:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uVOTh-0000000GR2t-1fqR;
+	Sat, 28 Jun 2025 05:51:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVOMq-0000000GQWu-1pwD
+	id 1uVOMq-0000000GQWr-3gWG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Jun 2025 05:44:49 +0000
+	Sat, 28 Jun 2025 05:44:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45AD544CF5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 03DC544DD2;
 	Sat, 28 Jun 2025 05:44:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F16D3C4CEF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5137C4CEEE;
 	Sat, 28 Jun 2025 05:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751089487;
-	bh=WKX6UPJG1JKK2C5l7RGoc2IVvdGkeOSZ82VyvukU8Ok=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mX4bCDJDLs0dK9C86qRB66iAJTv77tTOiAaMz6rER9I1XC3Wq4YXoi57TBk0/oCzS
-	 o8ajQdLDEx0z7a40jaY4FXFFWhPGJVV+cN5dF5nmHlh8Qtu7h2p01DDthOgiyW8CCU
-	 +uCqKyZKwTJoyMKJkvjo/Xkk5LXOruYPrfYOKDDcHOt18eIGQdPkSgqW/iz9DzLBJm
-	 EdruJnU1YTHXUWC213Y7PyiuGgKJqCZf4yQYRkf0rkqeb2N6anfhOnI4jV0M+txMVQ
-	 KHKHvEaC6Sr4mTJfjISFccfB71xlDNykXwqM+H0qlBb3r1FjqHA8KkFUxfYOVlGAbZ
-	 Eyl/9f0sMusMg==
+	s=k20201202; t=1751089486;
+	bh=dpDcT0JGPHxnE3OT+sUCmMdAicGM1TQ8WJOYe+HFJCc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OKgaL/DfcCOo9Mdys6/xM4PvMcJg5uNhsLK8Em3NX9BYIVrO50PVaVUq4nSkpNmgf
+	 IbN8VfS2zqxDMebYiCUoeyC4kwWLCKx3MAIBL/trHaVOZh72ZIFfy324Hu2Bb0yCWV
+	 D6BGpNsUUQiElqG8Q8LGtAOei8ESIMeenJ9dgMzdaWAy2R76QnSLyc/0kLRMPf4L9J
+	 Hzh5puij23jq4SY4HwwhxsPVZhQEb7ak71eLoyO7AQeVtMePa7ClDw54FC1fGWmutL
+	 jj+vfpXAuvDErjEgWXGPtvmyiRSCcYG6McR7AgSMYxlllQ1QP0Tr6ZqkKiZgH1Yu9y
+	 aWiz36OusLR4A==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 583A25FE35; Sat, 28 Jun 2025 13:44:44 +0800 (CST)
+	id 4048C5FD53; Sat, 28 Jun 2025 13:44:44 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -61,17 +61,15 @@ Cc: netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH net 2/2] arm64: dts: allwinner: a523: Rename emac0 to gmac0
-Date: Sat, 28 Jun 2025 13:44:38 +0800
-Message-Id: <20250628054438.2864220-3-wens@kernel.org>
+Subject: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
+Date: Sat, 28 Jun 2025 13:44:36 +0800
+Message-Id: <20250628054438.2864220-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250628054438.2864220-1-wens@kernel.org>
-References: <20250628054438.2864220-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250627_224448_658070_6E46287B 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250627_224449_014314_73F5E066 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +86,49 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The datasheets refer to the first Ethernet controller as GMAC0, not
-EMAC0.
+Hi folks,
 
-Fix the compatible string, node label and pinmux function name to match
-what the datasheets use. A change to the device tree binding is sent
-separately.
+This small series aims to align the name of the first ethernet
+controller found on the Allwinner A523 SoC family with the name
+found in the datasheets. It renames the compatible string and
+any other references from "emac0" to "gmac0".
 
-Fixes: 56766ca6c4f6 ("arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC")
-Fixes: acca163f3f51 ("arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board")
-Fixes: c6800f15998b ("arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1 board")
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi          | 6 +++---
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 4 ++--
- arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 4 ++--
- 3 files changed, 7 insertions(+), 7 deletions(-)
+When support of the hardware was introduced, the name chosen was
+"EMAC", which followed previous generations. However the datasheets
+use the name "GMAC" instead, likely because there is another "GMAC"
+based on a newer DWMAC IP.
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 8b7cbc2e78f5..51cd148f4227 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -131,7 +131,7 @@ rgmii0_pins: rgmii0-pins {
- 				       "PH5", "PH6", "PH7", "PH9", "PH10",
- 				       "PH14", "PH15", "PH16", "PH17", "PH18";
- 				allwinner,pinmux = <5>;
--				function = "emac0";
-+				function = "gmac0";
- 				drive-strength = <40>;
- 				bias-disable;
- 			};
-@@ -540,8 +540,8 @@ ohci1: usb@4200400 {
- 			status = "disabled";
- 		};
- 
--		emac0: ethernet@4500000 {
--			compatible = "allwinner,sun55i-a523-emac0",
-+		gmac0: ethernet@4500000 {
-+			compatible = "allwinner,sun55i-a523-gmac0",
- 				     "allwinner,sun50i-a64-emac";
- 			reg = <0x04500000 0x10000>;
- 			clocks = <&ccu CLK_BUS_EMAC0>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index 0f58d92a6adc..8bc0f2c72a24 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -12,7 +12,7 @@ / {
- 	compatible = "radxa,cubie-a5e", "allwinner,sun55i-a527";
- 
- 	aliases {
--		ethernet0 = &emac0;
-+		ethernet0 = &gmac0;
- 		serial0 = &uart0;
- 	};
- 
-@@ -55,7 +55,7 @@ &ehci1 {
- 	status = "okay";
- };
- 
--&emac0 {
-+&gmac0 {
- 	phy-mode = "rgmii-id";
- 	phy-handle = <&ext_rgmii_phy>;
- 	phy-supply = <&reg_cldo3>;
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-index 08127f0cdd35..142177c1f737 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-@@ -12,7 +12,7 @@ / {
- 	compatible = "yuzukihd,avaota-a1", "allwinner,sun55i-t527";
- 
- 	aliases {
--		ethernet0 = &emac0;
-+		ethernet0 = &gmac0;
- 		serial0 = &uart0;
- 	};
- 
-@@ -65,7 +65,7 @@ &ehci1 {
- 	status = "okay";
- };
- 
--&emac0 {
-+&gmac0 {
- 	phy-mode = "rgmii-id";
- 	phy-handle = <&ext_rgmii_phy>;
- 	phy-supply = <&reg_dcdc4>;
+The first patch fixes the compatible string entry in the device tree
+binding.
+
+The second patch fixes all references in the existing device trees.
+
+Since this was introduced in v6.16-rc1, I hope to land this for v6.16
+as well.
+
+There's a small conflict in patch one around the patch context with 
+
+    dt-bindings: net: sun8i-emac: Add A100 EMAC compatible
+
+that just landed in net-next today. I will leave this patch to the net
+mainainers to merge to avoid making a bigger mess. Once that is landed
+I will merge the second patch through the sunxi tree.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (2):
+  dt-bindings: net: sun8i-emac: Rename A523 EMAC0 to GMAC0
+  arm64: dts: allwinner: a523: Rename emac0 to gmac0
+
+ .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml  | 2 +-
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi              | 6 +++---
+ arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts     | 4 ++--
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts     | 4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
 -- 
 2.39.5
 
