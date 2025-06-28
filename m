@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E49FC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 16:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2C7C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 16:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur7OEb8O6wWAj2JmAIuRdccr+v8pY9TEOfH19t452AE=; b=x1nyIYJDwCqas/cfazXo5xvFNk
-	qI7lBzTdpt4nsK+YVxak6JbnXKrtnjrwJzCJ+vF6im4l1n3G1Ixucz/28HDfnaC13dHFxmz4Uvh2N
-	aZFIlcT6fmuMWfm3E2rmCB3R6xqJGF5PakfutOsoPmoc5nsJWyAlMEtDG2DSwkH4aOcTuar0Sh277
-	yXfBp+qWQurfYwLaCWytOw/0jl64r12jAr1qpd4Bzr0+/V1lJu+Xdj3fR8k7yUvoJXsOdkPUlPl37
-	cfmmnLZDi9VQgsP8eTKnn4narxQ8AFZwwgY03GcTy1hwXgxFKmiJpZaPO5bTuFZiDvj8F7U4DMijl
-	S53Ut3nw==;
+	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=; b=MygNKOe4HIkflgGQ3wCleZABNS
+	ySahxlBEbPG12gNAiG+zJtI+eVeLg821oxDvdSal1T3n5UOLYWvOfdYi8zpvGn6DxD+oxkhBRbXnX
+	Z/3cBv1xfH3n9Pw1szzH625HjsjT77tShVAt3qs5Uv8vBJbmcLbVUvHhxOnyhN4MQTn6onYd4mxKf
+	6jXvVWGAGZKkbjQjn5hAY/CGM+y5pG0pWW3HfnMtiQwrpWi0SYP7uSG3OY7eq/OjDMvbyr7t8Vzcl
+	X+6UUkwm/yvk5VR1PUapS4f5cYLwQiKtN4s6XBCq1RSj/JvYQIM+lYXVM0uQxLYle0CYaFp+fjnI7
+	MKBl613w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVYrq-0000000H3p6-118I;
-	Sat, 28 Jun 2025 16:57:30 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uVYu8-0000000H4EK-0uBa;
+	Sat, 28 Jun 2025 16:59:52 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVYpV-0000000H3Pw-0WMB;
+	id 1uVYpV-0000000H3Q3-0WFK;
 	Sat, 28 Jun 2025 16:55:06 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id C82DF3FF6D;
-	Sat, 28 Jun 2025 16:55:02 +0000 (UTC)
+	by mxout2.routing.net (Postfix) with ESMTP id 366475FDC5;
+	Sat, 28 Jun 2025 16:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
 	s=20200217; t=1751129703;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Ur7OEb8O6wWAj2JmAIuRdccr+v8pY9TEOfH19t452AE=;
-	b=jIgqKts/5yQVynjSem4QnjH1n4RBm5aaTfnElAcrXqopRAe+28xAL0q1+La+24PHbx4dwM
-	Jk0v8GT2xKECfxeRKztZ1PlUn7F3zILjxwcNhOu5m0PJEsCoUU9WqPjFqTtJE1xgkQT6xy
-	TcgaaP5f6KctosGot9naubNeIgUEI98=
+	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=;
+	b=pLscnmh0v0elPDPcPoyB+6J4zYnwxrWZiigae0gGTYfaX8G5JIdSDzDtQl5a9ebKB6l+QM
+	3W5/q4ItuK3S1VttX5cF4JZDCX8M+5zIIVtNUyfr/JWEndymMEGZ9RhWAQm9yNBtb2nAIk
+	KESUuzDpTl0Jy1yDpe1HkaFrxlHsGqw=
 Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 6B8D512272D;
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id D0DC11226EC;
 	Sat, 28 Jun 2025 16:55:02 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
@@ -73,17 +73,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
-Date: Sat, 28 Jun 2025 18:54:36 +0200
-Message-ID: <20250628165451.85884-2-linux@fw-web.de>
+Subject: [PATCH v7 02/14] dt-bindings: net: mediatek,net: update for mt7988
+Date: Sat, 28 Jun 2025 18:54:37 +0200
+Message-ID: <20250628165451.85884-3-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250628165451.85884-1-linux@fw-web.de>
 References: <20250628165451.85884-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_095505_451224_3F19D61D 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250628_095505_445127_9A6A7657 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,116 +100,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-In preparation for MT7988 and RSS/LRO allow the interrupt-names
-property. Also increase the maximum IRQ count to 8 (4 FE + 4 RSS),
-but set boundaries for all compatibles same as irq count.
+Update binding for mt7988 which has 3 gmac and a sram for dma
+operations.
+
+MT7988 has 4 FE IRQs (currently only 2 are used) and 4 IRQs for use
+with RSS/LRO later.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
-v7: fixed wrong rebase
-v6: new patch splitted from the mt7988 changes
+v6:
+- split out the interrupt-names into separate patch
+- update irq(name) min count to 4
+- add sram-property
+- drop second reg entry and minitems as there is only 1 item left again
+
+v5:
+- fix v4 logmessage and change description a bit describing how i get
+  the irq count.
+- update binding for 8 irqs with different names (rx,tx => fe0..fe3)
+  including the 2 reserved irqs which can be used later
+- change rx-ringX to pdmaX to be closer to hardware documentation
+
+v4:
+- increase max interrupts to 6 because of adding RSS/LRO interrupts (4)
+  and dropping 2 reserved irqs (0+3) around rx+tx
+- dropped Robs RB due to this change
+- allow interrupt names
+- add interrupt-names without reserved IRQs on mt7988
+  this requires mtk driver patch:
+  https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
+
+v2:
+- change reg to list of items
 ---
- .../devicetree/bindings/net/mediatek,net.yaml | 38 ++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/net/mediatek,net.yaml | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-index 9e02fd80af83..6672db206b38 100644
+index 6672db206b38..74a139000f60 100644
 --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
 +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-@@ -40,7 +40,19 @@ properties:
+@@ -28,7 +28,8 @@ properties:
+       - ralink,rt5350-eth
  
-   interrupts:
-     minItems: 1
--    maxItems: 4
-+    maxItems: 8
-+
-+  interrupt-names:
-+    minItems: 1
+   reg:
+-    maxItems: 1
 +    items:
-+      - const: fe0
-+      - const: fe1
-+      - const: fe2
-+      - const: fe3
-+      - const: pdma0
-+      - const: pdma1
-+      - const: pdma2
-+      - const: pdma3
++      - description: Register for accessing the MACs.
  
-   power-domains:
-     maxItems: 1
-@@ -135,6 +147,10 @@ allOf:
-           minItems: 3
-           maxItems: 3
+   clocks:
+     minItems: 2
+@@ -66,6 +67,10 @@ properties:
+       - const: gmac
+       - const: ppe
  
-+        interrupt-names:
-+          minItems: 3
-+          maxItems: 3
++  sram:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: phandle to mmio SRAM
 +
-         clocks:
-           minItems: 4
-           maxItems: 4
-@@ -166,6 +182,9 @@ allOf:
-         interrupts:
-           maxItems: 1
+   mediatek,ethsys:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -418,7 +423,7 @@ allOf:
+             - const: xgp3
  
-+        interrupt-namess:
-+          maxItems: 1
-+
-         clocks:
-           minItems: 2
-           maxItems: 2
-@@ -192,6 +211,10 @@ allOf:
-           minItems: 3
-           maxItems: 3
- 
-+        interrupt-names:
-+          minItems: 3
-+          maxItems: 3
-+
-         clocks:
-           minItems: 11
-           maxItems: 11
-@@ -232,6 +255,10 @@ allOf:
-           minItems: 3
-           maxItems: 3
- 
-+        interrupt-names:
-+          minItems: 3
-+          maxItems: 3
-+
-         clocks:
-           minItems: 17
-           maxItems: 17
-@@ -274,6 +301,9 @@ allOf:
-         interrupts:
-           minItems: 4
- 
-+        interrupt-names:
-+          minItems: 4
-+
-         clocks:
-           minItems: 15
-           maxItems: 15
-@@ -312,6 +342,9 @@ allOf:
-         interrupts:
-           minItems: 4
- 
-+        interrupt-names:
-+          minItems: 4
-+
-         clocks:
-           minItems: 15
-           maxItems: 15
-@@ -350,6 +383,9 @@ allOf:
-         interrupts:
-           minItems: 4
- 
-+        interrupt-names:
-+          minItems: 4
-+
-         clocks:
-           minItems: 24
-           maxItems: 24
+ patternProperties:
+-  "^mac@[0-1]$":
++  "^mac@[0-2]$":
+     type: object
+     unevaluatedProperties: false
+     allOf:
 -- 
 2.43.0
 
