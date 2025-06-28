@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5038EC7EE32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 08:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064C2C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 08:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpQ5LeQKLn8DmQkgnLVtZRFeuVCA8DvcNVHpHbSb/zo=; b=0yEYpgJ9Kt3MHfw4+hLJIf6FJ6
-	K56nyeoRNOYh4c8iDYlkjKJAaNKMXofCMErPINUXgHRjXxuW6mc8FM7P/fNR/hRgl09eIpYBbi7E7
-	CcRK+3gJ9ZO7KI835E+Dp7TTL9cWZxTTL9adG3Iu84P/VOzATOdLiXURQWT8XzM5rt3HRGQBrUxZ0
-	PidkSmKuav8WPofQnjdR9GpeDPtFxnfha6cFOTfGlkKxspJVDqiZm18SP/Nh3o0temTxGxjr1XRxo
-	EoaE1UXPuyCPiqTb/daP5l/593Wlc8g54BHuoL1Hkk4Fhr+YC32wQh/AGjGu9Pfb5IdTmQSY+3Ji1
-	IFTlGqhA==;
+	bh=6yXvSy6HVQpEuvPTb8vIPBdHVtuyEGCFJteRA7k1Mk4=; b=y5qIPd82H3gCZT9V7Lkk4oB49A
+	m4rq0jweV4xkOvge7nGHQ5RwWLjYHkr3eRUZL+kZS8qsOiOiES5T+O0QWtS9jOXhwdk/fdyXUmEW2
+	tPDLZyhwDgu2LCV/l7qTp+VUcRevHUJaRRM+WmzhT4QBI2NzPutyVOEjY2+689barNQN40jOHEQ2J
+	9iP9Us2U3DmXmTjJixg2lfja7Ok1dUGh/nUwUkXB/+CS6LIuWdSGvAGjtszc82fiqyOX5nzjQlgl4
+	q5ecl93P9WGGYwZSM9R28fJBLJUyyplSsZ5r1XHpJZGbhHxrjml7ZvgGotz6boW2Z1+FgTwlt4owg
+	kZr8wQsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVQjf-0000000GY39-0Im6;
-	Sat, 28 Jun 2025 08:16:31 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uVQur-0000000GYbe-2H2E;
+	Sat, 28 Jun 2025 08:28:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVQhM-0000000GXxK-3Ngu;
-	Sat, 28 Jun 2025 08:14:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=CpQ5LeQKLn8DmQkgnLVtZRFeuVCA8DvcNVHpHbSb/zo=; b=Y7O3ZS+kX6ozjbiZFxL/E7Aiyb
-	qhUaXUzRpe4wxEySlH4Pzl3f3E/nJNucCdluAS7TjBczAA5/tbO40+Jl3IAbaAb3NKhnzcFmpIh4M
-	edGZyyZAQYvS3yr2fgMLBguNF2D8983l2oHX7k3zQm29+qffImlGIhpWrdjevUrWqM1A=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uVQh5-00HDrs-JU; Sat, 28 Jun 2025 10:13:51 +0200
-Date: Sat, 28 Jun 2025 10:13:51 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Felix Fietkau <nbd@nbd.name>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
-	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
-	Sky Huang <skylake.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1uVQsY-0000000GYU4-0wCw
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Jun 2025 08:25:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7AAA345A5A;
+	Sat, 28 Jun 2025 08:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8C1C4CEEA;
+	Sat, 28 Jun 2025 08:25:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751099139;
+	bh=JRuHujpJLvDuTGnDYQujAWUeF9qBt6etY3etowHwHMc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=J4YjI3kyUvlGF9kiMiy8R2ZDlQlatNjRbS42jx+86DYS257jOgHRY8G5owUKHxt9U
+	 +PuUO1dBHZFg3lFyYcDmVgQD9xSmf/HDlcPjUmXtEjwUf+dKlJH34jLr31dGt4UQdU
+	 SICiNwyZpDxoqgasAugQuU9d07H61itg8DuAfeAQ51EQCnBs90roYqy8AD1Kv9S31n
+	 rYuI3Qrgv2inRLDWKDnLUdWXIhDMlA2W7hvouy4B/gpTCr/EaxpPkAF9lgthxP1yAb
+	 xrF3h9Yd68bT+oLgTSruyR6aUzZFGB609KKXzKQnHHG9WCjPaVePbiNgWMPb1ORStK
+	 WGm2LXTyutCyw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uVQsS-00AlqC-Iu;
+	Sat, 28 Jun 2025 09:25:36 +0100
+Date: Sat, 28 Jun 2025 09:25:35 +0100
+Message-ID: <871pr4ff28.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org,
+	pbonzini@redhat.com,
+	corbet@lwn.net,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	mizhang@google.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	shuah@kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net/next 3/3] net: ethernet: mtk_eth_soc: use genpool
- allocator for SRAM
-Message-ID: <f9bec387-1858-4c79-bb4b-60e744457c9f@lunn.ch>
-References: <cover.1751072868.git.daniel@makrotopia.org>
- <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <566ca90fc59ad0d3aff8bc8dc22ebaf0544bce47.1751072868.git.daniel@makrotopia.org>
+	kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 10/22] KVM: arm64: Set up FGT for Partitioned PMU
+In-Reply-To: <gsntbjq89am2.fsf@coltonlewis-kvm.c.googlers.com>
+References: <86plepb54f.wl-maz@kernel.org>
+	<gsntbjq89am2.fsf@coltonlewis-kvm.c.googlers.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, mizhang@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_011408_847461_1204F608 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250628_012542_451415_42CBBEF6 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +101,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static void *mtk_dma_ring_alloc(struct mtk_eth *eth, size_t size,
-> +				dma_addr_t *dma_handle)
-> +{
-> +	void *dma_ring;
-> +
-> +	if (WARN_ON(mtk_use_legacy_sram(eth)))
-> +		return -ENOMEM;
-> +
-> +	if (eth->sram_pool) {
-> +		dma_ring = (void *)gen_pool_alloc(eth->sram_pool, size);
-> +		if (!dma_ring)
-> +			return dma_ring;
-> +		*dma_handle = gen_pool_virt_to_phys(eth->sram_pool, (unsigned long)dma_ring);
+On Fri, 27 Jun 2025 21:45:57 +0100,
+Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > On Thu, 26 Jun 2025 21:04:46 +0100,
+> > Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> >> +static inline void __activate_pmu_fgt(struct kvm_vcpu *vcpu)
+> >> +{
+> >> +	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> >> +	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
+> >> +	u64 set;
+> >> +	u64 clr;
+> >> +
+> >> +	set = HDFGRTR_EL2_PMOVS
+> >> +		| HDFGRTR_EL2_PMCCFILTR_EL0
+> >> +		| HDFGRTR_EL2_PMEVTYPERn_EL0;
+> >> +	clr = HDFGRTR_EL2_PMUSERENR_EL0
+> >> +		| HDFGRTR_EL2_PMSELR_EL0
+> >> +		| HDFGRTR_EL2_PMINTEN
+> >> +		| HDFGRTR_EL2_PMCNTEN
+> >> +		| HDFGRTR_EL2_PMCCNTR_EL0
+> >> +		| HDFGRTR_EL2_PMEVCNTRn_EL0;
+> >> +
+> >> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGRTR_EL2, clr, set);
+> >> +
+> >> +	set = HDFGWTR_EL2_PMOVS
+> >> +		| HDFGWTR_EL2_PMCCFILTR_EL0
+> >> +		| HDFGWTR_EL2_PMEVTYPERn_EL0;
+> >> +	clr = HDFGWTR_EL2_PMUSERENR_EL0
+> >> +		| HDFGWTR_EL2_PMCR_EL0
+> >> +		| HDFGWTR_EL2_PMSELR_EL0
+> >> +		| HDFGWTR_EL2_PMINTEN
+> >> +		| HDFGWTR_EL2_PMCNTEN
+> >> +		| HDFGWTR_EL2_PMCCNTR_EL0
+> >> +		| HDFGWTR_EL2_PMEVCNTRn_EL0;
+> >> +
+> >> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGWTR_EL2, clr, set);
+> >> +
+> >> +	if (!cpus_have_final_cap(ARM64_HAS_FGT2))
+> >> +		return;
+> >> +
+> >> +	set = HDFGRTR2_EL2_nPMICFILTR_EL0
+> >> +		| HDFGRTR2_EL2_nPMICNTR_EL0;
+> >> +	clr = 0;
+> >> +
+> >> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGRTR2_EL2, clr, set);
+> >> +
+> >> +	set = HDFGWTR2_EL2_nPMICFILTR_EL0
+> >> +		| HDFGWTR2_EL2_nPMICNTR_EL0;
+> >> +	clr = 0;
+> >> +
+> >> +	update_fgt_traps_cs(hctxt, vcpu, kvm, HDFGWTR2_EL2, clr, set);
+> 
+> > This feels wrong. There should be one place to populate the FGTs that
+> > apply to a guest as set from the host, not two or more.
+> 
+> > There is such a construct in the SME series, and maybe you could have
+> > a look at it, specially if the trap configuration is this static.
+> 
+> > 	M.
+> 
+> > --
+> > Without deviation from the norm, progress is not possible.
+> 
+> I'm assuming you are referring to Mark Brown's series [1], specifically
+> patches 5 and 18 and I see what you mean.
+> 
+> You are probably thinking configuration should happen from
+> sys_regs.c:kvm_calculate_traps or thereabout and should be setting bits
+> in the existing kvm->arch.fgt array.
+> 
+> Correct me if I'm mistaken.
 
-I don't particularly like all the casting backwards and forwards
-between unsigned long and void *. These two APIs are not really
-compatible with each other. So any sort of wrapping is going to be
-messy.
+I'm saying there should be exactly one place where we write to the
+individual trap registers, and that the source of these settings
+should be equally unique when they are immutable in the lifetime of
+the guest.
 
-Maybe define a cookie union:
+That's the existing pattern for most trap configuration, including
+HCR_EL2, ICH_HCR_EL2, HCRX_EL2, and the FGU configuration that
+trickles into the actual trap registers, and I want to stick with it
+if at all possible.
 
-struct mtk_dma_cookie {
-	union {
-		unsigned long gen_pool;
-		void *coherent;
-	}
-}
+The way it is done in the SME series may be reasonable, but I haven't
+reviewed this series at all. I'm merely pointing out that similar
+constructs exist for other features.
 
-Only dma_handle appears to be used by the rest of the code, so only
-the _alloc and _free need to know about the union.
+	M.
 
-	Andrew
+-- 
+Jazz isn't dead. It just smells funny.
 
