@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E46C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E490CC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Jun 2025 09:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=; b=UJvu40IUny4ewokIJfiZaHY7M1
-	x6oatDSURYv5qxextCdIAEihRWkdMfcVpNM1ZibVIWONjRYmq6zQYzv7iqJcT+EwEy9EfTQuxsPBM
-	JSa3vd6i2Xu+G3zpesO+CKGpGSqujsknu47WZPPm2QBr7XPjafCoa8WpQq+nsRwhHUapP+pbw4k3r
-	eN9JJ3OMq4U6Z4+GC/v/BPOLhZQgzdNWxYPZ43EDDhE6hmS7IwsYpYqNAfUKD9wvJfWX4N+G3YwHe
-	MMYuNh5sOijv/Z9prsrs23c9xbB7Z90K6PlY0sgLS+kZ70+pD1dV5gpIclu1gGC2aHO87TELw1uu2
-	Gegv9bGw==;
+	bh=R99PFLgv7EGPI4uV/VSEzfV0kYW/ZQPDNvpGbpm2GOY=; b=YxFzX+NaWcXwpXShAORw1msMVX
+	bs8/HNYZE+ufTGP4XLX1fV3aRiECyn7DndrP7R3MiOdo4Z1Va/0IJmw44KK6rI1dG0a6mwG8nZv4C
+	Hvt6ib0Bxx3porvzYVd1C2Iok6MHhVpt26oqmEXVGezN/Zg6JQT3L771uGcQU+zSWSreBwTx8r6Ge
+	UtSzqqkc1BO/zWBMfi2Q9XnagInAniQ8MaLIWfZT2yvC/zE6MfC3qObBA5kXrHcvAXcmh4mMz+A7T
+	OGFAuEtEJcKZokwuwVfEcqEvi047K8HCi13klwiEZS8tWkiy/TpQNLiuEPeLrUkBgxJXGzyefwgtp
+	yueCeL4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRnt-0000000Gctm-3ySk;
-	Sat, 28 Jun 2025 09:24:57 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uVRqC-0000000Gd4K-00bk;
+	Sat, 28 Jun 2025 09:27:20 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVRaJ-0000000GbDw-0uoQ;
+	id 1uVRaJ-0000000GbE0-2Yy4;
 	Sat, 28 Jun 2025 09:10:58 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id 920895FD7B;
-	Sat, 28 Jun 2025 09:10:51 +0000 (UTC)
+	by mxout1.routing.net (Postfix) with ESMTP id 039E141B98;
+	Sat, 28 Jun 2025 09:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1751101851;
+	s=20200217; t=1751101852;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DgeEoJwP1RRKkglcECdGpkEEfNbWqvY35txVx4ntqiU=;
-	b=AjLz9OmzYbggR4Ei1+YPIRF1/sNAVGGSlsI/4Z7ZjbytXLQ9j9wcZpPaQrcjjmARskZkHp
-	T17tmyPEjUCgU2g8LYa7l3TxXAJC0y2jpiska5emk0t0/2BbGdUlV/ZRTmPJz8anEqRC43
-	qsjNZkd+CitzoEwR8MRKESJdsfdm1PE=
+	bh=R99PFLgv7EGPI4uV/VSEzfV0kYW/ZQPDNvpGbpm2GOY=;
+	b=HhNXOnrxpy9EHODacj5PdX10JsTlN3CHjWtsocQwoAvlDUlfP8sPBXAoQgtCmo0RHN/g93
+	dNtIm1A5wvnvOaCIynf9mkqUXuCVHeWU+0Sx5VgbJEOR9CvFYYun3lztmV2VlzocyyLu9a
+	hUXB1b971w0HQ67OYToQsHj9zcPxc3Q=
 Received: from frank-u24.. (fttx-pool-217.61.150.139.bambit.de [217.61.150.139])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 3618212272D;
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 958321226F5;
 	Sat, 28 Jun 2025 09:10:51 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
@@ -73,17 +73,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v6 03/15] dt-bindings: net: mediatek,net: update for mt7988
-Date: Sat, 28 Jun 2025 11:10:27 +0200
-Message-ID: <20250628091043.57645-4-linux@fw-web.de>
+Subject: [PATCH v6 04/15] dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for mt7988
+Date: Sat, 28 Jun 2025 11:10:28 +0200
+Message-ID: <20250628091043.57645-5-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250628091043.57645-1-linux@fw-web.de>
 References: <20250628091043.57645-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_021055_394846_E3203B89 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250628_021055_785771_14B451AB 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,76 +101,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Update binding for mt7988 which has 3 gmac and a sram for dma
-operations.
-
-MT7988 has 4 FE IRQs (currently only 2 are used) and 4 IRQs for use
-with RSS/LRO later.
+Add own dsa-port binding for SoC with internal switch where only phy-mode
+'internal' is valid.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
-v6:
-- split out the interrupt-names into separate patch
-- update irq(name) min count to 4
-- add sram-property
-- drop second reg entry and minitems as there is only 1 item left again
+ .../bindings/net/dsa/mediatek,mt7530.yaml          | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-v5:
-- fix v4 logmessage and change description a bit describing how i get
-  the irq count.
-- update binding for 8 irqs with different names (rx,tx => fe0..fe3)
-  including the 2 reserved irqs which can be used later
-- change rx-ringX to pdmaX to be closer to hardware documentation
-
-v4:
-- increase max interrupts to 6 because of adding RSS/LRO interrupts (4)
-  and dropping 2 reserved irqs (0+3) around rx+tx
-- dropped Robs RB due to this change
-- allow interrupt names
-- add interrupt-names without reserved IRQs on mt7988
-  this requires mtk driver patch:
-  https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
-
-v2:
-- change reg to list of items
----
- Documentation/devicetree/bindings/net/mediatek,net.yaml | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-index 6672db206b38..74a139000f60 100644
---- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
-+++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-@@ -28,7 +28,8 @@ properties:
-       - ralink,rt5350-eth
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index 51205f9f2985..9b983fdbf3c7 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -190,6 +190,18 @@ required:
+   - reg
  
-   reg:
--    maxItems: 1
-+    items:
-+      - description: Register for accessing the MACs.
- 
-   clocks:
-     minItems: 2
-@@ -66,6 +67,10 @@ properties:
-       - const: gmac
-       - const: ppe
- 
-+  sram:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to mmio SRAM
+ $defs:
++  builtin-dsa-port:
++    patternProperties:
++      "^(ethernet-)?ports$":
++        patternProperties:
++          "^(ethernet-)?port@[0-6]$":
++            if:
++              required: [ ethernet ]
++            then:
++              properties:
++                phy-mode:
++                  const: internal
 +
-   mediatek,ethsys:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -418,7 +423,7 @@ allOf:
-             - const: xgp3
- 
- patternProperties:
--  "^mac@[0-1]$":
-+  "^mac@[0-2]$":
-     type: object
-     unevaluatedProperties: false
-     allOf:
+   mt7530-dsa-port:
+     patternProperties:
+       "^(ethernet-)?ports$":
+@@ -297,7 +309,7 @@ allOf:
+             - airoha,en7581-switch
+             - airoha,an7583-switch
+     then:
+-      $ref: "#/$defs/mt7530-dsa-port"
++      $ref: "#/$defs/builtin-dsa-port"
+       properties:
+         gpio-controller: false
+         mediatek,mcm: false
 -- 
 2.43.0
 
