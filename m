@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94A2C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 09:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A90FC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 10:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYpvG+7fIhUg5S/D84p9GmxY0VuUSyPZVCewI69YJYQ=; b=t04p2KBmw2sw8fbkUqmYgusRQ/
-	REnWZtNI6HxxBUqEcuJA9LeB5/BdcMolnTcnfblxatP3TmCimloojkBJ0WD5YT1GH/ZvAZlZmOayL
-	CkqSmpO5B121DnMtkqCXsEvvpAcGfheDKuIaF2Jyt7lHkC4JfY6sWJOct1YKoLyREgLU61XJt+kdw
-	gnkvIEBnSdTqiXy9iWfPCZgHsJHxZgO+xCyj4dDYsqKM7yGnS7UigKsVT3pOQ7Gdc6Eo1wBvS6Nmy
-	qh+1VuJ3YUbBzHaMk8xR2DHT5Eri/Wv12JkhKweu6qTYxQ5q5LudQBwu3HGUglWDcJJ0OW8wkFNHt
-	h4xGnjaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0fsiDuu+XUBoLMq5zR1VFIDj64jOyVwwUidySTEE1VQ=; b=Vw7+lsRzRTn/ajtrnHxcwCygYq
+	UExAvHJaRilXJYUQ4OrUhbIZFGS/Lk8atks0p53Y+zMyqFhu3g2jhTMb55WIlglCtuglvLXKmVIE7
+	SlY3lrx7bhzugAwQqoGEBTt1hMXTr1FJLL2KMa99XzLBNzwLFPkijK4D/LaX8cQzJQPhT7y9cSuw2
+	gbWKjZIVX///Pc84COc5LS6RHzvKbIBnoIaU2KrTLtB+yHVPKU8H49FYLbTpQF72SsV719gfHXQQY
+	NkNWhF6W7Ge7hTqm+1oPKChhK4JdyBkH46VZb0+DrgMrkhNWhEbR+11V94+oJr6foyv6iQmE130o+
+	NDoSSETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVoR0-000000005Jw-1JEU;
-	Sun, 29 Jun 2025 09:34:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uVosx-000000006e1-3Sv5;
+	Sun, 29 Jun 2025 10:03:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVoOg-000000005Cp-3JWx
+	id 1uVoqe-000000006YZ-43vb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 09:32:27 +0000
+	Sun, 29 Jun 2025 10:01:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 238A94581E;
-	Sun, 29 Jun 2025 09:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1580C4CEEB;
-	Sun, 29 Jun 2025 09:32:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 70E5260EDF;
+	Sun, 29 Jun 2025 10:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E7CC4CEEB;
+	Sun, 29 Jun 2025 10:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751189545;
-	bh=yNCv9zbwFgntqHfSMp5v8KPVRVjWxvT/Aql76n6YouY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Vc0iiiu2h2TjlcBxYYznq8GU4Lf0uabMlQwcjb8ML7Va38x4dP8IfFB71L1mFSmyY
-	 DylAJPSoUOMe6TqVNxbfZ1neiEd2tZ1gQ+EYZcjBvGvD8fvcR85Hm8bFFee+Vz10MW
-	 ZQ6I+XKUHZKj7WlEzEJ0TXy5gr1VdlyiPHFZHY6UhyBgdE78bwezedsnF3huoE6Ata
-	 qCUO3UoMt0lkynr5VVMnG6EnIPk2C83LeWIteuElyYYIZVuABEMc/sH2budXIO5Kh9
-	 hC7HMXOiNTQAminzCBRWknUInQEJgeKp7IKNEoswv3DoSz/FfIt+N3SNXuuEuWatrv
-	 EeKapCAaqIigA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uVoOd-00Avhg-Dw;
-	Sun, 29 Jun 2025 10:32:23 +0100
-Date: Sun, 29 Jun 2025 10:32:23 +0100
-Message-ID: <86o6u6c2qg.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
+	s=k20201202; t=1751191278;
+	bh=K7nid7pX0MchgdtwTmBOugLK+wyPztiQQ+cOV64xZJM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cQjUOkTKt80zjHWs/9616cRbQVAIzS0CSZtyKxtV2ed2MiCMnY8mqzfyLyiiNx8SA
+	 FJg1U5CqoLxiMgjlBerRWaJD4k3MgJz1npTzly9NU0l4J7ixbwB9/cMlH8q8YIqTAu
+	 F2WR3CFGWdjdJBIGxBwID9ZiExMEr+yY2h7DuoOQwIsQ7s4RhWmeLwfgNP8fp91mzk
+	 Xb0bmoxiqTY9kT7ttefcxVjntZ1Z7C9QXyoMrXOe/0e0Bum9xD0mVyr+KM93UDp2OT
+	 CVArBQArCJLElbqFYBQgqBDYnJ01Cm67c49q6Tw+i+kp62GIlPUIXFJs3Z8yXa7lX0
+	 uCLO/3Re25jIQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v6 18/28] KVM: arm64: Support SME priority registers
-In-Reply-To: <20250625-kvm-arm64-sme-v6-18-114cff4ffe04@kernel.org>
-References: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
-	<20250625-kvm-arm64-sme-v6-18-114cff4ffe04@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, Dave.Martin@arm.com, tabba@google.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_023226_872538_779DF48B 
-X-CRM114-Status: GOOD (  35.77  )
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: stmmac: add support for dwmac 5.20
+Date: Sun, 29 Jun 2025 17:44:25 +0800
+Message-ID: <20250629094425.718-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,128 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Jun 2025 11:48:09 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> SME has optional support for configuring the relative priorities of PEs
-> in systems where they share a single SME hardware block, known as a
-> SMCU. Currently we do not have any support for this in Linux and will
-> also hide it from KVM guests, pending experience with practical
-> implementations. The interface for configuring priority support is via
-> two new system registers, these registers are always defined when SME is
-> available.
-> 
-> The register SMPRI_EL1 allows control of SME execution priorities. Since
-> we disable SME priority support for guests this register is RES0, define
-> it as such and enable fine grained traps for SMPRI_EL1 to ensure that
-> guests can't write to it even if the hardware supports priorites.  Since
-> the register should be readable with fixed contents we only trap writes,
-> not reads.
-> 
-> There is also an EL2 register SMPRIMAP_EL2 for virtualisation of
-> priorities, this is RES0 when priority configuration is not supported
-> but has no specific traps available.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_host.h     |  2 ++
->  arch/arm64/include/asm/vncr_mapping.h |  1 +
->  arch/arm64/kvm/sys_regs.c             | 23 ++++++++++++++++++++++-
->  3 files changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 29b8697c8144..5ce9e06324b5 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -495,6 +495,7 @@ enum vcpu_sysreg {
->  	SVCR,
->  	FPMR,
->  	SMIDR_EL1,	/* Streaming Mode Identification Register */
-> +	SMPRI_EL1,	/* Streaming Mode Priority Register */
->
+The dwmac 5.20 IP can be found on some synaptics SoCs. Add a
+compatibility flag, and extend coverage of the dwmac-generic driver
+for the 5.20 IP.
 
-What is the point of making the sysreg file larger for the sole
-purpose of returning a value that is firmly always 0? Can't that be
-synthesised on the fly whenever needed?
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c | 1 +
+ 1 file changed, 1 insertion(+)
 
->  	/* 32bit specific registers. */
->  	DACR32_EL2,	/* Domain Access Control Register */
-> @@ -547,6 +548,7 @@ enum vcpu_sysreg {
->  	VNCR(CPACR_EL1),/* Coprocessor Access Control */
->  	VNCR(ZCR_EL1),	/* SVE Control */
->  	VNCR(SMCR_EL1),	/* SME Control */
-> +	VNCR(SMPRIMAP_EL2),	/* Streaming Mode Priority Mapping Register */
-
-This is slightly different, as there is no trap for this, and we rely
-on sanitisation.
-
->  	VNCR(TTBR0_EL1),/* Translation Table Base Register 0 */
->  	VNCR(TTBR1_EL1),/* Translation Table Base Register 1 */
->  	VNCR(TCR_EL1),	/* Translation Control Register */
-> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-> index aede5d6efad3..454e076b77cb 100644
-> --- a/arch/arm64/include/asm/vncr_mapping.h
-> +++ b/arch/arm64/include/asm/vncr_mapping.h
-> @@ -45,6 +45,7 @@
->  #define VNCR_ZCR_EL1            0x1E0
->  #define VNCR_HAFGRTR_EL2	0x1E8
->  #define VNCR_SMCR_EL1		0x1F0
-> +#define VNCR_SMPRIMAP_EL2	0x1F0
->  #define VNCR_TTBR0_EL1          0x200
->  #define VNCR_TTBR1_EL1          0x210
->  #define VNCR_FAR_EL1            0x220
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index b11bb95e9e35..1fee8e534615 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1828,6 +1828,15 @@ static unsigned int fp8_visibility(const struct kvm_vcpu *vcpu,
->  	return REG_HIDDEN;
->  }
->  
-> +static unsigned int sme_raz_visibility(const struct kvm_vcpu *vcpu,
-> +				       const struct sys_reg_desc *rd)
-> +{
-> +	if (vcpu_has_sme(vcpu))
-> +		return REG_RAZ;
-> +
-> +	return REG_HIDDEN;
-> +}
-> +
->  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
->  {
->  	if (!vcpu_has_sve(vcpu))
-> @@ -3030,7 +3039,14 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  
->  	{ SYS_DESC(SYS_ZCR_EL1), NULL, reset_val, ZCR_EL1, 0, .visibility = sve_visibility },
->  	{ SYS_DESC(SYS_TRFCR_EL1), undef_access },
-> -	{ SYS_DESC(SYS_SMPRI_EL1), undef_access },
-> +
-> +	/*
-> +	 * SMPRI_EL1 is UNDEF when SME is disabled, the UNDEF is
-> +	 * handled via FGU which is handled without consulting this
-> +	 * table.
-> +	 */
-> +	{ SYS_DESC(SYS_SMPRI_EL1), trap_raz_wi, .visibility = sme_raz_visibility },
-> +
->  	{ SYS_DESC(SYS_SMCR_EL1), NULL, reset_val, SMCR_EL1, 0, .visibility = sme_visibility },
->  	{ SYS_DESC(SYS_TTBR0_EL1), access_vm_reg, reset_unknown, TTBR0_EL1 },
->  	{ SYS_DESC(SYS_TTBR1_EL1), access_vm_reg, reset_unknown, TTBR1_EL1 },
-> @@ -3387,6 +3403,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  
->  	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
->  
-> +	EL2_REG_FILTERED(SMPRIMAP_EL2, trap_raz_wi, reset_val, 0,
-> +			 sme_el2_visibility),
-
-Wut??? You clearly said it yourself: this register "has no specific
-traps available". If you end-up here from a guest access, this is a
-bug. So this "trap_raz_wi" makes no sense.
-
-I also cannot see where this register is properly configured to be
-fully RES0, as it should.
-
-	M.
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
+index b9218c07eb6b..cecce6ed9aa6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
+@@ -59,6 +59,7 @@ static const struct of_device_id dwmac_generic_match[] = {
+ 	{ .compatible = "snps,dwmac-3.72a"},
+ 	{ .compatible = "snps,dwmac-4.00"},
+ 	{ .compatible = "snps,dwmac-4.10a"},
++	{ .compatible = "snps,dwmac-5.20"},
+ 	{ .compatible = "snps,dwmac"},
+ 	{ .compatible = "snps,dwxgmac-2.10"},
+ 	{ .compatible = "snps,dwxgmac"},
 -- 
-Without deviation from the norm, progress is not possible.
+2.49.0
+
 
