@@ -4,145 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47739C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 01:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2735C83026
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 05:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ihokIbb9pgTXxt+zQ5GEHJY4uG9niVvmwavBJommpU=; b=NTOHhFFKGinQVFGf5kk70LkbXO
-	B8vVu6emIonN9NDWBR3a1EbvLUc4Z7Nk1Tj7c6RF6DRicH/roG065Aj2APzGsbeRNYy5yldj6xzo1
-	dN3FAjtIrkMX7kWg9AWGdNtA1eBWAb4Y38n0W8KsxGFUc+H1HGA+Nxqe/HrgHimNWMPfSvFjz878C
-	9q5YEg4CPYshLLr+k6ydzxFyI6JaqQejJeDLmhxDMBWuAwgGUW357snyxTk0nEDSnSl/0BHZzasYT
-	k6DtxyHUO20M0ZItwd+cn0oRk7E+uU8dTgc4X5kMT0dRpzn6cKRVDxmeDukQOOCHr8KTG3xgWlHiX
-	b7HPjuig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PF3DZSZbA4tBUtEFvdIVO9kArXETgOS8vUkIBIamiuY=; b=RiSfKNotn2zwux7sSDDdwsdbOe
+	cSq0ykeqm13MUQndiRzXMPstM6UFfcpwR0IkWwIE+G6r0Wy7exdNHTx+kIv7g8ZekLtR55/hy4gTq
+	tcHTHwHZw7iJxnF3DpqT8eVp4SwDRF5+5/EQdaaXWUv6ozQkbipX9b2oT1cDvR4HkhAJmj+Kw0Cn4
+	pFdVt67Xggnb9Obrt+Ejor6ag2tUAlN8l1PBYOdizTyFZ8n6v73Vyirh9nubmL7Okal5jyO3S2Ebv
+	NAJgM5WDOo+PGAhjcUJn4KU4R2fgUcrbmd8QR5rMEOusDNyw659DdsC2oIlXLnI0JmKIi1FiLm50o
+	MJlX0TBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVhIC-0000000HRtY-2TUE;
-	Sun, 29 Jun 2025 01:57:16 +0000
-Received: from mail-mw2nam12on2070f.outbound.protection.outlook.com ([2a01:111:f403:200a::70f] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uVkRI-0000000HXG6-1rgw;
+	Sun, 29 Jun 2025 05:18:52 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVhFs-0000000HRmV-1oJF
+	id 1uVkOx-0000000HXBA-1tTJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 01:54:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zFm98gs8u2j81ZDcnuZBNNB8IeeR3RRac+21SHLc1hxgQkGN0gkh+lEb068fzeE4+7us+zvso9CcFrRrYIlJGfAQMjUr4l3WHyEGSBtarZXYXQxZvcUsLBwYqDMPXM3IAoS7I1ZHbgykjsf+3r5xSoq3r6Q2Fl+qnWatwUPvBgcS6/YOR3mnFcqE88MVz0WWcKW4ZxNyeSJ8YqjqvNqKCfXi0pAlnXn79JTr71C7QvUSQsfnD8jD2545ar04keQtj8+tI874JEcBzkgfXnxXy7T1YMNgtd3EHgcKvhluNiRUf6rcwlfcXmi3GbZfv2lSnBTTfdZqmPwRqFBOUOP2Og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1ihokIbb9pgTXxt+zQ5GEHJY4uG9niVvmwavBJommpU=;
- b=piBLbeN8BGOYsPvdbYQKN4YOiclAfa8ycWxaAPF4x3J+lqBWQltvd+wy3XHowg31fMLwlP4D9pQrcuXD/Znx9qY0hSUbLziCoCAUnjI0BzjcZBGi44gzBVxZcKCaOIHIYQzKM7+fMHvqFGYaFCVqQVkuB6sw/EbmtMjyWPxpPnBwQMgagVmYLDrpZmk83j5SsG1AzuHsNcE95gY754PXU0JhqfALhI3aQGWqwN74j0c4y5Q0Zo79psKmrHjW9oAxpRRIGIvIcL/2pQgXxskPZh9D9AkdRe6kV+2w8Jgg4j/GnbpmbUW4ynM+YKpmf31kTStAyiqMeKFYBkXZElhh9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1ihokIbb9pgTXxt+zQ5GEHJY4uG9niVvmwavBJommpU=;
- b=hyIDbVderWGzhq5pZjHOdw6lK/RGpIcy8mcEO7dUV/ye0xyr7pavy0RIrTzEl/WfUITtppAtOFLnPuJAinHSIiibJFLhPK49uE4WtPRUBiFOSZmxhkWSZ4Wc3RQA2n7ZF+HXtdI9BuQMxdRuC2fJFuYUJlO8lpiKfCmsy9P0vgM=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- CO1PR01MB6552.prod.exchangelabs.com (2603:10b6:303:d7::8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8880.26; Sun, 29 Jun 2025 01:54:42 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba%5]) with mapi id 15.20.8880.026; Sun, 29 Jun 2025
- 01:54:41 +0000
-Date: Sat, 28 Jun 2025 18:54:35 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, ilkka@os.amperecomputing.com, 
-    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-    Arnd Bergmann <arnd@kernel.org>
-Subject: Re: [PATCH] perf/arm-cmn: Reduce stack usage during discovery
-In-Reply-To: <e7dd41bf0f1b098e2e4b01ef91318a4b272abff8.1751046159.git.robin.murphy@arm.com>
-Message-ID: <385e2d1-1d1b-b9d9-d65-727dcd716d54@os.amperecomputing.com>
-References: <e7dd41bf0f1b098e2e4b01ef91318a4b272abff8.1751046159.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: SA9PR13CA0035.namprd13.prod.outlook.com
- (2603:10b6:806:22::10) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Sun, 29 Jun 2025 05:16:30 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55T01Ivl011733;
+	Sun, 29 Jun 2025 05:16:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=PF3DZSZbA4tBUtEFvdIVO9kArXETg
+	OS8vUkIBIamiuY=; b=maTAq/EX1k5GlkKyZO1ehQsgN3jQR6Nv7VD9+jJer3dyL
+	KMJzWSfGNnjVkd0FMYct8WckbAdjjoqOzitmqTKDWKQQ4NLtzGDZxkq5b8rHlZB0
+	auvO/Pvgqa2QzYiOdJg0+mH7QUoY1+C3QX9f+y/6y2kfrNqbFkzwvyDOjQ9YV9lC
+	/rViAfbMq+NWfngAxp5UZ75eVPhWd0xwmehkXVj6ieRbRrN3zmQT2nHdnbCV5ly4
+	D+0UotUYLjoh9hk5zq48bY0udJ7vQZEy9VHNxfXX+J8JiE9ZoKh1i3ZE2IN1kcml
+	SZwrEPmLSBQtIEnkW2+Uttoth4pDcb1tW5L4H20Og==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j7af0u4x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 29 Jun 2025 05:16:19 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55T57ZGT038552;
+	Sun, 29 Jun 2025 05:16:10 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 47j6u78t87-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 29 Jun 2025 05:16:10 +0000
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 55T5BM8A020395;
+	Sun, 29 Jun 2025 05:16:09 GMT
+Received: from ca-dev110.us.oracle.com (ca-dev110.us.oracle.com [10.129.136.45])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 47j6u78t82-1;
+	Sun, 29 Jun 2025 05:16:09 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        horms@kernel.org, netdev@vger.kernel.org
+Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] net: thunderx: avoid direct MTU assignment after WRITE_ONCE()
+Date: Sat, 28 Jun 2025 22:15:37 -0700
+Message-ID: <20250629051540.518216-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB6552:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01ba98d1-726c-4c6d-c823-08ddb6afe99d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Nn2amkgzM47mwfydPTGjfNlQO0BfdKmjJ3Vwh9wv3U9Z8fR4mqo5ssTfzbq8?=
- =?us-ascii?Q?T/gzXhgqjxeGdbDggmDdLYhZjOB+TaPaIqPKo+8lit3ZugBRWJPovSSKrApu?=
- =?us-ascii?Q?cvo3QnAU6nhv9hKQ3oxkFhPbesssqpRNOQa43xxCHjia+Eqb3rU5ZwL0OqQ3?=
- =?us-ascii?Q?8GI8PiUJWlXBgjehjDC0uDsb3jUfc3QnokH1BdGMdPY4ZJxmZIDvMHwoGJXh?=
- =?us-ascii?Q?h4K9nSr7KyZJj2x4uQ2BaH+4m4nzSwgT2PONBFKumFfry6bLhpLFWUU3m5tn?=
- =?us-ascii?Q?Vl3IXEUja4XZ/F7lO2qMbYJ2MbMgfY5FhQJnNe+qx+5wf/4WiuA4rvz927Zu?=
- =?us-ascii?Q?Mh/xD2bbmNwC6xyXCGfnq4Z8LwqqBLRh645H21fsAWwq99PPMNsRDk9PD2P9?=
- =?us-ascii?Q?5i9SVoFl8mIUgAj3MmsF8jlcjJ0tPMTwHWV5Wurrw6MlgCkJG+78WB5Qej2N?=
- =?us-ascii?Q?7WsP++R1bES30g+tMOcdj6o7mUWpEt5uVsb3NcWdEqiUJSQnRs8WVu9ic8Ab?=
- =?us-ascii?Q?wJ/mnz5Fn01FVv7qMD+FcHuJ2DGAgrpATR/0bySkjR3wk0gssGsHn0TYvvlj?=
- =?us-ascii?Q?HKayUccCeDt3+rYsCCdJN/n0mHE+8343N60y5bKI4VRi7kTqTrlPBxPqeA9H?=
- =?us-ascii?Q?SFMV4PeIxX3GOas8XtROxtKvngTdMr8aLt4zCtVY4nP4tKLB8dn2VMKizIxC?=
- =?us-ascii?Q?I4i9eSUJjBFt2Qluxvc1B7n/1+HlVKXGZRrXA3bZO5ck8+MqXp5z70OS9J/N?=
- =?us-ascii?Q?XZCpieWCDgsddh4dPyUq4s4SHs1+KfPCnuuVvPqa4+7g8YecsQILYrl1c/MY?=
- =?us-ascii?Q?KmlszeQFRrZlpXrhZeGcqFcVen2bJEff/HdqjgVa/mZOS8abGKz8osXYU28x?=
- =?us-ascii?Q?yOkm8LnNdARcxK/uXPEW/bmIdGHpn/lkL3CZ0w1eIDu7wCkBt0eL0Zd8KSkm?=
- =?us-ascii?Q?xnKFHmeM1mM16Nb5MTri8g0fjUMP6AZ0G+2V11qwCc10WtUz0tXEfPuAJBk6?=
- =?us-ascii?Q?2HuYXWtQDLEzue1vbUlnRR1ihcaPGVAon1vsQiLTzF7QjQdnqhlOAgkNoNle?=
- =?us-ascii?Q?b0ldr09D7oGo0TC29xS8umI97q9ppsl37ApJDh6FEGyyBAOI+1ppP2n3jLqX?=
- =?us-ascii?Q?vkbPa9OVVnXpRpFdVn7HRP8B2tGKMw+S5xX2VRldFnBSYz9x+RF3dMrzO75G?=
- =?us-ascii?Q?2Bt4pK4CxPqvm7a5RFq/f0FPpKglBFIwV0qE11FlOgqJP/xeqFd5cInsNhVU?=
- =?us-ascii?Q?j7OO2feJvlDw8z7yq8QOVYn1HrPbtGvwguOx+15C/wX9RV7tpeXkjh8R+THE?=
- =?us-ascii?Q?JoMEc1x9zhnEb+5RaV1bDKh+RYpZrB/LzxY0KIWyzX+osAyjgDBbpv+XGMj9?=
- =?us-ascii?Q?/ueJ6vBUqHuorvIabJgPEmF6qDxEmlLwpYOEZYcGu8hVDTXCV0rlb9LVWIwm?=
- =?us-ascii?Q?MHCU9O/+VB2kdTlrkFyAtWwEwFdklq7qphgZRt19SgeYpFqvs6wduA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mwImfN2d+584kJyr6UDi4JySMBjpJerEbcPglOqi/ebYgKxDal8UHj20vO96?=
- =?us-ascii?Q?0fdMEy9VzclN8cQxm0hDyinrXd0JXyh1qhzWkOyOhiH8UwKjETj0o3idSu1p?=
- =?us-ascii?Q?QjGKEtoXgSVfg/vMDVYmIHmofvAhRFjw/pjxRC16v18owya8hhWPg323zrg7?=
- =?us-ascii?Q?NIE4K+KbM6VZmlzSiksCwN38y1/3/cqZ9dHQNTkJASOD0Zw0e9+6n4N9jkVg?=
- =?us-ascii?Q?+T2MT+cOuXZl6YvIelJLHrtpVWpntgKbeXAdkdqrjFD5QoA8e/F9zHgd6SYL?=
- =?us-ascii?Q?U+Mu4T+zEInb98yIIHCJ15MkPksYdZWqrdeACvz/tv6eHXcEBaOV54JWjEMq?=
- =?us-ascii?Q?D7GRwl7CJs6XiWb2cfazHYlCIfw3HyClu7L1Xc3MHqO7Mh5u7vvw8T+NnJbx?=
- =?us-ascii?Q?8WihevsXl+sk5aT6zsel1uFppClMn/hR+6dqK4iLhBB1TvAYPQogtbaHrubV?=
- =?us-ascii?Q?8e1O76i9/ntWuIXtbpnbl2k8Csu96GH1rCHEEJXuhJGjnzVujgGlBeyBUT+q?=
- =?us-ascii?Q?mwre2na0O2vIZ4ThO16AnjSrQtOX+Uy+EDszhcpIvuuymWQ4JvAd9xYZ/aPG?=
- =?us-ascii?Q?d30FA/i5zFRkTrw01inW6GR+sKWNdzS3MOTIrB2Xr2MVZz6vB7wIttUveGgK?=
- =?us-ascii?Q?dDPpY4WiAx2gySg8NhlydRPiE4qHANI6c/yqvjkVJIThGhEvRBkrltQ1/2B0?=
- =?us-ascii?Q?dBFaTWvFU3nGvD55ERmE+BioHXeIKOdQMeEJucSBf4DNxrRL+9PFTbY13xA7?=
- =?us-ascii?Q?fnBr5+S7FfVjKmU5rDquMEXooOUEQRsMY2NLhz4EbDPm8aETuYzP5q2iO+Ms?=
- =?us-ascii?Q?/215S0uOLZij7ecg5EDEMYKHRCqQT/7LrGfzI1GTH9U2fOWpUgwa0G7rsGUx?=
- =?us-ascii?Q?kEXcGCky8LJTFiC60z1lAcgryETMTi9ajciGy7TOUwN+dRsdDuFVLZkrhK5W?=
- =?us-ascii?Q?P4khQ4aNOmH8bRfMp21OwmEpYZSExsqM6zqBYaHgX48cZja+M1uX9tu76rJr?=
- =?us-ascii?Q?SPgG/WnLHu0soIRwWasfVeg4vA+qhzkWtrUkYLae25o64t9js2Z6OADuPEjL?=
- =?us-ascii?Q?QMJ9H9iiadzUukfkHpDJDmiGQzLgwxiWUXVF7N11c8Nrl8IGI6w3av98eu/M?=
- =?us-ascii?Q?gHTfxpgyxFFG9LgmdFcAVAEt4ZFCpPiB5ZBZjt7TUsdJHAvcU6A+vcr46Bew?=
- =?us-ascii?Q?vsdDCeL0Zim43ArJV9YLGbm/pfT4Z4+/JYfH2xhMISoFhrRf16YCImxlj9nE?=
- =?us-ascii?Q?puok123zxlMRa1NSf8y2QdhqkrhaCKbg5JXOdq6q85NnEcxL7Z58qpZ6Fvpq?=
- =?us-ascii?Q?zvmToLmJmDSO5K0L0PQBJqB6WNwHagikUs7mLzZ2iNxeiJJ3d89hK/f3W5zw?=
- =?us-ascii?Q?CDNIbZnLTzOzMa1y/KOx/Qr4Nat/KTFQ0PaILN+9bID9JOrJoH+zFhYiL56o?=
- =?us-ascii?Q?nxWKcfxhRpW2uqvDwmkZ6ybUZikMiSLgngEBoRPmXpUFdBkkrTdBwrZMCBtb?=
- =?us-ascii?Q?hr9RkwAMSF0WVI0e+hJZ4pqsetHbZVbZAPdJyRB4NOTwA+XPaThLnkSgkR5c?=
- =?us-ascii?Q?yvYFNqg0twhoFItwgrqutiR74twQ3w6tXR7ndtfM2Ud3YU9PEe+EwGqWkU4n?=
- =?us-ascii?Q?pcSFA8YvA6UN1BJUDujzECA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01ba98d1-726c-4c6d-c823-08ddb6afe99d
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2025 01:54:41.6459
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kYmWoAg/6D1fhsK8R+SpkA3Usn9ga8SmhjWWQzHBXth1Cd3F24bZRGE/fcYi3eocuGkk6u0lYiYs6qSVO4Oh6fwyqRm+LkPueF70MW1LmSi9o7m8qL8Lkwjw+FzDHJ5u
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6552
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-27_05,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 spamscore=0
+ mlxlogscore=999 malwarescore=0 mlxscore=0 adultscore=0 bulkscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2505160000 definitions=main-2506290041
+X-Proofpoint-ORIG-GUID: E4FMocrkEVo34wSxTFAcXpK3dmRZfjCk
+X-Proofpoint-GUID: E4FMocrkEVo34wSxTFAcXpK3dmRZfjCk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI5MDA0MiBTYWx0ZWRfX1XzUF28HmOio 3Rmpgb3lys6DDXLsPaDs2C8BdToQupenPxVwilEZUjN6j1z+mgE3cV+C17Gs/h/KsHwZwlzlQk3 Dz0sbvmmGSeLKzlFlN7i3+jBAedgCI5s/9Dn7BvnQgjAwmRY7Ao5AmNydKibehN+tnwr+1zhWX1
+ kWNcaOY0pO8H1nbC0VOYgnqrszm/vi0ryUWmGbXeoFdVn42Te73mcy6CyaWHbKBK/+VHCjvsKmF mKR0uEhZMq+Bazpseg6BOue+YtJevqe2DjOscAlg4PCJh3FLfsvupHT17mJj4hNP5ns/l9r0TEd C7fXIudW81WXFZGrI1ZBPaRgE0tDAbP055bofUCtw4kBj9Rcq3ZDGocNL/3NYGbQbtr3dsdl38j
+ Tflqtq0xuuZjKuDJ0ARtF5I0GEOmdBPvYFV+wEEJwgHWsuKGu+lj0p/rNNyOkYDa9IftfG6H
+X-Authority-Analysis: v=2.4 cv=b5Cy4sGx c=1 sm=1 tr=0 ts=6860cc23 cx=c_pps a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17 a=6IFa9wvqVegA:10 a=yPCof4ZbAAAA:8 a=Heg8zcIur3sJgoQ754cA:9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_185452_490878_18215D43 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20250628_221627_777325_F810284A 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,83 +98,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The current logic in nicvf_change_mtu() writes the new MTU to
+netdev->mtu using WRITE_ONCE() before verifying if the hardware
+update succeeds. However on hardware update failure, it attempts
+to revert to the original MTU using a direct assignment
+(netdev->mtu = orig_mtu)
+which violates the intended of WRITE_ONCE protection introduced in
+commit 1eb2cded45b3 ("net: annotate writes on dev->mtu from
+ndo_change_mtu()")
 
-On Fri, 27 Jun 2025, Robin Murphy wrote:
-> Arnd reports that Clang's aggressive inlining of arm_cmn_discover() can
-> lead to stack frame size warnings, and while we could simply prevent
-> such inlining to hide the issue, it seems more productive to actually
-> heed the warning and do something about the overall stack footprint.
-> The xp_region array is already rather large, and CMN_MAX_XPS might only
-> grow larger in future, however it only serves as a convenience to save
-> repeating the first level's worth of register reads in the second pass
-> of discovery. There's no performance concern here, and it only takes a
-> small tweak to the flow to re-extract the offsets instead of stashing
-> them, so let's just do that and save several hundred bytes of stack.
->
-> Reported-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Additionally, WRITE_ONCE(netdev->mtu, new_mtu) is unnecessarily
+performed even when the device is not running.
 
+Fix this by:
+  Only writing netdev->mtu after successfully updating the hardware.
+  Skipping hardware update when the device is down, and setting MTU
+  directly.
+  Remove unused variable orig_mtu.
 
-Sounds reasonable, the patch looks good to me, and no changes in the map 
-file, just as expected. Thus,
+This ensures that all writes to netdev->mtu are consistent with
+WRITE_ONCE expectations and avoids unintended state corruption
+on failure paths.
 
- 	Reviewed-and-tested-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+---
+Note: This change is not tested due to hardware availability.
+v1 -> v2
+remove unused variable orig_mtu.
+---
+ drivers/net/ethernet/cavium/thunder/nicvf_main.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-> ---
-> drivers/perf/arm-cmn.c | 15 ++++++++-------
-> 1 file changed, 8 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 031d45d0fe3d..02ffc8d09328 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2245,12 +2245,11 @@ static enum cmn_node_type arm_cmn_subtype(enum cmn_node_type type)
->
-> static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> {
-> -	void __iomem *cfg_region;
-> +	void __iomem *cfg_region, __iomem *xp_region;
-> 	struct arm_cmn_node cfg, *dn;
-> 	struct arm_cmn_dtm *dtm;
-> 	enum cmn_part part;
-> 	u16 child_count, child_poff;
-> -	u32 xp_offset[CMN_MAX_XPS];
-> 	u64 reg;
-> 	int i, j;
-> 	size_t sz;
-> @@ -2302,11 +2301,12 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 	cmn->num_dns = cmn->num_xps;
->
-> 	/* Pass 1: visit the XPs, enumerate their children */
-> +	cfg_region += child_poff;
-> 	for (i = 0; i < cmn->num_xps; i++) {
-> -		reg = readq_relaxed(cfg_region + child_poff + i * 8);
-> -		xp_offset[i] = reg & CMN_CHILD_NODE_ADDR;
-> +		reg = readq_relaxed(cfg_region + i * 8);
-> +		xp_region = cmn->base + (reg & CMN_CHILD_NODE_ADDR);
->
-> -		reg = readq_relaxed(cmn->base + xp_offset[i] + CMN_CHILD_INFO);
-> +		reg = readq_relaxed(xp_region + CMN_CHILD_INFO);
-> 		cmn->num_dns += FIELD_GET(CMN_CI_CHILD_COUNT, reg);
-> 	}
->
-> @@ -2332,11 +2332,12 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 	cmn->dns = dn;
-> 	cmn->dtms = dtm;
-> 	for (i = 0; i < cmn->num_xps; i++) {
-> -		void __iomem *xp_region = cmn->base + xp_offset[i];
-> 		struct arm_cmn_node *xp = dn++;
-> 		unsigned int xp_ports = 0;
->
-> -		arm_cmn_init_node_info(cmn, xp_offset[i], xp);
-> +		reg = readq_relaxed(cfg_region + i * 8);
-> +		xp_region = cmn->base + (reg & CMN_CHILD_NODE_ADDR);
-> +		arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, xp);
-> 		/*
-> 		 * Thanks to the order in which XP logical IDs seem to be
-> 		 * assigned, we can handily infer the mesh X dimension by
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
->
->
+diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_main.c b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+index aebb9fef3f6eb..633244bc00f35 100644
+--- a/drivers/net/ethernet/cavium/thunder/nicvf_main.c
++++ b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+@@ -1578,7 +1578,6 @@ int nicvf_open(struct net_device *netdev)
+ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
+ {
+ 	struct nicvf *nic = netdev_priv(netdev);
+-	int orig_mtu = netdev->mtu;
+ 
+ 	/* For now just support only the usual MTU sized frames,
+ 	 * plus some headroom for VLAN, QinQ.
+@@ -1589,16 +1588,18 @@ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
+ 		return -EINVAL;
+ 	}
+ 
+-	WRITE_ONCE(netdev->mtu, new_mtu);
+ 
+-	if (!netif_running(netdev))
++	if (!netif_running(netdev)) {
++		WRITE_ONCE(netdev->mtu, new_mtu);
+ 		return 0;
++	}
+ 
+ 	if (nicvf_update_hw_max_frs(nic, new_mtu)) {
+-		netdev->mtu = orig_mtu;
+ 		return -EINVAL;
+ 	}
+ 
++	WRITE_ONCE(netdev->mtu, new_mtu);
++
+ 	return 0;
+ }
+ 
+-- 
+2.46.0
+
 
