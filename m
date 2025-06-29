@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA050C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 12:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0F1C83028
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 12:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PaiBlNQO0f338PUKKeTaAyF8Owpl4mcYk0JrGqHmrxo=; b=CDhPdthjDX/o6vqbDu+lanOCv6
-	MDItjihsRJisxpqgOsmuwodxC1ii4yk7cH1+fs1isvRBX24EVYpILpJQO3OnbJiUUAeFidQeEwt0y
-	xdldaGHFeCFKiiBOxshWSpKUlg8O29NJPHahutoEK1Nn0sxY1BDTOYQtiGqapxirONeJ4UuxehzqG
-	cYkOd4gUcvHzlLMvs60q6HAmFN76+uJ+0vFSi0B62oZtD/6oTgQlvdaNflg0sWme9UkNLuzqu5DCn
-	7t+6iRs7iLMXMLFTI4lqjOLhusHmZDf4mKax5aR/P9rVEywLbPNVy7k8Vg7qLF/CP3nCT4kSkRa/2
-	eglHXCaQ==;
+	bh=855oi/aHiPaIX6D7ew4EHyshWsVi9Qr95Z7nFCB1Mlw=; b=tS+t7V+jcoO0CwAKqLHOPiuaJZ
+	jSOc4uY/qvrcidGR+Q0PZGsirQzC05x6TAX9vyLqdIJ56gEjDhM1zZGYkBYt3a3qAtSM95PiTBBM7
+	Aal14DJZqLzGFphHrba42Q4duxvNqFI0kY6lKnI3fA0D08QsQic+8pWCy0q0H+DZDh0EstnM+Zmik
+	GLJhYddF7Yj+Sfxpz26nHbBe1HvmpfMtCz1AvvAn8Rw/MOHGyNAWbDG9iMPySVcgqLWSdDXFM9Jbh
+	VOrmGQxOWpZ4IhNcG1S5Y8kN8HruTxR/rpPRYqwK5A6x3noytc4sR/KNxqWYKPWD7yPX4dPxozWF3
+	1ek9TXNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVrZA-00000000FTJ-1HEL;
-	Sun, 29 Jun 2025 12:55:28 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1uVrbS-00000000Fch-3IEB;
+	Sun, 29 Jun 2025 12:57:50 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVrJC-00000000Dgc-06cr
+	id 1uVrJD-00000000DhX-0kCd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 12:38:59 +0000
+	Sun, 29 Jun 2025 12:39:00 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751200736;
+	t=1751200737;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PaiBlNQO0f338PUKKeTaAyF8Owpl4mcYk0JrGqHmrxo=;
-	b=fHq35vTggtoeKKeRw2CWZeLBeqneL59EcoMGgTSWAxC86hVt6b2zYwL53dhOO5ua3ID590
-	8xVYUfrseX9hyTkC1wel6/XE8lhjP1N/SoDu2bynQTNfwRjOZUkL1ul67iw4GR2zZ32kOl
-	bpXo1vq+UHGflHjsifIepj34PCe7klD6tvsnarxcFCDiURoDEAPWuSi+7bykLWzFhHxv5b
-	EAsDO7Up7oArME5VMC4fIhJ/hIIxdVSG/KW19UIEEhE2xmNz2v4vfYsxOGWYKOzp7LWjls
-	Qn2FO/YHgzyxmIhH8sFUqgxSu3TDAb0ma5XWXaUsWOIe9enIlYBA9iZ98V+TPw==
+	bh=855oi/aHiPaIX6D7ew4EHyshWsVi9Qr95Z7nFCB1Mlw=;
+	b=UrCb7a5+ttaYcZzIa9jeW5t6UPHWwSoz6EWmMmMpK9rYzOesiswOnpOcgYNQo67OAySCKU
+	EtsBTsSTsG9PreeVXCMhedwPGKjCikOWt9oESBpgQNR7PQE0KzysE+TaUzzz+2Pmc+CwnU
+	RL4FF5JcGaJLULsRmg7vxG1WyUbUEUD+W79WKytIZFGRfOMV0Qc84M3RLBDdzqoBG65oby
+	xl28O6ZmgPZLYtmU4cXgUgwJv5ak1/dxrrh/vmWqH1P/FBoXX5h1X1yU/0cRrngoiH6oav
+	y5+VDYzG7izz8N7Ag684wWmp0iqdhVs1GsIRU3sgUqshlIpPOo3IOjecwfptHw==
 From: Diederik de Haas <didi.debian@cknow.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Dragan Simic <dsimic@manjaro.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v3 06/10] arm64: dts: rockchip: Simplify mipi_out endpoint on rk3399 RP64 dtso
-Date: Sun, 29 Jun 2025 14:34:47 +0200
-Message-ID: <20250629123840.34948-7-didi.debian@cknow.org>
+Subject: [PATCH v3 07/10] arm64: dts: rockchip: Move mipi_out node on rk3399 haikou demo dtso
+Date: Sun, 29 Jun 2025 14:34:48 +0200
+Message-ID: <20250629123840.34948-8-didi.debian@cknow.org>
 In-Reply-To: <20250629123840.34948-1-didi.debian@cknow.org>
 References: <20250629123840.34948-1-didi.debian@cknow.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_053858_205337_CC23DA03 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20250629_053859_357913_65D1F8CD 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,40 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only thing actually added here is a single endpoint on mipi_out,
-which is already defined in rk3399-base.dtsi, so it's simpler to just
-reference that phandle, which allows the removal of several properties.
+According to the DTS coding style [1] referenced nodes should be sorted
+alpha-numerically so move mipi_out to be after mipi_in_panel.
+
+[1] https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html#order-of-nodes
 
 Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
 ---
- .../dts/rockchip/rk3399-rockpro64-screen.dtso | 19 ++++++-------------
- 1 file changed, 6 insertions(+), 13 deletions(-)
+ .../dts/rockchip/rk3399-puma-haikou-video-demo.dtso  | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-index a26c8e05c13b..dabe535f2111 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-@@ -52,19 +52,6 @@ &mipi_dsi {
- 	#size-cells = <0>;
- 	status = "okay";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+index 0377ec860d35..d28880b8dd44 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+@@ -124,12 +124,6 @@ pca9670: gpio@27 {
+ 	};
+ };
  
--	ports {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		mipi_out: port@1 {
--			reg = <1>;
--
--			mipi_out_panel: endpoint {
--				remote-endpoint = <&mipi_in_panel>;
--			};
--		};
+-&mipi_out {
+-	mipi_out_panel: endpoint {
+-		remote-endpoint = <&mipi_in_panel>;
 -	};
+-};
 -
- 	mipi_panel: panel@0 {
- 		compatible = "feiyang,fy07024di26a30d";
- 		reg = <0>;
-@@ -80,6 +67,12 @@ mipi_in_panel: endpoint {
+ &mipi_dsi {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -151,6 +145,12 @@ mipi_in_panel: endpoint {
  	};
  };
  
@@ -122,9 +116,9 @@ index a26c8e05c13b..dabe535f2111 100644
 +	};
 +};
 +
- &pwm0 {
- 	status = "okay";
- };
+ &pinctrl {
+ 	pca9670 {
+ 		pca9670_resetn: pca9670-resetn {
 -- 
 2.50.0
 
