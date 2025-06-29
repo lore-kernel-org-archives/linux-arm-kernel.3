@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92776C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 16:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49474C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 16:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzWqpMkWLli5Ubb9ocpLNQLSO34HJRoESJlwzoAXrOM=; b=wOonOFxqH0JKqbemWwg5sodsy1
-	dwERQCyLJ3N9J+PFlgbpxJ/fMSPsiwt8TYncYkNcFVTFhfxAfp5cU8MkMrjsQiPVXn9wkvad3WC6T
-	Omi3uXMn+u2nGAYFHqvY0gzWcS3tes3/Y3DmfxUQPEpSEJ2eUVDX0Ev3vDZxzgUjn3PkUJTFUwlAI
-	pJIUJubryY6AV7bifx5FAtUEOoaOah80GJNi2D1J3/ufmO68nPWpJQVVYAgdfIfZVlpgJpHpp223W
-	1zDq3wWq8Kiuzp8352RsEIgojTRO09MEWmPyJd8nkLn/dwbkkiP1HpDupIC0Jrw/fc/S3RRBoEZ6m
-	4VvS7Bsw==;
+	bh=ltkWoDNxaQzn6WgDitU833meuC+rNnnAKkywgjF6pqs=; b=Jv9PAVhOKE0I+etchnKy0AKlLk
+	vHapuDdvV54gnAy9zfFT5naMCsolMNbiDchFKH93Jq0F4uhh2wcEq2FsVT0ig3iLn9y5mh8gousDq
+	rR4F1nk/RbAyC5nGvteiRe76Nf/VlNGFtgKHfTy/EaoP23SfTfinx7GJKg5lYeOzUoKYXFqFp+vTB
+	bDV8FkOVeEg1ViAgg0jCGMNBZeUxN/OE/5Nc/HbnCcYjA7eiThl7T9aeYFCHsSA49XABsnK851xvr
+	/d5y5yD4G3wctclqC8stHfxFyZSTEZ2RpYLJdnCkUAtSMXyJxt3wQbAYKrDPi4AqMln51m/3XgrJA
+	tsrAJGLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVv0D-00000000Scw-2Fob;
-	Sun, 29 Jun 2025 16:35:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uVvIh-00000000To4-2tIE;
+	Sun, 29 Jun 2025 16:54:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVuxu-00000000SYB-0AC5;
-	Sun, 29 Jun 2025 16:33:15 +0000
+	id 1uVvGO-00000000Ti6-1fLs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Jun 2025 16:52:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9B484376C;
-	Sun, 29 Jun 2025 16:33:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF621C4CEEB;
-	Sun, 29 Jun 2025 16:33:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5BB97A52C96;
+	Sun, 29 Jun 2025 16:52:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 934A7C4CEEB;
+	Sun, 29 Jun 2025 16:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751214792;
-	bh=ef6rQZIC/ziH2BA7dycq513/pksDVMKdMUwcu1DRESk=;
+	s=k20201202; t=1751215939;
+	bh=MPyVmXt/3QyZszVR5nGrkX1tRmk/RGhsjU/EYDV5kPk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=U3403vbl5suB3BrPuAl8KFrQvJDwX3oceR5hJkBeRfCQTkr2VPdRgfrIy6osO9NaM
-	 5iFhBP+D/40TQiUYWJ6359Q7YctQi90tChVaGzd/piy31o1J7zGtQ60leZlTI56YEQ
-	 HXGVpSxU15mXzACinvG8PiaVVr9xoKaSxX6+tSwFlihR1rtZQ9GcbOj/0oWL+jZPEM
-	 /4rfI+Miu1+9+I1gs4fVgLf3WFVwUf/eAEBjAfUY/1WkDKwyfBpEaGseUd4hndXfqX
-	 cSamFty1PIZTQ1ZvfmQQDTxr5Q2do3HK4pvp5GVbzPUYm/FU7XkqC8Bg2UpqfBtmIM
-	 UwLaJxoPnDipg==
-Date: Sun, 29 Jun 2025 17:33:02 +0100
+	b=C/Y0EuMAJPH67735Bw2p9Gb263mrkQs0Ypxx/NyH+jChrhvuCQw+XNKMEG66K1s72
+	 BGASN3zYpJ2FY/Nb+uiKN6102z0E/X15r/8/1K8Xz7tz9QoQX/oo0toexZmYukj9M7
+	 yPoCSzMCByp61ZFJBUGjR0f1FWQ7yIe0L4PX4/Lp6AjhD70y19SG4Yby2MLiN+0vP4
+	 GpKES0lkroqnlSQbLukis+ykWxg6WrEKQK5IIDUvoKbtGLFL+uxorMr6e/lW6N7Q2K
+	 Zy+4c+h5DpcxPwYK7kFa9tnHIKInVYRiZyjNwmeMT4enTMvg1fR5Oe9UXOA6zhAs+D
+	 EtZ04z5+I1etw==
+Date: Sun, 29 Jun 2025 17:52:10 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
- lukasz.luba@arm.com, dlechner@baylibre.com, nuno.sa@analog.com,
- andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- zhiyong.tao@mediatek.com, linux-pm@vger.kernel.org,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] thermal/drivers/mediatek: Add support for MT7981
- SoC
-Message-ID: <20250629173302.265b67ec@jic23-huawei>
-In-Reply-To: <20250628223837.848244-3-olek2@wp.pl>
-References: <20250628223837.848244-1-olek2@wp.pl>
-	<20250628223837.848244-3-olek2@wp.pl>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: at91_adc: make at91_adc_caps const
+Message-ID: <20250629175210.1d3d33f7@jic23-huawei>
+In-Reply-To: <20250628-iio-const-data-6-v1-1-fbb1ca5edc8d@baylibre.com>
+References: <20250628-iio-const-data-6-v1-1-fbb1ca5edc8d@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_093314_105914_201FE8BF 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250629_095220_506936_2E8ACEA7 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +76,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Jun 2025 00:38:36 +0200
-Aleksander Jan Bajkowski <olek2@wp.pl> wrote:
+On Sat, 28 Jun 2025 11:19:36 -0500
+David Lechner <dlechner@baylibre.com> wrote:
 
-> The temperature sensor support on the MT7981 is exactly the same
-> as on the MT7986.
+> Add const qualifier to struct at91_adc_caps at91sam*_caps. This is
+> read-only data so it can be made const.
 > 
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
-> ---
->  drivers/thermal/mediatek/auxadc_thermal.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/drivers/thermal/mediatek/auxadc_thermal.c b/drivers/thermal/mediatek/auxadc_thermal.c
-> index 9ee2e7283435..020324901505 100644
-> --- a/drivers/thermal/mediatek/auxadc_thermal.c
-> +++ b/drivers/thermal/mediatek/auxadc_thermal.c
-> @@ -1149,6 +1149,10 @@ static const struct of_device_id mtk_thermal_of_match[] = {
->  		.compatible = "mediatek,mt7622-thermal",
->  		.data = (void *)&mt7622_thermal_data,
->  	},
-> +	{
-> +		.compatible = "mediatek,mt7981-thermal",
-> +		.data = (void *)&mt7986_thermal_data,
-
-Random drive by question.  Why the (void *) casts?
-
-static const struct mtk_thermal_data mt7986_thermal_data;
-is the definition and data is a const void * so
-you should be able to assign directly without a cast and not
-have the casting away of const only to assign it to a
-const void *
-
-> +	},
->  	{
->  		.compatible = "mediatek,mt7986-thermal",
->  		.data = (void *)&mt7986_thermal_data,
-
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+Applied.
 
