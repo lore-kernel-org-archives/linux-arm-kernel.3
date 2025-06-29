@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49474C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 16:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75D2C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 17:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltkWoDNxaQzn6WgDitU833meuC+rNnnAKkywgjF6pqs=; b=Jv9PAVhOKE0I+etchnKy0AKlLk
-	vHapuDdvV54gnAy9zfFT5naMCsolMNbiDchFKH93Jq0F4uhh2wcEq2FsVT0ig3iLn9y5mh8gousDq
-	rR4F1nk/RbAyC5nGvteiRe76Nf/VlNGFtgKHfTy/EaoP23SfTfinx7GJKg5lYeOzUoKYXFqFp+vTB
-	bDV8FkOVeEg1ViAgg0jCGMNBZeUxN/OE/5Nc/HbnCcYjA7eiThl7T9aeYFCHsSA49XABsnK851xvr
-	/d5y5yD4G3wctclqC8stHfxFyZSTEZ2RpYLJdnCkUAtSMXyJxt3wQbAYKrDPi4AqMln51m/3XgrJA
-	tsrAJGLg==;
+	bh=HB2az2PHekC+lOKLzUf+M1PoQtOaX5ODb3E/1LZ9toA=; b=wujq2ApuK/WObVHuYUphGUvp7f
+	N/lyVSh5eVH4ebQKNmLy3KGuTd+sdCfKztn8PNSccuoBUD5ugBNt6cN7JrI3L/Ad102GGHSRiANzm
+	LYQxY6FcMN3z1u4vPrRyDvSw+L9gZl/ochs6rTnK4t345zJtMc7z2kyaabvsDKxDH0HbgwLxhx14z
+	05sasmuyFquJuUDM0dBdj4sCahf8Age3BY7bE4zW1rIIH3pPvAN9ettD96t56pRKFs8LF+/+xrDJ+
+	0oTXBBJAmQb2eGbvXvo/HpXeHC4hX+mBznOUBPgWTFd8CKpHUEMxoM4208vdCN14rIiTHmYPmhVCn
+	dRUkfmxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVvIh-00000000To4-2tIE;
-	Sun, 29 Jun 2025 16:54:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uVvQW-00000000UEi-2ACa;
+	Sun, 29 Jun 2025 17:02:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVvGO-00000000Ti6-1fLs
+	id 1uVvOE-00000000UAJ-0UtA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 16:52:21 +0000
+	Sun, 29 Jun 2025 17:00:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5BB97A52C96;
-	Sun, 29 Jun 2025 16:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 934A7C4CEEB;
-	Sun, 29 Jun 2025 16:52:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F3E9B6115E;
+	Sun, 29 Jun 2025 17:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5139C4CEEB;
+	Sun, 29 Jun 2025 17:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751215939;
-	bh=MPyVmXt/3QyZszVR5nGrkX1tRmk/RGhsjU/EYDV5kPk=;
+	s=k20201202; t=1751216423;
+	bh=MU4Z9EP7bSO53KKFn9ULIwyc9M5DssKRkSghJ8ajuTY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=C/Y0EuMAJPH67735Bw2p9Gb263mrkQs0Ypxx/NyH+jChrhvuCQw+XNKMEG66K1s72
-	 BGASN3zYpJ2FY/Nb+uiKN6102z0E/X15r/8/1K8Xz7tz9QoQX/oo0toexZmYukj9M7
-	 yPoCSzMCByp61ZFJBUGjR0f1FWQ7yIe0L4PX4/Lp6AjhD70y19SG4Yby2MLiN+0vP4
-	 GpKES0lkroqnlSQbLukis+ykWxg6WrEKQK5IIDUvoKbtGLFL+uxorMr6e/lW6N7Q2K
-	 Zy+4c+h5DpcxPwYK7kFa9tnHIKInVYRiZyjNwmeMT4enTMvg1fR5Oe9UXOA6zhAs+D
-	 EtZ04z5+I1etw==
-Date: Sun, 29 Jun 2025 17:52:10 +0100
+	b=SIW/YDhYp+dpeJI6fDZLC+l+fg8EN6BOop61PFeSyT5y0PuKlkin3yrLEBJDKzdAn
+	 EynVJnYZcE4utivRrmcctCTB7OC8OmDabS7bCz68Xb/momLydHr9Rk/3ggDWJo/XlC
+	 Nad3mtxazC8VZbnfZOtjRwOpZLIevC0fmXOUJIpdQH58I3biCFmIqtokWOi9kX08hb
+	 juuXkmm3Pp1NT0mFNOH8EZ2dAQCybmxo+7DoZfzUDjEz+UGru841b5FLvo3FmwznEX
+	 +XRfJy+3bUC1tiy0zZxiN12+Bzh6UQNpIf5VxcAY05nzmVCzgY103NBHldoxzdk7VZ
+	 7ZWQC9FxPr2pg==
+Date: Sun, 29 Jun 2025 18:00:15 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: David Lechner <dlechner@baylibre.com>
 Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
+ <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: at91_adc: make at91_adc_caps const
-Message-ID: <20250629175210.1d3d33f7@jic23-huawei>
-In-Reply-To: <20250628-iio-const-data-6-v1-1-fbb1ca5edc8d@baylibre.com>
-References: <20250628-iio-const-data-6-v1-1-fbb1ca5edc8d@baylibre.com>
+Subject: Re: [PATCH] iio: adc: stm32-adc: make stm32_adc_trig_info const
+Message-ID: <20250629180015.4aa4375e@jic23-huawei>
+In-Reply-To: <20250628-iio-const-data-10-v1-1-0ba93ac792c8@baylibre.com>
+References: <20250628-iio-const-data-10-v1-1-0ba93ac792c8@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_095220_506936_2E8ACEA7 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +72,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 28 Jun 2025 11:19:36 -0500
+On Sat, 28 Jun 2025 11:39:33 -0500
 David Lechner <dlechner@baylibre.com> wrote:
 
-> Add const qualifier to struct at91_adc_caps at91sam*_caps. This is
-> read-only data so it can be made const.
+> Add const qualifier to struct stm32_adc_trig_info. This is read-only
+> data so it can be made const.
 > 
 > Signed-off-by: David Lechner <dlechner@baylibre.com>
-Applied.
+Seems to be in the 'obviously correct' category so I've applied it to the testing
+branch of iio.git.  Thanks
+
+Jonathan
 
