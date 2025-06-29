@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9905DC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6372C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H9/OPGV88L0y+0ppoEPLp0I/KGpdC9MhvOlPllUzjoA=; b=VJ/p49nuiZtjQLNZvr1H5U9BhC
-	0vQKqWLk/e1Pu8MXIE/cBYyMQaMS+MnJ0E6GJGChDL3nCet+ryvePoRkdGiSHdjng1C/bd+yNheh1
-	DkNMa7eI+AyAnGXo+DQCGVv7YTS9x9IZ+FBiagzONb5PjTIlRuzoLFRJbqEHDK6WxIK+7rox0P0qS
-	CZ5TPhYGCd7hlRXn6o3WZLJPyXYPNrf39QZ5aK6Is5Xd31/Yslpac9oFZePZH8jLI/FSZo2FmbTm2
-	So6pVfCreyxrDcrOKfidr73JW1Ni/DdQuRouZcIixZu4zB5DZTRzv1wg9u2wL1odZLPJq/PlZlHp4
-	sCdEdpLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kDdpl3By3X9ovNNxMrYzM8BcEB9nscefW9jEfoZxips=; b=isuDQytdMrwXIB4cVE5LzU9MGL
+	LFuCrwbDLpq8WI6h63895n7I/AnhUlr1Lzd7jIcFTQA5J8QRuCUzsPV0i2t4tT3ArLa/DUSKtPOCN
+	hBwAqJ6dgDuEUxcsaQ4xHOfZ0ljjFbGLCfEVDEg6rVdUIobPVlZPEWKUpqMxT7Qj+DIdI/fVhraJ6
+	U92eVWQ8MUg+CB0EDn06D6zLEvrrvIa7jo1kS3Zt4BXlMi3am6n/Ly+BpEJNFk/TaSVtdy8Lx3Uwf
+	R4hK6QBYKNA3XTEk+fF+nYfpfFQucLmZ3t/j+cgxiJZwTcR5yCDTCWHwIj+JSshvUAGxb30pb9tDz
+	4XoNcWRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0YS-00000000oMk-0MGA;
-	Sun, 29 Jun 2025 22:31:20 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1uW0cP-00000000oXe-2Alh;
+	Sun, 29 Jun 2025 22:35:25 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0QG-00000000nxY-0DwH;
-	Sun, 29 Jun 2025 22:22:53 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uW0QB-000000002KJ-0eV5;
-	Sun, 29 Jun 2025 22:22:47 +0000
-Date: Sun, 29 Jun 2025 23:22:44 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
-	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
-	Sky Huang <skylake.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v2 3/3] net: ethernet: mtk_eth_soc: use genpool
- allocator for SRAM
-Message-ID: <61897c7a3dcc0b2976ec2118226c06c220b00a80.1751229149.git.daniel@makrotopia.org>
-References: <cover.1751229149.git.daniel@makrotopia.org>
+	id 1uW0a6-00000000oUp-3iR2
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Jun 2025 22:33:04 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4bVkZg1fVXz9st4;
+	Mon, 30 Jun 2025 00:32:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1751236379;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kDdpl3By3X9ovNNxMrYzM8BcEB9nscefW9jEfoZxips=;
+	b=X9YEudhNYyyQKsMiNjcgzjtDOADX/Hv10Qk0k+HuNEQ8ykiwfc28TT9U8GUlfUXUNR0LyG
+	tPZGlv6/ocb9qYSs+yKRIDaIMGsYGvIZu5XGUk9zkUvyKcFXK9X/8JCrvzvNyvnSQWkHpP
+	X15jC3gY41r2waV/GFDtmlFzq+yB1i7mkjaztuRktFQ8wXL+ejstgQSuIZvdAttnAglB7S
+	PKg4lFKpSfvQ3W0XZ+zPO0QVzv7ouMyZZUwViaYeIfcJ0roYIt+hbBATAMy7mMquuq34Yy
+	x3yQaF/4OgzhdXw84EE5UgpziQl45GpKh8fn2QJR3MMvcVGJzwCI4jXQCdZFTw==
+Message-ID: <c0ec7600-158f-431e-8f99-a462d68b808e@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1751236377;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kDdpl3By3X9ovNNxMrYzM8BcEB9nscefW9jEfoZxips=;
+	b=O2wvv5vpGSPgJRfrdRylP+6fnD36JGHlQkMm2PCf5GW+bch6SGCD5OP1xGtws1aJ9LNag5
+	doFfqUIyia9SICS+oUC/wCe6lhItsjTxjG3wF/0LZif3tq1kiQYmpZBys1bUXPXvKi4W5L
+	0bkcas8UYWVc2z5oF5FNU26mgUiZeZx8DX8TGaFUwLVIUZAkX+J82fxcPyig9zJ0OCZPe2
+	s48NSlxFd+0sPGJBeqJXRj4hElophW1N2GRofKiD44IZsR8qDccQNmST6VIJHiu5GpLd8K
+	w58gqgTgkEUmwogqnd/VMzDmyrh7rBvs1nmFAbZIC7c70wO4B4VDM779bHA2dw==
+Date: Mon, 30 Jun 2025 00:32:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1751229149.git.daniel@makrotopia.org>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip points
+ on V4H Sparrow Hawk
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+ <20250626214152.GA1817595@ragnatech.se>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20250626214152.GA1817595@ragnatech.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 2484d965c38b68daec3
+X-MBO-RS-META: 5jta8u7daqtyj6ngn4tdp1n53siur7bj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_152252_239930_08D23467 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250629_153303_065581_E14BDA06 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,249 +95,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a dedicated "mmio-sram" and the genpool allocator instead of
-open-coding SRAM allocation for DMA rings.
-Keep support for legacy device trees but notify the user via a
-warning to update.
+On 6/26/25 11:41 PM, Niklas Söderlund wrote:
 
-Co-developed-by: Frank Wunderlich <frank-w@public-files.de>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v2: fix return type of mtk_dma_ring_alloc() in case of error
+Hello Niklas,
 
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 120 +++++++++++++-------
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |   4 +-
- 2 files changed, 84 insertions(+), 40 deletions(-)
+>> +&a76_3 {
+>> +	a76_3_thermal_idle: thermal-idle {
+>> +		#cooling-cells = <2>;
+>> +		duration-us = <10000>;
+>> +		exit-latency-us = <500>;
+>> +	};
+>> +};
+> 
+> I did not know you could do this and use it as a cooling device, thanks
+> for teaching me something new!
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 8f55069441f4..b6a9574cf565 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -27,6 +27,7 @@
- #include <net/dsa.h>
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
-+#include <linux/genalloc.h>
- 
- #include "mtk_eth_soc.h"
- #include "mtk_wed.h"
-@@ -1267,6 +1268,45 @@ static void *mtk_max_lro_buf_alloc(gfp_t gfp_mask)
- 	return (void *)data;
- }
- 
-+static bool mtk_use_legacy_sram(struct mtk_eth *eth)
-+{
-+	return !eth->sram_pool && MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM);
-+}
-+
-+static void *mtk_dma_ring_alloc(struct mtk_eth *eth, size_t size,
-+				dma_addr_t *dma_handle)
-+{
-+	void *dma_ring;
-+
-+	if (WARN_ON(mtk_use_legacy_sram(eth)))
-+		return NULL;
-+
-+	if (eth->sram_pool) {
-+		dma_ring = (void *)gen_pool_alloc(eth->sram_pool, size);
-+		if (!dma_ring)
-+			return dma_ring;
-+		*dma_handle = gen_pool_virt_to_phys(eth->sram_pool,
-+						    (unsigned long)dma_ring);
-+	} else {
-+		dma_ring = dma_alloc_coherent(eth->dma_dev, size, dma_handle,
-+					      GFP_KERNEL);
-+	}
-+
-+	return dma_ring;
-+}
-+
-+static void mtk_dma_ring_free(struct mtk_eth *eth, size_t size, void *dma_ring,
-+			      dma_addr_t dma_handle)
-+{
-+	if (WARN_ON(mtk_use_legacy_sram(eth)))
-+		return;
-+
-+	if (eth->sram_pool)
-+		gen_pool_free(eth->sram_pool, (unsigned long)dma_ring, size);
-+	else
-+		dma_free_coherent(eth->dma_dev, size, dma_ring, dma_handle);
-+}
-+
- /* the qdma core needs scratch memory to be setup */
- static int mtk_init_fq_dma(struct mtk_eth *eth)
- {
-@@ -1276,13 +1316,12 @@ static int mtk_init_fq_dma(struct mtk_eth *eth)
- 	dma_addr_t dma_addr;
- 	int i, j, len;
- 
--	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM))
-+	if (!mtk_use_legacy_sram(eth)) {
-+		eth->scratch_ring = mtk_dma_ring_alloc(eth, cnt * soc->tx.desc_size,
-+						       &eth->phy_scratch_ring);
-+	} else {
- 		eth->scratch_ring = eth->sram_base;
--	else
--		eth->scratch_ring = dma_alloc_coherent(eth->dma_dev,
--						       cnt * soc->tx.desc_size,
--						       &eth->phy_scratch_ring,
--						       GFP_KERNEL);
-+	}
- 
- 	if (unlikely(!eth->scratch_ring))
- 		return -ENOMEM;
-@@ -2620,12 +2659,11 @@ static int mtk_tx_alloc(struct mtk_eth *eth)
- 	if (!ring->buf)
- 		goto no_tx_mem;
- 
--	if (MTK_HAS_CAPS(soc->caps, MTK_SRAM)) {
-+	if (!mtk_use_legacy_sram(eth)) {
-+		ring->dma = mtk_dma_ring_alloc(eth, ring_size * sz, &ring->phys);
-+	} else {
- 		ring->dma = eth->sram_base + soc->tx.fq_dma_size * sz;
- 		ring->phys = eth->phy_scratch_ring + soc->tx.fq_dma_size * (dma_addr_t)sz;
--	} else {
--		ring->dma = dma_alloc_coherent(eth->dma_dev, ring_size * sz,
--					       &ring->phys, GFP_KERNEL);
- 	}
- 
- 	if (!ring->dma)
-@@ -2726,9 +2764,9 @@ static void mtk_tx_clean(struct mtk_eth *eth)
- 		kfree(ring->buf);
- 		ring->buf = NULL;
- 	}
--	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && ring->dma) {
--		dma_free_coherent(eth->dma_dev,
--				  ring->dma_size * soc->tx.desc_size,
-+
-+	if (!mtk_use_legacy_sram(eth) && ring->dma) {
-+		mtk_dma_ring_free(eth, ring->dma_size * soc->tx.desc_size,
- 				  ring->dma, ring->phys);
- 		ring->dma = NULL;
- 	}
-@@ -2793,6 +2831,9 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
- 		ring->dma = dma_alloc_coherent(eth->dma_dev,
- 				rx_dma_size * eth->soc->rx.desc_size,
- 				&ring->phys, GFP_KERNEL);
-+	} else if (eth->sram_pool) {
-+		ring->dma = mtk_dma_ring_alloc(eth, rx_dma_size * eth->soc->rx.desc_size,
-+					       &ring->phys);
- 	} else {
- 		struct mtk_tx_ring *tx_ring = &eth->tx_ring;
- 
-@@ -2921,6 +2962,11 @@ static void mtk_rx_clean(struct mtk_eth *eth, struct mtk_rx_ring *ring, bool in_
- 				  ring->dma_size * eth->soc->rx.desc_size,
- 				  ring->dma, ring->phys);
- 		ring->dma = NULL;
-+	} else if (!mtk_use_legacy_sram(eth) && ring->dma) {
-+		mtk_dma_ring_free(eth,
-+				  ring->dma_size * eth->soc->rx.desc_size,
-+				  ring->dma, ring->phys);
-+		ring->dma = NULL;
- 	}
- 
- 	if (ring->page_pool) {
-@@ -3287,9 +3333,8 @@ static void mtk_dma_free(struct mtk_eth *eth)
- 			netdev_tx_reset_subqueue(eth->netdev[i], j);
- 	}
- 
--	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && eth->scratch_ring) {
--		dma_free_coherent(eth->dma_dev,
--				  MTK_QDMA_RING_SIZE * soc->tx.desc_size,
-+	if (!mtk_use_legacy_sram(eth) && eth->scratch_ring) {
-+		mtk_dma_ring_free(eth, soc->tx.fq_dma_size * soc->tx.desc_size,
- 				  eth->scratch_ring, eth->phy_scratch_ring);
- 		eth->scratch_ring = NULL;
- 		eth->phy_scratch_ring = 0;
-@@ -5009,7 +5054,7 @@ static int mtk_sgmii_init(struct mtk_eth *eth)
- 
- static int mtk_probe(struct platform_device *pdev)
- {
--	struct resource *res = NULL, *res_sram;
-+	struct resource *res = NULL;
- 	struct device_node *mac_np;
- 	struct mtk_eth *eth;
- 	int err, i;
-@@ -5029,20 +5074,6 @@ static int mtk_probe(struct platform_device *pdev)
- 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
- 		eth->ip_align = NET_IP_ALIGN;
- 
--	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM)) {
--		/* SRAM is actual memory and supports transparent access just like DRAM.
--		 * Hence we don't require __iomem being set and don't need to use accessor
--		 * functions to read from or write to SRAM.
--		 */
--		if (mtk_is_netsys_v3_or_greater(eth)) {
--			eth->sram_base = (void __force *)devm_platform_ioremap_resource(pdev, 1);
--			if (IS_ERR(eth->sram_base))
--				return PTR_ERR(eth->sram_base);
--		} else {
--			eth->sram_base = (void __force *)eth->base + MTK_ETH_SRAM_OFFSET;
--		}
--	}
--
- 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_36BIT_DMA)) {
- 		err = dma_set_mask(&pdev->dev, DMA_BIT_MASK(36));
- 		if (!err)
-@@ -5117,16 +5148,27 @@ static int mtk_probe(struct platform_device *pdev)
- 			err = -EINVAL;
- 			goto err_destroy_sgmii;
- 		}
-+
- 		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM)) {
--			if (mtk_is_netsys_v3_or_greater(eth)) {
--				res_sram = platform_get_resource(pdev, IORESOURCE_MEM, 1);
--				if (!res_sram) {
--					err = -EINVAL;
--					goto err_destroy_sgmii;
-+			eth->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
-+			if (!eth->sram_pool) {
-+				if (!mtk_is_netsys_v3_or_greater(eth)) {
-+					/*
-+					 * Legacy support for missing 'sram' node in DT.
-+					 * SRAM is actual memory and supports transparent access
-+					 * just like DRAM. Hence we don't require __iomem being
-+					 * set and don't need to use accessor functions to read from
-+					 * or write to SRAM.
-+					 */
-+					eth->sram_base = (void __force *)eth->base +
-+							 MTK_ETH_SRAM_OFFSET;
-+					eth->phy_scratch_ring = res->start + MTK_ETH_SRAM_OFFSET;
-+					dev_warn(&pdev->dev,
-+						 "legacy DT: using hard-coded SRAM offset.\n");
-+				} else {
-+					dev_err(&pdev->dev, "Could not get SRAM pool\n");
-+					return -ENODEV;
- 				}
--				eth->phy_scratch_ring = res_sram->start;
--			} else {
--				eth->phy_scratch_ring = res->start + MTK_ETH_SRAM_OFFSET;
- 			}
- 		}
- 	}
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 1ad9075a9b69..0104659e37f0 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -1245,7 +1245,8 @@ struct mtk_soc_data {
-  * @dev:		The device pointer
-  * @dma_dev:		The device pointer used for dma mapping/alloc
-  * @base:		The mapped register i/o base
-- * @sram_base:		The mapped SRAM base
-+ * @sram_base:		The mapped SRAM base (deprecated)
-+ * @sram_pool:		Pointer to SRAM pool used for DMA descriptor rings
-  * @page_lock:		Make sure that register operations are atomic
-  * @tx_irq__lock:	Make sure that IRQ register operations are atomic
-  * @rx_irq__lock:	Make sure that IRQ register operations are atomic
-@@ -1292,6 +1293,7 @@ struct mtk_eth {
- 	struct device			*dma_dev;
- 	void __iomem			*base;
- 	void				*sram_base;
-+	struct gen_pool			*sram_pool;
- 	spinlock_t			page_lock;
- 	spinlock_t			tx_irq_lock;
- 	spinlock_t			rx_irq_lock;
--- 
-2.50.0
+You could, although the cooling effect may vary. Some cores enter e.g. 
+clock stop during idle and then they really cool down, some do not.
+
+>> +/* THS sensors in SoC, critical temperature trip point is 100C */
+>> +&sensor1_crit {
+>> +	temperature = <100000>;
+>> +};
+>> +
+>> +&sensor2_crit {
+>> +	temperature = <100000>;
+>> +};
+>> +
+>> +&sensor3_crit {
+>> +	temperature = <100000>;
+>> +};
+>> +
+>> +&sensor4_crit {
+>> +	temperature = <100000>;
+>> +};
+>> +
+>> +&sensor_thermal_cr52 {
+>> +	critical-action = "shutdown";
+>> +};
+>> +
+>> +&sensor_thermal_cnn {
+>> +	critical-action = "shutdown";
+>> +};
+> 
+> Is this not the default action for critical trip points? In my testing
+> in the past R-Car systems have always shutdown when the critical trip is
+> reached.
+
+It isn't quite that clear cut.
+
+drivers/thermal/thermal_of.c thermal_of_zone_register() contains this 
+piece of code:
+
+"
+407         ret = of_property_read_string(np, "critical-action", &action);
+408         if (!ret && !of_ops.critical) {
+409                 if (!strcasecmp(action, "reboot"))
+410                         of_ops.critical = 
+thermal_zone_device_critical_reboot;
+411                 else if (!strcasecmp(action, "shutdown"))
+412                         of_ops.critical = 
+thermal_zone_device_critical_shutdown;
+413         }
+"
+
+If "critical-action" DT property is not set, then of_ops.critical are 
+not modified.
+
+drivers/thermal/thermal_core.c thermal_zone_device_register_with_trips() 
+contains this piece of code:
+
+1571         if (!tz->ops.critical)
+1572                 tz->ops.critical = thermal_zone_device_critical;
+
+If (in case of OF) of_ops.critical is not set, use 
+thermal_zone_device_critical() handler.
+
+There is a slight difference:
+- If critical-action = "shutdown" is set in DT, then handler
+   thermal_zone_device_critical_shutdown() is called, which is a wrapper
+   around thermal_zone_device_halt(tz, HWPROT_ACT_SHUTDOWN);
+- If critical-action = "shutdown" is NOT set in DT, then handler
+   thermal_zone_device_critical() is called, which is a wrapper
+   around thermal_zone_device_halt(tz, HWPROT_ACT_DEFAULT);
+
+thermal_zone_device_halt() itself is a wrapper around 
+__hw_protection_trigger(msg, poweroff_delay_ms, action); , where action 
+is either HWPROT_ACT_SHUTDOWN or HWPROT_ACT_DEFAULT , which is handled 
+in kernel/reboot.c __hw_protection_trigger() implementation :
+
+1028 void __hw_protection_trigger(const char *reason, int ms_until_forced,
+1029                              enum hw_protection_action action)
+1030 {
+1031         static atomic_t allow_proceed = ATOMIC_INIT(1);
+1032
+1033         if (action == HWPROT_ACT_DEFAULT)
+1034                 action = hw_protection_action;
+
+In case of HWPROT_ACT_DEFAULT , the 'hw_protection_action' which is 
+assigned into 'action' can be overridden, either via sysfs write, or 
+hw_protection_ kernel command line parameter . In case of 
+HWPROT_ACT_SHUTDOWN , the action cannot be overridden .
+
+In case this hardware starts to melt, we surely want HWPROT_ACT_SHUTDOWN 
+with no override options ...
+
+> If it's not I think we should move these to r8a779g0.dtsi. And
+> likely add them for all other SoCs too?
+
+... the other hardware has non-optional heatsink, where override-able 
+HWPROT_ACT_DEFAULT is the right option I think .
 
