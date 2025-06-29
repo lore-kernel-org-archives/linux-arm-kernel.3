@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C35DC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 13:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018D6C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 13:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTB3zWm7oNw70pUsCc6ZoGv3uOF6aJxYArBzhguuOPM=; b=5DRGoI23Uop5W/qh/NSFI77EqK
-	96D9nz0tTA+19nEe8CJtv/8pfvKhad1wa9q4EBx/CmjIsBm95SsAUUf/ORmc2rz0ABWlNeuGQQ2Hb
-	fen/9rlXUFoSOlgKHzeZ+SmRN59lCkEsXL2kVqfyhdF1lqQbrZsTitoDo5RIxk05yLIwWVmcwpnmf
-	hNJiVdPaIFwgXJYGthD7d+XbqDijrhOzL7e12KiA0Pza3iHnoALG2cPbhUb8HCTTttsnWCcDliKwN
-	UeopnUXFqLEnMNUXSI1Rlkk/i1R4ZKFoirjK/8NMuueheBUjkQ9IWY7o8rRJgKWocrvEVevNUylwW
-	7tglkIvw==;
+	bh=nOCOpdzyJGYo0WmyPHPzo5U4cOQf2vkC3N8qsd5gyAo=; b=V+ayA116EjxIV4OtqBgmBnPhL0
+	E5J5HUF9m05IDBpoLiMEYy/47DNVQRgHmq0MTsVXlhVzy8dv4j4QWljXaItQBwhO+5Dgetb4yQLxC
+	thX8qwmP62MFe1aHunaaZNXkdJ1DIcvNTZOHnHZfkFKzDxzmUFXllhCOPzaHtpAn+VSREAbiwXGVk
+	BI9RdaUcyPdNe94Fzy81O8+BAuSttjxSVou8w4sgruMh8Lx2RaRRgiQcS8HkdRdUthUW+p9v9OqCV
+	JEv6/4nO0uzVHR+X/7D9lt7UnuJWcsnZ43F8JQVJhH0Afo4IwRiUANbTDkYQh1hhnyGhb42tKTVR0
+	RWhdm1iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVrg2-00000000GBw-1If7;
-	Sun, 29 Jun 2025 13:02:34 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1uVriJ-00000000GMv-1nZC;
+	Sun, 29 Jun 2025 13:04:55 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVrJF-00000000DiX-2VkH;
-	Sun, 29 Jun 2025 12:39:02 +0000
+	id 1uVrJG-00000000Dj9-145v
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Jun 2025 12:39:03 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751200739;
+	t=1751200740;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kTB3zWm7oNw70pUsCc6ZoGv3uOF6aJxYArBzhguuOPM=;
-	b=cerCUDLV4y09ANz1AxbiKp9t527+KDGSHIeyAKh5ZXzyAhuafj3hpVAJB6ivgTV2op8xql
-	KJeHKoKltLqluqk/2IsoPnJO03ufCEgIkox3ggQTqewdXct1C+eLhDecVIxCc5aMOymQ1w
-	0Ycigjz8tBcblX2Wf7HuK97s2sGlRBEJIt0JX2cNAW0PohrigjVTJ8Ya4F+X+tUhWbQ0Z1
-	VhCWzEeoj0nUXCRXAUl/sYfsK42bKJATgHDnOTPn8vcMsxEfA11cBbPCyx1WBFfNSLOtx8
-	8Z3hFQLWDOYrQIpOq/zMKwZwXSLFOCOxajLik4sbHb+4DjxWVRsMsFwARaNeww==
+	bh=nOCOpdzyJGYo0WmyPHPzo5U4cOQf2vkC3N8qsd5gyAo=;
+	b=GQ4CNfk0xYcLdg3QU3SXwDgtJBjFrtjYOnP60c4J65IbFhmbgdnKCiH808hU9zytHkA6cT
+	tF1pijGHtg+ob3gSyJ5Ehr8trcQT//uH1wtvJ7VtSBtwp+5l4muHaDGZwlF2waUSLay3um
+	ERbafNgcMmplUtgHVNXeOcieTH6IS26Hi0yI8aU82SqTvR3CUyvKAgLw+33Fu1pMxuJ8SM
+	sad/A6QKkgijKK3sYl+ymD479c+DSvBr2qgu/G1d8kJhIncalUZ6quNT9DLKVN7RoS5ZHV
+	L2ijJLuopUDuvnDtsAjPcasKPa4O4Sidnvhc6Nl3a34aMdG3miwguqRFRVEWKg==
 From: Diederik de Haas <didi.debian@cknow.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -52,17 +53,17 @@ Cc: Dragan Simic <dsimic@manjaro.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v3 09/10] arm64: dts: rockchip: Drop unneeded address+size-cells on px30
-Date: Sun, 29 Jun 2025 14:34:50 +0200
-Message-ID: <20250629123840.34948-10-didi.debian@cknow.org>
+Subject: [PATCH v3 10/10] arm64: dts: rockchip: Drop regulator-compatible property on rk3399
+Date: Sun, 29 Jun 2025 14:34:51 +0200
+Message-ID: <20250629123840.34948-11-didi.debian@cknow.org>
 In-Reply-To: <20250629123840.34948-1-didi.debian@cknow.org>
 References: <20250629123840.34948-1-didi.debian@cknow.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_053901_769989_0089E70D 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20250629_053902_421671_23B7A57C 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,43 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On nodes with compatible "rockchip,px30-usb2phy-grf", the #address-cells
-and #size-cells are required and consequently their child nodes should
-have unit addresses. That is not the case for the px30-pmugrf and
-px30-grf nodes, so remove them there.
+The regulator-compatible property has never existed in the
+regulator/fcs,fan53555.yaml binding, so drop it.
 
 This fixes the following DTB validation warnings:
 
-  unnecessary #address-cells/#size-cells without "ranges",
-  "dma-ranges" or child "reg" property
+  Unevaluated properties are not allowed
+  ('regulator-compatible' was unexpected)
 
 Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
 ---
- arch/arm64/boot/dts/rockchip/px30.dtsi | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts   | 2 --
+ arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts | 2 --
+ 2 files changed, 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30.dtsi b/arch/arm64/boot/dts/rockchip/px30.dtsi
-index 5034ad8019a8..46f64cd33b9b 100644
---- a/arch/arm64/boot/dts/rockchip/px30.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/px30.dtsi
-@@ -351,8 +351,6 @@ power-domain@PX30_PD_GPU {
- 	pmugrf: syscon@ff010000 {
- 		compatible = "rockchip,px30-pmugrf", "syscon", "simple-mfd";
- 		reg = <0x0 0xff010000 0x0 0x1000>;
--		#address-cells = <1>;
--		#size-cells = <1>;
- 
- 		pmu_io_domains: io-domains {
- 			compatible = "rockchip,px30-pmu-io-voltage-domain";
-@@ -453,8 +451,6 @@ gic: interrupt-controller@ff131000 {
- 	grf: syscon@ff140000 {
- 		compatible = "rockchip,px30-grf", "syscon", "simple-mfd";
- 		reg = <0x0 0xff140000 0x0 0x1000>;
--		#address-cells = <1>;
--		#size-cells = <1>;
- 
- 		io_domains: io-domains {
- 			compatible = "rockchip,px30-io-voltage-domain";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
+index 81c4fcb30f39..352c8efb37e0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
+@@ -211,7 +211,6 @@ &i2c0 {
+ 	vdd_cpu_b: syr827@40 {
+ 		compatible = "silergy,syr827";
+ 		reg = <0x40>;
+-		regulator-compatible = "fan53555-reg";
+ 		pinctrl-0 = <&vsel1_pin>;
+ 		regulator-name = "vdd_cpu_b";
+ 		regulator-min-microvolt = <712500>;
+@@ -229,7 +228,6 @@ regulator-state-mem {
+ 	vdd_gpu: syr828@41 {
+ 		compatible = "silergy,syr828";
+ 		reg = <0x41>;
+-		regulator-compatible = "fan53555-reg";
+ 		pinctrl-0 = <&vsel2_pin>;
+ 		regulator-name = "vdd_gpu";
+ 		regulator-min-microvolt = <712500>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
+index 15da5c80d25d..962b8b231c96 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
+@@ -421,7 +421,6 @@ vdd_cpu_b: regulator@40 {
+ 		compatible = "silergy,syr827";
+ 		reg = <0x40>;
+ 		fcs,suspend-voltage-selector = <1>;
+-		regulator-compatible = "fan53555-reg";
+ 		pinctrl-0 = <&vsel1_gpio>;
+ 		vsel-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
+ 		regulator-name = "vdd_cpu_b";
+@@ -440,7 +439,6 @@ vdd_gpu: regulator@41 {
+ 		compatible = "silergy,syr828";
+ 		reg = <0x41>;
+ 		fcs,suspend-voltage-selector = <1>;
+-		regulator-compatible = "fan53555-reg";
+ 		pinctrl-0 = <&vsel2_gpio>;
+ 		vsel-gpios = <&gpio1 RK_PB6 GPIO_ACTIVE_HIGH>;
+ 		regulator-name = "vdd_gpu";
 -- 
 2.50.0
 
