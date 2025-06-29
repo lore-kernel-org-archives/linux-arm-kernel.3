@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D76C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 18:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B705C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 21:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8592xP+JE6KeCXGDCqNX8dsf7ApqXKNRZpKKe+gG7o=; b=KKCPIZ8Sqig7gSEM3InAAVumuS
-	CIrdTbFZDGIA0zPG2i9Z1Z7HHV+++dw6pxWzvjTPq/mSUgO1pnp1zry23daWlFgewx4rqLL9bDG5E
-	47FrKv3zA5Y7bF8xUmQcKkNKccZ9P6F4DBAfQsP6CVeuhYxpCXWmcpNZYDwd64DgPZBVKfIIRWNXy
-	jlKTN+eXJMulePxux97JXPUCGH+k4BrplyISHPqYyKz8SUTvmhLnp0CbLDrS5g01ItooRWyj1V4CN
-	Bxw5umYocTEsJl9ndlbcZdct4quy50M+AVteue33EH/Q4gNk4LnZg9LwR8abZITpFt0QHaSZZ9aNr
-	gbwOEC1Q==;
+	bh=gJVZKSVaSOfixf0yBTWqJgolNGXGzJTY/oeqr1f6HN8=; b=yjhRseGEsSYJC2W16EEqa8GpxJ
+	o2PY9B99juD8kYaPtsoaZpLZRv+wFFrzXhweeRxllgNvth0uI0SNsPlfL4KNa2KUzwh0YpQBW/S3n
+	alCj/tIZ3Raa/nNkz2YFhEgLwNOIA2QPv2yJEuJIKB0xQrZhrlIZd3FlrZri9nx/cijXuihGNKsPD
+	BOfxpxcwVxV8eI6rsHMWjg1HMeaR+8nth0wd4qxL0AH3f88ip72JLVc9a3QjkFIITNM8uNEvW6uJu
+	qkJ/mTP3e6pA5OMzuKDXtdE4R7WlBn2MLr9eZBRJrzdmTch1pGnD+2pT5UqnvO6hTvmYHT4TzxBfy
+	tXnRb88g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVwxh-00000000aq3-3uN0;
-	Sun, 29 Jun 2025 18:41:09 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uVz86-00000000k0w-3FiT;
+	Sun, 29 Jun 2025 21:00:02 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVwuI-00000000aYE-2a0m
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 18:37:39 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-451d7b50815so9246425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 11:37:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751222256; x=1751827056; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=j8592xP+JE6KeCXGDCqNX8dsf7ApqXKNRZpKKe+gG7o=;
-        b=WQUPt9f9XVfEq297gu94DZ13zQqYHX6QPTKRB82r9i7IOH2NDBlwVMj6E6nS6ociCr
-         1ki34d+3zKa4tf7F8AJzoUOa+pD+4VyOyKg4MoSuopvlIYrRHPlKEWw3wxYbuCpUX+rX
-         Au68esUS0hZht2ktqKSRqFbA6UzulUKOX/j53/FGTxiYv7hTnW9Ll1gDd3SN7KLPUb28
-         5CBhe1Q6lOJXt93agPZDJCZ8cqB1kCP0T+6noMl133NtBgWTZx4N8cwa2v9W/Y4UaGEl
-         BSu14WXIooi8ZyQNT1kG+X4OqaiuHpI1yF1NZ2LgP4TBUa9l66awZX12ul/jiPS32hfk
-         vygA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751222256; x=1751827056;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j8592xP+JE6KeCXGDCqNX8dsf7ApqXKNRZpKKe+gG7o=;
-        b=RY6meLx28evcTjvLLobe8R/aAOp3OcSnJuCt62Xq7HceuC14nq2nudW0c2KMO+td9c
-         L3m7bPRZf+1oQ/fYfjMpu9dXCfTMgvq/RLJPNCdV+J9vPIKpnkjQYPOfoll7UafWXjD0
-         Pn1z6fSQbpZ8Bs/IJCzxnFP0N4LetukOZSUe3X+YZks4voa1/7vRj0Vh20/wqyHkRCKV
-         3T+eozo6yNDp/8YuJ+P6TV2lEwzHahrKyDKpd2MUsI+96pF3jKPm3UH8mHNcnTUW0xhV
-         Rkcs2+XbZBGRNiqfZ+6kbWcsrwU+YFtB8orhaPSZxXpvadNF5ejUMWgFX/x+Ce7AEfMh
-         m8OA==
-X-Forwarded-Encrypted: i=1; AJvYcCVHhJ/7amWhL4WJF3cjQhSMX2MBPU477JP2soXYjZknMQ/K1w/zAQWjk59qTtt3FUUBplH5fe7acXgxcsGSOYa+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0QFHBJTriubhCizta9de0TkLD0LjNZOp1GdsVBeLI5ISNH+TK
-	6/isPodlNg6NDiolZVZYarKk/amDw6g14etU0BfvJtrRMpLGQ8J89mHQ
-X-Gm-Gg: ASbGncucx38K1B/DkLU1qLxo0oCQuDhabSvsuuzWb0KD3nZfqpxiI6WMD9/8cSS5HSn
-	/wdkH8KzblFMYfhJd4cGpd0BW9UcDqQmFL6vrGMCigmCg+94zvnhThfLMz1BxZEJ4YfihLLpHEj
-	r2TbKjRFFZdp4lvHz/miZN+GuE6asd3KN5ftB4Xi/WJJTx7GaL6xE0nwkQ4bCyIc0EHiPM9l+/K
-	7swSuxgrbU3hGrZ2UKqbLLq6B/pjC1AHQTbypfKA6CEpAXx6ePSNC/4hD8cQ9syez+Qu599xwb5
-	N5ZF5c7tVBj3XbsyPoecM9qw50zQiRjbkVjCwRIQ2qHHqqy4iwt/YZnNG7r/DHo=
-X-Google-Smtp-Source: AGHT+IFUvGyHpZ0G55OgsZ+L5rcXJKuJV0BFFbxOe9Gz1CCPK1gH8KNx/GR6MT+iyUETgIG6fe7iHw==
-X-Received: by 2002:a05:600c:64cc:b0:43c:f629:66f4 with SMTP id 5b1f17b1804b1-45392b98066mr92287515e9.0.1751222256133;
-        Sun, 29 Jun 2025 11:37:36 -0700 (PDT)
-Received: from Red ([2a01:cb1d:897:7800:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4538233c523sm141486835e9.6.2025.06.29.11.37.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Jun 2025 11:37:35 -0700 (PDT)
-Date: Sun, 29 Jun 2025 20:37:33 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/10] crypto: sun8i-ce - implement request batching
-Message-ID: <aGGH7RH8-yHVVz25@Red>
-References: <20250626095813.83963-1-ovidiu.panait.oss@gmail.com>
+	id 1uVz5m-00000000jqj-3l04;
+	Sun, 29 Jun 2025 20:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751230659; x=1782766659;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4sGclJ7JPmOXEyw1qCkUxmj9+SxiJpgXHWGQ3kI7L8E=;
+  b=eygVsrlgeKdTWf9igBbSSHZ6wOYVEWN41p/4nSBCbMq6s2EOHxgtbSDQ
+   pzBA0tKrvIQQx2LempI2nUQ64fybv+jxZBUBTLpSImbwzeuRRZwvtlIIr
+   1L7ArfHCLo0gd0OyuW1qyf7ohXCF/V6xvoJE6oKGtVO0N9CaQDOQH+P87
+   7U8mpt1m9VqMyGcqz/K/l8bLxPdyyLZ7wXi06Se5OGt/3J2zMXMlKkvDd
+   zW5sT1ZH4UF7BkJgpjxKIQ2N/9nBe7hNpib5TUABtaIk5hKVKg6Hls+MS
+   o4RMHxjcPPLtuQTMTBmf6Xhmejg68JfPGiYjdahN60FeX553wlWL2R/Xo
+   g==;
+X-CSE-ConnectionGUID: TgDDpHAKTHyXJvoCT9+GPw==
+X-CSE-MsgGUID: jE1KQOW2QGWcG8de+GBPGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11479"; a="76006850"
+X-IronPort-AV: E=Sophos;i="6.16,276,1744095600"; 
+   d="scan'208";a="76006850"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jun 2025 13:57:34 -0700
+X-CSE-ConnectionGUID: yqedKzWcThKyEa84V8mKAQ==
+X-CSE-MsgGUID: 2xMj3oDGTH6CIdlGLr8kEA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,276,1744095600"; 
+   d="scan'208";a="152780971"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 29 Jun 2025 13:57:29 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uVz5b-000YE2-1w;
+	Sun, 29 Jun 2025 20:57:27 +0000
+Date: Mon, 30 Jun 2025 04:56:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de,
+	richardcochran@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev, guangjie.song@mediatek.com,
+	wenst@chromium.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	kernel@collabora.com, Laura Nao <laura.nao@collabora.com>
+Subject: Re: [PATCH v2 22/29] clk: mediatek: Add MT8196 mfg clock support
+Message-ID: <202506300416.dbAiyBcI-lkp@intel.com>
+References: <20250624143220.244549-23-laura.nao@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250626095813.83963-1-ovidiu.panait.oss@gmail.com>
+In-Reply-To: <20250624143220.244549-23-laura.nao@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_113738_654653_5ED79333 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250629_135738_998474_CA44C16A 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Jun 26, 2025 at 12:58:03PM +0300, Ovidiu Panait a écrit :
-> The Allwinner crypto engine can process multiple requests at a time,
-> if they are chained together using the task descriptor's 'next' field.
-> Having multiple requests processed in one go can reduce the number
-> of interrupts generated and also improve throughput.
-> 
-> When compared to the existing non-batching implementation, the tcrypt
-> multibuffer benchmark shows an increase in throughput of ~85% for 16 byte
-> AES blocks (when testing with 8 data streams on the OrangePi Zero2 board).
-> 
-> Patches 1-9 perform refactoring work on the existing do_one_request()
-> callbacks, to make them more modular and easier to integrate with the
-> request batching workflow.
-> 
-> Patch 10 implements the actual request batching.
-> 
-> Changes in v2:
->    - fixed [-Wformat-truncation=] warning reported by kernel test robot
-> 
+Hi Laura,
 
-Hello
+kernel test robot noticed the following build warnings:
 
-Thanks for your patch, I am starting review and test it.
+[auto build test WARNING on clk/clk-next]
+[also build test WARNING on linus/master v6.16-rc3 next-20250627]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-@Herbert, please me give me time for it.
+url:    https://github.com/intel-lab-lkp/linux/commits/Laura-Nao/clk-mediatek-clk-pll-Add-set-clr-regs-for-shared-PLL-enable-control/20250624-225217
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20250624143220.244549-23-laura.nao%40collabora.com
+patch subject: [PATCH v2 22/29] clk: mediatek: Add MT8196 mfg clock support
+config: arm64-randconfig-r053-20250629 (https://download.01.org/0day-ci/archive/20250630/202506300416.dbAiyBcI-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project e04c938cc08a90ae60440ce22d072ebc69d67ee8)
+rustc: rustc 1.78.0 (9b00956e5 2024-04-29)
 
-Regards
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506300416.dbAiyBcI-lkp@intel.com/
+
+cocci warnings: (new ones prefixed by >>)
+>> drivers/clk/mediatek/clk-mt8196-mfg.c:143:3-8: No need to set .owner here. The core will do it.
+
+vim +143 drivers/clk/mediatek/clk-mt8196-mfg.c
+
+   137	
+   138	static struct platform_driver clk_mt8196_mfg_drv = {
+   139		.probe = clk_mt8196_mfg_probe,
+   140		.remove = clk_mt8196_mfg_remove,
+   141		.driver = {
+   142			.name = "clk-mt8196-mfg",
+ > 143			.owner = THIS_MODULE,
+   144			.of_match_table = of_match_clk_mt8196_mfg,
+   145		},
+   146	};
+   147	module_platform_driver(clk_mt8196_mfg_drv);
+   148	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
