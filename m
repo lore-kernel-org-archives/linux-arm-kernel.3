@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39963C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860F9C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=; b=xtxKEWFiBSrfBHeqGiyRleRIJj
-	TB2+QfskenfqI8BGGOYAXxwhaMT7IMuZP6qGxGIIylWBRzGn+KoqQ26MQ3YonD+RmLbvbtpp7DrXr
-	z9pMMsg1S3khoUK+6UcAaHyyVWbmq8HLQMEZ+YKwVh02nJfg/n5X+6YWcwHWGyXRuWi8m7N9Ashko
-	kpCof21VmaA8kENFDamJ1HC9Y7MQgOcs5JeV+RKBPspBJ21VTevBF9hqMTRqPAWbjDAv/l/cxlvNO
-	Wyb9nIYayu+CvoQ7+01dIoIiCuBr5cB92gOB6hgQ/BZcnk1kyzMEQxSIGAH1JibS35xGiwzVP0Fyv
-	M7vIjSaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0GjMCpwI1NKc9d8AVCfYrCo14uPmKjffa7wcb2ZinqM=; b=HpQ08gYQdsGxFUhqKUdyMSIOZq
+	+uwl90DMID3qMKTgUlb5THu/X3fVdJRKIk5shzQ5EC0lYFKnxCrzgfI8Cld8BRldHL9dfq+N88ry0
+	gOSqaK01vfKeWPO2L9JpIU/Nzo+iX6MdULr52O9pA5d/HOjvy0/exSIdC+hBo9zwAk9R9P17c/5cn
+	c2T/MJBhp0MVkkPZUaqew3C8RDFXaFP/QPE8lBMYKCOnDC+Gl/CXQ7xkr/PNdfqlRvqZf6nRdYGmR
+	fTold5t6IYEUsjMC7yEiNv4vbJ3jeUVtuu2dVZcC6AxsHQD0hwKrfn/a+CgCrqcBtDtcjZf3cqpX3
+	qRp+jL1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0Bd-00000000nVi-0vYR;
-	Sun, 29 Jun 2025 22:07:45 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1uW0Rc-00000000o29-00zA;
+	Sun, 29 Jun 2025 22:24:16 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW09J-00000000nPK-0WvS
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 22:05:22 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4bVjyd3WvZz9stg;
-	Mon, 30 Jun 2025 00:05:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1751234713;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=;
-	b=dZLcAFrTgcxfCPDqmmzeXnwWZKnWuxBRJphwxQJzOi5js7oJMhshlVu6cFT0bTbdemDgZy
-	klyRdP9Ogh1lcQ3A9y9LZ9U/t18I98zipzGoW3GC4hUhd+soTt49Arrq6uHZWersaqE4MD
-	nQSPuMu0ElXB9VpWzQ087MQjtBsK7OjilE1uXBT8fNbK8yXGEk06rGiqWmQiCuxEgVtjTu
-	/NSrXxT6LzqYod4aEH+Eo82WejKX28Ij0CMyLfBeAXdQSRGvO1UWfWYkc/ewwnr2/drojz
-	ltk6VhPF0RUA2w3VPT8TITwvmGgAQJTa5QNAXV82yuKvEvl2AsjotkLgme8PDg==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1751234711;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=;
-	b=Snk5NeqIxlYLkGoTYhqpTkOw+9tVflrQkjGl/vH4BnTRhwH+lxc0lzrqQN/YaT2+PAlmzq
-	15b7ei26HInKT4UZcQY1FPC2w5UpGsNjlFz4R4HJRoYO6RxwGpnFyKYiBkfN6AfUASnZsQ
-	f8eABpFDpgcPIy/THhwQ6fsCpqms6tV/min6CmxLEa8YY7s/26yBYtowQl/RnFsrK961wh
-	R1Ka4nQGzIWxOBMAHw+ZcwRcb2QFxS+rOBj4bPOMsbvLbwzFvOExxvfUnF8DeKa3RHEzeI
-	HGKEGUnDDikNEdFsg16vOZd26UEqq4Hf/FTT8+eIjpNaQ8c7wu+1I/Q5bNcnug==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] ARM: dts: renesas: Add boot phase tags marking to Renesas RZ/A1
-Date: Mon, 30 Jun 2025 00:04:24 +0200
-Message-ID: <20250629220502.935717-1-marek.vasut+renesas@mailbox.org>
+	id 1uW0PH-00000000nnh-3gkb;
+	Sun, 29 Jun 2025 22:21:53 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uW0PB-000000002J3-0WMf;
+	Sun, 29 Jun 2025 22:21:45 +0000
+Date: Sun, 29 Jun 2025 23:21:42 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+	Sky Huang <skylake.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next v2 1/3] net: ethernet: mtk_eth_soc: improve support
+ for named interrupts
+Message-ID: <20460fe0dee9f1c42f3c1b64177dd569a6fe4ef4.1751229149.git.daniel@makrotopia.org>
+References: <cover.1751229149.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: cd501b2cf243314dd24
-X-MBO-RS-META: q69wwtg3rufy5stjqdw1npekmohmqoaf
-X-Rspamd-Queue-Id: 4bVjyd3WvZz9stg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1751229149.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_150521_309449_4A4BC5E2 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250629_152151_920907_9F67171B 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,134 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
-to describe various node usage during boot phases with DT. Add bootph-all for
-all nodes that are used in the bootloader on Renesas RZ/A1 SoC.
+Use platform_get_irq_byname_optional() to avoid outputting error
+messages when using legacy device trees which rely identifying
+interrupts only by index. Instead, output a warning notifying the user
+to update their device tree.
 
-All SoC require BSC bus, PFC pin control and OSTM0 timer access during all
-stages of the boot process, those are marked using bootph-all property, and
-so is the SoC bus node which contains the PFC and OSTM IPs.
-
-Each board console UART is also marked as bootph-all to make it available in
-all stages of the boot process.
-
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm/boot/dts/renesas/r7s72100-genmai.dts   | 3 ++-
- arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts | 3 ++-
- arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts  | 2 ++
- arch/arm/boot/dts/renesas/r7s72100.dtsi         | 5 +++++
- 4 files changed, 11 insertions(+), 2 deletions(-)
+v2: no changes
 
-diff --git a/arch/arm/boot/dts/renesas/r7s72100-genmai.dts b/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
-index c81840dfb7da..13c0324b8def 100644
---- a/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
-+++ b/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
-@@ -258,6 +258,7 @@ mmcif_pins: mmcif {
- 	};
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index f8a907747db4..8f55069441f4 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3341,17 +3341,22 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+ 	int i;
  
- 	scif2_pins: serial2 {
-+		bootph-all;
- 		/* P3_0 as TxD2; P3_2 as RxD2 */
- 		pinmux = <RZA1_PINMUX(3, 0, 6)>, <RZA1_PINMUX(3, 2, 4)>;
- 	};
-@@ -286,7 +287,7 @@ &rtc {
- &scif2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&scif2_pins>;
--
-+	bootph-all;
- 	status = "okay";
- };
+ 	/* future SoCs beginning with MT7988 should use named IRQs in dts */
+-	eth->irq[MTK_FE_IRQ_TX] = platform_get_irq_byname(pdev, "fe1");
+-	eth->irq[MTK_FE_IRQ_RX] = platform_get_irq_byname(pdev, "fe2");
++	eth->irq[MTK_FE_IRQ_TX] = platform_get_irq_byname_optional(pdev, "fe1");
++	eth->irq[MTK_FE_IRQ_RX] = platform_get_irq_byname_optional(pdev, "fe2");
+ 	if (eth->irq[MTK_FE_IRQ_TX] >= 0 && eth->irq[MTK_FE_IRQ_RX] >= 0)
+ 		return 0;
  
-diff --git a/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts b/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
-index 9d29861f23f1..e4f489522b2b 100644
---- a/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
-+++ b/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
-@@ -59,6 +59,7 @@ led1 {
+-	/* only use legacy mode if platform_get_irq_byname returned -ENXIO */
++	/* only use legacy mode if platform_get_irq_byname_optional returned -ENXIO */
+ 	if (eth->irq[MTK_FE_IRQ_TX] != -ENXIO)
+-		return eth->irq[MTK_FE_IRQ_TX];
++		return dev_err_probe(&pdev->dev, eth->irq[MTK_FE_IRQ_TX],
++				     "Error requesting FE TX IRQ\n");
  
- &pinctrl {
- 	scif2_pins: serial2 {
-+		bootph-all;
- 		/* P6_2 as RxD2; P6_3 as TxD2 */
- 		pinmux = <RZA1_PINMUX(6, 2, 7)>, <RZA1_PINMUX(6, 3, 7)>;
- 	};
-@@ -109,7 +110,7 @@ &ostm1 {
- &scif2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&scif2_pins>;
--
-+	bootph-all;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts b/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
-index 25c6d0c78828..0bf106e9827e 100644
---- a/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
-+++ b/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
-@@ -199,6 +199,7 @@ keyboard_pins: keyboard {
- 
- 	/* Serial Console */
- 	scif2_pins: serial2 {
-+		bootph-all;
- 		pinmux = <RZA1_PINMUX(3, 0, 6)>,	/* TxD2 */
- 			 <RZA1_PINMUX(3, 2, 4)>;	/* RxD2 */
- 	};
-@@ -278,6 +279,7 @@ &rtc {
- &scif2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&scif2_pins>;
-+	bootph-all;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm/boot/dts/renesas/r7s72100.dtsi b/arch/arm/boot/dts/renesas/r7s72100.dtsi
-index 1a866dbaf5e9..c78131e3cd24 100644
---- a/arch/arm/boot/dts/renesas/r7s72100.dtsi
-+++ b/arch/arm/boot/dts/renesas/r7s72100.dtsi
-@@ -41,6 +41,7 @@ bsc: bus {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0 0 0x18000000>;
-+		bootph-all;
- 	};
- 
- 	cpus {
-@@ -108,6 +109,8 @@ soc {
- 		#size-cells = <1>;
- 		ranges;
- 
-+		bootph-all;
+ 	if (eth->irq[MTK_FE_IRQ_RX] != -ENXIO)
+-		return eth->irq[MTK_FE_IRQ_RX];
++		return dev_err_probe(&pdev->dev, eth->irq[MTK_FE_IRQ_RX],
++				     "Error requesting FE RX IRQ\n");
 +
- 		L2: cache-controller@3ffff000 {
- 			compatible = "arm,pl310-cache";
- 			reg = <0x3ffff000 0x1000>;
-@@ -557,6 +560,7 @@ R7S72100_CLK_SDHI10 R7S72100_CLK_SDHI11
++	if (!MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT))
++		dev_warn(&pdev->dev, "legacy DT: missing interrupt-names.");
  
- 		pinctrl: pinctrl@fcfe3000 {
- 			compatible = "renesas,r7s72100-ports";
-+			bootph-all;
- 
- 			reg = <0xfcfe3000 0x4230>;
- 
-@@ -639,6 +643,7 @@ ostm0: timer@fcfec000 {
- 			interrupts = <GIC_SPI 102 IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&mstp5_clks R7S72100_CLK_OSTM0>;
- 			power-domains = <&cpg_clocks>;
-+			bootph-all;
- 			status = "disabled";
- 		};
- 
+ 	/* legacy way:
+ 	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken
 -- 
-2.47.2
-
+2.50.0
 
