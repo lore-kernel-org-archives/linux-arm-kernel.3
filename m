@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018D6C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 13:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB29C83026
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 13:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOCOpdzyJGYo0WmyPHPzo5U4cOQf2vkC3N8qsd5gyAo=; b=V+ayA116EjxIV4OtqBgmBnPhL0
-	E5J5HUF9m05IDBpoLiMEYy/47DNVQRgHmq0MTsVXlhVzy8dv4j4QWljXaItQBwhO+5Dgetb4yQLxC
-	thX8qwmP62MFe1aHunaaZNXkdJ1DIcvNTZOHnHZfkFKzDxzmUFXllhCOPzaHtpAn+VSREAbiwXGVk
-	BI9RdaUcyPdNe94Fzy81O8+BAuSttjxSVou8w4sgruMh8Lx2RaRRgiQcS8HkdRdUthUW+p9v9OqCV
-	JEv6/4nO0uzVHR+X/7D9lt7UnuJWcsnZ43F8JQVJhH0Afo4IwRiUANbTDkYQh1hhnyGhb42tKTVR0
-	RWhdm1iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3qT9O4ctgmI4E+K04BSgVRvvO5rn1N9tEpioEcUF5MA=; b=P/2krwfKGUXP1Y4dgrC5ab4E01
+	9h1nuL4RGjJqUr6HThwcsxmxLVDbJuPEhQSJNlIkcaASRtiNNwDtAPUlfeR76KIlrfX5LSM4PqUPd
+	7drAA6FeNn20N/N2zdMYwdDU2C/cURCDQAB+Rr1ixUoFzzkI0BUm0s5Zj75z0iEPz1fB32WayncXI
+	NKHFOidEooOhWPl2WjuiigXlYGzilBzdolXfcL7af4sLGEsToPs2VLOHT9gwz00TJiiUCHJdZkY8P
+	I7KygdqQOVpJDwJzN8At0yLxqsR1fbxI6FzawrlbyPyezJ8/H2yEnyss6VaQu4KFEtAnTgCYUDkQQ
+	8ceZylVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVriJ-00000000GMv-1nZC;
-	Sun, 29 Jun 2025 13:04:55 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1uVrka-00000000GYm-3OTD;
+	Sun, 29 Jun 2025 13:07:16 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVrJG-00000000Dj9-145v
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 12:39:03 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751200740;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nOCOpdzyJGYo0WmyPHPzo5U4cOQf2vkC3N8qsd5gyAo=;
-	b=GQ4CNfk0xYcLdg3QU3SXwDgtJBjFrtjYOnP60c4J65IbFhmbgdnKCiH808hU9zytHkA6cT
-	tF1pijGHtg+ob3gSyJ5Ehr8trcQT//uH1wtvJ7VtSBtwp+5l4muHaDGZwlF2waUSLay3um
-	ERbafNgcMmplUtgHVNXeOcieTH6IS26Hi0yI8aU82SqTvR3CUyvKAgLw+33Fu1pMxuJ8SM
-	sad/A6QKkgijKK3sYl+ymD479c+DSvBr2qgu/G1d8kJhIncalUZ6quNT9DLKVN7RoS5ZHV
-	L2ijJLuopUDuvnDtsAjPcasKPa4O4Sidnvhc6Nl3a34aMdG3miwguqRFRVEWKg==
-From: Diederik de Haas <didi.debian@cknow.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Johan Jonker <jbx6244@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v3 10/10] arm64: dts: rockchip: Drop regulator-compatible property on rk3399
-Date: Sun, 29 Jun 2025 14:34:51 +0200
-Message-ID: <20250629123840.34948-11-didi.debian@cknow.org>
-In-Reply-To: <20250629123840.34948-1-didi.debian@cknow.org>
-References: <20250629123840.34948-1-didi.debian@cknow.org>
+	id 1uVrRm-00000000EuH-2bMO;
+	Sun, 29 Jun 2025 12:47:51 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6fd0a3cd326so17345506d6.1;
+        Sun, 29 Jun 2025 05:47:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751201267; x=1751806067; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3qT9O4ctgmI4E+K04BSgVRvvO5rn1N9tEpioEcUF5MA=;
+        b=i//dlq/Hk/Qvkmfii3lQMS+WL30VDjn4glC+CeeBt/rTbHx2yqWypewXazJ+m6OMtB
+         yi8d7cm75994G3f6Xz4ozFAvpemlFHeAa4omtzpb2Lx2+TWSgoFMiBCM3b7m7up0SijN
+         E2gNR1rm4xemyRE8baDoaH2z2HEzV7XNf0c84jufnruDe69NjGrXbAXP5B6IRsJNYlKM
+         x+W9MnujNjz+cMGQK6G9HE6aZxBnJX0xZwI+plwJao78sHbQZddqv/xu7oKQVGBhYROp
+         67/CU6ZUM3VqcAD/6oQ8A32y3YhLDN20NFrHO+FVOfomYMSYP2uWa9kWfb7HHZ6WqWpO
+         a/+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751201267; x=1751806067;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3qT9O4ctgmI4E+K04BSgVRvvO5rn1N9tEpioEcUF5MA=;
+        b=WllGjY3KVIa9SJOInLoOrhS5sfIfXy3KyZ+FvW5XPwN1I+P2X7d4S1iSUbo3EZclXg
+         EYUD09djuBOGejPFP0Llca3Deq4tnyk8wL7/A6u2XHQ99IZE7dXzd8CP2lSqFUtuPmFb
+         8i9o/uHkZyyxfs6T5StyNufg5FgzCLSJVNOx/VhFIuepsR+/IysKJFaCwKzPoYK4gbAW
+         nXUB7sTbB2/Ho+gEVV856Cqnlxmqti8EzUMeCbS+26N0eCAulEYsqobunzvTuVindkUv
+         6gNOdvdah4qwADEjjDsiLUQJVal7BS7E1KMa63H0QrKl+CqbLn/oYkh/V6eDebWqyObG
+         LMew==
+X-Forwarded-Encrypted: i=1; AJvYcCUx9YAGOgB9DQ/Za71vBTbVRacrt6utJ9/V+YDpYUcNAb+1ITvO9rgK2qVZDo0wdpXjR5lj76sp4VfS@lists.infradead.org, AJvYcCXzsA3j9vLo/MgV39f2+Y0SeEXT+kcHHZoxWpL6hq3DAxPhz0o7czGLQcNzCbnG2Oq9A3BRCyO1CDjkWJxuRzaq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0cZkJdyjmFLcCNL2cviMFTZJTtIfMAOW98J8xL+XUPgYo+/0C
+	swkUxvWxJhMLeQqtSg28novwvRhyldemMw5lT3/FClPclfOPDLT63WrE4lSAuzddoReeFCN6
+X-Gm-Gg: ASbGncvOnkdKQHZ1vWJvkFKP4nCLOTEQJgUrMjv2IfUyhFArl2gYa5Itwz+1rTArF53
+	tnMOZL7kATYCrYgYoe+dYZT+L97H1pMKvvv8mvaVGg6YtWCL26XJOIe2Y8UXLdm/57GWFECn+Hk
+	YSuG0OFTI0wur2DpbYIhHV9JJ2i8AI/rk+lKj9SLmXCJCPQQMZnkmrptVeEzv+AGiKYE4SJkZMy
+	f7a9qTv1PMSeGvGkfMUR98kkvnsa9Hwi6+X8SScx6pS6QX1IRc6x0HlDBY/pCtfafK9KBgnL8KR
+	A1Mt764AxwdiaOVfJswoYPpFZbBatC9ggLtbrcCbgbZB+htmWWSPMiuVpIaT
+X-Google-Smtp-Source: AGHT+IFcnXAwt3wLBy9B+NJBG4yLeL8rwe64avI9teL+o/I8vjzQhNTT6+gyyIUOBrLOsm/ff7s0DQ==
+X-Received: by 2002:a05:6214:428d:b0:6fa:cd55:3823 with SMTP id 6a1803df08f44-7000214f607mr153311086d6.26.1751201264933;
+        Sun, 29 Jun 2025 05:47:44 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:24f4::dead:c001])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44323bba2sm430549085a.109.2025.06.29.05.47.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Jun 2025 05:47:44 -0700 (PDT)
+Date: Sun, 29 Jun 2025 09:47:38 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rick wertenbroek <rick.wertenbroek@gmail.com>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v7 0/4] PCI: rockchip: Improve driver quality
+Message-ID: <cover.1751200382.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_053902_421671_23B7A57C 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20250629_054750_677697_DA76B7C4 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,61 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The regulator-compatible property has never existed in the
-regulator/fcs,fan53555.yaml binding, so drop it.
+During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+some quality improvements began to take form and after feedback from
+community they reached more polished state.
 
-This fixes the following DTB validation warnings:
+This will ensure maximum chance of retraining to 5.0GT/s, on all four
+lanes and fix async strobe TEST_WRITE disablement. On top of this,
+standard PCIe defines are now used to reference registers from offset
+at Capabilities Register.
 
-  Unevaluated properties are not allowed
-  ('regulator-compatible' was unexpected)
+Unfortunately, it seems Rockchip-IP PCIe is unable to handle 16-bit
+register writes and there's risk of corrupting state of RW1C registers,
+an issue raised by Bjorn Helgaas. There's little I could do to fix that,
+so on this issue the situation remains the same.
 
-Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts   | 2 --
- arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts | 2 --
- 2 files changed, 4 deletions(-)
+V6 -> V7: drop RFC tag as per Heiko Stuebner's reminder, update cover
+letter
+V5 -> V6: reflow to 75 cols, use 5.0GTs instead of Gen2 nomenclature,
+clarify strobe write adjustment and remove PHY_CFG_RD_MASK
+V4 -> V5: fix build failure, reflow commit messages and also convert
+registers for EP operation, all suggested by Ilpo
+V3 -> V4: fix setting-up of TLS in Link Control and Status Register 2,
+also adjust commit titles
+V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+suggestion
+V1 -> V2: use standard PCIe defines as suggested by Bjorn
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-index 81c4fcb30f39..352c8efb37e0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts
-@@ -211,7 +211,6 @@ &i2c0 {
- 	vdd_cpu_b: syr827@40 {
- 		compatible = "silergy,syr827";
- 		reg = <0x40>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel1_pin>;
- 		regulator-name = "vdd_cpu_b";
- 		regulator-min-microvolt = <712500>;
-@@ -229,7 +228,6 @@ regulator-state-mem {
- 	vdd_gpu: syr828@41 {
- 		compatible = "silergy,syr828";
- 		reg = <0x41>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel2_pin>;
- 		regulator-name = "vdd_gpu";
- 		regulator-min-microvolt = <712500>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-index 15da5c80d25d..962b8b231c96 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-@@ -421,7 +421,6 @@ vdd_cpu_b: regulator@40 {
- 		compatible = "silergy,syr827";
- 		reg = <0x40>;
- 		fcs,suspend-voltage-selector = <1>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel1_gpio>;
- 		vsel-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
- 		regulator-name = "vdd_cpu_b";
-@@ -440,7 +439,6 @@ vdd_gpu: regulator@41 {
- 		compatible = "silergy,syr828";
- 		reg = <0x41>;
- 		fcs,suspend-voltage-selector = <1>;
--		regulator-compatible = "fan53555-reg";
- 		pinctrl-0 = <&vsel2_gpio>;
- 		vsel-gpios = <&gpio1 RK_PB6 GPIO_ACTIVE_HIGH>;
- 		regulator-name = "vdd_gpu";
+Geraldo Nascimento (4):
+  PCI: rockchip: Use standard PCIe defines
+  PCI: rockchip: Set Target Link Speed before retraining
+  phy: rockchip-pcie: Enable all four lanes if required
+  phy: rockchip-pcie: Properly disable TEST_WRITE strobe signal
+
+ drivers/pci/controller/pcie-rockchip-ep.c   |  4 +-
+ drivers/pci/controller/pcie-rockchip-host.c | 48 +++++++++++----------
+ drivers/pci/controller/pcie-rockchip.h      | 12 +-----
+ drivers/phy/rockchip/phy-rockchip-pcie.c    | 15 +++----
+ 4 files changed, 36 insertions(+), 43 deletions(-)
+
 -- 
-2.50.0
+2.49.0
 
 
