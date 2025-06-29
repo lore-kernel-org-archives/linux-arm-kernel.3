@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75D2C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 17:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238A3C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 17:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HB2az2PHekC+lOKLzUf+M1PoQtOaX5ODb3E/1LZ9toA=; b=wujq2ApuK/WObVHuYUphGUvp7f
-	N/lyVSh5eVH4ebQKNmLy3KGuTd+sdCfKztn8PNSccuoBUD5ugBNt6cN7JrI3L/Ad102GGHSRiANzm
-	LYQxY6FcMN3z1u4vPrRyDvSw+L9gZl/ochs6rTnK4t345zJtMc7z2kyaabvsDKxDH0HbgwLxhx14z
-	05sasmuyFquJuUDM0dBdj4sCahf8Age3BY7bE4zW1rIIH3pPvAN9ettD96t56pRKFs8LF+/+xrDJ+
-	0oTXBBJAmQb2eGbvXvo/HpXeHC4hX+mBznOUBPgWTFd8CKpHUEMxoM4208vdCN14rIiTHmYPmhVCn
-	dRUkfmxw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Diy1MlYscq1DF0Zv66TQbVLrO14SzJmah7qWSQHod6M=; b=HLPmgpW3kg+j2QglVZsLhZc90T
+	QB0lKczJQ7jbGcGNicIGvTaGILWvbQhTeqp3lvF90AVhfL0HDNEj7Kl/1zcm0/CW2/0yjr5ekJwDT
+	/7zyjBCD9A/+HqRO5IitilU4PHgTwpGbOBBQvBDpOYokZO8llV6eHm/CBSLzxBcs4HHngjWAI0Tsc
+	y4z7ym0nmByM7qaeTq4sSmNrDv8pP9kx6PNdhoB6TCDF6MMCjzBd9aSRxu4FTVfn/hZ6qWcCN+IUL
+	3tNTdRRBkZFnRPy2V22bvHTyVhUS3a+ihqog4244sUmvI/aPAm8KUgka/jWHph/kU2aTUegMbRLpH
+	XBH+L+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVvQW-00000000UEi-2ACa;
-	Sun, 29 Jun 2025 17:02:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uVvo9-00000000VtN-0RFa;
+	Sun, 29 Jun 2025 17:27:13 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVvOE-00000000UAJ-0UtA
+	id 1uVvlm-00000000VV1-2bB1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 17:00:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F3E9B6115E;
-	Sun, 29 Jun 2025 17:00:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5139C4CEEB;
-	Sun, 29 Jun 2025 17:00:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751216423;
-	bh=MU4Z9EP7bSO53KKFn9ULIwyc9M5DssKRkSghJ8ajuTY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SIW/YDhYp+dpeJI6fDZLC+l+fg8EN6BOop61PFeSyT5y0PuKlkin3yrLEBJDKzdAn
-	 EynVJnYZcE4utivRrmcctCTB7OC8OmDabS7bCz68Xb/momLydHr9Rk/3ggDWJo/XlC
-	 Nad3mtxazC8VZbnfZOtjRwOpZLIevC0fmXOUJIpdQH58I3biCFmIqtokWOi9kX08hb
-	 juuXkmm3Pp1NT0mFNOH8EZ2dAQCybmxo+7DoZfzUDjEz+UGru841b5FLvo3FmwznEX
-	 +XRfJy+3bUC1tiy0zZxiN12+Bzh6UQNpIf5VxcAY05nzmVCzgY103NBHldoxzdk7VZ
-	 7ZWQC9FxPr2pg==
-Date: Sun, 29 Jun 2025 18:00:15 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: stm32-adc: make stm32_adc_trig_info const
-Message-ID: <20250629180015.4aa4375e@jic23-huawei>
-In-Reply-To: <20250628-iio-const-data-10-v1-1-0ba93ac792c8@baylibre.com>
-References: <20250628-iio-const-data-10-v1-1-0ba93ac792c8@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sun, 29 Jun 2025 17:24:49 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-72c47631b4cso1108872a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 10:24:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751217885; x=1751822685; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Diy1MlYscq1DF0Zv66TQbVLrO14SzJmah7qWSQHod6M=;
+        b=LqPKzIR+ASZDR8+i1HO9GbleJI+IctZuozE/VoO/G/wc39F6sHqDxI4QCgzKd1eCwB
+         rpjppucOFEKru/35Pwq16ab5ubtV85bgAfajfHBgYQls2hJhZ95hdBYiKMKgtLQU5WXs
+         PV5Y8xXLWT1iCkR4fqQml8ido2lAEutmpIFgC7LRLkdunln0gKYdXnu2SqywqNNR9FAV
+         Wq4VDfYaofNaqD7SeJtFI/0VD0ZMLe42OOWoKvT2lKCMrZs16vF/uElzlwIOFivpLdu0
+         cFaRN/IXhxZzCzzgIUbcmOlWRF5EatoMVJy8RDnLhvPDvBDhTFR3BRWOlIiXTBv/p1hp
+         fRYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751217885; x=1751822685;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Diy1MlYscq1DF0Zv66TQbVLrO14SzJmah7qWSQHod6M=;
+        b=fsOQJ3tHYzF7t9+MPH7GeyH1S8O+Rt8shJ4qCaCPeqXNIQMzw5L0q9Wse9vHLqtWck
+         sXB7cosrBeGdI+ByqovEAlrYJ+PoPA7w69HrrRkMIFNewjv1dKQ59YKhp8FTbvPmMCyP
+         EyuoyHK6pc0LtXHgVyVQalgZxBnIrYId+m6Yl1DQ5EqyJEBLqFmKEQiPHJ8Gg6AOLBGo
+         xroPh8NRHxGfk02aa4vtQEIH6d31rYIHHdjpN3WIp5AlvaEopWVFL9t/q0BcY0ejKC41
+         x11MBxzhZIDT+42LpX5tNFn9lHLDYZHab30ASd93rQgxaFc5N0q5jfxIoHNJC5gMLdS6
+         cGGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWbrVvCoaevEyRAk2kIw+hIiPEFBczZ6Sv47xtGohLAF8C605FAhR3O5JiyFvQ/JL/pv2n0VeqBPGiwuhImgffU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4wuIRbYYSQpMro2njtm692mcHxCTNf4ufBdFKxAXm/r8vRf8F
+	/IyNXm1CPmIpC5V05EEPJgctEJmyZuuOydz0gWNF+xPtydPPYjIsj8et4hlgY6/nitU=
+X-Gm-Gg: ASbGnct+uA6YobKkflzZfbZ4ywUHC4qIL2CIZXskmPuazwHYwqoMc4Cb561PzFMAKzD
+	fbjHaowYaJUSO9AlUnYWE1IfUz39jj8lHOwJmH8NSZ7sLp7S3h5lrvKN5wRUtVsmhIOortqOg3a
+	QS0A1y7oGBJyazbzf2y544aq5ZjR7p0DCEctWa1QDYvd4RBgc37HUlw3EpxOxM7hpFt/NBeeTnV
+	3YlvFkAwLvEwOIM+6wW9nEHmmRET4f1H+vjdSPddcU+n+fbLTc24JcqeCEpUgt5+Od86/8Yb5hc
+	ASlskPukpEHRg8IBGgqwHww5jGVJPun1PmTafxwvzwobQaClRVjnXpp47HUCB7AlrxkGwPsPn5r
+	U5YEVnBsF8/are1kZS8wsH+L/SAroMWHSagjyCEbD0a+vNHJnqw==
+X-Google-Smtp-Source: AGHT+IEK2rnn6/CI2tLl625vjrG+arb7O1+sLlYYhwkeqs1zOcrydEV8o9HIf7UnVmK1VGPUEVYPLQ==
+X-Received: by 2002:a05:6830:3898:b0:72b:8fd3:e2dc with SMTP id 46e09a7af769-73afc5c1555mr9130015a34.21.1751217885111;
+        Sun, 29 Jun 2025 10:24:45 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:4876:5a0d:2fea:6208? ([2600:8803:e7e4:1d00:4876:5a0d:2fea:6208])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73afb006a02sm1328459a34.23.2025.06.29.10.24.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 29 Jun 2025 10:24:43 -0700 (PDT)
+Message-ID: <9422d6db-5ada-4a93-88b2-74f1217fa771@baylibre.com>
+Date: Sun, 29 Jun 2025 12:24:41 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] Add thermal sensors support for MT7981
+To: Aleksander Jan Bajkowski <olek2@wp.pl>, rafael@kernel.org,
+ daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ jic23@kernel.org, nuno.sa@analog.com, andy@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, zhiyong.tao@mediatek.com,
+ linux-pm@vger.kernel.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250628223837.848244-1-olek2@wp.pl>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20250628223837.848244-1-olek2@wp.pl>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250629_102446_873053_0162CFC2 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 28 Jun 2025 11:39:33 -0500
-David Lechner <dlechner@baylibre.com> wrote:
-
-> Add const qualifier to struct stm32_adc_trig_info. This is read-only
-> data so it can be made const.
+On 6/28/25 5:38 PM, Aleksander Jan Bajkowski wrote:
+> This patch adds support for the temperature sensor in the MT7981 SoC.
+> This sensor is exactly the same as the one in the MT7986.
 > 
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-Seems to be in the 'obviously correct' category so I've applied it to the testing
-branch of iio.git.  Thanks
+> Aleksander Jan Bajkowski (3):
+>   arm64: dts: mediatek: add thermal sensor support on mt7981
+>   thermal/drivers/mediatek: Add support for MT7981 SoC
+>   dt-bindings: iio: adc: Add support for MT7981
 
-Jonathan
+When considering building and testing at each commit, it would make sense
+to reverse the order of these patches to reduce the possibility of errors.
+
+> 
+>  .../iio/adc/mediatek,mt2701-auxadc.yaml       |  1 +
+>  arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 29 ++++++++++++++++++-
+>  drivers/thermal/mediatek/auxadc_thermal.c     |  4 +++
+>  3 files changed, 33 insertions(+), 1 deletion(-)
+> 
+
 
