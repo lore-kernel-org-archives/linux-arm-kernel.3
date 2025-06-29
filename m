@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0563BC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 21:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39963C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yie4J6/XsAs1Q8lv5qOjqiXHg7FYWZHizYmDgi4UuNs=; b=1Kury/0KHIaAlaWEOzEMOtMLUd
-	Jpr7ZZywc7eJbHXdhla5DyBB1E5GHm7M8U5TApvMEylSiICc1OytiTi4WlEHNoyJL72HRkBNxWW5b
-	eYcVT36vJDGmr5kDWn8YiKNXXruBpg6KMgoTzMlXzRjI3n6VKOe1LBphaPygYPBmrqa+Pn8LnUa0k
-	FA/7Mr+ZDxYYdF0+LUR03i9we11NFhjgxr5Rp+fWYlHyIP/u5FXFzmzS5GaOhJhJZKNbsx6HKwMsu
-	wng+3os9QPVMg3j4KMV/nMCZ97RdwYKEYvLIrfpo935sl+iZHv0SOTPq8WidWrGhJslUp/FqSMT1u
-	kTaA1n8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=; b=xtxKEWFiBSrfBHeqGiyRleRIJj
+	TB2+QfskenfqI8BGGOYAXxwhaMT7IMuZP6qGxGIIylWBRzGn+KoqQ26MQ3YonD+RmLbvbtpp7DrXr
+	z9pMMsg1S3khoUK+6UcAaHyyVWbmq8HLQMEZ+YKwVh02nJfg/n5X+6YWcwHWGyXRuWi8m7N9Ashko
+	kpCof21VmaA8kENFDamJ1HC9Y7MQgOcs5JeV+RKBPspBJ21VTevBF9hqMTRqPAWbjDAv/l/cxlvNO
+	Wyb9nIYayu+CvoQ7+01dIoIiCuBr5cB92gOB6hgQ/BZcnk1kyzMEQxSIGAH1JibS35xGiwzVP0Fyv
+	M7vIjSaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVzAP-00000000kDO-1Y79;
-	Sun, 29 Jun 2025 21:02:25 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1uW0Bd-00000000nVi-0vYR;
+	Sun, 29 Jun 2025 22:07:45 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVz6r-00000000jur-2I90;
-	Sun, 29 Jun 2025 20:58:46 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7d44c6774e7so68542985a.3;
-        Sun, 29 Jun 2025 13:58:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751230724; x=1751835524; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yie4J6/XsAs1Q8lv5qOjqiXHg7FYWZHizYmDgi4UuNs=;
-        b=HTjm2khaJmFm+0Bx33tc32uDs/EO3fzX/FA7TzanW2/L59cq4Nso73Glhe6UvQVXAA
-         QiNDUD074F5HFjOBerudAb1ZECOBT6fgN1Kahph4CeWDf+njgElfa8XJsOFNLXuwvM+E
-         oVBMvr/sYKroQ66eKbvtWAKQqDPH5s5bOStl/3cij2+EwfTMQsZuzNFYL+CbfhDvJVi+
-         wkBEqzQmziCvIx2bezcRk9INF3bWqFxqeIh3nusUlmhkKlVcLYK/V+d57ZUJeJhLUk9k
-         jdBZHeqregyuip4eN5bXYEvFDRq/GvNejUzinf6cbL3aSmradKtlUw9WpEGdN7dTfUs+
-         ds7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751230724; x=1751835524;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yie4J6/XsAs1Q8lv5qOjqiXHg7FYWZHizYmDgi4UuNs=;
-        b=k+Uec/NLISsmgxoW7qPe3sRdO5uZs25NP2d83BLKZ1jqhTp7dW64OVtboB8q0vTeLJ
-         zHJOLgfWQZu2NFerRy6247UA6C4EJtvAq1g+Bv1TAgszI3W1GQFNz3YXUHro8Ri5Dfx7
-         wCfpUnBKonnUfbTLJIsDWqZyQAALhdM63cJouA0nhFW/zFJo4f3yd8P+BCgBL8eaRW/y
-         P+ZbUMfRgmIhUYK/o5SWFK1wPrVYcyhCKkSDDYmsXtXXeilk2PVhvRJw2E8Ez9tu4cp/
-         hP0mpFl+Gyn0GzLupcrLtYseEhd9UHyRSWH3y0wpnlKTrFeAUc+QEqIsDapDBGKTr5/2
-         3pQA==
-X-Forwarded-Encrypted: i=1; AJvYcCV98DjYIfM9Q/QklDPUgRigS2PTlsh9EiQ5HKzPOWkhrQ5gyJexEOvAIQ7+VNlH9Nq/yq5aUfXjpGQO@lists.infradead.org, AJvYcCXvI38f3JCU0x3t6uCNBbS136gYl2ldNLkvtHkNS9eyWfJxL923ZnOJWg5iaXtIb9aTLFe41KSV5kBVk03Nh3c7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn7PnZO5cuDabQuK5RTzm1J9OKDpoy1DX9j2n8ZhD6dM/qAxYA
-	LSG6+6xv7qqLaejvzAQfpjmQNZbEQFd09mtWhVZz8SOKXtOfnBP6TUDI1pTaJG+5gy3YZQ==
-X-Gm-Gg: ASbGncu8TR2EZwLp6OP+Ur0IeIqIHpFxfRkmt2rrtGowkWBhYqlTXIm4MEbx8Gk0m72
-	OJz+GV0QJVd4BRaqSMWVcdFWbUyeb5xqkWZVBRN9NkgEPnzsfgWdxKi9dzChYqxxELaioJIdSwC
-	ErsmjxVFbaKyW9TTKsWOmAYXUCwX2IdJgnnHChx6okiRCZEXUehnwDiCuA3woCRUigPHG2uBOee
-	g/D2kTffY4xoqsw1CxgLmZPJBDfRtWe1HOa1J0ej0iBo1xOATJyeZkXE3apbvFMdC1dd2g0qawE
-	Ns/zPG2zp95z5OHedKER9naBmMfa9bGA9wti1O+dY+zg8yr1Pw==
-X-Google-Smtp-Source: AGHT+IHV9zmUEfgqMrmNKPmx2kRTuxTdY/cY3aGuTYatCyaiuxMqaEx69QeCSt7OKPnppAGC83yv0w==
-X-Received: by 2002:a05:6214:6201:b0:700:c7ef:ad26 with SMTP id 6a1803df08f44-700c7efaf90mr50674366d6.29.1751230724134;
-        Sun, 29 Jun 2025 13:58:44 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:24f4::dead:c001])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d443231da6sm484599585a.101.2025.06.29.13.58.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Jun 2025 13:58:43 -0700 (PDT)
-Date: Sun, 29 Jun 2025 17:58:30 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v7 3/4] phy: rockchip-pcie: Enable all four lanes if required
-Message-ID: <b203b067e369411b029039f96cfeae300874b4c7.1751200382.git.geraldogabriel@gmail.com>
-References: <cover.1751200382.git.geraldogabriel@gmail.com>
+	id 1uW09J-00000000nPK-0WvS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Jun 2025 22:05:22 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4bVjyd3WvZz9stg;
+	Mon, 30 Jun 2025 00:05:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1751234713;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=;
+	b=dZLcAFrTgcxfCPDqmmzeXnwWZKnWuxBRJphwxQJzOi5js7oJMhshlVu6cFT0bTbdemDgZy
+	klyRdP9Ogh1lcQ3A9y9LZ9U/t18I98zipzGoW3GC4hUhd+soTt49Arrq6uHZWersaqE4MD
+	nQSPuMu0ElXB9VpWzQ087MQjtBsK7OjilE1uXBT8fNbK8yXGEk06rGiqWmQiCuxEgVtjTu
+	/NSrXxT6LzqYod4aEH+Eo82WejKX28Ij0CMyLfBeAXdQSRGvO1UWfWYkc/ewwnr2/drojz
+	ltk6VhPF0RUA2w3VPT8TITwvmGgAQJTa5QNAXV82yuKvEvl2AsjotkLgme8PDg==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1751234711;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=wonIqwqE+gZtcXn2WE6N/pAhGaGx6R/BhYVp+2etRMk=;
+	b=Snk5NeqIxlYLkGoTYhqpTkOw+9tVflrQkjGl/vH4BnTRhwH+lxc0lzrqQN/YaT2+PAlmzq
+	15b7ei26HInKT4UZcQY1FPC2w5UpGsNjlFz4R4HJRoYO6RxwGpnFyKYiBkfN6AfUASnZsQ
+	f8eABpFDpgcPIy/THhwQ6fsCpqms6tV/min6CmxLEa8YY7s/26yBYtowQl/RnFsrK961wh
+	R1Ka4nQGzIWxOBMAHw+ZcwRcb2QFxS+rOBj4bPOMsbvLbwzFvOExxvfUnF8DeKa3RHEzeI
+	HGKEGUnDDikNEdFsg16vOZd26UEqq4Hf/FTT8+eIjpNaQ8c7wu+1I/Q5bNcnug==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] ARM: dts: renesas: Add boot phase tags marking to Renesas RZ/A1
+Date: Mon, 30 Jun 2025 00:04:24 +0200
+Message-ID: <20250629220502.935717-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1751200382.git.geraldogabriel@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: cd501b2cf243314dd24
+X-MBO-RS-META: q69wwtg3rufy5stjqdw1npekmohmqoaf
+X-Rspamd-Queue-Id: 4bVjyd3WvZz9stg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_135845_584653_4ECA4264 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250629_150521_309449_4A4BC5E2 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,46 +91,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current code enables only Lane 0 because pwr_cnt will be incremented on
-first call to the function. Let's reorder the enablement code to enable
-all 4 lanes through GRF.
+bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
+to describe various node usage during boot phases with DT. Add bootph-all for
+all nodes that are used in the bootloader on Renesas RZ/A1 SoC.
 
-Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+All SoC require BSC bus, PFC pin control and OSTM0 timer access during all
+stages of the boot process, those are marked using bootph-all property, and
+so is the SoC bus node which contains the PFC and OSTM IPs.
+
+Each board console UART is also marked as bootph-all to make it available in
+all stages of the boot process.
+
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
- drivers/phy/rockchip/phy-rockchip-pcie.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm/boot/dts/renesas/r7s72100-genmai.dts   | 3 ++-
+ arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts | 3 ++-
+ arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts  | 2 ++
+ arch/arm/boot/dts/renesas/r7s72100.dtsi         | 5 +++++
+ 4 files changed, 11 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
-index bd44af36c67a..f22ffb41cdc2 100644
---- a/drivers/phy/rockchip/phy-rockchip-pcie.c
-+++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
-@@ -160,6 +160,12 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
+diff --git a/arch/arm/boot/dts/renesas/r7s72100-genmai.dts b/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
+index c81840dfb7da..13c0324b8def 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
++++ b/arch/arm/boot/dts/renesas/r7s72100-genmai.dts
+@@ -258,6 +258,7 @@ mmcif_pins: mmcif {
+ 	};
  
- 	guard(mutex)(&rk_phy->pcie_mutex);
- 
-+	regmap_write(rk_phy->reg_base,
-+		     rk_phy->phy_data->pcie_laneoff,
-+		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
-+				   PHY_LANE_IDLE_MASK,
-+				   PHY_LANE_IDLE_A_SHIFT + inst->index));
-+
- 	if (rk_phy->pwr_cnt++) {
- 		return 0;
- 	}
-@@ -176,12 +182,6 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
- 				   PHY_CFG_ADDR_MASK,
- 				   PHY_CFG_ADDR_SHIFT));
- 
--	regmap_write(rk_phy->reg_base,
--		     rk_phy->phy_data->pcie_laneoff,
--		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
--				   PHY_LANE_IDLE_MASK,
--				   PHY_LANE_IDLE_A_SHIFT + inst->index));
+ 	scif2_pins: serial2 {
++		bootph-all;
+ 		/* P3_0 as TxD2; P3_2 as RxD2 */
+ 		pinmux = <RZA1_PINMUX(3, 0, 6)>, <RZA1_PINMUX(3, 2, 4)>;
+ 	};
+@@ -286,7 +287,7 @@ &rtc {
+ &scif2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&scif2_pins>;
 -
- 	/*
- 	 * No documented timeout value for phy operation below,
- 	 * so we make it large enough here. And we use loop-break
++	bootph-all;
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts b/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
+index 9d29861f23f1..e4f489522b2b 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
++++ b/arch/arm/boot/dts/renesas/r7s72100-gr-peach.dts
+@@ -59,6 +59,7 @@ led1 {
+ 
+ &pinctrl {
+ 	scif2_pins: serial2 {
++		bootph-all;
+ 		/* P6_2 as RxD2; P6_3 as TxD2 */
+ 		pinmux = <RZA1_PINMUX(6, 2, 7)>, <RZA1_PINMUX(6, 3, 7)>;
+ 	};
+@@ -109,7 +110,7 @@ &ostm1 {
+ &scif2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&scif2_pins>;
+-
++	bootph-all;
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts b/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
+index 25c6d0c78828..0bf106e9827e 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
++++ b/arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts
+@@ -199,6 +199,7 @@ keyboard_pins: keyboard {
+ 
+ 	/* Serial Console */
+ 	scif2_pins: serial2 {
++		bootph-all;
+ 		pinmux = <RZA1_PINMUX(3, 0, 6)>,	/* TxD2 */
+ 			 <RZA1_PINMUX(3, 2, 4)>;	/* RxD2 */
+ 	};
+@@ -278,6 +279,7 @@ &rtc {
+ &scif2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&scif2_pins>;
++	bootph-all;
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm/boot/dts/renesas/r7s72100.dtsi b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+index 1a866dbaf5e9..c78131e3cd24 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100.dtsi
++++ b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+@@ -41,6 +41,7 @@ bsc: bus {
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+ 		ranges = <0 0 0x18000000>;
++		bootph-all;
+ 	};
+ 
+ 	cpus {
+@@ -108,6 +109,8 @@ soc {
+ 		#size-cells = <1>;
+ 		ranges;
+ 
++		bootph-all;
++
+ 		L2: cache-controller@3ffff000 {
+ 			compatible = "arm,pl310-cache";
+ 			reg = <0x3ffff000 0x1000>;
+@@ -557,6 +560,7 @@ R7S72100_CLK_SDHI10 R7S72100_CLK_SDHI11
+ 
+ 		pinctrl: pinctrl@fcfe3000 {
+ 			compatible = "renesas,r7s72100-ports";
++			bootph-all;
+ 
+ 			reg = <0xfcfe3000 0x4230>;
+ 
+@@ -639,6 +643,7 @@ ostm0: timer@fcfec000 {
+ 			interrupts = <GIC_SPI 102 IRQ_TYPE_EDGE_RISING>;
+ 			clocks = <&mstp5_clks R7S72100_CLK_OSTM0>;
+ 			power-domains = <&cpg_clocks>;
++			bootph-all;
+ 			status = "disabled";
+ 		};
+ 
 -- 
-2.49.0
+2.47.2
 
 
