@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3906C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF12C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RSJ6GWO4nNJ9SsMp6hiT23W/O0nWv22J9ZN1zvUDgHo=; b=iwUVJTPB89RHKXvzO0sVlz0AS5
-	DF+2MpeMDlO9mY8Szl1EMEG16jLpIGu3dycG58aigHu081fMGDQInYFyMT9w0V5iN91bgDY4zk09+
-	k3pw50OhJFfiMAS6pHi7LQV+jGnE++Dc/WkTYVC6Lu2WIVvtzBJzJurcBL6vxB9OgidXDxwPW/EOt
-	VkCV3whHW36evN24/LtNb1B+Yk8C2MoQetr98dmWDfWzoKJ/SRuURc9tkIQy4YWmeAcQE+B0lv5e+
-	c7hRVzqAQylitwtkBwGXpa7H8p2DDndEiIz1Rk2OLpP0JGm3YZi5gF4AE5GZA4yQdsqY6+kpcjHeL
-	D+HlERvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u5teiAcF6/PzSsw2tzanPll46561Lpo1QfZFBXOyXDc=; b=tS76EXoWoyxQysQhOJxw4nMvnI
+	MRCAaqtx0cvu76mSC51BkuKFFCA1H8hQ7dWULJDOOxzs6G2TNEbwGRjLdtKDziIkryGS503y8yObk
+	l2XGbq/RdY7tbvQigtsYc7smTVwJCNbvf2N3lFH332iY2gxH4JeS3Tb5mKdpf31okDhPzRJKOGk2v
+	dBCM7rLvlFOazAQAJITrIKfeIHt3WYUrdHUscYAEeqEuMc44AjMAC4+NZiddzrHBl09O76nPpQV5t
+	FJunj1h+mrDPaj2oytApa9hQbz/f/zHd8QZIWvbMNkA0Z/hURb92C7LNPsIVRdiEuKMHRSXBoiqjQ
+	cGNaI9sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0Ts-00000000o8h-49ik;
-	Sun, 29 Jun 2025 22:26:36 +0000
+	id 1uW0WA-00000000oEl-05xL;
+	Sun, 29 Jun 2025 22:28:58 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0PH-00000000nng-3gm9;
-	Sun, 29 Jun 2025 22:21:54 +0000
+	id 1uW0PQ-00000000nok-47XX;
+	Sun, 29 Jun 2025 22:22:02 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.98.2)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1uW0Oz-000000002Iz-2I42;
-	Sun, 29 Jun 2025 22:21:33 +0000
-Date: Sun, 29 Jun 2025 23:21:28 +0100
+	id 1uW0PM-000000002JV-0vGy;
+	Sun, 29 Jun 2025 22:21:56 +0000
+Date: Sun, 29 Jun 2025 23:21:53 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Felix Fietkau <nbd@nbd.name>,
 	Frank Wunderlich <frank-w@public-files.de>,
@@ -50,15 +50,17 @@ To: Felix Fietkau <nbd@nbd.name>,
 	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v2 0/3] net: ethernet: mtk_eth_soc: improve device
- tree handling
-Message-ID: <cover.1751229149.git.daniel@makrotopia.org>
+Subject: [PATCH net-next v2 2/3] net: ethernet: mtk_eth_soc: fix kernel-doc
+ comment
+Message-ID: <5198170732449db989f180331c3a6f05a558873a.1751229149.git.daniel@makrotopia.org>
+References: <cover.1751229149.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <cover.1751229149.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_152151_932211_A39878B9 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250629_152201_022255_68F28E55 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series further improves the mtk_eth_soc driver in preparation to
-complete upstream support for the MediaTek MT7988 SoC family.
+Fix and add some missing field descriptions to kernel-doc comment of
+struct mtk_eth.
 
-Frank Wunderlich's previous attempt to have the ethernet node included
-in mt7988a.dtsi and cover support for MT7988 in the device tree bindings
-was criticized for the way mtk_eth_soc references SRAM in device tree[1].
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v2: no changes
 
-Having a 2nd 'reg' property, like introduced by commit ebb1e4f9cf38
-("net: ethernet: mtk_eth_soc: add support for in-SoC SRAM") isn't acceptable
-and a dedicated "mmio-sram" node should be used instead.
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Support for the hard-coded offset and including the SRAM region as part of
-the Ethernet's "reg" MMIO space will still be required in order to support
-existing legacy device trees of the MT7981 and MT7986 SoC families.
-
-While at it also replace confusing error messages when using legacy device
-trees without "interrupt-names" with a warning informing users that they
-are using a legacy device tree.
-
-[1]: https://patchwork.ozlabs.org/comment/3533543/
-
-Daniel Golle (3):
-  net: ethernet: mtk_eth_soc: improve support for named interrupts
-  net: ethernet: mtk_eth_soc: fix kernel-doc comment
-  net: ethernet: mtk_eth_soc: use genpool allocator for SRAM
-
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 135 +++++++++++++-------
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |   5 +-
- 2 files changed, 95 insertions(+), 45 deletions(-)
-
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+index 9261c0e13b59..1ad9075a9b69 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+@@ -1243,8 +1243,9 @@ struct mtk_soc_data {
+ /* struct mtk_eth -	This is the main datasructure for holding the state
+  *			of the driver
+  * @dev:		The device pointer
+- * @dev:		The device pointer used for dma mapping/alloc
++ * @dma_dev:		The device pointer used for dma mapping/alloc
+  * @base:		The mapped register i/o base
++ * @sram_base:		The mapped SRAM base
+  * @page_lock:		Make sure that register operations are atomic
+  * @tx_irq__lock:	Make sure that IRQ register operations are atomic
+  * @rx_irq__lock:	Make sure that IRQ register operations are atomic
 -- 
 2.50.0
 
