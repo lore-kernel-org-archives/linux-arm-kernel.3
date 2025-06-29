@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2735C83026
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 05:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94A2C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 09:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PF3DZSZbA4tBUtEFvdIVO9kArXETgOS8vUkIBIamiuY=; b=RiSfKNotn2zwux7sSDDdwsdbOe
-	cSq0ykeqm13MUQndiRzXMPstM6UFfcpwR0IkWwIE+G6r0Wy7exdNHTx+kIv7g8ZekLtR55/hy4gTq
-	tcHTHwHZw7iJxnF3DpqT8eVp4SwDRF5+5/EQdaaXWUv6ozQkbipX9b2oT1cDvR4HkhAJmj+Kw0Cn4
-	pFdVt67Xggnb9Obrt+Ejor6ag2tUAlN8l1PBYOdizTyFZ8n6v73Vyirh9nubmL7Okal5jyO3S2Ebv
-	NAJgM5WDOo+PGAhjcUJn4KU4R2fgUcrbmd8QR5rMEOusDNyw659DdsC2oIlXLnI0JmKIi1FiLm50o
-	MJlX0TBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xYpvG+7fIhUg5S/D84p9GmxY0VuUSyPZVCewI69YJYQ=; b=t04p2KBmw2sw8fbkUqmYgusRQ/
+	REnWZtNI6HxxBUqEcuJA9LeB5/BdcMolnTcnfblxatP3TmCimloojkBJ0WD5YT1GH/ZvAZlZmOayL
+	CkqSmpO5B121DnMtkqCXsEvvpAcGfheDKuIaF2Jyt7lHkC4JfY6sWJOct1YKoLyREgLU61XJt+kdw
+	gnkvIEBnSdTqiXy9iWfPCZgHsJHxZgO+xCyj4dDYsqKM7yGnS7UigKsVT3pOQ7Gdc6Eo1wBvS6Nmy
+	qh+1VuJ3YUbBzHaMk8xR2DHT5Eri/Wv12JkhKweu6qTYxQ5q5LudQBwu3HGUglWDcJJ0OW8wkFNHt
+	h4xGnjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVkRI-0000000HXG6-1rgw;
-	Sun, 29 Jun 2025 05:18:52 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1uVoR0-000000005Jw-1JEU;
+	Sun, 29 Jun 2025 09:34:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVkOx-0000000HXBA-1tTJ
+	id 1uVoOg-000000005Cp-3JWx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 05:16:30 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55T01Ivl011733;
-	Sun, 29 Jun 2025 05:16:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=corp-2025-04-25; bh=PF3DZSZbA4tBUtEFvdIVO9kArXETg
-	OS8vUkIBIamiuY=; b=maTAq/EX1k5GlkKyZO1ehQsgN3jQR6Nv7VD9+jJer3dyL
-	KMJzWSfGNnjVkd0FMYct8WckbAdjjoqOzitmqTKDWKQQ4NLtzGDZxkq5b8rHlZB0
-	auvO/Pvgqa2QzYiOdJg0+mH7QUoY1+C3QX9f+y/6y2kfrNqbFkzwvyDOjQ9YV9lC
-	/rViAfbMq+NWfngAxp5UZ75eVPhWd0xwmehkXVj6ieRbRrN3zmQT2nHdnbCV5ly4
-	D+0UotUYLjoh9hk5zq48bY0udJ7vQZEy9VHNxfXX+J8JiE9ZoKh1i3ZE2IN1kcml
-	SZwrEPmLSBQtIEnkW2+Uttoth4pDcb1tW5L4H20Og==
-Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j7af0u4x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 29 Jun 2025 05:16:19 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55T57ZGT038552;
-	Sun, 29 Jun 2025 05:16:10 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 47j6u78t87-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 29 Jun 2025 05:16:10 +0000
-Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 55T5BM8A020395;
-	Sun, 29 Jun 2025 05:16:09 GMT
-Received: from ca-dev110.us.oracle.com (ca-dev110.us.oracle.com [10.129.136.45])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 47j6u78t82-1;
-	Sun, 29 Jun 2025 05:16:09 +0000
-From: Alok Tiwari <alok.a.tiwari@oracle.com>
-To: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        horms@kernel.org, netdev@vger.kernel.org
-Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] net: thunderx: avoid direct MTU assignment after WRITE_ONCE()
-Date: Sat, 28 Jun 2025 22:15:37 -0700
-Message-ID: <20250629051540.518216-1-alok.a.tiwari@oracle.com>
-X-Mailer: git-send-email 2.46.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-27_05,2025-06-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 spamscore=0
- mlxlogscore=999 malwarescore=0 mlxscore=0 adultscore=0 bulkscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2505160000 definitions=main-2506290041
-X-Proofpoint-ORIG-GUID: E4FMocrkEVo34wSxTFAcXpK3dmRZfjCk
-X-Proofpoint-GUID: E4FMocrkEVo34wSxTFAcXpK3dmRZfjCk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjI5MDA0MiBTYWx0ZWRfX1XzUF28HmOio 3Rmpgb3lys6DDXLsPaDs2C8BdToQupenPxVwilEZUjN6j1z+mgE3cV+C17Gs/h/KsHwZwlzlQk3 Dz0sbvmmGSeLKzlFlN7i3+jBAedgCI5s/9Dn7BvnQgjAwmRY7Ao5AmNydKibehN+tnwr+1zhWX1
- kWNcaOY0pO8H1nbC0VOYgnqrszm/vi0ryUWmGbXeoFdVn42Te73mcy6CyaWHbKBK/+VHCjvsKmF mKR0uEhZMq+Bazpseg6BOue+YtJevqe2DjOscAlg4PCJh3FLfsvupHT17mJj4hNP5ns/l9r0TEd C7fXIudW81WXFZGrI1ZBPaRgE0tDAbP055bofUCtw4kBj9Rcq3ZDGocNL/3NYGbQbtr3dsdl38j
- Tflqtq0xuuZjKuDJ0ARtF5I0GEOmdBPvYFV+wEEJwgHWsuKGu+lj0p/rNNyOkYDa9IftfG6H
-X-Authority-Analysis: v=2.4 cv=b5Cy4sGx c=1 sm=1 tr=0 ts=6860cc23 cx=c_pps a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17 a=6IFa9wvqVegA:10 a=yPCof4ZbAAAA:8 a=Heg8zcIur3sJgoQ754cA:9
+	Sun, 29 Jun 2025 09:32:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 238A94581E;
+	Sun, 29 Jun 2025 09:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1580C4CEEB;
+	Sun, 29 Jun 2025 09:32:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751189545;
+	bh=yNCv9zbwFgntqHfSMp5v8KPVRVjWxvT/Aql76n6YouY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Vc0iiiu2h2TjlcBxYYznq8GU4Lf0uabMlQwcjb8ML7Va38x4dP8IfFB71L1mFSmyY
+	 DylAJPSoUOMe6TqVNxbfZ1neiEd2tZ1gQ+EYZcjBvGvD8fvcR85Hm8bFFee+Vz10MW
+	 ZQ6I+XKUHZKj7WlEzEJ0TXy5gr1VdlyiPHFZHY6UhyBgdE78bwezedsnF3huoE6Ata
+	 qCUO3UoMt0lkynr5VVMnG6EnIPk2C83LeWIteuElyYYIZVuABEMc/sH2budXIO5Kh9
+	 hC7HMXOiNTQAminzCBRWknUInQEJgeKp7IKNEoswv3DoSz/FfIt+N3SNXuuEuWatrv
+	 EeKapCAaqIigA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uVoOd-00Avhg-Dw;
+	Sun, 29 Jun 2025 10:32:23 +0100
+Date: Sun, 29 Jun 2025 10:32:23 +0100
+Message-ID: <86o6u6c2qg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v6 18/28] KVM: arm64: Support SME priority registers
+In-Reply-To: <20250625-kvm-arm64-sme-v6-18-114cff4ffe04@kernel.org>
+References: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
+	<20250625-kvm-arm64-sme-v6-18-114cff4ffe04@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, Dave.Martin@arm.com, tabba@google.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250628_221627_777325_F810284A 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250629_023226_872538_779DF48B 
+X-CRM114-Status: GOOD (  35.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +99,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current logic in nicvf_change_mtu() writes the new MTU to
-netdev->mtu using WRITE_ONCE() before verifying if the hardware
-update succeeds. However on hardware update failure, it attempts
-to revert to the original MTU using a direct assignment
-(netdev->mtu = orig_mtu)
-which violates the intended of WRITE_ONCE protection introduced in
-commit 1eb2cded45b3 ("net: annotate writes on dev->mtu from
-ndo_change_mtu()")
+On Wed, 25 Jun 2025 11:48:09 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> SME has optional support for configuring the relative priorities of PEs
+> in systems where they share a single SME hardware block, known as a
+> SMCU. Currently we do not have any support for this in Linux and will
+> also hide it from KVM guests, pending experience with practical
+> implementations. The interface for configuring priority support is via
+> two new system registers, these registers are always defined when SME is
+> available.
+> 
+> The register SMPRI_EL1 allows control of SME execution priorities. Since
+> we disable SME priority support for guests this register is RES0, define
+> it as such and enable fine grained traps for SMPRI_EL1 to ensure that
+> guests can't write to it even if the hardware supports priorites.  Since
+> the register should be readable with fixed contents we only trap writes,
+> not reads.
+> 
+> There is also an EL2 register SMPRIMAP_EL2 for virtualisation of
+> priorities, this is RES0 when priority configuration is not supported
+> but has no specific traps available.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h     |  2 ++
+>  arch/arm64/include/asm/vncr_mapping.h |  1 +
+>  arch/arm64/kvm/sys_regs.c             | 23 ++++++++++++++++++++++-
+>  3 files changed, 25 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 29b8697c8144..5ce9e06324b5 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -495,6 +495,7 @@ enum vcpu_sysreg {
+>  	SVCR,
+>  	FPMR,
+>  	SMIDR_EL1,	/* Streaming Mode Identification Register */
+> +	SMPRI_EL1,	/* Streaming Mode Priority Register */
+>
 
-Additionally, WRITE_ONCE(netdev->mtu, new_mtu) is unnecessarily
-performed even when the device is not running.
+What is the point of making the sysreg file larger for the sole
+purpose of returning a value that is firmly always 0? Can't that be
+synthesised on the fly whenever needed?
 
-Fix this by:
-  Only writing netdev->mtu after successfully updating the hardware.
-  Skipping hardware update when the device is down, and setting MTU
-  directly.
-  Remove unused variable orig_mtu.
+>  	/* 32bit specific registers. */
+>  	DACR32_EL2,	/* Domain Access Control Register */
+> @@ -547,6 +548,7 @@ enum vcpu_sysreg {
+>  	VNCR(CPACR_EL1),/* Coprocessor Access Control */
+>  	VNCR(ZCR_EL1),	/* SVE Control */
+>  	VNCR(SMCR_EL1),	/* SME Control */
+> +	VNCR(SMPRIMAP_EL2),	/* Streaming Mode Priority Mapping Register */
 
-This ensures that all writes to netdev->mtu are consistent with
-WRITE_ONCE expectations and avoids unintended state corruption
-on failure paths.
+This is slightly different, as there is no trap for this, and we rely
+on sanitisation.
 
-Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
----
-Note: This change is not tested due to hardware availability.
-v1 -> v2
-remove unused variable orig_mtu.
----
- drivers/net/ethernet/cavium/thunder/nicvf_main.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+>  	VNCR(TTBR0_EL1),/* Translation Table Base Register 0 */
+>  	VNCR(TTBR1_EL1),/* Translation Table Base Register 1 */
+>  	VNCR(TCR_EL1),	/* Translation Control Register */
+> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
+> index aede5d6efad3..454e076b77cb 100644
+> --- a/arch/arm64/include/asm/vncr_mapping.h
+> +++ b/arch/arm64/include/asm/vncr_mapping.h
+> @@ -45,6 +45,7 @@
+>  #define VNCR_ZCR_EL1            0x1E0
+>  #define VNCR_HAFGRTR_EL2	0x1E8
+>  #define VNCR_SMCR_EL1		0x1F0
+> +#define VNCR_SMPRIMAP_EL2	0x1F0
+>  #define VNCR_TTBR0_EL1          0x200
+>  #define VNCR_TTBR1_EL1          0x210
+>  #define VNCR_FAR_EL1            0x220
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index b11bb95e9e35..1fee8e534615 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1828,6 +1828,15 @@ static unsigned int fp8_visibility(const struct kvm_vcpu *vcpu,
+>  	return REG_HIDDEN;
+>  }
+>  
+> +static unsigned int sme_raz_visibility(const struct kvm_vcpu *vcpu,
+> +				       const struct sys_reg_desc *rd)
+> +{
+> +	if (vcpu_has_sme(vcpu))
+> +		return REG_RAZ;
+> +
+> +	return REG_HIDDEN;
+> +}
+> +
+>  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  {
+>  	if (!vcpu_has_sve(vcpu))
+> @@ -3030,7 +3039,14 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  
+>  	{ SYS_DESC(SYS_ZCR_EL1), NULL, reset_val, ZCR_EL1, 0, .visibility = sve_visibility },
+>  	{ SYS_DESC(SYS_TRFCR_EL1), undef_access },
+> -	{ SYS_DESC(SYS_SMPRI_EL1), undef_access },
+> +
+> +	/*
+> +	 * SMPRI_EL1 is UNDEF when SME is disabled, the UNDEF is
+> +	 * handled via FGU which is handled without consulting this
+> +	 * table.
+> +	 */
+> +	{ SYS_DESC(SYS_SMPRI_EL1), trap_raz_wi, .visibility = sme_raz_visibility },
+> +
+>  	{ SYS_DESC(SYS_SMCR_EL1), NULL, reset_val, SMCR_EL1, 0, .visibility = sme_visibility },
+>  	{ SYS_DESC(SYS_TTBR0_EL1), access_vm_reg, reset_unknown, TTBR0_EL1 },
+>  	{ SYS_DESC(SYS_TTBR1_EL1), access_vm_reg, reset_unknown, TTBR1_EL1 },
+> @@ -3387,6 +3403,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  
+>  	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
+>  
+> +	EL2_REG_FILTERED(SMPRIMAP_EL2, trap_raz_wi, reset_val, 0,
+> +			 sme_el2_visibility),
 
-diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_main.c b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-index aebb9fef3f6eb..633244bc00f35 100644
---- a/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-+++ b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
-@@ -1578,7 +1578,6 @@ int nicvf_open(struct net_device *netdev)
- static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
- {
- 	struct nicvf *nic = netdev_priv(netdev);
--	int orig_mtu = netdev->mtu;
- 
- 	/* For now just support only the usual MTU sized frames,
- 	 * plus some headroom for VLAN, QinQ.
-@@ -1589,16 +1588,18 @@ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
- 		return -EINVAL;
- 	}
- 
--	WRITE_ONCE(netdev->mtu, new_mtu);
- 
--	if (!netif_running(netdev))
-+	if (!netif_running(netdev)) {
-+		WRITE_ONCE(netdev->mtu, new_mtu);
- 		return 0;
-+	}
- 
- 	if (nicvf_update_hw_max_frs(nic, new_mtu)) {
--		netdev->mtu = orig_mtu;
- 		return -EINVAL;
- 	}
- 
-+	WRITE_ONCE(netdev->mtu, new_mtu);
-+
- 	return 0;
- }
- 
+Wut??? You clearly said it yourself: this register "has no specific
+traps available". If you end-up here from a guest access, this is a
+bug. So this "trap_raz_wi" makes no sense.
+
+I also cannot see where this register is properly configured to be
+fully RES0, as it should.
+
+	M.
+
 -- 
-2.46.0
-
+Without deviation from the norm, progress is not possible.
 
