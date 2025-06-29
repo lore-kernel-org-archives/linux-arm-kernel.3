@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D685C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 22:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7284C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 23:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RV2Ao9LrCXX4C6ZPYabE/JoQFUM+lMGNIBm5R3kM+Pk=; b=1RorGJmapI63LK1x3BqWQ4toTA
-	lFCMjkKgTCNB+vbNFGhn7l6oMDQRrjs+K/JQgPa2oE5g+vF/XR4IUqHLZg9KWxa3HehVEx5Vsvw/2
-	D5WSlHttMTwd3AJx3oZIFflTY4LmW2On+8bwDQH3zMFnxkT6Cbhfh346lxGVSRpYO3QtwLH7aYf5R
-	GhprvcB9EFs9JDmnSvGEh6aZllLpCejc36ESY8RKKhwUwqDpyyobwMjTU8oBh226BKOLvTCcuLZ0W
-	XRYPGgznLXTiWGXSV6/TY3YA3qhg8tt1TOWUz2g3t8ocMTQB1ejzkwynVsXhzviW/XNg7N78sDFlg
-	Y2R8TqJQ==;
+	bh=XvazyvwxShm3jdhWrAClsKz30F6PFYivxxTEcAhL24s=; b=oZCTF2pjizDXu3GrmxF67UPtg6
+	+rAsOIYjZsyP5ss1rad29N+VuB9hTzgoFzGyBuuQT/Pt/DikoNYXe40kI8xNAk/7juvySQuHfC15X
+	Z/2Y62z/DWDWw6Z+FUJFZHk6HdQTL92dZP/Nb2qYzfvPDNKH5P1zTGPqScOKKjBBNwHaxlcQAtuUx
+	x0sNf6/rYB3oxE8eYZSP80JxaVboy8XnthNCKaFRtMDrkFsYXs50C39LaXrjb70F2BzYEFXil2xSB
+	EyOdZnjeJ4CPJSv5q+HggGmul/sZ99g92StcG3gU7fr+yPJznwykHI9YRN9pAx0wLM2QlAClxj5rm
+	DM4I+TbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0iJ-00000000oj9-2I7B;
-	Sun, 29 Jun 2025 22:41:31 +0000
-Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
+	id 1uW18B-00000000pkp-3tM5;
+	Sun, 29 Jun 2025 23:08:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW0fz-00000000oeM-4665
+	id 1uW15t-00000000pcO-1XlX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Jun 2025 22:39:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 175E04317F;
-	Sun, 29 Jun 2025 22:38:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1751236740;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RV2Ao9LrCXX4C6ZPYabE/JoQFUM+lMGNIBm5R3kM+Pk=;
-	b=aCsLkVVacrBB0W2vMPwzfHp6ABwHsIWFTAqQ76GXLfApfoCWhqFZQmyRAHvjCmnnVhS2DD
-	m4Q9/g6XtMp8KyaIPhtCqlGFnnC/8M4Hn6QS15BpNbBAyaR3XUH0xIn6+kPwNyTo44aNPR
-	WBWSx4/quo6LIN10cDpRZZnqyBI7sH/X/qD0ymt8TIx8RN8zTpDkQ4xCIEekt1gReP7DHn
-	ukoJLaBOvr5DuVxQziBKzysA484Pvs+wKOhrTKAZBlUuJl5VquFMzcMqs81V1LXtIePEhx
-	nn9qa5hqV3441Vrg3YqE2RDLvHY8Rq0m9bf9n/m+yUyicd2qISF3WRHXbnp6YA==
-Date: Mon, 30 Jun 2025 00:38:54 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas
- Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger
- Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Paul
- Barker <paul.barker@sancloud.com>, Marc Murphy <marc.murphy@sancloud.com>
-Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>, Bajjuri
- Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Thomas
- Bonnefille <thomas.bonnefille@bootlin.com>, Romain Gantois
- <romain.gantois@bootlin.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 0/5] Add support for BeagleBone Green Eco board
-Message-ID: <20250630003854.79d6d9c4@kmaincent-XPS-13-7390>
-In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddtgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdtrgemledtieefmegtlehfvdemledvvdgrmeeltdelvgemgehfgeelmeehtddutdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggstdgrmeeltdeifeemtgelfhdvmeelvddvrgemledtlegvmeegfhegleemhedtuddtpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehtohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvr
- hhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrghrohdrkhhoshhkihhnvghnsehikhhirdhfihdprhgtphhtthhopegrnhgurhgvrghssehkvghmnhgruggvrdhinhhfohdprhgtphhtthhopehkhhhilhhmrghnsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehrohhgvghrqheskhgvrhhnvghlrdhorhhg
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_153908_622614_C1279E9D 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+	Sun, 29 Jun 2025 23:05:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6E4A61152;
+	Sun, 29 Jun 2025 23:05:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92564C4CEEB;
+	Sun, 29 Jun 2025 23:05:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1751238350;
+	bh=W82owXpwGpTGovuRtiMl4ETQSnevrtiA8edoKdquAuc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tF6VIh2NGztTz8j/GldWe58g5f5QqvEyYmFNuGIA72367L4gYrgGcHFfR5sGvT1NN
+	 jcOJ7lRGh4r+rmQ5QhfztpZqqdv5uOnaI+jq1hjgCXRmZClbK2H96DHL3hvyD+7g8O
+	 8xcy4nIKS0qqfTGgGd3shk0pT49MogJn4ynP4DOI=
+Date: Sun, 29 Jun 2025 16:05:49 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+ peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+ baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v4 0/4] Optimize mprotect() for large folios
+Message-Id: <20250629160549.da922e78d202c510a1ec68f8@linux-foundation.org>
+In-Reply-To: <20250628113435.46678-1-dev.jain@arm.com>
+References: <20250628113435.46678-1-dev.jain@arm.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, 20 Jun 2025 10:15:51 +0200,
-Kory Maincent <kory.maincent@bootlin.com> a =C3=A9crit :
+On Sat, 28 Jun 2025 17:04:31 +0530 Dev Jain <dev.jain@arm.com> wrote:
 
-> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
-> (BBG). It has minor differences from the BBG, such as a different PMIC,
-> a different Ethernet PHY, and a larger eMMC.
->=20
-> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> This patchset optimizes the mprotect() system call for large folios
+> by PTE-batching. No issues were observed with mm-selftests, build
+> tested on x86_64.
 
-Hello,
+um what.  Seems to claim that "selftests still compiles after I messed
+with stuff", which isn't very impressive ;)  Please clarify?
 
-Any news on this patch series?
+> We use the following test cases to measure performance, mprotect()'ing
+> the mapped memory to read-only then read-write 40 times:
+> 
+> Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
+> pte-mapping those THPs
+> Test case 2: Mapping 1G of memory with 64K mTHPs
+> Test case 3: Mapping 1G of memory with 4K pages
+> 
+> Average execution time on arm64, Apple M3:
+> Before the patchset:
+> T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
+> 
+> After the patchset:
+> T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.3 seconds
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Well that's tasty.
+
+> Observing T1/T2 and T3 before the patchset, we also remove the regression
+> introduced by ptep_get() on a contpte block. And, for large folios we get
+> an almost 74% performance improvement, albeit the trade-off being a slight
+> degradation in the small folio case.
+> 
+
 
