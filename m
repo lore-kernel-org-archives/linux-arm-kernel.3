@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD7DC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 10:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1631FC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Jun 2025 12:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6Wlp3JgvEp0ycS0t6Z7WKduaZTKhf5gEm0eW6oKUXk=; b=ps1rHutR+K45+TdO4HIWiW2IjY
-	voTDpW56OJN0s2NZNzRFrY3HVVHmcviTHjp0SHh4KPGaOPbWtPOp3ll1EpFKBTrikGmy0bAdMl0x2
-	5qU6vu885FNsr5+hnt/P90YZlaF7lPSR31kjVxAkNgUTbk4GzfPB1Kg1f5qQDnjQpUWp0L7l8vEVq
-	aMNmPKfOOq9QscK/xE1P4ogiVBMkTAJ7eFAgWTtsqti1WMkt3PDsSpLucziqgxoSksuxBI6KEEhQt
-	kiQkQkgpnEG2Ch27Mb4pBOJ1gwo0C3G/TdhnXCrmEvID6Ovf6loo8jhrx1xBYB96JMYxJuPt63QVB
-	ngh/D4Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kUTZn3W2htPA/qP+uxKLCOQdjEPViFtFwYmPnrLX6zA=; b=Y8TeBa1ndr/23/4cVbqzMT3pO5
+	W5xZ+XZrBUKdle2gJ/pDJtMgCqWACibUiUuysIETdN3oo5A6eDhwqFYU7iQo+tpBYlKZ1w5eMDKSQ
+	C09V4UYMU5XvRWgTimC3WzEdLfXpgMHtsAtDERYSFuPwFf67HcaicKH2+bTIcK4pztNN07z01Y9Qb
+	OeNFSV8Rg0W5VS2cqWBQXI9lkCu2IWRsiB3cJRrStyw1nqZK3k3VwDHKQHK4yCDG51JGTmMkWPiAv
+	r3b51HytZUM5ED2lBCgnoa0h0FMzCrHxytQaPd0w7I5GcWZUwnY/n0Zr8jTNBr7643bC8u/C/2Ozn
+	XByiLpYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVp2a-000000007SN-4APP;
-	Sun, 29 Jun 2025 10:13:40 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1uVrLS-00000000E8k-3kGw;
+	Sun, 29 Jun 2025 12:41:18 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uVozH-00000000758-3Z1l;
-	Sun, 29 Jun 2025 10:10:19 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751191803;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H6Wlp3JgvEp0ycS0t6Z7WKduaZTKhf5gEm0eW6oKUXk=;
-	b=jbLTkcMkzlOS4+CCECrHk6uIoEiUlZ8gi1AojI4kxi/eKj82hZVBUd0JkXPnB663LhL/Ek
-	gVqtKR4nI0DDAfDOLpK/pQysjigMfgN3b1oiUOlRymhs+BHhUm9Z2CIhjA6/dxDofMziof
-	bnZIC1eACNKyzLAaEjVmvFIWqNG5ubaMMU3Bswi2HkrK89/j4dBSJJ+/1Zwh7tZHRPMd7F
-	h8lCIjiqZr5zNjUESE1775Fn9QF8oEovSIHTMpvWLnkHDCJkdQKwj0qhGDK74YgzHqetQ1
-	lUR6lfFU1Fa45OZRahJUi6V6lS9ljIdgWs2JFN09YMxLkfMYs6Tf+IRgJb//Zg==
-Content-Type: multipart/signed;
- boundary=43508436bcd3ad84eb98e0bb756b39ac53921fae364149a231ac9f8d2b94;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Sun, 29 Jun 2025 12:09:49 +0200
-Message-Id: <DAYXOI4WITJW.1G5DBWEQDDY1Z@cknow.org>
+	id 1uVrJ7-00000000De0-0cyg
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Jun 2025 12:38:54 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "kernel test robot" <lkp@intel.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-Cc: <llvm@lists.linux.dev>, <oe-kbuild-all@lists.linux.dev>, "Dragan Simic"
- <dsimic@manjaro.org>, "Quentin Schulz" <quentin.schulz@cherry.de>, "Johan
- Jonker" <jbx6244@gmail.com>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399
- boards
-References: <20250627152645.740981-3-didi.debian@cknow.org>
- <202506290852.bWro2lBe-lkp@intel.com>
-In-Reply-To: <202506290852.bWro2lBe-lkp@intel.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1751200730;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kUTZn3W2htPA/qP+uxKLCOQdjEPViFtFwYmPnrLX6zA=;
+	b=ux99PPjs/gP+9fYBEUUyJ112v3HpFfuLT0xStBbh43QFM67s7agqYqxUqsPVAcBTwsZU/1
+	Sd6ssxdDeIMaVdXrnvGPMQhAZP/G59eMB4q/IylHgMkO6F+Z/mR5m+SIDhf0+nWKBhpZuG
+	rYyfEyEDQ5/OvLoQmqfQ8dq6NiORnE7RkQEAwhG+JPTmx72yHJZKoqxl18mOTrO1zDQR2A
+	SZIOpugSEhVmg8U9WJ7VwLuqdnwk6MxiQIhzjT5gJZM8fljbbB9dVnUieDyKUibl6HyZ75
+	pb2ySMgmEL+/Dopg+vWOac5jK6Jr2dCkg1lFV4uA3Pa32HT6CN6VKJr/j3af7A==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Johan Jonker <jbx6244@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH v3 00/10] Fix several DTB validation issues
+Date: Sun, 29 Jun 2025 14:34:41 +0200
+Message-ID: <20250629123840.34948-1-didi.debian@cknow.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_031018_414858_3A930DF3 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250629_053853_590460_1C3AEF89 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +75,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---43508436bcd3ad84eb98e0bb756b39ac53921fae364149a231ac9f8d2b94
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+This patch set fixes several DTB validation issues and consists of 2
+parts:
+1) dsi refactoring
+2) various low-hanging fruit
 
-Hi,
+ad 1) The display/rockchip/rockchip,dw-mipi-dsi.yaml binding had:
+- #address-cells
+- #size-cells
 
-On Sun Jun 29, 2025 at 2:32 AM CEST, kernel test robot wrote:
-> kernel test robot noticed the following build errors:
->
-> [auto build test ERROR on rockchip/for-next]
-> [also build test ERROR on next-20250627]
-> [cannot apply to robh/for-next krzk/for-next krzk-dt/for-next linus/maste=
-r v6.16-rc3]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Diederik-de-Haas/a=
-rm64-dts-rockchip-Refactor-DSI-nodes-on-px30-boards/20250627-233300
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockc=
-hip.git for-next
-> patch link:    https://lore.kernel.org/r/20250627152645.740981-3-didi.deb=
-ian%40cknow.org
-> patch subject: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk=
-3399 boards
-> config: arm64-randconfig-002-20250629 (https://download.01.org/0day-ci/ar=
-chive/20250629/202506290852.bWro2lBe-lkp@intel.com/config)
-> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd70=
-8029e0b2869e80abe31ddb175f7c35361f90)
-> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
-ve/20250629/202506290852.bWro2lBe-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202506290852.bWro2lBe-lkp=
-@intel.com/
->
-> All errors (new ones prefixed by >>):
->
->>> Error: arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso:75.1-6=
- syntax error
->    FATAL ERROR: Unable to parse input tree
+My guess is that those properties were added for panel(s) which could
+be connected. While convenient, it's not a property of the DSI
+controller (in the SoC). And caused DTB validation issues when a panel
+was not connected to the board. So add the #address/#size-cells
+properties to the board dts[i] file where there is a panel and then
+remove the properties from the SoC dtsi file ... and then from the
+binding file as well.
 
-The kernel test robot is right as the ``&mipi_out`` node is missing a
-closing ``;``, so thanks for that :-)
-The problem is also present in v2, so I'll send a v3 shortly.
+ad 2) There were a number of issues which were obvious to me how to fix,
+so I fixed those as well. One of those was the addition of port(s) or
+endpoints, but for that the context (ie parent nodes) got redefined ...
+to the same values they had in the SoC dsi node. The SoC dsi node
+already defined the structure where each port got a label/phandle. That
+allows for a simplification of the port/endpoint by referencing that
+label/phandle.
 
-Luckily I've now found why my build script didn't catch it.
-```sh
-export PATH=3D~/dev/kernel.org/dt-schema-venv/bin/:$PATH CROSS_COMPILE=3Daa=
-rch64-linux-gnu- ARCH=3Darm64
-make distclean
-make debarm64_defconfig
-make CHECK_DTBS=3Dy W=3D1 rockchip/px30-cobra-ltk050h3146w-a2.dtb
-<quite-a-long-list-of-all-boards-at-least-I-thought-so>
-```
+My changes were based on yesterday's v6.17-armsoc/dts64 branch:
+7f9509791507 ("arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC")
 
-(debarm64_defconfig is my own defconfig based on Debian's kernel config)
+Then applied the following patches:
+86491c2b99e5 ("dt-bindings: pinctrl: rockchip: increase max amount of device functions")
+6f446bbe412a ("dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible")
+ab9be0b75af5 ("dt-bindings: display: himax-hx8394: Add Huiling hl055fhav028c")
+8358102806c6 ("dt-bindings: power: rockchip: Add support for RK3528")
+233eda069994 ("dt-bindings: rockchip: pmu: Add compatible for RK3528")
 
-That long list didn't have ``rockchip/rk3399-rockpro64-screen.dtbo``.
-Is there a better/simpler way to validate all rockchip boards without
-having to explicitly list each and every one of them?
+And then validated it with W=1 using dtschema-2025.6.1.
+The validation log file sizes:
+- base: 99.9 KiB
+- dsi: 82.2 KiB
+- low-hanging-fruit: 69.0 KiB
+
+I then checked whether dmesg wouldn't indicate problem on these boards:
+- Rock64 (rk3328)
+- RockPro64 (rk3399)
+- PineTab2 (rk3566)
+
+And I didn't find any. I don't have any px30 or rk3399-gru-* based
+boards, so I couldn't test with those.
+
+Changes in v2:
+- Move refactoring of port/endpoint definition to its own patch
+  (Quentin)
+- Move re-ordering of nodes to its own patch (Quentin)
+Link to v1:
+https://lore.kernel.org/linux-rockchip/20250627152645.740981-1-didi.debian@cknow.org/
+
+Changes in v3:
+- Fix syntax error in RP64 screen dtso (kernel test robot)
+Link to v2:
+https://lore.kernel.org/linux-rockchip/20250628144915.839338-1-didi.debian@cknow.org/
+
+I also identified some other items which could reduce the DTB
+validation 'noise' substantially:
+
+"failed to match any schema with compatible" errors:
+
+- 'mps,mp8859': regulator/mp8859.txt
+- 'realtek,rt5651': sound/rt5651.txt
+- 'rockchip,rk3368-mailbox': mailbox/rockchip-mailbox.txt
+- 'rockchip,rk3399-gru-sound': sound/rockchip,rk3399-gru-sound.txt
+- 'ti,tsc2007': input/touchscreen/tsc2007.txt
+
+Other issues where a (small?) fix may help a lot:
+
+px30:
+- /isp@ff4a0000/ports: graph node has single child node 'port@0',
+    #address-cells/#size-cells are not necessary
+- /syscon@ff140000/lvds/ports/port@0: graph node has single child node
+    'endpoint@0', #address-cells/#size-cells are not necessary
+- /dsi@ff450000/ports/port@0: graph node has single child node
+    'endpoint@0', #address-cells/#size-cells are not necessary
+
+rk3399:
+- /usb@fe800000: node has a unit name, but no reg or ranges property
+- /usb@fe900000: node has a unit name, but no reg or ranges property
 
 Cheers,
   Diederik
 
---43508436bcd3ad84eb98e0bb756b39ac53921fae364149a231ac9f8d2b94
-Content-Type: application/pgp-signature; name="signature.asc"
+Diederik de Haas (10):
+  arm64: dts: rockchip: Move dsi address+size-cells from SoC to px30
+    boards
+  arm64: dts: rockchip: Move dsi address+size-cells from SoC to rk3399
+    boards
+  dt-bindings: display: rockchip,dw-mipi-dsi: Drop address/size cells
+  arm64: dts: rockchip: Simplify VOP port definition on rk3328
+  arm64: dts: rockchip: Simplify edp endpoints on several rk3399 boards
+  arm64: dts: rockchip: Simplify mipi_out endpoint on rk3399 RP64 dtso
+  arm64: dts: rockchip: Move mipi_out node on rk3399 haikou demo dtso
+  arm64: dts: rockchip: Fix LCD panel port on rk3566-pinetab2
+  arm64: dts: rockchip: Drop unneeded address+size-cells on px30
+  arm64: dts: rockchip: Drop regulator-compatible property on rk3399
 
------BEGIN PGP SIGNATURE-----
+ .../rockchip/rockchip,dw-mipi-dsi.yaml        |  6 -----
+ .../rockchip/px30-cobra-ltk050h3146w-a2.dts   |  2 ++
+ .../dts/rockchip/px30-cobra-ltk050h3146w.dts  |  2 ++
+ .../dts/rockchip/px30-cobra-ltk050h3148w.dts  |  2 ++
+ .../dts/rockchip/px30-cobra-ltk500hd1829.dts  |  2 ++
+ arch/arm64/boot/dts/rockchip/px30-evb.dts     |  2 ++
+ .../rockchip/px30-pp1516-ltk050h3146w-a2.dts  |  2 ++
+ .../dts/rockchip/px30-pp1516-ltk050h3148w.dts |  2 ++
+ arch/arm64/boot/dts/rockchip/px30.dtsi        |  6 -----
+ .../dts/rockchip/rk3326-anbernic-rg351m.dtsi  |  2 ++
+ .../dts/rockchip/rk3326-gameforce-chi.dts     |  2 ++
+ .../boot/dts/rockchip/rk3326-odroid-go.dtsi   |  2 ++
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi      |  6 +----
+ arch/arm64/boot/dts/rockchip/rk3399-base.dtsi |  4 ----
+ .../dts/rockchip/rk3399-gru-chromebook.dtsi   | 15 ++++---------
+ .../boot/dts/rockchip/rk3399-gru-scarlet.dtsi |  4 +++-
+ .../boot/dts/rockchip/rk3399-hugsun-x99.dts   |  2 --
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts | 15 ++++---------
+ .../dts/rockchip/rk3399-pinephone-pro.dts     |  2 ++
+ .../rk3399-puma-haikou-video-demo.dtso        | 12 +++++-----
+ .../boot/dts/rockchip/rk3399-rock-4c-plus.dts |  2 --
+ .../dts/rockchip/rk3399-rockpro64-screen.dtso | 22 ++++++-------------
+ .../rockchip/rk3399-sapphire-excavator.dts    | 16 ++++----------
+ .../boot/dts/rockchip/rk3566-pinetab2.dtsi    |  6 ++---
+ 24 files changed, 54 insertions(+), 84 deletions(-)
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGEQ8wAKCRDXblvOeH7b
-bkmOAP9oM6RsgNp49/g+vN6x7caM8SHQCK0m03vWy5v9AUMPCAD9Gu0vIsw3p1fn
-Jw3UxbRGaW+2LtlZ/raAKpP6oBKDRA4=
-=vkok
------END PGP SIGNATURE-----
+-- 
+2.50.0
 
---43508436bcd3ad84eb98e0bb756b39ac53921fae364149a231ac9f8d2b94--
 
