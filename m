@@ -4,44 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E4FC83029
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996E0C83035
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zRMYZoPbz8clU7Su07kp6sfp/21hNOTahLan9PjCHPs=; b=2EJYgZ9IlC53eUcZEI2NuJBay0
-	G7ayyFJDvR7wu7p118eHJ5ANJdRmY7wosaG9SoX/juzoSOA2qtZeHPizlgp2H5yYYOa4NtJ4pfNn0
-	qODuzGiNG7mrIMypubyDjBNXUY4vluxIXgUqirM9k/FvNuVdirnwJkI58SZV69+GnFJGODmQ5yRYT
-	/YrJwMK6wQpmckNnib/m2MDYGGdlSTYqdKjZFQ4C7qj1vn4TjqJXpt0CTNy6OrSuJi4lEo2sNgAvL
-	zisxLb/E5+IyJcunO7Y2lkO5LtBcutrJid62RR2I6gIMaGrTlv+RVxhK1oaEmSTXFvg6W1NGa9Qiu
-	J2IW0+QQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=03+W5bkRuY1HZB67u6xmCqh+/7HR/ytAxONNFxRhqGQ=; b=LdDXDSfzYNEoa2
+	2iNA/8HrVfzQ1uZMoW5nF7/8PGtii6w8A2+iSJXk1B1GlXp9NZLcxKtGKJsAShGD46S1PRDXP0RH+
+	F5z+PNkOlJBdM6tpJLZ91l9Cz7zCBgrYBf9EckzpgZe4LKRa2a2UmDQOjlQ2jZGP/rRVDwr0qWc/2
+	hToR6RfP0R1f5UdZ3h2evL7Y96kGkL1TeXLQg0M9Ui8/EaKbDfwDXJEY66zxe9n+eA3cEFNG069Vm
+	RnN0PYE7zl2bhsIEmoPmexsK5ajscSgVKYCqDdrBHtoMIQnGf8BrNrLZbYEQw/1ETNBded9sg22sn
+	rkOcbS/6XLFpnigNPSfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAN-00000002rIF-3SSW;
-	Mon, 30 Jun 2025 16:15:35 +0000
+	id 1uWHAK-00000002rFZ-3ukb;
+	Mon, 30 Jun 2025 16:15:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGMm-00000002k34-1mlR
+	id 1uWGMa-00000002jxq-00nu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 15:24:21 +0000
+	Mon, 30 Jun 2025 15:24:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EAE41D34;
-	Mon, 30 Jun 2025 08:24:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 500F21AC1;
+	Mon, 30 Jun 2025 08:23:51 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A139B3F6A8;
-	Mon, 30 Jun 2025 08:24:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EF8F3F6A8;
+	Mon, 30 Jun 2025 08:24:04 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 30 Jun 2025 16:23:37 +0100
-Subject: [PATCH v2 05/13] perf arm_spe: Directly propagate raw event
+Subject: [PATCH v2 00/13] perf arm-spe: Support new events in FEAT_SPEv1p4
+Date: Mon, 30 Jun 2025 16:23:32 +0100
+Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-5-2e1afab313b9@arm.com>
-References: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
-In-Reply-To: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
+X-B4-Tracking: v=1; b=H4sIAPSrYmgC/5WNTQ7CIBgFr9KwFkP5a+PKexhDKP0qJFYItETT9
+ O7SbnSpy3nJm1lQguggoVO1oAjZJecfBeihQsbqxw2w6wsjSqggsiZYx1GlACrNIfg4KeumUfk
+ M0YLuVa5VmLu7M9hwTSVjreCMo2ILEQb33EuXa2Hr0uTjaw9nuq3/NzLFBDeE9px3RnaiPZfn0
+ fgRbYVcf1vZ79a6WOWgwQxEt00jPtZ1Xd8wETlKMgEAAA==
+X-Change-ID: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  James Clark <james.clark@linaro.org>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -54,16 +57,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=4003;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=3121;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=+4i/iKSxS7ZnlQswgPQfW+wzCcEox3tz/OZk4WQraNQ=;
- b=I5+WCYUkmyuwjUEs11iEQQEbO/JZsyzH/pIntGvdioajpNhR0+F9u0w2qvuiSz8FhVOGK+YtZ
- Dx8L3NJuSEmC3DOhpW9Rg95e/aaKm89nVoJxZnEjrTX0cKmG/byVsEE
+ bh=t+AFp13ZhIpvuxI6JtbIFhv/8RoP5Sz8j+i+izr4ZOM=;
+ b=eYdoWCvAY99iept/wHMoiWoKdd1KVEWvgXH2fRKQldqI81pk36PdINUQSc61IE9BcC7gd2ZPv
+ Yu7fOO646TbDR2BUcvTMioj9rYgaUo8aeg6ZKiv0ihxAAbq/XAQpQeZ
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_082420_546858_23522A02 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250630_082408_123823_5556608A 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,117 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two separate sets of event bits are defined: one for used in the code
-for generating samples and another for the backend decoder. Reduce
-the redundancy by using the raw event bits directly in the frontend
-code.
+This series adds support for new event types introduced in Arm SPE v1.4.
 
-To avoid overflow issues, change the type of the event variable from
-enum to u64.
+The first patch modifies the Arm SPE driver to expose 'event_filter'
+entry in SysFS caps folder. This allows users to discover the event
+filter is supported by the hardware.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Patch 02 is a fixing for setting remote bit. Patch 03 is for fixing
+memory level info for remote access.
+
+Patch 04 is a refactoring for using full type for data_src.
+
+Patch 05 refactors the code to avoid duplicate definitions of event
+bits.
+
+Patch 06 dumps new event bits in raw format via the 'perf script -D'
+command.
+
+Patches 07 to 12 enhance memory-level information based on the new
+events introduced in FEAT_SPEv1p4.
+
+Patch 13 changes the logic to parse events after data source analysis.
+The event information complements the data source and provides a more
+complete view. As a result, Arm SPE can now support both HITM and peer
+modes (See the "--display" options in perf c2c).
+
+This series has been tested on FVP RevC platform.
+
+Note: for a local HITM event, the emulation does not provide any info
+for LLC. However, the perf c2c tool relies on LLC + HITM for accounting
+local HITM. I to manually set the LLC HIT flag to verify the
+"perf c2c -d tot" command.
+
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.c | 37 +----------------------
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h | 28 ++++++++---------
- 2 files changed, 14 insertions(+), 51 deletions(-)
+Changes in v2:
+- Dropped the kernel change for caching "pmsevfr_res0" (James)
+- Renamed the "events" entry to "event_filter" (James)
+- Added a new refactoring patch 04 (James)
+- Updated memory level info for remote access (James)
+- Link to v1: https://lore.kernel.org/r/20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-index 688fe6d7524416420a7c18d5f8a268492ce7c3b8..96eb7cced6fd1574f5d823e4c67b9051dcf183ed 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-@@ -229,42 +229,7 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 			}
- 			break;
- 		case ARM_SPE_EVENTS:
--			if (payload & BIT(EV_L1D_REFILL))
--				decoder->record.type |= ARM_SPE_L1D_MISS;
--
--			if (payload & BIT(EV_L1D_ACCESS))
--				decoder->record.type |= ARM_SPE_L1D_ACCESS;
--
--			if (payload & BIT(EV_TLB_WALK))
--				decoder->record.type |= ARM_SPE_TLB_MISS;
--
--			if (payload & BIT(EV_TLB_ACCESS))
--				decoder->record.type |= ARM_SPE_TLB_ACCESS;
--
--			if (payload & BIT(EV_LLC_MISS))
--				decoder->record.type |= ARM_SPE_LLC_MISS;
--
--			if (payload & BIT(EV_LLC_ACCESS))
--				decoder->record.type |= ARM_SPE_LLC_ACCESS;
--
--			if (payload & BIT(EV_REMOTE_ACCESS))
--				decoder->record.type |= ARM_SPE_REMOTE_ACCESS;
--
--			if (payload & BIT(EV_MISPRED))
--				decoder->record.type |= ARM_SPE_BRANCH_MISS;
--
--			if (payload & BIT(EV_NOT_TAKEN))
--				decoder->record.type |= ARM_SPE_BRANCH_NOT_TAKEN;
--
--			if (payload & BIT(EV_TRANSACTIONAL))
--				decoder->record.type |= ARM_SPE_IN_TXN;
--
--			if (payload & BIT(EV_PARTIAL_PREDICATE))
--				decoder->record.type |= ARM_SPE_SVE_PARTIAL_PRED;
--
--			if (payload & BIT(EV_EMPTY_PREDICATE))
--				decoder->record.type |= ARM_SPE_SVE_EMPTY_PRED;
--
-+			decoder->record.type = payload;
- 			break;
- 		case ARM_SPE_DATA_SOURCE:
- 			decoder->record.source = payload;
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 881d9f29c1380b62486f0cd81498750ba06c4b50..03da55453da8fd2e7b9e2dcba3ddcf5243599e1c 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -13,20 +13,18 @@
- 
- #include "arm-spe-pkt-decoder.h"
- 
--enum arm_spe_sample_type {
--	ARM_SPE_L1D_ACCESS		= 1 << 0,
--	ARM_SPE_L1D_MISS		= 1 << 1,
--	ARM_SPE_LLC_ACCESS		= 1 << 2,
--	ARM_SPE_LLC_MISS		= 1 << 3,
--	ARM_SPE_TLB_ACCESS		= 1 << 4,
--	ARM_SPE_TLB_MISS		= 1 << 5,
--	ARM_SPE_BRANCH_MISS		= 1 << 6,
--	ARM_SPE_REMOTE_ACCESS		= 1 << 7,
--	ARM_SPE_SVE_PARTIAL_PRED	= 1 << 8,
--	ARM_SPE_SVE_EMPTY_PRED		= 1 << 9,
--	ARM_SPE_BRANCH_NOT_TAKEN	= 1 << 10,
--	ARM_SPE_IN_TXN			= 1 << 11,
--};
-+#define ARM_SPE_L1D_ACCESS		BIT(EV_L1D_ACCESS)
-+#define ARM_SPE_L1D_MISS		BIT(EV_L1D_REFILL)
-+#define ARM_SPE_LLC_ACCESS		BIT(EV_LLC_ACCESS)
-+#define ARM_SPE_LLC_MISS		BIT(EV_LLC_MISS)
-+#define ARM_SPE_TLB_ACCESS		BIT(EV_TLB_ACCESS)
-+#define ARM_SPE_TLB_MISS		BIT(EV_TLB_WALK)
-+#define ARM_SPE_BRANCH_MISS		BIT(EV_MISPRED)
-+#define ARM_SPE_BRANCH_NOT_TAKEN	BIT(EV_NOT_TAKEN)
-+#define ARM_SPE_REMOTE_ACCESS		BIT(EV_REMOTE_ACCESS)
-+#define ARM_SPE_SVE_PARTIAL_PRED	BIT(EV_PARTIAL_PREDICATE)
-+#define ARM_SPE_SVE_EMPTY_PRED		BIT(EV_EMPTY_PREDICATE)
-+#define ARM_SPE_IN_TXN			BIT(EV_TRANSACTIONAL)
- 
- enum arm_spe_op_type {
- 	/* First level operation type */
-@@ -100,7 +98,7 @@ enum arm_spe_hisi_hip_data_source {
- };
- 
- struct arm_spe_record {
--	enum arm_spe_sample_type type;
-+	u64 type;
- 	int err;
- 	u32 op;
- 	u32 latency;
+---
+James Clark (1):
+      perf arm_spe: Use full type for data_src
 
+Leo Yan (12):
+      drivers/perf: arm_spe: Expose event filter
+      perf arm_spe: Correct setting remote access
+      perf arm_spe: Correct memory level for remote access
+      perf arm_spe: Directly propagate raw event
+      perf arm_spe: Decode event types for new features
+      perf arm_spe: Add "event_filter" entry in meta data
+      perf arm_spe: Refine memory level filling
+      perf arm_spe: Separate setting of memory levels for loads and stores
+      perf arm_spe: Fill memory levels for FEAT_SPEv1p4
+      perf arm_spe: Refactor arm_spe__get_metadata_by_cpu()
+      perf arm_spe: Set HITM flag
+      perf arm_spe: Allow parsing both data source and events
+
+ drivers/perf/arm_spe_pmu.c                         |  36 ++--
+ tools/perf/arch/arm64/util/arm-spe.c               |   5 +
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  37 +---
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |  33 ++--
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     |  14 ++
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   7 +
+ tools/perf/util/arm-spe.c                          | 206 ++++++++++++++++-----
+ tools/perf/util/arm-spe.h                          |   2 +
+ 8 files changed, 222 insertions(+), 118 deletions(-)
+---
+base-commit: d0b3b7b22dfa1f4b515fd3a295b3fd958f9e81af
+change-id: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
+
+Best regards,
 -- 
-2.34.1
+Leo Yan <leo.yan@arm.com>
 
 
