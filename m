@@ -4,80 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3E4C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7292CC8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u38ttXwC7mGcq5PAXdcvrvOILsVsgWF0FCXPjIoHK+w=; b=35HSrfx+EqoAez5A25g8SDiLcL
-	u38M2nDQwAr52EhryDwBwnBpaCJ+l5JJzJ9Tzi5R0RY54Kq5D+KwtF2KJEjF+M5++B/gELskKZAsU
-	YOuS3XUK8xRXSZFUGrje+p62sVYgr7JEjUd9jHYmccTGQFEyUljOvHMOVvINluLOSMMKWNYMTIRqS
-	tIK2ZrMc9nGXUz/Hvj6nOjFKYWZxfUO6wP/ckXeuAvwtHLtw5vwzpJb7dcMK1269AMiIaC5K4CCNo
-	Qon+s4LhmnIflDnXofbfE7U8UtSRDeRh3OUDKBnpJDyreaU9u0Nyrx0FDg/eAniBCbZ3eRh9VXhiB
-	wdalIEjQ==;
+	bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=; b=kdnu5jfuXi6jQuOgFH4PImwHBI
+	lSivTZoSDuFbYcyG8VIdoEUcvX4OBVFxtl0hoJqEJysaPETrU0YJ2SSBY28Y+AaKu2okP6Wrtzws3
+	4tnRs9xkYNVPzI1TUNQekzZQ7YffHeqLwYnUT64tXkJ+I9V5Tf2iGaP7nhcPGPH+/Iaw2O88Ngvnj
+	gG6TDgu/kXUqqbhnpsCdnWfNynTUEZ7e7t6efiOlrbncFlWG1ZsLKzID+GwY0pXkcMGTbKAkthCGy
+	uS40HJ8ceQfAZMG2IecaAIKY16xHTC6XkRPey8ZstpNv5yAutgc2RD1eUCJabjgDuB0TGdaSE/jBr
+	pnEa9+rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDoz-00000002Dfn-2nYl;
-	Mon, 30 Jun 2025 12:41:17 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uWDrI-00000002E7E-1bab;
+	Mon, 30 Jun 2025 12:43:40 +0000
+Received: from mail-dm6nam12on20621.outbound.protection.outlook.com ([2a01:111:f403:2417::621] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDSB-000000029mX-0hqv
+	id 1uWDZO-00000002Asb-2Gji
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 12:17:44 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uWDRr-0004km-3r; Mon, 30 Jun 2025 14:17:23 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uWDRq-0066DT-2U;
-	Mon, 30 Jun 2025 14:17:22 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uWDRq-009ggO-1c;
-	Mon, 30 Jun 2025 14:17:22 +0200
-Date: Mon, 30 Jun 2025 14:17:22 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>,
+	Mon, 30 Jun 2025 12:25:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YR1u9EGBRqFyBMooQkaV16yhbSm93ToeNEg6iGWqLKkVrU94ORaOJkRDnhQa80HQpw6NEf3kuVdm1E4Eh3K4z+5aKa6ztAc8YPUusmPrQtoTxIubdoSLj7fmcuAsx3yZV+cbOkje1FiYGrlP+tiPgVxLB2wjfelwdgiRlPnRvS8x8lyK0EpAdP4vTt5A2XMOt9DbnBN1ontuUoq9eb8hJoJVyubUrKnCf+gerplCDrvB+6gadVrzybhL1QFXIUDM8x592NBFFxK+mX6M8nna2rUjSMFIi55YkUPmVY9PAFQ06SITJ1WgM7SOxK2LjC1/up4ah4WhBwi4rMv5r98C3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=;
+ b=FLGDZJ5VJfJywKyo6dWPSp122m9q/pdSv4MCSbBeSjKzd5EHrUYI590p7GgwtRaSrgdCG0Pl5Wme+8UCJOZ1SdgiOKo/LQivfHnj+PcrVG/NS1Uw1sc/ZPXzNJItg5p7ocbTn6Bk8+1YvEmHZ2zkdzhmJQwT6Dkb9CPvj/F72s2MaLskR2M6VIKkkJWfFG0zTdkH4VXEfcOqW36qYJp2f+mo7Sfx/o91I7594S7wNkTq0du8Z612fhTLNq+j0nSurDBdSLGOlCY1GRGTdfHZLeE91HFA4V0b+Zj1QPC1FWvZyhEHLT5AHcZt8mZCI52ZCam9bGGDjzZcq0hJKcDiJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=;
+ b=ToFxU9QwX1rcSeqpAGCvMxmHTLHxGnccSFXr/t1NBDCJWTiSgxSiQ2V1bacS5Awu+Q3ctfB6gsjcpyxcTvLJQyZIATxVm3sUXaOf2xtkoWhUN9Xf3leRSZ8rs10Jlul4g3MrQ9UjV9IiItg3d4zScLFGxNqbs2OxaHp2kp8vciMvBnFFVy9d2tpm7RTkDxasxUarOMxKOYZUMVPyamWnU199a7li4xvvd52DzXS+rEsiGZaJY0gp96agbSDox0qGI9aMpEVvx3gbVSEmRGeys5i3OIAa+jUQLYGQLb+xzg8svvSSfTXZZmUwIm9U/VUU78VjwKs5NYzQhM91vHRbfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CYYPR12MB8938.namprd12.prod.outlook.com (2603:10b6:930:c7::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.29; Mon, 30 Jun
+ 2025 12:25:05 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Mon, 30 Jun 2025
+ 12:25:04 +0000
+Date: Mon, 30 Jun 2025 09:25:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Ankit Agrawal <ankita@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-Message-ID: <20250630121722.wviidlggt7hguyt7@pengutronix.de>
-References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
- <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
- <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
- <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
- <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
-MIME-Version: 1.0
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"maobibo@loongson.cn" <maobibo@loongson.cn>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>
+Subject: Re: [PATCH v9 3/6] KVM: arm64: Block cacheable PFNMAP mapping
+Message-ID: <20250630122501.GQ167785@nvidia.com>
+References: <20250621042111.3992-1-ankita@nvidia.com>
+ <20250621042111.3992-4-ankita@nvidia.com>
+ <aF6hamOI7YVDP1Cp@willie-the-truck>
+ <SA1PR12MB7199144BBDA23C9A06DA12F9B046A@SA1PR12MB7199.namprd12.prod.outlook.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <SA1PR12MB7199144BBDA23C9A06DA12F9B046A@SA1PR12MB7199.namprd12.prod.outlook.com>
+X-ClientProxiedBy: BL1PR13CA0257.namprd13.prod.outlook.com
+ (2603:10b6:208:2ba::22) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CYYPR12MB8938:EE_
+X-MS-Office365-Filtering-Correlation-Id: 893c323f-a711-4abb-1203-08ddb7d123a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0kLRhggSFlWBERjczMuF0JVnMJ7ycxW9J0R90nmNnXflxDED2OC4QLzI5Zl9?=
+ =?us-ascii?Q?rfrCpDt6RwOtzySgXDHwaddxSAaI8LlB5ghQAKrv3EUzK+4nm2FUCJSgWbBH?=
+ =?us-ascii?Q?LxOIQHhPWjLfSlN0G8JeK4X6M/LL+5vSqYgdedGGIMyeX49SxFUgXTPoBMvz?=
+ =?us-ascii?Q?OxdJN3UACT/0GOXeGhotpaywihh8IK68IL54aRLD1t09d27mtTXoiqckVFQz?=
+ =?us-ascii?Q?tYBPpoL3XAro2nOZaPcdVNPFphAPm7ljwuEM3OKRIq2iJ+WPQCCYyD12xn0U?=
+ =?us-ascii?Q?wzzfeN378w9iOQRit70o3bh4cT3Omga/LGcH6O9Z4tvy69ZXFK3bU54OZd0u?=
+ =?us-ascii?Q?DPWSxcMYeiwPxL6V931uRiSc2Nee7bu1wq9VuF2khJKpCboNCdp5hBtdUGlu?=
+ =?us-ascii?Q?6OVDK44Z8+1zJ+4od+umDRVhjtLN2d8G8HcxkcEKIJukD00Y7xFeA5IaNVKC?=
+ =?us-ascii?Q?Mk53NcJaPpFjX8PBQwGEjsCrCgREcYpHNEpsJ98x64f79c6BZvrWJdt4vcvv?=
+ =?us-ascii?Q?7BWWUMb/ONsCNh/ILCOA7bcIX7AOP5bVzIx74eAvF9O0+Y0h1/c+7BptIq/r?=
+ =?us-ascii?Q?vYVM91y/vNXcHqj+9E396LvMg3hsDp1898Ugn+gVCub2sby8eYK+LyVlWZpW?=
+ =?us-ascii?Q?f90GohVXr84N6GO8BXUUU8LK9K3yBWtBrfb4eYtXjVjslRcVPBXdckYM0QpI?=
+ =?us-ascii?Q?dIoq031FGPJh7wDt/NvPiKEZhW84u4sxkVtSMydp0lHW79cqr2NJG120ALvS?=
+ =?us-ascii?Q?SqNvUkw04oFkrkSdm0zvOk9snVxFo2NeOg5PEVnSF8RfiH4sftPYMTJH5k+/?=
+ =?us-ascii?Q?kjurYfJ+eDZ0GBRONOJvjVkYgFPylRwVg4lWWfgybRDyqnHYiIR8Yf0zYar/?=
+ =?us-ascii?Q?hyAW5OOxk5ywyOhi1ddUshHbgDxjxQeQOvatNZhI5LQEcnnuZVoe3D9kXyVq?=
+ =?us-ascii?Q?QkrtcwC0VasaO+t2iucDjn6hAGZuejD5aQNPRf4s+6oTDpU0C1zHl3LqcP0a?=
+ =?us-ascii?Q?Lm1qQ0rF3AIPvGxXMm2EqJLVLFzlx5gyIyF2sXe039W3zlXL1ApXyBp2wT85?=
+ =?us-ascii?Q?dnZ1OtcsVLYcOWBeLusxGMM2O8PraaRnx9PLtDlBtvjYRRw/5D5h442rHtM5?=
+ =?us-ascii?Q?9NF8Ad3uslVnfe3WVjz1tYGjFBIOBVJdhJCmTxaC35zAHp6enpV5upbGzkuy?=
+ =?us-ascii?Q?7QXjo3hsYqE9Jj4Ngtvrx9buqBSSue1QR18aJbHCYDEWddIJV/x6aC1i6U8w?=
+ =?us-ascii?Q?bFycQNIQTZdBFnvgOZ3RV8uVDlVJQOJ9q8JZVYtAL+IsUOTmb4inHoJNkcPe?=
+ =?us-ascii?Q?Ms3h00YueI0rMo692m3jCJutE0n4KqP9lPP40u3Dyvva/7z3JC1165T5H7XS?=
+ =?us-ascii?Q?QQklmwNzLAHJ1J7oLHZ2HF5KPUpOW1W4X/Uj5zYBLDWvp5aw8rriDpWvXfxl?=
+ =?us-ascii?Q?CQbvsp8x6Fg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sb98AhdIQiHcJw8BF03YT/PvNkQJjK2MugyqJOomiX2pKILyEZ84IMMWDyE8?=
+ =?us-ascii?Q?mNA71lHIsyEp7QWhpwHdFoY+ZgtIyVRXtldUxO75bxe18+k5G+J+3jQsJLQi?=
+ =?us-ascii?Q?laq9H15O464azYQWNMqT+4H0Ac6wlaWFzAZb0OOLdFEqP7872dSx7Pn0Fi/l?=
+ =?us-ascii?Q?wcNEISmIm9bkqjrU5/CBXK2bwl3Zi+r96A53K+Oh/gP6M7tX3A3d67vzceiC?=
+ =?us-ascii?Q?SwUf7RYqI3VFbsJcFeCEdmDMqbH6msXT4XKLbkjKufCqsC97tUxDn/FgIqoB?=
+ =?us-ascii?Q?IPkn1Qg+N0pTnckNDijxH5UCj0jZI0/eVhC4TvyNPUB5tMxlUYfuX6kg2KrU?=
+ =?us-ascii?Q?TPg7jkBmOXLvYT+98RmdC0CbRM8VwWFFKzDCA8gTQKG5VIi8sHaFyQc++ZjZ?=
+ =?us-ascii?Q?Ru+zvcPbTYdOdz6GjrLiAERnJR+KQR5vT0d9wvHCDT1+IxNLM0ocWr3iDxtp?=
+ =?us-ascii?Q?ClCoDLKL/haJcdFH4lGK5uIvsENs0GqHcf2LhNpRivz/2xxNhmblkEwBjhcl?=
+ =?us-ascii?Q?UWyKmxWIFMYUj8yVs3eQCkLUKpPgVgasf+CXtS1pW8q6bNLy+E6QX/ZkbbmS?=
+ =?us-ascii?Q?vaObVPssoutVKEb1lc6vDA5u4I8s/zWzocNKYNYbuitkONXdtzybP+uBjXiJ?=
+ =?us-ascii?Q?dgmPaBuCmYaWe31Ws2qXijWS7ROgPS8IhBgetmLIFQKylJVA802iXJD2D4ji?=
+ =?us-ascii?Q?grac1L2e6FYRJP/PcWFX0rJ42pQtd6AsXCqMTAgA4O0SeXE9q9h2zHisZRPz?=
+ =?us-ascii?Q?c14VWjvIzBdOIn8KJHjrTcmPoMGCmolS5jL3injzjr7nmHkyTKhvJqIzw/T3?=
+ =?us-ascii?Q?80HjZGsh8XS+EY1e4UQx/y4K5Eihbs1aUguFWoFjqO316S5lpx/oFrWslaZV?=
+ =?us-ascii?Q?vLOSTqHggMZvC8hmAsN8WWphc5eYR1EwZGtI0h4XNQgf4hwA1EiGx+tSrmWi?=
+ =?us-ascii?Q?9hTpYyQEmZxaXXHQgwRtwJIenmVE5lH1PMdv2u/Qm1kPjU2Y6DGoPdD96GOF?=
+ =?us-ascii?Q?bm43jGCUri3CxvIqjrpQ7B8ItsGN6kCy8nd122EX0Ki7gaf2LgdOT8aRfv/z?=
+ =?us-ascii?Q?BLLOMg9KoP+4v7FshlMjEiiEjpoK/YXRGY5WvzAu6V98qHZjwd2zD8A54Rwa?=
+ =?us-ascii?Q?UNItNmfUFVIXhEW5dkxpWxBz0ohpuOhDZZ0Bp7Lov95mSgqSS4Vf4deDQt9D?=
+ =?us-ascii?Q?RDzrBp8/wURLV+h82wYipCLVIoyNkD+bnG1rkVhv4KufjYIgSpybUuC31O6u?=
+ =?us-ascii?Q?gpyunE9UMMo4VEQbPBI431Bnej0zqtdou4GKF8rYZL3l51ic/w9tCExvIEYq?=
+ =?us-ascii?Q?qFZoeRd/fFMJSKgl40EPc5lZVr8esaDGG1W55i31g6W4WInEVIn0eNwqMTcU?=
+ =?us-ascii?Q?D6KdAnSImKzmZDFyWVqV2D7LHm7/O40dbMTngYfazL/XCclVJfw2rbA1tStm?=
+ =?us-ascii?Q?1Xnob439OAkGVS8wMmUok9X1mwgmNwd3q9qhRvo2a7pBQhsG0Jnqwni6vJon?=
+ =?us-ascii?Q?BPEwZxQ5LA3IVb+ZXY2jInmt5ORXDhFQ6En6c/MNdiLOoOXSRmwCet+feQuK?=
+ =?us-ascii?Q?00G3CmL8tVXzsDlC04w=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 893c323f-a711-4abb-1203-08ddb7d123a7
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 12:25:04.5542
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iDt+Tja0/sLNf+Yx0DBdFIQfMzkB8vtRjstMrhszIO3vz24LTPrjg3T1QWUBKUfi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8938
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_051743_212665_47BE084B 
-X-CRM114-Status: GOOD (  52.38  )
+X-CRM114-CacheID: sfid-20250630_052510_700002_F25F99FF 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,135 +194,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frieder,
-
-On 25-06-30, Frieder Schrempf wrote:
-> Hi Marco,
+On Mon, Jun 30, 2025 at 01:56:43AM +0000, Ankit Agrawal wrote:
+> > Sorry for the drive-by comment, but I was looking at this old series from
+> > Paolo (look at the cover letter and patch 5):
+> >
+> > https://lore.kernel.org/r/20250109133817.314401-1-pbonzini@redhat.com
+> >
+> > in which he points out that the arm64 get_vma_page_shift() function
+> > incorrectly assumes that a VM_PFNMAP VMA is physically contiguous, which
+> > may not be the case if a driver calls remap_pfn_range() to mess around
+> > with mappings within the VMA. I think that implies that the optimisation
+> > in 2aa53d68cee6 ("KVM: arm64: Try stage2 block mapping for host device
+> > MMIO") is unsound.
 > 
-> Am 27.06.25 um 10:46 schrieb Marco Felsch:
-> > Hi,
-> > 
-> > your e-mail configuration mixed my e-mail with your answer, which makes
-> > it hard to read. Can you please check the quoting next time :)
-> > 
-> > On 25-06-27, Pankaj Gupta wrote:
-> >>>> Add driver for enabling MU based communication interface to
-> >> secure-enclave.
-> >>>>
-> >>>> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are 
-> >>>> embedded in the SoC to support the features like HSM, SHE & V2X, using 
-> >>>> message based communication interface.
-> >>>>
-> >>>> The secure enclave FW communicates with Linux over single or multiple 
-> >>>> dedicated messaging unit(MU) based interface(s).
-> >>>> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
-> >>
-> >>> You write single or multiple MUs are possible. I'm aware that the i.MX93
-> >>> has two MUs one for the secure and one for the non-secure world. But I'm
-> >>> really concerned about the fact that both MUs can't be used at the same time
-> >>> from both world:
-> >>
-> >> Yes, you are correct.
-> >>
-> >> Fix is still work in progress.
-> > 
-> > So after ~6 months no fix is available :(
-> > 
-> >>> Also how is the secure and non-secure world talking to the ELE if there is
-> >>> only one MU as you have written?
-> >>
-> >> Till the fix is WIP, either Linux or OPTEE can use the ELE, at one point in
-> >> time.
-> > 
-> > That has nothing to do with the fix. The fix is for platforms/SoCs which
-> > do have 2-MUs, but you also have written that there are platforms with
-> > only 1-MU.
-> > 
-> > This MU can't be shared between secure and non-secure world.
-> > 
-> >>> IMHO it makes much more sense to put the complete ELE communication into
-> >>> (OP-)TEE and let the secure OS taking care of it. All non-secure world
-> >>> requests are passed via (OP-)TEE to the ELE. This involves:
-> >>> - eFuse access (done via OP-TEE i.MX specific PTA)
-> >>> - ELE 23h59m ping (kernel SMC WDG driver, requires OP-TEE watchdog driver)
-> >>> - HW-RNG (kernel OP-TEE HWRNG driver + OP-TEE HWRNG PTA)
-> >>
-> >> There is a dedicated MU "trusted-MU" for OPTEE-OS. The idea to converge to a
-> > 
-> > Yes for systems with 2-MUs there is a "trusted-MU" and a
-> > "non-trusted-MU". As of now, there is no fix available for using both
-> > MUs at the same time. Furhtermore there are platforms/SoCs with only
-> > 1-MU, as you have written in your commit message. This 1-MU system can
-> > have the MU either trusted or non-trusted.
-> > 
-> >> single path via OPTEE-OS, is good. But it will impact the performance of the
-> >> features at Linux side.
-> > 
-> > Performance? We are talking about a ping every 23h59m (I still don't
-> > know if this is a feature or bug), eFuse write/read, and the HW-RNG
-> > which can seed the Linux PRNG.
-> > 
-> >> Since the fix is still WIP. Let's wait till then.
-> > 
-> > The fix is for the 2-MUs SoCs but not the 1-MU case.
-> > 
-> > I would like to have a system design which doesn't differ too much
-> > between SoCs which are equipped with the ELE engine.
-> 
-> Do we really want to depend on OP-TEE to be available for having things
-> like OTP fuse access and HWRNG? Personally I'd like to be able to build
-> systems with OTP access and HWRNG but without OP-TEE. Requiring OP-TEE
-> only to make the ELE available to the kernel in cases where the secure
-> world isn't used for anything else seems to be unnecessarily complex.
+> Hm yeah, that does seem problematic. Perhaps we need a new
+> vma flag that could help the driver communicate to the KVM that the
+> mapping is contiguous and it can go ahead with the optimization?
+> E.g. something similar to VM_ALLOW_ANY_UNCACHED.
 
-I understand your point. I don't like pulling in more FW neither but we
-need to the face the following facts:
+I think Paolo has the right direction - remove any attempts by KVM to
+expand contiguity, it should only copy the primary's PTEs and rely on
+the primary to discover contiguity. No new flags.
 
- - OTP eFuse R/W access after doing the LOCK_DOWN fuse is no longer
-   possible without OP-TEE. This involves general purpose (GP) eFuses
-   too. We faced this limitation in a current project.
+Instead we need to keep pushing forward with Peter Xu's work to have
+PFNMAPs use large PTEs. I believe ARM still has some missing parts for
+full support bot overall it is a far better direction.
 
- - With new regulations like the EU CRA I think we need some sort of
-   secure-enclave anyway.
+> > But it got me thinking -- given that remap_pfn_range() also takes a 'prot'
+> > argument, how do we ensure that this is reflected in the guest? It feels
+> > a bit dodgy to rely on drivers always passing 'vma->vm_page_prot'.
 
- - Making it optional cause more paths of potential errors e.g. by not
-   including the correct "secure.dtsi". Multiple paths also require more
-   maintain- and testing effort. IMHO I do think that one of the paths
-   get unmaintened at some point but we would need to keep it for
-   backward compatibility.
+But broadly, if you take that perspective KVM as a misdesign..  KVM
+should be getting the VMA's PTE so that the S2 PTE can duplicate the
+page-by-page flags, instead of only copying the writable bit.
 
-   Having one implementation eliminates this since.
+So, let's call this out of scope for this series. ARM64 KVM does not
+support page-by-page cachability, it never has, and there is no known
+use case right now.. The only user of VMA_CACHED PFNMAPs is being
+consistent.
 
- - All above points assume that the ELE-FW and -HW is capable of talking
-   to both world, which is not the case. As we learned NXP doesn't have
-   a fix for the 2-MUs ELE yet and even more important there are 1-MU
-   ELE-IPs.
-
-I do see the (minimal) drawback of having +1 FW but I think this is more
-an integration problem.
-Speaking of FW files, for the new i.MX9* you already have plenty fo
-them: bootloader, TF-A, ele-fw, scu-fw (i.MX95). So your integation
-needs to handle multiple firmware files already.
-
-> Anyway, I see your point of having a single implementation for the ELE
-> API in the "right" place. But as far as I know other platforms like
-> STM32MP1 also implement both ways for the HWRNG, secure access via OPTEE
-> and non-secure access via kernel directly.
-
-I'm not a STM32MP1 expert but here you have this setup with the
-*-scmi.dtsi. So you have two code paths which needs to be maintained and
-tested. Also if one customer of yours want to use OP-TEE you need the
-integration anyway, so you (Kontron) needs to maintain multiple
-configuration as well. I don't see the added value.
-
-I think for STM32MP1 the *-scmi.dtsi support was added later because it
-required a lot effort to support it. This is not the case for the i.MX9*
-series.
-
-Regards,
-  Marco
-
-> Thanks
-> Frieder
-> 
+Jason
 
