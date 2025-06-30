@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4B8C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3F3C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RMvPmaezlA9RzKU+IRM+ug9qE/4EpGSw9P74OlSc7q8=; b=Ny4LEKOeFfv0Gf
-	EVAI5n2bbBIZ+f5zUeN6QGd5mlv7bmHZFabYM6BK3xD0Ee6G4HYuLby5GjMqaWdbg5z9XPyPsxv8B
-	jmYJQ4GSmuaVtMxxcNYo+7cXe1CqRypFsiz21XeROXZnLwlZW/oZiFfG53RDraJTC5bt7y0tmhsR+
-	lZWeKWf5HRcrGjZtA06MB/qBs//0ajI1MshPXkDADP7JFuvm5YUMrZKk63AEIdMMtcNe3GgqGiWAt
-	gLznwBGOmxXlkuKKrYoRLye8SUc6JNOIkqfBOEoj1l9qj0txpHz6reKmZyhw7YATJTrLak5fBi54z
-	gPRNi/juwd/HUFNzUGag==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PpIVd/iyvJzOX8nF42c2ZQhA/JbIIXEjxLRd183mMY=; b=S6NlN/gx9SWCc7QJy2oDrV4HcE
+	kUZ40kjv1Xv/kSOy4VNq59UeQjxSe/GZ3uMnGc4GttmHphPbYQ7ubC7sqkwg5F3NmoIt8WyPblIvi
+	xbqLRvTk+tAidIRfoIo63SJ9xPEO9r5yoVate67+srOs3XrRhugiKIuPv+GXu3YaldU//X081Wl+x
+	gCX+I5aPnk/Jpu7wbsc66rmHOnOhxXIuJGVbRZsNGtUvdY7U7FV1N7l3H2AiniBZrffxL14pvtPfi
+	/eY2dbIcJfRKIpj16RiLC5Ltyrh5Y67hElrtf1B3xplL1SORuhlC9Dea0nh/1AEplWHPU8pD/n4QE
+	GiqYUxgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBrp-00000001uBA-2Vea;
-	Mon, 30 Jun 2025 10:36:05 +0000
+	id 1uWBu6-00000001uUr-2mwK;
+	Mon, 30 Jun 2025 10:38:26 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBc1-00000001rqV-1j9C;
-	Mon, 30 Jun 2025 10:19:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751278772; cv=none; 
+	id 1uWBc5-00000001rrb-4BD8;
+	Mon, 30 Jun 2025 10:19:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751278776; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=nTcNtKcloDdymRlkpRP4fB7sHusL8piBZ4H5npQMqp1sE22KmQFYNcbjTb3JhME1X1R/aZlDrRf7x+2Hd+5LIKVZOE4qY96t9g0BIdQMOyMKfsAl9E8FjnxTf2uLuNEUOZzuntkpg/F3Sd6r9Uq7Z7ndrApTdUalNlbgLpX1c+I=
+	b=UenH2PSwuBcCB0VSc0tN7EZqkcRncrF0BlEgwCF+98x3a2QZvtPfHafdjPmS0npBh0rdxF2slFXtsonSe3J+xjU/ES0LuJtnViVuiU+ZraEeQQc4yfy8T1bavVqwtPyYCDsrajgLf/TjBUO0HEJBZ/KJNMaF/pCKc6O7WPJKicE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751278772; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=RMvPmaezlA9RzKU+IRM+ug9qE/4EpGSw9P74OlSc7q8=; 
-	b=lBCg8mzKxBS0SrxPrZ9MyVjKA8SnenrW339VkAwnxtJksvbyyvFfvGM8Qv9535OMXrnf55gIlYzAS7xN/EL34hus317MD3abVhCnyylELQMF4YPzfGzEB7IPwI1+xE5orMTeM88VJ3aT8WVOlyK9OQ8Ch14aAxRS17+LDZFe6dc=
+	t=1751278776; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6PpIVd/iyvJzOX8nF42c2ZQhA/JbIIXEjxLRd183mMY=; 
+	b=T1ET82UWFUv5RWR6gcdxiXnuqnbJXS0i7ydKBYv4u2Yr8iPH1VYOd8CZwX4uzD2DXZzKFrnRckm6V1kjhk/eghCWfnhfN6RrQesArjh4O3uMcXMZJNGS7PFBjr2fD2rv05W6dUck4dZz1Z6ooSENh1YBR0NUyenfHzp/88rZbUM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751278772;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751278776;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=RMvPmaezlA9RzKU+IRM+ug9qE/4EpGSw9P74OlSc7q8=;
-	b=eTDWlGHF8nmux7M5jX1nzOEksXOzPGXQkUseQKNpOJrgD1+wOKjSgulK96eSciJ7
-	hmYNaCy9Y/Ddpb1XLW9EXjL+4wIevgRKoShtwIWq3J/OD7151KVEKcK4SCexUCi+mjC
-	6JkhLjzqOwUs16dqR1f7jkzKbmKezxb21vkbSv38=
-Received: by mx.zohomail.com with SMTPS id 1751278771100466.1546626645253;
-	Mon, 30 Jun 2025 03:19:31 -0700 (PDT)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=6PpIVd/iyvJzOX8nF42c2ZQhA/JbIIXEjxLRd183mMY=;
+	b=f5CowVq/qV4oeWU9rr+BLMx+h7M6sWL+uKZOpIB+9YjpaaLW8Ye/kNtQn/YHEYSB
+	AiiNmHxJHZ+VQgyqqJo6rn8SbQLwLn3LOAwcpo94KVcSruABG2tP9PIIsYdbAcTW1iK
+	4yWnAoFepGgA7zFkOlfSfXiek/wMfzQseQR/L+wA=
+Received: by mx.zohomail.com with SMTPS id 1751278774601621.415894842219;
+	Mon, 30 Jun 2025 03:19:34 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH 0/4] ROCK 4D audio enablement
-Date: Mon, 30 Jun 2025 12:19:23 +0200
-Message-Id: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
+Date: Mon, 30 Jun 2025 12:19:24 +0200
+Subject: [PATCH 1/4] dt-bindings: input: adc-keys: allow linux,input-type
+ property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKtkYmgC/yXMQQrCMBCF4auEWTuQRm1LryJdxGSigzTRSSqF0
- rsbzPJ/8L4dMglThkntIPTlzCnW6E4K3NPGByH72mC0uereDCjJvS4e7eo5oQtOD6HrR6tHqJe
- 3UODtz93m1kKftaqljXC3mdClZeEyqUhbwSafNczH8QPJdBh9jwAAAA==
-X-Change-ID: 20250627-rock4d-audio-cfc07f168a08
+Message-Id: <20250630-rock4d-audio-v1-1-0b3c8e8fda9c@collabora.com>
+References: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
+In-Reply-To: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -68,8 +67,9 @@ Cc: kernel@collabora.com, linux-input@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_031945_521348_0ACF7FCF 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250630_031950_099903_3C506D67 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +84,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ROCK 4D uses an ADC input to distinguish between a headphone (i.e.,
-no mic) and a headset (i.e., with mic). After some searching, it appears
-that the closest we can get to modelling this is by sending a particular
-switch input event.
+adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
+property. This makes it impossible to model devices that have ADC inputs
+that should generate switch events.
 
-So this series modifies the adc-keys bindings, extends the adc-keys
-driver to allow sending other input types as well, and then adds the
-analog and HDMI audio nodes to ROCK 4D's device tree.
-
-It should be noted that analog capture from the TRRS jack currently
-results in completely digitally silent audio for me, i.e. no data other
-than 0xFF. There's a few reasons why this could happen, chief among them
-that my SAI driver is broken or that the ES8328 codec driver is once
-again broken. The DAPM routes when graphed out look fine though. So the
-DTS part is correct, and I can fix the broken capture in a separate
-follow-up patch that doesn't have to include DT people.
-
-Another possibility is that my phone headset, despite being 4 rings and
-having a little pin hole at the back of the volume doodad, does not
-actually have a microphone, but in that case I'd still expect some noise
-in the PCM. Maybe it's just shy.
+Add the property to the binding with the same default as gpio-keys.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Nicolas Frattaroli (4):
-      dt-bindings: input: adc-keys: allow linux,input-type property
-      Input: adc-keys - support types that aren't just keyboard keys
-      arm64: dts: rockchip: add analog audio to ROCK 4D
-      arm64: dts: rockchip: add HDMI audio on ROCK 4D
+ Documentation/devicetree/bindings/input/adc-keys.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
- .../devicetree/bindings/input/adc-keys.yaml        |  3 +
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 98 ++++++++++++++++++++++
- drivers/input/keyboard/adc-keys.c                  | 16 +++-
- 3 files changed, 113 insertions(+), 4 deletions(-)
----
-base-commit: c6a68d8f7b81a6ce8962885408cc2d0c1f8b9470
-change-id: 20250627-rock4d-audio-cfc07f168a08
+diff --git a/Documentation/devicetree/bindings/input/adc-keys.yaml b/Documentation/devicetree/bindings/input/adc-keys.yaml
+index 7aa078dead37816294732501e1983ab869f38311..e372ebc23d1651d73ef3749a56d54872067037b5 100644
+--- a/Documentation/devicetree/bindings/input/adc-keys.yaml
++++ b/Documentation/devicetree/bindings/input/adc-keys.yaml
+@@ -42,6 +42,9 @@ patternProperties:
+ 
+       linux,code: true
+ 
++      linux,input-type:
++        default: 1  # EV_KEY
++
+       press-threshold-microvolt:
+         description:
+           Voltage above or equal to which this key is considered pressed. No
 
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.50.0
 
 
