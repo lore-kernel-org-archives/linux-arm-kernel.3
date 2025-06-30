@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16C0C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961A0C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxamxHE99DM4tc4HRwlPyUoKcjs8WIMqBPap1GvGhX4=; b=oTlV1KV8AzxfqDeC2uTVuTTR6I
-	n9uh7t6AvKDgn5C2iUJfklXQGbg2Vt/6VX0e8LpblvrOy4kR5TuyIPqFpoAexFIfIIP6w9aiQCnCv
-	X3X8mjNA58yMcL4puAI5G6l0/Ddn7196tWt9PefyTcsDtoEPhLilzcE8fPRGPUBxi+WfvUb0Gus6Z
-	2xVL10BcXiTyGj6b+sZgkHTaEXDsQjxOKEQ7V77XuXp3PPE6KrCyMzykXZ10OVPEcDhVu82xEAoVu
-	Ai3zfJAcQhPacIeJxs4KiDqoYS234eZ5W2gae6SeXc75OwOvyesRQcDp6dVNH6u4CbS/E2sE4J/dm
-	1IuNffEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nVGcGwgGocGvDThhgjKImAp7VlPU961t7vGnbLRU7dY=; b=pwN8qYNK/7JzjCv9Y81KzA9rEu
+	drtfkSredjwCPiP3sy4K522ZZgqjamK7vMNOhHUV/rFWJHHxqfm812Uk59O9H3Qe/I20AS7swXsGY
+	0w5zr42lKkbLndF1HUYkF782DAeVejmKybdYp5gVvPvW63MtriLO0OE18mShBypIKEs5gWvAc8M1e
+	tgP0BmWGqmv2iTzF8tzgwgr04hevH05NWO0lfGQtHo1zGb8rdu2bbe6difOo7s2HdQ4e2iIYMQUrM
+	P4Rfpy8RLYhP1QbE+jNCnU9f+dM+1zkTeg3N/sY6CM1oiljmsj5MlCUrKL/Z6e23+8mdO9+Xd4di6
+	E9gyQ1Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWA47-00000001dgx-17HF;
-	Mon, 30 Jun 2025 08:40:39 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uWA6O-00000001e4l-1NbR;
+	Mon, 30 Jun 2025 08:43:00 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9zO-00000001d47-06Zt
+	id 1uWA1g-00000001dG1-0yxf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 08:35:47 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D8AAF6BE;
-	Mon, 30 Jun 2025 10:35:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751272523;
-	bh=Pb8HJ471aqOcZe2ewCJBa4HubsqOuoiKPklFjxSLp/U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JKcCOSo+cwUx9poxNlqs4DGrbNCXBZaz2O219ud9nTwTvXH/eute7KRzNKn3JAaZo
-	 4N471DvD7OdYOC3Ex1b9MXymlYKvrP7la99f3LF19kUN96JevmnbLyFW9vSbw2ct2y
-	 eJRyGlYNKWezQnh3So3ujeextefNec1ww5ED0Aag=
-Date: Mon, 30 Jun 2025 11:35:19 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	robh+dt@kernel.org, mchehab@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com
-Subject: Re: [PATCH v10 07/17] media: mali-c55: Add Mali-C55 ISP driver
-Message-ID: <20250630083519.GC24861@pendragon.ideasonboard.com>
-References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
- <20250624-c55-v10-7-54f3d4196990@ideasonboard.com>
- <cee962ce-3719-4ae7-9849-548a95d98e99@linux.intel.com>
- <20250629183547.GF6260@pendragon.ideasonboard.com>
- <aGI+y4sOlPAQMzWI@svinhufvud>
+	Mon, 30 Jun 2025 08:38:09 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bVzwB6FHWzdbqt;
+	Mon, 30 Jun 2025 16:34:02 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id DBEDF14010D;
+	Mon, 30 Jun 2025 16:38:02 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 30 Jun 2025 16:38:02 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 30 Jun 2025 16:38:01 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>,
+	<akpm@linux-foundation.org>, <dianders@chromium.org>,
+	<sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>
+Subject: Re: [RESEND PATCH v2 2/2] arm64/watchdog_hld: Add a cpufreq notifier
+ for update watchdog thresh
+To: Will Deacon <will@kernel.org>
+References: <20250619114805.16968-1-yangyicong@huawei.com>
+ <20250619114805.16968-3-yangyicong@huawei.com>
+ <aF66T0dgV8IpvlF_@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <5ae8dda1-d466-fe47-18da-631007d9f0e1@huawei.com>
+Date: Mon, 30 Jun 2025 16:38:01 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aGI+y4sOlPAQMzWI@svinhufvud>
+In-Reply-To: <aF66T0dgV8IpvlF_@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_013546_206056_39A38F7F 
-X-CRM114-Status: GOOD (  39.49  )
+X-CRM114-CacheID: sfid-20250630_013808_437417_FCC85E43 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,252 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 10:37:47AM +0300, Sakari Ailus wrote:
-> On Sun, Jun 29, 2025 at 09:35:47PM +0300, Laurent Pinchart wrote:
-> > On Sat, Jun 28, 2025 at 11:06:54PM +0300, Sakari Ailus wrote:
-> > > On 6/24/25 13:21, Daniel Scally wrote:
-> > 
-> > [snip]
-> > 
-> > > > diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
-> > > > new file mode 100644
-> > > > index 0000000000000000000000000000000000000000..20d4d16c75fbf0d5519ecadb5ed1d080bdae05de
-> > > > --- /dev/null
-> > > > +++ b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
-> > > > @@ -0,0 +1,656 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > +/*
-> > > > + * ARM Mali-C55 ISP Driver - Image signal processor
-> > > > + *
-> > > > + * Copyright (C) 2024 Ideas on Board Oy
-> > > 
-> > > It's 2025 already.
-> > > 
-> > > > + */
-> > > > +
-> > > > +#include <linux/delay.h>
-> > > > +#include <linux/iopoll.h>
-> > > > +#include <linux/property.h>
-> > > > +#include <linux/string.h>
-> > > > +
-> > > > +#include <linux/media/arm/mali-c55-config.h>
-> > > 
-> > > If this is a UAPI header, please include uapi in the path, too.
-> > > 
-> > > Earlier such headers have been under include/uapi/linux, I don't object 
-> > > putting new ones elsewhere in principle though. Just check with Hans and 
-> > > Laurent, too... I don't have an opinion yet really.
-> > 
-> > With each new media header we add to include/uapi/linux/, I wish
-> > stronger and stronger that we had created include/uapi/linux/media/. We
-> > don't have to do it now, my regret will just grow stronger :-)
+On 2025/6/27 23:35, Will Deacon wrote:
+> On Thu, Jun 19, 2025 at 07:48:05PM +0800, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> arm64 depends on the cpufreq driver to gain the maximum cpu frequency
+>> to convert the watchdog_thresh to perf event period. cpufreq drivers
+>> like cppc_cpufreq will be initialized lately after the initializing of
+>> the hard lockup detector so just use a safe cpufreq which will be
+>> inaccurency. Use a cpufreq notifier to adjust the event's period to
+>> a more accurate one.
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  arch/arm64/kernel/watchdog_hld.c | 58 ++++++++++++++++++++++++++++++++
+>>  1 file changed, 58 insertions(+)
+>>
+>> diff --git a/arch/arm64/kernel/watchdog_hld.c b/arch/arm64/kernel/watchdog_hld.c
+>> index dcd25322127c..e55548cb26df 100644
+>> --- a/arch/arm64/kernel/watchdog_hld.c
+>> +++ b/arch/arm64/kernel/watchdog_hld.c
+>> @@ -34,3 +34,61 @@ bool __init arch_perf_nmi_is_available(void)
+>>  	 */
+>>  	return arm_pmu_irq_is_nmi();
+>>  }
+>> +
+>> +static int watchdog_perf_update_period(void *data)
+>> +{
+>> +	int cpu = raw_smp_processor_id();
 > 
-> I'm fine with using include/uapi/linux/media/.
+> Why raw?
 > 
-> > > > +/* NOT const because the default needs to be filled in at runtime */
-> > > > +static struct v4l2_ctrl_config mali_c55_isp_v4l2_custom_ctrls[] = {
-> > > > +	{
-> > > > +		.ops = &mali_c55_isp_ctrl_ops,
-> > > > +		.id = V4L2_CID_MALI_C55_CAPABILITIES,
-> > > > +		.name = "Mali-C55 ISP Capabilities",
-> > > > +		.type = V4L2_CTRL_TYPE_BITMASK,
-> > > > +		.min = 0,
-> > > > +		.max = MALI_C55_GPS_PONG_FITTED |
-> > > > +		       MALI_C55_GPS_WDR_FITTED |
-> > > > +		       MALI_C55_GPS_COMPRESSION_FITTED |
-> > > > +		       MALI_C55_GPS_TEMPER_FITTED |
-> > > > +		       MALI_C55_GPS_SINTER_LITE_FITTED |
-> > > > +		       MALI_C55_GPS_SINTER_FITTED |
-> > > > +		       MALI_C55_GPS_IRIDIX_LTM_FITTED |
-> > > > +		       MALI_C55_GPS_IRIDIX_GTM_FITTED |
-> > > > +		       MALI_C55_GPS_CNR_FITTED |
-> > > > +		       MALI_C55_GPS_FRSCALER_FITTED |
-> > > > +		       MALI_C55_GPS_DS_PIPE_FITTED,
-> > > > +		.def = 0,
-> > > > +	},
-> > > > +};
-> > > > +
-> > > > +static int mali_c55_isp_init_controls(struct mali_c55 *mali_c55)
-> > > > +{
-> > > > +	struct v4l2_ctrl_handler *handler = &mali_c55->isp.handler;
-> > > > +	struct v4l2_ctrl *capabilities;
-> > > > +	int ret;
-> > > > +
-> > > > +	ret = v4l2_ctrl_handler_init(handler, 1);
-> > > > +	if (ret)
-> > > > +		return ret;
-> > > > +
-> > > > +	mali_c55_isp_v4l2_custom_ctrls[0].def = mali_c55->capabilities;
-> > > 
-> > > The capabilities here are still specific to a device, not global, in 
-> > > principle at least. Can you move it here, as a local variable?
-> > > 
-> > > > +
-> > > > +	capabilities = v4l2_ctrl_new_custom(handler,
-> > > > +					    &mali_c55_isp_v4l2_custom_ctrls[0],
-> > > > +					    NULL);
-> > > > +	if (capabilities)
-> > > > +		capabilities->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-> > > > +
-> > > > +	if (handler->error) {
-> > > > +		dev_err(mali_c55->dev, "failed to register capabilities control\n");
-> > > > +		v4l2_ctrl_handler_free(handler);
-> > > > +		return handler->error;
-> > > 
-> > > v4l2_ctrl_handler_free() will return the error soon, presumably sooner 
-> > > than the above code makes it to upstream. Before that, this pattern 
-> > > won't work as v4l2_ctrl_handler_free() also resets the handler's error 
-> > > field. :-)
-> > > 
-> > > > diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
-> > > > new file mode 100644
-> > > > index 0000000000000000000000000000000000000000..36a81be0191a15da91809dd2da5d279716f6d725
-> > > > --- /dev/null
-> > > > +++ b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
-> > > > @@ -0,0 +1,318 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > > +/*
-> > > > + * ARM Mali-C55 ISP Driver - Register definitions
-> > > > + *
-> > > > + * Copyright (C) 2024 Ideas on Board Oy
-> > > > + */
-> > > > +
-> > > > +#ifndef _MALI_C55_REGISTERS_H
-> > > > +#define _MALI_C55_REGISTERS_H
-> > > > +
-> > > > +#include <linux/bits.h>
-> > > > +
-> > > > +/* ISP Common 0x00000 - 0x000ff */
-> > > > +
-> > > > +#define MALI_C55_REG_API				0x00000
-> > > > +#define MALI_C55_REG_PRODUCT				0x00004
-> > > > +#define MALI_C55_REG_VERSION				0x00008
-> > > > +#define MALI_C55_REG_REVISION				0x0000c
-> > > > +#define MALI_C55_REG_PULSE_MODE				0x0003c
-> > > > +#define MALI_C55_REG_INPUT_MODE_REQUEST			0x0009c
-> > > > +#define MALI_C55_INPUT_SAFE_STOP			0x00
-> > > > +#define MALI_C55_INPUT_SAFE_START			0x01
-> > > > +#define MALI_C55_REG_MODE_STATUS			0x000a0
-> > > > +#define MALI_C55_REG_INTERRUPT_MASK_VECTOR		0x00030
-> > > > +#define MALI_C55_INTERRUPT_MASK_ALL			GENMASK(31, 0)
-> > > > +
-> > > > +#define MALI_C55_REG_GLOBAL_MONITOR			0x00050
-> > > > +
-> > > > +#define MALI_C55_REG_GEN_VIDEO				0x00080
-> > > > +#define MALI_C55_REG_GEN_VIDEO_ON_MASK			BIT(0)
-> > > > +#define MALI_C55_REG_GEN_VIDEO_MULTI_MASK		BIT(1)
-> > > > +#define MALI_C55_REG_GEN_PREFETCH_MASK			GENMASK(31, 16)
-> > > > +
-> > > > +#define MALI_C55_REG_MCU_CONFIG				0x00020
-> > > > +#define MALI_C55_REG_MCU_CONFIG_OVERRIDE_MASK		BIT(0)
-> > > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_MASK		BIT(1)
-> > > > +#define MALI_C55_MCU_CONFIG_WRITE(x)			((x) << 1)
-> > > 
-> > > Is x unsigned?
-> > 
-> > Does it matter ? The reason why the BIT() macro uses (UL(1) << (nr))
-> > instead of (1 << (nr)) is (if I'm not mistaken) to avoid incorrect
-> > handling of bit 31. As long as x doesn't take negative values and
-> > doesn't extend to bit 31, it should be fine.
-> 
-> For that reason exactly. If you're unsure, maybe at least cast it as
-> unsigned?
 
-The MCU_CONFIG_WRITE field is on bit long, so there's no practical
-issue. I also don't expect the driver to pass a negative value. We could
-still add an unsigned cast if there's a general rule that all register
-fields must be cast to unsigned. This isn't done in the vast majority of
-drivers though.
+smp_processor_id() also works for me, since here's running in a per-cpu worker from
+smp_call_on_cpu() so we won't violate the check in smp_processor_id() when
+CONFIG_DEBUG_PREEMPT=y. I might think the raw_smp_processora_id() is okay since we're
+known to run on the local cpu so the unstable raw_smp_processor_id() is fine.
 
-> > > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_PING		BIT(1)
-> > > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_PONG		0x00
-> > > > +#define MALI_C55_REG_MULTI_CONTEXT_MODE_MASK		BIT(8)
-> > > > +#define MALI_C55_REG_PING_PONG_READ			0x00024
-> > > > +#define MALI_C55_REG_PING_PONG_READ_MASK		BIT(2)
-> > > > +#define MALI_C55_INTERRUPT_BIT(x)			BIT(x)
-> > > > +
-> > > > +#define MALI_C55_REG_GLOBAL_PARAMETER_STATUS		0x00068
-> > > > +#define MALI_C55_GPS_PONG_FITTED			BIT(0)
-> > > > +#define MALI_C55_GPS_WDR_FITTED				BIT(1)
-> > > > +#define MALI_C55_GPS_COMPRESSION_FITTED			BIT(2)
-> > > > +#define MALI_C55_GPS_TEMPER_FITTED			BIT(3)
-> > > > +#define MALI_C55_GPS_SINTER_LITE_FITTED			BIT(4)
-> > > > +#define MALI_C55_GPS_SINTER_FITTED			BIT(5)
-> > > > +#define MALI_C55_GPS_IRIDIX_LTM_FITTED			BIT(6)
-> > > > +#define MALI_C55_GPS_IRIDIX_GTM_FITTED			BIT(7)
-> > > > +#define MALI_C55_GPS_CNR_FITTED				BIT(8)
-> > > > +#define MALI_C55_GPS_FRSCALER_FITTED			BIT(9)
-> > > > +#define MALI_C55_GPS_DS_PIPE_FITTED			BIT(10)
-> > > > +
-> > > > +#define MALI_C55_REG_BLANKING				0x00084
-> > > > +#define MALI_C55_REG_HBLANK_MASK			GENMASK(15, 0)
-> > > > +#define MALI_C55_REG_VBLANK_MASK			GENMASK(31, 16)
-> > > > +#define MALI_C55_VBLANK(x)				((x) << 16)
-> > > 
-> > > Same question for the bit shifts left elsewhere in the header.
-> > > 
-> > > > +
-> > > > +#define MALI_C55_REG_HC_START				0x00088
-> > > > +#define MALI_C55_HC_START(h)				(((h) & 0xffff) << 16)
-> > > > +#define MALI_C55_REG_HC_SIZE				0x0008c
-> > > > +#define MALI_C55_HC_SIZE(h)				((h) & 0xffff)
-> > > > +#define MALI_C55_REG_VC_START_SIZE			0x00094
-> > > > +#define MALI_C55_VC_START(v)				((v) & 0xffff)
-> > > > +#define MALI_C55_VC_SIZE(v)				(((v) & 0xffff) << 16)
-> > > > +
-> > > > +/* Ping/Pong Configuration Space */
-> > > > +#define MALI_C55_REG_BASE_ADDR				0x18e88
-> > > > +#define MALI_C55_REG_BYPASS_0				0x18eac
-> > > > +#define MALI_C55_REG_BYPASS_0_VIDEO_TEST		BIT(0)
-> > > > +#define MALI_C55_REG_BYPASS_0_INPUT_FMT			BIT(1)
-> > > > +#define MALI_C55_REG_BYPASS_0_DECOMPANDER		BIT(2)
-> > > > +#define MALI_C55_REG_BYPASS_0_SENSOR_OFFSET_WDR		BIT(3)
-> > > > +#define MALI_C55_REG_BYPASS_0_GAIN_WDR			BIT(4)
-> > > > +#define MALI_C55_REG_BYPASS_0_FRAME_STITCH		BIT(5)
-> > > > +#define MALI_C55_REG_BYPASS_1				0x18eb0
-> > > > +#define MALI_C55_REG_BYPASS_1_DIGI_GAIN			BIT(0)
-> > > > +#define MALI_C55_REG_BYPASS_1_FE_SENSOR_OFFS		BIT(1)
-> > > > +#define MALI_C55_REG_BYPASS_1_FE_SQRT			BIT(2)
-> > > > +#define MALI_C55_REG_BYPASS_1_RAW_FE			BIT(3)
-> > > > +#define MALI_C55_REG_BYPASS_2				0x18eb8
-> > > > +#define MALI_C55_REG_BYPASS_2_SINTER			BIT(0)
-> > > > +#define MALI_C55_REG_BYPASS_2_TEMPER			BIT(1)
-> > > > +#define MALI_C55_REG_BYPASS_3				0x18ebc
-> > > > +#define MALI_C55_REG_BYPASS_3_SQUARE_BE			BIT(0)
-> > > > +#define MALI_C55_REG_BYPASS_3_SENSOR_OFFSET_PRE_SH	BIT(1)
-> > > > +#define MALI_C55_REG_BYPASS_3_MESH_SHADING		BIT(3)
-> > > > +#define MALI_C55_REG_BYPASS_3_WHITE_BALANCE		BIT(4)
-> > > > +#define MALI_C55_REG_BYPASS_3_IRIDIX			BIT(5)
-> > > > +#define MALI_C55_REG_BYPASS_3_IRIDIX_GAIN		BIT(6)
-> > > > +#define MALI_C55_REG_BYPASS_4				0x18ec0
-> > > > +#define MALI_C55_REG_BYPASS_4_DEMOSAIC_RGB		BIT(1)
-> > > > +#define MALI_C55_REG_BYPASS_4_PF_CORRECTION		BIT(3)
-> > > > +#define MALI_C55_REG_BYPASS_4_CCM			BIT(4)
-> > > > +#define MALI_C55_REG_BYPASS_4_CNR			BIT(5)
-> > > > +#define MALI_C55_REG_FR_BYPASS				0x18ec4
-> > > > +#define MALI_C55_REG_DS_BYPASS				0x18ec8
-> > > > +#define MALI_C55_BYPASS_CROP				BIT(0)
-> > > > +#define MALI_C55_BYPASS_SCALER				BIT(1)
-> > > > +#define MALI_C55_BYPASS_GAMMA_RGB			BIT(2)
-> > > > +#define MALI_C55_BYPASS_SHARPEN				BIT(3)
-> > > > +#define MALI_C55_BYPASS_CS_CONV				BIT(4)
-> > > > +#define MALI_C55_REG_ISP_RAW_BYPASS			0x18ecc
-> > > > +#define MALI_C55_ISP_RAW_BYPASS_BYPASS_MASK		BIT(0)
-> > > > +#define MALI_C55_ISP_RAW_BYPASS_FR_BYPASS_MASK		GENMASK(9, 8)
-> > > > +#define MALI_C55_ISP_RAW_BYPASS_RAW_FR_BYPASS		(2 << 8)
-> > > > +#define MALI_C55_ISP_RAW_BYPASS_RGB_FR_BYPASS		(1 << 8)
-> > > 
-> > > BIT() or make these unsigned.
-> > 
-> > It's a 2 bits field, BIT() isn't appropriate.
-> 
-> That leaves us with the other alternative, doesn't it?
-
-Absolutely, although unsigned is unnecessary in this case as we're not
-approaching bit 31.
-
--- 
-Regards,
-
-Laurent Pinchart
+thanks.
 
