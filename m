@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9ABAC83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61B9C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=; b=w9HXyrvQxMnU7lm6vSu347Wqu/
-	Plu5KLWg180hwkbHKqVgx/p1iJrYfgQnBYeFrycBPQpFftKiQHt1C59HQG3a4vkAR1U/ndOp6Jvzi
-	BiWr8nvKXgD0+8efxR9xkHhH7TBQ/j5ngIIp8VdH0Reck33Z9bQ7/hP0FjcfpeG+DYBkicJNTVklN
-	sirZTwdX3un1/vYOG1nsAPCO9GfwzaZltQ5CCu+Wp2jl3tMIkSUNkNuO/9dyKbea4WwDPDtyj+BdR
-	gQxyYTi9ogRxK0EBdfZafe0RTVtPUvOpY0KxoMPULbTF/h+y1kLEMev2/Md6ogvdJWkAy8ks7IkaF
-	XnpG1bXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uSnBBrW7DyQ9uDD3D8W9h8fjOrHlTZaIJ8+vrX+84dc=; b=FZUZm6wueHFtv5LQWp57XLIolK
+	VyXDvQn8wQpY3HccORlNODg98VKT46TcrEYAn4j7CRlqus2JSLZCLKvaNKVhX11NvawjFlIAjqOfd
+	43aV6oIOLj19JTzsAR0R+RWMw2Y/vRBcKeXAfsVWrt4z7aFhvMYgdeeGp/Lmm2ZXfsad9YrT8OMlh
+	TcVGDePGUMU1652A2iitnP/Ma4dPMd+gJvJsvQ73jBUOffdkHsBceFD2gPZr/YANa4O8YrOM2qIlm
+	tNv0UEukg431pH7lnXZ8gwKk9LPrupeWQSNo4rGPoFyHG8XG+9S2ASoDgpyPIkg8jngnniIkRhOZR
+	jDOtQTiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWKIu-00000003JHe-2ZiN;
-	Mon, 30 Jun 2025 19:36:36 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uWKLD-00000003JdA-1OBl;
+	Mon, 30 Jun 2025 19:38:59 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWKGY-00000003IgD-2GAJ
+	id 1uWKHn-00000003Iu9-3xuZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 19:34:11 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553b16a0e38so5278096e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:34:09 -0700 (PDT)
+	Mon, 30 Jun 2025 19:35:29 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-2eacb421554so706297fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:35:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751312048; x=1751916848; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=;
-        b=Jmi4Ju7KsFbTWOEp8MYzOoOzLpGG72YskmdSZuxSftjymfg8XX2vk9SNFxn6GCOXVw
-         5azcwBDEjbAKbJeCo5ppN5P5259+HexO9ePmH7IKeqZnTn8LsJGIRqlYJtMcX2Bg293y
-         h7K3EVKeoiZbj0LNenJvQEgiJIHIlNZkrHTICFEvz72Ts3Gar6XMPepHedrW/LFnZ/42
-         R5JUZqmrVK6IMcSF37bAuTFVbi9xfRFMVKXJ7SSBw9eGAuewJSEidrkitXrFN1Ipg+eu
-         eCvqtd+U/jUrQyBnjT4pjJjlCLnHg/s1I0PynYIzXi3OM2Td9JDdjMLfe33Nyw6TUcko
-         WGsg==
+        d=linaro.org; s=google; t=1751312127; x=1751916927; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uSnBBrW7DyQ9uDD3D8W9h8fjOrHlTZaIJ8+vrX+84dc=;
+        b=PtS2aLqhe8TUQgMPLVFn6riBckTuTf0VUaHI93eWOa+zeq4hBKIFTGGJ9rV7yVmN84
+         wgV7BeKsWWaznbgnAOPGP+1Q2BVc6lLe+vpkj/J+44bXehM5X0d37d6A6tDRy6y+KOq9
+         GQROhmdEXVY7ibbOtKTF7pVe7xuhCiv9wuJ6R43P0OVBmJCdBdSqPP8OXVZtopI/YZ2C
+         l6xU1sLt1XAc1Sk0OvFxyA+6bQde61ug5HNRY0HLF6xAbOU8CeUyImrgtub5jlPpn4y0
+         IoIKIfyXnhDWrhZ2jujvw7WDUtjYCd4jd3CqLM732aD6lX2lD+f1/HW7Pg3sp4I9eW9D
+         OXjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751312048; x=1751916848;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=;
-        b=jsAyUXZ9CAF5VmaDwjDOw/Al/8AmPDmhciqAd31gx+ClOTqyL9RS3Mci2NqMVBEtkX
-         kM7oxhD9JOl2ZqfmerAE1hPI6G3DpAeeLsl5/dCVUTjdJmiRPBAQq38c61s+9FOYsv7I
-         NUm6NoSMEuWC/m8prKTw9PYtKRWh2isAoYqoCVoX+oHHCw1xe6SY0sr8D+xXkynhfARJ
-         Df5RxCuUAIHQtKNpiFMhMVIfR5Zmn6oVrZNCXBqYnUZn1HK5yjCn6H1F4kG96ji2t/Mt
-         w83SF6sNkoD1kpjcJGc2JPdsQr9iAuTgtsfcMJoXBjmb7CTg+++a5OSahKVL4f84NAoX
-         kWXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVVb/lVpmmjcT04B1jyz5kIeGboN97e/y1OUEnttJ9mC2T4bNPCJDiMbJ5i0kqe+LSHcpYWlcibWKyqOKUACuZl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1pIFB4NZ8uz54Ea2pxNH6Y4xLtY2iiEJ2XnIY331cDO40frYd
-	AwXxjsxj+ztAEKP+8K3YV/g4FmDPsjRZN9M+kHQJtflz1FDMbTTHva0HNnNbJC6qIC38jbCjdpe
-	p3o7gk2D+5UUaAt9O/XFZSeV8zUX1/44=
-X-Gm-Gg: ASbGnct002OGxQDnPBFLUdTVRBjmy8bqPZIJOF6kXokuYHlToQKco64oSOXy9vdlNwa
-	xnG+8vn6tp/bMsw9TfdCTAixAhFdJ2k0t933Sr+TraZfjH8triRWUw3wrDX/27aLSVoWUnFuLvd
-	1cMp5/uq4GVWuubceyAD2S9o9VHO4wwrZXCu9Y/b0K+zE=
-X-Google-Smtp-Source: AGHT+IEcZloFG6l4jJ8cgNCYeXgOddz00TihtZjrzR3EcWyur1s6dsDtIuhCgF2HuMdXrYLuOyWPUJEpBwohJWSq4fs=
-X-Received: by 2002:a05:6512:3ba5:b0:553:d444:d4c4 with SMTP id
- 2adb3069b0e04-5550b9ee2b5mr5103562e87.50.1751312048082; Mon, 30 Jun 2025
- 12:34:08 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751312127; x=1751916927;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uSnBBrW7DyQ9uDD3D8W9h8fjOrHlTZaIJ8+vrX+84dc=;
+        b=dzdYqq+EV+kRFrky9u8P4Jf2xJrQdmavZh8DtqUfzoUudeNgwkhzuC0m9KquYXsMBI
+         +RSHcju4VuR9alJRv4FKPJHoxW/j7RdI1AgBDSMSif0fzHTQA9ScbUgX1VDJaltc0QN5
+         5Ljzja3LHTNfBwuvG4pwlK2HMVNTNbQe9thID9vRR3icZqqryhy2mrZMcSnUMuWJ6PAd
+         3EGkzcYSQj1qVkAPFV7GWtovKMGD58nXO20TnY624isGXnIrC6WYRsoi4KbeAmvm7iMr
+         4HuwLNxhF5nyvF7zMa0ERQWMjucUTxmNiVXZU7ERWc9Lk7s3HAICErrVhHgAOVuRI0e7
+         8yNg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsK03ExGfMUYOkmtwR7gwr8ebJSWIn1jIAcb/Z6wRUJ8ARHCdD5XcU0Pw9mJq0IUz684iOSqtKEYYjPO+WY9kS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKkra2sL1bJhNJa3ZTFymOjexjXK9/L3fSkaR6g/ZIN+ACWW6V
+	CO6UeQELWs4OVpk9+fkM4pxeFIr7T0Dia/LOvoafo8kPaZ01At78zqws7B9/WKGoL6s=
+X-Gm-Gg: ASbGnct+M/V+NF/LyuBvOcg3lBIxFTeb02JWtu/39/j5jIl8rYBNTBrJ3/z7GajKKEp
+	wzTTOrCmdQfMDbvjS49wMyb2ZeLjq0SDRPnjsKog871vvi/Il3Y6uzXJ0OctzMlntAO8Tpju3CZ
+	serA9jiE1MNRq7pl4ueTeHLf6+fzivj3xfEEwvS0KZPHOlH9OpOSxaRlStTmZKFTGjLICndZLS9
+	jV1FPjrQGA6QbUoMkmgdKV+XQcLmRo3ZrSHCWfH76NNoeoBRJkuc7e1RTzH/QSjYGX2fYrCzju+
+	DCDYy1LSCx6tdM1fpX2A2GDxXXhM6DSuzQv/sbZtXyrEajY6Lw9Rru4PnkReQR1sw7QS4DWA6Au
+	tgI8=
+X-Google-Smtp-Source: AGHT+IFjeReXBA3k7+eClk/ifIE93Uzbc7oaZBkcYmdYTh/N0ppG05eqByPpmkkuYUzt5s/KtcZ0Xw==
+X-Received: by 2002:a05:6870:783:b0:2eb:adf2:eb2 with SMTP id 586e51a60fabf-2efed7a2a73mr9014336fac.36.1751312126689;
+        Mon, 30 Jun 2025 12:35:26 -0700 (PDT)
+Received: from localhost ([2603:8080:b800:f700:49cc:1768:3819:b67])
+        by smtp.gmail.com with UTF8SMTPSA id 586e51a60fabf-2efd50f7f6asm2908403fac.36.2025.06.30.12.35.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 12:35:26 -0700 (PDT)
+Date: Mon, 30 Jun 2025 14:35:25 -0500
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Cc: Alain Volmat <alain.volmat@foss.st.com>,
+	Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH] spi: stm32: delete stray tabs in stm32h7_spi_data_idleness()
+Message-ID: <2033b9fa-7b0f-4617-b94e-7b0a51c5c4b1@sabinyo.mountain>
 MIME-Version: 1.0
-References: <20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com> <CALHNRZ_7Yv98v83JvYLP2MmUZj+EDPwk7dDDArN4_U5docbRCw@mail.gmail.com>
-In-Reply-To: <CALHNRZ_7Yv98v83JvYLP2MmUZj+EDPwk7dDDArN4_U5docbRCw@mail.gmail.com>
-From: Aaron Kling <webgeek1234@gmail.com>
-Date: Mon, 30 Jun 2025 14:33:56 -0500
-X-Gm-Features: Ac12FXw5JMTdMU1UgcC1jxmIMzSdOncHyLMk8rYWZi1A362LpDpLt0LTHSI3GJQ
-Message-ID: <CALHNRZ-nCGyYTndv=o1NBvL=zH6Pbp=Jkj2CHXtNgwcFzudYgg@mail.gmail.com>
-Subject: Re: [PATCH] ARM: tegra: Use io memcpy to write to iram
-To: webgeek1234@gmail.com
-Cc: Russell King <linux@armlinux.org.uk>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_123410_575869_483C7770 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20250630_123527_993038_A9EDCCEF 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 12:45=E2=80=AFPM Aaron Kling <webgeek1234@gmail.com=
-> wrote:
->
-> On Thu, May 22, 2025 at 11:11=E2=80=AFAM Aaron Kling via B4 Relay
-> <devnull+webgeek1234.gmail.com@kernel.org> wrote:
-> >
-> > From: Aaron Kling <webgeek1234@gmail.com>
-> >
-> > Kasan crashes the kernel trying to check boundaries when using the
-> > normal memcpy.
-> >
-> > Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
-> > ---
-> > Change-Id: I27714f45aa6aea6a7bee048f706b14b8c7535164
-> > ---
-> >  arch/arm/mach-tegra/reset.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
-> > index d5c805adf7a82b938bebd8941eae974cf6bcdbe3..ea706fac63587a393a17fe0=
-f1c2ad69d6e5c14f2 100644
-> > --- a/arch/arm/mach-tegra/reset.c
-> > +++ b/arch/arm/mach-tegra/reset.c
-> > @@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(voi=
-d)
-> >         BUG_ON(is_enabled);
-> >         BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_=
-SIZE);
-> >
-> > -       memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
-> > +       memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
-> >                         tegra_cpu_reset_handler_size);
-> >
-> >         err =3D call_firmware_op(set_cpu_boot_addr, 0, reset_address);
-> >
-> > ---
-> > base-commit: d608703fcdd9e9538f6c7a0fcf98bf79b1375b60
-> > change-id: 20250522-mach-tegra-kasan-fabd0253f268
-> >
-> > Best regards,
-> > --
-> > Aaron Kling <webgeek1234@gmail.com>
-> >
-> >
->
-> Friendly reminder about this patch.
+These lines were indented one tab more than they should be.  Delete
+the stray tabs.
 
-Re-reminder about this patch.
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/spi/spi-stm32.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Aaron
+diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+index 3d20f09f1ae7..afb54198bde7 100644
+--- a/drivers/spi/spi-stm32.c
++++ b/drivers/spi/spi-stm32.c
+@@ -1895,8 +1895,8 @@ static void stm32h7_spi_data_idleness(struct stm32_spi *spi, struct spi_transfer
+ 		if (spi_delay_ns) {
+ 			dev_warn(spi->dev, "Overriding st,spi-midi-ns with word_delay_ns %d\n",
+ 				 spi_delay_ns);
+-				spi->cur_midi = spi_delay_ns;
+-			}
++			spi->cur_midi = spi_delay_ns;
++		}
+ 	} else {
+ 		spi->cur_midi = spi_delay_ns;
+ 	}
+-- 
+2.47.2
+
 
