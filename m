@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF440C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 23:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05F5C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 23:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMoRzxFpPcptg7A9l+92hIng0UBiDJ8hvoxFQ6v0Zsk=; b=n3Au1uUu190AxbqeLCENVx/Cn9
-	GT65fZ0isIYlpVLB51IcVWM8ObY5DKoWBIO2vR356Zwrssnisvxve0EgHZyk/8r72tHu6XD/geSka
-	qbT3Kog55JoIejgNplLOuIbIZTSj7uLI/jCM15tbRuejPqSssNY2upsPzR44BxZ21kdnwPnWZGioD
-	N1ZKqUQarNXCUH0HozjKoq/ZIa79AiC7GGJqX31gnC7AN1nqV+LjUjR/vJYvzu5UKmTNncg4vygbT
-	0Y0N0uNWZkAObRWtmwUeNOfBCKd2TXtfk+FrZJ/uuyIM4FTNuaGqNWvurB68Y7z6lK0KcnVugQUPa
-	rXj6AigA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zIsKrErJGCMMxHju1pDeaqu0TLvSo1es/xmCquLIB/M=; b=iC4odMLxy5tOX5y72N1pSVRuZL
+	GCjIOJbiW34j/nDokA3XTjqEMmkD4m7QXJmgyxUsGk0IOG8Mv44QaRZsI0tzILtDunpYHsVbiVf77
+	L4ar2fzLTOz77fdWkPMs65Ov2irx6O1s8sgPAmd0M42mxPoo3Uo2QWScw452vd3KkvLRtS4lp1icm
+	bGypqwhFRBBUgyQN9dzgkTqHewcDf0UEWLDpqzv1J9t/zJuzZPVBdYZWIBYBdefqGMR71VwqzWoO4
+	x9IgmbghBTgamvn3LcpmEonodtlJhOvNjSS/3AXhXvbjp1/uRB61MB2OIo4N2SkUFP4F9zN0K07/m
+	Db/MFcbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWNik-00000003ftX-0EKD;
-	Mon, 30 Jun 2025 23:15:30 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uWNw1-00000003geL-45oU;
+	Mon, 30 Jun 2025 23:29:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWNe3-00000003fVX-15Ge;
-	Mon, 30 Jun 2025 23:10:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751325027; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kNUtf021KMtv7ipHIehHdCrJkE1VU45x1iToozGgvTRjrieFWc96z/FUK/djFDZVoZpCXu5fFtC9SEoIq/fbPnFRzlYDbRZ71hJSK8glw5BBggkbbRKS4Ri72NTdaJjOySUDdW7i+7yGMvAQHUvfbBR766/BfI2WLAlKc8pWFSg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751325027; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NMoRzxFpPcptg7A9l+92hIng0UBiDJ8hvoxFQ6v0Zsk=; 
-	b=I+gt4qsOCCsvFVeFA0HL9zNhomzKmIbSgkJTYGi6hOsi1gnEbhWC54cuiWQxphYzftkhmUg+fybCpb7qOjQfM8qytP0vxwk95IbJBxPIsdknVzS7Y6vLIp0vFqijkkI83nNChfTGZdOvFE8JBKJlP7pf1+7Ms440/gRaXruhKXA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751325027;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=NMoRzxFpPcptg7A9l+92hIng0UBiDJ8hvoxFQ6v0Zsk=;
-	b=bRyJuM7InKHLhoFTGk9AWIOnRw25H4iGk+0AZvpubUikxOdRiMFwO9u8KIQvCxI6
-	9gDtmjVv8sZ6CRBxoKtXOrWBARmlLxYlaeHL4c//D6V1hIeICesda2nmqlPEEsY+zYg
-	onV/fIBT7xiC3nsI1R9ckqQ53MolB89tzMwiEO9c=
-Received: by mx.zohomail.com with SMTPS id 1751325024081616.6563756773481;
-	Mon, 30 Jun 2025 16:10:24 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 8AD3B1809B6; Tue, 01 Jul 2025 01:10:19 +0200 (CEST)
-Date: Tue, 1 Jul 2025 01:10:19 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, kernel@collabora.com, 
+	id 1uWNti-00000003gOj-0c00
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 23:26:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6462860053;
+	Mon, 30 Jun 2025 23:26:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00EDEC4CEE3;
+	Mon, 30 Jun 2025 23:26:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751326009;
+	bh=VTv7opCZXxZ4GXzYPfNqPS1L7/gEKWDzBH62J409Juc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=f3XFDYs7sgcJnbJo1jUQFAKDo6NG28AED9efX0YCBQLSMfkOEQIBJdPfO84ueAFq7
+	 GvDQ1xlJW0Oqnne9EbcLqU9mDwhlB0vlZAbs9fTr6YGtt8b2qmYbQIAW2EivwMv3VU
+	 //N1FLqQsGHY87gxsWNuxhextTvFpCdakbJ7jwpqw14mONaCeaPj/32+SBdbM6UEjm
+	 pbxdQR/nQNoVzExnijzh/14orklJyRdd/8KFZvIWVeoZKFQt7mN/8YfndnVrS99JLq
+	 DGXQOntOI5dSjO4lFpDjfK7Sq+ae6oe2rTHqMydA032hdV1qaudbDC5d78Y3wzfYyp
+	 Sr8mKJpU6HLhw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK
- 4D
-Message-ID: <5acizoywvjolaffojiawqlzixiclrqzohuhq55lbsjm6yhhlwi@w2amqugl3ee2>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
- <20250630-rock4d-reg-usb-wifi-v1-1-1057f412d98c@collabora.com>
- <DB02KKR1VK9H.1Q1Y5A98FKGLK@cknow.org>
+Subject: [PATCH] dt-bindings: clock: Convert moxa,moxart-clock to DT schema
+Date: Mon, 30 Jun 2025 18:26:43 -0500
+Message-ID: <20250630232644.3700781-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d22k3ikyl4mwgwcs"
-Content-Disposition: inline
-In-Reply-To: <DB02KKR1VK9H.1Q1Y5A98FKGLK@cknow.org>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/251.316.55
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_161039_367646_79E531A6 
-X-CRM114-Status: GOOD (  25.10  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,124 +72,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/clock/moxa,moxart-clock.txt      | 48 -------------------
+ .../bindings/clock/moxa,moxart-clock.yaml     | 38 +++++++++++++++
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 39 insertions(+), 49 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/clock/moxa,moxart-clock.txt
+ create mode 100644 Documentation/devicetree/bindings/clock/moxa,moxart-clock.yaml
 
---d22k3ikyl4mwgwcs
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK
- 4D
-MIME-Version: 1.0
+diff --git a/Documentation/devicetree/bindings/clock/moxa,moxart-clock.txt b/Documentation/devicetree/bindings/clock/moxa,moxart-clock.txt
+deleted file mode 100644
+index fedea84314a1..000000000000
+--- a/Documentation/devicetree/bindings/clock/moxa,moxart-clock.txt
++++ /dev/null
+@@ -1,48 +0,0 @@
+-Device Tree Clock bindings for arch-moxart
+-
+-This binding uses the common clock binding[1].
+-
+-[1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+-
+-MOXA ART SoCs allow to determine PLL output and APB frequencies
+-by reading registers holding multiplier and divisor information.
+-
+-
+-PLL:
+-
+-Required properties:
+-- compatible : Must be "moxa,moxart-pll-clock"
+-- #clock-cells : Should be 0
+-- reg : Should contain registers location and length
+-- clocks : Should contain phandle + clock-specifier for the parent clock
+-
+-Optional properties:
+-- clock-output-names : Should contain clock name
+-
+-
+-APB:
+-
+-Required properties:
+-- compatible : Must be "moxa,moxart-apb-clock"
+-- #clock-cells : Should be 0
+-- reg : Should contain registers location and length
+-- clocks : Should contain phandle + clock-specifier for the parent clock
+-
+-Optional properties:
+-- clock-output-names : Should contain clock name
+-
+-
+-For example:
+-
+-	clk_pll: clk_pll@98100000 {
+-		compatible = "moxa,moxart-pll-clock";
+-		#clock-cells = <0>;
+-		reg = <0x98100000 0x34>;
+-	};
+-
+-	clk_apb: clk_apb@98100000 {
+-		compatible = "moxa,moxart-apb-clock";
+-		#clock-cells = <0>;
+-		reg = <0x98100000 0x34>;
+-		clocks = <&clk_pll>;
+-	};
+diff --git a/Documentation/devicetree/bindings/clock/moxa,moxart-clock.yaml b/Documentation/devicetree/bindings/clock/moxa,moxart-clock.yaml
+new file mode 100644
+index 000000000000..bcf7cc240eba
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/moxa,moxart-clock.yaml
+@@ -0,0 +1,38 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/moxa,moxart-clock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MOXA ART Clock Controllers
++
++maintainers:
++  - Krzysztof Kozlowski <krzk@kernel.org>
++
++description:
++  MOXA ART SoCs allow to determine PLL output and APB frequencies by reading
++  registers holding multiplier and divisor information.
++
++properties:
++  compatible:
++    enum:
++      - moxa,moxart-apb-clock
++      - moxa,moxart-pll-clock
++
++  "#clock-cells":
++    const: 0
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-output-names: true
++
++additionalProperties: false
++
++required:
++  - compatible
++  - "#clock-cells"
++  - reg
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8a928ae141de..1dcc1b70224f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2893,7 +2893,7 @@ M:	Krzysztof Kozlowski <krzk@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Odd Fixes
+ F:	Documentation/devicetree/bindings/arm/moxart.yaml
+-F:	Documentation/devicetree/bindings/clock/moxa,moxart-clock.txt
++F:	Documentation/devicetree/bindings/clock/moxa,moxart-clock.yaml
+ F:	arch/arm/boot/dts/moxa/
+ F:	drivers/clk/clk-moxart.c
+ 
+-- 
+2.47.2
 
-Hi,
-
-On Mon, Jun 30, 2025 at 08:12:27PM +0200, Diederik de Haas wrote:
-> Hi Nicolas,
->=20
-> On Mon Jun 30, 2025 at 5:36 PM CEST, Nicolas Frattaroli wrote:
-> > The ROCK 4D's actual DC input is 5V, and the schematic names it as being
-> > 5V as well.
-> >
-> > Rename the regulator, and change the voltage it claims to be at.
->=20
-> Shouldn't it have a fixes tag then? Providing 12V where 5V is expected
-> sounds problematic ;-)
-
-This is basically "just" documentation, as the DT just describes
-a fixed regulator (i.e. nothing software controllable). This just
-changes a number in sysfs :)
-
-Note, that the 5V DCIN is a USB-C port, which does not do any PD
-negotiation, but has the 5K1 resistors on the CC lines to "request"
-5V. If for whatever reason a higher voltage is applied (which does
-not happen as long as the power is provided by anything remotely
-following the USB specifications) there also is an over-voltage
-protection chip. So it's not problematic :)
-
-OTOH adding a Fixes tag does not hurt ;)
-
--- Sebastian
-
-> > Furthermore, fix vcc_1v1_nldo_s3's vin-supply as coming from
-> > vcc_5v0_sys, and not the DCIN, as per the schematic. This makes no
-> > functional change; both regulators are always on, and one feeds into the
-> > other.
-> >
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 12 ++++++------
-> >  1 file changed, 6 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm=
-64/boot/dts/rockchip/rk3576-rock-4d.dts
-> > index 6756403111e704cad42f6674d5ab55eb0306f1e3..352e3df165688219bfedc19=
-734d9eb32c547ec44 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> > @@ -57,13 +57,13 @@ user-led {
-> >  		};
-> >  	};
-> > =20
-> > -	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
-> > +	vcc_5v0_dcin: regulator-vcc-5v0-dcin {
-> >  		compatible =3D "regulator-fixed";
-> >  		regulator-always-on;
-> >  		regulator-boot-on;
-> > -		regulator-min-microvolt =3D <12000000>;
-> > -		regulator-max-microvolt =3D <12000000>;
-> > -		regulator-name =3D "vcc_12v0_dcin";
-> > +		regulator-min-microvolt =3D <5000000>;
-> > +		regulator-max-microvolt =3D <5000000>;
-> > +		regulator-name =3D "vcc_5v0_dcin";
-> >  	};
->=20
-> With the name change, this block needs to be moved down.
->=20
-> Cheers,
->   Diederik
-> > =20
-> >  	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-> > @@ -166,7 +166,7 @@ vcc_5v0_device: regulator-vcc-5v0-device {
-> >  		regulator-min-microvolt =3D <5000000>;
-> >  		regulator-max-microvolt =3D <5000000>;
-> >  		regulator-name =3D "vcc_5v0_device";
-> > -		vin-supply =3D <&vcc_12v0_dcin>;
-> > +		vin-supply =3D <&vcc_5v0_sys>;
-> >  	};
-> > =20
-> >  	vcc_5v0_host: regulator-vcc-5v0-host {
-> > @@ -190,7 +190,7 @@ vcc_5v0_sys: regulator-vcc-5v0-sys {
-> >  		regulator-min-microvolt =3D <5000000>;
-> >  		regulator-max-microvolt =3D <5000000>;
-> >  		regulator-name =3D "vcc_5v0_sys";
-> > -		vin-supply =3D <&vcc_12v0_dcin>;
-> > +		vin-supply =3D <&vcc_5v0_dcin>;
-> >  	};
-> >  };
-> > =20
->=20
-
-
-
---d22k3ikyl4mwgwcs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhjGVgACgkQ2O7X88g7
-+pq8fhAAkPFlVvN2lEwUG4bNLm+GgZTuLazptAsw4tjhJ84qzDA8jiPT//VFbSYo
-Rkx2KZD9GEeBnjW8bVDqNhEKrcHR5AoBBmciXgNeCvFPon/YR9zC5aYnGmb3MgYL
-Qwn7dbpwtKwSdTPC4p0xOH706rJn7gORx6VhIy1jls8lX0VyU+RsKs+9axztrlIO
-YAFGNwtTJgUSaBzDKhbGtswmi3pNZVef+4RgM6nJhaf7x1LClFnCvyL3q0Ma0uKn
-gI5PWZ5X+qKh5wxAbVNTB4U597AzukdK94OAZS7/vSGpMhXPcTGPB+VlXvE5vPbr
-c3mquGrcPSW47wpcI+8v+OmY0u/EuvCDqfWb2XovQst01FPL4FXPZzSjkFsHWoJ0
-aV5pb9JBHdt+HIVv4B8/jwabVtFIi+7x4Ma19I72tkFcOv7+Ue6u8ox41Fs0oGDg
-CTo1boGHCv8hsF0Z74hQAiZnGXHUrdjsdIzEY/02o4+b3+h0IeLYdQbzc9S1aEV5
-UA2RpUaQweHy7JZ0odYY2jj3JbGa8mwPien/JZN78K+LW3kuJfHXr7R6aCrdHyzt
-TZCR9uxodGvF8UO4vSfjA/URXoAp1DXS5Sb6ltJYCQZ3ZzAv6YvTHJaa4rrNqubh
-1Vrnf014Tm6oa7arlUHzgfZ+mDEPj3FFutGz/JLmcn/GC3AppsA=
-=c3Lc
------END PGP SIGNATURE-----
-
---d22k3ikyl4mwgwcs--
 
