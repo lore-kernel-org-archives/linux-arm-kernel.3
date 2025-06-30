@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D13C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D688CC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 20:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSkubfhqVXLd7YH+k9rQ3uDHyM9ioOoYHsHETArWmSk=; b=iy0glrsfATu9u+u/sCkGADBwDr
-	MKN/FjCgy+fNHyzbqZGKvDmzmBKwrOHvbTPrpGtG5/R5x/uoEeFxIAIgtWYTQza3+4VFAw3NkPLvd
-	d+Ifsl9LbFVPTtD1AA8pb6LpoIN8cKANy+wm6j3uyPIdc+KgDPbzzkF2w1opUOsWIQ+4j2ItQvv2c
-	FerSoFNHLdbuqPREooUAYG09Wm8SmtHUs9y5G7+yWs1TwofRuAggfLe6AvhmZk3/oUmkGfD0tYvOc
-	U3bLO+NOpMpb4EL3pBfHifvVxeR/A7IsSTQ0/2q5AoS2KfukU2Vu0NHs8z3RUUVIiyqg39Faal+RN
-	Yy0+zXbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rBUTDTzHFfwcfiT7i6BHSGVXrToMoBPF9YjK4qz9/CM=; b=0P3rIpT3A/IYS2A4r4f4qsEFHT
+	2BYJozQygBpHJA6w9g3Ye10rujJfP1Xzkr+M+/UBk81dKab0WoTzFYL4IKDPMCRWKTjdAnp97XbCy
+	7FdiWvVdX+t9NrFP+hnbD8Awq374kgu8L2IM7J7dIoiUSppwseJFzd5rT07NCYG971RqEULTF8sy9
+	vlbSVESRhQFkTbIZd8YGk53faQQ+B2ff8hFlhtlcWNXjjZ3V2FJSkVy+PTaNIouuhDRKbuUXweOe9
+	MZ1pd6hLQQTSTM7OT9OGHBSRAIT2jA/mWMWyIIbRTxc7xQVfqPc51/WTLzQG+6O/5onlU6GsNHp00
+	tPSnXotw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWKRy-00000003KRh-19rC;
-	Mon, 30 Jun 2025 19:45:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWKhw-00000003Luz-2y6e;
+	Mon, 30 Jun 2025 20:02:28 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWKPY-00000003Jvp-3DKF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 19:43:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8B96A53421
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 19:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B4EC4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 19:43:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751312607;
-	bh=ZSkubfhqVXLd7YH+k9rQ3uDHyM9ioOoYHsHETArWmSk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fL4n7rb16aEtoVokpBJRrVUOKTTZVhtTlR7guYgXhpca7bVPSjGL+7lKFKPGZzWJ1
-	 CXXYIi9Tn2V5fOF1JS+Mfu+mA411JumoDbgtHAgbsnjZRMnZRBlB/mdg5WgCK/z/a8
-	 e7lUsIkj0JPgL+n8K9W9AFSTZ7x1BHpf1gNctrZRycJS6W6rZ0+U7pcq0fdzLCH3RR
-	 VBdajIb1KVziXTZzFpK1uD0ub/hp2jJywmUBf3UoKSoqtvbo7qztti9zU/WH5aY63/
-	 UCUjbRXO8Din21t+4S53orbU4zYXHVqvHO5EE4b8Mr+nijBOYz6srIRUKHStcj5Or+
-	 h+1Bpc4w73aUA==
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-ad56cbc7b07so440889266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:43:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVoHjuDupH3hRa1oT+3bTwCC9irPgROuho7iQtVSuN7OTz37xpyDvfpQvKbjYHHEZGmk4EWMfD5YW04Ej1Bpo+/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy68InUCIDUa0+03lA0s7LbPkgks8TcLWh9y1SpvaJCjdfp8sGi
-	178N9gb1z1LDiZhvhALpudeQ37NsFxyv7UVuKy7phwJEguUo1f02cY3RoIvRhLYAHXa1PjEfLoA
-	ca2n2i05/iDpY6v5mXLR+oDzmNTZAaA==
-X-Google-Smtp-Source: AGHT+IFKZ/kbBUfwZnqm7gEA5iSt95YpqCW1f5i6bgaXWikT6oqEphe4Aq6o75Dpbzy9bVcKNeNOa9VWgkYugZj0oW0=
-X-Received: by 2002:a17:907:3f99:b0:adb:1eee:a083 with SMTP id
- a640c23a62f3a-ae350101214mr1208078666b.47.1751312605837; Mon, 30 Jun 2025
- 12:43:25 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250613130356.8080-1-james.morse@arm.com> <20250613130356.8080-3-james.morse@arm.com>
- <CAL_Jsq+rsBq1Dsw4+hfkMhopN9Pdwyp9JJbqeT6yB+d++s4v7g@mail.gmail.com> <ee08ba7e-2669-447f-ae04-5a6b00a16e77@arm.com>
-In-Reply-To: <ee08ba7e-2669-447f-ae04-5a6b00a16e77@arm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 30 Jun 2025 14:43:14 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+mXkQTM-zbozPGkCQ40CusOUudWgtaxx_ufqL+0t96mQ@mail.gmail.com>
-X-Gm-Features: Ac12FXztdZ7tU869i3uqHvpyvYlVYuzqfpcGXRVIaR9xnjjoItGphSvr73c5ZSM
-Message-ID: <CAL_Jsq+mXkQTM-zbozPGkCQ40CusOUudWgtaxx_ufqL+0t96mQ@mail.gmail.com>
-Subject: Re: [PATCH 2/5] cacheinfo: Add arch hook to compress CPU h/w id into
- 32 bits for cache-id
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com, 
-	Ben Horgan <ben.horgan@arm.com>
+	id 1uWKfc-00000003LiM-0P19;
+	Mon, 30 Jun 2025 20:00:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751313593; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=oIyis2lLopynTJij4VlBnmivGgF3rJiq5l0M9s4Gb9dTR0a4XO7JFS0I8PWuLEbP2Vqln/JcxEJadChK7k/WpviSiUJuKuEGxCYxL52r2rC7yRYgkDRiXq0hJv/EtX7oSoRZbwkzz2GaFLdDERDZc/89zdttry8CcTzA5qV3YZw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751313593; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rBUTDTzHFfwcfiT7i6BHSGVXrToMoBPF9YjK4qz9/CM=; 
+	b=WCPdN3ntfbZw5YLGEYsETWBGt+VZpOrJpBG0FxQY4i+t2wIHE+2h3UEshYE1Sai8dYafsxRNkzBh9LBNdSHCyOUq2/gcKir9/GJAEZz3X0AB1aujzTk1DC5ScmbIRluUXi/K7TR7rASsTQdOh4Twp/ZhwPKT34clh5rY4VyPYQE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751313593;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=rBUTDTzHFfwcfiT7i6BHSGVXrToMoBPF9YjK4qz9/CM=;
+	b=SWLqK6BwRQHFLSqizYCw1ukwzLPYtLySRrigRfm6BKHU+S7rphQY2YZhCXRBgIEl
+	SaDeB4CiA/KP939AYQF1y+iv/PMgTpb8K8nbfrUErz8j5RGxnMEqJn465ZDEawpTg+4
+	bFjQZGfMjthNskVrx4KrB7Uv9NhqrEUY6kmN2EZc=
+Received: by mx.zohomail.com with SMTPS id 1751313591718941.3513556291028;
+	Mon, 30 Jun 2025 12:59:51 -0700 (PDT)
+Message-ID: <48f573941d64217240f4750534e17faf4af0e3f6.camel@collabora.com>
+Subject: Re: [PATCH] Input: mtk-pmic-keys: Fix null pointer dereference when
+ no compatible data
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, AngeloGioacchino Del Regno
+	 <angelogioacchino.delregno@collabora.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, kernel@collabora.com,
+ linux-input@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-mediatek@lists.infradead.org
+Date: Mon, 30 Jun 2025 15:59:46 -0400
+In-Reply-To: <d373gpdyqejppdysdbb4k6aat5i33epnqsebxdkjbrgfwsnqtm@43si4kmjvsmq>
+References: <20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com>
+	 <28111607-d5a2-4b54-964a-d010fb99193a@collabora.com>
+	 <d373gpdyqejppdysdbb4k6aat5i33epnqsebxdkjbrgfwsnqtm@43si4kmjvsmq>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_124328_935003_92E52456 
-X-CRM114-Status: GOOD (  36.76  )
+X-CRM114-CacheID: sfid-20250630_130004_200532_977C05F3 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,101 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 11:38=E2=80=AFAM James Morse <james.morse@arm.com> =
-wrote:
->
-> Hi Rob,
->
-> On 23/06/2025 15:48, Rob Herring wrote:
-> > On Fri, Jun 13, 2025 at 8:04=E2=80=AFAM James Morse <james.morse@arm.co=
-m> wrote:
-> >> Filesystems like resctrl use the cache-id exposed via sysfs to identif=
-y
-> >> groups of CPUs. The value is also used for PCIe cache steering tags. O=
-n
-> >> DT platforms cache-id is not something that is described in the
-> >> device-tree, but instead generated from the smallest CPU h/w id of the
-> >> CPUs associated with that cache.
-> >>
-> >> CPU h/w ids may be larger than 32 bits.
-> >>
-> >> Add a hook to allow architectures to compress the value from the devic=
-etree
-> >> into 32 bits. Returning the same value is always safe as cache_of_set_=
-id()
-> >> will stop if a value larger than 32 bits is seen.
-> >>
-> >> For example, on arm64 the value is the MPIDR affinity register, which =
-only
-> >> has 32 bits of affinity data, but spread across the 64 bit field. An
-> >> arch-specific bit swizzle gives a 32 bit value.
->
-> > What's missing here is why do we need the cache id to be only 32-bits?
-> > I suppose it is because the sysfs 'id' file has been implicitly that?
->
-> Yup, and its too late to change.
->
->
-> > Why can't we just allow 64-bit values there? Obviously, you can't have
-> > a 64-bit value on x86 because that might break existing userspace.
->
-> It's the same user-space. Users of resctrl should be portable between arc=
-hitectures.
-> Resctrl isn't the only user, of the cache-id field.
->
->
-> > But for Arm, there is no existing userspace to break.
->
-> libvirt: https://github.com/libvirt/libvirt/blob/master/src/util/virresct=
-rl.c#L1588
+On Mon, 2025-06-30 at 08:25 -0700, Dmitry Torokhov wrote:
+> On Mon, Jun 30, 2025 at 04:06:53PM +0200, AngeloGioacchino Del Regno
+> wrote:
+> > Il 30/06/25 16:03, Louis-Alexis Eyraud ha scritto:
+>=20
+> [... snip ...]
+>=20
+> > > @@ -316,6 +316,9 @@ static int mtk_pmic_keys_probe(struct
+> > > platform_device *pdev)
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0const struct of_devic=
+e_id *of_id =3D
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0of_match_device(of_mtk_pmic_keys_match_tbl,
+> > > &pdev->dev);
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (!of_id)
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0return -EINVAL;
+> >=20
+> > Please, change this to `return -ENODEV;`
+>=20
+> No, this definitely should not be a "silent" error because it
+> indicates
+> there is something wrong with the kernel.
+>=20
+> Stepping back, why do we even enter mtk_pmic_keys_probe() if there is
+> not a matching OF ID? Are there any other patches that are not
+> upstream?
 
-Looks to me like AMD wasn't even supported til v10.8.0 (2024-10-01)[1].
+I'm guessing it's because the driver can be probed by a parent MFD
+driver, drivers/mfd/mt6397-core.c, and the compatibles defined in the
+MFD don't necessarily match the ones in the pmic-keys driver, for
+instance 'mediatek,mt6359-keys' is only listed in the MFD. Adding the
+missing compatibles to the pmic-keys driver should fix this.
 
-> DPDK: http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vithanag=
-e@arm.com/
 
-Is that even applied yet?
+--=20
+Thanks,
 
-> > Even with 32-bits,
-> > it is entirely possible that an existing userspace assumed values less
-> > than 32-bits and would be broken for Arm as-is.
->
-> Sure, but I've not found a project where that is broken yet.
->
->
-> > It is obviously nice
-> > if we can avoid modifying userspace, but I don't think that's a
-> > requirement and I'd be surprised if there's not other things that need
-> > to be adapted for MPAM support.
->
-> The whole multi-year effort has been to make existing user-space work wit=
-hout any ABI
-> changes. The effect is some platforms have features that can't be used be=
-cause resctrl
-> expects things to be Xeon shaped.
-> But if your platform looks a bit like a Xeon (cache portion controls on t=
-he L3, memory
-> bandwidth controls somewhere that is believably the L3), then resctrl wor=
-ks as it does on
-> Intel. The only thing that has come a little unstuck is the 'num_rmid' pr=
-operty where MPAM
-> doesn't have an equivalent, so '1' is exposed as a safe value.
-
-Fair enough, but I'd be rather surprised if there doesn't end up being
-changes to support Arm platforms.
-
-> > Also, what if an architecture can't swizzle their value into 32-bits?
-> > They would be stuck with requiring userspace to deal with 64-bit
-> > values.
->
-> Remap them in a more complicated way. Chances are there aren't 2^32 CPUs.
-
-What about using the logical CPU number instead? That's stable for a
-given machine and firmware. And then instead of having 3 sets of
-numbers (MPIDR, compressed MPIDR, and logical CPU), we'd still only
-have 2. And logical CPU is what sysfs already exposes to userspace.
-
-Rob
-
-[1] https://libvirt.org/news.html
+N=C3=ADcolas
 
