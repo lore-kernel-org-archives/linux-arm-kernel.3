@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE7FC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 13:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42973C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 13:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lb1DV3y/uOm6+uVLY5G88kr69r0JHzl59KDXJQyTX8o=; b=kb5nuO7lH88aMUREvHHl+B4ZIR
-	o6JZqqr9k/q0fmRgrcxl8iV/I/G04EN+ti/3kgdP/4Te+OKFNDNsND4X5AppS3UTNOsIkS7WD2tDs
-	VAOnAjrPrI/6oNPt7JH7UKgkvpUkQDzocfCHQL2AUjrR7hcAe7H58+FhFCbTsjLY3PsEqD22Ol6v1
-	stYl7713NSOWHywgNstMeHNgKeJHjbRE/9wGtvPjLPf5iTeNaAynWcI9OLRWSk/iitsF4cwR38Lct
-	QiwUAWphJ3w6wL3wGyvhD1zTQrEVanxzJjD5X6KIBCQWJAR85Mg3aWVGVHRGs1J9lrxqIP2U5jpbf
-	7y9rcvtA==;
+	bh=bzn9n/fLy73HwmMspfOEc91795+0OoYjCF9qsJwjWnk=; b=C3uXNVYKICL0o8RuEm7sACcFtK
+	AZXela/r+V6/upPa4VqAVgmF60+evHGjlD2SHLU0+wvg0U+ccoZ9jdhjbr7ZEdLOgdG3cl0SKxSxz
+	H2HNwYblfgrqU8TrSLPLWQNKE42dMdowNwJI+YmOOWq74OVjjB9oDnTuIppec2kBmO8RVTOcJcSz5
+	JMBJbvQpXWZu2yFWBSUSH5hMzmtoRcfcEQwgn7tEPzI/UDmxIG2dD07kx+TKd9452v4wBE8o8rIYF
+	2Vb4kPrBm9ZeQL34MHchT2Nwl9nZcmTjh+rdCtZMGW3FJtig/UMz0h0k/3K5N58Ur0zb8ROXQ8ZQ1
+	CvKyRUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWEfz-00000002OXB-4BLK;
-	Mon, 30 Jun 2025 13:36:04 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uWEiH-00000002Otf-32aJ;
+	Mon, 30 Jun 2025 13:38:25 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWEXq-00000002N9c-3yoB
+	id 1uWEXq-00000002N9b-49y1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 13:27:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bW6My0vcWz1R8CD;
-	Mon, 30 Jun 2025 21:25:02 +0800 (CST)
+	Mon, 30 Jun 2025 13:27:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bW6Np1142z29dy6;
+	Mon, 30 Jun 2025 21:25:46 +0800 (CST)
 Received: from kwepemh100007.china.huawei.com (unknown [7.202.181.92])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4ED7E1A0171;
-	Mon, 30 Jun 2025 21:27:32 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id AF20514027A;
+	Mon, 30 Jun 2025 21:27:30 +0800 (CST)
 Received: from huawei.com (10.67.174.33) by kwepemh100007.china.huawei.com
  (7.202.181.92) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 30 Jun
- 2025 21:27:31 +0800
+ 2025 21:27:29 +0800
 From: Gu Bowen <gubowen5@huawei.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, David Howells
 	<dhowells@redhat.com>, David Woodhouse <dwmw2@infradead.org>, Lukas Wunner
@@ -50,9 +50,9 @@ CC: <keyrings@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-crypto@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, Lu Jialin <lujialin4@huawei.com>,
 	GONG Ruiqi <gongruiqi1@huawei.com>, Gu Bowen <gubowen5@huawei.com>
-Subject: [PATCH RFC 3/4] crypto/sm2: Rework sm2 alg with sig_alg backend
-Date: Mon, 30 Jun 2025 21:39:33 +0800
-Message-ID: <20250630133934.766646-4-gubowen5@huawei.com>
+Subject: [PATCH RFC 1/4] Revert "Revert "lib/mpi: Extend the MPI library""
+Date: Mon, 30 Jun 2025 21:39:31 +0800
+Message-ID: <20250630133934.766646-2-gubowen5@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250630133934.766646-1-gubowen5@huawei.com>
 References: <20250630133934.766646-1-gubowen5@huawei.com>
@@ -63,8 +63,8 @@ X-Originating-IP: [10.67.174.33]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  kwepemh100007.china.huawei.com (7.202.181.92)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_062739_380338_13DDA81A 
-X-CRM114-Status: GOOD (  27.79  )
+X-CRM114-CacheID: sfid-20250630_062739_607532_23EFA6AE 
+X-CRM114-Status: GOOD (  28.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,702 +79,1436 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on preivous sm2 implementations ea7ecb66440b("crypto: sm2 -
-introduce OSCCA SM2 asymmetric cipher algorithm"), rework sm2 alg with
-sig_alg backend.
+This reverts commit fca5cb4dd2b4a9423cb6d112cc71c33899955a1f.
+
+Reintroduce the mpi library based on libgcrypt to support sm2.
 
 Signed-off-by: Gu Bowen <gubowen5@huawei.com>
 ---
- crypto/Kconfig           |  18 ++
- crypto/Makefile          |   8 +
- crypto/sm2.c             | 492 +++++++++++++++++++++++++++++++++++++++
- crypto/sm2signature.asn1 |   4 +
- crypto/testmgr.c         |   6 +
- crypto/testmgr.h         |  57 +++++
- include/crypto/sm2.h     |  31 +++
- 7 files changed, 616 insertions(+)
- create mode 100644 crypto/sm2.c
- create mode 100644 crypto/sm2signature.asn1
- create mode 100644 include/crypto/sm2.h
+ include/linux/mpi.h           |  65 +++++++
+ lib/crypto/mpi/Makefile       |   1 +
+ lib/crypto/mpi/mpi-add.c      |  50 +++++
+ lib/crypto/mpi/mpi-bit.c      | 143 +++++++++++++++
+ lib/crypto/mpi/mpi-cmp.c      |  46 ++++-
+ lib/crypto/mpi/mpi-div.c      |  29 +++
+ lib/crypto/mpi/mpi-internal.h |  10 +
+ lib/crypto/mpi/mpi-inv.c      | 143 +++++++++++++++
+ lib/crypto/mpi/mpi-mod.c      | 144 +++++++++++++++
+ lib/crypto/mpi/mpicoder.c     | 336 ++++++++++++++++++++++++++++++++++
+ lib/crypto/mpi/mpih-mul.c     |  25 +++
+ lib/crypto/mpi/mpiutil.c      | 182 ++++++++++++++++++
+ 12 files changed, 1164 insertions(+), 10 deletions(-)
+ create mode 100644 lib/crypto/mpi/mpi-inv.c
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index e1cfd0d4cc8f..7bd6f025d29d 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -344,6 +344,24 @@ config CRYPTO_ECRDSA
- 	  One of the Russian cryptographic standard algorithms (called GOST
- 	  algorithms). Only signature verification is implemented.
+diff --git a/include/linux/mpi.h b/include/linux/mpi.h
+index 47be46f36435..9ad7e7231ee9 100644
+--- a/include/linux/mpi.h
++++ b/include/linux/mpi.h
+@@ -40,33 +40,87 @@ struct gcry_mpi {
+ typedef struct gcry_mpi *MPI;
  
-+config CRYPTO_SM2
-+        tristate "SM2 algorithm"
-+        select CRYPTO_SM3
-+        select CRYPTO_SIG
-+        select CRYPTO_MANAGER
-+        select MPILIB
-+        select ASN1
-+        help
-+          Generic implementation of the SM2 public key algorithm. It was
-+          published by State Encryption Management Bureau, China.
-+          as specified by OSCCA GM/T 0003.1-2012 -- 0003.5-2012.
-+
-+          References:
-+          https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02
-+          http://www.oscca.gov.cn/sca/xxgk/2010-12/17/content_1002386.shtml
-+          http://www.gmbz.org.cn/main/bzlb.html
-+
-+
- config CRYPTO_CURVE25519
- 	tristate "Curve25519"
- 	select CRYPTO_KPP
-diff --git a/crypto/Makefile b/crypto/Makefile
-index 017df3a2e4bb..e36953356f68 100644
---- a/crypto/Makefile
-+++ b/crypto/Makefile
-@@ -52,6 +52,14 @@ rsa_generic-y += rsa-pkcs1pad.o
- rsa_generic-y += rsassa-pkcs1.o
- obj-$(CONFIG_CRYPTO_RSA) += rsa_generic.o
+ #define mpi_get_nlimbs(a)     ((a)->nlimbs)
++#define mpi_has_sign(a)       ((a)->sign)
  
-+$(obj)/sm2signature.asn1.o: $(obj)/sm2signature.asn1.c $(obj)/sm2signature.asn1.h
-+$(obj)/sm2.o: $(obj)/sm2signature.asn1.h
+ /*-- mpiutil.c --*/
+ MPI mpi_alloc(unsigned nlimbs);
++void mpi_clear(MPI a);
+ void mpi_free(MPI a);
+ int mpi_resize(MPI a, unsigned nlimbs);
+ 
++static inline MPI mpi_new(unsigned int nbits)
++{
++	return mpi_alloc((nbits + BITS_PER_MPI_LIMB - 1) / BITS_PER_MPI_LIMB);
++}
 +
-+sm2_generic-y += sm2signature.asn1.o
-+sm2_generic-y += sm2.o
+ MPI mpi_copy(MPI a);
++MPI mpi_alloc_like(MPI a);
++void mpi_snatch(MPI w, MPI u);
++MPI mpi_set(MPI w, MPI u);
++MPI mpi_set_ui(MPI w, unsigned long u);
++MPI mpi_alloc_set_ui(unsigned long u);
++void mpi_swap_cond(MPI a, MPI b, unsigned long swap);
 +
-+obj-$(CONFIG_CRYPTO_SM2) += sm2_generic.o
++/* Constants used to return constant MPIs.  See mpi_init if you
++ * want to add more constants.
++ */
++#define MPI_NUMBER_OF_CONSTANTS 6
++enum gcry_mpi_constants {
++	MPI_C_ZERO,
++	MPI_C_ONE,
++	MPI_C_TWO,
++	MPI_C_THREE,
++	MPI_C_FOUR,
++	MPI_C_EIGHT
++};
 +
- $(obj)/ecdsasignature.asn1.o: $(obj)/ecdsasignature.asn1.c $(obj)/ecdsasignature.asn1.h
- $(obj)/ecdsa-x962.o: $(obj)/ecdsasignature.asn1.h
- ecdsa_generic-y += ecdsa.o
-diff --git a/crypto/sm2.c b/crypto/sm2.c
-new file mode 100644
-index 000000000000..31e10fcee13c
---- /dev/null
-+++ b/crypto/sm2.c
-@@ -0,0 +1,492 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
++MPI mpi_const(enum gcry_mpi_constants no);
+ 
+ /*-- mpicoder.c --*/
++
++/* Different formats of external big integer representation. */
++enum gcry_mpi_format {
++	GCRYMPI_FMT_NONE = 0,
++	GCRYMPI_FMT_STD = 1,    /* Twos complement stored without length. */
++	GCRYMPI_FMT_PGP = 2,    /* As used by OpenPGP (unsigned only). */
++	GCRYMPI_FMT_SSH = 3,    /* As used by SSH (like STD but with length). */
++	GCRYMPI_FMT_HEX = 4,    /* Hex format. */
++	GCRYMPI_FMT_USG = 5,    /* Like STD but unsigned. */
++	GCRYMPI_FMT_OPAQUE = 8  /* Opaque format (some functions only). */
++};
++
+ MPI mpi_read_raw_data(const void *xbuffer, size_t nbytes);
+ MPI mpi_read_from_buffer(const void *buffer, unsigned *ret_nread);
++int mpi_fromstr(MPI val, const char *str);
++MPI mpi_scanval(const char *string);
+ MPI mpi_read_raw_from_sgl(struct scatterlist *sgl, unsigned int len);
+ void *mpi_get_buffer(MPI a, unsigned *nbytes, int *sign);
+ int mpi_read_buffer(MPI a, uint8_t *buf, unsigned buf_len, unsigned *nbytes,
+ 		    int *sign);
+ int mpi_write_to_sgl(MPI a, struct scatterlist *sg, unsigned nbytes,
+ 		     int *sign);
++int mpi_print(enum gcry_mpi_format format, unsigned char *buffer,
++			size_t buflen, size_t *nwritten, MPI a);
+ 
+ /*-- mpi-mod.c --*/
+ int mpi_mod(MPI rem, MPI dividend, MPI divisor);
+ 
++/* Context used with Barrett reduction.  */
++struct barrett_ctx_s;
++typedef struct barrett_ctx_s *mpi_barrett_t;
++
++mpi_barrett_t mpi_barrett_init(MPI m, int copy);
++void mpi_barrett_free(mpi_barrett_t ctx);
++void mpi_mod_barrett(MPI r, MPI x, mpi_barrett_t ctx);
++void mpi_mul_barrett(MPI w, MPI u, MPI v, mpi_barrett_t ctx);
++
+ /*-- mpi-pow.c --*/
+ int mpi_powm(MPI res, MPI base, MPI exp, MPI mod);
+ 
+ /*-- mpi-cmp.c --*/
+ int mpi_cmp_ui(MPI u, ulong v);
+ int mpi_cmp(MPI u, MPI v);
++int mpi_cmpabs(MPI u, MPI v);
+ 
+ /*-- mpi-sub-ui.c --*/
+ int mpi_sub_ui(MPI w, MPI u, unsigned long vval);
+@@ -76,9 +130,16 @@ void mpi_normalize(MPI a);
+ unsigned mpi_get_nbits(MPI a);
+ int mpi_test_bit(MPI a, unsigned int n);
+ int mpi_set_bit(MPI a, unsigned int n);
++void mpi_set_highbit(MPI a, unsigned int n);
++void mpi_clear_highbit(MPI a, unsigned int n);
++void mpi_clear_bit(MPI a, unsigned int n);
++void mpi_rshift_limbs(MPI a, unsigned int count);
+ int mpi_rshift(MPI x, MPI a, unsigned int n);
++void mpi_lshift_limbs(MPI a, unsigned int count);
++void mpi_lshift(MPI x, MPI a, unsigned int n);
+ 
+ /*-- mpi-add.c --*/
++void mpi_add_ui(MPI w, MPI u, unsigned long v);
+ int mpi_add(MPI w, MPI u, MPI v);
+ int mpi_sub(MPI w, MPI u, MPI v);
+ int mpi_addm(MPI w, MPI u, MPI v, MPI m);
+@@ -91,6 +152,10 @@ int mpi_mulm(MPI w, MPI u, MPI v, MPI m);
+ /*-- mpi-div.c --*/
+ int mpi_tdiv_r(MPI rem, MPI num, MPI den);
+ int mpi_fdiv_r(MPI rem, MPI dividend, MPI divisor);
++void mpi_fdiv_q(MPI quot, MPI dividend, MPI divisor);
++
++/*-- mpi-inv.c --*/
++int mpi_invm(MPI x, MPI a, MPI n);
+ 
+ /* inline functions */
+ 
+diff --git a/lib/crypto/mpi/Makefile b/lib/crypto/mpi/Makefile
+index 9ad84079025a..477debd7ed50 100644
+--- a/lib/crypto/mpi/Makefile
++++ b/lib/crypto/mpi/Makefile
+@@ -19,6 +19,7 @@ mpi-y = \
+ 	mpi-cmp.o			\
+ 	mpi-sub-ui.o			\
+ 	mpi-div.o			\
++	mpi-inv.o			\
+ 	mpi-mod.o			\
+ 	mpi-mul.o			\
+ 	mpih-cmp.o			\
+diff --git a/lib/crypto/mpi/mpi-add.c b/lib/crypto/mpi/mpi-add.c
+index 3015140d4860..020371891991 100644
+--- a/lib/crypto/mpi/mpi-add.c
++++ b/lib/crypto/mpi/mpi-add.c
+@@ -13,6 +13,56 @@
+ 
+ #include "mpi-internal.h"
+ 
++/****************
++ * Add the unsigned integer V to the mpi-integer U and store the
++ * result in W. U and V may be the same.
++ */
++void mpi_add_ui(MPI w, MPI u, unsigned long v)
++{
++	mpi_ptr_t wp, up;
++	mpi_size_t usize, wsize;
++	int usign, wsign;
++
++	usize = u->nlimbs;
++	usign = u->sign;
++	wsign = 0;
++
++	/* If not space for W (and possible carry), increase space.  */
++	wsize = usize + 1;
++	if (w->alloced < wsize)
++		mpi_resize(w, wsize);
++
++	/* These must be after realloc (U may be the same as W).  */
++	up = u->d;
++	wp = w->d;
++
++	if (!usize) {  /* simple */
++		wp[0] = v;
++		wsize = v ? 1:0;
++	} else if (!usign) {  /* mpi is not negative */
++		mpi_limb_t cy;
++		cy = mpihelp_add_1(wp, up, usize, v);
++		wp[usize] = cy;
++		wsize = usize + cy;
++	} else {
++		/* The signs are different.  Need exact comparison to determine
++		 * which operand to subtract from which.
++		 */
++		if (usize == 1 && up[0] < v) {
++			wp[0] = v - up[0];
++			wsize = 1;
++		} else {
++			mpihelp_sub_1(wp, up, usize, v);
++			/* Size can decrease with at most one limb. */
++			wsize = usize - (wp[usize-1] == 0);
++			wsign = 1;
++		}
++	}
++
++	w->nlimbs = wsize;
++	w->sign   = wsign;
++}
++
+ int mpi_add(MPI w, MPI u, MPI v)
+ {
+ 	mpi_ptr_t wp, up, vp;
+diff --git a/lib/crypto/mpi/mpi-bit.c b/lib/crypto/mpi/mpi-bit.c
+index 934d81311360..4790d5b8a216 100644
+--- a/lib/crypto/mpi/mpi-bit.c
++++ b/lib/crypto/mpi/mpi-bit.c
+@@ -32,6 +32,7 @@ void mpi_normalize(MPI a)
+ 	for (; a->nlimbs && !a->d[a->nlimbs - 1]; a->nlimbs--)
+ 		;
+ }
++EXPORT_SYMBOL_GPL(mpi_normalize);
+ 
+ /****************
+  * Return the number of bits in A.
+@@ -97,6 +98,85 @@ int mpi_set_bit(MPI a, unsigned int n)
+ }
+ EXPORT_SYMBOL_GPL(mpi_set_bit);
+ 
++/****************
++ * Set bit N of A. and clear all bits above
++ */
++void mpi_set_highbit(MPI a, unsigned int n)
++{
++	unsigned int i, limbno, bitno;
++
++	limbno = n / BITS_PER_MPI_LIMB;
++	bitno  = n % BITS_PER_MPI_LIMB;
++
++	if (limbno >= a->nlimbs) {
++		for (i = a->nlimbs; i < a->alloced; i++)
++			a->d[i] = 0;
++		mpi_resize(a, limbno+1);
++		a->nlimbs = limbno+1;
++	}
++	a->d[limbno] |= (A_LIMB_1<<bitno);
++	for (bitno++; bitno < BITS_PER_MPI_LIMB; bitno++)
++		a->d[limbno] &= ~(A_LIMB_1 << bitno);
++	a->nlimbs = limbno+1;
++}
++EXPORT_SYMBOL_GPL(mpi_set_highbit);
++
++/****************
++ * clear bit N of A and all bits above
++ */
++void mpi_clear_highbit(MPI a, unsigned int n)
++{
++	unsigned int limbno, bitno;
++
++	limbno = n / BITS_PER_MPI_LIMB;
++	bitno  = n % BITS_PER_MPI_LIMB;
++
++	if (limbno >= a->nlimbs)
++		return; /* not allocated, therefore no need to clear bits :-) */
++
++	for ( ; bitno < BITS_PER_MPI_LIMB; bitno++)
++		a->d[limbno] &= ~(A_LIMB_1 << bitno);
++	a->nlimbs = limbno+1;
++}
++
++/****************
++ * Clear bit N of A.
++ */
++void mpi_clear_bit(MPI a, unsigned int n)
++{
++	unsigned int limbno, bitno;
++
++	limbno = n / BITS_PER_MPI_LIMB;
++	bitno  = n % BITS_PER_MPI_LIMB;
++
++	if (limbno >= a->nlimbs)
++		return; /* Don't need to clear this bit, it's far too left.  */
++	a->d[limbno] &= ~(A_LIMB_1 << bitno);
++}
++EXPORT_SYMBOL_GPL(mpi_clear_bit);
++
++
++/****************
++ * Shift A by COUNT limbs to the right
++ * This is used only within the MPI library
++ */
++void mpi_rshift_limbs(MPI a, unsigned int count)
++{
++	mpi_ptr_t ap = a->d;
++	mpi_size_t n = a->nlimbs;
++	unsigned int i;
++
++	if (count >= n) {
++		a->nlimbs = 0;
++		return;
++	}
++
++	for (i = 0; i < n - count; i++)
++		ap[i] = ap[i+count];
++	ap[i] = 0;
++	a->nlimbs -= count;
++}
++
+ /*
+  * Shift A by N bits to the right.
+  */
+@@ -173,3 +253,66 @@ int mpi_rshift(MPI x, MPI a, unsigned int n)
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(mpi_rshift);
++
++/****************
++ * Shift A by COUNT limbs to the left
++ * This is used only within the MPI library
++ */
++void mpi_lshift_limbs(MPI a, unsigned int count)
++{
++	mpi_ptr_t ap;
++	int n = a->nlimbs;
++	int i;
++
++	if (!count || !n)
++		return;
++
++	RESIZE_IF_NEEDED(a, n+count);
++
++	ap = a->d;
++	for (i = n-1; i >= 0; i--)
++		ap[i+count] = ap[i];
++	for (i = 0; i < count; i++)
++		ap[i] = 0;
++	a->nlimbs += count;
++}
++
 +/*
-+ * SM2 asymmetric public-key algorithm
-+ * as specified by OSCCA GM/T 0003.1-2012 -- 0003.5-2012 SM2 and
-+ * described at https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02
-+ *
-+ * Copyright (c) 2020, Alibaba Group.
-+ * Authors: Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
-+ *
-+ * Copyright (c) 2025, Huawei Tech. Co., Ltd.
-+ * Authors: Gu Bowen <gubowen5@huawei.com>
++ * Shift A by N bits to the left.
 + */
-+
-+#include <linux/module.h>
-+#include <linux/mpi.h>
-+#include <crypto/hash.h>
-+#include <crypto/sm3_base.h>
-+#include <crypto/rng.h>
-+#include <crypto/sm2.h>
-+#include <crypto/sig.h>
-+#include <crypto/internal/sig.h>
-+#include "sm2signature.asn1.h"
-+
-+/* The default user id as specified in GM/T 0009-2012 */
-+#define SM2_DEFAULT_USERID "1234567812345678"
-+#define SM2_DEFAULT_USERID_LEN 16
-+
-+#define MPI_NBYTES(m)   ((mpi_get_nbits(m) + 7) / 8)
-+
-+struct ecc_domain_parms {
-+	const char *desc;           /* Description of the curve.  */
-+	unsigned int nbits;         /* Number of bits.  */
-+	unsigned int fips:1; /* True if this is a FIPS140-2 approved curve */
-+
-+	/* The model describing this curve.  This is mainly used to select
-+	 * the group equation.
-+	 */
-+	enum gcry_mpi_ec_models model;
-+
-+	/* The actual ECC dialect used.  This is used for curve specific
-+	 * optimizations and to select encodings etc.
-+	 */
-+	enum ecc_dialects dialect;
-+
-+	const char *p;              /* The prime defining the field.  */
-+	const char *a, *b;          /* The coefficients.  For Twisted Edwards
-+				     * Curves b is used for d.  For Montgomery
-+				     * Curves (a,b) has ((A-2)/4,B^-1).
-+				     */
-+	const char *n;              /* The order of the base point.  */
-+	const char *g_x, *g_y;      /* Base point.  */
-+	unsigned int h;             /* Cofactor.  */
-+};
-+
-+static const struct ecc_domain_parms sm2_ecp = {
-+	.desc = "sm2p256v1",
-+	.nbits = 256,
-+	.fips = 0,
-+	.model = MPI_EC_WEIERSTRASS,
-+	.dialect = ECC_DIALECT_STANDARD,
-+	.p   = "0xfffffffeffffffffffffffffffffffffffffffff00000000ffffffffffffffff",
-+	.a   = "0xfffffffeffffffffffffffffffffffffffffffff00000000fffffffffffffffc",
-+	.b   = "0x28e9fa9e9d9f5e344d5a9e4bcf6509a7f39789f515ab8f92ddbcbd414d940e93",
-+	.n   = "0xfffffffeffffffffffffffffffffffff7203df6b21c6052b53bbf40939d54123",
-+	.g_x = "0x32c4ae2c1f1981195f9904466a39c9948fe30bbff2660be1715a4589334c74c7",
-+	.g_y = "0xbc3736a2f4f6779c59bdcee36b692153d0a9877cc62a474002df32e52139f0a0",
-+	.h = 1
-+};
-+
-+static int __sm2_set_pub_key(struct mpi_ec_ctx *ec,
-+			     const void *key, unsigned int keylen);
-+
-+static int sm2_ec_ctx_init(struct mpi_ec_ctx *ec)
++void mpi_lshift(MPI x, MPI a, unsigned int n)
 +{
-+	const struct ecc_domain_parms *ecp = &sm2_ecp;
-+	MPI p, a, b;
-+	MPI x, y;
-+	int rc = -EINVAL;
++	unsigned int nlimbs = (n/BITS_PER_MPI_LIMB);
++	unsigned int nbits = (n%BITS_PER_MPI_LIMB);
 +
-+	p = mpi_scanval(ecp->p);
-+	a = mpi_scanval(ecp->a);
-+	b = mpi_scanval(ecp->b);
-+	if (!p || !a || !b)
-+		goto free_p;
++	if (x == a && !n)
++		return;  /* In-place shift with an amount of zero.  */
 +
-+	x = mpi_scanval(ecp->g_x);
-+	y = mpi_scanval(ecp->g_y);
-+	if (!x || !y)
-+		goto free;
++	if (x != a) {
++		/* Copy A to X.  */
++		unsigned int alimbs = a->nlimbs;
++		int asign = a->sign;
++		mpi_ptr_t xp, ap;
 +
-+	rc = -ENOMEM;
-+
-+	ec->Q = mpi_point_new(0);
-+	if (!ec->Q)
-+		goto free;
-+
-+	/* mpi_ec_setup_elliptic_curve */
-+	ec->G = mpi_point_new(0);
-+	if (!ec->G) {
-+		mpi_point_release(ec->Q);
-+		goto free;
++		RESIZE_IF_NEEDED(x, alimbs+nlimbs+1);
++		xp = x->d;
++		ap = a->d;
++		MPN_COPY(xp, ap, alimbs);
++		x->nlimbs = alimbs;
++		x->flags = a->flags;
++		x->sign = asign;
 +	}
 +
-+	mpi_set(ec->G->x, x);
-+	mpi_set(ec->G->y, y);
-+	mpi_set_ui(ec->G->z, 1);
-+
-+	rc = -EINVAL;
-+	ec->n = mpi_scanval(ecp->n);
-+	if (!ec->n) {
-+		mpi_point_release(ec->Q);
-+		mpi_point_release(ec->G);
-+		goto free;
++	if (nlimbs && !nbits) {
++		/* Shift a full number of limbs.  */
++		mpi_lshift_limbs(x, nlimbs);
++	} else if (n) {
++		/* We use a very dump approach: Shift left by the number of
++		 * limbs plus one and than fix it up by an rshift.
++		 */
++		mpi_lshift_limbs(x, nlimbs+1);
++		mpi_rshift(x, x, BITS_PER_MPI_LIMB - nbits);
 +	}
 +
-+	ec->h = ecp->h;
-+	ec->name = ecp->desc;
-+	mpi_ec_init(ec, ecp->model, ecp->dialect, 0, p, a, b);
++	MPN_NORMALIZE(x->d, x->nlimbs);
++}
+diff --git a/lib/crypto/mpi/mpi-cmp.c b/lib/crypto/mpi/mpi-cmp.c
+index ceaebe181cd7..0835b6213235 100644
+--- a/lib/crypto/mpi/mpi-cmp.c
++++ b/lib/crypto/mpi/mpi-cmp.c
+@@ -45,28 +45,54 @@ int mpi_cmp_ui(MPI u, unsigned long v)
+ }
+ EXPORT_SYMBOL_GPL(mpi_cmp_ui);
+ 
+-int mpi_cmp(MPI u, MPI v)
++static int do_mpi_cmp(MPI u, MPI v, int absmode)
+ {
+-	mpi_size_t usize, vsize;
++	mpi_size_t usize;
++	mpi_size_t vsize;
++	int usign;
++	int vsign;
+ 	int cmp;
+ 
+ 	mpi_normalize(u);
+ 	mpi_normalize(v);
 +
-+	rc = 0;
+ 	usize = u->nlimbs;
+ 	vsize = v->nlimbs;
+-	if (!u->sign && v->sign)
++	usign = absmode ? 0 : u->sign;
++	vsign = absmode ? 0 : v->sign;
 +
-+free:
-+	mpi_free(x);
-+	mpi_free(y);
-+free_p:
-+	mpi_free(p);
-+	mpi_free(a);
-+	mpi_free(b);
++	/* Compare sign bits.  */
 +
-+	return rc;
++	if (!usign && vsign)
+ 		return 1;
+-	if (u->sign && !v->sign)
++	if (usign && !vsign)
+ 		return -1;
+-	if (usize != vsize && !u->sign && !v->sign)
++
++	/* U and V are either both positive or both negative.  */
++
++	if (usize != vsize && !usign && !vsign)
+ 		return usize - vsize;
+-	if (usize != vsize && u->sign && v->sign)
+-		return vsize - usize;
++	if (usize != vsize && usign && vsign)
++		return vsize + usize;
+ 	if (!usize)
+ 		return 0;
+ 	cmp = mpihelp_cmp(u->d, v->d, usize);
+-	if (u->sign)
+-		return -cmp;
+-	return cmp;
++	if (!cmp)
++		return 0;
++	if ((cmp < 0?1:0) == (usign?1:0))
++		return 1;
++
++	return -1;
 +}
 +
-+static void sm2_ec_ctx_deinit(struct mpi_ec_ctx *ec)
++int mpi_cmp(MPI u, MPI v)
 +{
-+	mpi_ec_deinit(ec);
++	return do_mpi_cmp(u, v, 0);
+ }
+ EXPORT_SYMBOL_GPL(mpi_cmp);
 +
-+	memset(ec, 0, sizeof(*ec));
++int mpi_cmpabs(MPI u, MPI v)
++{
++	return do_mpi_cmp(u, v, 1);
++}
++EXPORT_SYMBOL_GPL(mpi_cmpabs);
+diff --git a/lib/crypto/mpi/mpi-div.c b/lib/crypto/mpi/mpi-div.c
+index 6e5044e72595..05a67d43ebc2 100644
+--- a/lib/crypto/mpi/mpi-div.c
++++ b/lib/crypto/mpi/mpi-div.c
+@@ -15,6 +15,7 @@
+ #include "longlong.h"
+ 
+ int mpi_tdiv_qr(MPI quot, MPI rem, MPI num, MPI den);
++void mpi_fdiv_qr(MPI quot, MPI rem, MPI dividend, MPI divisor);
+ 
+ int mpi_fdiv_r(MPI rem, MPI dividend, MPI divisor)
+ {
+@@ -46,6 +47,34 @@ int mpi_fdiv_r(MPI rem, MPI dividend, MPI divisor)
+ 	return err;
+ }
+ 
++void mpi_fdiv_q(MPI quot, MPI dividend, MPI divisor)
++{
++	MPI tmp = mpi_alloc(mpi_get_nlimbs(quot));
++	mpi_fdiv_qr(quot, tmp, dividend, divisor);
++	mpi_free(tmp);
 +}
 +
-+/* RESULT must have been initialized and is set on success to the
-+ * point given by VALUE.
++void mpi_fdiv_qr(MPI quot, MPI rem, MPI dividend, MPI divisor)
++{
++	int divisor_sign = divisor->sign;
++	MPI temp_divisor = NULL;
++
++	if (quot == divisor || rem == divisor) {
++		temp_divisor = mpi_copy(divisor);
++		divisor = temp_divisor;
++	}
++
++	mpi_tdiv_qr(quot, rem, dividend, divisor);
++
++	if ((divisor_sign ^ dividend->sign) && rem->nlimbs) {
++		mpi_sub_ui(quot, quot, 1);
++		mpi_add(rem, rem, divisor);
++	}
++
++	if (temp_divisor)
++		mpi_free(temp_divisor);
++}
++
+ /* If den == quot, den needs temporary storage.
+  * If den == rem, den needs temporary storage.
+  * If num == quot, num needs temporary storage.
+diff --git a/lib/crypto/mpi/mpi-internal.h b/lib/crypto/mpi/mpi-internal.h
+index 8a4f49e3043c..e6cf87659e29 100644
+--- a/lib/crypto/mpi/mpi-internal.h
++++ b/lib/crypto/mpi/mpi-internal.h
+@@ -67,6 +67,14 @@ static inline int RESIZE_IF_NEEDED(MPI a, unsigned b)
+ 			(d)[_i] = (s)[_i];	\
+ 	} while (0)
+ 
++#define MPN_COPY_INCR(d, s, n)		\
++	do {					\
++		mpi_size_t _i;			\
++		for (_i = 0; _i < (n); _i++)	\
++			(d)[_i] = (s)[_i];	\
++	} while (0)
++
++
+ #define MPN_COPY_DECR(d, s, n) \
+ 	do {					\
+ 		mpi_size_t _i;			\
+@@ -174,6 +182,8 @@ int mpihelp_mul(mpi_ptr_t prodp, mpi_ptr_t up, mpi_size_t usize,
+ void mpih_sqr_n_basecase(mpi_ptr_t prodp, mpi_ptr_t up, mpi_size_t size);
+ void mpih_sqr_n(mpi_ptr_t prodp, mpi_ptr_t up, mpi_size_t size,
+ 		mpi_ptr_t tspace);
++void mpihelp_mul_n(mpi_ptr_t prodp,
++		mpi_ptr_t up, mpi_ptr_t vp, mpi_size_t size);
+ 
+ int mpihelp_mul_karatsuba_case(mpi_ptr_t prodp,
+ 			       mpi_ptr_t up, mpi_size_t usize,
+diff --git a/lib/crypto/mpi/mpi-inv.c b/lib/crypto/mpi/mpi-inv.c
+new file mode 100644
+index 000000000000..61e37d18f793
+--- /dev/null
++++ b/lib/crypto/mpi/mpi-inv.c
+@@ -0,0 +1,143 @@
++/* mpi-inv.c  -  MPI functions
++ *	Copyright (C) 1998, 2001, 2002, 2003 Free Software Foundation, Inc.
++ *
++ * This file is part of Libgcrypt.
++ *
++ * Libgcrypt is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU Lesser General Public License as
++ * published by the Free Software Foundation; either version 2.1 of
++ * the License, or (at your option) any later version.
++ *
++ * Libgcrypt is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this program; if not, see <http://www.gnu.org/licenses/>.
 + */
-+static int sm2_ecc_os2ec(MPI_POINT result, MPI value)
++
++#include "mpi-internal.h"
++
++/****************
++ * Calculate the multiplicative inverse X of A mod N
++ * That is: Find the solution x for
++ *		1 = (a*x) mod n
++ */
++int mpi_invm(MPI x, MPI a, MPI n)
 +{
-+	int rc;
-+	size_t n;
-+	unsigned char *buf;
-+	MPI x, y;
++	/* Extended Euclid's algorithm (See TAOCP Vol II, 4.5.2, Alg X)
++	 * modified according to Michael Penk's solution for Exercise 35
++	 * with further enhancement
++	 */
++	MPI u, v, u1, u2 = NULL, u3, v1, v2 = NULL, v3, t1, t2 = NULL, t3;
++	unsigned int k;
++	int sign;
++	int odd;
 +
-+	n = MPI_NBYTES(value);
-+	buf = kmalloc(n, GFP_KERNEL);
-+	if (!buf)
-+		return -ENOMEM;
++	if (!mpi_cmp_ui(a, 0))
++		return 0; /* Inverse does not exists.  */
++	if (!mpi_cmp_ui(n, 1))
++		return 0; /* Inverse does not exists.  */
 +
-+	rc = mpi_print(GCRYMPI_FMT_USG, buf, n, &n, value);
-+	if (rc)
-+		goto err_freebuf;
++	u = mpi_copy(a);
++	v = mpi_copy(n);
 +
-+	rc = -EINVAL;
-+	if (n < 1 || ((n - 1) % 2))
-+		goto err_freebuf;
-+	/* No support for point compression */
-+	if (*buf != 0x4)
-+		goto err_freebuf;
++	for (k = 0; !mpi_test_bit(u, 0) && !mpi_test_bit(v, 0); k++) {
++		mpi_rshift(u, u, 1);
++		mpi_rshift(v, v, 1);
++	}
++	odd = mpi_test_bit(v, 0);
 +
-+	rc = -ENOMEM;
-+	n = (n - 1) / 2;
-+	x = mpi_read_raw_data(buf + 1, n);
-+	if (!x)
-+		goto err_freebuf;
-+	y = mpi_read_raw_data(buf + 1 + n, n);
-+	if (!y)
-+		goto err_freex;
++	u1 = mpi_alloc_set_ui(1);
++	if (!odd)
++		u2 = mpi_alloc_set_ui(0);
++	u3 = mpi_copy(u);
++	v1 = mpi_copy(v);
++	if (!odd) {
++		v2 = mpi_alloc(mpi_get_nlimbs(u));
++		mpi_sub(v2, u1, u); /* U is used as const 1 */
++	}
++	v3 = mpi_copy(v);
++	if (mpi_test_bit(u, 0)) { /* u is odd */
++		t1 = mpi_alloc_set_ui(0);
++		if (!odd) {
++			t2 = mpi_alloc_set_ui(1);
++			t2->sign = 1;
++		}
++		t3 = mpi_copy(v);
++		t3->sign = !t3->sign;
++		goto Y4;
++	} else {
++		t1 = mpi_alloc_set_ui(1);
++		if (!odd)
++			t2 = mpi_alloc_set_ui(0);
++		t3 = mpi_copy(u);
++	}
++
++	do {
++		do {
++			if (!odd) {
++				if (mpi_test_bit(t1, 0) || mpi_test_bit(t2, 0)) {
++					/* one is odd */
++					mpi_add(t1, t1, v);
++					mpi_sub(t2, t2, u);
++				}
++				mpi_rshift(t1, t1, 1);
++				mpi_rshift(t2, t2, 1);
++				mpi_rshift(t3, t3, 1);
++			} else {
++				if (mpi_test_bit(t1, 0))
++					mpi_add(t1, t1, v);
++				mpi_rshift(t1, t1, 1);
++				mpi_rshift(t3, t3, 1);
++			}
++Y4:
++			;
++		} while (!mpi_test_bit(t3, 0)); /* while t3 is even */
++
++		if (!t3->sign) {
++			mpi_set(u1, t1);
++			if (!odd)
++				mpi_set(u2, t2);
++			mpi_set(u3, t3);
++		} else {
++			mpi_sub(v1, v, t1);
++			sign = u->sign; u->sign = !u->sign;
++			if (!odd)
++				mpi_sub(v2, u, t2);
++			u->sign = sign;
++			sign = t3->sign; t3->sign = !t3->sign;
++			mpi_set(v3, t3);
++			t3->sign = sign;
++		}
++		mpi_sub(t1, u1, v1);
++		if (!odd)
++			mpi_sub(t2, u2, v2);
++		mpi_sub(t3, u3, v3);
++		if (t1->sign) {
++			mpi_add(t1, t1, v);
++			if (!odd)
++				mpi_sub(t2, t2, u);
++		}
++	} while (mpi_cmp_ui(t3, 0)); /* while t3 != 0 */
++	/* mpi_lshift( u3, k ); */
++	mpi_set(x, u1);
++
++	mpi_free(u1);
++	mpi_free(v1);
++	mpi_free(t1);
++	if (!odd) {
++		mpi_free(u2);
++		mpi_free(v2);
++		mpi_free(t2);
++	}
++	mpi_free(u3);
++	mpi_free(v3);
++	mpi_free(t3);
++
++	mpi_free(u);
++	mpi_free(v);
++	return 1;
++}
++EXPORT_SYMBOL_GPL(mpi_invm);
+diff --git a/lib/crypto/mpi/mpi-mod.c b/lib/crypto/mpi/mpi-mod.c
+index d5fdaec3d0b6..5a6475f58fa7 100644
+--- a/lib/crypto/mpi/mpi-mod.c
++++ b/lib/crypto/mpi/mpi-mod.c
+@@ -5,9 +5,153 @@
+  * This file is part of Libgcrypt.
+  */
+ 
++
+ #include "mpi-internal.h"
++#include "longlong.h"
++
++/* Context used with Barrett reduction.  */
++struct barrett_ctx_s {
++	MPI m;   /* The modulus - may not be modified. */
++	int m_copied;   /* If true, M needs to be released.  */
++	int k;
++	MPI y;
++	MPI r1;  /* Helper MPI. */
++	MPI r2;  /* Helper MPI. */
++	MPI r3;  /* Helper MPI allocated on demand. */
++};
++
++
+ 
+ int mpi_mod(MPI rem, MPI dividend, MPI divisor)
+ {
+ 	return mpi_fdiv_r(rem, dividend, divisor);
+ }
++
++/* This function returns a new context for Barrett based operations on
++ * the modulus M.  This context needs to be released using
++ * _gcry_mpi_barrett_free.  If COPY is true M will be transferred to
++ * the context and the user may change M.  If COPY is false, M may not
++ * be changed until gcry_mpi_barrett_free has been called.
++ */
++mpi_barrett_t mpi_barrett_init(MPI m, int copy)
++{
++	mpi_barrett_t ctx;
++	MPI tmp;
++
++	mpi_normalize(m);
++	ctx = kcalloc(1, sizeof(*ctx), GFP_KERNEL);
++	if (!ctx)
++		return NULL;
++
++	if (copy) {
++		ctx->m = mpi_copy(m);
++		ctx->m_copied = 1;
++	} else
++		ctx->m = m;
++
++	ctx->k = mpi_get_nlimbs(m);
++	tmp = mpi_alloc(ctx->k + 1);
++
++	/* Barrett precalculation: y = floor(b^(2k) / m). */
++	mpi_set_ui(tmp, 1);
++	mpi_lshift_limbs(tmp, 2 * ctx->k);
++	mpi_fdiv_q(tmp, tmp, m);
++
++	ctx->y  = tmp;
++	ctx->r1 = mpi_alloc(2 * ctx->k + 1);
++	ctx->r2 = mpi_alloc(2 * ctx->k + 1);
++
++	return ctx;
++}
++
++void mpi_barrett_free(mpi_barrett_t ctx)
++{
++	if (ctx) {
++		mpi_free(ctx->y);
++		mpi_free(ctx->r1);
++		mpi_free(ctx->r2);
++		if (ctx->r3)
++			mpi_free(ctx->r3);
++		if (ctx->m_copied)
++			mpi_free(ctx->m);
++		kfree(ctx);
++	}
++}
++
++
++/* R = X mod M
++ *
++ * Using Barrett reduction.  Before using this function
++ * _gcry_mpi_barrett_init must have been called to do the
++ * precalculations.  CTX is the context created by this precalculation
++ * and also conveys M.  If the Barret reduction could no be done a
++ * straightforward reduction method is used.
++ *
++ * We assume that these conditions are met:
++ * Input:  x =(x_2k-1 ...x_0)_b
++ *     m =(m_k-1 ....m_0)_b	  with m_k-1 != 0
++ * Output: r = x mod m
++ */
++void mpi_mod_barrett(MPI r, MPI x, mpi_barrett_t ctx)
++{
++	MPI m = ctx->m;
++	int k = ctx->k;
++	MPI y = ctx->y;
++	MPI r1 = ctx->r1;
++	MPI r2 = ctx->r2;
++	int sign;
 +
 +	mpi_normalize(x);
-+	mpi_normalize(y);
-+	mpi_set(result->x, x);
-+	mpi_set(result->y, y);
-+	mpi_set_ui(result->z, 1);
++	if (mpi_get_nlimbs(x) > 2*k) {
++		mpi_mod(r, x, m);
++		return;
++	}
 +
-+	rc = 0;
++	sign = x->sign;
++	x->sign = 0;
 +
-+	mpi_free(y);
-+err_freex:
-+	mpi_free(x);
-+err_freebuf:
-+	kfree(buf);
-+	return rc;
++	/* 1. q1 = floor( x / b^k-1)
++	 *    q2 = q1 * y
++	 *    q3 = floor( q2 / b^k+1 )
++	 * Actually, we don't need qx, we can work direct on r2
++	 */
++	mpi_set(r2, x);
++	mpi_rshift_limbs(r2, k-1);
++	mpi_mul(r2, r2, y);
++	mpi_rshift_limbs(r2, k+1);
++
++	/* 2. r1 = x mod b^k+1
++	 *	r2 = q3 * m mod b^k+1
++	 *	r  = r1 - r2
++	 * 3. if r < 0 then  r = r + b^k+1
++	 */
++	mpi_set(r1, x);
++	if (r1->nlimbs > k+1) /* Quick modulo operation.  */
++		r1->nlimbs = k+1;
++	mpi_mul(r2, r2, m);
++	if (r2->nlimbs > k+1) /* Quick modulo operation. */
++		r2->nlimbs = k+1;
++	mpi_sub(r, r1, r2);
++
++	if (mpi_has_sign(r)) {
++		if (!ctx->r3) {
++			ctx->r3 = mpi_alloc(k + 2);
++			mpi_set_ui(ctx->r3, 1);
++			mpi_lshift_limbs(ctx->r3, k + 1);
++		}
++		mpi_add(r, r, ctx->r3);
++	}
++
++	/* 4. while r >= m do r = r - m */
++	while (mpi_cmp(r, m) >= 0)
++		mpi_sub(r, r, m);
++
++	x->sign = sign;
 +}
 +
-+struct sm2_signature_ctx {
-+	MPI sig_r;
-+	MPI sig_s;
-+};
 +
-+int sm2_get_signature_r(void *context, size_t hdrlen, unsigned char tag,
-+				const void *value, size_t vlen)
++void mpi_mul_barrett(MPI w, MPI u, MPI v, mpi_barrett_t ctx)
 +{
-+	struct sm2_signature_ctx *sig = context;
++	mpi_mul(w, u, v);
++	mpi_mod_barrett(w, w, ctx);
++}
+diff --git a/lib/crypto/mpi/mpicoder.c b/lib/crypto/mpi/mpicoder.c
+index dde01030807d..3cb6bd148fa9 100644
+--- a/lib/crypto/mpi/mpicoder.c
++++ b/lib/crypto/mpi/mpicoder.c
+@@ -25,6 +25,7 @@
+ #include <linux/string.h>
+ #include "mpi-internal.h"
+ 
++#define MAX_EXTERN_SCAN_BYTES (16*1024*1024)
+ #define MAX_EXTERN_MPI_BITS 16384
+ 
+ /**
+@@ -109,6 +110,112 @@ MPI mpi_read_from_buffer(const void *xbuffer, unsigned *ret_nread)
+ }
+ EXPORT_SYMBOL_GPL(mpi_read_from_buffer);
+ 
++/****************
++ * Fill the mpi VAL from the hex string in STR.
++ */
++int mpi_fromstr(MPI val, const char *str)
++{
++	int sign = 0;
++	int prepend_zero = 0;
++	int i, j, c, c1, c2;
++	unsigned int nbits, nbytes, nlimbs;
++	mpi_limb_t a;
 +
-+	if (!value || !vlen)
++	if (*str == '-') {
++		sign = 1;
++		str++;
++	}
++
++	/* Skip optional hex prefix.  */
++	if (*str == '0' && str[1] == 'x')
++		str += 2;
++
++	nbits = strlen(str);
++	if (nbits > MAX_EXTERN_SCAN_BYTES) {
++		mpi_clear(val);
 +		return -EINVAL;
++	}
++	nbits *= 4;
++	if ((nbits % 8))
++		prepend_zero = 1;
 +
-+	sig->sig_r = mpi_read_raw_data(value, vlen);
-+	if (!sig->sig_r)
-+		return -ENOMEM;
++	nbytes = (nbits+7) / 8;
++	nlimbs = (nbytes+BYTES_PER_MPI_LIMB-1) / BYTES_PER_MPI_LIMB;
++
++	if (val->alloced < nlimbs)
++		mpi_resize(val, nlimbs);
++
++	i = BYTES_PER_MPI_LIMB - (nbytes % BYTES_PER_MPI_LIMB);
++	i %= BYTES_PER_MPI_LIMB;
++	j = val->nlimbs = nlimbs;
++	val->sign = sign;
++	for (; j > 0; j--) {
++		a = 0;
++		for (; i < BYTES_PER_MPI_LIMB; i++) {
++			if (prepend_zero) {
++				c1 = '0';
++				prepend_zero = 0;
++			} else
++				c1 = *str++;
++
++			if (!c1) {
++				mpi_clear(val);
++				return -EINVAL;
++			}
++			c2 = *str++;
++			if (!c2) {
++				mpi_clear(val);
++				return -EINVAL;
++			}
++			if (c1 >= '0' && c1 <= '9')
++				c = c1 - '0';
++			else if (c1 >= 'a' && c1 <= 'f')
++				c = c1 - 'a' + 10;
++			else if (c1 >= 'A' && c1 <= 'F')
++				c = c1 - 'A' + 10;
++			else {
++				mpi_clear(val);
++				return -EINVAL;
++			}
++			c <<= 4;
++			if (c2 >= '0' && c2 <= '9')
++				c |= c2 - '0';
++			else if (c2 >= 'a' && c2 <= 'f')
++				c |= c2 - 'a' + 10;
++			else if (c2 >= 'A' && c2 <= 'F')
++				c |= c2 - 'A' + 10;
++			else {
++				mpi_clear(val);
++				return -EINVAL;
++			}
++			a <<= 8;
++			a |= c;
++		}
++		i = 0;
++		val->d[j-1] = a;
++	}
 +
 +	return 0;
 +}
++EXPORT_SYMBOL_GPL(mpi_fromstr);
 +
-+int sm2_get_signature_s(void *context, size_t hdrlen, unsigned char tag,
-+				const void *value, size_t vlen)
-+{
-+	struct sm2_signature_ctx *sig = context;
-+
-+	if (!value || !vlen)
-+		return -EINVAL;
-+
-+	sig->sig_s = mpi_read_raw_data(value, vlen);
-+	if (!sig->sig_s)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static int sm2_z_digest_update(struct shash_desc *desc,
-+			MPI m, unsigned int pbytes)
-+{
-+	static const unsigned char zero[32];
-+	unsigned char *in;
-+	unsigned int inlen;
-+	int err;
-+
-+	in = mpi_get_buffer(m, &inlen, NULL);
-+	if (!in)
-+		return -EINVAL;
-+
-+	if (inlen < pbytes) {
-+		/* padding with zero */
-+		err = crypto_shash_update(desc, zero, pbytes - inlen) ?:
-+		      crypto_shash_update(desc, in, inlen);
-+	} else if (inlen > pbytes) {
-+		/* skip the starting zero */
-+		err = crypto_shash_update(desc, in + inlen - pbytes, pbytes);
-+	} else {
-+		err = crypto_shash_update(desc, in, inlen);
-+	}
-+
-+	kfree(in);
-+	return err;
-+}
-+
-+static int sm2_z_digest_update_point(struct shash_desc *desc,
-+				     MPI_POINT point, struct mpi_ec_ctx *ec,
-+				     unsigned int pbytes)
-+{
-+	MPI x, y;
-+	int ret = -EINVAL;
-+
-+	x = mpi_new(0);
-+	y = mpi_new(0);
-+
-+	ret = mpi_ec_get_affine(x, y, point, ec) ? -EINVAL :
-+				sm2_z_digest_update(desc, x, pbytes) ?:
-+				sm2_z_digest_update(desc, y, pbytes);
-+
-+	mpi_free(x);
-+	mpi_free(y);
-+	return ret;
-+}
-+
-+int sm2_compute_z_digest(struct shash_desc *desc,
-+			 const void *key, unsigned int keylen, void *dgst)
-+{
-+	struct mpi_ec_ctx *ec;
-+	unsigned int bits_len;
-+	unsigned int pbytes;
-+	u8 entl[2];
-+	int err;
-+
-+	ec = kmalloc(sizeof(*ec), GFP_KERNEL);
-+	if (!ec)
-+		return -ENOMEM;
-+
-+	err = sm2_ec_ctx_init(ec);
-+	if (err)
-+		goto out_free_ec;
-+
-+	err = __sm2_set_pub_key(ec, key, keylen);
-+	if (err)
-+		goto out_deinit_ec;
-+
-+	bits_len = SM2_DEFAULT_USERID_LEN * 8;
-+	entl[0] = bits_len >> 8;
-+	entl[1] = bits_len & 0xff;
-+
-+	pbytes = MPI_NBYTES(ec->p);
-+
-+	/* ZA = H256(ENTLA | IDA | a | b | xG | yG | xA | yA) */
-+	err = crypto_shash_init(desc);
-+	if (err)
-+		goto out_deinit_ec;
-+
-+	err = crypto_shash_update(desc, entl, 2);
-+	if (err)
-+		goto out_deinit_ec;
-+
-+	err = crypto_shash_update(desc, SM2_DEFAULT_USERID,
-+			SM2_DEFAULT_USERID_LEN);
-+	if (err)
-+		goto out_deinit_ec;
-+
-+	err = sm2_z_digest_update(desc, ec->a, pbytes) ?:
-+		sm2_z_digest_update(desc, ec->b, pbytes) ?:
-+		sm2_z_digest_update_point(desc, ec->G, ec, pbytes) ?:
-+		sm2_z_digest_update_point(desc, ec->Q, ec, pbytes);
-+	if (err)
-+		goto out_deinit_ec;
-+
-+	err = crypto_shash_final(desc, dgst);
-+
-+out_deinit_ec:
-+	sm2_ec_ctx_deinit(ec);
-+out_free_ec:
-+	kfree(ec);
-+	return err;
-+}
-+EXPORT_SYMBOL_GPL(sm2_compute_z_digest);
-+
-+static int _sm2_verify(struct mpi_ec_ctx *ec, MPI hash, MPI sig_r, MPI sig_s)
-+{
-+	int rc = -EINVAL;
-+	struct gcry_mpi_point sG, tP;
-+	MPI t = NULL;
-+	MPI x1 = NULL, y1 = NULL;
-+
-+	mpi_point_init(&sG);
-+	mpi_point_init(&tP);
-+	x1 = mpi_new(0);
-+	y1 = mpi_new(0);
-+	t = mpi_new(0);
-+
-+	/* r, s in [1, n-1] */
-+	if (mpi_cmp_ui(sig_r, 1) < 0 || mpi_cmp(sig_r, ec->n) > 0 ||
-+		mpi_cmp_ui(sig_s, 1) < 0 || mpi_cmp(sig_s, ec->n) > 0) {
-+		goto leave;
-+	}
-+
-+	/* t = (r + s) % n, t == 0 */
-+	mpi_addm(t, sig_r, sig_s, ec->n);
-+	if (mpi_cmp_ui(t, 0) == 0)
-+		goto leave;
-+
-+	/* sG + tP = (x1, y1) */
-+	rc = -EBADMSG;
-+	mpi_ec_mul_point(&sG, sig_s, ec->G, ec);
-+	mpi_ec_mul_point(&tP, t, ec->Q, ec);
-+	mpi_ec_add_points(&sG, &sG, &tP, ec);
-+	if (mpi_ec_get_affine(x1, y1, &sG, ec))
-+		goto leave;
-+
-+	/* R = (e + x1) % n */
-+	mpi_addm(t, hash, x1, ec->n);
-+
-+	/* check R == r */
-+	rc = -EKEYREJECTED;
-+	if (mpi_cmp(t, sig_r))
-+		goto leave;
-+
-+	rc = 0;
-+
-+leave:
-+	mpi_point_free_parts(&sG);
-+	mpi_point_free_parts(&tP);
-+	mpi_free(x1);
-+	mpi_free(y1);
-+	mpi_free(t);
-+
-+	return rc;
-+}
-+
-+static int sm2_verify(struct crypto_sig *tfm,
-+		      const void *src, unsigned int slen,
-+		      const void *digest, unsigned int dlen)
-+{
-+	struct mpi_ec_ctx *ec = crypto_sig_ctx(tfm);
-+	struct sm2_signature_ctx sig;
-+	MPI hash;
-+	int ret;
-+
-+	if (unlikely(!ec->Q))
-+		return -EINVAL;
-+
-+	sig.sig_r = NULL;
-+	sig.sig_s = NULL;
-+	ret = asn1_ber_decoder(&sm2signature_decoder, &sig, src, slen);
-+	if (ret)
-+		goto error;
-+
-+	ret = -ENOMEM;
-+	hash = mpi_read_raw_data(digest, dlen);
-+	if (!hash)
-+		goto error;
-+
-+	ret = _sm2_verify(ec, hash, sig.sig_r, sig.sig_s);
-+
-+	mpi_free(hash);
-+error:
-+	mpi_free(sig.sig_r);
-+	mpi_free(sig.sig_s);
-+	return ret;
-+}
-+
-+static int sm2_set_pub_key(struct crypto_sig *tfm,
-+			   const void *key, unsigned int keylen)
-+{
-+	struct mpi_ec_ctx *ec = crypto_sig_ctx(tfm);
-+
-+	return __sm2_set_pub_key(ec, key, keylen);
-+}
-+
-+static int __sm2_set_pub_key(struct mpi_ec_ctx *ec,
-+			     const void *key, unsigned int keylen)
++MPI mpi_scanval(const char *string)
 +{
 +	MPI a;
-+	int rc;
 +
-+	/* include the uncompressed flag '0x04' */
-+	a = mpi_read_raw_data(key, keylen);
++	a = mpi_alloc(0);
 +	if (!a)
-+		return -ENOMEM;
++		return NULL;
 +
++	if (mpi_fromstr(a, string)) {
++		mpi_free(a);
++		return NULL;
++	}
 +	mpi_normalize(a);
-+	rc = sm2_ecc_os2ec(ec->Q, a);
-+	mpi_free(a);
-+
-+	return rc;
++	return a;
 +}
++EXPORT_SYMBOL_GPL(mpi_scanval);
 +
-+static unsigned int sm2_max_size(struct crypto_sig *tfm)
+ static int count_lzeros(MPI a)
+ {
+ 	mpi_limb_t alimb;
+@@ -414,3 +521,232 @@ MPI mpi_read_raw_from_sgl(struct scatterlist *sgl, unsigned int nbytes)
+ 	return val;
+ }
+ EXPORT_SYMBOL_GPL(mpi_read_raw_from_sgl);
++
++/* Perform a two's complement operation on buffer P of size N bytes.  */
++static void twocompl(unsigned char *p, unsigned int n)
 +{
-+	/* Unlimited max size */
-+	return PAGE_SIZE;
++	int i;
++
++	for (i = n-1; i >= 0 && !p[i]; i--)
++		;
++	if (i >= 0) {
++		if ((p[i] & 0x01))
++			p[i] = (((p[i] ^ 0xfe) | 0x01) & 0xff);
++		else if ((p[i] & 0x02))
++			p[i] = (((p[i] ^ 0xfc) | 0x02) & 0xfe);
++		else if ((p[i] & 0x04))
++			p[i] = (((p[i] ^ 0xf8) | 0x04) & 0xfc);
++		else if ((p[i] & 0x08))
++			p[i] = (((p[i] ^ 0xf0) | 0x08) & 0xf8);
++		else if ((p[i] & 0x10))
++			p[i] = (((p[i] ^ 0xe0) | 0x10) & 0xf0);
++		else if ((p[i] & 0x20))
++			p[i] = (((p[i] ^ 0xc0) | 0x20) & 0xe0);
++		else if ((p[i] & 0x40))
++			p[i] = (((p[i] ^ 0x80) | 0x40) & 0xc0);
++		else
++			p[i] = 0x80;
++
++		for (i--; i >= 0; i--)
++			p[i] ^= 0xff;
++	}
 +}
 +
-+static int sm2_init_tfm(struct crypto_sig *tfm)
++int mpi_print(enum gcry_mpi_format format, unsigned char *buffer,
++			size_t buflen, size_t *nwritten, MPI a)
 +{
-+	struct mpi_ec_ctx *ec = crypto_sig_ctx(tfm);
++	unsigned int nbits = mpi_get_nbits(a);
++	size_t len;
++	size_t dummy_nwritten;
++	int negative;
 +
-+	return sm2_ec_ctx_init(ec);
-+}
++	if (!nwritten)
++		nwritten = &dummy_nwritten;
 +
-+static void sm2_exit_tfm(struct crypto_sig *tfm)
-+{
-+	struct mpi_ec_ctx *ec = crypto_sig_ctx(tfm);
++	/* Libgcrypt does no always care to set clear the sign if the value
++	 * is 0.  For printing this is a bit of a surprise, in particular
++	 * because if some of the formats don't support negative numbers but
++	 * should be able to print a zero.  Thus we need this extra test
++	 * for a negative number.
++	 */
++	if (a->sign && mpi_cmp_ui(a, 0))
++		negative = 1;
++	else
++		negative = 0;
 +
-+	sm2_ec_ctx_deinit(ec);
-+}
++	len = buflen;
++	*nwritten = 0;
++	if (format == GCRYMPI_FMT_STD) {
++		unsigned char *tmp;
++		int extra = 0;
++		unsigned int n;
 +
-+static struct sig_alg sm2 = {
-+	.verify = sm2_verify,
-+	.set_pub_key = sm2_set_pub_key,
-+	.max_size = sm2_max_size,
-+	.init = sm2_init_tfm,
-+	.exit = sm2_exit_tfm,
-+	.base = {
-+		.cra_name = "sm2",
-+		.cra_driver_name = "sm2-generic",
-+		.cra_priority = 100,
-+		.cra_module = THIS_MODULE,
-+		.cra_ctxsize = sizeof(struct mpi_ec_ctx),
-+	},
-+};
++		tmp = mpi_get_buffer(a, &n, NULL);
++		if (!tmp)
++			return -EINVAL;
 +
-+static int __init sm2_init(void)
-+{
-+	return crypto_register_sig(&sm2);
-+}
-+
-+static void __exit sm2_exit(void)
-+{
-+	crypto_unregister_sig(&sm2);
-+}
-+
-+subsys_initcall(sm2_init);
-+module_exit(sm2_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Tianjia Zhang <tianjia.zhang@linux.alibaba.com>");
-+MODULE_AUTHOR("Gu Bowen <gubowen5@huawei.com>");
-+MODULE_DESCRIPTION("SM2 generic algorithm");
-+MODULE_ALIAS_CRYPTO("sm2-generic");
-diff --git a/crypto/sm2signature.asn1 b/crypto/sm2signature.asn1
-new file mode 100644
-index 000000000000..ab8c0b754d21
---- /dev/null
-+++ b/crypto/sm2signature.asn1
-@@ -0,0 +1,4 @@
-+Sm2Signature ::= SEQUENCE {
-+	sig_r	INTEGER ({ sm2_get_signature_r }),
-+	sig_s	INTEGER ({ sm2_get_signature_s })
-+}
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 32f753d6c430..9fde36527711 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -5505,6 +5505,12 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.hash = __VECS(sha512_tv_template)
- 		}
-+	}, {
-+		.alg = "sm2",
-+		.test = alg_test_sig,
-+		.suite = {
-+			.sig = __VECS(sm2_tv_template)
++		if (negative) {
++			twocompl(tmp, n);
++			if (!(*tmp & 0x80)) {
++				/* Need to extend the sign.  */
++				n++;
++				extra = 2;
++			}
++		} else if (n && (*tmp & 0x80)) {
++			/* Positive but the high bit of the returned buffer is set.
++			 * Thus we need to print an extra leading 0x00 so that the
++			 * output is interpreted as a positive number.
++			 */
++			n++;
++			extra = 1;
 +		}
- 	}, {
- 		.alg = "sm3",
- 		.test = alg_test_hash,
-diff --git a/crypto/testmgr.h b/crypto/testmgr.h
-index 32d099ac9e73..68928b4fbd1c 100644
---- a/crypto/testmgr.h
-+++ b/crypto/testmgr.h
-@@ -6133,6 +6133,63 @@ static const struct hash_testvec hmac_streebog512_tv_template[] = {
- 	},
- };
- 
-+/*
-+ * SM2 test vectors.
-+ */
-+static const struct sig_testvec sm2_tv_template[] = {
-+	{ /* Generated from openssl */
-+	.key =
-+	"\x04"
-+	"\x8e\xa0\x33\x69\x91\x7e\x3d\xec\xad\x8e\xf0\x45\x5e\x13\x3e\x68"
-+	"\x5b\x8c\xab\x5c\xc6\xc8\x50\xdf\x91\x00\xe0\x24\x73\x4d\x31\xf2"
-+	"\x2e\xc0\xd5\x6b\xee\xda\x98\x93\xec\xd8\x36\xaa\xb9\xcf\x63\x82"
-+	"\xef\xa7\x1a\x03\xed\x16\xba\x74\xb8\x8b\xf9\xe5\x70\x39\xa4\x70",
-+	.key_len = 65,
-+	.param_len = 0,
-+	.c =
-+	"\x30\x45"
-+	"\x02\x20"
-+	"\x70\xab\xb6\x7d\xd6\x54\x80\x64\x42\x7e\x2d\x05\x08\x36\xc9\x96"
-+	"\x25\xc2\xbb\xff\x08\xe5\x43\x15\x5e\xf3\x06\xd9\x2b\x2f\x0a\x9f"
-+	"\x02\x21"
-+	"\x00"
-+	"\xbf\x21\x5f\x7e\x5d\x3f\x1a\x4d\x8f\x84\xc2\xe9\xa6\x4c\xa4\x18"
-+	"\xb2\xb8\x46\xf4\x32\x96\xfa\x57\xc6\x29\xd4\x89\xae\xcc\xda\xdb",
-+	.c_size = 71,
-+	.algo = OID_SM2_with_SM3,
-+	.m =
-+	"\x47\xa7\xbf\xd3\xda\xc4\x79\xee\xda\x8b\x4f\xe8\x40\x94\xd4\x32"
-+	"\x8f\xf1\xcd\x68\x4d\xbd\x9b\x1d\xe0\xd8\x9a\x5d\xad\x85\x47\x5c",
-+	.m_size = 32,
-+	.public_key_vec = true,
-+	},
-+	{ /* From libgcrypt */
-+	.key =
-+	"\x04"
-+	"\x87\x59\x38\x9a\x34\xaa\xad\x07\xec\xf4\xe0\xc8\xc2\x65\x0a\x44"
-+	"\x59\xc8\xd9\x26\xee\x23\x78\x32\x4e\x02\x61\xc5\x25\x38\xcb\x47"
-+	"\x75\x28\x10\x6b\x1e\x0b\x7c\x8d\xd5\xff\x29\xa9\xc8\x6a\x89\x06"
-+	"\x56\x56\xeb\x33\x15\x4b\xc0\x55\x60\x91\xef\x8a\xc9\xd1\x7d\x78",
-+	.key_len = 65,
-+	.param_len = 0,
-+	.c =
-+	"\x30\x44"
-+	"\x02\x20"
-+	"\xd9\xec\xef\xe8\x5f\xee\x3c\x59\x57\x8e\x5b\xab\xb3\x02\xe1\x42"
-+	"\x4b\x67\x2c\x0b\x26\xb6\x51\x2c\x3e\xfc\xc6\x49\xec\xfe\x89\xe5"
-+	"\x02\x20"
-+	"\x43\x45\xd0\xa5\xff\xe5\x13\x27\x26\xd0\xec\x37\xad\x24\x1e\x9a"
-+	"\x71\x9a\xa4\x89\xb0\x7e\x0f\xc4\xbb\x2d\x50\xd0\xe5\x7f\x7a\x68",
-+	.c_size = 70,
-+	.algo = OID_SM2_with_SM3,
-+	.m =
-+	"\x11\x22\x33\x44\x55\x66\x77\x88\x99\xaa\xbb\xcc\xdd\xee\xff\x00"
-+	"\x12\x34\x56\x78\x9a\xbc\xde\xf0\x12\x34\x56\x78\x9a\xbc\xde\xf0",
-+	.m_size = 32,
-+	.public_key_vec = true,
-+	},
-+};
 +
- /* Example vectors below taken from
-  * http://www.oscca.gov.cn/UpFile/20101222141857786.pdf
-  *
-diff --git a/include/crypto/sm2.h b/include/crypto/sm2.h
-new file mode 100644
-index 000000000000..a93c6fd395ff
---- /dev/null
-+++ b/include/crypto/sm2.h
-@@ -0,0 +1,31 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * sm2.h - SM2 asymmetric public-key algorithm
-+ * as specified by OSCCA GM/T 0003.1-2012 -- 0003.5-2012 SM2 and
-+ * described at https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02
-+ *
-+ * Copyright (c) 2020, Alibaba Group.
-+ * Written by Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
-+ *
-+ * Copyright (c) 2025, Huawei Tech. Co., Ltd.
-+ * Authors: Gu Bowen <gubowen5@huawei.com>
-+ */
++		if (buffer && n > len) {
++			/* The provided buffer is too short. */
++			kfree(tmp);
++			return -E2BIG;
++		}
++		if (buffer) {
++			unsigned char *s = buffer;
 +
-+#ifndef _CRYPTO_SM2_H
-+#define _CRYPTO_SM2_H
++			if (extra == 1)
++				*s++ = 0;
++			else if (extra)
++				*s++ = 0xff;
++			memcpy(s, tmp, n-!!extra);
++		}
++		kfree(tmp);
++		*nwritten = n;
++		return 0;
++	} else if (format == GCRYMPI_FMT_USG) {
++		unsigned int n = (nbits + 7)/8;
 +
-+struct shash_desc;
++		/* Note:  We ignore the sign for this format.  */
++		/* FIXME: for performance reasons we should put this into
++		 * mpi_aprint because we can then use the buffer directly.
++		 */
 +
-+#if IS_REACHABLE(CONFIG_CRYPTO_SM2)
-+int sm2_compute_z_digest(struct shash_desc *desc,
-+			 const void *key, unsigned int keylen, void *dgst);
-+#else
-+static inline int sm2_compute_z_digest(struct shash_desc *desc,
-+				       const void *key, unsigned int keylen,
-+				       void *dgst)
-+{
-+	return -EOPNOTSUPP;
++		if (buffer && n > len)
++			return -E2BIG;
++		if (buffer) {
++			unsigned char *tmp;
++
++			tmp = mpi_get_buffer(a, &n, NULL);
++			if (!tmp)
++				return -EINVAL;
++			memcpy(buffer, tmp, n);
++			kfree(tmp);
++		}
++		*nwritten = n;
++		return 0;
++	} else if (format == GCRYMPI_FMT_PGP) {
++		unsigned int n = (nbits + 7)/8;
++
++		/* The PGP format can only handle unsigned integers.  */
++		if (negative)
++			return -EINVAL;
++
++		if (buffer && n+2 > len)
++			return -E2BIG;
++
++		if (buffer) {
++			unsigned char *tmp;
++			unsigned char *s = buffer;
++
++			s[0] = nbits >> 8;
++			s[1] = nbits;
++
++			tmp = mpi_get_buffer(a, &n, NULL);
++			if (!tmp)
++				return -EINVAL;
++			memcpy(s+2, tmp, n);
++			kfree(tmp);
++		}
++		*nwritten = n+2;
++		return 0;
++	} else if (format == GCRYMPI_FMT_SSH) {
++		unsigned char *tmp;
++		int extra = 0;
++		unsigned int n;
++
++		tmp = mpi_get_buffer(a, &n, NULL);
++		if (!tmp)
++			return -EINVAL;
++
++		if (negative) {
++			twocompl(tmp, n);
++			if (!(*tmp & 0x80)) {
++				/* Need to extend the sign.  */
++				n++;
++				extra = 2;
++			}
++		} else if (n && (*tmp & 0x80)) {
++			n++;
++			extra = 1;
++		}
++
++		if (buffer && n+4 > len) {
++			kfree(tmp);
++			return -E2BIG;
++		}
++
++		if (buffer) {
++			unsigned char *s = buffer;
++
++			*s++ = n >> 24;
++			*s++ = n >> 16;
++			*s++ = n >> 8;
++			*s++ = n;
++			if (extra == 1)
++				*s++ = 0;
++			else if (extra)
++				*s++ = 0xff;
++			memcpy(s, tmp, n-!!extra);
++		}
++		kfree(tmp);
++		*nwritten = 4+n;
++		return 0;
++	} else if (format == GCRYMPI_FMT_HEX) {
++		unsigned char *tmp;
++		int i;
++		int extra = 0;
++		unsigned int n = 0;
++
++		tmp = mpi_get_buffer(a, &n, NULL);
++		if (!tmp)
++			return -EINVAL;
++		if (!n || (*tmp & 0x80))
++			extra = 2;
++
++		if (buffer && 2*n + extra + negative + 1 > len) {
++			kfree(tmp);
++			return -E2BIG;
++		}
++		if (buffer) {
++			unsigned char *s = buffer;
++
++			if (negative)
++				*s++ = '-';
++			if (extra) {
++				*s++ = '0';
++				*s++ = '0';
++			}
++
++			for (i = 0; i < n; i++) {
++				unsigned int c = tmp[i];
++
++				*s++ = (c >> 4) < 10 ? '0'+(c>>4) : 'A'+(c>>4)-10;
++				c &= 15;
++				*s++ = c < 10 ? '0'+c : 'A'+c-10;
++			}
++			*s++ = 0;
++			*nwritten = s - buffer;
++		} else {
++			*nwritten = 2*n + extra + negative + 1;
++		}
++		kfree(tmp);
++		return 0;
++	} else
++		return -EINVAL;
 +}
-+#endif
++EXPORT_SYMBOL_GPL(mpi_print);
+diff --git a/lib/crypto/mpi/mpih-mul.c b/lib/crypto/mpi/mpih-mul.c
+index a93647564054..e5f1c84e3c48 100644
+--- a/lib/crypto/mpi/mpih-mul.c
++++ b/lib/crypto/mpi/mpih-mul.c
+@@ -317,6 +317,31 @@ mpih_sqr_n(mpi_ptr_t prodp, mpi_ptr_t up, mpi_size_t size, mpi_ptr_t tspace)
+ 	}
+ }
+ 
 +
-+#endif /* _CRYPTO_SM2_H */
++void mpihelp_mul_n(mpi_ptr_t prodp,
++		mpi_ptr_t up, mpi_ptr_t vp, mpi_size_t size)
++{
++	if (up == vp) {
++		if (size < KARATSUBA_THRESHOLD)
++			mpih_sqr_n_basecase(prodp, up, size);
++		else {
++			mpi_ptr_t tspace;
++			tspace = mpi_alloc_limb_space(2 * size);
++			mpih_sqr_n(prodp, up, size, tspace);
++			mpi_free_limb_space(tspace);
++		}
++	} else {
++		if (size < KARATSUBA_THRESHOLD)
++			mul_n_basecase(prodp, up, vp, size);
++		else {
++			mpi_ptr_t tspace;
++			tspace = mpi_alloc_limb_space(2 * size);
++			mul_n(prodp, up, vp, size, tspace);
++			mpi_free_limb_space(tspace);
++		}
++	}
++}
++
+ int
+ mpihelp_mul_karatsuba_case(mpi_ptr_t prodp,
+ 			   mpi_ptr_t up, mpi_size_t usize,
+diff --git a/lib/crypto/mpi/mpiutil.c b/lib/crypto/mpi/mpiutil.c
+index 979ece5a81d2..c8ab00f6f4f4 100644
+--- a/lib/crypto/mpi/mpiutil.c
++++ b/lib/crypto/mpi/mpiutil.c
+@@ -20,6 +20,63 @@
+ 
+ #include "mpi-internal.h"
+ 
++/* Constants allocated right away at startup.  */
++static MPI constants[MPI_NUMBER_OF_CONSTANTS];
++
++/* Initialize the MPI subsystem.  This is called early and allows to
++ * do some initialization without taking care of threading issues.
++ */
++static int __init mpi_init(void)
++{
++	int idx;
++	unsigned long value;
++
++	for (idx = 0; idx < MPI_NUMBER_OF_CONSTANTS; idx++) {
++		switch (idx) {
++		case MPI_C_ZERO:
++			value = 0;
++			break;
++		case MPI_C_ONE:
++			value = 1;
++			break;
++		case MPI_C_TWO:
++			value = 2;
++			break;
++		case MPI_C_THREE:
++			value = 3;
++			break;
++		case MPI_C_FOUR:
++			value = 4;
++			break;
++		case MPI_C_EIGHT:
++			value = 8;
++			break;
++		default:
++			pr_err("MPI: invalid mpi_const selector %d\n", idx);
++			return -EFAULT;
++		}
++		constants[idx] = mpi_alloc_set_ui(value);
++		constants[idx]->flags = (16|32);
++	}
++
++	return 0;
++}
++postcore_initcall(mpi_init);
++
++/* Return a constant MPI descripbed by NO which is one of the
++ * MPI_C_xxx macros.  There is no need to copy this returned value; it
++ * may be used directly.
++ */
++MPI mpi_const(enum gcry_mpi_constants no)
++{
++	if ((int)no < 0 || no > MPI_NUMBER_OF_CONSTANTS)
++		pr_err("MPI: invalid mpi_const selector %d\n", no);
++	if (!constants[no])
++		pr_err("MPI: MPI subsystem not initialized\n");
++	return constants[no];
++}
++EXPORT_SYMBOL_GPL(mpi_const);
++
+ /****************
+  * Note:  It was a bad idea to use the number of limbs to allocate
+  *	  because on a alpha the limbs are large but we normally need
+@@ -106,6 +163,15 @@ int mpi_resize(MPI a, unsigned nlimbs)
+ 	return 0;
+ }
+ 
++void mpi_clear(MPI a)
++{
++	if (!a)
++		return;
++	a->nlimbs = 0;
++	a->flags = 0;
++}
++EXPORT_SYMBOL_GPL(mpi_clear);
++
+ void mpi_free(MPI a)
+ {
+ 	if (!a)
+@@ -146,5 +212,121 @@ MPI mpi_copy(MPI a)
+ 	return b;
+ }
+ 
++/****************
++ * This function allocates an MPI which is optimized to hold
++ * a value as large as the one given in the argument and allocates it
++ * with the same flags as A.
++ */
++MPI mpi_alloc_like(MPI a)
++{
++	MPI b;
++
++	if (a) {
++		b = mpi_alloc(a->nlimbs);
++		b->nlimbs = 0;
++		b->sign = 0;
++		b->flags = a->flags;
++	} else
++		b = NULL;
++
++	return b;
++}
++
++
++/* Set U into W and release U.  If W is NULL only U will be released. */
++void mpi_snatch(MPI w, MPI u)
++{
++	if (w) {
++		mpi_assign_limb_space(w, u->d, u->alloced);
++		w->nlimbs = u->nlimbs;
++		w->sign   = u->sign;
++		w->flags  = u->flags;
++		u->alloced = 0;
++		u->nlimbs = 0;
++		u->d = NULL;
++	}
++	mpi_free(u);
++}
++
++
++MPI mpi_set(MPI w, MPI u)
++{
++	mpi_ptr_t wp, up;
++	mpi_size_t usize = u->nlimbs;
++	int usign = u->sign;
++
++	if (!w)
++		w = mpi_alloc(mpi_get_nlimbs(u));
++	RESIZE_IF_NEEDED(w, usize);
++	wp = w->d;
++	up = u->d;
++	MPN_COPY(wp, up, usize);
++	w->nlimbs = usize;
++	w->flags = u->flags;
++	w->flags &= ~(16|32); /* Reset the immutable and constant flags.  */
++	w->sign = usign;
++	return w;
++}
++EXPORT_SYMBOL_GPL(mpi_set);
++
++MPI mpi_set_ui(MPI w, unsigned long u)
++{
++	if (!w)
++		w = mpi_alloc(1);
++	/* FIXME: If U is 0 we have no need to resize and thus possible
++	 * allocating the limbs.
++	 */
++	RESIZE_IF_NEEDED(w, 1);
++	w->d[0] = u;
++	w->nlimbs = u ? 1 : 0;
++	w->sign = 0;
++	w->flags = 0;
++	return w;
++}
++EXPORT_SYMBOL_GPL(mpi_set_ui);
++
++MPI mpi_alloc_set_ui(unsigned long u)
++{
++	MPI w = mpi_alloc(1);
++	w->d[0] = u;
++	w->nlimbs = u ? 1 : 0;
++	w->sign = 0;
++	return w;
++}
++
++/****************
++ * Swap the value of A and B, when SWAP is 1.
++ * Leave the value when SWAP is 0.
++ * This implementation should be constant-time regardless of SWAP.
++ */
++void mpi_swap_cond(MPI a, MPI b, unsigned long swap)
++{
++	mpi_size_t i;
++	mpi_size_t nlimbs;
++	mpi_limb_t mask = ((mpi_limb_t)0) - swap;
++	mpi_limb_t x;
++
++	if (a->alloced > b->alloced)
++		nlimbs = b->alloced;
++	else
++		nlimbs = a->alloced;
++	if (a->nlimbs > nlimbs || b->nlimbs > nlimbs)
++		return;
++
++	for (i = 0; i < nlimbs; i++) {
++		x = mask & (a->d[i] ^ b->d[i]);
++		a->d[i] = a->d[i] ^ x;
++		b->d[i] = b->d[i] ^ x;
++	}
++
++	x = mask & (a->nlimbs ^ b->nlimbs);
++	a->nlimbs = a->nlimbs ^ x;
++	b->nlimbs = b->nlimbs ^ x;
++
++	x = mask & (a->sign ^ b->sign);
++	a->sign = a->sign ^ x;
++	b->sign = b->sign ^ x;
++}
++
+ MODULE_DESCRIPTION("Multiprecision maths library");
+ MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
