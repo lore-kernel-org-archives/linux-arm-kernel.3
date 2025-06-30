@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3B1C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D535C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1NgvuOJViNQoQa3YdxL37LV+10hlKR/k1LPKw76dTU=; b=2K0JD56ukGrBqnhNk7BxJ7yDiP
-	rAzkVn/3++J9PHi9s98l1hBHowmA3fhXz1WsYyMs2tOc32wmPq8r/DovVY7FeNTDSnimNxbyk42ut
-	uxdclbvnk5UeGipnyH+3dmYiJlJv1rZ76Dl8kHmVmYD7c/5BCuDgLNI3L+BLHF9+VRG65uSvPohCF
-	wUUavP2BemBbzH4YPkxDNKGwVN1Oz7c6OQKnkPmdmVxdm8Y9pvWDTXRWBEZmcd4gb6rmboMa9D9KS
-	Q6MG+viCpa6W/hLqMMrLzJgAyVk6L40IMxpNABZuAtkMRg82exRLSuaLhgv2t7aQpB3CUuKDbAaP0
-	wzPgJ/IQ==;
+	bh=afFmIMxXb1rYx3WoYkfzyRMDApUVRijoKV+Z1GuVtaE=; b=V9SepEjBD7pCRlP4eWI0t2564+
+	6kHB6OyiseCAro2a8w2b00Kj4rpOJ+oajh1knp4mtqbhwfBdOaDFUn2Lhn0nBLhrhJb0/R8RhSeet
+	N4SUF/UvT/nAlUrOKd3Ov27NRGjiG5WhbjTiEokXep65S++P+95CSIVor16b36XRg1xcLUJBQIBrU
+	4Fonj7BMqGFZYRZj+tDs0jJec3cEilep+a7WvyjZspLVNKTwddVlzCOvErOH1xJqs1sotNfTUcBtP
+	TI+w3B/3qDSzaibwC/l1D/lp8kRvqB75QHDJ3qWAZXG6xlp0wKfypun15Pm2Y2ngLIP1jV1jRWD1r
+	lhFcwvlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDkO-00000002CSi-2n27;
-	Mon, 30 Jun 2025 12:36:32 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uWDmh-00000002D83-3pC8;
+	Mon, 30 Jun 2025 12:38:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDDb-000000027uP-2NEi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 12:02:40 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55UAmwnf029679;
-	Mon, 30 Jun 2025 14:02:34 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	v1NgvuOJViNQoQa3YdxL37LV+10hlKR/k1LPKw76dTU=; b=D1hgo3sdFbaC2Bbs
-	9lLvzpaYsrXuOOHj40rLw8GUtIv69bF8So+wuyY4i5FosAPKndrnwhtcTubgkesG
-	csIa/1FLZkF6RZKb/OOaXseiCArM5OmD37WhIZ1Zqfk9vLAtvqYfnTI9sUhVULh9
-	TmXkQVS7m2hYFDwlkSZky7qd0ZC/rmGeMtplj5c2oOcPavL9o8QZmMC9/U8LN4gY
-	mJS4QjM9A5IPrYet6UyalO/UwZspUccurR++cth9P0Y73MpzwDRHSRymCf9G1LxP
-	SLspA/qgYu9rujKTdNHXO+yFWu9XeTMDd0yadDs6S1T+Sly0nCl4nWgLCmcghLja
-	nPr6Ag==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47jubnmt6x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 14:02:34 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D0EA24004D;
-	Mon, 30 Jun 2025 14:01:36 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E2415B2B8D1;
-	Mon, 30 Jun 2025 14:00:51 +0200 (CEST)
-Received: from [10.252.20.7] (10.252.20.7) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 30 Jun
- 2025 14:00:51 +0200
-Message-ID: <3d4d0eb4-a9ec-4fb2-be9c-4d8999cfeebb@foss.st.com>
-Date: Mon, 30 Jun 2025 14:00:50 +0200
+	id 1uWDNk-000000029Fb-3O2u;
+	Mon, 30 Jun 2025 12:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751285586;
+	bh=dPNdODdNEzaTCF8QQBs85oD/JRYhHKIx4HEh+y0OiC0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=T8pQOws9qgLp3JO8Lj4TMVSBUeGxfqhlsflNHZb/ENe4HxvBO6Hf9yshKP86XcUQ2
+	 Lu2lcccG6C4Z3xUZyMA2aMukP9eMI2Y91F1g1mnHPDBGWoCB6aGny2IeqHKcC84+dE
+	 7vuwMC+77IZ86tpyUDyufcbJRy07r0s3APlvlX2wQrxdbw5ebbMonh3DgsESVXmCpT
+	 uJyYxjVDQwdZ2dvdUsYwsB4TfiJqdZpGJDFCfMCgYF7rxNzgJaR3xIv3H1HR5Co7iC
+	 f1QOTlUCkV+rQjYo76uTcTBoD468WXq9ctzABUf8Idq39zr+YilGRdqkhV5k/2TgqB
+	 eK+CT0yU8YsAA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5C4DD17E0B0D;
+	Mon, 30 Jun 2025 14:13:06 +0200 (CEST)
+Message-ID: <cc453fc8-1254-438e-98c3-e81717bb605b@collabora.com>
+Date: Mon, 30 Jun 2025 14:13:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
-To: Mark Brown <broonie@kernel.org>
-CC: Antonio Quartulli <antonio@mandelbit.com>, <linux-spi@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alain Volmat <alain.volmat@foss.st.com>
-References: <20250630081253.17294-1-antonio@mandelbit.com>
- <5e61da51-cd02-41fd-9773-8bd776e1db62@foss.st.com>
- <192fb276-1e5a-4f69-8815-133f6bcd36b3@sirena.org.uk>
+Subject: Re: [PATCH v1 1/5] dt-bindings: spmi: Add MediaTek MT8196 SPMI 2
+ Arbiter/Controllers
+To: Rob Herring <robh@kernel.org>
+Cc: sboyd@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, hsin-hsiung.wang@mediatek.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
+ <20250623120047.108961-2-angelogioacchino.delregno@collabora.com>
+ <20250627200735.GA4094329-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <192fb276-1e5a-4f69-8815-133f6bcd36b3@sirena.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.20.7]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-30_03,2025-06-27_01,2025-03-28_01
+In-Reply-To: <20250627200735.GA4094329-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_050239_871551_183A6780 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250630_051309_040032_65D2D402 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +80,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/30/25 13:20, Mark Brown wrote:
-> On Mon, Jun 30, 2025 at 10:28:50AM +0200, Clement LE GOFFIC wrote:
+Il 27/06/25 22:07, Rob Herring ha scritto:
+> On Mon, Jun 23, 2025 at 02:00:43PM +0200, AngeloGioacchino Del Regno wrote:
+>> Document the MT8196 SPMI 2.0 Controller with a new schema.
+>> This is a MIPI SPMI 2.0 compliant IP, composed of a main arbiter
+>> and two SPMI master controllers with Request Capable Slave (RCS)
+>> support.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   .../bindings/spmi/mediatek,mt8196-spmi.yaml   | 138 ++++++++++++++++++
+>>   1 file changed, 138 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+>> new file mode 100644
+>> index 000000000000..d7eb63e81a5c
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+>> @@ -0,0 +1,138 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/spmi/mediatek,mt8196-spmi.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek MT8196 SPMI 2.0 Controller
+>> +
+>> +maintainers:
+>> +  - Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
+>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> +
+>> +description:
+>> +  The MediaTek MT8196 SoC features a SPMI version 2.0 compliant controller,
+>> +  with internal wrapping arbitration logic to allow for multiple on-chip
+>> +  devices to control up to two SPMI buses.
+>> +  The main arbiter also acts as an interrupt controller, arbitering also
+>> +  the interrupts coming from SPMI-connected devices into each of the nested
+>> +  interrupt controllers from any of the present SPMI buses.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+>> +      - enum:
+>> +          - mediatek,mt8196-spmi
+>> +      - items:
+>> +          - enum:
+>> +              - mediatek,mt6991-spmi
+>> +          - const: mediatek,mt8196-spmi
+>> +
+>> +  ranges: true
+>> +
+>> +  '#address-cells':
+>> +    const: 1
+>> +
+>> +  '#size-cells':
+>> +    const: 1
+>> +
+>> +patternProperties:
+>> +  "^spmi@[a-f0-9]+$":
+>> +    type: object
+>> +    $ref: /schemas/spmi/spmi.yaml
+>> +    unevaluatedProperties: false
+>> +
+>> +    properties:
+>> +      reg:
+>> +        items:
+>> +          - description: controller interface registers
+>> +          - description: spmi master controller registers
+>> +
+>> +      reg-names:
+>> +        items:
+>> +          - const: pmif
+>> +          - const: spmimst
+>> +
+>> +      clocks:
+>> +        items:
+>> +          - description: controller interface system clock
+>> +          - description: controller interface timer clock
+>> +          - description: spmi controller master clock
+>> +
+>> +      clock-names:
+>> +        items:
+>> +          - const: pmif_sys_ck
+>> +          - const: pmif_tmr_ck
+>> +          - const: spmimst_clk_mux
+>> +
+>> +      interrupts:
+>> +        maxItems: 1
+>> +
+>> +      interrupt-names:
+>> +        const: rcs
+>> +
+>> +      interrupt-controller: true
+>> +
+>> +      "#interrupt-cells":
+>> +        const: 3
+>> +        description: |
+>> +          cell 1: slave ID for the requested interrupt (0-15)
+>> +          cell 2: the requested peripheral interrupt (0-7)
+>> +          cell 3: interrupt flags indicating level-sense information,
+>> +                  as defined in dt-bindings/interrupt-controller/irq.h
+>> +    required:
+>> +      - reg
+>> +      - reg-names
+>> +      - clocks
+>> +      - clock-names
+>> +      - interrupts
+>> +      - interrupt-names
+>> +      - interrupt-controller
+>> +      - "#interrupt-cells"
+>> +
+>> +required:
+>> +  - compatible
+>> +  - ranges
+>> +  - '#address-cells'
+>> +  - '#size-cells'
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +
+>> +    soc {
+>> +      #address-cells = <2>;
+>> +      #size-cells = <2>;
+>> +
+>> +      spmi-arbiter@1c018000 {
+>> +        compatible = "mediatek,mt8196-spmi";
+>> +        ranges = <0 0 0x1c018000 0x4900>;
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +
+>> +        spmi@0 {
+>> +          reg = <0 0x900>, <0x4800 0x100>;
+>> +          reg-names = "pmif", "spmimst";
+>> +          interrupts-extended = <&pio 292 IRQ_TYPE_LEVEL_HIGH>;
+>> +          interrupt-names = "rcs";
+>> +         interrupt-controller;
 > 
->> Thank you, LGTM
->> You can add my Reviewed-by
+> Indentation error.
 > 
-> If you want to add a Reviewed-by you should actually write it out in the
-> mail, people rely on tooling like b4 to pick them up.
+> Otherwise,
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> 
 
-Yes, sorry.
-Fixed it.
+Oh sorry for that.
 
-Best regards,
-Clément
+If there's no "complaint" on any other patch of this series, I wonder if this
+could be fixed while applying?
+
+Thanks a lot,
+Angelo
+
+>> +          #interrupt-cells = <3>;
+>> +          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
+>> +          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
+>> +        };
+>> +
+>> +        spmi@2000 {
+>> +          reg = <0x2000 0x900>, <0x4000 0x100>;
+>> +          reg-names = "pmif", "spmimst";
+>> +          interrupts-extended = <&pio 291 IRQ_TYPE_LEVEL_HIGH>;
+>> +          interrupt-names = "rcs";
+>> +          interrupt-controller;
+>> +          #interrupt-cells = <3>;
+>> +          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
+>> +          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
+>> +        };
+>> +      };
+>> +    };
+>> +...
+>> -- 
+>> 2.49.0
+>>
+
+
 
