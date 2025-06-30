@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D07A1C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF9EC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3y+b2j8+A8W8uv2oLAi6010Yh9nmeGSj5kggJO53OS8=; b=FhD0PTDpJuZtaqw+e9LY23Q9Ch
-	S5SOvxw3mDFpuLg0iFKINmfM8s4gaRmHh/D4RNIxpI54Xi++7ZQmklf8hcvliYxAnbf9KxWS5HW7v
-	ebmiBHt1JiwyM/oXlfbEpC0UXPrYFVJXLiy3GKULSrAbm/ePtCbqMzOsgHogXW6e0h8Jhpw3mZXje
-	h3FqBXD/8r58kgFHiktxc92/7PZ7Me0J6pIUwVrPb5gLZbyLOL/tKAV5Sz7fbCgZwrff61EgJmNoz
-	XZfm8iRv4Kefjk3A/mbY4UBSI9ZvzqA4V9ycOmjbBTB2/i8mMjpRx4rhb7PB/vp0HeL6TEFrgZkjb
-	cXwOLSgw==;
+	bh=obn1fFptpDWsfOTGxxja0aYNB+v0Pa/lgexMoMKfewU=; b=OPFtf5FDibGoj/JOPYkPLbcqPN
+	nYO3FljytQyei4Qqao4r5hPfK+N81pPcoiq00YEp1VvarrhPgSrfucNf3ml2CtFNFI03ZVsZ0n6n1
+	jNKjtU99AaXxu3ZMsbkhrgRCwAm43+Xqocg8zduoEpKkRl8LdgVPkL86KLWoJXd3vn5y5EB4sGYah
+	x81XTwZmty3F1ePbg0ylk/LS7rLmyXTvLgTVLP3E0eNWfkbsl3ShAuk/a2m6TPSse8PNbqVzNSzpf
+	b9k4G8/b2ndwdeX0XztUfjJRnlBMs4e3lv3v8JTZxu6KTlbGwKhMrKhdHq3b0d0PJasA3u1fnn3OG
+	ONWVbQRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWD5F-000000026mW-06XD;
-	Mon, 30 Jun 2025 11:54:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uWD7W-0000000278T-3UlX;
+	Mon, 30 Jun 2025 11:56:22 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCia-000000022DC-17Li
+	id 1uWCmd-0000000234Q-3Dqx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 11:30:37 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 55B53928;
-	Mon, 30 Jun 2025 13:30:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751283012;
-	bh=f8UGTCDHYUrbrwvxFMRydIPYre+TP2vUFa3uY2UjE3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V5JaRGrUmgKsFenh53PLVTcWCNAKl1NB2vLxyVYinBaWGgSEFN5FULnUIocHmCZns
-	 lftjSc7ySRFu9V3xuE1aXarNkSVN7TcxHvbbJYR+1z6dvjXH+yrMiP53f12vzyQ1Vb
-	 CHekjsxnYiGfyj/MT8h2yYae02fw3lVyVRo6ufuY=
-Date: Mon, 30 Jun 2025 14:30:08 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Mike Looijmans <mike.looijmans@topic.nl>,
-	dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-Message-ID: <20250630113008.GD20333@pendragon.ideasonboard.com>
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
- <20250627145058.6880-1-mike.looijmans@topic.nl>
- <20250627181911.GF24912@pendragon.ideasonboard.com>
- <42af6260-c8af-42e1-a9bb-adfaaabf0190@topic.nl>
- <20250630-psychedelic-tested-smilodon-adcbb3@houat>
- <20250630091156.GE24861@pendragon.ideasonboard.com>
- <20250630-phenomenal-taipan-of-imagination-59b300@houat>
- <20250630093335.GC20333@pendragon.ideasonboard.com>
- <20250630-delicate-stirring-sawfly-dd81be@houat>
+	Mon, 30 Jun 2025 11:34:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8878A10380104;
+	Mon, 30 Jun 2025 13:34:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1751283283; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=obn1fFptpDWsfOTGxxja0aYNB+v0Pa/lgexMoMKfewU=;
+	b=AQKIf/Udw+b5eHV6+NEZhbR5iX7W6bnm9XB4i+kaxnIFF7ccKGLFWIWC5uMO3mJ8qit8Ip
+	syY2HMQgXz/9DhT8zh6n3gqlEnCwMxdalNKZL19Gt5E11nFXihxyA9tVQ1ln9KP7QE6Aid
+	swuQKBUviYdIb5tD18Ii2WK8aE1RDLUjJz6jKzA4KZNNfcKsqkRf39KQKht9qDteCaiYkk
+	1lMb68+r+Yd8p9pXy44vqdcBKerwNy6x7dyMARVmvWFTWu921/6iGCr9nFM/LXTunUVRKp
+	jF18ykoSo/sMQUVo7s8rX8Azv5fFl096GpeWJulsTb5gJ1QmdssrG9NCTqk8vw==
+Date: Mon, 30 Jun 2025 13:34:36 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, =?UTF-8?B?xYF1a2Fz?=
+ =?UTF-8?B?eg==?= Majewski <lukasz.majewski@mailbox.org>
+Subject: Re: [net-next v13 06/11] net: mtip: Add mtip_switch_{rx|tx}
+ functions to the L2 switch driver
+Message-ID: <20250630133436.71238a65@wsk>
+In-Reply-To: <0de412ee-c9ce-463b-92ef-58a33fd132d1@redhat.com>
+References: <20250622093756.2895000-1-lukma@denx.de>
+	<20250622093756.2895000-7-lukma@denx.de>
+	<0de412ee-c9ce-463b-92ef-58a33fd132d1@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250630-delicate-stirring-sawfly-dd81be@houat>
+Content-Type: multipart/signed; boundary="Sig_/ft7tAwYwUt/T1YMHVHAewjX";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_043036_630655_9D43363B 
-X-CRM114-Status: GOOD (  39.19  )
+X-CRM114-CacheID: sfid-20250630_043447_972678_BC335BF1 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +81,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 12:52:48PM +0200, Maxime Ripard wrote:
-> On Mon, Jun 30, 2025 at 12:33:35PM +0300, Laurent Pinchart wrote:
-> > On Mon, Jun 30, 2025 at 11:29:08AM +0200, Maxime Ripard wrote:
-> > > On Mon, Jun 30, 2025 at 12:11:56PM +0300, Laurent Pinchart wrote:
-> > > > On Mon, Jun 30, 2025 at 10:27:55AM +0200, Maxime Ripard wrote:
-> > > > > On Mon, Jun 30, 2025 at 10:03:16AM +0200, Mike Looijmans wrote:
-> > > > > > On 27-06-2025 20:19, Laurent Pinchart wrote:
-> > > > > > > On Fri, Jun 27, 2025 at 04:50:46PM +0200, Mike Looijmans wrote:
-> > > > > > > > XRGB8888 is the default mode that Xorg will want to use. Add support
-> > > > > > > > for this to the Zynqmp DisplayPort driver, so that applications can use
-> > > > > > > > 32-bit framebuffers. This solves that the X server would fail to start
-> > > > > > > > unless one provided an xorg.conf that sets DefaultDepth to 16.
-> > > > > > > > 
-> > > > > > > > Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
-> > > > > > > > ---
-> > > > > > > > 
-> > > > > > > >   drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
-> > > > > > > >   1 file changed, 5 insertions(+)
-> > > > > > > > 
-> > > > > > > > diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> > > > > > > > index 80d1e499a18d..501428437000 100644
-> > > > > > > > --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> > > > > > > > +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> > > > > > > > @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
-> > > > > > > >   		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
-> > > > > > > >   		.swap		= true,
-> > > > > > > >   		.sf		= scaling_factors_888,
-> > > > > > > > +	}, {
-> > > > > > > > +		.drm_fmt	= DRM_FORMAT_XRGB8888,
-> > > > > > > > +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
-> > > > > > > > +		.swap		= true,
-> > > > > > > > +		.sf		= scaling_factors_888,
-> > > > > > > 
-> > > > > > > I'm afraid that's not enough. There's a crucial difference between
-> > > > > > > DRM_FORMAT_ARGB8888 (already supported by this driver) and
-> > > > > > > DRM_FORMAT_XRGB8888: for the latter, the 'X' component must be ignored.
-> > > > > > > The graphics layer is blended on top of the video layer, and the blender
-> > > > > > > uses both a global alpha parameter and the alpha channel of the graphics
-> > > > > > > layer for 32-bit RGB formats. This will lead to incorrect operation when
-> > > > > > > the 'X' component is not set to full opacity.
-> > > > > > 
-> > > > > > I spent a few hours digging in the source code and what I could find in the
-> > > > > > TRM and register maps, but there's not enough information in there to
-> > > > > > explain how the blender works. The obvious "XRGB" implementation would be to
-> > > > > > just disable the blender.
-> > > > > > 
-> > > > > > What I got from experimenting so far is that the alpha component is ignored
-> > > > > > anyway while the video path isn't active. So as long as one isn't using the
-> > > > > > video blending path, the ARGB and XRGB modes are identical.
-> > > > > > 
-> > > > > > Guess I'll need assistance from AMD/Xilinx to completely implement the XRGB
-> > > > > > modes.
-> > > > > > 
-> > > > > > (For our application, this patch is sufficient as it solves the issues like
-> > > > > > X11 not starting up, OpenGL not working and horrendously slow scaling
-> > > > > > performance)
-> > > > > 
-> > > > > Given that we consider XRGB8888 mandatory,
-> > > > 
-> > > > How about platforms that can't support it at all ?
-> > > 
-> > > We emulate it.
-> > 
-> > Does that imply a full memcpy of the frame buffer in the kernel driver,
-> > or is it emulated in userspace ?
-> 
-> Neither :)
-> 
-> The kernel deals with it through drm_fb_xrgb8888_to_* helpers, but only
-> on the parts of the framebuffer that were modified through the damage
-> API.
+--Sig_/ft7tAwYwUt/T1YMHVHAewjX
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Aahhh OK, it's for the fbdev emulation. So that means that drivers are
-not required to support XRGB8888 ?
+Hi Paolo,
+
+> >  static void mtip_switch_tx(struct net_device *dev)
+> >  {
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status;
+> > +	struct sk_buff *skb;
+> > +	unsigned long flags;
+> > +	struct cbd_t *bdp;
+> > +
+> > +	spin_lock_irqsave(&fep->hw_lock, flags); =20
+>=20
+> This is called from napi (bh) context, and every other caller
+> is/should be BH, too. You should use
+>=20
+> 	spin_lock_bh()
+
+I've double check the spin locking in the driver - I've also consult
+the fec_main.c.
+
+It looks like the mtip_switch_rx() and fec_enet_rx() are not using
+explicit locks and rely on NAPI locking.
+
+On the other hand - the fec_enet_tx (and corresponding MTIP variant)
+use spin_lock(), not the _bh() variant.
+
+>=20
+> Also please test your patches with CONFIG_LOCKDEP and
+> CONFIG_DEBUG_SPINLOCK enabled, thet will help finding this king of
+> issues.
+
+This was enabled by default. By changing all locks to _bh() there were
+deadlocks observed.
+
+On the MTIP driver (due to this HW IP block) there are some locks which
+must disable interrupts:
+
+1. One is when mtip_adjust_link() is called - as it is the same for
+both switch ports. Moreover, at some use cases it is required that the
+switch IP block is reset.
+
+2. The mtip_atable_dynamicms_learn_migration() - it changes the content
+of dynamic switching table. IRQ from switch shall not be possible at
+this time as it can be called from mtip_switch_rx() (from NAPI) and
+from timer/kthread (at specified period).
 
 
--- 
-Regards,
+To sum up:
 
-Laurent Pinchart
+I'm going to prepare the v14 with changes around the timer / kthread
+running mtip_atable_dynamicms_learn_migration() and use time stamps
+extracted from jiffies.
+
+Locks will be optimized and following paradigm used with fec_main.c
+driver.
+
+>=20
+> /P
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/ft7tAwYwUt/T1YMHVHAewjX
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhidkwACgkQAR8vZIA0
+zr1gIwgA5RFaOOf/zToxgLklld0AgiA7amktt6Vm7D+yrAK4VbOKEnAMTahAU7iE
+Z/aSDSy3TmQ6p+k7SOMCK/W7UyAGi4nIffvLFo5N4PGTYmBqVhq+qlpjSm7bnFAU
+mUKTz6s/N3KoneKHrKRf6ogC4PubkGH4RqQ4gVbr0YZgwd4XsA6uEFVoPYeUQ25U
+EVRkOV9W2ouDS/MpoHsQoFN35ottbyK0i2kVUqywK/QGPuQtLXOEfswnnqQ6B692
+nRkf9dcbOPJqCiabDst66cODEgmDJ5brs7f6SZ7nPIB1ASnGmjDaVgIzuT9CuA4G
+LfMIlP/XANgIKp/dLSJtVT7sdEdmDA==
+=eCtd
+-----END PGP SIGNATURE-----
+
+--Sig_/ft7tAwYwUt/T1YMHVHAewjX--
 
