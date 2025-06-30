@@ -4,180 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A766AC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3154BC8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mSuDmVicfzD/tG1JesxgmwwoKBosm6yu7gRk4wBoGvU=; b=iisrLjFkmlHuFg9hFFXMV1xzfE
-	ylfzdUCbkgwNCkn9Z6xqZf9bLx5EdXoXoZ91CHETOFNToHdRMLNwfRgEg+hs5owJg/QsOY6Yzn2ON
-	bSlDmfO+rFyfSR71uVIMIoOY8vUrd1Qa4UAqnKd3watU+D7+siCLd9+0rKTDt1A/5P97Y0bAqLeg1
-	wUP/Jgu0Fw6ezFARvuCXBUVfI6zaR/S/fFjEnqUfoivHAPc2hAnGfMxKywZoy9wGmluSyehKnOIlz
-	AWZ60H8YLVMonN6pFna1X5Ns6OGoSB9EPe0NN25YJAutt0j525QqtxGGTY3ij8FZewckLEka/3cMb
-	W/0wumNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IGf5CkCKwgsUDtv3DtwB6hap1IottRbP0dgAEKsf68=; b=rcHibnXw3GFH8r6eNAMAfl00Qo
+	B/piv3PZTN8SJKrrhhtiwNtuwTKePcZY0S8o3zQGPpJ4iBSUnocc0GL6FOr1e4lPr5tlQRby2Npdo
+	P2qfFrPgROwMJu3SBnu9ZgO436zk82kE98r5TNVwnZyYWcJnnMSfMcjxFMpnXhgkrRgXMC+1DC/IP
+	YcgKdJtXdyxuSrW876iGIwMK8JRmaLFVSS30+KBO5dmkxIvzpqeC/pBCXGwkWUCVpI8L8mzwzAc8K
+	/1ENF7hzDwImvl5DU04LFu7OaqzHeMGv9meyr3gPlbjWGNFdsDJleFZkB9kxvY0xEJ7wnbZs7X21P
+	D2xBTWVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCGw-00000001xxO-1P5C;
-	Mon, 30 Jun 2025 11:02:02 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBob-00000001tmd-2FTH
+	id 1uWCJE-00000001yE2-0Uam;
+	Mon, 30 Jun 2025 11:04:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWBr4-00000001u70-3hP9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 10:32:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Mh6s+gbvZ+WHYi956xpuGVVMWF46zzTrMYMJX8ztGgfwIZVnqYGFDHbH/lfKCBAtpGBu6pXrJ/ylxtVRA6cNeUP1OJPe1kF/3OsrflM4JKKqpm9G4MIuA/PNtRY0JB9H8ScN0Ec3xYWoN212tf/ovOwsaHIU2MoCWLHWo3ntO+eAbm7VuVsH7XMu/Ab6ss9AUPNs4uAuUbkaN4tX61aES0SbMtKYqADCEdn/1C5rF9OLg+yGZP0Q55ew3ylQ4mUO6kHk4LDZgJvXD/7R55Zxtw2D7sM+VFtOqwMdsGlffUl67/44gu7CbEEb7i/evp+LNFbUMRVbYc9S7uk9nqprgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mSuDmVicfzD/tG1JesxgmwwoKBosm6yu7gRk4wBoGvU=;
- b=BO0Vzdp//SIIBk4Ym/sKh9Jq1ieczkqt9Uc7BhNtV+lvt8GLqWqeW4n5d+j0d0NC+5S/fRT11tXhmUu3UrV3qnWLCoHzNdsNx/j0fItkiXwV74LsZvoXOicG614O84a4gaOX6WASu8Z/33DmoWB+aBHYv6m9Er+crs+TnSFgBhMPoGnzRy4v7wqYCt+8xA2/4d8OdMm6BGipVA83J5e4SY80F60KesV+6t69nRQ9xA4GcWgsEvVqdRg9JHa9JeAkA5xu7muH4hSa0LPycLNM/YuRkg1CN4WmCCi7+fZ2Iyf8FK2S0VwjE6L/cF0vnT2Ey6MJRS5E/yTey8a/JMV6hQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mysnt.onmicrosoft.com;
- s=selector2-mysnt-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mSuDmVicfzD/tG1JesxgmwwoKBosm6yu7gRk4wBoGvU=;
- b=Bo9AEzAjRN8bP/aqPskGo7HR5fBxXai8ozVqaqBDghoC+cptotECnoJeezLEcbrFa/npGn7mQAffIJ8jGcs/LuPdiAnO9XMPKgBoQZYidNv7O7wejvhcr1Vh2ZmUPVeJJZVfdUmHsN0uRK/wR0/iQtrvdruInSUiKvdtSQ97WRQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
- by AS5PR10MB8204.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:678::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.30; Mon, 30 Jun
- 2025 10:32:32 +0000
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19%7]) with mapi id 15.20.8880.027; Mon, 30 Jun 2025
- 10:32:32 +0000
-Message-ID: <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
-Date: Mon, 30 Jun 2025 12:32:30 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-To: Marco Felsch <m.felsch@pengutronix.de>,
- Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- Frank Li <frank.li@nxp.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
- <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
- <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
- <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0349.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f4::9) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:263::10)
+	Mon, 30 Jun 2025 10:35:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70F191D34;
+	Mon, 30 Jun 2025 03:35:02 -0700 (PDT)
+Received: from [10.1.34.165] (XHFQ2J9959.cambridge.arm.com [10.1.34.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54EB33F58B;
+	Mon, 30 Jun 2025 03:35:14 -0700 (PDT)
+Message-ID: <ced934c3-a1ea-4d1c-954a-613eb20a9105@arm.com>
+Date: Mon, 30 Jun 2025 11:35:12 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|AS5PR10MB8204:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77c887b3-76af-4719-abf5-08ddb7c16b99
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QlBhZzErZ3M0Q1NnYVk5cFR5QUtGT3NUbjJyeFRLT0h5RFozeDFMQlNWbGNz?=
- =?utf-8?B?VmNLMVJZRFh4NGF6TlhML3FKa3VqanVodm9xeDFwb0t4eVZGT0xaN2FLd2lT?=
- =?utf-8?B?aXN4MFdwa0RHOXR1a0R4SmZ1a052T2xONVp0bFlrVHJwRTJtT2lkbml5MlRG?=
- =?utf-8?B?ck1ia0I2MWtxNlNSRkZlcDNEOEJ1RStkejg0bmpaS1lGMlF1UjNOVkUyckhV?=
- =?utf-8?B?QnBsbnVvWmY1S1NQTHNtMERJaG9JN3pmK0dQcUIyRGhmOGd1V3dqd0hmZ244?=
- =?utf-8?B?MitDWVMzR2MvN2h4VDdIeG5rdFF0Q3FJNHRyWFcwL09XeUt6T0ZBbkRudGNv?=
- =?utf-8?B?SnZNSTJyNnlPZHMwbzhqS2c5OXZ3cEt2anViZ0p5cldnVzE5bnQxdHhRS3Ju?=
- =?utf-8?B?OFZEdEV4K1F3dXQ5cGVSTlorMFV5dklya0VHYk5wamFXT2JpRzRQQnpiWVFu?=
- =?utf-8?B?aFV5c1R6Q3k4anVBMlVWN05OKzZ4NklKWDJyQWVSRGNRL1hGVk1wSllLNDRm?=
- =?utf-8?B?V0xCMFd1bWZqbVYzd1FMWnpYVXB3MXlPSHRvdWJZVnU2UTk0N3YzNENaMzJE?=
- =?utf-8?B?OGxVRVZBeUs1OHJYZXNaUThOS05FS2p3QldidnZKZmczWXdqZ3Z0NWNzNVJD?=
- =?utf-8?B?OXp1aE8ySlkrQ21kUENjMUZmMjhhUlRyaHBSVzl6b3JWbXBNbTljWDNBbHJq?=
- =?utf-8?B?a1JGTlZZZ20zazRIQmpMZnMrcWNpRmk5allZL0piUkR2TmJBNVJGNkxhRkM2?=
- =?utf-8?B?Vlc2aHZMZWRQSGswWXBDQ0RVMldpWXFOWSt6MFFnZ0I1bE10OEdZalpEUXpN?=
- =?utf-8?B?SXFudVZaUGUwTS8wMEpSVEhMb0ZSU0txQmxuOXpqdzVoaUdpYndRWTUyVW85?=
- =?utf-8?B?VWNoZ0dwTmFJZFB0Q0pRUUFWUFc4N291aXVNUW5FanRXcDYrQ1NCN3lwZG85?=
- =?utf-8?B?VzYrdndNUWZpK2ZOVTdrbFQ0ckNPUzVzallnUWZsbUtyTzJZTTYyUlUyRG9j?=
- =?utf-8?B?VHlHY1BBWHdyeWVHV0FyYTFVb1duWDhCZzFlQTBjZU5keCs4czVJTGFsNUs4?=
- =?utf-8?B?a3FUTFBuenJsWHpHQTl1OWUwNUs1ZXlsMFEwMU1lcEFZdCtOVzRDOVlsU3NO?=
- =?utf-8?B?NFNJMmhuaUFCWldkemorTXVyUUxCOTNxR2E1MWpCME1ZcmhZUkRodzZqd2Ry?=
- =?utf-8?B?NHpkaFEyb2VhbzNFTWRCK0ZKYktHakpIM0RoYTI4WlA4N3hjdEdqUVZCb1Q1?=
- =?utf-8?B?a0R2MGQ3M1g0QmNRbk1KZ0ZGOWpVMVhoQjdvSkhEUXR2YllkL3BQMzVEY05z?=
- =?utf-8?B?VnBZQWxDVDdiME1jOWFxN3BuVnRmbzFjZlVyN01ERjhIR1B0VHhpdTJDN2JY?=
- =?utf-8?B?MEVJMTVaQ2ZIcXI3M0pFcmFid2RPOEpXOVdEQmlWdGpsQS9hMmlHRnIrS2E3?=
- =?utf-8?B?TUJYV3JlREhhSDc4UHVHdXJodUJaOExTajBJOEhHcGViMjV0ZXVnZXU3Q1Rw?=
- =?utf-8?B?dGhHangyZGNndC9tRkRwY2NpbWxwQml1QzZ3TmpuWUUra3o3VkZYblBMS21l?=
- =?utf-8?B?bzlPeXh6NXgvR1A4UGlFMVQ1dEFieGhnVDgzeUdiTHV6M2VyamwxUDhpS21D?=
- =?utf-8?B?L2U3WjVXemVYeWQ3SjBpRzBmM3BxZmJ1bjdlekpueWhFeTJ0WWphZm1Hc2Y5?=
- =?utf-8?B?eW5XZXlXNWZYSmNORk83bkdIVUJKTWZzNzlsSllwMmNyNlBlSld1d1B5RVN5?=
- =?utf-8?B?cnNaT004ZjNINS9WbVpoaUdPczJnTjFnR2t5SkNoN0R3elFHN2Jid0QwbFhy?=
- =?utf-8?B?WWNtblM2RnoxUWNtVFpoM3RoVXR3clNjZTBXUGNMVXB4TmJPemd5MU43MG4v?=
- =?utf-8?B?aHR5MVl3THFCenFTcDZBaWZZZjAzR0VyeE9pMy9zdmRiQVVUUzdJSm9FTTIv?=
- =?utf-8?Q?/+nQId8P26I=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3NSbHROV0xZcjJ4UnUzSTdaeEFZT2U5dnVpTGJIeUNJdG1OL0RIb1Y4TTFy?=
- =?utf-8?B?a3JFa1M4K2JhQkYrb0UyN0lxMkdTSWJOWlBGM3EydHJRN1NDV2xCQmtzU0lr?=
- =?utf-8?B?UFVwVDZlZG9YdEhOa0ZaOU1EaVRNaHJ1aU1sbUx5T0FEWmlwWWhqaUNQb2tG?=
- =?utf-8?B?OUJ2YXFub1haOHRoQVFKcjRXR2d5eGRaSlFIRjZGaHlURExwdVYwb2R2RkRY?=
- =?utf-8?B?NCt3YlhrbnllUjRjVFcyOVY3YXZBVEJnbXBXeVhCM3RycS9Odm9aR25FT3JC?=
- =?utf-8?B?d0JPTGtjL2RYUGtPVkhXV0U1MWhzUzdyOGZLbkVxTk5MRjNkT2JTTjJLYzcr?=
- =?utf-8?B?VWdMdmJsUnZqRUJRR1JkK3FCcWRQL0FQTW8xRlZSSDYvM3NzWVdKNXIzeDYx?=
- =?utf-8?B?cE95UmxjWjVReCsxKzVZWXR3d0hEc0lkaXVxNlJ5WUY5eXVHZkcvazhhN0tD?=
- =?utf-8?B?ZU9HU2RGNVlKSmhkbFduSGhaRjVzRWFiNy9nSWtWZ241cHN1U0RqcERXRjRW?=
- =?utf-8?B?U3pxTkJNbVJnL2M1aFpVTWxxbXdzYTk2ZFpxck5qWGt1cHZrVEdnTmhRK3A2?=
- =?utf-8?B?Z2R2WkJzRng1RzlObnUyNE82QjExZlVScW8zTzRHQ3N1VExQaGVDWm1la2NE?=
- =?utf-8?B?MU0rOFJwWjFVKzRhb3NWYkJ6N3JxWEVld0V1azRCUzVoUzJpVXlNZ0tGdGVN?=
- =?utf-8?B?T2J1V0RhU2cyYnlTWHJhVmYxVzRDUlREaTg1TkRtbStHOTA3dWZDREY2ZTUr?=
- =?utf-8?B?U1VUdUNxMTZ3M1RSZWdRdEF5NldCSFh3bDZRRWNXUis2VDVReW4rb052Ykcz?=
- =?utf-8?B?anZVVTdIVDNUYWRoa1V4UWY4NEhuVy9OQVR0eno0MmZuMG9DVWxQeHVJVWpQ?=
- =?utf-8?B?Ly9YS1pNb3R1RzkyNm9qcUVmTDJUOCt3OUs4czBXOXZZaHdiZDRVZXovYmR1?=
- =?utf-8?B?TlRNbHZScUFpNFdhWjhKdzVPc3dXS01mSW9COUNDYmZNYlVDREk2a293am5i?=
- =?utf-8?B?eGNzL1VhbWRFb1RkN3NjL0RrU0JUT29Ieml0MFhOWkJUODNGaGlicnlaZ2RR?=
- =?utf-8?B?TnU0QmlVQldQYlRDS29uZExjOWVFZWZqZGVPVC9nS2VkZHI3eldrZUhvZFdm?=
- =?utf-8?B?dmQvSDVYUmJ2alZydCtIOU1Fb2xVbllzQnp6cjNYRUs3MTBzd0ptS1NVbUQ1?=
- =?utf-8?B?M2VhUEN5MkRQMlYzUjZsQllDT21qWkd0cGJveDVucnJNS1Z3MlJtN0VSWUJZ?=
- =?utf-8?B?WVJhNzhRT01GdkxqYkZqcDNIeVBSQ3FOWGw2NjkwWUhXUU94M3FtZS85Q3pm?=
- =?utf-8?B?ek8yVU01VW9tU1RrdllmZ3RtYW9qMnp5anoxYmZJSmxNc0RvQTNTbWlRc3BJ?=
- =?utf-8?B?SWQzMVRZckZOSUR2UmNicUIrS3FrTmlxNzFTbTJrVkhBRW9sMkM1L2tmWTA5?=
- =?utf-8?B?MnQvYjdrY01Sc0ZtbTg5ckdoOURNOVY5c0VyeXRoWk1RVVlVd1RSckh3Y2Jz?=
- =?utf-8?B?bktJb0lxTjFCRmdPWmRQYURsUUVDYkJPSHB0d3IvWmx0a3hxSzFlVXBEeXVl?=
- =?utf-8?B?bmc4TG1wUDNaZVZCMTZEOEpnSWczTjVpK3hvNTQyamVLZUV6Mlc4dndlR0N4?=
- =?utf-8?B?czc5ZFpvZEVUeWJBUTBxaHJwc0F2dWVoajBJY2NIM2pTYmg4OGdjNmt0S0k0?=
- =?utf-8?B?Y2JRSURuOU84Z1NQU2hEMlNmL0NKakFjL1NFOTdNazM3ZXNwYTdCMkpzUmhW?=
- =?utf-8?B?cDZDZkRsWFBSaDZUUERZdHJxMkhFeHg2NkdNTTlxU2ZRWnlBek56dEIrSXB6?=
- =?utf-8?B?MXlpeTZvSjhZek1qcG03b2dMRGxsR1hFSzZzU1BtQWZubldyYmsvdnliLzNo?=
- =?utf-8?B?Tk44SXc3Z3RORk5zMnRYMm5KTG5JNjVjUVBxQTE0UnM3MXJKdFBONzVCa3lT?=
- =?utf-8?B?dkF3QmFGaUg1Vlc4cTdUS2dCandHWmVYTk1IakVMSFdmN1NhY1RrRml4N0xQ?=
- =?utf-8?B?aVJJenYzNmwxcW5mQTJvbU5EcDBodjRCakdnOFVNaG1SaEFaQTJJS1I0TFJv?=
- =?utf-8?B?c2lybDd1NllWMFRrZmYzSnFSUGRqRVo3L3hSdkJSU1F6cDBFa0J2VGpZQ1o0?=
- =?utf-8?B?MGZ4NzZFSitVWXJPR0cvSGRYNDlVb3k5MTVtNHZqT1RjSVdjWWVvT1ZORjVv?=
- =?utf-8?B?YXc9PQ==?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77c887b3-76af-4719-abf5-08ddb7c16b99
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 10:32:31.9471
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tlEZlF/Ybax/f4bC65iWK1I9XDpfQbrhIPZUEvh2scfe7h28Fq54ipSqjEaaOHezBbtDcy6N9/FJ/jF24qF5AGr14FOT1HN3wgzl+sJTDRM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR10MB8204
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-3-dev.jain@arm.com>
+ <5f2eb53d-5fce-411f-857b-2ac16295a9f9@arm.com>
+ <e1ce9e4e-03e2-4133-bbf6-9e0533dd13b1@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <e1ce9e4e-03e2-4133-bbf6-9e0533dd13b1@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_033245_581901_CC80634F 
-X-CRM114-Status: GOOD (  33.66  )
+X-CRM114-CacheID: sfid-20250630_033519_022229_0E062268 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,89 +75,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marco,
+On 30/06/2025 11:17, Dev Jain wrote:
+> 
+> On 30/06/25 3:40 pm, Ryan Roberts wrote:
+>> On 28/06/2025 12:34, Dev Jain wrote:
+>>> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+>>> Architecture can override these helpers; in case not, they are implemented
+>>> as a simple loop over the corresponding single pte helpers.
+>>>
+>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>> ---
+>>>   include/linux/pgtable.h | 83 ++++++++++++++++++++++++++++++++++++++++-
+>>>   mm/mprotect.c           |  4 +-
+>>>   2 files changed, 84 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>> index cf1515c163e2..662f39e7475a 100644
+>>> --- a/include/linux/pgtable.h
+>>> +++ b/include/linux/pgtable.h
+>>> @@ -1331,7 +1331,8 @@ static inline pte_t ptep_modify_prot_start(struct
+>>> vm_area_struct *vma,
+>>>     /*
+>>>    * Commit an update to a pte, leaving any hardware-controlled bits in
+>>> - * the PTE unmodified.
+>>> + * the PTE unmodified. The pte may have been "upgraded" w.r.t a/d bits compared
+>>> + * to the old_pte, as in, it may have a/d bits on which were off in old_pte.
+>> I find this last sentance a bit confusing. I think what you are trying to say is
+>> somehthing like:
+>>
+>> """
+>> old_pte is the value returned from ptep_modify_prot_start() but may additionally
+>> have have young and/or dirty bits set where previously they were not.
+>> """
+> 
+> Thanks.
+> 
+>> ?
+>>
+>>>    */
+>>>   static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
+>>>                          unsigned long addr,
+>>> @@ -1340,6 +1341,86 @@ static inline void ptep_modify_prot_commit(struct
+>>> vm_area_struct *vma,
+>>>       __ptep_modify_prot_commit(vma, addr, ptep, pte);
+>>>   }
+>>>   #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
+>>> +
+>>> +/**
+>>> + * modify_prot_start_ptes - Start a pte protection read-modify-write
+>>> transaction
+>>> + * over a batch of ptes, which protects against asynchronous hardware
+>>> + * modifications to the ptes. The intention is not to prevent the hardware from
+>>> + * making pte updates, but to prevent any updates it may make from being lost.
+>>> + * Please see the comment above ptep_modify_prot_start() for full description.
+>>> + *
+>>> + * @vma: The virtual memory area the pages are mapped into.
+>>> + * @addr: Address the first page is mapped at.
+>>> + * @ptep: Page table pointer for the first entry.
+>>> + * @nr: Number of entries.
+>>> + *
+>>> + * May be overridden by the architecture; otherwise, implemented as a simple
+>>> + * loop over ptep_modify_prot_start(), collecting the a/d bits from each pte
+>>> + * in the batch.
+>>> + *
+>>> + * Note that PTE bits in the PTE batch besides the PFN can differ.
+>>> + *
+>>> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+>>> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+>>> + * Since the batch is determined from folio_pte_batch, the PTEs must differ
+>>> + * only in a/d bits (and the soft dirty bit; see fpb_t flags in
+>>> + * mprotect_folio_pte_batch()).
+>> This last sentence is confusing... You had previous said the PFN can differ, but
+>> here you imply on a, d and sd bits are allowed to differ.
+> 
+> Forgot to mention the PFNs, kind of took them as implied. So mentioning the PFNs
+> also will do or do you suggest a better wording?
 
-Am 27.06.25 um 10:46 schrieb Marco Felsch:
-> Hi,
-> 
-> your e-mail configuration mixed my e-mail with your answer, which makes
-> it hard to read. Can you please check the quoting next time :)
-> 
-> On 25-06-27, Pankaj Gupta wrote:
->>>> Add driver for enabling MU based communication interface to
->> secure-enclave.
->>>>
->>>> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are 
->>>> embedded in the SoC to support the features like HSM, SHE & V2X, using 
->>>> message based communication interface.
->>>>
->>>> The secure enclave FW communicates with Linux over single or multiple 
->>>> dedicated messaging unit(MU) based interface(s).
->>>> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
->>
->>> You write single or multiple MUs are possible. I'm aware that the i.MX93
->>> has two MUs one for the secure and one for the non-secure world. But I'm
->>> really concerned about the fact that both MUs can't be used at the same time
->>> from both world:
->>
->> Yes, you are correct.
->>
->> Fix is still work in progress.
-> 
-> So after ~6 months no fix is available :(
-> 
->>> Also how is the secure and non-secure world talking to the ELE if there is
->>> only one MU as you have written?
->>
->> Till the fix is WIP, either Linux or OPTEE can use the ELE, at one point in
->> time.
-> 
-> That has nothing to do with the fix. The fix is for platforms/SoCs which
-> do have 2-MUs, but you also have written that there are platforms with
-> only 1-MU.
-> 
-> This MU can't be shared between secure and non-secure world.
-> 
->>> IMHO it makes much more sense to put the complete ELE communication into
->>> (OP-)TEE and let the secure OS taking care of it. All non-secure world
->>> requests are passed via (OP-)TEE to the ELE. This involves:
->>> - eFuse access (done via OP-TEE i.MX specific PTA)
->>> - ELE 23h59m ping (kernel SMC WDG driver, requires OP-TEE watchdog driver)
->>> - HW-RNG (kernel OP-TEE HWRNG driver + OP-TEE HWRNG PTA)
->>
->> There is a dedicated MU "trusted-MU" for OPTEE-OS. The idea to converge to a
-> 
-> Yes for systems with 2-MUs there is a "trusted-MU" and a
-> "non-trusted-MU". As of now, there is no fix available for using both
-> MUs at the same time. Furhtermore there are platforms/SoCs with only
-> 1-MU, as you have written in your commit message. This 1-MU system can
-> have the MU either trusted or non-trusted.
-> 
->> single path via OPTEE-OS, is good. But it will impact the performance of the
->> features at Linux side.
-> 
-> Performance? We are talking about a ping every 23h59m (I still don't
-> know if this is a feature or bug), eFuse write/read, and the HW-RNG
-> which can seed the Linux PRNG.
-> 
->> Since the fix is still WIP. Let's wait till then.
-> 
-> The fix is for the 2-MUs SoCs but not the 1-MU case.
-> 
-> I would like to have a system design which doesn't differ too much
-> between SoCs which are equipped with the ELE engine.
+Perhaps:
 
-Do we really want to depend on OP-TEE to be available for having things
-like OTP fuse access and HWRNG? Personally I'd like to be able to build
-systems with OTP access and HWRNG but without OP-TEE. Requiring OP-TEE
-only to make the ELE available to the kernel in cases where the secure
-world isn't used for anything else seems to be unnecessarily complex.
+"""
+Context: The caller holds the page table lock.  The PTEs map consecutive
+pages that belong to the same folio.  All other PTE bits must be identical for
+all PTEs in the batch except for young and dirty bits.  The PTEs are all in the
+same PMD.
+"""
 
-Anyway, I see your point of having a single implementation for the ELE
-API in the "right" place. But as far as I know other platforms like
-STM32MP1 also implement both ways for the HWRNG, secure access via OPTEE
-and non-secure access via kernel directly.
+You mention the soft dirty bit not needing to be the same in your current
+wording, but I don't think that is correct? soft dirty needs to be the same, right?
 
-Thanks
-Frieder
+> 
+>>
+>>> + */
+>>> +#ifndef modify_prot_start_ptes
+>>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>>> +        unsigned long addr, pte_t *ptep, unsigned int nr)
+>>> +{
+>>> +    pte_t pte, tmp_pte;
+>>> +
+>>> +    pte = ptep_modify_prot_start(vma, addr, ptep);
+>>> +    while (--nr) {
+>>> +        ptep++;
+>>> +        addr += PAGE_SIZE;
+>>> +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+>>> +        if (pte_dirty(tmp_pte))
+>>> +            pte = pte_mkdirty(pte);
+>>> +        if (pte_young(tmp_pte))
+>>> +            pte = pte_mkyoung(pte);
+>>> +    }
+>>> +    return pte;
+>>> +}
+>>> +#endif
+>>> +
+>>> +/**
+>>> + * modify_prot_commit_ptes - Commit an update to a batch of ptes, leaving any
+>>> + * hardware-controlled bits in the PTE unmodified.
+>>> + *
+>>> + * @vma: The virtual memory area the pages are mapped into.
+>>> + * @addr: Address the first page is mapped at.
+>>> + * @ptep: Page table pointer for the first entry.
+>>> + * @old_pte: Old page table entry (for the first entry) which is now cleared.
+>>> + * @pte: New page table entry to be set.
+>>> + * @nr: Number of entries.
+>>> + *
+>>> + * May be overridden by the architecture; otherwise, implemented as a simple
+>>> + * loop over ptep_modify_prot_commit().
+>>> + *
+>>> + * Context: The caller holds the page table lock. The PTEs are all in the same
+>>> + * PMD. On exit, the set ptes in the batch map the same folio. The pte may have
+>>> + * been "upgraded" w.r.t a/d bits compared to the old_pte, as in, it may have
+>>> + * a/d bits on which were off in old_pte.
+>> Same comment as for ptep_modify_prot_start().
+>>
+>>> + */
+>>> +#ifndef modify_prot_commit_ptes
+>>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+>>> unsigned long addr,
+>>> +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+>>> +{
+>>> +    int i;
+>>> +
+>>> +    for (i = 0; i < nr; ++i) {
+>>> +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>>> +        ptep++;
+>>> +        addr += PAGE_SIZE;
+>>> +        old_pte = pte_next_pfn(old_pte);
+>>> +        pte = pte_next_pfn(pte);
+>>> +    }
+>>> +}
+>>> +#endif
+>>> +
+>>>   #endif /* CONFIG_MMU */
+>>>     /*
+>>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+>>> index af10a7fbe6b8..627b0d67cc4a 100644
+>>> --- a/mm/mprotect.c
+>>> +++ b/mm/mprotect.c
+>>> @@ -206,7 +206,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>>                       continue;
+>>>               }
+>>>   -            oldpte = ptep_modify_prot_start(vma, addr, pte);
+>>> +            oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>> You're calling this with nr_ptes = 0 for the prot_numa case. But the
+>> implementation expects minimum nr_ptes == 1.
+> 
+> This will get fixed when I force nr_ptes = 1 in the previous patch right?
+
+Yep, just pointing it out.
+
+> 
+>>
+>>>               ptent = pte_modify(oldpte, newprot);
+>>>                 if (uffd_wp)
+>>> @@ -232,7 +232,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>>                   can_change_pte_writable(vma, addr, ptent))
+>>>                   ptent = pte_mkwrite(ptent, vma);
+>>>   -            ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
+>>> +            modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>>>               if (pte_needs_flush(oldpte, ptent))
+>>>                   tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+>>>               pages++;
+
 
