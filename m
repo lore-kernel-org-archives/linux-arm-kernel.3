@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249F9C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C13C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1YGdk2ZohmIABV7Pc0xmFdEGzRW5c9+R0A8R/9CkYc=; b=yzl+CxKhnCs+iNYRQE/Nqtj62P
-	zcGLwc9+7aB0WD+7z1D95iWE4Gm/3Sa9f1IDG9sydN4tMcVr3VrpD5JLEfptSZLGJXIG2xFgLm0VF
-	MVnmc7OgFE1Qhuh2cjNA6c+n0DEskEXhucRjmGzsMuafbXW9h3lZqA142f6QV+4Hamr7fFI3q9LKA
-	i6feoQjpSSGuL9MUAplk8IfDS79PeL17mlXWD9GPLvKgXeT47nG19775HG39RdVrRCVv26fCd1oB6
-	CXlKIGkC079T4stFymOdHjwd9ErWg/CGY4ZfDLuGdgR09NXLoPqcjs9+WqX6tQIc9ckOoBy2GURXl
-	UOHsnHdw==;
+	bh=FOdigrsQQpd9WEDOm3Dn2iOG8VrxDhh0NLeJNZe4Nnc=; b=e++/yj9D360TAnsLt3TS3rCeOI
+	uVCfWjonGI3JADHDmasuFR7hT83j86+ClM5gs2nbemmuk3bI3vsSki6nDnFpVae1p5EKbir3zNcQV
+	VM5L7wnpeioMBDKOTx7prGfQUBCOpYuHys3MgRZTHbLMkgusHawRlBZ+UFBF+QbREFtUOYRV7ARDI
+	scQjauLF8vTSReTYKnpvbZLV9eNba2IPJj21+5FCGe/PZKRxogOllkX+5pkI4LgPrGXf/qbyUX8bd
+	ViN4ZUcUUhBrNI651PXhHiZDG1SyKg2Zl77ZmDDxPUQQyQkYcqcL6PoJq4uTGIQ+s2NuBQ9At+j1p
+	sOWLH/iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAg-00000002rfh-016n;
-	Mon, 30 Jun 2025 16:15:54 +0000
+	id 1uWHAh-00000002rir-2aG2;
+	Mon, 30 Jun 2025 16:15:55 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGZ5-00000002m0o-1uzG;
-	Mon, 30 Jun 2025 15:37:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751297809; cv=none; 
+	id 1uWGZ6-00000002m15-0lfX;
+	Mon, 30 Jun 2025 15:37:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751297811; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=fcmnJxw89CijL3dQAiVqrbC3o+mSiPlb1gYaPODOuAZahrqXh9Q7MJljPbl44c3H/s3kbDYiCDMzkZkdxKrwN7xZPRlE1Yecxe5+RwhFTezM7jcr+9O1u4syuMyDRpjT4aP71sTEJLMyU/uWbpi++7xMfctgSDv6bkYH46z826s=
+	b=dFpvo546i+o+0y0ZvSbc31+hjS8gKxW1/ScGQz8pMXWQaUP6keGdnEXNn1vDQtnWxB2f6MezYHuD7ZmrNRYeHM72bxNK4YO+379tAwBUmk1YOZ+l/Meh9Z/QkCMIx48JMTBtEY80T8E9Jtwo5P3X1GN9JHGCBHNrEeGbzqYDew8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751297809; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=c1YGdk2ZohmIABV7Pc0xmFdEGzRW5c9+R0A8R/9CkYc=; 
-	b=BPP1iDvvCXrrHNJkMnE4/qjD5+IbRSfoot+73k/vBhYIHSffcEY6FukWmLMDlXtoOWnLzYiJa59ya9G10YL5Yt0uGfDPV1tzgX0jr9Sgxzr/8VzzcmXr46kNLj0iWXyT91JmTCBPueM829ZjIaJJc4nStXYDDjsUHQ9gtCTucxE=
+	t=1751297811; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FOdigrsQQpd9WEDOm3Dn2iOG8VrxDhh0NLeJNZe4Nnc=; 
+	b=oJMTHy6RS+SNua2Oey07DPgnVQqj4kf5CLeMUyC4+aK+CRTFv7Zhb1iFKCj0+Phi+w3Qs2MjtLiFNboxCm6WTD/4VLpMdXH4fFaX/be4QAY008W5XXpzvvTuGAHSCpoNgt4CismBq+pERyf4vznU1CD5tVtObuu8VXM0Uw+3o8k=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751297809;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751297811;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=c1YGdk2ZohmIABV7Pc0xmFdEGzRW5c9+R0A8R/9CkYc=;
-	b=KqJ9LBf36QU99xqK9haLS0d6mQ8XIfJD3kVIrNtDq+I3TaZvYX6jgdjABgiRdLAh
-	5tBfT9rky1ou9xADQ86BCgcetbK+TAAv4c6ND92/45/m26CfeLGb7VckzJFa/HVh/Nd
-	+7cIqMrNdv8MA2GH7ez/oa/PvfkVavXz4vPQ+SQw=
-Received: by mx.zohomail.com with SMTPS id 1751297807261784.8387235480643;
-	Mon, 30 Jun 2025 08:36:47 -0700 (PDT)
+	bh=FOdigrsQQpd9WEDOm3Dn2iOG8VrxDhh0NLeJNZe4Nnc=;
+	b=lHu1l7KwuXmeDwZ2n6b+4WYUWxphCYFKunVzmOTwVc+4A3K6fky4lln7962lzB57
+	n9W8aY+0D2BwckIBtvr+sgDQ4brFosfJR6DARiRvAck6vTACN32VP/eQFXi82CBbhkQ
+	QbiWHBkj8ReGiaTTE+WvuAkS3+gN+M0Xa1wFLTLI=
+Received: by mx.zohomail.com with SMTPS id 1751297810110842.1922689401597;
+	Mon, 30 Jun 2025 08:36:50 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 30 Jun 2025 17:36:34 +0200
-Subject: [PATCH 2/3] arm64: dts: rockchip: complete USB nodes on ROCK 4D
+Date: Mon, 30 Jun 2025 17:36:35 +0200
+Subject: [PATCH 3/3] arm64: dts: rockchip: theoretically enable Wi-Fi on
+ ROCK 4D
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250630-rock4d-reg-usb-wifi-v1-2-1057f412d98c@collabora.com>
+Message-Id: <20250630-rock4d-reg-usb-wifi-v1-3-1057f412d98c@collabora.com>
 References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
 In-Reply-To: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,8 +64,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_083703_561745_BDF06DFD 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250630_083704_285431_96F57DC9 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,93 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ROCK 4D uses both USB controllers, and both of which in host mode.
-However, it still names one of the supplies for them "OTG" in the
-schematic.
+The production version of the ROCK 4D appears to sport a AICSEMI
+AIC8800D80 USB Wi-Fi + BT chipset. This chip does not yet have a
+mainline driver.
 
-Fix the "host" supply's input, and add the "otg" supply. Enable the
-remaining USB PHY nodes, and the first controller node as well.
+Add the necessary rfkill node and wifi regulator node to at least make
+it show up in lsusb output. The regulator is set as always-on, as like 2
+hours deep into debugging why onboard_usb_dev.c wouldn't try enabling
+the regulator the device needs to actually show up and thus bind to
+onboard_usb_dev.c, I decided that it's not worth the effort.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 41 +++++++++++++++++++++++--
- 1 file changed, 39 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 30 +++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 352e3df165688219bfedc19734d9eb32c547ec44..ed8b018539acb77328627c24b88a5a220fe085d2 100644
+index ed8b018539acb77328627c24b88a5a220fe085d2..291b6e4ffdac86280280de49c30de7ddde80462b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -180,7 +180,21 @@ vcc_5v0_host: regulator-vcc-5v0-host {
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
- 		regulator-name = "vcc5v0_host";
--		vin-supply = <&vcc_5v0_device>;
-+		vin-supply = <&vcc_5v0_sys>;
-+	};
-+
-+	vcc_5v0_otg: regulator-vcc-5v0-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio2 RK_PD2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_otg_pwren>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_otg";
-+		vin-supply = <&vcc_5v0_sys>;
- 	};
- 
- 	vcc_5v0_sys: regulator-vcc-5v0-sys {
-@@ -682,7 +696,11 @@ pcie_pwren: pcie-pwren {
- 
- 	usb {
- 		usb_host_pwren: usb-host-pwren {
--			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
-+			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+		usb_otg_pwren: usb-otg-pwren {
-+			rockchip,pins = <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_down>;
-+
+@@ -37,6 +37,14 @@ hdmi_con_in: endpoint {
  		};
  	};
- };
-@@ -721,15 +739,34 @@ &u2phy0 {
- 	status = "okay";
+ 
++	rfkill {
++		compatible = "rfkill-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_en_h>;
++		radio-type = "wlan";
++		shutdown-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
++	};
++
+ 	leds: leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -159,6 +167,19 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
+ 		vin-supply = <&vcc_5v0_sys>;
+ 	};
+ 
++	vcc_3v3_wifi: regulator-vcc-3v3-wifi {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio2 RK_PC7 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb_wifi_pwr>;
++		regulator-always-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-name = "vcc_3v3_wifi";
++		vin-supply = <&vcc_3v3_s3>;
++	};
++
+ 	vcc_5v0_device: regulator-vcc-5v0-device {
+ 		compatible = "regulator-fixed";
+ 		regulator-always-on;
+@@ -703,6 +724,15 @@ usb_otg_pwren: usb-otg-pwren {
+ 
+ 		};
+ 	};
++
++	wifi {
++		usb_wifi_pwr: usb-wifi-pwr {
++			rockchip,pins = <2 RK_PC7 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++		wifi_en_h: wifi-en-h {
++			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
  };
  
-+&u2phy0_otg {
-+	phy-supply = <&vcc_5v0_otg>;
-+	status = "okay";
-+};
-+
- &u2phy1 {
- 	status = "okay";
- };
- 
-+&u2phy1_otg {
-+	phy-supply = <&vcc_5v0_host>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-0 = <&uart0m0_xfer>;
- 	status = "okay";
- };
- 
-+&usbdp_phy {
-+	status = "okay";
-+};
-+
-+&usb_drd0_dwc3 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
- &usb_drd1_dwc3 {
- 	dr_mode = "host";
- 	status = "okay";
+ &sdmmc {
 
 -- 
 2.50.0
