@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C641CC83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9ABAC83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1IjTfiI6YOU4Q4l0EImUrTasIaT8l6VP8YEW14aV+kQ=; b=zhEwzXIFnR3qVcxg6E1QdFV8rA
-	w0iUSHDMsTBJTCtCBpuTf9qp4IB7cHrftxkY2rHGsTQ+RkMe9U5AQROva5+e93va2JUNWgPNWwr2g
-	bGwZRDgl3+hRkw8KJb/u9qXyktEBYjAsxnKAJ+bgCXs5//Uc4HDDFHYQjBlk1ZpAgHH+kZB3QUL+W
-	xXRAyuBUO3vL2weGXy2IH1ZN/4roeP4BDKQhVCR/9EYl2EebekNk/3buTjtdpFZNy7TaBCo8gIyl6
-	3jRGmTs/Ik+3EOqxHhJEzZrI/VFJX7lhbwOt24ica2JBdgRHc4vRFLFfR5HeXadmSa3Bbg3/RKia5
-	OiSa9KuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=; b=w9HXyrvQxMnU7lm6vSu347Wqu/
+	Plu5KLWg180hwkbHKqVgx/p1iJrYfgQnBYeFrycBPQpFftKiQHt1C59HQG3a4vkAR1U/ndOp6Jvzi
+	BiWr8nvKXgD0+8efxR9xkHhH7TBQ/j5ngIIp8VdH0Reck33Z9bQ7/hP0FjcfpeG+DYBkicJNTVklN
+	sirZTwdX3un1/vYOG1nsAPCO9GfwzaZltQ5CCu+Wp2jl3tMIkSUNkNuO/9dyKbea4WwDPDtyj+BdR
+	gQxyYTi9ogRxK0EBdfZafe0RTVtPUvOpY0KxoMPULbTF/h+y1kLEMev2/Md6ogvdJWkAy8ks7IkaF
+	XnpG1bXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWKI7-00000003J0C-1ECR;
-	Mon, 30 Jun 2025 19:35:47 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1uWKIu-00000003JHe-2ZiN;
+	Mon, 30 Jun 2025 19:36:36 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIzn-000000039VQ-2Vsm
+	id 1uWKGY-00000003IgD-2GAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 18:12:49 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751307163;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1IjTfiI6YOU4Q4l0EImUrTasIaT8l6VP8YEW14aV+kQ=;
-	b=ZtKTsCfQFJLmOjxOwr/ja+NklV6ewZ7jV+roC/0MrZDNbu2wLBa05nl3CFFZncVXTSxGcq
-	bRMm47JkB8u8BPwcTx0ypTfRpSu71rCC1kOs5NnFMGi/rvenX0P27Md80CxJSASApC9mTP
-	QE0/1IWlGVfiXOXwi9NL8cYKH4p24lgjiGndKCJYXCM6oKgx2shIOcEILuRaM2zwnFE3O2
-	1hWE9ekxB6gMkeiHXe2RO+5gDV27Is/BjQ9wSaPQZQzgdihVIFzkm6qVerfl0oZq5LhGt8
-	vZuGJmFBu+16mxNt+rWtkZdsKZlWk6KMdq4RRDylbN8RPikqSKGINsh4tVJ6Cg==
-Content-Type: multipart/signed;
- boundary=15e5725fc5b5f4c0c9d367992ee8abf67013301df5a41c1f57230398550e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Mon, 30 Jun 2025 20:12:27 +0200
-Message-Id: <DB02KKR1VK9H.1Q1Y5A98FKGLK@cknow.org>
-Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-rockchip@lists.infradead.org>, <kernel@collabora.com>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK
- 4D
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
- <20250630-rock4d-reg-usb-wifi-v1-1-1057f412d98c@collabora.com>
-In-Reply-To: <20250630-rock4d-reg-usb-wifi-v1-1-1057f412d98c@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 30 Jun 2025 19:34:11 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553b16a0e38so5278096e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751312048; x=1751916848; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=;
+        b=Jmi4Ju7KsFbTWOEp8MYzOoOzLpGG72YskmdSZuxSftjymfg8XX2vk9SNFxn6GCOXVw
+         5azcwBDEjbAKbJeCo5ppN5P5259+HexO9ePmH7IKeqZnTn8LsJGIRqlYJtMcX2Bg293y
+         h7K3EVKeoiZbj0LNenJvQEgiJIHIlNZkrHTICFEvz72Ts3Gar6XMPepHedrW/LFnZ/42
+         R5JUZqmrVK6IMcSF37bAuTFVbi9xfRFMVKXJ7SSBw9eGAuewJSEidrkitXrFN1Ipg+eu
+         eCvqtd+U/jUrQyBnjT4pjJjlCLnHg/s1I0PynYIzXi3OM2Td9JDdjMLfe33Nyw6TUcko
+         WGsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751312048; x=1751916848;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=beR3gBnMegNXmfOxcSKlnP3s1NNAUYnmJTdUmJfeEZ0=;
+        b=jsAyUXZ9CAF5VmaDwjDOw/Al/8AmPDmhciqAd31gx+ClOTqyL9RS3Mci2NqMVBEtkX
+         kM7oxhD9JOl2ZqfmerAE1hPI6G3DpAeeLsl5/dCVUTjdJmiRPBAQq38c61s+9FOYsv7I
+         NUm6NoSMEuWC/m8prKTw9PYtKRWh2isAoYqoCVoX+oHHCw1xe6SY0sr8D+xXkynhfARJ
+         Df5RxCuUAIHQtKNpiFMhMVIfR5Zmn6oVrZNCXBqYnUZn1HK5yjCn6H1F4kG96ji2t/Mt
+         w83SF6sNkoD1kpjcJGc2JPdsQr9iAuTgtsfcMJoXBjmb7CTg+++a5OSahKVL4f84NAoX
+         kWXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVVb/lVpmmjcT04B1jyz5kIeGboN97e/y1OUEnttJ9mC2T4bNPCJDiMbJ5i0kqe+LSHcpYWlcibWKyqOKUACuZl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1pIFB4NZ8uz54Ea2pxNH6Y4xLtY2iiEJ2XnIY331cDO40frYd
+	AwXxjsxj+ztAEKP+8K3YV/g4FmDPsjRZN9M+kHQJtflz1FDMbTTHva0HNnNbJC6qIC38jbCjdpe
+	p3o7gk2D+5UUaAt9O/XFZSeV8zUX1/44=
+X-Gm-Gg: ASbGnct002OGxQDnPBFLUdTVRBjmy8bqPZIJOF6kXokuYHlToQKco64oSOXy9vdlNwa
+	xnG+8vn6tp/bMsw9TfdCTAixAhFdJ2k0t933Sr+TraZfjH8triRWUw3wrDX/27aLSVoWUnFuLvd
+	1cMp5/uq4GVWuubceyAD2S9o9VHO4wwrZXCu9Y/b0K+zE=
+X-Google-Smtp-Source: AGHT+IEcZloFG6l4jJ8cgNCYeXgOddz00TihtZjrzR3EcWyur1s6dsDtIuhCgF2HuMdXrYLuOyWPUJEpBwohJWSq4fs=
+X-Received: by 2002:a05:6512:3ba5:b0:553:d444:d4c4 with SMTP id
+ 2adb3069b0e04-5550b9ee2b5mr5103562e87.50.1751312048082; Mon, 30 Jun 2025
+ 12:34:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com> <CALHNRZ_7Yv98v83JvYLP2MmUZj+EDPwk7dDDArN4_U5docbRCw@mail.gmail.com>
+In-Reply-To: <CALHNRZ_7Yv98v83JvYLP2MmUZj+EDPwk7dDDArN4_U5docbRCw@mail.gmail.com>
+From: Aaron Kling <webgeek1234@gmail.com>
+Date: Mon, 30 Jun 2025 14:33:56 -0500
+X-Gm-Features: Ac12FXw5JMTdMU1UgcC1jxmIMzSdOncHyLMk8rYWZi1A362LpDpLt0LTHSI3GJQ
+Message-ID: <CALHNRZ-nCGyYTndv=o1NBvL=zH6Pbp=Jkj2CHXtNgwcFzudYgg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: tegra: Use io memcpy to write to iram
+To: webgeek1234@gmail.com
+Cc: Russell King <linux@armlinux.org.uk>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_111247_975505_97521D3C 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250630_123410_575869_483C7770 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +95,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---15e5725fc5b5f4c0c9d367992ee8abf67013301df5a41c1f57230398550e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi Nicolas,
-
-On Mon Jun 30, 2025 at 5:36 PM CEST, Nicolas Frattaroli wrote:
-> The ROCK 4D's actual DC input is 5V, and the schematic names it as being
-> 5V as well.
+On Wed, May 28, 2025 at 12:45=E2=80=AFPM Aaron Kling <webgeek1234@gmail.com=
+> wrote:
 >
-> Rename the regulator, and change the voltage it claims to be at.
-
-Shouldn't it have a fixes tag then? Providing 12V where 5V is expected
-sounds problematic ;-)
-
-> Furthermore, fix vcc_1v1_nldo_s3's vin-supply as coming from
-> vcc_5v0_sys, and not the DCIN, as per the schematic. This makes no
-> functional change; both regulators are always on, and one feeds into the
-> other.
+> On Thu, May 22, 2025 at 11:11=E2=80=AFAM Aaron Kling via B4 Relay
+> <devnull+webgeek1234.gmail.com@kernel.org> wrote:
+> >
+> > From: Aaron Kling <webgeek1234@gmail.com>
+> >
+> > Kasan crashes the kernel trying to check boundaries when using the
+> > normal memcpy.
+> >
+> > Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
+> > ---
+> > Change-Id: I27714f45aa6aea6a7bee048f706b14b8c7535164
+> > ---
+> >  arch/arm/mach-tegra/reset.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
+> > index d5c805adf7a82b938bebd8941eae974cf6bcdbe3..ea706fac63587a393a17fe0=
+f1c2ad69d6e5c14f2 100644
+> > --- a/arch/arm/mach-tegra/reset.c
+> > +++ b/arch/arm/mach-tegra/reset.c
+> > @@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(voi=
+d)
+> >         BUG_ON(is_enabled);
+> >         BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_=
+SIZE);
+> >
+> > -       memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
+> > +       memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
+> >                         tegra_cpu_reset_handler_size);
+> >
+> >         err =3D call_firmware_op(set_cpu_boot_addr, 0, reset_address);
+> >
+> > ---
+> > base-commit: d608703fcdd9e9538f6c7a0fcf98bf79b1375b60
+> > change-id: 20250522-mach-tegra-kasan-fabd0253f268
+> >
+> > Best regards,
+> > --
+> > Aaron Kling <webgeek1234@gmail.com>
+> >
+> >
 >
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64=
-/boot/dts/rockchip/rk3576-rock-4d.dts
-> index 6756403111e704cad42f6674d5ab55eb0306f1e3..352e3df165688219bfedc1973=
-4d9eb32c547ec44 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> @@ -57,13 +57,13 @@ user-led {
->  		};
->  	};
-> =20
-> -	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
-> +	vcc_5v0_dcin: regulator-vcc-5v0-dcin {
->  		compatible =3D "regulator-fixed";
->  		regulator-always-on;
->  		regulator-boot-on;
-> -		regulator-min-microvolt =3D <12000000>;
-> -		regulator-max-microvolt =3D <12000000>;
-> -		regulator-name =3D "vcc_12v0_dcin";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		regulator-name =3D "vcc_5v0_dcin";
->  	};
+> Friendly reminder about this patch.
 
-With the name change, this block needs to be moved down.
+Re-reminder about this patch.
 
-Cheers,
-  Diederik
-> =20
->  	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-> @@ -166,7 +166,7 @@ vcc_5v0_device: regulator-vcc-5v0-device {
->  		regulator-min-microvolt =3D <5000000>;
->  		regulator-max-microvolt =3D <5000000>;
->  		regulator-name =3D "vcc_5v0_device";
-> -		vin-supply =3D <&vcc_12v0_dcin>;
-> +		vin-supply =3D <&vcc_5v0_sys>;
->  	};
-> =20
->  	vcc_5v0_host: regulator-vcc-5v0-host {
-> @@ -190,7 +190,7 @@ vcc_5v0_sys: regulator-vcc-5v0-sys {
->  		regulator-min-microvolt =3D <5000000>;
->  		regulator-max-microvolt =3D <5000000>;
->  		regulator-name =3D "vcc_5v0_sys";
-> -		vin-supply =3D <&vcc_12v0_dcin>;
-> +		vin-supply =3D <&vcc_5v0_dcin>;
->  	};
->  };
-> =20
-
-
---15e5725fc5b5f4c0c9d367992ee8abf67013301df5a41c1f57230398550e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGLTjgAKCRDXblvOeH7b
-bpjeAQCzYAOFotMkkx+55BY9EWiLa3hdCx0OlYAGWZPUrLcXoQEAzb20FcRS6uLg
-HcRGqO8KyFJR5wJ4qKDf06imkRHUpgM=
-=TFga
------END PGP SIGNATURE-----
-
---15e5725fc5b5f4c0c9d367992ee8abf67013301df5a41c1f57230398550e--
+Aaron
 
